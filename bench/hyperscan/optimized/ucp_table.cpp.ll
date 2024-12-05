@@ -182,25 +182,25 @@ $_ZZN5boost3icl16identity_elementIjE5valueEvE6_value = comdat any
 define hidden void @_ZN3ue27getUcpCEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L9ucp_C_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -229,7 +229,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue212CodePointSetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
           to label %_ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -249,26 +249,26 @@ _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit: ; 
 define hidden void @_ZN3ue28getUcpCcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Cc_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -294,25 +294,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpCfEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Cf_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -340,25 +340,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpCnEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1200 x i32], ptr @_ZN3ue2L10ucp_Cn_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -386,25 +386,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpCoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L10ucp_Co_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -432,17 +432,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpCsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 55296, ptr %ref.tmp.i, align 4
   store i32 57343, ptr %_upb.i.i, align 4
@@ -464,25 +464,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue27getUcpLEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1074 x i32], ptr @_ZN3ue2L9ucp_L_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -510,25 +510,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpL_andEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [234 x i32], ptr @_ZN3ue2L13ucp_L_and_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -556,25 +556,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpLlEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1250 x i32], ptr @_ZN3ue2L10ucp_Ll_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -602,25 +602,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpLmEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [112 x i32], ptr @_ZN3ue2L10ucp_Lm_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -648,25 +648,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpLoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [834 x i32], ptr @_ZN3ue2L10ucp_Lo_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -694,25 +694,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpLtEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Lt_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -740,25 +740,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpLuEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1244 x i32], ptr @_ZN3ue2L10ucp_Lu_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -786,25 +786,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue27getUcpMEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [458 x i32], ptr @_ZN3ue2L9ucp_M_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -832,25 +832,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpMcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [294 x i32], ptr @_ZN3ue2L10ucp_Mc_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -878,25 +878,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpMeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L10ucp_Me_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -924,25 +924,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpMnEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [510 x i32], ptr @_ZN3ue2L10ucp_Mn_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -970,25 +970,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue27getUcpNEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [210 x i32], ptr @_ZN3ue2L9ucp_N_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1016,25 +1016,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpNdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [100 x i32], ptr @_ZN3ue2L10ucp_Nd_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1062,25 +1062,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpNlEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [24 x i32], ptr @_ZN3ue2L10ucp_Nl_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1108,25 +1108,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpNoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [104 x i32], ptr @_ZN3ue2L10ucp_No_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1154,25 +1154,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue27getUcpPEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [310 x i32], ptr @_ZN3ue2L9ucp_P_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1200,25 +1200,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L10ucp_Pc_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1246,25 +1246,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Pd_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1292,25 +1292,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [144 x i32], ptr @_ZN3ue2L10ucp_Pe_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1338,25 +1338,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPfEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L10ucp_Pf_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1384,25 +1384,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L10ucp_Pi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1430,25 +1430,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [302 x i32], ptr @_ZN3ue2L10ucp_Po_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1476,25 +1476,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpPsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [150 x i32], ptr @_ZN3ue2L10ucp_Ps_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1522,25 +1522,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue27getUcpSEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [420 x i32], ptr @_ZN3ue2L9ucp_S_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1568,25 +1568,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpScEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [34 x i32], ptr @_ZN3ue2L10ucp_Sc_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1614,25 +1614,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpSkEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [56 x i32], ptr @_ZN3ue2L10ucp_Sk_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1660,25 +1660,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpSmEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [128 x i32], ptr @_ZN3ue2L10ucp_Sm_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1706,25 +1706,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpSoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [330 x i32], ptr @_ZN3ue2L10ucp_So_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1752,25 +1752,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpXanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1206 x i32], ptr @_ZN3ue2L11ucp_Xan_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1798,25 +1798,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpXpsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L11ucp_Xps_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1844,25 +1844,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpXspEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [20 x i32], ptr @_ZN3ue2L11ucp_Xsp_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1890,25 +1890,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpXwdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1208 x i32], ptr @_ZN3ue2L11ucp_Xwd_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1936,25 +1936,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue27getUcpZEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L9ucp_Z_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -1982,19 +1982,19 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpZlEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 8232, ptr %ref.tmp.i, align 4
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   store i32 8232, ptr %_upb.i.i, align 4
   %call.i.i.i4 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %lpad
@@ -2014,19 +2014,19 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue28getUcpZpEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 8233, ptr %ref.tmp.i, align 4
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   store i32 8233, ptr %_upb.i.i, align 4
   %call.i.i.i4 = invoke ptr @_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE4_addERKS5_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
           to label %_ZN3ue212CodePointSet8setRangeEjj.exit unwind label %lpad
@@ -2046,25 +2046,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue28getUcpZsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L10ucp_Zs_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2092,25 +2092,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpArabicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [110 x i32], ptr @_ZN3ue2L14ucp_Arabic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2138,25 +2138,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpArmenianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L16ucp_Armenian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2184,26 +2184,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpAvestanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Avestan_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2229,26 +2229,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpBalineseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Balinese_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2274,26 +2274,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpBamumEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Bamum_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2319,26 +2319,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpBassa_VahEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Bassa_Vah_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2364,26 +2364,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpBatakEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Batak_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2409,25 +2409,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpBengaliEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Bengali_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2455,25 +2455,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpBopomofoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Bopomofo_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2501,25 +2501,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpBrahmiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Brahmi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2547,17 +2547,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpBrailleEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 10240, ptr %ref.tmp.i, align 4
   store i32 10495, ptr %_upb.i.i, align 4
@@ -2579,26 +2579,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue214getUcpBugineseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Buginese_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2624,17 +2624,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpBuhidEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 5952, ptr %ref.tmp.i, align 4
   store i32 5971, ptr %_upb.i.i, align 4
@@ -2656,26 +2656,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L27ucp_Canadian_Aboriginal_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2701,17 +2701,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpCarianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66208, ptr %ref.tmp.i, align 4
   store i32 66256, ptr %_upb.i.i, align 4
@@ -2733,26 +2733,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue224getUcpCaucasian_AlbanianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L26ucp_Caucasian_Albanian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2778,26 +2778,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpChakmaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Chakma_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2823,25 +2823,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue210getUcpChamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L12ucp_Cham_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2869,17 +2869,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpCherokeeEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 5024, ptr %ref.tmp.i, align 4
   store i32 5108, ptr %_upb.i.i, align 4
@@ -2901,25 +2901,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue212getUcpCommonEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [1140 x i32], ptr @_ZN3ue2L14ucp_Common_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2947,25 +2947,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpCopticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Coptic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -2993,25 +2993,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpCuneiformEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L17ucp_Cuneiform_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3039,25 +3039,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpCypriotEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L15ucp_Cypriot_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3085,25 +3085,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpCyrillicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Cyrillic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3131,17 +3131,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpDeseretEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66560, ptr %ref.tmp.i, align 4
   store i32 66639, ptr %_upb.i.i, align 4
@@ -3163,25 +3163,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue216getUcpDevanagariEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L18ucp_Devanagari_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3209,25 +3209,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpDuployanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Duployan_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3255,17 +3255,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 77824, ptr %ref.tmp.i, align 4
   store i32 78894, ptr %_upb.i.i, align 4
@@ -3287,17 +3287,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue213getUcpElbasanEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66816, ptr %ref.tmp.i, align 4
   store i32 66855, ptr %_upb.i.i, align 4
@@ -3319,25 +3319,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue214getUcpEthiopicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [64 x i32], ptr @_ZN3ue2L16ucp_Ethiopic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3365,25 +3365,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpGeorgianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Georgian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3411,26 +3411,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue216getUcpGlagoliticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Glagolitic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3456,17 +3456,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpGothicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66352, ptr %ref.tmp.i, align 4
   store i32 66378, ptr %_upb.i.i, align 4
@@ -3488,25 +3488,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue213getUcpGranthaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Grantha_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3534,25 +3534,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpGreekEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [72 x i32], ptr @_ZN3ue2L13ucp_Greek_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3580,25 +3580,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpGujaratiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L16ucp_Gujarati_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3626,25 +3626,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpGurmukhiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L16ucp_Gurmukhi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3672,25 +3672,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpHanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [30 x i32], ptr @_ZN3ue2L11ucp_Han_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3718,25 +3718,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpHangulEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L14ucp_Hangul_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3764,17 +3764,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpHanunooEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 5920, ptr %ref.tmp.i, align 4
   store i32 5940, ptr %_upb.i.i, align 4
@@ -3796,25 +3796,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue212getUcpHebrewEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [18 x i32], ptr @_ZN3ue2L14ucp_Hebrew_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3842,25 +3842,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpHiraganaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L16ucp_Hiragana_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3888,26 +3888,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue222getUcpImperial_AramaicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Imperial_Aramaic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3933,25 +3933,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpInheritedEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [54 x i32], ptr @_ZN3ue2L17ucp_Inherited_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -3979,26 +3979,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L29ucp_Inscriptional_Pahlavi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4024,26 +4024,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L30ucp_Inscriptional_Parthian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4069,25 +4069,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpJavaneseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Javanese_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4115,17 +4115,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpKaithiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 69760, ptr %ref.tmp.i, align 4
   store i32 69825, ptr %_upb.i.i, align 4
@@ -4147,25 +4147,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue213getUcpKannadaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L15ucp_Kannada_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4193,25 +4193,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpKatakanaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L16ucp_Katakana_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4239,26 +4239,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpKayah_LiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Kayah_Li_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4284,25 +4284,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue216getUcpKharoshthiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [16 x i32], ptr @_ZN3ue2L18ucp_Kharoshthi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4330,25 +4330,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpKhmerEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L13ucp_Khmer_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4376,26 +4376,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpKhojkiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Khojki_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4421,26 +4421,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpKhudawadiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Khudawadi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4466,25 +4466,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpLaoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [36 x i32], ptr @_ZN3ue2L11ucp_Lao_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4512,25 +4512,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpLatinEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [66 x i32], ptr @_ZN3ue2L13ucp_Latin_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4558,25 +4558,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpLepchaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Lepcha_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4604,25 +4604,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpLimbuEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L13ucp_Limbu_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4650,25 +4650,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpLinear_AEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Linear_A_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4696,25 +4696,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpLinear_BEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L16ucp_Linear_B_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4742,17 +4742,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue210getUcpLisuEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 42192, ptr %ref.tmp.i, align 4
   store i32 42239, ptr %_upb.i.i, align 4
@@ -4774,17 +4774,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue212getUcpLycianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66176, ptr %ref.tmp.i, align 4
   store i32 66204, ptr %_upb.i.i, align 4
@@ -4806,26 +4806,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue212getUcpLydianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Lydian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4851,17 +4851,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpMahajaniEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 69968, ptr %ref.tmp.i, align 4
   store i32 70006, ptr %_upb.i.i, align 4
@@ -4883,25 +4883,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue215getUcpMalayalamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [22 x i32], ptr @_ZN3ue2L17ucp_Malayalam_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4929,26 +4929,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpMandaicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Mandaic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -4974,26 +4974,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue216getUcpManichaeanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Manichaean_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5019,25 +5019,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue218getUcpMeetei_MayekEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L20ucp_Meetei_Mayek_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5065,26 +5065,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue219getUcpMende_KikakuiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L21ucp_Mende_Kikakui_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5110,26 +5110,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue222getUcpMeroitic_CursiveEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L24ucp_Meroitic_Cursive_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5155,17 +5155,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue226getUcpMeroitic_HieroglyphsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 67968, ptr %ref.tmp.i, align 4
   store i32 67999, ptr %_upb.i.i, align 4
@@ -5187,25 +5187,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue210getUcpMiaoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L12ucp_Miao_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5233,26 +5233,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue210getUcpModiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Modi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5278,25 +5278,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpMongolianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [12 x i32], ptr @_ZN3ue2L17ucp_Mongolian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5324,25 +5324,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpMroEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L11ucp_Mro_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5370,25 +5370,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpMyanmarEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Myanmar_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5416,26 +5416,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpNabataeanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Nabataean_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5461,25 +5461,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue217getUcpNew_Tai_LueEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [8 x i32], ptr @_ZN3ue2L19ucp_New_Tai_Lue_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5507,17 +5507,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpNkoEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 1984, ptr %ref.tmp.i, align 4
   store i32 2042, ptr %_upb.i.i, align 4
@@ -5539,17 +5539,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue211getUcpOghamEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 5760, ptr %ref.tmp.i, align 4
   store i32 5788, ptr %_upb.i.i, align 4
@@ -5571,17 +5571,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue214getUcpOl_ChikiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 7248, ptr %ref.tmp.i, align 4
   store i32 7295, ptr %_upb.i.i, align 4
@@ -5603,17 +5603,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue216getUcpOld_ItalicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66304, ptr %ref.tmp.i, align 4
   store i32 66339, ptr %_upb.i.i, align 4
@@ -5635,17 +5635,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue223getUcpOld_North_ArabianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 68224, ptr %ref.tmp.i, align 4
   store i32 68255, ptr %_upb.i.i, align 4
@@ -5667,17 +5667,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue216getUcpOld_PermicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66384, ptr %ref.tmp.i, align 4
   store i32 66426, ptr %_upb.i.i, align 4
@@ -5699,26 +5699,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue217getUcpOld_PersianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Old_Persian_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5744,17 +5744,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue223getUcpOld_South_ArabianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 68192, ptr %ref.tmp.i, align 4
   store i32 68223, ptr %_upb.i.i, align 4
@@ -5776,17 +5776,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue216getUcpOld_TurkicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 68608, ptr %ref.tmp.i, align 4
   store i32 68680, ptr %_upb.i.i, align 4
@@ -5808,25 +5808,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue211getUcpOriyaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [28 x i32], ptr @_ZN3ue2L13ucp_Oriya_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5854,26 +5854,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpOsmanyaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Osmanya_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5899,25 +5899,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue218getUcpPahawh_HmongEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L20ucp_Pahawh_Hmong_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -5945,17 +5945,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpPalmyreneEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 67680, ptr %ref.tmp.i, align 4
   store i32 67711, ptr %_upb.i.i, align 4
@@ -5977,17 +5977,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue217getUcpPau_Cin_HauEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 72384, ptr %ref.tmp.i, align 4
   store i32 72440, ptr %_upb.i.i, align 4
@@ -6009,17 +6009,17 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue214getUcpPhags_PaEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 43072, ptr %ref.tmp.i, align 4
   store i32 43127, ptr %_upb.i.i, align 4
@@ -6041,26 +6041,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue216getUcpPhoenicianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Phoenician_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6086,25 +6086,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue221getUcpPsalter_PahlaviEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L23ucp_Psalter_Pahlavi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6132,26 +6132,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpRejangEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Rejang_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6177,26 +6177,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpRunicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Runic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6222,26 +6222,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpSamaritanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Samaritan_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6267,26 +6267,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue216getUcpSaurashtraEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L18ucp_Saurashtra_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6312,25 +6312,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpSharadaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L15ucp_Sharada_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6358,17 +6358,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpShavianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 66640, ptr %ref.tmp.i, align 4
   store i32 66687, ptr %_upb.i.i, align 4
@@ -6390,26 +6390,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue213getUcpSiddhamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Siddham_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6435,25 +6435,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpSinhalaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L15ucp_Sinhala_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6481,26 +6481,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue218getUcpSora_SompengEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L20ucp_Sora_Sompeng_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6526,26 +6526,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue215getUcpSundaneseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L17ucp_Sundanese_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6571,17 +6571,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue218getUcpSyloti_NagriEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 43008, ptr %ref.tmp.i, align 4
   store i32 43051, ptr %_upb.i.i, align 4
@@ -6603,25 +6603,25 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue212getUcpSyriacEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L14ucp_Syriac_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6649,26 +6649,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpTagalogEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tagalog_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6694,25 +6694,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpTagbanwaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tagbanwa_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6740,26 +6740,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpTai_LeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L14ucp_Tai_Le_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6785,25 +6785,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpTai_ThamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [10 x i32], ptr @_ZN3ue2L16ucp_Tai_Tham_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6831,26 +6831,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpTai_VietEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Tai_Viet_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6876,26 +6876,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpTakriEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L13ucp_Takri_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6921,25 +6921,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue211getUcpTamilEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [32 x i32], ptr @_ZN3ue2L13ucp_Tamil_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -6967,25 +6967,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpTeluguEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [26 x i32], ptr @_ZN3ue2L14ucp_Telugu_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7013,17 +7013,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue212getUcpThaanaEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 1920, ptr %ref.tmp.i, align 4
   store i32 1969, ptr %_upb.i.i, align 4
@@ -7045,26 +7045,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue210getUcpThaiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L12ucp_Thai_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7090,25 +7090,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpTibetanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [14 x i32], ptr @_ZN3ue2L15ucp_Tibetan_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7136,25 +7136,25 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpTifinaghEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [6 x i32], ptr @_ZN3ue2L16ucp_Tifinagh_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7182,26 +7182,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue213getUcpTirhutaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L15ucp_Tirhuta_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7227,26 +7227,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue214getUcpUgariticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L16ucp_Ugaritic_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7272,17 +7272,17 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue29getUcpVaiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 42240, ptr %ref.tmp.i, align 4
   store i32 42539, ptr %_upb.i.i, align 4
@@ -7304,26 +7304,26 @@ lpad:                                             ; preds = %entry
 define hidden void @_ZN3ue217getUcpWarang_CitiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L19ucp_Warang_Citi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7349,26 +7349,26 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 define hidden void @_ZN3ue28getUcpYiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   store ptr %0, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store ptr %0, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_upb.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
+  %_upb.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
   %cmp = phi i1 [ true, %entry ], [ false, %for.inc ]
   %indvars.iv = phi i64 [ 0, %entry ], [ 2, %for.inc ]
-  %arrayidx = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx, align 8
   %2 = or disjoint i64 %indvars.iv, 1
-  %arrayidx2 = getelementptr inbounds [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %2
+  %arrayidx2 = getelementptr inbounds nuw [4 x i32], ptr @_ZN3ue2L10ucp_Yi_defE, i64 0, i64 %2
   %3 = load i32, ptr %arrayidx2, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %ref.tmp.i, align 4
@@ -7398,36 +7398,36 @@ entry:
   %ref.tmp.i.i.i.i = alloca %"class.boost::icl::closed_interval", align 8
   %__an.i.i.i.i.i.i = alloca %"struct.std::_Rb_tree<boost::icl::closed_interval<unsigned int>, boost::icl::closed_interval<unsigned int>, std::_Identity<boost::icl::closed_interval<unsigned int>>, boost::icl::exclusive_less_than<boost::icl::closed_interval<unsigned int>>>::_Alloc_node", align 8
   %base = alloca %"class.ue2::CodePointSet", align 8
-  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 24
+  %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 8
   %cmp.i = icmp eq ptr %0, %add.ptr.i.i.i.i
   br i1 %cmp.i, label %cleanup.cont, label %if.end
 
 if.end:                                           ; preds = %entry
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %0, i64 32
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i32, ptr %_M_storage.i.i, align 4
   %cmp = icmp eq i32 %1, 0
   br i1 %cmp, label %land.rhs, label %if.end21
 
 land.rhs:                                         ; preds = %if.end
-  %_upb.i.i.i = getelementptr inbounds i8, ptr %0, i64 36
+  %_upb.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 36
   %2 = load i32, ptr %_upb.i.i.i, align 4
   %cmp17 = icmp eq i32 %2, 1114111
   br i1 %cmp17, label %cleanup.cont, label %if.end21
 
 if.end21:                                         ; preds = %if.end, %land.rhs
-  %3 = getelementptr inbounds i8, ptr %base, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %base, i64 8
   store i32 0, ptr %3, align 8
-  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 16
+  %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 24
+  %_M_left.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 24
   store ptr %3, ptr %_M_left.i.i.i.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 32
+  %_M_right.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 32
   store ptr %3, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %base, i64 40
+  %_M_node_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %base, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 16
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 16
   %4 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %4, null
   br i1 %cmp.not.i.i.i.i.i, label %cleanup, label %if.then.i.i.i.i.i
@@ -7440,7 +7440,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.end21
 
 while.cond.i.i.i.i.i.i.i.i.i:                     ; preds = %while.cond.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %__x.addr.0.i.i.i.i.i.i.i.i.i = phi ptr [ %5, %while.cond.i.i.i.i.i.i.i.i.i ], [ %call3.i.i6.i.i.i.i.i, %if.then.i.i.i.i.i ]
-  %_M_left.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i.i.i.i.i.i.i.i, i64 16
+  %_M_left.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.0.i.i.i.i.i.i.i.i.i, i64 16
   %5 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i, label %while.cond.i.i.i.i.i.i.i.i.i, !llvm.loop !141
@@ -7451,14 +7451,14 @@ _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19
 
 while.cond.i.i4.i.i.i.i.i.i.i:                    ; preds = %while.cond.i.i4.i.i.i.i.i.i.i, %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i
   %__x.addr.0.i.i5.i.i.i.i.i.i.i = phi ptr [ %call3.i.i6.i.i.i.i.i, %_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE10_S_minimumEPSt18_Rb_tree_node_base.exit.i.i.i.i.i.i.i ], [ %6, %while.cond.i.i4.i.i.i.i.i.i.i ]
-  %_M_right.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.0.i.i5.i.i.i.i.i.i.i, i64 24
+  %_M_right.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.0.i.i5.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i6.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i6.i.i.i.i.i.i.i, label %invoke.cont28, label %while.cond.i.i4.i.i.i.i.i.i.i, !llvm.loop !142
 
 invoke.cont28:                                    ; preds = %while.cond.i.i4.i.i.i.i.i.i.i
   store ptr %__x.addr.0.i.i5.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 40
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 40
   %7 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
   store i64 %7, ptr %_M_node_count.i.i.i.i.i.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__an.i.i.i.i.i.i)
@@ -7467,15 +7467,15 @@ invoke.cont28:                                    ; preds = %while.cond.i.i4.i.i
   br i1 %cmp.i23.not44, label %cleanup, label %invoke.cont35.lr.ph
 
 invoke.cont35.lr.ph:                              ; preds = %invoke.cont28
-  %_M_node_count.i.i.i.i = getelementptr inbounds i8, ptr %cps, i64 40
+  %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 40
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %invoke.cont35.lr.ph, %for.inc62
   %uc_begin.046 = phi ptr [ @_ZN3ue2L16ucp_caseless_defE, %invoke.cont35.lr.ph ], [ %uc_begin.1.lcssa, %for.inc62 ]
   %__begin1.sroa.0.045 = phi ptr [ %__x.addr.0.i.i.i.i.i.i.i.i.i, %invoke.cont35.lr.ph ], [ %call.i, %for.inc62 ]
-  %_M_storage.i.i24 = getelementptr inbounds i8, ptr %__begin1.sroa.0.045, i64 32
+  %_M_storage.i.i24 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.045, i64 32
   %8 = load i32, ptr %_M_storage.i.i24, align 4
-  %_upb.i.i.i25 = getelementptr inbounds i8, ptr %__begin1.sroa.0.045, i64 36
+  %_upb.i.i.i25 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.045, i64 36
   %9 = load i32, ptr %_upb.i.i.i25, align 4
   %add = add i32 %9, 1
   %cmp3841 = icmp ult i32 %8, %add
@@ -7485,7 +7485,7 @@ do.end42:                                         ; preds = %invoke.cont35, %for
   %uc_begin.143 = phi ptr [ %uc_begin.2.lcssa, %for.inc ], [ %uc_begin.046, %invoke.cont35 ]
   %b.042 = phi i32 [ %inc, %for.inc ], [ %8, %invoke.cont35 ]
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %uc_begin.143 to i64
-  %sub.ptr.sub.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032) to i64), %sub.ptr.rhs.cast.i.i.i.i
+  %sub.ptr.sub.i.i.i.i = sub i64 ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032) to i64), %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp28.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i, 0
   br i1 %cmp28.i.i, label %while.body.i.i, label %invoke.cont44
@@ -7494,10 +7494,10 @@ while.body.i.i:                                   ; preds = %do.end42, %while.bo
   %__first.addr.030.i.i = phi ptr [ %12, %while.body.i.i ], [ %uc_begin.143, %do.end42 ]
   %__len.029.i.i = phi i64 [ %11, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %do.end42 ]
   %shr.i.i = lshr i64 %__len.029.i.i, 1
-  %add.ptr.i.i.i.i26 = getelementptr inbounds %"struct.ue2::unicase", ptr %__first.addr.030.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i26 = getelementptr inbounds nuw %"struct.ue2::unicase", ptr %__first.addr.030.i.i, i64 %shr.i.i
   %__it.val.i.i.i = load i32, ptr %add.ptr.i.i.i.i26, align 4
   %cmp.i.i8.i.i = icmp ult i32 %__it.val.i.i.i, %b.042
-  %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i26, i64 8
+  %incdec.ptr13.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i26, i64 8
   %10 = xor i64 %shr.i.i, -1
   %sub214.i.i = add nsw i64 %__len.029.i.i, %10
   %11 = select i1 %cmp.i.i8.i.i, i64 %sub214.i.i, i64 %shr.i.i
@@ -7507,7 +7507,7 @@ while.body.i.i:                                   ; preds = %do.end42, %while.bo
 
 invoke.cont44:                                    ; preds = %while.body.i.i, %do.end42
   %__first.addr.0.lcssa.i.i = phi ptr [ %uc_begin.143, %do.end42 ], [ %12, %while.body.i.i ]
-  %cmp46 = icmp eq ptr %__first.addr.0.lcssa.i.i, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
+  %cmp46 = icmp eq ptr %__first.addr.0.lcssa.i.i, getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp46, label %cleanup, label %land.rhs53
 
 lpad:                                             ; preds = %call.i10.i.noexc, %_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit.i, %call5.i.i.i.i.i.i.i.i.i.noexc, %if.then5.i
@@ -7523,7 +7523,7 @@ land.rhs53:                                       ; preds = %invoke.cont44, %inv
   br i1 %cmp55, label %do.end59, label %for.inc
 
 do.end59:                                         ; preds = %land.rhs53
-  %caseless60 = getelementptr inbounds i8, ptr %uc_begin.240, i64 4
+  %caseless60 = getelementptr inbounds nuw i8, ptr %uc_begin.240, i64 4
   %15 = load i32, ptr %caseless60, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
   %retval.sroa.2.0.insert.ext.i.i.i.i.i.i = zext i32 %15 to i64
@@ -7540,11 +7540,11 @@ if.end.i:                                         ; preds = %do.end59
 
 while.body.i.i.i.i:                               ; preds = %if.end.i, %while.body.i.i.i.i
   %__x.021.i.i.i.i = phi ptr [ %__x.0.i.i.i.i, %while.body.i.i.i.i ], [ %__x.019.i.i.i.i, %if.end.i ]
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i.i, i64 32
   %17 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %15, %17
   %cond.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 16, i64 24
-  %cond.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i.i, i64 %cond.in.v.i.i.i.i
+  %cond.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i.i, i64 %cond.in.v.i.i.i.i
   %__x.0.i.i.i.i = load ptr, ptr %cond.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.0.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %while.end.i.i.i.i, label %while.body.i.i.i.i, !llvm.loop !144
@@ -7565,7 +7565,7 @@ if.else.i.i.i.i:                                  ; preds = %if.then.i.i.i.i
 if.end12.i.i.i.i:                                 ; preds = %if.else.i.i.i.i, %while.end.i.i.i.i
   %__y.0.lcssa26.i.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i.i, %if.else.i.i.i.i ], [ %__x.021.i.i.i.i, %while.end.i.i.i.i ]
   %__j.sroa.0.0.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.else.i.i.i.i ], [ %__x.021.i.i.i.i, %while.end.i.i.i.i ]
-  %_upb.i.i.i.i.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i.i, i64 36
+  %_upb.i.i.i.i.i.i4.i.i.i.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i.i.i, i64 36
   %19 = load i32, ptr %_upb.i.i.i.i.i.i4.i.i.i.i, align 4
   %cmp.i.i.i.i5.i.i.i.i = icmp ult i32 %19, %16
   br i1 %cmp.i.i.i.i5.i.i.i.i, label %if.then.i.i.i, label %if.else.i
@@ -7576,7 +7576,7 @@ if.then.i.i.i:                                    ; preds = %if.end12.i.i.i.i, %
   br i1 %cmp2.i.i.i.i, label %if.then5.i, label %lor.rhs.i.i.i.i
 
 lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph.i.i.i, i64 32
   %20 = load i32, ptr %_M_storage.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i7.i.i.i = icmp ult i32 %15, %20
   br label %if.then5.i
@@ -7587,7 +7587,7 @@ if.then5.i:                                       ; preds = %lor.rhs.i.i.i.i, %i
           to label %call5.i.i.i.i.i.i.i.i.i.noexc unwind label %lpad
 
 call5.i.i.i.i.i.i.i.i.i.noexc:                    ; preds = %if.then5.i
-  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i.i30, i64 32
+  %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i30, i64 32
   store i64 %retval.sroa.0.0.insert.insert.i.i.i.i.i.i, ptr %_M_storage.i.i.i.i.i.i.i.i, align 4
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %21, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i.i30, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #13
   %22 = load i64, ptr %_M_node_count.i.i.i.i, align 8
@@ -7608,12 +7608,12 @@ if.else.i:                                        ; preds = %if.end12.i.i.i.i
 while.body.i.i.i6.i:                              ; preds = %if.else.i, %while.body.i.i.i6.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i6.i ], [ %__x.019.i.i.i.i, %if.else.i ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i6.i ], [ %add.ptr.i.i.i.i, %if.else.i ]
-  %_M_storage.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i7.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 32
   %23 = load i32, ptr %_M_storage.i.i.i.i.i7.i, align 4
   %cmp.i.i.i.i.i.i.i8.i = icmp ult i32 %15, %23
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i8.i, ptr %__x.addr.07.i.i.i.i, ptr %__y.addr.06.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i8.i, i64 16, i64 24
-  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i9.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i9.i, label %_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit.i, label %while.body.i.i.i6.i, !llvm.loop !145
@@ -7636,12 +7636,12 @@ call4.i.i.noexc:                                  ; preds = %call.i10.i.noexc
 
 invoke.cont61:                                    ; preds = %do.end59, %call.i.i.noexc, %call4.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i.i)
-  %incdec.ptr = getelementptr inbounds i8, ptr %uc_begin.240, i64 8
-  %cmp52.not = icmp eq ptr %incdec.ptr, getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %uc_begin.240, i64 8
+  %cmp52.not = icmp eq ptr %incdec.ptr, getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032)
   br i1 %cmp52.not, label %for.inc, label %land.rhs53, !llvm.loop !146
 
 for.inc:                                          ; preds = %land.rhs53, %invoke.cont61
-  %uc_begin.2.lcssa = phi ptr [ %uc_begin.240, %land.rhs53 ], [ getelementptr inbounds (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032), %invoke.cont61 ]
+  %uc_begin.2.lcssa = phi ptr [ %uc_begin.240, %land.rhs53 ], [ getelementptr inbounds nuw (i8, ptr @_ZN3ue2L16ucp_caseless_defE, i64 18032), %invoke.cont61 ]
   %inc = add nuw i32 %b.042, 1
   %exitcond.not = icmp eq i32 %b.042, %9
   br i1 %exitcond.not, label %for.inc62, label %do.end42, !llvm.loop !147
@@ -7678,10 +7678,10 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %en
   %__first.addr.030.i.i = phi ptr [ @_ZN3ue2L16ucp_caseless_defE, %entry ], [ %3, %while.body.i.i ]
   %__len.029.i.i = phi i64 [ 2254, %entry ], [ %2, %while.body.i.i ]
   %shr.i.i = lshr i64 %__len.029.i.i, 1
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.ue2::unicase", ptr %__first.addr.030.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::unicase", ptr %__first.addr.030.i.i, i64 %shr.i.i
   %__it.val.i.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4
   %cmp.i.i8.i.i = icmp ult i32 %__it.val.i.i.i, %0
-  %incdec.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 8
+  %incdec.ptr13.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i, i64 8
   %1 = xor i64 %shr.i.i, -1
   %sub214.i.i = add nsw i64 %__len.029.i.i, %1
   %2 = select i1 %cmp.i.i8.i.i, i64 %sub214.i.i, i64 %shr.i.i
@@ -7699,7 +7699,7 @@ land.lhs.true:                                    ; preds = %_ZSt11lower_boundIP
   br i1 %cmp4, label %do.end, label %return
 
 do.end:                                           ; preds = %land.lhs.true
-  %caseless5 = getelementptr inbounds i8, ptr %3, i64 4
+  %caseless5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %caseless5, align 4
   store i32 %5, ptr %c, align 4
   br label %return
@@ -7726,30 +7726,30 @@ define linkonce_odr hidden ptr @_ZN5boost3icl17interval_base_setINS0_12interval_
 entry:
   %joined_.i = alloca %"struct.std::_Rb_tree_const_iterator", align 8
   %it_.i = alloca %"struct.std::_Rb_tree_const_iterator", align 8
-  %_upb.i.i.i.i = getelementptr inbounds i8, ptr %addend, i64 4
+  %_upb.i.i.i.i = getelementptr inbounds nuw i8, ptr %addend, i64 4
   %0 = load i32, ptr %_upb.i.i.i.i, align 4
   %1 = load i32, ptr %addend, align 4
   %cmp.i.i.i = icmp ult i32 %0, %1
   br i1 %cmp.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %return
 
 if.end:                                           ; preds = %entry
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %__x.019.i.i.i = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   %cmp.not20.i.i.i = icmp eq ptr %__x.019.i.i.i, null
   br i1 %cmp.not20.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %if.end, %while.body.i.i.i
   %__x.021.i.i.i = phi ptr [ %__x.0.i.i.i, %while.body.i.i.i ], [ %__x.019.i.i.i, %if.end ]
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i, i64 32
   %2 = load i32, ptr %_M_storage.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %0, %2
   %cond.in.v.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 16, i64 24
-  %cond.in.i.i.i = getelementptr inbounds i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
+  %cond.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.021.i.i.i, i64 %cond.in.v.i.i.i
   %__x.0.i.i.i = load ptr, ptr %cond.in.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %__x.0.i.i.i, null
   br i1 %cmp.not.i.i.i, label %while.end.i.i.i, label %while.body.i.i.i, !llvm.loop !144
@@ -7759,7 +7759,7 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i
 
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i, %if.end
   %__y.0.lcssa25.i.i.i = phi ptr [ %__x.021.i.i.i, %while.end.i.i.i ], [ %add.ptr.i.i.i.i, %if.end ]
-  %_M_left.i3.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_left.i3.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load ptr, ptr %_M_left.i3.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %if.then.i.i, label %if.else.i.i.i
@@ -7771,7 +7771,7 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i.i
 if.end12.i.i.i:                                   ; preds = %if.else.i.i.i, %while.end.i.i.i
   %__y.0.lcssa26.i.i.i = phi ptr [ %__y.0.lcssa25.i.i.i, %if.else.i.i.i ], [ %__x.021.i.i.i, %while.end.i.i.i ]
   %__j.sroa.0.0.i.i.i = phi ptr [ %call.i.i.i.i, %if.else.i.i.i ], [ %__x.021.i.i.i, %while.end.i.i.i ]
-  %_upb.i.i.i.i.i.i4.i.i.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i.i.i, i64 36
+  %_upb.i.i.i.i.i.i4.i.i.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i.i.i, i64 36
   %4 = load i32, ptr %_upb.i.i.i.i.i.i4.i.i.i, align 4
   %cmp.i.i.i.i5.i.i.i = icmp ult i32 %4, %1
   br i1 %cmp.i.i.i.i5.i.i.i, label %if.then.i.i, label %if.else
@@ -7782,7 +7782,7 @@ if.then.i.i:                                      ; preds = %if.end12.i.i.i, %if
   br i1 %cmp2.i.i.i, label %if.then5, label %lor.rhs.i.i.i
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.sroa.4.0.i.ph.i.i, i64 32
   %5 = load i32, ptr %_M_storage.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i7.i.i = icmp ult i32 %0, %5
   br label %if.then5
@@ -7790,11 +7790,11 @@ lor.rhs.i.i.i:                                    ; preds = %if.then.i.i
 if.then5:                                         ; preds = %if.then.i.i, %lor.rhs.i.i.i
   %6 = phi i1 [ true, %if.then.i.i ], [ %cmp.i.i.i.i.i7.i.i, %lor.rhs.i.i.i ]
   %call5.i.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
-  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 32
   %7 = load i64, ptr %addend, align 4
   store i64 %7, ptr %_M_storage.i.i.i.i.i.i.i, align 4
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %6, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #13
-  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %8 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %8, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
@@ -7810,12 +7810,12 @@ if.else:                                          ; preds = %if.end12.i.i.i
 while.body.i.i.i6:                                ; preds = %if.else, %while.body.i.i.i6
   %__x.addr.07.i.i.i = phi ptr [ %__x.addr.1.i.i.i, %while.body.i.i.i6 ], [ %__x.019.i.i.i, %if.else ]
   %__y.addr.06.i.i.i = phi ptr [ %__y.addr.1.i.i.i, %while.body.i.i.i6 ], [ %add.ptr.i.i.i.i, %if.else ]
-  %_M_storage.i.i.i.i.i7 = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 32
   %9 = load i32, ptr %_M_storage.i.i.i.i.i7, align 4
   %cmp.i.i.i.i.i.i.i8 = icmp ult i32 %0, %9
   %__y.addr.1.i.i.i = select i1 %cmp.i.i.i.i.i.i.i8, ptr %__x.addr.07.i.i.i, ptr %__y.addr.06.i.i.i
   %__x.addr.1.in.v.i.i.i = select i1 %cmp.i.i.i.i.i.i.i8, i64 16, i64 24
-  %__x.addr.1.in.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
+  %__x.addr.1.in.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i, i64 %__x.addr.1.in.v.i.i.i
   %__x.addr.1.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i, align 8
   %cmp.not.i.i.i9 = icmp eq ptr %__x.addr.1.i.i.i, null
   br i1 %cmp.not.i.i.i9, label %_ZNSt3setIN5boost3icl15closed_intervalIjSt4lessEENS1_19exclusive_less_thanIS4_EESaIS4_EE11upper_boundERKS4_.exit, label %while.body.i.i.i6, !llvm.loop !145
@@ -7854,7 +7854,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN5boost3icl9segmental15join_neighboursINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_(ptr noundef nonnull align 8 dereferenceable(48) %object, ptr noundef nonnull align 8 dereferenceable(8) %it_) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_left.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 24
+  %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i, align 8
   %1 = load ptr, ptr %it_, align 8
   %cmp.i.i = icmp eq ptr %1, %0
@@ -7862,8 +7862,8 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPKSt18_Rb_tree_node_base(ptr noundef %1) #15
-  %_M_storage.i.i.i4.i.i = getelementptr inbounds i8, ptr %1, i64 32
-  %_upb.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 36
+  %_M_storage.i.i.i4.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %_upb.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 36
   %2 = load i32, ptr %_upb.i.i.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i.i = add i32 %2, 1
   %3 = load i32, ptr %_M_storage.i.i.i4.i.i, align 4
@@ -7875,14 +7875,14 @@ if.then4.i:                                       ; preds = %if.end.i
   %right_interval.sroa.0.0.extract.trunc.i.i.i = trunc i64 %5 to i32
   %right_interval.sroa.3.0.extract.shift.i.i.i = lshr i64 %5, 32
   %right_interval.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %right_interval.sroa.3.0.extract.shift.i.i.i to i32
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 8
   %call.i1.i.i.i.i.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i.i.i.i) #17
-  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 40
+  %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 40
   %6 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
   %dec.i.i.i.i.i.i.i = add i64 %6, -1
   store i64 %dec.i.i.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %_M_storage.i.i.i3.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %agg.tmp3.sroa.0.0.copyload.i.i.i = load i64, ptr %_M_storage.i.i.i3.i.i.i, align 4
   %left.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %agg.tmp3.sroa.0.0.copyload.i.i.i to i32
   %left.sroa.4.0.extract.shift.i.i.i.i = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i, 32
@@ -7912,7 +7912,7 @@ _ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_i
 
 _ZN5boost3icl9segmental9join_leftINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit: ; preds = %entry, %if.end.i, %_ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i
   %8 = phi ptr [ %1, %entry ], [ %1, %if.end.i ], [ %call.i.i, %_ZN5boost3icl9segmental13join_on_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_SB_.exit.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 8
   %cmp.i.i3 = icmp eq ptr %8, %add.ptr.i.i.i.i
   br i1 %cmp.i.i3, label %_ZN5boost3icl9segmental10join_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit, label %if.end.i4
 
@@ -7922,8 +7922,8 @@ if.end.i4:                                        ; preds = %_ZN5boost3icl9segme
   br i1 %cmp.i11.not.i, label %_ZN5boost3icl9segmental10join_rightINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RS9_.exit, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end.i4
-  %_M_storage.i.i.i4.i.i6 = getelementptr inbounds i8, ptr %call.i.i5, i64 32
-  %_upb.i.i.i.i.i.i.i7 = getelementptr inbounds i8, ptr %8, i64 36
+  %_M_storage.i.i.i4.i.i6 = getelementptr inbounds nuw i8, ptr %call.i.i5, i64 32
+  %_upb.i.i.i.i.i.i.i7 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %9 = load i32, ptr %_upb.i.i.i.i.i.i.i7, align 4
   %inc.i.i.i.i.i.i.i8 = add i32 %9, 1
   %10 = load i32, ptr %_M_storage.i.i.i4.i.i6, align 4
@@ -7937,12 +7937,12 @@ if.then8.i:                                       ; preds = %land.rhs.i
   %right_interval.sroa.3.0.extract.trunc.i.i.i12 = trunc nuw i64 %right_interval.sroa.3.0.extract.shift.i.i.i11 to i32
   %call.i1.i.i.i.i.i.i13 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %call.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i) #13
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i.i.i.i.i13) #17
-  %_M_node_count.i.i.i.i.i.i.i14 = getelementptr inbounds i8, ptr %object, i64 40
+  %_M_node_count.i.i.i.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %object, i64 40
   %13 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i14, align 8
   %dec.i.i.i.i.i.i.i15 = add i64 %13, -1
   store i64 %dec.i.i.i.i.i.i.i15, ptr %_M_node_count.i.i.i.i.i.i.i14, align 8
   %agg.tmp4.sroa.0.0.copyload.i.i.i = load ptr, ptr %it_, align 8
-  %_M_storage.i.i.i3.i.i.i16 = getelementptr inbounds i8, ptr %agg.tmp4.sroa.0.0.copyload.i.i.i, i64 32
+  %_M_storage.i.i.i3.i.i.i16 = getelementptr inbounds nuw i8, ptr %agg.tmp4.sroa.0.0.copyload.i.i.i, i64 32
   %agg.tmp3.sroa.0.0.copyload.i.i.i17 = load i64, ptr %_M_storage.i.i.i3.i.i.i16, align 4
   %left.sroa.0.0.extract.trunc.i.i.i.i18 = trunc i64 %agg.tmp3.sroa.0.0.copyload.i.i.i17 to i32
   %left.sroa.4.0.extract.shift.i.i.i.i19 = lshr i64 %agg.tmp3.sroa.0.0.copyload.i.i.i17, 32
@@ -7983,9 +7983,9 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN5boost3icl9segmental10join_underINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS4_EESaEEEENT_8iteratorERS8_RKNS8_10value_typeES9_(ptr noundef nonnull align 8 dereferenceable(48) %object, ptr noundef nonnull align 4 dereferenceable(8) %addend, ptr %last_.coerce) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 16
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 8
   %cmp.not5.i.i.i.i = icmp eq ptr %0, null
   %.pre57.pre = load i32, ptr %addend, align 4
   br i1 %cmp.not5.i.i.i.i, label %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit, label %while.body.i.i.i.i
@@ -7993,12 +7993,12 @@ entry:
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
   %__x.addr.07.i.i.i.i = phi ptr [ %__x.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %0, %entry ]
   %__y.addr.06.i.i.i.i = phi ptr [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
-  %_upb.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 36
+  %_upb.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 36
   %1 = load i32, ptr %_upb.i.i.i.i.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i.i = icmp ult i32 %1, %.pre57.pre
   %__y.addr.1.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, ptr %__y.addr.06.i.i.i.i, ptr %__x.addr.07.i.i.i.i
   %__x.addr.1.in.v.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i, i64 24, i64 16
-  %__x.addr.1.in.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
+  %__x.addr.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.07.i.i.i.i, i64 %__x.addr.1.in.v.i.i.i.i
   %__x.addr.1.i.i.i.i = load ptr, ptr %__x.addr.1.in.i.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %__x.addr.1.i.i.i.i, null
   br i1 %cmp.not.i.i.i.i, label %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit, label %while.body.i.i.i.i, !llvm.loop !148
@@ -8007,7 +8007,7 @@ _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_interva
   %__y.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %__y.addr.1.i.i.i.i, %while.body.i.i.i.i ]
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i.i) #15
   %call.i.i5 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %last_.coerce) #15
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i.i, i64 32
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.0.lcssa.i.i.i.i, i64 32
   %agg.tmp9.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i.i, align 4
   %left.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp9.sroa.0.0.copyload to i32
   %left.sroa.5.0.extract.shift.i = lshr i64 %agg.tmp9.sroa.0.0.copyload, 32
@@ -8016,7 +8016,7 @@ _ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_interva
   br i1 %cmp.i.i.i.i.i, label %_ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i
 
 _ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i: ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit
-  %_upb.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %addend, i64 4
+  %_upb.i.i.i.i3.i.i = getelementptr inbounds nuw i8, ptr %addend, i64 4
   %2 = load i32, ptr %_upb.i.i.i.i3.i.i, align 4
   %cmp.i.i.i4.i.i = icmp ult i32 %2, %.pre57.pre
   %cmp.i.i.i.i = icmp ugt i32 %.pre57.pre, %left.sroa.5.0.extract.trunc.i
@@ -8041,7 +8041,7 @@ invoke.cont.i.i:                                  ; preds = %init.check.i.i
   %5 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i = add i32 %5, 1
   store i32 %inc.i.i.i.i.i, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %5, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
+  store i32 %5, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #13
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i
 
@@ -8061,11 +8061,11 @@ if.end4.i:                                        ; preds = %if.else.i
 _ZN5boost3icl14right_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit: ; preds = %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i, %if.end4.i
   %6 = phi i32 [ %.pre, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %.pre57.pre, %if.end4.i ], [ %.pre57.pre, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %.pre57.pre, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
   %retval.sroa.0.0.i = phi i64 [ %retval.sroa.0.0.copyload.i.i, %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i ], [ %retval.sroa.0.0.insert.insert.i.i.i, %if.end4.i ], [ %agg.tmp9.sroa.0.0.copyload, %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE11lower_boundERKS5_.exit ], [ %agg.tmp9.sroa.0.0.copyload, %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i ]
-  %_M_storage.i.i.i6 = getelementptr inbounds i8, ptr %last_.coerce, i64 32
+  %_M_storage.i.i.i6 = getelementptr inbounds nuw i8, ptr %last_.coerce, i64 32
   %agg.tmp14.sroa.0.0.copyload = load i64, ptr %_M_storage.i.i.i6, align 4
   %right.sroa.3.0.extract.shift.i = lshr i64 %agg.tmp14.sroa.0.0.copyload, 32
   %right.sroa.3.0.extract.trunc.i = trunc nuw i64 %right.sroa.3.0.extract.shift.i to i32
-  %_upb.i.i.i.i.i.i = getelementptr inbounds i8, ptr %addend, i64 4
+  %_upb.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %addend, i64 4
   %7 = load i32, ptr %_upb.i.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i7 = icmp ult i32 %7, %6
   br i1 %cmp.i.i.i.i.i7, label %_ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_16is_static_closedIT_EES7_E4typeES7_RKS7_.exit, label %_ZN5boost3icl14exclusive_lessINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0_20has_symmetric_boundsIT_EEbE4typeERKS7_SC_.exit.i8
@@ -8095,7 +8095,7 @@ invoke.cont.i.i20:                                ; preds = %init.check.i.i18
   %10 = load i32, ptr @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value, align 4
   %inc.i.i.i.i.i21 = add i32 %10, 1
   store i32 %inc.i.i.i.i.i21, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, align 4
-  store i32 %10, ptr getelementptr inbounds (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
+  store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value, i64 4), align 4
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEvE6_value) #13
   br label %_ZN5boost3icl16identity_elementINS0_15closed_intervalIjSt4lessEEE5valueEv.exit.i15
 
@@ -8115,7 +8115,7 @@ _ZN5boost3icl13left_subtractINS0_15closed_intervalIjSt4lessEEEENS_9enable_ifINS0
   %right_resid.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.i17 to i32
   %right_resid.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.i17, 32
   %right_resid.sroa.3.0.extract.trunc = trunc nuw i64 %right_resid.sroa.3.0.extract.shift to i32
-  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 24
+  %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 24
   %11 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i26 = icmp eq ptr %call.i.i, %11
   %cmp.i1.i.i.i.i = icmp eq ptr %call.i.i5, %add.ptr.i.i.i.i
@@ -8137,9 +8137,9 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i
 _ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE5clearEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
   store ptr %add.ptr.i.i.i.i, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 32
+  %_M_right.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 32
   store ptr %add.ptr.i.i.i.i, ptr %_M_right.i.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 40
+  %_M_node_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i, align 8
   br label %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit
 
@@ -8148,7 +8148,7 @@ if.else.i.i.i.i:                                  ; preds = %_ZN5boost3icl13left
   br i1 %cmp.i3.not8.i.i.i.i, label %_ZN5boost3icl17interval_base_setINS0_12interval_setIjSt4lessNS0_15closed_intervalIjS3_EESaEEjS3_S5_SaE5eraseESt23_Rb_tree_const_iteratorIS5_ES9_.exit, label %while.body.lr.ph.i.i.i.i27
 
 while.body.lr.ph.i.i.i.i27:                       ; preds = %if.else.i.i.i.i
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %object, i64 40
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %object, i64 40
   br label %while.body.i.i.i.i28
 
 while.body.i.i.i.i28:                             ; preds = %while.body.i.i.i.i28, %while.body.lr.ph.i.i.i.i27
@@ -8229,10 +8229,10 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #17
   %cmp.not = icmp eq ptr %1, null
@@ -8248,18 +8248,18 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt8_Rb_treeIN5boost3icl15closed_intervalIjSt4lessEES4_St9_IdentityIS4_ENS1_19exclusive_less_thanIS4_EESaIS4_EE7_M_copyILb0ENSA_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__x, i64 32
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__x, i64 32
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
-  %_M_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 32
   %0 = load i64, ptr %_M_storage.i.i, align 4
   store i64 %0, ptr %_M_storage.i.i.i.i.i, align 4
   %1 = load i32, ptr %__x, align 8
   store i32 %1, ptr %call5.i.i.i.i.i.i, align 8
-  %_M_left.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i, i8 0, i64 16, i1 false)
-  %_M_parent = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 8
+  %_M_parent = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 8
   store ptr %__p, ptr %_M_parent, align 8
-  %_M_right = getelementptr inbounds i8, ptr %__x, i64 24
+  %_M_right = getelementptr inbounds nuw i8, ptr %__x, i64 24
   %2 = load ptr, ptr %_M_right, align 8
   %tobool.not = icmp eq ptr %2, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -8269,7 +8269,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %if.then
-  %_M_right4 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 24
+  %_M_right4 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i, i64 24
   store ptr %call3, ptr %_M_right4, align 8
   br label %if.end
 
@@ -8295,7 +8295,7 @@ invoke.cont19:                                    ; preds = %lpad
           to label %unreachable unwind label %lpad18
 
 if.end:                                           ; preds = %invoke.cont, %entry
-  %__x.addr.0.in33 = getelementptr inbounds i8, ptr %__x, i64 16
+  %__x.addr.0.in33 = getelementptr inbounds nuw i8, ptr %__x, i64 16
   %__x.addr.034 = load ptr, ptr %__x.addr.0.in33, align 8
   %cmp.not35 = icmp eq ptr %__x.addr.034, null
   br i1 %cmp.not35, label %try.cont, label %while.body
@@ -8307,19 +8307,19 @@ while.body:                                       ; preds = %if.end, %if.end16
           to label %invoke.cont6 unwind label %lpad.loopexit
 
 invoke.cont6:                                     ; preds = %while.body
-  %_M_storage.i.i24 = getelementptr inbounds i8, ptr %__x.addr.037, i64 32
-  %_M_storage.i.i.i.i.i26 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 32
+  %_M_storage.i.i24 = getelementptr inbounds nuw i8, ptr %__x.addr.037, i64 32
+  %_M_storage.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i2528, i64 32
   %5 = load i64, ptr %_M_storage.i.i24, align 4
   store i64 %5, ptr %_M_storage.i.i.i.i.i26, align 4
   %6 = load i32, ptr %__x.addr.037, align 8
   store i32 %6, ptr %call5.i.i.i.i.i.i2528, align 8
-  %_M_left.i27 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 16
+  %_M_left.i27 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i2528, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_left.i27, i8 0, i64 16, i1 false)
-  %_M_left = getelementptr inbounds i8, ptr %__p.addr.036, i64 16
+  %_M_left = getelementptr inbounds nuw i8, ptr %__p.addr.036, i64 16
   store ptr %call5.i.i.i.i.i.i2528, ptr %_M_left, align 8
-  %_M_parent8 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 8
+  %_M_parent8 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i2528, i64 8
   store ptr %__p.addr.036, ptr %_M_parent8, align 8
-  %_M_right9 = getelementptr inbounds i8, ptr %__x.addr.037, i64 24
+  %_M_right9 = getelementptr inbounds nuw i8, ptr %__x.addr.037, i64 24
   %7 = load ptr, ptr %_M_right9, align 8
   %tobool10.not = icmp eq ptr %7, null
   br i1 %tobool10.not, label %if.end16, label %if.then11
@@ -8329,12 +8329,12 @@ if.then11:                                        ; preds = %invoke.cont6
           to label %invoke.cont13 unwind label %lpad.loopexit
 
 invoke.cont13:                                    ; preds = %if.then11
-  %_M_right15 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i2528, i64 24
+  %_M_right15 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i2528, i64 24
   store ptr %call14, ptr %_M_right15, align 8
   br label %if.end16
 
 if.end16:                                         ; preds = %invoke.cont13, %invoke.cont6
-  %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.037, i64 16
+  %__x.addr.0.in = getelementptr inbounds nuw i8, ptr %__x.addr.037, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
   br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !152

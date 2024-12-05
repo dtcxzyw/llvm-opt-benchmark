@@ -875,7 +875,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %14
@@ -884,12 +884,12 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %11 = tail call ptr @wmem_file_scope() #5
   %12 = tail call noalias ptr @wmem_alloc0(ptr noundef %11, i64 noundef 64) #5
   store ptr %12, ptr %8, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 1, ptr %13, align 8
   br label %17
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %3, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %16 = load i32, ptr %15, align 8
   %.not213 = icmp eq i32 %16, 1
   br i1 %.not213, label %17, label %.thread240
@@ -914,10 +914,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   ]
 
 26:                                               ; preds = %25, %17
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i8, ptr %27, align 4
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %.0203, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.0203, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, %29
   %brmerge = select i1 %32, i1 true, i1 %22
@@ -925,13 +925,13 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .thread:                                          ; preds = %26, %25, %25
   %33 = phi i1 [ %32, %26 ], [ true, %25 ], [ true, %25 ]
-  %34 = getelementptr inbounds i8, ptr %3, i64 36
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %35 = load i16, ptr %34, align 4
   %36 = icmp eq i16 %35, -1
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %.thread
-  %38 = getelementptr inbounds i8, ptr %3, i64 38
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %39, -1
   br i1 %40, label %41, label %42
@@ -948,7 +948,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %22, label %43, label %.thread240
 
 43:                                               ; preds = %.thread239, %42
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   tail call void @col_set_str(ptr noundef %45, i32 noundef 34, ptr noundef nonnull @.str.1) #5
   %46 = load ptr, ptr %44, align 8
@@ -1027,9 +1027,9 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %98 = zext i16 %97 to i32
   %99 = load i32, ptr @ett_u3v, align 4
   %100 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %99) #5
-  %101 = getelementptr inbounds i8, ptr %1, i64 80
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 50
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 50
   %104 = load i16, ptr %103, align 2
   %105 = and i16 %104, 8
   %.not215 = icmp eq i16 %105, 0
@@ -1044,27 +1044,27 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %110 = load ptr, ptr %101, align 8
   %111 = load i32, ptr %110, align 8
   store i32 %111, ptr %109, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 4
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 0, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %109, i64 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
   %115 = tail call ptr @wmem_file_scope() #5
   %116 = load i32, ptr @proto_u3v, align 4
   tail call void @p_add_proto_data(ptr noundef %115, ptr noundef nonnull %1, i32 noundef %116, i32 noundef %98, ptr noundef nonnull %109) #5
-  %117 = getelementptr inbounds i8, ptr %.0203, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %.0203, i64 56
   store ptr %109, ptr %117, align 8
   br label %.thread232
 
 118:                                              ; preds = %106
-  %119 = getelementptr inbounds i8, ptr %.0203, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %.0203, i64 56
   %120 = load ptr, ptr %119, align 8
   %.not216 = icmp eq ptr %120, null
   br i1 %.not216, label %.thread235, label %121
 
 121:                                              ; preds = %118
   %122 = load i32, ptr %102, align 8
-  %123 = getelementptr inbounds i8, ptr %120, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 4
   store i32 %122, ptr %123, align 4
   %124 = tail call ptr @wmem_file_scope() #5
   %125 = load i32, ptr @proto_u3v, align 4
@@ -1082,10 +1082,10 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %130 = tail call ptr @wmem_packet_scope() #5
   %131 = tail call noalias ptr @wmem_alloc0(ptr noundef %130, i64 noundef 48) #5
   store i32 0, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 0, ptr %132, align 4
-  %133 = getelementptr inbounds i8, ptr %131, i64 8
-  %134 = getelementptr inbounds i8, ptr %1, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %134, i64 16, i1 false)
   br label %.thread232
 
@@ -1103,12 +1103,12 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 135:                                              ; preds = %.thread232
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   %136 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
-  %137 = getelementptr inbounds i8, ptr %.1, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   store i64 %136, ptr %137, align 8
   %138 = call fastcc ptr @get_register_name_from_address(i64 noundef %136, ptr noundef %7, ptr noundef %.0203)
   %139 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 22) #5
   %140 = zext i16 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %.1, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   store i32 %140, ptr %141, align 8
   %.not.i = icmp ult i64 %136, 4294967296
   %142 = load ptr, ptr %44, align 8
@@ -1138,7 +1138,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 155:                                              ; preds = %152, %146
   %.0.i.i = phi ptr [ %154, %152 ], [ null, %146 ]
-  %156 = getelementptr inbounds i8, ptr %.0203, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.0203, i64 8
   %157 = load i64, ptr %156, align 8
   %158 = add i64 %157, -1
   %or.cond.not.i.i = icmp ult i64 %158, %136
@@ -1152,7 +1152,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 163:                                              ; preds = %159, %155
   %.1.i.i = phi ptr [ %162, %159 ], [ %.0.i.i, %155 ]
-  %164 = getelementptr inbounds i8, ptr %.0203, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %.0203, i64 16
   %165 = load i64, ptr %164, align 8
   %166 = add i64 %165, -1
   %or.cond33.not.i.i = icmp ult i64 %166, %136
@@ -1166,7 +1166,7 @@ define internal i32 @dissect_u3v(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 171:                                              ; preds = %167, %163
   %.2.i.i = phi ptr [ %170, %167 ], [ %.1.i.i, %163 ]
-  %172 = getelementptr inbounds i8, ptr %.0203, i64 24
+  %172 = getelementptr inbounds nuw i8, ptr %.0203, i64 24
   %173 = load i64, ptr %172, align 8
   %174 = add i64 %173, -1
   %or.cond34.not.i.i = icmp ult i64 %174, %136
@@ -1207,9 +1207,9 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
   %190 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef 12) #5
   %191 = add nsw i32 %94, -8
   %192 = call fastcc ptr @get_register_name_from_address(i64 noundef %190, ptr noundef %6, ptr noundef %.0203)
-  %193 = getelementptr inbounds i8, ptr %.1, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   store i64 %190, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %.1, i64 40
+  %194 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   store i32 %191, ptr %194, align 8
   %195 = load ptr, ptr %44, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %195, i32 noundef 25, ptr noundef nonnull @.str.675, ptr noundef %192, i32 noundef %191) #5
@@ -1227,7 +1227,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
 
 204:                                              ; preds = %201, %189
   %.0.i.i221 = phi ptr [ %203, %201 ], [ null, %189 ]
-  %205 = getelementptr inbounds i8, ptr %.0203, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %.0203, i64 8
   %206 = load i64, ptr %205, align 8
   %207 = add i64 %206, -1
   %or.cond.not.i.i222 = icmp ult i64 %207, %190
@@ -1241,7 +1241,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
 
 212:                                              ; preds = %208, %204
   %.1.i.i223 = phi ptr [ %211, %208 ], [ %.0.i.i221, %204 ]
-  %213 = getelementptr inbounds i8, ptr %.0203, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %.0203, i64 16
   %214 = load i64, ptr %213, align 8
   %215 = add i64 %214, -1
   %or.cond33.not.i.i224 = icmp ult i64 %215, %190
@@ -1255,7 +1255,7 @@ dissect_u3v_read_mem_cmd.exit:                    ; preds = %179, %182
 
 220:                                              ; preds = %216, %212
   %.2.i.i225 = phi ptr [ %219, %216 ], [ %.1.i.i223, %212 ]
-  %221 = getelementptr inbounds i8, ptr %.0203, i64 24
+  %221 = getelementptr inbounds nuw i8, ptr %.0203, i64 24
   %222 = load i64, ptr %221, align 8
   %223 = add i64 %222, -1
   %or.cond34.not.i.i226 = icmp ult i64 %223, %190
@@ -1356,13 +1356,13 @@ dissect_u3v_write_mem_cmd.exit:                   ; preds = %228, %231
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %271
 
 271:                                              ; preds = %268
-  %272 = getelementptr inbounds i8, ptr %270, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %273 = load ptr, ptr %272, align 8
   %.not5.i.i = icmp eq ptr %273, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %274
 
 274:                                              ; preds = %271
-  %275 = getelementptr inbounds i8, ptr %273, i64 28
+  %275 = getelementptr inbounds nuw i8, ptr %273, i64 28
   %276 = load i32, ptr %275, align 4
   %277 = or i32 %276, 2
   store i32 %277, ptr %275, align 4
@@ -1412,12 +1412,12 @@ dissect_u3v_event_cmd.exit:                       ; preds = %251, %236, %255, %2
 
 300:                                              ; preds = %299
   %301 = load ptr, ptr %8, align 8
-  %302 = getelementptr inbounds i8, ptr %3, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %303 = load i8, ptr %302, align 4
   %304 = zext i8 %303 to i32
-  %305 = getelementptr inbounds i8, ptr %301, i64 48
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 48
   store i32 %304, ptr %305, align 8
-  %306 = getelementptr inbounds i8, ptr %1, i64 8
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %307 = load ptr, ptr %306, align 8
   tail call void @col_set_str(ptr noundef %307, i32 noundef 34, ptr noundef nonnull @.str.1) #5
   %308 = load ptr, ptr %306, align 8
@@ -1597,13 +1597,13 @@ define internal range(i32 0, 2) i32 @dissect_u3v_heur(ptr noundef %0, ptr nounde
   ]
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %3, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %12 = load i16, ptr %11, align 4
   %13 = icmp eq i16 %12, 239
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %3, i64 38
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 38
   %16 = load i16, ptr %15, align 2
   %17 = icmp eq i16 %16, 5
   br i1 %17, label %18, label %20
@@ -1757,12 +1757,12 @@ define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr nounde
 .sink.split.i:                                    ; preds = %9, %8
   %.sink25.i = phi i64 [ 40, %9 ], [ 8, %8 ]
   %10 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12) #5
-  %11 = getelementptr inbounds i8, ptr %4, i64 %.sink25.i
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink25.i
   store i64 %10, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %.sink.split.i, %8, %5
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, -1
   %or.cond.not.i = icmp ult i64 %15, %.32.val
@@ -1785,7 +1785,7 @@ define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr nounde
 .sink.split26.i:                                  ; preds = %19, %18, %16
   %.sink28.i = phi i64 [ 24, %18 ], [ 32, %19 ], [ 16, %16 ]
   %20 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12) #5
-  %21 = getelementptr inbounds i8, ptr %4, i64 %.sink28.i
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink28.i
   store i64 %20, ptr %21, align 8
   br label %dissect_u3v_register_bases.exit
 
@@ -1794,7 +1794,7 @@ dissect_u3v_register_bases.exit:                  ; preds = %12, %16, %.sink.spl
 
 22:                                               ; preds = %dissect_u3v_register_bases.exit
   %23 = call fastcc ptr @get_register_name_from_address(i64 noundef %.32.val, ptr noundef %6, ptr noundef nonnull %4)
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef %23) #5
   br label %26
@@ -1813,13 +1813,13 @@ dissect_u3v_register_bases.exit:                  ; preds = %12, %16, %.sink.spl
   br i1 %.not.i, label %proto_item_set_generated.exit, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %33, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %36 = load ptr, ptr %35, align 8
   %.not5.i = icmp eq ptr %36, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %39, 2
   store i32 %40, ptr %38, align 4
@@ -1848,7 +1848,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
 
 51:                                               ; preds = %47, %44
   %.1.i = phi ptr [ %50, %47 ], [ %.0.i, %44 ]
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, -1
   %or.cond33.not.i = icmp ult i64 %54, %.32.val
@@ -1862,7 +1862,7 @@ proto_item_set_generated.exit:                    ; preds = %31, %34, %37
 
 59:                                               ; preds = %55, %51
   %.2.i = phi ptr [ %58, %55 ], [ %.1.i, %51 ]
-  %60 = getelementptr inbounds i8, ptr %4, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, -1
   %or.cond34.not.i = icmp ult i64 %62, %.32.val
@@ -1913,7 +1913,7 @@ define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr n
   br i1 %.not, label %33, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, -1
   %or.cond.not = icmp ult i64 %12, %0
@@ -1927,7 +1927,7 @@ define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr n
 
 17:                                               ; preds = %13, %9
   %.1.ph = phi ptr [ %.0, %9 ], [ %16, %13 ]
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, -1
   %or.cond49.not = icmp ult i64 %20, %0
@@ -1941,7 +1941,7 @@ define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr n
 
 25:                                               ; preds = %21, %17
   %.2.ph = phi ptr [ %.1.ph, %17 ], [ %24, %21 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, -1
   %or.cond50.not = icmp ult i64 %28, %0
@@ -2140,7 +2140,7 @@ define internal fastcc void @dissect_u3v_register(i64 noundef %0, ptr noundef %1
   br label %86
 
 86:                                               ; preds = %8, %9, %47, %50, %53, %56, %59, %62, %65, %68, %71, %74, %77, %80, %83, %14, %12, %19, %17, %24, %22, %29, %27, %34, %32, %39, %37, %44, %42, %6
-  %87 = getelementptr inbounds i8, ptr %5, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, -1
   %or.cond201.not = icmp ult i64 %89, %0
@@ -2159,16 +2159,16 @@ switch.hole_check:                                ; preds = %90
   br i1 %switch.lobit, label %switch.lookup, label %96
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %switch.gep = getelementptr inbounds [17 x ptr], ptr @switch.table.dissect_u3v_register, i64 0, i64 %92
+  %switch.gep = getelementptr inbounds nuw [17 x ptr], ptr @switch.table.dissect_u3v_register, i64 0, i64 %92
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %switch.gep1 = getelementptr inbounds [17 x i32], ptr @switch.table.dissect_u3v_register.7, i64 0, i64 %92
+  %switch.gep1 = getelementptr inbounds nuw [17 x i32], ptr @switch.table.dissect_u3v_register.7, i64 0, i64 %92
   %switch.load2 = load i32, ptr %switch.gep1, align 4
   %94 = load i32, ptr %switch.load, align 4
   %95 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %94, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load2, i32 noundef -2147483648) #5
   br label %96
 
 96:                                               ; preds = %switch.hole_check, %90, %switch.lookup, %86
-  %97 = getelementptr inbounds i8, ptr %5, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, -1
   %or.cond202.not = icmp ult i64 %99, %0
@@ -2187,16 +2187,16 @@ switch.hole_check4:                               ; preds = %100
   br i1 %switch.lobit8, label %switch.lookup5, label %106
 
 switch.lookup5:                                   ; preds = %switch.hole_check4
-  %switch.gep9 = getelementptr inbounds [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %102
+  %switch.gep9 = getelementptr inbounds nuw [12 x ptr], ptr @switch.table.dissect_u3v_register.8, i64 0, i64 %102
   %switch.load10 = load ptr, ptr %switch.gep9, align 8
-  %switch.gep11 = getelementptr inbounds [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %102
+  %switch.gep11 = getelementptr inbounds nuw [12 x i32], ptr @switch.table.dissect_u3v_register.9, i64 0, i64 %102
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   %104 = load i32, ptr %switch.load10, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %104, ptr noundef %2, i32 noundef %3, i32 noundef %switch.load12, i32 noundef -2147483648) #5
   br label %106
 
 106:                                              ; preds = %switch.hole_check4, %100, %switch.lookup5, %96
-  %107 = getelementptr inbounds i8, ptr %5, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = add i64 %108, -1
   %or.cond203.not = icmp ult i64 %109, %0

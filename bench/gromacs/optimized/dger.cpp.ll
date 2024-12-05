@@ -59,7 +59,7 @@ define void @dger_(ptr nocapture noundef readonly %0, ptr nocapture noundef read
 
 34:                                               ; preds = %.lr.ph.us85, %34
   %indvars.iv105 = phi i64 [ 0, %.lr.ph.us85 ], [ %indvars.iv.next106, %34 ]
-  %35 = getelementptr inbounds double, ptr %3, i64 %indvars.iv105
+  %35 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv105
   %36 = load double, ptr %35, align 8
   %gep121 = getelementptr double, ptr %invariant.gep120, i64 %indvars.iv105
   %37 = load double, ptr %gep121, align 8

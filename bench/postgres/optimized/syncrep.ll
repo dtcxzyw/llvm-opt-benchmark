@@ -58,7 +58,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr @WalSndCtl, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load volatile i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %97
@@ -69,7 +69,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   %16 = getelementptr i8, ptr %15, i64 4096
   %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef %16, i32 noundef 0) #10
   %18 = load ptr, ptr @WalSndCtl, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %28
@@ -77,7 +77,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
 22:                                               ; preds = %13
   %23 = tail call i32 @llvm.smin.i32(i32 %14, i32 1)
   %.0 = select i1 %1, i32 %14, i32 %23
-  %24 = getelementptr inbounds i8, ptr %18, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %25 = sext i32 %.0 to i64
   %26 = getelementptr [3 x i64], ptr %24, i64 0, i64 %25
   %27 = load i64, ptr %26, align 8
@@ -92,9 +92,9 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
 
 31:                                               ; preds = %22
   %32 = load ptr, ptr @MyProc, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
   store i64 %0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 160
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 160
   store i32 1, ptr %34, align 8
   %35 = getelementptr [3 x %struct.dlist_head], ptr %18, i64 0, i64 %25
   %36 = load ptr, ptr %35, align 8
@@ -111,11 +111,11 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = getelementptr inbounds i8, ptr %32, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 168
   store ptr %.sroa.0.013.i, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.013.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %32, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 176
   store ptr %43, ptr %44, align 8
   store ptr %41, ptr %42, align 8
   %45 = load ptr, ptr %44, align 8
@@ -128,8 +128,8 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %46, %31
-  %48 = getelementptr inbounds i8, ptr %32, i64 168
-  %49 = getelementptr inbounds i8, ptr %35, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 168
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %dlist_push_head.exit.i
@@ -140,7 +140,7 @@ define dso_local void @SyncRepWaitForLSN(i64 noundef %0, i1 noundef zeroext %1) 
 
 dlist_push_head.exit.i:                           ; preds = %52, %._crit_edge.i
   %53 = phi ptr [ %35, %52 ], [ %50, %._crit_edge.i ]
-  %54 = getelementptr inbounds i8, ptr %32, i64 176
+  %54 = getelementptr inbounds nuw i8, ptr %32, i64 176
   store ptr %53, ptr %54, align 8
   store ptr %35, ptr %48, align 8
   store ptr %48, ptr %53, align 8
@@ -170,7 +170,7 @@ SyncRepQueueInsert.exit:                          ; preds = %40, %dlist_push_hea
   %65 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %65) #10
   %66 = load ptr, ptr @MyProc, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 160
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 160
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 2
   br i1 %69, label %.loopexit, label %70
@@ -230,9 +230,9 @@ SyncRepQueueInsert.exit:                          ; preds = %40, %dlist_push_hea
 .loopexit:                                        ; preds = %64, %.loopexit.sink.split
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %91 = load ptr, ptr @MyProc, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 160
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 160
   store i32 0, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 152
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 152
   store i64 0, ptr %93, align 8
   %94 = load i8, ptr @update_process_title, align 1
   %95 = trunc i8 %94 to i1
@@ -278,9 +278,9 @@ define internal fastcc void @SyncRepCancelWait() unnamed_addr #0 {
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds i8, ptr %4, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.val, ptr %10, align 8
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %.val, align 8
@@ -290,7 +290,7 @@ define internal fastcc void @SyncRepCancelWait() unnamed_addr #0 {
 
 12:                                               ; preds = %7, %0
   %13 = phi ptr [ %.pre, %7 ], [ %4, %0 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   store i32 0, ptr %14, align 8
   %15 = load ptr, ptr @MainLWLockArray, align 8
   %16 = getelementptr i8, ptr %15, i64 4096
@@ -321,9 +321,9 @@ define dso_local void @SyncRepCleanupAtProcExit() local_unnamed_addr #0 {
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %8, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.val1, ptr %14, align 8
   %15 = load ptr, ptr %12, align 8
   store ptr %15, ptr %.val1, align 8
@@ -360,13 +360,13 @@ define dso_local void @SyncRepInitConfig() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %SyncRepGetStandbyPriority.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %8, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %12 = load i32, ptr %11, align 4
   %.not14.not16.i = icmp slt i32 %12, 1
   br i1 %.not14.not16.i, label %SyncRepGetStandbyPriority.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.tail.thread.i, %.lr.ph.preheader.i
@@ -383,25 +383,25 @@ sub_0.i:                                          ; preds = %.lr.ph.i
   br i1 %.not19.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %18 = getelementptr inbounds i8, ptr %.01017.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %28, label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %.tail.i, %sub_0.i
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01017.i) #11
-  %22 = add i64 %21, 1
-  %23 = getelementptr i8, ptr %.01017.i, i64 %22
+  %22 = getelementptr i8, ptr %.01017.i, i64 %21
+  %23 = getelementptr i8, ptr %22, i64 1
   %24 = add i32 %.0918.i, 1
   %25 = load ptr, ptr @SyncRepConfig, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4
   %.not14.not.i = icmp sgt i32 %24, %27
   br i1 %.not14.not.i, label %SyncRepGetStandbyPriority.exit, label %.lr.ph.i, !llvm.loop !8
 
 28:                                               ; preds = %.tail.i, %.lr.ph.i
   %29 = load ptr, ptr @SyncRepConfig, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 4
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %32, i32 %.0918.i, i32 1
@@ -410,30 +410,30 @@ sub_0.i:                                          ; preds = %.lr.ph.i
 SyncRepGetStandbyPriority.exit:                   ; preds = %.tail.thread.i, %0, %3, %5, %10, %28
   %.011.i = phi i32 [ %33, %28 ], [ 0, %0 ], [ 0, %5 ], [ 0, %3 ], [ 0, %10 ], [ 0, %.tail.thread.i ]
   %34 = load ptr, ptr @MyWalSnd, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %36 = load i32, ptr %35, align 8
   %.not = icmp eq i32 %36, %.011.i
   br i1 %.not, label %53, label %37
 
 37:                                               ; preds = %SyncRepGetStandbyPriority.exit
-  %38 = getelementptr inbounds i8, ptr %34, i64 76
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 76
   %39 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %38, i8 1, ptr nonnull elementtype(i8) %38) #10, !srcloc !9
   %.not3 = icmp eq i8 %39, 0
   br i1 %.not3, label %44, label %40
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr @MyWalSnd, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 76
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 76
   %43 = tail call i32 @s_lock(ptr noundef nonnull %42, ptr noundef nonnull @.str.3, i32 noundef 415, ptr noundef nonnull @__func__.SyncRepInitConfig) #10
   br label %44
 
 44:                                               ; preds = %37, %40
   %45 = load ptr, ptr @MyWalSnd, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
   store i32 %.011.i, ptr %46, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
   %47 = load ptr, ptr @MyWalSnd, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 76
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 76
   store i8 0, ptr %48, align 4
   %49 = tail call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
   br i1 %49, label %50, label %53
@@ -457,20 +457,20 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %1 = alloca ptr, align 8
   %2 = load ptr, ptr @WalSndCtl, align 8
   %3 = load ptr, ptr @MyWalSnd, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %14, label %7
 
 7:                                                ; preds = %0
-  %8 = getelementptr inbounds i8, ptr %3, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4
   %.off = add i32 %9, -3
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %15
@@ -512,13 +512,13 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 
 .loopexit.i:                                      ; preds = %25
   %29 = load ptr, ptr @SyncRepConfig, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %22, %31
   br i1 %32, label %.sink.split.i, label %33
 
 33:                                               ; preds = %.loopexit.i
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %35 = load i8, ptr %34, align 4
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %.lr.ph.i.i, label %.lr.ph.preheader.i22.i
@@ -529,13 +529,13 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
   %.161 = phi i64 [ %.2, %.lr.ph.i.i ], [ 0, %33 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %33 ]
   %37 = getelementptr %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = freeze i64 %39
-  %41 = getelementptr inbounds i8, ptr %37, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = freeze i64 %42
-  %44 = getelementptr inbounds i8, ptr %37, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %45 = load i64, ptr %44, align 8
   %46 = freeze i64 %45
   %47 = add i64 %.167, -1
@@ -561,15 +561,15 @@ define dso_local void @SyncRepReleaseWaiters() local_unnamed_addr #0 {
 .lr.ph.i24.i:                                     ; preds = %.lr.ph.i24.i, %.lr.ph.preheader.i22.i
   %indvars.iv.i25.i = phi i64 [ 0, %.lr.ph.preheader.i22.i ], [ %indvars.iv.next.i26.i, %.lr.ph.i24.i ]
   %54 = getelementptr %struct.SyncRepStandbyData, ptr %.pre, i64 %indvars.iv.i25.i
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr i64, ptr %51, i64 %indvars.iv.i25.i
   store i64 %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = getelementptr i64, ptr %52, i64 %indvars.iv.i25.i
   store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %54, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %62 = load i64, ptr %61, align 8
   %63 = getelementptr i64, ptr %53, i64 %indvars.iv.i25.i
   store i64 %62, ptr %63, align 8
@@ -622,7 +622,7 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
 77:                                               ; preds = %75
   store i8 0, ptr @announce_next_takeover, align 1
   %78 = load ptr, ptr @SyncRepConfig, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i8, ptr %79, align 4
   %81 = icmp eq i8 %80, 0
   %82 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
@@ -634,7 +634,7 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
 84:                                               ; preds = %83
   %85 = load ptr, ptr @application_name, align 8
   %86 = load ptr, ptr @MyWalSnd, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 72
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %88 = load i32, ptr %87, align 8
   %89 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %85, i32 noundef %88) #10
   br label %.sink.split
@@ -668,7 +668,7 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
   br label %175
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %2, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %103 = load volatile i64, ptr %102, align 8
   %104 = icmp ult i64 %103, %.369
   br i1 %104, label %105, label %SyncRepWakeQueue.exit
@@ -676,10 +676,10 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
 105:                                              ; preds = %101
   store volatile i64 %.369, ptr %102, align 8
   %106 = load ptr, ptr @WalSndCtl, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8
   %.not.i = icmp eq ptr %108, null
-  %109 = getelementptr inbounds i8, ptr %106, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %.not182127.i = icmp eq ptr %108, %106
   %.not1821.i = or i1 %.not.i, %.not182127.i
   br i1 %.not1821.i, label %SyncRepWakeQueue.exit, label %.lr.ph.split.i
@@ -687,7 +687,7 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
 .lr.ph.split.i:                                   ; preds = %105, %114
   %.01723.i = phi i32 [ %120, %114 ], [ 0, %105 ]
   %.sroa.0.022.i = phi ptr [ %.sroa.6.024.i, %114 ], [ %108, %105 ]
-  %.sroa.6.024.i.in = getelementptr inbounds i8, ptr %.sroa.0.022.i, i64 8
+  %.sroa.6.024.i.in = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i, i64 8
   %.sroa.6.024.i = load ptr, ptr %.sroa.6.024.i.in, align 8
   %110 = load volatile i64, ptr %109, align 8
   %111 = getelementptr i8, ptr %.sroa.0.022.i, i64 -16
@@ -697,7 +697,7 @@ SyncRepGetSyncRecPtr.exit:                        ; preds = %15, %.sink.split.i
 
 114:                                              ; preds = %.lr.ph.split.i
   %115 = load ptr, ptr %.sroa.0.022.i, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %.sroa.6.024.i, ptr %116, align 8
   %117 = load ptr, ptr %.sroa.0.022.i, align 8
   store ptr %117, ptr %.sroa.6.024.i, align 8
@@ -733,7 +733,7 @@ SyncRepWakeQueue.exit:                            ; preds = %114, %.lr.ph.split.
 .lr.ph.split.i23:                                 ; preds = %124, %134
   %.01723.i25 = phi i32 [ %140, %134 ], [ 0, %124 ]
   %.sroa.0.022.i26 = phi ptr [ %.sroa.6.024.i24, %134 ], [ %128, %124 ]
-  %.sroa.6.024.i24.in = getelementptr inbounds i8, ptr %.sroa.0.022.i26, i64 8
+  %.sroa.6.024.i24.in = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i26, i64 8
   %.sroa.6.024.i24 = load ptr, ptr %.sroa.6.024.i24.in, align 8
   %130 = load volatile i64, ptr %129, align 8
   %131 = getelementptr i8, ptr %.sroa.0.022.i26, i64 -16
@@ -743,7 +743,7 @@ SyncRepWakeQueue.exit:                            ; preds = %114, %.lr.ph.split.
 
 134:                                              ; preds = %.lr.ph.split.i23
   %135 = load ptr, ptr %.sroa.0.022.i26, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store ptr %.sroa.6.024.i24, ptr %136, align 8
   %137 = load ptr, ptr %.sroa.0.022.i26, align 8
   store ptr %137, ptr %.sroa.6.024.i24, align 8
@@ -779,7 +779,7 @@ SyncRepWakeQueue.exit31:                          ; preds = %134, %.lr.ph.split.
 .lr.ph.split.i38:                                 ; preds = %144, %154
   %.01723.i40 = phi i32 [ %160, %154 ], [ 0, %144 ]
   %.sroa.0.022.i41 = phi ptr [ %.sroa.6.024.i39, %154 ], [ %148, %144 ]
-  %.sroa.6.024.i39.in = getelementptr inbounds i8, ptr %.sroa.0.022.i41, i64 8
+  %.sroa.6.024.i39.in = getelementptr inbounds nuw i8, ptr %.sroa.0.022.i41, i64 8
   %.sroa.6.024.i39 = load ptr, ptr %.sroa.6.024.i39.in, align 8
   %150 = load volatile i64, ptr %149, align 8
   %151 = getelementptr i8, ptr %.sroa.0.022.i41, i64 -16
@@ -789,7 +789,7 @@ SyncRepWakeQueue.exit31:                          ; preds = %134, %.lr.ph.split.
 
 154:                                              ; preds = %.lr.ph.split.i38
   %155 = load ptr, ptr %.sroa.0.022.i41, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   store ptr %.sroa.6.024.i39, ptr %156, align 8
   %157 = load ptr, ptr %.sroa.0.022.i41, align 8
   store ptr %157, ptr %.sroa.6.024.i39, align 8
@@ -849,12 +849,12 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef initiali
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.preheader ]
   %.03638 = phi i32 [ %.1, %53 ], [ 0, %.preheader ]
   %10 = load ptr, ptr @WalSndCtl, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = getelementptr [0 x %struct.WalSnd], ptr %11, i64 0, i64 %indvars.iv
   %13 = load ptr, ptr %0, align 8
   %14 = sext i32 %.03638 to i64
   %15 = getelementptr %struct.SyncRepStandbyData, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 76
   %17 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %16, i8 1, ptr nonnull elementtype(i8) %16) #10, !srcloc !9
   %.not = icmp eq i8 %17, 0
   br i1 %.not, label %20, label %18
@@ -866,23 +866,23 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef initiali
 20:                                               ; preds = %.lr.ph, %18
   %21 = load volatile i32, ptr %12, align 8
   store i32 %21, ptr %15, align 8
-  %22 = getelementptr inbounds i8, ptr %12, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %23 = load volatile i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %12, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %25 = load volatile i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %28 = load volatile i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %15, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %12, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %31 = load volatile i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %15, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %34 = load volatile i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %15, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i32 %34, ptr %35, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !16
   store volatile i8 0, ptr %16, align 4
@@ -904,12 +904,12 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef initiali
   br i1 %44, label %53, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %15, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %47, ptr %46, align 4
   %48 = load ptr, ptr @MyWalSnd, align 8
   %49 = icmp eq ptr %12, %48
-  %50 = getelementptr inbounds i8, ptr %15, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %51 = zext i1 %49 to i8
   store i8 %51, ptr %50, align 8
   %52 = add i32 %.03638, 1
@@ -930,13 +930,13 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef initiali
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %57 = phi ptr [ %6, %.preheader ], [ %.pre, %._crit_edge.loopexit ]
   %.036.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %._crit_edge.loopexit ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i8, ptr %58, align 4
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %61, label %71
 
 61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds i8, ptr %57, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = icmp sgt i32 %.036.lcssa, %63
   br i1 %64, label %65, label %71
@@ -946,7 +946,7 @@ define dso_local i32 @SyncRepGetCandidateStandbys(ptr nocapture noundef initiali
   %67 = sext i32 %.036.lcssa to i64
   tail call void @pg_qsort(ptr noundef %66, i64 noundef %67, i64 noundef 48, ptr noundef nonnull @standby_priority_comparator) #10
   %68 = load ptr, ptr @SyncRepConfig, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   br label %71
 
@@ -961,9 +961,9 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @standby_priority_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %9, label %7
@@ -973,9 +973,9 @@ define internal i32 @standby_priority_comparator(ptr nocapture noundef readonly 
   br label %15
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4
   %14 = sub i32 %11, %13
   br label %15
@@ -993,7 +993,7 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %0
   %2 = load ptr, ptr @WalSndCtl, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.thread, label %37
@@ -1008,7 +1008,7 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
   %10 = load i8, ptr %1, align 1
   %11 = icmp ne i8 %10, 0
   %12 = load ptr, ptr @WalSndCtl, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   %16 = xor i1 %11, %15
@@ -1029,7 +1029,7 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %SyncRepWakeQueue.exit ]
   %23 = load ptr, ptr @WalSndCtl, align 8
   %24 = getelementptr [3 x %struct.dlist_head], ptr %23, i64 0, i64 %indvars.iv
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not.i = icmp eq ptr %26, null
   %.not182127.i = icmp eq ptr %26, %24
@@ -1038,10 +1038,10 @@ define dso_local void @SyncRepUpdateSyncStandbysDefined() local_unnamed_addr #0 
 
 .lr.ph.split.us.i:                                ; preds = %.preheader, %.lr.ph.split.us.i
   %.sroa.0.022.us.i = phi ptr [ %.sroa.6.024.us.i, %.lr.ph.split.us.i ], [ %26, %.preheader ]
-  %.sroa.6.024.us.i.in = getelementptr inbounds i8, ptr %.sroa.0.022.us.i, i64 8
+  %.sroa.6.024.us.i.in = getelementptr inbounds nuw i8, ptr %.sroa.0.022.us.i, i64 8
   %.sroa.6.024.us.i = load ptr, ptr %.sroa.6.024.us.i.in, align 8
   %27 = load ptr, ptr %.sroa.0.022.us.i, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %.sroa.6.024.us.i, ptr %28, align 8
   %29 = load ptr, ptr %.sroa.0.022.us.i, align 8
   store ptr %29, ptr %.sroa.6.024.us.i, align 8
@@ -1062,7 +1062,7 @@ SyncRepWakeQueue.exit:                            ; preds = %.lr.ph.split.us.i, 
 .loopexit:                                        ; preds = %SyncRepWakeQueue.exit, %17
   %32 = phi i8 [ %18, %17 ], [ %22, %SyncRepWakeQueue.exit ]
   %33 = load ptr, ptr @WalSndCtl, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   store i8 %32, ptr %34, align 8
   %35 = load ptr, ptr @MainLWLockArray, align 8
   %36 = getelementptr i8, ptr %35, i64 4096
@@ -1121,7 +1121,7 @@ define dso_local noundef zeroext i1 @check_synchronous_standby_names(ptr nocaptu
   br label %44
 
 23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %11, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 1
   br i1 %26, label %27, label %34
@@ -1131,7 +1131,7 @@ define dso_local noundef zeroext i1 @check_synchronous_standby_names(ptr nocaptu
   %29 = load i32, ptr %28, align 4
   tail call void @pre_format_elog_string(i32 noundef %29, ptr noundef null) #10
   %30 = load ptr, ptr @syncrep_parse_result, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = tail call ptr (ptr, ...) @format_elog_string(ptr noundef nonnull @.str.11, i32 noundef %32) #10
   store ptr %33, ptr @GUC_check_errmsg_string, align 8

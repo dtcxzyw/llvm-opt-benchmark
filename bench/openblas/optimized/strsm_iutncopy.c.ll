@@ -52,20 +52,20 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .preheader26.us:                                  ; preds = %27, %.preheader26.us
   %29 = phi i64 [ %33, %.preheader26.us ], [ 0, %27 ]
-  %30 = getelementptr inbounds float, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw float, ptr %21, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !3
-  %32 = getelementptr inbounds float, ptr %23, i64 %29
+  %32 = getelementptr inbounds nuw float, ptr %23, i64 %29
   store float %31, ptr %32, align 4, !tbaa !3
   %33 = add nuw nsw i64 %29, 1
   %exitcond.not = icmp eq i64 %33, %indvars.iv46
   br i1 %exitcond.not, label %.loopexit27.us, label %.preheader26.us, !llvm.loop !7
 
 .loopexit27.us:                                   ; preds = %.preheader26.us, %27
-  %34 = getelementptr inbounds float, ptr %21, i64 %22
+  %34 = getelementptr inbounds nuw float, ptr %21, i64 %22
   %35 = getelementptr inbounds float, ptr %34, i64 %19
   %36 = load float, ptr %35, align 4, !tbaa !3
   %37 = fdiv float 1.000000e+00, %36
-  %38 = getelementptr inbounds float, ptr %23, i64 %22
+  %38 = getelementptr inbounds nuw float, ptr %23, i64 %22
   %39 = getelementptr inbounds float, ptr %38, i64 %19
   store float %37, ptr %39, align 4, !tbaa !3
   br label %._crit_edge50
@@ -77,65 +77,65 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .thread:                                          ; preds = %25, %._crit_edge50
   %41 = load float, ptr %21, align 4, !tbaa !3
   store float %41, ptr %23, align 4, !tbaa !3
-  %42 = getelementptr inbounds i8, ptr %21, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %43 = load float, ptr %42, align 4, !tbaa !3
-  %44 = getelementptr inbounds i8, ptr %23, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float %43, ptr %44, align 4, !tbaa !3
-  %45 = getelementptr inbounds i8, ptr %21, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %46 = load float, ptr %45, align 4, !tbaa !3
-  %47 = getelementptr inbounds i8, ptr %23, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store float %46, ptr %47, align 4, !tbaa !3
-  %48 = getelementptr inbounds i8, ptr %21, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %49 = load float, ptr %48, align 4, !tbaa !3
-  %50 = getelementptr inbounds i8, ptr %23, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 12
   store float %49, ptr %50, align 4, !tbaa !3
-  %51 = getelementptr inbounds i8, ptr %21, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %52 = load float, ptr %51, align 4, !tbaa !3
-  %53 = getelementptr inbounds i8, ptr %23, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store float %52, ptr %53, align 4, !tbaa !3
-  %54 = getelementptr inbounds i8, ptr %21, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %55 = load float, ptr %54, align 4, !tbaa !3
-  %56 = getelementptr inbounds i8, ptr %23, i64 20
+  %56 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store float %55, ptr %56, align 4, !tbaa !3
-  %57 = getelementptr inbounds i8, ptr %21, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %58 = load float, ptr %57, align 4, !tbaa !3
-  %59 = getelementptr inbounds i8, ptr %23, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store float %58, ptr %59, align 4, !tbaa !3
-  %60 = getelementptr inbounds i8, ptr %21, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %61 = load float, ptr %60, align 4, !tbaa !3
-  %62 = getelementptr inbounds i8, ptr %23, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 28
   store float %61, ptr %62, align 4, !tbaa !3
-  %63 = getelementptr inbounds i8, ptr %21, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %64 = load float, ptr %63, align 4, !tbaa !3
-  %65 = getelementptr inbounds i8, ptr %23, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 32
   store float %64, ptr %65, align 4, !tbaa !3
-  %66 = getelementptr inbounds i8, ptr %21, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 36
   %67 = load float, ptr %66, align 4, !tbaa !3
-  %68 = getelementptr inbounds i8, ptr %23, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %23, i64 36
   store float %67, ptr %68, align 4, !tbaa !3
-  %69 = getelementptr inbounds i8, ptr %21, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %70 = load float, ptr %69, align 4, !tbaa !3
-  %71 = getelementptr inbounds i8, ptr %23, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store float %70, ptr %71, align 4, !tbaa !3
-  %72 = getelementptr inbounds i8, ptr %21, i64 44
+  %72 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %73 = load float, ptr %72, align 4, !tbaa !3
-  %74 = getelementptr inbounds i8, ptr %23, i64 44
+  %74 = getelementptr inbounds nuw i8, ptr %23, i64 44
   store float %73, ptr %74, align 4, !tbaa !3
-  %75 = getelementptr inbounds i8, ptr %21, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %76 = load float, ptr %75, align 4, !tbaa !3
-  %77 = getelementptr inbounds i8, ptr %23, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store float %76, ptr %77, align 4, !tbaa !3
-  %78 = getelementptr inbounds i8, ptr %21, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %79 = load float, ptr %78, align 4, !tbaa !3
-  %80 = getelementptr inbounds i8, ptr %23, i64 52
+  %80 = getelementptr inbounds nuw i8, ptr %23, i64 52
   store float %79, ptr %80, align 4, !tbaa !3
-  %81 = getelementptr inbounds i8, ptr %21, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %82 = load float, ptr %81, align 4, !tbaa !3
-  %83 = getelementptr inbounds i8, ptr %23, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store float %82, ptr %83, align 4, !tbaa !3
-  %84 = getelementptr inbounds i8, ptr %21, i64 60
+  %84 = getelementptr inbounds nuw i8, ptr %21, i64 60
   %85 = load float, ptr %84, align 4, !tbaa !3
-  %86 = getelementptr inbounds i8, ptr %23, i64 60
+  %86 = getelementptr inbounds nuw i8, ptr %23, i64 60
   store float %85, ptr %86, align 4, !tbaa !3
   br label %87
 
@@ -164,7 +164,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %100, label %159, label %101
 
 101:                                              ; preds = %.loopexit29
-  %102 = getelementptr inbounds i8, ptr %96, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %103 = icmp sgt i64 %0, 0
   br i1 %103, label %104, label %.loopexit25
 
@@ -191,20 +191,20 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .preheader23:                                     ; preds = %114, %.preheader23
   %116 = phi i64 [ %120, %.preheader23 ], [ 0, %114 ]
-  %117 = getelementptr inbounds float, ptr %108, i64 %116
+  %117 = getelementptr inbounds nuw float, ptr %108, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !3
-  %119 = getelementptr inbounds float, ptr %110, i64 %116
+  %119 = getelementptr inbounds nuw float, ptr %110, i64 %116
   store float %118, ptr %119, align 4, !tbaa !3
   %120 = add nuw nsw i64 %116, 1
   %121 = icmp eq i64 %120, %107
   br i1 %121, label %.loopexit24, label %.preheader23, !llvm.loop !12
 
 .loopexit24:                                      ; preds = %.preheader23, %114
-  %122 = getelementptr inbounds float, ptr %108, i64 %109
+  %122 = getelementptr inbounds nuw float, ptr %108, i64 %109
   %123 = getelementptr inbounds float, ptr %122, i64 %105
   %124 = load float, ptr %123, align 4, !tbaa !3
   %125 = fdiv float 1.000000e+00, %124
-  %126 = getelementptr inbounds float, ptr %110, i64 %109
+  %126 = getelementptr inbounds nuw float, ptr %110, i64 %109
   %127 = getelementptr inbounds float, ptr %126, i64 %105
   store float %125, ptr %127, align 4, !tbaa !3
   br label %._crit_edge
@@ -216,33 +216,33 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .thread58:                                        ; preds = %112, %._crit_edge
   %129 = load float, ptr %108, align 4, !tbaa !3
   store float %129, ptr %110, align 4, !tbaa !3
-  %130 = getelementptr inbounds i8, ptr %108, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %131 = load float, ptr %130, align 4, !tbaa !3
-  %132 = getelementptr inbounds i8, ptr %110, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store float %131, ptr %132, align 4, !tbaa !3
-  %133 = getelementptr inbounds i8, ptr %108, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %134 = load float, ptr %133, align 4, !tbaa !3
-  %135 = getelementptr inbounds i8, ptr %110, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store float %134, ptr %135, align 4, !tbaa !3
-  %136 = getelementptr inbounds i8, ptr %108, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %137 = load float, ptr %136, align 4, !tbaa !3
-  %138 = getelementptr inbounds i8, ptr %110, i64 12
+  %138 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store float %137, ptr %138, align 4, !tbaa !3
-  %139 = getelementptr inbounds i8, ptr %108, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %140 = load float, ptr %139, align 4, !tbaa !3
-  %141 = getelementptr inbounds i8, ptr %110, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store float %140, ptr %141, align 4, !tbaa !3
-  %142 = getelementptr inbounds i8, ptr %108, i64 20
+  %142 = getelementptr inbounds nuw i8, ptr %108, i64 20
   %143 = load float, ptr %142, align 4, !tbaa !3
-  %144 = getelementptr inbounds i8, ptr %110, i64 20
+  %144 = getelementptr inbounds nuw i8, ptr %110, i64 20
   store float %143, ptr %144, align 4, !tbaa !3
-  %145 = getelementptr inbounds i8, ptr %108, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %146 = load float, ptr %145, align 4, !tbaa !3
-  %147 = getelementptr inbounds i8, ptr %110, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store float %146, ptr %147, align 4, !tbaa !3
-  %148 = getelementptr inbounds i8, ptr %108, i64 28
+  %148 = getelementptr inbounds nuw i8, ptr %108, i64 28
   %149 = load float, ptr %148, align 4, !tbaa !3
-  %150 = getelementptr inbounds i8, ptr %110, i64 28
+  %150 = getelementptr inbounds nuw i8, ptr %110, i64 28
   store float %149, ptr %150, align 4, !tbaa !3
   br label %151
 
@@ -268,7 +268,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %164, label %211, label %165
 
 165:                                              ; preds = %159
-  %166 = getelementptr inbounds i8, ptr %160, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %167 = icmp sgt i64 %0, 0
   br i1 %167, label %168, label %.loopexit22
 
@@ -295,20 +295,20 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .preheader:                                       ; preds = %178, %.preheader
   %180 = phi i64 [ %184, %.preheader ], [ 0, %178 ]
-  %181 = getelementptr inbounds float, ptr %172, i64 %180
+  %181 = getelementptr inbounds nuw float, ptr %172, i64 %180
   %182 = load float, ptr %181, align 4, !tbaa !3
-  %183 = getelementptr inbounds float, ptr %174, i64 %180
+  %183 = getelementptr inbounds nuw float, ptr %174, i64 %180
   store float %182, ptr %183, align 4, !tbaa !3
   %184 = add nuw nsw i64 %180, 1
   %185 = icmp eq i64 %184, %171
   br i1 %185, label %.loopexit21, label %.preheader, !llvm.loop !14
 
 .loopexit21:                                      ; preds = %.preheader, %178
-  %186 = getelementptr inbounds float, ptr %172, i64 %173
+  %186 = getelementptr inbounds nuw float, ptr %172, i64 %173
   %187 = getelementptr inbounds float, ptr %186, i64 %169
   %188 = load float, ptr %187, align 4, !tbaa !3
   %189 = fdiv float 1.000000e+00, %188
-  %190 = getelementptr inbounds float, ptr %174, i64 %173
+  %190 = getelementptr inbounds nuw float, ptr %174, i64 %173
   %191 = getelementptr inbounds float, ptr %190, i64 %169
   store float %189, ptr %191, align 4, !tbaa !3
   br label %._crit_edge48
@@ -320,17 +320,17 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .thread60:                                        ; preds = %176, %._crit_edge48
   %193 = load float, ptr %172, align 4, !tbaa !3
   store float %193, ptr %174, align 4, !tbaa !3
-  %194 = getelementptr inbounds i8, ptr %172, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %172, i64 4
   %195 = load float, ptr %194, align 4, !tbaa !3
-  %196 = getelementptr inbounds i8, ptr %174, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %174, i64 4
   store float %195, ptr %196, align 4, !tbaa !3
-  %197 = getelementptr inbounds i8, ptr %172, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %198 = load float, ptr %197, align 4, !tbaa !3
-  %199 = getelementptr inbounds i8, ptr %174, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %174, i64 8
   store float %198, ptr %199, align 4, !tbaa !3
-  %200 = getelementptr inbounds i8, ptr %172, i64 12
+  %200 = getelementptr inbounds nuw i8, ptr %172, i64 12
   %201 = load float, ptr %200, align 4, !tbaa !3
-  %202 = getelementptr inbounds i8, ptr %174, i64 12
+  %202 = getelementptr inbounds nuw i8, ptr %174, i64 12
   store float %201, ptr %202, align 4, !tbaa !3
   br label %203
 
@@ -356,7 +356,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %216, label %252, label %217
 
 217:                                              ; preds = %211
-  %218 = getelementptr inbounds i8, ptr %212, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %219 = icmp sgt i64 %0, 0
   br i1 %219, label %220, label %.loopexit20
 
@@ -386,11 +386,11 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.thread64
 
 .thread64:                                        ; preds = %229, %231
-  %233 = getelementptr inbounds float, ptr %223, i64 %224
+  %233 = getelementptr inbounds nuw float, ptr %223, i64 %224
   %234 = getelementptr inbounds float, ptr %233, i64 %221
   %235 = load float, ptr %234, align 4, !tbaa !3
   %236 = fdiv float 1.000000e+00, %235
-  %237 = getelementptr inbounds float, ptr %225, i64 %224
+  %237 = getelementptr inbounds nuw float, ptr %225, i64 %224
   %238 = getelementptr inbounds float, ptr %237, i64 %221
   store float %236, ptr %238, align 4, !tbaa !3
   br label %245
@@ -402,9 +402,9 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .thread62:                                        ; preds = %227, %239
   %241 = load float, ptr %223, align 4, !tbaa !3
   store float %241, ptr %225, align 4, !tbaa !3
-  %242 = getelementptr inbounds i8, ptr %223, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %243 = load float, ptr %242, align 4, !tbaa !3
-  %244 = getelementptr inbounds i8, ptr %225, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %225, i64 4
   store float %243, ptr %244, align 4, !tbaa !3
   br label %245
 
@@ -453,7 +453,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %271
 
 271:                                              ; preds = %269, %267
-  %272 = getelementptr inbounds i8, ptr %262, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %262, i64 4
   %273 = getelementptr inbounds float, ptr %260, i64 %3
   %274 = add nuw nsw i64 %261, 1
   %275 = icmp eq i64 %274, %0

@@ -21,7 +21,7 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 
 5:                                                ; preds = %.lr.ph
   %6 = add i64 %.in, -1
-  %7 = getelementptr inbounds i8, ptr %.02533, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %.critedge, label %.lr.ph
 
@@ -52,7 +52,7 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
   br i1 %.not31, label %20, label %17
 
 17:                                               ; preds = %.lr.ph40
-  %18 = getelementptr inbounds i8, ptr %.12637, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.12637, i64 1
   store i8 %16, ptr %.12637, align 1
   %19 = add i64 %.139, -1
   br label %20
@@ -60,7 +60,7 @@ define i64 @cli_strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_un
 20:                                               ; preds = %17, %.lr.ph40
   %.227 = phi ptr [ %18, %17 ], [ %.12637, %.lr.ph40 ]
   %.2 = phi i64 [ %19, %17 ], [ 1, %.lr.ph40 ]
-  %21 = getelementptr inbounds i8, ptr %.02438, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.02438, i64 1
   %22 = load i8, ptr %21, align 1
   %.not30 = icmp eq i8 %22, 0
   br i1 %.not30, label %._crit_edge, label %.lr.ph40

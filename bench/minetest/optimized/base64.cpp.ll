@@ -140,9 +140,9 @@ define dso_local void @_Z13base64_encodeB5cxx11St17basic_string_viewIcSt11char_t
 entry:
   %char_array_3 = alloca [3 x i8], align 1
   %char_array_4 = alloca [4 x i8], align 1
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !10
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   store i8 0, ptr %0, align 8, !tbaa !4
   %div = udiv i64 %s.coerce0, 3
@@ -157,10 +157,10 @@ invoke.cont:                                      ; preds = %entry
   br i1 %tobool.not140, label %if.end96, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %invoke.cont
-  %arrayidx8 = getelementptr inbounds i8, ptr %char_array_3, i64 1
-  %arrayidx14 = getelementptr inbounds i8, ptr %char_array_4, i64 1
-  %arrayidx19 = getelementptr inbounds i8, ptr %char_array_3, i64 2
-  %arrayidx25 = getelementptr inbounds i8, ptr %char_array_4, i64 2
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %char_array_3, i64 1
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %char_array_4, i64 1
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %char_array_3, i64 2
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %char_array_4, i64 2
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %while.body.lr.ph
@@ -168,10 +168,10 @@ while.body:                                       ; preds = %while.body.backedge
   %dec143.in = phi i64 [ %s.coerce0, %while.body.lr.ph ], [ %dec143, %while.body.backedge ]
   %bytes_to_encode.0141 = phi ptr [ %s.coerce1, %while.body.lr.ph ], [ %incdec.ptr, %while.body.backedge ]
   %dec143 = add i64 %dec143.in, -1
-  %incdec.ptr = getelementptr inbounds i8, ptr %bytes_to_encode.0141, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %bytes_to_encode.0141, i64 1
   %1 = load i8, ptr %bytes_to_encode.0141, align 1, !tbaa !4
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %arrayidx = getelementptr inbounds [3 x i8], ptr %char_array_3, i64 0, i64 %indvars.iv38
+  %arrayidx = getelementptr inbounds nuw [3 x i8], ptr %char_array_3, i64 0, i64 %indvars.iv38
   store i8 %1, ptr %arrayidx, align 1, !tbaa !4
   %cmp = icmp eq i64 %indvars.iv.next39, 3
   br i1 %cmp, label %if.then, label %if.end
@@ -192,7 +192,7 @@ if.then:                                          ; preds = %while.body
   %12 = and i8 %10, 63
   %conv34 = zext nneg i8 %3 to i64
   %13 = load ptr, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !16
-  %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 %conv34
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %13, i64 %conv34
   %14 = load i8, ptr %arrayidx.i, align 1, !tbaa !4
   %15 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %add.i.i = add i64 %15, 1
@@ -229,7 +229,7 @@ for.inc:                                          ; preds = %.noexc, %_ZNKSt7__c
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !4
   %conv34.1 = zext nneg i8 %add12116 to i64
   %20 = load ptr, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !16
-  %arrayidx.i.1 = getelementptr inbounds i8, ptr %20, i64 %conv34.1
+  %arrayidx.i.1 = getelementptr inbounds nuw i8, ptr %20, i64 %conv34.1
   %21 = load i8, ptr %arrayidx.i.1, align 1, !tbaa !4
   %22 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %add.i.i.1 = add i64 %22, 1
@@ -266,7 +266,7 @@ for.inc.1:                                        ; preds = %.noexc.1, %_ZNKSt7_
   store i8 0, ptr %arrayidx.i.i.i.1, align 1, !tbaa !4
   %conv34.2 = zext nneg i8 %add23117 to i64
   %27 = load ptr, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !16
-  %arrayidx.i.2 = getelementptr inbounds i8, ptr %27, i64 %conv34.2
+  %arrayidx.i.2 = getelementptr inbounds nuw i8, ptr %27, i64 %conv34.2
   %28 = load i8, ptr %arrayidx.i.2, align 1, !tbaa !4
   %29 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %add.i.i.2 = add i64 %29, 1
@@ -303,7 +303,7 @@ for.inc.2:                                        ; preds = %.noexc.2, %_ZNKSt7_
   store i8 0, ptr %arrayidx.i.i.i.2, align 1, !tbaa !4
   %conv34.3 = zext nneg i8 %12 to i64
   %34 = load ptr, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !16
-  %arrayidx.i.3 = getelementptr inbounds i8, ptr %34, i64 %conv34.3
+  %arrayidx.i.3 = getelementptr inbounds nuw i8, ptr %34, i64 %conv34.3
   %35 = load i8, ptr %arrayidx.i.3, align 1, !tbaa !4
   %36 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %add.i.i.3 = add i64 %36, 1
@@ -392,7 +392,7 @@ for.body44.preheader:                             ; preds = %if.end
   %add75115 = or disjoint i8 %53, %51
   store i8 %add75115, ptr %arrayidx25, align 1, !tbaa !4
   %54 = and i8 %52, 63
-  %arrayidx82 = getelementptr inbounds i8, ptr %char_array_4, i64 3
+  %arrayidx82 = getelementptr inbounds nuw i8, ptr %char_array_4, i64 3
   store i8 %54, ptr %arrayidx82, align 1, !tbaa !4
   %55 = add nuw i64 %indvars.iv38, 2
   %wide.trip.count = and i64 %55, 4294967295
@@ -400,11 +400,11 @@ for.body44.preheader:                             ; preds = %if.end
 
 for.body86:                                       ; preds = %for.inc93, %for.body44.preheader
   %indvars.iv = phi i64 [ 0, %for.body44.preheader ], [ %indvars.iv.next, %for.inc93 ]
-  %arrayidx88 = getelementptr inbounds [4 x i8], ptr %char_array_4, i64 0, i64 %indvars.iv
+  %arrayidx88 = getelementptr inbounds nuw [4 x i8], ptr %char_array_4, i64 0, i64 %indvars.iv
   %56 = load i8, ptr %arrayidx88, align 1, !tbaa !4
   %conv89 = zext i8 %56 to i64
   %57 = load ptr, ptr @_ZL12base64_charsB5cxx11, align 8, !tbaa !16
-  %arrayidx.i120 = getelementptr inbounds i8, ptr %57, i64 %conv89
+  %arrayidx.i120 = getelementptr inbounds nuw i8, ptr %57, i64 %conv89
   %58 = load i8, ptr %arrayidx.i120, align 1, !tbaa !4
   %59 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %add.i.i122 = add i64 %59, 1
@@ -478,9 +478,9 @@ entry:
   %conv = trunc i64 %encoded_string.coerce0 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %char_array_4) #11
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %char_array_3) #11
-  %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !10
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   store i8 0, ptr %0, align 8, !tbaa !4
   %div = sdiv i32 %conv, 4
@@ -494,10 +494,10 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %tobool.not179, label %nrvo.skipdtor, label %land.lhs.true.lr.ph
 
 land.lhs.true.lr.ph:                              ; preds = %while.cond.preheader
-  %arrayidx23 = getelementptr inbounds i8, ptr %char_array_4, i64 1
-  %arrayidx31 = getelementptr inbounds i8, ptr %char_array_4, i64 2
-  %arrayidx37 = getelementptr inbounds i8, ptr %char_array_3, i64 1
-  %arrayidx42 = getelementptr inbounds i8, ptr %char_array_4, i64 3
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %char_array_4, i64 1
+  %arrayidx31 = getelementptr inbounds nuw i8, ptr %char_array_4, i64 2
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %char_array_3, i64 1
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %char_array_4, i64 3
   br label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end, %land.lhs.true.lr.ph
@@ -505,7 +505,7 @@ land.lhs.true:                                    ; preds = %if.end, %land.lhs.t
   %dec182.in = phi i32 [ %conv, %land.lhs.true.lr.ph ], [ %dec182, %if.end ]
   %i.0181 = phi i32 [ 0, %land.lhs.true.lr.ph ], [ %i.3, %if.end ]
   %dec182 = add nsw i32 %dec182.in, -1
-  %add.ptr.i = getelementptr inbounds i8, ptr %encoded_string.coerce1, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %encoded_string.coerce1, i64 %indvars.iv
   %1 = load i8, ptr %add.ptr.i, align 1, !tbaa !4
   %cmp.not = icmp eq i8 %1, 61
   br i1 %cmp.not, label %while.end, label %land.rhs
@@ -747,7 +747,7 @@ for.cond67.preheader:                             ; preds = %for.body61.preheade
   store i8 %add97145, ptr %arrayidx37, align 1, !tbaa !4
   %47 = shl i8 %conv73.2, 6
   %add106 = add i8 %47, %conv73.3
-  %arrayidx108 = getelementptr inbounds i8, ptr %char_array_3, i64 2
+  %arrayidx108 = getelementptr inbounds nuw i8, ptr %char_array_3, i64 2
   store i8 %add106, ptr %arrayidx108, align 1, !tbaa !4
   %cmp110188 = icmp sgt i32 %i.0.lcssa, 1
   br i1 %cmp110188, label %for.body111.preheader, label %nrvo.skipdtor
@@ -759,7 +759,7 @@ for.body111.preheader:                            ; preds = %for.cond67.preheade
 
 for.body111:                                      ; preds = %for.inc116, %for.body111.preheader
   %indvars.iv199 = phi i64 [ 0, %for.body111.preheader ], [ %indvars.iv.next200, %for.inc116 ]
-  %arrayidx113 = getelementptr inbounds [3 x i8], ptr %char_array_3, i64 0, i64 %indvars.iv199
+  %arrayidx113 = getelementptr inbounds nuw [3 x i8], ptr %char_array_3, i64 0, i64 %indvars.iv199
   %48 = load i8, ptr %arrayidx113, align 1, !tbaa !4
   %49 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !13
   %add.i.i155 = add i64 %49, 1

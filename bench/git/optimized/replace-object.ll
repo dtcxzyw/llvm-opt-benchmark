@@ -13,19 +13,19 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @prepare_replace_object(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %objects = getelementptr inbounds i8, ptr %r, i64 16
+  %objects = getelementptr inbounds nuw i8, ptr %r, i64 16
   %0 = load ptr, ptr %objects, align 8
-  %replace_map_initialized = getelementptr inbounds i8, ptr %0, i64 48
+  %replace_map_initialized = getelementptr inbounds nuw i8, ptr %0, i64 48
   %bf.load = load i8, ptr %replace_map_initialized, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %replace_mutex = getelementptr inbounds i8, ptr %0, i64 56
+  %replace_mutex = getelementptr inbounds nuw i8, ptr %0, i64 56
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %replace_mutex) #8
   %1 = load ptr, ptr %objects, align 8
-  %replace_map_initialized3 = getelementptr inbounds i8, ptr %1, i64 48
+  %replace_map_initialized3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %bf.load4 = load i8, ptr %replace_map_initialized3, align 8
   %bf.clear5 = and i8 %bf.load4, 1
   %tobool7.not = icmp eq i8 %bf.clear5, 0
@@ -34,15 +34,15 @@ if.end:                                           ; preds = %entry
 if.end12:                                         ; preds = %if.end
   %call13 = tail call ptr @xmalloc(i64 noundef 48) #8
   %2 = load ptr, ptr %objects, align 8
-  %replace_map = getelementptr inbounds i8, ptr %2, i64 40
+  %replace_map = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %call13, ptr %replace_map, align 8
   %3 = load ptr, ptr %objects, align 8
-  %replace_map16 = getelementptr inbounds i8, ptr %3, i64 40
+  %replace_map16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load ptr, ptr %replace_map16, align 8
   tail call void @oidmap_init(ptr noundef %4, i64 noundef 0) #8
   %call17 = tail call i32 @for_each_replace_ref(ptr noundef nonnull %r, ptr noundef nonnull @register_replace_ref, ptr noundef null) #8
   %5 = load ptr, ptr %objects, align 8
-  %replace_map_initialized19 = getelementptr inbounds i8, ptr %5, i64 48
+  %replace_map_initialized19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %bf.load20 = load i8, ptr %replace_map_initialized19, align 8
   %bf.set = or i8 %bf.load20, 1
   store i8 %bf.set, ptr %replace_map_initialized19, align 8
@@ -51,7 +51,7 @@ if.end12:                                         ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end, %if.end12
   %.sink = phi ptr [ %6, %if.end12 ], [ %1, %if.end ]
-  %replace_mutex23 = getelementptr inbounds i8, ptr %.sink, i64 56
+  %replace_mutex23 = getelementptr inbounds nuw i8, ptr %.sink, i64 56
   %call24 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %replace_mutex23) #8
   br label %return
 
@@ -76,10 +76,10 @@ define internal noundef i32 @register_replace_ref(ptr nocapture noundef readonly
 entry:
   %call = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %refname, i32 noundef 47) #9
   %tobool.not = icmp eq ptr %call, null
-  %add.ptr = getelementptr inbounds i8, ptr %call, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 1
   %cond = select i1 %tobool.not, ptr %refname, ptr %add.ptr
   %call1 = tail call ptr @xmalloc(i64 noundef 96) #8
-  %oid2 = getelementptr inbounds i8, ptr %call1, i64 16
+  %oid2 = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %call3 = tail call i32 @get_oid_hex(ptr noundef %cond, ptr noundef nonnull %oid2) #8
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %if.end, label %if.then
@@ -100,15 +100,15 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %replacement = getelementptr inbounds i8, ptr %call1, i64 56
+  %replacement = getelementptr inbounds nuw i8, ptr %call1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %replacement, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
+  %algo.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
   %1 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds i8, ptr %call1, i64 88
+  %algo3.i = getelementptr inbounds nuw i8, ptr %call1, i64 88
   store i32 %1, ptr %algo3.i, align 4
-  %objects = getelementptr inbounds i8, ptr %r, i64 16
+  %objects = getelementptr inbounds nuw i8, ptr %r, i64 16
   %2 = load ptr, ptr %objects, align 8
-  %replace_map = getelementptr inbounds i8, ptr %2, i64 40
+  %replace_map = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load ptr, ptr %replace_map, align 8
   %call6 = tail call ptr @oidmap_put(ptr noundef %3, ptr noundef %call1) #8
   %tobool7.not = icmp eq ptr %call6, null
@@ -127,11 +127,11 @@ return:                                           ; preds = %if.end, %_.exit
 define dso_local noundef ptr @do_lookup_replace_object(ptr noundef %r, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   tail call void @prepare_replace_object(ptr noundef %r)
-  %objects = getelementptr inbounds i8, ptr %r, i64 16
+  %objects = getelementptr inbounds nuw i8, ptr %r, i64 16
   br label %while.body
 
 while.cond:                                       ; preds = %while.body
-  %replacement = getelementptr inbounds i8, ptr %call, i64 56
+  %replacement = getelementptr inbounds nuw i8, ptr %call, i64 56
   %dec = add nsw i32 %dec7, -1
   %cmp.not = icmp eq i32 %dec7, 0
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !5
@@ -140,7 +140,7 @@ while.body:                                       ; preds = %entry, %while.cond
   %dec7 = phi i32 [ 4, %entry ], [ %dec, %while.cond ]
   %cur.06 = phi ptr [ %oid, %entry ], [ %replacement, %while.cond ]
   %0 = load ptr, ptr %objects, align 8
-  %replace_map = getelementptr inbounds i8, ptr %0, i64 40
+  %replace_map = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %replace_map, align 8
   %call = tail call ptr @oidmap_get(ptr noundef %1, ptr noundef %cur.06) #8
   %tobool.not = icmp eq ptr %call, null
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   tail call void @prepare_repo_settings(ptr noundef nonnull %r) #8
-  %read_replace_refs = getelementptr inbounds i8, ptr %r, i64 184
+  %read_replace_refs = getelementptr inbounds nuw i8, ptr %r, i64 184
   %1 = load i32, ptr %read_replace_refs, align 8
   br label %return
 

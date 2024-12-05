@@ -40,11 +40,11 @@ define internal noundef i32 @mbc_case_fold(i32 %0, ptr nocapture noundef %1, ptr
   %6 = load ptr, ptr %1, align 8
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @EncISO_8859_7_ToLowerCaseTable, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @EncISO_8859_7_ToLowerCaseTable, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   store i8 %10, ptr %3, align 1
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %12, ptr %1, align 8
   ret i32 1
 }
@@ -70,7 +70,7 @@ define internal range(i32 0, 2) i32 @is_code_ctype(i32 noundef %0, i32 noundef %
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @EncISO_8859_7_CtypeTable, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_7_CtypeTable, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = lshr i32 %9, %1
@@ -101,7 +101,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
   %12 = phi ptr [ %57, %53 ], [ %8, %6 ]
   %.060 = phi i32 [ %spec.select58, %53 ], [ %7, %6 ]
   %.04459 = phi ptr [ %54, %53 ], [ %3, %6 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %1, align 8
   %14 = load i8, ptr %12, align 1
   %15 = icmp eq i8 %14, -14
@@ -126,7 +126,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 23:                                               ; preds = %.lr.ph
   %24 = zext i8 %14 to i64
-  %25 = getelementptr inbounds [256 x i16], ptr @EncISO_8859_7_CtypeTable, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x i16], ptr @EncISO_8859_7_CtypeTable, i64 0, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 1024
   %.not = icmp eq i16 %27, 0
@@ -137,7 +137,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 
 29:                                               ; preds = %23
   %30 = or i32 %.060, 262144
-  %31 = getelementptr inbounds [256 x i8], ptr @EncISO_8859_7_ToLowerCaseTable, i64 0, i64 %24
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @EncISO_8859_7_ToLowerCaseTable, i64 0, i64 %24
   %32 = load i8, ptr %31, align 1
   br label %53
 
@@ -188,7 +188,7 @@ define internal i32 @case_map(ptr nocapture noundef %0, ptr nocapture noundef %1
 53:                                               ; preds = %20, %45, %38, %29, %35, %43, %49, %51, %33, %18
   %.045 = phi i8 [ -45, %18 ], [ %32, %29 ], [ %14, %33 ], [ %44, %43 ], [ %50, %49 ], [ %52, %51 ], [ %14, %35 ], [ %spec.select, %20 ], [ -74, %38 ], [ -68, %45 ]
   %.1 = phi i32 [ %19, %18 ], [ %30, %29 ], [ %.060, %33 ], [ %39, %43 ], [ %39, %49 ], [ %39, %51 ], [ %.060, %35 ], [ %spec.select55, %20 ], [ %39, %38 ], [ %39, %45 ]
-  %54 = getelementptr inbounds i8, ptr %.04459, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.04459, i64 1
   store i8 %.045, ptr %.04459, align 1
   %55 = and i32 %.1, 32768
   %.not54 = icmp eq i32 %55, 0

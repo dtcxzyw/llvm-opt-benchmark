@@ -28,9 +28,9 @@ declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @from_utf8_mac_init(ptr nocapture noundef writeonly initializes((16, 24)) %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %3, align 4
   ret i32 0
 }
@@ -44,8 +44,8 @@ define internal i64 @fun_so_from_utf8_mac(ptr nocapture noundef %0, ptr noundef 
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %8, align 4
   %11 = load i32, ptr %9, align 4
   %.not5.i.i = icmp eq i32 %10, %11
@@ -70,8 +70,8 @@ define internal i64 @fun_so_from_utf8_mac(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not.i.i, label %from_utf8_mac_finish.exit, label %.lr.ph.i.i, !llvm.loop !6
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = load i32, ptr %23, align 4
   %26 = load i32, ptr %24, align 4
   %.not5.i.i29 = icmp eq i32 %25, %26
@@ -97,15 +97,15 @@ define internal i64 @fun_so_from_utf8_mac(ptr nocapture noundef %0, ptr noundef 
 
 from_utf8_mac_finish.exit34:                      ; preds = %.lr.ph.i.i30, %22
   %.0.lcssa.i.i33 = phi i64 [ 0, %22 ], [ %33, %.lr.ph.i.i30 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %38 = load i8, ptr %1, align 1
   %39 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa.i.i33
   store i8 %38, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %1, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %41 = load i8, ptr %37, align 1
   %42 = getelementptr i8, ptr %39, i64 1
   store i8 %41, ptr %42, align 1
-  %43 = getelementptr inbounds i8, ptr %1, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %44 = load i8, ptr %40, align 1
   %45 = getelementptr i8, ptr %39, i64 2
   store i8 %44, ptr %45, align 1
@@ -118,7 +118,7 @@ from_utf8_mac_finish.exit34:                      ; preds = %.lr.ph.i.i30, %22
 from_utf8_mac_finish.exit:                        ; preds = %.lr.ph.i.i, %5
   %.0 = phi i64 [ 0, %5 ], [ %18, %.lr.ph.i.i ]
   %49 = icmp sgt i64 %2, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre.i.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %49, label %.lr.ph.i, label %buf_push.exit
 
@@ -126,13 +126,13 @@ from_utf8_mac_finish.exit:                        ; preds = %.lr.ph.i.i, %5
   %.pre.i = phi i32 [ %10, %7 ], [ %.pre.i.pre, %from_utf8_mac_finish.exit ]
   %.038 = phi i64 [ 0, %7 ], [ %.0, %from_utf8_mac_finish.exit ]
   %50 = getelementptr inbounds i8, ptr %1, i64 %2
-  %51 = getelementptr inbounds i8, ptr %0, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %52
 
 52:                                               ; preds = %52, %.lr.ph.i
   %53 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %60, %52 ]
   %.07.i = phi ptr [ %1, %.lr.ph.i ], [ %54, %52 ]
-  %54 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %55 = load i8, ptr %.07.i, align 1
   %56 = add nsw i32 %53, 1
   store i32 %56, ptr %51, align 4
@@ -149,15 +149,15 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   %62 = phi i32 [ %.pre.i.pre, %from_utf8_mac_finish.exit ], [ %60, %52 ]
   %.037 = phi i64 [ %.0, %from_utf8_mac_finish.exit ], [ %.038, %52 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
-  %63 = getelementptr inbounds i8, ptr %0, i64 20
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %62, 16
   %67 = sub i32 %66, %65
   %68 = srem i32 %67, 16
   %69 = icmp slt i32 %68, 3
-  %.019.sroa.gep.i = getelementptr inbounds i8, ptr %6, i64 3
-  %.019.sroa.gep24.i = getelementptr inbounds i8, ptr %6, i64 2
+  %.019.sroa.gep.i = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %.019.sroa.gep24.i = getelementptr inbounds nuw i8, ptr %6, i64 2
   br i1 %69, label %buf_apply.exit, label %70
 
 70:                                               ; preds = %buf_push.exit
@@ -190,33 +190,33 @@ buf_push.exit:                                    ; preds = %52, %from_utf8_mac_
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
   %87 = lshr i64 %.0.i.i, 2
-  %88 = getelementptr inbounds i32, ptr @utf8_mac_word_array, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr @utf8_mac_word_array, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds i8, ptr @utf8_mac_byte_array, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr @utf8_mac_byte_array, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
   %94 = icmp ult i8 %85, %92
   br i1 %94, label %get_info.exit.thread.i.preheader, label %95
 
 95:                                               ; preds = %79
-  %96 = getelementptr inbounds i8, ptr %91, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 1
   %97 = load i8, ptr %96, align 1
   %98 = icmp ult i8 %97, %85
   br i1 %98, label %get_info.exit.thread.i.preheader, label %99
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %88, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = lshr i32 %101, 2
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr @utf8_mac_word_array, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr @utf8_mac_word_array, i64 %103
   %105 = add nuw nsw i64 %86, 2
   %106 = sub nsw i64 %105, %93
   %107 = getelementptr inbounds i8, ptr %91, i64 %106
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %104, i64 %109
+  %110 = getelementptr inbounds nuw i32, ptr %104, i64 %109
   %111 = load i32, ptr %110, align 4
   %112 = zext i32 %111 to i64
   %113 = and i64 %112, 3
@@ -240,7 +240,7 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
   store i8 %118, ptr %6, align 1
   %119 = lshr i64 %.1.i.i, 16
   %120 = trunc i64 %119 to i8
-  %121 = getelementptr inbounds i8, ptr %6, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %120, ptr %121, align 1
   %122 = icmp eq i64 %115, 5
   br i1 %122, label %123, label %126
@@ -259,7 +259,7 @@ get_info.exit.thread.i.preheader:                 ; preds = %95, %79, %get_info.
 127:                                              ; preds = %127, %126
   %128 = phi i32 [ 0, %126 ], [ %135, %127 ]
   %.07.i.i = phi ptr [ %6, %126 ], [ %129, %127 ]
-  %129 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %130 = load i8, ptr %.07.i.i, align 1
   %131 = add nsw i32 %128, 1
   store i32 %131, ptr %63, align 4
@@ -310,8 +310,8 @@ buf_apply.exit:                                   ; preds = %127, %get_info.exit
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i64 @from_utf8_mac_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 %2) #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %4, align 4
   %7 = load i32, ptr %5, align 4
   %.not5.i = icmp eq i32 %6, %7

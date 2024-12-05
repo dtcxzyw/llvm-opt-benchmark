@@ -14,11 +14,11 @@ define dso_local noundef i32 @luaopen_math(ptr noundef %L) local_unnamed_addr #0
 entry:
   %call = tail call ptr @lua_newuserdata(ptr noundef %L, i64 noundef 32) #4
   store i64 -6858288066814780532, ptr %call, align 8
-  %arrayidx2.i = getelementptr inbounds i8, ptr %call, i64 8
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 8523670790150465103, ptr %arrayidx2.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %call, i64 16
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i64 5846242980159741610, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds i8, ptr %call, i64 24
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i64 3037422542655043879, ptr %arrayidx6.i, align 8
   tail call void @lj_lib_register(ptr noundef %L, ptr noundef nonnull @.str, ptr noundef nonnull @lj_lib_init_math, ptr noundef nonnull @lj_lib_cf_math) #4
   ret i32 1
@@ -46,10 +46,10 @@ entry:
 define internal range(i32 0, 3) i32 @lj_ffh_math_log(ptr noundef %L) #0 {
 entry:
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef 1) #4
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %1 = load ptr, ptr %top, align 8
   %cmp = icmp ult ptr %add.ptr, %1
   br i1 %cmp, label %if.then, label %return
@@ -89,8 +89,8 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_ffh_math_min(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds i8, ptr %L, i64 32
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %entry
@@ -99,7 +99,7 @@ do.body:                                          ; preds = %do.body, %entry
   %0 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef %0) #4
   %1 = load ptr, ptr %base, align 8
-  %add.ptr = getelementptr inbounds %union.TValue, ptr %1, i64 %indvars.iv.next
+  %add.ptr = getelementptr inbounds nuw %union.TValue, ptr %1, i64 %indvars.iv.next
   %2 = load ptr, ptr %top, align 8
   %cmp = icmp ult ptr %add.ptr, %2
   br i1 %cmp, label %do.body, label %do.end, !llvm.loop !4
@@ -111,9 +111,9 @@ do.end:                                           ; preds = %do.body
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_math_random(ptr noundef %L) #0 {
 entry:
-  %top = getelementptr inbounds i8, ptr %L, i64 40
+  %top = getelementptr inbounds nuw i8, ptr %L, i64 40
   %0 = load ptr, ptr %top, align 8
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %1 = load ptr, ptr %base, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %1 to i64
@@ -124,11 +124,11 @@ entry:
   %2 = load i64, ptr %add.ptr, align 8
   %and = and i64 %2, 140737488355327
   %3 = inttoptr i64 %and to ptr
-  %upvalue = getelementptr inbounds i8, ptr %3, i64 48
+  %upvalue = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load i64, ptr %upvalue, align 8
   %and3 = and i64 %4, 140737488355327
   %5 = inttoptr i64 %and3 to ptr
-  %add.ptr4 = getelementptr inbounds i8, ptr %5, i64 48
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %call = tail call i64 @lj_prng_u64d(ptr noundef nonnull %add.ptr4) #4
   %6 = bitcast i64 %call to double
   %sub = fadd double %6, -1.000000e+00
@@ -158,7 +158,7 @@ if.else:                                          ; preds = %if.then
 if.end17:                                         ; preds = %if.then9, %if.else, %entry
   %d.0 = phi double [ %add, %if.then9 ], [ %add16, %if.else ], [ %sub, %entry ]
   %7 = load ptr, ptr %top, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %7, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %incdec.ptr, ptr %top, align 8
   store double %d.0, ptr %7, align 8
   ret i32 1
@@ -167,17 +167,17 @@ if.end17:                                         ; preds = %if.then9, %if.else,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_cf_math_randomseed(ptr noundef %L) #0 {
 entry:
-  %base = getelementptr inbounds i8, ptr %L, i64 32
+  %base = getelementptr inbounds nuw i8, ptr %L, i64 32
   %0 = load ptr, ptr %base, align 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 -16
   %1 = load i64, ptr %add.ptr, align 8
   %and = and i64 %1, 140737488355327
   %2 = inttoptr i64 %and to ptr
-  %upvalue = getelementptr inbounds i8, ptr %2, i64 48
+  %upvalue = getelementptr inbounds nuw i8, ptr %2, i64 48
   %3 = load i64, ptr %upvalue, align 8
   %and2 = and i64 %3, 140737488355327
   %4 = inttoptr i64 %and2 to ptr
-  %add.ptr3 = getelementptr inbounds i8, ptr %4, i64 48
+  %add.ptr3 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %call = tail call double @lj_lib_checknum(ptr noundef %L, i32 noundef 1) #4
   br label %for.body.i
 
@@ -194,7 +194,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %cmp1.i = icmp ult i64 %6, %conv.i
   %add.i = select i1 %cmp1.i, i64 %conv.i, i64 0
   %spec.select.i = add nuw nsw i64 %add.i, %6
-  %arrayidx.i = getelementptr inbounds [4 x i64], ptr %add.ptr3, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i64], ptr %add.ptr3, i64 0, i64 %indvars.iv.i
   store i64 %spec.select.i, ptr %arrayidx.i, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

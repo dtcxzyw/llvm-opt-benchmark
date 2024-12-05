@@ -67,25 +67,25 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @fig_begin_graph(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #17
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %8, ptr noundef %10, ptr noundef %12) #17
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @agnameof(ptr noundef %14) #17
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %15) #17
-  %16 = getelementptr inbounds i8, ptr %0, i64 284
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 288
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %19 = load i32, ptr %18, align 4
   %20 = mul nsw i32 %19, %17
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %20) #17
@@ -139,34 +139,34 @@ define internal void @fig_end_edge(ptr nocapture readnone %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @fig_textspan(ptr noundef %0, double %1, double %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr @Depth, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 472
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 480
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
-  %20 = getelementptr inbounds i8, ptr %11, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not35 = icmp eq ptr %21, null
   br i1 %.not35, label %25, label %22
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %21, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %24 = load i32, ptr %23, align 8
   br label %25
 
 25:                                               ; preds = %22, %4
   %.030 = phi i32 [ %24, %22 ], [ -1, %4 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %27 = load i8, ptr %26, align 8
   %switch.selectcmp = icmp eq i8 %27, 114
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 1
@@ -198,7 +198,7 @@ define internal void @fig_textspan(ptr noundef %0, double %1, double %2, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal void @fig_resolve_color(ptr noundef %0, ptr nocapture noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %64 [
     i32 5, label %.preheader
@@ -211,7 +211,7 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr nocapture noundef %1
 
 6:                                                ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %7 = getelementptr inbounds [9 x ptr], ptr @figcolor, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [9 x ptr], ptr @figcolor, i64 0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %5) #18
   %10 = icmp eq i32 %9, 0
@@ -228,9 +228,9 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr nocapture noundef %1
 
 14:                                               ; preds = %2
   %15 = load i8, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %1, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %19 = load i8, ptr %18, align 2
   %20 = load i32, ptr @figColorResolve.top, align 4
   %21 = icmp sgt i32 %20, 0
@@ -252,15 +252,15 @@ define internal void @fig_resolve_color(ptr noundef %0, ptr nocapture noundef %1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
   %.041.i = phi i64 [ 195075, %.lr.ph.i ], [ %.1.i, %48 ]
   %.03239.i = phi i32 [ -1, %.lr.ph.i ], [ %.133.i, %48 ]
-  %27 = getelementptr inbounds [256 x i16], ptr @figColorResolve.red, i64 0, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [256 x i16], ptr @figColorResolve.red, i64 0, i64 %indvars.iv.i
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i64
   %30 = sub nsw i64 %29, %23
-  %31 = getelementptr inbounds [256 x i16], ptr @figColorResolve.green, i64 0, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [256 x i16], ptr @figColorResolve.green, i64 0, i64 %indvars.iv.i
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = sub nsw i64 %33, %24
-  %35 = getelementptr inbounds [256 x i16], ptr @figColorResolve.blue, i64 0, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [256 x i16], ptr @figColorResolve.blue, i64 0, i64 %indvars.iv.i
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
   %38 = sub nsw i64 %37, %25
@@ -299,13 +299,13 @@ figColorResolve.exit.thread:                      ; preds = %45, %._crit_edge.i
   %.031.lcssa48.i = phi i32 [ 0, %._crit_edge.thread.i ], [ %20, %._crit_edge.i ]
   %53 = zext i8 %15 to i16
   %54 = zext nneg i32 %.031.lcssa48.i to i64
-  %55 = getelementptr inbounds [256 x i16], ptr @figColorResolve.red, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i16], ptr @figColorResolve.red, i64 0, i64 %54
   store i16 %53, ptr %55, align 2
   %56 = zext i8 %17 to i16
-  %57 = getelementptr inbounds [256 x i16], ptr @figColorResolve.green, i64 0, i64 %54
+  %57 = getelementptr inbounds nuw [256 x i16], ptr @figColorResolve.green, i64 0, i64 %54
   store i16 %56, ptr %57, align 2
   %58 = zext i8 %19 to i16
-  %59 = getelementptr inbounds [256 x i16], ptr @figColorResolve.blue, i64 0, i64 %54
+  %59 = getelementptr inbounds nuw [256 x i16], ptr @figColorResolve.blue, i64 0, i64 %54
   store i16 %58, ptr %59, align 2
   %60 = add nuw nsw i32 %.031.lcssa48.i, 32
   %61 = zext i8 %15 to i32
@@ -333,13 +333,13 @@ figColorResolve.exit.thread:                      ; preds = %45, %._crit_edge.i
 ; Function Attrs: nounwind uwtable
 define internal void @fig_ellipse(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
 fig_line_style.exit:
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = load i32, ptr @Depth, align 4
   %12 = getelementptr i8, ptr %4, i64 160
@@ -352,18 +352,18 @@ fig_line_style.exit:
   %14 = fcmp ult double %13, 0.000000e+00
   %.in.v = select i1 %14, double -5.000000e-01, double 5.000000e-01
   %.in = fadd double %13, %.in.v
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load double, ptr %15, align 8
   %17 = fcmp ult double %16, 0.000000e+00
   %.in58.v = select i1 %17, double -5.000000e-01, double 5.000000e-01
   %.in58 = fadd double %16, %.in58.v
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load double, ptr %18, align 8
   %20 = fsub double %19, %13
   %21 = fcmp ult double %20, 0.000000e+00
   %.in59.v = select i1 %21, double -5.000000e-01, double 5.000000e-01
   %.in59 = fadd double %20, %.in59.v
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load double, ptr %22, align 8
   %24 = fsub double %23, %16
   %25 = fcmp ult double %24, 0.000000e+00
@@ -391,14 +391,14 @@ fig_line_style.exit:
 ; Function Attrs: nounwind uwtable
 define internal void @fig_polygon(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) #0 {
 fig_line_style.exit:
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %7 = load double, ptr %6, align 8
   %8 = tail call double @llvm.round.f64(double %7)
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr @Depth, align 4
   %.not = icmp eq i32 %3, 0
@@ -422,7 +422,7 @@ fig_line_style.exit:
   %.in34.v.i = select i1 %19, double -5.000000e-01, double 5.000000e-01
   %.in34.i = fadd double %18, %.in34.v.i
   %20 = fptosi double %.in34.i to i32
-  %21 = getelementptr inbounds i8, ptr %17, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = load double, ptr %21, align 8
   %23 = fcmp ult double %22, 0.000000e+00
   %.in35.v.i = select i1 %23, double -5.000000e-01, double 5.000000e-01
@@ -439,7 +439,7 @@ figptarray.exit:                                  ; preds = %.lr.ph.i, %fig_line
   %.in.v.i = select i1 %27, double -5.000000e-01, double 5.000000e-01
   %.in.i = fadd double %26, %.in.v.i
   %28 = fptosi double %.in.i to i32
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fcmp ult double %30, 0.000000e+00
   %.in33.v.i = select i1 %31, double -5.000000e-01, double 5.000000e-01
@@ -455,12 +455,12 @@ define internal void @fig_bezier(ptr noundef %0, ptr nocapture noundef readonly 
 fig_line_style.exit:
   %4 = alloca [4 x %struct.pointf_s], align 16
   %5 = alloca %struct.agxbuf, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %9 = load double, ptr %8, align 8
   %10 = tail call double @llvm.round.f64(double %9)
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr @Depth, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -474,7 +474,7 @@ fig_line_style.exit:
   br i1 %.not, label %18, label %15
 
 15:                                               ; preds = %fig_line_style.exit
-  %16 = getelementptr inbounds i8, ptr %7, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %17 = load i32, ptr %16, align 8
   br label %18
 
@@ -483,11 +483,11 @@ fig_line_style.exit:
   %.063 = phi i32 [ %17, %15 ], [ 0, %fig_line_style.exit ]
   %.062 = phi i32 [ 5, %15 ], [ 4, %fig_line_style.exit ]
   %19 = load double, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store double %19, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load double, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %22, ptr %23, align 8
   %24 = fcmp ult double %19, 0.000000e+00
   %.in.v = select i1 %24, double -5.000000e-01, double 5.000000e-01
@@ -519,11 +519,11 @@ fig_line_style.exit:
   %.06484 = phi i64 [ 1, %.lr.ph ], [ %41, %34 ]
   %35 = getelementptr %struct.pointf_s, ptr %33, i64 %.06484
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06484
+  %37 = getelementptr inbounds nuw [4 x %struct.pointf_s], ptr %4, i64 0, i64 %.06484
   store double %36, ptr %37, align 16
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store double %39, ptr %40, align 8
   %41 = add nuw nsw i64 %.06484, 1
   %exitcond.not = icmp eq i64 %41, 4
@@ -552,12 +552,12 @@ fig_line_style.exit:
 agxbsizeof.exit.i.i:                              ; preds = %.loopexit, %18
   %.066.lcssa = phi i32 [ 1, %18 ], [ %29, %.loopexit ]
   call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef 3, i32 noundef %.062, i32 noundef %.sink1.i, double noundef %10, i32 noundef %12, i32 noundef %.063, i32 noundef %13, i32 noundef 0, i32 noundef %.068, double noundef %.sink.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %.066.lcssa) #17
-  %52 = getelementptr inbounds i8, ptr %5, i64 31
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 31
   %.val.i.i.i = load i8, ptr %52, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = zext i8 %.val.i.i.i to i64
   %.0.i20.i.i = select i1 %.not.i.i.i, i64 %54, i64 %57
@@ -584,7 +584,7 @@ agxbputc.exit.i.thread:                           ; preds = %59
 
 agxbputc.exit.i:                                  ; preds = %59
   %63 = zext i8 %.val.i.pr.i to i64
-  %64 = getelementptr inbounds [31 x i8], ptr %5, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [31 x i8], ptr %5, i64 0, i64 %63
   store i8 0, ptr %64, align 1
   %65 = load i8, ptr %52, align 1
   %66 = add i8 %65, 1
@@ -639,12 +639,12 @@ agxbfree.exit:                                    ; preds = %agxbuse.exit, %72
 ; Function Attrs: nounwind uwtable
 define internal void @fig_polyline(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
 fig_line_style.exit:
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load double, ptr %5, align 8
   %7 = tail call double @llvm.round.f64(double %6)
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr @Depth, align 4
   %11 = getelementptr i8, ptr %4, i64 160
@@ -665,7 +665,7 @@ fig_line_style.exit:
   %.in34.v.i = select i1 %14, double -5.000000e-01, double 5.000000e-01
   %.in34.i = fadd double %13, %.in34.v.i
   %15 = fptosi double %.in34.i to i32
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load double, ptr %16, align 8
   %18 = fcmp ult double %17, 0.000000e+00
   %.in35.v.i = select i1 %18, double -5.000000e-01, double 5.000000e-01
@@ -742,9 +742,9 @@ agxbsizeof.exit.i:                                ; preds = %8
   br label %agxblen.exit.i
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   br label %agxblen.exit.i
 
@@ -768,11 +768,11 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 22:                                               ; preds = %21
   %23 = zext i8 %.val.i.i.i to i64
-  %24 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %23
   br label %agxbnext.exit.i
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
@@ -797,7 +797,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
@@ -825,7 +825,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noun
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -878,7 +878,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -886,7 +886,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void

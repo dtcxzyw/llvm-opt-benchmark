@@ -36,39 +36,39 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN9LogTagSetC2EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
   store ptr %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store volatile i32 0, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %11, %7
   %.03.i = phi i64 [ 0, %7 ], [ %13, %11 ]
-  %12 = getelementptr inbounds [6 x ptr], ptr %9, i64 0, i64 %.03.i
+  %12 = getelementptr inbounds nuw [6 x ptr], ptr %9, i64 0, i64 %.03.i
   store volatile ptr null, ptr %12, align 8
   %13 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %13, 6
   br i1 %exitcond.not.i, label %_ZN13LogOutputListC2Ev.exit, label %11, !llvm.loop !6
 
 _ZN13LogOutputListC2Ev.exit:                      ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 3076, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %3, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %5, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %6, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %_ZN13LogOutputListC2Ev.exit, %24
   %storemerge6 = phi i64 [ 0, %_ZN13LogOutputListC2Ev.exit ], [ %25, %24 ]
-  %22 = getelementptr inbounds [5 x i32], ptr %16, i64 0, i64 %storemerge6
+  %22 = getelementptr inbounds nuw [5 x i32], ptr %16, i64 0, i64 %storemerge6
   %23 = load i32, ptr %22, align 4
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %.critedge, label %24
@@ -80,7 +80,7 @@ _ZN13LogOutputListC2Ev.exit:                      ; preds = %11
 
 .critedge:                                        ; preds = %24, %21
   %storemerge.lcssa = phi i64 [ 5, %24 ], [ %storemerge6, %21 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %storemerge.lcssa, ptr %26, align 8
   store ptr %0, ptr @_ZN9LogTagSet5_listE, align 8
   %27 = load i64, ptr @_ZN9LogTagSet9_ntagsetsE, align 8
@@ -92,9 +92,9 @@ _ZN13LogOutputListC2Ev.exit:                      ; preds = %11
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = load i32, ptr %1, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = tail call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %4) #11, !noalias !9
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load volatile ptr, ptr %6, align 8, !noalias !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !9, !srcloc !12
   %.not6 = icmp eq ptr %7, null
@@ -103,7 +103,7 @@ define hidden void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr nound
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.sroa.04.0.lcssa = phi i32 [ %3, %2 ], [ %13, %.lr.ph ]
   %8 = tail call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %4) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %.sroa.04.0.lcssa, ptr %9, align 8
   ret void
 
@@ -111,10 +111,10 @@ define hidden void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr nound
   %.sroa.0.08 = phi ptr [ %15, %.lr.ph ], [ %7, %2 ]
   %.sroa.04.07 = phi i32 [ %13, %.lr.ph ], [ %3, %2 ]
   %10 = load ptr, ptr %.sroa.0.08, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load i32, ptr %11, align 4
   %13 = or i32 %12, %.sroa.04.07
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.08, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 8
   %15 = load volatile ptr, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not = icmp eq ptr %15, null
@@ -123,9 +123,9 @@ define hidden void @_ZN9LogTagSet17update_decoratorsERK13LogDecorators(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #11, !noalias !14
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load volatile ptr, ptr %5, align 8, !noalias !14
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !14, !srcloc !12
   %.not6.not = icmp eq ptr %6, null
@@ -138,7 +138,7 @@ define hidden noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr nou
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 8
   %11 = load volatile ptr, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.not = icmp eq ptr %11, null
@@ -153,13 +153,13 @@ define hidden noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr nou
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9LogTagSet3logEN8LogLevel4typeEPKc(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.LogDecorations, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %5) #11, !noalias !18
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds [6 x ptr], ptr %5, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %7
   %9 = load volatile ptr, ptr %8, align 8, !noalias !18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !18, !srcloc !12
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %4, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(4) %10) #11
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -168,10 +168,10 @@ define hidden void @_ZN9LogTagSet3logEN8LogLevel4typeEPKc(ptr noundef nonnull al
   %.sroa.0.06 = phi ptr [ %17, %.lr.ph ], [ %9, %3 ]
   %11 = load ptr, ptr %.sroa.0.06, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = call noundef i32 %14(ptr noundef nonnull align 8 dereferenceable(156) %11, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %2) #11
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.06, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.06, i64 8
   %17 = load volatile ptr, ptr %16, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not = icmp eq ptr %17, null
@@ -188,29 +188,29 @@ declare void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorator
 define hidden void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.LogDecorations, align 8
   %4 = alloca %"class.LogMessageBuffer::Iterator", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
-  %6 = getelementptr inbounds i8, ptr %1, i64 60
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = tail call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %5) #11, !noalias !22
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds [6 x ptr], ptr %5, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [6 x ptr], ptr %5, i64 0, i64 %9
   %11 = load volatile ptr, ptr %10, align 8, !noalias !22
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !22, !srcloc !12
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %3, i32 noundef 7, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(4) %12) #11
   %.not6 = icmp eq ptr %11, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %16
 
 16:                                               ; preds = %.lr.ph, %16
   %.sroa.0.07 = phi ptr [ %11, %.lr.ph ], [ %25, %16 ]
   %17 = load ptr, ptr %.sroa.0.07, align 8
-  %18 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 16
   %19 = load i32, ptr %18, align 8
   store ptr %1, ptr %4, align 8, !alias.scope !25
   store i64 0, ptr %13, align 8, !alias.scope !25
@@ -218,10 +218,10 @@ define hidden void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull a
   store ptr %3, ptr %15, align 8, !alias.scope !25
   call void @_ZN16LogMessageBuffer8Iterator30skip_messages_with_finer_levelEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(156) %17, ptr noundef nonnull byval(%"class.LogMessageBuffer::Iterator") align 8 %4) #11
-  %24 = getelementptr inbounds i8, ptr %.sroa.0.07, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 8
   %25 = load volatile ptr, ptr %24, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not = icmp eq ptr %25, null
@@ -234,13 +234,13 @@ define hidden void @_ZN9LogTagSet3logERK16LogMessageBuffer(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK9LogTagSet5labelEP12outputStreamPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
@@ -250,7 +250,7 @@ define hidden void @_ZNK9LogTagSet5labelEP12outputStreamPKc(ptr nocapture nounde
   %10 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %.06
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %9, ptr noundef %14) #11
   %15 = add nuw i64 %.06, 1
@@ -268,13 +268,13 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 define hidden noundef i32 @_ZNK9LogTagSet5labelEPcmPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %class.stringStream, align 8
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %5, ptr noundef %1, i64 noundef %2) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %_ZNK9LogTagSet5labelEP12outputStreamPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %9, %.lr.ph.i
@@ -284,7 +284,7 @@ define hidden noundef i32 @_ZNK9LogTagSet5labelEPcmPKc(ptr nocapture noundef non
   %12 = getelementptr inbounds [5 x i32], ptr %8, i64 0, i64 %.06.i
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull @.str, ptr noundef %11, ptr noundef %16) #11
   %17 = add nuw i64 %.06.i, 1
@@ -293,7 +293,7 @@ define hidden noundef i32 @_ZNK9LogTagSet5labelEPcmPKc(ptr nocapture noundef non
   br i1 %19, label %9, label %_ZNK9LogTagSet5labelEP12outputStreamPKc.exit, !llvm.loop !29
 
 _ZNK9LogTagSet5labelEP12outputStreamPKc.exit:     ; preds = %9, %4
-  %20 = getelementptr inbounds i8, ptr %5, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %2, -1
   %.not = icmp ult i64 %21, %22
@@ -332,14 +332,14 @@ define hidden void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr
   %12 = alloca [512 x i8], align 16
   %13 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_copy.p0(ptr nonnull %13, ptr %3)
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i64 %15(ptr noundef nonnull %12, i64 noundef 512) #11
   %17 = icmp ult i64 %16, 512
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %12, i64 %16
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 %16
   %20 = sub nuw nsw i64 512, %16
   %21 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %19, i64 noundef %20, ptr noundef %2, ptr noundef %3) #11
   br label %24
@@ -355,13 +355,13 @@ define hidden void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %27) #11, !noalias !30
   %29 = zext i32 %1 to i64
-  %30 = getelementptr inbounds [6 x ptr], ptr %27, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [6 x ptr], ptr %27, i64 0, i64 %29
   %31 = load volatile ptr, ptr %30, align 8, !noalias !30
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !30, !srcloc !12
-  %32 = getelementptr inbounds i8, ptr %0, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %11, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(4) %32) #11
   %.not5.i = icmp eq ptr %31, null
   br i1 %.not5.i, label %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit, label %.lr.ph.i
@@ -370,10 +370,10 @@ define hidden void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr
   %.sroa.0.06.i = phi ptr [ %39, %.lr.ph.i ], [ %31, %26 ]
   %33 = load ptr, ptr %.sroa.0.06.i, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(156) %33, ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull %12) #11
-  %38 = getelementptr inbounds i8, ptr %.sroa.0.06.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i, i64 8
   %39 = load volatile ptr, ptr %38, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i = icmp eq ptr %39, null
@@ -394,10 +394,10 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit:       ; preds = %.lr.ph.i, %26
   %.sroa.0.06.i41 = phi ptr [ %49, %.lr.ph.i40 ], [ %42, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit ]
   %43 = load ptr, ptr %.sroa.0.06.i41, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(156) %43, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull @.str.5) #11
-  %48 = getelementptr inbounds i8, ptr %.sroa.0.06.i41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i41, i64 8
   %49 = load volatile ptr, ptr %48, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i42 = icmp eq ptr %49, null
@@ -417,13 +417,13 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit43:     ; preds = %.lr.ph.i40, %_ZN9Lo
 
 56:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %57) #11, !noalias !36
   %59 = zext i32 %1 to i64
-  %60 = getelementptr inbounds [6 x ptr], ptr %57, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [6 x ptr], ptr %57, i64 0, i64 %59
   %61 = load volatile ptr, ptr %60, align 8, !noalias !36
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !36, !srcloc !12
-  %62 = getelementptr inbounds i8, ptr %0, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %9, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(4) %62) #11
   %.not5.i44 = icmp eq ptr %61, null
   br i1 %.not5.i44, label %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48, label %.lr.ph.i45
@@ -432,10 +432,10 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit43:     ; preds = %.lr.ph.i40, %_ZN9Lo
   %.sroa.0.06.i46 = phi ptr [ %69, %.lr.ph.i45 ], [ %61, %56 ]
   %63 = load ptr, ptr %.sroa.0.06.i46, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 56
   %66 = load ptr, ptr %65, align 8
   %67 = call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(156) %63, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %12) #11
-  %68 = getelementptr inbounds i8, ptr %.sroa.0.06.i46, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i46, i64 8
   %69 = load volatile ptr, ptr %68, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i47 = icmp eq ptr %69, null
@@ -458,13 +458,13 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48:     ; preds = %.lr.ph.i45, %56
   %77 = sub i64 %54, %75
   %78 = call noundef i32 @_ZN2os9vsnprintfEPcmPKcP13__va_list_tag(ptr noundef nonnull %76, i64 noundef %77, ptr noundef %2, ptr noundef nonnull %13) #11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
-  %79 = getelementptr inbounds i8, ptr %0, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %79) #11, !noalias !39
   %81 = zext i32 %1 to i64
-  %82 = getelementptr inbounds [6 x ptr], ptr %79, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [6 x ptr], ptr %79, i64 0, i64 %81
   %83 = load volatile ptr, ptr %82, align 8, !noalias !39
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !39, !srcloc !12
-  %84 = getelementptr inbounds i8, ptr %0, i64 96
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %8, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(4) %84) #11
   %.not5.i49 = icmp eq ptr %83, null
   br i1 %.not5.i49, label %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53, label %.lr.ph.i50
@@ -473,10 +473,10 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit48:     ; preds = %.lr.ph.i45, %56
   %.sroa.0.06.i51 = phi ptr [ %91, %.lr.ph.i50 ], [ %83, %73 ]
   %85 = load ptr, ptr %.sroa.0.06.i51, align 8
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = call noundef i32 %88(ptr noundef nonnull align 8 dereferenceable(156) %85, ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %72) #11
-  %90 = getelementptr inbounds i8, ptr %.sroa.0.06.i51, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i51, i64 8
   %91 = load volatile ptr, ptr %90, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i52 = icmp eq ptr %91, null
@@ -501,10 +501,10 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53:     ; preds = %.lr.ph.i50, %73
   %.sroa.0.06.i56 = phi ptr [ %103, %.lr.ph.i55 ], [ %96, %94 ]
   %97 = load ptr, ptr %.sroa.0.06.i56, align 8
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 56
   %100 = load ptr, ptr %99, align 8
   %101 = call noundef i32 %100(ptr noundef nonnull align 8 dereferenceable(156) %97, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull @.str.6) #11
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.06.i56, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i56, i64 8
   %103 = load volatile ptr, ptr %102, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i57 = icmp eq ptr %103, null
@@ -520,16 +520,16 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58:     ; preds = %.lr.ph.i55, %94
   br label %135
 
 106:                                              ; preds = %71
-  %107 = getelementptr inbounds i8, ptr %12, i64 486
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 486
   %108 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef nonnull %107, i64 noundef 26, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.7) #11
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
-  %109 = getelementptr inbounds i8, ptr %0, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %110 = call noundef i32 @_ZN13LogOutputList16increase_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %109) #11, !noalias !45
   %111 = zext i32 %1 to i64
-  %112 = getelementptr inbounds [6 x ptr], ptr %109, i64 0, i64 %111
+  %112 = getelementptr inbounds nuw [6 x ptr], ptr %109, i64 0, i64 %111
   %113 = load volatile ptr, ptr %112, align 8, !noalias !45
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !45, !srcloc !12
-  %114 = getelementptr inbounds i8, ptr %0, i64 96
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @_ZN14LogDecorationsC1EN8LogLevel4typeERK9LogTagSetRK13LogDecorators(ptr noundef nonnull align 8 dereferenceable(48) %6, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 4 dereferenceable(4) %114) #11
   %.not5.i59 = icmp eq ptr %113, null
   br i1 %.not5.i59, label %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit63, label %.lr.ph.i60
@@ -538,10 +538,10 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58:     ; preds = %.lr.ph.i55, %94
   %.sroa.0.06.i61 = phi ptr [ %121, %.lr.ph.i60 ], [ %113, %106 ]
   %115 = load ptr, ptr %.sroa.0.06.i61, align 8
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 56
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef i32 %118(ptr noundef nonnull align 8 dereferenceable(156) %115, ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %12) #11
-  %120 = getelementptr inbounds i8, ptr %.sroa.0.06.i61, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i61, i64 8
   %121 = load volatile ptr, ptr %120, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i62 = icmp eq ptr %121, null
@@ -566,10 +566,10 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit63:     ; preds = %.lr.ph.i60, %106
   %.sroa.0.06.i66 = phi ptr [ %133, %.lr.ph.i65 ], [ %126, %124 ]
   %127 = load ptr, ptr %.sroa.0.06.i66, align 8
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 56
   %130 = load ptr, ptr %129, align 8
   %131 = call noundef i32 %130(ptr noundef nonnull align 8 dereferenceable(156) %127, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.9) #11
-  %132 = getelementptr inbounds i8, ptr %.sroa.0.06.i66, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i66, i64 8
   %133 = load volatile ptr, ptr %132, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.i67 = icmp eq ptr %133, null
@@ -612,13 +612,13 @@ define hidden void @_ZN9LogTagSet16describe_tagsetsEP12outputStream(ptr noundef 
   %.09 = phi ptr [ %20, %_ZNK9LogTagSet5labelEP12outputStreamPKc.exit ], [ @tagset_descriptions, %1 ]
   tail call void @_ZN12outputStream2spEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 1) #11
   %3 = load ptr, ptr %.09, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %_ZNK9LogTagSet5labelEP12outputStreamPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %7
 
 7:                                                ; preds = %7, %.lr.ph.i
@@ -628,7 +628,7 @@ define hidden void @_ZN9LogTagSet16describe_tagsetsEP12outputStream(ptr noundef 
   %10 = getelementptr inbounds [5 x i32], ptr %6, i64 0, i64 %.06.i
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str, ptr noundef nonnull %9, ptr noundef %14) #11
   %15 = add nuw i64 %.06.i, 1
@@ -637,10 +637,10 @@ define hidden void @_ZN9LogTagSet16describe_tagsetsEP12outputStream(ptr noundef 
   br i1 %17, label %7, label %_ZNK9LogTagSet5labelEP12outputStreamPKc.exit, !llvm.loop !29
 
 _ZNK9LogTagSet5labelEP12outputStreamPKc.exit:     ; preds = %7, %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.09, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12, ptr noundef %19) #11
-  %20 = getelementptr inbounds i8, ptr %.09, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.09, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !51
@@ -669,13 +669,13 @@ define hidden void @_ZN9LogTagSet16list_all_tagsetsEP12outputStream(ptr noundef 
   %.01619 = phi i64 [ %22, %_ZNK9LogTagSet5labelEPcmPKc.exit ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2)
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %2, ptr noundef nonnull %3, i64 noundef 128) #11
-  %7 = getelementptr inbounds i8, ptr %.020, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %8 = load i64, ptr %7, align 8
   %.not.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i, label %_ZNK9LogTagSet5labelEPcmPKc.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.020, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph.i.i
@@ -685,7 +685,7 @@ define hidden void @_ZN9LogTagSet16list_all_tagsetsEP12outputStream(ptr noundef 
   %13 = getelementptr inbounds [5 x i32], ptr %9, i64 0, i64 %.06.i.i
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6LogTag5_nameE, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str, ptr noundef nonnull %12, ptr noundef %17) #11
   %18 = add nuw i64 %.06.i.i, 1

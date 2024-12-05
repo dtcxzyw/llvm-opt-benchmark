@@ -18,7 +18,7 @@ define dso_local i32 @acpi_hw_gpe_read(ptr nocapture noundef writeonly %0, ptr n
   store i32 0, ptr %3, align 4, !annotation !5
   %4 = load i8, ptr %1, align 8
   %5 = icmp eq i8 %4, 0
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   br i1 %5, label %8, label %12
 
@@ -66,14 +66,14 @@ define dso_local i32 @acpi_hw_gpe_write(i64 noundef %0, ptr nocapture noundef re
 
 5:                                                ; preds = %2
   %6 = trunc i64 %0 to i8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = inttoptr i64 %8 to ptr
   store i8 %6, ptr %9, align 1
   br label %15
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %0 to i32
   %14 = tail call i32 @acpi_os_write_port(i64 noundef %12, i32 noundef %13, i32 noundef 8) #5
@@ -89,12 +89,12 @@ declare dso_local i32 @acpi_os_write_port(i64 noundef, i32 noundef, i32 noundef)
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i32 1, -2147483647) i32 @acpi_hw_get_gpe_register_bit(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 17
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i16, ptr %7, align 8
   %9 = zext i16 %8 to i32
   %10 = sub nsw i32 %4, %9
@@ -105,18 +105,18 @@ define dso_local range(i32 1, -2147483647) i32 @acpi_hw_get_gpe_register_bit(ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_hw_low_set_gpe(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %66, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   store i32 0, ptr %3, align 4, !annotation !5
   %9 = load i8, ptr %8, align 8
   %10 = icmp eq i8 %9, 0
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %12 = load i64, ptr %11, align 8
   br i1 %10, label %13, label %17
 
@@ -145,10 +145,10 @@ define dso_local i32 @acpi_hw_low_set_gpe(ptr nocapture noundef readonly %0, i32
   %25 = phi ptr [ %.pre, %20 ], [ %5, %13 ]
   %.ph = phi i64 [ %22, %20 ], [ %16, %13 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #5
-  %26 = getelementptr inbounds i8, ptr %0, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %25, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %30 = load i16, ptr %29, align 8
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %28, %31
@@ -160,7 +160,7 @@ define dso_local i32 @acpi_hw_low_set_gpe(ptr nocapture noundef readonly %0, i32
   ]
 
 34:                                               ; preds = %24
-  %35 = getelementptr inbounds i8, ptr %5, i64 37
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 37
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = and i32 %33, %37
@@ -184,7 +184,7 @@ define dso_local i32 @acpi_hw_low_set_gpe(ptr nocapture noundef readonly %0, i32
 
 48:                                               ; preds = %43, %40
   %49 = phi i64 [ %46, %43 ], [ %42, %40 ]
-  %50 = getelementptr inbounds i8, ptr %5, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %51 = load i8, ptr %50, align 4
   %52 = zext i8 %51 to i32
   %53 = and i32 %33, %52
@@ -219,16 +219,16 @@ declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) l
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_hw_clear_gpe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %25, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %10 = load i16, ptr %9, align 8
   %11 = zext i16 %10 to i32
   %12 = sub nsw i32 %8, %11
@@ -239,14 +239,14 @@ define dso_local i32 @acpi_hw_clear_gpe(ptr nocapture noundef readonly %0) local
 
 16:                                               ; preds = %5
   %17 = trunc i32 %13 to i8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = inttoptr i64 %19 to ptr
   store i8 %17, ptr %20, align 1
   br label %25
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = tail call i32 @acpi_os_write_port(i64 noundef %23, i32 noundef %13, i32 noundef 8) #5
   br label %25
@@ -264,47 +264,47 @@ define dso_local i32 @acpi_hw_get_gpe_status(ptr nocapture noundef readonly %0, 
   br i1 %5, label %84, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, 7
   %10 = icmp eq i8 %9, 0
   %11 = select i1 %10, i32 0, i32 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 17
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %13, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %18 = load i16, ptr %17, align 8
   %19 = zext i16 %18 to i32
   %20 = sub nsw i32 %16, %19
   %21 = shl nuw i32 1, %20
-  %22 = getelementptr inbounds i8, ptr %13, i64 35
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 35
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = lshr i32 %24, %20
   %26 = and i32 %25, 1
   %27 = or disjoint i32 %26, %11
-  %28 = getelementptr inbounds i8, ptr %13, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 36
   %29 = load i8, ptr %28, align 4
   %30 = zext i8 %29 to i32
   %31 = and i32 %21, %30
   %32 = icmp eq i32 %31, 0
   %33 = or disjoint i32 %27, 32
   %34 = select i1 %32, i32 %27, i32 %33
-  %35 = getelementptr inbounds i8, ptr %13, i64 34
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 34
   %36 = load i8, ptr %35, align 2
   %37 = zext i8 %36 to i32
   %38 = and i32 %21, %37
   %39 = icmp eq i32 %38, 0
   %40 = or disjoint i32 %34, 2
   %41 = select i1 %39, i32 %34, i32 %40
-  %42 = getelementptr inbounds i8, ptr %13, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #5
   store i32 0, ptr %4, align 4, !annotation !5
   %43 = load i8, ptr %42, align 8
   %44 = icmp eq i8 %43, 0
-  %45 = getelementptr inbounds i8, ptr %13, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %46 = load i64, ptr %45, align 8
   br i1 %44, label %47, label %51
 
@@ -340,7 +340,7 @@ define dso_local i32 @acpi_hw_get_gpe_status(ptr nocapture noundef readonly %0, 
   store i32 0, ptr %3, align 4, !annotation !5
   %64 = load i8, ptr %13, align 8
   %65 = icmp eq i8 %64, 0
-  %66 = getelementptr inbounds i8, ptr %13, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %67 = load i64, ptr %66, align 8
   br i1 %65, label %68, label %72
 
@@ -381,13 +381,13 @@ define dso_local i32 @acpi_hw_get_gpe_status(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_hw_disable_gpe_block(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %14
 
 9:                                                ; preds = %.thread, %25
@@ -401,12 +401,12 @@ define dso_local i32 @acpi_hw_disable_gpe_block(ptr nocapture readnone %0, ptr n
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr %struct.acpi_gpe_register_info, ptr %16, i64 %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 37
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 37
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
-  %22 = getelementptr inbounds i8, ptr %17, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %23 = load i64, ptr %22, align 8
   br i1 %21, label %.thread, label %25
 
@@ -427,13 +427,13 @@ define dso_local i32 @acpi_hw_disable_gpe_block(ptr nocapture readnone %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_hw_clear_gpe_block(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %14
 
 9:                                                ; preds = %.thread, %23
@@ -449,7 +449,7 @@ define dso_local i32 @acpi_hw_clear_gpe_block(ptr nocapture noundef readnone %0,
   %17 = getelementptr %struct.acpi_gpe_register_info, ptr %16, i64 %15
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load i64, ptr %20, align 8
   br i1 %19, label %.thread, label %23
 
@@ -470,35 +470,35 @@ define dso_local i32 @acpi_hw_clear_gpe_block(ptr nocapture noundef readnone %0,
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_hw_enable_runtime_gpe_block(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %9
 
 9:                                                ; preds = %32, %7
   %10 = phi i64 [ 0, %7 ], [ %33, %32 ]
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr %struct.acpi_gpe_register_info, ptr %11, i64 %10
-  %13 = getelementptr inbounds i8, ptr %12, i64 35
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 35
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %32, label %16
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %12, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %18 = load i8, ptr %17, align 4
   %19 = xor i8 %18, -1
   %20 = and i8 %14, %19
-  %21 = getelementptr inbounds i8, ptr %12, i64 37
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 37
   store i8 %20, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %12, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 0
-  %25 = getelementptr inbounds i8, ptr %12, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %26 = load i64, ptr %25, align 8
   br i1 %24, label %.thread, label %28
 
@@ -548,13 +548,13 @@ define dso_local i32 @acpi_hw_enable_all_wakeup_gpes() local_unnamed_addr #0 ali
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @acpi_hw_enable_wakeup_gpe_block(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %14
 
 9:                                                ; preds = %.thread, %27
@@ -568,14 +568,14 @@ define internal i32 @acpi_hw_enable_wakeup_gpe_block(ptr nocapture readnone %0, 
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
   %16 = load ptr, ptr %8, align 8
   %17 = getelementptr %struct.acpi_gpe_register_info, ptr %16, i64 %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 34
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 34
   %19 = load i8, ptr %18, align 2
-  %20 = getelementptr inbounds i8, ptr %17, i64 37
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 37
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 0
-  %24 = getelementptr inbounds i8, ptr %17, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %25 = load i64, ptr %24, align 8
   br i1 %23, label %.thread, label %27
 
@@ -607,19 +607,19 @@ define dso_local zeroext range(i8 0, 2) i8 @acpi_hw_check_all_gpes(ptr noundef %
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 17
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = load i16, ptr %14, align 8
   %16 = zext i16 %15 to i32
   %17 = sub nsw i32 %13, %16
   %18 = shl nuw i32 1, %17
   %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %19, ptr %20, align 8
   br label %21
 
@@ -627,7 +627,7 @@ define dso_local zeroext range(i8 0, 2) i8 @acpi_hw_check_all_gpes(ptr noundef %
   %22 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
   tail call void @acpi_os_release_lock(ptr noundef %22, i64 noundef %5) #5
   %23 = call i32 @acpi_ev_walk_gpe_list(ptr noundef nonnull @acpi_hw_get_gpe_block_status, ptr noundef nonnull %3) #5
-  %24 = getelementptr inbounds i8, ptr %3, i64 9
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %25 = load i8, ptr %24, align 1
   %26 = icmp ne i8 %25, 0
   %27 = zext i1 %26 to i8
@@ -651,27 +651,27 @@ declare dso_local void @acpi_os_release_lock(ptr noundef, i64 noundef) local_unn
 define internal noundef i32 @acpi_hw_get_gpe_block_status(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 9
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 9
   br label %13
 
 13:                                               ; preds = %68, %9
   %14 = phi i64 [ 0, %9 ], [ %69, %68 ]
   %15 = load ptr, ptr %10, align 8
   %16 = getelementptr %struct.acpi_gpe_register_info, ptr %15, i64 %14
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #5
   store i32 0, ptr %5, align 4, !annotation !5
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %21 = load i64, ptr %20, align 8
   br i1 %19, label %22, label %26
 
@@ -702,7 +702,7 @@ define internal noundef i32 @acpi_hw_get_gpe_block_status(ptr nocapture readnone
   store i32 0, ptr %4, align 4, !annotation !5
   %34 = load i8, ptr %16, align 8
   %35 = icmp eq i8 %34, 0
-  %36 = getelementptr inbounds i8, ptr %16, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %37 = load i64, ptr %36, align 8
   br i1 %35, label %38, label %42
 

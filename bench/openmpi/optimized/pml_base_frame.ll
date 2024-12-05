@@ -91,7 +91,7 @@ define internal range(i32 -1, 1) i32 @mca_pml_base_open(i32 noundef %0) #1 {
 6:                                                ; preds = %5, %1
   store ptr @opal_free_list_t_class, ptr @mca_pml_base_send_requests, align 16
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_pml_base_send_requests, i64 8), align 8
-  %7 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
+  %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %8 = load ptr, ptr %7, align 8
   %.not6.i = icmp eq ptr %8, null
   br i1 %.not6.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -100,7 +100,7 @@ define internal range(i32 -1, 1) i32 @mca_pml_base_open(i32 noundef %0) #1 {
   %9 = phi ptr [ %11, %.lr.ph.i ], [ %8, %6 ]
   %.07.i = phi ptr [ %10, %.lr.ph.i ], [ %7, %6 ]
   tail call void %9(ptr noundef nonnull @mca_pml_base_send_requests) #6
-  %10 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -118,7 +118,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
 15:                                               ; preds = %14, %opal_obj_run_constructors.exit
   store ptr @opal_free_list_t_class, ptr @mca_pml_base_recv_requests, align 16
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_pml_base_recv_requests, i64 8), align 8
-  %16 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_free_list_t_class, i64 40), align 8
+  %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_free_list_t_class, i64 40), align 8
   %17 = load ptr, ptr %16, align 8
   %.not6.i8 = icmp eq ptr %17, null
   br i1 %.not6.i8, label %opal_obj_run_constructors.exit12, label %.lr.ph.i9
@@ -127,7 +127,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %6
   %18 = phi ptr [ %20, %.lr.ph.i9 ], [ %17, %15 ]
   %.07.i10 = phi ptr [ %19, %.lr.ph.i9 ], [ %16, %15 ]
   tail call void %18(ptr noundef nonnull @mca_pml_base_recv_requests) #6
-  %19 = getelementptr inbounds i8, ptr %.07.i10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.07.i10, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not.i11 = icmp eq ptr %20, null
   br i1 %.not.i11, label %opal_obj_run_constructors.exit12, label %.lr.ph.i9, !llvm.loop !4
@@ -145,7 +145,7 @@ opal_obj_run_constructors.exit12:                 ; preds = %.lr.ph.i9, %15
 24:                                               ; preds = %23, %opal_obj_run_constructors.exit12
   store ptr @opal_pointer_array_t_class, ptr @mca_pml_base_pml, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_pml_base_pml, i64 8), align 8
-  %25 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_pointer_array_t_class, i64 40), align 8
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_pointer_array_t_class, i64 40), align 8
   %26 = load ptr, ptr %25, align 8
   %.not6.i13 = icmp eq ptr %26, null
   br i1 %.not6.i13, label %opal_obj_run_constructors.exit17, label %.lr.ph.i14
@@ -154,7 +154,7 @@ opal_obj_run_constructors.exit12:                 ; preds = %.lr.ph.i9, %15
   %27 = phi ptr [ %29, %.lr.ph.i14 ], [ %26, %24 ]
   %.07.i15 = phi ptr [ %28, %.lr.ph.i14 ], [ %25, %24 ]
   tail call void %27(ptr noundef nonnull @mca_pml_base_pml) #6
-  %28 = getelementptr inbounds i8, ptr %.07.i15, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i15, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i16 = icmp eq ptr %29, null
   br i1 %.not.i16, label %opal_obj_run_constructors.exit17, label %.lr.ph.i14, !llvm.loop !4
@@ -215,7 +215,7 @@ define internal i32 @mca_pml_base_close() #1 {
 
 4:                                                ; preds = %0, %2
   %5 = load ptr, ptr @mca_pml_base_send_requests, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %.not6.i = icmp eq ptr %8, null
@@ -225,14 +225,14 @@ define internal i32 @mca_pml_base_close() #1 {
   %9 = phi ptr [ %11, %.lr.ph.i ], [ %8, %4 ]
   %.07.i = phi ptr [ %10, %.lr.ph.i ], [ %7, %4 ]
   tail call void %9(ptr noundef nonnull @mca_pml_base_send_requests) #6
-  %10 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
 
 opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %4
   %12 = load ptr, ptr @mca_pml_base_recv_requests, align 16
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %.not6.i5 = icmp eq ptr %15, null
@@ -242,7 +242,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %4
   %16 = phi ptr [ %18, %.lr.ph.i6 ], [ %15, %opal_obj_run_destructors.exit ]
   %.07.i7 = phi ptr [ %17, %.lr.ph.i6 ], [ %14, %opal_obj_run_destructors.exit ]
   tail call void %16(ptr noundef nonnull @mca_pml_base_recv_requests) #6
-  %17 = getelementptr inbounds i8, ptr %.07.i7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.07.i7, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i8 = icmp eq ptr %18, null
   br i1 %.not.i8, label %opal_obj_run_destructors.exit9, label %.lr.ph.i6, !llvm.loop !6
@@ -277,7 +277,7 @@ opal_obj_run_destructors.exit9:                   ; preds = %.lr.ph.i6, %opal_ob
 28:                                               ; preds = %26, %23
   %29 = phi i8 [ %24, %23 ], [ %.pre.i, %26 ]
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml_base_pml, i64 112), align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = trunc i8 %29 to i1
   br i1 %33, label %34, label %opal_pointer_array_get_item.exit
@@ -295,7 +295,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %28, %34
 
 ._crit_edge:                                      ; preds = %opal_pointer_array_get_item.exit, %opal_obj_run_destructors.exit9
   %36 = load ptr, ptr @mca_pml_base_pml, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %.not6.i10 = icmp eq ptr %39, null
@@ -305,7 +305,7 @@ opal_pointer_array_get_item.exit:                 ; preds = %.lr.ph, %28, %34
   %40 = phi ptr [ %42, %.lr.ph.i11 ], [ %39, %._crit_edge ]
   %.07.i12 = phi ptr [ %41, %.lr.ph.i11 ], [ %38, %._crit_edge ]
   tail call void %40(ptr noundef nonnull @mca_pml_base_pml) #6
-  %41 = getelementptr inbounds i8, ptr %.07.i12, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.07.i12, i64 8
   %42 = load ptr, ptr %41, align 8
   %.not.i13 = icmp eq ptr %42, null
   br i1 %.not.i13, label %opal_obj_run_destructors.exit14, label %.lr.ph.i11, !llvm.loop !6

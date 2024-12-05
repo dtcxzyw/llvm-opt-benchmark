@@ -212,7 +212,7 @@ define hidden noundef i32 @_ZNK4ncnn15Mish_x86_avx51215forward_inplaceERNS_3MatE
   %142 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %141, <16 x float> splat (float 2.000000e+00), <16 x float> splat (float -1.000000e+00))
   %143 = fmul fast <16 x float> %142, %63
   store <16 x float> %143, ptr %.011911422, align 1
-  %144 = getelementptr inbounds i8, ptr %.011911422, i64 64
+  %144 = getelementptr inbounds nuw i8, ptr %.011911422, i64 64
   %145 = add nuw nsw i32 %.011921421, 16
   %146 = or disjoint i32 %145, 15
   %147 = icmp slt i32 %146, %16
@@ -314,7 +314,7 @@ define hidden noundef i32 @_ZNK4ncnn15Mish_x86_avx51215forward_inplaceERNS_3MatE
   %232 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %231, <8 x float> splat (float 2.000000e+00), <8 x float> splat (float -1.000000e+00))
   %233 = fmul fast <8 x float> %232, %150
   store <8 x float> %233, ptr %.11425, align 1
-  %234 = getelementptr inbounds i8, ptr %.11425, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %.11425, i64 32
   %235 = add nuw nsw i32 %.111931424, 8
   %236 = or disjoint i32 %235, 7
   %237 = icmp slt i32 %236, %16
@@ -419,7 +419,7 @@ define hidden noundef i32 @_ZNK4ncnn15Mish_x86_avx51215forward_inplaceERNS_3MatE
   %325 = fadd fast <4 x float> %324, splat (float -1.000000e+00)
   %326 = fmul fast <4 x float> %325, %239
   store <4 x float> %326, ptr %.21430, align 1
-  %327 = getelementptr inbounds i8, ptr %.21430, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %.21430, i64 16
   %328 = add nuw nsw i32 %.211941429, 4
   %329 = or disjoint i32 %328, 3
   %330 = icmp slt i32 %329, %16
@@ -435,7 +435,7 @@ define hidden noundef i32 @_ZNK4ncnn15Mish_x86_avx51215forward_inplaceERNS_3MatE
   %335 = tail call fast float @llvm.tanh.f32(float %334)
   %336 = fmul fast float %335, %331
   store float %336, ptr %.31435, align 4
-  %337 = getelementptr inbounds i8, ptr %.31435, i64 4
+  %337 = getelementptr inbounds nuw i8, ptr %.31435, i64 4
   %338 = add nuw nsw i32 %.311951434, 1
   %exitcond.not = icmp eq i32 %338, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph1436, !llvm.loop !8

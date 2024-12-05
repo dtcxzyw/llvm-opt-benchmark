@@ -415,12 +415,12 @@ define internal i32 @dissect_goose(ptr noundef %0, ptr noundef %1, ptr noundef %
   %5 = alloca i32, align 4
   %6 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = call noalias ptr @wmem_alloc(ptr noundef %8, i64 noundef 4) #3
-  %10 = getelementptr inbounds i8, ptr %6, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.193) #3
   %13 = load ptr, ptr %11, align 8
@@ -524,12 +524,12 @@ define internal range(i32 0, 2) i32 @dissect_rgoose_heur(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %12)
   call void @asn1_ctx_init(ptr noundef nonnull %12, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #3
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %19 = load ptr, ptr %18, align 8
   %20 = call noalias ptr @wmem_alloc(ptr noundef %19, i64 noundef 4) #3
-  %21 = getelementptr inbounds i8, ptr %12, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.195) #3
   %24 = load ptr, ptr %22, align 8
@@ -888,7 +888,7 @@ define internal noundef i32 @dissect_goose_UtcTime(i1 zeroext %0, ptr noundef %1
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @proto_tree_add_expert(ptr noundef %4, ptr noundef %11, ptr noundef nonnull @ei_goose_mal_utctime, ptr noundef %1, i32 noundef %2, i32 noundef %8) #3
   %13 = icmp sgt i32 %5, 0
@@ -909,11 +909,11 @@ define internal noundef i32 @dissect_goose_UtcTime(i1 zeroext %0, ptr noundef %1
   %24 = trunc nuw nsw i64 %23 to i32
   %25 = zext i32 %17 to i64
   store i64 %25, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @abs_time_to_str_ex(ptr noundef %30, ptr noundef nonnull %7, i32 noundef 19, i32 noundef 1) #3
   %32 = icmp sgt i32 %5, 0
@@ -932,13 +932,13 @@ define internal i32 @dissect_goose_T_simulation(i1 noundef zeroext %0, ptr nound
   %7 = alloca i8, align 1
   %8 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #3
   %9 = call i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #3
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %28, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %14 = load ptr, ptr %13, align 8
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %28, label %15
@@ -957,7 +957,7 @@ define internal i32 @dissect_goose_T_simulation(i1 noundef zeroext %0, ptr nound
 22:                                               ; preds = %18
   %23 = load i32, ptr @ett_expert_inf_sim, align 4
   %24 = call ptr @proto_item_add_subtree(ptr noundef nonnull %14, i32 noundef %23) #3
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @proto_tree_add_expert(ptr noundef %24, ptr noundef %26, ptr noundef nonnull @ei_goose_invalid_sim, ptr noundef %1, i32 noundef %2, i32 noundef %8) #3
   br label %28
@@ -993,9 +993,9 @@ declare i32 @dissect_ber_boolean(i1 noundef zeroext, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_goose_Data(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 432
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 432
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 2
   store i32 %11, ptr %9, align 8
@@ -1004,7 +1004,7 @@ define internal i32 @dissect_goose_Data(i1 zeroext %0, ptr noundef %1, i32 nound
   %13 = load i32, ptr @ett_goose_Data, align 4
   %14 = tail call i32 @dissect_ber_choice(ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @Data_choice, i32 noundef %5, i32 noundef %13, ptr noundef null) #3
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 432
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 432
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -2
   store i32 %18, ptr %16, align 8
@@ -1036,19 +1036,19 @@ define internal i32 @dissect_goose_FloatingPoint(i1 noundef zeroext %0, ptr noun
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load ptr, ptr %17, align 8
   %.not5.i = icmp eq ptr %18, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = or i32 %21, 1
   store i32 %22, ptr %20, align 4

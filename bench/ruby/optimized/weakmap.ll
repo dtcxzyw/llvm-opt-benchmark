@@ -98,7 +98,7 @@ declare void @rb_define_alloc_func(i64 noundef, ptr noundef) local_unnamed_addr 
 define internal i64 @wmap_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 8, ptr noundef nonnull @weakmap_type) #9
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -123,7 +123,7 @@ define internal noundef range(i64 1, 0) i64 @wmap_aset(i64 noundef %0, i64 nound
   %4 = alloca [2 x i64], align 16
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #9
   store i64 %1, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %5, align 8
   %8 = ptrtoint ptr %4 to i64
@@ -283,7 +283,7 @@ define internal i64 @wmap_inspect(i64 noundef %0) #0 {
 
 7:                                                ; preds = %1
   %8 = inttoptr i64 %0 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %rb_class_of.exit
 
 10:                                               ; preds = %1
@@ -319,9 +319,9 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   %21 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str.22, i64 noundef %18, ptr noundef %20) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %19, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wmap_inspect_i, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %21, ptr %23, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = ptrtoint ptr %2 to i64
@@ -331,7 +331,7 @@ rb_class_of.exit:                                 ; preds = %7, %10, %11, %12, %
   %28 = load i64, ptr %27, align 8, !noalias !7
   %29 = and i64 %28, 8192
   %.not.i.i = icmp eq i64 %29, 0
-  %30 = getelementptr inbounds i8, ptr %27, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %31
 
 31:                                               ; preds = %rb_class_of.exit
@@ -351,9 +351,9 @@ define internal noundef i64 @wmap_each(i64 noundef returned %0) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wmap_each_i, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %2 to i64
@@ -368,9 +368,9 @@ define internal noundef i64 @wmap_each_key(i64 noundef returned %0) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wmap_each_key_i, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %2 to i64
@@ -385,9 +385,9 @@ define internal noundef i64 @wmap_each_value(i64 noundef returned %0) #0 {
   %3 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @weakmap_type) #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wmap_each_value_i, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %3, align 8
   %7 = ptrtoint ptr %2 to i64
@@ -403,9 +403,9 @@ define internal i64 @wmap_keys(i64 noundef %0) #0 {
   %4 = tail call i64 @rb_ary_new() #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wmap_keys_i, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %4, ptr %6, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = ptrtoint ptr %2 to i64
@@ -421,9 +421,9 @@ define internal i64 @wmap_values(i64 noundef %0) #0 {
   %4 = tail call i64 @rb_ary_new() #9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @wmap_values_i, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %4, ptr %6, align 8
   %7 = load ptr, ptr %3, align 8
   %8 = ptrtoint ptr %2 to i64
@@ -460,7 +460,7 @@ declare void @rb_include_module(i64 noundef, i64 noundef) local_unnamed_addr #1
 define internal i64 @wkmap_allocate(i64 noundef %0) #0 {
   %2 = tail call i64 @rb_data_typed_object_zalloc(i64 noundef %0, i64 noundef 8, ptr noundef nonnull @weakkeymap_type) #9
   %3 = inttoptr i64 %2 to ptr
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 2
   %.not.i = icmp eq i64 %6, 0
@@ -512,7 +512,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %3, %11
 
 22:                                               ; preds = %11
   store i64 %1, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %2, ptr %23, align 8
   %24 = load ptr, ptr %6, align 8
   %25 = ptrtoint ptr %4 to i64
@@ -670,7 +670,7 @@ define internal i64 @wkmap_inspect(i64 noundef %0) #0 {
 
 9:                                                ; preds = %1
   %10 = inttoptr i64 %0 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %rb_class_of.exit
 
 12:                                               ; preds = %1
@@ -889,7 +889,7 @@ define internal noundef i32 @wmap_aset_replace(ptr nocapture noundef %0, ptr noc
   %10 = tail call noalias nonnull dereferenceable(16) ptr @ruby_xmalloc(i64 noundef 16) #13
   %11 = ptrtoint ptr %10 to i64
   store i64 %11, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = ptrtoint ptr %12 to i64
   store i64 %13, ptr %1, align 8
   br label %14
@@ -929,7 +929,7 @@ define internal void @wmap_inspect_i(i64 noundef %0, i64 noundef %1, i64 noundef
   %5 = load i64, ptr %4, align 8, !noalias !10
   %6 = and i64 %5, 8192
   %.not.i.i = icmp eq i64 %6, 0
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %8
 
 8:                                                ; preds = %3
@@ -1014,9 +1014,9 @@ define internal range(i32 0, 3) i32 @wmap_foreach_i(i64 noundef %0, i64 noundef 
 
 10:                                               ; preds = %3
   %11 = inttoptr i64 %2 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load i64, ptr %14, align 8
   tail call void %13(i64 noundef %5, i64 noundef %7, i64 noundef %15) #9
   br label %17
@@ -1253,7 +1253,7 @@ define internal noundef i32 @wkmap_aset_replace(ptr nocapture noundef %0, ptr no
   %9 = inttoptr i64 %2 to ptr
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %.ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   ret i32 0

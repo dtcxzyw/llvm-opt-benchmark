@@ -146,13 +146,13 @@ define internal range(i32 0, 7) i32 @dissect_prp_redundancy_control_trailer(ptr 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %.082, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.082, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %45, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, 2
   store i32 %49, ptr %47, align 4

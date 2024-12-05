@@ -29,33 +29,33 @@ define range(i32 -70, 1) i32 @prte_iof_base_setup_prefork(ptr noundef %0) local_
   %7 = call i32 (i32, i64, ...) @ioctl(i32 noundef 1, i64 noundef 21523, ptr noundef nonnull %2) #5
   %8 = icmp eq i32 %7, 0
   %spec.select = select i1 %8, ptr %2, ptr null
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %11 = call i32 @pmix_openpty(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef %spec.select) #5
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %.critedge, label %16
 
 .critedge:                                        ; preds = %1, %6
   store i32 0, ptr %0, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = call i32 @pipe(ptr noundef nonnull %13) #5
   %15 = icmp slt i32 %14, 0
   br i1 %15, label %.sink.split, label %16
 
 16:                                               ; preds = %.critedge, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = call i32 @pipe(ptr noundef nonnull %21) #5
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %.sink.split, label %24
 
 24:                                               ; preds = %20, %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = call i32 @pipe(ptr noundef nonnull %25) #5
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %.sink.split, label %29
@@ -89,27 +89,27 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = alloca %struct.termios, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 @close(i32 noundef %9) #5
   br label %11
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @close(i32 noundef %13) #5
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @close(i32 noundef %16) #5
   %18 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   br i1 %.not, label %45, label %21
 
@@ -119,14 +119,14 @@ define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef re
   br i1 %23, label %96, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %3, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, -2681
   store i32 %27, ptr %25, align 4
   %28 = load i32, ptr %3, align 4
   %29 = and i32 %28, -1393
   store i32 %29, ptr %3, align 4
-  %30 = getelementptr inbounds i8, ptr %3, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, -13
   store i32 %32, ptr %30, align 4
@@ -173,7 +173,7 @@ define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef re
   br i1 %59, label %60, label %73
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i32, ptr %61, align 4
   %63 = load ptr, ptr @stdin, align 8
   %64 = call i32 @fileno_unlocked(ptr noundef %63) #5
@@ -211,7 +211,7 @@ define range(i32 -72, 1) i32 @prte_iof_base_setup_child(ptr nocapture noundef re
   br label %82
 
 82:                                               ; preds = %.sink.split, %60
-  %83 = getelementptr inbounds i8, ptr %0, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %84 = load i32, ptr %83, align 4
   %85 = load ptr, ptr @stderr, align 8
   %86 = call i32 @fileno_unlocked(ptr noundef %85) #5
@@ -258,14 +258,14 @@ declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 16), align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 %7(ptr noundef %0, i16 noundef zeroext 1, i32 noundef %9) #5
   switch i32 %10, label %.sink.split [
@@ -275,7 +275,7 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture nou
 
 11:                                               ; preds = %6, %2
   %12 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 %12(ptr noundef %0, i16 noundef zeroext 2, i32 noundef %14) #5
   switch i32 %15, label %.sink.split [
@@ -285,7 +285,7 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture nou
 
 16:                                               ; preds = %11
   %17 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load i32, ptr %18, align 4
   %20 = tail call i32 %17(ptr noundef %0, i16 noundef zeroext 4, i32 noundef %19) #5
   switch i32 %20, label %.sink.split [

@@ -23,7 +23,7 @@ define dso_local range(i32 1, 0) i32 @get_partition_parent(i32 noundef %0, i1 no
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3)
   %5 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %3, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef 1) #5
   %7 = call ptr @systable_beginscan(ptr noundef %4, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %3) #5
   %8 = call ptr @systable_getnext(ptr noundef %7) #5
@@ -36,15 +36,15 @@ get_partition_parent_worker.exit.thread:          ; preds = %2
   br label %19
 
 get_partition_parent_worker.exit:                 ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 22
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %12 = load i8, ptr %11, align 2
   %13 = zext i8 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %17, align 4
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
@@ -104,7 +104,7 @@ define internal fastcc void @get_partition_ancestors_worker(ptr noundef %0, i32 
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
   %5 = zext i32 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %5) #5
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call void @ScanKeyInit(ptr noundef nonnull %6, i16 noundef signext 3, i16 noundef zeroext 3, i32 noundef 65, i64 noundef 1) #5
   %7 = call ptr @systable_beginscan(ptr noundef %0, i32 noundef 2680, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %4) #5
   %8 = call ptr @systable_getnext(ptr noundef %7) #5
@@ -117,15 +117,15 @@ get_partition_parent_worker.exit.thread:          ; preds = %3
   br label %25
 
 get_partition_parent_worker.exit:                 ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 22
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %12 = load i8, ptr %11, align 2
   %13 = zext i8 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %17, align 4
   call void @systable_endscan(ptr noundef %7) #5
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
@@ -154,8 +154,8 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   br i1 %.not, label %.split31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph34, label %.split31
@@ -178,13 +178,13 @@ define dso_local i32 @index_get_partition(ptr noundef %0, i32 noundef %1) local_
   unreachable
 
 15:                                               ; preds = %.lr.ph34
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 22
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 22
   %19 = load i8, ptr %18, align 2
   %20 = zext i8 %19 to i64
   %21 = getelementptr i8, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 127
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 127
   %23 = load i8, ptr %22, align 1
   %24 = trunc i8 %23 to i1
   tail call void @ReleaseSysCache(ptr noundef nonnull %12) #5
@@ -223,14 +223,14 @@ define dso_local ptr @map_partition_varattnos(ptr noundef %0, i32 noundef %1, pt
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @build_attrmap_by_name(ptr noundef %8, ptr noundef %10, i1 noundef zeroext false) #5
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = load i32, ptr %14, align 4
   %16 = call ptr @map_variable_attnos(ptr noundef nonnull %0, i32 noundef %1, i32 noundef 0, ptr noundef %11, i32 noundef %15, ptr noundef nonnull %5) #5
   br label %17
@@ -251,9 +251,9 @@ define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr nou
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 115
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 115
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 112
   br i1 %.not, label %11, label %.loopexit
@@ -269,7 +269,7 @@ define dso_local noundef zeroext i1 @has_partition_attrs(ptr noundef %0, ptr nou
   br i1 %.not.i, label %list_head.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %.val32, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.val32, i64 16
   %17 = load ptr, ptr %16, align 8
   br label %list_head.exit
 
@@ -354,13 +354,13 @@ define dso_local i32 @get_default_partition_oid(i32 noundef %0) local_unnamed_ad
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 22
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %8 = load i8, ptr %7, align 2
   %9 = zext i8 %8 to i64
   %10 = getelementptr i8, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #5
   br label %13
@@ -386,15 +386,15 @@ define dso_local void @update_default_partition_oid(i32 noundef %0, i32 noundef 
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %1, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %3, ptr noundef nonnull %17, ptr noundef nonnull %5) #5
   tail call void @heap_freetuple(ptr noundef nonnull %5) #5
   tail call void @table_close(ptr noundef %3, i32 noundef 3) #5

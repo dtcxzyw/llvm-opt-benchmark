@@ -17,7 +17,7 @@ define void @srand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) 
   %8 = tail call i32 @rand() #5
   %9 = sitofp i32 %8 to float
   %10 = fmul float %9, 0x3E00000000000000
-  %11 = getelementptr inbounds float, ptr %0, i64 %7
+  %11 = getelementptr inbounds nuw float, ptr %0, i64 %7
   store float %10, ptr %11, align 4, !tbaa !3
   %12 = add nuw nsw i64 %7, 1
   %13 = icmp eq i64 %12, %5
@@ -44,7 +44,7 @@ define void @drand_generate(ptr nocapture noundef writeonly %0, i32 noundef %1) 
   %8 = tail call i32 @rand() #5
   %9 = sitofp i32 %8 to double
   %10 = fdiv double %9, 0x41DFFFFFFFC00000
-  %11 = getelementptr inbounds double, ptr %0, i64 %7
+  %11 = getelementptr inbounds nuw double, ptr %0, i64 %7
   store double %10, ptr %11, align 8, !tbaa !10
   %12 = add nuw nsw i64 %7, 1
   %13 = icmp eq i64 %12, %5
@@ -74,9 +74,9 @@ define float @smatrix_difference(ptr noundef %0, ptr nocapture noundef readonly 
 
 15:                                               ; preds = %.preheader.us, %15
   %16 = phi i64 [ %22, %15 ], [ 0, %.preheader.us ]
-  %17 = getelementptr inbounds float, ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw float, ptr %11, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !3
-  %19 = getelementptr inbounds float, ptr %12, i64 %16
+  %19 = getelementptr inbounds nuw float, ptr %12, i64 %16
   %20 = load float, ptr %19, align 4, !tbaa !3
   %21 = fsub float %20, %18
   store float %21, ptr %19, align 4, !tbaa !3
@@ -133,9 +133,9 @@ define double @dmatrix_difference(ptr noundef %0, ptr nocapture noundef readonly
 
 15:                                               ; preds = %.preheader.us, %15
   %16 = phi i64 [ %22, %15 ], [ 0, %.preheader.us ]
-  %17 = getelementptr inbounds double, ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw double, ptr %11, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !10
-  %19 = getelementptr inbounds double, ptr %12, i64 %16
+  %19 = getelementptr inbounds nuw double, ptr %12, i64 %16
   %20 = load double, ptr %19, align 8, !tbaa !10
   %21 = fsub double %20, %18
   store double %21, ptr %19, align 8, !tbaa !10
@@ -185,7 +185,7 @@ define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 8:                                                ; preds = %8, %5
   %9 = phi i32 [ 0, %5 ], [ %15, %8 ]
   %10 = phi ptr [ %2, %5 ], [ %14, %8 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !3
   %13 = fneg float %12
   store float %13, ptr %11, align 4, !tbaa !3
@@ -211,7 +211,7 @@ define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr nocapture nou
 8:                                                ; preds = %8, %5
   %9 = phi i32 [ 0, %5 ], [ %15, %8 ]
   %10 = phi ptr [ %2, %5 ], [ %14, %8 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load double, ptr %11, align 8, !tbaa !10
   %13 = fneg double %12
   store double %13, ptr %11, align 8, !tbaa !10
@@ -318,7 +318,7 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
   %14 = shl nsw i32 %0, 1
   %15 = icmp eq i32 %0, 0
   %16 = sitofp i32 %7 to float
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = fneg float %16
   %19 = sext i32 %12 to i64
   %20 = zext i32 %14 to i64
@@ -390,7 +390,7 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr nocapture noundef re
   %14 = shl nsw i32 %0, 1
   %15 = icmp eq i32 %0, 0
   %16 = sitofp i32 %7 to double
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = fneg double %16
   %19 = sext i32 %12 to i64
   %20 = zext i32 %14 to i64
@@ -543,7 +543,7 @@ define void @ccopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonl
   %13 = shl nsw i32 %1, 1
   %14 = icmp eq i32 %1, 0
   %15 = sitofp i32 %7 to float
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = fneg float %15
   %18 = zext i32 %13 to i64
   %19 = sext i32 %11 to i64
@@ -607,7 +607,7 @@ define void @zcopy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonl
   %13 = shl nsw i32 %1, 1
   %14 = icmp eq i32 %1, 0
   %15 = sitofp i32 %7 to double
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = fneg double %15
   %18 = zext i32 %13 to i64
   %19 = sext i32 %11 to i64

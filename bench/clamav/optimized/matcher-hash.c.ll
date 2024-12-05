@@ -89,21 +89,21 @@ declare i32 @cli_hex2str_to(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.cli_htu32_element, align 8
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds [3 x i32], ptr @hashlen, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %35, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds [3 x %struct.cli_htu32], ptr %11, i64 0, i64 %7
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %11, i64 0, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %.not62 = icmp eq i64 %14, 0
   br i1 %.not62, label %15, label %19
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @cli_htu32_init(ptr noundef nonnull %12, i64 noundef 64, ptr noundef %17) #7
   %.not63 = icmp eq i32 %18, 0
@@ -115,7 +115,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br i1 %.not64, label %21, label %32
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @mpool_calloc(ptr noundef %23, i64 noundef 1, i64 noundef 24) #7
   %.not65 = icmp eq ptr %24, null
@@ -127,7 +127,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 26:                                               ; preds = %21
   store i32 %3, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %24, ptr %27, align 8
   %28 = load ptr, ptr %22, align 8
   %29 = call i32 @cli_htu32_insert(ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef %28) #7
@@ -141,22 +141,22 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   br label %78
 
 32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %34 = load ptr, ptr %33, align 8
   br label %38
 
 35:                                               ; preds = %5
-  %36 = getelementptr inbounds i8, ptr %0, i64 160
-  %37 = getelementptr inbounds [3 x %struct.cli_sz_hash], ptr %36, i64 0, i64 %7
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %37 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %36, i64 0, i64 %7
   br label %38
 
 38:                                               ; preds = %32, %26, %35
   %.056 = phi ptr [ %34, %32 ], [ %24, %26 ], [ %37, %35 ]
-  %39 = getelementptr inbounds i8, ptr %.056, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 408
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %.056, align 8
   %45 = mul i32 %41, %9
@@ -171,7 +171,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.6, i32 noundef %49) #7
   store i32 0, ptr %39, align 8
   %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds i8, ptr %.056, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %52 = load ptr, ptr %51, align 8
   call void @mpool_free(ptr noundef %50, ptr noundef %52) #7
   store ptr null, ptr %51, align 8
@@ -179,7 +179,7 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
 
 53:                                               ; preds = %38
   %54 = load ptr, ptr %42, align 8
-  %55 = getelementptr inbounds i8, ptr %.056, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %39, align 8
   %58 = zext i32 %57 to i64
@@ -205,14 +205,14 @@ define i32 @hm_addhash_bin(ptr noundef %0, ptr nocapture noundef readonly %1, i3
   %68 = add i32 %67, -1
   %69 = mul i32 %68, %9
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %66, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 %70
   %72 = zext i32 %9 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %1, i64 %72, i1 false)
   %73 = load ptr, ptr %55, align 8
   %74 = load i32, ptr %39, align 8
   %75 = add i32 %74, -1
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
   store ptr %4, ptr %77, align 8
   br label %78
 
@@ -242,17 +242,17 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %.preheader32
 
 .preheader32:                                     ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %4
 
 .preheader:                                       ; preds = %.loopexit31
-  %3 = getelementptr inbounds i8, ptr %0, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %22
 
 4:                                                ; preds = %.preheader32, %.loopexit31
   %indvars.iv = phi i64 [ 0, %.preheader32 ], [ %indvars.iv.next, %.loopexit31 ]
-  %5 = getelementptr inbounds [3 x %struct.cli_htu32], ptr %2, i64 0, i64 %indvars.iv
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %5 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %2, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i64, ptr %6, align 8
   %.not28 = icmp eq i64 %7, 0
   br i1 %.not28, label %.loopexit31, label %.preheader30
@@ -263,14 +263,14 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2933, label %.loopexit31, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader30
-  %9 = getelementptr inbounds [3 x i32], ptr @hashlen, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %indvars.iv
   br label %10
 
 10:                                               ; preds = %.lr.ph, %20
   %11 = phi ptr [ %8, %.lr.ph ], [ %21, %20 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %16 = icmp ugt i32 %15, 1
   br i1 %16, label %17, label %20
@@ -293,14 +293,14 @@ define void @hm_flush(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %.preheader, %31
   %indvars.iv37 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next38, %31 ]
-  %23 = getelementptr inbounds [3 x %struct.cli_sz_hash], ptr %3, i64 0, i64 %indvars.iv37
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %23 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %3, i64 0, i64 %indvars.iv37
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = icmp ugt i32 %25, 1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds [3 x i32], ptr @hashlen, i64 0, i64 %indvars.iv37
+  %28 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %indvars.iv37
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %25 to i64
   tail call fastcc void @hm_sort(ptr noundef nonnull %23, i64 noundef 0, i64 noundef %30, i32 noundef %29)
@@ -327,10 +327,10 @@ define internal fastcc void @hm_sort(ptr nocapture noundef readonly %0, i64 noun
 
 .lr.ph:                                           ; preds = %4
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = add i32 %3, -4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %tailrecurse
@@ -358,7 +358,7 @@ define internal fastcc void @hm_sort(ptr nocapture noundef readonly %0, i64 noun
   br i1 %25, label %hm_cmp.exit.thread, label %hm_cmp.exit.thread86
 
 hm_cmp.exit:                                      ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %22, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %27 = call i32 @memcmp(ptr noundef nonnull readonly %26, ptr noundef nonnull readonly %9, i64 noundef %11) #8
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %hm_cmp.exit.thread, label %hm_cmp.exit.thread86
@@ -448,10 +448,10 @@ define range(i32 0, 2) i32 @cli_hm_have_size(ptr noundef %0, i32 noundef %1, i32
   br i1 %or.cond3, label %6, label %16
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds [3 x %struct.cli_htu32], ptr %7, i64 0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %9 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %7, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %16, label %12
@@ -526,10 +526,10 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1,
   br i1 %or.cond5, label %10, label %hm_scan.exit
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds [3 x %struct.cli_htu32], ptr %11, i64 0, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %13 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %11, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8
   %.not = icmp eq i64 %15, 0
   br i1 %.not, label %hm_scan.exit, label %16
@@ -540,26 +540,26 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1,
   br i1 %.not26, label %hm_scan.exit, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %hm_scan.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i32, ptr %22, align 8
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %hm_scan.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds [3 x i32], ptr @hashlen, i64 0, i64 %12
+  %25 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %12
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %23, -1
   %28 = zext i32 %27 to i64
   %29 = load ptr, ptr %20, align 8
   %30 = zext i32 %26 to i64
   %31 = load i32, ptr %0, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = add i32 %26, -4
   %34 = zext i32 %33 to i64
   br label %35
@@ -580,7 +580,7 @@ define range(i32 0, 2) i32 @cli_hm_scan(ptr noundef readonly %0, i32 noundef %1,
   br i1 %42, label %.thread.i, label %hm_cmp.exit.thread.i
 
 hm_cmp.exit.i:                                    ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %39, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %44 = tail call i32 @memcmp(ptr noundef nonnull readonly %32, ptr noundef nonnull readonly %43, i64 noundef %34) #8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %hm_cmp.exit.thread.i, label %48
@@ -606,9 +606,9 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %41
   br i1 %.not35.i, label %hm_scan.exit, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %20, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %37
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %37
   %55 = load ptr, ptr %54, align 8
   store ptr %55, ptr %2, align 8
   br label %hm_scan.exit
@@ -632,23 +632,23 @@ define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr nounde
   br i1 %or.cond, label %7, label %hm_scan.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds [3 x %struct.cli_sz_hash], ptr %8, i64 0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %10 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %8, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %hm_scan.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds [3 x i32], ptr @hashlen, i64 0, i64 %9
+  %14 = getelementptr inbounds nuw [3 x i32], ptr @hashlen, i64 0, i64 %9
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %12, -1
   %17 = zext i32 %16 to i64
   %18 = load ptr, ptr %10, align 8
   %19 = zext i32 %15 to i64
   %20 = load i32, ptr %0, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = add i32 %15, -4
   %23 = zext i32 %22 to i64
   br label %24
@@ -669,7 +669,7 @@ define range(i32 0, 2) i32 @cli_hm_scan_wild(ptr noundef readonly %0, ptr nounde
   br i1 %31, label %.thread.i, label %hm_cmp.exit.thread.i
 
 hm_cmp.exit.i:                                    ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %28, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %33 = tail call i32 @memcmp(ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %32, i64 noundef %23) #8
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %hm_cmp.exit.thread.i, label %37
@@ -695,9 +695,9 @@ hm_cmp.exit.thread.i:                             ; preds = %hm_cmp.exit.i, %30
   br i1 %.not35.i, label %hm_scan.exit, label %40
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %10, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %26
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %26
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %1, align 8
   br label %hm_scan.exit
@@ -719,18 +719,18 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %.preheader45
 
 .preheader45:                                     ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   br label %5
 
 .preheader:                                       ; preds = %33
-  %4 = getelementptr inbounds i8, ptr %0, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %34
 
 5:                                                ; preds = %.preheader45, %33
   %indvars.iv = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next, %33 ]
-  %6 = getelementptr inbounds [3 x %struct.cli_htu32], ptr %2, i64 0, i64 %indvars.iv
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %6 = getelementptr inbounds nuw [3 x %struct.cli_htu32], ptr %2, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8
   %.not41 = icmp eq i64 %8, 0
   br i1 %.not41, label %33, label %.preheader44
@@ -742,18 +742,18 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph48:                                         ; preds = %.preheader44, %._crit_edge
   %10 = phi ptr [ %31, %._crit_edge ], [ %9, %.preheader44 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %12, align 8
   tail call void @mpool_free(ptr noundef %13, ptr noundef %14) #7
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %.not4346 = icmp eq i32 %16, 0
   br i1 %.not4346, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph48
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %18
 
 18:                                               ; preds = %.lr.ph, %18
@@ -763,7 +763,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   %22 = add i32 %19, -1
   store i32 %22, ptr %15, align 8
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8
   tail call void @mpool_free(ptr noundef %20, ptr noundef %25) #7
   %26 = load i32, ptr %15, align 8
@@ -772,7 +772,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %18, %.lr.ph48
   %27 = load ptr, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %12, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @mpool_free(ptr noundef %27, ptr noundef %29) #7
   %30 = load ptr, ptr %3, align 8
@@ -793,8 +793,8 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 
 34:                                               ; preds = %.preheader, %55
   %indvars.iv57 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next58, %55 ]
-  %35 = getelementptr inbounds [3 x %struct.cli_sz_hash], ptr %4, i64 0, i64 %indvars.iv57
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %35 = getelementptr inbounds nuw [3 x %struct.cli_sz_hash], ptr %4, i64 0, i64 %indvars.iv57
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
   %.not39 = icmp eq i32 %37, 0
   br i1 %.not39, label %55, label %38
@@ -808,7 +808,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not4051, label %._crit_edge54, label %.lr.ph53
 
 .lr.ph53:                                         ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br label %43
 
 43:                                               ; preds = %.lr.ph53, %43
@@ -818,7 +818,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
   %47 = add i32 %44, -1
   store i32 %47, ptr %36, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
   %50 = load ptr, ptr %49, align 8
   tail call void @mpool_free(ptr noundef %45, ptr noundef %50) #7
   %51 = load i32, ptr %36, align 8
@@ -827,7 +827,7 @@ define void @hm_free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge54:                                    ; preds = %43, %38
   %52 = load ptr, ptr %3, align 8
-  %53 = getelementptr inbounds i8, ptr %35, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @mpool_free(ptr noundef %52, ptr noundef %54) #7
   br label %55

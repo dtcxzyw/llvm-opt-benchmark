@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_io_ObjectStreamClass_initNative(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #1
   %7 = icmp eq ptr %6, null
@@ -19,7 +19,7 @@ define void @Java_java_io_ObjectStreamClass_initNative(ptr noundef %0, ptr nocap
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #1
   store ptr %12, ptr @noSuchMethodErrCl, align 8
@@ -32,7 +32,7 @@ define void @Java_java_io_ObjectStreamClass_initNative(ptr noundef %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitializer(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 904
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 904
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #1
   %8 = icmp eq ptr %7, null
@@ -40,15 +40,15 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitia
   br i1 %8, label %10, label %27
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %9, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0) #1
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0) #1
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 256
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @noSuchMethodErrCl, align 8
   %21 = tail call zeroext i8 %19(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %20) #1
@@ -57,13 +57,13 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitia
 
 22:                                               ; preds = %10
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef %13) #1
   br label %59
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %9, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef nonnull %0, ptr noundef %2) #1
   %31 = icmp eq ptr %30, null
@@ -71,7 +71,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitia
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 904
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 904
   %35 = load ptr, ptr %34, align 8
   %36 = tail call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #1
   %37 = icmp eq ptr %36, null
@@ -79,15 +79,15 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitia
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 120
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr %41(ptr noundef nonnull %0) #1
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 136
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %0) #1
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 256
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 256
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @noSuchMethodErrCl, align 8
   %50 = tail call zeroext i8 %48(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %49) #1
@@ -96,7 +96,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_ObjectStreamClass_hasStaticInitia
 
 51:                                               ; preds = %38
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 104
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %54(ptr noundef nonnull %0, ptr noundef %42) #1
   br label %59

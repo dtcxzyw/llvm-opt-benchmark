@@ -78,45 +78,45 @@ define ptr @H5EA__iblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
   br label %70
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %2, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 272
   store ptr %0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 280
   store i64 -1, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 260
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %19 = load i8, ptr %18, align 4
   %20 = zext i8 %19 to i64
   %21 = mul nuw nsw i64 %20, 125613361
   %22 = lshr i64 %21, 27
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i32], ptr @MultiplyDeBruijnBitPosition, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = shl i32 %25, 1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %2, i64 304
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 304
   store i64 %27, ptr %28, align 8
   %29 = shl nuw nsw i64 %20, 1
   %30 = add nsw i64 %29, -2
-  %31 = getelementptr inbounds i8, ptr %2, i64 312
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 312
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 432
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %33 = load i64, ptr %32, align 8
   %34 = sub i64 %33, %27
-  %35 = getelementptr inbounds i8, ptr %2, i64 320
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 320
   store i64 %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 258
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 258
   %37 = load i8, ptr %36, align 2
   %.not = icmp eq i8 %37, 0
   br i1 %.not, label %52, label %38
 
 38:                                               ; preds = %15
-  %39 = getelementptr inbounds i8, ptr %0, i64 248
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %40 = zext i8 %37 to i64
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = mul i64 %43, %40
   %45 = tail call noalias ptr @H5FL_blk_malloc(ptr noundef nonnull @H5_idx_blk_elmt_buf_blk_free_list, i64 noundef %44) #2
-  %46 = getelementptr inbounds i8, ptr %2, i64 248
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr %45, ptr %46, align 8
   %47 = icmp eq ptr %45, null
   br i1 %47, label %48, label %52
@@ -133,7 +133,7 @@ define ptr @H5EA__iblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
 
 53:                                               ; preds = %52
   %54 = tail call noalias ptr @H5FL_seq_malloc(ptr noundef nonnull @H5_haddr_t_seq_free_list, i64 noundef %30) #2
-  %55 = getelementptr inbounds i8, ptr %2, i64 256
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 256
   store ptr %54, ptr %55, align 8
   %56 = icmp eq ptr %54, null
   br i1 %56, label %57, label %61
@@ -150,7 +150,7 @@ define ptr @H5EA__iblock_alloc(ptr noundef %0) local_unnamed_addr #0 {
 
 62:                                               ; preds = %61
   %63 = tail call noalias ptr @H5FL_seq_malloc(ptr noundef nonnull @H5_haddr_t_seq_free_list, i64 noundef %34) #2
-  %64 = getelementptr inbounds i8, ptr %2, i64 264
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store ptr %63, ptr %64, align 8
   %65 = icmp eq ptr %63, null
   br i1 %65, label %66, label %.thread
@@ -189,13 +189,13 @@ declare noalias ptr @H5FL_seq_malloc(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5EA__iblock_dest(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 272
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %30, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   %.not19 = icmp eq ptr %6, null
   br i1 %.not19, label %9, label %7
@@ -206,7 +206,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_dest(ptr noundef %0) local_unnamed_add
   br label %9
 
 9:                                                ; preds = %7, %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %11 = load ptr, ptr %10, align 8
   %.not20 = icmp eq ptr %11, null
   br i1 %.not20, label %15, label %12
@@ -214,12 +214,12 @@ define range(i32 -1, 1) i32 @H5EA__iblock_dest(ptr noundef %0) local_unnamed_add
 12:                                               ; preds = %9
   %13 = tail call ptr @H5FL_seq_free(ptr noundef nonnull @H5_haddr_t_seq_free_list, ptr noundef nonnull %11) #2
   store ptr %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i64 0, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %12, %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %17 = load ptr, ptr %16, align 8
   %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %21, label %18
@@ -227,7 +227,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_dest(ptr noundef %0) local_unnamed_add
 18:                                               ; preds = %15
   %19 = tail call ptr @H5FL_seq_free(ptr noundef nonnull @H5_haddr_t_seq_free_list, ptr noundef nonnull %17) #2
   store ptr %19, ptr %16, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 320
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 0, ptr %20, align 8
   br label %21
 
@@ -271,29 +271,29 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 272
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 272
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 258
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 258
   %17 = load i8, ptr %16, align 2
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %13, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 256
   %20 = load i8, ptr %19, align 8
   %21 = zext i8 %20 to i64
   %22 = mul nuw nsw i64 %21, %18
-  %23 = getelementptr inbounds i8, ptr %5, i64 312
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 312
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 320
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %26 = load i64, ptr %25, align 8
   %reass.add = add i64 %26, %24
   %reass.mul = mul i64 %reass.add, %15
   %27 = add i64 %15, 10
   %28 = add i64 %27, %22
   %29 = add i64 %28, %reass.mul
-  %30 = getelementptr inbounds i8, ptr %5, i64 288
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 384
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i64 @H5MF_alloc(ptr noundef %32, i32 noundef 6, i64 noundef %29) #2
   %34 = icmp eq i64 %33, -1
@@ -306,19 +306,19 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %106
 
 39:                                               ; preds = %11
-  %40 = getelementptr inbounds i8, ptr %5, i64 280
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 280
   store i64 %33, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 258
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 258
   %42 = load i8, ptr %41, align 2
   %.not = icmp eq i8 %42, 0
   br i1 %.not, label %57, label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 248
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 248
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 248
   %49 = load ptr, ptr %48, align 8
   %50 = zext i8 %42 to i64
   %51 = tail call i32 %47(ptr noundef %49, i64 noundef %50) #2
@@ -338,7 +338,7 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
 
 59:                                               ; preds = %57
   store i64 -1, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 256
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %61 = load ptr, ptr %60, align 8
   %62 = call i32 @H5VM_array_fill(ptr noundef %61, ptr noundef nonnull %3, i64 noundef 8, i64 noundef %58) #2
   br label %63
@@ -350,7 +350,7 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
 
 65:                                               ; preds = %63
   store i64 -1, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %5, i64 264
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @H5VM_array_fill(ptr noundef %67, ptr noundef nonnull %4, i64 noundef 8, i64 noundef %64) #2
   br label %69
@@ -368,7 +368,7 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %106
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %0, i64 472
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %79 = load ptr, ptr %78, align 8
   %.not65 = icmp eq ptr %79, null
   br i1 %.not65, label %87, label %80
@@ -381,19 +381,19 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
 
 84:                                               ; preds = %80
   %85 = load ptr, ptr %78, align 8
-  %86 = getelementptr inbounds i8, ptr %5, i64 296
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 296
   store ptr %85, ptr %86, align 8
   br label %87
 
 87:                                               ; preds = %84, %77
-  %88 = getelementptr inbounds i8, ptr %0, i64 280
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 1, ptr %88, align 8
   %89 = load i64, ptr %30, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 288
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i64 %89, ptr %90, align 8
   %91 = load i8, ptr %41, align 2
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %0, i64 336
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, %92
   store i64 %95, ptr %93, align 8
@@ -415,7 +415,7 @@ define i64 @H5EA__iblock_create(ptr noundef %0, ptr nocapture noundef writeonly 
   br label %106
 
 106:                                              ; preds = %35, %53, %73, %96, %102
-  %107 = getelementptr inbounds i8, ptr %5, i64 280
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %108 = load i64, ptr %107, align 8
   %.not66 = icmp eq i64 %108, -1
   br i1 %.not66, label %118, label %109
@@ -463,9 +463,9 @@ declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define ptr @H5EA__iblock_protect(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 384
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = load i64, ptr %5, align 8
   %7 = tail call ptr @H5AC_protect(ptr noundef %4, ptr noundef nonnull @H5AC_EARRAY_IBLOCK, i64 noundef %6, ptr noundef %0, i32 noundef %1) #2
   %8 = icmp eq ptr %7, null
@@ -479,13 +479,13 @@ define ptr @H5EA__iblock_protect(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %.thread
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 472
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %21, label %.thread
@@ -506,7 +506,7 @@ define ptr @H5EA__iblock_protect(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %29 = load i64, ptr @H5E_CANTSET_g, align 8
   %30 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__iblock_protect, i32 noundef 296, i64 noundef %28, i64 noundef %29, ptr noundef nonnull @.str.10) #2
   %31 = load ptr, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 280
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 280
   %33 = load i64, ptr %32, align 8
   %34 = tail call i32 @H5AC_unprotect(ptr noundef %31, ptr noundef nonnull @H5AC_EARRAY_IBLOCK, i64 noundef %33, ptr noundef nonnull %7, i32 noundef 0) #2
   %35 = icmp slt i32 %34, 0
@@ -530,11 +530,11 @@ declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5EA__iblock_unprotect(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 384
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 @H5AC_unprotect(ptr noundef %6, ptr noundef nonnull @H5AC_EARRAY_IBLOCK, i64 noundef %8, ptr noundef %0, i32 noundef %1) #2
   %10 = icmp slt i32 %9, 0
@@ -559,14 +559,14 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br i1 %3, label %60, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %.loopexit61, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %2, i64 256
-  %8 = getelementptr inbounds i8, ptr %0, i64 440
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %.pre69.pre = load ptr, ptr %8, align 8
   br label %9
 
@@ -584,7 +584,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br i1 %.not53, label %._crit_edge, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds %struct.H5EA_sblk_info_t, ptr %.pre69, i64 %.pre74, i32 1
+  %15 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre69, i64 %.pre74, i32 1
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 @H5EA__dblock_delete(ptr noundef %0, ptr noundef nonnull %2, i64 noundef %13, i64 noundef %16) #2
   %18 = icmp slt i32 %17, 0
@@ -609,7 +609,7 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   %26 = phi i64 [ %.pre70, %23 ], [ %10, %9 ]
   %27 = add i32 %.04263, 1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.H5EA_sblk_info_t, ptr %.pre6972, i64 %.pre74
+  %29 = getelementptr inbounds nuw %struct.H5EA_sblk_info_t, ptr %.pre6972, i64 %.pre74
   %30 = load i64, ptr %29, align 8
   %.not54 = icmp ule i64 %30, %28
   %31 = zext i1 %.not54 to i32
@@ -620,14 +620,14 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
   br i1 %33, label %9, label %.loopexit61
 
 .loopexit61:                                      ; preds = %._crit_edge, %4
-  %34 = getelementptr inbounds i8, ptr %2, i64 320
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %35 = load i64, ptr %34, align 8
   %.not51 = icmp eq i64 %35, 0
   br i1 %.not51, label %.loopexit, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.loopexit61
-  %36 = getelementptr inbounds i8, ptr %2, i64 264
-  %37 = getelementptr inbounds i8, ptr %2, i64 304
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 264
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 304
   br label %38
 
 38:                                               ; preds = %.lr.ph66, %56
@@ -669,18 +669,18 @@ define range(i32 -1, 1) i32 @H5EA__iblock_delete(ptr noundef %0) local_unnamed_a
 60:                                               ; preds = %1
   %61 = load i64, ptr @H5E_EARRAY_g, align 8
   %62 = load i64, ptr @H5E_CANTPROTECT_g, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 264
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %64 = load i64, ptr %63, align 8
   %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5EA__iblock_delete, i32 noundef 371, i64 noundef %61, i64 noundef %62, ptr noundef nonnull @.str.13, i64 noundef %64) #2
   br label %H5EA__iblock_unprotect.exit
 
 .loopexit:                                        ; preds = %56, %.loopexit61, %49, %19
   %.045.ph = phi i32 [ 0, %.loopexit61 ], [ -1, %49 ], [ -1, %19 ], [ 0, %56 ]
-  %66 = getelementptr inbounds i8, ptr %2, i64 272
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 384
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 384
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 280
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %71 = load i64, ptr %70, align 8
   %72 = tail call i32 @H5AC_unprotect(ptr noundef %69, ptr noundef nonnull @H5AC_EARRAY_IBLOCK, i64 noundef %71, ptr noundef nonnull %2, i32 noundef 259) #2
   %73 = icmp slt i32 %72, 0

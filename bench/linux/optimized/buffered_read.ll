@@ -59,37 +59,37 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netfs_file_r
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.xa_state, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 296
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, %4
   %9 = lshr i64 %8, 12
   %10 = add nsw i64 %9, -1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #9
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %11, align 8, !annotation !6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %14, ptr %2, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %5, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 18
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 18
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr inttoptr (i64 3 to ptr), ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 32
-  %19 = getelementptr inbounds i8, ptr %0, i64 320
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   %20 = load volatile i64, ptr %19, align 8
   %21 = and i64 %20, 16
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %.loopexit18, label %23
 
 23:                                               ; preds = %1
-  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %19, i64 1) #9, !srcloc !7
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void asm sideeffect " btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %19, i64 1) #9, !srcloc !7
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
   br i1 %26, label %.loopexit18, label %.preheader
@@ -103,7 +103,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %30, label %.loopexit18, label %.preheader, !llvm.loop !8
 
 .loopexit18:                                      ; preds = %.preheader, %23, %1
-  %31 = getelementptr inbounds i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 -40
   %34 = getelementptr i8, ptr %32, i64 84
@@ -130,7 +130,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @__SCT__tp_func_netfs_rreq(ptr noundef %49, ptr noundef %0, i8 noundef signext 6) #9
   br label %51
@@ -156,7 +156,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %60, label %.loopexit17, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %0, i64 304
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 304
   br label %63
 
 63:                                               ; preds = %.loopexit16, %61
@@ -175,7 +175,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br label %217
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %65, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %72 = load i64, ptr %71, align 8
   %73 = shl i64 %72, 12
   %74 = load volatile i64, ptr %65, align 8
@@ -184,7 +184,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %76, label %81, label %77
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %65, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %79 = load i64, ptr %78, align 16
   %80 = and i64 %79, 255
   br label %81
@@ -194,7 +194,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   %83 = shl i64 4096, %82
   %84 = add i64 %83, %73
   %85 = add i64 %84, -1
-  %86 = getelementptr inbounds i8, ptr %65, i64 52
+  %86 = getelementptr inbounds nuw i8, ptr %65, i64 52
   %87 = getelementptr i8, ptr %65, i64 2
   br label %88
 
@@ -213,7 +213,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %97, label %98, label %125
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %93, i64 136
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 136
   %100 = load volatile i64, ptr %99, align 8
   %101 = and i64 %100, 1
   %102 = icmp eq i64 %101, 0
@@ -240,7 +240,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %112, label %117, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = call i32 @__SCT__tp_func_netfs_folio(ptr noundef %115, ptr noundef nonnull %65, i8 noundef signext 12) #9
   br label %117
@@ -260,7 +260,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br label %124
 
 124:                                              ; preds = %121, %117, %104, %103
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86, ptr elementtype(i32) %86) #9, !srcloc !24
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %86, ptr nonnull elementtype(i32) %86) #9, !srcloc !24
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %87, i32 1, ptr elementtype(i8) %87) #9, !srcloc !25
   br label %125
 
@@ -268,9 +268,9 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   %126 = phi i8 [ %92, %95 ], [ 1, %124 ], [ %92, %98 ]
   %.masked = and i8 %89, 1
   %127 = or i8 %91, %.masked
-  %128 = getelementptr inbounds i8, ptr %93, i64 96
+  %128 = getelementptr inbounds nuw i8, ptr %93, i64 96
   %129 = load i64, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %93, i64 104
+  %130 = getelementptr inbounds nuw i8, ptr %93, i64 104
   %131 = load i64, ptr %130, align 8
   %132 = add i64 %131, %129
   %133 = add i64 %132, -1
@@ -278,10 +278,10 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %134, label %.thread, label %135
 
 135:                                              ; preds = %125
-  %136 = getelementptr inbounds i8, ptr %93, i64 112
+  %136 = getelementptr inbounds nuw i8, ptr %93, i64 112
   %137 = load i64, ptr %136, align 8
   %138 = add i64 %137, %90
-  %139 = getelementptr inbounds i8, ptr %93, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %93, i64 40
   %140 = load ptr, ptr %139, align 8
   %141 = icmp eq ptr %140, %31
   br i1 %141, label %148, label %142
@@ -308,7 +308,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %154, label %155, label %.thread.thread
 
 155:                                              ; preds = %.thread
-  %156 = getelementptr inbounds i8, ptr %65, i64 40
+  %156 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %157 = load ptr, ptr %156, align 8
   %158 = ptrtoint ptr %157 to i64
   %159 = and i64 %158, 1
@@ -340,7 +340,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %174, label %179, label %175
 
 175:                                              ; preds = %172
-  %176 = getelementptr inbounds i8, ptr %173, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %177 = load ptr, ptr %176, align 8
   %178 = call i32 @__SCT__tp_func_netfs_folio(ptr noundef %177, ptr noundef nonnull %65, i8 noundef signext 14) #9
   br label %179
@@ -378,7 +378,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   %195 = getelementptr i8, ptr %65, i64 1
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %195, i32 -129, ptr elementtype(i8) %195) #9, !srcloc !26
   store ptr null, ptr %156, align 8
-  %196 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %86, ptr elementtype(i32) %86) #9, !srcloc !27
+  %196 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %86, ptr nonnull elementtype(i32) %86) #9, !srcloc !27
   %197 = icmp ult i8 %196, 2
   call void @llvm.assume(i1 %197)
   %198 = icmp eq i8 %196, 0
@@ -448,7 +448,7 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   br i1 %235, label %236, label %.loopexit, !prof !18
 
 236:                                              ; preds = %230
-  %237 = getelementptr inbounds i8, ptr %221, i64 40
+  %237 = getelementptr inbounds nuw i8, ptr %221, i64 40
   br label %238
 
 238:                                              ; preds = %252, %236
@@ -491,13 +491,13 @@ define dso_local void @netfs_rreq_unlock_folios(ptr noundef %0) local_unnamed_ad
   call void @__rcu_read_unlock() #9
   %260 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !33
   %261 = inttoptr i64 %260 to ptr
-  %262 = getelementptr inbounds i8, ptr %261, i64 2200
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 2200
   %263 = load i64, ptr %262, align 8
   %264 = add i64 %263, %259
   store i64 %264, ptr %262, align 8
-  %265 = getelementptr inbounds i8, ptr %0, i64 328
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %266 = load ptr, ptr %265, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 72
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 72
   %268 = load ptr, ptr %267, align 8
   %269 = icmp eq ptr %268, null
   br i1 %269, label %271, label %270
@@ -531,8 +531,8 @@ declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %85, label %6
@@ -540,7 +540,7 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = shl i64 %10, 12
   %12 = zext i32 %4 to i64
@@ -575,7 +575,7 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @__SCT__tp_func_netfs_read(ptr noundef %33, ptr noundef %14, i64 noundef %18, i64 noundef %21, i8 noundef signext 2) #9
   br label %35
@@ -596,15 +596,15 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
 
 42:                                               ; preds = %39, %35, %22, %16
   tail call fastcc void @netfs_rreq_expand(ptr noundef %14, ptr noundef %0)
-  %43 = getelementptr inbounds i8, ptr %14, i64 120
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  %46 = getelementptr inbounds i8, ptr %14, i64 296
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 296
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %14, i64 256
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %49 = load i64, ptr %48, align 8
-  tail call void @iov_iter_xarray(ptr noundef %43, i32 noundef 0, ptr noundef %45, i64 noundef %47, i64 noundef %49) #9
-  %50 = getelementptr inbounds i8, ptr %0, i64 36
+  tail call void @iov_iter_xarray(ptr noundef nonnull %43, i32 noundef 0, ptr noundef nonnull %45, i64 noundef %47, i64 noundef %49) #9
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %51 = load i32, ptr %50, align 4
   %52 = load i32, ptr %3, align 8
   %53 = icmp ugt i32 %51, %52
@@ -633,15 +633,15 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
 
 61:                                               ; preds = %.lr.ph
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
-  %64 = tail call ptr @xa_load(ptr noundef %63, i64 noundef %59) #9
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = tail call ptr @xa_load(ptr noundef nonnull %63, i64 noundef %59) #9
   %65 = load volatile i64, ptr %64, align 8
   %66 = and i64 %65, 64
   %67 = icmp eq i64 %66, 0
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds i8, ptr %64, i64 100
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 100
   %70 = load i32, ptr %69, align 4
   br label %71
 
@@ -652,8 +652,8 @@ define dso_local void @netfs_readahead(ptr noundef %0) #0 align 16 {
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %64, i64 52
-  %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75, ptr elementtype(i32) %75) #9, !srcloc !27
+  %75 = getelementptr inbounds nuw i8, ptr %64, i64 52
+  %76 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, ptr nonnull elementtype(i32) %75) #9, !srcloc !27
   %77 = icmp ult i8 %76, 2
   tail call void @llvm.assume(i1 %77)
   %78 = icmp eq i8 %76, 0
@@ -683,29 +683,29 @@ declare dso_local ptr @netfs_alloc_request(ptr noundef, ptr noundef, i64 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @netfs_rreq_expand(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 296
-  %4 = getelementptr inbounds i8, ptr %0, i64 256
-  %5 = getelementptr inbounds i8, ptr %0, i64 288
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10
-  tail call void %12(ptr noundef %7, ptr noundef %3, ptr noundef %4, i64 noundef %6) #9
+  tail call void %12(ptr noundef nonnull %7, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %6) #9
   br label %15
 
 15:                                               ; preds = %14, %10, %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %22, label %21
@@ -716,7 +716,7 @@ define internal fastcc void @netfs_rreq_expand(ptr noundef %0, ptr noundef %1) u
 
 22:                                               ; preds = %21, %15
   %23 = load i64, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i64, ptr %24, align 8
   %26 = shl i64 %25, 12
   %27 = icmp eq i64 %23, %26
@@ -724,7 +724,7 @@ define internal fastcc void @netfs_rreq_expand(ptr noundef %0, ptr noundef %1) u
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 12
@@ -736,7 +736,7 @@ define internal fastcc void @netfs_rreq_expand(ptr noundef %0, ptr noundef %1) u
   %35 = load i64, ptr %24, align 8
   %36 = shl i64 %35, 12
   store i64 %36, ptr %3, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 12
@@ -766,7 +766,7 @@ define internal fastcc void @netfs_rreq_expand(ptr noundef %0, ptr noundef %1) u
   br i1 %54, label %59, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call i32 @__SCT__tp_func_netfs_read(ptr noundef %57, ptr noundef %0, i64 noundef %42, i64 noundef %45, i8 noundef signext 1) #9
   br label %59
@@ -800,9 +800,9 @@ declare dso_local void @netfs_put_request(ptr noundef, i1 noundef zeroext, i8 no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 1
   %8 = icmp eq i64 %7, 0
@@ -859,7 +859,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br label %43
 
 40:                                               ; preds = %34, %29
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load i64, ptr %41, align 8
   br label %43
 
@@ -872,7 +872,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %48, label %53, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %1, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %51 = load i64, ptr %50, align 16
   %52 = and i64 %51, 255
   br label %53
@@ -890,9 +890,9 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br label %196
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds i8, ptr %56, i64 296
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 296
   %63 = load i64, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %56, i64 256
+  %64 = getelementptr inbounds nuw i8, ptr %56, i64 256
   %65 = load i64, ptr %64, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_read, i64 8), i32 2) #9
           to label %86 [label %66], !srcloc !11
@@ -914,7 +914,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i32 @__SCT__tp_func_netfs_read(ptr noundef %77, ptr noundef %56, i64 noundef %63, i64 noundef %65, i8 noundef signext 3) #9
   br label %79
@@ -940,7 +940,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %89, label %.thread9, label %90
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds i8, ptr %1, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %92 = load ptr, ptr %91, align 8
   %93 = ptrtoint ptr %92 to i64
   %94 = and i64 %93, 1
@@ -948,9 +948,9 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %96 = and i64 %93, -2
   %97 = inttoptr i64 %96 to ptr
   %98 = select i1 %95, ptr null, ptr %97
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %98, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, %100
   %104 = load volatile i64, ptr %1, align 8
@@ -959,7 +959,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %106, label %111, label %107
 
 107:                                              ; preds = %90
-  %108 = getelementptr inbounds i8, ptr %1, i64 64
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %109 = load i64, ptr %108, align 16
   %110 = and i64 %109, 255
   br label %111
@@ -1000,7 +1000,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %131, label %136, label %132
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds i8, ptr %130, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = tail call i32 @__SCT__tp_func_netfs_folio(ptr noundef %134, ptr noundef %1, i8 noundef signext 19) #9
   br label %136
@@ -1020,19 +1020,19 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   br label %143
 
 143:                                              ; preds = %140, %136, %123, %122
-  %144 = getelementptr inbounds i8, ptr %56, i64 208
+  %144 = getelementptr inbounds nuw i8, ptr %56, i64 208
   store ptr %117, ptr %144, align 8
   %145 = trunc i64 %115 to i32
-  %146 = getelementptr inbounds i8, ptr %56, i64 216
+  %146 = getelementptr inbounds nuw i8, ptr %56, i64 216
   store i32 %145, ptr %146, align 8
   %147 = icmp eq i32 %100, 0
   br i1 %147, label %151, label %148
 
 148:                                              ; preds = %143
   store ptr %1, ptr %117, align 8
-  %149 = getelementptr inbounds i8, ptr %117, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %117, i64 8
   store i32 %100, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %117, i64 12
+  %150 = getelementptr inbounds nuw i8, ptr %117, i64 12
   store i32 0, ptr %150, align 4
   br label %151
 
@@ -1050,9 +1050,9 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %159 = zext i32 %154 to i64
   %160 = getelementptr %struct.bio_vec, ptr %117, i64 %159
   store ptr %120, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   store i32 %157, ptr %161, align 8
-  %162 = getelementptr inbounds i8, ptr %160, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 12
   store i32 0, ptr %162, align 4
   %163 = add i32 %157, %155
   %164 = icmp ult i32 %163, %103
@@ -1071,30 +1071,30 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %172 = trunc i64 %113 to i32
   %173 = sub i32 %172, %103
   store ptr %1, ptr %171, align 8
-  %174 = getelementptr inbounds i8, ptr %171, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 8
   store i32 %173, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %171, i64 12
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 12
   store i32 %103, ptr %175, align 4
   br label %181
 
 .thread9:                                         ; preds = %86
-  %176 = getelementptr inbounds i8, ptr %56, i64 120
-  %177 = getelementptr inbounds i8, ptr %4, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %56, i64 120
+  %177 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %178 = load i64, ptr %62, align 8
   %179 = load i64, ptr %64, align 8
-  tail call void @iov_iter_xarray(ptr noundef %176, i32 noundef 0, ptr noundef %177, i64 noundef %178, i64 noundef %179) #9
+  tail call void @iov_iter_xarray(ptr noundef nonnull %176, i32 noundef 0, ptr noundef nonnull %177, i64 noundef %178, i64 noundef %179) #9
   %180 = tail call i32 @netfs_begin_read(ptr noundef %56, i1 noundef zeroext true) #9
   br label %192
 
 181:                                              ; preds = %168, %.loopexit
   %182 = phi i32 [ %169, %168 ], [ %165, %.loopexit ]
-  %183 = getelementptr inbounds i8, ptr %56, i64 120
+  %183 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %184 = zext i32 %182 to i64
   %185 = load i64, ptr %64, align 8
-  tail call void @iov_iter_bvec(ptr noundef %183, i32 noundef 0, ptr noundef nonnull %117, i64 noundef %184, i64 noundef %185) #9
+  tail call void @iov_iter_bvec(ptr noundef nonnull %183, i32 noundef 0, ptr noundef nonnull %117, i64 noundef %184, i64 noundef %185) #9
   %186 = tail call i32 @netfs_begin_read(ptr noundef %56, i1 noundef zeroext true) #9
-  %187 = getelementptr inbounds i8, ptr %120, i64 52
-  %188 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %187, ptr elementtype(i32) %187) #9, !srcloc !27
+  %187 = getelementptr inbounds nuw i8, ptr %120, i64 52
+  %188 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %187, ptr nonnull elementtype(i32) %187) #9, !srcloc !27
   %189 = icmp ult i8 %188, 2
   tail call void @llvm.assume(i1 %189)
   %190 = icmp eq i8 %188, 0
@@ -1138,22 +1138,22 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   store ptr null, ptr %8, align 8, !annotation !6
   %10 = ashr i64 %3, 12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #9
-  %11 = getelementptr inbounds i8, ptr %9, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 0, ptr %11, align 8, !annotation !6
   store ptr %1, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %10, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
-  %16 = getelementptr inbounds i8, ptr %9, i64 36
-  %17 = getelementptr inbounds i8, ptr %9, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 64
-  %19 = getelementptr inbounds i8, ptr %0, i64 600
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(9) %15, i8 0, i64 9, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %15, i8 0, i64 9, i1 false)
   br label %20
 
 20:                                               ; preds = %56, %7
@@ -1170,7 +1170,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 
 27:                                               ; preds = %20
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %59, label %32
@@ -1201,7 +1201,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %44, label %49, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 @__SCT__tp_func_netfs_failure(ptr noundef %47, ptr noundef null, ptr noundef null, i32 noundef %33, i8 noundef signext 0) #9
   br label %49
@@ -1238,10 +1238,10 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 
 65:                                               ; preds = %59
   %66 = zext i32 %4 to i64
-  %67 = getelementptr inbounds i8, ptr %60, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
   %71 = load i64, ptr %70, align 8
   %72 = load volatile i64, ptr %60, align 8
   %73 = and i64 %72, 64
@@ -1249,7 +1249,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %74, label %79, label %75
 
 75:                                               ; preds = %65
-  %76 = getelementptr inbounds i8, ptr %60, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %77 = load i64, ptr %76, align 16
   %78 = and i64 %77, 255
   br label %79
@@ -1265,7 +1265,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %86, label %91, label %87
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %60, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %89 = load i64, ptr %88, align 16
   %90 = and i64 %89, 255
   br label %91
@@ -1307,7 +1307,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %118, label %123, label %119
 
 119:                                              ; preds = %104
-  %120 = getelementptr inbounds i8, ptr %60, i64 64
+  %120 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %121 = load i64, ptr %120, align 16
   %122 = and i64 %121, 255
   br label %123
@@ -1326,7 +1326,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %131, label %136, label %132
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds i8, ptr %60, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %134 = load i64, ptr %133, align 16
   %135 = and i64 %134, 255
   br label %136
@@ -1363,7 +1363,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br label %151
 
 151:                                              ; preds = %146, %144
-  %152 = getelementptr inbounds i8, ptr %60, i64 100
+  %152 = getelementptr inbounds nuw i8, ptr %60, i64 100
   br label %153
 
 153:                                              ; preds = %161, %151
@@ -1385,7 +1385,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %163, label %153, label %.loopexit14, !llvm.loop !50
 
 165:                                              ; preds = %100
-  %166 = getelementptr inbounds i8, ptr %60, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %167 = load volatile i64, ptr %166, align 8
   %168 = and i64 %167, 1
   %169 = icmp eq i64 %168, 0
@@ -1442,7 +1442,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br label %204
 
 201:                                              ; preds = %195, %190
-  %202 = getelementptr inbounds i8, ptr %60, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %203 = load i64, ptr %202, align 8
   br label %204
 
@@ -1456,7 +1456,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %210, label %215, label %211
 
 211:                                              ; preds = %204
-  %212 = getelementptr inbounds i8, ptr %207, i64 64
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 64
   %213 = load i64, ptr %212, align 16
   %214 = and i64 %213, 255
   br label %215
@@ -1475,12 +1475,12 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 
 223:                                              ; preds = %215
   %224 = load ptr, ptr %8, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 32
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
   %226 = load i64, ptr %225, align 16
-  %227 = getelementptr inbounds i8, ptr %218, i64 304
+  %227 = getelementptr inbounds nuw i8, ptr %218, i64 304
   store i64 %226, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %218, i64 320
-  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %228, i64 2) #9, !srcloc !51
+  %228 = getelementptr inbounds nuw i8, ptr %218, i64 320
+  call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %228, i64 2) #9, !srcloc !51
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_read, i64 8), i32 2) #9
           to label %249 [label %229], !srcloc !11
 
@@ -1501,7 +1501,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %237, label %242, label %238
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds i8, ptr %236, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %240 = load ptr, ptr %239, align 8
   %241 = call i32 @__SCT__tp_func_netfs_read(ptr noundef %240, ptr noundef %218, i64 noundef %3, i64 noundef %66, i8 noundef signext 5) #9
   br label %242
@@ -1528,7 +1528,7 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %253, label %257, label %254
 
 254:                                              ; preds = %249
-  %255 = getelementptr inbounds i8, ptr %250, i64 100
+  %255 = getelementptr inbounds nuw i8, ptr %250, i64 100
   %256 = load i32, ptr %255, align 4
   br label %257
 
@@ -1536,16 +1536,16 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   %258 = phi i32 [ %256, %254 ], [ 1, %249 ]
   store i32 %258, ptr %15, align 8
   call fastcc void @netfs_rreq_expand(ptr noundef %218, ptr noundef nonnull %9)
-  %259 = getelementptr inbounds i8, ptr %218, i64 120
-  %260 = getelementptr inbounds i8, ptr %2, i64 8
-  %261 = getelementptr inbounds i8, ptr %218, i64 296
+  %259 = getelementptr inbounds nuw i8, ptr %218, i64 120
+  %260 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %218, i64 296
   %262 = load i64, ptr %261, align 8
-  %263 = getelementptr inbounds i8, ptr %218, i64 256
+  %263 = getelementptr inbounds nuw i8, ptr %218, i64 256
   %264 = load i64, ptr %263, align 8
-  call void @iov_iter_xarray(ptr noundef %259, i32 noundef 0, ptr noundef %260, i64 noundef %262, i64 noundef %264) #9
+  call void @iov_iter_xarray(ptr noundef nonnull %259, i32 noundef 0, ptr noundef nonnull %260, i64 noundef %262, i64 noundef %264) #9
   %265 = load ptr, ptr %8, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 52
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %266, ptr elementtype(i32) %266) #9, !srcloc !24
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 52
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %266, ptr nonnull elementtype(i32) %266) #9, !srcloc !24
   %267 = load i32, ptr %16, align 4
   %268 = load i32, ptr %15, align 8
   %269 = icmp ugt i32 %267, %268
@@ -1574,15 +1574,15 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 
 277:                                              ; preds = %.lr.ph
   %278 = load ptr, ptr %12, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 8
-  %280 = call ptr @xa_load(ptr noundef %279, i64 noundef %275) #9
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 8
+  %280 = call ptr @xa_load(ptr noundef nonnull %279, i64 noundef %275) #9
   %281 = load volatile i64, ptr %280, align 8
   %282 = and i64 %281, 64
   %283 = icmp eq i64 %282, 0
   br i1 %283, label %287, label %284
 
 284:                                              ; preds = %277
-  %285 = getelementptr inbounds i8, ptr %280, i64 100
+  %285 = getelementptr inbounds nuw i8, ptr %280, i64 100
   %286 = load i32, ptr %285, align 4
   br label %287
 
@@ -1593,8 +1593,8 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
   br i1 %289, label %.loopexit, label %290
 
 290:                                              ; preds = %287
-  %291 = getelementptr inbounds i8, ptr %280, i64 52
-  %292 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %291, ptr elementtype(i32) %291) #9, !srcloc !27
+  %291 = getelementptr inbounds nuw i8, ptr %280, i64 52
+  %292 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %291, ptr nonnull elementtype(i32) %291) #9, !srcloc !27
   %293 = icmp ult i8 %292, 2
   call void @llvm.assume(i1 %293)
   %294 = icmp eq i8 %292, 0
@@ -1639,8 +1639,8 @@ define dso_local i32 @netfs_write_begin(ptr nocapture noundef readonly %0, ptr n
 312:                                              ; preds = %308
   call void @folio_unlock(ptr noundef nonnull %310) #9
   %313 = load ptr, ptr %8, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 52
-  %315 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %314, ptr elementtype(i32) %314) #9, !srcloc !27
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 52
+  %315 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %314, ptr nonnull elementtype(i32) %314) #9, !srcloc !27
   %316 = icmp ult i8 %315, 2
   call void @llvm.assume(i1 %316)
   %317 = icmp eq i8 %315, 0
@@ -1662,9 +1662,9 @@ declare dso_local ptr @__filemap_get_folio(ptr noundef, i64 noundef, i32 noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @netfs_prefetch_for_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = shl i64 %8, 12
   %10 = load volatile i64, ptr %1, align 8
@@ -1673,7 +1673,7 @@ define dso_local i32 @netfs_prefetch_for_write(ptr noundef %0, ptr noundef %1, i
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load i64, ptr %14, align 16
   %16 = and i64 %15, 255
   br label %17
@@ -1692,10 +1692,10 @@ define dso_local i32 @netfs_prefetch_for_write(ptr noundef %0, ptr noundef %1, i
 
 25:                                               ; preds = %17
   %26 = load i64, ptr %7, align 16
-  %27 = getelementptr inbounds i8, ptr %20, i64 304
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 304
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 320
-  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %28, i64 2) #9, !srcloc !51
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 320
+  tail call void asm sideeffect " btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %28, i64 2) #9, !srcloc !51
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_netfs_read, i64 8), i32 2) #9
           to label %49 [label %29], !srcloc !11
 
@@ -1716,7 +1716,7 @@ define dso_local i32 @netfs_prefetch_for_write(ptr noundef %0, ptr noundef %1, i
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @__SCT__tp_func_netfs_read(ptr noundef %40, ptr noundef %20, i64 noundef %9, i64 noundef %19, i8 noundef signext 4) #9
   br label %42
@@ -1736,13 +1736,13 @@ define dso_local i32 @netfs_prefetch_for_write(ptr noundef %0, ptr noundef %1, i
   br label %49
 
 49:                                               ; preds = %46, %42, %29, %25
-  %50 = getelementptr inbounds i8, ptr %20, i64 120
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
-  %52 = getelementptr inbounds i8, ptr %20, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 120
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 296
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %20, i64 256
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 256
   %55 = load i64, ptr %54, align 8
-  tail call void @iov_iter_xarray(ptr noundef %50, i32 noundef 0, ptr noundef %51, i64 noundef %53, i64 noundef %55) #9
+  tail call void @iov_iter_xarray(ptr noundef nonnull %50, i32 noundef 0, ptr noundef nonnull %51, i64 noundef %53, i64 noundef %55) #9
   %56 = tail call i32 @netfs_begin_read(ptr noundef %20, i1 noundef zeroext true) #9
   tail call void @netfs_put_request(ptr noundef %20, i1 noundef zeroext false, i8 noundef signext 6) #9
   br label %57
@@ -1755,16 +1755,16 @@ define dso_local i32 @netfs_prefetch_for_write(ptr noundef %0, ptr noundef %1, i
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @netfs_buffered_read_iter(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 131072
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 624
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 624
   %12 = load volatile i64, ptr %11, align 8
   %13 = and i64 %12, 2
   %14 = icmp eq i64 %13, 0
@@ -1804,17 +1804,17 @@ declare dso_local void @netfs_end_io_read(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @netfs_file_read_iter(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 131072
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 216
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 624
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 624
   %13 = load volatile i64, ptr %12, align 8
   %14 = and i64 %13, 2
   %15 = icmp eq i64 %14, 0
@@ -1825,9 +1825,9 @@ define dso_local i64 @netfs_file_read_iter(ptr noundef %0, ptr noundef %1) #0 al
   br label %32
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %3, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 624
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 624
   %22 = load volatile i64, ptr %21, align 8
   %23 = and i64 %22, 2
   %24 = icmp eq i64 %23, 0

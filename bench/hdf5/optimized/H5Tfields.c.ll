@@ -72,9 +72,9 @@ define range(i32 -1, -2147483648) i32 @H5Tget_nmembers(i64 noundef %0) local_unn
   br label %.thread27
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %23, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %H5T_get_nmembers.exit.thread [
     i32 6, label %H5T_get_nmembers.exit
@@ -88,7 +88,7 @@ H5T_get_nmembers.exit.thread:                     ; preds = %29
   br label %38
 
 H5T_get_nmembers.exit:                            ; preds = %29, %29
-  %.0.i.in = getelementptr inbounds i8, ptr %31, i64 52
+  %.0.i.in = getelementptr inbounds nuw i8, ptr %31, i64 52
   %.0.i = load i32, ptr %.0.i.in, align 4
   %37 = icmp slt i32 %.0.i, 0
   br i1 %37, label %38, label %43
@@ -128,9 +128,9 @@ declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5T_get_nmembers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %12 [
     i32 6, label %6
@@ -138,12 +138,12 @@ define i32 @H5T_get_nmembers(ptr nocapture noundef readonly %0) local_unnamed_ad
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %8 = load i32, ptr %7, align 4
   br label %16
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %11 = load i32, ptr %10, align 4
   br label %16
 
@@ -235,9 +235,9 @@ define noalias ptr @H5Tget_member_name(i64 noundef %0, i32 noundef %1) local_unn
 
 ; Function Attrs: nounwind uwtable
 define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %35 [
     i32 6, label %7
@@ -245,7 +245,7 @@ define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 
   ]
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %9 = load i32, ptr %8, align 4
   %.not13 = icmp ult i32 %1, %9
   br i1 %.not13, label %14, label %10
@@ -257,16 +257,16 @@ define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 
   br label %39
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %4, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %1 to i64
-  %18 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %19) #5
   br label %39
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %4, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %23 = load i32, ptr %22, align 4
   %.not = icmp ult i32 %1, %23
   br i1 %.not, label %28, label %24
@@ -278,10 +278,10 @@ define noalias ptr @H5T__get_member_name(ptr nocapture noundef readonly %0, i32 
   br label %39
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %4, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %1 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noalias ptr @H5MM_xstrdup(ptr noundef %33) #5
   br label %39
@@ -343,9 +343,9 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr nocapture noundef readonly %
   br label %60
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %24, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
   switch i32 %34, label %53 [
     i32 6, label %.preheader
@@ -353,32 +353,32 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr nocapture noundef readonly %
   ]
 
 .preheader44:                                     ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %36 = load i32, ptr %35, align 4
   %.not55 = icmp eq i32 %36, 0
   br i1 %.not55, label %.thread41, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader44
-  %37 = getelementptr inbounds i8, ptr %32, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %38 = load ptr, ptr %37, align 8
   %wide.trip.count = zext i32 %36 to i64
   br label %48
 
 .preheader:                                       ; preds = %30
-  %39 = getelementptr inbounds i8, ptr %32, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 52
   %40 = load i32, ptr %39, align 4
   %.not56 = icmp eq i32 %40, 0
   br i1 %.not56, label %.thread41, label %.lr.ph51
 
 .lr.ph51:                                         ; preds = %.preheader
-  %41 = getelementptr inbounds i8, ptr %32, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %42 = load ptr, ptr %41, align 8
   %wide.trip.count63 = zext i32 %40 to i64
   br label %43
 
 43:                                               ; preds = %.lr.ph51, %47
   %indvars.iv60 = phi i64 [ 0, %.lr.ph51 ], [ %indvars.iv.next61, %47 ]
-  %44 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %42, i64 %indvars.iv60
+  %44 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %42, i64 %indvars.iv60
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(1) %1) #6
   %.not26 = icmp eq i32 %46, 0
@@ -391,7 +391,7 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr nocapture noundef readonly %
 
 48:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %49 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %1) #6
   %.not = icmp eq i32 %51, 0
@@ -441,9 +441,9 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.H5T_cmemb_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %.loopexit96 [
     i32 6, label %9
@@ -451,7 +451,7 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   ]
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %11 = load i32, ptr %10, align 8
   %.not94 = icmp eq i32 %11, 2
   br i1 %.not94, label %.loopexit96, label %12
@@ -459,7 +459,7 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
 12:                                               ; preds = %9
   store i32 2, ptr %10, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %15 = load i32, ptr %14, align 4
   %.086106 = add i32 %15, -1
   %.not109 = icmp eq i32 %.086106, 0
@@ -478,25 +478,25 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %33 ], [ 0, %.preheader.us ]
   %.1105.us.us = phi i1 [ %.2.us.us, %33 ], [ false, %.preheader.us ]
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv130
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %21 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv130
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %24 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv.next131, i32 1
+  %24 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv.next131, i32 1
   %25 = load i64, ptr %24, align 8
   %26 = icmp ugt i64 %23, %25
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
-  %28 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv.next131
+  %28 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv.next131
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %28, i64 32, i1 false)
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %31, i64 %indvars.iv.next131
+  %32 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %31, i64 %indvars.iv.next131
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %33
 
@@ -527,29 +527,29 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   %indvars.iv123 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next124, %60 ]
   %.1105 = phi i1 [ false, %.preheader ], [ %.2, %60 ]
   %41 = load ptr, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %43, i64 %indvars.iv123
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %44 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %43, i64 %indvars.iv123
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  %47 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %43, i64 %indvars.iv.next124, i32 1
+  %47 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %43, i64 %indvars.iv.next124, i32 1
   %48 = load i64, ptr %47, align 8
   %49 = icmp ugt i64 %46, %48
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false)
-  %51 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %43, i64 %indvars.iv.next124
+  %51 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %43, i64 %indvars.iv.next124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %51, i64 32, i1 false)
   %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %54, i64 %indvars.iv.next124
+  %55 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %54, i64 %indvars.iv.next124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  %56 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv123
+  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv123
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next124
+  %58 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next124
   %59 = load i32, ptr %58, align 4
   store i32 %59, ptr %56, align 4
   store i32 %57, ptr %58, align 4
@@ -561,7 +561,7 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   br i1 %exitcond125.not, label %.loopexit.split, label %40
 
 61:                                               ; preds = %2
-  %62 = getelementptr inbounds i8, ptr %6, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %63 = load i32, ptr %62, align 8
   %.not = icmp eq i32 %63, 2
   br i1 %.not, label %.loopexit96, label %64
@@ -569,9 +569,9 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
 64:                                               ; preds = %61
   store i32 2, ptr %62, align 8
   %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 52
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 52
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = load i64, ptr %68, align 8
   %.187102 = add i32 %67, -1
   %.not108 = icmp eq i32 %.187102, 0
@@ -590,7 +590,7 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   %indvars.iv116 = phi i64 [ %indvars.iv.next117, %101 ], [ 0, %.preheader97.us ]
   %.4101.us.us = phi i1 [ %.5.us.us, %101 ], [ false, %.preheader97.us ]
   %72 = load ptr, ptr %5, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %74 = load ptr, ptr %73, align 8
   %75 = mul i64 %69, %indvars.iv116
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
@@ -602,27 +602,27 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   br i1 %80, label %81, label %101
 
 81:                                               ; preds = %71
-  %82 = getelementptr inbounds i8, ptr %72, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv116
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv116
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv.next117
+  %86 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.next117
   %87 = load ptr, ptr %86, align 8
   store ptr %87, ptr %84, align 8
   %88 = load ptr, ptr %5, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv.next117
+  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.next117
   store ptr %85, ptr %91, align 8
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i8, ptr %94, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %95, i64 %69, i1 false)
   %96 = getelementptr inbounds i8, ptr %94, i64 %77
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %96, i64 %69, i1 false)
   %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr nonnull align 16 %3, i64 %69, i1 false)
@@ -655,7 +655,7 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.preheader97 ], [ %indvars.iv.next, %142 ]
   %.4101 = phi i1 [ false, %.preheader97 ], [ %.5, %142 ]
   %109 = load ptr, ptr %5, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 64
   %111 = load ptr, ptr %110, align 8
   %112 = mul i64 %69, %indvars.iv
   %113 = getelementptr inbounds i8, ptr %111, i64 %112
@@ -667,33 +667,33 @@ define noundef i32 @H5T__sort_value(ptr nocapture noundef readonly %0, ptr nound
   br i1 %117, label %118, label %142
 
 118:                                              ; preds = %108
-  %119 = getelementptr inbounds i8, ptr %109, i64 72
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 72
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds ptr, ptr %120, i64 %indvars.iv.next
+  %123 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv.next
   %124 = load ptr, ptr %123, align 8
   store ptr %124, ptr %121, align 8
   %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv.next
+  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.next
   store ptr %122, ptr %128, align 8
   %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 64
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds i8, ptr %131, i64 %112
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %132, i64 %69, i1 false)
   %133 = getelementptr inbounds i8, ptr %131, i64 %114
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %132, ptr align 1 %133, i64 %69, i1 false)
   %134 = load ptr, ptr %5, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 64
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 64
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %136, i64 %114
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %137, ptr nonnull align 16 %3, i64 %69, i1 false)
-  %138 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %139 = load i32, ptr %138, align 4
-  %140 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %140 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %141 = load i32, ptr %140, align 4
   store i32 %141, ptr %138, align 4
   store i32 %139, ptr %140, align 4
@@ -718,9 +718,9 @@ declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) l
 define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.H5T_cmemb_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %.loopexit92 [
     i32 6, label %9
@@ -728,7 +728,7 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   ]
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %6, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %11 = load i32, ptr %10, align 8
   %.not90 = icmp eq i32 %11, 1
   br i1 %.not90, label %.loopexit92, label %12
@@ -736,7 +736,7 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
 12:                                               ; preds = %9
   store i32 1, ptr %10, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %15 = load i32, ptr %14, align 4
   %.0102 = add i32 %15, -1
   %.not105 = icmp eq i32 %.0102, 0
@@ -755,12 +755,12 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %32 ], [ 0, %.preheader.us ]
   %.185100.us.us = phi i1 [ %.2.us.us, %32 ], [ false, %.preheader.us ]
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv126
+  %21 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv126
   %22 = load ptr, ptr %21, align 8
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
-  %23 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv.next127
+  %23 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %20, i64 %indvars.iv.next127
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %24) #6
   %26 = icmp sgt i32 %25, 0
@@ -770,9 +770,9 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %30, i64 %indvars.iv.next127
+  %31 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %30, i64 %indvars.iv.next127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %32
 
@@ -803,12 +803,12 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   %indvars.iv119 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next120, %58 ]
   %.185100 = phi i1 [ false, %.preheader ], [ %.2, %58 ]
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %42, i64 %indvars.iv119
+  %43 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %42, i64 %indvars.iv119
   %44 = load ptr, ptr %43, align 8
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %45 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %42, i64 %indvars.iv.next120
+  %45 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %42, i64 %indvars.iv.next120
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %46) #6
   %48 = icmp sgt i32 %47, 0
@@ -818,13 +818,13 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %43, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %45, i64 32, i1 false)
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct.H5T_cmemb_t, ptr %52, i64 %indvars.iv.next120
+  %53 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %52, i64 %indvars.iv.next120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
-  %54 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv119
+  %54 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv119
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next120
+  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next120
   %57 = load i32, ptr %56, align 4
   store i32 %57, ptr %54, align 4
   store i32 %55, ptr %56, align 4
@@ -836,7 +836,7 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %exitcond121.not, label %.loopexit.split, label %39
 
 59:                                               ; preds = %2
-  %60 = getelementptr inbounds i8, ptr %6, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %61 = load i32, ptr %60, align 8
   %.not = icmp eq i32 %61, 1
   br i1 %.not, label %.loopexit92, label %62
@@ -844,9 +844,9 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
 62:                                               ; preds = %59
   store i32 1, ptr %60, align 8
   %63 = load ptr, ptr %5, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 52
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %67 = load i64, ptr %66, align 8
   %.198 = add i32 %65, -1
   %.not104 = icmp eq i32 %.198, 0
@@ -865,12 +865,12 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %95 ], [ 0, %.preheader93.us ]
   %.496.us.us = phi i1 [ %.5.us.us, %95 ], [ false, %.preheader93.us ]
   %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv112
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv112
   %74 = load ptr, ptr %73, align 8
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
-  %75 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv.next113
+  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.next113
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %74, ptr noundef nonnull dereferenceable(1) %76) #6
   %78 = icmp sgt i32 %77, 0
@@ -879,12 +879,12 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
 79:                                               ; preds = %69
   store ptr %76, ptr %73, align 8
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 72
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 72
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv.next113
+  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.next113
   store ptr %74, ptr %83, align 8
   %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 64
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %86 = load ptr, ptr %85, align 8
   %87 = mul i64 %67, %indvars.iv112
   %88 = getelementptr inbounds i8, ptr %86, i64 %87
@@ -893,7 +893,7 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   %90 = getelementptr inbounds i8, ptr %86, i64 %89
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %88, ptr align 1 %90, i64 %67, i1 false)
   %91 = load ptr, ptr %5, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds i8, ptr %93, i64 %89
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr nonnull align 16 %3, i64 %67, i1 false)
@@ -926,12 +926,12 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %.preheader93 ], [ %indvars.iv.next, %132 ]
   %.496 = phi i1 [ false, %.preheader93 ], [ %.5, %132 ]
   %103 = load ptr, ptr %5, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %108 = getelementptr inbounds ptr, ptr %105, i64 %indvars.iv.next
+  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv.next
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %107, ptr noundef nonnull dereferenceable(1) %109) #6
   %111 = icmp sgt i32 %110, 0
@@ -940,12 +940,12 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
 112:                                              ; preds = %102
   store ptr %109, ptr %106, align 8
   %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 72
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 72
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds ptr, ptr %115, i64 %indvars.iv.next
+  %116 = getelementptr inbounds nuw ptr, ptr %115, i64 %indvars.iv.next
   store ptr %107, ptr %116, align 8
   %117 = load ptr, ptr %5, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 64
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 64
   %119 = load ptr, ptr %118, align 8
   %120 = mul i64 %67, %indvars.iv
   %121 = getelementptr inbounds i8, ptr %119, i64 %120
@@ -954,13 +954,13 @@ define noundef i32 @H5T__sort_name(ptr nocapture noundef readonly %0, ptr nounde
   %123 = getelementptr inbounds i8, ptr %119, i64 %122
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %121, ptr align 1 %123, i64 %67, i1 false)
   %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 64
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 64
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 %122
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr nonnull align 16 %3, i64 %67, i1 false)
-  %128 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %130 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %131 = load i32, ptr %130, align 4
   store i32 %131, ptr %128, align 4
   store i32 %129, ptr %130, align 4

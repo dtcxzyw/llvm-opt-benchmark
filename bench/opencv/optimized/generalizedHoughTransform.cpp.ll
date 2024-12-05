@@ -122,15 +122,15 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #7
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #7
-  %43 = getelementptr inbounds i8, ptr %12, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %12, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %44, align 4
   store i32 16842752, ptr %12, align 8
-  %45 = getelementptr inbounds i8, ptr %12, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %3, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
-  %47 = getelementptr inbounds i8, ptr %13, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %47, align 8
   store i32 33619968, ptr %13, align 8
   store ptr %11, ptr %46, align 8
@@ -140,9 +140,9 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 48:                                               ; preds = %42
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %49 = getelementptr inbounds i8, ptr %7, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %7, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %52 = load i32, ptr %51, align 8
   invoke void @_ZN2cv29createGeneralizedHoughBallardEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %16)
           to label %53 unwind label %266
@@ -150,7 +150,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 53:                                               ; preds = %48
   %54 = load ptr, ptr %16, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 128
   %57 = load ptr, ptr %56, align 8
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(8) %54, double noundef 1.000000e+01)
           to label %58 unwind label %268
@@ -158,7 +158,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 58:                                               ; preds = %53
   %59 = load ptr, ptr %16, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 176
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 176
   %62 = load ptr, ptr %61, align 8
   invoke void %62(ptr noundef nonnull align 8 dereferenceable(8) %59, i32 noundef 360)
           to label %63 unwind label %268
@@ -166,7 +166,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 63:                                               ; preds = %58
   %64 = load ptr, ptr %16, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 144
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 144
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %64, double noundef 2.000000e+00)
           to label %68 unwind label %268
@@ -174,7 +174,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 68:                                               ; preds = %63
   %69 = load ptr, ptr %16, align 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 160
   %72 = load ptr, ptr %71, align 8
   invoke void %72(ptr noundef nonnull align 8 dereferenceable(8) %69, i32 noundef 1000)
           to label %73 unwind label %268
@@ -182,7 +182,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 73:                                               ; preds = %68
   %74 = load ptr, ptr %16, align 8
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 192
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 192
   %77 = load ptr, ptr %76, align 8
   invoke void %77(ptr noundef nonnull align 8 dereferenceable(8) %74, i32 noundef 40)
           to label %78 unwind label %268
@@ -190,7 +190,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 78:                                               ; preds = %73
   %79 = load ptr, ptr %16, align 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
   %82 = load ptr, ptr %81, align 8
   invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %79, i32 noundef 30)
           to label %83 unwind label %268
@@ -198,22 +198,22 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 83:                                               ; preds = %78
   %84 = load ptr, ptr %16, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 112
   %87 = load ptr, ptr %86, align 8
   invoke void %87(ptr noundef nonnull align 8 dereferenceable(8) %84, i32 noundef 110)
           to label %88 unwind label %268
 
 88:                                               ; preds = %83
   %89 = load ptr, ptr %16, align 8
-  %90 = getelementptr inbounds i8, ptr %17, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %17, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %91, align 4
   store i32 16842752, ptr %17, align 8
-  %92 = getelementptr inbounds i8, ptr %17, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %7, ptr %92, align 8
   %93 = load ptr, ptr %89, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 64
   %95 = load ptr, ptr %94, align 8
   invoke void %95(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 -1)
           to label %96 unwind label %270
@@ -225,7 +225,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 97:                                               ; preds = %96
   %98 = load ptr, ptr %18, align 8
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 128
   %101 = load ptr, ptr %100, align 8
   invoke void %101(ptr noundef nonnull align 8 dereferenceable(8) %98, double noundef 1.000000e+01)
           to label %102 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -233,7 +233,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 102:                                              ; preds = %97
   %103 = load ptr, ptr %18, align 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 192
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 192
   %106 = load ptr, ptr %105, align 8
   invoke void %106(ptr noundef nonnull align 8 dereferenceable(8) %103, i32 noundef 360)
           to label %107 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -241,7 +241,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 107:                                              ; preds = %102
   %108 = load ptr, ptr %18, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 144
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 144
   %111 = load ptr, ptr %110, align 8
   invoke void %111(ptr noundef nonnull align 8 dereferenceable(8) %108, double noundef 3.000000e+00)
           to label %112 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -249,7 +249,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 112:                                              ; preds = %107
   %113 = load ptr, ptr %18, align 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 160
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 160
   %116 = load ptr, ptr %115, align 8
   invoke void %116(ptr noundef nonnull align 8 dereferenceable(8) %113, i32 noundef 1000)
           to label %117 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -257,7 +257,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 117:                                              ; preds = %112
   %118 = load ptr, ptr %18, align 8
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 224
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 224
   %121 = load ptr, ptr %120, align 8
   invoke void %121(ptr noundef nonnull align 8 dereferenceable(8) %118, double noundef 0.000000e+00)
           to label %122 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -265,7 +265,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 122:                                              ; preds = %117
   %123 = load ptr, ptr %18, align 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 240
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 240
   %126 = load ptr, ptr %125, align 8
   invoke void %126(ptr noundef nonnull align 8 dereferenceable(8) %123, double noundef 3.600000e+02)
           to label %127 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -273,7 +273,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 127:                                              ; preds = %122
   %128 = load ptr, ptr %18, align 8
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 256
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 256
   %131 = load ptr, ptr %130, align 8
   invoke void %131(ptr noundef nonnull align 8 dereferenceable(8) %128, double noundef 1.000000e+00)
           to label %132 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -281,7 +281,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 132:                                              ; preds = %127
   %133 = load ptr, ptr %18, align 8
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 272
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 272
   %136 = load ptr, ptr %135, align 8
   invoke void %136(ptr noundef nonnull align 8 dereferenceable(8) %133, i32 noundef 1500)
           to label %137 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -289,7 +289,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 137:                                              ; preds = %132
   %138 = load ptr, ptr %18, align 8
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 288
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 288
   %141 = load ptr, ptr %140, align 8
   invoke void %141(ptr noundef nonnull align 8 dereferenceable(8) %138, double noundef 5.000000e-01)
           to label %142 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -297,7 +297,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 142:                                              ; preds = %137
   %143 = load ptr, ptr %18, align 8
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 304
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 304
   %146 = load ptr, ptr %145, align 8
   invoke void %146(ptr noundef nonnull align 8 dereferenceable(8) %143, double noundef 2.000000e+00)
           to label %147 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -305,7 +305,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 147:                                              ; preds = %142
   %148 = load ptr, ptr %18, align 8
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 320
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 320
   %151 = load ptr, ptr %150, align 8
   invoke void %151(ptr noundef nonnull align 8 dereferenceable(8) %148, double noundef 5.000000e-02)
           to label %152 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -313,7 +313,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 152:                                              ; preds = %147
   %153 = load ptr, ptr %18, align 8
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 336
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 336
   %156 = load ptr, ptr %155, align 8
   invoke void %156(ptr noundef nonnull align 8 dereferenceable(8) %153, i32 noundef 50)
           to label %157 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -321,7 +321,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 157:                                              ; preds = %152
   %158 = load ptr, ptr %18, align 8
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 352
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 352
   %161 = load ptr, ptr %160, align 8
   invoke void %161(ptr noundef nonnull align 8 dereferenceable(8) %158, i32 noundef 10)
           to label %162 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -329,7 +329,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 162:                                              ; preds = %157
   %163 = load ptr, ptr %18, align 8
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 96
   %166 = load ptr, ptr %165, align 8
   invoke void %166(ptr noundef nonnull align 8 dereferenceable(8) %163, i32 noundef 30)
           to label %167 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -337,37 +337,37 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 167:                                              ; preds = %162
   %168 = load ptr, ptr %18, align 8
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 112
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 112
   %171 = load ptr, ptr %170, align 8
   invoke void %171(ptr noundef nonnull align 8 dereferenceable(8) %168, i32 noundef 110)
           to label %172 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 172:                                              ; preds = %167
   %173 = load ptr, ptr %18, align 8
-  %174 = getelementptr inbounds i8, ptr %19, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %174, align 8
-  %175 = getelementptr inbounds i8, ptr %19, i64 20
+  %175 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 0, ptr %175, align 4
   store i32 16842752, ptr %19, align 8
-  %176 = getelementptr inbounds i8, ptr %19, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %7, ptr %176, align 8
   %177 = load ptr, ptr %173, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 64
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 64
   %179 = load ptr, ptr %178, align 8
   invoke void %179(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 -1)
           to label %180 unwind label %272
 
 180:                                              ; preds = %172
   %181 = load ptr, ptr %16, align 8
-  %182 = getelementptr inbounds i8, ptr %20, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %182, align 8
-  %183 = getelementptr inbounds i8, ptr %20, i64 20
+  %183 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %183, align 4
   store i32 16842752, ptr %20, align 8
-  %184 = getelementptr inbounds i8, ptr %20, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %11, ptr %184, align 8
-  %185 = getelementptr inbounds i8, ptr %21, i64 8
-  %186 = getelementptr inbounds i8, ptr %21, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %186, align 8
   store i32 -2113732579, ptr %21, align 8
   store ptr %14, ptr %185, align 8
@@ -376,22 +376,22 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 
 188:                                              ; preds = %180
   %189 = load ptr, ptr %181, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 80
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 80
   %191 = load ptr, ptr %190, align 8
   invoke void %191(ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %187)
           to label %192 unwind label %274
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr %18, align 8
-  %194 = getelementptr inbounds i8, ptr %22, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %194, align 8
-  %195 = getelementptr inbounds i8, ptr %22, i64 20
+  %195 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 0, ptr %195, align 4
   store i32 16842752, ptr %22, align 8
-  %196 = getelementptr inbounds i8, ptr %22, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %11, ptr %196, align 8
-  %197 = getelementptr inbounds i8, ptr %23, i64 8
-  %198 = getelementptr inbounds i8, ptr %23, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %198, align 8
   store i32 -2113732579, ptr %23, align 8
   store ptr %15, ptr %197, align 8
@@ -400,14 +400,14 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 
 200:                                              ; preds = %192
   %201 = load ptr, ptr %193, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 80
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 80
   %203 = load ptr, ptr %202, align 8
   invoke void %203(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %199)
           to label %204 unwind label %276
 
 204:                                              ; preds = %200
   %205 = load ptr, ptr %14, align 8
-  %206 = getelementptr inbounds i8, ptr %14, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %207 = load ptr, ptr %206, align 8
   %.not122 = icmp eq ptr %205, %207
   br i1 %.not122, label %._crit_edge, label %.lr.ph
@@ -415,25 +415,25 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 .lr.ph:                                           ; preds = %204
   %208 = sitofp i32 %50 to float
   %209 = sitofp i32 %52 to float
-  %.sroa_idx102 = getelementptr inbounds i8, ptr %24, i64 4
-  %210 = getelementptr inbounds i8, ptr %24, i64 8
-  %.sroa_idx99 = getelementptr inbounds i8, ptr %24, i64 12
-  %211 = getelementptr inbounds i8, ptr %24, i64 16
-  %212 = getelementptr inbounds i8, ptr %26, i64 8
-  %213 = getelementptr inbounds i8, ptr %26, i64 16
-  %214 = getelementptr inbounds i8, ptr %27, i64 8
+  %.sroa_idx102 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %210 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %.sroa_idx99 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %211 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %215
 
 215:                                              ; preds = %.lr.ph, %280
   %.sroa.0106.0123 = phi ptr [ %205, %.lr.ph ], [ %281, %280 ]
   %216 = load i32, ptr %.sroa.0106.0123, align 4
-  %217 = getelementptr inbounds i8, ptr %.sroa.0106.0123, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0123, i64 4
   %218 = load i32, ptr %217, align 4
-  %219 = getelementptr inbounds i8, ptr %.sroa.0106.0123, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0123, i64 8
   %220 = load float, ptr %219, align 4
   %221 = fmul float %220, %208
   %222 = fmul float %220, %209
-  %223 = getelementptr inbounds i8, ptr %.sroa.0106.0123, i64 12
+  %223 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0123, i64 12
   %224 = load float, ptr %223, align 4
   store i32 %216, ptr %24, align 4
   store i32 %218, ptr %.sroa_idx102, align 4
@@ -453,11 +453,11 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   store i64 0, ptr %213, align 8
   store i32 50397184, ptr %26, align 8
   store ptr %3, ptr %212, align 8
-  %226 = getelementptr inbounds [4 x %"class.cv::Point_.7"], ptr %25, i64 0, i64 %indvars.iv
+  %226 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %25, i64 0, i64 %indvars.iv
   %227 = load float, ptr %226, align 8
   %228 = insertelement <4 x float> poison, float %227, i64 0
   %229 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %228)
-  %230 = getelementptr inbounds i8, ptr %226, i64 4
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 4
   %231 = load float, ptr %230, align 4
   %232 = insertelement <4 x float> poison, float %231, i64 0
   %233 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %232)
@@ -467,11 +467,11 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %234 = and i64 %indvars.iv.next, 3
-  %235 = getelementptr inbounds [4 x %"class.cv::Point_.7"], ptr %25, i64 0, i64 %234
+  %235 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %25, i64 0, i64 %234
   %236 = load float, ptr %235, align 8
   %237 = insertelement <4 x float> poison, float %236, i64 0
   %238 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %237)
-  %239 = getelementptr inbounds i8, ptr %235, i64 4
+  %239 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %240 = load float, ptr %239, align 4
   %241 = insertelement <4 x float> poison, float %240, i64 0
   %242 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %241)
@@ -608,14 +608,14 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   br label %.loopexit.split-lp
 
 280:                                              ; preds = %.preheader118
-  %281 = getelementptr inbounds i8, ptr %.sroa.0106.0123, i64 16
+  %281 = getelementptr inbounds nuw i8, ptr %.sroa.0106.0123, i64 16
   %282 = load ptr, ptr %206, align 8
   %.not = icmp eq ptr %281, %282
   br i1 %.not, label %._crit_edge, label %215, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %280, %204
   %283 = load ptr, ptr %15, align 8
-  %284 = getelementptr inbounds i8, ptr %15, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %285 = load ptr, ptr %284, align 8
   %.not117124 = icmp eq ptr %283, %285
   br i1 %.not117124, label %._crit_edge128, label %.lr.ph127
@@ -623,26 +623,26 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 .lr.ph127:                                        ; preds = %._crit_edge
   %286 = sitofp i32 %50 to float
   %287 = sitofp i32 %52 to float
-  %.sroa_idx88 = getelementptr inbounds i8, ptr %28, i64 4
-  %288 = getelementptr inbounds i8, ptr %28, i64 8
-  %.sroa_idx87 = getelementptr inbounds i8, ptr %28, i64 12
-  %289 = getelementptr inbounds i8, ptr %28, i64 16
-  %290 = getelementptr inbounds i8, ptr %30, i64 8
-  %291 = getelementptr inbounds i8, ptr %30, i64 16
-  %292 = getelementptr inbounds i8, ptr %31, i64 8
-  %293 = getelementptr inbounds i8, ptr %31, i64 16
+  %.sroa_idx88 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %288 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sroa_idx87 = getelementptr inbounds nuw i8, ptr %28, i64 12
+  %289 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %31, i64 16
   br label %294
 
 294:                                              ; preds = %.lr.ph127, %324
   %.sroa.092.0125 = phi ptr [ %283, %.lr.ph127 ], [ %325, %324 ]
   %295 = load i32, ptr %.sroa.092.0125, align 4
-  %296 = getelementptr inbounds i8, ptr %.sroa.092.0125, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 4
   %297 = load i32, ptr %296, align 4
-  %298 = getelementptr inbounds i8, ptr %.sroa.092.0125, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 8
   %299 = load float, ptr %298, align 4
   %300 = fmul float %299, %286
   %301 = fmul float %299, %287
-  %302 = getelementptr inbounds i8, ptr %.sroa.092.0125, i64 12
+  %302 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 12
   %303 = load float, ptr %302, align 4
   store i32 %295, ptr %28, align 4
   store i32 %297, ptr %.sroa_idx88, align 4
@@ -662,11 +662,11 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   store i64 0, ptr %291, align 8
   store i32 50397184, ptr %30, align 8
   store ptr %3, ptr %290, align 8
-  %305 = getelementptr inbounds [4 x %"class.cv::Point_.7"], ptr %29, i64 0, i64 %indvars.iv130
+  %305 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %29, i64 0, i64 %indvars.iv130
   %306 = load float, ptr %305, align 8
   %307 = insertelement <4 x float> poison, float %306, i64 0
   %308 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %307)
-  %309 = getelementptr inbounds i8, ptr %305, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %310 = load float, ptr %309, align 4
   %311 = insertelement <4 x float> poison, float %310, i64 0
   %312 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %311)
@@ -676,11 +676,11 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   %.sroa.0.0.insert.insert.i70 = or disjoint i64 %.sroa.2.0.insert.shift.i68, %.sroa.0.0.insert.ext.i69
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %313 = and i64 %indvars.iv.next131, 3
-  %314 = getelementptr inbounds [4 x %"class.cv::Point_.7"], ptr %29, i64 0, i64 %313
+  %314 = getelementptr inbounds nuw [4 x %"class.cv::Point_.7"], ptr %29, i64 0, i64 %313
   %315 = load float, ptr %314, align 8
   %316 = insertelement <4 x float> poison, float %315, i64 0
   %317 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %316)
-  %318 = getelementptr inbounds i8, ptr %314, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %314, i64 4
   %319 = load float, ptr %318, align 4
   %320 = insertelement <4 x float> poison, float %319, i64 0
   %321 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %320)
@@ -700,7 +700,7 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   br label %.loopexit.split-lp
 
 324:                                              ; preds = %.preheader
-  %325 = getelementptr inbounds i8, ptr %.sroa.092.0125, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %.sroa.092.0125, i64 16
   %326 = load ptr, ptr %284, align 8
   %.not117 = icmp eq ptr %325, %326
   br i1 %.not117, label %._crit_edge128, label %294, !llvm.loop !9
@@ -711,12 +711,12 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %327 unwind label %410
 
 327:                                              ; preds = %._crit_edge128
-  %328 = getelementptr inbounds i8, ptr %34, i64 16
+  %328 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 0, ptr %328, align 8
-  %329 = getelementptr inbounds i8, ptr %34, i64 20
+  %329 = getelementptr inbounds nuw i8, ptr %34, i64 20
   store i32 0, ptr %329, align 4
   store i32 16842752, ptr %34, align 8
-  %330 = getelementptr inbounds i8, ptr %34, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %3, ptr %330, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(24) %34)
           to label %331 unwind label %412
@@ -728,13 +728,13 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
           to label %333 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 333:                                              ; preds = %331
-  %334 = getelementptr inbounds i8, ptr %18, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %335 = load ptr, ptr %334, align 8
   %.not.i.i.i.i = icmp eq ptr %335, null
   br i1 %.not.i.i.i.i, label %_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit, label %336
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds i8, ptr %335, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %338 = load atomic i64, ptr %337 acquire, align 8
   %339 = icmp eq i64 %338, 4294967297
   %340 = trunc i64 %338 to i32
@@ -742,10 +742,10 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 
 341:                                              ; preds = %336
   store i32 0, ptr %337, align 8
-  %342 = getelementptr inbounds i8, ptr %335, i64 12
+  %342 = getelementptr inbounds nuw i8, ptr %335, i64 12
   store i32 0, ptr %342, align 4
   %343 = load ptr, ptr %335, align 8
-  %344 = getelementptr inbounds i8, ptr %343, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 16
   %345 = load ptr, ptr %344, align 8
   call void %345(ptr noundef nonnull align 8 dereferenceable(16) %335) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -771,10 +771,10 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 
 354:                                              ; preds = %352
   %355 = load ptr, ptr %335, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 16
   %357 = load ptr, ptr %356, align 8
   call void %357(ptr noundef nonnull align 8 dereferenceable(16) %335) #7
-  %358 = getelementptr inbounds i8, ptr %335, i64 12
+  %358 = getelementptr inbounds nuw i8, ptr %335, i64 12
   %359 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %359, 0
   br i1 %.not.i.i.i.i.i.i.i, label %363, label %360
@@ -796,19 +796,19 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %365, %341
   %367 = load ptr, ptr %335, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 24
+  %368 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %369 = load ptr, ptr %368, align 8
   call void %369(ptr noundef nonnull align 8 dereferenceable(16) %335) #7
   br label %_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit
 
 _ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit:  ; preds = %333, %352, %365, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
-  %370 = getelementptr inbounds i8, ptr %16, i64 8
+  %370 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %371 = load ptr, ptr %370, align 8
   %.not.i.i.i.i75 = icmp eq ptr %371, null
   br i1 %.not.i.i.i.i75, label %_ZN2cv3PtrINS_23GeneralizedHoughBallardEED2Ev.exit, label %372
 
 372:                                              ; preds = %_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit
-  %373 = getelementptr inbounds i8, ptr %371, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %374 = load atomic i64, ptr %373 acquire, align 8
   %375 = icmp eq i64 %374, 4294967297
   %376 = trunc i64 %374 to i32
@@ -816,10 +816,10 @@ _ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit:  ; preds = %333, %352, %365, %_
 
 377:                                              ; preds = %372
   store i32 0, ptr %373, align 8
-  %378 = getelementptr inbounds i8, ptr %371, i64 12
+  %378 = getelementptr inbounds nuw i8, ptr %371, i64 12
   store i32 0, ptr %378, align 4
   %379 = load ptr, ptr %371, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = load ptr, ptr %380, align 8
   call void %381(ptr noundef nonnull align 8 dereferenceable(16) %371) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i80
@@ -845,10 +845,10 @@ _ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit:  ; preds = %333, %352, %365, %_
 
 390:                                              ; preds = %388
   %391 = load ptr, ptr %371, align 8
-  %392 = getelementptr inbounds i8, ptr %391, i64 16
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 16
   %393 = load ptr, ptr %392, align 8
   call void %393(ptr noundef nonnull align 8 dereferenceable(16) %371) #7
-  %394 = getelementptr inbounds i8, ptr %371, i64 12
+  %394 = getelementptr inbounds nuw i8, ptr %371, i64 12
   %395 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i78 = icmp eq i8 %395, 0
   br i1 %.not.i.i.i.i.i.i.i78, label %399, label %396
@@ -870,7 +870,7 @@ _ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev.exit:  ; preds = %333, %352, %365, %_
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i80: ; preds = %401, %377
   %403 = load ptr, ptr %371, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 24
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %405 = load ptr, ptr %404, align 8
   call void %405(ptr noundef nonnull align 8 dereferenceable(16) %371) #7
   br label %_ZN2cv3PtrINS_23GeneralizedHoughBallardEED2Ev.exit
@@ -1000,13 +1000,13 @@ declare noundef i32 @_ZN2cv7waitKeyEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv20GeneralizedHoughGuilEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1014,10 +1014,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev(ptr 
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -1043,10 +1043,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev(ptr 
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -1068,7 +1068,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_20GeneralizedHoughGuilEED2Ev(ptr 
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %_ZNSt10shared_ptrIN2cv20GeneralizedHoughGuilEED2Ev.exit
@@ -1079,13 +1079,13 @@ _ZNSt10shared_ptrIN2cv20GeneralizedHoughGuilEED2Ev.exit: ; preds = %1, %20, %33,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv3PtrINS_23GeneralizedHoughBallardEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i, label %_ZNSt10shared_ptrIN2cv23GeneralizedHoughBallardEED2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -1093,10 +1093,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_23GeneralizedHoughBallardEED2Ev(p
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i
@@ -1122,10 +1122,10 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_23GeneralizedHoughBallardEED2Ev(p
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i, label %31, label %28
@@ -1147,7 +1147,7 @@ define linkonce_odr hidden void @_ZN2cv3PtrINS_23GeneralizedHoughBallardEED2Ev(p
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
   br label %_ZNSt10shared_ptrIN2cv23GeneralizedHoughBallardEED2Ev.exit

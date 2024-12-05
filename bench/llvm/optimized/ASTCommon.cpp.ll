@@ -64,7 +64,7 @@ define dso_local range(i64 0, 2160368549889) i64 @_ZN5clang13serialization18Type
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds [502 x i64], ptr @switch.table._ZN5clang13serialization18TypeIdxFromBuiltinEPKNS_11BuiltinTypeE, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds nuw [502 x i64], ptr @switch.table._ZN5clang13serialization18TypeIdxFromBuiltinEPKNS_11BuiltinTypeE, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %8
 
@@ -91,10 +91,10 @@ define dso_local noundef i32 @_ZN5clang13serialization11ComputeHashENS_8Selector
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %8, align 8
   %11 = and i64 %10, 4294967295
-  %12 = getelementptr inbounds i8, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   %.not12.i = icmp eq i64 %11, 0
   br i1 %.not12.i, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i
 
@@ -105,7 +105,7 @@ define dso_local noundef i32 @_ZN5clang13serialization11ComputeHashENS_8Selector
   %14 = mul i32 %.014.i, 33
   %15 = zext i8 %13 to i32
   %16 = add i32 %14, %15
-  %17 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %.not.i = icmp eq ptr %17, %12
   br i1 %.not.i, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i
 
@@ -158,7 +158,7 @@ define dso_local noundef ptr @_ZN5clang13serialization24getDefinitiveDeclContext
   %6 = getelementptr inbounds i8, ptr %0, i64 -64
   %7 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %6) #6
   %.not12 = icmp eq ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %spec.select = select i1 %.not12, ptr null, ptr %8
   br label %25
 
@@ -166,15 +166,15 @@ define dso_local noundef ptr @_ZN5clang13serialization24getDefinitiveDeclContext
   br label %25
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.0.copyload.i.i.i.i = load i64, ptr %11, align 8
   %.not.i.i = icmp eq i64 %.0.copyload.i.i.i.i, 0
   br i1 %.not.i.i, label %12, label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtocolDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %14)
   %.0.copyload.i.i.i.pre.i.i = load i64, ptr %11, align 8
   br label %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i
@@ -193,7 +193,7 @@ _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i: ; preds = %12, %10
 _ZNK5clang16ObjCProtocolDecl13getDefinitionEv.exit: ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i, %18
   %22 = phi ptr [ %21, %18 ], [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i ]
   %.not = icmp eq ptr %22, null
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %spec.select13 = select i1 %.not, ptr null, ptr %23
   br label %25
 
@@ -629,7 +629,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
   %33 = add i64 %32, 7
   %34 = and i64 %33, -8
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   br label %_ZnwmRKN5clang10ASTContextEm.exit.i.i
 
 _ZnwmRKN5clang10ASTContextEm.exit.i.i:            ; preds = %.critedge.i.i.i.i.i.i, %28
@@ -710,7 +710,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #6
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -724,7 +724,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #6
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void

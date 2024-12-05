@@ -21,7 +21,7 @@ define dso_local void @_ZN17gim_contact_array14merge_contactsERKS_b(ptr nocaptur
 entry:
   %keycontacts = alloca %class.gim_array.0, align 8
   %coincident_normals = alloca [8 x %class.btVector3], align 16
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_size.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit, label %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
@@ -31,14 +31,14 @@ _ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i: ; preds = %entry
   br label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
 
 _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %entry, %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
-  %m_size.i31 = getelementptr inbounds i8, ptr %contacts, i64 8
+  %m_size.i31 = getelementptr inbounds nuw i8, ptr %contacts, i64 8
   %1 = load i32, ptr %m_size.i31, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
   %2 = load ptr, ptr %contacts, align 8
-  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_allocated_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %3 = load i32, ptr %m_allocated_size.i.i, align 4
   %cmp.not.i.i.not = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.not, label %if.end12.i.i.i, label %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i
@@ -59,7 +59,7 @@ if.end12.i.i.i:                                   ; preds = %if.then
 _ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit: ; preds = %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i, %if.end12.i.i.i
   %idxprom.i33 = phi i64 [ 0, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %4, %if.end12.i.i.i ]
   %5 = phi ptr [ %.pre.i, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %call10.i.i.i, %if.end12.i.i.i ]
-  %arrayidx.i34 = getelementptr inbounds %class.GIM_CONTACT, ptr %5, i64 %idxprom.i33
+  %arrayidx.i34 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %5, i64 %idxprom.i33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i34, ptr noundef nonnull align 4 dereferenceable(48) %2, i64 48, i1 false)
   %6 = load i32, ptr %m_size.i, align 8
   %inc.i = add i32 %6, 1
@@ -72,23 +72,23 @@ if.end:                                           ; preds = %_ZN9gim_arrayI11GIM
   br i1 %cmp.not.i.not.i, label %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit.thread, label %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit.thread: ; preds = %if.end
-  %m_size.i40173 = getelementptr inbounds i8, ptr %keycontacts, i64 8
+  %m_size.i40173 = getelementptr inbounds nuw i8, ptr %keycontacts, i64 8
   br label %for.end
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit:        ; preds = %if.end
-  %m_allocated_size.i = getelementptr inbounds i8, ptr %keycontacts, i64 12
+  %m_allocated_size.i = getelementptr inbounds nuw i8, ptr %keycontacts, i64 12
   %conv8.i.i.i36 = zext i32 %1 to i64
   %mul9.i.i.i37 = shl nuw nsw i64 %conv8.i.i.i36, 3
   %call10.i.i.i38 = tail call noundef ptr @_Z9gim_allocm(i64 noundef %mul9.i.i.i37)
   store ptr %call10.i.i.i38, ptr %keycontacts, align 8
   store i32 %1, ptr %m_allocated_size.i, align 4
   %.pre = load i32, ptr %m_size.i31, align 8
-  %m_size.i40 = getelementptr inbounds i8, ptr %keycontacts, i64 8
+  %m_size.i40 = getelementptr inbounds nuw i8, ptr %keycontacts, i64 8
   %cmp.i41.not = icmp eq i32 %.pre, 0
   br i1 %cmp.i41.not, label %for.end, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENEC2Ej.exit
-  %m_allocated_size.i.i42 = getelementptr inbounds i8, ptr %keycontacts, i64 12
+  %m_allocated_size.i.i42 = getelementptr inbounds nuw i8, ptr %keycontacts, i64 12
   %cmp.not.i.i43 = icmp ult i32 %1, %.pre
   br i1 %cmp.not.i.i43, label %if.else.i.i.i54, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE6resizeEjbRKS0_.exit.thread180
 
@@ -118,15 +118,15 @@ invoke.cont12:                                    ; preds = %invoke.cont12.prehe
   %8 = phi ptr [ %15, %invoke.cont12 ], [ %.ph, %invoke.cont12.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont12 ], [ 0, %invoke.cont12.preheader ]
   %9 = load ptr, ptr %contacts, align 8
-  %arrayidx.i61 = getelementptr inbounds %class.GIM_CONTACT, ptr %9, i64 %indvars.iv
+  %arrayidx.i61 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %9, i64 %indvars.iv
   %10 = load float, ptr %arrayidx.i61, align 4
   %11 = tail call float @llvm.fmuladd.f32(float %10, float 1.000000e+03, float 1.000000e+00)
   %conv.i = fptosi float %11 to i32
-  %arrayidx4.i = getelementptr inbounds i8, ptr %arrayidx.i61, i64 4
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %arrayidx.i61, i64 4
   %12 = load float, ptr %arrayidx4.i, align 4
   %mul.i = fmul float %12, 1.333000e+03
   %conv5.i = fptosi float %mul.i to i32
-  %arrayidx9.i = getelementptr inbounds i8, ptr %arrayidx.i61, i64 8
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %arrayidx.i61, i64 8
   %13 = load float, ptr %arrayidx9.i, align 4
   %14 = tail call float @llvm.fmuladd.f32(float %13, float 2.133000e+03, float 3.000000e+00)
   %conv11.i = fptosi float %14 to i32
@@ -134,10 +134,10 @@ invoke.cont12:                                    ; preds = %invoke.cont12.prehe
   %add.i = add i32 %shl.i, %conv.i
   %shl14.i = shl i32 %conv11.i, 8
   %add15.i = add i32 %add.i, %shl14.i
-  %arrayidx.i62 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %8, i64 %indvars.iv
+  %arrayidx.i62 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %8, i64 %indvars.iv
   store i32 %add15.i, ptr %arrayidx.i62, align 4
   %15 = load ptr, ptr %keycontacts, align 8
-  %m_value = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %15, i64 %indvars.iv, i32 1
+  %m_value = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %15, i64 %indvars.iv, i32 1
   %16 = trunc nuw i64 %indvars.iv to i32
   store i32 %16, ptr %m_value, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -175,12 +175,12 @@ for.end:                                          ; preds = %_ZN9gim_arrayI15GIM
 arrayctor.loop.preheader:                         ; preds = %for.end
   %21 = load ptr, ptr %keycontacts, align 8
   %22 = load i32, ptr %21, align 4
-  %m_value31 = getelementptr inbounds i8, ptr %21, i64 4
+  %m_value31 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %m_value31, align 4
   %conv32 = zext i32 %23 to i64
   %24 = load ptr, ptr %contacts, align 8
-  %arrayidx.i67 = getelementptr inbounds %class.GIM_CONTACT, ptr %24, i64 %conv32
-  %m_allocated_size.i.i68 = getelementptr inbounds i8, ptr %this, i64 12
+  %arrayidx.i67 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %24, i64 %conv32
+  %m_allocated_size.i.i68 = getelementptr inbounds nuw i8, ptr %this, i64 12
   %25 = load i32, ptr %m_allocated_size.i.i68, align 4
   %26 = load i32, ptr %m_size.i, align 8
   %cmp.not.i.i70 = icmp ugt i32 %25, %26
@@ -236,7 +236,7 @@ invoke.cont35:                                    ; preds = %if.end12.i.i.i83, %
   %29 = phi i32 [ %26, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i93 ], [ %.pre166, %if.end12.i.i.i83 ]
   %30 = phi ptr [ %.pre.i94, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i93 ], [ %storemerge.i.i.i84, %if.end12.i.i.i83 ]
   %idxprom.i85 = zext i32 %29 to i64
-  %arrayidx.i86 = getelementptr inbounds %class.GIM_CONTACT, ptr %30, i64 %idxprom.i85
+  %arrayidx.i86 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %30, i64 %idxprom.i85
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i86, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i67, i64 48, i1 false)
   %31 = load i32, ptr %m_size.i, align 8
   %inc.i87 = add i32 %31, 1
@@ -248,7 +248,7 @@ invoke.cont35:                                    ; preds = %if.end12.i.i.i83, %
 for.body42.preheader:                             ; preds = %invoke.cont35
   %33 = load ptr, ptr %this, align 8
   %idxprom.i100 = zext i32 %31 to i64
-  %arrayidx.i101 = getelementptr inbounds %class.GIM_CONTACT, ptr %33, i64 %idxprom.i100
+  %arrayidx.i101 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %33, i64 %idxprom.i100
   %34 = zext i32 %32 to i64
   br label %for.body42
 
@@ -257,21 +257,21 @@ for.body42:                                       ; preds = %for.body42.preheade
   %pcontact.0157 = phi ptr [ %arrayidx.i101, %for.body42.preheader ], [ %pcontact.1, %if.end83 ]
   %last_key.0156 = phi i32 [ %22, %for.body42.preheader ], [ %35, %if.end83 ]
   %coincident_count.0155 = phi i32 [ 0, %for.body42.preheader ], [ %coincident_count.1, %if.end83 ]
-  %arrayidx.i103 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %21, i64 %indvars.iv161
+  %arrayidx.i103 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %21, i64 %indvars.iv161
   %35 = load i32, ptr %arrayidx.i103, align 4
-  %m_value50 = getelementptr inbounds i8, ptr %arrayidx.i103, i64 4
+  %m_value50 = getelementptr inbounds nuw i8, ptr %arrayidx.i103, i64 4
   %36 = load i32, ptr %m_value50, align 4
   %conv51 = zext i32 %36 to i64
   %37 = load ptr, ptr %contacts, align 8
-  %arrayidx.i105 = getelementptr inbounds %class.GIM_CONTACT, ptr %37, i64 %conv51
+  %arrayidx.i105 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %37, i64 %conv51
   %cmp54 = icmp eq i32 %last_key.0156, %35
   br i1 %cmp54, label %if.then55, label %if.else74
 
 if.then55:                                        ; preds = %for.body42
-  %m_depth = getelementptr inbounds i8, ptr %pcontact.0157, i64 32
+  %m_depth = getelementptr inbounds nuw i8, ptr %pcontact.0157, i64 32
   %38 = load float, ptr %m_depth, align 4
   %sub = fadd float %38, 0xBEE4F8B580000000
-  %m_depth56 = getelementptr inbounds i8, ptr %arrayidx.i105, i64 32
+  %m_depth56 = getelementptr inbounds nuw i8, ptr %arrayidx.i105, i64 32
   %39 = load float, ptr %m_depth56, align 4
   %cmp57 = fcmp ogt float %sub, %39
   br i1 %cmp57, label %if.then58, label %if.else
@@ -292,9 +292,9 @@ if.then59:                                        ; preds = %if.else
   br i1 %or.cond1, label %if.then68, label %if.end83
 
 if.then68:                                        ; preds = %if.then59
-  %m_normal = getelementptr inbounds i8, ptr %arrayidx.i105, i64 16
+  %m_normal = getelementptr inbounds nuw i8, ptr %arrayidx.i105, i64 16
   %idxprom = zext nneg i32 %coincident_count.0155 to i64
-  %arrayidx = getelementptr inbounds [8 x %class.btVector3], ptr %coincident_normals, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x %class.btVector3], ptr %coincident_normals, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %m_normal, i64 16, i1 false)
   %inc69 = add nuw nsw i32 %coincident_count.0155, 1
   br label %if.end83
@@ -305,11 +305,11 @@ if.else74:                                        ; preds = %for.body42
   br i1 %or.cond, label %for.body.preheader.i, label %if.end79
 
 for.body.preheader.i:                             ; preds = %if.else74
-  %m_normal.i = getelementptr inbounds i8, ptr %pcontact.0157, i64 16
+  %m_normal.i = getelementptr inbounds nuw i8, ptr %pcontact.0157, i64 16
   %vec_sum.sroa.0.0.copyload.i = load float, ptr %m_normal.i, align 4
-  %vec_sum.sroa.5.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0157, i64 20
+  %vec_sum.sroa.5.0.m_normal.sroa_idx.i = getelementptr inbounds nuw i8, ptr %pcontact.0157, i64 20
   %vec_sum.sroa.5.0.copyload.i = load float, ptr %vec_sum.sroa.5.0.m_normal.sroa_idx.i, align 4
-  %vec_sum.sroa.9.0.m_normal.sroa_idx.i = getelementptr inbounds i8, ptr %pcontact.0157, i64 24
+  %vec_sum.sroa.9.0.m_normal.sroa_idx.i = getelementptr inbounds nuw i8, ptr %pcontact.0157, i64 24
   %vec_sum.sroa.9.0.copyload.i = load float, ptr %vec_sum.sroa.9.0.m_normal.sroa_idx.i, align 4
   %wide.trip.count.i = zext i32 %coincident_count.0155 to i64
   br label %for.body.i
@@ -319,13 +319,13 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %vec_sum.sroa.0.013.i = phi float [ %vec_sum.sroa.0.0.copyload.i, %for.body.preheader.i ], [ %add.i.i107, %for.body.i ]
   %vec_sum.sroa.5.012.i = phi float [ %vec_sum.sroa.5.0.copyload.i, %for.body.preheader.i ], [ %add8.i.i, %for.body.i ]
   %vec_sum.sroa.9.011.i = phi float [ %vec_sum.sroa.9.0.copyload.i, %for.body.preheader.i ], [ %add13.i.i, %for.body.i ]
-  %arrayidx.i106 = getelementptr inbounds %class.btVector3, ptr %coincident_normals, i64 %indvars.iv.i
+  %arrayidx.i106 = getelementptr inbounds nuw %class.btVector3, ptr %coincident_normals, i64 %indvars.iv.i
   %41 = load float, ptr %arrayidx.i106, align 16
   %add.i.i107 = fadd float %vec_sum.sroa.0.013.i, %41
-  %arrayidx5.i.i = getelementptr inbounds i8, ptr %arrayidx.i106, i64 4
+  %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i106, i64 4
   %42 = load float, ptr %arrayidx5.i.i, align 4
   %add8.i.i = fadd float %vec_sum.sroa.5.012.i, %42
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %arrayidx.i106, i64 8
+  %arrayidx10.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i106, i64 8
   %43 = load float, ptr %arrayidx10.i.i, align 8
   %add13.i.i = fadd float %vec_sum.sroa.9.011.i, %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -415,14 +415,14 @@ invoke.cont80:                                    ; preds = %if.end12.i.i.i126, 
   %53 = phi i32 [ %51, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i136 ], [ %.pre167, %if.end12.i.i.i126 ]
   %54 = phi ptr [ %.pre.i137, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i136 ], [ %storemerge.i.i.i127, %if.end12.i.i.i126 ]
   %idxprom.i128 = zext i32 %53 to i64
-  %arrayidx.i129 = getelementptr inbounds %class.GIM_CONTACT, ptr %54, i64 %idxprom.i128
+  %arrayidx.i129 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %54, i64 %idxprom.i128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i129, ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i105, i64 48, i1 false)
   %55 = load i32, ptr %m_size.i, align 8
   %inc.i130 = add i32 %55, 1
   store i32 %inc.i130, ptr %m_size.i, align 8
   %56 = load ptr, ptr %this, align 8
   %idxprom.i144 = zext i32 %55 to i64
-  %arrayidx.i145 = getelementptr inbounds %class.GIM_CONTACT, ptr %56, i64 %idxprom.i144
+  %arrayidx.i145 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %56, i64 %idxprom.i144
   br label %if.end83
 
 if.end83:                                         ; preds = %if.then58, %if.then59, %if.then68, %if.else, %invoke.cont80
@@ -477,7 +477,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %wh
   %k.042 = phi i32 [ %div10, %for.body.lr.ph ], [ %sub.i, %while.end.loopexit.i ]
   %sub.i = add nsw i32 %k.042, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom.i
   %1 = load i64, ptr %arrayidx.i, align 4
   %2 = trunc i64 %1 to i32
   br label %while.body.i
@@ -511,7 +511,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i, %w
 if.then13.i:                                      ; preds = %if.end.i
   %sub17.i = add nsw i32 %k.addr.022.i, -1
   %idxprom18.i = zext i32 %sub17.i to i64
-  %arrayidx19.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i
   %10 = load i64, ptr %gep.i, align 4
   store i64 %10, ptr %arrayidx19.i, align 4
   %cmp.not.i = icmp ugt i32 %child.0.i, %div10
@@ -521,7 +521,7 @@ while.end.loopexit.i:                             ; preds = %if.then13.i, %if.en
   %k.addr.0.lcssa.ph.i = phi i32 [ %child.0.i, %if.then13.i ], [ %k.addr.022.i, %if.end.i ]
   %.pre.i = add i32 %k.addr.0.lcssa.ph.i, -1
   %.pre24.i = zext i32 %.pre.i to i64
-  %arrayidx23.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i
+  %arrayidx23.i = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i
   store i64 %1, ptr %arrayidx23.i, align 4
   %cmp.not = icmp eq i32 %sub.i, 0
   br i1 %cmp.not, label %while.body.lr.ph, label %for.body, !llvm.loop !11
@@ -532,7 +532,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %indvars = trunc i64 %indvars.iv.next to i32
   %conv = and i64 %indvars.iv.next, 4294967295
   %11 = load i64, ptr %pArr, align 4
-  %arrayidx1.i = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %conv
+  %arrayidx1.i = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %conv
   %12 = load i64, ptr %arrayidx1.i, align 4
   store i64 %12, ptr %pArr, align 4
   store i64 %11, ptr %arrayidx1.i, align 4
@@ -571,7 +571,7 @@ if.end.i20:                                       ; preds = %land.lhs.true.i36, 
 if.then13.i31:                                    ; preds = %if.end.i20
   %sub17.i32 = add nsw i32 %k.addr.022.i17, -1
   %idxprom18.i33 = zext i32 %sub17.i32 to i64
-  %arrayidx19.i34 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i33
+  %arrayidx19.i34 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %idxprom18.i33
   %22 = load i64, ptr %gep.i22, align 4
   store i64 %22, ptr %arrayidx19.i34, align 4
   %cmp.not.i35 = icmp ugt i32 %child.0.i21, %div18.i13
@@ -581,7 +581,7 @@ _Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit40
   %k.addr.0.lcssa.ph.i26 = phi i32 [ %child.0.i21, %if.then13.i31 ], [ %k.addr.022.i17, %if.end.i20 ]
   %.pre.i27 = add i32 %k.addr.0.lcssa.ph.i26, -1
   %.pre24.i28 = zext i32 %.pre.i27 to i64
-  %arrayidx23.i30 = getelementptr inbounds %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i28
+  %arrayidx23.i30 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %pArr, i64 %.pre24.i28
   store i64 %13, ptr %arrayidx23.i30, align 4
   %cmp1 = icmp ugt i32 %indvars, 1
   br i1 %cmp1, label %while.body, label %while.end, !llvm.loop !12
@@ -596,7 +596,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9gim_arrayI15GIM_RSORT_TOKENED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_size.i.i, align 8
   %cmp.i.i = icmp eq i32 %0, 0
   br i1 %cmp.i.i, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE5clearEv.exit.i, label %_ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i
@@ -606,7 +606,7 @@ _ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i: ; preds = %entry
   br label %_ZN9gim_arrayI15GIM_RSORT_TOKENE5clearEv.exit.i
 
 _ZN9gim_arrayI15GIM_RSORT_TOKENE5clearEv.exit.i:  ; preds = %_ZN9gim_arrayI15GIM_RSORT_TOKENE11clear_rangeEj.exit.i.i, %entry
-  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_allocated_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 0, ptr %m_allocated_size.i.i, align 4
   %1 = load ptr, ptr %this, align 8
   %cmp.i1.i = icmp eq ptr %1, null
@@ -634,7 +634,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17gim_contact_array21merge_contacts_uniqueERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %contacts) local_unnamed_addr #0 align 2 {
 entry:
-  %m_size.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_size.i, align 8
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit, label %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
@@ -644,14 +644,14 @@ _ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i: ; preds = %entry
   br label %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
 
 _ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit:        ; preds = %entry, %_ZN9gim_arrayI11GIM_CONTACTE11clear_rangeEj.exit.i
-  %m_size.i12 = getelementptr inbounds i8, ptr %contacts, i64 8
+  %m_size.i12 = getelementptr inbounds nuw i8, ptr %contacts, i64 8
   %1 = load i32, ptr %m_size.i12, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %_ZN9gim_arrayI11GIM_CONTACTE5clearEv.exit
   %2 = load ptr, ptr %contacts, align 8
-  %m_allocated_size.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %m_allocated_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %3 = load i32, ptr %m_allocated_size.i.i, align 4
   %cmp.not.i.i.not = icmp eq i32 %3, 0
   br i1 %cmp.not.i.i.not, label %if.end12.i.i.i, label %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i
@@ -672,7 +672,7 @@ if.end12.i.i.i:                                   ; preds = %if.then
 _ZN9gim_arrayI11GIM_CONTACTE9push_backERKS0_.exit: ; preds = %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i, %if.end12.i.i.i
   %idxprom.i14 = phi i64 [ 0, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %4, %if.end12.i.i.i ]
   %5 = phi ptr [ %.pre.i, %entry._ZN9gim_arrayI11GIM_CONTACTE12growingCheckEv.exit_crit_edge.i ], [ %call10.i.i.i, %if.end12.i.i.i ]
-  %arrayidx.i15 = getelementptr inbounds %class.GIM_CONTACT, ptr %5, i64 %idxprom.i14
+  %arrayidx.i15 = getelementptr inbounds nuw %class.GIM_CONTACT, ptr %5, i64 %idxprom.i14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %arrayidx.i15, ptr noundef nonnull align 4 dereferenceable(48) %2, i64 48, i1 false)
   %6 = load i32, ptr %m_size.i, align 8
   %inc.i = add i32 %6, 1

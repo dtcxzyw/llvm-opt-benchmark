@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -23,21 +23,21 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 276
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %13 = load i32, ptr %12, align 8
   %.not31 = icmp eq i32 %13, 0
   br i1 %.not31, label %14, label %17
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %16 = load i32, ptr %15, align 8
   %.not32 = icmp eq i32 %16, 0
   br i1 %.not32, label %20, label %17
@@ -50,7 +50,7 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
 
 20:                                               ; preds = %5, %14, %17
   %.0 = phi i1 [ %19, %17 ], [ true, %14 ], [ true, %5 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 224
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = load ptr, ptr %21, align 8
   %.not33 = icmp eq ptr %22, null
   br i1 %.not33, label %24, label %23
@@ -63,17 +63,17 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   %25 = load i32, ptr @work_mem, align 4
   %26 = sext i32 %25 to i64
   %27 = shl nsw i64 %26, 10
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 116
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 116
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 256
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 256
   %37 = load ptr, ptr %36, align 8
   br label %38
 
@@ -87,10 +87,10 @@ define dso_local ptr @MultiExecBitmapIndexScan(ptr noundef %0) local_unnamed_add
   br i1 %.0, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %41
-  %42 = getelementptr inbounds i8, ptr %0, i64 264
-  %43 = getelementptr inbounds i8, ptr %0, i64 272
-  %44 = getelementptr inbounds i8, ptr %0, i64 232
-  %45 = getelementptr inbounds i8, ptr %0, i64 240
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %46
 
 46:                                               ; preds = %56, %.lr.ph
@@ -151,55 +151,55 @@ declare void @InstrStopNode(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecReScanBitmapIndexScan(ptr nocapture noundef initializes((276, 277)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   tail call void @MemoryContextReset(ptr noundef %6) #6
   br label %7
 
 7:                                                ; preds = %4, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 256
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %9 = load i32, ptr %8, align 8
   %.not19 = icmp eq i32 %9, 0
   br i1 %.not19, label %13, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load ptr, ptr %11, align 8
   tail call void @ExecIndexEvalRuntimeKeys(ptr noundef %3, ptr noundef %12, i32 noundef %9) #6
   br label %13
 
 13:                                               ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %15 = load i32, ptr %14, align 8
   %.not20 = icmp eq i32 %15, 0
   br i1 %.not20, label %.thread, label %17
 
 .thread:                                          ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 276
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i8 1, ptr %16, align 4
   br label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 264
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef %3, ptr noundef %19, i32 noundef %15) #6
   %21 = zext i1 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %0, i64 276
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store i8 %21, ptr %22, align 4
   br i1 %20, label %23, label %30
 
 23:                                               ; preds = %.thread, %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 232
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 240
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %29 = load i32, ptr %28, align 8
   tail call void @index_rescan(ptr noundef %25, ptr noundef %27, i32 noundef %29, ptr noundef null, i32 noundef 0) #6
   br label %30
@@ -216,9 +216,9 @@ declare zeroext i1 @ExecIndexEvalArrayKeys(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecEndBitmapIndexScan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 296
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -247,22 +247,22 @@ declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 define dso_local noundef ptr @ExecInitBitmapIndexScan(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @palloc0(i64 noundef 304) #6
   store i32 391, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @ExecBitmapIndexScan, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 224
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 200
   %10 = and i32 %2, 1
   %.not = icmp eq i32 %10, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   br i1 %.not, label %11, label %60
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load i32, ptr %12, align 8
   %14 = getelementptr i8, ptr %1, i64 24
   %.val = load ptr, ptr %14, align 8
@@ -272,25 +272,25 @@ define dso_local noundef ptr @ExecInitBitmapIndexScan(ptr noundef %0, ptr nounde
   %17 = sext i32 %16 to i64
   %18 = getelementptr %union.ListCell, ptr %.val.val, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %23 = load i32, ptr %22, align 8
   %24 = tail call ptr @index_open(i32 noundef %23, i32 noundef %21) #6
-  %25 = getelementptr inbounds i8, ptr %4, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 288
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 276
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 276
   store i8 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %4, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 248
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 256
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 256
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 232
-  %32 = getelementptr inbounds i8, ptr %4, i64 240
-  %33 = getelementptr inbounds i8, ptr %4, i64 264
-  %34 = getelementptr inbounds i8, ptr %4, i64 272
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 264
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 272
   tail call void @ExecIndexBuildScanKeys(ptr noundef nonnull %4, ptr noundef %24, ptr noundef %30, i1 noundef zeroext false, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull %33, ptr noundef nonnull %34) #6
   %35 = load i32, ptr %28, align 8
   %.not47 = icmp eq i32 %35, 0
@@ -302,27 +302,27 @@ define dso_local noundef ptr @ExecInitBitmapIndexScan(ptr noundef %0, ptr nounde
   br i1 %.not48, label %43, label %38
 
 38:                                               ; preds = %36, %11
-  %39 = getelementptr inbounds i8, ptr %4, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %40 = load ptr, ptr %39, align 8
   tail call void @ExecAssignExprContext(ptr noundef nonnull %1, ptr noundef nonnull %4) #6
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 280
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 280
   store ptr %41, ptr %42, align 8
   store ptr %40, ptr %39, align 8
   br label %45
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %4, i64 280
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 280
   store ptr null, ptr %44, align 8
   br label %45
 
 45:                                               ; preds = %43, %38
   %46 = load ptr, ptr %25, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %32, align 8
   %50 = tail call ptr @index_beginscan_bitmap(ptr noundef %46, ptr noundef %48, i32 noundef %49) #6
-  %51 = getelementptr inbounds i8, ptr %4, i64 296
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 296
   store ptr %50, ptr %51, align 8
   %52 = load i32, ptr %28, align 8
   %53 = icmp eq i32 %52, 0

@@ -73,7 +73,7 @@ define internal range(i32 12, 1) i32 @dissect_exablaze(ptr noundef %0, ptr nocap
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %9
 
 9:                                                ; preds = %.preheader, %32
@@ -119,7 +119,7 @@ define internal range(i32 12, 1) i32 @dissect_exablaze(ptr noundef %0, ptr nocap
   %36 = tail call double @ldexp(double noundef %35, i32 noundef -40) #4
   %37 = fmul double %36, 1.000000e+09
   %38 = fptosi double %37 to i32
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %38, ptr %39, align 8
   %40 = load i32, ptr @proto_exablaze, align 4
   %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %34, i32 noundef 16, i32 noundef 0) #4
@@ -131,9 +131,9 @@ define internal range(i32 12, 1) i32 @dissect_exablaze(ptr noundef %0, ptr nocap
   br i1 %.not83, label %53, label %45
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = load i32, ptr %44, align 8
   %51 = sitofp i32 %50 to double

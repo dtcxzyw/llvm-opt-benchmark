@@ -206,7 +206,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4perf7PrintToERKNS_12CvtColorInfoEPSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, ptr noundef nonnull %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds [128 x ptr], ptr @_ZZN4perf7PrintToERKNS_12CvtColorInfoEPSoE3str, i64 0, i64 %5
@@ -252,7 +252,7 @@ define hidden void @_ZN4perf13sortKeyPointsERSt6vectorIN2cv8KeyPointESaIS2_EERKN
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::_OutputArray", align 8
   %13 = alloca %"class.cv::Mat", align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %0, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -316,7 +316,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEN4perf18KeypointId
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = sdiv exact i64 %36, 28
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %7, align 8
   %41 = ptrtoint ptr %39 to i64
@@ -361,7 +361,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit: ; preds = %52, %50, %48, %46
   br i1 %57, label %58, label %61
 
 58:                                               ; preds = %.noexc40
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %60 = load ptr, ptr %59, align 8, !noalias !7
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %60)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %.loopexit.split-lp
@@ -376,9 +376,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %58, %61
 
 63:                                               ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #14
-  %64 = getelementptr inbounds i8, ptr %9, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = load i32, ptr %65, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %68 to i64
@@ -420,10 +420,10 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %58, %61
   br i1 %.not80, label %._crit_edge67, label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %77
-  %78 = getelementptr inbounds i8, ptr %5, i64 4
-  %79 = getelementptr inbounds i8, ptr %3, i64 4
-  %80 = getelementptr inbounds i8, ptr %12, i64 8
-  %81 = getelementptr inbounds i8, ptr %12, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %umax69 = call i64 @llvm.umax.i64(i64 %31, i64 1)
   br label %82
 
@@ -504,13 +504,13 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %58, %61
 ._crit_edge67:                                    ; preds = %104, %77
   %106 = load ptr, ptr %0, align 8
   %107 = load ptr, ptr %14, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %7, align 8
   store ptr %110, ptr %0, align 8
   %111 = load ptr, ptr %38, align 8
   store ptr %111, ptr %14, align 8
-  %112 = getelementptr inbounds i8, ptr %7, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %108, align 8
   store ptr %106, ptr %7, align 8
@@ -631,7 +631,7 @@ define linkonce_odr hidden void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt
   br i1 %12, label %13, label %35
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEEvT_SC_T0_(ptr %0, ptr nonnull %14, ptr %2)
   %.not7.i.i = icmp eq ptr %14, %1
   br i1 %.not7.i.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEEvT_SC_T0_.exit, label %.lr.ph.i.i
@@ -648,19 +648,19 @@ define linkonce_odr hidden void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPmSt
   %18 = load ptr, ptr %2, align 8
   %19 = getelementptr inbounds %"class.cv::KeyPoint", ptr %18, i64 %15
   %.sroa.05.0.copyload.i.i.i.i.i = load float, ptr %19, align 4
-  %.sroa.37.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 4
+  %.sroa.37.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.37.0.copyload.i.i.i.i.i = load float, ptr %.sroa.37.0..sroa_idx.i.i.i.i.i, align 4
-  %.sroa.510.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.510.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.510.0.copyload.i.i.i.i.i = load float, ptr %.sroa.510.0..sroa_idx.i.i.i.i.i, align 4
-  %.sroa.712.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 20
+  %.sroa.712.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 20
   %.sroa.712.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.712.0..sroa_idx.i.i.i.i.i, align 4
   %20 = getelementptr inbounds %"class.cv::KeyPoint", ptr %18, i64 %17
   %.sroa.0.0.copyload.i.i.i.i.i = load float, ptr %20, align 4
-  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.3.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.3.0.copyload.i.i.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 16
+  %.sroa.53.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.53.0.copyload.i.i.i.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i.i.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 20
+  %.sroa.7.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 20
   %.sroa.7.0.copyload.i.i.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i.i.i, align 4
   %21 = fcmp une float %.sroa.05.0.copyload.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i
   br i1 %21, label %22, label %24
@@ -695,7 +695,7 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__norma
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i.i.i, %30, %26, %22
   store i64 %15, ptr %.sroa.05.0.i.i.i, align 8
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.08.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 8
   %.not.i.i = icmp eq ptr %34, %1
   br i1 %.not.i.i, label %_ZSt22__final_insertion_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEEvT_SC_T0_.exit, label %.lr.ph.i.i, !llvm.loop !18
 
@@ -782,7 +782,7 @@ define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17_
   %7 = ashr exact i64 %6, 3
   %8 = sdiv i64 %7, 2
   %9 = getelementptr inbounds i64, ptr %0, i64 %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %1, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEEvT_SC_SC_SC_T0_(ptr %0, ptr nonnull %10, ptr %9, ptr nonnull %11, ptr %2)
   br label %12
@@ -794,11 +794,11 @@ define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17_
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds %"class.cv::KeyPoint", ptr %14, i64 %13
   %.sroa.0.0.copyload.i.i.i = load float, ptr %15, align 4
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 4
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %.sroa.53.0.copyload.i.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %15, i64 20
+  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 20
   %.sroa.7.0.copyload.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i, align 4
   br label %16
 
@@ -807,11 +807,11 @@ define linkonce_odr hidden ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17_
   %17 = load i64, ptr %.sroa.028.1.i, align 8
   %18 = getelementptr inbounds %"class.cv::KeyPoint", ptr %14, i64 %17
   %.sroa.05.0.copyload.i.i.i = load float, ptr %18, align 4
-  %.sroa.37.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.37.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.37.0.copyload.i.i.i = load float, ptr %.sroa.37.0..sroa_idx.i.i.i, align 4
-  %.sroa.510.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.510.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.510.0.copyload.i.i.i = load float, ptr %.sroa.510.0..sroa_idx.i.i.i, align 4
-  %.sroa.712.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %18, i64 20
+  %.sroa.712.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 20
   %.sroa.712.0.copyload.i.i.i = load i32, ptr %.sroa.712.0..sroa_idx.i.i.i, align 4
   %19 = fcmp une float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
   br i1 %19, label %20, label %22
@@ -844,7 +844,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   br i1 %30, label %31, label %.preheader
 
 31:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__normal_iteratorIPmSt6vectorImSaImEEEESB_EEbT_T0_.exit.i, %28, %24, %20
-  %32 = getelementptr inbounds i8, ptr %.sroa.028.1.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.028.1.i, i64 8
   br label %16, !llvm.loop !22
 
 33:                                               ; preds = %.backedge, %.preheader
@@ -853,11 +853,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   %34 = load i64, ptr %.sroa.025.1.i, align 8
   %35 = getelementptr inbounds %"class.cv::KeyPoint", ptr %14, i64 %34
   %.sroa.0.0.copyload.i.i15.i = load float, ptr %35, align 4
-  %.sroa.3.0..sroa_idx.i.i16.i = getelementptr inbounds i8, ptr %35, i64 4
+  %.sroa.3.0..sroa_idx.i.i16.i = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.sroa.3.0.copyload.i.i17.i = load float, ptr %.sroa.3.0..sroa_idx.i.i16.i, align 4
-  %.sroa.53.0..sroa_idx.i.i18.i = getelementptr inbounds i8, ptr %35, i64 16
+  %.sroa.53.0..sroa_idx.i.i18.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   %.sroa.53.0.copyload.i.i19.i = load float, ptr %.sroa.53.0..sroa_idx.i.i18.i, align 4
-  %.sroa.7.0..sroa_idx.i.i20.i = getelementptr inbounds i8, ptr %35, i64 20
+  %.sroa.7.0..sroa_idx.i.i20.i = getelementptr inbounds nuw i8, ptr %35, i64 20
   %.sroa.7.0.copyload.i.i21.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i20.i, align 4
   %36 = fcmp une float %.sroa.0.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i15.i
   br i1 %36, label %37, label %39
@@ -896,7 +896,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
 50:                                               ; preds = %48
   store i64 %34, ptr %.sroa.028.1.i, align 8
   store i64 %17, ptr %.sroa.025.1.i, align 8
-  %51 = getelementptr inbounds i8, ptr %.sroa.028.1.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.028.1.i, i64 8
   br label %12, !llvm.loop !24
 
 _ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEEET_SC_SC_SC_T0_.exit: ; preds = %48
@@ -922,19 +922,19 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %16 = load ptr, ptr %4, align 8
   %17 = getelementptr inbounds %"class.cv::KeyPoint", ptr %16, i64 %14
   %.sroa.05.0.copyload.i.i = load float, ptr %17, align 4
-  %.sroa.37.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.37.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 4
   %.sroa.37.0.copyload.i.i = load float, ptr %.sroa.37.0..sroa_idx.i.i, align 4
-  %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 16
+  %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.510.0.copyload.i.i = load float, ptr %.sroa.510.0..sroa_idx.i.i, align 4
-  %.sroa.712.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %17, i64 20
+  %.sroa.712.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %17, i64 20
   %.sroa.712.0.copyload.i.i = load i32, ptr %.sroa.712.0..sroa_idx.i.i, align 4
   %18 = getelementptr inbounds %"class.cv::KeyPoint", ptr %16, i64 %15
   %.sroa.0.0.copyload.i.i = load float, ptr %18, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.sroa.53.0.copyload.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 20
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 20
   %.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 4
   %19 = fcmp une float %.sroa.05.0.copyload.i.i, %.sroa.0.0.copyload.i.i
   br i1 %19, label %20, label %22
@@ -1008,19 +1008,19 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   %52 = load ptr, ptr %4, align 8
   %53 = getelementptr inbounds %"class.cv::KeyPoint", ptr %52, i64 %51
   %.sroa.05.0.copyload.i.i.i = load float, ptr %53, align 4
-  %.sroa.37.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %53, i64 4
+  %.sroa.37.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 4
   %.sroa.37.0.copyload.i.i.i = load float, ptr %.sroa.37.0..sroa_idx.i.i.i, align 4
-  %.sroa.510.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %53, i64 16
+  %.sroa.510.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 16
   %.sroa.510.0.copyload.i.i.i = load float, ptr %.sroa.510.0..sroa_idx.i.i.i, align 4
-  %.sroa.712.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %53, i64 20
+  %.sroa.712.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %53, i64 20
   %.sroa.712.0.copyload.i.i.i = load i32, ptr %.sroa.712.0..sroa_idx.i.i.i, align 4
   %54 = getelementptr inbounds %"class.cv::KeyPoint", ptr %52, i64 %3
   %.sroa.0.0.copyload.i.i.i = load float, ptr %54, align 4
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %54, i64 4
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 4
   %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %54, i64 16
+  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   %.sroa.53.0.copyload.i.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %54, i64 20
+  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 20
   %.sroa.7.0.copyload.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i, align 4
   %55 = fcmp une float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
   br i1 %55, label %56, label %58
@@ -1069,19 +1069,19 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__nor
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.cv::KeyPoint", ptr %8, i64 %6
   %.sroa.05.0.copyload.i.i = load float, ptr %9, align 4
-  %.sroa.37.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 4
+  %.sroa.37.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.sroa.37.0.copyload.i.i = load float, ptr %.sroa.37.0..sroa_idx.i.i, align 4
-  %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.510.0.copyload.i.i = load float, ptr %.sroa.510.0..sroa_idx.i.i, align 4
-  %.sroa.712.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 20
+  %.sroa.712.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 20
   %.sroa.712.0.copyload.i.i = load i32, ptr %.sroa.712.0..sroa_idx.i.i, align 4
   %10 = getelementptr inbounds %"class.cv::KeyPoint", ptr %8, i64 %7
   %.sroa.0.0.copyload.i.i = load float, ptr %10, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 4
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.53.0.copyload.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 20
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 20
   %.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 4
   %11 = fcmp une float %.sroa.05.0.copyload.i.i, %.sroa.0.0.copyload.i.i
   br i1 %11, label %12, label %14
@@ -1114,11 +1114,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   %24 = load i64, ptr %3, align 8
   %25 = getelementptr inbounds %"class.cv::KeyPoint", ptr %8, i64 %24
   %.sroa.0.0.copyload.i.i33 = load float, ptr %25, align 4
-  %.sroa.3.0..sroa_idx.i.i34 = getelementptr inbounds i8, ptr %25, i64 4
+  %.sroa.3.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.3.0.copyload.i.i35 = load float, ptr %.sroa.3.0..sroa_idx.i.i34, align 4
-  %.sroa.53.0..sroa_idx.i.i36 = getelementptr inbounds i8, ptr %25, i64 16
+  %.sroa.53.0..sroa_idx.i.i36 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %.sroa.53.0.copyload.i.i37 = load float, ptr %.sroa.53.0..sroa_idx.i.i36, align 4
-  %.sroa.7.0..sroa_idx.i.i38 = getelementptr inbounds i8, ptr %25, i64 20
+  %.sroa.7.0..sroa_idx.i.i38 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %.sroa.7.0.copyload.i.i39 = load i32, ptr %.sroa.7.0..sroa_idx.i.i38, align 4
   %26 = fcmp une float %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i.i33
   br i1 %26, label %27, label %29
@@ -1182,11 +1182,11 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   %53 = load i64, ptr %3, align 8
   %54 = getelementptr inbounds %"class.cv::KeyPoint", ptr %8, i64 %53
   %.sroa.0.0.copyload.i.i65 = load float, ptr %54, align 4
-  %.sroa.3.0..sroa_idx.i.i66 = getelementptr inbounds i8, ptr %54, i64 4
+  %.sroa.3.0..sroa_idx.i.i66 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %.sroa.3.0.copyload.i.i67 = load float, ptr %.sroa.3.0..sroa_idx.i.i66, align 4
-  %.sroa.53.0..sroa_idx.i.i68 = getelementptr inbounds i8, ptr %54, i64 16
+  %.sroa.53.0..sroa_idx.i.i68 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %.sroa.53.0.copyload.i.i69 = load float, ptr %.sroa.53.0..sroa_idx.i.i68, align 4
-  %.sroa.7.0..sroa_idx.i.i70 = getelementptr inbounds i8, ptr %54, i64 20
+  %.sroa.7.0..sroa_idx.i.i70 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %.sroa.7.0.copyload.i.i71 = load i32, ptr %.sroa.7.0..sroa_idx.i.i70, align 4
   %55 = fcmp une float %.sroa.05.0.copyload.i.i, %.sroa.0.0.copyload.i.i65
   br i1 %55, label %56, label %58
@@ -1264,7 +1264,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %.sroa.0.018 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.0.018 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not19 = icmp eq ptr %.sroa.0.018, %1
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
@@ -1280,19 +1280,19 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_it
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds %"class.cv::KeyPoint", ptr %9, i64 %7
   %.sroa.05.0.copyload.i.i = load float, ptr %10, align 4
-  %.sroa.37.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 4
+  %.sroa.37.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.sroa.37.0.copyload.i.i = load float, ptr %.sroa.37.0..sroa_idx.i.i, align 4
-  %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.510.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.510.0.copyload.i.i = load float, ptr %.sroa.510.0..sroa_idx.i.i, align 4
-  %.sroa.712.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 20
+  %.sroa.712.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 20
   %.sroa.712.0.copyload.i.i = load i32, ptr %.sroa.712.0..sroa_idx.i.i, align 4
   %11 = getelementptr inbounds %"class.cv::KeyPoint", ptr %9, i64 %8
   %.sroa.0.0.copyload.i.i = load float, ptr %11, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 4
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.3.0.copyload.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 16
+  %.sroa.53.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.53.0.copyload.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 20
+  %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 20
   %.sroa.7.0.copyload.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i, align 4
   %12 = fcmp une float %.sroa.05.0.copyload.i.i, %.sroa.0.0.copyload.i.i
   br i1 %12, label %13, label %15
@@ -1325,7 +1325,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__norma
   br label %30
 
 _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit: ; preds = %21, %17, %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4perf18KeypointIdxCompareEEclINS_17__normal_iteratorIPmSt6vectorImSaImEEEESB_EEbT_T0_.exit
-  %24 = getelementptr inbounds i8, ptr %.pn20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.pn20, i64 16
   %25 = ptrtoint ptr %.sroa.0.021 to i64
   %26 = sub i64 %25, %5
   %27 = ashr exact i64 %26, 3
@@ -1345,11 +1345,11 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T
   %32 = load i64, ptr %.sroa.0.0.i, align 8
   %33 = getelementptr inbounds %"class.cv::KeyPoint", ptr %31, i64 %32
   %.sroa.0.0.copyload.i.i.i = load float, ptr %33, align 4
-  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 4
+  %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.3.0.copyload.i.i.i = load float, ptr %.sroa.3.0..sroa_idx.i.i.i, align 4
-  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 16
+  %.sroa.53.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.53.0.copyload.i.i.i = load float, ptr %.sroa.53.0..sroa_idx.i.i.i, align 4
-  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %33, i64 20
+  %.sroa.7.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 20
   %.sroa.7.0.copyload.i.i.i = load i32, ptr %.sroa.7.0..sroa_idx.i.i.i, align 4
   %34 = fcmp une float %.sroa.05.0.copyload.i.i.i, %.sroa.0.0.copyload.i.i.i
   br i1 %34, label %35, label %37
@@ -1383,18 +1383,18 @@ _ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__norma
   %.pre = load ptr, ptr %2, align 8
   %.phi.trans.insert = getelementptr inbounds %"class.cv::KeyPoint", ptr %.pre, i64 %7
   %.sroa.05.0.copyload.i.i.i.pre = load float, ptr %.phi.trans.insert, align 4
-  %.sroa.37.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 4
+  %.sroa.37.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 4
   %.sroa.37.0.copyload.i.i.i.pre = load float, ptr %.sroa.37.0..sroa_idx.i.i.i.phi.trans.insert, align 4
-  %.sroa.510.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 16
+  %.sroa.510.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 16
   %.sroa.510.0.copyload.i.i.i.pre = load float, ptr %.sroa.510.0..sroa_idx.i.i.i.phi.trans.insert, align 4
-  %.sroa.712.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.phi.trans.insert, i64 20
+  %.sroa.712.0..sroa_idx.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.phi.trans.insert, i64 20
   %.sroa.712.0.copyload.i.i.i.pre = load i32, ptr %.sroa.712.0..sroa_idx.i.i.i.phi.trans.insert, align 4
   br label %30, !llvm.loop !17
 
 _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEEEvT_T0_.exit: ; preds = %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i, %43, %39, %35, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit
   %.sink = phi ptr [ %0, %_ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit ], [ %.sroa.05.0.i, %35 ], [ %.sroa.05.0.i, %39 ], [ %.sroa.05.0.i, %43 ], [ %.sroa.05.0.i, %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN4perf18KeypointIdxCompareEEclImNS_17__normal_iteratorIPmSt6vectorImSaImEEEEEEbRT_T0_.exit.i ]
   store i64 %7, ptr %.sink, align 8
-  %.sroa.0.0 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 8
+  %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 8
   %.not = icmp eq ptr %.sroa.0.0, %1
   br i1 %.not, label %.loopexit, label %6, !llvm.loop !27
 
@@ -1411,14 +1411,14 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default
   br i1 %.not, label %48, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = sdiv exact i64 %9, 28
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -1435,20 +1435,20 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_default
   %.013.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i ], [ %5, %3 ]
   %.01012.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i ], [ %1, %3 ]
   store float 0.000000e+00, ptr %.013.i.i.i, align 4
-  %19 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 4
   store float 0.000000e+00, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 12
   store float -1.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
   store float 0.000000e+00, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 20
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 24
   store i32 -1, ptr %24, align 4
   %25 = add i64 %.01012.i.i.i, -1
-  %26 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 28
   %.not.i.i.i = icmp eq i64 %25, 0
   br i1 %.not.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i, !llvm.loop !28
 
@@ -1477,20 +1477,20 @@ _ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %27
   %.013.i.i.i31 = phi ptr [ %42, %.lr.ph.i.i.i30 ], [ %34, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
   %.01012.i.i.i32 = phi i64 [ %41, %.lr.ph.i.i.i30 ], [ %1, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit ]
   store float 0.000000e+00, ptr %.013.i.i.i31, align 4
-  %35 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 4
   store float 0.000000e+00, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 8
   store float 0.000000e+00, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 12
   store float -1.000000e+00, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 16
   store float 0.000000e+00, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 20
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 24
   store i32 -1, ptr %40, align 4
   %41 = add i64 %.01012.i.i.i32, -1
-  %42 = getelementptr inbounds i8, ptr %.013.i.i.i31, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i31, i64 28
   %.not.i.i.i33 = icmp eq i64 %41, 0
   br i1 %.not.i.i.i33, label %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35, label %.lr.ph.i.i.i30, !llvm.loop !28
 
@@ -1502,8 +1502,8 @@ _ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35: ;
   %.012.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %33, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   %.0911.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %6, %_ZSt27__uninitialized_default_n_aIPN2cv8KeyPointEmS1_ET_S3_T0_RSaIT1_E.exit35 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %.012.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(28) %.0911.i.i.i.i, i64 28, i1 false), !alias.scope !29
-  %43 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 28
-  %44 = getelementptr inbounds i8, ptr %.012.i.i.i.i, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 28
   %.not.i.i.i.i = icmp eq ptr %43, %5
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !33
 
@@ -1519,7 +1519,7 @@ _ZNSt12_Vector_baseIN2cv8KeyPointESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds 
   store ptr %33, ptr %0, align 8
   %46 = getelementptr inbounds %"class.cv::KeyPoint", ptr %34, i64 %1
   store ptr %46, ptr %4, align 8
-  %47 = getelementptr inbounds %"class.cv::KeyPoint", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %33, i64 %31
   store ptr %47, ptr %11, align 8
   br label %48
 

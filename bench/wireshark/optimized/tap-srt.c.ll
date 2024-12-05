@@ -36,13 +36,13 @@ define hidden noundef zeroext i1 @register_srt_tables(ptr nocapture noundef read
 10:                                               ; preds = %3
   %11 = tail call ptr @srt_table_get_tap_string(ptr noundef %1) #9
   store i32 6, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @dissector_srt_init, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   call void @register_stat_tap_ui(ptr noundef nonnull %4, ptr noundef %1) #9
   call void @g_free(ptr noundef %11) #9
@@ -94,12 +94,12 @@ define internal void @dissector_srt_init(ptr noundef %0, ptr noundef %1) #0 {
   %16 = call ptr @proto_get_protocol_short_name(ptr noundef %15) #9
   store ptr %16, ptr %13, align 8
   %17 = call noalias ptr @g_strdup(ptr noundef %12) #9
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr @global_srt_array, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %13, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %13, ptr %21, align 8
   %22 = call ptr @get_srt_tap_listener_name(ptr noundef %1) #9
   %23 = call ptr @get_srt_packet_func(ptr noundef %1) #9
@@ -149,7 +149,7 @@ declare ptr @get_srt_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %putchar = tail call i32 @putchar(i32 10)
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -158,15 +158,15 @@ define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
   %12 = zext i1 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call fastcc void @draw_srt_table_data(ptr noundef %8, i32 noundef %12, ptr noundef %14)
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %17, 1
   br i1 %18, label %.lr.ph, label %._crit_edge
@@ -175,7 +175,7 @@ define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
   %19 = phi ptr [ %33, %21 ], [ %15, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 1, %1 ]
   %.pn23 = phi ptr [ %25, %21 ], [ %8, %1 ]
-  %.1.in.in.in = getelementptr inbounds i8, ptr %.pn23, i64 24
+  %.1.in.in.in = getelementptr inbounds nuw i8, ptr %.pn23, i64 24
   %.1.in.in = load i32, ptr %.1.in.in.in, align 8
   %.1.in = icmp slt i32 %.1.in.in, 1
   br i1 %.1.in, label %21, label %20
@@ -190,7 +190,7 @@ define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %22, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, -1
   %29 = zext i32 %28 to i64
@@ -200,7 +200,7 @@ define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
   tail call fastcc void @draw_srt_table_data(ptr noundef %25, i32 noundef %31, ptr noundef %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
@@ -219,13 +219,13 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %7, label %._crit_edge
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ne ptr %9, null
   %11 = icmp ne ptr %2, null
@@ -249,7 +249,7 @@ define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly 
   br label %19
 
 19:                                               ; preds = %12, %17, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   %spec.select48 = select i1 %.not, ptr @.str.11, ptr %21
@@ -259,7 +259,7 @@ define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly 
   br i1 %23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %25
 
 25:                                               ; preds = %.lr.ph, %72
@@ -267,16 +267,16 @@ define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %72 ]
   %27 = load ptr, ptr %24, align 8
   %28 = getelementptr %struct._srt_procedure_t, ptr %27, i64 %indvars.iv
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %72, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds i8, ptr %28, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %34 = load i64, ptr %33, align 8
   %35 = mul i64 %34, 1000000000
-  %36 = getelementptr inbounds i8, ptr %28, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %37 = load i32, ptr %36, align 8
   %38 = sext i32 %37 to i64
   %39 = add i64 %35, %38
@@ -286,19 +286,19 @@ define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly 
   %43 = udiv i64 %39, %42
   %44 = add i64 %43, 500
   %45 = udiv i64 %44, 1000
-  %46 = getelementptr inbounds i8, ptr %28, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %28, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = trunc i64 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %28, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, 500
   %54 = sdiv i32 %53, 1000
-  %55 = getelementptr inbounds i8, ptr %28, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %56 = load i64, ptr %55, align 8
   %57 = trunc i64 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %28, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 500
   %61 = sdiv i32 %60, 1000

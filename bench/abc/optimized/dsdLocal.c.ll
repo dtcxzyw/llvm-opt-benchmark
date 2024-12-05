@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 2
@@ -15,30 +15,30 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   %10 = shl nsw i64 %5, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #4
   %12 = tail call noalias ptr @malloc(i64 noundef %10) #4
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i16, ptr %13, align 8
   %15 = icmp sgt i16 %14, 0
   br i1 %15, label %.lr.ph119, label %._crit_edge120
 
 .lr.ph119:                                        ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %19
 
 19:                                               ; preds = %.lr.ph119, %._crit_edge
   %indvars.iv130 = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next131, %._crit_edge ]
   %.099116 = phi i32 [ 0, %.lr.ph119 ], [ %.1100.lcssa, %._crit_edge ]
   %20 = load ptr, ptr %16, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv130
+  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv130
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv130
+  %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv130
   store i32 %22, ptr %23, align 4
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv130
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv130
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %18, align 8
-  %.0.in111 = getelementptr inbounds i8, ptr %26, i64 16
+  %.0.in111 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %.0112 = load ptr, ptr %.0.in111, align 8
   %.not110113 = icmp eq ptr %.0112, %27
   br i1 %.not110113, label %._crit_edge, label %.lr.ph.preheader
@@ -55,13 +55,13 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %.0115, align 8
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %7, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %7, i64 %33
   store i32 %31, ptr %34, align 4
   %35 = sext i32 %31 to i64
   %36 = getelementptr inbounds i32, ptr %8, i64 %35
   store i32 %29, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %.0.in = getelementptr inbounds i8, ptr %.0115, i64 16
+  %.0.in = getelementptr inbounds nuw i8, ptr %.0115, i64 16
   %.0 = load ptr, ptr %.0.in, align 8
   %.not110 = icmp eq ptr %.0, %27
   br i1 %.not110, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !4
@@ -72,22 +72,22 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
   %.1100.lcssa = phi i32 [ %.099116, %19 ], [ %37, %._crit_edge.loopexit ]
-  %38 = getelementptr inbounds i8, ptr %26, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = xor i64 %40, 1
   %42 = inttoptr i64 %41 to ptr
   %43 = tail call ptr @Extra_bddGetOneCube(ptr noundef nonnull %0, ptr noundef %42) #5
-  %44 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv130
+  %44 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv130
   store ptr %43, ptr %44, align 8
   tail call void @Cudd_Ref(ptr noundef %43) #5
   %45 = load ptr, ptr %17, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv130
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv130
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @Extra_bddGetOneCube(ptr noundef nonnull %0, ptr noundef %49) #5
-  %51 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv130
+  %51 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv130
   store ptr %50, ptr %51, align 8
   tail call void @Cudd_Ref(ptr noundef %50) #5
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
@@ -97,7 +97,7 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   br i1 %54, label %19, label %._crit_edge120, !llvm.loop !6
 
 ._crit_edge120:                                   ; preds = %._crit_edge, %2
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %7) #5
   tail call void @Cudd_Ref(ptr noundef %57) #5
@@ -107,13 +107,13 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
 
 .lr.ph123:                                        ; preds = %._crit_edge120, %.lr.ph123
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph123 ], [ 0, %._crit_edge120 ]
-  %60 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv133
+  %60 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv133
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %61, ptr noundef %7) #5
   store ptr %62, ptr %60, align 8
   tail call void @Cudd_Ref(ptr noundef %62) #5
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %61) #5
-  %63 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv133
+  %63 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv133
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %64, ptr noundef %7) #5
   store ptr %65, ptr %63, align 8
@@ -137,10 +137,10 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
 
 .lr.ph127:                                        ; preds = %._crit_edge124, %.lr.ph127
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph127 ], [ 0, %._crit_edge124 ]
-  %73 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv136
+  %73 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv136
   %74 = load ptr, ptr %73, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %74) #5
-  %75 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv136
+  %75 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv136
   %76 = load ptr, ptr %75, align 8
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #5
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
@@ -222,7 +222,7 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %13, label %154, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %11, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %16, 1
   br i1 %.not, label %21, label %17
@@ -243,18 +243,18 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
 21:                                               ; preds = %._crit_edge, %14
   %22 = phi i32 [ %.pre, %._crit_edge ], [ %12, %14 ]
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %3, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %3, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds ptr, ptr %5, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %28, %30
   br i1 %31, label %Extra_bddNodePointedByCube.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %33 = load ptr, ptr %32, align 8
   %34 = ptrtoint ptr %30 to i64
   %35 = xor i64 %34, 1
@@ -272,19 +272,19 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
   %43 = inttoptr i64 %42 to ptr
   %44 = load i32, ptr %40, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %33, i64 %45
+  %46 = getelementptr inbounds nuw i32, ptr %33, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = load i32, ptr %43, align 8
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %33, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %33, i64 %49
   %51 = load i32, ptr %50, align 4
   %.not.i = icmp sgt i32 %47, %51
   br i1 %.not.i, label %66, label %52
 
 52:                                               ; preds = %37
   %.not43.i = icmp eq ptr %.tr4648.i, %40
-  %53 = getelementptr inbounds i8, ptr %40, i64 16
-  %54 = getelementptr inbounds i8, ptr %40, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %55 = load ptr, ptr %54, align 8
   br i1 %.not43.i, label %64, label %56
 
@@ -310,8 +310,8 @@ define internal fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %1, ptr n
 
 67:                                               ; preds = %66
   %.not45.i = icmp eq ptr %.tr4749.i, %43
-  %68 = getelementptr inbounds i8, ptr %43, i64 16
-  %69 = getelementptr inbounds i8, ptr %43, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %70 = load ptr, ptr %69, align 8
   br i1 %.not45.i, label %79, label %71
 
@@ -346,7 +346,7 @@ Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   br i1 %85, label %Extra_bddNodePointedByCube.exit62, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %Extra_bddNodePointedByCube.exit
-  %86 = getelementptr inbounds i8, ptr %0, i64 312
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %87 = load ptr, ptr %86, align 8
   %88 = ptrtoint ptr %30 to i64
   %89 = xor i64 %88, 1
@@ -364,19 +364,19 @@ Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
   %97 = inttoptr i64 %96 to ptr
   %98 = load i32, ptr %94, align 8
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds i32, ptr %87, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %87, i64 %99
   %101 = load i32, ptr %100, align 4
   %102 = load i32, ptr %97, align 8
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %87, i64 %103
+  %104 = getelementptr inbounds nuw i32, ptr %87, i64 %103
   %105 = load i32, ptr %104, align 4
   %.not.i50 = icmp sgt i32 %101, %105
   br i1 %.not.i50, label %120, label %106
 
 106:                                              ; preds = %91
   %.not43.i51 = icmp eq ptr %.tr4648.i49, %94
-  %107 = getelementptr inbounds i8, ptr %94, i64 16
-  %108 = getelementptr inbounds i8, ptr %94, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 24
   %109 = load ptr, ptr %108, align 8
   br i1 %.not43.i51, label %118, label %110
 
@@ -402,8 +402,8 @@ Extra_bddNodePointedByCube.exit:                  ; preds = %tailrecurse.i, %21
 
 121:                                              ; preds = %120
   %.not45.i55 = icmp eq ptr %.tr4749.i48, %97
-  %122 = getelementptr inbounds i8, ptr %97, i64 16
-  %123 = getelementptr inbounds i8, ptr %97, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %124 = load ptr, ptr %123, align 8
   br i1 %.not45.i55, label %133, label %125
 
@@ -436,7 +436,7 @@ Extra_bddNodePointedByCube.exit62:                ; preds = %tailrecurse.i56, %E
   call void @Cudd_Ref(ptr noundef %137) #5
   %138 = call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %.tr46.lcssa.i61, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   call void @Cudd_Ref(ptr noundef %138) #5
-  %139 = getelementptr inbounds i8, ptr %0, i64 344
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds i32, ptr %4, i64 %26
   %142 = load i32, ptr %141, align 4

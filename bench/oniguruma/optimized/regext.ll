@@ -9,14 +9,14 @@ define i32 @onig_new_deluxe(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %7, align 8
   br label %8
 
 8:                                                ; preds = %6, %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not31 = icmp eq ptr %10, %12
   br i1 %.not31, label %13, label %30
@@ -28,12 +28,12 @@ define i32 @onig_new_deluxe(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %15, label %30, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = load ptr, ptr %11, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @onig_reg_init(ptr noundef nonnull %14, i32 noundef %18, i32 noundef %20, ptr noundef %21, ptr noundef %23) #4
   %.not32 = icmp eq i32 %24, 0

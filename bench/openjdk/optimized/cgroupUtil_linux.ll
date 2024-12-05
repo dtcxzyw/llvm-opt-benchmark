@@ -27,7 +27,7 @@ define hidden noundef i32 @_ZN10CgroupUtil15processor_countEP19CgroupCpuControll
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(8) %0) #6
   %10 = icmp sgt i32 %5, -1
@@ -42,7 +42,7 @@ define hidden noundef i32 @_ZN10CgroupUtil15processor_countEP19CgroupCpuControll
   %16 = tail call float @llvm.ceil.f32(float %15)
   %17 = fptosi float %16 to i32
   %.fr = freeze i32 %17
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not20 = icmp eq ptr %18, null
   br i1 %.not20, label %20, label %19
 
@@ -60,7 +60,7 @@ define hidden noundef i32 @_ZN10CgroupUtil15processor_countEP19CgroupCpuControll
 21:                                               ; preds = %20, %.thread
   %22 = phi i32 [ %1, %.thread ], [ %.fr, %20 ]
   %23 = tail call noundef i32 @llvm.smin.i32(i32 %1, i32 %22)
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_25ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not21 = icmp eq ptr %24, null
   br i1 %.not21, label %26, label %25
 

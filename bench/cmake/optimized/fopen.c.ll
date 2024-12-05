@@ -30,7 +30,7 @@ define dso_local i32 @Curl_fopen(ptr noundef %0, ptr noundef %1, ptr nocapture n
   br i1 %12, label %51, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 61440
   %17 = icmp eq i32 %16, 32768

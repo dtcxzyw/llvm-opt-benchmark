@@ -75,7 +75,7 @@ if.then7:                                         ; preds = %for.cond
 
 for.inc:                                          ; preds = %for.cond, %if.then7
   %inc10 = phi i32 [ %inc11, %for.cond ], [ %inc, %if.then7 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %p.0, i64 1
   %.pr = load i8, ptr %incdec.ptr, align 1
   br label %for.cond, !llvm.loop !5
 

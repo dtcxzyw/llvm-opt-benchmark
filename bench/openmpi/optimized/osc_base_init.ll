@@ -28,16 +28,16 @@ define i32 @ompi_osc_base_select(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   br i1 %.not38, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %.03141 = phi ptr [ %.03137, %.lr.ph ], [ %.031, %11 ]
   %.03240 = phi ptr [ null, %.lr.ph ], [ %.1, %11 ]
   %.03339 = phi i32 [ -1, %.lr.ph ], [ %.134, %11 ]
-  %12 = getelementptr inbounds i8, ptr %.03141, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.03141, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 272
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %10, align 8
   %17 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %16, i32 noundef %5) #2
@@ -46,7 +46,7 @@ define i32 @ompi_osc_base_select(ptr noundef %0, ptr noundef %1, i64 noundef %2,
   %or.cond = select i1 %18, i1 %19, i1 false
   %.134 = select i1 %or.cond, i32 %17, i32 %.03339
   %.1 = select i1 %or.cond, ptr %13, ptr %.03240
-  %20 = getelementptr inbounds i8, ptr %.03141, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.03141, i64 16
   %.031 = load volatile ptr, ptr %20, align 8
   %.not = icmp eq ptr %.031, getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !4
@@ -62,8 +62,8 @@ define i32 @ompi_osc_base_select(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr @opal_show_help, align 8
-  %27 = getelementptr inbounds i8, ptr %.1, i64 40
-  %28 = getelementptr inbounds i8, ptr %.1, i64 84
+  %27 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 84
   %29 = tail call i32 (ptr, ptr, i32, ...) %26(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 1, ptr noundef nonnull %27, ptr noundef nonnull %28, ptr noundef nonnull @.str) #2
   br label %30
 
@@ -74,14 +74,14 @@ define i32 @ompi_osc_base_select(ptr noundef %0, ptr noundef %1, i64 noundef %2,
 
 33:                                               ; preds = %30
   %34 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_osc_base_framework, i64 76), align 4
-  %35 = getelementptr inbounds i8, ptr %.1, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %.1, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %34, ptr noundef nonnull @.str.3, ptr noundef nonnull %35) #2
   br label %36
 
 36:                                               ; preds = %30, %33
-  %37 = getelementptr inbounds i8, ptr %.1, i64 280
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 280
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %40, i32 noundef %5, ptr noundef %6) #2
   br label %._crit_edge.thread

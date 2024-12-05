@@ -18,7 +18,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %a, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, 256
   %tobool.not = icmp eq i32 %and, 0
@@ -40,8 +40,8 @@ for.cond.preheader:                               ; preds = %if.end5
   br i1 %cmp1317, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data = getelementptr inbounds i8, ptr %a, i64 8
-  %arrayidx34 = getelementptr inbounds i8, ptr %buf, i64 1
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   br label %for.body
 
 if.then7:                                         ; preds = %if.end5
@@ -73,17 +73,17 @@ if.end20:                                         ; preds = %if.then16
 if.end22:                                         ; preds = %if.end20, %for.body
   %n.3 = phi i32 [ %add21, %if.end20 ], [ %n.219, %for.body ]
   %3 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %5 = lshr i8 %4, 4
   %idxprom24 = zext nneg i8 %5 to i64
-  %arrayidx25 = getelementptr inbounds i8, ptr @.str, i64 %idxprom24
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom24
   %6 = load i8, ptr %arrayidx25, align 1
   store i8 %6, ptr %buf, align 1
   %7 = load i8, ptr %arrayidx, align 1
   %8 = and i8 %7, 15
   %idxprom32 = zext nneg i8 %8 to i64
-  %arrayidx33 = getelementptr inbounds i8, ptr @.str, i64 %idxprom32
+  %arrayidx33 = getelementptr inbounds nuw i8, ptr @.str, i64 %idxprom32
   %9 = load i8, ptr %arrayidx33, align 1
   store i8 %9, ptr %arrayidx34, align 1
   %call35 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %buf, i32 noundef 2) #2
@@ -108,7 +108,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @a2i_ASN1_INTEGER(ptr noundef %bp, ptr nocapture noundef writeonly initializes((4, 8)) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
-  %type = getelementptr inbounds i8, ptr %bs, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %bs, i64 4
   store i32 2, ptr %type, align 4
   %call = tail call i32 @BIO_gets(ptr noundef %bp, ptr noundef %buf, i32 noundef %size) #2
   %invariant.gep = getelementptr i8, ptr %buf, i64 -1
@@ -116,7 +116,7 @@ entry:
   br i1 %cmp86, label %err, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %arrayidx53 = getelementptr inbounds i8, ptr %buf, i64 1
+  %arrayidx53 = getelementptr inbounds nuw i8, ptr %buf, i64 1
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %if.then115
@@ -134,7 +134,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.t
 if.end6:                                          ; preds = %if.end
   %dec = add nsw i32 %bufsize.087, -1
   %idxprom4 = zext nneg i32 %dec to i64
-  %arrayidx5 = getelementptr inbounds i8, ptr %buf, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %buf, i64 %idxprom4
   store i8 0, ptr %arrayidx5, align 1
   %cmp7 = icmp eq i32 %dec, 0
   br i1 %cmp7, label %err, label %if.end6.if.end10_crit_edge
@@ -154,7 +154,7 @@ if.end10:                                         ; preds = %if.end6.if.end10_cr
 if.end21:                                         ; preds = %if.end10
   %dec18 = add nsw i32 %i.064, -1
   %idxprom19 = zext nneg i32 %dec18 to i64
-  %arrayidx20 = getelementptr inbounds i8, ptr %buf, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %buf, i64 %idxprom19
   store i8 0, ptr %arrayidx20, align 1
   %cmp22 = icmp eq i32 %dec18, 0
   br i1 %cmp22, label %err, label %if.end21.if.end25_crit_edge
@@ -174,7 +174,7 @@ for.body.preheader:                               ; preds = %if.end10, %if.end21
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx36 = getelementptr inbounds i8, ptr %buf, i64 %indvars.iv
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %buf, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx36, align 1
   %conv37 = sext i8 %4 to i32
   %call38 = tail call i32 @ossl_ctype_check(i32 noundef %conv37, i32 noundef 16) #2
@@ -212,7 +212,7 @@ land.lhs.true:                                    ; preds = %if.then48
   %sub58 = add nsw i32 %i.2.ph, -2
   %spec.select = select i1 %cmp55, i32 %sub58, i32 %i.2.ph
   %spec.select96.idx = select i1 %cmp55, i64 2, i64 0
-  %spec.select96 = getelementptr inbounds i8, ptr %buf, i64 %spec.select96.idx
+  %spec.select96 = getelementptr inbounds nuw i8, ptr %buf, i64 %spec.select96.idx
   br label %if.end60
 
 if.end60:                                         ; preds = %land.lhs.true, %if.then48, %if.end46
@@ -257,22 +257,22 @@ if.end79:                                         ; preds = %if.then68, %if.end6
 for.cond84.preheader.preheader:                   ; preds = %if.end79
   %9 = sext i32 %num.089 to i64
   %wide.trip.count117 = zext nneg i32 %div to i64
+  %invariant.gep130 = getelementptr i8, ptr %s.2, i64 %9
   br label %for.cond84.preheader
 
 for.cond84.preheader:                             ; preds = %for.cond84.preheader.preheader, %for.inc109
   %indvars.iv112 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next113, %for.inc109 ]
   %indvars.iv109 = phi i64 [ 0, %for.cond84.preheader.preheader ], [ %indvars.iv.next110, %for.inc109 ]
-  %10 = add nsw i64 %indvars.iv109, %9
-  %arrayidx98 = getelementptr inbounds i8, ptr %s.2, i64 %10
+  %gep131 = getelementptr i8, ptr %invariant.gep130, i64 %indvars.iv109
   br label %for.body87
 
 for.body87:                                       ; preds = %for.cond84.preheader, %if.end95
   %cmp85 = phi i1 [ true, %for.cond84.preheader ], [ false, %if.end95 ]
   %indvars.iv105 = phi i64 [ 0, %for.cond84.preheader ], [ 1, %if.end95 ]
-  %11 = or disjoint i64 %indvars.iv105, %indvars.iv112
-  %arrayidx90 = getelementptr inbounds i8, ptr %bufp.0, i64 %11
-  %12 = load i8, ptr %arrayidx90, align 1
-  %call91 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %12) #2
+  %10 = or disjoint i64 %indvars.iv105, %indvars.iv112
+  %arrayidx90 = getelementptr inbounds nuw i8, ptr %bufp.0, i64 %10
+  %11 = load i8, ptr %arrayidx90, align 1
+  %call91 = tail call i32 @OPENSSL_hexchar2int(i8 noundef zeroext %11) #2
   %cmp92 = icmp slt i32 %call91, 0
   br i1 %cmp92, label %if.then94, label %if.end95
 
@@ -283,11 +283,11 @@ if.then94:                                        ; preds = %for.body87
   br label %err
 
 if.end95:                                         ; preds = %for.body87
-  %13 = load i8, ptr %arrayidx98, align 1
-  %shl = shl i8 %13, 4
-  %14 = trunc i32 %call91 to i8
-  %conv105 = or i8 %shl, %14
-  store i8 %conv105, ptr %arrayidx98, align 1
+  %12 = load i8, ptr %gep131, align 1
+  %shl = shl i8 %12, 4
+  %13 = trunc i32 %call91 to i8
+  %conv105 = or i8 %shl, %13
+  store i8 %conv105, ptr %gep131, align 1
   br i1 %cmp85, label %for.body87, label %for.inc109, !llvm.loop !7
 
 for.inc109:                                       ; preds = %if.end95
@@ -306,7 +306,7 @@ if.then115:                                       ; preds = %for.end112
 
 for.end118:                                       ; preds = %for.end112
   store i32 %add, ptr %bs, align 8
-  %data = getelementptr inbounds i8, ptr %bs, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %bs, i64 8
   store ptr %s.2, ptr %data, align 8
   br label %return
 
@@ -354,7 +354,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %bs, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %bs, i64 4
   %0 = load i32, ptr %type, align 4
   %and = and i32 %0, 256
   %or = or disjoint i32 %and, 2

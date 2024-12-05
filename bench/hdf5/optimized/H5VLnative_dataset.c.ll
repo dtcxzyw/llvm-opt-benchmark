@@ -327,11 +327,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 .lr.ph:                                           ; preds = %8, %148
   %.0105 = phi i64 [ %152, %148 ], [ 0, %8 ]
   %14 = getelementptr inbounds %struct.H5D_dset_io_info_t, ptr %7, i64 %.0105
-  %15 = getelementptr inbounds i8, ptr %14, i64 128
-  %16 = getelementptr inbounds i8, ptr %14, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 192
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 208
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = getelementptr inbounds ptr, ptr %1, i64 %.0105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %18, i8 0, i64 112, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, i8 0, i64 48, i1 false)
@@ -363,7 +363,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   %34 = getelementptr inbounds i64, ptr %2, i64 %.0105
   %35 = load i64, ptr %34, align 8
   %36 = call ptr @H5I_object_verify(i64 noundef %35, i32 noundef 3) #4
-  %37 = getelementptr inbounds i8, ptr %14, i64 200
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 200
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
   br i1 %38, label %39, label %43
@@ -385,11 +385,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %14, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %14, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 176
   store ptr %51, ptr %52, align 8
   br label %94
 
@@ -424,11 +424,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr %14, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %14, i64 176
+  %78 = getelementptr inbounds nuw i8, ptr %14, i64 176
   store ptr %77, ptr %78, align 8
   %79 = load ptr, ptr %9, align 8
   %80 = call i32 @H5S_select_copy(ptr noundef %77, ptr noundef %79, i1 noundef zeroext true) #4
@@ -443,7 +443,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 86:                                               ; preds = %43
   %87 = call ptr @H5I_object_verify(i64 noundef %45, i32 noundef 4) #4
-  %88 = getelementptr inbounds i8, ptr %14, i64 176
+  %88 = getelementptr inbounds nuw i8, ptr %14, i64 176
   store ptr %87, ptr %88, align 8
   %89 = icmp eq ptr %87, null
   br i1 %89, label %90, label %94
@@ -464,19 +464,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   ]
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %14, i64 176
+  %98 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %14, i64 184
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 184
   store ptr %99, ptr %100, align 8
   br label %132
 
 101:                                              ; preds = %94
-  %102 = getelementptr inbounds i8, ptr %14, i64 176
+  %102 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %103 = load ptr, ptr %102, align 8
   %104 = call i64 @H5S_get_select_npoints(ptr noundef %103) #4
   store i64 %104, ptr %10, align 8
   %.not102 = icmp eq i64 %104, 0
-  %105 = getelementptr inbounds i8, ptr %14, i64 184
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 184
   br i1 %.not102, label %113, label %106
 
 106:                                              ; preds = %101
@@ -511,7 +511,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
 
 124:                                              ; preds = %94
   %125 = call ptr @H5I_object_verify(i64 noundef %96, i32 noundef 4) #4
-  %126 = getelementptr inbounds i8, ptr %14, i64 184
+  %126 = getelementptr inbounds nuw i8, ptr %14, i64 184
   store ptr %125, ptr %126, align 8
   %127 = icmp eq ptr %125, null
   br i1 %127, label %128, label %132
@@ -523,7 +523,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 132:                                              ; preds = %113, %106, %124, %97
-  %133 = getelementptr inbounds i8, ptr %14, i64 176
+  %133 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %134 = load ptr, ptr %133, align 8
   %135 = call i32 @H5S_select_valid(ptr noundef %134) #4
   %.not103 = icmp eq i32 %135, 1
@@ -536,7 +536,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 140:                                              ; preds = %132
-  %141 = getelementptr inbounds i8, ptr %14, i64 184
+  %141 = getelementptr inbounds nuw i8, ptr %14, i64 184
   %142 = load ptr, ptr %141, align 8
   %143 = call i32 @H5S_select_valid(ptr noundef %142) #4
   %.not104 = icmp eq i32 %143, 1
@@ -549,7 +549,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5VL__native_dataset_io_setup(i64 n
   br label %.loopexit
 
 148:                                              ; preds = %140
-  %149 = getelementptr inbounds i8, ptr %14, i64 120
+  %149 = getelementptr inbounds nuw i8, ptr %14, i64 120
   %150 = getelementptr inbounds %union.H5_flexible_const_ptr_t, ptr %6, i64 %.0105
   %151 = load i64, ptr %150, align 8
   store i64 %151, ptr %149, align 8
@@ -717,7 +717,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapt
 
 6:                                                ; preds = %4
   %7 = tail call i64 @H5D__get_space(ptr noundef %0) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %7, ptr %8, align 8
   %9 = icmp slt i64 %7, 0
   br i1 %9, label %10, label %60
@@ -729,7 +729,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapt
   br label %60
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @H5D__get_space_status(ptr noundef %0, ptr noundef %16) #4
   %18 = icmp slt i32 %17, 0
@@ -743,7 +743,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapt
 
 23:                                               ; preds = %4
   %24 = tail call i64 @H5D__get_type(ptr noundef %0) #4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %24, ptr %25, align 8
   %26 = icmp slt i64 %24, 0
   br i1 %26, label %27, label %60
@@ -756,7 +756,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapt
 
 31:                                               ; preds = %4
   %32 = tail call i64 @H5D_get_create_plist(ptr noundef %0) #4
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %32, ptr %33, align 8
   %34 = icmp slt i64 %32, 0
   br i1 %34, label %35, label %60
@@ -769,7 +769,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapt
 
 39:                                               ; preds = %4
   %40 = tail call i64 @H5D_get_access_plist(ptr noundef %0) #4
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %40, ptr %41, align 8
   %42 = icmp slt i64 %40, 0
   br i1 %42, label %43, label %60
@@ -781,7 +781,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_get(ptr noundef %0, ptr nocapt
   br label %60
 
 47:                                               ; preds = %4
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @H5D__get_storage_size(ptr noundef %0, ptr noundef %49) #4
   %51 = icmp slt i32 %50, 0
@@ -826,7 +826,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_specific(ptr noundef %0, ptr n
   ]
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @H5D__set_extent(ptr noundef %0, ptr noundef %8) #4
   %10 = icmp slt i32 %9, 0
@@ -839,7 +839,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_specific(ptr noundef %0, ptr n
   br label %37
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call i32 @H5D__flush(ptr noundef %0, i64 noundef %17) #4
   %19 = icmp slt i32 %18, 0
@@ -852,7 +852,7 @@ define range(i32 -1, 1) i32 @H5VL__native_dataset_specific(ptr noundef %0, ptr n
   br label %37
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = tail call i32 @H5D__refresh(ptr noundef %0, i64 noundef %26) #4
   %28 = icmp slt i32 %27, 0
@@ -885,7 +885,7 @@ declare i32 @H5D__refresh(ptr noundef, i64 noundef) local_unnamed_addr #1
 define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca [33 x i64], align 16
   %6 = alloca [33 x i64], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @H5CX_set_dxpl(i64 noundef %2) #4
   %9 = load i32, ptr %1, align 8
@@ -904,9 +904,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   ]
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 248
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %40 [
     i32 2, label %15
@@ -918,7 +918,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   ]
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %17 = load i32, ptr %16, align 8
   %.not112 = icmp eq i32 %17, 0
   br i1 %.not112, label %280, label %18
@@ -935,7 +935,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 25:                                               ; preds = %10, %10
-  %26 = getelementptr inbounds i8, ptr %12, i64 252
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 252
   %27 = load i32, ptr %26, align 4
   %28 = icmp ugt i32 %27, 3
   br i1 %28, label %29, label %280
@@ -964,9 +964,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 44:                                               ; preds = %4
-  %45 = getelementptr inbounds i8, ptr %0, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 248
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 248
   %48 = load i32, ptr %47, align 8
   %.not111 = icmp eq i32 %48, 2
   br i1 %.not111, label %53, label %49
@@ -978,16 +978,16 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 53:                                               ; preds = %44
-  %54 = getelementptr inbounds i8, ptr %46, i64 264
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 264
   %55 = load i32, ptr %54, align 8
   %56 = load ptr, ptr %8, align 8
   store i32 %55, ptr %56, align 4
   br label %280
 
 57:                                               ; preds = %4
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 248
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 248
   %61 = load i32, ptr %60, align 8
   %.not110 = icmp eq i32 %61, 2
   br i1 %.not110, label %66, label %62
@@ -1000,7 +1000,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 
 66:                                               ; preds = %57
   %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds i8, ptr %8, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @H5D__get_chunk_storage_size(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %69) #4
   %71 = icmp slt i32 %70, 0
@@ -1018,9 +1018,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br i1 %78, label %79, label %84
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %0, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load ptr, ptr %82, align 8
   br label %91
 
@@ -1030,7 +1030,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br i1 %86, label %87, label %._crit_edge113
 
 ._crit_edge113:                                   ; preds = %84
-  %.phi.trans.insert114 = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre115 = load ptr, ptr %.phi.trans.insert114, align 8
   br label %91
 
@@ -1043,7 +1043,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 91:                                               ; preds = %._crit_edge113, %79
   %92 = phi ptr [ %81, %79 ], [ %.pre115, %._crit_edge113 ]
   %.098 = phi ptr [ %83, %79 ], [ %85, %._crit_edge113 ]
-  %93 = getelementptr inbounds i8, ptr %92, i64 248
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 248
   %94 = load i32, ptr %93, align 8
   %.not109 = icmp eq i32 %94, 2
   br i1 %.not109, label %99, label %95
@@ -1055,7 +1055,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 99:                                               ; preds = %91
-  %100 = getelementptr inbounds i8, ptr %8, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = tail call i32 @H5D__get_num_chunks(ptr noundef nonnull %0, ptr noundef %.098, ptr noundef %101) #4
   %103 = icmp slt i32 %102, 0
@@ -1073,9 +1073,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br i1 %110, label %111, label %116
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %0, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = load ptr, ptr %114, align 8
   br label %123
 
@@ -1085,7 +1085,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br i1 %118, label %119, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %116
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %123
 
@@ -1098,7 +1098,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 123:                                              ; preds = %._crit_edge, %111
   %124 = phi ptr [ %113, %111 ], [ %.pre, %._crit_edge ]
   %.099 = phi ptr [ %115, %111 ], [ %117, %._crit_edge ]
-  %125 = getelementptr inbounds i8, ptr %124, i64 248
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 248
   %126 = load i32, ptr %125, align 8
   %.not108 = icmp eq i32 %126, 2
   br i1 %.not108, label %131, label %127
@@ -1110,15 +1110,15 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 131:                                              ; preds = %123
-  %132 = getelementptr inbounds i8, ptr %8, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %8, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %8, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %8, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %8, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %141 = load ptr, ptr %140, align 8
   %142 = tail call i32 @H5D__get_chunk_info(ptr noundef nonnull %0, ptr noundef %.099, i64 noundef %133, ptr noundef %135, ptr noundef %137, ptr noundef %139, ptr noundef %141) #4
   %143 = icmp slt i32 %142, 0
@@ -1131,9 +1131,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 148:                                              ; preds = %4
-  %149 = getelementptr inbounds i8, ptr %0, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 248
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 248
   %152 = load i32, ptr %151, align 8
   %.not107 = icmp eq i32 %152, 2
   br i1 %.not107, label %157, label %153
@@ -1146,11 +1146,11 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 
 157:                                              ; preds = %148
   %158 = load ptr, ptr %8, align 8
-  %159 = getelementptr inbounds i8, ptr %8, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %8, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %8, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %164 = load ptr, ptr %163, align 8
   %165 = tail call i32 @H5D__get_chunk_info_by_coord(ptr noundef nonnull %0, ptr noundef %158, ptr noundef %160, ptr noundef %162, ptr noundef %164) #4
   %166 = icmp slt i32 %165, 0
@@ -1174,9 +1174,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds i8, ptr %0, i64 48
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 248
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 248
   %182 = load i32, ptr %181, align 8
   %.not106 = icmp eq i32 %182, 2
   br i1 %.not106, label %187, label %183
@@ -1200,8 +1200,8 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 195:                                              ; preds = %187
-  %196 = getelementptr inbounds i8, ptr %8, i64 8
-  %197 = getelementptr inbounds i8, ptr %8, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %198 = load ptr, ptr %197, align 8
   %199 = call i32 @H5D__chunk_direct_read(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %196, ptr noundef %198) #4
   %200 = icmp slt i32 %199, 0
@@ -1225,9 +1225,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 212:                                              ; preds = %205
-  %213 = getelementptr inbounds i8, ptr %0, i64 48
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 248
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 248
   %216 = load i32, ptr %215, align 8
   %.not105 = icmp eq i32 %216, 2
   br i1 %.not105, label %221, label %217
@@ -1251,11 +1251,11 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 229:                                              ; preds = %221
-  %230 = getelementptr inbounds i8, ptr %8, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %231 = load i32, ptr %230, align 8
-  %232 = getelementptr inbounds i8, ptr %8, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %8, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %235 = load ptr, ptr %234, align 8
   %236 = call i32 @H5D__chunk_direct_write(ptr noundef nonnull %0, i32 noundef %231, ptr noundef nonnull %6, i32 noundef %233, ptr noundef %235) #4
   %237 = icmp slt i32 %236, 0
@@ -1269,9 +1269,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 
 242:                                              ; preds = %4
   %243 = load i64, ptr %8, align 8
-  %244 = getelementptr inbounds i8, ptr %8, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %245 = load i64, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %8, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %247 = load ptr, ptr %246, align 8
   %248 = tail call i32 @H5D__vlen_get_buf_size(ptr noundef %0, i64 noundef %243, i64 noundef %245, ptr noundef %247) #4
   %249 = icmp slt i32 %248, 0
@@ -1290,9 +1290,9 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
   br label %280
 
 257:                                              ; preds = %4
-  %258 = getelementptr inbounds i8, ptr %0, i64 48
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 248
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 248
   %261 = load i32, ptr %260, align 8
   %.not = icmp eq i32 %261, 2
   br i1 %.not, label %266, label %262
@@ -1305,7 +1305,7 @@ define i32 @H5VL__native_dataset_optional(ptr noundef %0, ptr nocapture noundef 
 
 266:                                              ; preds = %257
   %267 = load ptr, ptr %8, align 8
-  %268 = getelementptr inbounds i8, ptr %8, i64 8
+  %268 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %269 = load ptr, ptr %268, align 8
   %270 = tail call i32 @H5D__chunk_iter(ptr noundef nonnull %0, ptr noundef %267, ptr noundef %269) #4
   %271 = icmp slt i32 %270, 0

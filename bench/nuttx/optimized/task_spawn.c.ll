@@ -22,12 +22,12 @@ define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, 
   br i1 %.not.i, label %21, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = trunc i64 %17 to i32
   br label %26
@@ -59,7 +59,7 @@ define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, 
   br i1 %32, label %46, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store i16 0, ptr %34, align 16
   %35 = call i32 @nxtask_init(ptr noundef nonnull %31, ptr noundef %0, i32 noundef %.024.i, ptr noundef %.026.i, i32 noundef %.025.i, ptr noundef %1, ptr noundef %4, ptr noundef %30, ptr noundef %11) #5
   %36 = icmp slt i32 %35, 0
@@ -70,7 +70,7 @@ define i32 @task_spawn(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, 
   br label %46
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %31, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %40 = load i32, ptr %39, align 8
   br i1 %.not.i, label %nxtask_spawn_create.exit.i, label %41
 

@@ -244,18 +244,18 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %17 = alloca [3 x %struct.nsip_ie_t], align 16
   %18 = alloca [3 x %struct.nsip_ie_t], align 16
   %19 = alloca %struct.build_info_t, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, i8 0, i64 40, i1 false)
   store ptr %0, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %2, ptr %22, align 8
   %.b19 = load i1, ptr @nsip_is_recursive, align 4
   br i1 %.b19, label %27, label %23
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.56) #5
   %26 = load ptr, ptr %24, align 8
@@ -264,7 +264,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 27:                                               ; preds = %23, %4
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
-  %29 = getelementptr inbounds i8, ptr %19, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 1, ptr %29, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %41, label %30
@@ -272,7 +272,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 30:                                               ; preds = %27
   %31 = load i32, ptr @proto_nsip, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %31, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
-  %33 = getelementptr inbounds i8, ptr %19, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr @ett_nsip, align 4
   %35 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %34) #5
@@ -281,7 +281,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %38 = zext i8 %28 to i32
   %39 = tail call ptr @val_to_str_const(i32 noundef %38, ptr noundef nonnull @tab_nsip_pdu_types, ptr noundef nonnull @.str.106) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.105, ptr noundef %39) #5
-  %40 = getelementptr inbounds i8, ptr %19, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %35, ptr %40, align 8
   br label %41
 
@@ -289,7 +289,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %42 = phi ptr [ %32, %30 ], [ null, %27 ]
   %43 = phi ptr [ %35, %30 ], [ null, %27 ]
   %.b = load i1, ptr @nsip_is_recursive, align 4
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %28 to i32
   %47 = tail call ptr @val_to_str_const(i32 noundef %46, ptr noundef nonnull @tab_nsip_pdu_types, ptr noundef nonnull @.str.107) #5
@@ -325,7 +325,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %18, ptr noundef nonnull align 16 dereferenceable(36) @__const.decode_pdu_ns_unitdata.ies, i64 36, i1 false)
   %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #5
-  %53 = getelementptr inbounds i8, ptr %19, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %54 = load i32, ptr @hf_nsip_control_bits, align 4
   %55 = load i32, ptr @ett_nsip_control_bits, align 4
   %56 = tail call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef %54, i32 noundef %55, ptr noundef nonnull @decode_iei_control_bits.flags, i32 noundef 0) #5
@@ -336,7 +336,7 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i.i.i, label %62, label %59
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   tail call void @col_append_sep_str(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.110) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.111) #5
@@ -348,14 +348,14 @@ define internal i32 @dissect_nsip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not11.i.i.i, label %decode_iei_control_bits.exit.i.i, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %66 = load ptr, ptr %65, align 8
   tail call void @col_append_sep_str(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.112) #5
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.113) #5
   br label %decode_iei_control_bits.exit.i.i
 
 decode_iei_control_bits.exit.i.i:                 ; preds = %64, %62
-  %67 = getelementptr inbounds i8, ptr %18, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 12
   call fastcc void @decode_pdu_general(ptr noundef nonnull %67, i32 noundef 1, ptr noundef nonnull %19)
   %68 = load ptr, ptr %19, align 8
   %69 = load i32, ptr %29, align 8
@@ -414,7 +414,7 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   br label %decode_pdu.exit
 
 89:                                               ; preds = %50
-  %90 = getelementptr inbounds i8, ptr %1, i64 276
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %91 = load i8, ptr %90, align 4
   %92 = or i8 %91, 1
   store i8 %92, ptr %90, align 4
@@ -429,11 +429,11 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %12, ptr noundef nonnull align 16 dereferenceable(72) @__const.decode_pdu_sns_ack.ies, i64 72, i1 false)
   call fastcc void @decode_pdu_general(ptr noundef nonnull %12, i32 noundef 1, ptr noundef nonnull %19)
   %94 = load i32, ptr %29, align 8
-  %95 = getelementptr inbounds i8, ptr %12, i64 22
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %.val.i.i = load i16, ptr %95, align 2
   %96 = load ptr, ptr %19, align 8
   %97 = call zeroext i8 @tvb_get_guint8(ptr noundef %96, i32 noundef %94) #5
-  %98 = getelementptr inbounds i8, ptr %19, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr @hf_nsip_transaction_id, align 4
   %101 = load ptr, ptr %19, align 8
@@ -441,13 +441,13 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %103 = zext i8 %97 to i32
   %104 = call ptr @proto_tree_add_uint(ptr noundef %99, i32 noundef %100, ptr noundef %101, i32 noundef %94, i32 noundef %102, i32 noundef %103) #5
   %105 = load ptr, ptr %21, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %107, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.129, i32 noundef %103) #5
   %108 = load i32, ptr %29, align 8
   %109 = add i32 %108, 1
   store i32 %109, ptr %29, align 8
-  %110 = getelementptr inbounds i8, ptr %12, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %12, i64 24
   call fastcc void @decode_pdu_general(ptr noundef nonnull %110, i32 noundef 4, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %12)
   br label %decode_pdu.exit
@@ -457,11 +457,11 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %11, ptr noundef nonnull align 16 dereferenceable(48) @__const.decode_pdu_sns_changeweight.ies, i64 48, i1 false)
   call fastcc void @decode_pdu_general(ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %19)
   %112 = load i32, ptr %29, align 8
-  %113 = getelementptr inbounds i8, ptr %11, i64 22
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %.val.i15.i = load i16, ptr %113, align 2
   %114 = load ptr, ptr %19, align 8
   %115 = call zeroext i8 @tvb_get_guint8(ptr noundef %114, i32 noundef %112) #5
-  %116 = getelementptr inbounds i8, ptr %19, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %117 = load ptr, ptr %116, align 8
   %118 = load i32, ptr @hf_nsip_transaction_id, align 4
   %119 = load ptr, ptr %19, align 8
@@ -469,13 +469,13 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %121 = zext i8 %115 to i32
   %122 = call ptr @proto_tree_add_uint(ptr noundef %117, i32 noundef %118, ptr noundef %119, i32 noundef %112, i32 noundef %120, i32 noundef %121) #5
   %123 = load ptr, ptr %21, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load ptr, ptr %124, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %125, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.129, i32 noundef %121) #5
   %126 = load i32, ptr %29, align 8
   %127 = add i32 %126, 1
   store i32 %127, ptr %29, align 8
-  %128 = getelementptr inbounds i8, ptr %11, i64 24
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 24
   call fastcc void @decode_pdu_general(ptr noundef nonnull %128, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   br label %decode_pdu.exit
@@ -485,11 +485,11 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %10, ptr noundef nonnull align 16 dereferenceable(48) @__const.decode_pdu_sns_changeweight.ies, i64 48, i1 false)
   call fastcc void @decode_pdu_general(ptr noundef nonnull %10, i32 noundef 1, ptr noundef nonnull %19)
   %130 = load i32, ptr %29, align 8
-  %131 = getelementptr inbounds i8, ptr %10, i64 22
+  %131 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %.val.i16.i = load i16, ptr %131, align 2
   %132 = load ptr, ptr %19, align 8
   %133 = call zeroext i8 @tvb_get_guint8(ptr noundef %132, i32 noundef %130) #5
-  %134 = getelementptr inbounds i8, ptr %19, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %135 = load ptr, ptr %134, align 8
   %136 = load i32, ptr @hf_nsip_transaction_id, align 4
   %137 = load ptr, ptr %19, align 8
@@ -497,13 +497,13 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %139 = zext i8 %133 to i32
   %140 = call ptr @proto_tree_add_uint(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %130, i32 noundef %138, i32 noundef %139) #5
   %141 = load ptr, ptr %21, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load ptr, ptr %142, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %143, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.129, i32 noundef %139) #5
   %144 = load i32, ptr %29, align 8
   %145 = add i32 %144, 1
   store i32 %145, ptr %29, align 8
-  %146 = getelementptr inbounds i8, ptr %10, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call fastcc void @decode_pdu_general(ptr noundef nonnull %146, i32 noundef 2, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   br label %decode_pdu.exit
@@ -515,7 +515,7 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %149 = load i32, ptr @ett_nsip_end_flag, align 4
   %150 = tail call ptr @proto_tree_add_bitmask(ptr noundef %43, ptr noundef %0, i32 noundef 1, i32 noundef %148, i32 noundef %149, ptr noundef nonnull @decode_iei_end_flag.end_flags, i32 noundef 0) #5
   store i32 2, ptr %29, align 8
-  %151 = getelementptr inbounds i8, ptr %9, i64 12
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 12
   call fastcc void @decode_pdu_general(ptr noundef nonnull %151, i32 noundef 3, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   br label %decode_pdu.exit
@@ -532,11 +532,11 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %7, ptr noundef nonnull align 16 dereferenceable(60) @__const.decode_pdu_sns_delete.ies, i64 60, i1 false)
   call fastcc void @decode_pdu_general(ptr noundef nonnull %7, i32 noundef 1, ptr noundef nonnull %19)
   %154 = load i32, ptr %29, align 8
-  %155 = getelementptr inbounds i8, ptr %7, i64 22
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 22
   %.val.i17.i = load i16, ptr %155, align 2
   %156 = load ptr, ptr %19, align 8
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %156, i32 noundef %154) #5
-  %158 = getelementptr inbounds i8, ptr %19, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %159 = load ptr, ptr %158, align 8
   %160 = load i32, ptr @hf_nsip_transaction_id, align 4
   %161 = load ptr, ptr %19, align 8
@@ -544,13 +544,13 @@ decode_pdu_ns_unitdata.exit.i:                    ; preds = %76, %72
   %163 = zext i8 %157 to i32
   %164 = call ptr @proto_tree_add_uint(ptr noundef %159, i32 noundef %160, ptr noundef %161, i32 noundef %154, i32 noundef %162, i32 noundef %163) #5
   %165 = load ptr, ptr %21, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %167, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.129, i32 noundef %163) #5
   %168 = load i32, ptr %29, align 8
   %169 = add i32 %168, 1
   store i32 %169, ptr %29, align 8
-  %170 = getelementptr inbounds i8, ptr %7, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call fastcc void @decode_pdu_general(ptr noundef nonnull %170, i32 noundef 3, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %7)
   br label %decode_pdu.exit
@@ -628,10 +628,10 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @decode_pdu_general(ptr nocapture noundef %0, i32 noundef range(i32 1, 7) %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.e_in6_addr, align 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %9
 
@@ -645,7 +645,7 @@ define internal fastcc void @decode_pdu_general(ptr nocapture noundef %0, i32 no
   br i1 %14, label %decode_ie.exit, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %10, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %60 [
     i32 3, label %18
@@ -665,7 +665,7 @@ define internal fastcc void @decode_pdu_general(ptr nocapture noundef %0, i32 no
   %22 = load i32, ptr %5, align 8
   %23 = add i32 %22, 1
   store i32 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 10
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i16 1, ptr %24, align 2
   %25 = load ptr, ptr %2, align 8
   %26 = load i32, ptr %5, align 8
@@ -692,7 +692,7 @@ define internal fastcc void @decode_pdu_general(ptr nocapture noundef %0, i32 no
 get_value_length.exit.i:                          ; preds = %31, %28
   %.015.i.i = phi i32 [ 1, %28 ], [ 2, %31 ]
   %.0.i.i = phi i16 [ %30, %28 ], [ %38, %31 ]
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 %.0.i.i, ptr %39, align 4
   %40 = load i16, ptr %24, align 2
   %41 = trunc nuw nsw i32 %.015.i.i to i16
@@ -716,17 +716,17 @@ get_value_length.exit.i:                          ; preds = %31, %28
   %50 = load i32, ptr %5, align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %5, align 8
-  %52 = getelementptr inbounds i8, ptr %10, i64 10
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %53 = load i16, ptr %52, align 2
   %54 = add i16 %53, -1
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 %54, ptr %55, align 4
   br label %60
 
 56:                                               ; preds = %15
-  %57 = getelementptr inbounds i8, ptr %10, i64 10
+  %57 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %58 = load i16, ptr %57, align 2
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 %58, ptr %59, align 4
   br label %60
 
@@ -754,20 +754,20 @@ get_value_length.exit.i:                          ; preds = %31, %28
   %66 = load ptr, ptr %6, align 8
   %67 = load i32, ptr @hf_nsip_cause, align 4
   %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds i8, ptr %10, i64 10
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
   %72 = zext i8 %65 to i32
   %73 = call ptr @proto_tree_add_uint(ptr noundef %66, i32 noundef %67, ptr noundef %68, i32 noundef %11, i32 noundef %71, i32 noundef %72) #5
   %74 = load ptr, ptr %7, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = call ptr @val_to_str(i32 noundef %72, ptr noundef nonnull @tab_nsip_cause_values, ptr noundef nonnull @.str.115) #5
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.114, ptr noundef %77) #5
   %78 = load ptr, ptr %8, align 8
   %79 = call ptr @val_to_str(i32 noundef %72, ptr noundef nonnull @tab_nsip_cause_values, ptr noundef nonnull @.str.115) #5
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.116, ptr noundef %79) #5
-  %80 = getelementptr inbounds i8, ptr %10, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %81 = load i16, ptr %80, align 4
   %82 = zext i16 %81 to i32
   %83 = load i32, ptr %5, align 8
@@ -782,18 +782,18 @@ get_value_length.exit.i:                          ; preds = %31, %28
   %89 = load ptr, ptr %6, align 8
   %90 = load i32, ptr @hf_nsip_ns_vci, align 4
   %91 = load ptr, ptr %2, align 8
-  %92 = getelementptr inbounds i8, ptr %10, i64 10
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i32
   %95 = zext i16 %88 to i32
   %96 = call ptr @proto_tree_add_uint(ptr noundef %89, i32 noundef %90, ptr noundef %91, i32 noundef %11, i32 noundef %94, i32 noundef %95) #5
   %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.117, i32 noundef %95) #5
   %100 = load ptr, ptr %8, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.118, i32 noundef %95) #5
-  %101 = getelementptr inbounds i8, ptr %10, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %102 = load i16, ptr %101, align 4
   %103 = zext i16 %102 to i32
   %104 = load i32, ptr %5, align 8
@@ -805,10 +805,10 @@ get_value_length.exit.i:                          ; preds = %31, %28
   %107 = load ptr, ptr %6, align 8
   %108 = load i32, ptr @hf_nsip_ns_pdu, align 4
   %109 = load ptr, ptr %2, align 8
-  %110 = getelementptr inbounds i8, ptr %10, i64 10
+  %110 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %10, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %114 = load i16, ptr %113, align 4
   %115 = zext i16 %114 to i32
   %116 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %107, i32 noundef %108, ptr noundef %109, i32 noundef %11, i32 noundef %112, ptr noundef null, ptr noundef nonnull @.str.119, i32 noundef %115) #5
@@ -845,19 +845,19 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %135 = load ptr, ptr %6, align 8
   %136 = load i32, ptr @hf_nsip_nsei, align 4
   %137 = load ptr, ptr %2, align 8
-  %138 = getelementptr inbounds i8, ptr %10, i64 10
+  %138 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %139 = load i16, ptr %138, align 2
   %140 = zext i16 %139 to i32
   %141 = zext i16 %134 to i32
   %142 = call ptr @proto_tree_add_uint(ptr noundef %135, i32 noundef %136, ptr noundef %137, i32 noundef %11, i32 noundef %140, i32 noundef %141) #5
-  %143 = getelementptr inbounds i8, ptr %10, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %144 = load i16, ptr %143, align 4
   %145 = zext i16 %144 to i32
   %146 = load i32, ptr %5, align 8
   %147 = add i32 %146, %145
   store i32 %147, ptr %5, align 8
   %148 = load ptr, ptr %7, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.120, i32 noundef %141) #5
   %151 = load ptr, ptr %8, align 8
@@ -871,19 +871,19 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %156 = load ptr, ptr %6, align 8
   %157 = load i32, ptr @hf_nsip_bvci, align 4
   %158 = load ptr, ptr %2, align 8
-  %159 = getelementptr inbounds i8, ptr %10, i64 10
+  %159 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %160 = load i16, ptr %159, align 2
   %161 = zext i16 %160 to i32
   %162 = zext i16 %155 to i32
   %163 = call ptr @proto_tree_add_uint(ptr noundef %156, i32 noundef %157, ptr noundef %158, i32 noundef %11, i32 noundef %161, i32 noundef %162) #5
-  %164 = getelementptr inbounds i8, ptr %10, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %165 = load i16, ptr %164, align 4
   %166 = zext i16 %165 to i32
   %167 = load i32, ptr %5, align 8
   %168 = add i32 %167, %166
   store i32 %168, ptr %5, align 8
   %169 = load ptr, ptr %7, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %171, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.122, i32 noundef %162) #5
   %172 = load ptr, ptr %8, align 8
@@ -918,7 +918,7 @@ decode_iei_ns_pdu.exit.i:                         ; preds = %123, %106
   %184 = load ptr, ptr %6, align 8
   %185 = load i32, ptr @hf_nsip_max_num_ns_vc, align 4
   %186 = load ptr, ptr %2, align 8
-  %187 = getelementptr inbounds i8, ptr %10, i64 10
+  %187 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %188 = load i16, ptr %187, align 2
   %189 = zext i16 %188 to i32
   %190 = zext i16 %183 to i32
@@ -944,7 +944,7 @@ decode_iei_max_num_ns_vc.exit.i:                  ; preds = %181, %179
   %199 = load ptr, ptr %6, align 8
   %200 = load i32, ptr @hf_nsip_num_ip4_endpoints, align 4
   %201 = load ptr, ptr %2, align 8
-  %202 = getelementptr inbounds i8, ptr %10, i64 10
+  %202 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %203 = load i16, ptr %202, align 2
   %204 = zext i16 %203 to i32
   %205 = zext i16 %198 to i32
@@ -970,7 +970,7 @@ decode_iei_num_ip4_endpoints.exit.i:              ; preds = %196, %194
   %214 = load ptr, ptr %6, align 8
   %215 = load i32, ptr @hf_nsip_num_ip6_endpoints, align 4
   %216 = load ptr, ptr %2, align 8
-  %217 = getelementptr inbounds i8, ptr %10, i64 10
+  %217 = getelementptr inbounds nuw i8, ptr %10, i64 10
   %218 = load i16, ptr %217, align 2
   %219 = zext i16 %218 to i32
   %220 = zext i16 %213 to i32
@@ -1000,7 +1000,7 @@ decode_iei_num_ip6_endpoints.exit.i:              ; preds = %211, %209
 
 235:                                              ; preds = %224
   %236 = load ptr, ptr %7, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
   call void @col_append_sep_str(ptr noundef %238, i32 noundef 25, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.128) #5
   br label %decode_iei_reset_flag.exit.i
@@ -1030,7 +1030,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
   %251 = load i32, ptr getelementptr inbounds (i8, ptr @ipv4_element, i64 4), align 4
   %252 = trunc i32 %251 to i16
   %253 = add i16 %252, 2
-  %254 = getelementptr inbounds i8, ptr %10, i64 10
+  %254 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i16 %253, ptr %254, align 2
   %255 = load ptr, ptr %2, align 8
   %256 = load i32, ptr %5, align 8
@@ -1048,7 +1048,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
   %266 = load i32, ptr getelementptr inbounds (i8, ptr @ipv6_element, i64 4), align 4
   %267 = trunc i32 %266 to i16
   %268 = add i16 %267, 2
-  %269 = getelementptr inbounds i8, ptr %10, i64 10
+  %269 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i16 %268, ptr %269, align 2
   %270 = load ptr, ptr %2, align 8
   %271 = load i32, ptr %5, align 8
@@ -1063,7 +1063,7 @@ decode_iei_reset_flag.exit.i:                     ; preds = %235, %224
   br label %279
 
 279:                                              ; preds = %265, %250
-  %280 = getelementptr inbounds i8, ptr %10, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %281 = load i16, ptr %280, align 4
   %282 = zext i16 %281 to i32
   %283 = load i32, ptr %5, align 8
@@ -1099,10 +1099,10 @@ define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = zext i16 %.8.val to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 4
   %9 = sdiv i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %13 = zext i16 %.10.val to i32
@@ -1113,8 +1113,8 @@ define internal fastcc void @decode_ip_elements(ptr nocapture noundef readonly %
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %18, align 8
   br label %20
 

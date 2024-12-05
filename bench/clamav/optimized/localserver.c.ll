@@ -68,22 +68,22 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
   br label %143
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %21, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2
-  %.ptr63 = getelementptr inbounds i8, ptr %2, i64 2
+  %.ptr63 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %22 = tail call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.3) #12
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %.ptr63, ptr noundef nonnull dereferenceable(1) %24, i64 noundef 108) #12
-  %26 = getelementptr inbounds i8, ptr %2, i64 109
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 109
   store i8 0, ptr %26, align 1
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.ptr63, i32 47)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %77, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %strchr, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %strchr60 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 47)
   %.not61 = icmp eq ptr %strchr60, null
   br i1 %.not61, label %77, label %29
@@ -131,14 +131,14 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 44:                                               ; preds = %40
   %45 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.5) #12
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 8
   %.not66 = icmp eq i32 %47, 0
   br i1 %.not66, label %61, label %48
 
 48:                                               ; preds = %44
   %49 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.5) #12
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call i64 @strtol(ptr noundef %51, ptr noundef nonnull %5, i32 noundef 8) #12
   %53 = trunc i64 %52 to i32
@@ -149,7 +149,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 56:                                               ; preds = %48
   %57 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.5) #12
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.6, ptr noundef %59) #12
   call void @free(ptr noundef %.051) #12
@@ -221,7 +221,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 
 98:                                               ; preds = %92
   %99 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.12) #12
-  %100 = getelementptr inbounds i8, ptr %99, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %101 = load i32, ptr %100, align 8
   %.not69 = icmp eq i32 %101, 0
   br i1 %.not69, label %119, label %102
@@ -270,7 +270,7 @@ define dso_local i32 @localserver(ptr noundef %0) local_unnamed_addr #0 {
 128:                                              ; preds = %119, %111, %85
   %129 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.18, ptr noundef nonnull %.ptr63) #12
   %130 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.19) #12
-  %131 = getelementptr inbounds i8, ptr %130, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load i64, ptr %131, align 8
   %133 = trunc i64 %132 to i32
   %134 = call i32 (i32, ptr, ...) @logg(i32 noundef 1, ptr noundef nonnull @.str.20, i32 noundef %133) #12

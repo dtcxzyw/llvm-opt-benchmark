@@ -243,7 +243,7 @@ rb_num2int_inline.exit32:                         ; preds = %75, %77
 
 92:                                               ; preds = %87
   %93 = inttoptr i64 %82 to ptr
-  %94 = getelementptr inbounds i8, ptr %93, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr %89, ptr %94, align 8
   %95 = load i64, ptr %6, align 8
   %96 = call i64 @rb_iv_set(i64 noundef %82, ptr noundef nonnull @.str.12, i64 noundef %95) #3
@@ -270,7 +270,7 @@ define internal i64 @ossl_pkcs12_s_allocate(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -330,7 +330,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %8, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %22, ptr %26, align 8
   tail call void @PKCS12_free(ptr noundef nonnull %14) #3
   ret i64 %0
@@ -352,7 +352,7 @@ define internal noundef i64 @ossl_pkcs12_initialize(i32 noundef %0, ptr noundef 
   store ptr null, ptr %8, align 8
   store i32 0, ptr %9, align 4
   %11 = inttoptr i64 %2 to ptr
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   store ptr %13, ptr %10, align 8
   %14 = call i32 (i32, ptr, ptr, ...) @rb_scan_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.17, ptr noundef nonnull %4, ptr noundef nonnull %5) #3
@@ -479,7 +479,7 @@ define internal i64 @ossl_pkcs12_to_der(i64 noundef %0) #0 {
   %15 = load i64, ptr %14, align 8, !noalias !7
   %16 = and i64 %15, 8192
   %.not.i.i = icmp eq i64 %16, 0
-  %17 = getelementptr inbounds i8, ptr %14, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %18
 
 18:                                               ; preds = %11

@@ -272,7 +272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 104:                                              ; preds = %103
   %105 = call i32 @fclose(ptr noundef nonnull %99)
-  %106 = getelementptr inbounds i8, ptr %63, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %107 = load ptr, ptr %106, align 8
   %.not148 = icmp eq ptr %107, null
   br i1 %.not148, label %.invoke151, label %110
@@ -323,7 +323,7 @@ _ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEE5resetEP
 
 122:                                              ; preds = %121
   %123 = call i32 @fclose(ptr noundef nonnull %117)
-  %124 = getelementptr inbounds i8, ptr %64, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %125 = load ptr, ptr %124, align 8
   %.not149 = icmp eq ptr %125, null
   br i1 %.not149, label %.invoke153, label %128
@@ -341,7 +341,7 @@ _ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEE5resetEP
 130:                                              ; preds = %128
   store i8 84, ptr %125, align 1
   %131 = load ptr, ptr %124, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 2
   store i8 115, ptr %132, align 1
   %133 = load ptr, ptr %124, align 8
   %bcmp37 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) @.str.13, ptr noundef nonnull dereferenceable(4) %133, i64 4)
@@ -1708,7 +1708,7 @@ declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1731,7 +1731,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIcN32pxrInternal_v0_24__pxr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

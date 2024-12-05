@@ -27,7 +27,7 @@ define noundef nonnull ptr @pg_finfo_shift_jis_2004_to_euc_jis_2004() local_unna
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @euc_jis_2004_to_shift_jis_2004(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -303,7 +303,7 @@ declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define range(i64 -2147483648, 2147483648) i64 @shift_jis_2004_to_euc_jis_2004(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr

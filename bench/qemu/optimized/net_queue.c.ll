@@ -10,17 +10,17 @@ define dso_local noundef ptr @qemu_new_net_queue(ptr noundef %deliver, ptr nound
 entry:
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 48) #7
   store ptr %opaque, ptr %call, align 8
-  %nq_maxlen = getelementptr inbounds i8, ptr %call, i64 8
+  %nq_maxlen = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 10000, ptr %nq_maxlen, align 8
-  %nq_count = getelementptr inbounds i8, ptr %call, i64 12
+  %nq_count = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i32 0, ptr %nq_count, align 4
-  %deliver2 = getelementptr inbounds i8, ptr %call, i64 16
+  %deliver2 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %deliver, ptr %deliver2, align 8
-  %packets = getelementptr inbounds i8, ptr %call, i64 24
+  %packets = getelementptr inbounds nuw i8, ptr %call, i64 24
   store ptr null, ptr %packets, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %call, i64 32
+  %tql_prev = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %packets, ptr %tql_prev, align 8
-  %delivering = getelementptr inbounds i8, ptr %call, i64 40
+  %delivering = getelementptr inbounds nuw i8, ptr %call, i64 40
   %bf.load = load i8, ptr %delivering, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %delivering, align 8
@@ -33,25 +33,25 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_del_net_queue(ptr noundef %queue) local_unnamed_addr #0 {
 entry:
-  %packets = getelementptr inbounds i8, ptr %queue, i64 24
+  %packets = getelementptr inbounds nuw i8, ptr %queue, i64 24
   %0 = load ptr, ptr %packets, align 8
   %tobool.not14 = icmp eq ptr %0, null
   br i1 %tobool.not14, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev10 = getelementptr inbounds i8, ptr %queue, i64 32
+  %tql_prev10 = getelementptr inbounds nuw i8, ptr %queue, i64 32
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end
   %packet.015 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %if.end ]
   %1 = load ptr, ptr %packet.015, align 8
   %cmp.not = icmp eq ptr %1, null
-  %tql_prev8 = getelementptr inbounds i8, ptr %packet.015, i64 8
+  %tql_prev8 = getelementptr inbounds nuw i8, ptr %packet.015, i64 8
   %2 = load ptr, ptr %tql_prev8, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %land.rhs
-  %tql_prev6 = getelementptr inbounds i8, ptr %1, i64 8
+  %tql_prev6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %tql_prev6, align 8
   br label %if.end
 
@@ -76,9 +76,9 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_net_queue_append_iov(ptr nocapture noundef %queue, ptr noundef %sender, i32 noundef %flags, ptr nocapture noundef readonly %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) local_unnamed_addr #0 {
 entry:
-  %nq_count = getelementptr inbounds i8, ptr %queue, i64 12
+  %nq_count = getelementptr inbounds nuw i8, ptr %queue, i64 12
   %0 = load i32, ptr %nq_count, align 4
-  %nq_maxlen = getelementptr inbounds i8, ptr %queue, i64 8
+  %nq_maxlen = getelementptr inbounds nuw i8, ptr %queue, i64 8
   %1 = load i32, ptr %nq_maxlen, align 8
   %cmp = icmp ult i32 %0, %1
   %tobool = icmp ne ptr %sent_cb, null
@@ -110,18 +110,18 @@ for.end.loopexit:                                 ; preds = %for.body
 for.end:                                          ; preds = %for.end.loopexit, %for.cond.preheader
   %max_len.0.lcssa = phi i64 [ 40, %for.cond.preheader ], [ %3, %for.end.loopexit ]
   %call = tail call noalias ptr @g_malloc(i64 noundef %max_len.0.lcssa) #9
-  %sender3 = getelementptr inbounds i8, ptr %call, i64 16
+  %sender3 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %sender, ptr %sender3, align 8
-  %sent_cb4 = getelementptr inbounds i8, ptr %call, i64 32
+  %sent_cb4 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %sent_cb, ptr %sent_cb4, align 8
-  %flags5 = getelementptr inbounds i8, ptr %call, i64 24
+  %flags5 = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 %flags, ptr %flags5, align 8
-  %size = getelementptr inbounds i8, ptr %call, i64 28
+  %size = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 0, ptr %size, align 4
   br i1 %cmp128, label %for.body8.lr.ph, label %for.end20
 
 for.body8.lr.ph:                                  ; preds = %for.end
-  %data = getelementptr inbounds i8, ptr %call, i64 40
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 40
   %wide.trip.count37 = zext nneg i32 %iovcnt to i64
   br label %for.body8
 
@@ -129,7 +129,7 @@ for.body8:                                        ; preds = %for.body8.lr.ph, %f
   %4 = phi i32 [ 0, %for.body8.lr.ph ], [ %conv17, %for.body8 ]
   %indvars.iv34 = phi i64 [ 0, %for.body8.lr.ph ], [ %indvars.iv.next35, %for.body8 ]
   %arrayidx10 = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv34
-  %iov_len11 = getelementptr inbounds i8, ptr %arrayidx10, i64 8
+  %iov_len11 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 8
   %5 = load i64, ptr %iov_len11, align 8
   %idx.ext = sext i32 %4 to i64
   %add.ptr = getelementptr i8, ptr %data, i64 %idx.ext
@@ -148,9 +148,9 @@ for.end20:                                        ; preds = %for.body8, %for.end
   %inc22 = add i32 %9, 1
   store i32 %inc22, ptr %nq_count, align 4
   store ptr null, ptr %call, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %queue, i64 32
+  %tql_prev = getelementptr inbounds nuw i8, ptr %queue, i64 32
   %10 = load ptr, ptr %tql_prev, align 8
-  %tql_prev25 = getelementptr inbounds i8, ptr %call, i64 8
+  %tql_prev25 = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %10, ptr %tql_prev25, align 8
   store ptr %call, ptr %10, align 8
   store ptr %call, ptr %tql_prev, align 8
@@ -170,7 +170,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local i64 @qemu_net_queue_receive(ptr nocapture noundef %queue, ptr noundef %data, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %iov.i = alloca %struct.iovec, align 8
-  %delivering = getelementptr inbounds i8, ptr %queue, i64 40
+  %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
   %bf.load = load i8, ptr %delivering, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -179,11 +179,11 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
   store ptr %data, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 8
   store i64 %size, ptr %iov_len.i, align 8
   %bf.set.i = or disjoint i8 %bf.load, 1
   store i8 %bf.set.i, ptr %delivering, align 8
-  %deliver.i = getelementptr inbounds i8, ptr %queue, i64 16
+  %deliver.i = getelementptr inbounds nuw i8, ptr %queue, i64 16
   %0 = load ptr, ptr %deliver.i, align 8
   %1 = load ptr, ptr %queue, align 8
   %call.i = call i64 %0(ptr noundef null, i32 noundef 0, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef %1) #8
@@ -201,7 +201,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_net_queue_receive_iov(ptr nocapture noundef %queue, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #0 {
 entry:
-  %delivering = getelementptr inbounds i8, ptr %queue, i64 40
+  %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
   %bf.load = load i8, ptr %delivering, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -210,7 +210,7 @@ entry:
 if.end:                                           ; preds = %entry
   %bf.set.i = or disjoint i8 %bf.load, 1
   store i8 %bf.set.i, ptr %delivering, align 8
-  %deliver.i = getelementptr inbounds i8, ptr %queue, i64 16
+  %deliver.i = getelementptr inbounds nuw i8, ptr %queue, i64 16
   %0 = load ptr, ptr %deliver.i, align 8
   %1 = load ptr, ptr %queue, align 8
   %call.i = tail call i64 %0(ptr noundef null, i32 noundef 0, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %1) #8
@@ -228,7 +228,7 @@ return:                                           ; preds = %entry, %if.end
 define dso_local i64 @qemu_net_queue_send(ptr noundef %queue, ptr noundef %sender, i32 noundef %flags, ptr noundef %data, i64 noundef %size, ptr noundef %sent_cb) local_unnamed_addr #0 {
 entry:
   %iov.i = alloca %struct.iovec, align 8
-  %delivering = getelementptr inbounds i8, ptr %queue, i64 40
+  %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
   %bf.load = load i8, ptr %delivering, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -240,9 +240,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %nq_count.i = getelementptr inbounds i8, ptr %queue, i64 12
+  %nq_count.i = getelementptr inbounds nuw i8, ptr %queue, i64 12
   %0 = load i32, ptr %nq_count.i, align 4
-  %nq_maxlen.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %nq_maxlen.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   %1 = load i32, ptr %nq_maxlen.i, align 8
   %cmp.i = icmp ult i32 %0, %1
   %tobool.i = icmp ne ptr %sent_cb, null
@@ -252,24 +252,24 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end.i:                                         ; preds = %if.then
   %add.i = add i64 %size, 40
   %call.i = tail call noalias ptr @g_malloc(i64 noundef %add.i) #9
-  %sender1.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %sender1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %sender, ptr %sender1.i, align 8
-  %flags2.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %flags2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 %flags, ptr %flags2.i, align 8
   %conv.i = trunc i64 %size to i32
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 28
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 28
   store i32 %conv.i, ptr %size3.i, align 4
-  %sent_cb4.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %sent_cb4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %sent_cb, ptr %sent_cb4.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i, ptr readonly align 1 %data, i64 %size, i1 false)
   %2 = load i32, ptr %nq_count.i, align 4
   %inc.i = add i32 %2, 1
   store i32 %inc.i, ptr %nq_count.i, align 4
   store ptr null, ptr %call.i, align 8
-  %tql_prev.i = getelementptr inbounds i8, ptr %queue, i64 32
+  %tql_prev.i = getelementptr inbounds nuw i8, ptr %queue, i64 32
   %3 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev8.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tql_prev8.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %3, ptr %tql_prev8.i, align 8
   store ptr %call.i, ptr %3, align 8
   store ptr %call.i, ptr %tql_prev.i, align 8
@@ -278,12 +278,12 @@ if.end.i:                                         ; preds = %if.then
 if.end:                                           ; preds = %lor.lhs.false
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
   store ptr %data, ptr %iov.i, align 8
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 8
   store i64 %size, ptr %iov_len.i, align 8
   %bf.load.i = load i8, ptr %delivering, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %delivering, align 8
-  %deliver.i = getelementptr inbounds i8, ptr %queue, i64 16
+  %deliver.i = getelementptr inbounds nuw i8, ptr %queue, i64 16
   %4 = load ptr, ptr %deliver.i, align 8
   %5 = load ptr, ptr %queue, align 8
   %call.i16 = call i64 %4(ptr noundef %sender, i32 noundef %flags, ptr noundef nonnull %iov.i, i32 noundef 1, ptr noundef %5) #8
@@ -295,9 +295,9 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %nq_count.i17 = getelementptr inbounds i8, ptr %queue, i64 12
+  %nq_count.i17 = getelementptr inbounds nuw i8, ptr %queue, i64 12
   %6 = load i32, ptr %nq_count.i17, align 4
-  %nq_maxlen.i18 = getelementptr inbounds i8, ptr %queue, i64 8
+  %nq_maxlen.i18 = getelementptr inbounds nuw i8, ptr %queue, i64 8
   %7 = load i32, ptr %nq_maxlen.i18, align 8
   %cmp.i19 = icmp ult i32 %6, %7
   %tobool.i20 = icmp ne ptr %sent_cb, null
@@ -307,24 +307,24 @@ if.then3:                                         ; preds = %if.end
 if.end.i22:                                       ; preds = %if.then3
   %add.i23 = add i64 %size, 40
   %call.i24 = call noalias ptr @g_malloc(i64 noundef %add.i23) #9
-  %sender1.i25 = getelementptr inbounds i8, ptr %call.i24, i64 16
+  %sender1.i25 = getelementptr inbounds nuw i8, ptr %call.i24, i64 16
   store ptr %sender, ptr %sender1.i25, align 8
-  %flags2.i26 = getelementptr inbounds i8, ptr %call.i24, i64 24
+  %flags2.i26 = getelementptr inbounds nuw i8, ptr %call.i24, i64 24
   store i32 %flags, ptr %flags2.i26, align 8
   %conv.i27 = trunc i64 %size to i32
-  %size3.i28 = getelementptr inbounds i8, ptr %call.i24, i64 28
+  %size3.i28 = getelementptr inbounds nuw i8, ptr %call.i24, i64 28
   store i32 %conv.i27, ptr %size3.i28, align 4
-  %sent_cb4.i29 = getelementptr inbounds i8, ptr %call.i24, i64 32
+  %sent_cb4.i29 = getelementptr inbounds nuw i8, ptr %call.i24, i64 32
   store ptr %sent_cb, ptr %sent_cb4.i29, align 8
-  %data.i30 = getelementptr inbounds i8, ptr %call.i24, i64 40
+  %data.i30 = getelementptr inbounds nuw i8, ptr %call.i24, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %data.i30, ptr readonly align 1 %data, i64 %size, i1 false)
   %8 = load i32, ptr %nq_count.i17, align 4
   %inc.i31 = add i32 %8, 1
   store i32 %inc.i31, ptr %nq_count.i17, align 4
   store ptr null, ptr %call.i24, align 8
-  %tql_prev.i32 = getelementptr inbounds i8, ptr %queue, i64 32
+  %tql_prev.i32 = getelementptr inbounds nuw i8, ptr %queue, i64 32
   %9 = load ptr, ptr %tql_prev.i32, align 8
-  %tql_prev8.i33 = getelementptr inbounds i8, ptr %call.i24, i64 8
+  %tql_prev8.i33 = getelementptr inbounds nuw i8, ptr %call.i24, i64 8
   store ptr %9, ptr %tql_prev8.i33, align 8
   store ptr %call.i24, ptr %9, align 8
   store ptr %call.i24, ptr %tql_prev.i32, align 8
@@ -345,35 +345,35 @@ declare i32 @qemu_can_send_packet(ptr noundef) local_unnamed_addr #2
 define dso_local noundef zeroext i1 @qemu_net_queue_flush(ptr noundef %queue) local_unnamed_addr #0 {
 entry:
   %iov.i = alloca %struct.iovec, align 8
-  %delivering = getelementptr inbounds i8, ptr %queue, i64 40
+  %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
   %bf.load = load i8, ptr %delivering, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
   br i1 %tobool.not, label %while.cond.preheader, label %return
 
 while.cond.preheader:                             ; preds = %entry
-  %packets = getelementptr inbounds i8, ptr %queue, i64 24
+  %packets = getelementptr inbounds nuw i8, ptr %queue, i64 24
   %0 = load ptr, ptr %packets, align 8
   %cmp.not37 = icmp eq ptr %0, null
   br i1 %cmp.not37, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %tql_prev12 = getelementptr inbounds i8, ptr %queue, i64 32
-  %nq_count = getelementptr inbounds i8, ptr %queue, i64 12
-  %iov_len.i = getelementptr inbounds i8, ptr %iov.i, i64 8
-  %deliver.i = getelementptr inbounds i8, ptr %queue, i64 16
+  %tql_prev12 = getelementptr inbounds nuw i8, ptr %queue, i64 32
+  %nq_count = getelementptr inbounds nuw i8, ptr %queue, i64 12
+  %iov_len.i = getelementptr inbounds nuw i8, ptr %iov.i, i64 8
+  %deliver.i = getelementptr inbounds nuw i8, ptr %queue, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end53
   %1 = phi ptr [ %0, %while.body.lr.ph ], [ %16, %if.end53 ]
   %2 = load ptr, ptr %1, align 8
   %cmp3.not = icmp eq ptr %2, null
-  %tql_prev10 = getelementptr inbounds i8, ptr %1, i64 8
+  %tql_prev10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %tql_prev10, align 8
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %while.body
-  %tql_prev8 = getelementptr inbounds i8, ptr %2, i64 8
+  %tql_prev8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %tql_prev8, align 8
   br label %if.end13
 
@@ -388,12 +388,12 @@ if.end13:                                         ; preds = %if.else, %if.then4
   %5 = load i32, ptr %nq_count, align 4
   %dec = add i32 %5, -1
   store i32 %dec, ptr %nq_count, align 4
-  %sender = getelementptr inbounds i8, ptr %1, i64 16
+  %sender = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %sender, align 8
-  %flags = getelementptr inbounds i8, ptr %1, i64 24
+  %flags = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %flags, align 8
-  %data = getelementptr inbounds i8, ptr %1, i64 40
-  %size = getelementptr inbounds i8, ptr %1, i64 28
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %size = getelementptr inbounds nuw i8, ptr %1, i64 28
   %8 = load i32, ptr %size, align 4
   %conv = sext i32 %8 to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %iov.i)
@@ -414,7 +414,7 @@ if.end13:                                         ; preds = %if.else, %if.then4
   br i1 %cmp23, label %if.then25, label %if.end47
 
 if.then25:                                        ; preds = %if.end13
-  %tql_prev16.le = getelementptr inbounds i8, ptr %1, i64 8
+  %tql_prev16.le = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %nq_count, align 4
   %inc = add i32 %12, 1
   store i32 %inc, ptr %nq_count, align 4
@@ -424,7 +424,7 @@ if.then25:                                        ; preds = %if.end13
   br i1 %cmp30.not, label %if.else37, label %if.then32
 
 if.then32:                                        ; preds = %if.then25
-  %tql_prev36 = getelementptr inbounds i8, ptr %13, i64 8
+  %tql_prev36 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %1, ptr %tql_prev36, align 8
   br label %if.end41
 
@@ -438,7 +438,7 @@ if.end41:                                         ; preds = %if.else37, %if.then
   br label %return
 
 if.end47:                                         ; preds = %if.end13
-  %sent_cb = getelementptr inbounds i8, ptr %1, i64 32
+  %sent_cb = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %sent_cb, align 8
   %tobool48.not = icmp eq ptr %14, null
   br i1 %tobool48.not, label %if.end53, label %if.then49
@@ -464,7 +464,7 @@ return:                                           ; preds = %if.end53, %while.co
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i64 @qemu_net_queue_send_iov(ptr noundef %queue, ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %sent_cb) local_unnamed_addr #0 {
 entry:
-  %delivering = getelementptr inbounds i8, ptr %queue, i64 40
+  %delivering = getelementptr inbounds nuw i8, ptr %queue, i64 40
   %bf.load = load i8, ptr %delivering, align 8
   %bf.clear = and i8 %bf.load, 1
   %tobool.not = icmp eq i8 %bf.clear, 0
@@ -476,9 +476,9 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false, %entry
-  %nq_count.i = getelementptr inbounds i8, ptr %queue, i64 12
+  %nq_count.i = getelementptr inbounds nuw i8, ptr %queue, i64 12
   %0 = load i32, ptr %nq_count.i, align 4
-  %nq_maxlen.i = getelementptr inbounds i8, ptr %queue, i64 8
+  %nq_maxlen.i = getelementptr inbounds nuw i8, ptr %queue, i64 8
   %1 = load i32, ptr %nq_maxlen.i, align 8
   %cmp.i = icmp ult i32 %0, %1
   %tobool.i = icmp ne ptr %sent_cb, null
@@ -510,18 +510,18 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 for.end.i:                                        ; preds = %for.end.loopexit.i, %for.cond.preheader.i
   %max_len.0.lcssa.i = phi i64 [ 40, %for.cond.preheader.i ], [ %3, %for.end.loopexit.i ]
   %call.i = tail call noalias ptr @g_malloc(i64 noundef %max_len.0.lcssa.i) #9
-  %sender3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %sender3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr %sender, ptr %sender3.i, align 8
-  %sent_cb4.i = getelementptr inbounds i8, ptr %call.i, i64 32
+  %sent_cb4.i = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %sent_cb, ptr %sent_cb4.i, align 8
-  %flags5.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %flags5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 %flags, ptr %flags5.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %call.i, i64 28
+  %size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 28
   store i32 0, ptr %size.i, align 4
   br i1 %cmp128.i, label %for.body8.lr.ph.i, label %for.end20.i
 
 for.body8.lr.ph.i:                                ; preds = %for.end.i
-  %data.i = getelementptr inbounds i8, ptr %call.i, i64 40
+  %data.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %wide.trip.count37.i = zext nneg i32 %iovcnt to i64
   br label %for.body8.i
 
@@ -529,7 +529,7 @@ for.body8.i:                                      ; preds = %for.body8.i, %for.b
   %4 = phi i32 [ 0, %for.body8.lr.ph.i ], [ %conv17.i, %for.body8.i ]
   %indvars.iv34.i = phi i64 [ 0, %for.body8.lr.ph.i ], [ %indvars.iv.next35.i, %for.body8.i ]
   %arrayidx10.i = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv34.i
-  %iov_len11.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
+  %iov_len11.i = getelementptr inbounds nuw i8, ptr %arrayidx10.i, i64 8
   %5 = load i64, ptr %iov_len11.i, align 8
   %idx.ext.i = sext i32 %4 to i64
   %add.ptr.i = getelementptr i8, ptr %data.i, i64 %idx.ext.i
@@ -548,9 +548,9 @@ for.end20.i:                                      ; preds = %for.body8.i, %for.e
   %inc22.i = add i32 %9, 1
   store i32 %inc22.i, ptr %nq_count.i, align 4
   store ptr null, ptr %call.i, align 8
-  %tql_prev.i = getelementptr inbounds i8, ptr %queue, i64 32
+  %tql_prev.i = getelementptr inbounds nuw i8, ptr %queue, i64 32
   %10 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev25.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %tql_prev25.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %10, ptr %tql_prev25.i, align 8
   store ptr %call.i, ptr %10, align 8
   store ptr %call.i, ptr %tql_prev.i, align 8
@@ -560,7 +560,7 @@ if.end:                                           ; preds = %lor.lhs.false
   %bf.load.i = load i8, ptr %delivering, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %delivering, align 8
-  %deliver.i = getelementptr inbounds i8, ptr %queue, i64 16
+  %deliver.i = getelementptr inbounds nuw i8, ptr %queue, i64 16
   %11 = load ptr, ptr %deliver.i, align 8
   %12 = load ptr, ptr %queue, align 8
   %call.i16 = tail call i64 %11(ptr noundef %sender, i32 noundef %flags, ptr noundef %iov, i32 noundef %iovcnt, ptr noundef %12) #8
@@ -571,9 +571,9 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %nq_count.i17 = getelementptr inbounds i8, ptr %queue, i64 12
+  %nq_count.i17 = getelementptr inbounds nuw i8, ptr %queue, i64 12
   %13 = load i32, ptr %nq_count.i17, align 4
-  %nq_maxlen.i18 = getelementptr inbounds i8, ptr %queue, i64 8
+  %nq_maxlen.i18 = getelementptr inbounds nuw i8, ptr %queue, i64 8
   %14 = load i32, ptr %nq_maxlen.i18, align 8
   %cmp.i19 = icmp ult i32 %13, %14
   %tobool.i20 = icmp ne ptr %sent_cb, null
@@ -605,18 +605,18 @@ for.end.loopexit.i56:                             ; preds = %for.body.i49
 for.end.i24:                                      ; preds = %for.end.loopexit.i56, %for.cond.preheader.i22
   %max_len.0.lcssa.i25 = phi i64 [ 40, %for.cond.preheader.i22 ], [ %16, %for.end.loopexit.i56 ]
   %call.i26 = tail call noalias ptr @g_malloc(i64 noundef %max_len.0.lcssa.i25) #9
-  %sender3.i27 = getelementptr inbounds i8, ptr %call.i26, i64 16
+  %sender3.i27 = getelementptr inbounds nuw i8, ptr %call.i26, i64 16
   store ptr %sender, ptr %sender3.i27, align 8
-  %sent_cb4.i28 = getelementptr inbounds i8, ptr %call.i26, i64 32
+  %sent_cb4.i28 = getelementptr inbounds nuw i8, ptr %call.i26, i64 32
   store ptr %sent_cb, ptr %sent_cb4.i28, align 8
-  %flags5.i29 = getelementptr inbounds i8, ptr %call.i26, i64 24
+  %flags5.i29 = getelementptr inbounds nuw i8, ptr %call.i26, i64 24
   store i32 %flags, ptr %flags5.i29, align 8
-  %size.i30 = getelementptr inbounds i8, ptr %call.i26, i64 28
+  %size.i30 = getelementptr inbounds nuw i8, ptr %call.i26, i64 28
   store i32 0, ptr %size.i30, align 4
   br i1 %cmp128.i23, label %for.body8.lr.ph.i35, label %for.end20.i31
 
 for.body8.lr.ph.i35:                              ; preds = %for.end.i24
-  %data.i36 = getelementptr inbounds i8, ptr %call.i26, i64 40
+  %data.i36 = getelementptr inbounds nuw i8, ptr %call.i26, i64 40
   %wide.trip.count37.i37 = zext nneg i32 %iovcnt to i64
   br label %for.body8.i38
 
@@ -624,7 +624,7 @@ for.body8.i38:                                    ; preds = %for.body8.i38, %for
   %17 = phi i32 [ 0, %for.body8.lr.ph.i35 ], [ %conv17.i44, %for.body8.i38 ]
   %indvars.iv34.i39 = phi i64 [ 0, %for.body8.lr.ph.i35 ], [ %indvars.iv.next35.i45, %for.body8.i38 ]
   %arrayidx10.i40 = getelementptr %struct.iovec, ptr %iov, i64 %indvars.iv34.i39
-  %iov_len11.i41 = getelementptr inbounds i8, ptr %arrayidx10.i40, i64 8
+  %iov_len11.i41 = getelementptr inbounds nuw i8, ptr %arrayidx10.i40, i64 8
   %18 = load i64, ptr %iov_len11.i41, align 8
   %idx.ext.i42 = sext i32 %17 to i64
   %add.ptr.i43 = getelementptr i8, ptr %data.i36, i64 %idx.ext.i42
@@ -643,9 +643,9 @@ for.end20.i31:                                    ; preds = %for.body8.i38, %for
   %inc22.i32 = add i32 %22, 1
   store i32 %inc22.i32, ptr %nq_count.i17, align 4
   store ptr null, ptr %call.i26, align 8
-  %tql_prev.i33 = getelementptr inbounds i8, ptr %queue, i64 32
+  %tql_prev.i33 = getelementptr inbounds nuw i8, ptr %queue, i64 32
   %23 = load ptr, ptr %tql_prev.i33, align 8
-  %tql_prev25.i34 = getelementptr inbounds i8, ptr %call.i26, i64 8
+  %tql_prev25.i34 = getelementptr inbounds nuw i8, ptr %call.i26, i64 8
   store ptr %23, ptr %tql_prev25.i34, align 8
   store ptr %call.i26, ptr %23, align 8
   store ptr %call.i26, ptr %tql_prev.i33, align 8
@@ -663,32 +663,32 @@ return:                                           ; preds = %for.end20.i31, %if.
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qemu_net_queue_purge(ptr nocapture noundef %queue, ptr noundef readnone %from) local_unnamed_addr #0 {
 entry:
-  %packets = getelementptr inbounds i8, ptr %queue, i64 24
+  %packets = getelementptr inbounds nuw i8, ptr %queue, i64 24
   %0 = load ptr, ptr %packets, align 8
   %tobool.not19 = icmp eq ptr %0, null
   br i1 %tobool.not19, label %for.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %entry
-  %tql_prev12 = getelementptr inbounds i8, ptr %queue, i64 32
-  %nq_count = getelementptr inbounds i8, ptr %queue, i64 12
+  %tql_prev12 = getelementptr inbounds nuw i8, ptr %queue, i64 32
+  %nq_count = getelementptr inbounds nuw i8, ptr %queue, i64 12
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.inc
   %packet.020 = phi ptr [ %0, %land.rhs.lr.ph ], [ %1, %for.inc ]
   %1 = load ptr, ptr %packet.020, align 8
-  %sender = getelementptr inbounds i8, ptr %packet.020, i64 16
+  %sender = getelementptr inbounds nuw i8, ptr %packet.020, i64 16
   %2 = load ptr, ptr %sender, align 8
   %cmp = icmp eq ptr %2, %from
   br i1 %cmp, label %do.body, label %for.inc
 
 do.body:                                          ; preds = %land.rhs
   %cmp3.not = icmp eq ptr %1, null
-  %tql_prev10 = getelementptr inbounds i8, ptr %packet.020, i64 8
+  %tql_prev10 = getelementptr inbounds nuw i8, ptr %packet.020, i64 8
   %3 = load ptr, ptr %tql_prev10, align 8
   br i1 %cmp3.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %do.body
-  %tql_prev8 = getelementptr inbounds i8, ptr %1, i64 8
+  %tql_prev8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %tql_prev8, align 8
   br label %if.end
 
@@ -703,7 +703,7 @@ if.end:                                           ; preds = %if.else, %if.then4
   %5 = load i32, ptr %nq_count, align 4
   %dec = add i32 %5, -1
   store i32 %dec, ptr %nq_count, align 4
-  %sent_cb = getelementptr inbounds i8, ptr %packet.020, i64 32
+  %sent_cb = getelementptr inbounds nuw i8, ptr %packet.020, i64 32
   %6 = load ptr, ptr %sent_cb, align 8
   %tobool21.not = icmp eq ptr %6, null
   br i1 %tobool21.not, label %if.end25, label %if.then22

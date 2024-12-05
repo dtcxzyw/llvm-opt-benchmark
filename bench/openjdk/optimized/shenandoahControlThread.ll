@@ -156,26 +156,26 @@ $_ZTV17LogStreamImplBase = comdat any
 define hidden void @_ZN23ShenandoahControlThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 982
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 982
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %2) #10, !srcloc !6
-  %4 = getelementptr inbounds i8, ptr %0, i64 1112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   store volatile i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store volatile i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1320
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %7 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %6) #10, !srcloc !6
-  %8 = getelementptr inbounds i8, ptr %0, i64 1449
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1449
   %9 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %8) #10, !srcloc !6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1520
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %10, i32 noundef 39, ptr noundef nonnull @.str.12, i1 noundef zeroext true) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 1624
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %11, i32 noundef 39, ptr noundef nonnull @.str.13, i1 noundef zeroext true) #10
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV23ShenandoahControlThread, i64 16), ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 1792
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %13 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %12) #10, !srcloc !6
-  %14 = getelementptr inbounds i8, ptr %0, i64 1860
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1860
   store i32 12, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 1864
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   store i32 1, ptr %15, align 8
   tail call void (ptr, ptr, ...) @_ZN11NamedThread8set_nameEPKcz(ptr noundef nonnull align 8 dereferenceable(916) %0, ptr noundef nonnull @.str) #10
   tail call void @_ZN18ConcurrentGCThread16create_and_startE14ThreadPriority(ptr noundef nonnull align 8 dereferenceable(918) %0, i32 noundef 9) #10
@@ -204,30 +204,30 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   %15 = uitofp i64 %14 to double
   %16 = fdiv double %15, 1.000000e+03
   %17 = fdiv double %16, 1.000000e+01
-  %18 = getelementptr inbounds i8, ptr %10, i64 1632
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 1632
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 1648
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 1648
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 @_ZN20ShenandoahController20in_graceful_shutdownEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   br i1 %22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %23 = trunc i64 %11 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 1320
-  %25 = getelementptr inbounds i8, ptr %0, i64 1792
-  %26 = getelementptr inbounds i8, ptr %0, i64 1860
-  %27 = getelementptr inbounds i8, ptr %0, i64 1864
-  %28 = getelementptr inbounds i8, ptr %10, i64 32
-  %29 = getelementptr inbounds i8, ptr %10, i64 1656
-  %30 = getelementptr inbounds i8, ptr %0, i64 1624
-  %31 = getelementptr inbounds i8, ptr %21, i64 128
-  %32 = getelementptr inbounds i8, ptr %10, i64 1680
-  %33 = getelementptr inbounds i8, ptr %10, i64 1664
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1320
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1792
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1860
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1864
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 1656
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %31 = getelementptr inbounds nuw i8, ptr %21, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 1680
+  %33 = getelementptr inbounds nuw i8, ptr %10, i64 1664
   %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %35 = getelementptr inbounds i8, ptr %9, i64 56
-  %36 = getelementptr inbounds i8, ptr %9, i64 144
-  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %9, i64 152
-  %37 = getelementptr inbounds i8, ptr %10, i64 898
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 144
+  %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 898
   br label %38
 
 38:                                               ; preds = %.lr.ph, %206
@@ -250,7 +250,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   br i1 %42, label %48, label %68
 
 48:                                               ; preds = %40
-  %49 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %49 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not106 = icmp eq ptr %49, null
   br i1 %.not106, label %51, label %50
 
@@ -267,14 +267,14 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %21, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %55
   %61 = load ptr, ptr %21, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 80
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %63 = load ptr, ptr %62, align 8
   call void %63(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   call void @_ZN25ShenandoahCollectorPolicy35record_alloc_failure_to_degeneratedEN12ShenandoahGC20ShenandoahDegenPointE(ptr noundef nonnull align 8 dereferenceable(528) %19, i32 noundef %52) #10
@@ -282,7 +282,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 64:                                               ; preds = %55, %51
   %65 = load ptr, ptr %21, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 80
   %67 = load ptr, ptr %66, align 8
   call void %67(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   call void @_ZN25ShenandoahCollectorPolicy28record_alloc_failure_to_fullEv(ptr noundef nonnull align 8 dereferenceable(528) %19) #10
@@ -292,7 +292,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
   br i1 %44, label %69, label %83
 
 69:                                               ; preds = %68
-  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not105 = icmp eq ptr %70, null
   br i1 %.not105, label %73, label %71
 
@@ -303,7 +303,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 73:                                               ; preds = %69, %71
   %74 = load ptr, ptr %21, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 88
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   %77 = call noundef zeroext i1 @_ZN25ShenandoahCollectorPolicy18should_run_full_gcEN7GCCause5CauseE(i32 noundef %45) #10
@@ -311,7 +311,7 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 78:                                               ; preds = %73
   %79 = load ptr, ptr %21, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 104
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 104
   %81 = load ptr, ptr %80, align 8
   %82 = call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   call void @_ZN14ShenandoahHeap18set_unload_classesEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext %82) #10
@@ -319,11 +319,11 @@ define hidden void @_ZN23ShenandoahControlThread11run_serviceEv(ptr noundef nonn
 
 83:                                               ; preds = %68
   %84 = load ptr, ptr %21, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef zeroext i1 %86(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   %88 = load ptr, ptr %21, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %90 = load ptr, ptr %89, align 8
   %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(193) %21) #10
   call void @_ZN14ShenandoahHeap18set_unload_classesEb(ptr noundef nonnull align 8 dereferenceable(2657) %10, i1 noundef zeroext %91) #10
@@ -443,21 +443,21 @@ default.unreachable:                              ; preds = %95
   br label %118
 
 118:                                              ; preds = %116, %112
-  %119 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %119 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not107 = icmp eq ptr %119, null
   br i1 %.not107, label %_ZN12ResourceMarkD2Ev.exit, label %120
 
 120:                                              ; preds = %118
   %121 = load ptr, ptr %34, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 800
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 800
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %123, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %123, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 40
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %123, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %131 = load i64, ptr %130, align 8
   call void @_ZN12outputStreamC2Eb(ptr noundef nonnull align 8 dereferenceable(160) %9, i1 noundef zeroext false) #10
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %9, align 8
@@ -520,7 +520,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %142, %140, %118
 
 152:                                              ; preds = %148
   %153 = load ptr, ptr %33, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 272
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 272
   %155 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %46, ptr nonnull %154) #10, !srcloc !8
   %156 = add nsw i64 %155, %46
   %157 = icmp sgt i64 %156, -1
@@ -529,7 +529,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %142, %140, %118
   br i1 %or.cond.i.i.i, label %159, label %_ZN15ShenandoahPacer12report_allocEm.exit
 
 159:                                              ; preds = %152
-  %160 = getelementptr inbounds i8, ptr %153, i64 96
+  %160 = getelementptr inbounds nuw i8, ptr %153, i64 96
   %161 = load volatile i8, ptr %160, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %162 = icmp eq i8 %161, 1
@@ -562,7 +562,7 @@ _ZN15ShenandoahPacer12report_allocEm.exit:        ; preds = %163, %159, %152, %1
 
 177:                                              ; preds = %171
   %178 = load ptr, ptr %10, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 472
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 472
   %180 = load ptr, ptr %179, align 8
   %181 = call noundef i64 %180(ptr noundef nonnull align 8 dereferenceable(2657) %10) #10
   br label %184
@@ -679,7 +679,7 @@ define hidden void @_ZN23ShenandoahControlThread31service_concurrent_normal_cycl
   %5 = alloca %class.TraceCollectorStats, align 8
   %6 = alloca %class.ShenandoahConcurrentGC, align 8
   %7 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1552
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1552
   %9 = load volatile i8, ptr %8, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %10 = icmp eq i8 %9, 1
@@ -690,14 +690,14 @@ define hidden void @_ZN23ShenandoahControlThread31service_concurrent_normal_cycl
   br i1 %12, label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit.thread, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 1864
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   store i32 1, ptr %14, align 8
   br label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit.thread
 
 _ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit: ; preds = %2
   call void @_ZN8GCIdMarkC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %3) #10
   call void @_ZN19ShenandoahGCSessionC1EN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %1) #10
-  %15 = getelementptr inbounds i8, ptr %7, i64 1688
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 1688
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef ptr @_ZN27ShenandoahMonitoringSupport30concurrent_collection_countersEv(ptr noundef nonnull align 8 dereferenceable(336) %16) #10
   call void @_ZN19TraceCollectorStatsC1EP17CollectorCounters(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %17) #10
@@ -706,17 +706,17 @@ _ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20Shena
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit
-  %20 = getelementptr inbounds i8, ptr %7, i64 1480
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 1480
   store volatile i64 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 1648
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 1648
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(193) %22) #10
-  %26 = getelementptr inbounds i8, ptr %7, i64 1632
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 1632
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %29 = load i8, ptr %28, align 4
   %30 = trunc i8 %29 to i1
   call void @_ZN25ShenandoahCollectorPolicy25record_success_concurrentEb(ptr noundef nonnull align 8 dereferenceable(528) %27, i1 noundef zeroext %30) #10
@@ -725,7 +725,7 @@ _ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20Shena
 31:                                               ; preds = %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit
   %32 = call noundef i32 @_ZNK22ShenandoahConcurrentGC11degen_pointEv(ptr noundef nonnull align 8 dereferenceable(21) %6) #10
   %33 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1552
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1552
   %35 = load volatile i8, ptr %34, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %36 = icmp eq i8 %35, 1
@@ -736,7 +736,7 @@ _ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20Shena
   br i1 %38, label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit6, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 1864
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   store i32 %32, ptr %40, align 8
   br label %_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE.exit6
 
@@ -782,9 +782,9 @@ define hidden void @_ZN23ShenandoahControlThread22service_stw_full_cycleEN7GCCau
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahControlThread17notify_gc_waitersEv(ptr noundef nonnull align 8 dereferenceable(1868) %0) local_unnamed_addr #0 align 2 {
 _ZN13MonitorLockerD2Ev.exit:
-  %1 = getelementptr inbounds i8, ptr %0, i64 1792
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %2 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 0, ptr nonnull %1) #10, !srcloc !6
-  %3 = getelementptr inbounds i8, ptr %0, i64 1624
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
@@ -830,7 +830,7 @@ declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN23ShenandoahControlThread27check_cancellation_or_degenEN12ShenandoahGC20ShenandoahDegenPointE(ptr noundef nonnull align 8 dereferenceable(1868) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1552
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1552
   %5 = load volatile i8, ptr %4, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !7
   %6 = icmp eq i8 %5, 1
@@ -841,7 +841,7 @@ define hidden noundef zeroext i1 @_ZN23ShenandoahControlThread27check_cancellati
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 1864
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1864
   store i32 %1, ptr %10, align 8
   br label %11
 
@@ -907,7 +907,7 @@ declare noundef zeroext i1 @_ZN25ShenandoahCollectorPolicy26should_handle_reques
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23ShenandoahControlThread19handle_requested_gcEN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(1868) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1624
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   %4 = tail call noundef i64 @_ZN20ShenandoahController9get_gc_idEv(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   %5 = add i64 %4, 1
@@ -915,8 +915,8 @@ define hidden void @_ZN23ShenandoahControlThread19handle_requested_gcEN7GCCause5
   br i1 %.not6, label %_ZN13MonitorLockerD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1860
-  %7 = getelementptr inbounds i8, ptr %0, i64 1792
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1860
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %.not = icmp eq i32 %1, 10
   br i1 %.not, label %.lr.ph.split.us, label %_ZN13MonitorLocker4waitEl.exit
 
@@ -952,9 +952,9 @@ define linkonce_odr hidden void @_ZN12ThreadShadow22unused_initial_virtualEv(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1624
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 1520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) #10
   ret void
@@ -963,9 +963,9 @@ define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD2Ev(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23ShenandoahControlThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1624
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 1520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1868) %0) #10
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #10
@@ -1055,7 +1055,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str.14, ptr %3
@@ -1191,9 +1191,9 @@ declare void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20ShenandoahControllerD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 248) (i8, ptr @_ZTV20ShenandoahController, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1624
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 1520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   tail call void @_ZN5MutexD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #10
   tail call void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) #10
   ret void
@@ -1272,7 +1272,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #10
   ret void
 }

@@ -96,7 +96,7 @@ $_ZTV11LIR_Address = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden i64 @_ZN8FrameMap10map_to_oprE9BasicTypeP9VMRegPairb(i8 noundef zeroext %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %.not = icmp ult ptr %5, getelementptr inbounds (i8, ptr @all_VMRegs, i64 617)
@@ -110,14 +110,14 @@ define hidden i64 @_ZN8FrameMap10map_to_oprE9BasicTypeP9VMRegPairb(i8 noundef ze
   %12 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1808
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1808
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %21 to i64
   %25 = ptrtoint ptr %23 to i64
@@ -126,7 +126,7 @@ define hidden i64 @_ZN8FrameMap10map_to_oprE9BasicTypeP9VMRegPairb(i8 noundef ze
   br i1 %.not.i.i.i, label %29, label %27
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %23, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 48
   store ptr %28, ptr %22, align 8
   br label %_ZN22CompilationResourceObjnwEm.exit
 
@@ -145,16 +145,16 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   %.sroa.025.0.copyload = load i64, ptr @_ZN8FrameMap7rsp_oprE, align 8
   %35 = sext i32 %34 to i64
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV11LIR_Address, i64 16), ptr %.0.i.i.i, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.025.0.copyload, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   %.sroa.0.0.copyload.i.i = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
   store i64 %35, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
   store i8 %0, ptr %40, align 8
   br label %41
 
@@ -188,7 +188,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
 
 57:                                               ; preds = %56, %56
   %58 = zext nneg i32 %51 to i64
-  %59 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %58
+  %59 = getelementptr inbounds nuw %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %58
   %60 = ptrtoint ptr %59 to i64
   %61 = trunc i64 %60 to i32
   %62 = sub i32 %61, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -206,7 +206,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %27, %29
   %72 = and i8 %0, -2
   %or.cond.i = icmp eq i8 %72, 12
   %73 = zext nneg i32 %51 to i64
-  %74 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %73
+  %74 = getelementptr inbounds nuw %"class.Register::RegisterImpl", ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1), i64 %73
   %75 = ptrtoint ptr %74 to i64
   %76 = trunc i64 %75 to i32
   %77 = sub i32 %76, ptrtoint (ptr getelementptr inbounds (i8, ptr @all_RegisterImpls, i64 1) to i32)
@@ -450,7 +450,7 @@ define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %16 ]
   %17 = shl nuw nsw i64 %indvars.iv, 14
   %18 = or disjoint i64 %17, 45
-  %19 = getelementptr inbounds [8 x %class.LIR_Opr], ptr @_ZN8FrameMap21_caller_save_fpu_regsE, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x %class.LIR_Opr], ptr @_ZN8FrameMap21_caller_save_fpu_regsE, i64 0, i64 %indvars.iv
   store i64 %18, ptr %19, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -466,7 +466,7 @@ define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   %indvars.iv104 = phi i64 [ 0, %20 ], [ %indvars.iv.next105, %23 ]
   %24 = shl i64 %indvars.iv104, 14
   %25 = or disjoint i64 %24, 8237
-  %26 = getelementptr inbounds [32 x %class.LIR_Opr], ptr @_ZN8FrameMap21_caller_save_xmm_regsE, i64 0, i64 %indvars.iv104
+  %26 = getelementptr inbounds nuw [32 x %class.LIR_Opr], ptr @_ZN8FrameMap21_caller_save_xmm_regsE, i64 0, i64 %indvars.iv104
   store i64 %25, ptr %26, align 8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next105, %..i.i
@@ -585,7 +585,7 @@ define hidden void @_ZN8FrameMap10initializeEv() local_unnamed_addr #0 align 2 {
   %111 = sext i32 %110 to i64
   store i64 %111, ptr @_ZN8FrameMap16r14_metadata_oprE, align 8
   store ptr @all_VMRegs, ptr %1, align 8
-  %112 = getelementptr inbounds i8, ptr %1, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @all_VMRegs, ptr %112, align 8
   store i8 12, ptr %2, align 1
   %113 = call noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9VMRegPairi(ptr noundef nonnull %2, ptr noundef nonnull %1, i32 noundef 1) #7
@@ -616,21 +616,21 @@ declare noundef i32 @_ZN13SharedRuntime23java_calling_conventionEPK9BasicTypeP9V
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZNK8FrameMap16make_new_addressE8ByteSize(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 initializes((0, 21), (24, 44)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   store i32 4, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV10Relocation, i64 16), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %11, align 8
   ret void
 }
@@ -685,7 +685,7 @@ define linkonce_odr hidden noundef ptr @_ZN11LIR_Address10as_addressEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i8 @_ZNK11LIR_Address4typeEv(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   ret i8 %3
 }

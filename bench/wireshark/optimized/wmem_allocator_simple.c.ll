@@ -11,23 +11,23 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @wmem_simple_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 16) #4
   store ptr @wmem_simple_alloc, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @wmem_simple_realloc, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @wmem_simple_free, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @wmem_simple_free_all, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @wmem_simple_gc, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @wmem_simple_allocator_cleanup, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %9, align 4
   store i32 8192, ptr %2, align 8
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 65536) #4
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %10, ptr %11, align 8
   ret void
 }
@@ -36,7 +36,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @wmem_simple_alloc(ptr nocapture noundef %0, i64 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
@@ -45,7 +45,7 @@ define internal ptr @wmem_simple_alloc(ptr nocapture noundef %0, i64 noundef %1)
 7:                                                ; preds = %2
   %8 = shl i32 %4, 1
   store i32 %8, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %8 to i64
   %12 = shl nsw i64 %11, 3
@@ -55,7 +55,7 @@ define internal ptr @wmem_simple_alloc(ptr nocapture noundef %0, i64 noundef %1)
 
 14:                                               ; preds = %7, %2
   %15 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef %1) #4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %3, align 4
   %19 = add i32 %18, 1
@@ -68,9 +68,9 @@ define internal ptr @wmem_simple_alloc(ptr nocapture noundef %0, i64 noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @wmem_simple_realloc(ptr nocapture noundef readonly %0, ptr noundef readnone %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = zext i32 %5 to i64
   br label %8
 
@@ -104,7 +104,7 @@ define internal ptr @wmem_simple_realloc(ptr nocapture noundef readonly %0, ptr 
 ; Function Attrs: nounwind uwtable
 define internal void @wmem_simple_free(ptr nocapture noundef %0, ptr noundef %1) #0 {
   tail call void @wmem_free(ptr noundef null, ptr noundef %1) #4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
   store i32 %5, ptr %3, align 4
@@ -112,7 +112,7 @@ define internal void @wmem_simple_free(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -151,13 +151,13 @@ define internal void @wmem_simple_free(ptr nocapture noundef %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define internal void @wmem_simple_free_all(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
@@ -184,7 +184,7 @@ define internal void @wmem_simple_gc(ptr nocapture readnone %0) #2 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @wmem_simple_allocator_cleanup(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef %3) #4
   tail call void @wmem_free(ptr noundef null, ptr noundef %0) #4

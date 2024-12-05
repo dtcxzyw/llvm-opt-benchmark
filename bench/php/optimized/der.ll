@@ -57,9 +57,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden i32 @der_offs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   %. = select i1 %.not, i64 %2, i64 %7
@@ -160,9 +160,9 @@ gettag.exit.thread31:                             ; preds = %8, %gettag.exit
 getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
   %.0.i2341 = phi i64 [ %.023.lcssa.i, %._crit_edge.i ], [ %27, %29 ]
   %.340 = phi i64 [ %.2, %._crit_edge.i ], [ %25, %29 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, %50
   %54 = zext i32 %53 to i64
@@ -180,11 +180,11 @@ getlength.exit.thread37:                          ; preds = %29, %._crit_edge.i
 
 62:                                               ; preds = %58
   %63 = trunc i64 %60 to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load ptr, ptr %64, align 8
   %66 = add nuw nsw i64 %57, 4294967295
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds %struct.level_info, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw %struct.level_info, ptr %65, i64 %67
   store i32 %63, ptr %68, align 4
   br label %69
 
@@ -200,10 +200,10 @@ gettag.exit.thread:                               ; preds = %15, %._crit_edge.i,
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @der_cmp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i64, ptr %7, align 8
   %.not.i.not = icmp eq i64 %8, 0
   br i1 %.not.i.not, label %gettag.exit.thread, label %9
@@ -316,7 +316,7 @@ getlength.exit.thread69:                          ; preds = %32
 
 55:                                               ; preds = %53
   %56 = zext nneg i32 %.016.i66 to i64
-  %57 = getelementptr inbounds [37 x ptr], ptr @der__tag, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [37 x ptr], ptr @der__tag, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = call i64 @php_strlcpy(ptr noundef nonnull %3, ptr noundef %58, i64 noundef 128) #6
   br label %der_tag.exit
@@ -326,7 +326,7 @@ getlength.exit.thread69:                          ; preds = %32
   br label %der_tag.exit
 
 der_tag.exit:                                     ; preds = %55, %60
-  %62 = getelementptr inbounds i8, ptr %0, i64 68
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 1
   %.not = icmp eq i32 %64, 0
@@ -357,7 +357,7 @@ der_tag.exit:                                     ; preds = %55, %60
   ]
 
 76:                                               ; preds = %74
-  %77 = getelementptr inbounds i8, ptr %.037, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.037, i64 1
   %78 = getelementptr inbounds i8, ptr %5, i64 %.372
   switch i32 %.016.i66, label %120 [
     i32 19, label %79
@@ -377,37 +377,37 @@ der_tag.exit:                                     ; preds = %55, %60
 83:                                               ; preds = %81
   %84 = load i8, ptr %78, align 1
   %85 = zext i8 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %78, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 1
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %78, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %78, i64 2
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
-  %92 = getelementptr inbounds i8, ptr %78, i64 3
+  %92 = getelementptr inbounds nuw i8, ptr %78, i64 3
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %78, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
-  %98 = getelementptr inbounds i8, ptr %78, i64 5
+  %98 = getelementptr inbounds nuw i8, ptr %78, i64 5
   %99 = load i8, ptr %98, align 1
   %100 = zext i8 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %78, i64 6
+  %101 = getelementptr inbounds nuw i8, ptr %78, i64 6
   %102 = load i8, ptr %101, align 1
   %103 = zext i8 %102 to i32
-  %104 = getelementptr inbounds i8, ptr %78, i64 7
+  %104 = getelementptr inbounds nuw i8, ptr %78, i64 7
   %105 = load i8, ptr %104, align 1
   %106 = zext i8 %105 to i32
-  %107 = getelementptr inbounds i8, ptr %78, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %108 = load i8, ptr %107, align 1
   %109 = zext i8 %108 to i32
-  %110 = getelementptr inbounds i8, ptr %78, i64 9
+  %110 = getelementptr inbounds nuw i8, ptr %78, i64 9
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %78, i64 10
+  %113 = getelementptr inbounds nuw i8, ptr %78, i64 10
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %114 to i32
-  %116 = getelementptr inbounds i8, ptr %78, i64 11
+  %116 = getelementptr inbounds nuw i8, ptr %78, i64 11
   %117 = load i8, ptr %116, align 1
   %118 = zext i8 %117 to i32
   %119 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %3, i64 noundef 128, ptr noundef nonnull @.str.43, i32 noundef %85, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %97, i32 noundef %100, i32 noundef %103, i32 noundef %106, i32 noundef %109, i32 noundef %112, i32 noundef %115, i32 noundef %118) #6
@@ -426,9 +426,9 @@ der_tag.exit:                                     ; preds = %55, %60
 
 124:                                              ; preds = %.lr.ph.i53
   %125 = zext nneg i32 %122 to i64
-  %126 = getelementptr inbounds i8, ptr %3, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 %125
   %127 = sub nuw nsw i64 128, %125
-  %128 = getelementptr inbounds i8, ptr %78, i64 %indvars.iv.i
+  %128 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i
   %129 = load i8, ptr %128, align 1
   %130 = zext i8 %129 to i32
   %131 = call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef nonnull %126, i64 noundef %127, ptr noundef nonnull @.str.44, i32 noundef %130) #6
@@ -449,7 +449,7 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
   %136 = tail call ptr @__ctype_b_loc() #9
   %137 = load ptr, ptr %136, align 8
   %138 = zext i8 %75 to i64
-  %139 = getelementptr inbounds i16, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw i16, ptr %137, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = and i16 %140, 2048
   %.not44 = icmp eq i16 %141, 0
@@ -463,10 +463,10 @@ der_data.exit:                                    ; preds = %132, %120, %79, %83
   %144 = sext i8 %142 to i64
   %145 = add i64 %143, -48
   %146 = add i64 %145, %144
-  %147 = getelementptr inbounds i8, ptr %.1, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %148 = load i8, ptr %147, align 1
   %149 = zext i8 %148 to i64
-  %150 = getelementptr inbounds i16, ptr %137, i64 %149
+  %150 = getelementptr inbounds nuw i16, ptr %137, i64 %149
   %151 = load i16, ptr %150, align 2
   %152 = and i16 %151, 2048
   %.not45 = icmp eq i16 %152, 0
@@ -505,7 +505,7 @@ sub_0:                                            ; preds = %163
   br i1 %.not81, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %168 = getelementptr inbounds i8, ptr %.037, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %.037, i64 2
   %169 = load i8, ptr %168, align 1
   %170 = zext i8 %169 to i32
   %171 = sub nsw i32 0, %170
@@ -517,7 +517,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not43, label %173, label %gettag.exit.thread
 
 173:                                              ; preds = %.tail, %163
-  %174 = getelementptr inbounds i8, ptr %0, i64 136
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %175 = call i64 @php_strlcpy(ptr noundef nonnull %174, ptr noundef nonnull %3, i64 noundef 128) #6
   br label %gettag.exit.thread
 

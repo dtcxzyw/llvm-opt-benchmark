@@ -24,15 +24,15 @@ define hidden noundef ptr @pj_ccon(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %6, label %13, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @.str, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @_ZL8des_ccon, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 360
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 380
   store i32 4, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 384
   store i32 1, ptr %12, align 8
   br label %13
 
@@ -52,12 +52,12 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_cconP8PJconsts(ptr n
   br label %47
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr @_ZL18pj_ccon_destructorP8PJconstsi, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %9, ptr noundef %11, ptr noundef nonnull @.str.1)
   %13 = bitcast i64 %12 to double
@@ -73,7 +73,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_cconP8PJconsts(ptr n
   br i1 %18, label %_ZL18pj_ccon_destructorP8PJconstsi.exit, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #8
   br label %_ZL18pj_ccon_destructorP8PJconstsi.exit
@@ -83,10 +83,10 @@ _ZL18pj_ccon_destructorP8PJconstsi.exit:          ; preds = %16, %19
   br label %47
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %0, i64 288
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %25 = load double, ptr %24, align 8
   %26 = tail call noundef ptr @_Z7pj_enfnd(double noundef %25)
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %26, ptr %27, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %28, label %35
@@ -97,7 +97,7 @@ _ZL18pj_ccon_destructorP8PJconstsi.exit:          ; preds = %16, %19
   br i1 %30, label %_ZL18pj_ccon_destructorP8PJconstsi.exit28, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %33 = load ptr, ptr %32, align 8
   tail call void @free(ptr noundef %33) #8
   br label %_ZL18pj_ccon_destructorP8PJconstsi.exit28
@@ -109,19 +109,19 @@ _ZL18pj_ccon_destructorP8PJconstsi.exit28:        ; preds = %28, %31
 35:                                               ; preds = %23
   %36 = load double, ptr %2, align 8
   %37 = tail call double @sin(double noundef %36) #8
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %37, ptr %38, align 8
   %39 = load double, ptr %2, align 8
   %40 = tail call double @cos(double noundef %39) #8
-  %41 = getelementptr inbounds i8, ptr %2, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store double %40, ptr %41, align 8
   %42 = load double, ptr %38, align 8
   %43 = fdiv double %40, %42
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @_ZL12ccon_inverse5PJ_XYP8PJconsts, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr @_ZL12ccon_forward5PJ_LPP8PJconsts, ptr %46, align 8
   br label %47
 
@@ -143,13 +143,13 @@ define internal noundef ptr @_ZL18pj_ccon_destructorP8PJconstsi(ptr noundef %0, 
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #8
   br label %.sink.split
@@ -180,9 +180,9 @@ declare double @cos(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL12ccon_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fsub double %7, %1
   %9 = load double, ptr %5, align 8
@@ -192,7 +192,7 @@ define internal { double, double } @_ZL12ccon_inverse5PJ_XYP8PJconsts(double %0,
   %13 = tail call double @atan(double noundef %12) #8
   %14 = fsub double %9, %13
   %15 = tail call double @atan2(double noundef %0, double noundef %8) #8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load double, ptr %16, align 8
   %18 = fdiv double %15, %17
   %.fca.0.insert = insertvalue { double, double } poison, double %18, 0
@@ -202,15 +202,15 @@ define internal { double, double } @_ZL12ccon_inverse5PJ_XYP8PJconsts(double %0,
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL12ccon_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
   %8 = load double, ptr %5, align 8
   %9 = fsub double %1, %8
   %10 = tail call double @tan(double noundef %9) #8
   %11 = fsub double %7, %10
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fmul double %0, %13
   %15 = tail call double @sin(double noundef %14) #8

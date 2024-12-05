@@ -17,7 +17,7 @@ define hidden zeroext i1 @"_ZN13logos_codegen6parser11type_params10TypeParams3se
 define hidden align 8 ptr @"_ZN13logos_codegen6parser11type_params16replace_lifetime28_$u7b$$u7b$closure$u7d$$u7d$17h959aeb26fda030a9E"(ptr nocapture readnone align 1 %0, ptr readonly align 8 %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, -9223372036854775807
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0 = select i1 %4, ptr %5, ptr null
   ret ptr %.sroa.0.0
 }
@@ -38,7 +38,7 @@ define hidden void @"_ZN13logos_codegen6parser11type_params16replace_lifetime28_
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %9, ptr %5, align 8
   call void @_ZN5quote9to_tokens8ToTokens17into_token_stream17he88f15f7bf180eccE(ptr nonnull sret([32 x i8]) align 8 %3, ptr nonnull align 8 %5)
   %10 = call i32 @_ZN5quote7spanned10join_spans17h55530f885c45a301E(ptr nonnull align 8 %3)
@@ -96,22 +96,22 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %8, %18, %19
   %.sink = phi i64 [ 184, %8 ], [ 24, %18 ], [ 48, %19 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
-  %9 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
+  %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %9, align 8
   br label %tailrecurse
 
 10:                                               ; preds = %tailrecurse
-  %11 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %12 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h01f82a87ca21c234E"(ptr nonnull align 8 %11)
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   store ptr %13, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %15, align 8
   br label %30
 
 16:                                               ; preds = %tailrecurse
-  %17 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   tail call fastcc void @_ZN13logos_codegen6parser11type_params13traverse_path17h78dd8a60a787783fE(ptr nonnull align 8 %17, ptr align 1 %1)
   br label %.loopexit
 
@@ -122,7 +122,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %tailrecurse.backedge
 
 20:                                               ; preds = %tailrecurse
-  %21 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %22 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h14f166e29cac06e7E"(ptr nonnull align 8 %21)
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
@@ -130,7 +130,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %.loopexit
 
 25:                                               ; preds = %tailrecurse
-  %26 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %27 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb81889fa038cb932E"(ptr nonnull align 8 %26)
   %28 = extractvalue { ptr, ptr } %27, 0
   %29 = extractvalue { ptr, ptr } %27, 1
@@ -140,7 +140,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 30:                                               ; preds = %43, %10
   %31 = load ptr, ptr %3, align 8
   %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8, !invariant.load !3, !nonnull !3
   %35 = invoke align 8 ptr %34(ptr align 1 %31)
           to label %38 unwind label %36
@@ -157,7 +157,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 40:                                               ; preds = %38
   call void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h25d8722a38c03501E"(ptr nonnull align 8 %3)
-  %41 = getelementptr inbounds i8, ptr %.tr, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %.tr, i64 192
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %.loopexit, label %44
@@ -213,22 +213,22 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 tailrecurse.backedge:                             ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %8, %18, %19
   %.sink = phi i64 [ 184, %8 ], [ 24, %18 ], [ 48, %19 ], [ 8, %tailrecurse ], [ 8, %tailrecurse ], [ 8, %tailrecurse ]
-  %9 = getelementptr inbounds i8, ptr %.tr, i64 %.sink
+  %9 = getelementptr inbounds nuw i8, ptr %.tr, i64 %.sink
   %.tr.be = load ptr, ptr %9, align 8
   br label %tailrecurse
 
 10:                                               ; preds = %tailrecurse
-  %11 = getelementptr inbounds i8, ptr %.tr, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %12 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h01f82a87ca21c234E"(ptr nonnull align 8 %11)
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
   store ptr %13, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %15, align 8
   br label %30
 
 16:                                               ; preds = %tailrecurse
-  %17 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   tail call fastcc void @_ZN13logos_codegen6parser11type_params13traverse_path17h452b1050adddeefdE(ptr nonnull align 8 %17, ptr align 8 %1)
   br label %.loopexit
 
@@ -239,7 +239,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %tailrecurse.backedge
 
 20:                                               ; preds = %tailrecurse
-  %21 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %22 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h14f166e29cac06e7E"(ptr nonnull align 8 %21)
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
@@ -247,7 +247,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
   br label %.loopexit
 
 25:                                               ; preds = %tailrecurse
-  %26 = getelementptr inbounds i8, ptr %.tr, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %27 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hb81889fa038cb932E"(ptr nonnull align 8 %26)
   %28 = extractvalue { ptr, ptr } %27, 0
   %29 = extractvalue { ptr, ptr } %27, 1
@@ -257,7 +257,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 30:                                               ; preds = %43, %10
   %31 = load ptr, ptr %3, align 8
   %32 = load ptr, ptr %15, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8, !invariant.load !3, !nonnull !3
   %35 = invoke align 8 ptr %34(ptr align 1 %31)
           to label %38 unwind label %36
@@ -274,7 +274,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %tailr
 
 40:                                               ; preds = %38
   call void @"_ZN4core3ptr71drop_in_place$LT$syn..punctuated..IterMut$LT$syn..ty..BareFnArg$GT$$GT$17h25d8722a38c03501E"(ptr nonnull align 8 %3)
-  %41 = getelementptr inbounds i8, ptr %.tr, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %.tr, i64 192
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %.loopexit, label %44
@@ -350,16 +350,16 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %12
 
 12:                                               ; preds = %.backedge8, %2
   %13 = phi ptr [ %.pre9, %.backedge8 ], [ %8, %2 ]
   %14 = phi ptr [ %.pre, %.backedge8 ], [ %7, %2 ]
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !3, !nonnull !3
   %17 = invoke align 8 ptr %16(ptr align 1 %14)
           to label %21 unwind label %19
@@ -401,7 +401,7 @@ default.unreachable:                              ; preds = %24
   unreachable
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %30 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h70e914da73a22ff0E"(ptr nonnull align 8 %29)
           to label %33 unwind label %19
 
@@ -419,7 +419,7 @@ default.unreachable:                              ; preds = %24
 36:                                               ; preds = %.backedge, %33
   %37 = phi ptr [ %.pre11, %.backedge ], [ %35, %33 ]
   %38 = phi ptr [ %.pre10, %.backedge ], [ %34, %33 ]
-  %39 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load ptr, ptr %39, align 8, !invariant.load !3, !nonnull !3
   %41 = invoke align 8 ptr %40(ptr align 1 %38)
           to label %44 unwind label %42
@@ -454,7 +454,7 @@ default.unreachable:                              ; preds = %24
   br label %36
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %41, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %.invoke
 
 .invoke:                                          ; preds = %47, %52
@@ -478,7 +478,7 @@ default.unreachable:                              ; preds = %24
 60:                                               ; preds = %71, %57
   %61 = load ptr, ptr %3, align 8
   %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !invariant.load !3, !nonnull !3
   %65 = invoke align 8 ptr %64(ptr align 1 %61)
           to label %68 unwind label %66
@@ -502,7 +502,7 @@ default.unreachable:                              ; preds = %24
           to label %60 unwind label %66
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %17, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.backedge8, label %75
@@ -524,16 +524,16 @@ define internal fastcc void @_ZN13logos_codegen6parser11type_params13traverse_pa
   %7 = extractvalue { ptr, ptr } %6, 0
   %8 = extractvalue { ptr, ptr } %6, 1
   store ptr %7, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %12
 
 12:                                               ; preds = %.backedge8, %2
   %13 = phi ptr [ %.pre9, %.backedge8 ], [ %8, %2 ]
   %14 = phi ptr [ %.pre, %.backedge8 ], [ %7, %2 ]
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !3, !nonnull !3
   %17 = invoke align 8 ptr %16(ptr align 1 %14)
           to label %21 unwind label %19
@@ -575,7 +575,7 @@ default.unreachable:                              ; preds = %24
   unreachable
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %30 = invoke { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17h70e914da73a22ff0E"(ptr nonnull align 8 %29)
           to label %33 unwind label %19
 
@@ -593,7 +593,7 @@ default.unreachable:                              ; preds = %24
 36:                                               ; preds = %.backedge, %33
   %37 = phi ptr [ %.pre11, %.backedge ], [ %35, %33 ]
   %38 = phi ptr [ %.pre10, %.backedge ], [ %34, %33 ]
-  %39 = getelementptr inbounds i8, ptr %37, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %40 = load ptr, ptr %39, align 8, !invariant.load !3, !nonnull !3
   %41 = invoke align 8 ptr %40(ptr align 1 %38)
           to label %44 unwind label %42
@@ -628,7 +628,7 @@ default.unreachable:                              ; preds = %24
   br label %36
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %41, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %.invoke
 
 .invoke:                                          ; preds = %47, %52
@@ -652,7 +652,7 @@ default.unreachable:                              ; preds = %24
 60:                                               ; preds = %71, %57
   %61 = load ptr, ptr %3, align 8
   %62 = load ptr, ptr %10, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8, !invariant.load !3, !nonnull !3
   %65 = invoke align 8 ptr %64(ptr align 1 %61)
           to label %68 unwind label %66
@@ -676,7 +676,7 @@ default.unreachable:                              ; preds = %24
           to label %60 unwind label %66
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %17, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.backedge8, label %75

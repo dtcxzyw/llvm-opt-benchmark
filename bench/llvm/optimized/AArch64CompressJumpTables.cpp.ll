@@ -71,11 +71,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL43initializeAArch64CompressJumpTablesPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
   store ptr @.str.9, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 33, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 19, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_125AArch64CompressJumpTables2IDE, ptr %4, align 8
@@ -104,7 +104,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm35createAArch64CompressJumpTablesP
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_125AArch64CompressJumpTablesE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 8) #13
   %10 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -151,7 +151,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_125
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_125AArch64CompressJumpTablesE, i64 16), ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull %9, i64 noundef 8) #13
   %10 = tail call noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -190,7 +190,7 @@ define internal void @_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD2Ev(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit, label %7
 
@@ -209,7 +209,7 @@ define internal void @_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD0Ev(ptr nound
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #13
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = icmp eq ptr %4, %5
   br i1 %6, label %_ZN12_GLOBAL__N_125AArch64CompressJumpTablesD2Ev.exit, label %7
 
@@ -231,19 +231,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_125AArch64CompressJumpTables11get
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -342,8 +342,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64CompressJumpTables
   %41 = load ptr, ptr %15, align 8
   %42 = getelementptr inbounds i32, ptr %41, i64 %40
   store i32 %.010.i, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %.sroa.015.027.i, i64 56
-  %44 = getelementptr inbounds i8, ptr %.sroa.015.027.i, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i, i64 48
   %.sroa.07.011.i.i = load ptr, ptr %43, align 8
   %.not12.i.i = icmp eq ptr %.sroa.07.011.i.i, %44
   br i1 %.not12.i.i, label %_ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineBasicBlockE.exit.thread.i, label %.lr.ph.i.i
@@ -360,7 +360,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_125AArch64CompressJumpTables
 48:                                               ; preds = %.lr.ph.i.i
   %49 = load ptr, ptr %7, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef i32 %52(ptr noundef nonnull align 8 dereferenceable(80) %49, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.07.014.i.i) #13
   %54 = add i32 %53, %.013.i.i
@@ -417,8 +417,8 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
 .lr.ph42:                                         ; preds = %.loopexit, %._crit_edge
   %.sroa.024.040 = phi ptr [ %.sroa.024.0, %._crit_edge ], [ %.sroa.024.037, %.loopexit ]
   %.01639 = phi i1 [ %.1.lcssa, %._crit_edge ], [ false, %.loopexit ]
-  %69 = getelementptr inbounds i8, ptr %.sroa.024.040, i64 56
-  %70 = getelementptr inbounds i8, ptr %.sroa.024.040, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.024.040, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.024.040, i64 48
   %.sroa.021.032 = load ptr, ptr %69, align 8
   %.not2833 = icmp eq ptr %.sroa.021.032, %70
   br i1 %.not2833, label %._crit_edge, label %.lr.ph.preheader
@@ -444,7 +444,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
 79:                                               ; preds = %.lr.ph
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.021.036, i64 32
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 144
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 144
   %83 = load i32, ptr %82, align 8
   %84 = load ptr, ptr %3, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 64
@@ -478,7 +478,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
   %.not29.i = icmp sgt i32 %102, %.02547.i
   %spec.select.i = select i1 %.not29.i, ptr %.02646.i, ptr %97
   %spec.select30.i = tail call i32 @llvm.smin.i32(i32 %102, i32 %.02547.i)
-  %103 = getelementptr inbounds i8, ptr %.sroa.036.044.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.036.044.i, i64 8
   %.not43.i = icmp eq ptr %103, %93
   br i1 %.not43.i, label %104, label %96
 
@@ -538,7 +538,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables16computeBlockSizeERN4llvm17MachineB
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %.sink.i, ptr %130, align 8
   %131 = load ptr, ptr %7, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds i8, ptr %133, i64 %.sink49.i
   tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.021.036, ptr noundef nonnull align 8 dereferenceable(32) %134) #13
@@ -549,7 +549,7 @@ _ZN12_GLOBAL__N_125AArch64CompressJumpTables17compressJumpTableERN4llvm12Machine
   %135 = or i1 %.135, %.0.i
   %136 = load ptr, ptr %7, align 8
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 152
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 152
   %139 = load ptr, ptr %138, align 8
   %140 = tail call noundef i32 %139(ptr noundef nonnull align 8 dereferenceable(80) %136, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.021.036) #13
   %141 = add i32 %140, %.01734
@@ -647,7 +647,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIiE10resizeImplILb0EEE
   br i1 %12, label %13, label %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %1, i64 noundef 4) #13
   br label %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit
 
@@ -713,7 +713,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbo
   br i1 %12, label %13, label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %1, i64 noundef 16) #13
   br label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit
 
@@ -731,7 +731,7 @@ _ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEE7reserveEm.exit: ; preds = %1
   store i32 0, ptr %.012, align 8
   %20 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   store ptr null, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.012, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %.not = icmp eq ptr %21, %19
   br i1 %.not, label %.sink.split, label %.lr.ph, !llvm.loop !6
 

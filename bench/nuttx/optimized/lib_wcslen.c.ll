@@ -11,7 +11,7 @@ define range(i64 -2305843009213693952, 2305843009213693952) i64 @wcslen(ptr noun
   %.0 = phi ptr [ %0, %1 ], [ %4, %2 ]
   %3 = load i32, ptr %.0, align 4
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %.0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   br i1 %.not, label %5, label %2, !llvm.loop !6
 
 5:                                                ; preds = %2

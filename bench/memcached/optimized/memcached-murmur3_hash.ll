@@ -46,7 +46,7 @@ for.end:                                          ; preds = %for.body, %entry
   ]
 
 sw.bb:                                            ; preds = %for.end
-  %arrayidx = getelementptr inbounds i8, ptr %add.ptr, i64 2
+  %arrayidx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 2
   %2 = load i8, ptr %arrayidx, align 1
   %conv10 = zext i8 %2 to i32
   %shl = shl nuw nsw i32 %conv10, 16
@@ -54,7 +54,7 @@ sw.bb:                                            ; preds = %for.end
 
 sw.bb12:                                          ; preds = %for.end, %sw.bb
   %k19.0 = phi i32 [ 0, %for.end ], [ %shl, %sw.bb ]
-  %arrayidx13 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %3 = load i8, ptr %arrayidx13, align 1
   %conv14 = zext i8 %3 to i32
   %shl15 = shl nuw nsw i32 %conv14, 8

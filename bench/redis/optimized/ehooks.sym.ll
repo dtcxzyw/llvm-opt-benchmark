@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @ehooks_init(ptr nocapture noundef writeonly initializes((0, 4)) %ehooks, ptr noundef %extent_hooks, i32 noundef %ind) local_unnamed_addr #0 {
 entry:
   store i32 %ind, ptr %ehooks, align 8
-  %ptr.i = getelementptr inbounds i8, ptr %ehooks, i64 8
+  %ptr.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
   %0 = ptrtoint ptr %extent_hooks to i64
   store atomic i64 %0, ptr %ptr.i release, align 8
   ret void
@@ -44,7 +44,7 @@ entry:
 define hidden noundef ptr @ehooks_default_alloc_impl(ptr noundef %tsdn, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, ptr noundef %zero, ptr noundef %commit, i32 noundef %arena_ind) local_unnamed_addr #1 {
 entry:
   %idxprom.i = zext i32 %arena_ind to i64
-  %arrayidx.i = getelementptr inbounds [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @arenas, i64 0, i64 %idxprom.i
   %0 = load atomic i64, ptr %arrayidx.i acquire, align 8
   %1 = inttoptr i64 %0 to ptr
   %cmp = icmp eq i64 %0, 0
@@ -56,7 +56,7 @@ entry.split:                                      ; preds = %entry
   br i1 %cmp5.not.i, label %if.end, label %if.then
 
 cond.false:                                       ; preds = %entry
-  %dss_prec = getelementptr inbounds i8, ptr %1, i64 10520
+  %dss_prec = getelementptr inbounds nuw i8, ptr %1, i64 10520
   %2 = load atomic i32, ptr %dss_prec monotonic, align 4
   %cmp.i = icmp eq i32 %2, 1
   br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
@@ -205,7 +205,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i = getelementptr inbounds i8, ptr %1, i64 832
+  %state.i = getelementptr inbounds nuw i8, ptr %1, i64 832
   %2 = load i8, ptr %state.i, align 8
   %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i
@@ -269,7 +269,7 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tsd_tls)
-  %state.i = getelementptr inbounds i8, ptr %1, i64 832
+  %state.i = getelementptr inbounds nuw i8, ptr %1, i64 832
   %2 = load i8, ptr %state.i, align 8
   %cmp6.i.not = icmp eq i8 %2, 0
   br i1 %cmp6.i.not, label %tsdn_fetch.exit, label %if.then11.i

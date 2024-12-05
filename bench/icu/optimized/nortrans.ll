@@ -472,7 +472,7 @@ entry:
   %errorCode = alloca i32, align 4
   %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %context.coerce)
   %strchr = getelementptr inbounds i8, ptr %context.coerce, i64 %strlen
-  %arrayidx = getelementptr inbounds i8, ptr %strchr, i64 1
+  %arrayidx = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %0 = load i8, ptr %arrayidx, align 1
   %conv = sext i8 %0 to i32
   store i32 0, ptr %errorCode, align 4
@@ -519,7 +519,7 @@ define void @_ZN6icu_7527NormalizationTransliteratorC2ERKNS_13UnicodeStringERKNS
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 16), ptr %this, align 8
-  %fNorm2 = getelementptr inbounds i8, ptr %this, i64 88
+  %fNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr %norm2, ptr %fNorm2, align 8
   ret void
 }
@@ -549,8 +549,8 @@ define void @_ZN6icu_7527NormalizationTransliteratorC2ERKS0_(ptr noundef nonnull
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7527NormalizationTransliteratorE, i64 16), ptr %this, align 8
-  %fNorm2 = getelementptr inbounds i8, ptr %this, i64 88
-  %fNorm22 = getelementptr inbounds i8, ptr %o, i64 88
+  %fNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 88
+  %fNorm22 = getelementptr inbounds nuw i8, ptr %o, i64 88
   %0 = load ptr, ptr %fNorm22, align 8
   store ptr %0, ptr %fNorm2, align 8
   ret void
@@ -585,9 +585,9 @@ entry:
   %errorCode = alloca i32, align 4
   %segment = alloca %"class.icu_75::UnicodeString", align 8
   %normalized = alloca %"class.icu_75::UnicodeString", align 8
-  %start2 = getelementptr inbounds i8, ptr %offsets, i64 8
+  %start2 = getelementptr inbounds nuw i8, ptr %offsets, i64 8
   %0 = load i32, ptr %start2, align 4
-  %limit3 = getelementptr inbounds i8, ptr %offsets, i64 12
+  %limit3 = getelementptr inbounds nuw i8, ptr %offsets, i64 12
   %1 = load i32, ptr %limit3, align 4
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %invoke.cont, label %return
@@ -595,22 +595,22 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %errorCode, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %segment, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %segment, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %segment, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %normalized, align 8
-  %fUnion2.i32 = getelementptr inbounds i8, ptr %normalized, i64 8
+  %fUnion2.i32 = getelementptr inbounds nuw i8, ptr %normalized, i64 8
   store i16 2, ptr %fUnion2.i32, align 8
   %vtable.i = load ptr, ptr %text, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i33 = invoke noundef i32 %2(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %0)
           to label %do.body.preheader unwind label %lpad4.loopexit.split-lp.loopexit.split-lp
 
 do.body.preheader:                                ; preds = %invoke.cont
-  %fNorm2 = getelementptr inbounds i8, ptr %this, i64 88
+  %fNorm2 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %tobool18 = icmp ne i8 %isIncremental, 0
-  %fLength.i.i.i = getelementptr inbounds i8, ptr %segment, i64 12
-  %fLength.i10.i.i = getelementptr inbounds i8, ptr %normalized, i64 12
+  %fLength.i.i.i = getelementptr inbounds nuw i8, ptr %segment, i64 12
+  %fLength.i10.i.i = getelementptr inbounds nuw i8, ptr %normalized, i64 12
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %do.cond50
@@ -641,14 +641,14 @@ invoke.cont9:                                     ; preds = %do.body8
 land.rhs:                                         ; preds = %invoke.cont9
   %5 = load ptr, ptr %fNorm2, align 8
   %vtable.i34 = load ptr, ptr %text, align 8
-  %vfn.i35 = getelementptr inbounds i8, ptr %vtable.i34, i64 80
+  %vfn.i35 = getelementptr inbounds nuw i8, ptr %vtable.i34, i64 80
   %6 = load ptr, ptr %vfn.i35, align 8
   %call.i36 = invoke noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %add)
           to label %invoke.cont13 unwind label %lpad4.loopexit
 
 invoke.cont13:                                    ; preds = %land.rhs
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %7 = load ptr, ptr %vfn, align 8
   %call16 = invoke noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %call.i36)
           to label %invoke.cont15 unwind label %lpad4.loopexit
@@ -666,7 +666,7 @@ do.end:                                           ; preds = %invoke.cont9, %invo
 land.lhs.true19:                                  ; preds = %do.end
   %8 = load ptr, ptr %fNorm2, align 8
   %vtable21 = load ptr, ptr %8, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 128
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 128
   %9 = load ptr, ptr %vfn22, align 8
   %call24 = invoke noundef signext i8 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %c.2)
           to label %invoke.cont23 unwind label %lpad4.loopexit.split-lp.loopexit
@@ -699,7 +699,7 @@ lpad4:                                            ; preds = %lpad4.loopexit.spli
 if.end27:                                         ; preds = %invoke.cont23, %do.end
   %10 = load ptr, ptr %fNorm2, align 8
   %vtable29 = load ptr, ptr %10, align 8
-  %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 24
+  %vfn30 = getelementptr inbounds nuw i8, ptr %vtable29, i64 24
   %11 = load ptr, ptr %vfn30, align 8
   %call32 = invoke noundef nonnull align 8 dereferenceable(64) ptr %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(64) %segment, ptr noundef nonnull align 8 dereferenceable(64) %normalized, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont31 unwind label %lpad4.loopexit.split-lp.loopexit
@@ -749,7 +749,7 @@ invoke.cont38:                                    ; preds = %land.rhs.i.i
 
 if.then40:                                        ; preds = %if.then.i.i, %if.else.i.i, %invoke.cont38
   %vtable41 = load ptr, ptr %text, align 8
-  %vfn42 = getelementptr inbounds i8, ptr %vtable41, i64 32
+  %vfn42 = getelementptr inbounds nuw i8, ptr %vtable41, i64 32
   %20 = load ptr, ptr %vfn42, align 8
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start.0, i32 noundef %add, ptr noundef nonnull align 8 dereferenceable(64) %normalized)
           to label %invoke.cont44 unwind label %lpad4.loopexit.split-lp.loopexit
@@ -779,7 +779,7 @@ do.end52:                                         ; preds = %invoke.cont23, %inv
   store i32 %start.2, ptr %start2, align 4
   %24 = load i32, ptr %limit3, align 4
   %sub55 = sub i32 %limit.1, %24
-  %contextLimit = getelementptr inbounds i8, ptr %offsets, i64 4
+  %contextLimit = getelementptr inbounds nuw i8, ptr %offsets, i64 4
   %25 = load i32, ptr %contextLimit, align 4
   %add56 = add nsw i32 %sub55, %25
   store i32 %add56, ptr %contextLimit, align 4

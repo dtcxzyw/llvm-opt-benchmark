@@ -209,7 +209,7 @@ define i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi110 = phi i64 [ %10, %.lr.ph134.preheader.preheader ], [ %10, %.lr.ph150.preheader ], [ %26, %.lr.ph134.preheader ], [ %18, %.lr.ph150 ]
   %.us-phi111 = phi i32 [ %11, %.lr.ph134.preheader.preheader ], [ %11, %.lr.ph150.preheader ], [ %27, %.lr.ph134.preheader ], [ %19, %.lr.ph150 ]
   %38 = and i64 %.us-phi110, 2147483647
-  %39 = getelementptr inbounds i8, ptr %.063.ph152, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.063.ph152, i64 %38
   %40 = sub nsw i32 %.062.ph154, %.us-phi111
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %.outer77._crit_edge
@@ -329,7 +329,7 @@ define i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi163 = phi i64 [ %50, %.lr.ph188.preheader.preheader ], [ %50, %.lr.ph204.preheader ], [ %66, %.lr.ph188.preheader ], [ %58, %.lr.ph204 ]
   %.us-phi164 = phi i32 [ %51, %.lr.ph188.preheader.preheader ], [ %51, %.lr.ph204.preheader ], [ %67, %.lr.ph188.preheader ], [ %59, %.lr.ph204 ]
   %78 = and i64 %.us-phi163, 2147483647
-  %79 = getelementptr inbounds i8, ptr %.060.ph209, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %.060.ph209, i64 %78
   %80 = sub nsw i32 %.061.ph207, %.us-phi164
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %.outer76._crit_edge
@@ -463,7 +463,7 @@ define i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi218 = phi i64 [ %99, %.lr.ph243.preheader.preheader ], [ %99, %.lr.ph259.preheader ], [ %115, %.lr.ph243.preheader ], [ %107, %.lr.ph259 ]
   %.us-phi219 = phi i32 [ %100, %.lr.ph243.preheader.preheader ], [ %100, %.lr.ph259.preheader ], [ %116, %.lr.ph243.preheader ], [ %108, %.lr.ph259 ]
   %127 = and i64 %.us-phi218, 2147483647
-  %128 = getelementptr inbounds i8, ptr %.058.ph264, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %.058.ph264, i64 %127
   %129 = sub nsw i32 %.059.ph262, %.us-phi219
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %.outer._crit_edge
@@ -493,14 +493,14 @@ define i32 @handle_tree_cmd(i32 noundef %0) local_unnamed_addr #0 {
 138:                                              ; preds = %.outer._crit_edge
   %139 = zext nneg i16 %87 to i32
   %140 = zext nneg i16 %87 to i64
-  %141 = getelementptr inbounds [10 x ptr], ptr @tree_cmd_names, i64 0, i64 %140
+  %141 = getelementptr inbounds nuw [10 x ptr], ptr @tree_cmd_names, i64 0, i64 %140
   %142 = load ptr, ptr %141, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.handle_tree_cmd, i32 noundef %139, ptr noundef %142) #7
   br label %143
 
 143:                                              ; preds = %.outer._crit_edge._crit_edge, %138
   %.pre-phi = phi i64 [ %.pre, %.outer._crit_edge._crit_edge ], [ %140, %138 ]
-  %144 = getelementptr inbounds [10 x ptr], ptr @tree_cmd_handlers, i64 0, i64 %.pre-phi
+  %144 = getelementptr inbounds nuw [10 x ptr], ptr @tree_cmd_handlers, i64 0, i64 %.pre-phi
   %145 = load ptr, ptr %144, align 8
   %146 = tail call i32 %145(i32 noundef %0, ptr noundef %135) #7
   %.not = icmp eq ptr %135, null
@@ -697,7 +697,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noun
   %.us-phi80 = phi i64 [ %16, %.lr.ph104.preheader.preheader ], [ %16, %.lr.ph120.preheader ], [ %32, %.lr.ph104.preheader ], [ %24, %.lr.ph120 ]
   %.us-phi81 = phi i32 [ %17, %.lr.ph104.preheader.preheader ], [ %17, %.lr.ph120.preheader ], [ %33, %.lr.ph104.preheader ], [ %25, %.lr.ph120 ]
   %44 = and i64 %.us-phi80, 2147483647
-  %45 = getelementptr inbounds i8, ptr %.046.ph124, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.046.ph124, i64 %44
   %46 = sub nsw i32 %.047.ph122, %.us-phi81
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %.outer57._crit_edge
@@ -821,7 +821,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_srun_with_resp(i32 noundef %0, ptr noun
   %.us-phi133 = phi i64 [ %59, %.lr.ph158.preheader.preheader ], [ %59, %.lr.ph174.preheader ], [ %75, %.lr.ph158.preheader ], [ %67, %.lr.ph174 ]
   %.us-phi134 = phi i32 [ %60, %.lr.ph158.preheader.preheader ], [ %60, %.lr.ph174.preheader ], [ %76, %.lr.ph158.preheader ], [ %68, %.lr.ph174 ]
   %87 = and i64 %.us-phi133, 2147483647
-  %88 = getelementptr inbounds i8, ptr %.043.ph179, i64 %87
+  %88 = getelementptr inbounds nuw i8, ptr %.043.ph179, i64 %87
   %89 = sub nsw i32 %.044.ph177, %.us-phi134
   %90 = icmp sgt i32 %89, 0
   br i1 %90, label %91, label %.outer._crit_edge
@@ -875,7 +875,7 @@ define range(i32 -1, 1) i32 @tree_msg_to_spawned_sruns(i32 noundef %0, ptr nound
   %8 = phi ptr [ %.pre21, %.lr.ph ], [ %21, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.016 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
-  %9 = getelementptr inbounds i16, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %19, label %12
@@ -968,7 +968,7 @@ define internal i32 @_handle_kvs_fence(i32 %0, ptr noundef %1) #0 {
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @tree_info, i64 48), align 8
   %32 = load i32, ptr %3, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %24, %35
   br i1 %36, label %37, label %44
@@ -1131,9 +1131,9 @@ define internal range(i32 -1, 1) i32 @_handle_kvs_fence_resp(i32 %0, ptr noundef
 
 33:                                               ; preds = %27
   store i32 0, ptr @waiting_kvs_resp, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = sub i32 %35, %37
   store i32 %38, ptr %5, align 4
@@ -1222,9 +1222,9 @@ define internal i32 @_handle_spawn(i32 noundef %0, ptr noundef %1) #0 {
   %15 = load ptr, ptr %3, align 8
   %16 = load i32, ptr %15, align 8
   store i32 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %18, align 4
   %19 = load ptr, ptr %3, align 8
   %20 = call i32 @spawn_job_do_spawn(ptr noundef %19) #7
@@ -1238,13 +1238,13 @@ define internal i32 @_handle_spawn(i32 noundef %0, ptr noundef %1) #0 {
 23:                                               ; preds = %11
   %24 = load i32, ptr %14, align 8
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @spawn_psr_enqueue(i32 noundef %24, i32 noundef -1, i32 noundef -1, ptr noundef %27) #7
   br label %29
 
 29:                                               ; preds = %23, %21
-  %30 = getelementptr inbounds i8, ptr %14, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %20, ptr %30, align 4
   %31 = call i32 @spawn_resp_send_to_fd(ptr noundef nonnull %14, i32 noundef %0) #7
   %32 = load ptr, ptr %3, align 8
@@ -1311,7 +1311,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.42, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_spawn_resp, ptr noundef %30) #7
   br label %31
@@ -1327,9 +1327,9 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %36 = call ptr @client_resp_new() #7
-  %37 = getelementptr inbounds i8, ptr %34, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %40 = load ptr, ptr %39, align 8
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %36, ptr noundef nonnull @.str.43, i32 noundef %38, ptr noundef %40) #7
   %41 = load i32, ptr %37, align 4
@@ -1341,7 +1341,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
   br label %43
 
 43:                                               ; preds = %42, %33
-  %44 = getelementptr inbounds i8, ptr %34, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %45 = load i32, ptr %44, align 4
   %.not19.i = icmp eq i32 %45, 0
   br i1 %.not19.i, label %.loopexit.i, label %46
@@ -1349,7 +1349,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
 46:                                               ; preds = %43
   %47 = load ptr, ptr %3, align 8
   %.not20.i = icmp eq ptr %47, null
-  %48 = getelementptr inbounds i8, ptr %34, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %.str.44..str.45.i = select i1 %.not20.i, ptr @.str.44, ptr @.str.45
@@ -1361,7 +1361,7 @@ define internal range(i32 -1, 1) i32 @_handle_spawn_resp(i32 %0, ptr noundef %1)
 .lr.ph.i:                                         ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %46 ]
   %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i
   %55 = load i32, ptr %54, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %55) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1402,7 +1402,7 @@ _send_task_spawn_resp_pmi20.exit:                 ; preds = %.loopexit.i, %60
 
 68:                                               ; preds = %67
   %69 = load ptr, ptr %6, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.42, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._handle_spawn_resp, ptr noundef %71) #7
   br label %72
@@ -1417,11 +1417,11 @@ _send_task_spawn_resp_pmi20.exit:                 ; preds = %.loopexit.i, %60
   %78 = load ptr, ptr %6, align 8
   %79 = load i32, ptr %78, align 8
   store i32 %79, ptr @spawned_srun_ports_size, align 4
-  %80 = getelementptr inbounds i8, ptr %78, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = load i16, ptr %80, align 8
   %82 = add i32 %79, -1
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds i16, ptr %77, i64 %83
+  %84 = getelementptr inbounds nuw i16, ptr %77, i64 %83
   store i16 %81, ptr %84, align 2
   %85 = load ptr, ptr %6, align 8
   %86 = call i32 @spawn_resp_send_to_stepd(ptr noundef %85, ptr noundef nonnull %7) #7
@@ -1484,9 +1484,9 @@ define internal i32 @_handle_name_publish(i32 noundef %0, ptr noundef %1) #0 {
   call void @slurm_xfree(ptr noundef nonnull %5) #7
   %22 = call ptr @slurm_init_buf(i32 noundef 32) #7
   call void @slurm_pack32(i32 noundef %.0, ptr noundef %22) #7
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %22, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %26 = load i32, ptr %25, align 4
   %27 = zext i32 %26 to i64
   %28 = call i64 @slurm_msg_sendto(i32 noundef %0, ptr noundef %24, i64 noundef %27) #7
@@ -1541,9 +1541,9 @@ define internal i32 @_handle_name_unpublish(i32 noundef %0, ptr noundef %1) #0 {
   call void @slurm_xfree(ptr noundef nonnull %4) #7
   %18 = call ptr @slurm_init_buf(i32 noundef 32) #7
   call void @slurm_pack32(i32 noundef %.0, ptr noundef %18) #7
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
   %24 = call i64 @slurm_msg_sendto(i32 noundef %0, ptr noundef %20, i64 noundef %23) #7
@@ -1618,9 +1618,9 @@ define internal range(i32 -1, -2147483648) i32 @_handle_name_lookup(i32 noundef 
   %27 = phi ptr [ %.sink, %21 ], [ null, %19 ], [ null, %.thread ]
   %.0 = phi i32 [ %24, %21 ], [ 0, %19 ], [ 0, %.thread ]
   call void @slurm_packmem(ptr noundef %27, i32 noundef %.0, ptr noundef %26) #7
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = call i64 @slurm_msg_sendto(i32 noundef %0, ptr noundef %29, i64 noundef %32) #7
@@ -1819,9 +1819,9 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr nocapture noundef r
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = tail call ptr @client_resp_new() #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %4, ptr noundef nonnull @.str.47, i32 noundef %6, ptr noundef %8) #7
   %9 = load i32, ptr %5, align 4
@@ -1833,7 +1833,7 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr nocapture noundef r
   br label %11
 
 11:                                               ; preds = %10, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %.not20 = icmp eq i32 %13, 0
   br i1 %.not20, label %.loopexit, label %14
@@ -1841,7 +1841,7 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr nocapture noundef r
 14:                                               ; preds = %11
   %15 = load ptr, ptr %3, align 8
   %.not21 = icmp eq ptr %15, null
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %.str.44..str.45 = select i1 %.not21, ptr @.str.44, ptr @.str.45
@@ -1851,13 +1851,13 @@ define internal fastcc void @_send_task_spawn_resp_pmi11(ptr nocapture noundef r
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %3, ptr noundef nonnull @.str.45, i32 noundef %25) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

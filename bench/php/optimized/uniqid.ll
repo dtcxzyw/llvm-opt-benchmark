@@ -18,7 +18,7 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   %5 = alloca %struct.timeval, align 8
   %6 = alloca i32, align 4
   store i8 0, ptr %4, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %8, 2
   br i1 %9, label %10, label %11
@@ -32,8 +32,8 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   br i1 %12, label %30, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 6
   br i1 %17, label %.thread, label %19
@@ -50,12 +50,12 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
 
 22:                                               ; preds = %19, %.thread
   %.pn = phi ptr [ %18, %.thread ], [ %21, %19 ]
-  %.ph = getelementptr inbounds i8, ptr %.pn, i64 24
+  %.ph = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   %.not = icmp eq i32 %8, 2
   br i1 %.not, label %23, label %30
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %25 = load i8, ptr %24, align 8
   switch i8 %25, label %27 [
     i8 3, label %.thread145
@@ -71,14 +71,14 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
   br label %30
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %28, ptr noundef nonnull %4, i32 noundef 2) #3
   %.fr = freeze i1 %29
   br i1 %.fr, label %30, label %.thread150
 
 30:                                               ; preds = %27, %.thread145, %22, %11
   %.0120 = phi ptr [ @.str, %11 ], [ %.ph, %22 ], [ %.ph, %.thread145 ], [ %.ph, %27 ]
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %32
 
 .thread150:                                       ; preds = %27, %19, %10
@@ -138,12 +138,12 @@ define hidden void @zif_uniqid(ptr noundef %0, ptr nocapture noundef writeonly %
 60:                                               ; preds = %58, %56
   %.0118 = phi ptr [ %57, %56 ], [ %59, %58 ]
   store ptr %.0118, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %.0118, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.0118, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 64
   %.not125 = icmp eq i32 %63, 0
   %64 = select i1 %.not125, i32 262, i32 6
-  %65 = getelementptr inbounds i8, ptr %1, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %64, ptr %65, align 8
   br label %66
 

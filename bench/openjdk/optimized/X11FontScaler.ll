@@ -43,7 +43,7 @@ define noundef i64 @Java_sun_font_NativeStrike_createNullScalerContext(ptr nocap
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   store i32 -1, ptr %6, align 8
   %7 = ptrtoint ptr %3 to i64
@@ -60,7 +60,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1368
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1368
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, ptr noundef %2) #7
   %10 = add nsw i32 %9, 1
@@ -71,7 +71,7 @@ define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1600
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1600
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %12) #7
   %18 = sext i32 %9 to i64
@@ -102,7 +102,7 @@ define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %
   %30 = load ptr, ptr %20, align 8
   %31 = tail call i32 @AWTFontMinCharOrByte2(ptr noundef %30) #7
   %32 = add i32 %31, %29
-  %33 = getelementptr inbounds i8, ptr %20, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %32, ptr %33, align 8
   %34 = load ptr, ptr %20, align 8
   %35 = tail call i32 @AWTFontMaxByte1(ptr noundef %34) #7
@@ -110,16 +110,16 @@ define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %
   %37 = load ptr, ptr %20, align 8
   %38 = tail call i32 @AWTFontMaxCharOrByte2(ptr noundef %37) #7
   %39 = add i32 %38, %36
-  %40 = getelementptr inbounds i8, ptr %20, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 %39, ptr %40, align 4
   %41 = load i32, ptr %33, align 8
   %42 = add i32 %39, 1
   %43 = sub i32 %42, %41
-  %44 = getelementptr inbounds i8, ptr %20, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %43, ptr %44, align 8
   %45 = load ptr, ptr %20, align 8
   %46 = tail call i32 @AWTFontDefaultChar(ptr noundef %45) #7
-  %47 = getelementptr inbounds i8, ptr %20, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 %46, ptr %47, align 4
   %48 = load i32, ptr %33, align 8
   %49 = icmp slt i32 %46, %48
@@ -135,9 +135,9 @@ define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %
   br label %54
 
 54:                                               ; preds = %53, %50
-  %55 = getelementptr inbounds i8, ptr %20, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store i32 %3, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %20, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store double %4, ptr %56, align 8
   %57 = ptrtoint ptr %20 to i64
   br label %58
@@ -162,7 +162,7 @@ declare i32 @AWTFontDefaultChar(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_fontExists(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1368
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %2) #7
   %8 = add nsw i32 %7, 1
@@ -173,7 +173,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_fontExists(ptr nounde
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1600
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1600
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef %7, ptr noundef nonnull %10) #7
   %16 = sext i32 %7 to i64
@@ -195,7 +195,7 @@ declare i32 @AWTCountFonts(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_haveBitmapFonts(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1368
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, ptr noundef %2) #7
   %8 = add nsw i32 %7, 1
@@ -206,7 +206,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_haveBitmapFonts(ptr n
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1600
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1600
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef %7, ptr noundef nonnull %10) #7
   %16 = sext i32 %7 to i64
@@ -231,7 +231,7 @@ define i32 @Java_sun_font_NativeFont_countGlyphs(ptr noundef %0, ptr nocapture n
 
 7:                                                ; preds = %4
   %8 = inttoptr i64 %5 to ptr
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = load ptr, ptr %8, align 8
   tail call void @AWTFreeFont(ptr noundef %11) #7
@@ -250,7 +250,7 @@ define range(i32 -2147483647, -2147483648) i32 @Java_sun_font_NativeStrike_getMa
 
 5:                                                ; preds = %3
   %6 = inttoptr i64 %2 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, 1
   br label %10
@@ -275,23 +275,23 @@ define float @Java_sun_font_NativeFont_getGlyphAdvance(ptr nocapture noundef rea
   br i1 %11, label %46, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %46, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %3, %18
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 12
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.pre.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4
   %20 = icmp sgt i32 %3, %.pre.pre
   %or.cond = select i1 %19, i1 true, i1 %20
   br i1 %or.cond, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %7, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %22 = load i32, ptr %21, align 4
   br label %23
 
@@ -317,7 +317,7 @@ define float @Java_sun_font_NativeFont_getGlyphAdvance(ptr nocapture noundef rea
   %34 = trunc i32 %33 to i8
   store i8 %34, ptr %6, align 1
   %35 = trunc i32 %.022 to i8
-  %36 = getelementptr inbounds i8, ptr %6, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %35, ptr %36, align 1
   call void @AWTFontTextExtents16(ptr noundef nonnull %10, ptr noundef nonnull %6, ptr noundef nonnull %5) #7
   %37 = load ptr, ptr %5, align 8
@@ -329,7 +329,7 @@ define float @Java_sun_font_NativeFont_getGlyphAdvance(ptr nocapture noundef rea
 40:                                               ; preds = %32, %27
   %.023.in = phi i16 [ %31, %27 ], [ %38, %32 ]
   %41 = sitofp i16 %.023.in to double
-  %42 = getelementptr inbounds i8, ptr %7, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %43 = load double, ptr %42, align 8
   %44 = fdiv double %41, %43
   %45 = fptrunc double %44 to float
@@ -361,19 +361,19 @@ define i64 @Java_sun_font_NativeFont_getGlyphImageNoDefault(ptr nocapture nounde
   br i1 %10, label %29, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %29, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %3, %17
   br i1 %18, label %29, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %3, %21
   br i1 %22, label %29, label %23
@@ -383,7 +383,7 @@ define i64 @Java_sun_font_NativeFont_getGlyphImageNoDefault(ptr nocapture nounde
   %25 = trunc i32 %24 to i8
   store i8 %25, ptr %5, align 1
   %26 = trunc i32 %3 to i8
-  %27 = getelementptr inbounds i8, ptr %5, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %26, ptr %27, align 1
   %28 = call i64 @AWTFontGenerateImage(ptr noundef nonnull %9, ptr noundef nonnull %5) #7
   br label %29
@@ -408,25 +408,25 @@ define i64 @Java_sun_font_NativeFont_getGlyphImage(ptr nocapture noundef readnon
   br i1 %10, label %32, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %32, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %6, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp slt i32 %3, %17
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %6, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %3, %21
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %19, %15
-  %24 = getelementptr inbounds i8, ptr %6, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %25 = load i32, ptr %24, align 4
   br label %26
 
@@ -436,7 +436,7 @@ define i64 @Java_sun_font_NativeFont_getGlyphImage(ptr nocapture noundef readnon
   %28 = trunc i32 %27 to i8
   store i8 %28, ptr %5, align 1
   %29 = trunc i32 %.013 to i8
-  %30 = getelementptr inbounds i8, ptr %5, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %29, ptr %30, align 1
   %31 = call i64 @AWTFontGenerateImage(ptr noundef nonnull %9, ptr noundef nonnull %5) #7
   br label %32
@@ -466,7 +466,7 @@ define ptr @Java_sun_font_NativeFont_getFontMetrics(ptr noundef %0, ptr nocaptur
   %15 = tail call ptr @AWTFontMaxBounds(ptr noundef nonnull %7) #7
   %16 = tail call signext i16 @AWTCharAdvance(ptr noundef %15) #7
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 224
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 224
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 192), align 8
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @sunFontIDs, i64 200), align 8

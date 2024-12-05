@@ -90,10 +90,10 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhii(ptr noundef %0, i32 noundef %1
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.028 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = load i8, ptr %9, align 1
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %.023, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %.023, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nuw nsw i32 %.028, %14
@@ -143,13 +143,13 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_ii(ptr noundef %0, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.032 = phi i32 [ 0, %.lr.ph.preheader ], [ %19, %.lr.ph ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, %11
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %.027, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %.027, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = add nuw nsw i32 %.032, %18
@@ -176,9 +176,9 @@ define noundef float @_ZN2cv3hal10normL2Sqr_EPKfS2_i(ptr nocapture noundef reado
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = fsub float %6, %8
   %10 = tail call float @llvm.fmuladd.f32(float %9, float %9, float %.01011)
@@ -206,9 +206,9 @@ define noundef float @_ZN2cv3hal7normL1_EPKfS2_i(ptr nocapture noundef readonly 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %5 = getelementptr inbounds float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4
-  %7 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = fsub float %6, %8
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
@@ -234,10 +234,10 @@ define noundef i32 @_ZN2cv3hal7normL1_EPKhS2_i(ptr nocapture noundef readonly %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %13, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = sub nsw i32 %7, %10
@@ -347,7 +347,7 @@ define noundef double @_ZN2cv4normERKNS_11_InputArrayEiS2_(ptr noundef nonnull a
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %.noexc
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !noalias !10
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %55)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %40
@@ -365,7 +365,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %53, %56
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %.noexc169
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load ptr, ptr %60, align 8, !noalias !13
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %61)
           to label %_ZNK2cv11_InputArray6getMatEi.exit172 unwind label %91
@@ -410,7 +410,7 @@ _ZNK2cv11_InputArray6getMatEi.exit172:            ; preds = %59, %62
   ]
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %7, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %83 = load ptr, ptr %82, align 8
   br i1 %31, label %84, label %93
 
@@ -425,7 +425,7 @@ _ZNK2cv11_InputArray6getMatEi.exit172:            ; preds = %59, %62
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %.010.i.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i.i ], [ %89, %.lr.ph.i.i.i ]
-  %86 = getelementptr inbounds float, ptr %83, i64 %indvars.iv.i.i.i
+  %86 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv.i.i.i
   %87 = load float, ptr %86, align 4
   %88 = fpext float %87 to double
   %89 = call double @llvm.fmuladd.f64(double %88, double %88, double %.010.i.i.i)
@@ -477,7 +477,7 @@ _ZN2cvL10normL2_32fEPKfPKhPdii.exit:              ; preds = %.lr.ph.i.i.i, %84
 .lr.ph.i.i.i176:                                  ; preds = %.lr.ph.i.i.i176, %.lr.ph.preheader.i.i.i174
   %indvars.iv.i.i.i177 = phi i64 [ 0, %.lr.ph.preheader.i.i.i174 ], [ %indvars.iv.next.i.i.i179, %.lr.ph.i.i.i176 ]
   %.010.i.i.i178 = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i.i174 ], [ %99, %.lr.ph.i.i.i176 ]
-  %96 = getelementptr inbounds float, ptr %83, i64 %indvars.iv.i.i.i177
+  %96 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv.i.i.i177
   %97 = load float, ptr %96, align 4
   %98 = fpext float %97 to double
   %99 = call double @llvm.fmuladd.f64(double %98, double %98, double %.010.i.i.i178)
@@ -499,7 +499,7 @@ _ZN2cvL10normL2_32fEPKfPKhPdii.exit:              ; preds = %.lr.ph.i.i.i, %84
 .lr.ph.i.i.i184:                                  ; preds = %.lr.ph.i.i.i184, %.lr.ph.preheader.i.i.i182
   %indvars.iv.i.i.i185 = phi i64 [ 0, %.lr.ph.preheader.i.i.i182 ], [ %indvars.iv.next.i.i.i186, %.lr.ph.i.i.i184 ]
   %.067.i.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i.i182 ], [ %107, %.lr.ph.i.i.i184 ]
-  %103 = getelementptr inbounds float, ptr %83, i64 %indvars.iv.i.i.i185
+  %103 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv.i.i.i185
   %104 = load float, ptr %103, align 4
   %105 = call noundef float @llvm.fabs.f32(float %104)
   %106 = fpext float %105 to double
@@ -522,7 +522,7 @@ _ZN2cvL10normL2_32fEPKfPKhPdii.exit:              ; preds = %.lr.ph.i.i.i, %84
 .lr.ph.i.i.i190:                                  ; preds = %.lr.ph.i.i.i190, %.lr.ph.preheader.i.i.i188
   %indvars.iv.i.i.i191 = phi i64 [ 0, %.lr.ph.preheader.i.i.i188 ], [ %indvars.iv.next.i.i.i192, %.lr.ph.i.i.i190 ]
   %.056.i.i.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i.i188 ], [ %.sroa.speculated.i.i.i, %.lr.ph.i.i.i190 ]
-  %111 = getelementptr inbounds float, ptr %83, i64 %indvars.iv.i.i.i191
+  %111 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv.i.i.i191
   %112 = load float, ptr %111, align 4
   %113 = call noundef float @llvm.fabs.f32(float %112)
   %114 = fcmp olt float %.056.i.i.i, %113
@@ -539,7 +539,7 @@ _ZN2cvL10normL2_32fEPKfPKhPdii.exit:              ; preds = %.lr.ph.i.i.i, %84
   br label %_ZN2cvL10normL2_32fEPKfPKhPdii.exit181
 
 117:                                              ; preds = %80
-  %118 = getelementptr inbounds i8, ptr %7, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %119 = load ptr, ptr %118, align 8
   switch i32 %27, label %134 [
     i32 6, label %120
@@ -565,10 +565,10 @@ _ZN2cvL10normL2_32fEPKfPKhPdii.exit:              ; preds = %.lr.ph.i.i.i, %84
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.028.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %132, %.lr.ph.i ]
-  %126 = getelementptr inbounds i8, ptr %119, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 %indvars.iv.i
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i64
-  %129 = getelementptr inbounds i8, ptr @_ZN2cv3halL14popCountTable2E, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr @_ZN2cv3halL14popCountTable2E, i64 %128
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = add nuw nsw i32 %.028.i, %131
@@ -635,22 +635,22 @@ _ZN2cv3hal11normHammingEPKhii.exit.loopexit:      ; preds = %.lr.ph.i
 
 154:                                              ; preds = %153
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %11) #15
-  %155 = getelementptr inbounds i8, ptr %12, i64 16
+  %155 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %12, i64 20
+  %156 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %156, align 4
   store i32 16842752, ptr %12, align 8
-  %157 = getelementptr inbounds i8, ptr %12, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %7, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %13, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %13, i64 20
+  %159 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %159, align 4
   store i32 16842752, ptr %13, align 8
-  %160 = getelementptr inbounds i8, ptr %13, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %8, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %14, i64 8
-  %162 = getelementptr inbounds i8, ptr %14, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %162, align 8
   store i32 33619968, ptr %14, align 8
   store ptr %11, ptr %161, align 8
@@ -662,12 +662,12 @@ _ZN2cv3hal11normHammingEPKhii.exit.loopexit:      ; preds = %.lr.ph.i
           to label %165 unwind label %173
 
 165:                                              ; preds = %164
-  %166 = getelementptr inbounds i8, ptr %15, i64 16
+  %166 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %15, i64 20
+  %167 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 0, ptr %167, align 4
   store i32 16842752, ptr %15, align 8
-  %168 = getelementptr inbounds i8, ptr %15, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %11, ptr %168, align 8
   %169 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %170 unwind label %175
@@ -697,17 +697,17 @@ _ZN2cv3hal11normHammingEPKhii.exit.loopexit:      ; preds = %.lr.ph.i
 
 178:                                              ; preds = %153
   store ptr %7, ptr %16, align 16
-  %179 = getelementptr inbounds i8, ptr %16, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr null, ptr %179, align 8
   store i64 0, ptr %17, align 8
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef -1)
           to label %180 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %18, i64 40
+  %181 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %182 = load i64, ptr %181, align 8
   %183 = trunc i64 %182 to i32
-  %184 = getelementptr inbounds i8, ptr %18, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %185 = icmp sgt i32 %183, 0
   %wide.trip.count.i196 = and i64 %182, 2147483647
   br i1 %150, label %.split281.us, label %.split281
@@ -749,10 +749,10 @@ _ZN2cv3hal11normHammingEPKhii.exit203.us:         ; preds = %188
 .lr.ph.i197:                                      ; preds = %196, %.lr.ph.i197
   %indvars.iv.i198 = phi i64 [ %indvars.iv.next.i200, %.lr.ph.i197 ], [ 0, %196 ]
   %.028.i199 = phi i32 [ %204, %.lr.ph.i197 ], [ 0, %196 ]
-  %198 = getelementptr inbounds i8, ptr %197, i64 %indvars.iv.i198
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 %indvars.iv.i198
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds i8, ptr @_ZN2cv3halL14popCountTable2E, i64 %200
+  %201 = getelementptr inbounds nuw i8, ptr @_ZN2cv3halL14popCountTable2E, i64 %200
   %202 = load i8, ptr %201, align 1
   %203 = zext i8 %202 to i32
   %204 = add nuw nsw i32 %.028.i199, %203
@@ -778,7 +778,7 @@ _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
   %212 = select i1 %211, i32 5, i32 %64
   %213 = zext nneg i32 %210 to i64
   %214 = zext nneg i32 %212 to i64
-  %215 = getelementptr inbounds [3 x [8 x ptr]], ptr @_ZZN2cvL11getNormFuncEiiE7normTab, i64 0, i64 %213, i64 %214
+  %215 = getelementptr inbounds nuw [3 x [8 x ptr]], ptr @_ZZN2cvL11getNormFuncEiiE7normTab, i64 0, i64 %213, i64 %214
   %216 = load ptr, ptr %215, align 8
   %.not = icmp eq ptr %216, null
   br i1 %.not, label %217, label %225
@@ -813,9 +813,9 @@ _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
 
 225:                                              ; preds = %209
   store ptr %7, ptr %21, align 16
-  %226 = getelementptr inbounds i8, ptr %21, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %8, ptr %226, align 8
-  %227 = getelementptr inbounds i8, ptr %21, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr null, ptr %227, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   store double 0.000000e+00, ptr %23, align 8
@@ -823,7 +823,7 @@ _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
           to label %228 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 228:                                              ; preds = %225
-  %229 = getelementptr inbounds i8, ptr %24, i64 40
+  %229 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %230 = load i64, ptr %229, align 8
   %.fr = freeze i64 %230
   %231 = icmp ult i64 %.fr, 2147483647
@@ -845,13 +845,13 @@ _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
   br i1 %or.cond246, label %237, label %290
 
 237:                                              ; preds = %234
-  %238 = getelementptr inbounds i8, ptr %7, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %239 = load i32, ptr %238, align 4
   %240 = icmp sgt i32 %239, 0
   br i1 %240, label %241, label %_ZNK2cv3Mat8elemSizeEv.exit
 
 241:                                              ; preds = %237
-  %242 = getelementptr inbounds i8, ptr %7, i64 72
+  %242 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %243 = load ptr, ptr %242, align 8
   %244 = zext nneg i32 %239 to i64
   %245 = getelementptr i64, ptr %243, i64 %244
@@ -867,10 +867,10 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %237, %241
   %252 = udiv i32 %251, %67
   %.sroa.speculated231 = call i32 @llvm.umin.i32(i32 %252, i32 %249)
   store i32 0, ptr %25, align 4
-  %253 = getelementptr inbounds i8, ptr %24, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %invariant.op = sub nsw i32 %252, %.sroa.speculated231
   %.not313 = icmp eq i64 %.fr, 0
-  %254 = getelementptr inbounds i8, ptr %22, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not313, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %._crit_edge.us277
@@ -969,18 +969,18 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
   br i1 %211, label %293, label %.preheader260
 
 .preheader260:                                    ; preds = %290
-  %291 = getelementptr inbounds i8, ptr %24, i64 32
-  %292 = getelementptr inbounds i8, ptr %22, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %292 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %353
 
 293:                                              ; preds = %290
-  %294 = getelementptr inbounds i8, ptr %7, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %295 = load i32, ptr %294, align 4
   %296 = icmp sgt i32 %295, 0
   br i1 %296, label %297, label %_ZNK2cv3Mat8elemSizeEv.exit205
 
 297:                                              ; preds = %293
-  %298 = getelementptr inbounds i8, ptr %7, i64 72
+  %298 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %299 = load ptr, ptr %298, align 8
   %300 = zext nneg i32 %295 to i64
   %301 = getelementptr i64, ptr %299, i64 %300
@@ -999,9 +999,9 @@ _ZNK2cv3Mat8elemSizeEv.exit205:                   ; preds = %293, %297
   %.sroa.speculated214 = call i32 @llvm.umin.i32(i32 %.zext, i32 %305)
   %308 = mul nuw nsw i32 %.sroa.speculated214, %67
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds i8, ptr %26, i64 16
+  %310 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %310, ptr %26, align 8
-  %311 = getelementptr inbounds i8, ptr %26, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.not.i.i = icmp samesign ugt i32 %308, 1026
   store i64 %309, ptr %311, align 8
   br i1 %.not.i.i, label %312, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit
@@ -1017,9 +1017,9 @@ _ZNK2cv3Mat8elemSizeEv.exit205:                   ; preds = %293, %297
 
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit:            ; preds = %.noexc207, %_ZNK2cv3Mat8elemSizeEv.exit205
   %315 = phi ptr [ %314, %.noexc207 ], [ %310, %_ZNK2cv3Mat8elemSizeEv.exit205 ]
-  %316 = getelementptr inbounds i8, ptr %24, i64 32
+  %316 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %.not312 = icmp eq i64 %.fr, 0
-  %317 = getelementptr inbounds i8, ptr %22, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br i1 %.not312, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us
 
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us:   ; preds = %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit, %._crit_edge.us
@@ -1189,7 +1189,7 @@ _ZN2cvL10normL2_32fEPKfPKhPdii.exit181:           ; preds = %.lr.ph.i.i.i184, %.
   %.0118 = phi double [ %90, %_ZN2cvL10normL2_32fEPKfPKhPdii.exit ], [ %116, %.loopexit266 ], [ %123, %122 ], [ %208, %.split283.us ], [ %171, %172 ], [ %367, %366 ], [ %370, %368 ], [ %373, %371 ], [ %377, %376 ], [ 0.000000e+00, %94 ], [ 0.000000e+00, %101 ], [ 0.000000e+00, %124 ], [ %133, %_ZN2cv3hal11normHammingEPKhii.exit.loopexit ], [ %375, %374 ], [ %99, %.lr.ph.i.i.i176 ], [ %107, %.lr.ph.i.i.i184 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
-  %378 = getelementptr inbounds i8, ptr %4, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %379 = load i32, ptr %378, align 8
   %.not.i = icmp eq i32 %379, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %380
@@ -1264,7 +1264,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture nounde
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -1272,7 +1272,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds float, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw float, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
@@ -1283,7 +1283,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %16 = getelementptr inbounds float, ptr %.033.us.i, i64 %9
+  %16 = getelementptr inbounds nuw float, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_IfdEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !26
 
@@ -1299,7 +1299,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %.010.i.i)
@@ -1345,7 +1345,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture nounde
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -1353,7 +1353,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi double [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds float, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw float, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fpext float %14 to double
@@ -1365,7 +1365,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi double [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %17 = getelementptr inbounds float, ptr %.02229.us.i, i64 %9
+  %17 = getelementptr inbounds nuw float, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_IfdEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !28
 
@@ -1381,7 +1381,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
   %22 = load float, ptr %21, align 4
   %23 = tail call noundef float @llvm.fabs.f32(float %22)
   %24 = fpext float %23 to double
@@ -1425,7 +1425,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture nound
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph36.split.us.preheader.i ], [ %indvars.iv.next41.i, %..loopexit_crit_edge.us.i ]
   %.01834.us.i = phi ptr [ %0, %.lr.ph36.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.133.us.i = phi float [ %6, %.lr.ph36.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv40.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv40.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -1433,7 +1433,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture nound
 .preheader.us.i:                                  ; preds = %.lr.ph36.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph36.split.us.i ]
   %.231.us.i = phi float [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.133.us.i, %.lr.ph36.split.us.i ]
-  %12 = getelementptr inbounds float, ptr %.01834.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw float, ptr %.01834.us.i, i64 %indvars.iv.i
   %13 = load float, ptr %12, align 4
   %14 = tail call noundef float @llvm.fabs.f32(float %13)
   %15 = fcmp olt float %.231.us.i, %14
@@ -1445,7 +1445,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture nound
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph36.split.us.i
   %.3.us.i = phi float [ %.133.us.i, %.lr.ph36.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %16 = getelementptr inbounds float, ptr %.01834.us.i, i64 %9
+  %16 = getelementptr inbounds nuw float, ptr %.01834.us.i, i64 %9
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
   br i1 %exitcond44.not.i, label %_ZN2cv8normInf_IffEEiPKT_PKhPT0_ii.exit, label %.lr.ph36.split.us.i, !llvm.loop !30
 
@@ -1461,7 +1461,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture nound
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.056.i.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
   %21 = load float, ptr %20, align 4
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
   %23 = fcmp olt float %.056.i.i, %22
@@ -1506,7 +1506,7 @@ declare void @_ZN2cv3hal9cvt16f32fEPKNS_6hfloatEPfi(ptr noundef, ptr noundef, i3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -1652,7 +1652,7 @@ define noundef double @_ZN2cv4normERKNS_11_InputArrayES2_iS2_(ptr noundef nonnul
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %.noexc
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8, !noalias !31
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %73)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %39
@@ -1670,7 +1670,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %71, %74
   br i1 %76, label %77, label %80
 
 77:                                               ; preds = %.noexc199
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8, !noalias !34
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %79)
           to label %_ZNK2cv11_InputArray6getMatEi.exit202 unwind label %103
@@ -1688,7 +1688,7 @@ _ZNK2cv11_InputArray6getMatEi.exit202:            ; preds = %77, %80
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %.noexc203
-  %84 = getelementptr inbounds i8, ptr %3, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %85 = load ptr, ptr %84, align 8, !noalias !37
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %85)
           to label %_ZNK2cv11_InputArray6getMatEi.exit206 unwind label %105
@@ -1818,9 +1818,9 @@ _ZNK2cv11_InputArray6getMatEi.exit206:            ; preds = %83, %86
   br i1 %or.cond276, label %137, label %185
 
 137:                                              ; preds = %125
-  %138 = getelementptr inbounds i8, ptr %8, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds i8, ptr %9, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %141 = load ptr, ptr %140, align 8
   br i1 %96, label %142, label %152
 
@@ -1835,9 +1835,9 @@ _ZNK2cv11_InputArray6getMatEi.exit206:            ; preds = %83, %86
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %.012.i.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i.i ], [ %150, %.lr.ph.i.i.i ]
-  %144 = getelementptr inbounds float, ptr %139, i64 %indvars.iv.i.i.i
+  %144 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i.i.i
   %145 = load float, ptr %144, align 4
-  %146 = getelementptr inbounds float, ptr %141, i64 %indvars.iv.i.i.i
+  %146 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i
   %147 = load float, ptr %146, align 4
   %148 = fsub float %145, %147
   %149 = fpext float %148 to double
@@ -1865,9 +1865,9 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 .lr.ph.i.i.i210:                                  ; preds = %.lr.ph.i.i.i210, %.lr.ph.preheader.i.i.i208
   %indvars.iv.i.i.i211 = phi i64 [ 0, %.lr.ph.preheader.i.i.i208 ], [ %indvars.iv.next.i.i.i213, %.lr.ph.i.i.i210 ]
   %.012.i.i.i212 = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i.i208 ], [ %161, %.lr.ph.i.i.i210 ]
-  %155 = getelementptr inbounds float, ptr %139, i64 %indvars.iv.i.i.i211
+  %155 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i.i.i211
   %156 = load float, ptr %155, align 4
-  %157 = getelementptr inbounds float, ptr %141, i64 %indvars.iv.i.i.i211
+  %157 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i211
   %158 = load float, ptr %157, align 4
   %159 = fsub float %156, %158
   %160 = fpext float %159 to double
@@ -1890,9 +1890,9 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 .lr.ph.i.i.i219:                                  ; preds = %.lr.ph.i.i.i219, %.lr.ph.preheader.i.i.i217
   %indvars.iv.i.i.i220 = phi i64 [ 0, %.lr.ph.preheader.i.i.i217 ], [ %indvars.iv.next.i.i.i221, %.lr.ph.i.i.i219 ]
   %.011.i.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i.i217 ], [ %172, %.lr.ph.i.i.i219 ]
-  %165 = getelementptr inbounds float, ptr %139, i64 %indvars.iv.i.i.i220
+  %165 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i.i.i220
   %166 = load float, ptr %165, align 4
-  %167 = getelementptr inbounds float, ptr %141, i64 %indvars.iv.i.i.i220
+  %167 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i220
   %168 = load float, ptr %167, align 4
   %169 = fsub float %166, %168
   %170 = call float @llvm.fabs.f32(float %169)
@@ -1916,9 +1916,9 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 .lr.ph.i.i.i225:                                  ; preds = %.lr.ph.i.i.i225, %.lr.ph.preheader.i.i.i223
   %indvars.iv.i.i.i226 = phi i64 [ 0, %.lr.ph.preheader.i.i.i223 ], [ %indvars.iv.next.i.i.i227, %.lr.ph.i.i.i225 ]
   %.089.i.i.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i.i223 ], [ %.sroa.speculated.i.i.i, %.lr.ph.i.i.i225 ]
-  %176 = getelementptr inbounds float, ptr %139, i64 %indvars.iv.i.i.i226
+  %176 = getelementptr inbounds nuw float, ptr %139, i64 %indvars.iv.i.i.i226
   %177 = load float, ptr %176, align 4
-  %178 = getelementptr inbounds float, ptr %141, i64 %indvars.iv.i.i.i226
+  %178 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i226
   %179 = load float, ptr %178, align 4
   %180 = fsub float %177, %179
   %181 = call noundef float @llvm.fabs.f32(float %180)
@@ -1990,22 +1990,22 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 
 205:                                              ; preds = %204
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #15
-  %206 = getelementptr inbounds i8, ptr %16, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %16, i64 20
+  %207 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %207, align 4
   store i32 16842752, ptr %16, align 8
-  %208 = getelementptr inbounds i8, ptr %16, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %8, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %17, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %17, i64 20
+  %210 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %210, align 4
   store i32 16842752, ptr %17, align 8
-  %211 = getelementptr inbounds i8, ptr %17, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %9, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %18, i64 8
-  %213 = getelementptr inbounds i8, ptr %18, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %213, align 8
   store i32 33619968, ptr %18, align 8
   store ptr %15, ptr %212, align 8
@@ -2017,22 +2017,22 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
           to label %216 unwind label %235
 
 216:                                              ; preds = %215
-  %217 = getelementptr inbounds i8, ptr %19, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 0, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %19, i64 20
+  %218 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 0, ptr %218, align 4
   store i32 16842752, ptr %19, align 8
-  %219 = getelementptr inbounds i8, ptr %19, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %15, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %20, i64 16
+  %220 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %20, i64 20
+  %221 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %221, align 4
   store i32 16842752, ptr %20, align 8
-  %222 = getelementptr inbounds i8, ptr %20, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %10, ptr %222, align 8
-  %223 = getelementptr inbounds i8, ptr %21, i64 8
-  %224 = getelementptr inbounds i8, ptr %21, i64 16
+  %223 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 0, ptr %224, align 8
   store i32 33619968, ptr %21, align 8
   store ptr %15, ptr %223, align 8
@@ -2044,12 +2044,12 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
           to label %227 unwind label %237
 
 227:                                              ; preds = %226
-  %228 = getelementptr inbounds i8, ptr %22, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 0, ptr %228, align 8
-  %229 = getelementptr inbounds i8, ptr %22, i64 20
+  %229 = getelementptr inbounds nuw i8, ptr %22, i64 20
   store i32 0, ptr %229, align 4
   store i32 16842752, ptr %22, align 8
-  %230 = getelementptr inbounds i8, ptr %22, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %15, ptr %230, align 8
   %231 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %232 unwind label %239
@@ -2084,20 +2084,20 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 
 242:                                              ; preds = %204
   store ptr %8, ptr %23, align 16
-  %243 = getelementptr inbounds i8, ptr %23, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %9, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %23, i64 16
+  %244 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr null, ptr %244, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull %23, ptr noundef nonnull %24, i32 noundef -1)
           to label %245 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 245:                                              ; preds = %242
-  %246 = getelementptr inbounds i8, ptr %25, i64 40
+  %246 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %247 = load i64, ptr %246, align 8
   %248 = trunc i64 %247 to i32
-  %249 = getelementptr inbounds i8, ptr %25, i64 32
-  %250 = getelementptr inbounds i8, ptr %24, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %251 = icmp sgt i32 %248, 0
   %wide.trip.count.i = and i64 %247, 2147483647
   br label %252
@@ -2124,13 +2124,13 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 .lr.ph.i:                                         ; preds = %260, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %260 ]
   %.032.i = phi i32 [ %270, %.lr.ph.i ], [ 0, %260 ]
-  %261 = getelementptr inbounds i8, ptr %256, i64 %indvars.iv.i
+  %261 = getelementptr inbounds nuw i8, ptr %256, i64 %indvars.iv.i
   %262 = load i8, ptr %261, align 1
-  %263 = getelementptr inbounds i8, ptr %257, i64 %indvars.iv.i
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 %indvars.iv.i
   %264 = load i8, ptr %263, align 1
   %265 = xor i8 %264, %262
   %266 = zext i8 %265 to i64
-  %267 = getelementptr inbounds i8, ptr @_ZN2cv3halL14popCountTable2E, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr @_ZN2cv3halL14popCountTable2E, i64 %266
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   %270 = add nuw nsw i32 %.032.i, %269
@@ -2155,7 +2155,7 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %25
   %279 = select i1 %278, i32 5, i32 %88
   %280 = zext nneg i32 %277 to i64
   %281 = zext nneg i32 %279 to i64
-  %282 = getelementptr inbounds [3 x [8 x ptr]], ptr @_ZZN2cvL15getNormDiffFuncEiiE11normDiffTab, i64 0, i64 %280, i64 %281
+  %282 = getelementptr inbounds nuw [3 x [8 x ptr]], ptr @_ZZN2cvL15getNormDiffFuncEiiE11normDiffTab, i64 0, i64 %280, i64 %281
   %283 = load ptr, ptr %282, align 8
   %.not175 = icmp eq ptr %283, null
   br i1 %.not175, label %284, label %292
@@ -2190,11 +2190,11 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %25
 
 292:                                              ; preds = %276
   store ptr %8, ptr %28, align 16
-  %293 = getelementptr inbounds i8, ptr %28, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %9, ptr %293, align 8
-  %294 = getelementptr inbounds i8, ptr %28, i64 16
+  %294 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %10, ptr %294, align 16
-  %295 = getelementptr inbounds i8, ptr %28, i64 24
+  %295 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr null, ptr %295, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   store double 0.000000e+00, ptr %30, align 8
@@ -2202,7 +2202,7 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %25
           to label %296 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 296:                                              ; preds = %292
-  %297 = getelementptr inbounds i8, ptr %31, i64 40
+  %297 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %298 = load i64, ptr %297, align 8
   %.fr = freeze i64 %298
   %299 = icmp ult i64 %.fr, 2147483647
@@ -2224,13 +2224,13 @@ _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %25
   br i1 %or.cond277, label %305, label %362
 
 305:                                              ; preds = %302
-  %306 = getelementptr inbounds i8, ptr %8, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %307 = load i32, ptr %306, align 4
   %308 = icmp sgt i32 %307, 0
   br i1 %308, label %309, label %_ZNK2cv3Mat8elemSizeEv.exit
 
 309:                                              ; preds = %305
-  %310 = getelementptr inbounds i8, ptr %8, i64 72
+  %310 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %311 = load ptr, ptr %310, align 8
   %312 = zext nneg i32 %307 to i64
   %313 = getelementptr i64, ptr %311, i64 %312
@@ -2246,11 +2246,11 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %305, %309
   %320 = udiv i32 %319, %91
   %.sroa.speculated258 = call i32 @llvm.umin.i32(i32 %320, i32 %317)
   store i32 0, ptr %32, align 4
-  %321 = getelementptr inbounds i8, ptr %31, i64 32
+  %321 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %invariant.op = sub nsw i32 %320, %.sroa.speculated258
   %.not334 = icmp eq i64 %.fr, 0
-  %322 = getelementptr inbounds i8, ptr %29, i64 8
-  %323 = getelementptr inbounds i8, ptr %29, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br i1 %.not334, label %_ZNK2cv3Mat8elemSizeEv.exit.split, label %_ZNK2cv3Mat8elemSizeEv.exit.split.us
 
 _ZNK2cv3Mat8elemSizeEv.exit.split.us:             ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %._crit_edge.us308
@@ -2354,19 +2354,19 @@ _ZNK2cv3Mat8elemSizeEv.exit.split:                ; preds = %_ZNK2cv3Mat8elemSiz
   br i1 %278, label %366, label %.preheader292
 
 .preheader292:                                    ; preds = %362
-  %363 = getelementptr inbounds i8, ptr %31, i64 32
-  %364 = getelementptr inbounds i8, ptr %29, i64 8
-  %365 = getelementptr inbounds i8, ptr %29, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %364 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br label %434
 
 366:                                              ; preds = %362
-  %367 = getelementptr inbounds i8, ptr %8, i64 4
+  %367 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %368 = load i32, ptr %367, align 4
   %369 = icmp sgt i32 %368, 0
   br i1 %369, label %370, label %_ZNK2cv3Mat8elemSizeEv.exit231
 
 370:                                              ; preds = %366
-  %371 = getelementptr inbounds i8, ptr %8, i64 72
+  %371 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %372 = load ptr, ptr %371, align 8
   %373 = zext nneg i32 %368 to i64
   %374 = getelementptr i64, ptr %372, i64 %373
@@ -2386,9 +2386,9 @@ _ZNK2cv3Mat8elemSizeEv.exit231:                   ; preds = %366, %370
   %381 = mul nuw nsw i32 %.sroa.speculated240, %91
   %382 = shl nuw nsw i32 %381, 1
   %383 = zext nneg i32 %382 to i64
-  %384 = getelementptr inbounds i8, ptr %33, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %384, ptr %33, align 8
-  %385 = getelementptr inbounds i8, ptr %33, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.not.i.i = icmp samesign ugt i32 %381, 513
   store i64 %383, ptr %385, align 8
   br i1 %.not.i.i, label %386, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit
@@ -2405,11 +2405,11 @@ _ZNK2cv3Mat8elemSizeEv.exit231:                   ; preds = %366, %370
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit:            ; preds = %.noexc233, %_ZNK2cv3Mat8elemSizeEv.exit231
   %389 = phi ptr [ %388, %.noexc233 ], [ %384, %_ZNK2cv3Mat8elemSizeEv.exit231 ]
   %390 = zext nneg i32 %381 to i64
-  %391 = getelementptr inbounds float, ptr %389, i64 %390
-  %392 = getelementptr inbounds i8, ptr %31, i64 32
+  %391 = getelementptr inbounds nuw float, ptr %389, i64 %390
+  %392 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %.not333 = icmp eq i64 %.fr, 0
-  %393 = getelementptr inbounds i8, ptr %29, i64 8
-  %394 = getelementptr inbounds i8, ptr %29, i64 16
+  %393 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br i1 %.not333, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split, label %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us
 
 _ZN2cv10AutoBufferIfLm1026EEC2Em.exit.split.us:   ; preds = %_ZN2cv10AutoBufferIfLm1026EEC2Em.exit, %._crit_edge.us
@@ -2608,7 +2608,7 @@ _ZN2cv10AutoBufferIfLm1026EED2Ev.exit:            ; preds = %.loopexit, %.loopex
 
 462:                                              ; preds = %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215, %65
   %.0136 = phi double [ %67, %65 ], [ %.1, %_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit215 ]
-  %463 = getelementptr inbounds i8, ptr %5, i64 8
+  %463 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %464 = load i32, ptr %463, align 8
   %.not.i = icmp eq i32 %464, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %465
@@ -2663,7 +2663,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -2671,9 +2671,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi double [ %19, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds float, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw float, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds float, ptr %.03037.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw float, ptr %.03037.us.i, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fsub float %14, %16
   %18 = fpext float %17 to double
@@ -2685,8 +2685,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %19, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %20 = getelementptr inbounds float, ptr %.040.us.i, i64 %10
-  %21 = getelementptr inbounds float, ptr %.03037.us.i, i64 %10
+  %20 = getelementptr inbounds nuw float, ptr %.040.us.i, i64 %10
+  %21 = getelementptr inbounds nuw float, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_IfdEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !50
 
@@ -2702,9 +2702,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %31, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i
   %28 = load float, ptr %27, align 4
   %29 = fsub float %26, %28
   %30 = fpext float %29 to double
@@ -2749,7 +2749,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
   %.137.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -2757,9 +2757,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi double [ %20, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds float, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw float, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds float, ptr %.02835.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw float, ptr %.02835.us.i, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fsub float %14, %16
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
@@ -2772,8 +2772,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi double [ %.137.us.i, %.lr.ph39.split.us.i ], [ %20, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %21 = getelementptr inbounds float, ptr %.02736.us.i, i64 %10
-  %22 = getelementptr inbounds float, ptr %.02835.us.i, i64 %10
+  %21 = getelementptr inbounds nuw float, ptr %.02736.us.i, i64 %10
+  %22 = getelementptr inbounds nuw float, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_IfdEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !52
 
@@ -2789,9 +2789,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %33, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
   %27 = load float, ptr %26, align 4
-  %28 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i
   %29 = load float, ptr %28, align 4
   %30 = fsub float %27, %29
   %31 = tail call float @llvm.fabs.f32(float %30)
@@ -2837,7 +2837,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocaptur
   %.02341.us.i = phi ptr [ %0, %.lr.ph43.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.02440.us.i = phi ptr [ %1, %.lr.ph43.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.139.us.i = phi float [ %7, %.lr.ph43.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv47.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv47.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -2845,9 +2845,9 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocaptur
 .preheader.us.i:                                  ; preds = %.lr.ph43.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph43.split.us.i ]
   %.237.us.i = phi float [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.139.us.i, %.lr.ph43.split.us.i ]
-  %13 = getelementptr inbounds float, ptr %.02341.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw float, ptr %.02341.us.i, i64 %indvars.iv.i
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds float, ptr %.02440.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw float, ptr %.02440.us.i, i64 %indvars.iv.i
   %16 = load float, ptr %15, align 4
   %17 = fsub float %14, %16
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
@@ -2860,8 +2860,8 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocaptur
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph43.split.us.i
   %.3.us.i = phi float [ %.139.us.i, %.lr.ph43.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %20 = getelementptr inbounds float, ptr %.02341.us.i, i64 %10
-  %21 = getelementptr inbounds float, ptr %.02440.us.i, i64 %10
+  %20 = getelementptr inbounds nuw float, ptr %.02341.us.i, i64 %10
+  %21 = getelementptr inbounds nuw float, ptr %.02440.us.i, i64 %10
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %_ZN2cv12normDiffInf_IffEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph43.split.us.i, !llvm.loop !54
 
@@ -2877,9 +2877,9 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocaptur
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds float, ptr %0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
   %26 = load float, ptr %25, align 4
-  %27 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i
   %28 = load float, ptr %27, align 4
   %29 = fsub float %26, %28
   %30 = tail call noundef float @llvm.fabs.f32(float %29)
@@ -2984,7 +2984,7 @@ define noundef double @_ZN2cv4PSNRERKNS_11_InputArrayES2_d(ptr noundef nonnull a
   %36 = fadd double %35, 0x3CB0000000000000
   %37 = fdiv double %2, %36
   %38 = call double @log10(double noundef %37) #15
-  %39 = getelementptr inbounds i8, ptr %4, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %40 = load i32, ptr %39, align 8
   %.not.i = icmp eq i32 %40, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %41
@@ -3147,7 +3147,7 @@ define void @_ZN2cv9normalizeERKNS_11_InputArrayERKNS_17_InputOutputArrayEddiiS2
   br i1 %70, label %71, label %74
 
 71:                                               ; preds = %.noexc
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load ptr, ptr %72, align 8, !noalias !55
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %13, ptr noundef nonnull align 8 dereferenceable(96) %73)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %25
@@ -3174,8 +3174,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %71, %74
 
 80:                                               ; preds = %76
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %14) #15
-  %81 = getelementptr inbounds i8, ptr %15, i64 8
-  %82 = getelementptr inbounds i8, ptr %15, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %82, align 8
   store i32 33619968, ptr %15, align 8
   store ptr %14, ptr %81, align 8
@@ -3207,7 +3207,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %71, %74
 
 90:                                               ; preds = %77, %84
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %13) #15
-  %91 = getelementptr inbounds i8, ptr %8, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %92 = load i32, ptr %91, align 8
   %.not.i = icmp eq i32 %92, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %93
@@ -3285,7 +3285,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
   %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3293,7 +3293,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
   %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
-  %12 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %14)
@@ -3304,7 +3304,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %15 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %9
+  %15 = getelementptr inbounds nuw i8, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv8normInf_IhiEEiPKT_PKhPT0_ii.exit, label %.lr.ph40.split.us.i, !llvm.loop !59
 
@@ -3320,7 +3320,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %21)
@@ -3363,7 +3363,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3371,7 +3371,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
   %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
-  %12 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = tail call i8 @llvm.abs.i8(i8 %13, i1 false)
   %15 = zext i8 %14 to i32
@@ -3383,7 +3383,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %16 = getelementptr inbounds i8, ptr %.01838.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i8, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv8normInf_IaiEEiPKT_PKhPT0_ii.exit, label %.lr.ph40.split.us.i, !llvm.loop !62
 
@@ -3399,7 +3399,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %21 = load i8, ptr %20, align 1
   %22 = tail call i8 @llvm.abs.i8(i8 %21, i1 false)
   %23 = zext i8 %22 to i32
@@ -3443,7 +3443,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
   %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3451,7 +3451,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
   %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
-  %12 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %14)
@@ -3462,7 +3462,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %15 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %9
+  %15 = getelementptr inbounds nuw i16, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv8normInf_ItiEEiPKT_PKhPT0_ii.exit, label %.lr.ph40.split.us.i, !llvm.loop !65
 
@@ -3478,7 +3478,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %21)
@@ -3521,7 +3521,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3529,7 +3529,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
   %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
-  %12 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = tail call i16 @llvm.abs.i16(i16 %13, i1 false)
   %15 = zext i16 %14 to i32
@@ -3541,7 +3541,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %16 = getelementptr inbounds i16, ptr %.01838.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i16, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv8normInf_IsiEEiPKT_PKhPT0_ii.exit, label %.lr.ph40.split.us.i, !llvm.loop !68
 
@@ -3557,7 +3557,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %21 = load i16, ptr %20, align 2
   %22 = tail call i16 @llvm.abs.i16(i16 %21, i1 false)
   %23 = zext i16 %22 to i32
@@ -3601,7 +3601,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
   %indvars.iv44.i = phi i64 [ 0, %.lr.ph40.split.us.preheader.i ], [ %indvars.iv.next45.i, %..loopexit_crit_edge.us.i ]
   %.01838.us.i = phi ptr [ %0, %.lr.ph40.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
   %.137.us.i = phi i32 [ %6, %.lr.ph40.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv44.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv44.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3609,7 +3609,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
 .preheader.us.i:                                  ; preds = %.lr.ph40.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph40.split.us.i ]
   %.235.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.137.us.i, %.lr.ph40.split.us.i ]
-  %12 = getelementptr inbounds i32, ptr %.01838.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %.01838.us.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %.sroa.speculated.us.i = tail call i32 @llvm.smax.i32(i32 %.235.us.i, i32 %14)
@@ -3620,7 +3620,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph40.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph40.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %15 = getelementptr inbounds i32, ptr %.01838.us.i, i64 %9
+  %15 = getelementptr inbounds nuw i32, ptr %.01838.us.i, i64 %9
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv8normInf_IiiEEiPKT_PKhPT0_ii.exit, label %.lr.ph40.split.us.i, !llvm.loop !71
 
@@ -3636,7 +3636,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4
   %21 = tail call noundef i32 @llvm.abs.i32(i32 %20, i1 true)
   %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %21)
@@ -3679,7 +3679,7 @@ define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture nound
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph36.split.us.preheader.i ], [ %indvars.iv.next41.i, %..loopexit_crit_edge.us.i ]
   %.01834.us.i = phi ptr [ %0, %.lr.ph36.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.133.us.i = phi double [ %6, %.lr.ph36.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv40.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv40.i
   %11 = load i8, ptr %10, align 1
   %.not20.us.i = icmp eq i8 %11, 0
   br i1 %.not20.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3687,7 +3687,7 @@ define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture nound
 .preheader.us.i:                                  ; preds = %.lr.ph36.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph36.split.us.i ]
   %.231.us.i = phi double [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.133.us.i, %.lr.ph36.split.us.i ]
-  %12 = getelementptr inbounds double, ptr %.01834.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw double, ptr %.01834.us.i, i64 %indvars.iv.i
   %13 = load double, ptr %12, align 8
   %14 = tail call noundef double @llvm.fabs.f64(double %13)
   %15 = fcmp olt double %.231.us.i, %14
@@ -3699,7 +3699,7 @@ define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture nound
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph36.split.us.i
   %.3.us.i = phi double [ %.133.us.i, %.lr.ph36.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %16 = getelementptr inbounds double, ptr %.01834.us.i, i64 %9
+  %16 = getelementptr inbounds nuw double, ptr %.01834.us.i, i64 %9
   %exitcond44.not.i = icmp eq i64 %indvars.iv.next41.i, %wide.trip.count43.i
   br i1 %exitcond44.not.i, label %_ZN2cv8normInf_IddEEiPKT_PKhPT0_ii.exit, label %.lr.ph36.split.us.i, !llvm.loop !74
 
@@ -3715,7 +3715,7 @@ define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture nound
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.056.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   %21 = load double, ptr %20, align 8
   %22 = tail call noundef double @llvm.fabs.f64(double %21)
   %23 = fcmp olt double %.056.i.i, %22
@@ -3760,7 +3760,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef 
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3768,7 +3768,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi i32 [ %15, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = add nsw i32 %.227.us.i, %14
@@ -3779,7 +3779,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %16 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i8, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_IhiEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !77
 
@@ -3795,7 +3795,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = add nuw nsw i32 %.067.i.i, %22
@@ -3838,7 +3838,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef 
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3846,7 +3846,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef 
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = tail call i8 @llvm.abs.i8(i8 %13, i1 false)
   %15 = zext i8 %14 to i32
@@ -3858,7 +3858,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %17 = getelementptr inbounds i8, ptr %.02229.us.i, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_IaiEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !80
 
@@ -3874,7 +3874,7 @@ define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %22 = load i8, ptr %21, align 1
   %23 = tail call i8 @llvm.abs.i8(i8 %22, i1 false)
   %24 = zext i8 %23 to i32
@@ -3918,7 +3918,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture nounde
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -3926,7 +3926,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi i32 [ %15, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = add nsw i32 %.227.us.i, %14
@@ -3937,7 +3937,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %16 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i16, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_ItiEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !83
 
@@ -3953,7 +3953,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %23 = add nuw nsw i32 %.067.i.i, %22
@@ -3996,7 +3996,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture nounde
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi i32 [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4004,7 +4004,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = tail call i16 @llvm.abs.i16(i16 %13, i1 false)
   %15 = zext i16 %14 to i32
@@ -4016,7 +4016,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi i32 [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %17 = getelementptr inbounds i16, ptr %.02229.us.i, i64 %9
+  %17 = getelementptr inbounds nuw i16, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_IsiEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !86
 
@@ -4032,7 +4032,7 @@ define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %22 = load i16, ptr %21, align 2
   %23 = tail call i16 @llvm.abs.i16(i16 %22, i1 false)
   %24 = zext i16 %23 to i32
@@ -4076,7 +4076,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture nounde
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4084,7 +4084,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi double [ %16, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds i32, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = tail call noundef i32 @llvm.abs.i32(i32 %13, i1 true)
   %15 = uitofp nneg i32 %14 to double
@@ -4096,7 +4096,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi double [ %.130.us.i, %.lr.ph32.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %17 = getelementptr inbounds i32, ptr %.02229.us.i, i64 %9
+  %17 = getelementptr inbounds nuw i32, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_IidEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !89
 
@@ -4112,7 +4112,7 @@ define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %22 = load i32, ptr %21, align 4
   %23 = tail call noundef i32 @llvm.abs.i32(i32 %22, i1 true)
   %24 = uitofp nneg i32 %23 to double
@@ -4156,7 +4156,7 @@ define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture nounde
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.split.us.preheader.i ], [ %indvars.iv.next38.i, %..loopexit_crit_edge.us.i ]
   %.130.us.i = phi double [ %6, %.lr.ph32.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02229.us.i = phi ptr [ %0, %.lr.ph32.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv37.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv37.i
   %11 = load i8, ptr %10, align 1
   %.not24.us.i = icmp eq i8 %11, 0
   br i1 %.not24.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4164,7 +4164,7 @@ define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph32.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph32.split.us.i ]
   %.227.us.i = phi double [ %15, %.preheader.us.i ], [ %.130.us.i, %.lr.ph32.split.us.i ]
-  %12 = getelementptr inbounds double, ptr %.02229.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw double, ptr %.02229.us.i, i64 %indvars.iv.i
   %13 = load double, ptr %12, align 8
   %14 = tail call noundef double @llvm.fabs.f64(double %13)
   %15 = fadd double %.227.us.i, %14
@@ -4175,7 +4175,7 @@ define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph32.split.us.i
   %.3.us.i = phi double [ %.130.us.i, %.lr.ph32.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %16 = getelementptr inbounds double, ptr %.02229.us.i, i64 %9
+  %16 = getelementptr inbounds nuw double, ptr %.02229.us.i, i64 %9
   %exitcond41.not.i = icmp eq i64 %indvars.iv.next38.i, %wide.trip.count40.i
   br i1 %exitcond41.not.i, label %_ZN2cv7normL1_IddEEiPKT_PKhPT0_ii.exit, label %.lr.ph32.split.us.i, !llvm.loop !92
 
@@ -4191,7 +4191,7 @@ define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.067.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   %21 = load double, ptr %20, align 8
   %22 = tail call noundef double @llvm.fabs.f64(double %21)
   %23 = fadd double %.067.i.i, %22
@@ -4234,7 +4234,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef 
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi i32 [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4242,7 +4242,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds i8, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = mul nuw nsw i32 %14, %14
@@ -4254,7 +4254,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi i32 [ %.131.us.i, %.lr.ph34.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %17 = getelementptr inbounds i8, ptr %.033.us.i, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_IhiEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !95
 
@@ -4270,7 +4270,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = mul nuw nsw i32 %23, %23
@@ -4314,7 +4314,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef 
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %17, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi i32 [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4322,7 +4322,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef 
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi i32 [ %16, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds i8, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = sext i8 %13 to i32
   %15 = mul nsw i32 %14, %14
@@ -4334,7 +4334,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi i32 [ %.131.us.i, %.lr.ph34.split.us.i ], [ %16, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %17 = getelementptr inbounds i8, ptr %.033.us.i, i64 %9
+  %17 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_IaiEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !98
 
@@ -4350,7 +4350,7 @@ define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %25, %.lr.ph.i.i ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %22 = load i8, ptr %21, align 1
   %23 = sext i8 %22 to i32
   %24 = mul nsw i32 %23, %23
@@ -4394,7 +4394,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture nounde
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4402,7 +4402,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds i16, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = uitofp i16 %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
@@ -4413,7 +4413,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %16 = getelementptr inbounds i16, ptr %.033.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i16, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_ItdEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !101
 
@@ -4429,7 +4429,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %21 = load i16, ptr %20, align 2
   %22 = uitofp i16 %21 to double
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %.010.i.i)
@@ -4472,7 +4472,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture nounde
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4480,7 +4480,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds i16, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i16, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i16, ptr %12, align 2
   %14 = sitofp i16 %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
@@ -4491,7 +4491,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %16 = getelementptr inbounds i16, ptr %.033.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i16, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_IsdEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !104
 
@@ -4507,7 +4507,7 @@ define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %21 = load i16, ptr %20, align 2
   %22 = sitofp i16 %21 to double
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %.010.i.i)
@@ -4550,7 +4550,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture nounde
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %16, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4558,7 +4558,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi double [ %15, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds i32, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to double
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.229.us.i)
@@ -4569,7 +4569,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %15, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %16 = getelementptr inbounds i32, ptr %.033.us.i, i64 %9
+  %16 = getelementptr inbounds nuw i32, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_IidEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !107
 
@@ -4585,7 +4585,7 @@ define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %23, %.lr.ph.i.i ]
-  %20 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to double
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %.010.i.i)
@@ -4628,7 +4628,7 @@ define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture nounde
   %indvars.iv39.i = phi i64 [ 0, %.lr.ph34.split.us.preheader.i ], [ %indvars.iv.next40.i, %..loopexit_crit_edge.us.i ]
   %.033.us.i = phi ptr [ %0, %.lr.ph34.split.us.preheader.i ], [ %15, %..loopexit_crit_edge.us.i ]
   %.131.us.i = phi double [ %6, %.lr.ph34.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv39.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv39.i
   %11 = load i8, ptr %10, align 1
   %.not26.us.i = icmp eq i8 %11, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4636,7 +4636,7 @@ define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture nounde
 .preheader.us.i:                                  ; preds = %.lr.ph34.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph34.split.us.i ]
   %.229.us.i = phi double [ %14, %.preheader.us.i ], [ %.131.us.i, %.lr.ph34.split.us.i ]
-  %12 = getelementptr inbounds double, ptr %.033.us.i, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw double, ptr %.033.us.i, i64 %indvars.iv.i
   %13 = load double, ptr %12, align 8
   %14 = tail call double @llvm.fmuladd.f64(double %13, double %13, double %.229.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -4646,7 +4646,7 @@ define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture nounde
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph34.split.us.i
   %.3.us.i = phi double [ %.131.us.i, %.lr.ph34.split.us.i ], [ %14, %.preheader.us.i ]
   %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
-  %15 = getelementptr inbounds double, ptr %.033.us.i, i64 %9
+  %15 = getelementptr inbounds nuw double, ptr %.033.us.i, i64 %9
   %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
   br i1 %exitcond43.not.i, label %_ZN2cv7normL2_IddEEiPKT_PKhPT0_ii.exit, label %.lr.ph34.split.us.i, !llvm.loop !110
 
@@ -4662,7 +4662,7 @@ define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture nounde
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.010.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %21, %.lr.ph.i.i ]
-  %19 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   %20 = load double, ptr %19, align 8
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %20, double %.010.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4722,7 +4722,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4730,10 +4730,10 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
   %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
-  %13 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.02444.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %.02444.us.i, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -4746,8 +4746,8 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
   %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %21 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %10
-  %22 = getelementptr inbounds i8, ptr %.02444.us.i, i64 %10
+  %21 = getelementptr inbounds nuw i8, ptr %.02345.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %.02444.us.i, i64 %10
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %_ZN2cv12normDiffInf_IhiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph47.split.us.i, !llvm.loop !113
 
@@ -4763,10 +4763,10 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01112.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %28, %31
@@ -4812,7 +4812,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4820,10 +4820,10 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
   %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
-  %13 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.02444.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %.02444.us.i, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -4836,8 +4836,8 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
   %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %21 = getelementptr inbounds i8, ptr %.02345.us.i, i64 %10
-  %22 = getelementptr inbounds i8, ptr %.02444.us.i, i64 %10
+  %21 = getelementptr inbounds nuw i8, ptr %.02345.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %.02444.us.i, i64 %10
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %_ZN2cv12normDiffInf_IaiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph47.split.us.i, !llvm.loop !116
 
@@ -4853,10 +4853,10 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01112.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %27 = load i8, ptr %26, align 1
   %28 = sext i8 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %30 = load i8, ptr %29, align 1
   %31 = sext i8 %30 to i32
   %32 = sub nsw i32 %28, %31
@@ -4902,7 +4902,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -4910,10 +4910,10 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
   %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
-  %13 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i16, ptr %.02444.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %.02444.us.i, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -4926,8 +4926,8 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
   %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %21 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %10
-  %22 = getelementptr inbounds i16, ptr %.02444.us.i, i64 %10
+  %21 = getelementptr inbounds nuw i16, ptr %.02345.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i16, ptr %.02444.us.i, i64 %10
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %_ZN2cv12normDiffInf_ItiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph47.split.us.i, !llvm.loop !119
 
@@ -4943,10 +4943,10 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01112.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %28, %31
@@ -4992,7 +4992,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5000,10 +5000,10 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
   %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
-  %13 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds i16, ptr %.02444.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %.02444.us.i, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5016,8 +5016,8 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
   %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %21 = getelementptr inbounds i16, ptr %.02345.us.i, i64 %10
-  %22 = getelementptr inbounds i16, ptr %.02444.us.i, i64 %10
+  %21 = getelementptr inbounds nuw i16, ptr %.02345.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i16, ptr %.02444.us.i, i64 %10
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %_ZN2cv12normDiffInf_IsiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph47.split.us.i, !llvm.loop !122
 
@@ -5033,10 +5033,10 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01112.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %27 = load i16, ptr %26, align 2
   %28 = sext i16 %27 to i32
-  %29 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
   %32 = sub nsw i32 %28, %31
@@ -5082,7 +5082,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
   %.02345.us.i = phi ptr [ %0, %.lr.ph47.split.us.preheader.i ], [ %19, %..loopexit_crit_edge.us.i ]
   %.02444.us.i = phi ptr [ %1, %.lr.ph47.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.143.us.i = phi i32 [ %7, %.lr.ph47.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv51.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv51.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5090,9 +5090,9 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
 .preheader.us.i:                                  ; preds = %.lr.ph47.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph47.split.us.i ]
   %.241.us.i = phi i32 [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.143.us.i, %.lr.ph47.split.us.i ]
-  %13 = getelementptr inbounds i32, ptr %.02345.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %.02345.us.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i32, ptr %.02444.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %.02444.us.i, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %14, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -5104,8 +5104,8 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph47.split.us.i
   %.3.us.i = phi i32 [ %.143.us.i, %.lr.ph47.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next52.i = add nuw nsw i64 %indvars.iv51.i, 1
-  %19 = getelementptr inbounds i32, ptr %.02345.us.i, i64 %10
-  %20 = getelementptr inbounds i32, ptr %.02444.us.i, i64 %10
+  %19 = getelementptr inbounds nuw i32, ptr %.02345.us.i, i64 %10
+  %20 = getelementptr inbounds nuw i32, ptr %.02444.us.i, i64 %10
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next52.i, %wide.trip.count54.i
   br i1 %exitcond55.not.i, label %_ZN2cv12normDiffInf_IiiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph47.split.us.i, !llvm.loop !125
 
@@ -5121,9 +5121,9 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.01112.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %24 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
   %27 = load i32, ptr %26, align 4
   %28 = sub nsw i32 %25, %27
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
@@ -5168,7 +5168,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocaptur
   %.02341.us.i = phi ptr [ %0, %.lr.ph43.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.02440.us.i = phi ptr [ %1, %.lr.ph43.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.139.us.i = phi double [ %7, %.lr.ph43.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv47.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv47.i
   %12 = load i8, ptr %11, align 1
   %.not26.us.i = icmp eq i8 %12, 0
   br i1 %.not26.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5176,9 +5176,9 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocaptur
 .preheader.us.i:                                  ; preds = %.lr.ph43.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph43.split.us.i ]
   %.237.us.i = phi double [ %.sroa.speculated.us.i, %.preheader.us.i ], [ %.139.us.i, %.lr.ph43.split.us.i ]
-  %13 = getelementptr inbounds double, ptr %.02341.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw double, ptr %.02341.us.i, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %.02440.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %.02440.us.i, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
   %18 = tail call noundef double @llvm.fabs.f64(double %17)
@@ -5191,8 +5191,8 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocaptur
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph43.split.us.i
   %.3.us.i = phi double [ %.139.us.i, %.lr.ph43.split.us.i ], [ %.sroa.speculated.us.i, %.preheader.us.i ]
   %indvars.iv.next48.i = add nuw nsw i64 %indvars.iv47.i, 1
-  %20 = getelementptr inbounds double, ptr %.02341.us.i, i64 %10
-  %21 = getelementptr inbounds double, ptr %.02440.us.i, i64 %10
+  %20 = getelementptr inbounds nuw double, ptr %.02341.us.i, i64 %10
+  %21 = getelementptr inbounds nuw double, ptr %.02440.us.i, i64 %10
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count50.i
   br i1 %exitcond51.not.i, label %_ZN2cv12normDiffInf_IddEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph43.split.us.i, !llvm.loop !128
 
@@ -5208,9 +5208,9 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocaptur
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.089.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %.sroa.speculated.i.i, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i
   %28 = load double, ptr %27, align 8
   %29 = fsub double %26, %28
   %30 = tail call noundef double @llvm.fabs.f64(double %29)
@@ -5257,7 +5257,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
   %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5265,10 +5265,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.02835.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %.02835.us.i, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5281,8 +5281,8 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %22 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %10
-  %23 = getelementptr inbounds i8, ptr %.02835.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %.02736.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i8, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_IhiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !131
 
@@ -5298,10 +5298,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -5347,7 +5347,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
   %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5355,10 +5355,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.02835.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %.02835.us.i, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5371,8 +5371,8 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %22 = getelementptr inbounds i8, ptr %.02736.us.i, i64 %10
-  %23 = getelementptr inbounds i8, ptr %.02835.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %.02736.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i8, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_IaiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !134
 
@@ -5388,10 +5388,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -5437,7 +5437,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
   %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5445,10 +5445,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i16, ptr %.02835.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %.02835.us.i, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5461,8 +5461,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %22 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %10
-  %23 = getelementptr inbounds i16, ptr %.02835.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i16, ptr %.02736.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i16, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_ItiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !137
 
@@ -5478,10 +5478,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -5527,7 +5527,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
   %.137.us.i = phi i32 [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5535,10 +5535,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds i16, ptr %.02835.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %.02835.us.i, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5551,8 +5551,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi i32 [ %.137.us.i, %.lr.ph39.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %22 = getelementptr inbounds i16, ptr %.02736.us.i, i64 %10
-  %23 = getelementptr inbounds i16, ptr %.02835.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i16, ptr %.02736.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i16, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_IsiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !140
 
@@ -5568,10 +5568,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -5617,7 +5617,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
   %.137.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5625,9 +5625,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi double [ %20, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds i32, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i32, ptr %.02835.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %.02835.us.i, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %14, %16
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -5640,8 +5640,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi double [ %.137.us.i, %.lr.ph39.split.us.i ], [ %20, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %21 = getelementptr inbounds i32, ptr %.02736.us.i, i64 %10
-  %22 = getelementptr inbounds i32, ptr %.02835.us.i, i64 %10
+  %21 = getelementptr inbounds nuw i32, ptr %.02736.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i32, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_IidEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !143
 
@@ -5657,9 +5657,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %33, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
   %29 = load i32, ptr %28, align 4
   %30 = sub nsw i32 %27, %29
   %31 = sitofp i32 %30 to double
@@ -5705,7 +5705,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture
   %.137.us.i = phi double [ %7, %.lr.ph39.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.02736.us.i = phi ptr [ %0, %.lr.ph39.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.02835.us.i = phi ptr [ %1, %.lr.ph39.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44.i
   %12 = load i8, ptr %11, align 1
   %.not30.us.i = icmp eq i8 %12, 0
   br i1 %.not30.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5713,9 +5713,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph39.split.us.i ]
   %.233.us.i = phi double [ %19, %.preheader.us.i ], [ %.137.us.i, %.lr.ph39.split.us.i ]
-  %13 = getelementptr inbounds double, ptr %.02736.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw double, ptr %.02736.us.i, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %.02835.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %.02835.us.i, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
   %18 = tail call noundef double @llvm.fabs.f64(double %17)
@@ -5727,8 +5727,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph39.split.us.i
   %.3.us.i = phi double [ %.137.us.i, %.lr.ph39.split.us.i ], [ %19, %.preheader.us.i ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %20 = getelementptr inbounds double, ptr %.02736.us.i, i64 %10
-  %21 = getelementptr inbounds double, ptr %.02835.us.i, i64 %10
+  %20 = getelementptr inbounds nuw double, ptr %.02736.us.i, i64 %10
+  %21 = getelementptr inbounds nuw double, ptr %.02835.us.i, i64 %10
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
   br i1 %exitcond48.not.i, label %_ZN2cv11normDiffL1_IddEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph39.split.us.i, !llvm.loop !146
 
@@ -5744,9 +5744,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.011.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %31, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i
   %28 = load double, ptr %27, align 8
   %29 = fsub double %26, %28
   %30 = tail call noundef double @llvm.fabs.f64(double %29)
@@ -5791,7 +5791,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi i32 [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5799,10 +5799,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds i8, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.03037.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %.03037.us.i, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5815,8 +5815,8 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi i32 [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %22 = getelementptr inbounds i8, ptr %.040.us.i, i64 %10
-  %23 = getelementptr inbounds i8, ptr %.03037.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %.040.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i8, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_IhiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !149
 
@@ -5832,10 +5832,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -5881,7 +5881,7 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi i32 [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5889,10 +5889,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi i32 [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds i8, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = sext i8 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %.03037.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i8, ptr %.03037.us.i, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1
   %18 = sext i8 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5905,8 +5905,8 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi i32 [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %22 = getelementptr inbounds i8, ptr %.040.us.i, i64 %10
-  %23 = getelementptr inbounds i8, ptr %.03037.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i8, ptr %.040.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i8, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_IaiEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !152
 
@@ -5922,10 +5922,10 @@ define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %28 = load i8, ptr %27, align 1
   %29 = sext i8 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %31 = load i8, ptr %30, align 1
   %32 = sext i8 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -5971,7 +5971,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -5979,10 +5979,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi double [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds i16, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
-  %16 = getelementptr inbounds i16, ptr %.03037.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %.03037.us.i, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -5995,8 +5995,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %22 = getelementptr inbounds i16, ptr %.040.us.i, i64 %10
-  %23 = getelementptr inbounds i16, ptr %.03037.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i16, ptr %.040.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i16, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_ItdEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !155
 
@@ -6012,10 +6012,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %28 = load i16, ptr %27, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -6061,7 +6061,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %22, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %23, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -6069,10 +6069,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi double [ %21, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds i16, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i16, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds i16, ptr %.03037.us.i, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw i16, ptr %.03037.us.i, i64 %indvars.iv.i
   %17 = load i16, ptr %16, align 2
   %18 = sext i16 %17 to i32
   %19 = sub nsw i32 %15, %18
@@ -6085,8 +6085,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %21, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %22 = getelementptr inbounds i16, ptr %.040.us.i, i64 %10
-  %23 = getelementptr inbounds i16, ptr %.03037.us.i, i64 %10
+  %22 = getelementptr inbounds nuw i16, ptr %.040.us.i, i64 %10
+  %23 = getelementptr inbounds nuw i16, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_IsdEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !158
 
@@ -6102,10 +6102,10 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %35, %.lr.ph.i.i ]
-  %27 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i.i
   %28 = load i16, ptr %27, align 2
   %29 = sext i16 %28 to i32
-  %30 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %31 = load i16, ptr %30, align 2
   %32 = sext i16 %31 to i32
   %33 = sub nsw i32 %29, %32
@@ -6151,7 +6151,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %21, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -6159,9 +6159,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi double [ %19, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds i32, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i32, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i32, ptr %.03037.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %.03037.us.i, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %14, %16
   %18 = sitofp i32 %17 to double
@@ -6173,8 +6173,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %19, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %20 = getelementptr inbounds i32, ptr %.040.us.i, i64 %10
-  %21 = getelementptr inbounds i32, ptr %.03037.us.i, i64 %10
+  %20 = getelementptr inbounds nuw i32, ptr %.040.us.i, i64 %10
+  %21 = getelementptr inbounds nuw i32, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_IidEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !161
 
@@ -6190,9 +6190,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %31, %.lr.ph.i.i ]
-  %25 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.i
   %28 = load i32, ptr %27, align 4
   %29 = sub nsw i32 %26, %28
   %30 = sitofp i32 %29 to double
@@ -6237,7 +6237,7 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture
   %.040.us.i = phi ptr [ %0, %.lr.ph41.split.us.preheader.i ], [ %19, %..loopexit_crit_edge.us.i ]
   %.138.us.i = phi double [ %7, %.lr.ph41.split.us.preheader.i ], [ %.3.us.i, %..loopexit_crit_edge.us.i ]
   %.03037.us.i = phi ptr [ %1, %.lr.ph41.split.us.preheader.i ], [ %20, %..loopexit_crit_edge.us.i ]
-  %11 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv46.i
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46.i
   %12 = load i8, ptr %11, align 1
   %.not32.us.i = icmp eq i8 %12, 0
   br i1 %.not32.us.i, label %..loopexit_crit_edge.us.i, label %.preheader.us.i
@@ -6245,9 +6245,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture
 .preheader.us.i:                                  ; preds = %.lr.ph41.split.us.i, %.preheader.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.us.i ], [ 0, %.lr.ph41.split.us.i ]
   %.235.us.i = phi double [ %18, %.preheader.us.i ], [ %.138.us.i, %.lr.ph41.split.us.i ]
-  %13 = getelementptr inbounds double, ptr %.040.us.i, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw double, ptr %.040.us.i, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %.03037.us.i, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %.03037.us.i, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %.235.us.i)
@@ -6258,8 +6258,8 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture
 ..loopexit_crit_edge.us.i:                        ; preds = %.preheader.us.i, %.lr.ph41.split.us.i
   %.3.us.i = phi double [ %.138.us.i, %.lr.ph41.split.us.i ], [ %18, %.preheader.us.i ]
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
-  %19 = getelementptr inbounds double, ptr %.040.us.i, i64 %10
-  %20 = getelementptr inbounds double, ptr %.03037.us.i, i64 %10
+  %19 = getelementptr inbounds nuw double, ptr %.040.us.i, i64 %10
+  %20 = getelementptr inbounds nuw double, ptr %.03037.us.i, i64 %10
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
   br i1 %exitcond50.not.i, label %_ZN2cv11normDiffL2_IddEEiPKT_S3_PKhPT0_ii.exit, label %.lr.ph41.split.us.i, !llvm.loop !164
 
@@ -6275,9 +6275,9 @@ define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.012.i.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i.i ], [ %29, %.lr.ph.i.i ]
-  %24 = getelementptr inbounds double, ptr %0, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %1, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i
   %27 = load double, ptr %26, align 8
   %28 = fsub double %25, %27
   %29 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %.012.i.i)

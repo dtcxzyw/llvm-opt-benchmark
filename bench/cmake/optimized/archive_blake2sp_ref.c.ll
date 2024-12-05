@@ -17,27 +17,27 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1224
-  %8 = getelementptr inbounds i8, ptr %0, i64 1744
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %7, i8 0, i64 520, i1 false)
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1088
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %10 = trunc nuw nsw i64 %1 to i8
   store i8 %10, ptr %4, align 16
-  %11 = getelementptr inbounds i8, ptr %4, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %4, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 8, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %4, i64 3
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i8 2, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
-  %15 = getelementptr inbounds i8, ptr %4, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %14, i8 0, i64 10, i1 false)
   store i8 1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %4, i64 15
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 32, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %17, i8 0, i64 16, i1 false)
   %18 = call i32 @blake2s_init_param(ptr noundef nonnull %9, ptr noundef nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -45,14 +45,14 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
   br i1 %19, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %3, i64 1
-  %21 = getelementptr inbounds i8, ptr %3, i64 2
-  %22 = getelementptr inbounds i8, ptr %3, i64 3
-  %23 = getelementptr inbounds i8, ptr %3, i64 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 9
-  %26 = getelementptr inbounds i8, ptr %3, i64 15
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %30
 
 28:                                               ; preds = %30
@@ -62,7 +62,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
 
 30:                                               ; preds = %.preheader, %28
   %.019 = phi i64 [ 0, %.preheader ], [ %29, %28 ]
-  %31 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.019
+  %31 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.019
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store i8 %10, ptr %3, align 16
   store i8 0, ptr %20, align 1
@@ -77,16 +77,16 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init(ptr noundef %0, i64 noundef
   %33 = call i32 @blake2s_init_param(ptr noundef %31, ptr noundef nonnull %3) #7
   %34 = load i8, ptr %26, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %31, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 120
   store i64 %35, ptr %36, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   %37 = icmp slt i32 %33, 0
   br i1 %37, label %.loopexit, label %28
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %0, i64 1216
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 1080
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store i8 1, ptr %40, align 8
   br label %.loopexit
 
@@ -115,28 +115,28 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   br i1 %or.cond5, label %.loopexit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 1224
-  %15 = getelementptr inbounds i8, ptr %0, i64 1744
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1224
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %14, i8 0, i64 520, i1 false)
   store i64 %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1088
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %17 = trunc nuw nsw i64 %1 to i8
   store i8 %17, ptr %6, align 16
   %18 = trunc nuw nsw i64 %3 to i8
-  %19 = getelementptr inbounds i8, ptr %6, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %6, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 8, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %6, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 2, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 14
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %22, i8 0, i64 10, i1 false)
   store i8 1, ptr %23, align 2
-  %24 = getelementptr inbounds i8, ptr %6, i64 15
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 15
   store i8 32, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   %26 = call i32 @blake2s_init_param(ptr noundef nonnull %16, ptr noundef nonnull %6) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
@@ -144,14 +144,14 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   br i1 %27, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %13
-  %28 = getelementptr inbounds i8, ptr %5, i64 1
-  %29 = getelementptr inbounds i8, ptr %5, i64 2
-  %30 = getelementptr inbounds i8, ptr %5, i64 3
-  %31 = getelementptr inbounds i8, ptr %5, i64 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 9
-  %34 = getelementptr inbounds i8, ptr %5, i64 15
-  %35 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %38
 
 36:                                               ; preds = %38
@@ -161,7 +161,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
 
 38:                                               ; preds = %.preheader, %36
   %.037 = phi i64 [ 0, %.preheader ], [ %37, %36 ]
-  %39 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.037
+  %39 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.037
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i8 %17, ptr %5, align 16
   store i8 %18, ptr %28, align 1
@@ -176,16 +176,16 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
   %41 = call i32 @blake2s_init_param(ptr noundef %39, ptr noundef nonnull %5) #7
   %42 = load i8, ptr %34, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %39, i64 120
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 120
   store i64 %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %45 = icmp slt i32 %41, 0
   br i1 %45, label %.loopexit, label %36
 
 46:                                               ; preds = %36
-  %47 = getelementptr inbounds i8, ptr %0, i64 1216
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   store i8 1, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1080
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store i8 1, ptr %48, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %2, i64 %3, i1 false)
@@ -193,7 +193,7 @@ define dso_local range(i32 -1, 1) i32 @blake2sp_init_key(ptr noundef %0, i64 nou
 
 49:                                               ; preds = %46, %49
   %.138 = phi i64 [ 0, %46 ], [ %52, %49 ]
-  %50 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.138
+  %50 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.138
   %51 = call i32 @blake2s_update(ptr noundef %50, ptr noundef nonnull %7, i64 noundef 64) #7
   %52 = add nuw nsw i64 %.138, 1
   %exitcond39.not = icmp eq i64 %52, 8
@@ -216,7 +216,7 @@ declare i32 @blake2s_update(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1736
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 512, %5
   %.not = icmp eq i64 %5, 0
@@ -227,16 +227,16 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not54, label %20, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 1224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %10 = getelementptr inbounds i8, ptr %9, i64 %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %10, ptr align 1 %1, i64 %6, i1 false)
   br label %11
 
 11:                                               ; preds = %8, %11
   %.04456 = phi i64 [ 0, %8 ], [ %16, %11 ]
-  %12 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.04456
+  %12 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.04456
   %13 = shl nuw nsw i64 %.04456, 6
-  %14 = getelementptr inbounds i8, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   %15 = tail call i32 @blake2s_update(ptr noundef %12, ptr noundef nonnull %14, i64 noundef 64) #7
   %16 = add nuw nsw i64 %.04456, 1
   %exitcond.not = icmp eq i64 %16, 8
@@ -257,15 +257,15 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
 .lr.ph.us:                                        ; preds = %20, %._crit_edge.us
   %.159.us = phi i64 [ %30, %._crit_edge.us ], [ 0, %20 ]
   %22 = shl nuw nsw i64 %.159.us, 6
-  %23 = getelementptr inbounds i8, ptr %.047, i64 %22
-  %24 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.159.us
+  %23 = getelementptr inbounds nuw i8, ptr %.047, i64 %22
+  %24 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.159.us
   br label %25
 
 25:                                               ; preds = %.lr.ph.us, %25
   %.058.us = phi ptr [ %23, %.lr.ph.us ], [ %27, %25 ]
   %.04357.us = phi i64 [ %.045, %.lr.ph.us ], [ %28, %25 ]
   %26 = tail call i32 @blake2s_update(ptr noundef %24, ptr noundef %.058.us, i64 noundef 64) #7
-  %27 = getelementptr inbounds i8, ptr %.058.us, i64 512
+  %27 = getelementptr inbounds nuw i8, ptr %.058.us, i64 512
   %28 = add i64 %.04357.us, -512
   %29 = icmp ugt i64 %28, 511
   br i1 %29, label %25, label %._crit_edge.us, !llvm.loop !10
@@ -283,7 +283,7 @@ define dso_local noundef i32 @blake2sp_update(ptr noundef %0, ptr noundef %1, i6
 32:                                               ; preds = %.split61.us
   %33 = and i64 %.045, -512
   %34 = getelementptr inbounds i8, ptr %.047, i64 %33
-  %35 = getelementptr inbounds i8, ptr %0, i64 1224
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %36 = getelementptr inbounds i8, ptr %35, i64 %.046
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %34, i64 %31, i1 false)
   br label %37
@@ -301,18 +301,18 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %5, label %34, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1744
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %2, %8
   br i1 %9, label %34, label %.preheader29
 
 .preheader29:                                     ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1736
-  %11 = getelementptr inbounds i8, ptr %0, i64 1224
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1736
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   br label %13
 
 .preheader:                                       ; preds = %22
-  %12 = getelementptr inbounds i8, ptr %0, i64 1088
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   br label %27
 
 13:                                               ; preds = %.preheader29, %22
@@ -325,14 +325,14 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
 17:                                               ; preds = %13
   %18 = sub nuw i64 %14, %15
   %spec.store.select = call i64 @llvm.umin.i64(i64 %18, i64 64)
-  %19 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.02530
-  %20 = getelementptr inbounds i8, ptr %11, i64 %15
+  %19 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.02530
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 %15
   %21 = call i32 @blake2s_update(ptr noundef %19, ptr noundef nonnull %20, i64 noundef %spec.store.select) #7
   br label %22
 
 22:                                               ; preds = %17, %13
-  %23 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.02530
-  %24 = getelementptr inbounds [8 x [32 x i8]], ptr %4, i64 0, i64 %.02530
+  %23 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %0, i64 0, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %4, i64 0, i64 %.02530
   %25 = call i32 @blake2s_final(ptr noundef %23, ptr noundef nonnull %24, i64 noundef 32) #7
   %26 = add nuw nsw i64 %.02530, 1
   %exitcond.not = icmp eq i64 %26, 8
@@ -340,7 +340,7 @@ define dso_local i32 @blake2sp_final(ptr noundef %0, ptr noundef %1, i64 noundef
 
 27:                                               ; preds = %.preheader, %27
   %.131 = phi i64 [ 0, %.preheader ], [ %30, %27 ]
-  %28 = getelementptr inbounds [8 x [32 x i8]], ptr %4, i64 0, i64 %.131
+  %28 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %4, i64 0, i64 %.131
   %29 = call i32 @blake2s_update(ptr noundef nonnull %12, ptr noundef nonnull %28, i64 noundef 32) #7
   %30 = add nuw nsw i64 %.131, 1
   %exitcond32.not = icmp eq i64 %30, 8
@@ -387,14 +387,14 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 .preheader:                                       ; preds = %16
   %21 = trunc nuw nsw i64 %1 to i8
   %22 = trunc nuw nsw i64 %5 to i8
-  %23 = getelementptr inbounds i8, ptr %8, i64 1
-  %24 = getelementptr inbounds i8, ptr %8, i64 2
-  %25 = getelementptr inbounds i8, ptr %8, i64 3
-  %26 = getelementptr inbounds i8, ptr %8, i64 4
-  %27 = getelementptr inbounds i8, ptr %8, i64 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 9
-  %29 = getelementptr inbounds i8, ptr %8, i64 15
-  %30 = getelementptr inbounds i8, ptr %8, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 9
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 15
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %33
 
 31:                                               ; preds = %33
@@ -404,7 +404,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 33:                                               ; preds = %.preheader, %31
   %.05464 = phi i64 [ 0, %.preheader ], [ %32, %31 ]
-  %34 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.05464
+  %34 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.05464
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   store i8 %21, ptr %8, align 16
   store i8 %22, ptr %23, align 1
@@ -419,14 +419,14 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %36 = call i32 @blake2s_init_param(ptr noundef nonnull %34, ptr noundef nonnull %8) #7
   %37 = load i8, ptr %29, align 1
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %34, i64 120
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 120
   store i64 %38, ptr %39, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %40 = icmp slt i32 %36, 0
   br i1 %40, label %.loopexit, label %31
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %10, i64 1080
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 1080
   store i8 1, ptr %42, align 8
   br i1 %18, label %43, label %55
 
@@ -441,7 +441,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 
 48:                                               ; preds = %43, %48
   %.165 = phi i64 [ 0, %43 ], [ %51, %48 ]
-  %49 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.165
+  %49 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.165
   %50 = call i32 @blake2s_update(ptr noundef nonnull %49, ptr noundef nonnull %12, i64 noundef 64) #7
   %51 = add nuw nsw i64 %.165, 1
   %exitcond75.not = icmp eq i64 %51, 8
@@ -459,8 +459,8 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 .lr.ph.us:                                        ; preds = %55, %64
   %.269.us = phi i64 [ %67, %64 ], [ 0, %55 ]
   %57 = shl nuw nsw i64 %.269.us, 6
-  %58 = getelementptr inbounds i8, ptr %2, i64 %57
-  %59 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269.us
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %57
+  %59 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269.us
   br label %68
 
 60:                                               ; preds = %._crit_edge.us
@@ -470,7 +470,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br label %64
 
 64:                                               ; preds = %60, %._crit_edge.us
-  %65 = getelementptr inbounds [8 x [32 x i8]], ptr %9, i64 0, i64 %.269.us
+  %65 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %9, i64 0, i64 %.269.us
   %66 = call i32 @blake2s_final(ptr noundef nonnull %59, ptr noundef nonnull %65, i64 noundef 32) #7
   %67 = add nuw nsw i64 %.269.us, 1
   %exitcond77.not = icmp eq i64 %67, 8
@@ -480,7 +480,7 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   %.05567.us = phi ptr [ %58, %.lr.ph.us ], [ %70, %68 ]
   %.05666.us = phi i64 [ %3, %.lr.ph.us ], [ %71, %68 ]
   %69 = call i32 @blake2s_update(ptr noundef nonnull %59, ptr noundef %.05567.us, i64 noundef 64) #7
-  %70 = getelementptr inbounds i8, ptr %.05567.us, i64 512
+  %70 = getelementptr inbounds nuw i8, ptr %.05567.us, i64 512
   %71 = add i64 %.05666.us, -512
   %72 = icmp ugt i64 %71, 511
   br i1 %72, label %68, label %._crit_edge.us, !llvm.loop !17
@@ -496,16 +496,16 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br i1 %75, label %76, label %82
 
 76:                                               ; preds = %.split
-  %77 = getelementptr inbounds i8, ptr %2, i64 %74
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 %74
   %78 = sub nuw nsw i64 %3, %74
   %79 = call i64 @llvm.umin.i64(i64 %78, i64 64)
-  %80 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269
+  %80 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269
   %81 = call i32 @blake2s_update(ptr noundef nonnull %80, ptr noundef %77, i64 noundef %79) #7
   br label %82
 
 82:                                               ; preds = %76, %.split
-  %83 = getelementptr inbounds [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269
-  %84 = getelementptr inbounds [8 x [32 x i8]], ptr %9, i64 0, i64 %.269
+  %83 = getelementptr inbounds nuw [8 x [1 x %struct.blake2s_state__]], ptr %10, i64 0, i64 %.269
+  %84 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %9, i64 0, i64 %.269
   %85 = call i32 @blake2s_final(ptr noundef nonnull %83, ptr noundef nonnull %84, i64 noundef 32) #7
   %86 = add nuw nsw i64 %.269, 1
   %exitcond76.not = icmp eq i64 %86, 8
@@ -514,19 +514,19 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
 .split71.us:                                      ; preds = %82, %64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   store i8 %21, ptr %7, align 16
-  %87 = getelementptr inbounds i8, ptr %7, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 %22, ptr %87, align 1
-  %88 = getelementptr inbounds i8, ptr %7, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 8, ptr %88, align 2
-  %89 = getelementptr inbounds i8, ptr %7, i64 3
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 3
   store i8 2, ptr %89, align 1
-  %90 = getelementptr inbounds i8, ptr %7, i64 4
-  %91 = getelementptr inbounds i8, ptr %7, i64 14
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %7, i64 14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %90, i8 0, i64 10, i1 false)
   store i8 1, ptr %91, align 2
-  %92 = getelementptr inbounds i8, ptr %7, i64 15
+  %92 = getelementptr inbounds nuw i8, ptr %7, i64 15
   store i8 32, ptr %92, align 1
-  %93 = getelementptr inbounds i8, ptr %7, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %93, i8 0, i64 16, i1 false)
   %94 = call i32 @blake2s_init_param(ptr noundef nonnull %11, ptr noundef nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -534,13 +534,13 @@ define dso_local i32 @blake2sp(ptr noundef %0, i64 noundef %1, ptr noundef %2, i
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %.split71.us
-  %97 = getelementptr inbounds i8, ptr %11, i64 128
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 128
   store i8 1, ptr %97, align 16
   br label %98
 
 98:                                               ; preds = %96, %98
   %.372 = phi i64 [ 0, %96 ], [ %101, %98 ]
-  %99 = getelementptr inbounds [8 x [32 x i8]], ptr %9, i64 0, i64 %.372
+  %99 = getelementptr inbounds nuw [8 x [32 x i8]], ptr %9, i64 0, i64 %.372
   %100 = call i32 @blake2s_update(ptr noundef nonnull %11, ptr noundef nonnull %99, i64 noundef 32) #7
   %101 = add nuw nsw i64 %.372, 1
   %exitcond78.not = icmp eq i64 %101, 8

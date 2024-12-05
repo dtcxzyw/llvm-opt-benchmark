@@ -49,7 +49,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br i1 %6, label %90, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %25 [
     i8 14, label %10
@@ -57,7 +57,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, 4
   %14 = icmp eq i8 %13, 0
@@ -69,9 +69,9 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br i1 %17, label %25, label %90
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 13
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 13
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %25 [
     i8 4, label %23
@@ -86,7 +86,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br label %90
 
 25:                                               ; preds = %18, %15, %10, %7
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 7
   %29 = lshr i32 %28, 3
@@ -102,7 +102,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %1, i64 38
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %39 = load i8, ptr %38, align 2
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %47, label %41
@@ -113,7 +113,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br i1 %43, label %90, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %42, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %46 = load ptr, ptr %45, align 8
   br label %54
 
@@ -125,7 +125,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
 50:                                               ; preds = %47
   %51 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %52 = zext i8 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %48, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 16
   br label %54
 
 54:                                               ; preds = %50, %44
@@ -137,9 +137,9 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br i1 %59, label %60, label %78
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %1, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 13
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 13
   %64 = load i8, ptr %63, align 1
   switch i8 %64, label %78 [
     i8 8, label %65
@@ -151,9 +151,9 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br label %85
 
 67:                                               ; preds = %60
-  %68 = getelementptr inbounds i8, ptr %62, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %1, i64 28
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %71 = load i32, ptr %70, align 4
   %72 = zext i32 %71 to i64
   %73 = getelementptr i8, ptr %69, i64 %72
@@ -166,7 +166,7 @@ define dso_local i32 @acpi_ex_read_data_from_field(ptr nocapture noundef readnon
   br label %90
 
 78:                                               ; preds = %60, %54
-  %79 = getelementptr inbounds i8, ptr %1, i64 13
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   tail call void @acpi_ex_acquire_global_lock(i32 noundef %81) #3
@@ -232,7 +232,7 @@ define dso_local i32 @acpi_ex_write_data_to_field(ptr noundef %0, ptr noundef %1
   br i1 %6, label %7, label %73
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %49 [
     i8 14, label %10
@@ -240,7 +240,7 @@ define dso_local i32 @acpi_ex_write_data_to_field(ptr noundef %0, ptr noundef %1
   ]
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, 4
   %14 = icmp eq i8 %13, 0
@@ -252,9 +252,9 @@ define dso_local i32 @acpi_ex_write_data_to_field(ptr noundef %0, ptr noundef %1
   br i1 %17, label %49, label %73
 
 18:                                               ; preds = %7
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 13
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 13
   %22 = load i8, ptr %21, align 1
   switch i8 %22, label %49 [
     i8 8, label %23
@@ -275,18 +275,18 @@ define dso_local i32 @acpi_ex_write_data_to_field(ptr noundef %0, ptr noundef %1
   br label %73
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 7
   %31 = lshr i32 %30, 3
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i8, ptr %20, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
   %38 = getelementptr i8, ptr %34, i64 %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %40, i64 %32, i1 false)
   %41 = load i32, ptr %35, align 4
@@ -296,13 +296,13 @@ define dso_local i32 @acpi_ex_write_data_to_field(ptr noundef %0, ptr noundef %1
 
 44:                                               ; preds = %27
   %45 = load ptr, ptr %19, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @acpi_ex_access_region(ptr noundef nonnull %1, i32 noundef 0, ptr noundef %47, i32 noundef 1) #3
   br label %73
 
 49:                                               ; preds = %18, %7, %15, %10
-  %50 = getelementptr inbounds i8, ptr %0, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %73 [
     i8 1, label %52
@@ -311,27 +311,27 @@ define dso_local i32 @acpi_ex_write_data_to_field(ptr noundef %0, ptr noundef %1
   ]
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %64
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %58 = load i32, ptr %57, align 8
   br label %64
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = load i32, ptr %62, align 8
   br label %64
 
 64:                                               ; preds = %59, %54, %52
   %65 = phi i32 [ %63, %59 ], [ %58, %54 ], [ 8, %52 ]
   %66 = phi ptr [ %61, %59 ], [ %56, %54 ], [ %53, %52 ]
-  %67 = getelementptr inbounds i8, ptr %1, i64 13
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 13
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   tail call void @acpi_ex_acquire_global_lock(i32 noundef %69) #3

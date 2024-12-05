@@ -71,7 +71,7 @@ define internal noundef i32 @H5FA__test_encode(ptr nocapture noundef writeonly %
   %.01421 = phi i64 [ 0, %.lr.ph ], [ %9, %6 ]
   %.01620 = phi i64 [ %5, %.lr.ph ], [ %10, %6 ]
   %7 = trunc i64 %.01620 to i8
-  %8 = getelementptr inbounds i8, ptr %.022, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   store i8 %7, ptr %.022, align 1
   %9 = add nuw nsw i64 %.01421, 1
   %10 = lshr i64 %.01620, 8
@@ -79,8 +79,8 @@ define internal noundef i32 @H5FA__test_encode(ptr nocapture noundef writeonly %
   br i1 %exitcond.not, label %11, label %6
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %.01825, i64 8
-  %13 = getelementptr inbounds i8, ptr %.01726, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01825, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01726, i64 8
   %14 = add i64 %.01924, -1
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -99,7 +99,7 @@ define internal noundef i32 @H5FA__test_decode(ptr nocapture noundef readonly %0
   %.01319 = phi ptr [ %16, %14 ], [ %1, %4 ]
   %.01418 = phi i64 [ %17, %14 ], [ %2, %4 ]
   store i64 0, ptr %.01319, align 8
-  %5 = getelementptr inbounds i8, ptr %.01220, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.01220, i64 8
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
@@ -117,8 +117,8 @@ define internal noundef i32 @H5FA__test_decode(ptr nocapture noundef readonly %0
   br i1 %exitcond.not, label %14, label %6
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %.115, i64 7
-  %16 = getelementptr inbounds i8, ptr %.01319, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.115, i64 7
+  %16 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
   %17 = add i64 %.01418, -1
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -159,23 +159,23 @@ define internal noalias ptr @H5FA__test_crt_dbg_context(ptr nocapture readnone %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5FA__get_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 9), (16, 24)) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 256
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load i8, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 %5, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 264
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %9, ptr %10, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -1, 2) i32 @H5FA__cmp_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i8(i8 %4, i8 %6)
   ret i32 %.0

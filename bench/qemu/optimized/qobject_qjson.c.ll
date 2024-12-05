@@ -45,10 +45,10 @@ entry:
   call void @json_message_parser_feed(ptr noundef nonnull %state, ptr noundef %string, i64 noundef %call) #8
   call void @json_message_parser_flush(ptr noundef nonnull %state) #8
   call void @json_message_parser_destroy(ptr noundef nonnull %state) #8
-  %result = getelementptr inbounds i8, ptr %state, i64 88
+  %result = getelementptr inbounds nuw i8, ptr %state, i64 88
   %0 = load ptr, ptr %result, align 8
   %tobool = icmp ne ptr %0, null
-  %err = getelementptr inbounds i8, ptr %state, i64 96
+  %err = getelementptr inbounds nuw i8, ptr %state, i64 96
   %1 = load ptr, ptr %err, align 8
   %tobool4 = icmp ne ptr %1, null
   %or.cond = select i1 %tobool, i1 true, i1 %tobool4
@@ -227,7 +227,7 @@ sw.bb:                                            ; preds = %qobject_type.exit
   br label %sw.epilog35
 
 qobject_check_type.exit:                          ; preds = %qobject_type.exit
-  %kind = getelementptr inbounds i8, ptr %obj, i64 16
+  %kind = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %1 = load i32, ptr %kind, align 8
   switch i32 %1, label %sw.default [
     i32 0, label %sw.bb3
@@ -236,19 +236,19 @@ qobject_check_type.exit:                          ; preds = %qobject_type.exit
   ]
 
 sw.bb3:                                           ; preds = %qobject_check_type.exit
-  %u = getelementptr inbounds i8, ptr %obj, i64 24
+  %u = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %2 = load i64, ptr %u, align 8
   tail call void @json_writer_int64(ptr noundef %writer, ptr noundef %name, i64 noundef %2) #8
   br label %sw.epilog35
 
 sw.bb4:                                           ; preds = %qobject_check_type.exit
-  %u5 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u5 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %3 = load i64, ptr %u5, align 8
   tail call void @json_writer_uint64(ptr noundef %writer, ptr noundef %name, i64 noundef %3) #8
   br label %sw.epilog35
 
 sw.bb6:                                           ; preds = %qobject_check_type.exit
-  %u7 = getelementptr inbounds i8, ptr %obj, i64 24
+  %u7 = getelementptr inbounds nuw i8, ptr %obj, i64 24
   %4 = load double, ptr %u7, align 8
   tail call void @json_writer_double(ptr noundef %writer, ptr noundef %name, double noundef %4) #8
   br label %sw.epilog35
@@ -283,7 +283,7 @@ for.end:                                          ; preds = %for.body, %qobject_
 
 qobject_check_type.exit63:                        ; preds = %qobject_type.exit
   tail call void @json_writer_start_array(ptr noundef %writer, ptr noundef %name) #8
-  %head = getelementptr inbounds i8, ptr %obj, i64 16
+  %head = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %entry23.074 = load ptr, ptr %head, align 8
   %tobool25.not75 = icmp eq ptr %entry23.074, null
   br i1 %tobool25.not75, label %for.end29, label %for.body26
@@ -292,7 +292,7 @@ for.body26:                                       ; preds = %qobject_check_type.
   %entry23.076 = phi ptr [ %entry23.0, %for.body26 ], [ %entry23.074, %qobject_check_type.exit63 ]
   %entry23.0.val = load ptr, ptr %entry23.076, align 8
   tail call fastcc void @to_json(ptr noundef %writer, ptr noundef null, ptr noundef %entry23.0.val)
-  %next = getelementptr inbounds i8, ptr %entry23.076, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %entry23.076, i64 8
   %entry23.0 = load ptr, ptr %next, align 8
   %tobool25.not = icmp eq ptr %entry23.0, null
   br i1 %tobool25.not, label %for.end29, label %for.body26, !llvm.loop !7
@@ -342,13 +342,13 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %result = getelementptr inbounds i8, ptr %opaque, i64 88
+  %result = getelementptr inbounds nuw i8, ptr %opaque, i64 88
   %1 = load ptr, ptr %result, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %if.end18, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %err5 = getelementptr inbounds i8, ptr %opaque, i64 96
+  %err5 = getelementptr inbounds nuw i8, ptr %opaque, i64 96
   %2 = load ptr, ptr %err5, align 8
   %tobool6.not = icmp eq ptr %2, null
   br i1 %tobool6.not, label %lor.lhs.false.i, label %if.else8
@@ -358,7 +358,7 @@ if.else8:                                         ; preds = %lor.lhs.false
   unreachable
 
 lor.lhs.false.i:                                  ; preds = %lor.lhs.false
-  %refcnt.i = getelementptr inbounds i8, ptr %1, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %3, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i
@@ -383,7 +383,7 @@ qobject_unref_impl.exit:                          ; preds = %land.lhs.true.i, %i
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end, %qobject_unref_impl.exit
-  %err19 = getelementptr inbounds i8, ptr %opaque, i64 96
+  %err19 = getelementptr inbounds nuw i8, ptr %opaque, i64 96
   %4 = load ptr, ptr %err19, align 8
   %tobool20.not = icmp eq ptr %4, null
   br i1 %tobool20.not, label %if.end32, label %if.then21
@@ -392,7 +392,7 @@ if.then21:                                        ; preds = %if.end18
   br i1 %tobool.not, label %qobject_unref_impl.exit24, label %lor.lhs.false.i16
 
 lor.lhs.false.i16:                                ; preds = %if.then21
-  %refcnt.i17 = getelementptr inbounds i8, ptr %json, i64 8
+  %refcnt.i17 = getelementptr inbounds nuw i8, ptr %json, i64 8
   %5 = load i64, ptr %refcnt.i17, align 8
   %tobool1.not.i18 = icmp eq i64 %5, 0
   br i1 %tobool1.not.i18, label %if.else.i23, label %land.lhs.true.i19

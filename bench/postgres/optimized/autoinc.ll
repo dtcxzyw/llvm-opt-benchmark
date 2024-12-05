@@ -31,7 +31,7 @@ define noundef nonnull ptr @pg_finfo_autoinc() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca i8, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not85 = icmp eq ptr %4, null
   br i1 %.not85, label %8, label %5
@@ -49,7 +49,7 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 4
   %.not86 = icmp eq i32 %14, 0
@@ -93,14 +93,14 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
 
 30:                                               ; preds = %24, %26
   %.sink = phi i64 [ 24, %26 ], [ 16, %24 ]
-  %31 = getelementptr inbounds i8, ptr %4, i64 %.sink
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 %.sink
   %.079 = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @SPI_getrelname(ptr noundef %33) #6
-  %35 = getelementptr inbounds i8, ptr %4, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 42
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 42
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i32
   %40 = icmp sgt i16 %38, 0
@@ -117,9 +117,9 @@ define i64 @autoinc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   unreachable
 
 45:                                               ; preds = %30
-  %46 = getelementptr inbounds i8, ptr %36, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %33, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = lshr exact i32 %39, 1
   %51 = zext nneg i32 %50 to i64

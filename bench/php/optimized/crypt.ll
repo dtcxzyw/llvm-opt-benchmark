@@ -34,7 +34,7 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   ]
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = load i8, ptr %11, align 1
   switch i8 %12, label %.thread374 [
     i8 49, label %13
@@ -44,7 +44,7 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %2, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 36
   br i1 %16, label %17, label %.thread374
@@ -60,20 +60,20 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %22 = add i64 %21, 32
   %23 = call noalias ptr @_emalloc(i64 noundef %22) #10
   store i32 1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 22, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %23, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 %20, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 1 %18, i64 %20, i1 false)
   %28 = getelementptr inbounds [1 x i8], ptr %27, i64 0, i64 %20
   store i8 0, ptr %28, align 1
   br label %.thread374
 
 29:                                               ; preds = %10
-  %30 = getelementptr inbounds i8, ptr %2, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 36
   br i1 %32, label %33, label %.thread374
@@ -95,13 +95,13 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %40 = add i64 %39, 32
   %41 = tail call noalias ptr @_emalloc(i64 noundef %40) #10
   store i32 1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 22, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 %38, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %45, ptr align 1 %34, i64 %38, i1 false)
   %46 = getelementptr inbounds [1 x i8], ptr %45, i64 0, i64 %38
   store i8 0, ptr %46, align 1
@@ -110,7 +110,7 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   br label %.thread374
 
 47:                                               ; preds = %10
-  %48 = getelementptr inbounds i8, ptr %2, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 36
   br i1 %50, label %51, label %.thread374
@@ -132,13 +132,13 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %58 = add i64 %57, 32
   %59 = tail call noalias ptr @_emalloc(i64 noundef %58) #10
   store i32 1, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 22, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %59, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 %56, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %63, ptr align 1 %52, i64 %56, i1 false)
   %64 = getelementptr inbounds [1 x i8], ptr %63, i64 0, i64 %56
   store i8 0, ptr %64, align 1
@@ -147,13 +147,13 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   br label %.thread374
 
 65:                                               ; preds = %10
-  %66 = getelementptr inbounds i8, ptr %2, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %67 = load i8, ptr %66, align 1
   %.not = icmp eq i8 %67, 0
   br i1 %.not, label %.thread374, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %2, i64 3
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %70 = load i8, ptr %69, align 1
   %71 = icmp eq i8 %70, 36
   br i1 %71, label %72, label %.thread374
@@ -174,13 +174,13 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %78 = add i64 %77, 32
   %79 = call noalias ptr @_emalloc(i64 noundef %78) #10
   store i32 1, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 22, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %79, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i64 0, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %79, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store i64 %76, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %79, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 16 %8, i64 %76, i1 false)
   %84 = getelementptr inbounds [1 x i8], ptr %83, i64 0, i64 %76
   store i8 0, ptr %84, align 1
@@ -197,7 +197,7 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   br i1 %or.cond377, label %90, label %.thread374
 
 90:                                               ; preds = %85
-  %91 = getelementptr inbounds i8, ptr %2, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %92 = load i8, ptr %91, align 1
   %93 = add i8 %92, -46
   %or.cond359 = icmp ult i8 %93, 12
@@ -220,7 +220,7 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   br i1 %101, label %102, label %106
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %2, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %104 = load i8, ptr %103, align 1
   %105 = icmp eq i8 %104, 48
   br i1 %105, label %.thread374, label %106
@@ -231,13 +231,13 @@ define noalias noundef ptr @php_crypt(ptr noundef %0, i32 %1, ptr noundef %2, i3
   %109 = add i64 %108, 32
   %110 = call noalias ptr @_emalloc(i64 noundef %109) #10
   store i32 1, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 22, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %110, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store i64 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store i64 %107, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %110, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %114, ptr nonnull align 1 %98, i64 %107, i1 false)
   %115 = getelementptr inbounds [1 x i8], ptr %114, i64 0, i64 %107
   store i8 0, ptr %115, align 1
@@ -278,7 +278,7 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [124 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %9, label %8
@@ -288,8 +288,8 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
   br label %.thread280
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 6
   br i1 %13, label %.thread, label %15
@@ -309,9 +309,9 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 17:                                               ; preds = %._crit_edge, %.thread
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %14, %.thread ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 6
   br i1 %23, label %.thread276, label %25
@@ -339,17 +339,17 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 27:                                               ; preds = %._crit_edge302, %.thread276
   %28 = phi ptr [ %.pre303, %._crit_edge302 ], [ %24, %.thread276 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
-  %32 = getelementptr inbounds i8, ptr %5, i64 123
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 123
   store i8 0, ptr %32, align 1
   store i8 0, ptr %5, align 16
-  %33 = getelementptr inbounds i8, ptr %5, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(122) %33, i8 36, i64 122, i1 false)
   %34 = call i64 @llvm.umin.i64(i64 %30, i64 123)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 1 %31, i64 %34, i1 false)
-  %35 = getelementptr inbounds [124 x i8], ptr %5, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [124 x i8], ptr %5, i64 0, i64 %34
   store i8 0, ptr %35, align 1
   %36 = call ptr @php_crypt(ptr noundef nonnull %19, i32 poison, ptr noundef nonnull %5, i32 poison, i1 zeroext poison)
   %37 = icmp eq ptr %36, null
@@ -363,15 +363,15 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
   %or.cond = select i1 %40, i1 %42, i1 false
   %43 = call noalias ptr @_emalloc_32() #8
   store i32 1, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   store i32 22, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store i64 2, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 24
-  %48 = getelementptr inbounds i8, ptr %43, i64 26
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 26
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %or.cond, label %50, label %51
 
 50:                                               ; preds = %38
@@ -390,12 +390,12 @@ define hidden void @zif_crypt(ptr noundef %0, ptr nocapture noundef writeonly %1
 
 52:                                               ; preds = %27
   store ptr %36, ptr %1, align 8
-  %53 = getelementptr inbounds i8, ptr %36, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %54 = load i32, ptr %53, align 4
   %55 = and i32 %54, 64
   %.not263 = icmp eq i32 %55, 0
   %56 = select i1 %.not263, i32 262, i32 6
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %56, ptr %57, align 8
   br label %58
 

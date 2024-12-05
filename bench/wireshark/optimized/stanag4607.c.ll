@@ -46,21 +46,21 @@ define hidden range(i32 -1, 2) i32 @stanag4607_open(ptr noundef %0, ptr noundef 
 
 16:                                               ; preds = %12
   %17 = load i32, ptr @stanag4607_file_type_subtype, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 156, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %20, align 8
   %21 = call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %21, ptr %22, align 8
   store i64 0, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @stanag4607_read, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @stanag4607_seek_read, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 148
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %25, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #5
   br label %26
@@ -91,7 +91,7 @@ define internal i32 @stanag4607_read(ptr nocapture noundef readonly %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @stanag4607_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #5
   %10 = icmp eq i64 %9, -1
@@ -139,7 +139,7 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
 
 12:                                               ; preds = %5
   %.val = load i8, ptr %7, align 16
-  %13 = getelementptr inbounds i8, ptr %7, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.val64 = load i8, ptr %13, align 1
   %14 = zext i8 %.val to i16
   %15 = shl nuw i16 %14, 8
@@ -159,23 +159,23 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
 20:                                               ; preds = %12, %12
   store i32 0, ptr %1, align 8
   %21 = call ptr @wtap_block_create(i32 noundef 5) #5
-  %22 = getelementptr inbounds i8, ptr %1, i64 232
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %24 = load i8, ptr %23, align 2
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 %25, 24
-  %27 = getelementptr inbounds i8, ptr %7, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 3
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 16
   %31 = or disjoint i32 %30, %26
-  %32 = getelementptr inbounds i8, ptr %7, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %33 = load i8, ptr %32, align 4
   %34 = zext i8 %33 to i32
   %35 = shl nuw nsw i32 %34, 8
   %36 = or disjoint i32 %31, %35
-  %37 = getelementptr inbounds i8, ptr %7, i64 5
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = or disjoint i32 %36, %39
@@ -199,19 +199,19 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br label %118
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %1, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %40, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 68
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %40, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %51, align 4
   %52 = load i64, ptr %.96.val, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %54, align 8
   store i32 0, ptr %6, align 4
-  %55 = getelementptr inbounds i8, ptr %7, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %56 = load i8, ptr %55, align 16
   switch i8 %56, label %.thread [
     i8 1, label %57
@@ -225,34 +225,34 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br i1 %.not62, label %118, label %.thread4
 
 .thread4:                                         ; preds = %57
-  %59 = getelementptr inbounds i8, ptr %8, i64 35
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 35
   %.val65 = load i8, ptr %59, align 1
-  %60 = getelementptr inbounds i8, ptr %8, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %.val66 = load i8, ptr %60, align 4
   %61 = zext i8 %.val65 to i32
   %62 = shl nuw nsw i32 %61, 8
   %63 = zext i8 %.val66 to i32
   %64 = or disjoint i32 %62, %63
   %65 = add nsw i32 %64, -1900
-  %66 = getelementptr inbounds i8, ptr %9, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %8, i64 37
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 37
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = add nsw i32 %69, -1
-  %71 = getelementptr inbounds i8, ptr %9, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 38
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 38
   %73 = load i8, ptr %72, align 2
   %74 = zext i8 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %9, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %9, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %9, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 0, ptr %77, align 4
   store i32 0, ptr %9, align 8
-  %78 = getelementptr inbounds i8, ptr %9, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i32 -1, ptr %78, align 8
   %79 = call i64 @mktime(ptr noundef nonnull %9) #5
   store i64 %79, ptr %.96.val, align 8
@@ -275,21 +275,21 @@ define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr nou
   br i1 %.not60, label %118, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %10, i64 15
+  %88 = getelementptr inbounds nuw i8, ptr %10, i64 15
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = shl nuw i32 %90, 24
-  %92 = getelementptr inbounds i8, ptr %10, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %93 = load i8, ptr %92, align 16
   %94 = zext i8 %93 to i32
   %95 = shl nuw nsw i32 %94, 16
   %96 = or disjoint i32 %95, %91
-  %97 = getelementptr inbounds i8, ptr %10, i64 17
+  %97 = getelementptr inbounds nuw i8, ptr %10, i64 17
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = shl nuw nsw i32 %99, 8
   %101 = or disjoint i32 %96, %100
-  %102 = getelementptr inbounds i8, ptr %10, i64 18
+  %102 = getelementptr inbounds nuw i8, ptr %10, i64 18
   %103 = load i8, ptr %102, align 2
   %104 = zext i8 %103 to i32
   %105 = or disjoint i32 %101, %104

@@ -543,7 +543,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 .lr.ph:                                           ; preds = %.preheader113, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader113 ]
   %22 = tail call noalias dereferenceable_or_null(255) ptr @malloc(i64 noundef 255) #13
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
   br i1 %24, label %.loopexit, label %21
@@ -588,7 +588,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
   br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i64, ptr %4, i64 %indvars.iv157
+  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv157
   %42 = load i64, ptr %41, align 8
   %.not = icmp eq i64 %42, %38
   br i1 %.not, label %46, label %43
@@ -599,9 +599,9 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %43, %40
-  %47 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv157
+  %47 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv157
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i64, ptr %3, i64 %indvars.iv157
+  %49 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv157
   %50 = load i64, ptr %49, align 8
   %51 = tail call i32 @H5Tinsert(i64 noundef %28, ptr noundef %48, i64 noundef %50, i64 noundef %35) #11
   %52 = icmp slt i32 %51, 0
@@ -626,7 +626,7 @@ H5TBget_table_info.exit:                          ; preds = %.thread.thread.i
 
 .lr.ph150:                                        ; preds = %.loopexit, %62
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %62 ], [ 0, %.loopexit ]
-  %59 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv162
+  %59 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv162
   %60 = load ptr, ptr %59, align 8
   %.not71 = icmp eq ptr %60, null
   br i1 %.not71, label %62, label %61
@@ -1167,7 +1167,7 @@ define internal fastcc zeroext i1 @H5TB_find_field(ptr nocapture noundef nonnull
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %8, %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %strchr23, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %strchr23, i64 1
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %12, i32 44)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2534,7 +2534,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 
 34:                                               ; preds = %33
   %35 = tail call i64 @H5Tget_size(i64 noundef %31) #11
-  %36 = getelementptr inbounds i64, ptr %3, i64 %.044114.us
+  %36 = getelementptr inbounds nuw i64, ptr %3, i64 %.044114.us
   store i64 %35, ptr %36, align 8
   %37 = icmp eq i64 %35, 0
   br i1 %37, label %.loopexit, label %38
@@ -2544,7 +2544,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 
 39:                                               ; preds = %38
   %40 = tail call i64 @H5Tget_member_offset(i64 noundef %15, i32 noundef %25) #11
-  %41 = getelementptr inbounds i64, ptr %4, i64 %.044114.us
+  %41 = getelementptr inbounds nuw i64, ptr %4, i64 %.044114.us
   store i64 %40, ptr %41, align 8
   br label %42
 
@@ -2574,7 +2574,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
   br i1 %exitcond249.not, label %.loopexit, label %.lr.ph.split.split.us
 
 53:                                               ; preds = %.lr.ph.split.split.us
-  %54 = getelementptr inbounds ptr, ptr %2, i64 %.044114.us158
+  %54 = getelementptr inbounds nuw ptr, ptr %2, i64 %.044114.us158
   %55 = load ptr, ptr %54, align 8
   %56 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %55, ptr noundef nonnull dereferenceable(1) %49) #11
   %57 = tail call i32 @H5free_memory(ptr noundef nonnull %49) #11
@@ -2592,7 +2592,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 
 64:                                               ; preds = %63
   %65 = tail call i64 @H5Tget_member_offset(i64 noundef %15, i32 noundef %48) #11
-  %66 = getelementptr inbounds i64, ptr %4, i64 %.044114.us158
+  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %.044114.us158
   store i64 %65, ptr %66, align 8
   br label %67
 
@@ -2622,7 +2622,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
   br i1 %exitcond248.not, label %.loopexit, label %.lr.ph.split.split.split.us
 
 78:                                               ; preds = %.lr.ph.split.split.split.us
-  %79 = getelementptr inbounds ptr, ptr %2, i64 %.044114.us192
+  %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %.044114.us192
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %80, ptr noundef nonnull dereferenceable(1) %74) #11
   %82 = tail call i32 @H5free_memory(ptr noundef nonnull %74) #11
@@ -2637,7 +2637,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 
 88:                                               ; preds = %85
   %89 = tail call i64 @H5Tget_size(i64 noundef %86) #11
-  %90 = getelementptr inbounds i64, ptr %3, i64 %.044114.us192
+  %90 = getelementptr inbounds nuw i64, ptr %3, i64 %.044114.us192
   store i64 %89, ptr %90, align 8
   %91 = icmp eq i64 %89, 0
   br i1 %91, label %.loopexit, label %92
@@ -2665,7 +2665,7 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
   br i1 %102, label %.loopexit, label %103
 
 103:                                              ; preds = %.lr.ph.split.split.split
-  %104 = getelementptr inbounds ptr, ptr %2, i64 %.044114
+  %104 = getelementptr inbounds nuw ptr, ptr %2, i64 %.044114
   %105 = load ptr, ptr %104, align 8
   %106 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %105, ptr noundef nonnull dereferenceable(1) %101) #11
   %107 = tail call i32 @H5free_memory(ptr noundef nonnull %101) #11
@@ -2680,14 +2680,14 @@ define range(i32 -1, 1) i32 @H5TBget_field_info(i64 noundef %0, ptr noundef %1, 
 
 113:                                              ; preds = %110
   %114 = tail call i64 @H5Tget_size(i64 noundef %111) #11
-  %115 = getelementptr inbounds i64, ptr %3, i64 %.044114
+  %115 = getelementptr inbounds nuw i64, ptr %3, i64 %.044114
   store i64 %114, ptr %115, align 8
   %116 = icmp eq i64 %114, 0
   br i1 %116, label %.loopexit, label %117
 
 117:                                              ; preds = %113
   %118 = tail call i64 @H5Tget_member_offset(i64 noundef %15, i32 noundef %100) #11
-  %119 = getelementptr inbounds i64, ptr %4, i64 %.044114
+  %119 = getelementptr inbounds nuw i64, ptr %4, i64 %.044114
   store i64 %118, ptr %119, align 8
   %120 = tail call i32 @H5Tclose(i64 noundef %108) #11
   %121 = icmp slt i32 %120, 0

@@ -39,19 +39,19 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   %12 = alloca %class.QColor, align 4
   %13 = load i32, ptr %2, align 4
   store i32 %13, ptr %9, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %14, ptr noundef nonnull align 4 dereferenceable(10) %15, i64 10, i1 false)
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %9, double %3, double %4, i32 noundef %6, i32 noundef %7)
   store ptr getelementptr inbounds (i8, ptr @_ZTV8TFHandle, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV8TFHandle, i64 176), ptr %16, align 8
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %10, i32 noundef 7) #12
   %17 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %10) #12
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %19, align 8
   br label %29
 
@@ -61,14 +61,14 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 1, ptr %23, align 8
   br label %29
 
 24:                                               ; preds = %20
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %12, i32 noundef 9) #12
   %25 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %12) #12
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %25, label %27, label %28
 
 27:                                               ; preds = %24
@@ -80,24 +80,24 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   br label %29
 
 29:                                               ; preds = %22, %28, %27, %18
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %5, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %31, align 8
   %32 = sitofp i32 %6 to double
   invoke void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %16, double noundef %32)
           to label %33 unwind label %80
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = fadd double %3, -1.000000e+01
   %36 = fptrunc double %35 to float
   %37 = load ptr, ptr %34, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 20
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = load i32, ptr %41, align 4
   %45 = add i32 %43, 1
@@ -115,11 +115,11 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   %53 = fptrunc double %52 to float
   %54 = load ptr, ptr %34, align 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %57, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %61 = load i32, ptr %60, align 4
   %62 = add i32 %59, 1
   %63 = sub i32 %62, %61
@@ -132,12 +132,12 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
 .noexc10:                                         ; preds = %.noexc
   %68 = fsub float 1.000000e+00, %67
   %69 = load ptr, ptr %30, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store float %68, ptr %70, align 4
   %71 = load ptr, ptr @_ZN8TFHandle3_tfE, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds [3 x i32], ptr %74, i64 0, i64 %75
   %77 = load i32, ptr %76, align 4
@@ -173,15 +173,15 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, double %1, double %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = fadd double %1, -1.000000e+01
   %6 = fptrunc double %5 to float
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 20
-  %12 = getelementptr inbounds i8, ptr %10, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = load i32, ptr %11, align 4
   %15 = add i32 %13, 1
@@ -190,18 +190,18 @@ define void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr nocapture noundef n
   %18 = fadd float %17, -1.000000e+01
   %19 = fadd float %18, -1.000000e+01
   %20 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %6, float noundef %19)
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   store float %20, ptr %22, align 4
   %23 = fadd double %2, -1.000000e+01
   %24 = fptrunc double %23 to float
   %25 = load ptr, ptr %4, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %32 = load i32, ptr %31, align 4
   %33 = add i32 %30, 1
   %34 = sub i32 %33, %32
@@ -211,12 +211,12 @@ define void @_ZN8TFHandle20updateTfHandlesStateE7QPointF(ptr nocapture noundef n
   %38 = tail call noundef float @_Z21absolute2RelativeValfff(float noundef %24, float noundef %37)
   %39 = fsub float 1.000000e+00, %38
   %40 = load ptr, ptr %21, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store float %39, ptr %41, align 4
   %42 = load ptr, ptr @_ZN8TFHandle3_tfE, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %46 = sext i32 %44 to i64
   %47 = getelementptr inbounds [3 x i32], ptr %45, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
@@ -267,10 +267,10 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
   %7 = alloca %class.QBrush, align 8
   %8 = alloca %class.QColor, align 4
   %9 = alloca %class.QBrush, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %12, label %14, label %17
 
 14:                                               ; preds = %4
@@ -300,7 +300,7 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
 20:                                               ; preds = %17, %14
   %.sink = phi ptr [ %7, %14 ], [ %9, %17 ]
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #12
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
   %23 = sub nsw i32 0, %22
   %24 = sitofp i32 %23 to double
@@ -311,13 +311,13 @@ define void @_ZN8TFHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
   %29 = fptosi double %28 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 %26, ptr %5, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = add i32 %22, -1
   %33 = add i32 %32, %26
   store i32 %33, ptr %31, align 4
-  %34 = getelementptr inbounds i8, ptr %5, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %35 = add i32 %32, %29
   store i32 %35, ptr %34, align 4
   call void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i32 noundef 1)
@@ -354,18 +354,18 @@ declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = sub nsw i32 0, %4
   %6 = sitofp i32 %5 to double
   %7 = fmul double %6, 5.000000e-01
   %8 = sitofp i32 %4 to double
   store double %7, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %8, ptr %11, align 8
   ret void
 }
@@ -373,18 +373,18 @@ define void @_ZNK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZThn16_NK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !noalias !5
   %5 = sub nsw i32 0, %4
   %6 = sitofp i32 %5 to double
   %7 = fmul double %6, 5.000000e-01
   %8 = sitofp i32 %4 to double
   store double %7, ptr %0, align 8, !alias.scope !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %9, align 8, !alias.scope !5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %8, ptr %10, align 8, !alias.scope !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %8, ptr %11, align 8, !alias.scope !5
   ret void
 }
@@ -393,7 +393,7 @@ define void @_ZThn16_NK8TFHandle12boundingRectEv(ptr dead_on_unwind noalias noca
 define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCursor, align 8
   %4 = alloca %class.QPointF, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef 17)
   invoke void @_ZN13QGraphicsItem9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %6 unwind label %94
@@ -402,9 +402,9 @@ define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   call void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
   %7 = call { double, double } @_ZNK24QGraphicsSceneMouseEvent8scenePosEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %8 = extractvalue { double, double } %7, 0
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = extractvalue { double, double } %7, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load i32, ptr %11, align 8
   %13 = sitofp i32 %12 to float
   %14 = fmul float %13, 5.000000e-01
@@ -413,17 +413,17 @@ define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   store double %16, ptr %4, align 8
   %17 = fsub double %10, %15
   store double %17, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = fcmp ult double %16, 1.000000e+01
   br i1 %19, label %96, label %20
 
 20:                                               ; preds = %6
   %21 = load ptr, ptr %18, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 20
-  %26 = getelementptr inbounds i8, ptr %24, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = load i32, ptr %25, align 4
   %29 = add i32 %27, 1
@@ -437,9 +437,9 @@ define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   br i1 %or.cond, label %96, label %36
 
 36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %24, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %24, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %38, 1
   %42 = sub i32 %41, %40
@@ -457,10 +457,10 @@ define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   %49 = fptrunc double %48 to float
   %50 = load ptr, ptr %18, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 20
-  %55 = getelementptr inbounds i8, ptr %53, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %54, align 4
   %58 = add i32 %56, 1
@@ -469,18 +469,18 @@ define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   %61 = fadd float %60, -1.000000e+01
   %62 = fadd float %61, -1.000000e+01
   %63 = call noundef float @_Z21absolute2RelativeValfff(float noundef %49, float noundef %62)
-  %64 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %65 = load ptr, ptr %64, align 8
   store float %63, ptr %65, align 4
   %66 = fadd double %.sroa.2.0.copyload, -1.000000e+01
   %67 = fptrunc double %66 to float
   %68 = load ptr, ptr %18, align 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %73, 1
   %77 = sub i32 %76, %75
@@ -490,12 +490,12 @@ define void @_ZN8TFHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   %81 = call noundef float @_Z21absolute2RelativeValfff(float noundef %67, float noundef %80)
   %82 = fsub float 1.000000e+00, %81
   %83 = load ptr, ptr %64, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store float %82, ptr %84, align 4
   %85 = load ptr, ptr @_ZN8TFHandle3_tfE, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %85, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 96
   %89 = sext i32 %87 to i64
   %90 = getelementptr inbounds [3 x i32], ptr %88, i64 0, i64 %89
   %91 = load i32, ptr %90, align 4

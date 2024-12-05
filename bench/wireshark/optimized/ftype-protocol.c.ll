@@ -37,47 +37,47 @@ define hidden void @ftype_register_tvbuff() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @value_new(ptr nocapture noundef writeonly initializes((8, 20), (24, 33)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @value_copy(ptr nocapture noundef writeonly initializes((8, 20), (24, 33)) %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @tvb_clone(ptr noundef %4) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @g_strdup(ptr noundef %8) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %9
@@ -87,7 +87,7 @@ define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
   br label %9
 
 9:                                                ; preds = %8, %4, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11) #9
   ret void
@@ -95,13 +95,13 @@ define internal void @value_free(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %value_free.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %value_free.exit
@@ -111,12 +111,12 @@ define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef initi
   br label %value_free.exit
 
 value_free.exit:                                  ; preds = %4, %7, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #9
   store ptr null, ptr %5, align 8
   store ptr null, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %14, align 8
   %15 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef %3) #9
   %.not = icmp ne ptr %15, null
@@ -124,12 +124,12 @@ value_free.exit:                                  ; preds = %4, %7, %11
 
 16:                                               ; preds = %value_free.exit
   %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = tail call ptr @tvb_new_real_data(ptr noundef %17, i32 noundef %19, i32 noundef %19) #9
   tail call void @tvb_set_free_cb(ptr noundef %20, ptr noundef nonnull @g_free) #9
   %21 = tail call ptr @g_byte_array_free(ptr noundef nonnull %15, i32 noundef 0) #9
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %22, align 8
   store ptr %20, ptr %5, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #9
@@ -142,13 +142,13 @@ value_free.exit:                                  ; preds = %4, %7, %11
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @val_from_string(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %value_free.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %value_free.exit
@@ -158,7 +158,7 @@ define internal noundef zeroext i1 @val_from_string(ptr nocapture noundef initia
   br label %value_free.exit
 
 value_free.exit:                                  ; preds = %4, %7, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void @g_free(ptr noundef %13) #9
   %14 = icmp eq i64 %2, 0
@@ -175,25 +175,25 @@ value_free.exit:                                  ; preds = %4, %7, %11
   %20 = tail call ptr @g_memdup2(ptr noundef %1, i64 noundef %19) #11
   %21 = tail call ptr @tvb_new_real_data(ptr noundef %20, i32 noundef %18, i32 noundef %18) #9
   tail call void @tvb_set_free_cb(ptr noundef %21, ptr noundef nonnull @g_free) #9
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %22, align 8
   store ptr %21, ptr %5, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #9
   store ptr %23, ptr %12, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %24, align 8
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef initializes((16, 20)) %0, i64 noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %value_free.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %value_free.exit
@@ -203,12 +203,12 @@ define internal noundef zeroext i1 @val_from_charconst(ptr nocapture noundef ini
   br label %value_free.exit
 
 value_free.exit:                                  ; preds = %3, %6, %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #9
   store ptr null, ptr %4, align 8
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %13, align 8
   %14 = tail call ptr @byte_array_from_charconst(i64 noundef %1, ptr noundef %2) #9
   %.not = icmp ne ptr %14, null
@@ -216,12 +216,12 @@ value_free.exit:                                  ; preds = %3, %6, %10
 
 15:                                               ; preds = %value_free.exit
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = tail call ptr @tvb_new_real_data(ptr noundef %16, i32 noundef %18, i32 noundef %18) #9
   tail call void @tvb_set_free_cb(ptr noundef %19, ptr noundef nonnull @g_free) #9
   %20 = tail call ptr @g_byte_array_free(ptr noundef nonnull %14, i32 noundef 0) #9
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %21, align 8
   store ptr %19, ptr %4, align 8
   %22 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.2) #9
@@ -246,10 +246,10 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly 
 10:                                               ; preds = %4
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @val_to_repr.catch_spec, i64 noundef 1) #9
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = call i32 @_setjmp(ptr noundef nonnull %11) #12
   %.not29 = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not29, ptr null, ptr %13
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -277,8 +277,8 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly 
   br i1 %21, label %22, label %36
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %30, label %27
@@ -334,7 +334,7 @@ define internal ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly 
   unreachable
 
 45:                                               ; preds = %43, %41
-  %46 = getelementptr inbounds i8, ptr %9, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %47 = load volatile ptr, ptr %46, align 8
   call void @except_free(ptr noundef %47) #9
   %48 = call ptr @except_pop() #9
@@ -352,13 +352,13 @@ define internal void @value_set(ptr nocapture noundef initializes((16, 20)) %0, 
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %value_free.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %value_free.exit
@@ -368,7 +368,7 @@ define internal void @value_set(ptr nocapture noundef initializes((16, 20)) %0, 
   br label %value_free.exit
 
 value_free.exit:                                  ; preds = %5, %8, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void @g_free(ptr noundef %14) #9
   store ptr %1, ptr %6, align 8
@@ -377,15 +377,15 @@ value_free.exit:                                  ; preds = %5, %8, %12
   br label %16
 
 16:                                               ; preds = %value_free.exit, %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %17, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @value_get(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 0
   %6 = load ptr, ptr %2, align 8
@@ -407,15 +407,15 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
   %6 = alloca i32, align 4
   %7 = alloca %struct.except_stacknode, align 8
   %8 = alloca %struct.except_catch, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile i32 0, ptr %4, align 4
   store volatile i32 0, ptr %6, align 4
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @cmp_order.catch_spec, i64 noundef 1) #9
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = call i32 @_setjmp(ptr noundef nonnull %11) #12
   %.not = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not, ptr null, ptr %13
   store volatile ptr %.sink, ptr %5, align 8
   %.0..0..0..0. = load volatile i32, ptr %6, align 4
@@ -453,7 +453,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not23, label %50, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = icmp slt i32 %28, 0
   br i1 %29, label %30, label %32
@@ -464,7 +464,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 
 32:                                               ; preds = %30, %26
   %.015.i = phi i32 [ %31, %30 ], [ %28, %26 ]
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %36, label %39
@@ -494,9 +494,9 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
   br label %.sink.split
 
 50:                                               ; preds = %24, %22
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %52, ptr noundef nonnull dereferenceable(1) %54) #10
   br label %.sink.split
@@ -539,7 +539,7 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
   unreachable
 
 65:                                               ; preds = %63, %61
-  %66 = getelementptr inbounds i8, ptr %8, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %67 = load volatile ptr, ptr %66, align 8
   call void @except_free(ptr noundef %67) #9
   %68 = call ptr @except_pop() #9
@@ -558,10 +558,10 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
   store volatile i8 0, ptr %4, align 1
   store volatile i32 0, ptr %6, align 4
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @cmp_contains.catch_spec, i64 noundef 1) #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = call i32 @_setjmp(ptr noundef nonnull %9) #12
   %.not = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not, ptr null, ptr %11
   store volatile ptr %.sink, ptr %5, align 8
   %.0..0..0..0. = load volatile i32, ptr %6, align 4
@@ -589,13 +589,13 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not22 = icmp eq ptr %22, null
   br i1 %.not22, label %29, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %29, label %26
@@ -606,14 +606,14 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
   br i1 %28, label %.sink.split, label %36
 
 29:                                               ; preds = %23, %20
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   %char0 = load i8, ptr %31, align 1
   %.not24 = icmp eq i8 %char0, 0
   br i1 %.not24, label %36, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) %31) #10
   %.not25 = icmp eq ptr %35, null
@@ -656,7 +656,7 @@ define internal noundef i32 @cmp_contains(ptr nocapture noundef readonly %0, ptr
   unreachable
 
 45:                                               ; preds = %43, %41
-  %46 = getelementptr inbounds i8, ptr %8, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %47 = load volatile ptr, ptr %46, align 8
   call void @except_free(ptr noundef %47) #9
   %48 = call ptr @except_pop() #9
@@ -673,7 +673,7 @@ define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly 
   %6 = alloca i32, align 4
   %7 = alloca %struct.except_stacknode, align 8
   %8 = alloca %struct.except_catch, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i8 0, ptr %4, align 1
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %49, label %10
@@ -681,10 +681,10 @@ define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly 
 10:                                               ; preds = %3
   store volatile i32 0, ptr %6, align 4
   call void @except_setup_try(ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull @cmp_matches.catch_spec, i64 noundef 1) #9
-  %11 = getelementptr inbounds i8, ptr %8, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %12 = call i32 @_setjmp(ptr noundef nonnull %11) #12
   %.not26 = icmp eq i32 %12, 0
-  %13 = getelementptr inbounds i8, ptr %8, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sink = select i1 %.not26, ptr null, ptr %13
   store volatile ptr %.sink, ptr %5, align 8
   %.0..0..0..0. = load volatile i32, ptr %6, align 4
@@ -725,7 +725,7 @@ define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly 
   br label %.sink.split
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = call zeroext i1 @ws_regex_matches(ptr noundef nonnull %1, ptr noundef %32) #9
   br label %.sink.split
@@ -770,7 +770,7 @@ define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly 
   unreachable
 
 44:                                               ; preds = %42, %40
-  %45 = getelementptr inbounds i8, ptr %8, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %46 = load volatile ptr, ptr %45, align 8
   call void @except_free(ptr noundef %46) #9
   %47 = call ptr @except_pop() #9
@@ -786,13 +786,13 @@ define internal range(i32 0, 3) i32 @cmp_matches(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @val_hash(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @g_direct_hash(ptr noundef %3) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call i32 @g_int_hash(ptr noundef nonnull %5) #9
   %7 = xor i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @g_str_hash(ptr noundef %9) #9
   %11 = xor i32 %7, %10
@@ -801,13 +801,13 @@ define internal i32 @val_hash(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @is_zero(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br label %9
@@ -827,10 +827,10 @@ define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
   store volatile i32 0, ptr %2, align 4
   store volatile i32 0, ptr %4, align 4
   call void @except_setup_try(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @len.catch_spec, i64 noundef 1) #9
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = call i32 @_setjmp(ptr noundef nonnull %7) #12
   %.not = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sink = select i1 %.not, ptr null, ptr %9
   store volatile ptr %.sink, ptr %3, align 8
   %.0..0..0..0. = load volatile i32, ptr %4, align 4
@@ -858,13 +858,13 @@ define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
   br i1 %17, label %18, label %27
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not18 = icmp eq ptr %20, null
   br i1 %.not18, label %27, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, -1
   br i1 %24, label %.sink.split, label %25
@@ -911,7 +911,7 @@ define internal i32 @len(ptr nocapture noundef readonly %0) #0 {
   unreachable
 
 36:                                               ; preds = %34, %32
-  %37 = getelementptr inbounds i8, ptr %6, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %38 = load volatile ptr, ptr %37, align 8
   call void @except_free(ptr noundef %38) #9
   %39 = call ptr @except_pop() #9
@@ -927,13 +927,13 @@ define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i
   %8 = alloca %struct.except_stacknode, align 8
   %9 = alloca %struct.except_catch, align 8
   store volatile i32 %3, ptr %5, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %48, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp sgt i32 %14, -1
   br i1 %15, label %16, label %19
@@ -950,10 +950,10 @@ define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i
 19:                                               ; preds = %18, %16, %12
   store volatile i32 0, ptr %7, align 4
   call void @except_setup_try(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull @slice.catch_spec, i64 noundef 1) #9
-  %20 = getelementptr inbounds i8, ptr %9, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %21 = call i32 @_setjmp(ptr noundef nonnull %20) #12
   %.not22 = icmp eq i32 %21, 0
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sink = select i1 %.not22, ptr null, ptr %22
   store volatile ptr %.sink, ptr %6, align 8
   %.0..0..0..0. = load volatile i32, ptr %7, align 4
@@ -1021,7 +1021,7 @@ define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i
   unreachable
 
 44:                                               ; preds = %42, %40
-  %45 = getelementptr inbounds i8, ptr %9, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %46 = load volatile ptr, ptr %45, align 8
   call void @except_free(ptr noundef %46) #9
   %47 = call ptr @except_pop() #9

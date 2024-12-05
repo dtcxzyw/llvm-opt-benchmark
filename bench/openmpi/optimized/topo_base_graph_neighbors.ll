@@ -5,16 +5,16 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @mca_topo_base_graph_neighbors(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp sgt i32 %1, 0
   br i1 %16, label %17, label %25
@@ -42,10 +42,10 @@ define noundef i32 @mca_topo_base_graph_neighbors(ptr nocapture noundef readonly
   %.01823 = phi i32 [ %29, %.lr.ph ], [ 0, %25 ]
   %.02022 = phi ptr [ %28, %.lr.ph ], [ %3, %25 ]
   %27 = load i32, ptr %.124, align 4
-  %28 = getelementptr inbounds i8, ptr %.02022, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.02022, i64 4
   store i32 %27, ptr %.02022, align 4
   %29 = add nuw nsw i32 %.01823, 1
-  %30 = getelementptr inbounds i8, ptr %.124, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.124, i64 4
   %exitcond.not = icmp eq i32 %29, %invariant.smin
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 

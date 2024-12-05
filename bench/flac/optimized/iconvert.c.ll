@@ -33,7 +33,7 @@ if.end:                                           ; preds = %entry
   ]
 
 lor.lhs.false:                                    ; preds = %if.end, %if.end, %if.end
-  %arrayidx2 = getelementptr inbounds i8, ptr %tocode, i64 1
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %tocode, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
   switch i8 %1, label %if.then26 [
     i8 84, label %lor.lhs.false6
@@ -42,7 +42,7 @@ lor.lhs.false:                                    ; preds = %if.end, %if.end, %i
   ]
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false, %lor.lhs.false, %lor.lhs.false
-  %arrayidx7 = getelementptr inbounds i8, ptr %tocode, i64 2
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %tocode, i64 2
   %2 = load i8, ptr %arrayidx7, align 1
   switch i8 %2, label %if.then26 [
     i8 70, label %lor.lhs.false11
@@ -51,19 +51,19 @@ lor.lhs.false6:                                   ; preds = %lor.lhs.false, %lor
   ]
 
 lor.lhs.false11:                                  ; preds = %lor.lhs.false6, %lor.lhs.false6, %lor.lhs.false6
-  %arrayidx12 = getelementptr inbounds i8, ptr %tocode, i64 3
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %tocode, i64 3
   %3 = load i8, ptr %arrayidx12, align 1
   %cmp14.not = icmp eq i8 %3, 45
   br i1 %cmp14.not, label %lor.lhs.false16, label %if.then26
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false11
-  %arrayidx17 = getelementptr inbounds i8, ptr %tocode, i64 4
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %tocode, i64 4
   %4 = load i8, ptr %arrayidx17, align 1
   %cmp19.not = icmp eq i8 %4, 56
   br i1 %cmp19.not, label %lor.lhs.false21, label %if.then26
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false16
-  %arrayidx22 = getelementptr inbounds i8, ptr %tocode, i64 5
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %tocode, i64 5
   %5 = load i8, ptr %arrayidx22, align 1
   %cmp24.not = icmp eq i8 %5, 0
   br i1 %cmp24.not, label %if.end45, label %if.then26
@@ -144,12 +144,12 @@ if.end65:                                         ; preds = %if.end60
 
 if.else:                                          ; preds = %if.end53
   %12 = load ptr, ptr %ib, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %12, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %incdec.ptr, ptr %ib, align 8
   %dec = add i64 %9, -1
   store i64 %dec, ptr %ibl, align 8
   %13 = load ptr, ptr %ob, align 8
-  %incdec.ptr66 = getelementptr inbounds i8, ptr %13, i64 1
+  %incdec.ptr66 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %incdec.ptr66, ptr %ob, align 8
   store i8 35, ptr %13, align 1
   %14 = load i64, ptr %obl, align 8
@@ -272,7 +272,7 @@ if.then116:                                       ; preds = %land.lhs.true112, %
 for.cond125:                                      ; preds = %land.rhs, %if.then116
   %storemerge84.in128 = phi i64 [ %ibl.promoted, %if.then116 ], [ %storemerge84, %land.rhs ]
   %.pn86 = phi ptr [ %23, %if.then116 ], [ %storemerge85, %land.rhs ]
-  %storemerge85 = getelementptr inbounds i8, ptr %.pn86, i64 1
+  %storemerge85 = getelementptr inbounds nuw i8, ptr %.pn86, i64 1
   store ptr %storemerge85, ptr %ib, align 8
   %storemerge84 = add i64 %storemerge84.in128, -1
   store i64 %storemerge84, ptr %ibl, align 8
@@ -356,7 +356,7 @@ if.then166:                                       ; preds = %land.lhs.true162, %
 for.cond172:                                      ; preds = %land.rhs174, %if.then166
   %storemerge.in133 = phi i64 [ %ibl.promoted132, %if.then166 ], [ %storemerge, %land.rhs174 ]
   %.pn = phi ptr [ %31, %if.then166 ], [ %storemerge83, %land.rhs174 ]
-  %storemerge83 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %storemerge83 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge83, ptr %ib, align 8
   %storemerge = add i64 %storemerge.in133, -1
   store i64 %storemerge, ptr %ibl, align 8

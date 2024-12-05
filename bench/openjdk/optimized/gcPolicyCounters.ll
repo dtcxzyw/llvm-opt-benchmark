@@ -40,21 +40,21 @@ define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull 
   %9 = load ptr, ptr %5, align 8
   %10 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 800
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @.str, ptr %22, align 8
   %23 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef nonnull @.str, ptr noundef nonnull @.str.4) #4
   %24 = call noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef 5, ptr noundef %23, ptr noundef %1, ptr noundef %9) #4
-  %25 = getelementptr inbounds i8, ptr %9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %65
@@ -93,7 +93,7 @@ define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull 
   %49 = load i32, ptr @MaxTenuringThreshold, align 4
   %50 = zext i32 %49 to i64
   %51 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %48, i32 noundef 1, i64 noundef %50, ptr noundef nonnull %9) #4
-  %52 = getelementptr inbounds i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %51, ptr %52, align 8
   %53 = load ptr, ptr %25, align 8
   %.not30 = icmp eq ptr %53, null
@@ -103,7 +103,7 @@ define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull 
   %55 = load ptr, ptr %22, align 8
   %56 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %55, ptr noundef nonnull @.str.9) #4
   %57 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %56, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %9) #4
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %57, ptr %58, align 8
   %59 = load ptr, ptr %25, align 8
   %.not31 = icmp eq ptr %59, null
@@ -113,7 +113,7 @@ define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull 
   %61 = load ptr, ptr %22, align 8
   %62 = call noundef ptr @_ZN15PerfDataManager12counter_nameEPKcS1_(ptr noundef %61, ptr noundef nonnull @.str.10) #4
   %63 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 5, ptr noundef %62, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %9) #4
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %63, ptr %64, align 8
   br label %65
 

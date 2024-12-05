@@ -135,13 +135,13 @@ sub_0.i:                                          ; preds = %run_simple_command.
   br i1 %.not26.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %28 = getelementptr inbounds i8, ptr %26, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %29 = load i8, ptr %28, align 1
   %.not27.i = icmp eq i8 %29, 110
   br i1 %.not27.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %30 = getelementptr inbounds i8, ptr %26, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %33, label %.tail.thread.i
@@ -168,25 +168,25 @@ init_libpq_conn.exit:                             ; preds = %33
   tail call void @PQclear(ptr noundef %34) #9
   %38 = tail call ptr @pg_malloc0(i64 noundef 24144) #9
   store ptr @libpq_traverse_files, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr @libpq_fetch_file, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store ptr @libpq_queue_fetch_file, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr @libpq_queue_fetch_range, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr @libpq_finish_fetch, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr @libpq_get_current_wal_insert_lsn, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 48
   store ptr @libpq_destroy, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr %0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %38, i64 24072
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 24072
   tail call void @initStringInfo(ptr noundef nonnull %46) #9
-  %47 = getelementptr inbounds i8, ptr %38, i64 24096
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 24096
   tail call void @initStringInfo(ptr noundef nonnull %47) #9
-  %48 = getelementptr inbounds i8, ptr %38, i64 24120
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 24120
   tail call void @initStringInfo(ptr noundef nonnull %48) #9
   ret ptr %38
 }
@@ -195,7 +195,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @libpq_traverse_files(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @PQexec(ptr noundef %4, ptr noundef nonnull @.str.19) #9
   %6 = tail call i32 @PQresultStatus(ptr noundef %5) #9
@@ -239,7 +239,7 @@ sub_0:                                            ; preds = %.lr.ph
   br i1 %.not33, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %20 = getelementptr inbounds i8, ptr %18, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   %23 = select i1 %22, i32 2, i32 1
@@ -279,7 +279,7 @@ sub_1:                                            ; preds = %sub_0
 ; Function Attrs: nounwind uwtable
 define internal ptr @libpq_fetch_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
   %4 = alloca [1 x ptr], align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   store ptr %1, ptr %4, align 8
   %7 = call ptr @PQexecParams(ptr noundef %6, ptr noundef nonnull @.str.40, i32 noundef 1, ptr noundef null, ptr noundef nonnull %4, ptr noundef null, ptr noundef null, i32 noundef 1) #9
@@ -343,19 +343,19 @@ define internal ptr @libpq_fetch_file(ptr nocapture noundef readonly %0, ptr nou
 define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   tail call void @open_target_file(ptr noundef %1, i1 noundef zeroext true) #9
   %4 = tail call i64 @llvm.umax.i64(i64 %2, i64 1048576)
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %.lr.ph.i
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = add nsw i32 %6, -1
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [1000 x %struct.fetch_range_request], ptr %9, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 0, %14
   %18 = icmp eq i64 %16, %17
@@ -378,7 +378,7 @@ define internal void @libpq_queue_fetch_file(ptr noundef %0, ptr noundef %1, i64
 .lr.ph.i:                                         ; preds = %3, %8, %20, %23
   %.0.i8 = phi i64 [ %24, %23 ], [ 0, %20 ], [ 0, %8 ], [ 0, %3 ]
   %.038.i7 = phi i64 [ %25, %23 ], [ %4, %20 ], [ %4, %8 ], [ %4, %3 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %27
 
 27:                                               ; preds = %31, %.lr.ph.i
@@ -421,19 +421,19 @@ libpq_queue_fetch_range.exit:                     ; preds = %31, %23
 
 ; Function Attrs: nounwind uwtable
 define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %8, label %28
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = add nsw i32 %6, -1
   %11 = zext nneg i32 %10 to i64
   %12 = getelementptr [1000 x %struct.fetch_range_request], ptr %9, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %14
   %18 = icmp eq i64 %17, %2
@@ -462,7 +462,7 @@ define internal void @libpq_queue_fetch_range(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %30
 
 30:                                               ; preds = %.lr.ph, %34
@@ -513,7 +513,7 @@ define internal void @libpq_finish_fetch(ptr noundef %0) #0 {
 define internal i64 @libpq_get_current_wal_insert_lsn(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc ptr @run_simple_query(ptr noundef %5, ptr noundef nonnull @.str.16)
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %6, ptr noundef nonnull @.str.17, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
@@ -538,13 +538,13 @@ define internal i64 @libpq_get_current_wal_insert_lsn(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @libpq_destroy(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24072
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24072
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 24096
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24096
   %5 = load ptr, ptr %4, align 8
   tail call void @pfree(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 24120
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24120
   %7 = load ptr, ptr %6, align 8
   tail call void @pfree(ptr noundef %7) #9
   tail call void @pfree(ptr noundef %0) #9
@@ -634,7 +634,7 @@ declare void @open_target_file(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [3 x ptr], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %193, label %6
@@ -649,11 +649,11 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
   br label %10
 
 10:                                               ; preds = %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 24072
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24072
   tail call void @resetStringInfo(ptr noundef nonnull %11) #9
-  %12 = getelementptr inbounds i8, ptr %0, i64 24096
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24096
   tail call void @resetStringInfo(ptr noundef nonnull %12) #9
-  %13 = getelementptr inbounds i8, ptr %0, i64 24120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24120
   tail call void @resetStringInfo(ptr noundef nonnull %13) #9
   tail call void @appendStringInfoChar(ptr noundef nonnull %11, i8 noundef signext 123) #9
   tail call void @appendStringInfoChar(ptr noundef nonnull %12, i8 noundef signext 123) #9
@@ -663,9 +663,9 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
-  %17 = getelementptr inbounds i8, ptr %0, i64 24080
-  %18 = getelementptr inbounds i8, ptr %0, i64 24084
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24080
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24084
   br label %19
 
 19:                                               ; preds = %.lr.ph, %appendArrayEscapedString.exit
@@ -798,10 +798,10 @@ define internal fastcc void @process_queued_fetch_requests(ptr noundef %0) unnam
   br label %appendArrayEscapedString.exit
 
 appendArrayEscapedString.exit:                    ; preds = %73, %74
-  %83 = getelementptr inbounds i8, ptr %20, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %84 = load i64, ptr %83, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %12, ptr noundef nonnull @.str.24, i64 noundef %84) #9
-  %85 = getelementptr inbounds i8, ptr %20, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %86 = load i64, ptr %85, align 8
   tail call void (ptr, ptr, ...) @appendStringInfo(ptr noundef nonnull %13, ptr noundef nonnull @.str.24, i64 noundef %86) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -817,12 +817,12 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
   %90 = load ptr, ptr %11, align 8
   store ptr %90, ptr %2, align 16
   %91 = load ptr, ptr %12, align 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %91, ptr %92, align 8
   %93 = load ptr, ptr %13, align 8
-  %94 = getelementptr inbounds i8, ptr %2, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %93, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %0, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @PQsendQueryPrepared(ptr noundef %96, ptr noundef nonnull @.str.10, i32 noundef 3, ptr noundef nonnull %2, ptr noundef null, ptr noundef null, i32 noundef 1) #9
   %.not = icmp eq i32 %97, 1
@@ -847,7 +847,7 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
   br i1 %.not99150154, label %.outer._crit_edge, label %.lr.ph151.lr.ph
 
 .lr.ph151.lr.ph:                                  ; preds = %.preheader
-  %105 = getelementptr inbounds i8, ptr %0, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %.lr.ph151
 
 106:                                              ; preds = %101
@@ -1022,7 +1022,7 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
   unreachable
 
 175:                                              ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %117, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %177 = load i64, ptr %176, align 8
   %.not114 = icmp eq i64 %153, %177
   br i1 %.not114, label %179, label %178
@@ -1034,7 +1034,7 @@ appendArrayEscapedString.exit:                    ; preds = %73, %74
 
 179:                                              ; preds = %175
   %180 = sext i32 %154 to i64
-  %181 = getelementptr inbounds i8, ptr %117, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %182 = load i64, ptr %181, align 8
   %183 = icmp ult i64 %182, %180
   br i1 %183, label %184, label %185

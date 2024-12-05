@@ -253,7 +253,7 @@ define dso_local noundef zeroext i1 @xlate_batch_script(ptr noundef %0, ptr noun
 .lr.ph51:                                         ; preds = %.lr.ph51.preheader, %.lr.ph51
   %indvars.iv56 = phi i64 [ 1, %.lr.ph51.preheader ], [ %indvars.iv.next57, %.lr.ph51 ]
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv56
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv56
   call void @slurm_xfree(ptr noundef nonnull %56) #12
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count
@@ -354,7 +354,7 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %.not19, label %41, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %strchr, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   %37 = load i8, ptr %36, align 1
   %.not20 = icmp eq i8 %37, 0
   br i1 %.not20, label %38, label %41
@@ -1983,7 +1983,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
   br i1 %.not14, label %647, label %650
 
 647:                                              ; preds = %644
-  %648 = getelementptr inbounds i8, ptr %646, i64 6
+  %648 = getelementptr inbounds nuw i8, ptr %646, i64 6
   %649 = call ptr @xstrdup(ptr noundef nonnull %648) #12
   store ptr %649, ptr %11, align 8
   br label %664
@@ -1995,7 +1995,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
 
 652:                                              ; preds = %650
   %653 = load ptr, ptr @optarg, align 8
-  %654 = getelementptr inbounds i8, ptr %653, i64 7
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 7
   %655 = call ptr @xstrdup(ptr noundef nonnull %654) #12
   store ptr %655, ptr %11, align 8
   br label %664

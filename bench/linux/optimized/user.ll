@@ -70,9 +70,9 @@ define internal i64 @snapshot_read(ptr nocapture noundef readonly %0, ptr nounde
   %7 = and i64 %6, 4095
   store i64 %7, ptr %5, align 8
   %8 = tail call i32 @lock_system_sleep() #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 33
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 33
   %12 = load i8, ptr %11, align 1, !range !6, !noundef !7
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %31, label %14
@@ -93,7 +93,7 @@ define internal i64 @snapshot_read(ptr nocapture noundef readonly %0, ptr nounde
 
 22:                                               ; preds = %20, %16
   %23 = phi i64 [ %21, %20 ], [ %18, %16 ]
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call i64 @simple_read_from_buffer(ptr noundef %1, i64 noundef %2, ptr noundef nonnull %5, ptr noundef %25, i64 noundef %23) #7
   %27 = icmp sgt i64 %26, 0
@@ -129,7 +129,7 @@ define internal i64 @snapshot_write(ptr nocapture noundef readonly %0, ptr nound
 
 10:                                               ; preds = %9, %4
   %11 = tail call i32 @lock_system_sleep() #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq i64 %7, 0
   br i1 %14, label %15, label %19
@@ -142,7 +142,7 @@ define internal i64 @snapshot_write(ptr nocapture noundef readonly %0, ptr nound
 
 19:                                               ; preds = %15, %10
   %20 = phi i64 [ %17, %15 ], [ 4096, %10 ]
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %30, label %24
@@ -194,7 +194,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
 
 17:                                               ; preds = %14
   tail call void @lock_device_hotplug() #7
-  %18 = getelementptr inbounds i8, ptr %0, i64 200
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %19 = load ptr, ptr %18, align 8
   switch i32 %1, label %161 [
     i32 13057, label %20
@@ -214,7 +214,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   ]
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load i8, ptr %21, align 8, !range !6, !noundef !7
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %161
@@ -239,13 +239,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br label %161
 
 32:                                               ; preds = %17
-  %33 = getelementptr inbounds i8, ptr %19, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %34 = load i8, ptr %33, align 8, !range !6, !noundef !7
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %161, label %36
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %19, i64 33
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 33
   %38 = load i8, ptr %37, align 1, !range !6, !noundef !7
   %39 = icmp eq i8 %38, 0
   br i1 %39, label %40, label %161
@@ -253,33 +253,33 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
 40:                                               ; preds = %36
   tail call void @pm_restore_gfp_mask() #7
   tail call void @free_basic_memory_bitmaps() #7
-  %41 = getelementptr inbounds i8, ptr %19, i64 35
+  %41 = getelementptr inbounds nuw i8, ptr %19, i64 35
   store i8 0, ptr %41, align 1
   tail call void @thaw_processes() #7
   store i8 0, ptr %33, align 8
   br label %161
 
 42:                                               ; preds = %17
-  %43 = getelementptr inbounds i8, ptr %19, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %161
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %19, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %48 = load i8, ptr %47, align 8, !range !6, !noundef !7
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %161, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %19, i64 33
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 33
   %52 = load i8, ptr %51, align 1, !range !6, !noundef !7
   %53 = icmp eq i8 %52, 0
   br i1 %53, label %54, label %161
 
 54:                                               ; preds = %50
   tail call void @pm_restore_gfp_mask() #7
-  %55 = getelementptr inbounds i8, ptr %19, i64 34
+  %55 = getelementptr inbounds nuw i8, ptr %19, i64 34
   %56 = load i8, ptr %55, align 2, !range !6, !noundef !7
   %57 = zext nneg i8 %56 to i32
   %58 = tail call i32 @hibernation_snapshot(i32 noundef %57) #7
@@ -307,13 +307,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
 
 74:                                               ; preds = %17
   tail call void @snapshot_write_finalize(ptr noundef %19) #7
-  %75 = getelementptr inbounds i8, ptr %19, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %76 = load i32, ptr %75, align 4
   %77 = icmp eq i32 %76, 1
   br i1 %77, label %78, label %161
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %19, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %80 = load i8, ptr %79, align 8, !range !6, !noundef !7
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %161, label %82
@@ -324,7 +324,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br i1 %84, label %161, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %19, i64 34
+  %86 = getelementptr inbounds nuw i8, ptr %19, i64 34
   %87 = load i8, ptr %86, align 2, !range !6, !noundef !7
   %88 = zext nneg i8 %87 to i32
   %89 = tail call i32 @hibernation_restore(i32 noundef %88) #7
@@ -333,7 +333,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
 90:                                               ; preds = %17
   tail call void @swsusp_free() #7
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  %91 = getelementptr inbounds i8, ptr %19, i64 33
+  %91 = getelementptr inbounds nuw i8, ptr %19, i64 33
   store i8 0, ptr %91, align 1
   tail call void @thaw_kernel_threads() #7
   br label %161
@@ -343,7 +343,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br label %161
 
 93:                                               ; preds = %17
-  %94 = getelementptr inbounds i8, ptr %19, i64 33
+  %94 = getelementptr inbounds nuw i8, ptr %19, i64 33
   %95 = load i8, ptr %94, align 1, !range !6, !noundef !7
   %96 = icmp eq i8 %95, 0
   br i1 %96, label %161, label %97
@@ -362,7 +362,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br label %161
 
 107:                                              ; preds = %17
-  %108 = getelementptr inbounds i8, ptr %19, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %109 = load i32, ptr %108, align 8
   %110 = tail call i32 @count_swap_pages(i32 noundef %109, i32 noundef 1) #7
   %111 = zext i32 %110 to i64
@@ -378,7 +378,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br label %161
 
 120:                                              ; preds = %17
-  %121 = getelementptr inbounds i8, ptr %19, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %122 = load i32, ptr %121, align 8
   %123 = icmp ugt i32 %122, 27
   br i1 %123, label %161, label %124
@@ -401,7 +401,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br label %161
 
 136:                                              ; preds = %17
-  %137 = getelementptr inbounds i8, ptr %19, i64 24
+  %137 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %138 = load i32, ptr %137, align 8
   %139 = icmp ugt i32 %138, 27
   br i1 %139, label %161, label %140
@@ -411,26 +411,26 @@ define internal range(i64 -2147483648, 2147483648) i64 @snapshot_ioctl(ptr nocap
   br label %161
 
 141:                                              ; preds = %17
-  %142 = getelementptr inbounds i8, ptr %19, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %143 = load i8, ptr %142, align 8, !range !6, !noundef !7
   %144 = icmp eq i8 %143, 0
   br i1 %144, label %161, label %145
 
 145:                                              ; preds = %141
   %146 = tail call i32 @suspend_devices_and_enter(i32 noundef 3) #7
-  %147 = getelementptr inbounds i8, ptr %19, i64 33
+  %147 = getelementptr inbounds nuw i8, ptr %19, i64 33
   store i8 0, ptr %147, align 1
   br label %161
 
 148:                                              ; preds = %17
   %149 = icmp ne i64 %2, 0
-  %150 = getelementptr inbounds i8, ptr %19, i64 34
+  %150 = getelementptr inbounds nuw i8, ptr %19, i64 34
   %151 = zext i1 %149 to i8
   store i8 %151, ptr %150, align 2
   br label %161
 
 152:                                              ; preds = %17
-  %153 = getelementptr inbounds i8, ptr %19, i64 34
+  %153 = getelementptr inbounds nuw i8, ptr %19, i64 34
   %154 = load i8, ptr %153, align 2, !range !6, !noundef !7
   %155 = icmp eq i8 %154, 0
   br i1 %155, label %161, label %156
@@ -487,7 +487,7 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br i1 %6, label %7, label %36
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 3
   %11 = icmp eq i32 %10, 2
@@ -499,7 +499,7 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 13:                                               ; preds = %7
   %14 = tail call i32 @nonseekable_open(ptr noundef %0, ptr noundef %1) #7
-  %15 = getelementptr inbounds i8, ptr %1, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr @snapshot_state, ptr %15, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) @snapshot_state, i8 0, i64 24, i1 false)
   %16 = load i32, ptr %8, align 8
@@ -563,14 +563,14 @@ define internal i32 @snapshot_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
 define internal noundef i32 @snapshot_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = tail call i32 @lock_system_sleep() #7
   tail call void @swsusp_free() #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load i32, ptr %7, align 8
   tail call void @free_all_swap_pages(i32 noundef %8) #7
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i8, ptr %9, align 8, !range !6, !noundef !7
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %13, label %12
@@ -582,7 +582,7 @@ define internal noundef i32 @snapshot_release(ptr nocapture readnone %0, ptr noc
   br label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %5, i64 35
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 35
   %15 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %18, label %17
@@ -592,7 +592,7 @@ define internal noundef i32 @snapshot_release(ptr nocapture readnone %0, ptr noc
   br label %18
 
 18:                                               ; preds = %17, %13, %12
-  %19 = getelementptr inbounds i8, ptr %5, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, i64 2, i64 6
@@ -712,7 +712,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
 7:                                                ; preds = %2
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !14
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 2
   %13 = icmp eq i32 %12, 0
@@ -726,7 +726,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   br i1 %16, label %.thread, label %27
 
 .thread:                                          ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 255
   %20 = lshr i32 %18, 12
@@ -751,7 +751,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   br i1 %30, label %.thread1, label %41
 
 .thread1:                                         ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 255
   %34 = lshr i32 %32, 12
@@ -772,7 +772,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   %43 = phi i64 [ %26, %.thread ], [ %40, %.thread1 ]
   %44 = phi i32 [ %25, %.thread ], [ %39, %.thread1 ]
   %45 = call i32 @swap_type_of(i32 noundef %44, i64 noundef %43) #7
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %45, ptr %46, align 8
   %47 = icmp slt i32 %45, 0
   br i1 %47, label %48, label %51
@@ -783,7 +783,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @snapshot_set_swap_area(ptr
   br label %53
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %0, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %44, ptr %52, align 4
   br label %53
 

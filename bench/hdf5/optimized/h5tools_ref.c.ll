@@ -36,7 +36,7 @@ declare i32 @H5SL_destroy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal noundef i32 @free_ref_path_info(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #10
   tail call void @free(ptr noundef %0) #10
@@ -58,7 +58,7 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr nocapture
   ]
 
 .tail:                                            ; preds = %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %15, label %.tail.thread
@@ -79,7 +79,7 @@ define range(i32 -1, 1) i32 @ref_path_table_lookup(ptr noundef %0, ptr nocapture
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
   br label %21
 
@@ -207,7 +207,7 @@ init_ref_path_table.exit:                         ; preds = %27, %23, %20, %get_
 34:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull readonly align 1 dereferenceable(16) %1, i64 16, i1 false)
   %35 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #10
-  %36 = getelementptr inbounds i8, ptr %32, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %35, ptr %36, align 8
   %37 = tail call i32 @H5SL_insert(ptr noundef nonnull %28, ptr noundef nonnull %32, ptr noundef nonnull %32) #10
   br label %ref_path_table_put.exit
@@ -267,13 +267,13 @@ define ptr @lookup_ref_path(ptr noundef byval(%struct.H5R_ref_t) align 8 %0) loc
 
 init_ref_path_table.exit:                         ; preds = %25, %21, %18, %13
   %26 = load ptr, ptr @ref_path_table, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = call ptr @H5SL_search(ptr noundef %26, ptr noundef nonnull %27) #10
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %init_ref_path_table.exit
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load ptr, ptr %30, align 8
   br label %32
 
@@ -331,7 +331,7 @@ define internal noundef i32 @init_ref_path_cb(ptr noundef readonly %0, ptr nocap
   br i1 %5, label %6, label %ref_path_table_put.exit
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr @ref_path_table, align 8
   %9 = icmp ne ptr %8, null
   %10 = icmp ne ptr %0, null
@@ -346,7 +346,7 @@ define internal noundef i32 @init_ref_path_cb(ptr noundef readonly %0, ptr nocap
 14:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull readonly align 1 dereferenceable(16) %7, i64 16, i1 false)
   %15 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %0) #10
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %15, ptr %16, align 8
   %17 = tail call i32 @H5SL_insert(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %12) #10
   br label %ref_path_table_put.exit

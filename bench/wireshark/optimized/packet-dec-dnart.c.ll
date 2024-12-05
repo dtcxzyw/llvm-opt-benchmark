@@ -384,13 +384,13 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dec_rt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.203) #3
   %7 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %7, i32 noundef 25) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 112
-  %9 = getelementptr inbounds i8, ptr %1, i64 160
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp eq i32 %10, 7
   br i1 %.not.i, label %set_dnet_address.exit, label %11
@@ -401,9 +401,9 @@ define internal i32 @dissect_dec_rt(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %13, label %14, label %set_dnet_address.exit
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, -86
@@ -446,16 +446,16 @@ dnet_ntoa.exit.i:                                 ; preds = %29
   %44 = load ptr, ptr %15, align 8
   %45 = tail call noalias ptr @wmem_strdup(ptr noundef %44, ptr noundef nonnull %42) #3
   store i32 7, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 164
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 164
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 168
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %45, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr null, ptr %48, align 8
   br label %set_dnet_address.exit
 
 set_dnet_address.exit:                            ; preds = %4, %11, %14, %21, %25, %29, %dnet_ntoa.exit.i, %43
-  %49 = getelementptr inbounds i8, ptr %1, i64 208
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %50 = load i32, ptr %49, align 8
   %.not.i186 = icmp eq i32 %50, 7
   br i1 %.not.i186, label %set_dnet_address.exit190, label %51
@@ -466,9 +466,9 @@ set_dnet_address.exit:                            ; preds = %4, %11, %14, %21, %
   br i1 %53, label %54, label %set_dnet_address.exit190
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %1, i64 408
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 120
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, -86
@@ -511,17 +511,17 @@ dnet_ntoa.exit.i187:                              ; preds = %69
   %84 = load ptr, ptr %55, align 8
   %85 = tail call noalias ptr @wmem_strdup(ptr noundef %84, ptr noundef nonnull %82) #3
   store i32 7, ptr %49, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 212
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 212
   store i32 1, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %1, i64 216
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %85, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 224
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 224
   store ptr null, ptr %88, align 8
   br label %set_dnet_address.exit190
 
 set_dnet_address.exit190:                         ; preds = %set_dnet_address.exit, %51, %54, %61, %65, %69, %dnet_ntoa.exit.i187, %83
-  %89 = getelementptr inbounds i8, ptr %1, i64 136
-  %90 = getelementptr inbounds i8, ptr %1, i64 184
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %91 = load i32, ptr %90, align 8
   %.not.i191 = icmp eq i32 %91, 7
   br i1 %.not.i191, label %set_dnet_address.exit195, label %92
@@ -532,9 +532,9 @@ set_dnet_address.exit190:                         ; preds = %set_dnet_address.ex
   br i1 %94, label %95, label %set_dnet_address.exit195
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %1, i64 408
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 144
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %99 = load ptr, ptr %98, align 8
   %100 = load i8, ptr %99, align 1
   %101 = icmp eq i8 %100, -86
@@ -577,16 +577,16 @@ dnet_ntoa.exit.i192:                              ; preds = %110
   %125 = load ptr, ptr %96, align 8
   %126 = tail call noalias ptr @wmem_strdup(ptr noundef %125, ptr noundef nonnull %123) #3
   store i32 7, ptr %90, align 8
-  %127 = getelementptr inbounds i8, ptr %1, i64 188
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 188
   store i32 1, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 192
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 192
   store ptr %126, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %1, i64 200
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %129, align 8
   br label %set_dnet_address.exit195
 
 set_dnet_address.exit195:                         ; preds = %set_dnet_address.exit190, %92, %95, %102, %106, %110, %dnet_ntoa.exit.i192, %124
-  %130 = getelementptr inbounds i8, ptr %1, i64 232
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %131 = load i32, ptr %130, align 8
   %.not.i196 = icmp eq i32 %131, 7
   br i1 %.not.i196, label %set_dnet_address.exit200, label %132
@@ -597,9 +597,9 @@ set_dnet_address.exit195:                         ; preds = %set_dnet_address.ex
   br i1 %134, label %135, label %set_dnet_address.exit200
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %1, i64 408
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %1, i64 144
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %139 = load ptr, ptr %138, align 8
   %140 = load i8, ptr %139, align 1
   %141 = icmp eq i8 %140, -86
@@ -642,11 +642,11 @@ dnet_ntoa.exit.i197:                              ; preds = %150
   %165 = load ptr, ptr %136, align 8
   %166 = tail call noalias ptr @wmem_strdup(ptr noundef %165, ptr noundef nonnull %163) #3
   store i32 7, ptr %130, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 236
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 236
   store i32 1, ptr %167, align 4
-  %168 = getelementptr inbounds i8, ptr %1, i64 240
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %166, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %1, i64 248
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr null, ptr %169, align 8
   br label %set_dnet_address.exit200
 
@@ -862,7 +862,7 @@ do_routing_msg.exit:                              ; preds = %.lr.ph.i, %.prehead
   %307 = add nuw nsw i32 %.0176, 4
   %308 = load i32, ptr @hf_dec_rt_id, align 4
   %309 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %308, ptr noundef %0, i32 noundef %307, i32 noundef 6, i32 noundef 0) #3
-  %310 = getelementptr inbounds i8, ptr %1, i64 408
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %311 = load ptr, ptr %310, align 8
   %312 = tail call ptr @tvb_memdup(ptr noundef %311, ptr noundef %0, i32 noundef %307, i64 noundef 6) #3
   %313 = load i8, ptr %312, align 1
@@ -1103,7 +1103,7 @@ dnet_ntoa.exit128.thread.i:                       ; preds = %440, %dnet_ntoa.exi
   %458 = add nuw nsw i32 %.0176, 3
   %459 = load i32, ptr @hf_dec_rt_dst_addr, align 4
   %460 = tail call ptr @proto_tree_add_item(ptr noundef %174, i32 noundef %459, ptr noundef %0, i32 noundef %458, i32 noundef 6, i32 noundef 0) #3
-  %461 = getelementptr inbounds i8, ptr %1, i64 408
+  %461 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %462 = load ptr, ptr %461, align 8
   %463 = tail call ptr @tvb_memdup(ptr noundef %462, ptr noundef %0, i32 noundef %458, i64 noundef 6) #3
   %464 = load i8, ptr %463, align 1
@@ -1451,7 +1451,7 @@ do_initialization_msg.exit.thread225:             ; preds = %533, %dnet_ntoa.exi
 
 switch.lookup:                                    ; preds = %669
   %678 = zext nneg i8 %675 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_dec_rt, i64 0, i64 %678
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_dec_rt, i64 0, i64 %678
   %switch.load = load ptr, ptr %switch.gep, align 8
   %679 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %679, i32 noundef 25, ptr noundef nonnull %switch.load) #3

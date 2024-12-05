@@ -14,9 +14,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @Curl_wildcard_init(ptr noundef %wc) local_unnamed_addr #0 {
 entry:
-  %filelist = getelementptr inbounds i8, ptr %wc, i64 16
+  %filelist = getelementptr inbounds nuw i8, ptr %wc, i64 16
   tail call void @Curl_llist_init(ptr noundef nonnull %filelist, ptr noundef nonnull @fileinfo_dtor) #7
-  %state = getelementptr inbounds i8, ptr %wc, i64 64
+  %state = getelementptr inbounds nuw i8, ptr %wc, i64 64
   store i8 1, ptr %state, align 8
   ret i32 0
 }
@@ -38,31 +38,31 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dtor = getelementptr inbounds i8, ptr %0, i64 56
+  %dtor = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %dtor, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %do.end, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %ftpwc = getelementptr inbounds i8, ptr %0, i64 48
+  %ftpwc = getelementptr inbounds nuw i8, ptr %0, i64 48
   %2 = load ptr, ptr %ftpwc, align 8
   tail call void %1(ptr noundef %2) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ftpwc, i8 0, i64 16, i1 false)
   br label %do.end
 
 do.end:                                           ; preds = %if.then2, %if.end
-  %filelist = getelementptr inbounds i8, ptr %0, i64 16
+  %filelist = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @Curl_llist_destroy(ptr noundef nonnull %filelist, ptr noundef null) #7
   %3 = load ptr, ptr @Curl_cfree, align 8
   %4 = load ptr, ptr %0, align 8
   tail call void %3(ptr noundef %4) #7
   store ptr null, ptr %0, align 8
   %5 = load ptr, ptr @Curl_cfree, align 8
-  %pattern = getelementptr inbounds i8, ptr %0, i64 8
+  %pattern = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %pattern, align 8
   tail call void %5(ptr noundef %6) #7
   store ptr null, ptr %pattern, align 8
-  %state = getelementptr inbounds i8, ptr %0, i64 64
+  %state = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %state, align 8
   %7 = load ptr, ptr @Curl_cfree, align 8
   tail call void %7(ptr noundef nonnull %0) #7
@@ -91,7 +91,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %file_data = getelementptr inbounds i8, ptr %0, i64 16
+  %file_data = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %file_data, align 8
   tail call void @Curl_fileinfo_cleanup(ptr noundef %1) #7
   br label %if.end
@@ -108,7 +108,7 @@ declare void @Curl_fileinfo_cleanup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @Curl_ftp_parselist_geterror(ptr nocapture noundef readonly %pl_data) local_unnamed_addr #2 {
 entry:
-  %error = getelementptr inbounds i8, ptr %pl_data, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %pl_data, i64 12
   %0 = load i32, ptr %error, align 4
   ret i32 %0
 }
@@ -122,12 +122,12 @@ entry:
   %fsize = alloca i64, align 8
   %endptr1050 = alloca ptr, align 8
   %mul = mul i64 %nmemb, %size
-  %wildcard = getelementptr inbounds i8, ptr %connptr, i64 5048
+  %wildcard = getelementptr inbounds nuw i8, ptr %connptr, i64 5048
   %0 = load ptr, ptr %wildcard, align 8
-  %ftpwc1 = getelementptr inbounds i8, ptr %0, i64 48
+  %ftpwc1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %ftpwc1, align 8
   %2 = load ptr, ptr %1, align 8
-  %error = getelementptr inbounds i8, ptr %2, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %2, i64 12
   %3 = load i32, ptr %error, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %if.end, label %fail
@@ -152,17 +152,17 @@ if.end12:                                         ; preds = %if.end
   br i1 %cmp13548.not, label %return, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end12.thread, %if.end12
-  %file_data = getelementptr inbounds i8, ptr %2, i64 16
-  %item_offset = getelementptr inbounds i8, ptr %2, i64 32
-  %item_length = getelementptr inbounds i8, ptr %2, i64 24
-  %state = getelementptr inbounds i8, ptr %2, i64 4
-  %sub = getelementptr inbounds i8, ptr %2, i64 8
-  %offsets1126 = getelementptr inbounds i8, ptr %2, i64 40
-  %time993 = getelementptr inbounds i8, ptr %2, i64 64
-  %symlink_target920 = getelementptr inbounds i8, ptr %2, i64 80
-  %group = getelementptr inbounds i8, ptr %2, i64 56
-  %user = getelementptr inbounds i8, ptr %2, i64 48
-  %perm167 = getelementptr inbounds i8, ptr %2, i64 72
+  %file_data = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %item_offset = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %item_length = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %state = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %sub = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %offsets1126 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %time993 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %symlink_target920 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %group = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %user = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %perm167 = getelementptr inbounds nuw i8, ptr %2, i64 72
   br label %while.body.us.preheader
 
 while.body.us.preheader:                          ; preds = %sw.epilog1144, %while.body.lr.ph.lr.ph
@@ -186,14 +186,14 @@ if.then17.us:                                     ; preds = %while.body.us
 if.end23.us:                                      ; preds = %if.then17.us
   store i64 0, ptr %item_offset, align 8
   store i32 0, ptr %item_length, align 8
-  %buf.us = getelementptr inbounds i8, ptr %call.us, i64 152
+  %buf.us = getelementptr inbounds nuw i8, ptr %call.us, i64 152
   call void @Curl_dyn_init(ptr noundef nonnull %buf.us, i64 noundef 10000) #7
   %.pre = load ptr, ptr %file_data, align 8
   br label %if.end25.us
 
 if.end25.us:                                      ; preds = %if.end23.us, %while.body.us
   %10 = phi ptr [ %.pre, %if.end23.us ], [ %9, %while.body.us ]
-  %buf27.us = getelementptr inbounds i8, ptr %10, i64 152
+  %buf27.us = getelementptr inbounds nuw i8, ptr %10, i64 152
   %call28.us = call i32 @Curl_dyn_addn(ptr noundef nonnull %buf27.us, ptr noundef nonnull %c, i64 noundef 1) #7
   %tobool29.not.us = icmp eq i32 %call28.us, 0
   br i1 %tobool29.not.us, label %if.end32.us, label %if.then30
@@ -272,14 +272,14 @@ if.then58:                                        ; preds = %sw.bb52
 
 if.then67:                                        ; preds = %sw.bb52
   %idxprom = zext i32 %16 to i64
-  %arrayidx70 = getelementptr inbounds i8, ptr %call36.us, i64 %idxprom
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %call36.us, i64 %idxprom
   store i8 0, ptr %arrayidx70, align 1
   %call71 = call i32 @strncmp(ptr noundef nonnull dereferenceable(7) @.str, ptr noundef nonnull dereferenceable(1) %call36.us, i64 noundef 6) #8
   %tobool72.not = icmp eq i32 %call71, 0
   br i1 %tobool72.not, label %if.then73, label %if.else101
 
 if.then73:                                        ; preds = %if.then67
-  %add.ptr = getelementptr inbounds i8, ptr %call36.us, i64 6
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call36.us, i64 6
   br label %while.cond74
 
 while.cond74:                                     ; preds = %while.body81, %if.then73
@@ -296,12 +296,12 @@ while.cond82.preheader:                           ; preds = %while.cond74
   br i1 %or.cond375546, label %while.body91, label %while.end93
 
 while.body81:                                     ; preds = %while.cond74, %while.cond74
-  %incdec.ptr = getelementptr inbounds i8, ptr %endptr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %endptr.0, i64 1
   br label %while.cond74, !llvm.loop !4
 
 while.body91:                                     ; preds = %while.cond82.preheader, %while.body91
   %endptr.1547 = phi ptr [ %incdec.ptr92, %while.body91 ], [ %endptr.0, %while.cond82.preheader ]
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %endptr.1547, i64 1
+  %incdec.ptr92 = getelementptr inbounds nuw i8, ptr %endptr.1547, i64 1
   %.pr = load i8, ptr %incdec.ptr92, align 1
   %20 = add i8 %.pr, -48
   %or.cond375 = icmp ult i8 %20, 10
@@ -365,7 +365,7 @@ sw.default:                                       ; preds = %sw.bb106
 
 sw.epilog124:                                     ; preds = %sw.bb106, %sw.bb121, %sw.bb119, %sw.bb117, %sw.bb115, %sw.bb113, %sw.bb111, %sw.bb109
   %.sink = phi i32 [ 7, %sw.bb121 ], [ 3, %sw.bb119 ], [ 4, %sw.bb117 ], [ 6, %sw.bb115 ], [ 5, %sw.bb113 ], [ 2, %sw.bb111 ], [ 1, %sw.bb109 ], [ 0, %sw.bb106 ]
-  %filetype122 = getelementptr inbounds i8, ptr %10, i64 8
+  %filetype122 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %.sink, ptr %filetype122, align 8
   store i32 2, ptr %state, align 4
   store i32 0, ptr %item_length, align 8
@@ -404,7 +404,7 @@ if.then150:                                       ; preds = %if.then146
   br label %fail
 
 if.end152:                                        ; preds = %if.then146
-  %arrayidx153 = getelementptr inbounds i8, ptr %call36.us, i64 10
+  %arrayidx153 = getelementptr inbounds nuw i8, ptr %call36.us, i64 10
   store i8 0, ptr %arrayidx153, align 1
   %25 = load i64, ptr %item_offset, align 8
   %add.ptr155 = getelementptr inbounds i8, ptr %call36.us, i64 %25
@@ -413,7 +413,7 @@ if.end152:                                        ; preds = %if.then146
   %switch.select.i = select i1 %switch.selectcmp.i, i32 0, i32 16777216
   %switch.selectcmp51.i = icmp eq i8 %26, 114
   %switch.select52.i = select i1 %switch.selectcmp51.i, i32 256, i32 %switch.select.i
-  %arrayidx9.i = getelementptr inbounds i8, ptr %add.ptr155, i64 1
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 1
   %27 = load i8, ptr %arrayidx9.i, align 1
   switch i8 %27, label %if.then20.i [
     i8 119, label %if.then13.i
@@ -430,7 +430,7 @@ if.then20.i:                                      ; preds = %if.end152
 
 if.end23.i:                                       ; preds = %if.then20.i, %if.then13.i, %if.end152
   %permissions.1.i = phi i32 [ %or14.i, %if.then13.i ], [ %or21.i, %if.then20.i ], [ %switch.select52.i, %if.end152 ]
-  %arrayidx24.i = getelementptr inbounds i8, ptr %add.ptr155, i64 2
+  %arrayidx24.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 2
   %28 = load i8, ptr %arrayidx24.i, align 1
   switch i8 %28, label %if.then50.i [
     i8 120, label %if.then28.i
@@ -457,7 +457,7 @@ if.then50.i:                                      ; preds = %if.end23.i
 
 if.end55.i:                                       ; preds = %if.then50.i, %if.then43.i, %if.then35.i, %if.then28.i, %if.end23.i
   %permissions.2.i = phi i32 [ %or29.i, %if.then28.i ], [ %or37.i, %if.then35.i ], [ %or44.i, %if.then43.i ], [ %or51.i, %if.then50.i ], [ %permissions.1.i, %if.end23.i ]
-  %arrayidx56.i = getelementptr inbounds i8, ptr %add.ptr155, i64 3
+  %arrayidx56.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 3
   %29 = load i8, ptr %arrayidx56.i, align 1
   switch i8 %29, label %if.then67.i [
     i8 114, label %if.then60.i
@@ -474,7 +474,7 @@ if.then67.i:                                      ; preds = %if.end55.i
 
 if.end70.i:                                       ; preds = %if.then67.i, %if.then60.i, %if.end55.i
   %permissions.3.i = phi i32 [ %or61.i, %if.then60.i ], [ %or68.i, %if.then67.i ], [ %permissions.2.i, %if.end55.i ]
-  %arrayidx71.i = getelementptr inbounds i8, ptr %add.ptr155, i64 4
+  %arrayidx71.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 4
   %30 = load i8, ptr %arrayidx71.i, align 1
   switch i8 %30, label %if.then82.i [
     i8 119, label %if.then75.i
@@ -491,7 +491,7 @@ if.then82.i:                                      ; preds = %if.end70.i
 
 if.end85.i:                                       ; preds = %if.then82.i, %if.then75.i, %if.end70.i
   %permissions.4.i = phi i32 [ %or76.i, %if.then75.i ], [ %or83.i, %if.then82.i ], [ %permissions.3.i, %if.end70.i ]
-  %arrayidx86.i = getelementptr inbounds i8, ptr %add.ptr155, i64 5
+  %arrayidx86.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 5
   %31 = load i8, ptr %arrayidx86.i, align 1
   switch i8 %31, label %if.then112.i [
     i8 120, label %if.then90.i
@@ -518,7 +518,7 @@ if.then112.i:                                     ; preds = %if.end85.i
 
 if.end117.i:                                      ; preds = %if.then112.i, %if.then105.i, %if.then97.i, %if.then90.i, %if.end85.i
   %permissions.5.i = phi i32 [ %or91.i, %if.then90.i ], [ %or99.i, %if.then97.i ], [ %or106.i, %if.then105.i ], [ %or113.i, %if.then112.i ], [ %permissions.4.i, %if.end85.i ]
-  %arrayidx118.i = getelementptr inbounds i8, ptr %add.ptr155, i64 6
+  %arrayidx118.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 6
   %32 = load i8, ptr %arrayidx118.i, align 1
   switch i8 %32, label %if.then129.i [
     i8 114, label %if.then122.i
@@ -535,7 +535,7 @@ if.then129.i:                                     ; preds = %if.end117.i
 
 if.end132.i:                                      ; preds = %if.then129.i, %if.then122.i, %if.end117.i
   %permissions.6.i = phi i32 [ %or123.i, %if.then122.i ], [ %or130.i, %if.then129.i ], [ %permissions.5.i, %if.end117.i ]
-  %arrayidx133.i = getelementptr inbounds i8, ptr %add.ptr155, i64 7
+  %arrayidx133.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 7
   %33 = load i8, ptr %arrayidx133.i, align 1
   switch i8 %33, label %if.then144.i [
     i8 119, label %if.then137.i
@@ -552,7 +552,7 @@ if.then144.i:                                     ; preds = %if.end132.i
 
 if.end147.i:                                      ; preds = %if.then144.i, %if.then137.i, %if.end132.i
   %permissions.7.i = phi i32 [ %or138.i, %if.then137.i ], [ %or145.i, %if.then144.i ], [ %permissions.6.i, %if.end132.i ]
-  %arrayidx148.i = getelementptr inbounds i8, ptr %add.ptr155, i64 8
+  %arrayidx148.i = getelementptr inbounds nuw i8, ptr %add.ptr155, i64 8
   %34 = load i8, ptr %arrayidx148.i, align 1
   switch i8 %34, label %if.then158 [
     i8 120, label %if.then152.i
@@ -584,12 +584,12 @@ if.then158:                                       ; preds = %if.end147.i, %ftp_p
 
 if.end160:                                        ; preds = %ftp_pl_get_permission.exit
   %35 = load ptr, ptr %file_data, align 8
-  %flags = getelementptr inbounds i8, ptr %35, i64 96
+  %flags = getelementptr inbounds nuw i8, ptr %35, i64 96
   %36 = load i32, ptr %flags, align 8
   %or = or i32 %36, 8
   store i32 %or, ptr %flags, align 8
   %37 = load ptr, ptr %file_data, align 8
-  %perm165 = getelementptr inbounds i8, ptr %37, i64 24
+  %perm165 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i32 %permissions.8.i, ptr %perm165, align 8
   %38 = load i64, ptr %item_offset, align 8
   store i64 %38, ptr %perm167, align 8
@@ -654,12 +654,12 @@ if.then206:                                       ; preds = %sw.bb200
 
 if.then225:                                       ; preds = %if.then206
   %52 = load ptr, ptr %file_data, align 8
-  %flags228 = getelementptr inbounds i8, ptr %52, i64 96
+  %flags228 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %53 = load i32, ptr %flags228, align 8
   %or229 = or i32 %53, 128
   store i32 %or229, ptr %flags228, align 8
   %54 = load ptr, ptr %file_data, align 8
-  %hardlinks = getelementptr inbounds i8, ptr %54, i64 48
+  %hardlinks = getelementptr inbounds nuw i8, ptr %54, i64 48
   store i64 %call214, ptr %hardlinks, align 8
   br label %if.end232
 
@@ -824,12 +824,12 @@ if.then369:                                       ; preds = %if.then357
 
 if.then380:                                       ; preds = %if.then369
   %86 = load ptr, ptr %file_data, align 8
-  %flags383 = getelementptr inbounds i8, ptr %86, i64 96
+  %flags383 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %87 = load i32, ptr %flags383, align 8
   %or384 = or i32 %87, 64
   store i32 %or384, ptr %flags383, align 8
   %88 = load ptr, ptr %file_data, align 8
-  %size387 = getelementptr inbounds i8, ptr %88, i64 40
+  %size387 = getelementptr inbounds nuw i8, ptr %88, i64 40
   store i64 %83, ptr %size387, align 8
   br label %if.end388
 
@@ -1015,7 +1015,7 @@ if.then611:                                       ; preds = %sw.bb605
   store i8 0, ptr %arrayidx617, align 1
   %123 = load i64, ptr %item_offset, align 8
   store i64 %123, ptr %time993, align 8
-  %filetype620 = getelementptr inbounds i8, ptr %10, i64 8
+  %filetype620 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %124 = load i32, ptr %filetype620, align 8
   %cmp621 = icmp eq i32 %124, 2
   br i1 %cmp621, label %if.then623, label %if.else628
@@ -1452,14 +1452,14 @@ if.then1034:                                      ; preds = %sw.bb1028
   br i1 %cmp1044, label %if.then1046, label %if.else1049
 
 if.then1046:                                      ; preds = %if.then1034
-  %filetype1047 = getelementptr inbounds i8, ptr %10, i64 8
+  %filetype1047 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 1, ptr %filetype1047, align 8
-  %size1048 = getelementptr inbounds i8, ptr %10, i64 40
+  %size1048 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %size1048, align 8
   br label %if.end1062
 
 if.else1049:                                      ; preds = %if.then1034
-  %size1053 = getelementptr inbounds i8, ptr %10, i64 40
+  %size1053 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %call1054 = call i32 @curlx_strtoofft(ptr noundef nonnull %add.ptr1042, ptr noundef nonnull %endptr1050, i32 noundef 10, ptr noundef nonnull %size1053) #7
   %tobool1055.not = icmp eq i32 %call1054, 0
   br i1 %tobool1055.not, label %if.end1058, label %if.then1056
@@ -1470,13 +1470,13 @@ if.then1056:                                      ; preds = %if.else1049
 
 if.end1058:                                       ; preds = %if.else1049
   %191 = load ptr, ptr %file_data, align 8
-  %filetype1061 = getelementptr inbounds i8, ptr %191, i64 8
+  %filetype1061 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 0, ptr %filetype1061, align 8
   br label %if.end1062
 
 if.end1062:                                       ; preds = %if.end1058, %if.then1046
   %192 = load ptr, ptr %file_data, align 8
-  %flags1065 = getelementptr inbounds i8, ptr %192, i64 96
+  %flags1065 = getelementptr inbounds nuw i8, ptr %192, i64 96
   %193 = load i32, ptr %flags1065, align 8
   %or1066 = or i32 %193, 64
   store i32 %or1066, ptr %flags1065, align 8
@@ -1561,7 +1561,7 @@ sw.epilog1144:                                    ; preds = %sw.bb38.us, %sw.bb.
 
 fail:                                             ; preds = %entry, %sw.default1142, %if.else1137, %if.then1056, %if.then1009, %if.else965, %if.else962, %if.then946, %if.else928, %if.else873, %if.then852, %if.then817, %if.then793, %if.then772, %if.else737, %if.then666, %if.else601, %if.then564, %if.else523, %if.then486, %if.else445, %if.then404, %if.else347, %if.then247, %if.else196, %if.then158, %if.then150, %if.then139, %sw.default, %if.else101, %if.then95, %if.then30, %if.then21
   %retsize.0 = phi i64 [ %mul, %entry ], [ %mul, %if.then30 ], [ %add1143, %sw.default1142 ], [ %mul, %if.else1137 ], [ %mul, %if.then1056 ], [ %mul, %if.then1009 ], [ %mul, %if.then946 ], [ %mul, %if.else962 ], [ %mul, %if.else965 ], [ %mul, %if.else928 ], [ %mul, %if.else873 ], [ %mul, %if.then852 ], [ %mul, %if.then817 ], [ %mul, %if.then793 ], [ %mul, %if.then772 ], [ %mul, %if.else737 ], [ %mul, %if.then666 ], [ %mul, %if.else601 ], [ %mul, %if.then564 ], [ %mul, %if.else523 ], [ %mul, %if.then486 ], [ %mul, %if.else445 ], [ %mul, %if.then404 ], [ %mul, %if.else347 ], [ %mul, %if.then247 ], [ %mul, %if.else196 ], [ %mul, %if.then139 ], [ %mul, %if.then150 ], [ %mul, %if.then158 ], [ %mul, %sw.default ], [ %mul, %if.else101 ], [ %mul, %if.then95 ], [ %mul, %if.then21 ]
-  %file_data1147 = getelementptr inbounds i8, ptr %2, i64 16
+  %file_data1147 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %203 = load ptr, ptr %file_data1147, align 8
   %tobool1148.not = icmp eq ptr %203, null
   br i1 %tobool1148.not, label %return, label %if.then1149
@@ -1601,59 +1601,59 @@ declare i32 @curlx_strtoofft(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ftp_pl_insert_finfo(ptr noundef %data, ptr noundef %infop) unnamed_addr #0 {
 entry:
-  %wildcard = getelementptr inbounds i8, ptr %data, i64 5048
+  %wildcard = getelementptr inbounds nuw i8, ptr %data, i64 5048
   %0 = load ptr, ptr %wildcard, align 8
-  %ftpwc1 = getelementptr inbounds i8, ptr %0, i64 48
+  %ftpwc1 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load ptr, ptr %ftpwc1, align 8
-  %filelist = getelementptr inbounds i8, ptr %0, i64 16
+  %filelist = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %1, align 8
-  %buf = getelementptr inbounds i8, ptr %infop, i64 152
+  %buf = getelementptr inbounds nuw i8, ptr %infop, i64 152
   %call = tail call ptr @Curl_dyn_ptr(ptr noundef nonnull %buf) #7
-  %offsets = getelementptr inbounds i8, ptr %2, i64 40
+  %offsets = getelementptr inbounds nuw i8, ptr %2, i64 40
   %3 = load i64, ptr %offsets, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %3
   store ptr %add.ptr, ptr %infop, align 8
-  %group = getelementptr inbounds i8, ptr %2, i64 56
+  %group = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i64, ptr %group, align 8
   %tobool.not = icmp eq i64 %4, 0
   %add.ptr7 = getelementptr inbounds i8, ptr %call, i64 %4
   %spec.select = select i1 %tobool.not, ptr null, ptr %add.ptr7
-  %strings = getelementptr inbounds i8, ptr %infop, i64 56
-  %group8 = getelementptr inbounds i8, ptr %infop, i64 80
+  %strings = getelementptr inbounds nuw i8, ptr %infop, i64 56
+  %group8 = getelementptr inbounds nuw i8, ptr %infop, i64 80
   store ptr %spec.select, ptr %group8, align 8
-  %perm = getelementptr inbounds i8, ptr %2, i64 72
+  %perm = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i64, ptr %perm, align 8
   %tobool10.not = icmp eq i64 %5, 0
   %add.ptr14 = getelementptr inbounds i8, ptr %call, i64 %5
   %cond17 = select i1 %tobool10.not, ptr null, ptr %add.ptr14
-  %perm19 = getelementptr inbounds i8, ptr %infop, i64 64
+  %perm19 = getelementptr inbounds nuw i8, ptr %infop, i64 64
   store ptr %cond17, ptr %perm19, align 8
-  %symlink_target = getelementptr inbounds i8, ptr %2, i64 80
+  %symlink_target = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = load i64, ptr %symlink_target, align 8
   %tobool21.not = icmp eq i64 %6, 0
   %add.ptr25 = getelementptr inbounds i8, ptr %call, i64 %6
   %cond28 = select i1 %tobool21.not, ptr null, ptr %add.ptr25
-  %target = getelementptr inbounds i8, ptr %infop, i64 88
+  %target = getelementptr inbounds nuw i8, ptr %infop, i64 88
   store ptr %cond28, ptr %target, align 8
-  %time = getelementptr inbounds i8, ptr %2, i64 64
+  %time = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load i64, ptr %time, align 8
   %add.ptr31 = getelementptr inbounds i8, ptr %call, i64 %7
   store ptr %add.ptr31, ptr %strings, align 8
-  %user = getelementptr inbounds i8, ptr %2, i64 48
+  %user = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load i64, ptr %user, align 8
   %tobool35.not = icmp eq i64 %8, 0
   %add.ptr39 = getelementptr inbounds i8, ptr %call, i64 %8
   %cond42 = select i1 %tobool35.not, ptr null, ptr %add.ptr39
-  %user44 = getelementptr inbounds i8, ptr %infop, i64 72
+  %user44 = getelementptr inbounds nuw i8, ptr %infop, i64 72
   store ptr %cond42, ptr %user44, align 8
-  %fnmatch = getelementptr inbounds i8, ptr %data, i64 2568
+  %fnmatch = getelementptr inbounds nuw i8, ptr %data, i64 2568
   %9 = load ptr, ptr %fnmatch, align 8
   %tobool45.not = icmp eq ptr %9, null
   %spec.store.select = select i1 %tobool45.not, ptr @Curl_fnmatch, ptr %9
   tail call void @Curl_set_in_callback(ptr noundef %data, i1 noundef zeroext true) #7
-  %fnmatch_data = getelementptr inbounds i8, ptr %data, i64 2576
+  %fnmatch_data = getelementptr inbounds nuw i8, ptr %data, i64 2576
   %10 = load ptr, ptr %fnmatch_data, align 8
-  %pattern = getelementptr inbounds i8, ptr %0, i64 8
+  %pattern = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %pattern, align 8
   %12 = load ptr, ptr %infop, align 8
   %call48 = tail call i32 %spec.store.select(ptr noundef %10, ptr noundef %11, ptr noundef %12) #7
@@ -1661,7 +1661,7 @@ entry:
   br i1 %cmp, label %if.then49, label %if.else64.critedge
 
 if.then49:                                        ; preds = %entry
-  %filetype = getelementptr inbounds i8, ptr %infop, i64 8
+  %filetype = getelementptr inbounds nuw i8, ptr %infop, i64 8
   %13 = load i32, ptr %filetype, align 8
   %cmp50 = icmp eq i32 %13, 2
   br i1 %cmp50, label %land.lhs.true, label %if.then63.critedge
@@ -1682,9 +1682,9 @@ if.then63.critedge:                               ; preds = %if.then49, %land.lh
   br label %if.then63
 
 if.then63:                                        ; preds = %if.then63.critedge, %land.lhs.true54
-  %tail = getelementptr inbounds i8, ptr %0, i64 24
+  %tail = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %tail, align 8
-  %list = getelementptr inbounds i8, ptr %infop, i64 128
+  %list = getelementptr inbounds nuw i8, ptr %infop, i64 128
   tail call void @Curl_llist_insert_next(ptr noundef nonnull %filelist, ptr noundef %15, ptr noundef nonnull %infop, ptr noundef nonnull %list) #7
   br label %if.end65
 
@@ -1698,7 +1698,7 @@ if.else64:                                        ; preds = %if.else64.critedge,
 
 if.end65:                                         ; preds = %if.else64, %if.then63
   %16 = load ptr, ptr %1, align 8
-  %file_data = getelementptr inbounds i8, ptr %16, i64 16
+  %file_data = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr null, ptr %file_data, align 8
   ret void
 }

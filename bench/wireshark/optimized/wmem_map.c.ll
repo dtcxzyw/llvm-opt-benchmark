@@ -24,16 +24,16 @@ declare i32 @g_random_int() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wmem_map_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 64) #7
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %0, ptr %8, align 8
   store i32 0, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %9, align 8
   ret ptr %4
 }
@@ -43,22 +43,22 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @wmem_map_new_autoreset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %0, i64 noundef 64) #7
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %1, ptr %9, align 8
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %10, align 8
   %11 = tail call i32 @wmem_register_callback(ptr noundef %0, ptr noundef nonnull @wmem_map_destroy_cb, ptr noundef nonnull %5) #7
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %11, ptr %12, align 8
   %13 = tail call i32 @wmem_register_callback(ptr noundef %1, ptr noundef nonnull @wmem_map_reset_cb, ptr noundef nonnull %5) #7
-  %14 = getelementptr inbounds i8, ptr %5, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %13, ptr %14, align 4
   ret ptr %5
 }
@@ -67,9 +67,9 @@ declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @wmem_map_destroy_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %7 = load i32, ptr %6, align 4
   tail call void @wmem_unregister_callback(ptr noundef %5, i32 noundef %7) #7
   ret i1 false
@@ -78,15 +78,15 @@ define internal noundef zeroext i1 @wmem_map_destroy_cb(ptr nocapture readnone %
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @wmem_map_reset_cb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef initializes((0, 4), (16, 24)) %2) #0 {
   store i32 0, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8
   %5 = icmp eq i32 %1, 1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = load i32, ptr %9, align 8
   tail call void @wmem_unregister_callback(ptr noundef %8, i32 noundef %10) #7
   %11 = load ptr, ptr %7, align 8
@@ -99,16 +99,16 @@ define internal noundef zeroext i1 @wmem_map_reset_cb(ptr nocapture readnone %0,
 
 ; Function Attrs: nounwind uwtable
 define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
   store i32 0, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 5, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @wmem_alloc0(ptr noundef %10, i64 noundef 256) #7
   store ptr %11, ptr %4, align 8
@@ -116,12 +116,12 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 
 12:                                               ; preds = %7, %3
   %13 = phi ptr [ %11, %7 ], [ %5, %3 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %1) #7
   %17 = load i32, ptr @x, align 4
   %18 = mul i32 %17, %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
   %22 = sub i32 32, %21
@@ -133,7 +133,7 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %28
 
 28:                                               ; preds = %.lr.ph, %37
@@ -147,27 +147,27 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not30, label %37, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8
   store ptr %2, ptr %35, align 8
   br label %81
 
 37:                                               ; preds = %28
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %39, null
   br i1 %.not, label %._crit_edge, label %28, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %37, %12
   %.027.lcssa = phi ptr [ %25, %12 ], [ %38, %37 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 24) #7
   store ptr %42, ptr %.027.lcssa, align 8
   store ptr %1, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %2, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr null, ptr %44, align 8
   %45 = load i32, ptr %0, align 8
   %46 = add i32 %45, 1
@@ -200,7 +200,7 @@ define ptr @wmem_map_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nounde
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
   %.028.i = phi ptr [ %62, %.lr.ph.i ], [ %60, %58 ]
-  %61 = getelementptr inbounds i8, ptr %.028.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.028.i, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %14, align 8
   %64 = load ptr, ptr %.028.i, align 8
@@ -244,31 +244,31 @@ define noundef zeroext i1 @wmem_map_contains(ptr noundef readonly %0, ptr nounde
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %1) #7
   %12 = load i32, ptr @x, align 4
   %13 = mul i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = sub i32 32, %16
   %18 = lshr i32 %13, %17
   %19 = zext i32 %18 to i64
   %20 = getelementptr ptr, ptr %6, i64 %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.016 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %.016, null
   br i1 %.not17, label %.loopexit, label %.lr.ph
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.018, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %.0 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
@@ -292,18 +292,18 @@ define ptr @wmem_map_lookup(ptr noundef readonly %0, ptr noundef %1) local_unnam
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %1) #7
   %12 = load i32, ptr @x, align 4
   %13 = mul i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = sub i32 32, %16
@@ -315,7 +315,7 @@ define ptr @wmem_map_lookup(ptr noundef readonly %0, ptr noundef %1) local_unnam
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %29
@@ -327,12 +327,12 @@ define ptr @wmem_map_lookup(ptr noundef readonly %0, ptr noundef %1) local_unnam
   br i1 %.not16, label %29, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %.020, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.020, i64 8
   %28 = load ptr, ptr %27, align 8
   br label %.loopexit
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %.020, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %.0 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %22, !llvm.loop !9
@@ -348,18 +348,18 @@ define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly %0, ptr
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef %1) #7
   %14 = load i32, ptr @x, align 4
   %15 = mul i32 %14, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
   %19 = sub i32 32, %18
@@ -371,7 +371,7 @@ define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly %0, ptr
   br i1 %.not28, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
 24:                                               ; preds = %.lr.ph, %35
@@ -396,13 +396,13 @@ define noundef zeroext i1 @wmem_map_lookup_extended(ptr noundef readonly %0, ptr
   br i1 %.not25, label %.loopexit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %.029, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %34 = load ptr, ptr %33, align 8
   store ptr %34, ptr %3, align 8
   br label %.loopexit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %.029, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.029, i64 16
   %.0 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %24, !llvm.loop !10
@@ -418,18 +418,18 @@ define ptr @wmem_map_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %1) #7
   %12 = load i32, ptr @x, align 4
   %13 = mul i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = sub i32 32, %16
@@ -441,7 +441,7 @@ define ptr @wmem_map_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not26, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %23
 
 23:                                               ; preds = %.lr.ph, %38
@@ -455,12 +455,12 @@ define ptr @wmem_map_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not24, label %38, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %.02027, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8
   tail call void @wmem_free(ptr noundef %35, ptr noundef %28) #7
   %36 = load i32, ptr %0, align 8
@@ -469,7 +469,7 @@ define ptr @wmem_map_remove(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br label %.loopexit
 
 38:                                               ; preds = %23
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %.loopexit, label %23, !llvm.loop !11
@@ -487,18 +487,18 @@ define noundef zeroext i1 @wmem_map_steal(ptr noundef %0, ptr noundef %1) local_
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %1) #7
   %12 = load i32, ptr @x, align 4
   %13 = mul i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = trunc i64 %15 to i32
   %17 = sub i32 32, %16
@@ -510,7 +510,7 @@ define noundef zeroext i1 @wmem_map_steal(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %23
 
 23:                                               ; preds = %.lr.ph, %34
@@ -521,7 +521,7 @@ define noundef zeroext i1 @wmem_map_steal(ptr noundef %0, ptr noundef %1) local_
   %27 = tail call i32 %25(ptr noundef %1, ptr noundef %26) #7
   %.not20 = icmp eq i32 %27, 0
   %28 = load ptr, ptr %.01623, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   br i1 %.not20, label %34, label %31
 
@@ -544,13 +544,13 @@ define noundef zeroext i1 @wmem_map_steal(ptr noundef %0, ptr noundef %1) local_
 ; Function Attrs: nounwind uwtable
 define ptr @wmem_map_get_keys(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @wmem_list_new(ptr noundef %0) #7
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   br label %9
 
@@ -566,7 +566,7 @@ define ptr @wmem_map_get_keys(ptr noundef %0, ptr nocapture noundef readonly %1)
   %.01216 = phi ptr [ %.012, %.lr.ph ], [ %.01214, %9 ]
   %12 = load ptr, ptr %.01216, align 8
   tail call void @wmem_list_prepend(ptr noundef %3, ptr noundef %12) #7
-  %13 = getelementptr inbounds i8, ptr %.01216, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01216, i64 16
   %.012 = load ptr, ptr %13, align 8
   %.not13 = icmp eq ptr %.012, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !13
@@ -591,13 +591,13 @@ define void @wmem_map_foreach(ptr noundef readonly %0, ptr nocapture noundef rea
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.preheader, %._crit_edge
@@ -612,10 +612,10 @@ define void @wmem_map_foreach(ptr noundef readonly %0, ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %.01217 = phi ptr [ %.012, %.lr.ph ], [ %.01215, %10 ]
   %14 = load ptr, ptr %.01217, align 8
-  %15 = getelementptr inbounds i8, ptr %.01217, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %1(ptr noundef %14, ptr noundef %16, ptr noundef %2) #7
-  %17 = getelementptr inbounds i8, ptr %.01217, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.01217, i64 16
   %.012 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.012, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -638,14 +638,14 @@ define i32 @wmem_map_foreach_remove(ptr noundef %0, ptr nocapture noundef readon
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %11
 
 11:                                               ; preds = %.preheader, %._crit_edge
@@ -663,12 +663,12 @@ define i32 @wmem_map_foreach_remove(ptr noundef %0, ptr nocapture noundef readon
   %.131 = phi i32 [ %.2, %29 ], [ %.033, %11 ]
   %.02330 = phi ptr [ %.124, %29 ], [ %14, %11 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %1(ptr noundef %17, ptr noundef %19, ptr noundef %2) #7
   %.not28 = icmp eq i32 %20, 0
   %21 = load ptr, ptr %.02330, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br i1 %.not28, label %29, label %23
 
 23:                                               ; preds = %.lr.ph

@@ -16,7 +16,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_RawNativeLibraries_lo
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str) #2
   %12 = icmp eq ptr %11, null
@@ -24,7 +24,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_loader_RawNativeLibraries_lo
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 752
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 752
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #2
   store ptr %17, ptr @handleID, align 8
@@ -39,7 +39,7 @@ initIDs.exit:                                     ; preds = %13, %4
 21:                                               ; preds = %initIDs.exit
   %22 = tail call ptr @JVM_LoadLibrary(ptr noundef nonnull %19, i8 noundef zeroext 0) #2
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 880
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 880
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr @handleID, align 8
   %27 = ptrtoint ptr %22 to i64
@@ -68,7 +68,7 @@ define void @Java_jdk_internal_loader_RawNativeLibraries_unload0(ptr noundef %0,
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str) #2
   %12 = icmp eq ptr %11, null
@@ -76,7 +76,7 @@ define void @Java_jdk_internal_loader_RawNativeLibraries_unload0(ptr noundef %0,
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 752
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 752
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #2
   store ptr %17, ptr @handleID, align 8

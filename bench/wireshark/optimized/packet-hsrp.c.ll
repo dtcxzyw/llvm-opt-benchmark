@@ -238,7 +238,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = alloca i32, align 4
   store i32 33554656, ptr %5, align 4
   store i32 1711276256, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %241 [
     i32 1985, label %9
@@ -246,7 +246,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 9:                                                ; preds = %4, %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %11 = load i32, ptr %10, align 8
   switch i32 %11, label %.thread323 [
     i32 2, label %12
@@ -254,14 +254,14 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   ]
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %14 = load ptr, ptr %13, align 8
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %14, ptr noundef nonnull dereferenceable(4) %5, i64 4)
   %15 = icmp eq i32 %bcmp, 0
   br i1 %15, label %16, label %106
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull @.str.100) #4
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
@@ -320,7 +320,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %57, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #4
   %59 = load i32, ptr @hf_hsrp_reserved, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %59, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #4
-  %61 = getelementptr inbounds i8, ptr %1, i64 408
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr @tvb_get_string_enc(ptr noundef %62, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #4
   %64 = load i32, ptr @hf_hsrp_auth_data, align 4
@@ -397,7 +397,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %109, label %110, label %.thread323
 
 110:                                              ; preds = %108, %106
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8
   tail call void @col_set_str(ptr noundef %112, i32 noundef 34, ptr noundef nonnull @.str.130) #4
   %.not321 = icmp eq ptr %2, null
@@ -418,7 +418,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %120, label %.lr.ph, label %.thread323
 
 .lr.ph:                                           ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %1, i64 408
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %122
 
 122:                                              ; preds = %.lr.ph, %235

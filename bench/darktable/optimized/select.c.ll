@@ -67,7 +67,7 @@ define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 160), align 8, !tbaa !13
   %5 = tail call i32 @dt_collection_get_count_no_group(ptr noundef %4) #7
@@ -78,23 +78,23 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %10 = icmp ult i32 %6, %5
   %11 = zext i1 %10 to i32
   tail call void @gtk_widget_set_sensitive(ptr noundef %9, i32 noundef %11) #7
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !25
   %14 = tail call ptr @g_type_check_instance_cast(ptr noundef %13, i64 noundef %8) #7
   %15 = icmp ne i32 %6, 0
   %16 = zext i1 %15 to i32
   tail call void @gtk_widget_set_sensitive(ptr noundef %14, i32 noundef %16) #7
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = tail call ptr @g_type_check_instance_cast(ptr noundef %18, i64 noundef %8) #7
   %20 = icmp ne i32 %5, 0
   %21 = zext i1 %20 to i32
   tail call void @gtk_widget_set_sensitive(ptr noundef %19, i32 noundef %21) #7
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   %24 = tail call ptr @g_type_check_instance_cast(ptr noundef %23, i64 noundef %8) #7
   tail call void @gtk_widget_set_sensitive(ptr noundef %24, i32 noundef %21) #7
-  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %27 = tail call ptr @g_type_check_instance_cast(ptr noundef %26, i64 noundef %8) #7
   tail call void @gtk_widget_set_sensitive(ptr noundef %27, i32 noundef %16) #7
@@ -120,10 +120,10 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #9
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
   %4 = tail call ptr @gtk_grid_new() #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %4, ptr %5, align 8, !tbaa !29
   %6 = tail call i64 @gtk_grid_get_type() #8
   %7 = tail call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %6) #7
@@ -134,22 +134,22 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %9, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1) #7
   %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5) #7
   %11 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %10, i32 noundef 97, i32 noundef 5) #7
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %12, align 8, !tbaa !25
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %11, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 1) #7
   %13 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef 5) #7
   %14 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 2 to ptr), ptr noundef %13, i32 noundef 105, i32 noundef 4) #7
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %14, ptr %15, align 8, !tbaa !26
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %14, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
   %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #7
   %17 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 3 to ptr), ptr noundef %16, i32 noundef 0, i32 noundef 0) #7
-  %18 = getelementptr inbounds i8, ptr %2, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %17, ptr %18, align 8, !tbaa !28
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %17, i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 1) #7
   %19 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef 5) #7
   %20 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @button_clicked, ptr noundef nonnull inttoptr (i64 4 to ptr), ptr noundef %19, i32 noundef 0, i32 noundef 0) #7
-  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %20, ptr %21, align 8, !tbaa !27
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %20, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #7
   %22 = load ptr, ptr %2, align 8, !tbaa !23
@@ -329,7 +329,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 20:                                               ; preds = %19, %15, %10
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !32
   tail call void @dt_control_signal_disconnect(ptr noundef %21, ptr noundef nonnull @_collection_updated_callback, ptr noundef %0) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 280
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   tail call void @free(ptr noundef %23) #7
   store ptr null, ptr %22, align 8, !tbaa !6

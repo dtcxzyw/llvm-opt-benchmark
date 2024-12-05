@@ -111,9 +111,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @H5D__farray_idx_init(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i64 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 %2, ptr %6, align 8
   ret i32 0
 }
@@ -122,17 +122,17 @@ define internal noundef i32 @H5D__farray_idx_init(ptr nocapture noundef readonly
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_create(ptr nocapture noundef readonly %0) #1 {
   %2 = alloca %struct.H5FA_create_t, align 8
   %3 = alloca %struct.H5D_farray_ctx_ud_t, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 148
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 148
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = lshr i64 %13, 16
@@ -145,14 +145,14 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_create(ptr nocapture nound
 
 16:                                               ; preds = %15
   %17 = lshr i64 %13, 24
-  %18 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = add nuw nsw i32 %20, 24
   br label %H5VM_log2_gen.exit
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %23 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = add nuw nsw i32 %25, 16
@@ -164,14 +164,14 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_create(ptr nocapture nound
 
 28:                                               ; preds = %27
   %29 = lshr i64 %13, 8
-  %30 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = add nuw nsw i32 %32, 8
   br label %H5VM_log2_gen.exit
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %13
+  %35 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %13
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   br label %H5VM_log2_gen.exit
@@ -197,28 +197,28 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34
 
 49:                                               ; preds = %46, %H5VM_log2_gen.exit
   %.sink = phi i8 [ %48, %46 ], [ %45, %H5VM_log2_gen.exit ]
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sink, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 1224
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1224
   %54 = load i8, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 9
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %54, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %52, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 160
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %57, ptr %58, align 8
   %59 = load ptr, ptr %0, align 8
   store ptr %59, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %52, i64 148
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 148
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %3, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %61, ptr %62, align 8
   %63 = call ptr @H5FA_create(ptr noundef %59, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store ptr %63, ptr %66, align 8
   %67 = icmp eq ptr %63, null
   br i1 %67, label %68, label %72
@@ -231,9 +231,9 @@ H5VM_log2_gen.exit:                               ; preds = %16, %22, %28, %34
 
 72:                                               ; preds = %49
   %73 = load ptr, ptr %64, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %77 = call i32 @H5FA_get_addr(ptr noundef %75, ptr noundef nonnull %76) #11
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %79, label %83
@@ -272,19 +272,19 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_open(ptr nocapture noundef
   %2 = alloca %struct.H5D_farray_ctx_ud_t, align 8
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 148
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 148
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = call ptr @H5FA_open(ptr noundef %3, i64 noundef %12, ptr noundef nonnull %2) #11
   %14 = load ptr, ptr %9, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %13, ptr %15, align 8
   %16 = icmp eq ptr %13, null
   br i1 %16, label %17, label %21
@@ -320,9 +320,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_open(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_close(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FA_close(ptr noundef %5) #11
   %7 = icmp slt i32 %6, 0
@@ -336,7 +336,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_close(ptr nocapture nounde
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr null, ptr %14, align 8
   br label %15
 
@@ -347,9 +347,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_close(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @H5D__farray_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
   %8 = zext i1 %7 to i8
@@ -359,7 +359,7 @@ define internal noundef i32 @H5D__farray_idx_is_open(ptr nocapture noundef reado
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @H5D__farray_idx_is_space_alloc(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, -1
   ret i1 %4
@@ -368,9 +368,9 @@ define internal zeroext i1 @H5D__farray_idx_is_space_alloc(ptr nocapture noundef
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #1 {
   %4 = alloca %struct.H5D_farray_filt_elmt_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %16
@@ -393,9 +393,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr nocapture nound
 
 19:                                               ; preds = %9, %16
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i64, ptr %23, align 8
   %.not25 = icmp eq i64 %24, -1
   br i1 %.not25, label %25, label %29
@@ -407,7 +407,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr nocapture nound
   br label %62
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i64, ptr %30, align 8
   %.not26 = icmp ult i64 %31, 4294967296
   br i1 %.not26, label %36, label %32
@@ -419,23 +419,23 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr nocapture nound
   br label %62
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load i64, ptr %39, align 8
   %.not27 = icmp eq i64 %40, 0
   br i1 %.not27, label %55, label %41
 
 41:                                               ; preds = %36
   store i64 %24, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load i64, ptr %42, align 8
   %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %47 = load i32, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %47, ptr %48, align 4
   %49 = call i32 @H5FA_set(ptr noundef %22, i64 noundef %31, ptr noundef nonnull %4) #11
   %50 = icmp slt i32 %49, 0
@@ -466,9 +466,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_insert(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_get_addr(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
   %3 = alloca %struct.H5D_farray_filt_elmt_t, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %15
@@ -491,22 +491,22 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_get_addr(ptr nocapture nou
 
 18:                                               ; preds = %8, %15
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, -1
-  %27 = getelementptr inbounds i8, ptr %23, i64 960
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 960
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @H5VM_array_offset_pre(i32 noundef %26, ptr noundef nonnull %27, ptr noundef %29) #11
-  %31 = getelementptr inbounds i8, ptr %1, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load i64, ptr %34, align 8
   %.not28 = icmp eq i64 %35, 0
   br i1 %.not28, label %53, label %36
@@ -524,21 +524,21 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_get_addr(ptr nocapture nou
 
 43:                                               ; preds = %36
   %44 = load i64, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %1, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %3, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %51, ptr %52, align 8
   br label %68
 
 53:                                               ; preds = %18
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %55 = tail call i32 @H5FA_get(ptr noundef %21, i64 noundef %30, ptr noundef nonnull %54) #11
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %61
@@ -551,12 +551,12 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_get_addr(ptr nocapture nou
 
 61:                                               ; preds = %53
   %62 = load ptr, ptr %22, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 148
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 148
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %1, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 0, ptr %67, align 8
   %.pre = load i64, ptr %54, align 8
   br label %68
@@ -567,7 +567,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_get_addr(ptr nocapture nou
   br i1 %.not29, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %1, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 0, ptr %71, align 8
   br label %72
 
@@ -581,24 +581,24 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_load_metadata(ptr nocaptur
   %2 = alloca %struct.H5D_chunk_ud_t, align 8
   %3 = alloca [33 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %3, i8 0, i64 264, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 -1, ptr %14, align 8
   %15 = call i32 @H5D__farray_idx_get_addr(ptr noundef %0, ptr noundef nonnull %2)
   %16 = icmp slt i32 %15, 0
@@ -619,9 +619,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_load_metadata(ptr nocaptur
 define internal i32 @H5D__farray_idx_iterate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca %struct.H5FA_stat_t, align 8
   %5 = alloca %struct.H5D_farray_it_ud_t, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %17
@@ -644,7 +644,7 @@ define internal i32 @H5D__farray_idx_iterate(ptr nocapture noundef readonly %0, 
 
 20:                                               ; preds = %10, %17
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @H5FA_get_stats(ptr noundef %23, ptr noundef nonnull %4) #11
   %25 = icmp slt i32 %24, 0
@@ -657,43 +657,43 @@ define internal i32 @H5D__farray_idx_iterate(ptr nocapture noundef readonly %0, 
   br label %60
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = load i64, ptr %31, align 8
   %.not17 = icmp eq i64 %32, 0
   br i1 %.not17, label %60, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %34, i8 0, i64 296, i1 false)
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %5, align 8
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %39, i8 0, i64 280, i1 false)
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load i64, ptr %42, align 8
   %44 = icmp ne i64 %43, 0
-  %45 = getelementptr inbounds i8, ptr %5, i64 304
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 8
   br i1 %44, label %51, label %47
 
 47:                                               ; preds = %33
-  %48 = getelementptr inbounds i8, ptr %36, i64 148
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 148
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %5, i64 288
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 288
   store i32 %49, ptr %50, align 8
   br label %51
 
 51:                                               ; preds = %47, %33
-  %52 = getelementptr inbounds i8, ptr %5, i64 312
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 312
   store ptr %1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 320
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 320
   store ptr %2, ptr %53, align 8
   %54 = call i32 @H5FA_iterate(ptr noundef %23, ptr noundef nonnull @H5D__farray_idx_iterate_cb, ptr noundef nonnull %5) #11
   %55 = icmp slt i32 %54, 0
@@ -714,9 +714,9 @@ define internal i32 @H5D__farray_idx_iterate(ptr nocapture noundef readonly %0, 
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = alloca %struct.H5D_farray_filt_elmt_t, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %16
@@ -746,20 +746,20 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr nocapture nound
 
 24:                                               ; preds = %16, %9
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
-  %33 = getelementptr inbounds i8, ptr %29, i64 960
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 960
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i64 @H5VM_array_offset_pre(i32 noundef %32, ptr noundef nonnull %33, ptr noundef %35) #11
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load i64, ptr %39, align 8
   %.not31 = icmp eq i64 %40, 0
   br i1 %.not31, label %73, label %41
@@ -785,7 +785,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr nocapture nound
 52:                                               ; preds = %48
   %53 = load ptr, ptr %0, align 8
   %54 = load i64, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %3, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %56 = load i32, ptr %55, align 8
   %57 = zext i32 %56 to i64
   %58 = call i32 @H5MF_xfree(ptr noundef %53, i32 noundef 3, i64 noundef %54, i64 noundef %57) #11
@@ -800,9 +800,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr nocapture nound
 
 64:                                               ; preds = %52, %48
   store i64 -1, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %66, align 4
   %67 = call i32 @H5FA_set(ptr noundef %27, i64 noundef %36, ptr noundef nonnull %3) #11
   %68 = icmp slt i32 %67, 0
@@ -837,7 +837,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr nocapture nound
   %85 = load ptr, ptr %0, align 8
   %86 = load i64, ptr %4, align 8
   %87 = load ptr, ptr %28, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 148
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 148
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
   %91 = call i32 @H5MF_xfree(ptr noundef %85, i32 noundef 3, i64 noundef %86, i64 noundef %90) #11
@@ -870,9 +870,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_remove(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr nocapture noundef readonly %0) #1 {
   %2 = alloca %struct.H5D_farray_ctx_ud_t, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %6, -1
   br i1 %.not, label %49, label %7
@@ -891,7 +891,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr nocapture nound
 
 15:                                               ; preds = %7
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @H5FA_close(ptr noundef %18) #11
   %20 = icmp slt i32 %19, 0
@@ -908,18 +908,18 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr nocapture nound
 
 28:                                               ; preds = %15
   %29 = load ptr, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr null, ptr %30, align 8
   %31 = load ptr, ptr %0, align 8
   store ptr %31, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 148
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 148
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %35, ptr %36, align 8
   %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = call i32 @H5FA_delete(ptr noundef %31, i64 noundef %39, ptr noundef nonnull %2) #11
   %41 = icmp slt i32 %40, 0
@@ -933,7 +933,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr nocapture nound
 
 46:                                               ; preds = %28
   %47 = load ptr, ptr %3, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 -1, ptr %48, align 8
   br label %49
 
@@ -945,9 +945,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_copy_setup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %15
@@ -988,7 +988,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_copy_setup(ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_copy_shutdown(ptr nocapture noundef %0, ptr nocapture noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @H5FA_close(ptr noundef %4) #11
   %6 = icmp slt i32 %5, 0
@@ -1002,7 +1002,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_copy_shutdown(ptr nocaptur
 
 11:                                               ; preds = %2
   store ptr null, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @H5FA_close(ptr noundef %13) #11
   %15 = icmp slt i32 %14, 0
@@ -1037,9 +1037,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_size(ptr nocapture noundef
   br label %26
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @H5FA_get_stats(ptr noundef %14, ptr noundef nonnull %3) #11
   %16 = icmp slt i32 %15, 0
@@ -1053,7 +1053,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_size(ptr nocapture noundef
 
 21:                                               ; preds = %10
   %22 = load i64, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %22
   store i64 %25, ptr %1, align 8
@@ -1061,9 +1061,9 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_size(ptr nocapture noundef
 
 26:                                               ; preds = %21, %17, %6
   %.0 = phi i32 [ -1, %6 ], [ -1, %17 ], [ 0, %21 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %43, label %31
@@ -1075,7 +1075,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_size(ptr nocapture noundef
 
 H5D__farray_idx_close.exit:                       ; preds = %31
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   store ptr null, ptr %35, align 8
   br label %43
 
@@ -1098,19 +1098,19 @@ define internal noundef i32 @H5D__farray_idx_reset(ptr nocapture noundef writeon
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %4, align 8
   br label %5
 
 5:                                                ; preds = %3, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %6, align 8
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5D__farray_idx_dump(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i64 noundef %4) #11
   ret i32 0
@@ -1118,9 +1118,9 @@ define internal noundef i32 @H5D__farray_idx_dump(ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_dest(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %29, label %6
@@ -1139,7 +1139,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_dest(ptr nocapture noundef
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @H5FA_close(ptr noundef %17) #11
   %19 = icmp slt i32 %18, 0
@@ -1147,7 +1147,7 @@ define internal range(i32 -1, 1) i32 @H5D__farray_idx_dest(ptr nocapture noundef
 
 H5D__farray_idx_close.exit:                       ; preds = %14
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr null, ptr %21, align 8
   br label %29
 
@@ -1182,7 +1182,7 @@ define internal noalias ptr @H5D__farray_crt_context(ptr nocapture noundef reado
   %10 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %9) #11
   %11 = zext i8 %10 to i64
   store i64 %11, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = lshr i64 %14, 16
@@ -1195,14 +1195,14 @@ define internal noalias ptr @H5D__farray_crt_context(ptr nocapture noundef reado
 
 17:                                               ; preds = %16
   %18 = lshr i64 %14, 24
-  %19 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
   %22 = add nuw nsw i32 %21, 24
   br label %H5VM_log2_gen.exit
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %15
+  %24 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %15
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = add nuw nsw i32 %26, 16
@@ -1214,14 +1214,14 @@ define internal noalias ptr @H5D__farray_crt_context(ptr nocapture noundef reado
 
 29:                                               ; preds = %28
   %30 = lshr i64 %14, 8
-  %31 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %33, 8
   br label %H5VM_log2_gen.exit
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds [256 x i8], ptr @LogTable256, i64 0, i64 %14
+  %36 = getelementptr inbounds nuw [256 x i8], ptr @LogTable256, i64 0, i64 %14
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
   br label %H5VM_log2_gen.exit
@@ -1231,7 +1231,7 @@ H5VM_log2_gen.exit:                               ; preds = %17, %23, %29, %35
   %39 = add nuw nsw i32 %.0.i, 8
   %40 = lshr i32 %39, 3
   %41 = add nuw nsw i32 %40, 1
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = icmp samesign ugt i32 %.0.i, 55
   %narrow = select i1 %43, i32 8, i32 %41
   %spec.select = zext nneg i32 %narrow to i64
@@ -1269,7 +1269,7 @@ define internal noundef i32 @H5D__farray_encode(ptr noundef %0, ptr nocapture no
   %6 = load i64, ptr %3, align 8
   %7 = load i64, ptr %.09, align 8
   call void @H5F_addr_encode_len(i64 noundef %6, ptr noundef nonnull %5, i64 noundef %7) #11
-  %8 = getelementptr inbounds i8, ptr %.09, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %9 = add i64 %.068, -1
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1290,7 +1290,7 @@ define internal noundef i32 @H5D__farray_decode(ptr noundef %0, ptr noundef %1, 
   %.079 = phi i64 [ %8, %.lr.ph ], [ %2, %4 ]
   %6 = load i64, ptr %3, align 8
   call void @H5F_addr_decode_len(i64 noundef %6, ptr noundef nonnull %5, ptr noundef %.010) #11
-  %7 = getelementptr inbounds i8, ptr %.010, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %8 = add i64 %.079, -1
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1319,7 +1319,7 @@ define internal ptr @H5D__farray_crt_dbg_context(ptr noundef %0, i64 noundef %1)
 7:                                                ; preds = %2
   %8 = call i32 @H5O_loc_reset(ptr noundef nonnull %3) #11
   store ptr %0, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %9, align 8
   %10 = call i32 @H5O_open(ptr noundef nonnull %3) #11
   %11 = icmp slt i32 %10, 0
@@ -1349,9 +1349,9 @@ define internal ptr @H5D__farray_crt_dbg_context(ptr noundef %0, i64 noundef %1)
 
 26:                                               ; preds = %19
   store ptr %0, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 164
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 164
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %28, ptr %29, align 8
   br label %46
 
@@ -1407,7 +1407,7 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr nocaptu
   br i1 %.not27, label %._crit_edge32, label %.lr.ph31
 
 .lr.ph31:                                         ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph31, %._crit_edge
@@ -1422,7 +1422,7 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr nocaptu
   br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.02129, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.02129, i64 8
   %13 = load i32, ptr %12, align 8
   br label %.lr.ph
 
@@ -1431,7 +1431,7 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr nocaptu
   %.01925 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.02024 = phi i32 [ %17, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %14 = trunc i32 %.02024 to i8
-  %15 = getelementptr inbounds i8, ptr %.026, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.026, i64 1
   store i8 %14, ptr %.026, align 1
   %16 = add nuw i64 %.01925, 1
   %17 = lshr i32 %.02024, 8
@@ -1448,35 +1448,35 @@ define internal noundef i32 @H5D__farray_filt_encode(ptr noundef %0, ptr nocaptu
   %.lcssa = phi i64 [ 0, %7 ], [ %18, %._crit_edge.loopexit ]
   %21 = getelementptr inbounds i8, ptr %20, i64 %.lcssa
   store ptr %21, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %.02129, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.02129, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %21, align 1
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %5, align 8
   %27 = load i32, ptr %22, align 4
   %28 = lshr i32 %27, 8
   %29 = trunc i32 %28 to i8
   store i8 %29, ptr %26, align 1
   %30 = load ptr, ptr %5, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %31, ptr %5, align 8
   %32 = load i32, ptr %22, align 4
   %33 = lshr i32 %32, 16
   %34 = trunc i32 %33 to i8
   store i8 %34, ptr %31, align 1
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store ptr %36, ptr %5, align 8
   %37 = load i32, ptr %22, align 4
   %38 = lshr i32 %37, 24
   %39 = trunc nuw i32 %38 to i8
   store i8 %39, ptr %36, align 1
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %41, ptr %5, align 8
-  %42 = getelementptr inbounds i8, ptr %.02129, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.02129, i64 16
   %43 = add i64 %.02228, -1
   %.not = icmp eq i64 %43, 0
   br i1 %.not, label %._crit_edge32, label %7
@@ -1493,7 +1493,7 @@ define internal noundef i32 @H5D__farray_filt_decode(ptr noundef %0, ptr noundef
   br i1 %.not23, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph27, %._crit_edge
@@ -1501,7 +1501,7 @@ define internal noundef i32 @H5D__farray_filt_decode(ptr noundef %0, ptr noundef
   %.02024 = phi i64 [ %2, %.lr.ph27 ], [ %45, %._crit_edge ]
   %8 = load i64, ptr %3, align 8
   call void @H5F_addr_decode_len(i64 noundef %8, ptr noundef nonnull %5, ptr noundef %.01925) #11
-  %9 = getelementptr inbounds i8, ptr %.01925, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01925, i64 8
   store i32 0, ptr %9, align 8
   %10 = load i64, ptr %6, align 8
   %11 = load ptr, ptr %5, align 8
@@ -1532,32 +1532,32 @@ define internal noundef i32 @H5D__farray_filt_decode(ptr noundef %0, ptr noundef
   store ptr %24, ptr %5, align 8
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %27 = getelementptr inbounds i8, ptr %.01925, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %.01925, i64 12
   store i32 %26, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store ptr %28, ptr %5, align 8
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
   %32 = or disjoint i32 %31, %26
   store i32 %32, ptr %27, align 4
-  %33 = getelementptr inbounds i8, ptr %24, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 2
   store ptr %33, ptr %5, align 8
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw nsw i32 %35, 16
   %37 = or disjoint i32 %36, %32
   store i32 %37, ptr %27, align 4
-  %38 = getelementptr inbounds i8, ptr %24, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 3
   store ptr %38, ptr %5, align 8
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw i32 %40, 24
   %42 = or disjoint i32 %41, %37
   store i32 %42, ptr %27, align 4
-  %43 = getelementptr inbounds i8, ptr %24, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store ptr %43, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %.01925, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.01925, i64 16
   %45 = add i64 %.02024, -1
   %.not = icmp eq i64 %45, 0
   br i1 %.not, label %._crit_edge28, label %7
@@ -1571,9 +1571,9 @@ define internal noundef i32 @H5D__farray_filt_debug(ptr nocapture noundef %0, i3
   %6 = alloca [128 x i8], align 16
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.5, i64 noundef %3) #11
   %8 = load i64, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull @.str.7, i32 noundef %2, ptr noundef nonnull %6, i64 noundef %8, i32 noundef %10, i32 noundef %12) #11
   ret i32 0
@@ -1622,11 +1622,11 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__farray_idx_depend(ptr nocaptur
   %3 = call i32 @H5O_loc_reset(ptr noundef nonnull %2) #11
   %4 = load ptr, ptr %0, align 8
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %8, ptr %9, align 8
   %10 = call ptr @H5O_protect(ptr noundef nonnull %2, i32 noundef 128, i1 noundef zeroext true) #11
   %11 = icmp eq ptr %10, null
@@ -1645,7 +1645,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__farray_idx_depend(ptr nocaptur
 
 19:                                               ; preds = %12
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @H5FA_depend(ptr noundef %22, ptr noundef nonnull %13) #11
   %24 = icmp slt i32 %23, 0
@@ -1709,34 +1709,34 @@ declare i32 @H5FA_iterate(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr nocapture noundef readonly %1, ptr noundef initializes((296, 304)) %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   %7 = load i64, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 296
   store i64 %7, ptr %8, align 8
   br i1 %6, label %9, label %16
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 288
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 292
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 292
   store i32 %14, ptr %15, align 4
   br label %16
 
 16:                                               ; preds = %3, %9
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.not = icmp eq i64 %7, -1
   br i1 %.not, label %29, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %2, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 312
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 320
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %20(ptr noundef nonnull %17, ptr noundef %22) #11
   %24 = icmp slt i32 %23, 0
@@ -1751,24 +1751,24 @@ define internal i32 @H5D__farray_idx_iterate_cb(i64 %0, ptr nocapture noundef re
 29:                                               ; preds = %18, %25, %16
   %.027 = phi i32 [ %23, %25 ], [ %23, %18 ], [ 0, %16 ]
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, -2
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %30, i64 432
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 432
   br label %36
 
 36:                                               ; preds = %.lr.ph, %43
   %.030 = phi i32 [ %33, %.lr.ph ], [ %44, %43 ]
   %37 = zext nneg i32 %.030 to i64
-  %38 = getelementptr inbounds [33 x i64], ptr %17, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [33 x i64], ptr %17, i64 0, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = add i64 %39, 1
   store i64 %40, ptr %38, align 8
-  %41 = getelementptr inbounds [33 x i64], ptr %35, i64 0, i64 %37
+  %41 = getelementptr inbounds nuw [33 x i64], ptr %35, i64 0, i64 %37
   %42 = load i64, ptr %41, align 8
   %.not29 = icmp ult i64 %40, %42
   br i1 %.not29, label %._crit_edge, label %43
@@ -1787,9 +1787,9 @@ declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) loca
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5D__farray_idx_delete_cb(ptr nocapture noundef readonly %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 272
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = tail call i32 @H5MF_xfree(ptr noundef %1, i32 noundef 3, i64 noundef %4, i64 noundef %7) #11

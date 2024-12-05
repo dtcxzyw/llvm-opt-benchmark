@@ -73,23 +73,23 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vectorINS_13PhaseOneStripESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8, !tbaa !6
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load <2 x ptr>, ptr %1, align 8, !tbaa !11
   store ptr null, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load <2 x ptr>, ptr %2, align 8, !tbaa !11
   %9 = shufflevector <2 x ptr> %6, <2 x ptr> %8, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x ptr> %9, ptr %0, align 8, !tbaa !11
   store ptr null, ptr %1, align 8, !tbaa !12
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !14
   store ptr %12, ptr %10, align 8, !tbaa !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %13 = load ptr, ptr %0, align 8, !tbaa !12
-  %14 = getelementptr inbounds i8, ptr %13, i64 548
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 548
   %15 = load i32, ptr %14, align 4, !tbaa !16
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %25, label %17
@@ -117,13 +117,13 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vector
   resume { ptr, i32 } %20
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds i8, ptr %13, i64 584
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 584
   %27 = load i32, ptr %26, align 8, !tbaa !79
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %13, i64 588
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 588
   %31 = load i32, ptr %30, align 4, !tbaa !80
   %32 = icmp eq i32 %31, 2
   br i1 %32, label %35, label %33
@@ -136,10 +136,10 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressorC2ENS_8RawImageEOSt6vector
   unreachable
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %13, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %37 = load i32, ptr %36, align 4, !tbaa !81
   %38 = icmp sgt i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %13, i64 44
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   %42 = select i1 %38, i1 %41, i1 false
@@ -203,8 +203,8 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
   %4 = alloca { [4 x i8], %"class.rawspeed::ByteStream" }, align 8
   %5 = alloca { [4 x i8], %"class.rawspeed::ByteStream" }, align 8
   %6 = alloca %"struct.rawspeed::PhaseOneStrip", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = load ptr, ptr %7, align 8, !tbaa !11
   %11 = ptrtoint ptr %9 to i64
@@ -212,7 +212,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 5
   %15 = load ptr, ptr %0, align 8, !tbaa !12
-  %16 = getelementptr inbounds i8, ptr %15, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %17 = load i32, ptr %16, align 4, !tbaa !82
   %18 = sext i32 %17 to i64
   %19 = icmp eq i64 %14, %18
@@ -238,7 +238,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 .preheader19:                                     ; preds = %23, %47
   %29 = phi i64 [ %48, %47 ], [ 32, %23 ]
   %30 = phi ptr [ %31, %47 ], [ %10, %23 ]
-  %31 = getelementptr inbounds i8, ptr %10, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 %29
   %32 = load i32, ptr %31, align 8
   %33 = load i32, ptr %10, align 8, !tbaa !84
   %34 = icmp slt i32 %32, %33
@@ -254,7 +254,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 
 36:                                               ; preds = %.preheader19
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5)
-  %37 = getelementptr inbounds i8, ptr %30, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %5, ptr noundef nonnull align 4 dereferenceable(28) %37, i64 28, i1 false)
   %38 = load i32, ptr %30, align 8, !tbaa !84
   %39 = icmp sgt i32 %38, %32
@@ -272,7 +272,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 .loopexit18:                                      ; preds = %.preheader17, %36
   %45 = phi ptr [ %31, %36 ], [ %40, %.preheader17 ]
   store i32 %32, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %46, ptr noundef nonnull align 8 dereferenceable(28) %5, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5)
   br label %47
@@ -283,7 +283,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
   br i1 %49, label %50, label %.preheader19, !llvm.loop !92
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %10, i64 512
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 512
   %52 = icmp eq ptr %51, %9
   br i1 %52, label %.loopexit16, label %.preheader15
 
@@ -291,7 +291,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
   %53 = phi ptr [ %66, %.loopexit14 ], [ %51, %50 ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4)
   %54 = load i32, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) %55, i64 28, i1 false)
   %56 = getelementptr inbounds i8, ptr %53, i64 -32
   %57 = load i32, ptr %56, align 8, !tbaa !84
@@ -310,10 +310,10 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 .loopexit14:                                      ; preds = %.preheader, %.preheader15
   %64 = phi ptr [ %53, %.preheader15 ], [ %59, %.preheader ]
   store i32 %54, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %65, ptr noundef nonnull align 8 dereferenceable(28) %4, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
-  %66 = getelementptr inbounds i8, ptr %53, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %67 = icmp eq ptr %66, %9
   br i1 %67, label %.loopexit16, label %.preheader15, !llvm.loop !94
 
@@ -332,7 +332,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 75:                                               ; preds = %.preheader22
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %70, i64 32, i1 false)
-  %76 = getelementptr inbounds i8, ptr %71, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %77 = ptrtoint ptr %70 to i64
   %78 = sub i64 %77, %12
   %79 = ashr exact i64 %78, 5
@@ -345,7 +345,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 
 82:                                               ; preds = %.preheader22
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2)
-  %83 = getelementptr inbounds i8, ptr %71, i64 36
+  %83 = getelementptr inbounds nuw i8, ptr %71, i64 36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 4 dereferenceable(28) %83, i64 28, i1 false)
   %84 = load i32, ptr %71, align 8, !tbaa !84
   %85 = icmp sgt i32 %84, %72
@@ -363,13 +363,13 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 .loopexit21:                                      ; preds = %.preheader20, %82
   %91 = phi ptr [ %70, %82 ], [ %86, %.preheader20 ]
   store i32 %72, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %92, ptr noundef nonnull align 8 dereferenceable(28) %2, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2)
   br label %93
 
 93:                                               ; preds = %.loopexit21, %75
-  %94 = getelementptr inbounds i8, ptr %70, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %95 = icmp eq ptr %94, %9
   br i1 %95, label %.loopexit16, label %.preheader22, !llvm.loop !96
 
@@ -397,7 +397,7 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 
 108:                                              ; preds = %105, %99
   %109 = phi i64 [ %106, %105 ], [ 0, %99 ]
-  %110 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %97, i64 %109
+  %110 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %97, i64 %109
   %111 = load i32, ptr %110, align 8, !tbaa !84
   %112 = sext i32 %111 to i64
   %113 = icmp eq i64 %109, %112
@@ -410,13 +410,13 @@ define hidden void @_ZN8rawspeed20PhaseOneDecompressor13prepareStripsEv(ptr noca
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -424,14 +424,14 @@ define linkonce_odr hidden void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull a
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !99
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !101
   %12 = load ptr, ptr %3, align 8, !tbaa !102
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   %15 = load ptr, ptr %3, align 8, !tbaa !102
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   br label %29
@@ -475,16 +475,16 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %4 = alloca %"struct.std::array.52", align 4
   %5 = alloca %"struct.std::array.52", align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !12
-  %7 = getelementptr inbounds i8, ptr %6, i64 560
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 560
   %8 = load ptr, ptr %7, align 8, !tbaa !107, !noalias !108, !nonnull !111, !noundef !111
-  %9 = getelementptr inbounds i8, ptr %6, i64 584
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 584
   %10 = load i32, ptr %9, align 8, !tbaa !79, !noalias !108
-  %11 = getelementptr inbounds i8, ptr %6, i64 600
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 600
   %12 = load i32, ptr %11, align 8, !tbaa !112, !noalias !108
   %13 = mul nsw i32 %12, %10
-  %14 = getelementptr inbounds i8, ptr %6, i64 604
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 604
   %15 = load i32, ptr %14, align 4, !tbaa !113, !noalias !108
-  %16 = getelementptr inbounds i8, ptr %6, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !114, !noalias !108
   %18 = ashr i32 %17, 1
   %19 = mul nuw nsw i32 %18, %15
@@ -506,9 +506,9 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %28 = icmp eq i32 %27, 0
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i32, ptr %29, align 8, !tbaa !115
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !116
   %33 = icmp samesign uge i32 %32, %30
   tail call void @llvm.assume(i1 %33)
@@ -529,11 +529,11 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   unreachable
 
 43:                                               ; preds = %2
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !117, !nonnull !111, !noundef !111
   %46 = icmp sgt i32 %36, -1
   tail call void @llvm.assume(i1 %46)
-  %47 = getelementptr inbounds i8, ptr %45, i64 %37
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 %37
   store i32 0, ptr %3, align 4
   %48 = icmp samesign ult i32 %36, 4
   br i1 %48, label %49, label %50
@@ -544,20 +544,20 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
 
 50:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #25
-  %51 = getelementptr inbounds i8, ptr %4, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %51, align 4, !tbaa !105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
   %52 = load i32, ptr %1, align 8, !tbaa !84
   %53 = add nuw nsw i32 %36, 8
   %54 = and i32 %13, 2147483640
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %56 = icmp sgt i32 %52, -1
   %57 = icmp ugt i32 %15, %52
   %58 = mul nsw i32 %52, %18
   %59 = add nuw nsw i32 %58, %13
   %60 = icmp ule i32 %59, %19
   %61 = zext nneg i32 %58 to i64
-  %62 = getelementptr inbounds i16, ptr %8, i64 %61
+  %62 = getelementptr inbounds nuw i16, ptr %8, i64 %61
   %63 = zext nneg i32 %54 to i64
   %64 = zext nneg i32 %13 to i64
   %65 = load i32, ptr %47, align 1
@@ -578,7 +578,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
 71:                                               ; preds = %69
   %72 = lshr i64 %66, 26
   %73 = or disjoint i64 %72, 8
-  %74 = getelementptr inbounds [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !105
   store i32 %75, ptr %5, align 4, !tbaa !105
   %76 = and i64 %66, 62914560
@@ -594,7 +594,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %82 = lshr i64 %79, 62
   %83 = shl i64 %66, 44
   %84 = or disjoint i64 %82, 8
-  %85 = getelementptr inbounds [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !105
   store i32 %86, ptr %55, align 4, !tbaa !105
   %87 = icmp eq i32 %75, 14
@@ -663,7 +663,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
 
 125:                                              ; preds = %122
   %126 = zext nneg i32 %117 to i64
-  %127 = getelementptr inbounds i8, ptr %47, i64 %126
+  %127 = getelementptr inbounds nuw i8, ptr %47, i64 %126
   br label %140
 
 128:                                              ; preds = %122
@@ -683,7 +683,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %136 = icmp ult i32 %135, 5
   tail call void @llvm.assume(i1 %136)
   %137 = zext nneg i32 %132 to i64
-  %138 = getelementptr inbounds i8, ptr %47, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %47, i64 %137
   %139 = zext nneg i32 %135 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %3, ptr nonnull align 1 %138, i64 %139, i1 false)
   br label %140
@@ -761,7 +761,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %186 = add nsw i32 %181, -2
   %187 = shl i64 %182, 2
   %188 = or disjoint i64 %184, %185
-  %189 = getelementptr inbounds [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %188
+  %189 = getelementptr inbounds nuw [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !105
   store i32 %190, ptr %5, align 4, !tbaa !105
   br label %191
@@ -807,7 +807,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %219 = add nsw i32 %214, -2
   %220 = shl i64 %215, 2
   %221 = or disjoint i64 %217, %218
-  %222 = getelementptr inbounds [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [10 x i32], ptr @_ZZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13PhaseOneStripEE6length, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !105
   store i32 %223, ptr %55, align 4, !tbaa !105
   br label %224
@@ -816,7 +816,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %225 = phi i64 [ %150, %155 ], [ %150, %154 ], [ %220, %213 ], [ %195, %191 ]
   %226 = phi i32 [ %151, %155 ], [ %151, %154 ], [ %219, %213 ], [ %194, %191 ]
   %227 = and i64 %116, 1
-  %228 = getelementptr inbounds [2 x i32], ptr %5, i64 0, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 0, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !105
   %230 = icmp eq i32 %229, 14
   br i1 %230, label %231, label %237
@@ -825,7 +825,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %232 = lshr i64 %225, 48
   %233 = trunc nuw nsw i64 %232 to i32
   %234 = add nsw i32 %226, -16
-  %235 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %227
+  %235 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %227
   store i32 %233, ptr %235, align 4, !tbaa !105
   %236 = trunc nuw i64 %232 to i16
   br label %255
@@ -845,7 +845,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %246 = zext nneg i32 %229 to i64
   %247 = add nsw i32 %229, -1
   %248 = shl nsw i32 -1, %247
-  %249 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %227
+  %249 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %227
   %250 = load i32, ptr %249, align 4, !tbaa !105
   %251 = add nsw i32 %248, 1
   %252 = add i32 %251, %244
@@ -859,7 +859,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor15decompressStripERKNS_13
   %257 = phi i64 [ %246, %237 ], [ 16, %231 ]
   %258 = phi i32 [ %245, %237 ], [ %234, %231 ]
   %259 = shl i64 %225, %257
-  %260 = getelementptr inbounds i16, ptr %62, i64 %116
+  %260 = getelementptr inbounds nuw i16, ptr %62, i64 %116
   store i16 %256, ptr %260, align 2, !tbaa !118
   %261 = add nuw nsw i64 %116, 1
   %262 = icmp eq i64 %261, %64
@@ -873,9 +873,9 @@ declare void @llvm.assume(i1 noundef) #4
 define hidden void @_ZNK8rawspeed20PhaseOneDecompressor16decompressThreadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.37", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !78, !nonnull !111, !noundef !111
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !97
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
@@ -885,13 +885,13 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor16decompressThreadEv(ptr 
   %13 = icmp eq i64 %12, 0
   tail call void @llvm.assume(i1 %13)
   %14 = and i64 %11, 2147483647
-  %15 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %5, i64 %14
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %.loopexit, label %17
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %20
 
 .loopexit:                                        ; preds = %44, %1
@@ -915,7 +915,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor16decompressThreadEv(ptr 
   %29 = load ptr, ptr %0, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
   %30 = load ptr, ptr %28, align 8, !tbaa !102
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(16) %28) #25
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
@@ -923,7 +923,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor16decompressThreadEv(ptr 
           to label %34 unwind label %47
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %29, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 8
   invoke void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %36 unwind label %47
 
@@ -949,7 +949,7 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor16decompressThreadEv(ptr 
           to label %44 unwind label %47
 
 44:                                               ; preds = %43, %20
-  %45 = getelementptr inbounds i8, ptr %21, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %46 = icmp eq ptr %45, %15
   br i1 %46, label %.loopexit, label %20
 
@@ -977,7 +977,7 @@ declare void @_ZN8rawspeed8ErrorLog8setErrorERKNSt7__cxx1112basic_stringIcSt11ch
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !124
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
@@ -1031,7 +1031,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br label %24
 
 24:                                               ; preds = %23, %21, %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %25, align 8, !tbaa !123
   %26 = getelementptr inbounds i8, ptr %20, i64 %8
   store i8 0, ptr %26, align 1, !tbaa !104
@@ -1045,13 +1045,13 @@ define hidden void @_ZNK8rawspeed20PhaseOneDecompressor10decompressEv(ptr nocapt
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNK8rawspeed20PhaseOneDecompressor16decompressThreadEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #25
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #25
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %2, align 8, !tbaa !124
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %4, align 8, !tbaa !123
   store i8 0, ptr %3, align 8, !tbaa !104
   %5 = load ptr, ptr %0, align 8, !tbaa !12
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = invoke noundef zeroext i1 @_ZN8rawspeed8ErrorLog15isTooManyErrorsEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 1, ptr noundef nonnull %2)
           to label %8 unwind label %12
 
@@ -1114,10 +1114,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !102
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !104
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -1139,7 +1139,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !102
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   br label %20
@@ -1172,7 +1172,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %19, label %20, label %.loopexit27
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %14, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %22 = icmp eq i64 %2, 0
   br i1 %22, label %.loopexit36, label %.preheader34
 
@@ -1192,14 +1192,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %33 = icmp eq i64 %32, 0
   %34 = or disjoint i64 %28, 1
   %35 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %34
-  %36 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %29
+  %36 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %29
   br label %37
 
 37:                                               ; preds = %.loopexit29, %.loopexit36
   %38 = phi i64 [ %29, %.loopexit36 ], [ %76, %.loopexit29 ]
   %39 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %38
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %39, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull align 4 dereferenceable(28) %41, i64 28, i1 false)
   %42 = icmp sgt i64 %31, %38
@@ -1256,7 +1256,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %72 = phi i64 [ %61, %60 ], [ %65, %69 ], [ %63, %.preheader28 ]
   %73 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %72
   store i32 %40, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %74, ptr noundef nonnull align 8 dereferenceable(28) %12, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %12)
   %75 = icmp eq i64 %38, 0
@@ -1329,13 +1329,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %117 = phi i64 [ %119, %123 ], [ %115, %114 ]
   %118 = add nsw i64 %117, -1
   %119 = lshr i64 %118, 1
-  %120 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %119
+  %120 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %119
   %121 = load i32, ptr %120, align 8, !tbaa !84
   %122 = icmp slt i32 %121, %81
   br i1 %122, label %123, label %.loopexit
 
 123:                                              ; preds = %.preheader
-  %124 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %117
+  %124 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %117
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %124, ptr noundef nonnull align 8 dereferenceable(32) %120, i64 32, i1 false)
   %125 = icmp ult i64 %118, 2
   br i1 %125, label %.loopexit, label %.preheader, !llvm.loop !130
@@ -1344,7 +1344,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %126 = phi i64 [ %115, %114 ], [ 0, %123 ], [ %117, %.preheader ]
   %127 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %126
   store i32 %81, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %128, ptr noundef nonnull align 8 dereferenceable(28) %11, i64 28, i1 false)
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %11)
   %129 = icmp sgt i64 %84, 32
@@ -1356,7 +1356,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %132 = phi i64 [ %174, %23 ], [ %18, %20 ]
   %133 = add nsw i64 %131, -1
   %134 = lshr i64 %132, 1
-  %135 = getelementptr inbounds %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %134
+  %135 = getelementptr inbounds nuw %"struct.rawspeed::PhaseOneStrip", ptr %14, i64 %134
   %136 = getelementptr inbounds i8, ptr %130, i64 -32
   %137 = load i32, ptr %21, align 8, !tbaa !84
   %138 = load i32, ptr %135, align 8, !tbaa !84
@@ -1441,7 +1441,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %160 = phi ptr [ %156, %155 ], [ %163, %159 ]
   %161 = load i32, ptr %160, align 8, !tbaa !84
   %162 = icmp slt i32 %161, %158
-  %163 = getelementptr inbounds i8, ptr %160, i64 32
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 32
   br i1 %162, label %159, label %.preheader33, !llvm.loop !132
 
 .preheader33:                                     ; preds = %159, %.preheader33

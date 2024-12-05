@@ -311,7 +311,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 2, 17) i32 @dissect_nat_pmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.115) #3
   %7 = load ptr, ptr %5, align 8
@@ -411,7 +411,7 @@ define internal i32 @dissect_portcontrol(ptr noundef %0, ptr noundef %1, ptr nou
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %16 = icmp eq i8 %12, 1
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.str.153..str.154.i = select i1 %16, ptr @.str.153, ptr @.str.154
   tail call void @col_set_str(ptr noundef %18, i32 noundef 34, ptr noundef nonnull %.str.153..str.154.i) #3
@@ -444,13 +444,13 @@ define internal i32 @dissect_portcontrol(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %36, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %39 = load ptr, ptr %38, align 8
   %.not5.i.i = icmp eq ptr %39, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %39, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = or i32 %42, 1
   store i32 %43, ptr %41, align 4
@@ -472,13 +472,13 @@ proto_item_set_hidden.exit.i:                     ; preds = %40, %37, %34
   br i1 %.not.i323.i, label %proto_item_set_hidden.exit325.i, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %55 = load ptr, ptr %54, align 8
   %.not5.i324.i = icmp eq ptr %55, null
   br i1 %.not5.i324.i, label %proto_item_set_hidden.exit325.i, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = or i32 %58, 1
   store i32 %59, ptr %57, align 4

@@ -67,10 +67,10 @@ target triple = "x86_64-pc-linux-gnu"
 define void @slurm_print_job_step_info_msg(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [256 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
   call void @slurm_make_time_str(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 256) #11
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %5, i32 noundef %9) #11
   %11 = load i32, ptr %8, align 8
@@ -79,7 +79,7 @@ define void @slurm_print_job_step_info_msg(ptr nocapture noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %12 = getelementptr inbounds %struct.job_step_info_t, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %13 = call ptr @slurm_sprint_job_step_info(ptr noundef %12, i32 noundef %2)
   store ptr %13, ptr %4, align 8
@@ -123,9 +123,9 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   store ptr null, ptr %7, align 8
   %.not = icmp eq i32 %1, 0
   %10 = select i1 %.not, ptr @.str.3, ptr @.str.2
-  %11 = getelementptr inbounds i8, ptr %0, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   call void @slurm_make_time_str(ptr noundef nonnull %11, ptr noundef nonnull %4, i32 noundef 256) #11
-  %12 = getelementptr inbounds i8, ptr %0, i64 188
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %16
@@ -146,28 +146,28 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %.not65, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %23 = load i32, ptr %22, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.5, i32 noundef %20, i32 noundef %23) #11
   br label %24
 
 24:                                               ; preds = %21, %19
   %.0 = phi i16 [ 6, %21 ], [ 0, %19 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = call ptr @log_build_step_id_str(ptr noundef nonnull %25, ptr noundef nonnull %6, i32 noundef 128, i16 noundef zeroext %.0) #11
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.6, ptr noundef nonnull %6) #11
-  %27 = getelementptr inbounds i8, ptr %0, i64 248
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %28 = load i32, ptr %27, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.7, i32 noundef %28, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
-  %29 = getelementptr inbounds i8, ptr %0, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @slurm_sort_node_list_str(ptr noundef %30) #11
   store ptr %31, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 156
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %33 = load i32, ptr %32, align 4
   %34 = call ptr @job_state_string(i32 noundef %33) #11
-  %35 = getelementptr inbounds i8, ptr %0, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %36 = load ptr, ptr %35, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.8, ptr noundef %34, ptr noundef %36, ptr noundef %31) #11
   call void @slurm_xfree(ptr noundef nonnull %8) #11
@@ -179,35 +179,35 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   %41 = fpext float %40 to double
   call void @convert_num_unit(double noundef %41, ptr noundef nonnull %3, i32 noundef 40, i32 noundef 0, i32 noundef -2, i32 noundef 1) #11
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %43 = load i32, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 100
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %49 = load ptr, ptr %48, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.9, ptr noundef nonnull %3, i32 noundef %43, i32 noundef %45, ptr noundef %47, ptr noundef %49) #11
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
-  %50 = getelementptr inbounds i8, ptr %0, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %51 = load ptr, ptr %50, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.10, ptr noundef %51) #11
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
-  %52 = getelementptr inbounds i8, ptr %0, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr %52, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.11, ptr noundef %53) #11
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %6, i32 noundef 128, i32 noundef %55, i32 noundef %57, i32 noundef %59, i32 noundef -2) #11
   %.not66 = icmp eq i32 %60, 0
   %.str.12. = select i1 %.not66, ptr @.str.12, ptr %6
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %.str.12.) #11
-  %61 = getelementptr inbounds i8, ptr %0, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %62 = load i32, ptr %61, align 8
   %.not67 = icmp eq i32 %62, 0
   br i1 %.not67, label %65, label %63
@@ -221,12 +221,12 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
 
 65:                                               ; preds = %63, %24
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
-  %66 = getelementptr inbounds i8, ptr %0, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 136
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %69 = load i32, ptr %68, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.14, ptr noundef %67, i32 noundef %69) #11
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load ptr, ptr %70, align 8
   %.not68 = icmp eq ptr %71, null
   br i1 %.not68, label %74, label %72
@@ -238,7 +238,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %74
 
 74:                                               ; preds = %72, %65
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = load ptr, ptr %75, align 8
   %.not69 = icmp eq ptr %76, null
   br i1 %.not69, label %79, label %77
@@ -250,7 +250,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %79
 
 79:                                               ; preds = %77, %74
-  %80 = getelementptr inbounds i8, ptr %0, i64 200
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %81 = load ptr, ptr %80, align 8
   %.not70 = icmp eq ptr %81, null
   br i1 %.not70, label %84, label %82
@@ -262,7 +262,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %84
 
 84:                                               ; preds = %82, %79
-  %85 = getelementptr inbounds i8, ptr %0, i64 208
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %86 = load ptr, ptr %85, align 8
   %.not71 = icmp eq ptr %86, null
   br i1 %.not71, label %89, label %87
@@ -274,7 +274,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %89
 
 89:                                               ; preds = %87, %84
-  %90 = getelementptr inbounds i8, ptr %0, i64 216
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %91 = load ptr, ptr %90, align 8
   %.not72 = icmp eq ptr %91, null
   br i1 %.not72, label %94, label %92
@@ -286,7 +286,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %94
 
 94:                                               ; preds = %92, %89
-  %95 = getelementptr inbounds i8, ptr %0, i64 224
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %96 = load ptr, ptr %95, align 8
   %.not73 = icmp eq ptr %96, null
   br i1 %.not73, label %99, label %97
@@ -298,7 +298,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %99
 
 99:                                               ; preds = %97, %94
-  %100 = getelementptr inbounds i8, ptr %0, i64 232
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %101 = load ptr, ptr %100, align 8
   %.not74 = icmp eq ptr %101, null
   br i1 %.not74, label %104, label %102
@@ -310,7 +310,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %104
 
 104:                                              ; preds = %102, %99
-  %105 = getelementptr inbounds i8, ptr %0, i64 240
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %106 = load ptr, ptr %105, align 8
   %.not75 = icmp eq ptr %106, null
   br i1 %.not75, label %109, label %107
@@ -322,13 +322,13 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
   br label %109
 
 109:                                              ; preds = %107, %104
-  %110 = getelementptr inbounds i8, ptr %0, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %111 = load ptr, ptr %110, align 8
   %.not76 = icmp eq ptr %111, null
   br i1 %.not76, label %112, label %115
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %0, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %114 = load ptr, ptr %113, align 8
   %.not77 = icmp eq ptr %114, null
   br i1 %.not77, label %119, label %115
@@ -336,7 +336,7 @@ define ptr @slurm_sprint_job_step_info(ptr noundef %0, i32 noundef %1) local_unn
 115:                                              ; preds = %112, %109
   call void @_xstrcat(ptr noundef nonnull %7, ptr noundef nonnull %10) #11
   %116 = load ptr, ptr %110, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %118 = load ptr, ptr %117, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %7, ptr noundef nonnull @.str.23, ptr noundef %116, ptr noundef %118) #11
   br label %119
@@ -402,20 +402,20 @@ define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1,
   %.012 = phi i16 [ %23, %22 ], [ %4, %5 ], [ %4, %18 ]
   %.0 = phi i64 [ %0, %22 ], [ %0, %5 ], [ 0, %18 ]
   call void @slurm_msg_t_init(ptr noundef nonnull %11) #11
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %25, align 8
   store i64 %.0, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %12, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %1, ptr %26, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 12
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 -2, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %2, ptr %.sroa.3.0..sroa_idx, align 8
-  %27 = getelementptr inbounds i8, ptr %12, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i16 %.012, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %11, i64 204
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 204
   store i16 2005, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store ptr %12, ptr %29, align 8
   %30 = load ptr, ptr @working_cluster_rec, align 8
   %31 = icmp eq ptr %30, null
@@ -436,7 +436,7 @@ define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1,
   br i1 %37, label %_load_cluster_steps.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %10, i64 204
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 204
   %40 = load i16, ptr %39, align 4
   switch i16 %40, label %.thread11.i [
     i16 2006, label %.thread.i
@@ -444,13 +444,13 @@ define range(i32 -1, 1) i32 @slurm_get_job_steps(i64 noundef %0, i32 noundef %1,
   ]
 
 .thread.i:                                        ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %10, i64 192
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %3, align 8
   br label %_load_cluster_steps.exit
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %10, i64 192
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %45 = load ptr, ptr %44, align 8
   %46 = load i32, ptr %45, align 4
   call void @slurm_free_return_code_msg(ptr noundef nonnull %45) #11
@@ -476,7 +476,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   store ptr null, ptr %7, align 8
   store ptr null, ptr %3, align 8
   %49 = call ptr @list_create(ptr noundef null) #11
-  %50 = getelementptr inbounds i8, ptr %32, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = call i32 @list_count(ptr noundef %51) #11
   %53 = sext i32 %52 to i64
@@ -500,7 +500,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.backedge.us.i
   %60 = phi ptr [ %76, %.backedge.us.i ], [ %59, %.lr.ph.i ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 152
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 152
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.backedge.us.i, label %64
@@ -511,18 +511,18 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   br i1 %66, label %.backedge.us.i, label %.split.us.i
 
 .split.us.i:                                      ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %60, i64 272
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 272
   %68 = load ptr, ptr %67, align 8
   %69 = call i32 @xstrcmp(ptr noundef %68, ptr noundef %48) #11
   %.not84.us.i = icmp eq i32 %69, 0
   %70 = zext i1 %.not84.us.i to i8
   %71 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.27, i32 noundef 399, ptr noundef nonnull @__func__._load_fed_steps) #11
   store ptr %60, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store i8 %70, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store ptr %11, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store ptr %49, ptr %74, align 8
   %75 = call i32 @pthread_attr_init(ptr noundef nonnull %9) #11
   %.not86.i = icmp eq i32 %75, 0
@@ -562,7 +562,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   br label %89
 
 89:                                               ; preds = %86, %84
-  %90 = getelementptr inbounds i64, ptr %55, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv.i
   %91 = call i32 @pthread_create(ptr noundef %90, ptr noundef nonnull %9, ptr noundef nonnull @_load_step_thread, ptr noundef nonnull %71) #11
   %.not89.i = icmp eq i32 %91, 0
   br i1 %.not89.i, label %94, label %92
@@ -603,7 +603,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 
 .lr.ph109.i:                                      ; preds = %.thread.i20, %.lr.ph109.preheader.i
   %indvars.iv133.i = phi i64 [ 0, %.lr.ph109.preheader.i ], [ %indvars.iv.next134.i, %.thread.i20 ]
-  %102 = getelementptr inbounds i64, ptr %55, i64 %indvars.iv133.i
+  %102 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv133.i
   %103 = load i64, ptr %102, align 8
   %.not82.i = icmp eq i64 %103, 0
   br i1 %.not82.i, label %.thread.i20, label %104
@@ -636,7 +636,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 .lr.ph114.i:                                      ; preds = %._crit_edge110.i, %142
   %111 = phi ptr [ %143, %142 ], [ %110, %._crit_edge110.i ]
   %.063112.i = phi ptr [ %.1.i, %142 ], [ null, %._crit_edge110.i ]
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   store ptr %113, ptr %7, align 8
   %.not80.i = icmp eq ptr %.063112.i, null
@@ -652,27 +652,27 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
   %..i = call i64 @llvm.smin.i64(i64 %116, i64 %117)
   store i64 %..i, ptr %.063112.i, align 8
   %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 8
   %.not81.i = icmp eq i32 %120, 0
   br i1 %.not81.i, label %139, label %121
 
 121:                                              ; preds = %115
-  %122 = getelementptr inbounds i8, ptr %.063112.i, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.063112.i, i64 8
   %123 = load i32, ptr %122, align 8
   %124 = add i32 %123, %120
-  %125 = getelementptr inbounds i8, ptr %.063112.i, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.063112.i, i64 16
   %126 = zext i32 %124 to i64
   %127 = shl nuw nsw i64 %126, 8
   %128 = call ptr @slurm_xrecalloc(ptr noundef nonnull %125, i64 noundef 1, i64 noundef %127, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.27, i32 noundef 433, ptr noundef nonnull @__func__._load_fed_steps) #11
   store ptr %128, ptr %125, align 8
   %129 = load i32, ptr %122, align 8
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds %struct.job_step_info_t, ptr %128, i64 %130
+  %131 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %128, i64 %130
   %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %132, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %136 = load i32, ptr %135, align 8
   %137 = zext i32 %136 to i64
   %138 = shl nuw nsw i64 %137, 8
@@ -683,7 +683,7 @@ _load_cluster_steps.exit:                         ; preds = %35, %.thread.i, %43
 
 139:                                              ; preds = %121, %115
   %140 = phi ptr [ %.pre.i, %121 ], [ %118, %115 ]
-  %141 = getelementptr inbounds i8, ptr %140, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   call void @slurm_xfree(ptr noundef nonnull %141) #11
   call void @slurm_xfree(ptr noundef nonnull %7) #11
   br label %142
@@ -761,15 +761,15 @@ define i32 @slurm_find_step_ids_by_container_id(i16 noundef zeroext %0, i32 noun
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #11
   call void @slurm_msg_t_init(ptr noundef nonnull %6) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %1, ptr %8, align 8
   %9 = call ptr @xstrdup(ptr noundef %2) #11
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %9, ptr %10, align 8
   store i16 %0, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 204
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i16 5008, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %7, ptr %12, align 8
   %13 = load ptr, ptr @working_cluster_rec, align 8
   %14 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef %13) #11
@@ -782,7 +782,7 @@ define i32 @slurm_find_step_ids_by_container_id(i16 noundef zeroext %0, i32 noun
   br label %38
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %6, i64 204
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 204
   %20 = load i16, ptr %19, align 4
   switch i16 %20, label %32 [
     i16 5009, label %21
@@ -790,7 +790,7 @@ define i32 @slurm_find_step_ids_by_container_id(i16 noundef zeroext %0, i32 noun
   ]
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %6, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %23 = load ptr, ptr %22, align 8
   %.not10 = icmp eq ptr %23, null
   br i1 %.not10, label %32, label %24
@@ -806,7 +806,7 @@ define i32 @slurm_find_step_ids_by_container_id(i16 noundef zeroext %0, i32 noun
   br label %32
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %6, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 4
   br label %32
@@ -815,7 +815,7 @@ define i32 @slurm_find_step_ids_by_container_id(i16 noundef zeroext %0, i32 noun
   %33 = phi i16 [ 8001, %28 ], [ %.pre, %26 ], [ 5009, %24 ], [ 5009, %21 ], [ %20, %18 ]
   %.07 = phi i32 [ %31, %28 ], [ 0, %26 ], [ 0, %24 ], [ 0, %21 ], [ 1000, %18 ]
   %34 = zext i16 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %6, i64 192
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @slurm_free_msg_data(i32 noundef %34, ptr noundef %36) #11
   br label %38
@@ -843,9 +843,9 @@ define ptr @slurm_job_step_layout_get(ptr nocapture noundef readonly %0) local_u
   %4 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #11
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #11
-  %5 = getelementptr inbounds i8, ptr %3, i64 204
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 204
   store i16 5021, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 192
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store ptr %2, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %2, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %7 = load ptr, ptr @working_cluster_rec, align 8
@@ -854,7 +854,7 @@ define ptr @slurm_job_step_layout_get(ptr nocapture noundef readonly %0) local_u
   br i1 %9, label %23, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %4, i64 204
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 204
   %12 = load i16, ptr %11, align 4
   switch i16 %12, label %21 [
     i16 5022, label %13
@@ -862,12 +862,12 @@ define ptr @slurm_job_step_layout_get(ptr nocapture noundef readonly %0) local_u
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %4, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %15 = load ptr, ptr %14, align 8
   br label %23
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %4, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   call void @slurm_free_return_code_msg(ptr noundef nonnull %18) #11
@@ -908,12 +908,12 @@ define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zero
   br label %85
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %9, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 58
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 58
   %19 = load i16, ptr %18, align 2
   %spec.select = tail call i16 @llvm.umin.i16(i16 %19, i16 10496)
-  %20 = getelementptr inbounds i8, ptr %9, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call void @fwd_set_alias_addrs(ptr noundef %21) #11
   br label %22
@@ -945,13 +945,13 @@ define i32 @slurm_job_step_stat(ptr noundef %0, ptr noundef %1, i16 noundef zero
   call void @slurm_msg_t_init(ptr noundef nonnull %6) #11
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %6, i32 noundef -1) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %31 = getelementptr inbounds i8, ptr %.049, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %31, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %32 = getelementptr inbounds i8, ptr %6, i64 206
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 206
   store i16 %.054, ptr %32, align 2
-  %33 = getelementptr inbounds i8, ptr %6, i64 204
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 204
   store i16 5019, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %6, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store ptr %7, ptr %34, align 8
   %35 = call ptr @slurm_send_recv_msgs(ptr noundef %.053, ptr noundef nonnull %6, i32 noundef 0) #11
   %.not67 = icmp eq ptr %35, null
@@ -1006,14 +1006,14 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
 
 50:                                               ; preds = %48, %46
   %51 = phi ptr [ %49, %48 ], [ %47, %46 ]
-  %52 = getelementptr inbounds i8, ptr %44, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %53 = load ptr, ptr %52, align 8
   call void @list_push(ptr noundef %51, ptr noundef %53) #11
   store ptr null, ptr %52, align 8
   br label %79
 
 54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %44, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 @slurm_get_return_code(i32 noundef 8001, ptr noundef %56) #11
   %58 = icmp eq i32 %57, 2017
@@ -1029,7 +1029,7 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
   br label %79
 
 63:                                               ; preds = %54
-  %64 = getelementptr inbounds i8, ptr %44, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = call ptr @slurm_strerror(i32 noundef %57) #11
   %67 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.slurm_job_step_stat, ptr noundef %65, ptr noundef %66) #11
@@ -1037,10 +1037,10 @@ slurm_job_step_stat_response_msg_free.exit:       ; preds = %38, %40
 
 68:                                               ; preds = %.lr.ph
   %69 = zext i16 %45 to i32
-  %70 = getelementptr inbounds i8, ptr %44, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @slurm_get_return_code(i32 noundef %69, ptr noundef %71) #11
-  %73 = getelementptr inbounds i8, ptr %44, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = load i16, ptr %44, align 8
   %76 = zext i16 %75 to i32
@@ -1138,14 +1138,14 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @_sort_stats_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_sort_pids_by_name.exit, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not6 = icmp eq ptr %9, null
   br i1 %.not6, label %_sort_pids_by_name.exit, label %10
@@ -1198,9 +1198,9 @@ define i32 @slurm_job_step_get_pids(ptr noundef %0, ptr noundef %1, ptr nocaptur
   br label %71
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %8, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void @fwd_set_alias_addrs(ptr noundef %18) #11
   br label %19
@@ -1231,11 +1231,11 @@ define i32 @slurm_job_step_get_pids(ptr noundef %0, ptr noundef %1, ptr nocaptur
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #11
   call void @slurm_msg_set_r_uid(ptr noundef nonnull %5, i32 noundef -1) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.042, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %29 = getelementptr inbounds i8, ptr %5, i64 204
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 204
   store i16 5027, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %5, i64 192
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 192
   store ptr %6, ptr %30, align 8
   %31 = call ptr @slurm_send_recv_msgs(ptr noundef %.046, ptr noundef nonnull %5, i32 noundef 0) #11
   %.not56 = icmp eq ptr %31, null
@@ -1290,14 +1290,14 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
 
 46:                                               ; preds = %44, %42
   %47 = phi ptr [ %45, %44 ], [ %43, %42 ]
-  %48 = getelementptr inbounds i8, ptr %40, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %49 = load ptr, ptr %48, align 8
   call void @list_push(ptr noundef %47, ptr noundef %49) #11
   store ptr null, ptr %48, align 8
   br label %65
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %40, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 @slurm_get_return_code(i32 noundef 8001, ptr noundef %52) #11
   %54 = call ptr @slurm_strerror(i32 noundef %53) #11
@@ -1306,7 +1306,7 @@ slurm_job_step_pids_response_msg_free.exit:       ; preds = %34, %36
 
 56:                                               ; preds = %.lr.ph
   %57 = zext i16 %41 to i32
-  %58 = getelementptr inbounds i8, ptr %40, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @slurm_get_return_code(i32 noundef %57, ptr noundef %59) #11
   %61 = load i16, ptr %40, align 8
@@ -1449,7 +1449,7 @@ define internal noalias noundef ptr @_load_step_thread(ptr noundef %0) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %2)
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #11
@@ -1458,7 +1458,7 @@ define internal noalias noundef ptr @_load_step_thread(ptr noundef %0) #0 {
   br i1 %8, label %_load_cluster_steps.exit.thread, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 204
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 204
   %11 = load i16, ptr %10, align 4
   switch i16 %11, label %.thread11.i [
     i16 2006, label %_load_cluster_steps.exit
@@ -1466,7 +1466,7 @@ define internal noalias noundef ptr @_load_step_thread(ptr noundef %0) #0 {
   ]
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %2, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 4
   call void @slurm_free_return_code_msg(ptr noundef nonnull %14) #11
@@ -1484,7 +1484,7 @@ _load_cluster_steps.exit.thread:                  ; preds = %.thread11.i, %1, %1
   br label %18
 
 _load_cluster_steps.exit:                         ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %2, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %17 = load ptr, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %2)
   %.not = icmp eq ptr %17, null
@@ -1497,7 +1497,7 @@ _load_cluster_steps.exit:                         ; preds = %9
   br i1 %20, label %21, label %33
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 272
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 272
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @slurm_strerror(i32 noundef %.08.i14) #11
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.42, ptr noundef %23, ptr noundef %24) #11
@@ -1505,13 +1505,13 @@ _load_cluster_steps.exit:                         ; preds = %9
 
 25:                                               ; preds = %_load_cluster_steps.exit
   %26 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.27, i32 noundef 355, ptr noundef nonnull @__func__._load_step_thread) #11
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 1
   store i8 %29, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %26, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %17, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8
   call void @list_append(ptr noundef %32, ptr noundef nonnull %26) #11
   br label %33

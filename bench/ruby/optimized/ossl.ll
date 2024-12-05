@@ -77,7 +77,7 @@ Check_Type.exit:                                  ; preds = %6
   br i1 %.not, label %12, label %.preheader
 
 .preheader:                                       ; preds = %Check_Type.exit
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %14
 
 12:                                               ; preds = %Check_Type.exit
@@ -429,7 +429,7 @@ define i64 @ossl_str_new(ptr noundef readonly %0, i64 noundef %1, ptr noundef wr
   %11 = load i64, ptr %10, align 8, !noalias !11
   %12 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %12, 0
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %14
 
 14:                                               ; preds = %9
@@ -476,7 +476,7 @@ define i64 @ossl_buf2str(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %9 = load i64, ptr %8, align 8, !noalias !15
   %10 = and i64 %9, 8192
   %.not.i.i.i = icmp eq i64 %10, 0
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %.not.i.i.i, label %RSTRING_PTR.exit.i, label %12
 
 12:                                               ; preds = %7
@@ -514,14 +514,14 @@ define void @ossl_bin2hex(ptr nocapture noundef readonly %0, ptr nocapture nound
   %6 = zext i8 %5 to i32
   %7 = lshr i32 %6, 4
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr @.str.6, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = shl i64 %.012, 1
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
   store i8 %10, ptr %12, align 1
   %13 = and i32 %6, 15
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr @.str.6, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @.str.6, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = or disjoint i64 %11, 1
   %18 = getelementptr inbounds i8, ptr %1, i64 %17
@@ -545,7 +545,7 @@ define i64 @ossl_pem_passwd_value(i64 noundef %0) local_unnamed_addr #0 {
   %5 = call i64 @rb_string_value(ptr noundef nonnull %2) #17
   %6 = load i64, ptr %2, align 8
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp sgt i64 %9, 1024
   br i1 %10, label %11, label %13
@@ -582,7 +582,7 @@ define i32 @ossl_pem_passwd_cb(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = sext i32 %1 to i64
   %.not47 = icmp sgt i64 %16, %17
@@ -591,7 +591,7 @@ define i32 @ossl_pem_passwd_cb(ptr noundef %0, i32 noundef %1, i32 noundef %2, p
 18:                                               ; preds = %14
   %19 = and i64 %11, 8192
   %.not.i.i = icmp eq i64 %19, 0
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br i1 %.not.i.i, label %RSTRING_PTR.exit, label %21
 
 21:                                               ; preds = %18
@@ -650,7 +650,7 @@ RSTRING_PTR.exit:                                 ; preds = %18, %21
 
 43:                                               ; preds = %40
   %44 = inttoptr i64 %41 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = icmp sgt i64 %46, %37
   br i1 %47, label %48, label %51
@@ -666,7 +666,7 @@ RSTRING_PTR.exit:                                 ; preds = %18, %21
   %52 = load i64, ptr %44, align 8, !noalias !19
   %53 = and i64 %52, 8192
   %.not.i.i48 = icmp eq i64 %53, 0
-  %54 = getelementptr inbounds i8, ptr %44, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 24
   br i1 %.not.i.i48, label %RSTRING_PTR.exit51, label %55
 
 55:                                               ; preds = %51
@@ -766,7 +766,7 @@ define i64 @ossl_make_error(i64 noundef %0, i64 noundef %1) local_unnamed_addr #
 10:                                               ; preds = %8
   %11 = call ptr @ERR_reason_error_string(i64 noundef %9) #17
   %12 = inttoptr i64 %.0 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8
   %.not13 = icmp eq i64 %14, 0
   br i1 %.not13, label %17, label %15
@@ -1010,11 +1010,11 @@ define internal range(i64 0, 21) i64 @ossl_crypto_fixed_length_secure_compare(i6
   %7 = call ptr @rb_string_value_ptr(ptr noundef nonnull %5) #17
   %8 = load i64, ptr %4, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %5, align 8
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8
   %.not = icmp eq i64 %11, %15
   br i1 %.not, label %18, label %16

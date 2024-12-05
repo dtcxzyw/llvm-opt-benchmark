@@ -19,19 +19,19 @@ define hidden void @WebPRescalerDspInitSSE2() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = mul nsw i32 %8, %6
   %10 = sext i32 %9 to i64
   %.idx = shl nsw i64 %10, 2
   %11 = getelementptr inbounds i8, ptr %4, i64 %.idx
-  %12 = getelementptr inbounds i8, ptr %0, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 8
   %17 = icmp sgt i32 %13, 32767
@@ -64,9 +64,9 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   br i1 %.not93108, label %.lr.ph112, label %.loopexit
 
 .lr.ph112:                                        ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %36
 
 36:                                               ; preds = %.lr.ph112, %51
@@ -88,7 +88,7 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   %46 = bitcast <16 x i8> %44 to <8 x i16>
   %47 = shufflevector <8 x i16> %46, <8 x i16> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
   %48 = shufflevector <8 x i16> %45, <8 x i16> %47, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
-  %49 = getelementptr inbounds i8, ptr %.0111, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.0111, i64 4
   %50 = add nsw i32 %39, %13
   br label %51
 
@@ -104,13 +104,13 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   %57 = bitcast <4 x i32> %56 to <8 x i16>
   %58 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %.sroa.0.1, <8 x i16> %57)
   store <4 x i32> %58, ptr %37, align 1
-  %59 = getelementptr inbounds i8, ptr %37, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.not93 = icmp ult ptr %59, %11
   br i1 %.not93, label %36, label %.loopexit
 
 60:                                               ; preds = %19
   %61 = zext nneg i32 %15 to i64
-  %62 = getelementptr inbounds i8, ptr %1, i64 %61
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 %61
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   %.val94 = load i64, ptr %1, align 1
   %64 = insertelement <2 x i64> poison, i64 %.val94, i64 0
@@ -125,9 +125,9 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   br i1 %.not103, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %60
-  %71 = getelementptr inbounds i8, ptr %4, i64 4
-  %72 = getelementptr inbounds i8, ptr %1, i64 7
-  %73 = getelementptr inbounds i8, ptr %0, i64 40
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 7
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %74
 
 74:                                               ; preds = %.lr.ph, %98
@@ -160,12 +160,12 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   %86 = bitcast <2 x i64> %85 to <16 x i8>
   %87 = shufflevector <16 x i8> %86, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %88 = bitcast <16 x i8> %87 to <8 x i16>
-  %89 = getelementptr inbounds i8, ptr %.2107, i64 7
+  %89 = getelementptr inbounds nuw i8, ptr %.2107, i64 7
   br label %96
 
 90:                                               ; preds = %83
   %91 = shufflevector <8 x i16> %.sroa.0.2104, <8 x i16> <i16 0, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 1, i32 poison, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8>
-  %92 = getelementptr inbounds i8, ptr %.2107, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.2107, i64 1
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i16
   %95 = insertelement <8 x i16> %91, i16 %94, i64 1
@@ -191,7 +191,7 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
   %104 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %.sroa.0.3, <8 x i16> %103)
   %105 = extractelement <4 x i32> %104, i64 0
   store i32 %105, ptr %75, align 1
-  %106 = getelementptr inbounds i8, ptr %75, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %.not = icmp ult ptr %106, %11
   br i1 %.not, label %74, label %.loopexit
 
@@ -201,30 +201,30 @@ define internal void @RescalerImportRowExpand_SSE2(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = trunc i32 %4 to i16
   %6 = insertelement <8 x i16> poison, i16 %5, i64 0
   %7 = shufflevector <8 x i16> %6, <8 x i16> poison, <8 x i32> zeroinitializer
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = insertelement <4 x i32> poison, i32 %9, i64 0
   %11 = shufflevector <4 x i32> %10, <4 x i32> poison, <4 x i32> zeroinitializer
   %12 = bitcast <4 x i32> %11 to <2 x i64>
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4
   %17 = shl nsw i32 %16, 2
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i32, ptr %14, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i32, ptr %20, align 8
   %.not = icmp eq i32 %21, 4
   br i1 %.not, label %22, label %29
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = shl i32 %4, 7
   %26 = icmp sgt i32 %24, %25
@@ -258,7 +258,7 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %
   %35 = phi <8 x i16> [ %41, %.lr.ph ], [ %31, %30 ]
   %.1.val = load i32, ptr %.1150, align 1
   %36 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 poison>, i32 %.1.val, i64 0
-  %37 = getelementptr inbounds i8, ptr %.1150, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.1150, i64 4
   %38 = bitcast <4 x i32> %36 to <16 x i8>
   %39 = shufflevector <16 x i8> %38, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %40 = bitcast <16 x i8> %39 to <8 x i16>
@@ -297,7 +297,7 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %
   %66 = shufflevector <4 x i32> %64, <4 x i32> %65, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
   %67 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %66, <4 x i32> zeroinitializer)
   store <4 x i32> %57, ptr %.0147155, align 1
-  %68 = getelementptr inbounds i8, ptr %.0147155, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0147155, i64 16
   %69 = icmp ult ptr %68, %19
   br i1 %69, label %30, label %.loopexit, !llvm.loop !6
 
@@ -307,23 +307,23 @@ define internal void @RescalerImportRowShrink_SSE2(ptr noundef %0, ptr noundef %
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = mul i32 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %14, i64 0
   %16 = insertelement <4 x i32> %15, i32 %14, i64 2
   %17 = bitcast <4 x i32> %16 to <2 x i64>
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.preheader160, label %65
@@ -353,13 +353,13 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
   %indvars.iv185 = phi i64 [ 0, %.lr.ph169.preheader ], [ %indvars.iv.next186, %.lr.ph169 ]
   %indvars.iv183 = phi i64 [ 8, %.lr.ph169.preheader ], [ %indvars.iv.next184, %.lr.ph169 ]
-  %25 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv185
+  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv185
   %.val = load <2 x i64>, ptr %25, align 1
   %26 = getelementptr i8, ptr %25, i64 16
   %.val117 = load <2 x i64>, ptr %26, align 1
   %27 = lshr <2 x i64> %.val, splat (i64 32)
   %28 = lshr <2 x i64> %.val117, splat (i64 32)
-  %29 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv185
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv185
   %30 = and <2 x i64> %.val, splat (i64 4294967295)
   %31 = mul nuw <2 x i64> %30, %17
   %32 = and <2 x i64> %.val117, splat (i64 4294967295)
@@ -390,7 +390,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
 
 .lr.ph172:                                        ; preds = %.lr.ph172.preheader, %.lr.ph172
   %indvars.iv190 = phi i64 [ %24, %.lr.ph172.preheader ], [ %indvars.iv.next191, %.lr.ph172 ]
-  %52 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv190
+  %52 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv190
   %53 = load i32, ptr %52, align 4
   %54 = zext i32 %53 to i64
   %55 = load i32, ptr %13, align 8
@@ -402,7 +402,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %61 = icmp sgt i32 %60, 255
   %62 = trunc i64 %59 to i8
   %63 = select i1 %61, i8 -1, i8 %62
-  %64 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv190
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv190
   store i8 %63, ptr %64, align 1
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %wide.trip.count193
@@ -412,7 +412,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %66 = sub nsw i32 0, %19
   %67 = sext i32 %66 to i64
   %68 = shl nsw i64 %67, 32
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
   %72 = udiv i64 %68, %71
@@ -450,7 +450,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv175 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next176, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv175
+  %87 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv175
   %.val118 = load <2 x i64>, ptr %87, align 1
   %88 = getelementptr i8, ptr %87, i64 16
   %.val119 = load <2 x i64>, ptr %88, align 1
@@ -462,7 +462,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %94 = mul nuw <2 x i64> %93, %78
   %95 = mul nuw <2 x i64> %89, %78
   %96 = mul nuw <2 x i64> %90, %78
-  %97 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv175
+  %97 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv175
   %.val120 = load <2 x i64>, ptr %97, align 1
   %98 = getelementptr i8, ptr %97, i64 16
   %.val121 = load <2 x i64>, ptr %98, align 1
@@ -486,7 +486,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %116 = lshr <2 x i64> %110, splat (i64 32)
   %117 = lshr <2 x i64> %112, splat (i64 32)
   %118 = lshr <2 x i64> %114, splat (i64 32)
-  %119 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv175
+  %119 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv175
   %120 = mul nuw <2 x i64> %115, %17
   %121 = mul nuw <2 x i64> %116, %17
   %122 = mul nuw <2 x i64> %117, %17
@@ -515,11 +515,11 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
 
 140:                                              ; preds = %.lr.ph166, %140
   %indvars.iv180 = phi i64 [ %86, %.lr.ph166 ], [ %indvars.iv.next181, %140 ]
-  %141 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv180
+  %141 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv180
   %142 = load i32, ptr %141, align 4
   %143 = zext i32 %142 to i64
   %144 = mul nuw i64 %143, %85
-  %145 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv180
+  %145 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv180
   %146 = load i32, ptr %145, align 4
   %147 = zext i32 %146 to i64
   %148 = mul nuw i64 %74, %147
@@ -535,7 +535,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
   %158 = icmp sgt i32 %157, 255
   %159 = trunc i64 %156 to i8
   %160 = select i1 %158, i8 -1, i8 %159
-  %161 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv180
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv180
   store i8 %160, ptr %161, align 1
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count
@@ -547,25 +547,25 @@ define internal void @RescalerExportRowExpand_SSE2(ptr nocapture noundef readonl
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = mul i32 %9, %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = mul i32 %16, %14
   %18 = sub i32 0, %17
   %.not = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = insertelement <4 x i32> <i32 poison, i32 0, i32 poison, i32 0>, i32 %20, i64 0
   %22 = insertelement <4 x i32> %21, i32 %20, i64 2
@@ -601,13 +601,13 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv188 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next189, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv188
+  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv188
   %.val = load <2 x i64>, ptr %33, align 1
   %34 = getelementptr i8, ptr %33, i64 16
   %.val135 = load <2 x i64>, ptr %34, align 1
   %35 = lshr <2 x i64> %.val, splat (i64 32)
   %36 = lshr <2 x i64> %.val135, splat (i64 32)
-  %37 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv188
+  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv188
   %.val136 = load <2 x i64>, ptr %37, align 1
   %38 = getelementptr i8, ptr %37, i64 16
   %.val137 = load <2 x i64>, ptr %38, align 1
@@ -633,7 +633,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
   %58 = or disjoint <2 x i64> %48, %56
   store <2 x i64> %57, ptr %33, align 1
   store <2 x i64> %58, ptr %34, align 1
-  %59 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv188
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv188
   %60 = and <2 x i64> %51, splat (i64 4294967295)
   %61 = mul nuw <2 x i64> %60, %23
   %62 = and <2 x i64> %52, splat (i64 4294967295)
@@ -666,13 +666,13 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
 
 84:                                               ; preds = %.lr.ph179, %84
   %indvars.iv193 = phi i64 [ %32, %.lr.ph179 ], [ %indvars.iv.next194, %84 ]
-  %85 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv193
+  %85 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv193
   %86 = load i32, ptr %85, align 4
   %87 = zext i32 %86 to i64
   %88 = mul nuw i64 %87, %31
   %89 = lshr i64 %88, 32
   %90 = trunc nuw i64 %89 to i32
-  %91 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv193
+  %91 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv193
   %92 = load i32, ptr %91, align 4
   %93 = sub i32 %92, %90
   %94 = zext i32 %93 to i64
@@ -685,7 +685,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
   %101 = icmp sgt i32 %100, 255
   %102 = trunc i64 %99 to i8
   %103 = select i1 %101, i8 -1, i8 %102
-  %104 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv193
+  %104 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv193
   store i8 %103, ptr %104, align 1
   store i32 %90, ptr %91, align 4
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
@@ -718,13 +718,13 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %.lr.ph182
   %indvars.iv198 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next199, %.lr.ph182 ]
   %indvars.iv196 = phi i64 [ 8, %.lr.ph182.preheader ], [ %indvars.iv.next197, %.lr.ph182 ]
-  %111 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv198
+  %111 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv198
   %.val138 = load <2 x i64>, ptr %111, align 1
   %112 = getelementptr i8, ptr %111, i64 16
   %.val139 = load <2 x i64>, ptr %112, align 1
   %113 = lshr <2 x i64> %.val138, splat (i64 32)
   %114 = lshr <2 x i64> %.val139, splat (i64 32)
-  %115 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv198
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv198
   %116 = and <2 x i64> %.val138, splat (i64 4294967295)
   %117 = mul nuw <2 x i64> %116, %23
   %118 = and <2 x i64> %.val139, splat (i64 4294967295)
@@ -756,7 +756,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
 
 138:                                              ; preds = %.lr.ph185, %138
   %indvars.iv203 = phi i64 [ %110, %.lr.ph185 ], [ %indvars.iv.next204, %138 ]
-  %139 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv203
+  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv203
   %140 = load i32, ptr %139, align 4
   %141 = zext i32 %140 to i64
   %142 = mul nuw i64 %141, %109
@@ -766,7 +766,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr nocapture noundef readonl
   %146 = icmp sgt i32 %145, 255
   %147 = trunc i64 %144 to i8
   %148 = select i1 %146, i8 -1, i8 %147
-  %149 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv203
+  %149 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv203
   store i8 %148, ptr %149, align 1
   store i32 0, ptr %139, align 4
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1

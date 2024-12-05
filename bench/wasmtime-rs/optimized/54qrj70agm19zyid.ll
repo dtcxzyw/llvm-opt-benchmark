@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hbf904280ad9054e9E(ptr align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, ptr } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   invoke void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h73e09f20d9b38c32E(ptr nonnull align 8 %4, ptr nonnull align 8 %3, ptr nonnull align 8 %0)
@@ -49,9 +49,9 @@ define void @_ZN4core4iter6traits8iterator8Iterator8for_each17hbf904280ad9054e9E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h74b1809744f12317E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds { [3 x i64] }, ptr %0, i64 %3
   %7 = sub nuw i64 %5, %3
@@ -62,9 +62,9 @@ define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17h8641eb4f65b87ab9E"(ptr align 8 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = getelementptr inbounds i8, ptr %0, i64 %3
   %7 = sub nuw i64 %5, %3
@@ -75,7 +75,7 @@ define { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_slice17
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0f568caa234d2cb5E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp ne ptr %0, null
@@ -120,7 +120,7 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h42129b1059bd6d39E"(ptr align 8 %0, i8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   %6 = invoke i8 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h66a992a8134d1870E(ptr nonnull align 8 %4, i8 %1, ptr nonnull align 1 %3, ptr nonnull align 1 %0)
@@ -149,11 +149,11 @@ define i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..
 ; Function Attrs: inlinehint nonlazybind uwtable
 define i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17ha6de71b7f2f96cd8E"(ptr nocapture readonly align 8 %0, i8 %1, i64 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !4, !noundef !3
   %7 = icmp ult i64 %2, 32
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds i8, ptr %6, i64 %2
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %2
   %9 = load i8, ptr %8, align 1, !range !5, !noundef !3
   %10 = trunc nuw i8 %9 to i1
   %11 = tail call i8 @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h2123aa15c3f62545E"(ptr nonnull align 1 %4, i8 %1, i1 zeroext %10)
@@ -164,11 +164,11 @@ define i8 @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold28_$u7b$$u7b$closure$u7d$$u7d$17hffdb2186066566edE"(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #0 {
   %3 = alloca { {}, { { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] } }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !6, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !align !6, !noundef !3
   %7 = icmp ult i64 %1, 2
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %1
+  %8 = getelementptr inbounds nuw { [3 x i64] }, ptr %6, i64 %1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h929ce1c3975b0e4fE"(ptr nonnull align 8 %4, ptr nonnull align 8 %3)
   ret void
@@ -176,15 +176,15 @@ define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc64491d57a3f8857E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
-  %4 = getelementptr inbounds i8, ptr %1, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = load i64, ptr %3, align 8, !noundef !3
   %7 = sub nuw i64 %5, %6
   store i64 %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %7, ptr %9, align 8
   ret void
 }

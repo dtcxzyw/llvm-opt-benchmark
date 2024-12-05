@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 112), align 8
-  %.014.in20 = getelementptr inbounds i8, ptr %3, i64 16
+  %.014.in20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.01421 = load volatile ptr, ptr %.014.in20, align 8
   %.not22 = icmp eq ptr %3, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
   br i1 %.not22, label %._crit_edge, label %.lr.ph
@@ -27,7 +27,7 @@ define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef
   %.01425 = phi ptr [ %.014, %init_query.exit ], [ %.01421, %2 ]
   %.014.in24 = phi ptr [ %.014.in, %init_query.exit ], [ %.014.in20, %2 ]
   %.023 = phi ptr [ %.01425, %init_query.exit ], [ %3, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.023, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.023, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
   %7 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %6) #3
@@ -35,24 +35,24 @@ define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef
 
 8:                                                ; preds = %.lr.ph
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %9, ptr noundef nonnull @.str, ptr noundef nonnull %10) #3
   br label %11
 
 11:                                               ; preds = %8, %.lr.ph
-  %12 = getelementptr inbounds i8, ptr %5, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %28
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %5, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %28
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %5, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %28
@@ -74,9 +74,9 @@ define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef
 31:                                               ; preds = %28
   %32 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
   %33 = load i32, ptr %12, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 76
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %5, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %37 = load i32, ptr %36, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %32, ptr noundef nonnull @.str.1, i32 noundef %33, i32 noundef %35, i32 noundef %37) #3
   br label %46
@@ -86,7 +86,7 @@ define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef
 
 39:                                               ; preds = %38
   %40 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
-  %41 = getelementptr inbounds i8, ptr %5, i64 84
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %40, ptr noundef nonnull @.str.2, ptr noundef nonnull %41) #3
   br label %46
 
@@ -95,19 +95,19 @@ define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef
 
 43:                                               ; preds = %42
   %44 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
-  %45 = getelementptr inbounds i8, ptr %5, i64 84
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %44, ptr noundef nonnull @.str.3, ptr noundef nonnull %45) #3
   br label %init_query.exit
 
 46:                                               ; preds = %28, %31, %39, %38
   %47 = load volatile ptr, ptr %.014.in24, align 8
-  %48 = getelementptr inbounds i8, ptr %.023, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %.023, i64 24
   %49 = load volatile ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store volatile ptr %47, ptr %50, align 8
   %51 = load volatile ptr, ptr %48, align 8
   %52 = load volatile ptr, ptr %.014.in24, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store volatile ptr %51, ptr %53, align 8
   %54 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 136), align 8
   %55 = add i64 %54, -1
@@ -115,7 +115,7 @@ define noundef i32 @mca_io_base_find_available(i1 noundef zeroext %0, i1 noundef
   %56 = load volatile ptr, ptr %48, align 8
   %57 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 76), align 4
   tail call void @mca_base_component_close(ptr noundef nonnull %5, i32 noundef %57) #3
-  %58 = getelementptr inbounds i8, ptr %.023, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %59 = load i8, ptr @opal_uses_threads, align 1
   %60 = trunc i8 %59 to i1
   br i1 %60, label %61, label %64
@@ -139,7 +139,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %61, %64
 
 69:                                               ; preds = %opal_thread_add_fetch_32.exit
   %70 = load ptr, ptr %.023, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr %72, align 8
   %.not6.i = icmp eq ptr %73, null
@@ -149,7 +149,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %61, %64
   %74 = phi ptr [ %76, %.lr.ph.i ], [ %73, %69 ]
   %.07.i = phi ptr [ %75, %.lr.ph.i ], [ %72, %69 ]
   tail call void %74(ptr noundef nonnull %.023) #3
-  %75 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i17 = icmp eq ptr %76, null
   br i1 %.not.i17, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -159,7 +159,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %69
   br label %init_query.exit
 
 init_query.exit:                                  ; preds = %43, %42, %opal_thread_add_fetch_32.exit, %opal_obj_run_destructors.exit
-  %.014.in = getelementptr inbounds i8, ptr %.01425, i64 16
+  %.014.in = getelementptr inbounds nuw i8, ptr %.01425, i64 16
   %.014 = load volatile ptr, ptr %.014.in, align 8
   %.not = icmp eq ptr %.01425, getelementptr inbounds (i8, ptr @ompi_io_base_framework, i64 96)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

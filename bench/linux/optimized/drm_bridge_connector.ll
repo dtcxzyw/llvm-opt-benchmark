@@ -22,20 +22,20 @@ define dso_local ptr @drm_bridge_connector_init(ptr noundef %0, ptr noundef %1) 
   br i1 %5, label %92, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 1976
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 1976
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 148
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 148
   store i8 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
   br i1 %11, label %.thread, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 1984
-  %14 = getelementptr inbounds i8, ptr %4, i64 1992
-  %15 = getelementptr inbounds i8, ptr %4, i64 2000
-  %16 = getelementptr inbounds i8, ptr %4, i64 2008
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 1984
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 1992
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 2000
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 2008
   br label %17
 
 17:                                               ; preds = %60, %12
@@ -100,7 +100,7 @@ define dso_local ptr @drm_bridge_connector_init(ptr noundef %0, ptr noundef %1) 
 48:                                               ; preds = %47, %43
   %49 = getelementptr i8, ptr %18, i64 -8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %52 = load ptr, ptr %18, align 8
   %53 = icmp eq ptr %52, %51
   %54 = getelementptr i8, ptr %52, i64 -104
@@ -145,7 +145,7 @@ define dso_local ptr @drm_bridge_connector_init(ptr noundef %0, ptr noundef %1) 
   br label %92
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %4, i64 1544
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 1544
   store ptr @drm_bridge_connector_helper_funcs, ptr %79, align 8
   %80 = load ptr, ptr %14, align 8
   %81 = icmp eq ptr %80, null
@@ -158,7 +158,7 @@ define dso_local ptr @drm_bridge_connector_init(ptr noundef %0, ptr noundef %1) 
 
 85:                                               ; preds = %82, %78
   %86 = phi i8 [ 1, %78 ], [ 6, %82 ]
-  %87 = getelementptr inbounds i8, ptr %4, i64 1536
+  %87 = getelementptr inbounds nuw i8, ptr %4, i64 1536
   store i8 %86, ptr %87, align 8
   br label %88
 
@@ -195,20 +195,20 @@ declare dso_local void @drm_atomic_helper_connector_reset(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @drm_bridge_connector_detect(ptr nocapture noundef readonly %0, i1 zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 2000
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %31, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %4) #4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1976
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %14
   br i1 %16, label %.loopexit, label %.preheader
@@ -218,7 +218,7 @@ define internal i32 @drm_bridge_connector_detect(ptr nocapture noundef readonly 
   %18 = phi ptr [ %28, %26 ], [ %15, %6 ]
   %19 = getelementptr i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 176
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %26, label %24
@@ -232,12 +232,12 @@ define internal i32 @drm_bridge_connector_detect(ptr nocapture noundef readonly 
 26:                                               ; preds = %24, %.preheader
   %27 = phi ptr [ %.pre, %24 ], [ %17, %.preheader ]
   %28 = load ptr, ptr %18, align 8
-  %29 = getelementptr inbounds i8, ptr %27, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %30 = icmp eq ptr %28, %29
   br i1 %30, label %.loopexit, label %.preheader, !llvm.loop !10
 
 31:                                               ; preds = %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 140
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %34 [
     i32 17, label %.loopexit
@@ -261,7 +261,7 @@ declare dso_local i32 @drm_helper_probe_single_connector_modes(ptr noundef, i32 
 define internal void @drm_bridge_connector_destroy(ptr noundef %0) #0 align 16 {
   tail call void @drm_connector_unregister(ptr noundef %0) #4
   tail call void @drm_connector_cleanup(ptr noundef %0) #4
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @fwnode_handle_put(ptr noundef %3) #4
   tail call void @kfree(ptr noundef %0) #4
@@ -277,14 +277,14 @@ declare dso_local void @drm_atomic_helper_connector_destroy_state(ptr noundef, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initializes((176, 180)) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
-  tail call void @mutex_lock(ptr noundef %4) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
+  tail call void @mutex_lock(ptr noundef nonnull %4) #4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %1, ptr %5, align 8
-  tail call void @mutex_unlock(ptr noundef %4) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1976
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
@@ -294,7 +294,7 @@ define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initial
   %12 = phi ptr [ %22, %20 ], [ %9, %2 ]
   %13 = getelementptr i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -308,7 +308,7 @@ define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initial
 20:                                               ; preds = %18, %.preheader
   %21 = phi ptr [ %.pre, %18 ], [ %11, %.preheader ]
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !10
 
@@ -319,9 +319,9 @@ define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initial
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_connector_debugfs_init(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1976
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %.loopexit, label %.preheader
@@ -330,7 +330,7 @@ define internal void @drm_bridge_connector_debugfs_init(ptr nocapture noundef re
   %8 = phi ptr [ %17, %16 ], [ %6, %2 ]
   %9 = getelementptr i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 200
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -369,26 +369,26 @@ declare dso_local void @drm_kms_helper_connector_hotplug_event(ptr noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @drm_bridge_connector_get_modes(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1984
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1984
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %45, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2000
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %34, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %7) #4
-  %15 = getelementptr inbounds i8, ptr %0, i64 1976
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %.loopexit, label %.preheader
@@ -398,7 +398,7 @@ define internal i32 @drm_bridge_connector_get_modes(ptr noundef %0) #0 align 16 
   %21 = phi ptr [ %31, %29 ], [ %18, %9 ]
   %22 = getelementptr i8, ptr %21, i64 48
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 176
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %29, label %27
@@ -412,12 +412,12 @@ define internal i32 @drm_bridge_connector_get_modes(ptr noundef %0) #0 align 16 
 29:                                               ; preds = %27, %.preheader
   %30 = phi ptr [ %.pre, %27 ], [ %20, %.preheader ]
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 88
   %33 = icmp eq ptr %31, %32
   br i1 %33, label %.loopexit, label %.preheader, !llvm.loop !10
 
 34:                                               ; preds = %5
-  %35 = getelementptr inbounds i8, ptr %0, i64 140
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %36 = load i32, ptr %35, align 4
   switch i32 %36, label %.thread6 [
     i32 17, label %.thread
@@ -450,15 +450,15 @@ define internal i32 @drm_bridge_connector_get_modes(ptr noundef %0) #0 align 16 
   br label %55
 
 45:                                               ; preds = %1
-  %46 = getelementptr inbounds i8, ptr %0, i64 2008
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 2008
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %55, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %47, i64 152
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 160
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 %53(ptr noundef nonnull %47, ptr noundef %0) #4
   br label %55
@@ -470,7 +470,7 @@ define internal i32 @drm_bridge_connector_get_modes(ptr noundef %0) #0 align 16 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_connector_enable_hpd(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1992
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1992
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -485,7 +485,7 @@ define internal void @drm_bridge_connector_enable_hpd(ptr noundef %0) #0 align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_connector_disable_hpd(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1992
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1992
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -516,14 +516,14 @@ declare dso_local void @drm_bridge_hpd_enable(ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @drm_bridge_connector_hpd_cb(ptr noundef initializes((176, 180)) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 368
-  tail call void @mutex_lock(ptr noundef %4) #4
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 368
+  tail call void @mutex_lock(ptr noundef nonnull %4) #4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 %1, ptr %5, align 8
-  tail call void @mutex_unlock(ptr noundef %4) #4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1976
+  tail call void @mutex_unlock(ptr noundef nonnull %4) #4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %.loopexit, label %.preheader
@@ -533,7 +533,7 @@ define internal void @drm_bridge_connector_hpd_cb(ptr noundef initializes((176, 
   %12 = phi ptr [ %22, %20 ], [ %9, %2 ]
   %13 = getelementptr i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 176
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %20, label %18
@@ -547,7 +547,7 @@ define internal void @drm_bridge_connector_hpd_cb(ptr noundef initializes((176, 
 20:                                               ; preds = %18, %.preheader
   %21 = phi ptr [ %.pre, %18 ], [ %11, %.preheader ]
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %24 = icmp eq ptr %22, %23
   br i1 %24, label %.loopexit, label %.preheader, !llvm.loop !10
 

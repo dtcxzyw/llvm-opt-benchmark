@@ -166,7 +166,7 @@ declare ptr @register_dissector_with_description(ptr noundef, ptr noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_grpc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc ptr @get_grpc_context(ptr noundef %1, ptr noundef %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
   %7 = tail call fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   ret i32 %7
@@ -175,7 +175,7 @@ define internal i32 @dissect_grpc(ptr noundef %0, ptr noundef %1, ptr noundef %2
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_grpc_web(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc ptr @get_grpc_context(ptr noundef %1, ptr noundef %3)
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 1, ptr %6, align 4
   %7 = tail call fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
   ret i32 %7
@@ -187,10 +187,10 @@ define internal i32 @dissect_grpc_web_text(ptr noundef %0, ptr noundef %1, ptr n
   %6 = tail call ptr @base64_tvb_to_new_tvb(ptr noundef %0, i32 noundef 0, i32 noundef %5) #5
   tail call void @add_new_data_source(ptr noundef %1, ptr noundef %6, ptr noundef nonnull @.str.78) #5
   %7 = tail call fastcc ptr @get_grpc_context(ptr noundef %1, ptr noundef %3)
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 2, ptr %8, align 4
   %9 = tail call fastcc i32 @dissect_grpc_common(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %7)
-  %10 = getelementptr inbounds i8, ptr %1, i64 332
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %11 = load i32, ptr %10, align 4
   %12 = sdiv i32 %11, 3
   %13 = shl i32 %12, 2
@@ -199,7 +199,7 @@ define internal i32 @dissect_grpc_web_text(ptr noundef %0, ptr noundef %1, ptr n
   %16 = select i1 %15, i32 0, i32 4
   %17 = add i32 %16, %13
   store i32 %17, ptr %10, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 336
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %19 = load i32, ptr %18, align 8
   %20 = udiv i32 %19, 3
   %21 = shl i32 %20, 2
@@ -270,10 +270,10 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias ptr @get_grpc_context(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias ptr @wmem_alloc0(ptr noundef %4, i64 noundef 32) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @proto_is_frame_protocol(ptr noundef %7, ptr noundef nonnull @.str.48) #5
   %.not = icmp eq i32 %8, 0
@@ -281,7 +281,7 @@ define internal fastcc noalias ptr @get_grpc_context(ptr noundef %0, ptr noundef
 
 9:                                                ; preds = %2
   %10 = tail call ptr @http2_get_header_value(ptr noundef nonnull %0, ptr noundef nonnull @.str.49, i32 noundef 0) #5
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %10, ptr %11, align 8
   %12 = icmp ne ptr %10, null
   %13 = zext i1 %12 to i32
@@ -296,7 +296,7 @@ define internal fastcc noalias ptr @get_grpc_context(ptr noundef %0, ptr noundef
 
 17:                                               ; preds = %15, %9
   %18 = tail call ptr @http2_get_header_value(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, i32 noundef 0) #5
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %18, ptr %19, align 8
   %20 = tail call ptr @http2_get_header_value(ptr noundef nonnull %0, ptr noundef nonnull @.str.51, i32 noundef 0) #5
   br label %.sink.split
@@ -325,15 +325,15 @@ define internal fastcc noalias ptr @get_grpc_context(ptr noundef %0, ptr noundef
   %33 = icmp eq i32 %32, 0
   %34 = zext i1 %33 to i32
   store i32 %34, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %27, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 296
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not31 = icmp eq ptr %42, null
   br i1 %.not31, label %47, label %43
@@ -348,7 +348,7 @@ define internal fastcc noalias ptr @get_grpc_context(ptr noundef %0, ptr noundef
 
 .sink.split:                                      ; preds = %17, %43
   %.sink = phi ptr [ %44, %43 ], [ %20, %17 ]
-  %46 = getelementptr inbounds i8, ptr %5, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %.sink, ptr %46, align 8
   br label %47
 
@@ -370,7 +370,7 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   unreachable
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @val_to_str_const(i32 noundef %12, ptr noundef nonnull @grpc_protocol_type_vals, ptr noundef nonnull @.str.16) #5
   %14 = load i32, ptr @grpc_embedded_under_http2, align 4
@@ -392,9 +392,9 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br i1 %.not85, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %23
 
 23:                                               ; preds = %.lr.ph, %dissect_grpc_message.exit
@@ -404,16 +404,16 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %1, i64 328
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %28 = load i16, ptr %27, align 8
   %.not79 = icmp eq i16 %28, 0
   br i1 %.not79, label %.loopexit.sink.split, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 332
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.06784, ptr %30, align 4
   %31 = sub nuw nsw i32 5, %24
-  %32 = getelementptr inbounds i8, ptr %1, i64 336
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %31, ptr %32, align 8
   br label %114
 
@@ -425,16 +425,16 @@ define internal fastcc i32 @dissect_grpc_common(ptr noundef %0, ptr noundef %1, 
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %1, i64 328
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %40 = load i16, ptr %39, align 8
   %.not78 = icmp eq i16 %40, 0
   br i1 %.not78, label %.loopexit.sink.split, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 332
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.06784, ptr %42, align 4
   %43 = sub i32 %36, %24
-  %44 = getelementptr inbounds i8, ptr %1, i64 336
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %43, ptr %44, align 8
   br label %114
 
@@ -642,7 +642,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, ptr nocapture noundef nonnull readonly %7) unnamed_addr #0 {
   %9 = alloca [3 x i8], align 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @hf_grpc_message_data, align 4
   %13 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %0, i32 noundef %12, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.74, i32 noundef %4) #5
@@ -662,7 +662,7 @@ define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, p
   br i1 %or.cond11, label %59, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %59, label %26
@@ -683,10 +683,10 @@ define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, p
 34:                                               ; preds = %31
   %35 = add nsw i32 %4, -3
   %36 = call ptr @tvb_memcpy(ptr noundef %27, ptr noundef nonnull %9, i32 noundef %35, i64 noundef 3) #5
-  %37 = getelementptr inbounds i8, ptr %9, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 125
-  %40 = getelementptr inbounds i8, ptr %9, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 125
   %or.cond5 = select i1 %39, i1 true, i1 %42
@@ -698,7 +698,7 @@ define internal fastcc void @dissect_body_data(ptr noundef %0, ptr noundef %1, p
 
 45:                                               ; preds = %34, %31, %26
   %.0 = phi ptr [ %11, %31 ], [ %11, %26 ], [ %spec.select, %34 ]
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %23, align 8
   %49 = load i32, ptr %7, align 8

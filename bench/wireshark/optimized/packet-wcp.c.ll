@@ -176,7 +176,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_wcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [2048 x i8], align 16
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.75) #5
   %9 = load ptr, ptr %7, align 8
@@ -311,9 +311,9 @@ dissect_wcp_con_req.exit:                         ; preds = %33, %48, %52, %56
   br i1 %87, label %92, label %143
 
 92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %1, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 50
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 50
   %96 = load i16, ptr %95, align 2
   %97 = and i16 %96, 8
   %.not66 = icmp eq i16 %97, 0
@@ -332,10 +332,10 @@ dissect_wcp_con_req.exit:                         ; preds = %33, %48, %52, %56
 105:                                              ; preds = %98
   %106 = call ptr @wmem_file_scope() #5
   %107 = call noalias ptr @wmem_alloc0(ptr noundef %106, i64 noundef 65568) #5
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %108, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 32784
-  %110 = getelementptr inbounds i8, ptr %107, i64 32792
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 32784
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 32792
   store ptr %110, ptr %109, align 8
   %111 = load i32, ptr @proto_wcp, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %102, i32 noundef %111, ptr noundef nonnull %107) #5
@@ -343,15 +343,15 @@ dissect_wcp_con_req.exit:                         ; preds = %33, %48, %52, %56
 
 get_wcp_window_ptr.exit.i:                        ; preds = %105, %98
   %.0.i.i = phi ptr [ %104, %98 ], [ %107, %105 ]
-  %112 = getelementptr inbounds i8, ptr %1, i64 88
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %113 = load ptr, ptr %112, align 8
   %114 = load i8, ptr %113, align 8
   %.not1516.i.i = icmp slt i8 %114, 0
   %.013.idx.i.i = select i1 %.not1516.i.i, i64 0, i64 32784
-  %.013.i.i = getelementptr inbounds i8, ptr %.0.i.i, i64 %.013.idx.i.i
+  %.013.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.013.idx.i.i
   %115 = load ptr, ptr %.013.i.i, align 8
   %116 = getelementptr i8, ptr %115, i64 %101
-  %117 = getelementptr inbounds i8, ptr %.013.i.i, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.013.i.i, i64 8
   %118 = getelementptr i8, ptr %.013.i.i, i64 32775
   %.not.i = icmp ugt ptr %116, %118
   br i1 %.not.i, label %123, label %119
@@ -407,10 +407,10 @@ wcp_save_data.exit:                               ; preds = %140, %130, %119, %9
 149:                                              ; preds = %143
   %150 = call ptr @wmem_file_scope() #5
   %151 = call noalias ptr @wmem_alloc0(ptr noundef %150, i64 noundef 65568) #5
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %152, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %151, i64 32784
-  %154 = getelementptr inbounds i8, ptr %151, i64 32792
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 32784
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 32792
   store ptr %154, ptr %153, align 8
   %155 = load i32, ptr @proto_wcp, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %146, i32 noundef %155, ptr noundef nonnull %151) #5
@@ -418,13 +418,13 @@ wcp_save_data.exit:                               ; preds = %140, %130, %119, %9
 
 get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
   %.0.i.i70 = phi ptr [ %148, %143 ], [ %151, %149 ]
-  %156 = getelementptr inbounds i8, ptr %1, i64 88
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %157 = load ptr, ptr %156, align 8
   %158 = load i8, ptr %157, align 8
   %.not1516.i.i71 = icmp slt i8 %158, 0
   %.013.idx.i.i72 = select i1 %.not1516.i.i71, i64 0, i64 32784
-  %.013.i.i73 = getelementptr inbounds i8, ptr %.0.i.i70, i64 %.013.idx.i.i72
-  %159 = getelementptr inbounds i8, ptr %.013.i.i73, i64 8
+  %.013.i.i73 = getelementptr inbounds nuw i8, ptr %.0.i.i70, i64 %.013.idx.i.i72
+  %159 = getelementptr inbounds nuw i8, ptr %.013.i.i73, i64 8
   %160 = getelementptr i8, ptr %.013.i.i73, i64 32775
   %161 = load i32, ptr @hf_wcp_compressed_data, align 4
   %162 = sub i32 %145, %.
@@ -447,8 +447,8 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
 
 .lr.ph.i:                                         ; preds = %169
   %.not156.i = icmp eq ptr %27, null
-  %174 = getelementptr inbounds i8, ptr %.013.i.i73, i64 32776
-  %175 = getelementptr inbounds i8, ptr %1, i64 80
+  %174 = getelementptr inbounds nuw i8, ptr %.013.i.i73, i64 32776
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %176
 
 176:                                              ; preds = %296, %.lr.ph.i
@@ -558,7 +558,7 @@ get_wcp_window_ptr.exit.i69:                      ; preds = %149, %143
 
 238:                                              ; preds = %232
   %239 = load ptr, ptr %175, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 50
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 50
   %241 = load i16, ptr %240, align 2
   %242 = and i16 %241, 8
   %.not159.i = icmp eq i16 %242, 0
@@ -625,7 +625,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
 
 271:                                              ; preds = %266
   %272 = load ptr, ptr %175, align 8
-  %273 = getelementptr inbounds i8, ptr %272, i64 50
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 50
   %274 = load i16, ptr %273, align 2
   %275 = and i16 %274, 8
   %.not155.i = icmp eq i16 %275, 0
@@ -682,9 +682,9 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
 ._crit_edge.i:                                    ; preds = %296, %169
   %.0167.lcssa.i = phi i32 [ 0, %169 ], [ %.2169.i, %296 ]
   %.0134.lcssa.i = phi ptr [ %172, %169 ], [ %.4.i, %296 ]
-  %298 = getelementptr inbounds i8, ptr %1, i64 80
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %299 = load ptr, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %299, i64 50
+  %300 = getelementptr inbounds nuw i8, ptr %299, i64 50
   %301 = load i16, ptr %300, align 2
   %302 = and i16 %301, 8
   %.not.i74 = icmp eq i16 %302, 0
@@ -719,7 +719,7 @@ decompressed_entry.exit.thread.i:                 ; preds = %decompressed_entry.
 319:                                              ; preds = %308
   %320 = call ptr @wmem_file_scope() #5
   %321 = call noalias ptr @wmem_alloc0(ptr noundef %320, i64 noundef 2050) #5
-  %322 = getelementptr inbounds i8, ptr %321, i64 2
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 2
   %323 = load ptr, ptr %.013.i.i73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %322, ptr align 1 %323, i64 %310, i1 false)
   %324 = trunc i32 %.0167.lcssa.i to i16
@@ -736,7 +736,7 @@ wcp_uncompress.exit.thread:                       ; preds = %180, %192, %167, %2
 
 wcp_uncompress.exit:                              ; preds = %303, %319
   %.0.i = phi ptr [ %321, %319 ], [ %306, %303 ]
-  %327 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %327 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %328 = load i16, ptr %.0.i, align 2
   %329 = zext i16 %328 to i32
   %330 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef nonnull %327, i32 noundef %329, i32 noundef %329) #5

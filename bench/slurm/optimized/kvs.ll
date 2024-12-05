@@ -77,7 +77,7 @@ define noundef i32 @temp_kvs_init() local_unnamed_addr #0 {
 15:                                               ; preds = %0, %14
   %16 = load i32, ptr @kvs_seq, align 4
   tail call void @slurm_pack32(i32 noundef %16, ptr noundef %3) #5
-  %17 = getelementptr inbounds i8, ptr %3, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %18 = load i32, ptr %17, align 4
   %19 = load i32, ptr @temp_kvs_cnt, align 4
   %20 = add i32 %19, %18
@@ -100,7 +100,7 @@ define noundef i32 @temp_kvs_init() local_unnamed_addr #0 {
   %29 = load ptr, ptr @temp_kvs_buf, align 8
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = zext i32 %18 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 1 %33, i64 %34, i1 false)
@@ -152,7 +152,7 @@ define noundef i32 @temp_kvs_add(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %11 = trunc i64 %10 to i32
   %12 = add i32 %11, 1
   tail call void @slurm_packmem(ptr noundef nonnull %1, i32 noundef %12, ptr noundef %6) #5
-  %13 = getelementptr inbounds i8, ptr %6, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr @temp_kvs_cnt, align 4
   %16 = add i32 %15, %14
@@ -175,7 +175,7 @@ define noundef i32 @temp_kvs_add(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %25 = load ptr, ptr @temp_kvs_buf, align 8
   %26 = sext i32 %24 to i64
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = zext i32 %14 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr align 1 %29, i64 %30, i1 false)
@@ -189,16 +189,16 @@ define noundef i32 @temp_kvs_add(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @temp_kvs_merge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = sub i32 %3, %5
   %7 = icmp eq i32 %3, %5
   br i1 %7, label %27, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @temp_kvs_cnt, align 4
   %12 = add i32 %11, %6
@@ -222,7 +222,7 @@ define noundef i32 @temp_kvs_merge(ptr nocapture noundef readonly %0) local_unna
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i8, ptr %21, i64 %22
   %24 = zext i32 %5 to i64
-  %25 = getelementptr inbounds i8, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %24
   %26 = zext i32 %6 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %25, i64 %26, i1 false)
   store i32 %.pre-phi, ptr @temp_kvs_cnt, align 4
@@ -382,7 +382,7 @@ define ptr @kvs_get(ptr noundef %0) local_unnamed_addr #0 {
   %.0910.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %10 = lshr i32 %.0910.i, 24
   %11 = shl i32 %.0910.i, 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = xor i32 %10, %14
@@ -396,8 +396,8 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %17 = load i32, ptr @hash_size, align 4
   %18 = urem i32 %.09.lcssa.i, %17
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds %struct.kvs_bucket, ptr %6, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %20 = getelementptr inbounds nuw %struct.kvs_bucket, ptr %6, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -413,7 +413,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %_hash.exit ]
   %27 = load ptr, ptr %20, align 8
   %28 = shl nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @slurm_xstrcmp(ptr noundef %0, ptr noundef %30) #5
   %.not13 = icmp eq i32 %31, 0
@@ -423,7 +423,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %5
   %33 = load ptr, ptr %20, align 8
   %34 = and i64 %28, 4294967294
   %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds ptr, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %.loopexit
 
@@ -469,7 +469,7 @@ define noundef i32 @kvs_put(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.0910.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %17, %.lr.ph.i ]
   %11 = lshr i32 %.0910.i, 24
   %12 = shl i32 %.0910.i, 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1
   %15 = zext i8 %14 to i32
   %16 = xor i32 %11, %15
@@ -483,9 +483,9 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %18 = load i32, ptr @hash_size, align 4
   %19 = urem i32 %.09.lcssa.i, %18
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds %struct.kvs_bucket, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw %struct.kvs_bucket, ptr %7, i64 %20
   %.b = load i1, ptr @no_dup_keys, align 4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %21, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %.b, label %.loopexit, label %.preheader
 
@@ -504,7 +504,7 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %22 ], [ 0, %.preheader ]
   %26 = load ptr, ptr %21, align 8
   %27 = shl nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @slurm_xstrcmp(ptr noundef %0, ptr noundef %29) #5
   %.not = icmp eq i32 %30, 0
@@ -514,11 +514,11 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
   %32 = load ptr, ptr %21, align 8
   %33 = and i64 %27, 4294967294
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds ptr, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
   tail call void @slurm_xfree(ptr noundef nonnull %35) #5
   %36 = tail call ptr @slurm_xstrdup(ptr noundef %1) #5
   %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %34
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %34
   store ptr %36, ptr %38, align 8
   %39 = tail call i32 @slurm_get_log_level() #5
   %40 = icmp sgt i32 %39, 4
@@ -526,9 +526,9 @@ _hash.exit:                                       ; preds = %.lr.ph.i, %6
 
 .loopexit:                                        ; preds = %22, %_hash.exit, %.preheader
   %41 = phi i32 [ 0, %.preheader ], [ %.pre, %_hash.exit ], [ %23, %22 ]
-  %42 = getelementptr inbounds i8, ptr %21, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %43 = shl i32 %41, 1
-  %44 = getelementptr inbounds i8, ptr %21, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %45 = load i32, ptr %44, align 4
   %.not31 = icmp ult i32 %43, %45
   br i1 %.not31, label %51, label %46
@@ -582,8 +582,8 @@ define noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %2 = phi i32 [ %16, %._crit_edge ], [ %1, %0 ]
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %._crit_edge ], [ 0, %0 ]
   %3 = load ptr, ptr @kvs_hash, align 8
-  %4 = getelementptr inbounds %struct.kvs_bucket, ptr %3, i64 %indvars.iv17
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %4 = getelementptr inbounds nuw %struct.kvs_bucket, ptr %3, i64 %indvars.iv17
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %.not15 = icmp eq i32 %6, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph
@@ -592,11 +592,11 @@ define noundef i32 @kvs_clear() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph13 ]
   %7 = load ptr, ptr %4, align 8
   %8 = shl nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   tail call void @slurm_xfree(ptr noundef %9) #5
   %10 = load ptr, ptr %4, align 8
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   tail call void @slurm_xfree(ptr noundef nonnull %12) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %5, align 8

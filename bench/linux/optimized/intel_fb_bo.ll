@@ -16,9 +16,9 @@ define dso_local void @intel_fb_bo_framebuffer_fini(ptr nocapture noundef readno
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 248
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @ww_mutex_lock(ptr noundef %7, ptr noundef null) #4
   %9 = icmp eq i32 %8, -35
@@ -45,13 +45,13 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br label %20
 
 20:                                               ; preds = %19, %3
-  %21 = getelementptr inbounds i8, ptr %1, i64 664
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 127
   %24 = and i32 %22, -128
-  %25 = getelementptr inbounds i8, ptr %1, i64 464
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %31, label %30
@@ -63,7 +63,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
 31:                                               ; preds = %30, %20
   %32 = load ptr, ptr %6, align 8
   tail call void @ww_mutex_unlock(ptr noundef %32) #4
-  %33 = getelementptr inbounds i8, ptr %2, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 2
   %36 = icmp eq i32 %35, 0
@@ -74,7 +74,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br i1 %38, label %61, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %2, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %41 = load i64, ptr %40, align 8
   %42 = tail call i32 @intel_fb_modifier_to_tiling(i64 noundef %41) #4
   %43 = icmp eq i32 %23, %42
@@ -85,7 +85,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br i1 %45, label %49, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load ptr, ptr %47, align 8
   br label %49
 
@@ -101,7 +101,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   ]
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %2, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 72057594037927937, ptr %53, align 8
   br label %61
 
@@ -110,7 +110,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br i1 %55, label %59, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %58 = load ptr, ptr %57, align 8
   br label %59
 
@@ -120,13 +120,13 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br label %90
 
 61:                                               ; preds = %52, %51, %39, %37
-  %62 = getelementptr inbounds i8, ptr %5, i64 2632
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 2632
   %63 = load i16, ptr %62, align 8
   %64 = icmp ult i16 %63, 4
   br i1 %64, label %65, label %77
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %2, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %67 = load i64, ptr %66, align 8
   %68 = tail call i32 @intel_fb_modifier_to_tiling(i64 noundef %67) #4
   %69 = icmp eq i32 %23, %68
@@ -137,7 +137,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br i1 %71, label %75, label %72
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds i8, ptr %5, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %74 = load ptr, ptr %73, align 8
   br label %75
 
@@ -151,7 +151,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br i1 %78, label %90, label %79
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %2, i64 36
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %81, %24
   br i1 %82, label %90, label %83
@@ -161,7 +161,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_fb_bo_framebuffer_init(ptr
   br i1 %84, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %5, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %87 = load ptr, ptr %86, align 8
   br label %88
 
@@ -183,12 +183,12 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %5 = load i32, ptr %4, align 4
   tail call void @__rcu_read_lock() #4
-  %6 = getelementptr inbounds i8, ptr %1, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %7 = zext i32 %5 to i64
-  %8 = tail call ptr @idr_find(ptr noundef %6, i64 noundef %7) #4
+  %8 = tail call ptr @idr_find(ptr noundef nonnull %6, i64 noundef %7) #4
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread6, label %10
 
@@ -233,9 +233,9 @@ define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly %0, ptr n
 
 28:                                               ; preds = %26
   tail call void @__rcu_read_unlock() #4
-  %29 = getelementptr inbounds i8, ptr %0, i64 7168
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 7168
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = and i32 %32, 2
   %34 = icmp eq i32 %33, 0
@@ -268,7 +268,7 @@ define dso_local ptr @intel_fb_bo_lookup_valid_bo(ptr noundef readonly %0, ptr n
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %.thread8
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8
   br label %48
 

@@ -9,21 +9,21 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %62, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %62
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp ne ptr %16, null
   %18 = zext i1 %17 to i32
@@ -35,11 +35,11 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %23, label %.sink.split
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not58 = icmp eq i32 %4, 0
   br i1 %.not58, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -54,7 +54,7 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds i32, ptr %20, i64 %33
@@ -74,9 +74,9 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 .lr.ph56.split.us:                                ; preds = %._crit_edge, %.lr.ph56.split.us
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph56.split.us ], [ 0, %._crit_edge ]
-  %38 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv67
+  %38 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv67
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv67
+  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv67
   %41 = load i32, ptr %40, align 4
   %42 = sext i32 %41 to i64
   %43 = getelementptr inbounds i32, ptr %20, i64 %42
@@ -92,9 +92,9 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 .lr.ph56.split:                                   ; preds = %._crit_edge, %.lr.ph56.split
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph56.split ], [ 0, %._crit_edge ]
-  %48 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv62
+  %48 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv62
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv62
+  %50 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv62
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %20, i64 %52
@@ -104,7 +104,7 @@ define ptr @cs_compress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %56 = sext i32 %54 to i64
   %57 = getelementptr inbounds i32, ptr %27, i64 %56
   store i32 %49, ptr %57, align 4
-  %58 = getelementptr inbounds double, ptr %16, i64 %indvars.iv62
+  %58 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv62
   %59 = load double, ptr %58, align 8
   %60 = getelementptr inbounds double, ptr %29, i64 %56
   store double %59, ptr %60, align 8

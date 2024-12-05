@@ -71,7 +71,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i
 
 5:                                                ; preds = %.preheader, %4
   %.0.idx14 = phi i64 [ 0, %.preheader ], [ %.0.add, %4 ]
-  %.0.ptr15 = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx14
+  %.0.ptr15 = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx14
   %6 = getelementptr inbounds nuw i8, ptr %.0.ptr15, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %2
@@ -92,7 +92,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_(i
 
 17:                                               ; preds = %9
   %.sroa.012.0.copyload = load ptr, ptr %.0.ptr15, align 8
-  %.sroa.6.0..0.ptr.sroa_idx = getelementptr inbounds i8, ptr %.0.ptr15, i64 8
+  %.sroa.6.0..0.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr15, i64 8
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx, align 8
   br label %.loopexit
 
@@ -128,7 +128,7 @@ define dso_local void @_ZN4llvm8codeview14printTypeIndexERNS_13ScopedPrinterENS_
 
 12:                                               ; preds = %11, %.preheader.i
   %.0.idx14.i = phi i64 [ 0, %.preheader.i ], [ %.0.add.i, %11 ]
-  %.0.ptr15.i = getelementptr inbounds i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx14.i
+  %.0.ptr15.i = getelementptr inbounds nuw i8, ptr @_ZN12_GLOBAL__N_115SimpleTypeNamesE, i64 %.0.idx14.i
   %13 = getelementptr inbounds nuw i8, ptr %.0.ptr15.i, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %10
@@ -149,13 +149,13 @@ define dso_local void @_ZN4llvm8codeview14printTypeIndexERNS_13ScopedPrinterENS_
 
 24:                                               ; preds = %16
   %.sroa.012.0.copyload.i = load ptr, ptr %.0.ptr15.i, align 8
-  %.sroa.6.0..0.ptr.sroa_idx.i = getelementptr inbounds i8, ptr %.0.ptr15.i, i64 8
+  %.sroa.6.0..0.ptr.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.ptr15.i, i64 8
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..0.ptr.sroa_idx.i, align 8
   br label %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
 
 25:                                               ; preds = %7
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = tail call { ptr, i64 } %28(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 %3) #3
   %30 = extractvalue { ptr, i64 } %29, 0
@@ -173,7 +173,7 @@ _ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread: ; preds = %11, %9, 
   %.sroa.0.030 = phi ptr [ %.sroa.0.0, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit ], [ @.str.1, %9 ], [ @.str.2, %11 ]
   %33 = zext i32 %3 to i64
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 344
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 344
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, ptr %.sroa.0.030, i64 %.sroa.4.031, i64 %33) #3
   br label %41
@@ -181,7 +181,7 @@ _ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit.thread: ; preds = %11, %9, 
 .thread:                                          ; preds = %5, %_ZN4llvm8codeview9TypeIndex14simpleTypeNameES1_.exit
   %37 = zext i32 %3 to i64
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 336
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 336
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2, i64 %37) #3
   br label %41

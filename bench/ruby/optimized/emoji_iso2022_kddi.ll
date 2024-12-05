@@ -62,7 +62,7 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_kddi_decoder(ptr nocapture
   br i1 %7, label %8, label %20
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 40
   %12 = getelementptr i8, ptr %1, i64 %2
@@ -101,12 +101,12 @@ define internal range(i64 0, 4) i64 @fun_so_iso2022jp_kddi_decoder(ptr nocapture
   store i8 %., ptr %3, align 1
   %23 = load i8, ptr %1, align 1
   %24 = or i8 %23, -128
-  %25 = getelementptr inbounds i8, ptr %3, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %24, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = or i8 %27, -128
-  %29 = getelementptr inbounds i8, ptr %3, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 %28, ptr %29, align 1
   br label %30
 
@@ -134,9 +134,9 @@ define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 27, ptr %3, align 1
-  %15 = getelementptr inbounds i8, ptr %3, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 2
   switch i32 %.0, label %17 [
     i32 0, label %18
     i32 1, label %16
@@ -153,7 +153,7 @@ define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr
   %.sink = phi i8 [ 66, %17 ], [ 64, %16 ], [ 66, %13 ]
   store i8 %.sink25, ptr %14, align 1
   store i8 %.sink, ptr %15, align 1
-  %.1 = getelementptr inbounds i8, ptr %3, i64 3
+  %.1 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %19 = trunc nuw nsw i32 %.0 to i8
   store i8 %19, ptr %0, align 1
   br label %20
@@ -165,20 +165,20 @@ define internal i64 @fun_so_iso2022jp_kddi_encoder(ptr nocapture noundef %0, ptr
 21:                                               ; preds = %20
   %22 = load i8, ptr %1, align 1
   %23 = and i8 %22, 127
-  %24 = getelementptr inbounds i8, ptr %.024, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   store i8 %23, ptr %.024, align 1
   br label %34
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = and i8 %27, 127
-  %29 = getelementptr inbounds i8, ptr %.024, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.024, i64 1
   store i8 %28, ptr %.024, align 1
-  %30 = getelementptr inbounds i8, ptr %1, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = and i8 %31, 127
-  %33 = getelementptr inbounds i8, ptr %.024, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.024, i64 2
   store i8 %32, ptr %29, align 1
   br label %34
 
@@ -197,9 +197,9 @@ define internal range(i64 0, 4) i64 @finish_iso2022jp_kddi_encoder(ptr nocapture
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 27, ptr %1, align 1
-  %8 = getelementptr inbounds i8, ptr %1, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 40, ptr %7, align 1
   store i8 66, ptr %8, align 1
   store i8 0, ptr %0, align 1

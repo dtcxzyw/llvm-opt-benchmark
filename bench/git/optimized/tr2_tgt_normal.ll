@@ -168,7 +168,7 @@ if.then:                                          ; preds = %land.lhs.true
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then
-  %len.i.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   %2 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %2, 1
   %tobool.not.i = icmp eq i64 %1, %.neg.i
@@ -176,7 +176,7 @@ strbuf_avail.exit.i:                              ; preds = %if.then
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.then
   call void @strbuf_grow(ptr noundef nonnull %buf_payload, i64 noundef 1) #7
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %land.lhs.true.i
@@ -184,9 +184,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 land.lhs.true.i:                                  ; preds = %if.then.i, %strbuf_avail.exit.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %3 = phi i64 [ %.pre.i, %if.then.i ], [ %2, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds i8, ptr %buf_payload, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 16
   %4 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 %3
   store i8 32, ptr %arrayidx.i, align 1
@@ -239,7 +239,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %1 = phi ptr [ %.pre, %if.end ], [ %0, %entry ]
   %incdec.ptr7.pn = phi ptr [ %incdec.ptr7, %if.end ], [ %parent_names, %entry ]
-  %incdec.ptr7 = getelementptr inbounds i8, ptr %incdec.ptr7.pn, i64 8
+  %incdec.ptr7 = getelementptr inbounds nuw i8, ptr %incdec.ptr7.pn, i64 8
   %call.i3 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef nonnull %1, i64 noundef %call.i3) #7
   %2 = load ptr, ptr %incdec.ptr7, align 8
@@ -310,10 +310,10 @@ define internal void @fn_child_start_fl(ptr noundef %file, i32 noundef %line, i6
 entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
-  %trace2_child_id = getelementptr inbounds i8, ptr %cmd, i64 52
+  %trace2_child_id = getelementptr inbounds nuw i8, ptr %cmd, i64 52
   %0 = load i32, ptr %trace2_child_id, align 4
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.17, i32 noundef %0) #7
-  %dir = getelementptr inbounds i8, ptr %cmd, i64 96
+  %dir = getelementptr inbounds nuw i8, ptr %cmd, i64 96
   %1 = load ptr, ptr %dir, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -331,7 +331,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.end
-  %len.i.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   %4 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %4, 1
   %tobool.not.i = icmp eq i64 %3, %.neg.i
@@ -339,7 +339,7 @@ strbuf_avail.exit.i:                              ; preds = %if.end
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.end
   call void @strbuf_grow(ptr noundef nonnull %buf_payload, i64 noundef 1) #7
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -347,9 +347,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %5 = phi i64 [ %.pre.i, %if.then.i ], [ %4, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds i8, ptr %buf_payload, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 16
   %6 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 %5
   store i8 32, ptr %arrayidx.i, align 1
@@ -357,7 +357,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %8 = load i64, ptr %len.i, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %7, i64 %8
   store i8 0, ptr %arrayidx3.i, align 1
-  %git_cmd = getelementptr inbounds i8, ptr %cmd, i64 104
+  %git_cmd = getelementptr inbounds nuw i8, ptr %cmd, i64 104
   %bf.load = load i16, ptr %git_cmd, align 8
   %9 = and i16 %bf.load, 8
   %tobool2.not = icmp eq i16 %9, 0
@@ -418,7 +418,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then
-  %len.i.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   %1 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %1, 1
   %tobool.not.i = icmp eq i64 %0, %.neg.i
@@ -426,7 +426,7 @@ strbuf_avail.exit.i:                              ; preds = %if.then
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.then
   call void @strbuf_grow(ptr noundef nonnull %buf_payload, i64 noundef 1) #7
-  %len.phi.trans.insert.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   %.pre.i = load i64, ptr %len.phi.trans.insert.i, align 8
   %.pre8.i = add i64 %.pre.i, 1
   br label %strbuf_addch.exit
@@ -434,9 +434,9 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i, %if.then.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
   %2 = phi i64 [ %.pre.i, %if.then.i ], [ %1, %strbuf_avail.exit.i ]
-  %buf.i = getelementptr inbounds i8, ptr %buf_payload, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 16
   %3 = load ptr, ptr %buf.i, align 8
-  %len.i = getelementptr inbounds i8, ptr %buf_payload, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %buf_payload, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %3, i64 %2
   store i8 32, ptr %arrayidx.i, align 1
@@ -478,7 +478,7 @@ define internal void @fn_param_fl(ptr noundef %file, i32 noundef %line, ptr noun
 entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
-  %scope1 = getelementptr inbounds i8, ptr %kvi, i64 16
+  %scope1 = getelementptr inbounds nuw i8, ptr %kvi, i64 16
   %0 = load i32, ptr %scope1, align 8
   %call = tail call ptr @config_scope_name(i32 noundef %0) #7
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.26, ptr noundef %call, ptr noundef %param, ptr noundef %value) #7
@@ -493,7 +493,7 @@ entry:
   %buf_payload = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @strbuf_add(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.27, i64 noundef 9) #7
-  %worktree = getelementptr inbounds i8, ptr %repo, i64 128
+  %worktree = getelementptr inbounds nuw i8, ptr %repo, i64 128
   %0 = load ptr, ptr %worktree, align 8
   call void @sq_quote_buf_pretty(ptr noundef nonnull %buf_payload, ptr noundef %0) #7
   call fastcc void @normal_io_write_fl(ptr noundef %file, i32 noundef %line, ptr noundef %buf_payload)
@@ -539,18 +539,18 @@ entry:
   %0 = load i64, ptr %timer, align 8
   %conv = uitofp i64 %0 to double
   %div = fdiv double %conv, 1.000000e+09
-  %min_ns = getelementptr inbounds i8, ptr %timer, i64 8
+  %min_ns = getelementptr inbounds nuw i8, ptr %timer, i64 8
   %1 = load i64, ptr %min_ns, align 8
   %conv1 = uitofp i64 %1 to double
   %div2 = fdiv double %conv1, 1.000000e+09
-  %max_ns = getelementptr inbounds i8, ptr %timer, i64 16
+  %max_ns = getelementptr inbounds nuw i8, ptr %timer, i64 16
   %2 = load i64, ptr %max_ns, align 8
   %conv3 = uitofp i64 %2 to double
   %div4 = fdiv double %conv3, 1.000000e+09
   %3 = load ptr, ptr %meta, align 8
-  %name = getelementptr inbounds i8, ptr %meta, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %meta, i64 8
   %4 = load ptr, ptr %name, align 8
-  %interval_count = getelementptr inbounds i8, ptr %timer, i64 32
+  %interval_count = getelementptr inbounds nuw i8, ptr %timer, i64 32
   %5 = load i64, ptr %interval_count, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.30, ptr noundef nonnull %cond, ptr noundef %3, ptr noundef %4, i64 noundef %5, double noundef %div, double noundef %div2, double noundef %div4) #7
   call fastcc void @normal_io_write_fl(ptr noundef nonnull @.str.7, i32 noundef 356, ptr noundef %buf_payload)
@@ -566,7 +566,7 @@ entry:
   %cond = select i1 %tobool.not, ptr @.str.32, ptr @.str.31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_payload, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   %0 = load ptr, ptr %meta, align 8
-  %name = getelementptr inbounds i8, ptr %meta, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %meta, i64 8
   %1 = load ptr, ptr %name, align 8
   %2 = load i64, ptr %counter, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %buf_payload, ptr noundef nonnull @.str.33, ptr noundef nonnull %cond, ptr noundef %0, ptr noundef %1, i64 noundef %2) #7
@@ -595,9 +595,9 @@ strbuf_setlen.exit.i:
   %buf_line = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf_line, ptr noundef nonnull align 8 dereferenceable(24) @__const.fn_counter.buf_payload, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %tb_now.i)
-  %len2.i.i = getelementptr inbounds i8, ptr %buf_line, i64 8
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %buf_line, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %buf_line, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %buf_line, i64 16
   %0 = load i32, ptr @tr2env_normal_be_brief, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %normal_fmt_prepare.exit

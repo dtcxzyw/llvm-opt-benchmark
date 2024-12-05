@@ -444,48 +444,48 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #7
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #7
-  %157 = getelementptr inbounds i8, ptr %25, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %157, align 8
-  %158 = getelementptr inbounds i8, ptr %25, i64 20
+  %158 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 0, ptr %158, align 4
   store i32 16842752, ptr %25, align 8
-  %159 = getelementptr inbounds i8, ptr %25, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %19, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %26, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store i32 0, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %26, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %26, i64 20
   store i32 0, ptr %161, align 4
   store i32 16842752, ptr %26, align 8
-  %162 = getelementptr inbounds i8, ptr %26, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %20, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %27, i64 8
-  %164 = getelementptr inbounds i8, ptr %27, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %164, align 8
   store i32 33619968, ptr %27, align 8
   store ptr %22, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %28, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 0, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %28, i64 20
+  %166 = getelementptr inbounds nuw i8, ptr %28, i64 20
   store i32 0, ptr %166, align 4
   store i32 16842752, ptr %28, align 8
-  %167 = getelementptr inbounds i8, ptr %28, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %21, ptr %167, align 8
   invoke void @_ZN2cv13matchTemplateERKNS_11_InputArrayES2_RKNS_12_OutputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %26, ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef %156, ptr noundef nonnull align 8 dereferenceable(24) %28)
           to label %168 unwind label %193
 
 168:                                              ; preds = %155
   store i32 0, ptr %31, align 4
-  %169 = getelementptr inbounds i8, ptr %31, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 0, ptr %169, align 4
   store i32 0, ptr %32, align 4
-  %170 = getelementptr inbounds i8, ptr %32, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 0, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %33, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 0, ptr %171, align 8
-  %172 = getelementptr inbounds i8, ptr %33, i64 20
+  %172 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i32 0, ptr %172, align 4
   store i32 16842752, ptr %33, align 8
-  %173 = getelementptr inbounds i8, ptr %33, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %22, ptr %173, align 8
   %174 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %175 unwind label %195
@@ -496,9 +496,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 176:                                              ; preds = %175
   %or.cond = icmp ult i32 %156, 2
-  %177 = getelementptr inbounds i8, ptr %20, i64 64
+  %177 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %180 = load i32, ptr %179, align 4
   %181 = load i32, ptr %178, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %181 to i64
@@ -511,8 +511,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.val = load i32, ptr %31, align 4
   %.val88 = load i32, ptr %32, align 4
   %.sroa.076.sroa.0.0 = select i1 %or.cond, i32 %.val, i32 %.val88
-  %184 = getelementptr inbounds i8, ptr %34, i64 8
-  %185 = getelementptr inbounds i8, ptr %34, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i64 0, ptr %185, align 8
   store i32 50397184, ptr %34, align 8
   store ptr %19, ptr %184, align 8
@@ -521,9 +521,9 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %.sroa.076.sroa.0.0.insert.ext = zext i32 %.sroa.076.sroa.0.0 to i64
   %.sroa.076.sroa.0.0.insert.insert = or disjoint i64 %.sroa.076.sroa.4.0.insert.shift, %.sroa.076.sroa.0.0.insert.ext
   store double 0.000000e+00, ptr %35, align 8
-  %186 = getelementptr inbounds i8, ptr %35, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store double 2.550000e+02, ptr %186, align 8
-  %187 = getelementptr inbounds i8, ptr %35, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %187, i8 0, i64 16, i1 false)
   invoke void @_ZN2cv9rectangleERKNS_17_InputOutputArrayENS_5Rect_IiEERKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 %.sroa.076.sroa.0.0.insert.insert, i64 %.sroa.6.12.insert.insert86, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2, i32 noundef 8, i32 noundef 0)
           to label %197 unwind label %204
@@ -560,12 +560,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %198 unwind label %206
 
 198:                                              ; preds = %197
-  %199 = getelementptr inbounds i8, ptr %38, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store i32 0, ptr %199, align 8
-  %200 = getelementptr inbounds i8, ptr %38, i64 20
+  %200 = getelementptr inbounds nuw i8, ptr %38, i64 20
   store i32 0, ptr %200, align 4
   store i32 16842752, ptr %38, align 8
-  %201 = getelementptr inbounds i8, ptr %38, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %19, ptr %201, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull align 8 dereferenceable(24) %38)
           to label %202 unwind label %208

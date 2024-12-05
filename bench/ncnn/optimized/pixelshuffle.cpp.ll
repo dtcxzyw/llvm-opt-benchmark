@@ -195,7 +195,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12PixelShuffle7forwardERK
   %.1147.us.us = phi ptr [ %.0105150.us.us, %.lr.ph.us.us ], [ %92, %90 ]
   %91 = load float, ptr %.1147.us.us, align 4
   store float %91, ptr %.0103148.us.us, align 4
-  %92 = getelementptr inbounds i8, ptr %.1147.us.us, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.1147.us.us, i64 4
   %93 = load i32, ptr %13, align 8
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds float, ptr %.0103148.us.us, i64 %94

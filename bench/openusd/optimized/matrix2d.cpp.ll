@@ -58,15 +58,15 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %4 = load double, ptr %1, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %3, double %4)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @.str.3)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %6, double %8)
   %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.4)
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %10, double %12)
   %14 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.3)
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load double, ptr %15, align 8
   %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8) %14, double %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.5)
@@ -81,21 +81,21 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKNS_10GfMatrix2fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load float, ptr %5, align 4
   %7 = fpext float %6 to double
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
   %10 = fpext float %9 to double
-  %11 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   store double %4, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %13, ptr %16, align 8
   ret void
 }
@@ -120,7 +120,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   br i1 %exitcond19.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %13 = getelementptr inbounds %"class.std::vector.1", ptr %6, i64 %.01618
+  %13 = getelementptr inbounds nuw %"class.std::vector.1", ptr %6, i64 %.01618
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -137,9 +137,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   br i1 %exitcond.not, label %.critedge2, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds double, ptr %16, i64 %.017
+  %24 = getelementptr inbounds nuw double, ptr %16, i64 %.017
   %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 %.01618, i64 %.017
+  %26 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %.01618, i64 %.017
   store double %25, ptr %26, align 8
   br i1 %22, label %21, label %.critedge2, !llvm.loop !4
 
@@ -149,17 +149,17 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
 .critedge:                                        ; preds = %.critedge2, %11
   %27 = load double, ptr %3, align 16
   store double %27, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load double, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %32 = load double, ptr %31, align 16
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %35, ptr %36, align 8
   ret void
 }
@@ -187,7 +187,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   br i1 %exitcond19.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %11
-  %13 = getelementptr inbounds %"class.std::vector.11", ptr %6, i64 %.01618
+  %13 = getelementptr inbounds nuw %"class.std::vector.11", ptr %6, i64 %.01618
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
@@ -204,10 +204,10 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
   br i1 %exitcond.not, label %.critedge2, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds float, ptr %16, i64 %.017
+  %24 = getelementptr inbounds nuw float, ptr %16, i64 %.017
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
-  %27 = getelementptr inbounds [2 x [2 x double]], ptr %3, i64 0, i64 %.01618, i64 %.017
+  %27 = getelementptr inbounds nuw [2 x [2 x double]], ptr %3, i64 0, i64 %.01618, i64 %.017
   store double %26, ptr %27, align 8
   br i1 %22, label %21, label %.critedge2, !llvm.loop !7
 
@@ -217,17 +217,17 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
 .critedge:                                        ; preds = %.critedge2, %11
   %28 = load double, ptr %3, align 16
   store double %28, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load double, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load double, ptr %32, align 16
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %36, ptr %37, align 8
   ret void
 }
@@ -235,8 +235,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dC2ERKSt6vectorIS1_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2d11SetDiagonalEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, double noundef %1) local_unnamed_addr #5 align 2 {
   store double %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store double %1, ptr %4, align 8
   ret ptr %0
@@ -246,11 +246,11 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2d11SetDiagonalERKNS_7GfVec2dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %6 = load double, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %6, ptr %7, align 8
   ret ptr %0
 }
@@ -259,17 +259,17 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
 define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d3GetEPA2_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef returned writeonly initializes((0, 32)) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   store double %3, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %11, ptr %12, align 8
   ret ptr %1
 }
@@ -282,25 +282,25 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2deqE
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fcmp oeq double %8, %10
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load double, ptr %15, align 8
   %17 = fcmp oeq double %14, %16
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load double, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load double, ptr %21, align 8
   %23 = fcmp oeq double %20, %22
   br label %24
@@ -319,27 +319,27 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2deqE
   br i1 %6, label %7, label %28
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load float, ptr %10, align 4
   %12 = fpext float %11 to double
   %13 = fcmp oeq double %9, %12
   br i1 %13, label %14, label %28
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load float, ptr %17, align 4
   %19 = fpext float %18 to double
   %20 = fcmp oeq double %16, %19
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %25 = load float, ptr %24, align 4
   %26 = fpext float %25 to double
   %27 = fcmp oeq double %23, %26
@@ -354,17 +354,17 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2deqE
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d12GetTransposeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %11, ptr %12, align 8
   ret void
 }
@@ -372,10 +372,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d12GetTransposeEv(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d10GetInverseEPdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noundef writeonly %2, double noundef %3) local_unnamed_addr #2 align 2 {
   %5 = load double, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = load double, ptr %6, align 8
   %12 = fneg double %11
@@ -400,18 +400,18 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d10GetInverseEPdd(
   %23 = load double, ptr %9, align 8
   %24 = fneg double %20
   %25 = fmul double %23, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %25, ptr %26, align 8
   %27 = load double, ptr %6, align 8
   %28 = fmul double %27, %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %28, ptr %29, align 8
   %30 = load double, ptr %1, align 8
   %31 = fmul double %20, %30
   br label %34
 
 32:                                               ; preds = %16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, i8 0, i64 16, i1 false)
   br label %34
 
@@ -419,7 +419,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d10GetInverseEPdd(
   %.sink11 = phi double [ %22, %19 ], [ 0x47EFFFFFE0000000, %32 ]
   %.sink = phi double [ %31, %19 ], [ 0x47EFFFFFE0000000, %32 ]
   store double %.sink11, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %.sink, ptr %35, align 8
   ret void
 }
@@ -427,10 +427,10 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d10GetInverseEPdd(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix2d14GetDeterminantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = load double, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = load double, ptr %3, align 8
   %9 = fneg double %8
@@ -447,15 +447,15 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %3 = load double, ptr %0, align 8
   %4 = fmul double %1, %3
   store double %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fmul double %1, %9
   store double %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load double, ptr %11, align 8
   %13 = fmul double %1, %12
   store double %13, ptr %11, align 8
@@ -468,21 +468,21 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %4 = load double, ptr %0, align 8
   %5 = fadd double %3, %4
   store double %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fadd double %7, %9
   store double %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load double, ptr %13, align 8
   %15 = fadd double %12, %14
   store double %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fadd double %17, %19
   store double %20, ptr %18, align 8
@@ -495,21 +495,21 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
   %4 = load double, ptr %0, align 8
   %5 = fsub double %4, %3
   store double %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8
   %10 = fsub double %9, %7
   store double %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load double, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %12
   store double %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load double, ptr %18, align 8
   %20 = fsub double %19, %17
   store double %20, ptr %18, align 8
@@ -520,21 +520,21 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
 define void @_ZN32pxrInternal_v0_24__pxrReserved__ngERKNS_10GfMatrix2dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fneg double %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fneg double %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load double, ptr %8, align 8
   %10 = fneg double %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8
   %13 = fneg double %12
   store double %4, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %13, ptr %16, align 8
   ret void
 }
@@ -542,21 +542,21 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__ngERKNS_10GfMatrix2dE(ptr dead
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dmLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload = load double, ptr %0, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.3.0.copyload = load double, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
   %3 = load double, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load double, ptr %4, align 8
   %6 = fmul double %.sroa.3.0.copyload, %5
   %7 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload, double %3, double %6)
   store double %7, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load double, ptr %10, align 8
   %12 = fmul double %.sroa.3.0.copyload, %11
   %13 = tail call double @llvm.fmuladd.f64(double %.sroa.0.0.copyload, double %9, double %12)
@@ -579,17 +579,17 @@ define <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_7GfVec2fERKNS_1
   %3 = load float, ptr %0, align 4
   %4 = fpext float %3 to double
   %5 = load double, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, %8
   %12 = tail call double @llvm.fmuladd.f64(double %4, double %5, double %11)
   %13 = fptrunc double %12 to float
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8
   %18 = fmul double %17, %8
   %19 = tail call double @llvm.fmuladd.f64(double %4, double %15, double %18)
@@ -604,17 +604,17 @@ define <2 x float> @_ZN32pxrInternal_v0_24__pxrReserved__mlERKNS_10GfMatrix2dERK
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = load double, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load float, ptr %6, align 4
   %8 = fpext float %7 to double
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, %8
   %12 = tail call double @llvm.fmuladd.f64(double %4, double %5, double %11)
   %13 = fptrunc double %12 to float
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load double, ptr %16, align 8
   %18 = fmul double %17, %8
   %19 = tail call double @llvm.fmuladd.f64(double %4, double %15, double %18)
@@ -631,8 +631,8 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 .preheader:                                       ; preds = %3, %16
   %.not = phi i1 [ true, %3 ], [ false, %16 ]
   %.01116 = phi i64 [ 0, %3 ], [ 2, %16 ]
-  %4 = getelementptr inbounds double, ptr %0, i64 %.01116
-  %5 = getelementptr inbounds double, ptr %1, i64 %.01116
+  %4 = getelementptr inbounds nuw double, ptr %0, i64 %.01116
+  %5 = getelementptr inbounds nuw double, ptr %1, i64 %.01116
   br label %7
 
 6:                                                ; preds = %7
@@ -641,9 +641,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9GfIsCloseERKNS_
 7:                                                ; preds = %.preheader, %6
   %8 = phi i1 [ true, %.preheader ], [ false, %6 ]
   %.015 = phi i64 [ 0, %.preheader ], [ 1, %6 ]
-  %9 = getelementptr inbounds double, ptr %4, i64 %.015
+  %9 = getelementptr inbounds nuw double, ptr %4, i64 %.015
   %10 = load double, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %5, i64 %.015
+  %11 = getelementptr inbounds nuw double, ptr %5, i64 %.015
   %12 = load double, ptr %11, align 8
   %13 = fsub double %10, %12
   %14 = tail call double @llvm.fabs.f64(double %13)

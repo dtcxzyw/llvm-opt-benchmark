@@ -72,10 +72,10 @@ define dso_local noalias noundef ptr @mpi_point_new(i32 %0) #0 align 16 {
   %6 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %6, ptr %3, align 8
   %7 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %7, ptr %8, align 8
   %9 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %10, align 8
   br label %11
 
@@ -91,10 +91,10 @@ define dso_local void @mpi_point_init(ptr nocapture noundef writeonly initialize
   %2 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %2, ptr %0, align 8
   %3 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8
   %5 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %6, align 8
   ret void
 }
@@ -111,11 +111,11 @@ define dso_local void @mpi_point_release(ptr noundef %0) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   tail call void @mpi_free(ptr noundef %4) #9
   store ptr null, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @mpi_free(ptr noundef %6) #9
   store ptr null, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @mpi_free(ptr noundef %8) #9
   store ptr null, ptr %7, align 8
@@ -131,11 +131,11 @@ define dso_local void @mpi_point_free_parts(ptr nocapture noundef %0) #0 align 1
   %2 = load ptr, ptr %0, align 8
   tail call void @mpi_free(ptr noundef %2) #9
   store ptr null, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @mpi_free(ptr noundef %4) #9
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @mpi_free(ptr noundef %6) #9
   store ptr null, ptr %5, align 8
@@ -150,54 +150,54 @@ declare dso_local void @mpi_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_ec_init(ptr nocapture noundef initializes((0, 40), (72, 80), (96, 112)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 align 16 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %23, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = tail call i32 @mpi_resize(ptr noundef %5, i32 noundef %13) #9
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %12, align 4
   %20 = tail call i64 @mpihelp_sub_n(ptr noundef %16, ptr noundef %18, ptr noundef %16, i32 noundef %19) #9
   %21 = load i32, ptr %12, align 4
-  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %21, ptr %22, align 4
   store i32 0, ptr %8, align 4
   br label %23
 
 23:                                               ; preds = %11, %7
-  %24 = getelementptr inbounds i8, ptr %6, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %39, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %4, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = tail call i32 @mpi_resize(ptr noundef %6, i32 noundef %29) #9
-  %31 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %4, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %28, align 4
   %36 = tail call i64 @mpihelp_sub_n(ptr noundef %32, ptr noundef %34, ptr noundef %32, i32 noundef %35) #9
   %37 = load i32, ptr %28, align 4
-  %38 = getelementptr inbounds i8, ptr %6, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %37, ptr %38, align 4
   store i32 0, ptr %24, align 4
   br label %39
 
 39:                                               ; preds = %27, %23
   store i32 %1, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %41, align 8
   %42 = icmp eq i32 %2, 1
   br i1 %42, label %45, label %43
@@ -208,27 +208,27 @@ define dso_local void @mpi_ec_init(ptr nocapture noundef initializes((0, 40), (7
 
 45:                                               ; preds = %43, %39
   %46 = phi i32 [ %44, %43 ], [ 256, %39 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %46, ptr %47, align 4
   %48 = tail call ptr @mpi_copy(ptr noundef %4) #9
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %48, ptr %49, align 8
   %50 = tail call ptr @mpi_copy(ptr noundef %5) #9
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %50, ptr %51, align 8
   %52 = tail call ptr @mpi_copy(ptr noundef %6) #9
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 96
-  %56 = getelementptr inbounds i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = load i8, ptr %56, align 8
   %58 = and i8 %57, -4
   store i8 %58, ptr %56, align 8
   %59 = icmp eq i32 %1, 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br i1 %59, label %.preheader6, label %.preheader8
 
 .preheader6:                                      ; preds = %45, %.loopexit
@@ -277,15 +277,15 @@ define dso_local void @mpi_ec_init(ptr nocapture noundef initializes((0, 40), (7
   br i1 %88, label %.loopexit7, label %.preheader8, !llvm.loop !9
 
 .loopexit7:                                       ; preds = %.preheader8, %.loopexit
-  %89 = getelementptr inbounds i8, ptr %0, i64 200
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr @ec_addm, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 208
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr @ec_subm, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 216
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr @ec_mulm, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 232
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr @ec_mul2, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 224
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @ec_pow2, ptr %93, align 8
   br label %97
 
@@ -311,43 +311,43 @@ define dso_local void @mpi_ec_init(ptr nocapture noundef initializes((0, 40), (7
   br i1 %104, label %105, label %94
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %99, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %107 = load ptr, ptr %106, align 8
   store ptr %107, ptr %89, align 8
-  %108 = getelementptr inbounds i8, ptr %99, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %109 = load ptr, ptr %108, align 16
   store ptr %109, ptr %90, align 8
-  %110 = getelementptr inbounds i8, ptr %99, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %111 = load ptr, ptr %110, align 8
   store ptr %111, ptr %91, align 8
-  %112 = getelementptr inbounds i8, ptr %99, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %113 = load ptr, ptr %112, align 16
   store ptr %113, ptr %92, align 8
-  %114 = getelementptr inbounds i8, ptr %99, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %99, i64 40
   %115 = load ptr, ptr %114, align 8
   store ptr %115, ptr %93, align 8
   tail call void @mpi_free(ptr noundef nonnull %100) #9
   %116 = load ptr, ptr %51, align 8
   %117 = load ptr, ptr %49, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = tail call i32 @mpi_resize(ptr noundef %116, i32 noundef %119) #9
   %121 = load ptr, ptr %49, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = load ptr, ptr %51, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   store i32 %123, ptr %125, align 4
   %126 = load ptr, ptr %53, align 8
   %127 = load ptr, ptr %49, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = tail call i32 @mpi_resize(ptr noundef %126, i32 noundef %129) #9
   %131 = load ptr, ptr %49, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = load ptr, ptr %53, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   store i32 %133, ptr %135, align 4
   br label %136
 
@@ -360,9 +360,9 @@ define dso_local void @mpi_ec_init(ptr nocapture noundef initializes((0, 40), (7
 
 141:                                              ; preds = %136
   %142 = load ptr, ptr %49, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %139, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store i32 %144, ptr %145, align 4
   %146 = add nuw nsw i64 %137, 1
   %147 = icmp eq i64 %146, 11
@@ -390,7 +390,7 @@ declare dso_local ptr @mpi_alloc_like(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ec_addm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   tail call void @mpi_add(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
-  %5 = getelementptr inbounds i8, ptr %3, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -400,7 +400,7 @@ define internal void @ec_addm(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @mpi_mod(ptr noundef %0, ptr noundef %0, ptr noundef %11) #9
   br label %12
@@ -412,13 +412,13 @@ define internal void @ec_addm(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ec_subm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   tail call void @mpi_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %10
 
 10:                                               ; preds = %10, %8
@@ -435,7 +435,7 @@ define internal void @ec_subm(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ec_mulm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   tail call void @mpi_mul(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
-  %5 = getelementptr inbounds i8, ptr %3, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %9, label %8
@@ -445,7 +445,7 @@ define internal void @ec_mulm(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   br label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void @mpi_mod(ptr noundef %0, ptr noundef %0, ptr noundef %11) #9
   br label %12
@@ -457,7 +457,7 @@ define internal void @ec_mulm(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ec_mul2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   tail call void @mpi_lshift(ptr noundef %0, ptr noundef %1, i32 noundef 1) #9
-  %4 = getelementptr inbounds i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -467,7 +467,7 @@ define internal void @ec_mul2(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @mpi_mod(ptr noundef %0, ptr noundef %0, ptr noundef %10) #9
   br label %11
@@ -479,7 +479,7 @@ define internal void @ec_mul2(ptr noundef %0, ptr noundef %1, ptr nocapture noun
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ec_pow2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   tail call void @mpi_mul(ptr noundef %0, ptr noundef %1, ptr noundef %1) #9
-  %4 = getelementptr inbounds i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -489,7 +489,7 @@ define internal void @ec_pow2(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   br label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @mpi_mod(ptr noundef %0, ptr noundef %0, ptr noundef %10) #9
   br label %11
@@ -503,19 +503,19 @@ declare dso_local i32 @mpi_resize(ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_ec_deinit(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   tail call void @mpi_barrett_free(ptr noundef %3) #9
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @mpi_free(ptr noundef %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @mpi_free(ptr noundef %7) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @mpi_free(ptr noundef %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %19, label %13
@@ -524,11 +524,11 @@ define dso_local void @mpi_ec_deinit(ptr nocapture noundef readonly %0) #0 align
   %14 = load ptr, ptr %11, align 8
   tail call void @mpi_free(ptr noundef %14) #9
   store ptr null, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @mpi_free(ptr noundef %16) #9
   store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void @mpi_free(ptr noundef %18) #9
   store ptr null, ptr %17, align 8
@@ -536,10 +536,10 @@ define dso_local void @mpi_ec_deinit(ptr nocapture noundef readonly %0) #0 align
   br label %19
 
 19:                                               ; preds = %13, %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   tail call void @mpi_free(ptr noundef %21) #9
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %31, label %25
@@ -548,11 +548,11 @@ define dso_local void @mpi_ec_deinit(ptr nocapture noundef readonly %0) #0 align
   %26 = load ptr, ptr %23, align 8
   tail call void @mpi_free(ptr noundef %26) #9
   store ptr null, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @mpi_free(ptr noundef %28) #9
   store ptr null, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void @mpi_free(ptr noundef %30) #9
   store ptr null, ptr %29, align 8
@@ -560,13 +560,13 @@ define dso_local void @mpi_ec_deinit(ptr nocapture noundef readonly %0) #0 align
   br label %31
 
 31:                                               ; preds = %25, %19
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   tail call void @mpi_free(ptr noundef %33) #9
-  %34 = getelementptr inbounds i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load ptr, ptr %34, align 8
   tail call void @mpi_free(ptr noundef %35) #9
-  %36 = getelementptr inbounds i8, ptr %0, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %37
 
 37:                                               ; preds = %37, %31
@@ -587,7 +587,7 @@ declare dso_local void @mpi_barrett_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @mpi_cmp_ui(ptr noundef %6, i64 noundef 0) #9
   %8 = icmp eq i32 %7, 0
@@ -605,7 +605,7 @@ define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0,
   %12 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %13 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @mpi_invm(ptr noundef %12, ptr noundef %14, ptr noundef %16) #9
   %18 = icmp eq i32 %17, 0
@@ -617,7 +617,7 @@ define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0,
 
 21:                                               ; preds = %19, %11
   tail call void @mpi_mul(ptr noundef %13, ptr noundef %12, ptr noundef %12) #9
-  %22 = getelementptr inbounds i8, ptr %3, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -672,7 +672,7 @@ define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0,
   br label %46
 
 46:                                               ; preds = %44, %43
-  %47 = getelementptr inbounds i8, ptr %2, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load ptr, ptr %47, align 8
   tail call void @mpi_mul(ptr noundef nonnull %1, ptr noundef %48, ptr noundef %40) #9
   %49 = load ptr, ptr %22, align 8
@@ -717,7 +717,7 @@ define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0,
 65:                                               ; preds = %9
   %66 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %67 = load ptr, ptr %5, align 8
-  %68 = getelementptr inbounds i8, ptr %3, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @mpi_invm(ptr noundef %66, ptr noundef %67, ptr noundef %69) #9
   %71 = icmp eq i32 %70, 0
@@ -729,28 +729,28 @@ define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0,
 
 74:                                               ; preds = %72, %65
   %75 = load ptr, ptr %68, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @mpi_resize(ptr noundef %66, i32 noundef %77) #9
   %79 = load ptr, ptr %68, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %66, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %81, ptr %82, align 4
   %83 = icmp eq ptr %0, null
   br i1 %83, label %96, label %84
 
 84:                                               ; preds = %74
   %85 = load ptr, ptr %68, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i32, ptr %86, align 4
   %88 = tail call i32 @mpi_resize(ptr noundef nonnull %0, i32 noundef %87) #9
   %89 = load ptr, ptr %68, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %91, ptr %92, align 4
-  %93 = getelementptr inbounds i8, ptr %3, i64 216
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %2, align 8
   tail call void %94(ptr noundef nonnull %0, ptr noundef %95, ptr noundef %66, ptr noundef %3) #9
@@ -762,17 +762,17 @@ define dso_local noundef range(i32 -1, 1) i32 @mpi_ec_get_affine(ptr noundef %0,
 
 98:                                               ; preds = %96
   %99 = load ptr, ptr %68, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = tail call i32 @mpi_resize(ptr noundef nonnull %1, i32 noundef %101) #9
   %103 = load ptr, ptr %68, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %3, i64 216
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %2, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %110 = load ptr, ptr %109, align 8
   tail call void %108(ptr noundef nonnull %1, ptr noundef %110, ptr noundef %66, ptr noundef %3) #9
   br label %111
@@ -812,18 +812,18 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br i1 %10, label %11, label %26
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @mpi_cmp(ptr noundef %13, ptr noundef %15) #9
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @mpi_cmp(ptr noundef %20, ptr noundef %22) #9
   %24 = icmp eq i32 %23, 0
@@ -834,7 +834,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %464
 
 26:                                               ; preds = %18, %11, %6
-  %27 = getelementptr inbounds i8, ptr %1, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @mpi_cmp_ui(ptr noundef %28, i64 noundef 0) #9
   %30 = icmp eq i32 %29, 0
@@ -844,20 +844,20 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %32 = load ptr, ptr %0, align 8
   %33 = load ptr, ptr %2, align 8
   %34 = tail call ptr @mpi_set(ptr noundef %32, ptr noundef %33) #9
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr @mpi_set(ptr noundef %36, ptr noundef %38) #9
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @mpi_set(ptr noundef %41, ptr noundef %43) #9
   br label %464
 
 45:                                               ; preds = %26
-  %46 = getelementptr inbounds i8, ptr %2, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @mpi_cmp_ui(ptr noundef %47, i64 noundef 0) #9
   %49 = icmp eq i32 %48, 0
@@ -867,12 +867,12 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %51 = load ptr, ptr %0, align 8
   %52 = load ptr, ptr %1, align 8
   %53 = tail call ptr @mpi_set(ptr noundef %51, ptr noundef %52) #9
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @mpi_set(ptr noundef %55, ptr noundef %57) #9
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %27, align 8
   %62 = tail call ptr @mpi_set(ptr noundef %60, ptr noundef %61) #9
@@ -885,7 +885,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %67 = load ptr, ptr %46, align 8
   %68 = tail call i32 @mpi_cmp_ui(ptr noundef %67, i64 noundef 1) #9
   %69 = icmp eq i32 %68, 0
-  %70 = getelementptr inbounds i8, ptr %3, i64 112
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %71 = load ptr, ptr %70, align 8
   br i1 %69, label %72, label %75
 
@@ -897,7 +897,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
 75:                                               ; preds = %63
   %76 = load ptr, ptr %46, align 8
   tail call void @mpi_mul(ptr noundef %71, ptr noundef %76, ptr noundef %76) #9
-  %77 = getelementptr inbounds i8, ptr %3, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %81, label %80
@@ -907,7 +907,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %84
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %3, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %83 = load ptr, ptr %82, align 8
   tail call void @mpi_mod(ptr noundef %71, ptr noundef %71, ptr noundef %83) #9
   br label %84
@@ -925,7 +925,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %93
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %3, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %92 = load ptr, ptr %91, align 8
   tail call void @mpi_mod(ptr noundef %85, ptr noundef %85, ptr noundef %92) #9
   br label %93
@@ -943,7 +943,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
 99:                                               ; preds = %93
   %100 = load ptr, ptr %27, align 8
   tail call void @mpi_mul(ptr noundef %95, ptr noundef %100, ptr noundef %100) #9
-  %101 = getelementptr inbounds i8, ptr %3, i64 104
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %102 = load ptr, ptr %101, align 8
   %103 = icmp eq ptr %102, null
   br i1 %103, label %105, label %104
@@ -953,7 +953,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %108
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %3, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %107 = load ptr, ptr %106, align 8
   tail call void @mpi_mod(ptr noundef %95, ptr noundef %95, ptr noundef %107) #9
   br label %108
@@ -971,7 +971,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %117
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %3, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %116 = load ptr, ptr %115, align 8
   tail call void @mpi_mod(ptr noundef %109, ptr noundef %109, ptr noundef %116) #9
   br label %117
@@ -982,13 +982,13 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %120 = load ptr, ptr %70, align 8
   %121 = load ptr, ptr %94, align 8
   tail call void @mpi_sub(ptr noundef %119, ptr noundef %120, ptr noundef %121) #9
-  %122 = getelementptr inbounds i8, ptr %119, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 12
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %.loopexit23, label %125
 
 125:                                              ; preds = %117
-  %126 = getelementptr inbounds i8, ptr %3, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %127
 
 127:                                              ; preds = %127, %125
@@ -1003,14 +1003,14 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %132 = load ptr, ptr %131, align 8
   %133 = load ptr, ptr %46, align 8
   %134 = tail call ptr @mpi_const(i32 noundef 3) #9
-  %135 = getelementptr inbounds i8, ptr %3, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %136 = load ptr, ptr %135, align 8
   %137 = tail call i32 @mpi_powm(ptr noundef %132, ptr noundef %133, ptr noundef %134, ptr noundef %136) #9
   %138 = load ptr, ptr %131, align 8
-  %139 = getelementptr inbounds i8, ptr %1, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %140 = load ptr, ptr %139, align 8
   tail call void @mpi_mul(ptr noundef %138, ptr noundef %138, ptr noundef %140) #9
-  %141 = getelementptr inbounds i8, ptr %3, i64 104
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, null
   br i1 %143, label %145, label %144
@@ -1032,7 +1032,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %152 = load ptr, ptr %135, align 8
   %153 = tail call i32 @mpi_powm(ptr noundef %149, ptr noundef %150, ptr noundef %151, ptr noundef %152) #9
   %154 = load ptr, ptr %148, align 8
-  %155 = getelementptr inbounds i8, ptr %2, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %156 = load ptr, ptr %155, align 8
   tail call void @mpi_mul(ptr noundef %154, ptr noundef %154, ptr noundef %156) #9
   %157 = load ptr, ptr %141, align 8
@@ -1054,7 +1054,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %165 = load ptr, ptr %131, align 8
   %166 = load ptr, ptr %148, align 8
   tail call void @mpi_sub(ptr noundef %164, ptr noundef %165, ptr noundef %166) #9
-  %167 = getelementptr inbounds i8, ptr %164, i64 12
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 12
   %168 = load i32, ptr %167, align 4
   %169 = icmp eq i32 %168, 0
   br i1 %169, label %.loopexit22, label %.preheader21
@@ -1085,10 +1085,10 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
 181:                                              ; preds = %176
   %182 = load ptr, ptr %0, align 8
   %183 = tail call ptr @mpi_set_ui(ptr noundef %182, i64 noundef 1) #9
-  %184 = getelementptr inbounds i8, ptr %0, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load ptr, ptr %184, align 8
   %186 = tail call ptr @mpi_set_ui(ptr noundef %185, i64 noundef 1) #9
-  %187 = getelementptr inbounds i8, ptr %0, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %188 = load ptr, ptr %187, align 8
   %189 = tail call ptr @mpi_set_ui(ptr noundef %188, i64 noundef 0) #9
   br label %464
@@ -1132,7 +1132,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %210
 
 210:                                              ; preds = %208, %207
-  %211 = getelementptr inbounds i8, ptr %0, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %212 = load ptr, ptr %211, align 8
   %213 = load ptr, ptr %27, align 8
   %214 = load ptr, ptr %46, align 8
@@ -1225,7 +1225,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %256 = load ptr, ptr %229, align 8
   %257 = load ptr, ptr %238, align 8
   tail call void @mpi_sub(ptr noundef %255, ptr noundef %256, ptr noundef %257) #9
-  %258 = getelementptr inbounds i8, ptr %255, i64 12
+  %258 = getelementptr inbounds nuw i8, ptr %255, i64 12
   %259 = load i32, ptr %258, align 4
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %.loopexit20, label %.preheader19
@@ -1260,7 +1260,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %274 = load ptr, ptr %238, align 8
   %275 = load ptr, ptr %229, align 8
   tail call void @mpi_sub(ptr noundef %273, ptr noundef %274, ptr noundef %275) #9
-  %276 = getelementptr inbounds i8, ptr %273, i64 12
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 12
   %277 = load i32, ptr %276, align 4
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %.loopexit18, label %.preheader17
@@ -1312,12 +1312,12 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %302
 
 302:                                              ; preds = %300, %299
-  %303 = getelementptr inbounds i8, ptr %0, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %304 = load ptr, ptr %303, align 8
   %305 = load ptr, ptr %272, align 8
   %306 = load ptr, ptr %229, align 8
   tail call void @mpi_sub(ptr noundef %304, ptr noundef %305, ptr noundef %306) #9
-  %307 = getelementptr inbounds i8, ptr %304, i64 12
+  %307 = getelementptr inbounds nuw i8, ptr %304, i64 12
   %308 = load i32, ptr %307, align 4
   %309 = icmp eq i32 %308, 0
   br i1 %309, label %.loopexit, label %.preheader
@@ -1331,7 +1331,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
 
 .loopexit:                                        ; preds = %.preheader, %302
   %313 = load ptr, ptr %303, align 8
-  %314 = getelementptr inbounds i8, ptr %3, i64 88
+  %314 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %315 = load i8, ptr %314, align 8
   %316 = and i8 %315, 2
   %317 = icmp eq i8 %316, 0
@@ -1340,7 +1340,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
 318:                                              ; preds = %.loopexit
   %319 = or disjoint i8 %315, 2
   store i8 %319, ptr %314, align 8
-  %320 = getelementptr inbounds i8, ptr %3, i64 96
+  %320 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, null
   br i1 %322, label %323, label %325
@@ -1363,7 +1363,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %333
 
 333:                                              ; preds = %331, %325, %.loopexit
-  %334 = getelementptr inbounds i8, ptr %3, i64 96
+  %334 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %335 = load ptr, ptr %334, align 8
   tail call void @mpi_mul(ptr noundef %313, ptr noundef %313, ptr noundef %335) #9
   %336 = load ptr, ptr %141, align 8
@@ -1384,45 +1384,45 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   br label %464
 
 343:                                              ; preds = %4
-  %344 = getelementptr inbounds i8, ptr %3, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 4
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 4
   %347 = load i32, ptr %346, align 4
   %348 = load ptr, ptr %0, align 8
   %349 = tail call i32 @mpi_resize(ptr noundef %348, i32 noundef %347) #9
   %350 = load ptr, ptr %0, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 4
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 4
   store i32 %347, ptr %351, align 4
-  %352 = getelementptr inbounds i8, ptr %0, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %353 = load ptr, ptr %352, align 8
   %354 = tail call i32 @mpi_resize(ptr noundef %353, i32 noundef %347) #9
   %355 = load ptr, ptr %352, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 4
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 4
   store i32 %347, ptr %356, align 4
   %357 = load i32, ptr %3, align 8
   %358 = icmp eq i32 %357, 1
   br i1 %358, label %365, label %359
 
 359:                                              ; preds = %343
-  %360 = getelementptr inbounds i8, ptr %0, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %361 = load ptr, ptr %360, align 8
   %362 = tail call i32 @mpi_resize(ptr noundef %361, i32 noundef %347) #9
   %363 = load ptr, ptr %360, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 4
   store i32 %347, ptr %364, align 4
   br label %365
 
 365:                                              ; preds = %359, %343
-  %366 = getelementptr inbounds i8, ptr %3, i64 216
+  %366 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds i8, ptr %3, i64 112
+  %368 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %1, i64 16
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %2, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %373 = load ptr, ptr %372, align 8
   tail call void %367(ptr noundef %369, ptr noundef %371, ptr noundef %373, ptr noundef %3) #9
-  %374 = getelementptr inbounds i8, ptr %3, i64 224
+  %374 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr i8, ptr %3, i64 120
   %377 = load ptr, ptr %376, align 8
@@ -1437,15 +1437,15 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %384 = load ptr, ptr %366, align 8
   %385 = getelementptr i8, ptr %3, i64 136
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %1, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %388 = load ptr, ptr %387, align 8
-  %389 = getelementptr inbounds i8, ptr %2, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %390 = load ptr, ptr %389, align 8
   tail call void %384(ptr noundef %386, ptr noundef %388, ptr noundef %390, ptr noundef %3) #9
   %391 = load ptr, ptr %366, align 8
   %392 = getelementptr i8, ptr %3, i64 144
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %3, i64 32
+  %394 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %395 = load ptr, ptr %394, align 8
   %396 = load ptr, ptr %380, align 8
   tail call void %391(ptr noundef %393, ptr noundef %395, ptr noundef %396, ptr noundef %3) #9
@@ -1453,14 +1453,14 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %398 = load ptr, ptr %392, align 8
   %399 = load ptr, ptr %385, align 8
   tail call void %397(ptr noundef %398, ptr noundef %398, ptr noundef %399, ptr noundef %3) #9
-  %400 = getelementptr inbounds i8, ptr %3, i64 208
+  %400 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %401 = load ptr, ptr %400, align 8
   %402 = getelementptr i8, ptr %3, i64 152
   %403 = load ptr, ptr %402, align 8
   %404 = load ptr, ptr %376, align 8
   %405 = load ptr, ptr %392, align 8
   tail call void %401(ptr noundef %403, ptr noundef %404, ptr noundef %405, ptr noundef %3) #9
-  %406 = getelementptr inbounds i8, ptr %3, i64 200
+  %406 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %407 = load ptr, ptr %406, align 8
   %408 = getelementptr i8, ptr %3, i64 160
   %409 = load ptr, ptr %408, align 8
@@ -1498,10 +1498,10 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
   %434 = load ptr, ptr %0, align 8
   %435 = load ptr, ptr %368, align 8
   tail call void %433(ptr noundef %434, ptr noundef %434, ptr noundef %435, ptr noundef %3) #9
-  %436 = getelementptr inbounds i8, ptr %3, i64 4
+  %436 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %437 = load i32, ptr %436, align 4
   %438 = icmp eq i32 %437, 1
-  %439 = getelementptr inbounds i8, ptr %0, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %440 = load ptr, ptr %439, align 8
   br i1 %438, label %441, label %445
 
@@ -1514,7 +1514,7 @@ define dso_local void @mpi_ec_add_points(ptr nocapture noundef readonly %0, ptr 
 
 445:                                              ; preds = %365
   %446 = load ptr, ptr %366, align 8
-  %447 = getelementptr inbounds i8, ptr %3, i64 24
+  %447 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %448 = load ptr, ptr %447, align 8
   %449 = load ptr, ptr %380, align 8
   tail call void %446(ptr noundef %440, ptr noundef %448, ptr noundef %449, ptr noundef %3) #9
@@ -1564,7 +1564,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   ]
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @mpi_cmp(ptr noundef %1, ptr noundef %13) #9
   %15 = icmp sgt i32 %14, -1
@@ -1579,52 +1579,52 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %20 = tail call i32 @mpi_get_nbits(ptr noundef %19) #9
   %21 = load ptr, ptr %0, align 8
   %22 = tail call ptr @mpi_set_ui(ptr noundef %21, i64 noundef 0) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @mpi_set_ui(ptr noundef %24, i64 noundef 1) #9
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @mpi_set_ui(ptr noundef %27, i64 noundef 1) #9
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = load ptr, ptr %2, align 8
   %33 = tail call i32 @mpi_resize(ptr noundef %32, i32 noundef %31) #9
   %34 = load ptr, ptr %2, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %31, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @mpi_resize(ptr noundef %37, i32 noundef %31) #9
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 %31, ptr %40, align 4
   %41 = load i32, ptr %3, align 8
   %42 = icmp eq i32 %41, 1
   br i1 %42, label %49, label %43
 
 43:                                               ; preds = %18
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @mpi_resize(ptr noundef %45, i32 noundef %31) #9
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   store i32 %31, ptr %48, align 4
   br label %49
 
 49:                                               ; preds = %43, %18
   %50 = load ptr, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4
   %53 = load ptr, ptr %0, align 8
   %54 = tail call i32 @mpi_resize(ptr noundef %53, i32 noundef %52) #9
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %52, ptr %56, align 4
   %57 = load ptr, ptr %26, align 8
   %58 = tail call i32 @mpi_resize(ptr noundef %57, i32 noundef %52) #9
   %59 = load ptr, ptr %26, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %52, ptr %60, align 4
   %61 = load i32, ptr %3, align 8
   %62 = icmp eq i32 %61, 1
@@ -1634,34 +1634,34 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %64 = load ptr, ptr %23, align 8
   %65 = tail call i32 @mpi_resize(ptr noundef %64, i32 noundef %52) #9
   %66 = load ptr, ptr %23, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %52, ptr %67, align 4
   br label %68
 
 68:                                               ; preds = %63, %49
   %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = load ptr, ptr %2, align 8
   %73 = tail call i32 @mpi_resize(ptr noundef %72, i32 noundef %71) #9
   %74 = load ptr, ptr %2, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   store i32 %71, ptr %75, align 4
   %76 = load ptr, ptr %36, align 8
   %77 = tail call i32 @mpi_resize(ptr noundef %76, i32 noundef %71) #9
   %78 = load ptr, ptr %36, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %71, ptr %79, align 4
   %80 = load i32, ptr %3, align 8
   %81 = icmp eq i32 %80, 1
   br i1 %81, label %88, label %82
 
 82:                                               ; preds = %68
-  %83 = getelementptr inbounds i8, ptr %2, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @mpi_resize(ptr noundef %84, i32 noundef %71) #9
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i32 %71, ptr %87, align 4
   br label %88
 
@@ -1693,33 +1693,33 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %100 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %100, ptr %5, align 8
   %101 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %102 = getelementptr inbounds i8, ptr %5, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %101, ptr %102, align 8
   %103 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %104 = getelementptr inbounds i8, ptr %5, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %103, ptr %104, align 8
   %105 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %106 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %107 = getelementptr inbounds i8, ptr %6, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %106, ptr %107, align 8
   %108 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %109 = getelementptr inbounds i8, ptr %6, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %108, ptr %109, align 8
   %110 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %110, ptr %8, align 8
   %111 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %112 = getelementptr inbounds i8, ptr %8, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %111, ptr %112, align 8
   %113 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %114 = getelementptr inbounds i8, ptr %8, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %113, ptr %114, align 8
   %115 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %115, ptr %9, align 8
   %116 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %117 = getelementptr inbounds i8, ptr %9, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %116, ptr %117, align 8
   %118 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %119 = getelementptr inbounds i8, ptr %9, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %118, ptr %119, align 8
   %120 = tail call ptr @mpi_set_ui(ptr noundef %100, i64 noundef 1) #9
   tail call void @mpi_free(ptr noundef %105) #9
@@ -1727,15 +1727,15 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %122 = tail call ptr @mpi_copy(ptr noundef %121) #9
   store ptr %122, ptr %6, align 8
   %123 = tail call ptr @mpi_set_ui(ptr noundef %108, i64 noundef 1) #9
-  %124 = getelementptr inbounds i8, ptr %3, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   %127 = load i32, ptr %126, align 4
   %128 = tail call i32 @mpi_resize(ptr noundef %100, i32 noundef %127) #9
-  %129 = getelementptr inbounds i8, ptr %100, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %100, i64 4
   store i32 %127, ptr %129, align 4
   %130 = tail call i32 @mpi_resize(ptr noundef %103, i32 noundef %127) #9
-  %131 = getelementptr inbounds i8, ptr %103, i64 4
+  %131 = getelementptr inbounds nuw i8, ptr %103, i64 4
   store i32 %127, ptr %131, align 4
   %132 = load i32, ptr %3, align 8
   %133 = icmp eq i32 %132, 1
@@ -1743,19 +1743,19 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 
 134:                                              ; preds = %98
   %135 = tail call i32 @mpi_resize(ptr noundef %101, i32 noundef %127) #9
-  %136 = getelementptr inbounds i8, ptr %101, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %127, ptr %136, align 4
   br label %137
 
 137:                                              ; preds = %134, %98
   %138 = load ptr, ptr %124, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = tail call i32 @mpi_resize(ptr noundef %122, i32 noundef %140) #9
-  %142 = getelementptr inbounds i8, ptr %122, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 %140, ptr %142, align 4
   %143 = tail call i32 @mpi_resize(ptr noundef %108, i32 noundef %140) #9
-  %144 = getelementptr inbounds i8, ptr %108, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 %140, ptr %144, align 4
   %145 = load i32, ptr %3, align 8
   %146 = icmp eq i32 %145, 1
@@ -1763,19 +1763,19 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 
 147:                                              ; preds = %137
   %148 = tail call i32 @mpi_resize(ptr noundef %106, i32 noundef %140) #9
-  %149 = getelementptr inbounds i8, ptr %106, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %106, i64 4
   store i32 %140, ptr %149, align 4
   br label %150
 
 150:                                              ; preds = %147, %137
   %151 = load ptr, ptr %124, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = tail call i32 @mpi_resize(ptr noundef %110, i32 noundef %153) #9
-  %155 = getelementptr inbounds i8, ptr %110, i64 4
+  %155 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %153, ptr %155, align 4
   %156 = tail call i32 @mpi_resize(ptr noundef %113, i32 noundef %153) #9
-  %157 = getelementptr inbounds i8, ptr %113, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %113, i64 4
   store i32 %153, ptr %157, align 4
   %158 = load i32, ptr %3, align 8
   %159 = icmp eq i32 %158, 1
@@ -1783,19 +1783,19 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 
 160:                                              ; preds = %150
   %161 = tail call i32 @mpi_resize(ptr noundef %111, i32 noundef %153) #9
-  %162 = getelementptr inbounds i8, ptr %111, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store i32 %153, ptr %162, align 4
   br label %163
 
 163:                                              ; preds = %160, %150
   %164 = load ptr, ptr %124, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = tail call i32 @mpi_resize(ptr noundef %115, i32 noundef %166) #9
-  %168 = getelementptr inbounds i8, ptr %115, i64 4
+  %168 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i32 %166, ptr %168, align 4
   %169 = tail call i32 @mpi_resize(ptr noundef %118, i32 noundef %166) #9
-  %170 = getelementptr inbounds i8, ptr %118, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %166, ptr %170, align 4
   %171 = load i32, ptr %3, align 8
   %172 = icmp eq i32 %171, 1
@@ -1803,32 +1803,32 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 
 173:                                              ; preds = %163
   %174 = tail call i32 @mpi_resize(ptr noundef %116, i32 noundef %166) #9
-  %175 = getelementptr inbounds i8, ptr %116, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %166, ptr %175, align 4
   br label %176
 
 176:                                              ; preds = %173, %163
   %177 = load ptr, ptr %2, align 8
   %178 = load ptr, ptr %124, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 4
   %180 = load i32, ptr %179, align 4
   %181 = tail call i32 @mpi_resize(ptr noundef %177, i32 noundef %180) #9
   %182 = load ptr, ptr %124, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = load ptr, ptr %2, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   store i32 %184, ptr %186, align 4
   %187 = add i32 %99, -1
   %188 = icmp sgt i32 %187, -1
   br i1 %188, label %189, label %.loopexit15
 
 189:                                              ; preds = %176
-  %190 = getelementptr inbounds i8, ptr %3, i64 200
-  %191 = getelementptr inbounds i8, ptr %3, i64 208
-  %192 = getelementptr inbounds i8, ptr %3, i64 216
-  %193 = getelementptr inbounds i8, ptr %3, i64 224
-  %194 = getelementptr inbounds i8, ptr %3, i64 24
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 200
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 208
+  %192 = getelementptr inbounds nuw i8, ptr %3, i64 216
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 224
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %195
 
 195:                                              ; preds = %286, %189
@@ -1847,17 +1847,17 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br i1 %206, label %212, label %207
 
 207:                                              ; preds = %195
-  %208 = getelementptr inbounds i8, ptr %200, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %199, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %211 = load ptr, ptr %210, align 8
   tail call void @mpi_swap_cond(ptr noundef %209, ptr noundef %211, i64 noundef %202) #9
   br label %212
 
 212:                                              ; preds = %207, %195
-  %213 = getelementptr inbounds i8, ptr %200, i64 16
+  %213 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %199, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %199, i64 16
   %216 = load ptr, ptr %215, align 8
   tail call void @mpi_swap_cond(ptr noundef %214, ptr noundef %216, i64 noundef %202) #9
   %217 = load ptr, ptr %2, align 8
@@ -1917,12 +1917,12 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %259 = load ptr, ptr %197, align 8
   tail call void %258(ptr noundef %259, ptr noundef %259, ptr noundef %3) #9
   %260 = load ptr, ptr %193, align 8
-  %261 = getelementptr inbounds i8, ptr %197, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %197, i64 16
   %262 = load ptr, ptr %261, align 8
   %263 = load ptr, ptr %215, align 8
   tail call void %260(ptr noundef %262, ptr noundef %263, ptr noundef %3) #9
   %264 = load ptr, ptr %192, align 8
-  %265 = getelementptr inbounds i8, ptr %198, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %266 = load ptr, ptr %265, align 8
   %267 = load ptr, ptr %213, align 8
   %268 = load ptr, ptr %194, align 8
@@ -1946,9 +1946,9 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br i1 %280, label %286, label %281
 
 281:                                              ; preds = %212
-  %282 = getelementptr inbounds i8, ptr %198, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %197, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %285 = load ptr, ptr %284, align 8
   tail call void @mpi_swap_cond(ptr noundef %283, ptr noundef %285, i64 noundef %202) #9
   br label %286
@@ -1962,7 +1962,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br i1 %290, label %195, label %.loopexit15, !llvm.loop !16
 
 .loopexit15:                                      ; preds = %286, %176
-  %291 = getelementptr inbounds i8, ptr %0, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %292 = load ptr, ptr %291, align 8
   tail call void @mpi_clear(ptr noundef %292) #9
   %293 = and i32 %99, 1
@@ -1983,7 +1983,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br i1 %300, label %301, label %314
 
 301:                                              ; preds = %298
-  %302 = getelementptr inbounds i8, ptr %103, i64 24
+  %302 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr i8, ptr %303, i64 -8
   br label %305
@@ -2008,7 +2008,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 .thread:                                          ; preds = %311, %314
   %316 = load ptr, ptr %0, align 8
   %317 = tail call ptr @mpi_set_ui(ptr noundef %316, i64 noundef 1) #9
-  %318 = getelementptr inbounds i8, ptr %0, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %319 = load ptr, ptr %318, align 8
   %320 = tail call ptr @mpi_set_ui(ptr noundef %319, i64 noundef 0) #9
   br label %339
@@ -2027,7 +2027,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 327:                                              ; preds = %325, %.thread11
   %328 = load ptr, ptr %0, align 8
   tail call void @mpi_mul(ptr noundef %328, ptr noundef %100, ptr noundef %321) #9
-  %329 = getelementptr inbounds i8, ptr %3, i64 104
+  %329 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %330 = load ptr, ptr %329, align 8
   %331 = icmp eq ptr %330, null
   br i1 %331, label %333, label %332
@@ -2042,7 +2042,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br label %335
 
 335:                                              ; preds = %333, %332
-  %336 = getelementptr inbounds i8, ptr %0, i64 16
+  %336 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %337 = load ptr, ptr %336, align 8
   %338 = tail call ptr @mpi_set_ui(ptr noundef %337, i64 noundef 1) #9
   tail call void @mpi_free(ptr noundef %321) #9
@@ -2066,7 +2066,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br label %.loopexit14
 
 340:                                              ; preds = %4
-  %341 = getelementptr inbounds i8, ptr %3, i64 16
+  %341 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %342 = load ptr, ptr %341, align 8
   %343 = tail call ptr @mpi_alloc_like(ptr noundef %342) #9
   %344 = load ptr, ptr %341, align 8
@@ -2074,10 +2074,10 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %346 = load ptr, ptr %341, align 8
   %347 = tail call ptr @mpi_alloc_like(ptr noundef %346) #9
   %348 = tail call ptr @mpi_copy(ptr noundef %1) #9
-  %349 = getelementptr inbounds i8, ptr %2, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %350 = load ptr, ptr %349, align 8
   %351 = tail call ptr @mpi_copy(ptr noundef %350) #9
-  %352 = getelementptr inbounds i8, ptr %348, i64 12
+  %352 = getelementptr inbounds nuw i8, ptr %348, i64 12
   %353 = load i32, ptr %352, align 4
   %354 = icmp eq i32 %353, 0
   br i1 %354, label %361, label %355
@@ -2094,7 +2094,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br label %361
 
 361:                                              ; preds = %359, %355, %340
-  %362 = getelementptr inbounds i8, ptr %2, i64 16
+  %362 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %363 = load ptr, ptr %362, align 8
   %364 = tail call i32 @mpi_cmp_ui(ptr noundef %363, i64 noundef 1) #9
   %365 = icmp eq i32 %364, 0
@@ -2113,7 +2113,7 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %374 = tail call ptr @mpi_alloc_like(ptr noundef %373) #9
   %375 = load ptr, ptr %362, align 8
   tail call void @mpi_mul(ptr noundef %372, ptr noundef %375, ptr noundef %375) #9
-  %376 = getelementptr inbounds i8, ptr %3, i64 104
+  %376 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %377 = load ptr, ptr %376, align 8
   %378 = icmp eq ptr %377, null
   br i1 %378, label %380, label %379
@@ -2211,10 +2211,10 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 
 422:                                              ; preds = %415
   tail call void @mpi_clear(ptr noundef %421) #9
-  %423 = getelementptr inbounds i8, ptr %0, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %424 = load ptr, ptr %423, align 8
   tail call void @mpi_clear(ptr noundef %424) #9
-  %425 = getelementptr inbounds i8, ptr %0, i64 16
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %426 = load ptr, ptr %425, align 8
   tail call void @mpi_clear(ptr noundef %426) #9
   br label %438
@@ -2222,10 +2222,10 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
 427:                                              ; preds = %415
   %428 = load ptr, ptr %2, align 8
   %429 = tail call ptr @mpi_set(ptr noundef %421, ptr noundef %428) #9
-  %430 = getelementptr inbounds i8, ptr %0, i64 8
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %431 = load ptr, ptr %430, align 8
   %432 = tail call ptr @mpi_set(ptr noundef %431, ptr noundef %351) #9
-  %433 = getelementptr inbounds i8, ptr %0, i64 16
+  %433 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %434 = load ptr, ptr %433, align 8
   %435 = load ptr, ptr %362, align 8
   %436 = tail call ptr @mpi_set(ptr noundef %434, ptr noundef %435) #9
@@ -2236,32 +2236,32 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   %439 = phi i32 [ 0, %422 ], [ %437, %427 ]
   tail call void @mpi_free(ptr noundef %351) #9
   store ptr %343, ptr %5, align 8
-  %440 = getelementptr inbounds i8, ptr %5, i64 8
+  %440 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %345, ptr %440, align 8
-  %441 = getelementptr inbounds i8, ptr %5, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %417, ptr %441, align 8
   %442 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %442, ptr %6, align 8
   %443 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %444 = getelementptr inbounds i8, ptr %6, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %443, ptr %444, align 8
   %445 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %446 = getelementptr inbounds i8, ptr %6, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %445, ptr %446, align 8
   %447 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   store ptr %447, ptr %7, align 8
   %448 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %449 = getelementptr inbounds i8, ptr %7, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %448, ptr %449, align 8
   %450 = tail call ptr @mpi_alloc(i32 noundef 0) #9
-  %451 = getelementptr inbounds i8, ptr %7, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %450, ptr %451, align 8
   %452 = tail call ptr @mpi_set(ptr noundef %447, ptr noundef %343) #9
   %453 = tail call ptr @mpi_set(ptr noundef %448, ptr noundef %345) #9
   %454 = tail call ptr @mpi_set(ptr noundef %450, ptr noundef %417) #9
   %455 = load ptr, ptr %341, align 8
   tail call void @mpi_sub(ptr noundef %448, ptr noundef %455, ptr noundef %448) #9
-  %456 = getelementptr inbounds i8, ptr %448, i64 12
+  %456 = getelementptr inbounds nuw i8, ptr %448, i64 12
   %457 = load i32, ptr %456, align 4
   %458 = icmp eq i32 %457, 0
   br i1 %458, label %.loopexit12, label %.preheader
@@ -2278,8 +2278,8 @@ define dso_local void @mpi_ec_mul_point(ptr nocapture noundef readonly %0, ptr n
   br i1 %462, label %.loopexit, label %463
 
 463:                                              ; preds = %.loopexit12
-  %464 = getelementptr inbounds i8, ptr %0, i64 8
-  %465 = getelementptr inbounds i8, ptr %0, i64 16
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %466
 
 466:                                              ; preds = %493, %463
@@ -2366,14 +2366,14 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @mpi_cmp_ui(ptr noundef %7, i64 noundef 0) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @mpi_cmp_ui(ptr noundef %12, i64 noundef 0) #9
   %14 = icmp eq i32 %13, 0
@@ -2382,16 +2382,16 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
 15:                                               ; preds = %10, %5
   %16 = load ptr, ptr %0, align 8
   %17 = tail call ptr @mpi_set_ui(ptr noundef %16, i64 noundef 1) #9
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @mpi_set_ui(ptr noundef %19, i64 noundef 1) #9
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @mpi_set_ui(ptr noundef %22, i64 noundef 0) #9
   br label %.loopexit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %2, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %26 = load i8, ptr %25, align 8
   %27 = and i8 %26, 1
   %28 = icmp eq i8 %27, 0
@@ -2400,33 +2400,33 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
 29:                                               ; preds = %24
   %30 = or disjoint i8 %26, 1
   store i8 %30, ptr %25, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @mpi_alloc_like(ptr noundef %32) #9
   %34 = load ptr, ptr %31, align 8
   %35 = tail call i32 @mpi_sub_ui(ptr noundef %33, ptr noundef %34, i64 noundef 3) #9
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 @mpi_cmp(ptr noundef %37, ptr noundef %33) #9
   %39 = icmp eq i32 %38, 0
   %40 = zext i1 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %2, i64 92
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %40, ptr %41, align 4
   tail call void @mpi_free(ptr noundef %33) #9
   br label %42
 
 42:                                               ; preds = %29, %24
-  %43 = getelementptr inbounds i8, ptr %2, i64 92
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
-  %46 = getelementptr inbounds i8, ptr %2, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 112
   br i1 %45, label %99, label %47
 
 47:                                               ; preds = %42
   %48 = load ptr, ptr %46, align 8
   %49 = load ptr, ptr %11, align 8
   tail call void @mpi_mul(ptr noundef %48, ptr noundef %49, ptr noundef %49) #9
-  %50 = getelementptr inbounds i8, ptr %2, i64 104
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -2436,7 +2436,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %57
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %2, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %56 = load ptr, ptr %55, align 8
   tail call void @mpi_mod(ptr noundef %48, ptr noundef %48, ptr noundef %56) #9
   br label %57
@@ -2447,13 +2447,13 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %46, align 8
   tail call void @mpi_sub(ptr noundef %59, ptr noundef %60, ptr noundef %61) #9
-  %62 = getelementptr inbounds i8, ptr %59, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %.loopexit20, label %65
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %2, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %67
 
 67:                                               ; preds = %67, %65
@@ -2476,7 +2476,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %79
 
 76:                                               ; preds = %.loopexit20
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = load ptr, ptr %77, align 8
   tail call void @mpi_mod(ptr noundef %71, ptr noundef %71, ptr noundef %78) #9
   br label %79
@@ -2496,7 +2496,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %90
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %2, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %89 = load ptr, ptr %88, align 8
   tail call void @mpi_mod(ptr noundef %81, ptr noundef %81, ptr noundef %89) #9
   br label %90
@@ -2514,7 +2514,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %142
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %2, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %98 = load ptr, ptr %97, align 8
   tail call void @mpi_mod(ptr noundef %91, ptr noundef %91, ptr noundef %98) #9
   br label %142
@@ -2524,7 +2524,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %1, align 8
   tail call void @mpi_mul(ptr noundef %101, ptr noundef %102, ptr noundef %102) #9
-  %103 = getelementptr inbounds i8, ptr %2, i64 104
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %107, label %106
@@ -2534,7 +2534,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %110
 
 107:                                              ; preds = %99
-  %108 = getelementptr inbounds i8, ptr %2, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %109 = load ptr, ptr %108, align 8
   tail call void @mpi_mod(ptr noundef %101, ptr noundef %101, ptr noundef %109) #9
   br label %110
@@ -2552,7 +2552,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %119
 
 116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %2, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %118 = load ptr, ptr %117, align 8
   tail call void @mpi_mod(ptr noundef %111, ptr noundef %111, ptr noundef %118) #9
   br label %119
@@ -2561,11 +2561,11 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %120 = load ptr, ptr %46, align 8
   %121 = load ptr, ptr %11, align 8
   %122 = tail call ptr @mpi_const(i32 noundef 4) #9
-  %123 = getelementptr inbounds i8, ptr %2, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %124 = load ptr, ptr %123, align 8
   %125 = tail call i32 @mpi_powm(ptr noundef %120, ptr noundef %121, ptr noundef %122, ptr noundef %124) #9
   %126 = load ptr, ptr %46, align 8
-  %127 = getelementptr inbounds i8, ptr %2, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %128 = load ptr, ptr %127, align 8
   tail call void @mpi_mul(ptr noundef %126, ptr noundef %126, ptr noundef %128) #9
   %129 = load ptr, ptr %103, align 8
@@ -2599,12 +2599,12 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %142
 
 142:                                              ; preds = %140, %139, %96, %95
-  %143 = getelementptr inbounds i8, ptr %0, i64 16
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr %6, align 8
   %146 = load ptr, ptr %11, align 8
   tail call void @mpi_mul(ptr noundef %144, ptr noundef %145, ptr noundef %146) #9
-  %147 = getelementptr inbounds i8, ptr %2, i64 104
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, null
   br i1 %149, label %151, label %150
@@ -2614,7 +2614,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %154
 
 151:                                              ; preds = %142
-  %152 = getelementptr inbounds i8, ptr %2, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %153 = load ptr, ptr %152, align 8
   tail call void @mpi_mod(ptr noundef %144, ptr noundef %144, ptr noundef %153) #9
   br label %154
@@ -2631,7 +2631,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %162
 
 159:                                              ; preds = %154
-  %160 = getelementptr inbounds i8, ptr %2, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %161 = load ptr, ptr %160, align 8
   tail call void @mpi_mod(ptr noundef %155, ptr noundef %155, ptr noundef %161) #9
   br label %162
@@ -2650,7 +2650,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %172
 
 169:                                              ; preds = %162
-  %170 = getelementptr inbounds i8, ptr %2, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %171 = load ptr, ptr %170, align 8
   tail call void @mpi_mod(ptr noundef %164, ptr noundef %164, ptr noundef %171) #9
   br label %172
@@ -2670,7 +2670,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %183
 
 180:                                              ; preds = %172
-  %181 = getelementptr inbounds i8, ptr %2, i64 16
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %182 = load ptr, ptr %181, align 8
   tail call void @mpi_mod(ptr noundef %174, ptr noundef %174, ptr noundef %182) #9
   br label %183
@@ -2688,7 +2688,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %192
 
 189:                                              ; preds = %183
-  %190 = getelementptr inbounds i8, ptr %2, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %191 = load ptr, ptr %190, align 8
   tail call void @mpi_mod(ptr noundef %184, ptr noundef %184, ptr noundef %191) #9
   br label %192
@@ -2707,7 +2707,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %202
 
 199:                                              ; preds = %192
-  %200 = getelementptr inbounds i8, ptr %2, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %201 = load ptr, ptr %200, align 8
   tail call void @mpi_mod(ptr noundef %193, ptr noundef %193, ptr noundef %201) #9
   br label %202
@@ -2725,7 +2725,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %211
 
 208:                                              ; preds = %202
-  %209 = getelementptr inbounds i8, ptr %2, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %210 = load ptr, ptr %209, align 8
   tail call void @mpi_mod(ptr noundef %203, ptr noundef %203, ptr noundef %210) #9
   br label %211
@@ -2734,13 +2734,13 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %212 = load ptr, ptr %0, align 8
   %213 = load ptr, ptr %46, align 8
   tail call void @mpi_sub(ptr noundef %212, ptr noundef %212, ptr noundef %213) #9
-  %214 = getelementptr inbounds i8, ptr %212, i64 12
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 12
   %215 = load i32, ptr %214, align 4
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %.loopexit19, label %217
 
 217:                                              ; preds = %211
-  %218 = getelementptr inbounds i8, ptr %2, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %219
 
 219:                                              ; preds = %219, %217
@@ -2762,7 +2762,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %230
 
 227:                                              ; preds = %.loopexit19
-  %228 = getelementptr inbounds i8, ptr %2, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %229 = load ptr, ptr %228, align 8
   tail call void @mpi_mod(ptr noundef %223, ptr noundef %223, ptr noundef %229) #9
   br label %230
@@ -2782,24 +2782,24 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %241
 
 238:                                              ; preds = %230
-  %239 = getelementptr inbounds i8, ptr %2, i64 16
+  %239 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %240 = load ptr, ptr %239, align 8
   tail call void @mpi_mod(ptr noundef %232, ptr noundef %232, ptr noundef %240) #9
   br label %241
 
 241:                                              ; preds = %238, %237
-  %242 = getelementptr inbounds i8, ptr %0, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %243 = load ptr, ptr %242, align 8
   %244 = load ptr, ptr %173, align 8
   %245 = load ptr, ptr %0, align 8
   tail call void @mpi_sub(ptr noundef %243, ptr noundef %244, ptr noundef %245) #9
-  %246 = getelementptr inbounds i8, ptr %243, i64 12
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 12
   %247 = load i32, ptr %246, align 4
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %.loopexit18, label %249
 
 249:                                              ; preds = %241
-  %250 = getelementptr inbounds i8, ptr %2, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %251
 
 251:                                              ; preds = %251, %249
@@ -2822,7 +2822,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %263
 
 260:                                              ; preds = %.loopexit18
-  %261 = getelementptr inbounds i8, ptr %2, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %262 = load ptr, ptr %261, align 8
   tail call void @mpi_mod(ptr noundef %255, ptr noundef %255, ptr noundef %262) #9
   br label %263
@@ -2831,13 +2831,13 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %264 = load ptr, ptr %242, align 8
   %265 = load ptr, ptr %231, align 8
   tail call void @mpi_sub(ptr noundef %264, ptr noundef %264, ptr noundef %265) #9
-  %266 = getelementptr inbounds i8, ptr %264, i64 12
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 12
   %267 = load i32, ptr %266, align 4
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %.loopexit, label %269
 
 269:                                              ; preds = %263
-  %270 = getelementptr inbounds i8, ptr %2, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %271
 
 271:                                              ; preds = %271, %269
@@ -2852,15 +2852,15 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   br label %.loopexit
 
 277:                                              ; preds = %3
-  %278 = getelementptr inbounds i8, ptr %2, i64 200
+  %278 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %279 = load ptr, ptr %278, align 8
-  %280 = getelementptr inbounds i8, ptr %2, i64 112
+  %280 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %281 = load ptr, ptr %280, align 8
   %282 = load ptr, ptr %1, align 8
-  %283 = getelementptr inbounds i8, ptr %1, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %284 = load ptr, ptr %283, align 8
   tail call void %279(ptr noundef %281, ptr noundef %282, ptr noundef %284, ptr noundef %2) #9
-  %285 = getelementptr inbounds i8, ptr %2, i64 224
+  %285 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %286 = load ptr, ptr %285, align 8
   %287 = load ptr, ptr %280, align 8
   tail call void %286(ptr noundef %287, ptr noundef %287, ptr noundef %2) #9
@@ -2874,7 +2874,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %294 = load ptr, ptr %293, align 8
   %295 = load ptr, ptr %283, align 8
   tail call void %292(ptr noundef %294, ptr noundef %295, ptr noundef %2) #9
-  %296 = getelementptr inbounds i8, ptr %2, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %297 = load i32, ptr %296, align 4
   %298 = icmp eq i32 %297, 1
   %299 = getelementptr i8, ptr %2, i64 136
@@ -2882,9 +2882,9 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %301 = load ptr, ptr %289, align 8
   %302 = select i1 %298, i64 208, i64 216
   %303 = select i1 %298, i64 16, i64 24
-  %304 = getelementptr inbounds i8, ptr %2, i64 %302
+  %304 = getelementptr inbounds nuw i8, ptr %2, i64 %302
   %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %2, i64 %303
+  %306 = getelementptr inbounds nuw i8, ptr %2, i64 %303
   %307 = load ptr, ptr %306, align 8
   tail call void %305(ptr noundef %300, ptr noundef %307, ptr noundef %301, ptr noundef %2) #9
   %308 = load ptr, ptr %278, align 8
@@ -2896,16 +2896,16 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %313 = load ptr, ptr %285, align 8
   %314 = getelementptr i8, ptr %2, i64 152
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %1, i64 16
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %317 = load ptr, ptr %316, align 8
   tail call void %313(ptr noundef %315, ptr noundef %317, ptr noundef %2) #9
-  %318 = getelementptr inbounds i8, ptr %2, i64 232
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr i8, ptr %2, i64 160
   %321 = load ptr, ptr %320, align 8
   %322 = load ptr, ptr %314, align 8
   tail call void %319(ptr noundef %321, ptr noundef %322, ptr noundef %2) #9
-  %323 = getelementptr inbounds i8, ptr %2, i64 208
+  %323 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %324 = load ptr, ptr %323, align 8
   %325 = load ptr, ptr %320, align 8
   %326 = load ptr, ptr %309, align 8
@@ -2919,13 +2919,13 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %332 = load ptr, ptr %0, align 8
   %333 = load ptr, ptr %293, align 8
   tail call void %331(ptr noundef %332, ptr noundef %332, ptr noundef %333, ptr noundef %2) #9
-  %334 = getelementptr inbounds i8, ptr %2, i64 216
+  %334 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %335 = load ptr, ptr %334, align 8
   %336 = load ptr, ptr %0, align 8
   %337 = load ptr, ptr %320, align 8
   tail call void %335(ptr noundef %336, ptr noundef %336, ptr noundef %337, ptr noundef %2) #9
   %338 = load ptr, ptr %323, align 8
-  %339 = getelementptr inbounds i8, ptr %0, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %340 = load ptr, ptr %339, align 8
   %341 = load ptr, ptr %299, align 8
   %342 = load ptr, ptr %293, align 8
@@ -2935,7 +2935,7 @@ define internal fastcc void @mpi_ec_dup_point(ptr nocapture noundef readonly %0,
   %345 = load ptr, ptr %309, align 8
   tail call void %343(ptr noundef %344, ptr noundef %344, ptr noundef %345, ptr noundef %2) #9
   %346 = load ptr, ptr %334, align 8
-  %347 = getelementptr inbounds i8, ptr %0, i64 16
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %348 = load ptr, ptr %347, align 8
   %349 = load ptr, ptr %309, align 8
   %350 = load ptr, ptr %320, align 8
@@ -2964,14 +2964,14 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef r
   %4 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %5 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @mpi_cmpabs(ptr noundef %6, ptr noundef %8) #9
   %10 = icmp sgt i32 %9, -1
   br i1 %10, label %87, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = tail call i32 @mpi_cmpabs(ptr noundef %13, ptr noundef %14) #9
@@ -2979,7 +2979,7 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef r
   br i1 %16, label %87, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = tail call i32 @mpi_cmpabs(ptr noundef %19, ptr noundef %20) #9
@@ -3003,10 +3003,10 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef r
   %29 = tail call ptr @mpi_alloc(i32 noundef 0) #9
   tail call void @ec_pow2(ptr noundef %4, ptr noundef %4, ptr noundef %1)
   tail call fastcc void @ec_pow3(ptr noundef %29, ptr noundef %3, ptr noundef %1)
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void @ec_mulm(ptr noundef %5, ptr noundef %31, ptr noundef %3, ptr noundef %1)
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8
   tail call void @ec_addm(ptr noundef %5, ptr noundef %5, ptr noundef %33, ptr noundef %1)
   tail call void @ec_addm(ptr noundef %5, ptr noundef %5, ptr noundef %29, ptr noundef %1)
@@ -3021,7 +3021,7 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef r
   br i1 %38, label %39, label %87
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @mpi_const(i32 noundef 4) #9
   tail call void @ec_mulm(ptr noundef %5, ptr noundef %41, ptr noundef %42, ptr noundef %1)
@@ -3033,7 +3033,7 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef r
   %44 = tail call ptr @mpi_const(i32 noundef 1) #9
   tail call void @ec_addm(ptr noundef %5, ptr noundef %5, ptr noundef %44, ptr noundef %1)
   tail call void @ec_mulm(ptr noundef %5, ptr noundef %5, ptr noundef %3, ptr noundef %1)
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8
   tail call void @ec_mulm(ptr noundef %5, ptr noundef %5, ptr noundef %46, ptr noundef %1)
   %47 = load ptr, ptr %7, align 8
@@ -3053,37 +3053,37 @@ define dso_local range(i32 0, 2) i32 @mpi_ec_curve_point(ptr nocapture noundef r
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = tail call i32 @mpi_resize(ptr noundef %5, i32 noundef %59) #9
   %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %5, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %1, i64 224
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %66 = load ptr, ptr %65, align 8
   tail call void %66(ptr noundef %3, ptr noundef %3, ptr noundef %1) #9
   %67 = load ptr, ptr %65, align 8
   tail call void %67(ptr noundef %4, ptr noundef %4, ptr noundef %1) #9
-  %68 = getelementptr inbounds i8, ptr %1, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 216
-  %72 = getelementptr inbounds i8, ptr %1, i64 24
-  %73 = getelementptr inbounds i8, ptr %1, i64 208
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %74 = select i1 %70, ptr %7, ptr %72
   %75 = select i1 %70, ptr %73, ptr %71
   %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %74, align 8
   tail call void %76(ptr noundef %5, ptr noundef %77, ptr noundef %3, ptr noundef %1) #9
-  %78 = getelementptr inbounds i8, ptr %1, i64 200
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef %5, ptr noundef %5, ptr noundef %4, ptr noundef %1) #9
   %80 = load ptr, ptr %71, align 8
   tail call void %80(ptr noundef %3, ptr noundef %3, ptr noundef %4, ptr noundef %1) #9
   %81 = load ptr, ptr %71, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %83 = load ptr, ptr %82, align 8
   tail call void %81(ptr noundef %3, ptr noundef %3, ptr noundef %83, ptr noundef %1) #9
   %84 = load ptr, ptr %73, align 8
@@ -3107,7 +3107,7 @@ declare dso_local i32 @mpi_cmpabs(ptr noundef, ptr noundef) local_unnamed_addr #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @ec_pow3(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = tail call ptr @mpi_const(i32 noundef 3) #9
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @mpi_powm(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6) #9
   ret void
@@ -3144,19 +3144,19 @@ declare dso_local void @mpi_lshift(ptr noundef, ptr noundef, i32 noundef) local_
 define internal void @ec_addm_25519(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca [4 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %19, label %17
@@ -3167,20 +3167,20 @@ define internal void @ec_addm_25519(ptr nocapture noundef readonly %0, ptr nocap
 
 19:                                               ; preds = %17, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @mpihelp_add_n(ptr noundef %25, ptr noundef %21, ptr noundef %23, i32 noundef 4) #9
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @mpihelp_sub_n(ptr noundef %25, ptr noundef %25, ptr noundef %30, i32 noundef 4) #9
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %.fr3 = freeze i64 %31
   %35 = icmp eq i64 %.fr3, 0
@@ -3210,19 +3210,19 @@ define internal void @ec_addm_25519(ptr nocapture noundef readonly %0, ptr nocap
 define internal void @ec_subm_25519(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca [4 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 4
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 4
   br i1 %16, label %19, label %17
@@ -3233,16 +3233,16 @@ define internal void @ec_subm_25519(ptr nocapture noundef readonly %0, ptr nocap
 
 19:                                               ; preds = %17, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @mpihelp_sub_n(ptr noundef %25, ptr noundef %21, ptr noundef %23, i32 noundef 4) #9
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %.fr3 = freeze i64 %26
   %31 = icmp eq i64 %.fr3, 0
@@ -3274,19 +3274,19 @@ define internal void @ec_mulm_25519(ptr nocapture noundef readonly %0, ptr nocap
   %6 = alloca [5 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 4
   br i1 %17, label %20, label %18
@@ -3297,11 +3297,11 @@ define internal void @ec_mulm_25519(ptr nocapture noundef readonly %0, ptr nocap
 
 20:                                               ; preds = %18, %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !14
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   call void @mpihelp_mul_n(ptr noundef nonnull %5, ptr noundef %22, ptr noundef %24, i32 noundef 4) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %26, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
@@ -3309,12 +3309,12 @@ define internal void @ec_mulm_25519(ptr nocapture noundef readonly %0, ptr nocap
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 9223372036854775807
   store i64 %29, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef align 8 dereferenceable(40) %30, i64 40, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %30, i64 40, i1 false)
   %31 = call i64 @mpihelp_rshift(ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef 5, i32 noundef 63) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false)
   %32 = call i64 @mpihelp_lshift(ptr noundef nonnull %6, ptr noundef nonnull %6, i32 noundef 4, i32 noundef 4) #9
-  %33 = getelementptr inbounds i8, ptr %6, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %32, ptr %33, align 16
   %34 = call i64 @mpihelp_add_n(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 4) #9
   %35 = load i64, ptr %33, align 16
@@ -3341,13 +3341,13 @@ define internal void @ec_mulm_25519(ptr nocapture noundef readonly %0, ptr nocap
   store i64 %49, ptr %27, align 8
   %50 = call i64 @mpihelp_add_n(ptr noundef %26, ptr noundef %26, ptr noundef nonnull %6, i32 noundef 4) #9
   store i64 0, ptr %6, align 16
-  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = call i64 @mpihelp_sub_n(ptr noundef %26, ptr noundef %26, ptr noundef %54, i32 noundef 4) #9
   %56 = load ptr, ptr %51, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8
   %.fr3 = freeze i64 %55
   %59 = icmp eq i64 %.fr3, 0
@@ -3386,19 +3386,19 @@ define internal void @ec_pow2_25519(ptr nocapture noundef readonly %0, ptr nocap
 define internal void @ec_addm_448(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca [7 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 7
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 7
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 7
   br i1 %16, label %19, label %17
@@ -3409,16 +3409,16 @@ define internal void @ec_addm_448(ptr nocapture noundef readonly %0, ptr nocaptu
 
 19:                                               ; preds = %17, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @mpihelp_add_n(ptr noundef %25, ptr noundef %21, ptr noundef %23, i32 noundef 7) #9
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %.fr3 = freeze i64 %26
   %31 = icmp eq i64 %.fr3, 0
@@ -3444,19 +3444,19 @@ define internal void @ec_addm_448(ptr nocapture noundef readonly %0, ptr nocaptu
 define internal void @ec_subm_448(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = alloca [7 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 7
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 7
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 7
   br i1 %16, label %19, label %17
@@ -3467,16 +3467,16 @@ define internal void @ec_subm_448(ptr nocapture noundef readonly %0, ptr nocaptu
 
 19:                                               ; preds = %17, %13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i64 @mpihelp_sub_n(ptr noundef %25, ptr noundef %21, ptr noundef %23, i32 noundef 7) #9
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   %.fr3 = freeze i64 %26
   %31 = icmp eq i64 %.fr3, 0
@@ -3510,19 +3510,19 @@ define internal void @ec_mulm_448(ptr nocapture noundef readonly %0, ptr nocaptu
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 7
   br i1 %12, label %13, label %21
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 7
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 7
   br i1 %20, label %23, label %21
@@ -3533,25 +3533,25 @@ define internal void @ec_mulm_448(ptr nocapture noundef readonly %0, ptr nocaptu
 
 23:                                               ; preds = %21, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %5, i8 0, i64 112, i1 false), !annotation !14
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   call void @mpihelp_mul_n(ptr noundef nonnull %5, ptr noundef %25, ptr noundef %27, i32 noundef 7) #9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, ptr noundef nonnull align 16 dereferenceable(32) %5, i64 32, i1 false)
-  %30 = getelementptr inbounds i8, ptr %5, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef align 8 dereferenceable(32) %30, i64 32, i1 false)
-  %31 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef align 8 dereferenceable(32) %31, i64 32, i1 false)
-  %32 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef align 16 dereferenceable(32) %32, i64 32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %8, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false)
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %32, i64 32, i1 false)
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 4294967295
   store i64 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %6, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %37, 4294967295
   store i64 %38, ptr %36, align 8
@@ -3602,7 +3602,7 @@ define internal void @ec_mulm_448(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %69, label %70, label %.loopexit
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %9, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %72
 
 72:                                               ; preds = %77, %70
@@ -3657,7 +3657,7 @@ define internal void @ec_mulm_448(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %105, label %106, label %98, !llvm.loop !25
 
 106:                                              ; preds = %98
-  %107 = getelementptr inbounds i8, ptr %9, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %108 = load i64, ptr %107, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %109 = shl i64 %108, 32
@@ -3665,13 +3665,13 @@ define internal void @ec_mulm_448(ptr nocapture noundef readonly %0, ptr nocaptu
   store i64 %108, ptr %5, align 16
   %110 = call i64 @mpihelp_add_n(ptr noundef %29, ptr noundef %29, ptr noundef nonnull %5, i32 noundef 7) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %111 = getelementptr inbounds i8, ptr %3, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = call i64 @mpihelp_sub_n(ptr noundef %29, ptr noundef %29, ptr noundef %114, i32 noundef 7) #9
   %116 = load ptr, ptr %111, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = load ptr, ptr %117, align 8
   %.fr3 = freeze i64 %115
   %119 = icmp eq i64 %.fr3, 0
@@ -3701,13 +3701,13 @@ define internal void @ec_mulm_448(ptr nocapture noundef readonly %0, ptr nocaptu
 define internal void @ec_mul2_448(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = alloca [7 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #9
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 7
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 7
   br i1 %11, label %14, label %12
@@ -3718,14 +3718,14 @@ define internal void @ec_mul2_448(ptr nocapture noundef readonly %0, ptr nocaptu
 
 14:                                               ; preds = %12, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @mpihelp_add_n(ptr noundef %18, ptr noundef %16, ptr noundef %16, i32 noundef 7) #9
-  %20 = getelementptr inbounds i8, ptr %2, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   %.fr3 = freeze i64 %19
   %24 = icmp eq i64 %.fr3, 0

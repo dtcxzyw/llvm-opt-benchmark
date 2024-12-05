@@ -97,7 +97,7 @@ define void @_ZN6casadi12SharedObjectC2ERKS0_(ptr nocapture noundef nonnull writ
   br i1 %.not.i, label %_ZN6casadi12SharedObject8count_upEv.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %6, 1
   store i64 %7, ptr %5, align 8
@@ -114,7 +114,7 @@ define void @_ZN6casadi12SharedObject8count_upEv(ptr nocapture noundef nonnull r
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, 1
   store i64 %6, ptr %4, align 8
@@ -131,7 +131,7 @@ define void @_ZN6casadi12SharedObjectD2Ev(ptr nocapture noundef nonnull align 8 
   br i1 %.not.i, label %_ZN6casadi12SharedObject10count_downEv.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, -1
   store i64 %6, ptr %4, align 8
@@ -145,7 +145,7 @@ define void @_ZN6casadi12SharedObjectD2Ev(ptr nocapture noundef nonnull align 8 
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
   br label %15
@@ -165,7 +165,7 @@ define void @_ZN6casadi12SharedObject10count_downEv(ptr nocapture noundef nonnul
   br i1 %.not, label %16, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = add nsw i64 %5, -1
   store i64 %6, ptr %4, align 8
@@ -179,7 +179,7 @@ define void @_ZN6casadi12SharedObject10count_downEv(ptr nocapture noundef nonnul
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(24) %9) #17
   br label %15
@@ -213,7 +213,7 @@ define void @_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE(ptr nocapt
   br i1 %.not.i, label %_ZN6casadi12SharedObject10count_downEv.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = add nsw i64 %6, -1
   store i64 %7, ptr %5, align 8
@@ -227,7 +227,7 @@ define void @_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE(ptr nocapt
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %10) #17
   br label %_ZN6casadi12SharedObject10count_downEv.exit
@@ -238,7 +238,7 @@ _ZN6casadi12SharedObject10count_downEv.exit:      ; preds = %9, %12, %2, %4
   br i1 %.not.i2, label %_ZN6casadi12SharedObject8count_upEv.exit, label %16
 
 16:                                               ; preds = %_ZN6casadi12SharedObject10count_downEv.exit
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %18, 1
   store i64 %19, ptr %17, align 8
@@ -266,7 +266,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi12SharedObjecta
   br i1 %.not.i, label %_ZN6casadi12SharedObject10count_downEv.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1
   store i64 %10, ptr %8, align 8
@@ -280,7 +280,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi12SharedObjecta
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
   br label %19
@@ -300,7 +300,7 @@ _ZN6casadi12SharedObject10count_downEv.exit:      ; preds = %_ZN6casadi12SharedO
   br i1 %.not.i4, label %_ZN6casadi12SharedObject8count_upEv.exit, label %21
 
 21:                                               ; preds = %_ZN6casadi12SharedObject10count_downEv.exit
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, 1
   store i64 %24, ptr %22, align 8
@@ -568,7 +568,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %5, %7
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -603,7 +603,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
           to label %14 unwind label %.loopexit
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.sroa.09.013, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 32
   %.not = icmp eq ptr %15, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -619,7 +619,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
 
@@ -636,7 +636,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   ret void
@@ -651,7 +651,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, label %.lr.ph.i.i.i
@@ -659,7 +659,7 @@ define linkonce_odr hidden void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11cha
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #17
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -689,7 +689,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define void @_ZNK6casadi12SharedObject10class_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
   %3 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
   ret void
@@ -708,7 +708,7 @@ define void @_ZNK6casadi12SharedObject4dispERSob(ptr nocapture noundef nonnull r
 8:                                                ; preds = %3
   %9 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2)
   br label %13
@@ -742,7 +742,7 @@ define void @_ZN6casadi12SharedObject4swapERS0_(ptr noundef nonnull align 8 dere
   br i1 %.not.i.i, label %_ZN6casadi12SharedObject10count_downEv.exit.i, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = add nsw i64 %10, -1
   store i64 %11, ptr %9, align 8
@@ -756,7 +756,7 @@ define void @_ZN6casadi12SharedObject4swapERS0_(ptr noundef nonnull align 8 dere
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(24) %14) #17
   br label %20
@@ -776,7 +776,7 @@ _ZN6casadi12SharedObject10count_downEv.exit.i:    ; preds = %_ZN6casadi12SharedO
   br i1 %.not.i4.i, label %_ZN6casadi12SharedObjectaSERKS0_.exitthread-pre-split, label %22
 
 22:                                               ; preds = %_ZN6casadi12SharedObject10count_downEv.exit.i
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 1
   store i64 %25, ptr %23, align 8
@@ -797,7 +797,7 @@ _ZN6casadi12SharedObjectaSERKS0_.exit:            ; preds = %_ZN6casadi12SharedO
   br i1 %.not.i.i4, label %_ZN6casadi12SharedObject10count_downEv.exit.i7, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = add nsw i64 %32, -1
   store i64 %33, ptr %31, align 8
@@ -811,7 +811,7 @@ _ZN6casadi12SharedObjectaSERKS0_.exit:            ; preds = %_ZN6casadi12SharedO
 
 38:                                               ; preds = %35
   %39 = load ptr, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   call void %41(ptr noundef nonnull align 8 dereferenceable(24) %36) #17
   %.pr.i6.pre.pre = load ptr, ptr %3, align 8
@@ -824,7 +824,7 @@ _ZN6casadi12SharedObject10count_downEv.exit.i7:   ; preds = %35, %38, %30, %29
   br i1 %.not.i4.i8, label %_ZN6casadi12SharedObjectaSERKS0_.exit9, label %43
 
 43:                                               ; preds = %_ZN6casadi12SharedObject10count_downEv.exit.i7
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = add nsw i64 %45, 1
   store i64 %46, ptr %44, align 8
@@ -1025,7 +1025,7 @@ define noundef zeroext i1 @_ZNK6casadi7WeakRef5aliveEv(ptr nocapture noundef non
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   br label %9
@@ -1053,7 +1053,7 @@ define void @_ZN6casadi7WeakRef6sharedEv(ptr dead_on_unwind noalias writable sre
           to label %_ZNK6casadi7WeakRef5aliveEv.exit unwind label %30
 
 _ZNK6casadi7WeakRef5aliveEv.exit:                 ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE.exit, label %9
@@ -1063,14 +1063,14 @@ _ZNK6casadi7WeakRef5aliveEv.exit:                 ; preds = %5
           to label %_ZN6casadi7WeakRefptEv.exit unwind label %30
 
 _ZN6casadi7WeakRefptEv.exit:                      ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %0, align 8
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %_ZN6casadi12SharedObject10count_downEv.exit.i, label %14
 
 14:                                               ; preds = %_ZN6casadi7WeakRefptEv.exit
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add nsw i64 %16, -1
   store i64 %17, ptr %15, align 8
@@ -1084,7 +1084,7 @@ _ZN6casadi7WeakRefptEv.exit:                      ; preds = %9
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(24) %20) #17
   br label %_ZN6casadi12SharedObject10count_downEv.exit.i
@@ -1095,7 +1095,7 @@ _ZN6casadi12SharedObject10count_downEv.exit.i:    ; preds = %22, %19, %14, %_ZN6
   br i1 %.not.i2.i, label %_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE.exit, label %26
 
 26:                                               ; preds = %_ZN6casadi12SharedObject10count_downEv.exit.i
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = add nsw i64 %28, 1
   store i64 %29, ptr %27, align 8
@@ -1134,7 +1134,7 @@ _ZN6casadi12SharedObject4weakEv.exit:             ; preds = %.noexc
   br i1 %.not.i.i, label %_ZN6casadi12SharedObject10count_downEv.exit.i, label %7
 
 7:                                                ; preds = %_ZN6casadi12SharedObject4weakEv.exit
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1
   store i64 %10, ptr %8, align 8
@@ -1148,7 +1148,7 @@ _ZN6casadi12SharedObject4weakEv.exit:             ; preds = %.noexc
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
   br label %_ZN6casadi12SharedObject10count_downEv.exit.i
@@ -1159,7 +1159,7 @@ _ZN6casadi12SharedObject10count_downEv.exit.i:    ; preds = %15, %12, %7, %_ZN6c
   br i1 %.not.i2.i, label %_ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE.exit, label %19
 
 19:                                               ; preds = %_ZN6casadi12SharedObject10count_downEv.exit.i
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %21, 1
   store i64 %22, ptr %20, align 8
@@ -1191,7 +1191,7 @@ define void @_ZN6casadi7WeakRefC2EPNS_20SharedObjectInternalE(ptr nocapture noun
   br i1 %.not.i.i, label %19, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = add nsw i64 %9, -1
   store i64 %10, ptr %8, align 8
@@ -1205,14 +1205,14 @@ define void @_ZN6casadi7WeakRefC2EPNS_20SharedObjectInternalE(ptr nocapture noun
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(24) %13) #17
   br label %19
 
 19:                                               ; preds = %15, %12, %7, %5
   store ptr %3, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add nsw i64 %21, 1
   store i64 %22, ptr %20, align 8
@@ -1246,7 +1246,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi7WeakRef4killEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #8 align 2 {
   %2 = tail call noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %0)
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr null, ptr %3, align 8
   ret void
 }
@@ -1328,7 +1328,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi15CasadiExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
@@ -1337,7 +1337,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef non
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6casadi15CasadiException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   ret ptr %3
 }

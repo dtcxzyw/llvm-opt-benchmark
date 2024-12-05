@@ -115,7 +115,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %buf1 = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf1 = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %0 = load ptr, ptr %buf1, align 8
   %1 = load i8, ptr %0, align 1
   %tobool2.not12 = icmp eq i8 %1, 0
@@ -138,7 +138,7 @@ _.exit:                                           ; preds = %for.body, %if.end3.
   %4 = load i32, ptr @advice_use_color, align 4
   %call.i7 = call i32 @want_color_fd(i32 noundef 2, i32 noundef %4) #11
   %tobool.not.i = icmp eq i32 %call.i7, 0
-  %retval.0.i8 = select i1 %tobool.not.i, ptr @.str, ptr getelementptr inbounds (i8, ptr @advice_colors, i64 75)
+  %retval.0.i8 = select i1 %tobool.not.i, ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @advice_colors, i64 75)
   %sub.ptr.lhs.cast = ptrtoint ptr %call to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %cp.013 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -151,7 +151,7 @@ _.exit:                                           ; preds = %for.body, %if.end3.
   %6 = load i8, ptr %call, align 1
   %tobool7.not = icmp ne i8 %6, 0
   %spec.select.idx = zext i1 %tobool7.not to i64
-  %spec.select = getelementptr inbounds i8, ptr %call, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %call, i64 %spec.select.idx
   %7 = load i8, ptr %spec.select, align 1
   %tobool2.not = icmp eq i8 %7, 0
   br i1 %tobool2.not, label %for.end, label %for.body, !llvm.loop !5
@@ -178,7 +178,7 @@ sw.bb:                                            ; preds = %entry
 
 sw.default:                                       ; preds = %entry
   %idxprom = zext i32 %type to i64
-  %enabled = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom, i32 1
+  %enabled = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom, i32 1
   %3 = load i32, ptr %enabled, align 8
   br label %return
 
@@ -205,7 +205,7 @@ sw.bb.i:                                          ; preds = %entry
 
 sw.default.i:                                     ; preds = %entry
   %idxprom.i = zext i32 %type to i64
-  %enabled.i = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom.i, i32 1
+  %enabled.i = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom.i, i32 1
   %3 = load i32, ptr %enabled.i, align 8
   br label %advice_enabled.exit
 
@@ -217,7 +217,7 @@ advice_enabled.exit:                              ; preds = %sw.bb.i, %sw.defaul
 if.end:                                           ; preds = %advice_enabled.exit
   call void @llvm.va_start.p0(ptr nonnull %params)
   %idxprom = zext i32 %type to i64
-  %arrayidx = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %idxprom
   %4 = load ptr, ptr %arrayidx, align 16
   call fastcc void @vadvise(ptr noundef %advice, i32 noundef 1, ptr noundef %4, ptr noundef %params)
   call void @llvm.va_end.p0(ptr nonnull %params)
@@ -250,9 +250,9 @@ do.body.i:                                        ; preds = %do.body.i.preheader
   br i1 %exitcond, label %if.then3, label %do.cond.i
 
 do.cond.i:                                        ; preds = %do.body.i
-  %prefix.addr.0.i.ptr = getelementptr inbounds i8, ptr @.str.2, i64 %prefix.addr.0.i.idx
+  %prefix.addr.0.i.ptr = getelementptr inbounds nuw i8, ptr @.str.2, i64 %prefix.addr.0.i.idx
   %0 = load i8, ptr %prefix.addr.0.i.ptr, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %str.addr.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i, i64 1
   %1 = load i8, ptr %str.addr.0.i, align 1
   %prefix.addr.0.i.add = add nuw nsw i64 %prefix.addr.0.i.idx, 1
   %cmp.i = icmp eq i8 %1, %0
@@ -282,7 +282,7 @@ if.then8:                                         ; preds = %if.end6
   br label %return
 
 if.end11:                                         ; preds = %if.end6
-  %arrayidx = getelementptr inbounds [2 x [75 x i8]], ptr @advice_colors, i64 0, i64 %retval.0.i.ph
+  %arrayidx = getelementptr inbounds nuw [2 x [75 x i8]], ptr @advice_colors, i64 0, i64 %retval.0.i.ph
   %call12 = tail call i32 @color_parse(ptr noundef nonnull %value, ptr noundef nonnull %arrayidx) #11
   br label %return
 
@@ -293,9 +293,9 @@ do.body.i14:                                      ; preds = %do.body.i14.prehead
   br i1 %exitcond39, label %for.body, label %do.cond.i18
 
 do.cond.i18:                                      ; preds = %do.body.i14
-  %prefix.addr.0.i16.ptr = getelementptr inbounds i8, ptr @.str.3, i64 %prefix.addr.0.i16.idx
+  %prefix.addr.0.i16.ptr = getelementptr inbounds nuw i8, ptr @.str.3, i64 %prefix.addr.0.i16.idx
   %2 = load i8, ptr %prefix.addr.0.i16.ptr, align 1
-  %incdec.ptr.i19 = getelementptr inbounds i8, ptr %str.addr.0.i15, i64 1
+  %incdec.ptr.i19 = getelementptr inbounds nuw i8, ptr %str.addr.0.i15, i64 1
   %3 = load i8, ptr %str.addr.0.i15, align 1
   %prefix.addr.0.i16.add = add nuw nsw i64 %prefix.addr.0.i16.idx, 1
   %cmp.i21 = icmp eq i8 %3, %2
@@ -308,7 +308,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %do.body.i14, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %do.body.i14 ]
-  %arrayidx20 = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx20, align 16
   %call21 = tail call i32 @strcasecmp(ptr noundef %scevgep38, ptr noundef %4) #12
   %tobool22.not = icmp eq i32 %call21, 0
@@ -316,7 +316,7 @@ for.body:                                         ; preds = %do.body.i14, %for.c
 
 if.end24:                                         ; preds = %for.body
   %call25 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #11
-  %enabled = getelementptr inbounds i8, ptr %arrayidx20, i64 8
+  %enabled = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 8
   store i32 %call25, ptr %enabled, align 8
   br label %return
 
@@ -346,7 +346,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 16
   %call.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.73, ptr noundef %prefix, ptr noundef %0) #11
   %call1.i = tail call ptr @string_list_append_nodup(ptr noundef %list, ptr noundef %call.i) #11
@@ -432,7 +432,7 @@ if.end43.sink.split:                              ; preds = %if.then34, %if.then
 if.end43:                                         ; preds = %if.end43.sink.split, %if.then34, %if.then27, %if.then20, %if.then13, %if.then6, %if.then
   %retval.0.i10.sink = phi ptr [ @.str.5, %if.then ], [ @.str.7, %if.then6 ], [ @.str.9, %if.then13 ], [ @.str.11, %if.then20 ], [ @.str.13, %if.then27 ], [ @.str.15, %if.then34 ], [ %call.i29, %if.end43.sink.split ]
   %call8 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i10.sink) #11
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 424), align 8
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8
   %tobool45.not = icmp eq i32 %6, 0
   br i1 %tobool45.not, label %if.end48, label %if.then46
 
@@ -506,7 +506,7 @@ if.end3.i:                                        ; preds = %entry
 _.exit:                                           ; preds = %entry, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.20, %entry ]
   %call1 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i) #11
-  %1 = load i32, ptr getelementptr inbounds (i8, ptr @advice_setting, i64 424), align 8
+  %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @advice_setting, i64 424), align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
@@ -543,7 +543,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local void @advise_on_updating_sparse_paths(ptr nocapture noundef readonly %pathspec_list) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %pathspec_list, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %pathspec_list, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -577,7 +577,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %6 = load ptr, ptr @stderr, align 8
   %7 = load ptr, ptr %item.01316, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.26, ptr noundef %7) #13
-  %incdec.ptr = getelementptr inbounds i8, ptr %item.01316, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.01316, i64 16
   %8 = load ptr, ptr %pathspec_list, align 8
   %9 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9
@@ -626,7 +626,7 @@ _.exit:                                           ; preds = %entry, %if.end3.i
 ; Function Attrs: nounwind uwtable
 define dso_local void @advise_on_moving_dirty_path(ptr nocapture noundef readonly %pathspec_list) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %pathspec_list, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %pathspec_list, i64 8
   %0 = load i64, ptr %nr, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -660,7 +660,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   %6 = load ptr, ptr @stderr, align 8
   %7 = load ptr, ptr %item.01316, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.26, ptr noundef %7) #13
-  %incdec.ptr = getelementptr inbounds i8, ptr %item.01316, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.01316, i64 16
   %8 = load ptr, ptr %pathspec_list, align 8
   %9 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %8, i64 %9

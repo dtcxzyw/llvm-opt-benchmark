@@ -48,7 +48,7 @@ define range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unna
   br i1 %.not16, label %16, label %.loopexit23
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %13, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %2, align 8
@@ -86,7 +86,7 @@ define range(i32 -1, 1) i32 @tres_freq_verify_cmdline(ptr noundef %0) local_unna
   br i1 %.not23.i, label %30, label %_valid_gpu_freq.exit.thread20
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %23, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %32 = call fastcc i32 @_test_val(ptr noundef %31)
   %.not24.i = icmp eq i32 %32, 0
   br i1 %.not24.i, label %.thread.i, label %_valid_gpu_freq.exit.thread20

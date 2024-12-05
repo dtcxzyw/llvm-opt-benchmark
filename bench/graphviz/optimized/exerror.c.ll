@@ -17,15 +17,15 @@ target triple = "x86_64-pc-linux-gnu"
 define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 860
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 860
   %10 = load i32, ptr %9, align 4
   %.not4 = icmp eq i32 %10, 0
   br i1 %.not4, label %11, label %19
@@ -36,9 +36,9 @@ define void @exerror(ptr nocapture noundef readonly %0, ...) local_unnamed_addr 
   %12 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 160
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8
   %.not5 = icmp eq ptr %12, null
   %18 = select i1 %.not5, ptr @.str.1, ptr %12
@@ -96,9 +96,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %16, label %8
@@ -108,9 +108,9 @@ define void @exwarn(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #
   %9 = call fastcc ptr @make_msg(ptr noundef %0, ptr noundef %2)
   call void @llvm.va_end.p0(ptr nonnull %2)
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @expr, i64 80), align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   %.not4 = icmp eq ptr %9, null
   %15 = select i1 %.not4, ptr @.str.1, ptr %9

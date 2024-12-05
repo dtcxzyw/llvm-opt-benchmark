@@ -59,73 +59,73 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   br label %13
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 76
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 10, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 24, ptr %12, align 8
   br label %.loopexit4
 
 13:                                               ; preds = %8, %7, %4
   %.ph = phi ptr [ @esp6_handlers, %4 ], [ @ah6_handlers, %7 ], [ @ipcomp6_handlers, %8 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 10, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 24, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %18, 2
   br i1 %19, label %20, label %63
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 180
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %24 = load i16, ptr %23, align 4
   %25 = zext i16 %24 to i64
   %26 = getelementptr i8, ptr %22, i64 %25
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #7
-  %27 = getelementptr inbounds i8, ptr %5, i64 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false)
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 216
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 216
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %27, align 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 12
-  %33 = getelementptr inbounds i8, ptr %0, i64 164
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %34 = load i32, ptr %33, align 4
   store i32 %34, ptr %32, align 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 18
-  %36 = getelementptr inbounds i8, ptr %26, i64 6
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 6
   %37 = load i8, ptr %36, align 2
   store i8 %37, ptr %35, align 2
-  %38 = getelementptr inbounds i8, ptr %5, i64 40
-  %39 = getelementptr inbounds i8, ptr %26, i64 8
-  %40 = getelementptr inbounds i8, ptr %26, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %38, ptr noundef align 4 dereferenceable(16) %40, i64 16, i1 false)
-  %41 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %41, ptr noundef align 4 dereferenceable(16) %39, i64 16, i1 false)
-  %42 = getelementptr inbounds i8, ptr %5, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %40, i64 16, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 4 dereferenceable(16) %39, i64 16, i1 false)
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %43 = load i32, ptr %26, align 4
   %44 = and i32 %43, -241
   store i32 %44, ptr %42, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %29, i64 272
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 272
   %47 = load ptr, ptr %46, align 8
   %48 = call ptr @ip6_route_input_lookup(ptr noundef %47, ptr noundef %29, ptr noundef nonnull %5, ptr noundef %0, i32 noundef 4) #7
-  %49 = getelementptr inbounds i8, ptr %48, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %50, 0
   br i1 %51, label %.thread3, label %62
 
 .thread3:                                         ; preds = %20
   %52 = icmp ne ptr %48, null
-  %53 = getelementptr inbounds i8, ptr %0, i64 129
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 129
   %54 = load i24, ptr %53, align 1
   %55 = and i24 %54, 1048576
   %56 = icmp ne i24 %55, 0
@@ -149,22 +149,22 @@ define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initialize
   br i1 %65, label %.loopexit4, label %.preheader
 
 66:                                               ; preds = %.preheader
-  %67 = getelementptr inbounds i8, ptr %70, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %68 = load volatile ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.loopexit4, label %.preheader, !llvm.loop !5
 
 .preheader:                                       ; preds = %63, %66
   %70 = phi ptr [ %68, %66 ], [ %64, %63 ]
-  %71 = getelementptr inbounds i8, ptr %70, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 %72(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #7
   %74 = icmp eq i32 %73, -22
   br i1 %74, label %66, label %.loopexit
 
 .loopexit4:                                       ; preds = %66, %9, %63
-  %75 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef %75) #7
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %75) #7
   br label %76
 
 76:                                               ; preds = %62, %.loopexit4
@@ -193,7 +193,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noundef %0, i8 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   switch i8 %1, label %39 [
     i8 50, label %5
@@ -225,13 +225,13 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   br i1 %8, label %.loopexit7, label %9
 
 9:                                                ; preds = %.thread
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %11, %4
   br i1 %12, label %.loopexit7, label %.preheader
 
 13:                                               ; preds = %20
-  %14 = getelementptr inbounds i8, ptr %22, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %15, %4
   br i1 %16, label %.loopexit7.loopexit, label %.preheader, !llvm.loop !8
@@ -243,20 +243,20 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_register(ptr noun
   br i1 %19, label %.loopexit, label %20
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr inbounds i8, ptr %18, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit7.loopexit, label %13, !llvm.loop !8
 
 .loopexit7.loopexit:                              ; preds = %20, %13
   %.ph = phi ptr [ null, %20 ], [ %22, %13 ]
-  %24 = getelementptr inbounds i8, ptr %18, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 32
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.loopexit7.loopexit, %9, %.thread
   %25 = phi ptr [ %.in, %.thread ], [ %.in, %9 ], [ %24, %.loopexit7.loopexit ]
   %26 = phi ptr [ null, %.thread ], [ %7, %9 ], [ %.ph, %.loopexit7.loopexit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %26, ptr %27, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   store volatile ptr %0, ptr %25, align 8
@@ -347,7 +347,7 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_deregister(ptr no
 
 .preheader:                                       ; preds = %11, %17
   %13 = phi ptr [ %15, %17 ], [ %9, %11 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %17, !llvm.loop !10
@@ -357,12 +357,12 @@ define dso_local noundef range(i32 -22, 1) i32 @xfrm6_protocol_deregister(ptr no
   br i1 %18, label %.loopexit2.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit2.loopexit:                              ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %13, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %.loopexit2
 
 .loopexit2:                                       ; preds = %.loopexit2.loopexit, %11
   %20 = phi ptr [ %8, %11 ], [ %19, %.loopexit2.loopexit ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
   br label %.loopexit
@@ -459,14 +459,14 @@ declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -21, -22) i32 @xfrm6_esp_rcv(ptr noundef initializes((64, 72)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @esp6_handlers, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit3, label %.preheader
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %9, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !11
@@ -479,8 +479,8 @@ define internal range(i32 -21, -22) i32 @xfrm6_esp_rcv(ptr noundef initializes((
   br i1 %12, label %5, label %.loopexit
 
 .loopexit3:                                       ; preds = %5, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef %13) #7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %13) #7
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #7
   br label %.loopexit
 
@@ -496,14 +496,14 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_esp_err(ptr noundef %0, ptr 
   br i1 %8, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %13, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !12
 
 .preheader:                                       ; preds = %6, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %6 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #7
   %17 = icmp eq i32 %16, 0
@@ -516,14 +516,14 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_esp_err(ptr noundef %0, ptr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -21, -22) i32 @xfrm6_ah_rcv(ptr noundef initializes((64, 72)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @ah6_handlers, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit3, label %.preheader
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %9, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !13
@@ -536,8 +536,8 @@ define internal range(i32 -21, -22) i32 @xfrm6_ah_rcv(ptr noundef initializes((6
   br i1 %12, label %5, label %.loopexit
 
 .loopexit3:                                       ; preds = %5, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef %13) #7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %13) #7
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #7
   br label %.loopexit
 
@@ -553,14 +553,14 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_ah_err(ptr noundef %0, ptr n
   br i1 %8, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %13, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !14
 
 .preheader:                                       ; preds = %6, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %6 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #7
   %17 = icmp eq i32 %16, 0
@@ -573,14 +573,14 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_ah_err(ptr noundef %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -21, -22) i32 @xfrm6_ipcomp_rcv(ptr noundef initializes((64, 72)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @ipcomp6_handlers, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit3, label %.preheader
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %9, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit3, label %.preheader, !llvm.loop !15
@@ -593,8 +593,8 @@ define internal range(i32 -21, -22) i32 @xfrm6_ipcomp_rcv(ptr noundef initialize
   br i1 %12, label %5, label %.loopexit
 
 .loopexit3:                                       ; preds = %5, %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef %13) #7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @icmp6_send(ptr noundef %0, i8 noundef zeroext 1, i8 noundef zeroext 4, i32 noundef 0, ptr noundef null, ptr noundef nonnull %13) #7
   tail call void @kfree_skb_reason(ptr noundef %0, i32 noundef 2) #7
   br label %.loopexit
 
@@ -610,14 +610,14 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_ipcomp_err(ptr noundef %0, p
   br i1 %8, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %13, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !16
 
 .preheader:                                       ; preds = %6, %9
   %13 = phi ptr [ %11, %9 ], [ %7, %6 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) #7
   %17 = icmp eq i32 %16, 0
@@ -649,14 +649,14 @@ define internal range(i32 -2147483648, 1) i32 @xfrm6_rcv_cb(ptr noundef %0, i8 n
   br i1 %9, label %.loopexit, label %.preheader
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %14, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %12 = load volatile ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %6, %10
   %14 = phi ptr [ %12, %10 ], [ %8, %6 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, i32 noundef %2) #7
   %18 = icmp slt i32 %17, 1

@@ -24,7 +24,7 @@ define i32 @jdk_hb_shape(float noundef %0, ptr nocapture noundef readonly %1, pt
 
 22:                                               ; preds = %15
   %23 = load float, ptr %1, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %25 = load float, ptr %24, align 4
   %26 = fcmp olt float %23, 0.000000e+00
   %27 = fneg float %23
@@ -91,7 +91,7 @@ euclidianDistance.exit:                           ; preds = %22, %31, %33
 
 66:                                               ; preds = %59
   %67 = tail call i32 @hb_feature_from_string(ptr noundef nonnull %18, i32 noundef -1, ptr noundef nonnull %65) #6
-  %68 = getelementptr inbounds i8, ptr %65, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %69 = tail call i32 @hb_feature_from_string(ptr noundef nonnull %20, i32 noundef -1, ptr noundef nonnull %68) #6
   br label %70
 

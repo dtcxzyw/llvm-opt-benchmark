@@ -113,7 +113,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i = alloca i64, align 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %0, ptr %this, align 8, !tbaa !4
   %cmp = icmp eq ptr %__s, null
   br i1 %cmp, label %if.then, label %if.end
@@ -154,7 +154,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
 
 invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if.then.i.i.i, %if.end.i
   %4 = load i64, ptr %__dnew.i, align 8, !tbaa !9
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %4, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %5 = load ptr, ptr %this, align 8, !tbaa !11
   %arrayidx.i.i = getelementptr inbounds i8, ptr %5, i64 %4
@@ -375,7 +375,7 @@ entry:
   %ss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %add = add i32 %field_size, %from_offset
-  %m_datasize = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_datasize, align 8, !tbaa !15
   %cmp = icmp ugt i32 %add, %0
   br i1 %cmp, label %if.then, label %if.end
@@ -425,12 +425,12 @@ lpad14:                                           ; preds = %invoke.cont13
   %3 = landingpad { ptr, i32 }
           cleanup
   %4 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad14
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %6 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %6, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -477,11 +477,11 @@ define linkonce_odr dso_local void @_ZN11PacketErrorC2ERKNSt7__cxx1112basic_stri
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !4
   %1 = load ptr, ptr %s, align 8, !tbaa !11
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24
   store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !9
@@ -523,7 +523,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !9
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %8, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !14
   %9 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -545,15 +545,15 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 define dso_local void @_ZN13NetworkPacket12putRawPacketEPKhjt(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 28), (34, 36)) %this, ptr nocapture noundef readonly %data, i32 noundef %datasize, i16 noundef zeroext %peer_id) local_unnamed_addr #4 align 2 {
 entry:
   %sub = add i32 %datasize, -2
-  %m_datasize = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %sub, ptr %m_datasize, align 8, !tbaa !15
-  %m_peer_id = getelementptr inbounds i8, ptr %this, i64 34
+  %m_peer_id = getelementptr inbounds nuw i8, ptr %this, i64 34
   store i16 %peer_id, ptr %m_peer_id, align 2, !tbaa !25
   %conv = zext i32 %sub to i64
   tail call void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %conv)
   %val.0.copyload.i = load i16, ptr %data, align 1
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i)
-  %m_command = getelementptr inbounds i8, ptr %this, i64 32
+  %m_command = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i16 %rev.i.i, ptr %m_command, align 8, !tbaa !26
   %0 = load i32, ptr %m_datasize, align 8, !tbaa !15
   %cmp.not = icmp eq i32 %0, 0
@@ -561,7 +561,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8, !tbaa !27
-  %arrayidx6 = getelementptr inbounds i8, ptr %data, i64 2
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %data, i64 2
   %conv8 = zext i32 %0 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %arrayidx6, i64 %conv8, i1 false)
   br label %if.end
@@ -573,7 +573,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !28
   %1 = load ptr, ptr %this, align 8, !tbaa !27
   %sub.ptr.lhs.cast.i = ptrtoint ptr %0 to i64
@@ -584,7 +584,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %sub = sub nuw i64 %__new_size, %sub.ptr.sub.i
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !29
   %sub.ptr.lhs.cast.i14 = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.lhs.cast.i
@@ -598,7 +598,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then
   store i8 0, ptr %0, align 1, !tbaa !13
-  %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 1
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %sub.i.i.i.i = add nsw i64 %sub, -1
   %cmp.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
@@ -626,14 +626,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %if.else.i
   %add.i.i = add nuw i64 %.sroa.speculated.i.i, %sub.ptr.sub.i
   %3 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 9223372036854775807)
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %3) #27
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %add.ptr.i, align 1, !tbaa !13
   %sub.i.i.i68.i = add nsw i64 %sub, -1
   %cmp.i.i.i.i.i69.i = icmp eq i64 %sub.i.i.i68.i, 0
   br i1 %cmp.i.i.i.i.i69.i, label %try.cont.i, label %if.then.i.i.i.i.i.i.i70.i
 
 if.then.i.i.i.i.i.i.i70.i:                        ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
-  %incdec.ptr.i.i.i67.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %incdec.ptr.i.i.i67.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i67.i, i8 0, i64 %sub.i.i.i68.i, i1 false)
   br label %try.cont.i
 
@@ -657,7 +657,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit78.i: ; preds = %if.then.i77.
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !27
   %add.ptr36.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %__new_size
   store ptr %add.ptr36.i, ptr %_M_finish.i, align 8, !tbaa !28
-  %add.ptr39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %3
+  %add.ptr39.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 %3
   store ptr %add.ptr39.i, ptr %_M_end_of_storage.i, align 8, !tbaa !29
   br label %if.end6
 
@@ -685,7 +685,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN13NetworkPacket5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !28
   %tobool.not.i.i = icmp eq ptr %1, %0
   br i1 %tobool.not.i.i, label %_ZNSt6vectorIhSaIhEE5clearEv.exit, label %invoke.cont.i.i
@@ -695,7 +695,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIhSaIhEE5clearEv.exit
 
 _ZNSt6vectorIhSaIhEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %entry
-  %m_datasize = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %m_datasize, i8 0, i64 12, i1 false)
   ret void
 }
@@ -706,17 +706,17 @@ entry:
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef 0)
   %conv = zext i32 %from_offset to i64
   %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %conv
   ret ptr %add.ptr.i
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13NetworkPacket12putRawStringEPKcj(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef readonly %src, i32 noundef %len) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, %len
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -735,7 +735,7 @@ if.end:                                           ; preds = %_ZN13NetworkPacket1
   %2 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   %conv2 = zext i32 %len to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %src, i64 %conv2, i1 false)
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -750,17 +750,17 @@ return:                                           ; preds = %if.end, %_ZN13Netwo
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 2)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i16, ptr %add.ptr.i, align 1
   %add = add i32 %1, 2
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %3 = load ptr, ptr %dst, align 8, !tbaa !11
   store i8 0, ptr %3, align 1, !tbaa !13
@@ -787,7 +787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %6 = load ptr, ptr %this, align 8, !tbaa !27
   %7 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv11 = zext i32 %7 to i64
-  %add.ptr.i24 = getelementptr inbounds i8, ptr %6, i64 %conv11
+  %add.ptr.i24 = getelementptr inbounds nuw i8, ptr %6, i64 %conv11
   %call.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef %add.ptr.i24, i64 noundef %conv8)
   %8 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add17 = add i32 %8, %conv5
@@ -824,12 +824,12 @@ lpad3:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -854,10 +854,10 @@ cleanup.action:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %conv = trunc nuw i64 %src.coerce0 to i16
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %5 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %5, 2
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %6
   br i1 %cmp.i.i, label %if.then.i.i15, label %_ZN13NetworkPacketlsEt.exit
@@ -873,7 +873,7 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i15, %if.
   %7 = phi i32 [ %5, %if.end ], [ %.pre.i, %if.then.i.i15 ]
   %conv.i = zext i32 %7 to i64
   %8 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %conv.i
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv)
   store i16 %rev.i.i.i, ptr %add.ptr.i.i, align 1
   %9 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
@@ -899,7 +899,7 @@ if.end.i:                                         ; preds = %_ZN13NetworkPacket1
   %12 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %conv.i20 = zext i32 %12 to i64
   %13 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i21 = getelementptr inbounds i8, ptr %13, i64 %conv.i20
+  %add.ptr.i.i21 = getelementptr inbounds nuw i8, ptr %13, i64 %conv.i20
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i21, ptr align 1 %src.coerce1, i64 %src.coerce0, i1 false)
   %14 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i22 = add i32 %14, %10
@@ -920,10 +920,10 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEt(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i16 noundef zeroext %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 2
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -939,7 +939,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %src)
   store i16 %rev.i.i, ptr %add.ptr.i, align 1
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -972,12 +972,12 @@ lpad3:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1002,10 +1002,10 @@ cleanup.action:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %conv = trunc nuw nsw i64 %src.coerce0 to i32
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %5 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %5, 4
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %6
   br i1 %cmp.i.i, label %if.then.i.i14, label %_ZN13NetworkPacketlsEj.exit
@@ -1021,7 +1021,7 @@ _ZN13NetworkPacketlsEj.exit:                      ; preds = %if.then.i.i14, %if.
   %7 = phi i32 [ %5, %if.end ], [ %.pre.i, %if.then.i.i14 ]
   %conv.i = zext i32 %7 to i64
   %8 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %conv.i
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %conv)
   store i32 %or7.i.i.i, ptr %add.ptr.i.i, align 1
   %9 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
@@ -1046,7 +1046,7 @@ if.end.i:                                         ; preds = %_ZN13NetworkPacket1
   %11 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %conv.i19 = zext i32 %11 to i64
   %12 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %12, i64 %conv.i19
+  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %12, i64 %conv.i19
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i20, ptr align 1 %src.coerce1, i64 %src.coerce0, i1 false)
   %13 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i21 = add i32 %13, %conv
@@ -1067,10 +1067,10 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEj(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i32 noundef %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 4
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -1086,7 +1086,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src)
   store i32 %or7.i.i, ptr %add.ptr.i, align 1
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -1098,18 +1098,18 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 2)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i)
   %add = add i32 %1, 2
   store i32 %add, ptr %m_read_offset, align 4, !tbaa !30
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %dst, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !31
   %3 = load ptr, ptr %dst, align 8, !tbaa !34
   store i32 0, ptr %3, align 4, !tbaa !35
@@ -1122,7 +1122,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %add, i32 noundef %mul)
   %conv8 = zext i16 %rev.i.i to i64
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %dst, i64 noundef %conv8)
-  %4 = getelementptr inbounds i8, ptr %dst, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %dst, i64 16
   %.pre = load i32, ptr %m_read_offset, align 4, !tbaa !30
   br label %for.body
 
@@ -1132,7 +1132,7 @@ for.body:                                         ; preds = %_ZNSt7__cxx1112basi
   %conv9 = zext i16 %i.063 to i32
   %conv14 = zext i32 %5 to i64
   %6 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i57 = getelementptr inbounds i8, ptr %6, i64 %conv14
+  %add.ptr.i57 = getelementptr inbounds nuw i8, ptr %6, i64 %conv14
   %val.0.copyload.i58 = load i16, ptr %add.ptr.i57, align 1
   %rev.i.i59 = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i58)
   %conv17 = zext i16 %rev.i.i59 to i32
@@ -1148,7 +1148,7 @@ if.then25:                                        ; preds = %for.body
   %add28 = add i32 %5, 2
   store i32 %add28, ptr %m_read_offset, align 4, !tbaa !30
   %conv32 = zext i32 %add28 to i64
-  %add.ptr.i60 = getelementptr inbounds i8, ptr %6, i64 %conv32
+  %add.ptr.i60 = getelementptr inbounds nuw i8, ptr %6, i64 %conv32
   %val.0.copyload.i61 = load i16, ptr %add.ptr.i60, align 1
   %and = shl nuw nsw i32 %conv17, 10
   %shl = and i32 %and, 1047552
@@ -1232,12 +1232,12 @@ lpad3:                                            ; preds = %invoke.cont
   %0 = landingpad { ptr, i32 }
           cleanup
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad3
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %3 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %3, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1262,10 +1262,10 @@ cleanup.action:                                   ; preds = %if.then
 
 if.end:                                           ; preds = %entry
   %cmp9 = icmp eq i64 %src.coerce0, 0
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %5 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %5, 2
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %6
   br i1 %cmp9, label %if.then10, label %if.end20
@@ -1284,7 +1284,7 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i84, %if.
   %7 = phi i32 [ %5, %if.then10 ], [ %.pre.i, %if.then.i.i84 ]
   %conv.i = zext i32 %7 to i64
   %8 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %8, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %conv.i
   store i16 0, ptr %add.ptr.i.i, align 1
   %9 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i = add i32 %9, 2
@@ -1305,7 +1305,7 @@ _ZN13NetworkPacketlsEt.exit107:                   ; preds = %if.then.i.i104, %if
   %10 = phi i32 [ %5, %if.end20 ], [ %.pre.i106, %if.then.i.i104 ]
   %conv.i101 = zext i32 %10 to i64
   %11 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i102 = getelementptr inbounds i8, ptr %11, i64 %conv.i101
+  %add.ptr.i.i102 = getelementptr inbounds nuw i8, ptr %11, i64 %conv.i101
   store i16 -3841, ptr %add.ptr.i.i102, align 1
   %12 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i103 = add i32 %12, 2
@@ -1321,7 +1321,7 @@ for.body28:                                       ; preds = %if.end41, %_ZN13Net
   %conv24164 = phi i64 [ 0, %_ZN13NetworkPacketlsEt.exit107 ], [ %conv24, %if.end41 ]
   %i22.0163 = phi i16 [ 0, %_ZN13NetworkPacketlsEt.exit107 ], [ %inc43, %if.end41 ]
   %written.0162 = phi i32 [ 0, %_ZN13NetworkPacketlsEt.exit107 ], [ %inc40, %if.end41 ]
-  %add.ptr.i109 = getelementptr inbounds i32, ptr %src.coerce1, i64 %conv24164
+  %add.ptr.i109 = getelementptr inbounds nuw i32, ptr %src.coerce1, i64 %conv24164
   %14 = load i32, ptr %add.ptr.i109, align 4, !tbaa !35
   %cmp31 = icmp sgt i32 %14, 65535
   br i1 %cmp31, label %if.then32, label %if.else
@@ -1347,7 +1347,7 @@ _ZN13NetworkPacketlsEt.exit121:                   ; preds = %if.then.i.i118, %if
   %17 = phi i32 [ %13, %if.then32 ], [ %.pre.i120, %if.then.i.i118 ]
   %conv.i114 = zext i32 %17 to i64
   %18 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %18, i64 %conv.i114
+  %add.ptr.i.i115 = getelementptr inbounds nuw i8, ptr %18, i64 %conv.i114
   %rev.i.i.i116 = tail call noundef i16 @llvm.bswap.i16(i16 %conv33)
   store i16 %rev.i.i.i116, ptr %add.ptr.i.i115, align 1
   %19 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
@@ -1384,7 +1384,7 @@ if.end41:                                         ; preds = %if.end41.sink.split
   %.sink = phi i32 [ 2, %_ZN13NetworkPacketlsEt.exit121 ], [ 1, %if.else ], [ %.sink.ph, %if.end41.sink.split ]
   %conv.i138 = zext i32 %.sink169 to i64
   %24 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %24, i64 %conv.i138
+  %add.ptr.i.i139 = getelementptr inbounds nuw i8, ptr %24, i64 %conv.i138
   %rev.i.i.i140 = tail call noundef i16 @llvm.bswap.i16(i16 %conv38.sink)
   store i16 %rev.i.i.i140, ptr %add.ptr.i.i139, align 1
   %add.i141.sink.in = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
@@ -1412,12 +1412,12 @@ lpad52:                                           ; preds = %invoke.cont51
   %25 = landingpad { ptr, i32 }
           cleanup
   %26 = load ptr, ptr %ref.tmp48, align 8, !tbaa !11
-  %27 = getelementptr inbounds i8, ptr %ref.tmp48, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %ref.tmp48, i64 16
   %cmp.i.i.i146 = icmp eq ptr %26, %27
   br i1 %cmp.i.i.i146, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148, label %if.then.i.i147
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i148: ; preds = %lpad52
-  %_M_string_length.i.i.i149 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
+  %_M_string_length.i.i.i149 = getelementptr inbounds nuw i8, ptr %ref.tmp48, i64 8
   %28 = load i64, ptr %_M_string_length.i.i.i149, align 8, !tbaa !14
   %cmp3.i.i.i150 = icmp ult i64 %28, 16
   call void @llvm.assume(i1 %cmp3.i.i.i150)
@@ -1443,7 +1443,7 @@ cleanup.action61:                                 ; preds = %if.then46
 if.end63:                                         ; preds = %for.cond.cleanup27
   %conv64 = zext i32 %5 to i64
   %30 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i152 = getelementptr inbounds i8, ptr %30, i64 %conv64
+  %add.ptr.i152 = getelementptr inbounds nuw i8, ptr %30, i64 %conv64
   %conv66 = trunc nuw i32 %inc40 to i16
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %conv66)
   store i16 %rev.i.i, ptr %add.ptr.i152, align 1
@@ -1465,13 +1465,13 @@ define dso_local void @_ZN13NetworkPacket14readLongStringB5cxx11Ev(ptr dead_on_u
 entry:
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator", align 1
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 4)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i)
   %add = add i32 %1, 4
@@ -1480,9 +1480,9 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %3, ptr %agg.result, align 8, !tbaa !4
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   store i8 0, ptr %3, align 8, !tbaa !13
   br label %cleanup
@@ -1507,12 +1507,12 @@ lpad11:                                           ; preds = %invoke.cont10
   %4 = landingpad { ptr, i32 }
           cleanup
   %5 = load ptr, ptr %ref.tmp7, align 8, !tbaa !11
-  %6 = getelementptr inbounds i8, ptr %ref.tmp7, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 16
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i42
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad11
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %7, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1537,9 +1537,9 @@ cleanup.action:                                   ; preds = %if.then6
 
 if.end16:                                         ; preds = %if.end
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %add, i32 noundef %or7.i.i)
-  %9 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %9, ptr %agg.result, align 8, !tbaa !4
-  %_M_string_length.i.i.i43 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %_M_string_length.i.i.i43 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i.i.i43, align 8, !tbaa !14
   store i8 0, ptr %9, align 8, !tbaa !13
   %conv18 = zext nneg i32 %or7.i.i to i64
@@ -1563,7 +1563,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   %11 = load ptr, ptr %this, align 8, !tbaa !27
   %12 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv23 = zext i32 %12 to i64
-  %add.ptr.i44 = getelementptr inbounds i8, ptr %11, i64 %conv23
+  %add.ptr.i44 = getelementptr inbounds nuw i8, ptr %11, i64 %conv23
   %call.i48 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %add.ptr.i44, i64 noundef %conv18)
           to label %invoke.cont26 unwind label %lpad19
 
@@ -1604,13 +1604,13 @@ unreachable:                                      ; preds = %invoke.cont10
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERc(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 1)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %3 = load i8, ptr %add.ptr.i, align 1, !tbaa !13
   store i8 %3, ptr %dst, align 1, !tbaa !13
   %4 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1622,10 +1622,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEc(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i8 noundef signext %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 1
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -1641,7 +1641,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   store i8 %src, ptr %add.ptr.i, align 1, !tbaa !13
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add = add i32 %4, 1
@@ -1652,10 +1652,10 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEh(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i8 noundef zeroext %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 1
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -1671,7 +1671,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   store i8 %src, ptr %add.ptr.i, align 1, !tbaa !13
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add = add i32 %4, 1
@@ -1682,10 +1682,10 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i1 noundef zeroext %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 1
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -1701,7 +1701,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   %conv2 = zext i1 %src to i8
   store i8 %conv2, ptr %add.ptr.i, align 1, !tbaa !13
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -1713,10 +1713,10 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEm(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i64 noundef %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 8
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -1732,7 +1732,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %src)
   store i64 %or19.i.i, ptr %add.ptr.i, align 1
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -1744,10 +1744,10 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEf(ptr noundef nonnull returned align 8 dereferenceable(36) %this, float noundef %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 4
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -1763,7 +1763,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   tail call void @_Z8writeF32Phf(ptr noundef nonnull %add.ptr.i, float noundef %src)
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add = add i32 %4, 4
@@ -1816,12 +1816,12 @@ lpad5:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad5
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -1861,13 +1861,13 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 1)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %3 = load i8, ptr %add.ptr.i, align 1, !tbaa !13
   %cmp = icmp ne i8 %3, 0
   %frombool = zext i1 %cmp to i8
@@ -1880,13 +1880,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERh(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 1)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %3 = load i8, ptr %add.ptr.i, align 1, !tbaa !13
   store i8 %3, ptr %dst, align 1, !tbaa !13
   %4 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1901,7 +1901,7 @@ entry:
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %offset, i32 noundef 1)
   %conv = zext i32 %offset to i64
   %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %conv
   %1 = load i8, ptr %add.ptr.i, align 1, !tbaa !13
   ret i8 %1
 }
@@ -1909,7 +1909,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN13NetworkPacket8getU8PtrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, i32 noundef %from_offset) local_unnamed_addr #4 align 2 {
 entry:
-  %m_datasize = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %m_datasize, align 8, !tbaa !15
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %return, label %if.end
@@ -1918,7 +1918,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef 1)
   %conv = zext i32 %from_offset to i64
   %1 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %conv
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -1929,13 +1929,13 @@ return:                                           ; preds = %if.end, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERt(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 2)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i)
   store i16 %rev.i.i, ptr %dst, align 2, !tbaa !44
@@ -1950,7 +1950,7 @@ entry:
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %from_offset, i32 noundef 2)
   %conv = zext i32 %from_offset to i64
   %0 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %conv
   %val.0.copyload.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i)
   ret i16 %rev.i.i
@@ -1959,13 +1959,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERj(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 4)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i)
   store i32 %or7.i.i, ptr %dst, align 4, !tbaa !45
@@ -1978,13 +1978,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERm(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 8)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i = load i64, ptr %add.ptr.i, align 1
   %or19.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %val.0.copyload.i)
   store i64 %or19.i.i, ptr %dst, align 8, !tbaa !9
@@ -1996,13 +1996,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERf(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 4)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %call3 = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %add.ptr.i)
   store float %call3, ptr %dst, align 4, !tbaa !46
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2059,12 +2059,12 @@ lpad7:                                            ; preds = %invoke.cont
   %2 = landingpad { ptr, i32 }
           cleanup
   %3 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %3, %4
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %lpad7
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %5, 16
   call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -2102,16 +2102,16 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #11 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 8)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %call.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef %add.ptr.i)
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i, i64 0
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %call2.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i)
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dst, align 4, !tbaa.struct !48
@@ -2124,22 +2124,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #11 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 12)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %call.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef %add.ptr.i)
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %call.i, i64 0
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %call2.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx1.i)
   %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %call2.i, i64 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %call4.i = tail call nsz noundef float @_Z7readF32PKh(ptr noundef nonnull %arrayidx3.i)
   store <2 x float> %retval.sroa.0.4.vec.insert.i, ptr %dst, align 4, !tbaa.struct !49
-  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %dst, i64 8
+  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store float %call4.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !46
   %3 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %3, 12
@@ -2150,13 +2150,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERs(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 2)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i)
   store i16 %rev.i.i.i, ptr %dst, align 2, !tbaa !44
@@ -2168,10 +2168,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEs(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i16 noundef signext %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %0, 2
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN13NetworkPacketlsEt.exit
@@ -2187,7 +2187,7 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre.i, %if.then.i.i ]
   %conv.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i
   %rev.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %src)
   store i16 %rev.i.i.i, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
@@ -2199,13 +2199,13 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERi(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 4)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i)
   store i32 %or7.i.i.i, ptr %dst, align 4, !tbaa !45
@@ -2218,10 +2218,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEi(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i32 noundef %src) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %0, 4
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN13NetworkPacketlsEj.exit
@@ -2237,7 +2237,7 @@ _ZN13NetworkPacketlsEj.exit:                      ; preds = %if.then.i.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre.i, %if.then.i.i ]
   %conv.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src)
   store i32 %or7.i.i.i, ptr %add.ptr.i.i, align 1
   %4 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
@@ -2249,19 +2249,19 @@ _ZN13NetworkPacketlsEj.exit:                      ; preds = %if.then.i.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIsEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) initializes((0, 6)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 6)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i.i = load i16, ptr %add.ptr.i, align 1
   %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i.i)
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %val.0.copyload.i.i7.i = load i16, ptr %arrayidx1.i, align 1
   %rev.i.i.i8.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i7.i)
-  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %val.0.copyload.i.i9.i = load i16, ptr %arrayidx3.i, align 1
   %rev.i.i.i10.i = tail call noundef i16 @llvm.bswap.i16(i16 %val.0.copyload.i.i9.i)
   %retval.sroa.5.0.insert.ext.i = zext i16 %rev.i.i.i10.i to i48
@@ -2281,15 +2281,15 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 8)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i.i = load i32, ptr %add.ptr.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %val.0.copyload.i.i4.i = load i32, ptr %arrayidx1.i, align 1
   %3 = zext i32 %val.0.copyload.i.i4.i to i64
   %4 = zext i32 %val.0.copyload.i.i.i to i64
@@ -2306,17 +2306,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 12)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i.i = load i32, ptr %add.ptr.i, align 1
-  %arrayidx1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 4
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 4
   %val.0.copyload.i.i7.i = load i32, ptr %arrayidx1.i, align 1
-  %arrayidx3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %val.0.copyload.i.i9.i = load i32, ptr %arrayidx3.i, align 1
   %or7.i.i.i10.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i9.i)
   %3 = zext i32 %val.0.copyload.i.i7.i to i64
@@ -2325,7 +2325,7 @@ entry:
   %6 = or disjoint i64 %5, %3
   %retval.sroa.0.0.insert.insert.i = tail call i64 @llvm.bswap.i64(i64 %6)
   store i64 %retval.sroa.0.0.insert.insert.i, ptr %dst, align 4, !tbaa.struct !52
-  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %dst, i64 8
+  %ref.tmp.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %or7.i.i.i10.i, ptr %ref.tmp.sroa.4.0..sroa_idx, align 4, !tbaa !45
   %7 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %add = add i32 %7, 12
@@ -2337,10 +2337,10 @@ entry:
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEN3irr4core8vector2dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, <2 x float> %src.coerce) local_unnamed_addr #11 align 2 {
 entry:
   %src.sroa.0.0.vec.extract = extractelement <2 x float> %src.coerce, i64 0
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %0, 4
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN13NetworkPacketlsEf.exit
@@ -2356,7 +2356,7 @@ _ZN13NetworkPacketlsEf.exit:                      ; preds = %if.then.i.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre.i, %if.then.i.i ]
   %conv.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i
   tail call void @_Z8writeF32Phf(ptr noundef nonnull %add.ptr.i.i, float noundef %src.sroa.0.0.vec.extract)
   %4 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i = add i32 %4, 4
@@ -2378,7 +2378,7 @@ _ZN13NetworkPacketlsEf.exit13:                    ; preds = %if.then.i.i10, %_ZN
   %src.sroa.0.4.vec.extract = extractelement <2 x float> %src.coerce, i64 1
   %conv.i7 = zext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i8 = getelementptr inbounds i8, ptr %7, i64 %conv.i7
+  %add.ptr.i.i8 = getelementptr inbounds nuw i8, ptr %7, i64 %conv.i7
   tail call void @_Z8writeF32Phf(ptr noundef nonnull %add.ptr.i.i8, float noundef %src.sroa.0.4.vec.extract)
   %8 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i9 = add i32 %8, 4
@@ -2390,10 +2390,10 @@ _ZN13NetworkPacketlsEf.exit13:                    ; preds = %if.then.i.i10, %_ZN
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEN3irr4core8vector3dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, <2 x float> %src.coerce0, float %src.coerce1) local_unnamed_addr #11 align 2 {
 entry:
   %src.sroa.0.0.vec.extract = extractelement <2 x float> %src.coerce0, i64 0
-  %m_read_offset.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i.i = add i32 %0, 4
-  %m_datasize.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i, align 8, !tbaa !15
   %cmp.i.i = icmp ugt i32 %add.i.i, %1
   br i1 %cmp.i.i, label %if.then.i.i, label %_ZN13NetworkPacketlsEf.exit
@@ -2409,7 +2409,7 @@ _ZN13NetworkPacketlsEf.exit:                      ; preds = %if.then.i.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre.i, %if.then.i.i ]
   %conv.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i
   tail call void @_Z8writeF32Phf(ptr noundef nonnull %add.ptr.i.i, float noundef %src.sroa.0.0.vec.extract)
   %4 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i = add i32 %4, 4
@@ -2431,7 +2431,7 @@ _ZN13NetworkPacketlsEf.exit14:                    ; preds = %if.then.i.i11, %_ZN
   %6 = phi i32 [ %add.i, %_ZN13NetworkPacketlsEf.exit ], [ %.pre.i13, %if.then.i.i11 ]
   %conv.i8 = zext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i9 = getelementptr inbounds i8, ptr %7, i64 %conv.i8
+  %add.ptr.i.i9 = getelementptr inbounds nuw i8, ptr %7, i64 %conv.i8
   tail call void @_Z8writeF32Phf(ptr noundef nonnull %add.ptr.i.i9, float noundef %src.sroa.0.4.vec.extract)
   %8 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i10 = add i32 %8, 4
@@ -2452,7 +2452,7 @@ _ZN13NetworkPacketlsEf.exit25:                    ; preds = %if.then.i.i22, %_ZN
   %10 = phi i32 [ %add.i10, %_ZN13NetworkPacketlsEf.exit14 ], [ %.pre.i24, %if.then.i.i22 ]
   %conv.i19 = zext i32 %10 to i64
   %11 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %11, i64 %conv.i19
+  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %11, i64 %conv.i19
   tail call void @_Z8writeF32Phf(ptr noundef nonnull %add.ptr.i.i20, float noundef %src.coerce1)
   %12 = load i32, ptr %m_read_offset.i.i, align 4, !tbaa !30
   %add.i21 = add i32 %12, 4
@@ -2466,10 +2466,10 @@ entry:
   %src.sroa.0.0.extract.trunc = trunc i48 %src.coerce to i16
   %src.sroa.2.0.extract.shift = lshr i48 %src.coerce, 16
   %src.sroa.2.0.extract.trunc = trunc i48 %src.sroa.2.0.extract.shift to i16
-  %m_read_offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
   %add.i.i.i = add i32 %0, 2
-  %m_datasize.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i.i, align 8, !tbaa !15
   %cmp.i.i.i = icmp ugt i32 %add.i.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN13NetworkPacketlsEs.exit
@@ -2485,7 +2485,7 @@ _ZN13NetworkPacketlsEs.exit:                      ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %0, %entry ], [ %.pre.i.i, %if.then.i.i.i ]
   %conv.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i.i
   %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %src.sroa.0.0.extract.trunc)
   store i16 %rev.i.i.i.i, ptr %add.ptr.i.i.i, align 1
   %4 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2507,7 +2507,7 @@ _ZN13NetworkPacketlsEs.exit15:                    ; preds = %if.then.i.i.i12, %_
   %6 = phi i32 [ %add.i.i, %_ZN13NetworkPacketlsEs.exit ], [ %.pre.i.i14, %if.then.i.i.i12 ]
   %conv.i.i8 = zext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %7, i64 %conv.i.i8
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %7, i64 %conv.i.i8
   %rev.i.i.i.i10 = tail call noundef i16 @llvm.bswap.i16(i16 %src.sroa.2.0.extract.trunc)
   store i16 %rev.i.i.i.i10, ptr %add.ptr.i.i.i9, align 1
   %8 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2531,7 +2531,7 @@ _ZN13NetworkPacketlsEs.exit27:                    ; preds = %if.then.i.i.i24, %_
   %src.sroa.3.0.extract.trunc = trunc nuw i48 %src.sroa.3.0.extract.shift to i16
   %conv.i.i20 = zext i32 %10 to i64
   %11 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i21 = getelementptr inbounds i8, ptr %11, i64 %conv.i.i20
+  %add.ptr.i.i.i21 = getelementptr inbounds nuw i8, ptr %11, i64 %conv.i.i20
   %rev.i.i.i.i22 = tail call noundef i16 @llvm.bswap.i16(i16 %src.sroa.3.0.extract.trunc)
   store i16 %rev.i.i.i.i22, ptr %add.ptr.i.i.i21, align 1
   %12 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2544,10 +2544,10 @@ _ZN13NetworkPacketlsEs.exit27:                    ; preds = %if.then.i.i.i24, %_
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEN3irr4core8vector2dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i64 %src.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %src.sroa.0.0.extract.trunc = trunc i64 %src.coerce to i32
-  %m_read_offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
   %add.i.i.i = add i32 %0, 4
-  %m_datasize.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i.i, align 8, !tbaa !15
   %cmp.i.i.i = icmp ugt i32 %add.i.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN13NetworkPacketlsEi.exit
@@ -2563,7 +2563,7 @@ _ZN13NetworkPacketlsEi.exit:                      ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %0, %entry ], [ %.pre.i.i, %if.then.i.i.i ]
   %conv.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i.i
   %or7.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src.sroa.0.0.extract.trunc)
   store i32 %or7.i.i.i.i, ptr %add.ptr.i.i.i, align 1
   %4 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2587,7 +2587,7 @@ _ZN13NetworkPacketlsEi.exit14:                    ; preds = %if.then.i.i.i11, %_
   %src.sroa.2.0.extract.trunc = trunc nuw i64 %src.sroa.2.0.extract.shift to i32
   %conv.i.i7 = zext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %7, i64 %conv.i.i7
+  %add.ptr.i.i.i8 = getelementptr inbounds nuw i8, ptr %7, i64 %conv.i.i7
   %or7.i.i.i.i9 = tail call noundef i32 @llvm.bswap.i32(i32 %src.sroa.2.0.extract.trunc)
   store i32 %or7.i.i.i.i9, ptr %add.ptr.i.i.i8, align 1
   %8 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2602,10 +2602,10 @@ entry:
   %src.sroa.0.0.extract.trunc = trunc i64 %src.coerce0 to i32
   %src.sroa.2.0.extract.shift = lshr i64 %src.coerce0, 32
   %src.sroa.2.0.extract.trunc = trunc nuw i64 %src.sroa.2.0.extract.shift to i32
-  %m_read_offset.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
   %add.i.i.i = add i32 %0, 4
-  %m_datasize.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i.i.i, align 8, !tbaa !15
   %cmp.i.i.i = icmp ugt i32 %add.i.i.i, %1
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZN13NetworkPacketlsEi.exit
@@ -2621,7 +2621,7 @@ _ZN13NetworkPacketlsEi.exit:                      ; preds = %if.then.i.i.i, %ent
   %2 = phi i32 [ %0, %entry ], [ %.pre.i.i, %if.then.i.i.i ]
   %conv.i.i = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv.i.i
   %or7.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src.sroa.0.0.extract.trunc)
   store i32 %or7.i.i.i.i, ptr %add.ptr.i.i.i, align 1
   %4 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2643,7 +2643,7 @@ _ZN13NetworkPacketlsEi.exit15:                    ; preds = %if.then.i.i.i12, %_
   %6 = phi i32 [ %add.i.i, %_ZN13NetworkPacketlsEi.exit ], [ %.pre.i.i14, %if.then.i.i.i12 ]
   %conv.i.i8 = zext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %7, i64 %conv.i.i8
+  %add.ptr.i.i.i9 = getelementptr inbounds nuw i8, ptr %7, i64 %conv.i.i8
   %or7.i.i.i.i10 = tail call noundef i32 @llvm.bswap.i32(i32 %src.sroa.2.0.extract.trunc)
   store i32 %or7.i.i.i.i10, ptr %add.ptr.i.i.i9, align 1
   %8 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2665,7 +2665,7 @@ _ZN13NetworkPacketlsEi.exit27:                    ; preds = %if.then.i.i.i24, %_
   %10 = phi i32 [ %add.i.i11, %_ZN13NetworkPacketlsEi.exit15 ], [ %.pre.i.i26, %if.then.i.i.i24 ]
   %conv.i.i20 = zext i32 %10 to i64
   %11 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i.i.i21 = getelementptr inbounds i8, ptr %11, i64 %conv.i.i20
+  %add.ptr.i.i.i21 = getelementptr inbounds nuw i8, ptr %11, i64 %conv.i.i20
   %or7.i.i.i.i22 = tail call noundef i32 @llvm.bswap.i32(i32 %src.coerce1)
   store i32 %or7.i.i.i.i22, ptr %add.ptr.i.i.i21, align 1
   %12 = load i32, ptr %m_read_offset.i.i.i, align 4, !tbaa !30
@@ -2677,13 +2677,13 @@ _ZN13NetworkPacketlsEi.exit27:                    ; preds = %if.then.i.i.i24, %_
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr5video6SColorE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   tail call void @_ZNK13NetworkPacket15checkReadOffsetEjj(ptr noundef nonnull align 8 dereferenceable(36) %this, i32 noundef %0, i32 noundef 4)
   %1 = load i32, ptr %m_read_offset, align 4, !tbaa !30
   %conv = zext i32 %1 to i64
   %2 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %conv
   %val.0.copyload.i.i = load i32, ptr %add.ptr.i, align 1
   %or7.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i)
   store i32 %or7.i.i.i, ptr %dst, align 4, !tbaa !45
@@ -2696,10 +2696,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketlsEN3irr5video6SColorE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, i32 %src.coerce) local_unnamed_addr #4 align 2 {
 entry:
-  %m_read_offset.i = getelementptr inbounds i8, ptr %this, i64 28
+  %m_read_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
   %add.i = add i32 %0, 4
-  %m_datasize.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize.i, align 8, !tbaa !15
   %cmp.i = icmp ugt i32 %add.i, %1
   br i1 %cmp.i, label %if.then.i, label %_ZN13NetworkPacket13checkDataSizeEj.exit
@@ -2715,7 +2715,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
   %2 = phi i32 [ %0, %entry ], [ %.pre, %if.then.i ]
   %conv = zext i32 %2 to i64
   %3 = load ptr, ptr %this, align 8, !tbaa !27
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 %conv
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 %conv
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %src.coerce)
   store i32 %or7.i.i, ptr %add.ptr.i, align 1
   %4 = load i32, ptr %m_read_offset.i, align 4, !tbaa !30
@@ -2727,22 +2727,22 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13NetworkPacket14oldForgePacketEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Buffer) align 8 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_command = getelementptr inbounds i8, ptr %this, i64 32
+  %m_command = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i16, ptr %m_command, align 8, !tbaa !26
   %cmp = icmp eq i16 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_size.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_size.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 0, ptr %m_size.i, align 8, !tbaa !53
   store ptr null, ptr %agg.result, align 8, !tbaa !55
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_datasize = getelementptr inbounds i8, ptr %this, i64 24
+  %m_datasize = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr %m_datasize, align 8, !tbaa !15
   %add = add i32 %1, 2
-  %m_size.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %m_size.i14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i32 %add, ptr %m_size.i14, align 8, !tbaa !53
   %cmp.not.i = icmp ne i32 %add, 0
   tail call void @llvm.assume(i1 %cmp.not.i)
@@ -2755,7 +2755,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5.not, label %return, label %if.then6
 
 if.then6:                                         ; preds = %if.end
-  %arrayidx.i = getelementptr inbounds i8, ptr %call.i, i64 2
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 2
   %2 = load ptr, ptr %this, align 8, !tbaa !27
   %conv11 = zext i32 %1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i, ptr align 1 %2, i64 %conv11, i1 false)
@@ -2769,14 +2769,14 @@ return:                                           ; preds = %if.then6, %if.end, 
 define linkonce_odr dso_local void @_ZN11PacketErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -2795,7 +2795,7 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_s = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !11
   ret ptr %0
 }
@@ -2816,14 +2816,14 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -2856,11 +2856,11 @@ define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112bas
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %m_s.i, align 8, !tbaa !4
   %1 = load ptr, ptr %s, align 8, !tbaa !11
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %s, i64 8
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24
   store i64 %2, ptr %__dnew.i.i.i, align 8, !tbaa !9
@@ -2902,7 +2902,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
 
 _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %if.end.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.end.i.i.i
   %8 = load i64, ptr %__dnew.i.i.i, align 8, !tbaa !9
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %8, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !14
   %9 = load ptr, ptr %m_s.i, align 8, !tbaa !11
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
@@ -2916,14 +2916,14 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
-  %m_s = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s, align 8, !tbaa !11
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %entry
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -2942,14 +2942,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13BaseException, i64 16), ptr %this, align 8, !tbaa !23
-  %m_s.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_s.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_s.i, align 8, !tbaa !11
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %0, %1
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %entry
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i.i = icmp ult i64 %2, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)

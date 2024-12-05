@@ -148,7 +148,7 @@ declare ptr @sdsAllocPtr(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @activeDefragStringOb(ptr noundef %ob) #0 {
 entry:
-  %refcount = getelementptr inbounds i8, ptr %ob, i64 4
+  %refcount = getelementptr inbounds nuw i8, ptr %ob, i64 4
   %0 = load i32, ptr %refcount, align 4
   %cmp.not = icmp eq i32 %0, 1
   br i1 %cmp.not, label %if.end, label %return
@@ -205,7 +205,7 @@ if.then12:                                        ; preds = %if.end8
   ]
 
 if.then17:                                        ; preds = %if.then12
-  %ptr = getelementptr inbounds i8, ptr %ob.addr.0, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob.addr.0, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %call.i18 = tail call ptr @sdsAllocPtr(ptr noundef %4) #11
   %call.i.i = tail call i32 @je_get_defrag_hint(ptr noundef %call.i18) #11
@@ -238,7 +238,7 @@ if.then20:                                        ; preds = %activeDefragSds.exi
   br label %return
 
 if.then27:                                        ; preds = %if.then12
-  %ptr28 = getelementptr inbounds i8, ptr %ob.addr.0, i64 8
+  %ptr28 = getelementptr inbounds nuw i8, ptr %ob.addr.0, i64 8
   %7 = load ptr, ptr %ptr28, align 8
   %call.i21 = tail call i32 @je_get_defrag_hint(ptr noundef nonnull %ob.addr.0) #11
   %tobool.not.i22 = icmp eq i32 %call.i21, 0
@@ -268,7 +268,7 @@ if.then31:                                        ; preds = %activeDefragAlloc.e
   %12 = ptrtoint ptr %call2.i25 to i64
   %add = add nsw i64 %sub, %12
   %13 = inttoptr i64 %add to ptr
-  %ptr32 = getelementptr inbounds i8, ptr %call2.i25, i64 8
+  %ptr32 = getelementptr inbounds nuw i8, ptr %call2.i25, i64 8
   store ptr %13, ptr %ptr32, align 8
   br label %return
 
@@ -314,7 +314,7 @@ activeDefragAlloc.exit:                           ; preds = %if.then.i, %if.end.
   %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %spec.select = select i1 %tobool.not, ptr %script, ptr %retval.0.i
-  %body = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %body = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %2 = load ptr, ptr %body, align 8
   %call1 = tail call ptr @activeDefragStringOb(ptr noundef %2)
   %tobool2.not = icmp eq ptr %call1, null
@@ -331,7 +331,7 @@ if.end5:                                          ; preds = %if.then3, %activeDe
 ; Function Attrs: nounwind uwtable
 define dso_local void @dictDefragTables(ptr nocapture noundef %d) local_unnamed_addr #0 {
 entry:
-  %ht_table = getelementptr inbounds i8, ptr %d, i64 8
+  %ht_table = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load ptr, ptr %ht_table, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -359,7 +359,7 @@ if.then:                                          ; preds = %activeDefragAlloc.e
   br label %if.end
 
 if.end:                                           ; preds = %activeDefragAlloc.exit.thread, %if.then, %activeDefragAlloc.exit
-  %arrayidx4 = getelementptr inbounds i8, ptr %d, i64 16
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %d, i64 16
   %3 = load ptr, ptr %arrayidx4, align 8
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.end15, label %if.then6
@@ -397,7 +397,7 @@ if.end15:                                         ; preds = %activeDefragAlloc.e
 ; Function Attrs: nounwind uwtable
 define dso_local void @zslUpdateNode(ptr nocapture noundef %zsl, ptr noundef readnone %oldnode, ptr noundef %newnode, ptr nocapture noundef readonly %update) local_unnamed_addr #0 {
 entry:
-  %level = getelementptr inbounds i8, ptr %zsl, i64 24
+  %level = getelementptr inbounds nuw i8, ptr %zsl, i64 24
   %0 = load i32, ptr %level, align 8
   %cmp18 = icmp sgt i32 %0, 0
   br i1 %cmp18, label %for.body, label %for.end
@@ -405,10 +405,10 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %1 = phi i32 [ %4, %for.inc ], [ %0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds ptr, ptr %update, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %update, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %level1 = getelementptr inbounds i8, ptr %2, i64 24
-  %arrayidx3 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level1, i64 0, i64 %indvars.iv
+  %level1 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %arrayidx3 = getelementptr inbounds nuw [0 x %struct.zskiplistLevel], ptr %level1, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx3, align 8
   %cmp4 = icmp eq ptr %3, %oldnode
   br i1 %cmp4, label %if.then, label %for.inc
@@ -436,13 +436,13 @@ cond.false:                                       ; preds = %for.end
   unreachable
 
 cond.end:                                         ; preds = %for.end
-  %level13 = getelementptr inbounds i8, ptr %newnode, i64 24
+  %level13 = getelementptr inbounds nuw i8, ptr %newnode, i64 24
   %7 = load ptr, ptr %level13, align 8
   %tobool16.not = icmp eq ptr %7, null
   br i1 %tobool16.not, label %if.else, label %if.then17
 
 if.then17:                                        ; preds = %cond.end
-  %backward = getelementptr inbounds i8, ptr %7, i64 16
+  %backward = getelementptr inbounds nuw i8, ptr %7, i64 16
   %8 = load ptr, ptr %backward, align 8
   %cmp21 = icmp eq ptr %8, %oldnode
   br i1 %cmp21, label %cond.end31, label %cond.false30
@@ -457,7 +457,7 @@ cond.end31:                                       ; preds = %if.then17
   br label %if.end48
 
 if.else:                                          ; preds = %cond.end
-  %tail = getelementptr inbounds i8, ptr %zsl, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %zsl, i64 8
   %9 = load ptr, ptr %tail, align 8
   %cmp36 = icmp eq ptr %9, %oldnode
   br i1 %cmp36, label %cond.end46, label %cond.false45
@@ -484,7 +484,7 @@ entry:
   %tobool.not = icmp eq ptr %newele, null
   %cond = select i1 %tobool.not, ptr %oldele, ptr %newele
   %0 = load ptr, ptr %zsl, align 8
-  %level = getelementptr inbounds i8, ptr %zsl, i64 24
+  %level = getelementptr inbounds nuw i8, ptr %zsl, i64 24
   %1 = load i32, ptr %level, align 8
   %cmp51 = icmp sgt i32 %1, 0
   br i1 %cmp51, label %while.cond.preheader.preheader, label %for.end
@@ -497,7 +497,7 @@ while.cond.preheader:                             ; preds = %while.cond.preheade
   %indvars.iv = phi i64 [ %2, %while.cond.preheader.preheader ], [ %indvars.iv.next, %while.end ]
   %x.052 = phi ptr [ %0, %while.cond.preheader.preheader ], [ %x.1.lcssa, %while.end ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %level138 = getelementptr inbounds i8, ptr %x.052, i64 24
+  %level138 = getelementptr inbounds nuw i8, ptr %x.052, i64 24
   %arrayidx39 = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level138, i64 0, i64 %indvars.iv.next
   %3 = load ptr, ptr %arrayidx39, align 8
   %tobool2.not40 = icmp eq ptr %3, null
@@ -518,7 +518,7 @@ land.rhs:                                         ; preds = %land.lhs.true.prehe
   %x.14158 = phi ptr [ %9, %land.lhs.true ], [ %x.052, %land.lhs.true.preheader ]
   %arrayidx4257 = phi ptr [ %arrayidx, %land.lhs.true ], [ %arrayidx39, %land.lhs.true.preheader ]
   %7 = phi ptr [ %10, %land.lhs.true ], [ %3, %land.lhs.true.preheader ]
-  %score13 = getelementptr inbounds i8, ptr %7, i64 8
+  %score13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load double, ptr %score13, align 8
   %cmp14 = fcmp olt double %8, %score
   br i1 %cmp14, label %while.body, label %lor.rhs
@@ -538,7 +538,7 @@ land.rhs21.while.body_crit_edge:                  ; preds = %land.rhs21
 
 while.body:                                       ; preds = %land.rhs21.while.body_crit_edge, %land.rhs
   %9 = phi ptr [ %.pre, %land.rhs21.while.body_crit_edge ], [ %7, %land.rhs ]
-  %level1 = getelementptr inbounds i8, ptr %9, i64 24
+  %level1 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %arrayidx = getelementptr inbounds [0 x %struct.zskiplistLevel], ptr %level1, i64 0, i64 %indvars.iv.next
   %10 = load ptr, ptr %arrayidx, align 8
   %tobool2.not = icmp eq ptr %10, null
@@ -553,13 +553,13 @@ while.end:                                        ; preds = %land.lhs.true, %whi
 
 for.end:                                          ; preds = %while.end, %entry
   %x.0.lcssa = phi ptr [ %0, %entry ], [ %x.1.lcssa, %while.end ]
-  %level35 = getelementptr inbounds i8, ptr %x.0.lcssa, i64 24
+  %level35 = getelementptr inbounds nuw i8, ptr %x.0.lcssa, i64 24
   %11 = load ptr, ptr %level35, align 8
   %tobool38.not = icmp eq ptr %11, null
   br i1 %tobool38.not, label %cond.false49, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %for.end
-  %score40 = getelementptr inbounds i8, ptr %11, i64 8
+  %score40 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load double, ptr %score40, align 8
   %cmp41 = fcmp oeq double %score, %12
   br i1 %cmp41, label %land.rhs42, label %cond.false49
@@ -605,7 +605,7 @@ activeDefragAlloc.exit:                           ; preds = %if.end
 
 if.then55:                                        ; preds = %activeDefragAlloc.exit
   call void @zslUpdateNode(ptr noundef nonnull %zsl, ptr noundef nonnull %11, ptr noundef nonnull %call2.i, ptr noundef nonnull %update)
-  %score56 = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %score56 = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   br label %return
 
 return:                                           ; preds = %activeDefragAlloc.exit.thread, %activeDefragAlloc.exit, %if.then55
@@ -652,7 +652,7 @@ if.then:                                          ; preds = %activeDefragSds.exi
 
 if.end:                                           ; preds = %activeDefragSds.exit, %activeDefragSds.exit.thread, %if.then
   %.sink19 = phi ptr [ %add.ptr.i, %if.then ], [ null, %activeDefragSds.exit.thread ], [ null, %activeDefragSds.exit ]
-  %zsl9 = getelementptr inbounds i8, ptr %zs, i64 8
+  %zsl9 = getelementptr inbounds nuw i8, ptr %zs, i64 8
   %3 = load ptr, ptr %zsl9, align 8
   %call210 = tail call ptr @dictGetVal(ptr noundef %de) #11
   %4 = load double, ptr %call210, align 8
@@ -688,9 +688,9 @@ define dso_local void @activeDefragSdsDict(ptr noundef %d, i32 noundef %val_type
 entry:
   %defragfns = alloca %struct.dictDefragFunctions, align 8
   store ptr @activeDefragAlloc, ptr %defragfns, align 8
-  %defragKey = getelementptr inbounds i8, ptr %defragfns, i64 8
+  %defragKey = getelementptr inbounds nuw i8, ptr %defragfns, i64 8
   store ptr @activeDefragSds, ptr %defragKey, align 8
-  %defragVal = getelementptr inbounds i8, ptr %defragfns, i64 16
+  %defragVal = getelementptr inbounds nuw i8, ptr %defragfns, i64 16
   switch i32 %val_type, label %cond.false3 [
     i32 1, label %cond.end11
     i32 2, label %cond.end11.fold.split
@@ -731,7 +731,7 @@ entry:
   br i1 %tobool.not41, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %tail = getelementptr inbounds i8, ptr %l, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %l, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -763,7 +763,7 @@ if.then:                                          ; preds = %activeDefragAlloc.e
   br i1 %tobool2.not, label %if.else, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %next = getelementptr inbounds i8, ptr %2, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %call2.i, ptr %next, align 8
   br label %if.end
 
@@ -772,7 +772,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then3
-  %next6 = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %next6 = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   %3 = load ptr, ptr %next6, align 8
   %tobool7.not = icmp eq ptr %3, null
   br i1 %tobool7.not, label %if.else11, label %if.then8
@@ -794,7 +794,7 @@ if.end13:                                         ; preds = %activeDefragAlloc.e
   ]
 
 if.then14:                                        ; preds = %if.end13
-  %value = getelementptr inbounds i8, ptr %ln.1, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %ln.1, i64 16
   %4 = load ptr, ptr %value, align 8
   %call.i22 = tail call ptr @sdsAllocPtr(ptr noundef %4) #11
   %call.i.i = tail call i32 @je_get_defrag_hint(ptr noundef %call.i22) #11
@@ -827,7 +827,7 @@ if.then17:                                        ; preds = %activeDefragSds.exi
   br label %for.inc
 
 if.then22:                                        ; preds = %if.end13
-  %value23 = getelementptr inbounds i8, ptr %ln.1, i64 16
+  %value23 = getelementptr inbounds nuw i8, ptr %ln.1, i64 16
   %7 = load ptr, ptr %value23, align 8
   %call24 = tail call ptr @activeDefragStringOb(ptr noundef %7)
   %tobool25.not = icmp eq ptr %call24, null
@@ -838,7 +838,7 @@ if.then26:                                        ; preds = %if.then22
   br label %for.inc
 
 if.then31:                                        ; preds = %if.end13
-  %value32 = getelementptr inbounds i8, ptr %ln.1, i64 16
+  %value32 = getelementptr inbounds nuw i8, ptr %ln.1, i64 16
   %8 = load ptr, ptr %value32, align 8
   %call.i25 = tail call i32 @je_get_defrag_hint(ptr noundef %8) #11
   %tobool.not.i26 = icmp eq i32 %call.i25, 0
@@ -866,7 +866,7 @@ if.then35:                                        ; preds = %activeDefragAlloc.e
   br label %for.inc
 
 for.inc:                                          ; preds = %activeDefragSds.exit.thread, %activeDefragAlloc.exit34.thread, %if.end13, %if.then17, %activeDefragSds.exit, %if.then35, %activeDefragAlloc.exit34, %if.then22, %if.then26
-  %next41 = getelementptr inbounds i8, ptr %ln.1, i64 8
+  %next41 = getelementptr inbounds nuw i8, ptr %ln.1, i64 8
   %ln.0 = load ptr, ptr %next41, align 8
   %tobool.not = icmp eq ptr %ln.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !10
@@ -906,7 +906,7 @@ if.then:                                          ; preds = %activeDefragAlloc.e
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %next = getelementptr inbounds i8, ptr %3, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %call2.i, ptr %next, align 8
   br label %if.end
 
@@ -915,7 +915,7 @@ if.else:                                          ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then2
-  %next4 = getelementptr inbounds i8, ptr %call2.i, i64 8
+  %next4 = getelementptr inbounds nuw i8, ptr %call2.i, i64 8
   %4 = load ptr, ptr %next4, align 8
   %tobool5.not = icmp eq ptr %4, null
   br i1 %tobool5.not, label %if.else9, label %if.then6
@@ -925,7 +925,7 @@ if.then6:                                         ; preds = %if.end
   br label %if.end10
 
 if.else9:                                         ; preds = %if.end
-  %tail = getelementptr inbounds i8, ptr %ql, i64 8
+  %tail = getelementptr inbounds nuw i8, ptr %ql, i64 8
   store ptr %call2.i, ptr %tail, align 8
   br label %if.end10
 
@@ -935,7 +935,7 @@ if.end10:                                         ; preds = %if.else9, %if.then6
 
 if.end11:                                         ; preds = %activeDefragAlloc.exit.thread, %if.end10, %activeDefragAlloc.exit
   %node.0 = phi ptr [ %call2.i, %if.end10 ], [ %0, %activeDefragAlloc.exit ], [ %0, %activeDefragAlloc.exit.thread ]
-  %entry12 = getelementptr inbounds i8, ptr %node.0, i64 16
+  %entry12 = getelementptr inbounds nuw i8, ptr %node.0, i64 16
   %5 = load ptr, ptr %entry12, align 8
   %call.i14 = tail call i32 @je_get_defrag_hint(ptr noundef %5) #11
   %tobool.not.i15 = icmp eq i32 %call.i14, 0
@@ -978,7 +978,7 @@ entry:
 while.body:                                       ; preds = %entry, %while.body
   call void @activeDefragQuickListNode(ptr noundef nonnull %ql, ptr noundef nonnull %node)
   %0 = load ptr, ptr %node, align 8
-  %next = getelementptr inbounds i8, ptr %0, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %0, i64 8
   %storemerge = load ptr, ptr %next, align 8
   store ptr %storemerge, ptr %node, align 8
   %tobool.not = icmp eq ptr %storemerge, null
@@ -993,7 +993,7 @@ define dso_local void @defragLater(ptr nocapture noundef readonly %db, ptr nound
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1 = tail call ptr @sdsdup(ptr noundef %call) #11
-  %defrag_later = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later = getelementptr inbounds nuw i8, ptr %db, i64 72
   %0 = load ptr, ptr %defrag_later, align 8
   %call2 = tail call ptr @listAddNodeTail(ptr noundef %0, ptr noundef %call1) #11
   ret void
@@ -1008,7 +1008,7 @@ define dso_local range(i64 0, 2) i64 @scanLaterList(ptr nocapture noundef %ob, p
 entry:
   %ql = alloca ptr, align 8
   %node = alloca ptr, align 8
-  %ptr = getelementptr inbounds i8, ptr %ob, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob, i64 8
   %0 = load ptr, ptr %ptr, align 8
   store ptr %0, ptr %ql, align 8
   %bf.load = load i32, ptr %ob, align 8
@@ -1031,7 +1031,7 @@ if.then6:                                         ; preds = %if.else
   br label %return
 
 if.end7:                                          ; preds = %if.else
-  %next = getelementptr inbounds i8, ptr %call, i64 8
+  %next = getelementptr inbounds nuw i8, ptr %call, i64 8
   %.pre = load i64, ptr %cursor, align 8
   %3 = add i64 %.pre, 1
   br label %if.end8
@@ -1083,7 +1083,7 @@ if.end25:                                         ; preds = %while.body.if.end25
   %7 = phi ptr [ %.pre13, %while.body.if.end25_crit_edge ], [ %.pre14, %if.then17 ], [ %.pre14, %if.then14 ]
   %iterations.1 = phi i64 [ %inc11, %while.body.if.end25_crit_edge ], [ 0, %if.then17 ], [ 0, %if.then14 ]
   %bookmark_failed.1 = phi i32 [ %bookmark_failed.012, %while.body.if.end25_crit_edge ], [ 1, %if.then17 ], [ 0, %if.then14 ]
-  %next26 = getelementptr inbounds i8, ptr %7, i64 8
+  %next26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %next26, align 8
   store ptr %8, ptr %node, align 8
   %tobool9.not = icmp eq ptr %8, null
@@ -1137,7 +1137,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %ob, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %2 = load ptr, ptr %1, align 8
   store ptr %1, ptr %data, align 8
@@ -1170,7 +1170,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %ob, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob, i64 8
   %1 = load ptr, ptr %ptr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defragfns, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterSet.defragfns, i64 24, i1 false)
   %2 = load i64, ptr %cursor, align 8
@@ -1192,7 +1192,7 @@ entry:
   br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %ob, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob, i64 8
   %1 = load ptr, ptr %ptr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defragfns, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
   %2 = load i64, ptr %cursor, align 8
@@ -1209,7 +1209,7 @@ define dso_local void @defragQuicklist(ptr nocapture noundef readonly %db, ptr n
 entry:
   %node.i = alloca ptr, align 8
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
-  %ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %bf.load = load i32, ptr %call, align 8
   %1 = and i32 %bf.load, 255
@@ -1249,7 +1249,7 @@ if.then:                                          ; preds = %activeDefragAlloc.e
 
 if.end:                                           ; preds = %activeDefragAlloc.exit.thread, %if.then, %activeDefragAlloc.exit
   %ql.0 = phi ptr [ %call2.i, %if.then ], [ %0, %activeDefragAlloc.exit ], [ %0, %activeDefragAlloc.exit.thread ]
-  %len = getelementptr inbounds i8, ptr %ql.0, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %ql.0, i64 24
   %5 = load i64, ptr %len, align 8
   %6 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3760), align 8
   %cmp8 = icmp ugt i64 %5, %6
@@ -1258,7 +1258,7 @@ if.end:                                           ; preds = %activeDefragAlloc.e
 if.then10:                                        ; preds = %if.end
   %call.i7 = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1.i8 = tail call ptr @sdsdup(ptr noundef %call.i7) #11
-  %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later.i = getelementptr inbounds nuw i8, ptr %db, i64 72
   %7 = load ptr, ptr %defrag_later.i, align 8
   %call2.i9 = tail call ptr @listAddNodeTail(ptr noundef %7, ptr noundef %call1.i8) #11
   br label %if.end11
@@ -1273,7 +1273,7 @@ if.else:                                          ; preds = %if.end
 while.body.i:                                     ; preds = %if.else, %while.body.i
   call void @activeDefragQuickListNode(ptr noundef nonnull %ql.0, ptr noundef nonnull %node.i)
   %8 = load ptr, ptr %node.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %8, i64 8
+  %next.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %storemerge.i = load ptr, ptr %next.i, align 8
   store ptr %storemerge.i, ptr %node.i, align 8
   %tobool.not.i10 = icmp eq ptr %storemerge.i, null
@@ -1291,7 +1291,7 @@ if.end11:                                         ; preds = %activeDefragQuickLi
 define dso_local void @defragZsetSkiplist(ptr nocapture noundef readonly %db, ptr noundef %kde) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @dictGetVal(ptr noundef %kde) #11
-  %ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load ptr, ptr %ptr, align 8
   %bf.load = load i32, ptr %call, align 8
   %1 = and i32 %bf.load, 255
@@ -1331,7 +1331,7 @@ if.then:                                          ; preds = %activeDefragAlloc.e
 
 if.end:                                           ; preds = %activeDefragAlloc.exit.thread, %if.then, %activeDefragAlloc.exit
   %zs.0 = phi ptr [ %call2.i, %if.then ], [ %0, %activeDefragAlloc.exit ], [ %0, %activeDefragAlloc.exit.thread ]
-  %zsl = getelementptr inbounds i8, ptr %zs.0, i64 8
+  %zsl = getelementptr inbounds nuw i8, ptr %zs.0, i64 8
   %5 = load ptr, ptr %zsl, align 8
   %call.i17 = tail call i32 @je_get_defrag_hint(ptr noundef %5) #11
   %tobool.not.i18 = icmp eq i32 %call.i17, 0
@@ -1389,9 +1389,9 @@ if.then16:                                        ; preds = %activeDefragAlloc.e
 
 if.end19:                                         ; preds = %activeDefragAlloc.exit36.thread, %if.then16, %activeDefragAlloc.exit36
   %13 = load ptr, ptr %zs.0, align 8
-  %ht_used = getelementptr inbounds i8, ptr %13, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load i64, ptr %ht_used, align 8
-  %arrayidx22 = getelementptr inbounds i8, ptr %13, i64 32
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i64, ptr %arrayidx22, align 8
   %add = add i64 %15, %14
   %16 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3760), align 8
@@ -1401,7 +1401,7 @@ if.end19:                                         ; preds = %activeDefragAlloc.e
 if.then25:                                        ; preds = %if.end19
   %call.i37 = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1.i38 = tail call ptr @sdsdup(ptr noundef %call.i37) #11
-  %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later.i = getelementptr inbounds nuw i8, ptr %db, i64 72
   %17 = load ptr, ptr %defrag_later.i, align 8
   %call2.i39 = tail call ptr @listAddNodeTail(ptr noundef %17, ptr noundef %call1.i38) #11
   br label %if.end31
@@ -1478,11 +1478,11 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load ptr, ptr %ptr, align 8
-  %ht_used = getelementptr inbounds i8, ptr %2, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i64, ptr %ht_used, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %2, i64 32
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i64, ptr %arrayidx6, align 8
   %add = add i64 %4, %3
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3760), align 8
@@ -1492,7 +1492,7 @@ cond.end:                                         ; preds = %entry
 if.then:                                          ; preds = %cond.end
   %call.i = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1.i = tail call ptr @sdsdup(ptr noundef %call.i) #11
-  %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later.i = getelementptr inbounds nuw i8, ptr %db, i64 72
   %6 = load ptr, ptr %defrag_later.i, align 8
   %call2.i = tail call ptr @listAddNodeTail(ptr noundef %6, ptr noundef %call1.i) #11
   br label %if.end
@@ -1500,9 +1500,9 @@ if.then:                                          ; preds = %cond.end
 if.else:                                          ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %defragfns.i)
   store ptr @activeDefragAlloc, ptr %defragfns.i, align 8
-  %defragKey.i = getelementptr inbounds i8, ptr %defragfns.i, i64 8
+  %defragKey.i = getelementptr inbounds nuw i8, ptr %defragfns.i, i64 8
   store ptr @activeDefragSds, ptr %defragKey.i, align 8
-  %defragVal.i = getelementptr inbounds i8, ptr %defragfns.i, i64 16
+  %defragVal.i = getelementptr inbounds nuw i8, ptr %defragfns.i, i64 16
   store ptr @activeDefragSds, ptr %defragVal.i, align 8
   br label %do.body.i
 
@@ -1565,11 +1565,11 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load ptr, ptr %ptr, align 8
-  %ht_used = getelementptr inbounds i8, ptr %2, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i64, ptr %ht_used, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %2, i64 32
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i64, ptr %arrayidx6, align 8
   %add = add i64 %4, %3
   %5 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 3760), align 8
@@ -1579,7 +1579,7 @@ cond.end:                                         ; preds = %entry
 if.then:                                          ; preds = %cond.end
   %call.i = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1.i = tail call ptr @sdsdup(ptr noundef %call.i) #11
-  %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later.i = getelementptr inbounds nuw i8, ptr %db, i64 72
   %6 = load ptr, ptr %defrag_later.i, align 8
   %call2.i = tail call ptr @listAddNodeTail(ptr noundef %6, ptr noundef %call1.i) #11
   br label %if.end
@@ -1587,9 +1587,9 @@ if.then:                                          ; preds = %cond.end
 if.else:                                          ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %defragfns.i)
   store ptr @activeDefragAlloc, ptr %defragfns.i, align 8
-  %defragKey.i = getelementptr inbounds i8, ptr %defragfns.i, i64 8
+  %defragKey.i = getelementptr inbounds nuw i8, ptr %defragfns.i, i64 8
   store ptr @activeDefragSds, ptr %defragKey.i, align 8
-  %defragVal.i = getelementptr inbounds i8, ptr %defragfns.i, i64 16
+  %defragVal.i = getelementptr inbounds nuw i8, ptr %defragfns.i, i64 16
   store ptr null, ptr %defragVal.i, align 8
   br label %do.body.i
 
@@ -1684,7 +1684,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %ob, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %2 = load ptr, ptr %1, align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %2) #11
@@ -1721,7 +1721,7 @@ if.then.i:                                        ; preds = %activeDefragAlloc.e
   br label %defragRaxNode.exit
 
 defragRaxNode.exit:                               ; preds = %activeDefragAlloc.exit.thread.i, %activeDefragAlloc.exit.i, %if.then.i
-  %node_cb = getelementptr inbounds i8, ptr %ri, i64 472
+  %node_cb = getelementptr inbounds nuw i8, ptr %ri, i64 472
   store ptr @defragRaxNode, ptr %node_cb, align 8
   %call7 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str.11, ptr noundef null, i64 noundef 0) #11
   br label %if.end12
@@ -1737,7 +1737,7 @@ if.then9:                                         ; preds = %if.else
   br label %return
 
 if.end10:                                         ; preds = %if.else
-  %node_cb11 = getelementptr inbounds i8, ptr %ri, i64 472
+  %node_cb11 = getelementptr inbounds nuw i8, ptr %ri, i64 472
   store ptr @defragRaxNode, ptr %node_cb11, align 8
   br label %if.end12
 
@@ -1750,8 +1750,8 @@ if.end12:                                         ; preds = %if.end10, %defragRa
   br i1 %tobool14.not15, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end12
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
-  %node = getelementptr inbounds i8, ptr %ri, i64 176
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %ri, i64 176
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end32
@@ -1798,7 +1798,7 @@ if.then23:                                        ; preds = %if.end19
   br i1 %cmp25, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.then23
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
   %14 = load i64, ptr %key_len, align 8
   %cmp27 = icmp eq i64 %14, 16
   br i1 %cmp27, label %cond.end, label %cond.false
@@ -1809,7 +1809,7 @@ cond.false:                                       ; preds = %if.then26
   unreachable
 
 cond.end:                                         ; preds = %if.then26
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
   %15 = load ptr, ptr %key, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @scanLaterStreamListpacks.last, ptr noundef nonnull align 1 dereferenceable(16) %15, i64 16, i1 false)
   call void @raxStop(ptr noundef nonnull %ri) #11
@@ -1874,7 +1874,7 @@ if.then:                                          ; preds = %activeDefragAlloc.e
 if.end:                                           ; preds = %activeDefragAlloc.exit.thread, %if.then, %activeDefragAlloc.exit
   %3 = load ptr, ptr %raxref, align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %3) #11
-  %node_cb = getelementptr inbounds i8, ptr %ri, i64 472
+  %node_cb = getelementptr inbounds nuw i8, ptr %ri, i64 472
   store ptr @defragRaxNode, ptr %node_cb, align 8
   %4 = load ptr, ptr %3, align 8
   %call.i.i = call i32 @je_get_defrag_hint(ptr noundef %4) #11
@@ -1911,8 +1911,8 @@ defragRaxNode.exit:                               ; preds = %activeDefragAlloc.e
 while.body.lr.ph:                                 ; preds = %defragRaxNode.exit
   %tobool5.not = icmp eq ptr %element_cb, null
   %tobool9 = icmp eq i32 %defrag_data, 0
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
-  %node = getelementptr inbounds i8, ptr %ri, i64 176
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
+  %node = getelementptr inbounds nuw i8, ptr %ri, i64 176
   br i1 %tobool9, label %while.body.lr.ph.split.us, label %while.body.lr.ph.split
 
 while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
@@ -2025,11 +2025,11 @@ while.end:                                        ; preds = %if.end17, %if.end17
 define dso_local ptr @defragStreamConsumerPendingEntry(ptr nocapture noundef readonly %ri, ptr nocapture noundef readonly %privdata) #0 {
 entry:
   %prev = alloca ptr, align 8
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   %0 = load ptr, ptr %data, align 8
-  %c = getelementptr inbounds i8, ptr %privdata, i64 8
+  %c = getelementptr inbounds nuw i8, ptr %privdata, i64 8
   %1 = load ptr, ptr %c, align 8
-  %consumer = getelementptr inbounds i8, ptr %0, i64 16
+  %consumer = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %consumer, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2054,11 +2054,11 @@ activeDefragAlloc.exit:                           ; preds = %entry
 
 if.then:                                          ; preds = %activeDefragAlloc.exit
   %4 = load ptr, ptr %privdata, align 8
-  %pel = getelementptr inbounds i8, ptr %4, i64 24
+  %pel = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load ptr, ptr %pel, align 8
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
   %6 = load ptr, ptr %key, align 8
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
   %7 = load i64, ptr %key_len, align 8
   %call1 = call i32 @raxInsert(ptr noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef nonnull %call2.i, ptr noundef nonnull %prev) #11
   %8 = load ptr, ptr %prev, align 8
@@ -2081,7 +2081,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 define dso_local ptr @defragStreamConsumer(ptr nocapture noundef readonly %ri, ptr noundef %privdata) #0 {
 entry:
   %pel_ctx = alloca %struct.PendingEntryContext, align 8
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   %0 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %0) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2107,7 +2107,7 @@ activeDefragAlloc.exit:                           ; preds = %if.then.i, %if.end.
   %retval.0.i = phi ptr [ %call2.i, %if.end.i ], [ null, %if.then.i ]
   %tobool.not = icmp eq ptr %retval.0.i, null
   %spec.select = select i1 %tobool.not, ptr %0, ptr %retval.0.i
-  %name = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %3 = load ptr, ptr %name, align 8
   %call.i9 = tail call ptr @sdsAllocPtr(ptr noundef %3) #11
   %call.i.i = tail call i32 @je_get_defrag_hint(ptr noundef %call.i9) #11
@@ -2140,14 +2140,14 @@ if.then3:                                         ; preds = %activeDefragSds.exi
   br label %if.end5
 
 if.end5:                                          ; preds = %activeDefragSds.exit.thread, %if.then3, %activeDefragSds.exit
-  %pel = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %pel = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %6 = load ptr, ptr %pel, align 8
   %tobool6.not = icmp eq ptr %6, null
   br i1 %tobool6.not, label %if.end11, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
   store ptr %privdata, ptr %pel_ctx, align 8
-  %c9 = getelementptr inbounds i8, ptr %pel_ctx, i64 8
+  %c9 = getelementptr inbounds nuw i8, ptr %pel_ctx, i64 8
   store ptr %spec.select, ptr %c9, align 8
   call void @defragRadixTree(ptr noundef nonnull %pel, i32 noundef 0, ptr noundef nonnull @defragStreamConsumerPendingEntry, ptr noundef nonnull %pel_ctx)
   br label %if.end11
@@ -2159,9 +2159,9 @@ if.end11:                                         ; preds = %if.then7, %if.end5
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @defragStreamConsumerGroup(ptr nocapture noundef readonly %ri, ptr nocapture readnone %privdata) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   %0 = load ptr, ptr %data, align 8
-  %consumers = getelementptr inbounds i8, ptr %0, i64 32
+  %consumers = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load ptr, ptr %consumers, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2171,7 +2171,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %pel = getelementptr inbounds i8, ptr %0, i64 24
+  %pel = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = load ptr, ptr %pel, align 8
   %tobool2.not = icmp eq ptr %2, null
   br i1 %tobool2.not, label %if.end5, label %if.then3
@@ -2199,7 +2199,7 @@ cond.false:                                       ; preds = %entry
   unreachable
 
 cond.end:                                         ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %call, i64 8
   %2 = load ptr, ptr %ptr, align 8
   %call.i = tail call i32 @je_get_defrag_hint(ptr noundef %2) #11
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2264,7 +2264,7 @@ if.then15:                                        ; preds = %activeDefragAlloc.e
 if.end17:                                         ; preds = %activeDefragAlloc.exit21.thread, %if.then15, %activeDefragAlloc.exit21
   %call.i22 = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1.i23 = tail call ptr @sdsdup(ptr noundef %call.i22) #11
-  %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later.i = getelementptr inbounds nuw i8, ptr %db, i64 72
   %10 = load ptr, ptr %defrag_later.i, align 8
   %call2.i24 = tail call ptr @listAddNodeTail(ptr noundef %10, ptr noundef %call1.i23) #11
   br label %if.end19
@@ -2274,7 +2274,7 @@ if.else:                                          ; preds = %if.end
   br label %if.end19
 
 if.end19:                                         ; preds = %if.else, %if.end17
-  %cgroups = getelementptr inbounds i8, ptr %s.0, i64 72
+  %cgroups = getelementptr inbounds nuw i8, ptr %s.0, i64 72
   %11 = load ptr, ptr %cgroups, align 8
   %tobool20.not = icmp eq ptr %11, null
   br i1 %tobool20.not, label %if.end23, label %if.then21
@@ -2305,7 +2305,7 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %call2 = tail call ptr @dictGetKey(ptr noundef %kde) #11
-  %id = getelementptr inbounds i8, ptr %db, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %db, i64 48
   %0 = load i32, ptr %id, align 8
   %call3 = tail call i32 @moduleDefragValue(ptr noundef %call2, ptr noundef nonnull %call, i32 noundef %0) #11
   %tobool4.not = icmp eq i32 %call3, 0
@@ -2314,7 +2314,7 @@ cond.end:                                         ; preds = %entry
 if.then:                                          ; preds = %cond.end
   %call.i = tail call ptr @dictGetKey(ptr noundef %kde) #11
   %call1.i = tail call ptr @sdsdup(ptr noundef %call.i) #11
-  %defrag_later.i = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later.i = getelementptr inbounds nuw i8, ptr %db, i64 72
   %1 = load ptr, ptr %defrag_later.i, align 8
   %call2.i = tail call ptr @listAddNodeTail(ptr noundef %1, ptr noundef %call1.i) #11
   br label %if.end
@@ -2330,7 +2330,7 @@ define dso_local void @defragKey(ptr nocapture noundef readonly %ctx, ptr nounde
 entry:
   %call = tail call ptr @dictGetKey(ptr noundef %de) #11
   %0 = load ptr, ptr %ctx, align 8
-  %slot2 = getelementptr inbounds i8, ptr %ctx, i64 8
+  %slot2 = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %1 = load i32, ptr %slot2, align 8
   %call.i = tail call ptr @sdsAllocPtr(ptr noundef %call) #11
   %call.i.i = tail call i32 @je_get_defrag_hint(ptr noundef %call.i) #11
@@ -2373,7 +2373,7 @@ if.then6:                                         ; preds = %if.then
   %arrayidx9 = getelementptr inbounds ptr, ptr %6, i64 %idxprom
   %7 = load ptr, ptr %arrayidx9, align 8
   %call10 = tail call i64 @dictGetHash(ptr noundef %7, ptr noundef nonnull %add.ptr.i) #11
-  %expires = getelementptr inbounds i8, ptr %0, i64 8
+  %expires = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %expires, align 8
   %arrayidx12 = getelementptr inbounds ptr, ptr %8, i64 %idxprom
   %9 = load ptr, ptr %arrayidx12, align 8
@@ -2429,7 +2429,7 @@ if.then37:                                        ; preds = %if.then33
   br label %if.end149
 
 if.then43:                                        ; preds = %if.then33
-  %ptr = getelementptr inbounds i8, ptr %ob.0, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %ob.0, i64 8
   %14 = load ptr, ptr %ptr, align 8
   %call.i58 = tail call i32 @je_get_defrag_hint(ptr noundef %14) #11
   %tobool.not.i59 = icmp eq i32 %call.i58, 0
@@ -2475,7 +2475,7 @@ if.then61:                                        ; preds = %if.then56
   br label %if.end149
 
 if.then71:                                        ; preds = %if.then56, %if.then56
-  %ptr73 = getelementptr inbounds i8, ptr %ob.0, i64 8
+  %ptr73 = getelementptr inbounds nuw i8, ptr %ob.0, i64 8
   %17 = load ptr, ptr %ptr73, align 8
   %call.i61 = tail call i32 @je_get_defrag_hint(ptr noundef %17) #11
   %tobool.not.i62 = icmp eq i32 %call.i61, 0
@@ -2516,7 +2516,7 @@ if.then86:                                        ; preds = %if.end28
   ]
 
 if.then91:                                        ; preds = %if.then86
-  %ptr92 = getelementptr inbounds i8, ptr %ob.0, i64 8
+  %ptr92 = getelementptr inbounds nuw i8, ptr %ob.0, i64 8
   %20 = load ptr, ptr %ptr92, align 8
   %call.i71 = tail call i32 @je_get_defrag_hint(ptr noundef %20) #11
   %tobool.not.i72 = icmp eq i32 %call.i71, 0
@@ -2561,7 +2561,7 @@ if.then111:                                       ; preds = %if.end28
   ]
 
 if.then116:                                       ; preds = %if.then111
-  %ptr117 = getelementptr inbounds i8, ptr %ob.0, i64 8
+  %ptr117 = getelementptr inbounds nuw i8, ptr %ob.0, i64 8
   %23 = load ptr, ptr %ptr117, align 8
   %call.i81 = tail call i32 @je_get_defrag_hint(ptr noundef %23) #11
   %tobool.not.i82 = icmp eq i32 %call.i81, 0
@@ -2703,9 +2703,9 @@ entry:
   %call = tail call ptr @evalScriptsDict() #11
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %defragfns.i)
   store ptr @activeDefragAlloc, ptr %defragfns.i, align 8
-  %defragKey.i = getelementptr inbounds i8, ptr %defragfns.i, i64 8
+  %defragKey.i = getelementptr inbounds nuw i8, ptr %defragfns.i, i64 8
   store ptr @activeDefragSds, ptr %defragKey.i, align 8
-  %defragVal.i = getelementptr inbounds i8, ptr %defragfns.i, i64 16
+  %defragVal.i = getelementptr inbounds nuw i8, ptr %defragfns.i, i64 16
   store ptr @activeDefragLuaScript, ptr %defragVal.i, align 8
   br label %do.body.i
 
@@ -2760,7 +2760,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %or.cond.i, label %if.end.i, label %scanLaterSet.exit
 
 if.end.i:                                         ; preds = %if.then7
-  %ptr.i = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %ptr.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defragfns.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterSet.defragfns, i64 24, i1 false)
   %2 = load i64, ptr %cursor, align 8
@@ -2780,7 +2780,7 @@ if.then13:                                        ; preds = %if.then
   br i1 %or.cond.i25, label %if.end.i26, label %scanLaterZset.exit
 
 if.end.i26:                                       ; preds = %if.then13
-  %ptr.i27 = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr.i27 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load ptr, ptr %ptr.i27, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %4, ptr %data.i, align 8
@@ -2802,7 +2802,7 @@ if.then19:                                        ; preds = %if.then
   br i1 %or.cond.i31, label %if.end.i32, label %scanLaterHash.exit
 
 if.end.i32:                                       ; preds = %if.then19
-  %ptr.i33 = getelementptr inbounds i8, ptr %call, i64 8
+  %ptr.i33 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %8 = load ptr, ptr %ptr.i33, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defragfns.i29, ptr noundef nonnull align 8 dereferenceable(24) @__const.scanLaterHash.defragfns, i64 24, i1 false)
   %9 = load i64, ptr %cursor, align 8
@@ -2843,9 +2843,9 @@ define dso_local range(i32 0, 2) i32 @defragLaterStep(ptr nocapture noundef read
 entry:
   %0 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2056), align 8
   %1 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2088), align 8
-  %defrag_later = getelementptr inbounds i8, ptr %db, i64 72
+  %defrag_later = getelementptr inbounds nuw i8, ptr %db, i64 72
   %idxprom = sext i32 %slot to i64
-  %id = getelementptr inbounds i8, ptr %db, i64 48
+  %id = getelementptr inbounds nuw i8, ptr %db, i64 48
   %.pre = load i64, ptr @defrag_later_cursor, align 8
   %2 = icmp eq i64 %.pre, 0
   br label %do.body
@@ -2865,7 +2865,7 @@ if.then:                                          ; preds = %do.body
   br i1 %tobool2.not, label %if.end, label %if.then3
 
 if.then3:                                         ; preds = %if.then
-  %value = getelementptr inbounds i8, ptr %4, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %value, align 8
   %cmp = icmp eq ptr %.pre14, %5
   br i1 %cmp, label %cond.end, label %cond.false
@@ -2889,7 +2889,7 @@ if.end:                                           ; preds = %cond.end, %if.then
   br i1 %tobool9.not, label %do.end53, label %if.end11
 
 if.end11:                                         ; preds = %if.end
-  %value12 = getelementptr inbounds i8, ptr %6, i64 16
+  %value12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load ptr, ptr %value12, align 8
   store ptr %7, ptr @defrag_later_current_key, align 8
   store i64 0, ptr @defrag_later_cursor, align 8
@@ -3104,7 +3104,7 @@ if.then2:                                         ; preds = %if.then
   br i1 %tobool3.not, label %if.end, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %defrag_later = getelementptr inbounds i8, ptr %4, i64 72
+  %defrag_later = getelementptr inbounds nuw i8, ptr %4, i64 72
   %5 = load ptr, ptr %defrag_later, align 8
   tail call void @listEmpty(ptr noundef %5) #11
   br label %if.end
@@ -3170,8 +3170,8 @@ if.then26:                                        ; preds = %if.end17
 if.end28:                                         ; preds = %if.end17, %if.then26
   %latency.0 = phi i64 [ %call27, %if.then26 ], [ 0, %if.end17 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %defragfns, ptr noundef nonnull align 8 dereferenceable(24) @__const.activeDefragCycle.defragfns, i64 24, i1 false)
-  %defragKey.i.i = getelementptr inbounds i8, ptr %defragfns.i.i, i64 8
-  %defragVal.i.i = getelementptr inbounds i8, ptr %defragfns.i.i, i64 16
+  %defragKey.i.i = getelementptr inbounds nuw i8, ptr %defragfns.i.i, i64 8
+  %defragVal.i.i = getelementptr inbounds nuw i8, ptr %defragfns.i.i, i64 16
   %.pre36 = load i64, ptr @activeDefragCycle.cursor, align 8
   %.pre38 = load i64, ptr @activeDefragCycle.expires_cursor, align 8
   %.pre40 = load i32, ptr @activeDefragCycle.slot, align 4
@@ -3368,7 +3368,7 @@ if.end85:                                         ; preds = %if.then81, %if.then
 
 if.then87:                                        ; preds = %if.end85
   %40 = load ptr, ptr @activeDefragCycle.db, align 8
-  %expires = getelementptr inbounds i8, ptr %40, i64 8
+  %expires = getelementptr inbounds nuw i8, ptr %40, i64 8
   %41 = load ptr, ptr %expires, align 8
   %42 = load i32, ptr @activeDefragCycle.slot, align 4
   %idxprom88 = sext i32 %42 to i64
@@ -3392,9 +3392,9 @@ if.end92.if.end103_crit_edge:                     ; preds = %if.end92
 
 if.then96:                                        ; preds = %if.end92
   %46 = load ptr, ptr @activeDefragCycle.db, align 8
-  %defrag_later97 = getelementptr inbounds i8, ptr %46, i64 72
+  %defrag_later97 = getelementptr inbounds nuw i8, ptr %46, i64 72
   %47 = load ptr, ptr %defrag_later97, align 8
-  %len = getelementptr inbounds i8, ptr %47, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %47, i64 40
   %48 = load i64, ptr %len, align 8
   %cmp98.not = icmp eq i64 %48, 0
   br i1 %cmp98.not, label %if.end101, label %if.then100

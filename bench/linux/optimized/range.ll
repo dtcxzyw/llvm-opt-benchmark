@@ -19,7 +19,7 @@ define dso_local noundef i32 @add_range(ptr nocapture noundef writeonly %0, i32 
   %10 = sext i32 %2 to i64
   %11 = getelementptr %struct.range, ptr %0, i64 %10
   store i64 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %4, ptr %12, align 8
   %13 = add nsw i32 %2, 1
   br label %14
@@ -45,7 +45,7 @@ define dso_local i32 @add_range_with_merge(ptr nocapture noundef %0, i32 noundef
   %12 = phi i32 [ %41, %36 ], [ 0, %7 ]
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct.range, ptr %0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %36, label %18
@@ -96,7 +96,7 @@ define dso_local i32 @add_range_with_merge(ptr nocapture noundef %0, i32 noundef
   %50 = sext i32 %45 to i64
   %51 = getelementptr %struct.range, ptr %0, i64 %50
   store i64 %44, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 %43, ptr %52, align 8
   %53 = add nsw i32 %45, 1
   br label %54
@@ -123,7 +123,7 @@ define dso_local void @subtract_range(ptr nocapture noundef %0, i32 noundef %1, 
 10:                                               ; preds = %46, %8
   %11 = phi i64 [ 0, %8 ], [ %47, %46 ]
   %12 = getelementptr %struct.range, ptr %0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %46, label %16
@@ -180,7 +180,7 @@ define dso_local void @subtract_range(ptr nocapture noundef %0, i32 noundef %1, 
 
 40:                                               ; preds = %.preheader
   %41 = getelementptr %struct.range, ptr %0, i64 %indvars.iv
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %14, ptr %42, align 8
   store i64 %3, ptr %41, align 8
   br label %45
@@ -215,7 +215,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   %5 = phi i64 [ %36, %34 ], [ 0, %2 ]
   %6 = phi i32 [ %35, %34 ], [ %3, %2 ]
   %7 = getelementptr %struct.range, ptr %0, i64 %5
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %34
@@ -257,7 +257,7 @@ define dso_local i32 @clean_sort_range(ptr noundef %0, i32 noundef %1) local_unn
   %29 = getelementptr %struct.range, ptr %0, i64 %28
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %8, align 8
   %33 = add i32 %24, -1

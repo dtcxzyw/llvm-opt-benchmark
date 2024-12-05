@@ -113,7 +113,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %10, ptr %3, align 8
   store i8 40, ptr %4, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -138,7 +138,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %7, %9
 21:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, ptr noundef nonnull align 1 dereferenceable(5) @.str, i64 5, i1 false)
   %22 = load ptr, ptr %3, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 5
   store ptr %23, ptr %3, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -146,11 +146,11 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %7, %9
   %.017.idx50 = phi i64 [ %.017.add, %52 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %.049 = phi i32 [ %.1, %52 ], [ %1, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %.sroa.031.048 = phi i1 [ %.sroa.031.1, %52 ], [ true, %_ZN4llvm11raw_ostreamlsEc.exit ]
-  %.017.ptr = getelementptr inbounds i8, ptr @_ZL13NoFPClassName, i64 %.017.idx50
+  %.017.ptr = getelementptr inbounds nuw i8, ptr @_ZL13NoFPClassName, i64 %.017.idx50
   %.sroa.0.0.copyload28 = load i32, ptr %.017.ptr, align 8
-  %.sroa.429.0..017.ptr.sroa_idx = getelementptr inbounds i8, ptr %.017.ptr, i64 8
+  %.sroa.429.0..017.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.017.ptr, i64 8
   %.sroa.429.0.copyload = load ptr, ptr %.sroa.429.0..017.ptr.sroa_idx, align 8
-  %.sroa.5.0..017.ptr.sroa_idx = getelementptr inbounds i8, ptr %.017.ptr, i64 16
+  %.sroa.5.0..017.ptr.sroa_idx = getelementptr inbounds nuw i8, ptr %.017.ptr, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..017.ptr.sroa_idx, align 8
   %24 = and i32 %.sroa.0.0.copyload28, %.049
   %25 = icmp eq i32 %24, %.sroa.0.0.copyload28
@@ -172,7 +172,7 @@ _ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit:   ; preds = %26
 32:                                               ; preds = %_ZN4llvm13ListSeparatorcvNS_9StringRefEEv.exit
   store i8 32, ptr %28, align 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %34, ptr %3, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -227,7 +227,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit22:    ; preds = %43, %45, %46
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %54, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store ptr %59, ptr %3, align 8
   store i8 41, ptr %54, align 1
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit

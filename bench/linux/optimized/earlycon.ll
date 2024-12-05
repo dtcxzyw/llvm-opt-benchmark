@@ -80,7 +80,7 @@ define dso_local range(i32 -2147483648, 1) i32 @setup_earlycon(ptr noundef %0) l
   br i1 %11, label %20, label %24
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %24, label %12
@@ -159,7 +159,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_earlycon(ptr noun
 
 22:                                               ; preds = %16, %13
   tail call fastcc void @earlycon_init(ptr noundef %1) #7
-  %23 = getelementptr inbounds i8, ptr %1, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull @early_console_dev, ptr noundef %9) #6
   tail call fastcc void @earlycon_print_info() #7
@@ -168,7 +168,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @register_earlycon(ptr noun
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @early_console_dev, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -330,7 +330,7 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
 16:                                               ; preds = %13
   %17 = tail call i64 @simple_strtoul(ptr noundef %6, ptr noundef null, i32 noundef 10) #6
   %18 = trunc i64 %17 to i16
-  %19 = getelementptr inbounds i8, ptr %2, i64 74
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 74
   store i16 %18, ptr %19, align 2
   br label %20
 
@@ -341,7 +341,7 @@ define internal fastcc void @earlycon_init(ptr noundef %0) unnamed_addr #0 secti
   %23 = add i64 %reass.sub, 1
   %24 = tail call i64 @llvm.umin.i64(i64 %23, i64 16)
   %25 = tail call i64 @strscpy(ptr noundef %2, ptr noundef %0, i64 noundef %24) #6
-  %26 = getelementptr inbounds i8, ptr %2, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr @early_console_dev, ptr %26, align 8
   ret void
 }
@@ -358,7 +358,7 @@ define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".ini
   ]
 
 3:                                                ; preds = %0, %0, %0, %0
-  %4 = getelementptr inbounds i8, ptr %1, i64 74
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
   switch i8 %2, label %7 [
@@ -380,7 +380,7 @@ define internal fastcc void @earlycon_print_info() unnamed_addr #0 section ".ini
   br label %20
 
 14:                                               ; preds = %0
-  %15 = getelementptr inbounds i8, ptr %1, i64 74
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i32
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @early_console_dev, i64 16), align 8

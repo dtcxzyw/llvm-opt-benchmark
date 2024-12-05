@@ -1236,7 +1236,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_drda_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.286) #6
   %7 = load ptr, ptr %5, align 8
@@ -1426,7 +1426,7 @@ define internal range(i32 0, 2) i32 @dissect_drda_heur(ptr noundef %0, ptr nound
   %18 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
   %19 = load ptr, ptr @drda_tcp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %18, ptr noundef %19) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.286) #6
   %22 = load ptr, ptr %20, align 8
@@ -1448,7 +1448,7 @@ define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr nocapture no
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_drda_ccsid, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
-  %8 = getelementptr inbounds i8, ptr %1, i64 292
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %27 [
     i32 4508, label %10
@@ -1522,7 +1522,7 @@ define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr nocapture no
 .sink.split:                                      ; preds = %25, %24, %23, %22, %21, %20, %18, %18, %18, %17, %16, %15, %14, %13, %12, %10, %10, %10
   %.sink8 = phi i64 [ 8, %10 ], [ 8, %10 ], [ 8, %10 ], [ 8, %12 ], [ 8, %13 ], [ 8, %14 ], [ 8, %15 ], [ 8, %16 ], [ 8, %17 ], [ 12, %18 ], [ 12, %18 ], [ 12, %18 ], [ 12, %20 ], [ 12, %21 ], [ 12, %22 ], [ 12, %23 ], [ 12, %24 ], [ 12, %25 ]
   %.0.i6.sink = phi i32 [ 96, %10 ], [ 96, %10 ], [ 96, %10 ], [ 56, %12 ], [ 0, %13 ], [ 10, %14 ], [ 4, %15 ], [ -2147483644, %16 ], [ 2, %17 ], [ 96, %18 ], [ 96, %18 ], [ 96, %18 ], [ 56, %20 ], [ 0, %21 ], [ 10, %22 ], [ 4, %23 ], [ -2147483644, %24 ], [ 2, %25 ]
-  %26 = getelementptr inbounds i8, ptr %3, i64 %.sink8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink8
   store i32 %.0.i6.sink, ptr %26, align 4
   br label %27
 
@@ -1625,7 +1625,7 @@ define internal i32 @dissect_drda_sqlstt(ptr noundef %0, ptr nocapture readnone 
   %21 = load i32, ptr @hf_drda_param_length, align 4
   %22 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #6
   %23 = load i32, ptr %10, align 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 2, i32 noundef %23, i32 noundef %25) #6
   %27 = load i32, ptr %10, align 4
@@ -1637,7 +1637,7 @@ define internal i32 @dissect_drda_sqlstt(ptr noundef %0, ptr nocapture readnone 
   %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %28, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
   %32 = add i32 %27, 4
   %33 = load i32, ptr %9, align 4
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load i32, ptr %34, align 4
   %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %32, i32 noundef %33, i32 noundef %35) #6
   %37 = load i32, ptr %9, align 4
@@ -1659,7 +1659,7 @@ define internal i32 @dissect_drda_sqlstt(ptr noundef %0, ptr nocapture readnone 
   %45 = load i32, ptr @hf_drda_clob_length, align 4
   %46 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #6
   %47 = load i32, ptr %8, align 4
-  %48 = getelementptr inbounds i8, ptr %3, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 5, i32 noundef %47, i32 noundef %49) #6
   %51 = load i32, ptr %8, align 4
@@ -1686,7 +1686,7 @@ dissect_fdoca_nocm.exit:                          ; preds = %39, %44
   %61 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %56, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %6) #6
   %62 = add i32 %.0.i, 5
   %63 = load i32, ptr %6, align 4
-  %64 = getelementptr inbounds i8, ptr %3, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load i32, ptr %64, align 4
   %66 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %62, i32 noundef %63, i32 noundef %65) #6
   %67 = load i32, ptr %6, align 4
@@ -1718,7 +1718,7 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr nocapture nounde
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_drda_typdefnam, align 4
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #6
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = call ptr @proto_tree_add_item_ret_string(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 2, ptr noundef %9, ptr noundef nonnull %5) #6
   %11 = load ptr, ptr %5, align 8
@@ -1741,9 +1741,9 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr nocapture nounde
 
 ._crit_edge:                                      ; preds = %14, %4
   %.lcssa40 = phi ptr [ @typdefnam_vals, %4 ], [ %15, %14 ]
-  %19 = getelementptr inbounds i8, ptr %.lcssa40, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.lcssa40, i64 16
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %20, ptr %21, align 4
   br label %.loopexit23
 
@@ -1772,9 +1772,9 @@ define internal i32 @dissect_drda_typdefnam(ptr noundef %0, ptr nocapture nounde
 
 ._crit_edge45:                                    ; preds = %29, %.loopexit23
   %.lcssa = phi ptr [ @typdefnam_vals, %.loopexit23 ], [ %30, %29 ]
-  %34 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %35, ptr %36, align 4
   br label %.loopexit
 
@@ -2252,7 +2252,7 @@ define internal noundef i32 @dissect_drda_sqlcard(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %18
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dissect_fdoca_integer.exit
 
@@ -2298,7 +2298,7 @@ dissect_fdoca_integer.exit:                       ; preds = %18, %switch.lookup
 
 switch.lookup241:                                 ; preds = %42
   %45 = zext nneg i32 %switch.tableidx242 to i64
-  %switch.gep243 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %45
+  %switch.gep243 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %45
   %switch.load244 = load i32, ptr %switch.gep243, align 4
   br label %dissect_fdoca_integer.exit214
 
@@ -2314,7 +2314,7 @@ dissect_fdoca_integer.exit214:                    ; preds = %42, %switch.lookup2
 
 switch.lookup245:                                 ; preds = %dissect_fdoca_integer.exit214
   %50 = zext nneg i32 %switch.tableidx246 to i64
-  %switch.gep247 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %50
+  %switch.gep247 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %50
   %switch.load248 = load i32, ptr %switch.gep247, align 4
   br label %dissect_fdoca_integer.exit216
 
@@ -2330,7 +2330,7 @@ dissect_fdoca_integer.exit216:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup249:                                 ; preds = %dissect_fdoca_integer.exit216
   %55 = zext nneg i32 %switch.tableidx250 to i64
-  %switch.gep251 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %55
+  %switch.gep251 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %55
   %switch.load252 = load i32, ptr %switch.gep251, align 4
   br label %dissect_fdoca_integer.exit218
 
@@ -2346,7 +2346,7 @@ dissect_fdoca_integer.exit218:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup253:                                 ; preds = %dissect_fdoca_integer.exit218
   %60 = zext nneg i32 %switch.tableidx254 to i64
-  %switch.gep255 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %60
+  %switch.gep255 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %60
   %switch.load256 = load i32, ptr %switch.gep255, align 4
   br label %dissect_fdoca_integer.exit220
 
@@ -2362,7 +2362,7 @@ dissect_fdoca_integer.exit220:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup257:                                 ; preds = %dissect_fdoca_integer.exit220
   %65 = zext nneg i32 %switch.tableidx258 to i64
-  %switch.gep259 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %65
+  %switch.gep259 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %65
   %switch.load260 = load i32, ptr %switch.gep259, align 4
   br label %dissect_fdoca_integer.exit222
 
@@ -2378,7 +2378,7 @@ dissect_fdoca_integer.exit222:                    ; preds = %dissect_fdoca_integ
 
 switch.lookup261:                                 ; preds = %dissect_fdoca_integer.exit222
   %70 = zext nneg i32 %switch.tableidx262 to i64
-  %switch.gep263 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %70
+  %switch.gep263 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %70
   %switch.load264 = load i32, ptr %switch.gep263, align 4
   br label %dissect_fdoca_integer.exit224
 
@@ -2459,7 +2459,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   br i1 %.not230, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %3, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %3, i64 12
   br label %125
 
 125:                                              ; preds = %.lr.ph, %125
@@ -2483,7 +2483,7 @@ dissect_fdoca_integer.exit224:                    ; preds = %dissect_fdoca_integ
   %.3.lcssa = phi i32 [ %121, %118 ], [ %131, %125 ]
   %135 = load i32, ptr @hf_drda_sqlerrmsg, align 4
   %136 = load i32, ptr %8, align 4
-  %137 = getelementptr inbounds i8, ptr %3, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %138 = load i32, ptr %137, align 4
   %139 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %135, ptr noundef %0, i32 noundef %.3.lcssa, i32 noundef %136, i32 noundef %138) #6
   %140 = load i32, ptr %8, align 4
@@ -2560,13 +2560,13 @@ dissect_drda_sqldiaggrp.exit:                     ; preds = %165, %175
   br i1 %.not.i, label %proto_item_set_generated.exit, label %180
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %179, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %182 = load ptr, ptr %181, align 8
   %.not5.i = icmp eq ptr %182, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %183
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %182, i64 28
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 28
   %185 = load i32, ptr %184, align 4
   %186 = or i32 %185, 2
   store i32 %186, ptr %184, align 4
@@ -2579,13 +2579,13 @@ proto_item_set_generated.exit:                    ; preds = %178, %180, %183
   br i1 %.not.i225, label %proto_item_set_generated.exit227, label %189
 
 189:                                              ; preds = %proto_item_set_generated.exit
-  %190 = getelementptr inbounds i8, ptr %188, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %191 = load ptr, ptr %190, align 8
   %.not5.i226 = icmp eq ptr %191, null
   br i1 %.not5.i226, label %proto_item_set_generated.exit227, label %192
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %191, i64 28
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 28
   %194 = load i32, ptr %193, align 4
   %195 = or i32 %194, 2
   store i32 %195, ptr %193, align 4
@@ -2660,7 +2660,7 @@ define internal noundef i32 @dissect_drda_sqldard(ptr noundef %0, ptr noundef %1
 
 switch.lookup:                                    ; preds = %50
   %54 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dissect_fdoca_integer.exit.i
 
@@ -2675,7 +2675,7 @@ dissect_fdoca_integer.exit.i:                     ; preds = %50, %switch.lookup
 
 switch.lookup33:                                  ; preds = %dissect_fdoca_integer.exit.i
   %58 = zext nneg i32 %switch.tableidx34 to i64
-  %switch.gep35 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %58
+  %switch.gep35 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %58
   %switch.load36 = load i32, ptr %switch.gep35, align 4
   br label %dissect_fdoca_integer.exit76.i
 
@@ -2690,7 +2690,7 @@ dissect_fdoca_integer.exit76.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup37:                                  ; preds = %dissect_fdoca_integer.exit76.i
   %62 = zext nneg i32 %switch.tableidx38 to i64
-  %switch.gep39 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %62
+  %switch.gep39 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %62
   %switch.load40 = load i32, ptr %switch.gep39, align 4
   br label %dissect_fdoca_integer.exit78.i
 
@@ -2705,7 +2705,7 @@ dissect_fdoca_integer.exit78.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup41:                                  ; preds = %dissect_fdoca_integer.exit78.i
   %66 = zext nneg i32 %switch.tableidx42 to i64
-  %switch.gep43 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %66
+  %switch.gep43 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %66
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   br label %dissect_fdoca_integer.exit80.i
 
@@ -2720,7 +2720,7 @@ dissect_fdoca_integer.exit80.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup45:                                  ; preds = %dissect_fdoca_integer.exit80.i
   %70 = zext nneg i32 %switch.tableidx46 to i64
-  %switch.gep47 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %70
+  %switch.gep47 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %70
   %switch.load48 = load i32, ptr %switch.gep47, align 4
   br label %dissect_fdoca_integer.exit82.i
 
@@ -2735,7 +2735,7 @@ dissect_fdoca_integer.exit82.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup49:                                  ; preds = %dissect_fdoca_integer.exit82.i
   %74 = zext nneg i32 %switch.tableidx50 to i64
-  %switch.gep51 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %74
+  %switch.gep51 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %74
   %switch.load52 = load i32, ptr %switch.gep51, align 4
   br label %dissect_fdoca_integer.exit84.i
 
@@ -2755,7 +2755,7 @@ dissect_fdoca_integer.exit84.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup53:                                  ; preds = %78
   %81 = zext nneg i32 %switch.tableidx54 to i64
-  %switch.gep55 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %81
+  %switch.gep55 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %81
   %switch.load56 = load i32, ptr %switch.gep55, align 4
   br label %dissect_fdoca_integer.exit86.i
 
@@ -2772,7 +2772,7 @@ dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup5
   %86 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %85, ptr noundef %41, i32 noundef %.1.i, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %34) #6
   %87 = add nuw nsw i32 %.1.i, 2
   %88 = load i32, ptr %34, align 4
-  %89 = getelementptr inbounds i8, ptr %3, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %90 = load i32, ptr %89, align 4
   %91 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %84, ptr noundef %41, i32 noundef %87, i32 noundef %88, i32 noundef %90) #6
   %92 = load i32, ptr %34, align 4
@@ -2784,7 +2784,7 @@ dissect_fdoca_integer.exit86.i:                   ; preds = %78, %switch.lookup5
   %96 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %45, i32 noundef %95, ptr noundef %41, i32 noundef %93, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %33) #6
   %97 = add i32 %93, 2
   %98 = load i32, ptr %33, align 4
-  %99 = getelementptr inbounds i8, ptr %3, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %100 = load i32, ptr %99, align 4
   %101 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %94, ptr noundef %41, i32 noundef %97, i32 noundef %98, i32 noundef %100) #6
   %102 = load i32, ptr %33, align 4
@@ -2848,7 +2848,7 @@ dissect_drda_sqldhgrp.exit:                       ; preds = %40, %83, %115
 
 switch.lookup57:                                  ; preds = %135
   %139 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep59 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %139
+  %switch.gep59 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %139
   %switch.load60 = load i32, ptr %switch.gep59, align 4
   br label %dissect_fdoca_integer.exit
 
@@ -2861,8 +2861,8 @@ dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %dissect_fdoca_integer.exit
-  %143 = getelementptr inbounds i8, ptr %3, i64 12
-  %144 = getelementptr inbounds i8, ptr %3, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %145
 
 145:                                              ; preds = %.lr.ph, %dissect_drda_sqldagrp.exit
@@ -2881,7 +2881,7 @@ dissect_fdoca_integer.exit:                       ; preds = %135, %switch.lookup
 
 switch.lookup61:                                  ; preds = %145
   %153 = zext nneg i32 %switch.tableidx62 to i64
-  %switch.gep63 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %153
+  %switch.gep63 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %153
   %switch.load64 = load i32, ptr %switch.gep63, align 4
   br label %dissect_fdoca_integer.exit.i26
 
@@ -2896,7 +2896,7 @@ dissect_fdoca_integer.exit.i26:                   ; preds = %145, %switch.lookup
 
 switch.lookup65:                                  ; preds = %dissect_fdoca_integer.exit.i26
   %157 = zext nneg i32 %switch.tableidx66 to i64
-  %switch.gep67 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %157
+  %switch.gep67 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %157
   %switch.load68 = load i32, ptr %switch.gep67, align 4
   br label %dissect_fdoca_integer.exit88.i
 
@@ -2916,7 +2916,7 @@ dissect_fdoca_integer.exit88.i:                   ; preds = %dissect_fdoca_integ
 
 switch.lookup69:                                  ; preds = %162
   %164 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep71 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %164
+  %switch.gep71 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %164
   %switch.load72 = load i32, ptr %switch.gep71, align 4
   br label %dissect_fdoca_integer64.exit.i
 
@@ -2931,7 +2931,7 @@ dissect_fdoca_integer64.exit.i:                   ; preds = %162, %switch.lookup
 
 switch.lookup73:                                  ; preds = %166
   %168 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep75 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %168
+  %switch.gep75 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %168
   %switch.load76 = load i32, ptr %switch.gep75, align 4
   br label %dissect_fdoca_integer.exit91.i
 
@@ -2950,7 +2950,7 @@ dissect_fdoca_integer.exit91.i:                   ; preds = %166, %switch.lookup
 
 switch.lookup77:                                  ; preds = %170
   %173 = zext nneg i32 %switch.tableidx78 to i64
-  %switch.gep79 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %173
+  %switch.gep79 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %173
   %switch.load80 = load i32, ptr %switch.gep79, align 4
   br label %dissect_fdoca_integer.exit93.i
 
@@ -2974,7 +2974,7 @@ dissect_fdoca_integer.exit93.i:                   ; preds = %170, %switch.lookup
 
 switch.lookup81:                                  ; preds = %181
   %184 = zext nneg i32 %switch.tableidx82 to i64
-  %switch.gep83 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %184
+  %switch.gep83 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %184
   %switch.load84 = load i32, ptr %switch.gep83, align 4
   br label %dissect_fdoca_integer64.exit95.i
 
@@ -3021,7 +3021,7 @@ dissect_fdoca_integer64.exit95.i:                 ; preds = %181, %switch.lookup
 
 switch.lookup85:                                  ; preds = %205
   %208 = zext nneg i32 %switch.tableidx86 to i64
-  %switch.gep87 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %208
+  %switch.gep87 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %208
   %switch.load88 = load i32, ptr %switch.gep87, align 4
   br label %dissect_fdoca_integer.exit.i.i
 
@@ -3118,7 +3118,7 @@ dissect_fdoca_integer.exit.i.i:                   ; preds = %205, %switch.lookup
 
 switch.lookup89:                                  ; preds = %275
   %278 = zext nneg i32 %switch.tableidx90 to i64
-  %switch.gep91 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %278
+  %switch.gep91 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %278
   %switch.load92 = load i32, ptr %switch.gep91, align 4
   br label %dissect_fdoca_integer.exit.i.i.i
 
@@ -3133,7 +3133,7 @@ dissect_fdoca_integer.exit.i.i.i:                 ; preds = %275, %switch.lookup
 
 switch.lookup93:                                  ; preds = %dissect_fdoca_integer.exit.i.i.i
   %282 = zext nneg i32 %switch.tableidx94 to i64
-  %switch.gep95 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %282
+  %switch.gep95 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %282
   %switch.load96 = load i32, ptr %switch.gep95, align 4
   br label %dissect_fdoca_integer.exit88.i.i.i
 
@@ -3148,7 +3148,7 @@ dissect_fdoca_integer.exit88.i.i.i:               ; preds = %dissect_fdoca_integ
 
 switch.lookup97:                                  ; preds = %dissect_fdoca_integer.exit88.i.i.i
   %286 = zext nneg i32 %switch.tableidx98 to i64
-  %switch.gep99 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %286
+  %switch.gep99 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %286
   %switch.load100 = load i32, ptr %switch.gep99, align 4
   br label %dissect_fdoca_integer.exit90.i.i.i
 
@@ -3163,7 +3163,7 @@ dissect_fdoca_integer.exit90.i.i.i:               ; preds = %dissect_fdoca_integ
 
 switch.lookup101:                                 ; preds = %dissect_fdoca_integer.exit90.i.i.i
   %290 = zext nneg i32 %switch.tableidx102 to i64
-  %switch.gep103 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %290
+  %switch.gep103 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %290
   %switch.load104 = load i32, ptr %switch.gep103, align 4
   br label %dissect_fdoca_integer.exit92.i.i.i
 
@@ -3183,7 +3183,7 @@ dissect_fdoca_integer.exit92.i.i.i:               ; preds = %dissect_fdoca_integ
 
 switch.lookup105:                                 ; preds = %294
   %297 = zext nneg i32 %switch.tableidx106 to i64
-  %switch.gep107 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %297
+  %switch.gep107 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %297
   %switch.load108 = load i32, ptr %switch.gep107, align 4
   br label %dissect_fdoca_integer.exit94.i.i.i
 
@@ -3198,7 +3198,7 @@ dissect_fdoca_integer.exit94.i.i.i:               ; preds = %294, %switch.lookup
 
 switch.lookup109:                                 ; preds = %dissect_fdoca_integer.exit94.i.i.i
   %301 = zext nneg i32 %switch.tableidx110 to i64
-  %switch.gep111 = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %301
+  %switch.gep111 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %301
   %switch.load112 = load i32, ptr %switch.gep111, align 4
   br label %dissect_fdoca_integer.exit96.i.i.i
 
@@ -3514,37 +3514,37 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %16, i32 noundef %36, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
   %38 = load i32, ptr %9, align 4
   %39 = call fastcc ptr @drda_get_conv_info(ptr noundef %1)
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   %.not.i = icmp eq i32 %41, 0
   br i1 %.not.i, label %74, label %42
 
 42:                                               ; preds = %23
-  %43 = getelementptr inbounds i8, ptr %39, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 280
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %44, %46
   br i1 %47, label %48, label %drda_packet_from_server.exit
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %39, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 284
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %52 = load i32, ptr %51, align 4
   %53 = icmp eq i32 %50, %52
   br i1 %53, label %54, label %drda_packet_from_server.exit
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %1, i64 208
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %41, %56
   br i1 %57, label %58, label %73
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %39, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 212
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %60, %62
   br i1 %63, label %64, label %73
@@ -3554,9 +3554,9 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %65, label %drda_packet_from_server.exit, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %39, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 216
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %70 = load ptr, ptr %69, align 8
   %71 = sext i32 %60 to i64
   %bcmp.i.i = call i32 @bcmp(ptr %68, ptr %70, i64 %71)
@@ -3575,16 +3575,16 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 75:                                               ; preds = %74, %74
-  %76 = getelementptr inbounds i8, ptr %1, i64 232
-  %77 = getelementptr inbounds i8, ptr %1, i64 280
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 288
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %80 = load i32, ptr %79, align 8
   %81 = call ptr @wmem_file_scope() #6
   %82 = load i32, ptr %76, align 8
-  %83 = getelementptr inbounds i8, ptr %1, i64 236
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 240
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %86 = load ptr, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %82, ptr %40, align 8
@@ -3594,32 +3594,32 @@ define internal i32 @dissect_drda_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 88:                                               ; preds = %75
   %89 = sext i32 %84 to i64
   %90 = call noalias ptr @wmem_memdup(ptr noundef %81, ptr noundef %86, i64 noundef %89) #6
-  %91 = getelementptr inbounds i8, ptr %39, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %39, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %90, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %39, i64 20
+  %93 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 %84, ptr %93, align 4
   br label %drda_set_server.exit.i
 
 drda_set_server.exit.i:                           ; preds = %88, %75
-  %94 = getelementptr inbounds i8, ptr %39, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 %78, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %39, i64 44
+  %95 = getelementptr inbounds nuw i8, ptr %39, i64 44
   store i32 %80, ptr %95, align 4
   br label %drda_packet_from_server.exit
 
 96:                                               ; preds = %74, %74
-  %97 = getelementptr inbounds i8, ptr %1, i64 208
-  %98 = getelementptr inbounds i8, ptr %1, i64 280
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 284
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %101 = load i32, ptr %100, align 4
   %102 = call ptr @wmem_file_scope() #6
   %103 = load i32, ptr %97, align 8
-  %104 = getelementptr inbounds i8, ptr %1, i64 212
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 216
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %107 = load ptr, ptr %106, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %103, ptr %40, align 8
@@ -3629,18 +3629,18 @@ drda_set_server.exit.i:                           ; preds = %88, %75
 109:                                              ; preds = %96
   %110 = sext i32 %105 to i64
   %111 = call noalias ptr @wmem_memdup(ptr noundef %102, ptr noundef %107, i64 noundef %110) #6
-  %112 = getelementptr inbounds i8, ptr %39, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %111, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %39, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %111, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %39, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 %105, ptr %114, align 4
   br label %drda_set_server.exit26.i
 
 drda_set_server.exit26.i:                         ; preds = %109, %96
-  %115 = getelementptr inbounds i8, ptr %39, i64 40
+  %115 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 %99, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %39, i64 44
+  %116 = getelementptr inbounds nuw i8, ptr %39, i64 44
   store i32 %101, ptr %116, align 4
   br label %drda_packet_from_server.exit
 
@@ -3652,16 +3652,16 @@ drda_set_server.exit26.i:                         ; preds = %109, %96
   ]
 
 118:                                              ; preds = %117, %117
-  %119 = getelementptr inbounds i8, ptr %1, i64 232
-  %120 = getelementptr inbounds i8, ptr %1, i64 280
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %1, i64 288
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %123 = load i32, ptr %122, align 8
   %124 = call ptr @wmem_file_scope() #6
   %125 = load i32, ptr %119, align 8
-  %126 = getelementptr inbounds i8, ptr %1, i64 236
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 240
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %129 = load ptr, ptr %128, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, i8 0, i64 24, i1 false)
   store i32 %125, ptr %40, align 8
@@ -3671,26 +3671,26 @@ drda_set_server.exit26.i:                         ; preds = %109, %96
 131:                                              ; preds = %118
   %132 = sext i32 %127 to i64
   %133 = call noalias ptr @wmem_memdup(ptr noundef %124, ptr noundef %129, i64 noundef %132) #6
-  %134 = getelementptr inbounds i8, ptr %39, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %39, i64 32
   store ptr %133, ptr %134, align 8
-  %135 = getelementptr inbounds i8, ptr %39, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr %133, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %39, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %39, i64 20
   store i32 %127, ptr %136, align 4
   br label %drda_set_server.exit27.i
 
 drda_set_server.exit27.i:                         ; preds = %131, %118
-  %137 = getelementptr inbounds i8, ptr %39, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 %121, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %39, i64 44
+  %138 = getelementptr inbounds nuw i8, ptr %39, i64 44
   store i32 %123, ptr %138, align 4
   br label %drda_packet_from_server.exit
 
 139:                                              ; preds = %117
-  %140 = getelementptr inbounds i8, ptr %1, i64 208
-  %141 = getelementptr inbounds i8, ptr %1, i64 280
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 284
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %144 = load i32, ptr %143, align 4
   call fastcc void @drda_set_server(ptr noundef nonnull %39, ptr noundef nonnull %140, i32 noundef %142, i32 noundef %144)
   br label %drda_packet_from_server.exit
@@ -3704,7 +3704,7 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
   %148 = load i32, ptr %9, align 4
   %149 = call ptr @val_to_str_ext(i32 noundef %148, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %147, ptr noundef nonnull @.str.796, ptr noundef %149) #6
-  %150 = getelementptr inbounds i8, ptr %1, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load ptr, ptr %150, align 8
   %152 = load i32, ptr %9, align 4
   %153 = call ptr @val_to_str_ext(i32 noundef %152, ptr noundef nonnull @drda_opcode_abbr_ext, ptr noundef nonnull @.str.797) #6
@@ -3712,7 +3712,7 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
   %154 = load ptr, ptr %150, align 8
   call void @col_set_fence(ptr noundef %154, i32 noundef 25) #6
   %155 = load i32, ptr %10, align 4
-  %156 = getelementptr inbounds i8, ptr %1, i64 408
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr @proto_drda, align 4
   %159 = call ptr @p_get_proto_data(ptr noundef %157, ptr noundef %1, i32 noundef %158, i32 noundef %155) #6
@@ -3723,11 +3723,11 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
   %161 = load ptr, ptr %156, align 8
   %162 = call noalias ptr @wmem_alloc(ptr noundef %161, i64 noundef 16) #6
   %163 = call fastcc ptr @drda_get_conv_info(ptr noundef nonnull %1)
-  %.in.i = getelementptr inbounds i8, ptr %163, i64 %.not30.i
+  %.in.i = getelementptr inbounds nuw i8, ptr %163, i64 %.not30.i
   %164 = load ptr, ptr %.in.i, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds i8, ptr %1, i64 20
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %168 = load i32, ptr %167, align 4
   %169 = call ptr @wmem_tree_lookup32_le(ptr noundef %166, i32 noundef %168) #6
   %170 = ptrtoint ptr %169 to i64
@@ -3737,17 +3737,17 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
   %173 = load i32, ptr %167, align 4
   %174 = call ptr @wmem_tree_lookup32_le(ptr noundef %172, i32 noundef %173) #6
   %.not31.i = icmp eq ptr %174, null
-  %175 = getelementptr inbounds i8, ptr %162, i64 4
-  %176 = getelementptr inbounds i8, ptr %162, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %162, i64 8
   br i1 %.not31.i, label %183, label %177
 
 177:                                              ; preds = %160
   %178 = load i32, ptr %174, align 4
   store i32 %178, ptr %175, align 4
-  %179 = getelementptr inbounds i8, ptr %174, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %180 = load i32, ptr %179, align 4
   store i32 %180, ptr %176, align 4
-  %181 = getelementptr inbounds i8, ptr %174, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %182 = load i32, ptr %181, align 4
   br label %189
 
@@ -3763,7 +3763,7 @@ drda_packet_from_server.exit:                     ; preds = %42, %48, %64, %66, 
 
 189:                                              ; preds = %183, %177
   %.sink.i = phi i32 [ %188, %183 ], [ %182, %177 ]
-  %190 = getelementptr inbounds i8, ptr %162, i64 12
+  %190 = getelementptr inbounds nuw i8, ptr %162, i64 12
   store i32 %.sink.i, ptr %190, align 4
   %191 = load ptr, ptr %156, align 8
   %192 = load i32, ptr @proto_drda, align 4
@@ -3842,11 +3842,11 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   ]
 
 234:                                              ; preds = %.loopexit
-  %235 = getelementptr inbounds i8, ptr %232, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %1, i64 20
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %240 = load i32, ptr %239, align 4
   %241 = call ptr @wmem_tree_lookup32_le(ptr noundef %238, i32 noundef %240) #6
   %242 = ptrtoint ptr %241 to i64
@@ -3865,7 +3865,7 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
 
 250:                                              ; preds = %245, %234
   %251 = load ptr, ptr %232, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 8
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load ptr, ptr %252, align 8
   %254 = load i32, ptr %239, align 4
   %255 = call ptr @wmem_tree_lookup32_le(ptr noundef %253, i32 noundef %254) #6
@@ -3884,14 +3884,14 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
   br label %drda_update_flow_encoding.exit
 
 264:                                              ; preds = %.loopexit
-  %265 = getelementptr inbounds i8, ptr %232, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %232, i64 8
   br label %266
 
 266:                                              ; preds = %.loopexit, %264
   %.in = phi ptr [ %265, %264 ], [ %232, %.loopexit ]
   %267 = load ptr, ptr %.in, align 8
   %268 = load ptr, ptr %267, align 8
-  %269 = getelementptr inbounds i8, ptr %1, i64 20
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %270 = load i32, ptr %269, align 4
   %271 = call ptr @wmem_tree_lookup32_le(ptr noundef %268, i32 noundef %270) #6
   %.not.i104 = icmp eq ptr %271, null
@@ -3899,23 +3899,23 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
 
 272:                                              ; preds = %266
   %273 = load i32, ptr %271, align 4
-  %274 = getelementptr inbounds i8, ptr %.0.i103, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 4
   %275 = load i32, ptr %274, align 4
   %276 = icmp eq i32 %273, %275
   br i1 %276, label %277, label %289
 
 277:                                              ; preds = %272
-  %278 = getelementptr inbounds i8, ptr %271, i64 4
+  %278 = getelementptr inbounds nuw i8, ptr %271, i64 4
   %279 = load i32, ptr %278, align 4
-  %280 = getelementptr inbounds i8, ptr %.0.i103, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 8
   %281 = load i32, ptr %280, align 4
   %282 = icmp eq i32 %279, %281
   br i1 %282, label %283, label %289
 
 283:                                              ; preds = %277
-  %284 = getelementptr inbounds i8, ptr %271, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %285 = load i32, ptr %284, align 4
-  %286 = getelementptr inbounds i8, ptr %.0.i103, i64 12
+  %286 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 12
   %287 = load i32, ptr %286, align 4
   %288 = icmp eq i32 %285, %287
   br i1 %288, label %drda_update_flow_encoding.exit, label %289
@@ -3923,15 +3923,15 @@ drda_get_pdu_info.exit:                           ; preds = %drda_packet_from_se
 289:                                              ; preds = %283, %277, %272, %266
   %290 = call ptr @wmem_file_scope() #6
   %291 = call noalias ptr @wmem_alloc(ptr noundef %290, i64 noundef 12) #6
-  %292 = getelementptr inbounds i8, ptr %.0.i103, i64 12
+  %292 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 12
   %293 = load i32, ptr %292, align 4
-  %294 = getelementptr inbounds i8, ptr %291, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %291, i64 8
   store i32 %293, ptr %294, align 4
-  %295 = getelementptr inbounds i8, ptr %.0.i103, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 8
   %296 = load i32, ptr %295, align 4
-  %297 = getelementptr inbounds i8, ptr %291, i64 4
+  %297 = getelementptr inbounds nuw i8, ptr %291, i64 4
   store i32 %296, ptr %297, align 4
-  %298 = getelementptr inbounds i8, ptr %.0.i103, i64 4
+  %298 = getelementptr inbounds nuw i8, ptr %.0.i103, i64 4
   %299 = load i32, ptr %298, align 4
   store i32 %299, ptr %291, align 4
   %300 = load ptr, ptr %267, align 8
@@ -3994,9 +3994,9 @@ define internal fastcc ptr @drda_get_conv_info(ptr noundef %0) unnamed_addr #0 {
   %11 = tail call noalias ptr @wmem_tree_new(ptr noundef %9) #6
   store ptr %11, ptr %10, align 8
   %12 = tail call noalias ptr @wmem_tree_new(ptr noundef %9) #6
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr @drda_default_sqlam, align 4
   %17 = zext i32 %16 to i64
@@ -4008,14 +4008,14 @@ define internal fastcc ptr @drda_get_conv_info(ptr noundef %0) unnamed_addr #0 {
   %21 = tail call noalias ptr @wmem_tree_new(ptr noundef %19) #6
   store ptr %21, ptr %20, align 8
   %22 = tail call noalias ptr @wmem_tree_new(ptr noundef %19) #6
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
   %24 = load i32, ptr %14, align 4
   %25 = load i32, ptr @drda_default_sqlam, align 4
   %26 = zext i32 %25 to i64
   %27 = inttoptr i64 %26 to ptr
   tail call void @wmem_tree_insert32(ptr noundef %22, i32 noundef %24, ptr noundef %27) #6
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %28, align 8
   %29 = load i32, ptr @proto_drda, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %2, i32 noundef %29, ptr noundef nonnull %8) #6
@@ -4033,11 +4033,11 @@ declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @drda_set_server(ptr nocapture noundef writeonly initializes((16, 48)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @wmem_file_scope() #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 %7, ptr %6, align 8
@@ -4047,18 +4047,18 @@ define internal fastcc void @drda_set_server(ptr nocapture noundef writeonly ini
 13:                                               ; preds = %4
   %14 = sext i32 %9 to i64
   %15 = tail call noalias ptr @wmem_memdup(ptr noundef %5, ptr noundef %11, i64 noundef %14) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %18, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %4, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %3, ptr %20, align 4
   ret void
 }
@@ -4150,7 +4150,7 @@ define internal fastcc noundef i32 @dissect_drda_sqludtgrp(ptr noundef %0, ptr n
 
 switch.lookup:                                    ; preds = %23
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %27
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.dissect_drda_sqludtgrp, i64 0, i64 %27
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dissect_fdoca_integer.exit
 
@@ -4162,7 +4162,7 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   %30 = load i32, ptr @hf_drda_param_length, align 4
   %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %30, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #6
   %32 = load i32, ptr %10, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load i32, ptr %33, align 4
   %35 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %29, ptr noundef %0, i32 noundef 7, i32 noundef %32, i32 noundef %34) #6
   %36 = load i32, ptr %10, align 4
@@ -4174,7 +4174,7 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   %40 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %37, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #6
   %41 = add i32 %36, 9
   %42 = load i32, ptr %9, align 4
-  %43 = getelementptr inbounds i8, ptr %2, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %38, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef %44) #6
   %46 = load i32, ptr %9, align 4
@@ -4201,7 +4201,7 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   %60 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %59, ptr noundef %0, i32 noundef %.1, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %7) #6
   %61 = add i32 %.1, 2
   %62 = load i32, ptr %7, align 4
-  %63 = getelementptr inbounds i8, ptr %2, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %58, ptr noundef %0, i32 noundef %61, i32 noundef %62, i32 noundef %64) #6
   %66 = load i32, ptr %7, align 4
@@ -4213,7 +4213,7 @@ dissect_fdoca_integer.exit:                       ; preds = %23, %switch.lookup
   %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %69, ptr noundef %0, i32 noundef %67, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #6
   %71 = add i32 %67, 2
   %72 = load i32, ptr %6, align 4
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load i32, ptr %73, align 4
   %75 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %68, ptr noundef %0, i32 noundef %71, i32 noundef %72, i32 noundef %74) #6
   %76 = load i32, ptr %6, align 4

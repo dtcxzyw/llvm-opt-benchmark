@@ -7,25 +7,25 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @have_relevant_joinclause(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %list_length.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %3, %6
   %9 = phi i32 [ %8, %6 ], [ 0, %3 ]
-  %10 = getelementptr inbounds i8, ptr %2, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %11 = load ptr, ptr %10, align 8
   %.not.i26 = icmp eq ptr %11, null
   br i1 %.not.i26, label %list_length.exit27, label %12
 
 12:                                               ; preds = %list_length.exit
-  %13 = getelementptr inbounds i8, ptr %11, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %14 = load i32, ptr %13, align 4
   br label %list_length.exit27
 
@@ -35,14 +35,14 @@ list_length.exit27:                               ; preds = %list_length.exit, %
   %. = select i1 %.not, ptr %1, ptr %2
   %.25 = select i1 %.not, ptr %10, ptr %4
   %.020 = load ptr, ptr %.25, align 8
-  %.022.in = getelementptr inbounds i8, ptr %., i64 8
+  %.022.in = getelementptr inbounds nuw i8, ptr %., i64 8
   %.022 = load ptr, ptr %.022.in, align 8
   %.not23 = icmp eq ptr %.020, null
   br i1 %.not23, label %._crit_edge33, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit27
-  %16 = getelementptr inbounds i8, ptr %.020, i64 4
-  %17 = getelementptr inbounds i8, ptr %.020, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.020, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 16
   %18 = load i32, ptr %16, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph35, label %._crit_edge33
@@ -59,19 +59,19 @@ list_length.exit27:                               ; preds = %list_length.exit, %
   %24 = load ptr, ptr %17, align 8
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i1 @bms_overlap(ptr noundef %.022, ptr noundef %28) #2
   br i1 %29, label %.thread30, label %20
 
 ._crit_edge33:                                    ; preds = %20, %.lr.ph, %list_length.exit27
-  %30 = getelementptr inbounds i8, ptr %1, i64 336
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %31 = load i8, ptr %30, align 8
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %.thread30
 
 33:                                               ; preds = %._crit_edge33
-  %34 = getelementptr inbounds i8, ptr %2, i64 336
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %.thread30
@@ -99,29 +99,29 @@ define dso_local void @add_join_clause_to_rels(ptr noundef %0, ptr noundef %1, p
   br i1 %6, label %7, label %31
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %1, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %9 = load i32, ptr %8, align 8
   %10 = tail call ptr @makeBoolConst(i1 noundef zeroext false, i1 noundef zeroext false) #2
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %1, i64 19
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 19
   %15 = load i8, ptr %14, align 1
   %16 = trunc i8 %15 to i1
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i8, ptr %17, align 4
   %19 = trunc i8 %18 to i1
-  %20 = getelementptr inbounds i8, ptr %1, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %21 = load i8, ptr %20, align 2
   %22 = trunc i8 %21 to i1
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @make_restrictinfo(ptr noundef %0, ptr noundef %10, i1 noundef zeroext %13, i1 noundef zeroext %16, i1 noundef zeroext %19, i1 noundef zeroext %22, i32 noundef 0, ptr noundef %24, ptr noundef %26, ptr noundef %28) #2
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   store i32 %9, ptr %30, align 8
   br label %31
 
@@ -138,7 +138,7 @@ define dso_local void @add_join_clause_to_rels(ptr noundef %0, ptr noundef %1, p
   br i1 %36, label %.backedge, label %37
 
 37:                                               ; preds = %.lr.ph
-  %38 = getelementptr inbounds i8, ptr %35, i64 328
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 328
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @lappend(ptr noundef %39, ptr noundef %.0) #2
   store ptr %40, ptr %38, align 8
@@ -180,7 +180,7 @@ define dso_local void @remove_join_clause_from_rels(ptr noundef %0, ptr noundef 
   br i1 %8, label %.backedge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %7, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 328
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @list_delete_ptr(ptr noundef %11, ptr noundef %1) #2
   store ptr %12, ptr %10, align 8

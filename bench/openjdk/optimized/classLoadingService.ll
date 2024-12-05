@@ -68,7 +68,7 @@ define hidden void @_ZN19ClassLoadingService4initEv() local_unnamed_addr #0 alig
   %2 = load ptr, ptr %1, align 8
   %3 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 9, ptr noundef nonnull @.str, i32 noundef 4, i64 noundef 0, ptr noundef %2) #6
   store ptr %3, ptr @_ZN19ClassLoadingService21_classes_loaded_countE, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %32
@@ -155,12 +155,12 @@ define hidden noundef zeroext i1 @_ZN19ClassLoadingService11set_verboseEb(i1 nou
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %3
   %4 = select i1 %0, i32 3, i32 0
   tail call void (i32, i32, ...) @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 noundef %4, i32 noundef 0, i32 noundef 16, i32 noundef 74, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #6
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %6, label %_ZN19ClassLoadingService27reset_trace_class_unloadingEv.exit
 
 6:                                                ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %7 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2.i = icmp eq ptr %7, null
   %8 = select i1 %.not2.i, i32 0, i32 3
   br label %_ZN19ClassLoadingService27reset_trace_class_unloadingEv.exit
@@ -182,12 +182,12 @@ declare void @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ClassLoadingService27reset_trace_class_unloadingEv() local_unnamed_addr #0 align 2 {
-  %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %1 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %5
 
 2:                                                ; preds = %0
-  %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE16ELS1_74ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %3, null
   %4 = select i1 %.not2, i32 0, i32 3
   br label %5
@@ -201,11 +201,11 @@ define hidden void @_ZN19ClassLoadingService27reset_trace_class_unloadingEv() lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN19ClassLoadingService18loaded_class_countEv() local_unnamed_addr #3 align 2 {
   %1 = load ptr, ptr @_ZN19ClassLoadingService21_classes_loaded_countE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr @_ZN19ClassLoadingService28_shared_classes_loaded_countE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %9 = add nsw i64 %8, %4
@@ -215,11 +215,11 @@ define hidden noundef i64 @_ZN19ClassLoadingService18loaded_class_countEv() loca
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN19ClassLoadingService20unloaded_class_countEv() local_unnamed_addr #3 align 2 {
   %1 = load ptr, ptr @_ZN19ClassLoadingService23_classes_unloaded_countE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr @_ZN19ClassLoadingService30_shared_classes_unloaded_countE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %9 = add nsw i64 %8, %4
@@ -234,11 +234,11 @@ define hidden noundef i64 @_ZN19ClassLoadingService18loaded_class_bytesEv() loca
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN19ClassLoadingService18_classbytes_loadedE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr @_ZN19ClassLoadingService25_shared_classbytes_loadedE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %10, align 8
   %12 = add nsw i64 %11, %7
@@ -257,11 +257,11 @@ define hidden noundef i64 @_ZN19ClassLoadingService20unloaded_class_bytesEv() lo
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN19ClassLoadingService20_classbytes_unloadedE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = load ptr, ptr @_ZN19ClassLoadingService27_shared_classbytes_unloadedE, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i64, ptr %10, align 8
   %12 = add nsw i64 %11, %7
@@ -275,7 +275,7 @@ define hidden noundef i64 @_ZN19ClassLoadingService20unloaded_class_bytesEv() lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN19ClassLoadingService25loaded_shared_class_countEv() local_unnamed_addr #3 align 2 {
   %1 = load ptr, ptr @_ZN19ClassLoadingService28_shared_classes_loaded_countE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
   ret i64 %4
@@ -284,7 +284,7 @@ define hidden noundef i64 @_ZN19ClassLoadingService25loaded_shared_class_countEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN19ClassLoadingService27unloaded_shared_class_countEv() local_unnamed_addr #3 align 2 {
   %1 = load ptr, ptr @_ZN19ClassLoadingService30_shared_classes_unloaded_countE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
   ret i64 %4
@@ -298,7 +298,7 @@ define hidden noundef i64 @_ZN19ClassLoadingService25loaded_shared_class_bytesEv
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN19ClassLoadingService25_shared_classbytes_loadedE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   br label %8
@@ -316,7 +316,7 @@ define hidden noundef i64 @_ZN19ClassLoadingService27unloaded_shared_class_bytes
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN19ClassLoadingService27_shared_classbytes_unloadedE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   br label %8
@@ -334,7 +334,7 @@ define hidden noundef i64 @_ZN19ClassLoadingService22class_method_data_sizeEv() 
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN19ClassLoadingService19_class_methods_sizeE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   br label %8
@@ -346,14 +346,14 @@ define hidden noundef i64 @_ZN19ClassLoadingService22class_method_data_sizeEv() 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ClassLoadingService19notify_class_loadedEP13InstanceKlassb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 6
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
   br label %10
@@ -361,14 +361,14 @@ define hidden void @_ZN19ClassLoadingService19notify_class_loadedEP13InstanceKla
 10:                                               ; preds = %2, %5
   %.013 = phi i32 [ %9, %5 ], [ 0, %2 ]
   %.0 = phi ptr [ %6, %5 ], [ null, %2 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %12 = load ptr, ptr %11, align 8
   tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22class__loaded\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %.0, i32 1025, i32 %.013, i32 -2053, ptr %12, i32 -260, i1 %1) #6, !srcloc !6
   tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !7
   %13 = load ptr, ptr @_ZN19ClassLoadingService28_shared_classes_loaded_countE, align 8
   %14 = load ptr, ptr @_ZN19ClassLoadingService21_classes_loaded_countE, align 8
   %15 = select i1 %1, ptr %13, ptr %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i64, ptr %17, align 8
   %19 = add nsw i64 %18, 1
@@ -382,39 +382,39 @@ define hidden void @_ZN19ClassLoadingService19notify_class_loadedEP13InstanceKla
   %24 = load ptr, ptr @_ZN19ClassLoadingService18_classbytes_loadedE, align 8
   %25 = select i1 %1, ptr %23, ptr %24
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i32 %28(ptr noundef nonnull align 8 dereferenceable(464) %0) #6
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %32, 5
   br i1 %33, label %34, label %_ZL18compute_class_sizeP13InstanceKlass.exit
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds i8, ptr %0, i64 400
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %36, align 8
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 1)
   %narrow.i.i.i = add nuw i32 %38, 1
   %39 = sext i32 %narrow.i.i.i to i64
   %40 = add nsw i64 %39, %30
-  %41 = getelementptr inbounds i8, ptr %0, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(68) %42) #6
   %47 = sext i32 %46 to i64
   %48 = add nsw i64 %40, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 416
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
   %52 = tail call i32 @llvm.smax.i32(i32 %51, i32 1)
   %narrow.i.i11.i = add nuw i32 %52, 1
   %53 = sext i32 %narrow.i.i11.i to i64
   %54 = add nsw i64 %48, %53
-  %55 = getelementptr inbounds i8, ptr %0, i64 424
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %_ZL18compute_class_sizeP13InstanceKlass.exit, label %57
@@ -430,7 +430,7 @@ define hidden void @_ZN19ClassLoadingService19notify_class_loadedEP13InstanceKla
 _ZL18compute_class_sizeP13InstanceKlass.exit:     ; preds = %22, %34, %57
   %.0.i = phi i64 [ %61, %57 ], [ %54, %34 ], [ %30, %22 ]
   %62 = shl nsw i64 %.0.i, 3
-  %63 = getelementptr inbounds i8, ptr %25, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %64 = load ptr, ptr %63, align 8
   %65 = load i64, ptr %64, align 8
   %66 = add nsw i64 %65, %62
@@ -443,14 +443,14 @@ _ZL18compute_class_sizeP13InstanceKlass.exit:     ; preds = %22, %34, %57
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN19ClassLoadingService21notify_class_unloadedEP13InstanceKlass(ptr noundef %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 6
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   br label %9
@@ -458,12 +458,12 @@ define hidden void @_ZN19ClassLoadingService21notify_class_unloadedEP13InstanceK
 9:                                                ; preds = %1, %4
   %.015 = phi i32 [ %8, %4 ], [ 0, %1 ]
   %.014 = phi ptr [ %5, %4 ], [ null, %1 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %11 = load ptr, ptr %10, align 8
   tail call void asm sideeffect ".altmacro\0A.macro _SDT_SIGN x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.iflt \\x\0A.ascii \22-\22\0A.endif\0A.popsection\0A.endm\0A.macro _SDT_SIZE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ascii \22\\x\22\0A.popsection\0A.endm\0A.macro _SDT_SIZE x\0A_SDT_SIZE_ %((-(-\\x*((-\\x>0)-(-\\x<0))))>>8)\0A.endm\0A.macro _SDT_TYPE_ x\0A.pushsection .note.stapsdt,\22\22,\22note\22\0A.ifc 8,\\x\0A.ascii \22f\22\0A.endif\0A.ascii \22@\22\0A.popsection\0A.endm\0A.macro _SDT_TYPE x\0A_SDT_TYPE_ %((\\x)&(0xff))\0A.endm\0A990: nop\0A.pushsection .note.stapsdt,\22?\22,\22note\22\0A.balign 4\0A.4byte 992f-991f,994f-993f,3\0A991: .asciz \22stapsdt\22\0A992: .balign 4\0A993: .8byte 990b\0A.8byte _.stapsdt.base\0A.8byte 0\0A.asciz \22hotspot\22\0A.asciz \22class__unloaded\22\0A_SDT_SIGN ${0:n}\0A_SDT_SIZE ${0:n}\0A_SDT_TYPE ${0:n}\0A.ascii \22$1\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${2:n}\0A_SDT_SIZE ${2:n}\0A_SDT_TYPE ${2:n}\0A.ascii \22$3\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${4:n}\0A_SDT_SIZE ${4:n}\0A_SDT_TYPE ${4:n}\0A.ascii \22$5\22\0A.ascii \22\\x20\22\0A_SDT_SIGN ${6:n}\0A_SDT_SIZE ${6:n}\0A_SDT_TYPE ${6:n}\0A.ascii \22$7\22\0A.ascii \22\\x00\22\0A.purgem _SDT_SIGN\0A.purgem _SDT_SIZE_\0A.purgem _SDT_SIZE\0A.purgem _SDT_TYPE_\0A.purgem _SDT_TYPE\0A994: .balign 4\0A.popsection\0A", "n,norfxy,n,norfxy,n,norfxy,n,norfxy,~{dirflag},~{fpsr},~{flags}"(i32 -2053, ptr %.014, i32 1025, i32 %.015, i32 -2053, ptr %11, i32 -260, i1 false) #6, !srcloc !8
   tail call void asm sideeffect ".ifndef _.stapsdt.base\0A.pushsection .stapsdt.base,\22aG\22,\22progbits\22,.stapsdt.base,comdat\0A.weak _.stapsdt.base\0A.hidden _.stapsdt.base\0A_.stapsdt.base: .space 1\0A.size _.stapsdt.base,1\0A.popsection\0A.endif\0A", "~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %12 = load ptr, ptr @_ZN19ClassLoadingService23_classes_unloaded_countE, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = load i64, ptr %14, align 8
   %16 = add nsw i64 %15, 1
@@ -474,39 +474,39 @@ define hidden void @_ZN19ClassLoadingService21notify_class_unloadedEP13InstanceK
 
 19:                                               ; preds = %9
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(464) %0) #6
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %26, 5
   br i1 %27, label %28, label %_ZL18compute_class_sizeP13InstanceKlass.exit
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 400
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   %32 = tail call i32 @llvm.smax.i32(i32 %31, i32 1)
   %narrow.i.i.i = add nuw i32 %32, 1
   %33 = sext i32 %narrow.i.i.i to i64
   %34 = add nsw i64 %33, %24
-  %35 = getelementptr inbounds i8, ptr %0, i64 224
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable(68) %36) #6
   %41 = sext i32 %40 to i64
   %42 = add nsw i64 %34, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 416
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
   %46 = tail call i32 @llvm.smax.i32(i32 %45, i32 1)
   %narrow.i.i11.i = add nuw i32 %46, 1
   %47 = sext i32 %narrow.i.i11.i to i64
   %48 = add nsw i64 %42, %47
-  %49 = getelementptr inbounds i8, ptr %0, i64 424
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %50 = load ptr, ptr %49, align 8
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %_ZL18compute_class_sizeP13InstanceKlass.exit, label %51
@@ -523,33 +523,33 @@ _ZL18compute_class_sizeP13InstanceKlass.exit:     ; preds = %19, %28, %51
   %.0.i = phi i64 [ %55, %51 ], [ %48, %28 ], [ %24, %19 ]
   %56 = shl nsw i64 %.0.i, 3
   %57 = load ptr, ptr @_ZN19ClassLoadingService20_classbytes_unloadedE, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load ptr, ptr %58, align 8
   %60 = load i64, ptr %59, align 8
   %61 = add nsw i64 %60, %56
   store i64 %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 400
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %63, align 8
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZL18compute_class_sizeP13InstanceKlass.exit
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   br label %67
 
 67:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %68 = load ptr, ptr @_ZN19ClassLoadingService19_class_methods_sizeE, align 8
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(88) %70) #6
   %75 = sub nsw i32 0, %74
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i8, ptr %68, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 40
   %78 = load ptr, ptr %77, align 8
   %79 = load i64, ptr %78, align 8
   %80 = add nsw i64 %79, %76

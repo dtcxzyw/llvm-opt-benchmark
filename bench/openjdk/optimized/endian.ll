@@ -175,7 +175,7 @@ define hidden noundef zeroext i16 @_ZN6Endian8get_javaEPh(ptr nocapture noundef 
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i16
   %4 = shl nuw i16 %3, 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i16
   %8 = or disjoint i16 %4, %7
@@ -188,7 +188,7 @@ define hidden void @_ZN6Endian8set_javaEPht(ptr nocapture noundef writeonly init
   %4 = trunc nuw i16 %3 to i8
   store i8 %4, ptr %0, align 1
   %5 = trunc i16 %1 to i8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %5, ptr %6, align 1
   ret void
 }

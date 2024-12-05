@@ -15944,9 +15944,9 @@ define hidden void @proto_register_nbap() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %8 ]
   %9 = getelementptr [16 x %struct.preference_strings], ptr @ch_strings, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr [16 x i32], ptr @lch_contents, i64 0, i64 %indvars.iv
   tail call void @prefs_register_enum_preference(ptr noundef %7, ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @content_types, i32 noundef 0) #7
@@ -15990,14 +15990,14 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -268435456, 268435456) i32 @dissect_nbap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.6634) #7
   %8 = load i32, ptr @proto_nbap, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #7
   %10 = load i32, ptr @ett_nbap, align 4
   %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #7
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   tail call void @p_remove_proto_data(ptr noundef %13, ptr noundef %1, i32 noundef %14, i32 noundef 0) #7
@@ -19888,9 +19888,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PCH_ParametersItem
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #7
@@ -19903,15 +19903,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PCH_ParametersItem
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %20, ptr noundef nonnull %11, i32 noundef %21, i32 noundef 0, ptr noundef %19) #7
-  %22 = getelementptr inbounds i8, ptr %19, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 68
   store i32 3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 108
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 108
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 65535, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %19, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 65535, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store i8 2, ptr %26, align 8
   %27 = getelementptr i8, ptr %19, i64 267516
   br label %28
@@ -19927,11 +19927,11 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PCH_ParametersItem
 
 nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 116
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 116
   store i32 0, ptr %.0.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i16 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i32 1, ptr %32, align 8
   %33 = load i32, ptr @ett_nbap_PCH_ParametersItem_CTCH_SetupRqstFDD, align 4
   %34 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %9, i32 noundef %33, ptr noundef nonnull @PCH_ParametersItem_CTCH_SetupRqstFDD_sequence) #7
@@ -19939,9 +19939,9 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   store i32 %35, ptr %7, align 4
   %36 = load i16, ptr %31, align 4
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 50
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8
   %43 = icmp ne i16 %42, 0
@@ -19955,19 +19955,19 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 47:                                               ; preds = %nbap_get_private_data.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %37, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = call nonnull ptr @conversation_new(i32 noundef %52, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %45, i32 noundef 0, i32 noundef 3) #7
   %54 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %53, ptr noundef %54) #7
   %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 384
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 384
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %dissect_nbap_PCH_ParametersItem_CTCH_SetupRqstFDD.exit
@@ -19976,19 +19976,19 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %60 = call ptr @wmem_file_scope() #7
   %61 = call noalias ptr @wmem_alloc0(ptr noundef %60, i64 noundef 132704) #7
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 9, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i32 0, ptr %64, align 8
   %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %61, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i32 %67, ptr %68, align 4
   %69 = call ptr @wmem_file_scope() #7
-  %70 = getelementptr inbounds i8, ptr %61, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %71 = load i32, ptr %5, align 8
   %72 = load i32, ptr %48, align 4
   %73 = load ptr, ptr %49, align 8
@@ -20000,46 +20000,46 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 75:                                               ; preds = %59
   %76 = sext i32 %72 to i64
   %77 = call noalias ptr @wmem_memdup(ptr noundef %69, ptr noundef %73, i64 noundef %76) #7
-  %78 = getelementptr inbounds i8, ptr %61, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %61, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr %77, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %61, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 28
   store i32 %72, ptr %80, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %75, %59
-  %81 = getelementptr inbounds i8, ptr %61, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i16 %36, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %61, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 0, ptr %82, align 4
   %83 = call ptr @wmem_file_scope() #7
   %84 = call noalias ptr @wmem_alloc0(ptr noundef %83, i64 noundef 16) #7
-  %85 = getelementptr inbounds i8, ptr %.0.i.i, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 96
   %86 = load i32, ptr %85, align 8
   store i32 %86, ptr %84, align 8
-  %87 = getelementptr inbounds i8, ptr %61, i64 64
+  %87 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %84, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %.0.i.i, i64 112
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   %89 = load i8, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %61, i64 132684
+  %90 = getelementptr inbounds nuw i8, ptr %61, i64 132684
   store i8 %89, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %.0.i.i, i64 92
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 92
   %92 = load i32, ptr %91, align 4
   %93 = zext i32 %92 to i64
   %94 = getelementptr %struct.nbap_dch_channel_info_t, ptr %30, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load i32, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %61, i64 588
+  %97 = getelementptr inbounds nuw i8, ptr %61, i64 588
   store i32 %96, ptr %97, align 4
   %98 = icmp sgt i32 %96, 0
   br i1 %98, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %copy_address_wmem.exit.i
-  %99 = getelementptr inbounds i8, ptr %94, i64 12
-  %100 = getelementptr inbounds i8, ptr %61, i64 592
-  %101 = getelementptr inbounds i8, ptr %94, i64 268
-  %102 = getelementptr inbounds i8, ptr %61, i64 848
+  %99 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %61, i64 592
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 268
+  %102 = getelementptr inbounds nuw i8, ptr %61, i64 848
   %wide.trip.count.i = zext nneg i32 %96 to i64
   br label %103
 
@@ -20058,7 +20058,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %exitcond.not.i, label %._crit_edge.i, label %103, !llvm.loop !8
 
 ._crit_edge.i:                                    ; preds = %103, %copy_address_wmem.exit.i
-  %110 = getelementptr inbounds i8, ptr %94, i64 524
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 524
   %111 = load i32, ptr %110, align 4
   %112 = getelementptr i8, ptr %61, i64 1104
   store i32 %111, ptr %112, align 4
@@ -20066,10 +20066,10 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %113, label %.lr.ph154.i, label %._crit_edge155.i
 
 .lr.ph154.i:                                      ; preds = %._crit_edge.i
-  %114 = getelementptr inbounds i8, ptr %94, i64 528
-  %115 = getelementptr inbounds i8, ptr %61, i64 1108
-  %116 = getelementptr inbounds i8, ptr %94, i64 784
-  %117 = getelementptr inbounds i8, ptr %61, i64 1364
+  %114 = getelementptr inbounds nuw i8, ptr %94, i64 528
+  %115 = getelementptr inbounds nuw i8, ptr %61, i64 1108
+  %116 = getelementptr inbounds nuw i8, ptr %94, i64 784
+  %117 = getelementptr inbounds nuw i8, ptr %61, i64 1364
   %wide.trip.count181.i = zext nneg i32 %111 to i64
   br label %118
 
@@ -20088,9 +20088,9 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %exitcond182.not.i, label %._crit_edge155.i, label %118, !llvm.loop !9
 
 ._crit_edge155.i:                                 ; preds = %118, %._crit_edge.i
-  %125 = getelementptr inbounds i8, ptr %61, i64 76
+  %125 = getelementptr inbounds nuw i8, ptr %61, i64 76
   store i32 %92, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %61, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %127 = sext i32 %92 to i64
   %.idx169.i = mul nsw i64 %127, 1040
   %.offs170.i = or disjoint i64 %.idx169.i, 4
@@ -20128,7 +20128,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %135, ptr %138, align 4
   %139 = sext i32 %135 to i64
   %140 = getelementptr %struct.nbap_dch_channel_info_t, ptr %30, i64 %139
-  %141 = getelementptr inbounds i8, ptr %140, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load i32, ptr %141, align 4
   %143 = load i32, ptr %126, align 8
   %144 = sext i32 %143 to i64
@@ -20138,8 +20138,8 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %146, label %.lr.ph158.i, label %._crit_edge159.i
 
 .lr.ph158.i:                                      ; preds = %.lr.ph
-  %147 = getelementptr inbounds i8, ptr %140, i64 12
-  %148 = getelementptr inbounds i8, ptr %140, i64 268
+  %147 = getelementptr inbounds nuw i8, ptr %140, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %140, i64 268
   %wide.trip.count186.i = zext nneg i32 %142 to i64
   br label %149
 
@@ -20173,7 +20173,7 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 
 ._crit_edge159.i:                                 ; preds = %._crit_edge159.loopexit.i, %.lr.ph
   %.pre-phi.i = phi i64 [ %.pre193.i, %._crit_edge159.loopexit.i ], [ %144, %.lr.ph ]
-  %161 = getelementptr inbounds i8, ptr %140, i64 524
+  %161 = getelementptr inbounds nuw i8, ptr %140, i64 524
   %162 = load i32, ptr %161, align 4
   %.idx141.i = mul nsw i64 %.pre-phi.i, 1032
   %gep168.i = getelementptr i8, ptr %112, i64 %.idx141.i
@@ -20182,8 +20182,8 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %163, label %.lr.ph166.i, label %.loopexit.i
 
 .lr.ph166.i:                                      ; preds = %._crit_edge159.i
-  %164 = getelementptr inbounds i8, ptr %140, i64 528
-  %165 = getelementptr inbounds i8, ptr %140, i64 784
+  %164 = getelementptr inbounds nuw i8, ptr %140, i64 528
+  %165 = getelementptr inbounds nuw i8, ptr %140, i64 784
   %wide.trip.count191.i = zext nneg i32 %162 to i64
   br label %166
 
@@ -20219,23 +20219,23 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   store i32 %.0137.lcssa.i, ptr %180, align 4
   call void @set_umts_fp_conv_data(ptr noundef nonnull %53, ptr noundef nonnull %61) #7
   %181 = load ptr, ptr %10, align 8
-  %182 = getelementptr inbounds i8, ptr %.0.i.i, i64 44
+  %182 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 44
   %183 = load i32, ptr %182, align 4
-  %184 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %184 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %185 = load i32, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %181, i64 20
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 20
   %187 = load i32, ptr %186, align 4
   %188 = call ptr @wmem_file_scope() #7
   %189 = call noalias ptr @wmem_alloc0(ptr noundef %188, i64 noundef 64) #7
   store i32 %183, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i32 %185, ptr %190, align 4
-  %191 = getelementptr inbounds i8, ptr %189, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i32 %92, ptr %191, align 8
-  %192 = getelementptr inbounds i8, ptr %189, i64 12
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 12
   store i32 %187, ptr %192, align 4
   %193 = call ptr @wmem_file_scope() #7
-  %194 = getelementptr inbounds i8, ptr %189, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %189, i64 16
   %195 = load i32, ptr %5, align 8
   %196 = load i32, ptr %48, align 4
   %197 = load ptr, ptr %49, align 8
@@ -20247,20 +20247,20 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 199:                                              ; preds = %.critedge.i
   %200 = sext i32 %196 to i64
   %201 = call noalias ptr @wmem_memdup(ptr noundef %193, ptr noundef %197, i64 noundef %200) #7
-  %202 = getelementptr inbounds i8, ptr %189, i64 32
+  %202 = getelementptr inbounds nuw i8, ptr %189, i64 32
   store ptr %201, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %189, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %189, i64 24
   store ptr %201, ptr %203, align 8
-  %204 = getelementptr inbounds i8, ptr %189, i64 20
+  %204 = getelementptr inbounds nuw i8, ptr %189, i64 20
   store i32 %196, ptr %204, align 4
   br label %add_setup_conv.exit.i
 
 add_setup_conv.exit.i:                            ; preds = %199, %.critedge.i
-  %205 = getelementptr inbounds i8, ptr %189, i64 40
+  %205 = getelementptr inbounds nuw i8, ptr %189, i64 40
   store i32 %45, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %189, i64 48
+  %206 = getelementptr inbounds nuw i8, ptr %189, i64 48
   store ptr %61, ptr %206, align 8
-  %207 = getelementptr inbounds i8, ptr %189, i64 56
+  %207 = getelementptr inbounds nuw i8, ptr %189, i64 56
   store ptr %53, ptr %207, align 8
   %208 = shl i32 %183, 16
   %209 = shl i32 %185, 14
@@ -20294,9 +20294,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RACH_ParametersIte
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #7
@@ -20309,15 +20309,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RACH_ParametersIte
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %20, ptr noundef nonnull %11, i32 noundef %21, i32 noundef 0, ptr noundef %19) #7
-  %22 = getelementptr inbounds i8, ptr %19, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 68
   store i32 3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 108
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 108
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 65535, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %19, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 65535, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store i8 2, ptr %26, align 8
   %27 = getelementptr i8, ptr %19, i64 267516
   br label %28
@@ -20333,11 +20333,11 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RACH_ParametersIte
 
 nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 116
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 116
   store i32 0, ptr %.0.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i16 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 2, ptr %32, align 8
   %33 = load i32, ptr @ett_nbap_RACH_ParametersItem_CTCH_SetupRqstFDD, align 4
   %34 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %9, i32 noundef %33, ptr noundef nonnull @RACH_ParametersItem_CTCH_SetupRqstFDD_sequence) #7
@@ -20345,9 +20345,9 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   store i32 %35, ptr %7, align 4
   %36 = load i16, ptr %31, align 4
   %37 = load ptr, ptr %10, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 50
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 50
   %41 = load i16, ptr %40, align 2
   %42 = and i16 %41, 8
   %43 = icmp ne i16 %42, 0
@@ -20361,19 +20361,19 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 47:                                               ; preds = %nbap_get_private_data.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %5, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %5, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %37, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = call nonnull ptr @conversation_new(i32 noundef %52, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %45, i32 noundef 0, i32 noundef 3) #7
   %54 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %53, ptr noundef %54) #7
   %55 = load ptr, ptr %10, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 384
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 384
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 1
   br i1 %58, label %59, label %dissect_nbap_RACH_ParametersItem_CTCH_SetupRqstFDD.exit
@@ -20382,19 +20382,19 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %60 = call ptr @wmem_file_scope() #7
   %61 = call noalias ptr @wmem_alloc0(ptr noundef %60, i64 noundef 132704) #7
   store i32 0, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i32 1, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i32 0, ptr %64, align 8
   %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 20
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %61, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 20
   store i32 %67, ptr %68, align 4
   %69 = call ptr @wmem_file_scope() #7
-  %70 = getelementptr inbounds i8, ptr %61, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %71 = load i32, ptr %5, align 8
   %72 = load i32, ptr %48, align 4
   %73 = load ptr, ptr %49, align 8
@@ -20406,18 +20406,18 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 75:                                               ; preds = %59
   %76 = sext i32 %72 to i64
   %77 = call noalias ptr @wmem_memdup(ptr noundef %69, ptr noundef %73, i64 noundef %76) #7
-  %78 = getelementptr inbounds i8, ptr %61, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store ptr %77, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %61, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store ptr %77, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %61, i64 28
+  %80 = getelementptr inbounds nuw i8, ptr %61, i64 28
   store i32 %72, ptr %80, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %75, %59
-  %81 = getelementptr inbounds i8, ptr %61, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i16 %36, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %61, i64 12
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 0, ptr %82, align 4
   %83 = call ptr @wmem_file_scope() #7
   %84 = call noalias ptr @wmem_alloc0(ptr noundef %83, i64 noundef 8) #7
@@ -20425,42 +20425,42 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   %86 = call ptr @wmem_file_scope() #7
   %87 = call noalias ptr @wmem_tree_new_autoreset(ptr noundef %85, ptr noundef %86) #7
   store ptr %87, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %61, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store ptr %84, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %.0.i.i, i64 108
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 108
   %90 = load i32, ptr %89, align 4
   %.not.i = icmp eq i32 %90, 0
   br i1 %.not.i, label %94, label %91
 
 91:                                               ; preds = %copy_address_wmem.exit.i
-  %92 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %93 = load i32, ptr %92, align 8
   br label %94
 
 94:                                               ; preds = %91, %copy_address_wmem.exit.i
   %95 = phi i32 [ %93, %91 ], [ 1, %copy_address_wmem.exit.i ]
-  %96 = getelementptr inbounds i8, ptr %61, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store i32 %95, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %.0.i.i, i64 112
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   %98 = load i8, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %61, i64 132684
+  %99 = getelementptr inbounds nuw i8, ptr %61, i64 132684
   store i8 %98, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %.0.i.i, i64 60
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 60
   %101 = load i32, ptr %100, align 4
   %102 = zext i32 %101 to i64
   %103 = getelementptr %struct.nbap_dch_channel_info_t, ptr %30, i64 %102
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %61, i64 588
+  %106 = getelementptr inbounds nuw i8, ptr %61, i64 588
   store i32 %105, ptr %106, align 4
   %107 = icmp sgt i32 %105, 0
   br i1 %107, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %94
-  %108 = getelementptr inbounds i8, ptr %103, i64 12
-  %109 = getelementptr inbounds i8, ptr %61, i64 592
-  %110 = getelementptr inbounds i8, ptr %103, i64 268
-  %111 = getelementptr inbounds i8, ptr %61, i64 848
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %61, i64 592
+  %110 = getelementptr inbounds nuw i8, ptr %103, i64 268
+  %111 = getelementptr inbounds nuw i8, ptr %61, i64 848
   %wide.trip.count.i = zext nneg i32 %105 to i64
   br label %112
 
@@ -20479,18 +20479,18 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %exitcond.not.i, label %._crit_edge.i, label %112, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %112, %94
-  %119 = getelementptr inbounds i8, ptr %103, i64 524
+  %119 = getelementptr inbounds nuw i8, ptr %103, i64 524
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %61, i64 1104
+  %121 = getelementptr inbounds nuw i8, ptr %61, i64 1104
   store i32 %120, ptr %121, align 4
   %122 = icmp sgt i32 %120, 0
   br i1 %122, label %.lr.ph92.i, label %._crit_edge93.i
 
 .lr.ph92.i:                                       ; preds = %._crit_edge.i
-  %123 = getelementptr inbounds i8, ptr %103, i64 528
-  %124 = getelementptr inbounds i8, ptr %61, i64 1108
-  %125 = getelementptr inbounds i8, ptr %103, i64 784
-  %126 = getelementptr inbounds i8, ptr %61, i64 1364
+  %123 = getelementptr inbounds nuw i8, ptr %103, i64 528
+  %124 = getelementptr inbounds nuw i8, ptr %61, i64 1108
+  %125 = getelementptr inbounds nuw i8, ptr %103, i64 784
+  %126 = getelementptr inbounds nuw i8, ptr %61, i64 1364
   %wide.trip.count98.i = zext nneg i32 %120 to i64
   br label %127
 
@@ -20509,31 +20509,31 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
   br i1 %exitcond99.not.i, label %._crit_edge93.i, label %127, !llvm.loop !14
 
 ._crit_edge93.i:                                  ; preds = %127, %._crit_edge.i
-  %134 = getelementptr inbounds i8, ptr %61, i64 76
+  %134 = getelementptr inbounds nuw i8, ptr %61, i64 76
   store i32 %101, ptr %134, align 4
-  %135 = getelementptr inbounds i8, ptr %61, i64 72
+  %135 = getelementptr inbounds nuw i8, ptr %61, i64 72
   store i32 1, ptr %135, align 8
   call void @set_umts_fp_conv_data(ptr noundef nonnull %53, ptr noundef nonnull %61) #7
   %136 = load ptr, ptr %10, align 8
-  %137 = getelementptr inbounds i8, ptr %.0.i.i, i64 44
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 44
   %138 = load i32, ptr %137, align 4
-  %139 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %140 = load i32, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %.0.i.i, i64 92
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 92
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %136, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %136, i64 20
   %144 = load i32, ptr %143, align 4
   %145 = call ptr @wmem_file_scope() #7
   %146 = call noalias ptr @wmem_alloc0(ptr noundef %145, i64 noundef 64) #7
   store i32 %138, ptr %146, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %140, ptr %147, align 4
-  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store i32 %142, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %146, i64 12
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 12
   store i32 %144, ptr %149, align 4
   %150 = call ptr @wmem_file_scope() #7
-  %151 = getelementptr inbounds i8, ptr %146, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %152 = load i32, ptr %5, align 8
   %153 = load i32, ptr %48, align 4
   %154 = load ptr, ptr %49, align 8
@@ -20545,20 +20545,20 @@ copy_address_wmem.exit.i:                         ; preds = %75, %59
 156:                                              ; preds = %._crit_edge93.i
   %157 = sext i32 %153 to i64
   %158 = call noalias ptr @wmem_memdup(ptr noundef %150, ptr noundef %154, i64 noundef %157) #7
-  %159 = getelementptr inbounds i8, ptr %146, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 32
   store ptr %158, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %146, i64 24
+  %160 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store ptr %158, ptr %160, align 8
-  %161 = getelementptr inbounds i8, ptr %146, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %146, i64 20
   store i32 %153, ptr %161, align 4
   br label %add_setup_conv.exit.i
 
 add_setup_conv.exit.i:                            ; preds = %156, %._crit_edge93.i
-  %162 = getelementptr inbounds i8, ptr %146, i64 40
+  %162 = getelementptr inbounds nuw i8, ptr %146, i64 40
   store i32 %45, ptr %162, align 8
-  %163 = getelementptr inbounds i8, ptr %146, i64 48
+  %163 = getelementptr inbounds nuw i8, ptr %146, i64 48
   store ptr %61, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %146, i64 56
+  %164 = getelementptr inbounds nuw i8, ptr %146, i64 56
   store ptr %53, ptr %164, align 8
   %165 = shl i32 %138, 16
   %166 = shl i32 %140, 14
@@ -26563,9 +26563,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Information
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %7 = load i32, ptr @hf_nbap_HSDSCH_Information_to_Modify_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_nbap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #7
@@ -26578,15 +26578,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Information
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %9, i32 noundef %19, i32 noundef 0, ptr noundef %17) #7
-  %20 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 3, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 108
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 65535, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 65535, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i8 2, ptr %24, align 8
   %25 = getelementptr i8, ptr %17, i64 267516
   br label %26
@@ -26602,11 +26602,11 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Information
 
 nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %.0.i.i = phi ptr [ %13, %4 ], [ %17, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 267480
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 267480
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 50
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 50
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 8
   %.not.i = icmp eq i16 %34, 0
@@ -26615,11 +26615,11 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 .preheader.i:                                     ; preds = %nbap_get_private_data.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %nbap_get_private_data.exit.i ]
   %35 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %28, i64 %indvars.iv.i
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i16 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %35, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 36
   store i8 0, ptr %38, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -26629,9 +26629,9 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %39 = load i32, ptr @ett_nbap_HSDSCH_Information_to_Modify, align 4
   %40 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef %39, ptr noundef nonnull @HSDSCH_Information_to_Modify_sequence) #7
   %41 = load ptr, ptr %8, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 50
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 50
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8
   %.not74.i = icmp eq i16 %46, 0
@@ -26644,7 +26644,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 48:                                               ; preds = %145, %47
   %indvars.iv86.i = phi i64 [ 0, %47 ], [ %indvars.iv.next87.i, %145 ]
   %49 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %28, i64 %indvars.iv86.i
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i16, ptr %50, align 8
   %.not75.i = icmp eq i16 %51, 0
   br i1 %.not75.i, label %145, label %52
@@ -26652,7 +26652,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 52:                                               ; preds = %48
   %53 = zext i16 %51 to i32
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 20
   %56 = load i32, ptr %55, align 4
   %57 = call ptr @find_conversation(i32 noundef %56, ptr noundef %49, ptr noundef nonnull %5, i32 noundef 3, i32 noundef %53, i32 noundef 0, i32 noundef 65536) #7
   %58 = icmp eq ptr %57, null
@@ -26660,7 +26660,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr %8, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = load i16, ptr %50, align 8
   %64 = zext i16 %63 to i32
@@ -26668,7 +26668,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %66 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %65, ptr noundef %66) #7
   %67 = load ptr, ptr %8, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 384
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 384
   %69 = load i32, ptr %68, align 8
   %70 = icmp eq i32 %69, 1
   br i1 %70, label %71, label %145
@@ -26677,23 +26677,23 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %72 = call ptr @wmem_file_scope() #7
   %73 = call noalias ptr @wmem_alloc0(ptr noundef %72, i64 noundef 132704) #7
   store i32 0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 1, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 13, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %73, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i32 0, ptr %76, align 8
   %77 = load ptr, ptr %8, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 20
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 20
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds i8, ptr %73, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %73, i64 20
   store i32 %79, ptr %80, align 4
   %81 = call ptr @wmem_file_scope() #7
-  %82 = getelementptr inbounds i8, ptr %73, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %83 = load i32, ptr %49, align 8
-  %84 = getelementptr inbounds i8, ptr %49, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %49, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %87 = load ptr, ptr %86, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
   store i32 %83, ptr %82, align 8
@@ -26703,28 +26703,28 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 89:                                               ; preds = %71
   %90 = sext i32 %85 to i64
   %91 = call noalias ptr @wmem_memdup(ptr noundef %81, ptr noundef %87, i64 noundef %90) #7
-  %92 = getelementptr inbounds i8, ptr %73, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store ptr %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %73, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %91, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %73, i64 28
+  %94 = getelementptr inbounds nuw i8, ptr %73, i64 28
   store i32 %85, ptr %94, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %89, %71
   %95 = load i16, ptr %50, align 8
-  %96 = getelementptr inbounds i8, ptr %73, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %73, i64 48
   store i16 %95, ptr %96, align 8
   %97 = call ptr @wmem_file_scope() #7
   %98 = call noalias ptr @wmem_alloc0(ptr noundef %97, i64 noundef 12) #7
-  %99 = getelementptr inbounds i8, ptr %73, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %73, i64 64
   store ptr %98, ptr %99, align 8
   %100 = trunc nuw nsw i64 %indvars.iv86.i to i32
   %101 = trunc i64 %indvars.iv86.i to i8
-  %102 = getelementptr inbounds i8, ptr %98, i64 5
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 5
   store i8 %101, ptr %102, align 1
   %103 = load ptr, ptr %8, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 408
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 408
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr @proto_nbap, align 4
   %107 = call ptr @p_get_proto_data(ptr noundef %105, ptr noundef %103, i32 noundef %106, i32 noundef 0) #7
@@ -26737,15 +26737,15 @@ copy_address_wmem.exit.i:                         ; preds = %89, %71
   %112 = load ptr, ptr %104, align 8
   %113 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %112, ptr noundef nonnull %103, i32 noundef %113, i32 noundef 0, ptr noundef %111) #7
-  %114 = getelementptr inbounds i8, ptr %111, i64 68
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 68
   store i32 3, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %111, i64 108
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 108
   store i32 0, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %111, i64 12
+  %116 = getelementptr inbounds nuw i8, ptr %111, i64 12
   store i32 65535, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %111, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %111, i64 40
   store i32 65535, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %111, i64 112
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 112
   store i8 2, ptr %118, align 8
   %119 = getelementptr i8, ptr %111, i64 267516
   br label %120
@@ -26761,25 +26761,25 @@ copy_address_wmem.exit.i:                         ; preds = %89, %71
 
 nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_wmem.exit.i
   %.0.i76.i = phi ptr [ %107, %copy_address_wmem.exit.i ], [ %111, %120 ]
-  %122 = getelementptr inbounds i8, ptr %.0.i76.i, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %.0.i76.i, i64 24
   %123 = load i32, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %73, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %73, i64 56
   store i32 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %73, i64 72
+  %125 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %126 = load i32, ptr %125, align 8
   %127 = add i32 %126, 1
   store i32 %127, ptr %125, align 8
-  %128 = getelementptr inbounds i8, ptr %73, i64 76
+  %128 = getelementptr inbounds nuw i8, ptr %73, i64 76
   %129 = sext i32 %126 to i64
   %130 = getelementptr [128 x i32], ptr %128, i64 0, i64 %129
   store i32 %100, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %49, i64 36
+  %131 = getelementptr inbounds nuw i8, ptr %49, i64 36
   %132 = load i8, ptr %131, align 4
   %133 = icmp eq i8 %132, 0
   br i1 %133, label %134, label %138
 
 134:                                              ; preds = %nbap_get_private_data.exit81.i
-  %135 = getelementptr inbounds i8, ptr %49, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %136 = load i32, ptr %135, align 8
   %137 = icmp ugt i32 %136, 12
   %..i = select i1 %137, i32 2, i32 1
@@ -26792,11 +26792,11 @@ nbap_get_private_data.exit81.i:                   ; preds = %120, %copy_address_
 140:                                              ; preds = %138, %134
   %.sink.i = phi i32 [ %139, %138 ], [ %..i, %134 ]
   store i32 %.sink.i, ptr %98, align 4
-  %141 = getelementptr inbounds i8, ptr %49, i64 28
+  %141 = getelementptr inbounds nuw i8, ptr %49, i64 28
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr inbounds i8, ptr %73, i64 12
+  %143 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 %142, ptr %143, align 4
-  %144 = getelementptr inbounds i8, ptr %73, i64 132688
+  %144 = getelementptr inbounds nuw i8, ptr %73, i64 132688
   store i32 1, ptr %144, align 8
   call void @set_umts_fp_conv_data(ptr noundef nonnull %65, ptr noundef nonnull %73) #7
   br label %145
@@ -26829,9 +26829,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_MACdFlows_t
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_HSDSCH_MACdFlows_to_Delete_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -26844,15 +26844,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_MACdFlows_t
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -26868,7 +26868,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_MACdFlows_t
 
 dissect_nbap_HSDSCH_MACdFlows_to_Delete.exit:     ; preds = %25, %4
   %.0.i.i = phi ptr [ %12, %4 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
   store i32 0, ptr %27, align 8
   %28 = load i32, ptr @ett_nbap_HSDSCH_MACdFlows_to_Delete, align 4
   %29 = call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %28, ptr noundef nonnull @HSDSCH_MACdFlows_to_Delete_sequence_of, i32 noundef 1, i32 noundef 8, i32 noundef 0) #7
@@ -26900,9 +26900,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_DCH_FDD_Informat
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #7
@@ -26915,15 +26915,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_DCH_FDD_Informat
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %20, ptr noundef nonnull %11, i32 noundef %21, i32 noundef 0, ptr noundef %19) #7
-  %22 = getelementptr inbounds i8, ptr %19, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 68
   store i32 3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 108
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 108
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 65535, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %19, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 65535, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store i8 2, ptr %26, align 8
   %27 = getelementptr i8, ptr %19, i64 267516
   br label %28
@@ -26939,9 +26939,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_E_DCH_FDD_Informat
 
 nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %.0.i.i = phi ptr [ %15, %4 ], [ %19, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 266360
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 266360
   store i32 0, ptr %.0.i.i, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   store i16 0, ptr %31, align 4
   %32 = load i32, ptr @ett_nbap_E_DCH_FDD_Information_to_Modify, align 4
   %33 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %9, i32 noundef %32, ptr noundef nonnull @E_DCH_FDD_Information_to_Modify_sequence) #7
@@ -26949,9 +26949,9 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   store i32 %34, ptr %7, align 4
   %35 = load i16, ptr %31, align 4
   %36 = load ptr, ptr %10, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 50
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 50
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8
   %42 = icmp ne i16 %41, 0
@@ -26965,23 +26965,23 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
   %46 = zext i16 %35 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i32 2, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %5, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 4, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %5, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = call ptr @find_conversation(i32 noundef %51, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %46, i32 noundef 0, i32 noundef 196608) #7
   %53 = load ptr, ptr %10, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = call nonnull ptr @conversation_new(i32 noundef %55, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %46, i32 noundef 0, i32 noundef 3) #7
   %57 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %56, ptr noundef %57) #7
   %58 = load ptr, ptr %10, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 384
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 384
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 1
   br i1 %61, label %62, label %dissect_nbap_E_DCH_FDD_Information_to_Modify.exit
@@ -27004,19 +27004,19 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 
 69:                                               ; preds = %68, %65, %62
   store i32 0, ptr %64, align 8
-  %70 = getelementptr inbounds i8, ptr %64, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 1, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %64, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i32 17, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store i32 0, ptr %72, align 8
   %73 = load ptr, ptr %10, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 20
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %64, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 20
   store i32 %75, ptr %76, align 4
   %77 = call ptr @wmem_file_scope() #7
-  %78 = getelementptr inbounds i8, ptr %64, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %79 = load i32, ptr %5, align 8
   %80 = load i32, ptr %47, align 4
   %81 = load ptr, ptr %48, align 8
@@ -27028,32 +27028,32 @@ nbap_get_private_data.exit.i:                     ; preds = %28, %4
 83:                                               ; preds = %69
   %84 = sext i32 %80 to i64
   %85 = call noalias ptr @wmem_memdup(ptr noundef %77, ptr noundef %81, i64 noundef %84) #7
-  %86 = getelementptr inbounds i8, ptr %64, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 40
   store ptr %85, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %64, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %64, i64 32
   store ptr %85, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %64, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %64, i64 28
   store i32 %80, ptr %88, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %83, %69
-  %89 = getelementptr inbounds i8, ptr %64, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %64, i64 48
   store i16 %35, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %64, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 0, ptr %90, align 4
   %91 = call ptr @wmem_file_scope() #7
   %92 = call noalias ptr @wmem_alloc0(ptr noundef %91, i64 noundef 104) #7
-  %93 = getelementptr inbounds i8, ptr %64, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %64, i64 64
   store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.0.i.i, i64 108
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 108
   %95 = load i32, ptr %94, align 4
   %.not59.i = icmp eq i32 %95, 0
   br i1 %.not59.i, label %100, label %96
 
 96:                                               ; preds = %copy_address_wmem.exit.i
-  %97 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %98 = load i32, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %64, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %64, i64 56
   store i32 %98, ptr %99, align 8
   br label %103
 
@@ -27063,10 +27063,10 @@ copy_address_wmem.exit.i:                         ; preds = %83, %69
   br label %103
 
 103:                                              ; preds = %100, %96
-  %104 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %104 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   %105 = load i32, ptr %104, align 8
   %106 = load ptr, ptr %10, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 408
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 408
   %108 = load ptr, ptr %107, align 8
   %109 = zext i32 %105 to i64
   %110 = getelementptr %struct.nbap_edch_channel_info_t, ptr %30, i64 %109
@@ -27081,18 +27081,18 @@ copy_address_wmem.exit.i:                         ; preds = %83, %69
 115:                                              ; preds = %103
   %116 = sext i32 %112 to i64
   %117 = call noalias ptr @wmem_memdup(ptr noundef %108, ptr noundef %113, i64 noundef %116) #7
-  %118 = getelementptr inbounds i8, ptr %110, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %110, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr %117, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %110, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 4
   store i32 %112, ptr %120, align 4
   br label %copy_address_wmem.exit60.i
 
 copy_address_wmem.exit60.i:                       ; preds = %115, %103
-  %121 = getelementptr inbounds i8, ptr %110, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store i16 %35, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %64, i64 132688
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 132688
   store i32 1, ptr %122, align 8
   call void @set_umts_fp_conv_data(ptr noundef nonnull %56, ptr noundef nonnull %64) #7
   br label %dissect_nbap_E_DCH_FDD_Information_to_Modify.exit
@@ -27786,9 +27786,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Common_Syst
   call void @asn1_ctx_init(ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %7 = load i32, ptr @hf_nbap_HSDSCH_Common_System_InformationFDD_PDU, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_nbap, align 4
   %13 = call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #7
@@ -27801,15 +27801,15 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Common_Syst
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %9, i32 noundef %19, i32 noundef 0, ptr noundef %17) #7
-  %20 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 3, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 108
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 65535, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 65535, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i8 2, ptr %24, align 8
   %25 = getelementptr i8, ptr %17, i64 267516
   br label %26
@@ -27825,11 +27825,11 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_HSDSCH_Common_Syst
 
 nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %.0.i.i = phi ptr [ %13, %4 ], [ %17, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i.i, i64 267800
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 267800
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 50
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 50
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 8
   %.not.i = icmp eq i16 %34, 0
@@ -27838,9 +27838,9 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 .preheader.i:                                     ; preds = %nbap_get_private_data.exit.i, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %nbap_get_private_data.exit.i ]
   %35 = getelementptr %struct.nbap_common_channel_info_t, ptr %28, i64 %indvars.iv.i
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i16 0, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %35, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i32 0, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
@@ -27850,9 +27850,9 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %38 = load i32, ptr @ett_nbap_HSDSCH_Common_System_InformationFDD, align 4
   %39 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %6, ptr noundef %2, i32 noundef %7, i32 noundef %38, ptr noundef nonnull @HSDSCH_Common_System_InformationFDD_sequence) #7
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 50
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 50
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 8
   %.not57.i = icmp eq i16 %45, 0
@@ -27865,7 +27865,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 47:                                               ; preds = %129, %46
   %indvars.iv69.i = phi i64 [ 0, %46 ], [ %indvars.iv.next70.i, %129 ]
   %48 = getelementptr %struct.nbap_common_channel_info_t, ptr %28, i64 %indvars.iv69.i
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i16, ptr %49, align 8
   %.not58.i = icmp eq i16 %50, 0
   br i1 %.not58.i, label %129, label %51
@@ -27873,7 +27873,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 51:                                               ; preds = %47
   %52 = zext i16 %50 to i32
   %53 = load ptr, ptr %8, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = call ptr @find_conversation(i32 noundef %55, ptr noundef %48, ptr noundef nonnull %5, i32 noundef 3, i32 noundef %52, i32 noundef 0, i32 noundef 65536) #7
   %57 = icmp eq ptr %56, null
@@ -27881,7 +27881,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %8, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = load i16, ptr %49, align 8
   %63 = zext i16 %62 to i32
@@ -27889,7 +27889,7 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
   %65 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %64, ptr noundef %65) #7
   %66 = load ptr, ptr %8, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 384
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 384
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 1
   br i1 %69, label %70, label %129
@@ -27897,23 +27897,23 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 70:                                               ; preds = %58
   %71 = call ptr @wmem_file_scope() #7
   %72 = call noalias ptr @wmem_alloc0(ptr noundef %71, i64 noundef 132704) #7
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 19, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %72, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 1, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i32 0, ptr %75, align 8
   %76 = load ptr, ptr %8, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %72, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 20
   store i32 %78, ptr %79, align 4
   %80 = call ptr @wmem_file_scope() #7
-  %81 = getelementptr inbounds i8, ptr %72, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %82 = load i32, ptr %48, align 8
-  %83 = getelementptr inbounds i8, ptr %48, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %48, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %86 = load ptr, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i32 %82, ptr %81, align 8
@@ -27923,24 +27923,24 @@ nbap_get_private_data.exit.i:                     ; preds = %26, %4
 88:                                               ; preds = %70
   %89 = sext i32 %84 to i64
   %90 = call noalias ptr @wmem_memdup(ptr noundef %80, ptr noundef %86, i64 noundef %89) #7
-  %91 = getelementptr inbounds i8, ptr %72, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %72, i64 40
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %72, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %90, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %72, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %72, i64 28
   store i32 %84, ptr %93, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %88, %70
   %94 = load i16, ptr %49, align 8
-  %95 = getelementptr inbounds i8, ptr %72, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store i16 %94, ptr %95, align 8
   %96 = call ptr @wmem_file_scope() #7
   %97 = call noalias ptr @wmem_alloc0(ptr noundef %96, i64 noundef 12) #7
-  %98 = getelementptr inbounds i8, ptr %72, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %97, ptr %98, align 8
   %99 = load ptr, ptr %8, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 408
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 408
   %101 = load ptr, ptr %100, align 8
   %102 = load i32, ptr @proto_nbap, align 4
   %103 = call ptr @p_get_proto_data(ptr noundef %101, ptr noundef %99, i32 noundef %102, i32 noundef 0) #7
@@ -27953,15 +27953,15 @@ copy_address_wmem.exit.i:                         ; preds = %88, %70
   %108 = load ptr, ptr %100, align 8
   %109 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %108, ptr noundef nonnull %99, i32 noundef %109, i32 noundef 0, ptr noundef %107) #7
-  %110 = getelementptr inbounds i8, ptr %107, i64 68
+  %110 = getelementptr inbounds nuw i8, ptr %107, i64 68
   store i32 3, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %107, i64 108
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 108
   store i32 0, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %107, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 12
   store i32 65535, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %107, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store i32 65535, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %107, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %107, i64 112
   store i8 2, ptr %114, align 8
   %115 = getelementptr i8, ptr %107, i64 267516
   br label %116
@@ -27977,17 +27977,17 @@ copy_address_wmem.exit.i:                         ; preds = %88, %70
 
 nbap_get_private_data.exit64.i:                   ; preds = %116, %copy_address_wmem.exit.i
   %.0.i59.i = phi ptr [ %103, %copy_address_wmem.exit.i ], [ %107, %116 ]
-  %118 = getelementptr inbounds i8, ptr %.0.i59.i, i64 84
+  %118 = getelementptr inbounds nuw i8, ptr %.0.i59.i, i64 84
   %119 = load i32, ptr %118, align 4
   %120 = trunc i32 %119 to i8
-  %121 = getelementptr inbounds i8, ptr %97, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %97, i64 4
   store i8 %120, ptr %121, align 4
   store i32 2, ptr %97, align 4
-  %122 = getelementptr inbounds i8, ptr %72, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %123 = load i32, ptr %122, align 8
   %124 = add i32 %123, 1
   store i32 %124, ptr %122, align 8
-  %125 = getelementptr inbounds i8, ptr %72, i64 76
+  %125 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %126 = sext i32 %123 to i64
   %127 = getelementptr [128 x i32], ptr %125, i64 0, i64 %126
   %128 = trunc nuw nsw i64 %indvars.iv69.i to i32
@@ -30690,13 +30690,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellSetupRequestFD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CellSetupRequestFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8867) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CellSetupRequestFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CellSetupRequestFDD_sequence) #7
@@ -30710,13 +30710,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellSetupResponse_
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CellSetupResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8868) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CellSetupResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CellSetupResponse_sequence) #7
@@ -30730,13 +30730,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CellSetupFailure_P
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CellSetupFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8869) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CellSetupFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CellSetupFailure_sequence) #7
@@ -30834,13 +30834,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonTransportCha
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonTransportChannelSetupRequestFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8870) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonTransportChannelSetupRequestFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonTransportChannelSetupRequestFDD_sequence) #7
@@ -30854,13 +30854,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonTransportCha
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonTransportChannelSetupResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8871) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonTransportChannelSetupResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonTransportChannelSetupResponse_sequence) #7
@@ -30874,13 +30874,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonTransportCha
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonTransportChannelSetupFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8872) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonTransportChannelSetupFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonTransportChannelSetupFailure_sequence) #7
@@ -30978,13 +30978,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AuditRequest_PDU(p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_AuditRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8873) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_AuditRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @AuditRequest_sequence) #7
@@ -30998,13 +30998,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AuditResponse_PDU(
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_AuditResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8874) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_AuditResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @AuditResponse_sequence) #7
@@ -31018,13 +31018,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AuditFailure_PDU(p
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_AuditFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8875) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_AuditFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @AuditFailure_sequence) #7
@@ -31074,13 +31074,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkSetupRequ
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkSetupRequestFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8876) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkSetupRequestFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkSetupRequestFDD_sequence) #7
@@ -31094,13 +31094,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkSetupResp
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkSetupResponseFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8877) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkSetupResponseFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkSetupResponseFDD_sequence) #7
@@ -31114,13 +31114,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkSetupFail
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkSetupFailureFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8878) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkSetupFailureFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkSetupFailureFDD_sequence) #7
@@ -31170,13 +31170,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformationU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_SystemInformationUpdateRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8879) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_SystemInformationUpdateRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @SystemInformationUpdateRequest_sequence) #7
@@ -31190,13 +31190,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformationU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_SystemInformationUpdateResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8880) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_SystemInformationUpdateResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @SystemInformationUpdateResponse_sequence) #7
@@ -31210,13 +31210,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_SystemInformationU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_SystemInformationUpdateFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8881) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_SystemInformationUpdateFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @SystemInformationUpdateFailure_sequence) #7
@@ -31254,13 +31254,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonMeasurementI
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonMeasurementInitiationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8882) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonMeasurementInitiationRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonMeasurementInitiationRequest_sequence) #7
@@ -31274,13 +31274,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonMeasurementI
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonMeasurementInitiationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8883) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonMeasurementInitiationResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonMeasurementInitiationResponse_sequence) #7
@@ -31294,13 +31294,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonMeasurementI
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonMeasurementInitiationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8884) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonMeasurementInitiationFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonMeasurementInitiationFailure_sequence) #7
@@ -31314,9 +31314,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkAdditionR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkAdditionRequestFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8885) #7
   %11 = load i32, ptr @ett_nbap_RadioLinkAdditionRequestFDD, align 4
@@ -31331,9 +31331,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkAdditionR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkAdditionResponseFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8886) #7
   %11 = load i32, ptr @ett_nbap_RadioLinkAdditionResponseFDD, align 4
@@ -31348,9 +31348,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkAdditionF
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkAdditionFailureFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8885) #7
   %11 = load i32, ptr @ett_nbap_RadioLinkAdditionFailureFDD, align 4
@@ -31401,13 +31401,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkDeletionR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkDeletionRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8887) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkDeletionRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkDeletionRequest_sequence) #7
@@ -31421,13 +31421,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkDeletionR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkDeletionResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8888) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkDeletionResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkDeletionResponse_sequence) #7
@@ -31441,13 +31441,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationPrepareFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8889) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkReconfigurationPrepareFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkReconfigurationPrepareFDD_sequence) #7
@@ -31461,13 +31461,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationReady_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8890) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkReconfigurationReady, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkReconfigurationReady_sequence) #7
@@ -31481,19 +31481,19 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8891) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @col_set_str(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.8891) #7
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 384
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 384
   store i32 0, ptr %16, align 8
   %17 = load i32, ptr @ett_nbap_RadioLinkReconfigurationFailure, align 4
   %18 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %17, ptr noundef nonnull @RadioLinkReconfigurationFailure_sequence) #7
@@ -31519,13 +31519,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationRequestFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8892) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkReconfigurationRequestFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkReconfigurationRequestFDD_sequence) #7
@@ -31539,9 +31539,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8893) #7
   %11 = load i32, ptr @ett_nbap_RadioLinkReconfigurationResponse, align 4
@@ -31568,13 +31568,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DedicatedMeasureme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DedicatedMeasurementInitiationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8894) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DedicatedMeasurementInitiationRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DedicatedMeasurementInitiationRequest_sequence) #7
@@ -31588,13 +31588,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DedicatedMeasureme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DedicatedMeasurementInitiationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8895) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DedicatedMeasurementInitiationResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DedicatedMeasurementInitiationResponse_sequence) #7
@@ -31608,13 +31608,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DedicatedMeasureme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DedicatedMeasurementInitiationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8896) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DedicatedMeasurementInitiationFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DedicatedMeasurementInitiationFailure_sequence) #7
@@ -31628,13 +31628,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PhysicalSharedChan
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_PhysicalSharedChannelReconfigurationRequestFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8897) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_PhysicalSharedChannelReconfigurationRequestFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @PhysicalSharedChannelReconfigurationRequestFDD_sequence) #7
@@ -31648,13 +31648,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PhysicalSharedChan
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_PhysicalSharedChannelReconfigurationResponse_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8898) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_PhysicalSharedChannelReconfigurationResponse, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @PhysicalSharedChannelReconfigurationResponse_sequence) #7
@@ -31668,13 +31668,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PhysicalSharedChan
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_PhysicalSharedChannelReconfigurationFailure_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8899) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_PhysicalSharedChannelReconfigurationFailure, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @PhysicalSharedChannelReconfigurationFailure_sequence) #7
@@ -31844,13 +31844,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ResourceStatusIndi
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_ResourceStatusIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8900) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_ResourceStatusIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @ResourceStatusIndication_sequence) #7
@@ -31864,13 +31864,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_AuditRequiredIndic
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_AuditRequiredIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8901) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_AuditRequiredIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @AuditRequiredIndication_sequence) #7
@@ -31884,13 +31884,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonMeasurementR
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonMeasurementReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8902) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonMeasurementReport, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonMeasurementReport_sequence) #7
@@ -31904,13 +31904,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonMeasurementT
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonMeasurementTerminationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8903) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonMeasurementTerminationRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonMeasurementTerminationRequest_sequence) #7
@@ -31924,13 +31924,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CommonMeasurementF
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CommonMeasurementFailureIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8904) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CommonMeasurementFailureIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CommonMeasurementFailureIndication_sequence) #7
@@ -31944,13 +31944,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationCommit_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8905) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkReconfigurationCommit, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkReconfigurationCommit_sequence) #7
@@ -31964,13 +31964,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkReconfigu
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkReconfigurationCancel_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8906) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkReconfigurationCancel, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkReconfigurationCancel_sequence) #7
@@ -31984,13 +31984,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkFailureIn
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkFailureIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8907) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkFailureIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkFailureIndication_sequence) #7
@@ -32004,13 +32004,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkPreemptio
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkPreemptionRequiredIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8908) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkPreemptionRequiredIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkPreemptionRequiredIndication_sequence) #7
@@ -32024,13 +32024,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkRestoreIn
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkRestoreIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8909) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkRestoreIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkRestoreIndication_sequence) #7
@@ -32044,13 +32044,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DedicatedMeasureme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DedicatedMeasurementReport_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8910) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DedicatedMeasurementReport, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DedicatedMeasurementReport_sequence) #7
@@ -32064,13 +32064,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DedicatedMeasureme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DedicatedMeasurementTerminationRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8911) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DedicatedMeasurementTerminationRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DedicatedMeasurementTerminationRequest_sequence) #7
@@ -32084,13 +32084,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DedicatedMeasureme
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DedicatedMeasurementFailureIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8912) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DedicatedMeasurementFailureIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DedicatedMeasurementFailureIndication_sequence) #7
@@ -32104,13 +32104,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DL_PowerControlReq
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DL_PowerControlRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8913) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DL_PowerControlRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DL_PowerControlRequest_sequence) #7
@@ -32124,13 +32124,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_DL_PowerTimeslotCo
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_DL_PowerTimeslotControlRequest_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8914) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_DL_PowerTimeslotControlRequest, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @DL_PowerTimeslotControlRequest_sequence) #7
@@ -32144,13 +32144,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_CompressedModeComm
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_CompressedModeCommand_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8915) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 1, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_CompressedModeCommand, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @CompressedModeCommand_sequence) #7
@@ -32164,13 +32164,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_UnblockResourceInd
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_UnblockResourceIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8916) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_UnblockResourceIndication, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @UnblockResourceIndication_sequence) #7
@@ -32184,9 +32184,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_ErrorIndication_PD
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_ErrorIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8917) #7
   %11 = load i32, ptr @ett_nbap_ErrorIndication, align 4
@@ -32237,9 +32237,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_PrivateMessage_PDU
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_PrivateMessage_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8918) #7
   %11 = load i32, ptr @ett_nbap_PrivateMessage, align 4
@@ -32290,9 +32290,9 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_BearerRearrangemen
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_BearerRearrangementIndication_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8919) #7
   %11 = load i32, ptr @ett_nbap_BearerRearrangementIndication, align 4
@@ -32331,13 +32331,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_RadioLinkParameter
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 1, i1 noundef zeroext true, ptr noundef %1) #7
   %6 = load i32, ptr @hf_nbap_RadioLinkParameterUpdateIndicationFDD_PDU, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   call void @col_set_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.8920) #7
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 384
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 384
   store i32 0, ptr %12, align 8
   %13 = load i32, ptr @ett_nbap_RadioLinkParameterUpdateIndicationFDD, align 4
   %14 = call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %5, ptr noundef %2, i32 noundef %6, i32 noundef %13, ptr noundef nonnull @RadioLinkParameterUpdateIndicationFDD_sequence) #7
@@ -32453,9 +32453,9 @@ declare i32 @dissect_per_sequence(ptr noundef, i32 noundef, ptr noundef, ptr nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_ProcedureID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   store ptr null, ptr @ProcedureID, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -32468,15 +32468,15 @@ define internal i32 @dissect_nbap_ProcedureID(ptr noundef %0, i32 noundef %1, pt
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -32495,17 +32495,17 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %26 = load i32, ptr @ett_nbap_ProcedureID, align 4
   %27 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %26, ptr noundef nonnull @ProcedureID_sequence) #7
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @nbap_ProcedureCode_vals, ptr noundef nonnull @.str.8812) #7
-  %34 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %35 = load i32, ptr %34, align 8
   %36 = tail call ptr @val_to_str(i32 noundef %35, ptr noundef nonnull @nbap_DdMode_vals, ptr noundef nonnull @.str.8812) #7
   %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef nonnull @.str.8811, ptr noundef %33, ptr noundef %36) #7
   store ptr %37, ptr @ProcedureID, align 8
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
   store i32 0, ptr %38, align 4
   ret i32 %27
 }
@@ -32550,9 +32550,9 @@ define internal i32 @dissect_nbap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i32 noundef 0) #7
   %8 = load i32, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -32565,15 +32565,15 @@ define internal i32 @dissect_nbap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -32589,10 +32589,10 @@ define internal i32 @dissect_nbap_ProcedureCode(ptr noundef %0, i32 noundef %1, 
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   store i32 %8, ptr %29, align 4
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %6, align 4
   %34 = call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @nbap_ProcedureCode_vals, ptr noundef nonnull @.str.8814) #7
@@ -32602,9 +32602,9 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_DdMode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -32617,15 +32617,15 @@ define internal i32 @dissect_nbap_DdMode(ptr noundef %0, i32 noundef %1, ptr nou
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -32641,7 +32641,7 @@ define internal i32 @dissect_nbap_DdMode(ptr noundef %0, i32 noundef %1, ptr nou
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %27 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 3, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 0, ptr noundef null) #7
   ret i32 %27
 }
@@ -32656,9 +32656,9 @@ declare i32 @dissect_per_enumerated(ptr noundef, i32 noundef, ptr noundef, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_shortTransActionId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -32671,15 +32671,15 @@ define internal i32 @dissect_nbap_T_shortTransActionId(ptr noundef %0, i32 nound
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -32695,16 +32695,16 @@ define internal i32 @dissect_nbap_T_shortTransActionId(ptr noundef %0, i32 nound
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 127, ptr noundef nonnull %26, i32 noundef 0) #7
   ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_longTransActionId(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -32717,15 +32717,15 @@ define internal i32 @dissect_nbap_T_longTransActionId(ptr noundef %0, i32 nounde
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -32741,7 +32741,7 @@ define internal i32 @dissect_nbap_T_longTransActionId(ptr noundef %0, i32 nounde
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 32767, ptr noundef nonnull %26, i32 noundef 0) #7
   ret i32 %27
 }
@@ -32911,9 +32911,9 @@ define internal i32 @dissect_nbap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull %6, i32 noundef 0) #7
   %8 = load i32, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -32926,15 +32926,15 @@ define internal i32 @dissect_nbap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -32950,13 +32950,13 @@ define internal i32 @dissect_nbap_ProtocolIE_ID(ptr noundef %0, i32 noundef %1, 
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   store i32 %8, ptr %29, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %36, label %30
 
 30:                                               ; preds = %nbap_get_private_data.exit
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @proto_item_get_parent_nth(ptr noundef %32, i32 noundef 2) #7
   %34 = load i32, ptr %6, align 4
@@ -32982,7 +32982,7 @@ declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_nbap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -32995,15 +32995,15 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %13, ptr noundef nonnull %1, i32 noundef %14, i32 noundef 0, ptr noundef %12) #7
-  %15 = getelementptr inbounds i8, ptr %12, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 68
   store i32 3, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 65535, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 65535, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i8 2, ptr %19, align 8
   %20 = getelementptr i8, ptr %12, i64 267516
   br label %21
@@ -33019,7 +33019,7 @@ define internal i32 @dissect_ProtocolExtensionFieldExtensionValue(ptr noundef %0
 
 nbap_get_private_data.exit:                       ; preds = %21, %4
   %.0.i = phi ptr [ %8, %4 ], [ %12, %21 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr @nbap_extension_dissector_table, align 8
   %26 = tail call i32 @dissector_try_uint_new(ptr noundef %25, i32 noundef %24, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
@@ -33204,9 +33204,9 @@ define internal i32 @dissect_nbap_CRNC_CommunicationContextID(ptr noundef %0, i3
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 1048575, ptr noundef nonnull %6, i32 noundef 0) #7
   %8 = load i32, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -33219,15 +33219,15 @@ define internal i32 @dissect_nbap_CRNC_CommunicationContextID(ptr noundef %0, i3
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -33243,10 +33243,10 @@ define internal i32 @dissect_nbap_CRNC_CommunicationContextID(ptr noundef %0, i3
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store i32 %8, ptr %29, align 8
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr @proto_nbap, align 4
   %34 = call ptr @p_get_proto_data(ptr noundef %32, ptr noundef %30, i32 noundef %33, i32 noundef 0) #7
@@ -33259,15 +33259,15 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %39 = load ptr, ptr %31, align 8
   %40 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %39, ptr noundef nonnull %30, i32 noundef %40, i32 noundef 0, ptr noundef %38) #7
-  %41 = getelementptr inbounds i8, ptr %38, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 68
   store i32 3, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %38, i64 108
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 108
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %38, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 65535, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %38, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 65535, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 112
   store i8 2, ptr %45, align 8
   %46 = getelementptr i8, ptr %38, i64 267516
   br label %47
@@ -33283,7 +33283,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 
 nbap_get_private_data.exit12:                     ; preds = %47, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %47 ]
-  %49 = getelementptr inbounds i8, ptr %.0.i7, i64 108
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 108
   store i32 1, ptr %49, align 4
   ret i32 %7
 }
@@ -33670,7 +33670,7 @@ define internal i32 @dissect_nbap_ProtocolIE_Field_value(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @proto_nbap, align 4
   %8 = tail call ptr @p_get_proto_data(ptr noundef %6, ptr noundef %1, i32 noundef %7, i32 noundef 0) #7
@@ -33683,15 +33683,15 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %13, ptr noundef nonnull %1, i32 noundef %14, i32 noundef 0, ptr noundef %12) #7
-  %15 = getelementptr inbounds i8, ptr %12, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 68
   store i32 3, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 108
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 108
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 65535, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %12, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 65535, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 112
   store i8 2, ptr %19, align 8
   %20 = getelementptr i8, ptr %12, i64 267516
   br label %21
@@ -33707,7 +33707,7 @@ define internal i32 @dissect_ProtocolIEFieldValue(ptr noundef %0, ptr noundef %1
 
 nbap_get_private_data.exit:                       ; preds = %21, %4
   %.0.i = phi ptr [ %8, %4 ], [ %12, %21 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr @nbap_ies_dissector_table, align 8
   %26 = tail call i32 @dissector_try_uint_new(ptr noundef %25, i32 noundef %24, ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef null) #7
@@ -33782,9 +33782,9 @@ define internal i32 @dissect_nbap_PRACH_CTCH_SetupRqstFDD(ptr noundef %0, i32 no
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_CommonPhysicalChannelID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -33797,15 +33797,15 @@ define internal i32 @dissect_nbap_CommonPhysicalChannelID(ptr noundef %0, i32 no
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -33823,13 +33823,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i32 noundef 0) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   store i32 %28, ptr %29, align 4
   %30 = icmp ult i32 %28, 128
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %nbap_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   %narrow = mul nuw nsw i32 %28, 1040
   %33 = or disjoint i32 %narrow, 4
   %.offs = zext nneg i32 %33 to i64
@@ -34104,9 +34104,9 @@ define internal i32 @dissect_nbap_FACH_ParametersItem_CTCH_SetupRqstFDD(ptr noun
   %6 = alloca %struct._address, align 8
   %7 = alloca %struct._address, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = tail call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -34119,15 +34119,15 @@ define internal i32 @dissect_nbap_FACH_ParametersItem_CTCH_SetupRqstFDD(ptr noun
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -34143,11 +34143,11 @@ define internal i32 @dissect_nbap_FACH_ParametersItem_CTCH_SetupRqstFDD(ptr noun
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   store i32 0, ptr %.0.i, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 2, ptr %31, align 8
   %32 = load i32, ptr @ett_nbap_FACH_ParametersItem_CTCH_SetupRqstFDD, align 4
   %33 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %32, ptr noundef nonnull @FACH_ParametersItem_CTCH_SetupRqstFDD_sequence) #7
@@ -34155,9 +34155,9 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i32 %34, ptr %8, align 4
   %35 = load i16, ptr %30, align 4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 50
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 50
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8
   %42 = icmp ne i16 %41, 0
@@ -34171,19 +34171,19 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 46:                                               ; preds = %nbap_get_private_data.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 2, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %6, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %36, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %51 = load i32, ptr %50, align 4
   %52 = call nonnull ptr @conversation_new(i32 noundef %51, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %44, i32 noundef 0, i32 noundef 3) #7
   %53 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %52, ptr noundef %53) #7
   %54 = load ptr, ptr %9, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 384
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 384
   %56 = load i32, ptr %55, align 8
   %57 = icmp eq i32 %56, 1
   br i1 %57, label %58, label %231
@@ -34192,19 +34192,19 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %59 = call ptr @wmem_file_scope() #7
   %60 = call noalias ptr @wmem_alloc0(ptr noundef %59, i64 noundef 132704) #7
   store i32 0, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 3, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %60, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i32 0, ptr %63, align 8
   %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %60, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 20
   store i32 %66, ptr %67, align 4
   %68 = call ptr @wmem_file_scope() #7
-  %69 = getelementptr inbounds i8, ptr %60, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %70 = load i32, ptr %6, align 8
   %71 = load i32, ptr %47, align 4
   %72 = load ptr, ptr %48, align 8
@@ -34216,32 +34216,32 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 74:                                               ; preds = %58
   %75 = sext i32 %71 to i64
   %76 = call noalias ptr @wmem_memdup(ptr noundef %68, ptr noundef %72, i64 noundef %75) #7
-  %77 = getelementptr inbounds i8, ptr %60, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %60, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %60, i64 32
   store ptr %76, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %60, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %60, i64 28
   store i32 %71, ptr %79, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %58, %74
-  %80 = getelementptr inbounds i8, ptr %60, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %60, i64 48
   store i16 %35, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %60, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 0, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %.0.i, i64 108
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
   %83 = load i32, ptr %82, align 4
   %.not = icmp eq i32 %83, 0
   br i1 %.not, label %87, label %84
 
 84:                                               ; preds = %copy_address_wmem.exit
-  %85 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %86 = load i32, ptr %85, align 8
   br label %87
 
 87:                                               ; preds = %copy_address_wmem.exit, %84
   %88 = phi i32 [ %86, %84 ], [ 1, %copy_address_wmem.exit ]
-  %89 = getelementptr inbounds i8, ptr %60, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %60, i64 56
   store i32 %88, ptr %89, align 8
   %90 = call ptr @wmem_file_scope() #7
   %91 = call noalias ptr @wmem_alloc0(ptr noundef %90, i64 noundef 8) #7
@@ -34249,28 +34249,28 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   %93 = call ptr @wmem_file_scope() #7
   %94 = call noalias ptr @wmem_tree_new_autoreset(ptr noundef %92, ptr noundef %93) #7
   store ptr %94, ptr %91, align 8
-  %95 = getelementptr inbounds i8, ptr %60, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %60, i64 64
   store ptr %91, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %.0.i, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %97 = load i8, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %60, i64 132684
+  %98 = getelementptr inbounds nuw i8, ptr %60, i64 132684
   store i8 %97, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   %100 = load i32, ptr %99, align 4
   %101 = zext i32 %100 to i64
   %102 = getelementptr %struct.nbap_dch_channel_info_t, ptr %29, i64 %101
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i32, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %60, i64 588
+  %105 = getelementptr inbounds nuw i8, ptr %60, i64 588
   store i32 %104, ptr %105, align 4
   %106 = icmp sgt i32 %104, 0
   br i1 %106, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %87
-  %107 = getelementptr inbounds i8, ptr %102, i64 12
-  %108 = getelementptr inbounds i8, ptr %60, i64 592
-  %109 = getelementptr inbounds i8, ptr %102, i64 268
-  %110 = getelementptr inbounds i8, ptr %60, i64 848
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %60, i64 592
+  %109 = getelementptr inbounds nuw i8, ptr %102, i64 268
+  %110 = getelementptr inbounds nuw i8, ptr %60, i64 848
   %wide.trip.count = zext nneg i32 %104 to i64
   br label %111
 
@@ -34289,7 +34289,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %111, %87
-  %118 = getelementptr inbounds i8, ptr %102, i64 524
+  %118 = getelementptr inbounds nuw i8, ptr %102, i64 524
   %119 = load i32, ptr %118, align 4
   %120 = getelementptr i8, ptr %60, i64 1104
   store i32 %119, ptr %120, align 4
@@ -34297,10 +34297,10 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   br i1 %121, label %.lr.ph157, label %._crit_edge158
 
 .lr.ph157:                                        ; preds = %._crit_edge
-  %122 = getelementptr inbounds i8, ptr %102, i64 528
-  %123 = getelementptr inbounds i8, ptr %60, i64 1108
-  %124 = getelementptr inbounds i8, ptr %102, i64 784
-  %125 = getelementptr inbounds i8, ptr %60, i64 1364
+  %122 = getelementptr inbounds nuw i8, ptr %102, i64 528
+  %123 = getelementptr inbounds nuw i8, ptr %60, i64 1108
+  %124 = getelementptr inbounds nuw i8, ptr %102, i64 784
+  %125 = getelementptr inbounds nuw i8, ptr %60, i64 1364
   %wide.trip.count184 = zext nneg i32 %119 to i64
   br label %126
 
@@ -34319,9 +34319,9 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   br i1 %exitcond185.not, label %._crit_edge158, label %126, !llvm.loop !20
 
 ._crit_edge158:                                   ; preds = %126, %._crit_edge
-  %133 = getelementptr inbounds i8, ptr %60, i64 76
+  %133 = getelementptr inbounds nuw i8, ptr %60, i64 76
   store i32 %100, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %60, i64 72
+  %134 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %135 = sext i32 %100 to i64
   %.idx172 = mul nsw i64 %135, 1040
   %.offs173 = or disjoint i64 %.idx172, 4
@@ -34361,7 +34361,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store i32 %146, ptr %149, align 4
   %150 = sext i32 %146 to i64
   %151 = getelementptr %struct.nbap_dch_channel_info_t, ptr %29, i64 %150
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load i32, ptr %152, align 4
   %154 = load i32, ptr %134, align 8
   %155 = sext i32 %154 to i64
@@ -34371,8 +34371,8 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   br i1 %157, label %.lr.ph161, label %._crit_edge162
 
 .lr.ph161:                                        ; preds = %.lr.ph197
-  %158 = getelementptr inbounds i8, ptr %151, i64 12
-  %159 = getelementptr inbounds i8, ptr %151, i64 268
+  %158 = getelementptr inbounds nuw i8, ptr %151, i64 12
+  %159 = getelementptr inbounds nuw i8, ptr %151, i64 268
   %wide.trip.count189 = zext nneg i32 %153 to i64
   br label %160
 
@@ -34406,7 +34406,7 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 
 ._crit_edge162:                                   ; preds = %._crit_edge162.loopexit, %.lr.ph197
   %.pre-phi = phi i64 [ %.pre196, %._crit_edge162.loopexit ], [ %155, %.lr.ph197 ]
-  %172 = getelementptr inbounds i8, ptr %151, i64 524
+  %172 = getelementptr inbounds nuw i8, ptr %151, i64 524
   %173 = load i32, ptr %172, align 4
   %.idx144 = mul nsw i64 %.pre-phi, 1032
   %gep171 = getelementptr i8, ptr %120, i64 %.idx144
@@ -34415,8 +34415,8 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   br i1 %174, label %.lr.ph169, label %.loopexit
 
 .lr.ph169:                                        ; preds = %._crit_edge162
-  %175 = getelementptr inbounds i8, ptr %151, i64 528
-  %176 = getelementptr inbounds i8, ptr %151, i64 784
+  %175 = getelementptr inbounds nuw i8, ptr %151, i64 528
+  %176 = getelementptr inbounds nuw i8, ptr %151, i64 784
   %wide.trip.count194 = zext nneg i32 %173 to i64
   br label %177
 
@@ -34452,25 +34452,25 @@ copy_address_wmem.exit:                           ; preds = %58, %74
   store i32 %.0139.lcssa, ptr %191, align 4
   call void @set_umts_fp_conv_data(ptr noundef nonnull %52, ptr noundef nonnull %60) #7
   %192 = load ptr, ptr %9, align 8
-  %193 = getelementptr inbounds i8, ptr %.0.i, i64 44
+  %193 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %196 = load i32, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %.0.i, i64 92
+  %197 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %192, i64 20
+  %199 = getelementptr inbounds nuw i8, ptr %192, i64 20
   %200 = load i32, ptr %199, align 4
   %201 = call ptr @wmem_file_scope() #7
   %202 = call noalias ptr @wmem_alloc0(ptr noundef %201, i64 noundef 64) #7
   store i32 %194, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 4
   store i32 %196, ptr %203, align 4
-  %204 = getelementptr inbounds i8, ptr %202, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store i32 %198, ptr %204, align 8
-  %205 = getelementptr inbounds i8, ptr %202, i64 12
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 12
   store i32 %200, ptr %205, align 4
   %206 = call ptr @wmem_file_scope() #7
-  %207 = getelementptr inbounds i8, ptr %202, i64 16
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %208 = load i32, ptr %6, align 8
   %209 = load i32, ptr %47, align 4
   %210 = load ptr, ptr %48, align 8
@@ -34482,20 +34482,20 @@ copy_address_wmem.exit:                           ; preds = %58, %74
 212:                                              ; preds = %.critedge
   %213 = sext i32 %209 to i64
   %214 = call noalias ptr @wmem_memdup(ptr noundef %206, ptr noundef %210, i64 noundef %213) #7
-  %215 = getelementptr inbounds i8, ptr %202, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %202, i64 32
   store ptr %214, ptr %215, align 8
-  %216 = getelementptr inbounds i8, ptr %202, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %202, i64 24
   store ptr %214, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %202, i64 20
+  %217 = getelementptr inbounds nuw i8, ptr %202, i64 20
   store i32 %209, ptr %217, align 4
   br label %add_setup_conv.exit
 
 add_setup_conv.exit:                              ; preds = %.critedge, %212
-  %218 = getelementptr inbounds i8, ptr %202, i64 40
+  %218 = getelementptr inbounds nuw i8, ptr %202, i64 40
   store i32 %44, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %202, i64 48
+  %219 = getelementptr inbounds nuw i8, ptr %202, i64 48
   store ptr %60, ptr %219, align 8
-  %220 = getelementptr inbounds i8, ptr %202, i64 56
+  %220 = getelementptr inbounds nuw i8, ptr %202, i64 56
   store ptr %52, ptr %220, align 8
   %221 = shl i32 %194, 16
   %222 = shl i32 %196, 14
@@ -34522,9 +34522,9 @@ declare void @set_umts_fp_conv_data(ptr noundef, ptr noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_CommonTransportChannelID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -34537,15 +34537,15 @@ define internal i32 @dissect_nbap_CommonTransportChannelID(ptr noundef %0, i32 n
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -34563,13 +34563,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i32 noundef 0) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 92
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   store i32 %28, ptr %29, align 4
   %30 = icmp ult i32 %28, 128
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %nbap_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   %narrow = mul nuw nsw i32 %28, 1040
   %33 = or disjoint i32 %narrow, 4
   %.offs = zext nneg i32 %33 to i64
@@ -34608,9 +34608,9 @@ define internal i32 @dissect_nbap_DL_Power(ptr noundef %0, i32 noundef %1, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -34623,15 +34623,15 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList(ptr noundef
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -34647,7 +34647,7 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList(ptr noundef
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 0, ptr %26, align 8
   %27 = load i32, ptr @ett_nbap_TransportFormatSet_DynamicPartList, align 4
   %28 = tail call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %27, ptr noundef nonnull @TransportFormatSet_DynamicPartList_sequence_of, i32 noundef 1, i32 noundef 32, i32 noundef 0) #7
@@ -34663,9 +34663,9 @@ define internal i32 @dissect_nbap_TransportFormatSet_Semi_staticPart(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList_item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -34678,15 +34678,15 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList_item(ptr no
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -34702,7 +34702,7 @@ define internal i32 @dissect_nbap_TransportFormatSet_DynamicPartList_item(ptr no
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
@@ -34714,9 +34714,9 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_TransportFormatSet_NrOfTransportBlocks(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -34729,15 +34729,15 @@ define internal i32 @dissect_nbap_TransportFormatSet_NrOfTransportBlocks(ptr nou
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -34753,15 +34753,15 @@ define internal i32 @dissect_nbap_TransportFormatSet_NrOfTransportBlocks(ptr nou
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   %28 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 512, ptr noundef nonnull %6, i32 noundef 0) #7
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %97, label %31
 
 31:                                               ; preds = %nbap_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %30, 65
   %35 = icmp ne i32 %33, -1
@@ -34769,7 +34769,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond3, label %36, label %97
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
   switch i32 %38, label %97 [
     i32 0, label %39
@@ -34781,12 +34781,12 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 39:                                               ; preds = %36
   %40 = zext i32 %33 to i64
   %41 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
   %45 = load i32, ptr %6, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 268
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 268
   %47 = add nsw i32 %30, -1
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr [64 x i32], ptr %46, i64 0, i64 %48
@@ -34796,12 +34796,12 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 50:                                               ; preds = %36
   %51 = zext i32 %33 to i64
   %52 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 524
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 524
   %54 = load i32, ptr %53, align 4
   %55 = add i32 %54, 1
   store i32 %55, ptr %53, align 4
   %56 = load i32, ptr %6, align 4
-  %57 = getelementptr inbounds i8, ptr %52, i64 784
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 784
   %58 = add nsw i32 %30, -1
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr [64 x i32], ptr %57, i64 0, i64 %59
@@ -34809,49 +34809,49 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br label %97
 
 61:                                               ; preds = %36
-  %62 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, 1
   store i32 %68, ptr %66, align 4
   %69 = load i32, ptr %6, align 4
-  %70 = getelementptr inbounds i8, ptr %65, i64 268
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 268
   %71 = add nsw i32 %30, -1
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr [64 x i32], ptr %70, i64 0, i64 %72
   store i32 %69, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %65, i64 524
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 524
   %75 = load i32, ptr %74, align 4
   %76 = add i32 %75, 1
   store i32 %76, ptr %74, align 4
-  %77 = getelementptr inbounds i8, ptr %65, i64 784
+  %77 = getelementptr inbounds nuw i8, ptr %65, i64 784
   %78 = getelementptr [64 x i32], ptr %77, i64 0, i64 %72
   store i32 %69, ptr %78, align 4
   br label %97
 
 79:                                               ; preds = %36
-  %80 = getelementptr inbounds i8, ptr %.0.i, i64 92
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   %81 = load i32, ptr %80, align 4
   %82 = zext i32 %81 to i64
   %83 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4
   %87 = load i32, ptr %6, align 4
-  %88 = getelementptr inbounds i8, ptr %83, i64 268
+  %88 = getelementptr inbounds nuw i8, ptr %83, i64 268
   %89 = add nsw i32 %30, -1
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr [64 x i32], ptr %88, i64 0, i64 %90
   store i32 %87, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %83, i64 524
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 524
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 4
-  %95 = getelementptr inbounds i8, ptr %83, i64 784
+  %95 = getelementptr inbounds nuw i8, ptr %83, i64 784
   %96 = getelementptr [64 x i32], ptr %95, i64 0, i64 %90
   store i32 %87, ptr %96, align 4
   br label %97
@@ -34863,9 +34863,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_TransportFormatSet_TransportBlockSize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -34878,15 +34878,15 @@ define internal i32 @dissect_nbap_TransportFormatSet_TransportBlockSize(ptr noun
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -34902,15 +34902,15 @@ define internal i32 @dissect_nbap_TransportFormatSet_TransportBlockSize(ptr noun
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   %28 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 5000, ptr noundef nonnull %6, i32 noundef 0) #7
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %30 = load i32, ptr %29, align 8
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %78, label %31
 
 31:                                               ; preds = %nbap_get_private_data.exit
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %30, 65
   %35 = icmp ne i32 %33, -1
@@ -34918,7 +34918,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond3, label %36, label %78
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %38 = load i32, ptr %37, align 8
   switch i32 %38, label %78 [
     i32 0, label %39
@@ -34952,33 +34952,33 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br label %78
 
 54:                                               ; preds = %36
-  %55 = getelementptr inbounds i8, ptr %.0.i, i64 60
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i, i64 60
   %56 = load i32, ptr %55, align 4
   %57 = load i32, ptr %6, align 4
   %58 = zext i32 %56 to i64
   %59 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = add nsw i32 %30, -1
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr [64 x i32], ptr %60, i64 0, i64 %62
   store i32 %57, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %59, i64 528
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 528
   %65 = getelementptr [64 x i32], ptr %64, i64 0, i64 %62
   store i32 %57, ptr %65, align 4
   br label %78
 
 66:                                               ; preds = %36
-  %67 = getelementptr inbounds i8, ptr %.0.i, i64 92
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %6, align 4
   %70 = zext i32 %68 to i64
   %71 = getelementptr %struct.nbap_dch_channel_info_t, ptr %27, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 12
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %73 = add nsw i32 %30, -1
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr [64 x i32], ptr %72, i64 0, i64 %74
   store i32 %69, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %71, i64 528
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 528
   %77 = getelementptr [64 x i32], ptr %76, i64 0, i64 %74
   store i32 %69, ptr %77, align 4
   br label %78
@@ -35070,9 +35070,9 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_transportFormatSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -35085,15 +35085,15 @@ define internal i32 @dissect_nbap_T_transportFormatSet(ptr noundef %0, i32 nound
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -35109,10 +35109,10 @@ define internal i32 @dissect_nbap_T_transportFormatSet(ptr noundef %0, i32 nound
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 116
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 4, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 92
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   %29 = load i32, ptr %28, align 4
   %30 = zext i32 %29 to i64
   %.idx = mul nuw nsw i64 %30, 1040
@@ -35154,9 +35154,9 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #7
@@ -35169,15 +35169,15 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   %20 = load ptr, ptr %12, align 8
   %21 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %20, ptr noundef nonnull %11, i32 noundef %21, i32 noundef 0, ptr noundef %19) #7
-  %22 = getelementptr inbounds i8, ptr %19, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 68
   store i32 3, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 108
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 108
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 65535, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %19, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store i32 65535, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store i8 2, ptr %26, align 8
   %27 = getelementptr i8, ptr %19, i64 267516
   br label %28
@@ -35192,9 +35192,9 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not.i, label %.sink.split, label %28, !llvm.loop !7
 
 30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr @proto_nbap, align 4
   %36 = call ptr @p_get_proto_data(ptr noundef %34, ptr noundef %32, i32 noundef %35, i32 noundef 0) #7
@@ -35207,15 +35207,15 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   %41 = load ptr, ptr %33, align 8
   %42 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %41, ptr noundef nonnull %32, i32 noundef %42, i32 noundef 0, ptr noundef %40) #7
-  %43 = getelementptr inbounds i8, ptr %40, i64 68
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 68
   store i32 3, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %40, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 108
   store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %40, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 65535, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %40, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 40
   store i32 65535, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %40, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 112
   store i8 2, ptr %47, align 8
   %48 = getelementptr i8, ptr %40, i64 267516
   br label %49
@@ -35230,9 +35230,9 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not.i13, label %.sink.split, label %49, !llvm.loop !7
 
 51:                                               ; preds = %5
-  %52 = getelementptr inbounds i8, ptr %2, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 408
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 408
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr @proto_nbap, align 4
   %57 = call ptr @p_get_proto_data(ptr noundef %55, ptr noundef %53, i32 noundef %56, i32 noundef 0) #7
@@ -35245,15 +35245,15 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   %62 = load ptr, ptr %54, align 8
   %63 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %62, ptr noundef nonnull %53, i32 noundef %63, i32 noundef 0, ptr noundef %61) #7
-  %64 = getelementptr inbounds i8, ptr %61, i64 68
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 68
   store i32 3, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %61, i64 108
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 108
   store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %61, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 65535, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %61, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i32 65535, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 112
   store i8 2, ptr %68, align 8
   %69 = getelementptr i8, ptr %61, i64 267516
   br label %70
@@ -35268,9 +35268,9 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %exitcond.not.i19, label %.sink.split, label %70, !llvm.loop !7
 
 72:                                               ; preds = %5
-  %73 = getelementptr inbounds i8, ptr %2, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 408
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 408
   %76 = load ptr, ptr %75, align 8
   %77 = load i32, ptr @proto_nbap, align 4
   %78 = call ptr @p_get_proto_data(ptr noundef %76, ptr noundef %74, i32 noundef %77, i32 noundef 0) #7
@@ -35283,15 +35283,15 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
   %83 = load ptr, ptr %75, align 8
   %84 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %83, ptr noundef nonnull %74, i32 noundef %84, i32 noundef 0, ptr noundef %82) #7
-  %85 = getelementptr inbounds i8, ptr %82, i64 68
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 68
   store i32 3, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %82, i64 108
+  %86 = getelementptr inbounds nuw i8, ptr %82, i64 108
   store i32 0, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %82, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 65535, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %82, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %82, i64 40
   store i32 65535, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %82, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 112
   store i8 2, ptr %89, align 8
   %90 = getelementptr i8, ptr %82, i64 267516
   br label %91
@@ -35308,7 +35308,7 @@ define internal i32 @dissect_nbap_PICH_Mode(ptr noundef %0, i32 noundef %1, ptr 
 .sink.split:                                      ; preds = %91, %70, %49, %28, %72, %51, %30, %9
   %.0.i21.sink = phi ptr [ %15, %9 ], [ %36, %30 ], [ %57, %51 ], [ %78, %72 ], [ %19, %28 ], [ %40, %49 ], [ %61, %70 ], [ %82, %91 ]
   %.sink = phi i32 [ 18, %9 ], [ 36, %30 ], [ 72, %51 ], [ 144, %72 ], [ 18, %28 ], [ 36, %49 ], [ 72, %70 ], [ 144, %91 ]
-  %93 = getelementptr inbounds i8, ptr %.0.i21.sink, i64 96
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i21.sink, i64 96
   store i32 %.sink, ptr %93, align 8
   br label %94
 
@@ -35558,9 +35558,9 @@ define internal i32 @dissect_nbap_PRACH_LCR_ParametersItem_CTCH_SetupRqstTDD(ptr
 define internal i32 @dissect_nbap_CommonTransportChannel_InformationResponse(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %struct._address, align 8
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_nbap, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #7
@@ -35573,15 +35573,15 @@ define internal i32 @dissect_nbap_CommonTransportChannel_InformationResponse(ptr
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %9, i32 noundef %19, i32 noundef 0, ptr noundef %17) #7
-  %20 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 3, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 108
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 65535, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 65535, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i8 2, ptr %24, align 8
   %25 = getelementptr i8, ptr %17, i64 267516
   br label %26
@@ -35598,7 +35598,7 @@ define internal i32 @dissect_nbap_CommonTransportChannel_InformationResponse(ptr
 nbap_get_private_data.exit:                       ; preds = %26, %5
   %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
   store i32 0, ptr %.0.i, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %28, align 4
   %29 = load i32, ptr @ett_nbap_CommonTransportChannel_InformationResponse, align 4
   %30 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %29, ptr noundef nonnull @CommonTransportChannel_InformationResponse_sequence) #7
@@ -35606,9 +35606,9 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
   store i32 %31, ptr %7, align 4
   %32 = load i16, ptr %28, align 4
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 50
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 50
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 8
   %39 = icmp ne i16 %38, 0
@@ -35621,17 +35621,17 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
 
 43:                                               ; preds = %nbap_get_private_data.exit
   store i32 2, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 44
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %.0.i, i64 92
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i, i64 92
   %52 = load i32, ptr %51, align 4
   %53 = shl i32 %48, 16
   %54 = shl i32 %50, 14
@@ -35647,14 +35647,14 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
   br i1 %63, label %82, label %64
 
 64:                                               ; preds = %43
-  %65 = getelementptr inbounds i8, ptr %62, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %66 = load ptr, ptr %65, align 8
   call void @conversation_set_addr2(ptr noundef %66, ptr noundef nonnull %6) #7
   call void @conversation_set_port2(ptr noundef %66, i32 noundef %41) #7
   %67 = load i32, ptr %62, align 8
-  %68 = getelementptr inbounds i8, ptr %62, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %62, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = shl i32 %67, 16
   %73 = shl i32 %69, 14
@@ -35693,9 +35693,9 @@ define internal i32 @dissect_nbap_BindingID(ptr noundef %0, i32 noundef %1, ptr 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %6, align 8
   %14 = call zeroext i16 @tvb_get_ntohs(ptr noundef %13, i32 noundef 0) #7
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr @proto_nbap, align 4
   %20 = call ptr @p_get_proto_data(ptr noundef %18, ptr noundef %16, i32 noundef %19, i32 noundef 0) #7
@@ -35708,15 +35708,15 @@ define internal i32 @dissect_nbap_BindingID(ptr noundef %0, i32 noundef %1, ptr 
   %25 = load ptr, ptr %17, align 8
   %26 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %25, ptr noundef nonnull %16, i32 noundef %26, i32 noundef 0, ptr noundef %24) #7
-  %27 = getelementptr inbounds i8, ptr %24, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 68
   store i32 3, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 108
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %24, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 65535, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %24, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 40
   store i32 65535, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %24, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 112
   store i8 2, ptr %31, align 8
   %32 = getelementptr i8, ptr %24, i64 267516
   br label %33
@@ -35732,9 +35732,9 @@ define internal i32 @dissect_nbap_BindingID(ptr noundef %0, i32 noundef %1, ptr 
 
 nbap_get_private_data.exit:                       ; preds = %33, %12
   %.0.i = phi ptr [ %20, %12 ], [ %24, %33 ]
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 %14, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = zext i16 %14 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.8857, i32 noundef %38) #7
@@ -35748,9 +35748,9 @@ nbap_get_private_data.exit:                       ; preds = %33, %12
 define internal i32 @dissect_nbap_TransportLayerAddress(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -35763,15 +35763,15 @@ define internal i32 @dissect_nbap_TransportLayerAddress(ptr noundef %0, i32 noun
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -35794,7 +35794,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 29:                                               ; preds = %nbap_get_private_data.exit
   %30 = call i32 @tvb_reported_length(ptr noundef nonnull %28) #7
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr @ett_nbap_TransportLayerAddress, align 4
   %34 = call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33) #7
@@ -35822,7 +35822,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 45:                                               ; preds = %29
   %46 = load ptr, ptr %7, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = call noalias ptr @wmem_alloc0(ptr noundef %48, i64 noundef 20) #7
   %50 = load ptr, ptr %6, align 8
@@ -36775,9 +36775,9 @@ define internal i32 @dissect_nbap_SCH_Information_ResourceStatusInd(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -36790,15 +36790,15 @@ define internal i32 @dissect_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqs
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -36814,10 +36814,10 @@ define internal i32 @dissect_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqs
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 100
   store i32 10, ptr %26, align 4
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr @proto_nbap, align 4
   %31 = tail call ptr @p_get_proto_data(ptr noundef %29, ptr noundef %27, i32 noundef %30, i32 noundef 0) #7
@@ -36830,15 +36830,15 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %36 = load ptr, ptr %28, align 8
   %37 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %27, i32 noundef %37, i32 noundef 0, ptr noundef %35) #7
-  %38 = getelementptr inbounds i8, ptr %35, i64 68
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 68
   store i32 3, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %35, i64 108
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 108
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 65535, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %35, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 65535, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store i8 2, ptr %42, align 8
   %43 = getelementptr i8, ptr %35, i64 267516
   br label %44
@@ -36854,7 +36854,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 
 nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %44 ]
-  %46 = getelementptr inbounds i8, ptr %.0.i7, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 104
   store i32 0, ptr %46, align 8
   %47 = load i32, ptr @ett_nbap_MIB_SB_SIB_InformationItem_SystemInfoUpdateRqst, align 4
   %48 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %47, ptr noundef nonnull @MIB_SB_SIB_InformationItem_SystemInfoUpdateRqst_sequence) #7
@@ -36863,9 +36863,9 @@ nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_priva
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_IB_Type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -36878,15 +36878,15 @@ define internal i32 @dissect_nbap_IB_Type(ptr noundef %0, i32 noundef %1, ptr no
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -36902,7 +36902,7 @@ define internal i32 @dissect_nbap_IB_Type(ptr noundef %0, i32 noundef %1, ptr no
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 100
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 100
   %27 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 26, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 15, ptr noundef null) #7
   ret i32 %27
 }
@@ -36961,9 +36961,9 @@ define internal i32 @dissect_nbap_IB_SG_POS(ptr noundef %0, i32 noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_Segment_Type(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -36976,15 +36976,15 @@ define internal i32 @dissect_nbap_Segment_Type(ptr noundef %0, i32 noundef %1, p
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -37000,7 +37000,7 @@ define internal i32 @dissect_nbap_Segment_Type(ptr noundef %0, i32 noundef %1, p
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 104
   %27 = tail call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 7, ptr noundef nonnull %26, i32 noundef 1, i32 noundef 0, ptr noundef null) #7
   ret i32 %27
 }
@@ -37009,9 +37009,9 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 define internal i32 @dissect_nbap_IB_SG_DATA(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -37024,15 +37024,15 @@ define internal i32 @dissect_nbap_IB_SG_DATA(ptr noundef %0, i32 noundef %1, ptr
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -37078,7 +37078,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %.not217, label %nbap_parse_ib_sg_data_var1.exit.thread, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 104
   %47 = load i32, ptr %46, align 8
   switch i32 %47, label %60 [
     i32 5, label %48
@@ -37125,7 +37125,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 68:                                               ; preds = %67, %67
   %69 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %44, i32 noundef 0) #7
   %70 = add i8 %69, 1
-  %71 = getelementptr inbounds i8, ptr %63, i64 408
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 408
   %72 = load ptr, ptr %71, align 8
   %73 = zext i8 %70 to i64
   %74 = add nuw nsw i64 %73, 7
@@ -37135,13 +37135,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br label %nbap_parse_ib_sg_data_var1.exit
 
 78:                                               ; preds = %67
-  %79 = getelementptr inbounds i8, ptr %63, i64 408
+  %79 = getelementptr inbounds nuw i8, ptr %63, i64 408
   %80 = load ptr, ptr %79, align 8
   %81 = call ptr @tvb_memdup(ptr noundef %80, ptr noundef nonnull %44, i32 noundef 0, i64 noundef 28) #7
   br label %nbap_parse_ib_sg_data_var1.exit
 
 82:                                               ; preds = %60
-  %83 = getelementptr inbounds i8, ptr %63, i64 408
+  %83 = getelementptr inbounds nuw i8, ptr %63, i64 408
   %84 = load ptr, ptr %83, align 8
   %85 = add nuw nsw i32 %.0193, 7
   %86 = lshr i32 %85, 3
@@ -37154,13 +37154,13 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
   %.sink258 = phi ptr [ %89, %82 ], [ %63, %68 ], [ %63, %78 ]
   %.016.i.sink = phi i32 [ %.0193, %82 ], [ %77, %68 ], [ 222, %78 ]
   %.015.i.sink = phi ptr [ %88, %82 ], [ %76, %68 ], [ %81, %78 ]
-  %90 = getelementptr inbounds i8, ptr %.sink258, i64 408
+  %90 = getelementptr inbounds nuw i8, ptr %.sink258, i64 408
   %91 = load ptr, ptr %90, align 8
   %92 = call noalias ptr @wmem_alloc(ptr noundef %91, i64 noundef 16) #7
   store i32 %.016.i.sink, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %.015.i.sink, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.0.i, i64 268056
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 268056
   %95 = load ptr, ptr %94, align 8
   %.not218 = icmp eq ptr %95, null
   br i1 %.not218, label %96, label %101
@@ -37171,7 +37171,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
 
 .thread:                                          ; preds = %96
   %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 408
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 408
   %99 = load ptr, ptr %98, align 8
   %100 = call noalias ptr @wmem_list_new(ptr noundef %99) #7
   store ptr %100, ptr %94, align 8
@@ -37214,7 +37214,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %105
   %.0200.lcssa = phi i32 [ 0, %105 ], [ %114, %._crit_edge.loopexit ]
   %115 = load ptr, ptr %7, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 408
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 408
   %117 = load ptr, ptr %116, align 8
   %118 = zext nneg i32 %.0200.lcssa to i64
   %119 = call noalias ptr @wmem_alloc0(ptr noundef %117, i64 noundef %118) #7
@@ -37227,7 +37227,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
   %.0203245 = phi i8 [ %.1204.lcssa, %._crit_edge241 ], [ 0, %._crit_edge ]
   %.1207244 = phi ptr [ %144, %._crit_edge241 ], [ %120, %._crit_edge ]
   %121 = call ptr @wmem_list_frame_data(ptr noundef %.1207244) #7
-  %122 = getelementptr inbounds i8, ptr %121, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   %124 = load i32, ptr %121, align 8
   %.not253 = icmp eq i32 %124, 0
@@ -37289,7 +37289,7 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
 
 .thread223:                                       ; preds = %48, %58, %55, %103
   %.0194227 = phi ptr [ null, %103 ], [ %50, %48 ], [ %59, %58 ], [ %57, %55 ]
-  %150 = getelementptr inbounds i8, ptr %2, i64 24
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %151 = load ptr, ptr %150, align 8
   br label %152
 
@@ -37299,14 +37299,14 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
   %153 = load i32, ptr @ett_nbap_ib_sg_data, align 4
   %154 = call ptr @proto_item_add_subtree(ptr noundef %.0195, i32 noundef %153) #7
   %155 = load ptr, ptr %7, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
   call void @col_set_fence(ptr noundef %157, i32 noundef 25) #7
   %158 = load ptr, ptr %7, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load ptr, ptr %159, align 8
   call void @col_append_str(ptr noundef %160, i32 noundef 25, ptr noundef nonnull @.str.8859) #7
-  %161 = getelementptr inbounds i8, ptr %.0.i, i64 100
+  %161 = getelementptr inbounds nuw i8, ptr %.0.i, i64 100
   %162 = load i32, ptr %161, align 4
   switch i32 %162, label %244 [
     i32 0, label %163
@@ -37475,11 +37475,11 @@ nbap_parse_ib_sg_data_var1.exit:                  ; preds = %78, %68, %82
 
 244:                                              ; preds = %152, %241, %238, %235, %232, %229, %226, %223, %220, %217, %214, %211, %208, %205, %202, %199, %196, %193, %190, %187, %184, %181, %178, %175, %172, %169, %166, %163
   %245 = load ptr, ptr %7, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load ptr, ptr %246, align 8
   call void @col_append_str(ptr noundef %247, i32 noundef 25, ptr noundef nonnull @.str.8860) #7
   %248 = load ptr, ptr %7, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load ptr, ptr %249, align 8
   call void @col_set_fence(ptr noundef %250, i32 noundef 25) #7
   br label %nbap_parse_ib_sg_data_var1.exit.thread
@@ -37608,9 +37608,9 @@ define internal i32 @dissect_nbap_UL_ScramblingCodeNumber(ptr noundef %0, i32 no
   %6 = alloca i32, align 4
   %7 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 16777215, ptr noundef nonnull %6, i32 noundef 0) #7
   %8 = load i32, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -37623,15 +37623,15 @@ define internal i32 @dissect_nbap_UL_ScramblingCodeNumber(ptr noundef %0, i32 no
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -37647,10 +37647,10 @@ define internal i32 @dissect_nbap_UL_ScramblingCodeNumber(ptr noundef %0, i32 no
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   store i32 %8, ptr %29, align 4
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 408
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 408
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr @proto_nbap, align 4
   %34 = call ptr @p_get_proto_data(ptr noundef %32, ptr noundef %30, i32 noundef %33, i32 noundef 0) #7
@@ -37663,15 +37663,15 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %39 = load ptr, ptr %31, align 8
   %40 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %39, ptr noundef nonnull %30, i32 noundef %40, i32 noundef 0, ptr noundef %38) #7
-  %41 = getelementptr inbounds i8, ptr %38, i64 68
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 68
   store i32 3, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %38, i64 108
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 108
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %38, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 65535, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %38, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i32 65535, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %38, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 112
   store i8 2, ptr %45, align 8
   %46 = getelementptr i8, ptr %38, i64 267516
   br label %47
@@ -37687,7 +37687,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 
 nbap_get_private_data.exit16:                     ; preds = %47, %nbap_get_private_data.exit
   %.0.i11 = phi ptr [ %34, %nbap_get_private_data.exit ], [ %38, %47 ]
-  %49 = getelementptr inbounds i8, ptr %.0.i11, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i11, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = load i32, ptr %6, align 4
   %52 = icmp ne i32 %51, 0
@@ -37771,9 +37771,9 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   %7 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, ptr noundef null) #7
   %8 = load i32, ptr %6, align 4
   %9 = icmp eq i32 %8, 0
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @proto_nbap, align 4
   %15 = call ptr @p_get_proto_data(ptr noundef %13, ptr noundef %11, i32 noundef %14, i32 noundef 0) #7
@@ -37789,15 +37789,15 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   %21 = load ptr, ptr %12, align 8
   %22 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %21, ptr noundef nonnull %11, i32 noundef %22, i32 noundef 0, ptr noundef %20) #7
-  %23 = getelementptr inbounds i8, ptr %20, i64 68
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 68
   store i32 3, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %20, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 108
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %20, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 12
   store i32 65535, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %20, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 65535, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 112
   store i8 2, ptr %27, align 8
   %28 = getelementptr i8, ptr %20, i64 267516
   br label %29
@@ -37820,15 +37820,15 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
   %35 = load ptr, ptr %12, align 8
   %36 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %35, ptr noundef nonnull %11, i32 noundef %36, i32 noundef 0, ptr noundef %34) #7
-  %37 = getelementptr inbounds i8, ptr %34, i64 68
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 68
   store i32 3, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %34, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 108
   store i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %34, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 12
   store i32 65535, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %34, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 40
   store i32 65535, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %34, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 112
   store i8 2, ptr %41, align 8
   %42 = getelementptr i8, ptr %34, i64 267516
   br label %43
@@ -37845,7 +37845,7 @@ define internal i32 @dissect_nbap_PayloadCRC_PresenceIndicator(ptr noundef %0, i
 nbap_get_private_data.exit:                       ; preds = %43, %29, %31, %17
   %.0.i7.sink = phi ptr [ %15, %17 ], [ %15, %31 ], [ %20, %29 ], [ %34, %43 ]
   %.sink = phi i8 [ 1, %17 ], [ 0, %31 ], [ 1, %29 ], [ 0, %43 ]
-  %45 = getelementptr inbounds i8, ptr %.0.i7.sink, i64 112
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i7.sink, i64 112
   store i8 %.sink, ptr %45, align 8
   ret i32 %7
 }
@@ -37858,9 +37858,9 @@ define internal i32 @dissect_nbap_UL_FP_Mode(ptr noundef %0, i32 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_DCH_Specific_FDD_InformationList(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -37873,15 +37873,15 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_InformationList(ptr noundef %
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -37897,10 +37897,10 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_InformationList(ptr noundef %
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   store i32 0, ptr %26, align 4
   %27 = load ptr, ptr %6, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr @proto_nbap, align 4
   %31 = tail call ptr @p_get_proto_data(ptr noundef %29, ptr noundef %27, i32 noundef %30, i32 noundef 0) #7
@@ -37913,15 +37913,15 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %36 = load ptr, ptr %28, align 8
   %37 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %27, i32 noundef %37, i32 noundef 0, ptr noundef %35) #7
-  %38 = getelementptr inbounds i8, ptr %35, i64 68
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 68
   store i32 3, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %35, i64 108
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 108
   store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %35, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 65535, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %35, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i32 65535, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %35, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store i8 2, ptr %42, align 8
   %43 = getelementptr i8, ptr %35, i64 267516
   br label %44
@@ -37937,7 +37937,7 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 
 nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %31, %nbap_get_private_data.exit ], [ %35, %44 ]
-  %46 = getelementptr inbounds i8, ptr %.0.i7, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 56
   store i32 0, ptr %46, align 8
   %47 = load i32, ptr @ett_nbap_DCH_Specific_FDD_InformationList, align 4
   %48 = tail call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %47, ptr noundef nonnull @DCH_Specific_FDD_InformationList_sequence_of, i32 noundef 1, i32 noundef 128, i32 noundef 0) #7
@@ -37946,9 +37946,9 @@ nbap_get_private_data.exit12:                     ; preds = %44, %nbap_get_priva
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_DCH_Specific_FDD_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -37961,15 +37961,15 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_Item(ptr noundef %0, i32 noun
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -37985,14 +37985,14 @@ define internal i32 @dissect_nbap_DCH_Specific_FDD_Item(ptr noundef %0, i32 noun
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
   %29 = load i32, ptr @ett_nbap_DCH_Specific_FDD_Item, align 4
   %30 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %29, ptr noundef nonnull @DCH_Specific_FDD_Item_sequence) #7
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 408
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 408
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr @proto_nbap, align 4
   %35 = tail call ptr @p_get_proto_data(ptr noundef %33, ptr noundef %31, i32 noundef %34, i32 noundef 0) #7
@@ -38005,15 +38005,15 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %40 = load ptr, ptr %32, align 8
   %41 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %40, ptr noundef nonnull %31, i32 noundef %41, i32 noundef 0, ptr noundef %39) #7
-  %42 = getelementptr inbounds i8, ptr %39, i64 68
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 68
   store i32 3, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %39, i64 108
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 108
   store i32 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %39, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 65535, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %39, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 65535, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %39, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 112
   store i8 2, ptr %46, align 8
   %47 = getelementptr i8, ptr %39, i64 267516
   br label %48
@@ -38029,10 +38029,10 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 
 nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_private_data.exit
   %.0.i8 = phi ptr [ %35, %nbap_get_private_data.exit ], [ %39, %48 ]
-  %50 = getelementptr inbounds i8, ptr %.0.i8, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 52
   %51 = load i32, ptr %50, align 4
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr @proto_nbap, align 4
   %56 = tail call ptr @p_get_proto_data(ptr noundef %54, ptr noundef %52, i32 noundef %55, i32 noundef 0) #7
@@ -38045,15 +38045,15 @@ nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_priva
   %61 = load ptr, ptr %53, align 8
   %62 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %61, ptr noundef nonnull %52, i32 noundef %62, i32 noundef 0, ptr noundef %60) #7
-  %63 = getelementptr inbounds i8, ptr %60, i64 68
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 68
   store i32 3, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %60, i64 108
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 108
   store i32 0, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %60, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 12
   store i32 65535, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %60, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i32 65535, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %60, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 112
   store i8 2, ptr %67, align 8
   %68 = getelementptr i8, ptr %60, i64 267516
   br label %69
@@ -38069,7 +38069,7 @@ nbap_get_private_data.exit13:                     ; preds = %48, %nbap_get_priva
 
 nbap_get_private_data.exit19:                     ; preds = %69, %nbap_get_private_data.exit13
   %.0.i14 = phi ptr [ %56, %nbap_get_private_data.exit13 ], [ %60, %69 ]
-  %71 = getelementptr inbounds i8, ptr %.0.i14, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 56
   store i32 %51, ptr %71, align 8
   ret i32 %30
 }
@@ -38077,9 +38077,9 @@ nbap_get_private_data.exit19:                     ; preds = %69, %nbap_get_priva
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_dCH_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -38092,15 +38092,15 @@ define internal i32 @dissect_nbap_T_dCH_ID(ptr noundef %0, i32 noundef %1, ptr n
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -38116,18 +38116,18 @@ define internal i32 @dissect_nbap_T_dCH_ID(ptr noundef %0, i32 noundef %1, ptr n
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   %28 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i32 noundef 0) #7
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %6, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   store i32 %31, ptr %32, align 4
   %33 = icmp sgt i32 %30, 0
   br i1 %33, label %34, label %43
 
 34:                                               ; preds = %nbap_get_private_data.exit
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %31 to i64
   %.idx = mul nuw nsw i64 %37, 1040
@@ -38154,9 +38154,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_ul_TransportFormatSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -38169,15 +38169,15 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet(ptr noundef %0, i32 no
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -38193,9 +38193,9 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet(ptr noundef %0, i32 no
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 0, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %33, label %29
@@ -38216,9 +38216,9 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_dl_TransportFormatSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -38231,15 +38231,15 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet(ptr noundef %0, i32 no
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -38255,9 +38255,9 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet(ptr noundef %0, i32 no
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 1, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %33, label %29
@@ -38485,9 +38485,9 @@ define internal i32 @dissect_nbap_DCH_Specific_TDD_Item(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -38500,15 +38500,15 @@ define internal i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr nou
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -38524,7 +38524,7 @@ define internal i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr nou
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %26, i32 noundef 0) #7
   ret i32 %27
 }
@@ -38687,9 +38687,9 @@ define internal i32 @dissect_nbap_TDD_DL_Code_InformationItem(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_NodeB_CommunicationContextID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -38702,15 +38702,15 @@ define internal i32 @dissect_nbap_NodeB_CommunicationContextID(ptr noundef %0, i
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -38727,16 +38727,16 @@ define internal i32 @dissect_nbap_NodeB_CommunicationContextID(ptr noundef %0, i
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 1048575, ptr noundef nonnull %6, i32 noundef 0) #7
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 108
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
   %29 = load i32, ptr %28, align 4
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %53, label %30
 
 30:                                               ; preds = %nbap_get_private_data.exit
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 50
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 8
   %.not21 = icmp eq i16 %36, 0
@@ -38752,13 +38752,13 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 42:                                               ; preds = %37
   %43 = call ptr @wmem_file_scope() #7
   %44 = call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 8) #7
-  %45 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %46 = load i32, ptr %45, align 8
   store i32 %46, ptr %44, align 4
   %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds i8, ptr %44, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 4
   store i32 %49, ptr %50, align 4
   %51 = load ptr, ptr @com_context_map, align 8
   %52 = load i32, ptr %6, align 4
@@ -38774,7 +38774,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 57:                                               ; preds = %53
   %58 = load i32, ptr %56, align 4
-  %59 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store i32 %58, ptr %59, align 8
   store i32 1, ptr %28, align 4
   br label %60
@@ -39148,9 +39148,9 @@ define internal i32 @dissect_nbap_DCH_ModifySpecificItem_FDD(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_dCH_ID_01(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -39163,15 +39163,15 @@ define internal i32 @dissect_nbap_T_dCH_ID_01(ptr noundef %0, i32 noundef %1, pt
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -39187,10 +39187,10 @@ define internal i32 @dissect_nbap_T_dCH_ID_01(ptr noundef %0, i32 noundef %1, pt
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr @proto_nbap, align 4
   %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef %29, i32 noundef %32, i32 noundef 0) #7
@@ -39203,15 +39203,15 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %38 = load ptr, ptr %30, align 8
   %39 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %38, ptr noundef nonnull %29, i32 noundef %39, i32 noundef 0, ptr noundef %37) #7
-  %40 = getelementptr inbounds i8, ptr %37, i64 68
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 68
   store i32 3, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 108
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 108
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 65535, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %37, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 65535, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 112
   store i8 2, ptr %44, align 8
   %45 = getelementptr i8, ptr %37, i64 267516
   br label %46
@@ -39227,16 +39227,16 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 nbap_get_private_data.exit12:                     ; preds = %46, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %46 ]
-  %48 = getelementptr inbounds i8, ptr %.0.i7, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 52
   store i32 %28, ptr %48, align 4
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_ul_TransportFormatSet_01(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -39249,15 +39249,15 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet_01(ptr noundef %0, i32
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -39273,9 +39273,9 @@ define internal i32 @dissect_nbap_T_ul_TransportFormatSet_01(ptr noundef %0, i32
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 0, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %33, label %29
@@ -39296,9 +39296,9 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_dl_TransportFormatSet_01(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -39311,15 +39311,15 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet_01(ptr noundef %0, i32
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -39335,9 +39335,9 @@ define internal i32 @dissect_nbap_T_dl_TransportFormatSet_01(ptr noundef %0, i32
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 1, ptr %28, align 8
   %.not = icmp eq i32 %27, -1
   br i1 %.not, label %33, label %29
@@ -40986,9 +40986,9 @@ define internal i32 @dissect_nbap_HSDSCH_RearrangeItem_Bearer_RearrangeInd(ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_MACdFlow_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -41001,15 +41001,15 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_ID(ptr noundef %0, i32 noundef
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -41027,9 +41027,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %6, i32 noundef 0) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp ult i32 %31, 9
   br i1 %32, label %34, label %33
@@ -41047,7 +41047,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   unreachable
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 267448
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267448
   %38 = zext nneg i32 %31 to i64
   %39 = getelementptr i32, ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -4
@@ -41512,9 +41512,9 @@ define internal i32 @dissect_nbap_UE_Capability_Information(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_hSDSCH_Physical_Layer_Category(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -41527,15 +41527,15 @@ define internal i32 @dissect_nbap_T_hSDSCH_Physical_Layer_Category(ptr noundef %
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -41553,7 +41553,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 64, ptr noundef nonnull %6, i32 noundef 1) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
   %.idx = mul nuw nsw i64 %31, 40
@@ -41591,9 +41591,9 @@ define internal i32 @dissect_nbap_HS_SICH_ID(ptr noundef %0, i32 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_MAC_PDU_SizeExtended(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -41606,15 +41606,15 @@ define internal i32 @dissect_nbap_MAC_PDU_SizeExtended(ptr noundef %0, i32 nound
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -41630,10 +41630,10 @@ define internal i32 @dissect_nbap_MAC_PDU_SizeExtended(ptr noundef %0, i32 nound
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 267480
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 1504, ptr noundef null, i32 noundef 1) #7
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr @proto_nbap, align 4
   %32 = tail call ptr @p_get_proto_data(ptr noundef %30, ptr noundef %28, i32 noundef %31, i32 noundef 0) #7
@@ -41646,15 +41646,15 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
   %37 = load ptr, ptr %29, align 8
   %38 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %37, ptr noundef nonnull %28, i32 noundef %38, i32 noundef 0, ptr noundef %36) #7
-  %39 = getelementptr inbounds i8, ptr %36, i64 68
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 68
   store i32 3, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %36, i64 108
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 108
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %36, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 65535, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %36, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store i32 65535, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %36, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 112
   store i8 2, ptr %43, align 8
   %44 = getelementptr i8, ptr %36, i64 267516
   br label %45
@@ -41670,10 +41670,10 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 
 nbap_get_private_data.exit17:                     ; preds = %45, %nbap_get_private_data.exit
   %.0.i12 = phi ptr [ %32, %nbap_get_private_data.exit ], [ %36, %45 ]
-  %47 = getelementptr inbounds i8, ptr %.0.i12, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 72
   store i32 1, ptr %47, align 8
   %48 = load ptr, ptr %6, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 408
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 408
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr @proto_nbap, align 4
   %52 = tail call ptr @p_get_proto_data(ptr noundef %50, ptr noundef %48, i32 noundef %51, i32 noundef 0) #7
@@ -41681,7 +41681,7 @@ nbap_get_private_data.exit17:                     ; preds = %45, %nbap_get_priva
   br i1 %53, label %55, label %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge
 
 nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge: ; preds = %nbap_get_private_data.exit17
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %52, i64 68
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %52, i64 68
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %54 = zext i32 %.pre to i64
   br label %nbap_get_private_data.exit23
@@ -41692,15 +41692,15 @@ nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge: ; preds = %
   %58 = load ptr, ptr %49, align 8
   %59 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %58, ptr noundef nonnull %48, i32 noundef %59, i32 noundef 0, ptr noundef %57) #7
-  %60 = getelementptr inbounds i8, ptr %57, i64 68
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 68
   store i32 3, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %57, i64 108
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 108
   store i32 0, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %57, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 12
   store i32 65535, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %57, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %57, i64 40
   store i32 65535, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %57, i64 112
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 112
   store i8 2, ptr %64, align 8
   %65 = getelementptr i8, ptr %57, i64 267516
   br label %66
@@ -41717,13 +41717,13 @@ nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge: ; preds = %
 nbap_get_private_data.exit23:                     ; preds = %66, %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge
   %68 = phi i64 [ %54, %nbap_get_private_data.exit17.nbap_get_private_data.exit23_crit_edge ], [ 3, %66 ]
   %69 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %26, i64 %68
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load i16, ptr %70, align 8
   %.not = icmp eq i16 %71, 0
   br i1 %.not, label %74, label %72
 
 72:                                               ; preds = %nbap_get_private_data.exit23
-  %73 = getelementptr inbounds i8, ptr %69, i64 36
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 36
   store i8 2, ptr %73, align 4
   br label %74
 
@@ -42523,9 +42523,9 @@ define internal i32 @dissect_nbap_DL_ReferencePowerInformationItem(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_FDD_Information(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %struct._address, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -42538,15 +42538,15 @@ define internal i32 @dissect_nbap_HSDSCH_FDD_Information(ptr noundef %0, i32 nou
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -42562,11 +42562,11 @@ define internal i32 @dissect_nbap_HSDSCH_FDD_Information(ptr noundef %0, i32 nou
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 267480
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
   %28 = load ptr, ptr %7, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 50
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 50
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 8
   %.not = icmp eq i16 %33, 0
@@ -42575,11 +42575,11 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 .preheader:                                       ; preds = %nbap_get_private_data.exit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %nbap_get_private_data.exit ]
   %34 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %27, i64 %indvars.iv
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i16 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 28
   store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %34, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 36
   store i8 0, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -42589,9 +42589,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %38 = load i32, ptr @ett_nbap_HSDSCH_FDD_Information, align 4
   %39 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %38, ptr noundef nonnull @HSDSCH_FDD_Information_sequence) #7
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 80
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 50
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 50
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 8
   %.not73 = icmp eq i16 %45, 0
@@ -42604,7 +42604,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 47:                                               ; preds = %46, %143
   %indvars.iv85 = phi i64 [ 0, %46 ], [ %indvars.iv.next86, %143 ]
   %48 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %27, i64 %indvars.iv85
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i16, ptr %49, align 8
   %.not74 = icmp eq i16 %50, 0
   br i1 %.not74, label %143, label %51
@@ -42612,7 +42612,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 51:                                               ; preds = %47
   %52 = zext i16 %50 to i32
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %55 = load i32, ptr %54, align 4
   %56 = call ptr @find_conversation(i32 noundef %55, ptr noundef %48, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %52, i32 noundef 0, i32 noundef 65536) #7
   %57 = icmp eq ptr %56, null
@@ -42620,7 +42620,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = load i16, ptr %49, align 8
   %63 = zext i16 %62 to i32
@@ -42628,7 +42628,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %65 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %64, ptr noundef %65) #7
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 384
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 384
   %68 = load i32, ptr %67, align 8
   %69 = icmp eq i32 %68, 1
   br i1 %69, label %70, label %143
@@ -42637,23 +42637,23 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %71 = call ptr @wmem_file_scope() #7
   %72 = call noalias ptr @wmem_alloc0(ptr noundef %71, i64 noundef 132704) #7
   store i32 0, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 1, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %72, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 13, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store i32 0, ptr %75, align 8
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %72, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 20
   store i32 %78, ptr %79, align 4
   %80 = call ptr @wmem_file_scope() #7
-  %81 = getelementptr inbounds i8, ptr %72, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %82 = load i32, ptr %48, align 8
-  %83 = getelementptr inbounds i8, ptr %48, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %84 = load i32, ptr %83, align 4
-  %85 = getelementptr inbounds i8, ptr %48, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %86 = load ptr, ptr %85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store i32 %82, ptr %81, align 8
@@ -42663,28 +42663,28 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 88:                                               ; preds = %70
   %89 = sext i32 %84 to i64
   %90 = call noalias ptr @wmem_memdup(ptr noundef %80, ptr noundef %86, i64 noundef %89) #7
-  %91 = getelementptr inbounds i8, ptr %72, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %72, i64 40
   store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %72, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %90, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %72, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %72, i64 28
   store i32 %84, ptr %93, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %70, %88
   %94 = load i16, ptr %49, align 8
-  %95 = getelementptr inbounds i8, ptr %72, i64 48
+  %95 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store i16 %94, ptr %95, align 8
   %96 = call ptr @wmem_file_scope() #7
   %97 = call noalias ptr @wmem_alloc0(ptr noundef %96, i64 noundef 12) #7
-  %98 = getelementptr inbounds i8, ptr %72, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %97, ptr %98, align 8
   %99 = trunc nuw nsw i64 %indvars.iv85 to i32
   %100 = trunc i64 %indvars.iv85 to i8
-  %101 = getelementptr inbounds i8, ptr %97, i64 5
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 5
   store i8 %100, ptr %101, align 1
   %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 408
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 408
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr @proto_nbap, align 4
   %106 = call ptr @p_get_proto_data(ptr noundef %104, ptr noundef %102, i32 noundef %105, i32 noundef 0) #7
@@ -42697,15 +42697,15 @@ copy_address_wmem.exit:                           ; preds = %70, %88
   %111 = load ptr, ptr %103, align 8
   %112 = load i32, ptr @proto_nbap, align 4
   call void @p_add_proto_data(ptr noundef %111, ptr noundef nonnull %102, i32 noundef %112, i32 noundef 0, ptr noundef %110) #7
-  %113 = getelementptr inbounds i8, ptr %110, i64 68
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 68
   store i32 3, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %110, i64 108
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 108
   store i32 0, ptr %114, align 4
-  %115 = getelementptr inbounds i8, ptr %110, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 12
   store i32 65535, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %110, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 40
   store i32 65535, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %110, i64 112
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 112
   store i8 2, ptr %117, align 8
   %118 = getelementptr i8, ptr %110, i64 267516
   br label %119
@@ -42721,25 +42721,25 @@ copy_address_wmem.exit:                           ; preds = %70, %88
 
 nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_wmem.exit
   %.0.i75 = phi ptr [ %106, %copy_address_wmem.exit ], [ %110, %119 ]
-  %121 = getelementptr inbounds i8, ptr %.0.i75, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %.0.i75, i64 24
   %122 = load i32, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %72, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %72, i64 56
   store i32 %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %72, i64 72
+  %124 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %125 = load i32, ptr %124, align 8
   %126 = add i32 %125, 1
   store i32 %126, ptr %124, align 8
-  %127 = getelementptr inbounds i8, ptr %72, i64 76
+  %127 = getelementptr inbounds nuw i8, ptr %72, i64 76
   %128 = sext i32 %125 to i64
   %129 = getelementptr [128 x i32], ptr %127, i64 0, i64 %128
   store i32 %99, ptr %129, align 4
-  %130 = getelementptr inbounds i8, ptr %48, i64 36
+  %130 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %131 = load i8, ptr %130, align 4
   %132 = icmp eq i8 %131, 0
   br i1 %132, label %133, label %137
 
 133:                                              ; preds = %nbap_get_private_data.exit80
-  %134 = getelementptr inbounds i8, ptr %48, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %135 = load i32, ptr %134, align 8
   %136 = icmp ugt i32 %135, 12
   %. = select i1 %136, i32 2, i32 1
@@ -42752,9 +42752,9 @@ nbap_get_private_data.exit80:                     ; preds = %119, %copy_address_
 139:                                              ; preds = %133, %137
   %.sink = phi i32 [ %138, %137 ], [ %., %133 ]
   store i32 %.sink, ptr %97, align 4
-  %140 = getelementptr inbounds i8, ptr %48, i64 28
+  %140 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %141 = load i32, ptr %140, align 4
-  %142 = getelementptr inbounds i8, ptr %72, i64 12
+  %142 = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 %141, ptr %142, align 4
   call void @set_umts_fp_conv_data(ptr noundef nonnull %64, ptr noundef nonnull %72) #7
   br label %143
@@ -42773,9 +42773,9 @@ declare ptr @find_conversation(i32 noundef, ptr noundef, ptr noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_MACdFlows_Information(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %struct._address, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -42788,15 +42788,15 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_Information(ptr noundef %0, i
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -42812,19 +42812,19 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_Information(ptr noundef %0, i
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 267480
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
   %cond = icmp eq i32 %29, 613
   br i1 %cond, label %31, label %146
 
 31:                                               ; preds = %nbap_get_private_data.exit
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 50
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 50
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 8
   %.not = icmp eq i16 %37, 0
@@ -42833,11 +42833,11 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 .preheader:                                       ; preds = %31, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %31 ]
   %38 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %30, i64 %indvars.iv
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i16 0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 28
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %38, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 36
   store i8 0, ptr %41, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -42848,16 +42848,16 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %43 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %42, ptr noundef nonnull @HSDSCH_MACdFlows_Information_sequence) #7
   %44 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  %45 = getelementptr inbounds i8, ptr %44, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 50
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 50
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 8
   %.not.i = icmp eq i16 %49, 0
   br i1 %.not.i, label %50, label %add_hsdsch_bind.exit
 
 50:                                               ; preds = %.loopexit
-  %51 = getelementptr inbounds i8, ptr %44, i64 408
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 408
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr @proto_nbap, align 4
   %54 = tail call ptr @p_get_proto_data(ptr noundef %52, ptr noundef nonnull %44, i32 noundef %53, i32 noundef 0) #7
@@ -42870,15 +42870,15 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %59 = load ptr, ptr %51, align 8
   %60 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %59, ptr noundef nonnull %44, i32 noundef %60, i32 noundef 0, ptr noundef %58) #7
-  %61 = getelementptr inbounds i8, ptr %58, i64 68
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 68
   store i32 3, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %58, i64 108
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 108
   store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %58, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 12
   store i32 65535, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %58, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %58, i64 40
   store i32 65535, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %58, i64 112
+  %65 = getelementptr inbounds nuw i8, ptr %58, i64 112
   store i8 2, ptr %65, align 8
   %66 = getelementptr i8, ptr %58, i64 267516
   br label %67
@@ -42894,18 +42894,18 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 nbap_get_private_data.exit.i:                     ; preds = %67, %50
   %.0.i.i = phi ptr [ %54, %50 ], [ %58, %67 ]
-  %69 = getelementptr inbounds i8, ptr %.0.i.i, i64 267480
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 267480
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %70 = getelementptr inbounds i8, ptr %44, i64 20
-  %71 = getelementptr inbounds i8, ptr %44, i64 384
-  %72 = getelementptr inbounds i8, ptr %.0.i.i, i64 108
-  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %44, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %44, i64 384
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 108
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   br label %74
 
 74:                                               ; preds = %145, %nbap_get_private_data.exit.i
   %indvars.iv.i26 = phi i64 [ 0, %nbap_get_private_data.exit.i ], [ %indvars.iv.next.i27, %145 ]
   %75 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %69, i64 %indvars.iv.i26
-  %76 = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i16, ptr %76, align 8
   %.not56.i = icmp eq i16 %77, 0
   br i1 %.not56.i, label %145, label %78
@@ -42932,21 +42932,21 @@ nbap_get_private_data.exit.i:                     ; preds = %67, %50
   %92 = call ptr @wmem_file_scope() #7
   %93 = call noalias ptr @wmem_alloc0(ptr noundef %92, i64 noundef 132704) #7
   store i32 0, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 1, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %93, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 13, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i32 0, ptr %96, align 8
   %97 = load i32, ptr %70, align 4
-  %98 = getelementptr inbounds i8, ptr %93, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 20
   store i32 %97, ptr %98, align 4
   %99 = call ptr @wmem_file_scope() #7
-  %100 = getelementptr inbounds i8, ptr %93, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %101 = load i32, ptr %75, align 8
-  %102 = getelementptr inbounds i8, ptr %75, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %103 = load i32, ptr %102, align 4
-  %104 = getelementptr inbounds i8, ptr %75, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %105 = load ptr, ptr %104, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false)
   store i32 %101, ptr %100, align 8
@@ -42956,25 +42956,25 @@ nbap_get_private_data.exit.i:                     ; preds = %67, %50
 107:                                              ; preds = %91
   %108 = sext i32 %103 to i64
   %109 = call noalias ptr @wmem_memdup(ptr noundef %99, ptr noundef %105, i64 noundef %108) #7
-  %110 = getelementptr inbounds i8, ptr %93, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %93, i64 40
   store ptr %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %93, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %93, i64 32
   store ptr %109, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %93, i64 28
+  %112 = getelementptr inbounds nuw i8, ptr %93, i64 28
   store i32 %103, ptr %112, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %107, %91
   %113 = load i16, ptr %76, align 8
-  %114 = getelementptr inbounds i8, ptr %93, i64 48
+  %114 = getelementptr inbounds nuw i8, ptr %93, i64 48
   store i16 %113, ptr %114, align 8
   %115 = call ptr @wmem_file_scope() #7
   %116 = call noalias ptr @wmem_alloc0(ptr noundef %115, i64 noundef 12) #7
-  %117 = getelementptr inbounds i8, ptr %93, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %93, i64 64
   store ptr %116, ptr %117, align 8
   %118 = trunc nuw nsw i64 %indvars.iv.i26 to i32
   %119 = trunc i64 %indvars.iv.i26 to i8
-  %120 = getelementptr inbounds i8, ptr %116, i64 5
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 5
   store i8 %119, ptr %120, align 1
   %121 = load i32, ptr %72, align 4
   %.not57.i = icmp eq i32 %121, 0
@@ -42982,7 +42982,7 @@ copy_address_wmem.exit.i:                         ; preds = %107, %91
 
 122:                                              ; preds = %copy_address_wmem.exit.i
   %123 = load i32, ptr %73, align 8
-  %124 = getelementptr inbounds i8, ptr %93, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %93, i64 56
   store i32 %123, ptr %124, align 8
   br label %127
 
@@ -42991,15 +42991,15 @@ copy_address_wmem.exit.i:                         ; preds = %107, %91
   br label %127
 
 127:                                              ; preds = %125, %122
-  %128 = getelementptr inbounds i8, ptr %93, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %93, i64 72
   %129 = load i32, ptr %128, align 8
   %130 = add i32 %129, 1
   store i32 %130, ptr %128, align 8
-  %131 = getelementptr inbounds i8, ptr %93, i64 76
+  %131 = getelementptr inbounds nuw i8, ptr %93, i64 76
   %132 = sext i32 %129 to i64
   %133 = getelementptr [128 x i32], ptr %131, i64 0, i64 %132
   store i32 %118, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %75, i64 36
+  %134 = getelementptr inbounds nuw i8, ptr %75, i64 36
   %135 = load i8, ptr %134, align 4
   %136 = icmp eq i8 %135, 0
   br i1 %136, label %137, label %139
@@ -43014,9 +43014,9 @@ copy_address_wmem.exit.i:                         ; preds = %107, %91
   br label %141
 
 141:                                              ; preds = %139, %137
-  %142 = getelementptr inbounds i8, ptr %75, i64 28
+  %142 = getelementptr inbounds nuw i8, ptr %75, i64 28
   %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds i8, ptr %93, i64 12
+  %144 = getelementptr inbounds nuw i8, ptr %93, i64 12
   store i32 %143, ptr %144, align 4
   call void @set_umts_fp_conv_data(ptr noundef nonnull %87, ptr noundef nonnull %93) #7
   br label %145
@@ -43075,9 +43075,9 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoList(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -43090,15 +43090,15 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem(ptr noundef 
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -43115,9 +43115,9 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem(ptr noundef 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   store i32 0, ptr %.0.i, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
@@ -43127,9 +43127,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 %33, ptr %6, align 4
   %34 = load i16, ptr %27, align 4
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 50
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 50
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 8
   %41 = icmp ne i16 %40, 0
@@ -43140,23 +43140,23 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond4, label %56, label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %nbap_get_private_data.exit
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 267480
-  %45 = getelementptr inbounds i8, ptr %.0.i, i64 68
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %35, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %46 to i64
   %50 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %44, i64 %49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 2, ptr %50, align 8
   %51 = call noalias ptr @wmem_memdup(ptr noundef %48, ptr noundef nonnull %6, i64 noundef 4) #7
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 4, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %50, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i16 %34, ptr %55, align 8
   br label %56
 
@@ -43166,9 +43166,9 @@ copy_address_wmem.exit:                           ; preds = %nbap_get_private_da
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_PriorityQueue_InfoItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -43181,15 +43181,15 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem(ptr noundef %0, i32 nou
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -43205,7 +43205,7 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem(ptr noundef %0, i32 nou
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
@@ -43254,9 +43254,9 @@ define internal i32 @dissect_nbap_MACdPDU_Size_Indexlist(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_RLC_Mode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -43269,15 +43269,15 @@ define internal i32 @dissect_nbap_RLC_Mode(ptr noundef %0, i32 noundef %1, ptr n
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -43293,7 +43293,7 @@ define internal i32 @dissect_nbap_RLC_Mode(ptr noundef %0, i32 noundef %1, ptr n
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 267480
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
   %28 = call i32 @dissect_per_enumerated(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 2, ptr noundef nonnull %6, i32 noundef 1, i32 noundef 0, ptr noundef null) #7
   %29 = load i32, ptr %6, align 4
   switch i32 %29, label %36 [
@@ -43306,7 +43306,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 .sink.split:                                      ; preds = %nbap_get_private_data.exit, %30
   %.sink = phi i32 [ 2, %30 ], [ 3, %nbap_get_private_data.exit ]
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
   %.idx = mul nuw nsw i64 %33, 40
@@ -43335,9 +43335,9 @@ define internal i32 @dissect_nbap_SID(ptr noundef %0, i32 noundef %1, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_MACdPDU_Size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -43350,15 +43350,15 @@ define internal i32 @dissect_nbap_MACdPDU_Size(ptr noundef %0, i32 noundef %1, p
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -43376,26 +43376,26 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 5000, ptr noundef nonnull %6, i32 noundef 1) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 88
   store i32 %28, ptr %29, align 8
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 50
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 50
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
   br i1 %.not, label %36, label %48
 
 36:                                               ; preds = %nbap_get_private_data.exit
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 16
   br i1 %or.cond, label %40, label %48
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %42 = load i32, ptr %41, align 8
   %43 = zext i32 %42 to i64
   %.idx = mul nuw nsw i64 %43, 136
@@ -43416,9 +43416,9 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 define internal i32 @dissect_nbap_HSDSCH_RNTI(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct._address, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_nbap, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #7
@@ -43431,15 +43431,15 @@ define internal i32 @dissect_nbap_HSDSCH_RNTI(ptr noundef %0, i32 noundef %1, pt
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %9, i32 noundef %19, i32 noundef 0, ptr noundef %17) #7
-  %20 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 3, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 108
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 65535, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 65535, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i8 2, ptr %24, align 8
   %25 = getelementptr i8, ptr %17, i64 267516
   br label %26
@@ -43455,15 +43455,15 @@ define internal i32 @dissect_nbap_HSDSCH_RNTI(ptr noundef %0, i32 noundef %1, pt
 
 nbap_get_private_data.exit:                       ; preds = %26, %5
   %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 267480
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
   %29 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 65535, ptr noundef nonnull %6, i32 noundef 0) #7
   %30 = load i32, ptr %6, align 4
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i32 %30, ptr %31, align 8
   %32 = load ptr, ptr %8, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 50
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 50
   %36 = load i16, ptr %35, align 2
   %37 = and i16 %36, 8
   %.not = icmp eq i16 %37, 0
@@ -43476,7 +43476,7 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
 39:                                               ; preds = %38, %60
   %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %60 ]
   %40 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %28, i64 %indvars.iv
-  %41 = getelementptr inbounds i8, ptr %40, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i16, ptr %41, align 8
   %.not31 = icmp eq i16 %42, 0
   br i1 %.not31, label %60, label %43
@@ -43484,7 +43484,7 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
 43:                                               ; preds = %39
   %44 = zext i16 %42 to i32
   %45 = load ptr, ptr %8, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = call ptr @find_conversation(i32 noundef %47, ptr noundef %40, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %44, i32 noundef 0, i32 noundef 65536) #7
   %.not32 = icmp eq ptr %48, null
@@ -43501,7 +43501,7 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
   unreachable
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %51, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %55 = load ptr, ptr %54, align 8
   %.not34 = icmp eq ptr %55, null
   br i1 %.not34, label %56, label %57
@@ -43512,7 +43512,7 @@ nbap_get_private_data.exit:                       ; preds = %26, %5
 
 57:                                               ; preds = %53
   %58 = load i32, ptr %31, align 8
-  %59 = getelementptr inbounds i8, ptr %55, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %58, ptr %59, align 4
   br label %60
 
@@ -43649,9 +43649,9 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoList(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %struct._address, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -43664,15 +43664,15 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem(ptr noundef %
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -43688,29 +43688,29 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem(ptr noundef %
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   store i32 0, ptr %27, align 8
   %28 = load i32, ptr @ett_nbap_E_DCH_MACdFlow_Specific_InfoItem, align 4
   %29 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %28, ptr noundef nonnull @E_DCH_MACdFlow_Specific_InfoItem_sequence) #7
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 50
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 50
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
   br i1 %.not, label %36, label %85
 
 36:                                               ; preds = %nbap_get_private_data.exit
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 266360
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 266360
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %39 = load i32, ptr %38, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  %40 = getelementptr inbounds i8, ptr %30, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %39 to i64
   %43 = getelementptr %struct.nbap_edch_channel_info_t, ptr %37, i64 %42
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i16, ptr %44, align 8
   %46 = zext i16 %45 to i32
   %47 = call ptr @find_conversation(i32 noundef %41, ptr noundef %43, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %46, i32 noundef 0, i32 noundef 65536) #7
@@ -43724,9 +43724,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %.not60, label %85, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %50, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 17
   %57 = icmp ne ptr %53, null
@@ -43734,19 +43734,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond, label %58, label %85
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %43, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %60 = load i32, ptr %59, align 4
   store i32 %60, ptr %53, align 4
   %.not63 = icmp eq i32 %60, 0
   br i1 %.not63, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %43, i64 32
-  %62 = getelementptr inbounds i8, ptr %53, i64 4
-  %63 = getelementptr inbounds i8, ptr %43, i64 48
-  %64 = getelementptr inbounds i8, ptr %53, i64 20
-  %65 = getelementptr inbounds i8, ptr %43, i64 113
-  %66 = getelementptr inbounds i8, ptr %53, i64 84
+  %61 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %43, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %65 = getelementptr inbounds nuw i8, ptr %43, i64 113
+  %66 = getelementptr inbounds nuw i8, ptr %53, i64 84
   %wide.trip.count = zext i32 %60 to i64
   br label %67
 
@@ -43769,19 +43769,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %exitcond.not, label %._crit_edge, label %67, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %67, %58
-  %77 = getelementptr inbounds i8, ptr %.0.i, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %78 = load i8, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %50, i64 132684
+  %79 = getelementptr inbounds nuw i8, ptr %50, i64 132684
   store i8 %78, ptr %79, align 4
   %80 = load i32, ptr %27, align 8
   %.not61 = icmp ne i32 %80, 0
   %spec.select = zext i1 %.not61 to i8
-  %81 = getelementptr inbounds i8, ptr %53, i64 100
+  %81 = getelementptr inbounds nuw i8, ptr %53, i64 100
   store i8 %spec.select, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %50, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %50, i64 72
   store i32 1, ptr %82, align 8
   %83 = load i32, ptr %38, align 8
-  %84 = getelementptr inbounds i8, ptr %50, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %50, i64 76
   store i32 %83, ptr %84, align 4
   br label %85
 
@@ -43791,9 +43791,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_E_DCH_MACdFlow_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -43806,15 +43806,15 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_ID(ptr noundef %0, i32 noundef 
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -43830,7 +43830,7 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_ID(ptr noundef %0, i32 noundef 
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %26, i32 noundef 0) #7
   ret i32 %27
 }
@@ -43868,9 +43868,9 @@ define internal i32 @dissect_nbap_BundlingModeIndicator(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -43883,15 +43883,15 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformation(ptr noundef %0
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -43907,12 +43907,12 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformation(ptr noundef %0
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 0, ptr %26, align 8
   %27 = load i32, ptr @ett_nbap_E_DCH_LogicalChannelInformation, align 4
   %28 = tail call i32 @dissect_per_constrained_sequence_of(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %27, ptr noundef nonnull @E_DCH_LogicalChannelInformation_sequence_of, i32 noundef 1, i32 noundef 16, i32 noundef 0) #7
   %29 = load i32, ptr %26, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
   %.idx = mul nuw nsw i64 %32, 136
@@ -43937,9 +43937,9 @@ define internal i32 @dissect_nbap_Max_Bits_MACe_PDU_non_scheduled(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformationItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -43952,15 +43952,15 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformationItem(ptr nounde
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -43976,7 +43976,7 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelInformationItem(ptr nounde
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
@@ -43988,9 +43988,9 @@ nbap_get_private_data.exit:                       ; preds = %24, %5
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_LogicalChannelID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -44003,15 +44003,15 @@ define internal i32 @dissect_nbap_LogicalChannelID(ptr noundef %0, i32 noundef %
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -44029,9 +44029,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %6, i32 noundef 0) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 80
   store i32 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, -1
   %or.cond = icmp ult i32 %32, 16
@@ -44039,7 +44039,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 33:                                               ; preds = %nbap_get_private_data.exit
   %34 = trunc i32 %28 to i8
-  %35 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %.idx = mul nuw nsw i64 %37, 136
@@ -44069,9 +44069,9 @@ define internal i32 @dissect_nbap_MACesGuaranteedBitRate(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_E_DCH_DDI_Value(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -44084,15 +44084,15 @@ define internal i32 @dissect_nbap_E_DCH_DDI_Value(ptr noundef %0, i32 noundef %1
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -44110,19 +44110,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   %27 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 62, ptr noundef nonnull %6, i32 noundef 0) #7
   %28 = load i32, ptr %6, align 4
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 76
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 76
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %7, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 50
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 50
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 8
   %.not = icmp eq i16 %35, 0
   br i1 %.not, label %36, label %49
 
 36:                                               ; preds = %nbap_get_private_data.exit
-  %37 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, -1
   %or.cond = icmp ult i32 %39, 16
@@ -44130,7 +44130,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 40:                                               ; preds = %36
   %41 = trunc i32 %28 to i8
-  %42 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   %.idx = mul nuw nsw i64 %44, 136
@@ -44334,9 +44334,9 @@ define internal i32 @dissect_nbap_RL_Specific_DCH_Info_Item(ptr noundef %0, i32 
   %6 = alloca %struct._address, align 8
   %7 = alloca %struct._address, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = tail call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -44349,15 +44349,15 @@ define internal i32 @dissect_nbap_RL_Specific_DCH_Info_Item(ptr noundef %0, i32 
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -44373,11 +44373,11 @@ define internal i32 @dissect_nbap_RL_Specific_DCH_Info_Item(ptr noundef %0, i32 
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 116
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 116
   store i32 0, ptr %.0.i, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 52
   store i32 -1, ptr %31, align 4
   %32 = load i32, ptr @ett_nbap_RL_Specific_DCH_Info_Item, align 4
   %33 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %32, ptr noundef nonnull @RL_Specific_DCH_Info_Item_sequence) #7
@@ -44385,9 +44385,9 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i32 %34, ptr %8, align 4
   %35 = load i16, ptr %30, align 4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 80
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 50
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 50
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8
   %42 = icmp ne i16 %41, 0
@@ -44402,13 +44402,13 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 47:                                               ; preds = %nbap_get_private_data.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 2, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %6, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %36, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = zext i16 %35 to i32
   %54 = call ptr @find_conversation(i32 noundef %52, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %53, i32 noundef 0, i32 noundef 196608) #7
@@ -44417,7 +44417,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 
 56:                                               ; preds = %47
   %57 = load ptr, ptr %9, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
   %59 = load i32, ptr %58, align 4
   %60 = load i16, ptr %30, align 4
   %61 = zext i16 %60 to i32
@@ -44425,7 +44425,7 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %63 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %62, ptr noundef %63) #7
   %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 384
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 384
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %68, label %194
@@ -44434,19 +44434,19 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %69 = call ptr @wmem_file_scope() #7
   %70 = call noalias ptr @wmem_alloc0(ptr noundef %69, i64 noundef 132704) #7
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 1, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 12, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i32 0, ptr %73, align 8
   %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %70, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i32 %76, ptr %77, align 4
   %78 = call ptr @wmem_file_scope() #7
-  %79 = getelementptr inbounds i8, ptr %70, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %80 = load i32, ptr %6, align 8
   %81 = load i32, ptr %48, align 4
   %82 = load ptr, ptr %49, align 8
@@ -44458,30 +44458,30 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 84:                                               ; preds = %68
   %85 = sext i32 %81 to i64
   %86 = call noalias ptr @wmem_memdup(ptr noundef %78, ptr noundef %82, i64 noundef %85) #7
-  %87 = getelementptr inbounds i8, ptr %70, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %70, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr %86, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %70, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %70, i64 28
   store i32 %81, ptr %89, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %68, %84
-  %90 = getelementptr inbounds i8, ptr %70, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %70, i64 48
   store i16 %35, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %70, i64 60
+  %93 = getelementptr inbounds nuw i8, ptr %70, i64 60
   store i32 %92, ptr %93, align 4
-  %94 = getelementptr inbounds i8, ptr %70, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %.0.i, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %96 = load i8, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %70, i64 132684
+  %97 = getelementptr inbounds nuw i8, ptr %70, i64 132684
   store i8 %96, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %70, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %70, i64 56
   store i32 %99, ptr %100, align 8
   %101 = load i32, ptr %31, align 4
   %.not = icmp eq i32 %101, -1
@@ -44490,18 +44490,18 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 102:                                              ; preds = %copy_address_wmem.exit
   %103 = zext i32 %101 to i64
   %104 = getelementptr %struct.nbap_dch_channel_info_t, ptr %29, i64 %103
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %70, i64 588
+  %107 = getelementptr inbounds nuw i8, ptr %70, i64 588
   store i32 %106, ptr %107, align 4
   %108 = icmp sgt i32 %106, 0
   br i1 %108, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %104, i64 12
-  %110 = getelementptr inbounds i8, ptr %70, i64 592
-  %111 = getelementptr inbounds i8, ptr %104, i64 268
-  %112 = getelementptr inbounds i8, ptr %70, i64 848
+  %109 = getelementptr inbounds nuw i8, ptr %104, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %70, i64 592
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 268
+  %112 = getelementptr inbounds nuw i8, ptr %70, i64 848
   %wide.trip.count = zext nneg i32 %106 to i64
   br label %113
 
@@ -44520,7 +44520,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   br i1 %exitcond.not, label %._crit_edge, label %113, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %113, %102
-  %120 = getelementptr inbounds i8, ptr %104, i64 524
+  %120 = getelementptr inbounds nuw i8, ptr %104, i64 524
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr i8, ptr %70, i64 1104
   store i32 %121, ptr %122, align 4
@@ -44528,10 +44528,10 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   br i1 %123, label %.lr.ph155, label %._crit_edge156
 
 .lr.ph155:                                        ; preds = %._crit_edge
-  %124 = getelementptr inbounds i8, ptr %104, i64 528
-  %125 = getelementptr inbounds i8, ptr %70, i64 1108
-  %126 = getelementptr inbounds i8, ptr %104, i64 784
-  %127 = getelementptr inbounds i8, ptr %70, i64 1364
+  %124 = getelementptr inbounds nuw i8, ptr %104, i64 528
+  %125 = getelementptr inbounds nuw i8, ptr %70, i64 1108
+  %126 = getelementptr inbounds nuw i8, ptr %104, i64 784
+  %127 = getelementptr inbounds nuw i8, ptr %70, i64 1364
   %wide.trip.count182 = zext nneg i32 %121 to i64
   br label %128
 
@@ -44550,9 +44550,9 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   br i1 %exitcond183.not, label %._crit_edge156, label %128, !llvm.loop !34
 
 ._crit_edge156:                                   ; preds = %128, %._crit_edge
-  %135 = getelementptr inbounds i8, ptr %70, i64 76
+  %135 = getelementptr inbounds nuw i8, ptr %70, i64 76
   store i32 %101, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %70, i64 72
+  %136 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %137 = sext i32 %101 to i64
   %.idx170 = mul nsw i64 %137, 1040
   %.offs171 = or disjoint i64 %.idx170, 4
@@ -44592,7 +44592,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   store i32 %148, ptr %151, align 4
   %152 = sext i32 %148 to i64
   %153 = getelementptr %struct.nbap_dch_channel_info_t, ptr %29, i64 %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i32, ptr %154, align 4
   %156 = load i32, ptr %136, align 8
   %157 = sext i32 %156 to i64
@@ -44602,8 +44602,8 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   br i1 %159, label %.lr.ph159, label %._crit_edge160
 
 .lr.ph159:                                        ; preds = %.lr.ph195
-  %160 = getelementptr inbounds i8, ptr %153, i64 12
-  %161 = getelementptr inbounds i8, ptr %153, i64 268
+  %160 = getelementptr inbounds nuw i8, ptr %153, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %153, i64 268
   %wide.trip.count187 = zext nneg i32 %155 to i64
   br label %162
 
@@ -44637,7 +44637,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 
 ._crit_edge160:                                   ; preds = %._crit_edge160.loopexit, %.lr.ph195
   %.pre-phi = phi i64 [ %.pre194, %._crit_edge160.loopexit ], [ %157, %.lr.ph195 ]
-  %174 = getelementptr inbounds i8, ptr %153, i64 524
+  %174 = getelementptr inbounds nuw i8, ptr %153, i64 524
   %175 = load i32, ptr %174, align 4
   %.idx141 = mul nsw i64 %.pre-phi, 1032
   %gep169 = getelementptr i8, ptr %122, i64 %.idx141
@@ -44646,8 +44646,8 @@ copy_address_wmem.exit:                           ; preds = %68, %84
   br i1 %176, label %.lr.ph167, label %.loopexit
 
 .lr.ph167:                                        ; preds = %._crit_edge160
-  %177 = getelementptr inbounds i8, ptr %153, i64 528
-  %178 = getelementptr inbounds i8, ptr %153, i64 784
+  %177 = getelementptr inbounds nuw i8, ptr %153, i64 528
+  %178 = getelementptr inbounds nuw i8, ptr %153, i64 784
   %wide.trip.count192 = zext nneg i32 %175 to i64
   br label %179
 
@@ -44691,9 +44691,9 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_T_dCH_id(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_nbap_DCH_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -44706,15 +44706,15 @@ define internal i32 @dissect_nbap_T_dCH_id(ptr noundef %0, i32 noundef %1, ptr n
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -44730,10 +44730,10 @@ define internal i32 @dissect_nbap_T_dCH_id(ptr noundef %0, i32 noundef %1, ptr n
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %28 = load i32, ptr %27, align 8
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr @proto_nbap, align 4
   %33 = tail call ptr @p_get_proto_data(ptr noundef %31, ptr noundef %29, i32 noundef %32, i32 noundef 0) #7
@@ -44746,15 +44746,15 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   %38 = load ptr, ptr %30, align 8
   %39 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %38, ptr noundef nonnull %29, i32 noundef %39, i32 noundef 0, ptr noundef %37) #7
-  %40 = getelementptr inbounds i8, ptr %37, i64 68
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 68
   store i32 3, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 108
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 108
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %37, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 65535, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %37, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 40
   store i32 65535, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 112
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 112
   store i8 2, ptr %44, align 8
   %45 = getelementptr i8, ptr %37, i64 267516
   br label %46
@@ -44770,7 +44770,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 nbap_get_private_data.exit12:                     ; preds = %46, %nbap_get_private_data.exit
   %.0.i7 = phi ptr [ %33, %nbap_get_private_data.exit ], [ %37, %46 ]
-  %48 = getelementptr inbounds i8, ptr %.0.i7, i64 52
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 52
   store i32 %28, ptr %48, align 4
   ret i32 %6
 }
@@ -44811,9 +44811,9 @@ define internal i32 @dissect_nbap_RL_Specific_E_DCH_Information_Item(ptr noundef
   %6 = alloca %struct._address, align 8
   %7 = alloca %struct._address, align 8
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @proto_nbap, align 4
   %14 = tail call ptr @p_get_proto_data(ptr noundef %12, ptr noundef %10, i32 noundef %13, i32 noundef 0) #7
@@ -44826,15 +44826,15 @@ define internal i32 @dissect_nbap_RL_Specific_E_DCH_Information_Item(ptr noundef
   %19 = load ptr, ptr %11, align 8
   %20 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %19, ptr noundef nonnull %10, i32 noundef %20, i32 noundef 0, ptr noundef %18) #7
-  %21 = getelementptr inbounds i8, ptr %18, i64 68
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 68
   store i32 3, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %18, i64 108
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 108
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 65535, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %18, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store i32 65535, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 112
   store i8 2, ptr %25, align 8
   %26 = getelementptr i8, ptr %18, i64 267516
   br label %27
@@ -44850,9 +44850,9 @@ define internal i32 @dissect_nbap_RL_Specific_E_DCH_Information_Item(ptr noundef
 
 nbap_get_private_data.exit:                       ; preds = %27, %5
   %.0.i = phi ptr [ %14, %5 ], [ %18, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 266360
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 266360
   store i32 0, ptr %.0.i, align 8
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %30, align 4
   %31 = load i32, ptr @ett_nbap_RL_Specific_E_DCH_Information_Item, align 4
   %32 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %31, ptr noundef nonnull @RL_Specific_E_DCH_Information_Item_sequence) #7
@@ -44860,9 +44860,9 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   store i32 %33, ptr %8, align 4
   %34 = load i16, ptr %30, align 4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 50
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 50
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 8
   %41 = icmp ne i16 %40, 0
@@ -44876,13 +44876,13 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 45:                                               ; preds = %nbap_get_private_data.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 2, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %6, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %6, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %35, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = call ptr @find_conversation(i32 noundef %50, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %43, i32 noundef 0, i32 noundef 196608) #7
   %.not = icmp eq ptr %51, null
@@ -44895,20 +44895,20 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   br i1 %.not69, label %141, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8
   %58 = icmp eq i32 %57, 12
   br i1 %58, label %.thread, label %141
 
 .thread:                                          ; preds = %45, %55
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 20
   %61 = load i32, ptr %60, align 4
   %62 = call nonnull ptr @conversation_new(i32 noundef %61, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef 3, i32 noundef %43, i32 noundef 0, i32 noundef 3) #7
   %63 = load ptr, ptr @fp_handle, align 8
   call void @conversation_set_dissector(ptr noundef nonnull %62, ptr noundef %63) #7
   %64 = load ptr, ptr %9, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 384
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 384
   %66 = load i32, ptr %65, align 8
   %67 = icmp eq i32 %66, 1
   br i1 %67, label %68, label %141
@@ -44917,19 +44917,19 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
   %69 = call ptr @wmem_file_scope() #7
   %70 = call noalias ptr @wmem_alloc0(ptr noundef %69, i64 noundef 132704) #7
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store i32 1, ptr %71, align 4
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i32 17, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i32 0, ptr %73, align 8
   %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 20
   %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds i8, ptr %70, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store i32 %76, ptr %77, align 4
   %78 = call ptr @wmem_file_scope() #7
-  %79 = getelementptr inbounds i8, ptr %70, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %80 = load i32, ptr %6, align 8
   %81 = load i32, ptr %46, align 4
   %82 = load ptr, ptr %47, align 8
@@ -44941,45 +44941,45 @@ nbap_get_private_data.exit:                       ; preds = %27, %5
 84:                                               ; preds = %68
   %85 = sext i32 %81 to i64
   %86 = call noalias ptr @wmem_memdup(ptr noundef %78, ptr noundef %82, i64 noundef %85) #7
-  %87 = getelementptr inbounds i8, ptr %70, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %70, i64 40
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %70, i64 32
+  %88 = getelementptr inbounds nuw i8, ptr %70, i64 32
   store ptr %86, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %70, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %70, i64 28
   store i32 %81, ptr %89, align 4
   br label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %68, %84
-  %90 = getelementptr inbounds i8, ptr %70, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %70, i64 48
   store i16 %34, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %70, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 0, ptr %91, align 4
   %92 = call ptr @wmem_file_scope() #7
   %93 = call noalias ptr @wmem_alloc0(ptr noundef %92, i64 noundef 104) #7
-  %94 = getelementptr inbounds i8, ptr %70, i64 64
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 64
   store ptr %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.0.i, i64 108
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
   %96 = load i32, ptr %95, align 4
   %.not70 = icmp eq i32 %96, 0
   br i1 %.not70, label %101, label %97
 
 97:                                               ; preds = %copy_address_wmem.exit
-  %98 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %70, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %70, i64 56
   store i32 %99, ptr %100, align 8
   br label %104
 
 101:                                              ; preds = %copy_address_wmem.exit
   %102 = load ptr, ptr %9, align 8
   %103 = call ptr @expert_add_info(ptr noundef %102, ptr noundef null, ptr noundef nonnull @ei_nbap_no_set_comm_context_id) #7
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br label %104
 
 104:                                              ; preds = %101, %97
   %105 = phi i32 [ %.pre, %101 ], [ %99, %97 ]
-  %106 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %107 = load i32, ptr %106, align 8
   %108 = load ptr, ptr @edch_flow_port_map, align 8
   %109 = call ptr @wmem_tree_lookup32(ptr noundef %108, i32 noundef %105) #7
@@ -44989,20 +44989,20 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 111:                                              ; preds = %104
   %112 = call ptr @wmem_file_scope() #7
   %113 = call noalias ptr @wmem_alloc0(ptr noundef %112, i64 noundef 20) #7
-  %114 = getelementptr inbounds i8, ptr %113, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %115 = zext i32 %107 to i64
   %116 = getelementptr [8 x i16], ptr %114, i64 0, i64 %115
   store i16 %34, ptr %116, align 2
   %117 = load i32, ptr %.0.i, align 8
   store i32 %117, ptr %113, align 4
   %118 = load ptr, ptr @edch_flow_port_map, align 8
-  %119 = getelementptr inbounds i8, ptr %70, i64 56
+  %119 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %120 = load i32, ptr %119, align 8
   call void @wmem_tree_insert32(ptr noundef %118, i32 noundef %120, ptr noundef nonnull %113) #7
   br label %125
 
 121:                                              ; preds = %104
-  %122 = getelementptr inbounds i8, ptr %109, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %123 = zext i32 %107 to i64
   %124 = getelementptr [8 x i16], ptr %122, i64 0, i64 %123
   store i16 %34, ptr %124, align 2
@@ -45011,7 +45011,7 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 125:                                              ; preds = %121, %111
   %.pre-phi = phi i64 [ %123, %121 ], [ %115, %111 ]
   %126 = load ptr, ptr %9, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 408
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 408
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr %struct.nbap_edch_channel_info_t, ptr %29, i64 %.pre-phi
   %130 = load i32, ptr %6, align 8
@@ -45025,16 +45025,16 @@ copy_address_wmem.exit:                           ; preds = %68, %84
 134:                                              ; preds = %125
   %135 = sext i32 %131 to i64
   %136 = call noalias ptr @wmem_memdup(ptr noundef %128, ptr noundef %132, i64 noundef %135) #7
-  %137 = getelementptr inbounds i8, ptr %129, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %136, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %129, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %129, i64 8
   store ptr %136, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %129, i64 4
+  %139 = getelementptr inbounds nuw i8, ptr %129, i64 4
   store i32 %131, ptr %139, align 4
   br label %copy_address_wmem.exit71
 
 copy_address_wmem.exit71:                         ; preds = %125, %134
-  %140 = getelementptr inbounds i8, ptr %129, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i16 %34, ptr %140, align 8
   call void @set_umts_fp_conv_data(ptr noundef nonnull %62, ptr noundef nonnull %70) #7
   br label %141
@@ -45448,9 +45448,9 @@ define internal i32 @dissect_nbap_HARQ_MemoryPartitioning(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InformationResp_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -45463,15 +45463,15 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InformationResp_Item(
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -45487,7 +45487,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InformationResp_Item(
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
@@ -45822,9 +45822,9 @@ define internal i32 @dissect_nbap_HSSCCH_Code_Change_Grant(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem_to_Modify(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -45837,15 +45837,15 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem_to_Modify(pt
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -45862,9 +45862,9 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlow_Specific_InfoItem_to_Modify(pt
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   store i32 0, ptr %.0.i, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
@@ -45874,9 +45874,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 %33, ptr %6, align 4
   %34 = load i16, ptr %27, align 4
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 50
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 50
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 8
   %41 = icmp ne i16 %40, 0
@@ -45887,21 +45887,21 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond4, label %59, label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %nbap_get_private_data.exit
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 267480
-  %45 = getelementptr inbounds i8, ptr %35, i64 408
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267480
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 408
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 68
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 68
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
   %50 = getelementptr %struct.nbap_hsdsch_channel_info_t, ptr %44, i64 %49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 2, ptr %50, align 8
   %51 = call noalias ptr @wmem_memdup(ptr noundef %46, ptr noundef nonnull %6, i64 noundef 4) #7
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 4, ptr %54, align 4
   %55 = load i32, ptr %47, align 4
   %56 = zext i32 %55 to i64
@@ -45924,9 +45924,9 @@ define internal i32 @dissect_nbap_ModifyPriorityQueue(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_PriorityQueue_InfoItem_to_Add(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -45939,15 +45939,15 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem_to_Add(ptr noundef %0, 
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -45963,7 +45963,7 @@ define internal i32 @dissect_nbap_PriorityQueue_InfoItem_to_Add(ptr noundef %0, 
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 1, ptr %26, align 8
   %27 = load i32, ptr @ett_nbap_PriorityQueue_InfoItem_to_Add, align 4
   %28 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %27, ptr noundef nonnull @PriorityQueue_InfoItem_to_Add_sequence) #7
@@ -45993,9 +45993,9 @@ define internal i32 @dissect_nbap_MACdPDU_Size_IndexItem_to_Modify(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_HSDSCH_MACdFlows_to_Delete_Item(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -46008,15 +46008,15 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_to_Delete_Item(ptr noundef %0
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -46032,7 +46032,7 @@ define internal i32 @dissect_nbap_HSDSCH_MACdFlows_to_Delete_Item(ptr noundef %0
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %27 = load i32, ptr %26, align 8
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 8
@@ -46060,9 +46060,9 @@ define internal i32 @dissect_nbap_MACeReset_Indicator(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem_to_Modify(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca %struct._address, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -46075,15 +46075,15 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem_to_Modify(ptr
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -46099,22 +46099,22 @@ define internal i32 @dissect_nbap_E_DCH_MACdFlow_Specific_InfoItem_to_Modify(ptr
 
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 266360
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 266360
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   store i32 1, ptr %28, align 8
   %29 = load i32, ptr @ett_nbap_E_DCH_MACdFlow_Specific_InfoItem_to_Modify, align 4
   %30 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %29, ptr noundef nonnull @E_DCH_MACdFlow_Specific_InfoItem_to_Modify_sequence) #7
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 50
   %35 = load i16, ptr %34, align 2
   %36 = and i16 %35, 8
   %.not = icmp eq i16 %36, 0
   br i1 %.not, label %37, label %105
 
 37:                                               ; preds = %nbap_get_private_data.exit
-  %38 = getelementptr inbounds i8, ptr %.0.i, i64 108
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 108
   %39 = load i32, ptr %38, align 4
   %.not70 = icmp eq i32 %39, 0
   br i1 %.not70, label %40, label %42
@@ -46125,7 +46125,7 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
 
 42:                                               ; preds = %37, %40
   %43 = load ptr, ptr @edch_flow_port_map, align 8
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = tail call ptr @wmem_tree_lookup32(ptr noundef %43, i32 noundef %45) #7
   %47 = icmp eq ptr %46, null
@@ -46137,22 +46137,22 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br label %105
 
 51:                                               ; preds = %42
-  %52 = getelementptr inbounds i8, ptr %.0.i, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %46, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %55 = zext i32 %53 to i64
   %56 = getelementptr [8 x i16], ptr %54, i64 0, i64 %55
   %57 = load i16, ptr %56, align 2
-  %58 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 %57, ptr %58, align 4
   %59 = load i32, ptr %46, align 4
   store i32 %59, ptr %.0.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %60 = load ptr, ptr %7, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr %struct.nbap_edch_channel_info_t, ptr %27, i64 %55
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i16, ptr %64, align 8
   %66 = zext i16 %65 to i32
   %67 = call ptr @find_conversation(i32 noundef %62, ptr noundef %63, ptr noundef nonnull %6, i32 noundef 3, i32 noundef %66, i32 noundef 0, i32 noundef 65536) #7
@@ -46166,9 +46166,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %.not72, label %105, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 17
   %77 = icmp ne ptr %73, null
@@ -46176,19 +46176,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond, label %78, label %105
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %63, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %63, i64 28
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %73, align 4
   %.not75 = icmp eq i32 %80, 0
   br i1 %.not75, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %63, i64 32
-  %82 = getelementptr inbounds i8, ptr %73, i64 4
-  %83 = getelementptr inbounds i8, ptr %63, i64 48
-  %84 = getelementptr inbounds i8, ptr %73, i64 20
-  %85 = getelementptr inbounds i8, ptr %63, i64 113
-  %86 = getelementptr inbounds i8, ptr %73, i64 84
+  %81 = getelementptr inbounds nuw i8, ptr %63, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %63, i64 48
+  %84 = getelementptr inbounds nuw i8, ptr %73, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %63, i64 113
+  %86 = getelementptr inbounds nuw i8, ptr %73, i64 84
   %wide.trip.count = zext i32 %80 to i64
   br label %87
 
@@ -46211,19 +46211,19 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %exitcond.not, label %._crit_edge, label %87, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %87, %78
-  %97 = getelementptr inbounds i8, ptr %.0.i, i64 112
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
   %98 = load i8, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %70, i64 132684
+  %99 = getelementptr inbounds nuw i8, ptr %70, i64 132684
   store i8 %98, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %.0.i, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72
   %101 = load i32, ptr %100, align 8
   %.not73 = icmp ne i32 %101, 0
   %spec.select = zext i1 %.not73 to i8
-  %102 = getelementptr inbounds i8, ptr %73, i64 100
+  %102 = getelementptr inbounds nuw i8, ptr %73, i64 100
   store i8 %spec.select, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %70, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %70, i64 72
   store i32 1, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %70, i64 76
+  %104 = getelementptr inbounds nuw i8, ptr %70, i64 76
   store i32 %53, ptr %104, align 4
   br label %105
 
@@ -46249,9 +46249,9 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelToDelete(ptr noundef %0, i
 define internal i32 @dissect_nbap_E_DCH_LogicalChannelToModifyItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = load i32, ptr @ett_nbap_E_DCH_LogicalChannelToModifyItem, align 4
   %7 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %6, ptr noundef nonnull @E_DCH_LogicalChannelToModifyItem_sequence) #7
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_nbap, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %9, i32 noundef %12, i32 noundef 0) #7
@@ -46264,15 +46264,15 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelToModifyItem(ptr noundef %
   %18 = load ptr, ptr %10, align 8
   %19 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %18, ptr noundef nonnull %9, i32 noundef %19, i32 noundef 0, ptr noundef %17) #7
-  %20 = getelementptr inbounds i8, ptr %17, i64 68
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 68
   store i32 3, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 108
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 108
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %17, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 65535, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 65535, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 112
   store i8 2, ptr %24, align 8
   %25 = getelementptr i8, ptr %17, i64 267516
   br label %26
@@ -46288,7 +46288,7 @@ define internal i32 @dissect_nbap_E_DCH_LogicalChannelToModifyItem(ptr noundef %
 
 nbap_get_private_data.exit:                       ; preds = %26, %5
   %.0.i = phi ptr [ %13, %5 ], [ %17, %26 ]
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
@@ -46708,9 +46708,9 @@ define internal i32 @dissect_nbap_CommonMACFlow_Specific_InfoList(ptr noundef %0
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_Common_MACFlow_ID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_nbap, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #7
@@ -46723,15 +46723,15 @@ define internal i32 @dissect_nbap_Common_MACFlow_ID(ptr noundef %0, i32 noundef 
   %16 = load ptr, ptr %8, align 8
   %17 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %16, ptr noundef nonnull %7, i32 noundef %17, i32 noundef 0, ptr noundef %15) #7
-  %18 = getelementptr inbounds i8, ptr %15, i64 68
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 68
   store i32 3, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 108
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 65535, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 65535, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 112
   store i8 2, ptr %22, align 8
   %23 = getelementptr i8, ptr %15, i64 267516
   br label %24
@@ -46747,7 +46747,7 @@ define internal i32 @dissect_nbap_Common_MACFlow_ID(ptr noundef %0, i32 noundef 
 
 nbap_get_private_data.exit:                       ; preds = %24, %5
   %.0.i = phi ptr [ %11, %5 ], [ %15, %24 ]
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 84
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 84
   %27 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 7, ptr noundef nonnull %26, i32 noundef 0) #7
   ret i32 %27
 }
@@ -46774,9 +46774,9 @@ define internal i32 @dissect_nbap_BCCH_Specific_HSDSCH_RNTI_Information(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_nbap_CommonMACFlow_Specific_InfoItem(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_nbap, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #7
@@ -46789,15 +46789,15 @@ define internal i32 @dissect_nbap_CommonMACFlow_Specific_InfoItem(ptr noundef %0
   %17 = load ptr, ptr %9, align 8
   %18 = load i32, ptr @proto_nbap, align 4
   tail call void @p_add_proto_data(ptr noundef %17, ptr noundef nonnull %8, i32 noundef %18, i32 noundef 0, ptr noundef %16) #7
-  %19 = getelementptr inbounds i8, ptr %16, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 68
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 108
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 108
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 65535, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 65535, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 112
   store i8 2, ptr %23, align 8
   %24 = getelementptr i8, ptr %16, i64 267516
   br label %25
@@ -46814,9 +46814,9 @@ define internal i32 @dissect_nbap_CommonMACFlow_Specific_InfoItem(ptr noundef %0
 nbap_get_private_data.exit:                       ; preds = %25, %5
   %.0.i = phi ptr [ %12, %5 ], [ %16, %25 ]
   store i32 0, ptr %.0.i, align 8
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i16 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, 1
   store i32 %30, ptr %28, align 8
@@ -46826,9 +46826,9 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   store i32 %33, ptr %6, align 4
   %34 = load i16, ptr %27, align 4
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 50
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 50
   %39 = load i16, ptr %38, align 2
   %40 = and i16 %39, 8
   %41 = icmp ne i16 %40, 0
@@ -46839,24 +46839,24 @@ nbap_get_private_data.exit:                       ; preds = %25, %5
   br i1 %or.cond4, label %57, label %copy_address_wmem.exit
 
 copy_address_wmem.exit:                           ; preds = %nbap_get_private_data.exit
-  %44 = getelementptr inbounds i8, ptr %.0.i, i64 267800
-  %45 = getelementptr inbounds i8, ptr %.0.i, i64 84
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 267800
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 84
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %35, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %46 to i64
   %50 = getelementptr %struct.nbap_common_channel_info_t, ptr %44, i64 %49
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %50, i8 0, i64 24, i1 false)
   store i32 2, ptr %50, align 8
   %51 = call noalias ptr @wmem_memdup(ptr noundef %48, ptr noundef nonnull %6, i64 noundef 4) #7
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 4, ptr %54, align 4
   %55 = load i16, ptr %27, align 4
-  %56 = getelementptr inbounds i8, ptr %50, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i16 %55, ptr %56, align 8
   br label %57
 

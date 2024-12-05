@@ -182,7 +182,7 @@ define internal void @lv_label_event(ptr nocapture readnone %0, ptr noundef %1) 
 
 59:                                               ; preds = %62, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %62 ]
-  %60 = getelementptr inbounds [4 x i8], ptr %57, i64 0, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 0, i64 %indvars.iv.i
   %61 = load i8, ptr %60, align 1, !tbaa !20
   %.not11.i = icmp eq i8 %61, 0
   br i1 %.not11.i, label %.critedge.i, label %62
@@ -589,7 +589,7 @@ define void @lv_label_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 12:                                               ; preds = %15, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %15 ]
-  %13 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 0, i64 %indvars.iv.i
   %14 = load i8, ptr %13, align 1, !tbaa !20
   %.not11.i = icmp eq i8 %14, 0
   br i1 %.not11.i, label %.critedge.i, label %15
@@ -751,7 +751,7 @@ get_label_flags.exit:                             ; preds = %11, %31, %36
 
 44:                                               ; preds = %47, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %47 ]
-  %45 = getelementptr inbounds [4 x i8], ptr %43, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 0, i64 %indvars.iv.i
   %46 = load i8, ptr %45, align 1, !tbaa !20
   %.not11.i = icmp eq i8 %46, 0
   br i1 %.not11.i, label %.critedge.i, label %47

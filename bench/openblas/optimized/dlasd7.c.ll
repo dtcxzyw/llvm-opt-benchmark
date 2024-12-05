@@ -89,12 +89,12 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %80 = phi i32 [ %.pre, %78 ], [ %50, %74 ]
   %81 = load double, ptr %12, align 8, !tbaa !7
   %82 = zext nneg i32 %75 to i64
-  %83 = getelementptr inbounds double, ptr %35, i64 %82
+  %83 = getelementptr inbounds nuw double, ptr %35, i64 %82
   %84 = load double, ptr %83, align 8, !tbaa !7
   %85 = fmul double %81, %84
   store double %85, ptr %29, align 8, !tbaa !7
   store double 0.000000e+00, ptr %83, align 8, !tbaa !7
-  %86 = getelementptr inbounds double, ptr %33, i64 %82
+  %86 = getelementptr inbounds nuw double, ptr %33, i64 %82
   %87 = load double, ptr %86, align 8, !tbaa !7
   %88 = icmp sgt i32 %80, 0
   br i1 %88, label %89, label %.loopexit23
@@ -178,8 +178,8 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %134, label %.thread15, label %137
 
 .thread15:                                        ; preds = %.loopexit21
-  %135 = getelementptr inbounds i8, ptr %14, i64 8
-  %136 = getelementptr inbounds i8, ptr %15, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %15, i64 4
   tail call void @dlamrg_(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %135, ptr noundef nonnull @c__1, ptr noundef nonnull @c__1, ptr noundef nonnull %136) #3
   %.pre30 = add nsw i32 %52, 2
   br label %.loopexit20
@@ -191,56 +191,56 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 140:                                              ; preds = %140, %137
   %141 = phi i64 [ 2, %137 ], [ %157, %140 ]
-  %142 = getelementptr inbounds i32, ptr %40, i64 %141
+  %142 = getelementptr inbounds nuw i32, ptr %40, i64 %141
   %143 = load i32, ptr %142, align 4, !tbaa !3
   %144 = sext i32 %143 to i64
   %145 = getelementptr inbounds double, ptr %30, i64 %144
   %146 = load double, ptr %145, align 8, !tbaa !7
-  %147 = getelementptr inbounds double, ptr %37, i64 %141
+  %147 = getelementptr inbounds nuw double, ptr %37, i64 %141
   store double %146, ptr %147, align 8, !tbaa !7
   %148 = getelementptr inbounds double, ptr %31, i64 %144
   %149 = load double, ptr %148, align 8, !tbaa !7
-  %150 = getelementptr inbounds double, ptr %32, i64 %141
+  %150 = getelementptr inbounds nuw double, ptr %32, i64 %141
   store double %149, ptr %150, align 8, !tbaa !7
   %151 = getelementptr inbounds double, ptr %33, i64 %144
   %152 = load double, ptr %151, align 8, !tbaa !7
-  %153 = getelementptr inbounds double, ptr %34, i64 %141
+  %153 = getelementptr inbounds nuw double, ptr %34, i64 %141
   store double %152, ptr %153, align 8, !tbaa !7
   %154 = getelementptr inbounds double, ptr %35, i64 %144
   %155 = load double, ptr %154, align 8, !tbaa !7
-  %156 = getelementptr inbounds double, ptr %36, i64 %141
+  %156 = getelementptr inbounds nuw double, ptr %36, i64 %141
   store double %155, ptr %156, align 8, !tbaa !7
   %157 = add nuw nsw i64 %141, 1
   %158 = icmp eq i64 %157, %139
   br i1 %158, label %159, label %140, !llvm.loop !14
 
 159:                                              ; preds = %140
-  %160 = getelementptr inbounds i8, ptr %14, i64 8
-  %161 = getelementptr inbounds i8, ptr %15, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %15, i64 4
   tail call void @dlamrg_(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %160, ptr noundef nonnull @c__1, ptr noundef nonnull @c__1, ptr noundef nonnull %161) #3
   br label %162
 
 162:                                              ; preds = %162, %159
   %163 = phi i64 [ 2, %159 ], [ %180, %162 ]
-  %164 = getelementptr inbounds i32, ptr %38, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr %38, i64 %163
   %165 = load i32, ptr %164, align 4, !tbaa !3
   %166 = add nsw i32 %165, 1
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds double, ptr %37, i64 %167
   %169 = load double, ptr %168, align 8, !tbaa !7
-  %170 = getelementptr inbounds double, ptr %30, i64 %163
+  %170 = getelementptr inbounds nuw double, ptr %30, i64 %163
   store double %169, ptr %170, align 8, !tbaa !7
   %171 = getelementptr inbounds double, ptr %32, i64 %167
   %172 = load double, ptr %171, align 8, !tbaa !7
-  %173 = getelementptr inbounds double, ptr %31, i64 %163
+  %173 = getelementptr inbounds nuw double, ptr %31, i64 %163
   store double %172, ptr %173, align 8, !tbaa !7
   %174 = getelementptr inbounds double, ptr %34, i64 %167
   %175 = load double, ptr %174, align 8, !tbaa !7
-  %176 = getelementptr inbounds double, ptr %33, i64 %163
+  %176 = getelementptr inbounds nuw double, ptr %33, i64 %163
   store double %175, ptr %176, align 8, !tbaa !7
   %177 = getelementptr inbounds double, ptr %36, i64 %167
   %178 = load double, ptr %177, align 8, !tbaa !7
-  %179 = getelementptr inbounds double, ptr %35, i64 %163
+  %179 = getelementptr inbounds nuw double, ptr %35, i64 %163
   store double %178, ptr %179, align 8, !tbaa !7
   %180 = add nuw nsw i64 %163, 1
   %181 = icmp eq i64 %180, %139
@@ -276,7 +276,7 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 204:                                              ; preds = %.loopexit20
   %205 = zext nneg i32 %53 to i64
-  %206 = getelementptr inbounds i8, ptr %6, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %207 = load double, ptr %206, align 8, !tbaa !7
   %208 = fcmp oge double %207, 0.000000e+00
   %209 = fneg double %207
@@ -487,20 +487,20 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 351:                                              ; preds = %351, %349
   %352 = phi i64 [ 2, %349 ], [ %365, %351 ]
-  %353 = getelementptr inbounds i32, ptr %39, i64 %352
+  %353 = getelementptr inbounds nuw i32, ptr %39, i64 %352
   %354 = load i32, ptr %353, align 4, !tbaa !3
   %355 = sext i32 %354 to i64
   %356 = getelementptr inbounds double, ptr %30, i64 %355
   %357 = load double, ptr %356, align 8, !tbaa !7
-  %358 = getelementptr inbounds double, ptr %37, i64 %352
+  %358 = getelementptr inbounds nuw double, ptr %37, i64 %352
   store double %357, ptr %358, align 8, !tbaa !7
   %359 = getelementptr inbounds double, ptr %33, i64 %355
   %360 = load double, ptr %359, align 8, !tbaa !7
-  %361 = getelementptr inbounds double, ptr %34, i64 %352
+  %361 = getelementptr inbounds nuw double, ptr %34, i64 %352
   store double %360, ptr %361, align 8, !tbaa !7
   %362 = getelementptr inbounds double, ptr %35, i64 %355
   %363 = load double, ptr %362, align 8, !tbaa !7
-  %364 = getelementptr inbounds double, ptr %36, i64 %352
+  %364 = getelementptr inbounds nuw double, ptr %36, i64 %352
   store double %363, ptr %364, align 8, !tbaa !7
   %365 = add nuw nsw i64 %352, 1
   %366 = icmp eq i64 %365, %350
@@ -513,7 +513,7 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .preheader:                                       ; preds = %367, %.preheader
   %370 = phi i64 [ %383, %.preheader ], [ 2, %367 ]
-  %371 = getelementptr inbounds i32, ptr %39, i64 %370
+  %371 = getelementptr inbounds nuw i32, ptr %39, i64 %370
   %372 = load i32, ptr %371, align 4, !tbaa !3
   %373 = sext i32 %372 to i64
   %374 = getelementptr inbounds i32, ptr %38, i64 %373
@@ -521,7 +521,7 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %376 = sext i32 %375 to i64
   %377 = getelementptr i32, ptr %17, i64 %376
   %378 = load i32, ptr %377, align 4, !tbaa !3
-  %379 = getelementptr inbounds i32, ptr %41, i64 %370
+  %379 = getelementptr inbounds nuw i32, ptr %41, i64 %370
   %380 = icmp sle i32 %378, %75
   %381 = sext i1 %380 to i32
   %382 = add nsw i32 %378, %381
@@ -607,16 +607,16 @@ define void @dlasd7_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %424 = load i32, ptr %4, align 4, !tbaa !3
   %425 = add nsw i32 %424, -1
   store i32 %425, ptr %28, align 4, !tbaa !3
-  %426 = getelementptr inbounds i8, ptr %7, i64 8
-  %427 = getelementptr inbounds i8, ptr %6, i64 8
+  %426 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %6, i64 8
   call void @dcopy_(ptr noundef nonnull %28, ptr noundef nonnull %426, ptr noundef nonnull @c__1, ptr noundef nonnull %427, ptr noundef nonnull @c__1) #3
   store i32 %52, ptr %28, align 4, !tbaa !3
-  %428 = getelementptr inbounds i8, ptr %9, i64 8
-  %429 = getelementptr inbounds i8, ptr %8, i64 8
+  %428 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @dcopy_(ptr noundef nonnull %28, ptr noundef nonnull %428, ptr noundef nonnull @c__1, ptr noundef nonnull %429, ptr noundef nonnull @c__1) #3
   store i32 %52, ptr %28, align 4, !tbaa !3
-  %430 = getelementptr inbounds i8, ptr %11, i64 8
-  %431 = getelementptr inbounds i8, ptr %10, i64 8
+  %430 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @dcopy_(ptr noundef nonnull %28, ptr noundef nonnull %430, ptr noundef nonnull @c__1, ptr noundef nonnull %431, ptr noundef nonnull @c__1) #3
   br label %432
 

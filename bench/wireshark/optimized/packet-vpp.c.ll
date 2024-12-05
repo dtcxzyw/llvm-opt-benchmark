@@ -163,7 +163,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.25) #3
   %7 = load ptr, ptr %5, align 8
@@ -213,7 +213,7 @@ define internal i32 @dissect_vpp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %35 = load i32, ptr @hf_vpp_buffer_index, align 4
   %36 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %35, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #3
   %37 = tail call i32 @tvb_strsize(ptr noundef %0, i32 noundef 8) #3
-  %38 = getelementptr inbounds i8, ptr %1, i64 408
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @tvb_get_string_enc(ptr noundef %39, ptr noundef %0, i32 noundef 8, i32 noundef %37, i32 noundef 0) #3
   %41 = load i32, ptr @hf_vpp_nodename, align 4
@@ -286,7 +286,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vpp_metadata(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.28) #3
   %8 = load ptr, ptr %6, align 8
@@ -302,7 +302,7 @@ define internal i32 @dissect_vpp_metadata(ptr noundef %0, ptr nocapture noundef 
   br i1 %15, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
@@ -327,7 +327,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %17, %4
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vpp_opaque(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.32) #3
   %8 = load ptr, ptr %6, align 8
@@ -343,7 +343,7 @@ define internal i32 @dissect_vpp_opaque(ptr noundef %0, ptr nocapture noundef re
   br i1 %15, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
@@ -368,7 +368,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %17, %4
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vpp_opaque2(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.36) #3
   %8 = load ptr, ptr %6, align 8
@@ -384,7 +384,7 @@ define internal i32 @dissect_vpp_opaque2(ptr noundef %0, ptr nocapture noundef r
   br i1 %15, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i
@@ -409,7 +409,7 @@ add_multi_line_string_to_tree.exit:               ; preds = %17, %4
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_vpp_trace(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.40) #3
   %8 = load ptr, ptr %6, align 8
@@ -425,7 +425,7 @@ define internal i32 @dissect_vpp_trace(ptr noundef %0, ptr nocapture noundef rea
   br i1 %15, label %.lr.ph.i, label %add_multi_line_string_to_tree.exit
 
 .lr.ph.i:                                         ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %1, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %17
 
 17:                                               ; preds = %17, %.lr.ph.i

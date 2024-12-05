@@ -50,37 +50,37 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
   %9 = add i64 %8, 32
   %10 = call noalias ptr @_emalloc(i64 noundef %9) #8
   store i32 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 22, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 1 %1, i64 %7, i1 false)
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %7
   store i8 0, ptr %15, align 1
   store ptr %10, ptr %4, align 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 262, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %19 = and i64 %18, -8
   %20 = add i64 %19, 32
   %21 = call noalias ptr @_emalloc(i64 noundef %20) #8
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 22, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %18, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %2, i64 %18, i1 false)
   %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
   store i8 0, ptr %26, align 1
   store ptr %21, ptr %17, align 16
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 262, ptr %27, align 8
   %28 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
   store ptr %6, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
@@ -93,7 +93,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
 
 33:                                               ; preds = %3
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %34, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
@@ -106,12 +106,12 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
 
 38:                                               ; preds = %35
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %39, align 8
   br label %45
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load i8, ptr %41, align 8
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %44, label %45
@@ -126,7 +126,7 @@ define hidden range(i32 -1, 1) i32 @ps_open_user(ptr nocapture readnone %0, ptr 
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %45
   %indvars.iv.i = phi i64 [ 0, %45 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds %struct._zval_struct, ptr %4, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw %struct._zval_struct, ptr %4, i64 %indvars.iv.i
   call void @zval_ptr_dtor(ptr noundef nonnull %46) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -160,7 +160,7 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 
 
 11:                                               ; preds = %6
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %24
@@ -173,12 +173,12 @@ define hidden range(i32 -1, 1) i32 @ps_close_user(ptr nocapture readnone %0) #0 
 
 16:                                               ; preds = %13
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %17, align 8
   br label %23
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i8, ptr %19, align 8
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %23
@@ -208,7 +208,7 @@ define hidden range(i32 -1, 1) i32 @ps_read_user(ptr nocapture readnone %0, ptr 
   %5 = alloca [1 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 64
   %.not = icmp eq i32 %9, 0
@@ -222,7 +222,7 @@ define hidden range(i32 -1, 1) i32 @ps_read_user(ptr nocapture readnone %0, ptr 
 
 13:                                               ; preds = %4, %10
   %.sink = phi i32 [ 262, %10 ], [ 6, %4 ]
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %14, align 8
   %15 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   %16 = trunc i8 %15 to i1
@@ -241,12 +241,12 @@ ps_call_handler.exit.thread:                      ; preds = %13
 
 20:                                               ; preds = %17
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %21, align 8
   br label %ps_call_handler.exit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %ps_call_handler.exit
@@ -258,7 +258,7 @@ ps_call_handler.exit.thread:                      ; preds = %13
 ps_call_handler.exit:                             ; preds = %20, %22, %26
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   switch i8 %.pre, label %36 [
     i8 0, label %37
@@ -267,7 +267,7 @@ ps_call_handler.exit:                             ; preds = %20, %22, %26
 
 27:                                               ; preds = %ps_call_handler.exit
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 64
   %.not18 = icmp eq i32 %31, 0
@@ -298,7 +298,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
   %5 = alloca [2 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 64
   %.not = icmp eq i32 %9, 0
@@ -312,11 +312,11 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
 
 13:                                               ; preds = %4, %10
   %.sink = phi i32 [ 262, %10 ], [ 6, %4 ]
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 64
   %.not18 = icmp eq i32 %18, 0
@@ -330,7 +330,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
 
 22:                                               ; preds = %13, %19
   %.sink19 = phi i32 [ 262, %19 ], [ 6, %13 ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sink19, ptr %23, align 8
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   %25 = trunc i8 %24 to i1
@@ -338,7 +338,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
 
 26:                                               ; preds = %22
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %27, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
@@ -351,12 +351,12 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
 
 31:                                               ; preds = %28
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
-  %32 = getelementptr inbounds i8, ptr %6, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %32, align 8
   br label %38
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load i8, ptr %34, align 8
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %38
@@ -371,7 +371,7 @@ define hidden range(i32 -1, 1) i32 @ps_write_user(ptr nocapture readnone %0, ptr
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %38
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %39 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i
   call void @zval_ptr_dtor(ptr noundef nonnull %39) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -388,7 +388,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
   %3 = alloca [1 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %3, align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 64
   %.not = icmp eq i32 %7, 0
@@ -402,7 +402,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
 
 11:                                               ; preds = %2, %8
   %.sink = phi i32 [ 262, %8 ], [ 6, %2 ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %12, align 8
   %13 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   %14 = trunc i8 %13 to i1
@@ -410,7 +410,7 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
 
 15:                                               ; preds = %11
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %16, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
@@ -423,12 +423,12 @@ define hidden range(i32 -1, 1) i32 @ps_delete_user(ptr nocapture readnone %0, pt
 
 20:                                               ; preds = %17
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %21, align 8
   br label %.lr.ph.i
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = load i8, ptr %23, align 8
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %26, label %.lr.ph.i
@@ -453,7 +453,7 @@ define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr noc
   %4 = alloca [1 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   store i64 %1, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %6, align 8
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   %8 = trunc i8 %7 to i1
@@ -472,12 +472,12 @@ ps_call_handler.exit.thread:                      ; preds = %3
 
 12:                                               ; preds = %9
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %13, align 8
   br label %ps_call_handler.exit
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i8, ptr %15, align 8
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %ps_call_handler.exit
@@ -489,7 +489,7 @@ ps_call_handler.exit.thread:                      ; preds = %3
 ps_call_handler.exit:                             ; preds = %12, %14, %18
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   switch i8 %.pre, label %21 [
     i8 4, label %19
@@ -523,7 +523,7 @@ define hidden ptr @ps_create_sid_user(ptr noundef %0) #0 {
 
 ps_call_handler.exit.thread:                      ; preds = %5
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %25
@@ -536,13 +536,13 @@ ps_call_handler.exit.thread:                      ; preds = %5
 
 ps_call_handler.exit.thread17:                    ; preds = %9
   call void @zval_ptr_dtor(ptr noundef nonnull %2) #10
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %12, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   br label %25
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %ps_call_handler.exit.thread16, label %ps_call_handler.exit
@@ -559,7 +559,7 @@ ps_call_handler.exit:                             ; preds = %13
 
 17:                                               ; preds = %ps_call_handler.exit
   %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 64
   %.not = icmp eq i32 %21, 0
@@ -603,7 +603,7 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
 
 7:                                                ; preds = %2
   store ptr %1, ptr %3, align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 64
   %.not = icmp eq i32 %10, 0
@@ -617,7 +617,7 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
 
 14:                                               ; preds = %7, %11
   %.sink = phi i32 [ 262, %11 ], [ 6, %7 ]
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %15, align 8
   %16 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
   %17 = trunc i8 %16 to i1
@@ -625,7 +625,7 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
 
 18:                                               ; preds = %14
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %19, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
@@ -638,12 +638,12 @@ define hidden i32 @ps_validate_sid_user(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %20
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #10
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %24, align 8
   br label %.lr.ph.i
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = load i8, ptr %26, align 8
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %29, label %.lr.ph.i
@@ -676,7 +676,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
   %5 = alloca [2 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 64
   %.not = icmp eq i32 %9, 0
@@ -690,11 +690,11 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 13:                                               ; preds = %4, %10
   %.sink = phi i32 [ 262, %10 ], [ 6, %4 ]
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 64
   %.not19 = icmp eq i32 %18, 0
@@ -708,7 +708,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 22:                                               ; preds = %13, %19
   %.sink27 = phi i32 [ 262, %19 ], [ 6, %13 ]
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %.sink27, ptr %23, align 8
   %24 = load i8, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 328), align 8
   %25 = icmp eq i8 %24, 0
@@ -727,12 +727,12 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 32:                                               ; preds = %29
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %33, align 8
   br label %39
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %38, label %39
@@ -747,7 +747,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %39
   %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %40 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i
   call void @zval_ptr_dtor(ptr noundef nonnull %40) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -764,12 +764,12 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 45:                                               ; preds = %42
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #10
-  %46 = getelementptr inbounds i8, ptr %6, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %46, align 8
   br label %52
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %49 = load i8, ptr %48, align 8
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %51, label %52
@@ -784,7 +784,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %52
   %indvars.iv.i21 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i22, %.lr.ph.i20 ]
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %5, i64 %indvars.iv.i21
+  %53 = getelementptr inbounds nuw %struct._zval_struct, ptr %5, i64 %indvars.iv.i21
   call void @zval_ptr_dtor(ptr noundef nonnull %53) #10
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 2
@@ -792,7 +792,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_user(ptr nocapture readn
 
 ps_call_handler.exit.sink.split:                  ; preds = %41, %28
   store i8 0, ptr getelementptr inbounds (i8, ptr @ps_globals, i64 436), align 4
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %54, align 8
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #10
   br label %ps_call_handler.exit
@@ -813,7 +813,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @verify_bool_return_type_userland_calls(ptr noundef nonnull %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %15 [
     i8 0, label %19

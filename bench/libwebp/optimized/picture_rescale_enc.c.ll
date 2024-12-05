@@ -30,26 +30,26 @@ define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly %0, ptr noundef
   br i1 %.not43, label %11, label %61
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %23 = load i32, ptr %22, align 4
   tail call void @WebPCopyPlane(ptr noundef %13, i32 noundef %15, ptr noundef %17, i32 noundef %19, i32 noundef %21, i32 noundef %23) #5
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 44
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %20, align 8
   %33 = add nsw i32 %32, 1
@@ -58,10 +58,10 @@ define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly %0, ptr noundef
   %36 = add nsw i32 %35, 1
   %37 = ashr i32 %36, 1
   tail call void @WebPCopyPlane(ptr noundef %25, i32 noundef %27, ptr noundef %29, i32 noundef %31, i32 noundef %34, i32 noundef %37) #5
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %26, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %30, align 4
   %44 = load i32, ptr %20, align 8
@@ -71,17 +71,17 @@ define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly %0, ptr noundef
   %48 = add nsw i32 %47, 1
   %49 = ashr i32 %48, 1
   tail call void @WebPCopyPlane(ptr noundef %39, i32 noundef %40, ptr noundef %42, i32 noundef %43, i32 noundef %46, i32 noundef %49) #5
-  %50 = getelementptr inbounds i8, ptr %1, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %51 = load ptr, ptr %50, align 8
   %.not44 = icmp eq ptr %51, null
   br i1 %.not44, label %77, label %52
 
 52:                                               ; preds = %11
-  %53 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load i32, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %1, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %58 = load i32, ptr %57, align 8
   %59 = load i32, ptr %20, align 8
   %60 = load i32, ptr %22, align 4
@@ -89,20 +89,20 @@ define range(i32 0, 2) i32 @WebPPictureCopy(ptr noundef readonly %0, ptr noundef
   br label %77
 
 61:                                               ; preds = %9
-  %62 = getelementptr inbounds i8, ptr %0, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %65 = load i32, ptr %64, align 8
   %66 = shl nsw i32 %65, 2
-  %67 = getelementptr inbounds i8, ptr %1, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %70 = load i32, ptr %69, align 8
   %71 = shl nsw i32 %70, 2
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %73 = load i32, ptr %72, align 8
   %74 = shl nsw i32 %73, 2
-  %75 = getelementptr inbounds i8, ptr %1, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %76 = load i32, ptr %75, align 4
   tail call void @WebPCopyPlane(ptr noundef %63, i32 noundef %66, ptr noundef %68, i32 noundef %71, i32 noundef %74, i32 noundef %76) #5
   br label %77
@@ -125,7 +125,7 @@ define range(i32 0, 2) i32 @WebPPictureIsView(ptr noundef readonly %0) local_unn
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   %. = select i1 %.not, i64 224, i64 232
-  %4 = getelementptr inbounds i8, ptr %0, i64 %.
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = zext i1 %6 to i32
@@ -162,14 +162,14 @@ SnapTopLeftPosition.exit.i:                       ; preds = %6
 
 15:                                               ; preds = %12
   %16 = add nuw nsw i32 %.059, %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %16, %18
   br i1 %19, label %AdjustAndCheckRectangle.exit.thread, label %AdjustAndCheckRectangle.exit
 
 AdjustAndCheckRectangle.exit:                     ; preds = %15
   %20 = add nuw nsw i32 %.058, %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4
   %.not63 = icmp sgt i32 %20, %22
   br i1 %.not63, label %AdjustAndCheckRectangle.exit.thread, label %23
@@ -184,9 +184,9 @@ AdjustAndCheckRectangle.exit:                     ; preds = %15
   br label %25
 
 25:                                               ; preds = %24, %23
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %4, ptr %27, align 4
   %28 = load i32, ptr %0, align 8
   %.not43 = icmp eq i32 %28, 0
@@ -194,67 +194,67 @@ AdjustAndCheckRectangle.exit:                     ; preds = %15
   br i1 %.not43, label %30, label %73
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = mul nsw i32 %34, %.058
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds i8, ptr %32, i64 %36
-  %38 = getelementptr inbounds i8, ptr %37, i64 %29
-  %39 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %29
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = lshr i32 %.058, 1
-  %43 = getelementptr inbounds i8, ptr %0, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %44 = load i32, ptr %43, align 4
   %45 = mul nsw i32 %44, %42
   %46 = sext i32 %45 to i64
   %47 = getelementptr inbounds i8, ptr %41, i64 %46
   %48 = lshr i32 %.059, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %47, i64 %49
-  %51 = getelementptr inbounds i8, ptr %5, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %43, align 4
   %55 = mul nsw i32 %54, %42
   %56 = sext i32 %55 to i64
   %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 %49
-  %59 = getelementptr inbounds i8, ptr %5, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %49
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %58, ptr %59, align 8
   %60 = load i32, ptr %33, align 8
-  %61 = getelementptr inbounds i8, ptr %5, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 %60, ptr %61, align 8
   %62 = load i32, ptr %43, align 4
-  %63 = getelementptr inbounds i8, ptr %5, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %62, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %65 = load ptr, ptr %64, align 8
   %.not44 = icmp eq ptr %65, null
   br i1 %.not44, label %AdjustAndCheckRectangle.exit.thread, label %66
 
 66:                                               ; preds = %30
-  %67 = getelementptr inbounds i8, ptr %0, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %68 = load i32, ptr %67, align 8
   %69 = mul nsw i32 %68, %.058
   %70 = sext i32 %69 to i64
   %71 = getelementptr inbounds i8, ptr %65, i64 %70
-  %72 = getelementptr inbounds i8, ptr %71, i64 %29
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %29
   br label %AdjustAndCheckRectangle.exit.thread.sink.split
 
 73:                                               ; preds = %25
-  %74 = getelementptr inbounds i8, ptr %0, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %77 = load i32, ptr %76, align 8
   %78 = mul nsw i32 %77, %.058
   %79 = sext i32 %78 to i64
   %80 = getelementptr inbounds i32, ptr %75, i64 %79
-  %81 = getelementptr inbounds i32, ptr %80, i64 %29
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %29
   br label %AdjustAndCheckRectangle.exit.thread.sink.split
 
 AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %66, %73
@@ -262,10 +262,10 @@ AdjustAndCheckRectangle.exit.thread.sink.split:   ; preds = %66, %73
   %.sink66 = phi ptr [ %72, %66 ], [ %81, %73 ]
   %.sink65 = phi i64 [ 56, %66 ], [ 80, %73 ]
   %.sink.in = phi ptr [ %67, %66 ], [ %76, %73 ]
-  %82 = getelementptr inbounds i8, ptr %5, i64 %.sink68
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink68
   store ptr %.sink66, ptr %82, align 8
   %.sink = load i32, ptr %.sink.in, align 8
-  %83 = getelementptr inbounds i8, ptr %5, i64 %.sink65
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink65
   store i32 %.sink, ptr %83, align 8
   br label %AdjustAndCheckRectangle.exit.thread
 
@@ -299,14 +299,14 @@ SnapTopLeftPosition.exit.i:                       ; preds = %5
 
 14:                                               ; preds = %11
   %15 = add nuw nsw i32 %.055, %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %AdjustAndCheckRectangle.exit.thread, label %AdjustAndCheckRectangle.exit
 
 AdjustAndCheckRectangle.exit:                     ; preds = %14
   %19 = add nuw nsw i32 %.054, %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = load i32, ptr %20, align 4
   %.not58 = icmp sgt i32 %19, %21
   br i1 %.not58, label %AdjustAndCheckRectangle.exit.thread, label %22
@@ -314,16 +314,16 @@ AdjustAndCheckRectangle.exit:                     ; preds = %14
 22:                                               ; preds = %AdjustAndCheckRectangle.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %6, ptr noundef nonnull readonly align 8 dereferenceable(256) %0, i64 256, i1 false)
   call void @WebPPictureResetBuffers(ptr noundef nonnull %6) #5
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %4, ptr %24, align 4
   %25 = call i32 @WebPPictureAlloc(ptr noundef nonnull %6) #5
   %.not42 = icmp eq i32 %25, 0
   br i1 %.not42, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %6, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %28 = load i32, ptr %27, align 8
   %29 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %28) #5
   br label %AdjustAndCheckRectangle.exit.thread
@@ -334,80 +334,80 @@ AdjustAndCheckRectangle.exit:                     ; preds = %14
   br i1 %.not43, label %32, label %84
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = mul nsw i32 %34, %.054
   %36 = add nsw i32 %35, %.055
   %37 = lshr i32 %.054, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = mul nsw i32 %39, %37
   %41 = lshr i32 %.055, 1
   %42 = add nsw i32 %40, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %36 to i64
   %46 = getelementptr inbounds i8, ptr %44, i64 %45
-  %47 = getelementptr inbounds i8, ptr %6, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = load i32, ptr %49, align 8
   call void @WebPCopyPlane(ptr noundef %46, i32 noundef %34, ptr noundef %48, i32 noundef %50, i32 noundef %3, i32 noundef %4) #5
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %42 to i64
   %54 = getelementptr inbounds i8, ptr %52, i64 %53
   %55 = load i32, ptr %38, align 4
-  %56 = getelementptr inbounds i8, ptr %6, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %6, i64 44
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %59 = load i32, ptr %58, align 4
   %60 = add nuw nsw i32 %3, 1
   %61 = lshr i32 %60, 1
   %62 = add nuw nsw i32 %4, 1
   %63 = lshr i32 %62, 1
   call void @WebPCopyPlane(ptr noundef %54, i32 noundef %55, ptr noundef %57, i32 noundef %59, i32 noundef %61, i32 noundef %63) #5
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 %53
   %67 = load i32, ptr %38, align 4
-  %68 = getelementptr inbounds i8, ptr %6, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %58, align 4
   call void @WebPCopyPlane(ptr noundef %66, i32 noundef %67, ptr noundef %69, i32 noundef %70, i32 noundef %61, i32 noundef %63) #5
-  %71 = getelementptr inbounds i8, ptr %6, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %72 = load ptr, ptr %71, align 8
   %.not44 = icmp eq ptr %72, null
   br i1 %.not44, label %101, label %73
 
 73:                                               ; preds = %32
-  %74 = getelementptr inbounds i8, ptr %0, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %75 = load i32, ptr %74, align 8
   %76 = mul nsw i32 %75, %.054
   %77 = add nsw i32 %76, %.055
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
   %80 = sext i32 %77 to i64
   %81 = getelementptr inbounds i8, ptr %79, i64 %80
-  %82 = getelementptr inbounds i8, ptr %6, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %83 = load i32, ptr %82, align 8
   call void @WebPCopyPlane(ptr noundef %81, i32 noundef %75, ptr noundef nonnull %72, i32 noundef %83, i32 noundef %3, i32 noundef %4) #5
   br label %101
 
 84:                                               ; preds = %30
-  %85 = getelementptr inbounds i8, ptr %0, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %88 = load i32, ptr %87, align 8
   %89 = mul nsw i32 %88, %.054
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds i32, ptr %86, i64 %90
   %92 = zext nneg i32 %.055 to i64
-  %93 = getelementptr inbounds i32, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
   %94 = shl nsw i32 %88, 2
-  %95 = getelementptr inbounds i8, ptr %6, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %6, i64 80
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %98 = load i32, ptr %97, align 8
   %99 = shl nsw i32 %98, 2
   %100 = shl nsw i32 %3, 2
@@ -446,9 +446,9 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %11, label %187, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %14, i32 noundef %16, ptr noundef nonnull %8, ptr noundef nonnull %9) #5
   %.not = icmp eq i32 %17, 0
@@ -462,17 +462,17 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %10, ptr noundef nonnull readonly align 8 dereferenceable(256) %0, i64 256, i1 false)
   call void @WebPPictureResetBuffers(ptr noundef nonnull %10) #5
   %21 = load i32, ptr %8, align 4
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %21, ptr %22, align 8
   %23 = load i32, ptr %9, align 4
-  %24 = getelementptr inbounds i8, ptr %10, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 %23, ptr %24, align 4
   %25 = call i32 @WebPPictureAlloc(ptr noundef nonnull %10) #5
   %.not51 = icmp eq i32 %25, 0
   br i1 %.not51, label %26, label %30
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %10, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %28 = load i32, ptr %27, align 8
   %29 = call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef %28) #5
   br label %187
@@ -496,7 +496,7 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %187
 
 40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8
   %.not53 = icmp eq ptr %42, null
   br i1 %.not53, label %AlphaMultiplyY.exit, label %43
@@ -504,13 +504,13 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
 43:                                               ; preds = %40
   call void @WebPInitAlphaProcessing() #5
   %44 = load ptr, ptr %41, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %8, align 4
   %50 = load i32, ptr %9, align 4
-  %51 = getelementptr inbounds i8, ptr %10, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %52 = load i32, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7)
   %53 = call i32 @WebPRescalerInit(ptr noundef nonnull %7, i32 noundef %14, i32 noundef %16, ptr noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %52, i32 noundef 1, ptr noundef nonnull %36) #5
@@ -545,9 +545,9 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %.not.i59, label %AlphaMultiplyY.exit, label %65
 
 65:                                               ; preds = %.loopexit90
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load i32, ptr %68, align 8
   %70 = load i32, ptr %45, align 8
   %71 = load i32, ptr %13, align 8
@@ -556,15 +556,15 @@ define i32 @WebPPictureRescale(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %AlphaMultiplyY.exit
 
 AlphaMultiplyY.exit:                              ; preds = %40, %.loopexit90, %65
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %10, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %8, align 4
   %80 = load i32, ptr %9, align 4
-  %81 = getelementptr inbounds i8, ptr %10, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %82 = load i32, ptr %81, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6)
   %83 = call i32 @WebPRescalerInit(ptr noundef nonnull %6, i32 noundef %14, i32 noundef %16, ptr noundef %78, i32 noundef %79, i32 noundef %80, i32 noundef %82, i32 noundef 1, ptr noundef nonnull %36) #5
@@ -593,15 +593,15 @@ RescalePlane.exit65:                              ; preds = %AlphaMultiplyY.exit
 
 .loopexit89:                                      ; preds = %.lr.ph.i63, %.preheader.i61
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
-  %93 = getelementptr inbounds i8, ptr %0, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load ptr, ptr %93, align 8
   %95 = add nsw i32 %14, 1
   %96 = ashr i32 %95, 1
   %97 = add nsw i32 %16, 1
   %98 = ashr i32 %97, 1
-  %99 = getelementptr inbounds i8, ptr %0, i64 44
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i8, ptr %10, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %8, align 4
   %104 = add nsw i32 %103, 1
@@ -609,7 +609,7 @@ RescalePlane.exit65:                              ; preds = %AlphaMultiplyY.exit
   %106 = load i32, ptr %9, align 4
   %107 = add nsw i32 %106, 1
   %108 = ashr i32 %107, 1
-  %109 = getelementptr inbounds i8, ptr %10, i64 44
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %110 = load i32, ptr %109, align 4
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5)
   %111 = call i32 @WebPRescalerInit(ptr noundef nonnull %5, i32 noundef %96, i32 noundef %98, ptr noundef %102, i32 noundef %105, i32 noundef %108, i32 noundef %110, i32 noundef 1, ptr noundef nonnull %36) #5
@@ -638,10 +638,10 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
 
 .loopexit:                                        ; preds = %.lr.ph.i69, %.preheader.i67
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5)
-  %121 = getelementptr inbounds i8, ptr %0, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %99, align 4
-  %124 = getelementptr inbounds i8, ptr %10, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %125 = load ptr, ptr %124, align 8
   %126 = load i32, ptr %8, align 4
   %127 = add nsw i32 %126, 1
@@ -659,7 +659,7 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
   br label %187
 
 136:                                              ; preds = %.loopexit
-  %137 = getelementptr inbounds i8, ptr %10, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %138 = load ptr, ptr %137, align 8
   %.not.i72 = icmp eq ptr %138, null
   br i1 %.not.i72, label %AlphaMultiplyY.exit73, label %139
@@ -667,7 +667,7 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
 139:                                              ; preds = %136
   %140 = load ptr, ptr %77, align 8
   %141 = load i32, ptr %81, align 8
-  %142 = getelementptr inbounds i8, ptr %10, i64 56
+  %142 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %143 = load i32, ptr %142, align 8
   %144 = load i32, ptr %22, align 8
   %145 = load i32, ptr %24, align 4
@@ -687,9 +687,9 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
 
 152:                                              ; preds = %146
   call void @WebPInitAlphaProcessing() #5
-  %153 = getelementptr inbounds i8, ptr %0, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 80
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %156 = load i32, ptr %155, align 8
   %157 = shl i32 %156, 2
   %158 = load i32, ptr %13, align 8
@@ -698,11 +698,11 @@ RescalePlane.exit71:                              ; preds = %.loopexit89
   %160 = load ptr, ptr %153, align 8
   %161 = load i32, ptr %155, align 8
   %162 = shl nsw i32 %161, 2
-  %163 = getelementptr inbounds i8, ptr %10, i64 72
+  %163 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %164 = load ptr, ptr %163, align 8
   %165 = load i32, ptr %8, align 4
   %166 = load i32, ptr %9, align 4
-  %167 = getelementptr inbounds i8, ptr %10, i64 80
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %168 = load i32, ptr %167, align 8
   %169 = shl nsw i32 %168, 2
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)

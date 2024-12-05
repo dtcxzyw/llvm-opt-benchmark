@@ -85,8 +85,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @mca_btl_base_descriptor_constructor(ptr nocapture noundef writeonly initializes((56, 88), (96, 100)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
@@ -132,7 +132,7 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
 7:                                                ; preds = %6, %3
   store ptr @opal_list_t_class, ptr @mca_btl_base_modules_initialized, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 8), align 8
-  %8 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 40), align 8
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_list_t_class, i64 40), align 8
   %9 = load ptr, ptr %8, align 8
   %.not1.i = icmp eq ptr %9, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -141,7 +141,7 @@ define internal i32 @mca_btl_base_open(i32 noundef %0) #2 {
   %10 = phi ptr [ %12, %.lr.ph.i ], [ %9, %7 ]
   %.02.i = phi ptr [ %11, %.lr.ph.i ], [ %8, %7 ]
   tail call void %10(ptr noundef nonnull @mca_btl_base_modules_initialized) #6
-  %11 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -160,7 +160,7 @@ opal_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %7
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @mca_btl_base_close() #2 {
   %1 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 32), align 8
-  %.0.in9 = getelementptr inbounds i8, ptr %1, i64 16
+  %.0.in9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.010 = load volatile ptr, ptr %.0.in9, align 8
   %.not11 = icmp eq ptr %1, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -169,26 +169,26 @@ define internal noundef i32 @mca_btl_base_close() #2 {
   %.014 = phi ptr [ %.0, %.lr.ph ], [ %.010, %0 ]
   %.0.in13 = phi ptr [ %.0.in, %.lr.ph ], [ %.0.in9, %0 ]
   %.0812 = phi ptr [ %.014, %.lr.ph ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.0812, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %.0812, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %3) #6
   %7 = load volatile ptr, ptr %.0.in13, align 8
-  %8 = getelementptr inbounds i8, ptr %.0812, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.0812, i64 24
   %9 = load volatile ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store volatile ptr %7, ptr %10, align 8
   %11 = load volatile ptr, ptr %8, align 8
   %12 = load volatile ptr, ptr %.0.in13, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store volatile ptr %11, ptr %13, align 8
   %14 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 56), align 8
   %15 = add i64 %14, -1
   store volatile i64 %15, ptr getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 56), align 8
   %16 = load volatile ptr, ptr %8, align 8
   tail call void @free(ptr noundef %.0812) #6
-  %.0.in = getelementptr inbounds i8, ptr %.014, i64 16
+  %.0.in = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %.0 = load volatile ptr, ptr %.0.in, align 8
   %.not = icmp eq ptr %.014, getelementptr inbounds (i8, ptr @mca_btl_base_modules_initialized, i64 16)
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -196,7 +196,7 @@ define internal noundef i32 @mca_btl_base_close() #2 {
 ._crit_edge:                                      ; preds = %.lr.ph, %0
   %17 = tail call i32 @mca_base_framework_components_close(ptr noundef nonnull @opal_btl_base_framework, ptr noundef null) #6
   %18 = load ptr, ptr @mca_btl_base_modules_initialized, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
   %.not1.i = icmp eq ptr %21, null
@@ -206,7 +206,7 @@ define internal noundef i32 @mca_btl_base_close() #2 {
   %22 = phi ptr [ %24, %.lr.ph.i ], [ %21, %._crit_edge ]
   %.02.i = phi ptr [ %23, %.lr.ph.i ], [ %20, %._crit_edge ]
   tail call void %22(ptr noundef nonnull @mca_btl_base_modules_initialized) #6
-  %23 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !7

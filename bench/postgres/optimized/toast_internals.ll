@@ -29,7 +29,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1
   %.off = add i8 %8, -1
   %switch = icmp ult i8 %.off, 3
@@ -99,7 +99,7 @@ define dso_local i64 @toast_compress_datum(i64 noundef %0, i8 noundef signext %1
 
 41:                                               ; preds = %36
   %42 = or i32 %.0, %23
-  %43 = getelementptr inbounds i8, ptr %.021, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.021, i64 4
   store i32 %42, ptr %43, align 4
   %44 = ptrtoint ptr %.021 to i64
   br label %46
@@ -135,12 +135,12 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   %9 = alloca i32, align 4
   %10 = tail call i32 @GetCurrentCommandId(i1 noundef zeroext true) #6
   %11 = inttoptr i64 %1 to ptr
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 108
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 108
   %15 = load i32, ptr %14, align 4
   %16 = tail call ptr @table_open(i32 noundef %15, i32 noundef 3) #6
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @toast_open_indexes(ptr noundef %16, i32 noundef 3, ptr noundef nonnull %5, ptr noundef nonnull %9)
   %20 = load i8, ptr %11, align 1
@@ -150,7 +150,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br i1 %.not, label %28, label %23
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %11, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %25 = lshr i32 %21, 1
   %26 = add nsw i32 %25, -1
   %27 = add nuw nsw i32 %25, 3
@@ -159,7 +159,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 28:                                               ; preds = %4
   %29 = and i32 %21, 2
   %.not71 = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds i8, ptr %11, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %31 = load i32, ptr %11, align 4
   %32 = lshr i32 %31, 2
   %33 = add nsw i32 %32, -4
@@ -178,19 +178,19 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   %.066 = phi i32 [ %26, %23 ], [ %33, %34 ], [ %33, %28 ]
   %.sroa.033.0 = phi i32 [ %27, %23 ], [ %37, %34 ], [ %32, %28 ]
   %.sroa.4.0 = phi i32 [ %26, %23 ], [ %39, %34 ], [ %33, %28 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 464
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %42 = load i32, ptr %41, align 8
   %.not72 = icmp eq i32 %42, 0
   br i1 %.not72, label %43, label %53
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %16, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %45 = load i32, ptr %44, align 8
   %46 = load ptr, ptr %5, align 8
   %47 = sext i32 %19 to i64
   %48 = getelementptr ptr, ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 72
   %51 = load i32, ptr %50, align 8
   %52 = tail call i32 @GetNewOidWithIndex(ptr noundef nonnull %16, i32 noundef %51, i16 noundef signext 1) #6
   br label %.loopexit
@@ -200,7 +200,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br i1 %.not74, label %.thread, label %54
 
 54:                                               ; preds = %53
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 14
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 14
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   %55 = icmp eq i32 %.sroa.2.0.copyload, %42
   br i1 %55, label %56, label %.thread
@@ -210,7 +210,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br label %.preheader
 
 56:                                               ; preds = %54
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 10
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 10
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
   %57 = tail call fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef nonnull %16, i32 noundef %.sroa.1.0.copyload)
   %spec.select = select i1 %57, i32 0, i32 %.066
@@ -227,7 +227,7 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
 
 61:                                               ; preds = %.preheader, %61
   %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %64 = load i32, ptr %63, align 8
   %65 = tail call i32 @GetNewOidWithIndex(ptr noundef %16, i32 noundef %64, i16 noundef signext 1) #6
   %66 = load i32, ptr %41, align 8
@@ -244,12 +244,12 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   %69 = zext i32 %.sroa.7.0 to i64
   store i64 %69, ptr %6, align 16
   %70 = ptrtoint ptr %8 to i64
-  %71 = getelementptr inbounds i8, ptr %6, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %70, ptr %71, align 16
   store i8 0, ptr %7, align 1
-  %72 = getelementptr inbounds i8, ptr %7, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 0, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %7, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 0, ptr %73, align 1
   %74 = icmp sgt i32 %.1, 0
   %.pre89 = load i32, ptr %9, align 4
@@ -257,8 +257,8 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   br i1 %74, label %.lr.ph84, label %._crit_edge85
 
 .lr.ph84:                                         ; preds = %.loopexit
-  %75 = getelementptr inbounds i8, ptr %6, i64 8
-  %76 = getelementptr inbounds i8, ptr %8, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %77 = icmp sgt i32 %.fr86, 0
   br i1 %77, label %.lr.ph84.split.us.preheader, label %.lr.ph84.split
 
@@ -289,22 +289,22 @@ define dso_local noundef i64 @toast_save_datum(ptr nocapture noundef readonly %0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %76, ptr align 1 %.16880.us, i64 %84, i1 false)
   %85 = call ptr @heap_form_tuple(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   call void @heap_insert(ptr noundef %16, ptr noundef %85, i32 noundef %10, i32 noundef %3, ptr noundef null) #6
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   br label %87
 
 87:                                               ; preds = %.lr.ph.us, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %101 ]
   %88 = getelementptr ptr, ptr %.pre, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 320
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 320
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %93 = load i8, ptr %92, align 4
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %101
 
 95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %91, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %97 = load i8, ptr %96, align 4
   %98 = and i8 %97, 1
   %99 = zext nneg i8 %98 to i32
@@ -376,15 +376,15 @@ toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_e
   call void @table_close(ptr noundef %16, i32 noundef 0) #6
   %122 = call ptr @palloc(i64 noundef 18) #6
   store i8 1, ptr %122, align 1
-  %123 = getelementptr inbounds i8, ptr %122, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   store i8 18, ptr %123, align 1
-  %124 = getelementptr inbounds i8, ptr %122, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 2
   store i32 %.sroa.033.0, ptr %124, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 6
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 6
   store i32 %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 10
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 10
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %122, i64 14
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %122, i64 14
   store i32 %.sroa.15.077, ptr %.sroa.15.0..sroa_idx, align 1
   %125 = ptrtoint ptr %122 to i64
   ret i64 %125
@@ -401,7 +401,7 @@ define dso_local range(i32 -2147483648, 2147483647) i32 @toast_open_indexes(ptr 
   br i1 %.not.i, label %list_length.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   br label %list_length.exit
 
@@ -412,11 +412,11 @@ list_length.exit:                                 ; preds = %4, %6
   %11 = shl nsw i64 %10, 3
   %12 = tail call ptr @palloc(i64 noundef %11) #6
   store ptr %12, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %.not.i, label %._crit_edge38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_length.exit
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load i32, ptr %13, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph41, label %._crit_edge38
@@ -450,9 +450,9 @@ list_length.exit:                                 ; preds = %4, %6
   %indvars.iv50 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next51, %37 ]
   %30 = getelementptr ptr, ptr %19, i64 %indvars.iv50
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 320
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 320
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 18
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 18
   %35 = load i8, ptr %34, align 2
   %36 = trunc i8 %35 to i1
   br i1 %36, label %42, label %37
@@ -466,7 +466,7 @@ list_length.exit:                                 ; preds = %4, %6
   tail call void @list_free(ptr noundef %5) #6
   %38 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr inbounds i8, ptr %0, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %40 = load i32, ptr %39, align 8
   %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef %40) #6
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 612, ptr noundef nonnull @__func__.toast_open_indexes) #6
@@ -495,7 +495,7 @@ define internal fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %0, i32 n
   %9 = sext i32 %6 to i64
   %10 = getelementptr ptr, ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %13 = load i32, ptr %12, align 8
   %14 = call ptr @systable_beginscan(ptr noundef %0, i32 noundef %13, i1 noundef zeroext true, ptr noundef nonnull @SnapshotAnyData, i32 noundef 1, ptr noundef nonnull %3) #6
   %15 = call ptr @systable_getnext(ptr noundef %14) #6
@@ -572,15 +572,15 @@ define dso_local void @toast_delete_datum(ptr nocapture noundef readnone %0, i64
   br i1 %10, label %11, label %46
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 18
   br i1 %14, label %15, label %46
 
 15:                                               ; preds = %11
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 10
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 10
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 1
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 14
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 14
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 1
   %16 = tail call ptr @table_open(i32 noundef %.sroa.2.0.copyload, i32 noundef 3) #6
   %17 = call i32 @toast_open_indexes(ptr noundef %16, i32 noundef 3, ptr noundef nonnull %4, ptr noundef nonnull %6)
@@ -599,13 +599,13 @@ define dso_local void @toast_delete_datum(ptr nocapture noundef readnone %0, i64
 
 init_toast_snapshot.exit:                         ; preds = %15
   store i32 3, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %19, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr %4, align 8
   %31 = sext i32 %17 to i64
@@ -621,7 +621,7 @@ init_toast_snapshot.exit:                         ; preds = %15
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %36 = phi ptr [ %38, %.lr.ph.split.us ], [ %35, %.lr.ph ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   call void @heap_abort_speculative(ptr noundef %16, ptr noundef nonnull %37) #6
   %38 = call ptr @systable_getnext_ordered(ptr noundef %34, i32 noundef 1) #6
   %.not.us = icmp eq ptr %38, null
@@ -629,7 +629,7 @@ init_toast_snapshot.exit:                         ; preds = %15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %39 = phi ptr [ %41, %.lr.ph.split ], [ %35, %.lr.ph ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   call void @simple_heap_delete(ptr noundef %16, ptr noundef nonnull %40) #6
   %41 = call ptr @systable_getnext_ordered(ptr noundef %34, i32 noundef 1) #6
   %.not = icmp eq ptr %41, null
@@ -680,13 +680,13 @@ define dso_local void @init_toast_snapshot(ptr nocapture noundef writeonly %0) l
 
 7:                                                ; preds = %1
   store i32 3, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %12, ptr %13, align 8
   ret void
 }
@@ -711,7 +711,7 @@ define dso_local i32 @toast_get_valid_index(i32 noundef %0, i32 noundef %1) loca
   %8 = sext i32 %6 to i64
   %9 = getelementptr ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = load i32, ptr %3, align 4
   %14 = icmp sgt i32 %13, 0

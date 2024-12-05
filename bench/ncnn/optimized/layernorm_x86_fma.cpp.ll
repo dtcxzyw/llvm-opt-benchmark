@@ -81,7 +81,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.033114069 = phi <8 x float> [ %29, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
   %28 = load <8 x float>, ptr %.033054070, align 1
   %29 = fadd fast <8 x float> %28, %.033114069
-  %30 = getelementptr inbounds i8, ptr %.033054070, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.033054070, i64 32
   %31 = add nuw nsw i32 %27, 8
   %.not = icmp sgt i32 %31, %19
   br i1 %.not, label %.preheader4067, label %.lr.ph, !llvm.loop !4
@@ -99,7 +99,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.033124074 = phi <4 x float> [ %35, %.lr.ph4076 ], [ zeroinitializer, %.preheader4067 ]
   %34 = load <4 x float>, ptr %.133064075, align 1
   %35 = fadd fast <4 x float> %34, %.033124074
-  %36 = getelementptr inbounds i8, ptr %.133064075, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.133064075, i64 16
   %37 = add nuw nsw i32 %33, 4
   %.not3951 = icmp sgt i32 %37, %19
   br i1 %.not3951, label %.preheader4066, label %.lr.ph4076, !llvm.loop !6
@@ -111,7 +111,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %38 = load float, ptr %.233074082, align 4
   %39 = fadd fast float %38, %.033144080
   %40 = add nuw nsw i32 %.233104081, 1
-  %41 = getelementptr inbounds i8, ptr %.233074082, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.233074082, i64 4
   %exitcond.not = icmp eq i32 %40, %19
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph4083, !llvm.loop !7
 
@@ -157,7 +157,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %62 = load <8 x float>, ptr %.032684087, align 1
   %63 = fsub fast <8 x float> %62, %58
   %64 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %63, <8 x float> %63, <8 x float> %.038944086)
-  %65 = getelementptr inbounds i8, ptr %.032684087, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.032684087, i64 32
   %66 = add nuw nsw i32 %61, 8
   %.not3952 = icmp sgt i32 %66, %19
   br i1 %.not3952, label %.preheader4065, label %.lr.ph4089, !llvm.loop !8
@@ -176,7 +176,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %69 = load <4 x float>, ptr %.132694095, align 1
   %70 = fsub fast <4 x float> %69, %57
   %71 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %70, <4 x float> %70, <4 x float> %.038834094)
-  %72 = getelementptr inbounds i8, ptr %.132694095, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.132694095, i64 16
   %73 = add nuw nsw i32 %68, 4
   %.not3953 = icmp sgt i32 %73, %19
   br i1 %.not3953, label %.preheader4064, label %.lr.ph4096, !llvm.loop !9
@@ -190,7 +190,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %76 = fmul fast float %75, %75
   %77 = fadd fast float %76, %.032744100
   %78 = add nuw nsw i32 %.232734101, 1
-  %79 = getelementptr inbounds i8, ptr %.232704102, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %.232704102, i64 4
   %exitcond4615.not = icmp eq i32 %78, %19
   br i1 %exitcond4615.not, label %._crit_edge4104, label %.lr.ph4103, !llvm.loop !10
 
@@ -252,9 +252,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %111 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %108, <8 x float> %102, <8 x float> %103)
   %112 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %111, <8 x float> %109, <8 x float> %110)
   store <8 x float> %112, ptr %.532224109, align 1
-  %113 = getelementptr inbounds i8, ptr %.532224109, i64 32
-  %114 = getelementptr inbounds i8, ptr %.532304108, i64 32
-  %115 = getelementptr inbounds i8, ptr %.532384107, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %.532224109, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %.532304108, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %.532384107, i64 32
   %116 = add nuw nsw i32 %107, 8
   %.not3957 = icmp sgt i32 %116, %19
   br i1 %.not3957, label %.preheader4063, label %.lr.ph4111, !llvm.loop !11
@@ -278,9 +278,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %122 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %119, <4 x float> %99, <4 x float> %101)
   %123 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %122, <4 x float> %120, <4 x float> %121)
   store <4 x float> %123, ptr %.632234119, align 1
-  %124 = getelementptr inbounds i8, ptr %.632234119, i64 16
-  %125 = getelementptr inbounds i8, ptr %.632314118, i64 16
-  %126 = getelementptr inbounds i8, ptr %.632394117, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.632234119, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.632314118, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.632394117, i64 16
   %127 = add nuw nsw i32 %118, 4
   %.not3958 = icmp sgt i32 %127, %19
   br i1 %.not3958, label %.preheader4061, label %.lr.ph4120, !llvm.loop !12
@@ -299,9 +299,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %134 = fadd fast float %132, %133
   store float %134, ptr %.732244128, align 4
   %135 = add nuw nsw i32 %.232464125, 1
-  %136 = getelementptr inbounds i8, ptr %.732244128, i64 4
-  %137 = getelementptr inbounds i8, ptr %.732324127, i64 4
-  %138 = getelementptr inbounds i8, ptr %.732404126, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %.732244128, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %.732324127, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.732404126, i64 4
   %exitcond4616.not = icmp eq i32 %135, %19
   br i1 %exitcond4616.not, label %.loopexit4027, label %.lr.ph4129, !llvm.loop !13
 
@@ -325,7 +325,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %143 = load <8 x float>, ptr %.031264131, align 1
   %144 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %143, <8 x float> %102, <8 x float> %103)
   store <8 x float> %144, ptr %.031264131, align 1
-  %145 = getelementptr inbounds i8, ptr %.031264131, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %.031264131, i64 32
   %146 = add nuw nsw i32 %142, 8
   %.not3955 = icmp sgt i32 %146, %19
   br i1 %.not3955, label %.preheader4060, label %.lr.ph4133, !llvm.loop !14
@@ -342,7 +342,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %149 = load <4 x float>, ptr %.131274137, align 1
   %150 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %149, <4 x float> %99, <4 x float> %101)
   store <4 x float> %150, ptr %.131274137, align 1
-  %151 = getelementptr inbounds i8, ptr %.131274137, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %.131274137, i64 16
   %152 = add nuw nsw i32 %148, 4
   %.not3956 = icmp sgt i32 %152, %19
   br i1 %.not3956, label %.preheader4058, label %.lr.ph4138, !llvm.loop !15
@@ -355,7 +355,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %155 = fadd fast float %154, %97
   store float %155, ptr %.231284142, align 4
   %156 = add nuw nsw i32 %.231314141, 1
-  %157 = getelementptr inbounds i8, ptr %.231284142, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.231284142, i64 4
   %exitcond4617.not = icmp eq i32 %156, %19
   br i1 %exitcond4617.not, label %.loopexit4027, label %.lr.ph4143, !llvm.loop !16
 
@@ -411,7 +411,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.033014145 = phi <8 x float> [ %187, %.lr.ph4148 ], [ zeroinitializer, %174 ]
   %186 = load <8 x float>, ptr %.032954146, align 1
   %187 = fadd fast <8 x float> %186, %.033014145
-  %188 = getelementptr inbounds i8, ptr %.032954146, i64 32
+  %188 = getelementptr inbounds nuw i8, ptr %.032954146, i64 32
   %189 = add nuw nsw i32 %185, 8
   %.not3983 = icmp sgt i32 %189, %161
   br i1 %.not3983, label %.preheader4057, label %.lr.ph4148, !llvm.loop !4
@@ -429,7 +429,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.033024153 = phi <4 x float> [ %193, %.lr.ph4155 ], [ zeroinitializer, %.preheader4057 ]
   %192 = load <4 x float>, ptr %.132964154, align 1
   %193 = fadd fast <4 x float> %192, %.033024153
-  %194 = getelementptr inbounds i8, ptr %.132964154, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %.132964154, i64 16
   %195 = add nuw nsw i32 %191, 4
   %.not3984 = icmp sgt i32 %195, %161
   br i1 %.not3984, label %.preheader4056, label %.lr.ph4155, !llvm.loop !6
@@ -441,7 +441,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %196 = load float, ptr %.232974161, align 4
   %197 = fadd fast float %196, %.033044159
   %198 = add nuw nsw i32 %.233004160, 1
-  %199 = getelementptr inbounds i8, ptr %.232974161, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %.232974161, i64 4
   %exitcond4618.not = icmp eq i32 %198, %161
   br i1 %exitcond4618.not, label %._crit_edge4163, label %.lr.ph4162, !llvm.loop !7
 
@@ -521,7 +521,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %231 = load <8 x float>, ptr %.032614167, align 1
   %232 = fsub fast <8 x float> %231, %228
   %233 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %232, <8 x float> %232, <8 x float> %.038934166)
-  %234 = getelementptr inbounds i8, ptr %.032614167, i64 32
+  %234 = getelementptr inbounds nuw i8, ptr %.032614167, i64 32
   %235 = add nuw nsw i32 %230, 8
   %.not3985 = icmp sgt i32 %235, %161
   br i1 %.not3985, label %.preheader4055, label %.lr.ph4168, !llvm.loop !8
@@ -540,7 +540,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %238 = load <4 x float>, ptr %.132624174, align 1
   %239 = fsub fast <4 x float> %238, %226
   %240 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %239, <4 x float> %239, <4 x float> %.038854173)
-  %241 = getelementptr inbounds i8, ptr %.132624174, i64 16
+  %241 = getelementptr inbounds nuw i8, ptr %.132624174, i64 16
   %242 = add nuw nsw i32 %237, 4
   %.not3986 = icmp sgt i32 %242, %161
   br i1 %.not3986, label %.preheader4054, label %.lr.ph4175, !llvm.loop !9
@@ -554,7 +554,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %245 = fmul fast float %244, %244
   %246 = fadd fast float %245, %.032674179
   %247 = add nuw nsw i32 %.232664180, 1
-  %248 = getelementptr inbounds i8, ptr %.232634181, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %.232634181, i64 4
   %exitcond4619.not = icmp eq i32 %247, %161
   br i1 %exitcond4619.not, label %._crit_edge4183, label %.lr.ph4182, !llvm.loop !10
 
@@ -675,9 +675,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %308 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %301, <8 x float> %.sroa.03716.6, <8 x float> %.sroa.03740.6)
   %309 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %308, <8 x float> %304, <8 x float> %307)
   store <8 x float> %309, ptr %.131884188, align 1
-  %310 = getelementptr inbounds i8, ptr %.131884188, i64 32
-  %311 = getelementptr inbounds i8, ptr %.131964187, i64 4
-  %312 = getelementptr inbounds i8, ptr %.132044186, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %.131884188, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %.131964187, i64 4
+  %312 = getelementptr inbounds nuw i8, ptr %.132044186, i64 4
   %313 = add nuw nsw i32 %300, 8
   %.not3990 = icmp sgt i32 %313, %161
   br i1 %.not3990, label %.loopexit4053, label %.lr.ph4189, !llvm.loop !17
@@ -711,12 +711,12 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %318 = load <8 x float>, ptr %.331904196, align 1
   %319 = load float, ptr %.331984195, align 4
   %320 = insertelement <8 x float> poison, float %319, i64 0
-  %321 = getelementptr inbounds i8, ptr %.331984195, i64 4
+  %321 = getelementptr inbounds nuw i8, ptr %.331984195, i64 4
   %322 = load float, ptr %321, align 4
   %323 = insertelement <8 x float> poison, float %322, i64 0
   %324 = load float, ptr %.332064194, align 4
   %325 = insertelement <8 x float> poison, float %324, i64 0
-  %326 = getelementptr inbounds i8, ptr %.332064194, i64 4
+  %326 = getelementptr inbounds nuw i8, ptr %.332064194, i64 4
   %327 = load float, ptr %326, align 4
   %328 = insertelement <8 x float> poison, float %327, i64 0
   %329 = shufflevector <8 x float> %320, <8 x float> %323, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8>
@@ -724,9 +724,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %331 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %318, <8 x float> %315, <8 x float> %316)
   %332 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %331, <8 x float> %329, <8 x float> %330)
   store <8 x float> %332, ptr %.331904196, align 1
-  %333 = getelementptr inbounds i8, ptr %.331904196, i64 32
-  %334 = getelementptr inbounds i8, ptr %.331984195, i64 8
-  %335 = getelementptr inbounds i8, ptr %.332064194, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %.331904196, i64 32
+  %334 = getelementptr inbounds nuw i8, ptr %.331984195, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %.332064194, i64 8
   %336 = add nuw nsw i32 %317, 8
   %.not3991 = icmp sgt i32 %336, %161
   br i1 %.not3991, label %.preheader4050, label %.lr.ph4198, !llvm.loop !18
@@ -746,9 +746,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %345 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %338, <4 x float> %.sroa.03716.0.vec.extract3724, <4 x float> %.sroa.03740.0.vec.extract3751)
   %346 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %345, <4 x float> %341, <4 x float> %344)
   store <4 x float> %346, ptr %.431914206, align 1
-  %347 = getelementptr inbounds i8, ptr %.431914206, i64 16
-  %348 = getelementptr inbounds i8, ptr %.431994205, i64 4
-  %349 = getelementptr inbounds i8, ptr %.432074204, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %.431914206, i64 16
+  %348 = getelementptr inbounds nuw i8, ptr %.431994205, i64 4
+  %349 = getelementptr inbounds nuw i8, ptr %.432074204, i64 4
   %350 = add nuw nsw i32 %337, 4
   %.not3992 = icmp sgt i32 %350, %161
   br i1 %.not3992, label %.loopexit4051, label %.lr.ph4207, !llvm.loop !19
@@ -788,9 +788,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %361 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %358, <8 x float> %354, <8 x float> %355)
   %362 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %361, <8 x float> %359, <8 x float> %360)
   store <8 x float> %362, ptr %.531924214, align 1
-  %363 = getelementptr inbounds i8, ptr %.531924214, i64 32
-  %364 = getelementptr inbounds i8, ptr %.532004213, i64 32
-  %365 = getelementptr inbounds i8, ptr %.532084212, i64 32
+  %363 = getelementptr inbounds nuw i8, ptr %.531924214, i64 32
+  %364 = getelementptr inbounds nuw i8, ptr %.532004213, i64 32
+  %365 = getelementptr inbounds nuw i8, ptr %.532084212, i64 32
   %366 = add nuw nsw i32 %357, 8
   %.not3993 = icmp sgt i32 %366, %161
   br i1 %.not3993, label %.preheader4049, label %.lr.ph4216, !llvm.loop !11
@@ -814,9 +814,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %372 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %369, <4 x float> %352, <4 x float> %353)
   %373 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %372, <4 x float> %370, <4 x float> %371)
   store <4 x float> %373, ptr %.631934224, align 1
-  %374 = getelementptr inbounds i8, ptr %.631934224, i64 16
-  %375 = getelementptr inbounds i8, ptr %.632014223, i64 16
-  %376 = getelementptr inbounds i8, ptr %.632094222, i64 16
+  %374 = getelementptr inbounds nuw i8, ptr %.631934224, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %.632014223, i64 16
+  %376 = getelementptr inbounds nuw i8, ptr %.632094222, i64 16
   %377 = add nuw nsw i32 %368, 4
   %.not3994 = icmp sgt i32 %377, %161
   br i1 %.not3994, label %.preheader4047, label %.lr.ph4225, !llvm.loop !12
@@ -835,9 +835,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %384 = fadd fast float %382, %383
   store float %384, ptr %.731944233, align 4
   %385 = add nuw nsw i32 %.232164230, 1
-  %386 = getelementptr inbounds i8, ptr %.731944233, i64 4
-  %387 = getelementptr inbounds i8, ptr %.732024232, i64 4
-  %388 = getelementptr inbounds i8, ptr %.732104231, i64 4
+  %386 = getelementptr inbounds nuw i8, ptr %.731944233, i64 4
+  %387 = getelementptr inbounds nuw i8, ptr %.732024232, i64 4
+  %388 = getelementptr inbounds nuw i8, ptr %.732104231, i64 4
   %exitcond4620.not = icmp eq i32 %385, %161
   br i1 %exitcond4620.not, label %.loopexit4045, label %.lr.ph4234, !llvm.loop !13
 
@@ -869,7 +869,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %400 = load <8 x float>, ptr %.031204236, align 1
   %401 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %400, <8 x float> %395, <8 x float> %397)
   store <8 x float> %401, ptr %.031204236, align 1
-  %402 = getelementptr inbounds i8, ptr %.031204236, i64 32
+  %402 = getelementptr inbounds nuw i8, ptr %.031204236, i64 32
   %403 = add nuw nsw i32 %399, 8
   %.not3988 = icmp sgt i32 %403, %161
   br i1 %.not3988, label %.preheader4046, label %.lr.ph4238, !llvm.loop !14
@@ -886,7 +886,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %406 = load <4 x float>, ptr %.131214242, align 1
   %407 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %391, <4 x float> %393)
   store <4 x float> %407, ptr %.131214242, align 1
-  %408 = getelementptr inbounds i8, ptr %.131214242, i64 16
+  %408 = getelementptr inbounds nuw i8, ptr %.131214242, i64 16
   %409 = add nuw nsw i32 %405, 4
   %.not3989 = icmp sgt i32 %409, %161
   br i1 %.not3989, label %.preheader4044, label %.lr.ph4243, !llvm.loop !15
@@ -899,7 +899,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %412 = fadd fast float %411, %.sroa.03740.0.vec.extract3761
   store float %412, ptr %.231224247, align 4
   %413 = add nuw nsw i32 %.231254246, 1
-  %414 = getelementptr inbounds i8, ptr %.231224247, i64 4
+  %414 = getelementptr inbounds nuw i8, ptr %.231224247, i64 4
   %exitcond4621.not = icmp eq i32 %413, %161
   br i1 %exitcond4621.not, label %.loopexit4045, label %.lr.ph4248, !llvm.loop !16
 
@@ -1002,7 +1002,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.032914361.us = phi <8 x float> [ %469, %.lr.ph4364.us ], [ zeroinitializer, %453 ]
   %468 = load <8 x float>, ptr %.032854362.us, align 1
   %469 = fadd fast <8 x float> %468, %.032914361.us
-  %470 = getelementptr inbounds i8, ptr %.032854362.us, i64 32
+  %470 = getelementptr inbounds nuw i8, ptr %.032854362.us, i64 32
   %471 = add nuw nsw i32 %467, 8
   %.not3971.us = icmp sgt i32 %471, %440
   br i1 %.not3971.us, label %.preheader4024.us, label %.lr.ph4364.us, !llvm.loop !4
@@ -1013,7 +1013,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.032924369.us = phi <4 x float> [ %474, %.lr.ph4371.us ], [ zeroinitializer, %.preheader4024.us ]
   %473 = load <4 x float>, ptr %.132864370.us, align 1
   %474 = fadd fast <4 x float> %473, %.032924369.us
-  %475 = getelementptr inbounds i8, ptr %.132864370.us, i64 16
+  %475 = getelementptr inbounds nuw i8, ptr %.132864370.us, i64 16
   %476 = add nuw nsw i32 %472, 4
   %.not3972.us = icmp sgt i32 %476, %440
   br i1 %.not3972.us, label %.preheader4023.us, label %.lr.ph4371.us, !llvm.loop !6
@@ -1086,7 +1086,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %507 = load <8 x float>, ptr %.032544383.us, align 1
   %508 = fsub fast <8 x float> %507, %505
   %509 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %508, <8 x float> %508, <8 x float> %.038924382.us)
-  %510 = getelementptr inbounds i8, ptr %.032544383.us, i64 32
+  %510 = getelementptr inbounds nuw i8, ptr %.032544383.us, i64 32
   %511 = add nuw nsw i32 %506, 8
   %.not3973.us = icmp sgt i32 %511, %440
   br i1 %.not3973.us, label %.preheader4022.us, label %.lr.ph4384.us, !llvm.loop !8
@@ -1098,7 +1098,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %513 = load <4 x float>, ptr %.132554390.us, align 1
   %514 = fsub fast <4 x float> %513, %503
   %515 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %514, <4 x float> %514, <4 x float> %.038874389.us)
-  %516 = getelementptr inbounds i8, ptr %.132554390.us, i64 16
+  %516 = getelementptr inbounds nuw i8, ptr %.132554390.us, i64 16
   %517 = add nuw nsw i32 %512, 4
   %.not3974.us = icmp sgt i32 %517, %440
   br i1 %.not3974.us, label %.preheader4021.us, label %.lr.ph4391.us, !llvm.loop !9
@@ -1220,9 +1220,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %577 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %570, <8 x float> %.sroa.03767.7.us, <8 x float> %.sroa.03791.7.us)
   %578 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %577, <8 x float> %573, <8 x float> %576)
   store <8 x float> %578, ptr %.131584404.us, align 1
-  %579 = getelementptr inbounds i8, ptr %.131584404.us, i64 32
-  %580 = getelementptr inbounds i8, ptr %.131664403.us, i64 4
-  %581 = getelementptr inbounds i8, ptr %.131744402.us, i64 4
+  %579 = getelementptr inbounds nuw i8, ptr %.131584404.us, i64 32
+  %580 = getelementptr inbounds nuw i8, ptr %.131664403.us, i64 4
+  %581 = getelementptr inbounds nuw i8, ptr %.131744402.us, i64 4
   %582 = add nuw nsw i32 %569, 8
   %.not3978.us = icmp sgt i32 %582, %440
   br i1 %.not3978.us, label %.loopexit4020.us, label %.lr.ph4405.us, !llvm.loop !17
@@ -1248,12 +1248,12 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %587 = load <8 x float>, ptr %.331604412.us, align 1
   %588 = load float, ptr %.331684411.us, align 4
   %589 = insertelement <8 x float> poison, float %588, i64 0
-  %590 = getelementptr inbounds i8, ptr %.331684411.us, i64 4
+  %590 = getelementptr inbounds nuw i8, ptr %.331684411.us, i64 4
   %591 = load float, ptr %590, align 4
   %592 = insertelement <8 x float> poison, float %591, i64 0
   %593 = load float, ptr %.331764410.us, align 4
   %594 = insertelement <8 x float> poison, float %593, i64 0
-  %595 = getelementptr inbounds i8, ptr %.331764410.us, i64 4
+  %595 = getelementptr inbounds nuw i8, ptr %.331764410.us, i64 4
   %596 = load float, ptr %595, align 4
   %597 = insertelement <8 x float> poison, float %596, i64 0
   %598 = shufflevector <8 x float> %589, <8 x float> %592, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8>
@@ -1261,9 +1261,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %600 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %587, <8 x float> %584, <8 x float> %585)
   %601 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %600, <8 x float> %598, <8 x float> %599)
   store <8 x float> %601, ptr %.331604412.us, align 1
-  %602 = getelementptr inbounds i8, ptr %.331604412.us, i64 32
-  %603 = getelementptr inbounds i8, ptr %.331684411.us, i64 8
-  %604 = getelementptr inbounds i8, ptr %.331764410.us, i64 8
+  %602 = getelementptr inbounds nuw i8, ptr %.331604412.us, i64 32
+  %603 = getelementptr inbounds nuw i8, ptr %.331684411.us, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %.331764410.us, i64 8
   %605 = add nuw nsw i32 %586, 8
   %.not3979.us = icmp sgt i32 %605, %440
   br i1 %.not3979.us, label %.preheader4017.us, label %.lr.ph4414.us, !llvm.loop !18
@@ -1283,9 +1283,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %614 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %607, <4 x float> %.sroa.03767.0.vec.extract3775.us, <4 x float> %.sroa.03791.0.vec.extract3801.us)
   %615 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %614, <4 x float> %610, <4 x float> %613)
   store <4 x float> %615, ptr %.431614422.us, align 1
-  %616 = getelementptr inbounds i8, ptr %.431614422.us, i64 16
-  %617 = getelementptr inbounds i8, ptr %.431694421.us, i64 4
-  %618 = getelementptr inbounds i8, ptr %.431774420.us, i64 4
+  %616 = getelementptr inbounds nuw i8, ptr %.431614422.us, i64 16
+  %617 = getelementptr inbounds nuw i8, ptr %.431694421.us, i64 4
+  %618 = getelementptr inbounds nuw i8, ptr %.431774420.us, i64 4
   %619 = add nuw nsw i32 %606, 4
   %.not3980.us = icmp sgt i32 %619, %440
   br i1 %.not3980.us, label %.loopexit4018.us, label %.lr.ph4423.us, !llvm.loop !19
@@ -1316,9 +1316,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %629 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %626, <8 x float> %623, <8 x float> %624)
   %630 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %629, <8 x float> %627, <8 x float> %628)
   store <8 x float> %630, ptr %.531624430.us, align 1
-  %631 = getelementptr inbounds i8, ptr %.531624430.us, i64 32
-  %632 = getelementptr inbounds i8, ptr %.531704429.us, i64 32
-  %633 = getelementptr inbounds i8, ptr %.531784428.us, i64 32
+  %631 = getelementptr inbounds nuw i8, ptr %.531624430.us, i64 32
+  %632 = getelementptr inbounds nuw i8, ptr %.531704429.us, i64 32
+  %633 = getelementptr inbounds nuw i8, ptr %.531784428.us, i64 32
   %634 = add nuw nsw i32 %625, 8
   %.not3981.us = icmp sgt i32 %634, %440
   br i1 %.not3981.us, label %.preheader4016.us, label %.lr.ph4432.us, !llvm.loop !11
@@ -1334,9 +1334,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %639 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %636, <4 x float> %621, <4 x float> %622)
   %640 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %639, <4 x float> %637, <4 x float> %638)
   store <4 x float> %640, ptr %.631634440.us, align 1
-  %641 = getelementptr inbounds i8, ptr %.631634440.us, i64 16
-  %642 = getelementptr inbounds i8, ptr %.631714439.us, i64 16
-  %643 = getelementptr inbounds i8, ptr %.631794438.us, i64 16
+  %641 = getelementptr inbounds nuw i8, ptr %.631634440.us, i64 16
+  %642 = getelementptr inbounds nuw i8, ptr %.631714439.us, i64 16
+  %643 = getelementptr inbounds nuw i8, ptr %.631794438.us, i64 16
   %644 = add nuw nsw i32 %635, 4
   %.not3982.us = icmp sgt i32 %644, %440
   br i1 %.not3982.us, label %.preheader4014.us, label %.lr.ph4441.us, !llvm.loop !12
@@ -1355,9 +1355,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %651 = fadd fast float %649, %650
   store float %651, ptr %.731644449.us, align 4
   %652 = add nuw nsw i32 %.231864446.us, 1
-  %653 = getelementptr inbounds i8, ptr %.731644449.us, i64 4
-  %654 = getelementptr inbounds i8, ptr %.731724448.us, i64 4
-  %655 = getelementptr inbounds i8, ptr %.731804447.us, i64 4
+  %653 = getelementptr inbounds nuw i8, ptr %.731644449.us, i64 4
+  %654 = getelementptr inbounds nuw i8, ptr %.731724448.us, i64 4
+  %655 = getelementptr inbounds nuw i8, ptr %.731804447.us, i64 4
   %exitcond4635.not = icmp eq i32 %652, %440
   br i1 %exitcond4635.not, label %.loopexit.us, label %.lr.ph4450.us, !llvm.loop !13
 
@@ -1382,7 +1382,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %666 = load <8 x float>, ptr %.031134452.us, align 1
   %667 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %666, <8 x float> %662, <8 x float> %664)
   store <8 x float> %667, ptr %.031134452.us, align 1
-  %668 = getelementptr inbounds i8, ptr %.031134452.us, i64 32
+  %668 = getelementptr inbounds nuw i8, ptr %.031134452.us, i64 32
   %669 = add nuw nsw i32 %665, 8
   %.not3976.us = icmp sgt i32 %669, %440
   br i1 %.not3976.us, label %.preheader4013.us, label %.lr.ph4454.us, !llvm.loop !14
@@ -1393,7 +1393,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %671 = load <4 x float>, ptr %.131144458.us, align 1
   %672 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %671, <4 x float> %658, <4 x float> %660)
   store <4 x float> %672, ptr %.131144458.us, align 1
-  %673 = getelementptr inbounds i8, ptr %.131144458.us, i64 16
+  %673 = getelementptr inbounds nuw i8, ptr %.131144458.us, i64 16
   %674 = add nuw nsw i32 %670, 4
   %.not3977.us = icmp sgt i32 %674, %440
   br i1 %.not3977.us, label %.preheader.us, label %.lr.ph4459.us, !llvm.loop !15
@@ -1411,7 +1411,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %677 = fadd fast float %676, %.sroa.03791.0.vec.extract3811.us
   store float %677, ptr %.231154463.us, align 4
   %678 = add nuw nsw i32 %.231194462.us, 1
-  %679 = getelementptr inbounds i8, ptr %.231154463.us, i64 4
+  %679 = getelementptr inbounds nuw i8, ptr %.231154463.us, i64 4
   %exitcond4636.not = icmp eq i32 %678, %440
   br i1 %exitcond4636.not, label %.loopexit.us, label %.lr.ph4464.us, !llvm.loop !16
 
@@ -1424,7 +1424,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %682 = fmul fast float %681, %681
   %683 = fadd fast float %682, %.032604395.us
   %684 = add nuw nsw i32 %.232594396.us, 1
-  %685 = getelementptr inbounds i8, ptr %.232564397.us, i64 4
+  %685 = getelementptr inbounds nuw i8, ptr %.232564397.us, i64 4
   %exitcond4634.not = icmp eq i32 %684, %440
   br i1 %exitcond4634.not, label %._crit_edge4399.us, label %.lr.ph4398.us, !llvm.loop !10
 
@@ -1435,7 +1435,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %686 = load float, ptr %.232874377.us, align 4
   %687 = fadd fast float %686, %.032944375.us
   %688 = add nuw nsw i32 %.232904376.us, 1
-  %689 = getelementptr inbounds i8, ptr %.232874377.us, i64 4
+  %689 = getelementptr inbounds nuw i8, ptr %.232874377.us, i64 4
   %exitcond4633.not = icmp eq i32 %688, %440
   br i1 %exitcond4633.not, label %._crit_edge4379.us, label %.lr.ph4378.us, !llvm.loop !7
 
@@ -1538,7 +1538,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.032814254 = phi <8 x float> [ %710, %.lr.ph4257 ], [ zeroinitializer, %698 ]
   %709 = load <8 x float>, ptr %.032754255, align 1
   %710 = fadd fast <8 x float> %709, %.032814254
-  %711 = getelementptr inbounds i8, ptr %.032754255, i64 32
+  %711 = getelementptr inbounds nuw i8, ptr %.032754255, i64 32
   %712 = add nuw nsw i32 %708, 8
   %.not3959 = icmp sgt i32 %712, %424
   br i1 %.not3959, label %.preheader4041, label %.lr.ph4257, !llvm.loop !4
@@ -1556,7 +1556,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %.032824262 = phi <4 x float> [ %716, %.lr.ph4264 ], [ zeroinitializer, %.preheader4041 ]
   %715 = load <4 x float>, ptr %.132764263, align 1
   %716 = fadd fast <4 x float> %715, %.032824262
-  %717 = getelementptr inbounds i8, ptr %.132764263, i64 16
+  %717 = getelementptr inbounds nuw i8, ptr %.132764263, i64 16
   %718 = add nuw nsw i32 %714, 4
   %.not3960 = icmp sgt i32 %718, %424
   br i1 %.not3960, label %.preheader4040, label %.lr.ph4264, !llvm.loop !6
@@ -1568,7 +1568,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %719 = load float, ptr %.232774270, align 4
   %720 = fadd fast float %719, %.032844268
   %721 = add nuw nsw i32 %.232804269, 1
-  %722 = getelementptr inbounds i8, ptr %.232774270, i64 4
+  %722 = getelementptr inbounds nuw i8, ptr %.232774270, i64 4
   %exitcond4624.not = icmp eq i32 %721, %424
   br i1 %exitcond4624.not, label %._crit_edge4272, label %.lr.ph4271, !llvm.loop !7
 
@@ -1648,7 +1648,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %754 = load <8 x float>, ptr %.032474276, align 1
   %755 = fsub fast <8 x float> %754, %751
   %756 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %755, <8 x float> %755, <8 x float> %.038914275)
-  %757 = getelementptr inbounds i8, ptr %.032474276, i64 32
+  %757 = getelementptr inbounds nuw i8, ptr %.032474276, i64 32
   %758 = add nuw nsw i32 %753, 8
   %.not3961 = icmp sgt i32 %758, %424
   br i1 %.not3961, label %.preheader4039, label %.lr.ph4277, !llvm.loop !8
@@ -1667,7 +1667,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %761 = load <4 x float>, ptr %.132484283, align 1
   %762 = fsub fast <4 x float> %761, %749
   %763 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %762, <4 x float> %762, <4 x float> %.038894282)
-  %764 = getelementptr inbounds i8, ptr %.132484283, i64 16
+  %764 = getelementptr inbounds nuw i8, ptr %.132484283, i64 16
   %765 = add nuw nsw i32 %760, 4
   %.not3962 = icmp sgt i32 %765, %424
   br i1 %.not3962, label %.preheader4038, label %.lr.ph4284, !llvm.loop !9
@@ -1681,7 +1681,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %768 = fmul fast float %767, %767
   %769 = fadd fast float %768, %.032534288
   %770 = add nuw nsw i32 %.232524289, 1
-  %771 = getelementptr inbounds i8, ptr %.232494290, i64 4
+  %771 = getelementptr inbounds nuw i8, ptr %.232494290, i64 4
   %exitcond4625.not = icmp eq i32 %770, %424
   br i1 %exitcond4625.not, label %._crit_edge4292, label %.lr.ph4291, !llvm.loop !10
 
@@ -1802,9 +1802,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %831 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %824, <8 x float> %.sroa.03818.6, <8 x float> %.sroa.03842.6)
   %832 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %831, <8 x float> %827, <8 x float> %830)
   store <8 x float> %832, ptr %.131334297, align 1
-  %833 = getelementptr inbounds i8, ptr %.131334297, i64 32
-  %834 = getelementptr inbounds i8, ptr %.131364296, i64 4
-  %835 = getelementptr inbounds i8, ptr %.131444295, i64 4
+  %833 = getelementptr inbounds nuw i8, ptr %.131334297, i64 32
+  %834 = getelementptr inbounds nuw i8, ptr %.131364296, i64 4
+  %835 = getelementptr inbounds nuw i8, ptr %.131444295, i64 4
   %836 = add nuw nsw i32 %823, 8
   %.not3966 = icmp sgt i32 %836, %424
   br i1 %.not3966, label %.loopexit4037, label %.lr.ph4298, !llvm.loop !17
@@ -1838,12 +1838,12 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %841 = load <8 x float>, ptr %.34305, align 1
   %842 = load float, ptr %.331384304, align 4
   %843 = insertelement <8 x float> poison, float %842, i64 0
-  %844 = getelementptr inbounds i8, ptr %.331384304, i64 4
+  %844 = getelementptr inbounds nuw i8, ptr %.331384304, i64 4
   %845 = load float, ptr %844, align 4
   %846 = insertelement <8 x float> poison, float %845, i64 0
   %847 = load float, ptr %.331464303, align 4
   %848 = insertelement <8 x float> poison, float %847, i64 0
-  %849 = getelementptr inbounds i8, ptr %.331464303, i64 4
+  %849 = getelementptr inbounds nuw i8, ptr %.331464303, i64 4
   %850 = load float, ptr %849, align 4
   %851 = insertelement <8 x float> poison, float %850, i64 0
   %852 = shufflevector <8 x float> %843, <8 x float> %846, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 8, i32 8, i32 8, i32 8>
@@ -1851,9 +1851,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %854 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %841, <8 x float> %838, <8 x float> %839)
   %855 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %854, <8 x float> %852, <8 x float> %853)
   store <8 x float> %855, ptr %.34305, align 1
-  %856 = getelementptr inbounds i8, ptr %.34305, i64 32
-  %857 = getelementptr inbounds i8, ptr %.331384304, i64 8
-  %858 = getelementptr inbounds i8, ptr %.331464303, i64 8
+  %856 = getelementptr inbounds nuw i8, ptr %.34305, i64 32
+  %857 = getelementptr inbounds nuw i8, ptr %.331384304, i64 8
+  %858 = getelementptr inbounds nuw i8, ptr %.331464303, i64 8
   %859 = add nuw nsw i32 %840, 8
   %.not3967 = icmp sgt i32 %859, %424
   br i1 %.not3967, label %.preheader4034, label %.lr.ph4307, !llvm.loop !18
@@ -1873,9 +1873,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %868 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %861, <4 x float> %.sroa.03818.0.vec.extract3823, <4 x float> %.sroa.03842.0.vec.extract3848)
   %869 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %868, <4 x float> %864, <4 x float> %867)
   store <4 x float> %869, ptr %.44315, align 1
-  %870 = getelementptr inbounds i8, ptr %.44315, i64 16
-  %871 = getelementptr inbounds i8, ptr %.431394314, i64 4
-  %872 = getelementptr inbounds i8, ptr %.431474313, i64 4
+  %870 = getelementptr inbounds nuw i8, ptr %.44315, i64 16
+  %871 = getelementptr inbounds nuw i8, ptr %.431394314, i64 4
+  %872 = getelementptr inbounds nuw i8, ptr %.431474313, i64 4
   %873 = add nuw nsw i32 %860, 4
   %.not3968 = icmp sgt i32 %873, %424
   br i1 %.not3968, label %.loopexit4035, label %.lr.ph4316, !llvm.loop !19
@@ -1915,9 +1915,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %884 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %881, <8 x float> %877, <8 x float> %878)
   %885 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %884, <8 x float> %882, <8 x float> %883)
   store <8 x float> %885, ptr %.54323, align 1
-  %886 = getelementptr inbounds i8, ptr %.54323, i64 32
-  %887 = getelementptr inbounds i8, ptr %.531404322, i64 32
-  %888 = getelementptr inbounds i8, ptr %.531484321, i64 32
+  %886 = getelementptr inbounds nuw i8, ptr %.54323, i64 32
+  %887 = getelementptr inbounds nuw i8, ptr %.531404322, i64 32
+  %888 = getelementptr inbounds nuw i8, ptr %.531484321, i64 32
   %889 = add nuw nsw i32 %880, 8
   %.not3969 = icmp sgt i32 %889, %424
   br i1 %.not3969, label %.preheader4033, label %.lr.ph4325, !llvm.loop !11
@@ -1941,9 +1941,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %895 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %892, <4 x float> %875, <4 x float> %876)
   %896 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %895, <4 x float> %893, <4 x float> %894)
   store <4 x float> %896, ptr %.64333, align 1
-  %897 = getelementptr inbounds i8, ptr %.64333, i64 16
-  %898 = getelementptr inbounds i8, ptr %.631414332, i64 16
-  %899 = getelementptr inbounds i8, ptr %.631494331, i64 16
+  %897 = getelementptr inbounds nuw i8, ptr %.64333, i64 16
+  %898 = getelementptr inbounds nuw i8, ptr %.631414332, i64 16
+  %899 = getelementptr inbounds nuw i8, ptr %.631494331, i64 16
   %900 = add nuw nsw i32 %891, 4
   %.not3970 = icmp sgt i32 %900, %424
   br i1 %.not3970, label %.preheader4031, label %.lr.ph4334, !llvm.loop !12
@@ -1962,9 +1962,9 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %907 = fadd fast float %905, %906
   store float %907, ptr %.74342, align 4
   %908 = add nuw nsw i32 %.231564339, 1
-  %909 = getelementptr inbounds i8, ptr %.74342, i64 4
-  %910 = getelementptr inbounds i8, ptr %.731424341, i64 4
-  %911 = getelementptr inbounds i8, ptr %.731504340, i64 4
+  %909 = getelementptr inbounds nuw i8, ptr %.74342, i64 4
+  %910 = getelementptr inbounds nuw i8, ptr %.731424341, i64 4
+  %911 = getelementptr inbounds nuw i8, ptr %.731504340, i64 4
   %exitcond4626.not = icmp eq i32 %908, %424
   br i1 %exitcond4626.not, label %.loopexit4029, label %.lr.ph4343, !llvm.loop !13
 
@@ -1996,7 +1996,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %923 = load <8 x float>, ptr %.04345, align 1
   %924 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %923, <8 x float> %918, <8 x float> %920)
   store <8 x float> %924, ptr %.04345, align 1
-  %925 = getelementptr inbounds i8, ptr %.04345, i64 32
+  %925 = getelementptr inbounds nuw i8, ptr %.04345, i64 32
   %926 = add nuw nsw i32 %922, 8
   %.not3964 = icmp sgt i32 %926, %424
   br i1 %.not3964, label %.preheader4030, label %.lr.ph4347, !llvm.loop !14
@@ -2013,7 +2013,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %929 = load <4 x float>, ptr %.14351, align 1
   %930 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %929, <4 x float> %914, <4 x float> %916)
   store <4 x float> %930, ptr %.14351, align 1
-  %931 = getelementptr inbounds i8, ptr %.14351, i64 16
+  %931 = getelementptr inbounds nuw i8, ptr %.14351, i64 16
   %932 = add nuw nsw i32 %928, 4
   %.not3965 = icmp sgt i32 %932, %424
   br i1 %.not3965, label %.preheader4028, label %.lr.ph4352, !llvm.loop !15
@@ -2026,7 +2026,7 @@ define hidden noundef i32 @_ZNK4ncnn17LayerNorm_x86_fma15forward_inplaceERNS_3Ma
   %935 = fadd fast float %934, %.sroa.03842.0.vec.extract3860
   store float %935, ptr %.24356, align 4
   %936 = add nuw nsw i32 %.231104355, 1
-  %937 = getelementptr inbounds i8, ptr %.24356, i64 4
+  %937 = getelementptr inbounds nuw i8, ptr %.24356, i64 4
   %exitcond4627.not = icmp eq i32 %936, %424
   br i1 %exitcond4627.not, label %.loopexit4029, label %.lr.ph4357, !llvm.loop !16
 
@@ -2124,7 +2124,7 @@ define linkonce_odr hidden void @_ZN4ncnn9LayerNormD2Ev(ptr noundef nonnull alig
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %18 unwind label %24
@@ -2170,7 +2170,7 @@ define linkonce_odr hidden void @_ZN4ncnn9LayerNormD2Ev(ptr noundef nonnull alig
 
 34:                                               ; preds = %30
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %33)
           to label %40 unwind label %43

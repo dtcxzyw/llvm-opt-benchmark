@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddPortFromBdd(ptr noundef initializes((448, 452)) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -21,7 +21,7 @@ define ptr @Cudd_zddPortFromBdd(ptr noundef initializes((448, 452)) %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
@@ -30,7 +30,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   br label %146
 
@@ -39,13 +39,13 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br i1 %14, label %15, label %24
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 140
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %17 = load i32, ptr %16, align 4
   %.not121 = icmp slt i32 %2, %17
   br i1 %.not121, label %18, label %146
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 360
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %20 = load ptr, ptr %19, align 8
   %21 = sext i32 %2 to i64
   %22 = getelementptr inbounds ptr, ptr %20, i64 %21
@@ -66,10 +66,10 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br i1 %31, label %38, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 312
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %30 to i64
-  %36 = getelementptr inbounds i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   br label %38
 
@@ -82,11 +82,11 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %42 = ptrtoint ptr %28 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 328
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %49 = sext i32 %39 to i64
   %50 = sext i32 %2 to i64
   br label %51
@@ -110,7 +110,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %59 = ptrtoint ptr %55 to i64
   %60 = and i64 %59, -2
   %61 = inttoptr i64 %60 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4
@@ -119,7 +119,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br i1 %.not120.not, label %51, label %65, !llvm.loop !6
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds i8, ptr %61, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, -1
   store i32 %68, ptr %66, align 4
@@ -128,7 +128,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
 69:                                               ; preds = %24
   %70 = and i64 %25, 1
   %.not118 = icmp eq i64 %70, 0
-  %71 = getelementptr inbounds i8, ptr %27, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %72 = load ptr, ptr %71, align 8
   br i1 %.not118, label %82, label %73
 
@@ -136,7 +136,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %74 = ptrtoint ptr %72 to i64
   %75 = xor i64 %74, 1
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %27, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %78 = load ptr, ptr %77, align 8
   %79 = ptrtoint ptr %78 to i64
   %80 = xor i64 %79, 1
@@ -144,7 +144,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br label %85
 
 82:                                               ; preds = %69
-  %83 = getelementptr inbounds i8, ptr %27, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %84 = load ptr, ptr %83, align 8
   br label %85
 
@@ -156,7 +156,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %0, i64 312
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %90 = load ptr, ptr %89, align 8
   %91 = sext i32 %86 to i64
   %92 = getelementptr inbounds i32, ptr %90, i64 %91
@@ -174,7 +174,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %100 = ptrtoint ptr %97 to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
@@ -190,7 +190,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %110 = ptrtoint ptr %106 to i64
   %111 = and i64 %110, -2
   %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds i8, ptr %112, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
@@ -207,7 +207,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %120 = ptrtoint ptr %116 to i64
   %121 = and i64 %120, -2
   %122 = inttoptr i64 %121 to ptr
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 4
@@ -218,7 +218,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   br i1 %.not119.not128, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %119
-  %126 = getelementptr inbounds i8, ptr %0, i64 328
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %127 = sext i32 %95 to i64
   %128 = sext i32 %2 to i64
   br label %129
@@ -242,7 +242,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
   %137 = ptrtoint ptr %133 to i64
   %138 = and i64 %137, -2
   %139 = inttoptr i64 %138 to ptr
-  %140 = getelementptr inbounds i8, ptr %139, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   %141 = load i32, ptr %140, align 4
   %142 = add i32 %141, 1
   store i32 %142, ptr %140, align 4
@@ -253,7 +253,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
 ._crit_edge:                                      ; preds = %136, %119
   %.pre-phi140 = phi ptr [ %122, %119 ], [ %139, %136 ]
   %.2.lcssa = phi ptr [ %116, %119 ], [ %133, %136 ]
-  %143 = getelementptr inbounds i8, ptr %.pre-phi140, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %.pre-phi140, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, -1
   store i32 %145, ptr %143, align 4
@@ -266,7 +266,7 @@ define internal fastcc ptr @zddPortFromBddStep(ptr noundef %0, ptr noundef %1, i
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_zddPortToBdd(ptr noundef initializes((448, 452)) %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 448
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %4
 
 4:                                                ; preds = %4, %2
@@ -282,9 +282,9 @@ define ptr @Cudd_zddPortToBdd(ptr noundef initializes((448, 452)) %0, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %1, %7
   br i1 %8, label %9, label %13
@@ -296,13 +296,13 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   br label %111
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %2, %15
   br i1 %16, label %111, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 336
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %2 to i64
   %21 = getelementptr inbounds i32, ptr %19, i64 %20
@@ -312,10 +312,10 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   br i1 %24, label %31, label %25
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 320
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %27 = load ptr, ptr %26, align 8
   %28 = zext i32 %23 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4
   br label %31
 
@@ -332,7 +332,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %39 = ptrtoint ptr %36 to i64
   %40 = and i64 %39, -2
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, 1
   store i32 %44, ptr %42, align 4
@@ -353,7 +353,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %52 = ptrtoint ptr %48 to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
@@ -370,7 +370,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %62 = ptrtoint ptr %58 to i64
   %63 = and i64 %62, -2
   %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
@@ -391,7 +391,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   br label %111
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %1, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = add nsw i32 %2, 1
   %77 = tail call fastcc ptr @zddPortToBddStep(ptr noundef nonnull %0, ptr noundef %75, i32 noundef %76)
@@ -406,11 +406,11 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %81 = ptrtoint ptr %77 to i64
   %82 = and i64 %81, -2
   %83 = inttoptr i64 %82 to ptr
-  %84 = getelementptr inbounds i8, ptr %83, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4
-  %87 = getelementptr inbounds i8, ptr %1, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %88 = load ptr, ptr %87, align 8
   %89 = tail call fastcc ptr @zddPortToBddStep(ptr noundef nonnull %0, ptr noundef %88, i32 noundef %76)
   %90 = icmp eq ptr %89, null
@@ -425,7 +425,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %93 = ptrtoint ptr %89 to i64
   %94 = and i64 %93, -2
   %95 = inttoptr i64 %94 to ptr
-  %96 = getelementptr inbounds i8, ptr %95, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 4
@@ -443,7 +443,7 @@ define internal fastcc ptr @zddPortToBddStep(ptr noundef %0, ptr noundef %1, i32
   %103 = ptrtoint ptr %99 to i64
   %104 = and i64 %103, -2
   %105 = inttoptr i64 %104 to ptr
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4

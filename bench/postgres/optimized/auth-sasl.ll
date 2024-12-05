@@ -25,14 +25,14 @@ define dso_local range(i32 -2, 1) i32 @CheckSASLAuth(ptr nocapture noundef reado
   call void %9(ptr noundef %1, ptr noundef nonnull %5) #4
   call void @appendStringInfoChar(ptr noundef nonnull %5, i8 noundef signext 0) #4
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 8
   call void @sendAuthRequest(ptr noundef %1, i32 noundef 10, ptr noundef %10, i32 noundef %12) #4
   %13 = load ptr, ptr %5, align 8
   call void @pfree(ptr noundef %13) #4
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %17
 
 17:                                               ; preds = %62, %4

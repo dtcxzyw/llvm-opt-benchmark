@@ -15,46 +15,46 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @Curl_initinfo(ptr noundef initializes((2728, 2736), (2760, 2808), (4952, 4964), (4968, 5008), (5024, 5037), (5084, 5088), (5092, 5093), (5140, 5156)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4952
-  %3 = getelementptr inbounds i8, ptr %0, i64 2760
-  %4 = getelementptr inbounds i8, ptr %0, i64 2728
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4952
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2760
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 3068
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3068
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, i8 0, i64 48, i1 false)
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, -3
   store i8 %7, ptr %5, align 4
   store i32 0, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4956
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4956
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 4960
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4960
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4968
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4968
   store i64 -1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 5180
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 5180
   %12 = load i8, ptr %11, align 4
   %13 = and i8 %12, -2
   store i8 %13, ptr %11, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 5032
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 5032
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 4976
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4976
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %16 = load ptr, ptr @Curl_cfree, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 5008
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 5008
   %18 = load ptr, ptr %17, align 8
   tail call void %16(ptr noundef %18) #4
   store ptr null, ptr %17, align 8
   %19 = load ptr, ptr @Curl_cfree, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 5016
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %21 = load ptr, ptr %20, align 8
   tail call void %19(ptr noundef %21) #4
-  %22 = getelementptr inbounds i8, ptr %0, i64 5036
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   store i8 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 5092
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 5092
   store i8 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 5084
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 5084
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 5140
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 5140
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   tail call void @Curl_ssl_free_certinfo(ptr noundef %0) #4
@@ -89,7 +89,7 @@ define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef 
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 16
   %14 = zext nneg i32 %9 to i64
   %15 = getelementptr i8, ptr %13, i64 %14
@@ -98,7 +98,7 @@ define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef 
   br label %21
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 8
   store ptr %20, ptr %18, align 8
@@ -128,78 +128,78 @@ define dso_local range(i32 0, 49) i32 @Curl_getinfo(ptr noundef %0, i32 noundef 
   ]
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 4592
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4592
   %27 = load ptr, ptr %26, align 8
   %.not34.i = icmp eq ptr %27, null
   %spec.select.i = select i1 %.not34.i, ptr @.str, ptr %27
   br label %.sink.split.i
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 1808
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %31, label %.sink.split.i
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 2642
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2642
   %33 = load i64, ptr %32, align 2
   %34 = and i64 %33, 134217728
   %.not33.i = icmp eq i64 %34, 0
   br i1 %.not33.i, label %35, label %.sink.split.i
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %0, i64 4938
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 4938
   %37 = load i8, ptr %36, align 2
   %switch.tableidx = add i8 %37, -1
   %38 = icmp ult i8 %switch.tableidx, 5
   br i1 %38, label %switch.lookup, label %.sink.split.i
 
 39:                                               ; preds = %24
-  %40 = getelementptr inbounds i8, ptr %0, i64 5008
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 5008
   %41 = load ptr, ptr %40, align 8
   br label %.sink.split.i
 
 42:                                               ; preds = %24
-  %43 = getelementptr inbounds i8, ptr %0, i64 1688
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %44 = load ptr, ptr %43, align 8
   br label %.sink.split.i
 
 45:                                               ; preds = %24
-  %46 = getelementptr inbounds i8, ptr %0, i64 4432
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 4432
   %47 = load ptr, ptr %46, align 8
   br label %.sink.split.i
 
 48:                                               ; preds = %24
-  %49 = getelementptr inbounds i8, ptr %0, i64 5016
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 5016
   %50 = load ptr, ptr %49, align 8
   br label %.sink.split.i
 
 51:                                               ; preds = %24
-  %52 = getelementptr inbounds i8, ptr %0, i64 4600
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %53 = load ptr, ptr %52, align 8
   br label %.sink.split.i
 
 54:                                               ; preds = %24
-  %55 = getelementptr inbounds i8, ptr %0, i64 5036
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 5036
   br label %.sink.split.i
 
 56:                                               ; preds = %24
-  %57 = getelementptr inbounds i8, ptr %0, i64 5092
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 5092
   br label %.sink.split.i
 
 58:                                               ; preds = %24
-  %59 = getelementptr inbounds i8, ptr %0, i64 2144
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2144
   %60 = load ptr, ptr %59, align 8
   br label %.sink.split.i
 
 61:                                               ; preds = %24
-  %62 = getelementptr inbounds i8, ptr %0, i64 5144
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 5144
   %63 = load ptr, ptr %62, align 8
   br label %.sink.split.i
 
 switch.lookup:                                    ; preds = %35
   %64 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.Curl_getinfo, i64 0, i64 %64
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.Curl_getinfo, i64 0, i64 %64
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split.i
 
@@ -214,7 +214,7 @@ switch.lookup:                                    ; preds = %35
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %3, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %70 = load ptr, ptr %69, align 16
   %71 = zext nneg i32 %66 to i64
   %72 = getelementptr i8, ptr %70, i64 %71
@@ -223,7 +223,7 @@ switch.lookup:                                    ; preds = %35
   br label %78
 
 74:                                               ; preds = %65
-  %75 = getelementptr inbounds i8, ptr %3, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 8
   store ptr %77, ptr %75, align 8
@@ -259,66 +259,66 @@ switch.lookup:                                    ; preds = %35
   ]
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %0, i64 4952
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %84 = load i32, ptr %83, align 8
   %85 = sext i32 %84 to i64
   br label %.sink.split.i48
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %0, i64 4956
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4956
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   br label %.sink.split.i48
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %0, i64 4968
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 4968
   %92 = load i64, ptr %91, align 8
   br label %.sink.split.i48
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds i8, ptr %0, i64 5032
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 5032
   %95 = load i32, ptr %94, align 8
   %96 = zext i32 %95 to i64
   br label %.sink.split.i48
 
 97:                                               ; preds = %81
-  %98 = getelementptr inbounds i8, ptr %0, i64 4976
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 4976
   %99 = load i64, ptr %98, align 8
   br label %.sink.split.i48
 
 100:                                              ; preds = %81
-  %101 = getelementptr inbounds i8, ptr %0, i64 1384
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1384
   %102 = load i64, ptr %101, align 8
   br label %.sink.split.i48
 
 103:                                              ; preds = %81
-  %104 = getelementptr inbounds i8, ptr %0, i64 1568
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %105 = load i64, ptr %104, align 8
   br label %.sink.split.i48
 
 106:                                              ; preds = %81
-  %107 = getelementptr inbounds i8, ptr %0, i64 3352
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 3352
   %108 = load i64, ptr %107, align 8
   br label %.sink.split.i48
 
 109:                                              ; preds = %81
-  %110 = getelementptr inbounds i8, ptr %0, i64 4992
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %111 = load i64, ptr %110, align 8
   br label %.sink.split.i48
 
 112:                                              ; preds = %81
-  %113 = getelementptr inbounds i8, ptr %0, i64 4984
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4984
   %114 = load i64, ptr %113, align 8
   br label %.sink.split.i48
 
 115:                                              ; preds = %81
-  %116 = getelementptr inbounds i8, ptr %0, i64 3340
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 3340
   %117 = load i32, ptr %116, align 4
   %118 = sext i32 %117 to i64
   br label %.sink.split.i48
 
 119:                                              ; preds = %81
-  %120 = getelementptr inbounds i8, ptr %0, i64 5000
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %121 = load i64, ptr %120, align 8
   br label %.sink.split.i48
 
@@ -328,38 +328,38 @@ switch.lookup:                                    ; preds = %35
   br label %.sink.split.i48
 
 125:                                              ; preds = %81
-  %126 = getelementptr inbounds i8, ptr %0, i64 5084
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 5084
   %127 = load i32, ptr %126, align 4
   %128 = sext i32 %127 to i64
   br label %.sink.split.i48
 
 129:                                              ; preds = %81
-  %130 = getelementptr inbounds i8, ptr %0, i64 5140
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 5140
   %131 = load i32, ptr %130, align 4
   %132 = sext i32 %131 to i64
   br label %.sink.split.i48
 
 133:                                              ; preds = %81
-  %134 = getelementptr inbounds i8, ptr %0, i64 5176
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 5176
   %135 = load i32, ptr %134, align 8
   %136 = zext i32 %135 to i64
   br label %.sink.split.i48
 
 137:                                              ; preds = %81
-  %138 = getelementptr inbounds i8, ptr %0, i64 4952
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4952
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, 304
   br i1 %140, label %.sink.split.i48, label %141
 
 141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %0, i64 5180
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 5180
   %143 = load i8, ptr %142, align 4
   %144 = and i8 %143, 1
   %145 = zext nneg i8 %144 to i64
   br label %.sink.split.i48
 
 146:                                              ; preds = %81
-  %147 = getelementptr inbounds i8, ptr %0, i64 4960
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 4960
   %148 = load i32, ptr %147, align 8
   switch i32 %148, label %152 [
     i32 10, label %.sink.split.i48
@@ -381,7 +381,7 @@ switch.lookup:                                    ; preds = %35
   br label %.sink.split.i48
 
 153:                                              ; preds = %81
-  %154 = getelementptr inbounds i8, ptr %0, i64 5152
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %155 = load i32, ptr %154, align 8
   %156 = zext i32 %155 to i64
   br label %.sink.split.i48
@@ -397,7 +397,7 @@ switch.lookup:                                    ; preds = %35
   br i1 %159, label %160, label %166
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %3, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %162 = load ptr, ptr %161, align 16
   %163 = zext nneg i32 %158 to i64
   %164 = getelementptr i8, ptr %162, i64 %163
@@ -406,7 +406,7 @@ switch.lookup:                                    ; preds = %35
   br label %170
 
 166:                                              ; preds = %157
-  %167 = getelementptr inbounds i8, ptr %3, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr i8, ptr %168, i64 8
   store ptr %169, ptr %167, align 8
@@ -436,99 +436,99 @@ switch.lookup:                                    ; preds = %35
   ]
 
 174:                                              ; preds = %173
-  %175 = getelementptr inbounds i8, ptr %0, i64 2728
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %176 = load i64, ptr %175, align 8
   %177 = sitofp i64 %176 to double
   %178 = fdiv double %177, 1.000000e+06
   br label %.sink.split.i49
 
 179:                                              ; preds = %173
-  %180 = getelementptr inbounds i8, ptr %0, i64 2760
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 2760
   %181 = load i64, ptr %180, align 8
   %182 = sitofp i64 %181 to double
   %183 = fdiv double %182, 1.000000e+06
   br label %.sink.split.i49
 
 184:                                              ; preds = %173
-  %185 = getelementptr inbounds i8, ptr %0, i64 2768
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 2768
   %186 = load i64, ptr %185, align 8
   %187 = sitofp i64 %186 to double
   %188 = fdiv double %187, 1.000000e+06
   br label %.sink.split.i49
 
 189:                                              ; preds = %173
-  %190 = getelementptr inbounds i8, ptr %0, i64 2776
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %191 = load i64, ptr %190, align 8
   %192 = sitofp i64 %191 to double
   %193 = fdiv double %192, 1.000000e+06
   br label %.sink.split.i49
 
 194:                                              ; preds = %173
-  %195 = getelementptr inbounds i8, ptr %0, i64 2784
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 2784
   %196 = load i64, ptr %195, align 8
   %197 = sitofp i64 %196 to double
   %198 = fdiv double %197, 1.000000e+06
   br label %.sink.split.i49
 
 199:                                              ; preds = %173
-  %200 = getelementptr inbounds i8, ptr %0, i64 2792
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %201 = load i64, ptr %200, align 8
   %202 = sitofp i64 %201 to double
   %203 = fdiv double %202, 1.000000e+06
   br label %.sink.split.i49
 
 204:                                              ; preds = %173
-  %205 = getelementptr inbounds i8, ptr %0, i64 2704
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   %206 = load i64, ptr %205, align 8
   %207 = sitofp i64 %206 to double
   br label %.sink.split.i49
 
 208:                                              ; preds = %173
-  %209 = getelementptr inbounds i8, ptr %0, i64 2696
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   %210 = load i64, ptr %209, align 8
   %211 = sitofp i64 %210 to double
   br label %.sink.split.i49
 
 212:                                              ; preds = %173
-  %213 = getelementptr inbounds i8, ptr %0, i64 2736
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 2736
   %214 = load i64, ptr %213, align 8
   %215 = sitofp i64 %214 to double
   br label %.sink.split.i49
 
 216:                                              ; preds = %173
-  %217 = getelementptr inbounds i8, ptr %0, i64 2744
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %218 = load i64, ptr %217, align 8
   %219 = sitofp i64 %218 to double
   br label %.sink.split.i49
 
 220:                                              ; preds = %173
-  %221 = getelementptr inbounds i8, ptr %0, i64 2724
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %222 = load i32, ptr %221, align 4
   %223 = and i32 %222, 64
   %.not29.i = icmp eq i32 %223, 0
   br i1 %.not29.i, label %.sink.split.i49, label %224
 
 224:                                              ; preds = %220
-  %225 = getelementptr inbounds i8, ptr %0, i64 2680
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   %226 = load i64, ptr %225, align 8
   %227 = sitofp i64 %226 to double
   br label %.sink.split.i49
 
 228:                                              ; preds = %173
-  %229 = getelementptr inbounds i8, ptr %0, i64 2724
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %230 = load i32, ptr %229, align 4
   %231 = and i32 %230, 32
   %.not.i52 = icmp eq i32 %231, 0
   br i1 %.not.i52, label %.sink.split.i49, label %232
 
 232:                                              ; preds = %228
-  %233 = getelementptr inbounds i8, ptr %0, i64 2688
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %234 = load i64, ptr %233, align 8
   %235 = sitofp i64 %234 to double
   br label %.sink.split.i49
 
 236:                                              ; preds = %173
-  %237 = getelementptr inbounds i8, ptr %0, i64 2800
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 2800
   %238 = load i64, ptr %237, align 8
   %239 = sitofp i64 %238 to double
   %240 = fdiv double %239, 1.000000e+06
@@ -545,7 +545,7 @@ switch.lookup:                                    ; preds = %35
   br i1 %243, label %244, label %250
 
 244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %3, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %246 = load ptr, ptr %245, align 16
   %247 = zext nneg i32 %242 to i64
   %248 = getelementptr i8, ptr %246, i64 %247
@@ -554,7 +554,7 @@ switch.lookup:                                    ; preds = %35
   br label %254
 
 250:                                              ; preds = %241
-  %251 = getelementptr inbounds i8, ptr %3, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr i8, ptr %252, i64 8
   store ptr %253, ptr %251, align 8
@@ -589,110 +589,110 @@ switch.lookup:                                    ; preds = %35
   ]
 
 258:                                              ; preds = %257
-  %259 = getelementptr inbounds i8, ptr %0, i64 4968
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 4968
   %260 = load i64, ptr %259, align 8
   br label %.sink.split.i54
 
 261:                                              ; preds = %257
-  %262 = getelementptr inbounds i8, ptr %0, i64 2704
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 2704
   %263 = load i64, ptr %262, align 8
   br label %.sink.split.i54
 
 264:                                              ; preds = %257
-  %265 = getelementptr inbounds i8, ptr %0, i64 2696
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   %266 = load i64, ptr %265, align 8
   br label %.sink.split.i54
 
 267:                                              ; preds = %257
-  %268 = getelementptr inbounds i8, ptr %0, i64 2736
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 2736
   %269 = load i64, ptr %268, align 8
   br label %.sink.split.i54
 
 270:                                              ; preds = %257
-  %271 = getelementptr inbounds i8, ptr %0, i64 2744
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %272 = load i64, ptr %271, align 8
   br label %.sink.split.i54
 
 273:                                              ; preds = %257
-  %274 = getelementptr inbounds i8, ptr %0, i64 2724
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %275 = load i32, ptr %274, align 4
   %276 = and i32 %275, 64
   %.not43.i = icmp eq i32 %276, 0
   br i1 %.not43.i, label %.sink.split.i54, label %277
 
 277:                                              ; preds = %273
-  %278 = getelementptr inbounds i8, ptr %0, i64 2680
+  %278 = getelementptr inbounds nuw i8, ptr %0, i64 2680
   %279 = load i64, ptr %278, align 8
   br label %.sink.split.i54
 
 280:                                              ; preds = %257
-  %281 = getelementptr inbounds i8, ptr %0, i64 2724
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 2724
   %282 = load i32, ptr %281, align 4
   %283 = and i32 %282, 32
   %.not42.i = icmp eq i32 %283, 0
   br i1 %.not42.i, label %.sink.split.i54, label %284
 
 284:                                              ; preds = %280
-  %285 = getelementptr inbounds i8, ptr %0, i64 2688
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %286 = load i64, ptr %285, align 8
   br label %.sink.split.i54
 
 287:                                              ; preds = %257
-  %288 = getelementptr inbounds i8, ptr %0, i64 2728
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %289 = load i64, ptr %288, align 8
   br label %.sink.split.i54
 
 290:                                              ; preds = %257
-  %291 = getelementptr inbounds i8, ptr %0, i64 2760
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 2760
   %292 = load i64, ptr %291, align 8
   br label %.sink.split.i54
 
 293:                                              ; preds = %257
-  %294 = getelementptr inbounds i8, ptr %0, i64 2768
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 2768
   %295 = load i64, ptr %294, align 8
   br label %.sink.split.i54
 
 296:                                              ; preds = %257
-  %297 = getelementptr inbounds i8, ptr %0, i64 2776
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 2776
   %298 = load i64, ptr %297, align 8
   br label %.sink.split.i54
 
 299:                                              ; preds = %257
-  %300 = getelementptr inbounds i8, ptr %0, i64 2784
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 2784
   %301 = load i64, ptr %300, align 8
   br label %.sink.split.i54
 
 302:                                              ; preds = %257
-  %303 = getelementptr inbounds i8, ptr %0, i64 2792
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 2792
   %304 = load i64, ptr %303, align 8
   br label %.sink.split.i54
 
 305:                                              ; preds = %257
-  %306 = getelementptr inbounds i8, ptr %0, i64 2752
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %307 = load i64, ptr %306, align 8
   br label %.sink.split.i54
 
 308:                                              ; preds = %257
-  %309 = getelementptr inbounds i8, ptr %0, i64 2800
+  %309 = getelementptr inbounds nuw i8, ptr %0, i64 2800
   %310 = load i64, ptr %309, align 8
   br label %.sink.split.i54
 
 311:                                              ; preds = %257
-  %312 = getelementptr inbounds i8, ptr %0, i64 5024
+  %312 = getelementptr inbounds nuw i8, ptr %0, i64 5024
   %313 = load i64, ptr %312, align 8
   br label %.sink.split.i54
 
 314:                                              ; preds = %257
-  %315 = getelementptr inbounds i8, ptr %0, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %316 = load i64, ptr %315, align 8
   br label %.sink.split.i54
 
 317:                                              ; preds = %257
-  %318 = getelementptr inbounds i8, ptr %0, i64 32
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %319 = load ptr, ptr %318, align 8
   %.not.i53 = icmp eq ptr %319, null
-  %320 = getelementptr inbounds i8, ptr %319, i64 40
-  %321 = getelementptr inbounds i8, ptr %0, i64 3104
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 40
+  %321 = getelementptr inbounds nuw i8, ptr %0, i64 3104
   %.in.i = select i1 %.not.i53, ptr %321, ptr %320
   %322 = load i64, ptr %.in.i, align 8
   br label %.sink.split.i54
@@ -708,7 +708,7 @@ switch.lookup:                                    ; preds = %35
   br i1 %325, label %326, label %332
 
 326:                                              ; preds = %323
-  %327 = getelementptr inbounds i8, ptr %3, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %328 = load ptr, ptr %327, align 16
   %329 = zext nneg i32 %324 to i64
   %330 = getelementptr i8, ptr %328, i64 %329
@@ -717,7 +717,7 @@ switch.lookup:                                    ; preds = %35
   br label %336
 
 332:                                              ; preds = %323
-  %333 = getelementptr inbounds i8, ptr %3, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %334 = load ptr, ptr %333, align 8
   %335 = getelementptr i8, ptr %334, i64 8
   store ptr %335, ptr %333, align 8
@@ -749,18 +749,18 @@ switch.lookup:                                    ; preds = %35
   br label %getinfo_char.exit
 
 344:                                              ; preds = %339
-  %345 = getelementptr inbounds i8, ptr %0, i64 5160
+  %345 = getelementptr inbounds nuw i8, ptr %0, i64 5160
   store ptr %345, ptr %338, align 8
   br label %getinfo_char.exit
 
 346:                                              ; preds = %339, %339
-  %347 = getelementptr inbounds i8, ptr %0, i64 5184
-  %348 = getelementptr inbounds i8, ptr %0, i64 32
+  %347 = getelementptr inbounds nuw i8, ptr %0, i64 5184
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %349 = load ptr, ptr %348, align 8
   store ptr %347, ptr %338, align 8
   %350 = call i32 @Curl_ssl_backend() #4
   store i32 %350, ptr %347, align 8
-  %351 = getelementptr inbounds i8, ptr %0, i64 5192
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 5192
   store ptr null, ptr %351, align 8
   %.not.i57 = icmp eq ptr %349, null
   %.not19.i = icmp eq i32 %350, 0
@@ -778,7 +778,7 @@ switch.lookup:                                    ; preds = %35
   br i1 %356, label %357, label %363
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %3, i64 16
+  %358 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %359 = load ptr, ptr %358, align 16
   %360 = zext nneg i32 %355 to i64
   %361 = getelementptr i8, ptr %359, i64 %360
@@ -787,7 +787,7 @@ switch.lookup:                                    ; preds = %35
   br label %367
 
 363:                                              ; preds = %354
-  %364 = getelementptr inbounds i8, ptr %3, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr i8, ptr %365, i64 8
   store ptr %366, ptr %364, align 8

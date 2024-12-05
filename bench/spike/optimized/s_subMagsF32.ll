@@ -61,7 +61,7 @@ define i32 @softfloat_subMagsF32(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %.1.i = select i1 %28, i8 %29, i8 %spec.select12.i
   %31 = lshr i32 %.19.i, 24
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr @softfloat_countLeadingZeros8, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = add nsw i8 %.1.i, -8
   %36 = add i8 %35, %34

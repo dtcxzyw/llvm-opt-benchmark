@@ -107,7 +107,7 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer13getHazardTypeEPNS
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.01216, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01216, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -115,7 +115,7 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer13getHazardTypeEPNS
   %.01216 = phi ptr [ %9, %8 ], [ %5, %3 ]
   %10 = load ptr, ptr %.01216, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef %1, i32 noundef %2) #6
   %.not14 = icmp eq i32 %14, 0
@@ -139,10 +139,10 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer5ResetEv(ptr noundef nonnu
   %.09 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %.09, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6) #6
-  %10 = getelementptr inbounds i8, ptr %.09, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -163,10 +163,10 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer15EmitInstructionEPNS_5SUn
   %.010 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.010, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %1) #6
-  %11 = getelementptr inbounds i8, ptr %.010, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -187,10 +187,10 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer15EmitInstructionEPNS_12Ma
   %.010 = phi ptr [ %11, %.lr.ph ], [ %4, %2 ]
   %7 = load ptr, ptr %.010, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef %1) #6
-  %11 = getelementptr inbounds i8, ptr %.010, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %.not = icmp eq ptr %11, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -212,11 +212,11 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
   %.057.i = phi ptr [ %11, %.lr.ph.i ], [ %4, %2 ]
   %.05.val.i = load ptr, ptr %.057.i, align 8
   %7 = load ptr, ptr %.05.val.i, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(12) %.05.val.i, ptr noundef %1) #6
   %.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.08.i, i32 %10)
-  %11 = getelementptr inbounds i8, ptr %.057.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %.not.i = icmp eq ptr %11, %6
   br i1 %.not.i, label %"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_5SUnitEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !4
 
@@ -239,11 +239,11 @@ define dso_local noundef i32 @_ZN4llvm21MultiHazardRecognizer12PreEmitNoopsEPNS_
   %.057.i = phi ptr [ %11, %.lr.ph.i ], [ %4, %2 ]
   %.05.val.i = load ptr, ptr %.057.i, align 8
   %7 = load ptr, ptr %.05.val.i, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable(12) %.05.val.i, ptr noundef %1) #6
   %.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %.08.i, i32 %10)
-  %11 = getelementptr inbounds i8, ptr %.057.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.057.i, i64 8
   %.not.i = icmp eq ptr %11, %6
   br i1 %.not.i, label %"_ZSt10accumulateIPSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS2_EEjZNS1_21MultiHazardRecognizer12PreEmitNoopsEPNS1_12MachineInstrEE3$_0ET0_T_SC_SB_T1_.exit", label %.lr.ph.i, !llvm.loop !6
 
@@ -268,40 +268,40 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   %.02950.i.i.i.i.i.i = phi ptr [ %33, %32 ], [ %4, %2 ]
   %.029.val.i.i.i.i.i.i = load ptr, ptr %.02950.i.i.i.i.i.i, align 8
   %10 = load ptr, ptr %.029.val.i.i.i.i.i.i, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(12) %.029.val.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %13, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit", label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %15 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 8
   %.val31.i.i.i.i.i.i = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %.val31.i.i.i.i.i.i, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(12) %.val31.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %19, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 16
   %.val33.i.i.i.i.i.i = load ptr, ptr %21, align 8
   %22 = load ptr, ptr %.val33.i.i.i.i.i.i, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(12) %.val33.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %25, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 24
   %.val35.i.i.i.i.i.i = load ptr, ptr %27, align 8
   %28 = load ptr, ptr %.val35.i.i.i.i.i.i, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(12) %.val35.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %31, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17", label %32
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 32
   %34 = add nsw i64 %.051.i.i.i.i.i.i, -1
   %35 = icmp sgt i64 %.051.i.i.i.i.i.i, 1
   br i1 %35, label %.lr.ph.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !7
@@ -324,33 +324,33 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
 37:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %.029.val37.i.i.i.i.i.i = load ptr, ptr %.029.lcssa.i.i.i.i.i.i, align 8
   %38 = load ptr, ptr %.029.val37.i.i.i.i.i.i, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(12) %.029.val37.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %41, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit", label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i.i, i64 8
   br label %44
 
 44:                                               ; preds = %42, %._crit_edge.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %43, %42 ]
   %.1.val.i.i.i.i.i.i = load ptr, ptr %.1.i.i.i.i.i.i, align 8
   %45 = load ptr, ptr %.1.val.i.i.i.i.i.i, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 72
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(12) %.1.val.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %48, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit", label %49
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
   br label %51
 
 51:                                               ; preds = %49, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %50, %49 ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8
   %52 = load ptr, ptr %.2.val.i.i.i.i.i.i, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %54 = load ptr, ptr %53, align 8
   %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 8 dereferenceable(12) %.2.val.i.i.i.i.i.i, ptr noundef %1) #6
   br i1 %55, label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit", label %56
@@ -359,15 +359,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm21MultiHazardRecognizer19ShouldPref
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit": ; preds = %14
-  %57 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15": ; preds = %20
-  %58 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17": ; preds = %26
-  %59 = getelementptr inbounds i8, ptr %.02950.i.i.i.i.i.i, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit"
 
 "_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit15", %"_ZN4llvm6any_ofIRNS_11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS3_EELj4EEEZNS_21MultiHazardRecognizer19ShouldPreferAnotherEPNS_5SUnitEE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit17", %37, %44, %51, %56
@@ -389,10 +389,10 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer12AdvanceCycleEv(ptr nound
   %.09 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %.09, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6) #6
-  %10 = getelementptr inbounds i8, ptr %.09, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -413,10 +413,10 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer11RecedeCycleEv(ptr nounde
   %.09 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %.09, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6) #6
-  %10 = getelementptr inbounds i8, ptr %.09, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -437,10 +437,10 @@ define dso_local void @_ZN4llvm21MultiHazardRecognizer8EmitNoopEv(ptr noundef no
   %.09 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = load ptr, ptr %.09, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(12) %6) #6
-  %10 = getelementptr inbounds i8, ptr %.09, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.09, i64 8
   %.not = icmp eq ptr %10, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -470,7 +470,7 @@ define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD2Ev(ptr noundef
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i: ; preds = %.lr.ph.i.i
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %7) #6
   br label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i
@@ -482,7 +482,7 @@ _ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i, %1
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZN4llvm11SmallVectorISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELj4EED2Ev.exit, label %14
 
@@ -517,7 +517,7 @@ define linkonce_odr hidden void @_ZN4llvm21MultiHazardRecognizerD0Ev(ptr noundef
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(12) %7) #6
   br label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i.i
@@ -529,7 +529,7 @@ _ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE13destroy_rangeEPS5_S7_.exit.i.i: ; preds = %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i.i, %1
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = icmp eq ptr %11, %12
   br i1 %13, label %_ZN4llvm21MultiHazardRecognizerD2Ev.exit, label %14
 
@@ -551,7 +551,7 @@ define linkonce_odr hidden void @_ZN4llvm24ScheduleHazardRecognizer9EmitNoopsEj(
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.03 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(12) %0) #6
   %6 = add nuw i32 %.03, 1
@@ -580,7 +580,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   %6 = load ptr, ptr %0, align 8
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #6
@@ -594,8 +594,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24
   %9 = load i64, ptr %.sroa.04.08.i.i.i.i.i.i, align 8
   store i64 %9, ptr %.09.i.i.i.i.i.i, align 8
   store ptr null, ptr %.sroa.04.08.i.i.i.i.i.i, align 8
-  %10 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
-  %11 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %10, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerESt14default_deleteIS2_EELb0EE18uninitialized_moveIPS5_S8_EEvT_S9_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !10
 
@@ -618,7 +618,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_24ScheduleHazardRecognizerES
 
 _ZNKSt14default_deleteIN4llvm24ScheduleHazardRecognizerEEclEPS1_.exit.i.i.i: ; preds = %.lr.ph.i.i
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(12) %16) #6
   br label %_ZNSt10unique_ptrIN4llvm24ScheduleHazardRecognizerESt14default_deleteIS1_EED2Ev.exit.i.i
@@ -671,28 +671,28 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %14, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.us
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.us: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.us
-  %15 = getelementptr inbounds i8, ptr %.02991.us, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 %3
   %18 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %17) #6
   br i1 %18, label %.loopexit.loopexit.split.loop.exit123, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.us
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.us: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.us
-  %19 = getelementptr inbounds i8, ptr %.02991.us, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %3
   %22 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %21) #6
   br i1 %22, label %.loopexit.loopexit.split.loop.exit125, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44.us
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44.us: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.us
-  %23 = getelementptr inbounds i8, ptr %.02991.us, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 %3
   %26 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(12) %25) #6
   br i1 %26, label %.loopexit.loopexit.split.loop.exit, label %27
 
 27:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44.us
-  %28 = getelementptr inbounds i8, ptr %.02991.us, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 32
   %29 = add nsw i64 %.092.us, -1
   %30 = icmp sgt i64 %.092.us, 1
   br i1 %30, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.us, label %._crit_edge, !llvm.loop !11
@@ -710,7 +710,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %37, label %.loopexit, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread
-  %38 = getelementptr inbounds i8, ptr %.02991, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02991, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds i8, ptr %39, i64 %3
   %41 = load ptr, ptr %40, align 8
@@ -721,7 +721,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %45, label %.loopexit.loopexit111.split.loop.exit115, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.thread: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.thread
-  %46 = getelementptr inbounds i8, ptr %.02991, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.02991, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 %3
   %49 = load ptr, ptr %48, align 8
@@ -732,7 +732,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %53, label %.loopexit.loopexit111.split.loop.exit117, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44
 
 _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.thread
-  %54 = getelementptr inbounds i8, ptr %.02991, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.02991, i64 24
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %55, i64 %3
   %57 = load ptr, ptr %56, align 8
@@ -743,7 +743,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %61, label %.loopexit.loopexit111.split.loop.exit, label %62
 
 62:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44
-  %63 = getelementptr inbounds i8, ptr %.02991, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.02991, i64 32
   %64 = add nsw i64 %.092, -1
   %65 = icmp sgt i64 %.092, 1
   br i1 %65, label %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread, label %._crit_edge, !llvm.loop !11
@@ -791,7 +791,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %81, label %.loopexit, label %82
 
 82:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit49
-  %83 = getelementptr inbounds i8, ptr %.029.lcssa, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.029.lcssa, i64 8
   br label %84
 
 84:                                               ; preds = %._crit_edge._crit_edge108, %82
@@ -819,7 +819,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit54
-  %97 = getelementptr inbounds i8, ptr %.1, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   br label %98
 
 98:                                               ; preds = %._crit_edge._crit_edge, %96
@@ -850,27 +850,27 @@ _ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFb
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44.us
-  %111 = getelementptr inbounds i8, ptr %.02991.us, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 24
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit123:            ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.us
-  %112 = getelementptr inbounds i8, ptr %.02991.us, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 8
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit125:            ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.us
-  %113 = getelementptr inbounds i8, ptr %.02991.us, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.02991.us, i64 16
   br label %.loopexit
 
 .loopexit.loopexit111.split.loop.exit:            ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit44
-  %114 = getelementptr inbounds i8, ptr %.02991, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %.02991, i64 24
   br label %.loopexit
 
 .loopexit.loopexit111.split.loop.exit115:         ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit34.thread
-  %115 = getelementptr inbounds i8, ptr %.02991, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.02991, i64 8
   br label %.loopexit
 
 .loopexit.loopexit111.split.loop.exit117:         ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit39.thread
-  %116 = getelementptr inbounds i8, ptr %.02991, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.02991, i64 16
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.thread, %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit.us, %.loopexit.loopexit111.split.loop.exit, %.loopexit.loopexit111.split.loop.exit115, %.loopexit.loopexit111.split.loop.exit117, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit123, %.loopexit.loopexit.split.loop.exit125, %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit59, %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit54, %_ZN9__gnu_cxx5__ops10_Iter_predISt7_Mem_fnIMN4llvm24ScheduleHazardRecognizerEKFbvEEEclIPKSt10unique_ptrIS4_St14default_deleteIS4_EEEEbT_.exit49, %110

@@ -291,7 +291,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %87 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 438, ptr %87, align 4
   %88 = load ptr, ptr %.2240, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %88, ptr %89, align 8
   br label %308
 
@@ -299,7 +299,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %91 = call noundef ptr @palloc0(i64 noundef 16) #7
   store i32 143, ptr %91, align 4
   %92 = load ptr, ptr %.2240, align 8
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %92, ptr %93, align 8
   br label %308
 
@@ -319,7 +319,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store i32 433, ptr %102, align 4
   %103 = getelementptr i8, ptr %.2240, i64 -8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %104, ptr %105, align 8
   br label %308
 
@@ -331,42 +331,42 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
 108:                                              ; preds = %74
   %109 = call noundef ptr @palloc0(i64 noundef 48) #7
   store i32 434, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %109, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   store i32 0, ptr %110, align 8
   %111 = getelementptr i8, ptr %.2240, i64 -24
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %109, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %112, ptr %113, align 8
   %114 = getelementptr i8, ptr %.2240, i64 -16
   %115 = load i8, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %109, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %117 = and i8 %115, 1
   store i8 %117, ptr %116, align 8
   %118 = load ptr, ptr %.2240, align 8
-  %119 = getelementptr inbounds i8, ptr %109, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 40
   store ptr %118, ptr %119, align 8
   br label %308
 
 120:                                              ; preds = %74
   %121 = call noundef ptr @palloc0(i64 noundef 48) #7
   store i32 434, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store i32 1, ptr %122, align 8
   %123 = getelementptr i8, ptr %.2240, i64 -32
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %121, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store ptr %124, ptr %125, align 8
   %126 = getelementptr i8, ptr %.2240, i64 -24
   %127 = load i8, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %121, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %121, i64 32
   %129 = and i8 %127, 1
   store i8 %129, ptr %128, align 8
   %130 = getelementptr i8, ptr %.2240, i64 -8
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %121, i64 24
+  %132 = getelementptr inbounds nuw i8, ptr %121, i64 24
   store ptr %131, ptr %132, align 8
   %133 = load ptr, ptr %.2240, align 8
-  %134 = getelementptr inbounds i8, ptr %121, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store ptr %133, ptr %134, align 8
   br label %308
 
@@ -418,9 +418,9 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %162 = call noundef ptr @palloc0(i64 noundef 24) #7
   store i32 435, ptr %162, align 4
   %163 = load ptr, ptr %.2240, align 8
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i8 0, ptr %165, align 8
   br label %308
 
@@ -429,9 +429,9 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store i32 435, ptr %167, align 4
   %168 = getelementptr i8, ptr %.2240, i64 -8
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %167, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %167, i64 8
   store ptr %169, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %167, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %167, i64 16
   store i8 1, ptr %171, align 8
   br label %308
 
@@ -440,47 +440,47 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   store i32 436, ptr %173, align 4
   %174 = getelementptr i8, ptr %.2240, i64 -24
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds i8, ptr %173, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 8
   store ptr %175, ptr %176, align 8
   %177 = getelementptr i8, ptr %.2240, i64 -8
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %173, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 16
   store ptr %178, ptr %179, align 8
   br label %308
 
 180:                                              ; preds = %74
   %181 = call noundef ptr @palloc0(i64 noundef 40) #7
   store i32 437, ptr %181, align 4
-  %182 = getelementptr inbounds i8, ptr %181, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   store i32 0, ptr %182, align 4
   %183 = getelementptr i8, ptr %.2240, i64 -24
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %181, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store ptr %184, ptr %185, align 8
   %186 = getelementptr i8, ptr %.2240, i64 -8
   %187 = load i64, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %181, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %181, i64 24
   store i64 %187, ptr %188, align 8
   %189 = load i32, ptr %.2240, align 8
-  %190 = getelementptr inbounds i8, ptr %181, i64 16
+  %190 = getelementptr inbounds nuw i8, ptr %181, i64 16
   store i32 %189, ptr %190, align 8
   br label %308
 
 191:                                              ; preds = %74
   %192 = call noundef ptr @palloc0(i64 noundef 40) #7
   store i32 437, ptr %192, align 4
-  %193 = getelementptr inbounds i8, ptr %192, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store i32 1, ptr %193, align 4
   %194 = getelementptr i8, ptr %.2240, i64 -24
   %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds i8, ptr %192, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store ptr %195, ptr %196, align 8
   %197 = getelementptr i8, ptr %.2240, i64 -8
   %198 = load i64, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %192, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %192, i64 24
   store i64 %198, ptr %199, align 8
   %200 = load ptr, ptr %.2240, align 8
-  %201 = getelementptr inbounds i8, ptr %192, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %192, i64 32
   store ptr %200, ptr %201, align 8
   br label %308
 
@@ -502,7 +502,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse() local_unnamed_addr #
   %211 = call noundef ptr @palloc0(i64 noundef 8) #7
   store i32 439, ptr %211, align 4
   %212 = load i32, ptr %.2240, align 8
-  %213 = getelementptr inbounds i8, ptr %211, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 4
   store i32 %212, ptr %213, align 4
   br label %308
 

@@ -35,16 +35,16 @@ define hidden void @_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb(ptr n
   %10 = lshr i32 %4, 10
   %11 = and i32 %10, 1023
   %12 = and i32 %4, 1023
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %3 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   store ptr %1, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 6, ptr %18, align 4
   %19 = zext nneg i32 %9 to i64
-  %20 = getelementptr inbounds %struct.lua_TValue, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2, i64 %19
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, ptr noundef %3)
   %21 = icmp sgt i32 %4, -1
   br i1 %21, label %.thread33.thread, label %22
@@ -55,14 +55,14 @@ define hidden void @_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb(ptr n
   br i1 %5, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %.thread33.thread, label %29
 
 29:                                               ; preds = %22, %25
   %30 = zext nneg i32 %11 to i64
-  %31 = getelementptr inbounds %struct.lua_TValue, ptr %2, i64 %30
+  %31 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2, i64 %30
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %31, ptr noundef %24)
   %.not = icmp samesign ugt i32 %4, -1073741825
   br i1 %.not, label %32, label %.thread33.thread
@@ -73,14 +73,14 @@ define hidden void @_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb(ptr n
   br i1 %5, label %.thread33, label %36
 
 .thread33:                                        ; preds = %32
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %34, i64 12
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %35 = icmp eq i32 %.pre, 0
   br i1 %35, label %.thread33.thread, label %36
 
 36:                                               ; preds = %.thread33, %32
   %37 = zext nneg i32 %12 to i64
-  %38 = getelementptr inbounds %struct.lua_TValue, ptr %2, i64 %37
+  %38 = getelementptr inbounds nuw %struct.lua_TValue, ptr %2, i64 %37
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %38, ptr noundef %34)
   br label %.thread33.thread
 
@@ -109,7 +109,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   %17 = call noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef nonnull %7, i64 noundef 256, ptr noundef %1, i64 noundef %16)
   %18 = trunc i64 %3 to i32
   %19 = add i32 %18, -1
-  %20 = getelementptr inbounds i8, ptr %2, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %21 = call noundef ptr (ptr, ptr, ...) @_Z16lua_pushfstringLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %17, i32 noundef %19, ptr noundef nonnull %20)
   br label %737
 
@@ -125,11 +125,11 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br label %737
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load i64, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %30, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %34 = load i64, ptr %33, align 8
   %.not = icmp ult i64 %32, %34
   br i1 %.not, label %37, label %35
@@ -137,20 +137,20 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
 35:                                               ; preds = %28
   %36 = tail call noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef nonnull %0, i1 noundef zeroext true)
   %.pre = load ptr, ptr %29, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 64
   %.pre949 = load i64, ptr %.phi.trans.insert, align 8
   br label %37
 
 37:                                               ; preds = %28, %35
   %38 = phi i64 [ %34, %28 ], [ %.pre949, %35 ]
   %39 = phi ptr [ %30, %28 ], [ %.pre, %35 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   store i64 -1, ptr %40, align 8
   %41 = icmp eq i32 %4, 0
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %0, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %46
 
 44:                                               ; preds = %37
@@ -169,7 +169,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
   br i1 %51, label %52, label %66
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %2, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.0.copyload.i469 = load i8, ptr %53, align 1
   %54 = load i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, align 8
   %55 = trunc i8 %54 to i1
@@ -218,14 +218,14 @@ define dso_local noundef range(i32 0, 2) i32 @_Z9luau_loadP9lua_StatePKcS2_mi(pt
 _ZL10readVarIntPKcmRm.exit:                       ; preds = %67
   %76 = zext i32 %74 to i64
   store ptr %0, ptr %10, align 8
-  %77 = getelementptr inbounds i8, ptr %10, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %78 = shl nuw nsw i64 %76, 3
   %79 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %78, i8 noundef zeroext 0)
           to label %_ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit unwind label %64
 
 _ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit:   ; preds = %_ZL10readVarIntPKcmRm.exit
   store ptr %79, ptr %77, align 8
-  %80 = getelementptr inbounds i8, ptr %10, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %76, ptr %80, align 8
   %.not845 = icmp eq i32 %74, 0
   br i1 %.not845, label %._crit_edge, label %.preheader716
@@ -257,7 +257,7 @@ _ZL10readVarIntPKcmRm.exit475:                    ; preds = %81
           to label %93 unwind label %.loopexit.split-lp712.loopexit
 
 93:                                               ; preds = %_ZL10readVarIntPKcmRm.exit475
-  %94 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
   store ptr %92, ptr %94, align 8
   %95 = add i64 %84, %91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -324,7 +324,7 @@ _ZL10readVarIntPKcmRm.exit.i:                     ; preds = %100
   %112 = add i32 %107, -1
   %113 = zext i32 %112 to i64
   %114 = load ptr, ptr %77, align 8
-  %115 = getelementptr inbounds ptr, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %113
   %116 = load ptr, ptr %115, align 8
   br label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit
 
@@ -336,14 +336,14 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %111, %_ZL10readVa
 
 120:                                              ; preds = %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit
   %121 = load ptr, ptr %29, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 3408
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 3408
   %123 = load ptr, ptr %122, align 8
   %.not465 = icmp eq ptr %123, null
   br i1 %.not465, label %133, label %124
 
 124:                                              ; preds = %120
-  %125 = getelementptr inbounds i8, ptr %117, i64 24
-  %126 = getelementptr inbounds i8, ptr %117, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %117, i64 20
   %127 = load i32, ptr %126, align 4
   %128 = zext i32 %127 to i64
   %129 = invoke noundef zeroext i8 %123(ptr noundef nonnull %0, ptr noundef nonnull %125, i64 noundef %128)
@@ -351,7 +351,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit: ; preds = %111, %_ZL10readVa
 
 130:                                              ; preds = %124
   %131 = and i64 %118, 4294967295
-  %132 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %131
   store i8 %129, ptr %132, align 1
   br label %133
 
@@ -389,9 +389,9 @@ _ZL10readVarIntPKcmRm.exit483:                    ; preds = %.loopexit710
           to label %_ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit unwind label %.loopexit.split-lp712.loopexit.split-lp
 
 _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcmRm.exit483
-  %145 = getelementptr inbounds i8, ptr %12, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %144, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %12, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %142, ptr %146, align 8
   %invariant.gep835 = getelementptr i8, ptr %2, i64 1
   %invariant.gep837 = getelementptr i8, ptr %2, i64 2
@@ -402,10 +402,10 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
 .lr.ph843:                                        ; preds = %_ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit
   %invariant.gep = getelementptr i8, ptr %2, i64 5
   %invariant.gep808 = getelementptr i8, ptr %2, i64 9
-  %147 = getelementptr inbounds i8, ptr %6, i64 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 88
-  %149 = getelementptr inbounds i8, ptr %0, i64 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %151
 
 151:                                              ; preds = %.lr.ph843, %.loopexit695
@@ -415,27 +415,27 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
           to label %153 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 153:                                              ; preds = %151
-  %154 = getelementptr inbounds i8, ptr %152, i64 88
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 88
   store ptr %49, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %152, i64 168
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 168
   %156 = trunc nuw i64 %indvars.iv943 to i32
   store i32 %156, ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %2, i64 %.4841
   %.0.copyload.i484 = load i8, ptr %157, align 1
-  %158 = getelementptr inbounds i8, ptr %152, i64 6
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 6
   store i8 %.0.copyload.i484, ptr %158, align 2
   %gep836 = getelementptr i8, ptr %invariant.gep835, i64 %.4841
   %.0.copyload.i485 = load i8, ptr %gep836, align 1
-  %159 = getelementptr inbounds i8, ptr %152, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i8 %.0.copyload.i485, ptr %159, align 4
   %gep838 = getelementptr i8, ptr %invariant.gep837, i64 %.4841
   %.0.copyload.i486 = load i8, ptr %gep838, align 1
-  %160 = getelementptr inbounds i8, ptr %152, i64 3
+  %160 = getelementptr inbounds nuw i8, ptr %152, i64 3
   store i8 %.0.copyload.i486, ptr %160, align 1
   %gep840 = getelementptr i8, ptr %invariant.gep839, i64 %.4841
   %.0.copyload.i487 = load i8, ptr %gep840, align 1
   %161 = add i64 %.4841, 4
-  %162 = getelementptr inbounds i8, ptr %152, i64 5
+  %162 = getelementptr inbounds nuw i8, ptr %152, i64 5
   store i8 %.0.copyload.i487, ptr %162, align 1
   br i1 %51, label %163, label %_ZL18remapUserdataTypesPcmPhj.exit.preheader
 
@@ -443,7 +443,7 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
   %164 = getelementptr inbounds i8, ptr %2, i64 %161
   %.0.copyload.i488 = load i8, ptr %164, align 1
   %165 = add i64 %.4841, 5
-  %166 = getelementptr inbounds i8, ptr %152, i64 7
+  %166 = getelementptr inbounds nuw i8, ptr %152, i64 7
   store i8 %.0.copyload.i488, ptr %166, align 1
   switch i8 %.0430, label %205 [
     i8 1, label %.preheader706
@@ -475,7 +475,7 @@ _ZL10readVarIntPKcmRm.exit494:                    ; preds = %.preheader706
   %178 = select i1 %177, i32 4, i32 3
   %179 = add i32 %178, %173
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds i8, ptr %152, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %182 = load i8, ptr %181, align 2
   %183 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %180, i8 noundef zeroext %182)
           to label %184 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -506,9 +506,9 @@ _ZL10readVarIntPKcmRm.exit494:                    ; preds = %.preheader706
   br label %.loopexit.split-lp712
 
 184:                                              ; preds = %175
-  %185 = getelementptr inbounds i8, ptr %152, i64 112
+  %185 = getelementptr inbounds nuw i8, ptr %152, i64 112
   store ptr %183, ptr %185, align 8
-  %186 = getelementptr inbounds i8, ptr %152, i64 172
+  %186 = getelementptr inbounds nuw i8, ptr %152, i64 172
   store i32 %179, ptr %186, align 4
   %187 = trunc i32 %173 to i8
   br i1 %177, label %188, label %194
@@ -519,7 +519,7 @@ _ZL10readVarIntPKcmRm.exit494:                    ; preds = %.preheader706
   %190 = lshr i32 %173, 7
   %191 = trunc i32 %190 to i8
   %192 = load ptr, ptr %185, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 1
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store i8 %191, ptr %193, align 1
   br label %195
 
@@ -531,14 +531,14 @@ _ZL10readVarIntPKcmRm.exit494:                    ; preds = %.preheader706
   %.sink1021 = phi i64 [ 1, %194 ], [ 2, %188 ]
   %.sink1019 = phi i64 [ 2, %194 ], [ 3, %188 ]
   %196 = load ptr, ptr %185, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 %.sink1021
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.sink1021
   store i8 0, ptr %197, align 1
   %198 = load ptr, ptr %185, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 %.sink1019
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %.sink1019
   store i8 0, ptr %199, align 1
   %200 = load ptr, ptr %185, align 8
   %201 = zext nneg i32 %178 to i64
-  %202 = getelementptr inbounds i8, ptr %200, i64 %201
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 %201
   %203 = zext i32 %173 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %202, ptr nonnull align 1 %176, i64 %203, i1 false)
   br label %_ZL10readVarIntPKcmRm.exit494._crit_edge
@@ -578,16 +578,16 @@ _ZL10readVarIntPKcmRm.exit500:                    ; preds = %208
 
 217:                                              ; preds = %_ZL10readVarIntPKcmRm.exit500
   %218 = zext i32 %215 to i64
-  %219 = getelementptr inbounds i8, ptr %152, i64 2
+  %219 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %220 = load i8, ptr %219, align 2
   %221 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %218, i8 noundef zeroext %220)
           to label %222 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 222:                                              ; preds = %217
   %223 = getelementptr inbounds i8, ptr %2, i64 %211
-  %224 = getelementptr inbounds i8, ptr %152, i64 112
+  %224 = getelementptr inbounds nuw i8, ptr %152, i64 112
   store ptr %221, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %152, i64 172
+  %225 = getelementptr inbounds nuw i8, ptr %152, i64 172
   store i32 %215, ptr %225, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %221, ptr nonnull align 1 %223, i64 %218, i1 false)
   %226 = add i64 %211, %218
@@ -657,7 +657,7 @@ _ZL10readVarIntPKcmRm.exit68.i:                   ; preds = %_ZL10readVarIntPKcm
 
 .lr.ph.i:                                         ; preds = %256, %268
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %268 ], [ 2, %256 ]
-  %259 = getelementptr inbounds i8, ptr %257, i64 %indvars.iv.i
+  %259 = getelementptr inbounds nuw i8, ptr %257, i64 %indvars.iv.i
   %260 = load i8, ptr %259, align 1
   %261 = zext i8 %260 to i32
   %262 = add nsw i32 %261, -64
@@ -666,7 +666,7 @@ _ZL10readVarIntPKcmRm.exit68.i:                   ; preds = %_ZL10readVarIntPKcm
 
 264:                                              ; preds = %.lr.ph.i
   %265 = zext nneg i32 %262 to i64
-  %266 = getelementptr inbounds i8, ptr %11, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr %11, i64 %265
   %267 = load i8, ptr %266, align 1
   store i8 %267, ptr %259, align 1
   br label %268
@@ -692,7 +692,7 @@ _ZL10readVarIntPKcmRm.exit68.i:                   ; preds = %_ZL10readVarIntPKcm
 
 273:                                              ; preds = %283, %271
   %indvars.iv112.i = phi i64 [ 0, %271 ], [ %indvars.iv.next113.i, %283 ]
-  %274 = getelementptr inbounds i8, ptr %272, i64 %indvars.iv112.i
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 %indvars.iv112.i
   %275 = load i8, ptr %274, align 1
   %276 = zext i8 %275 to i32
   %277 = add nsw i32 %276, -64
@@ -701,7 +701,7 @@ _ZL10readVarIntPKcmRm.exit68.i:                   ; preds = %_ZL10readVarIntPKcm
 
 279:                                              ; preds = %273
   %280 = zext nneg i32 %277 to i64
-  %281 = getelementptr inbounds i8, ptr %11, i64 %280
+  %281 = getelementptr inbounds nuw i8, ptr %11, i64 %280
   %282 = load i8, ptr %281, align 1
   store i8 %282, ptr %274, align 1
   br label %283
@@ -732,7 +732,7 @@ _ZL10readVarIntPKcmRm.exit68.i:                   ; preds = %_ZL10readVarIntPKcm
 
 292:                                              ; preds = %.preheader.i
   %293 = zext nneg i32 %290 to i64
-  %294 = getelementptr inbounds i8, ptr %11, i64 %293
+  %294 = getelementptr inbounds nuw i8, ptr %11, i64 %293
   %295 = load i8, ptr %294, align 1
   store i8 %295, ptr %287, align 1
   br label %296
@@ -788,7 +788,7 @@ _ZL10readVarIntPKcmRm.exit512:                    ; preds = %_ZL18remapUserdataT
 315:                                              ; preds = %_ZL10readVarIntPKcmRm.exit512
   %316 = zext nneg i32 %312 to i64
   %317 = shl nuw nsw i64 %316, 2
-  %318 = getelementptr inbounds i8, ptr %152, i64 2
+  %318 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %319 = load i8, ptr %318, align 2
   %320 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %317, i8 noundef zeroext %319)
           to label %321 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -801,9 +801,9 @@ _ZL10readVarIntPKcmRm.exit512:                    ; preds = %_ZL18remapUserdataT
   unreachable
 
 321:                                              ; preds = %315
-  %322 = getelementptr inbounds i8, ptr %152, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %152, i64 16
   store ptr %320, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %152, i64 136
+  %323 = getelementptr inbounds nuw i8, ptr %152, i64 136
   store i32 %312, ptr %323, align 8
   %.not848 = icmp eq i32 %312, 0
   br i1 %.not848, label %._crit_edge799, label %.lr.ph
@@ -815,7 +815,7 @@ _ZL10readVarIntPKcmRm.exit512:                    ; preds = %_ZL18remapUserdataT
   %.0.copyload.i513 = load i32, ptr %324, align 1
   %325 = add i64 %.6796, 4
   %326 = load ptr, ptr %322, align 8
-  %327 = getelementptr inbounds i32, ptr %326, i64 %indvars.iv916
+  %327 = getelementptr inbounds nuw i32, ptr %326, i64 %indvars.iv916
   store i32 %.0.copyload.i513, ptr %327, align 4
   %indvars.iv.next917 = add nuw nsw i64 %indvars.iv916, 1
   %328 = load i32, ptr %323, align 8
@@ -830,7 +830,7 @@ _ZL10readVarIntPKcmRm.exit512:                    ; preds = %_ZL18remapUserdataT
 ._crit_edge799:                                   ; preds = %._crit_edge799.loopexit, %321
   %331 = phi ptr [ %320, %321 ], [ %.pre950, %._crit_edge799.loopexit ]
   %.6.lcssa = phi i64 [ %308, %321 ], [ %325, %._crit_edge799.loopexit ]
-  %332 = getelementptr inbounds i8, ptr %152, i64 32
+  %332 = getelementptr inbounds nuw i8, ptr %152, i64 32
   store ptr %331, ptr %332, align 8
   br label %333
 
@@ -861,9 +861,9 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
           to label %348 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 348:                                              ; preds = %343
-  %349 = getelementptr inbounds i8, ptr %152, i64 8
+  %349 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %347, ptr %349, align 8
-  %350 = getelementptr inbounds i8, ptr %152, i64 152
+  %350 = getelementptr inbounds nuw i8, ptr %152, i64 152
   store i32 %340, ptr %350, align 8
   %.not849 = icmp eq i32 %340, 0
   br i1 %.not849, label %.preheader701.preheader, label %.lr.ph803
@@ -875,7 +875,7 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
 .lr.ph803:                                        ; preds = %348, %.lr.ph803
   %indvars.iv919 = phi i64 [ %indvars.iv.next920, %.lr.ph803 ], [ 0, %348 ]
   %352 = load ptr, ptr %349, align 8
-  %353 = getelementptr inbounds %struct.lua_TValue, ptr %352, i64 %indvars.iv919, i32 2
+  %353 = getelementptr inbounds nuw %struct.lua_TValue, ptr %352, i64 %indvars.iv919, i32 2
   store i32 0, ptr %353, align 4
   %indvars.iv.next920 = add nuw nsw i64 %indvars.iv919, 1
   %354 = load i32, ptr %350, align 8
@@ -904,10 +904,10 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
   %.0.copyload.i521 = load i8, ptr %360, align 1
   %361 = add i64 %.7810, 2
   %362 = load ptr, ptr %349, align 8
-  %363 = getelementptr inbounds %struct.lua_TValue, ptr %362, i64 %indvars.iv924
+  %363 = getelementptr inbounds nuw %struct.lua_TValue, ptr %362, i64 %indvars.iv924
   %364 = zext i8 %.0.copyload.i521 to i32
   store i32 %364, ptr %363, align 8
-  %365 = getelementptr inbounds i8, ptr %363, i64 12
+  %365 = getelementptr inbounds nuw i8, ptr %363, i64 12
   store i32 1, ptr %365, align 4
   br label %481
 
@@ -916,9 +916,9 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
   %.0.copyload.i522 = load double, ptr %367, align 1
   %368 = add i64 %.7810, 9
   %369 = load ptr, ptr %349, align 8
-  %370 = getelementptr inbounds %struct.lua_TValue, ptr %369, i64 %indvars.iv924
+  %370 = getelementptr inbounds nuw %struct.lua_TValue, ptr %369, i64 %indvars.iv924
   store double %.0.copyload.i522, ptr %370, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 12
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 12
   store i32 3, ptr %371, align 4
   br label %481
 
@@ -931,13 +931,13 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
   %.0.copyload.i525 = load float, ptr %gep809, align 1
   %374 = add i64 %.7810, 17
   %375 = load ptr, ptr %349, align 8
-  %376 = getelementptr inbounds %struct.lua_TValue, ptr %375, i64 %indvars.iv924
+  %376 = getelementptr inbounds nuw %struct.lua_TValue, ptr %375, i64 %indvars.iv924
   store float %.0.copyload.i523, ptr %376, align 4
-  %377 = getelementptr inbounds i8, ptr %376, i64 4
+  %377 = getelementptr inbounds nuw i8, ptr %376, i64 4
   store float %.0.copyload.i524, ptr %377, align 4
-  %378 = getelementptr inbounds i8, ptr %376, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %376, i64 8
   store float %.0.copyload.i525, ptr %378, align 4
-  %379 = getelementptr inbounds i8, ptr %376, i64 12
+  %379 = getelementptr inbounds nuw i8, ptr %376, i64 12
   store i32 4, ptr %379, align 4
   br label %481
 
@@ -964,16 +964,16 @@ _ZL10readVarIntPKcmRm.exit.i532:                  ; preds = %.preheader692
   %390 = add i32 %386, -1
   %391 = zext i32 %390 to i64
   %392 = load ptr, ptr %77, align 8
-  %393 = getelementptr inbounds ptr, ptr %392, i64 %391
+  %393 = getelementptr inbounds nuw ptr, ptr %392, i64 %391
   %394 = load ptr, ptr %393, align 8
   br label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit533
 
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit533: ; preds = %389, %_ZL10readVarIntPKcmRm.exit.i532
   %395 = phi ptr [ %394, %389 ], [ null, %_ZL10readVarIntPKcmRm.exit.i532 ]
   %396 = load ptr, ptr %349, align 8
-  %397 = getelementptr inbounds %struct.lua_TValue, ptr %396, i64 %indvars.iv924
+  %397 = getelementptr inbounds nuw %struct.lua_TValue, ptr %396, i64 %indvars.iv924
   store ptr %395, ptr %397, align 8
-  %398 = getelementptr inbounds i8, ptr %397, i64 12
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 12
   store i32 5, ptr %398, align 4
   br label %481
 
@@ -986,7 +986,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit533: ; preds = %389, %_ZL10rea
   store ptr %402, ptr %6, align 8
   store i32 %.0.copyload.i534, ptr %147, align 8
   %403 = load ptr, ptr %148, align 8
-  %404 = getelementptr inbounds i8, ptr %403, i64 5
+  %404 = getelementptr inbounds nuw i8, ptr %403, i64 5
   %405 = load i8, ptr %404, align 1
   %.not.i535 = icmp eq i8 %405, 0
   br i1 %.not.i535, label %416, label %406
@@ -1017,10 +1017,10 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit533: ; preds = %389, %_ZL10rea
 
 416:                                              ; preds = %399
   %417 = load ptr, ptr %149, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 12
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 12
   store i32 0, ptr %418, align 4
   %419 = load ptr, ptr %149, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 16
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 16
   store ptr %420, ptr %149, align 8
   br label %421
 
@@ -1029,7 +1029,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit533: ; preds = %389, %_ZL10rea
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   %423 = getelementptr inbounds i8, ptr %422, i64 -16
   %424 = load ptr, ptr %349, align 8
-  %425 = getelementptr inbounds %struct.lua_TValue, ptr %424, i64 %indvars.iv924
+  %425 = getelementptr inbounds nuw %struct.lua_TValue, ptr %424, i64 %indvars.iv924
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %425, ptr noundef nonnull align 8 dereferenceable(16) %423, i64 16, i1 false)
   %426 = load ptr, ptr %149, align 8
   %427 = getelementptr inbounds i8, ptr %426, i64 -16
@@ -1088,7 +1088,7 @@ _ZL10readVarIntPKcmRm.exit548:                    ; preds = %438
 
 451:                                              ; preds = %_ZL10readVarIntPKcmRm.exit548
   store double 0.000000e+00, ptr %450, align 8
-  %452 = getelementptr inbounds i8, ptr %450, i64 12
+  %452 = getelementptr inbounds nuw i8, ptr %450, i64 12
   store i32 3, ptr %452, align 4
   %453 = add nuw nsw i32 %.0443805, 1
   %exitcond923.not = icmp eq i32 %453, %434
@@ -1097,9 +1097,9 @@ _ZL10readVarIntPKcmRm.exit548:                    ; preds = %438
 ._crit_edge806:                                   ; preds = %451, %.preheader693
   %.8.lcssa = phi i64 [ %430, %.preheader693 ], [ %441, %451 ]
   %454 = load ptr, ptr %349, align 8
-  %455 = getelementptr inbounds %struct.lua_TValue, ptr %454, i64 %indvars.iv924
+  %455 = getelementptr inbounds nuw %struct.lua_TValue, ptr %454, i64 %indvars.iv924
   store ptr %436, ptr %455, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 12
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 12
   store i32 6, ptr %456, align 4
   br label %481
 
@@ -1120,25 +1120,25 @@ _ZL10readVarIntPKcmRm.exit548:                    ; preds = %438
 
 _ZL10readVarIntPKcmRm.exit554:                    ; preds = %.preheader691
   %465 = zext i32 %463 to i64
-  %466 = getelementptr inbounds ptr, ptr %144, i64 %465
+  %466 = getelementptr inbounds nuw ptr, ptr %144, i64 %465
   %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 3
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 3
   %469 = load i8, ptr %468, align 1
   %470 = zext i8 %469 to i32
   %471 = invoke noundef ptr @_Z16luaF_newLclosureP9lua_StateiP5TableP5Proto(ptr noundef %0, i32 noundef %470, ptr noundef %47, ptr noundef nonnull %467)
           to label %472 unwind label %.loopexit.split-lp.loopexit
 
 472:                                              ; preds = %_ZL10readVarIntPKcmRm.exit554
-  %473 = getelementptr inbounds i8, ptr %471, i64 4
+  %473 = getelementptr inbounds nuw i8, ptr %471, i64 4
   %474 = load i8, ptr %473, align 4
   %475 = icmp ne i8 %474, 0
   %476 = zext i1 %475 to i8
-  %477 = getelementptr inbounds i8, ptr %471, i64 6
+  %477 = getelementptr inbounds nuw i8, ptr %471, i64 6
   store i8 %476, ptr %477, align 2
   %478 = load ptr, ptr %349, align 8
-  %479 = getelementptr inbounds %struct.lua_TValue, ptr %478, i64 %indvars.iv924
+  %479 = getelementptr inbounds nuw %struct.lua_TValue, ptr %478, i64 %indvars.iv924
   store ptr %471, ptr %479, align 8
-  %480 = getelementptr inbounds i8, ptr %479, i64 12
+  %480 = getelementptr inbounds nuw i8, ptr %479, i64 12
   store i32 7, ptr %480, align 4
   br label %481
 
@@ -1181,9 +1181,9 @@ _ZL10readVarIntPKcmRm.exit560:                    ; preds = %.preheader701
           to label %499 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 499:                                              ; preds = %494
-  %500 = getelementptr inbounds i8, ptr %152, i64 24
+  %500 = getelementptr inbounds nuw i8, ptr %152, i64 24
   store ptr %498, ptr %500, align 8
-  %501 = getelementptr inbounds i8, ptr %152, i64 140
+  %501 = getelementptr inbounds nuw i8, ptr %152, i64 140
   store i32 %491, ptr %501, align 4
   %.not850 = icmp eq i32 %491, 0
   br i1 %.not850, label %.preheader700.preheader, label %.preheader690
@@ -1210,10 +1210,10 @@ _ZL10readVarIntPKcmRm.exit560:                    ; preds = %.preheader701
 
 _ZL10readVarIntPKcmRm.exit566:                    ; preds = %502
   %511 = zext i32 %509 to i64
-  %512 = getelementptr inbounds ptr, ptr %144, i64 %511
+  %512 = getelementptr inbounds nuw ptr, ptr %144, i64 %511
   %513 = load ptr, ptr %512, align 8
   %514 = load ptr, ptr %500, align 8
-  %515 = getelementptr inbounds ptr, ptr %514, i64 %indvars.iv927
+  %515 = getelementptr inbounds nuw ptr, ptr %514, i64 %indvars.iv927
   store ptr %513, ptr %515, align 8
   %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 1
   %516 = load i32, ptr %501, align 4
@@ -1241,7 +1241,7 @@ _ZL10readVarIntPKcmRm.exit566:                    ; preds = %502
   br i1 %.not.i571, label %_ZL10readVarIntPKcmRm.exit572, label %.preheader700, !llvm.loop !5
 
 _ZL10readVarIntPKcmRm.exit572:                    ; preds = %.preheader700
-  %527 = getelementptr inbounds i8, ptr %152, i64 164
+  %527 = getelementptr inbounds nuw i8, ptr %152, i64 164
   store i32 %525, ptr %527, align 4
   br label %528
 
@@ -1268,13 +1268,13 @@ _ZL10readVarIntPKcmRm.exit.i578:                  ; preds = %528
   %539 = add i32 %535, -1
   %540 = zext i32 %539 to i64
   %541 = load ptr, ptr %77, align 8
-  %542 = getelementptr inbounds ptr, ptr %541, i64 %540
+  %542 = getelementptr inbounds nuw ptr, ptr %541, i64 %540
   %543 = load ptr, ptr %542, align 8
   br label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579
 
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579: ; preds = %538, %_ZL10readVarIntPKcmRm.exit.i578
   %544 = phi ptr [ %543, %538 ], [ null, %_ZL10readVarIntPKcmRm.exit.i578 ]
-  %545 = getelementptr inbounds i8, ptr %152, i64 96
+  %545 = getelementptr inbounds nuw i8, ptr %152, i64 96
   store ptr %544, ptr %545, align 8
   %546 = getelementptr inbounds i8, ptr %2, i64 %531
   %.0.copyload.i580 = load i8, ptr %546, align 1
@@ -1286,7 +1286,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579: ; preds = %538, %_ZL10rea
   %549 = getelementptr inbounds i8, ptr %2, i64 %547
   %.0.copyload.i581 = load i8, ptr %549, align 1
   %550 = zext i8 %.0.copyload.i581 to i32
-  %551 = getelementptr inbounds i8, ptr %152, i64 160
+  %551 = getelementptr inbounds nuw i8, ptr %152, i64 160
   store i32 %550, ptr %551, align 8
   %552 = load i32, ptr %323, align 8
   %553 = add nsw i32 %552, -1
@@ -1304,12 +1304,12 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579: ; preds = %538, %_ZL10rea
 563:                                              ; preds = %548
   %564 = sext i32 %556 to i64
   %565 = add i64 %529, 3
-  %566 = getelementptr inbounds i8, ptr %152, i64 56
+  %566 = getelementptr inbounds nuw i8, ptr %152, i64 56
   store ptr %562, ptr %566, align 8
-  %567 = getelementptr inbounds i8, ptr %152, i64 156
+  %567 = getelementptr inbounds nuw i8, ptr %152, i64 156
   store i32 %559, ptr %567, align 4
   %568 = getelementptr inbounds i8, ptr %562, i64 %564
-  %569 = getelementptr inbounds i8, ptr %152, i64 64
+  %569 = getelementptr inbounds nuw i8, ptr %152, i64 64
   store ptr %568, ptr %569, align 8
   %570 = load i32, ptr %323, align 8
   %571 = icmp sgt i32 %570, 0
@@ -1334,7 +1334,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579: ; preds = %538, %_ZL10rea
   %574 = add i64 %.12817, 1
   %575 = add i8 %.0.copyload.i582, %.0438818
   %576 = load ptr, ptr %566, align 8
-  %577 = getelementptr inbounds i8, ptr %576, i64 %indvars.iv930
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 %indvars.iv930
   store i8 %575, ptr %577, align 1
   %indvars.iv.next931 = add nuw nsw i64 %indvars.iv930, 1
   %578 = load i32, ptr %323, align 8
@@ -1351,7 +1351,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579: ; preds = %538, %_ZL10rea
   %582 = add i64 %.13824, 4
   %583 = add nsw i32 %.0.copyload.i583, %.0436825
   %584 = load ptr, ptr %569, align 8
-  %585 = getelementptr inbounds i32, ptr %584, i64 %indvars.iv932
+  %585 = getelementptr inbounds nuw i32, ptr %584, i64 %indvars.iv932
   store i32 %583, ptr %585, align 4
   %indvars.iv.next933 = add nuw nsw i64 %indvars.iv932, 1
   %exitcond936.not = icmp eq i64 %indvars.iv.next933, %wide.trip.count935
@@ -1392,9 +1392,9 @@ _ZL10readVarIntPKcmRm.exit590:                    ; preds = %.preheader697
           to label %602 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 602:                                              ; preds = %597
-  %603 = getelementptr inbounds i8, ptr %152, i64 72
+  %603 = getelementptr inbounds nuw i8, ptr %152, i64 72
   store ptr %601, ptr %603, align 8
-  %604 = getelementptr inbounds i8, ptr %152, i64 144
+  %604 = getelementptr inbounds nuw i8, ptr %152, i64 144
   store i32 %594, ptr %604, align 8
   %.not851 = icmp eq i32 %594, 0
   br i1 %.not851, label %.preheader696.preheader, label %.preheader689
@@ -1427,14 +1427,14 @@ _ZL10readVarIntPKcmRm.exit.i596:                  ; preds = %605
   %616 = add i32 %612, -1
   %617 = zext i32 %616 to i64
   %618 = load ptr, ptr %77, align 8
-  %619 = getelementptr inbounds ptr, ptr %618, i64 %617
+  %619 = getelementptr inbounds nuw ptr, ptr %618, i64 %617
   %620 = load ptr, ptr %619, align 8
   br label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit597
 
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit597: ; preds = %615, %_ZL10readVarIntPKcmRm.exit.i596
   %621 = phi ptr [ %620, %615 ], [ null, %_ZL10readVarIntPKcmRm.exit.i596 ]
   %622 = load ptr, ptr %603, align 8
-  %623 = getelementptr inbounds %struct.LocVar, ptr %622, i64 %indvars.iv937
+  %623 = getelementptr inbounds nuw %struct.LocVar, ptr %622, i64 %indvars.iv937
   store ptr %621, ptr %623, align 8
   br label %624
 
@@ -1455,7 +1455,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit597: ; preds = %615, %_ZL10rea
 
 _ZL10readVarIntPKcmRm.exit603:                    ; preds = %624
   %633 = load ptr, ptr %603, align 8
-  %634 = getelementptr inbounds %struct.LocVar, ptr %633, i64 %indvars.iv937, i32 1
+  %634 = getelementptr inbounds nuw %struct.LocVar, ptr %633, i64 %indvars.iv937, i32 1
   store i32 %631, ptr %634, align 8
   br label %635
 
@@ -1476,13 +1476,13 @@ _ZL10readVarIntPKcmRm.exit603:                    ; preds = %624
 
 _ZL10readVarIntPKcmRm.exit609:                    ; preds = %635
   %644 = load ptr, ptr %603, align 8
-  %645 = getelementptr inbounds %struct.LocVar, ptr %644, i64 %indvars.iv937, i32 2
+  %645 = getelementptr inbounds nuw %struct.LocVar, ptr %644, i64 %indvars.iv937, i32 2
   store i32 %642, ptr %645, align 4
   %646 = getelementptr inbounds i8, ptr %2, i64 %638
   %.0.copyload.i610 = load i8, ptr %646, align 1
   %647 = add i64 %636, 2
   %648 = load ptr, ptr %603, align 8
-  %649 = getelementptr inbounds %struct.LocVar, ptr %648, i64 %indvars.iv937, i32 3
+  %649 = getelementptr inbounds nuw %struct.LocVar, ptr %648, i64 %indvars.iv937, i32 3
   store i8 %.0.copyload.i610, ptr %649, align 8
   %indvars.iv.next938 = add nuw nsw i64 %indvars.iv937, 1
   %650 = load i32, ptr %604, align 8
@@ -1521,9 +1521,9 @@ _ZL10readVarIntPKcmRm.exit616:                    ; preds = %.preheader696
           to label %667 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 667:                                              ; preds = %662
-  %668 = getelementptr inbounds i8, ptr %152, i64 80
+  %668 = getelementptr inbounds nuw i8, ptr %152, i64 80
   store ptr %666, ptr %668, align 8
-  %669 = getelementptr inbounds i8, ptr %152, i64 148
+  %669 = getelementptr inbounds nuw i8, ptr %152, i64 148
   store i32 %659, ptr %669, align 4
   %.not852 = icmp eq i32 %659, 0
   br i1 %.not852, label %.loopexit695, label %.preheader688
@@ -1556,14 +1556,14 @@ _ZL10readVarIntPKcmRm.exit.i622:                  ; preds = %670
   %681 = add i32 %677, -1
   %682 = zext i32 %681 to i64
   %683 = load ptr, ptr %77, align 8
-  %684 = getelementptr inbounds ptr, ptr %683, i64 %682
+  %684 = getelementptr inbounds nuw ptr, ptr %683, i64 %682
   %685 = load ptr, ptr %684, align 8
   br label %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit623
 
 _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit623: ; preds = %680, %_ZL10readVarIntPKcmRm.exit.i622
   %686 = phi ptr [ %685, %680 ], [ null, %_ZL10readVarIntPKcmRm.exit.i622 ]
   %687 = load ptr, ptr %668, align 8
-  %688 = getelementptr inbounds ptr, ptr %687, i64 %indvars.iv940
+  %688 = getelementptr inbounds nuw ptr, ptr %687, i64 %indvars.iv940
   store ptr %686, ptr %688, align 8
   %indvars.iv.next941 = add nuw nsw i64 %indvars.iv940, 1
   %689 = load i32, ptr %669, align 4
@@ -1573,7 +1573,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit623: ; preds = %680, %_ZL10rea
 
 .loopexit695:                                     ; preds = %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit623, %667, %.loopexit699
   %.14 = phi i64 [ %587, %.loopexit699 ], [ %655, %667 ], [ %673, %_ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit623 ]
-  %692 = getelementptr inbounds ptr, ptr %144, i64 %indvars.iv943
+  %692 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv943
   store ptr %152, ptr %692, align 8
   %indvars.iv.next944 = add nuw nsw i64 %indvars.iv943, 1
   %exitcond948.not = icmp eq i64 %indvars.iv.next944, %142
@@ -1600,16 +1600,16 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit623: ; preds = %680, %_ZL10rea
 
 _ZL10readVarIntPKcmRm.exit629:                    ; preds = %.preheader
   %701 = zext i32 %699 to i64
-  %702 = getelementptr inbounds ptr, ptr %144, i64 %701
+  %702 = getelementptr inbounds nuw ptr, ptr %144, i64 %701
   %703 = load ptr, ptr %702, align 8
-  %704 = getelementptr inbounds i8, ptr %0, i64 1
+  %704 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %705 = load i8, ptr %704, align 1
   %706 = and i8 %705, 4
   %.not459 = icmp eq i8 %706, 0
   br i1 %.not459, label %709, label %707
 
 707:                                              ; preds = %_ZL10readVarIntPKcmRm.exit629
-  %708 = getelementptr inbounds i8, ptr %0, i64 104
+  %708 = getelementptr inbounds nuw i8, ptr %0, i64 104
   invoke void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %708)
           to label %709 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1618,12 +1618,12 @@ _ZL10readVarIntPKcmRm.exit629:                    ; preds = %.preheader
           to label %711 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 711:                                              ; preds = %709
-  %712 = getelementptr inbounds i8, ptr %0, i64 8
+  %712 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %713 = load ptr, ptr %712, align 8
   store ptr %710, ptr %713, align 8
-  %714 = getelementptr inbounds i8, ptr %713, i64 12
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 12
   store i32 7, ptr %714, align 4
-  %715 = getelementptr inbounds i8, ptr %0, i64 40
+  %715 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %716 = load ptr, ptr %715, align 8
   %717 = load ptr, ptr %712, align 8
   %718 = ptrtoint ptr %716 to i64
@@ -1642,7 +1642,7 @@ _ZL10readVarIntPKcmRm.exit629:                    ; preds = %.preheader
 
 723:                                              ; preds = %._crit_edge953, %711
   %724 = phi ptr [ %.pre954, %._crit_edge953 ], [ %717, %711 ]
-  %725 = getelementptr inbounds i8, ptr %724, i64 16
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 16
   store ptr %725, ptr %712, align 8
   invoke void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef nonnull %0, ptr noundef nonnull %144, i64 noundef %143, i8 noundef zeroext 0)
           to label %_ZN10TempBufferIP5ProtoED2Ev.exit unwind label %726
@@ -1730,9 +1730,9 @@ declare hidden void @_Z14luaD_growstackP9lua_Statei(ptr noundef, i32 noundef) lo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = shl i64 %6, 3
   invoke void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %2, ptr noundef %4, i64 noundef %7, i8 noundef zeroext 0)
@@ -1752,9 +1752,9 @@ define linkonce_odr dso_local void @_ZN10TempBufferIP5ProtoED2Ev(ptr noundef non
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10TempBufferIP7TStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = shl i64 %6, 3
   invoke void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef %2, ptr noundef %4, i64 noundef %7, i8 noundef zeroext 0)
@@ -1778,9 +1778,9 @@ declare hidden noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef,
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZZL17resolveImportSafeP9lua_StateP5TableP10lua_TValuejEN13ResolveImport3runES0_Pv(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 2 {
   %3 = alloca %struct.lua_TValue, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %5 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1795,15 +1795,15 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP5TableP10lua_TValuejEN1
 
 13:                                               ; preds = %2, %12
   %14 = phi ptr [ %7, %2 ], [ %.pre, %12 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %15, align 4
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %17, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i32, ptr %21, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %23 = lshr i32 %22, 20
@@ -1811,16 +1811,16 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP5TableP10lua_TValuejEN1
   %25 = lshr i32 %22, 10
   %26 = and i32 %25, 1023
   %27 = and i32 %22, 1023
-  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %16 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   store ptr %19, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %3, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 6, ptr %33, align 4
   %34 = zext nneg i32 %24 to i64
-  %35 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %34
+  %35 = getelementptr inbounds nuw %struct.lua_TValue, ptr %20, i64 %34
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %35, ptr noundef %16)
   %36 = icmp sgt i32 %22, -1
   br i1 %36, label %_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb.exit, label %37
@@ -1828,14 +1828,14 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP5TableP10lua_TValuejEN1
 37:                                               ; preds = %13
   %38 = load ptr, ptr %28, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %32
-  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb.exit, label %43
 
 43:                                               ; preds = %37
   %44 = zext nneg i32 %26 to i64
-  %45 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %44
+  %45 = getelementptr inbounds nuw %struct.lua_TValue, ptr %20, i64 %44
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef %45, ptr noundef nonnull %39)
   %.not.i = icmp samesign ugt i32 %22, -1073741825
   br i1 %.not.i, label %46, label %_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb.exit
@@ -1843,14 +1843,14 @@ define internal void @_ZZL17resolveImportSafeP9lua_StateP5TableP10lua_TValuejEN1
 46:                                               ; preds = %43
   %47 = load ptr, ptr %28, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 %32
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %48, i64 12
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %48, i64 12
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
   %49 = icmp eq i32 %.pre.i, 0
   br i1 %49, label %_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb.exit, label %50
 
 50:                                               ; preds = %46
   %51 = zext nneg i32 %27 to i64
-  %52 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %51
+  %52 = getelementptr inbounds nuw %struct.lua_TValue, ptr %20, i64 %51
   call void @_Z13luaV_gettableP9lua_StatePK10lua_TValuePS1_S4_(ptr noundef nonnull %0, ptr noundef nonnull %48, ptr noundef %52, ptr noundef nonnull %48)
   br label %_Z14luaV_getimportP9lua_StateP5TableP10lua_TValueS4_jb.exit
 
@@ -1876,10 +1876,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_lvmload.cpp() #9 section ".text.startup" {
   store i8 0, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 1), align 1
-  store ptr @.str, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 8), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 1), align 1
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 8), align 8
   %1 = load ptr, ptr @_ZN4Luau6FValueIbE4listE, align 8
-  store ptr %1, ptr getelementptr inbounds (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 16), align 8
+  store ptr %1, ptr getelementptr inbounds nuw (i8, ptr @_ZN5FFlag20LuauLoadUserdataInfoE, i64 16), align 8
   store ptr @_ZN5FFlag20LuauLoadUserdataInfoE, ptr @_ZN4Luau6FValueIbE4listE, align 8
   ret void
 }

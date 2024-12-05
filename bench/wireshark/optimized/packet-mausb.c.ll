@@ -525,27 +525,27 @@ define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly init
   %.val = load i8, ptr %3, align 1
   %4 = icmp eq i8 %.val, -128
   %5 = zext i1 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i16, ptr %7, align 4
   %9 = lshr i16 %8, 12
   store i16 %9, ptr %0, align 8
   %10 = load i16, ptr %7, align 4
   %11 = lshr i16 %10, 5
   %12 = and i16 %11, 127
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 %12, ptr %13, align 2
   %14 = load i8, ptr %1, align 4
   %15 = and i8 %14, 16
   %16 = zext nneg i8 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %16, ptr %17, align 8
   %18 = load i16, ptr %7, align 4
   %19 = trunc i16 %18 to i8
   %20 = lshr i8 %19, 1
   %21 = and i8 %20, 15
-  %22 = getelementptr inbounds i8, ptr %0, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %21, ptr %22, align 4
   %23 = load i8, ptr %3, align 1
   switch i8 %23, label %.thread [
@@ -560,7 +560,7 @@ define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly init
   br i1 %.not.i, label %.thread, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %.thread
@@ -590,7 +590,7 @@ define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly init
 
 mausb_has_setup_data.exit:                        ; preds = %.thread, %38, %31
   %42 = phi i32 [ 1, %31 ], [ 0, %.thread ], [ 1, %38 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %42, ptr %43, align 8
   %44 = getelementptr i8, ptr %1, i64 12
   %.val19 = load i8, ptr %44, align 4
@@ -599,7 +599,7 @@ mausb_has_setup_data.exit:                        ; preds = %.thread, %38, %31
   %switch.shiftamt = zext nneg i8 %46 to i32
   %switch.downshift = lshr i32 16973826, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %47 = getelementptr inbounds i8, ptr %0, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %switch.masked, ptr %47, align 4
   ret void
 }
@@ -653,7 +653,7 @@ define internal i32 @dissect_mausb(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_clear_fence(ptr noundef %9, i32 noundef 25) #6
   %10 = load ptr, ptr %8, align 8
@@ -669,9 +669,9 @@ define internal i32 @dissect_mausb(ptr noundef %0, ptr noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 65536) i32 @dissect_mausb_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #3 {
   %5 = alloca %struct.mausb_header, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %6, i8 0, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.184) #6
   %9 = load i32, ptr @mausb_num_pdus, align 4
@@ -695,7 +695,7 @@ define internal range(i32 0, 65536) i32 @dissect_mausb_pkt(ptr noundef %0, ptr n
   %23 = load i32, ptr @ett_mausb_flags, align 4
   %24 = tail call ptr @proto_tree_add_bitmask(ptr noundef %18, ptr noundef %0, i32 noundef 0, i32 noundef %22, i32 noundef %23, ptr noundef nonnull @mausb_flag_fields, i32 noundef -2147483648) #6
   %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #6
-  %26 = getelementptr inbounds i8, ptr %5, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %25, ptr %26, align 1
   %27 = load ptr, ptr %7, align 8
   %28 = zext i8 %25 to i32
@@ -704,7 +704,7 @@ define internal range(i32 0, 65536) i32 @dissect_mausb_pkt(ptr noundef %0, ptr n
   %30 = load i32, ptr @hf_mausb_type, align 4
   %31 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %30, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #6
   %32 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 2) #6
-  %33 = getelementptr inbounds i8, ptr %5, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %32, ptr %33, align 2
   %34 = load ptr, ptr %7, align 8
   %35 = zext i16 %32 to i32
@@ -721,7 +721,7 @@ define internal range(i32 0, 65536) i32 @dissect_mausb_pkt(ptr noundef %0, ptr n
 
 41:                                               ; preds = %39, %4
   %42 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4) #6
-  %43 = getelementptr inbounds i8, ptr %5, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %42, ptr %43, align 4
   %44 = icmp ugt i8 %25, 63
   br i1 %44, label %45, label %dissect_mausb_pkt_common.exit
@@ -745,17 +745,17 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   %56 = load i32, ptr %hf_mausb_ep_handle_bus_num.sink.i, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %.sink.i, i32 noundef %56, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648) #6
   %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #6
-  %59 = getelementptr inbounds i8, ptr %5, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i8 %58, ptr %59, align 2
   %60 = load i32, ptr @hf_mausb_ma_dev_addr, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %60, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648) #6
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #6
-  %63 = getelementptr inbounds i8, ptr %5, i64 7
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 7
   store i8 %62, ptr %63, align 1
   %64 = load i32, ptr @hf_mausb_ssid, align 4
   %65 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %64, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648) #6
   %66 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #6
-  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 %66, ptr %67, align 4
   %68 = load i32, ptr @hf_mausb_status, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648) #6
@@ -764,7 +764,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
 70:                                               ; preds = %dissect_mausb_pkt_common.exit
   %71 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 9) #6
   %72 = and i16 %71, 1023
-  %73 = getelementptr inbounds i8, ptr %5, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 %72, ptr %73, align 4
   %74 = load ptr, ptr %7, align 8
   %75 = zext nneg i16 %72 to i32
@@ -920,7 +920,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
 
 135:                                              ; preds = %133
   %136 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #6
-  %137 = getelementptr inbounds i8, ptr %5, i64 12
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %136, ptr %137, align 4
   %138 = and i8 %19, 16
   %.not.i40 = icmp eq i8 %138, 0
@@ -934,7 +934,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   %144 = and i8 %136, 96
   %.not90.i = icmp eq i8 %144, 32
   %145 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 10) #6
-  %146 = getelementptr inbounds i8, ptr %5, i64 14
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i16 %145, ptr %146, align 2
   br i1 %.not90.i, label %147, label %153
 
@@ -953,14 +953,14 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
 
 156:                                              ; preds = %153, %147
   %157 = tail call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef 12) #6
-  %158 = getelementptr inbounds i8, ptr %5, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %157, ptr %158, align 4
   %159 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %159, i32 noundef 25, ptr noundef nonnull @.str.322, i32 noundef %157) #6
   %160 = load i32, ptr @hf_mausb_seq_num, align 4
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %160, ptr noundef %0, i32 noundef 12, i32 noundef 3, i32 noundef -2147483648) #6
   %162 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 15) #6
-  %163 = getelementptr inbounds i8, ptr %5, i64 20
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i8 %162, ptr %163, align 4
   %164 = load ptr, ptr %7, align 8
   %165 = zext i8 %162 to i32
@@ -968,7 +968,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
   %166 = load i32, ptr @hf_mausb_req_id, align 4
   %167 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %166, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef -2147483648) #6
   %168 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 16) #6
-  %169 = getelementptr inbounds i8, ptr %5, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %168, ptr %169, align 4
   br i1 %.not90.i, label %170, label %dissect_mausb_pkt_data.exit.sink.split
 
@@ -989,7 +989,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
 
 182:                                              ; preds = %170
   %183 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 20) #6
-  %184 = getelementptr inbounds i8, ptr %5, i64 28
+  %184 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %183, ptr %184, align 4
   %185 = load i32, ptr @hf_mausb_timestamp, align 4
   %186 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %185, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648) #6
@@ -1008,7 +1008,7 @@ dissect_mausb_pkt_common.exit:                    ; preds = %41, %45
 
 194:                                              ; preds = %193
   %195 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0.i42) #6
-  %196 = getelementptr inbounds i8, ptr %5, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %195, ptr %196, align 4
   br label %dissect_mausb_pkt_data.exit.sink.split
 
@@ -1137,7 +1137,7 @@ define internal fastcc zeroext i16 @dissect_mausb_mgmt_pkt_cap_resp(ptr nocaptur
   %39 = add i16 %4, 12
   %40 = sext i16 %39 to i32
   %41 = add i32 %28, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %43 = load i16, ptr %42, align 2
   %44 = zext i16 %43 to i32
   %45 = icmp ugt i32 %41, %44

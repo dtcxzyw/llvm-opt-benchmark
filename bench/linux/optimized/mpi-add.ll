@@ -16,9 +16,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_subm: ; 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %5, 1
   %9 = load i32, ptr %0, align 8
@@ -30,9 +30,9 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly
   br label %13
 
 13:                                               ; preds = %11, %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq i32 %5, 0
   br i1 %18, label %19, label %22
@@ -183,9 +183,9 @@ define dso_local void @mpi_add_ui(ptr noundef %0, ptr nocapture noundef readonly
 106:                                              ; preds = %.loopexit14, %65, %.loopexit, %19
   %107 = phi i32 [ 1, %65 ], [ %105, %.loopexit14 ], [ %61, %.loopexit ], [ %21, %19 ]
   %108 = phi i32 [ 0, %65 ], [ 1, %.loopexit14 ], [ 0, %.loopexit ], [ 0, %19 ]
-  %109 = getelementptr inbounds i8, ptr %0, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %107, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %0, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %108, ptr %110, align 4
   ret void
 }
@@ -195,27 +195,27 @@ declare dso_local i32 @mpi_resize(ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_add(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %5, %7
   %9 = load i32, ptr %0, align 8
   br i1 %8, label %10, label %17
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %7, 1
   %16 = icmp slt i32 %9, %15
   br i1 %16, label %24, label %33
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %1, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = add i32 %5, 1
   %23 = icmp slt i32 %9, %22
@@ -239,11 +239,11 @@ define dso_local void @mpi_add(ptr noundef %0, ptr nocapture noundef readonly %1
   %37 = phi i32 [ %5, %10 ], [ %7, %17 ], [ %29, %24 ]
   %38 = phi i32 [ %12, %10 ], [ %19, %17 ], [ %30, %24 ]
   %39 = phi i32 [ %14, %10 ], [ %21, %17 ], [ %31, %24 ]
-  %40 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %34, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq i32 %37, 0
   br i1 %46, label %47, label %58
@@ -477,9 +477,9 @@ define dso_local void @mpi_add(ptr noundef %0, ptr nocapture noundef readonly %1
 .loopexit:                                        ; preds = %107, %.preheader26, %51, %.loopexit18, %.loopexit24, %.loopexit22, %.loopexit29, %47
   %188 = phi i32 [ %185, %.loopexit18 ], [ %125, %.loopexit22 ], [ %138, %.loopexit24 ], [ %36, %47 ], [ %36, %.loopexit29 ], [ %36, %51 ], [ %102, %.preheader26 ], [ 0, %107 ]
   %189 = phi i32 [ %187, %.loopexit18 ], [ %127, %.loopexit22 ], [ %140, %.loopexit24 ], [ %38, %47 ], [ %38, %.loopexit29 ], [ %38, %51 ], [ %38, %.preheader26 ], [ %38, %107 ]
-  %190 = getelementptr inbounds i8, ptr %0, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %188, ptr %190, align 4
-  %191 = getelementptr inbounds i8, ptr %0, i64 12
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %189, ptr %191, align 4
   ret void
 }
@@ -493,7 +493,7 @@ declare dso_local i64 @mpihelp_sub_n(ptr noundef, ptr noundef, ptr noundef, i32 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_sub(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = tail call ptr @mpi_copy(ptr noundef %2) #2
-  %5 = getelementptr inbounds i8, ptr %4, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   %8 = zext i1 %7 to i32
@@ -522,7 +522,7 @@ declare dso_local void @mpi_mod(ptr noundef, ptr noundef, ptr noundef) local_unn
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @mpi_subm(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = tail call ptr @mpi_copy(ptr noundef %2) #2
-  %6 = getelementptr inbounds i8, ptr %5, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
   %9 = zext i1 %8 to i32

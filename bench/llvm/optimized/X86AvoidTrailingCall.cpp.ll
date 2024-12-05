@@ -85,11 +85,11 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 define internal noundef nonnull ptr @_ZL42initializeX86AvoidTrailingCallPassPassOnceRN4llvm12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160) %0) #0 {
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11
   store ptr @.str, ptr %2, align 8
-  %.sroa.25.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.25.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 28, ptr %.sroa.25.0..sroa_idx.i, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @.str.1, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 23, ptr %.sroa.2.0..sroa_idx.i, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN12_GLOBAL__N_124X86AvoidTrailingCallPass2IDE, ptr %4, align 8
@@ -124,19 +124,19 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_124X86AvoidTrailingCallPass11getP
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 1 %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 %10(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %0) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -196,7 +196,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86AvoidTrailingCallPass2
 
 .lr.ph:                                           ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 616
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 616
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZN4llvm8DebugLocD2Ev.exit40
@@ -204,7 +204,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86AvoidTrailingCallPass2
   %.02372 = phi i1 [ false, %.lr.ph ], [ %.1, %_ZN4llvm8DebugLocD2Ev.exit40 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.052.073, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 320
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 320
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.052.073, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %19
@@ -219,7 +219,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86AvoidTrailingCallPass2
   br i1 %26, label %27, label %_ZN4llvm8DebugLocD2Ev.exit40
 
 27:                                               ; preds = %23, %16
-  %28 = getelementptr inbounds i8, ptr %.sroa.052.073, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.052.073, i64 48
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %28, align 8
   %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %30 = inttoptr i64 %29 to ptr

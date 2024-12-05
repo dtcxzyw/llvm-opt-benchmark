@@ -46,9 +46,9 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 define hidden void @_ZN21ZVirtualMemoryManagerC2Em(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.GCLogPreciousHandle, align 8
   tail call void @_ZN14ZMemoryManagerC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i8 0, ptr %5, align 8
   tail call void @_ZN21ZVirtualMemoryManager28pd_initialize_before_reserveEv(ptr noundef nonnull align 8 dereferenceable(121) %0) #7
   %6 = tail call noundef zeroext i1 @_ZN21ZVirtualMemoryManager7reserveEm(ptr noundef nonnull align 8 dereferenceable(121) %0, i64 noundef %1)
@@ -56,7 +56,7 @@ define hidden void @_ZN21ZVirtualMemoryManagerC2Em(ptr noundef nonnull align 8 d
 
 7:                                                ; preds = %2
   store i32 5, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str)
   br label %9
@@ -145,7 +145,7 @@ _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.i.i: ; preds = %16
   %.0.i = phi i64 [ %9, %22 ], [ 0, %.loopexit.i ], [ %35, %.lr.ph.i1.i ]
   %41 = tail call noundef zeroext i1 @_ZNK14ZMemoryManager18free_is_contiguousEv(ptr noundef nonnull align 8 dereferenceable(112) %0) #7
   store i32 3, ptr %3, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %42 = select i1 %41, ptr @.str.5, ptr @.str.6
   %43 = load i64, ptr @ZAddressOffsetMax, align 8
@@ -155,11 +155,11 @@ _ZN21ZVirtualMemoryManager18reserve_contiguousE7zoffsetm.exit.i.i: ; preds = %16
   %.str.9..str.10 = select i1 %46, ptr @.str.9, ptr @.str.10
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %42, ptr noundef nonnull %45, ptr noundef nonnull %.str.9..str.10)
   store i32 3, ptr %4, align 8
-  %.sroa.21.0..sroa_idx.i12 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.21.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i12, align 8
   %47 = lshr i64 %.0.i, 20
   call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.11, i64 noundef %47)
-  %48 = getelementptr inbounds i8, ptr %0, i64 112
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %.0.i, ptr %48, align 8
   %49 = icmp uge i64 %.0.i, %1
   ret i1 %49
@@ -170,7 +170,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle15write_and_debugEPKcz(
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious16vwrite_and_debugE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #7
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -329,7 +329,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #7
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -338,7 +338,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZNK21ZVirtualMemoryManager14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -375,7 +375,7 @@ declare noundef i64 @_ZN14ZMemoryManager18alloc_high_addressEm(ptr noundef nonnu
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN21ZVirtualMemoryManager4freeERK14ZVirtualMemory(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub i64 %5, %3
   tail call void @_ZN14ZMemoryManager4freeE7zoffsetm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %3, i64 noundef %6) #7

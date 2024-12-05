@@ -159,7 +159,7 @@ define internal noundef range(i32 -19, 1) i32 @univ8250_console_init() #2 sectio
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr nocapture noundef readonly %0) local_unnamed_addr #2 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 316
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %3 = load i32, ptr %2, align 4
   %4 = icmp ugt i32 %3, 31
   %5 = load i32, ptr @nr_uarts, align 4
@@ -172,91 +172,91 @@ define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr nocapture
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
   %11 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %16, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %11, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store i32 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %11, i64 176
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store i64 %22, ptr %23, align 16
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 184
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 188
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %11, i64 188
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 188
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 193
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %11, i64 193
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 193
   store i8 %31, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 194
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %34 = load i8, ptr %33, align 2
-  %35 = getelementptr inbounds i8, ptr %11, i64 194
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 194
   store i8 %34, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %0, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %11, i64 272
+  %38 = getelementptr inbounds nuw i8, ptr %11, i64 272
   store i64 %37, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 328
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %11, i64 328
+  %41 = getelementptr inbounds nuw i8, ptr %11, i64 328
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 336
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %11, i64 336
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 336
   store i64 %43, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %0, i64 520
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %11, i64 520
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 520
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 296
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %11, i64 296
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 296
   store i32 %49, ptr %50, align 8
   %51 = load i32, ptr %2, align 4
-  %52 = getelementptr inbounds i8, ptr %11, i64 316
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 316
   store i32 %51, ptr %52, align 4
   tail call void @serial8250_set_defaults(ptr noundef %11) #12
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %8
-  %57 = getelementptr inbounds i8, ptr %11, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %54, ptr %57, align 8
   br label %58
 
 58:                                               ; preds = %56, %8
-  %59 = getelementptr inbounds i8, ptr %0, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %64, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %11, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %60, ptr %63, align 16
   br label %64
 
 64:                                               ; preds = %62, %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 120
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %11, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 120
   store ptr %66, ptr %69, align 8
   br label %70
 
@@ -300,9 +300,9 @@ define internal fastcc void @serial8250_isa_init_ports() unnamed_addr #2 section
 10:                                               ; preds = %.preheader2
   %11 = sext i32 %8 to i64
   %12 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %11
-  %13 = getelementptr inbounds i8, ptr %12, i64 316
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 316
   store i32 %8, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 164
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 164
   store i32 %8, ptr %14, align 4
   tail call void @serial8250_init_port(ptr noundef %12) #12
   %15 = load ptr, ptr @base_ops, align 8
@@ -310,17 +310,17 @@ define internal fastcc void @serial8250_isa_init_ports() unnamed_addr #2 section
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %12, i64 304
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %19 = load ptr, ptr %18, align 16
   store ptr %19, ptr @base_ops, align 8
   br label %20
 
 20:                                               ; preds = %17, %10
-  %21 = getelementptr inbounds i8, ptr %12, i64 304
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 304
   store ptr @univ8250_port_ops, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %12, i64 528
-  tail call void @init_timer_key(ptr noundef %22, ptr noundef nonnull @serial8250_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %23 = getelementptr inbounds i8, ptr %12, i64 640
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 528
+  tail call void @init_timer_key(ptr noundef nonnull %22, ptr noundef nonnull @serial8250_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 640
   store ptr @univ8250_driver_ops, ptr %23, align 16
   tail call void @serial8250_set_defaults(ptr noundef %12) #12
   %.pre = load i32, ptr @nr_uarts, align 4
@@ -355,50 +355,50 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
   %35 = phi i64 [ %73, %70 ], [ 0, %.preheader.preheader ]
   %36 = phi ptr [ %74, %70 ], [ @serial8250_ports, %.preheader.preheader ]
   %37 = getelementptr [4 x %struct.old_serial_port], ptr @old_serial_port, i64 0, i64 %35
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 2
   %45 = select i1 %44, i32 9, i32 %43
-  %46 = getelementptr inbounds i8, ptr %36, i64 168
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 168
   store i32 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %36, i64 176
-  %48 = getelementptr inbounds i8, ptr %37, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %36, i64 176
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = shl i32 %49, 4
-  %51 = getelementptr inbounds i8, ptr %36, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %36, i64 184
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %37, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %53 = load i64, ptr %52, align 16
-  %54 = getelementptr inbounds i8, ptr %36, i64 272
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 272
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %36, i64 371
+  %55 = getelementptr inbounds nuw i8, ptr %36, i64 371
   store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %37, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %57 = load ptr, ptr %56, align 16
-  %58 = getelementptr inbounds i8, ptr %36, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %37, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %60 = load i8, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %36, i64 194
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 194
   store i8 %60, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %37, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %63 = load i16, ptr %62, align 8
   %64 = trunc i16 %63 to i8
-  %65 = getelementptr inbounds i8, ptr %36, i64 193
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 193
   store i8 %64, ptr %65, align 1
   store i64 %31, ptr %47, align 8
   %66 = icmp eq ptr %34, null
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %.preheader
-  %68 = getelementptr inbounds i8, ptr %36, i64 584
+  %68 = getelementptr inbounds nuw i8, ptr %36, i64 584
   %69 = trunc i64 %35 to i32
-  tail call void %34(i32 noundef %69, ptr noundef %36, ptr noundef %68) #12
+  tail call void %34(i32 noundef %69, ptr noundef %36, ptr noundef nonnull %68) #12
   %.pre4 = load ptr, ptr @serial8250_isa_config, align 8
   %.pre6 = load i32, ptr @nr_uarts, align 4
   br label %70
@@ -433,38 +433,38 @@ define dso_local void @serial8250_suspend_port(i32 noundef %0) #5 align 16 {
   br i1 %5, label %6, label %30
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 264
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %30, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 74
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 74
   %12 = load i16, ptr %11, align 2
   %13 = sext i16 %12 to i32
-  %14 = getelementptr inbounds i8, ptr %3, i64 316
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 316
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %13
   br i1 %16, label %17, label %30
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %3, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 296
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %23 = load ptr, ptr %22, align 16
   tail call void %23(ptr noundef %3, i32 noundef 7, i32 noundef 165) #12
-  %24 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %3, i32 noundef 7) #12
   %27 = icmp eq i32 %26, 165
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %3, i64 608
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 608
   store i8 -91, ptr %29, align 16
   br label %30
 
@@ -480,19 +480,19 @@ declare dso_local i32 @uart_suspend_port(ptr noundef, ptr noundef) local_unnamed
 define dso_local void @serial8250_resume_port(i32 noundef %0) #5 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %2
-  %4 = getelementptr inbounds i8, ptr %3, i64 608
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 608
   store i8 0, ptr %4, align 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 584
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 584
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %24, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load ptr, ptr %10, align 16
   tail call void %11(ptr noundef %3, i32 noundef 3, i32 noundef 224) #12
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %3, i32 noundef 4) #12
   %15 = and i32 %14, 48
@@ -509,7 +509,7 @@ define dso_local void @serial8250_resume_port(i32 noundef %0) #5 align 16 {
 21:                                               ; preds = %17, %9
   %22 = load ptr, ptr %10, align 16
   tail call void %22(ptr noundef %3, i32 noundef 3, i32 noundef 0) #12
-  %23 = getelementptr inbounds i8, ptr %3, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store i32 14745600, ptr %23, align 8
   br label %24
 
@@ -523,7 +523,7 @@ declare dso_local i32 @uart_resume_port(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %321, label %5
@@ -548,7 +548,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br i1 %15, label %.loopexit, label %8
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 316
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, %10
   br i1 %19, label %20, label %30
@@ -556,13 +556,13 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
 20:                                               ; preds = %16
   %21 = sext i32 %18 to i64
   %22 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 296
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %.preheader35.preheader
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %.loopexit, label %.preheader35.preheader
@@ -578,13 +578,13 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   %32 = phi i32 [ %43, %42 ], [ 0, %.preheader35.preheader ]
   %33 = sext i32 %32 to i64
   %34 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 296
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %.preheader35
-  %39 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %.loopexit, label %42
@@ -603,7 +603,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   %48 = phi i32 [ %46, %45 ], [ 0, %42 ]
   %49 = sext i32 %48 to i64
   %50 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 296
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 296
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %.loopexit, label %45
@@ -626,9 +626,9 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   %57 = phi i32 [ %.pr, %.thread31 ], [ 0, %5 ], [ 0, %30 ]
   %58 = sext i32 %57 to i64
   %59 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 316
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 316
   store i32 %57, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %59, i64 164
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 164
   store i32 %57, ptr %61, align 4
   tail call void @serial8250_init_port(ptr noundef %59) #12
   %62 = load ptr, ptr @base_ops, align 8
@@ -636,17 +636,17 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %.thread31.thread
-  %65 = getelementptr inbounds i8, ptr %59, i64 304
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 304
   %66 = load ptr, ptr %65, align 16
   store ptr %66, ptr @base_ops, align 8
   br label %67
 
 67:                                               ; preds = %.thread31.thread, %64
-  %68 = getelementptr inbounds i8, ptr %59, i64 304
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 304
   store ptr @univ8250_port_ops, ptr %68, align 16
-  %69 = getelementptr inbounds i8, ptr %59, i64 528
-  tail call void @init_timer_key(ptr noundef %69, ptr noundef nonnull @serial8250_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %70 = getelementptr inbounds i8, ptr %59, i64 640
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 528
+  tail call void @init_timer_key(ptr noundef nonnull %69, ptr noundef nonnull @serial8250_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %70 = getelementptr inbounds nuw i8, ptr %59, i64 640
   store ptr @univ8250_driver_ops, ptr %70, align 16
   tail call void @serial8250_set_defaults(ptr noundef %59) #12
   %71 = icmp eq ptr %59, null
@@ -660,13 +660,13 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
 
 75:                                               ; preds = %72, %.loopexit
   %76 = phi ptr [ %54, %.loopexit ], [ %59, %72 ]
-  %77 = getelementptr inbounds i8, ptr %76, i64 296
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 296
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 23
   br i1 %79, label %.thread32, label %80
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %76, i64 344
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 344
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %85, label %84
@@ -676,107 +676,107 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br label %85
 
 85:                                               ; preds = %84, %80
-  %86 = getelementptr inbounds i8, ptr %0, i64 160
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %76, i64 160
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 160
   store i32 %87, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 164
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %90 = load i32, ptr %89, align 4
-  %91 = getelementptr inbounds i8, ptr %76, i64 164
+  %91 = getelementptr inbounds nuw i8, ptr %76, i64 164
   store i32 %90, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %0, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %76, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i64 %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %76, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 168
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %99 = load i32, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %76, i64 168
+  %100 = getelementptr inbounds nuw i8, ptr %76, i64 168
   store i32 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 176
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %102 = load i64, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %76, i64 176
+  %103 = getelementptr inbounds nuw i8, ptr %76, i64 176
   store i64 %102, ptr %103, align 8
   %104 = load i32, ptr %2, align 8
-  %105 = getelementptr inbounds i8, ptr %76, i64 184
+  %105 = getelementptr inbounds nuw i8, ptr %76, i64 184
   store i32 %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 188
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %107 = load i32, ptr %106, align 4
-  %108 = getelementptr inbounds i8, ptr %76, i64 188
+  %108 = getelementptr inbounds nuw i8, ptr %76, i64 188
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 193
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %110 = load i8, ptr %109, align 1
-  %111 = getelementptr inbounds i8, ptr %76, i64 193
+  %111 = getelementptr inbounds nuw i8, ptr %76, i64 193
   store i8 %110, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %0, i64 194
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %113 = load i8, ptr %112, align 2
-  %114 = getelementptr inbounds i8, ptr %76, i64 194
+  %114 = getelementptr inbounds nuw i8, ptr %76, i64 194
   store i8 %113, ptr %114, align 2
-  %115 = getelementptr inbounds i8, ptr %0, i64 272
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %116 = load i64, ptr %115, align 8
   %117 = or i64 %116, 268435456
-  %118 = getelementptr inbounds i8, ptr %76, i64 272
+  %118 = getelementptr inbounds nuw i8, ptr %76, i64 272
   store i64 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 588
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %120 = load i16, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %76, i64 588
+  %121 = getelementptr inbounds nuw i8, ptr %76, i64 588
   store i16 %120, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %0, i64 328
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %76, i64 328
+  %124 = getelementptr inbounds nuw i8, ptr %76, i64 328
   store i64 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 336
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %126 = load i64, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %76, i64 336
+  %127 = getelementptr inbounds nuw i8, ptr %76, i64 336
   store i64 %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 520
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %76, i64 520
+  %130 = getelementptr inbounds nuw i8, ptr %76, i64 520
   store ptr %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 592
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %132 = load i32, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %76, i64 592
+  %133 = getelementptr inbounds nuw i8, ptr %76, i64 592
   store i32 %132, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %0, i64 584
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %135 = load i32, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %76, i64 584
+  %136 = getelementptr inbounds nuw i8, ptr %76, i64 584
   store i32 %135, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 104
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %76, i64 104
+  %139 = getelementptr inbounds nuw i8, ptr %76, i64 104
   store ptr %138, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %0, i64 112
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %76, i64 112
+  %142 = getelementptr inbounds nuw i8, ptr %76, i64 112
   store ptr %141, ptr %142, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 144
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %76, i64 144
+  %145 = getelementptr inbounds nuw i8, ptr %76, i64 144
   store ptr %144, ptr %145, align 8
-  %146 = getelementptr inbounds i8, ptr %76, i64 432
-  %147 = getelementptr inbounds i8, ptr %0, i64 432
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %146, ptr noundef align 8 dereferenceable(32) %147, i64 32, i1 false)
-  %148 = getelementptr inbounds i8, ptr %76, i64 400
-  %149 = getelementptr inbounds i8, ptr %0, i64 400
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(32) %148, ptr noundef align 8 dereferenceable(32) %149, i64 32, i1 false)
-  %150 = getelementptr inbounds i8, ptr %0, i64 672
+  %146 = getelementptr inbounds nuw i8, ptr %76, i64 432
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %146, ptr noundef nonnull align 8 dereferenceable(32) %147, i64 32, i1 false)
+  %148 = getelementptr inbounds nuw i8, ptr %76, i64 400
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %148, ptr noundef nonnull align 8 dereferenceable(32) %149, i64 32, i1 false)
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %76, i64 672
+  %152 = getelementptr inbounds nuw i8, ptr %76, i64 672
   store ptr %151, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 680
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %76, i64 680
+  %155 = getelementptr inbounds nuw i8, ptr %76, i64 680
   store ptr %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 626
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 626
   %157 = load i16, ptr %156, align 2
-  %158 = getelementptr inbounds i8, ptr %76, i64 626
+  %158 = getelementptr inbounds nuw i8, ptr %76, i64 626
   store i16 %157, ptr %158, align 2
-  %159 = getelementptr inbounds i8, ptr %0, i64 632
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %76, i64 632
+  %161 = getelementptr inbounds nuw i8, ptr %76, i64 632
   store ptr %160, ptr %161, align 8
   %162 = icmp ne i32 %107, 0
   %163 = icmp eq i32 %132, 0
@@ -788,7 +788,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br label %166
 
 166:                                              ; preds = %165, %85
-  %167 = getelementptr inbounds i8, ptr %0, i64 344
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %168 = load ptr, ptr %167, align 8
   %169 = icmp eq ptr %168, null
   br i1 %169, label %173, label %170
@@ -806,186 +806,186 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br i1 %176, label %180, label %177
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds i8, ptr %0, i64 296
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %179 = load i32, ptr %178, align 8
   store i32 %179, ptr %77, align 8
   br label %180
 
 180:                                              ; preds = %177, %173
   %181 = load ptr, ptr %81, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 632
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 632
   %183 = load ptr, ptr %182, align 8
   %184 = tail call zeroext i1 @is_acpi_device_node(ptr noundef %183) #12
   br i1 %184, label %187, label %185
 
 185:                                              ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %76, i64 616
+  %186 = getelementptr inbounds nuw i8, ptr %76, i64 616
   store ptr null, ptr %186, align 8
   br label %187
 
 187:                                              ; preds = %185, %180
   tail call void @serial8250_set_defaults(ptr noundef nonnull %76) #12
-  %188 = getelementptr inbounds i8, ptr %0, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, null
   br i1 %190, label %193, label %191
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %76, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store ptr %189, ptr %192, align 8
   br label %193
 
 193:                                              ; preds = %191, %187
-  %194 = getelementptr inbounds i8, ptr %0, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %195 = load ptr, ptr %194, align 8
   %196 = icmp eq ptr %195, null
   br i1 %196, label %199, label %197
 
 197:                                              ; preds = %193
-  %198 = getelementptr inbounds i8, ptr %76, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %76, i64 32
   store ptr %195, ptr %198, align 8
   br label %199
 
 199:                                              ; preds = %197, %193
-  %200 = getelementptr inbounds i8, ptr %0, i64 120
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %205, label %203
 
 203:                                              ; preds = %199
-  %204 = getelementptr inbounds i8, ptr %76, i64 120
+  %204 = getelementptr inbounds nuw i8, ptr %76, i64 120
   store ptr %201, ptr %204, align 8
   br label %205
 
 205:                                              ; preds = %203, %199
-  %206 = getelementptr inbounds i8, ptr %0, i64 40
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %211, label %209
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i8, ptr %76, i64 40
+  %210 = getelementptr inbounds nuw i8, ptr %76, i64 40
   store ptr %207, ptr %210, align 8
   br label %211
 
 211:                                              ; preds = %209, %205
-  %212 = getelementptr inbounds i8, ptr %0, i64 48
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %213 = load ptr, ptr %212, align 8
   %214 = icmp eq ptr %213, null
   br i1 %214, label %217, label %215
 
 215:                                              ; preds = %211
-  %216 = getelementptr inbounds i8, ptr %76, i64 48
+  %216 = getelementptr inbounds nuw i8, ptr %76, i64 48
   store ptr %213, ptr %216, align 8
   br label %217
 
 217:                                              ; preds = %215, %211
-  %218 = getelementptr inbounds i8, ptr %0, i64 56
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %219 = load ptr, ptr %218, align 8
   %220 = icmp eq ptr %219, null
   br i1 %220, label %223, label %221
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %76, i64 56
+  %222 = getelementptr inbounds nuw i8, ptr %76, i64 56
   store ptr %219, ptr %222, align 8
   br label %223
 
 223:                                              ; preds = %221, %217
-  %224 = getelementptr inbounds i8, ptr %0, i64 64
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %225 = load ptr, ptr %224, align 8
   %226 = icmp eq ptr %225, null
   br i1 %226, label %229, label %227
 
 227:                                              ; preds = %223
-  %228 = getelementptr inbounds i8, ptr %76, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %76, i64 64
   store ptr %225, ptr %228, align 8
   br label %229
 
 229:                                              ; preds = %227, %223
-  %230 = getelementptr inbounds i8, ptr %0, i64 72
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %231, null
   br i1 %232, label %235, label %233
 
 233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %76, i64 72
+  %234 = getelementptr inbounds nuw i8, ptr %76, i64 72
   store ptr %231, ptr %234, align 8
   br label %235
 
 235:                                              ; preds = %233, %229
-  %236 = getelementptr inbounds i8, ptr %0, i64 80
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %237 = load ptr, ptr %236, align 8
   %238 = icmp eq ptr %237, null
   br i1 %238, label %241, label %239
 
 239:                                              ; preds = %235
-  %240 = getelementptr inbounds i8, ptr %76, i64 80
+  %240 = getelementptr inbounds nuw i8, ptr %76, i64 80
   store ptr %237, ptr %240, align 8
   br label %241
 
 241:                                              ; preds = %239, %235
-  %242 = getelementptr inbounds i8, ptr %0, i64 88
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %247, label %245
 
 245:                                              ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %76, i64 88
+  %246 = getelementptr inbounds nuw i8, ptr %76, i64 88
   store ptr %243, ptr %246, align 8
   br label %247
 
 247:                                              ; preds = %245, %241
-  %248 = getelementptr inbounds i8, ptr %0, i64 96
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %249 = load ptr, ptr %248, align 8
   %250 = icmp eq ptr %249, null
   br i1 %250, label %253, label %251
 
 251:                                              ; preds = %247
-  %252 = getelementptr inbounds i8, ptr %76, i64 96
+  %252 = getelementptr inbounds nuw i8, ptr %76, i64 96
   store ptr %249, ptr %252, align 8
   br label %253
 
 253:                                              ; preds = %251, %247
-  %254 = getelementptr inbounds i8, ptr %0, i64 128
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %255 = load ptr, ptr %254, align 8
   %256 = icmp eq ptr %255, null
   br i1 %256, label %259, label %257
 
 257:                                              ; preds = %253
-  %258 = getelementptr inbounds i8, ptr %76, i64 128
+  %258 = getelementptr inbounds nuw i8, ptr %76, i64 128
   store ptr %255, ptr %258, align 8
   br label %259
 
 259:                                              ; preds = %257, %253
-  %260 = getelementptr inbounds i8, ptr %0, i64 136
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %261 = load ptr, ptr %260, align 8
   %262 = icmp eq ptr %261, null
   br i1 %262, label %265, label %263
 
 263:                                              ; preds = %259
-  %264 = getelementptr inbounds i8, ptr %76, i64 136
+  %264 = getelementptr inbounds nuw i8, ptr %76, i64 136
   store ptr %261, ptr %264, align 8
   br label %265
 
 265:                                              ; preds = %263, %259
-  %266 = getelementptr inbounds i8, ptr %0, i64 648
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %267 = load ptr, ptr %266, align 8
   %268 = icmp eq ptr %267, null
   br i1 %268, label %271, label %269
 
 269:                                              ; preds = %265
-  %270 = getelementptr inbounds i8, ptr %76, i64 648
+  %270 = getelementptr inbounds nuw i8, ptr %76, i64 648
   store ptr %267, ptr %270, align 8
   br label %271
 
 271:                                              ; preds = %269, %265
-  %272 = getelementptr inbounds i8, ptr %0, i64 656
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %273 = load ptr, ptr %272, align 8
   %274 = icmp eq ptr %273, null
   br i1 %274, label %277, label %275
 
 275:                                              ; preds = %271
-  %276 = getelementptr inbounds i8, ptr %76, i64 656
+  %276 = getelementptr inbounds nuw i8, ptr %76, i64 656
   store ptr %273, ptr %276, align 8
   br label %277
 
@@ -1000,13 +1000,13 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br i1 %282, label %284, label %283
 
 283:                                              ; preds = %280
-  tail call void %281(i32 noundef 0, ptr noundef nonnull %76, ptr noundef %136) #12
+  tail call void %281(i32 noundef 0, ptr noundef nonnull %76, ptr noundef nonnull %136) #12
   br label %284
 
 284:                                              ; preds = %283, %280
   %285 = load i32, ptr @skip_txen_test, align 4
   %286 = icmp ne i32 %285, 0
-  %287 = getelementptr inbounds i8, ptr %76, i64 195
+  %287 = getelementptr inbounds nuw i8, ptr %76, i64 195
   %288 = load i8, ptr %287, align 1
   %289 = zext i1 %286 to i8
   %290 = or i8 %288, %289
@@ -1016,7 +1016,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br i1 %292, label %293, label %318
 
 293:                                              ; preds = %284
-  %294 = getelementptr inbounds i8, ptr %76, i64 316
+  %294 = getelementptr inbounds nuw i8, ptr %76, i64 316
   %295 = load i32, ptr %294, align 4
   br label %301
 
@@ -1039,24 +1039,24 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #5 align 16 
   br label %306
 
 306:                                              ; preds = %305, %301
-  %307 = getelementptr inbounds i8, ptr %0, i64 776
+  %307 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %308 = load i32, ptr %307, align 8
   %309 = icmp eq i32 %308, 0
-  %310 = getelementptr inbounds i8, ptr %76, i64 776
+  %310 = getelementptr inbounds nuw i8, ptr %76, i64 776
   br i1 %309, label %317, label %311
 
 311:                                              ; preds = %306
   store i32 %308, ptr %310, align 8
-  %312 = getelementptr inbounds i8, ptr %76, i64 688
+  %312 = getelementptr inbounds nuw i8, ptr %76, i64 688
   store i64 68719476704, ptr %312, align 8
-  %313 = getelementptr inbounds i8, ptr %76, i64 696
+  %313 = getelementptr inbounds nuw i8, ptr %76, i64 696
   store volatile ptr %313, ptr %313, align 8
-  %314 = getelementptr inbounds i8, ptr %76, i64 704
+  %314 = getelementptr inbounds nuw i8, ptr %76, i64 704
   store volatile ptr %313, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %76, i64 712
+  %315 = getelementptr inbounds nuw i8, ptr %76, i64 712
   store ptr @serial_8250_overrun_backoff_work, ptr %315, align 8
-  %316 = getelementptr inbounds i8, ptr %76, i64 720
-  tail call void @init_timer_key(ptr noundef %316, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
+  %316 = getelementptr inbounds nuw i8, ptr %76, i64 720
+  tail call void @init_timer_key(ptr noundef nonnull %316, ptr noundef nonnull @delayed_work_timer_fn, i32 noundef 2097152, ptr noundef null, ptr noundef null) #12
   br label %.thread32
 
 317:                                              ; preds = %306
@@ -1130,7 +1130,7 @@ define dso_local void @serial8250_unregister_port(i32 noundef %0) #5 align 16 {
   %2 = sext i32 %0 to i64
   %3 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %2
   tail call void @mutex_lock(ptr noundef nonnull @serial_mutex) #12
-  %4 = getelementptr inbounds i8, ptr %3, i64 664
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -1148,23 +1148,23 @@ define dso_local void @serial8250_unregister_port(i32 noundef %0) #5 align 16 {
   br i1 %11, label %28, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %14 = load i64, ptr %13, align 16
   %15 = and i64 %14, -268435457
   store i64 %15, ptr %13, align 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 296
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 296
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 16
-  %18 = getelementptr inbounds i8, ptr %3, i64 344
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 164
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 164
   store i32 %0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %3, i64 584
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 584
   store i32 0, ptr %20, align 8
   tail call void @serial8250_init_port(ptr noundef %3) #12
   %21 = load i32, ptr @skip_txen_test, align 4
   %22 = icmp ne i32 %21, 0
-  %23 = getelementptr inbounds i8, ptr %3, i64 195
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 195
   %24 = load i8, ptr %23, align 1
   %25 = zext i1 %22 to i8
   %26 = or i8 %24, %25
@@ -1173,7 +1173,7 @@ define dso_local void @serial8250_unregister_port(i32 noundef %0) #5 align 16 {
   br label %30
 
 28:                                               ; preds = %9
-  %29 = getelementptr inbounds i8, ptr %3, i64 344
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store ptr null, ptr %29, align 8
   br label %30
 
@@ -1247,8 +1247,8 @@ define internal i32 @serial8250_init() #2 section ".init.text" align 16 {
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr @serial8250_isa_devs, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
-  tail call fastcc void @serial8250_register_ports(ptr noundef %22) #11
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  tail call fastcc void @serial8250_register_ports(ptr noundef nonnull %22) #11
   %23 = tail call i32 @__platform_driver_register(ptr noundef nonnull @serial8250_isa_driver, ptr noundef null) #12
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %34, label %25
@@ -1289,7 +1289,7 @@ declare dso_local void @register_console(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @univ8250_console_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 74
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i64
   %7 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %6
@@ -1302,7 +1302,7 @@ declare dso_local ptr @uart_console_device(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 74
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp ugt i16 %4, 31
   br i1 %5, label %6, label %7
@@ -1333,10 +1333,10 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
 
 17:                                               ; preds = %14
   %18 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %15
-  %19 = getelementptr inbounds i8, ptr %18, i64 316
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 316
   %20 = trunc i64 %15 to i32
   store i32 %20, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 164
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 164
   store i32 %20, ptr %21, align 4
   tail call void @serial8250_init_port(ptr noundef %18) #12
   %22 = load ptr, ptr @base_ops, align 8
@@ -1344,17 +1344,17 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %18, i64 304
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 304
   %26 = load ptr, ptr %25, align 16
   store ptr %26, ptr @base_ops, align 8
   br label %27
 
 27:                                               ; preds = %24, %17
-  %28 = getelementptr inbounds i8, ptr %18, i64 304
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 304
   store ptr @univ8250_port_ops, ptr %28, align 16
-  %29 = getelementptr inbounds i8, ptr %18, i64 528
-  tail call void @init_timer_key(ptr noundef %29, ptr noundef nonnull @serial8250_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #12
-  %30 = getelementptr inbounds i8, ptr %18, i64 640
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 528
+  tail call void @init_timer_key(ptr noundef nonnull %29, ptr noundef nonnull @serial8250_timeout, i32 noundef 0, ptr noundef null, ptr noundef null) #12
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 640
   store ptr @univ8250_driver_ops, ptr %30, align 16
   tail call void @serial8250_set_defaults(ptr noundef %18) #12
   %31 = icmp eq ptr %18, null
@@ -1373,7 +1373,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
 .loopexit:                                        ; preds = %32, %..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %37, %32 ]
   %39 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %.pre-phi
-  %40 = getelementptr inbounds i8, ptr %39, i64 264
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 264
   store ptr %0, ptr %40, align 8
   %41 = tail call i32 @serial8250_console_setup(ptr noundef %39, ptr noundef %1, i1 noundef zeroext false) #12
   %42 = icmp eq i32 %41, 0
@@ -1390,7 +1390,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #5 a
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @univ8250_console_exit(ptr nocapture noundef readonly %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 74
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i64
   %5 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %4
@@ -1407,13 +1407,13 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture nounde
   store ptr %3, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %6) #12
   store i8 117, ptr %6, align 1
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 97, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %6, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 114, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 3
   store i8 116, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i8 0, ptr %12, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
@@ -1432,7 +1432,7 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture nounde
   br i1 %20, label %21, label %.loopexit
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 74
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %23 = load i8, ptr %7, align 1
   %.fr = freeze i8 %23
   %24 = load i64, ptr %8, align 8
@@ -1451,13 +1451,13 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture nounde
   %25 = phi i32 [ %36, %35 ], [ 0, %.split.us.preheader ]
   %26 = sext i32 %25 to i64
   %27 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 194
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 194
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, %.fr
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %.split.us
-  %32 = getelementptr inbounds i8, ptr %27, i64 328
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 328
   %33 = load i64, ptr %32, align 8
   %34 = icmp eq i64 %33, %24
   br i1 %34, label %.split6.us, label %35
@@ -1471,13 +1471,13 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture nounde
   %37 = phi i32 [ %48, %47 ], [ 0, %21 ]
   %38 = sext i32 %37 to i64
   %39 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %38
-  %40 = getelementptr inbounds i8, ptr %39, i64 194
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 194
   %41 = load i8, ptr %40, align 2
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %.split.us8
-  %44 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, %24
   br i1 %46, label %.split6.us, label %47
@@ -1496,7 +1496,7 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture nounde
   %51 = phi i32 [ %50, %49 ], [ 0, %21 ]
   %52 = sext i32 %51 to i64
   %53 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 194
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 194
   %55 = load i8, ptr %54, align 2
   %56 = icmp eq i8 %55, %.fr
   br i1 %56, label %.split6.us, label %49
@@ -1506,7 +1506,7 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr nocapture nounde
   %.us-phi7 = phi ptr [ %53, %.split ], [ %27, %31 ], [ %39, %43 ]
   %57 = trunc i32 %.us-phi to i16
   store i16 %57, ptr %22, align 2
-  %58 = getelementptr inbounds i8, ptr %.us-phi7, i64 264
+  %58 = getelementptr inbounds nuw i8, ptr %.us-phi7, i64 264
   store ptr %0, ptr %58, align 8
   %59 = load ptr, ptr %5, align 8
   %60 = call i32 @serial8250_console_setup(ptr noundef %.us-phi7, ptr noundef %59, i1 noundef zeroext true) #12
@@ -1537,29 +1537,29 @@ declare dso_local i32 @uart_parse_earlycon(ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 609
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 609
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, -2
   store i8 %5, ptr %3, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 13
   br i1 %8, label %9, label %26
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 194
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %11 = load i8, ptr %10, align 2
   %12 = icmp ult i8 %11, 2
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 193
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl i32 8, %16
   %18 = shl i32 -8, %16
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   %23 = zext i32 %17 to i64
@@ -1578,7 +1578,7 @@ define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #5 al
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i64, ptr %33, align 8
   br label %38
 
@@ -1596,13 +1596,13 @@ define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #5 al
   br i1 %43, label %44, label %35
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 194
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %46 = load i8, ptr %45, align 2
   %47 = icmp ult i8 %46, 2
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 193
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = shl i32 8, %51
@@ -1622,7 +1622,7 @@ define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #5 al
 
 .loopexit:                                        ; preds = %35, %59, %48, %44, %29, %26, %13, %9
   %62 = load ptr, ptr @base_ops, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 168
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 168
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef %0, i32 noundef %1) #12
   %65 = load i32, ptr %6, align 8
@@ -1636,19 +1636,19 @@ define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #5 al
   br i1 %70, label %86, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %0, i64 194
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %73 = load i8, ptr %72, align 2
   %74 = icmp ult i8 %73, 2
   br i1 %74, label %75, label %86
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %0, i64 193
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %77 = load i8, ptr %76, align 1
   %78 = zext i8 %77 to i32
   %79 = shl i32 8, %78
   %80 = shl i32 -8, %78
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, %81
   %85 = zext i32 %79 to i64
@@ -1662,32 +1662,32 @@ define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #5 al
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @univ8250_request_port(ptr noundef %0) #5 align 16 {
   %2 = load ptr, ptr @base_ops, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 160
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef %0) #12
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %31
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 13
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 194
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %13 = load i8, ptr %12, align 2
   %14 = icmp ult i8 %13, 2
   br i1 %14, label %15, label %select.unfold
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 193
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = shl i32 8, %18
   %20 = shl i32 -8, %18
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, %21
   %25 = zext i32 %19 to i64
@@ -1698,7 +1698,7 @@ define internal i32 @univ8250_request_port(ptr noundef %0) #5 align 16 {
 select.unfold:                                    ; preds = %15, %11
   %.ph = phi i32 [ -22, %11 ], [ -16, %15 ]
   %28 = load ptr, ptr @base_ops, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 152
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 152
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef %0) #12
   br label %31
@@ -1710,25 +1710,25 @@ select.unfold:                                    ; preds = %15, %11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @univ8250_release_port(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 296
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 13
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 194
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %7 = load i8, ptr %6, align 2
   %8 = icmp ult i8 %7, 2
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 193
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = shl i32 8, %12
   %14 = shl i32 -8, %12
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %15
   %19 = zext i32 %13 to i64
@@ -1737,7 +1737,7 @@ define internal void @univ8250_release_port(ptr noundef %0) #5 align 16 {
 
 20:                                               ; preds = %9, %5, %1
   %21 = load ptr, ptr @base_ops, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 152
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef %0) #12
   ret void
@@ -1785,7 +1785,7 @@ declare dso_local i64 @nsecs_to_jiffies(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %serial_do_unlink.exit, label %5
@@ -1805,7 +1805,7 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %6
   br i1 %17, label %.loopexit, label %10, !llvm.loop !18
@@ -1821,10 +1821,10 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
   br label %serial_do_unlink.exit
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %20, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %24, align 4
   %25 = load i32, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %25, ptr %26, align 8
   %27 = load ptr, ptr %9, align 8
   store volatile ptr %27, ptr %20, align 8
@@ -1832,55 +1832,55 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store volatile ptr %20, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %29, %23
   store volatile ptr %20, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile ptr %9, ptr %32, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %31
   %33 = phi ptr [ %20, %31 ], [ %12, %14 ]
   tail call void @mutex_unlock(ptr noundef nonnull @hash_mutex) #12
-  %34 = getelementptr inbounds i8, ptr %33, i64 20
-  tail call void @_raw_spin_lock_irq(ptr noundef %34) #12
-  %35 = getelementptr inbounds i8, ptr %33, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %34) #12
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  %38 = getelementptr inbounds i8, ptr %0, i64 568
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 568
   br i1 %37, label %43, label %39
 
 39:                                               ; preds = %.loopexit
   %40 = load ptr, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %38, ptr %41, align 8
   store ptr %40, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 576
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store ptr %36, ptr %42, align 8
   store volatile ptr %38, ptr %36, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %34) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %34) #12
   br label %serial_do_unlink.exit
 
 43:                                               ; preds = %.loopexit
   store volatile ptr %38, ptr %38, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 576
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 576
   store volatile ptr %38, ptr %44, align 8
   store ptr %38, ptr %35, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %34) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %34) #12
   %45 = load i32, ptr %2, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 176
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 376
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @request_threaded_irq(i32 noundef %45, ptr noundef nonnull @serial8250_interrupt, ptr noundef null, i64 noundef %47, ptr noundef %49, ptr noundef nonnull %33) #12
   %51 = icmp slt i32 %50, 0
   br i1 %51, label %52, label %serial_do_unlink.exit
 
 52:                                               ; preds = %43
-  tail call void @_raw_spin_lock_irq(ptr noundef %34) #12
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %34) #12
   %53 = load ptr, ptr %35, align 8
   %54 = load volatile ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %53
@@ -1897,7 +1897,7 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
 59:                                               ; preds = %58, %57
   %60 = load ptr, ptr %44, align 8
   %61 = load ptr, ptr %38, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %60, ptr %62, align 8
   store volatile ptr %61, ptr %60, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %38, align 8
@@ -1917,21 +1917,21 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #5 align 16 {
   br label %66
 
 66:                                               ; preds = %65, %59
-  tail call void @_raw_spin_unlock_irq(ptr noundef %34) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %34) #12
   %67 = load ptr, ptr %35, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %serial_do_unlink.exit
 
 69:                                               ; preds = %66
   %70 = load ptr, ptr %33, align 8
-  %71 = getelementptr inbounds i8, ptr %33, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %72 = load ptr, ptr %71, align 8
   store volatile ptr %70, ptr %72, align 8
   %73 = icmp eq ptr %70, null
   br i1 %73, label %76, label %74
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store volatile ptr %72, ptr %75, align 8
   br label %76
 
@@ -1948,11 +1948,11 @@ serial_do_unlink.exit:                            ; preds = %76, %66, %43, %39, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @univ8250_release_irq(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 528
-  %3 = tail call i32 @timer_delete_sync(ptr noundef %2) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 552
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %3 = tail call i32 @timer_delete_sync(ptr noundef nonnull %2) #12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr @serial8250_timeout, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %60, label %8
@@ -1972,7 +1972,7 @@ define internal void @univ8250_release_irq(ptr noundef %0) #5 align 16 {
   br i1 %16, label %21, label %17, !prof !22
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %9
   br i1 %20, label %22, label %13, !llvm.loop !23
@@ -1983,7 +1983,7 @@ define internal void @univ8250_release_irq(ptr noundef %0) #5 align 16 {
   unreachable
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %15, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27, !prof !26
@@ -2003,12 +2003,12 @@ define internal void @univ8250_release_irq(ptr noundef %0) #5 align 16 {
   br label %32
 
 32:                                               ; preds = %30, %27
-  %33 = getelementptr inbounds i8, ptr %15, i64 20
-  tail call void @_raw_spin_lock_irq(ptr noundef %33) #12
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  tail call void @_raw_spin_lock_irq(ptr noundef nonnull %33) #12
   %34 = load ptr, ptr %23, align 8
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 568
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %38 = icmp eq ptr %34, %37
   br i1 %36, label %46, label %39
 
@@ -2020,10 +2020,10 @@ define internal void @univ8250_release_irq(ptr noundef %0) #5 align 16 {
   br label %41
 
 41:                                               ; preds = %40, %39
-  %42 = getelementptr inbounds i8, ptr %0, i64 576
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %37, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %43, ptr %45, align 8
   store volatile ptr %44, ptr %43, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %37, align 8
@@ -2043,21 +2043,21 @@ define internal void @univ8250_release_irq(ptr noundef %0) #5 align 16 {
   br label %49
 
 49:                                               ; preds = %48, %41
-  tail call void @_raw_spin_unlock_irq(ptr noundef %33) #12
+  tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %33) #12
   %50 = load ptr, ptr %23, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %serial_do_unlink.exit
 
 52:                                               ; preds = %49
   %53 = load ptr, ptr %15, align 8
-  %54 = getelementptr inbounds i8, ptr %15, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %55 = load ptr, ptr %54, align 8
   store volatile ptr %53, ptr %55, align 8
   %56 = icmp eq ptr %53, null
   br i1 %56, label %59, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %53, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store volatile ptr %55, ptr %58, align 8
   br label %59
 
@@ -2077,21 +2077,21 @@ serial_do_unlink.exit:                            ; preds = %49, %59
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @univ8250_setup_timer(ptr noundef %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 588
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 8
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %26, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 528
-  %8 = getelementptr inbounds i8, ptr %0, i64 552
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr @serial8250_backup_timeout, ptr %8, align 8
   %9 = load volatile i64, ptr @jiffies, align 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 292
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %11 = load volatile i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 188
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %14 = load i32, ptr %13, align 4
   %15 = zext i32 %14 to i64
   %16 = mul nuw i64 %15, %12
@@ -2103,22 +2103,22 @@ define internal void @univ8250_setup_timer(ptr noundef %0) #5 align 16 {
   %22 = select i1 %19, i64 %21, i64 1
   %23 = add i64 %9, 200
   %24 = add i64 %23, %22
-  %25 = tail call i32 @mod_timer(ptr noundef %7, i64 noundef %24) #12
+  %25 = tail call i32 @mod_timer(ptr noundef nonnull %7, i64 noundef %24) #12
   br label %26
 
 26:                                               ; preds = %6, %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %48
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 528
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %32 = load volatile i64, ptr @jiffies, align 64
-  %33 = getelementptr inbounds i8, ptr %0, i64 292
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %34 = load volatile i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 188
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %37 = load i32, ptr %36, align 4
   %38 = zext i32 %37 to i64
   %39 = mul nuw i64 %38, %35
@@ -2129,7 +2129,7 @@ define internal void @univ8250_setup_timer(ptr noundef %0) #5 align 16 {
   %44 = add nsw i64 %43, -2
   %45 = select i1 %42, i64 %44, i64 1
   %46 = add i64 %45, %32
-  %47 = tail call i32 @mod_timer(ptr noundef %31, i64 noundef %46) #12
+  %47 = tail call i32 @mod_timer(ptr noundef nonnull %31, i64 noundef %46) #12
   br label %48
 
 48:                                               ; preds = %30, %26
@@ -2138,9 +2138,9 @@ define internal void @univ8250_setup_timer(ptr noundef %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 0, 2) i32 @serial8250_interrupt(i32 %0, ptr noundef %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 20
-  tail call void @_raw_spin_lock(ptr noundef %3) #12
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  tail call void @_raw_spin_lock(ptr noundef nonnull %3) #12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -2170,7 +2170,7 @@ define internal range(i32 0, 2) i32 @serial8250_interrupt(i32 %0, ptr noundef %1
   br i1 %28, label %29, label %6, !llvm.loop !29
 
 29:                                               ; preds = %6
-  tail call void @_raw_spin_unlock(ptr noundef %3) #12
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %3) #12
   ret i32 %18
 }
 
@@ -2248,9 +2248,9 @@ define internal void @serial8250_backup_timeout(ptr noundef %0) #5 align 16 {
 34:                                               ; preds = %29
   %35 = getelementptr i8, ptr %0, i64 -320
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 392
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 396
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 396
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %38, %40
   br i1 %41, label %42, label %49
@@ -2321,8 +2321,8 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @serial8250_probe(ptr noundef %0) #5 align 16 {
   %2 = alloca %struct.uart_8250_port, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %2) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(784) %2, i8 0, i64 784, i1 false)
@@ -2333,38 +2333,38 @@ define internal noundef i32 @serial8250_probe(ptr noundef %0) #5 align 16 {
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 168
-  %14 = getelementptr inbounds i8, ptr %2, i64 176
-  %15 = getelementptr inbounds i8, ptr %2, i64 184
-  %16 = getelementptr inbounds i8, ptr %2, i64 193
-  %17 = getelementptr inbounds i8, ptr %2, i64 194
-  %18 = getelementptr inbounds i8, ptr %2, i64 272
-  %19 = getelementptr inbounds i8, ptr %2, i64 328
-  %20 = getelementptr inbounds i8, ptr %2, i64 336
-  %21 = getelementptr inbounds i8, ptr %2, i64 371
-  %22 = getelementptr inbounds i8, ptr %2, i64 369
-  %23 = getelementptr inbounds i8, ptr %2, i64 520
-  %24 = getelementptr inbounds i8, ptr %2, i64 296
-  %25 = getelementptr inbounds i8, ptr %2, i64 588
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
-  %28 = getelementptr inbounds i8, ptr %2, i64 648
-  %29 = getelementptr inbounds i8, ptr %2, i64 656
-  %30 = getelementptr inbounds i8, ptr %2, i64 120
-  %31 = getelementptr inbounds i8, ptr %2, i64 136
-  %32 = getelementptr inbounds i8, ptr %2, i64 40
-  %33 = getelementptr inbounds i8, ptr %2, i64 48
-  %34 = getelementptr inbounds i8, ptr %2, i64 56
-  %35 = getelementptr inbounds i8, ptr %2, i64 128
-  %36 = getelementptr inbounds i8, ptr %2, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 193
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 194
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 336
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 371
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 369
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 296
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 588
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 648
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 656
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 344
   br label %37
 
 37:                                               ; preds = %98, %10
   %38 = phi i32 [ 0, %10 ], [ %100, %98 ]
   %39 = phi ptr [ %5, %10 ], [ %99, %98 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 0
   br i1 %42, label %.loopexit, label %43
@@ -2372,73 +2372,73 @@ define internal noundef i32 @serial8250_probe(ptr noundef %0) #5 align 16 {
 43:                                               ; preds = %37
   %44 = load i64, ptr %39, align 8
   store i64 %44, ptr %11, align 8
-  %45 = getelementptr inbounds i8, ptr %39, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 36
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %13, align 8
-  %49 = getelementptr inbounds i8, ptr %39, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %52 = load i32, ptr %51, align 8
   store i32 %52, ptr %15, align 8
-  %53 = getelementptr inbounds i8, ptr %39, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %54 = load i8, ptr %53, align 8
   store i8 %54, ptr %16, align 1
-  %55 = getelementptr inbounds i8, ptr %39, i64 57
+  %55 = getelementptr inbounds nuw i8, ptr %39, i64 57
   %56 = load i8, ptr %55, align 1
   store i8 %56, ptr %17, align 2
   store i64 %41, ptr %18, align 8
-  %57 = getelementptr inbounds i8, ptr %39, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %58 = load i64, ptr %57, align 8
   store i64 %58, ptr %19, align 8
-  %59 = getelementptr inbounds i8, ptr %39, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %20, align 8
-  %61 = getelementptr inbounds i8, ptr %39, i64 58
+  %61 = getelementptr inbounds nuw i8, ptr %39, i64 58
   %62 = load i8, ptr %61, align 2
   store i8 %62, ptr %21, align 1
-  %63 = getelementptr inbounds i8, ptr %39, i64 59
+  %63 = getelementptr inbounds nuw i8, ptr %39, i64 59
   %64 = load i8, ptr %63, align 1
   store i8 %64, ptr %22, align 1
-  %65 = getelementptr inbounds i8, ptr %39, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %23, align 8
-  %67 = getelementptr inbounds i8, ptr %39, i64 60
+  %67 = getelementptr inbounds nuw i8, ptr %39, i64 60
   %68 = load i32, ptr %67, align 4
   store i32 %68, ptr %24, align 8
-  %69 = getelementptr inbounds i8, ptr %39, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %70 = load i16, ptr %69, align 8
   store i16 %70, ptr %25, align 4
-  %71 = getelementptr inbounds i8, ptr %39, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %26, align 8
-  %73 = getelementptr inbounds i8, ptr %39, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %74 = load ptr, ptr %73, align 8
   store ptr %74, ptr %27, align 8
-  %75 = getelementptr inbounds i8, ptr %39, i64 96
+  %75 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %28, align 8
-  %77 = getelementptr inbounds i8, ptr %39, i64 104
+  %77 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %78 = load ptr, ptr %77, align 8
   store ptr %78, ptr %29, align 8
-  %79 = getelementptr inbounds i8, ptr %39, i64 136
+  %79 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %80 = load ptr, ptr %79, align 8
   store ptr %80, ptr %30, align 8
-  %81 = getelementptr inbounds i8, ptr %39, i64 152
+  %81 = getelementptr inbounds nuw i8, ptr %39, i64 152
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %31, align 8
-  %83 = getelementptr inbounds i8, ptr %39, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %39, i64 112
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %32, align 8
-  %85 = getelementptr inbounds i8, ptr %39, i64 120
+  %85 = getelementptr inbounds nuw i8, ptr %39, i64 120
   %86 = load ptr, ptr %85, align 8
   store ptr %86, ptr %33, align 8
-  %87 = getelementptr inbounds i8, ptr %39, i64 128
+  %87 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %88 = load ptr, ptr %87, align 8
   store ptr %88, ptr %34, align 8
-  %89 = getelementptr inbounds i8, ptr %39, i64 144
+  %89 = getelementptr inbounds nuw i8, ptr %39, i64 144
   %90 = load ptr, ptr %89, align 8
   store ptr %90, ptr %35, align 8
   store ptr %3, ptr %36, align 8
@@ -2452,7 +2452,7 @@ define internal noundef i32 @serial8250_probe(ptr noundef %0) #5 align 16 {
   %95 = load i64, ptr %39, align 8
   %96 = load i64, ptr %57, align 8
   %97 = load i32, ptr %47, align 4
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %3, ptr noundef nonnull @.str.7, i32 noundef %38, i64 noundef %95, i64 noundef %96, i32 noundef %97, i32 noundef %92) #13
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %3, ptr noundef nonnull @.str.7, i32 noundef %38, i64 noundef %95, i64 noundef %96, i32 noundef %97, i32 noundef %92) #13
   br label %98
 
 98:                                               ; preds = %94, %43
@@ -2473,7 +2473,7 @@ define internal void @serial8250_remove(ptr noundef readnone %0) #5 align 16 {
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %14, %4
@@ -2502,19 +2502,19 @@ define internal void @serial8250_remove(ptr noundef readnone %0) #5 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @serial8250_suspend(ptr noundef readnone %0, i32 %1) #5 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %4
 
 4:                                                ; preds = %16, %2
   %5 = phi i64 [ 0, %2 ], [ %17, %16 ]
   %6 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %6, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 344
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %3
   br i1 %13, label %14, label %16
@@ -2534,37 +2534,37 @@ define internal noundef i32 @serial8250_suspend(ptr noundef readnone %0, i32 %1)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @serial8250_resume(ptr noundef readnone %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %36, %1
   %4 = phi i64 [ 0, %1 ], [ %37, %36 ]
   %5 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 296
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %36, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 344
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %2
   br i1 %12, label %13, label %36
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %5, i64 608
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 608
   store i8 0, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %5, i64 584
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %34, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %21 = load ptr, ptr %20, align 16
   tail call void %21(ptr noundef %5, i32 noundef 3, i32 noundef 224) #12
-  %22 = getelementptr inbounds i8, ptr %5, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 %23(ptr noundef %5, i32 noundef 4) #12
   %25 = and i32 %24, 48
@@ -2581,7 +2581,7 @@ define internal noundef i32 @serial8250_resume(ptr noundef readnone %0) #5 align
 31:                                               ; preds = %27, %19
   %32 = load ptr, ptr %20, align 16
   tail call void %32(ptr noundef %5, i32 noundef 3, i32 noundef 0) #12
-  %33 = getelementptr inbounds i8, ptr %5, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 184
   store i32 14745600, ptr %33, align 8
   br label %34
 
@@ -2630,36 +2630,36 @@ define internal fastcc void @serial8250_register_ports(ptr noundef %0) unnamed_a
   %5 = phi i32 [ %43, %41 ], [ 0, %1 ]
   %6 = sext i32 %5 to i64
   %7 = getelementptr [32 x %struct.uart_8250_port], ptr @serial8250_ports, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 23
   br i1 %10, label %41, label %11
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %7, i64 344
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %41
 
 15:                                               ; preds = %11
   store ptr %0, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %33, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 74
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 74
   %21 = load i16, ptr %20, align 2
   %22 = sext i16 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %7, i64 316
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 316
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, %22
   br i1 %25, label %26, label %33
 
 26:                                               ; preds = %19
   tail call void @console_list_lock() #12
-  %27 = getelementptr inbounds i8, ptr %17, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   tail call void @console_list_unlock() #12
@@ -2673,7 +2673,7 @@ define internal fastcc void @serial8250_register_ports(ptr noundef %0) unnamed_a
 33:                                               ; preds = %30, %26, %19, %15
   %34 = load i32, ptr @skip_txen_test, align 4
   %35 = icmp ne i32 %34, 0
-  %36 = getelementptr inbounds i8, ptr %7, i64 195
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 195
   %37 = load i8, ptr %36, align 1
   %38 = zext i1 %35 to i8
   %39 = or i8 %37, %38

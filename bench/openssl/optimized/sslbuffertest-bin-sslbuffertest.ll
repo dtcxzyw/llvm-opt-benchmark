@@ -189,23 +189,23 @@ lor.lhs.false.us:                                 ; preds = %for.body17.us
   br i1 %switch.i.us, label %cond.end10.i.us, label %cond.true6.i.us
 
 cond.true6.i.us:                                  ; preds = %lor.lhs.false.us
-  %tls.i.us = getelementptr inbounds i8, ptr %5, i64 64
+  %tls.i.us = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %tls.i.us, align 8
   br label %cond.end10.i.us
 
 cond.end10.i.us:                                  ; preds = %cond.true6.i.us, %lor.lhs.false.us
   %cond11.i.us = phi ptr [ %7, %cond.true6.i.us ], [ %5, %lor.lhs.false.us ]
-  %rrl12.i.us = getelementptr inbounds i8, ptr %cond11.i.us, i64 3040
+  %rrl12.i.us = getelementptr inbounds nuw i8, ptr %cond11.i.us, i64 3040
   %8 = load ptr, ptr %rrl12.i.us, align 8
-  %rbuf18.i.us = getelementptr inbounds i8, ptr %8, i64 1696
+  %rbuf18.i.us = getelementptr inbounds nuw i8, ptr %8, i64 1696
   %9 = load ptr, ptr %rbuf18.i.us, align 8
   %cmp20.i.us = icmp eq ptr %9, null
   br i1 %cmp20.i.us, label %land.rhs21.i.us, label %checkbuffers.exit.us
 
 land.rhs21.i.us:                                  ; preds = %cond.end10.i.us
-  %wrl14.i.us = getelementptr inbounds i8, ptr %cond11.i.us, i64 3048
+  %wrl14.i.us = getelementptr inbounds nuw i8, ptr %cond11.i.us, i64 3048
   %10 = load ptr, ptr %wrl14.i.us, align 8
-  %wbuf22.i.us = getelementptr inbounds i8, ptr %10, i64 96
+  %wbuf22.i.us = getelementptr inbounds nuw i8, ptr %10, i64 96
   %11 = load ptr, ptr %wbuf22.i.us, align 8
   %cmp25.i.us = icmp eq ptr %11, null
   %12 = zext i1 %cmp25.i.us to i32
@@ -236,23 +236,23 @@ lor.lhs.false40.us:                               ; preds = %land.lhs.true34.us
   br i1 %switch.i35.us, label %cond.end10.i38.us, label %cond.true6.i36.us
 
 cond.true6.i36.us:                                ; preds = %lor.lhs.false40.us
-  %tls.i37.us = getelementptr inbounds i8, ptr %14, i64 64
+  %tls.i37.us = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %tls.i37.us, align 8
   br label %cond.end10.i38.us
 
 cond.end10.i38.us:                                ; preds = %cond.true6.i36.us, %lor.lhs.false40.us
   %cond11.i39.us = phi ptr [ %16, %cond.true6.i36.us ], [ %14, %lor.lhs.false40.us ]
-  %rrl12.i40.us = getelementptr inbounds i8, ptr %cond11.i39.us, i64 3040
+  %rrl12.i40.us = getelementptr inbounds nuw i8, ptr %cond11.i39.us, i64 3040
   %17 = load ptr, ptr %rrl12.i40.us, align 8
-  %rbuf18.i42.us = getelementptr inbounds i8, ptr %17, i64 1696
+  %rbuf18.i42.us = getelementptr inbounds nuw i8, ptr %17, i64 1696
   %18 = load ptr, ptr %rbuf18.i42.us, align 8
   %cmp20.i43.us = icmp eq ptr %18, null
   br i1 %cmp20.i43.us, label %checkbuffers.exit46.us, label %land.rhs.i.us
 
 land.rhs.i.us:                                    ; preds = %cond.end10.i38.us
-  %wrl14.i41.us = getelementptr inbounds i8, ptr %cond11.i39.us, i64 3048
+  %wrl14.i41.us = getelementptr inbounds nuw i8, ptr %cond11.i39.us, i64 3048
   %19 = load ptr, ptr %wrl14.i41.us, align 8
-  %wbuf.i.us = getelementptr inbounds i8, ptr %19, i64 96
+  %wbuf.i.us = getelementptr inbounds nuw i8, ptr %19, i64 96
   %20 = load ptr, ptr %wbuf.i.us, align 8
   %cmp17.i.us = icmp ne ptr %20, null
   %21 = zext i1 %cmp17.i.us to i32
@@ -283,23 +283,23 @@ lor.lhs.false56.us:                               ; preds = %land.lhs.true50.us
   br i1 %switch.i48.us, label %cond.end10.i51.us, label %cond.true6.i49.us
 
 cond.true6.i49.us:                                ; preds = %lor.lhs.false56.us
-  %tls.i50.us = getelementptr inbounds i8, ptr %23, i64 64
+  %tls.i50.us = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %tls.i50.us, align 8
   br label %cond.end10.i51.us
 
 cond.end10.i51.us:                                ; preds = %cond.true6.i49.us, %lor.lhs.false56.us
   %cond11.i52.us = phi ptr [ %25, %cond.true6.i49.us ], [ %23, %lor.lhs.false56.us ]
-  %rrl12.i53.us = getelementptr inbounds i8, ptr %cond11.i52.us, i64 3040
+  %rrl12.i53.us = getelementptr inbounds nuw i8, ptr %cond11.i52.us, i64 3040
   %26 = load ptr, ptr %rrl12.i53.us, align 8
-  %rbuf18.i55.us = getelementptr inbounds i8, ptr %26, i64 1696
+  %rbuf18.i55.us = getelementptr inbounds nuw i8, ptr %26, i64 1696
   %27 = load ptr, ptr %rbuf18.i55.us, align 8
   %cmp20.i56.us = icmp eq ptr %27, null
   br i1 %cmp20.i56.us, label %checkbuffers.exit62.us, label %land.rhs.i57.us
 
 land.rhs.i57.us:                                  ; preds = %cond.end10.i51.us
-  %wrl14.i54.us = getelementptr inbounds i8, ptr %cond11.i52.us, i64 3048
+  %wrl14.i54.us = getelementptr inbounds nuw i8, ptr %cond11.i52.us, i64 3048
   %28 = load ptr, ptr %wrl14.i54.us, align 8
-  %wbuf.i58.us = getelementptr inbounds i8, ptr %28, i64 96
+  %wbuf.i58.us = getelementptr inbounds nuw i8, ptr %28, i64 96
   %29 = load ptr, ptr %wbuf.i58.us, align 8
   %cmp17.i59.us = icmp ne ptr %29, null
   %30 = zext i1 %cmp17.i59.us to i32
@@ -330,23 +330,23 @@ lor.lhs.false72.us:                               ; preds = %land.lhs.true66.us
   br i1 %switch.i64.us, label %cond.end10.i67.us, label %cond.true6.i65.us
 
 cond.true6.i65.us:                                ; preds = %lor.lhs.false72.us
-  %tls.i66.us = getelementptr inbounds i8, ptr %32, i64 64
+  %tls.i66.us = getelementptr inbounds nuw i8, ptr %32, i64 64
   %34 = load ptr, ptr %tls.i66.us, align 8
   br label %cond.end10.i67.us
 
 cond.end10.i67.us:                                ; preds = %cond.true6.i65.us, %lor.lhs.false72.us
   %cond11.i68.us = phi ptr [ %34, %cond.true6.i65.us ], [ %32, %lor.lhs.false72.us ]
-  %rrl12.i69.us = getelementptr inbounds i8, ptr %cond11.i68.us, i64 3040
+  %rrl12.i69.us = getelementptr inbounds nuw i8, ptr %cond11.i68.us, i64 3040
   %35 = load ptr, ptr %rrl12.i69.us, align 8
-  %rbuf18.i71.us = getelementptr inbounds i8, ptr %35, i64 1696
+  %rbuf18.i71.us = getelementptr inbounds nuw i8, ptr %35, i64 1696
   %36 = load ptr, ptr %rbuf18.i71.us, align 8
   %cmp20.i72.us = icmp eq ptr %36, null
   br i1 %cmp20.i72.us, label %land.rhs21.i75.us, label %checkbuffers.exit78.us
 
 land.rhs21.i75.us:                                ; preds = %cond.end10.i67.us
-  %wrl14.i70.us = getelementptr inbounds i8, ptr %cond11.i68.us, i64 3048
+  %wrl14.i70.us = getelementptr inbounds nuw i8, ptr %cond11.i68.us, i64 3048
   %37 = load ptr, ptr %wrl14.i70.us, align 8
-  %wbuf22.i76.us = getelementptr inbounds i8, ptr %37, i64 96
+  %wbuf22.i76.us = getelementptr inbounds nuw i8, ptr %37, i64 96
   %38 = load ptr, ptr %wbuf22.i76.us, align 8
   %cmp25.i77.us = icmp eq ptr %38, null
   %39 = zext i1 %cmp25.i77.us to i32
@@ -360,7 +360,7 @@ checkbuffers.exit78.us:                           ; preds = %land.rhs21.i75.us, 
 
 if.end79.us:                                      ; preds = %checkbuffers.exit78.us, %if.end63.us, %if.end47.us, %if.end31.us
   %40 = load ptr, ptr %clientssl, align 8
-  %add.ptr.us = getelementptr inbounds i8, ptr %testdata, i64 %conv12161.us
+  %add.ptr.us = getelementptr inbounds nuw i8, ptr %testdata, i64 %conv12161.us
   %sub.us = sub i32 10, %len.0160.us
   %call82.us = call i32 @SSL_write(ptr noundef %40, ptr noundef nonnull %add.ptr.us, i32 noundef %sub.us) #4
   %cmp83.us = icmp sgt i32 %call82.us, 0
@@ -389,7 +389,7 @@ for.body17:                                       ; preds = %for.cond11.preheade
   %len.0160 = phi i32 [ %len.1, %for.inc ], [ 0, %for.cond11.preheader ]
   %cmp15 = phi i1 [ false, %for.inc ], [ true, %for.cond11.preheader ]
   %44 = load ptr, ptr %clientssl, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %testdata, i64 %conv12161
+  %add.ptr = getelementptr inbounds nuw i8, ptr %testdata, i64 %conv12161
   %sub = sub i32 10, %len.0160
   %call82 = call i32 @SSL_write(ptr noundef %44, ptr noundef nonnull %add.ptr, i32 noundef %sub) #4
   %cmp83 = icmp sgt i32 %call82, 0
@@ -445,23 +445,23 @@ lor.lhs.false117:                                 ; preds = %land.lhs.true111
   br i1 %switch.i80, label %cond.end10.i83, label %cond.true6.i81
 
 cond.true6.i81:                                   ; preds = %lor.lhs.false117
-  %tls.i82 = getelementptr inbounds i8, ptr %49, i64 64
+  %tls.i82 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %51 = load ptr, ptr %tls.i82, align 8
   br label %cond.end10.i83
 
 cond.end10.i83:                                   ; preds = %cond.true6.i81, %lor.lhs.false117
   %cond11.i84 = phi ptr [ %51, %cond.true6.i81 ], [ %49, %lor.lhs.false117 ]
-  %rrl12.i85 = getelementptr inbounds i8, ptr %cond11.i84, i64 3040
+  %rrl12.i85 = getelementptr inbounds nuw i8, ptr %cond11.i84, i64 3040
   %52 = load ptr, ptr %rrl12.i85, align 8
-  %rbuf18.i87 = getelementptr inbounds i8, ptr %52, i64 1696
+  %rbuf18.i87 = getelementptr inbounds nuw i8, ptr %52, i64 1696
   %53 = load ptr, ptr %rbuf18.i87, align 8
   %cmp20.i88 = icmp eq ptr %53, null
   br i1 %cmp20.i88, label %land.rhs21.i91, label %checkbuffers.exit94
 
 land.rhs21.i91:                                   ; preds = %cond.end10.i83
-  %wrl14.i86 = getelementptr inbounds i8, ptr %cond11.i84, i64 3048
+  %wrl14.i86 = getelementptr inbounds nuw i8, ptr %cond11.i84, i64 3048
   %54 = load ptr, ptr %wrl14.i86, align 8
-  %wbuf22.i92 = getelementptr inbounds i8, ptr %54, i64 96
+  %wbuf22.i92 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %55 = load ptr, ptr %wbuf22.i92, align 8
   %cmp25.i93 = icmp eq ptr %55, null
   %56 = zext i1 %cmp25.i93 to i32
@@ -492,23 +492,23 @@ lor.lhs.false133:                                 ; preds = %land.lhs.true127
   br i1 %switch.i96, label %cond.end10.i99, label %cond.true6.i97
 
 cond.true6.i97:                                   ; preds = %lor.lhs.false133
-  %tls.i98 = getelementptr inbounds i8, ptr %58, i64 64
+  %tls.i98 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %tls.i98, align 8
   br label %cond.end10.i99
 
 cond.end10.i99:                                   ; preds = %cond.true6.i97, %lor.lhs.false133
   %cond11.i100 = phi ptr [ %60, %cond.true6.i97 ], [ %58, %lor.lhs.false133 ]
-  %rrl12.i101 = getelementptr inbounds i8, ptr %cond11.i100, i64 3040
+  %rrl12.i101 = getelementptr inbounds nuw i8, ptr %cond11.i100, i64 3040
   %61 = load ptr, ptr %rrl12.i101, align 8
-  %rbuf18.i103 = getelementptr inbounds i8, ptr %61, i64 1696
+  %rbuf18.i103 = getelementptr inbounds nuw i8, ptr %61, i64 1696
   %62 = load ptr, ptr %rbuf18.i103, align 8
   %cmp20.i104 = icmp eq ptr %62, null
   br i1 %cmp20.i104, label %land.rhs21.i107, label %checkbuffers.exit110
 
 land.rhs21.i107:                                  ; preds = %cond.end10.i99
-  %wrl14.i102 = getelementptr inbounds i8, ptr %cond11.i100, i64 3048
+  %wrl14.i102 = getelementptr inbounds nuw i8, ptr %cond11.i100, i64 3048
   %63 = load ptr, ptr %wrl14.i102, align 8
-  %wbuf22.i108 = getelementptr inbounds i8, ptr %63, i64 96
+  %wbuf22.i108 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %64 = load ptr, ptr %wbuf22.i108, align 8
   %cmp25.i109 = icmp eq ptr %64, null
   %65 = zext i1 %cmp25.i109 to i32
@@ -539,23 +539,23 @@ lor.lhs.false149:                                 ; preds = %land.lhs.true143
   br i1 %switch.i112, label %cond.end10.i115, label %cond.true6.i113
 
 cond.true6.i113:                                  ; preds = %lor.lhs.false149
-  %tls.i114 = getelementptr inbounds i8, ptr %67, i64 64
+  %tls.i114 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %69 = load ptr, ptr %tls.i114, align 8
   br label %cond.end10.i115
 
 cond.end10.i115:                                  ; preds = %cond.true6.i113, %lor.lhs.false149
   %cond11.i116 = phi ptr [ %69, %cond.true6.i113 ], [ %67, %lor.lhs.false149 ]
-  %rrl12.i117 = getelementptr inbounds i8, ptr %cond11.i116, i64 3040
+  %rrl12.i117 = getelementptr inbounds nuw i8, ptr %cond11.i116, i64 3040
   %70 = load ptr, ptr %rrl12.i117, align 8
-  %rbuf18.i119 = getelementptr inbounds i8, ptr %70, i64 1696
+  %rbuf18.i119 = getelementptr inbounds nuw i8, ptr %70, i64 1696
   %71 = load ptr, ptr %rbuf18.i119, align 8
   %cmp20.i120 = icmp eq ptr %71, null
   br i1 %cmp20.i120, label %checkbuffers.exit126, label %land.rhs.i121
 
 land.rhs.i121:                                    ; preds = %cond.end10.i115
-  %wrl14.i118 = getelementptr inbounds i8, ptr %cond11.i116, i64 3048
+  %wrl14.i118 = getelementptr inbounds nuw i8, ptr %cond11.i116, i64 3048
   %72 = load ptr, ptr %wrl14.i118, align 8
-  %wbuf.i122 = getelementptr inbounds i8, ptr %72, i64 96
+  %wbuf.i122 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %73 = load ptr, ptr %wbuf.i122, align 8
   %cmp17.i123 = icmp ne ptr %73, null
   %74 = zext i1 %cmp17.i123 to i32
@@ -586,23 +586,23 @@ lor.lhs.false165:                                 ; preds = %land.lhs.true159
   br i1 %switch.i128, label %cond.end10.i131, label %cond.true6.i129
 
 cond.true6.i129:                                  ; preds = %lor.lhs.false165
-  %tls.i130 = getelementptr inbounds i8, ptr %76, i64 64
+  %tls.i130 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %78 = load ptr, ptr %tls.i130, align 8
   br label %cond.end10.i131
 
 cond.end10.i131:                                  ; preds = %cond.true6.i129, %lor.lhs.false165
   %cond11.i132 = phi ptr [ %78, %cond.true6.i129 ], [ %76, %lor.lhs.false165 ]
-  %rrl12.i133 = getelementptr inbounds i8, ptr %cond11.i132, i64 3040
+  %rrl12.i133 = getelementptr inbounds nuw i8, ptr %cond11.i132, i64 3040
   %79 = load ptr, ptr %rrl12.i133, align 8
-  %rbuf18.i135 = getelementptr inbounds i8, ptr %79, i64 1696
+  %rbuf18.i135 = getelementptr inbounds nuw i8, ptr %79, i64 1696
   %80 = load ptr, ptr %rbuf18.i135, align 8
   %cmp20.i136 = icmp eq ptr %80, null
   br i1 %cmp20.i136, label %land.rhs21.i139, label %checkbuffers.exit142
 
 land.rhs21.i139:                                  ; preds = %cond.end10.i131
-  %wrl14.i134 = getelementptr inbounds i8, ptr %cond11.i132, i64 3048
+  %wrl14.i134 = getelementptr inbounds nuw i8, ptr %cond11.i132, i64 3048
   %81 = load ptr, ptr %wrl14.i134, align 8
-  %wbuf22.i140 = getelementptr inbounds i8, ptr %81, i64 96
+  %wbuf22.i140 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %82 = load ptr, ptr %wbuf22.i140, align 8
   %cmp25.i141 = icmp eq ptr %82, null
   %83 = zext i1 %cmp25.i141 to i32
@@ -616,7 +616,7 @@ checkbuffers.exit142:                             ; preds = %cond.end10.i131, %l
 
 if.end172:                                        ; preds = %for.body108, %if.end124, %if.end140, %checkbuffers.exit142, %if.end156
   %84 = load ptr, ptr %serverssl, align 8
-  %add.ptr175 = getelementptr inbounds i8, ptr %buf, i64 %conv101164
+  %add.ptr175 = getelementptr inbounds nuw i8, ptr %buf, i64 %conv101164
   %sub177 = sub i32 10, %len.2163
   %call179 = call i32 @SSL_read(ptr noundef %84, ptr noundef nonnull %add.ptr175, i32 noundef %sub177) #4
   %cmp180 = icmp sgt i32 %call179, 0

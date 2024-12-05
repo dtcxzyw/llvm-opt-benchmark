@@ -64,7 +64,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %id to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4cvc58internal5prooflsERSoNS1_8LfscRuleE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4cvc58internal5prooflsERSoNS1_8LfscRuleE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -81,7 +81,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %id to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4cvc58internal5prooflsERSoNS1_8LfscRuleE, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4cvc58internal5prooflsERSoNS1_8LfscRuleE, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal5proof8toStringENS1_8LfscRuleE.exit
 
@@ -288,7 +288,7 @@ invoke.cont:                                      ; preds = %entry
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %invoke.cont
-  %_mp_den.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_mp_den.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @__gmpz_init_set(ptr noundef nonnull %_mp_den.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2)
           to label %invoke.cont4 unwind label %lpad3
 

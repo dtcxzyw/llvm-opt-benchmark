@@ -21,9 +21,9 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %.not, label %42, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load double, ptr %20, align 8
   %22 = fsub double %19, %21
   %23 = fmul double %22, 5.000000e-01
@@ -35,10 +35,10 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %29 = fdiv double %25, %28
   %30 = fadd double %24, %29
   %31 = fadd double %19, %21
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = load double, ptr %32, align 8
   %34 = tail call double @llvm.fmuladd.f64(double %30, double %31, double %33)
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %36 = load double, ptr %35, align 8
   %37 = fadd double %36, %34
   %38 = fmul double %21, %30
@@ -49,14 +49,14 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 42:                                               ; preds = %15
   %43 = load double, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %45 = load double, ptr %44, align 8
   %46 = fsub double %43, %45
   %47 = fmul double %46, 5.000000e-01
   %48 = load double, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %4, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %50 = load double, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %52 = load double, ptr %51, align 8
   %53 = fsub double %52, %45
   %54 = fsub double %53, %47
@@ -65,7 +65,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %57 = fadd double %43, %45
   %58 = load double, ptr %4, align 8
   %59 = tail call double @llvm.fmuladd.f64(double %56, double %57, double %58)
-  %60 = getelementptr inbounds i8, ptr %4, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %61 = load double, ptr %60, align 8
   %62 = fadd double %61, %59
   %63 = fmul double %43, %56
@@ -132,16 +132,16 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %105 = fsub double %104, %.sink
   %106 = fdiv double %103, %105
   %107 = fadd double %102, %106
-  %108 = getelementptr inbounds i8, ptr %4, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %109 = load double, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %3, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %111 = load double, ptr %110, align 8
   %112 = fsub double %111, %.sink
   %113 = fdiv double %109, %112
   %114 = fadd double %107, %113
-  %115 = getelementptr inbounds i8, ptr %4, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %116 = load double, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %3, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %118 = load double, ptr %117, align 8
   %119 = fsub double %118, %.sink
   %120 = fdiv double %116, %119
@@ -161,12 +161,12 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %129 = load i32, ptr %1, align 4
   %.not324 = icmp eq i32 %129, 0
   %.sink388.in.idx = select i1 %.not324, i64 0, i64 8
-  %.sink388.in = getelementptr inbounds i8, ptr %3, i64 %.sink388.in.idx
+  %.sink388.in = getelementptr inbounds nuw i8, ptr %3, i64 %.sink388.in.idx
   %.sink386 = select i1 %.not324, i64 8, i64 16
   %.sink388 = load double, ptr %.sink388.in, align 8
   %130 = fsub double %.sink388, %128
   %131 = tail call noundef double @llvm.fabs.f64(double %130)
-  %132 = getelementptr inbounds i8, ptr %3, i64 %.sink386
+  %132 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink386
   %133 = load double, ptr %132, align 8
   %134 = fsub double %133, %128
   %135 = tail call noundef double @llvm.fabs.f64(double %134)
@@ -187,13 +187,13 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 141:                                              ; preds = %139, %141
   %indvars.iv = phi i64 [ 1, %139 ], [ %indvars.iv.next, %141 ]
-  %142 = getelementptr inbounds double, ptr %12, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
   %143 = load double, ptr %142, align 8
   %144 = fmul double %., %143
   %145 = add nsw i64 %indvars.iv, -1
   %146 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %145
   store double %144, ptr %146, align 8
-  %147 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
   %148 = load double, ptr %147, align 8
   %149 = fmul double %., %148
   %150 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %145
@@ -243,9 +243,9 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br i1 %172, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %9, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %174 = load double, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %9, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %176 = load double, ptr %175, align 16
   %177 = load double, ptr %9, align 16
   br label %180

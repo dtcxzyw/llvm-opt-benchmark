@@ -563,7 +563,7 @@ define internal i32 @dissect_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %15, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.222) #2
   %12 = load ptr, ptr %10, align 8
@@ -623,7 +623,7 @@ define internal i32 @dissect_cast_pdu(ptr noundef %0, ptr nocapture noundef read
 18:                                               ; preds = %8, %4
   %.0743 = phi ptr [ %13, %8 ], [ null, %4 ]
   %19 = tail call ptr @val_to_str(i32 noundef %7, ptr noundef nonnull @message_id, ptr noundef nonnull @.str.380) #2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_add_str(ptr noundef %21, i32 noundef 25, ptr noundef %19) #2
   br i1 %.not, label %.critedge, label %22

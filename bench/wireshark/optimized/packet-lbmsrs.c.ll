@@ -582,18 +582,18 @@ define internal noundef ptr @lbmsrs_tag_copy_cb(ptr noundef returned writeonly i
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #6
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %14, ptr %15, align 4
   ret ptr %0
 }
@@ -634,7 +634,7 @@ define internal void @lbmsrs_tag_free_cb(ptr nocapture noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7
@@ -657,7 +657,7 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_lbmsrs_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.lbmsrs_tag_entry_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 280
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 2
   br i1 %.not, label %8, label %34
@@ -696,17 +696,17 @@ define internal range(i32 0, 2) i32 @test_lbmsrs_packet(ptr noundef %0, ptr noun
 
 19:                                               ; preds = %8
   store ptr null, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = load ptr, ptr @global_lbmsrs_source_ip_address, align 8
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   %spec.store.select = select i1 %23, ptr null, ptr @.str.204
   store ptr %spec.store.select, ptr %20, align 8
   %24 = load i32, ptr @lbmsrs_source_ip_address, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %24, ptr %25, align 8
   %26 = load i32, ptr @lbmsrs_source_port, align 4
-  %27 = getelementptr inbounds i8, ptr %5, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %26, ptr %27, align 4
   %28 = call fastcc i32 @lbmsrs_match_packet(ptr noundef nonnull %1, ptr noundef nonnull %5)
   %29 = icmp eq i32 %28, 0
@@ -837,14 +837,14 @@ define internal fastcc i32 @dissect_lbmsrs_real(ptr noundef %0, ptr noundef %1, 
   br i1 %.not7.i, label %8, label %lbmsrs_tag_find.exit
 
 lbmsrs_tag_find.exit.thread:                      ; preds = %8, %4, %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_clear(ptr noundef %13, i32 noundef 25) #6
   br label %19
 
 lbmsrs_tag_find.exit:                             ; preds = %9
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_clear(ptr noundef %16, i32 noundef 25) #6
   %.not12 = icmp eq ptr %14, null
@@ -955,7 +955,7 @@ define internal i32 @dissect_lbmsrs_pdus(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %44, label %getFrameTypeName.exit, label %38
 
 getFrameTypeName.exit:                            ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %getFrameTypeName.exit.thread, label %47
@@ -965,7 +965,7 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
 
 47:                                               ; preds = %getFrameTypeName.exit, %getFrameTypeName.exit.thread
   %.str.270.sink = phi ptr [ @.str.270, %getFrameTypeName.exit.thread ], [ %46, %getFrameTypeName.exit ]
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8
   call void @col_add_str(ptr noundef %49, i32 noundef 25, ptr noundef nonnull %.str.270.sink) #6
   %50 = load i32, ptr @hf_lbmsrs_rsocket_ignore_flag, align 4
@@ -1229,31 +1229,31 @@ getFrameTypeName.exit.thread:                     ; preds = %38, %getFrameTypeNa
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 2
   br i1 %.not, label %5, label %89
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 236
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %7 = load i32, ptr %6, align 4
   %.not33 = icmp eq i32 %7, 4
   br i1 %.not33, label %8, label %89
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %10 = load i32, ptr %9, align 8
   %.not34 = icmp eq i32 %10, 2
   br i1 %.not34, label %11, label %89
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 212
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %13 = load i32, ptr %12, align 4
   %.not35 = icmp eq i32 %13, 4
   br i1 %.not35, label %14, label %89
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 240
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %16 = load ptr, ptr %15, align 8
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
@@ -1272,7 +1272,7 @@ define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture no
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %29, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 216
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %35 = load ptr, ptr %34, align 8
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
@@ -1291,19 +1291,19 @@ define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture no
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %48, %51
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not36 = icmp eq ptr %54, null
   br i1 %.not36, label %58, label %55
 
 55:                                               ; preds = %14
-  %56 = getelementptr inbounds i8, ptr %1, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i32, ptr %56, align 8
   br label %58
 
 58:                                               ; preds = %55, %14
   %.0 = phi i32 [ %57, %55 ], [ 0, %14 ]
-  %59 = getelementptr inbounds i8, ptr %1, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = icmp ne i32 %60, 0
   %62 = icmp eq i32 %.0, 0
@@ -1311,13 +1311,13 @@ define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture no
   br i1 %or.cond, label %63, label %71
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %0, i64 288
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %60, %65
   br i1 %66, label %89, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 284
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %60, %69
   br i1 %70, label %89, label %88
@@ -1338,7 +1338,7 @@ define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture no
   br i1 %74, label %78, label %82
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %0, i64 288
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %60, %80
   br i1 %81, label %89, label %82
@@ -1348,7 +1348,7 @@ define internal fastcc range(i32 0, 2) i32 @lbmsrs_match_packet(ptr nocapture no
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 284
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %60, %86
   br i1 %87, label %89, label %88
@@ -1420,7 +1420,7 @@ define internal fastcc noundef i32 @dissect_lbmsrs_data(ptr noundef %0, ptr noun
 
 28:                                               ; preds = %25
   %29 = add i32 %3, 2
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.273) #6
   %32 = load i32, ptr @ett_lbmsrs_details, align 4
@@ -1464,7 +1464,7 @@ dissect_lbmsrs_registration_request.exit:         ; preds = %25, %28
 
 60:                                               ; preds = %57
   %61 = add i32 %3, 2
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = load ptr, ptr %62, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.275) #6
   %64 = load i32, ptr @ett_lbmsrs_details, align 4
@@ -1493,7 +1493,7 @@ dissect_lbmsrs_registration_response.exit:        ; preds = %57, %60
 
 77:                                               ; preds = %74
   %78 = add i32 %3, 2
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.277) #6
   %81 = load i32, ptr @ett_lbmsrs_details, align 4
@@ -1510,7 +1510,7 @@ dissect_lbmsrs_stream_request.exit:               ; preds = %74, %77
 85:                                               ; preds = %23, %23, %23, %23, %23, %23, %23, %23, %23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
   %86 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %88 = load ptr, ptr %87, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.279) #6
   %89 = load i32, ptr @ett_lbmsrs_details, align 4
@@ -2859,21 +2859,21 @@ define internal void @lbmsrs_tag_ip_address_set_cb(ptr nocapture noundef initial
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #6
   store ptr %8, ptr %9, align 8
   %11 = call zeroext i1 @ws_inet_pton4(ptr noundef %8, ptr noundef nonnull %6) #6
   %12 = load i32, ptr %6, align 4
   %13 = call i32 @llvm.bswap.i32(i32 %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %13, ptr %14, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmsrs_tag_ip_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -2903,7 +2903,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @lbmsrs_tag_tcp_port_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #6
   tail call void @g_free(ptr noundef %7) #6
   ret void
@@ -2911,7 +2911,7 @@ define internal void @lbmsrs_tag_tcp_port_set_cb(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @lbmsrs_tag_tcp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.302, i32 noundef %7) #6
   store ptr %8, ptr %1, align 8

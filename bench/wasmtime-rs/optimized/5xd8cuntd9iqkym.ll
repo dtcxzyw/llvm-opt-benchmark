@@ -12,13 +12,13 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17h620d62081f45cef0E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %13, !prof !4
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %11 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %9, i64 0, i64 %3
@@ -33,13 +33,13 @@ define zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17he609b8baeda9c6d6E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %13, !prof !4
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %11 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 }, i64, { i64, i32, {}, [4 x i8] } }], ptr %9, i64 0, i64 %3, i32 2
@@ -54,13 +54,13 @@ define zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN8indexmap3map4core10equivalent28_$u7b$$u7b$closure$u7d$$u7d$17hf9e419f0502e615dE"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %13, !prof !4
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !align !5, !noundef !3
   %10 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
   %11 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i64, { i64, i32, {}, [4 x i8] } }], ptr %9, i64 0, i64 %3, i32 2
@@ -79,7 +79,7 @@ define nonnull align 8 ptr @"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert
   %5 = alloca { ptr, ptr, { i64, i32, {}, [4 x i8] } }, align 8
   %6 = load i64, ptr %0, align 8, !range !6, !noundef !3
   %7 = icmp eq i64 %6, 0
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %7, label %9, label %11
 
 9:                                                ; preds = %2
@@ -89,20 +89,20 @@ define nonnull align 8 ptr @"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert
 
 11:                                               ; preds = %2
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %12 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 24
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 48
   %14 = load i64, ptr %13, align 8, !noundef !3
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = invoke ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6insert17h8a1a8ae6ad94152eE"(ptr nonnull align 8 %12, i64 %.sroa.2.0.copyload, i64 %14, ptr nonnull align 8 %16, i64 %18)
           to label %.noexc unwind label %22
@@ -167,18 +167,18 @@ define nonnull align 8 ptr @"_ZN8indexmap3map4core18Entry$LT$K$C$V$GT$9or_insert
 define nonnull align 8 ptr @"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6insert17hca7d12193596f7dbE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !5, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %7 = load i64, ptr %6, align 8, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !noundef !3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i32, ptr %12, align 8, !noundef !3
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = invoke ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6insert17h8a1a8ae6ad94152eE"(ptr nonnull align 8 %5, i64 %9, i64 %7, ptr nonnull align 8 %15, i64 %17)
           to label %19 unwind label %27
@@ -218,7 +218,7 @@ define nonnull align 8 ptr @"_ZN8indexmap3map4core24VacantEntry$LT$K$C$V$GT$6ins
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h008f3ce060617d37E"(ptr align 8 %0, i64 %1, i64 %2, i32 %3, ptr align 8 %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { { i64, ptr, {} }, i64 }, i64, { i64, i32, {}, [4 x i8] } }, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = load i64, ptr %0, align 8, !noundef !3
   %10 = icmp eq i64 %8, %9
@@ -226,19 +226,19 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h008
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h52c0a87e52236a01E.exit": ; preds = %.noexc3, %24, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %3, ptr %13, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb1bd49d6eac48e41E"(ptr nonnull align 8 %0, ptr nonnull align 8 %6)
   ret void
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = add i64 %18, %16
   %20 = invoke i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %19, i64 192153584101141162)
@@ -282,7 +282,7 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h008
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h03a340129c4f0117E"(ptr align 8 %0, i64 %1, i64 %2, i32 %3, ptr align 8 %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, i64, { i64, i32, {}, [4 x i8] } }, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = load i64, ptr %0, align 8, !noundef !3
   %10 = icmp eq i64 %8, %9
@@ -290,19 +290,19 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h03a
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h203725507297df89E.exit": ; preds = %.noexc4, %24, %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %3, ptr %13, align 8
   call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h15df292d7eeeab1aE"(ptr nonnull align 8 %0, ptr nonnull align 8 %6)
   ret void
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = add i64 %18, %16
   %20 = invoke i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %19, i64 192153584101141162)
@@ -345,7 +345,7 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h03a
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h78eb99495d88c21fE"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = load i64, ptr %0, align 8, !noundef !3
   %7 = icmp eq i64 %5, %6
@@ -358,9 +358,9 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h78e
   ret void
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8, !noundef !3
   %14 = add i64 %13, %11
   %15 = tail call i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %14, i64 576460752303423487)
@@ -388,20 +388,20 @@ define { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
   store ptr %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
   store ptr %6, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hbd8dcb59debe0188E"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %4, ptr nonnull align 8 %13, i64 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %8, i64 %10)
   %14 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %15 = icmp eq i64 %14, 0
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %15, label %17, label %23
 
 17:                                               ; preds = %3
@@ -416,7 +416,7 @@ define { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 
 23:                                               ; preds = %3
   %24 = load i64, ptr %16, align 8, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = load i64, ptr %25, align 8, !noundef !3
   %27 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17h930e78526498703cE"(ptr nonnull align 8 %13, i64 %1, i64 %24, i64 %26)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -429,7 +429,7 @@ define { i64, i1 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_fu
 
 32:                                               ; preds = %23
   %33 = load i64, ptr %25, align 8, !noundef !3
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i64, ptr %34, align 8, !noundef !3
   %36 = add i64 %35, %33
   %37 = call i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %36, i64 576460752303423487)
@@ -471,32 +471,32 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hc9
   %10 = alloca { i64, [2 x i64] }, align 8
   %11 = alloca { i64, i32, {}, [4 x i8] }, align 8
   store i64 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %4, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
   store ptr %11, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %14, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   invoke void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h12063a7b97f3239eE"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %7, ptr nonnull align 8 %19, i64 %2, ptr nonnull align 8 %8, ptr nonnull align 8 %14, i64 %16)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %6
   %20 = load i64, ptr %7, align 8, !range !6, !noundef !3
   %21 = icmp eq i64 %20, 0
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %21, label %28, label %23
 
 23:                                               ; preds = %.noexc
   %24 = load i64, ptr %22, align 8, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load i64, ptr %25, align 8, !noundef !3
   %27 = invoke ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17h930e78526498703cE"(ptr nonnull align 8 %19, i64 %2, i64 %24, i64 %26)
           to label %34 unwind label %45
@@ -519,7 +519,7 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hc9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$10push_entry17h03a340129c4f0117E"(ptr nonnull align 8 %1, i64 %2, i64 %35, i32 %36, ptr nonnull align 8 %9)
   store i64 %26, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %37, align 8
   br label %44
 
@@ -529,7 +529,7 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hc9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   store i64 %31, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   br label %44
 
@@ -562,16 +562,16 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$11insert_full17hc9
 ; Function Attrs: nonlazybind uwtable
 define { i64, i64 } @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$12get_index_of17h6f9644f52214c789E"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { ptr, { ptr, i64 } }, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !3, !noundef !3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !3
   store ptr %2, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %6, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = call align 8 ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17h61989414ac31590fE"(ptr nonnull align 8 %11, i64 %1, ptr nonnull align 8 %4)
   %13 = icmp eq ptr %12, null
   br i1 %13, label %16, label %14
@@ -609,12 +609,12 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h
 10:                                               ; preds = %2
   %11 = extractvalue { i64, ptr } %7, 0
   %12 = extractvalue { i64, ptr } %7, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store i64 %11, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 
@@ -649,12 +649,12 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h
 10:                                               ; preds = %2
   %11 = extractvalue { i64, ptr } %7, 0
   %12 = extractvalue { i64, ptr } %7, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store i64 %11, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 
@@ -689,12 +689,12 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h
 10:                                               ; preds = %2
   %11 = extractvalue { i64, ptr } %7, 0
   %12 = extractvalue { i64, ptr } %7, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store i64 %11, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 
@@ -729,12 +729,12 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h
 10:                                               ; preds = %2
   %11 = extractvalue { i64, ptr } %7, 0
   %12 = extractvalue { i64, ptr } %7, 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   store i64 %11, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %12, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   ret void
 
@@ -750,13 +750,13 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$13with_capacity17h
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h203725507297df89E"(ptr align 8 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = add i64 %6, %4
   %8 = tail call i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %7, i64 192153584101141162)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = sub i64 %8, %10
   %12 = icmp ugt i64 %11, %1
@@ -778,13 +778,13 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries1
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h2a96c1d6756de6fdE"(ptr align 8 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = add i64 %6, %4
   %8 = tail call i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %7, i64 576460752303423487)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = sub i64 %8, %10
   %12 = icmp ugt i64 %11, %1
@@ -806,13 +806,13 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries1
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17h52c0a87e52236a01E"(ptr align 8 %0, i64 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !noundef !3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = add i64 %6, %4
   %8 = tail call i64 @_ZN4core3cmp6min_by17hd0e22c016aa7624fE(i64 %7, i64 192153584101141162)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = sub i64 %8, %10
   %12 = icmp ugt i64 %11, %1
@@ -836,20 +836,20 @@ define void @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries1
 define { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$14find_or_insert17h68cde6c0dc3c67deE"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { ptr, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
   store ptr %2, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17hbd8dcb59debe0188E"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %4, ptr nonnull align 8 %12, i64 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %7, i64 %9)
   %13 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %14 = icmp eq i64 %13, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %14, label %16, label %20
 
 16:                                               ; preds = %3
@@ -860,7 +860,7 @@ define { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..co
 
 20:                                               ; preds = %3
   %21 = load i64, ptr %15, align 8, !noundef !3
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8, !noundef !3
   %24 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17h930e78526498703cE"(ptr nonnull align 8 %12, i64 %1, i64 %21, i64 %23)
   br label %25
@@ -877,20 +877,20 @@ define { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..co
 define { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$14find_or_insert17hc839b03edbcd0d2fE"(ptr align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #1 {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca { ptr, { ptr, i64 } }, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
   store ptr %2, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h12063a7b97f3239eE"(ptr nonnull sret({ i64, [1 x i64] }) align 8 %4, ptr nonnull align 8 %12, i64 %1, ptr nonnull align 8 %5, ptr nonnull align 8 %7, i64 %9)
   %13 = load i64, ptr %4, align 8, !range !6, !noundef !3
   %14 = icmp eq i64 %13, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %14, label %16, label %20
 
 16:                                               ; preds = %3
@@ -901,7 +901,7 @@ define { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..co
 
 20:                                               ; preds = %3
   %21 = load i64, ptr %15, align 8, !noundef !3
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8, !noundef !3
   %24 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14insert_in_slot17h930e78526498703cE"(ptr nonnull align 8 %12, i64 %1, i64 %21, i64 %23)
   br label %25
@@ -919,18 +919,18 @@ define void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..Inde
   %6 = alloca { ptr, { ptr, i64 } }, align 8
   %7 = alloca { i64, i32, {}, [4 x i8] }, align 8
   store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %4, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !3
   store ptr %7, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = call ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd470d9e3a56d77c9E"(ptr nonnull align 8 %15, i64 %2, ptr nonnull align 8 %6)
   %17 = icmp eq ptr %16, null
   %18 = load i32, ptr %8, align 8, !noundef !3
@@ -938,13 +938,13 @@ define void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..Inde
   %.sink14 = select i1 %17, ptr %19, ptr %16
   %storemerge = zext i1 %17 to i64
   %.sink13 = load i64, ptr %7, align 8, !noundef !3
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink14, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sink13, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %18, ptr %23, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
@@ -953,7 +953,7 @@ define void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..Inde
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef i64 @"_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d$17h089033f297333465E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %11, !prof !4
@@ -972,7 +972,7 @@ define noundef i64 @"_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef i64 @"_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d$17h44d153689aa6d7d8E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %11, !prof !4
@@ -991,7 +991,7 @@ define noundef i64 @"_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d
 ; Function Attrs: inlinehint nonlazybind uwtable
 define noundef i64 @"_ZN8indexmap3map4core8get_hash28_$u7b$$u7b$closure$u7d$$u7d$17hc73ad64dc09973d4E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8, !noundef !3
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %3, %5
   br i1 %6, label %7, label %11, !prof !4

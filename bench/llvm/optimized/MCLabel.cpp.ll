@@ -17,7 +17,7 @@ define dso_local void @_ZNK4llvm7MCLabel5printERNS_11raw_ostreamE(ptr nocapture 
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %10, ptr %3, align 8
   store i8 34, ptr %4, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -39,7 +39,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %7, %9
   br label %_ZN4llvm11raw_ostreamlsEc.exit4
 
 20:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %21 = getelementptr inbounds i8, ptr %15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %21, ptr %14, align 8
   store i8 34, ptr %15, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit4

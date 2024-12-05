@@ -987,7 +987,7 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   %.not.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 134217763
   %.idx.i.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i.i, i64 600, i64 536
   %.sink.in.i.i.i.i.i.i.i.v = select i1 %.not.i.i.i.i.i.i.i, i64 664, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v
-  %.sink.in.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.i.v
+  %.sink.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.i.v
   %2 = select i1 %.not.i.i.i.i.i.i.i.i, i64 584, i64 520
   %.add12.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 648, i64 %2
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
@@ -996,19 +996,19 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 134217743
   %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 264, i64 8
   %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 376, i64 120
-  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
+  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
   %4 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %4, %0
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 128, i64 0
   %.add14.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add13.i.i
-  %.ptr21.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i
-  %5 = getelementptr inbounds i8, ptr %.ptr21.i.i, i64 48
+  %.ptr21.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %.ptr21.i.i, i64 48
   %6 = load i32, ptr %5, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 64, i64 0
   %.add15.i.i = or disjoint i64 %.add14.i.i, %.idx.i.i.i.i.i.i.i.i.i
-  %.ptr22.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i
-  %7 = getelementptr inbounds i8, ptr %.ptr22.i.i, i64 16
+  %.ptr22.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr22.i.i, i64 16
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %3, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm11EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i
@@ -1018,7 +1018,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
   %.sink11.i.i.i.i.add.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink11.i.i.i.i.idx.i.i
-  %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink11.i.i.i.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink11.i.i.i.i.add.i.i
   %8 = load i32, ptr %.ptr.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %8, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
@@ -1027,13 +1027,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
 
 9:                                                ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %.ptr16.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i
   %10 = load i32, ptr %.ptr16.i.i, align 4
   %.not23.i.i = icmp ult i32 %0, %10
   br i1 %.not23.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %.ptr16.i.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i, i64 8
   %13 = load ptr, ptr %12, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1052,12 +1052,12 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocat
   store i32 %0, ptr %2, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1976) %3, ptr noundef nonnull align 8 dereferenceable(1976) @__const._ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1976, i1 false)
   %4 = call noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1976) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %5 = getelementptr inbounds i8, ptr %3, i64 1976
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1976
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -1087,7 +1087,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocat
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 402653344
   %.add15.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 2120, i64 2056
   %.add15.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 2136, i64 2072
-  %.add15.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v
+  %.add15.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v
   %6 = load i32, ptr %.add15.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1098,31 +1098,31 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocat
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 402653247
   %.add18.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 1032, i64 8
   %.add18.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 1528, i64 504
-  %.add18.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.sroa.sel.sroa.sel.v
+  %.add18.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.sroa.sel.sroa.sel.v
   %8 = load i32, ptr %.add18.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %8, %0
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 512, i64 0
   %.add19.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add18.i.i
-  %.ptr32.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i
-  %9 = getelementptr inbounds i8, ptr %.ptr32.i.i, i64 240
+  %.ptr32.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %.ptr32.i.i, i64 240
   %10 = load i32, ptr %9, align 8
   %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %10, %0
   %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 256, i64 0
   %.add20.i.i = or disjoint i64 %.add19.i.i, %.idx.i.i.i10.i.i.i.i.i.i
-  %.ptr33.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add20.i.i
-  %11 = getelementptr inbounds i8, ptr %.ptr33.i.i, i64 112
+  %.ptr33.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add20.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %.ptr33.i.i, i64 112
   %12 = load i32, ptr %11, align 8
   %.not.i.i.i.i11.i.i.i.i.i.i = icmp ult i32 %12, %0
   %.idx.i.i.i.i12.i.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i.i, i64 128, i64 0
   %.add21.i.i = or disjoint i64 %.add20.i.i, %.idx.i.i.i.i12.i.i.i.i.i.i
-  %.ptr34.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add21.i.i
-  %13 = getelementptr inbounds i8, ptr %.ptr34.i.i, i64 48
+  %.ptr34.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add21.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr34.i.i, i64 48
   %14 = load i32, ptr %13, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %14, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 64, i64 0
   %.add22.i.i = or disjoint i64 %.add21.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
-  %.ptr35.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add22.i.i
-  %15 = getelementptr inbounds i8, ptr %.ptr35.i.i, i64 16
+  %.ptr35.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add22.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %.ptr35.i.i, i64 16
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %16, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1131,12 +1131,12 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocat
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.sink.split.i.i: ; preds = %7, %5
   %.add23.sink43.i.i = phi i64 [ %.add23.i.i, %7 ], [ %.add16.i.i, %5 ]
-  %.ptr36.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add23.sink43.i.i
+  %.ptr36.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add23.sink43.i.i
   %17 = load i32, ptr %.ptr36.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %17, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add24.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i, %.add23.sink43.i.i
-  %.0.i.i.i.i.ptr.i.phi.trans.insert.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add24.i.i
+  %.0.i.i.i.i.ptr.i.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add24.i.i
   %.pre.i.pre.i = load i32, ptr %.0.i.i.i.i.ptr.i.phi.trans.insert.i, align 4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
@@ -1149,8 +1149,8 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKS
   br i1 %.not, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %19
 
 19:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.0.i.i.i.i14.i.i.idx
-  %20 = getelementptr inbounds i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
+  %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.0.i.i.i.i14.i.i.idx
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1166,14 +1166,14 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocat
   %4 = alloca %"class.frozen::map.46", align 8
   store i32 %0, ptr %3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1512) %4, ptr noundef nonnull align 8 dereferenceable(1512) @__const._ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1512, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %6, align 8
   %7 = call noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm94EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %4, i64 1512
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1512
   %.not.i.i = icmp eq ptr %7, %8
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm94ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
 
@@ -1184,7 +1184,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocat
   br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm94ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm94ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1213,8 +1213,8 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocat
   br i1 %.not.i.i.i.i.i.i.i.i.i.not, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i: ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %2, i64 616
-  %7 = getelementptr inbounds i8, ptr %2, i64 648
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 616
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 648
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 8:                                                ; preds = %3
@@ -1226,46 +1226,46 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 671088657
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 376, i64 120
-  %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %2, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %2, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %10 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %10, %0
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 128, i64 0
   %.add17.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add16.i.i
-  %.ptr25.i.i = getelementptr inbounds i8, ptr %2, i64 %.add17.i.i
-  %11 = getelementptr inbounds i8, ptr %.ptr25.i.i, i64 48
+  %.ptr25.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add17.i.i
+  %11 = getelementptr inbounds nuw i8, ptr %.ptr25.i.i, i64 48
   %12 = load i32, ptr %11, align 8
   %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %12, %0
   %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 64, i64 0
   %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i10.i.i.i.i.i.i
-  %.ptr26.i.i = getelementptr inbounds i8, ptr %2, i64 %.add18.i.i
-  %13 = getelementptr inbounds i8, ptr %.ptr26.i.i, i64 16
+  %.ptr26.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add18.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %.ptr26.i.i, i64 16
   %14 = load i32, ptr %13, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %14, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
   %.add19.i.i = or disjoint i64 %.add18.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.ptr27.i.i = getelementptr inbounds i8, ptr %2, i64 %.add19.i.i
+  %.ptr27.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add19.i.i
   %15 = load i32, ptr %.ptr27.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %15, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add20.i.i = or disjoint i64 %.add19.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds i8, ptr %2, i64 648
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 648
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %8, %5, %4
   %.sink11.i.i.i.i.i.i.i = phi i64 [ %9, %8 ], [ 632, %5 ], [ 584, %4 ]
-  %.ptr21.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink11.i.i.i.i.i.i.i
+  %.ptr21.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sink11.i.i.i.i.i.i.i
   %17 = load i32, ptr %.ptr21.i.i, align 8
   %.not.i6.i.i.i.i.i.i.i.i = icmp ult i32 %17, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add15.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i, %.sink11.i.i.i.i.i.i.i
-  %18 = getelementptr inbounds i8, ptr %2, i64 648
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %.not.i.i = icmp eq i64 %.add15.i.i, 648
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i
   %19 = phi ptr [ %16, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i ], [ %18, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
   %.0.i.i.i.i.idx33.i.i = phi i64 [ %.add20.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %.0.i.i.i.i.idx33.i.i
+  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx33.i.i
   %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i, align 4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
@@ -1275,13 +1275,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt
   %.0.i.i.i.i14.i.i = phi ptr [ %6, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i ], [ %.0.i.i.i.i.ptr.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i ]
   %.not29.i.i = icmp ult i32 %0, %20
   %spec.select.i.i = select i1 %.not29.i.i, ptr %21, ptr %.0.i.i.i.i14.i.i
-  %22 = getelementptr inbounds i8, ptr %2, i64 648
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 648
   %.not = icmp eq ptr %spec.select.i.i, %22
   br i1 %.not, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %23
 
 23:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
   %spec.select.i.i.sroa.sel.v.sroa.sel.v = select i1 %.not29.i.i, ptr %21, ptr %.0.i.i.i.i14.i.i
-  %spec.select.i.i.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.i.i.sroa.sel.v.sroa.sel.v, i64 8
+  %spec.select.i.i.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.sroa.sel.v, i64 8
   %24 = load ptr, ptr %spec.select.i.i.sroa.sel.v.sroa.sel, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1307,7 +1307,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
   %.not.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 805306463
   %.add.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 1352, i64 1288
   %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 1368, i64 1304
-  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
+  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
   %5 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i6.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
   %.idx.i.i7.i.i.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1318,13 +1318,13 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 805306451
   %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 1160, i64 1032
   %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 1208, i64 1080
-  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
+  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
   %7 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i.i = icmp ult i32 %7, %0
   %.idx.i.i8.i.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i.i, i64 64, i64 0
   %.add14.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i, %.add13.i.i
-  %.ptr27.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i
-  %8 = getelementptr inbounds i8, ptr %.ptr27.i.i, i64 16
+  %.ptr27.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr27.i.i, i64 16
   %9 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %9, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1335,25 +1335,25 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 805306406
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 520, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 760, i64 248
-  %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
+  %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
   %11 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %11, %0
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 256, i64 0
   %.add17.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add16.i.i
-  %.ptr31.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i
-  %12 = getelementptr inbounds i8, ptr %.ptr31.i.i, i64 112
+  %.ptr31.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr31.i.i, i64 112
   %13 = load i32, ptr %12, align 8
   %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %13, %0
   %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 128, i64 0
   %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i10.i.i.i.i.i.i
-  %.ptr32.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i
-  %14 = getelementptr inbounds i8, ptr %.ptr32.i.i, i64 48
+  %.ptr32.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %.ptr32.i.i, i64 48
   %15 = load i32, ptr %14, align 8
   %.not.i.i.i.i11.i.i.i.i.i.i = icmp ult i32 %15, %0
   %.idx.i.i.i.i12.i.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i.i, i64 64, i64 0
   %.add19.i.i = or disjoint i64 %.add18.i.i, %.idx.i.i.i.i12.i.i.i.i.i.i
-  %.ptr33.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i
-  %16 = getelementptr inbounds i8, ptr %.ptr33.i.i, i64 16
+  %.ptr33.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %.ptr33.i.i, i64 16
   %17 = load i32, ptr %16, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %17, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1362,7 +1362,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocat
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %10, %6, %4, %3
   %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add20.i.i, %10 ], [ %.add15.i.i, %6 ], [ %.add12.i.i, %4 ], [ 1416, %3 ]
-  %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
+  %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
   %.sink13.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink13.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
@@ -1371,13 +1371,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %18
 
 18:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %19 = load i32, ptr %.ptr.i.i, align 4
   %.not35.i.i = icmp ult i32 %0, %19
   br i1 %.not35.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
   %22 = load ptr, ptr %21, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1393,14 +1393,14 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocat
   %4 = alloca %"class.frozen::map.52", align 8
   store i32 %0, ptr %3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %4, ptr noundef nonnull align 8 dereferenceable(1800) @__const._ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1800, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %6, align 8
   %7 = call noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm112EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %4, i64 1800
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1800
   %.not.i.i = icmp eq ptr %7, %8
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm112ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
 
@@ -1411,7 +1411,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocat
   br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm112ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm112ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1437,7 +1437,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
   %.not.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 1073741919
   %.add.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 840, i64 776
   %.add.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 856, i64 792
-  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
+  %.add.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v
   %5 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i6.i.i.i.i.i.i.i.i = icmp ult i32 %5, %0
   %.idx.i.i7.i.i.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1448,13 +1448,13 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 1073741907
   %.add13.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 648, i64 520
   %.add13.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i, i64 696, i64 568
-  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
+  %.add13.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v
   %7 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i.i = icmp ult i32 %7, %0
   %.idx.i.i8.i.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i.i, i64 64, i64 0
   %.add14.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i, %.add13.i.i
-  %.ptr26.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i
-  %8 = getelementptr inbounds i8, ptr %.ptr26.i.i, i64 16
+  %.ptr26.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i
+  %8 = getelementptr inbounds nuw i8, ptr %.ptr26.i.i, i64 16
   %9 = load i32, ptr %8, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %9, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1465,19 +1465,19 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
   %.not.i6.i.i.i.i.i.i = icmp samesign ugt i32 %0, 1073741839
   %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 376, i64 120
-  %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
+  %.add16.i.i.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v
   %11 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %11, %0
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 128, i64 0
   %.add17.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add16.i.i
-  %.ptr30.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i
-  %12 = getelementptr inbounds i8, ptr %.ptr30.i.i, i64 48
+  %.ptr30.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.ptr30.i.i, i64 48
   %13 = load i32, ptr %12, align 8
   %.not.i.i.i9.i.i.i.i.i.i = icmp ult i32 %13, %0
   %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 64, i64 0
   %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i10.i.i.i.i.i.i
-  %.ptr31.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i
-  %14 = getelementptr inbounds i8, ptr %.ptr31.i.i, i64 16
+  %.ptr31.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i
+  %14 = getelementptr inbounds nuw i8, ptr %.ptr31.i.i, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i.i.i.i11.i.i.i.i.i.i = icmp ult i32 %15, %0
   %.idx.i.i.i.i12.i.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i.i, i64 32, i64 0
@@ -1486,7 +1486,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Reloca
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %10, %6, %4, %3
   %.sink.i.i.i.i.idx.i.i = phi i64 [ %.add19.i.i, %10 ], [ %.add15.i.i, %6 ], [ %.add12.i.i, %4 ], [ 904, %3 ]
-  %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
+  %.sink.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i
   %.sink13.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink13.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
@@ -1495,13 +1495,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %16
 
 16:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %.ptr.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i
   %17 = load i32, ptr %.ptr.i.i, align 4
   %.not33.i.i = icmp ult i32 %0, %17
   br i1 %.not33.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.ptr.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.ptr.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1517,12 +1517,12 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1207959552EEEPKcNS0_10Reloca
   store i32 %0, ptr %2, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1352) %3, ptr noundef nonnull align 8 dereferenceable(1352) @__const._ZN4LIEF3ELF9to_stringILj1207959552EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1352, i1 false)
   %4 = call noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1352) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %5 = getelementptr inbounds i8, ptr %3, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1352
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -1538,12 +1538,12 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Reloca
   store i32 %0, ptr %2, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1352) %3, ptr noundef nonnull align 8 dereferenceable(1352) @__const._ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1352, i1 false)
   %4 = call noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1352) %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  %5 = getelementptr inbounds i8, ptr %3, i64 1352
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1352
   %.not = icmp eq ptr %4, %5
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -1559,14 +1559,14 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Reloca
   %4 = alloca %"class.frozen::map.58", align 8
   store i32 %0, ptr %3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1000) %4, ptr noundef nonnull align 8 dereferenceable(1000) @__const._ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1000, i1 false)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %6, align 8
   %7 = call noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm62EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %8 = getelementptr inbounds i8, ptr %4, i64 1000
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 1000
   %.not.i.i = icmp eq ptr %7, %8
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm62ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %9
 
@@ -1577,7 +1577,7 @@ define hidden noundef ptr @_ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Reloca
   br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm62ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm62ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -1629,7 +1629,7 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   %.not.i.i.i.i.i.i.i.i.i = icmp ugt i32 %0, 134217763
   %.idx.i.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 600, i64 536
   %.sink.in.i.i.i.i.i.i.i.v.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 664, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v.i
-  %.sink.in.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.i.v.i
+  %.sink.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.i.v.i
   %21 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 584, i64 520
   %.add12.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 648, i64 %21
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
@@ -1638,19 +1638,19 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 134217743
   %.add13.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 264, i64 8
   %.add13.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 376, i64 120
-  %.add13.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i
+  %.add13.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i
   %23 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel.i, align 8
   %.not.i.i7.i.i.i.i.i.i.i = icmp ult i32 %23, %0
   %.idx.i.i8.i.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i.i, i64 128, i64 0
   %.add14.i.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i, %.add13.i.i.i
-  %.ptr21.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i.i
-  %24 = getelementptr inbounds i8, ptr %.ptr21.i.i.i, i64 48
+  %.ptr21.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %.ptr21.i.i.i, i64 48
   %25 = load i32, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %25, %0
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 64, i64 0
   %.add15.i.i.i = or disjoint i64 %.add14.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i
-  %.ptr22.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.i
-  %26 = getelementptr inbounds i8, ptr %.ptr22.i.i.i, i64 16
+  %.ptr22.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %.ptr22.i.i.i, i64 16
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i: ; preds = %22, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm11EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i.i
@@ -1660,7 +1660,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink.i.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
   %.sink11.i.i.i.i.add.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i.i, %.sink11.i.i.i.i.idx.i.i.i
-  %.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink11.i.i.i.i.add.i.i.i
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink11.i.i.i.i.add.i.i.i
   %27 = load i32, ptr %.ptr.i.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %27, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
@@ -1669,13 +1669,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS
   br i1 %.not.i.i.i, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %28
 
 28:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
-  %.ptr16.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.i
+  %.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.i
   %29 = load i32, ptr %.ptr16.i.i.i, align 4
   %.not23.i.i.i = icmp ult i32 %0, %29
   br i1 %.not23.i.i.i, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.ptr16.i.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i.i, i64 8
   %32 = load ptr, ptr %31, align 8
   br label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -1685,12 +1685,12 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm43ESt4lessIS4_EE11lower_boundIS
   store i32 %0, ptr %16, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1976) %17, ptr noundef nonnull align 8 dereferenceable(1976) @__const._ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1976, i1 false)
   %34 = call noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1976) %17, ptr noundef nonnull align 4 dereferenceable(4) %16)
-  %35 = getelementptr inbounds i8, ptr %17, i64 1976
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 1976
   %.not.i = icmp eq ptr %34, %35
   br i1 %.not.i, label %_ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   br label %_ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -1720,7 +1720,7 @@ _ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i6.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 402653344
   %.add15.i.i.i35 = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 2120, i64 2056
   %.add15.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i.i, i64 2136, i64 2072
-  %.add15.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v.i
+  %.add15.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add15.i.i.sroa.sel.sroa.sel.v.i
   %44 = load i32, ptr %.add15.i.i.sroa.sel.sroa.sel.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i36 = icmp ult i32 %44, %0
   %.idx.i.i.i.i.i.i.i.i.i.i37 = select i1 %.not.i.i.i.i.i.i.i.i.i.i36, i64 32, i64 0
@@ -1731,31 +1731,31 @@ _ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i6.i.i.i.i.i.i.i27 = icmp samesign ugt i32 %0, 402653247
   %.add18.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i27, i64 1032, i64 8
   %.add18.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i27, i64 1528, i64 504
-  %.add18.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.sroa.sel.sroa.sel.v.i
+  %.add18.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.sroa.sel.sroa.sel.v.i
   %46 = load i32, ptr %.add18.i.i.sroa.sel.sroa.sel.i, align 8
   %.not.i.i7.i.i.i.i.i.i.i28 = icmp ult i32 %46, %0
   %.idx.i.i8.i.i.i.i.i.i.i29 = select i1 %.not.i.i7.i.i.i.i.i.i.i28, i64 512, i64 0
   %.add19.i.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i29, %.add18.i.i.i
-  %.ptr32.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i.i
-  %47 = getelementptr inbounds i8, ptr %.ptr32.i.i.i, i64 240
+  %.ptr32.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i.i
+  %47 = getelementptr inbounds nuw i8, ptr %.ptr32.i.i.i, i64 240
   %48 = load i32, ptr %47, align 8
   %.not.i.i.i9.i.i.i.i.i.i.i = icmp ult i32 %48, %0
   %.idx.i.i.i10.i.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i.i, i64 256, i64 0
   %.add20.i.i.i = or disjoint i64 %.add19.i.i.i, %.idx.i.i.i10.i.i.i.i.i.i.i
-  %.ptr33.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add20.i.i.i
-  %49 = getelementptr inbounds i8, ptr %.ptr33.i.i.i, i64 112
+  %.ptr33.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add20.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %.ptr33.i.i.i, i64 112
   %50 = load i32, ptr %49, align 8
   %.not.i.i.i.i11.i.i.i.i.i.i.i = icmp ult i32 %50, %0
   %.idx.i.i.i.i12.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i.i.i.i, i64 128, i64 0
   %.add21.i.i.i = or disjoint i64 %.add20.i.i.i, %.idx.i.i.i.i12.i.i.i.i.i.i.i
-  %.ptr34.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add21.i.i.i
-  %51 = getelementptr inbounds i8, ptr %.ptr34.i.i.i, i64 48
+  %.ptr34.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add21.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %.ptr34.i.i.i, i64 48
   %52 = load i32, ptr %51, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i30 = icmp ult i32 %52, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i31 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i30, i64 64, i64 0
   %.add22.i.i.i = or disjoint i64 %.add21.i.i.i, %.idx.i.i.i.i.i.i.i.i.i.i.i.i31
-  %.ptr35.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add22.i.i.i
-  %53 = getelementptr inbounds i8, ptr %.ptr35.i.i.i, i64 16
+  %.ptr35.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add22.i.i.i
+  %53 = getelementptr inbounds nuw i8, ptr %.ptr35.i.i.i, i64 16
   %54 = load i32, ptr %53, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %54, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1764,12 +1764,12 @@ _ZN4LIEF3ELF9to_stringILj268435456EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.sink.split.i.i.i: ; preds = %45, %43
   %.add23.sink43.i.i.i = phi i64 [ %.add23.i.i.i, %45 ], [ %.add16.i.i.i, %43 ]
-  %.ptr36.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add23.sink43.i.i.i
+  %.ptr36.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add23.sink43.i.i.i
   %55 = load i32, ptr %.ptr36.i.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %55, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add24.i.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.add23.sink43.i.i.i
-  %.0.i.i.i.i.ptr.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add24.i.i.i
+  %.0.i.i.i.i.ptr.i.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add24.i.i.i
   %.pre.i.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.phi.trans.insert.i.i, align 4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
@@ -1782,8 +1782,8 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKS
   br i1 %.not.i32, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %57
 
 57:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
-  %.0.i.i.i.i14.i.i.ptr.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.0.i.i.i.i14.i.i.idx.i
-  %58 = getelementptr inbounds i8, ptr %.0.i.i.i.i14.i.i.ptr.i, i64 8
+  %.0.i.i.i.i14.i.i.ptr.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj402653184EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.0.i.i.i.i14.i.i.idx.i
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr.i, i64 8
   %59 = load ptr, ptr %58, align 8
   br label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -1792,14 +1792,14 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKS
   call void @llvm.lifetime.start.p0(i64 1512, ptr nonnull %15)
   store i32 %0, ptr %14, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1512) %15, ptr noundef nonnull align 8 dereferenceable(1512) @__const._ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1512, i1 false)
-  %61 = getelementptr inbounds i8, ptr %15, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %15, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store ptr %14, ptr %13, align 8
-  %62 = getelementptr inbounds i8, ptr %13, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %15, ptr %62, align 8
   %63 = call noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm94EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %61)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %64 = getelementptr inbounds i8, ptr %15, i64 1512
+  %64 = getelementptr inbounds nuw i8, ptr %15, i64 1512
   %.not.i.i.i39 = icmp eq ptr %63, %64
   br i1 %.not.i.i.i39, label %_ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocation4TYPEE.exit, label %65
 
@@ -1810,7 +1810,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm138ESt4lessIS4_EE4findIS4_EEPKS
   br i1 %.not12.i.i.i, label %_ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocation4TYPEE.exit, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %63, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %70 = load ptr, ptr %69, align 8
   br label %_ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -1839,8 +1839,8 @@ _ZN4LIEF3ELF9to_stringILj536870912EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   br i1 %.not.i.i.i.i.i.i.i.i.i.not.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i.i: ; preds = %74
-  %75 = getelementptr inbounds i8, ptr %12, i64 616
-  %76 = getelementptr inbounds i8, ptr %12, i64 648
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 616
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 648
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
 77:                                               ; preds = %72
@@ -1852,46 +1852,46 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS
   %.not.i6.i.i.i.i.i.i.i42 = icmp samesign ugt i32 %0, 671088657
   %.add16.i.i.i43 = select i1 %.not.i6.i.i.i.i.i.i.i42, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i.i42, i64 376, i64 120
-  %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %12, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
+  %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %12, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v
   %79 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %.not.i.i7.i.i.i.i.i.i.i44 = icmp ult i32 %79, %0
   %.idx.i.i8.i.i.i.i.i.i.i45 = select i1 %.not.i.i7.i.i.i.i.i.i.i44, i64 128, i64 0
   %.add17.i.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i45, %.add16.i.i.i43
-  %.ptr25.i.i.i = getelementptr inbounds i8, ptr %12, i64 %.add17.i.i.i
-  %80 = getelementptr inbounds i8, ptr %.ptr25.i.i.i, i64 48
+  %.ptr25.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.add17.i.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %.ptr25.i.i.i, i64 48
   %81 = load i32, ptr %80, align 8
   %.not.i.i.i9.i.i.i.i.i.i.i46 = icmp ult i32 %81, %0
   %.idx.i.i.i10.i.i.i.i.i.i.i47 = select i1 %.not.i.i.i9.i.i.i.i.i.i.i46, i64 64, i64 0
   %.add18.i.i.i48 = or disjoint i64 %.add17.i.i.i, %.idx.i.i.i10.i.i.i.i.i.i.i47
-  %.ptr26.i.i.i = getelementptr inbounds i8, ptr %12, i64 %.add18.i.i.i48
-  %82 = getelementptr inbounds i8, ptr %.ptr26.i.i.i, i64 16
+  %.ptr26.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.add18.i.i.i48
+  %82 = getelementptr inbounds nuw i8, ptr %.ptr26.i.i.i, i64 16
   %83 = load i32, ptr %82, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i49 = icmp ult i32 %83, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i50 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i49, i64 32, i64 0
   %.add19.i.i.i51 = or disjoint i64 %.add18.i.i.i48, %.idx.i.i.i.i.i.i.i.i.i.i.i50
-  %.ptr27.i.i.i = getelementptr inbounds i8, ptr %12, i64 %.add19.i.i.i51
+  %.ptr27.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.add19.i.i.i51
   %84 = load i32, ptr %.ptr27.i.i.i, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i52 = icmp ult i32 %84, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i53 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i52, i64 16, i64 0
   %.add20.i.i.i54 = or disjoint i64 %.add19.i.i.i51, %.idx.i.i.i.i.i.i.i.i.i.i.i.i53
-  %85 = getelementptr inbounds i8, ptr %12, i64 648
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 648
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i: ; preds = %77, %74, %73
   %.sink11.i.i.i.i.i.i.i.i = phi i64 [ %78, %77 ], [ 632, %74 ], [ 584, %73 ]
-  %.ptr21.i.i.i59 = getelementptr inbounds i8, ptr %12, i64 %.sink11.i.i.i.i.i.i.i.i
+  %.ptr21.i.i.i59 = getelementptr inbounds nuw i8, ptr %12, i64 %.sink11.i.i.i.i.i.i.i.i
   %86 = load i32, ptr %.ptr21.i.i.i59, align 8
   %.not.i6.i.i.i.i.i.i.i.i.i = icmp ult i32 %86, %0
   %.idx.i.i.i.i.i.i.i.i.i.i60 = select i1 %.not.i6.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add15.i.i.i61 = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i60, %.sink11.i.i.i.i.i.i.i.i
-  %87 = getelementptr inbounds i8, ptr %12, i64 648
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 648
   %.not.i.i.i62 = icmp eq i64 %.add15.i.i.i61, 648
   br i1 %.not.i.i.i62, label %_ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i: ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i
   %88 = phi ptr [ %85, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i ], [ %87, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
   %.0.i.i.i.i.idx33.i.i.i = phi i64 [ %.add20.i.i.i54, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread30.i.i.i ], [ %.add15.i.i.i61, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i ]
-  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 %.0.i.i.i.i.idx33.i.i.i
+  %.0.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.0.i.i.i.i.idx33.i.i.i
   %.pre.i.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i.i, align 4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
 
@@ -1901,13 +1901,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt
   %.0.i.i.i.i14.i.i.i = phi ptr [ %75, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread.i.i.i ], [ %.0.i.i.i.i.ptr.i.i.i, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge.i.i.i ]
   %.not29.i.i.i = icmp ult i32 %0, %89
   %spec.select.i.i.i = select i1 %.not29.i.i.i, ptr %90, ptr %.0.i.i.i.i14.i.i.i
-  %91 = getelementptr inbounds i8, ptr %12, i64 648
+  %91 = getelementptr inbounds nuw i8, ptr %12, i64 648
   %.not.i55 = icmp eq ptr %spec.select.i.i.i, %91
   br i1 %.not.i55, label %_ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit, label %92
 
 92:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm40ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i
   %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not29.i.i.i, ptr %90, ptr %.0.i.i.i.i14.i.i.i
-  %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
+  %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 8
   %93 = load ptr, ptr %spec.select.i.i.sroa.sel.v.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   br label %_ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -1932,7 +1932,7 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i.i.i.i.i.i.i.i.i.i97 = icmp samesign ugt i32 %0, 805306463
   %.add.i.i.i98 = select i1 %.not.i.i.i.i.i.i.i.i.i.i97, i64 1352, i64 1288
   %.add.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i97, i64 1368, i64 1304
-  %.add.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i
+  %.add.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i
   %98 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel.i, align 8
   %.not.i.i6.i.i.i.i.i.i.i.i.i = icmp ult i32 %98, %0
   %.idx.i.i7.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i6.i.i.i.i.i.i.i.i.i, i64 32, i64 0
@@ -1943,13 +1943,13 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i6.i.i.i.i.i.i.i.i87 = icmp samesign ugt i32 %0, 805306451
   %.add13.i.i.i88 = select i1 %.not.i6.i.i.i.i.i.i.i.i87, i64 1160, i64 1032
   %.add13.i.i.sroa.sel.sroa.sel.v.i89 = select i1 %.not.i6.i.i.i.i.i.i.i.i87, i64 1208, i64 1080
-  %.add13.i.i.sroa.sel.sroa.sel.i90 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i89
+  %.add13.i.i.sroa.sel.sroa.sel.i90 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i89
   %100 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel.i90, align 8
   %.not.i.i7.i.i.i.i.i.i.i.i = icmp ult i32 %100, %0
   %.idx.i.i8.i.i.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i.i.i, i64 64, i64 0
   %.add14.i.i.i91 = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i.i, %.add13.i.i.i88
-  %.ptr27.i.i.i92 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i.i91
-  %101 = getelementptr inbounds i8, ptr %.ptr27.i.i.i92, i64 16
+  %.ptr27.i.i.i92 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i.i91
+  %101 = getelementptr inbounds nuw i8, ptr %.ptr27.i.i.i92, i64 16
   %102 = load i32, ptr %101, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i93 = icmp ult i32 %102, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i94 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i93, i64 32, i64 0
@@ -1960,25 +1960,25 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i6.i.i.i.i.i.i.i65 = icmp samesign ugt i32 %0, 805306406
   %.add16.i.i.i66 = select i1 %.not.i6.i.i.i.i.i.i.i65, i64 520, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.i = select i1 %.not.i6.i.i.i.i.i.i.i65, i64 760, i64 248
-  %.add16.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v.i
+  %.add16.i.i.sroa.sel.sroa.sel.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v.i
   %104 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.i, align 8
   %.not.i.i7.i.i.i.i.i.i.i67 = icmp ult i32 %104, %0
   %.idx.i.i8.i.i.i.i.i.i.i68 = select i1 %.not.i.i7.i.i.i.i.i.i.i67, i64 256, i64 0
   %.add17.i.i.i69 = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i68, %.add16.i.i.i66
-  %.ptr31.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i.i69
-  %105 = getelementptr inbounds i8, ptr %.ptr31.i.i.i, i64 112
+  %.ptr31.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i.i69
+  %105 = getelementptr inbounds nuw i8, ptr %.ptr31.i.i.i, i64 112
   %106 = load i32, ptr %105, align 8
   %.not.i.i.i9.i.i.i.i.i.i.i70 = icmp ult i32 %106, %0
   %.idx.i.i.i10.i.i.i.i.i.i.i71 = select i1 %.not.i.i.i9.i.i.i.i.i.i.i70, i64 128, i64 0
   %.add18.i.i.i72 = or disjoint i64 %.add17.i.i.i69, %.idx.i.i.i10.i.i.i.i.i.i.i71
-  %.ptr32.i.i.i73 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.i72
-  %107 = getelementptr inbounds i8, ptr %.ptr32.i.i.i73, i64 48
+  %.ptr32.i.i.i73 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.i72
+  %107 = getelementptr inbounds nuw i8, ptr %.ptr32.i.i.i73, i64 48
   %108 = load i32, ptr %107, align 8
   %.not.i.i.i.i11.i.i.i.i.i.i.i74 = icmp ult i32 %108, %0
   %.idx.i.i.i.i12.i.i.i.i.i.i.i75 = select i1 %.not.i.i.i.i11.i.i.i.i.i.i.i74, i64 64, i64 0
   %.add19.i.i.i76 = or disjoint i64 %.add18.i.i.i72, %.idx.i.i.i.i12.i.i.i.i.i.i.i75
-  %.ptr33.i.i.i77 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i.i76
-  %109 = getelementptr inbounds i8, ptr %.ptr33.i.i.i77, i64 16
+  %.ptr33.i.i.i77 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add19.i.i.i76
+  %109 = getelementptr inbounds nuw i8, ptr %.ptr33.i.i.i77, i64 16
   %110 = load i32, ptr %109, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i.i78 = icmp ult i32 %110, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i79 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i78, i64 32, i64 0
@@ -1987,7 +1987,7 @@ _ZN4LIEF3ELF9to_stringILj671088640EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i: ; preds = %103, %99, %97, %96
   %.sink.i.i.i.i.idx.i.i.i = phi i64 [ %.add20.i.i.i80, %103 ], [ %.add15.i.i.i95, %99 ], [ %.add12.i.i.i99, %97 ], [ 1416, %96 ]
-  %.sink.i.i.i.i.ptr.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i.i
+  %.sink.i.i.i.i.ptr.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i.i
   %.sink13.i.i.i.i.i.i.i = load i32, ptr %.sink.i.i.i.i.ptr.i.i.i, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i81 = icmp ult i32 %.sink13.i.i.i.i.i.i.i, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i.i82 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i81, i64 16, i64 0
@@ -1996,13 +1996,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS
   br i1 %.not.i.i.i83, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %111
 
 111:                                              ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
-  %.ptr.i.i.i84 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
+  %.ptr.i.i.i84 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj805306368EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i
   %112 = load i32, ptr %.ptr.i.i.i84, align 4
   %.not35.i.i.i = icmp ult i32 %0, %112
   br i1 %.not35.i.i.i, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %.ptr.i.i.i84, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i84, i64 8
   %115 = load ptr, ptr %114, align 8
   br label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -2011,14 +2011,14 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS
   call void @llvm.lifetime.start.p0(i64 1800, ptr nonnull %11)
   store i32 %0, ptr %10, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %11, ptr noundef nonnull align 8 dereferenceable(1800) @__const._ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1800, i1 false)
-  %117 = getelementptr inbounds i8, ptr %11, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr %10, ptr %9, align 8
-  %118 = getelementptr inbounds i8, ptr %9, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %11, ptr %118, align 8
   %119 = call noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm112EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %117)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %120 = getelementptr inbounds i8, ptr %11, i64 1800
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 1800
   %.not.i.i.i100 = icmp eq ptr %119, %120
   br i1 %.not.i.i.i100, label %_ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit, label %121
 
@@ -2029,7 +2029,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm89ESt4lessIS4_EE11lower_boundIS
   br i1 %.not12.i.i.i101, label %_ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %119, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %126 = load ptr, ptr %125, align 8
   br label %_ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -2055,7 +2055,7 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i.i.i.i.i.i.i.i.i.i140 = icmp samesign ugt i32 %0, 1073741919
   %.add.i.i.i141 = select i1 %.not.i.i.i.i.i.i.i.i.i.i140, i64 840, i64 776
   %.add.i.i.sroa.sel.sroa.sel.v.i142 = select i1 %.not.i.i.i.i.i.i.i.i.i.i140, i64 856, i64 792
-  %.add.i.i.sroa.sel.sroa.sel.i143 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i142
+  %.add.i.i.sroa.sel.sroa.sel.i143 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add.i.i.sroa.sel.sroa.sel.v.i142
   %131 = load i32, ptr %.add.i.i.sroa.sel.sroa.sel.i143, align 8
   %.not.i.i6.i.i.i.i.i.i.i.i.i144 = icmp ult i32 %131, %0
   %.idx.i.i7.i.i.i.i.i.i.i.i.i145 = select i1 %.not.i.i6.i.i.i.i.i.i.i.i.i144, i64 32, i64 0
@@ -2066,13 +2066,13 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i6.i.i.i.i.i.i.i.i128 = icmp samesign ugt i32 %0, 1073741907
   %.add13.i.i.i129 = select i1 %.not.i6.i.i.i.i.i.i.i.i128, i64 648, i64 520
   %.add13.i.i.sroa.sel.sroa.sel.v.i130 = select i1 %.not.i6.i.i.i.i.i.i.i.i128, i64 696, i64 568
-  %.add13.i.i.sroa.sel.sroa.sel.i131 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i130
+  %.add13.i.i.sroa.sel.sroa.sel.i131 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add13.i.i.sroa.sel.sroa.sel.v.i130
   %133 = load i32, ptr %.add13.i.i.sroa.sel.sroa.sel.i131, align 8
   %.not.i.i7.i.i.i.i.i.i.i.i132 = icmp ult i32 %133, %0
   %.idx.i.i8.i.i.i.i.i.i.i.i133 = select i1 %.not.i.i7.i.i.i.i.i.i.i.i132, i64 64, i64 0
   %.add14.i.i.i134 = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i.i133, %.add13.i.i.i129
-  %.ptr26.i.i.i135 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i.i134
-  %134 = getelementptr inbounds i8, ptr %.ptr26.i.i.i135, i64 16
+  %.ptr26.i.i.i135 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add14.i.i.i134
+  %134 = getelementptr inbounds nuw i8, ptr %.ptr26.i.i.i135, i64 16
   %135 = load i32, ptr %134, align 8
   %.not.i.i.i.i.i.i.i.i.i.i.i136 = icmp ult i32 %135, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i137 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i136, i64 32, i64 0
@@ -2083,19 +2083,19 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
   %.not.i6.i.i.i.i.i.i.i104 = icmp samesign ugt i32 %0, 1073741839
   %.add16.i.i.i105 = select i1 %.not.i6.i.i.i.i.i.i.i104, i64 264, i64 8
   %.add16.i.i.sroa.sel.sroa.sel.v.i106 = select i1 %.not.i6.i.i.i.i.i.i.i104, i64 376, i64 120
-  %.add16.i.i.sroa.sel.sroa.sel.i107 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v.i106
+  %.add16.i.i.sroa.sel.sroa.sel.i107 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add16.i.i.sroa.sel.sroa.sel.v.i106
   %137 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.i107, align 8
   %.not.i.i7.i.i.i.i.i.i.i108 = icmp ult i32 %137, %0
   %.idx.i.i8.i.i.i.i.i.i.i109 = select i1 %.not.i.i7.i.i.i.i.i.i.i108, i64 128, i64 0
   %.add17.i.i.i110 = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i.i109, %.add16.i.i.i105
-  %.ptr30.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i.i110
-  %138 = getelementptr inbounds i8, ptr %.ptr30.i.i.i, i64 48
+  %.ptr30.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add17.i.i.i110
+  %138 = getelementptr inbounds nuw i8, ptr %.ptr30.i.i.i, i64 48
   %139 = load i32, ptr %138, align 8
   %.not.i.i.i9.i.i.i.i.i.i.i111 = icmp ult i32 %139, %0
   %.idx.i.i.i10.i.i.i.i.i.i.i112 = select i1 %.not.i.i.i9.i.i.i.i.i.i.i111, i64 64, i64 0
   %.add18.i.i.i113 = or disjoint i64 %.add17.i.i.i110, %.idx.i.i.i10.i.i.i.i.i.i.i112
-  %.ptr31.i.i.i114 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.i113
-  %140 = getelementptr inbounds i8, ptr %.ptr31.i.i.i114, i64 16
+  %.ptr31.i.i.i114 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.add18.i.i.i113
+  %140 = getelementptr inbounds nuw i8, ptr %.ptr31.i.i.i114, i64 16
   %141 = load i32, ptr %140, align 8
   %.not.i.i.i.i11.i.i.i.i.i.i.i115 = icmp ult i32 %141, %0
   %.idx.i.i.i.i12.i.i.i.i.i.i.i116 = select i1 %.not.i.i.i.i11.i.i.i.i.i.i.i115, i64 32, i64 0
@@ -2104,7 +2104,7 @@ _ZN4LIEF3ELF9to_stringILj939524096EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i: ; preds = %136, %132, %130, %129
   %.sink.i.i.i.i.idx.i.i.i118 = phi i64 [ %.add19.i.i.i117, %136 ], [ %.add15.i.i.i138, %132 ], [ %.add12.i.i.i146, %130 ], [ 904, %129 ]
-  %.sink.i.i.i.i.ptr.i.i.i119 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i.i118
+  %.sink.i.i.i.i.ptr.i.i.i119 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.idx.i.i.i118
   %.sink13.i.i.i.i.i.i.i120 = load i32, ptr %.sink.i.i.i.i.ptr.i.i.i119, align 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i121 = icmp ult i32 %.sink13.i.i.i.i.i.i.i120, %0
   %.idx.i.i.i.i.i.i.i.i.i.i.i.i122 = select i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i121, i64 16, i64 0
@@ -2113,13 +2113,13 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS
   br i1 %.not.i.i.i124, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %142
 
 142:                                              ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i.i
-  %.ptr.i.i.i125 = getelementptr inbounds i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i123
+  %.ptr.i.i.i125 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF3ELF9to_stringILj1073741824EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 %.sink.i.i.i.i.add.i.i.i123
   %143 = load i32, ptr %.ptr.i.i.i125, align 4
   %.not33.i.i.i = icmp ult i32 %0, %143
   br i1 %.not33.i.i.i, label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit, label %144
 
 144:                                              ; preds = %142
-  %145 = getelementptr inbounds i8, ptr %.ptr.i.i.i125, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i125, i64 8
   %146 = load ptr, ptr %145, align 8
   br label %_ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -2129,12 +2129,12 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm57ESt4lessIS4_EE11lower_boundIS
   store i32 %0, ptr %7, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1352) %8, ptr noundef nonnull align 8 dereferenceable(1352) @__const._ZN4LIEF3ELF9to_stringILj1207959552EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1352, i1 false)
   %148 = call noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1352) %8, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  %149 = getelementptr inbounds i8, ptr %8, i64 1352
+  %149 = getelementptr inbounds nuw i8, ptr %8, i64 1352
   %.not.i147 = icmp eq ptr %148, %149
   br i1 %.not.i147, label %_ZN4LIEF3ELF9to_stringILj1207959552EEEPKcNS0_10Relocation4TYPEE.exit, label %150
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %148, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %152 = load ptr, ptr %151, align 8
   br label %_ZN4LIEF3ELF9to_stringILj1207959552EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -2150,12 +2150,12 @@ _ZN4LIEF3ELF9to_stringILj1207959552EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = 
   store i32 %0, ptr %5, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1352) %6, ptr noundef nonnull align 8 dereferenceable(1352) @__const._ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1352, i1 false)
   %154 = call noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1352) %6, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %155 = getelementptr inbounds i8, ptr %6, i64 1352
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 1352
   %.not.i149 = icmp eq ptr %154, %155
   br i1 %.not.i149, label %_ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Relocation4TYPEE.exit, label %156
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %154, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %158 = load ptr, ptr %157, align 8
   br label %_ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -2170,14 +2170,14 @@ _ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = 
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4)
   store i32 %0, ptr %3, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1000) %4, ptr noundef nonnull align 8 dereferenceable(1000) @__const._ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Relocation4TYPEE.enums2str, i64 1000, i1 false)
-  %160 = getelementptr inbounds i8, ptr %4, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %3, ptr %2, align 8
-  %161 = getelementptr inbounds i8, ptr %2, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %4, ptr %161, align 8
   %162 = call noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm62EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %160)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %163 = getelementptr inbounds i8, ptr %4, i64 1000
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 1000
   %.not.i.i.i151 = icmp eq ptr %162, %163
   br i1 %.not.i.i.i151, label %_ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Relocation4TYPEE.exit, label %164
 
@@ -2188,7 +2188,7 @@ _ZN4LIEF3ELF9to_stringILj1342177280EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = 
   br i1 %.not12.i.i.i152, label %_ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Relocation4TYPEE.exit, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %162, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %169 = load ptr, ptr %168, align 8
   br label %_ZN4LIEF3ELF9to_stringILj1476395008EEEPKcNS0_10Relocation4TYPEE.exit
 
@@ -2205,102 +2205,102 @@ _ZN4LIEF3ELF9to_stringILj134217728EEEPKcNS0_10Relocation4TYPEE.exit: ; preds = %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1016
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %.not.i.i.i.i = icmp ult i32 %4, %5
   br i1 %.not.i.i.i.i, label %6, label %34
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1528
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i = icmp ult i32 %8, %5
   br i1 %.not.i.i.i.i.i, label %9, label %26
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1784
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1784
   %11 = load i32, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp ult i32 %11, %5
   br i1 %.not.i.i.i.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm11EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i, label %20
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm11EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i: ; preds = %9
-  %.ptr23 = getelementptr inbounds i8, ptr %0, i64 1800
-  %12 = getelementptr inbounds i8, ptr %0, i64 1912
+  %.ptr23 = getelementptr inbounds nuw i8, ptr %0, i64 1800
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1912
   %13 = load i32, ptr %12, align 8
   %.not.i.i.i.i.i.i.i = icmp ult i32 %13, %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 1848
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1848
   %15 = load i32, ptr %14, align 8
   %.not.i.i.i.i.i.i.i.i = icmp ult i32 %15, %5
   %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 64, i64 0
-  %16 = getelementptr inbounds i8, ptr %.ptr23, i64 %.idx.i.i.i.i.i.i.i.i
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 1944
+  %16 = getelementptr inbounds nuw i8, ptr %.ptr23, i64 %.idx.i.i.i.i.i.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %.sink.in.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, ptr %18, ptr %17
   %19 = or disjoint i64 %.idx.i.i.i.i.i.i.i.i, 1800
   %.add12 = select i1 %.not.i.i.i.i.i.i.i, i64 1928, i64 %19
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 1656
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %22 = load i32, ptr %21, align 8
   %.not.i6.i.i.i.i.i.i = icmp ult i32 %22, %5
   %.add13 = select i1 %.not.i6.i.i.i.i.i.i, i64 1672, i64 1544
-  %.ptr26 = getelementptr inbounds i8, ptr %0, i64 %.add13
-  %23 = getelementptr inbounds i8, ptr %.ptr26, i64 48
+  %.ptr26 = getelementptr inbounds nuw i8, ptr %0, i64 %.add13
+  %23 = getelementptr inbounds nuw i8, ptr %.ptr26, i64 48
   %24 = load i32, ptr %23, align 8
   %.not.i.i7.i.i.i.i.i.i = icmp ult i32 %24, %5
   %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 64, i64 0
   %.add14 = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add13
-  %.ptr27 = getelementptr inbounds i8, ptr %0, i64 %.add14
-  %25 = getelementptr inbounds i8, ptr %.ptr27, i64 16
+  %.ptr27 = getelementptr inbounds nuw i8, ptr %0, i64 %.add14
+  %25 = getelementptr inbounds nuw i8, ptr %.ptr27, i64 16
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 26:                                               ; preds = %6
-  %27 = getelementptr inbounds i8, ptr %0, i64 1272
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %28 = load i32, ptr %27, align 8
   %.not.i6.i.i.i.i.i = icmp ult i32 %28, %5
   %.add15 = select i1 %.not.i6.i.i.i.i.i, i64 1288, i64 1032
-  %.ptr29 = getelementptr inbounds i8, ptr %0, i64 %.add15
-  %29 = getelementptr inbounds i8, ptr %.ptr29, i64 112
+  %.ptr29 = getelementptr inbounds nuw i8, ptr %0, i64 %.add15
+  %29 = getelementptr inbounds nuw i8, ptr %.ptr29, i64 112
   %30 = load i32, ptr %29, align 8
   %.not.i.i7.i.i.i.i.i = icmp ult i32 %30, %5
   %.idx.i.i8.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i, i64 128, i64 0
   %.add16 = or disjoint i64 %.idx.i.i8.i.i.i.i.i, %.add15
-  %.ptr30 = getelementptr inbounds i8, ptr %0, i64 %.add16
-  %31 = getelementptr inbounds i8, ptr %.ptr30, i64 48
+  %.ptr30 = getelementptr inbounds nuw i8, ptr %0, i64 %.add16
+  %31 = getelementptr inbounds nuw i8, ptr %.ptr30, i64 48
   %32 = load i32, ptr %31, align 8
   %.not.i.i.i9.i.i.i.i.i = icmp ult i32 %32, %5
   %.idx.i.i.i10.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i, i64 64, i64 0
   %.add17 = or disjoint i64 %.add16, %.idx.i.i.i10.i.i.i.i.i
-  %.ptr31 = getelementptr inbounds i8, ptr %0, i64 %.add17
-  %33 = getelementptr inbounds i8, ptr %.ptr31, i64 16
+  %.ptr31 = getelementptr inbounds nuw i8, ptr %0, i64 %.add17
+  %33 = getelementptr inbounds nuw i8, ptr %.ptr31, i64 16
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 34:                                               ; preds = %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 504
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %36 = load i32, ptr %35, align 8
   %.not.i6.i.i.i.i = icmp ult i32 %36, %5
   %.add18 = select i1 %.not.i6.i.i.i.i, i64 520, i64 8
-  %.ptr33 = getelementptr inbounds i8, ptr %0, i64 %.add18
-  %37 = getelementptr inbounds i8, ptr %.ptr33, i64 240
+  %.ptr33 = getelementptr inbounds nuw i8, ptr %0, i64 %.add18
+  %37 = getelementptr inbounds nuw i8, ptr %.ptr33, i64 240
   %38 = load i32, ptr %37, align 8
   %.not.i.i7.i.i.i.i = icmp ult i32 %38, %5
   %.idx.i.i8.i.i.i.i = select i1 %.not.i.i7.i.i.i.i, i64 256, i64 0
   %.add19 = or disjoint i64 %.idx.i.i8.i.i.i.i, %.add18
-  %.ptr34 = getelementptr inbounds i8, ptr %0, i64 %.add19
-  %39 = getelementptr inbounds i8, ptr %.ptr34, i64 112
+  %.ptr34 = getelementptr inbounds nuw i8, ptr %0, i64 %.add19
+  %39 = getelementptr inbounds nuw i8, ptr %.ptr34, i64 112
   %40 = load i32, ptr %39, align 8
   %.not.i.i.i9.i.i.i.i = icmp ult i32 %40, %5
   %.idx.i.i.i10.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i, i64 128, i64 0
   %.add20 = or disjoint i64 %.add19, %.idx.i.i.i10.i.i.i.i
-  %.ptr35 = getelementptr inbounds i8, ptr %0, i64 %.add20
-  %41 = getelementptr inbounds i8, ptr %.ptr35, i64 48
+  %.ptr35 = getelementptr inbounds nuw i8, ptr %0, i64 %.add20
+  %41 = getelementptr inbounds nuw i8, ptr %.ptr35, i64 48
   %42 = load i32, ptr %41, align 8
   %.not.i.i.i.i11.i.i.i.i = icmp ult i32 %42, %5
   %.idx.i.i.i.i12.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i, i64 64, i64 0
   %.add21 = or disjoint i64 %.add20, %.idx.i.i.i.i12.i.i.i.i
-  %.ptr36 = getelementptr inbounds i8, ptr %0, i64 %.add21
-  %43 = getelementptr inbounds i8, ptr %.ptr36, i64 16
+  %.ptr36 = getelementptr inbounds nuw i8, ptr %0, i64 %.add21
+  %43 = getelementptr inbounds nuw i8, ptr %.ptr36, i64 16
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm11EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.i.i.i.i.i.i, %20, %26, %34
@@ -2310,17 +2310,17 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundI
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %.sink.i.i.i.i, %5
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 32, i64 0
   %.sink15.i.i.i.i.add = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i, %.sink15.i.i.i.i.idx
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 %.sink15.i.i.i.i.add
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sink15.i.i.i.i.add
   %44 = load i32, ptr %.ptr, align 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %44, %5
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
   %.add = add nuw nsw i64 %.sink15.i.i.i.i.add, %.idx.i.i.i.i.i.i.i.i.i.i
-  %45 = getelementptr inbounds i8, ptr %0, i64 1976
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1976
   %.not = icmp eq i64 %.add, 1976
   br i1 %.not, label %48, label %46
 
 46:                                               ; preds = %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %.ptr22 = getelementptr inbounds i8, ptr %0, i64 %.add
+  %.ptr22 = getelementptr inbounds nuw i8, ptr %0, i64 %.add
   %47 = load i32, ptr %.ptr22, align 4
   %.not37 = icmp ult i32 %5, %47
   br i1 %.not37, label %48, label %49
@@ -2335,7 +2335,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm123ESt4lessIS4_EE11lower_boundI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm94EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1008
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1008
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
@@ -2343,32 +2343,32 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10
   br i1 %.not, label %7, label %49
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 1264
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp ult i32 %9, %6
   br i1 %.not.i, label %10, label %36
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 1392
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   %12 = load i32, ptr %11, align 4
   %.not.i.i = icmp ult i32 %12, %6
   br i1 %.not.i.i, label %13, label %26
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 1408
-  %15 = getelementptr inbounds i8, ptr %1, i64 1456
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1408
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1456
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp ult i32 %16, %6
   br i1 %.not.i.i.i, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 1472
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1472
   %19 = load i32, ptr %18, align 4
   %.not.i.i.i.i = icmp ult i32 %19, %6
   br i1 %.not.i.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm2EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %1, i64 1424
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1424
   %22 = load i32, ptr %21, align 4
   %.not.i6.i.i.i = icmp ult i32 %22, %6
   %.idx.i.i.i.i = select i1 %.not.i6.i.i.i, i64 32, i64 0
@@ -2376,84 +2376,84 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm2EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i: ; preds = %20, %17
   %.sink9.i.i.i = phi i64 [ %.idx.i.i.i.i, %20 ], [ 80, %17 ]
-  %23 = getelementptr inbounds i8, ptr %14, i64 %.sink9.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink9.i.i.i
   %24 = load i32, ptr %23, align 4
   %.not.i.i.i.i.i.i = icmp ult i32 %24, %6
   %.idx.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i64 16, i64 0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 26:                                               ; preds = %10
-  %27 = getelementptr inbounds i8, ptr %1, i64 1280
-  %28 = getelementptr inbounds i8, ptr %1, i64 1328
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1280
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 1328
   %29 = load i32, ptr %28, align 4
   %.not.i6.i.i = icmp ult i32 %29, %6
   %.idx.i.i.i = select i1 %.not.i6.i.i, i64 64, i64 0
-  %30 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 4
   %.not.i.i7.i.i = icmp ult i32 %32, %6
   %.idx.i.i8.i.i = select i1 %.not.i.i7.i.i, i64 32, i64 0
-  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx.i.i8.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i8.i.i
   %34 = load i32, ptr %33, align 4
   %.not.i.i.i.i.i = icmp ult i32 %34, %6
   %.idx.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 16, i64 0
-  %35 = getelementptr inbounds i8, ptr %33, i64 %.idx.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 36:                                               ; preds = %7
-  %37 = getelementptr inbounds i8, ptr %1, i64 1024
-  %38 = getelementptr inbounds i8, ptr %1, i64 1136
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 1024
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 1136
   %39 = load i32, ptr %38, align 4
   %.not.i6.i = icmp ult i32 %39, %6
   %.idx.i.i = select i1 %.not.i6.i, i64 128, i64 0
-  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load i32, ptr %41, align 4
   %.not.i.i7.i = icmp ult i32 %42, %6
   %.idx.i.i8.i = select i1 %.not.i.i7.i, i64 64, i64 0
-  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx.i.i8.i
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i8.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 4
   %.not.i.i.i9.i = icmp ult i32 %45, %6
   %.idx.i.i.i10.i = select i1 %.not.i.i.i9.i, i64 32, i64 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 %.idx.i.i.i10.i
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i10.i
   %47 = load i32, ptr %46, align 4
   %.not.i.i.i.i11.i = icmp ult i32 %47, %6
   %.idx.i.i.i.i12.i = select i1 %.not.i.i.i.i11.i, i64 16, i64 0
-  %48 = getelementptr inbounds i8, ptr %46, i64 %.idx.i.i.i.i12.i
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i.i12.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 49:                                               ; preds = %2
-  %50 = getelementptr inbounds i8, ptr %1, i64 496
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %51 = load i32, ptr %50, align 4
   %.not.i6 = icmp ult i32 %51, %6
   %.idx.i = select i1 %.not.i6, i64 512, i64 0
-  %52 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
-  %53 = getelementptr inbounds i8, ptr %52, i64 240
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 240
   %54 = load i32, ptr %53, align 4
   %.not.i.i7 = icmp ult i32 %54, %6
   %.idx.i.i8 = select i1 %.not.i.i7, i64 256, i64 0
-  %55 = getelementptr inbounds i8, ptr %52, i64 %.idx.i.i8
-  %56 = getelementptr inbounds i8, ptr %55, i64 112
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 112
   %57 = load i32, ptr %56, align 4
   %.not.i.i.i9 = icmp ult i32 %57, %6
   %.idx.i.i.i10 = select i1 %.not.i.i.i9, i64 128, i64 0
-  %58 = getelementptr inbounds i8, ptr %55, i64 %.idx.i.i.i10
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i10
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load i32, ptr %59, align 4
   %.not.i.i.i.i11 = icmp ult i32 %60, %6
   %.idx.i.i.i.i12 = select i1 %.not.i.i.i.i11, i64 64, i64 0
-  %61 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i.i.i12
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i12
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 4
   %.not.i.i.i.i.i13 = icmp ult i32 %63, %6
   %.idx.i.i.i.i.i14 = select i1 %.not.i.i.i.i.i13, i64 32, i64 0
-  %64 = getelementptr inbounds i8, ptr %61, i64 %.idx.i.i.i.i.i14
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i.i.i14
   %65 = load i32, ptr %64, align 4
   %.not.i.i.i.i.i.i15 = icmp ult i32 %65, %6
   %.idx.i.i.i.i.i.i16 = select i1 %.not.i.i.i.i.i.i15, i64 16, i64 0
-  %66 = getelementptr inbounds i8, ptr %64, i64 %.idx.i.i.i.i.i.i16
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i.i.i.i.i16
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit: ; preds = %36, %26, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm2EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i, %17, %49
@@ -2463,7 +2463,7 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm112EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 1008
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 1008
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
@@ -2471,38 +2471,38 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10
   br i1 %.not, label %7, label %55
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 1520
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 1520
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp ult i32 %9, %6
   br i1 %.not.i, label %10, label %39
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 1648
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1648
   %12 = load i32, ptr %11, align 4
   %.not.i.i = icmp ult i32 %12, %6
   br i1 %.not.i.i, label %13, label %29
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 1664
-  %15 = getelementptr inbounds i8, ptr %1, i64 1712
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 1664
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 1712
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp ult i32 %16, %6
   br i1 %.not.i.i.i, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 1744
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1744
   %19 = load i32, ptr %18, align 4
   %.not.i.i.i.i = icmp ult i32 %19, %6
   br i1 %.not.i.i.i.i, label %20, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm4EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 1760
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1760
   %22 = load i32, ptr %21, align 4
   %.not.i.i.i.i.i = icmp ult i32 %22, %6
   br i1 %.not.i.i.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm4EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm48EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %1, i64 1680
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1680
   %25 = load i32, ptr %24, align 4
   %.not.i6.i.i.i = icmp ult i32 %25, %6
   %.idx.i.i.i.i = select i1 %.not.i6.i.i.i, i64 32, i64 0
@@ -2510,89 +2510,89 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm4EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i: ; preds = %23, %20, %17
   %.sink11.i.i.i = phi i64 [ %.idx.i.i.i.i, %23 ], [ 112, %20 ], [ 64, %17 ]
-  %26 = getelementptr inbounds i8, ptr %14, i64 %.sink11.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink11.i.i.i
   %27 = load i32, ptr %26, align 4
   %.not.i6.i.i.i.i = icmp ult i32 %27, %6
   %.idx.i.i.i.i.i = select i1 %.not.i6.i.i.i.i, i64 16, i64 0
-  %28 = getelementptr inbounds i8, ptr %26, i64 %.idx.i.i.i.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx.i.i.i.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm48EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 29:                                               ; preds = %10
-  %30 = getelementptr inbounds i8, ptr %1, i64 1536
-  %31 = getelementptr inbounds i8, ptr %1, i64 1584
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 1536
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1584
   %32 = load i32, ptr %31, align 4
   %.not.i6.i.i = icmp ult i32 %32, %6
   %.idx.i.i.i = select i1 %.not.i6.i.i, i64 64, i64 0
-  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx.i.i.i
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 4
   %.not.i.i7.i.i = icmp ult i32 %35, %6
   %.idx.i.i8.i.i = select i1 %.not.i.i7.i.i, i64 32, i64 0
-  %36 = getelementptr inbounds i8, ptr %33, i64 %.idx.i.i8.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i8.i.i
   %37 = load i32, ptr %36, align 4
   %.not.i.i.i9.i.i = icmp ult i32 %37, %6
   %.idx.i.i.i10.i.i = select i1 %.not.i.i.i9.i.i, i64 16, i64 0
-  %38 = getelementptr inbounds i8, ptr %36, i64 %.idx.i.i.i10.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i10.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm48EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 39:                                               ; preds = %7
-  %40 = getelementptr inbounds i8, ptr %1, i64 1024
-  %41 = getelementptr inbounds i8, ptr %1, i64 1264
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1024
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %42 = load i32, ptr %41, align 4
   %.not.i6.i = icmp ult i32 %42, %6
   %.idx.i.i = select i1 %.not.i6.i, i64 256, i64 0
-  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx.i.i
-  %44 = getelementptr inbounds i8, ptr %43, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 112
   %45 = load i32, ptr %44, align 4
   %.not.i.i7.i = icmp ult i32 %45, %6
   %.idx.i.i8.i = select i1 %.not.i.i7.i, i64 128, i64 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 %.idx.i.i8.i
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i8.i
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load i32, ptr %47, align 4
   %.not.i.i.i9.i = icmp ult i32 %48, %6
   %.idx.i.i.i10.i = select i1 %.not.i.i.i9.i, i64 64, i64 0
-  %49 = getelementptr inbounds i8, ptr %46, i64 %.idx.i.i.i10.i
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i10.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i32, ptr %50, align 4
   %.not.i.i.i.i11.i = icmp ult i32 %51, %6
   %.idx.i.i.i.i12.i = select i1 %.not.i.i.i.i11.i, i64 32, i64 0
-  %52 = getelementptr inbounds i8, ptr %49, i64 %.idx.i.i.i.i12.i
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx.i.i.i.i12.i
   %53 = load i32, ptr %52, align 4
   %.not.i.i.i.i.i.i = icmp ult i32 %53, %6
   %.idx.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i64 16, i64 0
-  %54 = getelementptr inbounds i8, ptr %52, i64 %.idx.i.i.i.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i.i.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm48EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 55:                                               ; preds = %2
-  %56 = getelementptr inbounds i8, ptr %1, i64 496
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %57 = load i32, ptr %56, align 4
   %.not.i6 = icmp ult i32 %57, %6
   %.idx.i = select i1 %.not.i6, i64 512, i64 0
-  %58 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
-  %59 = getelementptr inbounds i8, ptr %58, i64 240
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 240
   %60 = load i32, ptr %59, align 4
   %.not.i.i7 = icmp ult i32 %60, %6
   %.idx.i.i8 = select i1 %.not.i.i7, i64 256, i64 0
-  %61 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i8
-  %62 = getelementptr inbounds i8, ptr %61, i64 112
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 112
   %63 = load i32, ptr %62, align 4
   %.not.i.i.i9 = icmp ult i32 %63, %6
   %.idx.i.i.i10 = select i1 %.not.i.i.i9, i64 128, i64 0
-  %64 = getelementptr inbounds i8, ptr %61, i64 %.idx.i.i.i10
-  %65 = getelementptr inbounds i8, ptr %64, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i10
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %66 = load i32, ptr %65, align 4
   %.not.i.i.i.i11 = icmp ult i32 %66, %6
   %.idx.i.i.i.i12 = select i1 %.not.i.i.i.i11, i64 64, i64 0
-  %67 = getelementptr inbounds i8, ptr %64, i64 %.idx.i.i.i.i12
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.idx.i.i.i.i12
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load i32, ptr %68, align 4
   %.not.i.i.i.i.i13 = icmp ult i32 %69, %6
   %.idx.i.i.i.i.i14 = select i1 %.not.i.i.i.i.i13, i64 32, i64 0
-  %70 = getelementptr inbounds i8, ptr %67, i64 %.idx.i.i.i.i.i14
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i.i.i14
   %71 = load i32, ptr %70, align 4
   %.not.i.i.i.i.i.i15 = icmp ult i32 %71, %6
   %.idx.i.i.i.i.i.i16 = select i1 %.not.i.i.i.i.i.i15, i64 16, i64 0
-  %72 = getelementptr inbounds i8, ptr %70, i64 %.idx.i.i.i.i.i.i16
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %.idx.i.i.i.i.i.i16
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm48EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm48EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit: ; preds = %39, %29, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm4EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i, %20, %55
@@ -2602,61 +2602,61 @@ _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE9find_implIRKS9_S4_EEDaOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(1352) %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1016
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %.not.i.i.i.i = icmp ult i32 %4, %5
   br i1 %.not.i.i.i.i, label %6, label %27
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %8 = load i32, ptr %7, align 8
   %.not.i.i.i.i.i = icmp ult i32 %8, %5
   br i1 %.not.i.i.i.i.i, label %9, label %19
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1304
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %11 = load i32, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp ult i32 %11, %5
   br i1 %.not.i.i.i.i.i.i, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 1320
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %14 = load i32, ptr %13, align 8
   %.not.i.i.i.i.i.i.i = icmp ult i32 %14, %5
   br i1 %.not.i.i.i.i.i.i.i, label %15, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
 15:                                               ; preds = %12
-  %.ptr = getelementptr inbounds i8, ptr %0, i64 1336
+  %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %16 = load i32, ptr %.ptr, align 8
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i32 %16, %5
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit, label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge
 
 17:                                               ; preds = %9
-  %.ptr27 = getelementptr inbounds i8, ptr %0, i64 1288
+  %.ptr27 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %18 = load i32, ptr %.ptr27, align 8
   %.not.i6.i.i.i.i.i.i = icmp ult i32 %18, %5
   %.add15 = select i1 %.not.i6.i.i.i.i.i.i, i64 1304, i64 1288
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 1144
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %21 = load i32, ptr %20, align 8
   %.not.i6.i.i.i.i.i = icmp ult i32 %21, %5
   %.add16 = select i1 %.not.i6.i.i.i.i.i, i64 1160, i64 1032
-  %.ptr30 = getelementptr inbounds i8, ptr %0, i64 %.add16
-  %22 = getelementptr inbounds i8, ptr %.ptr30, i64 48
+  %.ptr30 = getelementptr inbounds nuw i8, ptr %0, i64 %.add16
+  %22 = getelementptr inbounds nuw i8, ptr %.ptr30, i64 48
   %23 = load i32, ptr %22, align 8
   %.not.i.i7.i.i.i.i.i = icmp ult i32 %23, %5
   %.idx.i.i8.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i, i64 64, i64 0
   %.add17 = or disjoint i64 %.idx.i.i8.i.i.i.i.i, %.add16
-  %.ptr31 = getelementptr inbounds i8, ptr %0, i64 %.add17
-  %24 = getelementptr inbounds i8, ptr %.ptr31, i64 16
+  %.ptr31 = getelementptr inbounds nuw i8, ptr %0, i64 %.add17
+  %24 = getelementptr inbounds nuw i8, ptr %.ptr31, i64 16
   %25 = load i32, ptr %24, align 8
   %.not.i.i.i.i.i.i.i.i = icmp ult i32 %25, %5
   %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i, i64 32, i64 0
   %.add18 = or disjoint i64 %.add17, %.idx.i.i.i.i.i.i.i.i
-  %.ptr32 = getelementptr inbounds i8, ptr %0, i64 %.add18
+  %.ptr32 = getelementptr inbounds nuw i8, ptr %0, i64 %.add18
   %26 = load i32, ptr %.ptr32, align 8
   %.not.i.i.i.i9.i.i.i.i.i = icmp ult i32 %26, %5
   %.idx.i.i.i.i10.i.i.i.i.i = select i1 %.not.i.i.i.i9.i.i.i.i.i, i64 16, i64 0
@@ -2664,35 +2664,35 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TY
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 504
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %29 = load i32, ptr %28, align 8
   %.not.i6.i.i.i.i = icmp ult i32 %29, %5
   %.add20 = select i1 %.not.i6.i.i.i.i, i64 520, i64 8
-  %.ptr35 = getelementptr inbounds i8, ptr %0, i64 %.add20
-  %30 = getelementptr inbounds i8, ptr %.ptr35, i64 240
+  %.ptr35 = getelementptr inbounds nuw i8, ptr %0, i64 %.add20
+  %30 = getelementptr inbounds nuw i8, ptr %.ptr35, i64 240
   %31 = load i32, ptr %30, align 8
   %.not.i.i7.i.i.i.i = icmp ult i32 %31, %5
   %.idx.i.i8.i.i.i.i = select i1 %.not.i.i7.i.i.i.i, i64 256, i64 0
   %.add21 = or disjoint i64 %.idx.i.i8.i.i.i.i, %.add20
-  %.ptr36 = getelementptr inbounds i8, ptr %0, i64 %.add21
-  %32 = getelementptr inbounds i8, ptr %.ptr36, i64 112
+  %.ptr36 = getelementptr inbounds nuw i8, ptr %0, i64 %.add21
+  %32 = getelementptr inbounds nuw i8, ptr %.ptr36, i64 112
   %33 = load i32, ptr %32, align 8
   %.not.i.i.i9.i.i.i.i = icmp ult i32 %33, %5
   %.idx.i.i.i10.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i, i64 128, i64 0
   %.add22 = or disjoint i64 %.add21, %.idx.i.i.i10.i.i.i.i
-  %.ptr37 = getelementptr inbounds i8, ptr %0, i64 %.add22
-  %34 = getelementptr inbounds i8, ptr %.ptr37, i64 48
+  %.ptr37 = getelementptr inbounds nuw i8, ptr %0, i64 %.add22
+  %34 = getelementptr inbounds nuw i8, ptr %.ptr37, i64 48
   %35 = load i32, ptr %34, align 8
   %.not.i.i.i.i11.i.i.i.i = icmp ult i32 %35, %5
   %.idx.i.i.i.i12.i.i.i.i = select i1 %.not.i.i.i.i11.i.i.i.i, i64 64, i64 0
   %.add23 = or disjoint i64 %.add22, %.idx.i.i.i.i12.i.i.i.i
-  %.ptr38 = getelementptr inbounds i8, ptr %0, i64 %.add23
-  %36 = getelementptr inbounds i8, ptr %.ptr38, i64 16
+  %.ptr38 = getelementptr inbounds nuw i8, ptr %0, i64 %.add23
+  %36 = getelementptr inbounds nuw i8, ptr %.ptr38, i64 16
   %37 = load i32, ptr %36, align 8
   %.not.i.i.i.i.i13.i.i.i.i = icmp ult i32 %37, %5
   %.idx.i.i.i.i.i14.i.i.i.i = select i1 %.not.i.i.i.i.i13.i.i.i.i, i64 32, i64 0
   %.add24 = or disjoint i64 %.add23, %.idx.i.i.i.i.i14.i.i.i.i
-  %.ptr39 = getelementptr inbounds i8, ptr %0, i64 %.add24
+  %.ptr39 = getelementptr inbounds nuw i8, ptr %0, i64 %.add24
   %38 = load i32, ptr %.ptr39, align 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %38, %5
   %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
@@ -2700,19 +2700,19 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen3mapIN4LIEF3ELF10Relocation4TY
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %15
-  %39 = getelementptr inbounds i8, ptr %0, i64 1352
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   br label %42
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge: ; preds = %27, %19, %17, %15
   %.0.i.i.i.i.idx.ph = phi i64 [ 1336, %15 ], [ %.add15, %17 ], [ %.add19, %19 ], [ %.add25, %27 ]
-  %.0.i.i.i.i.ptr = getelementptr inbounds i8, ptr %0, i64 %.0.i.i.i.i.idx.ph
+  %.0.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i.i.i.i.idx.ph
   %.pre = load i32, ptr %.0.i.i.i.i.ptr, align 4
   br label %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
 _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %12, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge
   %40 = phi i32 [ %.pre, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge ], [ %14, %12 ]
   %.0.i.i.i.i14 = phi ptr [ %.0.i.i.i.i.ptr, %_ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit._crit_edge ], [ %13, %12 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 1352
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   %.not41 = icmp ult i32 %5, %40
   %spec.select = select i1 %.not41, ptr %41, ptr %.0.i.i.i.i14
   br label %42
@@ -2724,7 +2724,7 @@ _ZNK6frozen3mapIN4LIEF3ELF10Relocation4TYPEEPKcLm84ESt4lessIS4_EE11lower_boundIS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm62EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 496
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %3, align 4
   %6 = load i32, ptr %4, align 4
@@ -2732,32 +2732,32 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10
   br i1 %.not, label %7, label %49
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 752
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 752
   %9 = load i32, ptr %8, align 4
   %.not.i = icmp ult i32 %9, %6
   br i1 %.not.i, label %10, label %36
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 880
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 880
   %12 = load i32, ptr %11, align 4
   %.not.i.i = icmp ult i32 %12, %6
   br i1 %.not.i.i, label %13, label %26
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 896
-  %15 = getelementptr inbounds i8, ptr %1, i64 944
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 896
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 944
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp ult i32 %16, %6
   br i1 %.not.i.i.i, label %17, label %20
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %1, i64 960
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 960
   %19 = load i32, ptr %18, align 4
   %.not.i.i.i.i = icmp ult i32 %19, %6
   br i1 %.not.i.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm2EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i, label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %1, i64 912
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %22 = load i32, ptr %21, align 4
   %.not.i6.i.i.i = icmp ult i32 %22, %6
   %.idx.i.i.i.i = select i1 %.not.i6.i.i.i, i64 32, i64 0
@@ -2765,79 +2765,79 @@ define linkonce_odr hidden noundef ptr @_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm2EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i: ; preds = %20, %17
   %.sink9.i.i.i = phi i64 [ %.idx.i.i.i.i, %20 ], [ 80, %17 ]
-  %23 = getelementptr inbounds i8, ptr %14, i64 %.sink9.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink9.i.i.i
   %24 = load i32, ptr %23, align 4
   %.not.i.i.i.i.i.i = icmp ult i32 %24, %6
   %.idx.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i64 16, i64 0
-  %25 = getelementptr inbounds i8, ptr %23, i64 %.idx.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 26:                                               ; preds = %10
-  %27 = getelementptr inbounds i8, ptr %1, i64 768
-  %28 = getelementptr inbounds i8, ptr %1, i64 816
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 768
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %29 = load i32, ptr %28, align 4
   %.not.i6.i.i = icmp ult i32 %29, %6
   %.idx.i.i.i = select i1 %.not.i6.i.i, i64 64, i64 0
-  %30 = getelementptr inbounds i8, ptr %27, i64 %.idx.i.i.i
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 4
   %.not.i.i7.i.i = icmp ult i32 %32, %6
   %.idx.i.i8.i.i = select i1 %.not.i.i7.i.i, i64 32, i64 0
-  %33 = getelementptr inbounds i8, ptr %30, i64 %.idx.i.i8.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx.i.i8.i.i
   %34 = load i32, ptr %33, align 4
   %.not.i.i.i.i.i = icmp ult i32 %34, %6
   %.idx.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i64 16, i64 0
-  %35 = getelementptr inbounds i8, ptr %33, i64 %.idx.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i.i.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 36:                                               ; preds = %7
-  %37 = getelementptr inbounds i8, ptr %1, i64 512
-  %38 = getelementptr inbounds i8, ptr %1, i64 624
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 512
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 624
   %39 = load i32, ptr %38, align 4
   %.not.i6.i = icmp ult i32 %39, %6
   %.idx.i.i = select i1 %.not.i6.i, i64 128, i64 0
-  %40 = getelementptr inbounds i8, ptr %37, i64 %.idx.i.i
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load i32, ptr %41, align 4
   %.not.i.i7.i = icmp ult i32 %42, %6
   %.idx.i.i8.i = select i1 %.not.i.i7.i, i64 64, i64 0
-  %43 = getelementptr inbounds i8, ptr %40, i64 %.idx.i.i8.i
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx.i.i8.i
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 4
   %.not.i.i.i9.i = icmp ult i32 %45, %6
   %.idx.i.i.i10.i = select i1 %.not.i.i.i9.i, i64 32, i64 0
-  %46 = getelementptr inbounds i8, ptr %43, i64 %.idx.i.i.i10.i
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i10.i
   %47 = load i32, ptr %46, align 4
   %.not.i.i.i.i11.i = icmp ult i32 %47, %6
   %.idx.i.i.i.i12.i = select i1 %.not.i.i.i.i11.i, i64 16, i64 0
-  %48 = getelementptr inbounds i8, ptr %46, i64 %.idx.i.i.i.i12.i
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i.i12.i
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 49:                                               ; preds = %2
-  %50 = getelementptr inbounds i8, ptr %1, i64 240
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %51 = load i32, ptr %50, align 4
   %.not.i6 = icmp ult i32 %51, %6
   %.idx.i = select i1 %.not.i6, i64 256, i64 0
-  %52 = getelementptr inbounds i8, ptr %1, i64 %.idx.i
-  %53 = getelementptr inbounds i8, ptr %52, i64 112
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx.i
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %54 = load i32, ptr %53, align 4
   %.not.i.i7 = icmp ult i32 %54, %6
   %.idx.i.i8 = select i1 %.not.i.i7, i64 128, i64 0
-  %55 = getelementptr inbounds i8, ptr %52, i64 %.idx.i.i8
-  %56 = getelementptr inbounds i8, ptr %55, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load i32, ptr %56, align 4
   %.not.i.i.i9 = icmp ult i32 %57, %6
   %.idx.i.i.i10 = select i1 %.not.i.i.i9, i64 64, i64 0
-  %58 = getelementptr inbounds i8, ptr %55, i64 %.idx.i.i.i10
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i.i10
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load i32, ptr %59, align 4
   %.not.i.i.i.i11 = icmp ult i32 %60, %6
   %.idx.i.i.i.i12 = select i1 %.not.i.i.i.i11, i64 32, i64 0
-  %61 = getelementptr inbounds i8, ptr %58, i64 %.idx.i.i.i.i12
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i.i.i12
   %62 = load i32, ptr %61, align 4
   %.not.i.i.i.i.i13 = icmp ult i32 %62, %6
   %.idx.i.i.i.i.i14 = select i1 %.not.i.i.i.i.i13, i64 16, i64 0
-  %63 = getelementptr inbounds i8, ptr %61, i64 %.idx.i.i.i.i.i14
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i.i.i14
   br label %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit
 
 _ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm30EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit: ; preds = %36, %26, %_ZN6frozen4bits10LowerBoundIN4LIEF3ELF10Relocation4TYPEENS_4impl10CompareKeyISt4lessIS5_EEEE9doitfirstIPKSt4pairIS5_PKcELm2EEET_SJ_St17integral_constantImXT0_EESK_IbLb0EE.exit.sink.split.i.i.i, %17, %49

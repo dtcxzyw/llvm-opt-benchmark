@@ -137,16 +137,16 @@ declare void @SplashUnlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10628
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   store i32 -1, ptr %2, align 4
   tail call void @SplashCleanupPlatform(ptr noundef %0) #20
-  %3 = getelementptr inbounds i8, ptr %0, i64 10456
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 10448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -155,7 +155,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
   %8 = phi i32 [ %16, %15 ], [ %6, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.preheader ]
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds %struct.SplashImage, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw %struct.SplashImage, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not19 = icmp eq ptr %11, null
   br i1 %.not19, label %15, label %12
@@ -163,7 +163,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
 12:                                               ; preds = %.lr.ph
   tail call void @free(ptr noundef nonnull %11) #20
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds %struct.SplashImage, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %struct.SplashImage, ptr %13, i64 %indvars.iv
   store ptr null, ptr %14, align 8
   %.pre = load i32, ptr %5, align 8
   br label %15
@@ -186,7 +186,7 @@ define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) lo
   br label %20
 
 20:                                               ; preds = %._crit_edge, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 10472
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 10472
   %22 = load ptr, ptr %21, align 8
   %.not18 = icmp eq ptr %22, null
   br i1 %.not18, label %24, label %23
@@ -251,20 +251,20 @@ declare void @SplashDonePlatform(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @SplashIsStillLooping(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10628
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 10632
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10632
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 1
   br i1 %.not, label %8, label %14
 
 8:                                                ; preds = %5
   %9 = add nuw nsw i32 %3, 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 10448
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 10448
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %9, %11
   %13 = zext i1 %12 to i32
@@ -279,25 +279,25 @@ define hidden range(i32 0, 2) i32 @SplashIsStillLooping(ptr nocapture noundef re
 define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.ImageRect, align 8
   %3 = alloca %struct.ImageRect, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 10628
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %49, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 10440
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 10440
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 10444
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 10444
   %11 = load i32, ptr %10, align 4
   %12 = shl i32 %9, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 10456
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 10456
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %5 to i64
-  %16 = getelementptr inbounds %struct.SplashImage, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 9320
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 9320
   call void @initRect(ptr noundef nonnull %2, i32 noundef 0, i32 noundef 0, i32 noundef %9, i32 noundef %11, i32 noundef 1, i32 noundef %12, ptr noundef %17, ptr noundef nonnull %18) #20
-  %19 = getelementptr inbounds i8, ptr %0, i64 10616
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 10616
   %20 = load ptr, ptr %19, align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %22, label %21
@@ -308,12 +308,12 @@ define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2
 
 22:                                               ; preds = %21, %7
   %23 = load i32, ptr %8, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load i32, ptr %24, align 8
   %26 = mul nsw i32 %25, %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 10624
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 10624
   store i32 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 10432
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 10432
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 1
   br i1 %30, label %31, label %36
@@ -334,13 +334,13 @@ define hidden void @SplashUpdateScreenData(ptr noundef %0) local_unnamed_addr #2
   %41 = call noalias ptr @malloc(i64 noundef %40) #21
   store ptr %41, ptr %19, align 8
   call void @initRect(ptr noundef nonnull %3, i32 noundef 0, i32 noundef 0, i32 noundef %23, i32 noundef %38, i32 noundef 1, i32 noundef %37, ptr noundef %41, ptr noundef nonnull %0) #20
-  %42 = getelementptr inbounds i8, ptr %0, i64 10472
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 10472
   %43 = load ptr, ptr %42, align 8
   %.not29 = icmp eq ptr %43, null
   br i1 %.not29, label %47, label %44
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %0, i64 10480
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 10480
   %46 = call i32 @convertRect2(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef 2, ptr noundef nonnull %45) #20
   br label %49
 
@@ -363,16 +363,16 @@ declare i32 @convertRect(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashNextFrame(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 10628
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 10628
   %3 = load i32, ptr %2, align 4
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %SplashIsStillLooping.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 10632
-  %6 = getelementptr inbounds i8, ptr %0, i64 10448
-  %7 = getelementptr inbounds i8, ptr %0, i64 10456
-  %8 = getelementptr inbounds i8, ptr %0, i64 10464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 10632
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 10456
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 10464
   br label %10
 
 thread-pre-split:                                 ; preds = %24
@@ -393,7 +393,7 @@ thread-pre-split:                                 ; preds = %24
 SplashIsStillLooping.exit.thread16:               ; preds = %10
   %14 = load ptr, ptr %7, align 8
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds %struct.SplashImage, ptr %14, i64 %15, i32 1
+  %16 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %15, i32 1
   %17 = load i32, ptr %16, align 8
   %18 = load i32, ptr %8, align 8
   %19 = add i32 %18, %17
@@ -415,7 +415,7 @@ SplashIsStillLooping.exit.thread16:               ; preds = %10
 24:                                               ; preds = %SplashIsStillLooping.exit.thread16, %22, %20
   %25 = phi i32 [ %13, %SplashIsStillLooping.exit.thread16 ], [ 0, %22 ], [ 0, %20 ]
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds %struct.SplashImage, ptr %14, i64 %26, i32 1
+  %27 = getelementptr inbounds nuw %struct.SplashImage, ptr %14, i64 %26, i32 1
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, %19
   %30 = tail call i32 (...) @SplashTime() #20
@@ -435,11 +435,11 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   br i1 %4, label %.lr.ph136, label %._crit_edge
 
 .lr.ph136:                                        ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %10
 
 10:                                               ; preds = %.lr.ph136, %.loopexit
@@ -465,21 +465,21 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
 
 .lr.ph:                                           ; preds = %17
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 36
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %20, i64 32
-  %24 = getelementptr inbounds i8, ptr %20, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
-  %26 = getelementptr inbounds i8, ptr %20, i64 56
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
-  %28 = getelementptr inbounds i8, ptr %20, i64 20
-  %29 = getelementptr inbounds i8, ptr %20, i64 4
-  %30 = getelementptr inbounds i8, ptr %20, i64 24
-  %31 = getelementptr inbounds i8, ptr %20, i64 8
-  %32 = getelementptr inbounds i8, ptr %20, i64 28
-  %33 = getelementptr inbounds i8, ptr %20, i64 12
-  %34 = getelementptr inbounds i8, ptr %20, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 40
   br label %35
 
 35:                                               ; preds = %.lr.ph, %getRGBA.exit.thread
@@ -504,7 +504,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %39 = load i8, ptr %.170112, align 1
   %40 = zext i8 %39 to i32
   %41 = shl nuw nsw i32 %40, 8
-  %42 = getelementptr inbounds i8, ptr %.170112, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.170112, i64 1
   br label %43
 
 43:                                               ; preds = %38, %36
@@ -514,7 +514,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %45 = zext i8 %44 to i32
   %46 = or disjoint i32 %.1.i, %45
   %47 = shl nuw nsw i32 %46, 8
-  %48 = getelementptr inbounds i8, ptr %.071.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.071.i, i64 1
   br label %49
 
 49:                                               ; preds = %43, %36
@@ -524,7 +524,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %51 = zext i8 %50 to i32
   %52 = or disjoint i32 %.2.i, %51
   %53 = shl nuw i32 %52, 8
-  %54 = getelementptr inbounds i8, ptr %.172.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.172.i, i64 1
   br label %55
 
 55:                                               ; preds = %49, %36
@@ -548,7 +548,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %62 = load i8, ptr %.170112, align 1
   %63 = zext i8 %62 to i32
   %64 = shl nuw i32 %63, 24
-  %65 = getelementptr inbounds i8, ptr %.170112, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.170112, i64 1
   br label %66
 
 66:                                               ; preds = %61, %59
@@ -558,7 +558,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %68 = zext i8 %67 to i32
   %69 = shl nuw nsw i32 %68, 16
   %70 = or disjoint i32 %69, %.4.i
-  %71 = getelementptr inbounds i8, ptr %.374.i, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.374.i, i64 1
   br label %72
 
 72:                                               ; preds = %66, %59
@@ -568,7 +568,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
   %74 = zext i8 %73 to i32
   %75 = shl nuw nsw i32 %74, 8
   %76 = or i32 %75, %.5.i
-  %77 = getelementptr inbounds i8, ptr %.475.i, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.475.i, i64 1
   br label %78
 
 78:                                               ; preds = %72, %59
@@ -616,7 +616,7 @@ define hidden i32 @BitmapToYXBandedRectangles(ptr nocapture noundef readonly %0,
 
 97:                                               ; preds = %94
   %98 = zext i32 %.0.i to i64
-  %99 = getelementptr inbounds i32, ptr %25, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %25, i64 %98
   %100 = load i32, ptr %99, align 4
   br label %getRGBA.exit
 
@@ -699,7 +699,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %144 = load i8, ptr %.2116, align 1
   %145 = zext i8 %144 to i32
   %146 = shl nuw nsw i32 %145, 8
-  %147 = getelementptr inbounds i8, ptr %.2116, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.2116, i64 1
   br label %148
 
 148:                                              ; preds = %143, %141
@@ -709,7 +709,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %150 = zext i8 %149 to i32
   %151 = or disjoint i32 %.1.i99, %150
   %152 = shl nuw nsw i32 %151, 8
-  %153 = getelementptr inbounds i8, ptr %.071.i98, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.071.i98, i64 1
   br label %154
 
 154:                                              ; preds = %148, %141
@@ -719,7 +719,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %156 = zext i8 %155 to i32
   %157 = or disjoint i32 %.2.i97, %156
   %158 = shl nuw i32 %157, 8
-  %159 = getelementptr inbounds i8, ptr %.172.i96, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.172.i96, i64 1
   br label %160
 
 160:                                              ; preds = %154, %141
@@ -743,7 +743,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %167 = load i8, ptr %.2116, align 1
   %168 = zext i8 %167 to i32
   %169 = shl nuw i32 %168, 24
-  %170 = getelementptr inbounds i8, ptr %.2116, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.2116, i64 1
   br label %171
 
 171:                                              ; preds = %166, %164
@@ -753,7 +753,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %173 = zext i8 %172 to i32
   %174 = shl nuw nsw i32 %173, 16
   %175 = or disjoint i32 %174, %.4.i93
-  %176 = getelementptr inbounds i8, ptr %.374.i92, i64 1
+  %176 = getelementptr inbounds nuw i8, ptr %.374.i92, i64 1
   br label %177
 
 177:                                              ; preds = %171, %164
@@ -763,7 +763,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
   %179 = zext i8 %178 to i32
   %180 = shl nuw nsw i32 %179, 8
   %181 = or i32 %180, %.5.i91
-  %182 = getelementptr inbounds i8, ptr %.475.i90, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.475.i90, i64 1
   br label %183
 
 183:                                              ; preds = %177, %164
@@ -811,7 +811,7 @@ getRGBA.exit.thread:                              ; preds = %94, %getRGBA.exit
 
 202:                                              ; preds = %199
   %203 = zext i32 %.0.i81 to i64
-  %204 = getelementptr inbounds i32, ptr %25, i64 %203
+  %204 = getelementptr inbounds nuw i32, ptr %25, i64 %203
   %205 = load i32, ptr %204, align 4
   br label %getRGBA.exit100
 
@@ -873,15 +873,15 @@ getRGBA.exit100:                                  ; preds = %202, %206
   %.2.lcssa = phi ptr [ %.170112, %.critedge.preheader ], [ %.2116, %199 ], [ %243, %.critedge ], [ %.2116, %getRGBA.exit100 ]
   %245 = trunc i32 %.175111 to i16
   store i16 %245, ptr %.172, align 2
-  %246 = getelementptr inbounds i8, ptr %.172, i64 2
+  %246 = getelementptr inbounds nuw i8, ptr %.172, i64 2
   store i16 %16, ptr %246, align 2
   %247 = sub nsw i32 %.276.lcssa, %.175111
   %248 = trunc i32 %247 to i16
-  %249 = getelementptr inbounds i8, ptr %.172, i64 4
+  %249 = getelementptr inbounds nuw i8, ptr %.172, i64 4
   store i16 %248, ptr %249, align 2
-  %250 = getelementptr inbounds i8, ptr %.172, i64 6
+  %250 = getelementptr inbounds nuw i8, ptr %.172, i64 6
   store i16 1, ptr %250, align 2
-  %251 = getelementptr inbounds i8, ptr %.172, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %.172, i64 8
   %252 = load i32, ptr %7, align 4
   %253 = icmp slt i32 %.276.lcssa, %252
   br i1 %253, label %17, label %.critedge.thread, !llvm.loop !11
@@ -915,17 +915,17 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %277
   %indvars.iv = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next, %277 ]
-  %266 = getelementptr inbounds %struct.XRectangle, ptr %.0135, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0135, i64 %indvars.iv
   %267 = load i16, ptr %266, align 2
-  %268 = getelementptr inbounds %struct.XRectangle, ptr %.071134, i64 %indvars.iv
+  %268 = getelementptr inbounds nuw %struct.XRectangle, ptr %.071134, i64 %indvars.iv
   %269 = load i16, ptr %268, align 2
   %270 = icmp eq i16 %267, %269
   br i1 %270, label %271, label %.critedge4
 
 271:                                              ; preds = %.lr.ph125
-  %272 = getelementptr inbounds i8, ptr %266, i64 4
+  %272 = getelementptr inbounds nuw i8, ptr %266, i64 4
   %273 = load i16, ptr %272, align 2
-  %274 = getelementptr inbounds i8, ptr %268, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %268, i64 4
   %275 = load i16, ptr %274, align 2
   %276 = icmp eq i16 %273, %275
   br i1 %276, label %277, label %.critedge4
@@ -954,7 +954,7 @@ getRGBA.exit100:                                  ; preds = %202, %206
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
   %indvars.iv145 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next146, %.lr.ph132 ]
-  %280 = getelementptr inbounds %struct.XRectangle, ptr %.0135, i64 %indvars.iv145, i32 3
+  %280 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0135, i64 %indvars.iv145, i32 3
   %281 = load i16, ptr %280, align 2
   %282 = add i16 %281, 1
   store i16 %282, ptr %280, align 2
@@ -984,12 +984,12 @@ getRGBA.exit100:                                  ; preds = %202, %206
 define range(i32 0, 2) i32 @SplashLoadFile(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = alloca %struct.SplashStream, align 8
   %3 = tail call noalias ptr @fopen64(ptr noundef readonly %0, ptr noundef nonnull @.str)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %3, ptr %4, align 8
   store ptr @readFile, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @peekFile, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @closeFile, ptr %6, align 8
   %.not1 = icmp eq ptr %3, null
   br i1 %.not1, label %11, label %7
@@ -1008,12 +1008,12 @@ define range(i32 0, 2) i32 @SplashLoadFile(ptr nocapture noundef readonly %0) lo
 ; Function Attrs: nofree nounwind uwtable
 define hidden range(i32 0, 2) i32 @SplashStreamInitFile(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str)
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
   store ptr @readFile, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @peekFile, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @closeFile, ptr %6, align 8
   %7 = icmp ne ptr %3, null
   %8 = zext i1 %7 to i32
@@ -1037,14 +1037,14 @@ SplashGetInstance.exit:                           ; preds = %1
   br i1 %2, label %3, label %6
 
 3:                                                ; preds = %SplashGetInstance.exit
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull %0) #20
   br label %SplashClose.exit
 
 6:                                                ; preds = %SplashGetInstance.exit.thread, %SplashGetInstance.exit
   tail call void @SplashLock(ptr noundef nonnull @SplashGetInstance.splash) #20
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0) #20
   %.not = icmp eq i32 %9, -1
@@ -1057,22 +1057,22 @@ SplashGetInstance.exit:                           ; preds = %1
 
 .preheader:                                       ; preds = %6, %10
   %.02835 = phi i64 [ %11, %10 ], [ 0, %6 ]
-  %12 = getelementptr inbounds [3 x %struct.FILEFORMAT], ptr @formats, i64 0, i64 %.02835
+  %12 = getelementptr inbounds nuw [3 x %struct.FILEFORMAT], ptr @formats, i64 0, i64 %.02835
   %13 = load i32, ptr %12, align 16
   %14 = icmp eq i32 %9, %13
   br i1 %14, label %17, label %10
 
 .thread:                                          ; preds = %10, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0) #20
   br label %23
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef nonnull @SplashGetInstance.splash, ptr noundef nonnull %0) #20
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0) #20
   %.not31 = icmp eq i32 %20, 0
@@ -1107,41 +1107,41 @@ SplashGetInstance.exit.thread.i:                  ; preds = %30
   store i32 0, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10628), align 4
   %32 = load i32, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %SplashStart.exit, label %34
-
-SplashStart.exit:                                 ; preds = %31
-  tail call void @SplashCreateThread(ptr noundef nonnull @SplashGetInstance.splash) #20
-  store i32 1, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
-  br label %36
+  br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31
-  tail call void @SplashReconfigure(ptr noundef nonnull @SplashGetInstance.splash) #20
-  %35 = tail call i32 (...) @SplashTime() #20
-  store i32 %35, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10464), align 8
-  br label %36
+  tail call void @SplashCreateThread(ptr noundef nonnull @SplashGetInstance.splash) #20
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @SplashGetInstance.splash, i64 11668), align 4
+  br label %SplashStart.exit
 
-36:                                               ; preds = %34, %SplashStart.exit
+35:                                               ; preds = %31
+  tail call void @SplashReconfigure(ptr noundef nonnull @SplashGetInstance.splash) #20
+  %36 = tail call i32 (...) @SplashTime() #20
+  store i32 %36, ptr getelementptr inbounds (i8, ptr @SplashGetInstance.splash, i64 10464), align 8
+  br label %SplashStart.exit
+
+SplashStart.exit:                                 ; preds = %34, %35
   tail call void @SplashUnlock(ptr noundef nonnull @SplashGetInstance.splash) #20
   br label %SplashClose.exit
 
-SplashClose.exit:                                 ; preds = %SplashGetInstance.exit.thread.i, %30, %36, %27, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ %20, %36 ], [ 0, %30 ], [ 0, %SplashGetInstance.exit.thread.i ]
+SplashClose.exit:                                 ; preds = %SplashGetInstance.exit.thread.i, %30, %SplashStart.exit, %27, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %27 ], [ %20, %SplashStart.exit ], [ 0, %30 ], [ 0, %SplashGetInstance.exit.thread.i ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SplashLoadMemory(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.SplashStream, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %0, ptr %4, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %6, ptr %7, align 8
   store ptr @readMem, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @peekMem, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr @closeMem, ptr %9, align 8
   %10 = call fastcc i32 @SplashLoadStream(ptr noundef %3)
   %11 = icmp ne i32 %10, 0
@@ -1151,23 +1151,23 @@ define range(i32 0, 2) i32 @SplashLoadMemory(ptr noundef %0, i32 noundef %1) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef i32 @SplashStreamInitMemory(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %6, ptr %7, align 8
   store ptr @readMem, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @peekMem, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @closeMem, ptr %9, align 8
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @SplashStart(ptr noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11668
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11668
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %6
@@ -1188,7 +1188,7 @@ declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocaptu
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @readFile(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
   %7 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %6, ptr noundef %5)
@@ -1198,7 +1198,7 @@ define internal noundef i32 @readFile(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @peekFile(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fgetc(ptr noundef %3)
   %.not = icmp eq i32 %4, -1
@@ -1214,7 +1214,7 @@ define internal noundef i32 @peekFile(ptr nocapture noundef readonly %0) #8 {
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @closeFile(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fclose(ptr noundef %3)
   ret void
@@ -1222,9 +1222,9 @@ define internal void @closeFile(ptr nocapture noundef readonly %0) #8 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal i32 @readMem(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #11 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %2 to i64
   %9 = ptrtoint ptr %7 to i64
@@ -1239,7 +1239,7 @@ define internal i32 @readMem(ptr nocapture noundef %0, ptr nocapture noundef wri
 15:                                               ; preds = %3
   %16 = zext nneg i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %5, i64 %16, i1 false)
-  %17 = getelementptr inbounds i8, ptr %5, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 %16
   store ptr %17, ptr %4, align 8
   br label %18
 
@@ -1249,9 +1249,9 @@ define internal i32 @readMem(ptr nocapture noundef %0, ptr nocapture noundef wri
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 256) i32 @peekMem(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp ult ptr %3, %5
   br i1 %.not, label %6, label %9

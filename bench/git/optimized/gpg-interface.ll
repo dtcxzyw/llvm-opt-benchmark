@@ -148,27 +148,27 @@ entry:
   %0 = load ptr, ptr %sigc, align 8
   tail call void @free(ptr noundef %0) #14
   store ptr null, ptr %sigc, align 8
-  %output = getelementptr inbounds i8, ptr %sigc, i64 32
+  %output = getelementptr inbounds nuw i8, ptr %sigc, i64 32
   %1 = load ptr, ptr %output, align 8
   tail call void @free(ptr noundef %1) #14
   store ptr null, ptr %output, align 8
-  %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
+  %gpg_status = getelementptr inbounds nuw i8, ptr %sigc, i64 40
   %2 = load ptr, ptr %gpg_status, align 8
   tail call void @free(ptr noundef %2) #14
   store ptr null, ptr %gpg_status, align 8
-  %signer = getelementptr inbounds i8, ptr %sigc, i64 56
+  %signer = getelementptr inbounds nuw i8, ptr %sigc, i64 56
   %3 = load ptr, ptr %signer, align 8
   tail call void @free(ptr noundef %3) #14
   store ptr null, ptr %signer, align 8
-  %key = getelementptr inbounds i8, ptr %sigc, i64 64
+  %key = getelementptr inbounds nuw i8, ptr %sigc, i64 64
   %4 = load ptr, ptr %key, align 8
   tail call void @free(ptr noundef %4) #14
   store ptr null, ptr %key, align 8
-  %fingerprint = getelementptr inbounds i8, ptr %sigc, i64 72
+  %fingerprint = getelementptr inbounds nuw i8, ptr %sigc, i64 72
   %5 = load ptr, ptr %fingerprint, align 8
   tail call void @free(ptr noundef %5) #14
   store ptr null, ptr %fingerprint, align 8
-  %primary_key_fingerprint = getelementptr inbounds i8, ptr %sigc, i64 80
+  %primary_key_fingerprint = getelementptr inbounds nuw i8, ptr %sigc, i64 80
   %6 = load ptr, ptr %primary_key_fingerprint, align 8
   tail call void @free(ptr noundef %6) #14
   store ptr null, ptr %primary_key_fingerprint, align 8
@@ -192,15 +192,15 @@ if.end.i:                                         ; preds = %entry
   br label %gpg_interface_lazy_init.exit
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
-  %result = getelementptr inbounds i8, ptr %sigc, i64 48
+  %result = getelementptr inbounds nuw i8, ptr %sigc, i64 48
   store i8 78, ptr %result, align 8
-  %trust_level = getelementptr inbounds i8, ptr %sigc, i64 88
+  %trust_level = getelementptr inbounds nuw i8, ptr %sigc, i64 88
   store i32 0, ptr %trust_level, align 8
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.inc12.i, %gpg_interface_lazy_init.exit
   %indvars.iv14.i = phi i64 [ 0, %gpg_interface_lazy_init.exit ], [ %indvars.iv.next15.i, %for.inc12.i ]
-  %sigs.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv14.i, i32 3
+  %sigs.i = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv14.i, i32 3
   %0 = load ptr, ptr %sigs.i, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not8.i = icmp eq ptr %1, null
@@ -209,7 +209,7 @@ for.cond2.preheader.i:                            ; preds = %for.inc12.i, %gpg_i
 for.cond2.i:                                      ; preds = %for.body5.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load ptr, ptr %sigs.i, align 8
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
   %3 = load ptr, ptr %arrayidx4.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %for.inc12.i, label %for.body5.i, !llvm.loop !5
@@ -232,10 +232,10 @@ if.then:                                          ; preds = %for.inc12.i
   unreachable
 
 if.end:                                           ; preds = %for.body5.i
-  %add.ptr.i = getelementptr inbounds %struct.gpg_format, ptr @gpg_format, i64 %indvars.iv14.i
+  %add.ptr.i = getelementptr inbounds nuw %struct.gpg_format, ptr @gpg_format, i64 %indvars.iv14.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ident_len.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ident.i)
-  %payload_type.i = getelementptr inbounds i8, ptr %sigc, i64 16
+  %payload_type.i = getelementptr inbounds nuw i8, ptr %sigc, i64 16
   %5 = load i32, ptr %payload_type.i, align 8
   switch i32 %5, label %sw.default.i [
     i32 1, label %sw.epilog.i
@@ -268,14 +268,14 @@ if.end.i17:                                       ; preds = %sw.epilog.i
   br i1 %tobool5.not.i, label %if.end7.i, label %parse_payload_metadata.exit
 
 if.end7.i:                                        ; preds = %if.end.i17
-  %payload_timestamp.i = getelementptr inbounds i8, ptr %sigc, i64 24
+  %payload_timestamp.i = getelementptr inbounds nuw i8, ptr %sigc, i64 24
   %8 = load i64, ptr %payload_timestamp.i, align 8
   %tobool8.i = icmp eq i64 %8, 0
-  %date_begin.i = getelementptr inbounds i8, ptr %ident.i, i64 32
+  %date_begin.i = getelementptr inbounds nuw i8, ptr %ident.i, i64 32
   %9 = load ptr, ptr %date_begin.i, align 8
   %tobool9.i = icmp ne ptr %9, null
   %or.cond1.i = select i1 %tobool8.i, i1 %tobool9.i, i1 false
-  %date_end.i = getelementptr inbounds i8, ptr %ident.i, i64 40
+  %date_end.i = getelementptr inbounds nuw i8, ptr %ident.i, i64 40
   %10 = load ptr, ptr %date_end.i, align 8
   %tobool11.i = icmp ne ptr %10, null
   %or.cond2.i = select i1 %or.cond1.i, i1 %tobool11.i, i1 false
@@ -294,14 +294,14 @@ parse_payload_metadata.exit:                      ; preds = %sw.epilog.i, %if.en
 if.end5:                                          ; preds = %if.end, %if.end, %if.then12.i, %if.end7.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ident_len.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ident.i)
-  %verify_signed_buffer = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
+  %verify_signed_buffer = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %11 = load ptr, ptr %verify_signed_buffer, align 16
   %call6 = call i32 %11(ptr noundef nonnull %sigc, ptr noundef nonnull %add.ptr.i, ptr noundef %signature, i64 noundef %slen) #14
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end5
-  %output = getelementptr inbounds i8, ptr %sigc, i64 32
+  %output = getelementptr inbounds nuw i8, ptr %sigc, i64 32
   %12 = load ptr, ptr %output, align 8
   %tobool8.not = icmp eq ptr %12, null
   br i1 %tobool8.not, label %return, label %if.end12
@@ -354,7 +354,7 @@ entry:
   %and = and i32 %flags, 2
   %tobool.not = icmp eq i32 %and, 0
   %cond.in.v = select i1 %tobool.not, i64 32, i64 40
-  %cond.in = getelementptr inbounds i8, ptr %sigc, i64 %cond.in.v
+  %cond.in = getelementptr inbounds nuw i8, ptr %sigc, i64 %cond.in.v
   %cond = load ptr, ptr %cond.in, align 8
   %and2 = and i32 %flags, 1
   %tobool3.not = icmp eq i32 %and2, 0
@@ -366,7 +366,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %tobool4.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %payload_len = getelementptr inbounds i8, ptr %sigc, i64 8
+  %payload_len = getelementptr inbounds nuw i8, ptr %sigc, i64 8
   %1 = load i64, ptr %payload_len, align 8
   %2 = load ptr, ptr @stdout, align 8
   %call = tail call i64 @fwrite(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %1, ptr noundef %2)
@@ -405,7 +405,7 @@ while.body:                                       ; preds = %entry, %get_format_
 
 for.cond2.preheader.i:                            ; preds = %for.inc12.i, %while.body
   %indvars.iv14.i = phi i64 [ 0, %while.body ], [ %indvars.iv.next15.i, %for.inc12.i ]
-  %sigs.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv14.i, i32 3
+  %sigs.i = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv14.i, i32 3
   %0 = load ptr, ptr %sigs.i, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not8.i = icmp eq ptr %1, null
@@ -414,7 +414,7 @@ for.cond2.preheader.i:                            ; preds = %for.inc12.i, %while
 for.cond2.i:                                      ; preds = %for.body5.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %2 = load ptr, ptr %sigs.i, align 8
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i
+  %arrayidx4.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i
   %3 = load ptr, ptr %arrayidx4.i, align 8
   %tobool.not.i = icmp eq ptr %3, null
   br i1 %tobool.not.i, label %for.inc12.i, label %for.body5.i, !llvm.loop !5
@@ -467,7 +467,7 @@ while.body.i:                                     ; preds = %entry, %get_format_
 
 for.cond2.preheader.i.i:                          ; preds = %for.inc12.i.i, %while.body.i
   %indvars.iv14.i.i = phi i64 [ 0, %while.body.i ], [ %indvars.iv.next15.i.i, %for.inc12.i.i ]
-  %sigs.i.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv14.i.i, i32 3
+  %sigs.i.i = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv14.i.i, i32 3
   %0 = load ptr, ptr %sigs.i.i, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not8.i.i = icmp eq ptr %1, null
@@ -476,7 +476,7 @@ for.cond2.preheader.i.i:                          ; preds = %for.inc12.i.i, %whi
 for.cond2.i.i:                                    ; preds = %for.body5.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %2 = load ptr, ptr %sigs.i.i, align 8
-  %arrayidx4.i.i = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.next.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i
   %3 = load ptr, ptr %arrayidx4.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i, label %for.inc12.i.i, label %for.body5.i.i, !llvm.loop !5
@@ -563,7 +563,7 @@ if.end.i:                                         ; preds = %entry
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
   %0 = load ptr, ptr @use_format, align 8
-  %get_key_id = getelementptr inbounds i8, ptr %0, i64 56
+  %get_key_id = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load ptr, ptr %get_key_id, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -588,7 +588,7 @@ gpg_interface_lazy_init.exit.i:                   ; preds = %if.end.i.i, %if.end
 
 if.end.i1:                                        ; preds = %gpg_interface_lazy_init.exit.i
   %3 = load ptr, ptr @use_format, align 8
-  %get_default_key.i = getelementptr inbounds i8, ptr %3, i64 48
+  %get_default_key.i = getelementptr inbounds nuw i8, ptr %3, i64 48
   %4 = load ptr, ptr %get_default_key.i, align 8
   %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %if.end4.i, label %if.then2.i
@@ -624,7 +624,7 @@ gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
 
 if.end:                                           ; preds = %gpg_interface_lazy_init.exit
   %1 = load ptr, ptr @use_format, align 8
-  %get_default_key = getelementptr inbounds i8, ptr %1, i64 48
+  %get_default_key = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2 = load ptr, ptr %get_default_key, align 8
   %tobool1.not = icmp eq ptr %2, null
   br i1 %tobool1.not, label %if.end4, label %if.then2
@@ -656,8 +656,8 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %conv = zext nneg i32 %level to i64
-  %arrayidx = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %conv
-  %value = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx = getelementptr inbounds nuw [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %conv
+  %value = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = load i32, ptr %value, align 8
   %cmp3.not = icmp eq i32 %0, %level
   br i1 %cmp3.not, label %if.end6, label %if.then5
@@ -667,7 +667,7 @@ if.then5:                                         ; preds = %if.end
   unreachable
 
 if.end6:                                          ; preds = %if.end
-  %display_key = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %display_key = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %1 = load ptr, ptr %display_key, align 8
   ret ptr %1
 }
@@ -688,7 +688,7 @@ if.end.i:                                         ; preds = %entry
 
 gpg_interface_lazy_init.exit:                     ; preds = %entry, %if.end.i
   %0 = load ptr, ptr @use_format, align 8
-  %sign_buffer = getelementptr inbounds i8, ptr %0, i64 40
+  %sign_buffer = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %sign_buffer, align 8
   %call = tail call i32 %1(ptr noundef %buffer, ptr noundef %signature, ptr noundef %signing_key) #14
   ret i32 %call
@@ -747,7 +747,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %if.then8, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.then8 ]
-  %arrayidx.i = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.i
   %1 = load ptr, ptr %arrayidx.i, align 16
   %call.i34 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %value) #17
   %tobool.not.i = icmp eq i32 %call.i34, 0
@@ -795,14 +795,14 @@ for.cond.i41:                                     ; preds = %for.body.i37
 
 for.body.i37:                                     ; preds = %for.cond.i41, %if.end29
   %i.04.i = phi i64 [ 0, %if.end29 ], [ %inc.i, %for.cond.i41 ]
-  %arrayidx.i38 = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i
+  %arrayidx.i38 = getelementptr inbounds nuw [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i
   %3 = load ptr, ptr %arrayidx.i38, align 8
   %call.i39 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull readonly dereferenceable(1) %call30) #17
   %tobool.not.i40 = icmp eq i32 %call.i39, 0
   br i1 %tobool.not.i40, label %parse_gpg_trust_level.exit.thread, label %for.cond.i41
 
 parse_gpg_trust_level.exit.thread:                ; preds = %for.body.i37
-  %value.i = getelementptr inbounds i8, ptr %arrayidx.i38, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %arrayidx.i38, i64 16
   %4 = load i32, ptr %value.i, align 8
   store i32 %4, ptr @configured_min_trust_level, align 4
   tail call void @free(ptr noundef %call30) #14
@@ -885,7 +885,7 @@ for.cond.i54:                                     ; preds = %for.body.i49.prehea
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i5067, 1
   %exitcond.not.i56 = icmp ne i64 %indvars.iv.next.i55, 3
   tail call void @llvm.assume(i1 %exitcond.not.i56)
-  %arrayidx.i51 = getelementptr inbounds [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.next.i55
+  %arrayidx.i51 = getelementptr inbounds nuw [3 x %struct.gpg_format], ptr @gpg_format, i64 0, i64 %indvars.iv.next.i55
   %7 = load ptr, ptr %arrayidx.i51, align 16
   %call.i52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %fmtname.2) #17
   %tobool.not.i53 = icmp eq i32 %call.i52, 0
@@ -893,7 +893,7 @@ for.cond.i54:                                     ; preds = %for.body.i49.prehea
 
 get_format_by_name.exit58:                        ; preds = %for.cond.i54, %for.body.i49.preheader
   %arrayidx.i51.lcssa = phi ptr [ @gpg_format, %for.body.i49.preheader ], [ %arrayidx.i51, %for.cond.i54 ]
-  %program = getelementptr inbounds i8, ptr %arrayidx.i51.lcssa, i64 8
+  %program = getelementptr inbounds nuw i8, ptr %arrayidx.i51.lcssa, i64 8
   %call71 = tail call i32 @git_config_string(ptr noundef nonnull %program, ptr noundef %var, ptr noundef %value) #14
   br label %return
 
@@ -945,7 +945,7 @@ _.exit:                                           ; preds = %if.then, %if.end3.i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %call.i, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %1 = load volatile i32, ptr %fd, align 8
   %call4 = tail call i64 @write_in_full(i32 noundef %1, ptr noundef %signature, i64 noundef %signature_size) #14
   %cmp = icmp slt i64 %call4, 0
@@ -967,53 +967,53 @@ if.end3.i9:                                       ; preds = %if.then7
 
 _.exit12:                                         ; preds = %if.then7, %if.end3.i9
   %retval.0.i11 = phi ptr [ %call.i10, %if.end3.i9 ], [ @.str.26, %if.then7 ]
-  %buf = getelementptr inbounds i8, ptr %call.i, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %3 = load ptr, ptr %buf, align 8
   %call9 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i11, ptr noundef %3) #14
   call void @delete_tempfile(ptr noundef nonnull %temp) #14
   br label %return
 
 if.end11:                                         ; preds = %lor.lhs.false
-  %program = getelementptr inbounds i8, ptr %fmt, i64 8
+  %program = getelementptr inbounds nuw i8, ptr %fmt, i64 8
   %4 = load ptr, ptr %program, align 8
   %call12 = call ptr @strvec_push(ptr noundef nonnull %gpg, ptr noundef %4) #14
-  %verify_args = getelementptr inbounds i8, ptr %fmt, i64 16
+  %verify_args = getelementptr inbounds nuw i8, ptr %fmt, i64 16
   %5 = load ptr, ptr %verify_args, align 8
   call void @strvec_pushv(ptr noundef nonnull %gpg, ptr noundef %5) #14
   %6 = load ptr, ptr %temp, align 8
-  %buf16 = getelementptr inbounds i8, ptr %6, i64 56
+  %buf16 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %7 = load ptr, ptr %buf16, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %gpg, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef %7, ptr noundef nonnull @.str.29, ptr noundef null) #14
   %call17 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
   %8 = load ptr, ptr %sigc, align 8
-  %payload_len = getelementptr inbounds i8, ptr %sigc, i64 8
+  %payload_len = getelementptr inbounds nuw i8, ptr %sigc, i64 8
   %9 = load i64, ptr %payload_len, align 8
   %call18 = call i32 @pipe_command(ptr noundef nonnull %gpg, ptr noundef %8, i64 noundef %9, ptr noundef nonnull %gpg_stdout, i64 noundef 0, ptr noundef nonnull %gpg_stderr, i64 noundef 0) #14
   %call19 = call i32 @sigchain_pop(i32 noundef 13) #14
   call void @delete_tempfile(ptr noundef nonnull %temp) #14
-  %buf20 = getelementptr inbounds i8, ptr %gpg_stdout, i64 16
+  %buf20 = getelementptr inbounds nuw i8, ptr %gpg_stdout, i64 16
   %10 = load ptr, ptr %buf20, align 8
   %call21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.30) #17
   %tobool22.not = icmp eq ptr %call21, null
   %lnot.ext = zext i1 %tobool22.not to i32
   %or = or i32 %call18, %lnot.ext
   %call23 = call ptr @strbuf_detach(ptr noundef nonnull %gpg_stderr, ptr noundef null) #14
-  %output = getelementptr inbounds i8, ptr %sigc, i64 32
+  %output = getelementptr inbounds nuw i8, ptr %sigc, i64 32
   store ptr %call23, ptr %output, align 8
   %call24 = call ptr @strbuf_detach(ptr noundef nonnull %gpg_stdout, ptr noundef null) #14
-  %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
+  %gpg_status = getelementptr inbounds nuw i8, ptr %sigc, i64 40
   store ptr %call24, ptr %gpg_status, align 8
   %11 = load i8, ptr %call24, align 1
   %tobool.not112.i = icmp eq i8 %11, 0
   br i1 %tobool.not112.i, label %parse_gpg_output.exit, label %while.cond.preheader.lr.ph.i
 
 while.cond.preheader.lr.ph.i:                     ; preds = %if.end11
-  %result27.i = getelementptr inbounds i8, ptr %sigc, i64 48
-  %key.i = getelementptr inbounds i8, ptr %sigc, i64 64
-  %signer.i = getelementptr inbounds i8, ptr %sigc, i64 56
-  %trust_level.i = getelementptr inbounds i8, ptr %sigc, i64 88
-  %fingerprint.i = getelementptr inbounds i8, ptr %sigc, i64 72
-  %primary_key_fingerprint95.i = getelementptr inbounds i8, ptr %sigc, i64 80
+  %result27.i = getelementptr inbounds nuw i8, ptr %sigc, i64 48
+  %key.i = getelementptr inbounds nuw i8, ptr %sigc, i64 64
+  %signer.i = getelementptr inbounds nuw i8, ptr %sigc, i64 56
+  %trust_level.i = getelementptr inbounds nuw i8, ptr %sigc, i64 88
+  %fingerprint.i = getelementptr inbounds nuw i8, ptr %sigc, i64 72
+  %primary_key_fingerprint95.i = getelementptr inbounds nuw i8, ptr %sigc, i64 80
   br label %while.cond.preheader.i
 
 while.cond.preheader.i:                           ; preds = %for.inc88.i, %while.cond.preheader.lr.ph.i
@@ -1033,7 +1033,7 @@ while.cond.i:                                     ; preds = %while.body.i, %whil
   ]
 
 while.body.i:                                     ; preds = %while.cond.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %line.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %line.0.i, i64 1
   %.pr.i = load i8, ptr %incdec.ptr.i, align 1
   %scevgep123.i = getelementptr i8, ptr %indvars.iv.i, i64 1
   br label %while.cond.i, !llvm.loop !11
@@ -1045,9 +1045,9 @@ do.body.i.i:                                      ; preds = %while.cond.i, %do.c
   br i1 %exitcond.i, label %for.body9.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.31, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.31, i64 %prefix.addr.0.i.idx.i
   %14 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %15 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %15, %14
@@ -1055,8 +1055,8 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
 
 for.body9.i:                                      ; preds = %do.body.i.i, %for.inc85.i
   %indvars.iv125.i = phi i64 [ %indvars.iv.next.i, %for.inc85.i ], [ 0, %do.body.i.i ]
-  %arrayidx.i = getelementptr inbounds [8 x %struct.anon], ptr @sigcheck_gpg_status, i64 0, i64 %indvars.iv125.i
-  %check.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw [8 x %struct.anon], ptr @sigcheck_gpg_status, i64 0, i64 %indvars.iv125.i
+  %check.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %16 = load ptr, ptr %check.i, align 8
   br label %do.body.i38.i
 
@@ -1068,14 +1068,14 @@ do.body.i38.i:                                    ; preds = %do.cond.i42.i, %for
   br i1 %tobool.not.i41.i, label %if.then11.i, label %do.cond.i42.i
 
 do.cond.i42.i:                                    ; preds = %do.body.i38.i
-  %incdec.ptr.i43.i = getelementptr inbounds i8, ptr %str.addr.0.i39.i, i64 1
+  %incdec.ptr.i43.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i39.i, i64 1
   %18 = load i8, ptr %str.addr.0.i39.i, align 1
-  %incdec.ptr1.i44.i = getelementptr inbounds i8, ptr %prefix.addr.0.i40.i, i64 1
+  %incdec.ptr1.i44.i = getelementptr inbounds nuw i8, ptr %prefix.addr.0.i40.i, i64 1
   %cmp.i45.i = icmp eq i8 %18, %17
   br i1 %cmp.i45.i, label %do.body.i38.i, label %for.inc85.i, !llvm.loop !12
 
 if.then11.i:                                      ; preds = %do.body.i38.i
-  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %19 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %19, 1
   %tobool14.not.i = icmp eq i32 %and.i, 0
@@ -1125,7 +1125,7 @@ replace_cstring.exit.i:                           ; preds = %if.then.i48.i, %if.
   br i1 %or.cond98.i, label %if.end46.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %replace_cstring.exit.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call35.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call35.i, i64 1
   %call44.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr.i, i32 noundef 10) #17
   %23 = load ptr, ptr %signer.i, align 8
   call void @free(ptr noundef %23) #14
@@ -1162,7 +1162,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %if.then52.i
   %i.04.i.i = phi i64 [ 0, %if.then52.i ], [ %inc.i.i, %for.cond.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x %struct.sigcheck_gpg_trust_level], ptr @sigcheck_gpg_trust_level, i64 0, i64 %i.04.i.i
   %24 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i59.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull readonly dereferenceable(1) %call54.i) #17
   %tobool.not.i60.i = icmp eq i32 %call.i59.i, 0
@@ -1173,7 +1173,7 @@ if.then57.i:                                      ; preds = %for.cond.i.i
   br label %error.i
 
 if.end58.i:                                       ; preds = %for.body.i.i
-  %value.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %value.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %25 = load i32, ptr %value.i.i, align 8
   store i32 %25, ptr %trust_level.i, align 4
   call void @free(ptr noundef %call54.i) #14
@@ -1220,7 +1220,7 @@ for.body71.i:                                     ; preds = %if.end76.i
 if.end76.i:                                       ; preds = %replace_cstring.exit71.i, %for.body71.i
   %j.0110.i25 = phi i32 [ %dec.i, %for.body71.i ], [ 9, %replace_cstring.exit71.i ]
   %next.0111.i24 = phi ptr [ %call78.i, %for.body71.i ], [ %call66.i, %replace_cstring.exit71.i ]
-  %add.ptr77.i = getelementptr inbounds i8, ptr %next.0111.i24, i64 1
+  %add.ptr77.i = getelementptr inbounds nuw i8, ptr %next.0111.i24, i64 1
   %cmp69.i = icmp ugt i32 %j.0110.i25, 1
   br i1 %cmp69.i, label %for.body71.i, label %if.then80.i, !llvm.loop !13
 
@@ -1258,7 +1258,7 @@ for.inc88.sink.split.i:                           ; preds = %if.else.i, %if.then
 for.inc88.i:                                      ; preds = %do.cond.i.i, %for.inc85.i, %for.inc88.sink.split.i, %if.end59.i
   %line.1.i = phi ptr [ %line.3.i, %if.end59.i ], [ %line.1.ph.i, %for.inc88.sink.split.i ], [ %indvars.iv.i, %for.inc85.i ], [ %line.0.i, %do.cond.i.i ]
   %seen_exclusive_status.1.i = phi i32 [ %seen_exclusive_status.2.i, %if.end59.i ], [ %seen_exclusive_status.2.i, %for.inc88.sink.split.i ], [ %seen_exclusive_status.0114.i, %for.inc85.i ], [ %seen_exclusive_status.0114.i, %do.cond.i.i ]
-  %add.ptr89.i = getelementptr inbounds i8, ptr %line.1.i, i64 1
+  %add.ptr89.i = getelementptr inbounds nuw i8, ptr %line.1.i, i64 1
   %call90.i = call ptr @strchrnul(ptr noundef nonnull %add.ptr89.i, i32 noundef 10) #17
   %31 = load i8, ptr %call90.i, align 1
   %tobool.not.i = icmp eq i8 %31, 0
@@ -1298,19 +1298,19 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %gpg, ptr noundef nonnull align 8 dereferenceable(120) @__const.get_ssh_key_fingerprint.ssh_keygen, i64 120, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gpg_status, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_ssh_key_fingerprint.fingerprint_stdout, i64 24, i1 false)
   %0 = load ptr, ptr @use_format, align 8
-  %program = getelementptr inbounds i8, ptr %0, i64 8
+  %program = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %program, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %gpg, ptr noundef %1, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.42, ptr noundef %signing_key, ptr noundef null) #14
-  %len = getelementptr inbounds i8, ptr %signature, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %signature, i64 8
   %2 = load i64, ptr %len, align 8
   %call = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
-  %buf = getelementptr inbounds i8, ptr %buffer, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %3 = load ptr, ptr %buf, align 8
-  %len1 = getelementptr inbounds i8, ptr %buffer, i64 8
+  %len1 = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %4 = load i64, ptr %len1, align 8
   %call2 = call i32 @pipe_command(ptr noundef nonnull %gpg, ptr noundef %3, i64 noundef %4, ptr noundef %signature, i64 noundef 1024, ptr noundef nonnull %gpg_status, i64 noundef 0) #14
   %call3 = call i32 @sigchain_pop(i32 noundef 13) #14
-  %buf4 = getelementptr inbounds i8, ptr %gpg_status, i64 16
+  %buf4 = getelementptr inbounds nuw i8, ptr %gpg_status, i64 16
   %5 = load ptr, ptr %buf4, align 8
   %tobool.not10 = icmp eq ptr %5, null
   br i1 %tobool.not10, label %for.end, label %land.rhs.preheader
@@ -1321,7 +1321,7 @@ land.rhs.preheader:                               ; preds = %entry
   br i1 %tobool6.not16, label %for.end, label %for.body
 
 land.rhs:                                         ; preds = %lor.lhs.false
-  %incdec.ptr = getelementptr inbounds i8, ptr %call517, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call517, i64 1
   %call5 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %incdec.ptr, ptr noundef nonnull dereferenceable(1) @.str.43) #17
   %tobool6.not = icmp eq ptr %call5, null
   br i1 %tobool6.not, label %for.end, label %for.body
@@ -1356,7 +1356,7 @@ if.end3.i:                                        ; preds = %if.then12
 _.exit:                                           ; preds = %if.then12, %if.end3.i
   %8 = phi ptr [ %.pre, %if.end3.i ], [ %5, %if.then12 ]
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.44, %if.then12 ]
-  %len14 = getelementptr inbounds i8, ptr %gpg_status, i64 8
+  %len14 = getelementptr inbounds nuw i8, ptr %gpg_status, i64 8
   %9 = load i64, ptr %len14, align 8
   %tobool15.not = icmp eq i64 %9, 0
   %cond = select i1 %tobool15.not, ptr @.str.45, ptr %8
@@ -1371,7 +1371,7 @@ if.end19:                                         ; preds = %for.end
   br i1 %cmp12.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end19
-  %buf.i = getelementptr inbounds i8, ptr %signature, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %signature, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -1421,7 +1421,7 @@ if.then.i.i:                                      ; preds = %for.end.i
 
 if.end.i.i:                                       ; preds = %for.end.i
   store i64 %j.0.lcssa.i, ptr %len, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %signature, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %signature, i64 16
   %16 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %16, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %return, label %if.then4.i.i
@@ -1493,7 +1493,7 @@ _.exit37:                                         ; preds = %if.then5, %if.end3.
   br label %return
 
 if.end9:                                          ; preds = %if.end
-  %fd = getelementptr inbounds i8, ptr %call.i32, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %call.i32, i64 16
   %3 = load volatile i32, ptr %fd, align 8
   %call10 = tail call i64 @write_in_full(i32 noundef %3, ptr noundef %signature, i64 noundef %signature_size) #14
   %cmp = icmp slt i64 %call10, 0
@@ -1515,14 +1515,14 @@ if.end3.i39:                                      ; preds = %if.then13
 
 _.exit42:                                         ; preds = %if.then13, %if.end3.i39
   %retval.0.i41 = phi ptr [ %call.i40, %if.end3.i39 ], [ @.str.26, %if.then13 ]
-  %buf = getelementptr inbounds i8, ptr %call.i32, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %call.i32, i64 56
   %5 = load ptr, ptr %buf, align 8
   %call15 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i41, ptr noundef %5) #14
   call void @delete_tempfile(ptr noundef nonnull %buffer_file) #14
   br label %return
 
 if.end17:                                         ; preds = %lor.lhs.false
-  %payload_timestamp = getelementptr inbounds i8, ptr %sigc, i64 24
+  %payload_timestamp = getelementptr inbounds nuw i8, ptr %sigc, i64 24
   %6 = load i64, ptr %payload_timestamp, align 8
   %tobool18.not = icmp eq i64 %6, 0
   br i1 %tobool18.not, label %if.end22, label %if.then19
@@ -1531,26 +1531,26 @@ if.then19:                                        ; preds = %if.end17
   %call21 = call ptr @show_date(i64 noundef %6, i32 noundef 0, ptr noundef nonnull %verify_date_mode) #14
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %verify_time, ptr noundef nonnull @.str.52, ptr noundef %call21) #14
   %.pre = load ptr, ptr %buffer_file, align 8
-  %buf25.phi.trans.insert = getelementptr inbounds i8, ptr %verify_time, i64 16
+  %buf25.phi.trans.insert = getelementptr inbounds nuw i8, ptr %verify_time, i64 16
   %.pre63 = load ptr, ptr %buf25.phi.trans.insert, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.end17
   %7 = phi ptr [ %.pre63, %if.then19 ], [ @strbuf_slopbuf, %if.end17 ]
   %8 = phi ptr [ %.pre, %if.then19 ], [ %call.i32, %if.end17 ]
-  %program = getelementptr inbounds i8, ptr %fmt, i64 8
+  %program = getelementptr inbounds nuw i8, ptr %fmt, i64 8
   %9 = load ptr, ptr %program, align 8
   %10 = load ptr, ptr @ssh_allowed_signers, align 8
-  %buf24 = getelementptr inbounds i8, ptr %8, i64 56
+  %buf24 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %buf24, align 8
-  %buf25 = getelementptr inbounds i8, ptr %verify_time, i64 16
+  %buf25 = getelementptr inbounds nuw i8, ptr %verify_time, i64 16
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef %9, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef %10, ptr noundef nonnull @.str.56, ptr noundef %11, ptr noundef %7, ptr noundef null) #14
   %call26 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef null, i64 noundef 0, ptr noundef nonnull %ssh_principals_out, i64 noundef 0, ptr noundef nonnull %ssh_principals_err, i64 noundef 0) #14
   %tobool27.not = icmp eq i32 %call26, 0
   br i1 %tobool27.not, label %if.end35, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end22
-  %buf28 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 16
+  %buf28 = getelementptr inbounds nuw i8, ptr %ssh_principals_err, i64 16
   %12 = load ptr, ptr %buf28, align 8
   %call29 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.57) #17
   %tobool30.not = icmp eq ptr %call29, null
@@ -1571,7 +1571,7 @@ _.exit47:                                         ; preds = %if.then31, %if.end3
   br label %out
 
 if.end35:                                         ; preds = %if.end22
-  %len = getelementptr inbounds i8, ptr %ssh_principals_out, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %ssh_principals_out, i64 8
   %14 = load i64, ptr %len, align 8
   %tobool38.not = icmp eq i64 %14, 0
   br i1 %tobool38.not, label %if.then39, label %if.else
@@ -1580,26 +1580,26 @@ if.then39:                                        ; preds = %land.lhs.true, %if.
   call void @child_process_init(ptr noundef nonnull %ssh_keygen) #14
   %15 = load ptr, ptr %program, align 8
   %16 = load ptr, ptr %buffer_file, align 8
-  %buf43 = getelementptr inbounds i8, ptr %16, i64 56
+  %buf43 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %17 = load ptr, ptr %buf43, align 8
   %18 = load ptr, ptr %buf25, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.56, ptr noundef %17, ptr noundef %18, ptr noundef null) #14
   %19 = load ptr, ptr %sigc, align 8
-  %payload_len = getelementptr inbounds i8, ptr %sigc, i64 8
+  %payload_len = getelementptr inbounds nuw i8, ptr %sigc, i64 8
   %20 = load i64, ptr %payload_len, align 8
   %call45 = call i32 @pipe_command(ptr noundef nonnull %ssh_keygen, ptr noundef %19, i64 noundef %20, ptr noundef nonnull %ssh_keygen_out, i64 noundef 0, ptr noundef nonnull %ssh_keygen_err, i64 noundef 0) #14
   br label %if.end99
 
 if.else:                                          ; preds = %if.end35
-  %buf46 = getelementptr inbounds i8, ptr %ssh_principals_out, i64 16
+  %buf46 = getelementptr inbounds nuw i8, ptr %ssh_principals_out, i64 16
   %21 = load ptr, ptr %buf46, align 8
-  %buf92 = getelementptr inbounds i8, ptr %ssh_keygen_out, i64 16
+  %buf92 = getelementptr inbounds nuw i8, ptr %ssh_keygen_out, i64 16
   %22 = load i8, ptr %21, align 1
   %tobool47.not59 = icmp eq i8 %22, 0
   br i1 %tobool47.not59, label %if.end99, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else
-  %payload_len87 = getelementptr inbounds i8, ptr %sigc, i64 8
+  %payload_len87 = getelementptr inbounds nuw i8, ptr %sigc, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -1622,7 +1622,7 @@ land.lhs.true53:                                  ; preds = %for.body
 if.end58:                                         ; preds = %land.lhs.true53, %for.body
   %end_of_text.0 = phi ptr [ %call48, %for.body ], [ %spec.select, %land.lhs.true53 ]
   %spec.select31.idx = zext i1 %tobool49.not to i64
-  %spec.select31 = getelementptr inbounds i8, ptr %call48, i64 %spec.select31.idx
+  %spec.select31 = getelementptr inbounds nuw i8, ptr %call48, i64 %spec.select31.idx
   %cmp63 = icmp eq ptr %line.061, %end_of_text.0
   br i1 %cmp63, label %for.inc, label %if.end66
 
@@ -1638,7 +1638,7 @@ if.end66:                                         ; preds = %if.end58
   %call70 = call ptr @strvec_push(ptr noundef nonnull %ssh_keygen, ptr noundef %25) #14
   %26 = load ptr, ptr @ssh_allowed_signers, align 8
   %27 = load ptr, ptr %buffer_file, align 8
-  %buf73 = getelementptr inbounds i8, ptr %27, i64 56
+  %buf73 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %28 = load ptr, ptr %buf73, align 8
   %29 = load ptr, ptr %buf25, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %ssh_keygen, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %26, ptr noundef nonnull @.str.63, ptr noundef %call67, ptr noundef nonnull @.str.56, ptr noundef %28, ptr noundef %29, ptr noundef null) #14
@@ -1697,25 +1697,25 @@ if.end99:                                         ; preds = %if.end95, %for.inc,
   %ret.1 = phi i32 [ -1, %if.then39 ], [ 0, %if.else ], [ 0, %if.end95 ], [ %ret.3, %for.inc ]
   call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_out, i8 noundef signext 0) #14
   call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_err, i8 noundef signext 0) #14
-  %buf100 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 16
+  %buf100 = getelementptr inbounds nuw i8, ptr %ssh_principals_err, i64 16
   %38 = load ptr, ptr %buf100, align 8
-  %len101 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 8
+  %len101 = getelementptr inbounds nuw i8, ptr %ssh_principals_err, i64 8
   %39 = load i64, ptr %len101, align 8
   call void @strbuf_add(ptr noundef nonnull %ssh_keygen_out, ptr noundef %38, i64 noundef %39) #14
-  %buf102 = getelementptr inbounds i8, ptr %ssh_keygen_err, i64 16
+  %buf102 = getelementptr inbounds nuw i8, ptr %ssh_keygen_err, i64 16
   %40 = load ptr, ptr %buf102, align 8
-  %len103 = getelementptr inbounds i8, ptr %ssh_keygen_err, i64 8
+  %len103 = getelementptr inbounds nuw i8, ptr %ssh_keygen_err, i64 8
   %41 = load i64, ptr %len103, align 8
   call void @strbuf_add(ptr noundef nonnull %ssh_keygen_out, ptr noundef %40, i64 noundef %41) #14
   %call104 = call ptr @strbuf_detach(ptr noundef nonnull %ssh_keygen_out, ptr noundef null) #14
-  %output = getelementptr inbounds i8, ptr %sigc, i64 32
+  %output = getelementptr inbounds nuw i8, ptr %sigc, i64 32
   store ptr %call104, ptr %output, align 8
   %call106 = call ptr @xstrdup(ptr noundef %call104) #14
-  %gpg_status = getelementptr inbounds i8, ptr %sigc, i64 40
+  %gpg_status = getelementptr inbounds nuw i8, ptr %sigc, i64 40
   store ptr %call106, ptr %gpg_status, align 8
-  %result.i = getelementptr inbounds i8, ptr %sigc, i64 48
+  %result.i = getelementptr inbounds nuw i8, ptr %sigc, i64 48
   store i8 66, ptr %result.i, align 8
-  %trust_level.i = getelementptr inbounds i8, ptr %sigc, i64 88
+  %trust_level.i = getelementptr inbounds nuw i8, ptr %sigc, i64 88
   store i32 1, ptr %trust_level.i, align 8
   %42 = load ptr, ptr %output, align 8
   %call.i53 = call i64 @strcspn(ptr noundef %42, ptr noundef nonnull @.str.67) #17
@@ -1730,9 +1730,9 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %if.en
   br i1 %exitcond.i, label %do.body.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.68, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.68, i64 %prefix.addr.0.i.idx.i
   %43 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %44 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %44, %43
@@ -1746,7 +1746,7 @@ do.body.i:                                        ; preds = %do.body.i.i, %do.bo
   %line.0.i = phi ptr [ %add.ptr.i, %do.body.i ], [ %scevgep.i, %do.body.i.i ]
   %call4.i = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %line.0.i, ptr noundef nonnull dereferenceable(1) @.str.69) #17
   %tobool.not.i = icmp eq ptr %call4.i, null
-  %add.ptr.i = getelementptr inbounds i8, ptr %call4.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 1
   br i1 %tobool.not.i, label %do.end.i, label %do.body.i, !llvm.loop !18
 
 do.end.i:                                         ; preds = %do.body.i
@@ -1761,7 +1761,7 @@ if.end8.i:                                        ; preds = %do.end.i
   %45 = xor i64 %sub.ptr.rhs.cast.i, -1
   %sub.i = add i64 %sub.ptr.lhs.cast.i, %45
   %call11.i = call ptr @xmemdupz(ptr noundef %scevgep.i, i64 noundef %sub.i) #14
-  %signer.i = getelementptr inbounds i8, ptr %sigc, i64 56
+  %signer.i = getelementptr inbounds nuw i8, ptr %sigc, i64 56
   store ptr %call11.i, ptr %signer.i, align 8
   br label %if.end18.i
 
@@ -1772,9 +1772,9 @@ do.body.i17.i:                                    ; preds = %do.cond.i21.i, %do.
   br i1 %exitcond41.i, label %if.then13.i, label %do.cond.i21.i
 
 do.cond.i21.i:                                    ; preds = %do.body.i17.i
-  %prefix.addr.0.i19.ptr.i = getelementptr inbounds i8, ptr @.str.70, i64 %prefix.addr.0.i19.idx.i
+  %prefix.addr.0.i19.ptr.i = getelementptr inbounds nuw i8, ptr @.str.70, i64 %prefix.addr.0.i19.idx.i
   %46 = load i8, ptr %prefix.addr.0.i19.ptr.i, align 1
-  %incdec.ptr.i22.i = getelementptr inbounds i8, ptr %str.addr.0.i18.i, i64 1
+  %incdec.ptr.i22.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i18.i, i64 1
   %47 = load i8, ptr %str.addr.0.i18.i, align 1
   %prefix.addr.0.i19.add.i = add nuw nsw i64 %prefix.addr.0.i19.idx.i, 1
   %cmp.i24.i = icmp eq i8 %47, %46
@@ -1792,12 +1792,12 @@ if.end18.i:                                       ; preds = %if.then13.i, %if.en
   br i1 %tobool20.not.i, label %if.else28.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %if.end18.i
-  %add.ptr23.i = getelementptr inbounds i8, ptr %call19.i, i64 4
+  %add.ptr23.i = getelementptr inbounds nuw i8, ptr %call19.i, i64 4
   %call24.i = call ptr @xstrdup(ptr noundef nonnull %add.ptr23.i) #14
-  %fingerprint.i = getelementptr inbounds i8, ptr %sigc, i64 72
+  %fingerprint.i = getelementptr inbounds nuw i8, ptr %sigc, i64 72
   store ptr %call24.i, ptr %fingerprint.i, align 8
   %call26.i = call ptr @xstrdup(ptr noundef %call24.i) #14
-  %key27.i = getelementptr inbounds i8, ptr %sigc, i64 64
+  %key27.i = getelementptr inbounds nuw i8, ptr %sigc, i64 64
   store ptr %call26.i, ptr %key27.i, align 8
   br label %parse_ssh_output.exit
 
@@ -1878,9 +1878,9 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %if.en
   br i1 %exitcond.i, label %if.then6, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.83, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.83, i64 %prefix.addr.0.i.idx.i
   %2 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %3 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %3, %2
@@ -1914,7 +1914,7 @@ _.exit16:                                         ; preds = %if.then9, %if.end3.
 
 if.end13:                                         ; preds = %if.then6
   %call14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %literal_key.0.ph) #17
-  %fd = getelementptr inbounds i8, ptr %call.i10, i64 16
+  %fd = getelementptr inbounds nuw i8, ptr %call.i10, i64 16
   %5 = load volatile i32, ptr %fd, align 8
   %call15 = tail call i64 @write_in_full(i32 noundef %5, ptr noundef %literal_key.0.ph, i64 noundef %call14) #14
   %cmp16 = icmp slt i64 %call15, 0
@@ -1936,13 +1936,13 @@ if.end3.i19:                                      ; preds = %if.then22
 
 _.exit22:                                         ; preds = %if.then22, %if.end3.i19
   %retval.0.i21 = phi ptr [ %call.i20, %if.end3.i19 ], [ @.str.74, %if.then22 ]
-  %buf = getelementptr inbounds i8, ptr %call.i10, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %call.i10, i64 56
   %7 = load ptr, ptr %buf, align 8
   %call24 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i21, ptr noundef %7) #14
   br label %out
 
 if.end26:                                         ; preds = %lor.lhs.false18
-  %filename27 = getelementptr inbounds i8, ptr %call.i10, i64 40
+  %filename27 = getelementptr inbounds nuw i8, ptr %call.i10, i64 40
   %call28 = tail call ptr @strbuf_detach(ptr noundef nonnull %filename27, ptr noundef null) #14
   br label %if.end30
 
@@ -1973,11 +1973,11 @@ _.exit29:                                         ; preds = %if.then33, %if.end3
   br label %out
 
 if.end37:                                         ; preds = %if.end30
-  %fd38 = getelementptr inbounds i8, ptr %call.i23, i64 16
+  %fd38 = getelementptr inbounds nuw i8, ptr %call.i23, i64 16
   %9 = load volatile i32, ptr %fd38, align 8
-  %buf39 = getelementptr inbounds i8, ptr %buffer, i64 16
+  %buf39 = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %10 = load ptr, ptr %buf39, align 8
-  %len = getelementptr inbounds i8, ptr %buffer, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %11 = load i64, ptr %len, align 8
   %call40 = tail call i64 @write_in_full(i32 noundef %9, ptr noundef %10, i64 noundef %11) #14
   %cmp41 = icmp slt i64 %call40, 0
@@ -1999,14 +1999,14 @@ if.end3.i32:                                      ; preds = %if.then47
 
 _.exit35:                                         ; preds = %if.then47, %if.end3.i32
   %retval.0.i34 = phi ptr [ %call.i33, %if.end3.i32 ], [ @.str.76, %if.then47 ]
-  %buf50 = getelementptr inbounds i8, ptr %call.i23, i64 56
+  %buf50 = getelementptr inbounds nuw i8, ptr %call.i23, i64 56
   %13 = load ptr, ptr %buf50, align 8
   %call51 = tail call i32 (ptr, ...) @error_errno(ptr noundef %retval.0.i34, ptr noundef %13) #14
   br label %out
 
 if.end53:                                         ; preds = %lor.lhs.false43
   %14 = load ptr, ptr @use_format, align 8
-  %program = getelementptr inbounds i8, ptr %14, i64 8
+  %program = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %program, align 8
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %signer, ptr noundef %15, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.55, ptr noundef %ssh_signing_key_file.1, ptr noundef null) #14
   br i1 %tobool5.not52, label %if.end58, label %if.then55
@@ -2016,7 +2016,7 @@ if.then55:                                        ; preds = %if.end53
   br label %if.end58
 
 if.end58:                                         ; preds = %if.then55, %if.end53
-  %buf61 = getelementptr inbounds i8, ptr %call.i23, i64 56
+  %buf61 = getelementptr inbounds nuw i8, ptr %call.i23, i64 56
   %16 = load ptr, ptr %buf61, align 8
   %call62 = call ptr @strvec_push(ptr noundef nonnull %signer, ptr noundef %16) #14
   %call63 = call i32 @sigchain_push(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #14
@@ -2026,7 +2026,7 @@ if.end58:                                         ; preds = %if.then55, %if.end5
   br i1 %tobool66.not, label %if.end79, label %if.then67
 
 if.then67:                                        ; preds = %if.end58
-  %buf68 = getelementptr inbounds i8, ptr %signer_stderr, i64 16
+  %buf68 = getelementptr inbounds nuw i8, ptr %signer_stderr, i64 16
   %17 = load ptr, ptr %buf68, align 8
   %call69 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) @.str.57) #17
   %tobool70.not = icmp eq ptr %call69, null
@@ -2053,13 +2053,13 @@ if.end75:                                         ; preds = %_.exit41, %if.then6
   br label %out
 
 if.end79:                                         ; preds = %if.end58
-  %len80 = getelementptr inbounds i8, ptr %signature, i64 8
+  %len80 = getelementptr inbounds nuw i8, ptr %signature, i64 8
   %20 = load i64, ptr %len80, align 8
   %21 = load ptr, ptr %buffer_file, align 8
-  %filename81 = getelementptr inbounds i8, ptr %21, i64 40
+  %filename81 = getelementptr inbounds nuw i8, ptr %21, i64 40
   call void @strbuf_addbuf(ptr noundef nonnull %ssh_signature_filename, ptr noundef nonnull %filename81) #14
   call void @strbuf_add(ptr noundef nonnull %ssh_signature_filename, ptr noundef nonnull @.str.81, i64 noundef 4) #14
-  %buf82 = getelementptr inbounds i8, ptr %ssh_signature_filename, i64 16
+  %buf82 = getelementptr inbounds nuw i8, ptr %ssh_signature_filename, i64 16
   %22 = load ptr, ptr %buf82, align 8
   %call83 = call i64 @strbuf_read_file(ptr noundef %signature, ptr noundef %22, i64 noundef 0) #14
   %cmp84 = icmp slt i64 %call83, 0
@@ -2105,13 +2105,13 @@ if.then96:                                        ; preds = %if.end94
   br label %if.end97
 
 if.end97:                                         ; preds = %if.then96, %if.end94
-  %len98 = getelementptr inbounds i8, ptr %ssh_signature_filename, i64 8
+  %len98 = getelementptr inbounds nuw i8, ptr %ssh_signature_filename, i64 8
   %27 = load i64, ptr %len98, align 8
   %tobool99.not = icmp eq i64 %27, 0
   br i1 %tobool99.not, label %if.end103, label %if.then100
 
 if.then100:                                       ; preds = %if.end97
-  %buf101 = getelementptr inbounds i8, ptr %ssh_signature_filename, i64 16
+  %buf101 = getelementptr inbounds nuw i8, ptr %ssh_signature_filename, i64 16
   %28 = load ptr, ptr %buf101, align 8
   %call102 = call i32 @unlink_or_warn(ptr noundef %28) #14
   br label %if.end103
@@ -2165,9 +2165,9 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool7.not, label %if.then8, label %if.else21
 
 if.then8:                                         ; preds = %if.end5
-  %2 = getelementptr inbounds i8, ptr %key_stdout, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %key_stdout, i64 8
   %key_stdout.val = load i64, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %key_stdout, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %key_stdout, i64 16
   %key_stdout.val7 = load ptr, ptr %3, align 8
   %call.i = call ptr @strbuf_split_buf(ptr noundef %key_stdout.val7, i64 noundef %key_stdout.val, i32 noundef 10, i32 noundef 2) #14
   %4 = load ptr, ptr %call.i, align 8
@@ -2175,7 +2175,7 @@ if.then8:                                         ; preds = %if.end5
   br i1 %tobool10.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then8
-  %buf = getelementptr inbounds i8, ptr %4, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %buf, align 8
   br label %do.body.i.i
 
@@ -2186,9 +2186,9 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %land.
   br i1 %exitcond.i, label %if.then14, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.83, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.83, i64 %prefix.addr.0.i.idx.i
   %6 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %7 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %7, %6
@@ -2219,7 +2219,7 @@ if.end3.i:                                        ; preds = %if.else
 
 _.exit:                                           ; preds = %if.else, %if.end3.i
   %retval.0.i10 = phi ptr [ %call.i9, %if.end3.i ], [ @.str.87, %if.else ]
-  %buf18 = getelementptr inbounds i8, ptr %key_stderr, i64 16
+  %buf18 = getelementptr inbounds nuw i8, ptr %key_stderr, i64 16
   %10 = load ptr, ptr %buf18, align 8
   %11 = load ptr, ptr %3, align 8
   call void (ptr, ...) @warning(ptr noundef %retval.0.i10, ptr noundef %10, ptr noundef %11) #14
@@ -2241,9 +2241,9 @@ if.end3.i13:                                      ; preds = %if.else21
 
 _.exit16:                                         ; preds = %if.else21, %if.end3.i13
   %retval.0.i15 = phi ptr [ %call.i14, %if.end3.i13 ], [ @.str.88, %if.else21 ]
-  %buf23 = getelementptr inbounds i8, ptr %key_stderr, i64 16
+  %buf23 = getelementptr inbounds nuw i8, ptr %key_stderr, i64 16
   %13 = load ptr, ptr %buf23, align 8
-  %buf24 = getelementptr inbounds i8, ptr %key_stdout, i64 16
+  %buf24 = getelementptr inbounds nuw i8, ptr %key_stdout, i64 16
   %14 = load ptr, ptr %buf24, align 8
   call void (ptr, ...) @warning(ptr noundef %retval.0.i15, ptr noundef %13, ptr noundef %14) #14
   br label %if.end25
@@ -2277,7 +2277,7 @@ gpg_interface_lazy_init.exit.i:                   ; preds = %if.end.i.i, %entry
 
 if.end.i:                                         ; preds = %gpg_interface_lazy_init.exit.i
   %1 = load ptr, ptr @use_format, align 8
-  %get_default_key.i = getelementptr inbounds i8, ptr %1, i64 48
+  %get_default_key.i = getelementptr inbounds nuw i8, ptr %1, i64 48
   %2 = load ptr, ptr %get_default_key.i, align 8
   %tobool1.not.i = icmp eq ptr %2, null
   br i1 %tobool1.not.i, label %if.end4.i, label %if.then2.i
@@ -2306,9 +2306,9 @@ do.body.i.i.i:                                    ; preds = %do.cond.i.i.i, %get
   br i1 %exitcond.i.i, label %if.then.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %do.body.i.i.i
-  %prefix.addr.0.i.ptr.i.i = getelementptr inbounds i8, ptr @.str.83, i64 %prefix.addr.0.i.idx.i.i
+  %prefix.addr.0.i.ptr.i.i = getelementptr inbounds nuw i8, ptr @.str.83, i64 %prefix.addr.0.i.idx.i.i
   %3 = load i8, ptr %prefix.addr.0.i.ptr.i.i, align 1
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i.i, i64 1
   %4 = load i8, ptr %str.addr.0.i.i.i, align 1
   %prefix.addr.0.i.add.i.i = add nuw nsw i64 %prefix.addr.0.i.idx.i.i, 1
   %cmp.i.i.i = icmp eq i8 %4, %3
@@ -2343,12 +2343,12 @@ if.then6.i:                                       ; preds = %if.end.i2
   unreachable
 
 if.end8.i:                                        ; preds = %if.end.i2
-  %6 = getelementptr inbounds i8, ptr %fingerprint_stdout.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %fingerprint_stdout.i, i64 8
   %fingerprint_stdout.val.i = load i64, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %fingerprint_stdout.i, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %fingerprint_stdout.i, i64 16
   %fingerprint_stdout.val5.i = load ptr, ptr %7, align 8
   %call.i.i = call ptr @strbuf_split_buf(ptr noundef %fingerprint_stdout.val5.i, i64 noundef %fingerprint_stdout.val.i, i32 noundef 32, i32 noundef 3) #14
-  %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool10.not.i = icmp eq ptr %8, null
   br i1 %tobool10.not.i, label %if.then11.i, label %get_ssh_key_fingerprint.exit
@@ -2410,13 +2410,13 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @remove_cr_after(ptr nocapture noundef %buffer, i64 noundef %offset) unnamed_addr #2 {
 entry:
-  %len = getelementptr inbounds i8, ptr %buffer, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %buffer, i64 8
   %0 = load i64, ptr %len, align 8
   %cmp12 = icmp ult i64 %offset, %0
   br i1 %cmp12, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %buffer, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -2466,7 +2466,7 @@ if.then.i:                                        ; preds = %for.end
 
 if.end.i:                                         ; preds = %for.end
   store i64 %j.0.lcssa, ptr %len, align 8
-  %buf.i = getelementptr inbounds i8, ptr %buffer, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buffer, i64 16
   %6 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %6, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i

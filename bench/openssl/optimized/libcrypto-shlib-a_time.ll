@@ -83,7 +83,7 @@ declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 define range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly %tm, ptr nocapture noundef readonly %d) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.tm, align 8
-  %type = getelementptr inbounds i8, ptr %d, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %d, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %return [
     i32 23, label %if.then
@@ -91,7 +91,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %d, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %d, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 256
   %tobool.not = icmp eq i64 %and, 0
@@ -99,7 +99,7 @@ if.then:                                          ; preds = %entry
   br label %if.end13
 
 if.then4:                                         ; preds = %entry
-  %flags5 = getelementptr inbounds i8, ptr %d, i64 16
+  %flags5 = getelementptr inbounds nuw i8, ptr %d, i64 16
   %2 = load i64, ptr %flags5, align 8
   %and6 = and i64 %2, 256
   %tobool7.not = icmp eq i64 %and6, 0
@@ -112,20 +112,20 @@ if.end13:                                         ; preds = %if.then, %if.then4
   %btz.0 = phi i32 [ 5, %if.then ], [ 6, %if.then4 ]
   %min_l.0 = phi i32 [ %spec.select109, %if.then ], [ %.110, %if.then4 ]
   %3 = load i32, ptr %d, align 8
-  %data = getelementptr inbounds i8, ptr %d, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %d, i64 8
   %4 = load ptr, ptr %data, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %tmp, i8 0, i64 56, i1 false)
   %cmp14 = icmp slt i32 %3, %min_l.0
   br i1 %cmp14, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end13
-  %tm_min = getelementptr inbounds i8, ptr %tmp, i64 4
-  %tm_hour = getelementptr inbounds i8, ptr %tmp, i64 8
-  %tm_mon103 = getelementptr inbounds i8, ptr %tmp, i64 16
-  %tm_year107 = getelementptr inbounds i8, ptr %tmp, i64 20
-  %tm_mday = getelementptr inbounds i8, ptr %tmp, i64 12
-  %tm_yday.i = getelementptr inbounds i8, ptr %tmp, i64 28
-  %tm_wday.i = getelementptr inbounds i8, ptr %tmp, i64 24
+  %tm_min = getelementptr inbounds nuw i8, ptr %tmp, i64 4
+  %tm_hour = getelementptr inbounds nuw i8, ptr %tmp, i64 8
+  %tm_mon103 = getelementptr inbounds nuw i8, ptr %tmp, i64 16
+  %tm_year107 = getelementptr inbounds nuw i8, ptr %tmp, i64 20
+  %tm_mday = getelementptr inbounds nuw i8, ptr %tmp, i64 12
+  %tm_yday.i = getelementptr inbounds nuw i8, ptr %tmp, i64 28
+  %tm_wday.i = getelementptr inbounds nuw i8, ptr %tmp, i64 24
   %5 = zext nneg i32 %3 to i64
   %6 = shl nuw nsw i32 %end.0, 1
   br label %for.body
@@ -138,7 +138,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %i.0119 = phi i32 [ 0, %for.cond.preheader ], [ %add69, %for.inc ]
   %cmp19 = icmp eq i32 %i.0119, %btz.0
   %or.cond = and i1 %tobool18.not, %cmp19
-  %arrayidx = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %10 = load i8, ptr %arrayidx, align 1
   br i1 %or.cond, label %land.lhs.true20, label %if.end35
 
@@ -156,7 +156,7 @@ if.end35:                                         ; preds = %for.body, %land.lhs
   br i1 %tobool39.not, label %return, label %if.end41
 
 if.end41:                                         ; preds = %if.end35
-  %arrayidx37 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %11 = load i8, ptr %arrayidx37, align 1
   %conv44 = sext i8 %11 to i32
   %12 = or disjoint i64 %indvars.iv, 1
@@ -164,7 +164,7 @@ if.end41:                                         ; preds = %if.end35
   br i1 %cmp46, label %return, label %if.end49
 
 if.end49:                                         ; preds = %if.end41
-  %arrayidx51 = getelementptr inbounds i8, ptr %4, i64 %12
+  %arrayidx51 = getelementptr inbounds nuw i8, ptr %4, i64 %12
   %13 = load i8, ptr %arrayidx51, align 1
   %conv52 = sext i8 %13 to i32
   %call53 = tail call i32 @ossl_ascii_isdigit(i32 noundef %conv52) #9
@@ -188,13 +188,13 @@ if.end65:                                         ; preds = %if.end56
   %add69 = add nuw nsw i32 %i.0119, 1
   %cond = select i1 %cmp67, i32 %add69, i32 %i.0119
   %idxprom70 = zext nneg i32 %cond to i64
-  %arrayidx71 = getelementptr inbounds [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %idxprom70
   %17 = load i32, ptr %arrayidx71, align 4
   %cmp72 = icmp slt i32 %sub60, %17
   br i1 %cmp72, label %return, label %lor.lhs.false74
 
 lor.lhs.false74:                                  ; preds = %if.end65
-  %arrayidx76 = getelementptr inbounds [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %idxprom70
+  %arrayidx76 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %idxprom70
   %18 = load i32, ptr %arrayidx76, align 4
   %cmp77 = icmp sgt i32 %sub60, %18
   br i1 %cmp77, label %return, label %if.end80
@@ -357,7 +357,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 
 land.lhs.true127:                                 ; preds = %for.end
   %idxprom128 = zext nneg i32 %o.0.lcssa to i64
-  %arrayidx129 = getelementptr inbounds i8, ptr %4, i64 %idxprom128
+  %arrayidx129 = getelementptr inbounds nuw i8, ptr %4, i64 %idxprom128
   %28 = load i8, ptr %arrayidx129, align 1
   %cmp131 = icmp eq i8 %28, 46
   br i1 %cmp131, label %if.then133, label %if.end158
@@ -376,7 +376,7 @@ land.rhs.preheader:                               ; preds = %if.end136
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv134 = phi i64 [ %29, %land.rhs.preheader ], [ %indvars.iv.next135, %while.body ]
-  %arrayidx145 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv134
+  %arrayidx145 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv134
   %30 = load i8, ptr %arrayidx145, align 1
   %conv146 = sext i8 %30 to i32
   %call147 = tail call i32 @ossl_ascii_isdigit(i32 noundef %conv146) #9
@@ -463,13 +463,13 @@ if.end216.us:                                     ; preds = %if.end204.us
   %add227.us = add nuw nsw i32 %i.1125.us, 1
   %cond230.us = select i1 %cmp224.us, i32 %add227.us, i32 %i.1125.us
   %idxprom231.us = zext nneg i32 %cond230.us to i64
-  %arrayidx232.us = getelementptr inbounds [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %idxprom231.us
+  %arrayidx232.us = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %idxprom231.us
   %39 = load i32, ptr %arrayidx232.us, align 4
   %cmp233.us = icmp slt i32 %sub222.us, %39
   br i1 %cmp233.us, label %return, label %lor.lhs.false235.us
 
 lor.lhs.false235.us:                              ; preds = %if.end216.us
-  %arrayidx237.us = getelementptr inbounds [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %idxprom231.us
+  %arrayidx237.us = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %idxprom231.us
   %40 = load i32, ptr %arrayidx237.us, align 4
   %cmp238.us = icmp sgt i32 %sub222.us, %40
   br i1 %cmp238.us, label %return, label %if.end241.us
@@ -515,13 +515,13 @@ if.end216:                                        ; preds = %if.end204
   %add227 = add nuw nsw i32 %i.1125, 1
   %cond230 = select i1 %cmp224, i32 %add227, i32 %i.1125
   %idxprom231 = zext nneg i32 %cond230 to i64
-  %arrayidx232 = getelementptr inbounds [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %idxprom231
+  %arrayidx232 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.min, i64 0, i64 %idxprom231
   %49 = load i32, ptr %arrayidx232, align 4
   %cmp233 = icmp slt i32 %sub222, %49
   br i1 %cmp233, label %return, label %lor.lhs.false235
 
 lor.lhs.false235:                                 ; preds = %if.end216
-  %arrayidx237 = getelementptr inbounds [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %idxprom231
+  %arrayidx237 = getelementptr inbounds nuw [9 x i32], ptr @ossl_asn1_time_to_tm.max, i64 0, i64 %idxprom231
   %50 = load i32, ptr %arrayidx237, align 4
   %cmp238 = icmp sgt i32 %sub222, %50
   br i1 %cmp238, label %return, label %if.end241
@@ -600,7 +600,7 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %tm_year = getelementptr inbounds i8, ptr %ts, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %ts, i64 20
   %0 = load i32, ptr %tm_year, align 4
   %1 = add i32 %0, -150
   %or.cond.i = icmp ult i32 %1, -100
@@ -608,7 +608,7 @@ if.then:                                          ; preds = %entry
   br label %if.end15
 
 if.then4:                                         ; preds = %entry
-  %tm_year5 = getelementptr inbounds i8, ptr %ts, i64 20
+  %tm_year5 = getelementptr inbounds nuw i8, ptr %ts, i64 20
   %2 = load i32, ptr %tm_year5, align 4
   %3 = add i32 %2, -150
   %or.cond.i30 = icmp ult i32 %3, -100
@@ -632,20 +632,20 @@ if.end23:                                         ; preds = %if.end15, %if.end20
   br i1 %tobool25.not, label %err, label %if.end27
 
 if.end27:                                         ; preds = %if.end23
-  %type28 = getelementptr inbounds i8, ptr %tmps.134, i64 4
+  %type28 = getelementptr inbounds nuw i8, ptr %tmps.134, i64 4
   store i32 %type.addr.0, ptr %type28, align 4
-  %data = getelementptr inbounds i8, ptr %tmps.134, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %tmps.134, i64 8
   %4 = load ptr, ptr %data, align 8
-  %tm_year31 = getelementptr inbounds i8, ptr %ts, i64 20
+  %tm_year31 = getelementptr inbounds nuw i8, ptr %ts, i64 20
   %5 = load i32, ptr %tm_year31, align 4
-  %tm_mon = getelementptr inbounds i8, ptr %ts, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %ts, i64 16
   %6 = load i32, ptr %tm_mon, align 8
   %add32 = add nsw i32 %6, 1
-  %tm_mday = getelementptr inbounds i8, ptr %ts, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %ts, i64 12
   %7 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds i8, ptr %ts, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %ts, i64 8
   %8 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds i8, ptr %ts, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %ts, i64 4
   %9 = load i32, ptr %tm_min, align 4
   %10 = load i32, ptr %ts, align 8
   br i1 %cmp29, label %if.then30, label %if.else34
@@ -763,7 +763,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 ; Function Attrs: nounwind uwtable
 define i32 @ASN1_TIME_check(ptr noundef %t) local_unnamed_addr #1 {
 entry:
-  %type = getelementptr inbounds i8, ptr %t, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %t, i64 4
   %0 = load i32, ptr %type, align 4
   switch i32 %0, label %return [
     i32 24, label %if.then
@@ -844,20 +844,20 @@ if.then46.i:                                      ; preds = %err.i
   br label %return
 
 ossl_asn1_time_from_tm.exit:                      ; preds = %if.end23.i
-  %type28.i = getelementptr inbounds i8, ptr %tmps.134.i, i64 4
+  %type28.i = getelementptr inbounds nuw i8, ptr %tmps.134.i, i64 4
   store i32 24, ptr %type28.i, align 4
-  %data.i = getelementptr inbounds i8, ptr %tmps.134.i, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %tmps.134.i, i64 8
   %1 = load ptr, ptr %data.i, align 8
-  %tm_year31.i = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_year31.i = getelementptr inbounds nuw i8, ptr %tm, i64 20
   %2 = load i32, ptr %tm_year31.i, align 4
-  %tm_mon.i = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_mon.i = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %3 = load i32, ptr %tm_mon.i, align 8
   %add32.i = add nsw i32 %3, 1
-  %tm_mday.i = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_mday.i = getelementptr inbounds nuw i8, ptr %tm, i64 12
   %4 = load i32, ptr %tm_mday.i, align 4
-  %tm_hour.i = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_hour.i = getelementptr inbounds nuw i8, ptr %tm, i64 8
   %5 = load i32, ptr %tm_hour.i, align 8
-  %tm_min.i = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_min.i = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %6 = load i32, ptr %tm_min.i, align 4
   %7 = load i32, ptr %tm, align 8
   %add.i = add nsw i32 %2, 1900
@@ -926,11 +926,11 @@ ASN1_TIME_check.exit:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #10
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %t, align 8
-  %data = getelementptr inbounds i8, ptr %t, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %t, i64 8
   store ptr %str, ptr %data, align 8
-  %flags = getelementptr inbounds i8, ptr %t, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %t, i64 16
   store i64 256, ptr %flags, align 8
-  %type = getelementptr inbounds i8, ptr %t, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %t, i64 4
   store i32 23, ptr %type, align 4
   %call4.i = call i32 @ASN1_UTCTIME_check(ptr noundef nonnull %t) #9
   %tobool.not = icmp eq i32 %call4.i, 0
@@ -955,7 +955,7 @@ if.then11:                                        ; preds = %if.end6
   br i1 %tobool13.not, label %out, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %tm_year = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   %1 = load i32, ptr %tm_year, align 4
   %2 = add i32 %1, -150
   %or.cond.i = icmp ult i32 %2, -100
@@ -973,7 +973,7 @@ if.then18:                                        ; preds = %if.end15
   br i1 %cmp25, label %out, label %if.end28
 
 if.end28:                                         ; preds = %if.then18
-  %add.ptr = getelementptr inbounds i8, ptr %str, i64 2
+  %add.ptr = getelementptr inbounds nuw i8, ptr %str, i64 2
   %4 = load i32, ptr %t, align 8
   %conv31 = sext i32 %4 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call22, ptr nonnull align 1 %add.ptr, i64 %conv31, i1 false)
@@ -1116,14 +1116,14 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %tm, align 8
-  %data = getelementptr inbounds i8, ptr %tm, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %tm, i64 8
   %1 = load ptr, ptr %data, align 8
   %2 = sext i32 %0 to i64
   %3 = getelementptr i8, ptr %1, i64 %2
   %arrayidx = getelementptr i8, ptr %3, i64 -1
   %4 = load i8, ptr %arrayidx, align 1
   %cmp.not.not.not.not = icmp eq i8 %4, 90
-  %type = getelementptr inbounds i8, ptr %tm, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %5 = load i32, ptr %type, align 4
   %cmp6 = icmp eq i32 %5, 24
   br i1 %cmp6, label %if.then8, label %if.else50
@@ -1133,7 +1133,7 @@ if.then8:                                         ; preds = %if.end
   br i1 %cmp10, label %land.lhs.true, label %if.end25
 
 land.lhs.true:                                    ; preds = %if.then8
-  %arrayidx12 = getelementptr inbounds i8, ptr %1, i64 14
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %6 = load i8, ptr %arrayidx12, align 1
   %cmp14 = icmp eq i8 %6, 46
   br i1 %cmp14, label %land.rhs.preheader, label %if.end25
@@ -1145,7 +1145,7 @@ land.rhs.preheader:                               ; preds = %land.lhs.true
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %while.body
   %indvars.iv = phi i64 [ 1, %land.rhs.preheader ], [ %indvars.iv.next, %while.body ]
-  %arrayidx21 = getelementptr inbounds i8, ptr %arrayidx12, i64 %indvars.iv
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx21, align 1
   %conv22 = sext i8 %8 to i32
   %call23 = call i32 @ossl_ascii_isdigit(i32 noundef %conv22) #9
@@ -1169,17 +1169,17 @@ if.end25:                                         ; preds = %while.body, %if.end
   br i1 %cmp26, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %if.end25
-  %tm_year = getelementptr inbounds i8, ptr %stm, i64 20
+  %tm_year = getelementptr inbounds nuw i8, ptr %stm, i64 20
   %10 = load i32, ptr %tm_year, align 4
   %add29 = add nsw i32 %10, 1900
-  %tm_mon = getelementptr inbounds i8, ptr %stm, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %11 = load i32, ptr %tm_mon, align 8
   %add30 = add nsw i32 %11, 1
-  %tm_mday = getelementptr inbounds i8, ptr %stm, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %12 = load i32, ptr %tm_mday, align 4
-  %tm_hour = getelementptr inbounds i8, ptr %stm, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %stm, i64 8
   %13 = load i32, ptr %tm_hour, align 8
-  %tm_min = getelementptr inbounds i8, ptr %stm, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %stm, i64 4
   %14 = load i32, ptr %tm_min, align 4
   %15 = load i32, ptr %stm, align 8
   %cond32 = select i1 %cmp.not.not.not.not, ptr @.str.6, ptr @.str.7
@@ -1189,18 +1189,18 @@ if.then28:                                        ; preds = %if.end25
   br label %return
 
 if.else:                                          ; preds = %if.end25
-  %tm_mon36 = getelementptr inbounds i8, ptr %stm, i64 16
+  %tm_mon36 = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %16 = load i32, ptr %tm_mon36, align 8
   %idxprom37 = sext i32 %16 to i64
   %arrayidx38 = getelementptr inbounds [12 x [4 x i8]], ptr @_asn1_mon, i64 0, i64 %idxprom37
-  %tm_mday39 = getelementptr inbounds i8, ptr %stm, i64 12
+  %tm_mday39 = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %17 = load i32, ptr %tm_mday39, align 4
-  %tm_hour40 = getelementptr inbounds i8, ptr %stm, i64 8
+  %tm_hour40 = getelementptr inbounds nuw i8, ptr %stm, i64 8
   %18 = load i32, ptr %tm_hour40, align 8
-  %tm_min41 = getelementptr inbounds i8, ptr %stm, i64 4
+  %tm_min41 = getelementptr inbounds nuw i8, ptr %stm, i64 4
   %19 = load i32, ptr %tm_min41, align 4
   %20 = load i32, ptr %stm, align 8
-  %tm_year43 = getelementptr inbounds i8, ptr %stm, i64 20
+  %tm_year43 = getelementptr inbounds nuw i8, ptr %stm, i64 20
   %21 = load i32, ptr %tm_year43, align 4
   %add44 = add nsw i32 %21, 1900
   %cond46 = select i1 %cmp.not.not.not.not, ptr @.str.9, ptr @.str.7
@@ -1215,17 +1215,17 @@ if.else50:                                        ; preds = %if.end
   br i1 %cmp52, label %if.then54, label %if.else68
 
 if.then54:                                        ; preds = %if.else50
-  %tm_year55 = getelementptr inbounds i8, ptr %stm, i64 20
+  %tm_year55 = getelementptr inbounds nuw i8, ptr %stm, i64 20
   %22 = load i32, ptr %tm_year55, align 4
   %add56 = add nsw i32 %22, 1900
-  %tm_mon57 = getelementptr inbounds i8, ptr %stm, i64 16
+  %tm_mon57 = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %23 = load i32, ptr %tm_mon57, align 8
   %add58 = add nsw i32 %23, 1
-  %tm_mday59 = getelementptr inbounds i8, ptr %stm, i64 12
+  %tm_mday59 = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %24 = load i32, ptr %tm_mday59, align 4
-  %tm_hour60 = getelementptr inbounds i8, ptr %stm, i64 8
+  %tm_hour60 = getelementptr inbounds nuw i8, ptr %stm, i64 8
   %25 = load i32, ptr %tm_hour60, align 8
-  %tm_min61 = getelementptr inbounds i8, ptr %stm, i64 4
+  %tm_min61 = getelementptr inbounds nuw i8, ptr %stm, i64 4
   %26 = load i32, ptr %tm_min61, align 4
   %27 = load i32, ptr %stm, align 8
   %cond64 = select i1 %cmp.not.not.not.not, ptr @.str.6, ptr @.str.7
@@ -1235,18 +1235,18 @@ if.then54:                                        ; preds = %if.else50
   br label %return
 
 if.else68:                                        ; preds = %if.else50
-  %tm_mon69 = getelementptr inbounds i8, ptr %stm, i64 16
+  %tm_mon69 = getelementptr inbounds nuw i8, ptr %stm, i64 16
   %28 = load i32, ptr %tm_mon69, align 8
   %idxprom70 = sext i32 %28 to i64
   %arrayidx71 = getelementptr inbounds [12 x [4 x i8]], ptr @_asn1_mon, i64 0, i64 %idxprom70
-  %tm_mday73 = getelementptr inbounds i8, ptr %stm, i64 12
+  %tm_mday73 = getelementptr inbounds nuw i8, ptr %stm, i64 12
   %29 = load i32, ptr %tm_mday73, align 4
-  %tm_hour74 = getelementptr inbounds i8, ptr %stm, i64 8
+  %tm_hour74 = getelementptr inbounds nuw i8, ptr %stm, i64 8
   %30 = load i32, ptr %tm_hour74, align 8
-  %tm_min75 = getelementptr inbounds i8, ptr %stm, i64 4
+  %tm_min75 = getelementptr inbounds nuw i8, ptr %stm, i64 4
   %31 = load i32, ptr %tm_min75, align 4
   %32 = load i32, ptr %stm, align 8
-  %tm_year77 = getelementptr inbounds i8, ptr %stm, i64 20
+  %tm_year77 = getelementptr inbounds nuw i8, ptr %stm, i64 20
   %33 = load i32, ptr %tm_year77, align 4
   %add78 = add nsw i32 %33, 1900
   %cond80 = select i1 %cmp.not.not.not.not, ptr @.str.9, ptr @.str.7
@@ -1339,7 +1339,7 @@ ASN1_TIME_to_tm.exit:                             ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end23.i
 
 if.end23.i:                                       ; preds = %ASN1_TIME_to_tm.exit
-  %tm_year.i = getelementptr inbounds i8, ptr %tm, i64 20
+  %tm_year.i = getelementptr inbounds nuw i8, ptr %tm, i64 20
   %0 = load i32, ptr %tm_year.i, align 4
   %call24.i = call i32 @ASN1_STRING_set(ptr noundef nonnull %t, ptr noundef null, i32 noundef 20) #9
   %tobool25.not.i = icmp eq i32 %call24.i, 0
@@ -1349,19 +1349,19 @@ if.end27.i:                                       ; preds = %if.end23.i
   %1 = add i32 %0, -150
   %or.cond.i.i = icmp ult i32 %1, -100
   %.29.i = select i1 %or.cond.i.i, i32 24, i32 23
-  %type28.i = getelementptr inbounds i8, ptr %t, i64 4
+  %type28.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   store i32 %.29.i, ptr %type28.i, align 4
-  %data.i = getelementptr inbounds i8, ptr %t, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %t, i64 8
   %2 = load ptr, ptr %data.i, align 8
   %3 = load i32, ptr %tm_year.i, align 4
-  %tm_mon.i = getelementptr inbounds i8, ptr %tm, i64 16
+  %tm_mon.i = getelementptr inbounds nuw i8, ptr %tm, i64 16
   %4 = load i32, ptr %tm_mon.i, align 8
   %add32.i = add nsw i32 %4, 1
-  %tm_mday.i = getelementptr inbounds i8, ptr %tm, i64 12
+  %tm_mday.i = getelementptr inbounds nuw i8, ptr %tm, i64 12
   %5 = load i32, ptr %tm_mday.i, align 4
-  %tm_hour.i = getelementptr inbounds i8, ptr %tm, i64 8
+  %tm_hour.i = getelementptr inbounds nuw i8, ptr %tm, i64 8
   %6 = load i32, ptr %tm_hour.i, align 8
-  %tm_min.i = getelementptr inbounds i8, ptr %tm, i64 4
+  %tm_min.i = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %7 = load i32, ptr %tm_min.i, align 4
   %8 = load i32, ptr %tm, align 8
   br i1 %or.cond.i.i, label %if.then30.i, label %if.else34.i

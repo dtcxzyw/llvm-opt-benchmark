@@ -73,7 +73,7 @@ target triple = "x86_64-pc-linux-gnu"
 define nonnull ptr @opcode_describe(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ult i32 %0, 43
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %2
+  %3 = getelementptr inbounds nuw [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %2
   %.0 = select i1 %or.cond, ptr %3, ptr @invalid_opcode_description
   ret ptr %.0
 }
@@ -83,9 +83,9 @@ define i32 @bytecode_operation_length(ptr nocapture noundef readonly %0) local_u
   %2 = load i16, ptr %0, align 2
   %or.cond.i = icmp ult i16 %2, 43
   %3 = zext nneg i16 %2 to i64
-  %4 = getelementptr inbounds [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %3
   %.0.i = select i1 %or.cond.i, ptr %4, ptr @invalid_opcode_description
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %6 = load i32, ptr %5, align 4
   switch i16 %2, label %13 [
     i16 28, label %7
@@ -93,7 +93,7 @@ define i32 @bytecode_operation_length(ptr nocapture noundef readonly %0) local_u
   ]
 
 7:                                                ; preds = %1, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i16, ptr %8, align 2
   %10 = zext i16 %9 to i32
   %11 = shl nuw nsw i32 %10, 1
@@ -107,16 +107,16 @@ define i32 @bytecode_operation_length(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %6, label %37
 
 6:                                                ; preds = %2
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %0, ptr noundef nonnull @.str.1)
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = tail call { i64, ptr } @jv_copy(i64 %9, ptr %11) #6
   %13 = extractvalue { i64, ptr } %12, 0
@@ -161,7 +161,7 @@ define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1)
   br label %37
 
 37:                                               ; preds = %._crit_edge, %2
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %.lr.ph.i, label %dump_code.exit
@@ -179,9 +179,9 @@ define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1)
   %47 = load i16, ptr %46, align 2
   %or.cond.i.i.i = icmp ult i16 %47, 43
   %48 = zext nneg i16 %47 to i64
-  %49 = getelementptr inbounds [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %48
   %.0.i.i.i = select i1 %or.cond.i.i.i, ptr %49, ptr @invalid_opcode_description
-  %50 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 20
   %51 = load i32, ptr %50, align 4
   switch i16 %47, label %bytecode_operation_length.exit.i [
     i16 28, label %52
@@ -189,7 +189,7 @@ define void @dump_disassembly(i32 noundef %0, ptr nocapture noundef readonly %1)
   ]
 
 52:                                               ; preds = %.lr.ph.i, %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %46, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i32
   %56 = shl nuw nsw i32 %55, 1
@@ -204,24 +204,24 @@ bytecode_operation_length.exit.i:                 ; preds = %52, %.lr.ph.i
   br i1 %60, label %.lr.ph.i, label %dump_code.exit, !llvm.loop !6
 
 dump_code.exit:                                   ; preds = %bytecode_operation_length.exit.i, %37
-  %61 = getelementptr inbounds i8, ptr %1, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %62 = load i32, ptr %61, align 8
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %dump_code.exit
-  %64 = getelementptr inbounds i8, ptr %1, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %65 = add nsw i32 %0, 2
   br label %66
 
 66:                                               ; preds = %.lr.ph41, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %66 ]
   %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 72
   %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %69, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %69, i64 80
   %73 = load ptr, ptr %72, align 8
   %74 = tail call { i64, ptr } @jv_copy(i64 %71, ptr %73) #6
   %75 = extractvalue { i64, ptr } %74, 0
@@ -278,12 +278,12 @@ define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) l
   %13 = load i16, ptr %12, align 2
   %or.cond.i = icmp ult i16 %13, 43
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [43 x %struct.opcode_description], ptr @opcode_descriptions, i64 0, i64 %14
   %.0.i = select i1 %or.cond.i, ptr %15, ptr @invalid_opcode_description
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %17)
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %.loopexit
@@ -333,7 +333,7 @@ define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) l
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.05.i = phi i32 [ %45, %.lr.ph.i ], [ %42, %.lr.ph.i.preheader ]
   %.034.i = phi ptr [ %44, %.lr.ph.i ], [ %0, %.lr.ph.i.preheader ]
-  %43 = getelementptr inbounds i8, ptr %.034.i, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %.034.i, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = add nsw i32 %.05.i, -1
   %46 = icmp samesign ugt i32 %.05.i, 1
@@ -341,14 +341,14 @@ define void @dump_operation(ptr nocapture noundef readonly %0, ptr noundef %1) l
 
 getlevel.exit:                                    ; preds = %.lr.ph.i, %40
   %.03.lcssa.i = phi ptr [ %0, %40 ], [ %44, %.lr.ph.i ]
-  %47 = getelementptr inbounds i8, ptr %.03.lcssa.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.03.lcssa.i, i64 48
   %48 = load ptr, ptr %47, align 8
   %49 = zext i16 %41 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %55 = load ptr, ptr %54, align 8
   %56 = tail call { i64, ptr } @jv_copy(i64 %53, ptr %55) #6
   %57 = extractvalue { i64, ptr } %56, 0
@@ -371,7 +371,7 @@ getlevel.exit:                                    ; preds = %.lr.ph.i, %40
 .lr.ph.i96:                                       ; preds = %.lr.ph.i96.preheader, %.lr.ph.i96
   %.05.i97 = phi i32 [ %67, %.lr.ph.i96 ], [ %64, %.lr.ph.i96.preheader ]
   %.034.i98 = phi ptr [ %66, %.lr.ph.i96 ], [ %0, %.lr.ph.i96.preheader ]
-  %65 = getelementptr inbounds i8, ptr %.034.i98, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %.034.i98, i64 64
   %66 = load ptr, ptr %65, align 8
   %67 = add nsw i32 %.05.i97, -1
   %68 = icmp samesign ugt i32 %.05.i97, 1
@@ -379,9 +379,9 @@ getlevel.exit:                                    ; preds = %.lr.ph.i, %40
 
 getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
   %.03.lcssa.i99 = phi ptr [ %0, %63 ], [ %66, %.lr.ph.i96 ]
-  %69 = getelementptr inbounds i8, ptr %.03.lcssa.i99, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.03.lcssa.i99, i64 72
   %70 = load i64, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %.03.lcssa.i99, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %.03.lcssa.i99, i64 80
   %72 = load ptr, ptr %71, align 8
   %73 = tail call { i64, ptr } @jv_copy(i64 %70, ptr %72) #6
   %74 = extractvalue { i64, ptr } %73, 0
@@ -421,11 +421,11 @@ getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
   %93 = getelementptr inbounds i16, ptr %23, i64 %92
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
-  %96 = getelementptr inbounds i8, ptr %0, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %97, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = tail call { i64, ptr } @jv_copy(i64 %99, ptr %101) #6
   %103 = extractvalue { i64, ptr } %102, 0
@@ -439,7 +439,7 @@ getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
   br label %.loopexit
 
 110:                                              ; preds = %22
-  %111 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %112 = load i32, ptr %111, align 8
   %113 = and i32 %112, 8
   %.not = icmp eq i32 %113, 0
@@ -458,9 +458,9 @@ getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
 
 120:                                              ; preds = %118
   %putchar = tail call i32 @putchar(i32 32)
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = load i64, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %124 = load ptr, ptr %123, align 8
   %125 = tail call { i64, ptr } @jv_copy(i64 %122, ptr %124) #6
   %126 = extractvalue { i64, ptr } %125, 0
@@ -488,7 +488,7 @@ getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
 .lr.ph.i102:                                      ; preds = %134, %.lr.ph.i102
   %.05.i103 = phi i32 [ %141, %.lr.ph.i102 ], [ %138, %134 ]
   %.034.i104 = phi ptr [ %140, %.lr.ph.i102 ], [ %0, %134 ]
-  %139 = getelementptr inbounds i8, ptr %.034.i104, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %.034.i104, i64 64
   %140 = load ptr, ptr %139, align 8
   %141 = add nsw i32 %.05.i103, -1
   %142 = icmp samesign ugt i32 %.05.i103, 1
@@ -496,9 +496,9 @@ getlevel.exit100:                                 ; preds = %.lr.ph.i96, %63
 
 getlevel.exit106:                                 ; preds = %.lr.ph.i102, %134
   %.03.lcssa.i105 = phi ptr [ %0, %134 ], [ %140, %.lr.ph.i102 ]
-  %143 = getelementptr inbounds i8, ptr %.03.lcssa.i105, i64 72
+  %143 = getelementptr inbounds nuw i8, ptr %.03.lcssa.i105, i64 72
   %144 = load i64, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %.03.lcssa.i105, i64 80
+  %145 = getelementptr inbounds nuw i8, ptr %.03.lcssa.i105, i64 80
   %146 = load ptr, ptr %145, align 8
   %147 = tail call { i64, ptr } @jv_copy(i64 %144, ptr %146) #6
   %148 = extractvalue { i64, ptr } %147, 0
@@ -541,24 +541,24 @@ define void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   tail call void @jv_mem_free(ptr noundef %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @jv_free(i64 %5, ptr %7) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   tail call void @bytecode_free(ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -568,31 +568,31 @@ define void @bytecode_free(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %18, label %12, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %12, %2
-  %19 = getelementptr inbounds i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %.not13 = icmp eq ptr %20, null
   br i1 %.not13, label %21, label %29
 
 21:                                               ; preds = %._crit_edge
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   tail call void @jv_mem_free(ptr noundef %24) #6
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void @jv_free(i64 %26, ptr %28) #6
   tail call void @jv_mem_free(ptr noundef nonnull %23) #6
   br label %29
 
 29:                                               ; preds = %21, %._crit_edge
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load ptr, ptr %30, align 8
   tail call void @jv_mem_free(ptr noundef %31) #6
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8
   tail call void @jv_free(i64 %33, ptr %35) #6
   tail call void @jv_mem_free(ptr noundef nonnull %0) #6

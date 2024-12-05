@@ -207,7 +207,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEEC2ERKS4_.exit.i: ; preds = %
 20:                                               ; preds = %16
   fence acquire
   %21 = load ptr, ptr %15, align 8, !tbaa !10
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull align 8 dereferenceable(16) %15) #8
   br label %35
@@ -228,7 +228,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEEC2ERKS4_.exit.i: ; preds = %
 31:                                               ; preds = %27
   fence acquire
   %32 = load ptr, ptr %26, align 8, !tbaa !10
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(16) %26) #8
   br label %.body
@@ -278,14 +278,14 @@ _ZN5boost6fibers7context6activeEv.exit:           ; preds = %35, %_ZN5boost6fibe
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %52, align 8, !tbaa !10
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(137) %52) #8
   br label %_ZN5boost6fibers19context_initializer12deinitializeEv.exit.i
 
 _ZN5boost6fibers19context_initializer12deinitializeEv.exit.i: ; preds = %54, %48
   %58 = load ptr, ptr %50, align 8, !tbaa !10
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   call void %60(ptr noundef nonnull align 8 dereferenceable(232) %50) #8
   br label %_ZN5boost6fibers19context_initializerD2Ev.exit
@@ -335,7 +335,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEEC2ERKS4_.exit: ; preds = %_Z
 77:                                               ; preds = %73
   fence acquire
   %78 = load ptr, ptr %72, align 8, !tbaa !10
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull align 8 dereferenceable(16) %72) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit
@@ -423,14 +423,14 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializerD2Ev(ptr n
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %10, align 8, !tbaa !10
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(137) %10) #8
   br label %_ZN5boost6fibers19context_initializer12deinitializeEv.exit
 
 _ZN5boost6fibers19context_initializer12deinitializeEv.exit: ; preds = %6, %12
   %16 = load ptr, ptr %8, align 8, !tbaa !10
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(232) %8) #8
   br label %19
@@ -544,7 +544,7 @@ define void @_ZN5boost6fibers7context6resumeERSt11unique_lockINS0_6detail13spinl
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !noalias !60
   store ptr %5, ptr %3, align 8, !tbaa !13, !noalias !60
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13, !noalias !60
   %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !60
   store ptr null, ptr %6, align 8, !tbaa !13, !noalias !60
@@ -588,7 +588,7 @@ define void @_ZN5boost6fibers7context6resumeEPS1_(ptr noundef nonnull align 8 de
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8, !noalias !63
   store ptr %5, ptr %3, align 8, !tbaa !13, !noalias !63
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13, !noalias !63
   %7 = load ptr, ptr %6, align 8, !tbaa !13, !noalias !63
   store ptr null, ptr %6, align 8, !tbaa !13, !noalias !63
@@ -823,14 +823,14 @@ define void @_ZN5boost6fibers7context9terminateEv(ptr dead_on_unwind noalias wri
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %10 = getelementptr inbounds i8, ptr %1, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !75
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.not7 = icmp eq ptr %11, %12
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5boost6fibers7context8fss_data10do_cleanupEv.exit, %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !76
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %14)
           to label %_ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE5clearEv.exit unwind label %15
@@ -845,9 +845,9 @@ define void @_ZN5boost6fibers7context9terminateEv(ptr dead_on_unwind noalias wri
 _ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE5clearEv.exit: ; preds = %._crit_edge
   store ptr null, ptr %13, align 8, !tbaa !76
   store ptr %12, ptr %10, align 8, !tbaa !75
-  %18 = getelementptr inbounds i8, ptr %1, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %12, ptr %18, align 8, !tbaa !77
-  %19 = getelementptr inbounds i8, ptr %1, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i64 0, ptr %19, align 8, !tbaa !78
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !14
@@ -876,7 +876,7 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %_
   %29 = load ptr, ptr %28, align 8, !tbaa !79
   %30 = load ptr, ptr %27, align 8, !tbaa !81
   %31 = load ptr, ptr %29, align 8, !tbaa !10
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   invoke void %33(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef %30)
           to label %_ZN5boost6fibers7context8fss_data10do_cleanupEv.exit unwind label %.loopexit
@@ -1018,9 +1018,9 @@ define void @_ZN5boost6fibers7context8scheduleEPS1_(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK5boost6fibers7context12get_fss_dataEPKv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
   %3 = ptrtoint ptr %1 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !76
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not10.i.i.i = icmp eq ptr %5, null
   br i1 %.not10.i.i.i, label %_ZNKSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread, label %.lr.ph.i.i.i
 
@@ -1062,9 +1062,9 @@ define void @_ZN5boost6fibers7context12set_fss_dataEPKvRKNS_13intrusive_ptrINS0_
   %6 = alloca %"struct.std::pair.28", align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !76
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not10.i.i.i = icmp eq ptr %10, null
   br i1 %.not10.i.i.i, label %_ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE4findERS7_.exit.thread, label %.lr.ph.i.i.i
 
@@ -1100,7 +1100,7 @@ _ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE4findERS
   %23 = load ptr, ptr %22, align 8, !tbaa !79
   %24 = load ptr, ptr %21, align 8, !tbaa !81
   %25 = load ptr, ptr %23, align 8, !tbaa !10
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef %24)
   br label %28
@@ -1137,7 +1137,7 @@ _ZN5boost13intrusive_ptrINS_6fibers6detail20fss_cleanup_functionEEC2ERKS4_.exit:
 41:                                               ; preds = %37
   fence acquire
   %42 = load ptr, ptr %36, align 8, !tbaa !10
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull align 8 dereferenceable(16) %36) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers6detail20fss_cleanup_functionEED2Ev.exit
@@ -1158,14 +1158,14 @@ _ZN5boost13intrusive_ptrINS_6fibers6detail20fss_cleanup_functionEEC2ERKS4_.exit:
 53:                                               ; preds = %49
   fence acquire
   %54 = load ptr, ptr %48, align 8, !tbaa !10
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(16) %48) #8
   br label %_ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS8_E.exit
 
 _ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS8_E.exit: ; preds = %45, %49, %53
   tail call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef 56) #33
-  %57 = getelementptr inbounds i8, ptr %0, i64 104
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %58 = load i64, ptr %57, align 8, !tbaa !78
   %59 = add i64 %58, -1
   store i64 %59, ptr %57, align 8, !tbaa !78
@@ -1239,7 +1239,7 @@ _ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEE11lower_
 83:                                               ; preds = %79
   fence acquire
   %84 = load ptr, ptr %78, align 8, !tbaa !10
-  %85 = getelementptr inbounds i8, ptr %84, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(16) %78) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers6detail20fss_cleanup_functionEED2Ev.exit22
@@ -1264,7 +1264,7 @@ _ZN5boost13intrusive_ptrINS_6fibers6detail20fss_cleanup_functionEED2Ev.exit22: ;
 94:                                               ; preds = %90
   fence acquire
   %95 = load ptr, ptr %89, align 8, !tbaa !10
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr noundef nonnull align 8 dereferenceable(16) %89) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers6detail20fss_cleanup_functionEED2Ev.exit28
@@ -1289,7 +1289,7 @@ define void @_ZN5boost6fibers7context14set_propertiesEPNS0_16fiber_propertiesE(p
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %4, align 8, !tbaa !10
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   br label %10
@@ -1474,7 +1474,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_d
 13:                                               ; preds = %9
   fence acquire
   %14 = load ptr, ptr %8, align 8, !tbaa !10
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %8) #8
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit
@@ -1507,13 +1507,13 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %12, ptr %13, align 8, !tbaa !105
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %15 = getelementptr inbounds i8, ptr %7, i64 72
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
   store ptr %15, ptr %16, align 8, !tbaa !75
-  %17 = getelementptr inbounds i8, ptr %7, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %15, ptr %17, align 8, !tbaa !77
-  %18 = getelementptr inbounds i8, ptr %7, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
@@ -1550,7 +1550,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEEC2ERKS4_.exit: ; preds = %3,
 33:                                               ; preds = %29
   fence acquire
   %34 = load ptr, ptr %28, align 8, !tbaa !10
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(16) %28) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit
@@ -1560,7 +1560,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit: ; preds = %_ZN5bo
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %37 = load ptr, ptr %2, align 8, !tbaa !13, !noalias !108
   %38 = load ptr, ptr %37, align 8, !tbaa !10, !noalias !108
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !noalias !108
   %41 = call { i64, ptr } %40(ptr noundef nonnull align 8 dereferenceable(8) %37), !noalias !108
   %42 = extractvalue { i64, ptr } %41, 0
@@ -1577,7 +1577,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit: ; preds = %_ZN5bo
   store i64 %48, ptr %49, align 8, !tbaa !114, !noalias !108
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %42, ptr %50, align 8, !tbaa !3, !noalias !108
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %43, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !13, !noalias !108
   call void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7context12preallocatedEONS0_23stack_allocator_wrapperE(ptr noundef nonnull align 8 dereferenceable(232) %47, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(8) %2), !noalias !108
   store ptr %47, ptr %6, align 8, !tbaa !115, !alias.scope !108
@@ -1670,13 +1670,13 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7co
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %7, ptr %8, align 8, !tbaa !105
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store ptr %10, ptr %11, align 8, !tbaa !75
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %10, ptr %12, align 8, !tbaa !77
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 32, i1 false)
@@ -1688,16 +1688,16 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7co
   store i32 1, ptr %17, align 4, !tbaa !107
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers18dispatcher_contextE, i64 16), ptr %0, align 8, !tbaa !10
   %.sroa.011.0.copyload = load ptr, ptr %1, align 8, !tbaa !13
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
-  %.sroa.412.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.412.0.copyload = load ptr, ptr %.sroa.412.0..sroa_idx, align 8, !tbaa !13
   %18 = ptrtoint ptr %.sroa.011.0.copyload to i64
   %19 = add i64 %18, -48
   %20 = and i64 %19, -256
   %21 = inttoptr i64 %20 to ptr
   store i64 %.sroa.3.0.copyload, ptr %21, align 256, !tbaa !3
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.sroa.412.0.copyload, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !13
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %2, align 8, !tbaa !13
@@ -1705,7 +1705,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_contextC2ERKNS_7co
   store ptr null, ptr %2, align 8, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 ptrtoint (ptr @_ZN5boost6fibers18dispatcher_context4run_EONS_7context5fiberE to i64), ptr %24, align 8, !tbaa !117
-  %.repack5.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 32
+  %.repack5.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i64 0, ptr %.repack5.i.i.i.i, align 32, !tbaa !117
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %26 = ptrtoint ptr %0 to i64
@@ -1771,7 +1771,7 @@ define void @_ZN5boost6fibers7contextD2Ev(ptr noundef nonnull align 8 dereferenc
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %4, align 8, !tbaa !10
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   br label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
@@ -1846,7 +1846,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE6inited
 
 _ZN5boost9intrusive12generic_hookILNS0_10algo_typesE5ENS0_18rbtree_node_traitsIPvLb0EEENS0_10member_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE0EED2Ev.exit: ; preds = %_ZN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_10member_tagELNS0_14link_mode_typeE2ELNS0_14base_hook_typeE0EED2Ev.exit2, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE6initedEPKNS0_11rbtree_nodeIS3_EE.exit.thread.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = load ptr, ptr %36, align 8, !tbaa !76
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %37)
           to label %_ZNSt3mapImN5boost6fibers7context8fss_dataESt4lessImESaISt4pairIKmS3_EEED2Ev.exit unwind label %38
@@ -1906,7 +1906,7 @@ define linkonce_odr hidden void @_ZN5boost7context6detail11fiber_entryINS1_12fib
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !13, !noalias !123
   %.unpack.i.i.i.i.i.i.i.i = load i64, ptr %8, align 8, !tbaa !138, !noalias !123
-  %.elt3.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
+  %.elt3.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.unpack4.i.i.i.i.i.i.i.i = load i64, ptr %.elt3.i.i.i.i.i.i.i.i, align 8, !tbaa !138, !noalias !123
   %11 = getelementptr inbounds i8, ptr %10, i64 %.unpack4.i.i.i.i.i.i.i.i
   %12 = and i64 %.unpack.i.i.i.i.i.i.i.i, 1
@@ -2018,7 +2018,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5boost7context6detail10fiber_exitINS
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 16, i1 false), !tbaa.struct !139
   store ptr null, ptr %4, align 8, !tbaa !13
   %7 = load ptr, ptr %6, align 8, !tbaa !10
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost7context6detail12fiber_recordINS0_5fiberENS_6fibers23stack_allocator_wrapperESt5_BindIFMNS4_18dispatcher_contextEFS3_OS3_EPS7_St12_PlaceholderILi1EEEEE10deallocateEv.exit unwind label %10
@@ -2033,7 +2033,7 @@ define linkonce_odr hidden { ptr, ptr } @_ZN5boost7context6detail10fiber_exitINS
 _ZN5boost7context6detail12fiber_recordINS0_5fiberENS_6fibers23stack_allocator_wrapperESt5_BindIFMNS4_18dispatcher_contextEFS3_OS3_EPS7_St12_PlaceholderILi1EEEEE10deallocateEv.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #8
   %13 = load ptr, ptr %6, align 8, !tbaa !10
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %6) #8
   ret { ptr, ptr } zeroinitializer
@@ -2081,7 +2081,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers19context_initializer10initiali
 
 _ZNKSt14default_deleteIN5boost6fibers6detail32polymorphic_stack_allocator_baseEEclEPS3_.exit.i.i: ; preds = %17
   %19 = load ptr, ptr %18, align 8, !tbaa !10
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %18) #8
   br label %_ZN5boost6fibers23stack_allocator_wrapperD2Ev.exit
@@ -2101,7 +2101,7 @@ _ZN5boost6fibers23stack_allocator_wrapperD2Ev.exit: ; preds = %17, %_ZNKSt14defa
 27:                                               ; preds = %23
   fence acquire
   %28 = load ptr, ptr %22, align 8, !tbaa !10
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(16) %22) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit
@@ -2124,7 +2124,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit: ; preds = %_ZN5bo
 
 _ZNKSt14default_deleteIN5boost6fibers6detail32polymorphic_stack_allocator_baseEEclEPS3_.exit.i.i7: ; preds = %32
   %35 = load ptr, ptr %34, align 8, !tbaa !10
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %34) #8
   br label %38
@@ -2146,7 +2146,7 @@ _ZNKSt14default_deleteIN5boost6fibers6detail32polymorphic_stack_allocator_baseEE
 44:                                               ; preds = %39
   fence acquire
   %45 = load ptr, ptr %40, align 8, !tbaa !10
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(16) %40) #8
   br label %_ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEED2Ev.exit10
@@ -2519,7 +2519,7 @@ _ZN5boost7context5fiberD2Ev.exit4:                ; preds = %7, %2
 define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberEZNS_6fibers7context6resumeERSt11unique_lockINS4_6detail13spinlock_ttasEEE3$_0EENS1_10transfer_tESC_"(ptr %0, ptr nocapture readonly %1) #12 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::context::fiber", align 8
   %.sroa.07.0.copyload = load ptr, ptr %1, align 8, !tbaa !13
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr %0, ptr %3, align 8, !tbaa !55
@@ -2600,7 +2600,7 @@ _ZN5boost7context5fiberD2Ev.exit5:                ; preds = %20, %"_ZZN5boost6fi
 ; Function Attrs: mustprogress nounwind uwtable
 define internal { ptr, ptr } @"_ZN5boost7context6detail11fiber_ontopINS0_5fiberEZNS_6fibers7context6resumeEPS5_E3$_0EENS1_10transfer_tES8_"(ptr %0, ptr nocapture readonly %1) #3 personality ptr @__gxx_personality_v0 {
   %.sroa.07.0.copyload = load ptr, ptr %1, align 8, !tbaa !13
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.copyload, i64 208
   %4 = load ptr, ptr %3, align 8, !tbaa !13, !noalias !183
@@ -2731,7 +2731,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_da
 
 19:                                               ; preds = %16
   %.not.i.i = icmp ne ptr %17, null
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = icmp eq ptr %18, %20
   %or.cond.i.i = select i1 %.not.i.i, i1 true, i1 %21
   br i1 %or.cond.i.i, label %.thread, label %22
@@ -2746,7 +2746,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_da
 .thread:                                          ; preds = %19, %22
   %27 = phi i1 [ true, %19 ], [ %26, %22 ]
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %27, ptr noundef nonnull %6, ptr noundef nonnull %18, ptr noundef nonnull align 8 dereferenceable(32) %20) #8
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i64, ptr %28, align 8, !tbaa !78
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8, !tbaa !78
@@ -2773,7 +2773,7 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_da
 39:                                               ; preds = %35
   fence acquire
   %40 = load ptr, ptr %34, align 8, !tbaa !10
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(16) %34) #8
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit.i
@@ -2790,18 +2790,18 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS6_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #12 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %32
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !78
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %16, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load i64, ptr %12, align 8, !tbaa !3
@@ -2810,7 +2810,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
   br i1 %15, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %16
 
 16:                                               ; preds = %9, %6
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i = load ptr, ptr %17, align 8, !tbaa !13
   %.not23.i = icmp eq ptr %.02022.i, null
   br i1 %.not23.i, label %._crit_edge.thread.i, label %.lr.ph.i
@@ -2835,7 +2835,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %16
   %.019.lcssa28.i = phi ptr [ %.02024.i, %._crit_edge.i ], [ %4, %16 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !75
   %25 = icmp eq ptr %.019.lcssa28.i, %24
   br i1 %25, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %26
@@ -2865,7 +2865,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
   br i1 %36, label %37, label %61
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !13
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %41
@@ -2886,7 +2886,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit
 
 50:                                               ; preds = %41
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i10 = load ptr, ptr %51, align 8, !tbaa !13
   %.not23.i11 = icmp eq ptr %.02022.i10, null
   br i1 %.not23.i11, label %._crit_edge.thread.i27, label %.lr.ph.i12
@@ -2930,7 +2930,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
   br i1 %62, label %63, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8, !tbaa !13
   %66 = icmp eq ptr %65, %1
   br i1 %66, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %67
@@ -2951,7 +2951,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.02022.i30 = load ptr, ptr %77, align 8, !tbaa !13
   %.not23.i31 = icmp eq ptr %.02022.i30, null
   br i1 %.not23.i31, label %._crit_edge.thread.i47, label %.lr.ph.i32
@@ -2972,7 +2972,7 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7conte
 
 ._crit_edge.thread.i47:                           ; preds = %._crit_edge.i38, %76
   %.019.lcssa28.i48 = phi ptr [ %.02024.i33, %._crit_edge.i38 ], [ %4, %76 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !75
   %83 = icmp eq ptr %.019.lcssa28.i48, %82
   br i1 %83, label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE24_M_get_insert_unique_posERS1_.exit, label %84
@@ -3022,7 +3022,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7contex
 11:                                               ; preds = %7
   fence acquire
   %12 = load ptr, ptr %6, align 8, !tbaa !10
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %6) #8
   br label %_ZNSt8_Rb_treeImSt4pairIKmN5boost6fibers7context8fss_dataEESt10_Select1stIS6_ESt4lessImESaIS6_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS6_E.exit

@@ -65,9 +65,9 @@ define i32 @cli_parsegif(ptr noundef %0) local_unnamed_addr #0 {
   br label %149
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef %9, i64 noundef 0, i64 noundef 3, i32 noundef 1) #4
   %13 = icmp eq ptr %12, null
@@ -85,7 +85,7 @@ sub_0:                                            ; preds = %7
   br i1 %.not258, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %18 = getelementptr inbounds i8, ptr %12, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = sub nsw i32 73, %20
@@ -93,7 +93,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not259, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %22 = getelementptr inbounds i8, ptr %12, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 70, %24
@@ -109,7 +109,7 @@ sub_2:                                            ; preds = %sub_1
   br label %149
 
 28:                                               ; preds = %.tail
-  %29 = getelementptr inbounds i8, ptr %9, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %30 = load i64, ptr %29, align 8
   %or.cond = icmp ult i64 %30, 4
   br i1 %or.cond, label %fmap_readn.exit.thread, label %31
@@ -132,7 +132,7 @@ fmap_readn.exit.thread:                           ; preds = %31, %28, %fmap_read
   br label %149
 
 35:                                               ; preds = %fmap_readn.exit
-  %36 = getelementptr inbounds i8, ptr %2, i64 3
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 0, ptr %36, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %2) #4
   %37 = load i64, ptr %29, align 8
@@ -159,11 +159,11 @@ fmap_readn.exit97.thread:                         ; preds = %38, %35, %fmap_read
 42:                                               ; preds = %fmap_readn.exit97
   %.0..0..0.129 = load i16, ptr %3, align 2
   %43 = zext i16 %.0..0..0.129 to i32
-  %.2..2..2..sroa_idx392 = getelementptr inbounds i8, ptr %3, i64 2
+  %.2..2..2..sroa_idx392 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.2..2..2.131 = load i16, ptr %.2..2..2..sroa_idx392, align 2
   %44 = zext i16 %.2..2..2.131 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.9, i32 noundef %43, i32 noundef %44) #4
-  %.4..4..4..sroa_idx393 = getelementptr inbounds i8, ptr %3, i64 4
+  %.4..4..4..sroa_idx393 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.4..4..4.133 = load i8, ptr %.4..4..4..sroa_idx393, align 2
   %.not85 = icmp sgt i8 %.4..4..4.133, -1
   br i1 %.not85, label %54, label %45
@@ -196,10 +196,10 @@ fmap_readn.exit97.thread:                         ; preds = %38, %35, %fmap_read
   br i1 %or.cond158.not243, label %.lr.ph, label %fmap_readn.exit102.thread.thread
 
 .lr.ph:                                           ; preds = %55
-  %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
-  %.6..6..6..sroa_idx = getelementptr inbounds i8, ptr %4, i64 6
-  %.2..2..2..sroa_idx = getelementptr inbounds i8, ptr %4, i64 2
-  %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.4..4..4..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.6..6..6..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %.2..2..2..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %57
 
 57:                                               ; preds = %.lr.ph, %133

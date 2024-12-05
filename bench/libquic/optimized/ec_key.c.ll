@@ -35,7 +35,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %if.end
   %call2 = tail call ptr @ENGINE_get_ECDSA_method(ptr noundef nonnull %engine) #8
-  %ecdsa_meth = getelementptr inbounds i8, ptr %calloc, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   store ptr %call2, ptr %ecdsa_meth, align 8
   %tobool5.not = icmp eq ptr %call2, null
   br i1 %tobool5.not, label %if.end8, label %if.then6
@@ -45,19 +45,19 @@ if.then6:                                         ; preds = %if.end3
   br label %if.end8
 
 if.end8:                                          ; preds = %if.end, %if.then6, %if.end3
-  %ecdsa_meth424 = getelementptr inbounds i8, ptr %calloc, i64 40
-  %conv_form = getelementptr inbounds i8, ptr %calloc, i64 28
+  %ecdsa_meth424 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  %conv_form = getelementptr inbounds nuw i8, ptr %calloc, i64 28
   store i32 4, ptr %conv_form, align 4
-  %references = getelementptr inbounds i8, ptr %calloc, i64 32
+  %references = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store i32 1, ptr %references, align 8
-  %ex_data = getelementptr inbounds i8, ptr %calloc, i64 48
+  %ex_data = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   tail call void @CRYPTO_new_ex_data(ptr noundef nonnull %ex_data) #8
   %0 = load ptr, ptr %ecdsa_meth424, align 8
   %tobool10.not = icmp eq ptr %0, null
   br i1 %tobool10.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end8
-  %init = getelementptr inbounds i8, ptr %0, i64 16
+  %init = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %init, align 8
   %tobool12.not = icmp eq ptr %1, null
   br i1 %tobool12.not, label %return, label %land.lhs.true13
@@ -136,19 +136,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %references = getelementptr inbounds i8, ptr %r, i64 32
+  %references = getelementptr inbounds nuw i8, ptr %r, i64 32
   %call = tail call i32 @CRYPTO_refcount_dec_and_test_zero(ptr noundef nonnull %references) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %ecdsa_meth = getelementptr inbounds i8, ptr %r, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %if.end13, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %finish = getelementptr inbounds i8, ptr %0, i64 24
+  %finish = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load ptr, ptr %finish, align 8
   %tobool6.not = icmp eq ptr %1, null
   br i1 %tobool6.not, label %if.end11, label %if.then7
@@ -166,13 +166,13 @@ if.end11:                                         ; preds = %if.then7, %if.then4
 if.end13:                                         ; preds = %if.end11, %if.end2
   %3 = load ptr, ptr %r, align 8
   tail call void @EC_GROUP_free(ptr noundef %3) #8
-  %pub_key = getelementptr inbounds i8, ptr %r, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %r, i64 8
   %4 = load ptr, ptr %pub_key, align 8
   tail call void @EC_POINT_free(ptr noundef %4) #8
-  %priv_key = getelementptr inbounds i8, ptr %r, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %r, i64 16
   %5 = load ptr, ptr %priv_key, align 8
   tail call void @BN_clear_free(ptr noundef %5) #8
-  %ex_data = getelementptr inbounds i8, ptr %r, i64 48
+  %ex_data = getelementptr inbounds nuw i8, ptr %r, i64 48
   tail call void @CRYPTO_free_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %r, ptr noundef nonnull %ex_data) #8
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %r, i64 noundef 56) #8
   tail call void @free(ptr noundef nonnull %r) #8
@@ -219,7 +219,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp7, label %return, label %if.end10
 
 if.end10:                                         ; preds = %if.then2, %if.end
-  %pub_key = getelementptr inbounds i8, ptr %src, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %src, i64 8
   %3 = load ptr, ptr %pub_key, align 8
   %tobool11.not = icmp eq ptr %3, null
   br i1 %tobool11.not, label %if.end24, label %land.lhs.true
@@ -230,7 +230,7 @@ land.lhs.true:                                    ; preds = %if.end10
   br i1 %tobool13.not, label %if.end24, label %if.then14
 
 if.then14:                                        ; preds = %land.lhs.true
-  %pub_key15 = getelementptr inbounds i8, ptr %dest, i64 8
+  %pub_key15 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   %5 = load ptr, ptr %pub_key15, align 8
   tail call void @EC_POINT_free(ptr noundef %5) #8
   %6 = load ptr, ptr %pub_key, align 8
@@ -241,13 +241,13 @@ if.then14:                                        ; preds = %land.lhs.true
   br i1 %cmp21, label %return, label %if.end24
 
 if.end24:                                         ; preds = %if.then14, %land.lhs.true, %if.end10
-  %priv_key = getelementptr inbounds i8, ptr %src, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %src, i64 16
   %8 = load ptr, ptr %priv_key, align 8
   %tobool25.not = icmp eq ptr %8, null
   br i1 %tobool25.not, label %if.end43, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %priv_key27 = getelementptr inbounds i8, ptr %dest, i64 16
+  %priv_key27 = getelementptr inbounds nuw i8, ptr %dest, i64 16
   %9 = load ptr, ptr %priv_key27, align 8
   %cmp28 = icmp eq ptr %9, null
   br i1 %cmp28, label %if.then29, label %if.end36
@@ -270,13 +270,13 @@ if.end36:                                         ; preds = %if.then29.if.end36_
   br i1 %tobool40.not, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.end36, %if.end24
-  %ecdsa_meth = getelementptr inbounds i8, ptr %src, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %src, i64 40
   %12 = load ptr, ptr %ecdsa_meth, align 8
   %tobool44.not = icmp eq ptr %12, null
   br i1 %tobool44.not, label %if.end50, label %if.then45
 
 if.then45:                                        ; preds = %if.end43
-  %ecdsa_meth46 = getelementptr inbounds i8, ptr %dest, i64 40
+  %ecdsa_meth46 = getelementptr inbounds nuw i8, ptr %dest, i64 40
   %13 = load ptr, ptr %ecdsa_meth46, align 8
   tail call void @METHOD_unref(ptr noundef %13) #8
   %14 = load ptr, ptr %ecdsa_meth, align 8
@@ -285,21 +285,21 @@ if.then45:                                        ; preds = %if.end43
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then45, %if.end43
-  %ex_data = getelementptr inbounds i8, ptr %dest, i64 48
+  %ex_data = getelementptr inbounds nuw i8, ptr %dest, i64 48
   tail call void @CRYPTO_free_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %dest, ptr noundef nonnull %ex_data) #8
-  %ex_data52 = getelementptr inbounds i8, ptr %src, i64 48
+  %ex_data52 = getelementptr inbounds nuw i8, ptr %src, i64 48
   %call53 = tail call i32 @CRYPTO_dup_ex_data(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %ex_data, ptr noundef nonnull %ex_data52) #8
   %tobool54.not = icmp eq i32 %call53, 0
   br i1 %tobool54.not, label %return, label %if.end56
 
 if.end56:                                         ; preds = %if.end50
-  %enc_flag = getelementptr inbounds i8, ptr %src, i64 24
+  %enc_flag = getelementptr inbounds nuw i8, ptr %src, i64 24
   %15 = load i32, ptr %enc_flag, align 8
-  %enc_flag57 = getelementptr inbounds i8, ptr %dest, i64 24
+  %enc_flag57 = getelementptr inbounds nuw i8, ptr %dest, i64 24
   store i32 %15, ptr %enc_flag57, align 8
-  %conv_form = getelementptr inbounds i8, ptr %src, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %src, i64 28
   %16 = load i32, ptr %conv_form, align 4
-  %conv_form58 = getelementptr inbounds i8, ptr %dest, i64 28
+  %conv_form58 = getelementptr inbounds nuw i8, ptr %dest, i64 28
   store i32 %16, ptr %conv_form58, align 4
   br label %return
 
@@ -342,7 +342,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @EC_KEY_up_ref(ptr noundef %r) local_unnamed_addr #0 {
 entry:
-  %references = getelementptr inbounds i8, ptr %r, i64 32
+  %references = getelementptr inbounds nuw i8, ptr %r, i64 32
   tail call void @CRYPTO_refcount_inc(ptr noundef nonnull %references) #8
   ret i32 1
 }
@@ -352,13 +352,13 @@ declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden range(i32 0, 2) i32 @EC_KEY_is_opaque(ptr nocapture noundef readonly %key) local_unnamed_addr #3 {
 entry:
-  %ecdsa_meth = getelementptr inbounds i8, ptr %key, i64 40
+  %ecdsa_meth = getelementptr inbounds nuw i8, ptr %key, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %0, i64 56
+  %flags = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load i32, ptr %flags, align 8
   %and = and i32 %1, 1
   br label %land.end
@@ -386,7 +386,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %priv_key = getelementptr inbounds i8, ptr %key, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %key, i64 16
   %1 = load ptr, ptr %priv_key, align 8
   %cmp4.not = icmp eq ptr %1, null
   br i1 %cmp4.not, label %if.end10, label %land.lhs.true
@@ -412,7 +412,7 @@ declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @EC_KEY_get0_private_key(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
 entry:
-  %priv_key = getelementptr inbounds i8, ptr %key, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %key, i64 16
   %0 = load ptr, ptr %priv_key, align 8
   ret ptr %0
 }
@@ -435,7 +435,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 if.end:                                           ; preds = %land.lhs.true, %entry
-  %priv_key4 = getelementptr inbounds i8, ptr %key, i64 16
+  %priv_key4 = getelementptr inbounds nuw i8, ptr %key, i64 16
   %1 = load ptr, ptr %priv_key4, align 8
   tail call void @BN_clear_free(ptr noundef %1) #8
   %call5 = tail call ptr @BN_dup(ptr noundef %priv_key) #8
@@ -454,7 +454,7 @@ declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @EC_KEY_get0_public_key(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
 entry:
-  %pub_key = getelementptr inbounds i8, ptr %key, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %key, i64 8
   %0 = load ptr, ptr %pub_key, align 8
   ret ptr %0
 }
@@ -462,7 +462,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @EC_KEY_set_public_key(ptr nocapture noundef %key, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
-  %pub_key1 = getelementptr inbounds i8, ptr %key, i64 8
+  %pub_key1 = getelementptr inbounds nuw i8, ptr %key, i64 8
   %0 = load ptr, ptr %pub_key1, align 8
   tail call void @EC_POINT_free(ptr noundef %0) #8
   %1 = load ptr, ptr %key, align 8
@@ -476,7 +476,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @EC_KEY_get_enc_flags(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
 entry:
-  %enc_flag = getelementptr inbounds i8, ptr %key, i64 24
+  %enc_flag = getelementptr inbounds nuw i8, ptr %key, i64 24
   %0 = load i32, ptr %enc_flag, align 8
   ret i32 %0
 }
@@ -484,7 +484,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @EC_KEY_set_enc_flags(ptr nocapture noundef writeonly initializes((24, 28)) %key, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
-  %enc_flag = getelementptr inbounds i8, ptr %key, i64 24
+  %enc_flag = getelementptr inbounds nuw i8, ptr %key, i64 24
   store i32 %flags, ptr %enc_flag, align 8
   ret void
 }
@@ -492,7 +492,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @EC_KEY_get_conv_form(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
 entry:
-  %conv_form = getelementptr inbounds i8, ptr %key, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %key, i64 28
   %0 = load i32, ptr %conv_form, align 4
   ret i32 %0
 }
@@ -500,7 +500,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @EC_KEY_set_conv_form(ptr nocapture noundef writeonly initializes((28, 32)) %key, i32 noundef %cform) local_unnamed_addr #5 {
 entry:
-  %conv_form = getelementptr inbounds i8, ptr %key, i64 28
+  %conv_form = getelementptr inbounds nuw i8, ptr %key, i64 28
   store i32 %cform, ptr %conv_form, align 4
   ret void
 }
@@ -517,7 +517,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %if.then, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %pub_key = getelementptr inbounds i8, ptr %eckey, i64 8
+  %pub_key = getelementptr inbounds nuw i8, ptr %eckey, i64 8
   %1 = load ptr, ptr %pub_key, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.then, label %if.end
@@ -554,7 +554,7 @@ if.then16:                                        ; preds = %if.end11
 if.end17:                                         ; preds = %if.end11
   %4 = load ptr, ptr %eckey, align 8
   %5 = load ptr, ptr %4, align 8
-  %check_pub_key_order = getelementptr inbounds i8, ptr %5, i64 48
+  %check_pub_key_order = getelementptr inbounds nuw i8, ptr %5, i64 48
   %6 = load ptr, ptr %check_pub_key_order, align 8
   %cmp19.not = icmp eq ptr %6, null
   br i1 %cmp19.not, label %if.end28, label %land.lhs.true
@@ -570,7 +570,7 @@ if.then27:                                        ; preds = %land.lhs.true
   br label %err
 
 if.end28:                                         ; preds = %land.lhs.true, %if.end17
-  %priv_key = getelementptr inbounds i8, ptr %eckey, i64 16
+  %priv_key = getelementptr inbounds nuw i8, ptr %eckey, i64 16
   %8 = load ptr, ptr %priv_key, align 8
   %tobool29.not = icmp eq ptr %8, null
   br i1 %tobool29.not, label %err, label %if.then30
@@ -753,7 +753,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %priv_key2 = getelementptr inbounds i8, ptr %eckey, i64 16
+  %priv_key2 = getelementptr inbounds nuw i8, ptr %eckey, i64 16
   %1 = load ptr, ptr %priv_key2, align 8
   %cmp = icmp eq ptr %1, null
   br i1 %cmp, label %if.then3, label %if.end8
@@ -784,7 +784,7 @@ do.cond:                                          ; preds = %do.body
   br i1 %tobool16.not, label %do.end, label %do.body, !llvm.loop !7
 
 do.end:                                           ; preds = %do.cond
-  %pub_key17 = getelementptr inbounds i8, ptr %eckey, i64 8
+  %pub_key17 = getelementptr inbounds nuw i8, ptr %eckey, i64 8
   %3 = load ptr, ptr %pub_key17, align 8
   %cmp18 = icmp eq ptr %3, null
   br i1 %cmp18, label %if.then19, label %if.end27
@@ -811,7 +811,7 @@ err:                                              ; preds = %do.body, %if.end27,
   %ok.0 = phi i32 [ 0, %if.then3 ], [ 0, %if.then19 ], [ 1, %if.end32 ], [ 0, %if.end27 ], [ 0, %do.body ]
   %priv_key.0 = phi ptr [ null, %if.then3 ], [ %priv_key.1, %if.then19 ], [ %priv_key.1, %if.end32 ], [ %priv_key.1, %if.end27 ], [ %priv_key.1, %do.body ]
   %pub_key.0 = phi ptr [ null, %if.then3 ], [ null, %if.then19 ], [ %pub_key.1, %if.end32 ], [ %pub_key.1, %if.end27 ], [ null, %do.body ]
-  %pub_key35 = getelementptr inbounds i8, ptr %eckey, i64 8
+  %pub_key35 = getelementptr inbounds nuw i8, ptr %eckey, i64 8
   %6 = load ptr, ptr %pub_key35, align 8
   %cmp36 = icmp eq ptr %6, null
   br i1 %cmp36, label %if.then37, label %if.end38
@@ -856,7 +856,7 @@ declare i32 @CRYPTO_get_ex_new_index(ptr noundef, ptr noundef, i64 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @EC_KEY_set_ex_data(ptr noundef %d, i32 noundef %idx, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds i8, ptr %d, i64 48
+  %ex_data = getelementptr inbounds nuw i8, ptr %d, i64 48
   %call = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx, ptr noundef %arg) #8
   ret i32 %call
 }
@@ -866,7 +866,7 @@ declare i32 @CRYPTO_set_ex_data(ptr noundef, i32 noundef, ptr noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden ptr @EC_KEY_get_ex_data(ptr noundef %d, i32 noundef %idx) local_unnamed_addr #0 {
 entry:
-  %ex_data = getelementptr inbounds i8, ptr %d, i64 48
+  %ex_data = getelementptr inbounds nuw i8, ptr %d, i64 48
   %call = tail call ptr @CRYPTO_get_ex_data(ptr noundef nonnull %ex_data, i32 noundef %idx) #8
   ret ptr %call
 }

@@ -80,7 +80,7 @@ define hidden noundef i32 @_ZNK4ncnn11Sigmoid_x8615forward_inplaceERNS_3MatERKNS
   %32 = fadd fast float %31, 1.000000e+00
   %33 = fdiv fast float 1.000000e+00, %32
   store float %33, ptr %.1217.us, align 4
-  %34 = getelementptr inbounds i8, ptr %.1217.us, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.1217.us, i64 4
   %35 = add nuw nsw i32 %.1168216.us, 1
   %exitcond234.not = icmp eq i32 %35, %16
   br i1 %exitcond234.not, label %._crit_edge.us, label %.lr.ph218.us, !llvm.loop !6
@@ -123,7 +123,7 @@ define hidden noundef i32 @_ZNK4ncnn11Sigmoid_x8615forward_inplaceERNS_3MatERKNS
   %69 = fadd fast <4 x float> %68, splat (float 1.000000e+00)
   %70 = fdiv fast <4 x float> splat (float 1.000000e+00), %69
   store <4 x float> %70, ptr %.0166214.us, align 16
-  %71 = getelementptr inbounds i8, ptr %.0166214.us, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0166214.us, i64 16
   %72 = add nuw nsw i32 %.0167213.us, 4
   %73 = or disjoint i32 %72, 3
   %74 = icmp slt i32 %73, %16
@@ -159,7 +159,7 @@ define hidden noundef i32 @_ZNK4ncnn11Sigmoid_x8615forward_inplaceERNS_3MatERKNS
   %86 = fadd fast float %85, 1.000000e+00
   %87 = fdiv fast float 1.000000e+00, %86
   store float %87, ptr %.1217.us225, align 4
-  %88 = getelementptr inbounds i8, ptr %.1217.us225, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %.1217.us225, i64 4
   %89 = add nuw nsw i32 %.1168216.us226, 1
   %exitcond.not = icmp eq i32 %89, %16
   br i1 %exitcond.not, label %._crit_edge.us228, label %82, !llvm.loop !6

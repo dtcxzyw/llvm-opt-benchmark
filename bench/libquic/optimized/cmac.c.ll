@@ -13,8 +13,8 @@ define hidden range(i32 0, 2) i32 @AES_CMAC(ptr noundef %out, ptr noundef %key, 
 entry:
   %scratch.i = alloca [16 x i8], align 16
   %ctx = alloca %struct.cmac_ctx_st, align 8
-  %.sroa.gep = getelementptr inbounds i8, ptr %ctx, i64 168
-  %.sroa.gep12 = getelementptr inbounds i8, ptr %ctx, i64 152
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %ctx, i64 168
+  %.sroa.gep12 = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   switch i64 %key_len, label %return [
     i64 16, label %sw.bb
     i64 32, label %sw.bb1
@@ -37,7 +37,7 @@ sw.epilog:                                        ; preds = %sw.bb1, %sw.bb
 
 land.lhs.true:                                    ; preds = %sw.epilog
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %scratch.i)
-  %block_used.i = getelementptr inbounds i8, ptr %ctx, i64 200
+  %block_used.i = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   %0 = load i32, ptr %block_used.i, align 8
   %cmp.not.i = icmp eq i32 %0, 0
   br i1 %cmp.not.i, label %if.end20.i, label %if.then.i
@@ -46,9 +46,9 @@ if.then.i:                                        ; preds = %land.lhs.true
   %sub.i = sub i32 16, %0
   %conv.i = zext i32 %sub.i to i64
   %spec.select.i = call i64 @llvm.umin.i64(i64 %in_len, i64 %conv.i)
-  %block.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %block.i, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %block.i, i64 %idx.ext.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i, ptr align 1 %in, i64 %spec.select.i, i1 false)
   %sub7.i = sub i64 %in_len, %spec.select.i
   %1 = load i32, ptr %block_used.i, align 8
@@ -59,7 +59,7 @@ if.then.i:                                        ; preds = %land.lhs.true
   br i1 %cmp11.i, label %land.rhs, label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then.i
-  %add.ptr6.i = getelementptr inbounds i8, ptr %in, i64 %spec.select.i
+  %add.ptr6.i = getelementptr inbounds nuw i8, ptr %in, i64 %spec.select.i
   %call.i = call i32 @EVP_Cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch.i, ptr noundef nonnull %block.i, i64 noundef 16) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %CMAC_Update.exit.thread, label %if.end20.i
@@ -78,7 +78,7 @@ while.body.i:                                     ; preds = %if.end20.i, %if.end
   br i1 %tobool26.not.i, label %CMAC_Update.exit.thread, label %if.end28.i
 
 if.end28.i:                                       ; preds = %while.body.i
-  %add.ptr29.i = getelementptr inbounds i8, ptr %in.addr.128.i, i64 16
+  %add.ptr29.i = getelementptr inbounds nuw i8, ptr %in.addr.128.i, i64 16
   %sub30.i = add i64 %in_len.addr.129.i, -16
   %cmp21.i = icmp ugt i64 %sub30.i, 16
   br i1 %cmp21.i, label %while.body.i, label %while.end.i, !llvm.loop !7
@@ -86,7 +86,7 @@ if.end28.i:                                       ; preds = %while.body.i
 while.end.i:                                      ; preds = %if.end28.i, %if.end20.i
   %in.addr.1.lcssa.i = phi ptr [ %in.addr.0.i, %if.end20.i ], [ %add.ptr29.i, %if.end28.i ]
   %in_len.addr.1.lcssa.i = phi i64 [ %in_len.addr.0.i, %if.end20.i ], [ %sub30.i, %if.end28.i ]
-  %block31.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block31.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %block31.i, ptr align 1 %in.addr.1.lcssa.i, i64 %in_len.addr.1.lcssa.i, i1 false)
   %conv33.i = trunc nuw nsw i64 %in_len.addr.1.lcssa.i to i32
   store i32 %conv33.i, ptr %block_used.i, align 8
@@ -107,14 +107,14 @@ if.end.i:                                         ; preds = %land.rhs
   br i1 %cmp1.not.i, label %if.end10.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %block.i3 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block.i3 = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %idxprom.i = zext i32 %3 to i64
-  %arrayidx.i = getelementptr inbounds [16 x i8], ptr %block.i3, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x i8], ptr %block.i3, i64 0, i64 %idxprom.i
   store i8 -128, ptr %arrayidx.i, align 1
   %4 = load i32, ptr %block_used.i, align 8
   %idx.ext.i4 = zext i32 %4 to i64
-  %add.ptr.i5 = getelementptr inbounds i8, ptr %block.i3, i64 %idx.ext.i4
-  %add.ptr7.i = getelementptr inbounds i8, ptr %add.ptr.i5, i64 1
+  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %block.i3, i64 %idx.ext.i4
+  %add.ptr7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i5, i64 1
   %sub.i6 = sub i32 15, %4
   %conv.i7 = zext i32 %sub.i6 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr7.i, i8 0, i64 %conv.i7, i1 false)
@@ -122,18 +122,18 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.then2.i, %if.end.i
   %5 = phi i64 [ 168, %if.then2.i ], [ 152, %if.end.i ]
-  %block13.i = getelementptr inbounds i8, ptr %ctx, i64 184
-  %6 = getelementptr inbounds i8, ptr %ctx, i64 %5
+  %block13.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %ctx, i64 %5
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %if.end10.i
   %indvars.iv.i = phi i64 [ 0, %if.end10.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx15.i = getelementptr inbounds [16 x i8], ptr %block13.i, i64 0, i64 %indvars.iv.i
+  %arrayidx15.i = getelementptr inbounds nuw [16 x i8], ptr %block13.i, i64 0, i64 %indvars.iv.i
   %7 = load i8, ptr %arrayidx15.i, align 1
-  %arrayidx18.i = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   %8 = load i8, ptr %arrayidx18.i, align 1
   %xor17.i = xor i8 %8, %7
-  %arrayidx22.i = getelementptr inbounds i8, ptr %out, i64 %indvars.iv.i
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %out, i64 %indvars.iv.i
   store i8 %xor17.i, ptr %arrayidx22.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -150,7 +150,7 @@ land.end:                                         ; preds = %for.end.i, %land.rh
   %call.i10 = call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep12, i64 noundef 16) #8
   call void @OPENSSL_cleanse(ptr noundef nonnull %.sroa.gep, i64 noundef 16) #8
-  %block.i11 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block.i11 = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   call void @OPENSSL_cleanse(ptr noundef nonnull %block.i11, i64 noundef 16) #8
   br label %return
 
@@ -193,7 +193,7 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false6
   br i1 %tobool13.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false10
-  %k1 = getelementptr inbounds i8, ptr %ctx, i64 152
+  %k1 = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   %.pre = load i8, ptr %scratch, align 16
   br label %for.body.i
 
@@ -201,24 +201,24 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %0 = phi i8 [ %.pre, %if.end ], [ %1, %for.body.i ]
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx2.i = getelementptr inbounds i8, ptr %scratch, i64 %indvars.iv.next.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %scratch, i64 %indvars.iv.next.i
   %1 = load i8, ptr %arrayidx2.i, align 1
   %or.i = call i8 @llvm.fshl.i8(i8 %0, i8 %1, i8 1)
-  %arrayidx6.i = getelementptr inbounds i8, ptr %k1, i64 %indvars.iv.i
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %k1, i64 %indvars.iv.i
   store i8 %or.i, ptr %arrayidx6.i, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %binary_field_mul_x.exit, label %for.body.i, !llvm.loop !10
 
 binary_field_mul_x.exit:                          ; preds = %for.body.i
-  %arrayidx12.i = getelementptr inbounds i8, ptr %scratch, i64 15
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %scratch, i64 15
   %2 = load i8, ptr %arrayidx12.i, align 1
   %shl14.i = shl i8 %2, 1
   %isneg.i = icmp slt i8 %.pre, 0
   %and.i = select i1 %isneg.i, i8 -121, i8 0
   %xor.i = xor i8 %shl14.i, %and.i
-  %arrayidx18.i = getelementptr inbounds i8, ptr %ctx, i64 167
+  %arrayidx18.i = getelementptr inbounds nuw i8, ptr %ctx, i64 167
   store i8 %xor.i, ptr %arrayidx18.i, align 1
-  %k2 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %k2 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %.pre24 = load i8, ptr %k1, align 1
   br label %for.body.i9
 
@@ -226,10 +226,10 @@ for.body.i9:                                      ; preds = %for.body.i9, %binar
   %3 = phi i8 [ %.pre24, %binary_field_mul_x.exit ], [ %4, %for.body.i9 ]
   %indvars.iv.i10 = phi i64 [ 0, %binary_field_mul_x.exit ], [ %indvars.iv.next.i12, %for.body.i9 ]
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i10, 1
-  %arrayidx2.i13 = getelementptr inbounds i8, ptr %k1, i64 %indvars.iv.next.i12
+  %arrayidx2.i13 = getelementptr inbounds nuw i8, ptr %k1, i64 %indvars.iv.next.i12
   %4 = load i8, ptr %arrayidx2.i13, align 1
   %or.i14 = call i8 @llvm.fshl.i8(i8 %3, i8 %4, i8 1)
-  %arrayidx6.i15 = getelementptr inbounds i8, ptr %k2, i64 %indvars.iv.i10
+  %arrayidx6.i15 = getelementptr inbounds nuw i8, ptr %k2, i64 %indvars.iv.i10
   store i8 %or.i14, ptr %arrayidx6.i15, align 1
   %exitcond.not.i16 = icmp eq i64 %indvars.iv.next.i12, 15
   br i1 %exitcond.not.i16, label %binary_field_mul_x.exit23, label %for.body.i9, !llvm.loop !10
@@ -239,9 +239,9 @@ binary_field_mul_x.exit23:                        ; preds = %for.body.i9
   %isneg.i19 = icmp slt i8 %.pre24, 0
   %and.i20 = select i1 %isneg.i19, i8 -121, i8 0
   %xor.i21 = xor i8 %shl14.i18, %and.i20
-  %arrayidx18.i22 = getelementptr inbounds i8, ptr %ctx, i64 183
+  %arrayidx18.i22 = getelementptr inbounds nuw i8, ptr %ctx, i64 183
   store i8 %xor.i21, ptr %arrayidx18.i22, align 1
-  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
+  %block_used = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   store i32 0, ptr %block_used, align 8
   br label %return
 
@@ -254,7 +254,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 define hidden range(i32 0, 2) i32 @CMAC_Update(ptr noundef %ctx, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %scratch = alloca [16 x i8], align 16
-  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
+  %block_used = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   %0 = load i32, ptr %block_used, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end20, label %if.then
@@ -263,9 +263,9 @@ if.then:                                          ; preds = %entry
   %sub = sub i32 16, %0
   %conv = zext i32 %sub to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %in_len, i64 %conv)
-  %block = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %block, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %block, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %in, i64 %spec.select, i1 false)
   %sub7 = sub i64 %in_len, %spec.select
   %1 = load i32, ptr %block_used, align 8
@@ -276,7 +276,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp11, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.then
-  %add.ptr6 = getelementptr inbounds i8, ptr %in, i64 %spec.select
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %in, i64 %spec.select
   %call = call i32 @EVP_Cipher(ptr noundef nonnull %ctx, ptr noundef nonnull %scratch, ptr noundef nonnull %block, i64 noundef 16) #8
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end20
@@ -295,7 +295,7 @@ while.body:                                       ; preds = %if.end20, %if.end28
   br i1 %tobool26.not, label %return, label %if.end28
 
 if.end28:                                         ; preds = %while.body
-  %add.ptr29 = getelementptr inbounds i8, ptr %in.addr.128, i64 16
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %in.addr.128, i64 16
   %sub30 = add i64 %in_len.addr.129, -16
   %cmp21 = icmp ugt i64 %sub30, 16
   br i1 %cmp21, label %while.body, label %while.end, !llvm.loop !7
@@ -303,7 +303,7 @@ if.end28:                                         ; preds = %while.body
 while.end:                                        ; preds = %if.end28, %if.end20
   %in.addr.1.lcssa = phi ptr [ %in.addr.0, %if.end20 ], [ %add.ptr29, %if.end28 ]
   %in_len.addr.1.lcssa = phi i64 [ %in_len.addr.0, %if.end20 ], [ %sub30, %if.end28 ]
-  %block31 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block31 = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %block31, ptr align 1 %in.addr.1.lcssa, i64 %in_len.addr.1.lcssa, i1 false)
   %conv33 = trunc nuw nsw i64 %in_len.addr.1.lcssa to i32
   store i32 %conv33, ptr %block_used, align 8
@@ -322,20 +322,20 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
+  %block_used = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   %0 = load i32, ptr %block_used, align 8
   %cmp1.not = icmp eq i32 %0, 16
   br i1 %cmp1.not, label %if.end10, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %block = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   %idxprom = zext i32 %0 to i64
-  %arrayidx = getelementptr inbounds [16 x i8], ptr %block, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %block, i64 0, i64 %idxprom
   store i8 -128, ptr %arrayidx, align 1
   %1 = load i32, ptr %block_used, align 8
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %block, i64 %idx.ext
-  %add.ptr7 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %block, i64 %idx.ext
+  %add.ptr7 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %sub = sub i32 15, %1
   %conv = zext i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr7, i8 0, i64 %conv, i1 false)
@@ -343,18 +343,18 @@ if.then2:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %if.then2, %if.end
   %2 = phi i64 [ 168, %if.then2 ], [ 152, %if.end ]
-  %3 = getelementptr inbounds i8, ptr %ctx, i64 %2
-  %block13 = getelementptr inbounds i8, ptr %ctx, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %ctx, i64 %2
+  %block13 = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   br label %for.body
 
 for.body:                                         ; preds = %if.end10, %for.body
   %indvars.iv = phi i64 [ 0, %if.end10 ], [ %indvars.iv.next, %for.body ]
-  %arrayidx15 = getelementptr inbounds [16 x i8], ptr %block13, i64 0, i64 %indvars.iv
+  %arrayidx15 = getelementptr inbounds nuw [16 x i8], ptr %block13, i64 0, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx15, align 1
-  %arrayidx18 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx18, align 1
   %xor17 = xor i8 %5, %4
-  %arrayidx22 = getelementptr inbounds i8, ptr %out, i64 %indvars.iv
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %out, i64 %indvars.iv
   store i8 %xor17, ptr %arrayidx22, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -395,11 +395,11 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call.i = tail call i32 @EVP_CIPHER_CTX_cleanup(ptr noundef nonnull %ctx) #8
-  %k1.i = getelementptr inbounds i8, ptr %ctx, i64 152
+  %k1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 152
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k1.i, i64 noundef 16) #8
-  %k2.i = getelementptr inbounds i8, ptr %ctx, i64 168
+  %k2.i = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %k2.i, i64 noundef 16) #8
-  %block.i = getelementptr inbounds i8, ptr %ctx, i64 184
+  %block.i = getelementptr inbounds nuw i8, ptr %ctx, i64 184
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %block.i, i64 noundef 16) #8
   tail call void @free(ptr noundef nonnull %ctx) #8
   br label %return
@@ -422,7 +422,7 @@ declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: nounwind uwtable
 define hidden i32 @CMAC_Reset(ptr noundef initializes((200, 204)) %ctx) local_unnamed_addr #0 {
 entry:
-  %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
+  %block_used = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   store i32 0, ptr %block_used, align 8
   %call = tail call i32 @EVP_EncryptInit_ex(ptr noundef %ctx, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull @kZeroIV) #8
   ret i32 %call

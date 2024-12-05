@@ -23,9 +23,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ctr_drbg_init(ptr nocapture noundef writeonly initializes((0, 344)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %0, i8 0, i64 344, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 10000, ptr %3, align 8
   ret void
 }
@@ -39,12 +39,12 @@ define hidden void @mbedtls_ctr_drbg_free(ptr noundef %0) local_unnamed_addr #2 
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @mbedtls_aes_free(ptr noundef nonnull %4) #13
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 344) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 10000, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %6, align 8
   br label %7
 
@@ -58,21 +58,21 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ctr_drbg_set_prediction_resistance(ptr nocapture noundef writeonly initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ctr_drbg_set_entropy_len(ptr nocapture noundef writeonly initializes((24, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden range(i32 -56, 1) i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %10
@@ -83,7 +83,7 @@ define hidden range(i32 -56, 1) i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocaptur
 
 7:                                                ; preds = %5
   %8 = trunc nuw nsw i64 %1 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %8, ptr %9, align 8
   br label %10
 
@@ -94,7 +94,7 @@ define hidden range(i32 -56, 1) i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @mbedtls_ctr_drbg_set_reseed_interval(ptr nocapture noundef writeonly initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
@@ -114,7 +114,7 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr nocapture noundef
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %18, %9
@@ -129,7 +129,7 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr nocapture noundef
 
 12:                                               ; preds = %11
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %13 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i
   %14 = load i8, ptr %13, align 1
   %15 = add i8 %14, 1
   store i8 %15, ptr %13, align 1
@@ -142,16 +142,16 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr nocapture noundef
   br i1 %.not24.i, label %18, label %ctr_drbg_update_internal.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %.01926.i, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.01926.i, i64 16
   %20 = add nuw nsw i32 %.01727.i, 16
   %21 = icmp samesign ult i32 %.01727.i, 32
   br i1 %21, label %.preheader25.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %18, %.preheader.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.preheader.i ], [ 0, %18 ]
-  %22 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv31.i
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv31.i
   %23 = load i8, ptr %22, align 1
-  %24 = getelementptr inbounds [48 x i8], ptr %4, i64 0, i64 %indvars.iv31.i
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 0, i64 %indvars.iv31.i
   %25 = load i8, ptr %24, align 1
   %26 = xor i8 %25, %23
   store i8 %26, ptr %24, align 1
@@ -165,7 +165,7 @@ define hidden i32 @mbedtls_ctr_drbg_update(ptr noundef %0, ptr nocapture noundef
   br i1 %.not.i, label %29, label %ctr_drbg_update_internal.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %4, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %30, i64 16, i1 false)
   br label %ctr_drbg_update_internal.exit
 
@@ -198,29 +198,29 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr nocaptur
 10:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(416) %4, i8 0, i64 416, i1 false)
   call void @mbedtls_aes_init(ptr noundef nonnull %8) #13
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 0, ptr %11, align 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 17
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 0, ptr %12, align 1
   %13 = lshr i64 %2, 8
   %14 = trunc nuw nsw i64 %13 to i8
-  %15 = getelementptr inbounds i8, ptr %4, i64 18
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i8 %14, ptr %15, align 2
   %16 = trunc i64 %2 to i8
-  %17 = getelementptr inbounds i8, ptr %4, i64 19
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 %16, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %4, i64 23
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 23
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 48, ptr %18, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %1, i64 %2, i1 false)
-  %20 = getelementptr inbounds i8, ptr %19, i64 %2
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %2
   store i8 -128, ptr %20, align 1
   br label %21
 
 21:                                               ; preds = %10, %21
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %21 ]
   %22 = trunc i64 %indvars.iv to i8
-  %23 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %indvars.iv
   store i8 %22, ptr %23, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
@@ -233,56 +233,56 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr nocaptur
   br i1 %.not, label %.preheader67, label %.loopexit
 
 .preheader67:                                     ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %4, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 3
   br label %28
 
-28:                                               ; preds = %.preheader67, %39
-  %indvars.iv79 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next80, %39 ]
+28:                                               ; preds = %.preheader67, %40
+  %29 = phi i8 [ 0, %.preheader67 ], [ %42, %40 ]
+  %indvars.iv79 = phi i64 [ 0, %.preheader67 ], [ %indvars.iv.next80, %40 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %35, %28
-  %.052 = phi ptr [ %4, %28 ], [ %36, %35 ]
-  %.0 = phi i64 [ %25, %28 ], [ %37, %35 ]
+30:                                               ; preds = %36, %28
+  %.052 = phi ptr [ %4, %28 ], [ %37, %36 ]
+  %.0 = phi i64 [ %25, %28 ], [ %38, %36 ]
   %.not63 = icmp eq i64 %.0, 0
-  br i1 %.not63, label %39, label %.preheader
+  br i1 %.not63, label %40, label %.preheader
 
-.preheader:                                       ; preds = %29, %.preheader
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader ], [ 0, %29 ]
-  %30 = getelementptr inbounds i8, ptr %.052, i64 %indvars.iv75
-  %31 = load i8, ptr %30, align 1
-  %32 = getelementptr inbounds [16 x i8], ptr %7, i64 0, i64 %indvars.iv75
-  %33 = load i8, ptr %32, align 1
-  %34 = xor i8 %33, %31
-  store i8 %34, ptr %32, align 1
+.preheader:                                       ; preds = %30, %.preheader
+  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader ], [ 0, %30 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.052, i64 %indvars.iv75
+  %32 = load i8, ptr %31, align 1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %indvars.iv75
+  %34 = load i8, ptr %33, align 1
+  %35 = xor i8 %34, %32
+  store i8 %35, ptr %33, align 1
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond78.not = icmp eq i64 %indvars.iv.next76, 16
-  br i1 %exitcond78.not, label %35, label %.preheader, !llvm.loop !9
+  br i1 %exitcond78.not, label %36, label %.preheader, !llvm.loop !9
 
-35:                                               ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %.052, i64 16
-  %37 = call i64 @llvm.usub.sat.i64(i64 %.0, i64 16)
-  %38 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %7) #13
-  %.not64 = icmp eq i32 %38, 0
-  br i1 %.not64, label %29, label %.loopexit, !llvm.loop !10
+36:                                               ; preds = %.preheader
+  %37 = getelementptr inbounds nuw i8, ptr %.052, i64 16
+  %38 = call i64 @llvm.usub.sat.i64(i64 %.0, i64 16)
+  %39 = call i32 @mbedtls_aes_crypt_ecb(ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %7, ptr noundef nonnull %7) #13
+  %.not64 = icmp eq i32 %39, 0
+  br i1 %.not64, label %30, label %.loopexit, !llvm.loop !10
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %40, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
-  %41 = load i8, ptr %27, align 1
-  %42 = add i8 %41, 1
+40:                                               ; preds = %30
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %41, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
+  %42 = add i8 %29, 1
   store i8 %42, ptr %27, align 1
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 16
   %43 = icmp samesign ult i64 %indvars.iv79, 32
   br i1 %43, label %28, label %44, !llvm.loop !11
 
-44:                                               ; preds = %39
+44:                                               ; preds = %40
   %45 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 256) #13
   %.not61 = icmp eq i32 %45, 0
   br i1 %.not61, label %46, label %.loopexit
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %5, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %48
 
 48:                                               ; preds = %46, %50
@@ -294,13 +294,13 @@ define internal fastcc i32 @block_cipher_df(ptr noundef nonnull %0, ptr nocaptur
 
 50:                                               ; preds = %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.15371, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false)
-  %51 = getelementptr inbounds i8, ptr %.15371, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.15371, i64 16
   %52 = add nuw nsw i32 %.172, 16
   %53 = icmp samesign ult i32 %.172, 32
   br i1 %53, label %48, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %35, %50, %48, %44, %24
-  %.050 = phi i32 [ %26, %24 ], [ %45, %44 ], [ 0, %50 ], [ %49, %48 ], [ %38, %35 ]
+.loopexit:                                        ; preds = %36, %50, %48, %44, %24
+  %.050 = phi i32 [ %26, %24 ], [ %45, %44 ], [ 0, %50 ], [ %49, %48 ], [ %39, %36 ]
   call void @mbedtls_aes_free(ptr noundef nonnull %8) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 416) #13
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 48) #13
@@ -328,7 +328,7 @@ define hidden i32 @mbedtls_ctr_drbg_reseed(ptr noundef %0, ptr noundef %1, i64 n
 define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef range(i64 0, 2147483648) %3) unnamed_addr #2 {
   %5 = alloca [48 x i8], align 16
   %6 = alloca [384 x i8], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp ugt i64 %8, 384
   br i1 %9, label %62, label %10
@@ -343,9 +343,9 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 
 15:                                               ; preds = %10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(384) %6, i8 0, i64 384, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 328
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 336
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 %17(ptr noundef %19, ptr noundef nonnull %6, i64 noundef %8) #13
   %.not = icmp eq i32 %20, 0
@@ -390,7 +390,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 48, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %47, %38
@@ -405,7 +405,7 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
 
 41:                                               ; preds = %40
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %42 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i
   %43 = load i8, ptr %42, align 1
   %44 = add i8 %43, 1
   store i8 %44, ptr %42, align 1
@@ -418,16 +418,16 @@ define internal fastcc i32 @mbedtls_ctr_drbg_reseed_internal(ptr noundef %0, ptr
   br i1 %.not24.i, label %47, label %ctr_drbg_update_internal.exit.thread
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.01926.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.01926.i, i64 16
   %49 = add nuw nsw i32 %.01727.i, 16
   %50 = icmp samesign ult i32 %.01727.i, 32
   br i1 %50, label %.preheader25.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %47, %.preheader.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.preheader.i ], [ 0, %47 ]
-  %51 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv31.i
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv31.i
   %52 = load i8, ptr %51, align 1
-  %53 = getelementptr inbounds [48 x i8], ptr %5, i64 0, i64 %indvars.iv31.i
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 0, i64 %indvars.iv31.i
   %54 = load i8, ptr %53, align 1
   %55 = xor i8 %54, %52
   store i8 %55, ptr %53, align 1
@@ -447,11 +447,11 @@ ctr_drbg_update_internal.exit.thread:             ; preds = %45, %56
   br label %61
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %5, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %59, i64 16, i1 false)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 48) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %60, align 8
   br label %61
 
@@ -469,13 +469,13 @@ ctr_drbg_update_internal.exit.thread:             ; preds = %45, %56
 define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @mbedtls_aes_init(ptr noundef nonnull %7) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 328
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 336
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
@@ -486,7 +486,7 @@ define hidden i32 @mbedtls_ctr_drbg_seed(ptr noundef %0, ptr noundef %1, ptr nou
 
 14:                                               ; preds = %13, %5
   %15 = phi i64 [ 48, %13 ], [ %11, %5 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = call i32 @mbedtls_aes_setkey_enc(ptr noundef nonnull %7, ptr noundef nonnull %6, i32 noundef 256) #13
   %.not = icmp eq i32 %18, 0
@@ -527,15 +527,15 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr nocaptur
 
 13:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %24, label %22
@@ -557,7 +557,7 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr nocaptur
 27:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %7, i8 0, i64 48, i1 false)
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %36, %27
@@ -572,7 +572,7 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr nocaptur
 
 30:                                               ; preds = %29
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %31 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i
   %32 = load i8, ptr %31, align 1
   %33 = add i8 %32, 1
   store i8 %33, ptr %31, align 1
@@ -585,16 +585,16 @@ define hidden i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef %0, ptr nocaptur
   br i1 %.not24.i, label %36, label %ctr_drbg_update_internal.exit.thread
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.01926.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.01926.i, i64 16
   %38 = add nuw nsw i32 %.01727.i, 16
   %39 = icmp samesign ult i32 %.01727.i, 32
   br i1 %39, label %.preheader25.i, label %.preheader.i, !llvm.loop !6
 
 .preheader.i:                                     ; preds = %36, %.preheader.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.preheader.i ], [ 0, %36 ]
-  %40 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv31.i
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv31.i
   %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds [48 x i8], ptr %7, i64 0, i64 %indvars.iv31.i
+  %42 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 0, i64 %indvars.iv31.i
   %43 = load i8, ptr %42, align 1
   %44 = xor i8 %43, %41
   store i8 %44, ptr %42, align 1
@@ -614,7 +614,7 @@ ctr_drbg_update_internal.exit.thread:             ; preds = %34, %45
   br label %.loopexit
 
 ctr_drbg_update_internal.exit:                    ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %7, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %47, i64 16, i1 false)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 48) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
@@ -625,7 +625,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
   br i1 %.not4978, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %56
@@ -640,7 +640,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
 
 50:                                               ; preds = %49
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %51 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next
   %52 = load i8, ptr %51, align 1
   %53 = add i8 %52, 1
   store i8 %53, ptr %51, align 1
@@ -655,7 +655,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
 56:                                               ; preds = %54
   %57 = call i64 @llvm.umin.i64(i64 %.03579, i64 16)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03480, ptr nonnull align 16 %9, i64 %57, i1 false)
-  %58 = getelementptr inbounds i8, ptr %.03480, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %.03480, i64 %57
   %59 = sub i64 %.03579, %57
   %.not49 = icmp eq i64 %59, 0
   br i1 %.not49, label %._crit_edge, label %.preheader, !llvm.loop !14
@@ -663,7 +663,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
 ._crit_edge:                                      ; preds = %56, %.thread
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %6, i8 0, i64 48, i1 false)
-  %60 = getelementptr inbounds i8, ptr %0, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %.preheader25.i53
 
 .preheader25.i53:                                 ; preds = %68, %._crit_edge
@@ -678,7 +678,7 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
 
 62:                                               ; preds = %61
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i56, -1
-  %63 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i58
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %indvars.iv.next.i58
   %64 = load i8, ptr %63, align 1
   %65 = add i8 %64, 1
   store i8 %65, ptr %63, align 1
@@ -691,16 +691,16 @@ ctr_drbg_update_internal.exit:                    ; preds = %45
   br i1 %.not24.i60, label %68, label %ctr_drbg_update_internal.exit67.thread
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %.01926.i55, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.01926.i55, i64 16
   %70 = add nuw nsw i32 %.01727.i54, 16
   %71 = icmp samesign ult i32 %.01727.i54, 32
   br i1 %71, label %.preheader25.i53, label %.preheader.i62, !llvm.loop !6
 
 .preheader.i62:                                   ; preds = %68, %.preheader.i62
   %indvars.iv31.i63 = phi i64 [ %indvars.iv.next32.i64, %.preheader.i62 ], [ 0, %68 ]
-  %72 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv31.i63
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv31.i63
   %73 = load i8, ptr %72, align 1
-  %74 = getelementptr inbounds [48 x i8], ptr %6, i64 0, i64 %indvars.iv31.i63
+  %74 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 0, i64 %indvars.iv31.i63
   %75 = load i8, ptr %74, align 1
   %76 = xor i8 %75, %73
   store i8 %76, ptr %74, align 1
@@ -720,7 +720,7 @@ ctr_drbg_update_internal.exit67.thread:           ; preds = %66, %77
   br label %.loopexit
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %6, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %80, i64 16, i1 false)
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 48) #13
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
@@ -851,8 +851,8 @@ define hidden range(i32 0, 2) i32 @mbedtls_ctr_drbg_self_test(i32 noundef %0) lo
   %3 = alloca %struct.mbedtls_ctr_drbg_context, align 8
   %4 = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %3, i8 0, i64 344, i1 false)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 10000, ptr %6, align 8
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %mbedtls_ctr_drbg_set_nonce_len.exit, label %7
@@ -863,16 +863,16 @@ define hidden range(i32 0, 2) i32 @mbedtls_ctr_drbg_self_test(i32 noundef %0) lo
 
 mbedtls_ctr_drbg_set_nonce_len.exit:              ; preds = %7, %1
   store i64 0, ptr @test_offset, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 32, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 328
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 328
   store i32 16, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @mbedtls_aes_init(ptr noundef nonnull %11) #13
   store ptr @ctr_drbg_self_test_entropy, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 336
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 336
   store ptr @entropy_source_pr, ptr %12, align 8
   %13 = load i64, ptr %9, align 8
   %14 = icmp eq i64 %13, 0
@@ -914,7 +914,7 @@ mbedtls_ctr_drbg_seed.exit:                       ; preds = %16
   br label %.critedge36
 
 29:                                               ; preds = %mbedtls_ctr_drbg_seed.exit
-  %30 = getelementptr inbounds i8, ptr %3, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 1, ptr %30, align 4
   %31 = call i32 @mbedtls_ctr_drbg_random_with_add(ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef 64, ptr noundef null, i64 noundef 0)
   %.not16 = icmp eq i32 %31, 0

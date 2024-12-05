@@ -172,7 +172,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %125 = getelementptr double, ptr %gep, i64 %124
   %126 = load double, ptr %125, align 8, !tbaa !7
   %127 = fcmp oeq double %126, 0.000000e+00
-  %128 = getelementptr inbounds i32, ptr %40, i64 %116
+  %128 = getelementptr inbounds nuw i32, ptr %40, i64 %116
   %129 = load i32, ptr %128, align 4, !tbaa !3
   %130 = icmp eq i32 %129, 0
   br i1 %127, label %131, label %132
@@ -353,7 +353,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %229 = call double @sqrt(double noundef %227) #7
   %230 = fmul double %228, %229
   store double %230, ptr %19, align 8, !tbaa !7
-  %231 = getelementptr inbounds i8, ptr %19, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double %230, ptr %231, align 8, !tbaa !7
   br label %474
 
@@ -376,7 +376,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %240, label %241, label %284
 
 241:                                              ; preds = %236
-  %242 = getelementptr inbounds i32, ptr %40, i64 %238
+  %242 = getelementptr inbounds nuw i32, ptr %40, i64 %238
   %243 = load i32, ptr %242, align 4, !tbaa !3
   %244 = load i32, ptr %4, align 4, !tbaa !3
   %245 = sext i32 %244 to i64
@@ -628,7 +628,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %405 = sext i32 %404 to i64
   %406 = getelementptr double, ptr %56, i64 %405
   %407 = getelementptr i8, ptr %406, i64 8
-  %408 = getelementptr inbounds i8, ptr %19, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %409 = or disjoint i32 %402, 1
   %410 = sext i32 %409 to i64
   %411 = getelementptr inbounds double, ptr %56, i64 %410
@@ -695,7 +695,7 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %448 = load double, ptr %19, align 8, !tbaa !7
   %449 = fdiv double %447, %448
   store double %449, ptr %19, align 8, !tbaa !7
-  %450 = getelementptr inbounds i8, ptr %19, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %451
 
 451:                                              ; preds = %457, %446
@@ -746,13 +746,13 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 477:                                              ; preds = %474
   %478 = add i32 %45, 1
   %479 = add i32 %41, 1
-  %480 = getelementptr inbounds i8, ptr %20, i64 8
-  %481 = getelementptr inbounds i8, ptr %20, i64 16
-  %482 = getelementptr inbounds i8, ptr %20, i64 24
-  %483 = getelementptr inbounds i8, ptr %20, i64 32
-  %484 = getelementptr inbounds i8, ptr %20, i64 40
-  %485 = getelementptr inbounds i8, ptr %20, i64 48
-  %486 = getelementptr inbounds i8, ptr %20, i64 56
+  %480 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %481 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %482 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %483 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %484 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %485 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %486 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %487 = fmul double %97, %99
   %488 = sext i32 %41 to i64
   %489 = sext i32 %45 to i64
@@ -824,11 +824,11 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %540 = load double, ptr %539, align 8, !tbaa !7
   store double %540, ptr %486, align 8, !tbaa !7
   store double %487, ptr %27, align 8, !tbaa !7
-  %541 = getelementptr inbounds double, ptr %51, i64 %495
+  %541 = getelementptr inbounds nuw double, ptr %51, i64 %495
   %542 = getelementptr double, ptr %11, i64 %495
-  %543 = getelementptr inbounds double, ptr %49, i64 %495
+  %543 = getelementptr inbounds nuw double, ptr %49, i64 %495
   %544 = getelementptr double, ptr %9, i64 %495
-  %545 = getelementptr inbounds double, ptr %50, i64 %495
+  %545 = getelementptr inbounds nuw double, ptr %50, i64 %495
   call void @dlag2_(ptr noundef nonnull %20, ptr noundef nonnull @c__2, ptr noundef nonnull %483, ptr noundef nonnull @c__2, ptr noundef nonnull %27, ptr noundef nonnull %541, ptr noundef nonnull %542, ptr noundef nonnull %543, ptr noundef nonnull %544, ptr noundef nonnull %545) #7
   %546 = load double, ptr %545, align 8, !tbaa !7
   %547 = fneg double %546
@@ -899,12 +899,12 @@ define void @dtgsen_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %592 = sext i32 %591 to i64
   %593 = getelementptr inbounds double, ptr %44, i64 %592
   %594 = load double, ptr %593, align 8, !tbaa !7
-  %595 = getelementptr inbounds double, ptr %49, i64 %495
+  %595 = getelementptr inbounds nuw double, ptr %49, i64 %495
   store double %594, ptr %595, align 8, !tbaa !7
-  %596 = getelementptr inbounds double, ptr %50, i64 %495
+  %596 = getelementptr inbounds nuw double, ptr %50, i64 %495
   store double 0.000000e+00, ptr %596, align 8, !tbaa !7
   %597 = load double, ptr %552, align 8, !tbaa !7
-  %598 = getelementptr inbounds double, ptr %51, i64 %495
+  %598 = getelementptr inbounds nuw double, ptr %51, i64 %495
   store double %597, ptr %598, align 8, !tbaa !7
   br label %599
 

@@ -242,10 +242,10 @@ define hidden noalias noundef ptr @new_avp_from_finfo(ptr noundef %0, ptr nocapt
   %4 = load ptr, ptr @avp_strings, align 8
   %5 = tail call ptr @scs_subscribe(ptr noundef %4, ptr noundef %0)
   store ptr %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @fvalue_to_string_repr(ptr noundef null, ptr noundef %7, i32 noundef 0, i32 noundef %10) #12
   %.not = icmp eq ptr %11, null
@@ -263,9 +263,9 @@ define hidden noalias noundef ptr @new_avp_from_finfo(ptr noundef %0, ptr nocapt
 
 17:                                               ; preds = %15, %13
   %.0 = phi ptr [ %14, %13 ], [ %16, %15 ]
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %.0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 61, ptr %19, align 8
   ret ptr %3
 }
@@ -282,9 +282,9 @@ define hidden noalias noundef ptr @new_avp(ptr noundef %0, ptr noundef %1, i8 no
   store ptr %6, ptr %4, align 8
   %7 = load ptr, ptr @avp_strings, align 8
   %8 = tail call ptr @scs_subscribe(ptr noundef %7, ptr noundef %1)
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %2, ptr %10, align 8
   ret ptr %4
 }
@@ -295,7 +295,7 @@ define hidden void @delete_avp(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void @scs_unsubscribe(ptr noundef %2, ptr noundef %3)
   %4 = load ptr, ptr @avp_strings, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @scs_unsubscribe(ptr noundef %4, ptr noundef %6)
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %0) #12
@@ -310,14 +310,14 @@ define hidden noalias noundef ptr @avp_copy(ptr nocapture noundef readonly %0) l
   %5 = tail call ptr @scs_subscribe(ptr noundef %3, ptr noundef %4)
   store ptr %5, ptr %2, align 8
   %6 = load ptr, ptr @avp_strings, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @scs_subscribe(ptr noundef %6, ptr noundef %8)
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i8, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i8 %12, ptr %13, align 8
   ret ptr %2
 }
@@ -330,13 +330,13 @@ define hidden noundef ptr @new_avpl(ptr noundef %0) local_unnamed_addr #0 {
   %.str.6. = select i1 %.not, ptr @.str.6, ptr %0
   %4 = tail call ptr @scs_subscribe(ptr noundef %3, ptr noundef nonnull %.str.6.)
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %6, ptr %8, align 8
   ret ptr %2
 }
@@ -354,7 +354,7 @@ define hidden void @rename_avpl(ptr nocapture noundef %0, ptr noundef %1) local_
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.01722 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.01722, align 8
   %.not23 = icmp eq ptr %4, null
@@ -362,8 +362,8 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
 
 .lr.ph:                                           ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.thread
@@ -376,7 +376,7 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %16) #14
   %18 = icmp slt i32 %17, 0
@@ -387,7 +387,7 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = load i8, ptr %7, align 8
   %25 = icmp eq i8 %24, 61
@@ -400,7 +400,7 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
   br i1 %28, label %._crit_edge, label %.thread
 
 .thread:                                          ; preds = %21, %19, %27
-  %29 = getelementptr inbounds i8, ptr %.01724, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.01724, i64 8
   %.017 = load ptr, ptr %29, align 8
   %30 = load ptr, ptr %.017, align 8
   %.not = icmp eq ptr %30, null
@@ -410,16 +410,16 @@ define hidden range(i32 0, 2) i32 @insert_avp(ptr nocapture noundef %0, ptr noun
   %.017.lcssa = phi ptr [ %.01722, %2 ], [ %.01724, %27 ], [ %.01724, %13 ], [ %.017, %.thread ]
   %31 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   store ptr %1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %.017.lcssa, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.017.lcssa, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.017.lcssa, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %31, ptr %36, align 8
   store ptr %31, ptr %33, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = add i32 %38, 1
   store i32 %39, ptr %37, align 8
@@ -442,7 +442,7 @@ define hidden ptr @get_avp_by_name(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %.not, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   br label %10
 
@@ -460,7 +460,7 @@ define hidden ptr @get_avp_by_name(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %14, label %._crit_edge, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.01318, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.01318, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %.not16 = icmp eq ptr %18, null
@@ -479,7 +479,7 @@ define hidden ptr @get_avp_by_name(ptr nocapture noundef readonly %0, ptr nounde
 define hidden ptr @extract_avp_by_name(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @avp_strings, align 8
   %4 = tail call ptr @scs_subscribe(ptr noundef %3, ptr noundef %1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.020 = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %.020, align 8
   %.not21 = icmp eq ptr %6, null
@@ -493,7 +493,7 @@ define hidden ptr @extract_avp_by_name(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %9, label %._crit_edge, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.022, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.022, i64 8
   %.0 = load ptr, ptr %11, align 8
   %12 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %12, null
@@ -508,18 +508,18 @@ define hidden ptr @extract_avp_by_name(ptr nocapture noundef %0, ptr noundef %1)
   br i1 %.not19, label %27, label %15
 
 15:                                               ; preds = %._crit_edge
-  %16 = getelementptr inbounds i8, ptr %.0.lcssa, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %.0.lcssa, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %17, ptr %20, align 8
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %21, ptr %22, align 8
   %23 = load ptr, ptr %.0.lcssa, align 8
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %.0.lcssa) #12
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = add i32 %25, -1
   store i32 %26, ptr %24, align 8
@@ -532,12 +532,12 @@ define hidden ptr @extract_avp_by_name(ptr nocapture noundef %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @extract_first_avp(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
@@ -546,7 +546,7 @@ define hidden ptr @extract_first_avp(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %4) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -1
   store i32 %12, ptr %10, align 8
@@ -558,12 +558,12 @@ define hidden ptr @extract_first_avp(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @extract_last_avp(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
@@ -572,7 +572,7 @@ define hidden ptr @extract_last_avp(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %4) #12
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, -1
   store i32 %12, ptr %10, align 8
@@ -584,12 +584,12 @@ define hidden ptr @extract_last_avp(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden void @delete_avpl(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %4, align 8
   %9 = load ptr, ptr %5, align 8
@@ -597,7 +597,7 @@ define hidden void @delete_avpl(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not.i5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.not4 = icmp eq i32 %1, 0
   br i1 %.not4, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -608,9 +608,9 @@ define hidden void @delete_avpl(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %13 = add i32 %12, -1
   store i32 %13, ptr %10, align 8
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %4, align 8
   %18 = load ptr, ptr %14, align 8
@@ -628,14 +628,14 @@ define hidden void @delete_avpl(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   %24 = load ptr, ptr %19, align 8
   tail call void @scs_unsubscribe(ptr noundef %23, ptr noundef %24)
   %25 = load ptr, ptr @avp_strings, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @scs_unsubscribe(ptr noundef %25, ptr noundef %27)
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %19) #12
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %4, align 8
   %32 = load ptr, ptr %28, align 8
@@ -657,13 +657,13 @@ define hidden ptr @get_next_avp(ptr nocapture noundef readonly %0, ptr nocapture
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %2, %4
   %.0 = phi ptr [ %6, %4 ], [ %3, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %.0, align 8
@@ -673,7 +673,7 @@ define hidden ptr @get_next_avp(ptr nocapture noundef readonly %0, ptr nocapture
 ; Function Attrs: nounwind uwtable
 define hidden ptr @avpl_to_str(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @g_string_new(ptr noundef nonnull @.str.6) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.012 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.012, align 8
   %.not13 = icmp eq ptr %4, null
@@ -683,15 +683,15 @@ define hidden ptr @avpl_to_str(ptr nocapture noundef readonly %0) local_unnamed_
   %5 = phi ptr [ %14, %.lr.ph ], [ %4, %1 ]
   %.014 = phi ptr [ %.0, %.lr.ph ], [ %.012, %1 ]
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = sext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %6, i32 noundef %9, ptr noundef %11) #12
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %2, ptr noundef nonnull @.str.8, ptr noundef %12) #12
   tail call void @g_free(ptr noundef %12) #12
-  %13 = getelementptr inbounds i8, ptr %.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.0 = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %14, null
@@ -715,7 +715,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden ptr @avpl_to_dotstr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @g_string_new(ptr noundef nonnull @.str.6) #12
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.012 = load ptr, ptr %3, align 8
   %4 = load ptr, ptr %.012, align 8
   %.not13 = icmp eq ptr %4, null
@@ -725,15 +725,15 @@ define hidden ptr @avpl_to_dotstr(ptr nocapture noundef readonly %0) local_unnam
   %5 = phi ptr [ %14, %.lr.ph ], [ %4, %1 ]
   %.014 = phi ptr [ %.0, %.lr.ph ], [ %.012, %1 ]
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = sext i8 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef %6, i32 noundef %9, ptr noundef %11) #12
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %2, ptr noundef nonnull @.str.9, ptr noundef %12) #12
   tail call void @g_free(ptr noundef %12) #12
-  %13 = getelementptr inbounds i8, ptr %.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %.0 = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.0, align 8
   %.not = icmp eq ptr %14, null
@@ -746,17 +746,17 @@ define hidden ptr @avpl_to_dotstr(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define hidden void @merge_avpl(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not45 = icmp eq ptr %6, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq i32 %2, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %85
@@ -775,7 +775,7 @@ define hidden void @merge_avpl(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %.047, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %20 = load ptr, ptr %19, align 8
   br label %85
 
@@ -794,47 +794,47 @@ define hidden void @merge_avpl(ptr nocapture noundef %0, ptr nocapture noundef r
   %28 = tail call ptr @scs_subscribe(ptr noundef %26, ptr noundef %27)
   store ptr %28, ptr %25, align 8
   %29 = load ptr, ptr @avp_strings, align 8
-  %30 = getelementptr inbounds i8, ptr %11, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @scs_subscribe(ptr noundef %29, ptr noundef %31)
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %11, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %35 = load i8, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %25, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 %35, ptr %36, align 8
   br label %insert_avp_before_node.exit
 
 insert_avp_before_node.exit:                      ; preds = %22, %24
   %37 = phi ptr [ %25, %24 ], [ %11, %22 ]
   store ptr %37, ptr %23, align 8
-  %38 = getelementptr inbounds i8, ptr %23, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %.047, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %.047, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.047, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %23, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %23, ptr %42, align 8
   store ptr %23, ptr %39, align 8
   %43 = load i32, ptr %9, align 8
   %44 = add i32 %43, 1
   store i32 %44, ptr %9, align 8
-  %45 = getelementptr inbounds i8, ptr %.03046, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.03046, i64 8
   %46 = load ptr, ptr %45, align 8
   br label %85
 
 47:                                               ; preds = %21
-  %48 = getelementptr inbounds i8, ptr %12, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %49, ptr noundef nonnull dereferenceable(1) %51) #14
   %53 = icmp slt i32 %52, 0
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %.047, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %56 = load ptr, ptr %55, align 8
   br label %85
 
@@ -855,35 +855,35 @@ insert_avp_before_node.exit:                      ; preds = %22, %24
   %65 = load ptr, ptr @avp_strings, align 8
   %66 = load ptr, ptr %50, align 8
   %67 = tail call ptr @scs_subscribe(ptr noundef %65, ptr noundef %66)
-  %68 = getelementptr inbounds i8, ptr %61, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %11, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %70 = load i8, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i8 %70, ptr %71, align 8
   br label %insert_avp_before_node.exit42
 
 insert_avp_before_node.exit42:                    ; preds = %58, %60
   %72 = phi ptr [ %61, %60 ], [ %11, %58 ]
   store ptr %72, ptr %59, align 8
-  %73 = getelementptr inbounds i8, ptr %59, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %.047, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %.047, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.047, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %59, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 16
   store ptr %75, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %59, ptr %77, align 8
   store ptr %59, ptr %74, align 8
   %78 = load i32, ptr %9, align 8
   %79 = add i32 %78, 1
   store i32 %79, ptr %9, align 8
-  %80 = getelementptr inbounds i8, ptr %.03046, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.03046, i64 8
   %81 = load ptr, ptr %80, align 8
   br label %85
 
 82:                                               ; preds = %57
-  %83 = getelementptr inbounds i8, ptr %.03046, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %.03046, i64 8
   %84 = load ptr, ptr %83, align 8
   br label %85
 
@@ -896,8 +896,8 @@ insert_avp_before_node.exit42:                    ; preds = %58, %60
 
 .lr.ph54:                                         ; preds = %10
   %.not.i43 = icmp eq i32 %2, 0
-  %87 = getelementptr inbounds i8, ptr %.047, i64 16
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.047, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not.i43, label %insert_avp_before_node.exit44.us, label %insert_avp_before_node.exit44
 
 insert_avp_before_node.exit44.us:                 ; preds = %.lr.ph54, %insert_avp_before_node.exit44.us
@@ -905,18 +905,18 @@ insert_avp_before_node.exit44.us:                 ; preds = %.lr.ph54, %insert_a
   %.253.us = phi ptr [ %98, %insert_avp_before_node.exit44.us ], [ %.03046, %.lr.ph54 ]
   %90 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   store ptr %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %.047, ptr %91, align 8
   %92 = load ptr, ptr %87, align 8
-  %93 = getelementptr inbounds i8, ptr %90, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store ptr %92, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %92, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store ptr %90, ptr %94, align 8
   store ptr %90, ptr %87, align 8
   %95 = load i32, ptr %88, align 8
   %96 = add i32 %95, 1
   store i32 %96, ptr %88, align 8
-  %97 = getelementptr inbounds i8, ptr %.253.us, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.253.us, i64 8
   %98 = load ptr, ptr %97, align 8
   %99 = load ptr, ptr %98, align 8
   %.not38.us = icmp eq ptr %99, null
@@ -932,28 +932,28 @@ insert_avp_before_node.exit44:                    ; preds = %.lr.ph54, %insert_a
   %105 = tail call ptr @scs_subscribe(ptr noundef %103, ptr noundef %104)
   store ptr %105, ptr %102, align 8
   %106 = load ptr, ptr @avp_strings, align 8
-  %107 = getelementptr inbounds i8, ptr %100, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = tail call ptr @scs_subscribe(ptr noundef %106, ptr noundef %108)
-  %110 = getelementptr inbounds i8, ptr %102, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %100, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %112 = load i8, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %102, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store i8 %112, ptr %113, align 8
   store ptr %102, ptr %101, align 8
-  %114 = getelementptr inbounds i8, ptr %101, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %.047, ptr %114, align 8
   %115 = load ptr, ptr %87, align 8
-  %116 = getelementptr inbounds i8, ptr %101, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %115, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store ptr %101, ptr %117, align 8
   store ptr %101, ptr %87, align 8
   %118 = load i32, ptr %88, align 8
   %119 = add i32 %118, 1
   store i32 %119, ptr %88, align 8
-  %120 = getelementptr inbounds i8, ptr %.253, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.253, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = load ptr, ptr %121, align 8
   %.not38 = icmp eq ptr %122, null
@@ -971,15 +971,15 @@ define hidden noundef ptr @new_avpl_from_avpl(ptr noundef %0, ptr nocapture noun
   %.str.6..i = select i1 %.not.i, ptr @.str.6, ptr %0
   %6 = tail call ptr @scs_subscribe(ptr noundef %5, ptr noundef nonnull %.str.6..i)
   store ptr %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not9 = icmp eq i32 %2, 0
   br i1 %.not9, label %.split.us, label %.split
 
@@ -999,7 +999,7 @@ get_next_avp.exit.us:                             ; preds = %12, %.split.us
   br i1 %.not.us, label %.split13.us, label %15
 
 15:                                               ; preds = %get_next_avp.exit.us
-  %16 = getelementptr inbounds i8, ptr %.0.i.us, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.us, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @insert_avp(ptr noundef nonnull %4, ptr noundef nonnull %14)
   br label %.split.us, !llvm.loop !13
@@ -1015,7 +1015,7 @@ get_next_avp.exit.us:                             ; preds = %12, %.split.us
 
 get_next_avp.exit:                                ; preds = %.split, %19
   %.0.i = phi ptr [ %20, %19 ], [ %.0, %.split ]
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %.0.i, align 8
   %.not = icmp eq ptr %23, null
@@ -1028,14 +1028,14 @@ get_next_avp.exit:                                ; preds = %.split, %19
   %28 = tail call ptr @scs_subscribe(ptr noundef %26, ptr noundef %27)
   store ptr %28, ptr %25, align 8
   %29 = load ptr, ptr @avp_strings, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @scs_subscribe(ptr noundef %29, ptr noundef %31)
-  %33 = getelementptr inbounds i8, ptr %25, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %23, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %35 = load i8, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %25, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i8 %35, ptr %36, align 8
   %37 = tail call i32 @insert_avp(ptr noundef nonnull %4, ptr noundef nonnull %25)
   %.not10 = icmp eq i32 %37, 0
@@ -1066,7 +1066,7 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   br i1 %.not, label %5, label %85
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8
   switch i8 %7, label %84 [
     i8 63, label %85
@@ -1081,27 +1081,27 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %10, %12
   %14 = select i1 %13, ptr %0, ptr null
   br label %85
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %17, %19
   %21 = select i1 %20, ptr null, ptr %0
   br label %85
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #14
   %28 = tail call i32 @strncmp(ptr noundef %24, ptr noundef %26, i64 noundef %27) #14
@@ -1110,7 +1110,7 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   br label %85
 
 31:                                               ; preds = %5
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @g_strsplit(ptr noundef %33, ptr noundef nonnull @.str.10, i32 noundef 0) #12
   %.not56 = icmp eq ptr %34, null
@@ -1122,7 +1122,7 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   br i1 %.not5760, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %42
 
 37:                                               ; preds = %42
@@ -1154,11 +1154,11 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
 
 48:                                               ; preds = %47, %5
   %.not55 = phi i1 [ true, %5 ], [ false, %47 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call double @g_ascii_strtod(ptr noundef %50, ptr noundef null) #12
   %52 = fptrunc double %51 to float
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call double @g_ascii_strtod(ptr noundef %54, ptr noundef null) #12
   %56 = fptrunc double %55 to float
@@ -1175,11 +1175,11 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   br label %85
 
 61:                                               ; preds = %5
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #14
   %65 = trunc i64 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #14
   %69 = trunc i64 %68 to i32
@@ -1196,9 +1196,9 @@ define hidden ptr @match_avp(ptr noundef readonly %0, ptr nocapture noundef read
   br label %85
 
 77:                                               ; preds = %5
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = tail call ptr @g_strrstr(ptr noundef %79, ptr noundef %81) #12
   %.not53 = icmp eq ptr %82, null
@@ -1236,22 +1236,22 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
   %.str.6..i = select i1 %.not.i, ptr @.str.6, ptr %6
   %9 = tail call ptr @scs_subscribe(ptr noundef %8, ptr noundef nonnull %.str.6..i)
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %.not37 = icmp eq ptr %16, null
   br i1 %.not37, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not.i36 = icmp eq i32 %3, 0
   br label %19
@@ -1272,7 +1272,7 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %.02539, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02539, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %73
 
@@ -1281,7 +1281,7 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
   br i1 %.not33, label %.preheader, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds i8, ptr %.02638, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.02638, i64 8
   %33 = load ptr, ptr %32, align 8
   br label %73
 
@@ -1306,27 +1306,27 @@ define hidden noundef ptr @new_avpl_loose_match(ptr noundef %0, ptr nocapture no
   %45 = tail call ptr @scs_subscribe(ptr noundef %43, ptr noundef %44)
   store ptr %45, ptr %42, align 8
   %46 = load ptr, ptr @avp_strings, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @scs_subscribe(ptr noundef %46, ptr noundef %48)
-  %50 = getelementptr inbounds i8, ptr %42, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %52 = load i8, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i8 %52, ptr %53, align 8
   br label %insert_avp_before_node.exit
 
 insert_avp_before_node.exit:                      ; preds = %37, %41
   %54 = phi ptr [ %42, %41 ], [ %39, %37 ]
   store ptr %54, ptr %40, align 8
-  %55 = getelementptr inbounds i8, ptr %40, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %38, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %38, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %40, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store ptr %57, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %40, ptr %59, align 8
   store ptr %40, ptr %56, align 8
   %60 = load i32, ptr %10, align 8
@@ -1335,7 +1335,7 @@ insert_avp_before_node.exit:                      ; preds = %37, %41
   br label %.critedge2
 
 62:                                               ; preds = %.preheader
-  %63 = getelementptr inbounds i8, ptr %.0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %.not35 = icmp eq ptr %65, null
@@ -1349,7 +1349,7 @@ insert_avp_before_node.exit:                      ; preds = %37, %41
   br i1 %70, label %.preheader, label %.critedge2, !llvm.loop !15
 
 .critedge2:                                       ; preds = %62, %66, %insert_avp_before_node.exit
-  %71 = getelementptr inbounds i8, ptr %.02638, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.02638, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -1374,17 +1374,17 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   %.str.6..i = select i1 %.not.i, ptr @.str.6, ptr %7
   %10 = tail call ptr @scs_subscribe(ptr noundef %9, ptr noundef nonnull %.str.6..i)
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %12, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
   %.not79 = icmp eq ptr %19, null
@@ -1416,7 +1416,7 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   br i1 %.not53, label %31, label %.thread
 
 .thread:                                          ; preds = %28
-  %29 = getelementptr inbounds i8, ptr %.04281, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.04281, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %73
 
@@ -1440,27 +1440,27 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   %43 = tail call ptr @scs_subscribe(ptr noundef %41, ptr noundef %42)
   store ptr %43, ptr %40, align 8
   %44 = load ptr, ptr @avp_strings, align 8
-  %45 = getelementptr inbounds i8, ptr %37, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @scs_subscribe(ptr noundef %44, ptr noundef %46)
-  %48 = getelementptr inbounds i8, ptr %40, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %37, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %50 = load i8, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %40, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i8 %50, ptr %51, align 8
   br label %.thread85
 
 .thread85:                                        ; preds = %39, %35
   %52 = phi ptr [ %40, %39 ], [ %37, %35 ]
   store ptr %52, ptr %38, align 8
-  %53 = getelementptr inbounds i8, ptr %38, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %36, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %36, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %38, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %38, ptr %57, align 8
   store ptr %38, ptr %54, align 8
   %58 = load i32, ptr %11, align 8
@@ -1468,16 +1468,16 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr nocapture no
   store i32 %59, ptr %11, align 8
   %60 = load ptr, ptr %.04580, align 8
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %.04281, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.04281, i64 8
   %63 = load ptr, ptr %62, align 8
-  %.247.in89 = getelementptr inbounds i8, ptr %.04580, i64 8
+  %.247.in89 = getelementptr inbounds nuw i8, ptr %.04580, i64 8
   %.24790 = load ptr, ptr %.247.in89, align 8
   br label %73
 
 64:                                               ; preds = %31, %23
   %65 = load ptr, ptr %.04580, align 8
   %66 = load ptr, ptr %65, align 8
-  %.247.in = getelementptr inbounds i8, ptr %.04580, i64 8
+  %.247.in = getelementptr inbounds nuw i8, ptr %.04580, i64 8
   %.247 = load ptr, ptr %.247.in, align 8
   %.not55 = icmp eq ptr %66, null
   br i1 %.not55, label %73, label %67
@@ -1566,11 +1566,11 @@ define hidden void @delete_avpl_transform(ptr noundef %0) local_unnamed_addr #0 
 
 .lr.ph:                                           ; preds = %1, %12
   %.014 = phi ptr [ %3, %12 ], [ %0, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.014, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %.014, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %.014, align 8
   tail call void @g_free(ptr noundef %4) #12
-  %5 = getelementptr inbounds i8, ptr %.014, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.014, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not11 = icmp eq ptr %6, null
   br i1 %.not11, label %8, label %7
@@ -1580,7 +1580,7 @@ define hidden void @delete_avpl_transform(ptr noundef %0) local_unnamed_addr #0 
   br label %8
 
 8:                                                ; preds = %7, %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.014, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.014, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %11
@@ -1605,10 +1605,10 @@ define hidden void @avpl_transform(ptr nocapture noundef %0, ptr noundef readonl
 
 .lr.ph:                                           ; preds = %2, %new_avpl_from_match.exit.thread
   %.049 = phi ptr [ %53, %new_avpl_from_match.exit.thread ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.049, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.049, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %.049, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.049, i64 8
   %7 = load ptr, ptr %6, align 8
   switch i32 %4, label %new_avpl_from_match.exit.thread [
     i32 1, label %8
@@ -1640,7 +1640,7 @@ new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14
   br i1 %.not38, label %new_avpl_from_match.exit.thread, label %16
 
 16:                                               ; preds = %new_avpl_from_match.exit
-  %17 = getelementptr inbounds i8, ptr %.049, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.049, i64 28
   %18 = load i32, ptr %17, align 4
   switch i32 %18, label %new_avpl_from_match.exit.thread [
     i32 0, label %.loopexit.sink.split
@@ -1649,14 +1649,14 @@ new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14
   ]
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %21, align 8
   %.not3950 = icmp eq ptr %22, null
   br i1 %.not3950, label %.loopexit.sink.split.sink.split, label %.lr.ph53.preheader
 
 .lr.ph53.preheader:                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %24 = load ptr, ptr %23, align 8
   br label %.lr.ph53
 
@@ -1675,30 +1675,30 @@ new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14
   br i1 %30, label %31, label %47
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %25, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %33, %35
   br i1 %36, label %37, label %47
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %.03351, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.03351, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.03351, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.03351, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %39, ptr %42, align 8
   %43 = load ptr, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %39, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %43, ptr %44, align 8
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %.03351) #12
-  %45 = getelementptr inbounds i8, ptr %.03252, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.03252, i64 8
   %46 = load ptr, ptr %45, align 8
   br label %50
 
 47:                                               ; preds = %31, %27
-  %48 = getelementptr inbounds i8, ptr %.03351, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.03351, i64 8
   %49 = load ptr, ptr %48, align 8
   br label %50
 
@@ -1710,13 +1710,13 @@ new_avpl_from_match.exit:                         ; preds = %8, %10, %12, %14
   br i1 %.not39, label %.loopexit.sink.split.sink.split, label %.lr.ph53, !llvm.loop !19
 
 new_avpl_from_match.exit.thread:                  ; preds = %.lr.ph, %new_avpl_from_match.exit, %16
-  %52 = getelementptr inbounds i8, ptr %.049, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %.049, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
 .loopexit.sink.split.sink.split:                  ; preds = %16, %50, %.lr.ph53, %19
-  %54 = getelementptr inbounds i8, ptr %.049, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.049, i64 16
   %55 = load ptr, ptr %54, align 8
   tail call void @merge_avpl(ptr noundef nonnull %0, ptr noundef %55, i32 noundef 1)
   br label %.loopexit.sink.split
@@ -1737,13 +1737,13 @@ define hidden noundef ptr @new_loal(ptr noundef %0) local_unnamed_addr #0 {
   %3 = load ptr, ptr @avp_strings, align 8
   %4 = tail call ptr @scs_subscribe(ptr noundef %3, ptr noundef nonnull %spec.store.select)
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %8, align 8
   ret ptr %2
 }
@@ -1752,17 +1752,17 @@ define hidden noundef ptr @new_loal(ptr noundef %0) local_unnamed_addr #0 {
 define hidden void @loal_append(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %3, ptr %9, align 8
   store ptr %3, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = add i32 %11, 1
   store i32 %12, ptr %10, align 8
@@ -1771,16 +1771,16 @@ define hidden void @loal_append(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @extract_first_avpl(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   store ptr %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   store i32 %11, ptr %9, align 8
@@ -1798,16 +1798,16 @@ define hidden ptr @extract_first_avpl(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @extract_last_avpl(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   store ptr %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, -1
   store i32 %11, ptr %9, align 8
@@ -1830,13 +1830,13 @@ define hidden ptr @get_next_avpl(ptr nocapture noundef readonly %0, ptr nocaptur
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   br label %7
 
 7:                                                ; preds = %2, %4
   %.0 = phi ptr [ %6, %4 ], [ %3, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %1, align 8
   %10 = load ptr, ptr %.0, align 8
@@ -1845,13 +1845,13 @@ define hidden ptr @get_next_avpl(ptr nocapture noundef readonly %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define hidden void @delete_loal(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %5, align 8
@@ -1870,9 +1870,9 @@ define hidden void @delete_loal(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %15 = phi ptr [ %16, %.lr.ph.split.us ], [ %7, %.lr.ph ]
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %15) #12
   %16 = load ptr, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %4, ptr %19, align 8
   %20 = load ptr, ptr %17, align 8
   store ptr %20, ptr %5, align 8
@@ -1889,9 +1889,9 @@ define hidden void @delete_loal(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   tail call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %25) #12
   tail call void @delete_avpl(ptr noundef nonnull %24, i32 noundef %2)
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %4, ptr %29, align 8
   %30 = load ptr, ptr %27, align 8
   store ptr %30, ptr %5, align 8
@@ -1918,13 +1918,13 @@ define hidden noundef ptr @loal_from_file(ptr noundef %0) local_unnamed_addr #0 
   %3 = load ptr, ptr @avp_strings, align 8
   %4 = tail call ptr @scs_subscribe(ptr noundef %3, ptr noundef nonnull %spec.store.select.i)
   store ptr %4, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %8, align 8
   %9 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc(i64 noundef 8192) #13
   %10 = tail call noalias dereferenceable_or_null(8192) ptr @g_malloc(i64 noundef 8192) #13
@@ -2101,13 +2101,13 @@ default.unreachable196:                           ; preds = %37
   %46 = load ptr, ptr @avp_strings, align 8
   %47 = tail call ptr @scs_subscribe(ptr noundef %46, ptr noundef nonnull %.str.6..i)
   store ptr %47, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %45, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store ptr %49, ptr %51, align 8
   br label %.backedge
 
@@ -2210,12 +2210,12 @@ default.unreachable196:                           ; preds = %37
 62:                                               ; preds = %55
   %63 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #13
   store ptr %.0113164, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %5, ptr %64, align 8
   %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr %63, ptr %67, align 8
   store ptr %63, ptr %7, align 8
   %68 = load i32, ptr %8, align 8
@@ -2368,9 +2368,9 @@ default.unreachable196:                           ; preds = %37
   store ptr %102, ptr %100, align 8
   %103 = load ptr, ptr @avp_strings, align 8
   %104 = tail call ptr @scs_subscribe(ptr noundef %103, ptr noundef %11)
-  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %104, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %100, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i8 %.0116163, ptr %106, align 8
   %107 = tail call i32 @insert_avp(ptr noundef %.0113164, ptr noundef nonnull %100)
   %.not124 = icmp eq i32 %107, 0
@@ -2448,13 +2448,13 @@ define internal noundef ptr @load_loal_error(ptr noundef %0, ptr noundef %1, ptr
   %15 = load ptr, ptr @avp_strings, align 8
   %16 = call ptr @scs_subscribe(ptr noundef %15, ptr noundef nonnull %spec.store.select.i)
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %17, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %20, align 8
   call void @g_free(ptr noundef %7) #12
   call void @g_free(ptr noundef %.0) #12
@@ -2469,13 +2469,13 @@ define internal noundef ptr @load_loal_error(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not, label %48, label %24
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %25, ptr %31, align 8
   %32 = load ptr, ptr %29, align 8
   store ptr %32, ptr %26, align 8
@@ -2492,9 +2492,9 @@ define internal noundef ptr @load_loal_error(ptr noundef %0, ptr noundef %1, ptr
   call void @g_slice_free1(i64 noundef 40, ptr noundef nonnull %37) #12
   call void @delete_avpl(ptr noundef nonnull %36, i32 noundef 1)
   %38 = load ptr, ptr %26, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %25, ptr %41, align 8
   %42 = load ptr, ptr %39, align 8
   store ptr %42, ptr %26, align 8

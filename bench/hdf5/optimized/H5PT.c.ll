@@ -35,7 +35,7 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   br i1 %18, label %.thread103, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 -1, i64 16, i1 false)
   store i64 0, ptr %6, align 8
   store i64 %3, ptr %7, align 8
@@ -91,7 +91,7 @@ define i64 @H5PTcreate(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 nound
   br i1 %46, label %58, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %17, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %49 = load i32, ptr @H5PT_ptable_id_type, align 4
   %50 = call i64 @H5Iregister(i32 noundef %49, ptr noundef nonnull %17) #6
@@ -194,7 +194,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5PT_close(ptr nocapture noundef no
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = tail call i32 @H5Tclose(i64 noundef %10) #6
   %12 = icmp slt i32 %11, 0
@@ -223,7 +223,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5PT_close(ptr nocapture noundef no
 23:                                               ; preds = %20, %17
   %24 = load i64, ptr %0, align 8
   %25 = call i32 @H5Dclose(i64 noundef %24) #6
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = call i32 @H5Tclose(i64 noundef %27) #6
   %29 = load i32, ptr %2, align 4
@@ -281,7 +281,7 @@ define i64 @H5PTcreate_fl(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 no
   br i1 %18, label %.thread103, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 -1, i64 16, i1 false)
   store i64 0, ptr %6, align 8
   store i64 %3, ptr %7, align 8
@@ -330,7 +330,7 @@ define i64 @H5PTcreate_fl(i64 noundef %0, ptr noundef %1, i64 noundef %2, i64 no
   br i1 %44, label %56, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %17, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
   %47 = load i32, ptr @H5PT_ptable_id_type, align 4
   %48 = call i64 @H5Iregister(i32 noundef %47, ptr noundef nonnull %17) #6
@@ -416,8 +416,8 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %13, label %.thread87, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 -1, ptr %16, align 8
   %17 = tail call i64 @H5Dopen2(i64 noundef %0, ptr noundef nonnull %1, i64 noundef 0) #6
   store i64 %17, ptr %12, align 8
@@ -445,7 +445,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %.thread82.thread92
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %12, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %30, align 8
   %31 = tail call i64 @H5Dget_space(i64 noundef %17) #6
   %32 = icmp slt i64 %31, 0
@@ -463,7 +463,7 @@ define i64 @H5PTopen(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 39:                                               ; preds = %36
   %40 = load i64, ptr %3, align 8
-  %41 = getelementptr inbounds i8, ptr %12, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 %40, ptr %41, align 8
   %42 = load i32, ptr @H5PT_ptable_id_type, align 4
   %43 = call i64 @H5Iregister(i32 noundef %42, ptr noundef nonnull %12) #6
@@ -577,9 +577,9 @@ define range(i32 -1, 1) i32 @H5PTappend(i64 noundef %0, i64 noundef %1, ptr noun
 
 9:                                                ; preds = %7
   %10 = load i64, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = load i64, ptr %13, align 8
   %15 = tail call i32 @H5TB_common_append_records(i64 noundef %10, i64 noundef %12, i64 noundef %1, i64 noundef %14, ptr noundef %2) #6
   %16 = icmp slt i32 %15, 0
@@ -613,11 +613,11 @@ define range(i32 -1, 1) i32 @H5PTget_next(i64 noundef %0, i64 noundef %1, ptr no
 
 9:                                                ; preds = %7
   %10 = load i64, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 @H5TB_common_read_records(i64 noundef %10, i64 noundef %12, i64 noundef %14, i64 noundef %1, i64 noundef %16, ptr noundef %2) #6
   %18 = icmp slt i32 %17, 0
@@ -649,9 +649,9 @@ define range(i32 -1, 1) i32 @H5PTread_packets(i64 noundef %0, i64 noundef %1, i6
 
 10:                                               ; preds = %8
   %11 = load i64, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = load i64, ptr %14, align 8
   %16 = tail call i32 @H5TB_common_read_records(i64 noundef %11, i64 noundef %13, i64 noundef %1, i64 noundef %2, i64 noundef %15, ptr noundef %3) #6
   %17 = icmp slt i32 %16, 0
@@ -673,7 +673,7 @@ define range(i32 -1, 1) i32 @H5PTcreate_index(i64 noundef %0) local_unnamed_addr
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %6, align 8
   br label %7
 
@@ -690,13 +690,13 @@ define range(i32 -1, 1) i32 @H5PTset_index(i64 noundef %0, i64 noundef %1) local
   br i1 %5, label %H5PT_set_index.exit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = icmp ult i64 %1, %8
   br i1 %9, label %10, label %H5PT_set_index.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %11, align 8
   br label %H5PT_set_index.exit
 
@@ -717,7 +717,7 @@ define range(i32 -1, 1) i32 @H5PTget_index(i64 noundef %0, ptr noundef writeonly
   br i1 %.not.i, label %H5PT_get_index.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %H5PT_get_index.exit
@@ -739,7 +739,7 @@ define range(i32 -1, 1) i32 @H5PTget_num_packets(i64 noundef %0, ptr noundef wri
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i64, ptr %8, align 8
   store i64 %9, ptr %1, align 8
   br label %10
@@ -766,7 +766,7 @@ define range(i32 -1, 2) i32 @H5PTis_varlen(i64 noundef %0) local_unnamed_addr #0
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @H5Tget_class(i64 noundef %7) #6
   %switch.selectcmp = icmp eq i32 %8, 9
@@ -800,7 +800,7 @@ define range(i32 -2, -2147483648) i32 @H5PTfree_vlen_buff(i64 noundef %0, i64 no
   br i1 %13, label %22, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = call i32 @H5Treclaim(i64 noundef %16, i64 noundef %12, i64 noundef 0, ptr noundef %2) #6
   %18 = icmp slt i32 %17, 0
@@ -886,7 +886,7 @@ define i64 @H5PTget_type(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
   br label %8
 

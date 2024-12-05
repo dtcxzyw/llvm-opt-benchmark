@@ -31,7 +31,7 @@ define hidden noundef range(i32 -2147483640, -2147483648) i32 @_Z9luaO_log2j(i32
   %.05.lcssa = phi i32 [ %0, %1 ], [ %4, %.lr.ph ]
   %.0.lcssa = phi i32 [ -1, %1 ], [ %3, %.lr.ph ]
   %6 = zext nneg i32 %.05.lcssa to i64
-  %7 = getelementptr inbounds [256 x i8], ptr @_ZZ9luaO_log2jE5log_2, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i8], ptr @_ZZ9luaO_log2jE5log_2, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = add nsw i32 %.0.lcssa, %9
@@ -40,9 +40,9 @@ define hidden noundef range(i32 -2147483640, -2147483648) i32 @_Z9luaO_log2j(i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %_Z10luai_veceqPKfS0_.exit
@@ -69,17 +69,17 @@ define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_
   br i1 %15, label %16, label %_Z10luai_veceqPKfS0_.exit
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %18, %20
   br i1 %21, label %22, label %_Z10luai_veceqPKfS0_.exit
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load float, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load float, ptr %25, align 4
   %27 = fcmp oeq float %24, %26
   br label %_Z10luai_veceqPKfS0_.exit
@@ -97,9 +97,9 @@ define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalObjPK10lua_TValueS1_
   br i1 %35, label %36, label %_Z10luai_veceqPKfS0_.exit
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %38, %40
   br label %_Z10luai_veceqPKfS0_.exit
@@ -118,10 +118,10 @@ _Z10luai_veceqPKfS0_.exit:                        ; preds = %22, %16, %12, %32, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TValue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 15
-  %6 = getelementptr inbounds i8, ptr %1, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %5, %7
   br i1 %.not, label %8, label %_Z10luai_veceqPKfS0_.exit
@@ -148,17 +148,17 @@ define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TV
   br i1 %16, label %17, label %_Z10luai_veceqPKfS0_.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %19 = load float, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %1, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %21 = load float, ptr %20, align 4
   %22 = fcmp oeq float %19, %21
   br i1 %22, label %23, label %_Z10luai_veceqPKfS0_.exit
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load float, ptr %26, align 4
   %28 = fcmp oeq float %25, %27
   br label %_Z10luai_veceqPKfS0_.exit
@@ -176,9 +176,9 @@ define hidden noundef range(i32 0, 2) i32 @_Z16luaO_rawequalKeyPK4TKeyPK10lua_TV
   br i1 %36, label %37, label %_Z10luai_veceqPKfS0_.exit
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %39, %41
   br label %_Z10luai_veceqPKfS0_.exit
@@ -231,7 +231,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10luaO_str2dPKcPd(ptr noundef %0, p
   %17 = zext i8 %16 to i32
   %18 = tail call i32 @isspace(i32 noundef %17) #16
   %.not = icmp eq i32 %18, 0
-  %19 = getelementptr inbounds i8, ptr %15, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br i1 %.not, label %20, label %.preheader, !llvm.loop !7
 
 20:                                               ; preds = %.preheader
@@ -257,14 +257,14 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #4
 define hidden noundef nonnull ptr @_Z17luaO_pushvfstringP9lua_StatePKcP13__va_list_tag(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = alloca [512 x i8], align 16
   %5 = call i32 @vsnprintf(ptr noundef nonnull %4, i64 noundef 512, ptr noundef %1, ptr noundef %2) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %9 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %8)
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 5, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -280,10 +280,10 @@ define hidden noundef nonnull ptr @_Z17luaO_pushvfstringP9lua_StatePKcP13__va_li
 
 19:                                               ; preds = %3, %18
   %20 = phi ptr [ %13, %3 ], [ %.pre, %18 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %21, ptr %6, align 8
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   ret ptr %23
 }
 
@@ -304,14 +304,14 @@ define hidden noundef nonnull ptr @_Z16luaO_pushfstringP9lua_StatePKcz(ptr nound
   call void @llvm.va_start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %3)
   %5 = call i32 @vsnprintf(ptr noundef nonnull %3, i64 noundef 512, ptr noundef readonly %1, ptr noundef nonnull %4) #15
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #16
   %9 = call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %8)
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 5, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %6, align 8
   %14 = ptrtoint ptr %12 to i64
@@ -327,10 +327,10 @@ define hidden noundef nonnull ptr @_Z16luaO_pushfstringP9lua_StatePKcz(ptr nound
 
 _Z17luaO_pushvfstringP9lua_StatePKcP13__va_list_tag.exit: ; preds = %2, %18
   %19 = phi ptr [ %13, %2 ], [ %.pre.i, %18 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %20, ptr %6, align 8
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   ret ptr %22
@@ -352,7 +352,7 @@ define hidden noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef %0, i64 noundef %
 
 6:                                                ; preds = %4
   %.not46 = icmp ugt i64 %3, %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br i1 %.not46, label %8, label %32
 
 8:                                                ; preds = %6
@@ -367,12 +367,12 @@ define hidden noundef ptr @_Z12luaO_chunkidPcmPKcm(ptr noundef %0, i64 noundef %
   br i1 %.not45, label %14, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %2, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 1
   br label %32
 
 14:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(3) @.str, i64 3, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %16 = getelementptr inbounds i8, ptr %2, i64 %3
   %17 = add i64 %1, -4
   %18 = sub i64 4, %1

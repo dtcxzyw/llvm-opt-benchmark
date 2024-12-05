@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddAndTime(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %6
 
 6:                                                ; preds = %6, %4
@@ -24,7 +24,7 @@ define ptr @Extra_bddAndTime(ptr noundef initializes((448, 452)) %0, ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %1 to i64
   %9 = and i64 %8, -2
@@ -75,13 +75,13 @@ define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, 
   %.0110 = phi ptr [ %13, %31 ], [ %10, %29 ]
   %.0109 = phi ptr [ %1, %31 ], [ %2, %29 ]
   %.0108 = phi ptr [ %2, %31 ], [ %1, %29 ]
-  %33 = getelementptr inbounds i8, ptr %.0110, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.0110, i64 4
   %34 = load i32, ptr %33, align 4
   %.not = icmp eq i32 %34, 1
   br i1 %.not, label %35, label %38
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %.0116, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0116, i64 4
   %37 = load i32, ptr %36, align 4
   %.not131 = icmp eq i32 %37, 1
   br i1 %.not131, label %40, label %38
@@ -104,7 +104,7 @@ define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, 
 44:                                               ; preds = %41
   %45 = load i64, ptr %5, align 8
   %46 = mul nsw i64 %45, 1000000
-  %47 = getelementptr inbounds i8, ptr %5, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = sdiv i64 %48, 1000
   %50 = add nsw i64 %49, %46
@@ -118,23 +118,23 @@ Abc_Clock.exit:                                   ; preds = %41, %44
   br i1 %52, label %140, label %53
 
 53:                                               ; preds = %Abc_Clock.exit, %40
-  %54 = getelementptr inbounds i8, ptr %0, i64 312
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %.0110, align 8
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %.0116, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %55, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %55, i64 %61
   %63 = load i32, ptr %62, align 4
   %.not134 = icmp ugt i32 %59, %63
   br i1 %.not134, label %78, label %64
 
 64:                                               ; preds = %53
-  %65 = getelementptr inbounds i8, ptr %.0110, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0110, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %.0110, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %.0110, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = ptrtoint ptr %.0108 to i64
   %70 = and i64 %69, 1
@@ -158,9 +158,9 @@ Abc_Clock.exit:                                   ; preds = %41, %44
   br i1 %.not136, label %93, label %79
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %.0116, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.0116, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %.0116, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %.0116, i64 24
   %83 = load ptr, ptr %82, align 8
   %84 = ptrtoint ptr %.0109 to i64
   %85 = and i64 %84, 1
@@ -187,7 +187,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
   %97 = ptrtoint ptr %94 to i64
   %98 = and i64 %97, -2
   %99 = inttoptr i64 %98 to ptr
-  %100 = getelementptr inbounds i8, ptr %99, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = add i32 %101, 1
   store i32 %102, ptr %100, align 4
@@ -203,7 +203,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
   %107 = ptrtoint ptr %103 to i64
   %108 = and i64 %107, -2
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds i8, ptr %109, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 4
@@ -256,7 +256,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
   br i1 %.not139, label %136, label %139
 
 136:                                              ; preds = %130
-  %137 = getelementptr inbounds i8, ptr %.0116, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %.0116, i64 4
   %138 = load i32, ptr %137, align 4
   %.not140 = icmp eq i32 %138, 1
   br i1 %.not140, label %140, label %139
@@ -272,7 +272,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
 
 ; Function Attrs: nounwind uwtable
 define ptr @Extra_bddAndAbstractTime(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %5
@@ -288,7 +288,7 @@ define ptr @Extra_bddAndAbstractTime(ptr noundef initializes((448, 452)) %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
@@ -343,15 +343,15 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %36 = ptrtoint ptr %spec.select to i64
   %37 = and i64 %36, -2
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %0, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %35, align 8
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %40, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %38, align 8
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %40, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %40, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = tail call i32 @llvm.umin.i32(i32 %48, i32 %44)
   br label %50
@@ -360,13 +360,13 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %.0212 = phi ptr [ %3, %31 ], [ %54, %52 ]
   %.pn.in = load i32, ptr %.0212, align 8
   %.pn = zext i32 %.pn.in to i64
-  %.0211.in = getelementptr inbounds i32, ptr %40, i64 %.pn
+  %.0211.in = getelementptr inbounds nuw i32, ptr %40, i64 %.pn
   %.0211 = load i32, ptr %.0211.in, align 4
   %51 = icmp ult i32 %.0211, %49
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %.0212, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0212, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %7
   br i1 %55, label %56, label %50, !llvm.loop !7
@@ -376,13 +376,13 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br label %225
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %35, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %60 = load i32, ptr %59, align 4
   %.not = icmp eq i32 %60, 1
   br i1 %.not, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %38, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %63 = load i32, ptr %62, align 4
   %.not234 = icmp eq i32 %63, 1
   br i1 %.not234, label %66, label %64
@@ -408,9 +408,9 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
 
 72:                                               ; preds = %71
   %73 = load i32, ptr %35, align 8
-  %74 = getelementptr inbounds i8, ptr %35, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %35, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = and i64 %33, 1
   %.not238 = icmp eq i64 %78, 0
@@ -437,9 +437,9 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br i1 %.not239, label %102, label %89
 
 89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %38, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %38, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = and i64 %36, 1
   %.not240 = icmp eq i64 %94, 0
@@ -461,7 +461,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br i1 %103, label %104, label %174
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %.0212, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.0212, i64 16
   %106 = load ptr, ptr %105, align 8
   %107 = tail call fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noundef %.0213, ptr noundef %.0217, ptr noundef %106, i32 noundef %4)
   %108 = icmp eq ptr %107, null
@@ -481,7 +481,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br i1 %.not244, label %115, label %118
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %38, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %117 = load i32, ptr %116, align 4
   %.not245 = icmp eq i32 %117, 1
   br i1 %.not245, label %225, label %118
@@ -494,7 +494,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %120 = ptrtoint ptr %107 to i64
   %121 = and i64 %120, -2
   %122 = inttoptr i64 %121 to ptr
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 4
@@ -546,7 +546,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %150 = ptrtoint ptr %.0214 to i64
   %151 = and i64 %150, -2
   %152 = inttoptr i64 %151 to ptr
-  %153 = getelementptr inbounds i8, ptr %152, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %154 = load i32, ptr %153, align 4
   %155 = add i32 %154, 1
   store i32 %155, ptr %153, align 4
@@ -569,7 +569,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %166 = inttoptr i64 %165 to ptr
   %167 = and i64 %164, -2
   %168 = inttoptr i64 %167 to ptr
-  %169 = getelementptr inbounds i8, ptr %168, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i32, ptr %169, align 4
   %171 = add i32 %170, 1
   store i32 %171, ptr %169, align 4
@@ -589,7 +589,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %178 = ptrtoint ptr %175 to i64
   %179 = and i64 %178, -2
   %180 = inttoptr i64 %179 to ptr
-  %181 = getelementptr inbounds i8, ptr %180, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %182 = load i32, ptr %181, align 4
   %183 = add i32 %182, 1
   store i32 %183, ptr %181, align 4
@@ -615,7 +615,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   %193 = ptrtoint ptr %184 to i64
   %194 = and i64 %193, -2
   %195 = inttoptr i64 %194 to ptr
-  %196 = getelementptr inbounds i8, ptr %195, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = add i32 %197, 1
   store i32 %198, ptr %196, align 4
@@ -668,7 +668,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
   br i1 %.not242, label %221, label %224
 
 221:                                              ; preds = %219
-  %222 = getelementptr inbounds i8, ptr %38, i64 4
+  %222 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %223 = load i32, ptr %222, align 4
   %.not243 = icmp eq i32 %223, 1
   br i1 %.not243, label %225, label %224
@@ -686,7 +686,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
 define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr noundef initializes((448, 452)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 448
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 448
   br label %9
 
 9:                                                ; preds = %extraTransferPermuteTime.exit, %5
@@ -706,7 +706,7 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
   %14 = ptrtoint ptr %12 to i64
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 4
@@ -738,7 +738,7 @@ define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr nou
   %27 = ptrtoint ptr %12 to i64
   %28 = and i64 %27, -2
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %31, -1
   store i32 %32, ptr %30, align 4
@@ -780,7 +780,7 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #0 {
 4:                                                ; preds = %0
   %5 = load i64, ptr %1, align 8
   %6 = mul nsw i64 %5, 1000000
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = sdiv i64 %8, 1000
   %10 = add nsw i64 %9, %6
@@ -812,7 +812,7 @@ declare i32 @st__ptrhash(ptr noundef, i32 noundef) #1
 define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %1 to i64
   %11 = and i64 %10, -2
@@ -853,7 +853,7 @@ define internal fastcc ptr @extraTransferPermuteRecurTime(ptr noundef %0, ptr no
 31:                                               ; preds = %28
   %32 = load i64, ptr %6, align 8
   %33 = mul nsw i64 %32, 1000000
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = sdiv i64 %35, 1000
   %37 = add nsw i64 %36, %33
@@ -873,16 +873,16 @@ Abc_Clock.exit:                                   ; preds = %28, %31
 
 .split:                                           ; preds = %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds i32, ptr %3, i64 %42
+  %43 = getelementptr inbounds nuw i32, ptr %3, i64 %42
   %44 = load i32, ptr %43, align 4
   br label %.split64
 
 .split64:                                         ; preds = %40, %.split
   %.sink1 = phi ptr [ %3, %.split ], [ null, %40 ]
   %.0 = phi i32 [ %44, %.split ], [ %41, %40 ]
-  %45 = getelementptr inbounds i8, ptr %12, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %12, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = call fastcc ptr @extraTransferPermuteRecurTime(ptr noundef nonnull %0, ptr noundef %46, ptr noundef %2, ptr noundef %.sink1, i32 noundef %4)
   %50 = icmp eq ptr %49, null
@@ -892,7 +892,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %52 = ptrtoint ptr %49 to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
@@ -908,7 +908,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %62 = ptrtoint ptr %58 to i64
   %63 = and i64 %62, -2
   %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
@@ -940,7 +940,7 @@ Abc_Clock.exit:                                   ; preds = %28, %31
   %80 = ptrtoint ptr %76 to i64
   %81 = and i64 %80, -2
   %82 = inttoptr i64 %81 to ptr
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = add i32 %84, 1
   store i32 %85, ptr %83, align 4

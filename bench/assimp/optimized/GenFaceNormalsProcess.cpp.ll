@@ -60,17 +60,17 @@ $_ZTV17DeadlyImportError = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden noundef zeroext i1 @_ZNK6Assimp21GenFaceNormalsProcess8IsActiveEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(27) initializes((24, 27)) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
-  %force_ = getelementptr inbounds i8, ptr %this, i64 24
+  %force_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %and = lshr i32 %pFlags, 29
   %0 = trunc nuw nsw i32 %and to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %force_, align 8
-  %flippedWindingOrder_ = getelementptr inbounds i8, ptr %this, i64 25
+  %flippedWindingOrder_ = getelementptr inbounds nuw i8, ptr %this, i64 25
   %and2 = lshr i32 %pFlags, 24
   %1 = trunc nuw i32 %and2 to i8
   %frombool4 = and i8 %1, 1
   store i8 %frombool4, ptr %flippedWindingOrder_, align 1
-  %leftHanded_ = getelementptr inbounds i8, ptr %this, i64 26
+  %leftHanded_ = getelementptr inbounds nuw i8, ptr %this, i64 26
   %2 = trunc i32 %pFlags to i8
   %3 = lshr i8 %2, 2
   %frombool7 = and i8 %3, 1
@@ -91,13 +91,13 @@ entry:
   br i1 %tobool.not, label %for.cond.preheader, label %if.then
 
 for.cond.preheader:                               ; preds = %entry
-  %mNumMeshes = getelementptr inbounds i8, ptr %pScene, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 16
   %1 = load i32, ptr %mNumMeshes, align 8
   %cmp5.not = icmp eq i32 %1, 0
   br i1 %cmp5.not, label %if.else, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %mMeshes = getelementptr inbounds i8, ptr %pScene, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %pScene, i64 24
   br label %for.body
 
 if.then:                                          ; preds = %entry
@@ -119,7 +119,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %bHas.06 = phi i1 [ false, %for.body.lr.ph ], [ %spec.select, %for.body ]
   %3 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call noundef zeroext i1 @_ZN6Assimp21GenFaceNormalsProcess18GenMeshFaceNormalsEP6aiMesh(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef %4)
   %spec.select = select i1 %call2, i1 true, i1 %bHas.06
@@ -191,13 +191,13 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN6Assimp21GenFaceNormalsProcess18GenMeshFaceNormalsEP6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this, ptr nocapture noundef %pMesh) local_unnamed_addr #5 align 2 {
 entry:
-  %mNormals = getelementptr inbounds i8, ptr %pMesh, i64 24
+  %mNormals = getelementptr inbounds nuw i8, ptr %pMesh, i64 24
   %0 = load ptr, ptr %mNormals, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
-  %force_ = getelementptr inbounds i8, ptr %this, i64 24
+  %force_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i8, ptr %force_, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %delete.notnull, label %return
@@ -218,7 +218,7 @@ if.then6:                                         ; preds = %if.end4
   br label %return
 
 if.end7:                                          ; preds = %if.end4
-  %mNumVertices = getelementptr inbounds i8, ptr %pMesh, i64 4
+  %mNumVertices = getelementptr inbounds nuw i8, ptr %pMesh, i64 4
   %3 = load i32, ptr %mNumVertices, align 4
   %conv = zext i32 %3 to i64
   %4 = mul nuw nsw i64 %conv, 12
@@ -236,22 +236,22 @@ new.ctorloop:                                     ; preds = %if.end7
 
 arrayctor.cont:                                   ; preds = %new.ctorloop, %if.end7
   store ptr %call8, ptr %mNormals, align 8
-  %mNumFaces = getelementptr inbounds i8, ptr %pMesh, i64 8
+  %mNumFaces = getelementptr inbounds nuw i8, ptr %pMesh, i64 8
   %9 = load i32, ptr %mNumFaces, align 8
   %cmp1159.not = icmp eq i32 %9, 0
   br i1 %cmp1159.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %arrayctor.cont
-  %mFaces = getelementptr inbounds i8, ptr %pMesh, i64 208
-  %mVertices = getelementptr inbounds i8, ptr %pMesh, i64 16
-  %flippedWindingOrder_ = getelementptr inbounds i8, ptr %this, i64 25
-  %leftHanded_ = getelementptr inbounds i8, ptr %this, i64 26
+  %mFaces = getelementptr inbounds nuw i8, ptr %pMesh, i64 208
+  %mVertices = getelementptr inbounds nuw i8, ptr %pMesh, i64 16
+  %flippedWindingOrder_ = getelementptr inbounds nuw i8, ptr %this, i64 25
+  %leftHanded_ = getelementptr inbounds nuw i8, ptr %this, i64 26
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc70
   %indvars.iv66 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next67, %for.inc70 ]
   %10 = load ptr, ptr %mFaces, align 8
-  %arrayidx = getelementptr inbounds %struct.aiFace, ptr %10, i64 %indvars.iv66
+  %arrayidx = getelementptr inbounds nuw %struct.aiFace, ptr %10, i64 %indvars.iv66
   %11 = load i32, ptr %arrayidx, align 8
   %cmp12 = icmp ult i32 %11, 3
   br i1 %cmp12, label %for.cond14.preheader, label %if.end23
@@ -261,21 +261,21 @@ for.cond14.preheader:                             ; preds = %for.body
   br i1 %cmp1657.not, label %for.inc70, label %for.body17.lr.ph
 
 for.body17.lr.ph:                                 ; preds = %for.cond14.preheader
-  %mIndices = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %mIndices = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   br label %for.body17
 
 for.body17:                                       ; preds = %for.body17.lr.ph, %for.body17
   %indvars.iv63 = phi i64 [ 0, %for.body17.lr.ph ], [ %indvars.iv.next64, %for.body17 ]
   %12 = load ptr, ptr %mNormals, align 8
   %13 = load ptr, ptr %mIndices, align 8
-  %arrayidx20 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv63
+  %arrayidx20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv63
   %14 = load i32, ptr %arrayidx20, align 4
   %idxprom21 = zext i32 %14 to i64
-  %arrayidx22 = getelementptr inbounds %class.aiVector3t, ptr %12, i64 %idxprom21
+  %arrayidx22 = getelementptr inbounds nuw %class.aiVector3t, ptr %12, i64 %idxprom21
   store float 0x7FF8000000000000, ptr %arrayidx22, align 4
-  %ref.tmp.sroa.2.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %arrayidx22, i64 4
+  %ref.tmp.sroa.2.0.arrayidx22.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx22, i64 4
   store float 0x7FF8000000000000, ptr %ref.tmp.sroa.2.0.arrayidx22.sroa_idx, align 4
-  %ref.tmp.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds i8, ptr %arrayidx22, i64 8
+  %ref.tmp.sroa.3.0.arrayidx22.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx22, i64 8
   store float 0x7FF8000000000000, ptr %ref.tmp.sroa.3.0.arrayidx22.sroa_idx, align 4
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %15 = load i32, ptr %arrayidx, align 8
@@ -285,21 +285,21 @@ for.body17:                                       ; preds = %for.body17.lr.ph, %
 
 if.end23:                                         ; preds = %for.body
   %17 = load ptr, ptr %mVertices, align 8
-  %mIndices24 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %mIndices24 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %18 = load ptr, ptr %mIndices24, align 8
   %19 = load i32, ptr %18, align 4
   %idxprom26 = zext i32 %19 to i64
-  %arrayidx27 = getelementptr inbounds %class.aiVector3t, ptr %17, i64 %idxprom26
-  %arrayidx30 = getelementptr inbounds i8, ptr %18, i64 4
+  %arrayidx27 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i64 %idxprom26
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %arrayidx30, align 4
   %idxprom31 = zext i32 %20 to i64
-  %arrayidx32 = getelementptr inbounds %class.aiVector3t, ptr %17, i64 %idxprom31
+  %arrayidx32 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i64 %idxprom31
   %sub = add i32 %11, -1
   %idxprom36 = zext i32 %sub to i64
-  %arrayidx37 = getelementptr inbounds i32, ptr %18, i64 %idxprom36
+  %arrayidx37 = getelementptr inbounds nuw i32, ptr %18, i64 %idxprom36
   %21 = load i32, ptr %arrayidx37, align 4
   %idxprom38 = zext i32 %21 to i64
-  %arrayidx39 = getelementptr inbounds %class.aiVector3t, ptr %17, i64 %idxprom38
+  %arrayidx39 = getelementptr inbounds nuw %class.aiVector3t, ptr %17, i64 %idxprom38
   %22 = load i8, ptr %flippedWindingOrder_, align 1
   %23 = load i8, ptr %leftHanded_, align 2
   %24 = xor i8 %23, %22
@@ -310,22 +310,22 @@ if.end23:                                         ; preds = %for.body
   %26 = load float, ptr %spec.select53, align 4
   %27 = load float, ptr %arrayidx27, align 4
   %sub.i = fsub float %26, %27
-  %y.i29 = getelementptr inbounds i8, ptr %spec.select53, i64 4
+  %y.i29 = getelementptr inbounds nuw i8, ptr %spec.select53, i64 4
   %28 = load float, ptr %y.i29, align 4
-  %y2.i = getelementptr inbounds i8, ptr %arrayidx27, i64 4
+  %y2.i = getelementptr inbounds nuw i8, ptr %arrayidx27, i64 4
   %29 = load float, ptr %y2.i, align 4
   %sub3.i = fsub float %28, %29
-  %z.i30 = getelementptr inbounds i8, ptr %spec.select53, i64 8
+  %z.i30 = getelementptr inbounds nuw i8, ptr %spec.select53, i64 8
   %30 = load float, ptr %z.i30, align 4
-  %z4.i = getelementptr inbounds i8, ptr %arrayidx27, i64 8
+  %z4.i = getelementptr inbounds nuw i8, ptr %arrayidx27, i64 8
   %31 = load float, ptr %z4.i, align 4
   %sub5.i = fsub float %30, %31
   %32 = load float, ptr %spec.select, align 4
   %sub.i31 = fsub float %32, %27
-  %y.i32 = getelementptr inbounds i8, ptr %spec.select, i64 4
+  %y.i32 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
   %33 = load float, ptr %y.i32, align 4
   %sub3.i34 = fsub float %33, %29
-  %z.i35 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %z.i35 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %34 = load float, ptr %z.i35, align 4
   %sub5.i37 = fsub float %34, %31
   %35 = fneg float %sub3.i34
@@ -364,12 +364,12 @@ for.body60:                                       ; preds = %for.body60.preheade
   %indvars.iv = phi i64 [ 0, %for.body60.preheader ], [ %indvars.iv.next, %for.body60 ]
   %43 = load ptr, ptr %mNormals, align 8
   %44 = load ptr, ptr %mIndices24, align 8
-  %arrayidx64 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv
+  %arrayidx64 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
   %45 = load i32, ptr %arrayidx64, align 4
   %idxprom65 = zext i32 %45 to i64
-  %arrayidx66 = getelementptr inbounds %class.aiVector3t, ptr %43, i64 %idxprom65
+  %arrayidx66 = getelementptr inbounds nuw %class.aiVector3t, ptr %43, i64 %idxprom65
   store <2 x float> %ref.tmp47.sroa.0.0, ptr %arrayidx66, align 4
-  %vNor.sroa.2.0.arrayidx66.sroa_idx = getelementptr inbounds i8, ptr %arrayidx66, i64 8
+  %vNor.sroa.2.0.arrayidx66.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx66, i64 8
   store float %ref.tmp47.sroa.6.0, ptr %vNor.sroa.2.0.arrayidx66.sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %arrayidx, align 8

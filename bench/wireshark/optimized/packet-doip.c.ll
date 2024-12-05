@@ -291,7 +291,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @doip_diag_addresses_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #4
   store ptr %7, ptr %8, align 8
@@ -300,7 +300,7 @@ define internal void @doip_diag_addresses_name_set_cb(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @doip_diag_addresses_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -348,7 +348,7 @@ define internal void @doip_payload_types_id_tostr_cb(ptr nocapture noundef reado
 define internal void @doip_payload_types_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #4
   store ptr %7, ptr %8, align 8
@@ -357,7 +357,7 @@ define internal void @doip_payload_types_name_set_cb(ptr nocapture noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @doip_payload_types_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -402,10 +402,10 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load i32, ptr %1, align 8
   store i32 %8, ptr %0, align 8
@@ -416,7 +416,7 @@ define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned 
 define internal noundef zeroext i1 @update_generic_one_identifier_16bit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp ugt i32 %3, 65535
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   br i1 %4, label %7, label %9
 
@@ -449,7 +449,7 @@ define internal noundef zeroext i1 @update_generic_one_identifier_16bit(ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_generic_one_id_string_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #4
   store ptr null, ptr %2, align 8
@@ -486,7 +486,7 @@ define internal void @post_update_doip_diag_addresses() #0 {
   %9 = getelementptr %struct._generic_one_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #4
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #4
@@ -530,7 +530,7 @@ define internal void @post_update_doip_payload_types() #0 {
   %9 = getelementptr %struct._generic_one_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #4
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #4
@@ -612,7 +612,7 @@ define internal i32 @dissect_doip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.73) #4
   %13 = load ptr, ptr %11, align 8
@@ -630,7 +630,7 @@ define internal i32 @dissect_doip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 
 19:                                               ; preds = %15, %4
   %20 = load ptr, ptr %11, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %22 = load ptr, ptr %21, align 8
   %23 = tail call fastcc ptr @resolve_doip_payload_type(ptr noundef %22, i16 noundef zeroext %10, i32 noundef 1)
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.152, ptr noundef %23) #4
@@ -660,7 +660,7 @@ define internal i32 @dissect_doip_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %38 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 2, i32 noundef 0) #4
   %39 = zext i16 %38 to i32
   %40 = load i32, ptr @hf_doip_type, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 408
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %42 = load ptr, ptr %41, align 8
   %43 = tail call fastcc ptr @resolve_doip_payload_type(ptr noundef %42, i16 noundef zeroext %38, i32 noundef 0)
   %44 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %33, i32 noundef %40, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef %39, ptr noundef nonnull @.str.158, ptr noundef %43) #4
@@ -821,7 +821,7 @@ add_header.exit.i:                                ; preds = %50, %27
   call fastcc void @doip_prototree_add_with_resolv(ptr noundef %31, i32 noundef %128, i32 noundef %129, ptr noundef %0, i32 noundef 8, ptr noundef nonnull %6)
   %130 = load i32, ptr %6, align 4
   %131 = trunc i32 %130 to i16
-  %132 = getelementptr inbounds i8, ptr %5, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %131, ptr %132, align 2
   %133 = load i32, ptr @hf_target_address, align 4
   %134 = load i32, ptr @hf_target_address_name, align 4
@@ -901,7 +901,7 @@ add_diagnostic_message_fields.exit.i:             ; preds = %144, %141, %138
 
 178:                                              ; preds = %174
   %179 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 8, i32 noundef 0) #4
-  %180 = getelementptr inbounds i8, ptr %8, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i16 %179, ptr %180, align 2
   %181 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 10, i32 noundef 0) #4
   store i16 %181, ptr %8, align 2
@@ -1039,13 +1039,13 @@ ht_lookup_name.exit:                              ; preds = %6
   br i1 %or.cond, label %proto_item_set_hidden.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %19, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %23 = load ptr, ptr %22, align 8
   %.not5.i = icmp eq ptr %23, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = or i32 %26, 1
   store i32 %27, ptr %25, align 4

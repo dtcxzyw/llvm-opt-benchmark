@@ -227,7 +227,7 @@ cmath_acos_impl.exit:                             ; preds = %if.then1.i33.i, %if
   %retval.0.i32.i = phi i64 [ %..i34.i, %if.then1.i33.i ], [ %.6.i31.i, %if.else4.i30.i ], [ 6, %if.end.i35.i ], [ %.7.i38.i, %if.end9.i36.i ]
   %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acos_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i32.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
-  %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
+  %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
   %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
   br label %if.else10
 
@@ -358,7 +358,7 @@ cmath_acosh_impl.exit:                            ; preds = %if.then1.i28.i, %if
   %retval.0.i27.i = phi i64 [ %..i29.i, %if.then1.i28.i ], [ %.6.i26.i, %if.else4.i25.i ], [ 6, %if.end.i30.i ], [ %.7.i33.i, %if.end9.i31.i ]
   %arrayidx6.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @acosh_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i27.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx6.i, align 16
-  %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
+  %retval.sroa.3.0.arrayidx6.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx6.i, i64 8
   %retval.sroa.3.0.copyload.i = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx.i, align 8
   br label %if.else10
 
@@ -727,7 +727,7 @@ special_type.exit42.i:                            ; preds = %if.end9.i39.i, %if.
   %retval.0.i35.i = phi i64 [ %..i37.i, %if.then1.i36.i ], [ %.6.i34.i, %if.else4.i33.i ], [ 6, %if.end.i38.i ], [ %.7.i41.i, %if.end9.i39.i ]
   %arrayidx26.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @exp_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i35.i
   %retval.sroa.0.0.copyload.i = load double, ptr %arrayidx26.i, align 16
-  %retval.sroa.7.0.arrayidx26.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx26.i, i64 8
+  %retval.sroa.7.0.arrayidx26.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx26.i, i64 8
   %retval.sroa.7.0.copyload.i = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx.i, align 8
   br label %if.end27.i
 
@@ -1530,7 +1530,7 @@ special_type.exit38.i:                            ; preds = %if.end9.i35.i, %if.
   %retval.0.i31.i = phi i64 [ %..i33.i, %if.then1.i32.i ], [ %.6.i30.i, %if.else4.i29.i ], [ 6, %if.end.i34.i ], [ %.7.i37.i, %if.end9.i35.i ]
   %arrayidx16.i = getelementptr [7 x [7 x %struct.Py_complex]], ptr @rect_special_values, i64 0, i64 %retval.0.i.i, i64 %retval.0.i31.i
   %z.sroa.0.0.copyload.i = load double, ptr %arrayidx16.i, align 16
-  %z.sroa.6.0.arrayidx16.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx16.i, i64 8
+  %z.sroa.6.0.arrayidx16.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx16.i, i64 8
   %z.sroa.6.0.copyload.i = load double, ptr %z.sroa.6.0.arrayidx16.sroa_idx.i, align 8
   br label %if.end17.i
 
@@ -1884,7 +1884,7 @@ special_type.exit42:                              ; preds = %if.then1.i36, %if.e
   %retval.0.i35 = phi i64 [ %..i37, %if.then1.i36 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
   %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sqrt_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i35
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
   br label %return
 
@@ -2022,7 +2022,7 @@ special_type.exit42:                              ; preds = %if.then1.i36, %if.e
   %retval.0.i35 = phi i64 [ %..i37, %if.then1.i36 ], [ %.6.i34, %if.else4.i33 ], [ 6, %if.end.i38 ], [ %.7.i41, %if.end9.i39 ]
   %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @asinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i35
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.3.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %retval.sroa.3.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %retval.sroa.3.0.copyload = load double, ptr %retval.sroa.3.0.arrayidx6.sroa_idx, align 8
   br label %return
 
@@ -2147,7 +2147,7 @@ special_type.exit46:                              ; preds = %if.then1.i40, %if.e
   %retval.0.i39 = phi i64 [ %..i41, %if.then1.i40 ], [ %.6.i38, %if.else4.i37 ], [ 6, %if.end.i42 ], [ %.7.i45, %if.end9.i43 ]
   %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @atanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i39
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
   %10 = insertvalue { double, double } poison, double %retval.sroa.0.0.copyload, 0
   %11 = insertvalue { double, double } %10, double %retval.sroa.4.0.copyload, 1
@@ -2343,7 +2343,7 @@ special_type.exit39:                              ; preds = %if.then1.i33, %if.e
   %retval.0.i32 = phi i64 [ %..i34, %if.then1.i33 ], [ %.6.i31, %if.else4.i30 ], [ 6, %if.end.i35 ], [ %.7.i38, %if.end9.i36 ]
   %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @cosh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx26, align 16
-  %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds i8, ptr %arrayidx26, i64 8
+  %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 8
   %retval.sroa.7.0.copyload = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx, align 8
   br label %if.end27
 
@@ -2515,7 +2515,7 @@ special_type.exit52:                              ; preds = %if.then1.i46, %if.e
   %retval.0.i45 = phi i64 [ %..i47, %if.then1.i46 ], [ %.6.i44, %if.else4.i43 ], [ 6, %if.end.i48 ], [ %.7.i51, %if.end9.i49 ]
   %arrayidx6 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @log_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i45
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx6, align 16
-  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds i8, ptr %arrayidx6, i64 8
+  %retval.sroa.4.0.arrayidx6.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx6, i64 8
   %retval.sroa.4.0.copyload = load double, ptr %retval.sroa.4.0.arrayidx6.sroa_idx, align 8
   br label %return
 
@@ -2708,7 +2708,7 @@ special_type.exit39:                              ; preds = %if.then1.i33, %if.e
   %retval.0.i32 = phi i64 [ %..i34, %if.then1.i33 ], [ %.6.i31, %if.else4.i30 ], [ 6, %if.end.i35 ], [ %.7.i38, %if.end9.i36 ]
   %arrayidx26 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @sinh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i32
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx26, align 16
-  %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds i8, ptr %arrayidx26, i64 8
+  %retval.sroa.7.0.arrayidx26.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 8
   %retval.sroa.7.0.copyload = load double, ptr %retval.sroa.7.0.arrayidx26.sroa_idx, align 8
   br label %if.end27
 
@@ -2869,7 +2869,7 @@ special_type.exit43:                              ; preds = %if.then1.i37, %if.e
   %retval.0.i36 = phi i64 [ %..i38, %if.then1.i37 ], [ %.6.i35, %if.else4.i34 ], [ 6, %if.end.i39 ], [ %.7.i42, %if.end9.i40 ]
   %arrayidx29 = getelementptr [7 x [7 x %struct.Py_complex]], ptr @tanh_special_values, i64 0, i64 %retval.0.i, i64 %retval.0.i36
   %retval.sroa.0.0.copyload = load double, ptr %arrayidx29, align 16
-  %retval.sroa.6.0.arrayidx29.sroa_idx = getelementptr inbounds i8, ptr %arrayidx29, i64 8
+  %retval.sroa.6.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx29, i64 8
   %retval.sroa.6.0.copyload = load double, ptr %retval.sroa.6.0.arrayidx29.sroa_idx, align 8
   br label %if.end30
 

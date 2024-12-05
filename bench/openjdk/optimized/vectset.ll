@@ -13,12 +13,12 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN9VectorSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 800
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
   %5 = load ptr, ptr %4, align 8
   store i32 2, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -27,7 +27,7 @@ define hidden void @_ZN9VectorSetC2Ev(ptr nocapture noundef nonnull align 8 dere
   br i1 %.not.i.i.i, label %15, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %14, ptr %8, align 8
   br label %_ZN9VectorSet4initEP5Arena.exit
 
@@ -37,15 +37,15 @@ define hidden void @_ZN9VectorSetC2Ev(ptr nocapture noundef nonnull align 8 dere
 
 _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %13, %15
   %.0.i.i.i = phi ptr [ %9, %13 ], [ %16, %15 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %19, align 8
   store i32 0, ptr %.0.i.i.i, align 4
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   store i32 0, ptr %21, align 4
   ret void
 }
@@ -53,9 +53,9 @@ _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %13, %15
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9VectorSet4initEP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -64,7 +64,7 @@ define hidden void @_ZN9VectorSet4initEP5Arena(ptr nocapture noundef nonnull ali
   br i1 %.not.i.i, label %12, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %11, ptr %5, align 8
   br label %_ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit
 
@@ -74,15 +74,15 @@ define hidden void @_ZN9VectorSet4initEP5Arena(ptr nocapture noundef nonnull ali
 
 _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %10, %12
   %.0.i.i = phi ptr [ %6, %10 ], [ %13, %12 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %16, align 8
   store i32 0, ptr %.0.i.i, align 4
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %18, align 4
   ret void
 }
@@ -90,9 +90,9 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %10, %12
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9VectorSetC2EP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %4 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -101,7 +101,7 @@ define hidden void @_ZN9VectorSetC2EP5Arena(ptr nocapture noundef nonnull align 
   br i1 %.not.i.i.i, label %12, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %11, ptr %5, align 8
   br label %_ZN9VectorSet4initEP5Arena.exit
 
@@ -111,15 +111,15 @@ define hidden void @_ZN9VectorSetC2EP5Arena(ptr nocapture noundef nonnull align 
 
 _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %10, %12
   %.0.i.i.i = phi ptr [ %6, %10 ], [ %13, %12 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 2, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %16, align 8
   store i32 0, ptr %.0.i.i.i, align 4
   %17 = load ptr, ptr %14, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %18, align 4
   ret void
 }
@@ -133,20 +133,20 @@ define hidden void @_ZN9VectorSet4growEj(ptr nocapture noundef nonnull align 8 d
   %6 = sub nuw nsw i32 32, %5
   %7 = shl nuw i32 1, %6
   %.0.i.i = select i1 %or.cond.i.i, i32 %3, i32 %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = icmp ugt i32 %.0.i.i, %9
   br i1 %10, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %22
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %0, align 8
   %17 = zext i32 %16 to i64
@@ -162,7 +162,7 @@ define hidden void @_ZN9VectorSet4growEj(ptr nocapture noundef nonnull align 8 d
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %21, %11 ]
   %24 = load i32, ptr %0, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
   %27 = sub i32 %.0.i.i, %24
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 2
@@ -188,20 +188,20 @@ define hidden void @_ZN9VectorSet6insertEj(ptr nocapture noundef nonnull align 8
   %9 = sub nuw nsw i32 32, %8
   %10 = shl nuw nsw i32 1, %9
   %.0.i.i.i = select i1 %or.cond.i.i.i, i32 %6, i32 %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp ugt i32 %.0.i.i.i, %12
   br i1 %13, label %14, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %5
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %_ZN9VectorSet4growEj.exit
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = zext nneg i32 %4 to i64
   %20 = shl nuw nsw i64 %19, 2
@@ -217,7 +217,7 @@ _ZN9VectorSet4growEj.exit:                        ; preds = %._crit_edge.i, %14
   %24 = phi i32 [ %4, %._crit_edge.i ], [ %.pre, %14 ]
   %25 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %23, %14 ]
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
   %28 = sub i32 %.0.i.i.i, %24
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
@@ -228,10 +228,10 @@ _ZN9VectorSet4growEj.exit:                        ; preds = %._crit_edge.i, %14
 31:                                               ; preds = %_ZN9VectorSet4growEj.exit, %2
   %32 = and i32 %1, 31
   %33 = shl nuw i32 1, %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i32 %3 to i64
-  %37 = getelementptr inbounds i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, %33
   store i32 %39, ptr %37, align 4
@@ -245,14 +245,14 @@ define hidden noundef zeroext i1 @_ZNK9VectorSet8is_emptyEv(ptr nocapture nounde
   br i1 %3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %wide.trip.count = zext i32 %2 to i64
   br label %6
 
 6:                                                ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

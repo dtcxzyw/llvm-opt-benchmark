@@ -665,7 +665,7 @@ define internal i32 @dissect_wifi_p2p_ie(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %9
 
 9:                                                ; preds = %.lr.ph, %dissect_channel_list.exit
@@ -1405,7 +1405,7 @@ define internal noundef i32 @dissect_wifi_p2p_public_action(ptr noundef %0, ptr 
   %5 = load i32, ptr @hf_p2p_public_action_subtype, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = zext i8 %7 to i32
   %11 = tail call ptr @val_to_str(i32 noundef %10, ptr noundef nonnull @p2p_public_action_subtypes, ptr noundef nonnull @.str.311) #4

@@ -88,7 +88,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %0 = load double, ptr %complex, align 8
-  %1 = getelementptr inbounds i8, ptr %complex, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %complex, i64 8
   %2 = load double, ptr %1, align 8
   %call1 = call ptr @PyComplex_FromCComplex(double %0, double %2) #3
   br label %return
@@ -203,16 +203,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds i8, ptr %num, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds i8, ptr %exp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_sum(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
   %7 = extractvalue { double, double } %call2, 1
   store double %6, ptr %res, align 8
-  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds i8, ptr %res, i64 8
+  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 8
   store double %7, ptr %tmp.sroa.2.0.res.sroa_idx, align 8
   %8 = load i32, ptr %call1, align 4
   %call4 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, ptr noundef nonnull %res, i32 noundef %8) #3
@@ -237,16 +237,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds i8, ptr %num, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds i8, ptr %exp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_diff(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
   %7 = extractvalue { double, double } %call2, 1
   store double %6, ptr %res, align 8
-  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds i8, ptr %res, i64 8
+  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 8
   store double %7, ptr %tmp.sroa.2.0.res.sroa_idx, align 8
   %8 = load i32, ptr %call1, align 4
   %call4 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, ptr noundef nonnull %res, i32 noundef %8) #3
@@ -297,16 +297,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds i8, ptr %num, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds i8, ptr %exp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_prod(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
   %7 = extractvalue { double, double } %call2, 1
   store double %6, ptr %res, align 8
-  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds i8, ptr %res, i64 8
+  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 8
   store double %7, ptr %tmp.sroa.2.0.res.sroa_idx, align 8
   %8 = load i32, ptr %call1, align 4
   %call4 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, ptr noundef nonnull %res, i32 noundef %8) #3
@@ -331,16 +331,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds i8, ptr %num, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds i8, ptr %exp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_quot(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
   %7 = extractvalue { double, double } %call2, 1
   store double %6, ptr %res, align 8
-  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds i8, ptr %res, i64 8
+  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 8
   store double %7, ptr %tmp.sroa.2.0.res.sroa_idx, align 8
   %8 = load i32, ptr %call1, align 4
   %call4 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, ptr noundef nonnull %res, i32 noundef %8) #3
@@ -365,16 +365,16 @@ if.end:                                           ; preds = %entry
   %call1 = tail call ptr @__errno_location() #4
   store i32 0, ptr %call1, align 4
   %0 = load double, ptr %num, align 8
-  %1 = getelementptr inbounds i8, ptr %num, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %num, i64 8
   %2 = load double, ptr %1, align 8
   %3 = load double, ptr %exp, align 8
-  %4 = getelementptr inbounds i8, ptr %exp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %exp, i64 8
   %5 = load double, ptr %4, align 8
   %call2 = call { double, double } @_Py_c_pow(double %0, double %2, double %3, double %5) #3
   %6 = extractvalue { double, double } %call2, 0
   %7 = extractvalue { double, double } %call2, 1
   store double %6, ptr %res, align 8
-  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds i8, ptr %res, i64 8
+  %tmp.sroa.2.0.res.sroa_idx = getelementptr inbounds nuw i8, ptr %res, i64 8
   store double %7, ptr %tmp.sroa.2.0.res.sroa_idx, align 8
   %8 = load i32, ptr %call1, align 4
   %call4 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.17, ptr noundef nonnull %res, i32 noundef %8) #3

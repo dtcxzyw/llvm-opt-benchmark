@@ -13,14 +13,14 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN87_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$core..default..Default$GT$7default17h7ee994612540c909E"(ptr dead_on_unwind noalias nocapture noundef writable sret([824 x i8]) align 8 dereferenceable(824) %0) unnamed_addr #0 {
   tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias nocapture noundef nonnull sret([720 x i8]) align 8 dereferenceable(824) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
-  %2 = getelementptr inbounds i8, ptr %0, i64 720
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 0, ptr %2, align 8, !alias.scope !4
-  %3 = getelementptr inbounds i8, ptr %0, i64 812
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 812
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store i32 0, ptr %4, align 8, !alias.scope !4
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 784
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i64 0, ptr %.sroa.42.0..sroa_idx.i, align 8, !alias.scope !4
-  %5 = getelementptr inbounds i8, ptr %0, i64 728
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %5, align 8, !alias.scope !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %3, i8 0, i64 5, i1 false), !alias.scope !4
   ret void
@@ -29,14 +29,14 @@ define void @"_ZN87_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN2ui10components5label10label_like9LabelLike3new17hc149c9c2e58f141eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) %0) unnamed_addr #0 {
   tail call void @_ZN4gpui8elements3div3div17hda14f05b9a0dca6fE(ptr noalias nocapture noundef nonnull sret([720 x i8]) align 8 dereferenceable(720) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9a791927a891cbca8257d074220c7b7f.2.llvm.10114438848941612023)
-  %2 = getelementptr inbounds i8, ptr %0, i64 720
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 812
-  %4 = getelementptr inbounds i8, ptr %0, i64 792
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 812
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 792
   store i32 0, ptr %4, align 8
-  %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 784
+  %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i64 0, ptr %.sroa.42.0..sroa_idx, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 728
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 0, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %3, i8 0, i64 5, i1 false)
   ret void
@@ -50,7 +50,7 @@ define noundef nonnull align 8 dereferenceable(568) ptr @_ZN2ui10components5labe
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$4size17h9e6fce2bfba553f2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((816, 817)) %1, i8 noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 816
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 816
   store i8 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -58,9 +58,9 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$6weight17h5cc2b37b60c61f06E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((720, 728)) %1, float noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 720
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 720
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 724
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 724
   store float %2, ptr %5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -68,7 +68,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$17line_height_style17h963548aa88a1adc5E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((812, 813)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 812
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 812
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
@@ -77,7 +77,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$5color17h938e0cf7f65714cbE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((792, 812)) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 792
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 792
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -85,7 +85,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$13strikethrough17h9002c6bbac7cf8d0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((813, 814)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 813
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 813
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
@@ -94,7 +94,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$6italic17hf912349a11ee0610E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((814, 815)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 814
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 814
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
@@ -103,7 +103,7 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$9underline17h516f7976ce099958E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((815, 816)) %1, i1 noundef zeroext %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 815
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 815
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
@@ -112,9 +112,9 @@ define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @"_ZN111_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$ui..components..label..label_like..LabelCommon$GT$5alpha17hcb2fb7660ac60e43E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([824 x i8]) align 8 dereferenceable(824) initializes((0, 824)) %0, ptr noalias nocapture noundef align 8 dereferenceable(824) initializes((728, 736)) %1, float noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 728
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 728
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 732
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 732
   store float %2, ptr %5, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -167,18 +167,18 @@ define void @"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
 37:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %31)
-  %38 = getelementptr inbounds i8, ptr %1, i64 792
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 792
   invoke void @_ZN2ui6styles5color5Color5color17hd8f34534a5b39647E(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 4 dereferenceable(16) %31, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %38, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
           to label %39 unwind label %211
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 728
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %41 = load i32, ptr %40, align 8, !range !7, !noundef !8
   %trunc = trunc nuw i32 %41 to i1
   br i1 %trunc, label %42, label %46
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %1, i64 732
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 732
   %44 = load float, ptr %43, align 4, !noundef !8
   %45 = fsub float 1.000000e+00, %44
   invoke void @_ZN4gpui5color4Hsla8fade_out17hb80c6ec016349bfeE(ptr noalias noundef nonnull align 4 dereferenceable(16) %31, float noundef %45)
@@ -189,13 +189,13 @@ define void @"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %27, ptr noundef nonnull align 8 dereferenceable(720) %1, i64 720, i1 false)
-  %47 = getelementptr inbounds i8, ptr %1, i64 813
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 813
   %48 = load i8, ptr %47, align 1, !range !9, !noundef !8
   %49 = trunc nuw i8 %48 to i1
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %117, %46
-  %51 = getelementptr inbounds i8, ptr %1, i64 816
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 816
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %22)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %22, ptr noundef nonnull align 8 dereferenceable(720) %27, i64 720, i1 false)
   %.val = load i8, ptr %51, align 8, !range !10, !noundef !8
@@ -246,7 +246,7 @@ default.unreachable:                              ; preds = %50
   unreachable
 
 _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %57, i64 556
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 556
   store i8 0, ptr %62, align 4, !noalias !19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %18, ptr noundef nonnull align 8 dereferenceable(720) %23, i64 720, i1 false), !alias.scope !20, !noalias !22
   call void @llvm.lifetime.start.p0(i64 720, ptr nonnull %17), !noalias !11
@@ -281,7 +281,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   unreachable
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %65, i64 556
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 556
   store i8 1, ptr %71, align 4, !noalias !26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %13, ptr noundef nonnull align 8 dereferenceable(720) %12, i64 720, i1 false), !alias.scope !27, !noalias !11
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %12), !noalias !11
@@ -310,7 +310,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   unreachable
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %72, i64 392
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 392
   store i64 %78, ptr %82, align 8, !noalias !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %14, ptr noundef nonnull align 8 dereferenceable(720) %13, i64 720, i1 false), !alias.scope !33, !noalias !11
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %13), !noalias !11
@@ -339,7 +339,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   unreachable
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds i8, ptr %83, i64 424
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 424
   store i64 %89, ptr %93, align 8, !noalias !38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %15, ptr noundef nonnull align 8 dereferenceable(720) %14, i64 720, i1 false), !alias.scope !39, !noalias !11
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %14), !noalias !11
@@ -368,7 +368,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   unreachable
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %94, i64 432
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 432
   store i64 %100, ptr %104, align 8, !noalias !44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %16, ptr noundef nonnull align 8 dereferenceable(720) %15, i64 720, i1 false), !alias.scope !45, !noalias !11
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %15), !noalias !11
@@ -403,9 +403,9 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
   unreachable
 
 111:                                              ; preds = %"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h237f323e57217141E.llvm.14036908944705627615.exit.i.i"
-  %112 = getelementptr inbounds i8, ptr %108, i64 512
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 512
   store i32 1, ptr %112, align 8, !noalias !56
-  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %108, i64 516
+  %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %108, i64 516
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.i.i, i64 16, i1 false), !noalias !56
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %17, ptr noundef nonnull align 8 dereferenceable(720) %16, i64 720, i1 false), !alias.scope !57, !noalias !58
@@ -439,7 +439,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 
 "_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hd86a857fb0af280eE.exit": ; preds = %52, %53, %54, %55
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %22)
-  %118 = getelementptr inbounds i8, ptr %1, i64 812
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 812
   %119 = load i8, ptr %118, align 4, !range !9, !noundef !8
   %120 = trunc nuw i8 %119 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %20, ptr noundef nonnull align 8 dereferenceable(720) %28, i64 720, i1 false)
@@ -464,7 +464,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
           to label %.thread unwind label %132, !noalias !68
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %124, i64 80
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %129 = load i64, ptr %128, align 8, !range !72, !alias.scope !69, !noalias !68, !noundef !8
   %130 = icmp eq i64 %129, 3
@@ -503,7 +503,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 138:                                              ; preds = %.noexc.i.i, %127
   %139 = phi i1 [ true, %127 ], [ %131, %.noexc.i.i ]
   call void @llvm.assume(i1 %139)
-  %140 = getelementptr inbounds i8, ptr %124, i64 144
+  %140 = getelementptr inbounds nuw i8, ptr %124, i64 144
   store i64 %122, ptr %140, align 8, !noalias !68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %20, ptr noundef nonnull align 8 dereferenceable(720) %9, i64 720, i1 false), !alias.scope !74, !noalias !75
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %9), !noalias !59
@@ -511,7 +511,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 
 141:                                              ; preds = %"_ZN90_$LT$ui..components..label..label_like..LabelLike$u20$as$u20$gpui..element..RenderOnce$GT$6render28_$u7b$$u7b$closure$u7d$$u7d$17hd86a857fb0af280eE.exit", %138
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %28)
-  %142 = getelementptr inbounds i8, ptr %1, i64 814
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 814
   %143 = load i8, ptr %142, align 2, !range !9, !noundef !8
   %144 = trunc nuw i8 %143 to i1
   br i1 %144, label %145, label %158
@@ -527,7 +527,7 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
           to label %.thread unwind label %154, !noalias !76
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds i8, ptr %146, i64 80
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %151 = load i64, ptr %150, align 8, !range !72, !alias.scope !79, !noalias !76, !noundef !8
   %152 = icmp eq i64 %151, 3
@@ -554,13 +554,13 @@ _ZN4gpui6styled6Styled8relative17hbb3be4cc9c1f1a05E.exit.i: ; preds = %56
 _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.i
   %156 = phi i1 [ true, %149 ], [ %153, %.noexc.i ]
   call void @llvm.assume(i1 %156)
-  %157 = getelementptr inbounds i8, ptr %146, i64 238
+  %157 = getelementptr inbounds nuw i8, ptr %146, i64 238
   store i8 1, ptr %157, align 2, !noalias !76
   br label %158
 
 158:                                              ; preds = %141, %_ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %19, ptr noundef nonnull align 8 dereferenceable(720) %20, i64 720, i1 false)
-  %159 = getelementptr inbounds i8, ptr %1, i64 815
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 815
   %160 = load i8, ptr %159, align 1, !range !9, !noundef !8
   %161 = trunc nuw i8 %160 to i1
   br i1 %161, label %173, label %162
@@ -580,7 +580,7 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
           to label %.thread unwind label %171, !noalias !89
 
 166:                                              ; preds = %162
-  %167 = getelementptr inbounds i8, ptr %163, i64 80
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !91)
   %168 = load i64, ptr %167, align 8, !range !72, !alias.scope !91, !noalias !89, !noundef !8
   %169 = icmp eq i64 %168, 3
@@ -623,7 +623,7 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
           to label %179 unwind label %175, !noalias !95
 
 179:                                              ; preds = %177
-  %180 = getelementptr inbounds i8, ptr %178, i64 80
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %181 = load i64, ptr %180, align 8, !range !72, !alias.scope !101, !noalias !95, !noundef !8
   %182 = icmp eq i64 %181, 3
@@ -650,11 +650,11 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
 186:                                              ; preds = %.noexc.i28, %179
   %187 = phi i1 [ true, %179 ], [ %183, %.noexc.i28 ]
   call void @llvm.assume(i1 %187)
-  %188 = getelementptr inbounds i8, ptr %178, i64 208
+  %188 = getelementptr inbounds nuw i8, ptr %178, i64 208
   store i32 0, ptr %188, align 8, !noalias !95
-  %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %178, i64 228
+  %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %178, i64 228
   store float %174, ptr %.sroa.42.0..sroa_idx.i, align 4, !noalias !95
-  %.sroa.53.0..sroa_idx.i = getelementptr inbounds i8, ptr %178, i64 232
+  %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %178, i64 232
   store i8 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %19, ptr noundef nonnull align 8 dereferenceable(720) %21, i64 720, i1 false), !alias.scope !100
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %21)
@@ -663,17 +663,17 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
 189:                                              ; preds = %.noexc.i22, %166
   %190 = phi i1 [ true, %166 ], [ %170, %.noexc.i22 ]
   call void @llvm.assume(i1 %190)
-  %191 = getelementptr inbounds i8, ptr %163, i64 168
+  %191 = getelementptr inbounds nuw i8, ptr %163, i64 168
   store i32 1, ptr %191, align 8, !noalias !89
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %163, i64 172
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %163, i64 172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(16) %26, i64 16, i1 false), !noalias !84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %29, ptr noundef nonnull align 8 dereferenceable(720) %19, i64 720, i1 false), !alias.scope !105, !noalias !106
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26)
-  %192 = getelementptr inbounds i8, ptr %1, i64 720
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %193 = load i32, ptr %192, align 8, !range !7, !noundef !8
-  %194 = getelementptr inbounds i8, ptr %36, i64 40
+  %194 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %trunc6 = trunc nuw i32 %193 to i1
-  %195 = getelementptr inbounds i8, ptr %1, i64 724
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 724
   %spec.select = select i1 %trunc6, ptr %195, ptr %194
   %.sroa.03.0 = load float, ptr %spec.select, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !107)
@@ -688,7 +688,7 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
           to label %.thread unwind label %204, !noalias !107
 
 199:                                              ; preds = %189
-  %200 = getelementptr inbounds i8, ptr %196, i64 80
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   %201 = load i64, ptr %200, align 8, !range !72, !alias.scope !112, !noalias !107, !noundef !8
   %202 = icmp eq i64 %201, 3
@@ -715,14 +715,14 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
 206:                                              ; preds = %.noexc.i35, %199
   %207 = phi i1 [ true, %199 ], [ %203, %.noexc.i35 ]
   call void @llvm.assume(i1 %207)
-  %208 = getelementptr inbounds i8, ptr %196, i64 104
+  %208 = getelementptr inbounds nuw i8, ptr %196, i64 104
   store i32 1, ptr %208, align 8, !noalias !107
-  %209 = getelementptr inbounds i8, ptr %196, i64 108
+  %209 = getelementptr inbounds nuw i8, ptr %196, i64 108
   store float %.sroa.03.0, ptr %209, align 4, !noalias !107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(720) %30, ptr noundef nonnull align 8 dereferenceable(720) %29, i64 720, i1 false), !alias.scope !116
   call void @llvm.lifetime.end.p0(i64 720, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)
-  %210 = getelementptr inbounds i8, ptr %1, i64 736
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 736
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %210, i64 56, i1 false)
   call void @_ZN4gpui7element13ParentElement8children17h2cddcf9ba33a3c4aE(ptr noalias nocapture noundef nonnull sret([720 x i8]) align 8 dereferenceable(720) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(720) %30, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %25)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25)
@@ -752,7 +752,7 @@ _ZN4gpui6styled6Styled6italic17hd9081da822a72194E.exit: ; preds = %149, %.noexc.
 
 .thread:                                          ; preds = %197, %175, %164, %147, %125, %134, %58, %.thread19.i, %211, %.thread59
   %eh.lpad-body4655 = phi { ptr, i32 } [ %lpad.thr_comm57, %.thread59 ], [ %lpad.thr_comm.split-lp, %211 ], [ %59, %58 ], [ %.pn18.i, %.thread19.i ], [ %135, %134 ], [ %126, %125 ], [ %148, %147 ], [ %165, %164 ], [ %176, %175 ], [ %198, %197 ]
-  %214 = getelementptr inbounds i8, ptr %1, i64 736
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 736
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2ba4172180bbc87eE.llvm.8627063476570623420"(ptr noalias noundef nonnull align 8 dereferenceable(56) %214)
           to label %"_ZN4core3ptr93drop_in_place$LT$smallvec..SmallVec$LT$$u5b$gpui..element..AnyElement$u3b$$u20$2$u5d$$GT$$GT$17h22cc52eef00b743aE.exit" unwind label %212
 }
@@ -783,7 +783,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %12 unwind label %4
@@ -793,7 +793,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %17 unwind label %4
@@ -803,7 +803,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %22 unwind label %4
@@ -813,7 +813,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -849,7 +849,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %13 unwind label %4
@@ -860,7 +860,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %19 unwind label %4
@@ -871,7 +871,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %25 unwind label %4
@@ -882,7 +882,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -917,7 +917,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %12 unwind label %4
@@ -927,7 +927,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %17 unwind label %4
@@ -937,7 +937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %22 unwind label %4
@@ -947,7 +947,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -983,7 +983,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %13 unwind label %4
@@ -994,7 +994,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %19 unwind label %4
@@ -1005,7 +1005,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %25 unwind label %4
@@ -1016,7 +1016,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1051,7 +1051,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %12 unwind label %4
@@ -1061,7 +1061,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %17 unwind label %4
@@ -1071,7 +1071,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %22 unwind label %4
@@ -1081,7 +1081,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1117,7 +1117,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %13 unwind label %4
@@ -1128,7 +1128,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %19 unwind label %4
@@ -1139,7 +1139,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %25 unwind label %4
@@ -1150,7 +1150,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1185,7 +1185,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %12 unwind label %4
@@ -1195,7 +1195,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %17 unwind label %4
@@ -1205,7 +1205,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %22 unwind label %4
@@ -1215,7 +1215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1251,7 +1251,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %13 unwind label %4
@@ -1262,7 +1262,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %19 unwind label %4
@@ -1273,7 +1273,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %25 unwind label %4
@@ -1284,7 +1284,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1319,7 +1319,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -1329,7 +1329,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %17 unwind label %4
@@ -1339,7 +1339,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %22 unwind label %4
@@ -1349,7 +1349,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1385,7 +1385,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %13 unwind label %4
@@ -1396,7 +1396,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %19 unwind label %4
@@ -1407,7 +1407,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %25 unwind label %4
@@ -1418,7 +1418,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1453,7 +1453,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %12 unwind label %4
@@ -1463,7 +1463,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %17 unwind label %4
@@ -1473,7 +1473,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %22 unwind label %4
@@ -1483,7 +1483,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1519,7 +1519,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %13 unwind label %4
@@ -1530,7 +1530,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %19 unwind label %4
@@ -1541,7 +1541,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %25 unwind label %4
@@ -1552,7 +1552,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1587,7 +1587,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %12 unwind label %4
@@ -1597,7 +1597,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %17 unwind label %4
@@ -1607,7 +1607,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %22 unwind label %4
@@ -1617,7 +1617,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1653,7 +1653,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %13 unwind label %4
@@ -1664,7 +1664,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %19 unwind label %4
@@ -1675,7 +1675,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %25 unwind label %4
@@ -1686,7 +1686,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1721,7 +1721,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %12 unwind label %4
@@ -1731,7 +1731,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %17 unwind label %4
@@ -1741,7 +1741,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %22 unwind label %4
@@ -1751,7 +1751,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1787,7 +1787,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %13 unwind label %4
@@ -1798,7 +1798,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %19 unwind label %4
@@ -1809,7 +1809,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %25 unwind label %4
@@ -1820,7 +1820,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1855,7 +1855,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -1865,7 +1865,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %17 unwind label %4
@@ -1875,7 +1875,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %22 unwind label %4
@@ -1885,7 +1885,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1921,7 +1921,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %13 unwind label %4
@@ -1932,7 +1932,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %19 unwind label %4
@@ -1943,7 +1943,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %25 unwind label %4
@@ -1954,7 +1954,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -1989,7 +1989,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %12 unwind label %4
@@ -1999,7 +1999,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %17 unwind label %4
@@ -2009,7 +2009,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %22 unwind label %4
@@ -2019,7 +2019,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2055,7 +2055,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %13 unwind label %4
@@ -2066,7 +2066,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %19 unwind label %4
@@ -2077,7 +2077,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %25 unwind label %4
@@ -2088,7 +2088,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2123,7 +2123,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %12 unwind label %4
@@ -2133,7 +2133,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %17 unwind label %4
@@ -2143,7 +2143,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %22 unwind label %4
@@ -2153,7 +2153,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2189,7 +2189,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %13 unwind label %4
@@ -2200,7 +2200,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %19 unwind label %4
@@ -2211,7 +2211,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %25 unwind label %4
@@ -2222,7 +2222,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2257,7 +2257,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %12 unwind label %4
@@ -2267,7 +2267,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %17 unwind label %4
@@ -2277,7 +2277,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %22 unwind label %4
@@ -2287,7 +2287,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2323,7 +2323,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %13 unwind label %4
@@ -2334,7 +2334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %19 unwind label %4
@@ -2345,7 +2345,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %25 unwind label %4
@@ -2356,7 +2356,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2391,7 +2391,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %12 unwind label %4
@@ -2401,7 +2401,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %17 unwind label %4
@@ -2411,7 +2411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %22 unwind label %4
@@ -2421,7 +2421,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2457,7 +2457,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %13 unwind label %4
@@ -2468,7 +2468,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %19 unwind label %4
@@ -2479,7 +2479,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %25 unwind label %4
@@ -2490,7 +2490,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2525,7 +2525,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %12 unwind label %4
@@ -2535,7 +2535,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %17 unwind label %4
@@ -2545,7 +2545,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %22 unwind label %4
@@ -2555,7 +2555,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2591,7 +2591,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %13 unwind label %4
@@ -2602,7 +2602,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %19 unwind label %4
@@ -2613,7 +2613,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %25 unwind label %4
@@ -2624,7 +2624,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2659,7 +2659,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %12 unwind label %4
@@ -2669,7 +2669,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %17 unwind label %4
@@ -2679,7 +2679,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %22 unwind label %4
@@ -2689,7 +2689,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2725,7 +2725,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %13 unwind label %4
@@ -2736,7 +2736,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %19 unwind label %4
@@ -2747,7 +2747,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %25 unwind label %4
@@ -2758,7 +2758,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2793,7 +2793,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %12 unwind label %4
@@ -2803,7 +2803,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %17 unwind label %4
@@ -2813,7 +2813,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %22 unwind label %4
@@ -2823,7 +2823,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2859,7 +2859,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %13 unwind label %4
@@ -2870,7 +2870,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %19 unwind label %4
@@ -2881,7 +2881,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %25 unwind label %4
@@ -2892,7 +2892,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2927,7 +2927,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %12 unwind label %4
@@ -2937,7 +2937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %17 unwind label %4
@@ -2947,7 +2947,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %22 unwind label %4
@@ -2957,7 +2957,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -2993,7 +2993,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %13 unwind label %4
@@ -3004,7 +3004,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %19 unwind label %4
@@ -3015,7 +3015,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %25 unwind label %4
@@ -3026,7 +3026,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3061,7 +3061,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %12 unwind label %4
@@ -3071,7 +3071,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %17 unwind label %4
@@ -3081,7 +3081,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %22 unwind label %4
@@ -3091,7 +3091,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3127,7 +3127,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %13 unwind label %4
@@ -3138,7 +3138,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %19 unwind label %4
@@ -3149,7 +3149,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %25 unwind label %4
@@ -3160,7 +3160,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3195,7 +3195,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %12 unwind label %4
@@ -3205,7 +3205,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %17 unwind label %4
@@ -3215,7 +3215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %22 unwind label %4
@@ -3225,7 +3225,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3261,7 +3261,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %13 unwind label %4
@@ -3272,7 +3272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %19 unwind label %4
@@ -3283,7 +3283,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %25 unwind label %4
@@ -3294,7 +3294,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3329,7 +3329,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %12 unwind label %4
@@ -3339,7 +3339,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %17 unwind label %4
@@ -3349,7 +3349,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %22 unwind label %4
@@ -3359,7 +3359,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3395,7 +3395,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %13 unwind label %4
@@ -3406,7 +3406,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %19 unwind label %4
@@ -3417,7 +3417,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %25 unwind label %4
@@ -3428,7 +3428,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3463,7 +3463,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %12 unwind label %4
@@ -3473,7 +3473,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %17 unwind label %4
@@ -3483,7 +3483,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %22 unwind label %4
@@ -3493,7 +3493,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3529,7 +3529,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %13 unwind label %4
@@ -3540,7 +3540,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %19 unwind label %4
@@ -3551,7 +3551,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %25 unwind label %4
@@ -3562,7 +3562,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3597,7 +3597,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %12 unwind label %4
@@ -3607,7 +3607,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %17 unwind label %4
@@ -3617,7 +3617,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %22 unwind label %4
@@ -3627,7 +3627,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3663,7 +3663,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %13 unwind label %4
@@ -3674,7 +3674,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %19 unwind label %4
@@ -3685,7 +3685,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %25 unwind label %4
@@ -3696,7 +3696,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3731,7 +3731,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %12 unwind label %4
@@ -3741,7 +3741,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %17 unwind label %4
@@ -3751,7 +3751,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %22 unwind label %4
@@ -3761,7 +3761,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3797,7 +3797,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %13 unwind label %4
@@ -3808,7 +3808,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %19 unwind label %4
@@ -3819,7 +3819,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %25 unwind label %4
@@ -3830,7 +3830,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3865,7 +3865,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %12 unwind label %4
@@ -3875,7 +3875,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %17 unwind label %4
@@ -3885,7 +3885,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %22 unwind label %4
@@ -3895,7 +3895,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3931,7 +3931,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %13 unwind label %4
@@ -3942,7 +3942,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %19 unwind label %4
@@ -3953,7 +3953,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %25 unwind label %4
@@ -3964,7 +3964,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -3999,7 +3999,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %12 unwind label %4
@@ -4009,7 +4009,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %17 unwind label %4
@@ -4019,7 +4019,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %22 unwind label %4
@@ -4029,7 +4029,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4065,7 +4065,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %13 unwind label %4
@@ -4076,7 +4076,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %19 unwind label %4
@@ -4087,7 +4087,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %25 unwind label %4
@@ -4098,7 +4098,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4133,7 +4133,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %12 unwind label %4
@@ -4143,7 +4143,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %17 unwind label %4
@@ -4153,7 +4153,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %22 unwind label %4
@@ -4163,7 +4163,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4199,7 +4199,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %13 unwind label %4
@@ -4210,7 +4210,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %19 unwind label %4
@@ -4221,7 +4221,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %25 unwind label %4
@@ -4232,7 +4232,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4267,7 +4267,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %12 unwind label %4
@@ -4277,7 +4277,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %17 unwind label %4
@@ -4287,7 +4287,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %22 unwind label %4
@@ -4297,7 +4297,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4333,7 +4333,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %13 unwind label %4
@@ -4344,7 +4344,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %19 unwind label %4
@@ -4355,7 +4355,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %25 unwind label %4
@@ -4366,7 +4366,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4401,7 +4401,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %12 unwind label %4
@@ -4411,7 +4411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %17 unwind label %4
@@ -4421,7 +4421,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %22 unwind label %4
@@ -4431,7 +4431,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4467,7 +4467,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %13 unwind label %4
@@ -4478,7 +4478,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %19 unwind label %4
@@ -4489,7 +4489,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %25 unwind label %4
@@ -4500,7 +4500,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4535,7 +4535,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %12 unwind label %4
@@ -4545,7 +4545,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %17 unwind label %4
@@ -4555,7 +4555,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %22 unwind label %4
@@ -4565,7 +4565,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4601,7 +4601,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %13 unwind label %4
@@ -4612,7 +4612,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %19 unwind label %4
@@ -4623,7 +4623,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %25 unwind label %4
@@ -4634,7 +4634,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4669,7 +4669,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %12 unwind label %4
@@ -4679,7 +4679,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %17 unwind label %4
@@ -4689,7 +4689,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %22 unwind label %4
@@ -4699,7 +4699,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4735,7 +4735,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %13 unwind label %4
@@ -4746,7 +4746,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %19 unwind label %4
@@ -4757,7 +4757,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %25 unwind label %4
@@ -4768,7 +4768,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4799,25 +4799,25 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 472
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %6, ptr %8, align 8
   %9 = invoke i64 @_ZN4gpui8geometry4auto17h5d994017584c1c1bE()
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   %12 = invoke i64 @_ZN4gpui8geometry4auto17h5d994017584c1c1bE()
           to label %13 unwind label %4
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %3, i64 496
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %12, ptr %14, align 8
   %15 = invoke i64 @_ZN4gpui8geometry4auto17h5d994017584c1c1bE()
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4852,7 +4852,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -4862,7 +4862,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %17 unwind label %4
@@ -4872,7 +4872,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %22 unwind label %4
@@ -4882,7 +4882,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4918,7 +4918,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %13 unwind label %4
@@ -4929,7 +4929,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   %18 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %19 unwind label %4
@@ -4940,7 +4940,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %22 unwind label %4
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %3, i64 496
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %21, ptr %23, align 8
   %24 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %25 unwind label %4
@@ -4951,7 +4951,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 480
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %27, ptr %29, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -4986,7 +4986,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -4996,7 +4996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %17 unwind label %4
@@ -5006,7 +5006,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %22 unwind label %4
@@ -5016,7 +5016,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5060,7 +5060,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %15 unwind label %4
@@ -5079,7 +5079,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %23 unwind label %4
@@ -5098,7 +5098,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %31 unwind label %4
@@ -5117,7 +5117,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5152,7 +5152,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -5162,7 +5162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %17 unwind label %4
@@ -5172,7 +5172,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %22 unwind label %4
@@ -5182,7 +5182,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5226,7 +5226,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %15 unwind label %4
@@ -5245,7 +5245,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %23 unwind label %4
@@ -5264,7 +5264,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %31 unwind label %4
@@ -5283,7 +5283,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5318,7 +5318,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %12 unwind label %4
@@ -5328,7 +5328,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %17 unwind label %4
@@ -5338,7 +5338,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %22 unwind label %4
@@ -5348,7 +5348,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5392,7 +5392,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %15 unwind label %4
@@ -5411,7 +5411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %23 unwind label %4
@@ -5430,7 +5430,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %31 unwind label %4
@@ -5449,7 +5449,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5484,7 +5484,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %12 unwind label %4
@@ -5494,7 +5494,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %17 unwind label %4
@@ -5504,7 +5504,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %22 unwind label %4
@@ -5514,7 +5514,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5558,7 +5558,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %15 unwind label %4
@@ -5577,7 +5577,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %23 unwind label %4
@@ -5596,7 +5596,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %31 unwind label %4
@@ -5615,7 +5615,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5650,7 +5650,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %12 unwind label %4
@@ -5660,7 +5660,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %17 unwind label %4
@@ -5670,7 +5670,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %22 unwind label %4
@@ -5680,7 +5680,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5724,7 +5724,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %15 unwind label %4
@@ -5743,7 +5743,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %23 unwind label %4
@@ -5762,7 +5762,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %31 unwind label %4
@@ -5781,7 +5781,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5816,7 +5816,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -5826,7 +5826,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %17 unwind label %4
@@ -5836,7 +5836,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %22 unwind label %4
@@ -5846,7 +5846,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5890,7 +5890,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %15 unwind label %4
@@ -5909,7 +5909,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %23 unwind label %4
@@ -5928,7 +5928,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %31 unwind label %4
@@ -5947,7 +5947,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -5982,7 +5982,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %12 unwind label %4
@@ -5992,7 +5992,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %17 unwind label %4
@@ -6002,7 +6002,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %22 unwind label %4
@@ -6012,7 +6012,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6056,7 +6056,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %15 unwind label %4
@@ -6075,7 +6075,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %23 unwind label %4
@@ -6094,7 +6094,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %31 unwind label %4
@@ -6113,7 +6113,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6148,7 +6148,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %12 unwind label %4
@@ -6158,7 +6158,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %17 unwind label %4
@@ -6168,7 +6168,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %22 unwind label %4
@@ -6178,7 +6178,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6222,7 +6222,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %15 unwind label %4
@@ -6241,7 +6241,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %23 unwind label %4
@@ -6260,7 +6260,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %31 unwind label %4
@@ -6279,7 +6279,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6314,7 +6314,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %12 unwind label %4
@@ -6324,7 +6324,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %17 unwind label %4
@@ -6334,7 +6334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %22 unwind label %4
@@ -6344,7 +6344,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6388,7 +6388,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %15 unwind label %4
@@ -6407,7 +6407,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %23 unwind label %4
@@ -6426,7 +6426,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %31 unwind label %4
@@ -6445,7 +6445,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6480,7 +6480,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %12 unwind label %4
@@ -6490,7 +6490,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %17 unwind label %4
@@ -6500,7 +6500,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %22 unwind label %4
@@ -6510,7 +6510,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6554,7 +6554,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %15 unwind label %4
@@ -6573,7 +6573,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %23 unwind label %4
@@ -6592,7 +6592,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %31 unwind label %4
@@ -6611,7 +6611,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6646,7 +6646,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %12 unwind label %4
@@ -6656,7 +6656,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %17 unwind label %4
@@ -6666,7 +6666,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %22 unwind label %4
@@ -6676,7 +6676,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6720,7 +6720,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %15 unwind label %4
@@ -6739,7 +6739,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %23 unwind label %4
@@ -6758,7 +6758,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %31 unwind label %4
@@ -6777,7 +6777,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6812,7 +6812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %12 unwind label %4
@@ -6822,7 +6822,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %17 unwind label %4
@@ -6832,7 +6832,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %22 unwind label %4
@@ -6842,7 +6842,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6886,7 +6886,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %15 unwind label %4
@@ -6905,7 +6905,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %23 unwind label %4
@@ -6924,7 +6924,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %31 unwind label %4
@@ -6943,7 +6943,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -6978,7 +6978,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %12 unwind label %4
@@ -6988,7 +6988,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %17 unwind label %4
@@ -6998,7 +6998,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %22 unwind label %4
@@ -7008,7 +7008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7052,7 +7052,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %15 unwind label %4
@@ -7071,7 +7071,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %23 unwind label %4
@@ -7090,7 +7090,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %31 unwind label %4
@@ -7109,7 +7109,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7144,7 +7144,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %12 unwind label %4
@@ -7154,7 +7154,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   %16 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %17 unwind label %4
@@ -7164,7 +7164,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %19 unwind label %4
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %3, i64 496
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %18, ptr %20, align 8
   %21 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %22 unwind label %4
@@ -7174,7 +7174,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %24 unwind label %4
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %3, i64 480
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %23, ptr %25, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7218,7 +7218,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %15 unwind label %4
@@ -7237,7 +7237,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   %22 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %23 unwind label %4
@@ -7256,7 +7256,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %28 unwind label %4
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %3, i64 496
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %27, ptr %29, align 8
   %30 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %31 unwind label %4
@@ -7275,7 +7275,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %36 unwind label %4
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %3, i64 480
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %35, ptr %37, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7310,7 +7310,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7346,7 +7346,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7381,7 +7381,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7417,7 +7417,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7452,7 +7452,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7488,7 +7488,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7523,7 +7523,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7559,7 +7559,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7594,7 +7594,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7630,7 +7630,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7665,7 +7665,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7701,7 +7701,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7736,7 +7736,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7772,7 +7772,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7807,7 +7807,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7843,7 +7843,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7878,7 +7878,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7914,7 +7914,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7949,7 +7949,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -7985,7 +7985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8020,7 +8020,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8056,7 +8056,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8091,7 +8091,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8127,7 +8127,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8162,7 +8162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8198,7 +8198,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8233,7 +8233,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8269,7 +8269,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8304,7 +8304,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8340,7 +8340,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8375,7 +8375,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8411,7 +8411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8446,7 +8446,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8482,7 +8482,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8517,7 +8517,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8553,7 +8553,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8588,7 +8588,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8624,7 +8624,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8659,7 +8659,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8695,7 +8695,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8730,7 +8730,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8766,7 +8766,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8801,7 +8801,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8837,7 +8837,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8872,7 +8872,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8908,7 +8908,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8943,7 +8943,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -8979,7 +8979,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9014,7 +9014,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9050,7 +9050,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9085,7 +9085,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9121,7 +9121,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9156,7 +9156,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9192,7 +9192,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9227,7 +9227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9263,7 +9263,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9298,7 +9298,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9334,7 +9334,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9369,7 +9369,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9405,7 +9405,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9436,7 +9436,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 472
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %6, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9471,7 +9471,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9507,7 +9507,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9542,7 +9542,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9586,7 +9586,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9621,7 +9621,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9665,7 +9665,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9700,7 +9700,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9744,7 +9744,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9779,7 +9779,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9823,7 +9823,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9858,7 +9858,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9902,7 +9902,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9937,7 +9937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -9981,7 +9981,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10016,7 +10016,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10060,7 +10060,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10095,7 +10095,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10139,7 +10139,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10174,7 +10174,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10218,7 +10218,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10253,7 +10253,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10297,7 +10297,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10332,7 +10332,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10376,7 +10376,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10411,7 +10411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10455,7 +10455,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10490,7 +10490,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10534,7 +10534,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10569,7 +10569,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10613,7 +10613,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10648,7 +10648,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10684,7 +10684,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10719,7 +10719,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10755,7 +10755,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10790,7 +10790,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10826,7 +10826,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10861,7 +10861,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10897,7 +10897,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10932,7 +10932,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -10968,7 +10968,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11003,7 +11003,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11039,7 +11039,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11074,7 +11074,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11110,7 +11110,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11145,7 +11145,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11181,7 +11181,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11216,7 +11216,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11252,7 +11252,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11287,7 +11287,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11323,7 +11323,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11358,7 +11358,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11394,7 +11394,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11429,7 +11429,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11465,7 +11465,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11500,7 +11500,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11536,7 +11536,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11571,7 +11571,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11607,7 +11607,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11642,7 +11642,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11678,7 +11678,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11713,7 +11713,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11749,7 +11749,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11784,7 +11784,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11820,7 +11820,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11855,7 +11855,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11891,7 +11891,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11926,7 +11926,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11962,7 +11962,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -11997,7 +11997,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12033,7 +12033,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12068,7 +12068,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12104,7 +12104,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12139,7 +12139,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12175,7 +12175,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12210,7 +12210,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12246,7 +12246,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12281,7 +12281,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12317,7 +12317,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12352,7 +12352,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12388,7 +12388,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12423,7 +12423,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12459,7 +12459,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12494,7 +12494,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12530,7 +12530,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12565,7 +12565,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12601,7 +12601,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12636,7 +12636,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12672,7 +12672,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12707,7 +12707,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12743,7 +12743,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12774,7 +12774,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 488
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %6, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12809,7 +12809,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12845,7 +12845,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12880,7 +12880,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12924,7 +12924,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -12959,7 +12959,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13003,7 +13003,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13038,7 +13038,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13082,7 +13082,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13117,7 +13117,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13161,7 +13161,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13196,7 +13196,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13240,7 +13240,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13275,7 +13275,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13319,7 +13319,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13354,7 +13354,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13398,7 +13398,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13433,7 +13433,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13477,7 +13477,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13512,7 +13512,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13556,7 +13556,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13591,7 +13591,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13635,7 +13635,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13670,7 +13670,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13714,7 +13714,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13749,7 +13749,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13793,7 +13793,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13828,7 +13828,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13872,7 +13872,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13907,7 +13907,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 488
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13951,7 +13951,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 488
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -13986,7 +13986,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %12 unwind label %4
@@ -13996,7 +13996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14032,7 +14032,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %13 unwind label %4
@@ -14043,7 +14043,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14078,7 +14078,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %12 unwind label %4
@@ -14088,7 +14088,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14124,7 +14124,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %13 unwind label %4
@@ -14135,7 +14135,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14170,7 +14170,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %12 unwind label %4
@@ -14180,7 +14180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14216,7 +14216,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %13 unwind label %4
@@ -14227,7 +14227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14262,7 +14262,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %12 unwind label %4
@@ -14272,7 +14272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14308,7 +14308,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %13 unwind label %4
@@ -14319,7 +14319,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14354,7 +14354,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -14364,7 +14364,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14400,7 +14400,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %13 unwind label %4
@@ -14411,7 +14411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14446,7 +14446,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %12 unwind label %4
@@ -14456,7 +14456,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14492,7 +14492,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %13 unwind label %4
@@ -14503,7 +14503,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14538,7 +14538,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %12 unwind label %4
@@ -14548,7 +14548,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14584,7 +14584,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %13 unwind label %4
@@ -14595,7 +14595,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14630,7 +14630,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %12 unwind label %4
@@ -14640,7 +14640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14676,7 +14676,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %13 unwind label %4
@@ -14687,7 +14687,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14722,7 +14722,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -14732,7 +14732,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14768,7 +14768,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %13 unwind label %4
@@ -14779,7 +14779,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14814,7 +14814,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %12 unwind label %4
@@ -14824,7 +14824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14860,7 +14860,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %13 unwind label %4
@@ -14871,7 +14871,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14906,7 +14906,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %12 unwind label %4
@@ -14916,7 +14916,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14952,7 +14952,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %13 unwind label %4
@@ -14963,7 +14963,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -14998,7 +14998,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %12 unwind label %4
@@ -15008,7 +15008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15044,7 +15044,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %13 unwind label %4
@@ -15055,7 +15055,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15090,7 +15090,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %12 unwind label %4
@@ -15100,7 +15100,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15136,7 +15136,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %13 unwind label %4
@@ -15147,7 +15147,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15182,7 +15182,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %12 unwind label %4
@@ -15192,7 +15192,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15228,7 +15228,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %13 unwind label %4
@@ -15239,7 +15239,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15274,7 +15274,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %12 unwind label %4
@@ -15284,7 +15284,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15320,7 +15320,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %13 unwind label %4
@@ -15331,7 +15331,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15366,7 +15366,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %12 unwind label %4
@@ -15376,7 +15376,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15412,7 +15412,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %13 unwind label %4
@@ -15423,7 +15423,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15458,7 +15458,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %12 unwind label %4
@@ -15468,7 +15468,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15504,7 +15504,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %13 unwind label %4
@@ -15515,7 +15515,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15550,7 +15550,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %12 unwind label %4
@@ -15560,7 +15560,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15596,7 +15596,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %13 unwind label %4
@@ -15607,7 +15607,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15642,7 +15642,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %12 unwind label %4
@@ -15652,7 +15652,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15688,7 +15688,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %13 unwind label %4
@@ -15699,7 +15699,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15734,7 +15734,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %12 unwind label %4
@@ -15744,7 +15744,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15780,7 +15780,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %13 unwind label %4
@@ -15791,7 +15791,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15826,7 +15826,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %12 unwind label %4
@@ -15836,7 +15836,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15872,7 +15872,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %13 unwind label %4
@@ -15883,7 +15883,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15918,7 +15918,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %12 unwind label %4
@@ -15928,7 +15928,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -15964,7 +15964,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %13 unwind label %4
@@ -15975,7 +15975,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16010,7 +16010,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %12 unwind label %4
@@ -16020,7 +16020,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16056,7 +16056,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %13 unwind label %4
@@ -16067,7 +16067,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16102,7 +16102,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %12 unwind label %4
@@ -16112,7 +16112,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16148,7 +16148,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %13 unwind label %4
@@ -16159,7 +16159,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16194,7 +16194,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %12 unwind label %4
@@ -16204,7 +16204,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16240,7 +16240,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %13 unwind label %4
@@ -16251,7 +16251,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16286,7 +16286,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %12 unwind label %4
@@ -16296,7 +16296,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16332,7 +16332,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %13 unwind label %4
@@ -16343,7 +16343,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16378,7 +16378,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %12 unwind label %4
@@ -16388,7 +16388,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16424,7 +16424,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %13 unwind label %4
@@ -16435,7 +16435,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16470,7 +16470,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %12 unwind label %4
@@ -16480,7 +16480,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16516,7 +16516,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %13 unwind label %4
@@ -16527,7 +16527,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16562,7 +16562,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %12 unwind label %4
@@ -16572,7 +16572,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16608,7 +16608,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %13 unwind label %4
@@ -16619,7 +16619,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16654,7 +16654,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %12 unwind label %4
@@ -16664,7 +16664,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16700,7 +16700,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %13 unwind label %4
@@ -16711,7 +16711,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16742,13 +16742,13 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 472
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %6, ptr %8, align 8
   %9 = invoke i64 @_ZN4gpui8geometry4auto17h5d994017584c1c1bE()
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 488
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16783,7 +16783,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -16793,7 +16793,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16829,7 +16829,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 472
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %13 unwind label %4
@@ -16840,7 +16840,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 488
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16875,7 +16875,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -16885,7 +16885,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16929,7 +16929,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %15 unwind label %4
@@ -16948,7 +16948,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -16983,7 +16983,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -16993,7 +16993,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17037,7 +17037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %15 unwind label %4
@@ -17056,7 +17056,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17091,7 +17091,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %12 unwind label %4
@@ -17101,7 +17101,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17145,7 +17145,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %15 unwind label %4
@@ -17164,7 +17164,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17199,7 +17199,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %12 unwind label %4
@@ -17209,7 +17209,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17253,7 +17253,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %15 unwind label %4
@@ -17272,7 +17272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17307,7 +17307,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %12 unwind label %4
@@ -17317,7 +17317,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17361,7 +17361,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %15 unwind label %4
@@ -17380,7 +17380,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17415,7 +17415,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -17425,7 +17425,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17469,7 +17469,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %15 unwind label %4
@@ -17488,7 +17488,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17523,7 +17523,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %12 unwind label %4
@@ -17533,7 +17533,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17577,7 +17577,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %15 unwind label %4
@@ -17596,7 +17596,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17631,7 +17631,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %12 unwind label %4
@@ -17641,7 +17641,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17685,7 +17685,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %15 unwind label %4
@@ -17704,7 +17704,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17739,7 +17739,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %12 unwind label %4
@@ -17749,7 +17749,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17793,7 +17793,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %15 unwind label %4
@@ -17812,7 +17812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17847,7 +17847,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %12 unwind label %4
@@ -17857,7 +17857,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17901,7 +17901,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %15 unwind label %4
@@ -17920,7 +17920,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -17955,7 +17955,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %12 unwind label %4
@@ -17965,7 +17965,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18009,7 +18009,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %15 unwind label %4
@@ -18028,7 +18028,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18063,7 +18063,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %12 unwind label %4
@@ -18073,7 +18073,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18117,7 +18117,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %15 unwind label %4
@@ -18136,7 +18136,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18171,7 +18171,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %12 unwind label %4
@@ -18181,7 +18181,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18225,7 +18225,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %15 unwind label %4
@@ -18244,7 +18244,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18279,7 +18279,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %12 unwind label %4
@@ -18289,7 +18289,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 488
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18333,7 +18333,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 472
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 472
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %15 unwind label %4
@@ -18352,7 +18352,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 488
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18387,7 +18387,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %12 unwind label %4
@@ -18397,7 +18397,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18433,7 +18433,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
           to label %13 unwind label %4
@@ -18444,7 +18444,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18479,7 +18479,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %12 unwind label %4
@@ -18489,7 +18489,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18525,7 +18525,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e-01)
           to label %13 unwind label %4
@@ -18536,7 +18536,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18571,7 +18571,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %12 unwind label %4
@@ -18581,7 +18581,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18617,7 +18617,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e-01)
           to label %13 unwind label %4
@@ -18628,7 +18628,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18663,7 +18663,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %12 unwind label %4
@@ -18673,7 +18673,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18709,7 +18709,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.750000e-01)
           to label %13 unwind label %4
@@ -18720,7 +18720,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18755,7 +18755,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -18765,7 +18765,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18801,7 +18801,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e-01)
           to label %13 unwind label %4
@@ -18812,7 +18812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18847,7 +18847,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %12 unwind label %4
@@ -18857,7 +18857,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18893,7 +18893,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.250000e-01)
           to label %13 unwind label %4
@@ -18904,7 +18904,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18939,7 +18939,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %12 unwind label %4
@@ -18949,7 +18949,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -18985,7 +18985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 7.500000e-01)
           to label %13 unwind label %4
@@ -18996,7 +18996,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19031,7 +19031,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %12 unwind label %4
@@ -19041,7 +19041,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19077,7 +19077,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.750000e-01)
           to label %13 unwind label %4
@@ -19088,7 +19088,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19123,7 +19123,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -19133,7 +19133,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19169,7 +19169,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+00)
           to label %13 unwind label %4
@@ -19180,7 +19180,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19215,7 +19215,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %12 unwind label %4
@@ -19225,7 +19225,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19261,7 +19261,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.250000e+00)
           to label %13 unwind label %4
@@ -19272,7 +19272,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19307,7 +19307,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %12 unwind label %4
@@ -19317,7 +19317,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19353,7 +19353,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.500000e+00)
           to label %13 unwind label %4
@@ -19364,7 +19364,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19399,7 +19399,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %12 unwind label %4
@@ -19409,7 +19409,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19445,7 +19445,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.750000e+00)
           to label %13 unwind label %4
@@ -19456,7 +19456,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19491,7 +19491,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %12 unwind label %4
@@ -19501,7 +19501,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19537,7 +19537,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+00)
           to label %13 unwind label %4
@@ -19548,7 +19548,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19583,7 +19583,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %12 unwind label %4
@@ -19593,7 +19593,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19629,7 +19629,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.250000e+00)
           to label %13 unwind label %4
@@ -19640,7 +19640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19675,7 +19675,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %12 unwind label %4
@@ -19685,7 +19685,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19721,7 +19721,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.500000e+00)
           to label %13 unwind label %4
@@ -19732,7 +19732,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19767,7 +19767,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %12 unwind label %4
@@ -19777,7 +19777,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19813,7 +19813,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.750000e+00)
           to label %13 unwind label %4
@@ -19824,7 +19824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19859,7 +19859,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %12 unwind label %4
@@ -19869,7 +19869,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19905,7 +19905,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.000000e+00)
           to label %13 unwind label %4
@@ -19916,7 +19916,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19951,7 +19951,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %12 unwind label %4
@@ -19961,7 +19961,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -19997,7 +19997,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 4.000000e+00)
           to label %13 unwind label %4
@@ -20008,7 +20008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20043,7 +20043,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %12 unwind label %4
@@ -20053,7 +20053,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20089,7 +20089,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 5.000000e+00)
           to label %13 unwind label %4
@@ -20100,7 +20100,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20135,7 +20135,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %12 unwind label %4
@@ -20145,7 +20145,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20181,7 +20181,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 6.000000e+00)
           to label %13 unwind label %4
@@ -20192,7 +20192,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20227,7 +20227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %12 unwind label %4
@@ -20237,7 +20237,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20273,7 +20273,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 8.000000e+00)
           to label %13 unwind label %4
@@ -20284,7 +20284,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20319,7 +20319,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %12 unwind label %4
@@ -20329,7 +20329,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20365,7 +20365,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.000000e+01)
           to label %13 unwind label %4
@@ -20376,7 +20376,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20411,7 +20411,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %12 unwind label %4
@@ -20421,7 +20421,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20457,7 +20457,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.200000e+01)
           to label %13 unwind label %4
@@ -20468,7 +20468,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20503,7 +20503,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %12 unwind label %4
@@ -20513,7 +20513,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20549,7 +20549,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.400000e+01)
           to label %13 unwind label %4
@@ -20560,7 +20560,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20595,7 +20595,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %12 unwind label %4
@@ -20605,7 +20605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20641,7 +20641,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.600000e+01)
           to label %13 unwind label %4
@@ -20652,7 +20652,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20687,7 +20687,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %12 unwind label %4
@@ -20697,7 +20697,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20733,7 +20733,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 1.800000e+01)
           to label %13 unwind label %4
@@ -20744,7 +20744,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20779,7 +20779,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %12 unwind label %4
@@ -20789,7 +20789,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20825,7 +20825,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.000000e+01)
           to label %13 unwind label %4
@@ -20836,7 +20836,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20871,7 +20871,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %12 unwind label %4
@@ -20881,7 +20881,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20917,7 +20917,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.400000e+01)
           to label %13 unwind label %4
@@ -20928,7 +20928,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -20963,7 +20963,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %12 unwind label %4
@@ -20973,7 +20973,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21009,7 +21009,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 2.800000e+01)
           to label %13 unwind label %4
@@ -21020,7 +21020,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21055,7 +21055,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %12 unwind label %4
@@ -21065,7 +21065,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21101,7 +21101,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry4rems17hc46255c2f7a0f1edE(float noundef 3.200000e+01)
           to label %13 unwind label %4
@@ -21112,7 +21112,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21143,13 +21143,13 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 496
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %6, ptr %8, align 8
   %9 = invoke i64 @_ZN4gpui8geometry4auto17h5d994017584c1c1bE()
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21184,7 +21184,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -21194,7 +21194,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21230,7 +21230,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   %12 = invoke noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 1.000000e+00)
           to label %13 unwind label %4
@@ -21241,7 +21241,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %16 unwind label %4
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 480
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %15, ptr %17, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21276,7 +21276,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %12 unwind label %4
@@ -21286,7 +21286,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21330,7 +21330,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 1.000000e+00)
           to label %15 unwind label %4
@@ -21349,7 +21349,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21384,7 +21384,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -21394,7 +21394,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21438,7 +21438,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %15 unwind label %4
@@ -21457,7 +21457,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21492,7 +21492,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %12 unwind label %4
@@ -21502,7 +21502,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21546,7 +21546,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD5555560000000)
           to label %15 unwind label %4
@@ -21565,7 +21565,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21600,7 +21600,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %12 unwind label %4
@@ -21610,7 +21610,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21654,7 +21654,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE5555560000000)
           to label %15 unwind label %4
@@ -21673,7 +21673,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21708,7 +21708,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %12 unwind label %4
@@ -21718,7 +21718,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21762,7 +21762,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 2.500000e-01)
           to label %15 unwind label %4
@@ -21781,7 +21781,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21816,7 +21816,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %12 unwind label %4
@@ -21826,7 +21826,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21870,7 +21870,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 5.000000e-01)
           to label %15 unwind label %4
@@ -21889,7 +21889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21924,7 +21924,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %12 unwind label %4
@@ -21934,7 +21934,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -21978,7 +21978,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 7.500000e-01)
           to label %15 unwind label %4
@@ -21997,7 +21997,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22032,7 +22032,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %12 unwind label %4
@@ -22042,7 +22042,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22086,7 +22086,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC99999A0000000)
           to label %15 unwind label %4
@@ -22105,7 +22105,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22140,7 +22140,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %12 unwind label %4
@@ -22150,7 +22150,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22194,7 +22194,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FD99999A0000000)
           to label %15 unwind label %4
@@ -22213,7 +22213,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22248,7 +22248,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %12 unwind label %4
@@ -22258,7 +22258,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22302,7 +22302,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE3333340000000)
           to label %15 unwind label %4
@@ -22321,7 +22321,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22356,7 +22356,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %12 unwind label %4
@@ -22366,7 +22366,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22410,7 +22410,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FE99999A0000000)
           to label %15 unwind label %4
@@ -22429,7 +22429,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22464,7 +22464,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %12 unwind label %4
@@ -22474,7 +22474,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22518,7 +22518,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FC5555560000000)
           to label %15 unwind label %4
@@ -22537,7 +22537,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22572,7 +22572,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %12 unwind label %4
@@ -22582,7 +22582,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22626,7 +22626,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FEAAAAAA0000000)
           to label %15 unwind label %4
@@ -22645,7 +22645,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22680,7 +22680,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   %11 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %12 unwind label %4
@@ -22690,7 +22690,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %14 unwind label %4
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %3, i64 480
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %13, ptr %15, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22734,7 +22734,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   %14 = invoke i64 @_ZN4gpui8geometry8relative17hc2d1524148b4a092E(float noundef 0x3FB5555560000000)
           to label %15 unwind label %4
@@ -22753,7 +22753,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %20 unwind label %4
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %3, i64 480
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %19, ptr %21, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22788,7 +22788,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22824,7 +22824,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22859,7 +22859,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22895,7 +22895,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22930,7 +22930,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -22966,7 +22966,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23001,7 +23001,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23037,7 +23037,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23072,7 +23072,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23108,7 +23108,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23143,7 +23143,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23179,7 +23179,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23214,7 +23214,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23250,7 +23250,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23285,7 +23285,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23321,7 +23321,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23356,7 +23356,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23392,7 +23392,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23427,7 +23427,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23463,7 +23463,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23498,7 +23498,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23534,7 +23534,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23569,7 +23569,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23605,7 +23605,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23640,7 +23640,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23676,7 +23676,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23711,7 +23711,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23747,7 +23747,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23782,7 +23782,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23818,7 +23818,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23853,7 +23853,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23889,7 +23889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23924,7 +23924,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23960,7 +23960,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -23995,7 +23995,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24031,7 +24031,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24066,7 +24066,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24102,7 +24102,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24137,7 +24137,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24173,7 +24173,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24208,7 +24208,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24244,7 +24244,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24279,7 +24279,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24315,7 +24315,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24350,7 +24350,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24386,7 +24386,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24421,7 +24421,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24457,7 +24457,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24492,7 +24492,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24528,7 +24528,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24563,7 +24563,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24599,7 +24599,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24634,7 +24634,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24670,7 +24670,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24705,7 +24705,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24741,7 +24741,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24776,7 +24776,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24812,7 +24812,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24847,7 +24847,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24883,7 +24883,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24914,7 +24914,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 496
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %6, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24949,7 +24949,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -24985,7 +24985,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 496
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25020,7 +25020,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25064,7 +25064,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25099,7 +25099,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25143,7 +25143,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25178,7 +25178,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25222,7 +25222,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25257,7 +25257,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25301,7 +25301,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25336,7 +25336,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25380,7 +25380,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25415,7 +25415,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25459,7 +25459,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25494,7 +25494,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25538,7 +25538,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25573,7 +25573,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25617,7 +25617,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25652,7 +25652,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25696,7 +25696,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25731,7 +25731,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25775,7 +25775,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25810,7 +25810,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25854,7 +25854,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25889,7 +25889,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25933,7 +25933,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -25968,7 +25968,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26012,7 +26012,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26047,7 +26047,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26091,7 +26091,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 496
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 496
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26126,7 +26126,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26162,7 +26162,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26197,7 +26197,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26233,7 +26233,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26268,7 +26268,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26304,7 +26304,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26339,7 +26339,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26375,7 +26375,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26410,7 +26410,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26446,7 +26446,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26481,7 +26481,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26517,7 +26517,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26552,7 +26552,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26588,7 +26588,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26623,7 +26623,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26659,7 +26659,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26694,7 +26694,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26730,7 +26730,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26765,7 +26765,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26801,7 +26801,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26836,7 +26836,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26872,7 +26872,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26907,7 +26907,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26943,7 +26943,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -26978,7 +26978,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27014,7 +27014,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27049,7 +27049,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27085,7 +27085,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27120,7 +27120,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27156,7 +27156,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27191,7 +27191,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27227,7 +27227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27262,7 +27262,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27298,7 +27298,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27333,7 +27333,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27369,7 +27369,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27404,7 +27404,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27440,7 +27440,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27475,7 +27475,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27511,7 +27511,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27546,7 +27546,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27582,7 +27582,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27617,7 +27617,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27653,7 +27653,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27688,7 +27688,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27724,7 +27724,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27759,7 +27759,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27795,7 +27795,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27830,7 +27830,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27866,7 +27866,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27901,7 +27901,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27937,7 +27937,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -27972,7 +27972,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28008,7 +28008,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28043,7 +28043,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28079,7 +28079,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28114,7 +28114,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28150,7 +28150,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28185,7 +28185,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28221,7 +28221,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28252,7 +28252,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %7 unwind label %4
 
 7:                                                ; preds = %_ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit
-  %8 = getelementptr inbounds i8, ptr %3, i64 480
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %6, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28287,7 +28287,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28323,7 +28323,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %10 unwind label %4
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %3, i64 480
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %9, ptr %11, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28358,7 +28358,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28402,7 +28402,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28437,7 +28437,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28481,7 +28481,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28516,7 +28516,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28560,7 +28560,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28595,7 +28595,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28639,7 +28639,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28674,7 +28674,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28718,7 +28718,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28753,7 +28753,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28797,7 +28797,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28832,7 +28832,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28876,7 +28876,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28911,7 +28911,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28955,7 +28955,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -28990,7 +28990,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29034,7 +29034,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29069,7 +29069,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29113,7 +29113,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29148,7 +29148,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29192,7 +29192,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29227,7 +29227,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29271,7 +29271,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29306,7 +29306,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29350,7 +29350,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29385,7 +29385,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %9 unwind label %4
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %3, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %8, ptr %10, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void
@@ -29429,7 +29429,7 @@ _ZN2ui10components5label10label_like9LabelLike5style17h8d0478469a0dcc6dE.exit: ;
           to label %12 unwind label %4
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 480
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 480
   store i64 %11, ptr %13, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(824) %1, i64 824, i1 false)
   ret void

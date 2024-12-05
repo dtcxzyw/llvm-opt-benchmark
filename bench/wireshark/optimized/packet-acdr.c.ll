@@ -535,7 +535,7 @@ define internal i32 @dissect_acdr(ptr noundef %0, ptr noundef initializes((0, 8)
   %9 = alloca %struct.nstime_t, align 8
   %10 = alloca %struct.acdr_dissector_data_t, align 4
   store ptr @.str.168, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.167) #4
   %13 = load ptr, ptr %11, align 8
@@ -610,7 +610,7 @@ define internal i32 @dissect_acdr(ptr noundef %0, ptr noundef initializes((0, 8)
   store i64 %44, ptr %9, align 8
   %45 = urem i32 %.0136.in.i, 1000000
   %46 = mul nuw nsw i32 %45, 1000
-  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %46, ptr %47, align 8
   %48 = load i32, ptr @hf_acdr_timestamp, align 4
   %49 = uitofp i32 %.0136.in.i to float
@@ -757,7 +757,7 @@ add_cid.exit160.i:                                ; preds = %74, %71
   br label %create_full_session_id_subtree.exit.i
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds i8, ptr %1, i64 408
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %136 = load ptr, ptr %135, align 8
   %137 = trunc i32 %126 to i8
   %138 = call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef range(i32 13, 22) %122) #4
@@ -831,7 +831,7 @@ create_full_session_id_subtree.exit.i:            ; preds = %.sink.split.i.i, %1
   br i1 %101, label %171, label %177
 
 171:                                              ; preds = %create_full_session_id_subtree.exit.i
-  %172 = getelementptr inbounds i8, ptr %1, i64 408
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %173 = load ptr, ptr %172, align 8
   %174 = load i32, ptr @proto_acdr, align 4
   %175 = zext i8 %107 to i64
@@ -1241,24 +1241,24 @@ create_5x_hpi_packet_header_subtree.exit.i:       ; preds = %370, %create_5x_ana
   store i32 %102, ptr %10, align 4
   %387 = load i32, ptr %6, align 4
   %388 = trunc i32 %387 to i8
-  %389 = getelementptr inbounds i8, ptr %10, i64 4
+  %389 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i8 %388, ptr %389, align 4
-  %390 = getelementptr inbounds i8, ptr %10, i64 6
+  %390 = getelementptr inbounds nuw i8, ptr %10, i64 6
   store i16 %.sroa.0.0.i, ptr %390, align 2
-  %391 = getelementptr inbounds i8, ptr %10, i64 8
+  %391 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i16 %.sroa.3.0.i, ptr %391, align 4
-  %392 = getelementptr inbounds i8, ptr %10, i64 10
+  %392 = getelementptr inbounds nuw i8, ptr %10, i64 10
   store i8 %.sroa.5.0.i, ptr %392, align 2
-  %393 = getelementptr inbounds i8, ptr %10, i64 11
+  %393 = getelementptr inbounds nuw i8, ptr %10, i64 11
   store i8 %107, ptr %393, align 1
-  %394 = getelementptr inbounds i8, ptr %10, i64 12
+  %394 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i16 %.0132.i, ptr %394, align 4
   %395 = trunc i32 %386 to i8
-  %396 = getelementptr inbounds i8, ptr %10, i64 14
+  %396 = getelementptr inbounds nuw i8, ptr %10, i64 14
   store i8 %395, ptr %396, align 2
-  %397 = getelementptr inbounds i8, ptr %10, i64 16
+  %397 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 %spec.select154.i, ptr %397, align 4
-  %398 = getelementptr inbounds i8, ptr %10, i64 20
+  %398 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 %.lobit.i, ptr %398, align 4
   br i1 %101, label %399, label %409
 
@@ -1350,9 +1350,9 @@ define internal i32 @dissect_acdr_mii(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %43
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %3, i64 11
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 4
   switch i8 %11, label %15 [
     i8 47, label %13
     i8 48, label %14
@@ -1368,19 +1368,19 @@ define internal i32 @dissect_acdr_mii(ptr noundef %0, ptr noundef %1, ptr nounde
 
 15:                                               ; preds = %9
   store i32 0, ptr %12, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %17 = load i32, ptr %16, align 4
   br label %18
 
 18:                                               ; preds = %14, %15, %13
   %.sink = phi i32 [ 1, %14 ], [ %17, %15 ], [ 1, %13 ]
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.sink, ptr %19, align 4
   %20 = load i32, ptr @proto_ac5xmii, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %20, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %22 = load i32, ptr @ett_ac5x_mii_packet, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #4
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_clear(ptr noundef %25, i32 noundef 25) #4
   %26 = load i8, ptr %10, align 1
@@ -1388,7 +1388,7 @@ define internal i32 @dissect_acdr_mii(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %27, label %28, label %34
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %30 = load i32, ptr %29, align 4
   %.not23 = icmp eq i32 %30, 0
   %31 = load ptr, ptr %24, align 8
@@ -1408,7 +1408,7 @@ define internal i32 @dissect_acdr_mii(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %36
 
 36:                                               ; preds = %32, %33, %34
-  %37 = getelementptr inbounds i8, ptr %3, i64 14
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %38 = load i8, ptr %37, align 2
   %39 = add i8 %38, -2
   %switch.and = and i8 %39, -33
@@ -1430,9 +1430,9 @@ define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %5, label %102, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 11
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = load i16, ptr %9, align 4
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
   %12 = icmp ult i8 %11, 64
@@ -1539,33 +1539,33 @@ define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not95.i, label %78, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not96.i = icmp eq ptr %59, null
   br i1 %.not96.i, label %78, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %59, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load i32, ptr %64, align 8
   %66 = load i32, ptr @proto_rtp, align 4
   %67 = icmp eq i32 %65, %66
   br i1 %67, label %68, label %78
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %59, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not97.i = icmp eq ptr %70, null
   br i1 %.not97.i, label %78, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %73, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %77 = load i32, ptr %76, align 8
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef nonnull %70, ptr noundef nonnull @.str.316, i32 noundef %75, i32 noundef %77) #4
   br label %78
@@ -1657,7 +1657,7 @@ define internal i32 @dissect_acdr_rtp(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .sink.split113.i:                                 ; preds = %98, %97, %96, %95, %94, %93, %91, %90, %88, %87, %85, %84, %82, %81, %79, %78
   %.str.318.sink.i = phi ptr [ @.str.318, %98 ], [ @.str.287, %97 ], [ @.str.286, %96 ], [ @.str.285, %95 ], [ @.str.284, %94 ], [ @.str.278, %81 ], [ @.str.278, %79 ], [ @.str.317, %84 ], [ @.str.317, %82 ], [ @.str.280, %87 ], [ @.str.280, %85 ], [ @.str.281, %90 ], [ @.str.281, %88 ], [ @.str.282, %78 ], [ @.str.283, %93 ], [ @.str.283, %91 ]
-  %99 = getelementptr inbounds i8, ptr %1, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %100 = load ptr, ptr %99, align 8
   tail call void @col_set_str(ptr noundef %100, i32 noundef 34, ptr noundef nonnull %.str.318.sink.i) #4
   br label %dissect_rtp_packet.exit
@@ -1677,11 +1677,11 @@ define internal i32 @dissect_acdr_xml(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %5, label %16, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 11
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = tail call ptr @val_to_str_const(i32 noundef %9, ptr noundef nonnull @acdr_media_type_vals, ptr noundef nonnull @.str.215) #4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.319) #4
   %13 = load ptr, ptr %11, align 8
@@ -1862,9 +1862,9 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acdr_ssh(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 11
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 11
   %8 = load i8, ptr %7, align 1
   %switch.tableidx = add i8 %8, -62
   %9 = icmp ult i8 %switch.tableidx, 3
@@ -1872,7 +1872,7 @@ define internal i32 @dissect_acdr_ssh(ptr noundef %0, ptr noundef %1, ptr nounde
 
 switch.lookup:                                    ; preds = %4
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_acdr_ssh, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_acdr_ssh, i64 0, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %acdr_ssh_protocol.exit
 
@@ -1903,14 +1903,14 @@ define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %5, label %33, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %8 = load i8, ptr %7, align 2
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr @tls_application_port_table, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = tail call i32 @dissector_try_uint(ptr noundef %11, i32 noundef %14, ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
@@ -1919,7 +1919,7 @@ define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr nounde
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr @tls_application_port_table, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i16, ptr %18, align 4
   %20 = zext i16 %19 to i32
   %21 = tail call i32 @dissector_try_uint(ptr noundef %17, i32 noundef %20, ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
@@ -1934,7 +1934,7 @@ define internal i32 @dissect_acdr_tls(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not, label %26, label %33
 
 26:                                               ; preds = %22, %16
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.324) #4
   %29 = load ptr, ptr %27, align 8
@@ -2146,7 +2146,7 @@ define internal i32 @dissect_acdr_video_rtcp(ptr noundef %0, ptr noundef %1, ptr
 
 dissect_acdr_rtcp.exit:                           ; preds = %4, %14, %19, %21
   %.0.i = phi i32 [ %20, %19 ], [ %22, %21 ], [ 0, %4 ], [ %15, %14 ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.326) #4
   ret i32 %.0.i
@@ -2190,7 +2190,7 @@ define internal i32 @dissect_acdr_ac5x(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acdr_v1501(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.331) #4
   %7 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
@@ -2204,7 +2204,7 @@ define internal i32 @dissect_acdr_signaling(ptr noundef %0, ptr noundef %1, ptr 
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %8 = load i32, ptr @ett_signaling_packet, align 4
   %9 = tail call ptr @proto_item_add_subtree(ptr noundef %7, i32 noundef %8) #4
-  %10 = getelementptr inbounds i8, ptr %3, i64 14
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %11 = load i8, ptr %10, align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %12 = load i32, ptr @hf_acdr_signaling_opcode, align 4
@@ -2224,7 +2224,7 @@ define internal i32 @dissect_acdr_signaling(ptr noundef %0, ptr noundef %1, ptr 
   %19 = udiv i32 %18, 1000000
   %20 = zext nneg i32 %19 to i64
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %22 = urem i32 %18, 1000000
   %23 = mul nuw nsw i32 %22, 1000
   store i32 %23, ptr %21, align 8
@@ -2253,7 +2253,7 @@ define internal i32 @dissect_acdr_signaling(ptr noundef %0, ptr noundef %1, ptr 
 dissect_signaling_packet.exit:                    ; preds = %32, %34
   %.0.i = phi i32 [ %33, %32 ], [ %36, %34 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @col_set_str(ptr noundef %38, i32 noundef 34, ptr noundef nonnull @.str.270) #4
   %39 = load ptr, ptr %37, align 8
@@ -2271,7 +2271,7 @@ switch.hole_check:                                ; preds = %dissect_signaling_p
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %42 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_acdr_signaling, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_acdr_signaling, i64 0, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = load ptr, ptr %37, align 8
   call void (ptr, i32, ptr, ...) @col_prepend_fstr(ptr noundef %43, i32 noundef 25, ptr noundef nonnull %switch.load) #4
@@ -2283,7 +2283,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acdr_fragmented(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.42) #4
   %7 = load ptr, ptr %5, align 8
@@ -2294,7 +2294,7 @@ define internal i32 @dissect_acdr_fragmented(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acdr_dsp_data_relay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.276) #4
   %7 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2) #4
@@ -2379,12 +2379,12 @@ define internal fastcc i32 @dissect_acdr_dsp(ptr noundef %0, ptr noundef %1, ptr
 12:                                               ; preds = %8
   %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
   %14 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %5) #4
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_clear(ptr noundef %16, i32 noundef 25) #4
   %17 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef %6) #4
-  %18 = getelementptr inbounds i8, ptr %3, i64 14
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %19 = load i8, ptr %18, align 2
   %20 = icmp eq i8 %19, 2
   %. = zext i1 %20 to i32

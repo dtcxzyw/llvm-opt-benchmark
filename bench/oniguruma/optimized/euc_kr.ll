@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 define internal i32 @euckr_mbc_enc_len(ptr nocapture noundef readonly %0) #0 {
   %2 = load i8, ptr %0, align 1
   %3 = zext i8 %2 to i64
-  %4 = getelementptr inbounds [256 x i32], ptr @EncLen_EUCKR, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [256 x i32], ptr @EncLen_EUCKR, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
@@ -144,7 +144,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
   br i1 %or.cond18, label %._crit_edge, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %.01219, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
   %.not17 = icmp ult ptr %9, %1
   br i1 %.not17, label %10, label %._crit_edge
 
@@ -156,7 +156,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly %0
 
 13:                                               ; preds = %10, %.lr.ph
   %.sink = phi i64 [ 1, %.lr.ph ], [ 2, %10 ]
-  %14 = getelementptr inbounds i8, ptr %.01219, i64 %.sink
+  %14 = getelementptr inbounds nuw i8, ptr %.01219, i64 %.sink
   %15 = icmp ult ptr %14, %1
   br i1 %15, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 

@@ -6,13 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4Luau7CodeGen21createBlockUnwindInfoEPvPhmRm(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %2)
   %9 = add i64 %8, 31
   %10 = and i64 %9, 4294967264
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %10, ptr noundef %1, i64 noundef %2)
   %.not = icmp eq ptr @__register_frame, null
@@ -34,7 +34,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen21createBlockUnwindInfoEPvPhmRm(pt
 .lr.ph.i:                                         ; preds = %.preheader.i, %21
   %.0.copyload112.i = phi i32 [ %.0.copyload1.i, %21 ], [ %.0.copyload110.i, %.preheader.i ]
   %.011.i = phi ptr [ %24, %21 ], [ %1, %.preheader.i ]
-  %19 = getelementptr inbounds i8, ptr %.011.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
   %.0.copyload.i = load i32, ptr %19, align 1
   %.not.i = icmp eq i32 %.0.copyload.i, 0
   br i1 %.not.i, label %21, label %20
@@ -46,14 +46,14 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen21createBlockUnwindInfoEPvPhmRm(pt
 21:                                               ; preds = %20, %.lr.ph.i
   %22 = add i32 %.0.copyload112.i, 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.011.i, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %.011.i, i64 %23
   %.0.copyload1.i = load i32, ptr %24, align 1
   %25 = icmp eq i32 %.0.copyload1.i, 0
   br i1 %25, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %.lr.ph.i, !llvm.loop !6
 
 _ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit: ; preds = %21, %.preheader.i, %18
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef i64 %28(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %30 = add i64 %29, %10
@@ -88,7 +88,7 @@ define dso_local void @_ZN4Luau7CodeGen22destroyBlockUnwindInfoEPvS1_(ptr nocapt
 .lr.ph.i:                                         ; preds = %.preheader.i, %9
   %.0.copyload112.i = phi i32 [ %.0.copyload1.i, %9 ], [ %.0.copyload110.i, %.preheader.i ]
   %.011.i = phi ptr [ %12, %9 ], [ %1, %.preheader.i ]
-  %7 = getelementptr inbounds i8, ptr %.011.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.011.i, i64 4
   %.0.copyload.i = load i32, ptr %7, align 1
   %.not.i = icmp eq i32 %.0.copyload.i, 0
   br i1 %.not.i, label %9, label %8
@@ -100,7 +100,7 @@ define dso_local void @_ZN4Luau7CodeGen22destroyBlockUnwindInfoEPvS1_(ptr nocapt
 9:                                                ; preds = %8, %.lr.ph.i
   %10 = add i32 %.0.copyload112.i, 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %.011.i, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %.011.i, i64 %11
   %.0.copyload1.i = load i32, ptr %12, align 1
   %13 = icmp eq i32 %.0.copyload1.i, 0
   br i1 %13, label %_ZN4Luau7CodeGenL15visitFdeEntriesEPcPFvPKvE.exit, label %.lr.ph.i, !llvm.loop !6

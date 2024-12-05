@@ -197,7 +197,7 @@ define internal i32 @dissect_PNMRP(ptr noundef %0, ptr noundef %1, ptr noundef %
   %34 = alloca i16, align 2
   %35 = alloca i8, align 1
   %36 = alloca i8, align 1
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @col_set_str(ptr noundef %38, i32 noundef 34, ptr noundef nonnull @.str.49) #3
   %39 = load ptr, ptr %37, align 8

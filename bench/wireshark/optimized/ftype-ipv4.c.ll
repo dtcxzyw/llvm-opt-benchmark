@@ -78,7 +78,7 @@ define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef write
 23:                                               ; preds = %22, %21
   %24 = load i32, ptr %5, align 4
   %25 = call i32 @llvm.bswap.i32(i32 %24)
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %25, ptr %26, align 8
   %27 = getelementptr i8, ptr %8, i64 1
   %28 = call zeroext i1 @ws_strtou32(ptr noundef %27, ptr noundef nonnull %7, ptr noundef nonnull %6) #7
@@ -115,17 +115,17 @@ define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef write
 
 41:                                               ; preds = %35
   %42 = call i32 @ws_ipv4_get_subnet_mask(i32 noundef %36) #7
-  %43 = getelementptr inbounds i8, ptr %0, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %42, ptr %43, align 4
   br label %50
 
 44:                                               ; preds = %.thread
   %45 = load i32, ptr %5, align 4
   %46 = call i32 @llvm.bswap.i32(i32 %45)
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %46, ptr %47, align 8
   %48 = call i32 @ws_ipv4_get_subnet_mask(i32 noundef 32) #7
-  %49 = getelementptr inbounds i8, ptr %0, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %48, ptr %49, align 4
   br label %50
 
@@ -137,10 +137,10 @@ define internal noundef zeroext i1 @val_from_literal(ptr nocapture noundef write
 ; Function Attrs: nounwind uwtable
 define internal noalias ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3) #0 {
   %5 = alloca [16 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
   call void @ip_num_to_str_buf(i32 noundef %7, ptr noundef nonnull %5, i32 noundef 16) #7
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   switch i32 %9, label %10 [
     i32 0, label %26
@@ -176,7 +176,7 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal void @value_set_ipv4(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
   ret void
@@ -184,17 +184,17 @@ define internal void @value_set_ipv4(ptr nocapture noundef writeonly initializes
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal nonnull ptr @value_get_ipv4(ptr noundef readnone %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %6, i32 %9)
   %10 = load i32, ptr %4, align 8
@@ -210,11 +210,11 @@ define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr no
 define internal i32 @ipv4_hash(ptr nocapture noundef readonly %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   store i64 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = zext i32 %8 to i64
   store i64 %9, ptr %3, align 8
@@ -226,7 +226,7 @@ define internal i32 @ipv4_hash(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal zeroext i1 @is_zero(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   ret i1 %4
@@ -240,7 +240,7 @@ define internal noundef i32 @len(ptr nocapture readnone %0) #2 {
 ; Function Attrs: nounwind uwtable
 define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   store i32 %8, ptr %5, align 4
@@ -252,13 +252,13 @@ define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @bitwise_and(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, %9
   %13 = trunc i64 %7 to i32

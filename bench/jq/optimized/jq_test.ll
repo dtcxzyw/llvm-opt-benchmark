@@ -211,7 +211,7 @@ jv_test.exit:                                     ; preds = %57
   call void @jv_free(i64 %138, ptr %139) #13
   call void @jv_free(i64 %141, ptr %142) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20000) %16, i8 97, i64 20000, i1 false)
-  %143 = getelementptr inbounds i8, ptr %16, i64 19999
+  %143 = getelementptr inbounds nuw i8, ptr %16, i64 19999
   store i8 0, ptr %143, align 1
   %144 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.26, ptr noundef nonnull %16) #13
   %145 = extractvalue { i64, ptr } %144, 0
@@ -356,7 +356,7 @@ jv_test.exit:                                     ; preds = %57
 .lr.ph246.i:                                      ; preds = %222
   %.not150.i = icmp ne i32 %2, 0
   %227 = zext i1 %.not150.i to i32
-  %228 = getelementptr inbounds i8, ptr %9, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %229
 
 229:                                              ; preds = %.backedge.i, %.lr.ph246.i
@@ -373,7 +373,7 @@ jv_test.exit:                                     ; preds = %57
 
 231:                                              ; preds = %.critedge.i.i, %229
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.i.i ], [ 0, %229 ]
-  %232 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.i.i
+  %232 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i.i
   %233 = load i8, ptr %232, align 1
   switch i8 %233, label %234 [
     i8 32, label %.critedge.i.i
@@ -621,7 +621,7 @@ checkfail.exit.thread.i:                          ; preds = %checkfail.exit.i, %
 
 335:                                              ; preds = %.critedge.i170.i, %333
   %indvars.iv.i167.i = phi i64 [ %indvars.iv.next.i171.i, %.critedge.i170.i ], [ 0, %333 ]
-  %336 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv.i167.i
+  %336 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i167.i
   %337 = load i8, ptr %336, align 1
   switch i8 %337, label %338 [
     i8 32, label %.critedge.i170.i
@@ -788,8 +788,8 @@ run_jq_tests.exit:                                ; preds = %404
 
 406:                                              ; preds = %406, %run_jq_tests.exit
   %indvars.iv.i = phi i64 [ 0, %run_jq_tests.exit ], [ %indvars.iv.next.i, %406 ]
-  %407 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i
-  %408 = getelementptr inbounds [3 x %struct.test_pthread_data], ptr %7, i64 0, i64 %indvars.iv.i
+  %407 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv.i
+  %408 = getelementptr inbounds nuw [3 x %struct.test_pthread_data], ptr %7, i64 0, i64 %indvars.iv.i
   %409 = call i32 @pthread_create(ptr noundef nonnull %407, ptr noundef null, ptr noundef nonnull @test_pthread_run, ptr noundef nonnull %408) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i, 3
@@ -797,7 +797,7 @@ run_jq_tests.exit:                                ; preds = %404
 
 .preheader11.i:                                   ; preds = %406, %414
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %414 ], [ 0, %406 ]
-  %410 = getelementptr inbounds [3 x i64], ptr %6, i64 0, i64 %indvars.iv15.i
+  %410 = getelementptr inbounds nuw [3 x i64], ptr %6, i64 0, i64 %indvars.iv15.i
   %411 = load i64, ptr %410, align 8
   %.not.i33 = icmp eq i64 %411, 0
   br i1 %.not.i33, label %414, label %412

@@ -62,7 +62,7 @@ entry:
   %0 = and i32 %csrno, 3072
   %cmp.i = icmp eq i32 %0, 3072
   %arrayidx.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i
-  %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %min_priv_ver.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %min_priv_ver.i, align 8
   %ext_zicsr.i = getelementptr i8, ptr %env, i64 5162
   %2 = load i8, ptr %ext_zicsr.i, align 2
@@ -70,13 +70,13 @@ entry:
   br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %predicate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %predicate.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load ptr, ptr %predicate.i, align 8
   %tobool5.not.i = icmp eq ptr %3, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %priv_ver.i = getelementptr inbounds i8, ptr %env, i64 4984
+  %priv_ver.i = getelementptr inbounds nuw i8, ptr %env, i64 4984
   %4 = load i64, ptr %priv_ver.i, align 8
   %conv8.i = sext i32 %1 to i64
   %cmp9.i = icmp ult i64 %4, %conv8.i
@@ -92,7 +92,7 @@ riscv_csrrw_check.exit:                           ; preds = %if.end7.i
 if.end:                                           ; preds = %riscv_csrrw_check.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i)
   store i64 0, ptr %old_value.i, align 8
-  %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %op.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %5 = load ptr, ptr %op.i, align 16
   %tobool.not.i = icmp eq ptr %5, null
   br i1 %tobool.not.i, label %if.end.i7, label %if.then.i
@@ -106,7 +106,7 @@ if.end.i7:                                        ; preds = %if.end
   br i1 %tobool4.not.i, label %if.end17.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end.i7
-  %read.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %read.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %6 = load ptr, ptr %read.i, align 16
   %tobool8.not.i = icmp eq ptr %6, null
   br i1 %tobool8.not.i, label %riscv_csrrw_do64.exit, label %if.end10.i
@@ -121,7 +121,7 @@ if.end17.i:                                       ; preds = %if.end10.i, %if.end
   br i1 %tobool18.not.i, label %if.end33.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %write.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %write.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %7 = load ptr, ptr %write.i, align 8
   %tobool23.not.i = icmp eq ptr %7, null
   br i1 %tobool23.not.i, label %if.end33.i, label %if.then24.i
@@ -167,7 +167,7 @@ entry:
   %0 = and i32 %csrno, 3072
   %cmp.i14 = icmp eq i32 %0, 3072
   %arrayidx.i = getelementptr [4096 x %struct.riscv_csr_operations], ptr @csr_ops, i64 0, i64 %conv.i
-  %min_priv_ver.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
+  %min_priv_ver.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
   %1 = load i32, ptr %min_priv_ver.i, align 8
   %ext_zicsr.i = getelementptr i8, ptr %env, i64 5162
   %2 = load i8, ptr %ext_zicsr.i, align 2
@@ -175,13 +175,13 @@ entry:
   br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %entry
-  %predicate.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %predicate.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %3 = load ptr, ptr %predicate.i, align 8
   %tobool5.not.i = icmp eq ptr %3, null
   br i1 %tobool5.not.i, label %return, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %priv_ver.i = getelementptr inbounds i8, ptr %env, i64 4984
+  %priv_ver.i = getelementptr inbounds nuw i8, ptr %env, i64 4984
   %4 = load i64, ptr %priv_ver.i, align 8
   %conv8.i = sext i32 %1 to i64
   %cmp9.i = icmp ult i64 %4, %conv8.i
@@ -222,7 +222,7 @@ if.then3.i:                                       ; preds = %if.end.i17
   %b.sroa.0.0.insert.insert.i55.i = or disjoint i128 %retval.sroa.2.0.extract.shift.i44.i, %b.sroa.0.0.insert.ext.i54.i
   %or.i.i = or i128 %b.sroa.0.0.insert.insert.i55.i, %and.i.i
   %retval.sroa.0.0.extract.trunc.i56.i = trunc i128 %or.i.i to i64
-  %write128.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 48
+  %write128.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 48
   %7 = load ptr, ptr %write128.i, align 16
   %tobool.not.i = icmp eq ptr %7, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then21.i
@@ -235,7 +235,7 @@ if.then21.i:                                      ; preds = %if.then3.i
   br i1 %cmp27.not.i, label %if.end45.i, label %riscv_csrrw_do128.exit
 
 if.else.i:                                        ; preds = %if.then3.i
-  %write.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %write.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %8 = load ptr, ptr %write.i, align 8
   %tobool32.not.i = icmp eq ptr %8, null
   br i1 %tobool32.not.i, label %if.end45.i, label %if.then33.i
@@ -262,7 +262,7 @@ riscv_csrrw_do128.exit:                           ; preds = %if.then3, %if.then2
 if.end6:                                          ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %old_value.i18)
   store i64 0, ptr %old_value.i18, align 8
-  %op.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %op.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %10 = load ptr, ptr %op.i, align 16
   %tobool.not.i21 = icmp eq ptr %10, null
   br i1 %tobool.not.i21, label %if.end.i24, label %if.then.i
@@ -272,7 +272,7 @@ if.then.i:                                        ; preds = %if.end6
   br label %riscv_csrrw_do64.exit
 
 if.end.i24:                                       ; preds = %if.end6
-  %read.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %read.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %11 = load ptr, ptr %read.i, align 16
   %tobool8.not.i = icmp eq ptr %11, null
   br i1 %tobool8.not.i, label %riscv_csrrw_do64.exit.thread, label %if.end10.i
@@ -287,7 +287,7 @@ if.end17.i:                                       ; preds = %if.end10.i
   br i1 %tobool18.not.i, label %if.then35.i, label %if.then19.i
 
 if.then19.i:                                      ; preds = %if.end17.i
-  %write.i26 = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %write.i26 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %12 = load ptr, ptr %write.i26, align 8
   %tobool23.not.i = icmp eq ptr %12, null
   br i1 %tobool23.not.i, label %if.then35.i, label %if.then24.i
@@ -363,7 +363,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_frm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %frm = getelementptr inbounds i8, ptr %env, i64 4936
+  %frm = getelementptr inbounds nuw i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -373,7 +373,7 @@ entry:
 define internal noundef i32 @write_frm(ptr nocapture noundef writeonly initializes((4936, 4944)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
   %and = and i64 %val, 7
-  %frm = getelementptr inbounds i8, ptr %env, i64 4936
+  %frm = getelementptr inbounds nuw i8, ptr %env, i64 4936
   store i64 %and, ptr %frm, align 8
   ret i32 -1
 }
@@ -382,7 +382,7 @@ entry:
 define internal noundef i32 @read_fcsr(ptr noundef %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #2 {
 entry:
   %call = tail call i64 @riscv_cpu_get_fflags(ptr noundef %env) #11
-  %frm = getelementptr inbounds i8, ptr %env, i64 4936
+  %frm = getelementptr inbounds nuw i8, ptr %env, i64 4936
   %0 = load i64, ptr %frm, align 8
   %shl1 = shl i64 %0, 5
   %or = or i64 %shl1, %call
@@ -395,7 +395,7 @@ define internal noundef i32 @write_fcsr(ptr noundef initializes((4936, 4944)) %e
 entry:
   %and = lshr i64 %val, 5
   %shr = and i64 %and, 7
-  %frm = getelementptr inbounds i8, ptr %env, i64 4936
+  %frm = getelementptr inbounds nuw i8, ptr %env, i64 4936
   store i64 %shr, ptr %frm, align 8
   %and1 = and i64 %val, 31
   tail call void @riscv_cpu_set_fflags(ptr noundef %env, i64 noundef %and1) #11
@@ -415,7 +415,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_vstart(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   %0 = load i64, ptr %vstart, align 8
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -431,7 +431,7 @@ entry:
   %shl = shl nsw i64 -1, %2
   %not = xor i64 %shl, -1
   %and = and i64 %val, %not
-  %vstart = getelementptr inbounds i8, ptr %env, i64 4632
+  %vstart = getelementptr inbounds nuw i8, ptr %env, i64 4632
   store i64 %and, ptr %vstart, align 8
   ret i32 -1
 }
@@ -439,7 +439,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_vxsat(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
+  %vxsat = getelementptr inbounds nuw i8, ptr %env, i64 4616
   %0 = load i64, ptr %vxsat, align 8
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -448,7 +448,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal noundef i32 @write_vxsat(ptr nocapture noundef writeonly initializes((4616, 4624)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
-  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
+  %vxsat = getelementptr inbounds nuw i8, ptr %env, i64 4616
   store i64 %val, ptr %vxsat, align 8
   ret i32 -1
 }
@@ -456,7 +456,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_vxrm(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
+  %vxrm = getelementptr inbounds nuw i8, ptr %env, i64 4608
   %0 = load i64, ptr %vxrm, align 16
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -465,7 +465,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal noundef i32 @write_vxrm(ptr nocapture noundef writeonly initializes((4608, 4616)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
-  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
+  %vxrm = getelementptr inbounds nuw i8, ptr %env, i64 4608
   store i64 %val, ptr %vxrm, align 16
   ret i32 -1
 }
@@ -473,10 +473,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_vcsr(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
+  %vxrm = getelementptr inbounds nuw i8, ptr %env, i64 4608
   %0 = load i64, ptr %vxrm, align 16
   %shl = shl i64 %0, 1
-  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
+  %vxsat = getelementptr inbounds nuw i8, ptr %env, i64 4616
   %1 = load i64, ptr %vxsat, align 8
   %or = or i64 %shl, %1
   store i64 %or, ptr %val, align 8
@@ -488,10 +488,10 @@ define internal noundef i32 @write_vcsr(ptr nocapture noundef writeonly initiali
 entry:
   %and = lshr i64 %val, 1
   %shr = and i64 %and, 3
-  %vxrm = getelementptr inbounds i8, ptr %env, i64 4608
+  %vxrm = getelementptr inbounds nuw i8, ptr %env, i64 4608
   store i64 %shr, ptr %vxrm, align 16
   %and1 = and i64 %val, 1
-  %vxsat = getelementptr inbounds i8, ptr %env, i64 4616
+  %vxsat = getelementptr inbounds nuw i8, ptr %env, i64 4616
   store i64 %and1, ptr %vxsat, align 8
   ret i32 -1
 }
@@ -565,7 +565,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_jvt(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %jvt = getelementptr inbounds i8, ptr %env, i64 5040
+  %jvt = getelementptr inbounds nuw i8, ptr %env, i64 5040
   %0 = load i64, ptr %jvt, align 16
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -574,7 +574,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
 define internal noundef i32 @write_jvt(ptr nocapture noundef writeonly initializes((5040, 5048)) %env, i32 %csrno, i64 noundef %val) #5 {
 entry:
-  %jvt = getelementptr inbounds i8, ptr %env, i64 5040
+  %jvt = getelementptr inbounds nuw i8, ptr %env, i64 5040
   store i64 %val, ptr %jvt, align 16
   ret i32 -1
 }
@@ -616,7 +616,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @read_vl(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly initializes((0, 8)) %val) #4 {
 entry:
-  %vl = getelementptr inbounds i8, ptr %env, i64 4624
+  %vl = getelementptr inbounds nuw i8, ptr %env, i64 4624
   %0 = load i64, ptr %vl, align 16
   store i64 %0, ptr %val, align 8
   ret i32 -1
@@ -625,7 +625,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @read_vtype(ptr nocapture noundef readonly %env, i32 %csrno, ptr nocapture noundef writeonly %val) #2 {
 entry:
-  %xl = getelementptr inbounds i8, ptr %env, i64 5024
+  %xl = getelementptr inbounds nuw i8, ptr %env, i64 5024
   %0 = load i32, ptr %xl, align 16
   switch i32 %0, label %do.body [
     i32 1, label %sw.epilog
@@ -641,12 +641,12 @@ do.body:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %entry, %sw.bb3
   %.sink = phi i64 [ 63, %sw.bb3 ], [ 31, %entry ]
-  %vill4 = getelementptr inbounds i8, ptr %env, i64 4648
+  %vill4 = getelementptr inbounds nuw i8, ptr %env, i64 4648
   %1 = load i8, ptr %vill4, align 8
   %2 = and i8 %1, 1
   %conv6 = zext nneg i8 %2 to i64
   %shl7 = shl nuw i64 %conv6, %.sink
-  %vtype = getelementptr inbounds i8, ptr %env, i64 4640
+  %vtype = getelementptr inbounds nuw i8, ptr %env, i64 4640
   %3 = load i64, ptr %vtype, align 16
   %or = or i64 %3, %shl7
   store i64 %or, ptr %val, align 8

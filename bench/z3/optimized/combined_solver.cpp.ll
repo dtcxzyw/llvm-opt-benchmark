@@ -276,28 +276,28 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 define linkonce_odr hidden void @_ZN15combined_solverC2EP6solverS1_RK10params_ref(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %s1, ptr noundef %s2, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 if.end.i:
   %vtable = load ptr, ptr %s1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(976) ptr %0(ptr noundef nonnull align 8 dereferenceable(72) %s1)
-  %m2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call, ptr %m2.i.i, align 8
-  %m_log.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_log.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = ptrtoint ptr %call to i64
   store i64 %1, ptr %m_log.i.i, align 8
-  %m_nodes.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %m_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_nodes.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %m_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_nodes.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call, ptr %m_manager.i.i.i, align 8
-  %m_ref_count.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %m_ref_count.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_ref_count.i.i, i8 0, i64 24, i1 false)
-  %2 = getelementptr inbounds i8, ptr %this, i64 72
-  %m_params.i = getelementptr inbounds i8, ptr %this, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_params.i, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 480), ptr %2, align 8
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
-  %m_ref_count.i.i2 = getelementptr inbounds i8, ptr %s1, i64 48
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  %m_ref_count.i.i2 = getelementptr inbounds nuw i8, ptr %s1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_solver1, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %m_ref_count.i.i2, align 8
   %inc.i.i = add i32 %3, 1
@@ -307,7 +307,7 @@ if.end.i:
   br i1 %tobool.not.i.i, label %invoke.cont6, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end.i
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %4, i64 48
+  %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   %5 = load i32, ptr %m_ref_count.i.i.i, align 8
   %dec.i.i.i = add i32 %5, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
@@ -327,7 +327,7 @@ invoke.cont6:                                     ; preds = %if.then.i.i, %if.en
   br i1 %tobool.not.i3, label %if.end.i7, label %if.then.i4
 
 if.then.i4:                                       ; preds = %invoke.cont6
-  %m_ref_count.i.i5 = getelementptr inbounds i8, ptr %s2, i64 48
+  %m_ref_count.i.i5 = getelementptr inbounds nuw i8, ptr %s2, i64 48
   %7 = load i32, ptr %m_ref_count.i.i5, align 8
   %inc.i.i6 = add i32 %7, 1
   store i32 %inc.i.i6, ptr %m_ref_count.i.i5, align 8
@@ -339,7 +339,7 @@ if.end.i7:                                        ; preds = %if.then.i4, %invoke
   br i1 %tobool.not.i.i8, label %invoke.cont9, label %if.then.i.i9
 
 if.then.i.i9:                                     ; preds = %if.end.i7
-  %m_ref_count.i.i.i10 = getelementptr inbounds i8, ptr %8, i64 48
+  %m_ref_count.i.i.i10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %9 = load i32, ptr %m_ref_count.i.i.i10, align 8
   %dec.i.i.i11 = add i32 %9, -1
   store i32 %dec.i.i.i11, ptr %m_ref_count.i.i.i10, align 8
@@ -359,11 +359,11 @@ invoke.cont9:                                     ; preds = %if.then.i.i9, %if.e
           to label %invoke.cont11 unwind label %lpad5
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %m_inc_mode = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 0, ptr %m_inc_mode, align 8
-  %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
+  %m_check_sat_executed = getelementptr inbounds nuw i8, ptr %this, i64 97
   store i8 0, ptr %m_check_sat_executed, align 1
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   store i8 1, ptr %m_use_solver1_results, align 2
   ret void
 
@@ -381,9 +381,9 @@ define hidden noalias noundef ptr @_Z26mk_combined_solver_factoryP14solver_facto
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
   store ptr getelementptr inbounds (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %call, align 8
-  %m_f1.i = getelementptr inbounds i8, ptr %call, i64 8
+  %m_f1.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %f1, ptr %m_f1.i, align 8
-  %m_f2.i = getelementptr inbounds i8, ptr %call, i64 16
+  %m_f2.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %f2, ptr %m_f2.i, align 8
   ret ptr %call
 }
@@ -395,21 +395,21 @@ define linkonce_odr hidden void @_ZN15combined_solver17updt_local_paramsERK10par
 entry:
   %p = alloca %struct.combined_solver_params, align 8
   store ptr %_p, ptr %p, align 8
-  %g.i = getelementptr inbounds i8, ptr %p, i64 8
+  %g.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   call void @_ZN7gparams10get_moduleEPKc(ptr nonnull sret(%class.params_ref) align 8 %g.i, ptr noundef nonnull @.str.3)
   %0 = load ptr, ptr %p, align 8
   %call.i2 = invoke noundef i32 @_ZNK10params_ref8get_uintEPKcRKS_j(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i32 noundef -1)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %m_inc_timeout = getelementptr inbounds i8, ptr %this, i64 128
+  %m_inc_timeout = getelementptr inbounds nuw i8, ptr %this, i64 128
   store i32 %call.i2, ptr %m_inc_timeout, align 8
   %1 = load ptr, ptr %p, align 8
   %call.i4 = invoke noundef zeroext i1 @_ZNK10params_ref8get_boolEPKcRKS_b(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(8) %g.i, i1 noundef zeroext false)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %m_ignore_solver1 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_ignore_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %frombool = zext i1 %call.i4 to i8
   store i8 %frombool, ptr %m_ignore_solver1, align 8
   %2 = load ptr, ptr %p, align 8
@@ -417,7 +417,7 @@ invoke.cont2:                                     ; preds = %invoke.cont
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont2
-  %m_inc_unknown_behavior = getelementptr inbounds i8, ptr %this, i64 124
+  %m_inc_unknown_behavior = getelementptr inbounds nuw i8, ptr %this, i64 124
   store i32 %call.i6, ptr %m_inc_unknown_behavior, align 4
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g.i) #14
   ret void
@@ -437,7 +437,7 @@ entry:
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %m_ref_count.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %m_ref_count.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %m_ref_count.i.i, align 8
   %dec.i.i = add i32 %1, -1
   store i32 %dec.i.i, ptr %m_ref_count.i.i, align 8
@@ -466,9 +466,9 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 define linkonce_odr hidden void @_ZN6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 400), ptr %add.ptr, align 8
-  %m_params = getelementptr inbounds i8, ptr %this, i64 80
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #14
   tail call void @_ZN16check_sat_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #14
   ret void
@@ -478,15 +478,15 @@ entry:
 define linkonce_odr hidden void @_ZN15combined_solverD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTV15combined_solver, i64 480), ptr %add.ptr, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refI6solverED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 48
+  %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1 = load i32, ptr %m_ref_count.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
@@ -508,13 +508,13 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refI6solverED2Ev.exit:                        ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %5 = load ptr, ptr %m_solver1, align 8
   %tobool.not.i.i1 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1, label %_ZN3refI6solverED2Ev.exit9, label %if.then.i.i2
 
 if.then.i.i2:                                     ; preds = %_ZN3refI6solverED2Ev.exit
-  %m_ref_count.i.i.i3 = getelementptr inbounds i8, ptr %5, i64 48
+  %m_ref_count.i.i.i3 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %6 = load i32, ptr %m_ref_count.i.i.i3, align 8
   %dec.i.i.i4 = add i32 %6, -1
   store i32 %dec.i.i.i4, ptr %m_ref_count.i.i.i3, align 8
@@ -538,7 +538,7 @@ terminate.lpad.i8:                                ; preds = %if.then.i.i.i6
 _ZN3refI6solverED2Ev.exit9:                       ; preds = %_ZN3refI6solverED2Ev.exit, %if.then.i.i2, %if.then.i.i.i6
   store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 16), ptr %this, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV6solver, i64 400), ptr %add.ptr, align 8
-  %m_params.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params.i) #14
   tail call void @_ZN16check_sat_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #14
   ret void
@@ -555,22 +555,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK15combined_solver18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(16) %st) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %st)
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %2 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %3 = load ptr, ptr %m_solver1, align 8
   %vtable3 = load ptr, ptr %3, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 16
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 16
   %4 = load ptr, ptr %vfn4, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(16) %st)
   br label %if.end
@@ -582,14 +582,14 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver14get_unsat_coreER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   %. = select i1 %tobool, i64 104, i64 112
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 %.
   %1 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %1, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 24
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 24
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(16) %r)
   ret void
@@ -598,16 +598,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver14get_model_coreER3refI5modelE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %m) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_solver1, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(8) %m)
   %3 = load ptr, ptr %m, align 8
@@ -615,16 +615,16 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not.i, label %if.end, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then
-  %m_mc0.i.i = getelementptr inbounds i8, ptr %1, i64 56
+  %m_mc0.i.i = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %m_mc0.i.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %if.end, label %if.end.sink.split
 
 if.else:                                          ; preds = %entry
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %5 = load ptr, ptr %m_solver2, align 8
   %vtable.i2 = load ptr, ptr %5, align 8
-  %vfn.i3 = getelementptr inbounds i8, ptr %vtable.i2, i64 32
+  %vfn.i3 = getelementptr inbounds nuw i8, ptr %vtable.i2, i64 32
   %6 = load ptr, ptr %vfn.i3, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(8) %m)
   %7 = load ptr, ptr %m, align 8
@@ -632,7 +632,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i.not.i4, label %if.end, label %land.lhs.true.i5
 
 land.lhs.true.i5:                                 ; preds = %if.else
-  %m_mc0.i.i6 = getelementptr inbounds i8, ptr %5, i64 56
+  %m_mc0.i.i6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %8 = load ptr, ptr %m_mc0.i.i6, align 8
   %tobool.not.i7 = icmp eq ptr %8, null
   br i1 %tobool.not.i7, label %if.end, label %if.end.sink.split
@@ -640,7 +640,7 @@ land.lhs.true.i5:                                 ; preds = %if.else
 if.end.sink.split:                                ; preds = %land.lhs.true.i5, %land.lhs.true.i
   %.sink13 = phi ptr [ %4, %land.lhs.true.i ], [ %8, %land.lhs.true.i5 ]
   %vtable4.i9 = load ptr, ptr %.sink13, align 8
-  %vfn5.i10 = getelementptr inbounds i8, ptr %vtable4.i9, i64 32
+  %vfn5.i10 = getelementptr inbounds nuw i8, ptr %vtable4.i9, i64 32
   %9 = load ptr, ptr %vfn5.i10, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(25) %.sink13, ptr noundef nonnull align 8 dereferenceable(8) %m)
   br label %if.end
@@ -652,14 +652,14 @@ if.end:                                           ; preds = %if.end.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN15combined_solver14get_proof_coreEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   %. = select i1 %tobool, i64 104, i64 112
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 %.
   %1 = load ptr, ptr %m_solver2, align 8
   %vtable4 = load ptr, ptr %1, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 40
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 40
   %2 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret ptr %call6
@@ -668,14 +668,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK15combined_solver14reason_unknownB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   %. = select i1 %tobool, i64 104, i64 112
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 %.
   %1 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %1, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 48
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 48
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %1)
   ret void
@@ -684,16 +684,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver18set_reason_unknownEPKc(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %msg) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %msg)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 56
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 56
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %msg)
   ret void
@@ -702,14 +702,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver10get_labelsER7svectorI6symboljE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %r) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   %. = select i1 %tobool, i64 104, i64 112
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 %.
   %1 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %1, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 64
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 64
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(8) %r)
   ret void
@@ -718,10 +718,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(976) ptr @_ZNK15combined_solver11get_managerEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(976) ptr %1(ptr noundef nonnull align 8 dereferenceable(72) %0)
   ret ptr %call2
@@ -730,33 +730,33 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN15combined_solver9translateER11ast_managerRK10params_ref(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 80
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 80
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p)
   %call7 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 136)
   tail call void @_ZN15combined_solverC2EP6solverS1_RK10params_ref(ptr noundef nonnull align 8 dereferenceable(132) %call7, ptr noundef %call2, ptr noundef %call6, ptr noundef nonnull align 8 dereferenceable(8) %p)
-  %m_inc_mode = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode = getelementptr inbounds nuw i8, ptr %this, i64 96
   %4 = load i8, ptr %m_inc_mode, align 8
-  %m_inc_mode8 = getelementptr inbounds i8, ptr %call7, i64 96
+  %m_inc_mode8 = getelementptr inbounds nuw i8, ptr %call7, i64 96
   %frombool = and i8 %4, 1
   store i8 %frombool, ptr %m_inc_mode8, align 8
-  %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
+  %m_check_sat_executed = getelementptr inbounds nuw i8, ptr %this, i64 97
   %5 = load i8, ptr %m_check_sat_executed, align 1
-  %m_check_sat_executed10 = getelementptr inbounds i8, ptr %call7, i64 97
+  %m_check_sat_executed10 = getelementptr inbounds nuw i8, ptr %call7, i64 97
   %frombool11 = and i8 %5, 1
   store i8 %frombool11, ptr %m_check_sat_executed10, align 1
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %6 = load i8, ptr %m_use_solver1_results, align 2
-  %m_use_solver1_results13 = getelementptr inbounds i8, ptr %call7, i64 98
+  %m_use_solver1_results13 = getelementptr inbounds nuw i8, ptr %call7, i64 98
   %frombool14 = and i8 %6, 1
   store i8 %frombool14, ptr %m_use_solver1_results13, align 2
   ret ptr %call7
@@ -766,16 +766,16 @@ entry:
 define linkonce_odr hidden void @_ZN15combined_solver11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 comdat align 2 {
 entry:
   tail call void @_ZN6solver11updt_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(8) %p)
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %p)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 88
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 88
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %p)
   tail call void @_ZN15combined_solver17updt_local_paramsERK10params_ref(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %p)
@@ -787,23 +787,23 @@ declare void @_ZN6solver12reset_paramsERK10params_ref(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6solver10get_paramsEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  %m_params = getelementptr inbounds i8, ptr %this, i64 80
+  %m_params = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %m_params
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver20collect_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %r) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %r)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 112
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 112
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(8) %r)
   tail call void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(8) %r, ptr noundef nonnull @.str.4, i32 noundef 0, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.3)
@@ -827,16 +827,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver18set_produce_modelsEb(ptr noundef nonnull align 8 dereferenceable(132) %this, i1 noundef zeroext %f) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, i1 noundef zeroext %f)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 136
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 136
   %3 = load ptr, ptr %vfn5, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, i1 noundef zeroext %f)
   ret void
@@ -845,21 +845,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver16assert_expr_coreEP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %t) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
+  %m_check_sat_executed = getelementptr inbounds nuw i8, ptr %this, i64 97
   %0 = load i8, ptr %m_check_sat_executed, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_solver1, align 8
   tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %t)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   tail call void @_ZN6solver11assert_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %t)
   ret void
@@ -868,16 +868,16 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver9set_phaseEP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %e) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %e)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 152
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 152
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %e)
   ret void
@@ -886,16 +886,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver13move_to_frontEP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %e) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 160
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 160
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %e)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 160
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 160
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %e)
   ret void
@@ -904,20 +904,20 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN15combined_solver9get_phaseEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 168
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 168
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 168
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 168
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(96) %2)
   br label %if.end
@@ -930,16 +930,16 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver9set_phaseEPN6solver5phaseE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %p) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 176
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 176
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %p)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 176
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 176
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %p)
   ret void
@@ -948,21 +948,21 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver17assert_expr_core2EP4exprS1_(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %t, ptr noundef %a) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
+  %m_check_sat_executed = getelementptr inbounds nuw i8, ptr %this, i64 97
   %0 = load i8, ptr %m_check_sat_executed, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_solver1, align 8
   tail call void @_ZN6solver11assert_exprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef %t, ptr noundef %a)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   tail call void @_ZN6solver11assert_exprEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %t, ptr noundef %a)
   ret void
@@ -971,18 +971,18 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver4pushEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 192
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 192
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 192
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 192
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2)
   ret void
@@ -991,18 +991,18 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver3popEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %n) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 200
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 200
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %n)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 200
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 200
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %n)
   ret void
@@ -1011,10 +1011,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK15combined_solver15get_scope_levelEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 208
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 208
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
   ret i32 %call2
@@ -1034,7 +1034,7 @@ _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE5emptyEv.exit: ; preds = %entr
   br i1 %cmp3.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry, %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE5emptyEv.exit
-  %m_nodes.i = getelementptr inbounds i8, ptr %cube, i64 8
+  %m_nodes.i = getelementptr inbounds nuw i8, ptr %cube, i64 8
   %2 = load ptr, ptr %m_nodes.i, align 8
   %cmp.i.i = icmp eq ptr %2, null
   br i1 %cmp.i.i, label %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, label %if.end.i.i
@@ -1058,16 +1058,16 @@ if.end:                                           ; preds = %_ZNK6vectorI10ref_v
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver21set_progress_callbackEP17progress_callback(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %callback) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 224
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 224
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %callback)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %2, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 224
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 224
   %3 = load ptr, ptr %vfn4, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef %callback)
   ret void
@@ -1076,10 +1076,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK15combined_solver18get_num_assertionsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
   ret i32 %call2
@@ -1088,10 +1088,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK15combined_solver13get_assertionEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %idx) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 240
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %idx)
   ret ptr %call2
@@ -1100,16 +1100,16 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZNK15combined_solver19get_num_assumptionsEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %2 = load ptr, ptr %m_solver2, align 8
   %vtable4 = load ptr, ptr %2, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 248
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 248
   %3 = load ptr, ptr %vfn5, align 8
   %call6 = tail call noundef i32 %3(ptr noundef nonnull align 8 dereferenceable(96) %2)
   %add = add i32 %call6, %call2
@@ -1119,10 +1119,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZNK15combined_solver14get_assumptionEj(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %idx) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(96) %0)
   %cmp = icmp ult i32 %idx, %call2
@@ -1131,17 +1131,17 @@ entry:
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %m_solver1, align 8
   %vtable5 = load ptr, ptr %2, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 256
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 256
   %3 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %idx)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %4 = load ptr, ptr %m_solver2, align 8
   %sub = sub nuw i32 %idx, %call2
   %vtable9 = load ptr, ptr %4, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 256
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 256
   %5 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %sub)
   br label %return
@@ -1154,14 +1154,14 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i32 @_ZN15combined_solver16get_consequencesERK10ref_vectorI4expr11ast_managerES5_RS3_(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(16) %asms, ptr noundef nonnull align 8 dereferenceable(16) %vars, ptr noundef nonnull align 8 dereferenceable(16) %consequences) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   store i8 0, ptr %m_use_solver1_results, align 2
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 264
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 264
   %1 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %asms, ptr noundef nonnull align 8 dereferenceable(16) %vars, ptr noundef nonnull align 8 dereferenceable(16) %consequences)
           to label %return unwind label %lpad
@@ -1178,7 +1178,7 @@ catch:                                            ; preds = %lpad
   %5 = extractvalue { ptr, i32 } %2, 0
   %6 = tail call ptr @__cxa_begin_catch(ptr %5) #14
   %vtable3 = load ptr, ptr %this, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 72
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 72
   %7 = load ptr, ptr %vfn4, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(976) ptr %7(ptr noundef nonnull align 8 dereferenceable(132) %this)
           to label %invoke.cont6 unwind label %lpad5
@@ -1202,14 +1202,14 @@ lpad5:                                            ; preds = %invoke.cont6, %invo
 
 if.else:                                          ; preds = %invoke.cont8
   %vtable10 = load ptr, ptr %6, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 16
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 16
   %9 = load ptr, ptr %vfn11, align 8
   %call13 = invoke noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %invoke.cont12 unwind label %lpad5
 
 invoke.cont12:                                    ; preds = %if.else
   %vtable14 = load ptr, ptr %this, align 8
-  %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 56
+  %vfn15 = getelementptr inbounds nuw i8, ptr %vtable14, i64 56
   %10 = load ptr, ptr %vfn15, align 8
   invoke void %10(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %call13)
           to label %if.end unwind label %lpad5
@@ -1244,12 +1244,12 @@ declare noundef i32 @_ZN6solver13preferred_satERK10ref_vectorI4expr11ast_manager
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver4cubeER10ref_vectorI4expr11ast_managerEj(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(16) %vars, i32 noundef %backtrack_level) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 288
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 288
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(16) %vars, i32 noundef %backtrack_level)
   ret void
@@ -1258,12 +1258,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN15combined_solver15congruence_rootEP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %e) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 296
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 296
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %e)
   ret ptr %call2
@@ -1272,12 +1272,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN15combined_solver15congruence_nextEP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %e) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 304
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 304
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %e)
   ret ptr %call2
@@ -1286,10 +1286,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK15combined_solver7displayERSojPKP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %n, ptr noundef %es) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_solver1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 312
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 312
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr %1(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %n, ptr noundef %es)
   ret ptr %call2
@@ -1298,14 +1298,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK6solver19get_model_converterEv(ptr noalias sret(%class.ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_mc0 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_mc0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_mc0, align 8
   store ptr %0, ptr %agg.result, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refI15model_converterEC2ERKS1_.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %m_ref_count.i.i.i, align 8
   %inc.i.i.i = add i32 %1, 1
   store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 8
@@ -1324,14 +1324,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver9get_trailEj(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %max_level) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   %. = select i1 %tobool, i64 104, i64 112
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 %.
   %1 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %1, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 336
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 336
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %max_level)
   ret void
@@ -1340,14 +1340,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver10get_levelsERK10ptr_vectorI4exprER7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 8 dereferenceable(8) %vars, ptr noundef nonnull align 8 dereferenceable(8) %depth) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   %0 = load i8, ptr %m_use_solver1_results, align 2
   %tobool = trunc i8 %0 to i1
   %. = select i1 %tobool, i64 104, i64 112
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 %.
   %1 = load ptr, ptr %m_solver2, align 8
   %vtable3 = load ptr, ptr %1, align 8
-  %vfn4 = getelementptr inbounds i8, ptr %vtable3, i64 344
+  %vfn4 = getelementptr inbounds nuw i8, ptr %vtable3, i64 344
   %2 = load ptr, ptr %vfn4, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(8) %vars, ptr noundef nonnull align 8 dereferenceable(8) %depth)
   ret void
@@ -1358,12 +1358,12 @@ define linkonce_odr hidden noundef i32 @_ZN15combined_solver14check_sat_coreEjPK
 entry:
   %eh = alloca %"struct.combined_solver::aux_timeout_eh", align 8
   %timer = alloca %class.scoped_timer, align 8
-  %m_check_sat_executed = getelementptr inbounds i8, ptr %this, i64 97
+  %m_check_sat_executed = getelementptr inbounds nuw i8, ptr %this, i64 97
   store i8 1, ptr %m_check_sat_executed, align 1
-  %m_use_solver1_results = getelementptr inbounds i8, ptr %this, i64 98
+  %m_use_solver1_results = getelementptr inbounds nuw i8, ptr %this, i64 98
   store i8 0, ptr %m_use_solver1_results, align 2
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 248
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 248
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(132) %this)
   %1 = or i32 %call, %num_assumptions
@@ -1371,30 +1371,30 @@ entry:
   br i1 %or.cond.not, label %lor.lhs.false3, label %if.then
 
 lor.lhs.false3:                                   ; preds = %entry
-  %m_ignore_solver1 = getelementptr inbounds i8, ptr %this, i64 120
+  %m_ignore_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 120
   %2 = load i8, ptr %m_ignore_solver1, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %lor.lhs.false3, %entry
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %3 = load ptr, ptr %m_solver2, align 8
   %vtable5 = load ptr, ptr %3, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 352
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 352
   %4 = load ptr, ptr %vfn6, align 8
   %call7 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef %num_assumptions, ptr noundef %assumptions)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false3
-  %m_inc_mode = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode = getelementptr inbounds nuw i8, ptr %this, i64 96
   %5 = load i8, ptr %m_inc_mode, align 8
   %tobool8 = trunc i8 %5 to i1
   br i1 %tobool8, label %if.then9, label %if.end90
 
 if.then9:                                         ; preds = %if.end
-  %m_inc_timeout = getelementptr inbounds i8, ptr %this, i64 128
+  %m_inc_timeout = getelementptr inbounds nuw i8, ptr %this, i64 128
   %6 = load i32, ptr %m_inc_timeout, align 8
   %cmp10 = icmp eq i32 %6, -1
   %call12 = tail call noundef i32 @_Z19get_verbosity_levelv()
@@ -1421,10 +1421,10 @@ if.else:                                          ; preds = %if.then14
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then16, %if.else, %if.then11
-  %m_solver223 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver223 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %7 = load ptr, ptr %m_solver223, align 8
   %vtable25 = load ptr, ptr %7, align 8
-  %vfn26 = getelementptr inbounds i8, ptr %vtable25, i64 352
+  %vfn26 = getelementptr inbounds nuw i8, ptr %vtable25, i64 352
   %8 = load ptr, ptr %vfn26, align 8
   %call27 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 0, ptr noundef %assumptions)
   %cmp28.not = icmp eq i32 %call27, 0
@@ -1436,7 +1436,7 @@ lor.lhs.false29:                                  ; preds = %if.end22
 
 lor.lhs.false31:                                  ; preds = %lor.lhs.false29
   %vtable32 = load ptr, ptr %this, align 8
-  %vfn33 = getelementptr inbounds i8, ptr %vtable32, i64 72
+  %vfn33 = getelementptr inbounds nuw i8, ptr %vtable32, i64 72
   %9 = load ptr, ptr %vfn33, align 8
   %call34 = tail call noundef nonnull align 8 dereferenceable(976) ptr %9(ptr noundef nonnull align 8 dereferenceable(132) %this)
   %call2.i = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(976) %call34)
@@ -1462,14 +1462,14 @@ if.else46:                                        ; preds = %if.then41
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then43, %if.else46, %if.else38
-  %m_solver251 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver251 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %10 = load ptr, ptr %m_solver251, align 8
-  %m_caller_id.i.i = getelementptr inbounds i8, ptr %eh, i64 8
+  %m_caller_id.i.i = getelementptr inbounds nuw i8, ptr %eh, i64 8
   store i32 0, ptr %m_caller_id.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %eh, align 8
-  %m_solver.i = getelementptr inbounds i8, ptr %eh, i64 16
+  %m_solver.i = getelementptr inbounds nuw i8, ptr %eh, i64 16
   store ptr %10, ptr %m_solver.i, align 8
-  %m_canceled.i = getelementptr inbounds i8, ptr %eh, i64 24
+  %m_canceled.i = getelementptr inbounds nuw i8, ptr %eh, i64 24
   store i8 0, ptr %m_canceled.i, align 8
   %11 = load i32, ptr %m_inc_timeout, align 8
   invoke void @_ZN12scoped_timerC1EjP13event_handler(ptr noundef nonnull align 8 dereferenceable(8) %timer, i32 noundef %11, ptr noundef nonnull %eh)
@@ -1478,7 +1478,7 @@ if.end50:                                         ; preds = %if.then43, %if.else
 invoke.cont:                                      ; preds = %if.end50
   %12 = load ptr, ptr %m_solver251, align 8
   %vtable57 = load ptr, ptr %12, align 8
-  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 352
+  %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 352
   %13 = load ptr, ptr %vfn58, align 8
   %call61 = invoke noundef i32 %13(ptr noundef nonnull align 8 dereferenceable(96) %12, i32 noundef 0, ptr noundef %assumptions)
           to label %try.cont unwind label %lpad59
@@ -1530,7 +1530,7 @@ try.cont:                                         ; preds = %invoke.cont
   br i1 %cmp69.not, label %lor.lhs.false70, label %land.lhs.true
 
 lor.lhs.false70:                                  ; preds = %if.end65, %try.cont
-  %m_inc_unknown_behavior.i = getelementptr inbounds i8, ptr %this, i64 124
+  %m_inc_unknown_behavior.i = getelementptr inbounds nuw i8, ptr %this, i64 124
   %20 = load i32, ptr %m_inc_unknown_behavior.i, align 4
   switch i32 %20, label %sw.default.i [
     i32 0, label %land.lhs.true
@@ -1540,7 +1540,7 @@ lor.lhs.false70:                                  ; preds = %if.end65, %try.cont
 
 sw.bb2.i:                                         ; preds = %lor.lhs.false70
   %vtable.i.i = load ptr, ptr %this, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 232
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 232
   %21 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i12 = invoke noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(132) %this)
           to label %call.i.i.noexc unwind label %lpad66.loopexit.split-lp
@@ -1552,13 +1552,13 @@ call.i.i.noexc:                                   ; preds = %sw.bb2.i
 for.body.i.i:                                     ; preds = %call.i.i.noexc, %for.inc.i.i
   %i.04.i.i = phi i32 [ %inc.i.i, %for.inc.i.i ], [ 0, %call.i.i.noexc ]
   %vtable2.i.i = load ptr, ptr %this, align 8
-  %vfn3.i.i = getelementptr inbounds i8, ptr %vtable2.i.i, i64 240
+  %vfn3.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i, i64 240
   %22 = load ptr, ptr %vfn3.i.i, align 8
   %call4.i.i13 = invoke noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.04.i.i)
           to label %call4.i.i.noexc unwind label %lpad66.loopexit
 
 call4.i.i.noexc:                                  ; preds = %for.body.i.i
-  %m_kind.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i13, i64 4
+  %m_kind.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i13, i64 4
   %bf.load.i.i.i.i.i = load i32, ptr %m_kind.i.i.i.i.i, align 4
   %trunc.i.i = trunc i32 %bf.load.i.i.i.i.i to i16
   switch i16 %trunc.i.i, label %for.inc.i.i [
@@ -1567,12 +1567,12 @@ call4.i.i.noexc:                                  ; preds = %for.body.i.i
   ]
 
 cond.true.i.i.i:                                  ; preds = %call4.i.i.noexc
-  %m_num_args.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i13, i64 24
+  %m_num_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i13, i64 24
   %23 = load i32, ptr %m_num_args.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq i32 %23, 0
-  %m_args.i.i.i.i.i = getelementptr inbounds i8, ptr %call4.i.i13, i64 32
+  %m_args.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i13, i64 32
   %idx.ext.i.i.i.i.i = zext i32 %23 to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %m_args.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %m_args.i.i.i.i.i, i64 %idx.ext.i.i.i.i.i
   %cond.i.i.i.i.i = select i1 %cmp.i.i.i.i.i, ptr @_ZN3app16g_constant_flagsE, ptr %add.ptr.i.i.i.i.i
   %bf.load.i.i.i.i = load i32, ptr %cond.i.i.i.i.i, align 4
   %24 = and i32 %bf.load.i.i.i.i, 131072
@@ -1619,7 +1619,7 @@ cleanup:                                          ; preds = %for.inc.i.i, %land.
 if.then.i:                                        ; preds = %cleanup
   %27 = load ptr, ptr %m_solver.i, align 8
   %vtable.i = load ptr, ptr %27, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %28 = load ptr, ptr %vfn.i, align 8
   %call2.i17 = invoke noundef nonnull align 8 dereferenceable(976) ptr %28(ptr noundef nonnull align 8 dereferenceable(72) %27)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -1687,10 +1687,10 @@ if.else98:                                        ; preds = %if.then93
 
 if.end102:                                        ; preds = %if.then95, %if.else98, %if.end90
   store i8 1, ptr %m_use_solver1_results, align 2
-  %m_solver1 = getelementptr inbounds i8, ptr %this, i64 104
+  %m_solver1 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %31 = load ptr, ptr %m_solver1, align 8
   %vtable105 = load ptr, ptr %31, align 8
-  %vfn106 = getelementptr inbounds i8, ptr %vtable105, i64 352
+  %vfn106 = getelementptr inbounds nuw i8, ptr %vtable105, i64 352
   %32 = load ptr, ptr %vfn106, align 8
   %call107 = call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(96) %31, i32 noundef 0, ptr noundef %assumptions)
   br label %return
@@ -1715,13 +1715,13 @@ declare noundef i32 @_ZN6solver21get_consequences_coreERK10ref_vectorI4expr11ast
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver18register_on_clauseEPvRSt8functionIFvS0_P4exprjPKjjPKS3_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %ctx, ptr noundef nonnull align 1 %on_clause) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %ctx, ptr noundef nonnull align 1 %on_clause)
   ret void
@@ -1730,13 +1730,13 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver19user_propagate_initEPvRSt8functionIFvS0_PN15user_propagator8callbackEEERS1_IFvS0_S4_jEERS1_IFS0_S0_R11ast_managerRPNS2_11context_objEEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %ctx, ptr noundef nonnull align 1 %push_eh, ptr noundef nonnull align 1 %pop_eh, ptr noundef nonnull align 1 %fresh_eh) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_mode.i = getelementptr inbounds i8, ptr %this, i64 96
+  %m_inc_mode.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i8 1, ptr %m_inc_mode.i, align 8
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %ctx, ptr noundef nonnull align 1 %push_eh, ptr noundef nonnull align 1 %pop_eh, ptr noundef nonnull align 1 %fresh_eh)
   ret void
@@ -1745,11 +1745,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver29user_propagate_register_fixedERSt8functionIFvPvPN15user_propagator8callbackEP4exprS6_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 1 %fixed_eh) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 1 %fixed_eh)
   ret void
@@ -1758,11 +1758,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver29user_propagate_register_finalERSt8functionIFvPvPN15user_propagator8callbackEEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 1 %final_eh) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 1 %final_eh)
   ret void
@@ -1771,11 +1771,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver26user_propagate_register_eqERSt8functionIFvPvPN15user_propagator8callbackEP4exprS6_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 1 %eq_eh) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 1 %eq_eh)
   ret void
@@ -1784,11 +1784,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver29user_propagate_register_diseqERSt8functionIFvPvPN15user_propagator8callbackEP4exprS6_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 1 %diseq_eh) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 1 %diseq_eh)
   ret void
@@ -1797,11 +1797,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver28user_propagate_register_exprEP4expr(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %e) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %e)
   ret void
@@ -1810,11 +1810,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver31user_propagate_register_createdERSt8functionIFvPvPN15user_propagator8callbackEP4exprEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 1 %r) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 64
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 64
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 1 %r)
   ret void
@@ -1823,11 +1823,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver30user_propagate_register_decideERSt8functionIFvPvPN15user_propagator8callbackEP4exprjbEE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef nonnull align 1 %r) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 1 %r)
   ret void
@@ -1836,11 +1836,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver20user_propagate_clearEv(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_solver2 = getelementptr inbounds i8, ptr %this, i64 112
+  %m_solver2 = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %m_solver2, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable = load ptr, ptr %add.ptr, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 80
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 80
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr)
   ret void
@@ -1866,13 +1866,13 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver19user_propagate_initEPvRSt8functionIFvS0_PN15user_propagator8callbackEEERS1_IFvS0_S4_jEERS1_IFS0_S0_R11ast_managerRPNS2_11context_objEEE(ptr noundef %this, ptr noundef %ctx, ptr noundef nonnull align 1 %push_eh, ptr noundef nonnull align 1 %pop_eh, ptr noundef nonnull align 1 %fresh_eh) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_inc_mode.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_inc_mode.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_inc_mode.i.i, align 8
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef %ctx, ptr noundef nonnull align 1 %push_eh, ptr noundef nonnull align 1 %pop_eh, ptr noundef nonnull align 1 %fresh_eh)
   ret void
@@ -1881,11 +1881,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver29user_propagate_register_fixedERSt8functionIFvPvPN15user_propagator8callbackEP4exprS6_EE(ptr noundef %this, ptr noundef nonnull align 1 %fixed_eh) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 1 %fixed_eh)
   ret void
@@ -1894,11 +1894,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver29user_propagate_register_finalERSt8functionIFvPvPN15user_propagator8callbackEEE(ptr noundef %this, ptr noundef nonnull align 1 %final_eh) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 1 %final_eh)
   ret void
@@ -1907,11 +1907,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver26user_propagate_register_eqERSt8functionIFvPvPN15user_propagator8callbackEP4exprS6_EE(ptr noundef %this, ptr noundef nonnull align 1 %eq_eh) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 1 %eq_eh)
   ret void
@@ -1920,11 +1920,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver29user_propagate_register_diseqERSt8functionIFvPvPN15user_propagator8callbackEP4exprS6_EE(ptr noundef %this, ptr noundef nonnull align 1 %diseq_eh) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 48
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 48
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 1 %diseq_eh)
   ret void
@@ -1933,11 +1933,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver28user_propagate_register_exprEP4expr(ptr noundef %this, ptr noundef %e) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 56
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 56
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef %e)
   ret void
@@ -1946,11 +1946,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver31user_propagate_register_createdERSt8functionIFvPvPN15user_propagator8callbackEP4exprEE(ptr noundef %this, ptr noundef nonnull align 1 %r) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 1 %r)
   ret void
@@ -1959,11 +1959,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver30user_propagate_register_decideERSt8functionIFvPvPN15user_propagator8callbackEP4exprjbEE(ptr noundef %this, ptr noundef nonnull align 1 %r) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 1 %r)
   ret void
@@ -1972,11 +1972,11 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver20user_propagate_clearEv(ptr noundef %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 80
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
   ret void
@@ -1985,13 +1985,13 @@ entry:
 ; Function Attrs: uwtable
 define linkonce_odr hidden void @_ZThn72_N15combined_solver18register_on_clauseEPvRSt8functionIFvS0_P4exprjPKjjPKS3_EE(ptr noundef %this, ptr noundef %ctx, ptr noundef nonnull align 1 %on_clause) unnamed_addr #6 comdat align 2 {
 entry:
-  %m_inc_mode.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_inc_mode.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 1, ptr %m_inc_mode.i.i, align 8
-  %m_solver2.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_solver2.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_solver2.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 72
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 72
   %vtable.i = load ptr, ptr %add.ptr.i, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 88
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 88
   %1 = load ptr, ptr %vfn.i, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef %ctx, ptr noundef nonnull align 1 %on_clause)
   ret void
@@ -2004,13 +2004,13 @@ declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 define linkonce_odr hidden void @_ZN16check_sat_resultD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16check_sat_result, i64 16), ptr %this, align 8
-  %m_mc0 = getelementptr inbounds i8, ptr %this, i64 56
+  %m_mc0 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_mc0, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZN3refI15model_converterED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i32, ptr %m_ref_count.i.i.i, align 8
   %dec.i.i.i = add i32 %1, -1
   store i32 %dec.i.i.i, ptr %m_ref_count.i.i.i, align 8
@@ -2032,15 +2032,15 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i.i
   unreachable
 
 _ZN3refI15model_converterED2Ev.exit:              ; preds = %entry, %if.then.i.i, %if.then.i.i.i
-  %m_proof = getelementptr inbounds i8, ptr %this, i64 32
+  %m_proof = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load ptr, ptr %m_proof, align 8
   %tobool.not.i.i1 = icmp eq ptr %5, null
   br i1 %tobool.not.i.i1, label %_ZN7obj_refI3app11ast_managerED2Ev.exit, label %if.then.i.i.i2
 
 if.then.i.i.i2:                                   ; preds = %_ZN3refI15model_converterED2Ev.exit
-  %m_manager.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %6 = load ptr, ptr %m_manager.i.i, align 8
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %m_ref_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %dec.i.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
@@ -2059,8 +2059,8 @@ terminate.lpad.i4:                                ; preds = %if.then2.i.i.i
   unreachable
 
 _ZN7obj_refI3app11ast_managerED2Ev.exit:          ; preds = %_ZN3refI15model_converterED2Ev.exit, %if.then.i.i.i2, %if.then2.i.i.i
-  %m_log = getelementptr inbounds i8, ptr %this, i64 16
-  %m_nodes.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_log = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %m_nodes.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %10 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i.i5 = icmp eq ptr %10, null
   br i1 %cmp.i.i.i5, label %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i
@@ -2069,7 +2069,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i:         ; preds = %_ZN7obj_refI3app11a
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
   %11 = load i32, ptr %arrayidx.i.i.i, align 4
   %12 = zext i32 %11 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %10, i64 %12
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %12
   %cmp3.i.not.i.i = icmp eq i32 %11, 0
   br i1 %cmp3.i.not.i.i, label %if.then.i.i.i.i.i, label %for.body.i.i.i
 
@@ -2081,7 +2081,7 @@ for.body.i.i.i:                                   ; preds = %_ZNK6vectorIP4exprL
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i
-  %m_ref_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
+  %m_ref_count.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
   %dec.i.i.i.i.i.i.i = add i32 %15, -1
   store i32 %dec.i.i.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i.i.i, align 4
@@ -2093,7 +2093,7 @@ if.then2.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
           to label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i unwind label %terminate.lpad.i.i
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i.i: ; preds = %if.then2.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %it.04.i.i.i, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %it.04.i.i.i, i64 8
   %cmp.i1.i.i = icmp ult ptr %incdec.ptr.i.i.i, %add.ptr.i.i
   br i1 %cmp.i1.i.i, label %for.body.i.i.i, label %invoke.cont8.i.i, !llvm.loop !6
 
@@ -2202,7 +2202,7 @@ declare void @_Z14verbose_unlockv() local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK15combined_solver22use_solver1_when_undefEv(ptr noundef nonnull align 8 dereferenceable(132) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
-  %m_inc_unknown_behavior = getelementptr inbounds i8, ptr %this, i64 124
+  %m_inc_unknown_behavior = getelementptr inbounds nuw i8, ptr %this, i64 124
   %0 = load i32, ptr %m_inc_unknown_behavior, align 4
   switch i32 %0, label %sw.default [
     i32 0, label %return
@@ -2212,7 +2212,7 @@ entry:
 
 sw.bb2:                                           ; preds = %entry
   %vtable.i = load ptr, ptr %this, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 232
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 232
   %1 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(132) %this)
   %cmp3.not.i = icmp eq i32 %call.i, 0
@@ -2221,10 +2221,10 @@ sw.bb2:                                           ; preds = %entry
 for.body.i:                                       ; preds = %sw.bb2, %for.inc.i
   %i.04.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %sw.bb2 ]
   %vtable2.i = load ptr, ptr %this, align 8
-  %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 240
+  %vfn3.i = getelementptr inbounds nuw i8, ptr %vtable2.i, i64 240
   %2 = load ptr, ptr %vfn3.i, align 8
   %call4.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(132) %this, i32 noundef %i.04.i)
-  %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 4
+  %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
   %trunc.i = trunc i32 %bf.load.i.i.i.i to i16
   switch i16 %trunc.i, label %for.inc.i [
@@ -2233,12 +2233,12 @@ for.body.i:                                       ; preds = %sw.bb2, %for.inc.i
   ]
 
 cond.true.i.i:                                    ; preds = %for.body.i
-  %m_num_args.i.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 24
+  %m_num_args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 24
   %3 = load i32, ptr %m_num_args.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp eq i32 %3, 0
-  %m_args.i.i.i.i = getelementptr inbounds i8, ptr %call4.i, i64 32
+  %m_args.i.i.i.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 32
   %idx.ext.i.i.i.i = zext i32 %3 to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %m_args.i.i.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %m_args.i.i.i.i, i64 %idx.ext.i.i.i.i
   %cond.i.i.i.i = select i1 %cmp.i.i.i.i, ptr @_ZN3app16g_constant_flagsE, ptr %add.ptr.i.i.i.i
   %bf.load.i.i.i = load i32, ptr %cond.i.i.i.i, align 4
   %4 = and i32 %bf.load.i.i.i, 131072
@@ -2272,16 +2272,16 @@ declare void @_ZN12scoped_timerD1Ev(ptr noundef nonnull align 8 dereferenceable(
 define linkonce_odr hidden void @_ZN15combined_solver14aux_timeout_ehD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %this, align 8
-  %m_canceled = getelementptr inbounds i8, ptr %this, i64 24
+  %m_canceled = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i8, ptr %m_canceled seq_cst, align 8
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %m_solver = getelementptr inbounds i8, ptr %this, i64 16
+  %m_solver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_solver, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %2 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef nonnull align 8 dereferenceable(976) ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2305,16 +2305,16 @@ terminate.lpad:                                   ; preds = %invoke.cont, %if.th
 define linkonce_odr hidden void @_ZN15combined_solver14aux_timeout_ehD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN15combined_solver14aux_timeout_ehE, i64 16), ptr %this, align 8
-  %m_canceled.i = getelementptr inbounds i8, ptr %this, i64 24
+  %m_canceled.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load atomic i8, ptr %m_canceled.i seq_cst, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then.i, label %_ZN15combined_solver14aux_timeout_ehD2Ev.exit
 
 if.then.i:                                        ; preds = %entry
-  %m_solver.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_solver.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %m_solver.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 72
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 72
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = invoke noundef nonnull align 8 dereferenceable(976) ptr %2(ptr noundef nonnull align 8 dereferenceable(72) %1)
           to label %invoke.cont.i unwind label %terminate.lpad.i
@@ -2338,12 +2338,12 @@ _ZN15combined_solver14aux_timeout_ehD2Ev.exit:    ; preds = %entry, %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN15combined_solver14aux_timeout_ehclE22event_handler_caller_t(ptr noundef nonnull align 8 dereferenceable(25) %this, i32 noundef %caller_id) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_canceled = getelementptr inbounds i8, ptr %this, i64 24
+  %m_canceled = getelementptr inbounds nuw i8, ptr %this, i64 24
   store atomic i8 1, ptr %m_canceled seq_cst, align 8
-  %m_solver = getelementptr inbounds i8, ptr %this, i64 16
+  %m_solver = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_solver, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 72
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(976) ptr %1(ptr noundef nonnull align 8 dereferenceable(72) %0)
   tail call void @_ZN8reslimit10inc_cancelEv(ptr noundef nonnull align 8 dereferenceable(40) %call2)
@@ -2358,7 +2358,7 @@ declare void @_ZN8reslimit10dec_cancelEv(ptr noundef nonnull align 8 dereference
 define linkonce_odr hidden void @_ZN23combined_solver_factoryD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %this, align 8
-  %m_f2 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_f2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_f2, align 8
   %cmp.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i, label %_ZN10scoped_ptrI14solver_factoryED2Ev.exit, label %if.end.i.i
@@ -2378,7 +2378,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i
   unreachable
 
 _ZN10scoped_ptrI14solver_factoryED2Ev.exit:       ; preds = %entry, %if.end.i.i
-  %m_f1 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_f1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_f1, align 8
   %cmp.i.i1 = icmp eq ptr %4, null
   br i1 %cmp.i.i1, label %_ZN10scoped_ptrI14solver_factoryED2Ev.exit5, label %if.end.i.i2
@@ -2405,7 +2405,7 @@ _ZN10scoped_ptrI14solver_factoryED2Ev.exit5:      ; preds = %_ZN10scoped_ptrI14s
 define linkonce_odr hidden void @_ZN23combined_solver_factoryD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23combined_solver_factory, i64 16), ptr %this, align 8
-  %m_f2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %m_f2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_f2.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
   br i1 %cmp.i.i.i, label %_ZN10scoped_ptrI14solver_factoryED2Ev.exit.i, label %if.end.i.i.i
@@ -2425,7 +2425,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i
   unreachable
 
 _ZN10scoped_ptrI14solver_factoryED2Ev.exit.i:     ; preds = %if.end.i.i.i, %entry
-  %m_f1.i = getelementptr inbounds i8, ptr %this, i64 8
+  %m_f1.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %m_f1.i, align 8
   %cmp.i.i1.i = icmp eq ptr %4, null
   br i1 %cmp.i.i1.i, label %_ZN23combined_solver_factoryD2Ev.exit, label %if.end.i.i2.i
@@ -2452,16 +2452,16 @@ _ZN23combined_solver_factoryD2Ev.exit:            ; preds = %_ZN10scoped_ptrI14s
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN23combined_solver_factoryclER11ast_managerRK10params_refbbbRK6symbol(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %proofs_enabled, i1 noundef zeroext %models_enabled, i1 noundef zeroext %unsat_core_enabled, ptr noundef nonnull align 8 dereferenceable(8) %logic) unnamed_addr #3 comdat align 2 {
 entry:
-  %m_f1 = getelementptr inbounds i8, ptr %this, i64 8
+  %m_f1 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_f1, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %1 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %proofs_enabled, i1 noundef zeroext %models_enabled, i1 noundef zeroext %unsat_core_enabled, ptr noundef nonnull align 8 dereferenceable(8) %logic)
-  %m_f2 = getelementptr inbounds i8, ptr %this, i64 16
+  %m_f2 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %m_f2, align 8
   %vtable11 = load ptr, ptr %2, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 16
+  %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 16
   %3 = load ptr, ptr %vfn12, align 8
   %call13 = tail call noundef ptr %3(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, i1 noundef zeroext %proofs_enabled, i1 noundef zeroext %models_enabled, i1 noundef zeroext %unsat_core_enabled, ptr noundef nonnull align 8 dereferenceable(8) %logic)
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 136)

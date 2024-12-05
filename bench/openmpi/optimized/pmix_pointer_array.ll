@@ -11,27 +11,27 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @pmix_pointer_array_construct(ptr nocapture noundef writeonly initializes((120, 140), (144, 160)) %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 132
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 2147483647, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 8, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @pmix_pointer_array_destruct(ptr noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -40,7 +40,7 @@ define internal void @pmix_pointer_array_destruct(ptr noundef %0) #1 {
   br i1 %.not.i, label %10, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull %2, ptr noundef nonnull %5) #6
   br label %pmix_tma_free.exit
@@ -54,7 +54,7 @@ pmix_tma_free.exit:                               ; preds = %7, %10
   br label %11
 
 11:                                               ; preds = %pmix_tma_free.exit, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
   %.not11 = icmp eq ptr %13, null
   br i1 %.not11, label %19, label %14
@@ -63,7 +63,7 @@ pmix_tma_free.exit:                               ; preds = %7, %10
   br i1 %.not.i, label %18, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %2, ptr noundef nonnull %13) #6
   br label %pmix_tma_free.exit14
@@ -77,7 +77,7 @@ pmix_tma_free.exit14:                             ; preds = %15, %18
   br label %19
 
 19:                                               ; preds = %pmix_tma_free.exit14, %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %20, align 8
   ret void
 }
@@ -90,16 +90,16 @@ define range(i32 -29, 1) i32 @pmix_pointer_array_init(ptr noundef %0, i32 nounde
   br i1 %or.cond, label %46, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 132
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %2, ptr %10, align 4
   %11 = icmp eq i32 %3, 0
   %12 = select i1 %11, i32 8, i32 %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 0, ptr %14, align 8
   %15 = icmp sgt i32 %1, 0
   %16 = select i1 %15, i32 %1, i32 %3
@@ -108,16 +108,16 @@ define range(i32 -29, 1) i32 @pmix_pointer_array_init(ptr noundef %0, i32 nounde
 
 pmix_tma_calloc.exit:                             ; preds = %7
   %18 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 288230376151711744) %17, i64 noundef 8) #7
-  %19 = getelementptr inbounds i8, ptr %0, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %18, ptr %19, align 8
   %20 = icmp eq ptr %18, null
   br i1 %20, label %46, label %pmix_tma_calloc.exit34
 
 pmix_tma_calloc.exit.thread:                      ; preds = %7
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 288230376151711744) %17, i64 noundef 8) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
   br i1 %25, label %46, label %pmix_tma_calloc.exit34.thread
@@ -126,7 +126,7 @@ pmix_tma_calloc.exit34:                           ; preds = %pmix_tma_calloc.exi
   %26 = add nsw i64 %17, 63
   %27 = lshr i64 %26, 6
   %28 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 288230376151711744) %27, i64 noundef 8) #7
-  %29 = getelementptr inbounds i8, ptr %0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %41, label %43
@@ -136,14 +136,14 @@ pmix_tma_calloc.exit34.thread:                    ; preds = %pmix_tma_calloc.exi
   %32 = lshr i64 %31, 6
   %33 = load ptr, ptr %21, align 8
   %34 = tail call ptr %33(ptr noundef nonnull %8, i64 noundef range(i64 -2147483648, 288230376151711744) %32, i64 noundef 8) #6
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %34, ptr %35, align 8
   %36 = icmp eq ptr %34, null
   br i1 %36, label %37, label %43
 
 37:                                               ; preds = %pmix_tma_calloc.exit34.thread
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %8, ptr noundef %38) #6
   br label %pmix_tma_free.exit
@@ -158,9 +158,9 @@ pmix_tma_free.exit:                               ; preds = %37, %41
   br label %46
 
 43:                                               ; preds = %pmix_tma_calloc.exit34.thread, %pmix_tma_calloc.exit34
-  %44 = getelementptr inbounds i8, ptr %0, i64 124
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 124
   store i32 %16, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %16, ptr %45, align 8
   br label %46
 
@@ -171,8 +171,8 @@ pmix_tma_free.exit:                               ; preds = %37, %41
 
 ; Function Attrs: nounwind uwtable
 define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
-  %4 = getelementptr inbounds i8, ptr %0, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %11
@@ -184,9 +184,9 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %10, label %11, label %66
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %13 to i64
   %17 = getelementptr inbounds ptr, ptr %15, i64 %16
@@ -198,10 +198,10 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
   %21 = and i32 %13, 63
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw i64 1, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %20 to i64
-  %27 = getelementptr inbounds i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = or i64 %28, %23
   store i64 %29, ptr %27, align 8
@@ -216,7 +216,7 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 33:                                               ; preds = %33, %.preheader
   %.056 = phi i32 [ %38, %33 ], [ %20, %.preheader ]
   %34 = zext i32 %.056 to i64
-  %35 = getelementptr inbounds i64, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, -1
   %38 = add i32 %.056, 1
@@ -275,16 +275,16 @@ define i32 @pmix_pointer_array_add(ptr noundef %0, ptr noundef %1) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 noundef %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %.fr49 = freeze i32 %6
   %7 = add i32 %.fr49, %1
   %8 = srem i32 %7, %.fr49
   %9 = sub nsw i32 %7, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 132
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %11 = load i32, ptr %10, align 4
   %.not = icmp slt i32 %9, %11
   br i1 %.not, label %13, label %12
@@ -295,14 +295,14 @@ define internal fastcc noundef zeroext i1 @grow_table(ptr noundef %0, i32 nounde
 
 13:                                               ; preds = %12, %2
   %.042 = phi i32 [ %11, %12 ], [ %9, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %.042 to i64
   %17 = shl nsw i64 %16, 3
   br i1 %.not.i, label %22, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %3, ptr noundef %15, i64 noundef range(i64 -17179869184, 17179869177) %17) #6
   br label %pmix_tma_realloc.exit
@@ -317,10 +317,10 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
   br i1 %24, label %65, label %25
 
 25:                                               ; preds = %pmix_tma_realloc.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %27 = load i32, ptr %26, align 8
   %28 = sub i32 %.042, %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 124
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %30 = load i32, ptr %29, align 4
   %31 = add nsw i32 %28, %30
   store i32 %31, ptr %29, align 4
@@ -358,14 +358,14 @@ pmix_tma_realloc.exit:                            ; preds = %18, %22
   br i1 %.not51, label %.loopexit, label %44
 
 44:                                               ; preds = %._crit_edge
-  %45 = getelementptr inbounds i8, ptr %0, i64 144
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %46 = load ptr, ptr %45, align 8
   %sext = shl i64 %38, 32
   %47 = ashr exact i64 %sext, 29
   br i1 %.not.i, label %52, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %0, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr %50(ptr noundef nonnull %3, ptr noundef %46, i64 noundef range(i64 -17179869184, 17179869177) %47) #6
   br label %pmix_tma_realloc.exit55
@@ -420,7 +420,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br i1 %4, label %95, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %7, %1
   br i1 %.not, label %10, label %8
@@ -431,10 +431,10 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
 
 10:                                               ; preds = %8, %5
   %11 = icmp eq ptr %2, null
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not74 = icmp eq ptr %16, null
   br i1 %11, label %17, label %37
@@ -443,7 +443,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br i1 %.not74, label %91, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %20 = load i32, ptr %19, align 8
   %21 = icmp slt i32 %1, %20
   br i1 %21, label %22, label %23
@@ -453,7 +453,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br label %23
 
 23:                                               ; preds = %22, %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 124
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -461,10 +461,10 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   %28 = and i32 %1, 63
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %32 = load ptr, ptr %31, align 8
   %33 = zext nneg i32 %27 to i64
-  %34 = getelementptr inbounds i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw i64, ptr %32, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = xor i64 %35, %30
   store i64 %36, ptr %34, align 8
@@ -474,7 +474,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br i1 %.not74, label %38, label %91
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 124
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, -1
   store i32 %41, ptr %39, align 4
@@ -482,14 +482,14 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   %43 = and i32 %1, 63
   %44 = zext nneg i32 %43 to i64
   %45 = shl nuw i64 1, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 144
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %47 = load ptr, ptr %46, align 8
   %48 = zext nneg i32 %42 to i64
-  %49 = getelementptr inbounds i64, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = or i64 %50, %45
   store i64 %51, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 120
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %53 = load i32, ptr %52, align 8
   %54 = icmp eq i32 %1, %53
   br i1 %54, label %55, label %91
@@ -511,7 +511,7 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
 61:                                               ; preds = %61, %.preheader
   %.070 = phi i32 [ %66, %61 ], [ %42, %.preheader ]
   %62 = zext i32 %.070 to i64
-  %63 = getelementptr inbounds i64, ptr %58, i64 %62
+  %63 = getelementptr inbounds nuw i64, ptr %58, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = icmp eq i64 %64, -1
   %66 = add i32 %.070, 1
@@ -556,9 +556,9 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
   br label %91
 
 91:                                               ; preds = %59, %67, %38, %37, %17, %23
-  %92 = getelementptr inbounds i8, ptr %0, i64 152
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %14
+  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %14
   store ptr %2, ptr %94, align 8
   br label %95
 
@@ -569,13 +569,13 @@ define range(i32 -1, 1) i32 @pmix_pointer_array_set_item(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %1, %5
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds ptr, ptr %9, i64 %10
@@ -588,7 +588,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   br i1 %14, label %..thread_crit_edge, label %70
 
 ..thread_crit_edge:                               ; preds = %13
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 152
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre67 = sext i32 %1 to i64
   br label %.thread
@@ -598,7 +598,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   %15 = phi ptr [ %.pre, %..thread_crit_edge ], [ %9, %7 ]
   %16 = getelementptr inbounds ptr, ptr %15, i64 %.pre-phi
   store ptr %2, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 124
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr %17, align 4
@@ -606,10 +606,10 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   %21 = and i32 %1, 63
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw i64 1, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %20 to i64
-  %27 = getelementptr inbounds i64, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw i64, ptr %25, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = or i64 %28, %23
   store i64 %29, ptr %27, align 8
@@ -618,7 +618,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
   br i1 %31, label %32, label %67
 
 32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %1, %34
   br i1 %35, label %.preheader, label %70
@@ -630,7 +630,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 37:                                               ; preds = %37, %.preheader
   %.060 = phi i32 [ %42, %37 ], [ %20, %.preheader ]
   %38 = zext i32 %.060 to i64
-  %39 = getelementptr inbounds i64, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = icmp eq i64 %40, -1
   %42 = add i32 %.060, 1
@@ -676,7 +676,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 
 67:                                               ; preds = %.thread
   %68 = load i32, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 120
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %68, ptr %69, align 8
   br label %70
 
@@ -687,7 +687,7 @@ define noundef zeroext i1 @pmix_pointer_array_test_and_set_item(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pmix_pointer_array_set_size(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %1, %4
   br i1 %5, label %6, label %8

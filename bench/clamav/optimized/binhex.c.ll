@@ -24,9 +24,9 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %10 = load i64, ptr %9, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #7
   %11 = load i64, ptr %9, align 8
@@ -34,7 +34,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %267, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @cli_gentempfd(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull %3) #7
   %.not225 = icmp eq i32 %15, 0
@@ -57,10 +57,10 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false)
-  %25 = getelementptr inbounds i8, ptr %2, i64 1
-  %26 = getelementptr inbounds i8, ptr %2, i64 2
-  %27 = getelementptr inbounds i8, ptr %8, i64 40
-  %28 = getelementptr inbounds i8, ptr %8, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 104
   br label %.thread277
 
 .thread277:                                       ; preds = %.thread277.backedge, %24
@@ -101,59 +101,59 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %38 = add nuw nsw i32 %37, 12
   %39 = add nuw nsw i32 %37, 1
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = zext i8 %42 to i32
   %44 = shl nuw i32 %43, 24
   %45 = add nuw nsw i32 %37, 13
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = shl nuw nsw i32 %49, 16
   %51 = or disjoint i32 %50, %44
   %52 = add nuw nsw i32 %37, 14
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = shl nuw nsw i32 %56, 8
   %58 = or disjoint i32 %51, %57
   %59 = add nuw nsw i32 %37, 15
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %60
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   %64 = or disjoint i32 %58, %63
   %65 = add nuw nsw i32 %37, 16
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %66
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i32
   %70 = shl nuw i32 %69, 24
   %71 = add nuw nsw i32 %37, 17
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
   %76 = shl nuw nsw i32 %75, 16
   %77 = or disjoint i32 %76, %70
   %78 = add nuw nsw i32 %37, 18
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = shl nuw nsw i32 %82, 8
   %84 = or disjoint i32 %77, %83
   %85 = add nuw nsw i32 %37, 19
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %86
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = or disjoint i32 %84, %89
   %91 = add nuw nsw i32 %37, 22
   %92 = zext nneg i32 %39 to i64
-  %93 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %92
+  %93 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %92
   store i8 0, ptr %93, align 1
   %.not228 = icmp ugt i32 %.0187, %91
   br i1 %.not228, label %95, label %94
@@ -177,7 +177,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %102 = load ptr, ptr %6, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %25, i32 noundef %64, ptr noundef %101, i32 noundef %spec.select249, ptr noundef %102) #7
   %103 = zext nneg i32 %91 to i64
-  %104 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %103
+  %104 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %103
   %105 = sub i32 %.0187, %91
   %106 = zext i32 %105 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %104, i64 %106, i1 false)
@@ -230,7 +230,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not234, label %.thread255.thread, label %128
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %115
+  %129 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %115
   %130 = zext i32 %113 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 1 %129, i64 %130, i1 false)
   br label %131
@@ -412,7 +412,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
   %200 = add i32 %.1186, -1
   %201 = add i32 %.1184, 1
   %202 = zext i32 %.1184 to i64
-  %203 = getelementptr inbounds i8, ptr %.1, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %.1, i64 %202
   %204 = load i8, ptr %203, align 1
   %205 = add i64 %.0196, 1
   %206 = add i64 %.0195, -1
@@ -455,7 +455,7 @@ define i32 @cli_binhex(ptr noundef %0) local_unnamed_addr #0 {
 
 215:                                              ; preds = %213
   %216 = zext nneg i8 %204 to i64
-  %217 = getelementptr inbounds [128 x i8], ptr @hqxtbl, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [128 x i8], ptr @hqxtbl, i64 0, i64 %216
   %218 = load i8, ptr %217, align 1
   %219 = icmp eq i8 %218, -1
   br i1 %219, label %220, label %222
@@ -513,7 +513,7 @@ default.unreachable298:                           ; preds = %222
   %.7194293 = phi i32 [ %237, %.lr.ph ], [ %.1188, %.preheader ]
   %237 = add i32 %.7194293, 1
   %238 = zext i32 %.7194293 to i64
-  %239 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %238
+  %239 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %238
   store i8 %.0201, ptr %239, align 1
   %240 = add i8 %236, -1
   %.not246 = icmp eq i8 %240, 0
@@ -527,7 +527,7 @@ default.unreachable298:                           ; preds = %222
   %.2200 = phi i8 [ %.0198, %241 ], [ -112, %234 ]
   %244 = add i32 %.1188, 1
   %245 = zext i32 %.1188 to i64
-  %246 = getelementptr inbounds [8192 x i8], ptr %2, i64 0, i64 %245
+  %246 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 0, i64 %245
   store i8 %.2200, ptr %246, align 1
   br label %.thread277.backedge
 
@@ -537,9 +537,9 @@ default.unreachable298:                           ; preds = %222
   %248 = call i32 @close(i32 noundef %247) #7
   %249 = load i32, ptr %4, align 4
   %250 = call i32 @close(i32 noundef %249) #7
-  %251 = getelementptr inbounds i8, ptr %0, i64 48
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 40
   %254 = load i32, ptr %253, align 8
   %.not247 = icmp eq i32 %254, 0
   br i1 %.not247, label %255, label %264

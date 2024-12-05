@@ -43,7 +43,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerD2Ev(ptr no
   br i1 %3, label %4, label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i
 
 4:                                                ; preds = %1
-  %5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+  %5 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
           to label %.noexc unwind label %36
 
 .noexc:                                           ; preds = %4
@@ -64,11 +64,11 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerD2Ev(ptr no
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i: ; preds = %11, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 32) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 32) #14
   br label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i
 
 _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i, %.noexc, %1
@@ -109,7 +109,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
   %34 = landingpad { ptr, i32 }
           catch ptr null
   %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #14
+  tail call void @__clang_call_terminate(ptr %35) #15
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEED2Ev.exit: ; preds = %32
@@ -119,7 +119,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
   %37 = landingpad { ptr, i32 }
           catch ptr null
   %38 = extractvalue { ptr, i32 } %37, 0
-  tail call void @__clang_call_terminate(ptr %38) #14
+  tail call void @__clang_call_terminate(ptr %38) #15
   unreachable
 }
 
@@ -127,8 +127,8 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #2 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #14
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #15
   unreachable
 }
 
@@ -148,7 +148,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnab
   br i1 %2, label %3, label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i
 
 3:                                                ; preds = %0
-  %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+  %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 25, i1 false)
   %5 = ptrtoint ptr %4 to i64
   %6 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %5 seq_cst seq_cst, align 8
@@ -166,11 +166,11 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnab
   %13 = ptrtoint ptr %12 to i64
   %14 = ptrtoint ptr %9 to i64
   %15 = sub i64 %13, %14
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %15) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i: ; preds = %10, %8
-  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 32) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 32) #14
   br label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i
 
 _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i, %3, %0
@@ -200,7 +200,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17S
   br i1 %3, label %4, label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i
 
 4:                                                ; preds = %1
-  %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+  %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 25, i1 false)
   %6 = ptrtoint ptr %5 to i64
   %7 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %6 seq_cst seq_cst, align 8
@@ -218,11 +218,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17S
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %10 to i64
   %16 = sub i64 %14, %15
-  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %10, i64 noundef %16) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i: ; preds = %11, %9
-  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 32) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %5, i64 noundef 32) #14
   br label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i
 
 _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i, %4, %1
@@ -248,7 +248,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
 26:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE9_GetStackEv.exit
   store ptr %0, ptr %23, align 8
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %28, ptr %22, align 8
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE9push_backERKS3_.exit
 
@@ -261,7 +261,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
   br i1 %34, label %35, label %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 35:                                               ; preds = %29
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #16
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #17
   unreachable
 
 _ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %29
@@ -271,40 +271,33 @@ _ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE1
   %38 = icmp ult i64 %37, %36
   %39 = tail call i64 @llvm.umin.i64(i64 %37, i64 1152921504606846975)
   %40 = select i1 %38, i64 1152921504606846975, i64 %39
-  %.not.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i, label %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_M_allocateEm.exit.i.i, label %41
+  %.not.i.i.i = icmp ne i64 %40, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i)
+  %41 = shl nuw nsw i64 %40, 3
+  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #13
+  %43 = getelementptr inbounds i8, ptr %42, i64 %33
+  store ptr %0, ptr %43, align 8
+  %44 = icmp sgt i64 %33, 0
+  br i1 %44, label %45, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-41:                                               ; preds = %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %42 = shl nuw nsw i64 %40, 3
-  %43 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %42) #12
-  br label %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %41, %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %44 = phi ptr [ %43, %41 ], [ null, %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %36
-  store ptr %0, ptr %45, align 8
-  %46 = icmp sgt i64 %33, 0
-  br i1 %46, label %47, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-
-47:                                               ; preds = %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %44, ptr align 8 %30, i64 %33, i1 false)
+45:                                               ; preds = %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %42, ptr align 8 %30, i64 %33, i1 false)
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %47, %_ZNSt12_Vector_baseIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_M_allocateEm.exit.i.i
-  %48 = getelementptr inbounds i8, ptr %44, i64 %33
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %45, %_ZNKSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.not.i17.i.i = icmp eq ptr %30, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %50
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %47
 
-50:                                               ; preds = %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %33) #13
+47:                                               ; preds = %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %30, i64 noundef %33) #14
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  store ptr %44, ptr %.0.i4.i, align 8
-  store ptr %49, ptr %22, align 8
-  %51 = getelementptr inbounds ptr, ptr %44, i64 %40
-  store ptr %51, ptr %24, align 8
+_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %47, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  store ptr %42, ptr %.0.i4.i, align 8
+  store ptr %46, ptr %22, align 8
+  %48 = getelementptr inbounds nuw ptr, ptr %42, i64 %40
+  store ptr %48, ptr %24, align 8
   br label %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE9push_backERKS3_.exit
 
 _ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE9push_backERKS3_.exit: ; preds = %26, %_ZNSt6vectorIPKN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
@@ -332,7 +325,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17S
   br i1 %5, label %6, label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i.i.i
 
 6:                                                ; preds = %1
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 25, i1 false)
   %8 = ptrtoint ptr %7 to i64
   %9 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %8 seq_cst seq_cst, align 8
@@ -350,11 +343,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17S
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %12 to i64
   %18 = sub i64 %16, %17
-  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef %18) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i.i.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i.i.i: ; preds = %13, %11
-  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 32) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef 32) #14
   br label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i.i.i
 
 _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i.i.i.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i.i.i.i, %6, %1
@@ -392,7 +385,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
   br i1 %35, label %36, label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i
 
 36:                                               ; preds = %33
-  %37 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+  %37 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 0, i64 25, i1 false)
   %38 = ptrtoint ptr %37 to i64
   %39 = cmpxchg ptr @_ZN32pxrInternal_v0_24__pxrReserved__25Tf_ExportedStackedStorageINS_17SdfCleanupEnablerELb0EE5valueE, i64 0, i64 %38 seq_cst seq_cst, align 8
@@ -410,11 +403,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
   %46 = ptrtoint ptr %45 to i64
   %47 = ptrtoint ptr %42 to i64
   %48 = sub i64 %46, %47
-  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %48) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %42, i64 noundef %48) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i: ; preds = %43, %41
-  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 32) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %37, i64 noundef 32) #14
   br label %_ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i
 
 _ZNSt6atomicIPN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS0_17SdfCleanupEnablerELb0EE19_GlobalStackStorageEE23compare_exchange_strongERS5_S5_St12memory_order.exit.thread.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21Tf_StackedStorageTypeINS_17SdfCleanupEnablerELb0EE19_GlobalStackStorageD2Ev.exit.i, %36, %33
@@ -438,29 +431,29 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25
 
 57:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE10IsStackTopEPKS1_.exit
   store ptr @.str.1, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE4_PopEPKS1_, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 189, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE4_PopEPKS1_, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %58, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull @_ZTSN32pxrInternal_v0_24__pxrReserved__17SdfCleanupEnablerE)
-  %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  %59 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   invoke void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull @.str.2, ptr noundef %59)
           to label %60 unwind label %61
 
 60:                                               ; preds = %57
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   br label %63
 
 61:                                               ; preds = %57
   %62 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #15
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
   resume { ptr, i32 } %62
 
 63:                                               ; preds = %60, %_ZN32pxrInternal_v0_24__pxrReserved__9TfStackedINS_17SdfCleanupEnablerELb0ENS_25Tf_ExportedStackedStorageIS1_Lb0EEEE9_GetStackEv.exit
@@ -486,6 +479,9 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -498,11 +494,12 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { builtin allocsize(0) }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { nounwind }
-attributes #16 = { noreturn }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { builtin allocsize(0) }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { nounwind }
+attributes #17 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1608,15 +1608,15 @@ define internal i32 @dissect_mysql(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not17, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 2
   br i1 %12, label %13, label %.thread
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = icmp ugt i32 %15, %17
   br i1 %18, label %19, label %.thread
@@ -1661,10 +1661,10 @@ define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
   store volatile i32 0, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 328
-  %12 = getelementptr inbounds i8, ptr %10, i64 48
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
-  %14 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %15
 
 15:                                               ; preds = %77, %4
@@ -1701,7 +1701,7 @@ define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef
   br i1 %.not64, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %1, i64 332
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.32, ptr %30, align 4
   br label %.sink.split
 
@@ -1771,28 +1771,28 @@ define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef
 
 51:                                               ; preds = %50
   %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %52 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %53 = load volatile i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 3
   br i1 %54, label %67, label %55
 
 55:                                               ; preds = %51
   %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %57 = load volatile i64, ptr %56, align 8
   %58 = icmp eq i64 %57, 2
   br i1 %58, label %67, label %59
 
 59:                                               ; preds = %55
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %61 = load volatile i64, ptr %60, align 8
   %62 = icmp eq i64 %61, 7
   br i1 %62, label %67, label %63
 
 63:                                               ; preds = %59
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %64 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %65 = load volatile i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 9
   br i1 %66, label %67, label %73
@@ -1802,10 +1802,10 @@ define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef
   %68 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %68, ptr %8, align 4
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %69 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %70 = load volatile i64, ptr %69, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %71 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 16
   %72 = load volatile ptr, ptr %71, align 8
   call void @show_exception(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %70, ptr noundef %72) #8
   br label %73
@@ -1841,7 +1841,7 @@ define internal i32 @dissect_mysql_decompressed_pdus(ptr noundef %0, ptr noundef
 .sink.split:                                      ; preds = %17, %29
   %.pn = phi i32 [ %22, %29 ], [ 3, %17 ]
   %.sink = sub i32 %.pn, %18
-  %81 = getelementptr inbounds i8, ptr %1, i64 336
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %.sink, ptr %81, align 8
   br label %.loopexit
 
@@ -1880,9 +1880,9 @@ define internal i32 @dissect_mysql_compressed_pdu(ptr noundef %0, ptr noundef %1
   %10 = tail call noalias ptr @wmem_alloc0(ptr noundef %9, i64 noundef 112) #8
   %11 = tail call ptr @wmem_file_scope() #8
   %12 = tail call noalias ptr @wmem_tree_new(ptr noundef %11) #8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i8 2, ptr %14, align 4
   %15 = load i32, ptr @proto_mysql, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %15, ptr noundef %10) #8
@@ -1890,7 +1890,7 @@ define internal i32 @dissect_mysql_compressed_pdu(ptr noundef %0, ptr noundef %1
 
 16:                                               ; preds = %8, %4
   %.072 = phi ptr [ %7, %4 ], [ %10, %8 ]
-  %17 = getelementptr inbounds i8, ptr %.072, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %.072, i64 56
   %18 = load ptr, ptr %17, align 8
   %.not76 = icmp eq ptr %18, null
   br i1 %.not76, label %19, label %21
@@ -1906,7 +1906,7 @@ define internal i32 @dissect_mysql_compressed_pdu(ptr noundef %0, ptr noundef %1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %23, ptr noundef nonnull @.str.1111) #8
   %24 = load i32, ptr @ett_mysql, align 4
   %25 = tail call ptr @proto_item_add_subtree(ptr noundef %23, i32 noundef %24) #8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.579) #8
   %28 = tail call i32 @tvb_get_letoh24(ptr noundef %0, i32 noundef 0) #8
@@ -1921,7 +1921,7 @@ define internal i32 @dissect_mysql_compressed_pdu(ptr noundef %0, ptr noundef %1
   br i1 %.not77, label %62, label %36
 
 36:                                               ; preds = %21
-  %37 = getelementptr inbounds i8, ptr %.072, i64 29
+  %37 = getelementptr inbounds nuw i8, ptr %.072, i64 29
   %38 = load i8, ptr %37, align 1
   %cond = icmp eq i8 %38, 1
   br i1 %cond, label %39, label %41
@@ -2017,7 +2017,7 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 112) #8
   %17 = tail call ptr @wmem_file_scope() #8
   %18 = tail call noalias ptr @wmem_tree_new(ptr noundef %17) #8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
   %20 = load i32, ptr @proto_mysql, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %11, i32 noundef %20, ptr noundef %16) #8
@@ -2035,23 +2035,23 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
 26:                                               ; preds = %21
   %27 = tail call ptr @wmem_file_scope() #8
   %28 = tail call noalias ptr @wmem_alloc(ptr noundef %27, i64 noundef 48) #8
-  %29 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   %30 = load i32, ptr %29, align 8
   store i32 %30, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %.0132, i64 68
+  %31 = getelementptr inbounds nuw i8, ptr %.0132, i64 68
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %.0132, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %.0132, i64 72
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %28, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %28, i64 24
-  %41 = getelementptr inbounds i8, ptr %.0132, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0132, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   %42 = tail call ptr @wmem_file_scope() #8
   %43 = load i32, ptr @proto_mysql, align 4
@@ -2067,18 +2067,18 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #8
   %50 = load i32, ptr @hf_mysql_packet_length, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef -2147483648) #8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call void @col_set_str(ptr noundef %53, i32 noundef 34, ptr noundef nonnull @.str.579) #8
-  %54 = getelementptr inbounds i8, ptr %1, i64 288
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %55 = load i32, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 292
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %57 = load i32, ptr %56, align 4
   %58 = icmp eq i32 %55, %57
   %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #8
   %60 = load i32, ptr @hf_mysql_packet_number, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %60, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #8
-  %62 = getelementptr inbounds i8, ptr %1, i64 360
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 @proto_is_frame_protocol(ptr noundef %63, ptr noundef nonnull @.str.587) #8
   br i1 %58, label %835, label %65
@@ -2113,7 +2113,7 @@ define internal i32 @dissect_mysql_pdu(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.i.i, label %80, label %mysql_set_conn_state.exit.i
 
 80:                                               ; preds = %75
-  %81 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 1, ptr %81, align 8
   br label %mysql_set_conn_state.exit.i
 
@@ -2137,7 +2137,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %.0132, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %.0132, i64 32
   store i32 1, ptr %95, align 8
   br label %96
 
@@ -2145,7 +2145,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   %.sink148.i = phi i32 [ -7, %94 ], [ -1, %92 ], [ -1, %mysql_set_conn_state.exit.i ]
   %.sink146.i = phi i32 [ 11, %94 ], [ 5, %92 ], [ 5, %mysql_set_conn_state.exit.i ]
   %97 = load ptr, ptr %52, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 408
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %99 = load ptr, ptr %98, align 8
   %100 = add i32 %.sink148.i, %89
   %101 = call ptr @tvb_format_text(ptr noundef %99, ptr noundef %0, i32 noundef %.sink146.i, i32 noundef %100) #8
@@ -2154,7 +2154,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   call void @col_set_fence(ptr noundef %102, i32 noundef 25) #8
   %103 = load i32, ptr @hf_mysql_version, align 4
   %104 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %103, ptr noundef %0, i32 noundef 5, i32 noundef %89, i32 noundef 0) #8
-  %105 = getelementptr inbounds i8, ptr %.0132, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.0132, i64 16
   store i8 0, ptr %105, align 8
   %106 = icmp sgt i32 %89, 0
   br i1 %106, label %.lr.ph.i, label %._crit_edge.i
@@ -2202,7 +2202,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   br i1 %.not136.i, label %133, label %135
 
 133:                                              ; preds = %125
-  %134 = getelementptr inbounds i8, ptr %.0132, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %.0132, i64 32
   store i32 1, ptr %134, align 8
   br label %135
 
@@ -2212,7 +2212,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   br i1 %.not137.i, label %mysql_dissect_greeting.exit, label %137
 
 137:                                              ; preds = %135
-  %138 = getelementptr inbounds i8, ptr %.0132, i64 32
+  %138 = getelementptr inbounds nuw i8, ptr %.0132, i64 32
   %139 = load i32, ptr %138, align 8
   %.not138.i = icmp eq i32 %139, 0
   %140 = load i32, ptr @hf_mariadb_server_language, align 4
@@ -2225,7 +2225,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   %147 = call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %85, ptr noundef %0, i32 noundef %144, i32 noundef %145, i32 noundef %146, ptr noundef nonnull @mysql_stat_flags, i32 noundef -2147483648, i32 noundef 1) #8
   %148 = add i32 %123, 5
   %149 = load i32, ptr @hf_mysql_extcaps_server, align 4
-  %150 = getelementptr inbounds i8, ptr %.0132, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %.0132, i64 2
   %151 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %148) #8
   store i16 %151, ptr %150, align 2
   %152 = load i32, ptr @ett_extcaps, align 4
@@ -2243,7 +2243,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   %161 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %159, ptr noundef %0, i32 noundef %157, i32 noundef 6, i32 noundef 0) #8
   %162 = add i32 %123, 14
   %163 = load i32, ptr @hf_mariadb_extcaps_server, align 4
-  %164 = getelementptr inbounds i8, ptr %.0132, i64 40
+  %164 = getelementptr inbounds nuw i8, ptr %.0132, i64 40
   %165 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %162) #8
   store i32 %165, ptr %164, align 4
   %166 = load i32, ptr @ett_extcaps, align 4
@@ -2279,7 +2279,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %80, %75
   %182 = call ptr @proto_tree_add_item(ptr noundef %85, i32 noundef %181, ptr noundef %0, i32 noundef %.1.i, i32 noundef %180, i32 noundef 0) #8
   %183 = call ptr @wmem_file_scope() #8
   %184 = call ptr @tvb_get_string_enc(ptr noundef %183, ptr noundef %0, i32 noundef %.1.i, i32 noundef %180, i32 noundef 0) #8
-  %185 = getelementptr inbounds i8, ptr %.0132, i64 48
+  %185 = getelementptr inbounds nuw i8, ptr %.0132, i64 48
   store ptr %184, ptr %185, align 8
   %186 = add i32 %180, %.1.i
   br label %mysql_dissect_greeting.exit
@@ -2329,7 +2329,7 @@ thread-pre-split:                                 ; preds = %65
   br i1 %.not.i.i149, label %198, label %mysql_set_conn_state.exit.i146
 
 198:                                              ; preds = %194
-  %199 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %199 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %199, align 8
   br label %mysql_set_conn_state.exit.i146
 
@@ -2362,7 +2362,7 @@ mysql_set_conn_state.exit.i146:                   ; preds = %198, %194, %192, %1
   br i1 %.not.i.i152, label %213, label %mysql_dissect_pubkey.exit
 
 213:                                              ; preds = %206
-  %214 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %214 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 20, ptr %214, align 8
   br label %mysql_dissect_pubkey.exit
 
@@ -2382,13 +2382,13 @@ mysql_dissect_pubkey.exit:                        ; preds = %206, %213
   %224 = load ptr, ptr %52, align 8
   tail call void @col_set_str(ptr noundef %224, i32 noundef 25, ptr noundef nonnull @.str.1118) #8
   %225 = load i32, ptr %.0, align 8
-  %226 = getelementptr inbounds i8, ptr %.0, i64 8
+  %226 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %227 = load i32, ptr %226, align 8
   %.not.i154 = icmp eq i32 %227, 0
   br i1 %.not.i154, label %232, label %228
 
 228:                                              ; preds = %223
-  %229 = getelementptr inbounds i8, ptr %.0132, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = tail call ptr @wmem_tree_lookup32(ptr noundef %230, i32 noundef %227) #8
   br label %232
@@ -2417,7 +2417,7 @@ mysql_dissect_pubkey.exit:                        ; preds = %206, %213
   br i1 %.not.i.i159, label %242, label %mysql_dissect_clone_response.exit
 
 242:                                              ; preds = %234
-  %243 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %243 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %243, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -2449,7 +2449,7 @@ mysql_dissect_pubkey.exit:                        ; preds = %206, %213
   br i1 %.not249.i, label %276, label %261
 
 261:                                              ; preds = %260
-  %262 = getelementptr inbounds i8, ptr %.0.i155, i64 24
+  %262 = getelementptr inbounds nuw i8, ptr %.0.i155, i64 24
   %263 = load i16, ptr %262, align 8
   %.not250.i = icmp eq i16 %263, 0
   br i1 %.not250.i, label %276, label %264
@@ -2468,7 +2468,7 @@ mysql_dissect_pubkey.exit:                        ; preds = %206, %213
 269:                                              ; preds = %264
   %270 = load i16, ptr %262, align 8
   %271 = zext i16 %270 to i64
-  %272 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %272 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   store i64 %271, ptr %272, align 8
   %.val260.pre.i = load ptr, ptr %266, align 8
   %.phi.trans.insert.i = getelementptr i8, ptr %.val260.pre.i, i64 50
@@ -2482,7 +2482,7 @@ mysql_set_remaining_field_packet_count.exit.i:    ; preds = %269, %264
   br i1 %.not.i280.i, label %274, label %mysql_dissect_clone_response.exit
 
 274:                                              ; preds = %mysql_set_remaining_field_packet_count.exit.i
-  %275 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %275 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 15, ptr %275, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -2498,7 +2498,7 @@ mysql_set_remaining_field_packet_count.exit.i:    ; preds = %269, %264
   br i1 %.not.i282.i, label %281, label %mysql_dissect_clone_response.exit
 
 281:                                              ; preds = %276
-  %282 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %282 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %282, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -2514,7 +2514,7 @@ mysql_set_remaining_field_packet_count.exit.i:    ; preds = %269, %264
   br i1 %.not.i284.i, label %288, label %mysql_dissect_clone_response.exit
 
 288:                                              ; preds = %283
-  %289 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %289 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 11, ptr %289, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -2530,7 +2530,7 @@ mysql_set_remaining_field_packet_count.exit.i:    ; preds = %269, %264
   br i1 %.not.i286.i, label %295, label %mysql_dissect_clone_response.exit
 
 295:                                              ; preds = %290
-  %296 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %296 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %296, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -2562,7 +2562,7 @@ mysql_set_remaining_field_packet_count.exit.i:    ; preds = %269, %264
   br i1 %.not.i288.i, label %311, label %mysql_dissect_clone_response.exit
 
 311:                                              ; preds = %305
-  %312 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %312 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %312, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -2578,7 +2578,7 @@ mysql_set_remaining_field_packet_count.exit.i:    ; preds = %269, %264
   br i1 %.not.i290.i, label %318, label %mysql_set_conn_state.exit291.i
 
 318:                                              ; preds = %313
-  %319 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %319 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 11, ptr %319, align 8
   br label %mysql_set_conn_state.exit291.i
 
@@ -2620,7 +2620,7 @@ mysql_set_conn_state.exit291.i:                   ; preds = %318, %313
 
 336:                                              ; preds = %327
   %337 = load i32, ptr %9, align 4
-  %338 = getelementptr inbounds i8, ptr %.0132, i64 72
+  %338 = getelementptr inbounds nuw i8, ptr %.0132, i64 72
   store i32 %337, ptr %338, align 8
   br label %mysql_set_prepared_stmt_id.exit.i.i
 
@@ -2632,7 +2632,7 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
   %343 = call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %342, ptr noundef %0, i32 noundef 11, i32 noundef 2, i32 noundef -2147483648) #8
   %344 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 11) #8
   %345 = load ptr, ptr %333, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 50
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 50
   %347 = load i16, ptr %346, align 2
   %348 = and i16 %347, 8
   %.not.i292.i = icmp eq i16 %348, 0
@@ -2648,11 +2648,11 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
   %355 = zext i16 %344 to i64
   %356 = shl nuw nsw i64 %355, 1
   %357 = call noalias ptr @wmem_alloc0(ptr noundef %354, i64 noundef %356) #8
-  %358 = getelementptr inbounds i8, ptr %353, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %353, i64 8
   store ptr %357, ptr %358, align 8
   %359 = call ptr @wmem_file_scope() #8
   %360 = call noalias ptr @wmem_alloc0(ptr noundef %359, i64 noundef %355) #8
-  %361 = getelementptr inbounds i8, ptr %353, i64 16
+  %361 = getelementptr inbounds nuw i8, ptr %353, i64 16
   store ptr %360, ptr %361, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %351, ptr noundef nonnull align 8 dereferenceable(24) %353, i64 24, i1 false)
   %362 = call ptr @wmem_file_scope() #8
@@ -2662,15 +2662,15 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
   %365 = zext i16 %341 to i64
   %366 = shl nuw nsw i64 %365, 1
   %367 = call noalias ptr @wmem_alloc0(ptr noundef %364, i64 noundef %366) #8
-  %368 = getelementptr inbounds i8, ptr %363, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %363, i64 8
   store ptr %367, ptr %368, align 8
   %369 = call ptr @wmem_file_scope() #8
   %370 = call noalias ptr @wmem_alloc0(ptr noundef %369, i64 noundef %365) #8
-  %371 = getelementptr inbounds i8, ptr %363, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %363, i64 16
   store ptr %370, ptr %371, align 8
-  %372 = getelementptr inbounds i8, ptr %351, i64 24
+  %372 = getelementptr inbounds nuw i8, ptr %351, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %372, ptr noundef nonnull align 8 dereferenceable(24) %363, i64 24, i1 false)
-  %373 = getelementptr inbounds i8, ptr %.0132, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %374 = load ptr, ptr %373, align 8
   %375 = load i32, ptr %9, align 4
   call void @wmem_tree_insert32(ptr noundef %374, i32 noundef %375, ptr noundef %351) #8
@@ -2682,7 +2682,7 @@ mysql_set_prepared_stmt_id.exit.i.i:              ; preds = %336, %327
   br i1 %.not.i79.i.i, label %378, label %mysql_set_field_metas.exit.i.i
 
 378:                                              ; preds = %349
-  %379 = getelementptr inbounds i8, ptr %.0132, i64 88
+  %379 = getelementptr inbounds nuw i8, ptr %.0132, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %379, ptr noundef nonnull readonly align 8 dereferenceable(24) %363, i64 24, i1 false)
   br label %mysql_set_field_metas.exit.i.i
 
@@ -2702,7 +2702,7 @@ mysql_set_field_metas.exit.i.i:                   ; preds = %378, %349, %mysql_s
 
 mysql_set_remaining_field_packet_count.exit.i.i:  ; preds = %382
   %385 = zext i16 %344 to i64
-  %386 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %386 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   store i64 %385, ptr %386, align 8
   %.val73.pre.i.i = load ptr, ptr %333, align 8
   %.phi.trans.insert.i.i = getelementptr i8, ptr %.val73.pre.i.i, i64 50
@@ -2725,7 +2725,7 @@ mysql_set_remaining_field_packet_count.exit.i.i:  ; preds = %382
 
 mysql_set_remaining_field_packet_count.exit83.i.i: ; preds = %391
   %392 = zext i16 %341 to i64
-  %393 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %393 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   store i64 %392, ptr %393, align 8
   %.val72.pre.i.i = load ptr, ptr %333, align 8
   %.phi.trans.insert93.i.i = getelementptr i8, ptr %.val72.pre.i.i, i64 50
@@ -2738,7 +2738,7 @@ mysql_set_remaining_field_packet_count.exit83.i.i: ; preds = %391
   br i1 %.not.i86.i.i, label %mysql_set_remaining_field_packet_count.exit87.i.i, label %mysql_dissect_response_prepare.exit.i
 
 mysql_set_remaining_field_packet_count.exit87.i.i: ; preds = %395
-  %396 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %396 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   store i64 0, ptr %396, align 8
   %.val.pre.i.i = load ptr, ptr %333, align 8
   %.phi.trans.insert96.i.i = getelementptr i8, ptr %.val.pre.i.i, i64 50
@@ -2749,7 +2749,7 @@ mysql_set_remaining_field_packet_count.exit87.i.i: ; preds = %395
 
 mysql_set_conn_state.exit.sink.split.i.i:         ; preds = %mysql_set_remaining_field_packet_count.exit87.i.i, %mysql_set_remaining_field_packet_count.exit83.i.i, %mysql_set_remaining_field_packet_count.exit.i.i
   %.sink.i.i = phi i32 [ 14, %mysql_set_remaining_field_packet_count.exit.i.i ], [ 15, %mysql_set_remaining_field_packet_count.exit83.i.i ], [ 2, %mysql_set_remaining_field_packet_count.exit87.i.i ]
-  %398 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %398 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 %.sink.i.i, ptr %398, align 8
   br label %mysql_dissect_response_prepare.exit.i
 
@@ -2762,7 +2762,7 @@ mysql_dissect_response_prepare.exit.i:            ; preds = %mysql_set_conn_stat
 401:                                              ; preds = %326
   %402 = tail call ptr @val_to_str(i32 noundef 11, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %402) #8
-  %403 = getelementptr inbounds i8, ptr %.0, i64 4
+  %403 = getelementptr inbounds nuw i8, ptr %.0, i64 4
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %404, 1
   br i1 %405, label %406, label %469
@@ -2772,7 +2772,7 @@ mysql_dissect_response_prepare.exit.i:            ; preds = %mysql_set_conn_stat
   %408 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %407, ptr noundef %0, i32 noundef 4, i32 noundef 1, i32 noundef 0) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 5, ptr %8, align 4
-  %409 = getelementptr inbounds i8, ptr %.0, i64 24
+  %409 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %410 = load i16, ptr %409, align 8
   %.not.i293.i = icmp eq i16 %410, 0
   br i1 %.not.i293.i, label %mysql_dissect_binary_row_packet.exit.i, label %411
@@ -2790,8 +2790,8 @@ mysql_dissect_response_prepare.exit.i:            ; preds = %mysql_set_conn_stat
   %420 = tail call ptr @proto_tree_add_bytes_with_length(ptr noundef %49, i32 noundef %419, ptr noundef %0, i32 noundef 5, i32 noundef %414, ptr noundef %417, i32 noundef %414) #8
   %421 = add nuw nsw i32 %414, 5
   store i32 %421, ptr %8, align 4
-  %422 = getelementptr inbounds i8, ptr %.0, i64 40
-  %423 = getelementptr inbounds i8, ptr %.0, i64 32
+  %422 = getelementptr inbounds nuw i8, ptr %.0, i64 40
+  %423 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %wide.trip.count.i.i = zext i16 %410 to i64
   br label %424
 
@@ -2836,7 +2836,7 @@ mysql_dissect_response_prepare.exit.i:            ; preds = %mysql_set_conn_stat
   br i1 %453, label %454, label %459
 
 454:                                              ; preds = %449
-  %455 = getelementptr inbounds i8, ptr %451, i64 1
+  %455 = getelementptr inbounds nuw i8, ptr %451, i64 1
   %456 = load i8, ptr %455, align 1
   %457 = zext i8 %456 to i16
   %458 = icmp eq i16 %448, %457
@@ -2845,7 +2845,7 @@ mysql_dissect_response_prepare.exit.i:            ; preds = %mysql_set_conn_stat
 459:                                              ; preds = %454, %449
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %460 = getelementptr [20 x %struct.mysql_exec_dissector], ptr @mysql_exec_dissectors, i64 0, i64 %indvars.iv.next.i.i.i
-  %461 = getelementptr inbounds i8, ptr %460, i64 8
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 8
   %462 = load ptr, ptr %461, align 8
   %exitcond.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 19
   br i1 %exitcond.i.i.i, label %mysql_dissect_binary_row_packet.exit.i, label %449, !llvm.loop !8
@@ -3067,7 +3067,7 @@ mysql_dissect_binlog_event_packet.exit.i:         ; preds = %572, %mysql_dissect
   %581 = tail call ptr @val_to_str(i32 noundef 3, ptr noundef nonnull @state_vals, ptr noundef nonnull @.str.1131) #8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.1130, ptr noundef %581) #8
   %582 = tail call fastcc i32 @mysql_dissect_ok_packet(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %49, ptr noundef nonnull %.0132)
-  %583 = getelementptr inbounds i8, ptr %.0132, i64 28
+  %583 = getelementptr inbounds nuw i8, ptr %.0132, i64 28
   %584 = load i8, ptr %583, align 4
   %585 = icmp eq i8 %584, 1
   br i1 %585, label %586, label %587
@@ -3090,7 +3090,7 @@ mysql_dissect_binlog_event_packet.exit.i:         ; preds = %572, %mysql_dissect
   br i1 %.not.i298.i, label %593, label %mysql_dissect_clone_response.exit
 
 593:                                              ; preds = %589
-  %594 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %594 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 23, ptr %594, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3130,7 +3130,7 @@ mysql_dissect_binlog_event_packet.exit.i:         ; preds = %572, %mysql_dissect
   br i1 %.not.i300.i, label %606, label %mysql_dissect_clone_response.exit
 
 606:                                              ; preds = %602
-  %607 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %607 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %607, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3158,7 +3158,7 @@ mysql_dissect_binlog_event_packet.exit.i:         ; preds = %572, %mysql_dissect
   br i1 %.not.i302.i, label %622, label %mysql_dissect_clone_response.exit
 
 622:                                              ; preds = %610
-  %623 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %623 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 26, ptr %623, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3202,14 +3202,14 @@ tvb_get_fle.exit.i.i:                             ; preds = %637, %635, %632, %6
   %640 = load i32, ptr @hf_mysql_num_fields, align 4
   %641 = tail call ptr @proto_tree_add_uint64(ptr noundef %49, i32 noundef %640, ptr noundef %0, i32 noundef 4, i32 noundef %.025.i.i.i, i64 noundef %.0112.i.i) #8
   %642 = add nuw nsw i32 %.025.i.i.i, 4
-  %643 = getelementptr inbounds i8, ptr %.0132, i64 44
+  %643 = getelementptr inbounds nuw i8, ptr %.0132, i64 44
   %644 = load i32, ptr %643, align 4
   %645 = and i32 %644, 16
   %.not.i304.i = icmp eq i32 %645, 0
   br i1 %.not.i304.i, label %658, label %646
 
 646:                                              ; preds = %tvb_get_fle.exit.i.i
-  %647 = getelementptr inbounds i8, ptr %.0132, i64 40
+  %647 = getelementptr inbounds nuw i8, ptr %.0132, i64 40
   %648 = load i32, ptr %647, align 8
   %649 = and i32 %648, 16
   %.not72.i.i = icmp eq i32 %649, 0
@@ -3250,11 +3250,11 @@ tvb_get_fle.exit.i.i:                             ; preds = %637, %635, %632, %6
   %668 = tail call ptr @wmem_file_scope() #8
   %669 = shl nuw nsw i64 %.0112.i.i, 1
   %670 = tail call noalias ptr @wmem_alloc0(ptr noundef %668, i64 noundef %669) #8
-  %671 = getelementptr inbounds i8, ptr %666, i64 8
+  %671 = getelementptr inbounds nuw i8, ptr %666, i64 8
   store ptr %670, ptr %671, align 8
   %672 = tail call ptr @wmem_file_scope() #8
   %673 = tail call noalias ptr @wmem_alloc0(ptr noundef %672, i64 noundef %.0112.i.i) #8
-  %674 = getelementptr inbounds i8, ptr %666, i64 16
+  %674 = getelementptr inbounds nuw i8, ptr %666, i64 16
   store ptr %673, ptr %674, align 8
   %675 = getelementptr i8, ptr %1, i64 80
   %.val86.i.i = load ptr, ptr %675, align 8
@@ -3270,7 +3270,7 @@ tvb_get_fle.exit.i.i:                             ; preds = %637, %635, %632, %6
   br i1 %.not75.i.i, label %mysql_set_field_metas.exit.i306.i, label %680
 
 680:                                              ; preds = %678
-  %681 = getelementptr inbounds i8, ptr %.0132, i64 8
+  %681 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %682 = load ptr, ptr %681, align 8
   %683 = tail call ptr @wmem_tree_lookup32(ptr noundef %682, i32 noundef %679) #8
   %.not76.i.i = icmp eq ptr %683, null
@@ -3286,12 +3286,12 @@ tvb_get_fle.exit.i.i:                             ; preds = %637, %635, %632, %6
   br i1 %.not.i88.i311.i, label %688, label %mysql_set_field_metas.exit.i306.i
 
 688:                                              ; preds = %684
-  %689 = getelementptr inbounds i8, ptr %683, i64 24
+  %689 = getelementptr inbounds nuw i8, ptr %683, i64 24
   br label %mysql_set_field_metas.exit.sink.split.i.i
 
 mysql_set_field_metas.exit.sink.split.i.i:        ; preds = %688, %664
   %.sink115.i.i = phi ptr [ %689, %688 ], [ %666, %664 ]
-  %690 = getelementptr inbounds i8, ptr %.0132, i64 88
+  %690 = getelementptr inbounds nuw i8, ptr %.0132, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %690, ptr noundef nonnull readonly align 8 dereferenceable(24) %.sink115.i.i, i64 24, i1 false)
   br label %mysql_set_field_metas.exit.i306.i
 
@@ -3357,7 +3357,7 @@ tvb_get_fle.exit93.i.i:                           ; preds = %705, %702, %698, %6
   br i1 %.not.i102.i.i, label %717, label %mysql_set_conn_state.exit.i.i
 
 717:                                              ; preds = %716
-  %718 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %718 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 10, ptr %718, align 8
   %.val85.pre.i.i = load ptr, ptr %712, align 8
   %.phi.trans.insert.i310.i = getelementptr i8, ptr %.val85.pre.i.i, i64 50
@@ -3371,7 +3371,7 @@ mysql_set_conn_state.exit.i.i:                    ; preds = %717, %716
   br i1 %.not.i95.i.i, label %720, label %mysql_dissect_clone_response.exit
 
 720:                                              ; preds = %mysql_set_conn_state.exit.i.i
-  %721 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %721 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   store i64 %.0112.i.i, ptr %721, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3379,7 +3379,7 @@ mysql_set_conn_state.exit.i.i:                    ; preds = %717, %716
   br i1 %.not.i102.i.i, label %723, label %mysql_set_remaining_field_packet_count.exit97.i.i
 
 723:                                              ; preds = %722
-  %724 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %724 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   store i64 0, ptr %724, align 8
   %.val81.i.pre.i = load ptr, ptr %712, align 8
   %.phi.trans.insert365.i = getelementptr i8, ptr %.val81.i.pre.i, i64 50
@@ -3388,7 +3388,7 @@ mysql_set_conn_state.exit.i.i:                    ; preds = %717, %716
 
 mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
   %.val81.val.i.i = phi i16 [ %.val81.val.i.pre.i, %723 ], [ %.val.val.i307.i, %722 ]
-  %725 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %725 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %726 = load i16, ptr %725, align 2
   %727 = and i16 %726, 256
   %.not79.i.i = icmp eq i16 %727, 0
@@ -3400,7 +3400,7 @@ mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
   br i1 %.not.i100.i.i, label %730, label %mysql_dissect_clone_response.exit
 
 730:                                              ; preds = %729
-  %731 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %731 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 11, ptr %731, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3408,7 +3408,7 @@ mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
   br i1 %.not.i100.i.i, label %733, label %mysql_dissect_clone_response.exit
 
 733:                                              ; preds = %732
-  %734 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %734 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 10, ptr %734, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3416,7 +3416,7 @@ mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
   br i1 %.not.i102.i.i, label %736, label %mysql_dissect_clone_response.exit
 
 736:                                              ; preds = %735
-  %737 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %737 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 11, ptr %737, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3433,7 +3433,7 @@ mysql_set_remaining_field_packet_count.exit97.i.i: ; preds = %723, %722
   br i1 %.not.i312.i, label %mysql_dec_remaining_field_packet_count.exit.i, label %mysql_dissect_clone_response.exit
 
 mysql_dec_remaining_field_packet_count.exit.i:    ; preds = %738
-  %744 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %744 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   %745 = load i64, ptr %744, align 8
   %746 = add i64 %745, -1
   store i64 %746, ptr %744, align 8
@@ -3441,7 +3441,7 @@ mysql_dec_remaining_field_packet_count.exit.i:    ; preds = %738
   br i1 %.not344.i, label %747, label %mysql_dissect_clone_response.exit
 
 747:                                              ; preds = %mysql_dec_remaining_field_packet_count.exit.i
-  %748 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %748 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %749 = load i16, ptr %748, align 2
   %750 = and i16 %749, 256
   %.not256.i = icmp eq i16 %750, 0
@@ -3452,7 +3452,7 @@ mysql_dec_remaining_field_packet_count.exit.i:    ; preds = %738
   br i1 %.not257.i, label %763, label %752
 
 752:                                              ; preds = %751
-  %753 = getelementptr inbounds i8, ptr %.0.i155, i64 24
+  %753 = getelementptr inbounds nuw i8, ptr %.0.i155, i64 24
   %754 = load i16, ptr %753, align 8
   %.not258.i = icmp eq i16 %754, 0
   br i1 %.not258.i, label %763, label %755
@@ -3480,7 +3480,7 @@ mysql_set_remaining_field_packet_count.exit315.i: ; preds = %758, %755
   br i1 %.not.i316.i, label %761, label %mysql_dissect_clone_response.exit
 
 761:                                              ; preds = %mysql_set_remaining_field_packet_count.exit315.i
-  %762 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %762 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 15, ptr %762, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3493,7 +3493,7 @@ mysql_set_remaining_field_packet_count.exit315.i: ; preds = %758, %755
   br i1 %.not.i318.i, label %766, label %mysql_dissect_clone_response.exit
 
 766:                                              ; preds = %763
-  %767 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %767 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %767, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3510,7 +3510,7 @@ mysql_set_remaining_field_packet_count.exit315.i: ; preds = %758, %755
   br i1 %.not.i320.i, label %mysql_dec_remaining_field_packet_count.exit322.i, label %mysql_dissect_clone_response.exit
 
 mysql_dec_remaining_field_packet_count.exit322.i: ; preds = %768
-  %774 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %774 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   %775 = load i64, ptr %774, align 8
   %776 = add i64 %775, -1
   store i64 %776, ptr %774, align 8
@@ -3518,7 +3518,7 @@ mysql_dec_remaining_field_packet_count.exit322.i: ; preds = %768
   br i1 %.not343.i, label %777, label %mysql_dissect_clone_response.exit
 
 777:                                              ; preds = %mysql_dec_remaining_field_packet_count.exit322.i
-  %778 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %778 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %779 = load i16, ptr %778, align 2
   %780 = and i16 %779, 256
   %.not254.i = icmp eq i16 %780, 0
@@ -3533,7 +3533,7 @@ mysql_dec_remaining_field_packet_count.exit322.i: ; preds = %768
   br i1 %.not.i323.i, label %784, label %mysql_dissect_clone_response.exit
 
 784:                                              ; preds = %781
-  %785 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %785 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 11, ptr %785, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3565,7 +3565,7 @@ mysql_dec_remaining_field_packet_count.exit322.i: ; preds = %768
   br i1 %.not.i329.i, label %mysql_dec_remaining_field_packet_count.exit331.i, label %mysql_dissect_clone_response.exit
 
 mysql_dec_remaining_field_packet_count.exit331.i: ; preds = %794
-  %800 = getelementptr inbounds i8, ptr %.0132, i64 80
+  %800 = getelementptr inbounds nuw i8, ptr %.0132, i64 80
   %801 = load i64, ptr %800, align 8
   %802 = add i64 %801, -1
   store i64 %802, ptr %800, align 8
@@ -3573,7 +3573,7 @@ mysql_dec_remaining_field_packet_count.exit331.i: ; preds = %794
   br i1 %.not342.i, label %803, label %mysql_dissect_clone_response.exit
 
 803:                                              ; preds = %mysql_dec_remaining_field_packet_count.exit331.i
-  %804 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %804 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %805 = load i16, ptr %804, align 2
   %806 = and i16 %805, 256
   %.not252.i = icmp eq i16 %806, 0
@@ -3588,7 +3588,7 @@ mysql_dec_remaining_field_packet_count.exit331.i: ; preds = %794
   br i1 %.not.i332.i, label %810, label %mysql_dissect_clone_response.exit
 
 810:                                              ; preds = %807
-  %811 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %811 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %811, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3630,7 +3630,7 @@ mysql_dec_remaining_field_packet_count.exit331.i: ; preds = %794
   br i1 %.not.i334.i, label %833, label %mysql_dissect_clone_response.exit
 
 833:                                              ; preds = %824
-  %834 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %834 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 0, ptr %834, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -3656,7 +3656,7 @@ mysql_dec_remaining_field_packet_count.exit331.i: ; preds = %794
 842:                                              ; preds = %839, %837
   %843 = load ptr, ptr %52, align 8
   tail call void @col_set_str(ptr noundef %843, i32 noundef 25, ptr noundef nonnull @.str.137) #8
-  %844 = getelementptr inbounds i8, ptr %.0132, i64 4
+  %844 = getelementptr inbounds nuw i8, ptr %.0132, i64 4
   %845 = load i16, ptr %844, align 4
   %846 = and i16 %845, 2048
   %.not.i161 = icmp eq i16 %846, 0
@@ -3686,7 +3686,7 @@ mysql_dec_remaining_field_packet_count.exit331.i: ; preds = %794
 
 mysql_set_conn_state.exit.sink.split.i:           ; preds = %853, %847
   %.sink.i = phi i32 [ 1, %847 ], [ 3, %853 ]
-  %857 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %857 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 %.sink.i, ptr %857, align 8
   br label %mysql_set_conn_state.exit.i165
 
@@ -3706,12 +3706,12 @@ mysql_set_conn_state.exit.i165:                   ; preds = %mysql_set_conn_stat
   br i1 %.not149.i, label %868, label %870
 
 868:                                              ; preds = %mysql_set_conn_state.exit.i165
-  %869 = getelementptr inbounds i8, ptr %.0132, i64 36
+  %869 = getelementptr inbounds nuw i8, ptr %.0132, i64 36
   store i32 1, ptr %869, align 4
   br label %870
 
 870:                                              ; preds = %868, %mysql_set_conn_state.exit.i165
-  %871 = getelementptr inbounds i8, ptr %.0132, i64 20
+  %871 = getelementptr inbounds nuw i8, ptr %.0132, i64 20
   %872 = load i32, ptr %871, align 4
   %.not150.i = icmp ne i32 %872, 0
   %873 = and i16 %866, 2048
@@ -3722,7 +3722,7 @@ mysql_set_conn_state.exit.i165:                   ; preds = %mysql_set_conn_stat
 874:                                              ; preds = %870
   %875 = load ptr, ptr %52, align 8
   tail call void @col_set_str(ptr noundef %875, i32 noundef 25, ptr noundef nonnull @.str.1186) #8
-  %876 = getelementptr inbounds i8, ptr %1, i64 20
+  %876 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %877 = load i32, ptr %876, align 4
   store i32 %877, ptr %871, align 4
   %878 = load ptr, ptr @tls_handle, align 8
@@ -3739,21 +3739,21 @@ mysql_set_conn_state.exit.i165:                   ; preds = %mysql_set_conn_stat
 
 884:                                              ; preds = %881
   %885 = load i32, ptr @hf_mysql_extcaps_client, align 4
-  %886 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %886 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %887 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6) #8
   store i16 %887, ptr %886, align 2
   %888 = load i32, ptr @ett_extcaps, align 4
   %889 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %861, ptr noundef %0, i32 noundef 6, i32 noundef %885, i32 noundef %888, ptr noundef nonnull @mysql_extcaps_flags, i32 noundef -2147483648, i32 noundef 1) #8
   %890 = load i32, ptr @hf_mysql_max_packet, align 4
   %891 = tail call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %890, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648) #8
-  %892 = getelementptr inbounds i8, ptr %.0132, i64 32
+  %892 = getelementptr inbounds nuw i8, ptr %.0132, i64 32
   %893 = load i32, ptr %892, align 8
   %.not153.i = icmp eq i32 %893, 0
   %894 = load i32, ptr @hf_mariadb_charset, align 4
   %895 = load i32, ptr @hf_mysql_charset, align 4
   %896 = select i1 %.not153.i, i32 %895, i32 %894
   %897 = tail call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %896, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0) #8
-  %898 = getelementptr inbounds i8, ptr %.0132, i64 36
+  %898 = getelementptr inbounds nuw i8, ptr %.0132, i64 36
   %899 = load i32, ptr %898, align 4
   %.not154.i = icmp eq i32 %899, 0
   %900 = load i32, ptr @hf_mysql_unused, align 4
@@ -3762,7 +3762,7 @@ mysql_set_conn_state.exit.i165:                   ; preds = %mysql_set_conn_stat
 901:                                              ; preds = %884
   %902 = tail call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %900, ptr noundef %0, i32 noundef 13, i32 noundef 19, i32 noundef 0) #8
   %903 = load i32, ptr @hf_mariadb_extcaps_client, align 4
-  %904 = getelementptr inbounds i8, ptr %.0132, i64 44
+  %904 = getelementptr inbounds nuw i8, ptr %.0132, i64 44
   %905 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 32) #8
   store i32 %905, ptr %904, align 4
   %906 = load i32, ptr @ett_extcaps, align 4
@@ -3795,7 +3795,7 @@ mysql_set_conn_state.exit.i165:                   ; preds = %mysql_set_conn_stat
 my_tvb_strsize.exit.i:                            ; preds = %918, %916
   %.0.i.i167 = phi i32 [ %917, %916 ], [ %919, %918 ]
   %920 = load ptr, ptr %52, align 8
-  %921 = getelementptr inbounds i8, ptr %1, i64 408
+  %921 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %922 = load ptr, ptr %921, align 8
   %923 = add i32 %.0.i.i167, -1
   %924 = tail call ptr @tvb_format_text(ptr noundef %922, ptr noundef %0, i32 noundef %.0146.i, i32 noundef %923) #8
@@ -3889,7 +3889,7 @@ my_tvb_strsize.exit170.i:                         ; preds = %958, %956
 
 970:                                              ; preds = %961, %949
   %.2.i = phi i32 [ %969, %961 ], [ %950, %949 ]
-  %971 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %971 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %972 = load i16, ptr %971, align 2
   %973 = and i16 %972, 8
   %.not158.i = icmp eq i16 %973, 0
@@ -3905,7 +3905,7 @@ my_tvb_strsize.exit170.i:                         ; preds = %958, %956
   br i1 %.not.i171.i, label %978, label %mysql_set_conn_state.exit172.i
 
 978:                                              ; preds = %974
-  %979 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %979 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 16, ptr %979, align 8
   br label %mysql_set_conn_state.exit172.i
 
@@ -3928,7 +3928,7 @@ my_tvb_strsize.exit174.i:                         ; preds = %984, %982
   %987 = tail call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %986, ptr noundef %0, i32 noundef %.2.i, i32 noundef %.0.i173.i, i32 noundef 0) #8
   %988 = tail call ptr @wmem_file_scope() #8
   %989 = tail call ptr @tvb_get_string_enc(ptr noundef %988, ptr noundef %0, i32 noundef %.2.i, i32 noundef %.0.i173.i, i32 noundef 0) #8
-  %990 = getelementptr inbounds i8, ptr %.0132, i64 48
+  %990 = getelementptr inbounds nuw i8, ptr %.0132, i64 48
   store ptr %989, ptr %990, align 8
   %991 = add i32 %.0.i173.i, %.2.i
   %.pre185.i = load i16, ptr %971, align 2
@@ -4028,38 +4028,38 @@ mysql_dissect_login.exit:                         ; preds = %929, %my_tvb_strsiz
   br i1 %.not143, label %1042, label %1036
 
 1036:                                             ; preds = %1033
-  %1037 = getelementptr inbounds i8, ptr %1, i64 20
+  %1037 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %1038 = load i32, ptr %1037, align 4
-  %1039 = getelementptr inbounds i8, ptr %.0132, i64 24
+  %1039 = getelementptr inbounds nuw i8, ptr %.0132, i64 24
   store i32 %1038, ptr %1039, align 8
-  %1040 = getelementptr inbounds i8, ptr %.0132, i64 28
+  %1040 = getelementptr inbounds nuw i8, ptr %.0132, i64 28
   store i8 1, ptr %1040, align 4
-  %1041 = getelementptr inbounds i8, ptr %.0132, i64 29
+  %1041 = getelementptr inbounds nuw i8, ptr %.0132, i64 29
   store i8 0, ptr %1041, align 1
   br label %mysql_dissect_clone_response.exit
 
 1042:                                             ; preds = %1033, %mysql_dissect_login.exit
-  %1043 = getelementptr inbounds i8, ptr %.0132, i64 2
+  %1043 = getelementptr inbounds nuw i8, ptr %.0132, i64 2
   %1044 = load i16, ptr %1043, align 2
   %1045 = and i16 %1044, 1024
   %.not144 = icmp eq i16 %1045, 0
   br i1 %.not144, label %mysql_dissect_clone_response.exit, label %1046
 
 1046:                                             ; preds = %1042
-  %1047 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %1047 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %1048 = load i16, ptr %1047, align 2
   %1049 = and i16 %1048, 1024
   %.not145 = icmp eq i16 %1049, 0
   br i1 %.not145, label %mysql_dissect_clone_response.exit, label %1050
 
 1050:                                             ; preds = %1046
-  %1051 = getelementptr inbounds i8, ptr %1, i64 20
+  %1051 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %1052 = load i32, ptr %1051, align 4
-  %1053 = getelementptr inbounds i8, ptr %.0132, i64 24
+  %1053 = getelementptr inbounds nuw i8, ptr %.0132, i64 24
   store i32 %1052, ptr %1053, align 8
-  %1054 = getelementptr inbounds i8, ptr %.0132, i64 28
+  %1054 = getelementptr inbounds nuw i8, ptr %.0132, i64 28
   store i8 1, ptr %1054, align 4
-  %1055 = getelementptr inbounds i8, ptr %.0132, i64 29
+  %1055 = getelementptr inbounds nuw i8, ptr %.0132, i64 29
   store i8 1, ptr %1055, align 1
   br label %mysql_dissect_clone_response.exit
 
@@ -4100,7 +4100,7 @@ mysql_dissect_login.exit:                         ; preds = %929, %my_tvb_strsiz
   br i1 %.not.i.i173, label %1073, label %mysql_dissect_clone_response.exit
 
 1073:                                             ; preds = %1065
-  %1074 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1074 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 24, ptr %1074, align 8
   br label %mysql_dissect_clone_response.exit
 
@@ -4158,7 +4158,7 @@ my_tvb_strsize.exit.i.i:                          ; preds = %1096, %1094
   %.0.i.i.i176 = phi i32 [ %1095, %1094 ], [ %1097, %1096 ]
   %1098 = load i32, ptr @hf_mysql_auth_switch_response_data, align 4
   %1099 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %1098, ptr noundef %0, i32 noundef 4, i32 noundef %.0.i.i.i176, i32 noundef 0) #8
-  %1100 = getelementptr inbounds i8, ptr %.0132, i64 48
+  %1100 = getelementptr inbounds nuw i8, ptr %.0132, i64 48
   %1101 = load ptr, ptr %1100, align 8
   %1102 = tail call i32 @g_strcmp0(ptr noundef %1101, ptr noundef nonnull @.str.1151) #8
   %1103 = icmp eq i32 %1102, 0
@@ -4174,7 +4174,7 @@ my_tvb_strsize.exit.i.i:                          ; preds = %1096, %1094
   br i1 %.not.i.i.i178, label %1108, label %mysql_dissect_auth_switch_response.exit.i
 
 1108:                                             ; preds = %1104
-  %1109 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1109 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 18, ptr %1109, align 8
   br label %mysql_dissect_auth_switch_response.exit.i
 
@@ -4207,7 +4207,7 @@ mysql_dissect_auth_switch_response.exit.i:        ; preds = %1108, %1104, %my_tv
   br i1 %.not.i.i466.i, label %1125, label %mysql_dissect_loaddata.exit.i
 
 1125:                                             ; preds = %1115
-  %1126 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1126 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %1126, align 8
   br label %mysql_dissect_loaddata.exit.i
 
@@ -4272,7 +4272,7 @@ mysql_dissect_loaddata.exit.i:                    ; preds = %1125, %1115
   br i1 %.not.i.i189, label %1144, label %mysql_set_conn_state.exit.i190
 
 1144:                                             ; preds = %1140
-  %1145 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1145 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 8, ptr %1145, align 8
   %.val460.pre.i = load ptr, ptr %1141, align 8
   %.phi.trans.insert582.i = getelementptr i8, ptr %.val460.pre.i, i64 50
@@ -4286,7 +4286,7 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
   br i1 %.not.i467.i, label %1147, label %mysql_set_resultset_fmt.exit.i
 
 1147:                                             ; preds = %mysql_set_conn_state.exit.i190
-  %1148 = getelementptr inbounds i8, ptr %.0132, i64 68
+  %1148 = getelementptr inbounds nuw i8, ptr %.0132, i64 68
   store i32 0, ptr %1148, align 4
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4300,7 +4300,7 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
   br i1 %.not.i468.i, label %1153, label %mysql_set_resultset_fmt.exit.i
 
 1153:                                             ; preds = %1149
-  %1154 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1154 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1154, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4314,7 +4314,7 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
   br i1 %.not.i470.i, label %1159, label %mysql_set_resultset_fmt.exit.i
 
 1159:                                             ; preds = %1155
-  %1160 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1160 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 7, ptr %1160, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4333,19 +4333,19 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
   br i1 %.not.i472.i, label %1169, label %mysql_set_resultset_fmt.exit.i
 
 1169:                                             ; preds = %1161
-  %1170 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1170 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1170, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
 1171:                                             ; preds = %1128
-  %1172 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %1172 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %1173 = load i16, ptr %1172, align 2
   %1174 = and i16 %1173, 2048
   %.not432.i = icmp eq i16 %1174, 0
   br i1 %.not432.i, label %1209, label %1175
 
 1175:                                             ; preds = %1171
-  %1176 = getelementptr inbounds i8, ptr %.0132, i64 2
+  %1176 = getelementptr inbounds nuw i8, ptr %.0132, i64 2
   %1177 = load i16, ptr %1176, align 2
   %1178 = and i16 %1177, 2048
   %.not433.i = icmp eq i16 %1178, 0
@@ -4400,7 +4400,7 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
   br i1 %1210, label %1211, label %.thread.i
 
 1211:                                             ; preds = %1209
-  %1212 = getelementptr inbounds i8, ptr %.0132, i64 2
+  %1212 = getelementptr inbounds nuw i8, ptr %.0132, i64 2
   %1213 = load i16, ptr %1212, align 2
   %1214 = icmp eq i16 %1213, 0
   br i1 %1214, label %1215, label %.thread.i
@@ -4426,7 +4426,7 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
 
 1223:                                             ; preds = %.thread.i
   %1224 = load ptr, ptr %52, align 8
-  %1225 = getelementptr inbounds i8, ptr %1, i64 408
+  %1225 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1226 = load ptr, ptr %1225, align 8
   %1227 = tail call ptr @tvb_format_text(ptr noundef %1226, ptr noundef %0, i32 noundef %1218, i32 noundef %1219) #8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1224, i32 noundef 25, ptr noundef nonnull @.str.1192, ptr noundef %1227) #8
@@ -4446,7 +4446,7 @@ mysql_set_conn_state.exit.i190:                   ; preds = %1144, %1140
   br i1 %.not.i474.i, label %1234, label %mysql_set_conn_state.exit475.i
 
 1234:                                             ; preds = %1229
-  %1235 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1235 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 8, ptr %1235, align 8
   %.val461.pre.i = load ptr, ptr %1231, align 8
   %.phi.trans.insert579.i = getelementptr i8, ptr %.val461.pre.i, i64 50
@@ -4460,7 +4460,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i476.i, label %1237, label %mysql_set_resultset_fmt.exit.i
 
 1237:                                             ; preds = %mysql_set_conn_state.exit475.i
-  %1238 = getelementptr inbounds i8, ptr %.0132, i64 68
+  %1238 = getelementptr inbounds nuw i8, ptr %.0132, i64 68
   store i32 0, ptr %1238, align 4
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4479,7 +4479,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i478.i, label %1247, label %mysql_set_resultset_fmt.exit.i
 
 1247:                                             ; preds = %1239
-  %1248 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1248 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 13, ptr %1248, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4496,7 +4496,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i480.i, label %1255, label %mysql_set_resultset_fmt.exit.i
 
 1255:                                             ; preds = %1249
-  %1256 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1256 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %1256, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4513,7 +4513,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i482.i, label %1263, label %mysql_set_resultset_fmt.exit.i
 
 1263:                                             ; preds = %1257
-  %1264 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1264 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1264, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4532,7 +4532,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i484.i, label %1273, label %mysql_set_resultset_fmt.exit.i
 
 1273:                                             ; preds = %1265
-  %1274 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1274 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 9, ptr %1274, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4549,7 +4549,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i486.i, label %1281, label %mysql_set_resultset_fmt.exit.i
 
 1281:                                             ; preds = %1275
-  %1282 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1282 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1282, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4558,7 +4558,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   %1285 = load i32, ptr @hf_mysql_user, align 4
   %1286 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1285, ptr noundef %0, i32 noundef 5, i32 noundef %1284, i32 noundef 0) #8
   %1287 = add i32 %1284, 5
-  %1288 = getelementptr inbounds i8, ptr %.0132, i64 4
+  %1288 = getelementptr inbounds nuw i8, ptr %.0132, i64 4
   %1289 = load i16, ptr %1288, align 4
   %.not427.i = icmp sgt i16 %1289, -1
   br i1 %.not427.i, label %1294, label %1290
@@ -4589,7 +4589,7 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %1306, label %1307, label %1315
 
 1307:                                             ; preds = %1296
-  %1308 = getelementptr inbounds i8, ptr %.0132, i64 32
+  %1308 = getelementptr inbounds nuw i8, ptr %.0132, i64 32
   %1309 = load i32, ptr %1308, align 8
   %.not428.i = icmp eq i32 %1309, 0
   %1310 = load i32, ptr @hf_mariadb_charset, align 4
@@ -4611,12 +4611,12 @@ mysql_set_conn_state.exit475.i:                   ; preds = %1234, %1229
   br i1 %.not.i488.i, label %1320, label %mysql_set_conn_state.exit489.i
 
 1320:                                             ; preds = %1315
-  %1321 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1321 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1321, align 8
   br label %mysql_set_conn_state.exit489.i
 
 mysql_set_conn_state.exit489.i:                   ; preds = %1320, %1315
-  %1322 = getelementptr inbounds i8, ptr %.0132, i64 6
+  %1322 = getelementptr inbounds nuw i8, ptr %.0132, i64 6
   %1323 = load i16, ptr %1322, align 2
   %1324 = and i16 %1323, 8
   %.not429.i = icmp eq i16 %1324, 0
@@ -4631,7 +4631,7 @@ mysql_set_conn_state.exit489.i:                   ; preds = %1320, %1315
   br i1 %.not.i490.i, label %1328, label %mysql_set_conn_state.exit491.i
 
 1328:                                             ; preds = %1325
-  %1329 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1329 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 16, ptr %1329, align 8
   br label %mysql_set_conn_state.exit491.i
 
@@ -4690,7 +4690,7 @@ mysql_set_conn_state.exit491.i:                   ; preds = %1328, %1325
   br i1 %.not.i492.i, label %1362, label %mysql_set_resultset_fmt.exit.i
 
 1362:                                             ; preds = %1355
-  %1363 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1363 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1363, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4707,7 +4707,7 @@ mysql_set_conn_state.exit491.i:                   ; preds = %1328, %1325
   br i1 %.not.i494.i, label %1370, label %mysql_set_resultset_fmt.exit.i
 
 1370:                                             ; preds = %1364
-  %1371 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1371 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1371, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4724,7 +4724,7 @@ mysql_set_conn_state.exit491.i:                   ; preds = %1328, %1325
   br i1 %.not.i496.i, label %1378, label %mysql_set_resultset_fmt.exit.i
 
 1378:                                             ; preds = %1372
-  %1379 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1379 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 3, ptr %1379, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4743,7 +4743,7 @@ mysql_set_conn_state.exit491.i:                   ; preds = %1328, %1325
   br i1 %.not.i498.i, label %1388, label %mysql_set_conn_state.exit499.i
 
 1388:                                             ; preds = %1380
-  %1389 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1389 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 8, ptr %1389, align 8
   %.val462.pre.i = load ptr, ptr %1385, align 8
   %.phi.trans.insert.i186 = getelementptr i8, ptr %.val462.pre.i, i64 50
@@ -4757,7 +4757,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %.not.i500.i, label %1391, label %mysql_set_resultset_fmt.exit.i
 
 1391:                                             ; preds = %mysql_set_conn_state.exit499.i
-  %1392 = getelementptr inbounds i8, ptr %.0132, i64 68
+  %1392 = getelementptr inbounds nuw i8, ptr %.0132, i64 68
   store i32 1, ptr %1392, align 4
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4765,7 +4765,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   %1394 = load i32, ptr @hf_mysql_stmt_id, align 4
   %1395 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1394, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #8
   %1396 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5) #8
-  %1397 = getelementptr inbounds i8, ptr %.0132, i64 8
+  %1397 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %1398 = load ptr, ptr %1397, align 8
   %1399 = tail call ptr @wmem_tree_lookup32(ptr noundef %1398, i32 noundef %1396) #8
   %.not425.i = icmp eq ptr %1399, null
@@ -4778,7 +4778,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %1403, label %1404, label %1411
 
 1404:                                             ; preds = %1400
-  %1405 = getelementptr inbounds i8, ptr %1399, i64 8
+  %1405 = getelementptr inbounds nuw i8, ptr %1399, i64 8
   %1406 = load ptr, ptr %1405, align 8
   %1407 = zext i16 %1401 to i64
   %1408 = getelementptr i16, ptr %1406, i64 %1407
@@ -4817,7 +4817,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %.not.i502.i, label %1426, label %mysql_set_resultset_fmt.exit.i
 
 1426:                                             ; preds = %1422
-  %1427 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1427 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %1427, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -4830,13 +4830,13 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %1432, label %1433, label %1436
 
 1433:                                             ; preds = %1428
-  %1434 = getelementptr inbounds i8, ptr %.0, i64 8
+  %1434 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %1435 = load i32, ptr %1434, align 8
   br label %1436
 
 1436:                                             ; preds = %1433, %1428
   %.0399.i = phi i32 [ %1435, %1433 ], [ %1431, %1428 ]
-  %1437 = getelementptr inbounds i8, ptr %.0132, i64 8
+  %1437 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %1438 = load ptr, ptr %1437, align 8
   %1439 = tail call ptr @wmem_tree_lookup32(ptr noundef %1438, i32 noundef %.0399.i) #8
   %.not419.i = icmp eq ptr %1439, null
@@ -4844,7 +4844,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
 
 1440:                                             ; preds = %1436
   %1441 = load i32, ptr @hf_mariadb_bulk_caps_flags, align 4
-  %1442 = getelementptr inbounds i8, ptr %1439, i64 48
+  %1442 = getelementptr inbounds nuw i8, ptr %1439, i64 48
   tail call fastcc void @mariadb_dissect_caps_or_flags(ptr noundef %0, i32 noundef 9, i32 noundef 5, ptr noundef %1132, i32 noundef %1441, ptr noundef nonnull @mariadb_bulk_caps_flags, ptr noundef nonnull %1442)
   store i32 11, ptr %5, align 4
   %1443 = load i16, ptr %1442, align 8
@@ -4867,8 +4867,8 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %.not554.i, label %.loopexit525.i, label %.lr.ph531.i
 
 .lr.ph531.i:                                      ; preds = %1447
-  %1453 = getelementptr inbounds i8, ptr %1439, i64 16
-  %1454 = getelementptr inbounds i8, ptr %1439, i64 8
+  %1453 = getelementptr inbounds nuw i8, ptr %1439, i64 16
+  %1454 = getelementptr inbounds nuw i8, ptr %1439, i64 8
   br label %1455
 
 1455:                                             ; preds = %1455, %.lr.ph531.i
@@ -4903,7 +4903,7 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %1475, label %.lr.ph538.i, label %.loopexit524.i
 
 .lr.ph538.i:                                      ; preds = %.loopexit525.i
-  %1476 = getelementptr inbounds i8, ptr %1439, i64 16
+  %1476 = getelementptr inbounds nuw i8, ptr %1439, i64 16
   br label %1477
 
 1477:                                             ; preds = %._crit_edge535.i, %.lr.ph538.i
@@ -4915,13 +4915,13 @@ mysql_set_conn_state.exit499.i:                   ; preds = %1388, %1380
   br i1 %.not.i504.i, label %proto_item_set_generated.exit.i, label %1481
 
 1481:                                             ; preds = %1477
-  %1482 = getelementptr inbounds i8, ptr %1480, i64 32
+  %1482 = getelementptr inbounds nuw i8, ptr %1480, i64 32
   %1483 = load ptr, ptr %1482, align 8
   %.not5.i.i = icmp eq ptr %1483, null
   br i1 %.not5.i.i, label %proto_item_set_generated.exit.i, label %1484
 
 1484:                                             ; preds = %1481
-  %1485 = getelementptr inbounds i8, ptr %1483, i64 28
+  %1485 = getelementptr inbounds nuw i8, ptr %1483, i64 28
   %1486 = load i32, ptr %1485, align 4
   %1487 = or i32 %1486, 2
   store i32 %1487, ptr %1485, align 4
@@ -4967,7 +4967,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   br i1 %1505, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !15
 
 ._crit_edge.loopexit:                             ; preds = %1502
-  %1506 = getelementptr inbounds i8, ptr %1503, i64 8
+  %1506 = getelementptr inbounds nuw i8, ptr %1503, i64 8
   %1507 = load ptr, ptr %1506, align 8
   br label %._crit_edge
 
@@ -5004,7 +5004,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   br i1 %.not.i505.i, label %1519, label %mysql_set_resultset_fmt.exit.i
 
 1519:                                             ; preds = %1515
-  %1520 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1520 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %1520, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5012,7 +5012,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   %1522 = load i32, ptr @hf_mysql_stmt_id, align 4
   %1523 = tail call ptr @proto_tree_add_item(ptr noundef %1132, i32 noundef %1522, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #8
   %1524 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 5) #8
-  %1525 = getelementptr inbounds i8, ptr %.0132, i64 16
+  %1525 = getelementptr inbounds nuw i8, ptr %.0132, i64 16
   %1526 = load i8, ptr %1525, align 8
   %1527 = icmp ugt i8 %1526, 4
   %hf_mysql_exec_flags5.val.i = load i32, ptr @hf_mysql_exec_flags5, align 4
@@ -5026,13 +5026,13 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   br i1 %1532, label %1533, label %1536
 
 1533:                                             ; preds = %1521
-  %1534 = getelementptr inbounds i8, ptr %.0, i64 8
+  %1534 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %1535 = load i32, ptr %1534, align 8
   br label %1536
 
 1536:                                             ; preds = %1533, %1521
   %.1.i179 = phi i32 [ %1535, %1533 ], [ %1524, %1521 ]
-  %1537 = getelementptr inbounds i8, ptr %.0132, i64 8
+  %1537 = getelementptr inbounds nuw i8, ptr %.0132, i64 8
   %1538 = load ptr, ptr %1537, align 8
   %1539 = tail call ptr @wmem_tree_lookup32(ptr noundef %1538, i32 noundef %.1.i179) #8
   %.not.i180 = icmp eq ptr %1539, null
@@ -5062,7 +5062,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   %1555 = shl nuw nsw i32 %1554, 1
   %1556 = add nuw nsw i32 %1555, %1550
   store i32 %1556, ptr %6, align 4
-  %1557 = getelementptr inbounds i8, ptr %1539, i64 8
+  %1557 = getelementptr inbounds nuw i8, ptr %1539, i64 8
   %.not553.i = icmp eq i16 %1553, 0
   br i1 %.not553.i, label %.sink.split.i, label %.lr.ph.i181
 
@@ -5123,7 +5123,7 @@ proto_item_set_generated.exit.i:                  ; preds = %1484, %1481, %1477
   br i1 %.not.i507.i, label %1582, label %mysql_set_conn_state.exit508.i
 
 1582:                                             ; preds = %1578
-  %1583 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1583 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 8, ptr %1583, align 8
   br label %mysql_set_conn_state.exit508.i
 
@@ -5137,7 +5137,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i509.i, label %1587, label %mysql_set_resultset_fmt.exit.i
 
 1587:                                             ; preds = %mysql_set_conn_state.exit508.i
-  %1588 = getelementptr inbounds i8, ptr %.0132, i64 68
+  %1588 = getelementptr inbounds nuw i8, ptr %.0132, i64 68
   store i32 1, ptr %1588, align 4
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5181,7 +5181,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i511.i, label %1617, label %mysql_set_resultset_fmt.exit.i
 
 1617:                                             ; preds = %1602
-  %1618 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1618 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 21, ptr %1618, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5215,7 +5215,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i513.i, label %1637, label %mysql_set_resultset_fmt.exit.i
 
 1637:                                             ; preds = %1632
-  %1638 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1638 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 21, ptr %1638, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5264,7 +5264,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i515.i, label %1677, label %mysql_set_resultset_fmt.exit.i
 
 1677:                                             ; preds = %1639
-  %1678 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1678 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %1678, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5284,7 +5284,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i517.i, label %1688, label %mysql_set_resultset_fmt.exit.i
 
 1688:                                             ; preds = %1679
-  %1689 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1689 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 2, ptr %1689, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5298,7 +5298,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i519.i, label %1694, label %mysql_set_resultset_fmt.exit.i
 
 1694:                                             ; preds = %1690
-  %1695 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1695 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 22, ptr %1695, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5318,7 +5318,7 @@ mysql_set_conn_state.exit508.i:                   ; preds = %1582, %1578, %1577
   br i1 %.not.i521.i, label %1705, label %mysql_set_resultset_fmt.exit.i
 
 1705:                                             ; preds = %1696
-  %1706 = getelementptr inbounds i8, ptr %.0132, i64 64
+  %1706 = getelementptr inbounds nuw i8, ptr %.0132, i64 64
   store i32 0, ptr %1706, align 8
   br label %mysql_set_resultset_fmt.exit.i
 
@@ -5411,7 +5411,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mysql_dissect_error_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5) #8
   %7 = zext i16 %6 to i32
@@ -5492,7 +5492,7 @@ declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mysql_dissect_auth_switch_request(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 4, 6) %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1160) #8
   %8 = load ptr, ptr %6, align 8
@@ -5506,12 +5506,12 @@ define internal fastcc i32 @mysql_dissect_auth_switch_request(ptr noundef %0, pt
   br i1 %.not.i, label %12, label %mysql_set_conn_state.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %4, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 17, ptr %13, align 8
   br label %mysql_set_conn_state.exit
 
 mysql_set_conn_state.exit:                        ; preds = %5, %12
-  %14 = getelementptr inbounds i8, ptr %4, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 8
   %.not = icmp eq i16 %16, 0
@@ -5536,7 +5536,7 @@ my_tvb_strsize.exit:                              ; preds = %20, %22
   %25 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef %2, i32 noundef %.0.i, i32 noundef 0) #8
   %26 = tail call ptr @wmem_file_scope() #8
   %27 = tail call ptr @tvb_get_string_enc(ptr noundef %26, ptr noundef %0, i32 noundef %2, i32 noundef %.0.i, i32 noundef 0) #8
-  %28 = getelementptr inbounds i8, ptr %4, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %27, ptr %28, align 8
   %29 = add i32 %.0.i, %2
   %30 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %29, i32 noundef -1) #8
@@ -5573,7 +5573,7 @@ my_tvb_strsize.exit32:                            ; preds = %32, %34
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mysql_dissect_ok_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.1161) #8
   %7 = load ptr, ptr %5, align 8
@@ -5667,7 +5667,7 @@ tvb_get_fle.exit99.thread:                        ; preds = %tvb_get_fle.exit, %
   %49 = load i32, ptr @ett_stat, align 4
   %50 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef %43, i32 noundef %48, i32 noundef %49, ptr noundef nonnull @mysql_stat_flags, i32 noundef -2147483648, i32 noundef 1) #8
   %51 = add nuw nsw i32 %43, 2
-  %52 = getelementptr inbounds i8, ptr %3, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %53 = load i16, ptr %52, align 4
   %54 = load i16, ptr %3, align 8
   %55 = and i16 %53, 512
@@ -5690,7 +5690,7 @@ tvb_get_fle.exit99.thread:                        ; preds = %tvb_get_fle.exit, %
   %.0128 = phi i64 [ %62, %58 ], [ 0, %tvb_get_fle.exit99.thread ], [ 0, %46 ]
   %.0125 = phi i16 [ %47, %58 ], [ 0, %tvb_get_fle.exit99.thread ], [ %47, %46 ]
   %.0 = phi i32 [ %63, %58 ], [ %43, %tvb_get_fle.exit99.thread ], [ %51, %46 ]
-  %65 = getelementptr inbounds i8, ptr %3, i64 6
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %66 = load i16, ptr %65, align 2
   %67 = and i16 %66, 128
   %.not91 = icmp eq i16 %67, 0
@@ -6141,7 +6141,7 @@ add_session_tracker_entry_to_tree.exit:           ; preds = %tvb_get_fle.exit124
   br i1 %69, label %299, label %323
 
 299:                                              ; preds = %298
-  %300 = getelementptr inbounds i8, ptr %3, i64 4
+  %300 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %301 = load i16, ptr %300, align 4
   %302 = icmp eq i16 %301, 0
   br i1 %302, label %303, label %323
@@ -6225,7 +6225,7 @@ tvb_get_fle.exit112:                              ; preds = %308, %312, %316, %3
   br i1 %.not.i, label %341, label %mysql_set_conn_state.exit
 
 341:                                              ; preds = %.loopexit
-  %342 = getelementptr inbounds i8, ptr %3, i64 64
+  %342 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 2, ptr %342, align 8
   br label %mysql_set_conn_state.exit
 
@@ -6253,14 +6253,14 @@ define internal fastcc i32 @mysql_dissect_field_packet(ptr noundef %0, ptr nound
   %18 = tail call fastcc i32 @mysql_field_add_lestring(ptr noundef %0, i32 noundef %16, ptr noundef %1, i32 noundef %17)
   %19 = load i32, ptr @hf_mysql_fld_org_name, align 4
   %20 = tail call fastcc i32 @mysql_field_add_lestring(ptr noundef %0, i32 noundef %18, ptr noundef %1, i32 noundef %19)
-  %21 = getelementptr inbounds i8, ptr %3, i64 44
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 8
   %.not102 = icmp eq i32 %23, 0
   br i1 %.not102, label %.loopexit, label %24
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %3, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 8
   %.not103 = icmp eq i32 %27, 0
@@ -6418,14 +6418,14 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %80, %83, %86
   ]
 
 113:                                              ; preds = %.loopexit, %.loopexit
-  %114 = getelementptr inbounds i8, ptr %4, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %115 = load i16, ptr %114, align 8
   %.not105 = icmp eq i16 %115, 0
   br i1 %.not105, label %131, label %116
 
 116:                                              ; preds = %113
   %117 = zext i16 %115 to i64
-  %118 = getelementptr inbounds i8, ptr %4, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %119 = load i64, ptr %118, align 8
   %120 = sub i64 %117, %119
   %.not106 = icmp ult i64 %120, %117
@@ -6437,11 +6437,11 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %80, %83, %86
   br label %137
 
 124:                                              ; preds = %116
-  %125 = getelementptr inbounds i8, ptr %4, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %126 = load ptr, ptr %125, align 8
   %127 = getelementptr i8, ptr %126, i64 %120
   store i8 %103, ptr %127, align 1
-  %128 = getelementptr inbounds i8, ptr %4, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr i16, ptr %129, i64 %120
   store i16 %108, ptr %130, align 2
@@ -6464,7 +6464,7 @@ add_extended_meta_entry_to_tree.exit:             ; preds = %80, %83, %86
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @mysql_dissect_auth_sha2(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.1181) #8
   %8 = load ptr, ptr %6, align 8
@@ -6490,7 +6490,7 @@ define internal fastcc i32 @mysql_dissect_auth_sha2(ptr noundef %0, ptr nocaptur
   br i1 %.not.i, label %17, label %mysql_set_conn_state.exit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %4, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 19, ptr %18, align 8
   br label %mysql_set_conn_state.exit
 
@@ -6504,7 +6504,7 @@ define internal fastcc i32 @mysql_dissect_auth_sha2(ptr noundef %0, ptr nocaptur
   br i1 %.not.i23, label %23, label %mysql_set_conn_state.exit
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %4, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 18, ptr %24, align 8
   br label %mysql_set_conn_state.exit
 
@@ -7036,7 +7036,7 @@ tvb_get_fle.exit:                                 ; preds = %11, %15, %19, %22, 
   %27 = add i32 %.025.i, %3
   %28 = load i32, ptr @hf_mysql_connattrs_name, align 4
   %29 = trunc i64 %.0 to i32
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @proto_tree_add_item_ret_string(ptr noundef %9, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef %29, i32 noundef 0, ptr noundef %31, ptr noundef nonnull %5) #8
   %33 = load ptr, ptr %5, align 8
@@ -7136,7 +7136,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr n
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %29, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %.lobit, %34
   br i1 %35, label %36, label %37
@@ -7148,7 +7148,7 @@ define internal fastcc signext range(i8 0, 2) i8 @mysql_dissect_exec_param(ptr n
 37:                                               ; preds = %32, %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = getelementptr [20 x %struct.mysql_exec_dissector], ptr @mysql_exec_dissectors, i64 0, i64 %indvars.iv.next
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   %exitcond = icmp eq i64 %indvars.iv.next, 19
   br i1 %exitcond, label %.loopexit, label %.preheader, !llvm.loop !21

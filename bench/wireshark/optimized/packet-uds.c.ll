@@ -1232,7 +1232,7 @@ define internal i32 @dissect_uds_doip(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = load i16, ptr %3, align 2
   %10 = tail call fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %8, i16 noundef zeroext %9, i8 noundef zeroext 2, i8 noundef zeroext 2)
@@ -1249,7 +1249,7 @@ define internal i32 @dissect_uds_hsfz(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i16
   %10 = load i8, ptr %3, align 1
@@ -1268,9 +1268,9 @@ define internal i32 @dissect_uds_iso10681(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 10
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %8 = load i16, ptr %7, align 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load i16, ptr %9, align 4
   %11 = tail call fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %8, i16 noundef zeroext %10, i8 noundef zeroext 2, i8 noundef zeroext 2)
   ret i32 %11
@@ -1286,13 +1286,13 @@ define internal i32 @dissect_uds_iso15765(ptr noundef %0, ptr noundef %1, ptr no
   unreachable
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 14
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 14
   %8 = load i16, ptr %7, align 2
-  %9 = getelementptr inbounds i8, ptr %3, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %10 = load i16, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load i8, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 17
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %14 = load i8, ptr %13, align 1
   %15 = tail call fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %8, i16 noundef zeroext %10, i8 noundef zeroext %12, i8 noundef zeroext %14)
   ret i32 %15
@@ -1370,7 +1370,7 @@ define internal void @uds_uat_routine_ids_address_tostr_cb(ptr nocapture noundef
 define internal void @uds_uat_routine_ids_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #9
   tail call void @g_free(ptr noundef %7) #9
   ret void
@@ -1378,7 +1378,7 @@ define internal void @uds_uat_routine_ids_id_set_cb(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_routine_ids_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.823, i32 noundef %7) #9
   store ptr %8, ptr %1, align 8
@@ -1394,7 +1394,7 @@ declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr n
 define internal void @uds_uat_routine_ids_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -1403,7 +1403,7 @@ define internal void @uds_uat_routine_ids_name_set_cb(ptr nocapture noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_routine_ids_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1431,14 +1431,14 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %9, ptr %10, align 4
   %11 = load i32, ptr %1, align 8
   store i32 %11, ptr %0, align 8
@@ -1447,14 +1447,14 @@ define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_generic_addr_16bit_id_16bit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 65535
   %6 = load i32, ptr %0, align 8
   br i1 %5, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.825, i32 noundef 65535, i32 noundef %6, i32 noundef %4, ptr noundef %9) #9
   br label %.sink.split.i
@@ -1462,7 +1462,7 @@ define internal noundef zeroext i1 @update_generic_addr_16bit_id_16bit(ptr nocap
 11:                                               ; preds = %2
   %12 = add i32 %6, 1
   %or.cond.i = icmp ult i32 %12, 65537
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   br i1 %or.cond.i, label %17, label %15
 
@@ -1495,7 +1495,7 @@ update_generic_addr_16bit_id_var.exit:            ; preds = %19, %.sink.split.i
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_generic_one_id_string_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #9
   store ptr null, ptr %2, align 8
@@ -1531,7 +1531,7 @@ define internal void @post_update_uds_routine_cb() #0 {
   %9 = getelementptr %struct._generic_addr_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #9
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #9
@@ -1569,7 +1569,7 @@ define internal void @uds_uat_data_ids_address_tostr_cb(ptr nocapture noundef re
 define internal void @uds_uat_data_ids_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #9
   tail call void @g_free(ptr noundef %7) #9
   ret void
@@ -1577,7 +1577,7 @@ define internal void @uds_uat_data_ids_id_set_cb(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_data_ids_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.823, i32 noundef %7) #9
   store ptr %8, ptr %1, align 8
@@ -1591,7 +1591,7 @@ define internal void @uds_uat_data_ids_id_tostr_cb(ptr nocapture noundef readonl
 define internal void @uds_uat_data_ids_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -1600,7 +1600,7 @@ define internal void @uds_uat_data_ids_name_set_cb(ptr nocapture noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_data_ids_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1653,7 +1653,7 @@ define internal void @post_update_uds_data_cb() #0 {
   %9 = getelementptr %struct._generic_addr_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #9
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #9
@@ -1689,7 +1689,7 @@ define internal void @uds_uat_dtc_ids_address_tostr_cb(ptr nocapture noundef rea
 define internal void @uds_uat_dtc_ids_id_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call zeroext i1 @ws_hexstrtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #9
   tail call void @g_free(ptr noundef %7) #9
   ret void
@@ -1697,7 +1697,7 @@ define internal void @uds_uat_dtc_ids_id_set_cb(ptr noundef %0, ptr noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_dtc_ids_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.823, i32 noundef %7) #9
   store ptr %8, ptr %1, align 8
@@ -1711,7 +1711,7 @@ define internal void @uds_uat_dtc_ids_id_tostr_cb(ptr nocapture noundef readonly
 define internal void @uds_uat_dtc_ids_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -1720,7 +1720,7 @@ define internal void @uds_uat_dtc_ids_name_set_cb(ptr nocapture noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_dtc_ids_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1746,14 +1746,14 @@ define internal void @uds_uat_dtc_ids_name_tostr_cb(ptr nocapture noundef readon
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_generic_addr_16bit_id_24bit(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 16777215
   %6 = load i32, ptr %0, align 8
   br i1 %5, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.825, i32 noundef 16777215, i32 noundef %6, i32 noundef %4, ptr noundef %9) #9
   br label %.sink.split.i
@@ -1761,7 +1761,7 @@ define internal noundef zeroext i1 @update_generic_addr_16bit_id_24bit(ptr nocap
 11:                                               ; preds = %2
   %12 = add i32 %6, 1
   %or.cond.i = icmp ult i32 %12, 65537
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   br i1 %or.cond.i, label %17, label %15
 
@@ -1821,7 +1821,7 @@ define internal void @post_update_uds_dtc_cb() #0 {
   %9 = getelementptr %struct._generic_addr_id_string, ptr %5, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
   store i64 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #9
   %14 = tail call i32 @g_hash_table_insert(ptr noundef %4, ptr noundef nonnull %8, ptr noundef %13) #9
@@ -1857,7 +1857,7 @@ define internal void @uds_uat_addresses_address_tostr_cb(ptr nocapture noundef r
 define internal void @uds_uat_addresses_name_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #9
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #9
   store ptr %7, ptr %8, align 8
@@ -1866,7 +1866,7 @@ define internal void @uds_uat_addresses_name_set_cb(ptr nocapture noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @uds_uat_addresses_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -1892,10 +1892,10 @@ define internal void @uds_uat_addresses_name_tostr_cb(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @copy_address_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #9
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
   %8 = load i32, ptr %1, align 8
   store i32 %8, ptr %0, align 8
@@ -1904,7 +1904,7 @@ define internal noundef ptr @copy_address_string_cb(ptr noundef returned writeon
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @update_address_string_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %6
@@ -1926,7 +1926,7 @@ define internal noundef zeroext i1 @update_address_string_cb(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @free_address_string_cb(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #9
   store ptr null, ptr %2, align 8
@@ -1965,7 +1965,7 @@ define internal void @post_update_uds_address_cb() #0 {
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   store i64 %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15) #9
   %17 = tail call i32 @g_hash_table_insert(ptr noundef nonnull %4, ptr noundef nonnull %10, ptr noundef %16) #9
@@ -2137,7 +2137,7 @@ define internal fastcc i32 @dissect_uds_internal(ptr noundef %0, ptr noundef %1,
   %63 = alloca i32, align 4
   %64 = alloca i32, align 4
   %65 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %66 = getelementptr inbounds i8, ptr %1, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8
   tail call void @col_set_str(ptr noundef %67, i32 noundef 34, ptr noundef nonnull @.str.332) #9
   %68 = load ptr, ptr %66, align 8
@@ -2251,13 +2251,13 @@ uds_proto_item_append_address_name.exit.i:        ; preds = %106, %uds_lookup_ad
   br i1 %.not.i12.i, label %uds_proto_tree_add_address_item.exit, label %107
 
 107:                                              ; preds = %uds_proto_item_append_address_name.exit.i
-  %108 = getelementptr inbounds i8, ptr %102, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %109 = load ptr, ptr %108, align 8
   %.not5.i.i = icmp eq ptr %109, null
   br i1 %.not5.i.i, label %uds_proto_tree_add_address_item.exit, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %109, i64 28
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 28
   %112 = load i32, ptr %111, align 4
   %113 = or i32 %112, 2
   store i32 %113, ptr %111, align 4
@@ -2293,13 +2293,13 @@ uds_lookup_address_name.exit.i1116:               ; preds = %uds_proto_tree_add_
   br i1 %.not.i.i1118, label %uds_proto_tree_add_address_name.exit, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %122, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %125 = load ptr, ptr %124, align 8
   %.not5.i.i1119 = icmp eq ptr %125, null
   br i1 %.not5.i.i1119, label %uds_proto_tree_add_address_name.exit, label %126
 
 126:                                              ; preds = %123
-  %127 = getelementptr inbounds i8, ptr %125, i64 28
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %128 = load i32, ptr %127, align 4
   %129 = or i32 %128, 2
   store i32 %129, ptr %127, align 4
@@ -2308,7 +2308,7 @@ uds_lookup_address_name.exit.i1116:               ; preds = %uds_proto_tree_add_
   br i1 %.not5.i19.i, label %uds_proto_tree_add_address_name.exit, label %130
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %.pre.i, i64 28
+  %131 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 28
   %132 = load i32, ptr %131, align 4
   %133 = or i32 %132, 1
   store i32 %133, ptr %131, align 4
@@ -2423,13 +2423,13 @@ uds_proto_item_append_address_name.exit.i1137:    ; preds = %157, %uds_lookup_ad
   br i1 %.not.i12.i1138, label %uds_proto_tree_add_address_item.exit1142, label %158
 
 158:                                              ; preds = %uds_proto_item_append_address_name.exit.i1137
-  %159 = getelementptr inbounds i8, ptr %153, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %160 = load ptr, ptr %159, align 8
   %.not5.i.i1139 = icmp eq ptr %160, null
   br i1 %.not5.i.i1139, label %uds_proto_tree_add_address_item.exit1142, label %161
 
 161:                                              ; preds = %158
-  %162 = getelementptr inbounds i8, ptr %160, i64 28
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 28
   %163 = load i32, ptr %162, align 4
   %164 = or i32 %163, 2
   store i32 %164, ptr %162, align 4
@@ -2465,13 +2465,13 @@ uds_lookup_address_name.exit.i1143:               ; preds = %uds_proto_tree_add_
   br i1 %.not.i.i1146, label %uds_proto_tree_add_address_name.exit1151, label %174
 
 174:                                              ; preds = %172
-  %175 = getelementptr inbounds i8, ptr %173, i64 32
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 32
   %176 = load ptr, ptr %175, align 8
   %.not5.i.i1147 = icmp eq ptr %176, null
   br i1 %.not5.i.i1147, label %uds_proto_tree_add_address_name.exit1151, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds i8, ptr %176, i64 28
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 28
   %179 = load i32, ptr %178, align 4
   %180 = or i32 %179, 2
   store i32 %180, ptr %178, align 4
@@ -2480,7 +2480,7 @@ uds_lookup_address_name.exit.i1143:               ; preds = %uds_proto_tree_add_
   br i1 %.not5.i19.i1149, label %uds_proto_tree_add_address_name.exit1151, label %181
 
 181:                                              ; preds = %177
-  %182 = getelementptr inbounds i8, ptr %.pre.i1148, i64 28
+  %182 = getelementptr inbounds nuw i8, ptr %.pre.i1148, i64 28
   %183 = load i32, ptr %182, align 4
   %184 = or i32 %183, 1
   store i32 %184, ptr %182, align 4
@@ -2514,13 +2514,13 @@ uds_proto_item_append_address_name.exit.i1154:    ; preds = %190, %uds_lookup_ad
   br i1 %.not.i12.i1155, label %uds_proto_tree_add_address_item.exit1159, label %191
 
 191:                                              ; preds = %uds_proto_item_append_address_name.exit.i1154
-  %192 = getelementptr inbounds i8, ptr %186, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %186, i64 32
   %193 = load ptr, ptr %192, align 8
   %.not5.i.i1156 = icmp eq ptr %193, null
   br i1 %.not5.i.i1156, label %uds_proto_tree_add_address_item.exit1159, label %proto_item_set_generated.exit.i1157
 
 proto_item_set_generated.exit.i1157:              ; preds = %191
-  %194 = getelementptr inbounds i8, ptr %193, i64 28
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 28
   %195 = load i32, ptr %194, align 4
   %196 = or i32 %195, 2
   store i32 %196, ptr %194, align 4
@@ -2529,7 +2529,7 @@ proto_item_set_generated.exit.i1157:              ; preds = %191
   br i1 %.not5.i14.i, label %uds_proto_tree_add_address_item.exit1159, label %197
 
 197:                                              ; preds = %proto_item_set_generated.exit.i1157
-  %198 = getelementptr inbounds i8, ptr %.pr, i64 28
+  %198 = getelementptr inbounds nuw i8, ptr %.pr, i64 28
   %199 = load i32, ptr %198, align 4
   %200 = or i32 %199, 1
   store i32 %200, ptr %198, align 4
@@ -2565,13 +2565,13 @@ uds_lookup_address_name.exit.i1160:               ; preds = %uds_proto_tree_add_
   br i1 %.not.i.i1163, label %uds_proto_tree_add_address_name.exit1168, label %210
 
 210:                                              ; preds = %208
-  %211 = getelementptr inbounds i8, ptr %209, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %212 = load ptr, ptr %211, align 8
   %.not5.i.i1164 = icmp eq ptr %212, null
   br i1 %.not5.i.i1164, label %uds_proto_tree_add_address_name.exit1168, label %213
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds i8, ptr %212, i64 28
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 28
   %215 = load i32, ptr %214, align 4
   %216 = or i32 %215, 2
   store i32 %216, ptr %214, align 4
@@ -2580,7 +2580,7 @@ uds_lookup_address_name.exit.i1160:               ; preds = %uds_proto_tree_add_
   br i1 %.not5.i19.i1166, label %uds_proto_tree_add_address_name.exit1168, label %217
 
 217:                                              ; preds = %213
-  %218 = getelementptr inbounds i8, ptr %.pre.i1165, i64 28
+  %218 = getelementptr inbounds nuw i8, ptr %.pre.i1165, i64 28
   %219 = load i32, ptr %218, align 4
   %220 = or i32 %219, 1
   store i32 %220, ptr %218, align 4
@@ -2614,13 +2614,13 @@ uds_proto_item_append_address_name.exit.i1171:    ; preds = %226, %uds_lookup_ad
   br i1 %.not.i12.i1172, label %uds_proto_tree_add_address_item.exit1176, label %227
 
 227:                                              ; preds = %uds_proto_item_append_address_name.exit.i1171
-  %228 = getelementptr inbounds i8, ptr %222, i64 32
+  %228 = getelementptr inbounds nuw i8, ptr %222, i64 32
   %229 = load ptr, ptr %228, align 8
   %.not5.i.i1173 = icmp eq ptr %229, null
   br i1 %.not5.i.i1173, label %uds_proto_tree_add_address_item.exit1176, label %230
 
 230:                                              ; preds = %227
-  %231 = getelementptr inbounds i8, ptr %229, i64 28
+  %231 = getelementptr inbounds nuw i8, ptr %229, i64 28
   %232 = load i32, ptr %231, align 4
   %233 = or i32 %232, 2
   store i32 %233, ptr %231, align 4
@@ -2656,13 +2656,13 @@ uds_lookup_address_name.exit.i1177:               ; preds = %uds_proto_tree_add_
   br i1 %.not.i.i1180, label %uds_proto_tree_add_address_name.exit1185, label %243
 
 243:                                              ; preds = %241
-  %244 = getelementptr inbounds i8, ptr %242, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 32
   %245 = load ptr, ptr %244, align 8
   %.not5.i.i1181 = icmp eq ptr %245, null
   br i1 %.not5.i.i1181, label %uds_proto_tree_add_address_name.exit1185, label %246
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds i8, ptr %245, i64 28
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 28
   %248 = load i32, ptr %247, align 4
   %249 = or i32 %248, 2
   store i32 %249, ptr %247, align 4
@@ -2671,7 +2671,7 @@ uds_lookup_address_name.exit.i1177:               ; preds = %uds_proto_tree_add_
   br i1 %.not5.i19.i1183, label %uds_proto_tree_add_address_name.exit1185, label %250
 
 250:                                              ; preds = %246
-  %251 = getelementptr inbounds i8, ptr %.pre.i1182, i64 28
+  %251 = getelementptr inbounds nuw i8, ptr %.pre.i1182, i64 28
   %252 = load i32, ptr %251, align 4
   %253 = or i32 %252, 1
   store i32 %253, ptr %251, align 4
@@ -2705,13 +2705,13 @@ uds_proto_item_append_address_name.exit.i1188:    ; preds = %259, %uds_lookup_ad
   br i1 %.not.i12.i1189, label %uds_proto_tree_add_address_item.exit1194, label %260
 
 260:                                              ; preds = %uds_proto_item_append_address_name.exit.i1188
-  %261 = getelementptr inbounds i8, ptr %255, i64 32
+  %261 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %262 = load ptr, ptr %261, align 8
   %.not5.i.i1190 = icmp eq ptr %262, null
   br i1 %.not5.i.i1190, label %uds_proto_tree_add_address_item.exit1194, label %proto_item_set_generated.exit.i1191
 
 proto_item_set_generated.exit.i1191:              ; preds = %260
-  %263 = getelementptr inbounds i8, ptr %262, i64 28
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 28
   %264 = load i32, ptr %263, align 4
   %265 = or i32 %264, 2
   store i32 %265, ptr %263, align 4
@@ -2720,7 +2720,7 @@ proto_item_set_generated.exit.i1191:              ; preds = %260
   br i1 %.not5.i14.i1192, label %uds_proto_tree_add_address_item.exit1194, label %266
 
 266:                                              ; preds = %proto_item_set_generated.exit.i1191
-  %267 = getelementptr inbounds i8, ptr %.pr1213, i64 28
+  %267 = getelementptr inbounds nuw i8, ptr %.pr1213, i64 28
   %268 = load i32, ptr %267, align 4
   %269 = or i32 %268, 1
   store i32 %269, ptr %267, align 4
@@ -2756,13 +2756,13 @@ uds_lookup_address_name.exit.i1195:               ; preds = %uds_proto_tree_add_
   br i1 %.not.i.i1198, label %uds_proto_tree_add_address_name.exit, label %279
 
 279:                                              ; preds = %277
-  %280 = getelementptr inbounds i8, ptr %278, i64 32
+  %280 = getelementptr inbounds nuw i8, ptr %278, i64 32
   %281 = load ptr, ptr %280, align 8
   %.not5.i.i1199 = icmp eq ptr %281, null
   br i1 %.not5.i.i1199, label %uds_proto_tree_add_address_name.exit, label %282
 
 282:                                              ; preds = %279
-  %283 = getelementptr inbounds i8, ptr %281, i64 28
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 28
   %284 = load i32, ptr %283, align 4
   %285 = or i32 %284, 2
   store i32 %285, ptr %283, align 4
@@ -2771,7 +2771,7 @@ uds_lookup_address_name.exit.i1195:               ; preds = %uds_proto_tree_add_
   br i1 %.not5.i19.i1201, label %uds_proto_tree_add_address_name.exit, label %286
 
 286:                                              ; preds = %282
-  %287 = getelementptr inbounds i8, ptr %.pre.i1200, i64 28
+  %287 = getelementptr inbounds nuw i8, ptr %.pre.i1200, i64 28
   %288 = load i32, ptr %287, align 4
   %289 = or i32 %288, 1
   store i32 %289, ptr %287, align 4
@@ -2922,7 +2922,7 @@ uds_proto_tree_add_address_name.exit:             ; preds = %286, %282, %279, %2
 
 356:                                              ; preds = %346
   %357 = load ptr, ptr %66, align 8
-  %358 = getelementptr inbounds i8, ptr %1, i64 408
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %359 = load ptr, ptr %358, align 8
   %360 = add i32 %65, -3
   %361 = call ptr @tvb_bytes_to_str_punct(ptr noundef %359, ptr noundef %0, i32 noundef 3, i32 noundef %360, i8 noundef signext 32) #9
@@ -3052,7 +3052,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %410 = add i32 %65, -1
   %411 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %409, ptr noundef %0, i32 noundef 1, i32 noundef %410, i32 noundef 0) #9
   %412 = load ptr, ptr %66, align 8
-  %413 = getelementptr inbounds i8, ptr %1, i64 408
+  %413 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %414 = load ptr, ptr %413, align 8
   %415 = call ptr @tvb_bytes_to_str_punct(ptr noundef %414, ptr noundef %0, i32 noundef 1, i32 noundef %410, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %412, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %415) #9
@@ -3171,7 +3171,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %480 = add i32 %65, -2
   %481 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %479, ptr noundef %0, i32 noundef 2, i32 noundef %480, i32 noundef 0) #9
   %482 = load ptr, ptr %66, align 8
-  %483 = getelementptr inbounds i8, ptr %1, i64 408
+  %483 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %484 = load ptr, ptr %483, align 8
   %485 = call ptr @tvb_bytes_to_str_punct(ptr noundef %484, ptr noundef %0, i32 noundef 2, i32 noundef %480, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %482, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %485) #9
@@ -3182,7 +3182,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %488 = add i32 %65, -2
   %489 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %487, ptr noundef %0, i32 noundef 2, i32 noundef %488, i32 noundef 0) #9
   %490 = load ptr, ptr %66, align 8
-  %491 = getelementptr inbounds i8, ptr %1, i64 408
+  %491 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %492 = load ptr, ptr %491, align 8
   %493 = call ptr @tvb_bytes_to_str_punct(ptr noundef %492, ptr noundef %0, i32 noundef 2, i32 noundef %488, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %490, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %493) #9
@@ -3199,7 +3199,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %497 = add i32 %65, -2
   %498 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %496, ptr noundef %0, i32 noundef 2, i32 noundef %497, i32 noundef 0) #9
   %499 = load ptr, ptr %66, align 8
-  %500 = getelementptr inbounds i8, ptr %1, i64 408
+  %500 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %501 = load ptr, ptr %500, align 8
   %502 = call ptr @tvb_bytes_to_str_punct(ptr noundef %501, ptr noundef %0, i32 noundef 2, i32 noundef %497, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %499, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %502) #9
@@ -3210,7 +3210,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %505 = add i32 %65, -2
   %506 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %504, ptr noundef %0, i32 noundef 2, i32 noundef %505, i32 noundef 0) #9
   %507 = load ptr, ptr %66, align 8
-  %508 = getelementptr inbounds i8, ptr %1, i64 408
+  %508 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %509 = load ptr, ptr %508, align 8
   %510 = call ptr @tvb_bytes_to_str_punct(ptr noundef %509, ptr noundef %0, i32 noundef 2, i32 noundef %505, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %507, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %510) #9
@@ -3718,7 +3718,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 846:                                              ; preds = %844
   %847 = load ptr, ptr %66, align 8
-  %848 = getelementptr inbounds i8, ptr %1, i64 408
+  %848 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %849 = load ptr, ptr %848, align 8
   %850 = add i32 %65, -3
   %851 = call ptr @tvb_bytes_to_str_punct(ptr noundef %849, ptr noundef %0, i32 noundef 3, i32 noundef %850, i8 noundef signext 32) #9
@@ -3762,7 +3762,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %876 = add i32 %65, -4
   %877 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %875, ptr noundef %0, i32 noundef 4, i32 noundef %876, i32 noundef 0) #9
   %878 = load ptr, ptr %66, align 8
-  %879 = getelementptr inbounds i8, ptr %1, i64 408
+  %879 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %880 = load ptr, ptr %879, align 8
   %881 = call ptr @tvb_bytes_to_str_punct(ptr noundef %880, ptr noundef %0, i32 noundef 4, i32 noundef %876, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %878, i32 noundef 25, ptr noundef nonnull @.str.737, ptr noundef %881) #9
@@ -3804,7 +3804,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 903:                                              ; preds = %898
   %904 = load ptr, ptr %66, align 8
-  %905 = getelementptr inbounds i8, ptr %1, i64 408
+  %905 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %906 = load ptr, ptr %905, align 8
   %907 = add i32 %65, -5
   %908 = call ptr @tvb_bytes_to_str_punct(ptr noundef %906, ptr noundef %0, i32 noundef 5, i32 noundef %907, i8 noundef signext 32) #9
@@ -3825,7 +3825,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
 
 916:                                              ; preds = %915
   %917 = load ptr, ptr %66, align 8
-  %918 = getelementptr inbounds i8, ptr %1, i64 408
+  %918 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %919 = load ptr, ptr %918, align 8
   %920 = add i32 %65, -4
   %921 = call ptr @tvb_bytes_to_str_punct(ptr noundef %919, ptr noundef %0, i32 noundef 4, i32 noundef %920, i8 noundef signext 32) #9
@@ -3875,7 +3875,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %949 = add i32 %65, -2
   %950 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %948, ptr noundef %0, i32 noundef 2, i32 noundef %949, i32 noundef 0) #9
   %951 = load ptr, ptr %66, align 8
-  %952 = getelementptr inbounds i8, ptr %1, i64 408
+  %952 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %953 = load ptr, ptr %952, align 8
   %954 = call ptr @tvb_bytes_to_str_punct(ptr noundef %953, ptr noundef %0, i32 noundef 2, i32 noundef %949, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %951, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %954) #9
@@ -3890,7 +3890,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %959 = add i32 %65, -1
   %960 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %958, ptr noundef %0, i32 noundef 1, i32 noundef %959, i32 noundef 0) #9
   %961 = load ptr, ptr %66, align 8
-  %962 = getelementptr inbounds i8, ptr %1, i64 408
+  %962 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %963 = load ptr, ptr %962, align 8
   %964 = call ptr @tvb_bytes_to_str_punct(ptr noundef %963, ptr noundef %0, i32 noundef 1, i32 noundef %959, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %961, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %964) #9
@@ -4024,7 +4024,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %1040 = sub nuw i32 %65, %1036
   %1041 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %1039, ptr noundef %0, i32 noundef %1036, i32 noundef %1040, i32 noundef 0) #9
   %1042 = load ptr, ptr %66, align 8
-  %1043 = getelementptr inbounds i8, ptr %1, i64 408
+  %1043 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1044 = load ptr, ptr %1043, align 8
   %1045 = call ptr @tvb_bytes_to_str_punct(ptr noundef %1044, ptr noundef %0, i32 noundef %1036, i32 noundef %1040, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1042, i32 noundef 25, ptr noundef nonnull @.str.725, ptr noundef %1045) #9
@@ -4134,7 +4134,7 @@ infocol_append_data_name.exit:                    ; preds = %uds_lookup_data_nam
   %1118 = load i32, ptr @hf_uds_cdtcs_option_record, align 4
   %1119 = call ptr @proto_tree_add_item(ptr noundef %89, i32 noundef %1118, ptr noundef %0, i32 noundef 2, i32 noundef %1116, i32 noundef 0) #9
   %1120 = load ptr, ptr %66, align 8
-  %1121 = getelementptr inbounds i8, ptr %1, i64 408
+  %1121 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %1122 = load ptr, ptr %1121, align 8
   %1123 = call ptr @tvb_bytes_to_str_punct(ptr noundef %1122, ptr noundef %0, i32 noundef 2, i32 noundef %1116, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %1120, i32 noundef 25, ptr noundef nonnull @.str.736, ptr noundef %1123) #9
@@ -4259,7 +4259,7 @@ define internal fastcc i32 @dissect_uds_rdtci(ptr noundef %0, ptr nocapture noun
   %31 = alloca i64, align 8
   %32 = load i32, ptr @hf_uds_rdtci_subfunction, align 4
   %33 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %12) #9
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %12, align 4
   %37 = call ptr @val_to_str_ext(i32 noundef %36, ptr noundef nonnull @uds_rdtci_types_ext, ptr noundef nonnull @.str.719) #9
@@ -4726,7 +4726,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %263 = add i32 %5, -2
   %264 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %262, ptr noundef %0, i32 noundef 2, i32 noundef %263, i32 noundef 0) #9
   %265 = load ptr, ptr %34, align 8
-  %266 = getelementptr inbounds i8, ptr %1, i64 408
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %267 = load ptr, ptr %266, align 8
   %268 = call ptr @tvb_bytes_to_str_punct(ptr noundef %267, ptr noundef %0, i32 noundef 2, i32 noundef %263, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %265, i32 noundef 25, ptr noundef nonnull @.str.754, ptr noundef %268) #9
@@ -4873,7 +4873,7 @@ dissect_uds_dtc_and_fault_detection_counter_record.exit: ; preds = %160, %uds_lo
   %345 = add i32 %5, -2
   %346 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %344, ptr noundef %0, i32 noundef 2, i32 noundef %345, i32 noundef 0) #9
   %347 = load ptr, ptr %34, align 8
-  %348 = getelementptr inbounds i8, ptr %1, i64 408
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %349 = load ptr, ptr %348, align 8
   %350 = call ptr @tvb_bytes_to_str_punct(ptr noundef %349, ptr noundef %0, i32 noundef 2, i32 noundef %345, i8 noundef signext 32) #9
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %347, i32 noundef 25, ptr noundef nonnull @.str.754, ptr noundef %350) #9
@@ -4975,7 +4975,7 @@ uds_lookup_data_name.exit:                        ; preds = %generic_lookup_addr
 
 uds_lookup_data_name.exit.thread:                 ; preds = %generic_lookup_addr_id.exit.thread6.i, %generic_lookup_addr_id.exit.i, %uds_lookup_data_name.exit
   %.0.i6 = phi ptr [ %18, %uds_lookup_data_name.exit ], [ %13, %generic_lookup_addr_id.exit.thread6.i ], [ %16, %generic_lookup_addr_id.exit.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.732, ptr noundef nonnull %.0.i6) #9
   br label %21
@@ -4992,11 +4992,11 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 define internal fastcc i32 @call_heur_subdissector_uds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i8 noundef zeroext range(i8 0, -64) %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6, i32 noundef range(i32 -1, 65536) %7) unnamed_addr #0 {
   %9 = alloca %struct.uds_info, align 4
   store i32 %6, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %7, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %5, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i8 %4, ptr %12, align 4
   %13 = load ptr, ptr @heur_subdissector_list, align 8
   %14 = call i32 @dissector_try_heuristic(ptr noundef %13, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @heur_dtbl_entry, ptr noundef nonnull %9) #9
@@ -5092,7 +5092,7 @@ define internal fastcc i32 @dissect_uds_memory_addr_size(ptr noundef %0, ptr noc
   %28 = load i32, ptr %7, align 4
   %29 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %26, i32 noundef %28, i32 noundef 0, ptr noundef nonnull %10) #9
   %30 = load i32, ptr %7, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %10, align 8
   %34 = load i64, ptr %9, align 8
@@ -5126,7 +5126,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocaptu
   %15 = load i32, ptr %3, align 4
   %16 = tail call ptr @val_to_str(i32 noundef %15, ptr noundef nonnull %5, ptr noundef nonnull @.str.719) #9
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %10, ptr noundef nonnull @.str.732, ptr noundef %16) #9
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %3, align 4
   %20 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull %5, ptr noundef nonnull @.str.719) #9
@@ -5134,7 +5134,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocaptu
   br label %25
 
 21:                                               ; preds = %7
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %3, align 4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.814, i32 noundef %24) #9
@@ -5152,7 +5152,7 @@ define internal fastcc void @dissect_uds_subfunction(ptr noundef %0, ptr nocaptu
   br i1 %.not25, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.726) #9
   br label %33
@@ -5310,7 +5310,7 @@ uds_lookup_routine_name.exit:                     ; preds = %generic_lookup_addr
 
 uds_lookup_routine_name.exit.thread:              ; preds = %generic_lookup_addr_id.exit.thread6.i, %generic_lookup_addr_id.exit.i, %uds_lookup_routine_name.exit
   %.0.i6 = phi ptr [ %18, %uds_lookup_routine_name.exit ], [ %13, %generic_lookup_addr_id.exit.thread6.i ], [ %16, %generic_lookup_addr_id.exit.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.732, ptr noundef nonnull %.0.i6) #9
   br label %21
@@ -5477,7 +5477,7 @@ uds_lookup_dtc_name.exit.thread:                  ; preds = %generic_lookup_addr
 
 77:                                               ; preds = %uds_lookup_dtc_name.exit.thread, %68
   %78 = add i32 %.0, 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %80 = load ptr, ptr %79, align 8
   %81 = load i32, ptr %13, align 4
   %82 = load i64, ptr %14, align 8

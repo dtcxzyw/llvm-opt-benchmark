@@ -18,10 +18,10 @@ entry:
   %str_end = alloca ptr, align 8
   %bin_len157 = alloca i64, align 8
   %str_end158 = alloca ptr, align 8
-  %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40
+  %saltlen = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load i32, ptr %saltlen, align 8
   %conv = zext i32 %0 to i64
-  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
+  %outlen = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %1 = load i32, ptr %outlen, align 8
   %conv1 = zext i32 %1 to i64
   store i32 0, ptr %saltlen, align 8
@@ -49,13 +49,13 @@ sub_0:                                            ; preds = %do.body11, %do.body
   br i1 %.not, label %sub_1, label %return
 
 sub_1:                                            ; preds = %sub_0
-  %3 = getelementptr inbounds i8, ptr %add.ptr18, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %add.ptr18, i64 1
   %4 = load i8, ptr %3, align 1
   %.not86 = icmp eq i8 %4, 118
   br i1 %.not86, label %do.body23.tail, label %return
 
 do.body23.tail:                                   ; preds = %sub_1
-  %5 = getelementptr inbounds i8, ptr %add.ptr18, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %add.ptr18, i64 2
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 61
   br i1 %7, label %if.end29, label %return
@@ -133,20 +133,20 @@ if.end52:                                         ; preds = %do.body46.tail
 
 if.end64:                                         ; preds = %if.end52
   %conv65 = trunc nuw i64 %18 to i32
-  %m_cost = getelementptr inbounds i8, ptr %ctx, i64 80
+  %m_cost = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   store i32 %conv65, ptr %m_cost, align 8
   %19 = load i8, ptr %call57, align 1
   %.not90 = icmp eq i8 %19, 44
   br i1 %.not90, label %sub_178, label %return
 
 sub_178:                                          ; preds = %if.end64
-  %20 = getelementptr inbounds i8, ptr %call57, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %call57, i64 1
   %21 = load i8, ptr %20, align 1
   %.not91 = icmp eq i8 %21, 116
   br i1 %.not91, label %if.end64.tail, label %return
 
 if.end64.tail:                                    ; preds = %sub_178
-  %22 = getelementptr inbounds i8, ptr %call57, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %call57, i64 2
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 61
   br i1 %24, label %if.end78, label %return
@@ -162,20 +162,20 @@ if.end78:                                         ; preds = %if.end64.tail
 
 if.end90:                                         ; preds = %if.end78
   %conv91 = trunc nuw i64 %25 to i32
-  %t_cost = getelementptr inbounds i8, ptr %ctx, i64 76
+  %t_cost = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   store i32 %conv91, ptr %t_cost, align 4
   %26 = load i8, ptr %call83, align 1
   %.not92 = icmp eq i8 %26, 44
   br i1 %.not92, label %sub_182, label %return
 
 sub_182:                                          ; preds = %if.end90
-  %27 = getelementptr inbounds i8, ptr %call83, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %call83, i64 1
   %28 = load i8, ptr %27, align 1
   %.not93 = icmp eq i8 %28, 112
   br i1 %.not93, label %if.end90.tail, label %return
 
 if.end90.tail:                                    ; preds = %sub_182
-  %29 = getelementptr inbounds i8, ptr %call83, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %call83, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %30, 61
   br i1 %31, label %if.end104, label %return
@@ -191,9 +191,9 @@ if.end104:                                        ; preds = %if.end90.tail
 
 if.end116:                                        ; preds = %if.end104
   %conv117 = trunc nuw i64 %32 to i32
-  %lanes = getelementptr inbounds i8, ptr %ctx, i64 84
+  %lanes = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   store i32 %conv117, ptr %lanes, align 4
-  %threads = getelementptr inbounds i8, ptr %ctx, i64 88
+  %threads = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   store i32 %conv117, ptr %threads, align 8
   %lhsc = load i8, ptr %call109, align 1
   %cmp128.not = icmp eq i8 %lhsc, 36
@@ -202,7 +202,7 @@ if.end116:                                        ; preds = %if.end104
 if.end131:                                        ; preds = %if.end116
   %add.ptr132 = getelementptr i8, ptr %call109, i64 1
   store i64 %conv, ptr %bin_len, align 8
-  %salt = getelementptr inbounds i8, ptr %ctx, i64 32
+  %salt = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %33 = load ptr, ptr %salt, align 8
   %call135 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr132) #6
   %call136 = call i32 @sodium_base642bin(ptr noundef %33, i64 noundef %conv, ptr noundef %add.ptr132, i64 noundef %call135, ptr noundef null, ptr noundef nonnull %bin_len, ptr noundef nonnull %str_end, i32 noundef 3) #7
@@ -370,10 +370,10 @@ do.body.i:                                        ; preds = %do.body.i, %do.body
   br i1 %cmp.i, label %do.body.i, label %u32_to_string.exit, !llvm.loop !4
 
 u32_to_string.exit:                               ; preds = %do.body.i
-  %arrayidx.i.le = getelementptr inbounds i8, ptr %tmp.i, i64 8
+  %arrayidx.i.le = getelementptr inbounds nuw i8, ptr %tmp.i, i64 8
   %1 = load i16, ptr %arrayidx.i.le, align 1
   store i16 %1, ptr %tmp, align 2
-  %arrayidx6.i = getelementptr inbounds i8, ptr %tmp, i64 2
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %tmp, i64 2
   store i8 0, ptr %arrayidx6.i, align 2
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %tmp.i)
   %call18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %tmp) #6
@@ -390,7 +390,7 @@ if.end21:                                         ; preds = %u32_to_string.exit
 if.end32:                                         ; preds = %if.end21
   %add.ptr24 = getelementptr i8, ptr %add.ptr8, i64 %call18
   store i32 4025636, ptr %add.ptr24, align 1
-  %m_cost = getelementptr inbounds i8, ptr %ctx, i64 80
+  %m_cost = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %2 = load i32, ptr %m_cost, align 8
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %tmp.i96)
   br label %do.body.i97
@@ -433,7 +433,7 @@ if.end46:                                         ; preds = %u32_to_string.exit1
 if.end57:                                         ; preds = %if.end46
   %add.ptr49 = getelementptr i8, ptr %add.ptr34, i64 %call43
   store i32 4027436, ptr %add.ptr49, align 1
-  %t_cost = getelementptr inbounds i8, ptr %ctx, i64 76
+  %t_cost = getelementptr inbounds nuw i8, ptr %ctx, i64 76
   %5 = load i32, ptr %t_cost, align 4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %tmp.i111)
   br label %do.body.i112
@@ -476,7 +476,7 @@ if.end71:                                         ; preds = %u32_to_string.exit1
 if.end82:                                         ; preds = %if.end71
   %add.ptr74 = getelementptr i8, ptr %add.ptr59, i64 %call68
   store i32 4026412, ptr %add.ptr74, align 1
-  %lanes = getelementptr inbounds i8, ptr %ctx, i64 84
+  %lanes = getelementptr inbounds nuw i8, ptr %ctx, i64 84
   %8 = load i32, ptr %lanes, align 4
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %tmp.i126)
   br label %do.body.i127
@@ -521,9 +521,9 @@ if.end107:                                        ; preds = %if.end96
   store i16 36, ptr %add.ptr99, align 1
   %add.ptr109 = getelementptr i8, ptr %add.ptr99, i64 1
   %sub110 = add i64 %sub100, -1
-  %salt = getelementptr inbounds i8, ptr %ctx, i64 32
+  %salt = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %11 = load ptr, ptr %salt, align 8
-  %saltlen = getelementptr inbounds i8, ptr %ctx, i64 40
+  %saltlen = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %12 = load i32, ptr %saltlen, align 8
   %conv = zext i32 %12 to i64
   %call113 = tail call ptr @sodium_bin2base64(ptr noundef %add.ptr109, i64 noundef %sub110, ptr noundef %11, i64 noundef %conv, i32 noundef 3) #7
@@ -542,7 +542,7 @@ if.end127:                                        ; preds = %if.end117
   %add.ptr129 = getelementptr i8, ptr %add.ptr119, i64 1
   %sub130 = add i64 %sub120, -1
   %13 = load ptr, ptr %ctx, align 8
-  %outlen = getelementptr inbounds i8, ptr %ctx, i64 8
+  %outlen = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %14 = load i32, ptr %outlen, align 8
   %conv134 = zext i32 %14 to i64
   %call135 = tail call ptr @sodium_bin2base64(ptr noundef %add.ptr129, i64 noundef %sub130, ptr noundef %13, i64 noundef %conv134, i32 noundef 3) #7

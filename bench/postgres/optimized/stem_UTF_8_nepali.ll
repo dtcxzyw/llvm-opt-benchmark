@@ -133,14 +133,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   store i32 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %6, ptr %7, align 8
   %8 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_0, i32 noundef 17) #2
   %.not.i = icmp eq i32 %8, 0
@@ -148,7 +148,7 @@ define hidden range(i32 -2147483648, 2) i32 @nepali_UTF_8_stem(ptr noundef initi
 
 9:                                                ; preds = %1
   %10 = load i32, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %10, ptr %11, align 4
   switch i32 %8, label %r_remove_category_1.exit [
     i32 1, label %12
@@ -186,7 +186,7 @@ define hidden range(i32 -2147483648, 2) i32 @nepali_UTF_8_stem(ptr noundef initi
 r_remove_category_1.exit:                         ; preds = %9, %12, %15, %19, %23, %1
   %28 = load i32, ptr %5, align 4
   store i32 %28, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %30
 
 30:                                               ; preds = %97, %r_remove_category_1.exit

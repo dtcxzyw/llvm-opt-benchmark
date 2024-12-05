@@ -35,12 +35,12 @@ define void @except_deinit() local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @except_setup_clean(ptr noundef initializes((0, 12), (16, 24)) %0, ptr noundef initializes((0, 16)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr %2, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %7, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stack_top)
   %9 = load ptr, ptr %8, align 8
@@ -52,13 +52,13 @@ define hidden void @except_setup_clean(ptr noundef initializes((0, 12), (16, 24)
 ; Function Attrs: nofree norecurse nounwind uwtable
 define void @except_setup_try(ptr noundef initializes((0, 12), (16, 24)) %0, ptr noundef initializes((0, 16)) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   store ptr %2, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store volatile ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %8, align 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stack_top)
   %10 = load ptr, ptr %9, align 8
@@ -97,31 +97,31 @@ define internal fastcc void @do_throw(ptr noundef %0) unnamed_addr #5 {
   br i1 %.not26, label %._crit_edge, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %.lr.ph28, %.loopexit
   %.02027 = phi ptr [ %.02025, %.lr.ph28 ], [ %.020, %.loopexit ]
-  %5 = getelementptr inbounds i8, ptr %.02027, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.02027, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
-  %8 = getelementptr inbounds i8, ptr %.02027, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.02027, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   br i1 %7, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void %10(ptr noundef %13) #19
   br label %.loopexit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %9, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load volatile ptr, ptr %15, align 8
   %17 = load ptr, ptr @deallocator, align 8
   tail call void %17(ptr noundef %16) #19
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load i64, ptr %18, align 8
   %.not29 = icmp eq i64 %19, 0
   br i1 %.not29, label %.loopexit, label %.lr.ph
@@ -140,7 +140,7 @@ define internal fastcc void @do_throw(ptr noundef %0) unnamed_addr #5 {
 
 25:                                               ; preds = %22, %.lr.ph
   %26 = phi i1 [ true, %.lr.ph ], [ %24, %22 ]
-  %27 = getelementptr inbounds i8, ptr %.01923, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.01923, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %match.exit, label %30
@@ -156,10 +156,10 @@ match.exit:                                       ; preds = %25, %30
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %match.exit
-  %36 = getelementptr inbounds i8, ptr %9, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %36, ptr align 8 %0, i64 32, i1 true)
   store ptr %.02027, ptr %2, align 8
-  %37 = getelementptr inbounds i8, ptr %9, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 48
   tail call void @longjmp(ptr noundef nonnull %37, i32 noundef 1) #20
   unreachable
 
@@ -186,11 +186,11 @@ match.exit:                                       ; preds = %25, %30
 define void @except_throw(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = alloca %struct.except_t, align 8
   store volatile i64 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store volatile ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile ptr null, ptr %7, align 8
   call fastcc void @do_throw(ptr noundef nonnull %4) #18
   unreachable
@@ -200,11 +200,11 @@ define void @except_throw(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_
 define void @except_throwd(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.except_t, align 8
   store volatile i64 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store volatile ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store volatile ptr %3, ptr %8, align 8
   call fastcc void @do_throw(ptr noundef nonnull %5) #18
   unreachable
@@ -253,7 +253,7 @@ define ptr @except_unhandled_catcher(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden i64 @except_code(ptr noundef %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load volatile i64, ptr %2, align 8
   ret i64 %3
 }
@@ -266,21 +266,21 @@ define hidden i64 @except_group(ptr noundef %0) local_unnamed_addr #8 {
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden ptr @except_message(ptr noundef %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden ptr @except_data(ptr noundef %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define ptr @except_take_data(ptr noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   store volatile ptr null, ptr %2, align 8
   ret ptr %3
@@ -311,7 +311,7 @@ declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal void @unhandled_catcher(ptr noundef %0) #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr @stderr, align 8
@@ -319,7 +319,7 @@ define internal void @unhandled_catcher(ptr noundef %0) #14 {
 
 6:                                                ; preds = %1
   %7 = load volatile i64, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load volatile i64, ptr %8, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.1, i64 noundef %7, i64 noundef %9) #21
   br label %17
@@ -327,7 +327,7 @@ define internal void @unhandled_catcher(ptr noundef %0) #14 {
 11:                                               ; preds = %1
   %12 = load volatile ptr, ptr %2, align 8
   %13 = load volatile i64, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load volatile i64, ptr %14, align 8
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.2, ptr noundef %12, i64 noundef %13, i64 noundef %15) #21
   br label %17

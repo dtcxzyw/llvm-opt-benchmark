@@ -746,7 +746,7 @@ define internal i32 @dissect_osi(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not31, label %15, label %24
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   switch i8 %5, label %20 [
     i8 -118, label %18

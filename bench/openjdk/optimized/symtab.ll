@@ -32,11 +32,11 @@ define hidden i32 @gnu_debuglink_crc32(i32 noundef %0, ptr noundef readonly %1, 
   %.0.tr = trunc i32 %.011 to i8
   %.narrow = xor i8 %7, %.0.tr
   %8 = zext i8 %.narrow to i64
-  %9 = getelementptr inbounds [256 x i32], ptr @gnu_debuglink_crc32.crc32_table, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i32], ptr @gnu_debuglink_crc32.crc32_table, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %.011, 8
   %12 = xor i32 %10, %11
-  %13 = getelementptr inbounds i8, ptr %.0910, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0910, i64 1
   %14 = icmp ult ptr %13, %4
   br i1 %14, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !6
 
@@ -71,7 +71,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
 
 11:                                               ; preds = %8
   %12 = call i64 @find_base_address(i32 noundef %0, ptr noundef nonnull %4) #14
-  %13 = getelementptr inbounds i8, ptr %4, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %14 = load i16, ptr %13, align 4
   %15 = zext i16 %14 to i64
   %16 = shl nuw nsw i64 %15, 4
@@ -92,9 +92,9 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader165 ]
   %.0117178 = phi ptr [ %32, %28 ], [ %9, %.preheader165 ]
   %.0119177 = phi i32 [ %spec.select, %28 ], [ 11, %.preheader165 ]
-  %21 = getelementptr inbounds %struct.elf_section, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv
   store ptr %.0117178, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.0117178, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.0117178, i64 4
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %28 [
     i32 2, label %24
@@ -105,7 +105,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
 
 24:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %25 = call ptr @read_section_data(i32 noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %.0117178) #14
-  %26 = getelementptr inbounds i8, ptr %21, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %25, ptr %26, align 8
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.preheader, label %._crit_edge217
@@ -120,7 +120,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %30 = phi i32 [ %.pre, %._crit_edge217 ], [ %23, %.lr.ph ]
   %31 = icmp eq i32 %30, 2
   %spec.select = select i1 %31, i32 2, i32 %.0119177
-  %32 = getelementptr inbounds i8, ptr %.0117178, i64 64
+  %32 = getelementptr inbounds nuw i8, ptr %.0117178, i64 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = zext i16 %29 to i64
   %34 = icmp samesign ult i64 %indvars.iv.next, %33
@@ -129,9 +129,9 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
 .lr.ph185:                                        ; preds = %.preheader164, %.loopexit
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %.loopexit ], [ 1, %.preheader164 ]
   %.1184 = phi ptr [ %.2, %.loopexit ], [ null, %.preheader164 ]
-  %35 = getelementptr inbounds %struct.elf_section, ptr %17, i64 %indvars.iv208
+  %35 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv208
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, %spec.select
   br i1 %39, label %40, label %.loopexit
@@ -142,15 +142,15 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   br i1 %42, label %.preheader, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %35, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %36, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %36, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %49 = load i64, ptr %48, align 8
   %50 = udiv i64 %47, %49
   %51 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #15
-  %52 = getelementptr inbounds i8, ptr %41, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %51, ptr %52, align 8
   %53 = icmp eq ptr %51, null
   br i1 %53, label %.preheader.sink.split, label %54
@@ -160,12 +160,12 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %56 = fmul double %55, 1.250000e+00
   %57 = fptoui double %56 to i64
   %58 = call i32 @hcreate_r(i64 noundef %57, ptr noundef nonnull %51) #14
-  %59 = getelementptr inbounds i8, ptr %36, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %60 = load i32, ptr %59, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds %struct.elf_section, ptr %17, i64 %61
+  %62 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %61
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
   %65 = load i64, ptr %64, align 8
   %66 = call noalias ptr @malloc(i64 noundef %65) #16
   store ptr %66, ptr %41, align 8
@@ -173,13 +173,13 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   br i1 %67, label %.loopexit247, label %68
 
 68:                                               ; preds = %54
-  %69 = getelementptr inbounds %struct.elf_section, ptr %17, i64 %61, i32 1
+  %69 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %61, i32 1
   %70 = load ptr, ptr %69, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %66, ptr align 1 %70, i64 %65, i1 false)
-  %71 = getelementptr inbounds i8, ptr %41, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %50, ptr %71, align 8
   %72 = call noalias ptr @calloc(i64 noundef %50, i64 noundef 24) #15
-  %73 = getelementptr inbounds i8, ptr %41, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %72, ptr %73, align 8
   %74 = icmp eq ptr %72, null
   br i1 %74, label %214, label %.preheader163
@@ -194,8 +194,8 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %.0122180 = phi ptr [ %106, %103 ], [ %45, %.preheader163 ]
   %76 = load i32, ptr %.0122180, align 8
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %66, i64 %77
-  %79 = getelementptr inbounds i8, ptr %.0122180, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %66, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %.0122180, i64 4
   %80 = load i8, ptr %79, align 4
   %81 = and i8 %80, 15
   %82 = add nsw i8 %81, -3
@@ -208,7 +208,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   br i1 %85, label %103, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %.0122180, i64 6
+  %87 = getelementptr inbounds nuw i8, ptr %.0122180, i64 6
   %88 = load i16, ptr %87, align 2
   %89 = icmp eq i16 %88, 0
   br i1 %89, label %103, label %90
@@ -216,12 +216,12 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds %struct.elf_symbol, ptr %75, i64 %.0121181
   store ptr %78, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %.0122180, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.0122180, i64 16
   %93 = load i64, ptr %92, align 8
   %94 = load ptr, ptr %73, align 8
   %95 = getelementptr inbounds %struct.elf_symbol, ptr %94, i64 %.0121181, i32 2
   store i64 %93, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %.0122180, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0122180, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = sub i64 %97, %12
   %99 = getelementptr inbounds %struct.elf_symbol, ptr %94, i64 %.0121181, i32 1
@@ -234,7 +234,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
 103:                                              ; preds = %83, %86, %.lr.ph182, %90
   %104 = phi ptr [ %75, %83 ], [ %75, %86 ], [ %75, %.lr.ph182 ], [ %94, %90 ]
   %105 = add nuw i64 %.0121181, 1
-  %106 = getelementptr inbounds i8, ptr %.0122180, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %.0122180, i64 24
   %107 = icmp ult i64 %105, %50
   br i1 %107, label %.lr.ph182, label %.loopexit, !llvm.loop !9
 
@@ -264,25 +264,25 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %112 = phi i16 [ %158, %build_symtab_from_build_id.exit ], [ %111, %.preheader162 ]
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %build_symtab_from_build_id.exit ], [ 0, %.preheader162 ]
   %.1118187 = phi ptr [ %159, %build_symtab_from_build_id.exit ], [ %9, %.preheader162 ]
-  %113 = getelementptr inbounds i8, ptr %.1118187, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %.1118187, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 7
   br i1 %115, label %116, label %build_symtab_from_build_id.exit
 
 116:                                              ; preds = %.lr.ph189
-  %117 = getelementptr inbounds %struct.elf_section, ptr %17, i64 %indvars.iv211, i32 1
+  %117 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv211, i32 1
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 3
   br i1 %121, label %122, label %build_symtab_from_build_id.exit
 
 122:                                              ; preds = %116
-  %123 = getelementptr inbounds i8, ptr %118, i64 12
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 12
   %124 = load i32, ptr %118, align 4
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds i8, ptr %123, i64 %125
-  %127 = getelementptr inbounds i8, ptr %118, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 %125
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = zext i32 %128 to i64
   %130 = shl nuw nsw i64 %129, 1
@@ -309,7 +309,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   br i1 %.not25.i, label %build_id_to_debug_filename.exit.thread141, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %138
-  %145 = getelementptr inbounds i8, ptr %144, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1
   store i8 47, ptr %144, align 1
   br label %.lr.ph.i
 
@@ -317,7 +317,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr nocapture 
   %.236.i = phi ptr [ %151, %.lr.ph.i ], [ %145, %.lr.ph.preheader.i ]
   %.11935.pn.i = phi ptr [ %.11935.i, %.lr.ph.i ], [ %126, %.lr.ph.preheader.i ]
   %.12134.i = phi i64 [ %146, %.lr.ph.i ], [ %139, %.lr.ph.preheader.i ]
-  %.11935.i = getelementptr inbounds i8, ptr %.11935.pn.i, i64 1
+  %.11935.i = getelementptr inbounds nuw i8, ptr %.11935.pn.i, i64 1
   %146 = add i64 %.12134.i, -1
   %147 = load i8, ptr %.11935.i, align 1
   %148 = zext i8 %147 to i32
@@ -348,7 +348,7 @@ build_id_to_debug_filename.exit.thread141:        ; preds = %.lr.ph.i, %138, %13
 build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.lr.ph189
   %158 = phi i16 [ %112, %116 ], [ %112, %.lr.ph189 ], [ %.pre219, %157 ], [ %112, %122 ]
   %.4 = phi ptr [ null, %116 ], [ null, %.lr.ph189 ], [ %.011.i, %157 ], [ null, %122 ]
-  %159 = getelementptr inbounds i8, ptr %.1118187, i64 64
+  %159 = getelementptr inbounds nuw i8, ptr %.1118187, i64 64
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %160 = icmp eq ptr %.4, null
   %161 = zext i16 %158 to i64
@@ -366,7 +366,7 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
   br i1 %165, label %.preheader, label %166
 
 166:                                              ; preds = %._crit_edge190.thread
-  %167 = getelementptr inbounds i8, ptr %164, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %168) #17
   %170 = shl i64 %169, 30
@@ -389,7 +389,7 @@ build_symtab_from_build_id.exit:                  ; preds = %122, %157, %116, %.
   br i1 %182, label %.preheader.sink.split, label %183
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %181, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 1
   %185 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %184, ptr noundef nonnull dereferenceable(1) %168) #14
   %186 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %173)
   %187 = icmp sgt i32 %186, -1
@@ -407,7 +407,7 @@ open_file_from_debug_link.exit.i:                 ; preds = %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %177, ptr noundef nonnull align 1 dereferenceable(15) @debug_file_directory, i64 15, i1 false) #14
   %193 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %177, ptr noundef nonnull readonly dereferenceable(1) %1) #14
   %194 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %177, i32 noundef 47) #17
-  %195 = getelementptr inbounds i8, ptr %194, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1
   %196 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %195, ptr noundef nonnull dereferenceable(1) %168) #14
   %197 = load i32, ptr @open_file_from_debug_link.crc, align 4
   %198 = call fastcc i32 @open_debug_file(ptr noundef %177, i32 noundef %197)
@@ -443,7 +443,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
   br label %205
 
 205:                                              ; preds = %204, %202
-  %206 = getelementptr inbounds i8, ptr %.1.lcssa226229234, i64 16
+  %206 = getelementptr inbounds nuw i8, ptr %.1.lcssa226229234, i64 16
   %207 = load ptr, ptr %206, align 8
   %.not13.i = icmp eq ptr %207, null
   br i1 %.not13.i, label %209, label %208
@@ -453,7 +453,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
   br label %209
 
 209:                                              ; preds = %208, %205
-  %210 = getelementptr inbounds i8, ptr %.1.lcssa226229234, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %.1.lcssa226229234, i64 24
   %211 = load ptr, ptr %210, align 8
   %.not14.i = icmp eq ptr %211, null
   br i1 %.not14.i, label %.preheader.sink.split, label %212
@@ -494,7 +494,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
 .lr.ph194:                                        ; preds = %.preheader, %220
   %216 = phi i16 [ %221, %220 ], [ %215, %.preheader ]
   %indvars.iv214 = phi i64 [ %indvars.iv.next215, %220 ], [ 0, %.preheader ]
-  %217 = getelementptr inbounds %struct.elf_section, ptr %17, i64 %indvars.iv214, i32 1
+  %217 = getelementptr inbounds nuw %struct.elf_section, ptr %17, i64 %indvars.iv214, i32 1
   %218 = load ptr, ptr %217, align 8
   %.not139 = icmp eq ptr %218, null
   br i1 %.not139, label %220, label %219
@@ -537,7 +537,7 @@ define hidden void @destroy_symtab(ptr noundef %0) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %4, %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not13 = icmp eq ptr %7, null
   br i1 %.not13, label %9, label %8
@@ -547,7 +547,7 @@ define hidden void @destroy_symtab(ptr noundef %0) local_unnamed_addr #1 {
   br label %9
 
 9:                                                ; preds = %8, %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not14 = icmp eq ptr %11, null
   br i1 %.not14, label %14, label %12
@@ -580,7 +580,7 @@ define hidden i64 @search_symbol(ptr noundef readonly %0, i64 noundef %1, ptr no
   br i1 %.not, label %23, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not15 = icmp eq ptr %8, null
   br i1 %.not15, label %23, label %9
@@ -593,16 +593,16 @@ define hidden i64 @search_symbol(ptr noundef readonly %0, i64 noundef %1, ptr no
   br i1 %.not16, label %.sink.split, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, %1
   %.not17 = icmp eq ptr %3, null
   br i1 %.not17, label %.sink.split, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr %3, align 4
@@ -630,31 +630,31 @@ define hidden ptr @nearest_symbol(ptr noundef readonly %0, i64 noundef %1, ptr n
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not27 = icmp eq i64 %5, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %9 = getelementptr inbounds %struct.elf_symbol, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw %struct.elf_symbol, ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %22, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8
   %.not23 = icmp ult i64 %1, %13
   br i1 %.not23, label %22, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %13
   %18 = icmp ult i64 %1, %17
@@ -739,7 +739,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @open_debug_file(ptr nound
   %11 = phi i64 [ %24, %gnu_debuglink_crc32.exit ], [ %8, %6 ]
   %.01114 = phi i32 [ %.0.lcssa.i, %gnu_debuglink_crc32.exit ], [ 0, %6 ]
   %12 = and i64 %11, 2147483647
-  %13 = getelementptr inbounds i8, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %gnu_debuglink_crc32.exit, label %.lr.ph.preheader.i
 
@@ -754,11 +754,11 @@ define internal fastcc range(i32 -1, -2147483648) i32 @open_debug_file(ptr nound
   %.0.tr.i = trunc i32 %.011.i to i8
   %.narrow.i = xor i8 %15, %.0.tr.i
   %16 = zext i8 %.narrow.i to i64
-  %17 = getelementptr inbounds [256 x i32], ptr @gnu_debuglink_crc32.crc32_table, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i32], ptr @gnu_debuglink_crc32.crc32_table, i64 0, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = lshr i32 %.011.i, 8
   %20 = xor i32 %18, %19
-  %21 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 1
   %22 = icmp ult ptr %21, %13
   br i1 %22, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !6
 

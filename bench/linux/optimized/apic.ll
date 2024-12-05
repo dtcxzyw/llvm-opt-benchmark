@@ -637,7 +637,7 @@ define internal fastcc void @setup_APIC_timer() unnamed_addr #1 align 16 {
   %16 = zext nneg i32 %15 to i64
   %17 = sub nsw i64 0, %16
   %18 = getelementptr i64, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %18, ptr %19, align 16
   %20 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_info, i64 56)) #19, !srcloc !19
   %21 = and i64 %20, 16777216
@@ -645,13 +645,13 @@ define internal fastcc void @setup_APIC_timer() unnamed_addr #1 align 16 {
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %2, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @.str.24, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, -18
   store i32 %27, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @lapic_next_deadline, ptr %28, align 8
   %29 = load i32, ptr @tsc_khz, align 4
   %30 = mul i32 %29, 125
@@ -871,7 +871,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @calibrate_APIC_clock() unna
   br label %164
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %4, i64 60
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %123 = load i32, ptr %122, align 4
   %124 = and i32 %123, -17
   store i32 %124, ptr %122, align 4
@@ -986,7 +986,7 @@ define dso_local void @setup_secondary_APIC_clock() local_unnamed_addr #1 align 
   %16 = zext nneg i32 %15 to i64
   %17 = sub nsw i64 0, %16
   %18 = getelementptr i64, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %2, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %18, ptr %19, align 16
   %20 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds (i8, ptr @cpu_info, i64 56)) #19, !srcloc !19
   %21 = and i64 %20, 16777216
@@ -994,13 +994,13 @@ define dso_local void @setup_secondary_APIC_clock() local_unnamed_addr #1 align 
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %9
-  %24 = getelementptr inbounds i8, ptr %2, i64 152
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @.str.24, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, -18
   store i32 %27, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @lapic_next_deadline, ptr %28, align 8
   %29 = load i32, ptr @tsc_khz, align 4
   %30 = mul i32 %29, 125
@@ -1020,7 +1020,7 @@ define dso_local void @setup_secondary_APIC_clock() local_unnamed_addr #1 align 
 define dso_local void @sysvec_apic_timer_interrupt(ptr noundef %0) local_unnamed_addr #6 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #17
   tail call void asm sideeffect "1038: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1038b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1038) #17, !srcloc !30
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -1089,7 +1089,7 @@ define internal void @__sysvec_apic_timer_interrupt(ptr noundef %0) #1 align 16 
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_local_timer_entry(ptr noundef %15, i32 noundef 236) #17
   br label %17
@@ -1118,7 +1118,7 @@ define internal void @__sysvec_apic_timer_interrupt(ptr noundef %0) #1 align 16 
 29:                                               ; preds = %24
   %30 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !49
   %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44, i32 noundef %30) #18
-  %32 = getelementptr inbounds i8, ptr %26, i64 60
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 60
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 16
   %35 = icmp eq i32 %34, 0
@@ -1158,7 +1158,7 @@ define internal void @__sysvec_apic_timer_interrupt(ptr noundef %0) #1 align 16 
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i32 @__SCT__tp_func_local_timer_exit(ptr noundef %53, i32 noundef 236) #17
   br label %55
@@ -1556,7 +1556,7 @@ define internal fastcc void @setup_local_APIC() unnamed_addr #1 align 16 {
   %9 = and i32 %8, -257
   tail call void @__SCT__apic_call_write(i32 noundef 240, i32 noundef %9) #17
   %10 = load ptr, ptr @apic, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %17, label %14
@@ -1576,7 +1576,7 @@ define internal fastcc void @setup_local_APIC() unnamed_addr #1 align 16 {
 
 17:                                               ; preds = %._crit_edge, %7
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %10, %7 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 168
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
@@ -1723,7 +1723,7 @@ define internal fastcc void @setup_local_APIC() unnamed_addr #1 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @end_local_APIC_setup() unnamed_addr #1 align 16 {
   %1 = load ptr, ptr @apic, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
   %5 = icmp eq i8 %4, 0
@@ -1872,7 +1872,7 @@ define internal fastcc noundef zeroext i1 @apic_validate_deadline_timer() unname
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = load i32, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 308), align 4
@@ -1955,7 +1955,7 @@ define dso_local void @spurious_interrupt(ptr noundef %0, i64 noundef %1) local_
   %4 = trunc i64 %1 to i32
   %5 = and i32 %4, 255
   tail call void asm sideeffect "1043: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1043b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1043) #17, !srcloc !68
-  %6 = getelementptr inbounds i8, ptr %0, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 3
   %9 = icmp eq i64 %8, 0
@@ -2001,7 +2001,7 @@ define internal void @__spurious_interrupt(ptr nocapture readnone %0, i32 nounde
 define dso_local void @sysvec_spurious_apic_interrupt(ptr noundef %0) local_unnamed_addr #6 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #17
   tail call void asm sideeffect "1045: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1045) #17, !srcloc !75
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -2045,7 +2045,7 @@ define internal void @__sysvec_spurious_apic_interrupt(ptr nocapture readnone %0
 define dso_local void @sysvec_error_interrupt(ptr noundef %0) local_unnamed_addr #6 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #17
   tail call void asm sideeffect "1047: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1047) #17, !srcloc !82
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -2101,7 +2101,7 @@ define internal void @__sysvec_error_interrupt(ptr nocapture readnone %0) #1 ali
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_error_apic_entry(ptr noundef %13, i32 noundef 254) #17
   br label %15
@@ -2204,7 +2204,7 @@ define internal void @__sysvec_error_interrupt(ptr nocapture readnone %0) #1 ali
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @__SCT__tp_func_error_apic_exit(ptr noundef %69, i32 noundef 254) #17
   br label %71
@@ -2473,11 +2473,11 @@ declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__irq_msi_compose_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i64 0, ptr %4, align 4
   store i32 -18874368, ptr %1, align 4
   %5 = load ptr, ptr @apic, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load i8, ptr %6, align 8
   %8 = shl i8 %7, 1
   %9 = and i8 %8, 4
@@ -2489,14 +2489,14 @@ define dso_local void @__irq_msi_compose_msg(ptr nocapture noundef readonly %0, 
   %14 = and i32 %13, 1044480
   %15 = or disjoint i32 %11, %14
   store i32 %15, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = trunc i32 %18 to i16
   %20 = and i16 %19, 255
   store i16 %20, ptr %16, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %21, align 4
   %22 = load i32, ptr %0, align 4
   br i1 %2, label %23, label %25
@@ -2528,7 +2528,7 @@ define dso_local i32 @x86_msi_msg_get_destid(ptr nocapture noundef readonly %0, 
   br i1 %1, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, -256
   %10 = or disjoint i32 %9, %5
@@ -2684,7 +2684,7 @@ sub_0:                                            ; preds = %1
   br i1 %.not, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   %9 = sub nsw i32 108, %8
@@ -2692,7 +2692,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not6, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = sub nsw i32 108, %12
@@ -2722,7 +2722,7 @@ sub_02:                                           ; preds = %17
   br i1 %.not7, label %sub_13, label %.tail1
 
 sub_13:                                           ; preds = %sub_02
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = sub nsw i32 115, %24
@@ -2730,7 +2730,7 @@ sub_13:                                           ; preds = %sub_02
   br i1 %.not8, label %sub_24, label %.tail1
 
 sub_24:                                           ; preds = %sub_13
-  %26 = getelementptr inbounds i8, ptr %0, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %27 = load i8, ptr %26, align 1
   %28 = zext i8 %27 to i32
   %29 = sub nsw i32 112, %28
@@ -2784,7 +2784,7 @@ define internal noundef i32 @lapic_next_event(i64 noundef %0, ptr nocapture read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @lapic_timer_set_periodic(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
   %5 = icmp eq i32 %4, 0
@@ -2807,7 +2807,7 @@ define internal noundef i32 @lapic_timer_set_periodic(ptr nocapture noundef read
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @lapic_timer_set_oneshot(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
   %5 = icmp eq i32 %4, 0
@@ -2838,7 +2838,7 @@ define internal noundef i32 @lapic_timer_set_oneshot(ptr nocapture noundef reado
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @lapic_timer_shutdown(ptr nocapture noundef readonly %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 16
   %5 = icmp eq i32 %4, 0
@@ -3118,7 +3118,7 @@ declare dso_local i64 @cachemode2protval(i32 noundef) local_unnamed_addr #5
 define internal fastcc void @apic_read_boot_cpu_id() unnamed_addr #0 section ".init.text" align 16 {
   %1 = tail call i32 @__SCT__apic_call_read(i32 noundef 32) #17
   %2 = load ptr, ptr @apic, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(i32 noundef %1) #17
   store i32 %5, ptr @boot_cpu_physical_apicid, align 4
@@ -3192,7 +3192,7 @@ define internal fastcc void @handle_spurious_interrupt(i8 noundef zeroext %0) un
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @__SCT__tp_func_spurious_apic_entry(ptr noundef %14, i32 noundef %2) #17
   br label %16
@@ -3263,7 +3263,7 @@ define internal fastcc void @handle_spurious_interrupt(i8 noundef zeroext %0) un
   br i1 %51, label %56, label %52
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %50, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 @__SCT__tp_func_spurious_apic_exit(ptr noundef %54, i32 noundef %2) #17
   br label %56
@@ -3304,7 +3304,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @apic_bsp_up_setup() unnamed_addr #0 section ".init.text" align 16 {
   %1 = load ptr, ptr @apic, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @boot_cpu_physical_apicid, align 4
   %5 = tail call i32 %3(i32 noundef %4) #17
@@ -3430,7 +3430,7 @@ define internal void @lapic_resume() #1 align 16 {
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !8
   call void @mask_ioapic_entries() #17
   %5 = load ptr, ptr @legacy_pic, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   call void %7() #17
   %8 = load i8, ptr @boot_cpu_data, align 8
@@ -3545,7 +3545,7 @@ define internal noundef i32 @set_multi(ptr nocapture noundef readonly %0) #1 ali
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.75, ptr noundef %5) #18
   store i1 true, ptr @multi, align 4

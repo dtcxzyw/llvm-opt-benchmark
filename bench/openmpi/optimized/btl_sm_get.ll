@@ -20,9 +20,9 @@ define i32 @mca_btl_sm_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 n
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr @mca_smsc, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %21 = load ptr, ptr %20, align 8
   %22 = inttoptr i64 %3 to ptr
   %23 = tail call i32 %19(ptr noundef %21, ptr noundef %2, ptr noundef %22, i64 noundef %6, ptr noundef %5) #2

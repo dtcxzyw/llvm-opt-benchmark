@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @geqo_selection(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, double noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = sitofp i32 %7 to double
   %9 = fadd double %4, -1.000000e+00
@@ -112,7 +112,7 @@ linear_rand.exit24:                               ; preds = %60
   %70 = load ptr, ptr %3, align 8
   %71 = sext i32 %45 to i64
   %72 = getelementptr %struct.Chromosome, ptr %70, i64 %71
-  %73 = getelementptr inbounds i8, ptr %3, i64 12
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %74 = load i32, ptr %73, align 4
   tail call void @geqo_copy(ptr noundef %0, ptr noundef %1, ptr noundef %72, i32 noundef %74) #4
   %75 = load ptr, ptr %3, align 8

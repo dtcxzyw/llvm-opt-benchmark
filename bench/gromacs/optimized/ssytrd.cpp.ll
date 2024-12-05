@@ -213,8 +213,8 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds float, ptr %21, i64 %106
   %108 = zext nneg i32 %.1162188 to i64
-  %109 = getelementptr inbounds float, ptr %23, i64 %108
-  %110 = getelementptr inbounds float, ptr %24, i64 %108
+  %109 = getelementptr inbounds nuw float, ptr %23, i64 %108
+  %110 = getelementptr inbounds nuw float, ptr %24, i64 %108
   call void @slatrd_(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %107, ptr noundef nonnull %3, ptr noundef nonnull %109, ptr noundef nonnull %110, ptr noundef nonnull %7, ptr noundef nonnull %16)
   %111 = load i32, ptr %1, align 4
   %112 = load i32, ptr %13, align 4
@@ -245,7 +245,7 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv196 = phi i64 [ %108, %.lr.ph184.preheader ], [ %indvars.iv.next197, %.lr.ph184 ]
   %indvars198 = trunc i64 %indvars.iv196 to i32
-  %127 = getelementptr inbounds float, ptr %23, i64 %indvars.iv196
+  %127 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv196
   %128 = load float, ptr %127, align 4
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %129 = mul nsw i64 %indvars.iv196, %99
@@ -257,7 +257,7 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %134 = getelementptr float, ptr %21, i64 %indvars.iv196
   %135 = getelementptr float, ptr %134, i64 %133
   %136 = load float, ptr %135, align 4
-  %137 = getelementptr inbounds float, ptr %22, i64 %indvars.iv196
+  %137 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv196
   store float %136, ptr %137, align 4
   %.not.not = icmp samesign ult i64 %indvars.iv.next197, %126
   br i1 %.not.not, label %.lr.ph184, label %._crit_edge185, !llvm.loop !7
@@ -283,9 +283,9 @@ define void @ssytrd_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds float, ptr %21, i64 %143
   %145 = zext nneg i32 %.1162.lcssa to i64
-  %146 = getelementptr inbounds float, ptr %22, i64 %145
-  %147 = getelementptr inbounds float, ptr %23, i64 %145
-  %148 = getelementptr inbounds float, ptr %24, i64 %145
+  %146 = getelementptr inbounds nuw float, ptr %22, i64 %145
+  %147 = getelementptr inbounds nuw float, ptr %23, i64 %145
+  %148 = getelementptr inbounds nuw float, ptr %24, i64 %145
   call void @ssytd2_(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %144, ptr noundef nonnull %3, ptr noundef nonnull %146, ptr noundef nonnull %147, ptr noundef nonnull %148, ptr noundef nonnull %15)
   br label %149
 

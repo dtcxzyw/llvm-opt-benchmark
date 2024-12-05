@@ -81,7 +81,7 @@ define hidden noundef ptr @normalize_path(ptr noundef %0) local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
   %.01925 = phi i8 [ 0, %.lr.ph.preheader ], [ %6, %11 ]
-  %5 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %.01925, 47
   %8 = icmp eq i8 %6, 47
@@ -216,7 +216,7 @@ define hidden noalias noundef ptr @resolve(ptr nocapture noundef readonly %0, pt
 8:                                                ; preds = %2
   %9 = add i64 %3, 4294967295
   %10 = and i64 %9, 4294967295
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 47
   %14 = sext i1 %13 to i32
@@ -297,7 +297,7 @@ define hidden noalias noundef ptr @resolve(ptr nocapture noundef readonly %0, pt
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %54, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %58 = and i64 %5, 2147483647
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %57, ptr nonnull align 1 %1, i64 %58, i1 false)
   br label %59
@@ -324,7 +324,7 @@ define hidden noundef ptr @fromURIPath(ptr noundef readonly %0) local_unnamed_ad
 5:                                                ; preds = %1
   %6 = add i64 %2, 4294967295
   %7 = and i64 %6, 4294967295
-  %8 = getelementptr inbounds i8, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 47
   br i1 %10, label %11, label %20
@@ -342,7 +342,7 @@ define hidden noundef ptr @fromURIPath(ptr noundef readonly %0) local_unnamed_ad
 
 18:                                               ; preds = %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull align 1 %0, i64 %7, i1 false)
-  %19 = getelementptr inbounds i8, ptr %13, i64 %7
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 %7
   store i8 0, ptr %19, align 1
   br label %20
 

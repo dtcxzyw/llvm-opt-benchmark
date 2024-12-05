@@ -76,7 +76,7 @@ define void @procfs_sprintf(ptr nocapture noundef writeonly %0, i64 noundef %1, 
   %17 = zext nneg i32 %narrow to i64
   %. = call i64 @llvm.umin.i64(i64 %1, i64 %17)
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr inbounds i8, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %19, i64 %., i1 false)
   br label %26
 

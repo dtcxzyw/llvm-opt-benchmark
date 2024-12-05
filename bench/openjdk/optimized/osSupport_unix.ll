@@ -33,14 +33,14 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN9osSupport4size
   br i1 %4, label %13, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 32768
   %.not.not = icmp eq i32 %8, 0
   br i1 %.not.not, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i64, ptr %10, align 8
   %sext = shl i64 %11, 32
   %12 = ashr exact i64 %sext, 32

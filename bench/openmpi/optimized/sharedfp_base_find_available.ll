@@ -28,9 +28,9 @@ define range(i32 -1, 1) i32 @mca_sharedfp_base_find_available(i1 noundef zeroext
   br i1 %.not17, label %.split16, label %.split
 
 .split:                                           ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.01520, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.01520, i64 16
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.01520, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %.01520, i64 40
   br label %.split16
 
 .split16:                                         ; preds = %.lr.ph, %.split
@@ -44,7 +44,7 @@ define range(i32 -1, 1) i32 @mca_sharedfp_base_find_available(i1 noundef zeroext
 9:                                                ; preds = %.split16
   %10 = load ptr, ptr %.sink.in, align 8
   tail call void @mca_base_component_repository_release(ptr noundef %10) #3
-  %11 = getelementptr inbounds i8, ptr %.01520, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01520, i64 8
   %12 = load i8, ptr @opal_uses_threads, align 1
   %13 = trunc i8 %12 to i1
   br i1 %13, label %14, label %17
@@ -68,7 +68,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %14, %17
 
 22:                                               ; preds = %opal_thread_add_fetch_32.exit
   %23 = load ptr, ptr %.01520, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %.not6.i = icmp eq ptr %26, null
@@ -78,7 +78,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %14, %17
   %27 = phi ptr [ %29, %.lr.ph.i ], [ %26, %22 ]
   %.07.i = phi ptr [ %28, %.lr.ph.i ], [ %25, %22 ]
   tail call void %27(ptr noundef nonnull %.01520) #3
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not.i = icmp eq ptr %29, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -119,24 +119,24 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 
 6:                                                ; preds = %3
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #3
   br label %9
 
 9:                                                ; preds = %3, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -158,9 +158,9 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 29:                                               ; preds = %26
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   %31 = load i32, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load i32, ptr %34, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %30, ptr noundef nonnull @.str.2, i32 noundef %31, i32 noundef %33, i32 noundef %35) #3
   br label %49
@@ -170,12 +170,12 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 
 37:                                               ; preds = %36
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 84
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %38, ptr noundef nonnull @.str.3, ptr noundef nonnull %39) #3
   br label %40
 
 40:                                               ; preds = %36, %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load ptr, ptr %41, align 8
   %.not18 = icmp eq ptr %42, null
   br i1 %.not18, label %49, label %43
@@ -189,7 +189,7 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 
 46:                                               ; preds = %45
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 84
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %47, ptr noundef nonnull @.str.4, ptr noundef nonnull %48) #3
   br label %49
 

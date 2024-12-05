@@ -41,8 +41,8 @@ entry:
   store float %div6, ptr @_ZN12_GLOBAL__N_142mfStopwatchCyclesToMicrosecondsCoefficientE, align 4
   %div8 = select i1 %.b10, float 1.000000e+00, float 1.000000e+09
   store float %div8, ptr @_ZN12_GLOBAL__N_141mfStopwatchCyclesToNanosecondsCoefficientE, align 4
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
-  %tv_nsec.i15 = getelementptr inbounds i8, ptr %ts.i12, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
+  %tv_nsec.i15 = getelementptr inbounds nuw i8, ptr %ts.i12, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit20
@@ -130,7 +130,7 @@ if.then.i:                                        ; preds = %if.then
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %if.then, %if.then.i
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %1 = load i64, ptr %ts.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
@@ -147,7 +147,7 @@ if.then.i7:                                       ; preds = %_ZN2EA4StdC9Stopwat
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit9
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit9: ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit, %if.then.i7
-  %tv_nsec.i4 = getelementptr inbounds i8, ptr %ts.i1, i64 8
+  %tv_nsec.i4 = getelementptr inbounds nuw i8, ptr %ts.i1, i64 8
   %4 = load i64, ptr %tv_nsec.i4, align 8
   %5 = load i64, ptr %ts.i1, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i1)
@@ -183,8 +183,8 @@ entry:
 define dso_local void @_ZN2EA4StdC9StopwatchC2Eib(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %nUnits, i1 noundef zeroext %bStartImmediately) unnamed_addr #1 align 2 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
-  %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   store i32 %nUnits, ptr %mnUnits, align 8
   store float 1.000000e+00, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
@@ -194,7 +194,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = load float, ptr %switch.load, align 4
   store float %2, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
@@ -235,7 +235,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i: ; preds = %if.then.i.i, %if.else.i
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
   %6 = load i64, ptr %tv_nsec.i.i, align 8
   %7 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul i64 %7, 1000000000
@@ -255,9 +255,9 @@ if.end3:                                          ; preds = %if.end6.sink.split.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN2EA4StdC9Stopwatch8SetUnitsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, i32 noundef %nUnits) local_unnamed_addr #3 align 2 {
 entry:
-  %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %nUnits, ptr %mnUnits, align 8
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   store float 1.000000e+00, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %switch.tableidx = add i32 %nUnits, -2
   %0 = icmp ult i32 %switch.tableidx, 5
@@ -265,7 +265,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 0, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = load float, ptr %switch.load, align 4
   store float %2, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
@@ -284,7 +284,7 @@ entry:
   br i1 %tobool.not, label %if.end10, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %mnUnits, align 8
   %cmp = icmp eq i32 %1, 1
   br i1 %cmp, label %cond.true, label %cond.false
@@ -304,7 +304,7 @@ if.then.i:                                        ; preds = %cond.false
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %cond.false, %if.then.i
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %3 = load i64, ptr %tv_nsec.i, align 8
   %4 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %4, 1000000000
@@ -322,14 +322,14 @@ cond.end:                                         ; preds = %_ZN2EA4StdC9Stopwat
 
 if.then5:                                         ; preds = %cond.end
   %sub6 = sub nuw i64 %sub, %6
-  %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
+  %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load i64, ptr %mnTotalElapsedTime, align 8
   %add = add i64 %sub6, %7
   store i64 %add, ptr %mnTotalElapsedTime, align 8
   br label %if.end
 
 if.else:                                          ; preds = %cond.end
-  %mnTotalElapsedTime7 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnTotalElapsedTime7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %8 = load i64, ptr %mnTotalElapsedTime7, align 8
   %add8 = add i64 %8, 1
   store i64 %add8, ptr %mnTotalElapsedTime7, align 8
@@ -347,14 +347,14 @@ if.end10:                                         ; preds = %if.end, %entry
 define dso_local noundef i64 @_ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
-  %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
+  %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnTotalElapsedTime, align 8
   %1 = load i64, ptr %this, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %mnUnits, align 8
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then2, label %if.else
@@ -374,7 +374,7 @@ if.then.i:                                        ; preds = %if.else
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %if.else, %if.then.i
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %4 = load i64, ptr %tv_nsec.i, align 8
   %5 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %5, 1000000000
@@ -401,13 +401,13 @@ if.else8:                                         ; preds = %if.end
 
 if.end11:                                         ; preds = %if.then6, %if.else8, %entry
   %nFinalTotalElapsedTime64.0 = phi i64 [ %add, %if.then6 ], [ %add9, %if.else8 ], [ %0, %entry ]
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   %8 = load float, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %cmp12 = fcmp oeq float %8, 0.000000e+00
   br i1 %cmp12, label %if.then13, label %if.end15
 
 if.then13:                                        ; preds = %if.end11
-  %mnUnits14 = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits14 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %9 = load i32, ptr %mnUnits14, align 8
   store float 1.000000e+00, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %switch.tableidx = add i32 %9, -2
@@ -416,7 +416,7 @@ if.then13:                                        ; preds = %if.end11
 
 switch.lookup:                                    ; preds = %if.then13
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZNK2EA4StdC9Stopwatch14GetElapsedTimeEv, i64 0, i64 %11
   %switch.load = load ptr, ptr %switch.gep, align 8
   %12 = load float, ptr %switch.load, align 4
   store float %12, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
@@ -442,7 +442,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 1
@@ -463,7 +463,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i, i64 8
+  %tv_nsec.i.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i.i, align 8
   %4 = load i64, ptr %ts.i.i.i, align 8
   %mul.i.i.i = mul i64 %4, 1000000000
@@ -478,12 +478,12 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
 
 if.end:                                           ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit, %entry
   %conv = uitofp i64 %nElapsedTime to float
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   %5 = load float, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %div = fdiv float %conv, %5
   %add = fadd float %div, 0x3FDFFFD600000000
   %conv2 = fptoui float %add to i64
-  %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
+  %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %conv2, ptr %mnTotalElapsedTime, align 8
   ret void
 }
@@ -492,14 +492,14 @@ if.end:                                           ; preds = %_ZN2EA4StdC9Stopwat
 define dso_local noundef float @_ZNK2EA4StdC9Stopwatch19GetElapsedTimeFloatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
-  %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
+  %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnTotalElapsedTime, align 8
   %1 = load i64, ptr %this, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnUnits = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %mnUnits, align 8
   %cmp = icmp eq i32 %2, 1
   br i1 %cmp, label %if.then2, label %if.else
@@ -519,7 +519,7 @@ if.then.i:                                        ; preds = %if.else
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %if.else, %if.then.i
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %4 = load i64, ptr %tv_nsec.i, align 8
   %5 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %5, 1000000000
@@ -547,7 +547,7 @@ if.else8:                                         ; preds = %if.end
 if.end11:                                         ; preds = %if.then6, %if.else8, %entry
   %nFinalTotalElapsedTime64.0 = phi i64 [ %add, %if.then6 ], [ %add9, %if.else8 ], [ %0, %entry ]
   %conv = uitofp i64 %nFinalTotalElapsedTime64.0 to float
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   %8 = load float, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %mul = fmul float %8, %conv
   ret float %mul
@@ -562,7 +562,7 @@ entry:
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %mnUnits.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 16, i1 false)
   %1 = load i32, ptr %mnUnits.i.i, align 8
   %cmp.i.i = icmp eq i32 %1, 1
@@ -583,7 +583,7 @@ if.then.i.i.i:                                    ; preds = %if.else.i.i
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i.i: ; preds = %if.then.i.i.i, %if.else.i.i
-  %tv_nsec.i.i.i = getelementptr inbounds i8, ptr %ts.i.i.i, i64 8
+  %tv_nsec.i.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i.i, i64 8
   %3 = load i64, ptr %tv_nsec.i.i.i, align 8
   %4 = load i64, ptr %ts.i.i.i, align 8
   %mul.i.i.i = mul i64 %4, 1000000000
@@ -597,11 +597,11 @@ _ZN2EA4StdC9Stopwatch7RestartEv.exit:             ; preds = %if.then2.i.i, %_ZN2
   br label %if.end
 
 if.end:                                           ; preds = %_ZN2EA4StdC9Stopwatch7RestartEv.exit, %entry
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   %5 = load float, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %div = fdiv float %fElapsedTime, %5
   %conv = fptoui float %div to i64
-  %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
+  %mnTotalElapsedTime = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %conv, ptr %mnTotalElapsedTime, align 8
   ret void
 }
@@ -708,19 +708,19 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %entry, %if.then.i
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %1 = load i64, ptr %ts.i, align 8
   %mul.i = mul i64 %1, 1000000000
   %add.i = add i64 %mul.i, %0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   %conv = uitofp i64 %nLimit to float
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load float, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %div = fdiv float %conv, %2
   %conv2 = fptoui float %div to i64
   %add = add i64 %add.i, %conv2
-  %mnEndTime = getelementptr inbounds i8, ptr %this, i64 24
+  %mnEndTime = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %add, ptr %mnEndTime, align 8
   %3 = load i64, ptr %this, align 8
   %tobool.not.i = icmp eq i64 %3, 0
@@ -728,7 +728,7 @@ _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %entry, %if.then.i
   br i1 %or.cond, label %if.then.i1, label %if.end
 
 if.then.i1:                                       ; preds = %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
-  %mnUnits.i = getelementptr inbounds i8, ptr %this, i64 16
+  %mnUnits.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i32, ptr %mnUnits.i, align 8
   %cmp.i2 = icmp eq i32 %4, 1
   br i1 %cmp.i2, label %if.then2.i, label %if.else.i
@@ -748,7 +748,7 @@ if.then.i.i:                                      ; preds = %if.else.i
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit.i: ; preds = %if.then.i.i, %if.else.i
-  %tv_nsec.i.i = getelementptr inbounds i8, ptr %ts.i.i, i64 8
+  %tv_nsec.i.i = getelementptr inbounds nuw i8, ptr %ts.i.i, i64 8
   %6 = load i64, ptr %tv_nsec.i.i, align 8
   %7 = load i64, ptr %ts.i.i, align 8
   %mul.i.i = mul i64 %7, 1000000000
@@ -779,17 +779,17 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit
 
 _ZN2EA4StdC9Stopwatch17GetStopwatchCycleEv.exit:  ; preds = %entry, %if.then.i
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %0 = load i64, ptr %tv_nsec.i, align 8
   %1 = load i64, ptr %ts.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
-  %mnEndTime = getelementptr inbounds i8, ptr %this, i64 24
+  %mnEndTime = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %mnEndTime, align 8
   %mul.i.neg = mul i64 %1, -1000000000
   %add.i.neg = sub i64 %mul.i.neg, %0
   %sub = add i64 %add.i.neg, %2
   %conv = sitofp i64 %sub to float
-  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds i8, ptr %this, i64 20
+  %mfStopwatchCyclesToUnitsCoefficient = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load float, ptr %mfStopwatchCyclesToUnitsCoefficient, align 4
   %mul = fmul float %3, %conv
   ret float %mul

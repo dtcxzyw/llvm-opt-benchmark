@@ -431,7 +431,7 @@ define dso_local noundef nonnull ptr @arch_to_linker_arch(i32 noundef %0) local_
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [51 x ptr], ptr @switch.table.arch_to_linker_arch, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [51 x ptr], ptr @switch.table.arch_to_linker_arch, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -510,7 +510,7 @@ define dso_local nonnull ptr @llvm_target_machine_create() local_unnamed_addr #2
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.llvm_target_machine_create, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.llvm_target_machine_create, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = load i8, ptr @debug_log, align 1
   %16 = trunc i8 %15 to i1
@@ -638,7 +638,7 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   %4 = alloca %struct.X86Features, align 8
   %5 = alloca %struct.X86Features, align 8
   %6 = alloca %struct.StringSlice_, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 384
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %13, label %9
@@ -653,7 +653,7 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   unreachable
 
 13:                                               ; preds = %9, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 224
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.thread
@@ -671,11 +671,11 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
 .thread:                                          ; preds = %13, %17
   %21 = phi i32 [ %18, %17 ], [ %15, %13 ]
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds [25 x ptr], ptr @arch_to_target_triple, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [25 x ptr], ptr @arch_to_target_triple, i64 0, i64 %22
   %24 = load ptr, ptr %23, align 8
   store ptr %24, ptr @platform_target, align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @platform_target, i64 52), align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %28 [
     i32 -1, label %27
@@ -722,7 +722,7 @@ define dso_local void @target_setup(ptr nocapture noundef %0) local_unnamed_addr
   %43 = load ptr, ptr @platform_target, align 8
   %44 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #18
   store ptr %43, ptr %6, align 8
-  %45 = getelementptr inbounds i8, ptr %6, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %44, ptr %45, align 8
   %46 = call { ptr, i64 } @slice_next_token(ptr noundef nonnull %6, i8 noundef signext 45) #17
   %47 = extractvalue { ptr, i64 } %46, 0
@@ -1137,25 +1137,25 @@ sub_0:                                            ; preds = %slice_strcmp.exit39
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %231 = getelementptr inbounds i8, ptr %220, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %220, i64 1
   %232 = load i8, ptr %231, align 1
   %.not262 = icmp eq i8 %232, 103
   br i1 %.not262, label %slice_strcmp.exit42.i.tail, label %slice_strcmp.exit148
 
 slice_strcmp.exit42.i.tail:                       ; preds = %sub_1
-  %233 = getelementptr inbounds i8, ptr %220, i64 2
+  %233 = getelementptr inbounds nuw i8, ptr %220, i64 2
   %234 = load i8, ptr %233, align 1
   %235 = icmp eq i8 %234, 113
   br i1 %235, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit148
 
 sub_1252:                                         ; preds = %sub_0
-  %236 = getelementptr inbounds i8, ptr %220, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %220, i64 1
   %237 = load i8, ptr %236, align 1
   %.not264 = icmp eq i8 %237, 115
   br i1 %.not264, label %slice_strcmp.exit45.i.tail, label %slice_strcmp.exit148
 
 slice_strcmp.exit45.i.tail:                       ; preds = %sub_1252
-  %238 = getelementptr inbounds i8, ptr %220, i64 2
+  %238 = getelementptr inbounds nuw i8, ptr %220, i64 2
   %239 = load i8, ptr %238, align 1
   %240 = icmp eq i8 %239, 108
   br i1 %240, label %vendor_from_llvm_string.exit, label %slice_strcmp.exit148
@@ -1434,13 +1434,13 @@ sub_0255:                                         ; preds = %._crit_edge.i73
   br i1 %.not265, label %sub_1256, label %slice_strcmp.exit169.thread
 
 sub_1256:                                         ; preds = %sub_0255
-  %347 = getelementptr inbounds i8, ptr %339, i64 1
+  %347 = getelementptr inbounds nuw i8, ptr %339, i64 1
   %348 = load i8, ptr %347, align 1
   %.not266 = icmp eq i8 %348, 110
   br i1 %.not266, label %slice_strcmp.exit.i75.tail, label %slice_strcmp.exit169.thread
 
 slice_strcmp.exit.i75.tail:                       ; preds = %sub_1256
-  %349 = getelementptr inbounds i8, ptr %339, i64 2
+  %349 = getelementptr inbounds nuw i8, ptr %339, i64 2
   %350 = load i8, ptr %349, align 1
   %351 = icmp eq i8 %350, 117
   br i1 %351, label %environment_type_from_llvm_string.exit, label %slice_strcmp.exit169.thread
@@ -1541,7 +1541,7 @@ slice_strcmp.exit169.thread:                      ; preds = %._crit_edge.i73, %s
 environment_type_from_llvm_string.exit:           ; preds = %slice_strcmp.exit.i75.tail, %slice_strcmp.exit51.i, %slice_strcmp.exit54.i, %slice_strcmp.exit57.i, %slice_strcmp.exit60.i, %slice_strcmp.exit63.i, %slice_strcmp.exit184, %slice_strcmp.exit181, %slice_strcmp.exit178, %slice_strcmp.exit175, %slice_strcmp.exit172, %slice_strcmp.exit169, %slice_strcmp.exit169.thread, %375, %377, %379, %381, %383, %385, %387, %389
   %.047.i = phi i32 [ 1, %slice_strcmp.exit.i75.tail ], [ 2, %slice_strcmp.exit51.i ], [ 3, %slice_strcmp.exit54.i ], [ 5, %slice_strcmp.exit57.i ], [ 4, %slice_strcmp.exit60.i ], [ 6, %slice_strcmp.exit63.i ], [ 7, %slice_strcmp.exit184 ], [ 8, %slice_strcmp.exit181 ], [ 9, %slice_strcmp.exit178 ], [ 10, %slice_strcmp.exit175 ], [ 11, %slice_strcmp.exit172 ], [ 12, %slice_strcmp.exit169 ], [ 13, %slice_strcmp.exit169.thread ], [ 14, %375 ], [ 15, %377 ], [ 16, %379 ], [ 17, %381 ], [ 18, %383 ], [ 19, %385 ], [ 20, %387 ], [ %..i74, %389 ]
   store i32 %.047.i, ptr getelementptr inbounds (i8, ptr @platform_target, i64 44), align 4
-  %391 = getelementptr inbounds i8, ptr %0, i64 216
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %392 = load i32, ptr %391, align 8
   %393 = icmp eq i32 %392, -1
   br i1 %393, label %394, label %switch.lookup
@@ -1555,7 +1555,7 @@ switch.lookup:                                    ; preds = %394, %environment_t
   %396 = and i16 %395, -29
   store i16 %396, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
   %397 = zext nneg i32 %.077.i to i64
-  %switch.gep = getelementptr inbounds [36 x i8], ptr @switch.table.target_setup, i64 0, i64 %397
+  %switch.gep = getelementptr inbounds nuw [36 x i8], ptr @switch.table.target_setup, i64 0, i64 %397
   %switch.load = load i8, ptr %switch.gep, align 1
   store i8 %switch.load, ptr getelementptr inbounds (i8, ptr @platform_target, i64 273), align 1
   %398 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 32), align 8
@@ -1888,7 +1888,7 @@ os_target_supports_float128.exit.split:           ; preds = %os_target_supports_
   %indvars.iv = phi i64 [ 1, %os_target_supports_float128.exit.split ], [ %indvars.iv.next, %os_target_alignment_of_float.exit ]
   %438 = trunc nuw nsw i64 %indvars.iv to i32
   %439 = shl nuw nsw i32 4, %438
-  %440 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 60), i64 0, i64 %indvars.iv
+  %440 = getelementptr inbounds nuw [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 60), i64 0, i64 %indvars.iv
   switch i32 %404, label %445 [
     i32 30, label %os_is_apple.exit.i
     i32 2, label %os_is_apple.exit.i
@@ -1905,7 +1905,7 @@ os_target_alignment_of_int.exit.thread224:        ; preds = %437
   %.sroa.11.0.insert.shift.i228 = shl nuw nsw i64 %.sroa.11.0.insert.ext.i227, 32
   %.sroa.0.0.insert.insert.i230 = or disjoint i64 %.sroa.11.0.insert.shift.i228, %.sroa.11.0.insert.ext.i227
   store i64 %.sroa.0.0.insert.insert.i230, ptr %440, align 4
-  %441 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
+  %441 = getelementptr inbounds nuw [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
   br label %os_target_alignment_of_float.exit
 
 442:                                              ; preds = %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit, %os_target_supports_float128.exit
@@ -1968,7 +1968,7 @@ os_target_alignment_of_int.exit.thread:           ; preds = %450, %452, %453, %.
   %.sroa.0.0.insert.ext.i222 = zext nneg i32 %.sroa.0.0.i.ph to i64
   %.sroa.0.0.insert.insert.i223 = or disjoint i64 %.sroa.11.0.insert.shift.i221, %.sroa.0.0.insert.ext.i222
   store i64 %.sroa.0.0.insert.insert.i223, ptr %440, align 4
-  %455 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
+  %455 = getelementptr inbounds nuw [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
   br label %458
 
 os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i, %445, %449, %os_is_apple.exit57.thread.i
@@ -1979,7 +1979,7 @@ os_target_alignment_of_int.exit:                  ; preds = %os_is_apple.exit.i,
   %.sroa.0.0.insert.ext.i = zext nneg i32 %.sroa.0.0.i to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.11.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   store i64 %.sroa.0.0.insert.insert.i, ptr %440, align 4
-  %456 = getelementptr inbounds [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
+  %456 = getelementptr inbounds nuw [7 x %struct.AlignData], ptr getelementptr inbounds (i8, ptr @platform_target, i64 116), i64 0, i64 %indvars.iv
   switch i32 %404, label %default.unreachable [
     i32 32, label %465
     i32 5, label %457
@@ -2458,7 +2458,7 @@ target_setup_arm_abi.exit:                        ; preds = %497, %504, %526, %5
   %560 = call fastcc i32 @arch_pointer_bit_width(i32 noundef %475, i32 noundef %476)
   %561 = lshr i32 %560, 3
   store i32 %561, ptr getelementptr inbounds (i8, ptr @platform_target, i64 240), align 8
-  %562 = getelementptr inbounds i8, ptr %0, i64 328
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %563 = load i16, ptr %562, align 8
   %564 = shl i16 %563, 2
   %565 = ashr i16 %564, 12
@@ -2468,7 +2468,7 @@ target_setup_arm_abi.exit:                        ; preds = %497, %504, %526, %5
 
 switch.lookup302:                                 ; preds = %559
   %567 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep303 = getelementptr inbounds [4 x i32], ptr @switch.table.target_setup.4, i64 0, i64 %567
+  %switch.gep303 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.target_setup.4, i64 0, i64 %567
   %switch.load304 = load i32, ptr %switch.gep303, align 4
   store i32 %switch.load304, ptr getelementptr inbounds (i8, ptr @platform_target, i64 244), align 4
   br label %568
@@ -2537,8 +2537,8 @@ switch.lookup302:                                 ; preds = %559
   %597 = and i32 %595, -131073
   %598 = or disjoint i32 %597, %596
   store i32 %598, ptr getelementptr inbounds (i8, ptr @platform_target, i64 264), align 8
-  %599 = getelementptr inbounds i8, ptr %0, i64 328
-  %600 = getelementptr inbounds i8, ptr %0, i64 340
+  %599 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %600 = getelementptr inbounds nuw i8, ptr %0, i64 340
   %601 = load i32, ptr %600, align 4
   %.not.i107 = icmp eq i32 %601, -1
   br i1 %.not.i107, label %602, label %636
@@ -2549,10 +2549,10 @@ switch.lookup302:                                 ; preds = %559
   call fastcc void @x86_features_from_host(ptr noundef %3)
   call fastcc void @x86features_from_cpu(ptr noundef %4, i32 noundef 4)
   %.val.i.i = load i64, ptr %3, align 8
-  %603 = getelementptr inbounds i8, ptr %3, i64 8
+  %603 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val1.i.i = load i64, ptr %603, align 8
   %.val2.i.i = load i64, ptr %4, align 8
-  %604 = getelementptr inbounds i8, ptr %4, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val3.i.i = load i64, ptr %604, align 8
   %605 = and i64 %.val2.i.i, %.val.i.i
   %606 = icmp eq i64 %605, %.val2.i.i
@@ -2621,7 +2621,7 @@ x64_cpu_default.exit.i:                           ; preds = %622, %616, %610, %6
 630:                                              ; preds = %x64_cpu_default.exit.i
   %631 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20)
   %632 = zext nneg i32 %.0.i.i to i64
-  %633 = getelementptr inbounds [8 x ptr], ptr @x86_cpu_set, i64 0, i64 %632
+  %633 = getelementptr inbounds nuw [8 x ptr], ptr @x86_cpu_set, i64 0, i64 %632
   %634 = load ptr, ptr %633, align 8
   %635 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.203, ptr noundef %634)
   %putchar.i = call i32 @putchar(i32 10)
@@ -2677,7 +2677,7 @@ x86_cpu_from_set.exit.i:                          ; preds = %640, %639, %638, %6
 
 ._crit_edge44.i.i:                                ; preds = %x86_cpu_from_set.exit.i
   %.pre45.i.i = load i64, ptr %5, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre46.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   br label %655
 
@@ -2692,7 +2692,7 @@ x86_cpu_from_set.exit.i:                          ; preds = %640, %639, %638, %6
 
 649:                                              ; preds = %646, %._crit_edge.i.i
   %650 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %648, %646 ]
-  %651 = getelementptr inbounds i8, ptr %5, i64 8
+  %651 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %652 = load i64, ptr %651, align 8
   %653 = and i64 %650, -1157988054187638787
   %654 = and i64 %652, -8623235073
@@ -2702,14 +2702,14 @@ x86_cpu_from_set.exit.i:                          ; preds = %640, %639, %638, %6
   %656 = phi i64 [ %.pre46.i.i, %._crit_edge44.i.i ], [ %654, %649 ]
   %657 = phi i64 [ %.pre45.i.i, %._crit_edge44.i.i ], [ %653, %649 ]
   %658 = and i64 %657, -123148389319041
-  %659 = getelementptr inbounds i8, ptr %5, i64 8
+  %659 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %660 = and i64 %656, -35165044737
   store i64 %660, ptr %659, align 8
   br label %661
 
 661:                                              ; preds = %655, %._crit_edge47.i.i
   %662 = phi i64 [ %.pre48.i.i, %._crit_edge47.i.i ], [ %658, %655 ]
-  %663 = getelementptr inbounds i8, ptr %5, i64 16
+  %663 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %664 = and i64 %662, -134217217
   store i64 %664, ptr %5, align 8
   store ptr null, ptr %663, align 8
@@ -2785,8 +2785,8 @@ default.unreachable.i:                            ; preds = %669
   unreachable
 
 675:                                              ; preds = %674, %670
-  %676 = getelementptr inbounds i8, ptr %2, i64 8
-  %677 = getelementptr inbounds i8, ptr %5, i64 8
+  %676 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %677 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %678
 
 678:                                              ; preds = %699, %675
@@ -2835,7 +2835,7 @@ x64features_contains.exit15.i.i:                  ; preds = %686, %683
 696:                                              ; preds = %695, %694
   %.sink.i.i = phi i8 [ 43, %694 ], [ 45, %695 ]
   call void @scratch_buffer_append_char(i8 noundef signext %.sink.i.i) #17
-  %697 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv.i.i
+  %697 = getelementptr inbounds nuw [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv.i.i
   %698 = load ptr, ptr %697, align 8
   call void @scratch_buffer_append(ptr noundef %698) #17
   call void @scratch_buffer_append_char(i8 noundef signext 44) #17
@@ -3106,7 +3106,7 @@ arch_os_reloc_default.exit.thread239:             ; preds = %743
 
 switch.lookup305:                                 ; preds = %751
   %755 = zext nneg i32 %switch.tableidx306 to i64
-  %switch.gep307 = getelementptr inbounds [4 x i32], ptr @switch.table.target_setup.5, i64 0, i64 %755
+  %switch.gep307 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.target_setup.5, i64 0, i64 %755
   %switch.load308 = load i32, ptr %switch.gep307, align 4
   br label %arch_os_reloc_default.exit.thread
 
@@ -3180,7 +3180,7 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
   %765 = and i16 %764, -2
   %766 = or disjoint i16 %765, %763
   store i16 %766, ptr getelementptr inbounds (i8, ptr @platform_target, i64 232), align 8
-  %767 = getelementptr inbounds i8, ptr %0, i64 220
+  %767 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %768 = load i32, ptr %767, align 4
   switch i32 %768, label %770 [
     i32 -1, label %771
@@ -3240,14 +3240,14 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
   br i1 %789, label %790, label %800
 
 790:                                              ; preds = %786
-  %791 = getelementptr inbounds i8, ptr %787, i64 8
+  %791 = getelementptr inbounds nuw i8, ptr %787, i64 8
   %792 = load i32, ptr %791, align 4
   %793 = icmp slt i32 %792, 11
   br i1 %793, label %794, label %795
 
 794:                                              ; preds = %790
   store i32 11, ptr %791, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %787, i64 12
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %787, i64 12
   store i32 0, ptr %.sroa.22.0..sroa_idx, align 4
   %.pre269 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 368), align 8
   br label %795
@@ -3260,7 +3260,7 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
 
 799:                                              ; preds = %795
   store i32 11, ptr %796, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %796, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %796, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   br label %800
 
@@ -3289,9 +3289,9 @@ arch_os_pic_default_forced.exit:                  ; preds = %arch_os_reloc_defau
   br label %813
 
 808:                                              ; preds = %805
-  %809 = getelementptr inbounds i8, ptr %806, i64 8
+  %809 = getelementptr inbounds nuw i8, ptr %806, i64 8
   %810 = load i32, ptr %809, align 4
-  %811 = getelementptr inbounds i8, ptr %806, i64 12
+  %811 = getelementptr inbounds nuw i8, ptr %806, i64 12
   %812 = load i32, ptr %811, align 4
   call void (ptr, ...) @scratch_buffer_printf(ptr noundef nonnull @.str.326, i32 noundef %810, i32 noundef %812) #17
   br label %813
@@ -3460,19 +3460,19 @@ default.unreachable9:                             ; preds = %7
 
 switch.lookup:                                    ; preds = %5
   %12 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.os_target_c_type_bits, i64 0, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %15
 
 switch.lookup10:                                  ; preds = %3
   %13 = zext nneg i32 %2 to i64
-  %switch.gep11 = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits.6, i64 0, i64 %13
+  %switch.gep11 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.os_target_c_type_bits.6, i64 0, i64 %13
   %switch.load12 = load i32, ptr %switch.gep11, align 4
   br label %15
 
 switch.lookup13:                                  ; preds = %3, %3, %3
   %14 = zext nneg i32 %2 to i64
-  %switch.gep14 = getelementptr inbounds [4 x i32], ptr @switch.table.os_target_c_type_bits.7, i64 0, i64 %14
+  %switch.gep14 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.os_target_c_type_bits.7, i64 0, i64 %14
   %switch.load15 = load i32, ptr %switch.gep14, align 4
   br label %15
 
@@ -3651,8 +3651,8 @@ define internal fastcc void @x86_features_from_host(ptr noundef nonnull initiali
   br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %19
 
 19:                                               ; preds = %.lr.ph, %70
@@ -3664,13 +3664,13 @@ define internal fastcc void @x86_features_from_host(ptr noundef nonnull initiali
   ]
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %.039, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %23 = load i8, ptr %22, align 1
   br label %24
 
 24:                                               ; preds = %._crit_edge.i, %21
   %indvars.iv21.i = phi i64 [ 0, %21 ], [ %indvars.iv.next22.i, %._crit_edge.i ]
-  %25 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i
+  %25 = getelementptr inbounds nuw [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %26, align 1
   %.not16.i = icmp eq i8 %27, %23
@@ -3678,9 +3678,9 @@ define internal fastcc void @x86_features_from_host(ptr noundef nonnull initiali
 
 28:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds i8, ptr %22, i64 %indvars.iv.next.i
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 %indvars.iv.next.i
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.next.i
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.next.i
   %32 = load i8, ptr %31, align 1
   %.not.i = icmp eq i8 %32, %30
   br i1 %.not.i, label %.lr.ph.i, label %._crit_edge.i
@@ -3727,13 +3727,13 @@ x86features_remove_feature.exit:                  ; preds = %37, %42
   br label %70
 
 49:                                               ; preds = %19
-  %50 = getelementptr inbounds i8, ptr %.039, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.039, i64 1
   %51 = load i8, ptr %50, align 1
   br label %52
 
 52:                                               ; preds = %._crit_edge.i24, %49
   %indvars.iv21.i22 = phi i64 [ 0, %49 ], [ %indvars.iv.next22.i25, %._crit_edge.i24 ]
-  %53 = getelementptr inbounds [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i22
+  %53 = getelementptr inbounds nuw [104 x ptr], ptr @x86_feature_name, i64 0, i64 %indvars.iv21.i22
   %54 = load ptr, ptr %53, align 8
   %55 = load i8, ptr %54, align 1
   %.not16.i23 = icmp eq i8 %55, %51
@@ -3741,9 +3741,9 @@ x86features_remove_feature.exit:                  ; preds = %37, %42
 
 56:                                               ; preds = %.lr.ph.i28
   %indvars.iv.next.i30 = add nuw nsw i64 %indvars.iv.i29, 1
-  %57 = getelementptr inbounds i8, ptr %50, i64 %indvars.iv.next.i30
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv.next.i30
   %58 = load i8, ptr %57, align 1
-  %59 = getelementptr inbounds i8, ptr %54, i64 %indvars.iv.next.i30
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv.next.i30
   %60 = load i8, ptr %59, align 1
   %.not.i31 = icmp eq i8 %60, %58
   br i1 %.not.i31, label %.lr.ph.i28, label %._crit_edge.i24
@@ -3797,8 +3797,8 @@ declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @x86_features_add_feature(ptr noundef nonnull initializes((16, 24)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2

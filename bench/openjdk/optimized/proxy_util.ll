@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr %4(ptr noundef nonnull %0, ptr noundef nonnull @.str) #1
   %6 = icmp eq ptr %5, null
@@ -35,7 +35,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %5) #1
   store ptr %11, ptr @proxy_class, align 8
@@ -44,7 +44,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 264
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 264
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #1
   store ptr %17, ptr @proxy_ctrID, align 8
@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull @.str.3) #1
   %24 = icmp eq ptr %23, null
@@ -61,7 +61,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %23) #1
   store ptr %29, ptr @ptype_class, align 8
@@ -70,7 +70,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 31:                                               ; preds = %25
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1152
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1152
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #1
   store ptr %35, ptr @ptype_httpID, align 8
@@ -79,7 +79,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1152
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1152
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr @ptype_class, align 8
   %42 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %41, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.5) #1
@@ -89,7 +89,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 44:                                               ; preds = %37
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1152
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1152
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr @proxy_class, align 8
   %49 = tail call ptr %47(ptr noundef nonnull %0, ptr noundef %48, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #1
@@ -99,7 +99,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 51:                                               ; preds = %44
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #1
   %56 = icmp eq ptr %55, null
@@ -107,7 +107,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 57:                                               ; preds = %51
   %58 = load ptr, ptr %0, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 168
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 168
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef nonnull %0, ptr noundef nonnull %55) #1
   store ptr %61, ptr @isaddr_class, align 8
@@ -116,7 +116,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 904
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 904
   %66 = load ptr, ptr %65, align 8
   %67 = tail call ptr %66(ptr noundef nonnull %0, ptr noundef nonnull %61, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #1
   store ptr %67, ptr @isaddr_createUnresolvedID, align 8
@@ -132,7 +132,7 @@ define hidden range(i32 0, 2) i32 @initJavaClass(ptr noundef %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define hidden ptr @createProxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1160
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1160
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @ptype_class, align 8
   %9 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %1) #1
@@ -141,7 +141,7 @@ define hidden ptr @createProxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 10:                                               ; preds = %4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1336
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1336
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef %2) #1
   %.not20 = icmp eq ptr %14, null
@@ -149,7 +149,7 @@ define hidden ptr @createProxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 912
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 912
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @isaddr_class, align 8
   %20 = load ptr, ptr @isaddr_createUnresolvedID, align 8
@@ -160,7 +160,7 @@ define hidden ptr @createProxy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 224
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @proxy_class, align 8
   %28 = load ptr, ptr @proxy_ctrID, align 8

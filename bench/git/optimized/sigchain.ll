@@ -24,9 +24,9 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 check_signum.exit:                                ; preds = %entry
-  %n = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %1 = load i32, ptr %n, align 8
-  %alloc = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %alloc = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   %2 = load i32, ptr %alloc, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %do.end, label %if.then
@@ -93,7 +93,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 check_signum.exit:                                ; preds = %entry
-  %n = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %n = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %1 = load i32, ptr %n, align 8
   %cmp = icmp slt i32 %1, 1
   br i1 %cmp, label %return, label %if.end

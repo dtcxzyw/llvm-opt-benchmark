@@ -90,14 +90,14 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local void @acpi_tb_check_dsdt_header() local_unnamed_addr #0 align 16 {
   %1 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 4), align 1
   %2 = load ptr, ptr @acpi_gbl_DSDT, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 1
   %5 = icmp eq i32 %1, %4
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %0
   %7 = load i8, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 9), align 1
-  %8 = getelementptr inbounds i8, ptr %2, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %7, %9
   br i1 %10, label %18, label %11
@@ -109,10 +109,10 @@ define dso_local void @acpi_tb_check_dsdt_header() local_unnamed_addr #0 align 1
   tail call void @acpi_tb_print_table_header(i64 noundef 0, ptr noundef %12) #6
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 94, ptr noundef nonnull @.str.1) #6
   %13 = load ptr, ptr @acpi_gbl_DSDT, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 1
   store i32 %15, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 4), align 1
-  %16 = getelementptr inbounds i8, ptr %13, i64 9
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 9
   %17 = load i8, ptr %16, align 1
   store i8 %17, ptr getelementptr inbounds (i8, ptr @acpi_gbl_original_dsdt_header, i64 9), align 1
   br label %18
@@ -136,7 +136,7 @@ define dso_local ptr @acpi_tb_copy_dsdt(i32 noundef %0) local_unnamed_addr #0 al
   %3 = load ptr, ptr @acpi_gbl_root_table_list, align 8
   %4 = zext i32 %0 to i64
   %5 = getelementptr %struct.acpi_table_desc, ptr %3, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   store i64 0, ptr %2, align 8, !annotation !5
@@ -157,7 +157,7 @@ define dso_local ptr @acpi_tb_copy_dsdt(i32 noundef %0) local_unnamed_addr #0 al
   br label %29
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %6, align 8
   %21 = zext i32 %20 to i64
@@ -169,7 +169,7 @@ define dso_local ptr @acpi_tb_copy_dsdt(i32 noundef %0) local_unnamed_addr #0 al
   %25 = getelementptr %struct.acpi_table_desc, ptr %22, i64 %24
   %26 = ptrtoint ptr %13 to i64
   call void @acpi_tb_init_table_descriptor(ptr noundef %25, i64 noundef %26, i8 noundef zeroext 2, ptr noundef nonnull %13) #6
-  %27 = getelementptr inbounds i8, ptr %13, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %28 = load i32, ptr %27, align 4
   call void (ptr, ...) @acpi_info(ptr noundef nonnull @.str.3, i32 noundef %28) #6
   br label %29
@@ -200,13 +200,13 @@ define dso_local i32 @acpi_tb_parse_root_table(i64 noundef %0) local_unnamed_add
 
 5:                                                ; preds = %1
   tail call void @acpi_tb_print_table_header(i64 noundef %0, ptr noundef nonnull %3) #6
-  %6 = getelementptr inbounds i8, ptr %3, i64 15
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 15
   %7 = load i8, ptr %6, align 1
   %8 = icmp ugt i8 %7, 1
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load i64, ptr %10, align 1
   %12 = icmp eq i64 %11, 0
   %13 = load i8, ptr @acpi_gbl_do_not_use_xsdt, align 1
@@ -215,7 +215,7 @@ define dso_local i32 @acpi_tb_parse_root_table(i64 noundef %0) local_unnamed_add
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %9, %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i32, ptr %17, align 1
   %19 = zext i32 %18 to i64
   br label %20
@@ -231,7 +231,7 @@ define dso_local i32 @acpi_tb_parse_root_table(i64 noundef %0) local_unnamed_add
 
 26:                                               ; preds = %20
   tail call void @acpi_tb_print_table_header(i64 noundef %23, ptr noundef nonnull %24) #6
-  %27 = getelementptr inbounds i8, ptr %24, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %28 = load i32, ptr %27, align 1
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %24, i64 noundef 36) #6
   %29 = zext i32 %28 to i64
@@ -259,7 +259,7 @@ define dso_local i32 @acpi_tb_parse_root_table(i64 noundef %0) local_unnamed_add
 
 40:                                               ; preds = %36
   store i32 0, ptr %2, align 4, !annotation !5
-  %41 = getelementptr inbounds i8, ptr %34, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %42 = load i32, ptr %41, align 1
   %43 = zext i32 %42 to i64
   %44 = add nsw i64 %43, -36
@@ -343,7 +343,7 @@ declare dso_local void @acpi_tb_parse_fadt() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_tb_get_table(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 0
   br i1 %5, label %6, label %9
@@ -373,7 +373,7 @@ thread-pre-split:                                 ; preds = %6
   br label %16
 
 16:                                               ; preds = %15, %12, %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %1, align 8
   br label %19
@@ -391,7 +391,7 @@ declare dso_local void @acpi_warning(ptr noundef, i32 noundef, ptr noundef, ...)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_put_table(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i16, ptr %2, align 4
   %4 = icmp eq i16 %3, -1
   br i1 %4, label %.thread, label %5

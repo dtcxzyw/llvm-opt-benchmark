@@ -124,7 +124,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZN7xgboost6common6ReduceEPKNS_7ContextERKNS_16HostDeviceVectorIfEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 8
   %5 = and i32 %.sroa.0.0.copyload.i.i, 65535
   %6 = icmp eq i32 %5, 1
@@ -137,7 +137,7 @@ define noundef double @_ZN7xgboost6common6ReduceEPKNS_7ContextERKNS_16HostDevice
 8:                                                ; preds = %2
   %9 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK7xgboost16HostDeviceVectorIfE15ConstHostVectorEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8
   store double 0.000000e+00, ptr %3, align 8
   %13 = call noundef double @_ZN7xgboost6common8cpu_impl6ReduceIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEEdEET0_PKNS_7ContextET_SF_RKSB_(ptr noundef nonnull %0, ptr %10, ptr %12, ptr noundef nonnull align 8 dereferenceable(8) %3)
@@ -163,7 +163,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common8cpu_impl6ReduceIN9__gnu_c
   %12 = sext i32 %11 to i64
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %10, i64 %12)
   %13 = load double, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.sroa.speculated, ptr %14, align 8
   %15 = icmp ult i64 %.sroa.speculated, 129
   br i1 %15, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.i, label %16
@@ -182,7 +182,7 @@ define linkonce_odr noundef double @_ZN7xgboost6common8cpu_impl6ReduceIN9__gnu_c
   unreachable
 
 _ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.i: ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %21, ptr %6, align 8
   %22 = icmp eq i64 %.sroa.speculated, 0
   br i1 %22, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i
@@ -195,7 +195,7 @@ _ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i: ; preds = %_ZN
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i
   %.07.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %23, %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Em.exit.thread.i ]
   store double %13, ptr %.07.i.i.i.i.i, align 8
-  %25 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %25, %24
   br i1 %.not.i.i.i.i.i, label %_ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
@@ -216,7 +216,7 @@ _ZN7xgboost6common17MemStackAllocatorIdLm128EEC2Emd.exit: ; preds = %.lr.ph.i.i.
   %.068.i = phi ptr [ %33, %.lr.ph.i ], [ %28, %27 ]
   %31 = load double, ptr %.068.i, align 8
   %32 = fadd double %.09.i, %31
-  %33 = getelementptr inbounds i8, ptr %.068.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.068.i, i64 8
   %.not.i = icmp eq ptr %33, %29
   br i1 %.not.i, label %_ZSt10accumulateIPddET0_T_S2_S1_.exit, label %.lr.ph.i, !llvm.loop !6
 
@@ -446,9 +446,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %18 = call i64 @time(ptr noundef null) #7
   store i64 %18, ptr %4, align 8
   %19 = call ptr @localtime_r(ptr noundef nonnull %4, ptr noundef nonnull %5) #7
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %19, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(9) %6, i64 noundef 9, ptr noundef nonnull @.str.8, i32 noundef %21, i32 noundef %23, i32 noundef %24) #7

@@ -13,9 +13,9 @@ entry:
   br i1 %tobool.not.i, label %_ZN7msdfgen13saveTiffFloatILi1EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %width.i = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 1)
   %2 = load i32, ptr %height.i, align 4
@@ -53,9 +53,9 @@ entry:
   br i1 %tobool.not.i, label %_ZN7msdfgen13saveTiffFloatILi3EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %width.i = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 3)
   %2 = load i32, ptr %height.i, align 4
@@ -94,9 +94,9 @@ entry:
   br i1 %tobool.not.i, label %_ZN7msdfgen13saveTiffFloatILi4EEEbRKNS_14BitmapConstRefIfXT_EEEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %width.i = getelementptr inbounds i8, ptr %bitmap, i64 8
+  %width.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
   %0 = load i32, ptr %width.i, align 8
-  %height.i = getelementptr inbounds i8, ptr %bitmap, i64 12
+  %height.i = getelementptr inbounds nuw i8, ptr %bitmap, i64 12
   %1 = load i32, ptr %height.i, align 4
   tail call fastcc void @_ZN7msdfgenL15writeTiffHeaderEP8_IO_FILEiii(ptr noundef %call.i, i32 noundef %0, i32 noundef %1, i32 noundef 4)
   %2 = load i32, ptr %height.i, align 4

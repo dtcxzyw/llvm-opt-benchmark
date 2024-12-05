@@ -23,10 +23,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr nocapture noundef readonly %mod, ptr noundef %filename, ptr nocapture noundef initializes((0, 20)) %ff) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ff, align 4
-  %ff_location = getelementptr inbounds i8, ptr %ff, i64 4
-  %.compoundliteral.sroa.2.0.ff_location.sroa_idx = getelementptr inbounds i8, ptr %ff, i64 8
-  %.compoundliteral.sroa.3.0.ff_location.sroa_idx = getelementptr inbounds i8, ptr %ff, i64 12
-  %.compoundliteral.sroa.4.0.ff_location.sroa_idx = getelementptr inbounds i8, ptr %ff, i64 16
+  %ff_location = getelementptr inbounds nuw i8, ptr %ff, i64 4
+  %.compoundliteral.sroa.2.0.ff_location.sroa_idx = getelementptr inbounds nuw i8, ptr %ff, i64 8
+  %.compoundliteral.sroa.3.0.ff_location.sroa_idx = getelementptr inbounds nuw i8, ptr %ff, i64 12
+  %.compoundliteral.sroa.4.0.ff_location.sroa_idx = getelementptr inbounds nuw i8, ptr %ff, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ff_location, i8 -1, i64 16, i1 false)
   %0 = load i32, ptr %mod, align 8
   %.off.i = add i32 %0, -1
@@ -34,7 +34,7 @@ entry:
   br i1 %switch.i, label %if.end.i, label %future_parse.exit
 
 if.end.i:                                         ; preds = %entry
-  %v.i = getelementptr inbounds i8, ptr %mod, i64 8
+  %v.i = getelementptr inbounds nuw i8, ptr %mod, i64 8
   %1 = load ptr, ptr %v.i, align 8
   %cmp3.i = icmp eq ptr %1, null
   br i1 %cmp3.i, label %future_parse.exit, label %cond.end.i
@@ -54,7 +54,7 @@ if.end8.i:                                        ; preds = %cond.end.i
 for.body.i:                                       ; preds = %if.end8.i, %if.end27.i
   %i.128.i = phi i64 [ %inc35.i, %if.end27.i ], [ %spec.select.i, %if.end8.i ]
   %3 = load ptr, ptr %v.i, align 8
-  %typed_elements.i = getelementptr inbounds i8, ptr %3, i64 16
+  %typed_elements.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %arrayidx.i = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %i.128.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = load i32, ptr %4, align 8
@@ -62,7 +62,7 @@ for.body.i:                                       ; preds = %if.end8.i, %if.end2
   br i1 %cmp18.i, label %if.then19.i, label %future_parse.exit
 
 if.then19.i:                                      ; preds = %for.body.i
-  %v20.i = getelementptr inbounds i8, ptr %4, i64 8
+  %v20.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %v20.i, align 8
   %tobool.not.i = icmp eq ptr %6, null
   br i1 %tobool.not.i, label %future_parse.exit, label %land.lhs.true.i
@@ -73,10 +73,10 @@ land.lhs.true.i:                                  ; preds = %if.then19.i
   br i1 %tobool22.not.i, label %future_parse.exit, label %if.then23.i
 
 if.then23.i:                                      ; preds = %land.lhs.true.i
-  %names1.i.i = getelementptr inbounds i8, ptr %4, i64 16
+  %names1.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %names1.i.i, align 8
   %cmp.i.i = icmp eq ptr %7, null
-  %typed_elements.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %typed_elements.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.inc.i.i, %if.then23.i
@@ -155,8 +155,8 @@ if.else56.i.i:                                    ; preds = %if.else49.i.i
   %call57.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call.i.i, ptr noundef nonnull dereferenceable(7) @.str.11) #5
   %cmp58.i.i = icmp eq i32 %call57.i.i, 0
   %11 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i = getelementptr inbounds i8, ptr %4, i64 64
-  %col_offset.i.i = getelementptr inbounds i8, ptr %4, i64 68
+  %lineno.i.i = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %col_offset.i.i = getelementptr inbounds nuw i8, ptr %4, i64 68
   br i1 %cmp58.i.i, label %if.then60.i.i, label %if.else61.i.i
 
 if.then60.i.i:                                    ; preds = %if.else56.i.i
@@ -186,13 +186,13 @@ return.sink.split.i.i:                            ; preds = %if.else61.i.i, %if.
   br label %future_parse.exit
 
 if.end27.i:                                       ; preds = %cond.end.i.i
-  %lineno28.i = getelementptr inbounds i8, ptr %4, i64 64
+  %lineno28.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   %15 = load i32, ptr %lineno28.i, align 8
-  %end_lineno29.i = getelementptr inbounds i8, ptr %4, i64 72
+  %end_lineno29.i = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load i32, ptr %end_lineno29.i, align 8
-  %col_offset30.i = getelementptr inbounds i8, ptr %4, i64 68
+  %col_offset30.i = getelementptr inbounds nuw i8, ptr %4, i64 68
   %17 = load i32, ptr %col_offset30.i, align 4
-  %end_col_offset31.i = getelementptr inbounds i8, ptr %4, i64 76
+  %end_col_offset31.i = getelementptr inbounds nuw i8, ptr %4, i64 76
   %18 = load i32, ptr %end_col_offset31.i, align 4
   store i32 %15, ptr %ff_location, align 4
   store i32 %16, ptr %.compoundliteral.sroa.2.0.ff_location.sroa_idx, align 4

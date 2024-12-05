@@ -30,25 +30,25 @@ define void @_ZN9grpc_core7BackOffC2ERKNS0_7OptionsE(ptr noundef nonnull align 8
 entry:
   %seeder.i.i = alloca %"class.absl::lts_20230802::random_internal::RandenPoolSeedSeq", align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %options, i64 32, i1 false)
-  %rand_gen_ = getelementptr inbounds i8, ptr %this, i64 32
+  %rand_gen_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %seeder.i.i)
-  %impl_.i.i.i = getelementptr inbounds i8, ptr %this, i64 304
+  %impl_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 304
   tail call void @_ZN4absl12lts_2023080215random_internal6RandenC1Ev(ptr noundef nonnull align 8 dereferenceable(9) %impl_.i.i.i)
-  %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
+  %next_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   store i64 32, ptr %next_.i.i.i.i.i, align 8, !alias.scope !4
   %0 = ptrtoint ptr %rand_gen_ to i64
   %and.i.i.i.i.i.i = and i64 %0, 8
-  %cond.i.i.i.i.i.i = getelementptr inbounds i8, ptr %rand_gen_, i64 %and.i.i.i.i.i.i
+  %cond.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %rand_gen_, i64 %and.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cond.i.i.i.i.i.i, i8 0, i64 16, i1 false), !alias.scope !4
   %1 = or disjoint i64 %and.i.i.i.i.i.i, 16
   %scevgep.i.i.i.i = getelementptr nuw i8, ptr %rand_gen_, i64 %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %scevgep.i.i.i.i, i8 0, i64 240, i1 false), !alias.scope !4
   call void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %rand_gen_, ptr noundef nonnull align 1 dereferenceable(1) %seeder.i.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %seeder.i.i)
-  %current_backoff_ = getelementptr inbounds i8, ptr %this, i64 328
+  %current_backoff_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %this, align 8
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %current_backoff_, align 8
-  %initial_.i = getelementptr inbounds i8, ptr %this, i64 320
+  %initial_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   store i8 1, ptr %initial_.i, align 8
   ret void
 }
@@ -60,9 +60,9 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN9grpc_core7BackOff5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((320, 321), (328, 336)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load i64, ptr %this, align 8
-  %current_backoff_ = getelementptr inbounds i8, ptr %this, i64 328
+  %current_backoff_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   store i64 %retval.sroa.0.0.copyload.i, ptr %current_backoff_, align 8
-  %initial_ = getelementptr inbounds i8, ptr %this, i64 320
+  %initial_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   store i8 1, ptr %initial_, align 8
   ret void
 }
@@ -72,14 +72,14 @@ define i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 8
 entry:
   %lo.addr.i = alloca double, align 8
   %hi.addr.i = alloca double, align 8
-  %initial_ = getelementptr inbounds i8, ptr %this, i64 320
+  %initial_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %0 = load i8, ptr %initial_, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   store i8 0, ptr %initial_, align 8
-  %current_backoff_ = getelementptr inbounds i8, ptr %this, i64 328
+  %current_backoff_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %current_backoff_, align 8
   %.not.i.i = icmp eq ptr @_ZTHN9grpc_core9Timestamp25thread_local_time_source_E, null
   br i1 %.not.i.i, label %_ZN9grpc_core9Timestamp3NowEv.exit, label %1
@@ -124,9 +124,9 @@ if.end7.i.i.i.i:                                  ; preds = %if.else.i.i.i.i, %i
   br label %return
 
 if.end:                                           ; preds = %entry
-  %current_backoff_9 = getelementptr inbounds i8, ptr %this, i64 328
+  %current_backoff_9 = getelementptr inbounds nuw i8, ptr %this, i64 328
   %agg.tmp8.sroa.0.0.copyload = load i64, ptr %current_backoff_9, align 8
-  %multiplier_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %multiplier_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load double, ptr %multiplier_.i, align 8
   switch i64 %agg.tmp8.sroa.0.0.copyload, label %if.end22.i [
     i64 9223372036854775807, label %if.then.i
@@ -165,11 +165,11 @@ if.end8.i.i:                                      ; preds = %if.end.i.i
 
 _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %if.then.i, %cond.false.i, %if.then13.i, %cond.false18.i, %if.end22.i, %if.end.i.i, %if.end8.i.i
   %retval.sroa.0.0.i = phi i64 [ 9223372036854775807, %cond.false.i ], [ -9223372036854775808, %cond.false18.i ], [ -9223372036854775808, %if.then.i ], [ 9223372036854775807, %if.then13.i ], [ %conv9.i.i, %if.end8.i.i ], [ 9223372036854775807, %if.end22.i ], [ -9223372036854775808, %if.end.i.i ]
-  %max_backoff_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %max_backoff_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %retval.sroa.0.0.copyload.i = load i64, ptr %max_backoff_.i, align 8
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %retval.sroa.0.0.copyload.i, i64 %retval.sroa.0.0.i)
   store i64 %.sroa.speculated, ptr %current_backoff_9, align 8
-  %jitter_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %jitter_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load double, ptr %jitter_.i, align 8
   %fneg = fneg double %6
   %conv.i1 = sitofp i64 %.sroa.speculated to double
@@ -188,7 +188,7 @@ _ZN9grpc_coremlENS_8DurationEd.exit:              ; preds = %if.then.i, %cond.fa
   br i1 %9, label %if.end.i, label %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit
 
 if.end.i:                                         ; preds = %_ZN9grpc_coremlENS_8DurationEd.exit
-  %rand_gen_ = getelementptr inbounds i8, ptr %this, i64 32
+  %rand_gen_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %call.i.i = call noundef double @_ZN4absl12lts_2023080215random_internal18DistributionCallerINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEE4ImplINS1_26UniformDistributionWrapperIdEEJRdSC_EEENT_11result_typeESt17integral_constantIbLb0EEPS7_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %rand_gen_, ptr noundef nonnull align 8 dereferenceable(8) %lo.addr.i, ptr noundef nonnull align 8 dereferenceable(8) %hi.addr.i)
   br label %_ZN4absl12lts_202308027UniformIdRNS0_15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESA_E4typeEOT0_SA_SA_.exit
 
@@ -295,7 +295,7 @@ declare void @_ZN4absl12lts_2023080215random_internal6RandenC1Ev(ptr noundef non
 define linkonce_odr void @_ZN4absl12lts_2023080215random_internal13randen_engineImE6reseedINS1_17RandenPoolSeedSeqEEEvRT_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 1 dereferenceable(1) %seq) local_unnamed_addr #3 comdat align 2 {
 if.then:
   %buffer = alloca [60 x i32], align 16
-  %scevgep = getelementptr inbounds i8, ptr %buffer, i64 32
+  %scevgep = getelementptr inbounds nuw i8, ptr %buffer, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %scevgep, i8 0, i64 208, i1 false)
   call void @_ZN4absl12lts_2023080215random_internal10RandenPoolIhE4FillENS0_4SpanIhEE(ptr nonnull %buffer, i64 32)
   br label %while.body
@@ -342,8 +342,8 @@ while.body:                                       ; preds = %if.then, %while.bod
 if.end:                                           ; preds = %while.body
   %8 = ptrtoint ptr %this to i64
   %and.i = and i64 %8, 8
-  %cond.i = getelementptr inbounds i8, ptr %this, i64 %and.i
-  %has_crypto_.i = getelementptr inbounds i8, ptr %this, i64 280
+  %cond.i = getelementptr inbounds nuw i8, ptr %this, i64 %and.i
+  %has_crypto_.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %9 = load i8, ptr %has_crypto_.i, align 8
   %tobool.i = trunc i8 %9 to i1
   br i1 %tobool.i, label %if.then.i20, label %if.else.i
@@ -357,7 +357,7 @@ if.else.i:                                        ; preds = %if.end
   br label %_ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit
 
 _ZNK4absl12lts_2023080215random_internal6Randen6AbsorbEPKvPv.exit: ; preds = %if.then.i20, %if.else.i
-  %next_ = getelementptr inbounds i8, ptr %this, i64 264
+  %next_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   store i64 32, ptr %next_, align 8
   ret void
 }
@@ -380,10 +380,10 @@ entry:
   %sub.i.i.i.fr = freeze double %sub.i.i.i
   %2 = ptrtoint ptr %urbg to i64
   %and.i.i.i.i.i.i.i = and i64 %2, 8
-  %cond.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
-  %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 264
-  %impl_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 272
-  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %urbg, i64 280
+  %cond.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %urbg, i64 %and.i.i.i.i.i.i.i
+  %next_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %urbg, i64 264
+  %impl_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %urbg, i64 272
+  %has_crypto_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %urbg, i64 280
   %.pre.i.i = load i64, ptr %next_.i.i.i.i.i.i, align 8
   %3 = tail call i1 @llvm.is.fpclass.f64(double %sub.i.i.i.fr, i32 384)
   br i1 %3, label %while.body.i.i, label %while.body.i.i.us

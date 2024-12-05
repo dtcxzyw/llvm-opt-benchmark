@@ -47,7 +47,7 @@ define internal noundef zeroext i8 @visibleClasses(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = call signext i8 @referenceTypeTag(ptr noundef %19) #2
   %21 = call zeroext i16 @outStream_writeByte(ptr noundef %1, i8 noundef signext %20) #2
@@ -69,7 +69,7 @@ define internal noundef zeroext i8 @visibleClasses(ptr noundef %0, ptr noundef %
 
 28:                                               ; preds = %27, %.loopexit
   %29 = load ptr, ptr @gdata, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 528
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 528
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 2
   %.not24 = icmp eq i32 %32, 0
@@ -82,7 +82,7 @@ define internal noundef zeroext i8 @visibleClasses(ptr noundef %0, ptr noundef %
 
 34:                                               ; preds = %28, %33
   %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 160
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr %37(ptr noundef nonnull %5, ptr noundef null) #2
   br label %39

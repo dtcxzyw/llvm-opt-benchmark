@@ -41,7 +41,7 @@ $_ZNK4LIEF2PE9Attribute4typeEv = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF2PE9Attribute6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 624
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 624
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(12) %0)
   ret void
@@ -51,7 +51,7 @@ define void @_ZNK4LIEF2PE9Attribute6acceptERNS_7VisitorE(ptr noundef nonnull ali
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF2PElsERSoRKNS0_9AttributeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(12) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(12) %1)
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -82,13 +82,13 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE(i32 noundef %0) l
   %.idx.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i, i64 64, i64 0
   %.idx.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v = select i1 %.not.i.i.i.i.i.i.i, i64 88, i64 24
   %.sink.in.i.i.i.i.i.i.v = select i1 %.not.i.i.i.i.i.i, i64 152, i64 %.idx.i.i.i.i.i.i.i.sroa.sel.sroa.sel.v
-  %.sink.in.i.i.i.i.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.v
+  %.sink.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.sink.in.i.i.i.i.i.i.v
   %2 = select i1 %.not.i.i.i.i.i.i, i64 128, i64 %.idx.i.i.i.i.i.i.i
   %.sink.i.i.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i.i.i, align 8
   %.not.i.i6.i.i.i.i.i.i = icmp slt i32 %.sink.i.i.i.i.i.i, %0
   %.add.i.i = select i1 %.not.i.i6.i.i.i.i.i.i, i64 40, i64 8
   %.add12.i.i = or disjoint i64 %.add.i.i, %2
-  %.ptr15.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add12.i.i
+  %.ptr15.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add12.i.i
   %3 = load i32, ptr %.ptr15.i.i, align 8
   %.not.i.i.i8.i.i.i.i.i.i = icmp slt i32 %3, %0
   %.idx.i.i.i9.i.i.i.i.i.i = select i1 %.not.i.i.i8.i.i.i.i.i.i, i64 16, i64 0
@@ -97,13 +97,13 @@ define noundef ptr @_ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE(i32 noundef %0) l
   br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %4
 
 4:                                                ; preds = %1
-  %.ptr16.i.i = getelementptr inbounds i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add13.i.i
+  %.ptr16.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_9Attribute4TYPEE.enums2str, i64 %.add13.i.i
   %5 = load i32, ptr %.ptr16.i.i, align 8
   %.not17.i.i = icmp slt i32 %0, %5
   br i1 %.not17.i.i, label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %.ptr16.i.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.ptr16.i.i, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %_ZNK6frozen3mapIN4LIEF2PE9Attribute4TYPEEPKcLm11ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
@@ -139,7 +139,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4LIEF2PE9Attribute4typeEv(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }

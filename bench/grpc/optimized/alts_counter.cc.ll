@@ -59,17 +59,17 @@ if.end11:                                         ; preds = %if.end6
   store ptr %call, ptr %crypter_counter, align 8
   store i64 %counter_size, ptr %call, align 8
   %0 = load ptr, ptr %crypter_counter, align 8
-  %overflow_size12 = getelementptr inbounds i8, ptr %0, i64 8
+  %overflow_size12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %overflow_size, ptr %overflow_size12, align 8
   %call13 = tail call ptr @gpr_zalloc(i64 noundef %counter_size)
   %1 = load ptr, ptr %crypter_counter, align 8
-  %counter = getelementptr inbounds i8, ptr %1, i64 16
+  %counter = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %call13, ptr %counter, align 8
   br i1 %is_client, label %if.then14, label %return
 
 if.then14:                                        ; preds = %if.end11
   %2 = load ptr, ptr %crypter_counter, align 8
-  %counter15 = getelementptr inbounds i8, ptr %2, i64 16
+  %counter15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %counter15, align 8
   %4 = getelementptr i8, ptr %3, i64 %counter_size
   %arrayidx = getelementptr i8, ptr %4, i64 -1
@@ -109,8 +109,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.end
-  %counter = getelementptr inbounds i8, ptr %crypter_counter, i64 16
-  %overflow_size = getelementptr inbounds i8, ptr %crypter_counter, i64 8
+  %counter = getelementptr inbounds nuw i8, ptr %crypter_counter, i64 16
+  %overflow_size = getelementptr inbounds nuw i8, ptr %crypter_counter, i64 8
   %0 = load i64, ptr %overflow_size, align 8
   %cmp620.not = icmp eq i64 %0, 0
   br i1 %cmp620.not, label %if.then15, label %for.body.preheader
@@ -188,7 +188,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %counter = getelementptr inbounds i8, ptr %crypter_counter, i64 16
+  %counter = getelementptr inbounds nuw i8, ptr %crypter_counter, i64 16
   %0 = load ptr, ptr %counter, align 8
   br label %return
 
@@ -204,7 +204,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %counter = getelementptr inbounds i8, ptr %crypter_counter, i64 16
+  %counter = getelementptr inbounds nuw i8, ptr %crypter_counter, i64 16
   %0 = load ptr, ptr %counter, align 8
   tail call void @gpr_free(ptr noundef %0)
   tail call void @gpr_free(ptr noundef nonnull %crypter_counter)

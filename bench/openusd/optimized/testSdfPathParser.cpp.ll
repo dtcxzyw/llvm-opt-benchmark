@@ -228,21 +228,21 @@ define dso_local void @_Z9testPathsPPKcb(ptr nocapture noundef readonly %0, i1 n
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %.sroa.264.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
-  %.sroa.365.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
-  %.sroa.466.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 24
-  %.sroa.567.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.365.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %21 = select i1 %1, ptr @.str.3, ptr @.str.4
-  %.sroa.258.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
-  %.sroa.359.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %.sroa.359.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.sroa.460.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.561.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 32
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 40
   br label %24
 
@@ -628,11 +628,11 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit5
   %113 = and i32 %.pre, 255
   %114 = lshr i32 %.pre, 8
   %115 = zext nneg i32 %113 to i64
-  %116 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %115
   %117 = load ptr, ptr %116, align 8
   %118 = mul nuw nsw i32 %114, 24
   %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = atomicrmw sub ptr %121, i32 1 seq_cst, align 4
   %123 = and i32 %122, 2147483647
@@ -651,7 +651,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit5
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %47, %111, %112, %125
-  %129 = getelementptr inbounds i8, ptr %.084, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.084, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not = icmp eq ptr %130, null
   br i1 %.not, label %._crit_edge, label %24, !llvm.loop !5
@@ -706,11 +706,11 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPat
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = atomicrmw sub ptr %12, i32 1 seq_cst, align 4
   %14 = and i32 %13, 2147483647

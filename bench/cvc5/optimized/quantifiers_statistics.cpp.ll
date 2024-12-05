@@ -89,7 +89,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store ptr %call, ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
-  %d_cbqi_time = getelementptr inbounds i8, ptr %this, i64 8
+  %d_cbqi_time = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #8
   %call.i35 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5)
           to label %call.i.noexc34 unwind label %lpad7
@@ -116,7 +116,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   store ptr %call11, ptr %d_cbqi_time, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp6) #8
-  %d_ematching_time = getelementptr inbounds i8, ptr %this, i64 16
+  %d_ematching_time = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #8
   %call.i43 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %call.i.noexc42 unwind label %lpad17
@@ -143,7 +143,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   store ptr %call21, ptr %d_ematching_time, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp16) #8
-  %d_num_quant = getelementptr inbounds i8, ptr %this, i64 24
+  %d_num_quant = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #8
   %call.i51 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25)
           to label %call.i.noexc50 unwind label %lpad27
@@ -170,7 +170,7 @@ invoke.cont30:                                    ; preds = %invoke.cont28
   store ptr %call31, ptr %d_num_quant, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp26) #8
-  %d_instantiation_rounds = getelementptr inbounds i8, ptr %this, i64 32
+  %d_instantiation_rounds = getelementptr inbounds nuw i8, ptr %this, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #8
   %call.i59 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36)
           to label %call.i.noexc58 unwind label %lpad38
@@ -197,7 +197,7 @@ invoke.cont41:                                    ; preds = %invoke.cont39
   store ptr %call42, ptr %d_instantiation_rounds, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp36) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #8
-  %d_instantiation_rounds_lc = getelementptr inbounds i8, ptr %this, i64 40
+  %d_instantiation_rounds_lc = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #8
   %call.i67 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %call.i.noexc66 unwind label %lpad49
@@ -224,7 +224,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
   store ptr %call53, ptr %d_instantiation_rounds_lc, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp48) #8
-  %d_triggers = getelementptr inbounds i8, ptr %this, i64 48
+  %d_triggers = getelementptr inbounds nuw i8, ptr %this, i64 48
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59) #8
   %call.i75 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58)
           to label %call.i.noexc74 unwind label %lpad60
@@ -251,7 +251,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
   store ptr %call64, ptr %d_triggers, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp59) #8
-  %d_simple_triggers = getelementptr inbounds i8, ptr %this, i64 56
+  %d_simple_triggers = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #8
   %call.i83 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69)
           to label %call.i.noexc82 unwind label %lpad71
@@ -278,7 +278,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
   store ptr %call75, ptr %d_simple_triggers, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp69) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #8
-  %d_multi_triggers = getelementptr inbounds i8, ptr %this, i64 64
+  %d_multi_triggers = getelementptr inbounds nuw i8, ptr %this, i64 64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #8
   %call.i91 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80)
           to label %call.i.noexc90 unwind label %lpad82
@@ -328,7 +328,7 @@ invoke.cont94:                                    ; preds = %.noexc100
           to label %invoke.cont96 unwind label %lpad95
 
 invoke.cont96:                                    ; preds = %invoke.cont94
-  %d_red_alpha_equiv = getelementptr inbounds i8, ptr %this, i64 72
+  %d_red_alpha_equiv = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call97, ptr %d_red_alpha_equiv, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp91) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp92) #8

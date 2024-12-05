@@ -65,7 +65,7 @@ define internal ptr @H5O__dtype_open(ptr noundef %0, ptr nocapture noundef write
 ; Function Attrs: nounwind uwtable
 define internal ptr @H5O__dtype_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = tail call i32 @H5T__commit(ptr noundef %0, ptr noundef %4, i64 noundef %6) #2
   %8 = icmp slt i32 %7, 0
@@ -93,7 +93,7 @@ define internal ptr @H5O__dtype_create(ptr noundef %0, ptr nocapture noundef rea
 21:                                               ; preds = %13
   %22 = load ptr, ptr %1, align 8
   %23 = tail call ptr @H5T_nameof(ptr noundef %22) #2
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %23, ptr %24, align 8
   %25 = icmp eq ptr %23, null
   br i1 %25, label %26, label %30

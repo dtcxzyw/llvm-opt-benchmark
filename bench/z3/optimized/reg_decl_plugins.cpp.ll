@@ -62,7 +62,7 @@ entry:
   %ref.tmp85 = alloca %class.symbol, align 8
   %ref.tmp91 = alloca %class.symbol, align 8
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull @.str)
-  %m_family_manager.i = getelementptr inbounds i8, ptr %m, i64 560
+  %m_family_manager.i = getelementptr inbounds nuw i8, ptr %m, i64 560
   %call.i = call noundef i32 @_ZN14family_manager12mk_family_idERK6symbol(ptr noundef nonnull align 8 dereferenceable(56) %m_family_manager.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %call1 = call noundef ptr @_ZNK11ast_manager10get_pluginEi(ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %call.i)
   %tobool.not = icmp eq ptr %call1, null
@@ -113,25 +113,25 @@ if.end21:                                         ; preds = %if.then18, %if.end1
 if.then27:                                        ; preds = %if.end21
   call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef nonnull @.str.3)
   %call29 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 104)
-  %m_manager.i.i = getelementptr inbounds i8, ptr %call29, i64 8
+  %m_manager.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 8
   store ptr null, ptr %m_manager.i.i, align 8
-  %m_family_id.i.i = getelementptr inbounds i8, ptr %call29, i64 16
+  %m_family_id.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 16
   store i32 -1, ptr %m_family_id.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype4decl6pluginE, i64 16), ptr %call29, align 8
-  %m_util.i = getelementptr inbounds i8, ptr %call29, i64 24
+  %m_util.i = getelementptr inbounds nuw i8, ptr %call29, i64 24
   store ptr null, ptr %m_util.i, align 8
-  %m_defs.i = getelementptr inbounds i8, ptr %call29, i64 32
+  %m_defs.i = getelementptr inbounds nuw i8, ptr %call29, i64 32
   %call.i.i.i.i.i2.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 192)
           to label %invoke.cont4.i unwind label %lpad3.i
 
 invoke.cont4.i:                                   ; preds = %if.then27
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call.i.i.i.i.i2.i, i8 0, i64 192, i1 false)
   store ptr %call.i.i.i.i.i2.i, ptr %m_defs.i, align 8
-  %m_capacity.i.i.i.i = getelementptr inbounds i8, ptr %call29, i64 40
+  %m_capacity.i.i.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 40
   store i32 8, ptr %m_capacity.i.i.i.i, align 8
-  %m_size.i.i.i.i = getelementptr inbounds i8, ptr %call29, i64 44
+  %m_size.i.i.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 44
   store i32 0, ptr %m_size.i.i.i.i, align 4
-  %m_num_deleted.i.i.i.i = getelementptr inbounds i8, ptr %call29, i64 48
+  %m_num_deleted.i.i.i.i = getelementptr inbounds nuw i8, ptr %call29, i64 48
   store i32 0, ptr %m_num_deleted.i.i.i.i, align 8
   %call.i.i.i.i.i6.i = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 192)
           to label %_ZN8datatype4decl6pluginC2Ev.exit unwind label %lpad7.i
@@ -153,22 +153,22 @@ ehcleanup11.i:                                    ; preds = %lpad7.i, %lpad3.i
   resume { ptr, i32 } %.pn.i
 
 _ZN8datatype4decl6pluginC2Ev.exit:                ; preds = %invoke.cont4.i
-  %m_axiom_bases.i = getelementptr inbounds i8, ptr %call29, i64 56
+  %m_axiom_bases.i = getelementptr inbounds nuw i8, ptr %call29, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %call.i.i.i.i.i6.i, i8 0, i64 192, i1 false)
   store ptr %call.i.i.i.i.i6.i, ptr %m_axiom_bases.i, align 8
-  %m_capacity.i.i.i3.i = getelementptr inbounds i8, ptr %call29, i64 64
+  %m_capacity.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call29, i64 64
   store i32 8, ptr %m_capacity.i.i.i3.i, align 8
-  %m_size.i.i.i4.i = getelementptr inbounds i8, ptr %call29, i64 68
+  %m_size.i.i.i4.i = getelementptr inbounds nuw i8, ptr %call29, i64 68
   store i32 0, ptr %m_size.i.i.i4.i, align 4
-  %m_num_deleted.i.i.i5.i = getelementptr inbounds i8, ptr %call29, i64 72
+  %m_num_deleted.i.i.i5.i = getelementptr inbounds nuw i8, ptr %call29, i64 72
   store i32 0, ptr %m_num_deleted.i.i.i5.i, align 8
-  %m_id_counter.i = getelementptr inbounds i8, ptr %call29, i64 80
+  %m_id_counter.i = getelementptr inbounds nuw i8, ptr %call29, i64 80
   store i32 0, ptr %m_id_counter.i, align 8
-  %m_def_block.i = getelementptr inbounds i8, ptr %call29, i64 88
+  %m_def_block.i = getelementptr inbounds nuw i8, ptr %call29, i64 88
   store ptr null, ptr %m_def_block.i, align 8
-  %m_class_id.i = getelementptr inbounds i8, ptr %call29, i64 96
+  %m_class_id.i = getelementptr inbounds nuw i8, ptr %call29, i64 96
   store i32 0, ptr %m_class_id.i, align 8
-  %m_has_nested_rec.i = getelementptr inbounds i8, ptr %call29, i64 100
+  %m_has_nested_rec.i = getelementptr inbounds nuw i8, ptr %call29, i64 100
   store i8 0, ptr %m_has_nested_rec.i, align 4
   call void @_ZN11ast_manager15register_pluginERK6symbolP11decl_plugin(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp28, ptr noundef nonnull %call29)
   br label %if.end30

@@ -21,14 +21,14 @@ define void @softfloat_add256M(ptr nocapture noundef readonly %0, ptr nocapture 
   %11 = zext i1 %10 to i8
   %.1 = select i1 %.not, i8 %.01417, i8 %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next
   %15 = load i64, ptr %14, align 8
   %16 = zext nneg i8 %.1 to i64
   %17 = add i64 %13, %16
   %18 = add i64 %17, %15
-  %19 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.next
   store i64 %18, ptr %19, align 8
   %20 = icmp eq i64 %indvars.iv.next, 3
   br i1 %20, label %21, label %7

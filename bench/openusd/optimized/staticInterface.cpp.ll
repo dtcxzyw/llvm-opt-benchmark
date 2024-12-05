@@ -72,7 +72,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt10lock_guardIS
   %16 = ptrtoint ptr %0 to i64
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %19, align 8
   store i64 %16, ptr %4, align 8
   store ptr @"_ZNSt17_Function_handlerIFvvEZNK32pxrInternal_v0_24__pxrReserved__24Plug_StaticInterfaceBase19_LoadAndInstantiateERKSt9type_infoE3$_0E9_M_invokeERKSt9_Any_data", ptr %18, align 8
@@ -112,7 +112,7 @@ _ZNSt8functionIFvvEED2Ev.exit:                    ; preds = %_ZNSt10lock_guardIS
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 42
   %.idx.i = zext i1 %35 to i64
-  %36 = getelementptr inbounds i8, ptr %33, i64 %.idx.i
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
   br label %.invoke
 
 37:                                               ; preds = %.invoke, %41, %22, %60, %58, %47, %_ZNSt8functionIFvvEED2Ev.exit
@@ -212,7 +212,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 80:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
   %81 = load ptr, ptr %76, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8
   call void %83(ptr noundef nonnull align 8 dereferenceable(12) %76) #11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit
@@ -252,7 +252,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_21Plug_InterfaceFac
 
 95:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__6TfType10GetFactoryINS_21Plug_InterfaceFactory4BaseEEEPT_v.exit
   %96 = load ptr, ptr %89, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
   %99 = invoke noundef ptr %98(ptr noundef nonnull align 8 dereferenceable(8) %89)
           to label %100 unwind label %74
@@ -298,7 +298,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 117:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i25
   %118 = load ptr, ptr %113, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef nonnull align 8 dereferenceable(12) %113) #11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEED2Ev.exit26

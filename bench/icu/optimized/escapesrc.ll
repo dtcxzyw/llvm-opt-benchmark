@@ -163,8 +163,8 @@ entry:
   %tmp = alloca [9 x i8], align 1
   %c = alloca i32, align 4
   %bytes = alloca [4 x i8], align 1
-  %i27.1.sroa.gep = getelementptr inbounds i8, ptr %bytes, i64 1
-  %i27.1.sroa.gep38 = getelementptr inbounds i8, ptr %bytes, i64 2
+  %i27.1.sroa.gep = getelementptr inbounds nuw i8, ptr %bytes, i64 1
+  %i27.1.sroa.gep38 = getelementptr inbounds nuw i8, ptr %bytes, i64 2
   %cmp52.not = icmp eq i64 %chars, 0
   br i1 %cmp52.not, label %for.end, label %for.body
 
@@ -269,7 +269,7 @@ do.end:                                           ; preds = %if.then29, %if.end6
 
 for.body74:                                       ; preds = %do.end, %for.body74
   %t.054 = phi i64 [ 0, %do.end ], [ %inc77, %for.body74 ]
-  %arrayidx75 = getelementptr inbounds i8, ptr %bytes, i64 %t.054
+  %arrayidx75 = getelementptr inbounds nuw i8, ptr %bytes, i64 %t.054
   %14 = load i8, ptr %arrayidx75, align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %tmp2.i)
   %conv.i = zext i8 %14 to i32
@@ -513,7 +513,7 @@ if.else56:                                        ; preds = %if.end34
 
 land.lhs.true63:                                  ; preds = %if.else56
   %idxprom66 = zext nneg i8 %12 to i64
-  %arrayidx67 = getelementptr inbounds [256 x i8], ptr @_ZL10oldIllegal, i64 0, i64 %idxprom66
+  %arrayidx67 = getelementptr inbounds nuw [256 x i8], ptr @_ZL10oldIllegal, i64 0, i64 %idxprom66
   %13 = load i8, ptr %arrayidx67, align 1
   %tobool68 = trunc i8 %13 to i1
   br i1 %tobool68, label %for.inc, label %if.end155.thread
@@ -543,7 +543,7 @@ cond.true:                                        ; preds = %land.lhs.true79
 cond.true82:                                      ; preds = %cond.true
   %and83 = and i32 %conv74, 15
   %idxprom84 = zext nneg i32 %and83 to i64
-  %arrayidx85 = getelementptr inbounds [17 x i8], ptr @.str.10, i64 0, i64 %idxprom84
+  %arrayidx85 = getelementptr inbounds nuw [17 x i8], ptr @.str.10, i64 0, i64 %idxprom84
   %14 = load i8, ptr %arrayidx85, align 1
   %conv8683 = zext i8 %14 to i32
   %idxprom87 = sext i32 %inc71 to i64
@@ -572,7 +572,7 @@ land.lhs.true97:                                  ; preds = %cond.false
   %conv100 = zext i8 %17 to i32
   %shr101 = lshr i32 %conv100, 4
   %idxprom102 = zext nneg i32 %shr101 to i64
-  %arrayidx103 = getelementptr inbounds [17 x i8], ptr @.str.11, i64 0, i64 %idxprom102
+  %arrayidx103 = getelementptr inbounds nuw [17 x i8], ptr @.str.11, i64 0, i64 %idxprom102
   %18 = load i8, ptr %arrayidx103, align 1
   %conv104 = sext i8 %18 to i32
   %shl105 = shl nuw nsw i32 1, %sub
@@ -1056,7 +1056,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx1 = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
   %call.i5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %infile)
@@ -1091,7 +1091,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont:                                      ; preds = %if.end.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #16
-  %arrayidx2 = getelementptr inbounds i8, ptr %argv, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %argv, i64 16
   %3 = load ptr, ptr %arrayidx2, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #16
   %call.i14 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %outfile)

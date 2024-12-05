@@ -15,7 +15,7 @@ define i32 @_ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t(ptr noca
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [31 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [31 x i32], ptr @switch.table._ZNK8WasmEdge4Host4WASI7Environ9procRaiseE15__wasi_signal_t, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   %5 = tail call i32 @raise(i32 noundef %switch.load) #3
   %.not = icmp eq i32 %5, 0

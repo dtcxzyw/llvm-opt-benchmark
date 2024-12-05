@@ -11,22 +11,22 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @ossl_algorithm_do_all(ptr noundef %libctx, i32 noundef %operation_id, ptr noundef %provider, ptr noundef %pre, ptr noundef %reserve_store, ptr noundef %fn, ptr noundef %unreserve_store, ptr noundef %post, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %cbdata = alloca %struct.algorithm_data_st, align 8
-  %0 = getelementptr inbounds i8, ptr %cbdata, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %cbdata, i64 8
   store i64 0, ptr %0, align 8
   store ptr %libctx, ptr %cbdata, align 8
-  %operation_id2 = getelementptr inbounds i8, ptr %cbdata, i64 8
+  %operation_id2 = getelementptr inbounds nuw i8, ptr %cbdata, i64 8
   store i32 %operation_id, ptr %operation_id2, align 8
-  %pre3 = getelementptr inbounds i8, ptr %cbdata, i64 16
+  %pre3 = getelementptr inbounds nuw i8, ptr %cbdata, i64 16
   store ptr %pre, ptr %pre3, align 8
-  %reserve_store4 = getelementptr inbounds i8, ptr %cbdata, i64 24
+  %reserve_store4 = getelementptr inbounds nuw i8, ptr %cbdata, i64 24
   store ptr %reserve_store, ptr %reserve_store4, align 8
-  %fn5 = getelementptr inbounds i8, ptr %cbdata, i64 32
+  %fn5 = getelementptr inbounds nuw i8, ptr %cbdata, i64 32
   store ptr %fn, ptr %fn5, align 8
-  %unreserve_store6 = getelementptr inbounds i8, ptr %cbdata, i64 40
+  %unreserve_store6 = getelementptr inbounds nuw i8, ptr %cbdata, i64 40
   store ptr %unreserve_store, ptr %unreserve_store6, align 8
-  %post7 = getelementptr inbounds i8, ptr %cbdata, i64 48
+  %post7 = getelementptr inbounds nuw i8, ptr %cbdata, i64 48
   store ptr %post, ptr %post7, align 8
-  %data8 = getelementptr inbounds i8, ptr %cbdata, i64 56
+  %data8 = getelementptr inbounds nuw i8, ptr %cbdata, i64 56
   store ptr %data, ptr %data8, align 8
   %cmp = icmp eq ptr %provider, null
   br i1 %cmp, label %if.then, label %if.else
@@ -58,7 +58,7 @@ define internal range(i32 0, 2) i32 @algorithm_do_this(ptr noundef %provider, pt
 entry:
   %ret.i = alloca i32, align 4
   %no_store = alloca i32, align 4
-  %operation_id = getelementptr inbounds i8, ptr %cbdata, i64 8
+  %operation_id = getelementptr inbounds nuw i8, ptr %cbdata, i64 8
   %0 = load i32, ptr %operation_id, align 8
   %cmp.not = icmp eq i32 %0, 0
   %spec.select = tail call i32 @llvm.umax.i32(i32 %0, i32 1)
@@ -67,12 +67,12 @@ entry:
   br i1 %cmp2.not16, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %reserve_store.i = getelementptr inbounds i8, ptr %cbdata, i64 24
-  %data1.i = getelementptr inbounds i8, ptr %cbdata, i64 56
-  %pre.i = getelementptr inbounds i8, ptr %cbdata, i64 16
-  %fn.i = getelementptr inbounds i8, ptr %cbdata, i64 32
-  %post.i = getelementptr inbounds i8, ptr %cbdata, i64 48
-  %unreserve_store.i = getelementptr inbounds i8, ptr %cbdata, i64 40
+  %reserve_store.i = getelementptr inbounds nuw i8, ptr %cbdata, i64 24
+  %data1.i = getelementptr inbounds nuw i8, ptr %cbdata, i64 56
+  %pre.i = getelementptr inbounds nuw i8, ptr %cbdata, i64 16
+  %fn.i = getelementptr inbounds nuw i8, ptr %cbdata, i64 32
+  %post.i = getelementptr inbounds nuw i8, ptr %cbdata, i64 48
+  %unreserve_store.i = getelementptr inbounds nuw i8, ptr %cbdata, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end6
@@ -128,7 +128,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
   %7 = load ptr, ptr %fn.i, align 8
   %8 = load ptr, ptr %data1.i, align 8
   call void %7(ptr noundef %provider, ptr noundef nonnull %thismap.024.i, i32 noundef %1, ptr noundef %8) #5
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %thismap.024.i, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %thismap.024.i, i64 32
   %9 = load ptr, ptr %incdec.ptr.i, align 8
   %cmp15.not.i = icmp eq ptr %9, null
   br i1 %cmp15.not.i, label %if.end17.i, label %for.body.i, !llvm.loop !4

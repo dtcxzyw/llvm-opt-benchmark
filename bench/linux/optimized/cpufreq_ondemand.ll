@@ -110,13 +110,13 @@ define internal fastcc void @od_set_powersave_bias(i32 noundef %0) unnamed_addr 
   br i1 %20, label %38, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, @od_dbs_gov
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %19, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %38, label %29
@@ -126,9 +126,9 @@ define internal fastcc void @od_set_powersave_bias(i32 noundef %0) unnamed_addr 
   %31 = load i64, ptr %19, align 8
   %32 = or i64 %31, %30
   store i64 %32, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 128
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr @default_powersave_bias, align 4
   store i32 %37, ptr %36, align 4
@@ -155,40 +155,40 @@ define dso_local void @od_unregister_powersave_bias_handler() #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i32 0, ptr %12, align 8
   br label %424
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %7, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %15 = load ptr, ptr %14, align 8
   %16 = and i32 %2, -5
-  %17 = getelementptr inbounds i8, ptr %0, i64 344
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %227, label %20, !prof !12
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %22 = icmp eq i32 %18, 1
   %23 = icmp ult i32 %16, 3
   br i1 %23, label %24, label %263
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = and i32 %2, 4
   %27 = icmp ne i32 %26, 0
-  %28 = getelementptr inbounds i8, ptr %0, i64 507
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 507
   %29 = load i8, ptr %28, align 1, !range !13, !noundef !14
   %30 = icmp ne i8 %29, 0
   %31 = and i1 %27, %30
@@ -219,7 +219,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %39 = phi ptr [ %48, %46 ], [ %9, %.preheader43.us.us ]
   %40 = phi i32 [ %49, %46 ], [ 0, %.preheader43.us.us ]
   %41 = phi i32 [ %47, %46 ], [ -1, %.preheader43.us.us ]
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i32, ptr %42, align 4
   switch i32 %43, label %44 [
     i32 -2, label %.loopexit44.us.us
@@ -246,7 +246,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %52 = phi ptr [ %65, %63 ], [ %9, %.preheader43.us.us ]
   %53 = phi i32 [ %66, %63 ], [ 0, %.preheader43.us.us ]
   %54 = phi i32 [ %64, %63 ], [ -1, %.preheader43.us.us ]
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %56 = load i32, ptr %55, align 4
   switch i32 %56, label %57 [
     i32 -2, label %.loopexit44.us.us
@@ -286,7 +286,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %72 = phi ptr [ %85, %83 ], [ %9, %.preheader46.us ]
   %73 = phi i32 [ %86, %83 ], [ 0, %.preheader46.us ]
   %74 = phi i32 [ %84, %83 ], [ -1, %.preheader46.us ]
-  %75 = getelementptr inbounds i8, ptr %72, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %76 = load i32, ptr %75, align 4
   switch i32 %76, label %77 [
     i32 -2, label %.loopexit47.us
@@ -324,7 +324,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %90 = phi ptr [ %105, %103 ], [ %9, %.preheader46.us ]
   %91 = phi i32 [ %106, %103 ], [ 0, %.preheader46.us ]
   %92 = phi i32 [ %104, %103 ], [ -1, %.preheader46.us ]
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %94 = load i32, ptr %93, align 4
   switch i32 %94, label %95 [
     i32 -2, label %.loopexit47.us
@@ -371,7 +371,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %112 = phi ptr [ %123, %121 ], [ %9, %.preheader49.us.us ]
   %113 = phi i32 [ %124, %121 ], [ 0, %.preheader49.us.us ]
   %114 = phi i32 [ %122, %121 ], [ -1, %.preheader49.us.us ]
-  %115 = getelementptr inbounds i8, ptr %112, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %116 = load i32, ptr %115, align 4
   switch i32 %116, label %117 [
     i32 -2, label %.loopexit50.us.us
@@ -409,7 +409,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %130 = phi ptr [ %145, %143 ], [ %9, %.preheader49.us.us ]
   %131 = phi i32 [ %146, %143 ], [ 0, %.preheader49.us.us ]
   %132 = phi i32 [ %144, %143 ], [ -1, %.preheader49.us.us ]
-  %133 = getelementptr inbounds i8, ptr %130, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %134 = load i32, ptr %133, align 4
   switch i32 %134, label %135 [
     i32 -2, label %.loopexit50.us.us
@@ -453,7 +453,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %152 = phi ptr [ %161, %159 ], [ %9, %.preheader52.us ]
   %153 = phi i32 [ %162, %159 ], [ 0, %.preheader52.us ]
   %154 = phi i32 [ %160, %159 ], [ -1, %.preheader52.us ]
-  %155 = getelementptr inbounds i8, ptr %152, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %156 = load i32, ptr %155, align 4
   switch i32 %156, label %157 [
     i32 -2, label %.loopexit53.us
@@ -480,7 +480,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %165 = phi ptr [ %178, %176 ], [ %9, %.preheader52.us ]
   %166 = phi i32 [ %179, %176 ], [ 0, %.preheader52.us ]
   %167 = phi i32 [ %177, %176 ], [ -1, %.preheader52.us ]
-  %168 = getelementptr inbounds i8, ptr %165, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %169 = load i32, ptr %168, align 4
   switch i32 %169, label %170 [
     i32 -2, label %.loopexit53.us
@@ -523,7 +523,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %185 = phi ptr [ %205, %203 ], [ %9, %.preheader37.us ]
   %186 = phi i32 [ %206, %203 ], [ 0, %.preheader37.us ]
   %187 = phi i32 [ %204, %203 ], [ -1, %.preheader37.us ]
-  %188 = getelementptr inbounds i8, ptr %185, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %189 = load i32, ptr %188, align 4
   switch i32 %189, label %190 [
     i32 -2, label %.loopexit38.us
@@ -571,7 +571,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %210 = phi ptr [ %225, %223 ], [ %9, %.preheader37.us ]
   %211 = phi i32 [ %226, %223 ], [ 0, %.preheader37.us ]
   %212 = phi i32 [ %224, %223 ], [ -1, %.preheader37.us ]
-  %213 = getelementptr inbounds i8, ptr %210, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %214 = load i32, ptr %213, align 4
   switch i32 %214, label %215 [
     i32 -2, label %.loopexit38.us
@@ -619,7 +619,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %235 = phi ptr [ %261, %259 ], [ %9, %.preheader40 ]
   %236 = phi i32 [ %262, %259 ], [ 0, %.preheader40 ]
   %237 = phi i32 [ %260, %259 ], [ -1, %.preheader40 ]
-  %238 = getelementptr inbounds i8, ptr %235, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %239 = load i32, ptr %238, align 4
   switch i32 %239, label %240 [
     i32 -2, label %.loopexit41
@@ -686,13 +686,13 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %274 = sub i32 %270, %273
   %275 = and i32 %2, 4
   %276 = icmp eq i32 %275, 0
-  %277 = getelementptr inbounds i8, ptr %0, i64 56
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %278 = load i32, ptr %277, align 8
   %279 = icmp ugt i32 %278, %274
   br i1 %279, label %280, label %284
 
 280:                                              ; preds = %.loopexit55
-  %281 = getelementptr inbounds i8, ptr %0, i64 52
+  %281 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %282 = load i32, ptr %281, align 4
   %283 = tail call i32 @llvm.umax.i32(i32 %282, i32 %274)
   br label %284
@@ -711,7 +711,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %289 = phi ptr [ %298, %296 ], [ %288, %.preheader34 ]
   %290 = phi i32 [ %299, %296 ], [ 0, %.preheader34 ]
   %291 = phi i32 [ %297, %296 ], [ -1, %.preheader34 ]
-  %292 = getelementptr inbounds i8, ptr %289, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %293 = load i32, ptr %292, align 4
   switch i32 %293, label %294 [
     i32 -2, label %.loopexit32
@@ -735,7 +735,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %300 = phi ptr [ %311, %309 ], [ %288, %.preheader31 ]
   %301 = phi i32 [ %312, %309 ], [ 0, %.preheader31 ]
   %302 = phi i32 [ %310, %309 ], [ -1, %.preheader31 ]
-  %303 = getelementptr inbounds i8, ptr %300, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %304 = load i32, ptr %303, align 4
   switch i32 %304, label %305 [
     i32 -2, label %.loopexit32
@@ -760,7 +760,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %313 = phi ptr [ %330, %328 ], [ %288, %.preheader31 ]
   %314 = phi i32 [ %331, %328 ], [ 0, %.preheader31 ]
   %315 = phi i32 [ %329, %328 ], [ -1, %.preheader31 ]
-  %316 = getelementptr inbounds i8, ptr %313, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %317 = load i32, ptr %316, align 4
   switch i32 %317, label %318 [
     i32 -2, label %.loopexit32
@@ -798,7 +798,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %332 = phi ptr [ %345, %343 ], [ %288, %.preheader34 ]
   %333 = phi i32 [ %346, %343 ], [ 0, %.preheader34 ]
   %334 = phi i32 [ %344, %343 ], [ -1, %.preheader34 ]
-  %335 = getelementptr inbounds i8, ptr %332, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %336 = load i32, ptr %335, align 4
   switch i32 %336, label %337 [
     i32 -2, label %.loopexit32
@@ -829,7 +829,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %279, label %351, label %355
 
 351:                                              ; preds = %.loopexit32
-  %352 = getelementptr inbounds i8, ptr %0, i64 52
+  %352 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %353 = load i32, ptr %352, align 4
   %354 = tail call i32 @llvm.umax.i32(i32 %353, i32 %274)
   br label %355
@@ -845,7 +845,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %357 = phi ptr [ %366, %364 ], [ %288, %.preheader ]
   %358 = phi i32 [ %367, %364 ], [ 0, %.preheader ]
   %359 = phi i32 [ %365, %364 ], [ -1, %.preheader ]
-  %360 = getelementptr inbounds i8, ptr %357, i64 8
+  %360 = getelementptr inbounds nuw i8, ptr %357, i64 8
   %361 = load i32, ptr %360, align 4
   switch i32 %361, label %362 [
     i32 -2, label %.loopexit
@@ -866,7 +866,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %368 = phi ptr [ %381, %379 ], [ %288, %.preheader ]
   %369 = phi i32 [ %382, %379 ], [ 0, %.preheader ]
   %370 = phi i32 [ %380, %379 ], [ -1, %.preheader ]
-  %371 = getelementptr inbounds i8, ptr %368, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %368, i64 8
   %372 = load i32, ptr %371, align 4
   switch i32 %372, label %373 [
     i32 -2, label %.loopexit
@@ -893,7 +893,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   %383 = phi ptr [ %402, %400 ], [ %288, %355 ]
   %384 = phi i32 [ %403, %400 ], [ 0, %355 ]
   %385 = phi i32 [ %401, %400 ], [ -1, %355 ]
-  %386 = getelementptr inbounds i8, ptr %383, i64 8
+  %386 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %387 = load i32, ptr %386, align 4
   switch i32 %387, label %388 [
     i32 -2, label %.loopexit
@@ -937,22 +937,22 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
   br i1 %408, label %409, label %411
 
 409:                                              ; preds = %.loopexit
-  %410 = getelementptr inbounds i8, ptr %5, i64 168
+  %410 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i32 0, ptr %410, align 8
   br label %424
 
 411:                                              ; preds = %.loopexit
   %412 = sub i32 %274, %350
-  %413 = getelementptr inbounds i8, ptr %7, i64 140
+  %413 = getelementptr inbounds nuw i8, ptr %7, i64 140
   %414 = load i32, ptr %413, align 4
   %415 = mul i32 %414, %412
   %416 = sub i32 %407, %350
   %417 = lshr i32 %416, 1
   %418 = add i32 %415, %417
   %419 = udiv i32 %418, %416
-  %420 = getelementptr inbounds i8, ptr %5, i64 176
+  %420 = getelementptr inbounds nuw i8, ptr %5, i64 176
   store i32 %419, ptr %420, align 8
-  %421 = getelementptr inbounds i8, ptr %5, i64 168
+  %421 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store i32 %350, ptr %421, align 8
   %422 = load i32, ptr %413, align 4
   %423 = sub i32 %422, %419
@@ -961,7 +961,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
 424:                                              ; preds = %411, %409, %11
   %425 = phi i32 [ %423, %411 ], [ 0, %409 ], [ 0, %11 ]
   %426 = phi i32 [ %407, %411 ], [ %350, %409 ], [ %1, %11 ]
-  %427 = getelementptr inbounds i8, ptr %5, i64 172
+  %427 = getelementptr inbounds nuw i8, ptr %5, i64 172
   store i32 %425, ptr %427, align 4
   ret i32 %426
 }
@@ -1022,11 +1022,11 @@ declare dso_local void @cpufreq_dbs_governor_limits(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @od_dbs_update(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 180
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
   %9 = and i8 %7, -2
@@ -1035,45 +1035,45 @@ define internal i32 @od_dbs_update(ptr noundef %0) #0 align 16 {
   br i1 %10, label %21, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = icmp sgt i64 %13, 0
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %3, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @__cpufreq_driver_target(ptr noundef %0, i32 noundef %17, i32 noundef 5) #13
-  %19 = getelementptr inbounds i8, ptr %3, i64 172
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 172
   %20 = load i32, ptr %19, align 4
   br label %96
 
 21:                                               ; preds = %11, %1
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 128
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @dbs_update(ptr noundef %0) #13
-  %28 = getelementptr inbounds i8, ptr %22, i64 168
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 168
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 148
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 148
   %30 = load i32, ptr %29, align 4
   %31 = icmp ugt i32 %27, %30
   br i1 %31, label %32, label %63
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %0, i64 60
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load i32, ptr %35, align 8
   %37 = icmp ult i32 %34, %36
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %24, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %22, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store i32 %40, ptr %41, align 8
   %.pre = load i32, ptr %35, align 8
   br label %42
@@ -1081,9 +1081,9 @@ define internal i32 @od_dbs_update(ptr noundef %0) #0 align 16 {
 42:                                               ; preds = %38, %32
   %43 = phi i32 [ %.pre, %38 ], [ %36, %32 ]
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 128
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 128
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 128
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
@@ -1109,15 +1109,15 @@ define internal i32 @od_dbs_update(ptr noundef %0) #0 align 16 {
   br label %81
 
 63:                                               ; preds = %21
-  %64 = getelementptr inbounds i8, ptr %0, i64 40
-  %65 = getelementptr inbounds i8, ptr %0, i64 44
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %64, align 8
   %68 = sub i32 %67, %66
   %69 = mul i32 %68, %27
   %70 = udiv i32 %69, 100
   %71 = add i32 %70, %66
-  %72 = getelementptr inbounds i8, ptr %22, i64 152
+  %72 = getelementptr inbounds nuw i8, ptr %22, i64 152
   store i32 1, ptr %72, align 8
   %73 = load i32, ptr %26, align 4
   %74 = icmp eq i32 %73, 0
@@ -1134,7 +1134,7 @@ define internal i32 @od_dbs_update(ptr noundef %0) #0 align 16 {
   br label %81
 
 81:                                               ; preds = %78, %59, %56
-  %82 = getelementptr inbounds i8, ptr %3, i64 168
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %90, label %85
@@ -1143,14 +1143,14 @@ define internal i32 @od_dbs_update(ptr noundef %0) #0 align 16 {
   %86 = load i8, ptr %6, align 4
   %87 = or i8 %86, 1
   store i8 %87, ptr %6, align 4
-  %88 = getelementptr inbounds i8, ptr %3, i64 176
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %89 = load i32, ptr %88, align 8
   br label %96
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %5, i64 140
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 140
   %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %3, i64 152
+  %93 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %94 = load i32, ptr %93, align 8
   %95 = mul i32 %94, %92
   br label %96
@@ -1200,12 +1200,12 @@ define internal noundef range(i32 -12, 1) i32 @od_init(ptr nocapture noundef wri
 
 14:                                               ; preds = %11, %5
   %15 = icmp eq i64 %7, -1
-  %16 = getelementptr inbounds i8, ptr %0, i64 148
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %17 = select i1 %15, i32 80, i32 95
   store i32 %17, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %19, align 8
   %20 = load i32, ptr @default_powersave_bias, align 4
   store i32 %20, ptr %3, align 8
@@ -1218,9 +1218,9 @@ define internal noundef range(i32 -12, 1) i32 @od_init(ptr nocapture noundef wri
   %27 = icmp ugt i8 %26, 14
   %28 = select i1 %25, i1 %27, i1 false
   %29 = zext i1 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %0, i64 152
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %3, ptr %31, align 8
   br label %32
 
@@ -1231,7 +1231,7 @@ define internal noundef range(i32 -12, 1) i32 @od_init(ptr nocapture noundef wri
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @od_exit(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #13
   ret void
@@ -1239,21 +1239,21 @@ define internal void @od_exit(ptr nocapture noundef readonly %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal void @od_start(ptr nocapture noundef readonly %0) #5 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 180
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 180
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, -2
   store i8 %6, ptr %4, align 4
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
   store i32 0, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @sampling_rate_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 140
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %4) #13
   %6 = sext i32 %5 to i64
@@ -1268,7 +1268,7 @@ declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, 
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @up_threshold_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 148
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %4 = load i32, ptr %3, align 4
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %4) #13
   %6 = sext i32 %5 to i64
@@ -1289,7 +1289,7 @@ define internal noundef i64 @up_threshold_store(ptr nocapture noundef writeonly 
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 148
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 %7, ptr %12, align 4
   br label %13
 
@@ -1304,7 +1304,7 @@ declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapt
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @sampling_down_factor_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %4) #13
   %6 = sext i32 %5 to i64
@@ -1325,9 +1325,9 @@ define internal noundef i64 @sampling_down_factor_store(ptr noundef %0, ptr noca
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %7, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %13
   br i1 %15, label %.loopexit, label %.preheader
@@ -1357,7 +1357,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @ignore_nice_load_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %4) #13
   %6 = sext i32 %5 to i64
@@ -1384,7 +1384,7 @@ define internal noundef i64 @ignore_nice_load_store(ptr noundef %0, ptr nocaptur
 
 11:                                               ; preds = %10, %7
   %12 = phi i32 [ 1, %10 ], [ %8, %7 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 136
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %12, %14
   br i1 %15, label %17, label %16
@@ -1405,7 +1405,7 @@ declare dso_local void @gov_update_cpu_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @powersave_bias_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %5) #13
@@ -1416,7 +1416,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @powersave_bias_s
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef i64 @powersave_bias_store(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) #6 align 16 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !31
@@ -1428,7 +1428,7 @@ define internal noundef i64 @powersave_bias_store(ptr noundef readonly %0, ptr n
   %10 = load i32, ptr %4, align 4
   %spec.select = call i32 @llvm.umin.i32(i32 %10, i32 1000)
   store i32 %spec.select, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
   br i1 %13, label %.loopexit, label %.preheader
@@ -1437,9 +1437,9 @@ define internal noundef i64 @powersave_bias_store(ptr noundef readonly %0, ptr n
   %14 = phi ptr [ %20, %.preheader ], [ %12, %9 ]
   %15 = getelementptr i8, ptr %14, i64 -136
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 168
   store i32 0, ptr %19, align 8
   %20 = load ptr, ptr %14, align 8
   %21 = icmp eq ptr %20, %11
@@ -1453,7 +1453,7 @@ define internal noundef i64 @powersave_bias_store(ptr noundef readonly %0, ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal noundef range(i64 -2147483648, 2147483648) i64 @io_is_busy_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %1, ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %4) #13
   %6 = sext i32 %5 to i64
@@ -1473,7 +1473,7 @@ define internal noundef i64 @io_is_busy_store(ptr noundef %0, ptr nocapture noun
   %8 = load i32, ptr %4, align 4
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %10, ptr %11, align 8
   call void @gov_update_cpu_data(ptr noundef %0) #13
   br label %12

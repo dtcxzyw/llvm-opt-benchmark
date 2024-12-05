@@ -70,39 +70,39 @@ define void @_ZN3g2o18ParameterSE2OffsetC2Ev(ptr noundef nonnull align 16 derefe
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %9 = getelementptr inbounds i8, ptr %0, i64 136
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i64 0, ptr %2, align 16
   store <2 x double> zeroinitializer, ptr %3, align 16
   store <2 x double> <double 1.000000e+00, double 0.000000e+00>, ptr %4, align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store <2 x double> <double -0.000000e+00, double 1.000000e+00>, ptr %12, align 8
   store double 0.000000e+00, ptr %5, align 16
   store i64 0, ptr %6, align 8
   store double 1.000000e+00, ptr %7, align 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store <2 x double> zeroinitializer, ptr %13, align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load <2 x i64>, ptr %14, align 8
   %.sroa.6.32.vec.insert.i = insertelement <2 x i64> %15, i64 4607182418800017408, i64 1
   %16 = xor <2 x i64> %.sroa.6.32.vec.insert.i, splat (i64 -9223372036854775808)
   %17 = bitcast <2 x i64> %16 to <2 x double>
-  %18 = getelementptr inbounds i8, ptr %0, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %19 = load <2 x double>, ptr %18, align 8, !noalias !4
   %20 = shufflevector <2 x double> %19, <2 x double> poison, <2 x i32> zeroinitializer
   %21 = fmul <2 x double> %20, %17
   %22 = fadd <2 x double> %21, <double -0.000000e+00, double 0.000000e+00>
   store <2 x double> <double 1.000000e+00, double -0.000000e+00>, ptr %8, align 8
   store double 0.000000e+00, ptr %9, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x i64> %.sroa.6.32.vec.insert.i, ptr %.sroa.6.0..sroa_idx.i, align 16
   store double 0.000000e+00, ptr %10, align 16
-  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 168
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   store <2 x double> %22, ptr %.sroa.11.0..sroa_idx.i, align 8
   store double 1.000000e+00, ptr %11, align 8
   ret void
@@ -132,26 +132,26 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr nocapture noun
   %.sroa.38.24.vec.insert = insertelement <2 x double> %.sroa.38.16.vec.insert, double %10, i64 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store <2 x double> %.sroa.06.8.vec.insert, ptr %12, align 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store <2 x double> %.sroa.38.24.vec.insert, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %15, align 8
   store double 1.000000e+00, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 96
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %18 = load <2 x double>, ptr %5, align 16
   store <2 x double> %18, ptr %17, align 16
   %19 = insertelement <2 x double> %.sroa.06.8.vec.insert, double %11, i64 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load <2 x i64>, ptr %20, align 8
   %22 = bitcast double %10 to i64
   %.sroa.6.32.vec.insert = insertelement <2 x i64> %21, i64 %22, i64 1
   %23 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
   %24 = xor <2 x i64> %.sroa.6.32.vec.insert, splat (i64 -9223372036854775808)
   %25 = bitcast <2 x i64> %24 to <2 x double>
-  %26 = getelementptr inbounds i8, ptr %0, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = load <2 x double>, ptr %26, align 8, !noalias !10
   %28 = shufflevector <2 x double> %27, <2 x double> poison, <2 x i32> zeroinitializer
   %29 = fmul <2 x double> %28, %25
@@ -159,15 +159,15 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr nocapture noun
   %31 = fsub <2 x double> %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store <2 x double> %19, ptr %32, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x i64> %.sroa.6.32.vec.insert, ptr %.sroa.6.0..sroa_idx, align 16
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx, align 16
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 168
   store <2 x double> %31, ptr %.sroa.11.0..sroa_idx, align 8
-  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 1.000000e+00, ptr %.sroa.12.0..sroa_idx, align 8
   ret void
 }
@@ -187,7 +187,7 @@ define noundef zeroext i1 @_ZN3g2o18ParameterSE2Offset4readERSi(ptr nocapture no
   br i1 %9, label %10, label %.critedge.i
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -211,7 +211,7 @@ define noundef zeroext i1 @_ZN3g2o18ParameterSE2Offset4readERSi(ptr nocapture no
 
 _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9DenseBaseIT_EE.exit: ; preds = %.critedge.i, %18
   %24 = phi i1 [ true, %.critedge.i ], [ %23, %18 ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load double, ptr %25, align 16
   %27 = load <2 x double>, ptr %3, align 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -228,26 +228,26 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %.sroa.38.24.vec.insert.i = insertelement <2 x double> %.sroa.38.16.vec.insert.i, double %32, i64 1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store <2 x double> %.sroa.06.8.vec.insert.i, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %0, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store <2 x double> %.sroa.38.24.vec.insert.i, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double 0.000000e+00, ptr %36, align 16
-  %37 = getelementptr inbounds i8, ptr %0, i64 88
-  %38 = getelementptr inbounds i8, ptr %0, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 0, ptr %37, align 8
   store double 1.000000e+00, ptr %38, align 16
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load <2 x double>, ptr %29, align 16
   store <2 x double> %40, ptr %39, align 16
   %41 = insertelement <2 x double> %.sroa.06.8.vec.insert.i, double %33, i64 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %43 = load <2 x i64>, ptr %42, align 8
   %44 = bitcast double %32 to i64
   %.sroa.6.32.vec.insert.i = insertelement <2 x i64> %43, i64 %44, i64 1
   %45 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
   %46 = xor <2 x i64> %.sroa.6.32.vec.insert.i, splat (i64 -9223372036854775808)
   %47 = bitcast <2 x i64> %46 to <2 x double>
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %49 = load <2 x double>, ptr %48, align 8, !noalias !18
   %50 = shufflevector <2 x double> %49, <2 x double> poison, <2 x i32> zeroinitializer
   %51 = fmul <2 x double> %50, %47
@@ -255,15 +255,15 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %53 = fsub <2 x double> %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store <2 x double> %41, ptr %54, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 136
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double 0.000000e+00, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 144
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x i64> %.sroa.6.32.vec.insert.i, ptr %.sroa.6.0..sroa_idx.i, align 16
-  %.sroa.9.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %.sroa.9.0..sroa_idx.i, align 16
-  %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 168
+  %.sroa.11.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   store <2 x double> %53, ptr %.sroa.11.0..sroa_idx.i, align 8
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 1.000000e+00, ptr %.sroa.12.0..sroa_idx.i, align 8
   ret i1 %24
 }
@@ -274,20 +274,20 @@ define noundef zeroext i1 @_ZNK3g2o18ParameterSE2Offset5writeERSo(ptr nocapture 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load double, ptr %4, align 16, !noalias !21
   %8 = load double, ptr %5, align 16, !noalias !21
   store double %8, ptr %3, align 8, !alias.scope !21
   %9 = load double, ptr %6, align 8, !noalias !21
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %9, ptr %10, align 8, !alias.scope !21
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %7, ptr %11, align 8, !alias.scope !21
   br label %12
 
 12:                                               ; preds = %12, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %12 ]
-  %13 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
   %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %14)
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str)
@@ -331,25 +331,25 @@ define void @_ZN3g2o14CacheSE2OffsetC2Ev(ptr noundef nonnull align 16 dereferenc
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  %15 = getelementptr inbounds i8, ptr %0, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store double 0.000000e+00, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   store double 1.000000e+00, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store double 0.000000e+00, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store double 0.000000e+00, ptr %19, align 16
-  %20 = getelementptr inbounds i8, ptr %0, i64 280
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store double 1.000000e+00, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 304
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store double 0.000000e+00, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %0, i64 328
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store double 0.000000e+00, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 352
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store double 1.000000e+00, ptr %23, align 16
   ret void
 
@@ -447,15 +447,15 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %.sroa.388.24.vec.insert = insertelement <2 x double> %.sroa.388.16.vec.insert, double %29, i64 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store <2 x double> %.sroa.086.8.vec.insert, ptr %31, align 16
-  %32 = getelementptr inbounds i8, ptr %0, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store <2 x double> %.sroa.388.24.vec.insert, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 304
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store double 0.000000e+00, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %0, i64 328
-  %35 = getelementptr inbounds i8, ptr %0, i64 352
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 0, ptr %34, align 8
   store double 1.000000e+00, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %37 = load <2 x double>, ptr %26, align 16
   store <2 x double> %37, ptr %36, align 16
   %38 = load double, ptr %25, align 16, !noalias !37
@@ -476,7 +476,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %47 = insertelement <2 x double> poison, double %46, i64 0
   %48 = shufflevector <2 x double> %47, <2 x double> poison, <2 x i32> zeroinitializer
   %49 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %51 = load double, ptr %50, align 8, !noalias !51
   %52 = fneg double %51
   %53 = insertelement <2 x double> poison, double %52, i64 0
@@ -497,15 +497,15 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %.sroa.377.24.vec.insert = insertelement <2 x double> %.sroa.377.16.vec.insert, double %61, i64 1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store <2 x double> %.sroa.075.8.vec.insert, ptr %63, align 16
-  %64 = getelementptr inbounds i8, ptr %0, i64 168
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store <2 x double> %.sroa.377.24.vec.insert, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 160
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store double 0.000000e+00, ptr %65, align 16
-  %66 = getelementptr inbounds i8, ptr %0, i64 184
-  %67 = getelementptr inbounds i8, ptr %0, i64 208
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 0, ptr %66, align 8
   store double 1.000000e+00, ptr %67, align 16
-  %68 = getelementptr inbounds i8, ptr %0, i64 192
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %69 = load <2 x double>, ptr %58, align 16
   store <2 x double> %69, ptr %68, align 16
   %70 = load double, ptr %3, align 8, !noalias !55
@@ -526,7 +526,7 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %79 = insertelement <2 x double> poison, double %78, i64 0
   %80 = shufflevector <2 x double> %79, <2 x double> poison, <2 x i32> zeroinitializer
   %81 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i15, %80
-  %82 = getelementptr inbounds i8, ptr %2, i64 200
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %83 = load double, ptr %82, align 8, !noalias !69
   %84 = fneg double %83
   %85 = insertelement <2 x double> poison, double %84, i64 0
@@ -542,15 +542,15 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %.sroa.363.24.vec.insert = insertelement <2 x double> %.sroa.363.16.vec.insert, double %90, i64 1
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store <2 x double> %.sroa.061.8.vec.insert, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 240
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store <2 x double> %.sroa.363.24.vec.insert, ptr %93, align 16
-  %94 = getelementptr inbounds i8, ptr %0, i64 232
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store double 0.000000e+00, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 256
-  %96 = getelementptr inbounds i8, ptr %0, i64 280
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %95, i8 0, i64 16, i1 false)
   store double 1.000000e+00, ptr %96, align 8
-  %97 = getelementptr inbounds i8, ptr %0, i64 264
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store <2 x double> %88, ptr %97, align 8
   %98 = load double, ptr %3, align 8
   %99 = tail call double @cos(double noundef %98) #15
@@ -588,18 +588,18 @@ define void @_ZN3g2o14CacheSE2Offset10updateImplEv(ptr noundef nonnull align 16 
   %118 = fadd <2 x double> %117, %shift101
   %.sroa.3.24.vec.insert.i.i.i.i37 = shufflevector <2 x double> %116, <2 x double> %118, <2 x i32> <i32 0, i32 2>
   store <2 x double> %.sroa.0.8.vec.insert.i.i.i.i35, ptr %110, align 16
-  %119 = getelementptr inbounds i8, ptr %0, i64 416
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store <2 x double> %.sroa.3.24.vec.insert.i.i.i.i37, ptr %119, align 16
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %121 = tail call double @sin(double noundef %.0.i.i13) #15, !noalias !76
   %122 = tail call double @cos(double noundef %.0.i.i13) #15, !noalias !76
   %123 = fneg double %121
   store double %122, ptr %120, align 16
-  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %0, i64 376
+  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store double %121, ptr %.sroa.2.0..sroa_idx.i38, align 8
-  %.sroa.3.0..sroa_idx.i39 = getelementptr inbounds i8, ptr %0, i64 384
+  %.sroa.3.0..sroa_idx.i39 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store double %123, ptr %.sroa.3.0..sroa_idx.i39, align 16
-  %.sroa.4.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %0, i64 392
+  %.sroa.4.0..sroa_idx.i40 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store double %122, ptr %.sroa.4.0..sroa_idx.i40, align 8
   ret void
 }

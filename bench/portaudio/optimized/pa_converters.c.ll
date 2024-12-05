@@ -652,11 +652,11 @@ define internal void @Float32_To_Int24(ptr nocapture noundef writeonly %0, i32 n
   store i8 %17, ptr %.01517, align 1
   %18 = lshr i32 %15, 16
   %19 = trunc i32 %18 to i8
-  %20 = getelementptr inbounds i8, ptr %.01517, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.01517, i64 1
   store i8 %19, ptr %20, align 1
   %21 = lshr i32 %15, 24
   %22 = trunc nuw i32 %21 to i8
-  %23 = getelementptr inbounds i8, ptr %.01517, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.01517, i64 2
   store i8 %22, ptr %23, align 1
   %24 = getelementptr inbounds float, ptr %.01418, i64 %7
   %25 = getelementptr inbounds i8, ptr %.01517, i64 %9
@@ -694,11 +694,11 @@ define internal void @Float32_To_Int24_Dither(ptr nocapture noundef writeonly %0
   store i8 %19, ptr %.01719, align 1
   %20 = lshr i32 %17, 16
   %21 = trunc i32 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %.01719, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01719, i64 1
   store i8 %21, ptr %22, align 1
   %23 = lshr i32 %17, 24
   %24 = trunc nuw i32 %23 to i8
-  %25 = getelementptr inbounds i8, ptr %.01719, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.01719, i64 2
   store i8 %24, ptr %25, align 1
   %26 = getelementptr inbounds float, ptr %.01620, i64 %7
   %27 = getelementptr inbounds i8, ptr %.01719, i64 %9
@@ -744,11 +744,11 @@ define internal void @Float32_To_Int24_Clip(ptr nocapture noundef writeonly %0, 
   store i8 %23, ptr %.01722, align 1
   %24 = lshr i32 %21, 16
   %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %.01722, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.01722, i64 1
   store i8 %25, ptr %26, align 1
   %27 = lshr i32 %21, 24
   %28 = trunc nuw i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %.01722, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.01722, i64 2
   store i8 %28, ptr %29, align 1
   %30 = getelementptr inbounds float, ptr %.01821, i64 %7
   %31 = getelementptr inbounds i8, ptr %.01722, i64 %9
@@ -796,11 +796,11 @@ define internal void @Float32_To_Int24_DitherClip(ptr nocapture noundef writeonl
   store i8 %25, ptr %.02023, align 1
   %26 = lshr i32 %23, 16
   %27 = trunc i32 %26 to i8
-  %28 = getelementptr inbounds i8, ptr %.02023, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.02023, i64 1
   store i8 %27, ptr %28, align 1
   %29 = lshr i32 %23, 24
   %30 = trunc nuw i32 %29 to i8
-  %31 = getelementptr inbounds i8, ptr %.02023, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.02023, i64 2
   store i8 %30, ptr %31, align 1
   %32 = getelementptr inbounds float, ptr %.01924, i64 %7
   %33 = getelementptr inbounds i8, ptr %.02023, i64 %9
@@ -1211,12 +1211,12 @@ define internal void @Int32_To_Int24(ptr nocapture noundef writeonly %0, i32 nou
   %15 = load i32, ptr %.01216, align 4
   %16 = lshr i32 %15, 16
   %17 = trunc i32 %16 to i8
-  %18 = getelementptr inbounds i8, ptr %.017, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   store i8 %17, ptr %18, align 1
   %19 = load i32, ptr %.01216, align 4
   %20 = lshr i32 %19, 24
   %21 = trunc nuw i32 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %.017, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   store i8 %21, ptr %22, align 1
   %23 = getelementptr inbounds i32, ptr %.01216, i64 %7
   %24 = getelementptr inbounds i8, ptr %.017, i64 %9
@@ -1403,7 +1403,7 @@ define internal void @Int24_To_Float32(ptr nocapture noundef writeonly %0, i32 n
   %12 = load i16, ptr %.01416, align 1
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
-  %15 = getelementptr inbounds i8, ptr %.01416, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01416, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw i32 %17, 24
@@ -1440,7 +1440,7 @@ define internal void @Int24_To_Int32(ptr nocapture noundef writeonly %0, i32 nou
   %12 = load i16, ptr %.01416, align 1
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 8
-  %15 = getelementptr inbounds i8, ptr %.01416, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01416, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw i32 %17, 24
@@ -1471,7 +1471,7 @@ define internal void @Int24_To_Int16(ptr nocapture noundef writeonly %0, i32 nou
   %.01115 = phi ptr [ %0, %.lr.ph ], [ %15, %10 ]
   %.01214 = phi ptr [ %2, %.lr.ph ], [ %14, %10 ]
   %11 = add i32 %.016, -1
-  %12 = getelementptr inbounds i8, ptr %.01214, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.01214, i64 1
   %13 = load i16, ptr %12, align 1
   store i16 %13, ptr %.01115, align 2
   %14 = getelementptr inbounds i8, ptr %.01214, i64 %8
@@ -1502,7 +1502,7 @@ define internal void @Int24_To_Int16_Dither(ptr nocapture noundef writeonly %0, 
   %12 = load i16, ptr %.01519, align 1
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 7
-  %15 = getelementptr inbounds i8, ptr %.01519, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01519, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 23
@@ -1537,7 +1537,7 @@ define internal void @Int24_To_Int8(ptr nocapture noundef writeonly %0, i32 noun
   %.0812 = phi ptr [ %2, %.lr.ph ], [ %14, %10 ]
   %.0911 = phi i32 [ %4, %.lr.ph ], [ %11, %10 ]
   %11 = add i32 %.0911, -1
-  %12 = getelementptr inbounds i8, ptr %.0812, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0812, i64 2
   %13 = load i8, ptr %12, align 1
   store i8 %13, ptr %.013, align 1
   %14 = getelementptr inbounds i8, ptr %.0812, i64 %8
@@ -1568,7 +1568,7 @@ define internal void @Int24_To_Int8_Dither(ptr nocapture noundef writeonly %0, i
   %12 = load i16, ptr %.01519, align 1
   %13 = zext i16 %12 to i32
   %14 = shl nuw nsw i32 %13, 7
-  %15 = getelementptr inbounds i8, ptr %.01519, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01519, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 23
@@ -1603,7 +1603,7 @@ define internal void @Int24_To_UInt8(ptr nocapture noundef writeonly %0, i32 nou
   %.0812 = phi ptr [ %2, %.lr.ph ], [ %15, %10 ]
   %.0911 = phi i32 [ %4, %.lr.ph ], [ %11, %10 ]
   %11 = add i32 %.0911, -1
-  %12 = getelementptr inbounds i8, ptr %.0812, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %.0812, i64 2
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, -128
   store i8 %14, ptr %.013, align 1
@@ -1696,11 +1696,11 @@ define internal void @Int16_To_Int24(ptr nocapture noundef writeonly %0, i32 nou
   %12 = load i16, ptr %.01315, align 2
   store i8 0, ptr %.01216, align 1
   %13 = trunc i16 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
   store i8 %13, ptr %14, align 1
   %15 = lshr i16 %12, 8
   %16 = trunc nuw i16 %15 to i8
-  %17 = getelementptr inbounds i8, ptr %.01216, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01216, i64 2
   store i8 %16, ptr %17, align 1
   %18 = getelementptr inbounds i16, ptr %.01315, i64 %7
   %19 = getelementptr inbounds i8, ptr %.01216, i64 %9
@@ -1851,10 +1851,10 @@ define internal void @Int8_To_Int24(ptr nocapture noundef writeonly %0, i32 noun
   %.01113 = phi i32 [ %4, %.lr.ph ], [ %11, %10 ]
   %11 = add i32 %.01113, -1
   store i8 0, ptr %.015, align 1
-  %12 = getelementptr inbounds i8, ptr %.015, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   store i8 0, ptr %12, align 1
   %13 = load i8, ptr %.01014, align 1
-  %14 = getelementptr inbounds i8, ptr %.015, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.015, i64 2
   store i8 %13, ptr %14, align 1
   %15 = getelementptr inbounds i8, ptr %.01014, i64 %7
   %16 = getelementptr inbounds i8, ptr %.015, i64 %9
@@ -1996,11 +1996,11 @@ define internal void @UInt8_To_Int24(ptr nocapture noundef writeonly %0, i32 nou
   %.01113 = phi i32 [ %4, %.lr.ph ], [ %11, %10 ]
   %11 = add i32 %.01113, -1
   store i8 0, ptr %.015, align 1
-  %12 = getelementptr inbounds i8, ptr %.015, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.015, i64 1
   store i8 0, ptr %12, align 1
   %13 = load i8, ptr %.01014, align 1
   %14 = xor i8 %13, -128
-  %15 = getelementptr inbounds i8, ptr %.015, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.015, i64 2
   store i8 %14, ptr %15, align 1
   %16 = getelementptr inbounds i8, ptr %.01014, i64 %7
   %17 = getelementptr inbounds i8, ptr %.015, i64 %9
@@ -2138,13 +2138,13 @@ define internal void @Copy_24_To_24(ptr nocapture noundef writeonly %0, i32 noun
   %12 = add i32 %.01315, -1
   %13 = load i8, ptr %.01216, align 1
   store i8 %13, ptr %.017, align 1
-  %14 = getelementptr inbounds i8, ptr %.01216, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
   %15 = load i8, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %.017, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.017, i64 1
   store i8 %15, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %.01216, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.01216, i64 2
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %.017, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   store i8 %18, ptr %19, align 1
   %20 = getelementptr inbounds i8, ptr %.01216, i64 %8
   %21 = getelementptr inbounds i8, ptr %.017, i64 %10
@@ -2303,9 +2303,9 @@ define internal void @Zero24(ptr nocapture noundef writeonly %0, i32 noundef %1,
   %.068 = phi i32 [ %2, %.lr.ph ], [ %7, %6 ]
   %7 = add i32 %.068, -1
   store i8 0, ptr %.09, align 1
-  %8 = getelementptr inbounds i8, ptr %.09, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 1
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %.09, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %.09, i64 2
   store i8 0, ptr %9, align 1
   %10 = getelementptr inbounds i8, ptr %.09, i64 %5
   %.not = icmp eq i32 %7, 0

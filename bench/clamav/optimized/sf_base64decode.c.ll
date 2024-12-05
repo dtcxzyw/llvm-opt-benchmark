@@ -19,9 +19,9 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
-  %15 = getelementptr inbounds i8, ptr %6, i64 2
-  %16 = getelementptr inbounds i8, ptr %6, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %17
 
 17:                                               ; preds = %.lr.ph, %74
@@ -31,13 +31,13 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   %.04352 = phi ptr [ %6, %.lr.ph ], [ %.144, %74 ]
   %18 = load i8, ptr %.04054, align 1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds [256 x i8], ptr @sf_decode64tab, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not = icmp eq i8 %21, 100
   br i1 %.not, label %74, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %.04352, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.04352, i64 1
   store i8 %18, ptr %.04352, align 1
   %24 = add i64 %.03955, 1
   %25 = and i64 %24, 3
@@ -54,15 +54,15 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
 
 31:                                               ; preds = %26
   %32 = zext i8 %29 to i64
-  %33 = getelementptr inbounds [256 x i8], ptr @sf_decode64tab, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %32
   %34 = load i8, ptr %33, align 1
   %35 = load i8, ptr %15, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds [256 x i8], ptr @sf_decode64tab, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %36
   %38 = load i8, ptr %37, align 1
   %39 = load i8, ptr %16, align 1
   %40 = zext i8 %39 to i64
-  %41 = getelementptr inbounds [256 x i8], ptr @sf_decode64tab, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = load i64, ptr %4, align 8
   %44 = icmp ult i64 %43, %3
@@ -70,12 +70,12 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
 
 45:                                               ; preds = %31
   %46 = zext i8 %27 to i64
-  %47 = getelementptr inbounds [256 x i8], ptr @sf_decode64tab, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i8], ptr @sf_decode64tab, i64 0, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = shl i8 %48, 2
   %50 = lshr i8 %34, 4
   %51 = or i8 %49, %50
-  %52 = getelementptr inbounds i8, ptr %.04153, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.04153, i64 1
   store i8 %51, ptr %.04153, align 1
   %53 = load i64, ptr %4, align 8
   %54 = add i64 %53, 1
@@ -107,10 +107,10 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   br i1 %or.cond50, label %67, label %._crit_edge
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %.2, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %69 = shl i8 %38, 6
   %70 = or i8 %42, %69
-  %71 = getelementptr inbounds i8, ptr %.2, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.2, i64 2
   store i8 %70, ptr %68, align 1
   %72 = load i64, ptr %4, align 8
   %73 = add i64 %72, 1
@@ -121,7 +121,7 @@ define range(i32 -1, 1) i32 @sf_base64decode(ptr noundef readonly %0, i64 nounde
   %.144 = phi ptr [ %23, %22 ], [ %6, %67 ], [ %.04352, %17 ]
   %.142 = phi ptr [ %.04153, %22 ], [ %71, %67 ], [ %.04153, %17 ]
   %.1 = phi i64 [ %24, %22 ], [ %24, %67 ], [ %.03955, %17 ]
-  %75 = getelementptr inbounds i8, ptr %.04054, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.04054, i64 1
   %76 = icmp ult ptr %75, %10
   %77 = icmp ult i64 %.1, %9
   %78 = select i1 %76, i1 %77, i1 false

@@ -44,9 +44,9 @@ define dso_local void @psmouse_smbus_cleanup(ptr noundef readnone %0) local_unna
 
 9:                                                ; preds = %.preheader
   %10 = getelementptr i8, ptr %4, i64 -96
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %12, ptr %13, align 8
   store volatile ptr %5, ptr %12, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %4, align 8
@@ -87,17 +87,17 @@ define dso_local i32 @psmouse_smbus_init(ptr noundef %0, ptr nocapture noundef r
 
 10:                                               ; preds = %6
   %11 = zext i1 %4 to i8
-  %12 = getelementptr inbounds i8, ptr %8, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 80
   store ptr %0, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef align 8 dereferenceable(80) %1, i64 80, i1 false)
-  %13 = getelementptr inbounds i8, ptr %8, i64 113
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 113
   store i8 %11, ptr %13, align 1
   %14 = icmp eq ptr %2, null
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %10
   %16 = tail call ptr @kmemdup(ptr noundef nonnull %2, i64 noundef %3, i32 noundef 3264) #11
-  %17 = getelementptr inbounds i8, ptr %8, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %19, label %20
@@ -115,61 +115,61 @@ define dso_local i32 @psmouse_smbus_init(ptr noundef %0, ptr nocapture noundef r
 
 23:                                               ; preds = %21, %20
   store ptr %8, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 400
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr @psmouse_smbus_process_byte, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 432
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store ptr @psmouse_smbus_reconnect, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 440
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store ptr @psmouse_smbus_reconnect, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 448
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr @psmouse_smbus_disconnect, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 392
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 0, ptr %28, align 8
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_smbus_mutex) #9
-  %29 = getelementptr inbounds i8, ptr %8, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @psmouse_smbus_list, i64 8), align 8
   store ptr %29, ptr getelementptr inbounds (i8, ptr @psmouse_smbus_list, i64 8), align 8
   store ptr @psmouse_smbus_list, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 104
   store ptr %30, ptr %31, align 8
   store volatile ptr %29, ptr %30, align 8
   tail call void @mutex_unlock(ptr noundef nonnull @psmouse_smbus_mutex) #9
   %32 = tail call i32 @i2c_for_each_dev(ptr noundef nonnull %8, ptr noundef nonnull @psmouse_smbus_create_companion) #9
-  %33 = getelementptr inbounds i8, ptr %8, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %55, label %36
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds i8, ptr %34, i64 32
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 344
-  %41 = tail call ptr @device_link_add(ptr noundef %37, ptr noundef %40, i32 noundef 1) #9
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 344
+  %41 = tail call ptr @device_link_add(ptr noundef nonnull %37, ptr noundef nonnull %40, i32 noundef 1) #9
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %66
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %38, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 344
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 344
   %46 = load ptr, ptr %33, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 112
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 112
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %46, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %52 = load ptr, ptr %51, align 8
   br label %53
 
 53:                                               ; preds = %50, %43
   %54 = phi ptr [ %52, %50 ], [ %48, %43 ]
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %45, ptr noundef nonnull @.str, ptr noundef %54) #12
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %45, ptr noundef nonnull @.str, ptr noundef %54) #12
   br label %66
 
 55:                                               ; preds = %23
-  %56 = getelementptr inbounds i8, ptr %8, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %57 = load ptr, ptr %56, align 8
   tail call void @kfree(ptr noundef %57) #9
   store ptr null, ptr %56, align 8
@@ -181,7 +181,7 @@ define dso_local i32 @psmouse_smbus_init(ptr noundef %0, ptr nocapture noundef r
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_smbus_mutex) #9
   %61 = load ptr, ptr %31, align 8
   %62 = load ptr, ptr %29, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %61, ptr %63, align 8
   store volatile ptr %62, ptr %61, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %29, align 8
@@ -216,7 +216,7 @@ define internal noundef i32 @psmouse_smbus_process_byte(ptr nocapture readnone %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @psmouse_smbus_reconnect(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 113
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 113
   %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %8, label %6
@@ -233,17 +233,17 @@ define internal noundef i32 @psmouse_smbus_reconnect(ptr noundef %0) #0 align 16
 define internal void @psmouse_smbus_disconnect(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_smbus_mutex) #9
-  %3 = getelementptr inbounds i8, ptr %2, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %4 = load i8, ptr %3, align 8, !range !8, !noundef !9
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %12, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 96
-  %8 = getelementptr inbounds i8, ptr %2, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %9, ptr %11, align 8
   store volatile ptr %10, ptr %9, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %7, align 8
@@ -253,13 +253,13 @@ define internal void @psmouse_smbus_disconnect(ptr nocapture noundef %0) #0 alig
 
 12:                                               ; preds = %1
   store i8 1, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 32
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 344
-  tail call void @device_link_remove(ptr noundef %15, ptr noundef %18) #9
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 344
+  tail call void @device_link_remove(ptr noundef nonnull %15, ptr noundef nonnull %18) #9
   %19 = load ptr, ptr %13, align 8
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 40) #10
@@ -268,13 +268,13 @@ define internal void @psmouse_smbus_disconnect(ptr nocapture noundef %0) #0 alig
 
 23:                                               ; preds = %12
   store i64 68719476704, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store volatile ptr %24, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store volatile ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @psmouse_smbus_remove_i2c_device, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store ptr %19, ptr %27, align 8
   %28 = load ptr, ptr @psmouse_smbus_wq, align 8
   %29 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %28, ptr noundef nonnull %21) #9
@@ -293,19 +293,19 @@ declare dso_local i32 @i2c_for_each_dev(ptr noundef, ptr noundef) local_unnamed_
 define internal noundef range(i32 0, 2) i32 @psmouse_smbus_create_companion(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [2 x i16], align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
-  %4 = getelementptr inbounds i8, ptr %1, i64 22
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %5 = load i16, ptr %4, align 2
   store i16 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 -2, ptr %6, align 2
   %7 = tail call ptr @i2c_verify_adapter(ptr noundef %0) #9
   %8 = icmp eq ptr %7, null
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %7) #9
   %15 = and i32 %14, 268435456
@@ -318,7 +318,7 @@ define internal noundef range(i32 0, 2) i32 @psmouse_smbus_create_companion(ptr 
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %18, ptr %21, align 8
   br label %22
 
@@ -388,7 +388,7 @@ declare dso_local void @device_link_remove(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @psmouse_smbus_remove_i2c_device(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @i2c_unregister_device(ptr noundef %3) #9
   tail call void @kfree(ptr noundef %0) #9
@@ -415,7 +415,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr nocapture readnone 
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @i2c_adapter_type
   br i1 %7, label %8, label %76
@@ -424,7 +424,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr nocapture readnone 
   %9 = getelementptr i8, ptr %2, i64 -112
   %10 = getelementptr i8, ptr %2, i64 -96
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %9) #9
   %15 = and i32 %14, 268435456
@@ -453,7 +453,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr nocapture readnone 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %20, i64 -16
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void @serio_rescan(ptr noundef %32) #9
   br label %33
@@ -464,7 +464,7 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr nocapture readnone 
   br i1 %35, label %.loopexit, label %.preheader, !llvm.loop !10
 
 36:                                               ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %2, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, @i2c_client_type
   br i1 %39, label %40, label %76
@@ -501,24 +501,24 @@ define internal noundef i32 @psmouse_smbus_notifier_call(ptr nocapture readnone 
 58:                                               ; preds = %53
   store i8 1, ptr %55, align 8
   %59 = load ptr, ptr %50, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %61 = getelementptr i8, ptr %47, i64 -16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 344
-  tail call void @device_link_remove(ptr noundef %60, ptr noundef %65) #9
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 344
+  tail call void @device_link_remove(ptr noundef nonnull %60, ptr noundef nonnull %65) #9
   %66 = load ptr, ptr %61, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
   tail call void @serio_rescan(ptr noundef %68) #9
   br label %74
 
 69:                                               ; preds = %53
-  %70 = getelementptr inbounds i8, ptr %47, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = load ptr, ptr %47, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   store ptr %71, ptr %73, align 8
   store volatile ptr %72, ptr %71, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %47, align 8

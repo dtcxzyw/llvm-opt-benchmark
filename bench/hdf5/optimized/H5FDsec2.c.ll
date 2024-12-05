@@ -105,7 +105,7 @@ sub_0:                                            ; preds = %4
   br i1 %.not9, label %.tail, label %.critedge
 
 .tail:                                            ; preds = %sub_0
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %.critedge
@@ -319,18 +319,18 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %104
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %52, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store i32 %32, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %52, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 96
   store i64 %61, ptr %62, align 8
   %63 = load i64, ptr %5, align 8
-  %64 = getelementptr inbounds i8, ptr %52, i64 1136
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 1136
   store i64 %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %52, i64 1144
+  %67 = getelementptr inbounds nuw i8, ptr %52, i64 1144
   store i64 %66, ptr %67, align 8
   %68 = tail call ptr @H5I_object(i64 noundef %2) #15
   %69 = icmp eq ptr %68, null
@@ -349,13 +349,13 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
 
 76:                                               ; preds = %74
   %77 = icmp ne i32 %75, 0
-  %78 = getelementptr inbounds i8, ptr %52, i64 104
+  %78 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %79 = zext i1 %77 to i8
   store i8 %79, ptr %78, align 8
   br label %88
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %52, i64 104
+  %81 = getelementptr inbounds nuw i8, ptr %52, i64 104
   %82 = tail call i32 @H5P_get(ptr noundef nonnull %68, ptr noundef nonnull @.str.15, ptr noundef nonnull %81) #15
   %83 = icmp slt i32 %82, 0
   br i1 %83, label %84, label %88
@@ -367,9 +367,9 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %106
 
 88:                                               ; preds = %80, %76
-  %89 = getelementptr inbounds i8, ptr %52, i64 105
+  %89 = getelementptr inbounds nuw i8, ptr %52, i64 105
   %90 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %89, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 1023) #15
-  %91 = getelementptr inbounds i8, ptr %52, i64 1128
+  %91 = getelementptr inbounds nuw i8, ptr %52, i64 1128
   store i8 0, ptr %91, align 1
   %92 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8
   %.not73 = icmp eq i64 %92, %2
@@ -381,7 +381,7 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   br i1 %95, label %96, label %.thread90
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %52, i64 1152
+  %97 = getelementptr inbounds nuw i8, ptr %52, i64 1152
   %98 = tail call i32 @H5P_get(ptr noundef nonnull %68, ptr noundef nonnull @.str.17, ptr noundef nonnull %97) #15
   %99 = icmp slt i32 %98, 0
   br i1 %99, label %100, label %.thread90
@@ -408,7 +408,7 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__sec2_close(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @close(i32 noundef %3) #15
   %5 = icmp slt i32 %4, 0
@@ -434,9 +434,9 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_close(ptr noundef %0) #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @H5FD__sec2_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 1136
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1136
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %18, label %8
@@ -446,9 +446,9 @@ define internal range(i32 -1, 2) i32 @H5FD__sec2_cmp(ptr nocapture noundef reado
   br i1 %9, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1144
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 1144
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1144
   %14 = load i64, ptr %13, align 8
   %15 = icmp ult i64 %12, %14
   br i1 %15, label %18, label %16
@@ -474,7 +474,7 @@ define internal noundef i32 @H5FD__sec2_query(ptr noundef readonly %0, ptr nound
   br i1 %.not14, label %9, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %9
@@ -489,21 +489,21 @@ define internal noundef i32 @H5FD__sec2_query(ptr noundef readonly %0, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @H5FD__sec2_get_eoa(ptr nocapture noundef readonly %0, i32 %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @H5FD__sec2_set_eoa(ptr nocapture noundef writeonly initializes((88, 96)) %0, i32 %1, i64 noundef %2) #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %2, ptr %4, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @H5FD__sec2_get_eof(ptr nocapture noundef readonly %0, i32 %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -520,7 +520,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_get_handle(ptr noundef %0, i64 
   br label %10
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %9, ptr %2, align 8
   br label %10
 
@@ -554,7 +554,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   br i1 %.not6078, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %21
 
 17:                                               ; preds = %12
@@ -595,7 +595,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   %33 = load i64, ptr @H5E_IO_g, align 8
   %34 = load i64, ptr @H5E_READERROR_g, align 8
   %35 = call ptr @ctime(ptr noundef nonnull %7) #15
-  %36 = getelementptr inbounds i8, ptr %0, i64 105
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %37 = load i32, ptr %16, align 8
   %38 = call ptr @strerror(i32 noundef %28) #15
   %39 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5FD__sec2_read, i32 noundef 711, i64 noundef %33, i64 noundef %34, ptr noundef nonnull @.str.24, ptr noundef %35, ptr noundef nonnull %36, i32 noundef %37, i32 noundef %28, ptr noundef %38, ptr noundef %.05179, i64 noundef %.05080, i64 noundef %..050, i64 noundef -1, i64 noundef %32) #15
@@ -641,7 +641,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   br i1 %.not6275, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %21
 
 17:                                               ; preds = %12
@@ -681,7 +681,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   %34 = load i64, ptr @H5E_IO_g, align 8
   %35 = load i64, ptr @H5E_WRITEERROR_g, align 8
   %36 = call ptr @ctime(ptr noundef nonnull %7) #15
-  %37 = getelementptr inbounds i8, ptr %0, i64 105
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %38 = load i32, ptr %16, align 8
   %39 = call ptr @strerror(i32 noundef %29) #15
   %40 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5FD__sec2_write, i32 noundef 821, i64 noundef %34, i64 noundef %35, ptr noundef nonnull @.str.26, ptr noundef %36, ptr noundef nonnull %37, i32 noundef %38, i32 noundef %29, ptr noundef %39, ptr noundef %.05376, i64 noundef %.05277, i64 noundef %..052, i64 noundef -1, i64 noundef %33) #15
@@ -696,7 +696,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
 
 ._crit_edge:                                      ; preds = %.critedge64, %.preheader
   %.0.lcssa = phi i64 [ %3, %.preheader ], [ %42, %.critedge64 ]
-  %44 = getelementptr inbounds i8, ptr %0, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %45 = load i64, ptr %44, align 8
   %46 = icmp ugt i64 %.0.lcssa, %45
   br i1 %46, label %47, label %48
@@ -712,19 +712,19 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__sec2_truncate(ptr nocapture noundef %0, i64 %1, i1 zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, -1
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %5, %8
   br i1 %9, label %25, label %10
 
 10:                                               ; preds = %6, %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @ftruncate64(i32 noundef %12, i64 noundef %5) #15
   %14 = icmp eq i32 %13, -1
@@ -741,7 +741,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_truncate(ptr nocapture noundef 
 
 22:                                               ; preds = %10
   %23 = load i64, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %23, ptr %24, align 8
   br label %25
 
@@ -752,7 +752,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_truncate(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__sec2_lock(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = select i1 %1, i32 6, i32 5
   %6 = tail call i32 @flock(i32 noundef %4, i32 noundef %5) #15
@@ -760,7 +760,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_lock(ptr nocapture noundef read
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = tail call ptr @__errno_location() #17
@@ -790,14 +790,14 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_lock(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__sec2_unlock(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @flock(i32 noundef %3, i32 noundef 8) #15
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %20
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = tail call ptr @__errno_location() #17

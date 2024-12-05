@@ -248,7 +248,7 @@ define i32 @opal_init_util(ptr nocapture noundef readnone %0, ptr nocapture noun
 13:                                               ; preds = %12, %9
   store ptr @opal_finalize_domain_t_class, ptr @opal_init_util_domain, align 8
   store volatile i32 1, ptr getelementptr inbounds (i8, ptr @opal_init_util_domain, i64 8), align 8
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
+  %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opal_finalize_domain_t_class, i64 40), align 8
   %15 = load ptr, ptr %14, align 8
   %.not1.i = icmp eq ptr %15, null
   br i1 %.not1.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i
@@ -257,7 +257,7 @@ define i32 @opal_init_util(ptr nocapture noundef readnone %0, ptr nocapture noun
   %16 = phi ptr [ %18, %.lr.ph.i ], [ %15, %13 ]
   %.02.i = phi ptr [ %17, %.lr.ph.i ], [ %14, %13 ]
   tail call void %16(ptr noundef nonnull @opal_init_util_domain) #10
-  %17 = getelementptr inbounds i8, ptr %.02.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.02.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %opal_obj_run_constructors.exit, label %.lr.ph.i, !llvm.loop !6
@@ -436,7 +436,7 @@ define internal noundef i32 @opal_err2str(i32 noundef %0, ptr nocapture noundef 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [71 x ptr], ptr @switch.table.opal_err2str, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [71 x ptr], ptr @switch.table.opal_err2str, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

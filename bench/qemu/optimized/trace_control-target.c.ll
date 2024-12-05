@@ -23,7 +23,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 trace_event_get_state_static.exit:                ; preds = %entry
-  %sstate.i = getelementptr inbounds i8, ptr %ev, i64 16
+  %sstate.i = getelementptr inbounds nuw i8, ptr %ev, i64 16
   %0 = load i8, ptr %sstate.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -33,7 +33,7 @@ if.else:                                          ; preds = %trace_event_get_sta
   unreachable
 
 if.end:                                           ; preds = %trace_event_get_state_static.exit
-  %dstate = getelementptr inbounds i8, ptr %ev, i64 24
+  %dstate = getelementptr inbounds nuw i8, ptr %ev, i64 24
   %1 = load ptr, ptr %dstate, align 8
   %2 = load i16, ptr %1, align 2
   %3 = icmp eq i16 %2, 0
@@ -67,7 +67,7 @@ if.else.i:                                        ; preds = %entry
   unreachable
 
 trace_event_get_state_static.exit:                ; preds = %entry
-  %sstate.i = getelementptr inbounds i8, ptr %ev, i64 16
+  %sstate.i = getelementptr inbounds nuw i8, ptr %ev, i64 16
   %0 = load i8, ptr %sstate.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end, label %if.else
@@ -77,7 +77,7 @@ if.else:                                          ; preds = %trace_event_get_sta
   unreachable
 
 if.end:                                           ; preds = %trace_event_get_state_static.exit
-  %dstate = getelementptr inbounds i8, ptr %ev, i64 24
+  %dstate = getelementptr inbounds nuw i8, ptr %ev, i64 24
   %1 = load ptr, ptr %dstate, align 8
   %2 = load i16, ptr %1, align 2
   %3 = icmp eq i16 %2, 0

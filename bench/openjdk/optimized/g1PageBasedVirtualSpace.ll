@@ -65,14 +65,14 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23G1PageBasedVirtualSpaceC2E13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 49), (56, 73), (80, 81)) %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   store i8 5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %6, i8 0, i64 16, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 5, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %8, align 8
   tail call void @_ZN23G1PageBasedVirtualSpace25initialize_with_page_sizeE13ReservedSpacemm(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %1, i64 noundef %2, i64 noundef %3)
   ret void
@@ -118,7 +118,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace25initialize_with_page_sizeE13Re
   unreachable
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i64, ptr %24, align 8
   %.not = icmp ugt i64 %2, %25
   br i1 %.not, label %26, label %28
@@ -143,31 +143,31 @@ define hidden void @_ZN23G1PageBasedVirtualSpace25initialize_with_page_sizeE13Re
 33:                                               ; preds = %28
   store ptr %5, ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %5, i64 %2
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %37 = load i8, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %39 = and i8 %37, 1
   store i8 %39, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %40, align 8
   %41 = udiv i64 %25, %3
-  %42 = getelementptr inbounds i8, ptr %0, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %42, i64 noundef %41, i1 noundef zeroext true) #10
   %43 = load i8, ptr %38, align 8
   %44 = trunc i8 %43 to i1
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %33
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef %41, i1 noundef zeroext true) #10
   br label %47
 
 47:                                               ; preds = %45, %33
   %48 = load i64, ptr %40, align 8
   %49 = urem i64 %2, %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %49, ptr %50, align 8
   ret void
 }
@@ -179,12 +179,12 @@ declare void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23G1PageBasedVirtualSpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 32), (80, 81)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #10
   ret void
 }
@@ -194,12 +194,12 @@ declare void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %5, -1
@@ -208,12 +208,12 @@ define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace14committed_sizeEv(ptr n
   br i1 %.not, label %27, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, -1
   %16 = load ptr, ptr %2, align 8
   %17 = lshr i64 %15, 6
-  %18 = getelementptr inbounds i64, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %16, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = and i64 %15, 63
   %21 = shl nuw i64 1, %20
@@ -222,7 +222,7 @@ define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace14committed_sizeEv(ptr n
   br i1 %.not2, label %27, label %23
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
   %.neg = sub i64 %6, %5
   %26 = add i64 %.neg, %25
@@ -237,7 +237,7 @@ declare noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace13reserved_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -248,12 +248,12 @@ define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace13reserved_sizeEv(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace16uncommitted_sizeEv(ptr noundef nonnull align 8 dereferenceable(81) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZNK6BitMap14count_one_bitsEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = mul i64 %8, %6
   %10 = load ptr, ptr %2, align 8
@@ -264,12 +264,12 @@ define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace16uncommitted_sizeEv(ptr
   br i1 %.not.i, label %_ZNK23G1PageBasedVirtualSpace14committed_sizeEv.exit, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, -1
   %18 = load ptr, ptr %5, align 8
   %19 = lshr i64 %17, 6
-  %20 = getelementptr inbounds i64, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw i64, ptr %18, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %17, 63
   %23 = shl nuw i64 1, %22
@@ -278,7 +278,7 @@ define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace16uncommitted_sizeEv(ptr
   br i1 %.not2.i, label %_ZNK23G1PageBasedVirtualSpace14committed_sizeEv.exit, label %25
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   %.neg.i = sub i64 %9, %8
   %28 = add i64 %.neg.i, %27
@@ -300,10 +300,10 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace17is_area_committ
   br i1 %5, label %6, label %.loopexit.i.i
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = lshr i64 %1, 6
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
   %13 = and i64 %1, 63
@@ -328,7 +328,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace17is_area_committ
   br i1 %23, label %24, label %.loopexit.i.i
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i64, ptr %9, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %22
   %26 = load i64, ptr %25, align 8
   %.not36.i.i = icmp eq i64 %26, -1
   br i1 %.not36.i.i, label %21, label %27, !llvm.loop !6
@@ -362,10 +362,10 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommi
   br i1 %5, label %6, label %.loopexit.i.i
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = lshr i64 %1, 6
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %1, 63
   %13 = lshr i64 %11, %12
@@ -389,7 +389,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace19is_area_uncommi
   br i1 %22, label %23, label %.loopexit.i.i
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i64, ptr %9, i64 %21
+  %24 = getelementptr inbounds nuw i64, ptr %9, i64 %21
   %25 = load i64, ptr %24, align 8
   %.not36.i.i = icmp eq i64 %25, 0
   br i1 %.not36.i.i, label %20, label %26, !llvm.loop !8
@@ -418,7 +418,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %6, %28, %.loopexit.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK23G1PageBasedVirtualSpace10page_startEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = mul i64 %5, %1
   %7 = getelementptr inbounds i8, ptr %3, i64 %6
@@ -427,14 +427,14 @@ define hidden noundef ptr @_ZNK23G1PageBasedVirtualSpace10page_startEm(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK23G1PageBasedVirtualSpace9page_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not = icmp ugt i64 %1, %4
   br i1 %.not, label %5, label %8
@@ -454,7 +454,7 @@ define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace18is_after_last_p
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23G1PageBasedVirtualSpace22commit_preferred_pagesEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = mul i64 %6, %1
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
@@ -467,15 +467,15 @@ declare void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef, i64 noundef, i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23G1PageBasedVirtualSpace11commit_tailEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = ptrtoint ptr %3 to i64
   %7 = sub i64 0, %5
   %8 = and i64 %6, %7
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   tail call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %9, i64 noundef %11, i64 noundef %12, i1 noundef zeroext false, ptr noundef nonnull @.str.16) #10
@@ -494,7 +494,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace15commit_internalEmm(ptr nocaptu
   unreachable
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i64, ptr %8, align 8
   %.not = icmp ugt i64 %2, %9
   br i1 %.not, label %10, label %_ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit
@@ -512,9 +512,9 @@ _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
   br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %_ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = ptrtoint ptr %17 to i64
   %21 = add i64 %19, -1
@@ -533,7 +533,7 @@ _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
 
 27:                                               ; preds = %.thread
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = mul i64 %30, %1
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
@@ -545,15 +545,15 @@ _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
   br i1 %25, label %35, label %47
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load i64, ptr %38, align 8
   %40 = ptrtoint ptr %37 to i64
   %41 = sub i64 0, %39
   %42 = and i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load i64, ptr %44, align 8
   %46 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   tail call void @_ZN2os21commit_memory_or_exitEPcmmbPKc(ptr noundef %43, i64 noundef %45, i64 noundef %46, i1 noundef zeroext false, ptr noundef nonnull @.str.16) #10
@@ -565,10 +565,10 @@ _ZNK23G1PageBasedVirtualSpace18is_after_last_pageEm.exit: ; preds = %7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZNK23G1PageBasedVirtualSpace16bounded_end_addrEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
@@ -584,10 +584,10 @@ define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr nou
   br i1 %5, label %6, label %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = lshr i64 %1, 6
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %1, 63
   %13 = lshr i64 %11, %12
@@ -611,7 +611,7 @@ define hidden noundef zeroext i1 @_ZN23G1PageBasedVirtualSpace6commitEmm(ptr nou
   br i1 %22, label %23, label %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i64, ptr %9, i64 %21
+  %24 = getelementptr inbounds nuw i64, ptr %9, i64 %21
   %25 = load i64, ptr %24, align 8
   %.not36.i.i.i = icmp eq i64 %25, 0
   br i1 %.not36.i.i.i, label %20, label %26, !llvm.loop !8
@@ -640,21 +640,21 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit: ; preds = %6, %28
   unreachable
 
 _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread: ; preds = %20, %28, %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
   br i1 %36, label %40, label %66
 
 _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread: ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   br i1 %39, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread, label %66
 
 40:                                               ; preds = %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i64, ptr %42, i64 %8
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %8
   %44 = load i64, ptr %43, align 8
   %45 = lshr i64 %44, %12
   %46 = and i64 %45, 1
@@ -677,7 +677,7 @@ _ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread: ; pred
   br i1 %54, label %55, label %_ZNK6BitMap18find_first_set_bitEmm.exit.thread
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i64, ptr %42, i64 %53
+  %56 = getelementptr inbounds nuw i64, ptr %42, i64 %53
   %57 = load i64, ptr %56, align 8
   %.not36.i.i = icmp eq i64 %57, 0
   br i1 %.not36.i.i, label %52, label %58, !llvm.loop !8
@@ -709,7 +709,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit:          ; preds = %40, %60
 
 _ZNK6BitMap18find_first_set_bitEmm.exit.thread:   ; preds = %52, %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread, %60, %_ZNK6BitMap18find_first_set_bitEmm.exit, %65, %66
   %.0 = phi i1 [ false, %65 ], [ true, %_ZNK6BitMap18find_first_set_bitEmm.exit ], [ true, %66 ], [ true, %60 ], [ true, %_ZNK23G1PageBasedVirtualSpace19is_area_uncommittedEmm.exit.thread.thread ], [ true, %52 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %67, i64 noundef %1, i64 noundef %4, i1 noundef zeroext true) #10
   ret i1 %.0
 }
@@ -727,11 +727,11 @@ define hidden void @_ZN23G1PageBasedVirtualSpace17uncommit_internalEmm(ptr nocap
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, %1
   %12 = getelementptr inbounds i8, ptr %8, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = mul i64 %10, %2
   %16 = getelementptr inbounds i8, ptr %8, i64 %15
@@ -753,10 +753,10 @@ define hidden void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull
   br i1 %5, label %6, label %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread.thread
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = lshr i64 %1, 6
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw i64, ptr %9, i64 %8
   %11 = load i64, ptr %10, align 8
   %12 = xor i64 %11, -1
   %13 = and i64 %1, 63
@@ -781,7 +781,7 @@ define hidden void @_ZN23G1PageBasedVirtualSpace8uncommitEmm(ptr noundef nonnull
   br i1 %23, label %24, label %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i64, ptr %9, i64 %22
+  %25 = getelementptr inbounds nuw i64, ptr %9, i64 %22
   %26 = load i64, ptr %25, align 8
   %.not36.i.i.i = icmp eq i64 %26, -1
   br i1 %.not36.i.i.i, label %21, label %27, !llvm.loop !6
@@ -811,19 +811,19 @@ _ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit: ; preds = %6, %30
   unreachable
 
 _ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread: ; preds = %21, %30, %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %42, label %_ZN23G1PageBasedVirtualSpace17uncommit_internalEmm.exit
 
 _ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread.thread: ; preds = %3
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread.thread, %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %43, i64 noundef %1, i64 noundef %4, i1 noundef zeroext true) #10
   br label %60
 
@@ -835,11 +835,11 @@ _ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread.thread: ; preds 
 
 _ZN23G1PageBasedVirtualSpace17uncommit_internalEmm.exit: ; preds = %_ZNK23G1PageBasedVirtualSpace17is_area_committedEmm.exit.thread
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = mul i64 %47, %1
   %49 = getelementptr inbounds i8, ptr %45, i64 %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = mul i64 %47, %4
   %53 = getelementptr inbounds i8, ptr %45, i64 %52
@@ -852,7 +852,7 @@ _ZN23G1PageBasedVirtualSpace17uncommit_internalEmm.exit: ; preds = %_ZNK23G1Page
   br label %60
 
 60:                                               ; preds = %_ZN23G1PageBasedVirtualSpace17uncommit_internalEmm.exit, %42
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull align 8 dereferenceable(16) %61, i64 noundef %1, i64 noundef %4, i1 noundef zeroext false) #10
   ret void
 }
@@ -860,12 +860,12 @@ _ZN23G1PageBasedVirtualSpace17uncommit_internalEmm.exit: ; preds = %_ZNK23G1Page
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN23G1PageBasedVirtualSpace8pretouchEmmP13WorkerThreads(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = mul i64 %7, %1
   %9 = getelementptr inbounds i8, ptr %5, i64 %8
   %10 = add i64 %2, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = mul i64 %7, %10
   %14 = getelementptr inbounds i8, ptr %5, i64 %13
@@ -881,7 +881,7 @@ declare void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef, 
 define hidden noundef zeroext i1 @_ZNK23G1PageBasedVirtualSpace8containsEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp ule ptr %3, %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %1, %5
   %7 = select i1 %.not, i1 %6, i1 false

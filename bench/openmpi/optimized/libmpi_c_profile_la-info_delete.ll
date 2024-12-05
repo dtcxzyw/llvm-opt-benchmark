@@ -107,7 +107,7 @@ define i32 @PMPI_Info_delete(ptr noundef %0, ptr noundef %1) #0 {
 38:                                               ; preds = %36, %.lr.ph.i
   %39 = phi i8 [ %32, %.lr.ph.i ], [ %.pre.i.i, %36 ]
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8
   %43 = trunc i8 %39 to i1
   br i1 %43, label %44, label %opal_pointer_array_get_item.exit.i
@@ -119,13 +119,13 @@ define i32 @PMPI_Info_delete(ptr noundef %0, ptr noundef %1) #0 {
 
 opal_pointer_array_get_item.exit.i:               ; preds = %44, %38
   %46 = phi i8 [ %39, %38 ], [ %.pre.i, %44 ]
-  %47 = getelementptr inbounds i8, ptr %42, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp eq i32 %48, %spec.store.select
   br i1 %49, label %50, label %28
 
 50:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %51 = getelementptr inbounds i8, ptr %42, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %52 = load i32, ptr %51, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

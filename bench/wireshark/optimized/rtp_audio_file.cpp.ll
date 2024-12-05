@@ -57,7 +57,7 @@ define void @_ZN12RtpAudioFileC2Ebb(ptr noundef nonnull align 8 dereferenceable(
   %18 = alloca %class.QMessageLogger, align 8
   tail call void @_ZN9QIODeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV12RtpAudioFile, i64 16), ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, i8 0, i64 32, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %20 = invoke noundef zeroext i1 @_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 1)
@@ -73,14 +73,14 @@ define void @_ZN12RtpAudioFileC2Ebb(ptr noundef nonnull align 8 dereferenceable(
   %23 = load ptr, ptr %7, align 8
   store ptr %23, ptr %8, align 8
   store ptr %22, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %8, i64 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load ptr, ptr %24, align 8
   %27 = load ptr, ptr %25, align 8
   store ptr %27, ptr %24, align 8
   store ptr %26, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 16
-  %29 = getelementptr inbounds i8, ptr %7, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = load i64, ptr %28, align 8
   %31 = load i64, ptr %29, align 8
   store i64 %31, ptr %28, align 8
@@ -110,12 +110,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc
 37:                                               ; preds = %36
   %38 = load ptr, ptr %6, align 8
   store ptr %38, ptr %10, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %10, i64 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %44 = load i64, ptr %43, align 8
   store i64 %44, ptr %42, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
@@ -131,12 +131,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc
   %48 = load ptr, ptr %9, align 8
   store ptr %48, ptr %8, align 8
   store ptr %47, ptr %9, align 8
-  %49 = getelementptr inbounds i8, ptr %9, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %50 = load ptr, ptr %24, align 8
   %51 = load ptr, ptr %49, align 8
   store ptr %51, ptr %24, align 8
   store ptr %50, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %9, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %53 = load i64, ptr %28, align 8
   %54 = load i64, ptr %52, align 8
   store i64 %54, ptr %28, align 8
@@ -257,11 +257,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30:    ; preds = %_ZN7QStringD2Ev.exi
 
 89:                                               ; preds = %86, %67
   %.sink = phi ptr [ %66, %67 ], [ %85, %86 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load ptr, ptr %.sink, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 104
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 104
   %94 = load ptr, ptr %93, align 8
   %95 = invoke noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i32 3)
           to label %96 unwind label %68
@@ -276,15 +276,15 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30:    ; preds = %_ZN7QStringD2Ev.exi
 
 100:                                              ; preds = %97
   %101 = load ptr, ptr %98, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8
   call void %103(ptr noundef nonnull align 8 dereferenceable(16) %98) #14
   br label %104
 
 104:                                              ; preds = %100, %97
   store i32 2, ptr %13, align 8
-  %105 = getelementptr inbounds i8, ptr %13, i64 4
-  %106 = getelementptr inbounds i8, ptr %13, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %105, i8 0, i64 20, i1 false)
   store ptr @.str.5, ptr %106, align 8
   invoke void @_ZNK14QMessageLogger7warningEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -314,12 +314,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i30:    ; preds = %_ZN7QStringD2Ev.exi
   %115 = load ptr, ptr %5, align 8
   store ptr %115, ptr %8, align 8
   store ptr %114, ptr %5, align 8
-  %116 = getelementptr inbounds i8, ptr %5, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %117 = load ptr, ptr %24, align 8
   %118 = load ptr, ptr %116, align 8
   store ptr %118, ptr %24, align 8
   store ptr %117, ptr %116, align 8
-  %119 = getelementptr inbounds i8, ptr %5, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %120 = load i64, ptr %28, align 8
   %121 = load i64, ptr %119, align 8
   store i64 %121, ptr %28, align 8
@@ -349,12 +349,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i34:  ; preds = %.noexc36
 127:                                              ; preds = %126
   %128 = load ptr, ptr %4, align 8
   store ptr %128, ptr %15, align 8
-  %129 = getelementptr inbounds i8, ptr %15, i64 8
-  %130 = getelementptr inbounds i8, ptr %4, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %131 = load ptr, ptr %130, align 8
   store ptr %131, ptr %129, align 8
-  %132 = getelementptr inbounds i8, ptr %15, i64 16
-  %133 = getelementptr inbounds i8, ptr %4, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %134 = load i64, ptr %133, align 8
   store i64 %134, ptr %132, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
@@ -370,12 +370,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i34:  ; preds = %.noexc36
   %138 = load ptr, ptr %14, align 8
   store ptr %138, ptr %8, align 8
   store ptr %137, ptr %14, align 8
-  %139 = getelementptr inbounds i8, ptr %14, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %140 = load ptr, ptr %24, align 8
   %141 = load ptr, ptr %139, align 8
   store ptr %141, ptr %24, align 8
   store ptr %140, ptr %139, align 8
-  %142 = getelementptr inbounds i8, ptr %14, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %143 = load i64, ptr %28, align 8
   %144 = load i64, ptr %142, align 8
   store i64 %144, ptr %28, align 8
@@ -491,11 +491,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %_ZN7QStringD2Ev.exi
 
 177:                                              ; preds = %174, %157
   %.sink75 = phi ptr [ %156, %157 ], [ %173, %174 ]
-  %178 = getelementptr inbounds i8, ptr %0, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.sink75, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %0, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %180 = load ptr, ptr %.sink75, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 104
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 104
   %182 = load ptr, ptr %181, align 8
   %183 = invoke noundef zeroext i1 %182(ptr noundef nonnull align 8 dereferenceable(16) %.sink75, i32 3)
           to label %184 unwind label %68
@@ -510,7 +510,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %_ZN7QStringD2Ev.exi
 
 188:                                              ; preds = %185
   %189 = load ptr, ptr %186, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 32
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 32
   %191 = load ptr, ptr %190, align 8
   call void %191(ptr noundef nonnull align 8 dereferenceable(16) %186) #14
   br label %192
@@ -522,15 +522,15 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i57:    ; preds = %_ZN7QStringD2Ev.exi
 
 195:                                              ; preds = %192
   %196 = load ptr, ptr %193, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = load ptr, ptr %197, align 8
   call void %198(ptr noundef nonnull align 8 dereferenceable(16) %193) #14
   br label %199
 
 199:                                              ; preds = %195, %192
   store i32 2, ptr %18, align 8
-  %200 = getelementptr inbounds i8, ptr %18, i64 4
-  %201 = getelementptr inbounds i8, ptr %18, i64 24
+  %200 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %18, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %200, i8 0, i64 20, i1 false)
   store ptr @.str.5, ptr %201, align 8
   invoke void @_ZNK14QMessageLogger7warningEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
@@ -656,7 +656,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %7
 
 _ZN7QStringD2Ev.exit:                             ; preds = %7, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %10
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %_ZN6QDebug10maybeSpaceEv.exit
@@ -691,16 +691,16 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %18, %_ZN17QArrayDat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
   %spec.select.i.i = select i1 %.not.i.i, ptr @_ZN7QString6_emptyE, ptr %4
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967295
   tail call void @_ZN6QDebug9putStringEPK5QCharm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %spec.select.i.i, i64 noundef %7)
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %_ZN6QDebug10maybeSpaceEv.exit
@@ -727,27 +727,27 @@ declare void @_ZN9QIODeviceD2Ev(ptr noundef nonnull align 8 dereferenceable(16))
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12RtpAudioFileD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12RtpAudioFile, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(16) %3) #14
   br label %8
 
 8:                                                ; preds = %4, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not2 = icmp eq ptr %10, null
   br i1 %.not2, label %15, label %11
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
   br label %15
@@ -766,28 +766,28 @@ define void @_ZN12RtpAudioFileD0Ev(ptr noundef nonnull align 8 dereferenceable(9
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12RtpAudioFile18setFrameWriteStageEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((32, 64)) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(16) %9, i64 noundef 0)
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12RtpAudioFile23frameUpdateRealCountersEx(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %4, %6
   br i1 %7, label %8, label %13
@@ -816,9 +816,9 @@ define void @_ZN12RtpAudioFile23frameUpdateRealCountersEx(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN12RtpAudioFile25frameUpdateSampleCountersEx(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
   %7 = icmp slt i64 %4, %6
   br i1 %7, label %8, label %13
@@ -849,15 +849,15 @@ define void @_ZN12RtpAudioFile25frameUpdateSampleCountersEx(ptr nocapture nounde
 define noundef i64 @_ZN12RtpAudioFile15frameWriteFrameEjxxx14rtp_frame_type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %struct.rtp_frame_info, align 8
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %5, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = call noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %7, i64 noundef 32)
   ret i64 %14
@@ -873,26 +873,26 @@ define void @_ZN12RtpAudioFile17frameWriteSilenceEjx(ptr nocapture noundef nonnu
 
 6:                                                ; preds = %3
   %7 = shl nuw i64 %2, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i64, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store i64 %9, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = call noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %4, i64 noundef 32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %19 = load i64, ptr %8, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i64, ptr %20, align 8
   %22 = icmp slt i64 %19, %21
   br i1 %22, label %23, label %28
@@ -925,33 +925,33 @@ _ZN12RtpAudioFile23frameUpdateRealCountersEx.exit: ; preds = %23, %27, %28
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN12RtpAudioFile17frameWriteSamplesEjPKcx(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %struct.rtp_frame_info, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %2, i64 noundef %3)
   %.not = icmp eq i64 %8, -1
   br i1 %.not, label %43, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load i64, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   store i64 %11, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef i64 @_ZN9QIODevice5writeEPKcx(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %5, i64 noundef 32)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %21 = load i64, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %21, %23
   br i1 %24, label %25, label %30
@@ -976,7 +976,7 @@ _ZN12RtpAudioFile23frameUpdateRealCountersEx.exit: ; preds = %25, %29, %30
   %.pre-phi.i = phi i64 [ %26, %25 ], [ %26, %29 ], [ %.pre.i, %30 ]
   store i64 %.pre-phi.i, ptr %10, align 8
   %32 = load i64, ptr %12, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load i64, ptr %33, align 8
   %35 = icmp slt i64 %32, %34
   br i1 %35, label %36, label %41
@@ -1008,10 +1008,10 @@ _ZN12RtpAudioFile25frameUpdateSampleCountersEx.exit: ; preds = %36, %40, %41
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12RtpAudioFile17setFrameReadStageEx(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0)
   %9 = icmp sgt i64 %1, 0
@@ -1019,7 +1019,7 @@ define void @_ZN12RtpAudioFile17setFrameReadStageEx(ptr noundef nonnull align 8 
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %12, i64 noundef 32)
   br label %14
 
@@ -1032,21 +1032,21 @@ declare noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN12RtpAudioFile16readFrameSamplesEPiPPsPjS3_P14rtp_frame_type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %struct.rtp_frame_info, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %7, i64 noundef 32)
   %.not = icmp ne i64 %10, 0
   br i1 %.not, label %11, label %46
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %4, align 4
-  %14 = getelementptr inbounds i8, ptr %7, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %5, align 4
   %16 = icmp eq i32 %15, 0
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %18 = load i64, ptr %17, align 8
   br i1 %16, label %19, label %43
 
@@ -1071,12 +1071,12 @@ define noundef zeroext i1 @_ZN12RtpAudioFile16readFrameSamplesEPiPPsPjS3_P14rtp_
   br label %30
 
 30:                                               ; preds = %27, %19
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 136
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %34)
   %39 = load ptr, ptr %31, align 8
@@ -1100,17 +1100,17 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN12RtpAudioFile16setDataReadStageEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 0)
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %9, i64 noundef 32)
   %11 = load i64, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %11, ptr %12, align 8
   ret void
 }
@@ -1123,34 +1123,34 @@ define noundef zeroext i1 @_ZN12RtpAudioFile4openE6QFlagsIN13QIODeviceBase12Open
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK12RtpAudioFile4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZNK12RtpAudioFile3posEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN12RtpAudioFile4seekEx(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %.not = icmp sgt i64 %4, %1
   br i1 %.not, label %5, label %.loopexit
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef 0)
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %14
 
 14:                                               ; preds = %17, %5
@@ -1167,26 +1167,26 @@ define noundef zeroext i1 @_ZN12RtpAudioFile4seekEx(ptr noundef nonnull align 8 
   br i1 %21, label %22, label %14, !llvm.loop !6
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 92
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %.loopexit.sink.split
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i64, ptr %27, align 8
   %29 = sub i64 %1, %18
   %30 = add i64 %29, %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 136
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %30)
   br i1 %36, label %.loopexit.sink.split, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %22, %26
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %37, align 8
   br label %.loopexit
 
@@ -1197,7 +1197,7 @@ define noundef zeroext i1 @_ZN12RtpAudioFile4seekEx(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN12RtpAudioFile14sampleFileSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -1206,7 +1206,7 @@ define noundef i64 @_ZN12RtpAudioFile14sampleFileSizeEv(ptr nocapture noundef no
 define void @_ZN12RtpAudioFile10seekSampleEx(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = shl i64 %1, 1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %3)
   ret void
@@ -1214,10 +1214,10 @@ define void @_ZN12RtpAudioFile10seekSampleEx(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN12RtpAudioFile13readFrameDataEPcx(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %4, align 8
   %.neg = sub i64 %6, %8
@@ -1226,13 +1226,13 @@ define noundef i64 @_ZN12RtpAudioFile13readFrameDataEPcx(ptr nocapture noundef n
   br i1 %11, label %24, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 @_ZN9QIODevice4readEPcx(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %1, i64 noundef %2)
   br label %21
@@ -1264,7 +1264,7 @@ define noundef i64 @_ZN12RtpAudioFile10readSampleEPs(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN12RtpAudioFile15getTotalSamplesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = sdiv i64 %3, 2
   ret i64 %4
@@ -1272,15 +1272,15 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN12Rt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN12RtpAudioFile21getEndOfSilenceSampleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 92
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %7
   %11 = sdiv i64 %10, 2
@@ -1293,13 +1293,13 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN12Rt
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN12RtpAudioFile8readDataEPcx(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 92
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %11
 
 11:                                               ; preds = %3, %46
@@ -1358,7 +1358,7 @@ _ZN12RtpAudioFile13readFrameDataEPcx.exit:        ; preds = %11
   %40 = load ptr, ptr %9, align 8
   %41 = load i64, ptr %10, align 8
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(16) %40, i64 noundef %41)
   br i1 %45, label %46, label %48

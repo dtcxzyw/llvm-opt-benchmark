@@ -79,12 +79,12 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 28:                                               ; preds = %.lr.ph181.split.us.split.us
   %29 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv.next235
   store i32 %27, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
-  %31 = getelementptr inbounds i8, ptr %29, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 0, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %29, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 -1, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %29, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %33, align 8
   store ptr null, ptr %30, align 8
   %34 = add nuw nsw i32 %.0151180.us.us, 1
@@ -102,16 +102,16 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 36:                                               ; preds = %.lr.ph181.split.us.split
   %37 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv.next230
   store i32 %35, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
-  %39 = getelementptr inbounds i8, ptr %37, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 12
   store i32 1, ptr %39, align 4
   %40 = udiv i32 %.0150195, %0
   %41 = urem i32 %.0151180.us, %40
   %42 = sub i32 %.0153190, %40
   %43 = add nsw i32 %42, %41
-  %44 = getelementptr inbounds i8, ptr %37, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %37, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store i32 0, ptr %45, align 8
   store ptr null, ptr %38, align 8
   %46 = add nuw nsw i32 %.0151180.us, 1
@@ -133,8 +133,8 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
   %48 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv.next222
   %49 = trunc nsw i64 %indvars.iv.next222 to i32
   store i32 %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 24
-  %51 = getelementptr inbounds i8, ptr %48, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
   br i1 %16, label %52, label %53
 
 52:                                               ; preds = %47
@@ -152,7 +152,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 
 59:                                               ; preds = %53, %52
   %.sink = phi i32 [ %58, %53 ], [ -1, %52 ]
-  %60 = getelementptr inbounds i8, ptr %48, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 20
   store i32 %.sink, ptr %60, align 4
   br i1 %18, label %61, label %89
 
@@ -173,7 +173,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 
 70:                                               ; preds = %64, %61
   %.0143 = phi i32 [ %62, %61 ], [ %spec.select, %64 ]
-  %71 = getelementptr inbounds i8, ptr %48, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 %.0143, ptr %71, align 8
   %72 = icmp sgt i32 %.0143, 0
   br i1 %72, label %73, label %78
@@ -201,10 +201,10 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
   %81 = mul i32 %.0150195, %80
   %82 = add nsw i32 %81, %79
   %83 = load ptr, ptr %50, align 8
-  %84 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv214
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv214
   store i32 %82, ptr %84, align 4
   %85 = load ptr, ptr %50, align 8
-  %86 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv214
+  %86 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv214
   %87 = load i32, ptr %86, align 4
   %88 = add nsw i32 %87, %19
   store i32 %88, ptr %86, align 4
@@ -213,7 +213,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
   br i1 %exitcond218.not, label %.loopexit165, label %.lr.ph178, !llvm.loop !7
 
 89:                                               ; preds = %59
-  %90 = getelementptr inbounds i8, ptr %48, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i32 %0, ptr %90, align 8
   %91 = tail call noalias ptr @malloc(i64 noundef %8) #4
   store ptr %91, ptr %50, align 8
@@ -228,11 +228,11 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next, %94 ]
   %95 = add i64 %indvars.iv, %93
   %96 = load ptr, ptr %50, align 8
-  %97 = getelementptr inbounds i32, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
   %98 = trunc i64 %95 to i32
   store i32 %98, ptr %97, align 4
   %99 = load ptr, ptr %50, align 8
-  %100 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw i32, ptr %99, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4
   %102 = add nsw i32 %19, %101
   store i32 %102, ptr %100, align 4
@@ -255,22 +255,22 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %118
   %indvars.iv240 = phi i64 [ 0, %.lr.ph200.preheader ], [ %indvars.iv.next241, %118 ]
-  %105 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv240
-  %106 = getelementptr inbounds i8, ptr %105, i64 12
+  %105 = getelementptr inbounds nuw %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv240
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, 0
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %.lr.ph200
-  %110 = getelementptr inbounds i8, ptr %105, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 4
   store i32 0, ptr %110, align 4
   br label %118
 
 111:                                              ; preds = %.lr.ph200
-  %112 = getelementptr inbounds i8, ptr %105, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %113 = load i32, ptr %112, align 8
   %114 = icmp eq i32 %113, 0
-  %115 = getelementptr inbounds i8, ptr %105, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 4
   br i1 %114, label %116, label %117
 
 116:                                              ; preds = %111
@@ -296,7 +296,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 
 .lr.ph203:                                        ; preds = %.lr.ph203.preheader, %123
   %indvars.iv245 = phi i64 [ 0, %.lr.ph203.preheader ], [ %indvars.iv.next246, %123 ]
-  %120 = getelementptr inbounds %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv245, i32 6
+  %120 = getelementptr inbounds nuw %struct.netpatterns_tree_node_t, ptr %2, i64 %indvars.iv245, i32 6
   %121 = load ptr, ptr %120, align 8
   %.not163 = icmp eq ptr %121, null
   br i1 %.not163, label %123, label %122

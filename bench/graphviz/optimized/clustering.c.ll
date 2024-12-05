@@ -26,7 +26,7 @@ define void @modularity_clustering(ptr noundef %0, i1 noundef zeroext %1, i32 no
 12:                                               ; preds = %10, %6
   %.0 = phi ptr [ %8, %6 ], [ %11, %10 ]
   %13 = tail call ptr @SparseMatrix_remove_diagonal(ptr noundef %.0) #13
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 1
   br i1 %.not, label %18, label %16
@@ -43,7 +43,7 @@ define void @modularity_clustering(ptr noundef %0, i1 noundef zeroext %1, i32 no
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %22 = load i32, ptr %21, align 8
   %.not.i.i = icmp eq i32 %22, 1
   br i1 %.not.i.i, label %25, label %23
@@ -60,7 +60,7 @@ define void @modularity_clustering(ptr noundef %0, i1 noundef zeroext %1, i32 no
   br i1 %.not10.i.i, label %Multilevel_Modularity_Clustering_new.exit.i.preheader, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %26, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store i8 1, ptr %29, align 8
   br label %Multilevel_Modularity_Clustering_new.exit.i.preheader
 
@@ -69,13 +69,13 @@ Multilevel_Modularity_Clustering_new.exit.i.preheader: ; preds = %28, %25
 
 Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modularity_Clustering_new.exit.i.preheader, %Multilevel_Modularity_Clustering_new.exit.i
   %.037.i = phi ptr [ %31, %Multilevel_Modularity_Clustering_new.exit.i ], [ %26, %Multilevel_Modularity_Clustering_new.exit.i.preheader ]
-  %30 = getelementptr inbounds i8, ptr %.037.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.037.i, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %32, label %Multilevel_Modularity_Clustering_new.exit.i
 
 32:                                               ; preds = %Multilevel_Modularity_Clustering_new.exit.i
-  %33 = getelementptr inbounds i8, ptr %.037.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.037.i, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
   %36 = tail call fastcc ptr @gv_calloc(i64 noundef %35, i64 noundef 8)
@@ -84,17 +84,17 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %.037.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.037.i, i64 48
   %.pre.i = load ptr, ptr %39, align 8
   %40 = zext nneg i32 %37 to i64
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %42 = getelementptr inbounds i32, ptr %.pre.i, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %indvars.iv.i
   %43 = load i32, ptr %42, align 4
   %44 = sitofp i32 %43 to double
-  %45 = getelementptr inbounds double, ptr %36, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv.i
   store double %44, ptr %45, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %40
@@ -102,10 +102,10 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
 
 ._crit_edge.i:                                    ; preds = %41, %32
   store i32 %37, ptr %3, align 4
-  %46 = getelementptr inbounds i8, ptr %.037.i, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %.037.i, i64 56
   %47 = load double, ptr %46, align 8
   store double %47, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %.037.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.037.i, i64 32
   %49 = load ptr, ptr %48, align 8
   %.not4447.i = icmp eq ptr %49, null
   br i1 %.not4447.i, label %._crit_edge51.i, label %.lr.ph50.i
@@ -115,13 +115,13 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
   %51 = phi ptr [ %56, %.lr.ph50.i ], [ %48, %._crit_edge.i ]
   %.048.i = phi ptr [ %54, %.lr.ph50.i ], [ %36, %._crit_edge.i ]
   store ptr null, ptr %7, align 8
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %53 = load ptr, ptr %52, align 8
   call void @SparseMatrix_multiply_vector(ptr noundef %53, ptr noundef %.048.i, ptr noundef nonnull %7) #13
   call void @free(ptr noundef %.048.i) #13
   %54 = load ptr, ptr %7, align 8
   %55 = load ptr, ptr %51, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %.not44.i = icmp eq ptr %57, null
   br i1 %.not44.i, label %._crit_edge51.i, label %.lr.ph50.i
@@ -133,7 +133,7 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
   br i1 %.not45.i, label %59, label %64
 
 59:                                               ; preds = %._crit_edge51.i
-  %60 = getelementptr inbounds i8, ptr %26, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
   %63 = call fastcc ptr @gv_calloc(i64 noundef %62, i64 noundef 4)
@@ -142,17 +142,17 @@ Multilevel_Modularity_Clustering_new.exit.i:      ; preds = %Multilevel_Modulari
 
 64:                                               ; preds = %59, %._crit_edge51.i
   %.040.i = phi ptr [ %63, %59 ], [ %58, %._crit_edge51.i ]
-  %65 = getelementptr inbounds i8, ptr %26, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph55.i, label %hierachical_modularity_clustering.exit
 
 .lr.ph55.i:                                       ; preds = %64, %.lr.ph55.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %.lr.ph55.i ], [ 0, %64 ]
-  %68 = getelementptr inbounds double, ptr %.0.lcssa.i, i64 %indvars.iv60.i
+  %68 = getelementptr inbounds nuw double, ptr %.0.lcssa.i, i64 %indvars.iv60.i
   %69 = load double, ptr %68, align 8
   %70 = fptosi double %69 to i32
-  %71 = getelementptr inbounds i32, ptr %.040.i, i64 %indvars.iv60.i
+  %71 = getelementptr inbounds nuw i32, ptr %.040.i, i64 %indvars.iv60.i
   store i32 %70, ptr %71, align 4
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %72 = load i32, ptr %65, align 4
@@ -233,7 +233,7 @@ define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef
   br i1 %.not, label %common.ret13, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not12 = icmp eq ptr %4, null
   br i1 %.not12, label %12, label %5
@@ -244,7 +244,7 @@ define internal fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef
   br i1 %7, label %8, label %.sink.split
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.sink.split, label %12
@@ -257,16 +257,16 @@ common.ret13:                                     ; preds = %1, %12
   br label %12
 
 12:                                               ; preds = %.sink.split, %8, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @SparseMatrix_delete(ptr noundef %14) #13
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   tail call void @free(ptr noundef %16) #13
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %18 = load ptr, ptr %17, align 8
   tail call void @free(ptr noundef %18) #13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @Multilevel_Modularity_Clustering_delete(ptr noundef %20)
   tail call void @free(ptr noundef nonnull %0) #13
@@ -279,7 +279,7 @@ declare ptr @SparseMatrix_get_real_adjacency_matrix_symmetrized(ptr noundef) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @Multilevel_Modularity_Clustering_init(ptr noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #14
   %6 = icmp eq ptr %5, null
@@ -293,26 +293,26 @@ define internal fastcc noalias noundef ptr @Multilevel_Modularity_Clustering_ini
 
 gv_alloc.exit:                                    ; preds = %2
   store i32 %1, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %4, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %11, align 8
   %12 = sext i32 %4 to i64
   %13 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 8)
-  %14 = getelementptr inbounds i8, ptr %5, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %16 = icmp eq i32 %1, 0
   br i1 %16, label %17, label %61
 
 17:                                               ; preds = %gv_alloc.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %5, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %25 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 8)
   %26 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 8)
   %27 = icmp sgt i32 %4, 0
@@ -327,12 +327,12 @@ gv_alloc.exit:                                    ; preds = %2
   %28 = phi i32 [ %.pre, %.lr.ph83.preheader ], [ %32, %._crit_edge ]
   %indvars.iv93 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next94, %._crit_edge ]
   %.07580 = phi double [ 0.000000e+00, %.lr.ph83.preheader ], [ %48, %._crit_edge ]
-  %29 = getelementptr inbounds double, ptr %25, i64 %indvars.iv93
+  %29 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv93
   store double 0.000000e+00, ptr %29, align 8
-  %30 = getelementptr inbounds double, ptr %26, i64 %indvars.iv93
+  %30 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv93
   store double 0.000000e+00, ptr %30, align 8
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %31 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next94
+  %31 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next94
   %32 = load i32, ptr %31, align 4
   %33 = icmp slt i32 %28, %32
   br i1 %33, label %.lr.ph.preheader, label %._crit_edge
@@ -378,9 +378,9 @@ gv_alloc.exit:                                    ; preds = %2
 .lr.ph88:                                         ; preds = %._crit_edge84, %.lr.ph88
   %indvars.iv96 = phi i64 [ 0, %._crit_edge84 ], [ %indvars.iv.next97, %.lr.ph88 ]
   %.07685 = phi double [ 0.000000e+00, %._crit_edge84 ], [ %58, %.lr.ph88 ]
-  %50 = getelementptr inbounds double, ptr %26, i64 %indvars.iv96
+  %50 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv96
   %51 = load double, ptr %50, align 8
-  %52 = getelementptr inbounds double, ptr %25, i64 %indvars.iv96
+  %52 = getelementptr inbounds nuw double, ptr %25, i64 %indvars.iv96
   %53 = load double, ptr %52, align 8
   %54 = fmul double %53, %53
   %55 = fdiv double %54, %49
@@ -396,7 +396,7 @@ gv_alloc.exit:                                    ; preds = %2
   %.076.lcssa = phi double [ 0.000000e+00, %17 ], [ %58, %.lr.ph88 ]
   store double %59, ptr %24, align 8
   store ptr %25, ptr %15, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %.076.lcssa, ptr %60, align 8
   tail call void @free(ptr noundef %26) #13
   br label %61
@@ -408,13 +408,13 @@ gv_alloc.exit:                                    ; preds = %2
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @Multilevel_Modularity_Clustering_establish(ptr noundef returned %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca double, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = icmp sgt i32 %1, 0
   br label %tailrecurse
 
@@ -423,9 +423,9 @@ tailrecurse:                                      ; preds = %202, %2
   %13 = load ptr, ptr %5, align 8
   %14 = load i32, ptr %6, align 4
   %15 = load i32, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = load double, ptr %8, align 8
@@ -445,7 +445,7 @@ tailrecurse:                                      ; preds = %202, %2
   %31 = zext nneg i32 %14 to i64
   %32 = shl nuw nsw i64 %31, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %12, i8 -1, i64 %32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %13, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %34 = load ptr, ptr %33, align 8
   %35 = fneg double %22
   %wide.trip.count386 = zext nneg i32 %14 to i64
@@ -455,15 +455,15 @@ tailrecurse:                                      ; preds = %202, %2
   %indvars.iv383 = phi i64 [ 0, %.lr.ph323 ], [ %indvars.iv.next384, %144 ]
   %.0228321 = phi i32 [ 0, %.lr.ph323 ], [ %.1, %144 ]
   %.0236318 = phi double [ 0.000000e+00, %.lr.ph323 ], [ %.1237, %144 ]
-  %37 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv383
+  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv383
   %38 = load i32, ptr %37, align 4
   %.not255 = icmp eq i32 %38, -1
   br i1 %.not255, label %39, label %144
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv383
+  %40 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv383
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %43 = load i32, ptr %42, align 4
   %44 = icmp slt i32 %41, %43
   br i1 %44, label %.lr.ph310.preheader, label %._crit_edge315.thread
@@ -475,7 +475,7 @@ tailrecurse:                                      ; preds = %202, %2
   br label %.lr.ph310
 
 .lr.ph314:                                        ; preds = %72
-  %47 = getelementptr inbounds double, ptr %20, i64 %indvars.iv383
+  %47 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv383
   %48 = sext i32 %41 to i64
   %wide.trip.count381 = sext i32 %43 to i64
   br label %73
@@ -615,7 +615,7 @@ tailrecurse:                                      ; preds = %202, %2
 122:                                              ; preds = %117
   store i32 %.0228321, ptr %119, align 4
   store i32 %.0228321, ptr %37, align 4
-  %123 = getelementptr inbounds double, ptr %20, i64 %indvars.iv383
+  %123 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv383
   %124 = load double, ptr %123, align 8
   %125 = getelementptr inbounds double, ptr %20, i64 %.0233.lcssa429
   %126 = load double, ptr %125, align 8
@@ -627,7 +627,7 @@ tailrecurse:                                      ; preds = %202, %2
   br label %144
 
 131:                                              ; preds = %117
-  %132 = getelementptr inbounds double, ptr %20, i64 %indvars.iv383
+  %132 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv383
   %133 = load double, ptr %132, align 8
   %134 = sext i32 %120 to i64
   %135 = getelementptr inbounds double, ptr %25, i64 %134
@@ -639,7 +639,7 @@ tailrecurse:                                      ; preds = %202, %2
 
 138:                                              ; preds = %._crit_edge315.thread
   store i32 %.0228321, ptr %37, align 4
-  %139 = getelementptr inbounds double, ptr %20, i64 %indvars.iv383
+  %139 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv383
   %140 = load double, ptr %139, align 8
   %141 = sext i32 %.0228321 to i64
   %142 = getelementptr inbounds double, ptr %25, i64 %141
@@ -690,7 +690,7 @@ tailrecurse:                                      ; preds = %202, %2
 
 .lr.ph328:                                        ; preds = %.lr.ph328.preheader, %.lr.ph328
   %indvars.iv388 = phi i64 [ 0, %.lr.ph328.preheader ], [ %indvars.iv.next389, %.lr.ph328 ]
-  %158 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv388
+  %158 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv388
   %159 = trunc nuw nsw i64 %indvars.iv388 to i32
   store i32 %159, ptr %158, align 4
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
@@ -715,7 +715,7 @@ tailrecurse:                                      ; preds = %202, %2
 
 .lr.ph340:                                        ; preds = %.lr.ph340.preheader, %.lr.ph340
   %indvars.iv415 = phi i64 [ 0, %.lr.ph340.preheader ], [ %indvars.iv.next416, %.lr.ph340 ]
-  %164 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv415
+  %164 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv415
   %165 = trunc nuw nsw i64 %indvars.iv415 to i32
   store i32 %165, ptr %164, align 4
   %indvars.iv.next416 = add nuw nsw i64 %indvars.iv415, 1
@@ -747,7 +747,7 @@ tailrecurse:                                      ; preds = %202, %2
 
 .lr.ph336:                                        ; preds = %.lr.ph336.preheader, %.lr.ph336
   %indvars.iv406 = phi i64 [ 0, %.lr.ph336.preheader ], [ %indvars.iv.next407, %.lr.ph336 ]
-  %173 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv406
+  %173 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv406
   %174 = load i32, ptr %173, align 4
   %175 = trunc nuw nsw i64 %indvars.iv406 to i32
   %176 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %172, i32 noundef %174, i32 noundef %175, ptr noundef nonnull %3) #13
@@ -779,23 +779,23 @@ tailrecurse:                                      ; preds = %202, %2
   br label %206
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i8, ptr %0, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %178, ptr %185, align 8
   %186 = add nsw i32 %15, 1
   %187 = call fastcc ptr @Multilevel_Modularity_Clustering_init(ptr noundef nonnull %182, i32 noundef %186)
-  %188 = getelementptr inbounds i8, ptr %187, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 72
   store ptr %25, ptr %188, align 8
   %189 = load double, ptr %9, align 8
   %190 = fadd double %.0236.lcssa, %189
-  %191 = getelementptr inbounds i8, ptr %187, i64 56
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 56
   store double %190, ptr %191, align 8
   %192 = load double, ptr %8, align 8
-  %193 = getelementptr inbounds i8, ptr %187, i64 64
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 64
   store double %192, ptr %193, align 8
   %194 = call fastcc ptr @Multilevel_Modularity_Clustering_establish(ptr noundef %187, i32 noundef %1)
-  %195 = getelementptr inbounds i8, ptr %0, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %187, ptr %195, align 8
-  %196 = getelementptr inbounds i8, ptr %187, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %187, i64 32
   store ptr %0, ptr %196, align 8
   br label %206
 
@@ -825,7 +825,7 @@ tailrecurse:                                      ; preds = %202, %2
 
 .lr.ph332:                                        ; preds = %.lr.ph332.preheader, %.lr.ph332
   %indvars.iv397 = phi i64 [ 0, %.lr.ph332.preheader ], [ %indvars.iv.next398, %.lr.ph332 ]
-  %204 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv397
+  %204 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv397
   %205 = trunc nuw nsw i64 %indvars.iv397 to i32
   store i32 %205, ptr %204, align 4
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1

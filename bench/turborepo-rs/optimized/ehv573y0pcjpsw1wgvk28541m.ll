@@ -83,7 +83,7 @@ _RINvNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared17find_existing_runNtNtCs68wO5ns
   br i1 %.not354, label %8, label %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread
 
 _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit.thread: ; preds = %_RINvNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared17find_existing_runNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB12_NtNtB8_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit.thread52
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph.preheader.i.i.preheader
 
 _RINvNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared17find_existing_runNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB12_NtNtB8_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit.thread: ; preds = %.preheader24
@@ -135,14 +135,14 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
   %.sroa.0.08.i.i = phi i64 [ %59, %_RINvNtCs1LoaDTb72WA_4core10intrinsics10typed_swapNtNtCs68wO5nsWeTG_5alloc6string6StringECsff1zCjKRl2o_13turborepo_env.exit.i.i ], [ 0, %.lr.ph.preheader.i.i.preheader ]
   %49 = xor i64 %.sroa.0.08.i.i, -1
   %50 = add nsw i64 %48, %49
-  %51 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
+  %51 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
   %52 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %47, i64 0, i64 %50
   br label %53
 
 53:                                               ; preds = %53, %.lr.ph.preheader.i.i
   %.sroa.0.05.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %58, %53 ]
-  %54 = getelementptr inbounds i64, ptr %51, i64 %.sroa.0.05.i.i.i.i
-  %55 = getelementptr inbounds i64, ptr %52, i64 %.sroa.0.05.i.i.i.i
+  %54 = getelementptr inbounds nuw i64, ptr %51, i64 %.sroa.0.05.i.i.i.i
+  %55 = getelementptr inbounds nuw i64, ptr %52, i64 %.sroa.0.05.i.i.i.i
   %56 = load i64, ptr %54, align 8, !alias.scope !11, !noalias !9
   %57 = load i64, ptr %55, align 8, !alias.scope !14, !noalias !6
   store i64 %57, ptr %54, align 8, !alias.scope !11, !noalias !9
@@ -283,7 +283,7 @@ _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10S
   br i1 %.not4.i, label %_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30, label %70
 
 _RNvXs5_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range9RangeFromjEINtB5_10SliceIndexSNtNtCs68wO5nsWeTG_5alloc6string6StringE9index_mutCsff1zCjKRl2o_13turborepo_env.exit30: ; preds = %63
-  %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %48, i64 %44
+  %64 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %48, i64 %44
   %65 = or i64 %45, 1
   %66 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %65, i1 true)
   %67 = trunc nuw nsw i64 %66 to i32

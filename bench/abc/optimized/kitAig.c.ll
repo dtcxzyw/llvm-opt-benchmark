@@ -33,7 +33,7 @@ define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %.not38, label %19, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %.val31, %15
   tail call void @llvm.assume(i1 %16)
@@ -45,7 +45,7 @@ define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr nocapture noundef readonl
   %20 = getelementptr i8, ptr %1, i64 16
   %.val36 = load ptr, ptr %20, align 8
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val36, i64 %21, i32 2
+  %22 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val36, i64 %21, i32 2
   %23 = load ptr, ptr %22, align 8
   %24 = and i32 %.val32, 1
   %25 = ptrtoint ptr %23 to i64
@@ -56,24 +56,24 @@ define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr nocapture noundef readonl
 28:                                               ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %28 ]
   %.val33 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val33, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val33, i64 %indvars.iv
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 1
   %32 = and i32 %31, 1073741823
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val33, i64 %33, i32 2
+  %34 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val33, i64 %33, i32 2
   %35 = load ptr, ptr %34, align 8
   %36 = and i32 %30, 1
   %37 = ptrtoint ptr %35 to i64
   %38 = zext nneg i32 %36 to i64
   %39 = xor i64 %38, %37
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %29, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, 1
   %44 = and i32 %43, 1073741823
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val33, i64 %45, i32 2
+  %46 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val33, i64 %45, i32 2
   %47 = load ptr, ptr %46, align 8
   %48 = and i32 %42, 1
   %49 = ptrtoint ptr %47 to i64
@@ -81,7 +81,7 @@ define ptr @Kit_GraphToAigInternal(ptr noundef %0, ptr nocapture noundef readonl
   %51 = xor i64 %50, %49
   %52 = inttoptr i64 %51 to ptr
   %53 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %40, ptr noundef %52) #5
-  %54 = getelementptr inbounds i8, ptr %29, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %53, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %14, align 8
@@ -107,7 +107,7 @@ declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.critedge
@@ -119,9 +119,9 @@ define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.val = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
+  %11 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val, i64 %indvars.iv, i32 2
   store ptr %10, ptr %11, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %4, align 4
@@ -153,7 +153,7 @@ define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br i1 %.not38.i, label %30, label %.preheader.i
 
 .preheader.i:                                     ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp slt i32 %.lcssa9, %26
   tail call void @llvm.assume(i1 %27)
@@ -165,7 +165,7 @@ define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   %31 = getelementptr i8, ptr %2, i64 16
   %.val36.i = load ptr, ptr %31, align 8
   %32 = zext nneg i32 %24 to i64
-  %33 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val36.i, i64 %32, i32 2
+  %33 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val36.i, i64 %32, i32 2
   %34 = load ptr, ptr %33, align 8
   %35 = and i32 %.val32.i, 1
   %36 = ptrtoint ptr %34 to i64
@@ -176,24 +176,24 @@ define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 39:                                               ; preds = %39, %.preheader.i
   %indvars.iv.i = phi i64 [ %29, %.preheader.i ], [ %indvars.iv.next.i, %39 ]
   %.val33.i = load ptr, ptr %28, align 8
-  %40 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val33.i, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val33.i, i64 %indvars.iv.i
   %41 = load i32, ptr %40, align 8
   %42 = lshr i32 %41, 1
   %43 = and i32 %42, 1073741823
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val33.i, i64 %44, i32 2
+  %45 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val33.i, i64 %44, i32 2
   %46 = load ptr, ptr %45, align 8
   %47 = and i32 %41, 1
   %48 = ptrtoint ptr %46 to i64
   %49 = zext nneg i32 %47 to i64
   %50 = xor i64 %49, %48
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds i8, ptr %40, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %53 = load i32, ptr %52, align 4
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 1073741823
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds %struct.Kit_Node_t_, ptr %.val33.i, i64 %56, i32 2
+  %57 = getelementptr inbounds nuw %struct.Kit_Node_t_, ptr %.val33.i, i64 %56, i32 2
   %58 = load ptr, ptr %57, align 8
   %59 = and i32 %53, 1
   %60 = ptrtoint ptr %58 to i64
@@ -201,7 +201,7 @@ define ptr @Kit_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   %62 = xor i64 %61, %60
   %63 = inttoptr i64 %62 to ptr
   %64 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %51, ptr noundef %63) #5
-  %65 = getelementptr inbounds i8, ptr %40, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %64, ptr %65, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %66 = load i32, ptr %25, align 8
@@ -231,7 +231,7 @@ define ptr @Kit_TruthToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 7:                                                ; preds = %5
   %calloc.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %8 = tail call ptr @Kit_TruthToGraph(ptr noundef %2, i32 noundef %3, ptr noundef %calloc.i) #5
-  %9 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %11

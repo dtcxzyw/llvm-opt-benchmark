@@ -28,19 +28,19 @@ entry:
   %frombool = zext i1 %neg to i8
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 16), ptr %this, align 8
-  %loc = getelementptr inbounds i8, ptr %this, i64 16
+  %loc = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %loc_in, ptr %loc, align 8
-  %position = getelementptr inbounds i8, ptr %this, i64 20
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %0, ptr %position, align 4
-  %negated = getelementptr inbounds i8, ptr %this, i64 24
+  %negated = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i8 %frombool, ptr %negated, align 8
-  %ucp = getelementptr inbounds i8, ptr %this, i64 25
-  %ucp3 = getelementptr inbounds i8, ptr %mode, i64 4
+  %ucp = getelementptr inbounds nuw i8, ptr %this, i64 25
+  %ucp3 = getelementptr inbounds nuw i8, ptr %mode, i64 4
   %1 = load i8, ptr %ucp3, align 1
   %frombool5 = and i8 %1, 1
   store i8 %frombool5, ptr %ucp, align 1
-  %prefilter = getelementptr inbounds i8, ptr %this, i64 26
+  %prefilter = getelementptr inbounds nuw i8, ptr %this, i64 26
   store i8 0, ptr %prefilter, align 2
   ret void
 }
@@ -72,35 +72,35 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define hidden noalias noundef nonnull ptr @_ZNK3ue221ComponentWordBoundary5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #10
-  %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %pos_begin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %pos_begin2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_begin2.i.i, align 8
   store i32 %0, ptr %pos_begin.i.i, align 8
-  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %pos_end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %pos_end3.i.i, align 4
   store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue221ComponentWordBoundaryE, i64 16), ptr %call, align 8
-  %loc.i = getelementptr inbounds i8, ptr %call, i64 16
-  %loc2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %loc.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %loc2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %loc2.i, align 8
   store i32 %2, ptr %loc.i, align 8
-  %position.i = getelementptr inbounds i8, ptr %call, i64 20
-  %position3.i = getelementptr inbounds i8, ptr %this, i64 20
+  %position.i = getelementptr inbounds nuw i8, ptr %call, i64 20
+  %position3.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load i32, ptr %position3.i, align 4
   store i32 %3, ptr %position.i, align 4
-  %negated.i = getelementptr inbounds i8, ptr %call, i64 24
-  %negated4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %negated.i = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %negated4.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i8, ptr %negated4.i, align 8
   %frombool.i = and i8 %4, 1
   store i8 %frombool.i, ptr %negated.i, align 8
-  %ucp.i = getelementptr inbounds i8, ptr %call, i64 25
-  %ucp5.i = getelementptr inbounds i8, ptr %this, i64 25
+  %ucp.i = getelementptr inbounds nuw i8, ptr %call, i64 25
+  %ucp5.i = getelementptr inbounds nuw i8, ptr %this, i64 25
   %5 = load i8, ptr %ucp5.i, align 1
   %frombool7.i = and i8 %5, 1
   store i8 %frombool7.i, ptr %ucp.i, align 1
-  %prefilter.i = getelementptr inbounds i8, ptr %call, i64 26
-  %prefilter8.i = getelementptr inbounds i8, ptr %this, i64 26
+  %prefilter.i = getelementptr inbounds nuw i8, ptr %call, i64 26
+  %prefilter8.i = getelementptr inbounds nuw i8, ptr %this, i64 26
   %6 = load i8, ptr %prefilter8.i, align 2
   %frombool10.i = and i8 %6, 1
   store i8 %frombool10.i, ptr %prefilter.i, align 2
@@ -114,16 +114,16 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue221ComponentWordBoundary5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-cond.true.i.i.i.i:
+_ZNKSt6vectorIN3ue212PositionInfoESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
-  %position = getelementptr inbounds i8, ptr %this, i64 20
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %position, align 4
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #10
   %ref.tmp.sroa.0.0.insert.ext3 = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext3, ptr %call5.i.i.i.i.i.i1, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i1, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i1, i64 8
   store ptr %call5.i.i.i.i.i.i1, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8
@@ -134,7 +134,7 @@ cond.true.i.i.i.i:
 define hidden void @_ZNK3ue221ComponentWordBoundary4lastEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(27) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(27) %this)
   ret void
@@ -156,23 +156,23 @@ entry:
 define hidden void @_ZN3ue221ComponentWordBoundary13notePositionsERNS_18GlushkovBuildStateE(ptr noundef nonnull align 8 dereferenceable(27) initializes((20, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %bs, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 1)
-  %position = getelementptr inbounds i8, ptr %this, i64 20
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %call4, ptr %position, align 4
-  %ucp = getelementptr inbounds i8, ptr %this, i64 25
+  %ucp = getelementptr inbounds nuw i8, ptr %this, i64 25
   %2 = load i8, ptr %ucp, align 1
   %tobool = trunc i8 %2 to i1
-  %negated = getelementptr inbounds i8, ptr %this, i64 24
+  %negated = getelementptr inbounds nuw i8, ptr %this, i64 24
   %3 = load i8, ptr %negated, align 8
   %tobool5 = trunc i8 %3 to i1
   %vtable8 = load ptr, ptr %call, align 8
-  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 80
+  %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 80
   %4 = load ptr, ptr %vfn9, align 8
   %. = select i1 %tobool5, i32 6144, i32 1536
   %.5 = select i1 %tobool5, i32 96, i32 24
@@ -196,11 +196,11 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN3ue221ComponentWordBoundary6acceptERNS_16ComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 224
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 224
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   ret ptr %call
@@ -210,15 +210,15 @@ entry:
 define linkonce_odr hidden void @_ZNK3ue221ComponentWordBoundary6acceptERNS_21ConstComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(27) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 112
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 112
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(27) %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 224
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 224
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(27) %this)
   %vtable4 = load ptr, ptr %v, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 336
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 336
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(27) %this)
   ret void

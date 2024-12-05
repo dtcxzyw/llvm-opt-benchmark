@@ -589,7 +589,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
 
 .lr.ph.preheader.i.i.i:                           ; preds = %348
   %.phi.trans.insert.i.i.i = zext nneg i32 %349 to i64
-  %.phi.trans.insert41.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert41.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.phi.trans.insert.i.i.i
   %.pre.i.i.i = load i8, ptr %.phi.trans.insert41.i.i.i, align 1
   br label %.lr.ph.i.i.i25
 
@@ -600,10 +600,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   br i1 %.not33.i.i.i, label %356, label %._crit_edge.i.i.i
 
 356:                                              ; preds = %.lr.ph.i.i.i25
-  %357 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv111.i.i
+  %357 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv111.i.i
   store i8 48, ptr %357, align 1
   %indvars.iv.next112.i.i = add nsw i64 %indvars.iv111.i.i, -1
-  %358 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next112.i.i
+  %358 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next112.i.i
   %359 = load i8, ptr %358, align 1
   %360 = add i8 %359, 1
   store i8 %360, ptr %358, align 1
@@ -693,10 +693,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Double17AsNormaliz
   br i1 %.not33.i58.i.i, label %401, label %._crit_edge.i51.i.i
 
 401:                                              ; preds = %.lr.ph.i56.i.i
-  %402 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i.i
+  %402 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i.i
   store i8 48, ptr %402, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %403 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next.i.i
+  %403 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next.i.i
   %404 = load i8, ptr %403, align 1
   %405 = add i8 %404, 1
   store i8 %405, ptr %403, align 1

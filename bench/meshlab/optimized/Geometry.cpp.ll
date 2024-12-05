@@ -21,9 +21,9 @@ define void @_ZN17TriangulationEdgeC2Ev(ptr nocapture noundef nonnull writeonly 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN21TriangulationTriangleC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -1, ptr %3, align 4
   store i32 -1, ptr %0, align 4
   ret void
@@ -31,13 +31,13 @@ define void @_ZN21TriangulationTriangleC2Ev(ptr nocapture noundef nonnull writeo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 dereferenceable(1064) initializes((1048, 1064)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1048
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i64 0, ptr %4, align 8
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 1056
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   store i64 %5, ptr %6, align 8
   %.not = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %3
@@ -55,14 +55,14 @@ define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 derefe
 
 14:                                               ; preds = %11, %8
   %.sink = phi ptr [ %13, %11 ], [ %10, %8 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %15, align 8
   %.not3 = icmp eq ptr %.sink, null
   br i1 %.not3, label %16, label %20
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %18) #13
   tail call void @exit(i32 noundef 0) #14
   unreachable
@@ -70,7 +70,7 @@ define void @_ZN21BufferedReadWriteFileC2EPci(ptr noundef nonnull align 8 derefe
 20:                                               ; preds = %14
   %21 = load i64, ptr %6, align 8
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #15
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %23, align 8
   ret void
 }
@@ -97,10 +97,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21BufferedReadWriteFileD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1064) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @fclose(ptr noundef %5)
   %7 = load i8, ptr %0, align 8
@@ -108,7 +108,7 @@ define void @_ZN21BufferedReadWriteFileD2Ev(ptr nocapture noundef nonnull readon
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = tail call i32 @remove(ptr noundef nonnull %10) #12
   br label %12
 
@@ -129,28 +129,28 @@ declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN21BufferedReadWriteFile5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(1064) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1048
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @fwrite(ptr noundef %6, i64 noundef 1, i64 noundef %3, ptr noundef %8)
   br label %10
 
 10:                                               ; preds = %4, %1
   store i64 0, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @fseek(ptr noundef %12, i64 noundef 0, i32 noundef 0)
   store i64 0, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1056
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %17 = load i64, ptr %16, align 8
   %18 = load ptr, ptr %11, align 8
   %19 = tail call i64 @fread(ptr noundef %15, i64 noundef 1, i64 noundef %17, ptr noundef %18)
@@ -173,17 +173,17 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile5writeEPKvm(ptr nocapture n
   br i1 %.not, label %29, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1048
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %.not1921 = icmp ugt i64 %9, %2
   br i1 %.not1921, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %12
@@ -213,7 +213,7 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile5writeEPKvm(ptr nocapture n
   %.015.lcssa31 = phi ptr [ %20, %._crit_edge ], [ %1, %4 ]
   %.016.lcssa30 = phi i64 [ %21, %._crit_edge ], [ %2, %4 ]
   %23 = phi i64 [ 0, %._crit_edge ], [ %8, %4 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %.015.lcssa31, i64 %.016.lcssa30, i1 false)
@@ -235,17 +235,17 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr nocapture nou
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1056
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1048
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %.not2228 = icmp ugt i64 %9, %2
   br i1 %.not2228, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph, %23
@@ -284,7 +284,7 @@ define noundef zeroext i1 @_ZN21BufferedReadWriteFile4readEPvm(ptr nocapture nou
   %.017.lcssa38 = phi ptr [ %1, %._crit_edge ], [ %24, %23 ]
   %.018.lcssa37 = phi i64 [ %2, %._crit_edge ], [ %22, %23 ]
   %25 = phi i64 [ %8, %._crit_edge ], [ 0, %23 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.017.lcssa38, ptr align 1 %28, i64 %.018.lcssa37, i1 false)

@@ -88,7 +88,7 @@ invoke.cont9:                                     ; preds = %.noexc12
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %invoke.cont9
-  %d_checkRuns = getelementptr inbounds i8, ptr %this, i64 8
+  %d_checkRuns = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %call12, ptr %d_checkRuns, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp6) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7) #8

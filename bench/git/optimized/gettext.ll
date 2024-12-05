@@ -43,7 +43,7 @@ land.lhs.true5:                                   ; preds = %if.end
   ]
 
 land.lhs.true8.tail:                              ; preds = %land.lhs.true5
-  %2 = getelementptr inbounds i8, ptr %call3, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %call3, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %if.end15, label %land.lhs.true11

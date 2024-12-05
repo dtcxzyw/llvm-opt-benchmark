@@ -102,7 +102,7 @@ define internal i32 @communityid_dissector(ptr noundef %0, ptr noundef %1, ptr n
   br label %24
 
 24:                                               ; preds = %19, %13
-  %25 = getelementptr inbounds i8, ptr %1, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %26 = load i32, ptr %25, align 8
   switch i32 %26, label %.thread86 [
     i32 2, label %.thread
@@ -110,13 +110,13 @@ define internal i32 @communityid_dissector(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 .thread:                                          ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 184
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 2
   br i1 %29, label %select.unfold, label %.thread86
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %1, i64 184
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 3
   br i1 %33, label %select.unfold, label %.thread86
@@ -144,12 +144,12 @@ select.unfold:                                    ; preds = %.thread, %30
   %44 = zext i8 %43 to i16
   %45 = shl nuw i16 %44, 8
   store i16 %45, ptr %6, align 2
-  %46 = getelementptr inbounds i8, ptr %41, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i16
   %49 = shl nuw i16 %48, 8
   store i16 %49, ptr %7, align 2
-  %50 = getelementptr inbounds i8, ptr %1, i64 164
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %51 = load i32, ptr %50, align 4
   switch i32 %51, label %.thread86 [
     i32 4, label %52
@@ -157,22 +157,22 @@ select.unfold:                                    ; preds = %.thread, %30
   ]
 
 52:                                               ; preds = %42
-  %53 = getelementptr inbounds i8, ptr %1, i64 188
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 4
   br i1 %55, label %communityid_calc_wrapper.exit, label %.thread86
 
 56:                                               ; preds = %42
-  %57 = getelementptr inbounds i8, ptr %1, i64 188
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 16
   br i1 %59, label %communityid_calc_wrapper.exit, label %.thread86
 
 communityid_calc_wrapper.exit:                    ; preds = %52, %56
   %.sink.i = phi i8 [ 4, %52 ], [ 16, %56 ]
-  %60 = getelementptr inbounds i8, ptr %1, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %1, i64 192
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %63 = load ptr, ptr %62, align 8
   %64 = call fastcc i32 @communityid_calc(i8 noundef zeroext 1, i8 noundef zeroext %.sink.i, ptr noundef %61, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %5)
   %.not60 = icmp eq i32 %64, 0
@@ -202,12 +202,12 @@ communityid_calc_wrapper.exit._crit_edge:         ; preds = %communityid_calc_wr
   %76 = zext i8 %75 to i16
   %77 = shl nuw i16 %76, 8
   store i16 %77, ptr %8, align 2
-  %78 = getelementptr inbounds i8, ptr %73, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i16
   %81 = shl nuw i16 %80, 8
   store i16 %81, ptr %9, align 2
-  %82 = getelementptr inbounds i8, ptr %1, i64 164
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %83 = load i32, ptr %82, align 4
   switch i32 %83, label %.thread86 [
     i32 4, label %84
@@ -215,22 +215,22 @@ communityid_calc_wrapper.exit._crit_edge:         ; preds = %communityid_calc_wr
   ]
 
 84:                                               ; preds = %74
-  %85 = getelementptr inbounds i8, ptr %1, i64 188
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 4
   br i1 %87, label %communityid_calc_wrapper.exit76, label %.thread86
 
 88:                                               ; preds = %74
-  %89 = getelementptr inbounds i8, ptr %1, i64 188
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %90 = load i32, ptr %89, align 4
   %91 = icmp eq i32 %90, 16
   br i1 %91, label %communityid_calc_wrapper.exit76, label %.thread86
 
 communityid_calc_wrapper.exit76:                  ; preds = %84, %88
   %.sink.i75 = phi i8 [ 4, %84 ], [ 16, %88 ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 168
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %1, i64 192
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %95 = load ptr, ptr %94, align 8
   %96 = call fastcc i32 @communityid_calc(i8 noundef zeroext 58, i8 noundef zeroext %.sink.i75, ptr noundef %93, ptr noundef %95, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %5)
   %.not62 = icmp eq i32 %96, 0
@@ -246,17 +246,17 @@ thread-pre-split:                                 ; preds = %communityid_calc_wr
   br i1 %98, label %thread-pre-split.thread, label %.thread103
 
 thread-pre-split.thread:                          ; preds = %70, %thread-pre-split
-  %99 = getelementptr inbounds i8, ptr %1, i64 284
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %100 = load i32, ptr %99, align 4
   %trunc = trunc i32 %100 to i16
   %rev = call i16 @llvm.bswap.i16(i16 %trunc)
   store i16 %rev, ptr %10, align 2
-  %101 = getelementptr inbounds i8, ptr %1, i64 288
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %102 = load i32, ptr %101, align 8
   %trunc63 = trunc i32 %102 to i16
   %rev64 = call i16 @llvm.bswap.i16(i16 %trunc63)
   store i16 %rev64, ptr %11, align 2
-  %103 = getelementptr inbounds i8, ptr %1, i64 280
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %104 = load i32, ptr %103, align 8
   %switch.tableidx = add i32 %104, -1
   %105 = icmp ult i32 %switch.tableidx, 3
@@ -267,7 +267,7 @@ switch.lookup:                                    ; preds = %thread-pre-split.th
   %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
   %switch.downshift = lshr i24 1115780, %switch.shiftamt
   %switch.masked = trunc i24 %switch.downshift to i8
-  %106 = getelementptr inbounds i8, ptr %1, i64 164
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %107 = load i32, ptr %106, align 4
   switch i32 %107, label %.thread86 [
     i32 4, label %108
@@ -275,22 +275,22 @@ switch.lookup:                                    ; preds = %thread-pre-split.th
   ]
 
 108:                                              ; preds = %switch.lookup
-  %109 = getelementptr inbounds i8, ptr %1, i64 188
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, 4
   br i1 %111, label %communityid_calc_wrapper.exit80, label %.thread86
 
 112:                                              ; preds = %switch.lookup
-  %113 = getelementptr inbounds i8, ptr %1, i64 188
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %114, 16
   br i1 %115, label %communityid_calc_wrapper.exit80, label %.thread86
 
 communityid_calc_wrapper.exit80:                  ; preds = %108, %112
   %.sink.i79 = phi i8 [ 4, %108 ], [ 16, %112 ]
-  %116 = getelementptr inbounds i8, ptr %1, i64 168
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %1, i64 192
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %119 = load ptr, ptr %118, align 8
   %120 = call fastcc i32 @communityid_calc(i8 noundef zeroext %switch.masked, i8 noundef zeroext %.sink.i79, ptr noundef %117, ptr noundef %119, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %5)
   %.not66 = icmp eq i32 %120, 0
@@ -303,7 +303,7 @@ communityid_calc_wrapper.exit80:                  ; preds = %108, %112
 
 .thread115:                                       ; preds = %thread-pre-split.thread, %121
   %.053117 = phi i8 [ %switch.masked, %121 ], [ 0, %thread-pre-split.thread ]
-  %123 = getelementptr inbounds i8, ptr %1, i64 360
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr @wmem_list_head(ptr noundef %124) #7
   %.not67108 = icmp eq ptr %125, null
@@ -319,7 +319,7 @@ communityid_calc_wrapper.exit80:                  ; preds = %108, %112
   br i1 %129, label %130, label %136
 
 130:                                              ; preds = %.lr.ph
-  %131 = getelementptr inbounds i8, ptr %1, i64 408
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %132 = load ptr, ptr %131, align 8
   %133 = call ptr @p_get_proto_data(ptr noundef %132, ptr noundef %1, i32 noundef %.155, i32 noundef %.051110) #7
   %134 = ptrtoint ptr %133 to i64
@@ -338,7 +338,7 @@ communityid_calc_wrapper.exit80:                  ; preds = %108, %112
   br i1 %.not68, label %.thread120, label %139
 
 139:                                              ; preds = %.loopexit
-  %140 = getelementptr inbounds i8, ptr %1, i64 164
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %141 = load i32, ptr %140, align 4
   switch i32 %141, label %.thread86 [
     i32 4, label %142
@@ -346,22 +346,22 @@ communityid_calc_wrapper.exit80:                  ; preds = %108, %112
   ]
 
 142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %1, i64 188
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, 4
   br i1 %145, label %communityid_calc_wrapper.exit84, label %.thread86
 
 146:                                              ; preds = %139
-  %147 = getelementptr inbounds i8, ptr %1, i64 188
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, 16
   br i1 %149, label %communityid_calc_wrapper.exit84, label %.thread86
 
 communityid_calc_wrapper.exit84:                  ; preds = %142, %146
   %.sink.i83 = phi i8 [ 4, %142 ], [ 16, %146 ]
-  %150 = getelementptr inbounds i8, ptr %1, i64 168
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %1, i64 192
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %153 = load ptr, ptr %152, align 8
   %154 = call fastcc i32 @communityid_calc(i8 noundef zeroext %.2, i8 noundef zeroext %.sink.i83, ptr noundef %151, ptr noundef %153, ptr noundef null, ptr noundef null, ptr noundef nonnull %5)
   %.not69 = icmp eq i32 %154, 0
@@ -380,13 +380,13 @@ communityid_calc_wrapper.exit84:                  ; preds = %142, %146
   br i1 %.not.i, label %proto_item_set_generated.exit, label %159
 
 159:                                              ; preds = %.thread103
-  %160 = getelementptr inbounds i8, ptr %158, i64 32
+  %160 = getelementptr inbounds nuw i8, ptr %158, i64 32
   %161 = load ptr, ptr %160, align 8
   %.not5.i = icmp eq ptr %161, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %162
 
 162:                                              ; preds = %159
-  %163 = getelementptr inbounds i8, ptr %161, i64 28
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 28
   %164 = load i32, ptr %163, align 4
   %165 = or i32 %164, 2
   store i32 %165, ptr %163, align 4
@@ -561,7 +561,7 @@ switch.hole_check:                                ; preds = %27
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %42 = zext nneg i16 %rev87 to i64
-  %switch.gep = getelementptr inbounds [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %42
+  %switch.gep = getelementptr inbounds nuw [19 x i16], ptr @switch.table.communityid_calc, i64 0, i64 %42
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %.thread.critedge
 

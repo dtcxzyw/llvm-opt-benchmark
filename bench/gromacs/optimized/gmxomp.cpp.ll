@@ -58,7 +58,7 @@ define noundef zeroext i1 @_Z29gmx_omp_check_thread_affinityPPc(ptr nocapture no
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = invoke noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %9 unwind label %11

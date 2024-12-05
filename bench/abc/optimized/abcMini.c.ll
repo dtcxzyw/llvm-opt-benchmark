@@ -85,13 +85,13 @@ define ptr @Abc_NtkFromMiniAig(ptr nocapture noundef readonly %0) local_unnamed_
   %4 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #12
   %5 = tail call noalias noundef dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #13
   store i64 29107652263831885, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %6, align 8
   %7 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %8 = add nsw i32 %3, -1
   %or.cond.i = icmp ult i32 %8, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %spec.store.select.i, ptr %7, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
   br i1 %.not.i, label %Vec_IntAlloc.exit, label %10
@@ -104,7 +104,7 @@ define ptr @Abc_NtkFromMiniAig(ptr nocapture noundef readonly %0) local_unnamed_
 
 Vec_IntAlloc.exit:                                ; preds = %1, %10
   %14 = phi ptr [ %13, %10 ], [ null, %1 ]
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %14, ptr %15, align 8
   %16 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %4) #12
   %17 = ptrtoint ptr %16 to i64
@@ -146,7 +146,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntAlloc.exit, 
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit
   %34 = getelementptr i8, ptr %0, i64 16
-  %35 = getelementptr inbounds i8, ptr %4, i64 256
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %36 = getelementptr i8, ptr %4, i64 32
   %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 2)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -156,7 +156,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntAlloc.exit, 
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit67 ]
   %.val.i47 = load ptr, ptr %34, align 8
   %38 = shl nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds i32, ptr %.val.i47, i64 %38
+  %39 = getelementptr inbounds nuw i32, ptr %.val.i47, i64 %38
   %40 = load i32, ptr %39, align 4
   %.not71 = icmp eq i32 %40, 2147483647
   br i1 %.not71, label %41, label %Mini_AigNodeIsPo.exit
@@ -167,7 +167,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntAlloc.exit, 
 
 Mini_AigNodeIsPo.exit:                            ; preds = %37
   %43 = or disjoint i64 %38, 1
-  %44 = getelementptr inbounds i32, ptr %.val.i47, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %.val.i47, i64 %43
   %45 = load i32, ptr %44, align 4
   %.not72 = icmp eq i32 %45, 2147483647
   br i1 %.not72, label %46, label %Mini_AigNodeIsAnd.exit
@@ -175,7 +175,7 @@ Mini_AigNodeIsPo.exit:                            ; preds = %37
 46:                                               ; preds = %Mini_AigNodeIsPo.exit
   %47 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 3) #12
   %.val.i50 = load ptr, ptr %34, align 8
-  %48 = getelementptr inbounds i32, ptr %.val.i50, i64 %38
+  %48 = getelementptr inbounds nuw i32, ptr %.val.i50, i64 %38
   %49 = load i32, ptr %48, align 4
   %50 = ashr i32 %49, 1
   %.val6.i = load ptr, ptr %15, align 8
@@ -312,7 +312,7 @@ Vec_IntPush.exit67:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %._crit_edge, label %37, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit67, %Vec_IntPush.exit
-  %131 = getelementptr inbounds i8, ptr %4, i64 256
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %132 = load ptr, ptr %131, align 8
   %133 = tail call i32 @Abc_AigCleanup(ptr noundef %132) #12
   %134 = load ptr, ptr %15, align 8
@@ -385,7 +385,7 @@ define i32 @Abc_NodeFanin0Copy2(ptr nocapture noundef readonly %0) local_unnamed
   %5 = sext i32 %.val2.val to i64
   %6 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %5
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr i8, ptr %0, i64 20
   %.val3 = load i32, ptr %10, align 4
@@ -409,7 +409,7 @@ define i32 @Abc_NodeFanin1Copy2(ptr nocapture noundef readonly %0) local_unnamed
   %6 = sext i32 %.val2.val to i64
   %7 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %6
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr i8, ptr %0, i64 20
   %.val3 = load i32, ptr %11, align 4
@@ -424,12 +424,12 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #15
   store i32 255, ptr %2, align 8
   %3 = tail call noalias dereferenceable_or_null(1020) ptr @malloc(i64 noundef 1020) #13
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %3, ptr %4, align 8
   tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef 2147483647, i32 noundef 2147483647)
   tail call void @Abc_NtkCleanCopy(ptr noundef %0) #12
   %5 = tail call ptr @Abc_AigConst1(ptr noundef %0) #12
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 1, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 56
   %.val3654 = load ptr, ptr %7, align 8
@@ -439,11 +439,11 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   br i1 %9, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %2, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %16
 
 .critedge.preheader:                              ; preds = %16, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 4
   %.val3558 = load i32, ptr %13, align 4
@@ -451,7 +451,7 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   br i1 %14, label %.lr.ph60, label %.critedge2.preheader
 
 .lr.ph60:                                         ; preds = %.critedge.preheader
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %29
 
 16:                                               ; preds = %.lr.ph, %16
@@ -459,11 +459,11 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %.val3657 = phi ptr [ %.val3654, %.lr.ph ], [ %.val36, %16 ]
   %17 = getelementptr i8, ptr %.val3657, i64 8
   %.val37.val = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %10, align 4
   tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef 2147483647, i32 noundef 2147483647)
-  %21 = getelementptr inbounds i8, ptr %19, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store i32 %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val36 = load ptr, ptr %7, align 8
@@ -482,7 +482,7 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   br i1 %27, label %.lr.ph65, label %.critedge4
 
 .lr.ph65:                                         ; preds = %.critedge2.preheader
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %.critedge2
 
 29:                                               ; preds = %.lr.ph60, %.critedge
@@ -490,7 +490,7 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %indvars.iv67 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next68, %.critedge ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val.val = load ptr, ptr %31, align 8
-  %32 = getelementptr inbounds ptr, ptr %.val.val, i64 %indvars.iv67
+  %32 = getelementptr inbounds nuw ptr, ptr %.val.val, i64 %indvars.iv67
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.critedge, label %35
@@ -514,7 +514,7 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %42 = sext i32 %.val2.val.i to i64
   %43 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load i32, ptr %45, align 8
   %47 = lshr i32 %.val38, 10
   %48 = and i32 %47, 1
@@ -524,7 +524,7 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   %51 = sext i32 %.val2.val.i45 to i64
   %52 = getelementptr inbounds ptr, ptr %.val.val.val.i, i64 %51
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load i32, ptr %54, align 8
   %56 = lshr i32 %.val38, 11
   %57 = and i32 %56, 1
@@ -542,7 +542,7 @@ define noalias noundef ptr @Abc_NtkToMiniAig(ptr noundef %0) local_unnamed_addr 
   br label %Mini_AigAnd.exit
 
 Mini_AigAnd.exit:                                 ; preds = %61, %62
-  %63 = getelementptr inbounds i8, ptr %33, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 64
   store i32 %59, ptr %63, align 8
   %.pre = load ptr, ptr %11, align 8
   br label %.critedge
@@ -561,7 +561,7 @@ Mini_AigAnd.exit:                                 ; preds = %61, %62
   %.val3964 = phi ptr [ %.val3961, %.lr.ph65 ], [ %.val39, %.critedge2 ]
   %68 = getelementptr i8, ptr %.val3964, i64 8
   %.val40.val = load ptr, ptr %68, align 8
-  %69 = getelementptr inbounds ptr, ptr %.val40.val, i64 %indvars.iv70
+  %69 = getelementptr inbounds nuw ptr, ptr %.val40.val, i64 %indvars.iv70
   %70 = load ptr, ptr %69, align 8
   %.val.i48 = load ptr, ptr %70, align 8
   %71 = getelementptr i8, ptr %70, i64 32
@@ -574,7 +574,7 @@ Mini_AigAnd.exit:                                 ; preds = %61, %62
   %74 = sext i32 %.val2.val.i51 to i64
   %75 = getelementptr inbounds ptr, ptr %.val.val.val.i52, i64 %74
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %78 = load i32, ptr %77, align 8
   %79 = getelementptr i8, ptr %70, i64 20
   %.val3.i53 = load i32, ptr %79, align 4
@@ -583,7 +583,7 @@ Mini_AigAnd.exit:                                 ; preds = %61, %62
   %82 = xor i32 %81, %78
   %83 = load i32, ptr %28, align 4
   tail call fastcc void @Mini_AigPush(ptr noundef nonnull %2, i32 noundef %82, i32 noundef 2147483647)
-  %84 = getelementptr inbounds i8, ptr %70, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %70, i64 64
   store i32 %83, ptr %84, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %.val39 = load ptr, ptr %25, align 8
@@ -596,7 +596,7 @@ Mini_AigAnd.exit:                                 ; preds = %61, %62
 .critedge4:                                       ; preds = %.critedge2, %.critedge2.preheader
   %88 = getelementptr i8, ptr %0, i64 128
   %.val41 = load i32, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %2, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %.val41, ptr %89, align 8
   ret ptr %2
 }
@@ -679,7 +679,7 @@ define void @Abc_NtkMiniAigTest(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @Abc_NtkToMiniAig(ptr noundef %0)
   %4 = tail call ptr @Abc_NtkFromMiniAig(ptr noundef %3)
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %Mini_AigStop.exit, label %7
@@ -704,11 +704,11 @@ Mini_AigStop.exit:                                ; preds = %1, %7
   br label %Mini_AigDump.exit
 
 13:                                               ; preds = %Mini_AigStop.exit
-  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %15 = tail call i64 @fwrite(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %9)
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = tail call i64 @fwrite(ptr noundef nonnull %16, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %9)
-  %18 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %14, align 4
   %21 = sext i32 %20 to i64
@@ -731,8 +731,8 @@ Mini_AigDump.exit:                                ; preds = %11, %13
 27:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
   %.08.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %27 ]
-  %.idx.i.i = shl nsw i64 %indvars.iv.i.i, 3
-  %28 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.idx.i.i
+  %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 3
+  %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i
   %29 = load i32, ptr %28, align 4
   %.not.i.i = icmp eq i32 %29, 2147483647
   %30 = zext i1 %.not.i.i to i32
@@ -745,14 +745,14 @@ Mini_AigDump.exit:                                ; preds = %11, %13
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i11.i, %38 ], [ 1, %27 ]
   %.010.i.i = phi i32 [ %39, %38 ], [ 0, %27 ]
   %31 = shl nuw nsw i64 %indvars.iv.i9.i, 1
-  %32 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %31
+  %32 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %31
   %33 = load i32, ptr %32, align 4
   %.not.i.i.i = icmp eq i32 %33, 2147483647
   br i1 %.not.i.i.i, label %Mini_AigNodeIsPo.exit.thread.i.i, label %Mini_AigNodeIsPo.exit.i.i
 
 Mini_AigNodeIsPo.exit.i.i:                        ; preds = %.lr.ph.i6.i
   %34 = or disjoint i64 %31, 1
-  %35 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %34
   %36 = load i32, ptr %35, align 4
   %.fr.i.i = freeze i32 %36
   %.not.i10.i = icmp eq i32 %.fr.i.i, 2147483647
@@ -782,14 +782,14 @@ Mini_AigPoNum.exit.i:                             ; preds = %38
   %indvars.iv.i18.i = phi i64 [ 1, %Mini_AigPoNum.exit.i ], [ %indvars.iv.next.i21.i, %50 ]
   %.011.i.i = phi i32 [ 0, %Mini_AigPoNum.exit.i ], [ %51, %50 ]
   %43 = shl nuw nsw i64 %indvars.iv.i18.i, 1
-  %44 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %43
   %45 = load i32, ptr %44, align 4
   %.not.i.i19.i = icmp eq i32 %45, 2147483647
   br i1 %.not.i.i19.i, label %Mini_AigNodeIsAnd.exit.thread.i.i, label %Mini_AigNodeIsAnd.exit.i.i
 
 Mini_AigNodeIsAnd.exit.i.i:                       ; preds = %42
   %46 = or disjoint i64 %43, 1
-  %47 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %46
   %48 = load i32, ptr %47, align 4
   %.fr.i20.i = freeze i32 %48
   %.not9.i.i = icmp eq i32 %.fr.i20.i, 2147483647
@@ -811,7 +811,7 @@ Mini_AigPrintStats.exit:                          ; preds = %50, %Mini_AigPoNum.
   %.0.lcssa.i2428.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %spec.select.i.i, %50 ]
   %.0.lcssa.i14.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %51, %50 ]
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0.lcssa.i2428.i, i32 noundef %.0.lcssa.i529.i, i32 noundef %.val30.i, i32 noundef %.0.lcssa.i14.i)
-  %53 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not.i11 = icmp eq ptr %54, null
   br i1 %.not.i11, label %Mini_AigStop.exit12, label %55
@@ -837,14 +837,14 @@ Mini_AigStop.exit12:                              ; preds = %Mini_AigPrintStats.
   %62 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #15
   %63 = load i32, ptr %2, align 4
   store i32 %63, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store i32 %63, ptr %64, align 4
   %65 = sext i32 %63 to i64
   %66 = shl nsw i64 %65, 2
   %67 = tail call noalias ptr @malloc(i64 noundef %66) #13
-  %68 = getelementptr inbounds i8, ptr %62, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %62, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %70 = tail call i64 @fread(ptr noundef nonnull %69, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %56)
   %71 = load ptr, ptr %68, align 8
   %72 = load i32, ptr %64, align 4
@@ -870,8 +870,8 @@ Mini_AigLoad.exit:                                ; preds = %58, %60
 79:                                               ; preds = %79, %.lr.ph.i.i20
   %indvars.iv.i.i23 = phi i64 [ 1, %.lr.ph.i.i20 ], [ %indvars.iv.next.i.i28, %79 ]
   %.08.i.i24 = phi i32 [ 0, %.lr.ph.i.i20 ], [ %spec.select.i.i27, %79 ]
-  %.idx.i.i25 = shl nsw i64 %indvars.iv.i.i23, 3
-  %80 = getelementptr inbounds i8, ptr %.val.i.i.i21, i64 %.idx.i.i25
+  %.idx.i.i25 = shl nuw nsw i64 %indvars.iv.i.i23, 3
+  %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i21, i64 %.idx.i.i25
   %81 = load i32, ptr %80, align 4
   %.not.i.i26 = icmp eq i32 %81, 2147483647
   %82 = zext i1 %.not.i.i26 to i32
@@ -884,14 +884,14 @@ Mini_AigLoad.exit:                                ; preds = %58, %60
   %indvars.iv.i9.i31 = phi i64 [ %indvars.iv.next.i11.i38, %90 ], [ 1, %79 ]
   %.010.i.i32 = phi i32 [ %91, %90 ], [ 0, %79 ]
   %83 = shl nuw nsw i64 %indvars.iv.i9.i31, 1
-  %84 = getelementptr inbounds i32, ptr %.val.i.i.i21, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %83
   %85 = load i32, ptr %84, align 4
   %.not.i.i.i33 = icmp eq i32 %85, 2147483647
   br i1 %.not.i.i.i33, label %Mini_AigNodeIsPo.exit.thread.i.i37, label %Mini_AigNodeIsPo.exit.i.i34
 
 Mini_AigNodeIsPo.exit.i.i34:                      ; preds = %.lr.ph.i6.i30
   %86 = or disjoint i64 %83, 1
-  %87 = getelementptr inbounds i32, ptr %.val.i.i.i21, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %86
   %88 = load i32, ptr %87, align 4
   %.fr.i.i35 = freeze i32 %88
   %.not.i10.i36 = icmp eq i32 %.fr.i.i35, 2147483647
@@ -921,14 +921,14 @@ Mini_AigPoNum.exit.i40:                           ; preds = %90
   %indvars.iv.i18.i42 = phi i64 [ 1, %Mini_AigPoNum.exit.i40 ], [ %indvars.iv.next.i21.i48, %102 ]
   %.011.i.i43 = phi i32 [ 0, %Mini_AigPoNum.exit.i40 ], [ %103, %102 ]
   %95 = shl nuw nsw i64 %indvars.iv.i18.i42, 1
-  %96 = getelementptr inbounds i32, ptr %.val.i.i.i21, i64 %95
+  %96 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %95
   %97 = load i32, ptr %96, align 4
   %.not.i.i19.i44 = icmp eq i32 %97, 2147483647
   br i1 %.not.i.i19.i44, label %Mini_AigNodeIsAnd.exit.thread.i.i50, label %Mini_AigNodeIsAnd.exit.i.i45
 
 Mini_AigNodeIsAnd.exit.i.i45:                     ; preds = %94
   %98 = or disjoint i64 %95, 1
-  %99 = getelementptr inbounds i32, ptr %.val.i.i.i21, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %98
   %100 = load i32, ptr %99, align 4
   %.fr.i20.i46 = freeze i32 %100
   %.not9.i.i47 = icmp eq i32 %.fr.i20.i46, 2147483647
@@ -950,7 +950,7 @@ Mini_AigPrintStats.exit51:                        ; preds = %102, %Mini_AigPoNum
   %.0.lcssa.i2428.i18 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %spec.select.i.i27, %102 ]
   %.0.lcssa.i14.i19 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %103, %102 ]
   %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0.lcssa.i2428.i18, i32 noundef %.0.lcssa.i529.i17, i32 noundef %.val30.i16, i32 noundef %.0.lcssa.i14.i19)
-  %105 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %106 = load ptr, ptr %105, align 8
   %.not.i52 = icmp eq ptr %106, null
   br i1 %.not.i52, label %Mini_AigStop.exit53, label %107
@@ -982,7 +982,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Mini_AigPush(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 2
   %7 = load i32, ptr %0, align 8
@@ -990,7 +990,7 @@ define internal fastcc void @Mini_AigPush(ptr nocapture noundef %0, i32 noundef 
   br i1 %8, label %9, label %.Mini_AigGrow.exit13_crit_edge
 
 .Mini_AigGrow.exit13_crit_edge:                   ; preds = %3
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Mini_AigGrow.exit13
 
@@ -999,7 +999,7 @@ define internal fastcc void @Mini_AigPush(ptr nocapture noundef %0, i32 noundef 
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not9.i = icmp eq ptr %13, null
   br i1 %.not9.i, label %16, label %14
@@ -1020,7 +1020,7 @@ Mini_AigGrow.exit:                                ; preds = %14, %16
 
 19:                                               ; preds = %9
   %20 = shl nuw nsw i32 %7, 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not9.i12 = icmp eq ptr %22, null
   %23 = zext nneg i32 %20 to i64
@@ -1043,7 +1043,7 @@ Mini_AigGrow.exit:                                ; preds = %14, %16
 
 Mini_AigGrow.exit13:                              ; preds = %.Mini_AigGrow.exit13_crit_edge, %29, %Mini_AigGrow.exit
   %31 = phi ptr [ %.pre, %.Mini_AigGrow.exit13_crit_edge ], [ %30, %29 ], [ %18, %Mini_AigGrow.exit ]
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %4, align 4
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %4, align 4

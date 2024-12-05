@@ -101,7 +101,7 @@ if.else:                                          ; preds = %if.end36
   br i1 %cmp48, label %if.then50, label %if.else53
 
 if.then50:                                        ; preds = %if.else
-  %arrayidx52 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv
+  %arrayidx52 = getelementptr inbounds nuw i8, ptr %call12, i64 %indvars.iv
   store i8 0, ptr %arrayidx52, align 1
   br label %for.inc
 
@@ -110,7 +110,7 @@ if.else53:                                        ; preds = %if.else
   br i1 %cmp55, label %if.then57, label %for.inc
 
 if.then57:                                        ; preds = %if.else53
-  %arrayidx59 = getelementptr inbounds i8, ptr %call12, i64 %indvars.iv
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %call12, i64 %indvars.iv
   store i8 -1, ptr %arrayidx59, align 1
   br label %for.inc
 
@@ -137,7 +137,7 @@ if.then67:                                        ; preds = %if.then66
   br i1 %cmp68, label %if.then70, label %if.else75
 
 if.then70:                                        ; preds = %if.then67
-  %arrayidx72 = getelementptr inbounds i8, ptr %call12, i64 1
+  %arrayidx72 = getelementptr inbounds nuw i8, ptr %call12, i64 1
   %4 = load i8, ptr %arrayidx72, align 1
   %5 = or i8 %4, -128
   store i8 %5, ptr %arrayidx72, align 1
@@ -245,7 +245,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %neg = getelementptr inbounds i8, ptr %range, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %range, i64 16
   %0 = load i32, ptr %neg, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %lor.lhs.false, label %if.then2
@@ -482,7 +482,7 @@ if.end46:                                         ; preds = %lor.lhs.false41
   %sub = sub i32 %add2, %0
   %spec.store.select = call i32 @llvm.umin.i32(i32 %sub, i32 64)
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call4, i64 %idx.ext
   %conv52 = zext nneg i32 %spec.store.select to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 16 %digest, i64 %conv52, i1 false)
   %add53 = add i32 %spec.store.select, %0

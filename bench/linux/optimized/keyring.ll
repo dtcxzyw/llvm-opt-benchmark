@@ -83,17 +83,17 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_keyring_clea
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @key_free_user_ns(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef nonnull @keyring_name_lock) #20
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
-  %3 = getelementptr inbounds i8, ptr %0, i64 288
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %4, ptr %6, align 8
   store volatile ptr %5, ptr %4, align 8
   store volatile ptr %2, ptr %2, align 8
   store volatile ptr %2, ptr %3, align 8
   tail call void @_raw_write_unlock(ptr noundef nonnull @keyring_name_lock) #20
-  %7 = getelementptr inbounds i8, ptr %0, i64 296
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %8 = load ptr, ptr %7, align 8
   tail call void @key_put(ptr noundef %8) #20
   ret void
@@ -110,7 +110,7 @@ declare dso_local void @key_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define internal range(i32 -22, 1) i32 @keyring_preparse(ptr nocapture noundef readonly %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   %5 = select i1 %4, i32 0, i32 -22
@@ -124,9 +124,9 @@ define internal void @keyring_free_preparse(ptr nocapture readnone %0) #3 align 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @keyring_instantiate(ptr noundef initializes((192, 208)) %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %13, label %7
@@ -140,11 +140,11 @@ define internal noundef i32 @keyring_instantiate(ptr noundef initializes((192, 2
 
 9:                                                ; preds = %7
   tail call void @_raw_write_lock(ptr noundef nonnull @keyring_name_lock) #20
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 288), align 8
   store ptr %10, ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 288), align 8
   store ptr getelementptr inbounds (i8, ptr @init_user_ns, i64 280), ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %11, ptr %12, align 8
   store volatile ptr %10, ptr %11, align 8
   tail call void @_raw_write_unlock(ptr noundef nonnull @keyring_name_lock) #20
@@ -156,8 +156,8 @@ define internal noundef i32 @keyring_instantiate(ptr noundef initializes((192, 2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @keyring_revoke(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
-  %3 = tail call ptr @assoc_array_clear(ptr noundef %2, ptr noundef nonnull @keyring_assoc_array_ops) #20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %3 = tail call ptr @assoc_array_clear(ptr noundef nonnull %2, ptr noundef nonnull @keyring_assoc_array_ops) #20
   %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
   br i1 %4, label %10, label %5
 
@@ -179,14 +179,14 @@ define internal void @keyring_revoke(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @keyring_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %1
   tail call void @_raw_write_lock(ptr noundef nonnull @keyring_name_lock) #20
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -197,9 +197,9 @@ define internal void @keyring_destroy(ptr noundef %0) #0 align 16 {
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %15, align 8
   store volatile ptr %10, ptr %14, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %6, align 8
@@ -211,39 +211,39 @@ define internal void @keyring_destroy(ptr noundef %0) #0 align 16 {
   br label %17
 
 17:                                               ; preds = %16, %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %24, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @key_put(ptr noundef %23) #20
   tail call void @kfree(ptr noundef nonnull %19) #20
   br label %24
 
 24:                                               ; preds = %21, %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 192
-  tail call void @assoc_array_destroy(ptr noundef %25, ptr noundef nonnull @keyring_assoc_array_ops) #20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @assoc_array_destroy(ptr noundef nonnull %25, ptr noundef nonnull @keyring_assoc_array_ops) #20
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @keyring_describe(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = select i1 %5, ptr @.str.2, ptr %4
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %6) #20
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load volatile i16, ptr %7, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !5
   %9 = icmp eq i16 %8, 1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 200
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %15, label %14
@@ -275,13 +275,13 @@ define internal i64 @keyring_read(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %1, ptr %12, align 8
   store i64 %2, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
-  %15 = call i32 @assoc_array_iterate(ptr noundef %14, ptr noundef nonnull @keyring_read_iterator, ptr noundef nonnull %4) #20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %15 = call i32 @assoc_array_iterate(ptr noundef nonnull %14, ptr noundef nonnull @keyring_read_iterator, ptr noundef nonnull %4) #20
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %17, label %19
 
@@ -290,7 +290,7 @@ define internal i64 @keyring_read(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %23
 
 19:                                               ; preds = %11, %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 200
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %21 = load i64, ptr %20, align 8
   %22 = shl i64 %21, 2
   br label %23
@@ -304,23 +304,23 @@ define internal i64 @keyring_read(ptr noundef %0, ptr noundef %1, i64 noundef %2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define dso_local void @key_set_index_key(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = tail call i16 @llvm.umin.i16(i16 %4, i16 6)
   %6 = zext nneg i16 %5 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 10
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %7, ptr align 1 %9, i64 %6, i1 false)
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %7, ptr align 1 %9, i64 %6, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   br i1 %12, label %15, label %._crit_edge
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 1
   %19 = icmp eq i32 %18, 0
@@ -329,11 +329,11 @@ define dso_local void @key_set_index_key(ptr nocapture noundef %0) local_unnamed
 20:                                               ; preds = %15
   %21 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !6
   %22 = inttoptr i64 %21 to ptr
-  %23 = getelementptr inbounds i8, ptr %22, i64 1872
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1872
   %24 = load ptr, ptr %23, align 16
-  %25 = getelementptr inbounds i8, ptr %24, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
   br label %29
 
@@ -459,8 +459,8 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @key_put_tag(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
-  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %2, i32 -1, ptr elementtype(i32) %2) #20, !srcloc !9
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %3 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %2, i32 -1, ptr nonnull elementtype(i32) %2) #20, !srcloc !9
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %8, label %5
 
@@ -469,7 +469,7 @@ define dso_local noundef zeroext i1 @key_put_tag(ptr noundef %0) local_unnamed_a
   br i1 %6, label %.thread, label %7, !prof !10
 
 7:                                                ; preds = %5
-  tail call void @refcount_warn_saturate(ptr noundef %2, i32 noundef 3) #20
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %2, i32 noundef 3) #20
   br label %.thread
 
 8:                                                ; preds = %1
@@ -490,10 +490,10 @@ declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @key_remove_domain(ptr noundef initializes((20, 21)) %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3, i32 -1, ptr elementtype(i32) %3) #20, !srcloc !9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 -1, ptr nonnull elementtype(i32) %3) #20, !srcloc !9
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %9, label %6
 
@@ -502,7 +502,7 @@ define dso_local void @key_remove_domain(ptr noundef initializes((20, 21)) %0) l
   br i1 %7, label %11, label %8, !prof !10
 
 8:                                                ; preds = %6
-  tail call void @refcount_warn_saturate(ptr noundef %3, i32 noundef 3) #20
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %3, i32 noundef 3) #20
   br label %11
 
 9:                                                ; preds = %1
@@ -560,9 +560,9 @@ define dso_local noundef i32 @restrict_link_reject(ptr nocapture readnone %0, pt
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local zeroext i1 @key_default_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef %4, ptr noundef %6) #20
   %8 = icmp eq i32 %7, 0
@@ -574,31 +574,31 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @keyring_search_rcu(ptr noundef %0, ptr noundef initializes((88, 96), (100, 101), (104, 112)) %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr @keyring_search_iterator, ptr %3, align 8
   %4 = ptrtoint ptr %0 to i64
-  %5 = getelementptr inbounds i8, ptr %1, i64 100
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %6 = trunc i64 %4 to i8
   %7 = and i8 %6, 1
   store i8 %7, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr inttoptr (i64 -11 to ptr), ptr %8, align 8
   %9 = and i64 %4, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, @key_type_keyring
   br i1 %13, label %14, label %46
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @key_task_permission(ptr noundef %0, ptr noundef %21, i32 noundef 4) #20
   %23 = icmp slt i32 %22, 0
@@ -611,7 +611,7 @@ define dso_local ptr @keyring_search_rcu(ptr noundef %0, ptr noundef initializes
 
 27:                                               ; preds = %19, %14
   %28 = tail call i64 @ktime_get_real_seconds() #20
-  %29 = getelementptr inbounds i8, ptr %1, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i64 %28, ptr %29, align 8
   %30 = tail call fastcc zeroext i1 @search_nested_keyrings(ptr noundef %10, ptr noundef %1)
   br i1 %30, label %31, label %44
@@ -650,26 +650,26 @@ define internal i32 @keyring_search_iterator(ptr noundef %0, ptr noundef %1) #0 
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 128
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load volatile i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %9 = load volatile i16, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %11, %13
   br i1 %14, label %15, label %74
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = and i32 %17, 2
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %34, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %5, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %22 = load volatile i64, ptr %21, align 8
   %23 = and i64 %7, 34
   %24 = icmp eq i64 %23, 0
@@ -680,7 +680,7 @@ define internal i32 @keyring_search_iterator(ptr noundef %0, ptr noundef %1) #0 
   br i1 %26, label %34, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %29 = load i64, ptr %28, align 8
   %30 = icmp slt i64 %29, %22
   br i1 %30, label %34, label %31
@@ -691,9 +691,9 @@ define internal i32 @keyring_search_iterator(ptr noundef %0, ptr noundef %1) #0 
   br i1 %33, label %68, label %71
 
 34:                                               ; preds = %27, %25, %15
-  %35 = getelementptr inbounds i8, ptr %1, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call zeroext i1 %36(ptr noundef %5, ptr noundef %35) #20
+  %37 = tail call zeroext i1 %36(ptr noundef %5, ptr noundef nonnull %35) #20
   br i1 %37, label %38, label %74
 
 38:                                               ; preds = %34
@@ -703,12 +703,12 @@ define internal i32 @keyring_search_iterator(ptr noundef %0, ptr noundef %1) #0 
   br i1 %41, label %42, label %52
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %1, i64 100
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %44 = load i8, ptr %43, align 4, !range !14, !noundef !15
   %45 = zext nneg i8 %44 to i64
   %46 = or disjoint i64 %4, %45
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @key_task_permission(ptr noundef %47, ptr noundef %49, i32 noundef 4) #20
   %51 = icmp slt i32 %50, 0
@@ -732,23 +732,23 @@ define internal i32 @keyring_search_iterator(ptr noundef %0, ptr noundef %1) #0 
   br label %68
 
 61:                                               ; preds = %52
-  %62 = getelementptr inbounds i8, ptr %1, i64 100
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %63 = load i8, ptr %62, align 4, !range !14, !noundef !15
   %64 = zext nneg i8 %63 to i64
   %65 = or disjoint i64 %4, %64
   %66 = inttoptr i64 %65 to ptr
-  %67 = getelementptr inbounds i8, ptr %1, i64 104
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %66, ptr %67, align 8
   br label %74
 
 68:                                               ; preds = %58, %42, %31, %20
   %69 = phi ptr [ %60, %58 ], [ inttoptr (i64 -128 to ptr), %20 ], [ inttoptr (i64 -127 to ptr), %31 ], [ inttoptr (i64 -13 to ptr), %42 ]
-  %70 = getelementptr inbounds i8, ptr %1, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %69, ptr %70, align 8
   br label %71
 
 71:                                               ; preds = %68, %31
-  %72 = getelementptr inbounds i8, ptr %1, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %73 = load i32, ptr %72, align 8
   br label %74
 
@@ -767,7 +767,7 @@ declare dso_local i64 @ktime_get_real_seconds() local_unnamed_addr #1
 define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [6 x %struct.anon.32], align 16
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #20
-  %4 = getelementptr inbounds i8, ptr %1, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 3
   switch i32 %6, label %8 [
@@ -781,7 +781,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %13, label %12
@@ -792,7 +792,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 
 13:                                               ; preds = %12, %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %3, i8 0, i64 144, i1 false), !annotation !18
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   %.pre73 = ptrtoint ptr %0 to i64
@@ -801,31 +801,31 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 17:                                               ; preds = %13
   %18 = and i64 %.pre73, -4
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 152
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %21, %23
   br i1 %24, label %25, label %54
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %19, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 160
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %27, %29
   br i1 %30, label %31, label %54
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %19, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 144
   %33 = load i16, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i16, ptr %34, align 8
   %36 = icmp eq i16 %33, %35
   br i1 %36, label %37, label %54
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %19, i64 168
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 168
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %9, align 8
   %41 = zext i16 %33 to i64
@@ -834,11 +834,11 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %43, label %._crit_edge, label %54
 
 ._crit_edge:                                      ; preds = %13, %37
-  %44 = getelementptr inbounds i8, ptr %1, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, @key_type_keyring
   %50 = or i64 %.pre73, 2
@@ -851,17 +851,17 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   ]
 
 54:                                               ; preds = %._crit_edge, %37, %31, %25, %17
-  %55 = getelementptr inbounds i8, ptr %1, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store i32 0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 88
-  %57 = getelementptr inbounds i8, ptr %1, i64 100
-  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 100
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %59
 
 59:                                               ; preds = %213, %54
   %60 = phi i32 [ 0, %54 ], [ %220, %213 ]
   %61 = phi ptr [ %0, %54 ], [ %215, %213 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 128
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, 34
   %65 = icmp eq i64 %64, 0
@@ -870,11 +870,11 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 66:                                               ; preds = %59
   %67 = load i32, ptr %14, align 8
   %68 = icmp eq i32 %67, 0
-  %69 = getelementptr inbounds i8, ptr %61, i64 192
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 192
   br i1 %68, label %70, label %76
 
 70:                                               ; preds = %66
-  %71 = tail call ptr @assoc_array_find(ptr noundef %69, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %1) #20
+  %71 = tail call ptr @assoc_array_find(ptr noundef nonnull %69, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %1) #20
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.thread, label %73
 
@@ -885,7 +885,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 
 76:                                               ; preds = %66
   %77 = load ptr, ptr %56, align 8
-  %78 = tail call i32 @assoc_array_iterate(ptr noundef %69, ptr noundef %77, ptr noundef %1) #20
+  %78 = tail call i32 @assoc_array_iterate(ptr noundef nonnull %69, ptr noundef %77, ptr noundef %1) #20
   br label %79
 
 79:                                               ; preds = %76, %73
@@ -913,14 +913,14 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %91, label %105, label %94
 
 94:                                               ; preds = %88
-  %95 = getelementptr inbounds i8, ptr %93, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %96 = load i64, ptr %95, align 8
   %97 = and i64 %96, 15
   %98 = icmp eq i64 %97, 0
   br i1 %98, label %99, label %.thread9
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %93, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %101 = load volatile ptr, ptr %100, align 8
   %102 = ptrtoint ptr %101 to i64
   %103 = and i64 %102, -4
@@ -928,7 +928,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br label %127
 
 105:                                              ; preds = %88
-  %106 = getelementptr inbounds i8, ptr %93, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, 1
@@ -946,7 +946,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 115:                                              ; preds = %.loopexit11
   %116 = and i64 %.pre-phi, -4
   %117 = inttoptr i64 %116 to ptr
-  %118 = getelementptr inbounds i8, ptr %117, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load volatile ptr, ptr %118, align 8
   %120 = ptrtoint ptr %119 to i64
   %121 = and i64 %120, 2
@@ -980,7 +980,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %135, label %.split.us.us, label %.loopexit12.split.us.us
 
 .split.us.us:                                     ; preds = %.split43.us
-  %136 = getelementptr inbounds i8, ptr %134, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %137 = sext i32 %133 to i64
   br label %160
 
@@ -990,7 +990,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %139, label %.thread9.loopexit, label %140
 
 140:                                              ; preds = %.loopexit12.split.us.us
-  %141 = getelementptr inbounds i8, ptr %134, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %142 = load i8, ptr %141, align 8
   %143 = zext i8 %142 to i32
   %144 = ptrtoint ptr %138 to i64
@@ -1006,7 +1006,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %151, label %.thread9.loopexit, label %..thread10.us_crit_edge
 
 ..thread10.us_crit_edge:                          ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %149, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %153 = load i32, ptr %152, align 8
   %.pre75 = ptrtoint ptr %150 to i64
   br label %.thread10.us
@@ -1059,7 +1059,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %182, label %.split, label %.loopexit12.split
 
 .split:                                           ; preds = %.split43
-  %183 = getelementptr inbounds i8, ptr %181, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %184 = sext i32 %180 to i64
   br label %185
 
@@ -1090,7 +1090,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %202, label %205, label %213
 
 203:                                              ; preds = %.split46.us
-  %204 = getelementptr inbounds i8, ptr %1, i64 104
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr inttoptr (i64 -40 to ptr), ptr %204, align 8
   br label %.loopexit
 
@@ -1110,9 +1110,9 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %216 = sext i32 %.fr48 to i64
   %217 = getelementptr [6 x %struct.anon.32], ptr %3, i64 0, i64 %216
   store ptr %131, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store ptr %181, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %217, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store i32 %214, ptr %219, align 8
   %220 = add nsw i32 %.fr48, 1
   br label %59
@@ -1129,7 +1129,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %226, label %.thread9.loopexit126, label %227
 
 227:                                              ; preds = %.loopexit12.split
-  %228 = getelementptr inbounds i8, ptr %181, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %229 = load i8, ptr %228, align 8
   %230 = zext i8 %229 to i32
   %231 = ptrtoint ptr %225 to i64
@@ -1145,7 +1145,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %238, label %.thread9.loopexit126, label %..thread10_crit_edge
 
 ..thread10_crit_edge:                             ; preds = %234
-  %239 = getelementptr inbounds i8, ptr %236, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %240 = load i32, ptr %239, align 8
   %.pre77 = ptrtoint ptr %237 to i64
   br label %.thread10
@@ -1176,9 +1176,9 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %251 = zext nneg i32 %250 to i64
   %252 = getelementptr [6 x %struct.anon.32], ptr %3, i64 0, i64 %251
   %253 = load ptr, ptr %252, align 8
-  %254 = getelementptr inbounds i8, ptr %252, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %252, i64 16
+  %256 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %257 = load i32, ptr %256, align 8
   %258 = add i32 %257, 1
   br label %127
@@ -1192,16 +1192,16 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   br i1 %263, label %264, label %.loopexit
 
 264:                                              ; preds = %.loopexit13
-  %265 = getelementptr inbounds i8, ptr %1, i64 104
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %266 = load ptr, ptr %265, align 8
   %267 = ptrtoint ptr %266 to i64
   %268 = and i64 %267, -2
   %269 = inttoptr i64 %268 to ptr
-  %270 = getelementptr inbounds i8, ptr %1, i64 112
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %269, i64 96
+  %272 = getelementptr inbounds nuw i8, ptr %269, i64 96
   store i64 %271, ptr %272, align 8
-  %273 = getelementptr inbounds i8, ptr %260, i64 96
+  %273 = getelementptr inbounds nuw i8, ptr %260, i64 96
   store i64 %271, ptr %273, align 8
   %274 = icmp sgt i32 %259, 0
   br i1 %274, label %275, label %.loopexit
@@ -1216,7 +1216,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %279 = add nsw i64 %278, -1
   %280 = getelementptr [6 x %struct.anon.32], ptr %3, i64 0, i64 %279
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 96
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 96
   store i64 %.pre, ptr %282, align 8
   %283 = icmp samesign ugt i64 %278, 1
   br i1 %283, label %277, label %.loopexit, !llvm.loop !23
@@ -1231,35 +1231,35 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 define dso_local ptr @keyring_search(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = alloca %struct.keyring_search_context, align 8
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #20
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, i8 0, i64 104, i1 false)
   %7 = tail call i64 @strlen(ptr noundef %2) #20
   %8 = trunc i64 %7 to i16
   store i16 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 10
-  call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(6) %9, i8 0, i64 6, i1 false)
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %9, i8 0, i64 6, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %13 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !6
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 1784
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1784
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr @key_default_cmp, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %2, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
   br i1 %3, label %23, label %24
 
 23:                                               ; preds = %4
@@ -1267,13 +1267,13 @@ define dso_local ptr @keyring_search(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %24
 
 24:                                               ; preds = %23, %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %34, label %28
 
 28:                                               ; preds = %24
-  %29 = call i32 %26(ptr noundef %17) #20
+  %29 = call i32 %26(ptr noundef nonnull %17) #20
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %34
 
@@ -1286,13 +1286,13 @@ define dso_local ptr @keyring_search(ptr noundef %0, ptr noundef %1, ptr noundef
   call void @__rcu_read_lock() #20
   %35 = call ptr @keyring_search_rcu(ptr noundef %0, ptr noundef nonnull %5)
   call void @__rcu_read_unlock() #20
-  %36 = getelementptr inbounds i8, ptr %1, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %40, label %39
 
 39:                                               ; preds = %34
-  call void %37(ptr noundef %17) #20
+  call void %37(ptr noundef nonnull %17) #20
   br label %40
 
 40:                                               ; preds = %39, %34, %31
@@ -1312,7 +1312,7 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, @key_type_keyring
   br i1 %9, label %10, label %68
@@ -1342,7 +1342,7 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
   br label %68
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %18, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %63, label %27
@@ -1365,10 +1365,10 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
   br label %63
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %6, i64 32
-  tail call void @down_write(ptr noundef %38) #20
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  tail call void @down_write(ptr noundef nonnull %38) #20
   tail call void @down_write(ptr noundef nonnull @keyring_serialise_restrict_sem) #20
-  %39 = getelementptr inbounds i8, ptr %6, i64 208
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %.loopexit9
@@ -1379,13 +1379,13 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
 
 .preheader:                                       ; preds = %42, %54
   %44 = phi ptr [ %56, %54 ], [ %31, %42 ]
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.loopexit, label %48
 
 48:                                               ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %46, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 152
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, @key_type_keyring
   br i1 %51, label %52, label %.loopexit
@@ -1395,7 +1395,7 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %53, label %.loopexit9, label %54
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %46, i64 208
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 208
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit, label %.preheader, !llvm.loop !24
@@ -1408,11 +1408,11 @@ define dso_local i32 @keyring_restrict(ptr noundef %0, ptr noundef %1, ptr nound
   %58 = phi i1 [ false, %.loopexit ], [ true, %37 ], [ true, %52 ]
   %59 = phi i32 [ 0, %.loopexit ], [ -17, %37 ], [ -35, %52 ]
   tail call void @up_write(ptr noundef nonnull @keyring_serialise_restrict_sem) #20
-  tail call void @up_write(ptr noundef %38) #20
+  tail call void @up_write(ptr noundef nonnull %38) #20
   br i1 %58, label %60, label %63
 
 60:                                               ; preds = %.loopexit9
-  %61 = getelementptr inbounds i8, ptr %31, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void @key_put(ptr noundef %62) #20
   tail call void @kfree(ptr noundef %31) #20
@@ -1453,8 +1453,8 @@ define dso_local ptr @find_key_to_update(ptr noundef %0, ptr noundef %1) local_u
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 192
-  %7 = tail call ptr @assoc_array_find(ptr noundef %6, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %1) #20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
+  %7 = tail call ptr @assoc_array_find(ptr noundef nonnull %6, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %1) #20
   %8 = icmp eq ptr %7, null
   br i1 %8, label %30, label %9
 
@@ -1462,7 +1462,7 @@ define dso_local ptr @find_key_to_update(ptr noundef %0, ptr noundef %1) local_u
   %10 = ptrtoint ptr %7 to i64
   %11 = and i64 %10, -4
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, 34
   %16 = icmp eq i64 %15, 0
@@ -1517,7 +1517,7 @@ define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef z
   %8 = getelementptr i8, ptr %7, i64 -176
   %9 = getelementptr i8, ptr %7, i64 -104
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, -1
   br i1 %13, label %46, label %14
@@ -1587,7 +1587,7 @@ define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef z
   %50 = getelementptr i8, ptr %49, i64 -176
   %51 = getelementptr i8, ptr %49, i64 -104
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, -1
   br i1 %55, label %93, label %56
@@ -1609,7 +1609,7 @@ define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef z
 66:                                               ; preds = %61
   %67 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #21, !srcloc !6
   %68 = inttoptr i64 %67 to ptr
-  %69 = getelementptr inbounds i8, ptr %68, i64 1784
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1784
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @key_task_permission(ptr noundef %50, ptr noundef %70, i32 noundef 4) #20
   %72 = icmp slt i32 %71, 0
@@ -1681,15 +1681,15 @@ declare dso_local void @_raw_read_unlock(ptr noundef) local_unnamed_addr #1 sect
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -20, 1) i32 @__key_link_lock(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @key_type_keyring
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @down_write(ptr noundef %7) #20
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @down_write(ptr noundef nonnull %7) #20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @key_type_keyring
   br i1 %10, label %11, label %12
@@ -1708,13 +1708,13 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -20, 1) i32 @__key_move_lock(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @key_type_keyring
   br i1 %6, label %7, label %21
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @key_type_keyring
   br i1 %10, label %11, label %21
@@ -1723,11 +1723,11 @@ define dso_local noundef range(i32 -20, 1) i32 @__key_move_lock(ptr noundef %0, 
   %12 = icmp ult ptr %0, %1
   %13 = select i1 %12, ptr %0, ptr %1
   %14 = select i1 %12, ptr %1, ptr %0
-  %15 = getelementptr inbounds i8, ptr %13, i64 32
-  tail call void @down_write(ptr noundef %15) #20
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
-  tail call void @down_write(ptr noundef %16) #20
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  tail call void @down_write(ptr noundef nonnull %15) #20
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  tail call void @down_write(ptr noundef nonnull %16) #20
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, @key_type_keyring
   br i1 %19, label %20, label %21
@@ -1743,7 +1743,7 @@ define dso_local noundef range(i32 -20, 1) i32 @__key_move_lock(ptr noundef %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__key_link_begin(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp eq i16 %5, 0
   br i1 %6, label %7, label %8, !prof !13
@@ -1764,15 +1764,15 @@ define dso_local i32 @__key_link_begin(ptr noundef %0, ptr noundef %1, ptr nocap
   unreachable
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %14 = load volatile i64, ptr %13, align 8
   %15 = and i64 %14, 2
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %37
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 192
-  %19 = tail call ptr @assoc_array_insert(ptr noundef %18, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %1, ptr noundef null) #20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = tail call ptr @assoc_array_insert(ptr noundef nonnull %18, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %1, ptr noundef null) #20
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
   br i1 %20, label %21, label %24
 
@@ -1782,13 +1782,13 @@ define dso_local i32 @__key_link_begin(ptr noundef %0, ptr noundef %1, ptr nocap
   br label %37
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %19, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %35
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %0, i64 118
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 118
   %30 = load i16, ptr %29, align 2
   %31 = zext i16 %30 to i64
   %32 = add nuw nsw i64 %31, 4
@@ -1821,29 +1821,29 @@ declare dso_local void @assoc_array_cancel_edit(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__key_link_check_live_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.keyring_search_context, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @key_type_keyring
   br i1 %6, label %7, label %22
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #20
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
-  %9 = getelementptr inbounds i8, ptr %3, i64 40
-  %10 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %10, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %10, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %9, i8 0, i64 40, i1 false)
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 93, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr @keyring_detect_cycle_iterator, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 100
   store i8 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   tail call void @__rcu_read_lock() #20
   %16 = call fastcc zeroext i1 @search_nested_keyrings(ptr noundef %1, ptr noundef nonnull %3)
   call void @__rcu_read_unlock() #20
@@ -1879,7 +1879,7 @@ define dso_local void @__key_link(ptr nocapture noundef readnone %0, ptr noundef
 
 12:                                               ; preds = %10, %6
   %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, @key_type_keyring
   %17 = ptrtoint ptr %1 to i64
@@ -1901,7 +1901,7 @@ declare dso_local void @assoc_array_apply_edit(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @__key_link_end(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8, !prof !13
@@ -1916,13 +1916,13 @@ define dso_local void @__key_link_end(ptr noundef %0, ptr nocapture noundef read
   br i1 %9, label %21, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %2, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 118
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 118
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i64
   %18 = add nsw i64 %17, -4
@@ -1934,8 +1934,8 @@ define dso_local void @__key_link_end(ptr noundef %0, ptr nocapture noundef read
   br label %21
 
 21:                                               ; preds = %20, %8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @up_write(ptr noundef %22) #20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @up_write(ptr noundef nonnull %22) #20
   %23 = load ptr, ptr %4, align 8
   %24 = icmp eq ptr %23, @key_type_keyring
   br i1 %24, label %25, label %26
@@ -1954,16 +1954,16 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @key_link(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.keyring_search_context, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 136
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @key_type_keyring
   br i1 %7, label %8, label %109
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @down_write(ptr noundef %9) #20
-  %10 = getelementptr inbounds i8, ptr %1, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @down_write(ptr noundef nonnull %9) #20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, @key_type_keyring
   br i1 %12, label %13, label %14
@@ -1973,7 +1973,7 @@ define dso_local i32 @key_link(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %14
 
 14:                                               ; preds = %13, %8
-  %15 = getelementptr inbounds i8, ptr %1, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %16 = load i16, ptr %15, align 8
   %17 = icmp eq i16 %16, 0
   br i1 %17, label %18, label %19, !prof !13
@@ -1984,26 +1984,26 @@ define dso_local i32 @key_link(ptr noundef %0, ptr noundef %1) #0 align 16 {
   unreachable
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load volatile i64, ptr %20, align 8
   %22 = and i64 %21, 2
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %__key_link_begin.exit.thread
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 192
-  %26 = tail call ptr @assoc_array_insert(ptr noundef %25, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %4, ptr noundef null) #20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %26 = tail call ptr @assoc_array_insert(ptr noundef nonnull %25, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef nonnull %4, ptr noundef null) #20
   %27 = icmp ugt ptr %26, inttoptr (i64 -4096 to ptr)
   br i1 %27, label %__key_link_begin.exit, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %__key_link_begin.exit.thread11
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 118
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 118
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
   %36 = add nuw nsw i64 %35, 4
@@ -2023,7 +2023,7 @@ __key_link_begin.exit:                            ; preds = %24
 
 __key_link_begin.exit.thread11:                   ; preds = %28, %32, %__key_link_begin.exit
   %.113 = phi ptr [ null, %__key_link_begin.exit ], [ %26, %32 ], [ %26, %28 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread15, label %46
@@ -2035,10 +2035,10 @@ __key_link_begin.exit.thread11:                   ; preds = %28, %32, %__key_lin
 
 49:                                               ; preds = %46
   %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 176
-  %52 = getelementptr inbounds i8, ptr %44, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 %47(ptr noundef %0, ptr noundef %50, ptr noundef %51, ptr noundef %53) #20
+  %54 = tail call i32 %47(ptr noundef %0, ptr noundef %50, ptr noundef nonnull %51, ptr noundef %53) #20
   %55 = icmp eq i32 %54, 0
   br i1 %55, label %.thread15, label %__key_link_begin.exit.thread
 
@@ -2049,22 +2049,22 @@ __key_link_begin.exit.thread11:                   ; preds = %28, %32, %__key_lin
 
 58:                                               ; preds = %.thread15
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %3) #20
-  %59 = getelementptr inbounds i8, ptr %0, i64 136
-  %60 = getelementptr inbounds i8, ptr %3, i64 40
-  %61 = getelementptr inbounds i8, ptr %3, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %61, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef align 8 dereferenceable(40) %59, i64 40, i1 false)
-  %62 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %61, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %59, i64 40, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, i8 0, i64 40, i1 false)
   store ptr %0, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %3, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 93, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 88
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr @keyring_detect_cycle_iterator, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %3, i64 100
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 100
   store i8 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %3, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
   tail call void @__rcu_read_lock() #20
   %67 = call fastcc zeroext i1 @search_nested_keyrings(ptr noundef %1, ptr noundef nonnull %3)
   call void @__rcu_read_unlock() #20
@@ -2121,13 +2121,13 @@ __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, 
   br i1 %93, label %105, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %.0, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %98, label %104
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %0, i64 118
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 118
   %100 = load i16, ptr %99, align 2
   %101 = zext i16 %100 to i64
   %102 = add nsw i64 %101, -4
@@ -2139,7 +2139,7 @@ __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, 
   br label %105
 
 105:                                              ; preds = %104, %92
-  call void @up_write(ptr noundef %9) #20
+  call void @up_write(ptr noundef nonnull %9) #20
   %106 = load ptr, ptr %10, align 8
   %107 = icmp eq ptr %106, @key_type_keyring
   br i1 %107, label %108, label %109
@@ -2155,17 +2155,17 @@ __key_link_begin.exit.thread:                     ; preds = %58, %49, %19, %39, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @key_unlink(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, @key_type_keyring
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @down_write(ptr noundef %7) #20
-  %8 = getelementptr inbounds i8, ptr %0, i64 192
-  %9 = getelementptr inbounds i8, ptr %1, i64 136
-  %10 = tail call ptr @assoc_array_delete(ptr noundef %8, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %9) #20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @down_write(ptr noundef nonnull %7) #20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %10 = tail call ptr @assoc_array_delete(ptr noundef nonnull %8, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef nonnull %9) #20
   %11 = icmp ugt ptr %10, inttoptr (i64 -4096 to ptr)
   %12 = ptrtoint ptr %10 to i64
   %13 = trunc i64 %12 to i32
@@ -2178,7 +2178,7 @@ define dso_local i32 @key_unlink(ptr noundef %0, ptr noundef %1) #0 align 16 {
 
 .thread1:                                         ; preds = %6
   tail call void @assoc_array_apply_edit(ptr noundef %16) #20
-  %19 = getelementptr inbounds i8, ptr %0, i64 118
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 118
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i64
   %22 = add nsw i64 %21, -4
@@ -2194,7 +2194,7 @@ define dso_local i32 @key_unlink(ptr noundef %0, ptr noundef %1) #0 align 16 {
   br label %27
 
 27:                                               ; preds = %.thread1, %26, %24
-  tail call void @up_write(ptr noundef %7) #20
+  tail call void @up_write(ptr noundef nonnull %7) #20
   br label %28
 
 28:                                               ; preds = %2, %27
@@ -2209,14 +2209,14 @@ define dso_local i32 @key_move(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
-  %9 = getelementptr inbounds i8, ptr %1, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, @key_type_keyring
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %2, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, @key_type_keyring
   br i1 %15, label %16, label %.thread
@@ -2225,11 +2225,11 @@ define dso_local i32 @key_move(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   %17 = icmp ult ptr %1, %2
   %18 = select i1 %17, ptr %1, ptr %2
   %19 = select i1 %17, ptr %2, ptr %1
-  %20 = getelementptr inbounds i8, ptr %18, i64 32
-  tail call void @down_write(ptr noundef %20) #20
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
-  tail call void @down_write(ptr noundef %21) #20
-  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  tail call void @down_write(ptr noundef nonnull %20) #20
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  tail call void @down_write(ptr noundef nonnull %21) #20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, @key_type_keyring
   br i1 %24, label %25, label %26
@@ -2239,8 +2239,8 @@ define dso_local i32 @key_move(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br label %26
 
 26:                                               ; preds = %16, %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 192
-  %28 = tail call ptr @assoc_array_delete(ptr noundef %27, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %8) #20
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %28 = tail call ptr @assoc_array_delete(ptr noundef nonnull %27, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef nonnull %8) #20
   %29 = icmp ugt ptr %28, inttoptr (i64 -4096 to ptr)
   %30 = ptrtoint ptr %28 to i64
   %31 = trunc i64 %30 to i32
@@ -2252,7 +2252,7 @@ define dso_local i32 @key_move(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   br i1 %36, label %__key_link_begin.exit.thread, label %37
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %0, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %39 = load i16, ptr %38, align 8
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %41, label %42, !prof !13
@@ -2263,26 +2263,26 @@ define dso_local i32 @key_move(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
   unreachable
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %2, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %44 = load volatile i64, ptr %43, align 8
   %45 = and i64 %44, 2
   %46 = icmp eq i64 %45, 0
   br i1 %46, label %47, label %__key_link_begin.exit.thread
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %2, i64 192
-  %49 = tail call ptr @assoc_array_insert(ptr noundef %48, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef %8, ptr noundef null) #20
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %49 = tail call ptr @assoc_array_insert(ptr noundef nonnull %48, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef nonnull %8, ptr noundef null) #20
   %50 = icmp ugt ptr %49, inttoptr (i64 -4096 to ptr)
   br i1 %50, label %__key_link_begin.exit, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %49, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %__key_link_begin.exit.thread16
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %2, i64 118
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 118
   %57 = load i16, ptr %56, align 2
   %58 = zext i16 %57 to i64
   %59 = add nuw nsw i64 %58, 4
@@ -2302,7 +2302,7 @@ __key_link_begin.exit:                            ; preds = %47
 
 __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_link_begin.exit
   %.118 = phi ptr [ null, %__key_link_begin.exit ], [ %49, %55 ], [ %49, %51 ]
-  %66 = getelementptr inbounds i8, ptr %.118, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %.118, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   %69 = and i32 %3, 1
@@ -2311,7 +2311,7 @@ __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_lin
   br i1 %71, label %72, label %__key_link_begin.exit.thread
 
 72:                                               ; preds = %__key_link_begin.exit.thread16
-  %73 = getelementptr inbounds i8, ptr %2, i64 208
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, null
   br i1 %75, label %.thread20, label %76
@@ -2323,10 +2323,10 @@ __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_lin
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %22, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 176
-  %82 = getelementptr inbounds i8, ptr %74, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = tail call i32 %77(ptr noundef %2, ptr noundef %80, ptr noundef %81, ptr noundef %83) #20
+  %84 = tail call i32 %77(ptr noundef %2, ptr noundef %80, ptr noundef nonnull %81, ptr noundef %83) #20
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %__key_link_begin.exit.thread, label %.thread20
 
@@ -2337,22 +2337,22 @@ __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_lin
 
 88:                                               ; preds = %.thread20
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #20
-  %89 = getelementptr inbounds i8, ptr %2, i64 136
-  %90 = getelementptr inbounds i8, ptr %5, i64 40
-  %91 = getelementptr inbounds i8, ptr %5, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %91, i8 0, i64 24, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef align 8 dereferenceable(40) %89, i64 40, i1 false)
-  %92 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %90, i8 0, i64 40, i1 false)
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %91, i8 0, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %89, i64 40, i1 false)
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %90, i8 0, i64 40, i1 false)
   store ptr %2, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %5, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 93, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %5, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr @keyring_detect_cycle_iterator, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %5, i64 100
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 100
   store i8 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %5, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   tail call void @__rcu_read_lock() #20
   %97 = call fastcc zeroext i1 @search_nested_keyrings(ptr noundef %0, ptr noundef nonnull %5)
   call void @__rcu_read_unlock() #20
@@ -2370,7 +2370,7 @@ __key_link_begin.exit.thread16:                   ; preds = %51, %55, %__key_lin
 .thread22:                                        ; preds = %88, %.thread20, %100
   %104 = phi i32 [ %102, %100 ], [ 0, %.thread20 ], [ 0, %88 ]
   call void @assoc_array_apply_edit(ptr noundef %34) #20
-  %105 = getelementptr inbounds i8, ptr %1, i64 118
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 118
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i64
   %108 = add nsw i64 %107, -4
@@ -2419,13 +2419,13 @@ __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100
   br i1 %131, label %143, label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %.0, i64 56
+  %133 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %142
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %2, i64 118
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 118
   %138 = load i16, ptr %137, align 2
   %139 = zext i16 %138 to i64
   %140 = add nsw i64 %139, -4
@@ -2437,8 +2437,8 @@ __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100
   br label %143
 
 143:                                              ; preds = %142, %130
-  %144 = getelementptr inbounds i8, ptr %2, i64 32
-  call void @up_write(ptr noundef %144) #20
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  call void @up_write(ptr noundef nonnull %144) #20
   %145 = load ptr, ptr %22, align 8
   %146 = icmp eq ptr %145, @key_type_keyring
   br i1 %146, label %147, label %148
@@ -2456,8 +2456,8 @@ __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100
   br label %151
 
 151:                                              ; preds = %150, %148
-  %152 = getelementptr inbounds i8, ptr %1, i64 32
-  call void @up_write(ptr noundef %152) #20
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  call void @up_write(ptr noundef nonnull %152) #20
   br label %.thread
 
 .thread:                                          ; preds = %7, %12, %151, %4
@@ -2467,16 +2467,16 @@ __key_link_begin.exit.thread:                     ; preds = %42, %62, %118, %100
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @keyring_clear(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @key_type_keyring
   br i1 %4, label %5, label %20
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @down_write(ptr noundef %6) #20
-  %7 = getelementptr inbounds i8, ptr %0, i64 192
-  %8 = tail call ptr @assoc_array_clear(ptr noundef %7, ptr noundef nonnull @keyring_assoc_array_ops) #20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @down_write(ptr noundef nonnull %6) #20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %8 = tail call ptr @assoc_array_clear(ptr noundef nonnull %7, ptr noundef nonnull @keyring_assoc_array_ops) #20
   %9 = icmp ugt ptr %8, inttoptr (i64 -4096 to ptr)
   br i1 %9, label %10, label %13
 
@@ -2499,7 +2499,7 @@ define dso_local i32 @keyring_clear(ptr noundef %0) #0 align 16 {
 
 18:                                               ; preds = %16, %10
   %19 = phi i32 [ %12, %10 ], [ 0, %16 ]
-  tail call void @up_write(ptr noundef %6) #20
+  tail call void @up_write(ptr noundef nonnull %6) #20
   br label %20
 
 20:                                               ; preds = %18, %1
@@ -2514,7 +2514,7 @@ declare dso_local ptr @assoc_array_clear(ptr noundef, ptr noundef) local_unnamed
 define dso_local void @keyring_gc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 34
   %7 = icmp eq i64 %6, 0
@@ -2522,17 +2522,17 @@ define dso_local void @keyring_gc(ptr noundef %0, i64 noundef %1) local_unnamed_
 
 8:                                                ; preds = %2
   tail call void @__rcu_read_lock() #20
-  %9 = getelementptr inbounds i8, ptr %0, i64 192
-  %10 = call i32 @assoc_array_iterate(ptr noundef %9, ptr noundef nonnull @keyring_gc_check_iterator, ptr noundef nonnull %3) #20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %10 = call i32 @assoc_array_iterate(ptr noundef nonnull %9, ptr noundef nonnull @keyring_gc_check_iterator, ptr noundef nonnull %3) #20
   call void @__rcu_read_unlock() #20
   %11 = icmp eq i32 %10, 1
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  call void @down_write(ptr noundef %13) #20
-  %14 = call i32 @assoc_array_gc(ptr noundef %9, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef nonnull @keyring_gc_select_iterator, ptr noundef nonnull %3) #20
-  call void @up_write(ptr noundef %13) #20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @down_write(ptr noundef nonnull %13) #20
+  %14 = call i32 @assoc_array_gc(ptr noundef nonnull %9, ptr noundef nonnull @keyring_assoc_array_ops, ptr noundef nonnull @keyring_gc_select_iterator, ptr noundef nonnull %3) #20
+  call void @up_write(ptr noundef nonnull %13) #20
   br label %15
 
 15:                                               ; preds = %12, %8, %2
@@ -2547,16 +2547,16 @@ define internal range(i32 0, 2) i32 @keyring_gc_check_iterator(ptr noundef %0, p
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 9223372036854775807
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %2
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 2
   %16 = icmp eq i32 %15, 0
@@ -2568,16 +2568,16 @@ define internal range(i32 0, 2) i32 @keyring_gc_check_iterator(ptr noundef %0, p
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %9, %2
-  %23 = getelementptr inbounds i8, ptr %5, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 33
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %33
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %5, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %31 = load i8, ptr %30, align 4, !range !14, !noundef !15
   %32 = zext nneg i8 %31 to i32
   br label %33
@@ -2595,16 +2595,16 @@ define internal noundef zeroext i1 @keyring_gc_select_iterator(ptr noundef %0, p
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load i64, ptr %6, align 8
   %8 = icmp eq i64 %7, 9223372036854775807
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %2
   %10 = load i64, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 2
   %16 = icmp eq i32 %15, 0
@@ -2616,16 +2616,16 @@ define internal noundef zeroext i1 @keyring_gc_select_iterator(ptr noundef %0, p
   br i1 %21, label %22, label %.thread
 
 22:                                               ; preds = %9, %2
-  %23 = getelementptr inbounds i8, ptr %5, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 33
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %27, label %.thread
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %5, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 20
   %31 = load i8, ptr %30, align 4, !range !14, !noundef !15
   %32 = icmp ne i8 %31, 0
   %33 = icmp eq i64 %4, 0
@@ -2660,27 +2660,27 @@ define dso_local void @keyring_restriction_gc(ptr noundef %0, ptr noundef readno
   br i1 %3, label %17, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %17, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  tail call void @down_write(ptr noundef %13) #20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @down_write(ptr noundef nonnull %13) #20
   %14 = load ptr, ptr %5, align 8
   store ptr @restrict_link_reject, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @key_put(ptr noundef %16) #20
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
-  tail call void @up_write(ptr noundef %13) #20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  tail call void @up_write(ptr noundef nonnull %13) #20
   br label %17
 
 17:                                               ; preds = %12, %8, %4, %2
@@ -2701,7 +2701,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
 define internal noundef range(i32 0, 2) i32 @keyring_read_iterator(ptr noundef %0, ptr nocapture noundef %1) #11 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = icmp ult i64 %4, %5
@@ -2711,9 +2711,9 @@ define internal noundef range(i32 0, 2) i32 @keyring_read_iterator(ptr noundef %
   %8 = ptrtoint ptr %0 to i64
   %9 = and i64 %8, -4
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 4
   store ptr %15, ptr %13, align 8
@@ -2733,33 +2733,33 @@ define internal zeroext i1 @keyring_compare_object(ptr noundef %0, ptr nocapture
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %5, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %13, %15
   br i1 %16, label %17, label %31
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %5, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %19 = load i16, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i16, ptr %20, align 8
   %22 = icmp eq i16 %19, %21
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %5, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = zext i16 %19 to i64
   %29 = tail call i32 @bcmp(ptr %25, ptr %27, i64 %28)
@@ -2782,7 +2782,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal i64 @keyring_get_key_chunk(ptr nocapture noundef readonly %0, i32 noundef %1) #13 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sdiv i32 %1, 64
   switch i32 %4, label %17 [
     i32 0, label %5
@@ -2800,13 +2800,13 @@ define internal i64 @keyring_get_key_chunk(ptr nocapture noundef readonly %0, i3
   br label %.loopexit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   br label %.loopexit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   br label %.loopexit
@@ -2819,7 +2819,7 @@ define internal i64 @keyring_get_key_chunk(ptr nocapture noundef readonly %0, i3
 select.unfold.preheader:                          ; preds = %17
   %20 = zext nneg i16 %18 to i32
   %21 = add nsw i32 %4, -4
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 6
   %25 = sext i32 %21 to i64
@@ -2853,7 +2853,7 @@ define internal i64 @keyring_get_object_key_chunk(ptr noundef %0, i32 noundef %1
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = sdiv i32 %1, 64
   switch i32 %7, label %21 [
     i32 0, label %8
@@ -2863,7 +2863,7 @@ define internal i64 @keyring_get_object_key_chunk(ptr noundef %0, i32 noundef %1
   ]
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %10 = load i64, ptr %9, align 8
   br label %.loopexit
 
@@ -2872,13 +2872,13 @@ define internal i64 @keyring_get_object_key_chunk(ptr noundef %0, i32 noundef %1
   br label %.loopexit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %5, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   br label %.loopexit
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %5, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   br label %.loopexit
@@ -2891,7 +2891,7 @@ define internal i64 @keyring_get_object_key_chunk(ptr noundef %0, i32 noundef %1
 select.unfold.preheader:                          ; preds = %21
   %24 = zext nneg i16 %22 to i32
   %25 = add nsw i32 %7, -4
-  %26 = getelementptr inbounds i8, ptr %5, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 6
   %29 = sext i32 %25 to i64
@@ -2925,36 +2925,36 @@ define internal i32 @keyring_diff_objects(ptr noundef %0, ptr nocapture noundef 
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 136
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %1, align 8
   %9 = icmp eq i64 %7, %8
   br i1 %9, label %10, label %57
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %5, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %12, %14
   %16 = trunc i64 %12 to i16
   br i1 %15, label %17, label %57
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %5, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = icmp eq ptr %19, %22
   br i1 %24, label %25, label %57
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %5, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 160
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = icmp eq ptr %27, %30
@@ -2965,9 +2965,9 @@ define internal i32 @keyring_diff_objects(ptr noundef %0, ptr nocapture noundef 
   br i1 %34, label %.loopexit, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %5, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = and i64 %12, 65535
   br label %41
@@ -3026,13 +3026,13 @@ define internal noundef range(i32 0, 2) i32 @keyring_detect_cycle_iterator(ptr n
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %5
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr inttoptr (i64 -35 to ptr), ptr %10, align 8
   br label %11
 

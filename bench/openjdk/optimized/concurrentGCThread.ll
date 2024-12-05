@@ -55,9 +55,9 @@ $_ZN6Thread14oops_do_framesEP10OopClosureP14NMethodClosure = comdat any
 define hidden void @_ZN18ConcurrentGCThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(918) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) #4
   store ptr getelementptr inbounds inrange(-16, 240) (i8, ptr @_ZTV18ConcurrentGCThread, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 916
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
   store volatile i8 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 917
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 917
   store volatile i8 0, ptr %3, align 1
   ret void
 }
@@ -88,7 +88,7 @@ declare void @_ZN2os12start_threadEP6Thread(ptr noundef) local_unnamed_addr #1
 define hidden void @_ZN18ConcurrentGCThread3runEv(ptr noundef nonnull align 8 dereferenceable(918) %0) unnamed_addr #0 align 2 {
   tail call void @_Z19wait_init_completedv() #4
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 216
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(918) %0) #4
   %5 = load ptr, ptr @Terminator_lock, align 8
@@ -100,7 +100,7 @@ define hidden void @_ZN18ConcurrentGCThread3runEv(ptr noundef nonnull align 8 de
   br label %_ZN13MonitorLockerD2Ev.exit
 
 _ZN13MonitorLockerD2Ev.exit:                      ; preds = %1, %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 917
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 917
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
   store volatile i8 1, ptr %7, align 1
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #4
@@ -112,10 +112,10 @@ declare void @_Z19wait_init_completedv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18ConcurrentGCThread4stopEv(ptr noundef nonnull align 8 dereferenceable(918) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 916
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %3 = tail call i8 asm sideeffect "xchgb ($2),$0", "=q,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, ptr nonnull %2) #4, !srcloc !7
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 224
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(918) %0) #4
   %7 = load ptr, ptr @Terminator_lock, align 8
@@ -127,7 +127,7 @@ define hidden void @_ZN18ConcurrentGCThread4stopEv(ptr noundef nonnull align 8 d
   br label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit
 
 _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit: ; preds = %1, %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 917
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 917
   %10 = load volatile i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %._crit_edge, label %_ZN13MonitorLocker4waitEl.exit
@@ -151,7 +151,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 916
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %3 = load volatile i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZNK18ConcurrentGCThread14has_terminatedEv(ptr noundef nonnull align 8 dereferenceable(918) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 917
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 917
   %3 = load volatile i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !6
@@ -265,7 +265,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str, ptr %3

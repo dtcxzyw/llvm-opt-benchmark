@@ -10,7 +10,7 @@ define ptr @nxsig_find_action(ptr noundef readonly %0, i32 noundef %1) local_unn
 
 3:                                                ; preds = %2
   %4 = tail call i32 @sched_lock() #2
-  %5 = getelementptr inbounds i8, ptr %0, i64 864
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br label %6
 
 6:                                                ; preds = %7, %3
@@ -20,7 +20,7 @@ define ptr @nxsig_find_action(ptr noundef readonly %0, i32 noundef %1) local_unn
   br i1 %.not7, label %.critedge, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %.1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %9 = load i8, ptr %8, align 8
   %10 = zext i8 %9 to i32
   %.not8 = icmp eq i32 %1, %10

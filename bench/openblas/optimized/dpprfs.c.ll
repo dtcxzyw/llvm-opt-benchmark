@@ -98,9 +98,9 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 63:                                               ; preds = %63, %60
   %64 = phi i64 [ 1, %60 ], [ %67, %63 ]
-  %65 = getelementptr inbounds double, ptr %27, i64 %64
+  %65 = getelementptr inbounds nuw double, ptr %27, i64 %64
   store double 0.000000e+00, ptr %65, align 8, !tbaa !7
-  %66 = getelementptr inbounds double, ptr %28, i64 %64
+  %66 = getelementptr inbounds nuw double, ptr %28, i64 %64
   store double 0.000000e+00, ptr %66, align 8, !tbaa !7
   %67 = add nuw nsw i64 %64, 1
   %68 = icmp eq i64 %67, %62
@@ -129,7 +129,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 86:                                               ; preds = %.thread27, %79
   %87 = phi i64 [ 1, %79 ], [ %353, %.thread27 ]
-  %88 = getelementptr inbounds double, ptr %28, i64 %87
+  %88 = getelementptr inbounds nuw double, ptr %28, i64 %87
   %89 = mul nsw i64 %87, %83
   %90 = getelementptr double, ptr %77, i64 %89
   %91 = mul nsw i64 %87, %84
@@ -165,7 +165,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %113 = fcmp oge double %112, 0.000000e+00
   %114 = fneg double %112
   %115 = select i1 %113, double %112, double %114
-  %116 = getelementptr inbounds double, ptr %29, i64 %110
+  %116 = getelementptr inbounds nuw double, ptr %29, i64 %110
   store double %115, ptr %116, align 8, !tbaa !7
   %117 = add nuw nsw i64 %110, 1
   %118 = icmp eq i64 %117, %108
@@ -197,12 +197,12 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %133 = phi i64 [ 1, %130 ], [ %155, %132 ]
   %134 = phi i64 [ %131, %130 ], [ %154, %132 ]
   %135 = phi double [ 0.000000e+00, %130 ], [ %153, %132 ]
-  %136 = getelementptr inbounds double, ptr %18, i64 %134
+  %136 = getelementptr inbounds nuw double, ptr %18, i64 %134
   %137 = load double, ptr %136, align 8, !tbaa !7
   %138 = fcmp oge double %137, 0.000000e+00
   %139 = fneg double %137
   %140 = select i1 %138, double %137, double %139
-  %141 = getelementptr inbounds double, ptr %29, i64 %133
+  %141 = getelementptr inbounds nuw double, ptr %29, i64 %133
   %142 = load double, ptr %141, align 8, !tbaa !7
   %143 = call double @llvm.fmuladd.f64(double %140, double %128, double %142)
   store double %143, ptr %141, align 8, !tbaa !7
@@ -223,7 +223,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .loopexit29:                                      ; preds = %132, %.preheader
   %157 = phi double [ 0.000000e+00, %.preheader ], [ %153, %132 ]
-  %158 = getelementptr inbounds double, ptr %29, i64 %122
+  %158 = getelementptr inbounds nuw double, ptr %29, i64 %122
   %159 = load double, ptr %158, align 8, !tbaa !7
   %160 = trunc i64 %122 to i32
   %161 = add nuw nsw i32 %123, %160
@@ -256,7 +256,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %185 = fcmp oge double %184, 0.000000e+00
   %186 = fneg double %184
   %187 = select i1 %185, double %184, double %186
-  %188 = getelementptr inbounds double, ptr %29, i64 %173
+  %188 = getelementptr inbounds nuw double, ptr %29, i64 %173
   %189 = load double, ptr %188, align 8, !tbaa !7
   %190 = call double @llvm.fmuladd.f64(double %187, double %181, double %189)
   store double %190, ptr %188, align 8, !tbaa !7
@@ -323,7 +323,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 226:                                              ; preds = %226, %.loopexit32
   %227 = phi i64 [ 1, %.loopexit32 ], [ %244, %226 ]
   %228 = phi double [ 0.000000e+00, %.loopexit32 ], [ %243, %226 ]
-  %229 = getelementptr inbounds double, ptr %29, i64 %227
+  %229 = getelementptr inbounds nuw double, ptr %29, i64 %227
   %230 = load double, ptr %229, align 8, !tbaa !7
   %231 = fcmp ogt double %230, %75
   %232 = getelementptr double, ptr %229, i64 %.pre-phi
@@ -378,7 +378,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 266:                                              ; preds = %266, %262
   %267 = phi i64 [ 1, %262 ], [ %279, %266 ]
-  %268 = getelementptr inbounds double, ptr %29, i64 %267
+  %268 = getelementptr inbounds nuw double, ptr %29, i64 %267
   %269 = load double, ptr %268, align 8, !tbaa !7
   %270 = fcmp ogt double %269, %75
   %271 = getelementptr double, ptr %268, i64 %263
@@ -396,7 +396,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .loopexit34:                                      ; preds = %266, %261
   store i32 0, ptr %16, align 4, !tbaa !3
-  %281 = getelementptr inbounds double, ptr %27, i64 %87
+  %281 = getelementptr inbounds nuw double, ptr %27, i64 %87
   br label %282
 
 282:                                              ; preds = %.loopexit30, %.loopexit34
@@ -437,7 +437,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 302:                                              ; preds = %302, %297
   %303 = phi i64 [ 1, %297 ], [ %309, %302 ]
-  %304 = getelementptr inbounds double, ptr %29, i64 %303
+  %304 = getelementptr inbounds nuw double, ptr %29, i64 %303
   %305 = load double, ptr %304, align 8, !tbaa !7
   %306 = getelementptr double, ptr %301, i64 %303
   %307 = load double, ptr %306, align 8, !tbaa !7
@@ -461,7 +461,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 319:                                              ; preds = %319, %314
   %320 = phi i64 [ 1, %314 ], [ %326, %319 ]
-  %321 = getelementptr inbounds double, ptr %29, i64 %320
+  %321 = getelementptr inbounds nuw double, ptr %29, i64 %320
   %322 = load double, ptr %321, align 8, !tbaa !7
   %323 = getelementptr double, ptr %318, i64 %320
   %324 = load double, ptr %323, align 8, !tbaa !7

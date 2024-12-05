@@ -132,20 +132,20 @@ define void @_ZN3gmx10BiasParamsC2ERKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8Arra
   %16 = fdiv double 1.000000e+00, %5
   %17 = select i1 %15, double %16, double 0.000000e+00
   store double %17, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = sext i32 %20 to i64
   store i64 %21, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i32, ptr %19, align 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val49 = load i32, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 65
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 65
   switch i32 %.val49, label %37 [
     i32 0, label %28
     i32 1, label %30
@@ -177,9 +177,9 @@ define void @_ZN3gmx10BiasParamsC2ERKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8Arra
 _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasParamsE.exit: ; preds = %28, %30, %34
   %.0.i = phi i64 [ %36, %34 ], [ %33, %30 ], [ 0, %28 ]
   store i64 %.0.i, ptr %25, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %9, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %41 to i64
   %43 = ptrtoint ptr %39 to i64
@@ -196,7 +196,7 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
   %.047.i = phi i64 [ %89, %88 ], [ 0, %.lr.ph.preheader.i ]
   %.03846.i = phi i32 [ %.sroa.speculated27.i, %88 ], [ 0, %.lr.ph.preheader.i ]
   %46 = getelementptr inbounds %"struct.gmx::DimParams", ptr %3, i64 %.047.i
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i8, ptr %47, align 8
   br label %49
 
@@ -204,7 +204,7 @@ _ZN3gmx12_GLOBAL__N_124calcTargetUpdateIntervalERKNS_9AwhParamsERKNS_13AwhBiasPa
   %50 = phi i1 [ true, %.lr.ph.i ], [ false, %56 ]
   %.010.i.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %56 ]
   %.079.i.i.i.i = phi i64 [ 2, %.lr.ph.i ], [ %.1.i.i.i.i, %56 ]
-  %51 = getelementptr inbounds [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 0, i64 %.010.i.i.i.i
+  %51 = getelementptr inbounds nuw [2 x i8], ptr @__const._ZSt24__find_uniq_type_in_packIN3gmx9DimParams13PullDimParamsEJS2_NS1_12FepDimParamsEEEmv.__found, i64 0, i64 %.010.i.i.i.i
   %52 = load i8, ptr %51, align 1
   %53 = trunc i8 %52 to i1
   br i1 %53, label %54, label %56
@@ -231,7 +231,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit.i:     ; preds = %56, %54
   %.not.i.i.i.i.i = icmp eq i8 %48, -1
   %61 = tail call ptr @__cxa_allocate_exception(i64 16) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   br i1 %.not.i.i.i.i.i, label %63, label %64
 
 63:                                               ; preds = %60
@@ -245,7 +245,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit.i:     ; preds = %56, %54
   unreachable
 
 _ZNK3gmx9DimParams13pullDimParamsEv.exit.i:       ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %46, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %66 = load double, ptr %65, align 8
   %67 = fcmp ogt double %66, 0.000000e+00
   br i1 %67, label %_ZNK3gmx9DimParams13pullDimParamsEv.exit20.i, label %68
@@ -281,7 +281,7 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit20.i:     ; preds = %_ZNK3gmx9DimParams1
   %.not.i.i.i.i22.i = icmp eq i8 %48, -1
   %82 = tail call ptr @__cxa_allocate_exception(i64 16) #18
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   br i1 %.not.i.i.i.i22.i, label %84, label %85
 
 84:                                               ; preds = %81
@@ -295,7 +295,7 @@ _ZNK3gmx9DimParams13pullDimParamsEv.exit20.i:     ; preds = %_ZNK3gmx9DimParams1
   unreachable
 
 _ZNK3gmx9DimParams12fepDimParamsEv.exit.i:        ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %46, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %87 = load i32, ptr %86, align 8
   br label %88
 
@@ -324,27 +324,27 @@ _ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKN
   %96 = mul nsw i32 %95, %.sroa.speculated.i52
   %97 = sext i32 %96 to i64
   store i64 %97, ptr %38, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %99 = load i32, ptr %26, align 8
   store i32 %99, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 44
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %101 = load i8, ptr %27, align 1
   %102 = and i8 %101, 1
   store i8 %102, ptr %100, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 48
-  %104 = getelementptr inbounds i8, ptr %2, i64 72
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %105 = load double, ptr %104, align 8
   store double %105, ptr %103, align 8
-  %106 = getelementptr inbounds i8, ptr %0, i64 56
-  %107 = getelementptr inbounds i8, ptr %2, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %108 = load double, ptr %107, align 8
   %109 = fmul double %5, %108
   store double %109, ptr %106, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 64
-  %111 = getelementptr inbounds i8, ptr %2, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %112 = load double, ptr %111, align 8
   store double %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %114 = icmp ne i32 %99, 3
   %115 = zext i1 %114 to i8
   store i8 %115, ptr %113, align 8
@@ -356,27 +356,27 @@ _ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKN
   unreachable
 
 _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds = %_ZN3gmx12_GLOBAL__N_125calcCheckCoveringIntervalERKNS_9AwhParamsENS_8ArrayRefIKNS_9DimParamsEEENS4_IKNS_8GridAxisEEE.exit
-  %118 = getelementptr inbounds i8, ptr %2, i64 88
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %.val51 = load i32, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 76
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %.inv.i = icmp slt i32 %.val51, 1
   %spec.select.i = select i1 %.inv.i, i32 1, i32 %8
   store i32 %spec.select.i, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %0, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %121 = load i32, ptr %22, align 8
   %122 = mul nsw i32 %121, %spec.select.i
   %123 = sitofp i32 %122 to double
   store double %123, ptr %120, align 8
-  %124 = getelementptr inbounds i8, ptr %0, i64 88
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %125 = icmp eq i32 %99, 3
   %spec.select = select i1 %125, double %112, double 1.000000e+00
   store double %spec.select, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 96
-  %127 = getelementptr inbounds i8, ptr %2, i64 80
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %127 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %128 = load double, ptr %127, align 8
   %129 = fmul double %5, %128
   store double %129, ptr %126, align 8
-  %130 = getelementptr inbounds i8, ptr %0, i64 104
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %131 = load i64, ptr %18, align 8
   %132 = sitofp i64 %131 to double
   %133 = fmul double %6, %132
@@ -402,13 +402,13 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
 
 139:                                              ; preds = %.lr.ph.i56
   %140 = getelementptr inbounds %"class.gmx::GridAxis", ptr %39, i64 %.029.i
-  %141 = getelementptr inbounds i8, ptr %140, i64 40
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
   %142 = load i8, ptr %141, align 8
   %143 = trunc i8 %142 to i1
   br i1 %143, label %147, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %140, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %146 = load double, ptr %145, align 8
   br label %147
 
@@ -438,15 +438,15 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
   %158 = fmul double %133, %157
   %159 = fdiv double %.sroa.speculated.i57, %158
   store double %159, ptr %130, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 128
-  %161 = getelementptr inbounds i8, ptr %1, i64 44
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %162 = load i32, ptr %161, align 4
   %163 = icmp eq i32 %162, 0
   %164 = zext i1 %163 to i8
   store i8 %164, ptr %160, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 132
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 %10, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %0, i64 136
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %167 = icmp eq i32 %7, 1
   %168 = zext i1 %167 to i8
   store i8 %168, ptr %166, align 8
@@ -465,11 +465,11 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 173:                                              ; preds = %172
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17InvalidInputErrorE, i64 16), ptr %12, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %14, align 8
-  %174 = getelementptr inbounds i8, ptr %14, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx10BiasParamsC2ERKNS_9AwhParamsERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_9DimParamsEEEddNS0_18DisableUpdateSkipsEiNS7_IKNS_8GridAxisEEEi, ptr %174, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @.str.1, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.361.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
+  %.sroa.361.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i32 265, ptr %.sroa.361.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::InvalidInputError") align 8 %171, ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %175 unwind label %178
@@ -505,7 +505,7 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 
 181:                                              ; preds = %_ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit
   %182 = load ptr, ptr %2, align 8
-  %183 = getelementptr inbounds i8, ptr %2, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %184 = load ptr, ptr %183, align 8
   %185 = ptrtoint ptr %184 to i64
   %186 = ptrtoint ptr %182 to i64
@@ -515,20 +515,20 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
   br i1 %189, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %181
-  %190 = getelementptr inbounds i8, ptr %0, i64 112
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %191
 
 191:                                              ; preds = %.lr.ph, %205
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %205 ]
-  %192 = getelementptr inbounds %"class.gmx::GridAxis", ptr %39, i64 %indvars.iv, i32 3
+  %192 = getelementptr inbounds nuw %"class.gmx::GridAxis", ptr %39, i64 %indvars.iv, i32 3
   %193 = load double, ptr %192, align 8
   %194 = fcmp ogt double %193, 0.000000e+00
   br i1 %194, label %195, label %205
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %182, i64 %indvars.iv, i32 8
+  %196 = getelementptr inbounds nuw %"class.gmx::AwhDimParams", ptr %182, i64 %indvars.iv, i32 8
   %197 = load double, ptr %196, align 8
-  %198 = getelementptr inbounds %"struct.gmx::DimParams", ptr %3, i64 %indvars.iv, i32 1
+  %198 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %3, i64 %indvars.iv, i32 1
   %199 = load double, ptr %198, align 8
   %200 = fmul double %197, %199
   %201 = fmul double %200, 5.000000e-01
@@ -539,7 +539,7 @@ _ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8
 
 205:                                              ; preds = %191, %195
   %206 = phi i32 [ %204, %195 ], [ 0, %191 ]
-  %207 = getelementptr inbounds [4 x i32], ptr %190, i64 0, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw [4 x i32], ptr %190, i64 0, i64 %indvars.iv
   store i32 %206, ptr %207, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %188
@@ -566,8 +566,8 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -581,7 +581,7 @@ define linkonce_odr void @_ZN3gmxlsINS_17InvalidInputErrorENS_22ExceptionInfoLoc
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -595,7 +595,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -606,12 +606,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -656,7 +656,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -676,13 +676,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i.i, label %_ZN3gmx14UserInputErrorD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -690,10 +690,10 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i
@@ -719,10 +719,10 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %31, label %28
@@ -744,7 +744,7 @@ define linkonce_odr void @_ZN3gmx17InvalidInputErrorD2Ev(ptr noundef nonnull ali
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN3gmx14UserInputErrorD2Ev.exit
@@ -765,9 +765,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -783,7 +783,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
@@ -849,7 +849,7 @@ define linkonce_odr void @_ZNSt18bad_variant_accessD0Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef ptr @_ZNKSt18bad_variant_access4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }

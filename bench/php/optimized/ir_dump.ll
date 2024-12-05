@@ -132,7 +132,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = icmp sgt i32 %4, 1
@@ -149,18 +149,18 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.06679 = phi i32 [ %21, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %10 = load i8, ptr %.05980, align 8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %.05980, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.05980, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [14 x ptr], ptr @ir_type_name, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_name, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef %.06679, ptr noundef %13, ptr noundef %18) #6
   tail call void @ir_print_const(ptr noundef nonnull %0, ptr noundef nonnull %.05980, ptr noundef %1, i1 noundef zeroext true) #6
   %20 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 2, i64 1, ptr %1)
   %21 = add i32 %.06679, 1
-  %22 = getelementptr inbounds i8, ptr %.05980, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.05980, i64 16
   %exitcond.not = icmp eq i32 %21, 0
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -170,7 +170,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %23 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %2 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %.lr.ph90, label %._crit_edge91
@@ -178,12 +178,12 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 .lr.ph90:                                         ; preds = %._crit_edge, %.loopexit
   %.pn87 = phi ptr [ %.2, %.loopexit ], [ %23, %._crit_edge ]
   %.16786 = phi i32 [ %86, %.loopexit ], [ 1, %._crit_edge ]
-  %.188 = getelementptr inbounds i8, ptr %.pn87, i64 16
+  %.188 = getelementptr inbounds nuw i8, ptr %.pn87, i64 16
   %27 = load i8, ptr %.188, align 8
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %28
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %28
+  %31 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %28
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %.16786, ptr noundef %32) #6
   %34 = and i32 %30, 256
@@ -191,7 +191,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not, label %35, label %.lr.ph90._crit_edge
 
 .lr.ph90._crit_edge:                              ; preds = %.lr.ph90
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pn87, i64 17
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pn87, i64 17
   %.pre98 = load i8, ptr %.phi.trans.insert, align 1
   br label %40
 
@@ -201,7 +201,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not73, label %46, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.pn87, i64 17
+  %38 = getelementptr inbounds nuw i8, ptr %.pn87, i64 17
   %39 = load i8, ptr %38, align 1
   %.not74 = icmp eq i8 %39, 0
   br i1 %.not74, label %46, label %40
@@ -209,7 +209,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 40:                                               ; preds = %.lr.ph90._crit_edge, %37
   %41 = phi i8 [ %.pre98, %.lr.ph90._crit_edge ], [ %39, %37 ]
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [14 x ptr], ptr @ir_type_name, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_name, i64 0, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef %44) #6
   br label %46
@@ -217,7 +217,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 46:                                               ; preds = %40, %37, %35
   %47 = load i8, ptr %.188, align 8
   %48 = zext i8 %47 to i64
-  %49 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = lshr i32 %50, 3
   %52 = and i32 %51, 3
@@ -226,14 +226,14 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not75, label %58, label %54
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %.pn87, i64 18
+  %55 = getelementptr inbounds nuw i8, ptr %.pn87, i64 18
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   br label %58
 
 58:                                               ; preds = %54, %46
   %.0 = phi i32 [ %57, %54 ], [ %52, %46 ]
-  %59 = getelementptr inbounds i8, ptr %.pn87, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %.pn87, i64 20
   br label %60
 
 60:                                               ; preds = %58, %64
@@ -249,7 +249,7 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 64:                                               ; preds = %60, %62
   %65 = add nuw nsw i32 %.06481, 1
-  %66 = getelementptr inbounds i8, ptr %.06082, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.06082, i64 4
   %exitcond95.not = icmp eq i32 %65, 4
   br i1 %exitcond95.not, label %67, label %60
 
@@ -285,12 +285,12 @@ define hidden void @ir_dump(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 81:                                               ; preds = %77, %79
   %82 = add nuw nsw i32 %.16583, 1
-  %83 = getelementptr inbounds i8, ptr %.26284, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.26284, i64 4
   %exitcond96.not = icmp eq i32 %82, 4
   br i1 %exitcond96.not, label %84, label %77
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %.3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   %exitcond97.not = icmp eq i32 %75, %73
   br i1 %exitcond97.not, label %.loopexit, label %74
 
@@ -316,7 +316,7 @@ declare void @ir_print_const(ptr noundef, ptr noundef, ptr noundef, i1 noundef z
 define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.7, ptr noundef %1) #6
   %5 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 13, i64 1, ptr %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = icmp sgt i32 %7, 1
@@ -332,16 +332,16 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.0139154 = phi ptr [ %22, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   %.0141153 = phi i32 [ %21, %.lr.ph ], [ %10, %.lr.ph.preheader ]
   %13 = sub nsw i32 0, %.0141153
-  %14 = getelementptr inbounds i8, ptr %.0139154, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0139154, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [14 x ptr], ptr @ir_type_name, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_name, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %13, i32 noundef %13, ptr noundef %18) #6
   tail call void @ir_print_const(ptr noundef nonnull %0, ptr noundef %.0139154, ptr noundef %2, i1 noundef zeroext false) #6
   %20 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 35, i64 1, ptr %2)
   %21 = add i32 %.0141153, 1
-  %22 = getelementptr inbounds i8, ptr %.0139154, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.0139154, i64 16
   %exitcond.not = icmp eq i32 %21, 0
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -351,13 +351,13 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %23 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %8, %3 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 1
   br i1 %26, label %.lr.ph165.preheader, label %._crit_edge166
 
 .lr.ph165.preheader:                              ; preds = %._crit_edge
-  %27 = getelementptr inbounds i8, ptr %23, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   br label %.lr.ph165
 
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %._crit_edge161
@@ -365,7 +365,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %.1142162 = phi i32 [ %153, %._crit_edge161 ], [ 1, %.lr.ph165.preheader ]
   %28 = load i8, ptr %.1163, align 8
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 512
   %.not = icmp eq i32 %32, 0
@@ -378,13 +378,13 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ]
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
+  %35 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.11, i32 noundef %.1142162, i32 noundef %.1142162, ptr noundef %36) #6
   br label %84
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
+  %39 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.12, i32 noundef %.1142162, i32 noundef %.1142162, ptr noundef %40) #6
   br label %84
@@ -395,7 +395,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not148, label %48, label %44
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
+  %45 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.13, i32 noundef %.1142162, i32 noundef %.1142162, ptr noundef %46) #6
   br label %84
@@ -403,7 +403,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 48:                                               ; preds = %42
   %49 = and i32 %31, 1024
   %.not149 = icmp eq i32 %49, 0
-  %50 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
+  %50 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
   %51 = load ptr, ptr %50, align 8
   br i1 %.not149, label %54, label %52
 
@@ -423,7 +423,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 58:                                               ; preds = %56
   %59 = and i32 %31, 15728640
   %60 = icmp eq i32 %59, 1048576
-  %61 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
+  %61 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %29
   %62 = load ptr, ptr %61, align 8
   br i1 %60, label %63, label %66
 
@@ -433,10 +433,10 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br label %84
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %.1163, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.1163, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [14 x ptr], ptr @ir_type_name, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_name, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8
   switch i8 %28, label %82 [
     i8 63, label %72
@@ -444,14 +444,14 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   ]
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %.1163, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.1163, i64 8
   %74 = load i32, ptr %73, align 8
   %75 = tail call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %74) #6
   %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.18, i32 noundef %.1142162, i32 noundef %.1142162, ptr noundef %62, ptr noundef %71, ptr noundef %75) #6
   br label %84
 
 77:                                               ; preds = %66
-  %78 = getelementptr inbounds i8, ptr %.1163, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.1163, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = tail call ptr @ir_get_str(ptr noundef nonnull %0, i32 noundef %79) #6
   %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.19, i32 noundef %.1142162, i32 noundef %.1142162, ptr noundef %62, ptr noundef %71, ptr noundef %80) #6
@@ -464,7 +464,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 84:                                               ; preds = %56, %72, %82, %77, %63, %34, %44, %54, %52, %38
   %85 = load i8, ptr %.1163, align 8
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = lshr i32 %88, 3
   %90 = and i32 %89, 3
@@ -473,14 +473,14 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   br i1 %.not150, label %96, label %92
 
 92:                                               ; preds = %84
-  %93 = getelementptr inbounds i8, ptr %.1163, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %.1163, i64 2
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
   br label %96
 
 96:                                               ; preds = %92, %84
   %.0 = phi i32 [ %95, %92 ], [ %90, %84 ]
-  %97 = getelementptr inbounds i8, ptr %.1163, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.1163, i64 4
   %.not151155 = icmp eq i32 %.0, 0
   br i1 %.not151155, label %._crit_edge161, label %.lr.ph160.preheader
 
@@ -584,7 +584,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 
 149:                                              ; preds = %.lr.ph160, %142, %.thread, %144, %109, %132, %130, %147, %100
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %150 = getelementptr inbounds i8, ptr %.0140158, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0140158, i64 4
   %exitcond168.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond168.not, label %._crit_edge161, label %.lr.ph160
 
@@ -593,7 +593,7 @@ define hidden void @ir_dump_dot(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
   %152 = add nuw nsw i32 %151, 1
   %153 = add nuw nsw i32 %152, %.1142162
   %154 = zext nneg i32 %152 to i64
-  %155 = getelementptr inbounds %struct._ir_insn, ptr %.1163, i64 %154
+  %155 = getelementptr inbounds nuw %struct._ir_insn, ptr %.1163, i64 %154
   %156 = load i32, ptr %24, align 8
   %157 = icmp slt i32 %153, %156
   br i1 %157, label %.lr.ph165, label %._crit_edge166
@@ -607,29 +607,29 @@ declare ptr @ir_get_str(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @ir_dump_use_lists(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %33, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 14, i64 1, ptr %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %.lr.ph35, label %._crit_edge36
 
 .lr.ph35:                                         ; preds = %5
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %12
 
 12:                                               ; preds = %.lr.ph35, %28
   %13 = phi i32 [ %8, %.lr.ph35 ], [ %29, %28 ]
   %.pn32 = phi ptr [ %10, %.lr.ph35 ], [ %.033, %28 ]
   %.02431 = phi i32 [ 1, %.lr.ph35 ], [ %30, %28 ]
-  %.033 = getelementptr inbounds i8, ptr %.pn32, i64 8
-  %14 = getelementptr inbounds i8, ptr %.pn32, i64 12
+  %.033 = getelementptr inbounds nuw i8, ptr %.pn32, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.pn32, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %17, label %28
@@ -647,7 +647,7 @@ define hidden void @ir_dump_use_lists(ptr nocapture noundef readonly %0, ptr noc
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %.pn2729 = phi ptr [ %.023, %.lr.ph ], [ %21, %17 ]
   %.02528 = phi i32 [ %26, %.lr.ph ], [ 1, %17 ]
-  %.023 = getelementptr inbounds i8, ptr %.pn2729, i64 4
+  %.023 = getelementptr inbounds nuw i8, ptr %.pn2729, i64 4
   %24 = load i32, ptr %.023, align 4
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.31, i32 noundef %24) #6
   %26 = add nuw nsw i32 %.02528, 1
@@ -675,45 +675,45 @@ define hidden void @ir_dump_use_lists(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %160, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 92
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %7 = load i32, ptr %6, align 4
   %8 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 8, i64 1, ptr %1)
   %.not129163 = icmp eq i32 %7, 0
   br i1 %.not129163, label %._crit_edge169, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %11
 
 11:                                               ; preds = %.lr.ph168, %157
   %.0165 = phi i32 [ 1, %.lr.ph168 ], [ %158, %157 ]
   %.pn164 = phi ptr [ %4, %.lr.ph168 ], [ %.0121166, %157 ]
-  %.0121166 = getelementptr inbounds i8, ptr %.pn164, i64 52
+  %.0121166 = getelementptr inbounds nuw i8, ptr %.pn164, i64 52
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.34, i32 noundef %.0165) #6
-  %13 = getelementptr inbounds i8, ptr %.pn164, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %.pn164, i64 56
   %14 = load i32, ptr %13, align 4
   %15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %14) #6
-  %16 = getelementptr inbounds i8, ptr %.pn164, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %.pn164, i64 60
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %17) #6
-  %19 = getelementptr inbounds i8, ptr %.pn164, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %.pn164, i64 68
   %20 = load i32, ptr %19, align 4
   %.not130 = icmp eq i32 %20, 0
   br i1 %.not130, label %42, label %21
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds i8, ptr %.pn164, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %.pn164, i64 64
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i32 noundef %20, i32 noundef %27) #6
   %29 = load i32, ptr %19, align 4
@@ -726,7 +726,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %32 = load i32, ptr %23, align 4
   %33 = add i32 %32, %.0118143
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %31, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i32 noundef %36) #6
   %38 = add nuw i32 %.0118143, 1
@@ -739,17 +739,17 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br label %42
 
 42:                                               ; preds = %._crit_edge, %11
-  %43 = getelementptr inbounds i8, ptr %.pn164, i64 76
+  %43 = getelementptr inbounds nuw i8, ptr %.pn164, i64 76
   %44 = load i32, ptr %43, align 4
   %.not131 = icmp eq i32 %44, 0
   br i1 %.not131, label %66, label %45
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %.pn164, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %.pn164, i64 72
   %48 = load i32, ptr %47, align 4
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %46, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %46, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.39, i32 noundef %44, i32 noundef %51) #6
   %53 = load i32, ptr %43, align 4
@@ -762,7 +762,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %56 = load i32, ptr %47, align 4
   %57 = add i32 %56, %.1119144
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %55, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i32 noundef %60) #6
   %62 = add nuw i32 %.1119144, 1
@@ -775,7 +775,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br label %66
 
 66:                                               ; preds = %._crit_edge147, %42
-  %67 = getelementptr inbounds i8, ptr %.pn164, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %.pn164, i64 80
   %68 = load i32, ptr %67, align 4
   %.not132 = icmp eq i32 %68, 0
   br i1 %.not132, label %71, label %69
@@ -785,10 +785,10 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br label %71
 
 71:                                               ; preds = %69, %66
-  %72 = getelementptr inbounds i8, ptr %.pn164, i64 84
+  %72 = getelementptr inbounds nuw i8, ptr %.pn164, i64 84
   %73 = load i32, ptr %72, align 4
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.41, i32 noundef %73) #6
-  %75 = getelementptr inbounds i8, ptr %.pn164, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %.pn164, i64 88
   %76 = load i32, ptr %75, align 4
   %.not133 = icmp eq i32 %76, 0
   br i1 %.not133, label %89, label %77
@@ -807,7 +807,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i32 noundef %.0120149) #6
   %84 = load ptr, ptr %3, align 8
   %85 = zext nneg i32 %.0120149 to i64
-  %86 = getelementptr inbounds %struct._ir_block, ptr %84, i64 %85, i32 10
+  %86 = getelementptr inbounds nuw %struct._ir_block, ptr %84, i64 %85, i32 10
   %.0120 = load i32, ptr %86, align 4
   %87 = icmp sgt i32 %.0120, 0
   br i1 %87, label %.lr.ph151, label %._crit_edge152
@@ -869,7 +869,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br label %114
 
 114:                                              ; preds = %111, %108
-  %115 = getelementptr inbounds i8, ptr %.pn164, i64 96
+  %115 = getelementptr inbounds nuw i8, ptr %.pn164, i64 96
   %116 = load i32, ptr %115, align 4
   %.not139 = icmp eq i32 %116, 0
   br i1 %.not139, label %119, label %117
@@ -879,7 +879,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   br label %119
 
 119:                                              ; preds = %117, %114
-  %120 = getelementptr inbounds i8, ptr %.pn164, i64 100
+  %120 = getelementptr inbounds nuw i8, ptr %.pn164, i64 100
   %121 = load i32, ptr %120, align 4
   %.not140 = icmp eq i32 %121, 0
   br i1 %.not140, label %124, label %122
@@ -905,12 +905,12 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %.0117153 = phi i32 [ %136, %.lr.ph155 ], [ 0, %127 ]
   %132 = add i32 %.0117153, 1
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds i32, ptr %129, i64 %133
+  %134 = getelementptr inbounds nuw i32, ptr %129, i64 %133
   %135 = load i32, ptr %134, align 4
   %.reass = add i32 %.0117153, 2
   %136 = add i32 %.reass, %135
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %129, i64 %137
+  %138 = getelementptr inbounds nuw i32, ptr %129, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %.0165, %139
   br i1 %140, label %._crit_edge156, label %.lr.ph155
@@ -919,7 +919,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %.0117.lcssa = phi i32 [ 0, %127 ], [ %136, %.lr.ph155 ]
   %141 = add i32 %.0117.lcssa, 1
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds i32, ptr %129, i64 %142
+  %143 = getelementptr inbounds nuw i32, ptr %129, i64 %142
   %144 = load i32, ptr %143, align 4
   %.not170 = icmp eq i32 %144, 0
   br i1 %.not170, label %.loopexit, label %.lr.ph161.preheader
@@ -933,7 +933,7 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
   %.1158 = phi i32 [ %152, %.lr.ph161 ], [ %145, %.lr.ph161.preheader ]
   %146 = load ptr, ptr %128, align 8
   %147 = zext i32 %.1158 to i64
-  %148 = getelementptr inbounds i32, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw i32, ptr %146, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.50, i32 noundef %149) #6
   %151 = add nuw i32 %.0116159, 1
@@ -972,31 +972,31 @@ define hidden void @ir_dump_cfg(ptr nocapture noundef readonly %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %.12.val, ptr nocapture noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %.12.val to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds %struct._ir_block, ptr %10, i64 %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw %struct._ir_block, ptr %10, i64 %11
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds %struct._ir_use_list, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %12, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load i32, ptr %19, align 4
   %.not7 = icmp eq i32 %20, 0
   br i1 %.not7, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %12, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i32, ptr %5, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %5, i64 %23
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %30
@@ -1012,26 +1012,26 @@ define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly 
   br label %.loopexit
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %.0722, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.0722, i64 4
   %32 = add nuw i32 %.0713, 1
   %exitcond.not = icmp eq i32 %32, %20
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %30, %3, %27
   %.0 = phi i64 [ %29, %27 ], [ 0, %3 ], [ 0, %30 ]
-  %33 = getelementptr inbounds i8, ptr %18, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph6, label %._crit_edge
 
 .lr.ph6:                                          ; preds = %.loopexit
-  %36 = getelementptr inbounds i8, ptr %0, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %18, align 4
   %39 = sext i32 %38 to i64
   %40 = getelementptr inbounds i32, ptr %37, i64 %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 136
-  %42 = getelementptr inbounds i8, ptr %0, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %43
 
 43:                                               ; preds = %.lr.ph6, %104
@@ -1060,7 +1060,7 @@ define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly 
 58:                                               ; preds = %51
   %59 = load ptr, ptr %41, align 8
   %60 = zext nneg i32 %53 to i64
-  %61 = getelementptr inbounds i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = getelementptr inbounds i32, ptr %59, i64 %47
   %64 = load i32, ptr %63, align 4
@@ -1088,7 +1088,7 @@ define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly 
   %75 = load ptr, ptr %0, align 8
   %76 = sext i32 %53 to i64
   %77 = getelementptr inbounds %struct._ir_insn, ptr %75, i64 %76
-  %78 = getelementptr inbounds i8, ptr %77, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = zext i8 %79 to i32
   %81 = tail call ptr @ir_reg_name(i8 noundef signext %74, i32 noundef %80) #6
@@ -1116,7 +1116,7 @@ define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly 
   %94 = and i8 %92, 63
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr inbounds %struct._ir_insn, ptr %95, i64 %47
-  %97 = getelementptr inbounds i8, ptr %96, i64 1
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = tail call ptr @ir_reg_name(i8 noundef signext %94, i32 noundef %99) #6
@@ -1133,7 +1133,7 @@ define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly 
 104:                                              ; preds = %43, %103, %58
   %105 = phi i32 [ %44, %43 ], [ %.pre, %103 ], [ %44, %58 ]
   %106 = add nuw nsw i32 %.0735, 1
-  %107 = getelementptr inbounds i8, ptr %.0744, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.0744, i64 4
   %108 = icmp slt i32 %106, %105
   br i1 %108, label %43, label %._crit_edge
 
@@ -1143,21 +1143,21 @@ define internal fastcc void @ir_dump_dessa_moves(ptr nocapture noundef readonly 
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @ir_dump_cfg_map(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 25, i64 1, ptr %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 1
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %5 ]
-  %10 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = trunc nuw nsw i64 %indvars.iv to i32
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.52, i32 noundef %12, i32 noundef %11) #6
@@ -1177,13 +1177,13 @@ define hidden void @ir_dump_cfg_map(ptr nocapture noundef readonly %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %228, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.53, i32 noundef %7) #6
   %9 = load i32, ptr %6, align 8
@@ -1191,16 +1191,16 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not152200, label %._crit_edge206, label %.lr.ph205
 
 .lr.ph205:                                        ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 136
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 148
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 148
   br label %13
 
 13:                                               ; preds = %.lr.ph205, %190
   %14 = phi i32 [ %9, %.lr.ph205 ], [ %191, %190 ]
   %indvars.iv224 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next225, %190 ]
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv224
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv224
   %17 = load ptr, ptr %16, align 8
   %.not156 = icmp eq ptr %17, null
   br i1 %.not156, label %190, label %18
@@ -1225,7 +1225,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
 
 25:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %26 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = icmp eq i64 %indvars.iv224, %28
@@ -1257,7 +1257,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   %37 = phi i32 [ %34, %.lr.ph187.preheader ], [ %47, %46 ]
   %indvars.iv221 = phi i64 [ %36, %.lr.ph187.preheader ], [ %indvars.iv.next222, %46 ]
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv221
+  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv221
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = icmp eq i64 %indvars.iv224, %41
@@ -1278,13 +1278,13 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
 
 ._crit_edge188:                                   ; preds = %46, %._crit_edge
   %fputc157 = tail call i32 @fputc(i32 41, ptr %1)
-  %50 = getelementptr inbounds i8, ptr %17, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %51 = load i32, ptr %50, align 8
   %.not158 = icmp eq i32 %51, -1
   br i1 %.not158, label %63, label %52
 
 52:                                               ; preds = %._crit_edge188
-  %53 = getelementptr inbounds i8, ptr %17, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 128
   %.not159 = icmp eq i16 %55, 0
@@ -1302,7 +1302,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %63
 
 63:                                               ; preds = %._crit_edge188, %61, %56, %23
-  %64 = getelementptr inbounds i8, ptr %17, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %65 = load ptr, ptr %64, align 8
   %.not160 = icmp eq ptr %65, null
   br i1 %.not160, label %68, label %66
@@ -1312,7 +1312,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %.preheader236
 
 68:                                               ; preds = %63
-  %69 = getelementptr inbounds i8, ptr %17, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %70 = load i8, ptr %69, align 1
   %.not161 = icmp eq i8 %70, -1
   br i1 %.not161, label %.preheader236, label %71
@@ -1326,7 +1326,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
 
 72:                                               ; preds = %.preheader236, %188
   %.0141 = phi ptr [ %.pr, %188 ], [ %17, %.preheader236 ]
-  %73 = getelementptr inbounds i8, ptr %.0141, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.0141, i64 1
   %74 = load i8, ptr %73, align 1
   %.not163 = icmp eq i8 %74, -1
   br i1 %.not163, label %80, label %75
@@ -1339,11 +1339,11 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %80
 
 80:                                               ; preds = %75, %72
-  %81 = getelementptr inbounds i8, ptr %.0141, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.0141, i64 16
   %82 = load i32, ptr %81, align 8
   %83 = sdiv i32 %82, 4
   %84 = srem i32 %82, 4
-  %85 = getelementptr inbounds i8, ptr %.0141, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %.0141, i64 20
   %86 = load i32, ptr %85, align 4
   %87 = sdiv i32 %86, 4
   %88 = srem i32 %86, 4
@@ -1351,12 +1351,12 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br i1 %19, label %90, label %102
 
 90:                                               ; preds = %80
-  %91 = getelementptr inbounds i8, ptr %.0141, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.0141, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = load i32, ptr %81, align 8
   %94 = sdiv i32 %93, 4
   %95 = icmp eq i32 %92, %94
-  %96 = getelementptr inbounds i8, ptr %.0141, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0141, i64 8
   %97 = load i32, ptr %96, align 8
   br i1 %95, label %98, label %100
 
@@ -1369,7 +1369,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %.loopexit
 
 102:                                              ; preds = %80
-  %103 = getelementptr inbounds i8, ptr %.0141, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %.0141, i64 24
   %.0140189 = load ptr, ptr %103, align 8
   %.not164190 = icmp eq ptr %.0140189, null
   br i1 %.not164190, label %.loopexit, label %.lr.ph193
@@ -1379,35 +1379,35 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   %104 = load i32, ptr %.0140191, align 8
   %105 = sdiv i32 %104, 4
   %106 = srem i32 %104, 4
-  %107 = getelementptr inbounds i8, ptr %.0140191, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %.0140191, i64 4
   %108 = load i32, ptr %107, align 4
   %109 = sdiv i32 %108, 4
   %110 = srem i32 %108, 4
   %111 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %105, i32 noundef %106, i32 noundef %109, i32 noundef %110) #6
-  %112 = getelementptr inbounds i8, ptr %.0140191, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.0140191, i64 8
   %.0140 = load ptr, ptr %112, align 8
   %.not164 = icmp eq ptr %.0140, null
   br i1 %.not164, label %.loopexit, label %.lr.ph193
 
 .loopexit:                                        ; preds = %.lr.ph193, %102, %98, %100
-  %113 = getelementptr inbounds i8, ptr %.0141, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %.0141, i64 40
   %.0139194 = load ptr, ptr %113, align 8
   %.not165195 = icmp eq ptr %.0139194, null
   br i1 %.not165195, label %._crit_edge199, label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.loopexit, %184
   %.0139196 = phi ptr [ %.0139, %184 ], [ %.0139194, %.loopexit ]
-  %114 = getelementptr inbounds i8, ptr %.0139196, i64 3
+  %114 = getelementptr inbounds nuw i8, ptr %.0139196, i64 3
   %115 = load i8, ptr %114, align 1
   %.not169 = icmp sgt i8 %115, -1
   br i1 %.not169, label %127, label %116
 
 116:                                              ; preds = %.lr.ph198
-  %117 = getelementptr inbounds i8, ptr %.0139196, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.0139196, i64 8
   %118 = load i32, ptr %117, align 8
   %119 = sdiv i32 %118, 4
   %120 = srem i32 %118, 4
-  %121 = getelementptr inbounds i8, ptr %.0139196, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %.0139196, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = sub nsw i32 0, %122
   %124 = load i16, ptr %.0139196, align 8
@@ -1420,17 +1420,17 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not170, label %151, label %128
 
 128:                                              ; preds = %127
-  %129 = getelementptr inbounds i8, ptr %.0139196, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.0139196, i64 8
   %130 = load i32, ptr %129, align 8
   %131 = sdiv i32 %130, 4
   %132 = srem i32 %130, 4
-  %133 = getelementptr inbounds i8, ptr %.0139196, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %.0139196, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = sub nsw i32 0, %134
   %136 = load i16, ptr %.0139196, align 8
   %137 = zext i16 %136 to i32
   %138 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.68, i32 noundef %131, i32 noundef %132, i32 noundef %135, i32 noundef %137) #6
-  %139 = getelementptr inbounds i8, ptr %.0139196, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %.0139196, i64 2
   %140 = load i8, ptr %139, align 2
   %141 = icmp sgt i8 %140, -1
   br i1 %141, label %142, label %147
@@ -1456,7 +1456,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
 151:                                              ; preds = %127
   %152 = load i16, ptr %.0139196, align 8
   %.not171 = icmp eq i16 %152, 0
-  %153 = getelementptr inbounds i8, ptr %.0139196, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.0139196, i64 8
   %154 = load i32, ptr %153, align 8
   %155 = sdiv i32 %154, 4
   %156 = srem i32 %154, 4
@@ -1472,7 +1472,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %162
 
 162:                                              ; preds = %159, %157
-  %163 = getelementptr inbounds i8, ptr %.0139196, i64 2
+  %163 = getelementptr inbounds nuw i8, ptr %.0139196, i64 2
   %164 = load i8, ptr %163, align 2
   %165 = icmp sgt i8 %164, -1
   br i1 %165, label %166, label %171
@@ -1485,7 +1485,7 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %171
 
 171:                                              ; preds = %166, %162
-  %172 = getelementptr inbounds i8, ptr %.0139196, i64 4
+  %172 = getelementptr inbounds nuw i8, ptr %.0139196, i64 4
   %173 = load i32, ptr %172, align 4
   %.not172 = icmp eq i32 %173, 0
   br i1 %.not172, label %180, label %174
@@ -1510,13 +1510,13 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br label %184
 
 184:                                              ; preds = %150, %147, %183, %180, %116
-  %185 = getelementptr inbounds i8, ptr %.0139196, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %.0139196, i64 16
   %.0139 = load ptr, ptr %185, align 8
   %.not165 = icmp eq ptr %.0139, null
   br i1 %.not165, label %._crit_edge199, label %.lr.ph198
 
 ._crit_edge199:                                   ; preds = %184, %.loopexit
-  %186 = getelementptr inbounds i8, ptr %.0141, i64 48
+  %186 = getelementptr inbounds nuw i8, ptr %.0141, i64 48
   %187 = load ptr, ptr %186, align 8
   %.not166 = icmp eq ptr %187, null
   br i1 %.not166, label %.thread, label %188
@@ -1563,8 +1563,8 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not154, label %226, label %201
 
 201:                                              ; preds = %.lr.ph218
-  %202 = getelementptr inbounds i8, ptr %200, i64 16
-  %203 = getelementptr inbounds i8, ptr %200, i64 1
+  %202 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 1
   %204 = load i8, ptr %203, align 1
   %205 = load i8, ptr %200, align 8
   %206 = zext i8 %205 to i32
@@ -1572,12 +1572,12 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   %208 = load i32, ptr %202, align 8
   %209 = sdiv i32 %208, 4
   %210 = srem i32 %208, 4
-  %211 = getelementptr inbounds i8, ptr %200, i64 20
+  %211 = getelementptr inbounds nuw i8, ptr %200, i64 20
   %212 = load i32, ptr %211, align 4
   %213 = sdiv i32 %212, 4
   %214 = srem i32 %212, 4
   %215 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.74, ptr noundef %207, i32 noundef %209, i32 noundef %210, i32 noundef %213, i32 noundef %214) #6
-  %216 = getelementptr inbounds i8, ptr %200, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %.0208 = load ptr, ptr %216, align 8
   %.not155209 = icmp eq ptr %.0208, null
   br i1 %.not155209, label %._crit_edge213, label %.lr.ph212
@@ -1587,12 +1587,12 @@ define hidden void @ir_dump_live_ranges(ptr nocapture noundef readonly %0, ptr n
   %217 = load i32, ptr %.0210, align 8
   %218 = sdiv i32 %217, 4
   %219 = srem i32 %217, 4
-  %220 = getelementptr inbounds i8, ptr %.0210, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %.0210, i64 4
   %221 = load i32, ptr %220, align 4
   %222 = sdiv i32 %221, 4
   %223 = srem i32 %221, 4
   %224 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.66, i32 noundef %218, i32 noundef %219, i32 noundef %222, i32 noundef %223) #6
-  %225 = getelementptr inbounds i8, ptr %.0210, i64 8
+  %225 = getelementptr inbounds nuw i8, ptr %.0210, i64 8
   %.0 = load ptr, ptr %225, align 8
   %.not155 = icmp eq ptr %.0, null
   br i1 %.not155, label %._crit_edge213, label %.lr.ph212
@@ -1620,7 +1620,7 @@ declare i32 @ir_regs_number() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @fwrite(ptr nonnull @.str.75, i64 2, i64 1, ptr %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 1
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -1636,7 +1636,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %8 = getelementptr inbounds i8, ptr %.pn352361, i64 -15
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [14 x ptr], ptr @ir_type_cname, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_cname, i64 0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.76, ptr noundef %12, i32 noundef %.0281362) #6
   %14 = load i8, ptr %.0284363, align 8
@@ -1685,29 +1685,29 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34, %2
-  %39 = getelementptr inbounds i8, ptr %0, i64 104
-  %40 = getelementptr inbounds i8, ptr %0, i64 92
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %41 = load i32, ptr %40, align 4
   %.not379 = icmp eq i32 %41, 0
   br i1 %.not379, label %._crit_edge385, label %.lr.ph384
 
 .lr.ph384:                                        ; preds = %._crit_edge
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 136
-  %44 = getelementptr inbounds i8, ptr %0, i64 224
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
-  %46 = getelementptr inbounds i8, ptr %0, i64 128
-  %47 = getelementptr inbounds i8, ptr %0, i64 112
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %48
 
 48:                                               ; preds = %.lr.ph384, %355
   %.0286381 = phi i32 [ 1, %.lr.ph384 ], [ %356, %355 ]
   %.pn380 = phi ptr [ %42, %.lr.ph384 ], [ %.0287382, %355 ]
-  %.0287382 = getelementptr inbounds i8, ptr %.pn380, i64 52
+  %.0287382 = getelementptr inbounds nuw i8, ptr %.pn380, i64 52
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.81, i32 noundef %.0286381) #6
-  %50 = getelementptr inbounds i8, ptr %.pn380, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.pn380, i64 56
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.pn380, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %.pn380, i64 60
   %53 = load i32, ptr %52, align 4
   %.not313372 = icmp sgt i32 %51, %53
   br i1 %.not313372, label %._crit_edge377, label %.lr.ph376.preheader
@@ -1723,7 +1723,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %.1285373 = phi ptr [ %294, %289 ], [ %56, %.lr.ph376.preheader ]
   %57 = load i8, ptr %.1285373, align 8
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, 512
   %.not316 = icmp eq i32 %61, 0
@@ -1735,7 +1735,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not323, label %68, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds i8, ptr %.1285373, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.1285373, i64 1
   %66 = load i8, ptr %65, align 1
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %68, label %70
@@ -1746,7 +1746,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 70:                                               ; preds = %64
   %71 = zext i8 %66 to i64
-  %72 = getelementptr inbounds [14 x ptr], ptr @ir_type_cname, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_cname, i64 0, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.83, ptr noundef %73, i32 noundef %.1374) #6
   %75 = load ptr, ptr %43, align 8
@@ -1797,10 +1797,10 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not317, label %128, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %.1285373, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.1285373, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = zext i8 %101 to i64
-  %103 = getelementptr inbounds [14 x ptr], ptr @ir_type_cname, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [14 x ptr], ptr @ir_type_cname, i64 0, i64 %102
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.90, ptr noundef %104, i32 noundef %.1374) #6
   %106 = load ptr, ptr %43, align 8
@@ -1847,12 +1847,12 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 128:                                              ; preds = %97, %126, %68, %95
   %129 = load i8, ptr %.1285373, align 8
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %130
   %132 = load ptr, ptr %131, align 8
   %fputs = tail call i32 @fputs(ptr %132, ptr %1)
   %133 = load i8, ptr %.1285373, align 8
   %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds [106 x i32], ptr @ir_op_flags, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [106 x i32], ptr @ir_op_flags, i64 0, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = lshr i32 %136, 3
   %138 = and i32 %137, 3
@@ -1861,7 +1861,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not329, label %144, label %140
 
 140:                                              ; preds = %128
-  %141 = getelementptr inbounds i8, ptr %.1285373, i64 2
+  %141 = getelementptr inbounds nuw i8, ptr %.1285373, i64 2
   %142 = load i16, ptr %141, align 2
   %143 = zext i16 %142 to i32
   br label %144
@@ -1938,7 +1938,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %indvars.iv = phi i64 [ 1, %.lr.ph370 ], [ %indvars.iv.next, %245 ]
   %.1285373.pn = phi ptr [ %.1285373, %.lr.ph370 ], [ %.0283369, %245 ]
   %.0288366 = phi i8 [ 1, %.lr.ph370 ], [ %.1289, %245 ]
-  %.0283369 = getelementptr inbounds i8, ptr %.1285373.pn, i64 4
+  %.0283369 = getelementptr inbounds nuw i8, ptr %.1285373.pn, i64 4
   %171 = trunc nuw nsw i64 %indvars.iv to i32
   %172 = tail call i32 @llvm.umin.i32(i32 %171, i32 3)
   %173 = shl nuw nsw i32 %172, 2
@@ -1980,7 +1980,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 188:                                              ; preds = %185
   %189 = zext nneg i32 %177 to i64
-  %190 = getelementptr inbounds i32, ptr %187, i64 %189
+  %190 = getelementptr inbounds nuw i32, ptr %187, i64 %189
   %191 = load i32, ptr %190, align 4
   %.not348 = icmp eq i32 %191, 0
   br i1 %.not348, label %194, label %192
@@ -1996,7 +1996,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 196:                                              ; preds = %194
   %197 = getelementptr inbounds [4 x i8], ptr %195, i64 %166
-  %198 = getelementptr inbounds i8, ptr %197, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 %indvars.iv
   %199 = load i8, ptr %198, align 1
   %.not350 = icmp eq i8 %199, -1
   br i1 %.not350, label %245, label %200
@@ -2006,7 +2006,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %202 = load ptr, ptr %0, align 8
   %203 = sext i32 %177 to i64
   %204 = getelementptr inbounds %struct._ir_insn, ptr %202, i64 %203
-  %205 = getelementptr inbounds i8, ptr %204, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 1
   %206 = load i8, ptr %205, align 1
   %207 = zext i8 %206 to i32
   %208 = tail call ptr @ir_reg_name(i8 noundef signext %201, i32 noundef %207) #6
@@ -2104,7 +2104,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not333, label %264, label %253
 
 253:                                              ; preds = %251
-  %254 = getelementptr inbounds i8, ptr %.1285373, i64 1
+  %254 = getelementptr inbounds nuw i8, ptr %.1285373, i64 1
   %255 = load i8, ptr %254, align 1
   %.not334 = icmp eq i8 %255, 0
   br i1 %.not334, label %264, label %256
@@ -2138,9 +2138,9 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %271 = icmp samesign ult i32 %270, 106
   %272 = add nsw i32 %270, -106
   %273 = zext nneg i32 %272 to i64
-  %274 = getelementptr inbounds [0 x ptr], ptr @ir_rule_name, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw [0 x ptr], ptr @ir_rule_name, i64 0, i64 %273
   %275 = zext nneg i32 %270 to i64
-  %276 = getelementptr inbounds [106 x ptr], ptr @ir_op_name, i64 0, i64 %275
+  %276 = getelementptr inbounds nuw [106 x ptr], ptr @ir_op_name, i64 0, i64 %275
   %.sink388.in = select i1 %271, ptr %276, ptr %274
   %.sink388 = load ptr, ptr %.sink388.in, align 8
   %277 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.106, ptr noundef %.sink388) #6
@@ -2179,7 +2179,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   %291 = add nuw nsw i32 %290, 1
   %292 = add nsw i32 %291, %.1374
   %293 = zext nneg i32 %291 to i64
-  %294 = getelementptr inbounds %struct._ir_insn, ptr %.1285373, i64 %293
+  %294 = getelementptr inbounds nuw %struct._ir_insn, ptr %.1285373, i64 %293
   %295 = load i32, ptr %52, align 4
   %.not313 = icmp sgt i32 %292, %295
   br i1 %.not313, label %._crit_edge377, label %.lr.ph376
@@ -2212,21 +2212,21 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
   ]
 
 307:                                              ; preds = %301, %301
-  %308 = getelementptr inbounds i8, ptr %.pn380, i64 68
+  %308 = getelementptr inbounds nuw i8, ptr %.pn380, i64 68
   %309 = load i32, ptr %308, align 4
   %310 = icmp eq i32 %309, 1
   %311 = load ptr, ptr %47, align 8
-  %312 = getelementptr inbounds i8, ptr %.pn380, i64 64
+  %312 = getelementptr inbounds nuw i8, ptr %.pn380, i64 64
   %313 = load i32, ptr %312, align 4
   %314 = zext i32 %313 to i64
-  %315 = getelementptr inbounds i32, ptr %311, i64 %314
+  %315 = getelementptr inbounds nuw i32, ptr %311, i64 %314
   %316 = load i32, ptr %315, align 4
   br i1 %310, label %331, label %317
 
 317:                                              ; preds = %307
   %318 = load ptr, ptr %39, align 8
   %319 = zext i32 %316 to i64
-  %320 = getelementptr inbounds %struct._ir_block, ptr %318, i64 %319, i32 1
+  %320 = getelementptr inbounds nuw %struct._ir_block, ptr %318, i64 %319, i32 1
   %321 = load i32, ptr %320, align 4
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds %struct._ir_insn, ptr %303, i64 %322
@@ -2237,7 +2237,7 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 326:                                              ; preds = %317
   %327 = add i32 %313, 1
   %328 = zext i32 %327 to i64
-  %329 = getelementptr inbounds i32, ptr %311, i64 %328
+  %329 = getelementptr inbounds nuw i32, ptr %311, i64 %328
   %330 = load i32, ptr %329, align 4
   br label %331
 
@@ -2253,20 +2253,20 @@ define hidden void @ir_dump_codegen(ptr noundef %0, ptr noundef %1) local_unname
 
 335:                                              ; preds = %301
   %336 = load ptr, ptr %47, align 8
-  %337 = getelementptr inbounds i8, ptr %.pn380, i64 64
+  %337 = getelementptr inbounds nuw i8, ptr %.pn380, i64 64
   %338 = load i32, ptr %337, align 4
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds i32, ptr %336, i64 %339
+  %340 = getelementptr inbounds nuw i32, ptr %336, i64 %339
   %341 = load i32, ptr %340, align 4
   %342 = load ptr, ptr %39, align 8
   %343 = zext i32 %341 to i64
-  %344 = getelementptr inbounds %struct._ir_block, ptr %342, i64 %343, i32 1
+  %344 = getelementptr inbounds nuw %struct._ir_block, ptr %342, i64 %343, i32 1
   %345 = load i32, ptr %344, align 4
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds %struct._ir_insn, ptr %303, i64 %346
   %348 = load i8, ptr %347, align 8
   %349 = icmp eq i8 %348, 92
-  %350 = getelementptr inbounds i8, ptr %340, i64 4
+  %350 = getelementptr inbounds nuw i8, ptr %340, i64 4
   %351 = load i32, ptr %350, align 4
   %. = select i1 %349, i32 %341, i32 %351
   %.389 = select i1 %349, i32 %351, i32 %341

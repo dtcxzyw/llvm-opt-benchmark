@@ -40,7 +40,7 @@ define range(i32 -1, 1) i32 @H5S__get_rebuild_status_test(i64 noundef %0, ptr no
   br label %19
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %4, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   store i32 %13, ptr %1, align 4
@@ -81,7 +81,7 @@ define range(i32 -1, 1) i32 @H5S__get_diminfo_status_test(i64 noundef %0, ptr no
   br label %13
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   store i32 %12, ptr %1, align 4
@@ -109,14 +109,14 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
-  %11 = getelementptr inbounds i8, ptr %4, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %H5S__check_internal_consistency.exit, label %.preheader63.i
 
 .preheader63.i:                                   ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %16 = load i32, ptr %15, align 8
   %.not69.i = icmp eq i32 %16, 0
   br i1 %.not69.i, label %._crit_edge.i, label %.lr.ph.preheader.i
@@ -148,7 +148,7 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   ]
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %4, i64 360
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2
@@ -160,12 +160,12 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br i1 %.not71.i, label %.loopexit.i, label %.lr.ph66.i
 
 .lr.ph66.i:                                       ; preds = %.preheader61.i
-  %34 = getelementptr inbounds i8, ptr %30, i64 2584
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 2584
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 96
-  %39 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %wide.trip.count.i = zext i32 %33 to i64
   br label %67
 
@@ -173,9 +173,9 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br i1 %.not71.i, label %.loopexit.i, label %.lr.ph68.i
 
 .lr.ph68.i:                                       ; preds = %.preheader.i
-  %40 = getelementptr inbounds i8, ptr %30, i64 2056
-  %41 = getelementptr inbounds i8, ptr %4, i64 96
-  %42 = getelementptr inbounds i8, ptr %30, i64 2312
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 2056
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 2312
   %wide.trip.count78.i = zext i32 %33 to i64
   br label %44
 
@@ -186,12 +186,12 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 
 44:                                               ; preds = %43, %.lr.ph68.i
   %indvars.iv75.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next76.i, %43 ]
-  %45 = getelementptr inbounds [32 x i64], ptr %40, i64 0, i64 %indvars.iv75.i
+  %45 = getelementptr inbounds nuw [32 x i64], ptr %40, i64 0, i64 %indvars.iv75.i
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds [32 x i64], ptr %41, i64 0, i64 %indvars.iv75.i
+  %47 = getelementptr inbounds nuw [32 x i64], ptr %41, i64 0, i64 %indvars.iv75.i
   %48 = load i64, ptr %47, align 8
   %49 = add nsw i64 %48, %46
-  %50 = getelementptr inbounds [32 x i64], ptr %2, i64 0, i64 %indvars.iv75.i
+  %50 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv75.i
   %51 = load i64, ptr %50, align 8
   %.not58.i = icmp eq i64 %49, %51
   br i1 %.not58.i, label %56, label %52
@@ -203,10 +203,10 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br label %115
 
 56:                                               ; preds = %44
-  %57 = getelementptr inbounds [32 x i64], ptr %42, i64 0, i64 %indvars.iv75.i
+  %57 = getelementptr inbounds nuw [32 x i64], ptr %42, i64 0, i64 %indvars.iv75.i
   %58 = load i64, ptr %57, align 8
   %59 = add nsw i64 %58, %48
-  %60 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv75.i
+  %60 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv75.i
   %61 = load i64, ptr %60, align 8
   %.not59.i = icmp eq i64 %59, %61
   br i1 %.not59.i, label %43, label %62
@@ -224,12 +224,12 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 
 67:                                               ; preds = %66, %.lr.ph66.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph66.i ], [ %indvars.iv.next.i, %66 ]
-  %68 = getelementptr inbounds i64, ptr %37, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv.i
   %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds [32 x i64], ptr %38, i64 0, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [32 x i64], ptr %38, i64 0, i64 %indvars.iv.i
   %71 = load i64, ptr %70, align 8
   %72 = add nsw i64 %71, %69
-  %73 = getelementptr inbounds [32 x i64], ptr %2, i64 0, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [32 x i64], ptr %2, i64 0, i64 %indvars.iv.i
   %74 = load i64, ptr %73, align 8
   %.not55.i = icmp eq i64 %72, %74
   br i1 %.not55.i, label %79, label %75
@@ -242,10 +242,10 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 
 79:                                               ; preds = %67
   %80 = load ptr, ptr %39, align 8
-  %81 = getelementptr inbounds i64, ptr %80, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw i64, ptr %80, i64 %indvars.iv.i
   %82 = load i64, ptr %81, align 8
   %83 = add nsw i64 %82, %71
-  %84 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv.i
   %85 = load i64, ptr %84, align 8
   %.not56.i = icmp eq i64 %83, %85
   br i1 %.not56.i, label %66, label %86
@@ -257,7 +257,7 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br label %115
 
 .loopexit.i:                                      ; preds = %66, %43, %.preheader.i, %.preheader61.i
-  %90 = getelementptr inbounds i8, ptr %30, i64 2584
+  %90 = getelementptr inbounds nuw i8, ptr %30, i64 2584
   %91 = load ptr, ptr %90, align 8
   %.not57.i = icmp eq ptr %91, null
   br i1 %.not57.i, label %H5S__check_internal_consistency.exit, label %92
@@ -274,13 +274,13 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br label %115
 
 99:                                               ; preds = %25
-  %100 = getelementptr inbounds i8, ptr %4, i64 360
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 360
   %101 = load ptr, ptr %100, align 8
   %.not.i = icmp eq ptr %101, null
   br i1 %.not.i, label %H5S__check_internal_consistency.exit, label %102
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %101, i64 512
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 512
   br label %104
 
 104:                                              ; preds = %104, %102
@@ -291,7 +291,7 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br i1 %.not.i.i, label %105, label %104
 
 105:                                              ; preds = %104
-  %106 = getelementptr inbounds i8, ptr %101, i64 520
+  %106 = getelementptr inbounds nuw i8, ptr %101, i64 520
   %107 = load ptr, ptr %106, align 8
   %.not9.i.i = icmp eq ptr %.07.i.i, %107
   br i1 %.not9.i.i, label %H5S__check_internal_consistency.exit, label %108
@@ -336,13 +336,13 @@ define range(i32 -1, 1) i32 @H5S__verify_offsets(i64 noundef %0, ptr nocapture n
   br label %28
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %20 [
     i32 0, label %16
@@ -356,7 +356,7 @@ define range(i32 -1, 1) i32 @H5S__verify_offsets(i64 noundef %0, ptr nocapture n
   br label %28
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %3, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %22 = zext i32 %11 to i64
   %23 = shl nuw nsw i64 %22, 3
   %bcmp = tail call i32 @bcmp(ptr nonnull %21, ptr %1, i64 %23)
@@ -378,7 +378,7 @@ declare i32 @H5S_get_select_bounds(ptr noundef, ptr noundef, ptr noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.01118 = load ptr, ptr %2, align 8
   %.not19 = icmp eq ptr %.01118, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -386,7 +386,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocap
 .lr.ph:                                           ; preds = %1, %8
   %.01121 = phi ptr [ %.011, %8 ], [ %.01118, %1 ]
   %.020 = phi i32 [ %.1, %8 ], [ 1, %1 ]
-  %3 = getelementptr inbounds i8, ptr %.01121, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.01121, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not15 = icmp eq ptr %4, null
   br i1 %.not15, label %8, label %5
@@ -398,7 +398,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocap
 
 8:                                                ; preds = %5, %.lr.ph
   %.1 = phi i32 [ %6, %5 ], [ %.020, %.lr.ph ]
-  %9 = getelementptr inbounds i8, ptr %.01121, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %.01121, i64 24
   %.011 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %.011, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -406,7 +406,7 @@ define internal fastcc range(i32 -1, 2) i32 @H5S__check_spans_tail_ptr(ptr nocap
 ._crit_edge:                                      ; preds = %8, %1
   %.010.lcssa = phi ptr [ null, %1 ], [ %.01121, %8 ]
   %.0.lcssa = phi i32 [ 1, %1 ], [ %.1, %8 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not14 = icmp eq ptr %.010.lcssa, %11
   br i1 %.not14, label %15, label %.sink.split

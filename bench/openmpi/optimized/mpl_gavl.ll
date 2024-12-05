@@ -10,7 +10,7 @@ define range(i32 0, 16) i32 @MPL_gavl_tree_create(ptr noundef %0, ptr nocapture 
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %6, align 8
   store ptr %3, ptr %1, align 8
   br label %7
@@ -29,13 +29,13 @@ define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr 
   br i1 %7, label %42, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %3, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
   %14 = icmp eq ptr %13, null
@@ -46,10 +46,10 @@ define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr 
   br label %42
 
 16:                                               ; preds = %8
-  %17 = getelementptr inbounds i8, ptr %0, i64 528
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %17, align 8
   %18 = add i64 %2, %5
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %20
 
 20:                                               ; preds = %31, %16
@@ -60,20 +60,20 @@ define range(i32 0, 16) i32 @MPL_gavl_tree_insert(ptr nocapture noundef %0, ptr 
   br i1 %.not.i.not.i, label %MPLI_gavl_subset_cmp_func.exit.thread38.i, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %22
   %.not11.i.i = icmp ugt i64 %18, %26
   br i1 %.not11.i.i, label %MPLI_gavl_subset_cmp_func.exit.thread41.i, label %36
 
 MPLI_gavl_subset_cmp_func.exit.thread38.i:        ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not29.i = icmp eq ptr %28, null
   br i1 %.not29.i, label %40, label %31
 
 MPLI_gavl_subset_cmp_func.exit.thread41.i:        ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %40, label %31
@@ -90,9 +90,9 @@ MPLI_gavl_subset_cmp_func.exit.thread41.i:        ; preds = %23
   br label %20
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds i8, ptr %0, i64 536
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store ptr %.0.i, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %3) #7
   tail call void @free(ptr noundef %6) #7
@@ -100,7 +100,7 @@ MPLI_gavl_subset_cmp_func.exit.thread41.i:        ; preds = %23
 
 40:                                               ; preds = %MPLI_gavl_subset_cmp_func.exit.thread41.i, %MPLI_gavl_subset_cmp_func.exit.thread38.i
   %.lcssa.sink = phi ptr [ %27, %MPLI_gavl_subset_cmp_func.exit.thread38.i ], [ %29, %MPLI_gavl_subset_cmp_func.exit.thread41.i ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 536
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store ptr %.0.i, ptr %41, align 8
   store ptr %6, ptr %.lcssa.sink, align 8
   store ptr %.0.i, ptr %6, align 8
@@ -119,11 +119,11 @@ define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i6
   br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 528
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %7 = add i64 %2, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 536
-  %10 = getelementptr inbounds i8, ptr %0, i64 544
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 544
   br label %11
 
 11:                                               ; preds = %.lr.ph, %gavl_tree_remove_node_internal.exit
@@ -146,7 +146,7 @@ define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i6
   br i1 %.not.i.not.i, label %MPLI_gavl_subset_cmp_func.exit.thread38.i, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %15
   %.not11.i.i = icmp ugt i64 %7, %20
@@ -157,7 +157,7 @@ define internal fastcc void @gavl_tree_remove_nodes(ptr nocapture noundef %0, i6
   br i1 %.not.i30.i, label %22, label %MPLI_gavl_subset_cmp_func.exit.thread38.i
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %15
   %.not9.i.i = icmp ugt i64 %25, %1
@@ -175,13 +175,13 @@ MPLI_gavl_subset_cmp_func.exit.i:                 ; preds = %26
   br i1 %.not54.i, label %MPLI_gavl_subset_cmp_func.exit.thread38.i, label %MPLI_gavl_subset_cmp_func.exit.thread41.i
 
 MPLI_gavl_subset_cmp_func.exit.thread38.i:        ; preds = %MPLI_gavl_subset_cmp_func.exit.i, %21, %16
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not29.i = icmp eq ptr %29, null
   br i1 %.not29.i, label %gavl_tree_search_internal.exit, label %32
 
 MPLI_gavl_subset_cmp_func.exit.thread41.i:        ; preds = %MPLI_gavl_subset_cmp_func.exit.i, %22, %17
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %gavl_tree_search_internal.exit, label %32
@@ -204,7 +204,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
 37:                                               ; preds = %17, %26, %22
   %38 = getelementptr i8, ptr %.0.i, i64 32
   store ptr %.0.i, ptr %9, align 8
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %66
@@ -215,7 +215,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not73.i = icmp eq ptr %47, null
   br i1 %.not73.i, label %49, label %48
@@ -230,10 +230,10 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   br label %103
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds i8, ptr %43, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, %.0.i
-  %54 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %55 = load ptr, ptr %54, align 8
   br i1 %53, label %56, label %57
 
@@ -242,7 +242,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   br label %59
 
 57:                                               ; preds = %50
-  %58 = getelementptr inbounds i8, ptr %43, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %55, ptr %58, align 8
   br label %59
 
@@ -270,7 +270,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   %69 = sext i32 %67 to i64
   %70 = getelementptr inbounds [64 x ptr], ptr %8, i64 0, i64 %69
   store ptr %.0.i, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %40, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %72 = load ptr, ptr %71, align 8
   %.not75.i = icmp eq ptr %72, null
   br i1 %.not75.i, label %._crit_edge.i, label %.lr.ph.i
@@ -285,7 +285,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   %77 = getelementptr inbounds [64 x ptr], ptr %8, i64 0, i64 %76
   store ptr %.06176.i, ptr %77, align 8
   %78 = load ptr, ptr %73, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8
   %.not.i8 = icmp eq ptr %80, null
   br i1 %.not.i8, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
@@ -297,7 +297,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   br i1 %.not70.i, label %90, label %82
 
 82:                                               ; preds = %._crit_edge.i
-  %83 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.061.lcssa.i, i64 16
   %84 = load ptr, ptr %83, align 8
   %.not71.i = icmp eq ptr %84, null
   br i1 %.not71.i, label %86, label %85
@@ -311,7 +311,7 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
 86:                                               ; preds = %85, %82
   %87 = phi ptr [ %.pre77.i, %85 ], [ %81, %82 ]
   %88 = phi ptr [ %.pre.i, %85 ], [ null, %82 ]
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store ptr %88, ptr %89, align 8
   br label %91
 
@@ -320,18 +320,18 @@ gavl_tree_search_internal.exit:                   ; preds = %MPLI_gavl_subset_cm
   br label %91
 
 91:                                               ; preds = %90, %86
-  %92 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %93 = load ptr, ptr %92, align 8
   %94 = load i64, ptr %38, align 8
-  %95 = getelementptr inbounds i8, ptr %.0.i, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %96 = load i64, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %.061.lcssa.i, i64 32
   %98 = load i64, ptr %97, align 8
   store i64 %98, ptr %38, align 8
-  %99 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %.061.lcssa.i, i64 40
   %100 = load i64, ptr %99, align 8
   store i64 %100, ptr %95, align 8
-  %101 = getelementptr inbounds i8, ptr %.061.lcssa.i, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %.061.lcssa.i, i64 48
   %102 = load ptr, ptr %101, align 8
   store ptr %102, ptr %92, align 8
   store i64 %94, ptr %97, align 8
@@ -373,38 +373,38 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @gavl_tree_rebalance(ptr nocapture noundef %0) unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 536
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 528
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.preheader, %370
   %.0 = phi ptr [ %374, %370 ], [ %3, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %.0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
   br label %14
 
 14:                                               ; preds = %10, %6
   %15 = phi i32 [ %13, %10 ], [ 0, %6 ]
-  %16 = getelementptr inbounds i8, ptr %.0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %gavl_update_node_info.exit, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %17, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   br label %gavl_update_node_info.exit
@@ -414,12 +414,12 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   %24 = tail call i32 @llvm.smax.i32(i32 %15, i32 %23)
   %25 = add nsw i32 %24, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %.0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i64 %26, ptr %27, align 8
   br i1 %9, label %32, label %28
 
 28:                                               ; preds = %gavl_update_node_info.exit
-  %29 = getelementptr inbounds i8, ptr %8, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %30 = load i64, ptr %29, align 8
   %31 = trunc i64 %30 to i32
   br label %32
@@ -429,7 +429,7 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   br i1 %18, label %38, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %17, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   br label %38
@@ -441,13 +441,13 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   br i1 %41, label %42, label %202
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %51, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = trunc i64 %48 to i32
   %50 = add nsw i32 %49, 1
@@ -456,7 +456,7 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
 51:                                               ; preds = %42, %46
   %52 = phi i32 [ %50, %46 ], [ 1, %42 ]
   %53 = icmp eq i32 %52, %33
-  %54 = getelementptr inbounds i8, ptr %8, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %55 = load ptr, ptr %54, align 8
   br i1 %53, label %56, label %103
 
@@ -469,7 +469,7 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   br i1 %.not.i, label %65, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %.0
   br i1 %61, label %62, label %63
@@ -479,7 +479,7 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   br label %65
 
 63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %57, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 16
   store ptr %8, ptr %64, align 8
   br label %65
 
@@ -496,7 +496,7 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   br i1 %68, label %.thread.i, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %.pr.i, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.pr.i, i64 24
   %71 = load i64, ptr %70, align 8
   %72 = trunc i64 %71 to i32
   br label %.thread.i
@@ -508,7 +508,7 @@ gavl_update_node_info.exit:                       ; preds = %14, %19
   br i1 %75, label %gavl_update_node_info.exit.i, label %76
 
 76:                                               ; preds = %.thread.i
-  %77 = getelementptr inbounds i8, ptr %74, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %78 = load i64, ptr %77, align 8
   %79 = trunc i64 %78 to i32
   br label %gavl_update_node_info.exit.i
@@ -524,7 +524,7 @@ gavl_update_node_info.exit.i:                     ; preds = %76, %.thread.i
   br i1 %85, label %90, label %86
 
 86:                                               ; preds = %gavl_update_node_info.exit.i
-  %87 = getelementptr inbounds i8, ptr %84, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %88 = load i64, ptr %87, align 8
   %89 = trunc i64 %88 to i32
   br label %90
@@ -536,7 +536,7 @@ gavl_update_node_info.exit.i:                     ; preds = %76, %.thread.i
   br i1 %93, label %gavl_right_rotation.exit, label %94
 
 94:                                               ; preds = %90
-  %95 = getelementptr inbounds i8, ptr %92, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %96 = load i64, ptr %95, align 8
   %97 = trunc i64 %96 to i32
   br label %gavl_right_rotation.exit
@@ -546,12 +546,12 @@ gavl_right_rotation.exit:                         ; preds = %90, %94
   %99 = tail call i32 @llvm.smax.i32(i32 %91, i32 %98)
   %100 = add nsw i32 %99, 1
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %8, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %101, ptr %102, align 8
   br label %368
 
 103:                                              ; preds = %51
-  %104 = getelementptr inbounds i8, ptr %55, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %105 = load ptr, ptr %104, align 8
   store ptr %105, ptr %54, align 8
   store ptr %8, ptr %104, align 8
@@ -561,7 +561,7 @@ gavl_right_rotation.exit:                         ; preds = %90, %94
   br i1 %.not.i.i, label %114, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %106, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, %8
   br i1 %110, label %111, label %112
@@ -571,7 +571,7 @@ gavl_right_rotation.exit:                         ; preds = %90, %94
   br label %114
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %106, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %106, i64 16
   store ptr %55, ptr %113, align 8
   br label %114
 
@@ -591,7 +591,7 @@ gavl_right_rotation.exit:                         ; preds = %90, %94
   br i1 %119, label %124, label %120
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %118, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %122 = load i64, ptr %121, align 8
   %123 = trunc i64 %122 to i32
   br label %124
@@ -603,7 +603,7 @@ gavl_right_rotation.exit:                         ; preds = %90, %94
   br i1 %127, label %gavl_update_node_info.exit.i.i, label %128
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %126, i64 24
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %130 = load i64, ptr %129, align 8
   %131 = trunc i64 %130 to i32
   br label %gavl_update_node_info.exit.i.i
@@ -613,27 +613,27 @@ gavl_update_node_info.exit.i.i:                   ; preds = %128, %124
   %133 = tail call i32 @llvm.smax.i32(i32 %125, i32 %132)
   %134 = add nsw i32 %133, 1
   %135 = sext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %8, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %135, ptr %136, align 8
   %137 = load ptr, ptr %104, align 8
   %138 = icmp eq ptr %137, null
   br i1 %138, label %143, label %139
 
 139:                                              ; preds = %gavl_update_node_info.exit.i.i
-  %140 = getelementptr inbounds i8, ptr %137, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %141 = load i64, ptr %140, align 8
   %142 = trunc i64 %141 to i32
   br label %143
 
 143:                                              ; preds = %139, %gavl_update_node_info.exit.i.i
   %144 = phi i32 [ %142, %139 ], [ 0, %gavl_update_node_info.exit.i.i ]
-  %145 = getelementptr inbounds i8, ptr %55, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
   br i1 %147, label %gavl_left_rotation.exit.i, label %148
 
 148:                                              ; preds = %143
-  %149 = getelementptr inbounds i8, ptr %146, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %150 = load i64, ptr %149, align 8
   %151 = trunc i64 %150 to i32
   br label %gavl_left_rotation.exit.i
@@ -643,7 +643,7 @@ gavl_left_rotation.exit.i:                        ; preds = %148, %143
   %153 = tail call i32 @llvm.smax.i32(i32 %144, i32 %152)
   %154 = add nsw i32 %153, 1
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i8, ptr %55, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store i64 %155, ptr %156, align 8
   store ptr %146, ptr %7, align 8
   store ptr %.0, ptr %145, align 8
@@ -653,7 +653,7 @@ gavl_left_rotation.exit.i:                        ; preds = %148, %143
   br i1 %.not.i5.i, label %165, label %158
 
 158:                                              ; preds = %gavl_left_rotation.exit.i
-  %159 = getelementptr inbounds i8, ptr %157, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, %.0
   br i1 %161, label %162, label %163
@@ -663,7 +663,7 @@ gavl_left_rotation.exit.i:                        ; preds = %148, %143
   br label %165
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds i8, ptr %157, i64 16
+  %164 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store ptr %55, ptr %164, align 8
   br label %165
 
@@ -680,7 +680,7 @@ gavl_left_rotation.exit.i:                        ; preds = %148, %143
   br i1 %168, label %.thread.i.i, label %169
 
 169:                                              ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %.pr.i.i, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %.pr.i.i, i64 24
   %171 = load i64, ptr %170, align 8
   %172 = trunc i64 %171 to i32
   br label %.thread.i.i
@@ -692,7 +692,7 @@ gavl_left_rotation.exit.i:                        ; preds = %148, %143
   br i1 %175, label %gavl_update_node_info.exit.i7.i, label %176
 
 176:                                              ; preds = %.thread.i.i
-  %177 = getelementptr inbounds i8, ptr %174, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %178 = load i64, ptr %177, align 8
   %179 = trunc i64 %178 to i32
   br label %gavl_update_node_info.exit.i7.i
@@ -708,7 +708,7 @@ gavl_update_node_info.exit.i7.i:                  ; preds = %176, %.thread.i.i
   br i1 %185, label %190, label %186
 
 186:                                              ; preds = %gavl_update_node_info.exit.i7.i
-  %187 = getelementptr inbounds i8, ptr %184, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 24
   %188 = load i64, ptr %187, align 8
   %189 = trunc i64 %188 to i32
   br label %190
@@ -720,7 +720,7 @@ gavl_update_node_info.exit.i7.i:                  ; preds = %176, %.thread.i.i
   br i1 %193, label %gavl_left_right_rotation.exit, label %194
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i8, ptr %192, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %196 = load i64, ptr %195, align 8
   %197 = trunc i64 %196 to i32
   br label %gavl_left_right_rotation.exit
@@ -739,13 +739,13 @@ gavl_left_right_rotation.exit:                    ; preds = %190, %194
   br i1 %204, label %205, label %368
 
 205:                                              ; preds = %202
-  %206 = getelementptr inbounds i8, ptr %17, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = icmp eq ptr %207, null
   br i1 %208, label %214, label %209
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds i8, ptr %207, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %211 = load i64, ptr %210, align 8
   %212 = trunc i64 %211 to i32
   %213 = add nsw i32 %212, 1
@@ -757,7 +757,7 @@ gavl_left_right_rotation.exit:                    ; preds = %190, %194
   br i1 %216, label %217, label %317
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %207, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %219 = load ptr, ptr %218, align 8
   store ptr %219, ptr %206, align 8
   store ptr %17, ptr %218, align 8
@@ -767,7 +767,7 @@ gavl_left_right_rotation.exit:                    ; preds = %190, %194
   br i1 %.not.i.i46, label %228, label %221
 
 221:                                              ; preds = %217
-  %222 = getelementptr inbounds i8, ptr %220, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %223 = load ptr, ptr %222, align 8
   %224 = icmp eq ptr %223, %17
   br i1 %224, label %225, label %226
@@ -777,7 +777,7 @@ gavl_left_right_rotation.exit:                    ; preds = %190, %194
   br label %228
 
 226:                                              ; preds = %221
-  %227 = getelementptr inbounds i8, ptr %220, i64 16
+  %227 = getelementptr inbounds nuw i8, ptr %220, i64 16
   store ptr %207, ptr %227, align 8
   br label %228
 
@@ -794,20 +794,20 @@ gavl_left_right_rotation.exit:                    ; preds = %190, %194
   br i1 %231, label %.thread.i.i49, label %232
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds i8, ptr %.pr.i.i48, i64 24
+  %233 = getelementptr inbounds nuw i8, ptr %.pr.i.i48, i64 24
   %234 = load i64, ptr %233, align 8
   %235 = trunc i64 %234 to i32
   br label %.thread.i.i49
 
 .thread.i.i49:                                    ; preds = %232, %230, %228
   %236 = phi i32 [ %235, %232 ], [ 0, %230 ], [ 0, %228 ]
-  %237 = getelementptr inbounds i8, ptr %17, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %238 = load ptr, ptr %237, align 8
   %239 = icmp eq ptr %238, null
   br i1 %239, label %gavl_update_node_info.exit.i.i50, label %240
 
 240:                                              ; preds = %.thread.i.i49
-  %241 = getelementptr inbounds i8, ptr %238, i64 24
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
   %242 = load i64, ptr %241, align 8
   %243 = trunc i64 %242 to i32
   br label %gavl_update_node_info.exit.i.i50
@@ -817,15 +817,15 @@ gavl_update_node_info.exit.i.i50:                 ; preds = %240, %.thread.i.i49
   %245 = tail call i32 @llvm.smax.i32(i32 %236, i32 %244)
   %246 = add nsw i32 %245, 1
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i8, ptr %17, i64 24
+  %248 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %247, ptr %248, align 8
-  %249 = getelementptr inbounds i8, ptr %207, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = icmp eq ptr %250, null
   br i1 %251, label %256, label %252
 
 252:                                              ; preds = %gavl_update_node_info.exit.i.i50
-  %253 = getelementptr inbounds i8, ptr %250, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 24
   %254 = load i64, ptr %253, align 8
   %255 = trunc i64 %254 to i32
   br label %256
@@ -837,7 +837,7 @@ gavl_update_node_info.exit.i.i50:                 ; preds = %240, %.thread.i.i49
   br i1 %259, label %gavl_right_rotation.exit.i, label %260
 
 260:                                              ; preds = %256
-  %261 = getelementptr inbounds i8, ptr %258, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %258, i64 24
   %262 = load i64, ptr %261, align 8
   %263 = trunc i64 %262 to i32
   br label %gavl_right_rotation.exit.i
@@ -847,7 +847,7 @@ gavl_right_rotation.exit.i:                       ; preds = %260, %256
   %265 = tail call i32 @llvm.smax.i32(i32 %257, i32 %264)
   %266 = add nsw i32 %265, 1
   %267 = sext i32 %266 to i64
-  %268 = getelementptr inbounds i8, ptr %207, i64 24
+  %268 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store i64 %267, ptr %268, align 8
   store ptr %250, ptr %16, align 8
   store ptr %.0, ptr %249, align 8
@@ -857,7 +857,7 @@ gavl_right_rotation.exit.i:                       ; preds = %260, %256
   br i1 %.not.i5.i51, label %277, label %270
 
 270:                                              ; preds = %gavl_right_rotation.exit.i
-  %271 = getelementptr inbounds i8, ptr %269, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = icmp eq ptr %272, %.0
   br i1 %273, label %274, label %275
@@ -867,7 +867,7 @@ gavl_right_rotation.exit.i:                       ; preds = %260, %256
   br label %277
 
 275:                                              ; preds = %270
-  %276 = getelementptr inbounds i8, ptr %269, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %269, i64 16
   store ptr %207, ptr %276, align 8
   br label %277
 
@@ -887,7 +887,7 @@ gavl_right_rotation.exit.i:                       ; preds = %260, %256
   br i1 %282, label %287, label %283
 
 283:                                              ; preds = %280
-  %284 = getelementptr inbounds i8, ptr %281, i64 24
+  %284 = getelementptr inbounds nuw i8, ptr %281, i64 24
   %285 = load i64, ptr %284, align 8
   %286 = trunc i64 %285 to i32
   br label %287
@@ -899,7 +899,7 @@ gavl_right_rotation.exit.i:                       ; preds = %260, %256
   br i1 %290, label %gavl_update_node_info.exit.i7.i53, label %291
 
 291:                                              ; preds = %287
-  %292 = getelementptr inbounds i8, ptr %289, i64 24
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 24
   %293 = load i64, ptr %292, align 8
   %294 = trunc i64 %293 to i32
   br label %gavl_update_node_info.exit.i7.i53
@@ -915,7 +915,7 @@ gavl_update_node_info.exit.i7.i53:                ; preds = %291, %287
   br i1 %300, label %305, label %301
 
 301:                                              ; preds = %gavl_update_node_info.exit.i7.i53
-  %302 = getelementptr inbounds i8, ptr %299, i64 24
+  %302 = getelementptr inbounds nuw i8, ptr %299, i64 24
   %303 = load i64, ptr %302, align 8
   %304 = trunc i64 %303 to i32
   br label %305
@@ -927,7 +927,7 @@ gavl_update_node_info.exit.i7.i53:                ; preds = %291, %287
   br i1 %308, label %gavl_right_left_rotation.exit, label %309
 
 309:                                              ; preds = %305
-  %310 = getelementptr inbounds i8, ptr %307, i64 24
+  %310 = getelementptr inbounds nuw i8, ptr %307, i64 24
   %311 = load i64, ptr %310, align 8
   %312 = trunc i64 %311 to i32
   br label %gavl_right_left_rotation.exit
@@ -949,7 +949,7 @@ gavl_right_left_rotation.exit:                    ; preds = %305, %309
   br i1 %.not.i55, label %326, label %319
 
 319:                                              ; preds = %317
-  %320 = getelementptr inbounds i8, ptr %318, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %318, i64 8
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, %.0
   br i1 %322, label %323, label %324
@@ -959,7 +959,7 @@ gavl_right_left_rotation.exit:                    ; preds = %305, %309
   br label %326
 
 324:                                              ; preds = %319
-  %325 = getelementptr inbounds i8, ptr %318, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %318, i64 16
   store ptr %17, ptr %325, align 8
   br label %326
 
@@ -979,7 +979,7 @@ gavl_right_left_rotation.exit:                    ; preds = %305, %309
   br i1 %331, label %336, label %332
 
 332:                                              ; preds = %329
-  %333 = getelementptr inbounds i8, ptr %330, i64 24
+  %333 = getelementptr inbounds nuw i8, ptr %330, i64 24
   %334 = load i64, ptr %333, align 8
   %335 = trunc i64 %334 to i32
   br label %336
@@ -991,7 +991,7 @@ gavl_right_left_rotation.exit:                    ; preds = %305, %309
   br i1 %339, label %gavl_update_node_info.exit.i57, label %340
 
 340:                                              ; preds = %336
-  %341 = getelementptr inbounds i8, ptr %338, i64 24
+  %341 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %342 = load i64, ptr %341, align 8
   %343 = trunc i64 %342 to i32
   br label %gavl_update_node_info.exit.i57
@@ -1007,20 +1007,20 @@ gavl_update_node_info.exit.i57:                   ; preds = %340, %336
   br i1 %349, label %354, label %350
 
 350:                                              ; preds = %gavl_update_node_info.exit.i57
-  %351 = getelementptr inbounds i8, ptr %348, i64 24
+  %351 = getelementptr inbounds nuw i8, ptr %348, i64 24
   %352 = load i64, ptr %351, align 8
   %353 = trunc i64 %352 to i32
   br label %354
 
 354:                                              ; preds = %350, %gavl_update_node_info.exit.i57
   %355 = phi i32 [ %353, %350 ], [ 0, %gavl_update_node_info.exit.i57 ]
-  %356 = getelementptr inbounds i8, ptr %17, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %357 = load ptr, ptr %356, align 8
   %358 = icmp eq ptr %357, null
   br i1 %358, label %gavl_left_rotation.exit, label %359
 
 359:                                              ; preds = %354
-  %360 = getelementptr inbounds i8, ptr %357, i64 24
+  %360 = getelementptr inbounds nuw i8, ptr %357, i64 24
   %361 = load i64, ptr %360, align 8
   %362 = trunc i64 %361 to i32
   br label %gavl_left_rotation.exit
@@ -1030,7 +1030,7 @@ gavl_left_rotation.exit:                          ; preds = %354, %359
   %364 = tail call i32 @llvm.smax.i32(i32 %355, i32 %363)
   %365 = add nsw i32 %364, 1
   %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds i8, ptr %17, i64 24
+  %367 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 %366, ptr %367, align 8
   br label %368
 
@@ -1075,18 +1075,18 @@ define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unname
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
 4:                                                ; preds = %.lr.ph, %25
   %.028 = phi ptr [ %2, %.lr.ph ], [ %.1, %25 ]
-  %5 = getelementptr inbounds i8, ptr %.028, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not23 = icmp eq ptr %6, null
   br i1 %.not23, label %7, label %25
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %.028, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.028, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not24 = icmp eq ptr %9, null
   br i1 %.not24, label %10, label %25
@@ -1097,7 +1097,7 @@ define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unname
   br i1 %.not25, label %19, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %.028
   br i1 %15, label %16, label %17
@@ -1107,7 +1107,7 @@ define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unname
   br label %19
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %11, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr null, ptr %18, align 8
   br label %19
 
@@ -1117,7 +1117,7 @@ define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unname
   br i1 %.not26, label %24, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %.028, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.028, i64 48
   %23 = load ptr, ptr %22, align 8
   tail call void %20(ptr noundef %23) #7
   br label %24
@@ -1140,26 +1140,26 @@ define noundef i32 @MPL_gavl_tree_destory(ptr nocapture noundef %0) local_unname
 define noundef i32 @MPL_gavl_tree_delete_range(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %1 to i64
   tail call fastcc void @gavl_tree_remove_nodes(ptr noundef %0, i64 noundef %4, i64 noundef %2, i32 noundef 1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 544
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %6 = load ptr, ptr %5, align 8
   %.not35.i = icmp eq ptr %6, null
   br i1 %.not35.i, label %gavl_tree_delete_removed_nodes.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %7 = add i64 %2, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %26, %.lr.ph.i
   %.02437.i = phi ptr [ %.125.i, %26 ], [ %6, %.lr.ph.i ]
   %.02636.i = phi ptr [ %.127.i, %26 ], [ null, %.lr.ph.i ]
-  %9 = getelementptr inbounds i8, ptr %.02437.i, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %.02437.i, i64 32
   %10 = load i64, ptr %9, align 8
   %.not.i.i = icmp ugt i64 %7, %10
   br i1 %.not.i.i, label %11, label %24
 
 11:                                               ; preds = %.lr.ph.split.i
-  %12 = getelementptr inbounds i8, ptr %.02437.i, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.02437.i, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %.not9.i.i = icmp ugt i64 %14, %4
@@ -1184,7 +1184,7 @@ MPLI_gavl_intersect_cmp_func.exit.i:              ; preds = %11
   br i1 %.not30.i, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %.02437.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.02437.i, i64 48
   %22 = load ptr, ptr %21, align 8
   tail call void %19(ptr noundef %22) #7
   br label %23
@@ -1211,13 +1211,13 @@ gavl_tree_delete_removed_nodes.exit:              ; preds = %26, %3
 define noundef i32 @MPL_gavl_tree_delete_start_addr(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = ptrtoint ptr %1 to i64
   tail call fastcc void @gavl_tree_remove_nodes(ptr noundef %0, i64 noundef %3, i64 noundef 0, i32 noundef 2)
-  %4 = getelementptr inbounds i8, ptr %0, i64 544
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8
   %.not35.i = icmp eq ptr %5, null
   br i1 %.not35.i, label %gavl_tree_delete_removed_nodes.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %20, %.lr.ph.i
@@ -1251,7 +1251,7 @@ MPLI_gavl_intersect_cmp_func.exit.us.i:           ; preds = %.lr.ph.split.us.i
   br i1 %.not30.us.i, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.02437.us.i, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.02437.us.i, i64 48
   %18 = load ptr, ptr %17, align 8
   tail call void %15(ptr noundef %18) #7
   br label %19

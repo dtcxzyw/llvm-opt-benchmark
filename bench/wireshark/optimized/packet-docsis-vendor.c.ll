@@ -424,7 +424,7 @@ dissect_cisco.exit:                               ; preds = %.loopexit.i, %25
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
   %100 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_vsif, i64 0, i64 %100
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_vsif, i64 0, i64 %100
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %101
 

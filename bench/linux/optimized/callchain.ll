@@ -80,7 +80,7 @@ define dso_local noundef range(i32 -75, 1) i32 @get_callchain_buffers(i32 nounde
   %21 = shl i32 %20, 5
   %22 = add i32 %21, 32
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %25
 
 25:                                               ; preds = %38, %17
@@ -240,7 +240,7 @@ define dso_local ptr @get_callchain_entry(ptr nocapture noundef writeonly initia
 
 31:                                               ; preds = %21
   %32 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
-  %33 = getelementptr inbounds i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   %35 = getelementptr [0 x ptr], ptr %33, i64 0, i64 %34
   %36 = load ptr, ptr %35, align 8
@@ -276,7 +276,7 @@ define dso_local void @put_callchain_entry(i32 noundef %0) local_unnamed_addr #0
 define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 16 {
   %8 = alloca %struct.perf_callchain_entry_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #5
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %9, align 8, !annotation !25
   %10 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !18
   %11 = inttoptr i64 %10 to ptr
@@ -312,7 +312,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 
 33:                                               ; preds = %28
   %34 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !23
-  %35 = getelementptr inbounds i8, ptr %29, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %36 = sext i32 %34 to i64
   %37 = getelementptr [0 x ptr], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
@@ -329,20 +329,20 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 
 48:                                               ; preds = %33
   store ptr %46, ptr %8, align 8
-  %49 = getelementptr inbounds i8, ptr %8, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %4, ptr %49, align 8
   %50 = zext i32 %1 to i64
   store i64 %50, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %8, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %8, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i16 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 18
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 18
   store i8 0, ptr %53, align 2
   br i1 %2, label %54, label %68
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i8, ptr %0, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %56, 3
   %58 = icmp eq i64 %57, 0
@@ -356,7 +356,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   br i1 %61, label %62, label %66
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %46, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %64 = add nuw nsw i64 %50, 1
   store i64 %64, ptr %46, align 8
   %65 = getelementptr [0 x i64], ptr %63, i64 0, i64 %50
@@ -376,7 +376,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   br i1 %3, label %69, label %.thread5
 
 69:                                               ; preds = %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %71 = load i64, ptr %70, align 8
   %72 = and i64 %71, 3
   %73 = icmp eq i64 %72, 0
@@ -385,13 +385,13 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 74:                                               ; preds = %69
   %75 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !26
   %76 = inttoptr i64 %75 to ptr
-  %77 = getelementptr inbounds i8, ptr %76, i64 1192
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1192
   %78 = load ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %.thread5, label %80
 
 80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %76, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %82 = load ptr, ptr %81, align 32
   %83 = ptrtoint ptr %82 to i64
   %84 = add i64 %83, 16384
@@ -417,7 +417,7 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 
 97:                                               ; preds = %92
   %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i64, ptr %98, align 8
   %101 = add i64 %100, 1
   store i64 %101, ptr %98, align 8
@@ -461,14 +461,14 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
 define dso_local i32 @perf_event_max_stack_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %11, align 8
   %12 = call i32 @proc_dointvec_minmax(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #5
   %13 = icmp eq i32 %12, 0
@@ -519,7 +519,7 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @release_callchain_buffers_rcu(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
 3:                                                ; preds = %1, %13

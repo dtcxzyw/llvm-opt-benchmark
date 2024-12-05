@@ -48,14 +48,14 @@ entry:
   %ri = alloca %struct.raxIterator, align 8
   %result = alloca ptr, align 8
   store ptr %c, ptr %c.addr, align 8
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 8589934592
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %if.end18, label %if.then
 
 if.then:                                          ; preds = %entry
-  %client_tracking_prefixes = getelementptr inbounds i8, ptr %c, i64 656
+  %client_tracking_prefixes = getelementptr inbounds nuw i8, ptr %c, i64 656
   %1 = load ptr, ptr %client_tracking_prefixes, align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %1) #8
   %call = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #8
@@ -64,8 +64,8 @@ if.then:                                          ; preds = %entry
   br i1 %tobool2.not7, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
@@ -83,7 +83,7 @@ cond.false:                                       ; preds = %while.body
 
 cond.end:                                         ; preds = %while.body
   %5 = load ptr, ptr %result, align 8
-  %clients = getelementptr inbounds i8, ptr %5, i64 8
+  %clients = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %clients, align 8
   %call7 = call i32 @raxRemove(ptr noundef %6, ptr noundef nonnull %c.addr, i64 noundef 8, ptr noundef null) #8
   %7 = load ptr, ptr %clients, align 8
@@ -111,13 +111,13 @@ if.end:                                           ; preds = %if.then11, %cond.en
 while.end:                                        ; preds = %if.end, %if.then
   call void @raxStop(ptr noundef nonnull %ri) #8
   %13 = load ptr, ptr %c.addr, align 8
-  %client_tracking_prefixes16 = getelementptr inbounds i8, ptr %13, i64 656
+  %client_tracking_prefixes16 = getelementptr inbounds nuw i8, ptr %13, i64 656
   %14 = load ptr, ptr %client_tracking_prefixes16, align 8
   call void @raxFree(ptr noundef %14) #8
   %15 = load ptr, ptr %c.addr, align 8
-  %client_tracking_prefixes17 = getelementptr inbounds i8, ptr %15, i64 656
+  %client_tracking_prefixes17 = getelementptr inbounds nuw i8, ptr %15, i64 656
   store ptr null, ptr %client_tracking_prefixes17, align 8
-  %flags19.phi.trans.insert = getelementptr inbounds i8, ptr %15, i64 8
+  %flags19.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.pre = load i64, ptr %flags19.phi.trans.insert, align 8
   br label %if.end18
 
@@ -129,7 +129,7 @@ if.end18:                                         ; preds = %while.end, %entry
   br i1 %tobool21.not, label %if.end25, label %if.then22
 
 if.then22:                                        ; preds = %if.end18
-  %flags19 = getelementptr inbounds i8, ptr %17, i64 8
+  %flags19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
   %dec = add i32 %18, -1
   store i32 %dec, ptr getelementptr inbounds (i8, ptr @server, i64 4936), align 8
@@ -173,9 +173,9 @@ entry:
   br i1 %cmp77.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %client_tracking_prefixes = getelementptr inbounds i8, ptr %c, i64 656
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
+  %client_tracking_prefixes = getelementptr inbounds nuw i8, ptr %c, i64 656
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
   br label %for.body
 
 for.cond.loopexit:                                ; preds = %for.cond16, %if.end15
@@ -203,7 +203,7 @@ while.body:                                       ; preds = %while.cond
   %1 = load ptr, ptr %key, align 8
   %2 = load i64, ptr %key_len, align 8
   %3 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %3, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -1
   %5 = load i8, ptr %arrayidx.i, align 1
@@ -255,7 +255,7 @@ sdslen.exit:                                      ; preds = %while.body, %sw.bb.
 if.then9:                                         ; preds = %sdslen.exit
   %call12 = call ptr @sdsnewlen(ptr noundef %1, i64 noundef %2) #8
   %10 = load ptr, ptr %arrayidx, align 8
-  %ptr14 = getelementptr inbounds i8, ptr %10, i64 8
+  %ptr14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %ptr14, align 8
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %c, ptr noundef nonnull @.str.3, ptr noundef %11, ptr noundef %call12) #8
   call void @sdsfree(ptr noundef %call12) #8
@@ -274,7 +274,7 @@ if.end15:                                         ; preds = %while.end, %for.bod
 for.body18.lr.ph:                                 ; preds = %if.end15
   %arrayidx19 = getelementptr inbounds ptr, ptr %prefixes, i64 %i.078
   %12 = load ptr, ptr %arrayidx19, align 8
-  %ptr20 = getelementptr inbounds i8, ptr %12, i64 8
+  %ptr20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr20, align 8
   %arrayidx.i28 = getelementptr inbounds i8, ptr %13, i64 -1
   %14 = load i8, ptr %arrayidx.i28, align 1
@@ -329,7 +329,7 @@ sdslen.exit46:                                    ; preds = %for.body18, %sw.bb.
   %retval.0.i33 = phi i64 [ %18, %sw.bb13.i31 ], [ %conv12.i36, %sw.bb9.i34 ], [ %conv8.i39, %sw.bb5.i37 ], [ %conv4.i42, %sw.bb3.i40 ], [ %conv2.i45, %sw.bb.i43 ], [ 0, %for.body18 ]
   %arrayidx24 = getelementptr inbounds ptr, ptr %prefixes, i64 %j.076
   %19 = load ptr, ptr %arrayidx24, align 8
-  %ptr25 = getelementptr inbounds i8, ptr %19, i64 8
+  %ptr25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %20 = load ptr, ptr %ptr25, align 8
   %arrayidx.i47 = getelementptr inbounds i8, ptr %20, i64 -1
   %21 = load i8, ptr %arrayidx.i47, align 1
@@ -410,7 +410,7 @@ if.then:                                          ; preds = %entry
   %call2 = call ptr @raxNew() #8
   store ptr %call2, ptr %call1, align 8
   %call3 = call ptr @raxNew() #8
-  %clients = getelementptr inbounds i8, ptr %call1, i64 8
+  %clients = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call3, ptr %clients, align 8
   %1 = load ptr, ptr @PrefixTable, align 8
   %call4 = call i32 @raxInsert(ptr noundef %1, ptr noundef %prefix, i64 noundef %plen, ptr noundef nonnull %call1, ptr noundef null) #8
@@ -422,7 +422,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %bs.0 = phi ptr [ %2, %if.else ], [ %call1, %if.then ]
-  %clients5 = getelementptr inbounds i8, ptr %bs.0, i64 8
+  %clients5 = getelementptr inbounds nuw i8, ptr %bs.0, i64 8
   %3 = load ptr, ptr %clients5, align 8
   %call6 = call i32 @raxTryInsert(ptr noundef %3, ptr noundef nonnull %c.addr, i64 noundef 8, ptr noundef null, ptr noundef null) #8
   %tobool7.not = icmp eq i32 %call6, 0
@@ -430,7 +430,7 @@ if.end:                                           ; preds = %if.else, %if.then
 
 if.then8:                                         ; preds = %if.end
   %4 = load ptr, ptr %c.addr, align 8
-  %client_tracking_prefixes = getelementptr inbounds i8, ptr %4, i64 656
+  %client_tracking_prefixes = getelementptr inbounds nuw i8, ptr %4, i64 656
   %5 = load ptr, ptr %client_tracking_prefixes, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %if.then9, label %if.end12
@@ -438,7 +438,7 @@ if.then8:                                         ; preds = %if.end
 if.then9:                                         ; preds = %if.then8
   %call10 = call ptr @raxNew() #8
   %6 = load ptr, ptr %c.addr, align 8
-  %client_tracking_prefixes11 = getelementptr inbounds i8, ptr %6, i64 656
+  %client_tracking_prefixes11 = getelementptr inbounds nuw i8, ptr %6, i64 656
   store ptr %call10, ptr %client_tracking_prefixes11, align 8
   br label %if.end12
 
@@ -463,7 +463,7 @@ declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, pt
 ; Function Attrs: nounwind uwtable
 define dso_local void @enableTracking(ptr noundef initializes((648, 656)) %c, i64 noundef %redirect_to, i64 noundef %options, ptr nocapture noundef readonly %prefix, i64 noundef %numprefix) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %and = and i64 %0, 2147483648
   %tobool.not = icmp eq i64 %and, 0
@@ -481,7 +481,7 @@ if.end:                                           ; preds = %if.then, %entry
   %or = and i64 %2, -204010946561
   %and3 = or disjoint i64 %or, 2147483648
   store i64 %and3, ptr %flags, align 8
-  %client_tracking_redirection = getelementptr inbounds i8, ptr %c, i64 648
+  %client_tracking_redirection = getelementptr inbounds nuw i8, ptr %c, i64 648
   store i64 %redirect_to, ptr %client_tracking_redirection, align 8
   %3 = load ptr, ptr @TrackingTable, align 8
   %cmp = icmp eq ptr %3, null
@@ -516,7 +516,7 @@ for.body:                                         ; preds = %if.then10, %sdslen.
   %j.014 = phi i64 [ %inc18, %sdslen.exit ], [ 0, %if.then10 ]
   %arrayidx = getelementptr inbounds ptr, ptr %prefix, i64 %j.014
   %5 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %5, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 -1
   %7 = load i8, ptr %arrayidx.i, align 1
@@ -580,7 +580,7 @@ define dso_local void @trackingRememberKeys(ptr noundef %tracking, ptr nocapture
 entry:
   %result = alloca %struct.getKeysResult, align 8
   %result22 = alloca ptr, align 8
-  %flags = getelementptr inbounds i8, ptr %tracking, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %tracking, i64 8
   %0 = load i64, ptr %flags, align 8
   %1 = and i64 %0, 85899345920
   %or.cond.not = icmp eq i64 %1, 17179869184
@@ -591,13 +591,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2064) %result, i8 0, i64 2064, i1 false)
-  %3 = getelementptr inbounds i8, ptr %result, i64 2060
+  %3 = getelementptr inbounds nuw i8, ptr %result, i64 2060
   store i32 256, ptr %3, align 4
-  %cmd = getelementptr inbounds i8, ptr %executing, i64 128
+  %cmd = getelementptr inbounds nuw i8, ptr %executing, i64 128
   %4 = load ptr, ptr %cmd, align 8
-  %argv = getelementptr inbounds i8, ptr %executing, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %executing, i64 96
   %5 = load ptr, ptr %argv, align 8
-  %argc = getelementptr inbounds i8, ptr %executing, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %executing, i64 88
   %6 = load i32, ptr %argc, align 8
   %call = call i32 @getKeysFromCommand(ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef nonnull %result) #8
   %tobool9.not = icmp eq i32 %call, 0
@@ -605,14 +605,14 @@ if.end:                                           ; preds = %entry
 
 if.end11:                                         ; preds = %if.end
   %7 = load ptr, ptr %cmd, align 8
-  %flags13 = getelementptr inbounds i8, ptr %7, i64 112
+  %flags13 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %8 = load i64, ptr %flags13, align 8
   %and14 = and i64 %8, 32
   %tobool15.not = icmp eq i64 %and14, 0
   br i1 %tobool15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end11
-  %keys18 = getelementptr inbounds i8, ptr %result, i64 2048
+  %keys18 = getelementptr inbounds nuw i8, ptr %result, i64 2048
   %9 = load ptr, ptr %keys18, align 8
   %cmp36 = icmp sgt i32 %call, 0
   br i1 %cmp36, label %for.body.preheader, label %return.sink.split
@@ -623,13 +623,13 @@ for.body.preheader:                               ; preds = %if.end17
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds %struct.keyReference, ptr %9, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.keyReference, ptr %9, i64 %indvars.iv
   %10 = load i32, ptr %arrayidx, align 4
   %11 = load ptr, ptr %argv, align 8
   %idxprom20 = sext i32 %10 to i64
   %arrayidx21 = getelementptr inbounds ptr, ptr %11, i64 %idxprom20
   %12 = load ptr, ptr %arrayidx21, align 8
-  %ptr = getelementptr inbounds i8, ptr %12, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr, align 8
   %14 = load ptr, ptr @TrackingTable, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %13, i64 -1
@@ -770,11 +770,11 @@ declare void @getKeysFreeResult(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @sendTrackingMessage(ptr noundef %c, ptr noundef %keyname, i64 noundef %keylen, i32 noundef %proto) local_unnamed_addr #0 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %c, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
   %or = or i64 %0, 70368744177664
   store i64 %or, ptr %flags, align 8
-  %client_tracking_redirection = getelementptr inbounds i8, ptr %c, i64 648
+  %client_tracking_redirection = getelementptr inbounds nuw i8, ptr %c, i64 648
   %1 = load i64, ptr %client_tracking_redirection, align 8
   %tobool.not = icmp eq i64 %1, 0
   br i1 %tobool.not, label %if.end24, label %if.then
@@ -788,7 +788,7 @@ if.then4:                                         ; preds = %if.then
   %2 = load i64, ptr %flags, align 8
   %or6 = or i64 %2, 4294967296
   store i64 %or6, ptr %flags, align 8
-  %resp = getelementptr inbounds i8, ptr %c, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %c, i64 24
   %3 = load i32, ptr %resp, align 8
   %cmp = icmp sgt i32 %3, 2
   br i1 %cmp, label %if.then7, label %if.end
@@ -823,17 +823,17 @@ if.then17:                                        ; preds = %if.end14
   br label %if.end24.thread
 
 if.end24:                                         ; preds = %entry
-  %resp25 = getelementptr inbounds i8, ptr %c, i64 24
+  %resp25 = getelementptr inbounds nuw i8, ptr %c, i64 24
   %7 = load i32, ptr %resp25, align 8
   %cmp26 = icmp sgt i32 %7, 2
   br i1 %cmp26, label %if.then27, label %if.else33
 
 if.end24.thread:                                  ; preds = %if.end14, %if.then17
-  %flags21 = getelementptr inbounds i8, ptr %call, i64 8
+  %flags21 = getelementptr inbounds nuw i8, ptr %call, i64 8
   %8 = load i64, ptr %flags21, align 8
   %or23 = or i64 %8, 70368744177664
   store i64 %or23, ptr %flags21, align 8
-  %resp2533 = getelementptr inbounds i8, ptr %call, i64 24
+  %resp2533 = getelementptr inbounds nuw i8, ptr %call, i64 24
   %9 = load i32, ptr %resp2533, align 8
   %cmp2634 = icmp sgt i32 %9, 2
   br i1 %cmp2634, label %if.then27, label %land.lhs.true
@@ -865,7 +865,7 @@ if.else33:                                        ; preds = %if.end24, %land.lhs
   br i1 %tobool35.not, label %if.then36, label %if.end52
 
 if.then36:                                        ; preds = %if.else33
-  %flags37 = getelementptr inbounds i8, ptr %c.addr.04044, i64 8
+  %flags37 = getelementptr inbounds nuw i8, ptr %c.addr.04044, i64 8
   %and38 = and i64 %12, -70368744177665
   store i64 %and38, ptr %flags37, align 8
   br label %if.end52
@@ -892,7 +892,7 @@ if.end45:                                         ; preds = %if.else44, %if.then
   br i1 %tobool48.not, label %if.then49, label %if.end52
 
 if.then49:                                        ; preds = %if.end45
-  %flags50 = getelementptr inbounds i8, ptr %c.addr.039, i64 8
+  %flags50 = getelementptr inbounds nuw i8, ptr %c.addr.039, i64 8
   %13 = load i64, ptr %flags50, align 8
   %and51 = and i64 %13, -70368744177665
   store i64 %and51, ptr %flags50, align 8
@@ -930,9 +930,9 @@ entry:
   br i1 %tobool.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -976,7 +976,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %keyobj, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %keyobj, i64 8
   %1 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -1
   %2 = load i8, ptr %arrayidx.i, align 1
@@ -1048,7 +1048,7 @@ if.end9:                                          ; preds = %if.end5
   br i1 %tobool12.not39, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end9
-  %key13 = getelementptr inbounds i8, ptr %ri, i64 16
+  %key13 = getelementptr inbounds nuw i8, ptr %ri, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -1059,7 +1059,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   br i1 %cmp15, label %while.cond.backedge, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %while.body
-  %flags = getelementptr inbounds i8, ptr %call14, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %call14, i64 8
   %11 = load i64, ptr %flags, align 8
   %12 = and i64 %11, 10737418240
   %or.cond = icmp eq i64 %12, 2147483648
@@ -1082,7 +1082,7 @@ if.end29:                                         ; preds = %if.end22
   br i1 %cmp27, label %land.lhs.true31, label %if.else
 
 land.lhs.true31:                                  ; preds = %if.end29
-  %flags32 = getelementptr inbounds i8, ptr %13, i64 8
+  %flags32 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load i64, ptr %flags32, align 8
   %and33 = and i64 %14, 536870912
   %tobool34.not = icmp eq i64 %and33, 0
@@ -1165,7 +1165,7 @@ define dso_local void @trackingHandlePendingKeyInvalidations() local_unnamed_add
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 4952), align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i64, ptr %len, align 8
   %tobool.not = icmp ne i64 %1, 0
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 1512), align 8
@@ -1181,7 +1181,7 @@ if.end3:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.end3, %if.end20
   %call30 = phi ptr [ %call, %if.end20 ], [ %call28, %if.end3 ]
-  %value = getelementptr inbounds i8, ptr %call30, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call30, i64 16
   %3 = load ptr, ptr %value, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 1480), align 8
   %cmp4.not = icmp eq ptr %4, null
@@ -1192,7 +1192,7 @@ if.then5:                                         ; preds = %while.body
   br i1 %cmp18.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %if.then5
-  %ptr = getelementptr inbounds i8, ptr %3, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %5, i64 -1
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -1240,12 +1240,12 @@ if.end17.thread26:                                ; preds = %sw.bb13.i, %sw.bb9.
   br label %if.then19
 
 if.else:                                          ; preds = %if.then5
-  %resp = getelementptr inbounds i8, ptr %4, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %11 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %12 = load ptr, ptr %arrayidx, align 8
-  %ptr10 = getelementptr inbounds i8, ptr %12, i64 8
+  %ptr10 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %ptr10, align 8
   %arrayidx.i6 = getelementptr inbounds i8, ptr %13, i64 -1
   %14 = load i8, ptr %arrayidx.i6, align 1
@@ -1354,9 +1354,9 @@ if.then:                                          ; preds = %entry
 
 while.body:                                       ; preds = %if.then, %if.end11
   %call8 = phi ptr [ %call, %if.end11 ], [ %call6, %if.then ]
-  %value = getelementptr inbounds i8, ptr %call8, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %call8, i64 16
   %2 = load ptr, ptr %value, align 8
-  %flags = getelementptr inbounds i8, ptr %2, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, 2147483648
   %tobool1.not = icmp eq i64 %and, 0
@@ -1373,12 +1373,12 @@ if.then4:                                         ; preds = %if.then2
   br label %if.end11
 
 if.else:                                          ; preds = %if.then2
-  %resp = getelementptr inbounds i8, ptr %2, i64 24
+  %resp = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load i32, ptr %resp, align 8
   %idxprom = sext i32 %6 to i64
   %arrayidx = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds (i8, ptr @shared, i64 64), i64 0, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8
-  %ptr = getelementptr inbounds i8, ptr %7, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %ptr, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 -1
   %9 = load i8, ptr %arrayidx.i, align 1
@@ -1487,8 +1487,8 @@ if.end6:                                          ; preds = %if.end3
   %mul = add i32 %3, 100
   %4 = load ptr, ptr @TrackingTable, align 8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %4) #8
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
   br label %while.cond
 
 while.cond:                                       ; preds = %if.end12, %if.end6
@@ -1555,7 +1555,7 @@ if.else:                                          ; preds = %entry
   br i1 %tobool.not20, label %return.sink.split, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.else
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.body
@@ -1585,9 +1585,9 @@ if.end8:                                          ; preds = %while.end, %if.then
   %call15 = call ptr @sdscatlen(ptr noundef %call14, ptr noundef nonnull @.str.11, i64 noundef 2) #8
   call void @raxStart(ptr noundef nonnull %ri, ptr noundef %keys) #8
   %call16 = call i32 @raxSeek(ptr noundef nonnull %ri, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #8
-  %data22 = getelementptr inbounds i8, ptr %ri, i64 24
-  %key_len = getelementptr inbounds i8, ptr %ri, i64 32
-  %key = getelementptr inbounds i8, ptr %ri, i64 16
+  %data22 = getelementptr inbounds nuw i8, ptr %ri, i64 24
+  %key_len = getelementptr inbounds nuw i8, ptr %ri, i64 32
+  %key = getelementptr inbounds nuw i8, ptr %ri, i64 16
   br i1 %cmp, label %if.end8.split, label %while.cond17.outer.us
 
 while.cond17.outer.us:                            ; preds = %if.end8, %if.end26.split.us
@@ -1677,8 +1677,8 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not36, label %while.end27, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
-  %key = getelementptr inbounds i8, ptr %ri2, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
+  %key = getelementptr inbounds nuw i8, ptr %ri2, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end23
@@ -1691,7 +1691,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then5:                                         ; preds = %while.body
   %5 = load ptr, ptr %3, align 8
   %call7 = call ptr @trackingBuildBroadcastReply(ptr noundef null, ptr noundef %5)
-  %clients = getelementptr inbounds i8, ptr %3, i64 8
+  %clients = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %clients, align 8
   call void @raxStart(ptr noundef nonnull %ri2, ptr noundef %6) #8
   %call8 = call i32 @raxSeek(ptr noundef nonnull %ri2, ptr noundef nonnull @.str, ptr noundef null, i64 noundef 0) #8
@@ -1710,7 +1710,7 @@ while.body12.lr.ph:                               ; preds = %if.then5
 while.body12:                                     ; preds = %while.body12.lr.ph, %if.end22
   %7 = load ptr, ptr %key, align 8
   %c.0.copyload = load ptr, ptr %7, align 1
-  %flags = getelementptr inbounds i8, ptr %c.0.copyload, i64 8
+  %flags = getelementptr inbounds nuw i8, ptr %c.0.copyload, i64 8
   %8 = load i64, ptr %flags, align 8
   %and = and i64 %8, 137438953472
   %tobool13.not = icmp eq i64 %and, 0

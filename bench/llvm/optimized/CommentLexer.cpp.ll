@@ -314,7 +314,7 @@ define dso_local void @_ZNK5clang8comments5Token4dumpERKNS0_5LexerERKNS_13Source
 16:                                               ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %9, ptr noundef nonnull align 1 dereferenceable(21) @.str, i64 21, i1 false)
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 21
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 21
   store ptr %18, ptr %8, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -338,7 +338,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 30:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 32, ptr %26, align 1
   %31 = load ptr, ptr %25, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   store ptr %32, ptr %25, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit6
 
@@ -360,7 +360,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %28, %30
 42:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit6
   store i8 32, ptr %38, align 1
   %43 = load ptr, ptr %37, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   store ptr %44, ptr %37, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit9
 
@@ -387,7 +387,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %40, %42
 59:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit9
   store i16 8736, ptr %52, align 1
   %60 = load ptr, ptr %51, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 2
   store ptr %61, ptr %51, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit12
 
@@ -403,7 +403,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %57, %59
   %65 = load i8, ptr %4, align 1
   %66 = trunc i8 %65 to i1
   %.sroa.2.0.extract.shift.i = lshr i64 %62, 32
-  %67 = getelementptr inbounds i8, ptr %64, i64 %.sroa.2.0.extract.shift.i
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.2.0.extract.shift.i
   %68 = load i32, ptr %45, align 4
   %69 = zext i32 %68 to i64
   %.sroa.4.0.i = select i1 %66, i64 0, i64 %69
@@ -432,7 +432,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit12:               ; preds = %57, %59
 81:                                               ; preds = %80
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %73, ptr align 1 %.sroa.08.0.i, i64 %.sroa.4.0.i, i1 false)
   %82 = load ptr, ptr %72, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 %.sroa.4.0.i
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 %.sroa.4.0.i
   store ptr %83, ptr %72, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
@@ -455,7 +455,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %78, %80, %81
   %94 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   store i16 2594, ptr %84, align 1
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
   store ptr %96, ptr %94, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit15
 
@@ -479,7 +479,7 @@ define dso_local { ptr, i64 } @_ZNK5clang8comments5Lexer11getSpellingERKNS0_5Tok
   %8 = load i8, ptr %4, align 1
   %9 = trunc i8 %8 to i1
   %.sroa.2.0.extract.shift = lshr i64 %5, 32
-  %10 = getelementptr inbounds i8, ptr %7, i64 %.sroa.2.0.extract.shift
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.2.0.extract.shift
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
@@ -560,7 +560,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 11:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   switch i8 %13, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 84, label %14
@@ -571,7 +571,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 15:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %16 = getelementptr inbounds i8, ptr %1, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 84, label %18
@@ -582,7 +582,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 19:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %20 = getelementptr inbounds i8, ptr %1, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %21 = load i8, ptr %20, align 1
   %.not260.i = icmp eq i8 %21, 105
   %spec.select.i = select i1 %.not260.i, i64 2, i64 0
@@ -590,7 +590,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 22:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %23 = getelementptr inbounds i8, ptr %1, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %24 = load i8, ptr %23, align 1
   %.not259.i = icmp eq i8 %24, 105
   %spec.select447.i = select i1 %.not259.i, i64 2, i64 0
@@ -598,7 +598,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 25:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %27 = load i8, ptr %26, align 1
   switch i8 %27, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 101, label %28
@@ -612,7 +612,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 30:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %31 = getelementptr inbounds i8, ptr %1, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %32 = load i8, ptr %31, align 1
   switch i8 %32, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 101, label %33
@@ -626,7 +626,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 35:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %36 = getelementptr inbounds i8, ptr %1, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %37 = load i8, ptr %36, align 1
   %.not258.i = icmp eq i8 %37, 117
   %spec.select449.i = select i1 %.not258.i, i64 2, i64 0
@@ -634,7 +634,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 38:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %39 = getelementptr inbounds i8, ptr %1, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 101, label %41
@@ -648,7 +648,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 43:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %44 = getelementptr inbounds i8, ptr %1, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %45 = load i8, ptr %44, align 1
   %.not257.i = icmp eq i8 %45, 105
   %spec.select451.i = select i1 %.not257.i, i64 2, i64 0
@@ -656,7 +656,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 46:                                               ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread116
-  %47 = getelementptr inbounds i8, ptr %1, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %48 = load i8, ptr %47, align 1
   %.not256.i = icmp eq i8 %48, 105
   %spec.select453.i = select i1 %.not256.i, i64 2, i64 0
@@ -664,7 +664,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 49:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp254.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %50, ptr noundef nonnull dereferenceable(2) @.str.29, i64 2)
   %.not255.i = icmp eq i32 %bcmp254.i, 0
   %spec.select455.i = zext i1 %.not255.i to i64
@@ -672,7 +672,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 51:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %52 = getelementptr inbounds i8, ptr %1, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 104, label %54
@@ -680,7 +680,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %1, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %56 = load i8, ptr %55, align 1
   %.not253.i = icmp eq i8 %56, 105
   %spec.select457.i = select i1 %.not253.i, i64 2, i64 0
@@ -688,7 +688,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %1, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %59 = load i8, ptr %58, align 1
   %.not252.i = icmp eq i8 %59, 105
   %spec.select459.i = select i1 %.not252.i, i64 2, i64 0
@@ -696,7 +696,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 60:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %61 = getelementptr inbounds i8, ptr %1, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp250.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %61, ptr noundef nonnull dereferenceable(2) @.str.32, i64 2)
   %.not251.i = icmp eq i32 %bcmp250.i, 0
   %spec.select461.i = select i1 %.not251.i, i64 2, i64 0
@@ -704,7 +704,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 62:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %63 = getelementptr inbounds i8, ptr %1, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp248.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %63, ptr noundef nonnull dereferenceable(2) @.str.34, i64 2)
   %.not249.i = icmp eq i32 %bcmp248.i, 0
   %spec.select463.i = zext i1 %.not249.i to i64
@@ -712,7 +712,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 64:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %65 = getelementptr inbounds i8, ptr %1, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp246.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %65, ptr noundef nonnull dereferenceable(2) @.str.35, i64 2)
   %.not247.i = icmp eq i32 %bcmp246.i, 0
   %spec.select465.i = select i1 %.not247.i, i64 2, i64 0
@@ -720,7 +720,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 66:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %67 = getelementptr inbounds i8, ptr %1, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp244.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %67, ptr noundef nonnull dereferenceable(2) @.str.37, i64 2)
   %.not245.i = icmp eq i32 %bcmp244.i, 0
   %spec.select467.i = select i1 %.not245.i, i64 2, i64 0
@@ -728,7 +728,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 68:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %69 = getelementptr inbounds i8, ptr %1, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp242.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %69, ptr noundef nonnull dereferenceable(2) @.str.39, i64 2)
   %.not243.i = icmp eq i32 %bcmp242.i, 0
   %spec.select469.i = select i1 %.not243.i, i64 2, i64 0
@@ -736,7 +736,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 70:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %71 = getelementptr inbounds i8, ptr %1, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp240.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %71, ptr noundef nonnull dereferenceable(2) @.str.41, i64 2)
   %.not241.i = icmp eq i32 %bcmp240.i, 0
   %spec.select471.i = select i1 %.not241.i, i64 3, i64 0
@@ -744,7 +744,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 72:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %73 = getelementptr inbounds i8, ptr %1, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %74 = load i8, ptr %73, align 1
   switch i8 %74, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 104, label %75
@@ -752,7 +752,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %1, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %77 = load i8, ptr %76, align 1
   %.not239.i = icmp eq i8 %77, 105
   %spec.select473.i = select i1 %.not239.i, i64 2, i64 0
@@ -760,7 +760,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %1, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %80 = load i8, ptr %79, align 1
   %.not238.i = icmp eq i8 %80, 105
   %spec.select475.i = select i1 %.not238.i, i64 2, i64 0
@@ -768,7 +768,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 81:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %82 = getelementptr inbounds i8, ptr %1, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %83 = load i8, ptr %82, align 1
   switch i8 %83, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 101, label %84
@@ -776,7 +776,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %1, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %86 = load i8, ptr %85, align 1
   %.not237.i = icmp eq i8 %86, 103
   %spec.select477.i = select i1 %.not237.i, i64 2, i64 0
@@ -784,7 +784,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %1, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %89 = load i8, ptr %88, align 1
   %.not236.i = icmp eq i8 %89, 111
   %spec.select479.i = select i1 %.not236.i, i64 2, i64 0
@@ -792,7 +792,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 90:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %91 = getelementptr inbounds i8, ptr %1, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %92 = load i8, ptr %91, align 1
   switch i8 %92, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 105, label %93
@@ -800,7 +800,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %1, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %95 = load i8, ptr %94, align 1
   %.not235.i = icmp eq i8 %95, 109
   %spec.select481.i = select i1 %.not235.i, i64 3, i64 0
@@ -808,7 +808,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %1, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %98 = load i8, ptr %97, align 1
   %.not234.i = icmp eq i8 %98, 109
   %spec.select483.i = select i1 %.not234.i, i64 3, i64 0
@@ -816,7 +816,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 99:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
-  %100 = getelementptr inbounds i8, ptr %1, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp232.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %100, ptr noundef nonnull dereferenceable(2) @.str.48, i64 2)
   %.not233.i = icmp eq i32 %bcmp232.i, 0
   %spec.select485.i = select i1 %.not233.i, i64 2, i64 0
@@ -854,7 +854,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 102:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %103 = getelementptr inbounds i8, ptr %1, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp230.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %103, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not231.i = icmp eq i32 %bcmp230.i, 0
   %spec.select487.i = select i1 %.not231.i, i64 2, i64 0
@@ -862,7 +862,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 104:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %105 = getelementptr inbounds i8, ptr %1, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp228.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %105, ptr noundef nonnull dereferenceable(3) @.str.52, i64 3)
   %.not229.i = icmp eq i32 %bcmp228.i, 0
   %spec.select489.i = select i1 %.not229.i, i64 2, i64 0
@@ -870,7 +870,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 106:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %107 = getelementptr inbounds i8, ptr %1, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp226.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %107, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not227.i = icmp eq i32 %bcmp226.i, 0
   %spec.select491.i = select i1 %.not227.i, i64 2, i64 0
@@ -878,7 +878,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 108:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %109 = getelementptr inbounds i8, ptr %1, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp224.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %109, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not225.i = icmp eq i32 %bcmp224.i, 0
   %spec.select493.i = select i1 %.not225.i, i64 2, i64 0
@@ -886,7 +886,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 110:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %111 = getelementptr inbounds i8, ptr %1, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp222.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %111, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not223.i = icmp eq i32 %bcmp222.i, 0
   %spec.select495.i = select i1 %.not223.i, i64 2, i64 0
@@ -894,7 +894,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 112:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %113 = getelementptr inbounds i8, ptr %1, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp220.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %113, ptr noundef nonnull dereferenceable(3) @.str.57, i64 3)
   %.not221.i = icmp eq i32 %bcmp220.i, 0
   %spec.select497.i = zext i1 %.not221.i to i64
@@ -902,7 +902,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 114:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %115 = getelementptr inbounds i8, ptr %1, i64 1
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp218.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %115, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not219.i = icmp eq i32 %bcmp218.i, 0
   %spec.select499.i = select i1 %.not219.i, i64 2, i64 0
@@ -910,7 +910,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 116:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %117 = getelementptr inbounds i8, ptr %1, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp216.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %117, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not217.i = icmp eq i32 %bcmp216.i, 0
   %spec.select501.i = select i1 %.not217.i, i64 2, i64 0
@@ -918,7 +918,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 118:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %119 = getelementptr inbounds i8, ptr %1, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %120 = load i8, ptr %119, align 1
   switch i8 %120, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 112, label %121
@@ -926,7 +926,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %1, i64 2
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp214.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %122, ptr noundef nonnull dereferenceable(2) @.str.60, i64 2)
   %.not215.i = icmp eq i32 %bcmp214.i, 0
   %spec.select503.i = zext i1 %.not215.i to i64
@@ -934,7 +934,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds i8, ptr %1, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp212.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %124, ptr noundef nonnull dereferenceable(2) @.str.61, i64 2)
   %.not213.i = icmp eq i32 %bcmp212.i, 0
   %spec.select505.i = select i1 %.not213.i, i64 2, i64 0
@@ -942,7 +942,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 125:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %126 = getelementptr inbounds i8, ptr %1, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp210.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %126, ptr noundef nonnull dereferenceable(3) @.str.63, i64 3)
   %.not211.i = icmp eq i32 %bcmp210.i, 0
   %spec.select507.i = select i1 %.not211.i, i64 2, i64 0
@@ -950,7 +950,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 127:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %128 = getelementptr inbounds i8, ptr %1, i64 1
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp208.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %128, ptr noundef nonnull dereferenceable(3) @.str.65, i64 3)
   %.not209.i = icmp eq i32 %bcmp208.i, 0
   %spec.select509.i = select i1 %.not209.i, i64 2, i64 0
@@ -958,7 +958,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 129:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %130 = getelementptr inbounds i8, ptr %1, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp206.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %130, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not207.i = icmp eq i32 %bcmp206.i, 0
   %spec.select511.i = select i1 %.not207.i, i64 2, i64 0
@@ -966,7 +966,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 131:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %132 = getelementptr inbounds i8, ptr %1, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %133 = load i8, ptr %132, align 1
   switch i8 %133, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 111, label %134
@@ -975,7 +975,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %1, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp204.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %135, ptr noundef nonnull dereferenceable(2) @.str.39, i64 2)
   %.not205.i = icmp eq i32 %bcmp204.i, 0
   %spec.select513.i = select i1 %.not205.i, i64 2, i64 0
@@ -983,7 +983,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds i8, ptr %1, i64 2
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp202.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %137, ptr noundef nonnull dereferenceable(2) @.str.68, i64 2)
   %.not203.i = icmp eq i32 %bcmp202.i, 0
   %spec.select515.i = select i1 %.not203.i, i64 3, i64 0
@@ -991,7 +991,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 138:                                              ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %1, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp200.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %139, ptr noundef nonnull dereferenceable(2) @.str.61, i64 2)
   %.not201.i = icmp eq i32 %bcmp200.i, 0
   %spec.select517.i = select i1 %.not201.i, i64 2, i64 0
@@ -999,7 +999,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 140:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %141 = getelementptr inbounds i8, ptr %1, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp198.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %141, ptr noundef nonnull dereferenceable(3) @.str.71, i64 3)
   %.not199.i = icmp eq i32 %bcmp198.i, 0
   %spec.select519.i = select i1 %.not199.i, i64 3, i64 0
@@ -1007,7 +1007,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 142:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %143 = getelementptr inbounds i8, ptr %1, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp196.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %143, ptr noundef nonnull dereferenceable(3) @.str.73, i64 3)
   %.not197.i = icmp eq i32 %bcmp196.i, 0
   %spec.select521.i = select i1 %.not197.i, i64 2, i64 0
@@ -1015,7 +1015,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 144:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %145 = getelementptr inbounds i8, ptr %1, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp194.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %145, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not195.i = icmp eq i32 %bcmp194.i, 0
   %spec.select523.i = select i1 %.not195.i, i64 2, i64 0
@@ -1023,7 +1023,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 146:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %147 = getelementptr inbounds i8, ptr %1, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %148 = load i8, ptr %147, align 1
   switch i8 %148, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %149
@@ -1032,7 +1032,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 149:                                              ; preds = %146
-  %150 = getelementptr inbounds i8, ptr %1, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp192.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %150, ptr noundef nonnull dereferenceable(2) @.str.76, i64 2)
   %.not193.i = icmp eq i32 %bcmp192.i, 0
   %spec.select525.i = select i1 %.not193.i, i64 3, i64 0
@@ -1040,7 +1040,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds i8, ptr %1, i64 2
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp190.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %152, ptr noundef nonnull dereferenceable(2) @.str.78, i64 2)
   %.not191.i = icmp eq i32 %bcmp190.i, 0
   %spec.select527.i = select i1 %.not191.i, i64 3, i64 0
@@ -1048,13 +1048,13 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 153:                                              ; preds = %146
-  %154 = getelementptr inbounds i8, ptr %1, i64 2
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %155 = load i8, ptr %154, align 1
   %.not189.i = icmp eq i8 %155, 111
   br i1 %.not189.i, label %156, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 156:                                              ; preds = %153
-  %157 = getelementptr inbounds i8, ptr %1, i64 3
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %158 = load i8, ptr %157, align 1
   switch i8 %158, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 100, label %159
@@ -1068,7 +1068,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 161:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %162 = getelementptr inbounds i8, ptr %1, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp187.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %162, ptr noundef nonnull dereferenceable(3) @.str.82, i64 3)
   %.not188.i = icmp eq i32 %bcmp187.i, 0
   %spec.select529.i = zext i1 %.not188.i to i64
@@ -1076,7 +1076,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 163:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %164 = getelementptr inbounds i8, ptr %1, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp185.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %164, ptr noundef nonnull dereferenceable(3) @.str.71, i64 3)
   %.not186.i = icmp eq i32 %bcmp185.i, 0
   %spec.select531.i = select i1 %.not186.i, i64 3, i64 0
@@ -1084,7 +1084,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 165:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %166 = getelementptr inbounds i8, ptr %1, i64 1
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %167 = load i8, ptr %166, align 1
   switch i8 %167, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 100, label %168
@@ -1092,7 +1092,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %1, i64 2
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp183.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %169, ptr noundef nonnull dereferenceable(2) @.str.84, i64 2)
   %.not184.i = icmp eq i32 %bcmp183.i, 0
   %spec.select533.i = select i1 %.not184.i, i64 3, i64 0
@@ -1100,7 +1100,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 170:                                              ; preds = %165
-  %171 = getelementptr inbounds i8, ptr %1, i64 2
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp181.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %171, ptr noundef nonnull dereferenceable(2) @.str.86, i64 2)
   %.not182.i = icmp eq i32 %bcmp181.i, 0
   %spec.select535.i = select i1 %.not182.i, i64 2, i64 0
@@ -1108,7 +1108,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 172:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %173 = getelementptr inbounds i8, ptr %1, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp179.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %173, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not180.i = icmp eq i32 %bcmp179.i, 0
   %spec.select537.i = select i1 %.not180.i, i64 2, i64 0
@@ -1116,7 +1116,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 174:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %175 = getelementptr inbounds i8, ptr %1, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp177.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %175, ptr noundef nonnull dereferenceable(3) @.str.50, i64 3)
   %.not178.i = icmp eq i32 %bcmp177.i, 0
   %spec.select539.i = select i1 %.not178.i, i64 2, i64 0
@@ -1124,7 +1124,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 176:                                              ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thread
-  %177 = getelementptr inbounds i8, ptr %1, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp175.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %177, ptr noundef nonnull dereferenceable(3) @.str.63, i64 3)
   %.not176.i = icmp eq i32 %bcmp175.i, 0
   %spec.select541.i = select i1 %.not176.i, i64 2, i64 0
@@ -1164,7 +1164,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %1, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %182 = load i8, ptr %181, align 1
   switch i8 %182, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %183
@@ -1172,7 +1172,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds i8, ptr %1, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp173.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %184, ptr noundef nonnull dereferenceable(3) @.str.91, i64 3)
   %.not174.i = icmp eq i32 %bcmp173.i, 0
   %spec.select543.i = select i1 %.not174.i, i64 2, i64 0
@@ -1180,7 +1180,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 185:                                              ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %1, i64 2
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp171.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %186, ptr noundef nonnull dereferenceable(3) @.str.93, i64 3)
   %.not172.i = icmp eq i32 %bcmp171.i, 0
   %spec.select545.i = select i1 %.not172.i, i64 2, i64 0
@@ -1188,7 +1188,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 187:                                              ; preds = %178
-  %188 = getelementptr inbounds i8, ptr %1, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp169.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %188, ptr noundef nonnull dereferenceable(4) @.str.95, i64 4)
   %.not170.i = icmp eq i32 %bcmp169.i, 0
   %spec.select547.i = select i1 %.not170.i, i64 2, i64 0
@@ -1196,7 +1196,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 189:                                              ; preds = %178
-  %190 = getelementptr inbounds i8, ptr %1, i64 1
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp167.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %190, ptr noundef nonnull dereferenceable(4) @.str.97, i64 4)
   %.not168.i = icmp eq i32 %bcmp167.i, 0
   %spec.select549.i = select i1 %.not168.i, i64 2, i64 0
@@ -1204,7 +1204,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 191:                                              ; preds = %178
-  %192 = getelementptr inbounds i8, ptr %1, i64 1
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp165.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %192, ptr noundef nonnull dereferenceable(4) @.str.99, i64 4)
   %.not166.i = icmp eq i32 %bcmp165.i, 0
   %spec.select551.i = select i1 %.not166.i, i64 2, i64 0
@@ -1212,7 +1212,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 193:                                              ; preds = %178
-  %194 = getelementptr inbounds i8, ptr %1, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp163.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %194, ptr noundef nonnull dereferenceable(4) @.str.97, i64 4)
   %.not164.i = icmp eq i32 %bcmp163.i, 0
   %spec.select553.i = select i1 %.not164.i, i64 2, i64 0
@@ -1220,7 +1220,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 195:                                              ; preds = %178
-  %196 = getelementptr inbounds i8, ptr %1, i64 1
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %197 = load i8, ptr %196, align 1
   switch i8 %197, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %198
@@ -1228,7 +1228,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 198:                                              ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %1, i64 2
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp161.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %199, ptr noundef nonnull dereferenceable(3) @.str.91, i64 3)
   %.not162.i = icmp eq i32 %bcmp161.i, 0
   %spec.select555.i = select i1 %.not162.i, i64 2, i64 0
@@ -1236,7 +1236,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 200:                                              ; preds = %195
-  %201 = getelementptr inbounds i8, ptr %1, i64 2
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp159.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %201, ptr noundef nonnull dereferenceable(3) @.str.103, i64 3)
   %.not160.i = icmp eq i32 %bcmp159.i, 0
   %spec.select557.i = select i1 %.not160.i, i64 2, i64 0
@@ -1244,7 +1244,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 202:                                              ; preds = %178
-  %203 = getelementptr inbounds i8, ptr %1, i64 1
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp157.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %203, ptr noundef nonnull dereferenceable(4) @.str.105, i64 4)
   %.not158.i = icmp eq i32 %bcmp157.i, 0
   %spec.select559.i = select i1 %.not158.i, i64 3, i64 0
@@ -1252,7 +1252,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 204:                                              ; preds = %178
-  %205 = getelementptr inbounds i8, ptr %1, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp155.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %205, ptr noundef nonnull dereferenceable(4) @.str.107, i64 4)
   %.not156.i = icmp eq i32 %bcmp155.i, 0
   %spec.select561.i = select i1 %.not156.i, i64 2, i64 0
@@ -1260,7 +1260,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 206:                                              ; preds = %178
-  %207 = getelementptr inbounds i8, ptr %1, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %208 = load i8, ptr %207, align 1
   switch i8 %208, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 82, label %209
@@ -1268,7 +1268,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %1, i64 2
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp153.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %210, ptr noundef nonnull dereferenceable(3) @.str.109, i64 3)
   %.not154.i = icmp eq i32 %bcmp153.i, 0
   %spec.select563.i = select i1 %.not154.i, i64 3, i64 0
@@ -1276,7 +1276,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 211:                                              ; preds = %206
-  %212 = getelementptr inbounds i8, ptr %1, i64 2
+  %212 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp151.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %212, ptr noundef nonnull dereferenceable(3) @.str.63, i64 3)
   %.not152.i = icmp eq i32 %bcmp151.i, 0
   %spec.select565.i = select i1 %.not152.i, i64 2, i64 0
@@ -1284,7 +1284,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 213:                                              ; preds = %178
-  %214 = getelementptr inbounds i8, ptr %1, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp149.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %214, ptr noundef nonnull dereferenceable(4) @.str.97, i64 4)
   %.not150.i = icmp eq i32 %bcmp149.i, 0
   %spec.select567.i = select i1 %.not150.i, i64 2, i64 0
@@ -1292,7 +1292,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 215:                                              ; preds = %178
-  %216 = getelementptr inbounds i8, ptr %1, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp147.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %216, ptr noundef nonnull dereferenceable(4) @.str.97, i64 4)
   %.not148.i = icmp eq i32 %bcmp147.i, 0
   %spec.select569.i = select i1 %.not148.i, i64 2, i64 0
@@ -1300,7 +1300,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 217:                                              ; preds = %178
-  %218 = getelementptr inbounds i8, ptr %1, i64 1
+  %218 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %219 = load i8, ptr %218, align 1
   switch i8 %219, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %220
@@ -1310,7 +1310,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 220:                                              ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %1, i64 2
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp145.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %221, ptr noundef nonnull dereferenceable(3) @.str.91, i64 3)
   %.not146.i = icmp eq i32 %bcmp145.i, 0
   %spec.select571.i = select i1 %.not146.i, i64 2, i64 0
@@ -1318,7 +1318,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 222:                                              ; preds = %217
-  %223 = getelementptr inbounds i8, ptr %1, i64 2
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp143.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %223, ptr noundef nonnull dereferenceable(3) @.str.115, i64 3)
   %.not144.i = icmp eq i32 %bcmp143.i, 0
   %spec.select573.i = select i1 %.not144.i, i64 2, i64 0
@@ -1326,7 +1326,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 224:                                              ; preds = %217
-  %225 = getelementptr inbounds i8, ptr %1, i64 2
+  %225 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp141.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %225, ptr noundef nonnull dereferenceable(3) @.str.93, i64 3)
   %.not142.i = icmp eq i32 %bcmp141.i, 0
   %spec.select575.i = select i1 %.not142.i, i64 2, i64 0
@@ -1334,7 +1334,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 226:                                              ; preds = %217
-  %227 = getelementptr inbounds i8, ptr %1, i64 2
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp139.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %227, ptr noundef nonnull dereferenceable(3) @.str.118, i64 3)
   %.not140.i = icmp eq i32 %bcmp139.i, 0
   %spec.select577.i = select i1 %.not140.i, i64 3, i64 0
@@ -1342,7 +1342,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 228:                                              ; preds = %178
-  %229 = getelementptr inbounds i8, ptr %1, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp137.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %229, ptr noundef nonnull dereferenceable(4) @.str.95, i64 4)
   %.not138.i = icmp eq i32 %bcmp137.i, 0
   %spec.select579.i = select i1 %.not138.i, i64 2, i64 0
@@ -1350,7 +1350,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 230:                                              ; preds = %178
-  %231 = getelementptr inbounds i8, ptr %1, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %232 = load i8, ptr %231, align 1
   switch i8 %232, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %233
@@ -1359,7 +1359,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %1, i64 2
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp135.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %234, ptr noundef nonnull dereferenceable(3) @.str.91, i64 3)
   %.not136.i = icmp eq i32 %bcmp135.i, 0
   %spec.select581.i = select i1 %.not136.i, i64 2, i64 0
@@ -1367,7 +1367,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 235:                                              ; preds = %230
-  %236 = getelementptr inbounds i8, ptr %1, i64 2
+  %236 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp133.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %236, ptr noundef nonnull dereferenceable(3) @.str.122, i64 3)
   %.not134.i = icmp eq i32 %bcmp133.i, 0
   %spec.select583.i = select i1 %.not134.i, i64 3, i64 0
@@ -1375,7 +1375,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 237:                                              ; preds = %230
-  %238 = getelementptr inbounds i8, ptr %1, i64 2
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp131.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %238, ptr noundef nonnull dereferenceable(3) @.str.124, i64 3)
   %.not132.i = icmp eq i32 %bcmp131.i, 0
   %spec.select585.i = select i1 %.not132.i, i64 3, i64 0
@@ -1383,7 +1383,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 239:                                              ; preds = %178
-  %240 = getelementptr inbounds i8, ptr %1, i64 1
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp129.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %240, ptr noundef nonnull dereferenceable(4) @.str.99, i64 4)
   %.not130.i = icmp eq i32 %bcmp129.i, 0
   %spec.select587.i = select i1 %.not130.i, i64 2, i64 0
@@ -1391,7 +1391,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 241:                                              ; preds = %178
-  %242 = getelementptr inbounds i8, ptr %1, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %243 = load i8, ptr %242, align 1
   switch i8 %243, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %244
@@ -1399,7 +1399,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 244:                                              ; preds = %241
-  %245 = getelementptr inbounds i8, ptr %1, i64 2
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp127.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %245, ptr noundef nonnull dereferenceable(3) @.str.91, i64 3)
   %.not128.i = icmp eq i32 %bcmp127.i, 0
   %spec.select589.i = select i1 %.not128.i, i64 2, i64 0
@@ -1407,7 +1407,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 246:                                              ; preds = %241
-  %247 = getelementptr inbounds i8, ptr %1, i64 2
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp125.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %247, ptr noundef nonnull dereferenceable(3) @.str.128, i64 3)
   %.not126.i = icmp eq i32 %bcmp125.i, 0
   %spec.select591.i = select i1 %.not126.i, i64 3, i64 0
@@ -1415,7 +1415,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 248:                                              ; preds = %178
-  %249 = getelementptr inbounds i8, ptr %1, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp123.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %249, ptr noundef nonnull dereferenceable(4) @.str.130, i64 4)
   %.not124.i = icmp eq i32 %bcmp123.i, 0
   %spec.select593.i = select i1 %.not124.i, i64 2, i64 0
@@ -1423,7 +1423,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 250:                                              ; preds = %178
-  %251 = getelementptr inbounds i8, ptr %1, i64 1
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %252 = load i8, ptr %251, align 1
   switch i8 %252, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %253
@@ -1432,7 +1432,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 253:                                              ; preds = %250
-  %254 = getelementptr inbounds i8, ptr %1, i64 2
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp121.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %254, ptr noundef nonnull dereferenceable(3) @.str.132, i64 3)
   %.not122.i = icmp eq i32 %bcmp121.i, 0
   %spec.select595.i = select i1 %.not122.i, i64 3, i64 0
@@ -1440,7 +1440,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 255:                                              ; preds = %250
-  %256 = getelementptr inbounds i8, ptr %1, i64 2
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp119.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %256, ptr noundef nonnull dereferenceable(3) @.str.134, i64 3)
   %.not120.i = icmp eq i32 %bcmp119.i, 0
   %spec.select597.i = select i1 %.not120.i, i64 3, i64 0
@@ -1448,7 +1448,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 257:                                              ; preds = %250
-  %258 = getelementptr inbounds i8, ptr %1, i64 2
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp117.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %258, ptr noundef nonnull dereferenceable(3) @.str.134, i64 3)
   %.not118.i = icmp eq i32 %bcmp117.i, 0
   %spec.select599.i = select i1 %.not118.i, i64 3, i64 0
@@ -1456,7 +1456,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 259:                                              ; preds = %178
-  %260 = getelementptr inbounds i8, ptr %1, i64 1
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %261 = load i8, ptr %260, align 1
   switch i8 %261, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 100, label %262
@@ -1464,7 +1464,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 262:                                              ; preds = %259
-  %263 = getelementptr inbounds i8, ptr %1, i64 2
+  %263 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp115.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %263, ptr noundef nonnull dereferenceable(3) @.str.137, i64 3)
   %.not116.i = icmp eq i32 %bcmp115.i, 0
   %spec.select601.i = select i1 %.not116.i, i64 3, i64 0
@@ -1472,7 +1472,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 264:                                              ; preds = %259
-  %265 = getelementptr inbounds i8, ptr %1, i64 2
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp113.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %265, ptr noundef nonnull dereferenceable(3) @.str.139, i64 3)
   %.not114.i = icmp eq i32 %bcmp113.i, 0
   %spec.select603.i = select i1 %.not114.i, i64 3, i64 0
@@ -1480,7 +1480,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 266:                                              ; preds = %178
-  %267 = getelementptr inbounds i8, ptr %1, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %268 = load i8, ptr %267, align 1
   switch i8 %268, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %269
@@ -1489,7 +1489,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 269:                                              ; preds = %266
-  %270 = getelementptr inbounds i8, ptr %1, i64 2
+  %270 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp111.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %270, ptr noundef nonnull dereferenceable(3) @.str.141, i64 3)
   %.not112.i = icmp eq i32 %bcmp111.i, 0
   %spec.select605.i = select i1 %.not112.i, i64 3, i64 0
@@ -1497,7 +1497,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 271:                                              ; preds = %266
-  %272 = getelementptr inbounds i8, ptr %1, i64 2
+  %272 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp109.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %272, ptr noundef nonnull dereferenceable(3) @.str.137, i64 3)
   %.not110.i = icmp eq i32 %bcmp109.i, 0
   %spec.select607.i = select i1 %.not110.i, i64 3, i64 0
@@ -1505,7 +1505,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 273:                                              ; preds = %266
-  %274 = getelementptr inbounds i8, ptr %1, i64 2
+  %274 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp107.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %274, ptr noundef nonnull dereferenceable(3) @.str.144, i64 3)
   %.not108.i = icmp eq i32 %bcmp107.i, 0
   %spec.select609.i = select i1 %.not108.i, i64 3, i64 0
@@ -1513,7 +1513,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 275:                                              ; preds = %178
-  %276 = getelementptr inbounds i8, ptr %1, i64 1
+  %276 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %277 = load i8, ptr %276, align 1
   switch i8 %277, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 99, label %278
@@ -1521,7 +1521,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %1, i64 2
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp105.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %279, ptr noundef nonnull dereferenceable(3) @.str.91, i64 3)
   %.not106.i = icmp eq i32 %bcmp105.i, 0
   %spec.select611.i = select i1 %.not106.i, i64 2, i64 0
@@ -1529,7 +1529,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 280:                                              ; preds = %275
-  %281 = getelementptr inbounds i8, ptr %1, i64 2
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp103.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %281, ptr noundef nonnull dereferenceable(3) @.str.103, i64 3)
   %.not104.i = icmp eq i32 %bcmp103.i, 0
   %spec.select613.i = select i1 %.not104.i, i64 2, i64 0
@@ -1537,7 +1537,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 282:                                              ; preds = %178
-  %283 = getelementptr inbounds i8, ptr %1, i64 1
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp101.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %283, ptr noundef nonnull dereferenceable(4) @.str.105, i64 4)
   %.not102.i = icmp eq i32 %bcmp101.i, 0
   %spec.select615.i = select i1 %.not102.i, i64 3, i64 0
@@ -1545,7 +1545,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 284:                                              ; preds = %178
-  %285 = getelementptr inbounds i8, ptr %1, i64 1
+  %285 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %286 = load i8, ptr %285, align 1
   switch i8 %286, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %287
@@ -1555,7 +1555,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 287:                                              ; preds = %284
-  %288 = getelementptr inbounds i8, ptr %1, i64 2
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp99.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %288, ptr noundef nonnull dereferenceable(3) @.str.149, i64 3)
   %.not100.i = icmp eq i32 %bcmp99.i, 0
   %spec.select617.i = select i1 %.not100.i, i64 3, i64 0
@@ -1563,7 +1563,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 289:                                              ; preds = %284
-  %290 = getelementptr inbounds i8, ptr %1, i64 2
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp97.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %290, ptr noundef nonnull dereferenceable(3) @.str.132, i64 3)
   %.not98.i = icmp eq i32 %bcmp97.i, 0
   %spec.select619.i = select i1 %.not98.i, i64 3, i64 0
@@ -1571,7 +1571,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 291:                                              ; preds = %284
-  %292 = getelementptr inbounds i8, ptr %1, i64 2
+  %292 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp95.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %292, ptr noundef nonnull dereferenceable(3) @.str.134, i64 3)
   %.not96.i = icmp eq i32 %bcmp95.i, 0
   %spec.select621.i = select i1 %.not96.i, i64 3, i64 0
@@ -1579,7 +1579,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 293:                                              ; preds = %284
-  %294 = getelementptr inbounds i8, ptr %1, i64 2
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp93.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %294, ptr noundef nonnull dereferenceable(3) @.str.134, i64 3)
   %.not94.i = icmp eq i32 %bcmp93.i, 0
   %spec.select623.i = select i1 %.not94.i, i64 3, i64 0
@@ -1587,7 +1587,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 295:                                              ; preds = %178
-  %296 = getelementptr inbounds i8, ptr %1, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %297 = load i8, ptr %296, align 1
   switch i8 %297, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 105, label %298
@@ -1595,7 +1595,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 298:                                              ; preds = %295
-  %299 = getelementptr inbounds i8, ptr %1, i64 2
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp91.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %299, ptr noundef nonnull dereferenceable(3) @.str.154, i64 3)
   %.not92.i = icmp eq i32 %bcmp91.i, 0
   %spec.select625.i = select i1 %.not92.i, i64 2, i64 0
@@ -1603,7 +1603,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 300:                                              ; preds = %295
-  %301 = getelementptr inbounds i8, ptr %1, i64 2
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp89.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %301, ptr noundef nonnull dereferenceable(3) @.str.156, i64 3)
   %.not90.i = icmp eq i32 %bcmp89.i, 0
   %spec.select627.i = select i1 %.not90.i, i64 2, i64 0
@@ -1611,7 +1611,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 302:                                              ; preds = %178
-  %303 = getelementptr inbounds i8, ptr %1, i64 1
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %304 = load i8, ptr %303, align 1
   switch i8 %304, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 104, label %305
@@ -1620,7 +1620,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 305:                                              ; preds = %302
-  %306 = getelementptr inbounds i8, ptr %1, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp87.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %306, ptr noundef nonnull dereferenceable(3) @.str.63, i64 3)
   %.not88.i = icmp eq i32 %bcmp87.i, 0
   %spec.select629.i = select i1 %.not88.i, i64 2, i64 0
@@ -1628,7 +1628,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 307:                                              ; preds = %302
-  %308 = getelementptr inbounds i8, ptr %1, i64 2
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp85.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %308, ptr noundef nonnull dereferenceable(3) @.str.159, i64 3)
   %.not86.i = icmp eq i32 %bcmp85.i, 0
   %spec.select631.i = select i1 %.not86.i, i64 2, i64 0
@@ -1636,7 +1636,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 309:                                              ; preds = %302
-  %310 = getelementptr inbounds i8, ptr %1, i64 2
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp83.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %310, ptr noundef nonnull dereferenceable(3) @.str.161, i64 3)
   %.not84.i = icmp eq i32 %bcmp83.i, 0
   %spec.select633.i = select i1 %.not84.i, i64 3, i64 0
@@ -1644,7 +1644,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 311:                                              ; preds = %178
-  %312 = getelementptr inbounds i8, ptr %1, i64 1
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp81.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %312, ptr noundef nonnull dereferenceable(4) @.str.97, i64 4)
   %.not82.i = icmp eq i32 %bcmp81.i, 0
   %spec.select635.i = select i1 %.not82.i, i64 2, i64 0
@@ -1652,7 +1652,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 313:                                              ; preds = %178
-  %314 = getelementptr inbounds i8, ptr %1, i64 1
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp79.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %314, ptr noundef nonnull dereferenceable(4) @.str.97, i64 4)
   %.not80.i = icmp eq i32 %bcmp79.i, 0
   %spec.select637.i = select i1 %.not80.i, i64 2, i64 0
@@ -1686,7 +1686,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 317:                                              ; preds = %315
-  %318 = getelementptr inbounds i8, ptr %1, i64 1
+  %318 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %319 = load i8, ptr %318, align 1
   switch i8 %319, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %320
@@ -1695,7 +1695,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds i8, ptr %1, i64 2
+  %321 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp77.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %321, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not78.i = icmp eq i32 %bcmp77.i, 0
   %spec.select639.i = select i1 %.not78.i, i64 2, i64 0
@@ -1703,7 +1703,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 322:                                              ; preds = %317
-  %323 = getelementptr inbounds i8, ptr %1, i64 2
+  %323 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp75.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %323, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not76.i = icmp eq i32 %bcmp75.i, 0
   %spec.select641.i = select i1 %.not76.i, i64 2, i64 0
@@ -1711,7 +1711,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 324:                                              ; preds = %317
-  %325 = getelementptr inbounds i8, ptr %1, i64 2
+  %325 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp73.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %325, ptr noundef nonnull dereferenceable(4) @.str.168, i64 4)
   %.not74.i = icmp eq i32 %bcmp73.i, 0
   %spec.select643.i = select i1 %.not74.i, i64 2, i64 0
@@ -1719,7 +1719,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 326:                                              ; preds = %315
-  %327 = getelementptr inbounds i8, ptr %1, i64 1
+  %327 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp71.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %327, ptr noundef nonnull dereferenceable(5) @.str.170, i64 5)
   %.not72.i = icmp eq i32 %bcmp71.i, 0
   %spec.select645.i = select i1 %.not72.i, i64 2, i64 0
@@ -1727,7 +1727,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 328:                                              ; preds = %315
-  %329 = getelementptr inbounds i8, ptr %1, i64 1
+  %329 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %330 = load i8, ptr %329, align 1
   switch i8 %330, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %331
@@ -1735,7 +1735,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 331:                                              ; preds = %328
-  %332 = getelementptr inbounds i8, ptr %1, i64 2
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp69.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %332, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not70.i = icmp eq i32 %bcmp69.i, 0
   %spec.select647.i = select i1 %.not70.i, i64 2, i64 0
@@ -1743,7 +1743,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 333:                                              ; preds = %328
-  %334 = getelementptr inbounds i8, ptr %1, i64 2
+  %334 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp67.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %334, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not68.i = icmp eq i32 %bcmp67.i, 0
   %spec.select649.i = select i1 %.not68.i, i64 2, i64 0
@@ -1751,7 +1751,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 335:                                              ; preds = %315
-  %336 = getelementptr inbounds i8, ptr %1, i64 1
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %337 = load i8, ptr %336, align 1
   switch i8 %337, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %338
@@ -1759,7 +1759,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 338:                                              ; preds = %335
-  %339 = getelementptr inbounds i8, ptr %1, i64 2
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp65.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %339, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not66.i = icmp eq i32 %bcmp65.i, 0
   %spec.select651.i = select i1 %.not66.i, i64 2, i64 0
@@ -1767,7 +1767,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 340:                                              ; preds = %335
-  %341 = getelementptr inbounds i8, ptr %1, i64 2
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp63.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %341, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not64.i = icmp eq i32 %bcmp63.i, 0
   %spec.select653.i = select i1 %.not64.i, i64 2, i64 0
@@ -1775,7 +1775,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 342:                                              ; preds = %315
-  %343 = getelementptr inbounds i8, ptr %1, i64 1
+  %343 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp61.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %343, ptr noundef nonnull dereferenceable(5) @.str.176, i64 5)
   %.not62.i = icmp eq i32 %bcmp61.i, 0
   %spec.select655.i = select i1 %.not62.i, i64 2, i64 0
@@ -1783,7 +1783,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 344:                                              ; preds = %315
-  %345 = getelementptr inbounds i8, ptr %1, i64 1
+  %345 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp59.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %345, ptr noundef nonnull dereferenceable(5) @.str.178, i64 5)
   %.not60.i = icmp eq i32 %bcmp59.i, 0
   %spec.select657.i = select i1 %.not60.i, i64 2, i64 0
@@ -1791,7 +1791,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 346:                                              ; preds = %315
-  %347 = getelementptr inbounds i8, ptr %1, i64 1
+  %347 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %348 = load i8, ptr %347, align 1
   switch i8 %348, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %349
@@ -1800,7 +1800,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 349:                                              ; preds = %346
-  %350 = getelementptr inbounds i8, ptr %1, i64 2
+  %350 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp57.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %350, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not58.i = icmp eq i32 %bcmp57.i, 0
   %spec.select659.i = select i1 %.not58.i, i64 2, i64 0
@@ -1808,7 +1808,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 351:                                              ; preds = %346
-  %352 = getelementptr inbounds i8, ptr %1, i64 2
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp55.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %352, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not56.i = icmp eq i32 %bcmp55.i, 0
   %spec.select661.i = select i1 %.not56.i, i64 2, i64 0
@@ -1816,7 +1816,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 353:                                              ; preds = %346
-  %354 = getelementptr inbounds i8, ptr %1, i64 2
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp53.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %354, ptr noundef nonnull dereferenceable(4) @.str.168, i64 4)
   %.not54.i = icmp eq i32 %bcmp53.i, 0
   %spec.select663.i = select i1 %.not54.i, i64 2, i64 0
@@ -1824,7 +1824,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 355:                                              ; preds = %315
-  %356 = getelementptr inbounds i8, ptr %1, i64 1
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %357 = load i8, ptr %356, align 1
   switch i8 %357, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %358
@@ -1832,7 +1832,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 358:                                              ; preds = %355
-  %359 = getelementptr inbounds i8, ptr %1, i64 2
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp51.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %359, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not52.i = icmp eq i32 %bcmp51.i, 0
   %spec.select665.i = select i1 %.not52.i, i64 2, i64 0
@@ -1840,7 +1840,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 360:                                              ; preds = %355
-  %361 = getelementptr inbounds i8, ptr %1, i64 2
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp49.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %361, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not50.i = icmp eq i32 %bcmp49.i, 0
   %spec.select667.i = select i1 %.not50.i, i64 2, i64 0
@@ -1848,7 +1848,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 362:                                              ; preds = %315
-  %363 = getelementptr inbounds i8, ptr %1, i64 1
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp47.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %363, ptr noundef nonnull dereferenceable(5) @.str.185, i64 5)
   %.not48.i = icmp eq i32 %bcmp47.i, 0
   %spec.select669.i = select i1 %.not48.i, i64 2, i64 0
@@ -1856,7 +1856,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 364:                                              ; preds = %315
-  %365 = getelementptr inbounds i8, ptr %1, i64 1
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %366 = load i8, ptr %365, align 1
   switch i8 %366, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %367
@@ -1865,7 +1865,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 367:                                              ; preds = %364
-  %368 = getelementptr inbounds i8, ptr %1, i64 2
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp45.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %368, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not46.i = icmp eq i32 %bcmp45.i, 0
   %spec.select671.i = select i1 %.not46.i, i64 2, i64 0
@@ -1873,7 +1873,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 369:                                              ; preds = %364
-  %370 = getelementptr inbounds i8, ptr %1, i64 2
+  %370 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp43.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %370, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not44.i = icmp eq i32 %bcmp43.i, 0
   %spec.select673.i = select i1 %.not44.i, i64 2, i64 0
@@ -1881,7 +1881,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 371:                                              ; preds = %364
-  %372 = getelementptr inbounds i8, ptr %1, i64 2
+  %372 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp41.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %372, ptr noundef nonnull dereferenceable(4) @.str.168, i64 4)
   %.not42.i = icmp eq i32 %bcmp41.i, 0
   %spec.select675.i = select i1 %.not42.i, i64 2, i64 0
@@ -1889,7 +1889,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 373:                                              ; preds = %315
-  %374 = getelementptr inbounds i8, ptr %1, i64 1
+  %374 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp39.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %374, ptr noundef nonnull dereferenceable(5) @.str.170, i64 5)
   %.not40.i = icmp eq i32 %bcmp39.i, 0
   %spec.select677.i = select i1 %.not40.i, i64 2, i64 0
@@ -1897,7 +1897,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 375:                                              ; preds = %315
-  %376 = getelementptr inbounds i8, ptr %1, i64 1
+  %376 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %377 = load i8, ptr %376, align 1
   switch i8 %377, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %378
@@ -1905,7 +1905,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 378:                                              ; preds = %375
-  %379 = getelementptr inbounds i8, ptr %1, i64 2
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp37.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %379, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not38.i = icmp eq i32 %bcmp37.i, 0
   %spec.select679.i = select i1 %.not38.i, i64 2, i64 0
@@ -1913,7 +1913,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 380:                                              ; preds = %375
-  %381 = getelementptr inbounds i8, ptr %1, i64 2
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp35.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %381, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not36.i = icmp eq i32 %bcmp35.i, 0
   %spec.select681.i = select i1 %.not36.i, i64 2, i64 0
@@ -1921,7 +1921,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 382:                                              ; preds = %315
-  %383 = getelementptr inbounds i8, ptr %1, i64 1
+  %383 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %384 = load i8, ptr %383, align 1
   switch i8 %384, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %385
@@ -1929,7 +1929,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 385:                                              ; preds = %382
-  %386 = getelementptr inbounds i8, ptr %1, i64 2
+  %386 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp33.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %386, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not34.i = icmp eq i32 %bcmp33.i, 0
   %spec.select683.i = select i1 %.not34.i, i64 2, i64 0
@@ -1937,7 +1937,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 387:                                              ; preds = %382
-  %388 = getelementptr inbounds i8, ptr %1, i64 2
+  %388 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp31.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %388, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not32.i = icmp eq i32 %bcmp31.i, 0
   %spec.select685.i = select i1 %.not32.i, i64 2, i64 0
@@ -1945,7 +1945,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 389:                                              ; preds = %315
-  %390 = getelementptr inbounds i8, ptr %1, i64 1
+  %390 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %391 = load i8, ptr %390, align 1
   switch i8 %391, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %392
@@ -1953,7 +1953,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 392:                                              ; preds = %389
-  %393 = getelementptr inbounds i8, ptr %1, i64 2
+  %393 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp29.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %393, ptr noundef nonnull dereferenceable(4) @.str.195, i64 4)
   %.not30.i = icmp eq i32 %bcmp29.i, 0
   %spec.select687.i = select i1 %.not30.i, i64 2, i64 0
@@ -1961,7 +1961,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 394:                                              ; preds = %389
-  %395 = getelementptr inbounds i8, ptr %1, i64 2
+  %395 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp27.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %395, ptr noundef nonnull dereferenceable(4) @.str.197, i64 4)
   %.not28.i = icmp eq i32 %bcmp27.i, 0
   %spec.select689.i = select i1 %.not28.i, i64 3, i64 0
@@ -1969,7 +1969,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 396:                                              ; preds = %315
-  %397 = getelementptr inbounds i8, ptr %1, i64 1
+  %397 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp25.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %397, ptr noundef nonnull dereferenceable(5) @.str.178, i64 5)
   %.not26.i = icmp eq i32 %bcmp25.i, 0
   %spec.select691.i = select i1 %.not26.i, i64 2, i64 0
@@ -1977,7 +1977,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 398:                                              ; preds = %315
-  %399 = getelementptr inbounds i8, ptr %1, i64 1
+  %399 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %400 = load i8, ptr %399, align 1
   switch i8 %400, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %401
@@ -1986,7 +1986,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 401:                                              ; preds = %398
-  %402 = getelementptr inbounds i8, ptr %1, i64 2
+  %402 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp23.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %402, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not24.i = icmp eq i32 %bcmp23.i, 0
   %spec.select693.i = select i1 %.not24.i, i64 2, i64 0
@@ -1994,7 +1994,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 403:                                              ; preds = %398
-  %404 = getelementptr inbounds i8, ptr %1, i64 2
+  %404 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp21.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %404, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not22.i = icmp eq i32 %bcmp21.i, 0
   %spec.select695.i = select i1 %.not22.i, i64 2, i64 0
@@ -2002,7 +2002,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 405:                                              ; preds = %398
-  %406 = getelementptr inbounds i8, ptr %1, i64 2
+  %406 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp19.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %406, ptr noundef nonnull dereferenceable(4) @.str.168, i64 4)
   %.not20.i = icmp eq i32 %bcmp19.i, 0
   %spec.select697.i = select i1 %.not20.i, i64 2, i64 0
@@ -2010,7 +2010,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 407:                                              ; preds = %315
-  %408 = getelementptr inbounds i8, ptr %1, i64 1
+  %408 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp17.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %408, ptr noundef nonnull dereferenceable(5) @.str.203, i64 5)
   %.not18.i = icmp eq i32 %bcmp17.i, 0
   %spec.select699.i = select i1 %.not18.i, i64 2, i64 0
@@ -2018,7 +2018,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 409:                                              ; preds = %315
-  %410 = getelementptr inbounds i8, ptr %1, i64 1
+  %410 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp15.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %410, ptr noundef nonnull dereferenceable(5) @.str.205, i64 5)
   %.not16.i = icmp eq i32 %bcmp15.i, 0
   %spec.select701.i = select i1 %.not16.i, i64 3, i64 0
@@ -2026,7 +2026,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 411:                                              ; preds = %315
-  %412 = getelementptr inbounds i8, ptr %1, i64 1
+  %412 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp13.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(5) %412, ptr noundef nonnull dereferenceable(5) @.str.207, i64 5)
   %.not14.i = icmp eq i32 %bcmp13.i, 0
   %spec.select703.i = select i1 %.not14.i, i64 2, i64 0
@@ -2034,7 +2034,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 413:                                              ; preds = %315
-  %414 = getelementptr inbounds i8, ptr %1, i64 1
+  %414 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %415 = load i8, ptr %414, align 1
   switch i8 %415, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %416
@@ -2042,7 +2042,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 416:                                              ; preds = %413
-  %417 = getelementptr inbounds i8, ptr %1, i64 2
+  %417 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp11.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %417, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not12.i = icmp eq i32 %bcmp11.i, 0
   %spec.select705.i = select i1 %.not12.i, i64 2, i64 0
@@ -2050,7 +2050,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 418:                                              ; preds = %413
-  %419 = getelementptr inbounds i8, ptr %1, i64 2
+  %419 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp9.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %419, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not10.i = icmp eq i32 %bcmp9.i, 0
   %spec.select707.i = select i1 %.not10.i, i64 2, i64 0
@@ -2058,7 +2058,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 420:                                              ; preds = %315
-  %421 = getelementptr inbounds i8, ptr %1, i64 1
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %422 = load i8, ptr %421, align 1
   switch i8 %422, label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit [
     i8 97, label %423
@@ -2066,7 +2066,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 423:                                              ; preds = %420
-  %424 = getelementptr inbounds i8, ptr %1, i64 2
+  %424 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp7.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %424, ptr noundef nonnull dereferenceable(4) @.str.164, i64 4)
   %.not8.i = icmp eq i32 %bcmp7.i, 0
   %spec.select709.i = select i1 %.not8.i, i64 2, i64 0
@@ -2074,7 +2074,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 425:                                              ; preds = %420
-  %426 = getelementptr inbounds i8, ptr %1, i64 2
+  %426 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %bcmp5.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %426, ptr noundef nonnull dereferenceable(4) @.str.166, i64 4)
   %.not6.i = icmp eq i32 %bcmp5.i, 0
   %spec.select711.i = select i1 %.not6.i, i64 3, i64 0
@@ -2090,7 +2090,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   ]
 
 429:                                              ; preds = %427
-  %430 = getelementptr inbounds i8, ptr %1, i64 1
+  %430 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp3.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %430, ptr noundef nonnull dereferenceable(6) @.str.213, i64 6)
   %.not4.i = icmp eq i32 %bcmp3.i, 0
   %spec.select713.i = select i1 %.not4.i, i64 2, i64 0
@@ -2098,7 +2098,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 431:                                              ; preds = %427
-  %432 = getelementptr inbounds i8, ptr %1, i64 1
+  %432 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp1.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %432, ptr noundef nonnull dereferenceable(6) @.str.213, i64 6)
   %.not2.i = icmp eq i32 %bcmp1.i, 0
   %spec.select715.i = select i1 %.not2.i, i64 2, i64 0
@@ -2106,7 +2106,7 @@ _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit45.thr
   br label %_ZN5clang8comments12_GLOBAL__N_142translateHTMLNamedCharacterReferenceToUTF8EN4llvm9StringRefE.exit
 
 433:                                              ; preds = %427
-  %434 = getelementptr inbounds i8, ptr %1, i64 1
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %434, ptr noundef nonnull dereferenceable(6) @.str.213, i64 6)
   %.not.i = icmp eq i32 %bcmp.i, 0
   %spec.select717.i = select i1 %.not.i, i64 2, i64 0
@@ -2143,7 +2143,7 @@ define dso_local { ptr, i64 } @_ZNK5clang8comments5Lexer36resolveHTMLDecimalChar
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %7 = mul i32 %.010, 10
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = sext i8 %9 to i32
   %11 = add i32 %7, -48
@@ -2178,7 +2178,7 @@ define dso_local { ptr, i64 } @_ZNK5clang8comments5Lexer36resolveHTMLDecimalChar
 .critedge.i.i.i.i.i:                              ; preds = %._crit_edge
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %13)
   %25 = load ptr, ptr %13, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.pre.i = ptrtoint ptr %25 to i64
   br label %_ZN5clang8commentsL22convertCodePointToUTF8ERN4llvm20BumpPtrAllocatorImplINS1_15MallocAllocatorELm4096ELm4096ELm128EEEj.exit
 
@@ -2215,10 +2215,10 @@ define dso_local { ptr, i64 } @_ZNK5clang8comments5Lexer32resolveHTMLHexCharacte
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.011 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
   %7 = shl i32 %.011, 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %10
+  %11 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = sext i16 %12 to i32
   %14 = add i32 %7, %13
@@ -2252,7 +2252,7 @@ define dso_local { ptr, i64 } @_ZNK5clang8comments5Lexer32resolveHTMLHexCharacte
 .critedge.i.i.i.i.i:                              ; preds = %._crit_edge
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %15)
   %27 = load ptr, ptr %15, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.pre.i = ptrtoint ptr %27 to i64
   br label %_ZN5clang8commentsL22convertCodePointToUTF8ERN4llvm20BumpPtrAllocatorImplINS1_15MallocAllocatorELm4096ELm4096ELm128EEEj.exit
 
@@ -2287,14 +2287,14 @@ define dso_local void @_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv(p
   %.0 = phi ptr [ %13, %12 ], [ %3, %1 ]
   %7 = load i8, ptr %.0, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 5
   %.not = icmp eq i16 %11, 0
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds i8, ptr %.0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %14 = icmp eq ptr %13, %5
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !7
 
@@ -2303,7 +2303,7 @@ define dso_local void @_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv(p
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.0, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store ptr %18, ptr %2, align 8
   br label %.loopexit
 
@@ -2363,58 +2363,53 @@ define dso_local noundef ptr @_ZN5clang8comments5Lexer13skipTextTokenEv(ptr noca
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %21
 
-._crit_edge:                                      ; preds = %39, %1
+._crit_edge:                                      ; preds = %38, %1
   %20 = load ptr, ptr %11, align 8
   br label %.loopexit
 
-21:                                               ; preds = %.lr.ph, %39
-  %22 = phi i64 [ %17, %.lr.ph ], [ %43, %39 ]
-  %.01725 = phi ptr [ %5, %.lr.ph ], [ %.1, %39 ]
-  %23 = getelementptr inbounds i8, ptr %.01725, i64 %22
+21:                                               ; preds = %.lr.ph, %38
+  %22 = phi i64 [ %17, %.lr.ph ], [ %42, %38 ]
+  %.01724 = phi ptr [ %5, %.lr.ph ], [ %.1, %38 ]
+  %23 = getelementptr inbounds i8, ptr %.01724, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 34
-  br i1 %25, label %26, label %.loopexit.loopexit
+  br i1 %25, label %26, label %.loopexit
 
 26:                                               ; preds = %21
-  %27 = add nuw i64 %22, 1
-  %28 = getelementptr inbounds i8, ptr %.01725, i64 %27
-  %29 = load ptr, ptr %11, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = ptrtoint ptr %28 to i64
-  %32 = sub i64 %30, %31
-  store ptr %28, ptr %3, align 8
-  store i64 %32, ptr %19, align 8
-  %33 = call noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull @.str.16, i64 3, i64 noundef 0) #18
-  %.not = icmp eq i64 %33, -1
-  br i1 %.not, label %39, label %34
+  %27 = getelementptr i8, ptr %23, i64 1
+  %28 = load ptr, ptr %11, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = ptrtoint ptr %27 to i64
+  %31 = sub i64 %29, %30
+  store ptr %27, ptr %3, align 8
+  store i64 %31, ptr %19, align 8
+  %32 = call noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull @.str.16, i64 3, i64 noundef 0) #18
+  %.not = icmp eq i64 %32, -1
+  br i1 %.not, label %38, label %33
 
-34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %28, i64 %33
-  %36 = load i8, ptr %35, align 1
-  %37 = icmp eq i8 %36, 34
-  %38 = getelementptr i8, ptr %35, i64 1
-  %spec.select = select i1 %37, ptr %38, ptr %28
+33:                                               ; preds = %26
+  %34 = getelementptr inbounds i8, ptr %27, i64 %32
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 34
+  %37 = getelementptr i8, ptr %34, i64 1
+  %spec.select = select i1 %36, ptr %37, ptr %27
   %.pre = ptrtoint ptr %spec.select to i64
-  br label %39
+  br label %38
 
-39:                                               ; preds = %34, %26
-  %.pre-phi = phi i64 [ %.pre, %34 ], [ %31, %26 ]
-  %.1 = phi ptr [ %spec.select, %34 ], [ %28, %26 ]
-  %40 = load ptr, ptr %11, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = sub i64 %41, %.pre-phi
+38:                                               ; preds = %33, %26
+  %.pre-phi = phi i64 [ %.pre, %33 ], [ %30, %26 ]
+  %.1 = phi ptr [ %spec.select, %33 ], [ %27, %26 ]
+  %39 = load ptr, ptr %11, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = sub i64 %40, %.pre-phi
   store ptr %.1, ptr %2, align 8
-  store i64 %42, ptr %12, align 8
-  %43 = call noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %9, i64 %10, i64 noundef 0) #18
-  %44 = icmp eq i64 %43, -1
-  br i1 %44, label %._crit_edge, label %21
+  store i64 %41, ptr %12, align 8
+  %42 = call noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nonnull %9, i64 %10, i64 noundef 0) #18
+  %43 = icmp eq i64 %42, -1
+  br i1 %43, label %._crit_edge, label %21
 
-.loopexit.loopexit:                               ; preds = %21
-  %45 = getelementptr inbounds i8, ptr %.01725, i64 %22
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
-  %.0 = phi ptr [ %20, %._crit_edge ], [ %45, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %21, %._crit_edge
+  %.0 = phi ptr [ %20, %._crit_edge ], [ %23, %21 ]
   ret ptr %.0
 }
 
@@ -2469,14 +2464,14 @@ define dso_local void @_ZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenE(ptr
   %.0.i.i = phi ptr [ %32, %31 ], [ %21, %24 ]
   %26 = load i8, ptr %.0.i.i, align 1
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 5
   %.not.i.i = icmp eq i16 %30, 0
   br i1 %.not.i.i, label %34, label %31
 
 31:                                               ; preds = %.preheader.i.i
-  %32 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %33 = icmp eq ptr %32, %23
   br i1 %33, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.i, label %.preheader.i.i, !llvm.loop !7
 
@@ -2485,7 +2480,7 @@ define dso_local void @_ZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenE(ptr
   br i1 %35, label %36, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.i
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store ptr %37, ptr %20, align 8
   br label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.i
 
@@ -2534,14 +2529,14 @@ _ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit.thread.i: ; preds =
   %.0711.i.i = phi ptr [ %67, %66 ], [ %58, %56 ]
   %61 = load i8, ptr %.0711.i.i, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 2
   %.not9.i.i = icmp eq i16 %65, 0
   br i1 %.not9.i.i, label %66, label %_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit
 
 66:                                               ; preds = %.lr.ph.i.i
-  %67 = getelementptr inbounds i8, ptr %.0711.i.i, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 1
   %.not.i.i136 = icmp eq ptr %67, %60
   br i1 %.not.i.i136, label %_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit, label %.lr.ph.i.i, !llvm.loop !8
 
@@ -2579,7 +2574,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
 85:                                               ; preds = %12
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
   %89 = ptrtoint ptr %87 to i64
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %91 = load ptr, ptr %90, align 8
@@ -2612,7 +2607,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
 104:                                              ; preds = %100, %100
   %105 = icmp eq i8 %103, 64
   %106 = select i1 %105, i32 5, i32 4
-  %107 = getelementptr inbounds i8, ptr %102, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %102, i64 1
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %107, %109
@@ -2657,7 +2652,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
   ]
 
 127:                                              ; preds = %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125
-  %128 = getelementptr inbounds i8, ptr %102, i64 2
+  %128 = getelementptr inbounds nuw i8, ptr %102, i64 2
   %129 = icmp ne i8 %126, 58
   %.not = icmp eq ptr %128, %109
   %or.cond = select i1 %129, i1 true, i1 %.not
@@ -2666,7 +2661,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
 130:                                              ; preds = %127
   %131 = load i8, ptr %128, align 1
   %132 = icmp eq i8 %131, 58
-  %133 = getelementptr inbounds i8, ptr %102, i64 3
+  %133 = getelementptr inbounds nuw i8, ptr %102, i64 3
   %spec.select = select i1 %132, ptr %133, ptr %128
   br label %134
 
@@ -2701,7 +2696,7 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
 
 154:                                              ; preds = %125
   %155 = zext i8 %126 to i64
-  %156 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %155
+  %156 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %155
   %157 = load i16, ptr %156, align 2
   %158 = and i16 %157, 96
   %.not165 = icmp eq i16 %158, 0
@@ -2733,14 +2728,14 @@ _ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5TokenE.exit: ; preds = %.lr.
   %.0711.i = phi ptr [ %179, %178 ], [ %107, %154 ]
   %173 = load i8, ptr %.0711.i, align 1
   %174 = zext i8 %173 to i64
-  %175 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %174
+  %175 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %174
   %176 = load i16, ptr %175, align 2
   %177 = and i16 %176, 104
   %.not9.i = icmp eq i16 %177, 0
   br i1 %.not9.i, label %_ZN5clang8comments12_GLOBAL__N_115skipCommandNameEPKcS3_.exit, label %178
 
 178:                                              ; preds = %.lr.ph.i
-  %179 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %179, %109
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_115skipCommandNameEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -2774,7 +2769,7 @@ _ZN5clang8comments12_GLOBAL__N_115skipCommandNameEPKcS3_.exit: ; preds = %.lr.ph
   ]
 
 191:                                              ; preds = %189, %189, %189, %189, %189, %189, %189
-  %192 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   br label %193
 
 193:                                              ; preds = %189, %191, %185, %_ZN5clang8comments12_GLOBAL__N_115skipCommandNameEPKcS3_.exit
@@ -2826,7 +2821,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   %.sroa.0149.0.insert.insert = or disjoint i64 %.sroa.2150.0.insert.shift, %.sroa.0149.0.insert.ext
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   store i64 %.sroa.0149.0.insert.insert, ptr %4, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(26) %5, ptr noundef nonnull align 4 dereferenceable(9) %4)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
@@ -2878,7 +2873,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   store i64 %.sroa.0.0.insert.insert, ptr %3, align 8
-  %.sroa.2.0..sroa_idx.i.i146 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i.i146 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i146, align 8
   call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(26) %7, ptr noundef nonnull align 4 dereferenceable(9) %3)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
@@ -2947,7 +2942,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
   br label %_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit
 
 278:                                              ; preds = %100
-  %279 = getelementptr inbounds i8, ptr %102, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %102, i64 1
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %281 = load ptr, ptr %280, align 8
   %282 = icmp eq ptr %279, %281
@@ -2978,7 +2973,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %201, %203
 297:                                              ; preds = %278
   %298 = load i8, ptr %279, align 1
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %299
+  %300 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %299
   %301 = load i16, ptr %300, align 2
   %302 = and i16 %301, 96
   %.not164 = icmp eq i16 %302, 0
@@ -3044,7 +3039,7 @@ define internal fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5To
 
 8:                                                ; preds = %4
   %9 = icmp eq i8 %3, 10
-  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %.not.i = icmp eq ptr %10, %6
   %or.cond.i = select i1 %9, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit, label %11
@@ -3052,7 +3047,7 @@ define internal fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5To
 11:                                               ; preds = %8
   %12 = load i8, ptr %10, align 1
   %13 = icmp eq i8 %12, 10
-  %14 = getelementptr inbounds i8, ptr %2, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %spec.select.i = select i1 %13, ptr %14, ptr %10
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit
 
@@ -3090,14 +3085,14 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit: ; preds = %4, %8, %11
   %.0.i4 = phi ptr [ %41, %40 ], [ %.0.i, %32 ]
   %35 = load i8, ptr %.0.i4, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 5
   %.not.i5 = icmp eq i16 %39, 0
   br i1 %.not.i5, label %43, label %40
 
 40:                                               ; preds = %.preheader.i
-  %41 = getelementptr inbounds i8, ptr %.0.i4, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 1
   %42 = icmp eq ptr %41, %33
   br i1 %42, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit, label %.preheader.i, !llvm.loop !7
 
@@ -3106,7 +3101,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit: ; preds = %4, %8, %11
   br i1 %44, label %45, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.0.i4, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 1
   store ptr %46, ptr %1, align 8
   br label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit
 
@@ -3161,14 +3156,14 @@ define dso_local void @_ZN5clang8comments5Lexer25lexVerbatimBlockFirstLineERNS0_
   %.0711.i = phi ptr [ %17, %16 ], [ %9, %8 ]
   %11 = load i8, ptr %.0711.i, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = and i16 %14, 2
   %.not9.i = icmp eq i16 %15, 0
   br i1 %.not9.i, label %16, label %_ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %17, %10
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -3195,7 +3190,7 @@ _ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit: ; preds = %.lr.ph.i, 
 27:                                               ; preds = %24
   %28 = load i8, ptr %.0.i, align 1
   %29 = icmp eq i8 %28, 10
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %.not.i23 = icmp eq ptr %30, %25
   %or.cond.i = select i1 %29, i1 true, i1 %.not.i23
   br i1 %or.cond.i, label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit, label %31
@@ -3203,7 +3198,7 @@ _ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit: ; preds = %.lr.ph.i, 
 31:                                               ; preds = %27
   %32 = load i8, ptr %30, align 1
   %33 = icmp eq i8 %32, 10
-  %34 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   %spec.select.i = select i1 %33, ptr %34, ptr %30
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit
 
@@ -3212,7 +3207,7 @@ _ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit: ; preds = %.lr.ph.i, 
   %37 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #18
   %38 = getelementptr inbounds i8, ptr %36, i64 %37
   %39 = load ptr, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = ptrtoint ptr %38 to i64
   %42 = ptrtoint ptr %40 to i64
   %43 = sub i64 %41, %42
@@ -3253,14 +3248,14 @@ _ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit: ; preds = %.lr.ph.i, 
   %.0711.i.i = phi ptr [ %74, %73 ], [ %66, %65 ]
   %68 = load i8, ptr %.0711.i.i, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 7
   %.not9.i.i = icmp eq i16 %72, 0
   br i1 %.not9.i.i, label %_ZN5clang8comments12_GLOBAL__N_112isWhitespaceEPKcS3_.exit, label %73
 
 73:                                               ; preds = %.lr.ph.i.i
-  %74 = getelementptr inbounds i8, ptr %.0711.i.i, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.0711.i.i, i64 1
   %.not.i.i = icmp eq ptr %74, %67
   br i1 %.not.i.i, label %_ZN5clang8comments12_GLOBAL__N_112isWhitespaceEPKcS3_.exit.thread, label %.lr.ph.i.i, !llvm.loop !10
 
@@ -3333,14 +3328,14 @@ define dso_local void @_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5Toke
   %.0.i = phi ptr [ %18, %17 ], [ %7, %10 ]
   %12 = load i8, ptr %.0.i, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 5
   %.not.i = icmp eq i16 %16, 0
   br i1 %.not.i, label %20, label %17
 
 17:                                               ; preds = %.preheader.i
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %19 = icmp eq ptr %18, %9
   br i1 %19, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit, label %.preheader.i, !llvm.loop !7
 
@@ -3349,7 +3344,7 @@ define dso_local void @_ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5Toke
   br i1 %21, label %22, label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   store ptr %23, ptr %6, align 8
   br label %_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv.exit
 
@@ -3404,14 +3399,14 @@ define dso_local void @_ZN5clang8comments5Lexer19lexVerbatimLineTextERNS0_5Token
   %.0711.i = phi ptr [ %13, %12 ], [ %4, %2 ]
   %7 = load i8, ptr %.0711.i, align 1
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %8
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 2
   %.not9.i = icmp eq i16 %11, 0
   br i1 %.not9.i, label %12, label %_ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit
 
 12:                                               ; preds = %.lr.ph.i
-  %13 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %13, %6
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_111findNewlineEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !8
 
@@ -3450,7 +3445,7 @@ define dso_local void @_ZN5clang8comments5Lexer15lexHTMLStartTagERNS0_5TokenE(pt
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 104
   %.not70 = icmp eq i16 %9, 0
@@ -3466,14 +3461,14 @@ define dso_local void @_ZN5clang8comments5Lexer15lexHTMLStartTagERNS0_5TokenE(pt
   %.0711.i = phi ptr [ %19, %18 ], [ %4, %10 ]
   %13 = load i8, ptr %.0711.i, align 1
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = and i16 %16, 104
   %.not9.i = icmp eq i16 %17, 0
   br i1 %.not9.i, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %19, %12
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !11
 
@@ -3513,7 +3508,7 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %.lr
   ]
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %4, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %39 = ptrtoint ptr %4 to i64
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = load ptr, ptr %40, align 8
@@ -3534,7 +3529,7 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %.lr
 50:                                               ; preds = %36, %36
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %52 = load ptr, ptr %51, align 8
-  %.01114.i = getelementptr inbounds i8, ptr %4, i64 1
+  %.01114.i = getelementptr inbounds nuw i8, ptr %4, i64 1
   %.not15.i = icmp eq ptr %.01114.i, %52
   br i1 %.not15.i, label %_ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit, label %.lr.ph.i58
 
@@ -3551,7 +3546,7 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %.lr
   br i1 %.not13.i, label %57, label %_ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit
 
 57:                                               ; preds = %55, %.lr.ph.i58
-  %.011.i = getelementptr inbounds i8, ptr %.01117.i, i64 1
+  %.011.i = getelementptr inbounds nuw i8, ptr %.01117.i, i64 1
   %.not.i59 = icmp eq ptr %.011.i, %52
   br i1 %.not.i59, label %_ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit, label %.lr.ph.i58, !llvm.loop !12
 
@@ -3559,7 +3554,7 @@ _ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit: ; preds = %5
   %.0.i60 = phi ptr [ %52, %50 ], [ %.01117.i, %55 ], [ %52, %57 ]
   %.not57 = icmp ne ptr %.0.i60, %52
   %spec.select.idx = zext i1 %.not57 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.0.i60, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.0.i60, i64 %spec.select.idx
   %58 = ptrtoint ptr %spec.select to i64
   %59 = ptrtoint ptr %4 to i64
   %60 = sub i64 %58, %59
@@ -3589,7 +3584,7 @@ _ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit: ; preds = %5
   br label %125
 
 78:                                               ; preds = %36
-  %79 = getelementptr inbounds i8, ptr %4, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %80 = ptrtoint ptr %4 to i64
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8
@@ -3608,7 +3603,7 @@ _ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit: ; preds = %5
   br label %.sink.split
 
 91:                                               ; preds = %36
-  %92 = getelementptr inbounds i8, ptr %4, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %94 = load ptr, ptr %93, align 8
   %.not56 = icmp eq ptr %92, %94
@@ -3620,7 +3615,7 @@ _ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit: ; preds = %5
   br i1 %97, label %98, label %111
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %4, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %100 = ptrtoint ptr %4 to i64
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = load ptr, ptr %101, align 8
@@ -3671,14 +3666,14 @@ _ZN5clang8comments12_GLOBAL__N_120skipHTMLQuotedStringEPKcS3_.exit: ; preds = %5
   %.0711.i63 = phi ptr [ %135, %134 ], [ %126, %125 ]
   %129 = load i8, ptr %.0711.i63, align 1
   %130 = zext i8 %129 to i64
-  %131 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %130
   %132 = load i16, ptr %131, align 2
   %133 = and i16 %132, 7
   %.not9.i64 = icmp eq i16 %133, 0
   br i1 %.not9.i64, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit, label %134
 
 134:                                              ; preds = %.lr.ph.i62
-  %135 = getelementptr inbounds i8, ptr %.0711.i63, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %.0711.i63, i64 1
   %.not.i65 = icmp eq ptr %135, %128
   br i1 %.not.i65, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit.thread, label %.lr.ph.i62, !llvm.loop !10
 
@@ -3694,7 +3689,7 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
 137:                                              ; preds = %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit
   %138 = load i8, ptr %.0711.i63, align 1
   %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %139
   %141 = load i16, ptr %140, align 2
   %142 = and i16 %141, 96
   %.not71 = icmp eq i16 %142, 0
@@ -3722,7 +3717,7 @@ switch.early.test:                                ; preds = %137
 define dso_local void @_ZN5clang8comments5Lexer13lexHTMLEndTagERNS0_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((62, 63)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8), (12, 16)) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %6 = ptrtoint ptr %4 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -3845,7 +3840,7 @@ define linkonce_odr hidden void @_ZN5clang9FixItHint17CreateReplacementENS_11Sou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 0, ptr %10, align 8, !alias.scope !17
   store i64 %1, ptr %0, align 8, !alias.scope !17
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !17
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !17
@@ -3898,7 +3893,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit:         ; preds = %1, %5
 
 16:                                               ; preds = %13
   %17 = icmp uge ptr %12, %15
-  %18 = getelementptr inbounds i8, ptr %15, i64 14848
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 14848
   %19 = icmp ule ptr %12, %18
   %or.cond.i.i.i.i = select i1 %17, i1 %19, i1 false
   br i1 %or.cond.i.i.i.i, label %20, label %26
@@ -3909,7 +3904,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit:         ; preds = %1, %5
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 8
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds [16 x ptr], ptr %18, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [16 x ptr], ptr %18, i64 0, i64 %24
   store ptr %12, ptr %25, align 8
   br label %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i
 
@@ -3934,7 +3929,7 @@ define dso_local void @_ZN5clang8comments5Lexer24setupAndLexVerbatimBlockERNS0_5
   store i64 0, ptr %8, align 8
   %9 = icmp eq i8 %3, 92
   %.str.17..str.18 = select i1 %9, ptr @.str.17, ptr @.str.18
-  %10 = select i1 %9, ptr getelementptr inbounds (i8, ptr @.str.17, i64 1), ptr getelementptr inbounds (i8, ptr @.str.18, i64 1)
+  %10 = select i1 %9, ptr getelementptr inbounds nuw (i8, ptr @.str.17, i64 1), ptr getelementptr inbounds nuw (i8, ptr @.str.18, i64 1)
   tail call void @_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull %10)
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -3984,7 +3979,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %5, %13
 41:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %42 = load i8, ptr %38, align 1
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 2
   %.not10 = icmp eq i16 %46, 0
@@ -3992,7 +3987,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %5, %13
 
 47:                                               ; preds = %41
   %48 = icmp eq i8 %42, 10
-  %49 = getelementptr inbounds i8, ptr %38, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %.not.i7 = icmp eq ptr %49, %40
   %or.cond.i = select i1 %48, i1 true, i1 %.not.i7
   br i1 %or.cond.i, label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit, label %50
@@ -4000,7 +3995,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %5, %13
 50:                                               ; preds = %47
   %51 = load i8, ptr %49, align 1
   %52 = icmp eq i8 %51, 10
-  %53 = getelementptr inbounds i8, ptr %38, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %spec.select.i = select i1 %52, ptr %53, ptr %49
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit
 
@@ -4055,7 +4050,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %7, %9
@@ -4084,7 +4079,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
 24:                                               ; preds = %2
   %25 = load i8, ptr %7, align 1
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = and i16 %28, 96
   %.not108 = icmp eq i16 %29, 0
@@ -4094,14 +4089,14 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %.0711.i = phi ptr [ %36, %35 ], [ %7, %24 ]
   %30 = load i8, ptr %.0711.i, align 1
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %31
   %33 = load i16, ptr %32, align 2
   %34 = and i16 %33, 96
   %.not9.i = icmp eq i16 %34, 0
   br i1 %.not9.i, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %36, %9
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread, label %.lr.ph.i, !llvm.loop !20
 
@@ -4110,7 +4105,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   br i1 %38, label %39, label %92
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %6, i64 2
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %41 = icmp eq ptr %40, %9
   br i1 %41, label %42, label %55
 
@@ -4137,7 +4132,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
 55:                                               ; preds = %39
   %56 = load i8, ptr %40, align 1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 8
   %.not109 = icmp eq i16 %60, 0
@@ -4147,14 +4142,14 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %.0711.i67 = phi ptr [ %67, %66 ], [ %40, %55 ]
   %61 = load i8, ptr %.0711.i67, align 1
   %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %62
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 8
   %.not9.i68 = icmp eq i16 %65, 0
   br i1 %.not9.i68, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit, label %66
 
 66:                                               ; preds = %.lr.ph.i66
-  %67 = getelementptr inbounds i8, ptr %.0711.i67, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0711.i67, i64 1
   %.not.i69 = icmp eq ptr %67, %9
   br i1 %.not.i69, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread, label %.lr.ph.i66, !llvm.loop !21
 
@@ -4164,7 +4159,7 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   br i1 %or.cond, label %70, label %79
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %6, i64 3
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %.not10.i71 = icmp eq ptr %71, %9
   br i1 %.not10.i71, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread, label %.lr.ph.i72
 
@@ -4172,14 +4167,14 @@ define dso_local void @_ZN5clang8comments5Lexer25lexHTMLCharacterReferenceERNS0_
   %.0711.i73 = phi ptr [ %78, %77 ], [ %71, %70 ]
   %72 = load i8, ptr %.0711.i73, align 1
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 24
   %.not9.i74 = icmp eq i16 %76, 0
   br i1 %.not9.i74, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit, label %77
 
 77:                                               ; preds = %.lr.ph.i72
-  %78 = getelementptr inbounds i8, ptr %.0711.i73, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0711.i73, i64 1
   %.not.i75 = icmp eq ptr %78, %9
   br i1 %.not.i75, label %_ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread, label %.lr.ph.i72, !llvm.loop !22
 
@@ -4263,7 +4258,7 @@ _ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread
   %124 = ptrtoint ptr %.0 to i64
   %125 = ptrtoint ptr %.057 to i64
   %126 = sub i64 %124, %125
-  %127 = getelementptr inbounds i8, ptr %.0, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %.not108, label %132, label %128
 
 128:                                              ; preds = %123
@@ -4284,7 +4279,7 @@ _ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i77 ], [ 0, %134 ]
   %.010.i = phi i32 [ %140, %.lr.ph.i77 ], [ 0, %134 ]
   %135 = mul i32 %.010.i, 10
-  %136 = getelementptr inbounds i8, ptr %.057, i64 %indvars.iv.i
+  %136 = getelementptr inbounds nuw i8, ptr %.057, i64 %indvars.iv.i
   %137 = load i8, ptr %136, align 1
   %138 = sext i8 %137 to i32
   %139 = add i32 %135, -48
@@ -4319,7 +4314,7 @@ _ZN5clang8comments12_GLOBAL__N_127skipNamedCharacterReferenceEPKcS3_.exit.thread
 .critedge.i.i.i.i.i.i:                            ; preds = %._crit_edge.i
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %141)
   %153 = load ptr, ptr %141, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %.pre.i.i = ptrtoint ptr %153 to i64
   br label %_ZNK5clang8comments5Lexer36resolveHTMLDecimalCharacterReferenceEN4llvm9StringRefE.exit
 
@@ -4343,10 +4338,10 @@ _ZNK5clang8comments5Lexer36resolveHTMLDecimalCharacterReferenceEN4llvm9StringRef
   %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.lr.ph.i81 ], [ 0, %159 ]
   %.011.i = phi i32 [ %167, %.lr.ph.i81 ], [ 0, %159 ]
   %160 = shl i32 %.011.i, 4
-  %161 = getelementptr inbounds i8, ptr %.057, i64 %indvars.iv.i82
+  %161 = getelementptr inbounds nuw i8, ptr %.057, i64 %indvars.iv.i82
   %162 = load i8, ptr %161, align 1
   %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %163
+  %164 = getelementptr inbounds nuw [256 x i16], ptr @_ZZN4llvm13hexDigitValueEcE3LUT, i64 0, i64 %163
   %165 = load i16, ptr %164, align 2
   %166 = sext i16 %165 to i32
   %167 = add i32 %160, %166
@@ -4380,7 +4375,7 @@ _ZNK5clang8comments5Lexer36resolveHTMLDecimalCharacterReferenceEN4llvm9StringRef
 .critedge.i.i.i.i.i.i97:                          ; preds = %._crit_edge.i85
   tail call void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12StartNewSlabEv(ptr noundef nonnull align 8 dereferenceable(96) %168)
   %180 = load ptr, ptr %168, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 4
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %.pre.i.i98 = ptrtoint ptr %180 to i64
   br label %_ZNK5clang8comments5Lexer32resolveHTMLHexCharacterReferenceEN4llvm9StringRefE.exit
 
@@ -4463,7 +4458,7 @@ select.unfold:                                    ; preds = %_ZNK5clang8comments
 define dso_local void @_ZN5clang8comments5Lexer23setupAndLexHTMLStartTagERNS0_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not10.i = icmp eq ptr %5, %7
@@ -4473,20 +4468,20 @@ define dso_local void @_ZN5clang8comments5Lexer23setupAndLexHTMLStartTagERNS0_5T
   %.0711.i = phi ptr [ %14, %13 ], [ %5, %2 ]
   %8 = load i8, ptr %.0711.i, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 104
   %.not9.i = icmp eq i16 %12, 0
   br i1 %.not9.i, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %14, %7
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %.lr.ph.i, %13, %2
   %.0.i = phi ptr [ %7, %2 ], [ %.0711.i, %.lr.ph.i ], [ %7, %13 ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %16 = ptrtoint ptr %.0.i to i64
   %17 = ptrtoint ptr %15 to i64
   %18 = sub i64 %16, %17
@@ -4534,14 +4529,14 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %.lr
   %.0711.i15 = phi ptr [ %47, %46 ], [ %39, %36 ]
   %41 = load i8, ptr %.0711.i15, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 7
   %.not9.i16 = icmp eq i16 %45, 0
   br i1 %.not9.i16, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit, label %46
 
 46:                                               ; preds = %.lr.ph.i14
-  %47 = getelementptr inbounds i8, ptr %.0711.i15, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0711.i15, i64 1
   %.not.i17 = icmp eq ptr %47, %40
   br i1 %.not.i17, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit.thread, label %.lr.ph.i14, !llvm.loop !10
 
@@ -4563,7 +4558,7 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
 
 50:                                               ; preds = %49
   %51 = zext i8 %48 to i64
-  %52 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %51
   %53 = load i16, ptr %52, align 2
   %54 = and i16 %53, 96
   %.not22 = icmp eq i16 %54, 0
@@ -4582,7 +4577,7 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
 define dso_local void @_ZN5clang8comments5Lexer21setupAndLexHTMLEndTagERNS0_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not10.i = icmp eq ptr %5, %7
@@ -4592,14 +4587,14 @@ define dso_local void @_ZN5clang8comments5Lexer21setupAndLexHTMLEndTagERNS0_5Tok
   %.0711.i = phi ptr [ %14, %13 ], [ %5, %2 ]
   %8 = load i8, ptr %.0711.i, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 7
   %.not9.i = icmp eq i16 %12, 0
   br i1 %.not9.i, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds i8, ptr %.0711.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0711.i, i64 1
   %.not.i = icmp eq ptr %14, %7
   br i1 %.not.i, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %.lr.ph.i, !llvm.loop !10
 
@@ -4611,14 +4606,14 @@ _ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit: ; preds = %.lr.ph.
   %.0711.i15 = phi ptr [ %21, %20 ], [ %.0711.i, %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit ]
   %15 = load i8, ptr %.0711.i15, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 104
   %.not9.i16 = icmp eq i16 %19, 0
   br i1 %.not9.i16, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i14
-  %21 = getelementptr inbounds i8, ptr %.0711.i15, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0711.i15, i64 1
   %.not.i17 = icmp eq ptr %21, %7
   br i1 %.not.i17, label %_ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit, label %.lr.ph.i14, !llvm.loop !11
 
@@ -4663,14 +4658,14 @@ _ZN5clang8comments12_GLOBAL__N_118skipHTMLIdentifierEPKcS3_.exit: ; preds = %13,
   %.0711.i21 = phi ptr [ %49, %48 ], [ %.0.i18, %42 ]
   %43 = load i8, ptr %.0711.i21, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %44
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 7
   %.not9.i22 = icmp eq i16 %47, 0
   br i1 %.not9.i22, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit25, label %48
 
 48:                                               ; preds = %.lr.ph.i20
-  %49 = getelementptr inbounds i8, ptr %.0711.i21, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0711.i21, i64 1
   %.not.i23 = icmp eq ptr %49, %7
   br i1 %.not.i23, label %_ZN5clang8comments12_GLOBAL__N_114skipWhitespaceEPKcS3_.exit25, label %.lr.ph.i20, !llvm.loop !10
 
@@ -4756,26 +4751,26 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   %.not42 = icmp eq i8 %10, 114
   br i1 %.not42, label %104, label %103
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i8, ptr %12, align 1
   %switch.tableidx83 = add i8 %13, -100
   %14 = icmp ult i8 %switch.tableidx83, 17
   br i1 %14, label %switch.lookup82, label %103
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %0, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %17 = load i8, ptr %16, align 1
   %.not41 = icmp eq i8 %17, 109
   br i1 %.not41, label %104, label %103
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %0, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %103 [
     i8 49, label %104
@@ -4788,19 +4783,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %23 = load i8, ptr %22, align 1
   %.not40 = icmp eq i8 %23, 105
   br i1 %.not40, label %104, label %103
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %0, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %26 = load i8, ptr %25, align 1
   %.not39 = icmp eq i8 %26, 108
   br i1 %.not39, label %104, label %103
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %0, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = sext i8 %29 to i32
   %31 = add nsw i32 %30, -100
@@ -4809,7 +4804,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   br i1 %33, label %switch.lookup88, label %103
 
 34:                                               ; preds = %6
-  %35 = getelementptr inbounds i8, ptr %0, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %36 = load i8, ptr %35, align 1
   %.not38 = icmp eq i8 %36, 108
   br i1 %.not38, label %104, label %103
@@ -4826,19 +4821,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp36 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %40, ptr noundef nonnull dereferenceable(2) @.str.217, i64 2)
   %.not37 = icmp eq i32 %bcmp36, 0
   br i1 %.not37, label %104, label %103
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp34 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %42, ptr noundef nonnull dereferenceable(2) @.str.218, i64 2)
   %.not35 = icmp eq i32 %bcmp34, 0
   br i1 %.not35, label %104, label %103
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %45 = load i8, ptr %44, align 1
   switch i8 %45, label %103 [
     i8 101, label %46
@@ -4846,19 +4841,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %48 = load i8, ptr %47, align 1
   %.not33 = icmp eq i8 %48, 108
   br i1 %.not33, label %104, label %103
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %51 = load i8, ptr %50, align 1
   %.not32 = icmp eq i8 %51, 118
   br i1 %.not32, label %104, label %103
 
 52:                                               ; preds = %37
-  %53 = getelementptr inbounds i8, ptr %0, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %54 = load i8, ptr %53, align 1
   switch i8 %54, label %103 [
     i8 109, label %55
@@ -4866,31 +4861,31 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %57 = load i8, ptr %56, align 1
   %.not31 = icmp eq i8 %57, 103
   br i1 %.not31, label %104, label %103
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %0, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %60 = load i8, ptr %59, align 1
   %.not30 = icmp eq i8 %60, 115
   br i1 %.not30, label %104, label %103
 
 61:                                               ; preds = %37
-  %62 = getelementptr inbounds i8, ptr %0, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp28 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %62, ptr noundef nonnull dereferenceable(2) @.str.219, i64 2)
   %.not29 = icmp eq i32 %bcmp28, 0
   br i1 %.not29, label %104, label %103
 
 63:                                               ; preds = %37
-  %64 = getelementptr inbounds i8, ptr %0, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %65 = load i8, ptr %64, align 1
   %.not27 = icmp eq i8 %65, 117
   br i1 %.not27, label %66, label %103
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %0, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %68 = load i8, ptr %67, align 1
   %switch.selectcmp.case1 = icmp eq i8 %68, 98
   %switch.selectcmp.case2 = icmp eq i8 %68, 112
@@ -4906,19 +4901,19 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp25 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %72, ptr noundef nonnull dereferenceable(3) @.str.220, i64 3)
   %.not26 = icmp eq i32 %bcmp25, 0
   br i1 %.not26, label %104, label %103
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp23 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %74, ptr noundef nonnull dereferenceable(3) @.str.221, i64 3)
   %.not24 = icmp eq i32 %bcmp23, 0
   br i1 %.not24, label %104, label %103
 
 75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %0, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp21 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %76, ptr noundef nonnull dereferenceable(3) @.str.222, i64 3)
   %.not22 = icmp eq i32 %bcmp21, 0
   br i1 %.not22, label %104, label %103
@@ -4931,13 +4926,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %0, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %bcmp19 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %80, ptr noundef nonnull dereferenceable(4) @.str.223, i64 4)
   %.not20 = icmp eq i32 %bcmp19, 0
   br i1 %.not20, label %104, label %103
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %0, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %83 = load i8, ptr %82, align 1
   switch i8 %83, label %103 [
     i8 97, label %84
@@ -4947,25 +4942,25 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %0, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %bcmp17 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %85, ptr noundef nonnull dereferenceable(3) @.str.224, i64 3)
   %.not18 = icmp eq i32 %bcmp17, 0
   br i1 %.not18, label %104, label %103
 
 86:                                               ; preds = %81
-  %87 = getelementptr inbounds i8, ptr %0, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %bcmp15 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %87, ptr noundef nonnull dereferenceable(3) @.str.225, i64 3)
   %.not16 = icmp eq i32 %bcmp15, 0
   br i1 %.not16, label %104, label %103
 
 88:                                               ; preds = %81
-  %89 = getelementptr inbounds i8, ptr %0, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %bcmp13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %89, ptr noundef nonnull dereferenceable(3) @.str.226, i64 3)
   %.not14 = icmp eq i32 %bcmp13, 0
   br i1 %.not14, label %104, label %103
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %0, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %bcmp11 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %91, ptr noundef nonnull dereferenceable(3) @.str.227, i64 3)
   %.not12 = icmp eq i32 %bcmp11, 0
   br i1 %.not12, label %104, label %103
@@ -4976,7 +4971,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   br i1 %.not6, label %93, label %103
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %0, i64 3
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %95 = load i8, ptr %94, align 1
   switch i8 %95, label %103 [
     i8 105, label %96
@@ -4984,13 +4979,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_113isH
   ]
 
 96:                                               ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %0, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %bcmp9 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %97, ptr noundef nonnull dereferenceable(2) @.str.229, i64 2)
   %.not10 = icmp eq i32 %bcmp9, 0
   br i1 %.not10, label %104, label %103
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %0, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %bcmp7 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %99, ptr noundef nonnull dereferenceable(2) @.str.230, i64 2)
   %.not8 = icmp eq i32 %bcmp7, 0
   br i1 %.not8, label %104, label %103
@@ -5059,7 +5054,7 @@ define dso_local void @_ZN5clang8comments5LexerC2ERN4llvm20BumpPtrAllocatorImplI
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 62
   store i8 0, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull %20, i64 noundef 16) #18
   ret void
 }
@@ -5118,11 +5113,11 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   br label %.loopexit
 
 24:                                               ; preds = %10
-  %25 = getelementptr inbounds i8, ptr %.ph86, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.ph86, i64 1
   store ptr %25, ptr %4, align 8
   %26 = load i8, ptr %25, align 1
   %switch = icmp eq i8 %26, 47
-  %27 = getelementptr inbounds i8, ptr %.ph86, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %.ph86, i64 2
   store ptr %27, ptr %4, align 8
   br i1 %switch, label %28, label %79
 
@@ -5138,7 +5133,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   ]
 
 31:                                               ; preds = %29, %29
-  %32 = getelementptr inbounds i8, ptr %.ph86, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %.ph86, i64 3
   store ptr %32, ptr %4, align 8
   br label %33
 
@@ -5153,7 +5148,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store ptr %39, ptr %4, align 8
   br label %40
 
@@ -5177,14 +5172,14 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   %.1.i = phi ptr [ %.1.i.be, %.preheader32.i.backedge ], [ %41, %43 ]
   %45 = load i8, ptr %.1.i, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = and i16 %48, 2
   %.not30.i = icmp eq i16 %49, 0
   br i1 %.not30.i, label %50, label %.preheader.i
 
 50:                                               ; preds = %.preheader32.i
-  %51 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %52 = icmp eq ptr %51, %7
   br i1 %52, label %.backedge.outer.backedge, label %.preheader32.i.backedge
 
@@ -5197,7 +5192,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
   %.0.i = getelementptr inbounds i8, ptr %.1.pn.i, i64 -1
   %53 = load i8, ptr %.0.i, align 1
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 5
   %.not31.i = icmp eq i16 %57, 0
@@ -5231,7 +5226,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
 
 72:                                               ; preds = %70
   %73 = icmp eq i8 %45, 10
-  %74 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %.not.i.i = icmp eq ptr %74, %7
   %or.cond.i.i = select i1 %73, i1 true, i1 %.not.i.i
   br i1 %or.cond.i.i, label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i, label %75
@@ -5239,7 +5234,7 @@ define dso_local void @_ZN5clang8comments5Lexer3lexERNS0_5TokenE(ptr noundef non
 75:                                               ; preds = %72
   %76 = load i8, ptr %74, align 1
   %77 = icmp eq i8 %76, 10
-  %78 = getelementptr inbounds i8, ptr %.1.i, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %.1.i, i64 2
   %spec.select.i.i = select i1 %77, ptr %78, ptr %74
   br label %_ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i
 
@@ -5264,13 +5259,13 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %75, %72,
   ]
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %.ph86, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.ph86, i64 3
   %83 = load i8, ptr %82, align 1
   %.not27 = icmp eq i8 %83, 47
   br i1 %.not27, label %86, label %84
 
 84:                                               ; preds = %79, %81
-  %85 = getelementptr inbounds i8, ptr %.ph86, i64 3
+  %85 = getelementptr inbounds nuw i8, ptr %.ph86, i64 3
   store ptr %85, ptr %4, align 8
   br label %86
 
@@ -5285,7 +5280,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %75, %72,
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %87, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %92, ptr %4, align 8
   br label %93
 
@@ -5304,13 +5299,13 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %75, %72,
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %.0.i35, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 1
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, 47
   br i1 %102, label %.backedge.outer.backedge, label %103
 
 103:                                              ; preds = %99, %95
-  %104 = getelementptr inbounds i8, ptr %.0.i35, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0.i35, i64 1
   br label %95, !llvm.loop !25
 
 105:                                              ; preds = %.backedge
@@ -5331,7 +5326,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %75, %72,
   br i1 %.not26, label %.critedge.loopexit, label %110
 
 110:                                              ; preds = %.lr.ph
-  %111 = getelementptr inbounds i8, ptr %.055, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   %.not25 = icmp eq ptr %111, %7
   br i1 %.not25, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !26
 
@@ -5374,7 +5369,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit.i: ; preds = %75, %72,
   br i1 %127, label %128, label %141
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds i8, ptr %.ph86, i64 2
+  %129 = getelementptr inbounds nuw i8, ptr %.ph86, i64 2
   %130 = ptrtoint ptr %129 to i64
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = load ptr, ptr %131, align 8
@@ -5526,7 +5521,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -5540,7 +5535,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #18
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void
@@ -5606,7 +5601,7 @@ define linkonce_odr hidden void @_ZN5clang17DiagnosticStorageD2Ev(ptr noundef no
 
 _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE13destroy_rangeEPS2_S4_.exit.i: ; preds = %.lr.ph.i.i, %1
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 544
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %10 = icmp eq ptr %8, %9
   br i1 %10, label %_ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit, label %11
 
@@ -5618,7 +5613,7 @@ _ZN4llvm11SmallVectorIN5clang9FixItHintELj6EED2Ev.exit: ; preds = %_ZN4llvm23Sma
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %12) #18
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 432
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %16 = icmp eq ptr %14, %15
   br i1 %16, label %_ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit.preheader, label %17
 
@@ -5662,7 +5657,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %8 = lshr i32 %6, 6
   %9 = zext nneg i32 %8 to i64
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i64, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %9
   %12 = and i32 %6, 63
   %13 = load i64, ptr %11, align 8
   %14 = zext nneg i32 %12 to i64
@@ -5677,7 +5672,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %20 = urem i32 %6, 42
   %.zext.i.i = zext nneg i32 %19 to i64
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %.zext.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.zext.i.i
   %23 = load ptr, ptr %22, align 8
   %.not.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i, label %24, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i
@@ -5716,7 +5711,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %44 = add i64 %43, 7
   %45 = and i64 %44, -8
   %46 = inttoptr i64 %45 to ptr
-  %47 = getelementptr inbounds i8, ptr %46, i64 1008
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1008
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang6SrcMgr9SLocEntryEEEPT_m.exit.i.i.i
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang6SrcMgr9SLocEntryEEEPT_m.exit.i.i.i: ; preds = %.critedge.i.i.i.i.i.i.i, %39
@@ -5733,7 +5728,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
   %48 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   %49 = add nsw i64 %.057.i.i.i.i.i.i, -1
-  %50 = getelementptr inbounds i8, ptr %.08.i.i.i.i.i.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq i64 %49, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !27
 
@@ -5744,7 +5739,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i, %17
   %51 = phi ptr [ %.pre.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i ], [ %23, %17 ]
   %52 = zext nneg i32 %20 to i64
-  %53 = getelementptr inbounds %"class.clang::SrcMgr::SLocEntry", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %51, i64 %52
   br label %_ZN5clang13SourceManager22getLoadedSLocEntryByIDEiPb.exit
 
 54:                                               ; preds = %5
@@ -5755,7 +5750,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i: ; preds = %
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %58 = zext nneg i32 %1 to i64
   %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds %"class.clang::SrcMgr::SLocEntry", ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %59, i64 %58
   br label %_ZN5clang13SourceManager22getLoadedSLocEntryByIDEiPb.exit
 
 _ZN5clang13SourceManager22getLoadedSLocEntryByIDEiPb.exit: ; preds = %54, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm42EEixEm.exit.i.i, %56
@@ -5782,7 +5777,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %2
   %8 = phi ptr [ %6, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit ], [ %3, %2 ]
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 416
   %.sroa.01.0.copyload = load i64, ptr %1, align 4
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i8, ptr %.sroa.22.0..sroa_idx, align 4
   %10 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   %11 = add i64 %10, 1
@@ -5791,7 +5786,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %2
   br i1 %.not.i.i.i, label %13, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.exit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %8, i64 432
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 432
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %14, i64 noundef %11, i64 noundef 12) #18
   br label %_ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.exit
 
@@ -5800,7 +5795,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.e
   %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   %17 = getelementptr inbounds %"class.clang::CharSourceRange", ptr %15, i64 %16
   store i64 %.sroa.01.0.copyload, ptr %17, align 1
-  %.sroa.2.0..sroa_idx2.i = getelementptr inbounds i8, ptr %17, i64 8
+  %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i8 %.sroa.22.0.copyload, ptr %.sroa.2.0..sroa_idx2.i, align 1
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   %19 = add i64 %18, 1
@@ -5822,7 +5817,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStor
 
 7:                                                ; preds = %7, %5
   %.idx.i = phi i64 [ 96, %5 ], [ %.add.i, %7 ]
-  %.ptr.i = getelementptr inbounds i8, ptr %6, i64 %.idx.i
+  %.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.i) #18
   %.add.i = add nuw nsw i64 %.idx.i, 32
   %8 = icmp eq i64 %.add.i, 416
@@ -5830,10 +5825,10 @@ define linkonce_odr hidden noundef ptr @_ZN5clang19StreamingDiagnostic20DiagStor
 
 _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 416
-  %10 = getelementptr inbounds i8, ptr %6, i64 432
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 432
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(112) %9, ptr noundef nonnull %10, i64 noundef 8) #18
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 528
-  %12 = getelementptr inbounds i8, ptr %6, i64 544
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 544
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(400) %11, ptr noundef nonnull %12, i64 noundef 6) #18
   br label %29
 
@@ -5842,7 +5837,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit:            ; preds = %7
   %15 = add i32 %3, -1
   store i32 %15, ptr %2, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds [16 x ptr], ptr %14, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x ptr], ptr %14, i64 0, i64 %16
   %18 = load ptr, ptr %17, align 8
   store i8 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 416
@@ -5903,7 +5898,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %12, align 8
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds [10 x i8], ptr %13, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 0, i64 %15
   store i8 0, ptr %16, align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -5922,7 +5917,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %3
   %26 = add i8 %25, 1
   store i8 %26, ptr %23, align 8
   %27 = zext i8 %25 to i64
-  %28 = getelementptr inbounds [10 x %"class.std::__cxx11::basic_string"], ptr %24, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [10 x %"class.std::__cxx11::basic_string"], ptr %24, i64 0, i64 %27
   %29 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #18
@@ -5984,7 +5979,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE28reserveForParamAndGet
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4, i64 noundef %1, i64 noundef 64, ptr noundef nonnull align 8 dereferenceable(8) %3) #18
   %6 = load ptr, ptr %0, align 8
   %7 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -6004,8 +5999,8 @@ define linkonce_odr void @_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb
   %13 = load i8, ptr %12, align 8
   %14 = and i8 %13, 1
   store i8 %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 64
-  %16 = getelementptr inbounds i8, ptr %.09.i.i.i.i.i.i, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 64
   %.not.i.i.i.i.i.i = icmp eq ptr %15, %8
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
 
@@ -6072,7 +6067,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #18
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 

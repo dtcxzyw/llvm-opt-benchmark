@@ -236,9 +236,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @spanish_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 8
   store i32 %3, ptr %6, align 4
@@ -248,7 +248,7 @@ define hidden range(i32 -2147483648, 2) i32 @spanish_UTF_8_stem(ptr noundef %0) 
   %9 = load i32, ptr %2, align 4
   %10 = load ptr, ptr %4, align 8
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @in_grouping_U(ptr noundef %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 252, i32 noundef 0) #2
   %.not.i = icmp eq i32 %13, 0
@@ -361,11 +361,11 @@ define hidden range(i32 -2147483648, 2) i32 @spanish_UTF_8_stem(ptr noundef %0) 
   br label %r_mark_regions.exit
 
 r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %12, ptr %71, align 8
   %72 = load i32, ptr %2, align 4
   store i32 %72, ptr %11, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %72, ptr %73, align 8
   %74 = add i32 %72, -1
   %.not.i64 = icmp sgt i32 %74, %12
@@ -395,7 +395,7 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
 
 87:                                               ; preds = %85
   %88 = load i32, ptr %11, align 8
-  %89 = getelementptr inbounds i8, ptr %0, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %88, ptr %89, align 4
   %90 = add i32 %88, -1
   %91 = load i32, ptr %71, align 8
@@ -525,7 +525,7 @@ r_mark_regions.exit:                              ; preds = %47, %50, %55, %62, 
 
 148:                                              ; preds = %146
   %149 = load i32, ptr %11, align 8
-  %150 = getelementptr inbounds i8, ptr %0, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %149, ptr %150, align 4
   switch i32 %147, label %r_y_verb_suffix.exit [
     i32 1, label %151
@@ -847,7 +847,7 @@ r_standard_suffix.exit:                           ; preds = %260, %235, %214, %1
 
 281:                                              ; preds = %277
   %282 = load i32, ptr %11, align 8
-  %283 = getelementptr inbounds i8, ptr %0, i64 20
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %282, ptr %283, align 4
   store i32 %278, ptr %71, align 8
   %.not25.i = icmp sgt i32 %282, %278
@@ -891,7 +891,7 @@ r_standard_suffix.exit:                           ; preds = %260, %235, %214, %1
 
 303:                                              ; preds = %299
   %304 = load i32, ptr %11, align 8
-  %305 = getelementptr inbounds i8, ptr %0, i64 20
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %304, ptr %305, align 4
   store i32 %300, ptr %71, align 8
   switch i32 %301, label %r_y_verb_suffix.exit [
@@ -951,7 +951,7 @@ r_y_verb_suffix.exit:                             ; preds = %159, %162, %198, %2
 
 329:                                              ; preds = %r_y_verb_suffix.exit
   %330 = load i32, ptr %11, align 8
-  %331 = getelementptr inbounds i8, ptr %0, i64 20
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %330, ptr %331, align 4
   switch i32 %328, label %.sink.split.i79 [
     i32 1, label %332
@@ -1028,7 +1028,7 @@ r_y_verb_suffix.exit:                             ; preds = %159, %162, %198, %2
   %362 = load i32, ptr %2, align 4
   %363 = load i32, ptr %71, align 8
   store i32 %363, ptr %11, align 8
-  %364 = getelementptr inbounds i8, ptr %0, i64 20
+  %364 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %365
 
 365:                                              ; preds = %405, %.sink.split.i79

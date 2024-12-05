@@ -86,7 +86,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 define internal void @sifive_pwm_init(ptr noundef %obj) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 416, ptr noundef nonnull @__func__.sifive_pwm_init) #6
-  %irqs = getelementptr inbounds i8, ptr %call, i64 1320
+  %irqs = getelementptr inbounds nuw i8, ptr %call, i64 1320
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -99,7 +99,7 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
-  %mmio = getelementptr inbounds i8, ptr %call, i64 816
+  %mmio = getelementptr inbounds nuw i8, ptr %call, i64 816
   tail call void @memory_region_init_io(ptr noundef nonnull %mmio, ptr noundef %obj, ptr noundef nonnull @sifive_pwm_ops, ptr noundef %call, ptr noundef nonnull @.str, i64 noundef 256) #6
   %call.i9 = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.3, i32 noundef 20, ptr noundef nonnull @__func__.SYS_BUS_DEVICE) #6
   tail call void @sysbus_init_mmio(ptr noundef %call.i9, ptr noundef nonnull %mmio) #6
@@ -110,12 +110,12 @@ for.end:                                          ; preds = %for.body
 define internal void @sifive_pwm_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #6
-  %reset = getelementptr inbounds i8, ptr %call.i, i64 136
+  %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
   store ptr @sifive_pwm_reset, ptr %reset, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sifive_pwm_properties) #6
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_sifive_pwm, ptr %vmsd, align 8
-  %realize = getelementptr inbounds i8, ptr %call.i, i64 144
+  %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @sifive_pwm_realize, ptr %realize, align 8
   ret void
 }
@@ -164,7 +164,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %addr) #6
   br label %trace_sifive_pwm_read.exit
@@ -187,15 +187,15 @@ trace_sifive_pwm_read.exit:                       ; preds = %entry, %land.lhs.tr
   ]
 
 sw.bb:                                            ; preds = %trace_sifive_pwm_read.exit
-  %pwmcfg = getelementptr inbounds i8, ptr %opaque, i64 1296
+  %pwmcfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1296
   %8 = load i32, ptr %pwmcfg, align 16
   %conv = zext i32 %8 to i64
   br label %return
 
 sw.bb2:                                           ; preds = %trace_sifive_pwm_read.exit
-  %tick_offset = getelementptr inbounds i8, ptr %opaque, i64 1280
+  %tick_offset = getelementptr inbounds nuw i8, ptr %opaque, i64 1280
   %9 = load i64, ptr %tick_offset, align 16
-  %pwmcfg3 = getelementptr inbounds i8, ptr %opaque, i64 1296
+  %pwmcfg3 = getelementptr inbounds nuw i8, ptr %opaque, i64 1296
   %10 = load i32, ptr %pwmcfg3, align 16
   %11 = and i32 %10, 12288
   %or.cond = icmp eq i32 %11, 0
@@ -205,7 +205,7 @@ sw.bb2:                                           ; preds = %trace_sifive_pwm_re
   br label %return
 
 sw.bb8:                                           ; preds = %trace_sifive_pwm_read.exit
-  %tick_offset9 = getelementptr inbounds i8, ptr %opaque, i64 1280
+  %tick_offset9 = getelementptr inbounds nuw i8, ptr %opaque, i64 1280
   %12 = load i64, ptr %tick_offset9, align 16
   %13 = getelementptr i8, ptr %opaque, i64 1296
   %opaque.val20 = load i32, ptr %13, align 16
@@ -221,7 +221,7 @@ sw.bb8:                                           ; preds = %trace_sifive_pwm_re
   br label %return
 
 sw.bb23:                                          ; preds = %trace_sifive_pwm_read.exit
-  %pwmcmp = getelementptr inbounds i8, ptr %opaque, i64 1300
+  %pwmcmp = getelementptr inbounds nuw i8, ptr %opaque, i64 1300
   %15 = load i32, ptr %pwmcmp, align 4
   %and24 = and i32 %15, 65535
   %conv25 = zext nneg i32 %and24 to i64
@@ -301,7 +301,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef range(i64 0, 4294967296) %conv2, i64 noundef %addr) #6
   br label %trace_sifive_pwm_write.exit
@@ -373,7 +373,7 @@ if.end38:                                         ; preds = %if.then35, %do.body
   br i1 %tobool40.not, label %if.then41, label %if.end42
 
 if.then41:                                        ; preds = %if.end38
-  %irqs = getelementptr inbounds i8, ptr %opaque, i64 1320
+  %irqs = getelementptr inbounds nuw i8, ptr %opaque, i64 1320
   %11 = load ptr, ptr %irqs, align 8
   tail call void @qemu_set_irq(ptr noundef %11, i32 noundef 0) #6
   br label %if.end42
@@ -411,7 +411,7 @@ if.then57:                                        ; preds = %if.end54
   br label %if.end60
 
 if.end60:                                         ; preds = %if.then57, %if.end54
-  %pwmcfg = getelementptr inbounds i8, ptr %opaque, i64 1296
+  %pwmcfg = getelementptr inbounds nuw i8, ptr %opaque, i64 1296
   %15 = load i32, ptr %pwmcfg, align 16
   %16 = and i32 %15, 12288
   %17 = and i32 %conv, 12288
@@ -421,7 +421,7 @@ if.end60:                                         ; preds = %if.then57, %if.end5
   br i1 %or.cond64, label %if.then85, label %if.end88
 
 if.then85:                                        ; preds = %if.end60
-  %tick_offset = getelementptr inbounds i8, ptr %opaque, i64 1280
+  %tick_offset = getelementptr inbounds nuw i8, ptr %opaque, i64 1280
   %19 = load i64, ptr %tick_offset, align 16
   %sub = sub i64 %conv3.i.i, %19
   %and86 = and i64 %sub, 2147483647
@@ -433,13 +433,13 @@ if.end88:                                         ; preds = %if.end60, %if.then8
   br label %sw.epilog
 
 sw.bb90:                                          ; preds = %trace_sifive_pwm_write.exit
-  %pwmcfg92 = getelementptr inbounds i8, ptr %opaque, i64 1296
+  %pwmcfg92 = getelementptr inbounds nuw i8, ptr %opaque, i64 1296
   %20 = load i32, ptr %pwmcfg92, align 16
   %21 = and i32 %20, 12288
   %or.cond53 = icmp eq i32 %21, 0
   %sub100 = sub i64 %conv3.i.i, %conv2
   %new_offset.0 = select i1 %or.cond53, i64 %conv2, i64 %sub100
-  %tick_offset102 = getelementptr inbounds i8, ptr %opaque, i64 1280
+  %tick_offset102 = getelementptr inbounds nuw i8, ptr %opaque, i64 1280
   store i64 %new_offset.0, ptr %tick_offset102, align 16
   br label %sw.epilog
 
@@ -454,13 +454,13 @@ sw.bb103:                                         ; preds = %trace_sifive_pwm_wr
   %or.cond54 = icmp eq i32 %23, 0
   %sub116 = sub i64 %conv3.i.i, %conv107
   %new_offset.1 = select i1 %or.cond54, i64 %conv107, i64 %sub116
-  %tick_offset118 = getelementptr inbounds i8, ptr %opaque, i64 1280
+  %tick_offset118 = getelementptr inbounds nuw i8, ptr %opaque, i64 1280
   store i64 %new_offset.1, ptr %tick_offset118, align 16
   br label %sw.epilog
 
 sw.bb119:                                         ; preds = %trace_sifive_pwm_write.exit
   %and120 = and i32 %conv, 65535
-  %pwmcmp = getelementptr inbounds i8, ptr %opaque, i64 1300
+  %pwmcmp = getelementptr inbounds nuw i8, ptr %opaque, i64 1300
   store i32 %and120, ptr %pwmcmp, align 4
   br label %sw.epilog
 
@@ -514,7 +514,7 @@ entry:
   %_now.i.i45 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
-  %pwmcfg = getelementptr inbounds i8, ptr %s, i64 1296
+  %pwmcfg = getelementptr inbounds nuw i8, ptr %s, i64 1296
   %0 = load i32, ptr %pwmcfg, align 16
   %1 = and i32 %0, 12288
   %or.cond = icmp eq i32 %1, 0
@@ -529,7 +529,7 @@ if.then:                                          ; preds = %entry
   %mul.i.i = mul nuw nsw i128 %conv1.i.i, %conv.i.i
   %div.i.i = udiv i128 %mul.i.i, 1000000000
   %conv3.i.i = trunc i128 %div.i.i to i64
-  %tick_offset = getelementptr inbounds i8, ptr %s, i64 1280
+  %tick_offset = getelementptr inbounds nuw i8, ptr %s, i64 1280
   %3 = load i64, ptr %tick_offset, align 16
   %sub = sub i64 %conv3.i.i, %3
   %and5 = and i64 %sub, 2147483647
@@ -539,11 +539,11 @@ if.then:                                          ; preds = %entry
   %conv = zext nneg i32 %shl to i64
   %and7 = and i64 %sub, %conv
   %shr = lshr i64 %and7, %conv.i
-  %pwmcmp9 = getelementptr inbounds i8, ptr %s, i64 1300
+  %pwmcmp9 = getelementptr inbounds nuw i8, ptr %s, i64 1300
   %add21 = add i64 %call, 1
-  %tv_usec.i.i58 = getelementptr inbounds i8, ptr %_now.i.i45, i64 8
-  %timer22 = getelementptr inbounds i8, ptr %s, i64 1088
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i58 = getelementptr inbounds nuw i8, ptr %_now.i.i45, i64 8
+  %timer22 = getelementptr inbounds nuw i8, ptr %s, i64 1088
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %if.then, %for.inc
@@ -647,7 +647,7 @@ for.inc:                                          ; preds = %trace_sifive_pwm_se
   br i1 %exitcond.not, label %if.end65, label %for.body, !llvm.loop !7
 
 if.else26:                                        ; preds = %entry
-  %tick_offset28 = getelementptr inbounds i8, ptr %s, i64 1280
+  %tick_offset28 = getelementptr inbounds nuw i8, ptr %s, i64 1280
   %17 = load i64, ptr %tick_offset28, align 16
   %and.i60 = and i32 %0, 15
   %conv.i61 = zext nneg i32 %and.i60 to i64
@@ -655,11 +655,11 @@ if.else26:                                        ; preds = %entry
   %conv35 = zext nneg i32 %shl34 to i64
   %and36 = and i64 %17, %conv35
   %shr37 = lshr i64 %and36, %conv.i61
-  %pwmcmp44 = getelementptr inbounds i8, ptr %s, i64 1300
+  %pwmcmp44 = getelementptr inbounds nuw i8, ptr %s, i64 1300
   %add52 = add i64 %call, 1
-  %tv_usec.i.i75 = getelementptr inbounds i8, ptr %_now.i.i62, i64 8
-  %timer53 = getelementptr inbounds i8, ptr %s, i64 1088
-  %tv_usec.i.i90 = getelementptr inbounds i8, ptr %_now.i.i77, i64 8
+  %tv_usec.i.i75 = getelementptr inbounds nuw i8, ptr %_now.i.i62, i64 8
+  %timer53 = getelementptr inbounds nuw i8, ptr %s, i64 1088
+  %tv_usec.i.i90 = getelementptr inbounds nuw i8, ptr %_now.i.i77, i64 8
   br label %for.body42
 
 for.body42:                                       ; preds = %if.else26, %for.inc62
@@ -764,7 +764,7 @@ define internal void @sifive_pwm_reset(ptr noundef %dev) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 376, ptr noundef nonnull @__func__.sifive_pwm_reset) #6
   %call1 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
-  %pwmcfg = getelementptr inbounds i8, ptr %call, i64 1296
+  %pwmcfg = getelementptr inbounds nuw i8, ptr %call, i64 1296
   %0 = getelementptr i8, ptr %call, i64 1288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %pwmcfg, i8 0, i64 20, i1 false)
   %call.val = load i64, ptr %0, align 8
@@ -774,7 +774,7 @@ entry:
   %mul.i.i = mul nuw nsw i128 %conv1.i.i, %conv.i.i
   %div.i.i = udiv i128 %mul.i.i, 1000000000
   %conv3.i.i = trunc i128 %div.i.i to i64
-  %tick_offset = getelementptr inbounds i8, ptr %call, i64 1280
+  %tick_offset = getelementptr inbounds nuw i8, ptr %call, i64 1280
   store i64 %conv3.i.i, ptr %tick_offset, align 16
   ret void
 }
@@ -785,7 +785,7 @@ declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_add
 define internal void @sifive_pwm_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 430, ptr noundef nonnull @__func__.sifive_pwm_realize) #6
-  %timer = getelementptr inbounds i8, ptr %call, i64 1088
+  %timer = getelementptr inbounds nuw i8, ptr %call, i64 1088
   tail call void @timer_init_full(ptr noundef nonnull %timer, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @sifive_pwm_interrupt_0, ptr noundef %call) #6
   %arrayidx2 = getelementptr i8, ptr %call, i64 1136
   tail call void @timer_init_full(ptr noundef %arrayidx2, ptr noundef null, i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @sifive_pwm_interrupt_1, ptr noundef %call) #6
@@ -841,7 +841,7 @@ entry:
   %mul.i.i = mul nuw nsw i128 %conv1.i.i, %conv.i.i
   %div.i.i = udiv i128 %mul.i.i, 1000000000
   %conv3.i.i = trunc i128 %div.i.i to i64
-  %pwmcfg = getelementptr inbounds i8, ptr %s, i64 1296
+  %pwmcfg = getelementptr inbounds nuw i8, ptr %s, i64 1296
   %1 = load i32, ptr %pwmcfg, align 16
   %2 = and i32 %1, 12288
   %.not = icmp eq i32 %2, 0
@@ -868,7 +868,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %7 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.21, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef range(i32 0, 4) %num) #6
   br label %trace_sifive_pwm_interrupt.exit
@@ -883,7 +883,7 @@ trace_sifive_pwm_interrupt.exit:                  ; preds = %entry, %land.lhs.tr
   %9 = load i32, ptr %pwmcfg, align 16
   %or = or i32 %9, %shl
   store i32 %or, ptr %pwmcfg, align 16
-  %irqs = getelementptr inbounds i8, ptr %s, i64 1320
+  %irqs = getelementptr inbounds nuw i8, ptr %s, i64 1320
   %idxprom = zext nneg i32 %num to i64
   %arrayidx = getelementptr [4 x ptr], ptr %irqs, i64 0, i64 %idxprom
   %10 = load ptr, ptr %arrayidx, align 8
@@ -898,7 +898,7 @@ trace_sifive_pwm_interrupt.exit:                  ; preds = %entry, %land.lhs.tr
 if.then:                                          ; preds = %trace_sifive_pwm_interrupt.exit
   %and10 = and i32 %11, -8193
   store i32 %and10, ptr %pwmcfg, align 16
-  %tick_offset13 = getelementptr inbounds i8, ptr %s, i64 1280
+  %tick_offset13 = getelementptr inbounds nuw i8, ptr %s, i64 1280
   br i1 %.not, label %if.end14.thread24, label %if.end14.thread
 
 if.end14.thread:                                  ; preds = %if.then
@@ -913,7 +913,7 @@ if.end14:                                         ; preds = %trace_sifive_pwm_in
   br i1 %.not, label %if.end37.critedge, label %if.end14.land.lhs.true16_crit_edge
 
 if.end14.land.lhs.true16_crit_edge:               ; preds = %if.end14
-  %tick_offset18.phi.trans.insert = getelementptr inbounds i8, ptr %s, i64 1280
+  %tick_offset18.phi.trans.insert = getelementptr inbounds nuw i8, ptr %s, i64 1280
   %.pre = load i64, ptr %tick_offset18.phi.trans.insert, align 16
   %12 = and i32 %11, -8193
   br label %land.lhs.true16
@@ -922,7 +922,7 @@ land.lhs.true16:                                  ; preds = %if.end14.land.lhs.t
   %and23 = phi i32 [ %12, %if.end14.land.lhs.true16_crit_edge ], [ %and10, %if.end14.thread ]
   %13 = phi i64 [ %.pre, %if.end14.land.lhs.true16_crit_edge ], [ %conv3.i.i, %if.end14.thread ]
   %and17 = and i64 %conv3.i.i, 2147483647
-  %tick_offset18 = getelementptr inbounds i8, ptr %s, i64 1280
+  %tick_offset18 = getelementptr inbounds nuw i8, ptr %s, i64 1280
   %and19 = and i64 %13, 2147483647
   %cmp20 = icmp samesign ult i64 %and17, %and19
   br i1 %cmp20, label %if.then21, label %land.lhs.true26

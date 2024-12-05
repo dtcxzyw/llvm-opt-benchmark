@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN14EncodeFileNameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 1), (4, 24)) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   ret void
 }
@@ -33,7 +33,7 @@ define void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr nocapture noundef nonnull 
   br i1 %16, label %.lr.ph106, label %._crit_edge
 
 .lr.ph106:                                        ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %invariant.umin = tail call i64 @llvm.umin.i64(i64 %6, i64 %2)
   %.pre = load i32, ptr %17, align 4
   br label %18

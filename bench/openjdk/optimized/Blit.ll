@@ -22,9 +22,9 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br i1 %19, label %147, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %26, label %25
@@ -50,37 +50,37 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
 
 34:                                               ; preds = %31
   store i32 %6, ptr %13, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %7, ptr %35, align 4
   %36 = add nsw i32 %10, %6
-  %37 = getelementptr inbounds i8, ptr %13, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %36, ptr %37, align 8
   %38 = add nsw i32 %11, %7
-  %39 = getelementptr inbounds i8, ptr %13, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %38, ptr %39, align 4
   store i32 %8, ptr %14, align 8
-  %40 = getelementptr inbounds i8, ptr %14, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %9, ptr %40, align 4
   %41 = add nsw i32 %10, %8
-  %42 = getelementptr inbounds i8, ptr %14, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %41, ptr %42, align 8
   %43 = add nsw i32 %11, %9
-  %44 = getelementptr inbounds i8, ptr %14, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %43, ptr %44, align 4
   %45 = sub nsw i32 %6, %8
   %46 = sub nsw i32 %7, %9
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %14, ptr noundef nonnull %16) #2
   %47 = load ptr, ptr %29, align 8
-  %48 = getelementptr inbounds i8, ptr %18, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %49 = load i32, ptr %48, align 8
   %50 = call i32 %47(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %13, i32 noundef %49) #2
   %.not91 = icmp eq i32 %50, 0
   br i1 %.not91, label %51, label %147
 
 51:                                               ; preds = %34
-  %52 = getelementptr inbounds i8, ptr %18, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %16, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
   %57 = or i32 %53, 66
@@ -91,7 +91,7 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not92, label %63, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %29, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %62 = load ptr, ptr %61, align 8
   %.not100 = icmp eq ptr %62, null
   br i1 %.not100, label %147, label %.sink.split
@@ -100,30 +100,30 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   call void @SurfaceData_IntersectBlitBounds(ptr noundef nonnull %14, ptr noundef nonnull %13, i32 noundef %45, i32 noundef %46) #2
   call void @SurfaceData_IntersectBounds(ptr noundef nonnull %16, ptr noundef nonnull %14) #2
   %64 = load i32, ptr %16, align 8
-  %65 = getelementptr inbounds i8, ptr %16, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %66 = load i32, ptr %65, align 8
   %.not93 = icmp slt i32 %64, %66
   br i1 %.not93, label %67, label %140
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %16, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %16, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %71 = load i32, ptr %70, align 4
   %.not94 = icmp slt i32 %69, %71
   br i1 %.not94, label %72, label %140
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %29, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull %13) #2
-  %75 = getelementptr inbounds i8, ptr %32, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %76 = load ptr, ptr %75, align 8
   call void %76(ptr noundef %0, ptr noundef nonnull %32, ptr noundef nonnull %14) #2
-  %77 = getelementptr inbounds i8, ptr %13, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = icmp ne ptr %78, null
-  %80 = getelementptr inbounds i8, ptr %14, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %81 = load ptr, ptr %80, align 8
   %82 = icmp ne ptr %81, null
   %or.cond = select i1 %79, i1 %82, i1 false
@@ -138,14 +138,14 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br i1 %.not95101, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %17, i64 4
-  %88 = getelementptr inbounds i8, ptr %13, i64 32
-  %89 = getelementptr inbounds i8, ptr %13, i64 28
-  %90 = getelementptr inbounds i8, ptr %14, i64 32
-  %91 = getelementptr inbounds i8, ptr %14, i64 28
-  %92 = getelementptr inbounds i8, ptr %18, i64 32
-  %93 = getelementptr inbounds i8, ptr %17, i64 8
-  %94 = getelementptr inbounds i8, ptr %17, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  %90 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %14, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %17, i64 12
   br label %95
 
 95:                                               ; preds = %.lr.ph, %95
@@ -198,7 +198,7 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br label %132
 
 132:                                              ; preds = %72, %._crit_edge
-  %133 = getelementptr inbounds i8, ptr %32, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %134 = load ptr, ptr %133, align 8
   %.not96 = icmp eq ptr %134, null
   br i1 %.not96, label %136, label %135
@@ -208,7 +208,7 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br label %136
 
 136:                                              ; preds = %135, %132
-  %137 = getelementptr inbounds i8, ptr %29, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %138 = load ptr, ptr %137, align 8
   %.not97 = icmp eq ptr %138, null
   br i1 %.not97, label %140, label %139
@@ -218,7 +218,7 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br label %140
 
 140:                                              ; preds = %63, %67, %136, %139
-  %141 = getelementptr inbounds i8, ptr %32, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %142 = load ptr, ptr %141, align 8
   %.not98 = icmp eq ptr %142, null
   br i1 %.not98, label %144, label %143
@@ -228,7 +228,7 @@ define void @Java_sun_java2d_loops_Blit_Blit(ptr noundef %0, ptr noundef %1, ptr
   br label %144
 
 144:                                              ; preds = %143, %140
-  %145 = getelementptr inbounds i8, ptr %29, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %146 = load ptr, ptr %145, align 8
   %.not99 = icmp eq ptr %146, null
   br i1 %.not99, label %147, label %.sink.split

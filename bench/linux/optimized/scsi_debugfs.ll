@@ -28,21 +28,21 @@ define dso_local void @scsi_show_rq(ptr noundef %0, ptr noundef %1) local_unname
   %9 = load i64, ptr %8, align 8
   %10 = sub i64 %7, %9
   %11 = tail call i32 @jiffies_to_msecs(i64 noundef %10) #4
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = zext i32 %13 to i64
   %15 = tail call i32 @jiffies_to_msecs(i64 noundef %14) #4
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 80, i1 false)
   store i8 40, ptr %3, align 16
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 63, ptr %16, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i8 41, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %19 = load ptr, ptr %18, align 8
   tail call void @_raw_spin_lock_irq(ptr noundef %19) #4
-  %20 = getelementptr inbounds i8, ptr %6, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 96
   br label %21
 
 21:                                               ; preds = %25, %2
@@ -57,7 +57,7 @@ define dso_local void @scsi_show_rq(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %27, label %.loopexit, label %21, !llvm.loop !5
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %6, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 112
   br label %30
 
 30:                                               ; preds = %34, %28

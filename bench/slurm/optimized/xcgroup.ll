@@ -70,13 +70,13 @@ define range(i32 -1, 1) i32 @xcgroup_ns_create(ptr noundef initializes((8, 32)) 
   %6 = alloca %struct.xcgroup_t, align 8
   %7 = load ptr, ptr @slurm_cgroup_conf, align 8
   %8 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str, ptr noundef %7, ptr noundef %2) #6
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @xstrdup(ptr noundef %1) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
   %12 = tail call ptr @xstrdup(ptr noundef %2) #6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -156,7 +156,7 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
   %2 = alloca [1024 x i8], align 16
   %3 = alloca ptr, align 8
   %4 = tail call i32 @umask(i32 noundef 18) #6
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @mkdir(ptr noundef %6, i32 noundef 493) #6
   %.not = icmp eq i32 %7, 0
@@ -182,7 +182,7 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
 17:                                               ; preds = %11
   %18 = tail call ptr @xstrdup(ptr noundef nonnull %12) #6
   store ptr %18, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %20 = tail call ptr @xstrchr(ptr noundef nonnull %19, i32 noundef 47) #6
   %.not3242 = icmp eq ptr %20, null
   br i1 %.not3242, label %._crit_edge, label %.lr.ph
@@ -208,7 +208,7 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
 
 29:                                               ; preds = %24, %.lr.ph
   store i8 47, ptr %21, align 1
-  %30 = getelementptr inbounds i8, ptr %21, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %31 = tail call ptr @xstrchr(ptr noundef nonnull %30, i32 noundef 47) #6
   %.not32 = icmp eq ptr %31, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -247,7 +247,7 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
 
 .critedge40:                                      ; preds = %8, %1, %.critedge, %._crit_edge
   %45 = call i32 @umask(i32 noundef %4) #6
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %51, label %49
@@ -258,12 +258,12 @@ define range(i32 -1, 1) i32 @xcgroup_ns_mount(ptr nocapture noundef readonly %0)
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %49, %.critedge40
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %52, align 8
   br label %61
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %0, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024, ptr noundef nonnull @.str.5, ptr noundef %56, ptr noundef nonnull %47) #6
   %58 = icmp ugt i32 %57, 1023
@@ -311,7 +311,7 @@ declare i32 @mount(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @xcgroup_ns_umount(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @umount(ptr noundef %3) #6
   %.not = icmp ne i32 %4, 0
@@ -364,7 +364,7 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not30, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %23
 
 23:                                               ; preds = %.lr.ph, %.backedge
@@ -372,12 +372,12 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
   %.02131 = phi ptr [ %20, %.lr.ph ], [ %26, %.backedge ]
   store i8 0, ptr %24, align 1
   %25 = call ptr @xstrchr(ptr noundef %.02131, i32 noundef 58) #6
-  %26 = getelementptr inbounds i8, ptr %24, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.backedge, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %25, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %30 = call ptr @xstrchr(ptr noundef nonnull %29, i32 noundef 58) #6
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.backedge, label %32
@@ -411,7 +411,7 @@ define i32 @xcgroup_ns_find_by_pid(ptr noundef %0, ptr nocapture noundef writeon
   br i1 %.not, label %.loopexit, label %23, !llvm.loop !8
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %30, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %46 = call i32 @xcgroup_load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %45)
   br label %.loopexit
 
@@ -433,7 +433,7 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %struct.stat, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.13, ptr noundef %7, ptr noundef %2) #6
   %9 = icmp sgt i32 %8, 4095
@@ -451,7 +451,7 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
   br i1 %15, label %16, label %40
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_load, ptr noundef %2, ptr noundef %18) #6
   br label %40
@@ -480,18 +480,18 @@ define range(i32 -1, 1) i32 @xcgroup_load(ptr noundef %0, ptr nocapture noundef 
 29:                                               ; preds = %19
   store ptr %0, ptr %1, align 8
   %30 = tail call ptr @xstrdup(ptr noundef %2) #6
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %30, ptr %31, align 8
   %32 = call ptr @xstrdup(ptr noundef nonnull %4) #6
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 28
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %38, ptr %39, align 4
   br label %40
 
@@ -532,7 +532,7 @@ define void @xcgroup_wait_pid_moved(ptr noundef %0, ptr noundef %1) local_unname
 
 13:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %14 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, %5
   br i1 %16, label %17, label %12
@@ -579,7 +579,7 @@ define i32 @xcgroup_get_uint32_param(ptr nocapture noundef readonly %0, ptr noun
   %4 = alloca [4096 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %5, align 8
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %1) #6
@@ -663,7 +663,7 @@ define i32 @xcgroup_get_uint64_param(ptr nocapture noundef readonly %0, ptr noun
   %4 = alloca [4096 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   store ptr null, ptr %5, align 8
   %9 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str, ptr noundef %8, ptr noundef %1) #6
@@ -747,7 +747,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   %4 = alloca %struct.xcgroup_t, align 8
   %5 = alloca ptr, align 8
   store i64 0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @xstrdup(ptr noundef %7) #6
   store ptr %8, ptr %5, align 8
@@ -767,7 +767,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %18) #6
   br label %19
@@ -795,7 +795,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %31) #6
   br label %32
@@ -811,7 +811,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
 34:                                               ; preds = %33, %69
   %35 = phi i1 [ true, %33 ], [ false, %69 ]
   %indvars.iv = phi i64 [ 0, %33 ], [ 1, %69 ]
-  %36 = getelementptr inbounds [2 x ptr], ptr @__const.xcgroup_cpuset_init.cpuset_metafiles, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x ptr], ptr @__const.xcgroup_cpuset_init.cpuset_metafiles, i64 0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 @common_cgroup_get_param(ptr noundef nonnull %4, ptr noundef %37, ptr noundef nonnull %2, ptr noundef nonnull %3) #6
   %.not22 = icmp eq i32 %38, 0
@@ -829,7 +829,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %4, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %47 = load ptr, ptr %46, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %47) #6
   br label %48
@@ -869,7 +869,7 @@ define range(i32 -1, 1) i32 @xcgroup_cpuset_init(ptr noundef %0) local_unnamed_a
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %2, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %67 = load ptr, ptr %66, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.26, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_cpuset_init, ptr noundef %37, ptr noundef %65, ptr noundef %67) #6
   br label %68
@@ -914,7 +914,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_slurm_cg(ptr noundef %0, ptr noundef
   br i1 %.not7, label %15, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.27, ptr noundef %13) #6
   br label %21
@@ -925,7 +925,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_slurm_cg(ptr noundef %0, ptr noundef
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.28, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.xcgroup_create_slurm_cg, ptr noundef %5, ptr noundef %20) #6
   br label %21
@@ -947,17 +947,17 @@ declare i32 @common_cgroup_instantiate(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [64 x i8], align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 120
-  %10 = getelementptr inbounds i8, ptr %3, i64 160
-  %11 = getelementptr inbounds i8, ptr %3, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %12 = load i8, ptr %6, align 1
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 368
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %18 = load i32, ptr %17, align 8
   %19 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 4096, ptr noundef nonnull @.str.29, ptr noundef %16, i32 noundef %18) #6
   %20 = icmp sgt i32 %19, 4095
@@ -974,7 +974,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %29 = load i32, ptr %28, align 8
   %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.31, ptr noundef nonnull %6, i32 noundef %29) #6
   %31 = icmp sgt i32 %30, 4095
@@ -991,7 +991,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 112
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %40 = call ptr @log_build_step_id_str(ptr noundef nonnull %39, ptr noundef nonnull %8, i32 noundef 64, i16 noundef zeroext 6) #6
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.33, ptr noundef nonnull %4, ptr noundef %40) #6
   %42 = icmp sgt i32 %41, 4095
@@ -1007,7 +1007,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
   br i1 %.not, label %51, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %1, i64 368
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %49 = load i32, ptr %48, align 8
   %50 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.35, ptr noundef %0, i32 noundef %49) #6
   br label %83
@@ -1019,7 +1019,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
 
 53:                                               ; preds = %51
   call void @common_cgroup_destroy(ptr noundef nonnull %11) #6
-  %54 = getelementptr inbounds i8, ptr %1, i64 368
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %55 = load i32, ptr %54, align 8
   %56 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef %0, i32 noundef %55) #6
   br label %83
@@ -1031,7 +1031,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
 
 59:                                               ; preds = %57
   call void @common_cgroup_destroy(ptr noundef nonnull %11) #6
-  %60 = getelementptr inbounds i8, ptr %1, i64 112
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %61 = load i32, ptr %60, align 8
   %62 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %0, i32 noundef %61) #6
   br label %83
@@ -1044,15 +1044,15 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
 65:                                               ; preds = %63
   call void @common_cgroup_destroy(ptr noundef nonnull %11) #6
   call void @common_cgroup_destroy(ptr noundef nonnull %9) #6
-  %66 = getelementptr inbounds i8, ptr %1, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %67 = load i32, ptr %66, align 8
   %68 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef %0, i32 noundef %67) #6
   br label %83
 
 69:                                               ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %1, i64 368
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %71 = load i32, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 408
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %73 = load i32, ptr %72, align 8
   %74 = call i32 @common_cgroup_create(ptr noundef %2, ptr noundef nonnull %10, ptr noundef nonnull %5, i32 noundef %71, i32 noundef %73) #6
   %.not63 = icmp eq i32 %74, 0
@@ -1061,7 +1061,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
 75:                                               ; preds = %69
   call void @common_cgroup_destroy(ptr noundef nonnull %11) #6
   call void @common_cgroup_destroy(ptr noundef nonnull %9) #6
-  %76 = getelementptr inbounds i8, ptr %1, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39, ptr noundef %0, ptr noundef nonnull %76) #6
   br label %83
 
@@ -1074,7 +1074,7 @@ define range(i32 -1, 1) i32 @xcgroup_create_hierarchy(ptr noundef %0, ptr nounde
   call void @common_cgroup_destroy(ptr noundef nonnull %11) #6
   call void @common_cgroup_destroy(ptr noundef nonnull %9) #6
   call void @common_cgroup_destroy(ptr noundef nonnull %10) #6
-  %81 = getelementptr inbounds i8, ptr %1, i64 112
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %82 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %81) #6
   br label %83
 

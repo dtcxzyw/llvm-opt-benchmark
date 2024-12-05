@@ -31,11 +31,11 @@ define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store ptr %calloc.i, ptr %7, align 8
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
-  %11 = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %7, ptr %11, align 8
   %12 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %calloc.i) #19
   %13 = tail call ptr @getenv(ptr noundef nonnull @.str) #19
@@ -51,13 +51,13 @@ define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture
 
 .thread:                                          ; preds = %14, %6
   %17 = phi i32 [ 2560, %6 ], [ %spec.select, %14 ]
-  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %19 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   store ptr %19, ptr %18, align 8
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %17, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = zext nneg i32 %17 to i64
   %23 = shl nuw nsw i64 %22, 3
   %24 = tail call noalias ptr @malloc(i64 noundef %23) #18
@@ -68,9 +68,9 @@ define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.thread ]
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   store ptr null, ptr %28, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %22
@@ -92,7 +92,7 @@ define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture
   br label %34
 
 34:                                               ; preds = %33, %31
-  %35 = getelementptr inbounds i8, ptr %30, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not10.i = icmp eq ptr %36, null
   br i1 %.not10.i, label %38, label %37
@@ -123,13 +123,13 @@ sunTimerStructFree.exit:                          ; preds = %29, %38
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %43 = add i64 %42, 1
   %44 = tail call noalias ptr @malloc(i64 noundef %43) #18
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %44, ptr %45, align 8
   %46 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) %1) #19
-  %47 = getelementptr inbounds i8, ptr %4, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store double 0.000000e+00, ptr %47, align 8
   %48 = load ptr, ptr %11, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %50) #19
   %52 = load ptr, ptr %49, align 8
@@ -137,9 +137,9 @@ sunTimerStructFree.exit:                          ; preds = %29, %38
   %54 = load ptr, ptr %48, align 8
   %55 = load i64, ptr %54, align 8
   %56 = sub i64 %53, %55
-  %57 = getelementptr inbounds i8, ptr %52, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = sub nsw i64 %58, %60
   %62 = icmp slt i64 %61, 0
@@ -151,13 +151,13 @@ sunTimerStructFree.exit:                          ; preds = %29, %38
   %65 = sitofp i64 %.015.i to double
   %66 = sitofp i64 %.0.i to double
   %67 = tail call double @llvm.fmuladd.f64(double %66, double 1.000000e-09, double %65)
-  %68 = getelementptr inbounds i8, ptr %48, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %69 = load double, ptr %68, align 8
   %70 = fadd double %69, %67
   store double %70, ptr %68, align 8
-  %71 = getelementptr inbounds i8, ptr %48, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store double %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %48, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store double %70, ptr %72, align 8
   br label %73
 
@@ -195,9 +195,9 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not9, label %51, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %._crit_edge.i
@@ -205,15 +205,15 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %4, %.thread.i
   %10 = phi ptr [ %27, %.thread.i ], [ %6, %4 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %4 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %.not31.i = icmp eq ptr %14, null
   br i1 %.not31.i, label %.thread.i, label %15
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not32.i = icmp eq ptr %17, null
   br i1 %.not32.i, label %.thread10.i, label %18
@@ -228,7 +228,7 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = getelementptr inbounds i8, ptr %17, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %23 = load ptr, ptr %22, align 8
   %.not10.i.i = icmp eq ptr %23, null
   br i1 %.not10.i.i, label %25, label %24
@@ -240,9 +240,9 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
 25:                                               ; preds = %24, %21
   tail call void @free(ptr noundef nonnull %17) #19
   %.pre.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %.pre4.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert5.i = getelementptr inbounds ptr, ptr %.pre4.i, i64 %indvars.iv.i
+  %.phi.trans.insert5.i = getelementptr inbounds nuw ptr, ptr %.pre4.i, i64 %indvars.iv.i
   %.pre6.i = load ptr, ptr %.phi.trans.insert5.i, align 8
   %.not33.i = icmp eq ptr %.pre6.i, null
   br i1 %.not33.i, label %.thread.i, label %.thread10.i
@@ -256,7 +256,7 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
 .thread.i:                                        ; preds = %.thread10.i, %25, %.lr.ph.i
   %27 = phi ptr [ %.pre.i, %25 ], [ %.pre7.i, %.thread10.i ], [ %10, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next.i, %30
@@ -264,7 +264,7 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge.i:                                    ; preds = %.thread.i, %4
   %.lcssa.i = phi ptr [ %6, %4 ], [ %27, %.thread.i ]
-  %32 = getelementptr inbounds i8, ptr %.lcssa.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.lcssa.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %.thread12.i, label %34
@@ -283,7 +283,7 @@ define noundef i32 @SUNProfiler_Free(ptr noundef %0) local_unnamed_addr #0 {
 SUNHashMap_Destroy.exit:                          ; preds = %34, %.thread12.i
   store ptr null, ptr %5, align 8
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not.i10 = icmp eq ptr %38, null
   br i1 %.not.i10, label %sunTimerStructFree.exit, label %39
@@ -298,7 +298,7 @@ SUNHashMap_Destroy.exit:                          ; preds = %34, %.thread12.i
   br label %42
 
 42:                                               ; preds = %41, %39
-  %43 = getelementptr inbounds i8, ptr %38, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not10.i = icmp eq ptr %44, null
   br i1 %.not10.i, label %46, label %45
@@ -314,7 +314,7 @@ SUNHashMap_Destroy.exit:                          ; preds = %34, %.thread12.i
 
 sunTimerStructFree.exit:                          ; preds = %SUNHashMap_Destroy.exit, %46
   %47 = phi ptr [ %36, %SUNHashMap_Destroy.exit ], [ %.pre, %46 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @free(ptr noundef %49) #19
   %50 = load ptr, ptr %0, align 8
@@ -334,11 +334,11 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
   br i1 %.not, label %91, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.val15 = load ptr, ptr %6, align 8
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val15) #19
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef %3)
   %.not13 = icmp eq i32 %10, 0
@@ -353,9 +353,9 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
   %calloc.i = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   store ptr %calloc.i, ptr %12, align 8
   %13 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %16 = icmp eq ptr %9, null
   %17 = icmp eq ptr %1, null
@@ -371,7 +371,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
   %20 = phi i8 [ %25, %.lr.ph.i.i ], [ %19, %18 ]
   %.07.i.i = phi ptr [ %21, %.lr.ph.i.i ], [ %1, %18 ]
   %.036.i.i = phi i64 [ %24, %.lr.ph.i.i ], [ 1099511628211, %18 ]
-  %21 = getelementptr inbounds i8, ptr %.07.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 1
   %22 = sext i8 %20 to i64
   %23 = xor i64 %.036.i.i, %22
   %24 = mul i64 %23, -3750763034362895579
@@ -381,12 +381,12 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Begin(ptr noundef readonly %0, ptr n
 
 fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i, %18
   %.03.lcssa.i.i = phi i64 [ 1099511628211, %18 ], [ %24, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i8, ptr %9, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %27 to i64
   %29 = urem i64 %.03.lcssa.i.i, %28
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %9, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %32 = load ptr, ptr %31, align 8
   %sext.i = shl i64 %29, 32
   %33 = ashr exact i64 %sext.i, 29
@@ -438,7 +438,7 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %39, %SUNHashMap_Ite
 
 SUNHashMap_Insert.exit:                           ; preds = %48
   store ptr %1, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %12, ptr %51, align 8
   %52 = sext i32 %.025.i to i64
   %53 = getelementptr inbounds ptr, ptr %32, i64 %52
@@ -471,7 +471,7 @@ sunTimerStructFree.exit:                          ; preds = %58, %59
 
 60:                                               ; preds = %._crit_edge, %SUNHashMap_Insert.exit
   %61 = phi ptr [ %.pre, %._crit_edge ], [ %12, %SUNHashMap_Insert.exit ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load i64, ptr %62, align 8
   %64 = add nsw i64 %63, 1
   store i64 %64, ptr %62, align 8
@@ -482,7 +482,7 @@ sunTimerStructFree.exit:                          ; preds = %58, %59
 .sink.split:                                      ; preds = %60, %sunTimerStructFree.exit
   %.0.ph = phi i32 [ %switch, %sunTimerStructFree.exit ], [ 0, %60 ]
   %66 = load ptr, ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %68) #19
   %70 = load ptr, ptr %67, align 8
@@ -490,9 +490,9 @@ sunTimerStructFree.exit:                          ; preds = %58, %59
   %72 = load ptr, ptr %66, align 8
   %73 = load i64, ptr %72, align 8
   %74 = sub i64 %71, %73
-  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %76 = load i64, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %72, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %78 = load i64, ptr %77, align 8
   %79 = sub nsw i64 %76, %78
   %80 = icmp slt i64 %79, 0
@@ -504,13 +504,13 @@ sunTimerStructFree.exit:                          ; preds = %58, %59
   %83 = sitofp i64 %.015.i to double
   %84 = sitofp i64 %.0.i17 to double
   %85 = tail call double @llvm.fmuladd.f64(double %84, double 1.000000e-09, double %83)
-  %86 = getelementptr inbounds i8, ptr %66, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %87 = load double, ptr %86, align 8
   %88 = fadd double %87, %85
   store double %88, ptr %86, align 8
-  %89 = getelementptr inbounds i8, ptr %66, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store double %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %66, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store double %88, ptr %90, align 8
   br label %91
 
@@ -535,7 +535,7 @@ define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef rea
   %8 = phi i8 [ %13, %.lr.ph.i ], [ %7, %6 ]
   %.07.i = phi ptr [ %9, %.lr.ph.i ], [ %1, %6 ]
   %.036.i = phi i64 [ %12, %.lr.ph.i ], [ 1099511628211, %6 ]
-  %9 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %10 = sext i8 %8 to i64
   %11 = xor i64 %.036.i, %10
   %12 = mul i64 %11, -3750763034362895579
@@ -545,12 +545,12 @@ define internal fastcc range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef rea
 
 fnv1a_hash.exit:                                  ; preds = %.lr.ph.i, %6
   %.03.lcssa.i = phi i64 [ 1099511628211, %6 ], [ %12, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = urem i64 %.03.lcssa.i, %16
   %18 = trunc i64 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %sext = shl i64 %17, 32
   %21 = ashr exact i64 %sext, 29
@@ -608,7 +608,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearPro
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %42, %25
-  %45 = getelementptr inbounds i8, ptr %23, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %2, align 8
   br label %47
@@ -625,11 +625,11 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   br i1 %.not, label %89, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %6, align 8
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %9, ptr noundef %1, ptr noundef %3)
   %.not11 = icmp eq i32 %10, 0
@@ -637,7 +637,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
 
 11:                                               ; preds = %4
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %14) #19
   %16 = load ptr, ptr %13, align 8
@@ -645,9 +645,9 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %18 = load ptr, ptr %12, align 8
   %19 = load i64, ptr %18, align 8
   %20 = sub i64 %17, %19
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = sub nsw i64 %22, %24
   %26 = icmp slt i64 %25, 0
@@ -659,13 +659,13 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %29 = sitofp i64 %.015.i to double
   %30 = sitofp i64 %.0.i to double
   %31 = tail call double @llvm.fmuladd.f64(double %30, double 1.000000e-09, double %29)
-  %32 = getelementptr inbounds i8, ptr %12, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %33 = load double, ptr %32, align 8
   %34 = fadd double %33, %31
   store double %34, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %12, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double %34, ptr %36, align 8
   %37 = icmp eq i32 %10, -1
   %spec.select = select i1 %37, i32 -9982, i32 -9980
@@ -673,7 +673,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %41) #19
   %43 = load ptr, ptr %40, align 8
@@ -681,9 +681,9 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %45 = load ptr, ptr %39, align 8
   %46 = load i64, ptr %45, align 8
   %47 = sub i64 %44, %46
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = sub nsw i64 %49, %51
   %53 = icmp slt i64 %52, 0
@@ -695,16 +695,16 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %56 = sitofp i64 %.015.i13 to double
   %57 = sitofp i64 %.0.i14 to double
   %58 = tail call double @llvm.fmuladd.f64(double %57, double 1.000000e-09, double %56)
-  %59 = getelementptr inbounds i8, ptr %39, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %60 = load double, ptr %59, align 8
   %61 = fadd double %60, %58
   store double %61, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %39, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store double %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %39, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store double %61, ptr %63, align 8
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %66) #19
   %68 = load ptr, ptr %65, align 8
@@ -712,9 +712,9 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %70 = load ptr, ptr %64, align 8
   %71 = load i64, ptr %70, align 8
   %72 = sub i64 %69, %71
-  %73 = getelementptr inbounds i8, ptr %68, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %70, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = sub nsw i64 %74, %76
   %78 = icmp slt i64 %77, 0
@@ -726,13 +726,13 @@ define range(i32 -9999, 1) i32 @SUNProfiler_End(ptr noundef readonly %0, ptr nou
   %81 = sitofp i64 %.015.i16 to double
   %82 = sitofp i64 %.0.i17 to double
   %83 = tail call double @llvm.fmuladd.f64(double %82, double 1.000000e-09, double %81)
-  %84 = getelementptr inbounds i8, ptr %64, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %85 = load double, ptr %84, align 8
   %86 = fadd double %85, %83
   store double %86, ptr %84, align 8
-  %87 = getelementptr inbounds i8, ptr %64, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store double %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %64, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store double %86, ptr %88, align 8
   br label %89
 
@@ -749,7 +749,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetTimerResolution(ptr noundef readn
 
 4:                                                ; preds = %2
   %5 = call i32 @clock_getres(i32 noundef 1, ptr noundef nonnull %3) #19
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = sitofp i64 %7 to double
   %9 = fmul double %8, 1.000000e-09
@@ -771,7 +771,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly 
   br i1 %.not, label %13, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = call fastcc i32 @SUNHashMap_GetValue(ptr noundef %7, ptr noundef %1, ptr noundef %4)
   %.not5 = icmp eq i32 %8, 0
@@ -779,7 +779,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetElapsedTime(ptr noundef readonly 
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load double, ptr %11, align 8
   store double %12, ptr %2, align 8
   br label %13
@@ -795,27 +795,27 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
   br i1 %.not, label %69, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   store i64 0, ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   store i64 0, ptr %9, align 8
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
   %13 = load ptr, ptr %3, align 8
   %.val = load ptr, ptr %13, align 8
   %14 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph, label %._crit_edge
@@ -823,15 +823,15 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
 .lr.ph:                                           ; preds = %2, %37
   %20 = phi ptr [ %38, %37 ], [ %16, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %2 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %.not18 = icmp eq ptr %24, null
   br i1 %.not18, label %37, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not19 = icmp eq ptr %27, null
   br i1 %.not19, label %37, label %28
@@ -840,15 +840,15 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
   %29 = load ptr, ptr %27, align 8
   store i64 0, ptr %29, align 8
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   store i64 0, ptr %33, align 8
   %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
   %.pre = load ptr, ptr %15, align 8
   br label %37
@@ -856,17 +856,17 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
 37:                                               ; preds = %25, %28, %.lr.ph
   %38 = phi ptr [ %20, %25 ], [ %.pre, %28 ], [ %20, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %37, %2
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double 0.000000e+00, ptr %43, align 8
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %46) #19
   %48 = load ptr, ptr %45, align 8
@@ -874,9 +874,9 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
   %50 = load ptr, ptr %44, align 8
   %51 = load i64, ptr %50, align 8
   %52 = sub i64 %49, %51
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %56 = load i64, ptr %55, align 8
   %57 = sub nsw i64 %54, %56
   %58 = icmp slt i64 %57, 0
@@ -888,13 +888,13 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Reset(ptr noundef %0) local_unnamed_
   %61 = sitofp i64 %.015.i to double
   %62 = sitofp i64 %.0.i to double
   %63 = tail call double @llvm.fmuladd.f64(double %62, double 1.000000e-09, double %61)
-  %64 = getelementptr inbounds i8, ptr %44, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %65 = load double, ptr %64, align 8
   %66 = fadd double %65, %63
   store double %66, ptr %64, align 8
-  %67 = getelementptr inbounds i8, ptr %44, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store double %66, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %44, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store double %66, ptr %68, align 8
   br label %69
 
@@ -910,22 +910,22 @@ define range(i32 -9999, 1) i32 @SUNProfiler_Print(ptr noundef %0, ptr nocapture 
   br i1 %.not, label %SUNHashMap_GetValue.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.val = load ptr, ptr %6, align 8
   %7 = tail call i32 @clock_gettime(i32 noundef 1, ptr noundef %.val) #19
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %SUNHashMap_GetValue.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = sext i32 %12 to i64
   %14 = urem i64 -1762593166494427667, %13
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load ptr, ptr %16, align 8
   %sext.i = shl i64 %14, 32
   %18 = ashr exact i64 %sext.i, 29
@@ -983,11 +983,11 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %sunHashMapLinearPro
   br i1 %40, label %SUNHashMap_GetValue.exit.thread, label %.thread
 
 .thread:                                          ; preds = %39, %22
-  %41 = getelementptr inbounds i8, ptr %20, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load double, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %44, ptr %45, align 8
   %46 = load i32, ptr %11, align 4
   %47 = sext i32 %46 to i64
@@ -1006,9 +1006,9 @@ SUNHashMap_Iterate.exit.i:                        ; preds = %sunHashMapLinearPro
 
 51:                                               ; preds = %51, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %51 ]
-  %52 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.i
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv.i
+  %54 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
   store ptr %53, ptr %54, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %55 = icmp slt i64 %indvars.iv.next.i, %47
@@ -1018,14 +1018,14 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %51, %.preheader.i
   tail call void @qsort(ptr noundef nonnull %49, i64 noundef %47, i64 noundef 8, ptr noundef nonnull @sunCompareTimes) #19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %56 = call i32 @clock_getres(i32 noundef 1, ptr noundef nonnull %3) #19
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %58 = load i64, ptr %57, align 8
   %59 = sitofp i64 %58 to double
   %60 = fmul double %59, 1.000000e-09
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %61 = call i64 @fwrite(ptr nonnull @.str.2, i64 114, i64 1, ptr %1)
   %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #19
-  %63 = getelementptr inbounds i8, ptr %0, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef %64) #19
   %66 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.6, double noundef %60) #19
@@ -1039,7 +1039,7 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %51, %.preheader.i
 .lr.ph:                                           ; preds = %SUNProfiler_GetTimerResolution.exit, %90
   %72 = phi i32 [ %91, %90 ], [ %70, %SUNProfiler_GetTimerResolution.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %SUNProfiler_GetTimerResolution.exit ]
-  %73 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8
   %.not36 = icmp eq ptr %74, null
   br i1 %.not36, label %90, label %75
@@ -1048,9 +1048,9 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %51, %.preheader.i
   %.val37 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %74, i64 8
   %.val38 = load ptr, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %.val38, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.val38, i64 24
   %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.val38, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.val38, i64 16
   %80 = load double, ptr %79, align 8
   %81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.val37, ptr noundef nonnull dereferenceable(20) @.str.1) #20
   %.not.i42 = icmp eq i32 %81, 0
@@ -1064,7 +1064,7 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %51, %.preheader.i
 
 sunPrintTimers.exit:                              ; preds = %75, %82
   %86 = phi double [ %85, %82 ], [ 1.000000e+02, %75 ]
-  %87 = getelementptr inbounds i8, ptr %.val38, i64 40
+  %87 = getelementptr inbounds nuw i8, ptr %.val38, i64 40
   %88 = load i64, ptr %87, align 8
   %89 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %.val37, double noundef %86, double noundef %78, double noundef %80, i64 noundef %88) #19
   %.pre67 = load ptr, ptr %8, align 8
@@ -1081,7 +1081,7 @@ sunPrintTimers.exit:                              ; preds = %75, %82
 ._crit_edge:                                      ; preds = %90, %SUNProfiler_GetTimerResolution.exit
   call void @free(ptr noundef nonnull %49) #19
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 @clock_gettime(i32 noundef 1, ptr noundef %96) #19
   %98 = load ptr, ptr %95, align 8
@@ -1089,9 +1089,9 @@ sunPrintTimers.exit:                              ; preds = %75, %82
   %100 = load ptr, ptr %94, align 8
   %101 = load i64, ptr %100, align 8
   %102 = sub i64 %99, %101
-  %103 = getelementptr inbounds i8, ptr %98, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %104 = load i64, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %100, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %106 = load i64, ptr %105, align 8
   %107 = sub nsw i64 %104, %106
   %108 = icmp slt i64 %107, 0
@@ -1103,16 +1103,16 @@ sunPrintTimers.exit:                              ; preds = %75, %82
   %111 = sitofp i64 %.015.i to double
   %112 = sitofp i64 %.0.i43 to double
   %113 = call double @llvm.fmuladd.f64(double %112, double 1.000000e-09, double %111)
-  %114 = getelementptr inbounds i8, ptr %94, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %115 = load double, ptr %114, align 8
   %116 = fadd double %115, %113
   store double %116, ptr %114, align 8
-  %117 = getelementptr inbounds i8, ptr %94, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store double %116, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %94, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %94, i64 24
   store double %116, ptr %118, align 8
   %119 = load ptr, ptr %5, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = load double, ptr %120, align 8
   %122 = load double, ptr %45, align 8
   %123 = fdiv double %121, %122
@@ -1139,13 +1139,13 @@ define internal range(i32 -1, 2) i32 @sunCompareTimes(ptr nocapture noundef read
   br i1 %brmerge17, label %19, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load double, ptr %14, align 8
   %16 = fcmp olt double %11, %15
   br i1 %16, label %19, label %17

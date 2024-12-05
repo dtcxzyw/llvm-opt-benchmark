@@ -109,7 +109,7 @@ define internal i32 @dissect_usbms_bot_bulk(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %5, label %83, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %18
@@ -122,26 +122,26 @@ define internal i32 @dissect_usbms_bot_bulk(ptr noundef %0, ptr noundef %1, ptr 
   store ptr %13, ptr %11, align 8
   %14 = tail call ptr @wmem_file_scope() #3
   %15 = tail call noalias ptr @wmem_tree_new(ptr noundef %14) #3
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %15, ptr %16, align 8
   store ptr %11, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i32 4, ptr %17, align 8
   br label %21
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %3, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %20 = load i32, ptr %19, align 8
   %.not87 = icmp eq i32 %20, 4
   br i1 %.not87, label %21, label %83
 
 21:                                               ; preds = %18, %9
   %.082 = phi ptr [ %8, %18 ], [ %11, %9 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 284
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, -1
   %25 = zext i1 %24 to i32
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load ptr, ptr %26, align 8
   tail call void @col_set_str(ptr noundef %27, i32 noundef 34, ptr noundef nonnull @.str.31) #3
   %28 = load ptr, ptr %26, align 8
@@ -176,9 +176,9 @@ usbms_bot_bulk_is_csw.exit:                       ; preds = %35
   br label %83
 
 usbms_bot_bulk_is_csw.exit.thread:                ; preds = %usbms_bot_bulk_is_cbw.exit, %30, %35, %usbms_bot_bulk_is_csw.exit
-  %40 = getelementptr inbounds i8, ptr %.082, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.082, i64 8
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = add i32 %43, -1
   %45 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %41, i32 noundef %44) #3
@@ -195,7 +195,7 @@ usbms_bot_bulk_is_csw.exit.thread:                ; preds = %usbms_bot_bulk_is_c
 
 52:                                               ; preds = %usbms_bot_bulk_is_csw.exit.thread
   %53 = load ptr, ptr %.082, align 8
-  %54 = getelementptr inbounds i8, ptr %45, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %55 = load i16, ptr %54, align 8
   %56 = zext i16 %55 to i32
   %57 = tail call ptr @wmem_tree_lookup32(ptr noundef %53, i32 noundef %56) #3
@@ -208,7 +208,7 @@ usbms_bot_bulk_is_csw.exit.thread:                ; preds = %usbms_bot_bulk_is_c
   br label %83
 
 60:                                               ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %45, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %62) #3
   %64 = load i32, ptr %61, align 8
@@ -268,17 +268,17 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
   br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 284
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, -1
   %14 = zext i1 %13 to i32
-  %15 = getelementptr inbounds i8, ptr %8, i64 29
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 29
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, -1
   br i1 %17, label %._crit_edge, label %.lr.ph
@@ -298,7 +298,7 @@ define internal i32 @dissect_usbms_bot_control(ptr noundef %0, ptr noundef %1, p
 
 ._crit_edge:                                      ; preds = %20, %10
   %.lcssa = phi ptr [ @dissect_usbms_bot_reset, %10 ], [ %19, %20 ]
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.31) #3
   %26 = load i32, ptr @proto_usbms_bot, align 4
@@ -415,7 +415,7 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
   %29 = tail call ptr @wmem_file_scope() #3
   %30 = tail call noalias ptr @wmem_alloc(ptr noundef %29, i64 noundef 16) #3
   store i8 -1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr null, ptr %31, align 8
   %32 = load ptr, ptr %3, align 8
   tail call void @wmem_tree_insert32(ptr noundef %32, i32 noundef %26, ptr noundef nonnull %30) #3
@@ -423,9 +423,9 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
 
 33:                                               ; preds = %28, %4
   %.086 = phi ptr [ %27, %4 ], [ %30, %28 ]
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = tail call ptr @wmem_tree_lookup32(ptr noundef %35, i32 noundef %37) #3
   %.not91 = icmp eq ptr %38, null
@@ -435,32 +435,32 @@ define internal fastcc i32 @dissect_usbms_bot_cbw(ptr noundef %0, ptr noundef %1
   %40 = tail call ptr @wmem_file_scope() #3
   %41 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef 72) #3
   %42 = zext nneg i8 %24 to i16
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i16 %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 10
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 10
   store i16 -1, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %41, i64 14
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 14
   %.not92 = icmp eq i32 %15, 0
   %.not93 = icmp sgt i8 %18, -1
   %. = select i1 %.not93, i16 2, i16 1
   %storemerge = select i1 %.not92, i16 0, i16 %.
   store i16 %storemerge, ptr %45, align 2
-  %46 = getelementptr inbounds i8, ptr %41, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i32 %15, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %41, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i32 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %41, i64 32
-  %49 = getelementptr inbounds i8, ptr %1, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
   %50 = load i32, ptr %36, align 4
   store i32 %50, ptr %41, align 8
-  %51 = getelementptr inbounds i8, ptr %41, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %41, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i16 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %41, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %41, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store ptr null, ptr %54, align 8
   %55 = load ptr, ptr %34, align 8
   tail call void @wmem_tree_insert32(ptr noundef %55, i32 noundef %50, ptr noundef nonnull %41) #3
@@ -533,9 +533,9 @@ define internal fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef %1
   %15 = load i32, ptr @hf_usbms_bot_dCSWStatus, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef -2147483648) #3
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 12) #3
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %22 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %19, i32 noundef %21) #3
   %.not = icmp eq ptr %22, null
@@ -543,10 +543,10 @@ define internal fastcc i32 @dissect_usbms_bot_csw(ptr noundef %0, ptr noundef %1
 
 23:                                               ; preds = %4
   %24 = load i32, ptr %20, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store i32 %24, ptr %25, align 4
   %26 = load ptr, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %28 = load i16, ptr %27, align 8
   %29 = zext i16 %28 to i32
   %30 = tail call ptr @wmem_tree_lookup32(ptr noundef %26, i32 noundef %29) #3

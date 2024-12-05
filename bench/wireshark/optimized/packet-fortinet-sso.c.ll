@@ -84,7 +84,7 @@ define internal noundef i32 @dissect_fortinet_sso(ptr noundef %0, ptr nocapture 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 -1, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.34) #2
   %10 = load ptr, ptr %8, align 8
@@ -104,7 +104,7 @@ define internal noundef i32 @dissect_fortinet_sso(ptr noundef %0, ptr nocapture 
   %22 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef 6) #2
   %23 = load i32, ptr @hf_fsso_payload_length, align 4
   %24 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %15, i32 noundef %23, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #2
-  %25 = getelementptr inbounds i8, ptr %1, i64 408
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr @tvb_get_stringz_enc(ptr noundef %26, ptr noundef %0, i32 noundef 12, ptr noundef nonnull %6, i32 noundef 0) #2
   %28 = load i32, ptr @hf_fsso_string, align 4
@@ -246,7 +246,7 @@ define internal range(i32 0, 2) i32 @dissect_fortinet_fsso_heur(ptr noundef %0, 
   br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %13 = load i32, ptr %12, align 8
   %.not10 = icmp eq i32 %13, 8002
   br i1 %.not10, label %14, label %16

@@ -525,7 +525,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
 
 96:                                               ; preds = %92
   call void @extcap_cmdline_debug(ptr noundef nonnull %1, i32 noundef %0) #16
-  %97 = getelementptr inbounds i8, ptr %15, i64 90
+  %97 = getelementptr inbounds nuw i8, ptr %15, i64 90
   %98 = load i8, ptr %97, align 2
   %.not101 = icmp eq i8 %98, 0
   br i1 %.not101, label %100, label %99
@@ -537,13 +537,13 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
 
 100:                                              ; preds = %99, %96
   %101 = phi ptr [ %.pre, %99 ], [ %15, %96 ]
-  %102 = getelementptr inbounds i8, ptr %101, i64 89
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 89
   %103 = load i8, ptr %102, align 1
   %.not102 = icmp eq i8 %103, 0
   br i1 %.not102, label %107, label %104
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds i8, ptr %101, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %106 = load ptr, ptr %105, align 8
   call fastcc void @new_fake_interface_for_list_dlts(ptr noundef nonnull %101, ptr noundef %106)
   %.pre309 = load ptr, ptr %10, align 8
@@ -557,25 +557,25 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
 
 110:                                              ; preds = %107
   %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 65
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 65
   %113 = load i8, ptr %112, align 1
   %.not104 = icmp eq i8 %113, 0
   br i1 %.not104, label %118, label %114
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %111, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = call fastcc i32 @list_config(ptr noundef %116)
   br label %.thread128
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds i8, ptr %111, i64 64
+  %119 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %120 = load i8, ptr %119, align 8
   %.not105 = icmp eq i8 %120, 0
   br i1 %.not105, label %.thread128, label %121
 
 121:                                              ; preds = %118
-  %122 = getelementptr inbounds i8, ptr %111, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %123 = load ptr, ptr %122, align 8
   %.not106 = icmp eq ptr %123, null
   br i1 %.not106, label %.thread128, label %124
@@ -586,7 +586,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
 
 126:                                              ; preds = %124
   %.not116 = icmp eq i32 %.075, 0
-  %127 = getelementptr inbounds i8, ptr %111, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %128 = load ptr, ptr %127, align 8
   br i1 %.not116, label %131, label %129
 
@@ -603,7 +603,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %111, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %137 = load ptr, ptr %136, align 8
   %138 = call fastcc i32 @capture_android_logcat_text(ptr noundef nonnull %123, ptr noundef %137, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, i32 noundef %.073, ptr noundef %.071)
   br label %.thread128
@@ -614,7 +614,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not109, label %145, label %141
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %111, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = call fastcc i32 @capture_android_bluetooth_hcidump(ptr noundef nonnull %123, ptr noundef %143, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
@@ -625,7 +625,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not111, label %151, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %111, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %149 = load ptr, ptr %148, align 8
   %150 = call fastcc i32 @capture_android_bluetooth_external_parser(ptr noundef nonnull %123, ptr noundef %149, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select2, i32 noundef %.064, ptr noundef nonnull %.2, ptr noundef nonnull %spec.store.select1)
   br label %.thread128
@@ -636,7 +636,7 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not113, label %157, label %153
 
 153:                                              ; preds = %151
-  %154 = getelementptr inbounds i8, ptr %111, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %155 = load ptr, ptr %154, align 8
   %156 = call fastcc i32 @capture_android_bluetooth_btsnoop_net(ptr noundef nonnull %123, ptr noundef %155, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
@@ -647,9 +647,9 @@ define hidden range(i32 -1, 46) i32 @main(i32 noundef %0, ptr noundef %1) local_
   br i1 %.not115, label %.thread128, label %159
 
 159:                                              ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %111, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %111, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %163 = load ptr, ptr %162, align 8
   %164 = call fastcc i32 @capture_android_tcpdump(ptr noundef nonnull %123, ptr noundef %161, ptr noundef %163, ptr noundef nonnull %spec.select, ptr noundef nonnull %spec.store.select)
   br label %.thread128
@@ -863,8 +863,8 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
   br i1 %63, label %.lr.ph237, label %.loopexit
 
 .lr.ph237:                                        ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %14, i64 9
-  %65 = getelementptr inbounds i8, ptr %13, i64 9
+  %64 = getelementptr inbounds nuw i8, ptr %14, i64 9
+  %65 = getelementptr inbounds nuw i8, ptr %13, i64 9
   br label %66
 
 66:                                               ; preds = %.lr.ph237, %.backedge
@@ -1722,10 +1722,10 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %80 = ptrtoint ptr %75 to i64
   %81 = sub i64 %80, ptrtoint (ptr @capture_android_logcat_text.packet to i64)
   %82 = add i64 %81, 1
-  %83 = getelementptr inbounds i8, ptr %78, i64 16
-  %84 = getelementptr inbounds i8, ptr %78, i64 12
-  %85 = getelementptr inbounds i8, ptr %78, i64 8
-  %86 = getelementptr inbounds i8, ptr %78, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %78, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %87 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull getelementptr inbounds (i8, ptr @capture_android_logcat_text.packet, i64 32), ptr noundef nonnull @.str.164, ptr noundef nonnull %83, ptr noundef nonnull %84, ptr noundef nonnull %85, ptr noundef nonnull %86, ptr noundef nonnull %78, ptr noundef nonnull %7) #16
   %88 = icmp eq i32 %87, 6
   br i1 %88, label %89, label %.outer
@@ -1734,7 +1734,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %90 = load i32, ptr %83, align 8
   %91 = add i32 %90, -1
   store i32 %91, ptr %83, align 8
-  %92 = getelementptr inbounds i8, ptr %78, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %78, i64 32
   store i32 -1, ptr %92, align 8
   %93 = call i64 @mktime(ptr noundef nonnull %78) #16
   %94 = load i32, ptr %7, align 4
@@ -2252,12 +2252,12 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 .loopexit:                                        ; preds = %31, %67, %.loopexit.sink.split
   %.1171 = phi i32 [ %.1171.ph, %.loopexit.sink.split ], [ %58, %67 ], [ %25, %31 ]
   %.2 = phi i64 [ %95, %.loopexit.sink.split ], [ %.3.ph, %67 ], [ %.0169.ph, %31 ]
-  %96 = getelementptr inbounds i8, ptr %7, i64 20
-  %97 = getelementptr inbounds i8, ptr %7, i64 16
-  %98 = getelementptr inbounds i8, ptr %7, i64 12
-  %99 = getelementptr inbounds i8, ptr %7, i64 8
-  %100 = getelementptr inbounds i8, ptr %7, i64 4
-  %101 = getelementptr inbounds i8, ptr %7, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge286, %.loopexit
@@ -2627,14 +2627,14 @@ get_serial_from_interface.exit:                   ; preds = %29, %26
   br label %adb_forward.exit
 
 adb_forward.exit:                                 ; preds = %.sink.split.i, %39, %37
-  %54 = getelementptr inbounds i8, ptr %12, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %54, i8 0, i64 12, i1 false)
   store i16 2, ptr %12, align 4
   %55 = load i16, ptr %7, align 2
   %rev = tail call i16 @llvm.bswap.i16(i16 %55)
-  %56 = getelementptr inbounds i8, ptr %12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 %rev, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %12, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %58 = call zeroext i1 @ws_inet_pton4(ptr noundef %6, ptr noundef nonnull %57) #16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) @__const.useSndTimeout.socket_timeout, i64 16, i1 false)
@@ -2707,8 +2707,8 @@ adb_forward.exit:                                 ; preds = %.sink.split.i, %39,
 
 92:                                               ; preds = %88, %74
   %.0130 = phi i32 [ %31, %74 ], [ %79, %88 ]
-  %93 = getelementptr inbounds i8, ptr %12, i64 2
-  %94 = getelementptr inbounds i8, ptr %12, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %12, i64 4
   br label %.outer
 
 .outer:                                           ; preds = %117, %92
@@ -3347,11 +3347,11 @@ define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr nounde
   %.0129 = phi i64 [ %104, %103 ], [ 0, %80 ]
   %84 = getelementptr i8, ptr @capture_android_tcpdump.data, i64 %.0129
   %.sroa.019.0.copyload = load i32, ptr %84, align 4
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 4
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 8
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 4
-  %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 12
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 12
   %.sroa.23.0.copyload = load i32, ptr %.sroa.23.0..sroa_idx, align 4
   br i1 %.095117, label %85, label %90
 
@@ -3434,13 +3434,13 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, i16 %.0.val) unnamed_add
   %8 = alloca i32, align 4
   %9 = alloca %struct.timeval, align 8
   %10 = alloca %struct.fd_set, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, i8 0, i64 12, i1 false)
   store i16 2, ptr %6, align 4
   %rev = tail call i16 @llvm.bswap.i16(i16 %.0.val)
-  %12 = getelementptr inbounds i8, ptr %6, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %rev, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %14 = call zeroext i1 @ws_inet_pton4(ptr noundef %0, ptr noundef nonnull %13) #16
   %15 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #16
   %16 = icmp eq i32 %15, -1
@@ -3935,13 +3935,13 @@ define internal fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %0, i32 noun
   %3 = alloca %struct.wtap_dump_params, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %6, i8 0, i64 72, i1 false)
   store i32 0, ptr %4, align 4
   store ptr null, ptr %5, align 8
   tail call void @wtap_init(i32 noundef 0) #16
   store i32 %1, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 65535, ptr %7, align 4
   %8 = tail call i32 @wtap_pcap_nsec_file_type_subtype() #16
   %9 = call ptr @wtap_dump_open(ptr noundef %0, i32 noundef %8, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #16
@@ -3991,19 +3991,19 @@ define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr nonnul
   %11 = alloca %struct.wtap_rec, align 8
   store i32 0, ptr %9, align 4
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 1, ptr %12, align 4
   %13 = trunc i64 %4 to i32
-  %14 = getelementptr inbounds i8, ptr %11, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %13, ptr %14, align 8
   %15 = trunc i64 %5 to i32
-  %16 = getelementptr inbounds i8, ptr %11, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 68
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %6, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %7, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 232
   store ptr null, ptr %19, align 8
   %20 = icmp eq i32 %0, 99
   br i1 %20, label %21, label %28
@@ -4012,7 +4012,7 @@ define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr nonnul
   %22 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %22, 0
   %23 = zext i1 %.not to i32
-  %24 = getelementptr inbounds i8, ptr %11, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 80
   store i32 %23, ptr %24, align 8
   %25 = add i32 %15, -4
   store i32 %25, ptr %16, align 4
@@ -4023,7 +4023,7 @@ define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr nonnul
 
 28:                                               ; preds = %21, %8
   %.018 = phi ptr [ %27, %21 ], [ %3, %8 ]
-  %29 = getelementptr inbounds i8, ptr %11, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %11, i64 72
   store i32 %0, ptr %29, align 8
   %30 = call i32 @wtap_dump(ptr noundef nonnull %1, ptr noundef nonnull %11, ptr noundef %.018, ptr noundef nonnull %9, ptr noundef nonnull %10) #16
   %.not19 = icmp eq i32 %30, 0

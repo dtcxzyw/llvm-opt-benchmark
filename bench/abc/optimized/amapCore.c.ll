@@ -15,22 +15,22 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @Amap_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   store i32 1, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 4, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 500, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float 0x3F50624DE0000000, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %9, align 4
   ret void
 }
@@ -47,7 +47,7 @@ define ptr @Amap_ManTest(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
 7:                                                ; preds = %2
   %8 = load i64, ptr %4, align 8
   %.neg34 = mul i64 %8, -1000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8
   %.neg = sdiv i64 %10, -1000
   %.neg35 = add i64 %.neg, %.neg34
@@ -72,32 +72,32 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %17 = add nsw i32 %.val31, %.val
   %18 = call ptr @Amap_ManStart(i32 noundef %17) #11
   store ptr %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %11, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %28
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %11, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load double, ptr %25, align 8
   %27 = fptrunc double %26 to float
   br label %28
 
 28:                                               ; preds = %14, %22
   %29 = phi float [ %27, %22 ], [ 0.000000e+00, %14 ]
-  %30 = getelementptr inbounds i8, ptr %18, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store float %29, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %32 = load i32, ptr %31, align 4
   %.not28 = icmp eq i32 %32, 0
   br i1 %.not28, label %38, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %11, i64 76
+  %34 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %35 = load i32, ptr %34, align 4
   %36 = icmp ne i32 %35, 0
   %37 = zext i1 %36 to i32
@@ -105,15 +105,15 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 38:                                               ; preds = %33, %28
   %39 = phi i32 [ 0, %28 ], [ %37, %33 ]
-  %40 = getelementptr inbounds i8, ptr %18, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %42 = load i32, ptr %41, align 4
   %.not29 = icmp eq i32 %42, 0
   br i1 %.not29, label %48, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %11, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %45 = load i32, ptr %44, align 8
   %46 = icmp ne i32 %45, 0
   %47 = zext i1 %46 to i32
@@ -121,26 +121,26 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 
 48:                                               ; preds = %43, %38
   %49 = phi i32 [ 0, %38 ], [ %47, %43 ]
-  %50 = getelementptr inbounds i8, ptr %18, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %11, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %52 = load i32, ptr %51, align 8
   %53 = shl nsw i32 %52, 1
   %54 = sext i32 %53 to i64
   %55 = call noalias ptr @calloc(i64 noundef %54, i64 noundef 8) #12
-  %56 = getelementptr inbounds i8, ptr %18, i64 152
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 152
   store ptr %55, ptr %56, align 8
   %57 = load i32, ptr %51, align 8
   %58 = shl nsw i32 %57, 1
   %59 = sext i32 %58 to i64
   %60 = call noalias ptr @calloc(i64 noundef %59, i64 noundef 4) #12
-  %61 = getelementptr inbounds i8, ptr %18, i64 144
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 144
   store ptr %60, ptr %61, align 8
   call void @Amap_ManCreate(ptr noundef nonnull %18, ptr noundef nonnull %0) #11
   call void @Amap_ManMap(ptr noundef nonnull %18) #11
   %62 = call ptr @Amap_ManProduceMapped(ptr noundef nonnull %18) #11
   call void @Amap_ManStop(ptr noundef nonnull %18) #11
-  %63 = getelementptr inbounds i8, ptr %1, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load i32, ptr %63, align 4
   %.not30 = icmp eq i32 %64, 0
   br i1 %.not30, label %78, label %65
@@ -155,7 +155,7 @@ Abc_Clock.exit:                                   ; preds = %2, %7
 68:                                               ; preds = %65
   %69 = load i64, ptr %3, align 8
   %70 = mul nsw i64 %69, 1000000
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = sdiv i64 %72, 1000
   %74 = add nsw i64 %73, %70

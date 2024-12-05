@@ -158,7 +158,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 1413
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1413
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %7, label %6, !prof !8
@@ -190,7 +190,7 @@ define dso_local i32 @drv_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @__SCT__tp_func_drv_start(ptr noundef %19, ptr noundef %0) #6
   br label %21
@@ -212,9 +212,9 @@ define dso_local i32 @drv_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
 28:                                               ; preds = %25, %21, %8, %7
   store i8 1, ptr %3, align 1
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !20
-  %29 = getelementptr inbounds i8, ptr %0, i64 448
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 %32(ptr noundef %0) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #6
@@ -237,7 +237,7 @@ define dso_local i32 @drv_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %45, ptr noundef %0, i32 noundef %33) #6
   br label %47
@@ -272,7 +272,7 @@ define dso_local i32 @drv_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drv_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #6
-  %3 = getelementptr inbounds i8, ptr %0, i64 1413
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1413
   %4 = load i8, ptr %3, align 1, !range !6, !noundef !7
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %7, !prof !25
@@ -304,7 +304,7 @@ define dso_local void @drv_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @__SCT__tp_func_drv_stop(ptr noundef %19, ptr noundef %0) #6
   br label %21
@@ -324,9 +324,9 @@ define dso_local void @drv_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br label %28
 
 28:                                               ; preds = %25, %21, %8, %7
-  %29 = getelementptr inbounds i8, ptr %0, i64 448
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef %0) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_void, i64 8), i32 2) #6
@@ -349,7 +349,7 @@ define dso_local void @drv_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %44, ptr noundef %0) #6
   br label %46
@@ -369,12 +369,12 @@ define dso_local void @drv_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
   br label %53
 
 53:                                               ; preds = %50, %46, %33, %28
-  %54 = getelementptr inbounds i8, ptr %0, i64 1456
-  %55 = getelementptr inbounds i8, ptr %0, i64 1472
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, ptr elementtype(i32) %55) #6, !srcloc !37
-  tail call void @tasklet_unlock_wait(ptr noundef %54) #6
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1456
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #6, !srcloc !37
+  tail call void @tasklet_unlock_wait(ptr noundef nonnull %54) #6
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !38
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %55, ptr elementtype(i32) %55) #6, !srcloc !39
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %55, ptr nonnull elementtype(i32) %55) #6, !srcloc !39
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !40
   store i8 0, ptr %3, align 1
   br label %56
@@ -386,7 +386,7 @@ define dso_local void @drv_stop(ptr noundef %0) local_unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #6
-  %4 = getelementptr inbounds i8, ptr %1, i64 4056
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %17 [
     i32 4, label %16
@@ -394,14 +394,14 @@ define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_un
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 4096
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %11, label %17
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 1904
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 64
   %15 = icmp eq i32 %14, 0
@@ -434,7 +434,7 @@ define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_un
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @__SCT__tp_func_drv_add_interface(ptr noundef %29, ptr noundef %0, ptr noundef %1) #6
   br label %31
@@ -454,11 +454,11 @@ define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_un
   br label %38
 
 38:                                               ; preds = %35, %31, %18, %17
-  %39 = getelementptr inbounds i8, ptr %0, i64 448
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 %42(ptr noundef %0, ptr noundef %4) #6
+  %43 = tail call i32 %42(ptr noundef %0, ptr noundef nonnull %4) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #6
           to label %64 [label %44], !srcloc !12
 
@@ -479,7 +479,7 @@ define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_un
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %55, ptr noundef %0, i32 noundef %43) #6
   br label %57
@@ -503,7 +503,7 @@ define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_un
   br i1 %65, label %66, label %74
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %1, i64 1264
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %68 = load i32, ptr %67, align 8
   %69 = and i32 %68, 32
   %70 = icmp eq i32 %69, 0
@@ -523,15 +523,15 @@ define dso_local i32 @drv_add_interface(ptr noundef %0, ptr noundef %1) local_un
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_change_interface(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i32 @__SCT__might_resched() #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 1256
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1415
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1415
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 1264
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 32
   %15 = icmp ne i32 %14, 0
@@ -542,14 +542,14 @@ define dso_local i32 @drv_change_interface(ptr noundef %0, ptr noundef %1, i32 n
 18:                                               ; preds = %11
   store i1 true, ptr @drv_change_interface.__already_done, align 1
   tail call void asm sideeffect "2961: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2961) #6, !srcloc !49
-  %19 = getelementptr inbounds i8, ptr %1, i64 1248
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %20, i64 296
-  %23 = getelementptr inbounds i8, ptr %1, i64 1280
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %24 = select i1 %21, ptr %23, ptr %22
   %25 = load i32, ptr %12, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %24, i32 noundef %25) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %24, i32 noundef %25) #6
   tail call void asm sideeffect "2962: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2962) #6, !srcloc !50
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 98, i32 2313, i64 12) #6, !srcloc !51
   tail call void asm sideeffect "2963: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2963b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2963) #6, !srcloc !52
@@ -557,7 +557,7 @@ define dso_local i32 @drv_change_interface(ptr noundef %0, ptr noundef %1, i32 n
   br label %.thread
 
 .thread:                                          ; preds = %4, %18, %11
-  %26 = getelementptr inbounds i8, ptr %1, i64 1264
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 32
   %29 = icmp eq i32 %28, 0
@@ -584,7 +584,7 @@ define dso_local i32 @drv_change_interface(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @__SCT__tp_func_drv_change_interface(ptr noundef %42, ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #6
   br label %44
@@ -604,12 +604,12 @@ define dso_local i32 @drv_change_interface(ptr noundef %0, ptr noundef %1, i32 n
   br label %51
 
 51:                                               ; preds = %48, %44, %31, %30
-  %52 = getelementptr inbounds i8, ptr %0, i64 448
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 4056
-  %57 = tail call i32 %55(ptr noundef %0, ptr noundef %56, i32 noundef %2, i1 noundef zeroext %3) #6
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %57 = tail call i32 %55(ptr noundef %0, ptr noundef nonnull %56, i32 noundef %2, i1 noundef zeroext %3) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #6
           to label %78 [label %58], !srcloc !12
 
@@ -630,7 +630,7 @@ define dso_local i32 @drv_change_interface(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %69, ptr noundef %0, i32 noundef %57) #6
   br label %71
@@ -660,15 +660,15 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #6
-  %4 = getelementptr inbounds i8, ptr %1, i64 1256
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1415
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1415
   %7 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 1264
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 32
   %13 = icmp ne i32 %12, 0
@@ -679,14 +679,14 @@ define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) loca
 16:                                               ; preds = %9
   store i1 true, ptr @drv_remove_interface.__already_done, align 1
   tail call void asm sideeffect "2965: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2965b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2965) #6, !srcloc !58
-  %17 = getelementptr inbounds i8, ptr %1, i64 1248
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %18, i64 296
-  %21 = getelementptr inbounds i8, ptr %1, i64 1280
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %22 = select i1 %19, ptr %21, ptr %20
   %23 = load i32, ptr %10, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %22, i32 noundef %23) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %22, i32 noundef %23) #6
   tail call void asm sideeffect "2966: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2966b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2966) #6, !srcloc !59
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 113, i32 2313, i64 12) #6, !srcloc !60
   tail call void asm sideeffect "2967: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2967b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2967) #6, !srcloc !61
@@ -694,7 +694,7 @@ define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) loca
   br label %.thread
 
 .thread:                                          ; preds = %2, %16, %9
-  %24 = getelementptr inbounds i8, ptr %1, i64 1264
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32
   %27 = icmp eq i32 %26, 0
@@ -703,7 +703,7 @@ define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) loca
 28:                                               ; preds = %.thread
   %29 = and i32 %25, -33
   store i32 %29, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 4056
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_remove_interface, i64 8), i32 2) #6
           to label %51 [label %31], !srcloc !12
 
@@ -724,7 +724,7 @@ define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) loca
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i32 @__SCT__tp_func_drv_remove_interface(ptr noundef %42, ptr noundef %0, ptr noundef %1) #6
   br label %44
@@ -744,11 +744,11 @@ define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) loca
   br label %51
 
 51:                                               ; preds = %48, %44, %31, %28
-  %52 = getelementptr inbounds i8, ptr %0, i64 448
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef %0, ptr noundef %30) #6
+  tail call void %55(ptr noundef %0, ptr noundef nonnull %30) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_void, i64 8), i32 2) #6
           to label %76 [label %56], !srcloc !12
 
@@ -769,7 +769,7 @@ define dso_local void @drv_remove_interface(ptr noundef %0, ptr noundef %1) loca
   br i1 %64, label %69, label %65
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %63, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %67, ptr noundef %0) #6
   br label %69
@@ -799,28 +799,28 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 4056
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 1672
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 -1904
   br label %16
 
 16:                                               ; preds = %12, %8, %5
   %17 = phi ptr [ %15, %12 ], [ %1, %8 ], [ null, %5 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 1256
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1256
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1415
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1415
   %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %17, i64 1264
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 1264
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32
   %27 = icmp ne i32 %26, 0
@@ -831,14 +831,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 30:                                               ; preds = %23
   store i1 true, ptr @drv_sta_state.__already_done, align 1
   tail call void asm sideeffect "2969: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2969b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2969) #6, !srcloc !67
-  %31 = getelementptr inbounds i8, ptr %17, i64 1248
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 1248
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  %34 = getelementptr inbounds i8, ptr %32, i64 296
-  %35 = getelementptr inbounds i8, ptr %17, i64 1280
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 1280
   %36 = select i1 %33, ptr %35, ptr %34
   %37 = load i32, ptr %24, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %36, i32 noundef %37) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %36, i32 noundef %37) #6
   tail call void asm sideeffect "2970: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2970b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2970) #6, !srcloc !68
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 139, i32 2313, i64 12) #6, !srcloc !69
   tail call void asm sideeffect "2971: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2971b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2971) #6, !srcloc !70
@@ -846,14 +846,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread
 
 .thread:                                          ; preds = %16, %30, %23
-  %38 = getelementptr inbounds i8, ptr %17, i64 1264
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 1264
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 32
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %368, label %42
 
 42:                                               ; preds = %.thread
-  %43 = getelementptr inbounds i8, ptr %2, i64 2680
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 2680
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_sta_state, i64 8), i32 2) #6
           to label %64 [label %44], !srcloc !12
 
@@ -874,9 +874,9 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i32 @__SCT__tp_func_drv_sta_state(ptr noundef %55, ptr noundef %0, ptr noundef %17, ptr noundef %43, i32 noundef %3, i32 noundef %4) #6
+  %56 = tail call i32 @__SCT__tp_func_drv_sta_state(ptr noundef %55, ptr noundef %0, ptr noundef %17, ptr noundef nonnull %43, i32 noundef %3, i32 noundef %4) #6
   br label %57
 
 57:                                               ; preds = %53, %50
@@ -894,16 +894,16 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %64
 
 64:                                               ; preds = %61, %57, %44, %42
-  %65 = getelementptr inbounds i8, ptr %0, i64 448
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 296
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 296
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %73, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %17, i64 4056
-  %72 = tail call i32 %68(ptr noundef %0, ptr noundef %71, ptr noundef %43, i32 noundef %3, i32 noundef %4) #6
+  %71 = getelementptr inbounds nuw i8, ptr %17, i64 4056
+  %72 = tail call i32 %68(ptr noundef %0, ptr noundef nonnull %71, ptr noundef nonnull %43, i32 noundef %3, i32 noundef %4) #6
   br label %.thread16
 
 73:                                               ; preds = %64
@@ -918,28 +918,28 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %79, label %88, label %80
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %17, i64 4056
+  %81 = getelementptr inbounds nuw i8, ptr %17, i64 4056
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 4
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %17, i64 1672
+  %85 = getelementptr inbounds nuw i8, ptr %17, i64 1672
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr i8, ptr %86, i64 -1904
   br label %88
 
 88:                                               ; preds = %84, %80, %77
   %89 = phi ptr [ %87, %84 ], [ %17, %80 ], [ null, %77 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 1256
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1256
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 1415
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1415
   %93 = load i8, ptr %92, align 1, !range !6, !noundef !7
   %94 = icmp eq i8 %93, 0
   br i1 %94, label %95, label %.thread15
 
 95:                                               ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %89, i64 1264
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 1264
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 32
   %99 = icmp ne i32 %98, 0
@@ -950,14 +950,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 102:                                              ; preds = %95
   store i1 true, ptr @drv_sta_add.__already_done, align 1
   tail call void asm sideeffect "2787: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2787b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2787) #6, !srcloc !76
-  %103 = getelementptr inbounds i8, ptr %89, i64 1248
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 1248
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
-  %106 = getelementptr inbounds i8, ptr %104, i64 296
-  %107 = getelementptr inbounds i8, ptr %89, i64 1280
+  %106 = getelementptr inbounds nuw i8, ptr %104, i64 296
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 1280
   %108 = select i1 %105, ptr %107, ptr %106
   %109 = load i32, ptr %96, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %108, i32 noundef %109) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %108, i32 noundef %109) #6
   tail call void asm sideeffect "2788: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2788b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2788) #6, !srcloc !77
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 461, i32 2313, i64 12) #6, !srcloc !78
   tail call void asm sideeffect "2789: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2789b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2789) #6, !srcloc !79
@@ -965,7 +965,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread15
 
 .thread15:                                        ; preds = %88, %102, %95
-  %110 = getelementptr inbounds i8, ptr %89, i64 1264
+  %110 = getelementptr inbounds nuw i8, ptr %89, i64 1264
   %111 = load i32, ptr %110, align 8
   %112 = and i32 %111, 32
   %113 = icmp eq i32 %112, 0
@@ -992,9 +992,9 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %123, label %128, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr inbounds i8, ptr %122, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %126 = load ptr, ptr %125, align 8
-  %127 = tail call i32 @__SCT__tp_func_drv_sta_add(ptr noundef %126, ptr noundef %0, ptr noundef %89, ptr noundef %43) #6
+  %127 = tail call i32 @__SCT__tp_func_drv_sta_add(ptr noundef %126, ptr noundef %0, ptr noundef %89, ptr noundef nonnull %43) #6
   br label %128
 
 128:                                              ; preds = %124, %121
@@ -1013,14 +1013,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 135:                                              ; preds = %132, %128, %115, %114
   %136 = load ptr, ptr %65, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 264
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 264
   %138 = load ptr, ptr %137, align 8
   %139 = icmp eq ptr %138, null
   br i1 %139, label %143, label %140
 
 140:                                              ; preds = %135
-  %141 = getelementptr inbounds i8, ptr %89, i64 4056
-  %142 = tail call i32 %138(ptr noundef %0, ptr noundef %141, ptr noundef %43) #6
+  %141 = getelementptr inbounds nuw i8, ptr %89, i64 4056
+  %142 = tail call i32 %138(ptr noundef %0, ptr noundef nonnull %141, ptr noundef nonnull %43) #6
   br label %143
 
 143:                                              ; preds = %140, %135
@@ -1045,7 +1045,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %151
-  %155 = getelementptr inbounds i8, ptr %152, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %156 = load ptr, ptr %155, align 8
   %157 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %156, ptr noundef %0, i32 noundef %144) #6
   br label %158
@@ -1069,9 +1069,9 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %166, label %167, label %.thread16
 
 167:                                              ; preds = %165
-  %168 = getelementptr inbounds i8, ptr %2, i64 204
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i8 1, ptr %168, align 4
-  %169 = getelementptr inbounds i8, ptr %2, i64 2696
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 2696
   %170 = load volatile ptr, ptr %169, align 8
   %171 = icmp eq ptr %170, null
   br i1 %171, label %.thread16, label %172
@@ -1080,28 +1080,28 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %79, label %181, label %173
 
 173:                                              ; preds = %172
-  %174 = getelementptr inbounds i8, ptr %17, i64 4056
+  %174 = getelementptr inbounds nuw i8, ptr %17, i64 4056
   %175 = load i32, ptr %174, align 8
   %176 = icmp eq i32 %175, 4
   br i1 %176, label %177, label %181
 
 177:                                              ; preds = %173
-  %178 = getelementptr inbounds i8, ptr %17, i64 1672
+  %178 = getelementptr inbounds nuw i8, ptr %17, i64 1672
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr i8, ptr %179, i64 -1904
   br label %181
 
 181:                                              ; preds = %177, %173, %172
   %182 = phi ptr [ %180, %177 ], [ %17, %173 ], [ null, %172 ]
-  %183 = getelementptr inbounds i8, ptr %182, i64 1256
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 1256
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 1415
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 1415
   %186 = load i8, ptr %185, align 1, !range !6, !noundef !7
   %187 = icmp eq i8 %186, 0
   br i1 %187, label %188, label %.thread17
 
 188:                                              ; preds = %181
-  %189 = getelementptr inbounds i8, ptr %182, i64 1264
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 1264
   %190 = load i32, ptr %189, align 8
   %191 = and i32 %190, 32
   %192 = icmp ne i32 %191, 0
@@ -1112,14 +1112,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 195:                                              ; preds = %188
   store i1 true, ptr @drv_sta_rate_tbl_update.__already_done, align 1
   tail call void asm sideeffect "2799: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2799b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2799) #6, !srcloc !85
-  %196 = getelementptr inbounds i8, ptr %182, i64 1248
+  %196 = getelementptr inbounds nuw i8, ptr %182, i64 1248
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, null
-  %199 = getelementptr inbounds i8, ptr %197, i64 296
-  %200 = getelementptr inbounds i8, ptr %182, i64 1280
+  %199 = getelementptr inbounds nuw i8, ptr %197, i64 296
+  %200 = getelementptr inbounds nuw i8, ptr %182, i64 1280
   %201 = select i1 %198, ptr %200, ptr %199
   %202 = load i32, ptr %189, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %201, i32 noundef %202) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %201, i32 noundef %202) #6
   tail call void asm sideeffect "2800: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2800b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2800) #6, !srcloc !86
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 606, i32 2313, i64 12) #6, !srcloc !87
   tail call void asm sideeffect "2801: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2801b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2801) #6, !srcloc !88
@@ -1127,7 +1127,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread17
 
 .thread17:                                        ; preds = %181, %195, %188
-  %203 = getelementptr inbounds i8, ptr %182, i64 1264
+  %203 = getelementptr inbounds nuw i8, ptr %182, i64 1264
   %204 = load i32, ptr %203, align 8
   %205 = and i32 %204, 32
   %206 = icmp eq i32 %205, 0
@@ -1154,9 +1154,9 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %216, label %221, label %217
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %215, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %219 = load ptr, ptr %218, align 8
-  %220 = tail call i32 @__SCT__tp_func_drv_sta_rate_tbl_update(ptr noundef %219, ptr noundef %0, ptr noundef %182, ptr noundef %43) #6
+  %220 = tail call i32 @__SCT__tp_func_drv_sta_rate_tbl_update(ptr noundef %219, ptr noundef %0, ptr noundef %182, ptr noundef nonnull %43) #6
   br label %221
 
 221:                                              ; preds = %217, %214
@@ -1175,14 +1175,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 228:                                              ; preds = %225, %221, %208, %207
   %229 = load ptr, ptr %65, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 320
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 320
   %231 = load ptr, ptr %230, align 8
   %232 = icmp eq ptr %231, null
   br i1 %232, label %235, label %233
 
 233:                                              ; preds = %228
-  %234 = getelementptr inbounds i8, ptr %182, i64 4056
-  tail call void %231(ptr noundef %0, ptr noundef %234, ptr noundef %43) #6
+  %234 = getelementptr inbounds nuw i8, ptr %182, i64 4056
+  tail call void %231(ptr noundef %0, ptr noundef nonnull %234, ptr noundef nonnull %43) #6
   br label %235
 
 235:                                              ; preds = %233, %228
@@ -1206,7 +1206,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %244, label %249, label %245
 
 245:                                              ; preds = %242
-  %246 = getelementptr inbounds i8, ptr %243, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %247 = load ptr, ptr %246, align 8
   %248 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %247, ptr noundef %0) #6
   br label %249
@@ -1237,28 +1237,28 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %262, label %271, label %263
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %17, i64 4056
+  %264 = getelementptr inbounds nuw i8, ptr %17, i64 4056
   %265 = load i32, ptr %264, align 8
   %266 = icmp eq i32 %265, 4
   br i1 %266, label %267, label %271
 
 267:                                              ; preds = %263
-  %268 = getelementptr inbounds i8, ptr %17, i64 1672
+  %268 = getelementptr inbounds nuw i8, ptr %17, i64 1672
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr i8, ptr %269, i64 -1904
   br label %271
 
 271:                                              ; preds = %267, %263, %260
   %272 = phi ptr [ %270, %267 ], [ %17, %263 ], [ null, %260 ]
-  %273 = getelementptr inbounds i8, ptr %272, i64 1256
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 1256
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 1415
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 1415
   %276 = load i8, ptr %275, align 1, !range !6, !noundef !7
   %277 = icmp eq i8 %276, 0
   br i1 %277, label %278, label %.thread18
 
 278:                                              ; preds = %271
-  %279 = getelementptr inbounds i8, ptr %272, i64 1264
+  %279 = getelementptr inbounds nuw i8, ptr %272, i64 1264
   %280 = load i32, ptr %279, align 8
   %281 = and i32 %280, 32
   %282 = icmp ne i32 %281, 0
@@ -1269,14 +1269,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 285:                                              ; preds = %278
   store i1 true, ptr @drv_sta_remove.__already_done, align 1
   tail call void asm sideeffect "2791: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2791b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2791) #6, !srcloc !94
-  %286 = getelementptr inbounds i8, ptr %272, i64 1248
+  %286 = getelementptr inbounds nuw i8, ptr %272, i64 1248
   %287 = load ptr, ptr %286, align 8
   %288 = icmp eq ptr %287, null
-  %289 = getelementptr inbounds i8, ptr %287, i64 296
-  %290 = getelementptr inbounds i8, ptr %272, i64 1280
+  %289 = getelementptr inbounds nuw i8, ptr %287, i64 296
+  %290 = getelementptr inbounds nuw i8, ptr %272, i64 1280
   %291 = select i1 %288, ptr %290, ptr %289
   %292 = load i32, ptr %279, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %291, i32 noundef %292) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %291, i32 noundef %292) #6
   tail call void asm sideeffect "2792: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2792b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2792) #6, !srcloc !95
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.5, i32 481, i32 2313, i64 12) #6, !srcloc !96
   tail call void asm sideeffect "2793: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2793b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2793) #6, !srcloc !97
@@ -1284,7 +1284,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.thread18
 
 .thread18:                                        ; preds = %271, %285, %278
-  %293 = getelementptr inbounds i8, ptr %272, i64 1264
+  %293 = getelementptr inbounds nuw i8, ptr %272, i64 1264
   %294 = load i32, ptr %293, align 8
   %295 = and i32 %294, 32
   %296 = icmp eq i32 %295, 0
@@ -1311,9 +1311,9 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %306, label %311, label %307
 
 307:                                              ; preds = %304
-  %308 = getelementptr inbounds i8, ptr %305, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %309 = load ptr, ptr %308, align 8
-  %310 = tail call i32 @__SCT__tp_func_drv_sta_remove(ptr noundef %309, ptr noundef %0, ptr noundef %272, ptr noundef %43) #6
+  %310 = tail call i32 @__SCT__tp_func_drv_sta_remove(ptr noundef %309, ptr noundef %0, ptr noundef %272, ptr noundef nonnull %43) #6
   br label %311
 
 311:                                              ; preds = %307, %304
@@ -1332,14 +1332,14 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 318:                                              ; preds = %315, %311, %298, %297
   %319 = load ptr, ptr %65, align 8
-  %320 = getelementptr inbounds i8, ptr %319, i64 272
+  %320 = getelementptr inbounds nuw i8, ptr %319, i64 272
   %321 = load ptr, ptr %320, align 8
   %322 = icmp eq ptr %321, null
   br i1 %322, label %326, label %323
 
 323:                                              ; preds = %318
-  %324 = getelementptr inbounds i8, ptr %272, i64 4056
-  %325 = tail call i32 %321(ptr noundef %0, ptr noundef %324, ptr noundef %43) #6
+  %324 = getelementptr inbounds nuw i8, ptr %272, i64 4056
+  %325 = tail call i32 %321(ptr noundef %0, ptr noundef nonnull %324, ptr noundef nonnull %43) #6
   br label %326
 
 326:                                              ; preds = %323, %318
@@ -1363,7 +1363,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %335, label %340, label %336
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds i8, ptr %334, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %334, i64 8
   %338 = load ptr, ptr %337, align 8
   %339 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %338, ptr noundef %0) #6
   br label %340
@@ -1404,7 +1404,7 @@ define dso_local i32 @drv_sta_state(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %356, label %361, label %357
 
 357:                                              ; preds = %354
-  %358 = getelementptr inbounds i8, ptr %355, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %355, i64 8
   %359 = load ptr, ptr %358, align 8
   %360 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %359, ptr noundef %0, i32 noundef %347) #6
   br label %361
@@ -1435,28 +1435,28 @@ define dso_local i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 4056
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 1672
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -1904
   br label %14
 
 14:                                               ; preds = %10, %6, %3
   %15 = phi ptr [ %13, %10 ], [ %1, %6 ], [ null, %3 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 1256
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1256
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1415
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1415
   %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %15, i64 1264
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 1264
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 32
   %25 = icmp ne i32 %24, 0
@@ -1467,14 +1467,14 @@ define dso_local i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %1, ptr noun
 28:                                               ; preds = %21
   store i1 true, ptr @drv_sta_set_txpwr.__already_done, align 1
   tail call void asm sideeffect "2975: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2975) #6, !srcloc !103
-  %29 = getelementptr inbounds i8, ptr %15, i64 1248
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 1248
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  %32 = getelementptr inbounds i8, ptr %30, i64 296
-  %33 = getelementptr inbounds i8, ptr %15, i64 1280
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 1280
   %34 = select i1 %31, ptr %33, ptr %32
   %35 = load i32, ptr %22, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %34, i32 noundef %35) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %34, i32 noundef %35) #6
   tail call void asm sideeffect "2976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2976) #6, !srcloc !104
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 173, i32 2313, i64 12) #6, !srcloc !105
   tail call void asm sideeffect "2977: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2977) #6, !srcloc !106
@@ -1482,14 +1482,14 @@ define dso_local i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %.thread
 
 .thread:                                          ; preds = %14, %28, %21
-  %36 = getelementptr inbounds i8, ptr %15, i64 1264
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1264
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 32
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %93, label %40
 
 40:                                               ; preds = %.thread
-  %41 = getelementptr inbounds i8, ptr %2, i64 2680
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 2680
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_sta_set_txpwr, i64 8), i32 2) #6
           to label %62 [label %42], !srcloc !12
 
@@ -1510,9 +1510,9 @@ define dso_local i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %53 = load ptr, ptr %52, align 8
-  %54 = tail call i32 @__SCT__tp_func_drv_sta_set_txpwr(ptr noundef %53, ptr noundef %0, ptr noundef %15, ptr noundef %41) #6
+  %54 = tail call i32 @__SCT__tp_func_drv_sta_set_txpwr(ptr noundef %53, ptr noundef %0, ptr noundef %15, ptr noundef nonnull %41) #6
   br label %55
 
 55:                                               ; preds = %51, %48
@@ -1530,16 +1530,16 @@ define dso_local i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %1, ptr noun
   br label %62
 
 62:                                               ; preds = %59, %55, %42, %40
-  %63 = getelementptr inbounds i8, ptr %0, i64 448
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 288
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 288
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %15, i64 4056
-  %70 = tail call i32 %66(ptr noundef %0, ptr noundef %69, ptr noundef %41) #6
+  %69 = getelementptr inbounds nuw i8, ptr %15, i64 4056
+  %70 = tail call i32 %66(ptr noundef %0, ptr noundef nonnull %69, ptr noundef nonnull %41) #6
   br label %71
 
 71:                                               ; preds = %68, %62
@@ -1564,7 +1564,7 @@ define dso_local i32 @drv_sta_set_txpwr(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %81, label %86, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %80, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %84, ptr noundef %0, i32 noundef %72) #6
   br label %86
@@ -1594,28 +1594,28 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4056
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 1672
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -1904
   br label %14
 
 14:                                               ; preds = %10, %6, %4
   %15 = phi ptr [ %13, %10 ], [ %1, %6 ], [ null, %4 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 1256
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1256
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1415
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1415
   %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %15, i64 1264
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 1264
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 32
   %25 = icmp ne i32 %24, 0
@@ -1626,14 +1626,14 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
 28:                                               ; preds = %21
   store i1 true, ptr @drv_sta_rc_update.__already_done, align 1
   tail call void asm sideeffect "2979: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2979b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2979) #6, !srcloc !112
-  %29 = getelementptr inbounds i8, ptr %15, i64 1248
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 1248
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  %32 = getelementptr inbounds i8, ptr %30, i64 296
-  %33 = getelementptr inbounds i8, ptr %15, i64 1280
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 1280
   %34 = select i1 %31, ptr %33, ptr %32
   %35 = load i32, ptr %22, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %34, i32 noundef %35) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %34, i32 noundef %35) #6
   tail call void asm sideeffect "2980: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2980) #6, !srcloc !113
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 189, i32 2313, i64 12) #6, !srcloc !114
   tail call void asm sideeffect "2981: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2981b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2981) #6, !srcloc !115
@@ -1641,7 +1641,7 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.thread
 
 .thread:                                          ; preds = %14, %28, %21
-  %36 = getelementptr inbounds i8, ptr %15, i64 1264
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1264
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 32
   %39 = icmp eq i32 %38, 0
@@ -1653,7 +1653,7 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %15, i64 4056
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 4056
   %45 = load i32, ptr %44, align 8
   switch i32 %45, label %46 [
     i32 7, label %47
@@ -1687,7 +1687,7 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %56, label %61, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %55, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @__SCT__tp_func_drv_sta_rc_update(ptr noundef %59, ptr noundef %0, ptr noundef %15, ptr noundef %2, i32 noundef %3) #6
   br label %61
@@ -1707,16 +1707,16 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
   br label %68
 
 68:                                               ; preds = %65, %61, %48, %47
-  %69 = getelementptr inbounds i8, ptr %0, i64 448
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 312
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 312
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %76, label %74
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds i8, ptr %15, i64 4056
-  tail call void %72(ptr noundef %0, ptr noundef %75, ptr noundef %2, i32 noundef %3) #6
+  %75 = getelementptr inbounds nuw i8, ptr %15, i64 4056
+  tail call void %72(ptr noundef %0, ptr noundef nonnull %75, ptr noundef %2, i32 noundef %3) #6
   br label %76
 
 76:                                               ; preds = %74, %68
@@ -1740,7 +1740,7 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %85, label %90, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %88 = load ptr, ptr %87, align 8
   %89 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %88, ptr noundef %0) #6
   br label %90
@@ -1767,15 +1767,15 @@ define dso_local void @drv_sta_rc_update(ptr noundef %0, ptr noundef %1, ptr nou
 define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call i32 @__SCT__might_resched() #6
-  %7 = getelementptr inbounds i8, ptr %5, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1256
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1415
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1415
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %5, i64 1264
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 1264
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 32
   %16 = icmp ne i32 %15, 0
@@ -1786,14 +1786,14 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
 19:                                               ; preds = %12
   store i1 true, ptr @drv_conf_tx.__already_done, align 1
   tail call void asm sideeffect "2985: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2985b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2985) #6, !srcloc !124
-  %20 = getelementptr inbounds i8, ptr %5, i64 1248
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1248
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  %23 = getelementptr inbounds i8, ptr %21, i64 296
-  %24 = getelementptr inbounds i8, ptr %5, i64 1280
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 1280
   %25 = select i1 %22, ptr %24, ptr %23
   %26 = load i32, ptr %13, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %25, i32 noundef %26) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %25, i32 noundef %26) #6
   tail call void asm sideeffect "2986: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2986) #6, !srcloc !125
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 214, i32 2313, i64 12) #6, !srcloc !126
   tail call void asm sideeffect "2987: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2987) #6, !srcloc !127
@@ -1801,22 +1801,22 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
   br label %.thread
 
 .thread:                                          ; preds = %4, %19, %12
-  %27 = getelementptr inbounds i8, ptr %5, i64 1264
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 1264
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 32
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %121, label %31
 
 31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %5, i64 4056
-  %33 = getelementptr inbounds i8, ptr %5, i64 5058
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4056
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 5058
   %34 = load i16, ptr %33, align 2
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %44, label %36
 
 36:                                               ; preds = %31
   %37 = zext i16 %34 to i64
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw i64 1, %40
@@ -1825,21 +1825,21 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %43, label %121, label %44
 
 44:                                               ; preds = %36, %31
-  %45 = getelementptr inbounds i8, ptr %3, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %46 = load i16, ptr %45, align 2
   %47 = icmp eq i16 %46, 0
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %3, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %50 = load i16, ptr %49, align 2
   %51 = icmp ugt i16 %46, %50
   br i1 %51, label %52, label %67
 
 52:                                               ; preds = %48, %44
-  %53 = getelementptr inbounds i8, ptr %0, i64 448
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 336
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 336
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   %58 = load i1, ptr @drv_conf_tx.__already_done.2, align 1
@@ -1849,13 +1849,13 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
 60:                                               ; preds = %52
   store i1 true, ptr @drv_conf_tx.__already_done.2, align 1
   tail call void asm sideeffect "2989: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2989b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2989) #6, !srcloc !129
-  %61 = getelementptr inbounds i8, ptr %5, i64 1280
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 1280
   %62 = load i16, ptr %45, align 2
   %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %3, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i32
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef %61, i32 noundef %63, i32 noundef %66) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.3, ptr noundef nonnull %61, i32 noundef %63, i32 noundef %66) #6
   tail call void asm sideeffect "2990: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2990b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2990) #6, !srcloc !130
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 228, i32 2313, i64 12) #6, !srcloc !131
   tail call void asm sideeffect "2991: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2991b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2991) #6, !srcloc !132
@@ -1863,7 +1863,7 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
   br label %121
 
 67:                                               ; preds = %48
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load i32, ptr %68, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_conf_tx, i64 8), i32 2) #6
           to label %90 [label %70], !srcloc !12
@@ -1885,7 +1885,7 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %78, label %83, label %79
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 @__SCT__tp_func_drv_conf_tx(ptr noundef %81, ptr noundef %0, ptr noundef %5, i32 noundef %69, i16 noundef zeroext %2, ptr noundef %3) #6
   br label %83
@@ -1905,16 +1905,16 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
   br label %90
 
 90:                                               ; preds = %87, %83, %70, %67
-  %91 = getelementptr inbounds i8, ptr %0, i64 448
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 336
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 336
   %94 = load ptr, ptr %93, align 8
   %95 = icmp eq ptr %94, null
   br i1 %95, label %99, label %96
 
 96:                                               ; preds = %90
   %97 = load i32, ptr %68, align 8
-  %98 = tail call i32 %94(ptr noundef %0, ptr noundef %32, i32 noundef %97, i16 noundef zeroext %2, ptr noundef %3) #6
+  %98 = tail call i32 %94(ptr noundef %0, ptr noundef nonnull %32, i32 noundef %97, i16 noundef zeroext %2, ptr noundef %3) #6
   br label %99
 
 99:                                               ; preds = %96, %90
@@ -1939,7 +1939,7 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %109, label %114, label %110
 
 110:                                              ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %108, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %112, ptr noundef %0, i32 noundef %100) #6
   br label %114
@@ -1966,15 +1966,15 @@ define dso_local i32 @drv_conf_tx(ptr noundef %0, ptr nocapture noundef readonly
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #6
-  %4 = getelementptr inbounds i8, ptr %1, i64 1256
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1415
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1415
   %7 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 1264
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 32
   %13 = icmp ne i32 %12, 0
@@ -1985,14 +1985,14 @@ define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_
 16:                                               ; preds = %9
   store i1 true, ptr @drv_get_tsf.__already_done, align 1
   tail call void asm sideeffect "2993: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2993b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2993) #6, !srcloc !138
-  %17 = getelementptr inbounds i8, ptr %1, i64 1248
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %18, i64 296
-  %21 = getelementptr inbounds i8, ptr %1, i64 1280
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %22 = select i1 %19, ptr %21, ptr %20
   %23 = load i32, ptr %10, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %22, i32 noundef %23) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %22, i32 noundef %23) #6
   tail call void asm sideeffect "2994: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2994b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2994) #6, !srcloc !139
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 248, i32 2313, i64 12) #6, !srcloc !140
   tail call void asm sideeffect "2995: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2995) #6, !srcloc !141
@@ -2000,7 +2000,7 @@ define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %.thread
 
 .thread:                                          ; preds = %2, %16, %9
-  %24 = getelementptr inbounds i8, ptr %1, i64 1264
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32
   %27 = icmp eq i32 %26, 0
@@ -2027,7 +2027,7 @@ define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @__SCT__tp_func_drv_get_tsf(ptr noundef %40, ptr noundef %0, ptr noundef %1) #6
   br label %42
@@ -2047,16 +2047,16 @@ define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_
   br label %49
 
 49:                                               ; preds = %46, %42, %29, %28
-  %50 = getelementptr inbounds i8, ptr %0, i64 448
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 344
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 344
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %1, i64 4056
-  %57 = tail call i64 %53(ptr noundef %0, ptr noundef %56) #6
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %57 = tail call i64 %53(ptr noundef %0, ptr noundef nonnull %56) #6
   br label %58
 
 58:                                               ; preds = %55, %49
@@ -2081,7 +2081,7 @@ define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %68, label %73, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 @__SCT__tp_func_drv_return_u64(ptr noundef %71, ptr noundef %0, i64 noundef %59) #6
   br label %73
@@ -2108,15 +2108,15 @@ define dso_local i64 @drv_get_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #6
-  %5 = getelementptr inbounds i8, ptr %1, i64 1256
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1415
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1415
   %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 1264
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 32
   %14 = icmp ne i32 %13, 0
@@ -2127,14 +2127,14 @@ define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %
 17:                                               ; preds = %10
   store i1 true, ptr @drv_set_tsf.__already_done, align 1
   tail call void asm sideeffect "2997: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2997) #6, !srcloc !151
-  %18 = getelementptr inbounds i8, ptr %1, i64 1248
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %19, i64 296
-  %22 = getelementptr inbounds i8, ptr %1, i64 1280
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %23 = select i1 %20, ptr %22, ptr %21
   %24 = load i32, ptr %11, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %23, i32 noundef %24) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, i32 noundef %24) #6
   tail call void asm sideeffect "2998: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2998) #6, !srcloc !152
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 265, i32 2313, i64 12) #6, !srcloc !153
   tail call void asm sideeffect "2999: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2999b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2999) #6, !srcloc !154
@@ -2142,7 +2142,7 @@ define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %.thread
 
 .thread:                                          ; preds = %3, %17, %10
-  %25 = getelementptr inbounds i8, ptr %1, i64 1264
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 32
   %28 = icmp eq i32 %27, 0
@@ -2169,7 +2169,7 @@ define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @__SCT__tp_func_drv_set_tsf(ptr noundef %41, ptr noundef %0, ptr noundef %1, i64 noundef %2) #6
   br label %43
@@ -2189,16 +2189,16 @@ define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %
   br label %50
 
 50:                                               ; preds = %47, %43, %30, %29
-  %51 = getelementptr inbounds i8, ptr %0, i64 448
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 352
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 352
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %1, i64 4056
-  tail call void %54(ptr noundef %0, ptr noundef %57, i64 noundef %2) #6
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  tail call void %54(ptr noundef %0, ptr noundef nonnull %57, i64 noundef %2) #6
   br label %58
 
 58:                                               ; preds = %56, %50
@@ -2222,7 +2222,7 @@ define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %70, ptr noundef %0) #6
   br label %72
@@ -2248,15 +2248,15 @@ define dso_local void @drv_set_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i32 @__SCT__might_resched() #6
-  %5 = getelementptr inbounds i8, ptr %1, i64 1256
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1415
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1415
   %8 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %10, label %.thread
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 1264
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 32
   %14 = icmp ne i32 %13, 0
@@ -2267,14 +2267,14 @@ define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 nounde
 17:                                               ; preds = %10
   store i1 true, ptr @drv_offset_tsf.__already_done, align 1
   tail call void asm sideeffect "3001: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3001) #6, !srcloc !160
-  %18 = getelementptr inbounds i8, ptr %1, i64 1248
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  %21 = getelementptr inbounds i8, ptr %19, i64 296
-  %22 = getelementptr inbounds i8, ptr %1, i64 1280
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 296
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %23 = select i1 %20, ptr %22, ptr %21
   %24 = load i32, ptr %11, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %23, i32 noundef %24) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %23, i32 noundef %24) #6
   tail call void asm sideeffect "3002: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3002b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3002) #6, !srcloc !161
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 281, i32 2313, i64 12) #6, !srcloc !162
   tail call void asm sideeffect "3003: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3003b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3003) #6, !srcloc !163
@@ -2282,7 +2282,7 @@ define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %.thread
 
 .thread:                                          ; preds = %3, %17, %10
-  %25 = getelementptr inbounds i8, ptr %1, i64 1264
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 32
   %28 = icmp eq i32 %27, 0
@@ -2309,7 +2309,7 @@ define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %38, label %43, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call i32 @__SCT__tp_func_drv_offset_tsf(ptr noundef %41, ptr noundef %0, ptr noundef %1, i64 noundef %2) #6
   br label %43
@@ -2329,16 +2329,16 @@ define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 nounde
   br label %50
 
 50:                                               ; preds = %47, %43, %30, %29
-  %51 = getelementptr inbounds i8, ptr %0, i64 448
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 360
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 360
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %1, i64 4056
-  tail call void %54(ptr noundef %0, ptr noundef %57, i64 noundef %2) #6
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  tail call void %54(ptr noundef %0, ptr noundef nonnull %57, i64 noundef %2) #6
   br label %58
 
 58:                                               ; preds = %56, %50
@@ -2362,7 +2362,7 @@ define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 nounde
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %70, ptr noundef %0) #6
   br label %72
@@ -2388,15 +2388,15 @@ define dso_local void @drv_offset_tsf(ptr noundef %0, ptr noundef %1, i64 nounde
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i32 @__SCT__might_resched() #6
-  %4 = getelementptr inbounds i8, ptr %1, i64 1256
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1415
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1415
   %7 = load i8, ptr %6, align 1, !range !6, !noundef !7
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %.thread
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 1264
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 32
   %13 = icmp ne i32 %12, 0
@@ -2407,14 +2407,14 @@ define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnam
 16:                                               ; preds = %9
   store i1 true, ptr @drv_reset_tsf.__already_done, align 1
   tail call void asm sideeffect "3005: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3005b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3005) #6, !srcloc !169
-  %17 = getelementptr inbounds i8, ptr %1, i64 1248
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  %20 = getelementptr inbounds i8, ptr %18, i64 296
-  %21 = getelementptr inbounds i8, ptr %1, i64 1280
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 296
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %22 = select i1 %19, ptr %21, ptr %20
   %23 = load i32, ptr %10, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %22, i32 noundef %23) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %22, i32 noundef %23) #6
   tail call void asm sideeffect "3006: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3006b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3006) #6, !srcloc !170
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 296, i32 2313, i64 12) #6, !srcloc !171
   tail call void asm sideeffect "3007: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3007b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3007) #6, !srcloc !172
@@ -2422,7 +2422,7 @@ define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnam
   br label %.thread
 
 .thread:                                          ; preds = %2, %16, %9
-  %24 = getelementptr inbounds i8, ptr %1, i64 1264
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32
   %27 = icmp eq i32 %26, 0
@@ -2449,7 +2449,7 @@ define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %36, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 @__SCT__tp_func_drv_reset_tsf(ptr noundef %40, ptr noundef %0, ptr noundef %1) #6
   br label %42
@@ -2469,16 +2469,16 @@ define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnam
   br label %49
 
 49:                                               ; preds = %46, %42, %29, %28
-  %50 = getelementptr inbounds i8, ptr %0, i64 448
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 368
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 368
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %1, i64 4056
-  tail call void %53(ptr noundef %0, ptr noundef %56) #6
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  tail call void %53(ptr noundef %0, ptr noundef nonnull %56) #6
   br label %57
 
 57:                                               ; preds = %55, %49
@@ -2502,7 +2502,7 @@ define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %69, ptr noundef %0) #6
   br label %71
@@ -2528,15 +2528,15 @@ define dso_local void @drv_reset_tsf(ptr noundef %0, ptr noundef %1) local_unnam
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i32 @__SCT__might_resched() #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 1256
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1415
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1415
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 1264
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 32
   %15 = icmp ne i32 %14, 0
@@ -2547,14 +2547,14 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
 18:                                               ; preds = %11
   store i1 true, ptr @drv_assign_vif_chanctx.__already_done, align 1
   tail call void asm sideeffect "3009: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3009b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3009) #6, !srcloc !178
-  %19 = getelementptr inbounds i8, ptr %1, i64 1248
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %20, i64 296
-  %23 = getelementptr inbounds i8, ptr %1, i64 1280
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %24 = select i1 %21, ptr %23, ptr %22
   %25 = load i32, ptr %12, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %24, i32 noundef %25) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %24, i32 noundef %25) #6
   tail call void asm sideeffect "3010: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3010b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3010) #6, !srcloc !179
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 315, i32 2313, i64 12) #6, !srcloc !180
   tail call void asm sideeffect "3011: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3011b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3011) #6, !srcloc !181
@@ -2562,22 +2562,22 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %4, %18, %11
-  %26 = getelementptr inbounds i8, ptr %1, i64 1264
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 32
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %101, label %30
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 4056
-  %32 = getelementptr inbounds i8, ptr %1, i64 5058
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5058
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %30
   %36 = zext i16 %33 to i64
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl nuw i64 1, %39
@@ -2606,7 +2606,7 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @__SCT__tp_func_drv_assign_vif_chanctx(ptr noundef %55, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %57
@@ -2626,15 +2626,15 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
   br label %64
 
 64:                                               ; preds = %61, %57, %44, %43
-  %65 = getelementptr inbounds i8, ptr %0, i64 448
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 600
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 600
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %79, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %3, i64 84
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %72 = load i8, ptr %71, align 4, !range !6, !noundef !7
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %74, label %75, !prof !25
@@ -2644,14 +2644,14 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 324, i32 2307, i64 12) #6, !srcloc !188
   tail call void asm sideeffect "3014: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3014b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3014) #6, !srcloc !189
   %.pre = load ptr, ptr %65, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 600
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 600
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
   br label %75
 
 75:                                               ; preds = %74, %70
   %76 = phi ptr [ %.pre3, %74 ], [ %68, %70 ]
-  %77 = getelementptr inbounds i8, ptr %3, i64 88
-  %78 = tail call i32 %76(ptr noundef %0, ptr noundef %31, ptr noundef %2, ptr noundef %77) #6
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %78 = tail call i32 %76(ptr noundef %0, ptr noundef nonnull %31, ptr noundef %2, ptr noundef nonnull %77) #6
   br label %79
 
 79:                                               ; preds = %75, %64
@@ -2676,7 +2676,7 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
   br i1 %89, label %94, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %92, ptr noundef %0, i32 noundef %80) #6
   br label %94
@@ -2703,15 +2703,15 @@ define dso_local i32 @drv_assign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i32 @__SCT__might_resched() #6
-  %6 = getelementptr inbounds i8, ptr %1, i64 1256
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1415
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1415
   %9 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 1264
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 32
   %15 = icmp ne i32 %14, 0
@@ -2722,14 +2722,14 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
 18:                                               ; preds = %11
   store i1 true, ptr @drv_unassign_vif_chanctx.__already_done, align 1
   tail call void asm sideeffect "3015: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3015b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3015) #6, !srcloc !190
-  %19 = getelementptr inbounds i8, ptr %1, i64 1248
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %20, i64 296
-  %23 = getelementptr inbounds i8, ptr %1, i64 1280
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %24 = select i1 %21, ptr %23, ptr %22
   %25 = load i32, ptr %12, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %24, i32 noundef %25) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %24, i32 noundef %25) #6
   tail call void asm sideeffect "3016: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3016b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3016) #6, !srcloc !191
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 343, i32 2313, i64 12) #6, !srcloc !192
   tail call void asm sideeffect "3017: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3017b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3017) #6, !srcloc !193
@@ -2737,22 +2737,22 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 .thread:                                          ; preds = %4, %18, %11
-  %26 = getelementptr inbounds i8, ptr %1, i64 1264
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 32
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %99, label %30
 
 30:                                               ; preds = %.thread
-  %31 = getelementptr inbounds i8, ptr %1, i64 4056
-  %32 = getelementptr inbounds i8, ptr %1, i64 5058
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 5058
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, 0
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %30
   %36 = zext i16 %33 to i64
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = zext nneg i32 %38 to i64
   %40 = shl nuw i64 1, %39
@@ -2781,7 +2781,7 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
   br i1 %52, label %57, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @__SCT__tp_func_drv_unassign_vif_chanctx(ptr noundef %55, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #6
   br label %57
@@ -2801,15 +2801,15 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
   br label %64
 
 64:                                               ; preds = %61, %57, %44, %43
-  %65 = getelementptr inbounds i8, ptr %0, i64 448
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 608
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 608
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %78, label %70
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %3, i64 84
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 84
   %72 = load i8, ptr %71, align 4, !range !6, !noundef !7
   %73 = icmp eq i8 %72, 0
   br i1 %73, label %74, label %75, !prof !25
@@ -2819,14 +2819,14 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 352, i32 2307, i64 12) #6, !srcloc !200
   tail call void asm sideeffect "3020: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3020b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3020) #6, !srcloc !201
   %.pre = load ptr, ptr %65, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 608
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 608
   %.pre3 = load ptr, ptr %.phi.trans.insert, align 8
   br label %75
 
 75:                                               ; preds = %74, %70
   %76 = phi ptr [ %.pre3, %74 ], [ %68, %70 ]
-  %77 = getelementptr inbounds i8, ptr %3, i64 88
-  tail call void %76(ptr noundef %0, ptr noundef %31, ptr noundef %2, ptr noundef %77) #6
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  tail call void %76(ptr noundef %0, ptr noundef nonnull %31, ptr noundef %2, ptr noundef nonnull %77) #6
   br label %78
 
 78:                                               ; preds = %75, %64
@@ -2850,7 +2850,7 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
   br i1 %87, label %92, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %90, ptr noundef %0) #6
   br label %92
@@ -2876,9 +2876,9 @@ define dso_local void @drv_unassign_vif_chanctx(ptr noundef %0, ptr noundef %1, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_switch_vif_chanctx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i32 @__SCT__might_resched() #6
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 616
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 616
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -2894,9 +2894,9 @@ define dso_local i32 @drv_switch_vif_chanctx(ptr noundef %0, ptr noundef %1, i32
 15:                                               ; preds = %36, %13
   %16 = phi i64 [ 0, %13 ], [ %37, %36 ]
   %17 = getelementptr %struct.ieee80211_vif_chanctx_switch, ptr %1, i64 %16
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i8, ptr %22, align 4, !range !6, !noundef !7
@@ -2959,7 +2959,7 @@ define dso_local i32 @drv_switch_vif_chanctx(ptr noundef %0, ptr noundef %1, i32
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = tail call i32 @__SCT__tp_func_drv_switch_vif_chanctx(ptr noundef %50, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
   br label %52
@@ -2980,7 +2980,7 @@ define dso_local i32 @drv_switch_vif_chanctx(ptr noundef %0, ptr noundef %1, i32
 
 59:                                               ; preds = %56, %52, %39, %.loopexit5
   %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 616
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 616
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #6
@@ -3003,7 +3003,7 @@ define dso_local i32 @drv_switch_vif_chanctx(ptr noundef %0, ptr noundef %1, i32
   br i1 %72, label %77, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %75, ptr noundef %0, i32 noundef %63) #6
   br label %77
@@ -3036,9 +3036,9 @@ define dso_local i32 @drv_switch_vif_chanctx(ptr noundef %0, ptr noundef %1, i32
 91:                                               ; preds = %91, %89
   %92 = phi i64 [ 0, %89 ], [ %100, %91 ]
   %93 = getelementptr %struct.ieee80211_vif_chanctx_switch, ptr %1, i64 %92
-  %94 = getelementptr inbounds i8, ptr %93, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %95, i64 -4
   store i8 1, ptr %98, align 4
@@ -3060,28 +3060,28 @@ define dso_local i32 @drv_ampdu_action(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 4056
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 4
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 1672
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1672
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -1904
   br label %14
 
 14:                                               ; preds = %10, %6, %3
   %15 = phi ptr [ %13, %10 ], [ %1, %6 ], [ null, %3 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 1256
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1256
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1415
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1415
   %19 = load i8, ptr %18, align 1, !range !6, !noundef !7
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %15, i64 1264
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 1264
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 32
   %25 = icmp ne i32 %24, 0
@@ -3092,14 +3092,14 @@ define dso_local i32 @drv_ampdu_action(ptr noundef %0, ptr noundef %1, ptr nound
 28:                                               ; preds = %21
   store i1 true, ptr @drv_ampdu_action.__already_done, align 1
   tail call void asm sideeffect "3025: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3025b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3025) #6, !srcloc !216
-  %29 = getelementptr inbounds i8, ptr %15, i64 1248
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 1248
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
-  %32 = getelementptr inbounds i8, ptr %30, i64 296
-  %33 = getelementptr inbounds i8, ptr %15, i64 1280
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 296
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 1280
   %34 = select i1 %31, ptr %33, ptr %32
   %35 = load i32, ptr %22, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %34, i32 noundef %35) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %34, i32 noundef %35) #6
   tail call void asm sideeffect "3026: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3026b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3026) #6, !srcloc !217
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 425, i32 2313, i64 12) #6, !srcloc !218
   tail call void asm sideeffect "3027: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3027b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3027) #6, !srcloc !219
@@ -3107,7 +3107,7 @@ define dso_local i32 @drv_ampdu_action(ptr noundef %0, ptr noundef %1, ptr nound
   br label %.thread
 
 .thread:                                          ; preds = %14, %28, %21
-  %36 = getelementptr inbounds i8, ptr %15, i64 1264
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 1264
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 32
   %39 = icmp eq i32 %38, 0
@@ -3134,7 +3134,7 @@ define dso_local i32 @drv_ampdu_action(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %49, label %54, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @__SCT__tp_func_drv_ampdu_action(ptr noundef %52, ptr noundef %0, ptr noundef %15, ptr noundef %2) #6
   br label %54
@@ -3154,16 +3154,16 @@ define dso_local i32 @drv_ampdu_action(ptr noundef %0, ptr noundef %1, ptr nound
   br label %61
 
 61:                                               ; preds = %58, %54, %41, %40
-  %62 = getelementptr inbounds i8, ptr %0, i64 448
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 384
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 384
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %15, i64 4056
-  %69 = tail call i32 %65(ptr noundef %0, ptr noundef %68, ptr noundef %2) #6
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 4056
+  %69 = tail call i32 %65(ptr noundef %0, ptr noundef nonnull %68, ptr noundef %2) #6
   br label %70
 
 70:                                               ; preds = %67, %61
@@ -3188,7 +3188,7 @@ define dso_local i32 @drv_ampdu_action(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %80, label %85, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %79, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %83, ptr noundef %0, i32 noundef %71) #6
   br label %85
@@ -3217,7 +3217,7 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   %6 = tail call i32 @__SCT__might_resched() #6
   %7 = and i64 %4, 768
   %8 = icmp eq i64 %7, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 4056
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4056
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   br i1 %8, label %._crit_edge, label %9
 
@@ -3238,7 +3238,7 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   br label %111
 
 ._crit_edge:                                      ; preds = %5, %9, %9, %9, %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 4056
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4056
   switch i32 %.pre, label %22 [
     i32 10, label %21
     i32 12, label %21
@@ -3246,7 +3246,7 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   ]
 
 14:                                               ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %1, i64 4910
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4910
   %16 = load i8, ptr %15, align 2, !range !6, !noundef !7
   %17 = icmp eq i8 %16, 0
   %18 = and i64 %4, 262144
@@ -3261,15 +3261,15 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   br label %111
 
 22:                                               ; preds = %14, %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %1, i64 1256
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1415
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1415
   %26 = load i8, ptr %25, align 1, !range !6, !noundef !7
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %1, i64 1264
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 32
   %32 = icmp ne i32 %31, 0
@@ -3280,14 +3280,14 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
 35:                                               ; preds = %28
   store i1 true, ptr @drv_link_info_changed.__already_done, align 1
   tail call void asm sideeffect "3033: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3033b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3033) #6, !srcloc !232
-  %36 = getelementptr inbounds i8, ptr %1, i64 1248
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
-  %39 = getelementptr inbounds i8, ptr %37, i64 296
-  %40 = getelementptr inbounds i8, ptr %1, i64 1280
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 296
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %41 = select i1 %38, ptr %40, ptr %39
   %42 = load i32, ptr %29, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %41, i32 noundef %42) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %41, i32 noundef %42) #6
   tail call void asm sideeffect "3034: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3034b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3034) #6, !srcloc !233
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 461, i32 2313, i64 12) #6, !srcloc !234
   tail call void asm sideeffect "3035: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3035b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3035) #6, !srcloc !235
@@ -3295,14 +3295,14 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   br label %.thread
 
 .thread:                                          ; preds = %22, %35, %28
-  %43 = getelementptr inbounds i8, ptr %1, i64 1264
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %44 = load i32, ptr %43, align 8
   %45 = and i32 %44, 32
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %111, label %47
 
 47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %1, i64 5058
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 5058
   %49 = load i16, ptr %48, align 2
   %50 = icmp eq i16 %49, 0
   br i1 %50, label %57, label %51
@@ -3336,7 +3336,7 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @__SCT__tp_func_drv_link_info_changed(ptr noundef %69, ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %4) #6
   br label %71
@@ -3356,22 +3356,22 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   br label %78
 
 78:                                               ; preds = %75, %71, %58, %57
-  %79 = getelementptr inbounds i8, ptr %0, i64 448
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %84, label %88
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %80, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 80
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %90, label %88
 
 88:                                               ; preds = %84, %78
   %89 = phi ptr [ %82, %78 ], [ %86, %84 ]
-  tail call void %89(ptr noundef %0, ptr noundef %13, ptr noundef %2, i64 noundef %4) #6
+  tail call void %89(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %2, i64 noundef %4) #6
   br label %90
 
 90:                                               ; preds = %88, %84
@@ -3395,7 +3395,7 @@ define dso_local void @drv_link_info_changed(ptr noundef %0, ptr noundef %1, ptr
   br i1 %99, label %104, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %98, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = tail call i32 @__SCT__tp_func_drv_return_void(ptr noundef %102, ptr noundef %0) #6
   br label %104
@@ -3425,28 +3425,28 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 4056
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 4056
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %2, i64 1672
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 1672
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 -1904
   br label %16
 
 16:                                               ; preds = %12, %8, %5
   %17 = phi ptr [ %15, %12 ], [ %2, %8 ], [ null, %5 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 1256
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1256
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1415
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1415
   %21 = load i8, ptr %20, align 1, !range !6, !noundef !7
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %.thread
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %17, i64 1264
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 1264
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 32
   %27 = icmp ne i32 %26, 0
@@ -3457,14 +3457,14 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
 30:                                               ; preds = %23
   store i1 true, ptr @drv_set_key.__already_done, align 1
   tail call void asm sideeffect "3037: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3037b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3037) #6, !srcloc !241
-  %31 = getelementptr inbounds i8, ptr %17, i64 1248
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 1248
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  %34 = getelementptr inbounds i8, ptr %32, i64 296
-  %35 = getelementptr inbounds i8, ptr %17, i64 1280
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 296
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 1280
   %36 = select i1 %33, ptr %35, ptr %34
   %37 = load i32, ptr %24, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %36, i32 noundef %37) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %36, i32 noundef %37) #6
   tail call void asm sideeffect "3038: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3038b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3038) #6, !srcloc !242
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 490, i32 2313, i64 12) #6, !srcloc !243
   tail call void asm sideeffect "3039: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3039b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3039) #6, !srcloc !244
@@ -3472,20 +3472,20 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %.thread
 
 .thread:                                          ; preds = %16, %30, %23
-  %38 = getelementptr inbounds i8, ptr %17, i64 1264
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 1264
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 32
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %105, label %42
 
 42:                                               ; preds = %.thread
-  %43 = getelementptr inbounds i8, ptr %4, i64 18
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %44 = load i8, ptr %43, align 2
   %45 = icmp sgt i8 %44, -1
   br i1 %45, label %46, label %57
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %17, i64 5058
+  %47 = getelementptr inbounds nuw i8, ptr %17, i64 5058
   %48 = load i16, ptr %47, align 2
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %57, label %50
@@ -3525,7 +3525,7 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %65, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i32 @__SCT__tp_func_drv_set_key(ptr noundef %69, ptr noundef %0, i32 noundef %1, ptr noundef %17, ptr noundef %3, ptr noundef %4) #6
   br label %71
@@ -3545,12 +3545,12 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br label %78
 
 78:                                               ; preds = %75, %71, %58, %57
-  %79 = getelementptr inbounds i8, ptr %0, i64 448
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 152
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 152
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %17, i64 4056
-  %84 = tail call i32 %82(ptr noundef %0, i32 noundef %1, ptr noundef %83, ptr noundef %3, ptr noundef %4) #6
+  %83 = getelementptr inbounds nuw i8, ptr %17, i64 4056
+  %84 = tail call i32 %82(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %83, ptr noundef %3, ptr noundef %4) #6
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_drv_return_int, i64 8), i32 2) #6
           to label %105 [label %85], !srcloc !12
 
@@ -3571,7 +3571,7 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %96, ptr noundef %0, i32 noundef %84) #6
   br label %98
@@ -3598,15 +3598,15 @@ define dso_local i32 @drv_set_key(ptr noundef %0, i32 noundef %1, ptr noundef %2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = tail call i32 @__SCT__might_resched() #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1415
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1415
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 1264
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 32
   %16 = icmp ne i32 %15, 0
@@ -3617,14 +3617,14 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
 19:                                               ; preds = %12
   store i1 true, ptr @drv_change_vif_links.__already_done, align 1
   tail call void asm sideeffect "3043: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3043b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3043) #6, !srcloc !253
-  %20 = getelementptr inbounds i8, ptr %1, i64 1248
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  %23 = getelementptr inbounds i8, ptr %21, i64 296
-  %24 = getelementptr inbounds i8, ptr %1, i64 1280
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %25 = select i1 %22, ptr %24, ptr %23
   %26 = load i32, ptr %13, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %25, i32 noundef %26) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %25, i32 noundef %26) #6
   tail call void asm sideeffect "3044: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3044b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3044) #6, !srcloc !254
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 517, i32 2313, i64 12) #6, !srcloc !255
   tail call void asm sideeffect "3045: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3045) #6, !srcloc !256
@@ -3632,7 +3632,7 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br label %.thread
 
 .thread:                                          ; preds = %5, %19, %12
-  %27 = getelementptr inbounds i8, ptr %1, i64 1264
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 32
   %30 = icmp eq i32 %29, 0
@@ -3649,7 +3649,7 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   %37 = zext nneg i16 %36 to i32
   %38 = and i32 %37, %35
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %1, i64 3904
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 3904
   br label %41
 
 41:                                               ; preds = %33, %50
@@ -3695,7 +3695,7 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %65, label %70, label %66
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %64, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 @__SCT__tp_func_drv_change_vif_links(ptr noundef %68, ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #6
   br label %70
@@ -3715,16 +3715,16 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br label %77
 
 77:                                               ; preds = %74, %70, %57, %.thread10
-  %78 = getelementptr inbounds i8, ptr %0, i64 448
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 912
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 912
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %86, label %83
 
 83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %1, i64 4056
-  %85 = tail call i32 %81(ptr noundef %0, ptr noundef %84, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) #6
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %85 = tail call i32 %81(ptr noundef %0, ptr noundef nonnull %84, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) #6
   br label %86
 
 86:                                               ; preds = %83, %77
@@ -3749,7 +3749,7 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %96, label %101, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %95, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %99, ptr noundef %0, i32 noundef %87) #6
   br label %101
@@ -3773,13 +3773,13 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
   br i1 %109, label %110, label %.thread12
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %0, i64 1414
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1414
   %112 = load i8, ptr %111, align 2, !range !6, !noundef !7
   %113 = icmp eq i8 %112, 0
   br i1 %113, label %114, label %.thread12
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %0, i64 1411
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 1411
   %116 = load i8, ptr %115, align 1, !range !6, !noundef !7
   %117 = icmp eq i8 %116, 0
   br i1 %117, label %118, label %.thread12
@@ -3820,15 +3820,15 @@ define dso_local i32 @drv_change_vif_links(ptr noundef %0, ptr noundef %1, i16 n
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = tail call i32 @__SCT__might_resched() #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 1256
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1256
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1415
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1415
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 1264
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %14 = load i32, ptr %13, align 8
   %15 = and i32 %14, 32
   %16 = icmp ne i32 %15, 0
@@ -3839,14 +3839,14 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
 19:                                               ; preds = %12
   store i1 true, ptr @drv_change_sta_links.__already_done, align 1
   tail call void asm sideeffect "3051: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3051b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3051) #6, !srcloc !266
-  %20 = getelementptr inbounds i8, ptr %1, i64 1248
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 1248
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
-  %23 = getelementptr inbounds i8, ptr %21, i64 296
-  %24 = getelementptr inbounds i8, ptr %1, i64 1280
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 296
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 1280
   %25 = select i1 %22, ptr %24, ptr %23
   %26 = load i32, ptr %13, align 8
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef %25, i32 noundef %26) #6
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull %25, i32 noundef %26) #6
   tail call void asm sideeffect "3052: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3052b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3052) #6, !srcloc !267
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 568, i32 2313, i64 12) #6, !srcloc !268
   tail call void asm sideeffect "3053: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3053b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3053) #6, !srcloc !269
@@ -3854,15 +3854,15 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 .thread:                                          ; preds = %5, %19, %12
-  %27 = getelementptr inbounds i8, ptr %1, i64 1264
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1264
   %28 = load i32, ptr %27, align 8
   %29 = and i32 %28, 32
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %.thread12, label %31
 
 31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %1, i64 4056
-  %33 = getelementptr inbounds i8, ptr %1, i64 5058
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4056
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 5058
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, %3
   %36 = and i16 %34, %4
@@ -3919,7 +3919,7 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %67, label %72, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %66, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 @__SCT__tp_func_drv_change_sta_links(ptr noundef %70, ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %35, i16 noundef zeroext %36) #6
   br label %72
@@ -3939,15 +3939,15 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
   br label %79
 
 79:                                               ; preds = %76, %72, %59, %.thread10
-  %80 = getelementptr inbounds i8, ptr %0, i64 448
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 920
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 920
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %87, label %85
 
 85:                                               ; preds = %79
-  %86 = tail call i32 %83(ptr noundef %0, ptr noundef %32, ptr noundef %2, i16 noundef zeroext %35, i16 noundef zeroext %36) #6
+  %86 = tail call i32 %83(ptr noundef %0, ptr noundef nonnull %32, ptr noundef %2, i16 noundef zeroext %35, i16 noundef zeroext %36) #6
   br label %87
 
 87:                                               ; preds = %85, %79
@@ -3972,7 +3972,7 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %97, label %102, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %96, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = tail call i32 @__SCT__tp_func_drv_return_int(ptr noundef %100, ptr noundef %0, i32 noundef %88) #6
   br label %102
@@ -3996,13 +3996,13 @@ define dso_local i32 @drv_change_sta_links(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %110, label %111, label %.thread12
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %0, i64 1414
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 1414
   %113 = load i8, ptr %112, align 2, !range !6, !noundef !7
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %115, label %.thread12
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %0, i64 1411
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1411
   %117 = load i8, ptr %116, align 1, !range !6, !noundef !7
   %118 = icmp eq i8 %117, 0
   br i1 %118, label %119, label %.thread12

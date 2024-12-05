@@ -8,23 +8,23 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias nocapture noundef writeonly %2, ptr noalias nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load i32, ptr %6, align 8
   %.fr232 = freeze i32 %7
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 756
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %13 = call i32 @lzma_mf_find(ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %12) #5
   br label %19
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 2952
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 2948
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2948
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %5, align 4
   br label %19
@@ -35,7 +35,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %20 = getelementptr i8, ptr %1, i64 24
   %.val167 = load i32, ptr %20, align 8
   %21 = zext i32 %.val167 to i64
-  %22 = getelementptr inbounds i8, ptr %.val, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %.val, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -1
   %24 = getelementptr i8, ptr %1, i64 36
   %.val169 = load i32, ptr %24, align 4
@@ -47,7 +47,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   br i1 %27, label %57, label %.preheader187
 
 .preheader187:                                    ; preds = %19
-  %28 = getelementptr inbounds i8, ptr %0, i64 740
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 740
   %invariant.gep = getelementptr i8, ptr %22, i64 -2
   %.val172 = load i16, ptr %23, align 1
   %.not231 = icmp eq i32 %26, 2
@@ -61,7 +61,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %indvars.iv242 = phi i64 [ 0, %.preheader187.split.us.preheader ], [ %indvars.iv.next243, %47 ]
   %.0143194.us = phi i32 [ 0, %.preheader187.split.us.preheader ], [ %.1144.us, %47 ]
   %.0145193.us = phi i32 [ 0, %.preheader187.split.us.preheader ], [ %.1146.us, %47 ]
-  %30 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %indvars.iv242
+  %30 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv242
   %31 = load i32, ptr %30, align 4
   %32 = zext i32 %31 to i64
   %33 = sub nsw i64 0, %32
@@ -72,9 +72,9 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 
 .preheader.us:                                    ; preds = %.preheader187.split.us, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 2, %.preheader187.split.us ]
-  %34 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 %indvars.iv
   %.val174.us = load i64, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %gep.us, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i8, ptr %gep.us, i64 %indvars.iv
   %.val175.us = load i64, ptr %35, align 1
   %.not159.us = icmp eq i64 %.val174.us, %.val175.us
   br i1 %.not159.us, label %48, label %36
@@ -121,7 +121,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %indvars.iv249 = phi i64 [ %indvars.iv.next250, %54 ], [ 0, %.preheader187.split ]
   %.0143194.us202 = phi i32 [ %.1144.us210, %54 ], [ 0, %.preheader187.split ]
   %.0145193.us203 = phi i32 [ %.1146.us209, %54 ], [ 0, %.preheader187.split ]
-  %50 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %indvars.iv249
+  %50 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv249
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
   %53 = sub nsw i64 0, %52
@@ -151,7 +151,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 
 .preheader187.split.split:                        ; preds = %.preheader187.split, %68
   %indvars.iv245 = phi i64 [ %indvars.iv.next246, %68 ], [ 0, %.preheader187.split ]
-  %58 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %indvars.iv245
+  %58 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv245
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
   %61 = sub nsw i64 0, %60
@@ -171,7 +171,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   br i1 %.not.i, label %mf_skip.exit, label %63
 
 63:                                               ; preds = %.split.us
-  %64 = getelementptr inbounds i8, ptr %1, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %65 = load ptr, ptr %64, align 8
   call void %65(ptr noundef nonnull %1, i32 noundef %62) #5
   %66 = load i32, ptr %8, align 4
@@ -206,7 +206,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   br i1 %.not.i176, label %mf_skip.exit, label %78
 
 78:                                               ; preds = %69
-  %79 = getelementptr inbounds i8, ptr %1, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef nonnull %1, i32 noundef %77) #5
   %81 = load i32, ptr %8, align 4
@@ -219,13 +219,13 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   br i1 %84, label %85, label %107
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 756
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %87 = load i32, ptr %5, align 4
   %88 = add i32 %87, -1
   %89 = zext i32 %88 to i64
   %.idx = shl nuw nsw i64 %89, 3
   %.offs = or disjoint i64 %.idx, 4
-  %90 = getelementptr inbounds i8, ptr %86, i64 %.offs
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 %.offs
   %.1217 = load i32, ptr %90, align 4
   %91 = icmp ugt i32 %87, 1
   br i1 %91, label %.lr.ph.preheader, label %.critedge
@@ -239,7 +239,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
   %.1219 = phi i32 [ %.1217, %.lr.ph.preheader ], [ %101, %103 ]
   %.2218 = phi i32 [ %.0140, %.lr.ph.preheader ], [ %95, %103 ]
   %93 = add nsw i64 %indvars.iv253, -2
-  %94 = getelementptr inbounds [274 x %struct.lzma_match], ptr %86, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [274 x %struct.lzma_match], ptr %86, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = add i32 %95, 1
   %97 = icmp eq i32 %.2218, %96
@@ -247,7 +247,7 @@ define dso_local void @lzma_lzma_optimum_fast(ptr noalias noundef %0, ptr noalia
 
 98:                                               ; preds = %.lr.ph
   %99 = lshr i32 %.1219, 7
-  %100 = getelementptr inbounds i8, ptr %94, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = icmp ugt i32 %99, %101
   br i1 %102, label %103, label %.critedge
@@ -297,7 +297,7 @@ mf_skip.exit179:                                  ; preds = %115, %111, %109
   store i32 %.us-phi200, ptr %2, align 4
   store i32 %.us-phi199, ptr %3, align 4
   %119 = add nsw i32 %.us-phi199, -1
-  %120 = getelementptr inbounds i8, ptr %1, i64 56
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %121 = load ptr, ptr %120, align 8
   call void %121(ptr noundef nonnull %1, i32 noundef %119) #5
   %122 = load i32, ptr %8, align 4
@@ -316,10 +316,10 @@ mf_skip.exit179:                                  ; preds = %115, %111, %109
   br label %mf_skip.exit
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 2948
-  %129 = getelementptr inbounds i8, ptr %0, i64 756
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 2948
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 756
   %130 = call i32 @lzma_mf_find(ptr noundef nonnull %1, ptr noundef nonnull %128, ptr noundef nonnull %129) #5
-  %131 = getelementptr inbounds i8, ptr %0, i64 2952
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 2952
   store i32 %130, ptr %131, align 8
   %132 = icmp ugt i32 %130, 1
   br i1 %132, label %133, label %153
@@ -330,7 +330,7 @@ mf_skip.exit179:                                  ; preds = %115, %111, %109
   %136 = zext i32 %135 to i64
   %.idx153 = shl nuw nsw i64 %136, 3
   %.offs154 = or disjoint i64 %.idx153, 4
-  %137 = getelementptr inbounds i8, ptr %129, i64 %.offs154
+  %137 = getelementptr inbounds nuw i8, ptr %129, i64 %.offs154
   %138 = load i32, ptr %137, align 4
   %.not155 = icmp uge i32 %130, %.1141
   %139 = icmp ult i32 %138, %.0139
@@ -375,7 +375,7 @@ mf_skip.exit179:                                  ; preds = %115, %111, %109
 
 158:                                              ; preds = %153, %157
   %indvars.iv256 = phi i64 [ 0, %153 ], [ %indvars.iv.next257, %157 ]
-  %159 = getelementptr inbounds [4 x i32], ptr %28, i64 0, i64 %indvars.iv256
+  %159 = getelementptr inbounds nuw [4 x i32], ptr %28, i64 0, i64 %indvars.iv256
   %160 = load i32, ptr %159, align 4
   %161 = zext i32 %160 to i64
   %162 = sub nsw i64 0, %161
@@ -398,7 +398,7 @@ mf_skip.exit179:                                  ; preds = %115, %111, %109
   br i1 %.not.i180, label %mf_skip.exit, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %1, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %170 = load ptr, ptr %169, align 8
   call void %170(ptr noundef nonnull %1, i32 noundef %167) #5
   %171 = load i32, ptr %8, align 4

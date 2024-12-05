@@ -182,8 +182,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @H5S_select_offset(ptr nocapture noundef initializes((88, 89)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = shl nuw nsw i64 %6, 3
@@ -198,7 +198,7 @@ define noundef i32 @H5S_select_offset(ptr nocapture noundef initializes((88, 89)
   br label %10
 
 10:                                               ; preds = %9, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 1, ptr %11, align 8
   ret i32 0
 }
@@ -253,13 +253,13 @@ define range(i32 -1, 1) i32 @H5Soffset_simple(i64 noundef %0, ptr noundef readon
   br label %.thread31
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %24, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %24, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %36 = load i32, ptr %35, align 8
   switch i32 %36, label %41 [
     i32 0, label %37
@@ -274,7 +274,7 @@ define range(i32 -1, 1) i32 @H5Soffset_simple(i64 noundef %0, ptr noundef readon
 
 41:                                               ; preds = %34
   %.not.i = icmp eq ptr %1, null
-  %42 = getelementptr inbounds i8, ptr %24, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %43 = zext i32 %32 to i64
   %44 = shl nuw nsw i64 %43, 3
   br i1 %.not.i, label %46, label %45
@@ -292,7 +292,7 @@ define range(i32 -1, 1) i32 @H5Soffset_simple(i64 noundef %0, ptr noundef readon
   br label %.thread25
 
 48:                                               ; preds = %46, %45
-  %49 = getelementptr inbounds i8, ptr %24, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store i8 1, ptr %49, align 8
   %50 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #7
   br label %52
@@ -404,13 +404,13 @@ define range(i32 -1, 1) i32 @H5Sselect_copy(i64 noundef %0, i64 noundef %1) loca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5S_select_copy(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %18, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0) #7
   %10 = icmp slt i32 %9, 0
@@ -426,10 +426,10 @@ define range(i32 -1, -2147483648) i32 @H5S_select_copy(ptr noundef %0, ptr nound
   br label %29
 
 18:                                               ; preds = %6, %3
-  %19 = getelementptr inbounds i8, ptr %1, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %4, ptr noundef nonnull align 8 dereferenceable(288) %19, i64 288, i1 false)
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef %1, i1 noundef zeroext %2) #7
   %24 = icmp slt i32 %23, 0
@@ -448,13 +448,13 @@ define range(i32 -1, -2147483648) i32 @H5S_select_copy(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5S_select_release(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0) #7
   %8 = icmp slt i32 %7, 0
@@ -473,9 +473,9 @@ define range(i32 -1, -2147483648) i32 @H5S_select_release(ptr noundef %0) local_
 
 ; Function Attrs: nounwind uwtable
 define i64 @H5S_select_serial_size(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef %0) #7
   ret i64 %6
@@ -483,9 +483,9 @@ define i64 @H5S_select_serial_size(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_serialize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   ret i32 %7
@@ -536,7 +536,7 @@ define i64 @H5Sget_select_npoints(i64 noundef %0) local_unnamed_addr #3 {
   br label %.thread18
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %23, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 352
   %31 = load i64, ptr %30, align 8
   %32 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #7
   br label %34
@@ -552,7 +552,7 @@ define i64 @H5Sget_select_npoints(i64 noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @H5S_get_select_npoints(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 352
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
@@ -602,9 +602,9 @@ define i32 @H5Sselect_valid(i64 noundef %0) local_unnamed_addr #3 {
   br label %.thread19
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %23, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %33(ptr noundef nonnull %23) #7
   %35 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #7
@@ -621,9 +621,9 @@ define i32 @H5Sselect_valid(i64 noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_valid(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %0) #7
   ret i32 %6
@@ -658,32 +658,32 @@ define range(i32 -1, -2147483648) i32 @H5S_select_deserialize(ptr noundef %0, pt
 19:                                               ; preds = %10, %3
   %20 = load i8, ptr %4, align 1
   %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %4, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %22, ptr %1, align 8
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = shl nuw nsw i32 %24, 8
   %26 = or disjoint i32 %25, %21
-  %27 = getelementptr inbounds i8, ptr %4, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %27, ptr %1, align 8
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = shl nuw nsw i32 %29, 16
   %31 = or disjoint i32 %26, %30
-  %32 = getelementptr inbounds i8, ptr %4, i64 3
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store ptr %32, ptr %1, align 8
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
   %35 = shl nuw i32 %34, 24
   %36 = or disjoint i32 %31, %35
-  %37 = getelementptr inbounds i8, ptr %4, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %37, ptr %1, align 8
   %38 = icmp ult i32 %36, 4
   br i1 %38, label %switch.lookup, label %.thread
 
 switch.lookup:                                    ; preds = %19
   %39 = zext nneg i32 %36 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.H5S_select_deserialize, i64 0, i64 %39
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.H5S_select_deserialize, i64 0, i64 %39
   %switch.load = load ptr, ptr %switch.gep, align 8
   %.sink42 = load ptr, ptr %switch.load, align 16
   %40 = add i64 %2, -4
@@ -762,9 +762,9 @@ define i32 @H5Sget_select_bounds(i64 noundef %0, ptr noundef %1, ptr noundef %2)
   br label %.thread27
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %32, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 80
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %32, ptr noundef nonnull %1, ptr noundef nonnull %2) #7
   %45 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #7
@@ -781,9 +781,9 @@ define i32 @H5Sget_select_bounds(i64 noundef %0, ptr noundef %1, ptr noundef %2)
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_get_select_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   ret i32 %8
@@ -791,9 +791,9 @@ define i32 @H5S_get_select_bounds(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_get_select_offset(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   ret i32 %7
@@ -801,9 +801,9 @@ define i32 @H5S_get_select_offset(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_get_select_unlim_dim(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %0) #7
   ret i32 %6
@@ -811,9 +811,9 @@ define i32 @H5S_get_select_unlim_dim(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5S_get_select_num_elem_non_unlim(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %11
@@ -842,9 +842,9 @@ define range(i32 -1, 1) i32 @H5S_get_select_num_elem_non_unlim(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_is_contiguous(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %0) #7
   ret i32 %6
@@ -852,9 +852,9 @@ define i32 @H5S_select_is_contiguous(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_is_single(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %0) #7
   ret i32 %6
@@ -862,9 +862,9 @@ define i32 @H5S_select_is_single(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_is_regular(ptr noundef %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef %0) #7
   ret i32 %6
@@ -872,9 +872,9 @@ define i32 @H5S_select_is_regular(ptr noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_adjust_u(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   ret i32 %7
@@ -882,9 +882,9 @@ define i32 @H5S_select_adjust_u(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_adjust_s(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   ret i32 %7
@@ -946,16 +946,16 @@ define range(i32 -1, 1) i32 @H5Sselect_adjust(i64 noundef %0, ptr noundef %1) lo
   br label %.thread40
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %26, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 %42(ptr noundef nonnull %26, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %47, label %.preheader
 
 .preheader:                                       ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %26, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %46 = load i32, ptr %45, align 8
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -977,9 +977,9 @@ define range(i32 -1, 1) i32 @H5Sselect_adjust(i64 noundef %0, ptr noundef %1) lo
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
   %56 = icmp sgt i64 %53, %55
   br i1 %56, label %57, label %51
@@ -992,7 +992,7 @@ define range(i32 -1, 1) i32 @H5Sselect_adjust(i64 noundef %0, ptr noundef %1) lo
 
 ._crit_edge:                                      ; preds = %51, %.preheader
   %61 = load ptr, ptr %39, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 136
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 136
   %63 = load ptr, ptr %62, align 8
   %64 = call i32 %63(ptr noundef nonnull %26, ptr noundef nonnull %1) #7
   %65 = icmp slt i32 %64, 0
@@ -1023,9 +1023,9 @@ define range(i32 -1, 1) i32 @H5Sselect_adjust(i64 noundef %0, ptr noundef %1) lo
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_project_scalar(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #7
   ret i32 %7
@@ -1033,9 +1033,9 @@ define i32 @H5S_select_project_scalar(ptr noundef %0, ptr noundef %1) local_unna
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_project_simple(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #7
   ret i32 %8
@@ -1043,22 +1043,22 @@ define i32 @H5S_select_project_simple(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_iter_init(ptr noundef initializes((8, 12), (528, 548)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %19, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %6 to i64
   %13 = shl nuw nsw i64 %12, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 8 %11, i64 %13, i1 false)
-  %14 = getelementptr inbounds i8, ptr %0, i64 272
-  %15 = getelementptr inbounds i8, ptr %1, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %16 = load i32, ptr %5, align 8
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
@@ -1066,17 +1066,17 @@ define i32 @H5S_select_iter_init(ptr noundef initializes((8, 12), (528, 548)) %0
   br label %19
 
 19:                                               ; preds = %8, %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 536
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 %2, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 80
-  %22 = getelementptr inbounds i8, ptr %1, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 528
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i64 %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 544
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 544
   store i32 %3, ptr %25, align 8
   %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 160
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %1, ptr noundef nonnull %0) #7
   ret i32 %29
@@ -1085,7 +1085,7 @@ define i32 @H5S_select_iter_init(ptr noundef initializes((8, 12), (528, 548)) %0
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_iter_coords(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1) #7
   ret i32 %6
@@ -1094,7 +1094,7 @@ define i32 @H5S_select_iter_coords(ptr noundef %0, ptr noundef %1) local_unnamed
 ; Function Attrs: nounwind uwtable
 define i64 @H5S_select_iter_nelmts(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 %4(ptr noundef nonnull %0) #7
   ret i64 %5
@@ -1103,10 +1103,10 @@ define i64 @H5S_select_iter_nelmts(ptr noundef %0) local_unnamed_addr #3 {
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_iter_next(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, i64 noundef %1) #7
-  %7 = getelementptr inbounds i8, ptr %0, i64 528
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %8, %1
   store i64 %9, ptr %7, align 8
@@ -1116,7 +1116,7 @@ define i32 @H5S_select_iter_next(ptr noundef %0, i64 noundef %1) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5S_select_iter_get_seq_list(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #3 {
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #7
   %12 = icmp slt i32 %11, 0
@@ -1136,7 +1136,7 @@ define range(i32 -1, -2147483648) i32 @H5S_select_iter_get_seq_list(ptr noundef 
 ; Function Attrs: nounwind uwtable
 define i32 @H5S_select_iter_release(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef nonnull %0) #7
   ret i32 %5
@@ -1170,37 +1170,37 @@ define i32 @H5S_select_iterate(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   br label %.thread150
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %2, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %25, ptr %26, align 8
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %H5S_select_iter_init.exit, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %17, i64 16
-  %29 = getelementptr inbounds i8, ptr %2, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = zext i32 %25 to i64
   %32 = shl nuw nsw i64 %31, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %30, i64 %32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %17, i64 272
-  %34 = getelementptr inbounds i8, ptr %2, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %34, i64 %32, i1 false)
   br label %H5S_select_iter_init.exit
 
 H5S_select_iter_init.exit:                        ; preds = %23, %27
-  %35 = getelementptr inbounds i8, ptr %17, i64 536
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 536
   store i64 %10, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %2, i64 80
-  %37 = getelementptr inbounds i8, ptr %2, i64 352
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %17, i64 528
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 528
   store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %17, i64 544
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 544
   store i32 0, ptr %40, align 8
   %41 = load ptr, ptr %36, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 160
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 160
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 %43(ptr noundef nonnull %2, ptr noundef nonnull %17) #7
   %45 = icmp slt i32 %44, 0
@@ -1224,7 +1224,7 @@ H5S_select_iter_init.exit:                        ; preds = %23, %27
   br i1 %.not, label %._crit_edge, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %2, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %57 = load ptr, ptr %56, align 8
   %58 = zext i32 %.fr173 to i64
   %59 = shl nuw nsw i64 %58, 3
@@ -1233,7 +1233,7 @@ H5S_select_iter_init.exit:                        ; preds = %23, %27
 
 ._crit_edge:                                      ; preds = %53, %55
   %.pre-phi = phi i64 [ %58, %55 ], [ 0, %53 ]
-  %60 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %.pre-phi
+  %60 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %.pre-phi
   store i64 %10, ptr %60, align 8
   %61 = tail call noalias ptr @H5FL_seq_malloc(ptr noundef nonnull @H5_size_t_seq_free_list, i64 noundef 1024) #7
   %62 = icmp eq ptr %61, null
@@ -1256,14 +1256,14 @@ H5S_select_iter_init.exit:                        ; preds = %23, %27
 
 .lr.ph168:                                        ; preds = %.preheader154
   %70 = icmp sgt i32 %.fr173, -1
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
-  %72 = getelementptr inbounds i8, ptr %3, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br i1 %70, label %.lr.ph168.split.us, label %.lr.ph168.split
 
 .lr.ph168.split.us:                               ; preds = %.lr.ph168, %._crit_edge.split.us.us
   %.085167.us = phi i64 [ %79, %._crit_edge.split.us.us ], [ %47, %.lr.ph168 ]
   %73 = load ptr, ptr %17, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %75(ptr noundef nonnull %17, i64 noundef 1024, i64 noundef %.085167.us, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %68, ptr noundef nonnull %61) #7
   %77 = icmp slt i32 %76, 0
@@ -1347,10 +1347,10 @@ H5S_select_iter_init.exit:                        ; preds = %23, %27
 112:                                              ; preds = %112, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %112 ], [ %.pre-phi, %.preheader.us.us.us ]
   %.076159.us.us.us = phi i64 [ %117, %112 ], [ %.078161.us.us.us, %.preheader.us.us.us ]
-  %113 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
   %114 = load i64, ptr %113, align 8
   %115 = urem i64 %.076159.us.us.us, %114
-  %116 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 %115, ptr %116, align 8
   %117 = udiv i64 %.076159.us.us.us, %114
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1375,7 +1375,7 @@ H5S_select_iter_init.exit:                        ; preds = %23, %27
 .lr.ph168.split:                                  ; preds = %.lr.ph168, %._crit_edge.split
   %.085167 = phi i64 [ %168, %._crit_edge.split ], [ %47, %.lr.ph168 ]
   %125 = load ptr, ptr %17, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 56
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 56
   %127 = load ptr, ptr %126, align 8
   %128 = call i32 %127(ptr noundef nonnull %17, i64 noundef 1024, i64 noundef %.085167, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %68, ptr noundef nonnull %61) #7
   %129 = icmp slt i32 %128, 0
@@ -1482,7 +1482,7 @@ H5S_select_iter_init.exit:                        ; preds = %23, %27
 .thread130:                                       ; preds = %.loopexit.thread, %.loopexit.thread188, %63, %49
   %.080106127134 = phi i32 [ -1, %49 ], [ -1, %63 ], [ %.080118192, %.loopexit.thread188 ], [ -1, %.loopexit.thread ]
   %174 = load ptr, ptr %17, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 64
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 64
   %176 = load ptr, ptr %175, align 8
   %177 = call i32 %176(ptr noundef nonnull %17) #7
   %178 = icmp slt i32 %177, 0
@@ -1565,7 +1565,7 @@ define i32 @H5Sget_select_type(i64 noundef %0) local_unnamed_addr #3 {
   br label %.thread18
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %23, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = tail call i32 @H5CX_pop(i1 noundef zeroext true) #7
@@ -1582,7 +1582,7 @@ define i32 @H5Sget_select_type(i64 noundef %0) local_unnamed_addr #3 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @H5S_get_select_type(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   ret i32 %4
@@ -1599,21 +1599,21 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
   %9 = alloca [32 x i64], align 16
   %10 = alloca [32 x i64], align 16
   %11 = alloca [32 x i64], align 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 352
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 352
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %15 = load i64, ptr %14, align 8
   %.not = icmp eq i64 %13, %15
   br i1 %.not, label %16, label %.thread202
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 8
   %.not143 = icmp eq i32 %18, 0
   br i1 %.not143, label %.thread202, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %21 = load i32, ptr %20, align 8
   %.not144 = icmp eq i32 %21, 0
   br i1 %.not144, label %.thread202, label %22
@@ -1622,14 +1622,14 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
   %.not145 = icmp ult i32 %18, %21
   %. = select i1 %.not145, ptr %1, ptr %0
   %.158 = select i1 %.not145, ptr %0, ptr %1
-  %23 = getelementptr inbounds i8, ptr %., i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %., i64 56
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %.158, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.158, i64 56
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %., i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %., i64 80
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %.158, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %.158, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp ne i32 %29, 0
@@ -1638,7 +1638,7 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %or.cond, label %35, label %89
 
 35:                                               ; preds = %22
-  %36 = getelementptr inbounds i8, ptr %28, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = call i32 %37(ptr noundef nonnull %., ptr noundef nonnull %3, ptr noundef nonnull %5) #7
   %39 = icmp slt i32 %38, 0
@@ -1652,7 +1652,7 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 44:                                               ; preds = %35
   %45 = load ptr, ptr %30, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 %47(ptr noundef nonnull %.158, ptr noundef nonnull %4, ptr noundef nonnull %6) #7
   %49 = icmp slt i32 %48, 0
@@ -1692,9 +1692,9 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
   %64 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv.next
   %65 = load i64, ptr %64, align 8
   %66 = sub i64 %63, %65
-  %67 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %61
+  %67 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %61
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds [32 x i64], ptr %4, i64 0, i64 %61
+  %69 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %61
   %70 = load i64, ptr %69, align 8
   %71 = sub i64 %68, %70
   %.not155 = icmp eq i64 %66, %71
@@ -1708,16 +1708,16 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %72
   %.1127222 = phi i32 [ %73, %72 ], [ %59, %.lr.ph.preheader ]
   %75 = zext nneg i32 %.1127222 to i64
-  %76 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %75
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %75
+  %78 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %75
   %79 = load i64, ptr %78, align 8
   %.not154 = icmp eq i64 %77, %79
   br i1 %.not154, label %72, label %.thread202
 
 ._crit_edge:                                      ; preds = %72, %.preheader216
   %80 = load ptr, ptr %27, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 96
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 96
   %82 = load ptr, ptr %81, align 8
   %83 = call i32 %82(ptr noundef %.) #7
   %.not146 = icmp eq i32 %83, 0
@@ -1725,7 +1725,7 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 84:                                               ; preds = %._crit_edge
   %85 = load ptr, ptr %30, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 96
   %87 = load ptr, ptr %86, align 8
   %88 = call i32 %87(ptr noundef %.158) #7
   %.not147 = icmp eq i32 %88, 0
@@ -1737,7 +1737,7 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %27, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 112
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 112
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 %94(ptr noundef nonnull %., ptr noundef %.158) #7
   br label %.thread202
@@ -1766,34 +1766,34 @@ define i32 @H5S_select_shape_same(ptr noundef %0, ptr noundef %1) local_unnamed_
 
 110:                                              ; preds = %103
   %111 = load i32, ptr %23, align 8
-  %112 = getelementptr inbounds i8, ptr %97, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %97, i64 8
   store i32 %111, ptr %112, align 8
   %.not.i = icmp eq i32 %111, 0
   br i1 %.not.i, label %H5S_select_iter_init.exit, label %113
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds i8, ptr %97, i64 16
-  %115 = getelementptr inbounds i8, ptr %., i64 64
+  %114 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %., i64 64
   %116 = load ptr, ptr %115, align 8
   %117 = zext i32 %111 to i64
   %118 = shl nuw nsw i64 %117, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %114, ptr align 8 %116, i64 %118, i1 false)
-  %119 = getelementptr inbounds i8, ptr %97, i64 272
-  %120 = getelementptr inbounds i8, ptr %., i64 96
+  %119 = getelementptr inbounds nuw i8, ptr %97, i64 272
+  %120 = getelementptr inbounds nuw i8, ptr %., i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %119, ptr nonnull align 8 %120, i64 %118, i1 false)
   br label %H5S_select_iter_init.exit
 
 H5S_select_iter_init.exit:                        ; preds = %110, %113
-  %121 = getelementptr inbounds i8, ptr %97, i64 536
+  %121 = getelementptr inbounds nuw i8, ptr %97, i64 536
   store i64 0, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %., i64 352
+  %122 = getelementptr inbounds nuw i8, ptr %., i64 352
   %123 = load i64, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %97, i64 528
+  %124 = getelementptr inbounds nuw i8, ptr %97, i64 528
   store i64 %123, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %97, i64 544
+  %125 = getelementptr inbounds nuw i8, ptr %97, i64 544
   store i32 0, ptr %125, align 8
   %126 = load ptr, ptr %27, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 160
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 160
   %128 = load ptr, ptr %127, align 8
   %129 = call i32 %128(ptr noundef nonnull %., ptr noundef nonnull %97) #7
   %130 = icmp slt i32 %129, 0
@@ -1827,7 +1827,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 147:                                              ; preds = %.preheader214, %253
   %.0121 = phi i1 [ false, %253 ], [ true, %.preheader214 ]
   %148 = load ptr, ptr %97, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load ptr, ptr %149, align 8
   %151 = call i32 %150(ptr noundef nonnull %97, ptr noundef nonnull %7, ptr noundef nonnull %9) #7
   %152 = icmp slt i32 %151, 0
@@ -1841,7 +1841,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 
 157:                                              ; preds = %147
   %158 = load ptr, ptr %104, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = load ptr, ptr %159, align 8
   %161 = call i32 %160(ptr noundef nonnull %104, ptr noundef nonnull %8, ptr noundef nonnull %10) #7
   %162 = icmp slt i32 %161, 0
@@ -1880,9 +1880,9 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
   %173 = load i64, ptr %172, align 8
   %174 = sub i64 %171, %173
   %175 = zext nneg i32 %.1125229 to i64
-  %176 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %175
+  %176 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %175
   %177 = load i64, ptr %176, align 8
-  %178 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %175
+  %178 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %175
   %179 = load i64, ptr %178, align 8
   %180 = sub i64 %177, %179
   %.not153 = icmp eq i64 %174, %180
@@ -1905,9 +1905,9 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 .lr.ph233:                                        ; preds = %.preheader, %186
   %.3232 = phi i32 [ %187, %186 ], [ %.2128.lcssa, %.preheader ]
   %189 = zext nneg i32 %.3232 to i64
-  %190 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %189
+  %190 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %189
   %191 = load i64, ptr %190, align 8
-  %192 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %189
+  %192 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %189
   %193 = load i64, ptr %192, align 8
   %.not152 = icmp eq i64 %191, %193
   br i1 %.not152, label %186, label %.loopexit206
@@ -1926,7 +1926,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
   %198 = load i64, ptr %197, align 8
   %199 = add nsw i64 %198, %196
   %200 = zext nneg i32 %.2224 to i64
-  %201 = getelementptr inbounds [32 x i64], ptr %8, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [32 x i64], ptr %8, i64 0, i64 %200
   %202 = load i64, ptr %201, align 8
   %.not149 = icmp eq i64 %199, %202
   br i1 %.not149, label %203, label %.loopexit206
@@ -1935,7 +1935,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
   %204 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv249
   %205 = load i64, ptr %204, align 8
   %206 = sub i64 %205, %196
-  %207 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %200
+  %207 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %200
   %208 = load i64, ptr %207, align 8
   %209 = sub i64 %208, %199
   %.not150 = icmp eq i64 %206, %209
@@ -1955,16 +1955,16 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 .lr.ph227:                                        ; preds = %.preheader209, %213
   %.5226 = phi i32 [ %214, %213 ], [ %.4.lcssa, %.preheader209 ]
   %216 = zext nneg i32 %.5226 to i64
-  %217 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %216
   %218 = load i64, ptr %217, align 8
-  %219 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %216
+  %219 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %216
   %220 = load i64, ptr %219, align 8
   %.not148 = icmp eq i64 %218, %220
   br i1 %.not148, label %213, label %.loopexit206
 
 .loopexit:                                        ; preds = %213, %186, %.preheader209, %.preheader
   %221 = load ptr, ptr %97, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 32
   %223 = load ptr, ptr %222, align 8
   %224 = call i32 %223(ptr noundef nonnull %97) #7
   %225 = icmp slt i32 %224, 0
@@ -1978,7 +1978,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 
 230:                                              ; preds = %.loopexit
   %231 = load ptr, ptr %104, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
   %233 = load ptr, ptr %232, align 8
   %234 = call i32 %233(ptr noundef nonnull %104) #7
   %235 = icmp slt i32 %234, 0
@@ -2001,7 +2001,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 
 243:                                              ; preds = %242
   %244 = load ptr, ptr %97, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 48
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 48
   %246 = load ptr, ptr %245, align 8
   %247 = call i32 %246(ptr noundef nonnull %97) #7
   %248 = icmp slt i32 %247, 0
@@ -2015,7 +2015,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 
 253:                                              ; preds = %243
   %254 = load ptr, ptr %104, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 48
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 48
   %256 = load ptr, ptr %255, align 8
   %257 = call i32 %256(ptr noundef nonnull %104) #7
   %258 = icmp slt i32 %257, 0
@@ -2030,7 +2030,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 .loopexit206:                                     ; preds = %240, %242, %.lr.ph225, %203, %.lr.ph227, %.lr.ph230, %.lr.ph233, %143, %153, %163, %226, %236, %249, %259
   %.0129.ph = phi i32 [ -1, %259 ], [ -1, %249 ], [ -1, %236 ], [ -1, %226 ], [ -1, %163 ], [ -1, %153 ], [ -1, %143 ], [ 0, %.lr.ph233 ], [ 0, %.lr.ph230 ], [ 0, %.lr.ph227 ], [ 0, %203 ], [ 0, %.lr.ph225 ], [ 1, %240 ], [ 0, %242 ]
   %263 = load ptr, ptr %97, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 64
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 64
   %265 = load ptr, ptr %264, align 8
   %266 = call i32 %265(ptr noundef nonnull %97) #7
   %267 = icmp slt i32 %266, 0
@@ -2054,7 +2054,7 @@ H5S_select_iter_init.exit:                        ; preds = %110, %113
 276:                                              ; preds = %268, %274
   %.1130193 = phi i32 [ -1, %268 ], [ %.0129.ph, %274 ]
   %277 = load ptr, ptr %104, align 8
-  %278 = getelementptr inbounds i8, ptr %277, i64 64
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 64
   %279 = load ptr, ptr %278, align 8
   %280 = call i32 %279(ptr noundef nonnull %104) #7
   %281 = icmp slt i32 %280, 0
@@ -2166,21 +2166,21 @@ define range(i32 -1, -2147483648) i32 @H5Sselect_shape_same(i64 noundef %0, i64 
 define range(i32 -1, -2147483648) i32 @H5S_select_intersect_block(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca [32 x i64], align 16
   %5 = alloca [32 x i64], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %.loopexit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 %11(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   %13 = icmp slt i32 %12, 0
   br i1 %13, label %16, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
   %.not22 = icmp eq i32 %15, 0
   br i1 %.not22, label %.loopexit, label %.lr.ph.preheader
@@ -2202,24 +2202,24 @@ define range(i32 -1, -2147483648) i32 @H5S_select_intersect_block(ptr noundef %0
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8
   %25 = icmp ugt i64 %22, %24
   br i1 %25, label %.loopexit20, label %26
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
   %30 = load i64, ptr %29, align 8
   %31 = icmp ugt i64 %28, %30
   br i1 %31, label %.loopexit20, label %20
 
 .loopexit:                                        ; preds = %20, %.preheader, %3
   %32 = load ptr, ptr %6, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 120
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 %34(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #7
   %36 = icmp slt i32 %35, 0
@@ -2294,7 +2294,7 @@ define range(i32 -1, -2147483648) i32 @H5Sselect_intersect_block(i64 noundef %0,
   br i1 %38, label %41, label %.preheader
 
 .preheader:                                       ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %25, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %40 = load i32, ptr %39, align 8
   %.not = icmp eq i32 %40, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
@@ -2311,9 +2311,9 @@ define range(i32 -1, -2147483648) i32 @H5Sselect_intersect_block(i64 noundef %0,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %55 ]
-  %45 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8
   %49 = icmp ugt i64 %46, %48
   br i1 %49, label %50, label %55
@@ -2382,8 +2382,8 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br i1 %19, label %20, label %55
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
-  %22 = getelementptr inbounds i8, ptr %0, i64 352
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %23 = load i64, ptr %22, align 8
   %24 = icmp slt i64 %23, 0
   br i1 %24, label %25, label %29
@@ -2411,7 +2411,7 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %21, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 144
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 144
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   %43 = icmp slt i32 %42, 0
@@ -2444,22 +2444,22 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   %59 = zext i32 %58 to i64
   %60 = call i32 @H5VM_array_fill(ptr noundef nonnull %9, ptr noundef nonnull %11, i64 noundef 8, i64 noundef %59) #7
   %61 = call i32 @H5VM_array_fill(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef 8, i64 noundef %59) #7
-  %62 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %59
+  %62 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %59
   %63 = zext nneg i32 %12 to i64
   %64 = shl nuw nsw i64 %63, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 16 %6, i64 %64, i1 false)
-  %65 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %59
+  %65 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 16 %7, i64 %64, i1 false)
   br label %73
 
 66:                                               ; preds = %55
   %67 = sub nuw nsw i32 %12, %2
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %68
   %70 = zext nneg i32 %2 to i64
   %71 = shl nuw nsw i64 %70, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 8 %69, i64 %71, i1 false)
-  %72 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %68
+  %72 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr nonnull align 8 %72, i64 %71, i1 false)
   br label %73
 
@@ -2476,9 +2476,9 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %.thread
 
 80:                                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %0, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 152
   %84 = load ptr, ptr %83, align 8
   %85 = call i32 %84(ptr noundef %0, ptr noundef nonnull %74, ptr noundef nonnull %8) #7
   %86 = icmp slt i32 %85, 0
@@ -2491,43 +2491,43 @@ define range(i32 -1, 1) i32 @H5S_select_construct_projection(ptr noundef %0, ptr
   br label %123
 
 91:                                               ; preds = %80
-  %92 = getelementptr inbounds i8, ptr %0, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %93 = load i32, ptr %92, align 8
   %94 = icmp eq i32 %93, 1
   br i1 %94, label %95, label %116
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %0, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %97 = load i8, ptr %96, align 8
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %116
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %74, i64 96
+  %100 = getelementptr inbounds nuw i8, ptr %74, i64 96
   br i1 %56, label %101, label %108
 
 101:                                              ; preds = %99
   %102 = zext i32 %.0 to i64
   %103 = shl nuw nsw i64 %102, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %100, i8 0, i64 %103, i1 false)
-  %104 = getelementptr inbounds [32 x i64], ptr %100, i64 0, i64 %102
-  %105 = getelementptr inbounds i8, ptr %0, i64 96
+  %104 = getelementptr inbounds nuw [32 x i64], ptr %100, i64 0, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %106 = zext nneg i32 %12 to i64
   %107 = shl nuw nsw i64 %106, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %104, ptr nonnull align 8 %105, i64 %107, i1 false)
   br label %114
 
 108:                                              ; preds = %99
-  %109 = getelementptr inbounds i8, ptr %0, i64 96
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %110 = zext i32 %.0 to i64
-  %111 = getelementptr inbounds [32 x i64], ptr %109, i64 0, i64 %110
+  %111 = getelementptr inbounds nuw [32 x i64], ptr %109, i64 0, i64 %110
   %112 = zext nneg i32 %2 to i64
   %113 = shl nuw nsw i64 %112, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %100, ptr nonnull align 8 %111, i64 %113, i1 false)
   br label %114
 
 114:                                              ; preds = %108, %101
-  %115 = getelementptr inbounds i8, ptr %74, i64 88
+  %115 = getelementptr inbounds nuw i8, ptr %74, i64 88
   store i8 1, ptr %115, align 8
   br label %116
 
@@ -2589,37 +2589,37 @@ define range(i32 -1, 1) i32 @H5S_select_fill(ptr noundef %0, i64 noundef %1, ptr
   br i1 %8, label %90, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %11, ptr %12, align 8
   %.not.i = icmp eq i32 %11, 0
   br i1 %.not.i, label %H5S_select_iter_init.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %11 to i64
   %18 = shl nuw nsw i64 %17, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr align 8 %16, i64 %18, i1 false)
-  %19 = getelementptr inbounds i8, ptr %7, i64 272
-  %20 = getelementptr inbounds i8, ptr %2, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %20, i64 %18, i1 false)
   br label %H5S_select_iter_init.exit
 
 H5S_select_iter_init.exit:                        ; preds = %9, %13
-  %21 = getelementptr inbounds i8, ptr %7, i64 536
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 536
   store i64 %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 80
-  %23 = getelementptr inbounds i8, ptr %2, i64 352
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 528
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 528
   store i64 %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 544
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 544
   store i32 0, ptr %26, align 8
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 160
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 160
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 %29(ptr noundef nonnull %2, ptr noundef nonnull %7) #7
   %31 = icmp slt i32 %30, 0
@@ -2672,7 +2672,7 @@ H5S_select_iter_init.exit:                        ; preds = %9, %13
 .lr.ph95:                                         ; preds = %.preheader91, %._crit_edge
   %.04094 = phi i64 [ %78, %._crit_edge ], [ %37, %.preheader91 ]
   %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 %59(ptr noundef nonnull %7, i64 noundef 1024, i64 noundef %.04094, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %51, ptr noundef nonnull %44) #7
   %61 = icmp slt i32 %60, 0
@@ -2718,7 +2718,7 @@ H5S_select_iter_init.exit:                        ; preds = %9, %13
 .thread79:                                        ; preds = %.loopexit.thread, %39, %46, %.loopexit.thread100
   %.039607682 = phi i32 [ %.03970104, %.loopexit.thread100 ], [ -1, %46 ], [ -1, %39 ], [ -1, %.loopexit.thread ]
   %81 = load ptr, ptr %7, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 64
   %83 = load ptr, ptr %82, align 8
   %84 = call i32 %83(ptr noundef nonnull %7) #7
   %85 = icmp slt i32 %84, 0
@@ -2795,7 +2795,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br label %234
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %2, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, 3
@@ -2813,21 +2813,21 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br label %234
 
 48:                                               ; preds = %36
-  %49 = getelementptr inbounds i8, ptr %2, i64 352
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 352
   %50 = load i64, ptr %49, align 8
   %51 = icmp eq i64 %50, 0
   br i1 %51, label %62, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %0, i64 80
-  %54 = getelementptr inbounds i8, ptr %0, i64 352
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %55 = load i64, ptr %54, align 8
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %62, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %1, i64 80
-  %59 = getelementptr inbounds i8, ptr %1, i64 352
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %62, label %69
@@ -2844,14 +2844,14 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br label %234
 
 69:                                               ; preds = %57
-  %70 = getelementptr inbounds i8, ptr %1, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %105
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %53, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = load ptr, ptr %75, align 8
   %77 = call i32 %76(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #7
   %78 = icmp slt i32 %77, 0
@@ -2905,7 +2905,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br i1 %106, label %107, label %.loopexit158
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %2, i64 360
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 360
   %109 = tail call ptr @H5S_create(i32 noundef 1) #7
   %110 = icmp eq ptr %109, null
   br i1 %110, label %111, label %115
@@ -2929,8 +2929,8 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 
 122:                                              ; preds = %115
   %123 = load ptr, ptr %108, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 512
-  %125 = getelementptr inbounds i8, ptr %2, i64 56
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 512
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %126
 
 126:                                              ; preds = %127, %122
@@ -2941,7 +2941,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 
 127:                                              ; preds = %126
   %128 = load i32, ptr %125, align 8
-  %129 = getelementptr inbounds i8, ptr %.096, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %.096, i64 8
   %130 = tail call i32 @H5S_hyper_add_span_element(ptr noundef nonnull %109, i32 noundef %128, ptr noundef nonnull %129) #7
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %126
@@ -2994,8 +2994,8 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   br i1 %159, label %162, label %.preheader
 
 .preheader:                                       ; preds = %157
-  %160 = getelementptr inbounds i8, ptr %9, i64 528
-  %161 = getelementptr inbounds i8, ptr %16, i64 528
+  %160 = getelementptr inbounds nuw i8, ptr %9, i64 528
+  %161 = getelementptr inbounds nuw i8, ptr %16, i64 528
   br label %166
 
 162:                                              ; preds = %157
@@ -3006,7 +3006,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 
 166:                                              ; preds = %.preheader, %223
   %167 = load ptr, ptr %9, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8
   %170 = call i32 %169(ptr noundef nonnull %9, ptr noundef nonnull %8) #7
   %171 = icmp slt i32 %170, 0
@@ -3035,7 +3035,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 
 184:                                              ; preds = %183
   %185 = load ptr, ptr %16, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load ptr, ptr %186, align 8
   %188 = call i32 %187(ptr noundef nonnull %16, ptr noundef nonnull %8) #7
   %189 = icmp slt i32 %188, 0
@@ -3060,7 +3060,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 
 201:                                              ; preds = %194, %183
   %202 = load ptr, ptr %9, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %204 = load ptr, ptr %203, align 8
   %205 = call i32 %204(ptr noundef nonnull %9, i64 noundef 1) #7
   %206 = icmp slt i32 %205, 0
@@ -3077,7 +3077,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
   %213 = add i64 %212, -1
   store i64 %213, ptr %160, align 8
   %214 = load ptr, ptr %16, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 40
   %216 = load ptr, ptr %215, align 8
   %217 = call i32 %216(ptr noundef nonnull %16, i64 noundef 1) #7
   %218 = icmp slt i32 %217, 0
@@ -3153,7 +3153,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 249:                                              ; preds = %244, %248
   %.2150 = phi i32 [ -1, %244 ], [ %.1, %248 ]
   %250 = load ptr, ptr %9, align 8
-  %251 = getelementptr inbounds i8, ptr %250, i64 64
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 64
   %252 = load ptr, ptr %251, align 8
   %253 = call i32 %252(ptr noundef nonnull %9) #7
   %254 = icmp slt i32 %253, 0
@@ -3172,7 +3172,7 @@ define range(i32 -1, 1) i32 @H5S_select_project_intersection(ptr noundef %0, ptr
 260:                                              ; preds = %255, %259
   %.3157 = phi i32 [ -1, %255 ], [ %.3, %259 ]
   %261 = load ptr, ptr %16, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 64
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 64
   %263 = load ptr, ptr %262, align 8
   %264 = call i32 %263(ptr noundef nonnull %16) #7
   %265 = icmp slt i32 %264, 0
@@ -3272,9 +3272,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5Sselect_project_intersection(i
   br label %.thread52
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %26, i64 352
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 352
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %33, i64 352
+  %49 = getelementptr inbounds nuw i8, ptr %33, i64 352
   %50 = load i64, ptr %49, align 8
   %.not = icmp eq i64 %48, %50
   br i1 %.not, label %55, label %51
@@ -3286,9 +3286,9 @@ define range(i64 -1, -9223372036854775808) i64 @H5Sselect_project_intersection(i
   br label %.thread52
 
 55:                                               ; preds = %46
-  %56 = getelementptr inbounds i8, ptr %26, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %57 = load i32, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %40, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %59 = load i32, ptr %58, align 8
   %.not32 = icmp eq i32 %57, %59
   br i1 %.not32, label %64, label %60
@@ -3364,14 +3364,14 @@ define range(i32 -1, 1) i32 @H5S_select_subtract(ptr noundef %0, ptr noundef %1)
   %4 = alloca [32 x i64], align 16
   %5 = alloca [32 x i64], align 16
   %6 = alloca [32 x i64], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %50, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %21 [
@@ -3398,13 +3398,13 @@ define range(i32 -1, 1) i32 @H5S_select_subtract(ptr noundef %0, ptr noundef %1)
   ]
 
 .preheader:                                       ; preds = %21
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %.not28 = icmp eq i32 %23, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   %wide.trip.count = zext i32 %23 to i64
   br label %30
@@ -3417,15 +3417,15 @@ define range(i32 -1, 1) i32 @H5S_select_subtract(ptr noundef %0, ptr noundef %1)
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [32 x i64], ptr %3, i64 0, i64 %indvars.iv
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds [32 x i64], ptr %4, i64 0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [32 x i64], ptr %4, i64 0, i64 %indvars.iv
   store i64 1, ptr %32, align 8
-  %33 = getelementptr inbounds [32 x i64], ptr %5, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [32 x i64], ptr %5, i64 0, i64 %indvars.iv
   store i64 1, ptr %33, align 8
-  %34 = getelementptr inbounds i64, ptr %25, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds [32 x i64], ptr %6, i64 0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [32 x i64], ptr %6, i64 0, i64 %indvars.iv
   store i64 %35, ptr %36, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3538,37 +3538,37 @@ define range(i64 -1, -9223372036854775808) i64 @H5Ssel_iter_create(i64 noundef %
 
 49:                                               ; preds = %42
   %50 = or disjoint i32 %2, 4096
-  %51 = getelementptr inbounds i8, ptr %25, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %43, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %52, ptr %53, align 8
   %.not.i = icmp eq i32 %52, 0
   br i1 %.not.i, label %H5S_select_iter_init.exit, label %54
 
 54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %43, i64 16
-  %56 = getelementptr inbounds i8, ptr %25, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %57 = load ptr, ptr %56, align 8
   %58 = zext i32 %52 to i64
   %59 = shl nuw nsw i64 %58, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %57, i64 %59, i1 false)
-  %60 = getelementptr inbounds i8, ptr %43, i64 272
-  %61 = getelementptr inbounds i8, ptr %25, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %43, i64 272
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %60, ptr nonnull align 8 %61, i64 %59, i1 false)
   br label %H5S_select_iter_init.exit
 
 H5S_select_iter_init.exit:                        ; preds = %49, %54
-  %62 = getelementptr inbounds i8, ptr %43, i64 536
+  %62 = getelementptr inbounds nuw i8, ptr %43, i64 536
   store i64 %1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %25, i64 80
-  %64 = getelementptr inbounds i8, ptr %25, i64 352
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 352
   %65 = load i64, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %43, i64 528
+  %66 = getelementptr inbounds nuw i8, ptr %43, i64 528
   store i64 %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %43, i64 544
+  %67 = getelementptr inbounds nuw i8, ptr %43, i64 544
   store i32 %50, ptr %67, align 8
   %68 = load ptr, ptr %63, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 160
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %70(ptr noundef nonnull %25, ptr noundef nonnull %43) #7
   %72 = icmp slt i32 %71, 0
@@ -3698,14 +3698,14 @@ define range(i32 -1, 1) i32 @H5Ssel_iter_get_seq_list(i64 noundef %0, i64 nounde
   br i1 %or.cond, label %62, label %75
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %29, i64 528
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 528
   %64 = load i64, ptr %63, align 8
   %.not = icmp eq i64 %64, 0
   br i1 %.not, label %75, label %65
 
 65:                                               ; preds = %62
   %66 = load ptr, ptr %29, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 %68(ptr noundef nonnull %29, i64 noundef %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
   %70 = icmp slt i32 %69, 0
@@ -3750,37 +3750,37 @@ define range(i32 -1, 1) i32 @H5S_select_contig_block(ptr noundef %0, ptr noundef
   br i1 %10, label %71, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %13, ptr %14, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %H5S_select_iter_init.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = zext i32 %13 to i64
   %20 = shl nuw nsw i64 %19, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %16, ptr align 8 %18, i64 %20, i1 false)
-  %21 = getelementptr inbounds i8, ptr %9, i64 272
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 272
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %21, ptr nonnull align 8 %22, i64 %20, i1 false)
   br label %H5S_select_iter_init.exit
 
 H5S_select_iter_init.exit:                        ; preds = %11, %15
-  %23 = getelementptr inbounds i8, ptr %9, i64 536
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 536
   store i64 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
-  %25 = getelementptr inbounds i8, ptr %0, i64 352
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 528
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 528
   store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 544
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 544
   store i32 0, ptr %28, align 8
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %0, ptr noundef nonnull %9) #7
   %33 = icmp slt i32 %32, 0
@@ -3794,7 +3794,7 @@ H5S_select_iter_init.exit:                        ; preds = %11, %15
 
 38:                                               ; preds = %H5S_select_iter_init.exit
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 %41(ptr noundef nonnull %9, i64 noundef 1, i64 noundef -1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %43 = icmp slt i32 %42, 0
@@ -3847,7 +3847,7 @@ H5S_select_iter_init.exit:                        ; preds = %11, %15
 61:                                               ; preds = %44, %58, %57, %60, %59
   %.0.ph = phi i32 [ 0, %59 ], [ 0, %60 ], [ 0, %57 ], [ 0, %58 ], [ -1, %44 ]
   %62 = load ptr, ptr %9, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 64
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
   %64 = load ptr, ptr %63, align 8
   %65 = call i32 %64(ptr noundef nonnull %9) #7
   %66 = icmp slt i32 %65, 0
@@ -3931,7 +3931,7 @@ define range(i32 -1, 1) i32 @H5Ssel_iter_reset(i64 noundef %0, i64 noundef %1) l
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(ptr noundef nonnull %24) #7
   %42 = icmp slt i32 %41, 0
@@ -3944,26 +3944,26 @@ define range(i32 -1, 1) i32 @H5Ssel_iter_reset(i64 noundef %0, i64 noundef %1) l
   br label %.thread34
 
 47:                                               ; preds = %37
-  %48 = getelementptr inbounds i8, ptr %24, i64 536
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 536
   %49 = load i64, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %24, i64 544
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 544
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %31, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %24, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %53, ptr %54, align 8
   %.not.i = icmp eq i32 %53, 0
   br i1 %.not.i, label %H5S_select_iter_init.exit, label %55
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %24, i64 16
-  %57 = getelementptr inbounds i8, ptr %31, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %58 = load ptr, ptr %57, align 8
   %59 = zext i32 %53 to i64
   %60 = shl nuw nsw i64 %59, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %56, ptr align 8 %58, i64 %60, i1 false)
-  %61 = getelementptr inbounds i8, ptr %24, i64 272
-  %62 = getelementptr inbounds i8, ptr %31, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %24, i64 272
+  %62 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %63 = load i32, ptr %52, align 8
   %64 = zext i32 %63 to i64
   %65 = shl nuw nsw i64 %64, 3
@@ -3972,14 +3972,14 @@ define range(i32 -1, 1) i32 @H5Ssel_iter_reset(i64 noundef %0, i64 noundef %1) l
 
 H5S_select_iter_init.exit:                        ; preds = %47, %55
   store i64 %49, ptr %48, align 8
-  %66 = getelementptr inbounds i8, ptr %31, i64 80
-  %67 = getelementptr inbounds i8, ptr %31, i64 352
+  %66 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %31, i64 352
   %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %24, i64 528
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 528
   store i64 %68, ptr %69, align 8
   store i32 %51, ptr %50, align 8
   %70 = load ptr, ptr %66, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 160
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 160
   %72 = load ptr, ptr %71, align 8
   %73 = tail call i32 %72(ptr noundef nonnull %31, ptr noundef nonnull %24) #7
   %74 = icmp slt i32 %73, 0
@@ -4011,7 +4011,7 @@ H5S_select_iter_init.exit:                        ; preds = %47, %55
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5S__sel_iter_close_cb(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0) #7
   %7 = icmp slt i32 %6, 0
@@ -4038,7 +4038,7 @@ H5S_sel_iter_close.exit:                          ; preds = %2
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5S_sel_iter_close(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef nonnull %0) #7
   %6 = icmp slt i32 %5, 0

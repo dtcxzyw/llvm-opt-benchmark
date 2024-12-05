@@ -32,25 +32,25 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_ecjpake_init(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_ecp_group_init(ptr noundef nonnull %2) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 260
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 336
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %5) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %6) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 480
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 552
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
   tail call void @mbedtls_ecp_point_init(ptr noundef nonnull %8) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 624
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 624
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %9) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 648
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 648
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %10) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 672
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %11) #14
   ret void
 }
@@ -68,23 +68,23 @@ define hidden void @mbedtls_ecjpake_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_ecp_group_free(ptr noundef nonnull %4) #14
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %5) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 336
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %6) #14
-  %7 = getelementptr inbounds i8, ptr %0, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %7) #14
-  %8 = getelementptr inbounds i8, ptr %0, i64 480
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %8) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 552
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %9) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 624
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 624
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %10) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 648
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 648
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %11) #14
-  %12 = getelementptr inbounds i8, ptr %0, i64 672
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %12) #14
   br label %13
 
@@ -100,7 +100,7 @@ declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_ecjpake_setup(ptr noundef initializes((0, 8), (256, 260)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i32 %1, ptr %7, align 8
   %8 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %2) #14
   store ptr %8, ptr %0, align 8
@@ -108,13 +108,13 @@ define hidden i32 @mbedtls_ecjpake_setup(ptr noundef initializes((0, 8), (256, 2
   br i1 %9, label %24, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = tail call i32 @mbedtls_ecp_group_load(ptr noundef nonnull %11, i32 noundef %3) #14
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %mbedtls_ecjpake_free.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 672
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %15 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %14, ptr noundef %4, i64 noundef %5) #14
   %.not14 = icmp eq i32 %15, 0
   br i1 %.not14, label %24, label %mbedtls_ecjpake_free.exit
@@ -123,21 +123,21 @@ mbedtls_ecjpake_free.exit:                        ; preds = %10, %13
   %.017 = phi i32 [ %15, %13 ], [ %12, %10 ]
   store ptr null, ptr %0, align 8
   tail call void @mbedtls_ecp_group_free(ptr noundef nonnull %11) #14
-  %16 = getelementptr inbounds i8, ptr %0, i64 264
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %16) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 336
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %17) #14
-  %18 = getelementptr inbounds i8, ptr %0, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 408
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %18) #14
-  %19 = getelementptr inbounds i8, ptr %0, i64 480
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 480
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %19) #14
-  %20 = getelementptr inbounds i8, ptr %0, i64 552
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 552
   tail call void @mbedtls_ecp_point_free(ptr noundef nonnull %20) #14
-  %21 = getelementptr inbounds i8, ptr %0, i64 624
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 624
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %21) #14
-  %22 = getelementptr inbounds i8, ptr %0, i64 648
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 648
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %22) #14
-  %23 = getelementptr inbounds i8, ptr %0, i64 672
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 672
   tail call void @mbedtls_mpi_free(ptr noundef nonnull %23) #14
   br label %24
 
@@ -158,7 +158,7 @@ define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_set_point_format(ptr noc
   br i1 %switch, label %3, label %5
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 260
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %1, ptr %4, align 4
   br label %5
 
@@ -174,13 +174,13 @@ define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr nocapture noun
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %12, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 688
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   %spec.select = select i1 %11, i32 -20352, i32 0
@@ -195,16 +195,16 @@ define hidden range(i32 -20352, 1) i32 @mbedtls_ecjpake_check(ptr nocapture noun
 define hidden i32 @mbedtls_ecjpake_read_round_one(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 260
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 408
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load i32, ptr %11, align 8
   %13 = sub i32 1, %12
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds [2 x ptr], ptr @ecjpake_id, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
@@ -214,7 +214,7 @@ define hidden i32 @mbedtls_ecjpake_read_round_one(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %19, label %ecjpake_kkpp_read.exit
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 480
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %21 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %20, ptr noundef readonly %16, ptr noundef %4, ptr noundef %17)
   %.not20.i = icmp eq i32 %21, 0
   br i1 %.not20.i, label %22, label %ecjpake_kkpp_read.exit
@@ -237,18 +237,18 @@ define hidden i32 @mbedtls_ecjpake_write_round_one(ptr noundef %0, ptr noundef %
   %8 = alloca i64, align 8
   %9 = alloca ptr, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 260
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
-  %15 = getelementptr inbounds i8, ptr %0, i64 624
-  %16 = getelementptr inbounds i8, ptr %0, i64 264
-  %17 = getelementptr inbounds i8, ptr %0, i64 648
-  %18 = getelementptr inbounds i8, ptr %0, i64 336
-  %19 = getelementptr inbounds i8, ptr %0, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds [2 x ptr], ptr @ecjpake_id, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %21
   %23 = load ptr, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %24 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -337,8 +337,8 @@ define hidden i32 @mbedtls_ecjpake_read_round_two(ptr noundef %0, ptr noundef %1
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %6) #14
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %7) #14
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 408
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @mbedtls_mpi_init(ptr noundef nonnull %4) #14
   %11 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %4, i64 noundef 1) #14
@@ -346,8 +346,8 @@ define hidden i32 @mbedtls_ecjpake_read_round_two(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %12, label %ecjpake_ecp_add3.exit.thread
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 336
-  %14 = getelementptr inbounds i8, ptr %0, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %15 = call i32 @mbedtls_ecp_muladd(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef nonnull %13) #14
   %.not10.i = icmp eq i32 %15, 0
   br i1 %.not10.i, label %ecjpake_ecp_add3.exit, label %ecjpake_ecp_add3.exit.thread
@@ -366,7 +366,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %12
   br i1 %.not, label %17, label %39
 
 17:                                               ; preds = %ecjpake_ecp_add3.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 256
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -389,12 +389,12 @@ ecjpake_ecp_add3.exit:                            ; preds = %12
 26:                                               ; preds = %._crit_edge, %17
   %27 = phi i32 [ %.pre, %._crit_edge ], [ %19, %17 ]
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 260
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 552
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %32 = sub i32 1, %27
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds [2 x ptr], ptr @ecjpake_id, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = call fastcc i32 @ecjpake_kkp_read(ptr noundef %28, ptr noundef nonnull %9, i32 noundef %30, ptr noundef nonnull %7, ptr noundef nonnull %31, ptr noundef %35, ptr noundef %5, ptr noundef %8)
   %.not22 = icmp eq i32 %36, 0
@@ -464,7 +464,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
   br i1 %or.cond46.not.i, label %31, label %49
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %30, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 1
   store ptr %32, ptr %6, align 8
   %33 = load i8, ptr %30, align 1
   %34 = zext i8 %33 to i64
@@ -482,7 +482,7 @@ define internal fastcc i32 @ecjpake_kkp_read(ptr noundef %0, ptr noundef %1, i32
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr %6, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 %34
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %34
   store ptr %43, ptr %6, align 8
   %44 = call fastcc i32 @ecjpake_hash(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %9, ptr noundef %4, ptr noundef readonly %5, ptr noundef %12)
   %.not43.i = icmp eq i32 %44, 0
@@ -532,8 +532,8 @@ define hidden i32 @mbedtls_ecjpake_write_round_two(ptr noundef %0, ptr noundef %
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %8) #14
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %9) #14
   call void @mbedtls_mpi_init(ptr noundef nonnull %10) #14
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 264
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @mbedtls_mpi_init(ptr noundef nonnull %7) #14
   %16 = call i32 @mbedtls_mpi_lset(ptr noundef nonnull %7, i64 noundef 1) #14
@@ -541,8 +541,8 @@ define hidden i32 @mbedtls_ecjpake_write_round_two(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %17, label %ecjpake_ecp_add3.exit.thread
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %0, i64 480
-  %19 = getelementptr inbounds i8, ptr %0, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %20 = call i32 @mbedtls_ecp_muladd(ptr noundef nonnull %14, ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull %7, ptr noundef nonnull %18) #14
   %.not10.i = icmp eq i32 %20, 0
   br i1 %.not10.i, label %ecjpake_ecp_add3.exit, label %ecjpake_ecp_add3.exit.thread
@@ -561,9 +561,9 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   br i1 %.not, label %22, label %65
 
 22:                                               ; preds = %ecjpake_ecp_add3.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 648
-  %24 = getelementptr inbounds i8, ptr %0, i64 672
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = call fastcc i32 @ecjpake_mul_secret(ptr noundef %10, i32 noundef 1, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef %4, ptr noundef %5)
   %.not42 = icmp eq i32 %26, 0
   br i1 %.not42, label %27, label %65
@@ -574,7 +574,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   br i1 %.not43, label %29, label %65
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 256
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 1
   br i1 %32, label %33, label %40
@@ -599,7 +599,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   br i1 %42, label %65, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 260
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 260
   %45 = load i32, ptr %44, align 4
   %46 = ptrtoint ptr %13 to i64
   %47 = ptrtoint ptr %41 to i64
@@ -616,7 +616,7 @@ ecjpake_ecp_add3.exit:                            ; preds = %17
   %54 = load i32, ptr %44, align 4
   %55 = load i32, ptr %30, align 8
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds [2 x ptr], ptr @ecjpake_id, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = call fastcc i32 @ecjpake_zkp_write(ptr noundef %53, ptr noundef nonnull %14, i32 noundef %54, ptr noundef nonnull %8, ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %58, ptr noundef %11, ptr noundef %13, ptr noundef %4, ptr noundef %5)
   %.not46 = icmp eq i32 %59, 0
@@ -714,7 +714,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not42, label %26, label %58
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 152
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %28 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %14, ptr noundef nonnull %14, ptr noundef nonnull %27) #14
   %.not43 = icmp eq i32 %28, 0
   br i1 %.not43, label %29, label %58
@@ -750,7 +750,7 @@ define internal fastcc i32 @ecjpake_zkp_write(ptr noundef %0, ptr noundef %1, i3
 
 48:                                               ; preds = %42
   %49 = trunc nuw i64 %39 to i8
-  %50 = getelementptr inbounds i8, ptr %40, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %50, ptr %7, align 8
   store i8 %49, ptr %40, align 1
   %51 = load ptr, ptr %7, align 8
@@ -800,17 +800,17 @@ define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %17, label %38
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 648
-  %19 = getelementptr inbounds i8, ptr %0, i64 672
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 648
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %22 = call fastcc i32 @ecjpake_mul_secret(ptr noundef %8, i32 noundef -1, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef %4, ptr noundef %5)
   %.not28 = icmp eq i32 %22, 0
   br i1 %.not28, label %23, label %38
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 552
-  %25 = getelementptr inbounds i8, ptr %0, i64 480
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 552
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %26 = call i32 @mbedtls_ecp_muladd(ptr noundef nonnull %20, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %24, ptr noundef nonnull %8, ptr noundef nonnull %25) #14
   %.not29 = icmp eq i32 %26, 0
   br i1 %.not29, label %27, label %38
@@ -821,7 +821,7 @@ define hidden i32 @mbedtls_ecjpake_derive_secret(ptr noundef %0, ptr noundef %1,
   br i1 %.not30, label %29, label %38
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 184
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, 7
   %33 = lshr i64 %32, 3
@@ -866,46 +866,46 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   store ptr null, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %9) #14
-  %10 = getelementptr inbounds i8, ptr %3, i64 260
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 260
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 264
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 264
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %11) #14
-  %12 = getelementptr inbounds i8, ptr %3, i64 336
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 336
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %12) #14
-  %13 = getelementptr inbounds i8, ptr %3, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 408
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %13) #14
-  %14 = getelementptr inbounds i8, ptr %3, i64 480
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 480
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %14) #14
-  %15 = getelementptr inbounds i8, ptr %3, i64 552
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 552
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %15) #14
-  %16 = getelementptr inbounds i8, ptr %3, i64 624
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 624
   call void @mbedtls_mpi_init(ptr noundef nonnull %16) #14
-  %17 = getelementptr inbounds i8, ptr %3, i64 648
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 648
   call void @mbedtls_mpi_init(ptr noundef nonnull %17) #14
-  %18 = getelementptr inbounds i8, ptr %3, i64 672
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 672
   call void @mbedtls_mpi_init(ptr noundef nonnull %18) #14
   store ptr null, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @mbedtls_ecp_group_init(ptr noundef nonnull %19) #14
-  %20 = getelementptr inbounds i8, ptr %4, i64 260
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 260
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 264
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 264
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %21) #14
-  %22 = getelementptr inbounds i8, ptr %4, i64 336
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 336
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %22) #14
-  %23 = getelementptr inbounds i8, ptr %4, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 408
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %23) #14
-  %24 = getelementptr inbounds i8, ptr %4, i64 480
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 480
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %24) #14
-  %25 = getelementptr inbounds i8, ptr %4, i64 552
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 552
   call void @mbedtls_ecp_point_init(ptr noundef nonnull %25) #14
-  %26 = getelementptr inbounds i8, ptr %4, i64 624
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 624
   call void @mbedtls_mpi_init(ptr noundef nonnull %26) #14
-  %27 = getelementptr inbounds i8, ptr %4, i64 648
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 648
   call void @mbedtls_mpi_init(ptr noundef nonnull %27) #14
-  %28 = getelementptr inbounds i8, ptr %4, i64 672
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 672
   call void @mbedtls_mpi_init(ptr noundef nonnull %28) #14
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %31, label %29
@@ -941,12 +941,12 @@ define hidden range(i32 0, 2) i32 @mbedtls_ecjpake_self_test(i32 noundef %0) loc
   %43 = load i64, ptr %7, align 8
   %44 = load ptr, ptr %4, align 8
   %45 = load i32, ptr %20, align 4
-  %46 = getelementptr inbounds i8, ptr %4, i64 88
-  %47 = getelementptr inbounds i8, ptr %4, i64 256
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %48 = load i32, ptr %47, align 8
   %49 = sub i32 1, %48
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds [2 x ptr], ptr @ecjpake_id, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [2 x ptr], ptr @ecjpake_id, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %5, ptr %2, align 8
@@ -1159,7 +1159,7 @@ define internal noundef i32 @ecjpake_lgc(ptr nocapture readnone %0, ptr nocaptur
   %7 = add i32 %6, 1013904223
   store i32 %7, ptr @ecjpake_lgc.x, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.011, ptr noundef nonnull align 4 dereferenceable(1) @ecjpake_lgc.x, i64 %5, i1 false)
-  %8 = getelementptr inbounds i8, ptr %.011, i64 %5
+  %8 = getelementptr inbounds nuw i8, ptr %.011, i64 %5
   %9 = sub i64 %.0810, %5
   %.not = icmp eq i64 %9, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -1170,27 +1170,27 @@ define internal noundef i32 @ecjpake_lgc(ptr nocapture readnone %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @ecjpake_test_load(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 624
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %5 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %4, ptr noundef %1, i64 noundef 32) #14
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %17
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 648
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %8 = tail call i32 @mbedtls_mpi_read_binary(ptr noundef nonnull %7, ptr noundef %2, i64 noundef 32) #14
   %.not17 = icmp eq i32 %8, 0
   br i1 %.not17, label %9, label %17
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 264
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = tail call i32 @mbedtls_ecp_mul(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %4, ptr noundef nonnull %12, ptr noundef nonnull @self_test_rng, ptr noundef null) #14
   %.not18 = icmp eq i32 %13, 0
   br i1 %.not18, label %14, label %17
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 336
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %16 = tail call i32 @mbedtls_ecp_mul(ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull @self_test_rng, ptr noundef null) #14
   br label %17
 
@@ -1215,10 +1215,10 @@ define internal fastcc i32 @ecjpake_hash(ptr noundef %0, ptr noundef %1, i32 nou
   %11 = alloca i64, align 8
   %12 = alloca [421 x i8], align 16
   %13 = alloca [64 x i8], align 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 421
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 421
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %17 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %1, ptr noundef %3, i32 noundef %2, ptr noundef nonnull %11, ptr noundef nonnull %16, i64 noundef 417) #14
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %18, label %ecjpake_write_len_point.exit
@@ -1234,14 +1234,14 @@ ecjpake_write_len_point.exit:                     ; preds = %8
   store i8 %21, ptr %12, align 16
   %22 = lshr i64 %19, 16
   %23 = trunc i64 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %12, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 %23, ptr %24, align 1
   %25 = lshr i64 %19, 8
   %26 = trunc i64 %25 to i8
-  %27 = getelementptr inbounds i8, ptr %12, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i8 %26, ptr %27, align 2
   %28 = trunc i64 %19 to i8
-  %29 = getelementptr inbounds i8, ptr %12, i64 3
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 3
   store i8 %28, ptr %29, align 1
   %30 = getelementptr i8, ptr %12, i64 %19
   %31 = getelementptr i8, ptr %30, i64 4
@@ -1375,7 +1375,7 @@ ecjpake_write_len_point.exit50.thread:            ; preds = %43, %61
   br i1 %.not42, label %109, label %112
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %1, i64 152
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %111 = call i32 @mbedtls_mpi_mod_mpi(ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %110) #14
   br label %112
 

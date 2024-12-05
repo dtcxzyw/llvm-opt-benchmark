@@ -15,7 +15,7 @@ define noalias noundef ptr @ipcreate_(ptr nocapture noundef readonly %0, ptr nou
   %19 = load i32, ptr %8, align 4
   %20 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #6
   %21 = tail call ptr @CreateIpoptProblem(i32 noundef %15, ptr noundef %1, ptr noundef %2, i32 noundef %16, ptr noundef %4, ptr noundef %5, i32 noundef %17, i32 noundef %18, i32 noundef %19, ptr noundef nonnull @eval_f, ptr noundef nonnull @eval_g, ptr noundef nonnull @eval_grad_f, ptr noundef nonnull @eval_jac_g, ptr noundef nonnull @eval_h) #7
-  %22 = getelementptr inbounds i8, ptr %20, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %24, label %25
@@ -25,17 +25,17 @@ define noalias noundef ptr @ipcreate_(ptr nocapture noundef readonly %0, ptr nou
   br label %32
 
 25:                                               ; preds = %14
-  %26 = getelementptr inbounds i8, ptr %20, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %9, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %20, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %10, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %20, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %11, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store ptr %12, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %20, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store ptr %13, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %20, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr null, ptr %31, align 8
   br label %32
 
@@ -58,10 +58,10 @@ define internal zeroext i1 @eval_f(i32 noundef %0, ptr noundef %1, i1 noundef ze
   %9 = zext i1 %2 to i32
   store i32 %9, ptr %7, align 4
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   store i32 0, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %8) #7
   %15 = load i32, ptr %8, align 4
@@ -80,10 +80,10 @@ define internal zeroext i1 @eval_g(i32 noundef %0, ptr noundef %1, i1 noundef ze
   store i32 %11, ptr %8, align 4
   store i32 %3, ptr %9, align 4
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   store i32 0, ptr %10, align 4
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %4, ptr noundef %12, ptr noundef %14, ptr noundef nonnull %10) #7
   %17 = load i32, ptr %10, align 4
@@ -100,10 +100,10 @@ define internal zeroext i1 @eval_grad_f(i32 noundef %0, ptr noundef %1, i1 nound
   %9 = zext i1 %2 to i32
   store i32 %9, ptr %7, align 4
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   store i32 0, ptr %8, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %3, ptr noundef %10, ptr noundef %12, ptr noundef nonnull %8) #7
   %15 = load i32, ptr %8, align 4
@@ -125,7 +125,7 @@ define internal zeroext i1 @eval_jac_g(i32 noundef %0, ptr noundef %1, i1 nounde
   store i32 %3, ptr %12, align 4
   store i32 %4, ptr %13, align 4
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %19 = load ptr, ptr %18, align 8
   store i32 0, ptr %15, align 4
   %20 = icmp ne ptr %5, null
@@ -150,7 +150,7 @@ define internal zeroext i1 @eval_jac_g(i32 noundef %0, ptr noundef %1, i1 nounde
 28:                                               ; preds = %23, %9
   %storemerge = phi i32 [ 0, %9 ], [ 1, %23 ]
   store i32 %storemerge, ptr %14, align 4
-  %29 = getelementptr inbounds i8, ptr %8, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %30 = load ptr, ptr %29, align 8
   call void %30(ptr noundef nonnull %14, ptr noundef nonnull %10, ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %17, ptr noundef %19, ptr noundef nonnull %15) #7
   %31 = load i32, ptr %15, align 4
@@ -181,7 +181,7 @@ define internal zeroext i1 @eval_h(i32 noundef %0, ptr noundef %1, i1 noundef ze
   store i32 %22, ptr %17, align 4
   store i32 %7, ptr %18, align 4
   %23 = load ptr, ptr %11, align 8
-  %24 = getelementptr inbounds i8, ptr %11, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %25 = load ptr, ptr %24, align 8
   store i32 0, ptr %20, align 4
   %26 = icmp ne ptr %8, null
@@ -206,7 +206,7 @@ define internal zeroext i1 @eval_h(i32 noundef %0, ptr noundef %1, i1 noundef ze
 34:                                               ; preds = %29, %12
   %storemerge = phi i32 [ 0, %12 ], [ 1, %29 ]
   store i32 %storemerge, ptr %19, align 4
-  %35 = getelementptr inbounds i8, ptr %11, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull %19, ptr noundef nonnull %14, ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noundef %5, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %23, ptr noundef %25, ptr noundef nonnull %20) #7
   %37 = load i32, ptr %20, align 4
@@ -224,7 +224,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define void @ipfree_(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   tail call void @FreeIpoptProblem(ptr noundef %4) #7
   tail call void @free(ptr noundef %2) #7
@@ -238,9 +238,9 @@ declare void @FreeIpoptProblem(ptr noundef) local_unnamed_addr #2
 define i32 @ipsolve_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr %0, align 8
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @IpoptSolve(ptr noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %10) #7
   ret i32 %14
@@ -317,7 +317,7 @@ f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
   br label %f2cstr.exit18
 
 f2cstr.exit18:                                    ; preds = %._crit_edge.i11, %29
-  %33 = getelementptr inbounds i8, ptr %6, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = tail call zeroext i1 @AddIpoptStrOption(ptr noundef %34, ptr noundef %15, ptr noundef %28) #7
   tail call void @free(ptr noundef %28) #7
@@ -365,7 +365,7 @@ define range(i32 0, 2) i32 @ipaddnumoption_(ptr nocapture noundef readonly %0, p
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %15
-  %19 = getelementptr inbounds i8, ptr %5, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = load double, ptr %2, align 8
   %22 = tail call zeroext i1 @AddIpoptNumOption(ptr noundef %20, ptr noundef %14, double noundef %21) #7
@@ -414,7 +414,7 @@ define range(i32 0, 2) i32 @ipaddintoption_(ptr nocapture noundef readonly %0, p
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @AddIpoptIntOption(ptr noundef %21, ptr noundef %15, i32 noundef %6) #7
   tail call void @free(ptr noundef %15) #7
@@ -462,7 +462,7 @@ define range(i32 0, 2) i32 @ipopenoutputfile_(ptr nocapture noundef readonly %0,
   br label %f2cstr.exit
 
 f2cstr.exit:                                      ; preds = %._crit_edge.i, %16
-  %20 = getelementptr inbounds i8, ptr %5, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @OpenIpoptOutputFile(ptr noundef %21, ptr noundef %15, i32 noundef %6) #7
   tail call void @free(ptr noundef %15) #7
@@ -476,9 +476,9 @@ declare zeroext i1 @OpenIpoptOutputFile(ptr noundef, ptr noundef, i32 noundef) l
 ; Function Attrs: nounwind uwtable
 define void @ipsetcallback_(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @SetIntermediateCallback(ptr noundef %6, ptr noundef nonnull @intermediate_cb) #7
   ret void
@@ -512,10 +512,10 @@ define internal zeroext i1 @intermediate_cb(i32 noundef %0, i32 noundef %1, doub
   store double %9, ptr %22, align 8
   store i32 %10, ptr %23, align 4
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %11, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load ptr, ptr %26, align 8
   store i32 0, ptr %24, align 4
-  %28 = getelementptr inbounds i8, ptr %11, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %33, label %30
@@ -534,9 +534,9 @@ define internal zeroext i1 @intermediate_cb(i32 noundef %0, i32 noundef %1, doub
 ; Function Attrs: nounwind uwtable
 define void @ipunsetcallback_(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @SetIntermediateCallback(ptr noundef %5, ptr noundef null) #7
   ret void
@@ -545,7 +545,7 @@ define void @ipunsetcallback_(ptr nocapture noundef readonly %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipgetcurriterate_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef readonly %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %1, align 4
   %18 = icmp ne i32 %17, 0
@@ -575,7 +575,7 @@ declare zeroext i1 @GetIpoptCurrentIterate(ptr noundef, i1 noundef zeroext, i32 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipgetcurrviolations_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %1, align 4
   %20 = icmp ne i32 %19, 0
@@ -607,7 +607,7 @@ declare zeroext i1 @GetIpoptCurrentViolations(ptr noundef, i1 noundef zeroext, i
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ipsetproblemscaling_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load double, ptr %1, align 8
   %9 = tail call zeroext i1 @SetIpoptProblemScaling(ptr noundef %7, double noundef %8, ptr noundef %2, ptr noundef %3) #7

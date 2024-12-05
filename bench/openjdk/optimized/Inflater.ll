@@ -17,12 +17,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_util_zip_Inflater_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #5
   store ptr %6, ptr @inputConsumedID, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 752
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 752
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #5
   store ptr %10, ptr @outputConsumedID, align 8
@@ -58,7 +58,7 @@ define noundef i64 @Java_java_util_zip_Inflater_init(ptr noundef %0, ptr nocaptu
   br label %21
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %4, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %15 = load ptr, ptr %14, align 8
   %.not17 = icmp eq ptr %15, null
   %16 = icmp eq i32 %9, -6
@@ -90,7 +90,7 @@ declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define void @Java_java_util_zip_Inflater_setDictionary(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1776
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #5
   %11 = icmp eq ptr %10, null
@@ -102,7 +102,7 @@ define void @Java_java_util_zip_Inflater_setDictionary(ptr noundef %0, ptr nocap
   %15 = getelementptr inbounds i8, ptr %10, i64 %14
   %16 = tail call i32 @inflateSetDictionary(ptr noundef %13, ptr noundef nonnull %15, i32 noundef %5) #5
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1784
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1784
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %10, i32 noundef 0) #5
   switch i32 %16, label %23 [
@@ -112,13 +112,13 @@ define void @Java_java_util_zip_Inflater_setDictionary(ptr noundef %0, ptr nocap
   ]
 
 20:                                               ; preds = %12, %12
-  %21 = getelementptr inbounds i8, ptr %13, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %22 = load ptr, ptr %21, align 8
   tail call void @JNU_ThrowIllegalArgumentException(ptr noundef nonnull %0, ptr noundef %22) #5
   br label %checkSetDictionaryResult.exit
 
 23:                                               ; preds = %12
-  %24 = getelementptr inbounds i8, ptr %13, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %25 = load ptr, ptr %24, align 8
   tail call void @JNU_ThrowInternalError(ptr noundef nonnull %0, ptr noundef %25) #5
   br label %checkSetDictionaryResult.exit
@@ -141,13 +141,13 @@ define void @Java_java_util_zip_Inflater_setDictionaryBuffer(ptr noundef %0, ptr
   ]
 
 9:                                                ; preds = %5, %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %11 = load ptr, ptr %10, align 8
   tail call void @JNU_ThrowIllegalArgumentException(ptr noundef %0, ptr noundef %11) #5
   br label %checkSetDictionaryResult.exit
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef %14) #5
   br label %checkSetDictionaryResult.exit
@@ -159,7 +159,7 @@ checkSetDictionaryResult.exit:                    ; preds = %5, %9, %12
 ; Function Attrs: nounwind uwtable
 define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1776
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1776
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #5
   %14 = icmp eq ptr %13, null
@@ -171,7 +171,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr no
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %0) #5
   %21 = icmp eq ptr %20, null
@@ -183,7 +183,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr no
 
 23:                                               ; preds = %9
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1776
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1776
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef %6, ptr noundef null) #5
   %28 = icmp eq ptr %27, null
@@ -191,7 +191,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr no
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1784
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1784
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %13, i32 noundef 0) #5
   %.not = icmp eq i32 %8, 0
@@ -199,7 +199,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr no
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 120
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0) #5
   %38 = icmp eq ptr %37, null
@@ -216,19 +216,19 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBytes(ptr noundef %0, ptr no
   %44 = getelementptr inbounds i8, ptr %27, i64 %43
   %45 = inttoptr i64 %2 to ptr
   store ptr %42, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %44, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %5, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i32 %8, ptr %48, align 8
   %49 = tail call i32 @inflate(ptr noundef nonnull %45, i32 noundef 1) #5
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1784
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1784
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %27, i32 noundef 0) #5
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 1784
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1784
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %13, i32 noundef 0) #5
   %56 = tail call fastcc i64 @checkInflateStatus(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %5, i32 noundef %8, i32 noundef %49)
@@ -252,10 +252,10 @@ define internal fastcc i64 @checkInflateStatus(ptr noundef %0, ptr noundef %1, i
   ]
 
 8:                                                ; preds = %6, %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sub i32 %3, %10
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = sub i32 %4, %13
   %15 = zext nneg i32 %5 to i64
@@ -263,32 +263,32 @@ define internal fastcc i64 @checkInflateStatus(ptr noundef %0, ptr noundef %1, i
   br label %45
 
 17:                                               ; preds = %6
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = sub i32 %3, %19
-  %21 = getelementptr inbounds i8, ptr %7, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = sub i32 %4, %22
   br label %45
 
 24:                                               ; preds = %6
-  %25 = getelementptr inbounds i8, ptr %7, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sub i32 %3, %26
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 872
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 872
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @inputConsumedID, align 8
   tail call void %30(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %31, i32 noundef %27) #5
-  %32 = getelementptr inbounds i8, ptr %7, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = sub i32 %4, %33
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 872
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 872
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @outputConsumedID, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %38, i32 noundef %34) #5
-  %39 = getelementptr inbounds i8, ptr %7, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %40 = load ptr, ptr %39, align 8
   tail call void @JNU_ThrowByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %40) #5
   br label %45
@@ -298,7 +298,7 @@ define internal fastcc i64 @checkInflateStatus(ptr noundef %0, ptr noundef %1, i
   br label %45
 
 42:                                               ; preds = %6
-  %43 = getelementptr inbounds i8, ptr %7, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %44 = load ptr, ptr %43, align 8
   tail call void @JNU_ThrowInternalError(ptr noundef %0, ptr noundef %44) #5
   br label %45
@@ -320,7 +320,7 @@ define internal fastcc i64 @checkInflateStatus(ptr noundef %0, ptr noundef %1, i
 ; Function Attrs: nounwind uwtable
 define i64 @Java_java_util_zip_Inflater_inflateBytesBuffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1776
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1776
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #5
   %13 = icmp eq ptr %12, null
@@ -332,7 +332,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBuffer(ptr noundef %0, ptr n
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0) #5
   %20 = icmp eq ptr %19, null
@@ -348,15 +348,15 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBuffer(ptr noundef %0, ptr n
   %25 = getelementptr inbounds i8, ptr %12, i64 %24
   %26 = inttoptr i64 %2 to ptr
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %23, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %5, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 %7, ptr %29, align 8
   %30 = tail call i32 @inflate(ptr noundef nonnull %26, i32 noundef 1) #5
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1784
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1784
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %12, i32 noundef 0) #5
   %34 = tail call fastcc i64 @checkInflateStatus(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %5, i32 noundef %7, i32 noundef %30)
@@ -370,7 +370,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBytesBuffer(ptr noundef %0, ptr n
 ; Function Attrs: nounwind uwtable
 define i64 @Java_java_util_zip_Inflater_inflateBufferBytes(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1776
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1776
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %5, ptr noundef null) #5
   %13 = icmp eq ptr %12, null
@@ -382,7 +382,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBufferBytes(ptr noundef %0, ptr n
 
 15:                                               ; preds = %14
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0) #5
   %20 = icmp eq ptr %19, null
@@ -398,15 +398,15 @@ define i64 @Java_java_util_zip_Inflater_inflateBufferBytes(ptr noundef %0, ptr n
   %25 = getelementptr inbounds i8, ptr %12, i64 %24
   %26 = inttoptr i64 %2 to ptr
   store ptr %23, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store ptr %25, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i32 %4, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 %7, ptr %29, align 8
   %30 = tail call i32 @inflate(ptr noundef nonnull %26, i32 noundef 1) #5
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1784
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1784
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, ptr noundef %5, ptr noundef nonnull %12, i32 noundef 0) #5
   %34 = tail call fastcc i64 @checkInflateStatus(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %4, i32 noundef %7, i32 noundef %30)
@@ -423,11 +423,11 @@ define i64 @Java_java_util_zip_Inflater_inflateBufferBuffer(ptr noundef %0, ptr 
   %9 = inttoptr i64 %5 to ptr
   %10 = inttoptr i64 %2 to ptr
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i32 %6, ptr %13, align 8
   %14 = tail call i32 @inflate(ptr noundef nonnull %10, i32 noundef 1) #5
   %15 = tail call fastcc i64 @checkInflateStatus(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %4, i32 noundef %6, i32 noundef %14)
@@ -437,7 +437,7 @@ define i64 @Java_java_util_zip_Inflater_inflateBufferBuffer(ptr noundef %0, ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @Java_java_util_zip_Inflater_getAdler(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %2 to ptr
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   ret i32 %7

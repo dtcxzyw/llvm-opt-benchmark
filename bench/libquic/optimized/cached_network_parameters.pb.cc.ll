@@ -95,7 +95,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %1 = load ptr, ptr %vfn, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(72) %0) #14
   br label %delete.end
@@ -115,7 +115,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3000000, i32 noundef 3000000, ptr noundef nonnull @.str)
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %call, align 8
-  %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %_arena_ptr_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad.i
@@ -128,15 +128,15 @@ lpad.i:                                           ; preds = %if.end
   resume { ptr, i32 } %0
 
 invoke.cont:                                      ; preds = %if.end
-  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %1, ptr %_unknown_fields_.i.i, align 8
-  %serving_region_.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %serving_region_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %serving_region_.i.i, align 8
-  %bandwidth_estimate_bytes_per_second_.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %bandwidth_estimate_bytes_per_second_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i.i, i8 0, i64 32, i1 false)
   store ptr %call, ptr @_ZN3net23CachedNetworkParameters17default_instance_E, align 8
@@ -176,21 +176,21 @@ entry:
 define dso_local void @_ZN3net23CachedNetworkParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %this, align 8
-  %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_.i, align 8
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %serving_region_.i, align 8
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i, i8 0, i64 32, i1 false)
   ret void
@@ -206,15 +206,15 @@ lpad:                                             ; preds = %entry
 define dso_local void @_ZN3net23CachedNetworkParameters10SharedCtorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 16), (24, 72)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_, align 8
-  %serving_region_ = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %serving_region_, align 8
-  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds i8, ptr %this, i64 40
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_, i8 0, i64 32, i1 false)
   ret void
@@ -227,21 +227,21 @@ declare void @_ZN6google8protobuf11MessageLiteD2Ev(ptr noundef nonnull align 8 d
 define dso_local void @_ZN3net23CachedNetworkParametersC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(72) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %this, align 8
-  %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
+  %_arena_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %0, ptr %_unknown_fields_.i, align 8
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %0, ptr %serving_region_.i, align 8
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 0, ptr %_has_bits_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i, i8 0, i64 32, i1 false)
   invoke void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
@@ -301,7 +301,7 @@ _ZN3net12_GLOBAL__N_113MergeFromFailEi.exit:      ; preds = %invoke.cont5.i
   br label %if.end
 
 if.end:                                           ; preds = %_ZN3net12_GLOBAL__N_113MergeFromFailEi.exit, %entry
-  %_has_bits_ = getelementptr inbounds i8, ptr %from, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %from, i64 24
   %1 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %1, 255
   %tobool.not = icmp eq i32 %and, 0
@@ -313,13 +313,13 @@ if.then2:                                         ; preds = %if.end
   br i1 %cmp.i.not, label %if.end6, label %if.then3
 
 if.then3:                                         ; preds = %if.then2
-  %_has_bits_.i18 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i18 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i32, ptr %_has_bits_.i18, align 8
   %or.i = or i32 %2, 1
   store i32 %or.i, ptr %_has_bits_.i18, align 8
-  %serving_region_ = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
-  %serving_region_5 = getelementptr inbounds i8, ptr %from, i64 32
+  %serving_region_5 = getelementptr inbounds nuw i8, ptr %from, i64 32
   %agg.tmp.sroa.0.0.copyload = load ptr, ptr %serving_region_5, align 8
   call void @_ZN6google8protobuf8internal14ArenaStringPtr17AssignWithDefaultEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_(ptr noundef nonnull align 8 dereferenceable(8) %serving_region_, ptr noundef nonnull %3, ptr %agg.tmp.sroa.0.0.copyload)
   %.pre = load i32, ptr %_has_bits_, align 8
@@ -332,13 +332,13 @@ if.end6:                                          ; preds = %if.then3, %if.then2
   br i1 %cmp.i21.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %from, i64 40
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %from, i64 40
   %5 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load i32, ptr %_has_bits_.i.i, align 8
   %or.i.i = or i32 %6, 2
   store i32 %or.i.i, ptr %_has_bits_.i.i, align 8
-  %bandwidth_estimate_bytes_per_second_.i22 = getelementptr inbounds i8, ptr %this, i64 40
+  %bandwidth_estimate_bytes_per_second_.i22 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 %5, ptr %bandwidth_estimate_bytes_per_second_.i22, align 8
   %.pre56 = load i32, ptr %_has_bits_, align 8
   br label %if.end10
@@ -350,13 +350,13 @@ if.end10:                                         ; preds = %if.then8, %if.end6
   br i1 %cmp.i25.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %from, i64 44
+  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %from, i64 44
   %8 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
-  %_has_bits_.i.i26 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i26 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %9 = load i32, ptr %_has_bits_.i.i26, align 8
   %or.i.i27 = or i32 %9, 4
   store i32 %or.i.i27, ptr %_has_bits_.i.i26, align 8
-  %max_bandwidth_estimate_bytes_per_second_.i28 = getelementptr inbounds i8, ptr %this, i64 44
+  %max_bandwidth_estimate_bytes_per_second_.i28 = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 %8, ptr %max_bandwidth_estimate_bytes_per_second_.i28, align 4
   %.pre57 = load i32, ptr %_has_bits_, align 8
   br label %if.end14
@@ -368,13 +368,13 @@ if.end14:                                         ; preds = %if.then12, %if.end1
   br i1 %cmp.i31.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds i8, ptr %from, i64 48
+  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds nuw i8, ptr %from, i64 48
   %11 = load i64, ptr %max_bandwidth_timestamp_seconds_.i, align 8
-  %_has_bits_.i.i32 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i32 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %12 = load i32, ptr %_has_bits_.i.i32, align 8
   %or.i.i33 = or i32 %12, 8
   store i32 %or.i.i33, ptr %_has_bits_.i.i32, align 8
-  %max_bandwidth_timestamp_seconds_.i34 = getelementptr inbounds i8, ptr %this, i64 48
+  %max_bandwidth_timestamp_seconds_.i34 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 %11, ptr %max_bandwidth_timestamp_seconds_.i34, align 8
   %.pre58 = load i32, ptr %_has_bits_, align 8
   br label %if.end18
@@ -386,13 +386,13 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp.i37.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %min_rtt_ms_.i = getelementptr inbounds i8, ptr %from, i64 56
+  %min_rtt_ms_.i = getelementptr inbounds nuw i8, ptr %from, i64 56
   %14 = load i32, ptr %min_rtt_ms_.i, align 8
-  %_has_bits_.i.i38 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i38 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %15 = load i32, ptr %_has_bits_.i.i38, align 8
   %or.i.i39 = or i32 %15, 16
   store i32 %or.i.i39, ptr %_has_bits_.i.i38, align 8
-  %min_rtt_ms_.i40 = getelementptr inbounds i8, ptr %this, i64 56
+  %min_rtt_ms_.i40 = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %14, ptr %min_rtt_ms_.i40, align 8
   %.pre59 = load i32, ptr %_has_bits_, align 8
   br label %if.end22
@@ -404,13 +404,13 @@ if.end22:                                         ; preds = %if.then20, %if.end1
   br i1 %cmp.i43.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %previous_connection_state_.i = getelementptr inbounds i8, ptr %from, i64 60
+  %previous_connection_state_.i = getelementptr inbounds nuw i8, ptr %from, i64 60
   %17 = load i32, ptr %previous_connection_state_.i, align 4
-  %_has_bits_.i.i44 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i44 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %18 = load i32, ptr %_has_bits_.i.i44, align 8
   %or.i.i45 = or i32 %18, 32
   store i32 %or.i.i45, ptr %_has_bits_.i.i44, align 8
-  %previous_connection_state_.i46 = getelementptr inbounds i8, ptr %this, i64 60
+  %previous_connection_state_.i46 = getelementptr inbounds nuw i8, ptr %this, i64 60
   store i32 %17, ptr %previous_connection_state_.i46, align 4
   %.pre60 = load i32, ptr %_has_bits_, align 8
   br label %if.end26
@@ -422,24 +422,24 @@ if.end26:                                         ; preds = %if.then24, %if.end2
   br i1 %cmp.i49.not, label %if.end31, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %timestamp_.i = getelementptr inbounds i8, ptr %from, i64 64
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %from, i64 64
   %20 = load i64, ptr %timestamp_.i, align 8
-  %_has_bits_.i.i50 = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %21 = load i32, ptr %_has_bits_.i.i50, align 8
   %or.i.i51 = or i32 %21, 64
   store i32 %or.i.i51, ptr %_has_bits_.i.i50, align 8
-  %timestamp_.i52 = getelementptr inbounds i8, ptr %this, i64 64
+  %timestamp_.i52 = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i64 %20, ptr %timestamp_.i52, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.end26, %if.then28, %if.end
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %from, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %from, i64 8
   %22 = load ptr, ptr %_unknown_fields_.i, align 8
   %call33 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #14
   br i1 %call33, label %if.end38, label %if.then34
 
 if.then34:                                        ; preds = %if.end31
-  %_unknown_fields_.i53 = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i53 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %23 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i54 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i53, ptr noundef nonnull %23)
   %24 = load ptr, ptr %_unknown_fields_.i, align 8
@@ -459,13 +459,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 define dso_local void @_ZN3net23CachedNetworkParametersD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %this, align 8
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
           to label %.noexc unwind label %terminate.lpad
 
 .noexc:                                           ; preds = %entry
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %serving_region_.i, ptr noundef nonnull %1)
           to label %invoke.cont unwind label %terminate.lpad
@@ -485,10 +485,10 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net23CachedNetworkParameters10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_, ptr noundef nonnull %0)
-  %serving_region_ = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %serving_region_, ptr noundef nonnull %1)
   ret void
@@ -510,13 +510,13 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 define dso_local void @_ZN3net23CachedNetworkParametersD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %this, align 8
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i.i, ptr noundef nonnull %0)
           to label %.noexc.i unwind label %terminate.lpad.i
 
 .noexc.i:                                         ; preds = %entry
-  %serving_region_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %serving_region_.i.i, ptr noundef nonnull %1)
           to label %_ZN3net23CachedNetworkParametersD2Ev.exit unwind label %terminate.lpad.i
@@ -539,7 +539,7 @@ declare void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZNK3net23CachedNetworkParameters13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((28, 32)) %this, i32 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %size, ptr %_cached_size_, align 4
   ret void
 }
@@ -566,7 +566,7 @@ define dso_local noundef nonnull ptr @_ZNK3net23CachedNetworkParameters3NewEPN6g
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net23CachedNetworkParametersE, i64 16), ptr %call, align 8
-  %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
+  %_arena_ptr_.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
           to label %invoke.cont unwind label %lpad.i
@@ -579,15 +579,15 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 invoke.cont:                                      ; preds = %entry
-  %_cached_size_.i.i = getelementptr inbounds i8, ptr %call, i64 28
+  %_cached_size_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
-  %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_unknown_fields_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   store ptr %1, ptr %_unknown_fields_.i.i, align 8
-  %serving_region_.i.i = getelementptr inbounds i8, ptr %call, i64 32
+  %serving_region_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
   store ptr %1, ptr %serving_region_.i.i, align 8
-  %bandwidth_estimate_bytes_per_second_.i.i = getelementptr inbounds i8, ptr %call, i64 40
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %call, i64 24
+  %bandwidth_estimate_bytes_per_second_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 40
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 0, ptr %_has_bits_.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_.i.i, i8 0, i64 32, i1 false)
   %cmp.not = icmp eq ptr %arena, null
@@ -604,21 +604,21 @@ if.end:                                           ; preds = %if.then, %invoke.co
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net23CachedNetworkParameters5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %0, 127
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.end4, label %do.body
 
 do.body:                                          ; preds = %entry
-  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds i8, ptr %this, i64 40
+  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %bandwidth_estimate_bytes_per_second_, i8 0, i64 32, i1 false)
   %and.i = and i32 %0, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %do.body
-  %serving_region_ = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %2 = load ptr, ptr %serving_region_, align 8
   %cmp.i1 = icmp eq ptr %2, %1
@@ -630,7 +630,7 @@ if.else.i:                                        ; preds = %if.then2
 
 if.end4:                                          ; preds = %if.else.i, %if.then2, %do.body, %entry
   store i32 0, ptr %_has_bits_, align 8
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %4 = load ptr, ptr %_unknown_fields_, align 8
   %cmp.i2 = icmp eq ptr %4, %3
@@ -651,30 +651,30 @@ entry:
   %unknown_fields_stream = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net23CachedNetworkParametersEEE, i64 16), ptr %call.i, align 8
-  %function_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %function_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr @_ZN3netL46MutableUnknownFieldsForCachedNetworkParametersB5cxx11EPNS_23CachedNetworkParametersE, ptr %function_.i.i, align 8
-  %self_deleting_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %self_deleting_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i8 0, ptr %self_deleting_.i.i, align 8
-  %p1_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %p1_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %this, ptr %p1_.i.i, align 8
   call void @_ZN6google8protobuf2io22LazyStringOutputStreamC1EPNS0_14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(25) %unknown_fields_string, ptr noundef nonnull %call.i)
   invoke void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(26) %unknown_fields_stream, ptr noundef nonnull %unknown_fields_string, i1 noundef zeroext false)
           to label %for.cond.preheader unwind label %lpad
 
 for.cond.preheader:                               ; preds = %entry
-  %buffer_end_.i = getelementptr inbounds i8, ptr %input, i64 8
-  %last_tag_50.i = getelementptr inbounds i8, ptr %input, i64 32
-  %_has_bits_.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds i8, ptr %this, i64 40
-  %min_rtt_ms_ = getelementptr inbounds i8, ptr %this, i64 56
-  %previous_connection_state_ = getelementptr inbounds i8, ptr %this, i64 60
-  %max_bandwidth_estimate_bytes_per_second_ = getelementptr inbounds i8, ptr %this, i64 44
-  %max_bandwidth_timestamp_seconds_ = getelementptr inbounds i8, ptr %this, i64 48
-  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 64
-  %buffer_size_after_limit_.i = getelementptr inbounds i8, ptr %input, i64 44
-  %total_bytes_read_.i = getelementptr inbounds i8, ptr %input, i64 24
-  %current_limit_.i = getelementptr inbounds i8, ptr %input, i64 40
+  %buffer_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 8
+  %last_tag_50.i = getelementptr inbounds nuw i8, ptr %input, i64 32
+  %_has_bits_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %min_rtt_ms_ = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %previous_connection_state_ = getelementptr inbounds nuw i8, ptr %this, i64 60
+  %max_bandwidth_estimate_bytes_per_second_ = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %max_bandwidth_timestamp_seconds_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %buffer_size_after_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 44
+  %total_bytes_read_.i = getelementptr inbounds nuw i8, ptr %input, i64 24
+  %current_limit_.i = getelementptr inbounds nuw i8, ptr %input, i64 40
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %for.cond.preheader
@@ -691,7 +691,7 @@ if.then.i:                                        ; preds = %for.cond
 
 if.then8.i:                                       ; preds = %if.then.i
   store i32 %conv.i, ptr %last_tag_50.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   store ptr %add.ptr.i, ptr %input, align 8
   %retval.sroa.0.0.insert.ext.i = zext nneg i8 %2 to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i, 4294967296
@@ -774,7 +774,7 @@ land.lhs.true.i325:                               ; preds = %if.then.i320
   br i1 %cmp5.i327, label %if.then6.i328, label %for.cond.backedge
 
 if.then6.i328:                                    ; preds = %land.lhs.true.i325
-  %add.ptr.i76 = getelementptr inbounds i8, ptr %8, i64 1
+  %add.ptr.i76 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %add.ptr.i76, ptr %input, align 8
   br label %parse_bandwidth_estimate_bytes_per_second
 
@@ -802,7 +802,7 @@ if.then.i80:                                      ; preds = %parse_bandwidth_est
   br i1 %cmp4.i, label %call.i357.noexc.thread, label %if.end6.i
 
 call.i357.noexc.thread:                           ; preds = %if.then.i80
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %12, i64 1
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %add.ptr.i.i, ptr %input, align 8
   br label %if.end.i359
 
@@ -833,7 +833,7 @@ land.lhs.true.i288:                               ; preds = %if.end.i359
   br i1 %cmp5.i290, label %if.then6.i291, label %for.cond.backedge
 
 if.then6.i291:                                    ; preds = %land.lhs.true.i288
-  %add.ptr.i83 = getelementptr inbounds i8, ptr %15, i64 1
+  %add.ptr.i83 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %add.ptr.i83, ptr %input, align 8
   br label %parse_min_rtt_ms
 
@@ -861,7 +861,7 @@ if.then.i92:                                      ; preds = %parse_min_rtt_ms
   br i1 %cmp4.i94, label %call.i348.noexc.thread, label %if.end6.i86
 
 call.i348.noexc.thread:                           ; preds = %if.then.i92
-  %add.ptr.i.i96 = getelementptr inbounds i8, ptr %19, i64 1
+  %add.ptr.i.i96 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %add.ptr.i.i96, ptr %input, align 8
   br label %if.end.i350
 
@@ -892,7 +892,7 @@ land.lhs.true.i251:                               ; preds = %if.end.i350
   br i1 %cmp5.i253, label %if.then6.i254, label %for.cond.backedge
 
 if.then6.i254:                                    ; preds = %land.lhs.true.i251
-  %add.ptr.i101 = getelementptr inbounds i8, ptr %22, i64 1
+  %add.ptr.i101 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store ptr %add.ptr.i101, ptr %input, align 8
   br label %parse_previous_connection_state
 
@@ -920,7 +920,7 @@ if.then.i110:                                     ; preds = %parse_previous_conn
   br i1 %cmp4.i112, label %call.i339.noexc.thread, label %if.end6.i104
 
 call.i339.noexc.thread:                           ; preds = %if.then.i110
-  %add.ptr.i.i114 = getelementptr inbounds i8, ptr %26, i64 1
+  %add.ptr.i.i114 = getelementptr inbounds nuw i8, ptr %26, i64 1
   store ptr %add.ptr.i.i114, ptr %input, align 8
   br label %if.end.i341
 
@@ -951,7 +951,7 @@ land.lhs.true.i214:                               ; preds = %if.end.i341
   br i1 %cmp5.i216, label %if.then6.i217, label %for.cond.backedge
 
 if.then6.i217:                                    ; preds = %land.lhs.true.i214
-  %add.ptr.i119 = getelementptr inbounds i8, ptr %29, i64 1
+  %add.ptr.i119 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %add.ptr.i119, ptr %input, align 8
   br label %parse_max_bandwidth_estimate_bytes_per_second
 
@@ -979,7 +979,7 @@ if.then.i128:                                     ; preds = %parse_max_bandwidth
   br i1 %cmp4.i130, label %call.i331.noexc.thread, label %if.end6.i122
 
 call.i331.noexc.thread:                           ; preds = %if.then.i128
-  %add.ptr.i.i132 = getelementptr inbounds i8, ptr %33, i64 1
+  %add.ptr.i.i132 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store ptr %add.ptr.i.i132, ptr %input, align 8
   br label %if.end.i333
 
@@ -1010,7 +1010,7 @@ land.lhs.true.i177:                               ; preds = %if.end.i333
   br i1 %cmp5.i179, label %if.then6.i180, label %for.cond.backedge
 
 if.then6.i180:                                    ; preds = %land.lhs.true.i177
-  %add.ptr.i137 = getelementptr inbounds i8, ptr %36, i64 1
+  %add.ptr.i137 = getelementptr inbounds nuw i8, ptr %36, i64 1
   store ptr %add.ptr.i137, ptr %input, align 8
   br label %parse_max_bandwidth_timestamp_seconds
 
@@ -1038,7 +1038,7 @@ land.lhs.true.i:                                  ; preds = %parse_max_bandwidth
 
 call.i374.noexc.thread:                           ; preds = %land.lhs.true.i
   %conv6.i = zext nneg i8 %41 to i64
-  %add.ptr.i.i144 = getelementptr inbounds i8, ptr %40, i64 1
+  %add.ptr.i.i144 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %add.ptr.i.i144, ptr %input, align 8
   br label %if.end.i376
 
@@ -1069,7 +1069,7 @@ land.lhs.true.i143:                               ; preds = %if.end.i376
   br i1 %cmp5.i, label %if.then6.i, label %for.cond.backedge
 
 if.then6.i:                                       ; preds = %land.lhs.true.i143
-  %add.ptr.i148 = getelementptr inbounds i8, ptr %45, i64 1
+  %add.ptr.i148 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %add.ptr.i148, ptr %input, align 8
   br label %parse_timestamp
 
@@ -1097,7 +1097,7 @@ land.lhs.true.i155:                               ; preds = %parse_timestamp
 
 call.i366.noexc.thread:                           ; preds = %land.lhs.true.i155
   %conv6.i158 = zext nneg i8 %50 to i64
-  %add.ptr.i.i159 = getelementptr inbounds i8, ptr %49, i64 1
+  %add.ptr.i.i159 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %add.ptr.i.i159, ptr %input, align 8
   br label %if.end.i368
 
@@ -1138,7 +1138,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true.i167
 
 _ZN6google8protobuf2io16CodedInputStream11ExpectAtEndEv.exit: ; preds = %land.lhs.true.i167, %lor.lhs.false.i
   store i32 0, ptr %last_tag_50.i, align 8
-  %legitimate_message_end_.i = getelementptr inbounds i8, ptr %input, i64 36
+  %legitimate_message_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 36
   store i8 1, ptr %legitimate_message_end_.i, align 4
   br label %cleanup
 
@@ -1176,7 +1176,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 ; Function Attrs: mustprogress uwtable
 define internal noundef ptr @_ZN3netL46MutableUnknownFieldsForCachedNetworkParametersB5cxx11EPNS_23CachedNetworkParametersE(ptr noundef %ptr) #1 {
 entry:
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %ptr, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   %call2.i = tail call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr14MutableNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
   ret ptr %call2.i
@@ -1197,14 +1197,14 @@ declare void @_ZN6google8protobuf2io22LazyStringOutputStreamD1Ev(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK3net23CachedNetworkParameters24SerializeWithCachedSizesEPN6google8protobuf2io17CodedOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %output) unnamed_addr #1 align 2 {
 entry:
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_.i, align 8
   %and.i = and i32 %0, 1
   %cmp.i.not = icmp eq i32 %and.i, 0
   br i1 %cmp.i.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %serving_region_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite23WriteStringMaybeAliasedEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_2io17CodedOutputStreamE(i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %output)
   %.pre = load i32, ptr %_has_bits_.i, align 8
@@ -1217,7 +1217,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp.i10.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 2, i32 noundef %3, ptr noundef %output)
   %.pre27 = load i32, ptr %_has_bits_.i, align 8
@@ -1230,7 +1230,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
   br i1 %cmp.i13.not, label %if.end10, label %if.then8
 
 if.then8:                                         ; preds = %if.end6
-  %min_rtt_ms_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %min_rtt_ms_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %5 = load i32, ptr %min_rtt_ms_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 3, i32 noundef %5, ptr noundef %output)
   %.pre28 = load i32, ptr %_has_bits_.i, align 8
@@ -1243,7 +1243,7 @@ if.end10:                                         ; preds = %if.then8, %if.end6
   br i1 %cmp.i16.not, label %if.end14, label %if.then12
 
 if.then12:                                        ; preds = %if.end10
-  %previous_connection_state_.i = getelementptr inbounds i8, ptr %this, i64 60
+  %previous_connection_state_.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %7 = load i32, ptr %previous_connection_state_.i, align 4
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 4, i32 noundef %7, ptr noundef %output)
   %.pre29 = load i32, ptr %_has_bits_.i, align 8
@@ -1256,7 +1256,7 @@ if.end14:                                         ; preds = %if.then12, %if.end1
   br i1 %cmp.i19.not, label %if.end18, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 44
+  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %9 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt32EiiPNS0_2io17CodedOutputStreamE(i32 noundef 5, i32 noundef %9, ptr noundef %output)
   %.pre30 = load i32, ptr %_has_bits_.i, align 8
@@ -1269,7 +1269,7 @@ if.end18:                                         ; preds = %if.then16, %if.end1
   br i1 %cmp.i22.not, label %if.end22, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
-  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %11 = load i64, ptr %max_bandwidth_timestamp_seconds_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 6, i64 noundef %11, ptr noundef %output)
   %.pre31 = load i32, ptr %_has_bits_.i, align 8
@@ -1282,13 +1282,13 @@ if.end22:                                         ; preds = %if.then20, %if.end1
   br i1 %cmp.i25.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end22
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %13 = load i64, ptr %timestamp_.i, align 8
   tail call void @_ZN6google8protobuf8internal14WireFormatLite10WriteInt64EilPNS0_2io17CodedOutputStreamE(i32 noundef 7, i64 noundef %13, ptr noundef %output)
   br label %if.end26
 
 if.end26:                                         ; preds = %if.then24, %if.end22
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %14 = load ptr, ptr %_unknown_fields_.i, align 8
   %call28 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #14
   %15 = load ptr, ptr %_unknown_fields_.i, align 8
@@ -1315,7 +1315,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK3net23CachedNetworkParameters8ByteSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((28, 32)) %this) unnamed_addr #1 align 2 {
 entry:
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %_has_bits_, align 8
   %and = and i32 %0, 127
   %tobool.not = icmp eq i32 %and, 0
@@ -1327,7 +1327,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i.not, label %if.end, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load ptr, ptr %serving_region_.i, align 8
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   %conv.i = trunc i64 %call.i to i32
@@ -1355,7 +1355,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   br i1 %cmp.i12.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %5 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
   %cmp.i.i13 = icmp slt i32 %5, 0
   br i1 %cmp.i.i13, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %if.else.i.i14
@@ -1384,7 +1384,7 @@ if.end12:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i18.not, label %if.end19, label %if.then14
 
 if.then14:                                        ; preds = %if.end12
-  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 44
+  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %8 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
   %cmp.i.i19 = icmp slt i32 %8, 0
   br i1 %cmp.i.i19, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit25, label %if.else.i.i20
@@ -1413,7 +1413,7 @@ if.end19:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i28.not, label %if.end26, label %if.then21
 
 if.then21:                                        ; preds = %if.end19
-  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %11 = load i64, ptr %max_bandwidth_timestamp_seconds_.i, align 8
   %call.i29 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %11)
   %add24 = add i32 %total_size.3, 1
@@ -1429,7 +1429,7 @@ if.end26:                                         ; preds = %if.then21, %if.end1
   br i1 %cmp.i32.not, label %if.end33, label %if.then28
 
 if.then28:                                        ; preds = %if.end26
-  %min_rtt_ms_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %min_rtt_ms_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %13 = load i32, ptr %min_rtt_ms_.i, align 8
   %cmp.i.i33 = icmp slt i32 %13, 0
   br i1 %cmp.i.i33, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit39, label %if.else.i.i34
@@ -1458,7 +1458,7 @@ if.end33:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i42.not, label %if.end40, label %if.then35
 
 if.then35:                                        ; preds = %if.end33
-  %previous_connection_state_.i = getelementptr inbounds i8, ptr %this, i64 60
+  %previous_connection_state_.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %16 = load i32, ptr %previous_connection_state_.i, align 4
   %cmp.i.i43 = icmp slt i32 %16, 0
   br i1 %cmp.i.i43, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit49, label %if.else.i.i44
@@ -1487,7 +1487,7 @@ if.end40:                                         ; preds = %_ZN6google8protobuf
   br i1 %cmp.i52.not, label %if.end48, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %19 = load i64, ptr %timestamp_.i, align 8
   %call.i53 = tail call noundef i32 @_ZN6google8protobuf2io17CodedOutputStream12VarintSize64Em(i64 noundef %19)
   %add45 = add i32 %total_size.6, 1
@@ -1496,12 +1496,12 @@ if.then42:                                        ; preds = %if.end40
 
 if.end48:                                         ; preds = %if.end40, %if.then42, %entry
   %total_size.0 = phi i32 [ %add46, %if.then42 ], [ %total_size.6, %if.end40 ], [ 0, %entry ]
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %20 = load ptr, ptr %_unknown_fields_.i, align 8
   %call50 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #14
   %21 = trunc i64 %call50 to i32
   %conv52 = add i32 %total_size.0, %21
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   store i32 %conv52, ptr %_cached_size_, align 4
   ret i32 %conv52
 }
@@ -1528,7 +1528,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(72) %this)
   tail call void @_ZN3net23CachedNetworkParameters9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %from)
@@ -1551,62 +1551,62 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %serving_region_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %serving_region_2.i = getelementptr inbounds i8, ptr %other, i64 32
+  %serving_region_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %serving_region_2.i = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load ptr, ptr %serving_region_.i, align 8
   %1 = load ptr, ptr %serving_region_2.i, align 8
   store ptr %1, ptr %serving_region_.i, align 8
   store ptr %0, ptr %serving_region_2.i, align 8
-  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %bandwidth_estimate_bytes_per_second_3.i = getelementptr inbounds i8, ptr %other, i64 40
+  %bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %bandwidth_estimate_bytes_per_second_3.i = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i32, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
   %3 = load i32, ptr %bandwidth_estimate_bytes_per_second_3.i, align 4
   store i32 %3, ptr %bandwidth_estimate_bytes_per_second_.i, align 8
   store i32 %2, ptr %bandwidth_estimate_bytes_per_second_3.i, align 4
-  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds i8, ptr %this, i64 44
-  %max_bandwidth_estimate_bytes_per_second_4.i = getelementptr inbounds i8, ptr %other, i64 44
+  %max_bandwidth_estimate_bytes_per_second_.i = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %max_bandwidth_estimate_bytes_per_second_4.i = getelementptr inbounds nuw i8, ptr %other, i64 44
   %4 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
   %5 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_4.i, align 4
   store i32 %5, ptr %max_bandwidth_estimate_bytes_per_second_.i, align 4
   store i32 %4, ptr %max_bandwidth_estimate_bytes_per_second_4.i, align 4
-  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %max_bandwidth_timestamp_seconds_5.i = getelementptr inbounds i8, ptr %other, i64 48
+  %max_bandwidth_timestamp_seconds_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %max_bandwidth_timestamp_seconds_5.i = getelementptr inbounds nuw i8, ptr %other, i64 48
   %6 = load i64, ptr %max_bandwidth_timestamp_seconds_.i, align 8
   %7 = load i64, ptr %max_bandwidth_timestamp_seconds_5.i, align 8
   store i64 %7, ptr %max_bandwidth_timestamp_seconds_.i, align 8
   store i64 %6, ptr %max_bandwidth_timestamp_seconds_5.i, align 8
-  %min_rtt_ms_.i = getelementptr inbounds i8, ptr %this, i64 56
-  %min_rtt_ms_6.i = getelementptr inbounds i8, ptr %other, i64 56
+  %min_rtt_ms_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %min_rtt_ms_6.i = getelementptr inbounds nuw i8, ptr %other, i64 56
   %8 = load i32, ptr %min_rtt_ms_.i, align 8
   %9 = load i32, ptr %min_rtt_ms_6.i, align 4
   store i32 %9, ptr %min_rtt_ms_.i, align 8
   store i32 %8, ptr %min_rtt_ms_6.i, align 4
-  %previous_connection_state_.i = getelementptr inbounds i8, ptr %this, i64 60
-  %previous_connection_state_7.i = getelementptr inbounds i8, ptr %other, i64 60
+  %previous_connection_state_.i = getelementptr inbounds nuw i8, ptr %this, i64 60
+  %previous_connection_state_7.i = getelementptr inbounds nuw i8, ptr %other, i64 60
   %10 = load i32, ptr %previous_connection_state_.i, align 4
   %11 = load i32, ptr %previous_connection_state_7.i, align 4
   store i32 %11, ptr %previous_connection_state_.i, align 4
   store i32 %10, ptr %previous_connection_state_7.i, align 4
-  %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 64
-  %timestamp_8.i = getelementptr inbounds i8, ptr %other, i64 64
+  %timestamp_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %timestamp_8.i = getelementptr inbounds nuw i8, ptr %other, i64 64
   %12 = load i64, ptr %timestamp_.i, align 8
   %13 = load i64, ptr %timestamp_8.i, align 8
   store i64 %13, ptr %timestamp_.i, align 8
   store i64 %12, ptr %timestamp_8.i, align 8
-  %_has_bits_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_has_bits_9.i = getelementptr inbounds i8, ptr %other, i64 24
+  %_has_bits_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_has_bits_9.i = getelementptr inbounds nuw i8, ptr %other, i64 24
   %14 = load i32, ptr %_has_bits_.i, align 8
   %15 = load i32, ptr %_has_bits_9.i, align 4
   store i32 %15, ptr %_has_bits_.i, align 8
   store i32 %14, ptr %_has_bits_9.i, align 4
-  %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_unknown_fields_11.i = getelementptr inbounds i8, ptr %other, i64 8
+  %_unknown_fields_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_unknown_fields_11.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %16 = load ptr, ptr %_unknown_fields_.i, align 8
   %17 = load ptr, ptr %_unknown_fields_11.i, align 8
   store ptr %17, ptr %_unknown_fields_.i, align 8
   store ptr %16, ptr %_unknown_fields_11.i, align 8
-  %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 28
-  %_cached_size_12.i = getelementptr inbounds i8, ptr %other, i64 28
+  %_cached_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %_cached_size_12.i = getelementptr inbounds nuw i8, ptr %other, i64 28
   %18 = load i32, ptr %_cached_size_.i, align 4
   %19 = load i32, ptr %_cached_size_12.i, align 4
   store i32 %19, ptr %_cached_size_.i, align 4
@@ -1620,62 +1620,62 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN3net23CachedNetworkParameters12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %other) local_unnamed_addr #11 align 2 {
 entry:
-  %serving_region_ = getelementptr inbounds i8, ptr %this, i64 32
-  %serving_region_2 = getelementptr inbounds i8, ptr %other, i64 32
+  %serving_region_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %serving_region_2 = getelementptr inbounds nuw i8, ptr %other, i64 32
   %0 = load ptr, ptr %serving_region_, align 8
   %1 = load ptr, ptr %serving_region_2, align 8
   store ptr %1, ptr %serving_region_, align 8
   store ptr %0, ptr %serving_region_2, align 8
-  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds i8, ptr %this, i64 40
-  %bandwidth_estimate_bytes_per_second_3 = getelementptr inbounds i8, ptr %other, i64 40
+  %bandwidth_estimate_bytes_per_second_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %bandwidth_estimate_bytes_per_second_3 = getelementptr inbounds nuw i8, ptr %other, i64 40
   %2 = load i32, ptr %bandwidth_estimate_bytes_per_second_, align 8
   %3 = load i32, ptr %bandwidth_estimate_bytes_per_second_3, align 4
   store i32 %3, ptr %bandwidth_estimate_bytes_per_second_, align 8
   store i32 %2, ptr %bandwidth_estimate_bytes_per_second_3, align 4
-  %max_bandwidth_estimate_bytes_per_second_ = getelementptr inbounds i8, ptr %this, i64 44
-  %max_bandwidth_estimate_bytes_per_second_4 = getelementptr inbounds i8, ptr %other, i64 44
+  %max_bandwidth_estimate_bytes_per_second_ = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %max_bandwidth_estimate_bytes_per_second_4 = getelementptr inbounds nuw i8, ptr %other, i64 44
   %4 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_, align 4
   %5 = load i32, ptr %max_bandwidth_estimate_bytes_per_second_4, align 4
   store i32 %5, ptr %max_bandwidth_estimate_bytes_per_second_, align 4
   store i32 %4, ptr %max_bandwidth_estimate_bytes_per_second_4, align 4
-  %max_bandwidth_timestamp_seconds_ = getelementptr inbounds i8, ptr %this, i64 48
-  %max_bandwidth_timestamp_seconds_5 = getelementptr inbounds i8, ptr %other, i64 48
+  %max_bandwidth_timestamp_seconds_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %max_bandwidth_timestamp_seconds_5 = getelementptr inbounds nuw i8, ptr %other, i64 48
   %6 = load i64, ptr %max_bandwidth_timestamp_seconds_, align 8
   %7 = load i64, ptr %max_bandwidth_timestamp_seconds_5, align 8
   store i64 %7, ptr %max_bandwidth_timestamp_seconds_, align 8
   store i64 %6, ptr %max_bandwidth_timestamp_seconds_5, align 8
-  %min_rtt_ms_ = getelementptr inbounds i8, ptr %this, i64 56
-  %min_rtt_ms_6 = getelementptr inbounds i8, ptr %other, i64 56
+  %min_rtt_ms_ = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %min_rtt_ms_6 = getelementptr inbounds nuw i8, ptr %other, i64 56
   %8 = load i32, ptr %min_rtt_ms_, align 8
   %9 = load i32, ptr %min_rtt_ms_6, align 4
   store i32 %9, ptr %min_rtt_ms_, align 8
   store i32 %8, ptr %min_rtt_ms_6, align 4
-  %previous_connection_state_ = getelementptr inbounds i8, ptr %this, i64 60
-  %previous_connection_state_7 = getelementptr inbounds i8, ptr %other, i64 60
+  %previous_connection_state_ = getelementptr inbounds nuw i8, ptr %this, i64 60
+  %previous_connection_state_7 = getelementptr inbounds nuw i8, ptr %other, i64 60
   %10 = load i32, ptr %previous_connection_state_, align 4
   %11 = load i32, ptr %previous_connection_state_7, align 4
   store i32 %11, ptr %previous_connection_state_, align 4
   store i32 %10, ptr %previous_connection_state_7, align 4
-  %timestamp_ = getelementptr inbounds i8, ptr %this, i64 64
-  %timestamp_8 = getelementptr inbounds i8, ptr %other, i64 64
+  %timestamp_ = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %timestamp_8 = getelementptr inbounds nuw i8, ptr %other, i64 64
   %12 = load i64, ptr %timestamp_, align 8
   %13 = load i64, ptr %timestamp_8, align 8
   store i64 %13, ptr %timestamp_, align 8
   store i64 %12, ptr %timestamp_8, align 8
-  %_has_bits_ = getelementptr inbounds i8, ptr %this, i64 24
-  %_has_bits_9 = getelementptr inbounds i8, ptr %other, i64 24
+  %_has_bits_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_has_bits_9 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %14 = load i32, ptr %_has_bits_, align 8
   %15 = load i32, ptr %_has_bits_9, align 4
   store i32 %15, ptr %_has_bits_, align 8
   store i32 %14, ptr %_has_bits_9, align 4
-  %_unknown_fields_ = getelementptr inbounds i8, ptr %this, i64 8
-  %_unknown_fields_11 = getelementptr inbounds i8, ptr %other, i64 8
+  %_unknown_fields_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_unknown_fields_11 = getelementptr inbounds nuw i8, ptr %other, i64 8
   %16 = load ptr, ptr %_unknown_fields_, align 8
   %17 = load ptr, ptr %_unknown_fields_11, align 8
   store ptr %17, ptr %_unknown_fields_, align 8
   store ptr %16, ptr %_unknown_fields_11, align 8
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
-  %_cached_size_12 = getelementptr inbounds i8, ptr %other, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
+  %_cached_size_12 = getelementptr inbounds nuw i8, ptr %other, i64 28
   %18 = load i32, ptr %_cached_size_, align 4
   %19 = load i32, ptr %_cached_size_12, align 4
   store i32 %19, ptr %_cached_size_, align 4
@@ -1730,7 +1730,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr dso_local noundef ptr @_ZNK3net23CachedNetworkParameters3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef null)
   ret ptr %call
@@ -1746,7 +1746,7 @@ entry:
 define linkonce_odr dso_local noundef ptr @_ZNK6google8protobuf11MessageLite20GetMaybeArenaPointerEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #1 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %this)
   ret ptr %call
@@ -1759,7 +1759,7 @@ declare noundef ptr @_ZNK6google8protobuf11MessageLite31SerializeWithCachedSizes
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK3net23CachedNetworkParameters13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
+  %_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = load i32, ptr %_cached_size_, align 4
   ret i32 %0
 }
@@ -1898,7 +1898,7 @@ entry:
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %object, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(72) %object) #14
   br label %delete.end
@@ -1923,19 +1923,19 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net23CachedNetworkParametersEE3RunEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  %self_deleting_ = getelementptr inbounds i8, ptr %this, i64 16
+  %self_deleting_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i8, ptr %self_deleting_, align 8
   %tobool = trunc i8 %0 to i1
-  %function_ = getelementptr inbounds i8, ptr %this, i64 8
+  %function_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %function_, align 8
-  %p1_ = getelementptr inbounds i8, ptr %this, i64 24
+  %p1_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %p1_, align 8
   %call = tail call noundef ptr %1(ptr noundef %2)
   br i1 %tobool, label %delete.notnull, label %if.end
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %3 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(32) %this) #14
   br label %if.end

@@ -95,7 +95,7 @@ define internal fastcc noundef ptr @dln_find_1(ptr noundef %0, ptr noundef %1, p
 28:                                               ; preds = %26, %25
   %29 = add i64 %3, -2
   %30 = add nuw i64 %8, 1
-  %31 = getelementptr inbounds i8, ptr %6, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %32 = ptrtoint ptr %2 to i64
   %33 = icmp ugt i64 %8, 100
   %34 = tail call i64 @llvm.umin.i64(i64 %8, i64 100)

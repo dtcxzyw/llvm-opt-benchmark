@@ -11,9 +11,9 @@ define void @x86_64_copystate(ptr nocapture noundef writeonly %0, ptr nocapture 
   %.07 = phi i32 [ 0, %2 ], [ %7, %3 ]
   %.036 = phi ptr [ %1, %2 ], [ %4, %3 ]
   %.045 = phi ptr [ %0, %2 ], [ %6, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.036, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %5 = load i64, ptr %.036, align 8
-  %6 = getelementptr inbounds i8, ptr %.045, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.045, i64 8
   store i64 %5, ptr %.045, align 8
   %7 = add nuw nsw i32 %.07, 1
   %exitcond.not = icmp eq i32 %7, 90

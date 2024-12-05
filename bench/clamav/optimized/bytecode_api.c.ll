@@ -176,13 +176,13 @@ define noundef range(i32 21845, 53264) i32 @cli_bcapi_test2(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %8 = load ptr, ptr %7, align 8
   tail call void @cli_event_error_str(ptr noundef %8, ptr noundef nonnull @.str) #28
   br label %39
@@ -193,16 +193,16 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr nocapture noundef %0, 
 
 11:                                               ; preds = %9
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.1, i32 noundef %2) #28
-  %12 = getelementptr inbounds i8, ptr %0, i64 1312
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %13 = load ptr, ptr %12, align 8
   tail call void @cli_event_error_str(ptr noundef %13, ptr noundef nonnull @.str.2) #28
   br label %39
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
   %17 = zext nneg i32 %2 to i64
-  %18 = getelementptr inbounds i8, ptr %5, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %19 = load i64, ptr %18, align 8
   %20 = icmp ne i64 %16, %19
   %21 = icmp ne i32 %2, 0
@@ -216,7 +216,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr nocapture noundef %0, 
 24:                                               ; preds = %22
   %25 = sub nuw i64 %19, %16
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 -2147483646, 2147483648) %17, i64 %25)
-  %26 = getelementptr inbounds i8, ptr %5, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %5, i64 noundef %16, i64 noundef %spec.select.i, i32 noundef 0) #28
   %.not.i = icmp eq ptr %28, null
@@ -225,14 +225,14 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_read(ptr nocapture noundef %0, 
 fmap_readn.exit.thread:                           ; preds = %24, %22, %14
   %.0.i28 = phi i32 [ -1, %24 ], [ -1, %22 ], [ 0, %14 ]
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3, i32 noundef %2) #28
-  %29 = getelementptr inbounds i8, ptr %0, i64 1312
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %30 = load ptr, ptr %29, align 8
   tail call void @cli_event_count(ptr noundef %30, i32 noundef 13) #28
   br label %39
 
 31:                                               ; preds = %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 1 %28, i64 %spec.select.i, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 1312
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %33 = load ptr, ptr %32, align 8
   %34 = load i64, ptr %15, align 8
   tail call void @cli_event_int(ptr noundef %33, i32 noundef 3, i64 noundef %34) #28
@@ -263,14 +263,14 @@ declare void @cli_event_fastdata(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %9
 
 6:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #28
-  %7 = getelementptr inbounds i8, ptr %0, i64 1312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %8 = load ptr, ptr %7, align 8
   tail call void @cli_event_error_str(ptr noundef %8, ptr noundef nonnull @.str.5) #28
   br label %35
@@ -287,21 +287,21 @@ define i32 @cli_bcapi_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef
   br label %24
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
   %15 = sext i32 %1 to i64
   %16 = add nsw i64 %14, %15
   br label %24
 
 .thread:                                          ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, %1
   %20 = zext i32 %19 to i64
   br label %._crit_edge
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %0, i64 1312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %23 = load ptr, ptr %22, align 8
   tail call void @cli_event_error_str(ptr noundef %23, ptr noundef nonnull @.str.6) #28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #28
@@ -310,7 +310,7 @@ define i32 @cli_bcapi_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef
 24:                                               ; preds = %12, %10
   %.0 = phi i64 [ %16, %12 ], [ %11, %10 ]
   %25 = icmp slt i64 %.0, 0
-  %.phi.trans.insert24 = getelementptr inbounds i8, ptr %0, i64 56
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre25 = load i32, ptr %.phi.trans.insert24, align 8
   br i1 %25, label %._crit_edge23, label %._crit_edge
 
@@ -328,10 +328,10 @@ define i32 @cli_bcapi_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef
   br label %35
 
 30:                                               ; preds = %._crit_edge
-  %31 = getelementptr inbounds i8, ptr %0, i64 1312
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %32 = load ptr, ptr %31, align 8
   tail call void @cli_event_int(ptr noundef %32, i32 noundef 3, i64 noundef %.021) #28
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %.021, ptr %33, align 8
   %34 = trunc nuw i64 %.021 to i32
   br label %35
@@ -343,7 +343,7 @@ define i32 @cli_bcapi_seek(ptr nocapture noundef %0, i32 noundef %1, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @cli_bcapi_debug_print_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1312
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %7 = trunc i64 %6 to i32
@@ -357,7 +357,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_debug_print_uint(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1312
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
   tail call void @cli_event_int(ptr noundef %4, i32 noundef 6, i64 noundef %5) #28
@@ -379,7 +379,7 @@ declare i64 @cli_eprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef i32 @cli_bcapi_setvirusname(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %4, align 8
   ret i32 0
 }
@@ -390,21 +390,21 @@ define i32 @cli_bcapi_disasm_x86(ptr nocapture noundef readonly %0, ptr noundef 
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not28 = icmp eq ptr %6, null
   br i1 %.not28, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %11 = load i64, ptr %10, align 8
   %.not29 = icmp ult i64 %9, %11
   br i1 %.not29, label %15, label %12
 
 12:                                               ; preds = %7, %4, %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 1312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %14 = load ptr, ptr %13, align 8
   tail call void @cli_event_error_str(ptr noundef %14, ptr noundef nonnull @.str.11) #28
   br label %31
@@ -412,7 +412,7 @@ define i32 @cli_bcapi_disasm_x86(ptr nocapture noundef readonly %0, ptr noundef 
 15:                                               ; preds = %7
   %16 = sub nuw i64 %11, %9
   %spec.select34 = tail call i64 @llvm.umin.i64(i64 %16, i64 32)
-  %17 = getelementptr inbounds i8, ptr %6, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %6, i64 noundef %9, i64 noundef %spec.select34, i32 noundef 0) #28
   %.not30 = icmp eq ptr %19, null
@@ -426,7 +426,7 @@ define i32 @cli_bcapi_disasm_x86(ptr nocapture noundef readonly %0, ptr noundef 
 
 .thread:                                          ; preds = %15, %20
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.12) #28
-  %22 = getelementptr inbounds i8, ptr %0, i64 1312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %23 = load ptr, ptr %22, align 8
   tail call void @cli_event_count(ptr noundef %23, i32 noundef 14) #28
   br label %31
@@ -450,20 +450,20 @@ declare ptr @cli_disasm_one(ptr noundef, i32 noundef, ptr noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_write(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [128 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 1088
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %6 = load ptr, ptr %5, align 8
   %7 = icmp slt i32 %2, 0
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.13) #28
-  %9 = getelementptr inbounds i8, ptr %0, i64 1312
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %10 = load ptr, ptr %9, align 8
   tail call void @cli_event_error_str(ptr noundef %10, ptr noundef nonnull @.str.14) #28
   br label %._crit_edge
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %15, label %38
@@ -473,21 +473,21 @@ define i32 @cli_bcapi_write(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not, label %19, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %18 = load ptr, ptr %17, align 8
   br label %19
 
 19:                                               ; preds = %15, %16
   %20 = phi ptr [ %18, %16 ], [ null, %15 ]
   %21 = tail call ptr @cli_gentemp_with_prefix(ptr noundef %20, ptr noundef nonnull @.str.15) #28
-  %22 = getelementptr inbounds i8, ptr %0, i64 1080
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   store ptr %21, ptr %22, align 8
   %.not35 = icmp eq ptr %21, null
   br i1 %.not35, label %23, label %26
 
 23:                                               ; preds = %19
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #28
-  %24 = getelementptr inbounds i8, ptr %0, i64 1312
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %25 = load ptr, ptr %24, align 8
   tail call void @cli_event_error_oom(ptr noundef %25, i32 noundef 0) #28
   br label %._crit_edge
@@ -504,7 +504,7 @@ define i32 @cli_bcapi_write(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   %32 = load i32, ptr %31, align 4
   %33 = call ptr @cli_strerror(i32 noundef %32, ptr noundef nonnull %4, i64 noundef 128) #28
   call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.17, ptr noundef %29, ptr noundef %33) #28
-  %34 = getelementptr inbounds i8, ptr %0, i64 1312
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %35 = load ptr, ptr %34, align 8
   call void @cli_event_error_str(ptr noundef %35, ptr noundef nonnull @.str.18) #28
   %36 = load ptr, ptr %22, align 8
@@ -516,10 +516,10 @@ define i32 @cli_bcapi_write(ptr nocapture noundef %0, ptr noundef %1, i32 nounde
   br label %38
 
 38:                                               ; preds = %37, %11
-  %39 = getelementptr inbounds i8, ptr %0, i64 1312
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %40 = load ptr, ptr %39, align 8
   tail call void @cli_event_fastdata(ptr noundef %40, i32 noundef 2, ptr noundef %1, i32 noundef %2) #28
-  %41 = getelementptr inbounds i8, ptr %0, i64 1096
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, %2
   %44 = zext i32 %43 to i64
@@ -577,28 +577,28 @@ declare i64 @cli_writen(i32 noundef, ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @cli_bytecode_context_set_trace(ptr nocapture noundef writeonly initializes((1120, 1152), (1176, 1180)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 1120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 1128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr %4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr %5, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1176
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   store i32 %1, ptr %11, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @cli_bcapi_trace_scope(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %19, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %8 = load ptr, ptr %7, align 8
   %.not16 = icmp eq ptr %8, %1
   br i1 %.not16, label %12, label %9
@@ -607,7 +607,7 @@ define noundef i32 @cli_bcapi_trace_scope(ptr nocapture noundef %0, ptr noundef 
   %.not18 = icmp eq ptr %1, null
   %10 = select i1 %.not18, ptr @.str.23, ptr %1
   store ptr %10, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1180
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1180
   store i32 %2, ptr %11, align 4
   br label %.sink.split
 
@@ -616,7 +616,7 @@ define noundef i32 @cli_bcapi_trace_scope(ptr nocapture noundef %0, ptr noundef 
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 1180
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1180
   %16 = load i32, ptr %15, align 4
   %.not17 = icmp eq i32 %16, %2
   br i1 %.not17, label %19, label %17
@@ -637,7 +637,7 @@ define noundef i32 @cli_bcapi_trace_scope(ptr nocapture noundef %0, ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @cli_bcapi_trace_directory(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %9, label %6
@@ -645,7 +645,7 @@ define noundef i32 @cli_bcapi_trace_directory(ptr nocapture noundef %0, ptr noun
 6:                                                ; preds = %3
   %.not4 = icmp eq ptr %1, null
   %7 = select i1 %.not4, ptr @.str.24, ptr %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1152
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   store ptr %7, ptr %8, align 8
   br label %9
 
@@ -655,30 +655,30 @@ define noundef i32 @cli_bcapi_trace_directory(ptr nocapture noundef %0, ptr noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @cli_bcapi_trace_source(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1160
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, %1
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 1184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   %12 = load i32, ptr %11, align 8
   %.not11 = icmp eq i32 %12, %2
   br i1 %.not11, label %17, label %13
 
 13:                                               ; preds = %10, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 1188
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1188
   store i32 0, ptr %14, align 4
   %.not12 = icmp eq ptr %1, null
   %15 = select i1 %.not12, ptr @.str.25, ptr %1
   store ptr %15, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1184
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1184
   store i32 %2, ptr %16, align 8
   br label %17
 
@@ -688,7 +688,7 @@ define noundef i32 @cli_bcapi_trace_source(ptr nocapture noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @cli_bcapi_trace_op(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 5
   br i1 %6, label %32, label %7
@@ -699,9 +699,9 @@ define noundef i32 @cli_bcapi_trace_op(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 1188
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1188
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %12 = load ptr, ptr %11, align 8
   %13 = and i32 %5, 128
   %.not27 = icmp eq i32 %13, 0
@@ -714,7 +714,7 @@ define noundef i32 @cli_bcapi_trace_op(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %17, label %32, label %.thread
 
 .thread:                                          ; preds = %7, %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 1188
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1188
   %19 = load i32, ptr %18, align 4
   %.not28 = icmp eq i32 %19, %2
   br i1 %.not28, label %21, label %20
@@ -725,7 +725,7 @@ define noundef i32 @cli_bcapi_trace_op(ptr noundef %0, ptr noundef %1, i32 nound
 
 21:                                               ; preds = %.thread, %20
   %.sink = phi i32 [ 5, %20 ], [ 4, %.thread ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 1120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0, i32 noundef %.sink) #28
   %24 = load i32, ptr %4, align 8
@@ -733,7 +733,7 @@ define noundef i32 @cli_bcapi_trace_op(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 1128
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
   %30 = icmp ne ptr %1, null
@@ -750,7 +750,7 @@ define noundef i32 @cli_bcapi_trace_op(ptr noundef %0, ptr noundef %1, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @cli_bcapi_trace_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 7
   br i1 %6, label %21, label %7
@@ -766,13 +766,13 @@ define noundef i32 @cli_bcapi_trace_value(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 1120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0, i32 noundef 2) #28
   br label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 1136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %17 = load ptr, ptr %16, align 8
   %18 = icmp ne ptr %17, null
   %19 = icmp ne ptr %1, null
@@ -789,7 +789,7 @@ define noundef i32 @cli_bcapi_trace_value(ptr noundef %0, ptr noundef %1, i32 no
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @cli_bcapi_trace_ptr(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1176
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 7
   br i1 %6, label %19, label %7
@@ -805,13 +805,13 @@ define noundef i32 @cli_bcapi_trace_ptr(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 1120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0, i32 noundef 2) #28
   br label %15
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 1144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   %17 = load ptr, ptr %16, align 8
   %.not10 = icmp eq ptr %17, null
   br i1 %.not10, label %19, label %18
@@ -828,16 +828,16 @@ define noundef i32 @cli_bcapi_trace_ptr(ptr noundef %0, ptr noundef %1, i32 noun
 define i32 @cli_bcapi_pe_rawaddr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1064
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i16, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %5, i64 644
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 644
   %14 = load i32, ptr %13, align 4
   %15 = call i32 @cli_rawaddr(i32 noundef %1, ptr noundef %7, i16 noundef zeroext %9, ptr noundef nonnull %3, i64 noundef %12, i32 noundef %14) #28
   %16 = load i32, ptr %3, align 4
@@ -857,7 +857,7 @@ declare i32 @cli_rawaddr(i32 noundef, ptr noundef, i16 noundef zeroext, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_file_find(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp eq i32 %2, 0
@@ -866,13 +866,13 @@ define i32 @cli_bcapi_file_find(ptr nocapture noundef readonly %0, ptr noundef %
 
 8:                                                ; preds = %3
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27) #28
-  %9 = getelementptr inbounds i8, ptr %0, i64 1312
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %10 = load ptr, ptr %9, align 8
   tail call void @cli_event_error_str(ptr noundef %10, ptr noundef nonnull @.str.28) #28
   br label %16
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = tail call i32 @cli_bcapi_file_find_limit(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %14)
@@ -886,7 +886,7 @@ define i32 @cli_bcapi_file_find(ptr nocapture noundef readonly %0, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [4096 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = zext i32 %2 to i64
@@ -899,25 +899,25 @@ define i32 @cli_bcapi_file_find_limit(ptr nocapture noundef readonly %0, ptr nou
 
 13:                                               ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29) #28
-  %14 = getelementptr inbounds i8, ptr %0, i64 1312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %15 = load ptr, ptr %14, align 8
   tail call void @cli_event_error_str(ptr noundef %15, ptr noundef nonnull @.str.30) #28
   br label %fmap_readn.exit.thread
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load i64, ptr %17, align 8
   %19 = zext nneg i32 %3 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 1312
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %21 = load ptr, ptr %20, align 8
   %22 = and i64 %18, 4294967295
   tail call void @cli_event_int(ptr noundef %21, i32 noundef 3, i64 noundef %22) #28
   %23 = load ptr, ptr %20, align 8
   tail call void @cli_event_fastdata(ptr noundef %23, i32 noundef 9, ptr noundef %1, i32 noundef %2) #28
-  %24 = getelementptr inbounds i8, ptr %7, i64 88
-  %25 = getelementptr inbounds i8, ptr %7, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %.not.i52 = icmp eq ptr %1, null
-  %26 = getelementptr inbounds i8, ptr %1, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %27 = add nsw i32 %2, -1
   %28 = zext nneg i32 %27 to i64
   br i1 %.not.i52, label %.split.us, label %.split
@@ -1096,7 +1096,7 @@ fmap_readn.exit:                                  ; preds = %86, %96
   br i1 %.not32.i, label %cli_memmem.exit.thread, label %107
 
 107:                                              ; preds = %.lr.ph.i
-  %108 = getelementptr inbounds i8, ptr %106, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %bcmp.i = call i32 @bcmp(ptr nonnull %108, ptr nonnull readonly %26, i64 %28)
   %.not33.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not33.i, label %cli_memmem.exit.thread58, label %109
@@ -1131,7 +1131,7 @@ fmap_readn.exit.thread:                           ; preds = %92, %90, %fmap_read
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 256) i32 @cli_bcapi_file_byteat(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -1141,18 +1141,18 @@ define range(i32 -1, 256) i32 @cli_bcapi_file_byteat(ptr nocapture noundef reado
   br label %19
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %1 to i64
   tail call void @cli_event_int(ptr noundef %8, i32 noundef 3, i64 noundef %9) #28
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load i64, ptr %11, align 8
   %or.cond.not = icmp ugt i64 %12, %9
   br i1 %or.cond.not, label %13, label %fmap_readn.exit.thread
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %10, i64 noundef %9, i64 noundef 1, i32 noundef 0) #28
   %.not.i = icmp eq ptr %16, null
@@ -1174,7 +1174,7 @@ fmap_readn.exit.thread:                           ; preds = %13, %6
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_bcapi_malloc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1192
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
@@ -1207,7 +1207,7 @@ define ptr @cli_bcapi_malloc(ptr nocapture noundef %0, i32 noundef %1) local_unn
 
 .sink.split:                                      ; preds = %11, %.thread, %7
   %.sink21 = phi i32 [ 0, %7 ], [ %1, %.thread ], [ %1, %11 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 1312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %15 = load ptr, ptr %14, align 8
   tail call void @cli_event_error_oom(ptr noundef %15, i32 noundef %.sink21) #28
   br label %16
@@ -1223,19 +1223,19 @@ declare ptr @mpool_malloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_get_pe_section(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 128
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
   %9 = icmp ult i32 %2, %8
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 1064
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %2 to i64
-  %14 = getelementptr inbounds %struct.cli_exe_section, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %12, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %1, ptr noundef nonnull align 4 dereferenceable(36) %14, i64 36, i1 false)
   br label %15
 
@@ -1259,15 +1259,15 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 
 11:                                               ; preds = %6
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #28
-  %12 = getelementptr inbounds i8, ptr %0, i64 1312
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %13 = load ptr, ptr %12, align 8
   tail call void @cli_event_error_str(ptr noundef %13, ptr noundef nonnull @.str.36) #28
   br label %65
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   %.not = icmp slt i64 %16, %19
@@ -1275,7 +1275,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 
 20:                                               ; preds = %14
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37) #28
-  %21 = getelementptr inbounds i8, ptr %0, i64 1312
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %22 = load ptr, ptr %21, align 8
   tail call void @cli_event_error_str(ptr noundef %22, ptr noundef nonnull @.str.38) #28
   br label %65
@@ -1293,7 +1293,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 27:                                               ; preds = %25
   %28 = zext nneg i32 %2 to i64
   %29 = zext i32 %4 to i64
-  %30 = getelementptr inbounds i8, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %29
   %31 = ptrtoint ptr %30 to i64
   %32 = ptrtoint ptr %1 to i64
   %33 = add i64 %31, %26
@@ -1307,7 +1307,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 
 37:                                               ; preds = %27, %25
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39) #28
-  %38 = getelementptr inbounds i8, ptr %0, i64 1312
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %39 = load ptr, ptr %38, align 8
   tail call void @cli_event_error_str(ptr noundef %39, ptr noundef nonnull @.str.40) #28
   br label %65
@@ -1325,7 +1325,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
   %44 = sext i32 %42 to i64
   %45 = zext nneg i32 %2 to i64
   %46 = zext nneg i32 %24 to i64
-  %47 = getelementptr inbounds i8, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = ptrtoint ptr %1 to i64
   %50 = add i64 %48, %44
@@ -1339,7 +1339,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 
 54:                                               ; preds = %43, %41
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.41) #28
-  %55 = getelementptr inbounds i8, ptr %0, i64 1312
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %56 = load ptr, ptr %55, align 8
   tail call void @cli_event_error_str(ptr noundef %56, ptr noundef nonnull @.str.42) #28
   br label %65
@@ -1351,7 +1351,7 @@ define range(i32 -1, -2147483648) i32 @cli_bcapi_fill_buffer(ptr nocapture nound
 
 60:                                               ; preds = %57
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.43) #28
-  %61 = getelementptr inbounds i8, ptr %0, i64 1312
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %62 = load ptr, ptr %61, align 8
   tail call void @cli_event_error_str(ptr noundef %62, ptr noundef nonnull @.str.44) #28
   br label %65
@@ -1370,10 +1370,10 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1312
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %4 = load ptr, ptr %3, align 8
   tail call void @cli_event_count(ptr noundef %4, i32 noundef 10) #28
-  %5 = getelementptr inbounds i8, ptr %0, i64 1096
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %6 = load i32, ptr %5, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.45, i32 noundef %6) #28
   %7 = load i32, ptr %5, align 8
@@ -1381,7 +1381,7 @@ define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) loca
   br i1 %.not, label %61, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1088
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %10 = load ptr, ptr %9, align 8
   %.not39 = icmp eq ptr %10, null
   br i1 %.not39, label %14, label %11
@@ -1394,7 +1394,7 @@ define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) loca
 
 14:                                               ; preds = %11, %8
   store i32 0, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = tail call i64 @lseek(i32 noundef %16, i64 noundef 0, i32 noundef 0) #28
   %18 = icmp eq i64 %17, -1
@@ -1405,7 +1405,7 @@ define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) loca
   br label %61
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 1080
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.47, ptr noundef %22) #28
   %23 = load ptr, ptr %9, align 8
@@ -1415,7 +1415,7 @@ define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) loca
 24:                                               ; preds = %20
   %25 = load i32, ptr %15, align 4
   %26 = load ptr, ptr %21, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1284
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %28 = load i32, ptr %27, align 4
   %29 = tail call i32 @cli_magic_scan_desc_type(i32 noundef %25, ptr noundef %26, ptr noundef nonnull %23, i32 noundef %28, ptr noundef null, i32 noundef 0) #28
   %30 = icmp eq i32 %29, 1
@@ -1423,16 +1423,16 @@ define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) loca
 
 31:                                               ; preds = %24
   %32 = tail call ptr @cli_get_last_virus(ptr noundef nonnull %23) #28
-  %33 = getelementptr inbounds i8, ptr %0, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 1104
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   store i32 1, ptr %34, align 8
   br label %35
 
 35:                                               ; preds = %24, %31
-  %36 = getelementptr inbounds i8, ptr %23, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8
   %.not42 = icmp eq i32 %39, 0
   br i1 %.not42, label %42, label %.thread50
@@ -1458,9 +1458,9 @@ define i32 @cli_bcapi_extract_new(ptr nocapture noundef %0, i32 noundef %1) loca
 
 49:                                               ; preds = %.thread50, %46
   %.04754 = phi i32 [ %29, %.thread50 ], [ %.049, %46 ]
-  %50 = getelementptr inbounds i8, ptr %23, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 40
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %53 = load i32, ptr %52, align 8
   %.not43 = icmp eq i32 %53, 0
   br i1 %.not43, label %54, label %58
@@ -1517,20 +1517,20 @@ define i32 @cli_bcapi_read_number(ptr nocapture noundef %0, i32 noundef %1) loca
   ]
 
 4:                                                ; preds = %2, %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8
   tail call void @cli_event_int(ptr noundef %9, i32 noundef 3, i64 noundef %11) #28
   %12 = load ptr, ptr %5, align 8
   %13 = load i64, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef %12, i64 noundef %13, i64 noundef 16, i32 noundef 0) #28
   %.not4059 = icmp eq ptr %16, null
@@ -1546,7 +1546,7 @@ define i32 @cli_bcapi_read_number(ptr nocapture noundef %0, i32 noundef %1) loca
 
 19:                                               ; preds = %24, %.preheader.us
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %24 ], [ 0, %.preheader.us ]
-  %20 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv73
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv73
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -48
   %or.cond.us.us = icmp ult i8 %22, 10
@@ -1578,7 +1578,7 @@ define i32 @cli_bcapi_read_number(ptr nocapture noundef %0, i32 noundef %1) loca
   %26 = add nsw i64 %25, 16
   store i64 %26, ptr %10, align 8
   %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 104
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr %29(ptr noundef %27, i64 noundef %26, i64 noundef 16, i32 noundef 0) #28
   %.not40.us = icmp eq ptr %30, null
@@ -1590,7 +1590,7 @@ define i32 @cli_bcapi_read_number(ptr nocapture noundef %0, i32 noundef %1) loca
 
 32:                                               ; preds = %.preheader, %36
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %36 ]
-  %33 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1
   %35 = add i8 %34, -48
   %or.cond = icmp ult i8 %35, 10
@@ -1604,9 +1604,9 @@ define i32 @cli_bcapi_read_number(ptr nocapture noundef %0, i32 noundef %1) loca
 .split.us:                                        ; preds = %32, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %23, %19
   %.us-phi = phi i64 [ %indvars.iv73, %19 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv73, %23 ], [ %indvars.iv, %32 ]
   %.us-phi51 = phi ptr [ %18, %19 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %18, %23 ], [ %31, %32 ]
-  %37 = getelementptr inbounds i8, ptr %.us-phi51, i64 %.us-phi
+  %37 = getelementptr inbounds nuw i8, ptr %.us-phi51, i64 %.us-phi
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 104
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr i8, ptr %38, i64 16
   %.val.i = load ptr, ptr %41, align 8
@@ -1638,7 +1638,7 @@ define i32 @cli_bcapi_read_number(ptr nocapture noundef %0, i32 noundef %1) loca
   %59 = add nsw i64 %58, 16
   store i64 %59, ptr %10, align 8
   %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 104
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %62(ptr noundef %60, i64 noundef %59, i64 noundef 16, i32 noundef 0) #28
   %.not40 = icmp eq ptr %63, null
@@ -1654,10 +1654,10 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_hashset_new(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1236
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1248
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %4 to i64
   %8 = mul nuw nsw i64 %7, 40
@@ -1666,7 +1666,7 @@ define i32 @cli_bcapi_hashset_new(ptr nocapture noundef %0) local_unnamed_addr #
   br i1 %.not, label %10, label %13
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 1312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %12 = load ptr, ptr %11, align 8
   tail call void @cli_event_error_oom(ptr noundef %12, i32 noundef 0) #28
   br label %17
@@ -1675,7 +1675,7 @@ define i32 @cli_bcapi_hashset_new(ptr nocapture noundef %0) local_unnamed_addr #
   store ptr %9, ptr %5, align 8
   store i32 %4, ptr %2, align 4
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds %struct.cli_hashset, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %14
   %16 = tail call i32 @cli_hashset_init(ptr noundef nonnull %15, i64 noundef 16, i8 noundef zeroext 80) #28
   br label %17
 
@@ -1694,26 +1694,26 @@ define range(i32 -1, 1) i32 @cli_bcapi_hashset_add(ptr nocapture noundef readonl
   br i1 %4, label %get_hashset.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1236
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashset.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %10 = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %get_hashset.exit.thread, label %get_hashset.exit
 
 get_hashset.exit.thread:                          ; preds = %3, %5, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %12 = load ptr, ptr %11, align 8
   tail call void @cli_event_error_str(ptr noundef %12, ptr noundef nonnull @.str.134) #28
   br label %18
 
 get_hashset.exit:                                 ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds %struct.cli_hashset, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %struct.cli_hashset, ptr %10, i64 %13
   %15 = tail call i32 @cli_hashset_addkey(ptr noundef nonnull %14, i32 noundef %2) #28
   %16 = icmp ne i32 %15, 0
   %17 = sext i1 %16 to i32
@@ -1732,26 +1732,26 @@ define range(i32 -1, 1) i32 @cli_bcapi_hashset_remove(ptr nocapture noundef read
   br i1 %4, label %get_hashset.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1236
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashset.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %10 = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %get_hashset.exit.thread, label %get_hashset.exit
 
 get_hashset.exit.thread:                          ; preds = %3, %5, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %12 = load ptr, ptr %11, align 8
   tail call void @cli_event_error_str(ptr noundef %12, ptr noundef nonnull @.str.134) #28
   br label %18
 
 get_hashset.exit:                                 ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds %struct.cli_hashset, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %struct.cli_hashset, ptr %10, i64 %13
   %15 = tail call i32 @cli_hashset_removekey(ptr noundef nonnull %14, i32 noundef %2) #28
   %16 = icmp ne i32 %15, 0
   %17 = sext i1 %16 to i32
@@ -1770,26 +1770,26 @@ define range(i32 -1, 2) i32 @cli_bcapi_hashset_contains(ptr nocapture noundef re
   br i1 %4, label %get_hashset.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1236
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashset.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %10 = load ptr, ptr %9, align 8
   %.not9.i = icmp eq ptr %10, null
   br i1 %.not9.i, label %get_hashset.exit.thread, label %get_hashset.exit
 
 get_hashset.exit.thread:                          ; preds = %3, %5, %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1312
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %12 = load ptr, ptr %11, align 8
   tail call void @cli_event_error_str(ptr noundef %12, ptr noundef nonnull @.str.134) #28
   br label %17
 
 get_hashset.exit:                                 ; preds = %8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds %struct.cli_hashset, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw %struct.cli_hashset, ptr %10, i64 %13
   %15 = tail call zeroext i1 @cli_hashset_contains(ptr noundef nonnull %14, i32 noundef %2) #28
   %16 = zext i1 %15 to i32
   br label %17
@@ -1807,26 +1807,26 @@ define range(i32 0, 2) i32 @cli_bcapi_hashset_empty(ptr nocapture noundef readon
   br i1 %3, label %get_hashset.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1236
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashset.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %9 = load ptr, ptr %8, align 8
   %.not9.i = icmp eq ptr %9, null
   br i1 %.not9.i, label %get_hashset.exit.thread, label %get_hashset.exit
 
 get_hashset.exit.thread:                          ; preds = %2, %4, %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 1312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %11 = load ptr, ptr %10, align 8
   tail call void @cli_event_error_str(ptr noundef %11, ptr noundef nonnull @.str.134) #28
   br label %16
 
 get_hashset.exit:                                 ; preds = %7
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds %struct.cli_hashset, ptr %9, i64 %12, i32 5
+  %13 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %12, i32 5
   %14 = load i32, ptr %13, align 8
   %.not3 = icmp eq i32 %14, 0
   %15 = zext i1 %.not3 to i32
@@ -1843,26 +1843,26 @@ define range(i32 -1, 1) i32 @cli_bcapi_hashset_done(ptr nocapture noundef %0, i3
   br i1 %3, label %get_hashset.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1236
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1236
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashset.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1248
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1248
   %9 = load ptr, ptr %8, align 8
   %.not9.i = icmp eq ptr %9, null
   br i1 %.not9.i, label %get_hashset.exit.thread, label %get_hashset.exit
 
 get_hashset.exit.thread:                          ; preds = %2, %4, %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 1312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %11 = load ptr, ptr %10, align 8
   tail call void @cli_event_error_str(ptr noundef %11, ptr noundef nonnull @.str.134) #28
   br label %24
 
 get_hashset.exit:                                 ; preds = %7
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds %struct.cli_hashset, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw %struct.cli_hashset, ptr %9, i64 %12
   tail call void @cli_hashset_destroy(ptr noundef nonnull %13) #28
   %14 = load i32, ptr %5, align 4
   %15 = add i32 %14, -1
@@ -1899,7 +1899,7 @@ declare void @cli_hashset_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_buffer_pipe_new(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
   %6 = zext i32 %1 to i64
@@ -1908,7 +1908,7 @@ define i32 @cli_bcapi_buffer_pipe_new(ptr nocapture noundef %0, i32 noundef %1) 
   br i1 %.not, label %21, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %5 to i64
   %12 = mul nuw nsw i64 %11, 24
@@ -1924,13 +1924,13 @@ define i32 @cli_bcapi_buffer_pipe_new(ptr nocapture noundef %0, i32 noundef %1) 
   store ptr %13, ptr %9, align 8
   store i32 %5, ptr %3, align 8
   %16 = zext i32 %4 to i64
-  %17 = getelementptr inbounds %struct.bc_buffer, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw %struct.bc_buffer, ptr %13, i64 %16
   store ptr %7, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 0, ptr %20, align 4
   br label %21
 
@@ -1943,16 +1943,16 @@ declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_buffer_pipe_new_fromfile(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %.not = icmp ult i32 %1, %7
   br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 1224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %5 to i64
   %12 = mul nuw nsw i64 %11, 24
@@ -1964,13 +1964,13 @@ define i32 @cli_bcapi_buffer_pipe_new_fromfile(ptr nocapture noundef %0, i32 nou
   store ptr %13, ptr %9, align 8
   store i32 %5, ptr %3, align 8
   %15 = zext i32 %4 to i64
-  %16 = getelementptr inbounds %struct.bc_buffer, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw %struct.bc_buffer, ptr %13, i64 %15
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 0, ptr %19, align 4
   br label %20
 
@@ -1981,7 +1981,7 @@ define i32 @cli_bcapi_buffer_pipe_new_fromfile(ptr nocapture noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_buffer_pipe_read_avail(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = icmp slt i32 %1, 0
@@ -1989,7 +1989,7 @@ define i32 @cli_bcapi_buffer_pipe_read_avail(ptr nocapture noundef readonly %0, 
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp ult i32 %1, %9
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2000,29 +2000,29 @@ get_buffer.exit.thread:                           ; preds = %2, %7
 
 get_buffer.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_buffer, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw %struct.bc_buffer, ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %18, label %13
 
 13:                                               ; preds = %get_buffer.exit
-  %14 = getelementptr inbounds i8, ptr %11, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load i32, ptr %16, align 8
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %15, i32 %17)
   br label %29
 
 18:                                               ; preds = %get_buffer.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %20 = load ptr, ptr %19, align 8
   %.not21 = icmp eq ptr %20, null
   br i1 %.not21, label %29, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %11, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load i32, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load i32, ptr %24, align 8
   %.not22 = icmp ult i32 %23, %25
   br i1 %.not22, label %26, label %29
@@ -2041,7 +2041,7 @@ get_buffer.exit:                                  ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_bcapi_buffer_pipe_read_get(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp slt i32 %1, 0
@@ -2049,7 +2049,7 @@ define ptr @cli_bcapi_buffer_pipe_read_get(ptr nocapture noundef readonly %0, i3
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit.i, label %get_buffer.exit.thread
@@ -2060,21 +2060,21 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit.i:                                ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not20.i = icmp eq ptr %13, null
   br i1 %.not20.i, label %14, label %cli_bcapi_buffer_pipe_read_avail.exit.thread23
 
 14:                                               ; preds = %get_buffer.exit.i
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %.not21.i = icmp eq ptr %16, null
   br i1 %.not21.i, label %cli_bcapi_buffer_pipe_read_avail.exit.thread, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %21 = load i32, ptr %20, align 8
   %.not22.i = icmp ult i32 %19, %21
   br i1 %.not22.i, label %cli_bcapi_buffer_pipe_read_avail.exit, label %cli_bcapi_buffer_pipe_read_avail.exit.thread
@@ -2089,9 +2089,9 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %17
   br i1 %or.cond, label %32, label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23:   ; preds = %get_buffer.exit.i
-  %25 = getelementptr inbounds i8, ptr %12, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds i8, ptr %12, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %28 = load i32, ptr %27, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %26, i32 %28)
   %29 = add i32 %2, -1
@@ -2100,15 +2100,15 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23:   ; preds = %get_buffer.exit.i
 
 .thread:                                          ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds i8, ptr %13, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 %30
   br label %cli_bcapi_buffer_pipe_read_avail.exit.thread
 
 32:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = zext i32 %19 to i64
   %36 = zext i32 %2 to i64
-  %37 = getelementptr inbounds i8, ptr %34, i64 104
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 104
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef %34, i64 noundef range(i64 0, 4294967296) %35, i64 noundef range(i64 0, 4294967296) %36, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_avail.exit.thread
@@ -2120,7 +2120,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %cli_bcapi_buffer_pi
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_read_stopped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp slt i32 %1, 0
@@ -2128,7 +2128,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_read_stopped(ptr nocapture no
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2139,15 +2139,15 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit:                                  ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %24, label %14
 
 14:                                               ; preds = %get_buffer.exit
-  %15 = getelementptr inbounds i8, ptr %12, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %18 = load i32, ptr %17, align 8
   %.not27 = icmp ugt i32 %16, %18
   br i1 %.not27, label %19, label %28
@@ -2156,7 +2156,7 @@ get_buffer.exit:                                  ; preds = %8
   %20 = add i32 %18, %2
   %. = tail call i32 @llvm.umin.i32(i32 %20, i32 %16)
   store i32 %., ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %22 = load i32, ptr %21, align 8
   %.not28 = icmp ult i32 %., %22
   br i1 %.not28, label %28, label %23
@@ -2167,7 +2167,7 @@ get_buffer.exit:                                  ; preds = %8
   br label %28
 
 24:                                               ; preds = %get_buffer.exit
-  %25 = getelementptr inbounds i8, ptr %12, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = add i32 %26, %2
   store i32 %27, ptr %25, align 8
@@ -2180,7 +2180,7 @@ get_buffer.exit:                                  ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_buffer_pipe_write_avail(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = icmp slt i32 %1, 0
@@ -2188,7 +2188,7 @@ define i32 @cli_bcapi_buffer_pipe_write_avail(ptr nocapture noundef readonly %0,
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp ult i32 %1, %9
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2199,15 +2199,15 @@ get_buffer.exit.thread:                           ; preds = %2, %7
 
 get_buffer.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_buffer, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw %struct.bc_buffer, ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8
   %.not11 = icmp eq ptr %12, null
   br i1 %.not11, label %18, label %13
 
 13:                                               ; preds = %get_buffer.exit
-  %14 = getelementptr inbounds i8, ptr %11, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %11, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %17 = load i32, ptr %16, align 8
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %17, i32 %15)
   br label %18
@@ -2219,7 +2219,7 @@ get_buffer.exit:                                  ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_bcapi_buffer_pipe_write_get(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp slt i32 %1, 0
@@ -2227,7 +2227,7 @@ define ptr @cli_bcapi_buffer_pipe_write_get(ptr nocapture noundef readonly %0, i
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit.i, label %get_buffer.exit.thread
@@ -2238,15 +2238,15 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit.i:                                ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not11.i = icmp eq ptr %13, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit.thread, label %cli_bcapi_buffer_pipe_write_avail.exit
 
 cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.i
-  %14 = getelementptr inbounds i8, ptr %12, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i32, ptr %16, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %17, i32 %15)
   %18 = add i32 %2, -1
@@ -2255,7 +2255,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.i
 
 19:                                               ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
   %20 = zext i32 %15 to i64
-  %21 = getelementptr inbounds i8, ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 %20
   br label %cli_bcapi_buffer_pipe_write_avail.exit.thread
 
 cli_bcapi_buffer_pipe_write_avail.exit.thread:    ; preds = %get_buffer.exit.i, %get_buffer.exit.thread, %cli_bcapi_buffer_pipe_write_avail.exit, %19
@@ -2265,7 +2265,7 @@ cli_bcapi_buffer_pipe_write_avail.exit.thread:    ; preds = %get_buffer.exit.i, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_write_stopped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1224
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = icmp slt i32 %1, 0
@@ -2273,7 +2273,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_write_stopped(ptr nocapture n
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %10 = load i32, ptr %9, align 8
   %.not.i = icmp ult i32 %1, %10
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2284,16 +2284,16 @@ get_buffer.exit.thread:                           ; preds = %3, %8
 
 get_buffer.exit:                                  ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.bc_buffer, ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw %struct.bc_buffer, ptr %5, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not14 = icmp eq ptr %13, null
   br i1 %.not14, label %20, label %14
 
 14:                                               ; preds = %get_buffer.exit
-  %15 = getelementptr inbounds i8, ptr %12, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, %2
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load i32, ptr %18, align 8
   %. = tail call i32 @llvm.umin.i32(i32 %17, i32 %19)
   store i32 %., ptr %15, align 4
@@ -2306,7 +2306,7 @@ get_buffer.exit:                                  ; preds = %8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_done(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1224
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = icmp slt i32 %1, 0
@@ -2314,7 +2314,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_buffer_pipe_done(ptr nocapture noundef re
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1232
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %9 = load i32, ptr %8, align 8
   %.not.i = icmp ult i32 %1, %9
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2325,7 +2325,7 @@ get_buffer.exit.thread:                           ; preds = %2, %7
 
 get_buffer.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_buffer, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw %struct.bc_buffer, ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef %12) #28
   store ptr null, ptr %11, align 8
@@ -2338,10 +2338,10 @@ get_buffer.exit:                                  ; preds = %7
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_inflate_init(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1108
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 1224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   %11 = icmp slt i32 %1, 0
@@ -2349,7 +2349,7 @@ define i32 @cli_bcapi_inflate_init(ptr nocapture noundef %0, i32 noundef %1, i32
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1232
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %14 = load i32, ptr %13, align 8
   %.not.i = icmp ult i32 %1, %14
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2367,7 +2367,7 @@ get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %1
   br label %32
 
 get_buffer.exit31:                                ; preds = %get_buffer.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 1200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %7 to i64
   %19 = shl nuw nsw i64 %18, 7
@@ -2379,12 +2379,12 @@ get_buffer.exit31:                                ; preds = %get_buffer.exit
   store ptr %20, ptr %16, align 8
   store i32 %7, ptr %5, align 4
   %22 = zext i32 %6 to i64
-  %23 = getelementptr inbounds %struct.bc_inflate, ptr %20, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 112
+  %23 = getelementptr inbounds nuw %struct.bc_inflate, ptr %20, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 112
   store i32 %1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %23, i64 116
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 116
   store i32 %2, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %23, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i8 0, ptr %26, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %23, i8 0, i64 112, i1 false)
   %27 = tail call i32 @inflateInit2_(ptr noundef nonnull %23, i32 noundef %3, ptr noundef nonnull @.str.50, i32 noundef 112) #28
@@ -2427,33 +2427,33 @@ define i32 @cli_bcapi_inflate_process(ptr nocapture noundef readonly %0, i32 nou
   br i1 %3, label %get_inflate.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1108
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_inflate.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_inflate.exit.thread, label %get_inflate.exit
 
 get_inflate.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_inflate, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 112
+  %11 = getelementptr inbounds nuw %struct.bc_inflate, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %get_inflate.exit.thread, label %15
 
 15:                                               ; preds = %get_inflate.exit
-  %16 = getelementptr inbounds i8, ptr %11, i64 116
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 116
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %get_inflate.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 1224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = icmp slt i32 %13, 0
@@ -2461,7 +2461,7 @@ get_inflate.exit:                                 ; preds = %7
   br i1 %or.cond.i.i, label %get_buffer.exit.thread.i, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1232
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp ult i32 %13, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
@@ -2473,29 +2473,29 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
 
 30:                                               ; preds = %get_buffer.exit.i
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i32, ptr %33, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 %34)
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 35:                                               ; preds = %get_buffer.exit.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
   %.not21.i = icmp eq ptr %37, null
   br i1 %.not21.i, label %cli_bcapi_buffer_pipe_read_avail.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %41, align 8
   %.not22.i = icmp ult i32 %40, %42
   br i1 %.not22.i, label %43, label %cli_bcapi_buffer_pipe_read_avail.exit
@@ -2510,7 +2510,7 @@ get_buffer.exit.i:                                ; preds = %24
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thread.i, %30, %35, %38, %43
   %46 = phi i32 [ %13, %38 ], [ %13, %35 ], [ %13, %30 ], [ %13, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
   %.0.i63 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.0.i63, ptr %47, align 8
   %48 = load ptr, ptr %20, align 8
   %49 = icmp eq ptr %48, null
@@ -2519,7 +2519,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i64, label %get_buffer.exit.thread.i66, label %51
 
 51:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 1232
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %53 = load i32, ptr %52, align 8
   %.not.i.i65 = icmp ult i32 %46, %53
   br i1 %.not.i.i65, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i66
@@ -2530,21 +2530,21 @@ get_buffer.exit.thread.i66:                       ; preds = %51, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %51
   %54 = zext nneg i32 %46 to i64
-  %55 = getelementptr inbounds %struct.bc_buffer, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw %struct.bc_buffer, ptr %48, i64 %54
   %56 = load ptr, ptr %55, align 8
   %.not20.i.i = icmp eq ptr %56, null
   br i1 %.not20.i.i, label %57, label %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
 
 57:                                               ; preds = %get_buffer.exit.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8
   %.not21.i.i = icmp eq ptr %59, null
   br i1 %.not21.i.i, label %cli_bcapi_buffer_pipe_read_get.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %55, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load i32, ptr %63, align 8
   %.not22.i.i = icmp ult i32 %62, %64
   br i1 %.not22.i.i, label %cli_bcapi_buffer_pipe_read_avail.exit.i, label %cli_bcapi_buffer_pipe_read_get.exit
@@ -2559,9 +2559,9 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %60
   br i1 %or.cond.i, label %73, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
-  %68 = getelementptr inbounds i8, ptr %55, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %55, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %71 = load i32, ptr %70, align 8
   %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %69, i32 %71)
   %72 = add i32 %.0.i63, -1
@@ -2571,14 +2571,14 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
 73:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
   %74 = zext i32 %62 to i64
   %75 = zext i32 %.0.i63 to i64
-  %76 = getelementptr inbounds i8, ptr %59, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef range(i64 0, 4294967296) %74, i64 noundef range(i64 0, 4294967296) %75, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
   %79 = zext i32 %71 to i64
-  %80 = getelementptr inbounds i8, ptr %56, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %56, i64 %79
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i66, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %73
@@ -2592,7 +2592,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i68, label %get_buffer.exit.thread.i70, label %85
 
 85:                                               ; preds = %cli_bcapi_buffer_pipe_read_get.exit
-  %86 = getelementptr inbounds i8, ptr %0, i64 1232
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %87 = load i32, ptr %86, align 8
   %.not.i.i69 = icmp ult i32 %81, %87
   br i1 %.not.i.i69, label %get_buffer.exit.i72, label %get_buffer.exit.thread.i70
@@ -2604,15 +2604,15 @@ get_buffer.exit.thread.i70:                       ; preds = %85, %cli_bcapi_buff
 
 get_buffer.exit.i72:                              ; preds = %85
   %88 = zext nneg i32 %81 to i64
-  %89 = getelementptr inbounds %struct.bc_buffer, ptr %82, i64 %88
+  %89 = getelementptr inbounds nuw %struct.bc_buffer, ptr %82, i64 %88
   %90 = load ptr, ptr %89, align 8
   %.not11.i = icmp eq ptr %90, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit, label %91
 
 91:                                               ; preds = %get_buffer.exit.i72
-  %92 = getelementptr inbounds i8, ptr %89, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %89, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %95 = load i32, ptr %94, align 8
   %spec.select.i73 = tail call i32 @llvm.usub.sat.i32(i32 %95, i32 %93)
   br label %cli_bcapi_buffer_pipe_write_avail.exit
@@ -2620,7 +2620,7 @@ get_buffer.exit.i72:                              ; preds = %85
 cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thread.i70, %get_buffer.exit.i72, %91
   %96 = phi i32 [ %81, %get_buffer.exit.i72 ], [ %81, %91 ], [ %.pre96, %get_buffer.exit.thread.i70 ]
   %.0.i71 = phi i32 [ 0, %get_buffer.exit.i72 ], [ %spec.select.i73, %91 ], [ 0, %get_buffer.exit.thread.i70 ]
-  %97 = getelementptr inbounds i8, ptr %11, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %.0.i71, ptr %97, align 8
   %98 = load ptr, ptr %20, align 8
   %99 = icmp eq ptr %98, null
@@ -2629,7 +2629,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i74, label %get_buffer.exit.thread.i76, label %101
 
 101:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 1232
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %103 = load i32, ptr %102, align 8
   %.not.i.i75 = icmp ult i32 %96, %103
   br i1 %.not.i.i75, label %get_buffer.exit.i.i78, label %get_buffer.exit.thread.i76
@@ -2640,15 +2640,15 @@ get_buffer.exit.thread.i76:                       ; preds = %101, %cli_bcapi_buf
 
 get_buffer.exit.i.i78:                            ; preds = %101
   %104 = zext nneg i32 %96 to i64
-  %105 = getelementptr inbounds %struct.bc_buffer, ptr %98, i64 %104
+  %105 = getelementptr inbounds nuw %struct.bc_buffer, ptr %98, i64 %104
   %106 = load ptr, ptr %105, align 8
   %.not11.i.i = icmp eq ptr %106, null
   br i1 %.not11.i.i, label %cli_bcapi_buffer_pipe_write_get.exit, label %cli_bcapi_buffer_pipe_write_avail.exit.i
 
 cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i78
-  %107 = getelementptr inbounds i8, ptr %105, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %110 = load i32, ptr %109, align 8
   %spec.select.i.i79 = tail call i32 @llvm.usub.sat.i32(i32 %110, i32 %108)
   %111 = add i32 %.0.i71, -1
@@ -2657,12 +2657,12 @@ cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i
 
 112:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit.i
   %113 = zext i32 %108 to i64
-  %114 = getelementptr inbounds i8, ptr %106, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 %113
   br label %cli_bcapi_buffer_pipe_write_get.exit
 
 cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thread.i76, %get_buffer.exit.i.i78, %cli_bcapi_buffer_pipe_write_avail.exit.i, %112
   %.0.i77 = phi ptr [ %114, %112 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i76 ], [ null, %get_buffer.exit.i.i78 ]
-  %115 = getelementptr inbounds i8, ptr %11, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i77, ptr %115, align 8
   %116 = load i32, ptr %47, align 8
   %.not57 = icmp eq i32 %116, 0
@@ -2681,9 +2681,9 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
   br i1 %or.cond, label %get_inflate.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %119
-  %121 = getelementptr inbounds i8, ptr %11, i64 120
-  %122 = getelementptr inbounds i8, ptr %11, i64 16
-  %123 = getelementptr inbounds i8, ptr %11, i64 48
+  %121 = getelementptr inbounds nuw i8, ptr %11, i64 120
+  %122 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %.pre97 = load i8, ptr %121, align 8
   %124 = icmp eq i8 %.pre97, 0
   br i1 %124, label %125, label %.thread
@@ -2727,7 +2727,7 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i81, label %get_buffer.exit.thread.i83, label %141
 
 141:                                              ; preds = %134
-  %142 = getelementptr inbounds i8, ptr %0, i64 1232
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %143 = load i32, ptr %142, align 8
   %.not.i.i82 = icmp ult i32 %135, %143
   br i1 %.not.i.i82, label %get_buffer.exit.i85, label %get_buffer.exit.thread.i83
@@ -2738,15 +2738,15 @@ get_buffer.exit.thread.i83:                       ; preds = %141, %134
 
 get_buffer.exit.i85:                              ; preds = %141
   %144 = zext nneg i32 %135 to i64
-  %145 = getelementptr inbounds %struct.bc_buffer, ptr %138, i64 %144
+  %145 = getelementptr inbounds nuw %struct.bc_buffer, ptr %138, i64 %144
   %146 = load ptr, ptr %145, align 8
   %.not26.i = icmp eq ptr %146, null
   br i1 %.not26.i, label %157, label %147
 
 147:                                              ; preds = %get_buffer.exit.i85
-  %148 = getelementptr inbounds i8, ptr %145, i64 12
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %145, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %151 = load i32, ptr %150, align 8
   %.not27.i = icmp ugt i32 %149, %151
   br i1 %.not27.i, label %152, label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -2755,7 +2755,7 @@ get_buffer.exit.i85:                              ; preds = %141
   %153 = add i32 %151, %137
   %..i = tail call i32 @llvm.umin.i32(i32 %153, i32 %149)
   store i32 %..i, ptr %150, align 8
-  %154 = getelementptr inbounds i8, ptr %145, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %155 = load i32, ptr %154, align 8
   %.not28.i = icmp ult i32 %..i, %155
   br i1 %.not28.i, label %cli_bcapi_buffer_pipe_read_stopped.exit, label %156
@@ -2766,7 +2766,7 @@ get_buffer.exit.i85:                              ; preds = %141
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 157:                                              ; preds = %get_buffer.exit.i85
-  %158 = getelementptr inbounds i8, ptr %145, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %145, i64 16
   %159 = load i32, ptr %158, align 8
   %160 = add i32 %159, %137
   store i32 %160, ptr %158, align 8
@@ -2783,7 +2783,7 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i86, label %get_buffer.exit.thread.i88, label %167
 
 167:                                              ; preds = %cli_bcapi_buffer_pipe_read_stopped.exit
-  %168 = getelementptr inbounds i8, ptr %0, i64 1232
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %169 = load i32, ptr %168, align 8
   %.not.i.i87 = icmp ult i32 %161, %169
   br i1 %.not.i.i87, label %get_buffer.exit.i90, label %get_buffer.exit.thread.i88
@@ -2794,16 +2794,16 @@ get_buffer.exit.thread.i88:                       ; preds = %167, %cli_bcapi_buf
 
 get_buffer.exit.i90:                              ; preds = %167
   %170 = zext nneg i32 %161 to i64
-  %171 = getelementptr inbounds %struct.bc_buffer, ptr %164, i64 %170
+  %171 = getelementptr inbounds nuw %struct.bc_buffer, ptr %164, i64 %170
   %172 = load ptr, ptr %171, align 8
   %.not14.i = icmp eq ptr %172, null
   br i1 %.not14.i, label %cli_bcapi_buffer_pipe_write_stopped.exit, label %173
 
 173:                                              ; preds = %get_buffer.exit.i90
-  %174 = getelementptr inbounds i8, ptr %171, i64 12
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 12
   %175 = load i32, ptr %174, align 4
   %176 = add i32 %163, %175
-  %177 = getelementptr inbounds i8, ptr %171, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %178 = load i32, ptr %177, align 8
   %..i91 = tail call i32 @llvm.umin.i32(i32 %176, i32 %178)
   store i32 %..i91, ptr %174, align 4
@@ -2844,27 +2844,27 @@ define i32 @cli_bcapi_inflate_done(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %3, label %get_inflate.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1108
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1108
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_inflate.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_inflate.exit.thread, label %get_inflate.exit
 
 get_inflate.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_inflate, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 112
+  %11 = getelementptr inbounds nuw %struct.bc_inflate, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %get_inflate.exit.thread, label %15
 
 15:                                               ; preds = %get_inflate.exit
-  %16 = getelementptr inbounds i8, ptr %11, i64 116
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 116
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %get_inflate.exit.thread, label %19
@@ -2875,7 +2875,7 @@ get_inflate.exit:                                 ; preds = %7
   br i1 %21, label %22, label %25
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %11, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.59, ptr noundef %24) #28
   br label %25
@@ -2894,10 +2894,10 @@ declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_lzma_init(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = icmp slt i32 %1, 0
@@ -2905,7 +2905,7 @@ define i32 @cli_bcapi_lzma_init(ptr nocapture noundef %0, i32 noundef %1, i32 no
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 1232
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ult i32 %1, %13
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -2924,29 +2924,29 @@ get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %1
 
 get_buffer.exit.i:                                ; preds = %get_buffer.exit
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds %struct.bc_buffer, ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw %struct.bc_buffer, ptr %8, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not20.i = icmp eq ptr %17, null
   br i1 %.not20.i, label %23, label %18
 
 18:                                               ; preds = %get_buffer.exit.i
-  %19 = getelementptr inbounds i8, ptr %16, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load i32, ptr %21, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %20, i32 %22)
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 23:                                               ; preds = %get_buffer.exit.i
-  %24 = getelementptr inbounds i8, ptr %0, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not21.i = icmp eq ptr %25, null
   br i1 %.not21.i, label %cli_bcapi_buffer_pipe_read_avail.exit.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %16, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8
   %.not22.i = icmp ult i32 %28, %30
   br i1 %.not22.i, label %31, label %cli_bcapi_buffer_pipe_read_avail.exit.thread
@@ -2968,7 +2968,7 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread:     ; preds = %23, %26, %cli_bcapi
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread76:   ; preds = %31, %cli_bcapi_buffer_pipe_read_avail.exit
   %.0.i5078 = phi i32 [ %.0.i50, %cli_bcapi_buffer_pipe_read_avail.exit ], [ 8192, %31 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 1208
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %6 to i64
   %38 = mul nuw nsw i64 %37, 208
@@ -2980,14 +2980,14 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread76:   ; preds = %31, %cli_bcapi_buff
   store ptr %39, ptr %35, align 8
   store i32 %6, ptr %4, align 8
   %41 = zext i32 %5 to i64
-  %42 = getelementptr inbounds %struct.bc_lzma, ptr %39, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 200
+  %42 = getelementptr inbounds nuw %struct.bc_lzma, ptr %39, i64 %41
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 200
   store i32 %1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 204
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 204
   store i32 %2, ptr %44, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %42, i8 0, i64 200, i1 false)
   %45 = zext i32 %.0.i5078 to i64
-  %46 = getelementptr inbounds i8, ptr %42, i64 184
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 184
   store i64 %45, ptr %46, align 8
   %47 = load ptr, ptr %7, align 8
   %48 = icmp eq ptr %47, null
@@ -3003,21 +3003,21 @@ get_buffer.exit.thread.i53:                       ; preds = %49, %40
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 get_buffer.exit.i.i:                              ; preds = %49
-  %51 = getelementptr inbounds %struct.bc_buffer, ptr %47, i64 %15
+  %51 = getelementptr inbounds nuw %struct.bc_buffer, ptr %47, i64 %15
   %52 = load ptr, ptr %51, align 8
   %.not20.i.i = icmp eq ptr %52, null
   br i1 %.not20.i.i, label %53, label %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
 
 53:                                               ; preds = %get_buffer.exit.i.i
-  %54 = getelementptr inbounds i8, ptr %0, i64 72
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %55 = load ptr, ptr %54, align 8
   %.not21.i.i = icmp eq ptr %55, null
   br i1 %.not21.i.i, label %cli_bcapi_buffer_pipe_read_get.exit, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %51, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %60 = load i32, ptr %59, align 8
   %.not22.i.i = icmp ult i32 %58, %60
   br i1 %.not22.i.i, label %cli_bcapi_buffer_pipe_read_avail.exit.i, label %cli_bcapi_buffer_pipe_read_get.exit
@@ -3032,9 +3032,9 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %56
   br i1 %or.cond.i55, label %69, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
-  %64 = getelementptr inbounds i8, ptr %51, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %51, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %67 = load i32, ptr %66, align 8
   %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %65, i32 %67)
   %68 = add i32 %.0.i5078, -1
@@ -3043,19 +3043,19 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
 
 69:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
   %70 = zext i32 %58 to i64
-  %71 = getelementptr inbounds i8, ptr %55, i64 104
+  %71 = getelementptr inbounds nuw i8, ptr %55, i64 104
   %72 = load ptr, ptr %71, align 8
   %73 = tail call ptr %72(ptr noundef nonnull %55, i64 noundef range(i64 0, 4294967296) %70, i64 noundef range(i64 0, 4294967296) %45, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
   %74 = zext i32 %67 to i64
-  %75 = getelementptr inbounds i8, ptr %52, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %52, i64 %74
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i53, %53, %56, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %69
   %.0.i54 = phi ptr [ %75, %.thread.i ], [ %73, %69 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i53 ], [ null, %56 ], [ null, %53 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
-  %76 = getelementptr inbounds i8, ptr %42, i64 168
+  %76 = getelementptr inbounds nuw i8, ptr %42, i64 168
   store ptr %.0.i54, ptr %76, align 8
   %77 = tail call i32 @cli_LzmaInit(ptr noundef nonnull %42, i64 noundef 0) #28
   %.not45 = icmp eq i32 %77, 0
@@ -3084,15 +3084,15 @@ get_buffer.exit.thread.i58:                       ; preds = %86, %78
 
 get_buffer.exit.i60:                              ; preds = %86
   %88 = zext nneg i32 %79 to i64
-  %89 = getelementptr inbounds %struct.bc_buffer, ptr %83, i64 %88
+  %89 = getelementptr inbounds nuw %struct.bc_buffer, ptr %83, i64 %88
   %90 = load ptr, ptr %89, align 8
   %.not26.i = icmp eq ptr %90, null
   br i1 %.not26.i, label %101, label %91
 
 91:                                               ; preds = %get_buffer.exit.i60
-  %92 = getelementptr inbounds i8, ptr %89, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %89, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %95 = load i32, ptr %94, align 8
   %.not27.i = icmp ugt i32 %93, %95
   br i1 %.not27.i, label %96, label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -3101,7 +3101,7 @@ get_buffer.exit.i60:                              ; preds = %86
   %97 = add i32 %95, %82
   %..i = tail call i32 @llvm.umin.i32(i32 %97, i32 %93)
   store i32 %..i, ptr %94, align 8
-  %98 = getelementptr inbounds i8, ptr %89, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %99 = load i32, ptr %98, align 8
   %.not28.i = icmp ult i32 %..i, %99
   br i1 %.not28.i, label %cli_bcapi_buffer_pipe_read_stopped.exit, label %100
@@ -3112,7 +3112,7 @@ get_buffer.exit.i60:                              ; preds = %86
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 101:                                              ; preds = %get_buffer.exit.i60
-  %102 = getelementptr inbounds i8, ptr %89, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %103 = load i32, ptr %102, align 8
   %104 = add i32 %103, %82
   store i32 %104, ptr %102, align 8
@@ -3140,15 +3140,15 @@ get_buffer.exit.thread.i63:                       ; preds = %113, %105
 
 get_buffer.exit.i65:                              ; preds = %113
   %115 = zext nneg i32 %106 to i64
-  %116 = getelementptr inbounds %struct.bc_buffer, ptr %110, i64 %115
+  %116 = getelementptr inbounds nuw %struct.bc_buffer, ptr %110, i64 %115
   %117 = load ptr, ptr %116, align 8
   %.not26.i66 = icmp eq ptr %117, null
   br i1 %.not26.i66, label %128, label %118
 
 118:                                              ; preds = %get_buffer.exit.i65
-  %119 = getelementptr inbounds i8, ptr %116, i64 12
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 12
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i8, ptr %116, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %122 = load i32, ptr %121, align 8
   %.not27.i67 = icmp ugt i32 %120, %122
   br i1 %.not27.i67, label %123, label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -3157,7 +3157,7 @@ get_buffer.exit.i65:                              ; preds = %113
   %124 = add i32 %122, %109
   %..i68 = tail call i32 @llvm.umin.i32(i32 %124, i32 %120)
   store i32 %..i68, ptr %121, align 8
-  %125 = getelementptr inbounds i8, ptr %116, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %126 = load i32, ptr %125, align 8
   %.not28.i69 = icmp ult i32 %..i68, %126
   br i1 %.not28.i69, label %cli_bcapi_buffer_pipe_read_stopped.exit, label %127
@@ -3168,7 +3168,7 @@ get_buffer.exit.i65:                              ; preds = %113
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 128:                                              ; preds = %get_buffer.exit.i65
-  %129 = getelementptr inbounds i8, ptr %116, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %130 = load i32, ptr %129, align 8
   %131 = add i32 %130, %109
   store i32 %131, ptr %129, align 8
@@ -3187,33 +3187,33 @@ define i32 @cli_bcapi_lzma_process(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %3, label %cli_bcapi_lzma_done.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %cli_bcapi_lzma_done.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1208
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %cli_bcapi_lzma_done.exit, label %get_lzma.exit
 
 get_lzma.exit:                                    ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_lzma, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %11 = getelementptr inbounds nuw %struct.bc_lzma, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %cli_bcapi_lzma_done.exit, label %15
 
 15:                                               ; preds = %get_lzma.exit
-  %16 = getelementptr inbounds i8, ptr %11, i64 204
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 204
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %cli_bcapi_lzma_done.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 1224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = icmp slt i32 %13, 0
@@ -3221,7 +3221,7 @@ get_lzma.exit:                                    ; preds = %7
   br i1 %or.cond.i.i, label %get_buffer.exit.thread.i, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1232
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp ult i32 %13, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
@@ -3233,29 +3233,29 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
 
 30:                                               ; preds = %get_buffer.exit.i
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i32, ptr %33, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 %34)
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 35:                                               ; preds = %get_buffer.exit.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
   %.not21.i = icmp eq ptr %37, null
   br i1 %.not21.i, label %cli_bcapi_buffer_pipe_read_avail.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %41, align 8
   %.not22.i = icmp ult i32 %40, %42
   br i1 %.not22.i, label %43, label %cli_bcapi_buffer_pipe_read_avail.exit
@@ -3271,7 +3271,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
   %46 = phi i32 [ %13, %38 ], [ %13, %35 ], [ %13, %30 ], [ %13, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
   %.0.i46 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
   %47 = zext i32 %.0.i46 to i64
-  %48 = getelementptr inbounds i8, ptr %11, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %11, i64 184
   store i64 %47, ptr %48, align 8
   %49 = load ptr, ptr %20, align 8
   %50 = icmp eq ptr %49, null
@@ -3280,7 +3280,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i47, label %get_buffer.exit.thread.i49, label %52
 
 52:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
-  %53 = getelementptr inbounds i8, ptr %0, i64 1232
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %54 = load i32, ptr %53, align 8
   %.not.i.i48 = icmp ult i32 %46, %54
   br i1 %.not.i.i48, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i49
@@ -3291,21 +3291,21 @@ get_buffer.exit.thread.i49:                       ; preds = %52, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %52
   %55 = zext nneg i32 %46 to i64
-  %56 = getelementptr inbounds %struct.bc_buffer, ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw %struct.bc_buffer, ptr %49, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not20.i.i = icmp eq ptr %57, null
   br i1 %.not20.i.i, label %58, label %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
 
 58:                                               ; preds = %get_buffer.exit.i.i
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load ptr, ptr %59, align 8
   %.not21.i.i = icmp eq ptr %60, null
   br i1 %.not21.i.i, label %cli_bcapi_buffer_pipe_read_get.exit, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr inbounds i8, ptr %56, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %65 = load i32, ptr %64, align 8
   %.not22.i.i = icmp ult i32 %63, %65
   br i1 %.not22.i.i, label %cli_bcapi_buffer_pipe_read_avail.exit.i, label %cli_bcapi_buffer_pipe_read_get.exit
@@ -3320,9 +3320,9 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %61
   br i1 %or.cond.i, label %74, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
-  %69 = getelementptr inbounds i8, ptr %56, i64 12
+  %69 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %56, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %72 = load i32, ptr %71, align 8
   %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %70, i32 %72)
   %73 = add i32 %.0.i46, -1
@@ -3331,19 +3331,19 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
 
 74:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
   %75 = zext i32 %63 to i64
-  %76 = getelementptr inbounds i8, ptr %60, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 104
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %60, i64 noundef range(i64 0, 4294967296) %75, i64 noundef range(i64 0, 4294967296) %47, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
   %79 = zext i32 %72 to i64
-  %80 = getelementptr inbounds i8, ptr %57, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %57, i64 %79
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i49, %58, %61, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %74
   %.0.i50 = phi ptr [ %80, %.thread.i ], [ %78, %74 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.i ], [ null, %get_buffer.exit.thread.i49 ], [ null, %61 ], [ null, %58 ], [ null, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i ]
-  %81 = getelementptr inbounds i8, ptr %11, i64 168
+  %81 = getelementptr inbounds nuw i8, ptr %11, i64 168
   store ptr %.0.i50, ptr %81, align 8
   %82 = load i32, ptr %16, align 4
   %83 = load ptr, ptr %20, align 8
@@ -3353,7 +3353,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i51, label %get_buffer.exit.thread.i53, label %86
 
 86:                                               ; preds = %cli_bcapi_buffer_pipe_read_get.exit
-  %87 = getelementptr inbounds i8, ptr %0, i64 1232
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %88 = load i32, ptr %87, align 8
   %.not.i.i52 = icmp ult i32 %82, %88
   br i1 %.not.i.i52, label %get_buffer.exit.i55, label %get_buffer.exit.thread.i53
@@ -3365,15 +3365,15 @@ get_buffer.exit.thread.i53:                       ; preds = %86, %cli_bcapi_buff
 
 get_buffer.exit.i55:                              ; preds = %86
   %89 = zext nneg i32 %82 to i64
-  %90 = getelementptr inbounds %struct.bc_buffer, ptr %83, i64 %89
+  %90 = getelementptr inbounds nuw %struct.bc_buffer, ptr %83, i64 %89
   %91 = load ptr, ptr %90, align 8
   %.not11.i = icmp eq ptr %91, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit, label %92
 
 92:                                               ; preds = %get_buffer.exit.i55
-  %93 = getelementptr inbounds i8, ptr %90, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %96 = load i32, ptr %95, align 8
   %spec.select.i56 = tail call i32 @llvm.usub.sat.i32(i32 %96, i32 %94)
   br label %cli_bcapi_buffer_pipe_write_avail.exit
@@ -3382,7 +3382,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
   %97 = phi i32 [ %82, %get_buffer.exit.i55 ], [ %82, %92 ], [ %.pre79, %get_buffer.exit.thread.i53 ]
   %.0.i54 = phi i32 [ 0, %get_buffer.exit.i55 ], [ %spec.select.i56, %92 ], [ 0, %get_buffer.exit.thread.i53 ]
   %98 = zext i32 %.0.i54 to i64
-  %99 = getelementptr inbounds i8, ptr %11, i64 192
+  %99 = getelementptr inbounds nuw i8, ptr %11, i64 192
   store i64 %98, ptr %99, align 8
   %100 = load ptr, ptr %20, align 8
   %101 = icmp eq ptr %100, null
@@ -3391,7 +3391,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i57, label %get_buffer.exit.thread.i59, label %103
 
 103:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
-  %104 = getelementptr inbounds i8, ptr %0, i64 1232
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %105 = load i32, ptr %104, align 8
   %.not.i.i58 = icmp ult i32 %97, %105
   br i1 %.not.i.i58, label %get_buffer.exit.i.i61, label %get_buffer.exit.thread.i59
@@ -3402,15 +3402,15 @@ get_buffer.exit.thread.i59:                       ; preds = %103, %cli_bcapi_buf
 
 get_buffer.exit.i.i61:                            ; preds = %103
   %106 = zext nneg i32 %97 to i64
-  %107 = getelementptr inbounds %struct.bc_buffer, ptr %100, i64 %106
+  %107 = getelementptr inbounds nuw %struct.bc_buffer, ptr %100, i64 %106
   %108 = load ptr, ptr %107, align 8
   %.not11.i.i = icmp eq ptr %108, null
   br i1 %.not11.i.i, label %cli_bcapi_buffer_pipe_write_get.exit, label %cli_bcapi_buffer_pipe_write_avail.exit.i
 
 cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i61
-  %109 = getelementptr inbounds i8, ptr %107, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 12
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %107, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %112 = load i32, ptr %111, align 8
   %spec.select.i.i62 = tail call i32 @llvm.usub.sat.i32(i32 %112, i32 %110)
   %113 = add i32 %.0.i54, -1
@@ -3419,12 +3419,12 @@ cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i
 
 114:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit.i
   %115 = zext i32 %110 to i64
-  %116 = getelementptr inbounds i8, ptr %108, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 %115
   br label %cli_bcapi_buffer_pipe_write_get.exit
 
 cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thread.i59, %get_buffer.exit.i.i61, %cli_bcapi_buffer_pipe_write_avail.exit.i, %114
   %.0.i60 = phi ptr [ %116, %114 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i59 ], [ null, %get_buffer.exit.i.i61 ]
-  %117 = getelementptr inbounds i8, ptr %11, i64 176
+  %117 = getelementptr inbounds nuw i8, ptr %11, i64 176
   store ptr %.0.i60, ptr %117, align 8
   %118 = load i64, ptr %48, align 8
   %.not42 = icmp eq i64 %118, 0
@@ -3455,7 +3455,7 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i64, label %get_buffer.exit.thread.i66, label %132
 
 132:                                              ; preds = %123
-  %133 = getelementptr inbounds i8, ptr %0, i64 1232
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %134 = load i32, ptr %133, align 8
   %.not.i.i65 = icmp ult i32 %125, %134
   br i1 %.not.i.i65, label %get_buffer.exit.i68, label %get_buffer.exit.thread.i66
@@ -3466,15 +3466,15 @@ get_buffer.exit.thread.i66:                       ; preds = %132, %123
 
 get_buffer.exit.i68:                              ; preds = %132
   %135 = zext nneg i32 %125 to i64
-  %136 = getelementptr inbounds %struct.bc_buffer, ptr %129, i64 %135
+  %136 = getelementptr inbounds nuw %struct.bc_buffer, ptr %129, i64 %135
   %137 = load ptr, ptr %136, align 8
   %.not26.i = icmp eq ptr %137, null
   br i1 %.not26.i, label %148, label %138
 
 138:                                              ; preds = %get_buffer.exit.i68
-  %139 = getelementptr inbounds i8, ptr %136, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %136, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %142 = load i32, ptr %141, align 8
   %.not27.i = icmp ugt i32 %140, %142
   br i1 %.not27.i, label %143, label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -3483,7 +3483,7 @@ get_buffer.exit.i68:                              ; preds = %132
   %144 = add i32 %142, %128
   %..i = tail call i32 @llvm.umin.i32(i32 %144, i32 %140)
   store i32 %..i, ptr %141, align 8
-  %145 = getelementptr inbounds i8, ptr %136, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %146 = load i32, ptr %145, align 8
   %.not28.i = icmp ult i32 %..i, %146
   br i1 %.not28.i, label %cli_bcapi_buffer_pipe_read_stopped.exit, label %147
@@ -3494,7 +3494,7 @@ get_buffer.exit.i68:                              ; preds = %132
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 148:                                              ; preds = %get_buffer.exit.i68
-  %149 = getelementptr inbounds i8, ptr %136, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %150 = load i32, ptr %149, align 8
   %151 = add i32 %150, %128
   store i32 %151, ptr %149, align 8
@@ -3512,7 +3512,7 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i69, label %get_buffer.exit.thread.i71, label %159
 
 159:                                              ; preds = %cli_bcapi_buffer_pipe_read_stopped.exit
-  %160 = getelementptr inbounds i8, ptr %0, i64 1232
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %161 = load i32, ptr %160, align 8
   %.not.i.i70 = icmp ult i32 %152, %161
   br i1 %.not.i.i70, label %get_buffer.exit.i73, label %get_buffer.exit.thread.i71
@@ -3523,16 +3523,16 @@ get_buffer.exit.thread.i71:                       ; preds = %159, %cli_bcapi_buf
 
 get_buffer.exit.i73:                              ; preds = %159
   %162 = zext nneg i32 %152 to i64
-  %163 = getelementptr inbounds %struct.bc_buffer, ptr %156, i64 %162
+  %163 = getelementptr inbounds nuw %struct.bc_buffer, ptr %156, i64 %162
   %164 = load ptr, ptr %163, align 8
   %.not14.i = icmp eq ptr %164, null
   br i1 %.not14.i, label %cli_bcapi_buffer_pipe_write_stopped.exit, label %165
 
 165:                                              ; preds = %get_buffer.exit.i73
-  %166 = getelementptr inbounds i8, ptr %163, i64 12
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 12
   %167 = load i32, ptr %166, align 4
   %168 = add i32 %155, %167
-  %169 = getelementptr inbounds i8, ptr %163, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %170 = load i32, ptr %169, align 8
   %..i74 = tail call i32 @llvm.umin.i32(i32 %168, i32 %170)
   store i32 %..i74, ptr %166, align 4
@@ -3555,14 +3555,14 @@ cli_bcapi_buffer_pipe_write_stopped.exit:         ; preds = %get_buffer.exit.thr
   br i1 %.not8.i.i, label %cli_bcapi_lzma_done.exit, label %get_lzma.exit.i
 
 get_lzma.exit.i:                                  ; preds = %174
-  %176 = getelementptr inbounds %struct.bc_lzma, ptr %175, i64 %10
-  %177 = getelementptr inbounds i8, ptr %176, i64 200
+  %176 = getelementptr inbounds nuw %struct.bc_lzma, ptr %175, i64 %10
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 200
   %178 = load i32, ptr %177, align 8
   %179 = icmp eq i32 %178, -1
   br i1 %179, label %cli_bcapi_lzma_done.exit, label %180
 
 180:                                              ; preds = %get_lzma.exit.i
-  %181 = getelementptr inbounds i8, ptr %176, i64 204
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 204
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %182, -1
   br i1 %183, label %cli_bcapi_lzma_done.exit, label %184
@@ -3586,27 +3586,27 @@ define range(i32 -1, 1) i32 @cli_bcapi_lzma_done(ptr nocapture noundef readonly 
   br i1 %3, label %get_lzma.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1112
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_lzma.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1208
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1208
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_lzma.exit.thread, label %get_lzma.exit
 
 get_lzma.exit:                                    ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_lzma, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 200
+  %11 = getelementptr inbounds nuw %struct.bc_lzma, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 200
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %get_lzma.exit.thread, label %15
 
 15:                                               ; preds = %get_lzma.exit
-  %16 = getelementptr inbounds i8, ptr %11, i64 204
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 204
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %get_lzma.exit.thread, label %19
@@ -3626,10 +3626,10 @@ declare void @cli_LzmaShutdown(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_bzip2_init(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1116
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = icmp slt i32 %1, 0
@@ -3637,7 +3637,7 @@ define i32 @cli_bcapi_bzip2_init(ptr nocapture noundef %0, i32 noundef %1, i32 n
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 1232
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %13 = load i32, ptr %12, align 8
   %.not.i = icmp ult i32 %1, %13
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -3655,7 +3655,7 @@ get_buffer.exit.thread:                           ; preds = %get_buffer.exit, %1
   br label %30
 
 get_buffer.exit29:                                ; preds = %get_buffer.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 1216
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %6 to i64
   %18 = mul nuw nsw i64 %17, 88
@@ -3667,10 +3667,10 @@ get_buffer.exit29:                                ; preds = %get_buffer.exit
   store ptr %19, ptr %15, align 8
   store i32 %6, ptr %4, align 4
   %21 = zext i32 %5 to i64
-  %22 = getelementptr inbounds %struct.bc_bzip2, ptr %19, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %22 = getelementptr inbounds nuw %struct.bc_bzip2, ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   store i32 %1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 84
   store i32 %2, ptr %24, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %22, i8 0, i64 80, i1 false)
   %25 = tail call i32 @BZ2_bzDecompressInit(ptr noundef nonnull %22, i32 noundef 0, i32 noundef 0) #28
@@ -3710,33 +3710,33 @@ define i32 @cli_bcapi_bzip2_process(ptr nocapture noundef readonly %0, i32 nound
   br i1 %3, label %get_bzip2.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1116
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_bzip2.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_bzip2.exit.thread, label %get_bzip2.exit
 
 get_bzip2.exit:                                   ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_bzip2, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %11 = getelementptr inbounds nuw %struct.bc_bzip2, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %get_bzip2.exit.thread, label %15
 
 15:                                               ; preds = %get_bzip2.exit
-  %16 = getelementptr inbounds i8, ptr %11, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %get_bzip2.exit.thread, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 1224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = icmp slt i32 %13, 0
@@ -3744,7 +3744,7 @@ get_bzip2.exit:                                   ; preds = %7
   br i1 %or.cond.i.i, label %get_buffer.exit.thread.i, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1232
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp ult i32 %13, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
@@ -3756,29 +3756,29 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %13 to i64
-  %28 = getelementptr inbounds %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
 
 30:                                               ; preds = %get_buffer.exit.i
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i32, ptr %33, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 %34)
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 35:                                               ; preds = %get_buffer.exit.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
   %.not21.i = icmp eq ptr %37, null
   br i1 %.not21.i, label %cli_bcapi_buffer_pipe_read_avail.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %41, align 8
   %.not22.i = icmp ult i32 %40, %42
   br i1 %.not22.i, label %43, label %cli_bcapi_buffer_pipe_read_avail.exit
@@ -3793,7 +3793,7 @@ get_buffer.exit.i:                                ; preds = %24
 cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thread.i, %30, %35, %38, %43
   %46 = phi i32 [ %13, %38 ], [ %13, %35 ], [ %13, %30 ], [ %13, %43 ], [ %.pre, %get_buffer.exit.thread.i ]
   %.0.i43 = phi i32 [ 0, %38 ], [ 0, %35 ], [ %spec.select.i, %30 ], [ %spec.select25.i, %43 ], [ 0, %get_buffer.exit.thread.i ]
-  %47 = getelementptr inbounds i8, ptr %11, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %.0.i43, ptr %47, align 8
   %48 = load ptr, ptr %20, align 8
   %49 = icmp eq ptr %48, null
@@ -3802,7 +3802,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i44, label %get_buffer.exit.thread.i46, label %51
 
 51:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
-  %52 = getelementptr inbounds i8, ptr %0, i64 1232
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %53 = load i32, ptr %52, align 8
   %.not.i.i45 = icmp ult i32 %46, %53
   br i1 %.not.i.i45, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i46
@@ -3813,21 +3813,21 @@ get_buffer.exit.thread.i46:                       ; preds = %51, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %51
   %54 = zext nneg i32 %46 to i64
-  %55 = getelementptr inbounds %struct.bc_buffer, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw %struct.bc_buffer, ptr %48, i64 %54
   %56 = load ptr, ptr %55, align 8
   %.not20.i.i = icmp eq ptr %56, null
   br i1 %.not20.i.i, label %57, label %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
 
 57:                                               ; preds = %get_buffer.exit.i.i
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load ptr, ptr %58, align 8
   %.not21.i.i = icmp eq ptr %59, null
   br i1 %.not21.i.i, label %cli_bcapi_buffer_pipe_read_get.exit, label %60
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %55, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %62 = load i32, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 56
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %64 = load i32, ptr %63, align 8
   %.not22.i.i = icmp ult i32 %62, %64
   br i1 %.not22.i.i, label %cli_bcapi_buffer_pipe_read_avail.exit.i, label %cli_bcapi_buffer_pipe_read_get.exit
@@ -3842,9 +3842,9 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %60
   br i1 %or.cond.i, label %73, label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
-  %68 = getelementptr inbounds i8, ptr %55, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %55, i64 12
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %55, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %71 = load i32, ptr %70, align 8
   %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %69, i32 %71)
   %72 = add i32 %.0.i43, -1
@@ -3854,14 +3854,14 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
 73:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
   %74 = zext i32 %62 to i64
   %75 = zext i32 %.0.i43 to i64
-  %76 = getelementptr inbounds i8, ptr %59, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 104
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %59, i64 noundef range(i64 0, 4294967296) %74, i64 noundef range(i64 0, 4294967296) %75, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
   %79 = zext i32 %71 to i64
-  %80 = getelementptr inbounds i8, ptr %56, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %56, i64 %79
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thread.i46, %57, %60, %cli_bcapi_buffer_pipe_read_avail.exit.i, %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i, %.thread.i, %73
@@ -3875,7 +3875,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i48, label %get_buffer.exit.thread.i50, label %85
 
 85:                                               ; preds = %cli_bcapi_buffer_pipe_read_get.exit
-  %86 = getelementptr inbounds i8, ptr %0, i64 1232
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %87 = load i32, ptr %86, align 8
   %.not.i.i49 = icmp ult i32 %81, %87
   br i1 %.not.i.i49, label %get_buffer.exit.i52, label %get_buffer.exit.thread.i50
@@ -3887,15 +3887,15 @@ get_buffer.exit.thread.i50:                       ; preds = %85, %cli_bcapi_buff
 
 get_buffer.exit.i52:                              ; preds = %85
   %88 = zext nneg i32 %81 to i64
-  %89 = getelementptr inbounds %struct.bc_buffer, ptr %82, i64 %88
+  %89 = getelementptr inbounds nuw %struct.bc_buffer, ptr %82, i64 %88
   %90 = load ptr, ptr %89, align 8
   %.not11.i = icmp eq ptr %90, null
   br i1 %.not11.i, label %cli_bcapi_buffer_pipe_write_avail.exit, label %91
 
 91:                                               ; preds = %get_buffer.exit.i52
-  %92 = getelementptr inbounds i8, ptr %89, i64 12
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %89, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %95 = load i32, ptr %94, align 8
   %spec.select.i53 = tail call i32 @llvm.usub.sat.i32(i32 %95, i32 %93)
   br label %cli_bcapi_buffer_pipe_write_avail.exit
@@ -3903,7 +3903,7 @@ get_buffer.exit.i52:                              ; preds = %85
 cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thread.i50, %get_buffer.exit.i52, %91
   %96 = phi i32 [ %81, %get_buffer.exit.i52 ], [ %81, %91 ], [ %.pre74, %get_buffer.exit.thread.i50 ]
   %.0.i51 = phi i32 [ 0, %get_buffer.exit.i52 ], [ %spec.select.i53, %91 ], [ 0, %get_buffer.exit.thread.i50 ]
-  %97 = getelementptr inbounds i8, ptr %11, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 %.0.i51, ptr %97, align 8
   %98 = load ptr, ptr %20, align 8
   %99 = icmp eq ptr %98, null
@@ -3912,7 +3912,7 @@ cli_bcapi_buffer_pipe_write_avail.exit:           ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i54, label %get_buffer.exit.thread.i56, label %101
 
 101:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 1232
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %103 = load i32, ptr %102, align 8
   %.not.i.i55 = icmp ult i32 %96, %103
   br i1 %.not.i.i55, label %get_buffer.exit.i.i58, label %get_buffer.exit.thread.i56
@@ -3923,15 +3923,15 @@ get_buffer.exit.thread.i56:                       ; preds = %101, %cli_bcapi_buf
 
 get_buffer.exit.i.i58:                            ; preds = %101
   %104 = zext nneg i32 %96 to i64
-  %105 = getelementptr inbounds %struct.bc_buffer, ptr %98, i64 %104
+  %105 = getelementptr inbounds nuw %struct.bc_buffer, ptr %98, i64 %104
   %106 = load ptr, ptr %105, align 8
   %.not11.i.i = icmp eq ptr %106, null
   br i1 %.not11.i.i, label %cli_bcapi_buffer_pipe_write_get.exit, label %cli_bcapi_buffer_pipe_write_avail.exit.i
 
 cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i58
-  %107 = getelementptr inbounds i8, ptr %105, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %108 = load i32, ptr %107, align 4
-  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %110 = load i32, ptr %109, align 8
   %spec.select.i.i59 = tail call i32 @llvm.usub.sat.i32(i32 %110, i32 %108)
   %111 = add i32 %.0.i51, -1
@@ -3940,12 +3940,12 @@ cli_bcapi_buffer_pipe_write_avail.exit.i:         ; preds = %get_buffer.exit.i.i
 
 112:                                              ; preds = %cli_bcapi_buffer_pipe_write_avail.exit.i
   %113 = zext i32 %108 to i64
-  %114 = getelementptr inbounds i8, ptr %106, i64 %113
+  %114 = getelementptr inbounds nuw i8, ptr %106, i64 %113
   br label %cli_bcapi_buffer_pipe_write_get.exit
 
 cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thread.i56, %get_buffer.exit.i.i58, %cli_bcapi_buffer_pipe_write_avail.exit.i, %112
   %.0.i57 = phi ptr [ %114, %112 ], [ null, %cli_bcapi_buffer_pipe_write_avail.exit.i ], [ null, %get_buffer.exit.thread.i56 ], [ null, %get_buffer.exit.i.i58 ]
-  %115 = getelementptr inbounds i8, ptr %11, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %.0.i57, ptr %115, align 8
   %116 = load i32, ptr %47, align 8
   %.not38 = icmp eq i32 %116, 0
@@ -3975,7 +3975,7 @@ cli_bcapi_buffer_pipe_write_get.exit:             ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i61, label %get_buffer.exit.thread.i63, label %129
 
 129:                                              ; preds = %121
-  %130 = getelementptr inbounds i8, ptr %0, i64 1232
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %131 = load i32, ptr %130, align 8
   %.not.i.i62 = icmp ult i32 %123, %131
   br i1 %.not.i.i62, label %get_buffer.exit.i65, label %get_buffer.exit.thread.i63
@@ -3986,15 +3986,15 @@ get_buffer.exit.thread.i63:                       ; preds = %129, %121
 
 get_buffer.exit.i65:                              ; preds = %129
   %132 = zext nneg i32 %123 to i64
-  %133 = getelementptr inbounds %struct.bc_buffer, ptr %126, i64 %132
+  %133 = getelementptr inbounds nuw %struct.bc_buffer, ptr %126, i64 %132
   %134 = load ptr, ptr %133, align 8
   %.not26.i = icmp eq ptr %134, null
   br i1 %.not26.i, label %145, label %135
 
 135:                                              ; preds = %get_buffer.exit.i65
-  %136 = getelementptr inbounds i8, ptr %133, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %133, i64 12
   %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %133, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %139 = load i32, ptr %138, align 8
   %.not27.i = icmp ugt i32 %137, %139
   br i1 %.not27.i, label %140, label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -4003,7 +4003,7 @@ get_buffer.exit.i65:                              ; preds = %129
   %141 = add i32 %139, %125
   %..i = tail call i32 @llvm.umin.i32(i32 %141, i32 %137)
   store i32 %..i, ptr %138, align 8
-  %142 = getelementptr inbounds i8, ptr %133, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %143 = load i32, ptr %142, align 8
   %.not28.i = icmp ult i32 %..i, %143
   br i1 %.not28.i, label %cli_bcapi_buffer_pipe_read_stopped.exit, label %144
@@ -4014,7 +4014,7 @@ get_buffer.exit.i65:                              ; preds = %129
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 145:                                              ; preds = %get_buffer.exit.i65
-  %146 = getelementptr inbounds i8, ptr %133, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %147 = load i32, ptr %146, align 8
   %148 = add i32 %147, %125
   store i32 %148, ptr %146, align 8
@@ -4031,7 +4031,7 @@ cli_bcapi_buffer_pipe_read_stopped.exit:          ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i66, label %get_buffer.exit.thread.i68, label %155
 
 155:                                              ; preds = %cli_bcapi_buffer_pipe_read_stopped.exit
-  %156 = getelementptr inbounds i8, ptr %0, i64 1232
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %157 = load i32, ptr %156, align 8
   %.not.i.i67 = icmp ult i32 %149, %157
   br i1 %.not.i.i67, label %get_buffer.exit.i70, label %get_buffer.exit.thread.i68
@@ -4042,16 +4042,16 @@ get_buffer.exit.thread.i68:                       ; preds = %155, %cli_bcapi_buf
 
 get_buffer.exit.i70:                              ; preds = %155
   %158 = zext nneg i32 %149 to i64
-  %159 = getelementptr inbounds %struct.bc_buffer, ptr %152, i64 %158
+  %159 = getelementptr inbounds nuw %struct.bc_buffer, ptr %152, i64 %158
   %160 = load ptr, ptr %159, align 8
   %.not14.i = icmp eq ptr %160, null
   br i1 %.not14.i, label %cli_bcapi_buffer_pipe_write_stopped.exit, label %161
 
 161:                                              ; preds = %get_buffer.exit.i70
-  %162 = getelementptr inbounds i8, ptr %159, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %159, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = add i32 %151, %163
-  %165 = getelementptr inbounds i8, ptr %159, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %166 = load i32, ptr %165, align 8
   %..i71 = tail call i32 @llvm.umin.i32(i32 %164, i32 %166)
   store i32 %..i71, ptr %162, align 4
@@ -4085,27 +4085,27 @@ define range(i32 -1, 1) i32 @cli_bcapi_bzip2_done(ptr nocapture noundef readonly
   br i1 %3, label %get_bzip2.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1116
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1116
   %6 = load i32, ptr %5, align 4
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_bzip2.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1216
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1216
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_bzip2.exit.thread, label %get_bzip2.exit
 
 get_bzip2.exit:                                   ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_bzip2, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 80
+  %11 = getelementptr inbounds nuw %struct.bc_bzip2, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %get_bzip2.exit.thread, label %15
 
 15:                                               ; preds = %get_bzip2.exit
-  %16 = getelementptr inbounds i8, ptr %11, i64 84
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 84
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %get_bzip2.exit.thread, label %19
@@ -4133,10 +4133,10 @@ define noundef i32 @cli_bcapi_bytecode_rt_error(ptr nocapture noundef readnone %
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_jsnorm_init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1224
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = icmp slt i32 %1, 0
@@ -4144,7 +4144,7 @@ define i32 @cli_bcapi_jsnorm_init(ptr nocapture noundef %0, i32 noundef %1) loca
   br i1 %or.cond.i, label %get_buffer.exit.thread, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 1232
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp ult i32 %1, %12
   br i1 %.not.i, label %get_buffer.exit, label %get_buffer.exit.thread
@@ -4160,7 +4160,7 @@ get_buffer.exit:                                  ; preds = %10
   br i1 %.not32, label %43, label %14
 
 14:                                               ; preds = %get_buffer.exit
-  %15 = getelementptr inbounds i8, ptr %0, i64 1256
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %5 to i64
   %18 = shl nuw nsw i64 %17, 4
@@ -4176,25 +4176,25 @@ get_buffer.exit:                                  ; preds = %10
   store ptr %19, ptr %15, align 8
   store i32 %5, ptr %3, align 8
   %22 = zext i32 %4 to i64
-  %23 = getelementptr inbounds %struct.bc_jsnorm, ptr %19, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %23 = getelementptr inbounds nuw %struct.bc_jsnorm, ptr %19, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %1, ptr %24, align 8
   store ptr %13, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 1264
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %26 = load ptr, ptr %25, align 8
   %.not34 = icmp eq ptr %26, null
   br i1 %.not34, label %27, label %43
 
 27:                                               ; preds = %21
-  %28 = getelementptr inbounds i8, ptr %0, i64 1088
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %29 = load ptr, ptr %28, align 8
   %.not35 = icmp eq ptr %29, null
   br i1 %.not35, label %35, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load ptr, ptr %33, align 8
   br label %35
 
@@ -4231,27 +4231,27 @@ declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_process(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
   %5 = icmp slt i32 %1, 0
   br i1 %5, label %get_jsnorm.exit.thread, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ult i32 %1, %8
   br i1 %.not.i, label %9, label %get_jsnorm.exit.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1256
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %11 = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %get_jsnorm.exit.thread, label %get_jsnorm.exit
 
 get_jsnorm.exit:                                  ; preds = %9
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds %struct.bc_jsnorm, ptr %11, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %13 = getelementptr inbounds nuw %struct.bc_jsnorm, ptr %11, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   br i1 %16, label %get_jsnorm.exit.thread, label %17
@@ -4262,7 +4262,7 @@ get_jsnorm.exit:                                  ; preds = %9
   br i1 %.not29, label %get_jsnorm.exit.thread, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 1224
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   %23 = icmp slt i32 %15, 0
@@ -4270,7 +4270,7 @@ get_jsnorm.exit:                                  ; preds = %9
   br i1 %or.cond.i.i, label %get_buffer.exit.thread.i, label %24
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 1232
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %26 = load i32, ptr %25, align 8
   %.not.i.i = icmp ult i32 %15, %26
   br i1 %.not.i.i, label %get_buffer.exit.i, label %get_buffer.exit.thread.i
@@ -4283,29 +4283,29 @@ get_buffer.exit.thread.i:                         ; preds = %24, %19
 
 get_buffer.exit.i:                                ; preds = %24
   %27 = zext nneg i32 %15 to i64
-  %28 = getelementptr inbounds %struct.bc_buffer, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw %struct.bc_buffer, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %35, label %30
 
 30:                                               ; preds = %get_buffer.exit.i
-  %31 = getelementptr inbounds i8, ptr %28, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %28, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %34 = load i32, ptr %33, align 8
   %spec.select.i = tail call i32 @llvm.usub.sat.i32(i32 %32, i32 %34)
   br label %cli_bcapi_buffer_pipe_read_avail.exit
 
 35:                                               ; preds = %get_buffer.exit.i
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load ptr, ptr %36, align 8
   %.not21.i = icmp eq ptr %37, null
   br i1 %.not21.i, label %cli_bcapi_buffer_pipe_read_avail.exit, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load i32, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %41, align 8
   %.not22.i = icmp ult i32 %40, %42
   br i1 %.not22.i, label %43, label %cli_bcapi_buffer_pipe_read_avail.exit
@@ -4327,7 +4327,7 @@ cli_bcapi_buffer_pipe_read_avail.exit:            ; preds = %get_buffer.exit.thr
   br i1 %or.cond.i.i33, label %get_buffer.exit.thread.i35, label %50
 
 50:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 1232
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1232
   %52 = load i32, ptr %51, align 8
   %.not.i.i34 = icmp ult i32 %47, %52
   br i1 %.not.i.i34, label %get_buffer.exit.i.i, label %get_buffer.exit.thread.i35
@@ -4338,21 +4338,21 @@ get_buffer.exit.thread.i35:                       ; preds = %50, %cli_bcapi_buff
 
 get_buffer.exit.i.i:                              ; preds = %50
   %53 = zext nneg i32 %47 to i64
-  %54 = getelementptr inbounds %struct.bc_buffer, ptr %46, i64 %53
+  %54 = getelementptr inbounds nuw %struct.bc_buffer, ptr %46, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not20.i.i = icmp eq ptr %55, null
   br i1 %.not20.i.i, label %56, label %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
 
 56:                                               ; preds = %get_buffer.exit.i.i
-  %57 = getelementptr inbounds i8, ptr %0, i64 72
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %58 = load ptr, ptr %57, align 8
   %.not21.i.i = icmp eq ptr %58, null
   br i1 %.not21.i.i, label %get_jsnorm.exit.thread, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %54, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load i32, ptr %62, align 8
   %.not22.i.i = icmp ult i32 %61, %63
   br i1 %.not22.i.i, label %cli_bcapi_buffer_pipe_read_avail.exit.i, label %get_jsnorm.exit.thread
@@ -4367,9 +4367,9 @@ cli_bcapi_buffer_pipe_read_avail.exit.i:          ; preds = %59
   br i1 %or.cond.i, label %72, label %get_jsnorm.exit.thread
 
 cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
-  %67 = getelementptr inbounds i8, ptr %54, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %54, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %70 = load i32, ptr %69, align 8
   %spec.select.i.i = tail call i32 @llvm.usub.sat.i32(i32 %68, i32 %70)
   %71 = add i32 %.0.i32, -1
@@ -4379,14 +4379,14 @@ cli_bcapi_buffer_pipe_read_avail.exit.thread23.i: ; preds = %get_buffer.exit.i.i
 72:                                               ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.i
   %73 = zext i32 %61 to i64
   %74 = zext i32 %.0.i32 to i64
-  %75 = getelementptr inbounds i8, ptr %58, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %58, i64 104
   %76 = load ptr, ptr %75, align 8
   %77 = tail call ptr %76(ptr noundef nonnull %58, i64 noundef range(i64 0, 4294967296) %73, i64 noundef range(i64 0, 4294967296) %74, i32 noundef 1) #28
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 .thread.i:                                        ; preds = %cli_bcapi_buffer_pipe_read_avail.exit.thread23.i
   %78 = zext i32 %70 to i64
-  %79 = getelementptr inbounds i8, ptr %55, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %55, i64 %78
   br label %cli_bcapi_buffer_pipe_read_get.exit
 
 cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %.thread.i, %72
@@ -4399,7 +4399,7 @@ cli_bcapi_buffer_pipe_read_get.exit:              ; preds = %.thread.i, %72
   br i1 %.not30, label %87, label %81
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 1244
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1244
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, %.0.i32
   %85 = zext i32 %84 to i64
@@ -4426,15 +4426,15 @@ get_buffer.exit.thread.i39:                       ; preds = %92, %87
 
 get_buffer.exit.i41:                              ; preds = %92
   %94 = zext nneg i32 %88 to i64
-  %95 = getelementptr inbounds %struct.bc_buffer, ptr %89, i64 %94
+  %95 = getelementptr inbounds nuw %struct.bc_buffer, ptr %89, i64 %94
   %96 = load ptr, ptr %95, align 8
   %.not26.i = icmp eq ptr %96, null
   br i1 %.not26.i, label %107, label %97
 
 97:                                               ; preds = %get_buffer.exit.i41
-  %98 = getelementptr inbounds i8, ptr %95, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %95, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %101 = load i32, ptr %100, align 8
   %.not27.i = icmp ugt i32 %99, %101
   br i1 %.not27.i, label %102, label %cli_bcapi_buffer_pipe_read_stopped.exit
@@ -4443,7 +4443,7 @@ get_buffer.exit.i41:                              ; preds = %92
   %103 = add i32 %101, %.0.i32
   %..i = tail call i32 @llvm.umin.i32(i32 %103, i32 %99)
   store i32 %..i, ptr %100, align 8
-  %104 = getelementptr inbounds i8, ptr %95, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %105 = load i32, ptr %104, align 8
   %.not28.i = icmp ult i32 %..i, %105
   br i1 %.not28.i, label %cli_bcapi_buffer_pipe_read_stopped.exit, label %106
@@ -4454,7 +4454,7 @@ get_buffer.exit.i41:                              ; preds = %92
   br label %cli_bcapi_buffer_pipe_read_stopped.exit
 
 107:                                              ; preds = %get_buffer.exit.i41
-  %108 = getelementptr inbounds i8, ptr %95, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %109 = load i32, ptr %108, align 8
   %110 = add i32 %109, %.0.i32
   store i32 %110, ptr %108, align 8
@@ -4479,33 +4479,33 @@ define range(i32 -1, 1) i32 @cli_bcapi_jsnorm_done(ptr nocapture noundef %0, i32
   br i1 %3, label %get_jsnorm.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_jsnorm.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1256
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_jsnorm.exit.thread, label %get_jsnorm.exit
 
 get_jsnorm.exit:                                  ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.bc_jsnorm, ptr %9, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %11 = getelementptr inbounds nuw %struct.bc_jsnorm, ptr %9, i64 %10
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, -1
   br i1 %14, label %get_jsnorm.exit.thread, label %15
 
 15:                                               ; preds = %get_jsnorm.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 1088
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %17 = load ptr, ptr %16, align 8
   %.not15 = icmp eq ptr %17, null
   br i1 %.not15, label %23, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 1244
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1244
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
   %22 = tail call i32 @cli_updatelimits(ptr noundef nonnull %17, i64 noundef %21) #28
@@ -4513,12 +4513,12 @@ get_jsnorm.exit:                                  ; preds = %7
   br i1 %.not16, label %23, label %get_jsnorm.exit.thread
 
 23:                                               ; preds = %18, %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 1244
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1244
   store i32 0, ptr %24, align 4
   %25 = load ptr, ptr %11, align 8
   tail call void @cli_js_parse_done(ptr noundef %25) #28
   %26 = load ptr, ptr %11, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 1264
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1264
   %28 = load ptr, ptr %27, align 8
   tail call void @cli_js_output(ptr noundef %26, ptr noundef %28) #28
   %29 = load ptr, ptr %11, align 8
@@ -4674,7 +4674,7 @@ define i32 @cli_bcapi_memstr(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %8 = or i32 %4, %2
   %9 = icmp slt i32 %8, 0
   %or.cond5 = or i1 %or.cond.not27, %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 1312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %11 = load ptr, ptr %10, align 8
   br i1 %or.cond5, label %12, label %13
 
@@ -4714,7 +4714,7 @@ define range(i32 -128, 128) i32 @cli_bcapi_hex2ui(ptr nocapture noundef readnone
   %6 = trunc i32 %1 to i8
   store i8 %6, ptr %5, align 1
   %7 = trunc i32 %2 to i8
-  %8 = getelementptr inbounds i8, ptr %5, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %7, ptr %8, align 1
   %9 = call i32 @cli_hex2str_to(ptr noundef nonnull %5, ptr noundef nonnull %4, i64 noundef 2) #28
   %10 = icmp eq i32 %9, -1
@@ -4738,13 +4738,13 @@ define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, p
   %.021 = phi ptr [ %1, %3 ], [ %17, %8 ]
   %9 = load i8, ptr %.021, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %14 = icmp ne i16 %13, 0
   %15 = icmp ult ptr %.021, %5
   %16 = select i1 %14, i1 %15, i1 false
-  %17 = getelementptr inbounds i8, ptr %.021, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.021, i64 1
   br i1 %16, label %8, label %18
 
 18:                                               ; preds = %8
@@ -4754,7 +4754,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, p
 20:                                               ; preds = %18
   %21 = icmp eq i8 %9, 43
   %spec.select.idx = zext i1 %21 to i64
-  %spec.select = getelementptr inbounds i8, ptr %.021, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.021, i64 %spec.select.idx
   %22 = icmp eq ptr %spec.select, %5
   br i1 %22, label %.loopexit, label %23
 
@@ -4765,7 +4765,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_atoi(ptr nocapture noundef readnone %0, p
 
 26:                                               ; preds = %23
   %27 = zext i8 %24 to i64
-  %28 = getelementptr inbounds i16, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw i16, ptr %7, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 2048
   %.not = icmp eq i16 %30, 0
@@ -4794,7 +4794,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_debug_print_str_start(ptr nocapture nound
   br i1 %or.cond, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1312
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %8 = load ptr, ptr %7, align 8
   tail call void @cli_event_fastdata(ptr noundef %8, i32 noundef 5, ptr noundef nonnull %1, i32 noundef %2) #28
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.76, i32 noundef %2, ptr noundef nonnull %1) #28
@@ -4851,10 +4851,10 @@ define i32 @cli_bcapi_entropy_buffer(ptr nocapture noundef readnone %0, ptr noun
 
 9:                                                ; preds = %7, %9
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -4865,7 +4865,7 @@ define i32 @cli_bcapi_entropy_buffer(ptr nocapture noundef readnone %0, ptr noun
 16:                                               ; preds = %.preheader, %27
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %27 ]
   %.02026 = phi double [ 0.000000e+00, %.preheader ], [ %.121, %27 ]
-  %17 = getelementptr inbounds [256 x i32], ptr %4, i64 0, i64 %indvars.iv29
+  %17 = getelementptr inbounds nuw [256 x i32], ptr %4, i64 0, i64 %indvars.iv29
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %27, label %19
@@ -4898,14 +4898,14 @@ define i32 @cli_bcapi_entropy_buffer(ptr nocapture noundef readnone %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_map_new(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %5 = load i32, ptr %4, align 8
   %6 = add i32 %5, 1
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %17, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1272
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %9 = load ptr, ptr %8, align 8
   %10 = zext i32 %6 to i64
   %11 = shl nuw nsw i64 %10, 6
@@ -4917,7 +4917,7 @@ define i32 @cli_bcapi_map_new(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   store ptr %12, ptr %8, align 8
   store i32 %6, ptr %4, align 8
   %14 = zext i32 %5 to i64
-  %15 = getelementptr inbounds %struct.cli_map, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw %struct.cli_map, ptr %12, i64 %14
   %16 = tail call i32 @cli_map_init(ptr noundef nonnull %15, i32 noundef %1, i32 noundef %2, i32 noundef 16) #28
   br label %17
 
@@ -4934,20 +4934,20 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_addkey(ptr nocapture noundef readonly
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %11 = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
   %14 = tail call i32 @cli_map_addkey(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %switch.selectcmp = icmp ne i32 %14, 9
   %switch.select = sext i1 %switch.selectcmp to i32
@@ -4968,20 +4968,20 @@ define range(i32 -1, 1) i32 @cli_bcapi_map_setvalue(ptr nocapture noundef readon
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %11 = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
   %14 = tail call i32 @cli_map_setvalue(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %15 = icmp ne i32 %14, 0
   %16 = sext i1 %15 to i32
@@ -5000,20 +5000,20 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_remove(ptr nocapture noundef readonly
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %11 = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
   %14 = tail call i32 @cli_map_removekey(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %switch.selectcmp = icmp ne i32 %14, 10
   %switch.select = sext i1 %switch.selectcmp to i32
@@ -5034,20 +5034,20 @@ define range(i32 -1, 2) i32 @cli_bcapi_map_find(ptr nocapture noundef readonly %
   br i1 %5, label %get_hashtab.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %8 = load i32, ptr %7, align 8
   %.not.i = icmp ult i32 %3, %8
   br i1 %.not.i, label %9, label %get_hashtab.exit.thread
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %11 = load ptr, ptr %10, align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %9
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds %struct.cli_map, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %struct.cli_map, ptr %11, i64 %12
   %14 = tail call i32 @cli_map_find(ptr noundef nonnull %13, ptr noundef %1, i32 noundef %2) #28
   %switch.selectcmp = icmp ne i32 %14, 16
   %switch.select = sext i1 %switch.selectcmp to i32
@@ -5068,20 +5068,20 @@ define i32 @cli_bcapi_map_getvaluesize(ptr nocapture noundef readonly %0, i32 no
   br i1 %3, label %get_hashtab.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashtab.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1272
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.cli_map, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw %struct.cli_map, ptr %9, i64 %10
   %12 = tail call i32 @cli_map_getvalue_size(ptr noundef nonnull %11) #28
   br label %get_hashtab.exit.thread
 
@@ -5098,20 +5098,20 @@ define ptr @cli_bcapi_map_getvalue(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %4, label %get_hashtab.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1280
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp ult i32 %1, %7
   br i1 %.not.i, label %8, label %get_hashtab.exit.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1272
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %10 = load ptr, ptr %9, align 8
   %.not8.i = icmp eq ptr %10, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds %struct.cli_map, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw %struct.cli_map, ptr %10, i64 %11
   %13 = tail call i32 @cli_map_getvalue_size(ptr noundef nonnull %12) #28
   %.not7 = icmp eq i32 %13, %2
   br i1 %.not7, label %14, label %get_hashtab.exit.thread
@@ -5133,20 +5133,20 @@ define range(i32 -1, 1) i32 @cli_bcapi_map_done(ptr nocapture noundef %0, i32 no
   br i1 %3, label %get_hashtab.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %6 = load i32, ptr %5, align 8
   %.not.i = icmp ult i32 %1, %6
   br i1 %.not.i, label %7, label %get_hashtab.exit.thread
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1272
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %9 = load ptr, ptr %8, align 8
   %.not8.i = icmp eq ptr %9, null
   br i1 %.not8.i, label %get_hashtab.exit.thread, label %get_hashtab.exit
 
 get_hashtab.exit:                                 ; preds = %7
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds %struct.cli_map, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw %struct.cli_map, ptr %9, i64 %10
   tail call void @cli_map_delete(ptr noundef nonnull %11) #28
   %12 = load i32, ptr %5, align 8
   %13 = add i32 %12, -1
@@ -5196,9 +5196,9 @@ define noundef i32 @cli_bcapi_engine_dconf_level(ptr nocapture noundef readnone 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 1073741824, 536870912) i32 @cli_bcapi_engine_scan_options(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1088
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %7 = shl i32 %6, 21
@@ -5212,7 +5212,7 @@ define range(i32 1073741824, 536870912) i32 @cli_bcapi_engine_scan_options(ptr n
   %12 = shl i32 %6, 16
   %13 = and i32 %12, 524288
   %.3 = or disjoint i32 %.2, %13
-  %14 = getelementptr inbounds i8, ptr %5, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 1
   %.4 = or disjoint i32 %.3, %16
@@ -5233,7 +5233,7 @@ define range(i32 1073741824, 536870912) i32 @cli_bcapi_engine_scan_options(ptr n
   %26 = lshr i32 %15, 4
   %27 = and i32 %26, 48
   %.13 = or i32 %.11, %27
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i32, ptr %28, align 4
   %30 = shl i32 %29, 5
   %31 = and i32 %30, 64
@@ -5252,11 +5252,11 @@ define range(i32 1073741824, 536870912) i32 @cli_bcapi_engine_scan_options(ptr n
   %39 = or i32 %.18, 8
   %.19 = select i1 %or.cond, i32 %.18, i32 %39
   %40 = and i32 %36, 8388608
-  %41 = getelementptr inbounds i8, ptr %5, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %42 = load i32, ptr %41, align 4
   %43 = shl i32 %42, 18
   %44 = and i32 %43, 262144
-  %45 = getelementptr inbounds i8, ptr %5, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %46 = load i32, ptr %45, align 4
   %47 = shl i32 %46, 31
   %48 = shl i32 %46, 29
@@ -5284,13 +5284,13 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
   br label %236
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1088
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %10, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
@@ -5316,7 +5316,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = tail call i32 @tolower(i32 noundef %25) #29
@@ -5327,7 +5327,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %28 = getelementptr inbounds i8, ptr %20, i64 %wide.trip.count
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 %wide.trip.count
   store i8 0, ptr %28, align 1
   %29 = tail call i64 @llvm.umin.i64(i64 %wide.trip.count, i64 8)
   %30 = tail call i32 @strncmp(ptr noundef nonnull %20, ptr noundef nonnull @.str.79, i64 noundef %29) #29
@@ -5394,7 +5394,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 60:                                               ; preds = %58
   %61 = load ptr, ptr %13, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load i32, ptr %62, align 4
   %64 = and i32 %63, 1
   br label %235
@@ -5406,7 +5406,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 67:                                               ; preds = %65
   %68 = load ptr, ptr %13, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = lshr i32 %70, 1
   %.lobit197 = and i32 %71, 1
@@ -5419,7 +5419,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 74:                                               ; preds = %72
   %75 = load ptr, ptr %13, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = lshr i32 %77, 2
   %.lobit195 = and i32 %78, 1
@@ -5432,7 +5432,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4
   %85 = lshr i32 %84, 3
   %.lobit193 = and i32 %85, 1
@@ -5445,7 +5445,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %13, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = lshr i32 %91, 4
   %.lobit191 = and i32 %92, 1
@@ -5458,7 +5458,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %13, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = lshr i32 %98, 5
   %.lobit189 = and i32 %99, 1
@@ -5471,7 +5471,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 102:                                              ; preds = %100
   %103 = load ptr, ptr %13, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = lshr i32 %105, 6
   %.lobit187 = and i32 %106, 1
@@ -5484,7 +5484,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %13, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %112 = load i32, ptr %111, align 4
   %113 = lshr i32 %112, 7
   %.lobit185 = and i32 %113, 1
@@ -5497,7 +5497,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 116:                                              ; preds = %114
   %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4
   %120 = lshr i32 %119, 8
   %.lobit183 = and i32 %120, 1
@@ -5510,7 +5510,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 123:                                              ; preds = %121
   %124 = load ptr, ptr %13, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = lshr i32 %126, 9
   %.lobit181 = and i32 %127, 1
@@ -5529,7 +5529,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 133:                                              ; preds = %131
   %134 = load ptr, ptr %13, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load i32, ptr %135, align 4
   %137 = lshr i32 %136, 1
   %.lobit169 = and i32 %137, 1
@@ -5542,7 +5542,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 140:                                              ; preds = %138
   %141 = load ptr, ptr %13, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load i32, ptr %142, align 4
   %144 = lshr i32 %143, 2
   %.lobit167 = and i32 %144, 1
@@ -5555,7 +5555,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 147:                                              ; preds = %145
   %148 = load ptr, ptr %13, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load i32, ptr %149, align 4
   %151 = lshr i32 %150, 3
   %.lobit165 = and i32 %151, 1
@@ -5568,7 +5568,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 154:                                              ; preds = %152
   %155 = load ptr, ptr %13, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load i32, ptr %156, align 4
   %158 = lshr i32 %157, 4
   %.lobit163 = and i32 %158, 1
@@ -5581,7 +5581,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 161:                                              ; preds = %159
   %162 = load ptr, ptr %13, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load i32, ptr %163, align 4
   %165 = lshr i32 %164, 5
   %.lobit161 = and i32 %165, 1
@@ -5594,7 +5594,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 168:                                              ; preds = %166
   %169 = load ptr, ptr %13, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i32, ptr %170, align 4
   %172 = lshr i32 %171, 6
   %.lobit159 = and i32 %172, 1
@@ -5607,7 +5607,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 175:                                              ; preds = %173
   %176 = load ptr, ptr %13, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i32, ptr %177, align 4
   %179 = lshr i32 %178, 7
   %.lobit157 = and i32 %179, 1
@@ -5620,7 +5620,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 182:                                              ; preds = %180
   %183 = load ptr, ptr %13, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i32, ptr %184, align 4
   %186 = lshr i32 %185, 8
   %.lobit155 = and i32 %186, 1
@@ -5633,7 +5633,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 189:                                              ; preds = %187
   %190 = load ptr, ptr %13, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load i32, ptr %191, align 4
   %193 = lshr i32 %192, 9
   %.lobit153 = and i32 %193, 1
@@ -5646,7 +5646,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 196:                                              ; preds = %194
   %197 = load ptr, ptr %13, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
   %199 = load i32, ptr %198, align 4
   %200 = lshr i32 %199, 10
   %.lobit151 = and i32 %200, 1
@@ -5659,7 +5659,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 203:                                              ; preds = %201
   %204 = load ptr, ptr %13, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load i32, ptr %205, align 4
   %207 = lshr i32 %206, 11
   %.lobit149 = and i32 %207, 1
@@ -5678,7 +5678,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 213:                                              ; preds = %211
   %214 = load ptr, ptr %13, align 8
-  %215 = getelementptr inbounds i8, ptr %214, i64 12
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 12
   %216 = load i32, ptr %215, align 4
   %217 = and i32 %216, 1
   br label %235
@@ -5696,7 +5696,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 223:                                              ; preds = %221
   %224 = load ptr, ptr %13, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
   %226 = load i32, ptr %225, align 4
   %227 = and i32 %226, 1
   br label %235
@@ -5708,7 +5708,7 @@ define range(i32 0, 2) i32 @cli_bcapi_engine_scan_options_ex(ptr noundef readonl
 
 230:                                              ; preds = %228
   %231 = load ptr, ptr %13, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load i32, ptr %232, align 4
   %234 = lshr i32 %233, 1
   %.lobit = and i32 %234, 1
@@ -5735,11 +5735,11 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_engine_db_options(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1088
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   ret i32 %7
 }
@@ -5750,7 +5750,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_extract_set_container(ptr nocapture nound
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1284
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   store i32 %1, ptr %5, align 4
   br label %6
 
@@ -5762,7 +5762,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_extract_set_container(ptr nocapture nound
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i32 %1, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 1288
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %5 = load i32, ptr %4, align 8
   br i1 %3, label %6, label %16
 
@@ -5771,12 +5771,12 @@ define range(i32 -1, 1) i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef 
   br i1 %7, label %32, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef %10) #28
-  %13 = getelementptr inbounds i8, ptr %0, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @cli_bytecode_context_setfile(ptr noundef nonnull %0, ptr noundef %14) #28
   store ptr null, ptr %13, align 8
@@ -5789,7 +5789,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef 
   br i1 %17, label %32, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 60
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %20 = load i32, ptr %19, align 4
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %32, label %22
@@ -5800,15 +5800,15 @@ define range(i32 -1, 1) i32 @cli_bcapi_input_switch(ptr noundef %0, i32 noundef 
   br i1 %.not, label %24, label %27
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 1080
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %26 = load ptr, ptr %25, align 8
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.112, ptr noundef %26) #28
   br label %32
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %29, ptr %30, align 8
   %31 = tail call i32 @cli_bytecode_context_setfile(ptr noundef nonnull %0, ptr noundef nonnull %23) #28
   store i32 1, ptr %4, align 8
@@ -5835,7 +5835,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_get_environment(ptr nocapture noundef rea
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %2 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 1296
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %9 = load ptr, ptr %8, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1, ptr align 4 %9, i64 %7, i1 false)
   br label %10
@@ -5847,9 +5847,9 @@ define range(i32 -1, 1) i32 @cli_bcapi_get_environment(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_disable_bytecode_if(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
   br i1 %.not, label %10, label %9
@@ -5863,7 +5863,7 @@ define i32 @cli_bcapi_disable_bytecode_if(ptr nocapture noundef %0, ptr noundef 
   br i1 %.not8, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 1304
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %13 = load i32, ptr %12, align 8
   br label %22
 
@@ -5873,7 +5873,7 @@ define i32 @cli_bcapi_disable_bytecode_if(ptr nocapture noundef %0, ptr noundef 
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.116, ptr noundef nonnull %18) #28
   br label %20
 
@@ -5882,7 +5882,7 @@ define i32 @cli_bcapi_disable_bytecode_if(ptr nocapture noundef %0, ptr noundef 
   br label %20
 
 20:                                               ; preds = %19, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 1304
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   store i32 2, ptr %21, align 8
   br label %22
 
@@ -5893,9 +5893,9 @@ define i32 @cli_bcapi_disable_bytecode_if(ptr nocapture noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_disable_jit_if(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
   br i1 %.not, label %10, label %9
@@ -5909,7 +5909,7 @@ define i32 @cli_bcapi_disable_jit_if(ptr nocapture noundef %0, ptr noundef %1, i
   br i1 %.not9, label %11, label %14
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 1304
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %13 = load i32, ptr %12, align 8
   br label %24
 
@@ -5919,7 +5919,7 @@ define i32 @cli_bcapi_disable_jit_if(ptr nocapture noundef %0, ptr noundef %1, i
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %1, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.118, ptr noundef nonnull %18) #28
   br label %20
 
@@ -5928,7 +5928,7 @@ define i32 @cli_bcapi_disable_jit_if(ptr nocapture noundef %0, ptr noundef %1, i
   br label %20
 
 20:                                               ; preds = %19, %17
-  %21 = getelementptr inbounds i8, ptr %0, i64 1304
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %22 = load i32, ptr %21, align 8
   %.not10 = icmp eq i32 %22, 2
   br i1 %.not10, label %24, label %23
@@ -5966,9 +5966,9 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr nocapture noundef rea
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv109 = phi i64 [ %12, %.lr.ph.preheader ], [ %indvars.iv.next110, %25 ]
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv109
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv109
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %14, %16
   br i1 %17, label %18, label %.critedge.loopexit
@@ -5977,7 +5977,7 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr nocapture noundef rea
   %19 = tail call ptr @__ctype_b_loc() #30
   %20 = load ptr, ptr %19, align 8
   %21 = zext i8 %14 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw i16, ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 2048
   %.not = icmp eq i16 %24, 0
@@ -6010,21 +6010,21 @@ define range(i32 -1, 2) i32 @cli_bcapi_version_compare(ptr nocapture noundef rea
   %31 = tail call ptr @__ctype_b_loc() #30
   %32 = load ptr, ptr %31, align 8
   %33 = zext i32 %.153.lcssa to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw i16, ptr %32, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 2048
   %.not61 = icmp eq i16 %39, 0
   %.phi.trans.insert = zext i32 %.151.lcssa to i64
-  %.phi.trans.insert123 = getelementptr inbounds i8, ptr %3, i64 %.phi.trans.insert
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %3, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert123, align 1
   br i1 %.not61, label %split, label %40
 
 40:                                               ; preds = %30
   %41 = zext i8 %.pre to i64
-  %42 = getelementptr inbounds i16, ptr %32, i64 %41
+  %42 = getelementptr inbounds nuw i16, ptr %32, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 2048
   %.not62 = icmp eq i16 %44, 0
@@ -6057,10 +6057,10 @@ split:                                            ; preds = %40, %30
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %52 = add i64 %51, -48
   %53 = add i64 %52, %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next115
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next115
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %32, i64 %56
+  %57 = getelementptr inbounds nuw i16, ptr %32, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 2048
   %60 = icmp ne i16 %59, 0
@@ -6076,10 +6076,10 @@ split:                                            ; preds = %40, %30
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118, 1
   %65 = add i64 %64, -48
   %66 = add i64 %65, %63
-  %67 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.next119
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.next119
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds i16, ptr %32, i64 %69
+  %70 = getelementptr inbounds nuw i16, ptr %32, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 2048
   %73 = icmp ne i16 %72, 0
@@ -6115,7 +6115,7 @@ split:                                            ; preds = %40, %30
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @cli_bcapi_check_platform(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1296
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %1, 24
@@ -6168,7 +6168,7 @@ define range(i32 0, 2) i32 @cli_bcapi_check_platform(ptr nocapture noundef reado
   br i1 %or.cond.i50.not, label %.thread, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %6, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = lshr i32 %2, 28
   %46 = lshr i32 %44, 28
@@ -6218,7 +6218,7 @@ define range(i32 0, 2) i32 @cli_bcapi_check_platform(ptr nocapture noundef reado
   br i1 %or.cond.i60.not, label %.thread, label %77
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %6, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %79 = load i32, ptr %78, align 4
   %80 = lshr i32 %3, 24
   %81 = lshr i32 %79, 24
@@ -6266,13 +6266,13 @@ define range(i32 0, 2) i32 @cli_bcapi_check_platform(ptr nocapture noundef reado
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @cli_bcapi_pdf_get_obj_num(ptr nocapture noundef readonly %0) local_unnamed_addr #23 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %6 = load i32, ptr %5, align 8
   br label %7
 
@@ -6283,13 +6283,13 @@ define i32 @cli_bcapi_pdf_get_obj_num(ptr nocapture noundef readonly %0) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_pdf_get_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1040
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
   br label %8
@@ -6301,13 +6301,13 @@ define i32 @cli_bcapi_pdf_get_flags(ptr nocapture noundef readonly %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_pdf_set_flags(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1040
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.120, i32 noundef %8, i32 noundef %1) #28
@@ -6322,28 +6322,28 @@ define range(i32 -1, 1) i32 @cli_bcapi_pdf_set_flags(ptr nocapture noundef reado
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_pdf_lookupobj(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #24 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1024
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %6 = load i32, ptr %5, align 8
   %.not12 = icmp eq i32 %6, 0
   br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 1032
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %8 = load ptr, ptr %7, align 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %16
   %.09 = phi i32 [ 0, %.lr.ph ], [ %17, %16 ]
   %10 = zext i32 %.09 to i64
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %.loopexit, label %16
@@ -6360,13 +6360,13 @@ define i32 @cli_bcapi_pdf_lookupobj(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_pdf_getobjsize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %35, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
   %.not17 = icmp uge i32 %1, %7
   %8 = icmp eq i32 %4, 2
@@ -6379,9 +6379,9 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr nocapture noundef readonly %0, i32 noun
   br i1 %11, label %12, label %22
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 1048
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1032
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
   %18 = getelementptr inbounds ptr, ptr %16, i64 %17
@@ -6391,7 +6391,7 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr nocapture noundef readonly %0, i32 noun
   br label %35
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds i8, ptr %0, i64 1032
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %10 to i64
   %26 = getelementptr inbounds ptr, ptr %24, i64 %25
@@ -6412,13 +6412,13 @@ define i32 @cli_bcapi_pdf_getobjsize(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define ptr @cli_bcapi_pdf_getobj(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1056
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %5 = load i32, ptr %4, align 8
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %cli_bcapi_pdf_getobjsize.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %8 = load i32, ptr %7, align 8
   %.not17.i = icmp uge i32 %1, %8
   %9 = icmp eq i32 %5, 2
@@ -6431,9 +6431,9 @@ define ptr @cli_bcapi_pdf_getobj(ptr nocapture noundef readonly %0, i32 noundef 
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 1048
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 1032
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %1 to i64
   %19 = getelementptr inbounds ptr, ptr %17, i64 %18
@@ -6443,7 +6443,7 @@ define ptr @cli_bcapi_pdf_getobj(ptr nocapture noundef readonly %0, i32 noundef 
   br label %cli_bcapi_pdf_getobjsize.exit
 
 23:                                               ; preds = %10
-  %24 = getelementptr inbounds i8, ptr %0, i64 1032
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %11 to i64
   %27 = getelementptr inbounds ptr, ptr %25, i64 %26
@@ -6463,9 +6463,9 @@ cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %cli_bcapi_pdf_getobjsize.exit
-  %38 = getelementptr inbounds i8, ptr %0, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 1032
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %1 to i64
   %43 = getelementptr inbounds ptr, ptr %41, i64 %42
@@ -6473,7 +6473,7 @@ cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = zext i32 %2 to i64
-  %48 = getelementptr inbounds i8, ptr %39, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr %49(ptr noundef %39, i64 noundef range(i64 0, 4294967296) %46, i64 noundef range(i64 0, 4294967296) %47, i32 noundef 1) #28
   br label %51
@@ -6485,24 +6485,24 @@ cli_bcapi_pdf_getobjsize.exit:                    ; preds = %3, %6, %13, %23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_pdf_getobjid(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
   %.not6 = icmp ult i32 %1, %7
   br i1 %.not6, label %8, label %16
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1032
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 8
   br label %16
 
@@ -6513,24 +6513,24 @@ define i32 @cli_bcapi_pdf_getobjid(ptr nocapture noundef readonly %0, i32 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_pdf_getobjflags(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
   %.not6 = icmp ult i32 %1, %7
   br i1 %.not6, label %8, label %16
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1032
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %15 = load i32, ptr %14, align 4
   br label %16
 
@@ -6541,30 +6541,30 @@ define i32 @cli_bcapi_pdf_getobjflags(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @cli_bcapi_pdf_setobjflags(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1056
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 1024
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %8 = load i32, ptr %7, align 8
   %.not10 = icmp ult i32 %1, %8
   br i1 %.not10, label %9, label %21
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1032
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %1 to i64
   %13 = getelementptr inbounds ptr, ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i32, ptr %15, align 4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.121, i32 noundef %16, i32 noundef %2) #28
   %17 = load ptr, ptr %10, align 8
   %18 = getelementptr inbounds ptr, ptr %17, i64 %12
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %2, ptr %20, align 4
   br label %21
 
@@ -6575,21 +6575,21 @@ define range(i32 -1, 1) i32 @cli_bcapi_pdf_setobjflags(ptr nocapture noundef rea
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_pdf_get_offset(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #20 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1056
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 1024
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %7 = load i32, ptr %6, align 8
   %.not7 = icmp ult i32 %1, %7
   br i1 %.not7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 1052
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1052
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1032
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %1 to i64
   %14 = getelementptr inbounds ptr, ptr %12, i64 %13
@@ -6605,20 +6605,20 @@ define i32 @cli_bcapi_pdf_get_offset(ptr nocapture noundef readonly %0, i32 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @cli_bcapi_pdf_get_phase(ptr nocapture noundef readonly %0) local_unnamed_addr #23 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @cli_bcapi_pdf_get_dumpedobjid(ptr nocapture noundef readonly %0) local_unnamed_addr #23 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1056
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 2
   br i1 %.not, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1060
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1060
   %6 = load i32, ptr %5, align 4
   br label %7
 
@@ -6629,22 +6629,22 @@ define i32 @cli_bcapi_pdf_get_dumpedobjid(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @cli_bcapi_running_on_jit(ptr nocapture noundef initializes((1324, 1328)) %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1324
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   store i32 1, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1320
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @cli_bcapi_get_file_reliability(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1088
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %6 = load i32, ptr %5, align 4
   br label %7
 
@@ -6655,9 +6655,9 @@ define i32 @cli_bcapi_get_file_reliability(ptr nocapture noundef readonly %0) lo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @cli_bcapi_json_is_active(ptr nocapture noundef readonly %0) local_unnamed_addr #20 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1088
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %5 = load ptr, ptr %4, align 8
   %.not = icmp ne ptr %5, null
   %. = zext i1 %.not to i32
@@ -6667,21 +6667,21 @@ define range(i32 0, 2) i32 @cli_bcapi_json_is_active(ptr nocapture noundef reado
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_object(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1088
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
   %.not.i.not = icmp eq ptr %9, null
   br i1 %.not.i.not, label %58, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1336
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 1328
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @cli_max_realloc(ptr noundef %16, i64 noundef 8) #28
   %.not.i49 = icmp eq ptr %17, null
@@ -6695,13 +6695,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %14
   br label %21
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 1312
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %20 = load ptr, ptr %19, align 8
   tail call void @cli_event_error_oom(ptr noundef %20, i32 noundef 0) #28
   br label %58
 
 21:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %10
-  %22 = getelementptr inbounds i8, ptr %0, i64 1328
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %23 = load ptr, ptr %22, align 8
   %24 = icmp slt i32 %3, 0
   br i1 %24, label %27, label %25
@@ -6728,7 +6728,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
 32:                                               ; preds = %28
   %33 = add i32 %26, 1
   %34 = zext nneg i32 %3 to i64
-  %35 = getelementptr inbounds ptr, ptr %23, i64 %34
+  %35 = getelementptr inbounds nuw ptr, ptr %23, i64 %34
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %5, align 8
   %.not45 = icmp eq ptr %36, null
@@ -6744,7 +6744,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
 41:                                               ; preds = %37
   %42 = zext nneg i32 %2 to i64
   %43 = tail call ptr @strncpy(ptr noundef nonnull %40, ptr noundef nonnull %1, i64 noundef %42) #28
-  %44 = getelementptr inbounds i8, ptr %40, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   store i8 0, ptr %44, align 1
   %45 = call i32 @json_object_object_get_ex(ptr noundef nonnull %36, ptr noundef nonnull %40, ptr noundef nonnull %5) #28
   %.not47 = icmp eq i32 %45, 0
@@ -6763,7 +6763,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
 
 51:                                               ; preds = %47
   call void @free(ptr noundef nonnull %40) #28
-  %52 = getelementptr inbounds i8, ptr %0, i64 1312
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %53 = load ptr, ptr %52, align 8
   call void @cli_event_error_oom(ptr noundef %53, i32 noundef 0) #28
   br label %58
@@ -6773,7 +6773,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %14
   store i32 %33, ptr %11, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = zext i32 %26 to i64
-  %57 = getelementptr inbounds ptr, ptr %50, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %56
   store ptr %55, ptr %57, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.124, ptr noundef nonnull %40, i32 noundef %26) #28
   call void @free(ptr noundef nonnull %40) #28
@@ -6793,21 +6793,21 @@ declare i32 @json_object_object_get_ex(ptr noundef, ptr noundef, ptr noundef) lo
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 7) i32 @cli_bcapi_json_get_type(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not.i.not = icmp eq ptr %6, null
   br i1 %.not.i.not, label %switch.lookup, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef 8) #28
   %.not.i14 = icmp eq ptr %14, null
@@ -6821,13 +6821,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %11
   br label %18
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %17 = load ptr, ptr %16, align 8
   tail call void @cli_event_error_oom(ptr noundef %17, i32 noundef 0) #28
   br label %switch.lookup
 
 18:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1328
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %20 = load ptr, ptr %19, align 8
   %21 = icmp slt i32 %1, 0
   br i1 %21, label %24, label %22
@@ -6843,7 +6843,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @json_object_get_type(ptr noundef %28) #28
   %30 = icmp ult i32 %29, 7
@@ -6862,21 +6862,21 @@ declare i32 @json_object_get_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_array_length(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not.i.not = icmp eq ptr %6, null
   br i1 %.not.i.not, label %34, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef 8) #28
   %.not.i16 = icmp eq ptr %14, null
@@ -6890,13 +6890,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %11
   br label %18
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %17 = load ptr, ptr %16, align 8
   tail call void @cli_event_error_oom(ptr noundef %17, i32 noundef 0) #28
   br label %34
 
 18:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1328
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %20 = load ptr, ptr %19, align 8
   %21 = icmp slt i32 %1, 0
   br i1 %21, label %24, label %22
@@ -6912,7 +6912,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @json_object_get_type(ptr noundef %28) #28
   %.not15 = icmp eq i32 %29, 5
@@ -6933,21 +6933,21 @@ declare i64 @json_object_array_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_array_idx(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1088
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %7 = load ptr, ptr %6, align 8
   %.not.i.not = icmp eq ptr %7, null
   br i1 %.not.i.not, label %52, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 1336
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1328
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @cli_max_realloc(ptr noundef %14, i64 noundef 8) #28
   %.not.i46 = icmp eq ptr %15, null
@@ -6961,13 +6961,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %12
   br label %19
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 1312
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %18 = load ptr, ptr %17, align 8
   tail call void @cli_event_error_oom(ptr noundef %18, i32 noundef 0) #28
   br label %52
 
 19:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %8
-  %20 = getelementptr inbounds i8, ptr %0, i64 1328
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %21 = load ptr, ptr %20, align 8
   %22 = icmp slt i32 %2, 0
   br i1 %22, label %25, label %23
@@ -6983,7 +6983,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %12
 
 26:                                               ; preds = %23
   %27 = zext nneg i32 %2 to i64
-  %28 = getelementptr inbounds ptr, ptr %21, i64 %27
+  %28 = getelementptr inbounds nuw ptr, ptr %21, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not41 = icmp eq ptr %29, null
   br i1 %.not41, label %52, label %30
@@ -7017,7 +7017,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %12
   br i1 %.not44, label %46, label %49
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 1312
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %48 = load ptr, ptr %47, align 8
   tail call void @cli_event_error_oom(ptr noundef %48, i32 noundef 0) #28
   br label %52
@@ -7026,7 +7026,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %12
   store ptr %45, ptr %20, align 8
   store i32 %39, ptr %9, align 8
   %50 = zext i32 %38 to i64
-  %51 = getelementptr inbounds ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %50
   store ptr %41, ptr %51, align 8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, i32 noundef %1, i32 noundef %38) #28
   br label %52
@@ -7040,21 +7040,21 @@ declare ptr @json_object_array_get_idx(ptr noundef, i64 noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_string_length(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not.i.not = icmp eq ptr %6, null
   br i1 %.not.i.not, label %35, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef 8) #28
   %.not.i21 = icmp eq ptr %14, null
@@ -7068,13 +7068,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %11
   br label %18
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %17 = load ptr, ptr %16, align 8
   tail call void @cli_event_error_oom(ptr noundef %17, i32 noundef 0) #28
   br label %35
 
 18:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1328
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %20 = load ptr, ptr %19, align 8
   %21 = icmp slt i32 %1, 0
   br i1 %21, label %24, label %22
@@ -7090,7 +7090,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8
   %.not19 = icmp eq ptr %28, null
   br i1 %.not19, label %35, label %29
@@ -7115,21 +7115,21 @@ declare ptr @json_object_get_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_string(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1088
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load ptr, ptr %7, align 8
   %.not.i.not = icmp eq ptr %8, null
   br i1 %.not.i.not, label %46, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 1336
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 1328
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @cli_max_realloc(ptr noundef %15, i64 noundef 8) #28
   %.not.i37 = icmp eq ptr %16, null
@@ -7143,13 +7143,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %13
   br label %20
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 1312
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %19 = load ptr, ptr %18, align 8
   tail call void @cli_event_error_oom(ptr noundef %19, i32 noundef 0) #28
   br label %46
 
 20:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 1328
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %22 = load ptr, ptr %21, align 8
   %23 = icmp slt i32 %3, 0
   br i1 %23, label %26, label %24
@@ -7165,7 +7165,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 27:                                               ; preds = %24
   %28 = zext nneg i32 %3 to i64
-  %29 = getelementptr inbounds ptr, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %22, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not34 = icmp eq ptr %30, null
   br i1 %.not34, label %46, label %31
@@ -7206,21 +7206,21 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %13
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_boolean(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not.i.not = icmp eq ptr %6, null
   br i1 %.not.i.not, label %30, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef 8) #28
   %.not.i13 = icmp eq ptr %14, null
@@ -7234,13 +7234,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %11
   br label %18
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %17 = load ptr, ptr %16, align 8
   tail call void @cli_event_error_oom(ptr noundef %17, i32 noundef 0) #28
   br label %30
 
 18:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1328
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %20 = load ptr, ptr %19, align 8
   %21 = icmp slt i32 %1, 0
   br i1 %21, label %24, label %22
@@ -7256,7 +7256,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @json_object_get_boolean(ptr noundef %28) #28
   br label %30
@@ -7270,21 +7270,21 @@ declare i32 @json_object_get_boolean(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define i32 @cli_bcapi_json_get_int(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1088
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1088
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not.i.not = icmp eq ptr %6, null
   br i1 %.not.i.not, label %30, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1336
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %18
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 1328
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @cli_max_realloc(ptr noundef %13, i64 noundef 8) #28
   %.not.i13 = icmp eq ptr %14, null
@@ -7298,13 +7298,13 @@ cli_bcapi_json_objs_init.exit.thread:             ; preds = %11
   br label %18
 
 cli_bcapi_json_objs_init.exit:                    ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 1312
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %17 = load ptr, ptr %16, align 8
   tail call void @cli_event_error_oom(ptr noundef %17, i32 noundef 0) #28
   br label %30
 
 18:                                               ; preds = %cli_bcapi_json_objs_init.exit.thread, %7
-  %19 = getelementptr inbounds i8, ptr %0, i64 1328
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %20 = load ptr, ptr %19, align 8
   %21 = icmp slt i32 %1, 0
   br i1 %21, label %24, label %22
@@ -7320,7 +7320,7 @@ cli_bcapi_json_objs_init.exit:                    ; preds = %11
 
 25:                                               ; preds = %22
   %26 = zext nneg i32 %1 to i64
-  %27 = getelementptr inbounds ptr, ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %20, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @json_object_get_int(ptr noundef %28) #28
   br label %30

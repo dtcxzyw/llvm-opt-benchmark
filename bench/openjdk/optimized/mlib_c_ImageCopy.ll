@@ -94,9 +94,9 @@ define hidden range(i32 0, 3) i32 @mlib_ImageCopy(ptr noundef readonly %0, ptr n
   %.08.i = phi i32 [ %39, %.lr.ph.i ], [ 0, %33 ]
   %.047.i = phi ptr [ %36, %.lr.ph.i ], [ %.val96, %33 ]
   %.056.i = phi ptr [ %38, %.lr.ph.i ], [ %.val97, %33 ]
-  %36 = getelementptr inbounds i8, ptr %.047.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.047.i, i64 8
   %37 = load double, ptr %.047.i, align 8
-  %38 = getelementptr inbounds i8, ptr %.056.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.056.i, i64 8
   store double %37, ptr %.056.i, align 8
   %39 = add nuw nsw i32 %.08.i, 1
   %exitcond.not.i = icmp eq i32 %39, %34
@@ -201,9 +201,9 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %.055 = phi ptr [ %12, %.lr.ph ], [ %0, %.preheader52 ]
   %.03854 = phi ptr [ %14, %.lr.ph ], [ %1, %.preheader52 ]
   %.04453 = phi i32 [ %15, %.lr.ph ], [ %2, %.preheader52 ]
-  %12 = getelementptr inbounds i8, ptr %.055, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   %13 = load i8, ptr %.055, align 1
-  %14 = getelementptr inbounds i8, ptr %.03854, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.03854, i64 1
   store i8 %13, ptr %.03854, align 1
   %15 = add nsw i32 %.04453, -1
   %16 = icmp samesign ugt i32 %.04453, 1
@@ -239,14 +239,14 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %.pn60 = phi ptr [ %24, %.lr.ph64 ], [ %.037, %31 ]
   %.13959 = phi ptr [ %.038.lcssa, %.lr.ph64 ], [ %36, %31 ]
   %.14558 = phi i32 [ %.044.lcssa, %.lr.ph64 ], [ %38, %31 ]
-  %.037 = getelementptr inbounds i8, ptr %.pn60, i64 8
+  %.037 = getelementptr inbounds nuw i8, ptr %.pn60, i64 8
   %32 = load i64, ptr %.037, align 8
   %33 = lshr i64 %.03661, %29
   %34 = shl i64 %32, %30
   %35 = or i64 %34, %33
   store i64 %35, ptr %.13959, align 8
-  %36 = getelementptr inbounds i8, ptr %.13959, i64 8
-  %37 = getelementptr inbounds i8, ptr %.162, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.13959, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.162, i64 8
   %38 = add nsw i32 %.14558, -8
   %39 = icmp samesign ugt i32 %.14558, 16
   br i1 %39, label %31, label %.lr.ph86.preheader, !llvm.loop !11
@@ -262,9 +262,9 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %.370 = phi ptr [ %41, %.lr.ph71 ], [ %0, %.preheader50 ]
   %.34169 = phi ptr [ %43, %.lr.ph71 ], [ %1, %.preheader50 ]
   %.34768 = phi i32 [ %44, %.lr.ph71 ], [ %2, %.preheader50 ]
-  %41 = getelementptr inbounds i8, ptr %.370, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.370, i64 1
   %42 = load i8, ptr %.370, align 1
-  %43 = getelementptr inbounds i8, ptr %.34169, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.34169, i64 1
   store i8 %42, ptr %.34169, align 1
   %44 = add nsw i32 %.34768, -1
   %45 = icmp samesign ugt i32 %.34768, 1
@@ -280,8 +280,8 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %.44875 = phi i32 [ %53, %.lr.ph78 ], [ %.347.lcssa, %.preheader ]
   %50 = load double, ptr %.477, align 8
   store double %50, ptr %.44276, align 8
-  %51 = getelementptr inbounds i8, ptr %.44276, i64 8
-  %52 = getelementptr inbounds i8, ptr %.477, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.44276, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.477, i64 8
   %53 = add nsw i32 %.44875, -8
   %54 = icmp samesign ugt i32 %.44875, 16
   br i1 %54, label %.lr.ph78, label %.lr.ph86.preheader, !llvm.loop !13
@@ -303,9 +303,9 @@ define hidden void @mlib_ImageCopy_na(ptr noundef %0, ptr noundef %1, i32 nounde
   %.584 = phi ptr [ %56, %.lr.ph86 ], [ %.584.ph, %.lr.ph86.preheader ]
   %.54383 = phi ptr [ %58, %.lr.ph86 ], [ %.54383.ph, %.lr.ph86.preheader ]
   %.54982 = phi i32 [ %59, %.lr.ph86 ], [ %.54982.ph, %.lr.ph86.preheader ]
-  %56 = getelementptr inbounds i8, ptr %.584, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.584, i64 1
   %57 = load i8, ptr %.584, align 1
-  %58 = getelementptr inbounds i8, ptr %.54383, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.54383, i64 1
   store i8 %57, ptr %.54383, align 1
   %59 = add nsw i32 %.54982, -1
   %60 = icmp samesign ugt i32 %.54982, 1
@@ -347,8 +347,8 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %24 = add nsw i32 %2, -8
   %25 = add nsw i32 %24, %3
   %26 = ashr i32 %25, 3
-  %.087104 = getelementptr inbounds i8, ptr %1, i64 1
-  %.0105 = getelementptr inbounds i8, ptr %0, i64 1
+  %.087104 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.0105 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %27 = icmp sgt i32 %26, 0
   %28 = ptrtoint ptr %.087104 to i64
   %29 = and i64 %28, 7
@@ -363,8 +363,8 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %32 = load i8, ptr %.0108, align 1
   store i8 %32, ptr %.087107, align 1
   %33 = add nuw nsw i32 %.092106, 1
-  %.087 = getelementptr inbounds i8, ptr %.087107, i64 1
-  %.0 = getelementptr inbounds i8, ptr %.0108, i64 1
+  %.087 = getelementptr inbounds nuw i8, ptr %.087107, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.0108, i64 1
   %34 = icmp slt i32 %33, %26
   %35 = ptrtoint ptr %.087 to i64
   %36 = and i64 %35, 7
@@ -398,9 +398,9 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph123:                                        ; preds = %.lr.ph123.preheader, %.lr.ph123
   %indvars.iv146 = phi i64 [ 0, %.lr.ph123.preheader ], [ %indvars.iv.next147, %.lr.ph123 ]
   %.193121 = phi i32 [ %.092.lcssa, %.lr.ph123.preheader ], [ %50, %.lr.ph123 ]
-  %47 = getelementptr inbounds double, ptr %.0.lcssa, i64 %indvars.iv146
+  %47 = getelementptr inbounds nuw double, ptr %.0.lcssa, i64 %indvars.iv146
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds double, ptr %.087.lcssa, i64 %indvars.iv146
+  %49 = getelementptr inbounds nuw double, ptr %.087.lcssa, i64 %indvars.iv146
   store double %48, ptr %49, align 8
   %50 = add nuw nsw i32 %.193121, 8
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
@@ -434,12 +434,12 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %.086115 = phi i64 [ %56, %.lr.ph117 ], [ %68, %66 ]
   %.3113 = phi i32 [ %.092.lcssa, %.lr.ph117 ], [ %73, %66 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %67 = getelementptr inbounds i64, ptr %54, i64 %indvars.iv.next
+  %67 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv.next
   %68 = load i64, ptr %67, align 8
   %69 = shl i64 %.086115, %61
   %70 = lshr i64 %68, %62
   %71 = or i64 %70, %69
-  %72 = getelementptr inbounds i64, ptr %.087.lcssa, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw i64, ptr %.087.lcssa, i64 %indvars.iv
   store i64 %71, ptr %72, align 8
   %73 = add nuw nsw i32 %.3113, 8
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -459,9 +459,9 @@ define hidden void @mlib_ImageCopy_bit_al(ptr noundef %0, ptr noundef %1, i32 no
   %.2128 = phi ptr [ %75, %.lr.ph130 ], [ %.1, %.loopexit ]
   %.289127 = phi ptr [ %77, %.lr.ph130 ], [ %.188, %.loopexit ]
   %.4126 = phi i32 [ %78, %.lr.ph130 ], [ %.294, %.loopexit ]
-  %75 = getelementptr inbounds i8, ptr %.2128, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.2128, i64 1
   %76 = load i8, ptr %.2128, align 1
-  %77 = getelementptr inbounds i8, ptr %.289127, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.289127, i64 1
   store i8 %76, ptr %.289127, align 1
   %78 = add nuw nsw i32 %.4126, 1
   %exitcond151.not = icmp eq i32 %78, %26
@@ -687,9 +687,9 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
   %indvars.iv174 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next175, %.lr.ph139 ]
-  %70 = getelementptr inbounds i8, ptr %53, i64 %indvars.iv174
+  %70 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv174
   %71 = load i8, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv174
+  %72 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv174
   store i8 %71, ptr %72, align 1
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %73 = icmp samesign ult i64 %indvars.iv.next175, %67
@@ -697,9 +697,9 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv180 = phi i64 [ %69, %.lr.ph143.preheader ], [ %indvars.iv.next181, %.lr.ph143 ]
-  %74 = getelementptr inbounds i8, ptr %53, i64 %indvars.iv180
+  %74 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv180
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv180
+  %76 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv180
   store double %75, ptr %76, align 8
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 8
   %.not114 = icmp samesign ugt i64 %indvars.iv.next181, %17
@@ -707,9 +707,9 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %77 = getelementptr inbounds i8, ptr %53, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv
   store i8 %78, ptr %79, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %80 = icmp samesign ult i64 %indvars.iv.next, %63
@@ -726,7 +726,7 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
 
 .lr.ph136:                                        ; preds = %._crit_edge
   %82 = zext nneg i32 %.4.lcssa to i64
-  %83 = getelementptr inbounds i8, ptr %53, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %53, i64 %82
   %84 = ptrtoint ptr %83 to i64
   %85 = and i64 %84, -8
   %86 = inttoptr i64 %85 to ptr
@@ -743,12 +743,12 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
   %indvars.iv170 = phi i64 [ %82, %.lr.ph136 ], [ %indvars.iv.next171, %94 ]
   %.0134 = phi i64 [ %87, %.lr.ph136 ], [ %96, %94 ]
   %.0107133 = phi ptr [ %86, %.lr.ph136 ], [ %95, %94 ]
-  %95 = getelementptr inbounds i8, ptr %.0107133, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0107133, i64 8
   %96 = load i64, ptr %95, align 8
   %97 = lshr i64 %.0134, %92
   %98 = shl i64 %96, %93
   %99 = or i64 %98, %97
-  %100 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv170
+  %100 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv170
   store i64 %99, ptr %100, align 8
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 8
   %.not115 = icmp samesign ugt i64 %indvars.iv.next171, %17
@@ -773,9 +773,9 @@ define internal fastcc void @mlib_c_ImageCopy_u8(ptr nocapture noundef nonnull r
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
   %indvars.iv186 = phi i64 [ %104, %.lr.ph147.preheader ], [ %indvars.iv.next187, %.lr.ph147 ]
-  %105 = getelementptr inbounds i8, ptr %53, i64 %indvars.iv186
+  %105 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv186
   %106 = load i8, ptr %105, align 1
-  %107 = getelementptr inbounds i8, ptr %55, i64 %indvars.iv186
+  %107 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv186
   store i8 %106, ptr %107, align 1
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
@@ -978,9 +978,9 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
 
 .lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
   %indvars.iv174 = phi i64 [ 0, %.lr.ph139.preheader ], [ %indvars.iv.next175, %.lr.ph139 ]
-  %74 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv174
+  %74 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv174
   %75 = load i16, ptr %74, align 2
-  %76 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv174
+  %76 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv174
   store i16 %75, ptr %76, align 2
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %77 = icmp samesign ult i64 %indvars.iv.next175, %71
@@ -988,9 +988,9 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv180 = phi i64 [ %73, %.lr.ph143.preheader ], [ %indvars.iv.next181, %.lr.ph143 ]
-  %78 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv180
+  %78 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv180
   %79 = load double, ptr %78, align 8
-  %80 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv180
+  %80 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv180
   store double %79, ptr %80, align 8
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 4
   %.not114 = icmp samesign ugt i64 %indvars.iv.next181, %19
@@ -998,9 +998,9 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %81 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv
   %82 = load i16, ptr %81, align 2
-  %83 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv
   store i16 %82, ptr %83, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %84 = icmp samesign ult i64 %indvars.iv.next, %66
@@ -1017,7 +1017,7 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
 
 .lr.ph136:                                        ; preds = %._crit_edge
   %86 = zext nneg i32 %.4.lcssa to i64
-  %87 = getelementptr inbounds i16, ptr %55, i64 %86
+  %87 = getelementptr inbounds nuw i16, ptr %55, i64 %86
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, -8
   %90 = inttoptr i64 %89 to ptr
@@ -1034,12 +1034,12 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
   %indvars.iv170 = phi i64 [ %86, %.lr.ph136 ], [ %indvars.iv.next171, %98 ]
   %.0134 = phi i64 [ %91, %.lr.ph136 ], [ %100, %98 ]
   %.0107133 = phi ptr [ %90, %.lr.ph136 ], [ %99, %98 ]
-  %99 = getelementptr inbounds i8, ptr %.0107133, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0107133, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = lshr i64 %.0134, %96
   %102 = shl i64 %100, %97
   %103 = or i64 %102, %101
-  %104 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv170
+  %104 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv170
   store i64 %103, ptr %104, align 8
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 4
   %.not115 = icmp samesign ugt i64 %indvars.iv.next171, %19
@@ -1064,9 +1064,9 @@ define internal fastcc void @mlib_c_ImageCopy_s16(ptr nocapture noundef nonnull 
 
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %.lr.ph147
   %indvars.iv186 = phi i64 [ %108, %.lr.ph147.preheader ], [ %indvars.iv.next187, %.lr.ph147 ]
-  %109 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv186
+  %109 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv186
   %110 = load i16, ptr %109, align 2
-  %111 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv186
+  %111 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv186
   store i16 %110, ptr %111, align 2
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next187, %wide.trip.count
@@ -1262,9 +1262,9 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
 
 .lr.ph122:                                        ; preds = %76, %.lr.ph122
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %.lr.ph122 ], [ %59, %76 ]
-  %77 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv152
+  %77 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv152
   %78 = load double, ptr %77, align 8
-  %79 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv152
+  %79 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv152
   store double %78, ptr %79, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %.not102 = icmp samesign ugt i64 %indvars.iv.next153, %21
@@ -1288,7 +1288,7 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
 
 .lr.ph.preheader:                                 ; preds = %86
   %87 = zext nneg i32 %83 to i64
-  %88 = getelementptr inbounds i32, ptr %63, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %63, i64 %87
   %89 = getelementptr inbounds i8, ptr %88, i64 -4
   %90 = load i64, ptr %89, align 8
   br label %.lr.ph
@@ -1297,10 +1297,10 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
   %indvars.iv142 = phi i64 [ %61, %.lr.ph.preheader ], [ %indvars.iv.next143, %.lr.ph ]
   %.0119 = phi i64 [ %90, %.lr.ph.preheader ], [ %92, %.lr.ph ]
   %.094118 = phi ptr [ %89, %.lr.ph.preheader ], [ %91, %.lr.ph ]
-  %91 = getelementptr inbounds i8, ptr %.094118, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.094118, i64 8
   %92 = load i64, ptr %91, align 8
   %93 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %.0119, i64 32)
-  %94 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv142
+  %94 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv142
   store i64 %93, ptr %94, align 8
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 2
   %.not104 = icmp samesign ugt i64 %indvars.iv.next143, %21
@@ -1325,9 +1325,9 @@ define internal fastcc void @mlib_c_ImageCopy_s32(ptr nocapture noundef nonnull 
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
   %indvars.iv158 = phi i64 [ %98, %.lr.ph125.preheader ], [ %indvars.iv.next159, %.lr.ph125 ]
-  %99 = getelementptr inbounds i32, ptr %63, i64 %indvars.iv158
+  %99 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv158
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i32, ptr %65, i64 %indvars.iv158
+  %101 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv158
   store i32 %100, ptr %101, align 4
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count
@@ -1391,9 +1391,9 @@ define internal fastcc void @mlib_c_ImageCopy_d64(ptr nocapture noundef nonnull 
 
 24:                                               ; preds = %.lr.ph.us, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds double, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
   store double %26, ptr %27, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

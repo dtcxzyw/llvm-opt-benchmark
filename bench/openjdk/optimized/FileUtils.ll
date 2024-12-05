@@ -413,7 +413,7 @@ define hidden void @_ZN9FileUtils13normalizePathENSt7__cxx1112basic_stringIcSt11
   br label %8
 
 8:                                                ; preds = %7, %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.sroa.02.07.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.02.07.i, i64 1
   %.not.i = icmp eq ptr %9, %4
   br i1 %.not.i, label %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, label %.lr.ph.i, !llvm.loop !8
 

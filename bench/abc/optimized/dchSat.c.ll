@@ -19,35 +19,35 @@ define range(i32 -1, 2) i32 @Dch_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   %13 = alloca %struct.timespec, align 8
   %14 = alloca [2 x i32], align 4
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 76
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %22 = load i32, ptr %21, align 4
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %37, label %27
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %15, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %29 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %38, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, %29
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %15, i64 68
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %36 = load i32, ptr %35, align 4
   %.not75 = icmp slt i32 %22, %36
   br i1 %.not75, label %38, label %37
@@ -60,9 +60,9 @@ define range(i32 -1, 2) i32 @Dch_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   tail call void @Dch_CnfNodeAddToSolver(ptr noundef nonnull %0, ptr noundef %1) #4
   tail call void @Dch_CnfNodeAddToSolver(ptr noundef nonnull %0, ptr noundef %2) #4
   %39 = load ptr, ptr %24, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load i32, ptr %42, align 8
   %.not76 = icmp eq i32 %41, %43
   br i1 %.not76, label %46, label %44
@@ -86,9 +86,9 @@ define range(i32 -1, 2) i32 @Dch_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   %54 = sext i32 %.val85 to i64
   %55 = getelementptr inbounds i32, ptr %.val, i64 %54
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %60 = load i64, ptr %59, align 8
   %61 = xor i64 %60, %58
   %62 = and i64 %61, 8
@@ -96,10 +96,10 @@ define range(i32 -1, 2) i32 @Dch_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
   %64 = zext i1 %63 to i32
   %65 = shl nsw i32 %56, 1
   %66 = or disjoint i32 %65, %64
-  %67 = getelementptr inbounds i8, ptr %14, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %66, ptr %67, align 4
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
   %.not77 = icmp eq i32 %70, 0
   br i1 %.not77, label %79, label %71
@@ -133,7 +133,7 @@ define range(i32 -1, 2) i32 @Dch_NodesAreEquiv(ptr noundef %0, ptr noundef %1, p
 82:                                               ; preds = %79
   %83 = load i64, ptr %13, align 8
   %.neg109 = mul i64 %83, -1000000
-  %84 = getelementptr inbounds i8, ptr %13, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %85 = load i64, ptr %84, align 8
   %.neg = sdiv i64 %85, -1000
   %.neg110 = add i64 %.neg, %.neg109
@@ -143,7 +143,7 @@ Abc_Clock.exit:                                   ; preds = %79, %82
   %.0.i.neg111 = phi i64 [ %.neg110, %82 ], [ 1, %79 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %86 = load ptr, ptr %24, align 8
-  %87 = getelementptr inbounds i8, ptr %14, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %88 = sext i32 %17 to i64
   %89 = call i32 @sat_solver_solve(ptr noundef %86, ptr noundef nonnull %14, ptr noundef nonnull %87, i64 noundef %88, i64 noundef 0, i64 noundef 0, i64 noundef 0) #4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -154,7 +154,7 @@ Abc_Clock.exit:                                   ; preds = %79, %82
 92:                                               ; preds = %Abc_Clock.exit
   %93 = load i64, ptr %12, align 8
   %94 = mul nsw i64 %93, 1000000
-  %95 = getelementptr inbounds i8, ptr %12, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %96 = load i64, ptr %95, align 8
   %97 = sdiv i64 %96, 1000
   %98 = add nsw i64 %97, %94
@@ -164,7 +164,7 @@ Abc_Clock.exit92:                                 ; preds = %Abc_Clock.exit, %92
   %.0.i91 = phi i64 [ %98, %92 ], [ -1, %Abc_Clock.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   %99 = add i64 %.0.i91, %.0.i.neg111
-  %100 = getelementptr inbounds i8, ptr %0, i64 168
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %101 = load i64, ptr %100, align 8
   %102 = add nsw i64 %99, %101
   store i64 %102, ptr %100, align 8
@@ -182,7 +182,7 @@ Abc_Clock.exit92:                                 ; preds = %Abc_Clock.exit, %92
 106:                                              ; preds = %103
   %107 = load i64, ptr %11, align 8
   %108 = mul nsw i64 %107, 1000000
-  %109 = getelementptr inbounds i8, ptr %11, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %110 = load i64, ptr %109, align 8
   %111 = sdiv i64 %110, 1000
   %112 = add nsw i64 %111, %108
@@ -192,7 +192,7 @@ Abc_Clock.exit94:                                 ; preds = %103, %106
   %.0.i93 = phi i64 [ %112, %106 ], [ -1, %103 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %113 = add i64 %.0.i93, %.0.i.neg111
-  %114 = getelementptr inbounds i8, ptr %0, i64 184
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %115 = load i64, ptr %114, align 8
   %116 = add nsw i64 %113, %115
   store i64 %116, ptr %114, align 8
@@ -204,11 +204,11 @@ Abc_Clock.exit94:                                 ; preds = %103, %106
   store i32 %120, ptr %67, align 4
   %121 = load ptr, ptr %24, align 8
   %122 = call i32 @sat_solver_addclause(ptr noundef %121, ptr noundef nonnull %14, ptr noundef nonnull %87) #4
-  %123 = getelementptr inbounds i8, ptr %0, i64 124
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %124 = load i32, ptr %123, align 4
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %123, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 48
   %.val90 = load ptr, ptr %128, align 8
@@ -224,7 +224,7 @@ Abc_Clock.exit94:                                 ; preds = %103, %106
 133:                                              ; preds = %130
   %134 = load i64, ptr %10, align 8
   %135 = mul nsw i64 %134, 1000000
-  %136 = getelementptr inbounds i8, ptr %10, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %137 = load i64, ptr %136, align 8
   %138 = sdiv i64 %137, 1000
   %139 = add nsw i64 %138, %135
@@ -234,11 +234,11 @@ Abc_Clock.exit96:                                 ; preds = %130, %133
   %.0.i95 = phi i64 [ %139, %133 ], [ -1, %130 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %140 = add i64 %.0.i95, %.0.i.neg111
-  %141 = getelementptr inbounds i8, ptr %0, i64 176
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %142 = load i64, ptr %141, align 8
   %143 = add nsw i64 %140, %142
   store i64 %143, ptr %141, align 8
-  %144 = getelementptr inbounds i8, ptr %0, i64 128
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %145 = load i32, ptr %144, align 8
   %146 = add nsw i32 %145, 1
   store i32 %146, ptr %144, align 8
@@ -253,7 +253,7 @@ Abc_Clock.exit96:                                 ; preds = %130, %133
 150:                                              ; preds = %147
   %151 = load i64, ptr %9, align 8
   %152 = mul nsw i64 %151, 1000000
-  %153 = getelementptr inbounds i8, ptr %9, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %154 = load i64, ptr %153, align 8
   %155 = sdiv i64 %154, 1000
   %156 = add nsw i64 %155, %152
@@ -263,18 +263,18 @@ Abc_Clock.exit98:                                 ; preds = %147, %150
   %.0.i97 = phi i64 [ %156, %150 ], [ -1, %147 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   %157 = add i64 %.0.i97, %.0.i.neg111
-  %158 = getelementptr inbounds i8, ptr %0, i64 192
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %159 = load i64, ptr %158, align 8
   %160 = add nsw i64 %157, %159
   store i64 %160, ptr %158, align 8
-  %161 = getelementptr inbounds i8, ptr %0, i64 120
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %162 = load i32, ptr %161, align 8
   %163 = add nsw i32 %162, 1
   store i32 %163, ptr %161, align 8
   br label %274
 
 164:                                              ; preds = %Abc_Clock.exit94
-  %165 = getelementptr inbounds i8, ptr %0, i64 116
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %166 = load i32, ptr %165, align 4
   %167 = add nsw i32 %166, 1
   store i32 %167, ptr %165, align 4
@@ -303,7 +303,7 @@ Abc_Clock.exit98:                                 ; preds = %147, %150
   %184 = or disjoint i32 %182, %183
   store i32 %184, ptr %67, align 4
   %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %187 = load i32, ptr %186, align 8
   %.not80 = icmp eq i32 %187, 0
   br i1 %.not80, label %195, label %188
@@ -336,7 +336,7 @@ Abc_Clock.exit98:                                 ; preds = %147, %150
 198:                                              ; preds = %195
   %199 = load i64, ptr %8, align 8
   %.neg113 = mul i64 %199, -1000000
-  %200 = getelementptr inbounds i8, ptr %8, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %201 = load i64, ptr %200, align 8
   %.neg112 = sdiv i64 %201, -1000
   %.neg114 = add i64 %.neg112, %.neg113
@@ -355,7 +355,7 @@ Abc_Clock.exit100:                                ; preds = %195, %198
 206:                                              ; preds = %Abc_Clock.exit100
   %207 = load i64, ptr %7, align 8
   %208 = mul nsw i64 %207, 1000000
-  %209 = getelementptr inbounds i8, ptr %7, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %210 = load i64, ptr %209, align 8
   %211 = sdiv i64 %210, 1000
   %212 = add nsw i64 %211, %208
@@ -382,7 +382,7 @@ Abc_Clock.exit102:                                ; preds = %Abc_Clock.exit100, 
 219:                                              ; preds = %216
   %220 = load i64, ptr %6, align 8
   %221 = mul nsw i64 %220, 1000000
-  %222 = getelementptr inbounds i8, ptr %6, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %223 = load i64, ptr %222, align 8
   %224 = sdiv i64 %223, 1000
   %225 = add nsw i64 %224, %221
@@ -406,7 +406,7 @@ Abc_Clock.exit104:                                ; preds = %216, %219
   %235 = load i32, ptr %123, align 4
   %236 = add nsw i32 %235, 1
   store i32 %236, ptr %123, align 4
-  %237 = getelementptr inbounds i8, ptr %0, i64 116
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %238 = load i32, ptr %237, align 4
   %239 = add nsw i32 %238, 1
   store i32 %239, ptr %237, align 4
@@ -421,7 +421,7 @@ Abc_Clock.exit104:                                ; preds = %216, %219
 243:                                              ; preds = %240
   %244 = load i64, ptr %5, align 8
   %245 = mul nsw i64 %244, 1000000
-  %246 = getelementptr inbounds i8, ptr %5, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %247 = load i64, ptr %246, align 8
   %248 = sdiv i64 %247, 1000
   %249 = add nsw i64 %248, %245
@@ -431,11 +431,11 @@ Abc_Clock.exit106:                                ; preds = %240, %243
   %.0.i105 = phi i64 [ %249, %243 ], [ -1, %240 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   %250 = add i64 %.0.i105, %.0.i99.neg115
-  %251 = getelementptr inbounds i8, ptr %0, i64 176
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %252 = load i64, ptr %251, align 8
   %253 = add nsw i64 %250, %252
   store i64 %253, ptr %251, align 8
-  %254 = getelementptr inbounds i8, ptr %0, i64 128
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %255 = load i32, ptr %254, align 8
   %256 = add nsw i32 %255, 1
   store i32 %256, ptr %254, align 8
@@ -450,7 +450,7 @@ Abc_Clock.exit106:                                ; preds = %240, %243
 260:                                              ; preds = %257
   %261 = load i64, ptr %4, align 8
   %262 = mul nsw i64 %261, 1000000
-  %263 = getelementptr inbounds i8, ptr %4, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %264 = load i64, ptr %263, align 8
   %265 = sdiv i64 %264, 1000
   %266 = add nsw i64 %265, %262
@@ -460,11 +460,11 @@ Abc_Clock.exit108:                                ; preds = %257, %260
   %.0.i107 = phi i64 [ %266, %260 ], [ -1, %257 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %267 = add i64 %.0.i107, %.0.i99.neg115
-  %268 = getelementptr inbounds i8, ptr %0, i64 192
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %269 = load i64, ptr %268, align 8
   %270 = add nsw i64 %267, %269
   store i64 %270, ptr %268, align 8
-  %271 = getelementptr inbounds i8, ptr %0, i64 120
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %272 = load i32, ptr %271, align 8
   %273 = add nsw i32 %272, 1
   store i32 %273, ptr %271, align 8

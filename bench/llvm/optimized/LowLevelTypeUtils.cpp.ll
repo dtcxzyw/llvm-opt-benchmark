@@ -200,7 +200,7 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %59, 
   %.fca.0.extract = extractvalue { i64, i8 } %80, 0
   %.fca.1.extract = extractvalue { i64, i8 } %80, 1
   store i64 %.fca.0.extract, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %81 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #4
   %82 = shl i64 %81, 3
@@ -286,7 +286,7 @@ _ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %2
 32:                                               ; preds = %2
   %33 = tail call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef nonnull %1) #4
   %.sroa.0.0.copyload1.i.i.i.i = load i64, ptr %33, align 8
-  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.4.0.copyload.i.i.i.i = load i8, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
   %34 = shl i64 %.sroa.0.0.copyload1.i.i.i.i, 3
   br label %58
@@ -410,7 +410,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %15, %18, %21, %_ZNK
   %.sroa.3.0.i = phi i8 [ %30, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %15 ], [ 0, %21 ], [ 0, %18 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %2, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.26.0..sroa_idx, align 8
   %31 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #4
   %32 = trunc i64 %31 to i32
@@ -530,7 +530,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit30:            ; preds = %59, %63, %66, %_ZNK
   %.sroa.3.0.i23 = phi i8 [ %76, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i15 ], [ 0, %59 ], [ 0, %66 ], [ 0, %63 ]
   %.sroa.012.0.i24 = and i64 %.sroa.012.0.in.i22, 4294967295
   store i64 %.sroa.012.0.i24, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.3.0.i23, ptr %.sroa.2.0..sroa_idx, align 8
   %77 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #4
   %78 = trunc i64 %77 to i32
@@ -712,7 +712,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %41, %44, %47, %_ZNK
   %.sroa.3.0.i20 = phi i8 [ %56, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %41 ], [ 0, %47 ], [ 0, %44 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i8 %.sroa.3.0.i20, ptr %.sroa.2.0..sroa_idx, align 8
   %57 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #4
   %58 = trunc i64 %57 to i32
@@ -775,10 +775,10 @@ define dso_local i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(i16 %0) local_unnamed_addr
 7:                                                ; preds = %1
   %8 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %6
   %.sroa.0.0.copyload.i = load i64, ptr %8, align 16
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8
   store i64 %.sroa.0.0.copyload.i, ptr %2, align 8
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sroa.2.0.copyload.i, ptr %.sroa.26.0..sroa_idx, align 8
   %9 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #4
   %10 = shl i64 %9, 3
@@ -800,10 +800,10 @@ define dso_local i64 @_ZN4llvm12getLLTForMVTENS_3MVTE(i16 %0) local_unnamed_addr
   %20 = add nsw i64 %19, -1
   %21 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %20
   %.sroa.0.0.copyload.i8 = load i64, ptr %21, align 16
-  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx.i9 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.2.0.copyload.i10 = load i8, ptr %.sroa.2.0..sroa_idx.i9, align 8
   store i64 %.sroa.0.0.copyload.i8, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i8 %.sroa.2.0.copyload.i10, ptr %.sroa.2.0..sroa_idx, align 8
   %22 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #4
   %23 = shl i64 %22, 3
@@ -877,7 +877,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %10, %14, %17, %_ZNK
   %.sroa.3.0.i = phi i8 [ %27, %_ZNK4llvm3LLT19getScalarSizeInBitsEv.exit11.i ], [ 0, %10 ], [ 0, %17 ], [ 0, %14 ]
   %.sroa.012.0.i = and i64 %.sroa.012.0.in.i, 4294967295
   store i64 %.sroa.012.0.i, ptr %2, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %28 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %2) #4
   %29 = add i64 %28, -16

@@ -154,7 +154,7 @@ while.cond43:                                     ; preds = %if.end57, %land.lhs
 
 if.then49:                                        ; preds = %while.cond43
   store i8 0, ptr %s.3, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %s.3, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %s.3, i64 1
   br label %while.end
 
 if.then55:                                        ; preds = %while.cond43, %while.cond43
@@ -162,7 +162,7 @@ if.then55:                                        ; preds = %while.cond43, %whil
   br label %while.end
 
 if.end57:                                         ; preds = %while.cond43
-  %incdec.ptr58 = getelementptr inbounds i8, ptr %s.3, i64 1
+  %incdec.ptr58 = getelementptr inbounds nuw i8, ptr %s.3, i64 1
   br label %while.cond43, !llvm.loop !4
 
 while.end:                                        ; preds = %while.cond43, %if.then55, %if.then49
@@ -249,7 +249,7 @@ if.then.i47.i:                                    ; preds = %if.end13.i
 
 _ZL11allocStringj.exit.i:                         ; preds = %if.end13.i
   %idx.ext.i.i = zext nneg i32 %15 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr @_ZL11stringStore, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i.i
   store i32 %add.i.i, ptr @_ZL9stringTop, align 4
   %call22.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
   %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr.i.i)
@@ -259,11 +259,11 @@ _ZL11allocStringj.exit.i:                         ; preds = %if.end13.i
   %18 = load ptr, ptr @_ZL5files, align 8
   %19 = load i32, ptr @_ZL9fileCount, align 4
   %idxprom.i = zext i32 %19 to i64
-  %basename.i = getelementptr inbounds %struct.File, ptr %18, i64 %idxprom.i, i32 1
+  %basename.i = getelementptr inbounds nuw %struct.File, ptr %18, i64 %idxprom.i, i32 1
   store ptr %add.ptr.i.i, ptr %basename.i, align 8
-  %basenameLength.i = getelementptr inbounds %struct.File, ptr %18, i64 %idxprom.i, i32 2
+  %basenameLength.i = getelementptr inbounds nuw %struct.File, ptr %18, i64 %idxprom.i, i32 2
   store i32 %conv20.i, ptr %basenameLength.i, align 8
-  %arrayidx28.i = getelementptr inbounds %struct.File, ptr %18, i64 %idxprom.i
+  %arrayidx28.i = getelementptr inbounds nuw %struct.File, ptr %18, i64 %idxprom.i
   store ptr %call6.i.i, ptr %arrayidx28.i, align 8
   %20 = load i32, ptr @_ZL13basenameTotal, align 4
   %add29.i = add i32 %20, %conv20.i
@@ -313,7 +313,7 @@ if.end51.i:                                       ; preds = %if.end41.i
   %24 = load ptr, ptr @_ZL5files, align 8
   %25 = load i32, ptr @_ZL9fileCount, align 4
   %idxprom52.i = zext i32 %25 to i64
-  %fileSize.i = getelementptr inbounds %struct.File, ptr %24, i64 %idxprom52.i, i32 4
+  %fileSize.i = getelementptr inbounds nuw %struct.File, ptr %24, i64 %idxprom52.i, i32 4
   store i32 %call35.i, ptr %fileSize.i, align 8
   br label %if.end84.i
 
@@ -337,7 +337,7 @@ if.then.i52.i:                                    ; preds = %if.else.i
 
 _ZL11allocStringj.exit53.i:                       ; preds = %if.else.i
   %idx.ext.i50.i = zext nneg i32 %27 to i64
-  %add.ptr.i51.i = getelementptr inbounds i8, ptr @_ZL11stringStore, i64 %idx.ext.i50.i
+  %add.ptr.i51.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i50.i
   store i32 %add.i48.i, ptr @_ZL9stringTop, align 4
   %call61.i = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr.i51.i, ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #17
   %strlen44.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %add.ptr.i51.i)
@@ -347,7 +347,7 @@ _ZL11allocStringj.exit53.i:                       ; preds = %if.else.i
   %30 = load ptr, ptr @_ZL5files, align 8
   %31 = load i32, ptr @_ZL9fileCount, align 4
   %idxprom64.i = zext i32 %31 to i64
-  %basename66.i = getelementptr inbounds %struct.File, ptr %30, i64 %idxprom64.i, i32 1
+  %basename66.i = getelementptr inbounds nuw %struct.File, ptr %30, i64 %idxprom64.i, i32 1
   store ptr %add.ptr.i51.i, ptr %basename66.i, align 8
   %add.i54.i = add i32 %add.i48.i, %conv59.i
   %cmp.i55.i = icmp ugt i32 %add.i54.i, 200000
@@ -361,9 +361,9 @@ if.then.i58.i:                                    ; preds = %_ZL11allocStringj.e
 
 _ZL11allocStringj.exit59.i:                       ; preds = %_ZL11allocStringj.exit53.i
   %idx.ext.i56.i = zext nneg i32 %add.i48.i to i64
-  %add.ptr.i57.i = getelementptr inbounds i8, ptr @_ZL11stringStore, i64 %idx.ext.i56.i
+  %add.ptr.i57.i = getelementptr inbounds nuw i8, ptr @_ZL11stringStore, i64 %idx.ext.i56.i
   store i32 %add.i54.i, ptr @_ZL9stringTop, align 4
-  %arrayidx69.i = getelementptr inbounds %struct.File, ptr %30, i64 %idxprom64.i
+  %arrayidx69.i = getelementptr inbounds nuw %struct.File, ptr %30, i64 %idxprom64.i
   store ptr %add.ptr.i57.i, ptr %arrayidx69.i, align 8
   %cmp71.not60.i = icmp eq i32 %26, 0
   br i1 %cmp71.not60.i, label %while.end.i, label %while.body.i
@@ -377,8 +377,8 @@ while.body.i:                                     ; preds = %_ZL11allocStringj.e
   %switch.i = icmp ult i8 %.off.i, 3
   %spec.select.i = select i1 %switch.i, i8 95, i8 %34
   store i8 %spec.select.i, ptr %t.062.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %s.061.i, i64 1
-  %incdec.ptr83.i = getelementptr inbounds i8, ptr %t.062.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %s.061.i, i64 1
+  %incdec.ptr83.i = getelementptr inbounds nuw i8, ptr %t.062.i, i64 1
   %dec.i = add i32 %dec63.i, -1
   %cmp71.not.i = icmp eq i32 %dec.i, 0
   br i1 %cmp71.not.i, label %while.end.i, label %while.body.i, !llvm.loop !6
@@ -444,17 +444,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv192 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next193, %for.body ]
   %basenameOffset.0158 = phi i32 [ %add, %for.body.lr.ph ], [ %add91, %for.body ]
   %fileOffset.0157 = phi i32 [ %and, %for.body.lr.ph ], [ %add85, %for.body ]
-  %fileOffset80 = getelementptr inbounds %struct.File, ptr %41, i64 %indvars.iv192, i32 5
+  %fileOffset80 = getelementptr inbounds nuw %struct.File, ptr %41, i64 %indvars.iv192, i32 5
   store i32 %fileOffset.0157, ptr %fileOffset80, align 4
-  %arrayidx82 = getelementptr inbounds %struct.File, ptr %41, i64 %indvars.iv192
-  %fileSize = getelementptr inbounds i8, ptr %arrayidx82, i64 24
+  %arrayidx82 = getelementptr inbounds nuw %struct.File, ptr %41, i64 %indvars.iv192
+  %fileSize = getelementptr inbounds nuw i8, ptr %arrayidx82, i64 24
   %42 = load i32, ptr %fileSize, align 8
   %add83 = add i32 %42, 15
   %and84 = and i32 %add83, -16
   %add85 = add i32 %and84, %fileOffset.0157
-  %basenameOffset88 = getelementptr inbounds i8, ptr %arrayidx82, i64 20
+  %basenameOffset88 = getelementptr inbounds nuw i8, ptr %arrayidx82, i64 20
   store i32 %basenameOffset.0158, ptr %basenameOffset88, align 4
-  %basenameLength = getelementptr inbounds %struct.File, ptr %41, i64 %indvars.iv192, i32 2
+  %basenameLength = getelementptr inbounds nuw %struct.File, ptr %41, i64 %indvars.iv192, i32 2
   %43 = load i32, ptr %basenameLength, align 8
   %add91 = add i32 %43, %basenameOffset.0158
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -491,11 +491,11 @@ for.cond116.preheader:                            ; preds = %for.body106
 for.body106:                                      ; preds = %if.end103, %for.body106
   %indvars.iv195 = phi i64 [ %indvars.iv.next196, %for.body106 ], [ 0, %if.end103 ]
   %50 = load ptr, ptr @_ZL5files, align 8
-  %basenameOffset109 = getelementptr inbounds %struct.File, ptr %50, i64 %indvars.iv195, i32 3
+  %basenameOffset109 = getelementptr inbounds nuw %struct.File, ptr %50, i64 %indvars.iv195, i32 3
   %51 = load i32, ptr %basenameOffset109, align 4
   call void @udata_write32(ptr noundef %call97, i32 noundef %51)
   %52 = load ptr, ptr @_ZL5files, align 8
-  %fileOffset112 = getelementptr inbounds %struct.File, ptr %52, i64 %indvars.iv195, i32 5
+  %fileOffset112 = getelementptr inbounds nuw %struct.File, ptr %52, i64 %indvars.iv195, i32 5
   %53 = load i32, ptr %fileOffset112, align 4
   call void @udata_write32(ptr noundef %call97, i32 noundef %53)
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
@@ -507,10 +507,10 @@ for.body106:                                      ; preds = %if.end103, %for.bod
 for.body118:                                      ; preds = %for.cond116.preheader, %for.body118
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %for.body118 ], [ 0, %for.cond116.preheader ]
   %56 = load ptr, ptr @_ZL5files, align 8
-  %arrayidx120 = getelementptr inbounds %struct.File, ptr %56, i64 %indvars.iv198
-  %basename = getelementptr inbounds i8, ptr %arrayidx120, i64 8
+  %arrayidx120 = getelementptr inbounds nuw %struct.File, ptr %56, i64 %indvars.iv198
+  %basename = getelementptr inbounds nuw i8, ptr %arrayidx120, i64 8
   %57 = load ptr, ptr %basename, align 8
-  %basenameLength123 = getelementptr inbounds i8, ptr %arrayidx120, i64 16
+  %basenameLength123 = getelementptr inbounds nuw i8, ptr %arrayidx120, i64 16
   %58 = load i32, ptr %basenameLength123, align 8
   call void @udata_writeString(ptr noundef %call97, ptr noundef %57, i32 noundef %58)
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
@@ -556,9 +556,9 @@ if.end136:                                        ; preds = %if.then135, %for.bo
   br i1 %tobool.not, label %if.end151, label %if.then138
 
 if.then138:                                       ; preds = %if.end136
-  %arrayidx140 = getelementptr inbounds %struct.File, ptr %.pre202, i64 %.pre203
+  %arrayidx140 = getelementptr inbounds nuw %struct.File, ptr %.pre202, i64 %.pre203
   %64 = load ptr, ptr %arrayidx140, align 8
-  %fileSize143 = getelementptr inbounds i8, ptr %arrayidx140, i64 24
+  %fileSize143 = getelementptr inbounds nuw i8, ptr %arrayidx140, i64 24
   %65 = load i32, ptr %fileSize143, align 8
   %conv144 = zext i32 %65 to i64
   %cmp148 = icmp eq i32 %65, 1
@@ -569,7 +569,7 @@ if.then138:                                       ; preds = %if.end136
 
 if.end151:                                        ; preds = %if.end136, %if.then138
   %66 = phi ptr [ %.pre201, %if.then138 ], [ %.pre202, %if.end136 ]
-  %arrayidx153 = getelementptr inbounds %struct.File, ptr %66, i64 %.pre203
+  %arrayidx153 = getelementptr inbounds nuw %struct.File, ptr %66, i64 %.pre203
   %67 = load ptr, ptr %arrayidx153, align 8
   %call155 = call ptr @T_FileStream_open(ptr noundef %67, ptr noundef nonnull @.str.15)
   %cmp156 = icmp eq ptr %call155, null
@@ -583,7 +583,7 @@ for.cond163.preheader:                            ; preds = %if.end151
 if.then157:                                       ; preds = %if.end151
   %68 = load ptr, ptr @stderr, align 8
   %69 = load ptr, ptr @_ZL5files, align 8
-  %arrayidx159 = getelementptr inbounds %struct.File, ptr %69, i64 %.pre203
+  %arrayidx159 = getelementptr inbounds nuw %struct.File, ptr %69, i64 %.pre203
   %70 = load ptr, ptr %arrayidx159, align 8
   %call161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %68, ptr noundef nonnull @.str.16, ptr noundef %70) #13
   call void @exit(i32 noundef 4) #14
@@ -602,8 +602,8 @@ for.end169:                                       ; preds = %if.end167, %for.con
   %nread.0.lcssa = phi i32 [ 0, %for.cond163.preheader ], [ %add168, %if.end167 ]
   call void @T_FileStream_close(ptr noundef nonnull %call155)
   %71 = load ptr, ptr @_ZL5files, align 8
-  %arrayidx171 = getelementptr inbounds %struct.File, ptr %71, i64 %.pre203
-  %fileSize172 = getelementptr inbounds i8, ptr %arrayidx171, i64 24
+  %arrayidx171 = getelementptr inbounds nuw %struct.File, ptr %71, i64 %.pre203
+  %fileSize172 = getelementptr inbounds nuw i8, ptr %arrayidx171, i64 24
   %72 = load i32, ptr %fileSize172, align 8
   %cmp176.not = icmp eq i32 %nread.0.lcssa, %72
   br i1 %cmp176.not, label %for.cond130, label %if.then177
@@ -658,7 +658,7 @@ land.lhs.true213:                                 ; preds = %if.else208
   br i1 %cmp216.not, label %if.end219, label %if.then217
 
 if.then217:                                       ; preds = %land.lhs.true213
-  %incdec.ptr218 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %incdec.ptr218 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 47, ptr %add.ptr, align 1
   br label %if.end219
 
@@ -672,7 +672,7 @@ if.end219:                                        ; preds = %if.then217, %land.l
 if.then223:                                       ; preds = %if.end219
   %call224 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.5) #16
   %add.ptr225 = getelementptr inbounds i8, ptr %s.5, i64 %call224
-  %incdec.ptr226 = getelementptr inbounds i8, ptr %add.ptr225, i64 1
+  %incdec.ptr226 = getelementptr inbounds nuw i8, ptr %add.ptr225, i64 1
   store i8 95, ptr %add.ptr225, align 1
   %call227 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %incdec.ptr226, ptr noundef nonnull dereferenceable(1) %spec.store.select2) #17
   br label %if.end228
@@ -715,7 +715,7 @@ if.end240:                                        ; preds = %if.end236
 for.body254:                                      ; preds = %if.end240, %for.body254
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body254 ], [ 1, %if.end240 ]
   %85 = load ptr, ptr @_ZL5files, align 8
-  %arrayidx261 = getelementptr inbounds %struct.File, ptr %85, i64 %indvars.iv
+  %arrayidx261 = getelementptr inbounds nuw %struct.File, ptr %85, i64 %indvars.iv
   %86 = load ptr, ptr %arrayidx261, align 8
   %call263 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.13, ptr noundef %86) #17
   %call264 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %call232, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
@@ -732,7 +732,7 @@ for.end267:                                       ; preds = %for.body254, %if.en
   %call271 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.26, i64 noundef 8, i64 noundef %conv269, ptr noundef %entrypointName, i64 noundef 20, i32 noundef 0, i32 noundef 0, i32 noundef 2, i64 noundef %conv269) #17
   %call272 = tail call i32 @T_FileStream_writeLine(ptr noundef nonnull %call232, ptr noundef nonnull @_ZZ20createCommonDataFileE6buffer)
   %90 = load ptr, ptr @_ZL5files, align 8
-  %basename274 = getelementptr inbounds i8, ptr %90, i64 8
+  %basename274 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %91 = load ptr, ptr %basename274, align 8
   %92 = load ptr, ptr %90, align 8
   %call282 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.27, ptr noundef %91, ptr noundef nonnull @.str.13, ptr noundef %92) #17
@@ -744,8 +744,8 @@ for.end267:                                       ; preds = %for.body254, %if.en
 for.body286:                                      ; preds = %for.end267, %for.body286
   %indvars.iv189 = phi i64 [ %indvars.iv.next190, %for.body286 ], [ 1, %for.end267 ]
   %94 = load ptr, ptr @_ZL5files, align 8
-  %arrayidx288 = getelementptr inbounds %struct.File, ptr %94, i64 %indvars.iv189
-  %basename289 = getelementptr inbounds i8, ptr %arrayidx288, i64 8
+  %arrayidx288 = getelementptr inbounds nuw %struct.File, ptr %94, i64 %indvars.iv189
+  %basename289 = getelementptr inbounds nuw i8, ptr %arrayidx288, i64 8
   %95 = load ptr, ptr %basename289, align 8
   %96 = load ptr, ptr %arrayidx288, align 8
   %call298 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @_ZZ20createCommonDataFileE6buffer, i64 noundef 4096, ptr noundef nonnull @.str.28, ptr noundef %95, ptr noundef nonnull @.str.13, ptr noundef %96) #17
@@ -798,9 +798,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal noundef i32 @_ZL12compareFilesPKvS0_(ptr nocapture noundef readonly %file1, ptr nocapture noundef readonly %file2) #6 {
 entry:
-  %basename = getelementptr inbounds i8, ptr %file1, i64 8
+  %basename = getelementptr inbounds nuw i8, ptr %file1, i64 8
   %0 = load ptr, ptr %basename, align 8
-  %basename1 = getelementptr inbounds i8, ptr %file2, i64 8
+  %basename1 = getelementptr inbounds nuw i8, ptr %file2, i64 8
   %1 = load ptr, ptr %basename1, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #16
   ret i32 %call

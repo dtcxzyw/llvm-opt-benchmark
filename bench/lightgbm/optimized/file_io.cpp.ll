@@ -99,17 +99,17 @@ define void @_ZN8LightGBM17VirtualFileReader4MakeERKNSt7__cxx1112basic_stringIcS
           to label %6 unwind label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN8LightGBM9LocalFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit unwind label %11
 
@@ -171,9 +171,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM9LocalFileD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -183,9 +183,9 @@ define linkonce_odr void @_ZN8LightGBM9LocalFileD2Ev(ptr noundef nonnull align 8
   br label %7
 
 7:                                                ; preds = %5, %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
   ret void
 }
@@ -193,9 +193,9 @@ define linkonce_odr void @_ZN8LightGBM9LocalFileD2Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM9LocalFileD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN8LightGBM9LocalFileD2Ev.exit, label %5
@@ -205,9 +205,9 @@ define linkonce_odr void @_ZN8LightGBM9LocalFileD0Ev(ptr noundef nonnull align 8
   br label %_ZN8LightGBM9LocalFileD2Ev.exit
 
 _ZN8LightGBM9LocalFileD2Ev.exit:                  ; preds = %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
@@ -215,15 +215,15 @@ _ZN8LightGBM9LocalFileD2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef zeroext i1 @_ZN8LightGBM9LocalFile4InitEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   %10 = tail call noalias ptr @fopen(ptr noundef %7, ptr noundef %9)
   store ptr %10, ptr %2, align 8
@@ -237,7 +237,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8LightGBM9LocalFile4InitEv(ptr nounde
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZNK8LightGBM9LocalFile4ReadEPvm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
   ret i64 %6
@@ -245,7 +245,7 @@ define linkonce_odr noundef i64 @_ZNK8LightGBM9LocalFile4ReadEPvm(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN8LightGBM9LocalFile5WriteEPKvm(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %5)
   %7 = icmp eq i64 %6, 1
@@ -255,7 +255,7 @@ define linkonce_odr noundef i64 @_ZN8LightGBM9LocalFile5WriteEPKvm(ptr noundef n
 
 ; Function Attrs: uwtable
 define linkonce_odr noundef i64 @_ZThn8_N8LightGBM9LocalFile5WriteEPKvm(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %5)
   %7 = icmp eq i64 %6, 1
@@ -268,7 +268,7 @@ define linkonce_odr void @_ZThn8_N8LightGBM9LocalFileD1Ev(ptr noundef %0) unname
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN8LightGBM9LocalFileD2Ev.exit, label %5
@@ -278,9 +278,9 @@ define linkonce_odr void @_ZThn8_N8LightGBM9LocalFileD1Ev(ptr noundef %0) unname
   br label %_ZN8LightGBM9LocalFileD2Ev.exit
 
 _ZN8LightGBM9LocalFileD2Ev.exit:                  ; preds = %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   ret void
 }
@@ -290,7 +290,7 @@ define linkonce_odr void @_ZThn8_N8LightGBM9LocalFileD0Ev(ptr noundef %0) unname
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN8LightGBM9LocalFileD0Ev.exit, label %5
@@ -300,9 +300,9 @@ define linkonce_odr void @_ZThn8_N8LightGBM9LocalFileD0Ev(ptr noundef %0) unname
   br label %_ZN8LightGBM9LocalFileD0Ev.exit
 
 _ZN8LightGBM9LocalFileD0Ev.exit:                  ; preds = %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(88) %2) #12
   ret void
@@ -310,15 +310,15 @@ _ZN8LightGBM9LocalFileD0Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: uwtable
 define linkonce_odr noundef zeroext i1 @_ZThn8_N8LightGBM9LocalFile4InitEv(ptr noundef %0) unnamed_addr #7 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %_ZN8LightGBM9LocalFile4InitEv.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #11
   %10 = tail call noalias ptr @fopen(ptr noundef %7, ptr noundef %9)
   store ptr %10, ptr %2, align 8
@@ -355,17 +355,17 @@ define void @_ZN8LightGBM17VirtualFileWriter4MakeERKNSt7__cxx1112basic_stringIcS
           to label %6 unwind label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN8LightGBM9LocalFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit unwind label %11
 
@@ -413,17 +413,17 @@ define noundef zeroext i1 @_ZN8LightGBM17VirtualFileWriter6ExistsERKNSt7__cxx111
           to label %5 unwind label %17
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN8LightGBM9LocalFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit unwind label %10
 
@@ -496,18 +496,18 @@ define linkonce_odr noundef zeroext i1 @_ZNK8LightGBM9LocalFile6ExistsEv(ptr nou
           to label %5 unwind label %24
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8LightGBM9LocalFileE, i64 72), ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %26
 
 .noexc:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 56
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN8LightGBM9LocalFileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_.exit unwind label %11
 

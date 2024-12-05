@@ -65,7 +65,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 .lr.ph393:                                        ; preds = %.lr.ph393.preheader, %.lr.ph393
   %store_forwarded = phi float [ %load_initial, %.lr.ph393.preheader ], [ %19, %.lr.ph393 ]
   %indvars.iv460 = phi i64 [ 1, %.lr.ph393.preheader ], [ %indvars.iv.next461, %.lr.ph393 ]
-  %17 = getelementptr inbounds float, ptr %15, i64 %indvars.iv460
+  %17 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv460
   %18 = load float, ptr %17, align 4
   %19 = fadd fast float %store_forwarded, %18
   store float %19, ptr %17, align 4
@@ -110,9 +110,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 
 .lr.ph386:                                        ; preds = %31, %.lr.ph386
   %indvars.iv450 = phi i64 [ %indvars.iv.next451, %.lr.ph386 ], [ 0, %31 ]
-  %42 = getelementptr inbounds float, ptr %41, i64 %indvars.iv450
+  %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv450
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds float, ptr %39, i64 %indvars.iv450
+  %44 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv450
   %45 = load float, ptr %44, align 4
   %46 = fadd fast float %45, %43
   store float %46, ptr %42, align 4
@@ -163,7 +163,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 64:                                               ; preds = %.lr.ph379.us, %64
   %store_forwarded477 = phi float [ %load_initial476, %.lr.ph379.us ], [ %67, %64 ]
   %indvars.iv440 = phi i64 [ 1, %.lr.ph379.us ], [ %indvars.iv.next441, %64 ]
-  %65 = getelementptr inbounds float, ptr %63, i64 %indvars.iv440
+  %65 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv440
   %66 = load float, ptr %65, align 4
   %67 = fadd fast float %store_forwarded477, %66
   store float %67, ptr %65, align 4
@@ -215,9 +215,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 
 .lr.ph373:                                        ; preds = %82, %.lr.ph373
   %indvars.iv430 = phi i64 [ %indvars.iv.next431, %.lr.ph373 ], [ 0, %82 ]
-  %92 = getelementptr inbounds float, ptr %91, i64 %indvars.iv430
+  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv430
   %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds float, ptr %89, i64 %indvars.iv430
+  %94 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv430
   %95 = load float, ptr %94, align 4
   %96 = fadd fast float %95, %93
   store float %96, ptr %92, align 4
@@ -286,9 +286,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 
 124:                                              ; preds = %124, %.lr.ph362.us.us
   %indvars.iv415 = phi i64 [ %indvars.iv.next416, %124 ], [ 0, %.lr.ph362.us.us ]
-  %125 = getelementptr inbounds float, ptr %123, i64 %indvars.iv415
+  %125 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv415
   %126 = load float, ptr %125, align 4
-  %127 = getelementptr inbounds float, ptr %121, i64 %indvars.iv415
+  %127 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv415
   %128 = load float, ptr %127, align 4
   %129 = fadd fast float %128, %126
   store float %129, ptr %125, align 4
@@ -357,7 +357,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn13CumulativeSum15forward_
 158:                                              ; preds = %158, %.lr.ph.us.us.us
   %store_forwarded479 = phi float [ %load_initial478, %.lr.ph.us.us.us ], [ %161, %158 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.us.us.us ], [ %indvars.iv.next, %158 ]
-  %159 = getelementptr inbounds float, ptr %157, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw float, ptr %157, i64 %indvars.iv
   %160 = load float, ptr %159, align 4
   %161 = fadd fast float %store_forwarded479, %160
   store float %161, ptr %159, align 4

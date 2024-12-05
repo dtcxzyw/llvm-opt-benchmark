@@ -31,7 +31,7 @@ define range(i32 0, -2147483648) i32 @PMPI_T_category_get_pvars(i32 noundef %0, 
   %.val = load i64, ptr %14, align 8
   %.val.fr = freeze i64 %.val
   %15 = trunc i64 %.val.fr to i32
-  %16 = getelementptr inbounds i8, ptr %13, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 200
   %17 = load ptr, ptr %16, align 8
   %invariant.smin = call i32 @llvm.smin.i32(i32 %1, i32 %15)
   %18 = icmp sgt i32 %invariant.smin, 0
@@ -43,9 +43,9 @@ define range(i32 0, -2147483648) i32 @PMPI_T_category_get_pvars(i32 noundef %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds i32, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %20, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

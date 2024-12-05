@@ -27,19 +27,19 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br i1 %7, label %88, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 8192, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i32 -1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 92
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i32 0, ptr %15, align 8
   %16 = load i8, ptr %2, align 1
   %.not82 = icmp eq i8 %16, 0
@@ -123,7 +123,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %37 = phi i32 [ %18, %21 ], [ %18, %23 ], [ %18, %33 ], [ %18, %32 ], [ %18, %31 ], [ %18, %30 ], [ %18, %29 ], [ %18, %28 ], [ %18, %34 ], [ 1, %26 ], [ 31153, %25 ], [ 7247, %24 ]
   %.162 = phi i32 [ %.06184, %21 ], [ %.06184, %23 ], [ %.06184, %33 ], [ %.06184, %32 ], [ %.06184, %31 ], [ %.06184, %30 ], [ %.06184, %29 ], [ 1, %28 ], [ %.06184, %34 ], [ %.06184, %26 ], [ %.06184, %25 ], [ %.06184, %24 ]
   %.1 = phi i32 [ %.085, %21 ], [ %.085, %23 ], [ %.085, %33 ], [ %.085, %32 ], [ %.085, %31 ], [ %.085, %30 ], [ 1, %29 ], [ %.085, %28 ], [ %.085, %34 ], [ %.085, %26 ], [ %.085, %25 ], [ %.085, %24 ]
-  %38 = getelementptr inbounds i8, ptr %.06483, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.06483, i64 1
   %39 = load i8, ptr %38, align 1
   %.not = icmp eq i8 %39, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -158,7 +158,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %50 = add i64 %49, 1
   %51 = tail call noalias ptr @malloc(i64 noundef %50) #11
-  %52 = getelementptr inbounds i8, ptr %6, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %51, ptr %52, align 8
   %53 = icmp eq ptr %51, null
   br i1 %53, label %54, label %55
@@ -174,7 +174,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   br i1 %58, label %.thread, label %60
 
 .thread:                                          ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %6, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %1, ptr %59, align 4
   br label %70
 
@@ -185,7 +185,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %64 = select i1 %57, i32 0, i32 %63
   %65 = or disjoint i32 %64, %41
   %66 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %65, i32 noundef 438) #12
-  %67 = getelementptr inbounds i8, ptr %6, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %66, ptr %67, align 4
   %68 = icmp eq i32 %66, -1
   br i1 %68, label %69, label %70
@@ -210,33 +210,33 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
 
 75:                                               ; preds = %74
   %76 = tail call i64 @lseek(i32 noundef %71, i64 noundef 0, i32 noundef 1) #12
-  %77 = getelementptr inbounds i8, ptr %6, i64 72
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %78 = icmp eq i64 %76, -1
   %spec.store.select = select i1 %78, i64 0, i64 %76
   store i64 %spec.store.select, ptr %77, align 8
   store i32 0, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i32 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %6, i64 84
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 84
   store i32 0, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %6, i64 68
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 68
   store i32 0, ptr %81, align 4
   br label %gz_reset.exit
 
 82:                                               ; preds = %74, %.thread77
   store i32 0, ptr %6, align 8
-  %83 = getelementptr inbounds i8, ptr %6, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 0, ptr %83, align 8
   br label %gz_reset.exit
 
 gz_reset.exit:                                    ; preds = %75, %82
-  %84 = getelementptr inbounds i8, ptr %6, i64 112
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %6, i64 116
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 116
   store i32 0, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %6, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 136
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i32 0, ptr %87, align 8
   br label %88
 
@@ -287,7 +287,7 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noun
   br i1 %3, label %13, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %13 [
     i32 7247, label %7
@@ -295,7 +295,7 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noun
   ]
 
 7:                                                ; preds = %4, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %.not14 = icmp ne i32 %9, 0
   %10 = icmp slt i32 %1, 0
@@ -304,7 +304,7 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzbuffer(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %7
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %1, i32 2)
-  %12 = getelementptr inbounds i8, ptr %0, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %spec.store.select, ptr %12, align 4
   br label %13
 
@@ -319,13 +319,13 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef %0) local_un
   br i1 %2, label %35, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 7247
   br i1 %.not, label %6, label %35
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %35 [
     i32 0, label %9
@@ -333,9 +333,9 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef %0) local_un
   ]
 
 9:                                                ; preds = %6, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i64, ptr %12, align 8
   %14 = tail call i64 @lseek(i32 noundef %11, i64 noundef %13, i32 noundef 0) #12
   %15 = icmp eq i64 %14, -1
@@ -348,23 +348,23 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef %0) local_un
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 0, ptr %22, align 4
   br label %25
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %24, align 8
   br label %25
 
 25:                                               ; preds = %23, %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %28 = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i, label %gz_reset.exit, label %29
@@ -384,9 +384,9 @@ define dso_local range(i32 -1, 1) i32 @cm_zlib_gzrewind(ptr noundef %0) local_un
 
 gz_reset.exit:                                    ; preds = %25, %32
   store i32 0, ptr %7, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 136
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %34, align 8
   br label %35
 
@@ -404,7 +404,7 @@ define dso_local i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %4, label %.thread69, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %.thread69 [
     i32 7247, label %8
@@ -412,7 +412,7 @@ define dso_local i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 nound
   ]
 
 8:                                                ; preds = %5, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %10 = load i32, ptr %9, align 4
   switch i32 %10, label %.thread69 [
     i32 0, label %11
@@ -428,45 +428,45 @@ define dso_local i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = sub nsw i64 %1, %16
   br label %25
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = load i32, ptr %19, align 8
   %.not66 = icmp eq i32 %20, 0
   br i1 %.not66, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i64, ptr %22, align 8
   %24 = add nsw i64 %23, %1
   br label %25
 
 25:                                               ; preds = %18, %21, %14
   %.058 = phi i64 [ %17, %14 ], [ %24, %21 ], [ %1, %18 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 112
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %26, align 8
   %27 = icmp eq i32 %7, 7247
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 68
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 1
   br i1 %31, label %32, label %57
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = add nsw i64 %34, %.058
   %36 = icmp sgt i64 %35, -1
   br i1 %36, label %37, label %57
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %0, align 8
   %41 = zext i32 %40 to i64
@@ -477,12 +477,12 @@ define dso_local i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 nound
 
 45:                                               ; preds = %37
   store i32 0, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 84
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %47, align 4
   store i32 0, ptr %26, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %49 = load ptr, ptr %48, align 8
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %cm_zlib_gz_error.exit, label %50
@@ -502,7 +502,7 @@ define dso_local i64 @cm_zlib_gzseek64(ptr noundef %0, i64 noundef %1, i32 nound
 
 cm_zlib_gz_error.exit:                            ; preds = %45, %53
   store i32 0, ptr %9, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 0, ptr %54, align 8
   %55 = load i64, ptr %33, align 8
   %56 = add nsw i64 %55, %.058
@@ -518,7 +518,7 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
   br i1 %59, label %.thread69, label %.thread73
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load i64, ptr %61, align 8
   %63 = add nsw i64 %62, %.058
   %64 = icmp slt i64 %63, 0
@@ -543,12 +543,12 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
   %74 = select i1 %72, i32 %73, i32 %70
   %75 = sub i32 %70, %74
   store i32 %75, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = zext i32 %74 to i64
-  %79 = getelementptr inbounds i8, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 %78
   store ptr %79, ptr %76, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load i64, ptr %80, align 8
   %82 = add nsw i64 %81, %78
   store i64 %82, ptr %80, align 8
@@ -562,12 +562,12 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
 
 84:                                               ; preds = %.thread73
   store i32 1, ptr %26, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 104
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 %.2, ptr %85, align 8
   br label %86
 
 86:                                               ; preds = %84, %.thread73
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load i64, ptr %87, align 8
   %89 = add nsw i64 %88, %.2
   br label %.thread69
@@ -579,13 +579,13 @@ cm_zlib_gz_error.exit:                            ; preds = %45, %53
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cm_zlib_gz_error(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %8 = load i32, ptr %7, align 4
   %.not24 = icmp eq i32 %8, -4
   br i1 %.not24, label %10, label %9
@@ -609,7 +609,7 @@ define dso_local void @cm_zlib_gz_error(ptr nocapture noundef %0, i32 noundef %1
   br label %13
 
 13:                                               ; preds = %11, %11, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 116
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %1, ptr %14, align 4
   %15 = icmp eq ptr %2, null
   %16 = icmp eq i32 %1, -4
@@ -617,7 +617,7 @@ define dso_local void @cm_zlib_gz_error(ptr nocapture noundef %0, i32 noundef %1
   br i1 %or.cond3, label %33, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #13
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #13
@@ -656,7 +656,7 @@ define dso_local i64 @cm_zlib_gztell64(ptr noundef readonly %0) local_unnamed_ad
   br i1 %2, label %17, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %17 [
     i32 7247, label %6
@@ -664,15 +664,15 @@ define dso_local i64 @cm_zlib_gztell64(ptr noundef readonly %0) local_unnamed_ad
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %.not10 = icmp eq i32 %10, 0
   br i1 %.not10, label %14, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load i64, ptr %12, align 8
   br label %14
 
@@ -692,7 +692,7 @@ define dso_local i64 @cm_zlib_gztell(ptr noundef readonly %0) local_unnamed_addr
   br i1 %2, label %cm_zlib_gztell64.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %cm_zlib_gztell64.exit [
     i32 7247, label %6
@@ -700,15 +700,15 @@ define dso_local i64 @cm_zlib_gztell(ptr noundef readonly %0) local_unnamed_addr
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %.not10.i = icmp eq i32 %10, 0
   br i1 %.not10.i, label %14, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load i64, ptr %12, align 8
   br label %14
 
@@ -728,7 +728,7 @@ define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly %0) local_unnamed_
   br i1 %2, label %19, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %19 [
     i32 7247, label %6
@@ -736,7 +736,7 @@ define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly %0) local_unnamed_
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = tail call i64 @lseek(i32 noundef %8, i64 noundef 0, i32 noundef 1) #12
   %10 = icmp eq i64 %9, -1
@@ -748,7 +748,7 @@ define dso_local i64 @cm_zlib_gzoffset64(ptr noundef readonly %0) local_unnamed_
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 %9, %17
@@ -765,7 +765,7 @@ define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly %0) local_unnamed_ad
   br i1 %2, label %cm_zlib_gzoffset64.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %cm_zlib_gzoffset64.exit [
     i32 7247, label %6
@@ -773,7 +773,7 @@ define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly %0) local_unnamed_ad
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = tail call i64 @lseek(i32 noundef %8, i64 noundef 0, i32 noundef 1) #12
   %10 = icmp eq i64 %9, -1
@@ -785,7 +785,7 @@ define dso_local i64 @cm_zlib_gzoffset(ptr noundef readonly %0) local_unnamed_ad
   br i1 %13, label %14, label %cm_zlib_gzoffset64.exit
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = sub nsw i64 %9, %17
@@ -802,13 +802,13 @@ define dso_local i32 @cm_zlib_gzeof(ptr noundef readonly %0) local_unnamed_addr 
   br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %cond = icmp eq i32 %5, 7247
   br i1 %cond, label %6, label %9
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %8 = load i32, ptr %7, align 4
   br label %9
 
@@ -823,7 +823,7 @@ define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly %0, ptr noundef write
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %14 [
     i32 7247, label %7
@@ -832,7 +832,7 @@ define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly %0, ptr noundef write
 
 7:                                                ; preds = %4, %4
   %.not16 = icmp eq ptr %1, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 116
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 116
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.not16, label %._crit_edge, label %8
 
@@ -845,7 +845,7 @@ define dso_local ptr @cm_zlib_gzerror(ptr noundef readonly %0, ptr noundef write
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %._crit_edge
-  %11 = getelementptr inbounds i8, ptr %0, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %spec.select = select i1 %13, ptr @.str.2, ptr %12
@@ -862,7 +862,7 @@ define dso_local void @cm_zlib_gzclearerr(ptr noundef %0) local_unnamed_addr #7 
   br i1 %2, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %18 [
     i32 7247, label %6
@@ -870,20 +870,20 @@ define dso_local void @cm_zlib_gzclearerr(ptr noundef %0) local_unnamed_addr #7 
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 0, ptr %8, align 4
   br label %9
 
 9:                                                ; preds = %3, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %cm_zlib_gz_error.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 116
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %14 = load i32, ptr %13, align 4
   %.not24.i = icmp eq i32 %14, -4
   br i1 %.not24.i, label %16, label %15
@@ -897,7 +897,7 @@ define dso_local void @cm_zlib_gzclearerr(ptr noundef %0) local_unnamed_addr #7 
   br label %cm_zlib_gz_error.exit
 
 cm_zlib_gz_error.exit:                            ; preds = %9, %16
-  %17 = getelementptr inbounds i8, ptr %0, i64 116
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %17, align 4
   br label %18
 

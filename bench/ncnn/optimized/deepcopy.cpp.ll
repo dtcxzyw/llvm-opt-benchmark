@@ -71,7 +71,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8DeepCopy7forwardERKNS_3M
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load ptr, ptr %22, align 8
   invoke void %23(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %19)
           to label %26 unwind label %84
@@ -146,7 +146,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8DeepCopy7forwardERKNS_3M
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %63)
           to label %70 unwind label %73
@@ -203,7 +203,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8DeepCopy7forwardERKNS_3M
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr %92, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
   invoke void %97(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %93)
           to label %100 unwind label %101

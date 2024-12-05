@@ -306,22 +306,22 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   store i32 %or7.i.i, ptr %dst, align 1
   %add.ptr3.i = getelementptr i8, ptr %dst, i64 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %s, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %s, i64 4
   %3 = load i32, ptr %arrayidx5.i, align 4
   %or7.i23.i = tail call noundef i32 @llvm.bswap.i32(i32 %3)
   store i32 %or7.i23.i, ptr %add.ptr3.i, align 1
   %add.ptr10.i = getelementptr i8, ptr %dst, i64 8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %s, i64 8
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %s, i64 8
   %4 = load i32, ptr %arrayidx12.i, align 8
   %or7.i24.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %or7.i24.i, ptr %add.ptr10.i, align 1
   %add.ptr17.i = getelementptr i8, ptr %dst, i64 12
-  %arrayidx19.i = getelementptr inbounds i8, ptr %s, i64 12
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %s, i64 12
   %5 = load i32, ptr %arrayidx19.i, align 4
   %or7.i25.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %or7.i25.i, ptr %add.ptr17.i, align 1
   %add.ptr24.i = getelementptr i8, ptr %dst, i64 16
-  %arrayidx26.i = getelementptr inbounds i8, ptr %s, i64 16
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   %6 = load i32, ptr %arrayidx26.i, align 16
   %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   store i32 %or7.i26.i, ptr %add.ptr24.i, align 1
@@ -335,9 +335,9 @@ entry:
   %call1 = tail call noalias dereferenceable_or_null(20) ptr @calloc(i64 noundef 5, i64 noundef 4) #15
   %call4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #16
   store ptr %call1, ptr %call4, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call4, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i64 0, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   store i32 1732584193, ptr %call1, align 4
   %arrayidx6.i = getelementptr i8, ptr %call1, i64 4
@@ -361,9 +361,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 define hidden void @Hacl_Streaming_SHA1_legacy_init(ptr nocapture noundef initializes((16, 24)) %s) local_unnamed_addr #8 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 16
   store i32 1732584193, ptr %scrut.sroa.0.0.copyload, align 4
   %arrayidx6.i = getelementptr i8, ptr %scrut.sroa.0.0.copyload, i64 4
   store i32 -271733879, ptr %arrayidx6.i, align 4
@@ -382,7 +382,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden zeroext range(i8 0, 4) i8 @Hacl_Streaming_SHA1_legacy_update(ptr nocapture noundef %p, ptr nocapture noundef readonly %data, i32 noundef %len) local_unnamed_addr #9 {
 entry:
-  %s.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %s.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %s.sroa.1.0.copyload = load i64, ptr %s.sroa.1.0..sroa_idx, align 8
   %conv = zext i32 %len to i64
   %sub = sub i64 2305843009213693951, %s.sroa.1.0.copyload
@@ -402,7 +402,7 @@ if.end:                                           ; preds = %entry
 
 if.then14:                                        ; preds = %if.end
   %s1.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s1.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s1.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s1.sroa.2.0.copyload = load ptr, ptr %s1.sroa.2.0..sroa_idx, align 8
   %.rem18 = select i1 %or.cond, i64 64, i64 %rem
   %add.ptr = getelementptr i8, ptr %s1.sroa.2.0.copyload, i64 %.rem18
@@ -418,7 +418,7 @@ if.else34:                                        ; preds = %if.end
 
 if.then37:                                        ; preds = %if.else34
   %s138.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s138.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s138.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s138.sroa.2.0.copyload = load ptr, ptr %s138.sroa.2.0..sroa_idx, align 8
   %or.cond76 = xor i1 %cmp3, %or.cond
   br i1 %or.cond76, label %if.end60, label %if.then59
@@ -450,7 +450,7 @@ if.else89:                                        ; preds = %if.else34
   %idx.ext93 = zext nneg i32 %sub11 to i64
   %add.ptr94 = getelementptr i8, ptr %data, i64 %idx.ext93
   %s195.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %s195.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %s195.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %s195.sroa.2.0.copyload = load ptr, ptr %s195.sroa.2.0..sroa_idx, align 8
   %.rem99 = select i1 %or.cond, i64 64, i64 %rem
   %add.ptr112 = getelementptr i8, ptr %s195.sroa.2.0.copyload, i64 %.rem99
@@ -503,9 +503,9 @@ entry:
   %tmp_twoblocks.i = alloca [128 x i8], align 16
   %tmp_block_state = alloca [5 x i32], align 16
   %scrut.sroa.0.0.copyload = load ptr, ptr %p, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %p, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %rem = and i64 %scrut.sroa.3.0.copyload, 63
   %cmp = icmp eq i64 %rem, 0
@@ -562,22 +562,22 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %4)
   store i32 %or7.i.i, ptr %dst, align 1
   %add.ptr3.i = getelementptr i8, ptr %dst, i64 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 4
   %5 = load i32, ptr %arrayidx5.i, align 4
   %or7.i23.i = tail call noundef i32 @llvm.bswap.i32(i32 %5)
   store i32 %or7.i23.i, ptr %add.ptr3.i, align 1
   %add.ptr10.i = getelementptr i8, ptr %dst, i64 8
-  %arrayidx12.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 8
+  %arrayidx12.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 8
   %6 = load i32, ptr %arrayidx12.i, align 8
   %or7.i24.i = tail call noundef i32 @llvm.bswap.i32(i32 %6)
   store i32 %or7.i24.i, ptr %add.ptr10.i, align 1
   %add.ptr17.i = getelementptr i8, ptr %dst, i64 12
-  %arrayidx19.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 12
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 12
   %7 = load i32, ptr %arrayidx19.i, align 4
   %or7.i25.i = tail call noundef i32 @llvm.bswap.i32(i32 %7)
   store i32 %or7.i25.i, ptr %add.ptr17.i, align 1
   %add.ptr24.i = getelementptr i8, ptr %dst, i64 16
-  %arrayidx26.i = getelementptr inbounds i8, ptr %tmp_block_state, i64 16
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %tmp_block_state, i64 16
   %8 = load i32, ptr %arrayidx26.i, align 16
   %or7.i26.i = tail call noundef i32 @llvm.bswap.i32(i32 %8)
   store i32 %or7.i26.i, ptr %add.ptr24.i, align 1
@@ -588,7 +588,7 @@ Hacl_Hash_SHA1_legacy_update_last.exit:           ; preds = %entry, %for.body.pr
 define hidden void @Hacl_Streaming_SHA1_legacy_free(ptr nocapture noundef %s) local_unnamed_addr #10 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
   tail call void @free(ptr noundef %scrut.sroa.0.0.copyload) #17
   tail call void @free(ptr noundef %scrut.sroa.2.0.copyload) #17
@@ -603,9 +603,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 define hidden noalias noundef ptr @Hacl_Streaming_SHA1_legacy_copy(ptr nocapture noundef readonly %s0) local_unnamed_addr #12 {
 entry:
   %scrut.sroa.0.0.copyload = load ptr, ptr %s0, align 8
-  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 8
+  %scrut.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 8
   %scrut.sroa.2.0.copyload = load ptr, ptr %scrut.sroa.2.0..sroa_idx, align 8
-  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %s0, i64 16
+  %scrut.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %s0, i64 16
   %scrut.sroa.3.0.copyload = load i64, ptr %scrut.sroa.3.0..sroa_idx, align 8
   %call = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 64, i64 noundef 1) #15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %call, ptr noundef nonnull align 1 dereferenceable(64) %scrut.sroa.2.0.copyload, i64 64, i1 false)
@@ -613,9 +613,9 @@ entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call3, ptr noundef nonnull align 4 dereferenceable(20) %scrut.sroa.0.0.copyload, i64 20, i1 false)
   %call7 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #16
   store ptr %call3, ptr %call7, align 8
-  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 8
+  %s.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %call, ptr %s.sroa.2.0.arrayidx.sroa_idx, align 8
-  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 16
+  %s.sroa.3.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 16
   store i64 %scrut.sroa.3.0.copyload, ptr %s.sroa.3.0.arrayidx.sroa_idx, align 8
   ret ptr %call7
 }

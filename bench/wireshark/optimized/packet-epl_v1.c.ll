@@ -160,7 +160,7 @@ define internal range(i32 0, 65546) i32 @dissect_epl_v1(ptr noundef %0, ptr noca
   br i1 %6, label %dissect_epl_v1_preq.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.62) #2
   %10 = load ptr, ptr %8, align 8

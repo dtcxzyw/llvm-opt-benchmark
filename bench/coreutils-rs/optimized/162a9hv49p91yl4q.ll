@@ -15,7 +15,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
   %8 = icmp slt i32 %2, 0
   %.048 = select i1 %8, i32 45, i32 43
   %.0 = tail call i32 @llvm.abs.i32(i32 %2, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 3
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %10 = load i8, ptr %9, align 1, !range !6, !noundef !5
   switch i8 %10, label %default.unreachable105 [
     i8 0, label %37
@@ -27,7 +27,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
   ]
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !alias.scope !7, !noundef !5
   %14 = load i64, ptr %1, align 8, !alias.scope !7, !noundef !5
   %15 = icmp eq i64 %13, %14
@@ -40,7 +40,7 @@ define hidden noundef zeroext i1 @"_ZN6chrono6format10formatting46_$LT$impl$u20$
 
 "_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit": ; preds = %11, %16
   %17 = phi i64 [ %.pre.i.i.i, %16 ], [ %13, %11 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !7, !nonnull !5, !noundef !5
   %20 = getelementptr inbounds i8, ptr %19, i64 %17
   store i8 90, ptr %20, align 1
@@ -86,7 +86,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit: ; preds 
   %.049 = phi i64 [ 2, %43 ], [ 0, %7 ], [ %.67, %45 ], [ %spec.select71, %23 ]
   %.062.in = sdiv i32 %.062.in.in, 3600
   %.062 = trunc i32 %.062.in to i8
-  %39 = getelementptr inbounds i8, ptr %0, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %40 = load i8, ptr %39, align 1, !range !14, !noundef !5
   %41 = icmp eq i8 %40, 1
   %42 = icmp ult i8 %.062, 10
@@ -105,7 +105,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit: ; preds 
   br label %37
 
 48:                                               ; preds = %37
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load i64, ptr %49, align 8, !alias.scope !15, !noundef !5
   %51 = load i64, ptr %1, align 8, !alias.scope !15, !noundef !5
   %52 = icmp eq i64 %50, %51
@@ -119,7 +119,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit: ; preds 
 "_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit79": ; preds = %48, %53
   %54 = phi i64 [ %.pre.i.i.i78, %53 ], [ %50, %48 ]
   %55 = trunc nuw nsw i32 %.048 to i8
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8, !alias.scope !15, !nonnull !5, !noundef !5
   %58 = getelementptr inbounds i8, ptr %57, i64 %54
   store i8 %55, ptr %58, align 1
@@ -139,10 +139,10 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.thread: ;
   br label %72
 
 66:                                               ; preds = %37
-  %67 = getelementptr inbounds i8, ptr %0, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %68 = load i8, ptr %67, align 1, !range !14, !noundef !5
   %69 = icmp eq i8 %68, 2
-  %70 = getelementptr inbounds i8, ptr %1, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %71 = load i64, ptr %70, align 8
   br i1 %69, label %73, label %._crit_edge
 
@@ -163,7 +163,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.thread: ;
 
 "_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit81": ; preds = %73, %76
   %77 = phi i64 [ %.pre.i.i.i80, %76 ], [ %71, %73 ]
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8, !alias.scope !22, !nonnull !5, !noundef !5
   %80 = getelementptr inbounds i8, ptr %79, i64 %77
   store i8 32, ptr %80, align 1
@@ -174,7 +174,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.thread: ;
 
 ._crit_edge:                                      ; preds = %66, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit81"
   %83 = phi i64 [ %82, %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit81" ], [ %71, %66 ]
-  %84 = getelementptr inbounds i8, ptr %1, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %85 = load i64, ptr %1, align 8, !alias.scope !29, !noundef !5
   %86 = icmp eq i64 %83, %85
   br i1 %86, label %87, label %"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit83"
@@ -187,7 +187,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit.thread: ;
 "_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit83": ; preds = %._crit_edge, %87
   %88 = phi i64 [ %.pre.i.i.i82, %87 ], [ %83, %._crit_edge ]
   %89 = trunc nuw nsw i32 %.048 to i8
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %91 = load ptr, ptr %90, align 8, !alias.scope !29, !nonnull !5, !noundef !5
   %92 = getelementptr inbounds i8, ptr %91, i64 %88
   store i8 %89, ptr %92, align 1
@@ -259,7 +259,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit89: ; pred
   br i1 %38, label %136, label %_ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit
 
 124:                                              ; preds = %117
-  %125 = getelementptr inbounds i8, ptr %1, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %126 = load i64, ptr %125, align 8, !alias.scope !50, !noundef !5
   %127 = load i64, ptr %1, align 8, !alias.scope !50, !noundef !5
   %128 = icmp eq i64 %126, %127
@@ -272,7 +272,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit89: ; pred
 
 "_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit91": ; preds = %124, %129
   %130 = phi i64 [ %.pre.i.i.i90, %129 ], [ %126, %124 ]
-  %131 = getelementptr inbounds i8, ptr %1, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %132 = load ptr, ptr %131, align 8, !alias.scope !50, !nonnull !5, !noundef !5
   %133 = getelementptr inbounds i8, ptr %132, i64 %130
   store i8 58, ptr %133, align 1
@@ -298,7 +298,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit89: ; pred
   br label %_ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit
 
 143:                                              ; preds = %136
-  %144 = getelementptr inbounds i8, ptr %1, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %145 = load i64, ptr %144, align 8, !alias.scope !57, !noundef !5
   %146 = load i64, ptr %1, align 8, !alias.scope !57, !noundef !5
   %147 = icmp eq i64 %145, %146
@@ -311,7 +311,7 @@ _ZN6chrono6format10formatting14write_hundreds17hcf30e528cab26295E.exit89: ; pred
 
 "_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17h0c5f3430a03d95feE.exit95": ; preds = %143, %148
   %149 = phi i64 [ %.pre.i.i.i94, %148 ], [ %145, %143 ]
-  %150 = getelementptr inbounds i8, ptr %1, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %151 = load ptr, ptr %150, align 8, !alias.scope !57, !nonnull !5, !noundef !5
   %152 = getelementptr inbounds i8, ptr %151, i64 %149
   store i8 58, ptr %152, align 1

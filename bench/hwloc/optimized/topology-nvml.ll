@@ -45,7 +45,7 @@ define internal ptr @hwloc_nvml_component_instantiate(ptr noundef %0, ptr nounde
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr @hwloc_nvml_discover, ptr %9, align 8
   br label %10
 
@@ -70,7 +70,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   %13 = alloca i32, align 4
   %14 = alloca ptr, align 8
   %15 = alloca i32, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 @hwloc_topology_get_type_filter(ptr noundef %17, i32 noundef 16, ptr noundef nonnull %4) #11
   %19 = load i32, ptr %4, align 4
@@ -125,9 +125,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   br i1 %or.cond9, label %.lr.ph, label %54
 
 .lr.ph:                                           ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %6, i64 16
-  %52 = getelementptr inbounds i8, ptr %6, i64 20
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %58
 
 54:                                               ; preds = %37
@@ -142,9 +142,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   br i1 %.not224, label %._crit_edge, label %.lr.ph210
 
 .lr.ph210:                                        ; preds = %.preheader195
-  %55 = getelementptr inbounds i8, ptr %12, i64 16
-  %56 = getelementptr inbounds i8, ptr %12, i64 20
-  %57 = getelementptr inbounds i8, ptr %12, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 24
   br label %126
 
 58:                                               ; preds = %.lr.ph, %.thread
@@ -154,17 +154,17 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   %61 = call ptr @hwloc_alloc_setup_object(ptr noundef %17, i32 noundef 16, i32 noundef -1) #11
   %62 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.3, i32 noundef %59) #11
   %63 = call noalias ptr @strdup(ptr noundef nonnull %8) #11
-  %64 = getelementptr inbounds i8, ptr %61, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr %63, ptr %64, align 8
   %65 = call noalias dereferenceable_or_null(5) ptr @strdup(ptr noundef nonnull @.str.4) #11
-  %66 = getelementptr inbounds i8, ptr %61, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %65, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %61, i64 48
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store i32 -1, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %61, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %69 = load ptr, ptr %68, align 8
   store i64 12, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %61, i64 216
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 216
   %71 = call i32 @hwloc_modify_infos(ptr noundef nonnull %70, i64 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6) #11
   store i8 0, ptr %8, align 16
   %72 = load ptr, ptr %7, align 8
@@ -200,7 +200,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   br i1 %89, label %90, label %120
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds %struct.nvmlPciInfo_st, ptr %39, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw %struct.nvmlPciInfo_st, ptr %39, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %91, ptr noundef nonnull align 4 dereferenceable(68) %6, i64 68, i1 false)
   %92 = load i32, ptr %51, align 4
   %93 = load i32, ptr %52, align 4
@@ -236,9 +236,9 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
 
 115:                                              ; preds = %99
   %116 = fmul float %113, 1.250000e-01
-  %117 = getelementptr inbounds i8, ptr %95, i64 40
+  %117 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 20
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 20
   store float %116, ptr %119, align 4
   br label %.thread
 
@@ -249,7 +249,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
 .thread:                                          ; preds = %96, %99, %115, %120
   %.1131 = phi ptr [ %121, %120 ], [ %95, %115 ], [ %95, %99 ], [ %95, %96 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %17, ptr noundef %.1131, ptr noundef nonnull %61) #11
-  %122 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
   store ptr %61, ptr %122, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %123 = load i32, ptr %5, align 4
@@ -264,7 +264,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   %127 = trunc nuw i64 %indvars.iv237 to i32
   %128 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %127, ptr noundef nonnull %11) #11
   %129 = mul nuw nsw i64 %indvars.iv237, 12
-  %130 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv237
+  %130 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv237
   br label %131
 
 131:                                              ; preds = %126, %228
@@ -274,7 +274,7 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
   %132 = trunc nuw nsw i64 %indvars.iv234 to i32
   %133 = add nuw i64 %129, %indvars.iv234
   %134 = and i64 %133, 4294967295
-  %135 = getelementptr inbounds i32, ptr %46, i64 %134
+  %135 = getelementptr inbounds nuw i32, ptr %46, i64 %134
   store i32 -1, ptr %135, align 4
   %136 = load ptr, ptr %11, align 8
   %137 = call i32 @nvmlDeviceGetNvLinkState(ptr noundef %136, i32 noundef %132, ptr noundef nonnull %13) #11
@@ -307,20 +307,20 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr nocapture noundef 
 
 147:                                              ; preds = %160, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %160 ]
-  %148 = getelementptr inbounds %struct.nvmlPciInfo_st, ptr %39, i64 %indvars.iv.i
-  %149 = getelementptr inbounds i8, ptr %148, i64 16
+  %148 = getelementptr inbounds nuw %struct.nvmlPciInfo_st, ptr %39, i64 %indvars.iv.i
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, %.sroa.3.0.copyload.pre
   br i1 %151, label %152, label %160
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %148, i64 20
+  %153 = getelementptr inbounds nuw i8, ptr %148, i64 20
   %154 = load i32, ptr %153, align 4
   %155 = icmp eq i32 %154, %.sroa.4.0.copyload.pre
   br i1 %155, label %156, label %160
 
 156:                                              ; preds = %152
-  %157 = getelementptr inbounds i8, ptr %148, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %158 = load i32, ptr %157, align 4
   %159 = icmp eq i32 %158, %.sroa.5.0.copyload.pre
   br i1 %159, label %hwloc__nvml_get_peer_gpu_by_pci.exit, label %160
@@ -368,16 +368,16 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %160, %145, %hwloc__
   br i1 %.not23.i, label %177, label %hwloc__nvml_get_peer_obj_by_pci.exit.thread
 
 177:                                              ; preds = %175
-  %178 = getelementptr inbounds i8, ptr %164, i64 40
+  %178 = getelementptr inbounds nuw i8, ptr %164, i64 40
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i16, ptr %180, align 8
   %.mask.i = and i16 %181, -256
   %.not24.i = icmp eq i16 %.mask.i, 1536
   br i1 %.not24.i, label %182, label %hwloc__nvml_get_peer_obj_by_pci.exit.thread
 
 182:                                              ; preds = %177
-  %183 = getelementptr inbounds i8, ptr %179, i64 10
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 10
   %184 = load i16, ptr %183, align 2
   switch i16 %184, label %198 [
     i16 4116, label %185
@@ -388,22 +388,22 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %160, %145, %hwloc__
   %186 = call ptr @getenv(ptr noundef nonnull @.str.22) #11
   %.not26.i = icmp eq ptr %186, null
   %spec.select.i = select i1 %.not26.i, ptr %163, ptr %164
-  %187 = getelementptr inbounds i8, ptr %spec.select.i, i64 184
+  %187 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 184
   %188 = load ptr, ptr %187, align 8
   %.not2728.i = icmp eq ptr %188, null
   br i1 %.not2728.i, label %.lr.ph.i172, label %.loopexit
 
 .lr.ph.i172:                                      ; preds = %185, %.lr.ph.i172
   %.129.i = phi ptr [ %190, %.lr.ph.i172 ], [ %spec.select.i, %185 ]
-  %189 = getelementptr inbounds i8, ptr %.129.i, i64 72
+  %189 = getelementptr inbounds nuw i8, ptr %.129.i, i64 72
   %190 = load ptr, ptr %189, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 184
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 184
   %192 = load ptr, ptr %191, align 8
   %.not27.i = icmp eq ptr %192, null
   br i1 %.not27.i, label %.lr.ph.i172, label %.loopexit, !llvm.loop !7
 
 193:                                              ; preds = %182
-  %194 = getelementptr inbounds i8, ptr %164, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %195 = load ptr, ptr %194, align 8
   %.not25.i = icmp eq ptr %195, null
   br i1 %.not25.i, label %196, label %.loopexit
@@ -425,16 +425,16 @@ hwloc__nvml_get_peer_gpu_by_pci.exit.thread:      ; preds = %160, %145, %hwloc__
 202:                                              ; preds = %199
   %203 = load ptr, ptr @stderr, align 8
   %204 = load ptr, ptr %178, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load i16, ptr %205, align 8
   %207 = zext i16 %206 to i32
-  %208 = getelementptr inbounds i8, ptr %204, i64 7
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 7
   %209 = load i8, ptr %208, align 1
   %210 = zext i8 %209 to i32
-  %211 = getelementptr inbounds i8, ptr %204, i64 10
+  %211 = getelementptr inbounds nuw i8, ptr %204, i64 10
   %212 = load i16, ptr %211, align 2
   %213 = zext i16 %212 to i32
-  %214 = getelementptr inbounds i8, ptr %204, i64 12
+  %214 = getelementptr inbounds nuw i8, ptr %204, i64 12
   %215 = load i16, ptr %214, align 4
   %216 = zext i16 %215 to i32
   %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %203, ptr noundef nonnull @.str.25, i32 noundef %.sroa.3.0.copyload.pre, i32 noundef %.sroa.4.0.copyload.pre, i32 noundef %.sroa.5.0.copyload.pre, i32 noundef %207, i32 noundef %210, i32 noundef %213, i32 noundef %216) #12
@@ -467,7 +467,7 @@ hwloc__nvml_get_peer_obj_by_pci.exit.thread:      ; preds = %hwloc__nvml_get_pee
 
 .lr.ph.i174:                                      ; preds = %224, %.lr.ph.preheader.i
   %indvars.iv.i175 = phi i64 [ %220, %.lr.ph.preheader.i ], [ %indvars.iv.next.i176, %224 ]
-  %221 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv.i175
+  %221 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i175
   %222 = load ptr, ptr %221, align 8
   %223 = icmp eq ptr %222, %.018.i
   br i1 %223, label %.loopexit.loopexit.i, label %224
@@ -479,7 +479,7 @@ hwloc__nvml_get_peer_obj_by_pci.exit.thread:      ; preds = %hwloc__nvml_get_pee
 
 ._crit_edge.i:                                    ; preds = %224, %.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %wide.trip.count.i173, %224 ]
-  %225 = getelementptr inbounds ptr, ptr %42, i64 %.pre-phi.i
+  %225 = getelementptr inbounds nuw ptr, ptr %42, i64 %.pre-phi.i
   store ptr %.018.i, ptr %225, align 8
   %226 = add i32 %.1184204, 1
   br label %hwloc__nvml_store_peer_obj.exit
@@ -540,7 +540,7 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
   %241 = trunc nuw nsw i64 %indvars.iv240 to i32
   %242 = add i32 %238, %241
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds i32, ptr %46, i64 %243
+  %244 = getelementptr inbounds nuw i32, ptr %46, i64 %243
   %245 = load i32, ptr %244, align 4
   %246 = icmp eq i32 %245, -1
   %247 = icmp ult i32 %245, %.2216
@@ -586,14 +586,14 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
   %.0127 = phi i64 [ 20000, %251 ], [ 25000, %254 ]
   %266 = add i32 %245, %239
   %267 = zext i32 %266 to i64
-  %268 = getelementptr inbounds i64, ptr %45, i64 %267
+  %268 = getelementptr inbounds nuw i64, ptr %45, i64 %267
   %269 = load i64, ptr %268, align 8
   %270 = add i64 %269, %.0127
   store i64 %270, ptr %268, align 8
   %271 = mul i32 %245, %.0183.lcssa
   %272 = add i32 %271, %.2216
   %273 = zext i32 %272 to i64
-  %274 = getelementptr inbounds i64, ptr %45, i64 %273
+  %274 = getelementptr inbounds nuw i64, ptr %45, i64 %273
   %275 = load i64, ptr %274, align 8
   %276 = add i64 %275, %.0127
   store i64 %276, ptr %274, align 8
@@ -630,7 +630,7 @@ hwloc__nvml_store_peer_obj.exit:                  ; preds = %hwloc__nvml_get_pee
   %285 = trunc nuw i64 %indvars.iv244 to i32
   %286 = mul i32 %.3161, %285
   %287 = zext i32 %286 to i64
-  %288 = getelementptr inbounds i64, ptr %45, i64 %287
+  %288 = getelementptr inbounds nuw i64, ptr %45, i64 %287
   store i64 1000000, ptr %288, align 8
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond247.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count

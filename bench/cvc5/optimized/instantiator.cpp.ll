@@ -95,7 +95,7 @@ define hidden void @_ZN4cvc58internal6theory11quantifiers12InstantiatorC2ERNS0_3
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 %env)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 16), ptr %this, align 8
-  %d_type = getelementptr inbounds i8, ptr %this, i64 16
+  %d_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %tn, align 8
   store ptr %0, ptr %d_type, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -128,7 +128,7 @@ invoke.cont:                                      ; preds = %if.then13.i.i, %if.
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %d_closed_enum_type = getelementptr inbounds i8, ptr %this, i64 24
+  %d_closed_enum_type = getelementptr inbounds nuw i8, ptr %this, i64 24
   %frombool = zext i1 %call to i8
   store i8 %frombool, ptr %d_closed_enum_type, align 8
   ret void
@@ -184,7 +184,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12Instant
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp2 = alloca %"class.cvc5::internal::NodeTemplate", align 8
-  %d_type = getelementptr inbounds i8, ptr %pv_prop, i64 8
+  %d_type = getelementptr inbounds nuw i8, ptr %pv_prop, i64 8
   store i32 1, ptr %d_type, align 8
   %0 = load ptr, ptr %pv, align 8
   store ptr %0, ptr %agg.tmp, align 8
@@ -358,7 +358,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers12InstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 16), ptr %this, align 8
-  %d_type = getelementptr inbounds i8, ptr %this, i64 16
+  %d_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_type, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i, 1152920405095219200
@@ -393,7 +393,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %entry, %if.then.i.i
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers12InstantiatorD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 16), ptr %this, align 8
-  %d_type.i = getelementptr inbounds i8, ptr %this, i64 16
+  %d_type.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
   %1 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -518,7 +518,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers12Instantiator15allowModelValueEPNS2_15CegInstantiatorERNS2_10SolvedFormENS0_12NodeTemplateILb1EEENS2_13CegInstEffortE(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr noundef %ci, ptr noundef nonnull align 8 dereferenceable(120) %sf, ptr noundef %pv, i32 noundef %effort) unnamed_addr #4 comdat align 2 {
 entry:
-  %d_closed_enum_type = getelementptr inbounds i8, ptr %this, i64 24
+  %d_closed_enum_type = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %d_closed_enum_type, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -597,9 +597,9 @@ init.i:                                           ; preds = %init.check.i
 
 invoke.cont.i:                                    ; preds = %init.i
   store i64 1152920405095219200, ptr %call.i, align 8
-  %d_kind.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %d_kind.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i16 0, ptr %d_kind.i.i, align 8
-  %d_nchildren.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %d_nchildren.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %d_nchildren.i.i, align 4
   store ptr %call.i, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #11

@@ -111,7 +111,7 @@ define i64 @ossl_x509crl_new(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %8
   %13 = inttoptr i64 %3 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store ptr %9, ptr %14, align 8
   ret i64 %3
 }
@@ -200,7 +200,7 @@ define internal i64 @ossl_x509crl_alloc(i64 noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = inttoptr i64 %2 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %3, ptr %8, align 8
   ret i64 %2
 }
@@ -211,7 +211,7 @@ declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef
 define internal range(i64 1, -7) i64 @ossl_x509crl_initialize(i32 noundef %0, ptr noundef %1, i64 noundef returned %2) #0 {
   %4 = alloca i64, align 8
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = and i64 %2, 7
   %9 = icmp ne i64 %8, 0
@@ -331,7 +331,7 @@ rb_check_frozen_inline.exit:                      ; preds = %7
 
 27:                                               ; preds = %23
   tail call void @X509_CRL_free(ptr noundef nonnull %16) #6
-  %28 = getelementptr inbounds i8, ptr %8, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %24, ptr %28, align 8
   br label %29
 
@@ -679,8 +679,8 @@ define internal noundef i64 @ossl_x509crl_set_revoked(i64 noundef %0, i64 nounde
   br i1 %.not.i, label %Check_Type.exit.preheader, label %.critedge.i
 
 Check_Type.exit.preheader:                        ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %7, %2
@@ -711,7 +711,7 @@ rb_array_len.exit.thread:                         ; preds = %Check_Type.exit
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %20
   %.0.i32 = phi ptr [ %21, %20 ], [ %11, %rb_array_len.exit.thread ]
-  %22 = getelementptr inbounds i64, ptr %.0.i32, i64 %.0
+  %22 = getelementptr inbounds nuw i64, ptr %.0.i32, i64 %.0
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr @cX509Rev, align 8
   %25 = tail call i64 @rb_obj_is_kind_of(i64 noundef %23, i64 noundef %24) #6
@@ -731,7 +731,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
 
 rb_array_const_ptr.exit35:                        ; preds = %27, %30
   %.0.i34 = phi ptr [ %31, %30 ], [ %11, %27 ]
-  %32 = getelementptr inbounds i64, ptr %.0.i34, i64 %.0
+  %32 = getelementptr inbounds nuw i64, ptr %.0.i34, i64 %.0
   %33 = load i64, ptr %32, align 8
   %34 = tail call i64 @rb_obj_class(i64 noundef %33) #6
   %35 = load i64, ptr @cX509Rev, align 8
@@ -796,7 +796,7 @@ rb_array_len.exit38.thread:                       ; preds = %.loopexit
 
 rb_array_const_ptr.exit41:                        ; preds = %rb_array_len.exit38.thread, %54
   %.0.i40 = phi ptr [ %55, %54 ], [ %11, %rb_array_len.exit38.thread ]
-  %56 = getelementptr inbounds i64, ptr %.0.i40, i64 %.1
+  %56 = getelementptr inbounds nuw i64, ptr %.0.i40, i64 %.1
   %57 = load i64, ptr %56, align 8
   %58 = tail call ptr @DupX509RevokedPtr(i64 noundef %57) #6
   %59 = tail call i32 @X509_CRL_add0_revoked(ptr noundef nonnull %39, ptr noundef %58) #6
@@ -1090,8 +1090,8 @@ define internal noundef i64 @ossl_x509crl_set_extensions(i64 noundef %0, i64 nou
   br i1 %.not.i, label %Check_Type.exit.preheader, label %.critedge.i
 
 Check_Type.exit.preheader:                        ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
   br label %Check_Type.exit
 
 .critedge.i:                                      ; preds = %7, %2
@@ -1122,7 +1122,7 @@ rb_array_len.exit.thread:                         ; preds = %Check_Type.exit
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %20
   %.0.i26 = phi ptr [ %21, %20 ], [ %11, %rb_array_len.exit.thread ]
-  %22 = getelementptr inbounds i64, ptr %.0.i26, i64 %.0
+  %22 = getelementptr inbounds nuw i64, ptr %.0.i26, i64 %.0
   %23 = load i64, ptr %22, align 8
   %24 = load i64, ptr @cX509Ext, align 8
   %25 = tail call i64 @rb_obj_is_kind_of(i64 noundef %23, i64 noundef %24) #6
@@ -1142,7 +1142,7 @@ rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.t
 
 rb_array_const_ptr.exit29:                        ; preds = %27, %30
   %.0.i28 = phi ptr [ %31, %30 ], [ %11, %27 ]
-  %32 = getelementptr inbounds i64, ptr %.0.i28, i64 %.0
+  %32 = getelementptr inbounds nuw i64, ptr %.0.i28, i64 %.0
   %33 = load i64, ptr %32, align 8
   %34 = tail call i64 @rb_obj_class(i64 noundef %33) #6
   %35 = load i64, ptr @cX509Ext, align 8
@@ -1207,7 +1207,7 @@ rb_array_len.exit32.thread:                       ; preds = %.preheader
 
 rb_array_const_ptr.exit35:                        ; preds = %rb_array_len.exit32.thread, %56
   %.0.i34 = phi ptr [ %57, %56 ], [ %11, %rb_array_len.exit32.thread ]
-  %58 = getelementptr inbounds i64, ptr %.0.i34, i64 %.2
+  %58 = getelementptr inbounds nuw i64, ptr %.0.i34, i64 %.2
   %59 = load i64, ptr %58, align 8
   %60 = tail call ptr @GetX509ExtPtr(i64 noundef %59) #6
   %61 = tail call i32 @X509_CRL_add_ext(ptr noundef nonnull %39, ptr noundef %60, i32 noundef -1) #6

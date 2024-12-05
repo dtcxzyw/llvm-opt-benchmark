@@ -58,7 +58,7 @@ entry:
   %tmp16 = alloca %struct.ossl_param_st, align 8
   store ptr %type, ptr %type.addr, align 8
   %0 = load ptr, ptr %c, align 8
-  %set_asn1_parameters = getelementptr inbounds i8, ptr %0, i64 64
+  %set_asn1_parameters = getelementptr inbounds nuw i8, ptr %0, i64 64
   %1 = load ptr, ptr %set_asn1_parameters, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -68,7 +68,7 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.else:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %flags.i, align 8
   %and = and i64 %2, 16777216
   %cmp4 = icmp eq i64 %and, 0
@@ -86,19 +86,19 @@ if.then5:                                         ; preds = %if.else
   ]
 
 if.end.i:                                         ; preds = %if.then5
-  %prov.i = getelementptr inbounds i8, ptr %0, i64 120
+  %prov.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %prov.i, align 8
   %cmp1.not.i = icmp eq ptr %4, null
   br i1 %cmp1.not.i, label %if.end4.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %name_id.i = getelementptr inbounds i8, ptr %0, i64 96
+  %name_id.i = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i32, ptr %name_id.i, align 8
   %call.i = tail call i32 @evp_is_a(ptr noundef nonnull %4, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2) #13
   br label %EVP_CIPHER_is_a.exit
 
 if.end4.i:                                        ; preds = %if.end.i
-  %type_name.i.i = getelementptr inbounds i8, ptr %0, i64 104
+  %type_name.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %type_name.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
   br i1 %cmp.not.i.i, label %if.end.i.i, label %EVP_CIPHER_get0_name.exit.i
@@ -129,10 +129,10 @@ sw.bb9:                                           ; preds = %if.then5
   br i1 %or.cond.i, label %if.then60, label %if.end.i19
 
 if.end.i19:                                       ; preds = %sw.bb9
-  %tag_len.i = getelementptr inbounds i8, ptr %asn1_params, i64 20
+  %tag_len.i = getelementptr inbounds nuw i8, ptr %asn1_params, i64 20
   %8 = load i32, ptr %tag_len.i, align 4
   %conv.i20 = zext i32 %8 to i64
-  %iv_len.i = getelementptr inbounds i8, ptr %asn1_params, i64 16
+  %iv_len.i = getelementptr inbounds nuw i8, ptr %asn1_params, i64 16
   %9 = load i32, ptr %iv_len.i, align 4
   %call.i21 = tail call i32 @ossl_asn1_type_set_octetstring_int(ptr noundef nonnull %type, i64 noundef %conv.i20, ptr noundef nonnull %asn1_params, i32 noundef %9) #13
   br label %err
@@ -142,13 +142,13 @@ sw.default:                                       ; preds = %if.then5
   br label %err
 
 if.else13:                                        ; preds = %if.else
-  %prov = getelementptr inbounds i8, ptr %0, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %prov, align 8
   %cmp14.not = icmp eq ptr %10, null
   br i1 %cmp14.not, label %if.then57, label %if.then15
 
 if.then15:                                        ; preds = %if.else13
-  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp16) #13
@@ -160,7 +160,7 @@ if.then15:                                        ; preds = %if.else13
 if.end21:                                         ; preds = %if.then15
   %call23 = call i32 @OSSL_PARAM_modified(ptr noundef nonnull %params) #13
   %tobool24 = icmp ne i32 %call23, 0
-  %return_size = getelementptr inbounds i8, ptr %params, i64 32
+  %return_size = getelementptr inbounds nuw i8, ptr %params, i64 32
   %11 = load i64, ptr %return_size, align 16
   %cmp25 = icmp ne i64 %11, 0
   %or.cond = select i1 %tobool24, i1 %cmp25, i1 false
@@ -172,10 +172,10 @@ land.lhs.true26:                                  ; preds = %if.end21
   br i1 %cmp30.not, label %if.then60, label %if.then31
 
 if.then31:                                        ; preds = %land.lhs.true26
-  %data = getelementptr inbounds i8, ptr %params, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %params, i64 16
   store ptr %call29, ptr %data, align 16
   %12 = load i64, ptr %return_size, align 16
-  %data_size = getelementptr inbounds i8, ptr %params, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %params, i64 24
   store i64 %12, ptr %data_size, align 8
   call void @OSSL_PARAM_set_all_unmodified(ptr noundef nonnull %params) #13
   store ptr %call29, ptr %derp, align 8
@@ -247,13 +247,13 @@ entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   %tmp18 = alloca %struct.ossl_param_st, align 8
   %0 = load ptr, ptr %c, align 8
-  %get_asn1_parameters = getelementptr inbounds i8, ptr %0, i64 72
+  %get_asn1_parameters = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %get_asn1_parameters, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.else, label %if.end26
 
 if.else:                                          ; preds = %entry
-  %flags.i = getelementptr inbounds i8, ptr %0, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %flags.i, align 8
   %and = and i64 %2, 16777216
   %cmp4 = icmp eq i64 %and, 0
@@ -287,7 +287,7 @@ if.end4.i:                                        ; preds = %if.end.i
   %call5.i = call i32 @ossl_asn1_type_get_octetstring_int(ptr noundef nonnull %type, ptr noundef nonnull %tl.i, ptr noundef nonnull %iv.i, i32 noundef %call.i) #13
   %conv.i16 = zext nneg i32 %call.i to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %asn1_params, ptr nonnull align 16 %iv.i, i64 %conv.i16, i1 false)
-  %iv_len.i = getelementptr inbounds i8, ptr %asn1_params, i64 16
+  %iv_len.i = getelementptr inbounds nuw i8, ptr %asn1_params, i64 16
   store i32 %call.i, ptr %iv_len.i, align 4
   br label %evp_cipher_get_asn1_aead_params.exit
 
@@ -326,7 +326,7 @@ EVP_CIPHER_get_asn1_iv.exit.thread:               ; preds = %if.then.i, %if.end.
   br label %if.end35
 
 if.else12:                                        ; preds = %if.else
-  %prov = getelementptr inbounds i8, ptr %0, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %prov, align 8
   %cmp13.not = icmp eq ptr %5, null
   br i1 %cmp13.not, label %if.then29, label %if.then14
@@ -338,7 +338,7 @@ if.then14:                                        ; preds = %if.else12
   br i1 %cmp16, label %if.then17, label %if.then33
 
 if.then17:                                        ; preds = %if.then14
-  %incdec.ptr = getelementptr inbounds i8, ptr %params, i64 40
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %params, i64 40
   %6 = load ptr, ptr %der, align 8
   %conv = zext nneg i32 %call15 to i64
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.3, ptr noundef %6, i64 noundef %conv) #13
@@ -415,21 +415,21 @@ entry:
   %v = alloca i64, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %iv_len = getelementptr inbounds i8, ptr %ctx, i64 108
+  %iv_len = getelementptr inbounds nuw i8, ptr %ctx, i64 108
   %0 = load i32, ptr %iv_len, align 4
   %cmp = icmp slt i32 %0, 0
   br i1 %cmp, label %if.then, label %return
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
-  %iv_len.i = getelementptr inbounds i8, ptr %1, i64 12
+  %iv_len.i = getelementptr inbounds nuw i8, ptr %1, i64 12
   %2 = load i32, ptr %iv_len.i, align 4
   store i32 %2, ptr %len, align 4
   %conv = sext i32 %2 to i64
   store i64 %conv, ptr %v, align 8
-  %3 = getelementptr inbounds i8, ptr %params, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %3, i8 0, i64 48, i1 false)
-  %get_ctx_params = getelementptr inbounds i8, ptr %1, i64 208
+  %get_ctx_params = getelementptr inbounds nuw i8, ptr %1, i64 208
   %4 = load ptr, ptr %get_ctx_params, align 8
   %cmp2.not = icmp eq ptr %4, null
   br i1 %cmp2.not, label %if.else21, label %if.then4
@@ -438,7 +438,7 @@ if.then4:                                         ; preds = %if.then
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.5, ptr noundef nonnull %v) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %5 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %6 = load ptr, ptr %algctx, align 8
   %call6 = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %5, ptr noundef %6, ptr noundef nonnull %params) #13
   %cmp7 = icmp sgt i32 %call6, 0
@@ -459,7 +459,7 @@ if.else:                                          ; preds = %if.then4
   br i1 %cmp16.not, label %if.end33, label %return
 
 if.else21:                                        ; preds = %if.then
-  %flags.i = getelementptr inbounds i8, ptr %1, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %flags.i, align 8
   %and = and i64 %7, 2048
   %cmp24.not = icmp eq i64 %and, 0
@@ -497,14 +497,14 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
-  %oiv.i = getelementptr inbounds i8, ptr %c, i64 24
+  %oiv.i = getelementptr inbounds nuw i8, ptr %c, i64 24
   store ptr %oiv.i, ptr %v.i, align 8
   call void @OSSL_PARAM_construct_octet_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.14, ptr noundef nonnull %v.i, i64 noundef 16) #13
-  %0 = getelementptr inbounds i8, ptr %params.i, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %1 = load ptr, ptr %c, align 8
-  %algctx.i = getelementptr inbounds i8, ptr %c, i64 168
+  %algctx.i = getelementptr inbounds nuw i8, ptr %c, i64 168
   %2 = load ptr, ptr %algctx.i, align 8
   %call.i = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params.i) #13
   %3 = load ptr, ptr %v.i, align 8
@@ -536,14 +536,14 @@ entry:
   %v = alloca ptr, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %oiv = getelementptr inbounds i8, ptr %ctx, i64 24
+  %oiv = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr %oiv, ptr %v, align 8
   call void @OSSL_PARAM_construct_octet_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.14, ptr noundef nonnull %v, i64 noundef 16) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp.not = icmp eq i32 %call, 0
@@ -560,7 +560,7 @@ declare i32 @ASN1_TYPE_set_octetstring(ptr noundef, ptr noundef, i32 noundef) lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @EVP_CIPHER_get_flags(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %cipher, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -568,7 +568,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 983048) i32 @EVP_CIPHER_get_mode(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %flags.i = getelementptr inbounds i8, ptr %cipher, i64 16
+  %flags.i = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   %0 = load i64, ptr %flags.i, align 8
   %1 = trunc i64 %0 to i32
   %conv = and i32 %1, 983047
@@ -582,19 +582,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 120
   %0 = load ptr, ptr %prov, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %name_id = getelementptr inbounds i8, ptr %cipher, i64 96
+  %name_id = getelementptr inbounds nuw i8, ptr %cipher, i64 96
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_is_a(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %name) #13
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  %type_name.i = getelementptr inbounds i8, ptr %cipher, i64 104
+  %type_name.i = getelementptr inbounds nuw i8, ptr %cipher, i64 104
   %2 = load ptr, ptr %type_name.i, align 8
   %cmp.not.i = icmp eq ptr %2, null
   br i1 %cmp.not.i, label %if.end.i, label %EVP_CIPHER_get0_name.exit
@@ -625,10 +625,10 @@ entry:
   br i1 %or.cond, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %tag_len = getelementptr inbounds i8, ptr %asn1_params, i64 20
+  %tag_len = getelementptr inbounds nuw i8, ptr %asn1_params, i64 20
   %0 = load i32, ptr %tag_len, align 4
   %conv = zext i32 %0 to i64
-  %iv_len = getelementptr inbounds i8, ptr %asn1_params, i64 16
+  %iv_len = getelementptr inbounds nuw i8, ptr %asn1_params, i64 16
   %1 = load i32, ptr %iv_len, align 4
   %call = tail call i32 @ossl_asn1_type_set_octetstring_int(ptr noundef nonnull %type, i64 noundef %conv, ptr noundef nonnull %asn1_params, i32 noundef %1) #13
   br label %return
@@ -682,7 +682,7 @@ if.end4:                                          ; preds = %if.end
   %call5 = call i32 @ossl_asn1_type_get_octetstring_int(ptr noundef nonnull %type, ptr noundef nonnull %tl, ptr noundef nonnull %iv, i32 noundef %call) #13
   %conv = zext nneg i32 %call to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %asn1_params, ptr nonnull align 16 %iv, i64 %conv, i1 false)
-  %iv_len = getelementptr inbounds i8, ptr %asn1_params, i64 16
+  %iv_len = getelementptr inbounds nuw i8, ptr %asn1_params, i64 16
   store i32 %call, ptr %iv_len, align 4
   br label %return
 
@@ -804,31 +804,31 @@ entry:
   store i32 0, ptr %mode, align 4
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.4, ptr noundef nonnull %blksz) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
-  %arrayidx1 = getelementptr inbounds i8, ptr %params, i64 40
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp2, ptr noundef nonnull @.str.5, ptr noundef nonnull %ivlen) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx1, ptr noundef nonnull align 8 dereferenceable(40) %tmp2, i64 40, i1 false)
-  %arrayidx3 = getelementptr inbounds i8, ptr %params, i64 80
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %params, i64 80
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp4, ptr noundef nonnull @.str.6, ptr noundef nonnull %keylen) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx3, ptr noundef nonnull align 8 dereferenceable(40) %tmp4, i64 40, i1 false)
-  %arrayidx5 = getelementptr inbounds i8, ptr %params, i64 120
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %params, i64 120
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp6, ptr noundef nonnull @.str.7, ptr noundef nonnull %mode) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx5, ptr noundef nonnull align 8 dereferenceable(40) %tmp6, i64 40, i1 false)
-  %arrayidx7 = getelementptr inbounds i8, ptr %params, i64 160
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %params, i64 160
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp8, ptr noundef nonnull @.str.8, ptr noundef nonnull %aead) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx7, ptr noundef nonnull align 8 dereferenceable(40) %tmp8, i64 40, i1 false)
-  %arrayidx9 = getelementptr inbounds i8, ptr %params, i64 200
+  %arrayidx9 = getelementptr inbounds nuw i8, ptr %params, i64 200
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp10, ptr noundef nonnull @.str.9, ptr noundef nonnull %custom_iv) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx9, ptr noundef nonnull align 8 dereferenceable(40) %tmp10, i64 40, i1 false)
-  %arrayidx11 = getelementptr inbounds i8, ptr %params, i64 240
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %params, i64 240
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp12, ptr noundef nonnull @.str.10, ptr noundef nonnull %cts) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx11, ptr noundef nonnull align 8 dereferenceable(40) %tmp12, i64 40, i1 false)
-  %arrayidx13 = getelementptr inbounds i8, ptr %params, i64 280
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %params, i64 280
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp14, ptr noundef nonnull @.str.11, ptr noundef nonnull %multiblock) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx13, ptr noundef nonnull align 8 dereferenceable(40) %tmp14, i64 40, i1 false)
-  %arrayidx15 = getelementptr inbounds i8, ptr %params, i64 320
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %params, i64 320
   call void @OSSL_PARAM_construct_int(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp16, ptr noundef nonnull @.str.12, ptr noundef nonnull %randkey) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %arrayidx15, ptr noundef nonnull align 8 dereferenceable(40) %tmp16, i64 40, i1 false)
-  %arrayidx17 = getelementptr inbounds i8, ptr %params, i64 360
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %params, i64 360
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp18) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx17, ptr noundef nonnull align 8 dereferenceable(40) %tmp18, i64 40, i1 false)
   %call = call i32 @evp_do_ciph_getparams(ptr noundef %cipher, ptr noundef nonnull %params) #13
@@ -838,19 +838,19 @@ entry:
 if.then:                                          ; preds = %entry
   %0 = load i64, ptr %blksz, align 8
   %conv19 = trunc i64 %0 to i32
-  %block_size = getelementptr inbounds i8, ptr %cipher, i64 4
+  %block_size = getelementptr inbounds nuw i8, ptr %cipher, i64 4
   store i32 %conv19, ptr %block_size, align 4
   %1 = load i64, ptr %ivlen, align 8
   %conv20 = trunc i64 %1 to i32
-  %iv_len = getelementptr inbounds i8, ptr %cipher, i64 12
+  %iv_len = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   store i32 %conv20, ptr %iv_len, align 4
   %2 = load i64, ptr %keylen, align 8
   %conv21 = trunc i64 %2 to i32
-  %key_len = getelementptr inbounds i8, ptr %cipher, i64 8
+  %key_len = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   store i32 %conv21, ptr %key_len, align 8
   %3 = load i32, ptr %mode, align 4
   %conv22 = zext i32 %3 to i64
-  %flags = getelementptr inbounds i8, ptr %cipher, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %cipher, i64 16
   store i64 %conv22, ptr %flags, align 8
   %4 = load i32, ptr %aead, align 4
   %tobool23.not = icmp eq i32 %4, 0
@@ -896,7 +896,7 @@ if.then37:                                        ; preds = %if.end35
 
 if.end40:                                         ; preds = %if.then37, %if.end35
   %11 = phi i64 [ %or39, %if.then37 ], [ %9, %if.end35 ]
-  %ccipher = getelementptr inbounds i8, ptr %cipher, i64 176
+  %ccipher = getelementptr inbounds nuw i8, ptr %cipher, i64 176
   %12 = load ptr, ptr %ccipher, align 8
   %cmp41.not = icmp eq ptr %12, null
   br i1 %cmp41.not, label %if.end46, label %if.then43
@@ -949,7 +949,7 @@ declare ptr @EVP_CIPHER_gettable_ctx_params(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_CIPHER_get_block_size(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %block_size = getelementptr inbounds i8, ptr %cipher, i64 4
+  %block_size = getelementptr inbounds nuw i8, ptr %cipher, i64 4
   %0 = load i32, ptr %block_size, align 4
   ret i32 %0
 }
@@ -958,7 +958,7 @@ entry:
 define i32 @EVP_CIPHER_CTX_get_block_size(ptr nocapture noundef readonly %ctx) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
-  %block_size.i = getelementptr inbounds i8, ptr %0, i64 4
+  %block_size.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %block_size.i, align 4
   ret i32 %1
 }
@@ -966,7 +966,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_CIPHER_impl_ctx_size(ptr nocapture noundef readonly %e) local_unnamed_addr #3 {
 entry:
-  %ctx_size = getelementptr inbounds i8, ptr %e, i64 56
+  %ctx_size = getelementptr inbounds nuw i8, ptr %e, i64 56
   %0 = load i32, ptr %ctx_size, align 8
   ret i32 %0
 }
@@ -976,23 +976,23 @@ define i32 @EVP_Cipher(ptr noundef %ctx, ptr noundef %out, ptr noundef %in, i32 
 entry:
   %outl = alloca i64, align 8
   %0 = load ptr, ptr %ctx, align 8
-  %prov = getelementptr inbounds i8, ptr %0, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1 = load ptr, ptr %prov, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end43, label %if.then
 
 if.then:                                          ; preds = %entry
   store i64 0, ptr %outl, align 8
-  %block_size.i.i = getelementptr inbounds i8, ptr %0, i64 4
+  %block_size.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %2 = load i32, ptr %block_size.i.i, align 4
   %conv = sext i32 %2 to i64
-  %ccipher = getelementptr inbounds i8, ptr %0, i64 176
+  %ccipher = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %ccipher, align 8
   %cmp2.not = icmp eq ptr %3, null
   br i1 %cmp2.not, label %if.else, label %if.then4
 
 if.then4:                                         ; preds = %if.then
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %4 = load ptr, ptr %algctx, align 8
   %conv7 = zext i32 %inl to i64
   %cmp8 = icmp eq i32 %2, 1
@@ -1007,12 +1007,12 @@ if.then4:                                         ; preds = %if.then
 
 if.else:                                          ; preds = %if.then
   %cmp17.not = icmp eq ptr %in, null
-  %algctx34 = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx34 = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %6 = load ptr, ptr %algctx34, align 8
   br i1 %cmp17.not, label %if.else32, label %if.then19
 
 if.then19:                                        ; preds = %if.else
-  %cupdate = getelementptr inbounds i8, ptr %0, i64 160
+  %cupdate = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = load ptr, ptr %cupdate, align 8
   %conv22 = zext i32 %inl to i64
   %cmp23 = icmp eq i32 %2, 1
@@ -1022,7 +1022,7 @@ if.then19:                                        ; preds = %if.else
   br label %return
 
 if.else32:                                        ; preds = %if.else
-  %cfinal = getelementptr inbounds i8, ptr %0, i64 168
+  %cfinal = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %cfinal, align 8
   %cmp35 = icmp eq i32 %2, 1
   %cond40 = select i1 %cmp35, i64 0, i64 %conv
@@ -1030,7 +1030,7 @@ if.else32:                                        ; preds = %if.else
   br label %return
 
 if.end43:                                         ; preds = %entry
-  %do_cipher = getelementptr inbounds i8, ptr %0, i64 40
+  %do_cipher = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %do_cipher, align 8
   %conv45 = zext i32 %inl to i64
   %call46 = tail call i32 %9(ptr noundef nonnull %ctx, ptr noundef %out, ptr noundef %in, i64 noundef %conv45) #13
@@ -1094,7 +1094,7 @@ declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_CIPHER_CTX_is_encrypting(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %encrypt = getelementptr inbounds i8, ptr %ctx, i64 16
+  %encrypt = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %encrypt, align 8
   ret i32 %0
 }
@@ -1102,7 +1102,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_CIPHER_CTX_get_app_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %app_data = getelementptr inbounds i8, ptr %ctx, i64 96
+  %app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %app_data, align 8
   ret ptr %0
 }
@@ -1110,7 +1110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %data) local_unnamed_addr #6 {
 entry:
-  %app_data = getelementptr inbounds i8, ptr %ctx, i64 96
+  %app_data = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   store ptr %data, ptr %app_data, align 8
   ret void
 }
@@ -1118,7 +1118,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_CIPHER_CTX_get_cipher_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %cipher_data = getelementptr inbounds i8, ptr %ctx, i64 120
+  %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data, align 8
   ret ptr %0
 }
@@ -1126,7 +1126,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define ptr @EVP_CIPHER_CTX_set_cipher_data(ptr nocapture noundef %ctx, ptr noundef %cipher_data) local_unnamed_addr #7 {
 entry:
-  %cipher_data1 = getelementptr inbounds i8, ptr %ctx, i64 120
+  %cipher_data1 = getelementptr inbounds nuw i8, ptr %ctx, i64 120
   %0 = load ptr, ptr %cipher_data1, align 8
   store ptr %cipher_data, ptr %cipher_data1, align 8
   ret ptr %0
@@ -1135,7 +1135,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_CIPHER_get_iv_length(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %iv_len = getelementptr inbounds i8, ptr %cipher, i64 12
+  %iv_len = getelementptr inbounds nuw i8, ptr %cipher, i64 12
   %0 = load i32, ptr %iv_len, align 4
   ret i32 %0
 }
@@ -1157,11 +1157,11 @@ entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   store i64 0, ptr %v, align 8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.13, ptr noundef nonnull %v) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp = icmp eq i32 %call, 1
@@ -1179,14 +1179,14 @@ entry:
   %v = alloca ptr, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store ptr %iv, ptr %v, align 8
   call void @OSSL_PARAM_construct_octet_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.15, ptr noundef nonnull %v, i64 noundef 16) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp.not = icmp eq i32 %call, 0
@@ -1201,14 +1201,14 @@ entry:
   %v = alloca ptr, align 8
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %iv = getelementptr inbounds i8, ptr %ctx, i64 40
+  %iv = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store ptr %iv, ptr %v, align 8
   call void @OSSL_PARAM_construct_octet_ptr(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.15, ptr noundef nonnull %v, i64 noundef 16) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp.not = icmp eq i32 %call, 0
@@ -1223,11 +1223,11 @@ entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.15, ptr noundef %buf, i64 noundef %len) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp = icmp sgt i32 %call, 0
@@ -1241,11 +1241,11 @@ entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.14, ptr noundef %buf, i64 noundef %len) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp = icmp sgt i32 %call, 0
@@ -1256,7 +1256,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef readnone %ctx) local_unnamed_addr #9 {
 entry:
-  %buf = getelementptr inbounds i8, ptr %ctx, i64 56
+  %buf = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   ret ptr %buf
 }
 
@@ -1266,15 +1266,15 @@ entry:
   %v = alloca i32, align 4
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %num = getelementptr inbounds i8, ptr %ctx, i64 88
+  %num = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   %0 = load i32, ptr %num, align 8
   store i32 %0, ptr %v, align 4
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.16, ptr noundef nonnull %v) #13
-  %1 = getelementptr inbounds i8, ptr %params, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %2 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %3 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %2, ptr noundef %3, ptr noundef nonnull %params) #13
   %cmp.not = icmp eq i32 %call, 0
@@ -1291,11 +1291,11 @@ entry:
   %tmp = alloca %struct.ossl_param_st, align 8
   store i32 %num, ptr %n, align 4
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.16, ptr noundef nonnull %n) #13
-  %0 = getelementptr inbounds i8, ptr %params, i64 40
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %1 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %2 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_setparams(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %params) #13
   %cmp = icmp ne i32 %call, 0
@@ -1303,7 +1303,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %3 = load i32, ptr %n, align 4
-  %num1 = getelementptr inbounds i8, ptr %ctx, i64 88
+  %num1 = getelementptr inbounds nuw i8, ptr %ctx, i64 88
   store i32 %3, ptr %num1, align 8
   br label %if.end
 
@@ -1317,7 +1317,7 @@ declare i32 @evp_do_ciph_ctx_setparams(ptr noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_CIPHER_get_key_length(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %key_len = getelementptr inbounds i8, ptr %cipher, i64 8
+  %key_len = getelementptr inbounds nuw i8, ptr %cipher, i64 8
   %0 = load i32, ptr %key_len, align 8
   ret i32 %0
 }
@@ -1328,25 +1328,25 @@ entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %len = alloca i64, align 8
   %tmp = alloca %struct.ossl_param_st, align 8
-  %key_len = getelementptr inbounds i8, ptr %ctx, i64 104
+  %key_len = getelementptr inbounds nuw i8, ptr %ctx, i64 104
   %0 = load i32, ptr %key_len, align 8
   %cmp = icmp slt i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %entry
   %1 = load ptr, ptr %ctx, align 8
-  %prov = getelementptr inbounds i8, ptr %1, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %1, i64 120
   %2 = load ptr, ptr %prov, align 8
   %cmp1.not = icmp eq ptr %2, null
   br i1 %cmp1.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp, ptr noundef nonnull @.str.6, ptr noundef nonnull %len) #13
-  %3 = getelementptr inbounds i8, ptr %params, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %params, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params, ptr noundef nonnull align 8 dereferenceable(40) %tmp, i64 40, i1 false)
   %4 = load ptr, ptr %ctx, align 8
-  %algctx = getelementptr inbounds i8, ptr %ctx, i64 168
+  %algctx = getelementptr inbounds nuw i8, ptr %ctx, i64 168
   %5 = load ptr, ptr %algctx, align 8
   %call = call i32 @evp_do_ciph_ctx_getparams(ptr noundef %4, ptr noundef %5, ptr noundef nonnull %params) #13
   %cmp3 = icmp slt i32 %call, 1
@@ -1381,7 +1381,7 @@ declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_CIPHER_get0_name(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
 entry:
-  %type_name = getelementptr inbounds i8, ptr %cipher, i64 104
+  %type_name = getelementptr inbounds nuw i8, ptr %cipher, i64 104
   %0 = load ptr, ptr %type_name, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1399,7 +1399,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_cipher_get_number(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %name_id = getelementptr inbounds i8, ptr %cipher, i64 96
+  %name_id = getelementptr inbounds nuw i8, ptr %cipher, i64 96
   %0 = load i32, ptr %name_id, align 8
   ret i32 %0
 }
@@ -1409,7 +1409,7 @@ declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_CIPHER_get0_description(ptr nocapture noundef readonly %cipher) local_unnamed_addr #0 {
 entry:
-  %description = getelementptr inbounds i8, ptr %cipher, i64 112
+  %description = getelementptr inbounds nuw i8, ptr %cipher, i64 112
   %0 = load ptr, ptr %description, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1429,13 +1429,13 @@ declare ptr @OBJ_nid2ln(i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_CIPHER_names_do_all(ptr nocapture noundef readonly %cipher, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 120
   %0 = load ptr, ptr %prov, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name_id = getelementptr inbounds i8, ptr %cipher, i64 96
+  %name_id = getelementptr inbounds nuw i8, ptr %cipher, i64 96
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_names_do_all(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %fn, ptr noundef %data) #13
   br label %return
@@ -1450,7 +1450,7 @@ declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_CIPHER_get0_provider(ptr nocapture noundef readonly %cipher) local_unnamed_addr #3 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %cipher, i64 120
+  %prov = getelementptr inbounds nuw i8, ptr %cipher, i64 120
   %0 = load ptr, ptr %prov, align 8
   ret ptr %0
 }
@@ -1462,19 +1462,19 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %prov = getelementptr inbounds i8, ptr %md, i64 112
+  %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end.i, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %name_id = getelementptr inbounds i8, ptr %md, i64 88
+  %name_id = getelementptr inbounds nuw i8, ptr %md, i64 88
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_is_a(ptr noundef nonnull %0, i32 noundef %1, ptr noundef null, ptr noundef %name) #13
   br label %return
 
 if.end.i:                                         ; preds = %if.end
-  %type_name.i = getelementptr inbounds i8, ptr %md, i64 96
+  %type_name.i = getelementptr inbounds nuw i8, ptr %md, i64 96
   %2 = load ptr, ptr %type_name.i, align 8
   %cmp1.not.i = icmp eq ptr %2, null
   br i1 %cmp1.not.i, label %if.end4.i, label %EVP_MD_get0_name.exit
@@ -1501,7 +1501,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type_name = getelementptr inbounds i8, ptr %md, i64 96
+  %type_name = getelementptr inbounds nuw i8, ptr %md, i64 96
   %0 = load ptr, ptr %type_name, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %return
@@ -1519,7 +1519,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @evp_md_get_number(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %name_id = getelementptr inbounds i8, ptr %md, i64 88
+  %name_id = getelementptr inbounds nuw i8, ptr %md, i64 88
   %0 = load i32, ptr %name_id, align 8
   ret i32 %0
 }
@@ -1527,7 +1527,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MD_get0_description(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
-  %description = getelementptr inbounds i8, ptr %md, i64 104
+  %description = getelementptr inbounds nuw i8, ptr %md, i64 104
   %0 = load ptr, ptr %description, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1552,13 +1552,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @EVP_MD_names_do_all(ptr nocapture noundef readonly %md, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %md, i64 112
+  %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name_id = getelementptr inbounds i8, ptr %md, i64 88
+  %name_id = getelementptr inbounds nuw i8, ptr %md, i64 88
   %1 = load i32, ptr %name_id, align 8
   %call = tail call i32 @evp_names_do_all(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %fn, ptr noundef %data) #13
   br label %return
@@ -1571,7 +1571,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_get0_provider(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %md, i64 112
+  %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
   ret ptr %0
 }
@@ -1579,7 +1579,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_MD_get_pkey_type(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %pkey_type = getelementptr inbounds i8, ptr %md, i64 4
+  %pkey_type = getelementptr inbounds nuw i8, ptr %md, i64 4
   %0 = load i32, ptr %pkey_type, align 4
   ret i32 %0
 }
@@ -1597,7 +1597,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %block_size = getelementptr inbounds i8, ptr %md, i64 72
+  %block_size = getelementptr inbounds nuw i8, ptr %md, i64 72
   %0 = load i32, ptr %block_size, align 8
   br label %return
 
@@ -1619,7 +1619,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %md_size = getelementptr inbounds i8, ptr %md, i64 8
+  %md_size = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %md_size, align 8
   br label %return
 
@@ -1631,7 +1631,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @EVP_MD_get_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %md, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -1645,9 +1645,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   store i32 %md_type, ptr %call, align 8
-  %pkey_type1 = getelementptr inbounds i8, ptr %call, i64 4
+  %pkey_type1 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 %pkey_type, ptr %pkey_type1, align 4
-  %origin = getelementptr inbounds i8, ptr %call, i64 24
+  %origin = getelementptr inbounds nuw i8, ptr %call, i64 24
   store i32 2, ptr %origin, align 8
   br label %if.end
 
@@ -1660,14 +1660,14 @@ declare ptr @evp_md_new() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @EVP_MD_meth_dup(ptr nocapture noundef readonly %md) local_unnamed_addr #0 {
 entry:
-  %prov = getelementptr inbounds i8, ptr %md, i64 112
+  %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %0 = load ptr, ptr %prov, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %md, align 8
-  %pkey_type = getelementptr inbounds i8, ptr %md, i64 4
+  %pkey_type = getelementptr inbounds nuw i8, ptr %md, i64 4
   %2 = load i32, ptr %pkey_type, align 4
   %call.i = tail call ptr @evp_md_new() #13
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -1675,11 +1675,11 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store i32 %1, ptr %call.i, align 8
-  %pkey_type1.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %pkey_type1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   store i32 %2, ptr %pkey_type1.i, align 4
-  %origin.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %origin.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i32 2, ptr %origin.i, align 8
-  %refcnt3 = getelementptr inbounds i8, ptr %call.i, i64 120
+  %refcnt3 = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   %refcnt.sroa.0.0.copyload = load i32, ptr %refcnt3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %call.i, ptr noundef nonnull align 8 dereferenceable(240) %md, i64 240, i1 false)
   store i32 %refcnt.sroa.0.0.copyload, ptr %refcnt3, align 8
@@ -1694,10 +1694,10 @@ return:                                           ; preds = %if.end, %if.then2, 
 ; Function Attrs: nounwind uwtable
 define void @evp_md_free_int(ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %type_name = getelementptr inbounds i8, ptr %md, i64 96
+  %type_name = getelementptr inbounds nuw i8, ptr %md, i64 96
   %0 = load ptr, ptr %type_name, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef 866) #13
-  %prov = getelementptr inbounds i8, ptr %md, i64 112
+  %prov = getelementptr inbounds nuw i8, ptr %md, i64 112
   %1 = load ptr, ptr %prov, align 8
   tail call void @ossl_provider_free(ptr noundef %1) #13
   tail call void @CRYPTO_free(ptr noundef %md, ptr noundef nonnull @.str.1, i32 noundef 869) #13
@@ -1713,16 +1713,16 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %origin = getelementptr inbounds i8, ptr %md, i64 24
+  %origin = getelementptr inbounds nuw i8, ptr %md, i64 24
   %0 = load i32, ptr %origin, align 8
   %cmp1.not = icmp eq i32 %0, 2
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %type_name.i = getelementptr inbounds i8, ptr %md, i64 96
+  %type_name.i = getelementptr inbounds nuw i8, ptr %md, i64 96
   %1 = load ptr, ptr %type_name.i, align 8
   tail call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef 866) #13
-  %prov.i = getelementptr inbounds i8, ptr %md, i64 112
+  %prov.i = getelementptr inbounds nuw i8, ptr %md, i64 112
   %2 = load ptr, ptr %prov.i, align 8
   tail call void @ossl_provider_free(ptr noundef %2) #13
   tail call void @CRYPTO_free(ptr noundef nonnull %md, ptr noundef nonnull @.str.1, i32 noundef 869) #13
@@ -1735,7 +1735,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_input_blocksize(ptr nocapture noundef %md, i32 noundef %blocksize) local_unnamed_addr #7 {
 entry:
-  %block_size = getelementptr inbounds i8, ptr %md, i64 72
+  %block_size = getelementptr inbounds nuw i8, ptr %md, i64 72
   %0 = load i32, ptr %block_size, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -1752,7 +1752,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_result_size(ptr nocapture noundef %md, i32 noundef %resultsize) local_unnamed_addr #7 {
 entry:
-  %md_size = getelementptr inbounds i8, ptr %md, i64 8
+  %md_size = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %md_size, align 8
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -1769,7 +1769,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_app_datasize(ptr nocapture noundef %md, i32 noundef %datasize) local_unnamed_addr #7 {
 entry:
-  %ctx_size = getelementptr inbounds i8, ptr %md, i64 76
+  %ctx_size = getelementptr inbounds nuw i8, ptr %md, i64 76
   %0 = load i32, ptr %ctx_size, align 4
   %cmp.not = icmp eq i32 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -1786,7 +1786,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_flags(ptr nocapture noundef %md, i64 noundef %flags) local_unnamed_addr #7 {
 entry:
-  %flags1 = getelementptr inbounds i8, ptr %md, i64 16
+  %flags1 = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load i64, ptr %flags1, align 8
   %cmp.not = icmp eq i64 %0, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -1803,7 +1803,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_init(ptr nocapture noundef %md, ptr noundef %init) local_unnamed_addr #7 {
 entry:
-  %init1 = getelementptr inbounds i8, ptr %md, i64 32
+  %init1 = getelementptr inbounds nuw i8, ptr %md, i64 32
   %0 = load ptr, ptr %init1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1820,7 +1820,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_update(ptr nocapture noundef %md, ptr noundef %update) local_unnamed_addr #7 {
 entry:
-  %update1 = getelementptr inbounds i8, ptr %md, i64 40
+  %update1 = getelementptr inbounds nuw i8, ptr %md, i64 40
   %0 = load ptr, ptr %update1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1837,7 +1837,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_final(ptr nocapture noundef %md, ptr noundef %final) local_unnamed_addr #7 {
 entry:
-  %final1 = getelementptr inbounds i8, ptr %md, i64 48
+  %final1 = getelementptr inbounds nuw i8, ptr %md, i64 48
   %0 = load ptr, ptr %final1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1854,7 +1854,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_copy(ptr nocapture noundef %md, ptr noundef %copy) local_unnamed_addr #7 {
 entry:
-  %copy1 = getelementptr inbounds i8, ptr %md, i64 56
+  %copy1 = getelementptr inbounds nuw i8, ptr %md, i64 56
   %0 = load ptr, ptr %copy1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1871,7 +1871,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_cleanup(ptr nocapture noundef %md, ptr noundef %cleanup) local_unnamed_addr #7 {
 entry:
-  %cleanup1 = getelementptr inbounds i8, ptr %md, i64 64
+  %cleanup1 = getelementptr inbounds nuw i8, ptr %md, i64 64
   %0 = load ptr, ptr %cleanup1, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1888,7 +1888,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 0, 2) i32 @EVP_MD_meth_set_ctrl(ptr nocapture noundef %md, ptr noundef %ctrl) local_unnamed_addr #7 {
 entry:
-  %md_ctrl = getelementptr inbounds i8, ptr %md, i64 80
+  %md_ctrl = getelementptr inbounds nuw i8, ptr %md, i64 80
   %0 = load ptr, ptr %md_ctrl, align 8
   %cmp.not = icmp eq ptr %0, null
   br i1 %cmp.not, label %if.end, label %return
@@ -1905,7 +1905,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_MD_meth_get_input_blocksize(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %block_size = getelementptr inbounds i8, ptr %md, i64 72
+  %block_size = getelementptr inbounds nuw i8, ptr %md, i64 72
   %0 = load i32, ptr %block_size, align 8
   ret i32 %0
 }
@@ -1913,7 +1913,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_MD_meth_get_result_size(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %md_size = getelementptr inbounds i8, ptr %md, i64 8
+  %md_size = getelementptr inbounds nuw i8, ptr %md, i64 8
   %0 = load i32, ptr %md_size, align 8
   ret i32 %0
 }
@@ -1921,7 +1921,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_MD_meth_get_app_datasize(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %ctx_size = getelementptr inbounds i8, ptr %md, i64 76
+  %ctx_size = getelementptr inbounds nuw i8, ptr %md, i64 76
   %0 = load i32, ptr %ctx_size, align 4
   ret i32 %0
 }
@@ -1929,7 +1929,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @EVP_MD_meth_get_flags(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %md, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %md, i64 16
   %0 = load i64, ptr %flags, align 8
   ret i64 %0
 }
@@ -1937,7 +1937,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_meth_get_init(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %init = getelementptr inbounds i8, ptr %md, i64 32
+  %init = getelementptr inbounds nuw i8, ptr %md, i64 32
   %0 = load ptr, ptr %init, align 8
   ret ptr %0
 }
@@ -1945,7 +1945,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_meth_get_update(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %update = getelementptr inbounds i8, ptr %md, i64 40
+  %update = getelementptr inbounds nuw i8, ptr %md, i64 40
   %0 = load ptr, ptr %update, align 8
   ret ptr %0
 }
@@ -1953,7 +1953,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_meth_get_final(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %final = getelementptr inbounds i8, ptr %md, i64 48
+  %final = getelementptr inbounds nuw i8, ptr %md, i64 48
   %0 = load ptr, ptr %final, align 8
   ret ptr %0
 }
@@ -1961,7 +1961,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_meth_get_copy(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %copy = getelementptr inbounds i8, ptr %md, i64 56
+  %copy = getelementptr inbounds nuw i8, ptr %md, i64 56
   %0 = load ptr, ptr %copy, align 8
   ret ptr %0
 }
@@ -1969,7 +1969,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_meth_get_cleanup(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %cleanup = getelementptr inbounds i8, ptr %md, i64 64
+  %cleanup = getelementptr inbounds nuw i8, ptr %md, i64 64
   %0 = load ptr, ptr %cleanup, align 8
   ret ptr %0
 }
@@ -1977,7 +1977,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_meth_get_ctrl(ptr nocapture noundef readonly %md) local_unnamed_addr #3 {
 entry:
-  %md_ctrl = getelementptr inbounds i8, ptr %md, i64 80
+  %md_ctrl = getelementptr inbounds nuw i8, ptr %md, i64 80
   %0 = load ptr, ptr %md_ctrl, align 8
   ret ptr %0
 }
@@ -2039,7 +2039,7 @@ declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_CTX_get_pkey_ctx(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %pctx = getelementptr inbounds i8, ptr %ctx, i64 40
+  %pctx = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %pctx, align 8
   ret ptr %0
 }
@@ -2047,20 +2047,20 @@ entry:
 ; Function Attrs: nounwind uwtable
 define void @EVP_MD_CTX_set_pkey_ctx(ptr nocapture noundef %ctx, ptr noundef %pctx) local_unnamed_addr #0 {
 entry:
-  %flags1.i = getelementptr inbounds i8, ptr %ctx, i64 24
+  %flags1.i = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1.i, align 8
   %conv2.i8 = and i64 %0, 1024
   %tobool.not = icmp eq i64 %conv2.i8, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %pctx1 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %pctx1 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %1 = load ptr, ptr %pctx1, align 8
   tail call void @EVP_PKEY_CTX_free(ptr noundef %1) #13
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %pctx2 = getelementptr inbounds i8, ptr %ctx, i64 40
+  %pctx2 = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   store ptr %pctx, ptr %pctx2, align 8
   %cmp.not = icmp eq ptr %pctx, null
   %2 = load i64, ptr %flags1.i, align 8
@@ -2074,7 +2074,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_MD_CTX_test_flags(ptr nocapture noundef readonly %ctx, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1, align 8
   %1 = trunc i64 %0 to i32
   %conv2 = and i32 %flags, %1
@@ -2087,7 +2087,7 @@ declare void @EVP_PKEY_CTX_free(ptr noundef) local_unnamed_addr #1
 define void @EVP_MD_CTX_set_flags(ptr nocapture noundef %ctx, i32 noundef %flags) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %flags to i64
-  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1, align 8
   %or = or i64 %0, %conv
   store i64 %or, ptr %flags1, align 8
@@ -2099,7 +2099,7 @@ define void @EVP_MD_CTX_clear_flags(ptr nocapture noundef %ctx, i32 noundef %fla
 entry:
   %not = xor i32 %flags, -1
   %conv = sext i32 %not to i64
-  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load i64, ptr %flags1, align 8
   %and = and i64 %0, %conv
   store i64 %and, ptr %flags1, align 8
@@ -2109,7 +2109,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_CTX_get0_md_data(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %md_data = getelementptr inbounds i8, ptr %ctx, i64 32
+  %md_data = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %md_data, align 8
   ret ptr %0
 }
@@ -2117,7 +2117,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @EVP_MD_CTX_update_fn(ptr nocapture noundef readonly %ctx) local_unnamed_addr #3 {
 entry:
-  %update = getelementptr inbounds i8, ptr %ctx, i64 48
+  %update = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %update, align 8
   ret ptr %0
 }
@@ -2125,7 +2125,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @EVP_MD_CTX_set_update_fn(ptr nocapture noundef writeonly initializes((48, 56)) %ctx, ptr noundef %update) local_unnamed_addr #6 {
 entry:
-  %update1 = getelementptr inbounds i8, ptr %ctx, i64 48
+  %update1 = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store ptr %update, ptr %update1, align 8
   ret void
 }
@@ -2136,7 +2136,7 @@ entry:
   %enable.addr.i = alloca i32, align 4
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i = alloca %struct.ossl_param_st, align 8
-  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 112
+  %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   %0 = load i64, ptr %flags1, align 8
   %conv2 = sext i32 %flags to i64
   %or = or i64 %0, %conv2
@@ -2152,7 +2152,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   store i32 1, ptr %enable.addr.i, align 4
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.26, ptr noundef nonnull %enable.addr.i) #13
-  %1 = getelementptr inbounds i8, ptr %params.i, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %params.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %call.i = call i32 @EVP_CIPHER_CTX_set_params(ptr noundef nonnull %ctx, ptr noundef nonnull %params.i) #13
@@ -2171,7 +2171,7 @@ entry:
   %enable.addr.i = alloca i32, align 4
   %params.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i = alloca %struct.ossl_param_st, align 8
-  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 112
+  %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   %0 = load i64, ptr %flags1, align 8
   %not = xor i32 %flags, -1
   %conv2 = sext i32 %not to i64
@@ -2189,7 +2189,7 @@ if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   store i32 0, ptr %enable.addr.i, align 4
   call void @OSSL_PARAM_construct_uint(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i, ptr noundef nonnull @.str.26, ptr noundef nonnull %enable.addr.i) #13
-  %1 = getelementptr inbounds i8, ptr %params.i, i64 40
+  %1 = getelementptr inbounds nuw i8, ptr %params.i, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %params.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   %call.i = call i32 @EVP_CIPHER_CTX_set_params(ptr noundef nonnull %ctx, ptr noundef nonnull %params.i) #13
@@ -2205,7 +2205,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @EVP_CIPHER_CTX_test_flags(ptr nocapture noundef readonly %ctx, i32 noundef %flags) local_unnamed_addr #3 {
 entry:
-  %flags1 = getelementptr inbounds i8, ptr %ctx, i64 112
+  %flags1 = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   %0 = load i64, ptr %flags1, align 8
   %1 = trunc i64 %0 to i32
   %conv2 = and i32 %flags, %1
@@ -2217,7 +2217,7 @@ define i32 @EVP_PKEY_CTX_set_group_name(ptr noundef %ctx, ptr noundef %name) loc
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %0 = getelementptr inbounds i8, ptr %params, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2259,7 +2259,7 @@ define range(i32 -2, 2) i32 @EVP_PKEY_CTX_get_group_name(ptr noundef %ctx, ptr n
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %tmp = alloca %struct.ossl_param_st, align 8
-  %0 = getelementptr inbounds i8, ptr %params, i64 32
+  %0 = getelementptr inbounds nuw i8, ptr %params, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %0, i8 0, i64 48, i1 false)
   %cmp = icmp eq ptr %ctx, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2317,7 +2317,7 @@ if.then:                                          ; preds = %entry
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %if.then
-  %0 = getelementptr inbounds i8, ptr %args, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %reg_save_area = load ptr, ptr %0, align 16
   %1 = zext nneg i32 %gp_offset to i64
   %2 = getelementptr i8, ptr %reg_save_area, i64 %1
@@ -2326,7 +2326,7 @@ vaarg.in_reg:                                     ; preds = %if.then
   br label %vaarg.end
 
 vaarg.in_mem:                                     ; preds = %if.then
-  %overflow_arg_area_p = getelementptr inbounds i8, ptr %args, i64 8
+  %overflow_arg_area_p = getelementptr inbounds nuw i8, ptr %args, i64 8
   %overflow_arg_area = load ptr, ptr %overflow_arg_area_p, align 8
   %overflow_arg_area.next = getelementptr i8, ptr %overflow_arg_area, i64 8
   store ptr %overflow_arg_area.next, ptr %overflow_arg_area_p, align 8
@@ -2350,7 +2350,7 @@ if.then4:                                         ; preds = %if.else
   br i1 %fits_in_gp8, label %vaarg.in_reg9, label %vaarg.in_mem11
 
 vaarg.in_reg9:                                    ; preds = %if.then4
-  %5 = getelementptr inbounds i8, ptr %args, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %reg_save_area10 = load ptr, ptr %5, align 16
   %6 = zext nneg i32 %gp_offset7 to i64
   %7 = getelementptr i8, ptr %reg_save_area10, i64 %6
@@ -2359,7 +2359,7 @@ vaarg.in_reg9:                                    ; preds = %if.then4
   br label %vaarg.end15
 
 vaarg.in_mem11:                                   ; preds = %if.then4
-  %overflow_arg_area_p12 = getelementptr inbounds i8, ptr %args, i64 8
+  %overflow_arg_area_p12 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %overflow_arg_area13 = load ptr, ptr %overflow_arg_area_p12, align 8
   %overflow_arg_area.next14 = getelementptr i8, ptr %overflow_arg_area13, i64 8
   store ptr %overflow_arg_area.next14, ptr %overflow_arg_area_p12, align 8

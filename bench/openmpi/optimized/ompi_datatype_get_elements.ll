@@ -27,14 +27,14 @@ define range(i32 -18, 1) i32 @ompi_datatype_get_elements(ptr noundef %0, i64 nou
 
 12:                                               ; preds = %11
   %13 = tail call i32 @opal_datatype_compute_ptypes(ptr noundef nonnull %0) #2
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %15 = load ptr, ptr %14, align 8
   br label %16
 
 16:                                               ; preds = %12, %16
   %indvars.iv = phi i64 [ 4, %12 ], [ %indvars.iv.next, %16 ]
   %.02134 = phi i64 [ 0, %12 ], [ %19, %16 ]
-  %17 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %.02134
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

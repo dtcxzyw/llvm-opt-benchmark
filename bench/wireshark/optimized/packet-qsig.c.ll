@@ -3631,7 +3631,7 @@ define internal i32 @dissect_qsig_PSS1InformationElement_U(i1 noundef zeroext %0
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = call i32 @dissect_ber_octet_string(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #4
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @ett_cnq_PSS1InformationElement, align 4
   %12 = call ptr @proto_item_add_subtree(ptr noundef %10, i32 noundef %11) #4
@@ -3649,7 +3649,7 @@ define internal i32 @dissect_qsig_PSS1InformationElement_U(i1 noundef zeroext %0
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @call_dissector(ptr noundef nonnull %17, ptr noundef %20, ptr noundef %22, ptr noundef %12) #4
   br label %24
@@ -3725,13 +3725,13 @@ define internal i32 @dissect_qsig_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %12 = load i32, ptr %11, align 8
   %.not68 = icmp eq i32 %12, 1
   br i1 %.not68, label %13, label %get_op.exit.thread
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %8, i64 84
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 84
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %get_op.exit.thread [
     i32 0, label %16
@@ -3739,7 +3739,7 @@ define internal i32 @dissect_qsig_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   ]
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %8, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %18 = load i32, ptr %17, align 8
   br label %21
 
@@ -3757,7 +3757,7 @@ define internal i32 @dissect_qsig_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %25, label %get_op.exit, label %19
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %8, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @g_strrstr(ptr noundef %28, ptr noundef nonnull @.str.1821) #4
   %.not69 = icmp eq ptr %29, null
@@ -3812,10 +3812,10 @@ get_service.exit:                                 ; preds = %get_op.exit, %43
 
 55:                                               ; preds = %get_service.exit
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.1822, ptr noundef nonnull %54) #4
-  %56 = getelementptr inbounds i8, ptr %8, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 104
   %57 = load ptr, ptr %56, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %57, ptr noundef nonnull @.str.1823, ptr noundef nonnull %54) #4
-  %58 = getelementptr inbounds i8, ptr %8, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %59 = load i32, ptr %58, align 8
   %60 = icmp sgt i32 %59, -1
   br i1 %60, label %61, label %65
@@ -3864,19 +3864,19 @@ define internal i32 @dissect_qsig_res(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not59 = icmp eq i32 %11, 2
   br i1 %.not59, label %12, label %get_op.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not60 = icmp eq i32 %14, 0
   br i1 %.not60, label %15, label %get_op.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -3918,10 +3918,10 @@ get_service.exit:                                 ; preds = %get_op.exit, %25
 
 37:                                               ; preds = %get_service.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %31, ptr noundef nonnull @.str.1822, ptr noundef nonnull %36) #4
-  %38 = getelementptr inbounds i8, ptr %7, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %39 = load ptr, ptr %38, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %39, ptr noundef nonnull @.str.1823, ptr noundef nonnull %36) #4
-  %40 = getelementptr inbounds i8, ptr %7, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, -1
   br i1 %42, label %43, label %47
@@ -3945,7 +3945,7 @@ get_service.exit:                                 ; preds = %get_op.exit, %25
   br label %52
 
 52:                                               ; preds = %51, %47
-  %53 = getelementptr inbounds i8, ptr %22, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not64 = icmp eq ptr %54, null
   br i1 %.not64, label %57, label %55
@@ -3984,19 +3984,19 @@ define internal i32 @dissect_qsig_err(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not50 = icmp eq i32 %11, 3
   br i1 %.not50, label %12, label %get_err.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not51 = icmp eq i32 %14, 0
   br i1 %.not51, label %15, label %get_err.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -4027,10 +4027,10 @@ get_err.exit:                                     ; preds = %20
 
 33:                                               ; preds = %get_err.exit
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %27, ptr noundef nonnull @.str.1822, ptr noundef nonnull %32) #4
-  %34 = getelementptr inbounds i8, ptr %7, i64 104
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %35 = load ptr, ptr %34, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.1823, ptr noundef nonnull %32) #4
-  %36 = getelementptr inbounds i8, ptr %7, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, -1
   br i1 %38, label %39, label %43
@@ -4043,7 +4043,7 @@ get_err.exit:                                     ; preds = %20
   br label %43
 
 43:                                               ; preds = %33, %39, %get_err.exit
-  %44 = getelementptr inbounds i8, ptr %22, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not54 = icmp eq ptr %45, null
   br i1 %.not54, label %48, label %46
@@ -4150,7 +4150,7 @@ define internal i32 @dissect_qsig_T_extensionArgument(i1 zeroext %0, ptr noundef
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #4
   %8 = load ptr, ptr @extension_dissector_table, align 8
   %9 = load ptr, ptr @extension_oid, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @dissector_try_string_new(ptr noundef %8, ptr noundef %9, ptr noundef %7, ptr noundef %11, ptr noundef %4, i32 noundef 0, ptr noundef null) #4
   %.not = icmp eq i32 %12, 0
@@ -4274,13 +4274,13 @@ define internal fastcc void @dissect_qsig_ie(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not5.i = icmp eq ptr %8, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %8, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = or i32 %11, 1
   store i32 %12, ptr %10, align 4
@@ -4306,13 +4306,13 @@ proto_item_set_hidden.exit:                       ; preds = %3, %6, %9
   br i1 %.not.i45, label %proto_item_set_hidden.exit47, label %28
 
 28:                                               ; preds = %proto_item_set_hidden.exit
-  %29 = getelementptr inbounds i8, ptr %27, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not5.i46 = icmp eq ptr %30, null
   br i1 %.not5.i46, label %proto_item_set_hidden.exit47, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, 1
   store i32 %34, ptr %32, align 4

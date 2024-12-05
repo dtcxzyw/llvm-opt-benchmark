@@ -23,13 +23,13 @@ if.end:                                           ; preds = %entry
   br i1 %.not.i, label %sub_1.i, label %entry.tail.thread.i
 
 sub_1.i:                                          ; preds = %if.end
-  %1 = getelementptr inbounds i8, ptr %key, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %key, i64 1
   %2 = load i8, ptr %1, align 1
   %.not34.i = icmp eq i8 %2, 101
   br i1 %.not34.i, label %entry.tail.i, label %entry.tail.thread.i
 
 entry.tail.i:                                     ; preds = %sub_1.i
-  %3 = getelementptr inbounds i8, ptr %key, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %key, i64 2
   %4 = load i8, ptr %3, align 1
   %.fr.i = freeze i8 %4
   %5 = icmp ne i8 %.fr.i, 120
@@ -39,7 +39,7 @@ entry.tail.i:                                     ; preds = %sub_1.i
 entry.tail.thread.i:                              ; preds = %entry.tail.i, %sub_1.i, %if.end
   %cmp40.i = phi i1 [ true, %if.end ], [ true, %sub_1.i ], [ %5, %entry.tail.i ]
   %6 = phi i64 [ 0, %if.end ], [ 0, %sub_1.i ], [ %spec.select41.i, %entry.tail.i ]
-  %spec.select.i = getelementptr inbounds i8, ptr %key, i64 %6
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %key, i64 %6
   %call1.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %paramdefs, ptr noundef nonnull %spec.select.i) #7
   %cmp2.not.i = icmp eq ptr %found, null
   br i1 %cmp2.not.i, label %if.end.i, label %if.then.i
@@ -55,7 +55,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry.t
   br i1 %cmp4.i, label %err, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end.i
-  %data_type.i = getelementptr inbounds i8, ptr %call1.i, i64 8
+  %data_type.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 8
   %7 = load i32, ptr %data_type.i, align 8
   switch i32 %7, label %if.end3 [
     i32 1, label %sw.bb.i
@@ -140,7 +140,7 @@ if.end35.i:                                       ; preds = %land.lhs.true31.if.
   %buf_bits.0.i = select i1 %or.cond.i, i64 %add.i, i64 %conv37.i
   %add46.i = add nsw i64 %buf_bits.0.i, 7
   %div32.i = lshr i64 %add46.i, 3
-  %data_size.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %data_size.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %14 = load i64, ptr %data_size.i, align 8
   %cmp47.not.i = icmp eq i64 %14, 0
   br i1 %cmp47.not.i, label %if.end3, label %if.then49.i
@@ -219,7 +219,7 @@ for.body.i:                                       ; preds = %land.lhs.true.i15, 
   %18 = load i8, ptr %cp.023.i, align 1
   %19 = xor i8 %18, -1
   store i8 %19, ptr %cp.023.i, align 1
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %cp.023.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %cp.023.i, i64 1
   %cmp8.not.i = icmp eq i64 %dec.i, 0
   br i1 %cmp8.not.i, label %construct_from_text.exit, label %for.body.i, !llvm.loop !4
 
@@ -244,11 +244,11 @@ if.else.i11:                                      ; preds = %sw.bb16.i
 construct_from_text.exit:                         ; preds = %for.body.i, %if.end8, %if.then2.i, %sw.bb.i12, %land.lhs.true.i15, %sw.bb13.i, %if.then18.i, %if.else.i11
   %buf_n.addr.0.i = phi i64 [ %buf_n.0, %if.then2.i ], [ %buf_n.0, %if.then18.i ], [ %buf_n.0, %if.else.i11 ], [ %dec15.i, %sw.bb13.i ], [ %buf_n.0, %land.lhs.true.i15 ], [ %buf_n.0, %sw.bb.i12 ], [ 0, %if.end8 ], [ %buf_n.0, %for.body.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %to, ptr noundef nonnull readonly align 8 dereferenceable(40) %call1.i, i64 16, i1 false)
-  %data.i = getelementptr inbounds i8, ptr %to, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %to, i64 16
   store ptr %call5, ptr %data.i, align 8
-  %data_size.i9 = getelementptr inbounds i8, ptr %to, i64 24
+  %data_size.i9 = getelementptr inbounds nuw i8, ptr %to, i64 24
   store i64 %buf_n.addr.0.i, ptr %data_size.i9, align 8
-  %return_size.i = getelementptr inbounds i8, ptr %to, i64 32
+  %return_size.i = getelementptr inbounds nuw i8, ptr %to, i64 32
   store i64 -1, ptr %return_size.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %l.i)
   %20 = load ptr, ptr %tmpbn, align 8

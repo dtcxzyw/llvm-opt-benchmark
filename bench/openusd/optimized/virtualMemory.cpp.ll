@@ -116,7 +116,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L15RoundToPageAddrIvEEPT_S2_.exit: ; preds 
   %19 = add i64 %1, %15
   %20 = sub i64 %19, %17
   %21 = zext i32 %2 to i64
-  %22 = getelementptr inbounds [4 x i32], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__23ArchSetMemoryProtectionEPKvmNS_20ArchMemoryProtectionE.protXlat, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__23ArchSetMemoryProtectionEPKvmNS_20ArchMemoryProtectionE.protXlat, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = tail call i32 @mprotect(ptr noundef %18, i64 noundef %20, i32 noundef %23) #5
   %25 = icmp eq i32 %24, 0

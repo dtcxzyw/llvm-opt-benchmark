@@ -27,7 +27,7 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph49.i:                                       ; preds = %.preheader43.split.us.i
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not38.us.i = icmp eq ptr %10, null
   br i1 %.not38.us.i, label %.preheader41.us.i, label %11
@@ -62,7 +62,7 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph62.i:                                       ; preds = %.split.us.i
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not39.us.i = icmp eq ptr %25, null
   br i1 %.not39.us.i, label %.preheader.us.i, label %26
@@ -74,7 +74,7 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 .preheader.us.i:                                  ; preds = %.lr.ph62.i, %.preheader.us.i
   %.153.us.i = phi i64 [ %35, %.preheader.us.i ], [ 0, %.lr.ph62.i ]
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 %.153.us.i
   %32 = load i8, ptr %31, align 1
@@ -89,7 +89,7 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph58.i:                                       ; preds = %.split.i
   %36 = load ptr, ptr %21, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   %.not39.i = icmp eq ptr %38, null
   br i1 %.not39.i, label %syslog_default_write.exit, label %39
@@ -100,7 +100,7 @@ define i64 @syslog_write(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.preheader43.split.i
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not38.i = icmp eq ptr %43, null
   br i1 %.not38.i, label %syslog_default_write.exit, label %44

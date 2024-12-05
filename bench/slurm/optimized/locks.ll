@@ -59,7 +59,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 11:                                               ; preds = %1, %7, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   switch i32 %13, label %22 [
     i32 1, label %14
@@ -89,7 +89,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 22:                                               ; preds = %11, %18, %14
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i32, ptr %23, align 8
   switch i32 %24, label %33 [
     i32 1, label %25
@@ -119,7 +119,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 33:                                               ; preds = %22, %29, %25
-  %34 = getelementptr inbounds i8, ptr %0, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %35 = load i32, ptr %34, align 4
   switch i32 %35, label %44 [
     i32 1, label %36
@@ -149,7 +149,7 @@ define dso_local void @lock_slurmctld(ptr nocapture noundef readonly byval(%stru
   unreachable
 
 44:                                               ; preds = %33, %40, %36
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %55 [
     i32 1, label %47
@@ -196,7 +196,7 @@ declare i32 @pthread_rwlock_wrlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%struct.slurmctld_lock_t) align 8 %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %8, label %4
@@ -213,7 +213,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   unreachable
 
 8:                                                ; preds = %4, %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %.not15 = icmp eq i32 %10, 0
   br i1 %.not15, label %15, label %11
@@ -230,7 +230,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   unreachable
 
 15:                                               ; preds = %11, %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %.not17 = icmp eq i32 %17, 0
   br i1 %.not17, label %22, label %18
@@ -247,7 +247,7 @@ define dso_local void @unlock_slurmctld(ptr nocapture noundef readonly byval(%st
   unreachable
 
 22:                                               ; preds = %18, %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4
   %.not19 = icmp eq i32 %24, 0
   br i1 %.not19, label %29, label %25
@@ -332,7 +332,7 @@ define dso_local i32 @report_locks_set() local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @_report_lock_set(ptr nocapture noundef nonnull writeonly %0, i32 noundef range(i32 0, 5) %1) unnamed_addr #0 {
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [5 x %union.pthread_rwlock_t], ptr @slurmctld_locks, i64 0, i64 %3
   %5 = tail call i32 @pthread_rwlock_tryrdlock(ptr noundef nonnull %4) #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %.sink.split

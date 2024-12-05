@@ -41,7 +41,7 @@ define dso_local void @_ZN4llvm27LowerWidenableConditionPass3runERNS_8FunctionER
   br i1 %15, label %.sink.split6, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %17, i64 noundef 8) #5
   %.sroa.028.035.i = load ptr, ptr %13, align 8
   %.not3236.i = icmp eq ptr %.sroa.028.035.i, null
@@ -106,7 +106,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8CallInstELb1EE9push_backES2_.exit.i: ; pr
   %44 = call noundef ptr @_ZN4llvm11ConstantInt7getTrueERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %43) #5
   call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef %44) #5
   %45 = call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %42) #5
-  %46 = getelementptr inbounds i8, ptr %.02239.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 8
   %.not25.i = icmp eq ptr %46, %41
   br i1 %.not25.i, label %.loopexit.i, label %.lr.ph41.i
 
@@ -139,7 +139,7 @@ _ZL23lowerWidenableConditionRN4llvm8FunctionE.exit.sink.split: ; preds = %.loope
 
 _ZL23lowerWidenableConditionRN4llvm8FunctionE.exit: ; preds = %_ZL23lowerWidenableConditionRN4llvm8FunctionE.exit.sink.split, %.loopexit.i.thread, %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5)
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %56, i8 0, i64 72, i1 false), !alias.scope !4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %57, ptr %0, align 8, !alias.scope !4

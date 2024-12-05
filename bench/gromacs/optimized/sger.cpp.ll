@@ -59,7 +59,7 @@ define void @sger_(ptr nocapture noundef readonly %0, ptr nocapture noundef read
 
 34:                                               ; preds = %.lr.ph.us85, %34
   %indvars.iv105 = phi i64 [ 0, %.lr.ph.us85 ], [ %indvars.iv.next106, %34 ]
-  %35 = getelementptr inbounds float, ptr %3, i64 %indvars.iv105
+  %35 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv105
   %36 = load float, ptr %35, align 4
   %gep121 = getelementptr float, ptr %invariant.gep120, i64 %indvars.iv105
   %37 = load float, ptr %gep121, align 4

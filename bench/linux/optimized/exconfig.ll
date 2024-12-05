@@ -26,19 +26,19 @@ define dso_local i32 @acpi_ex_load_table_op(ptr noundef %0, ptr nocapture nounde
 
 8:                                                ; preds = %2
   store i32 0, ptr %5, align 4, !annotation !5
-  %9 = getelementptr inbounds i8, ptr %0, i64 872
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 872
   store ptr %6, ptr %1, align 8
   tail call void @acpi_ex_exit_interpreter() #7
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %0, i64 880
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %0, i64 888
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @acpi_tb_find_table(ptr noundef %12, ptr noundef %16, ptr noundef %20, ptr noundef nonnull %5) #7
   call void @acpi_ex_enter_interpreter() #7
@@ -51,21 +51,21 @@ define dso_local i32 @acpi_ex_load_table_op(ptr noundef %0, ptr nocapture nounde
   br label %.thread
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %0, i64 1080
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr @acpi_gbl_root_node, align 8
   store ptr %28, ptr %3, align 8
   %29 = getelementptr i8, ptr %0, i64 896
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %23
-  %35 = getelementptr inbounds i8, ptr %30, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @acpi_ns_get_node_unlocked(ptr noundef %27, ptr noundef %36, i32 noundef 1, ptr noundef nonnull %3) #7
   %38 = icmp eq i32 %37, 0
@@ -74,13 +74,13 @@ define dso_local i32 @acpi_ex_load_table_op(ptr noundef %0, ptr nocapture nounde
 39:                                               ; preds = %34, %23
   %40 = getelementptr i8, ptr %0, i64 904
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %55, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %41, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %49 [
@@ -115,13 +115,13 @@ define dso_local i32 @acpi_ex_load_table_op(ptr noundef %0, ptr nocapture nounde
   br i1 %63, label %.thread, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %62, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %66 = load i8, ptr %65, align 4
   %67 = or i8 %66, 4
   store i8 %67, ptr %65, align 4
-  %68 = getelementptr inbounds i8, ptr %62, i64 13
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 13
   store i8 4, ptr %68, align 1
-  %69 = getelementptr inbounds i8, ptr %62, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %62, i64 56
   store i32 %61, ptr %69, align 8
   call void @acpi_ex_exit_interpreter() #7
   %70 = call i32 @acpi_ns_initialize_objects() #7
@@ -144,7 +144,7 @@ define dso_local i32 @acpi_ex_load_table_op(ptr noundef %0, ptr nocapture nounde
 
 80:                                               ; preds = %73, %64
   call void @acpi_ut_remove_reference(ptr noundef nonnull %62) #7
-  %81 = getelementptr inbounds i8, ptr %6, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 -1, ptr %81, align 8
   br label %.thread
 
@@ -187,13 +187,13 @@ define internal fastcc noundef range(i32 0, 5) i32 @acpi_ex_add_table(i32 nounde
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = load i8, ptr %6, align 4
   %8 = or i8 %7, 4
   store i8 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 13
   store i8 4, ptr %9, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %0, ptr %10, align 8
   store ptr %3, ptr %1, align 8
   br label %11
@@ -217,26 +217,26 @@ define dso_local i32 @acpi_ex_unload_table(ptr noundef %0) local_unnamed_addr #0
   br i1 %2, label %24, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 14
   br i1 %6, label %7, label %24
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 9
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 20
   br i1 %10, label %11, label %24
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i8, ptr %12, align 4
   %14 = and i8 %13, 4
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %24, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 8
   tail call void @acpi_ex_exit_interpreter() #7
   %19 = tail call i32 @acpi_tb_unload_table(i32 noundef %18) #7
@@ -270,7 +270,7 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 15
   br i1 %11, label %12, label %14
@@ -281,7 +281,7 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 14:                                               ; preds = %12, %3
   %15 = phi ptr [ %13, %12 ], [ %1, %3 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 9
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 9
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 1
   br i1 %18, label %21, label %19
@@ -294,9 +294,9 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
 21:                                               ; preds = %14
   store ptr null, ptr %7, align 8, !annotation !5
   store i32 0, ptr %8, align 4, !annotation !5
-  %22 = getelementptr inbounds i8, ptr %15, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 9
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %24 = load i8, ptr %23, align 1
   switch i8 %24, label %104 [
     i8 10, label %25
@@ -304,13 +304,13 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
   ]
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 13
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 0
   br i1 %28, label %29, label %104
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = and i8 %31, 4
   %33 = icmp eq i8 %32, 0
@@ -363,7 +363,7 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 58:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
-  %59 = getelementptr inbounds i8, ptr %43, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %60 = load i32, ptr %59, align 4
   call void @kfree(ptr noundef nonnull %43) #7
   %61 = icmp ult i32 %60, 36
@@ -385,15 +385,15 @@ define dso_local i32 @acpi_ex_load_op(ptr noundef %0, ptr noundef %1, ptr nocapt
   br label %104
 
 70:                                               ; preds = %21
-  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load i32, ptr %71, align 8
   %73 = icmp ult i32 %72, 36
   br i1 %73, label %104, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 1
   %79 = icmp ugt i32 %78, %72
   br i1 %79, label %104, label %80

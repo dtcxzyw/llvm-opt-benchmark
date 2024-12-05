@@ -10,9 +10,9 @@ define range(i32 -1, 1) i32 @pthread_completejoin(i32 noundef %0, ptr noundef %1
   %5 = tail call ptr @nxsched_get_tcb(i32 noundef %0) #6
   %.not = icmp ne ptr %5, null
   tail call void @llvm.assume(i1 %.not)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 16
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = tail call i32 @nxmutex_lock(ptr noundef nonnull %8) #6
   %10 = call i32 @pthread_findjoininfo(ptr noundef %7, i32 noundef %0, ptr noundef nonnull %4) #6
   %.not17 = icmp eq i32 %10, 0
@@ -20,7 +20,7 @@ define range(i32 -1, 1) i32 @pthread_completejoin(i32 noundef %0, ptr noundef %1
 
 11:                                               ; preds = %2
   %12 = call i32 @nxmutex_unlock(ptr noundef nonnull %8) #6
-  %13 = getelementptr inbounds i8, ptr %5, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %14 = load i16, ptr %13, align 16
   %15 = and i16 %14, 4099
   %narrow = icmp eq i16 %15, 1
@@ -29,14 +29,14 @@ define range(i32 -1, 1) i32 @pthread_completejoin(i32 noundef %0, ptr noundef %1
 
 16:                                               ; preds = %2
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 10
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 10
   store i8 1, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %17, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 80
   store ptr %1, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 1032
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1032
   store i8 1, ptr %20, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = call i32 @nxsem_get_value(ptr noundef nonnull %21, ptr noundef nonnull %3) #6
   %23 = icmp eq i32 %22, 0
   %24 = load i32, ptr %3, align 4
@@ -47,13 +47,13 @@ define range(i32 -1, 1) i32 @pthread_completejoin(i32 noundef %0, ptr noundef %1
 pthread_notifywaiters.exit.thread:                ; preds = %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 9
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 9
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %44, label %64
 
 30:                                               ; preds = %16
-  %31 = getelementptr inbounds i8, ptr %17, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %32 = add nsw i32 %24, 1
   %33 = call i32 @nxsem_init(ptr noundef nonnull %31, i32 noundef 0, i32 noundef %32) #6
   br label %34
@@ -77,9 +77,9 @@ pthread_notifywaiters.exit:                       ; preds = %34, %37
   br label %64
 
 44:                                               ; preds = %pthread_notifywaiters.exit.thread
-  %45 = getelementptr inbounds i8, ptr %26, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %7, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 88
   br label %48
 
 48:                                               ; preds = %49, %44
@@ -90,7 +90,7 @@ pthread_notifywaiters.exit:                       ; preds = %34, %37
   br i1 %.not.i.i, label %pthread_destroyjoin.exit, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
   %51 = load i32, ptr %50, align 4
   %.not21.i.i = icmp eq i32 %51, %46
   br i1 %.not21.i.i, label %.critedge.i.i, label %48, !llvm.loop !8
@@ -116,7 +116,7 @@ pthread_notifywaiters.exit:                       ; preds = %34, %37
   br i1 %.not23.i.i, label %57, label %59
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %7, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store ptr %.018.i.i, ptr %58, align 8
   store ptr null, ptr %.018.i.i, align 8
   br label %pthread_destroyjoin.exit
@@ -126,9 +126,9 @@ pthread_notifywaiters.exit:                       ; preds = %34, %37
   br label %pthread_destroyjoin.exit
 
 pthread_destroyjoin.exit:                         ; preds = %48, %54, %55, %57, %59
-  %60 = getelementptr inbounds i8, ptr %26, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %61 = call i32 @nxsem_destroy(ptr noundef nonnull %60) #6
-  %62 = getelementptr inbounds i8, ptr %26, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %63 = call i32 @nxsem_destroy(ptr noundef nonnull %62) #6
   call void @free(ptr noundef %26)
   br label %64
@@ -152,9 +152,9 @@ declare i32 @nxmutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @pthread_destroyjoin(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %6
 
 6:                                                ; preds = %7, %2
@@ -165,7 +165,7 @@ define void @pthread_destroyjoin(ptr nocapture noundef %0, ptr noundef %1) local
   br i1 %.not.i, label %pthread_removejoininfo.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %.0.i, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %9 = load i32, ptr %8, align 4
   %.not21.i = icmp eq i32 %9, %4
   br i1 %.not21.i, label %.critedge.i, label %6, !llvm.loop !8
@@ -191,7 +191,7 @@ define void @pthread_destroyjoin(ptr nocapture noundef %0, ptr noundef %1) local
   br i1 %.not23.i, label %15, label %17
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.018.i, ptr %16, align 8
   store ptr null, ptr %.018.i, align 8
   br label %pthread_removejoininfo.exit
@@ -201,9 +201,9 @@ define void @pthread_destroyjoin(ptr nocapture noundef %0, ptr noundef %1) local
   br label %pthread_removejoininfo.exit
 
 pthread_removejoininfo.exit:                      ; preds = %6, %12, %13, %15, %17
-  %18 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %19 = tail call i32 @nxsem_destroy(ptr noundef nonnull %18) #6
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = tail call i32 @nxsem_destroy(ptr noundef nonnull %20) #6
   tail call void @free(ptr noundef %1)
   ret void

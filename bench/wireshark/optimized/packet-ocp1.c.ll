@@ -749,7 +749,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @oca_handle_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = load i32, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, %2
   ret i32 %5
@@ -763,9 +763,9 @@ define internal range(i32 0, 2) i32 @oca_handle_equal(ptr nocapture noundef read
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %13, label %12
@@ -816,7 +816,7 @@ define internal i32 @dissect_ocp1(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %10 = alloca ptr, align 8
   %11 = alloca %struct.oca_request_hash_key, align 8
   %12 = alloca ptr, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.156) #6
   %15 = load ptr, ptr %13, align 8
@@ -830,9 +830,9 @@ define internal i32 @dissect_ocp1(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not115, label %.thread164, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %7, i64 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 20
-  %23 = getelementptr inbounds i8, ptr %11, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 4
   br label %24
 
 24:                                               ; preds = %.lr.ph, %304
@@ -961,13 +961,13 @@ define internal i32 @dissect_ocp1(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not.i.i.i, label %proto_item_set_generated.exit.i.i, label %83
 
 83:                                               ; preds = %71
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i.i.i = icmp eq ptr %85, null
   br i1 %.not5.i.i.i, label %proto_item_set_generated.exit.i.i, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 2
   store i32 %89, ptr %87, align 4
@@ -1004,7 +1004,7 @@ proto_item_set_generated.exit.i.i:                ; preds = %86, %83, %71
 
 114:                                              ; preds = %107, %proto_item_set_generated.exit.i.i
   %115 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
-  %116 = getelementptr inbounds i8, ptr %115, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load i32, ptr %116, align 8
   store i32 %117, ptr %11, align 8
   %118 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %77, i32 noundef 0) #6
@@ -1023,23 +1023,23 @@ proto_item_set_generated.exit.i.i:                ; preds = %86, %83, %71
   %126 = call noalias ptr @wmem_alloc(ptr noundef %125, i64 noundef 16) #6
   %127 = load i32, ptr %22, align 4
   store i32 %127, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %126, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 0, ptr %128, align 4
   %129 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %80, i32 noundef 0) #6
-  %130 = getelementptr inbounds i8, ptr %126, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 %129, ptr %130, align 4
   %131 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %92, i32 noundef 0) #6
-  %132 = getelementptr inbounds i8, ptr %126, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 12
   store i16 %131, ptr %132, align 4
   %133 = call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %99, i32 noundef 0) #6
-  %134 = getelementptr inbounds i8, ptr %126, i64 14
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 14
   store i16 %133, ptr %134, align 2
   %135 = load ptr, ptr @oca_request_hash_map, align 8
   %136 = call ptr @wmem_map_insert(ptr noundef %135, ptr noundef nonnull %123, ptr noundef nonnull %126) #6
   br label %dissect_ocp1_msg_command.exit.i
 
 137:                                              ; preds = %114
-  %138 = getelementptr inbounds i8, ptr %120, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %139 = load i32, ptr %138, align 4
   %.not82.i.i = icmp eq i32 %139, 0
   br i1 %.not82.i.i, label %dissect_ocp1_msg_command.exit.i, label %140
@@ -1051,13 +1051,13 @@ proto_item_set_generated.exit.i.i:                ; preds = %86, %83, %71
   br i1 %.not.i83.i.i, label %dissect_ocp1_msg_command.exit.i, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %142, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %145 = load ptr, ptr %144, align 8
   %.not5.i84.i.i = icmp eq ptr %145, null
   br i1 %.not5.i84.i.i, label %dissect_ocp1_msg_command.exit.i, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %145, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %145, i64 28
   %148 = load i32, ptr %147, align 4
   %149 = or i32 %148, 2
   store i32 %149, ptr %147, align 4
@@ -1093,13 +1093,13 @@ dissect_ocp1_msg_command.exit.i:                  ; preds = %146, %143, %140, %1
   br i1 %.not.i.i140.i, label %proto_item_set_generated.exit.i142.i, label %164
 
 164:                                              ; preds = %155
-  %165 = getelementptr inbounds i8, ptr %163, i64 32
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 32
   %166 = load ptr, ptr %165, align 8
   %.not5.i.i141.i = icmp eq ptr %166, null
   br i1 %.not5.i.i141.i, label %proto_item_set_generated.exit.i142.i, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %166, i64 28
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 28
   %169 = load i32, ptr %168, align 4
   %170 = or i32 %169, 2
   store i32 %170, ptr %168, align 4
@@ -1216,7 +1216,7 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %225, %proto_item_se
   %254 = load i32, ptr @hf_ocp1_message_parameter_count, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 1, i32 noundef 0) #6
   %256 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #6
-  %257 = getelementptr inbounds i8, ptr %256, i64 24
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
   %258 = load i32, ptr %257, align 8
   store i32 %258, ptr %7, align 4
   %259 = call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %242, i32 noundef 0) #6
@@ -1233,11 +1233,11 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %225, %proto_item_se
   br i1 %.not53.i.i, label %.cont.i.i, label %.else.i.i
 
 .else.i.i:                                        ; preds = %264
-  %.sroa.gep55.i.i = getelementptr inbounds i8, ptr %261, i64 8
+  %.sroa.gep55.i.i = getelementptr inbounds nuw i8, ptr %261, i64 8
   %.else.val72.i.i = load i32, ptr %.sroa.gep55.i.i, align 4
-  %.sroa.gep57.i.i = getelementptr inbounds i8, ptr %261, i64 12
+  %.sroa.gep57.i.i = getelementptr inbounds nuw i8, ptr %261, i64 12
   %.else.val68.i.i = load i16, ptr %.sroa.gep57.i.i, align 4
-  %.sroa.gep60.i.i = getelementptr inbounds i8, ptr %261, i64 14
+  %.sroa.gep60.i.i = getelementptr inbounds nuw i8, ptr %261, i64 14
   %.else.val.i.i = load i16, ptr %.sroa.gep60.i.i, align 2
   br label %.cont.i.i
 
@@ -1261,19 +1261,19 @@ dissect_ocp1_msg_notification.exit.i:             ; preds = %225, %proto_item_se
   %272 = load i32, ptr @hf_ocp1_response_to, align 4
   %273 = call ptr @proto_tree_add_uint(ptr noundef %239, i32 noundef %272, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %.else.val78.i.i) #6
   %274 = load i32, ptr %22, align 4
-  %.sroa.gep63.i.i = getelementptr inbounds i8, ptr %261, i64 4
+  %.sroa.gep63.i.i = getelementptr inbounds nuw i8, ptr %261, i64 4
   store i32 %274, ptr %.sroa.gep63.i.i, align 4
   %.not.i.i144.i = icmp eq ptr %273, null
   br i1 %.not.i.i144.i, label %dissect_ocp1_msg_response.exit.i, label %275
 
 275:                                              ; preds = %.cont73.i.i
-  %276 = getelementptr inbounds i8, ptr %273, i64 32
+  %276 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %277 = load ptr, ptr %276, align 8
   %.not5.i.i145.i = icmp eq ptr %277, null
   br i1 %.not5.i.i145.i, label %dissect_ocp1_msg_response.exit.i, label %278
 
 278:                                              ; preds = %275
-  %279 = getelementptr inbounds i8, ptr %277, i64 28
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 28
   %280 = load i32, ptr %279, align 4
   %281 = or i32 %280, 2
   store i32 %281, ptr %279, align 4

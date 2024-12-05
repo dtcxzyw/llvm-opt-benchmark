@@ -406,7 +406,7 @@ define internal i32 @fldb_dissect_getentrybyid_rqst(ptr noundef %0, i32 noundef 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %24
@@ -418,7 +418,7 @@ define internal i32 @fldb_dissect_getentrybyid_rqst(ptr noundef %0, i32 noundef 
   %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = load i32, ptr @hf_fldb_voltype, align 4
   %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9) #3
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %7, align 4
   %22 = load i32, ptr %8, align 4
@@ -433,7 +433,7 @@ define internal i32 @fldb_dissect_getentrybyid_rqst(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_getentrybyid_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %11
@@ -452,7 +452,7 @@ define internal i32 @fldb_dissect_getentrybyname_rqst(ptr noundef %0, i32 nounde
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %38
@@ -475,7 +475,7 @@ define internal i32 @fldb_dissect_getentrybyname_rqst(ptr noundef %0, i32 nounde
   %.024.i = phi ptr [ %16, %14 ], [ null, %12 ]
   %18 = load i32, ptr @hf_fldb_afsNameString_t_principalName_size, align 4
   %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %.024.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %8) #3
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %8, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.244, i32 noundef %22) #3
@@ -485,7 +485,7 @@ define internal i32 @fldb_dissect_getentrybyname_rqst(ptr noundef %0, i32 nounde
 
 25:                                               ; preds = %17
   %26 = load i32, ptr @hf_fldb_afsNameString_t_principalName_string, align 4
-  %27 = getelementptr inbounds i8, ptr %2, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = call ptr @proto_tree_add_item_ret_string(ptr noundef %.024.i, i32 noundef %26, ptr noundef %0, i32 noundef %19, i32 noundef %23, i32 noundef 0, ptr noundef %28, ptr noundef nonnull %9) #3
   %30 = load i32, ptr %8, align 4
@@ -517,7 +517,7 @@ dissect_afsNameString_t.exit:                     ; preds = %25, %34
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_getentrybyname_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %20
@@ -531,7 +531,7 @@ define internal i32 @fldb_dissect_getentrybyname_resp(ptr noundef %0, i32 nounde
   store ptr %14, ptr @st_str, align 8
   %15 = load i32, ptr @st, align 4
   %.not17 = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   br i1 %.not17, label %19, label %18
 
@@ -560,7 +560,7 @@ define internal i32 @fldb_dissect_getcellinfo_resp(ptr noundef %0, i32 noundef %
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %75
@@ -589,11 +589,11 @@ define internal i32 @fldb_dissect_getcellinfo_resp(ptr noundef %0, i32 noundef %
   %.089.i = phi ptr [ %22, %20 ], [ null, %19 ]
   %24 = load i32, ptr @hf_fldb_vlconf_cell_name, align 4
   %25 = call ptr @proto_tree_add_item(ptr noundef %.089.i, i32 noundef %24, ptr noundef %0, i32 noundef %1, i32 noundef 114, i32 noundef 0) #3
-  %26 = getelementptr inbounds i8, ptr %2, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @tvb_get_string_enc(ptr noundef %27, ptr noundef %0, i32 noundef %1, i32 noundef 128, i32 noundef 0) #3
   %29 = add i32 %1, 128
-  %30 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load ptr, ptr %30, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.183, ptr noundef %28) #3
   %32 = load i32, ptr @hf_fldb_vlconf_cell_cellid_high, align 4
@@ -683,7 +683,7 @@ dissect_vlconf_cell.exit:                         ; preds = %.preheader.i
 define internal i32 @fldb_dissect_getnextserversbyid_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %22
@@ -691,7 +691,7 @@ define internal i32 @fldb_dissect_getnextserversbyid_resp(ptr noundef %0, i32 no
 11:                                               ; preds = %6
   %12 = load i32, ptr @hf_fldb_nextstartp, align 4
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %7) #3
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.255, i32 noundef %16) #3
@@ -710,7 +710,7 @@ define internal i32 @fldb_dissect_getnextserversbyid_resp(ptr noundef %0, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_getsiteinfo_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %11
@@ -736,7 +736,7 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %19, label %128
@@ -745,11 +745,11 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
   %20 = tail call fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %21 = add i32 %20, 48
   %22 = load i32, ptr @hf_fldb_namestring, align 4
-  %23 = getelementptr inbounds i8, ptr %2, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @proto_tree_add_item_ret_string(ptr noundef %3, i32 noundef %22, ptr noundef %0, i32 noundef %21, i32 noundef 64, i32 noundef 0, ptr noundef %24, ptr noundef nonnull %7) #3
   %26 = add i32 %20, 112
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.257, ptr noundef %29) #3
@@ -757,34 +757,34 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
   %31 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %30, ptr noundef nonnull %8) #3
   %32 = load ptr, ptr %27, align 8
   %33 = load i32, ptr %8, align 4
-  %34 = getelementptr inbounds i8, ptr %8, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %35 = load i16, ptr %34, align 4
   %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %8, i64 6
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 6
   %38 = load i16, ptr %37, align 2
   %39 = zext i16 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = load i8, ptr %40, align 4
   %42 = zext i8 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %8, i64 9
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds i8, ptr %8, i64 10
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %47 = load i8, ptr %46, align 2
   %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %8, i64 11
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 11
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = getelementptr inbounds i8, ptr %8, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %53 = load i8, ptr %52, align 4
   %54 = zext i8 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %8, i64 13
+  %55 = getelementptr inbounds nuw i8, ptr %8, i64 13
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
-  %58 = getelementptr inbounds i8, ptr %8, i64 14
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 14
   %59 = load i8, ptr %58, align 2
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %8, i64 15
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 15
   %62 = load i8, ptr %61, align 1
   %63 = zext i8 %62 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.258, i32 noundef %33, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45, i32 noundef %48, i32 noundef %51, i32 noundef %54, i32 noundef %57, i32 noundef %60, i32 noundef %63) #3
@@ -792,34 +792,34 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
   %65 = call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %64, ptr noundef nonnull %9) #3
   %66 = load ptr, ptr %27, align 8
   %67 = load i32, ptr %9, align 4
-  %68 = getelementptr inbounds i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %69 = load i16, ptr %68, align 4
   %70 = zext i16 %69 to i32
-  %71 = getelementptr inbounds i8, ptr %9, i64 6
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %72 = load i16, ptr %71, align 2
   %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds i8, ptr %9, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %75 = load i8, ptr %74, align 4
   %76 = zext i8 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %9, i64 9
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i32
-  %80 = getelementptr inbounds i8, ptr %9, i64 10
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %81 = load i8, ptr %80, align 2
   %82 = zext i8 %81 to i32
-  %83 = getelementptr inbounds i8, ptr %9, i64 11
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 11
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %9, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %87 = load i8, ptr %86, align 4
   %88 = zext i8 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %9, i64 13
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 13
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
-  %92 = getelementptr inbounds i8, ptr %9, i64 14
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 14
   %93 = load i8, ptr %92, align 2
   %94 = zext i8 %93 to i32
-  %95 = getelementptr inbounds i8, ptr %9, i64 15
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 15
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.259, i32 noundef %67, i32 noundef %70, i32 noundef %73, i32 noundef %76, i32 noundef %79, i32 noundef %82, i32 noundef %85, i32 noundef %88, i32 noundef %91, i32 noundef %94, i32 noundef %97) #3
@@ -871,7 +871,7 @@ define internal i32 @fldb_dissect_getsiteinfo_resp(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_createentry_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %11
@@ -887,7 +887,7 @@ define internal i32 @fldb_dissect_createentry_rqst(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_createentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %19
@@ -900,7 +900,7 @@ define internal i32 @fldb_dissect_createentry_resp(ptr noundef %0, i32 noundef %
   store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %.not11, label %18, label %17
 
@@ -923,7 +923,7 @@ define internal i32 @fldb_dissect_deleteentry_rqst(ptr noundef %0, i32 noundef %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %26
@@ -937,7 +937,7 @@ define internal i32 @fldb_dissect_deleteentry_rqst(ptr noundef %0, i32 noundef %
   %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #3
   %20 = load i32, ptr @hf_fldb_deleteentry_rqst_voloper, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10) #3
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %8, align 4
@@ -951,7 +951,7 @@ define internal i32 @fldb_dissect_deleteentry_rqst(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_deleteentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %19
@@ -964,7 +964,7 @@ define internal i32 @fldb_dissect_deleteentry_resp(ptr noundef %0, i32 noundef %
   store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %.not11, label %18, label %17
 
@@ -986,7 +986,7 @@ define internal i32 @fldb_dissect_replaceentry_rqst(ptr noundef %0, i32 noundef 
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %24
@@ -998,7 +998,7 @@ define internal i32 @fldb_dissect_replaceentry_rqst(ptr noundef %0, i32 noundef 
   %16 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %14, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %15, ptr noundef nonnull %8) #3
   %17 = load i32, ptr @hf_fldb_replaceentry_rqst_voltype, align 4
   %18 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %17, ptr noundef nonnull %9) #3
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %7, align 4
   %22 = load i32, ptr %8, align 4
@@ -1013,7 +1013,7 @@ define internal i32 @fldb_dissect_replaceentry_rqst(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_replaceentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %19
@@ -1026,7 +1026,7 @@ define internal i32 @fldb_dissect_replaceentry_resp(ptr noundef %0, i32 noundef 
   store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %.not11, label %18, label %17
 
@@ -1049,7 +1049,7 @@ define internal i32 @fldb_dissect_setlock_rqst(ptr noundef %0, i32 noundef %1, p
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %28
@@ -1063,7 +1063,7 @@ define internal i32 @fldb_dissect_setlock_rqst(ptr noundef %0, i32 noundef %1, p
   %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #3
   %20 = load i32, ptr @hf_fldb_setlock_rqst_voloper, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10) #3
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %8, align 4
@@ -1079,7 +1079,7 @@ define internal i32 @fldb_dissect_setlock_rqst(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_setlock_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %19
@@ -1092,7 +1092,7 @@ define internal i32 @fldb_dissect_setlock_resp(ptr noundef %0, i32 noundef %1, p
   store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %.not11, label %18, label %17
 
@@ -1115,7 +1115,7 @@ define internal i32 @fldb_dissect_releaselock_rqst(ptr noundef %0, i32 noundef %
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %26
@@ -1129,7 +1129,7 @@ define internal i32 @fldb_dissect_releaselock_rqst(ptr noundef %0, i32 noundef %
   %19 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %17, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %18, ptr noundef nonnull %9) #3
   %20 = load i32, ptr @hf_fldb_releaselock_rqst_voloper, align 4
   %21 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %19, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %20, ptr noundef nonnull %10) #3
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %7, align 4
   %25 = load i32, ptr %8, align 4
@@ -1143,7 +1143,7 @@ define internal i32 @fldb_dissect_releaselock_rqst(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_releaselock_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %9, label %19
@@ -1156,7 +1156,7 @@ define internal i32 @fldb_dissect_releaselock_resp(ptr noundef %0, i32 noundef %
   store ptr %13, ptr @st_str, align 8
   %14 = load i32, ptr @st, align 4
   %.not11 = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %.not11, label %18, label %17
 
@@ -1177,7 +1177,7 @@ define internal i32 @fldb_dissect_releaselock_resp(ptr noundef %0, i32 noundef %
 define internal i32 @fldb_dissect_listentry_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %19
@@ -1187,7 +1187,7 @@ define internal i32 @fldb_dissect_listentry_rqst(ptr noundef %0, i32 noundef %1,
   %13 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %12, ptr noundef nonnull %8) #3
   %14 = load i32, ptr @hf_fldb_listentry_rqst_var1, align 4
   %15 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %13, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %14, ptr noundef nonnull %7) #3
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %8, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.270, i32 noundef %18) #3
@@ -1202,7 +1202,7 @@ define internal i32 @fldb_dissect_listentry_rqst(ptr noundef %0, i32 noundef %1,
 define internal i32 @fldb_dissect_listentry_resp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %11, label %17
@@ -1223,7 +1223,7 @@ define internal i32 @fldb_dissect_listentry_resp(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal i32 @fldb_dissect_getnewvolumeids_rqst(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %17
@@ -1231,7 +1231,7 @@ define internal i32 @fldb_dissect_getnewvolumeids_rqst(ptr noundef %0, i32 nound
 10:                                               ; preds = %6
   %11 = load i32, ptr @hf_fldb_numwanted, align 4
   %12 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %11, ptr noundef nonnull %7) #3
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.271, i32 noundef %15) #3
@@ -1282,11 +1282,11 @@ define internal fastcc i32 @dissect_vldbentry(ptr noundef %0, i32 noundef %1, pt
   %37 = load i32, ptr @ett_fldb_vldbentry, align 4
   %38 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef %37, ptr noundef nonnull %11, ptr noundef nonnull @.str.182) #3
   %39 = load i32, ptr @hf_fldb_vldbentry_volumename, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = call ptr @proto_tree_add_item_ret_string(ptr noundef %38, i32 noundef %39, ptr noundef %0, i32 noundef %1, i32 noundef 114, i32 noundef 0, ptr noundef %41, ptr noundef nonnull %12) #3
   %43 = add i32 %1, 110
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %12, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %45, i32 noundef 25, ptr noundef nonnull @.str.183, ptr noundef %46) #3
@@ -1480,16 +1480,16 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   br i1 %exitcond268.not, label %.preheader236, label %.preheader237, !llvm.loop !10
 
 .preheader235:                                    ; preds = %.preheader236
-  %123 = getelementptr inbounds i8, ptr %35, i64 4
-  %124 = getelementptr inbounds i8, ptr %35, i64 6
-  %125 = getelementptr inbounds i8, ptr %35, i64 8
-  %126 = getelementptr inbounds i8, ptr %35, i64 9
-  %127 = getelementptr inbounds i8, ptr %35, i64 10
-  %128 = getelementptr inbounds i8, ptr %35, i64 11
-  %129 = getelementptr inbounds i8, ptr %35, i64 12
-  %130 = getelementptr inbounds i8, ptr %35, i64 13
-  %131 = getelementptr inbounds i8, ptr %35, i64 14
-  %132 = getelementptr inbounds i8, ptr %35, i64 15
+  %123 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %35, i64 6
+  %125 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %35, i64 9
+  %127 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  %128 = getelementptr inbounds nuw i8, ptr %35, i64 11
+  %129 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %130 = getelementptr inbounds nuw i8, ptr %35, i64 13
+  %131 = getelementptr inbounds nuw i8, ptr %35, i64 14
+  %132 = getelementptr inbounds nuw i8, ptr %35, i64 15
   br label %150
 
 .preheader236:                                    ; preds = %121, %.preheader236
@@ -1507,16 +1507,16 @@ dissect_siteflags.exit:                           ; preds = %69, %109, %111
   br i1 %exitcond269.not, label %.preheader235, label %.preheader236, !llvm.loop !11
 
 .preheader234:                                    ; preds = %150
-  %140 = getelementptr inbounds i8, ptr %36, i64 4
-  %141 = getelementptr inbounds i8, ptr %36, i64 6
-  %142 = getelementptr inbounds i8, ptr %36, i64 8
-  %143 = getelementptr inbounds i8, ptr %36, i64 9
-  %144 = getelementptr inbounds i8, ptr %36, i64 10
-  %145 = getelementptr inbounds i8, ptr %36, i64 11
-  %146 = getelementptr inbounds i8, ptr %36, i64 12
-  %147 = getelementptr inbounds i8, ptr %36, i64 13
-  %148 = getelementptr inbounds i8, ptr %36, i64 14
-  %149 = getelementptr inbounds i8, ptr %36, i64 15
+  %140 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %36, i64 6
+  %142 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %36, i64 9
+  %144 = getelementptr inbounds nuw i8, ptr %36, i64 10
+  %145 = getelementptr inbounds nuw i8, ptr %36, i64 11
+  %146 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %147 = getelementptr inbounds nuw i8, ptr %36, i64 13
+  %148 = getelementptr inbounds nuw i8, ptr %36, i64 14
+  %149 = getelementptr inbounds nuw i8, ptr %36, i64 15
   br label %176
 
 150:                                              ; preds = %.preheader235, %150
@@ -1977,7 +1977,7 @@ define internal fastcc i32 @dissect_afsnetaddr(ptr noundef %0, i32 noundef %1, p
   br i1 %.not34, label %47, label %17
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = zext i16 %16 to i32
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.207, i32 noundef %20) #3

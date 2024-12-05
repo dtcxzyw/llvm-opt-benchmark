@@ -350,7 +350,7 @@ sub_0:                                            ; preds = %18
   br i1 %.not, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %31 = getelementptr inbounds i8, ptr %29, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %.tail.thread
@@ -361,7 +361,7 @@ sub_0:                                            ; preds = %18
   br i1 %.not48, label %53, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %0, i64 288
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %38 = load ptr, ptr %37, align 8
   %.not49 = icmp eq ptr %38, null
   br i1 %.not49, label %53, label %39
@@ -912,15 +912,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs(ptr nocapture noundef readon
   %.val = load ptr, ptr %5, align 8
   call void @Wlc_ManSetDefaultParams(ptr noundef nonnull %4) #16
   call void (...) @Extra_UtilGetoptReset() #16
-  %6 = getelementptr inbounds i8, ptr %4, i64 84
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = getelementptr inbounds i8, ptr %4, i64 60
-  %10 = getelementptr inbounds i8, ptr %4, i64 20
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
-  %12 = getelementptr inbounds i8, ptr %4, i64 12
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %15
 
 15:                                               ; preds = %.backedge, %3
@@ -1125,27 +1125,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandPdrAbs(ptr nocapture noundef rea
   %.val = load ptr, ptr %5, align 8
   call void @Wlc_ManSetDefaultParams(ptr noundef nonnull %4) #16
   call void (...) @Extra_UtilGetoptReset() #16
-  %6 = getelementptr inbounds i8, ptr %4, i64 84
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
-  %8 = getelementptr inbounds i8, ptr %4, i64 56
-  %9 = getelementptr inbounds i8, ptr %4, i64 76
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
-  %11 = getelementptr inbounds i8, ptr %4, i64 36
-  %12 = getelementptr inbounds i8, ptr %4, i64 68
-  %13 = getelementptr inbounds i8, ptr %4, i64 32
-  %14 = getelementptr inbounds i8, ptr %4, i64 44
-  %15 = getelementptr inbounds i8, ptr %4, i64 64
-  %16 = getelementptr inbounds i8, ptr %4, i64 60
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
-  %18 = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = getelementptr inbounds i8, ptr %4, i64 52
-  %20 = getelementptr inbounds i8, ptr %4, i64 48
-  %21 = getelementptr inbounds i8, ptr %4, i64 40
-  %22 = getelementptr inbounds i8, ptr %4, i64 20
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
-  %24 = getelementptr inbounds i8, ptr %4, i64 12
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %27
 
 27:                                               ; preds = %.backedge, %3
@@ -1482,13 +1482,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbs2(ptr nocapture noundef reado
   %.val = load ptr, ptr %5, align 8
   call void @Wlc_ManSetDefaultParams(ptr noundef nonnull %4) #16
   call void (...) @Extra_UtilGetoptReset() #16
-  %6 = getelementptr inbounds i8, ptr %4, i64 84
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %13
 
 13:                                               ; preds = %.backedge, %3
@@ -1846,27 +1846,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 504
   %.val = load ptr, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %8, i8 0, i64 48, i1 false)
   store i32 -1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 40
-  %11 = getelementptr inbounds i8, ptr %4, i64 52
-  %12 = getelementptr inbounds i8, ptr %4, i64 64
-  %13 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, i8 0, i64 24, i1 false)
   store i32 2, ptr %9, align 4
   tail call void (...) @Extra_UtilGetoptReset() #16
-  %14 = getelementptr inbounds i8, ptr %4, i64 60
-  %15 = getelementptr inbounds i8, ptr %4, i64 48
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
-  %17 = getelementptr inbounds i8, ptr %4, i64 36
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
-  %20 = getelementptr inbounds i8, ptr %4, i64 20
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 12
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.promoted = load i32, ptr %14, align 4
   %.promoted392 = load i32, ptr %15, align 8
   %.promoted399 = load i32, ptr %16, align 8
@@ -2174,7 +2174,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   br label %232
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %.val, i64 620
+  %129 = getelementptr inbounds nuw i8, ptr %.val, i64 620
   %130 = load i32, ptr %129, align 4
   %.not139 = icmp eq i32 %130, 0
   br i1 %.not139, label %132, label %131
@@ -2197,7 +2197,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
 
 135:                                              ; preds = %134
   %136 = tail call ptr @Wlc_NtkCollectMultipliers(ptr noundef nonnull %.val) #16
-  %137 = getelementptr inbounds i8, ptr %4, i64 72
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %136, ptr %137, align 8
   %138 = icmp eq ptr %136, null
   br i1 %138, label %139, label %149
@@ -2214,7 +2214,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
 
 141:                                              ; preds = %140
   %142 = call ptr @Wlc_NtkCollectAddMult(ptr noundef nonnull %.val, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
-  %143 = getelementptr inbounds i8, ptr %4, i64 72
+  %143 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %142, ptr %143, align 8
   %144 = icmp eq ptr %142, null
   br i1 %144, label %145, label %146
@@ -2249,7 +2249,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
 
 159:                                              ; preds = %152, %149
   %160 = call ptr @Wlc_NtkBitBlast(ptr noundef nonnull %.val, ptr noundef nonnull %4) #16
-  %161 = getelementptr inbounds i8, ptr %4, i64 72
+  %161 = getelementptr inbounds nuw i8, ptr %4, i64 72
   call fastcc void @Vec_IntFreeP(ptr noundef %161)
   %162 = icmp eq ptr %160, null
   br i1 %162, label %163, label %164
@@ -2271,7 +2271,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
 
 167:                                              ; preds = %165
   %168 = call noalias ptr @fopen(ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.136)
-  %169 = getelementptr inbounds i8, ptr %166, i64 632
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 632
   %170 = load ptr, ptr %169, align 8
   %.not146 = icmp eq ptr %170, null
   br i1 %.not146, label %.critedge, label %.preheader176
@@ -2287,7 +2287,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %173 = phi ptr [ %179, %.lr.ph ], [ %170, %.preheader176 ]
   %174 = getelementptr i8, ptr %173, i64 8
   %.val171 = load ptr, ptr %174, align 8
-  %175 = getelementptr inbounds ptr, ptr %.val171, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw ptr, ptr %.val171, i64 %indvars.iv
   %176 = load ptr, ptr %175, align 8
   %177 = trunc nuw nsw i64 %indvars.iv to i32
   %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.137, i32 noundef %177, ptr noundef %176) #16
@@ -2300,7 +2300,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   br i1 %182, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader176, %167
-  %183 = getelementptr inbounds i8, ptr %166, i64 640
+  %183 = getelementptr inbounds nuw i8, ptr %166, i64 640
   %184 = load ptr, ptr %183, align 8
   %.not147 = icmp eq ptr %184, null
   br i1 %.not147, label %.critedge2, label %.preheader
@@ -2316,7 +2316,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBlast(ptr noundef %0, i32 nounde
   %187 = phi ptr [ %193, %.lr.ph227 ], [ %184, %.preheader ]
   %188 = getelementptr i8, ptr %187, i64 8
   %.val172 = load ptr, ptr %188, align 8
-  %189 = getelementptr inbounds ptr, ptr %.val172, i64 %indvars.iv264
+  %189 = getelementptr inbounds nuw ptr, ptr %.val172, i64 %indvars.iv264
   %190 = load ptr, ptr %189, align 8
   %191 = trunc nuw nsw i64 %indvars.iv264 to i32
   %192 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %168, ptr noundef nonnull @.str.138, i32 noundef %191, ptr noundef %190) #16
@@ -2547,7 +2547,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr nocapture noundef %0,
   br label %4, !llvm.loop !18
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 624
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %16 = load ptr, ptr %15, align 8
   %.not51 = icmp eq ptr %16, null
   br i1 %.not51, label %39, label %17
@@ -2565,7 +2565,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr nocapture noundef %0,
 21:                                               ; preds = %17
   %22 = tail call ptr @Wln_NtkRetime(ptr noundef nonnull %18, i32 noundef %.042.ph, i32 noundef %.040.ph81, i32 noundef %.037) #16
   tail call void @Wln_NtkFree(ptr noundef nonnull %18) #16
-  %23 = getelementptr inbounds i8, ptr %0, i64 632
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %24 = load ptr, ptr %23, align 8
   %.not54 = icmp eq ptr %24, null
   br i1 %.not54, label %26, label %25
@@ -2589,7 +2589,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRetime(ptr nocapture noundef %0,
   %32 = shl nsw i64 %31, 2
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #18
   store i32 %30, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = sext i32 %.val to i64
   %36 = shl nsw i64 %35, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %34, ptr readonly align 4 %.val61, i64 %36, i1 false)
@@ -2794,7 +2794,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandShow(ptr nocapture noundef reado
 13:                                               ; preds = %12
   %14 = tail call ptr @Wlc_NtkCollectMemory(ptr noundef nonnull %.val, i32 noundef 1) #16
   tail call void @Wlc_NtkShow(ptr noundef nonnull %.val, ptr noundef %14) #16
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %17
@@ -2902,7 +2902,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInvPs(ptr nocapture noundef read
 16:                                               ; preds = %12
   %17 = tail call ptr @Pdr_InvCounts(ptr noundef nonnull %.val) #16
   tail call void @Wlc_NtkPrintInvStats(ptr noundef nonnull %.val18, ptr noundef %17, i32 noundef %.0) #16
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %20
@@ -2988,7 +2988,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInvCheck(ptr nocapture noundef r
 8:                                                ; preds = %3
   %9 = load i64, ptr %5, align 8
   %.neg31 = mul i64 %9, -1000000
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8
   %.neg = sdiv i64 %11, -1000
   %.neg32 = add i64 %.neg, %.neg31
@@ -3013,7 +3013,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   br label %12, !llvm.loop !25
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -3076,7 +3076,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
 44:                                               ; preds = %41
   %45 = load i64, ptr %4, align 8
   %46 = mul nsw i64 %45, 1000000
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = sdiv i64 %48, 1000
   %50 = add nsw i64 %49, %46
@@ -3151,7 +3151,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInvGet(ptr noundef %0, i32 nound
   br i1 %.not36, label %.thread, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %20, label %21
@@ -3180,8 +3180,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandInvGet(ptr noundef %0, i32 nound
 
 Vec_PtrStart.exit:                                ; preds = %21, %25
   %29 = phi ptr [ %28, %25 ], [ null, %21 ]
-  %30 = getelementptr inbounds i8, ptr %23, i64 4
-  %31 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %29, ptr %31, align 8
   store i32 %.val42, ptr %30, align 4
   %32 = sext i32 %.val42 to i64
@@ -3197,7 +3197,7 @@ Vec_PtrStart.exit:                                ; preds = %21, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %Vec_PtrSetEntry.exit ], [ 0, %Vec_PtrStart.exit ]
   %.val4356 = phi i32 [ %.val43, %Vec_PtrSetEntry.exit ], [ %.val42, %Vec_PtrStart.exit ]
   %37 = phi ptr [ %76, %Vec_PtrSetEntry.exit ], [ %18, %Vec_PtrStart.exit ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 632
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 632
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %37, i64 64
   %.val46 = load ptr, ptr %40, align 8
@@ -3291,7 +3291,7 @@ Vec_PtrSetEntry.exit:                             ; preds = %.lr.ph, %._crit_edg
   %.val.i = phi ptr [ %.val.i60, %.lr.ph ], [ %.val.i62, %._crit_edge.i.i ]
   %73 = phi i32 [ %35, %.lr.ph ], [ %70, %._crit_edge.i.i ]
   %74 = phi i32 [ %36, %.lr.ph ], [ %72, %._crit_edge.i.i ]
-  %75 = getelementptr inbounds ptr, ptr %.val.i, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv
   store ptr %49, ptr %75, align 8
   %76 = load ptr, ptr %17, align 8
   %77 = getelementptr i8, ptr %76, i64 16
@@ -3378,7 +3378,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInvPut(ptr noundef %0, i32 nound
   br label %22
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %17
@@ -3439,7 +3439,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInvMin(ptr nocapture noundef rea
   br label %4, !llvm.loop !30
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 288
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %15
@@ -3723,7 +3723,7 @@ define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef nonnull %0) unna
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
@@ -3731,7 +3731,7 @@ define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef nonnull %0) unna
 7:                                                ; preds = %4
   tail call void @free(ptr noundef nonnull %6) #16
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %9, align 8
   %.pre = load ptr, ptr %0, align 8
   %.not9 = icmp eq ptr %.pre, null
@@ -3760,7 +3760,7 @@ declare ptr @Gia_ManDupPerm(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

@@ -116,7 +116,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_uts(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.34) #2
   %8 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef 1) #2
@@ -311,7 +311,7 @@ testchar.exit382:                                 ; preds = %66
 
 93:                                               ; preds = %85
   tail call void @col_set_str(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.41) #2
-  %94 = getelementptr inbounds i8, ptr %1, i64 88
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %95 = load ptr, ptr %94, align 8
   %96 = load i8, ptr %95, align 8
   %97 = and i8 %96, 1
@@ -449,7 +449,7 @@ testchar.exit391.thread:                          ; preds = %127, %131, %134, %t
 155:                                              ; preds = %153
   %156 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %156, i32 noundef 25, ptr noundef nonnull @.str.45) #2
-  %157 = getelementptr inbounds i8, ptr %1, i64 88
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %158 = load ptr, ptr %157, align 8
   %159 = load i8, ptr %158, align 8
   %160 = and i8 %159, 1
@@ -821,7 +821,7 @@ testchar.exit364.thread:                          ; preds = %26, %30, %testchar.
   %339 = xor i32 %.0281, -1
   %340 = add i32 %.0283, %339
   %.0295 = select i1 %.not352, i32 %338, i32 %340
-  %341 = getelementptr inbounds i8, ptr %1, i64 408
+  %341 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %342 = load ptr, ptr %341, align 8
   %343 = call ptr @tvb_get_string_enc(ptr noundef %342, ptr noundef %0, i32 noundef %337, i32 noundef %.0295, i32 noundef 0) #2
   %344 = load i32, ptr @hf_data, align 4
@@ -877,7 +877,7 @@ define internal fastcc range(i32 0, 2) i32 @testchar(ptr noundef %0, ptr nocaptu
   br label %18
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.41) #2
   br label %18

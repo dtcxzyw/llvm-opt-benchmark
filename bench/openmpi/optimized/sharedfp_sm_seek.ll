@@ -29,7 +29,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 168
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %11
@@ -40,10 +40,10 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br label %93
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %13 = load i64, ptr %12, align 8
   %14 = mul i64 %13, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %83
@@ -70,7 +70,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not48, label %.thread54, label %26
 
 .thread54:                                        ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %25 = load ptr, ptr %24, align 8
   br label %63
 
@@ -143,7 +143,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %.037.ph = phi i64 [ %14, %54 ], [ %47, %51 ], [ %47, %53 ], [ %41, %40 ], [ %41, %43 ], [ %14, %26 ]
   %.2.ph = phi i32 [ -1, %54 ], [ 0, %51 ], [ -1, %53 ], [ %29, %40 ], [ -1, %43 ], [ %.1, %26 ]
   %.pr53 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not49 = icmp eq i32 %.pr53, 0
   br i1 %.not49, label %63, label %58
@@ -161,7 +161,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %.259 = phi i32 [ %.1, %.thread54 ], [ %.2.ph, %58 ], [ %.2.ph, %55 ]
   %.03758 = phi i64 [ %14, %.thread54 ], [ %.037.ph, %58 ], [ %.037.ph, %55 ]
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %64, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = call i32 @sem_wait(ptr noundef %67) #4
   %69 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
@@ -169,7 +169,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   br i1 %.not50, label %.thread61, label %71
 
 .thread61:                                        ; preds = %63
-  %70 = getelementptr inbounds i8, ptr %65, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i64 %.03758, ptr %70, align 8
   br label %80
 
@@ -178,7 +178,7 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   %73 = load i32, ptr %15, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %72, ptr noundef nonnull @.str.10, i32 noundef %73) #4
   %.pr60 = load i32, ptr @mca_sharedfp_sm_verbose, align 4
-  %74 = getelementptr inbounds i8, ptr %65, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i64 %.03758, ptr %74, align 8
   %.not51 = icmp eq i32 %.pr60, 0
   br i1 %.not51, label %80, label %75
@@ -198,13 +198,13 @@ define i32 @mca_sharedfp_sm_seek(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 
 83:                                               ; preds = %80, %11
   %.0 = phi i32 [ %.259, %80 ], [ 0, %11 ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 328
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 328
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 96
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 96
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %87, i64 104
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 104
   %91 = load ptr, ptr %90, align 8
   %92 = call i32 %89(ptr noundef %85, ptr noundef %91) #4
   br label %93

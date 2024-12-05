@@ -136,37 +136,37 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %91
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %39, i64 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %51 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %49, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %1, ptr noundef nonnull %50, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %1, i32 noundef 1, i32 noundef %9)
   store ptr %51, ptr %29, align 8
   %52 = load i32, ptr %5, align 4
   %53 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %49, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %52, ptr noundef nonnull %50, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %52, i32 noundef -1, i32 noundef %9)
-  %54 = getelementptr inbounds i8, ptr %29, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %53, ptr %54, align 8
   %55 = load i32, ptr %5, align 4
   %56 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %49, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %55, ptr noundef nonnull %49, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %55, i32 noundef 1, i32 noundef %9)
-  %57 = getelementptr inbounds i8, ptr %29, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %56, ptr %57, align 8
   %58 = load i32, ptr %5, align 4
   %59 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %49, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %58, ptr noundef nonnull %49, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %58, i32 noundef -1, i32 noundef %9)
-  %60 = getelementptr inbounds i8, ptr %29, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %59, ptr %60, align 8
   %61 = load i32, ptr %5, align 4
   %62 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %61, ptr noundef nonnull %44, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %61, i32 noundef 1, i32 noundef %9)
-  %63 = getelementptr inbounds i8, ptr %29, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 32
   store ptr %62, ptr %63, align 8
   %64 = load i32, ptr %5, align 4
   %65 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %64, ptr noundef nonnull %44, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %64, i32 noundef -1, i32 noundef %9)
-  %66 = getelementptr inbounds i8, ptr %29, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %65, ptr %66, align 8
   %67 = load i32, ptr %5, align 4
   %68 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %67, ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %67, i32 noundef 1, i32 noundef %9)
-  %69 = getelementptr inbounds i8, ptr %29, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 48
   store ptr %68, ptr %69, align 8
   %70 = load i32, ptr %5, align 4
   %71 = call ptr @fftwf_plan_many_dft(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %70, ptr noundef nonnull %39, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %70, i32 noundef -1, i32 noundef %9)
-  %72 = getelementptr inbounds i8, ptr %29, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store ptr %71, ptr %72, align 8
   br label %.preheader103
 
@@ -186,7 +186,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 76:                                               ; preds = %.preheader, %75
   %77 = phi i1 [ true, %.preheader ], [ false, %75 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %75 ]
-  %78 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111, i64 %indvars.iv108, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111, i64 %indvars.iv108, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %75
@@ -213,9 +213,9 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 87:                                               ; preds = %86
   call void @fftwf_free(ptr noundef nonnull %39)
   call void @fftwf_free(ptr noundef nonnull %44)
-  %88 = getelementptr inbounds i8, ptr %29, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store i32 0, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %29, i64 68
+  %89 = getelementptr inbounds nuw i8, ptr %29, i64 68
   store i32 1, ptr %89, align 4
   store ptr %29, ptr %0, align 8
   %90 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #11
@@ -258,7 +258,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #11
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -266,7 +266,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6f
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -317,7 +317,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -495,35 +495,35 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
   br label %115
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %41, i64 8
-  %52 = getelementptr inbounds i8, ptr %46, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %53 = shl nsw i32 %35, 1
   %54 = call ptr @fftwf_plan_many_dft_r2c(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %51, ptr noundef null, i32 noundef 1, i32 noundef %53, ptr noundef nonnull %52, ptr noundef null, i32 noundef 1, i32 noundef %35, i32 noundef %9)
-  %55 = getelementptr inbounds i8, ptr %29, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %54, ptr %55, align 8
   %56 = load i32, ptr %5, align 4
   %57 = sdiv i32 %56, 2
   %58 = add nsw i32 %57, 1
   %59 = shl nsw i32 %58, 1
   %60 = call ptr @fftwf_plan_many_dft_r2c(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %51, ptr noundef null, i32 noundef 1, i32 noundef %59, ptr noundef nonnull %51, ptr noundef null, i32 noundef 1, i32 noundef %58, i32 noundef %9)
-  %61 = getelementptr inbounds i8, ptr %29, i64 16
-  %62 = getelementptr inbounds i8, ptr %29, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %60, ptr %62, align 8
   %63 = load i32, ptr %5, align 4
   %64 = sdiv i32 %63, 2
   %65 = add nsw i32 %64, 1
   %66 = shl nsw i32 %65, 1
   %67 = call ptr @fftwf_plan_many_dft_r2c(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %41, ptr noundef null, i32 noundef 1, i32 noundef %66, ptr noundef nonnull %46, ptr noundef null, i32 noundef 1, i32 noundef %65, i32 noundef %9)
-  %68 = getelementptr inbounds i8, ptr %29, i64 32
-  %69 = getelementptr inbounds i8, ptr %29, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %67, ptr %69, align 8
   %70 = load i32, ptr %5, align 4
   %71 = sdiv i32 %70, 2
   %72 = add nsw i32 %71, 1
   %73 = shl nsw i32 %72, 1
   %74 = call ptr @fftwf_plan_many_dft_r2c(i32 noundef 1, ptr noundef nonnull %5, i32 noundef %2, ptr noundef nonnull %41, ptr noundef null, i32 noundef 1, i32 noundef %73, ptr noundef nonnull %41, ptr noundef null, i32 noundef 1, i32 noundef %72, i32 noundef %9)
-  %75 = getelementptr inbounds i8, ptr %29, i64 48
-  %76 = getelementptr inbounds i8, ptr %29, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %29, i64 56
   store ptr %74, ptr %76, align 8
   %77 = load i32, ptr %5, align 4
   %78 = sdiv i32 %77, 2
@@ -567,7 +567,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 100:                                              ; preds = %.preheader, %99
   %101 = phi i1 [ true, %.preheader ], [ false, %99 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %99 ]
-  %102 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111, i64 %indvars.iv108, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %29, i64 0, i64 %indvars.iv111, i64 %indvars.iv108, i64 %indvars.iv
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %99
@@ -594,9 +594,9 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %15
 111:                                              ; preds = %110
   call void @fftwf_free(ptr noundef nonnull %41)
   call void @fftwf_free(ptr noundef nonnull %46)
-  %112 = getelementptr inbounds i8, ptr %29, i64 64
+  %112 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store i32 1, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %29, i64 68
+  %113 = getelementptr inbounds nuw i8, ptr %29, i64 68
   store i32 1, ptr %113, align 4
   store ptr %29, ptr %0, align 8
   %114 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull @_ZL14big_fftw_mutex) #11
@@ -718,30 +718,30 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
   br label %80
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %38, i64 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = tail call ptr @fftwf_plan_dft_c2r_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %46, ptr noundef nonnull %47, i32 noundef %8)
   store ptr %48, ptr %28, align 8
   %49 = tail call ptr @fftwf_plan_dft_r2c_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %46, ptr noundef nonnull %47, i32 noundef %8)
-  %50 = getelementptr inbounds i8, ptr %28, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %49, ptr %50, align 8
   %51 = tail call ptr @fftwf_plan_dft_c2r_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %46, ptr noundef nonnull %46, i32 noundef %8)
-  %52 = getelementptr inbounds i8, ptr %28, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %51, ptr %52, align 8
   %53 = tail call ptr @fftwf_plan_dft_r2c_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %46, ptr noundef nonnull %46, i32 noundef %8)
-  %54 = getelementptr inbounds i8, ptr %28, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %28, i64 24
   store ptr %53, ptr %54, align 8
   %55 = tail call ptr @fftwf_plan_dft_c2r_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %38, ptr noundef nonnull %42, i32 noundef %8)
-  %56 = getelementptr inbounds i8, ptr %28, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %28, i64 32
   store ptr %55, ptr %56, align 8
   %57 = tail call ptr @fftwf_plan_dft_r2c_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %38, ptr noundef nonnull %42, i32 noundef %8)
-  %58 = getelementptr inbounds i8, ptr %28, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %28, i64 40
   store ptr %57, ptr %58, align 8
   %59 = tail call ptr @fftwf_plan_dft_c2r_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %38, ptr noundef nonnull %38, i32 noundef %8)
-  %60 = getelementptr inbounds i8, ptr %28, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store ptr %59, ptr %60, align 8
   %61 = tail call ptr @fftwf_plan_dft_r2c_2d(i32 noundef %1, i32 noundef %2, ptr noundef nonnull %38, ptr noundef nonnull %38, i32 noundef %8)
-  %62 = getelementptr inbounds i8, ptr %28, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %28, i64 56
   store ptr %61, ptr %62, align 8
   br label %.preheader113
 
@@ -761,7 +761,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
 66:                                               ; preds = %.preheader, %65
   %67 = phi i1 [ true, %.preheader ], [ false, %65 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %65 ]
-  %68 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %28, i64 0, i64 %indvars.iv121, i64 %indvars.iv118, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %28, i64 0, i64 %indvars.iv121, i64 %indvars.iv118, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %65
@@ -788,9 +788,9 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %14
 77:                                               ; preds = %76
   tail call void @fftwf_free(ptr noundef nonnull %38)
   tail call void @fftwf_free(ptr noundef nonnull %42)
-  %78 = getelementptr inbounds i8, ptr %28, i64 64
+  %78 = getelementptr inbounds nuw i8, ptr %28, i64 64
   store i32 1, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %28, i64 68
+  %79 = getelementptr inbounds nuw i8, ptr %28, i64 68
   store i32 2, ptr %79, align 4
   store ptr %28, ptr %0, align 8
   br label %80
@@ -825,13 +825,13 @@ declare ptr @fftwf_plan_dft_r2c_2d(i32 noundef, i32 noundef, ptr noundef, ptr no
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 1
   %or.cond = icmp ugt i32 %1, 1
@@ -863,7 +863,7 @@ define noundef i32 @_Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr nocaptur
   %24 = zext i1 %17 to i64
   %25 = xor i32 %1, 1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %23, i64 %24, i64 %26
+  %27 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %23, i64 %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   tail call void @fftwf_execute_dft(ptr noundef %28, ptr noundef %2, ptr noundef %3)
   ret i32 0
@@ -875,13 +875,13 @@ declare void @fftwf_execute_dft(ptr noundef, ptr noundef, ptr noundef) local_unn
 define noundef i32 @_Z15gmx_fft_many_1dP7gmx_fft17gmx_fft_directionPvS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 68
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %11 = load i32, ptr %10, align 4
   %.not.i = icmp ne i32 %11, 1
   %or.cond.i = icmp ugt i32 %1, 1
@@ -913,7 +913,7 @@ _Z10gmx_fft_1dP7gmx_fft17gmx_fft_directionPvS2_.exit: ; preds = %9
   %23 = zext i1 %16 to i64
   %24 = xor i32 %1, 1
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %22, i64 %23, i64 %25
+  %26 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %22, i64 %23, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void @fftwf_execute_dft(ptr noundef %27, ptr noundef %2, ptr noundef %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -930,13 +930,13 @@ define noundef i32 @_Z15gmx_fft_1d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr noc
   %10 = icmp eq i64 %9, 0
   %11 = icmp eq ptr %2, %3
   %12 = icmp eq i32 %1, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 1
   br i1 %.not, label %15, label %19
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
   %.not24 = icmp ne i32 %17, 1
   %18 = add i32 %1, -4
@@ -964,13 +964,13 @@ define noundef i32 @_Z15gmx_fft_1d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr noc
   br i1 %12, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25, i64 1
+  %27 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25, i64 1
   %28 = load ptr, ptr %27, align 8
   tail call void @fftwf_execute_dft_r2c(ptr noundef %28, ptr noundef %2, ptr noundef %3)
   br label %32
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25
+  %30 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25
   %31 = load ptr, ptr %30, align 8
   tail call void @fftwf_execute_dft_c2r(ptr noundef %31, ptr noundef %2, ptr noundef %3)
   br label %32
@@ -999,13 +999,13 @@ define noundef i32 @_Z15gmx_fft_2d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr noc
   %10 = icmp eq i64 %9, 0
   %11 = icmp eq ptr %2, %3
   %12 = icmp eq i32 %1, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i32, ptr %13, align 8
   %.not = icmp eq i32 %14, 1
   br i1 %.not, label %15, label %19
 
 15:                                               ; preds = %4
-  %16 = getelementptr inbounds i8, ptr %0, i64 68
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %17 = load i32, ptr %16, align 4
   %.not24 = icmp ne i32 %17, 2
   %18 = add i32 %1, -4
@@ -1033,13 +1033,13 @@ define noundef i32 @_Z15gmx_fft_2d_realP7gmx_fft17gmx_fft_directionPvS2_(ptr noc
   br i1 %12, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25, i64 1
+  %27 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25, i64 1
   %28 = load ptr, ptr %27, align 8
   tail call void @fftwf_execute_dft_r2c(ptr noundef %28, ptr noundef %2, ptr noundef %3)
   br label %32
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25
+  %30 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %24, i64 %25
   %31 = load ptr, ptr %30, align 8
   tail call void @fftwf_execute_dft_c2r(ptr noundef %31, ptr noundef %2, ptr noundef %3)
   br label %32
@@ -1066,7 +1066,7 @@ define void @_Z15gmx_fft_destroyP7gmx_fft(ptr noundef %0) local_unnamed_addr #0 
 4:                                                ; preds = %.preheader, %25
   %5 = phi i1 [ true, %.preheader ], [ false, %25 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ 1, %25 ]
-  %6 = getelementptr inbounds [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %indvars.iv55, i64 %indvars.iv52, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x [2 x [2 x ptr]]], ptr %0, i64 0, i64 %indvars.iv55, i64 %indvars.iv52, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not42 = icmp eq ptr %7, null
   br i1 %.not42, label %25, label %8

@@ -79,7 +79,7 @@ handleSocketErrorWithMessage.exit:                ; preds = %2, %7
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %7 = icmp eq ptr %6, null
@@ -87,7 +87,7 @@ define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr nocapture noundef r
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 168
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6) #7
   store ptr %12, ptr @isa_class, align 8
@@ -100,7 +100,7 @@ define void @Java_sun_nio_ch_Net_initIDs(ptr noundef %0, ptr nocapture noundef r
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   store ptr %19, ptr @isa_ctorID, align 8
@@ -518,7 +518,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noca
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @isa_class, align 8
   %25 = load ptr, ptr @isa_ctorID, align 8
@@ -529,7 +529,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_Net_accept(ptr noundef %0, ptr noca
 
 29:                                               ; preds = %20
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1392
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1392
   %32 = load ptr, ptr %31, align 8
   call void %32(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, ptr noundef nonnull %27) #7
   br label %33
@@ -817,7 +817,7 @@ define i32 @Java_sun_nio_ch_Net_getIntOption0(ptr noundef %0, ptr nocapture noun
 28:                                               ; preds = %27
   %29 = load i32, ptr %8, align 4
   %.not32 = icmp eq i32 %29, 0
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = select i1 %.not32, i32 -1, i32 %31
   br label %35
@@ -861,7 +861,7 @@ define void @Java_sun_nio_ch_Net_setIntOption0(ptr noundef %0, ptr nocapture nou
 
 18:                                               ; preds = %15
   %19 = icmp sgt i32 %6, -1
-  %20 = getelementptr inbounds i8, ptr %10, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 4
   br i1 %19, label %21, label %22
 
 21:                                               ; preds = %18
@@ -915,7 +915,7 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
 12:                                               ; preds = %7
   store i32 %11, ptr %8, align 4
   %13 = tail call i32 @htonl(i32 noundef %5) #6
-  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
   %.not21 = icmp eq i8 %2, 0
   %15 = select i1 %.not21, i32 36, i32 35
@@ -924,10 +924,10 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop4(ptr noundef %0, ptr
 16:                                               ; preds = %7
   store i32 %11, ptr %9, align 4
   %17 = tail call i32 @htonl(i32 noundef %6) #6
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @htonl(i32 noundef %5) #6
-  %20 = getelementptr inbounds i8, ptr %9, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %19, ptr %20, align 4
   %.not = icmp eq i8 %2, 0
   %21 = select i1 %.not, i32 40, i32 39
@@ -1012,10 +1012,10 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock4(ptr noundef %0,
   %10 = tail call i32 @htonl(i32 noundef %4) #6
   store i32 %10, ptr %8, align 4
   %11 = tail call i32 @htonl(i32 noundef %6) #6
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %11, ptr %12, align 4
   %13 = tail call i32 @htonl(i32 noundef %5) #6
-  %14 = getelementptr inbounds i8, ptr %8, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %13, ptr %14, align 4
   %15 = tail call i32 @fdval(ptr noundef %0, ptr noundef %3) #7
   %16 = call i32 @setsockopt(i32 noundef %15, i32 noundef 0, i32 noundef %9, ptr noundef nonnull %8, i32 noundef 12) #7
@@ -1089,10 +1089,10 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1600
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1600
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %8) #7
-  %15 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %5, ptr %15, align 4
   %.not24 = icmp eq i8 %2, 0
   %16 = select i1 %.not24, i32 21, i32 20
@@ -1100,19 +1100,19 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_joinOrDrop6(ptr noundef %0, ptr
 
 17:                                               ; preds = %7
   store i32 %5, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i16 10, ptr %18, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1600
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1600
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void %21(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %22) #7
-  %23 = getelementptr inbounds i8, ptr %9, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 136
   store i16 10, ptr %23, align 8
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1600
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1600
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 144
   call void %26(ptr noundef nonnull %0, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %27) #7
   %.not = icmp eq i8 %2, 0
   %28 = select i1 %.not, i32 47, i32 46
@@ -1192,19 +1192,19 @@ define range(i32 -2, 1) i32 @Java_sun_nio_ch_Net_blockOrUnblock6(ptr noundef %0,
   %.not = icmp eq i8 %2, 0
   %9 = select i1 %.not, i32 44, i32 43
   store i32 %5, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 10, ptr %10, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1600
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1600
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void %13(ptr noundef nonnull %0, ptr noundef %4, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %14) #7
-  %15 = getelementptr inbounds i8, ptr %8, i64 136
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i16 10, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 1600
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1600
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %8, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 144
   call void %18(ptr noundef nonnull %0, ptr noundef %6, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %19) #7
   %20 = call i32 @fdval(ptr noundef nonnull %0, ptr noundef %3) #7
   %21 = call i32 @setsockopt(i32 noundef %20, i32 noundef 41, i32 noundef %9, ptr noundef nonnull %8, i32 noundef 264) #7
@@ -1590,7 +1590,7 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
   %7 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
   store i32 %7, ptr %6, align 4
   %8 = trunc i32 %3 to i16
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i16 %8, ptr %9, align 4
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %4, i64 2147483647)
   %.0811 = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 -1)
@@ -1600,7 +1600,7 @@ define range(i32 -32768, 32768) i32 @Java_sun_nio_ch_Net_poll(ptr noundef %0, pt
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %6, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %14 = load i16, ptr %13, align 2
   %15 = sext i16 %14 to i32
   br label %handleSocketError.exit
@@ -1655,9 +1655,9 @@ define zeroext range(i8 0, 2) i8 @Java_sun_nio_ch_Net_pollConnect(ptr noundef %0
   %7 = alloca i32, align 4
   %8 = tail call i32 @fdval(ptr noundef %0, ptr noundef %2) #7
   store i32 %8, ptr %5, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 4, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 0, ptr %10, align 2
   %spec.store.select = tail call i64 @llvm.smin.i64(i64 %3, i64 2147483647)
   %.01424 = tail call i64 @llvm.smax.i64(i64 %spec.store.select, i64 -1)

@@ -23,21 +23,21 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco22AdaptiveRAnsBitDecoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 5.000000e-01, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco22AdaptiveRAnsBitDecoderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 5.000000e-01, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5draco22AdaptiveRAnsBitDecoder5ClearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 5.000000e-01, ptr %2, align 8
   ret void
 }
@@ -46,11 +46,11 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double 5.000000e-01, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 4
   %.not17 = icmp slt i64 %5, %8
@@ -75,13 +75,13 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_
   store ptr %17, ptr %0, align 8
   %20 = add nsw i32 %12, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 %21
   %23 = load i8, ptr %22, align 1
   %24 = icmp ult i8 %23, 64
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %20, ptr %26, align 8
   %27 = load i8, ptr %22, align 1
   %28 = and i8 %27, 63
@@ -101,9 +101,9 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_
 
 34:                                               ; preds = %32
   %35 = add nsw i32 %12, -2
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %17, i64 %13
+  %37 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   %38 = getelementptr inbounds i8, ptr %37, i64 -2
   %.val.i = load i8, ptr %38, align 1
   %39 = getelementptr i8, ptr %37, i64 -1
@@ -121,16 +121,16 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13StartDecodingEPNS_
 
 _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit.thread14: ; preds = %34, %25
   %.ph = phi i32 [ %29, %25 ], [ %43, %34 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = add nuw nsw i32 %.ph, 4096
   store i32 %47, ptr %46, align 4
   br label %62
 
 _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %44
   %48 = add nsw i32 %12, -3
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %17, i64 %13
+  %50 = getelementptr inbounds nuw i8, ptr %17, i64 %13
   %51 = getelementptr inbounds i8, ptr %50, i64 -3
   %52 = getelementptr i8, ptr %50, i64 -2
   %53 = load i16, ptr %52, align 1
@@ -139,7 +139,7 @@ _ZN5dracoL13ans_read_initEPNS_10AnsDecoderEPKhi.exit: ; preds = %44
   %56 = load i8, ptr %51, align 1
   %57 = zext i8 %56 to i32
   %.masked.i = and i32 %55, 4194048
-  %58 = getelementptr inbounds i8, ptr %0, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %59 = or disjoint i32 %57, 4096
   %60 = add nuw nsw i32 %59, %.masked.i
   store i32 %60, ptr %58, align 4
@@ -159,15 +159,15 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %30, %44, %32, %16, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %5, 4096
   br i1 %6, label %7, label %_ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %_ZN5dracoL14rabs_desc_readEPNS_10AnsDecoderEh.exit
@@ -178,7 +178,7 @@ define noundef zeroext i1 @_ZN5draco22AdaptiveRAnsBitDecoder13DecodeNextBitEv(pt
   %14 = add nsw i32 %9, -1
   store i32 %14, ptr %8, align 8
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = zext i8 %17 to i32
   %19 = or disjoint i32 %12, %18
@@ -216,9 +216,9 @@ define void @_ZN5draco22AdaptiveRAnsBitDecoder28DecodeLeastSignificantBits32EiPj
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %0, align 8
   %.promoted = load double, ptr %4, align 8
   %.promoted11 = load i32, ptr %5, align 4
@@ -242,7 +242,7 @@ define void @_ZN5draco22AdaptiveRAnsBitDecoder28DecodeLeastSignificantBits32EiPj
   %16 = add nsw i32 %9, -1
   store i32 %16, ptr %6, align 8
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %15, %20

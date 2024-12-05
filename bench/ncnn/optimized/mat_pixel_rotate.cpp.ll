@@ -70,13 +70,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.14859.us.i = phi ptr [ %.04767.us.i, %.preheader56.us.i ], [ %33, %30 ]
   %.15058.us.i = phi ptr [ %.04966.us.i, %.preheader56.us.i ], [ %34, %30 ]
   %.15257.us.i = phi ptr [ %.05165.us.i, %.preheader56.us.i ], [ %31, %30 ]
-  %31 = getelementptr inbounds i8, ptr %.15257.us.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.15257.us.i, i64 1
   %32 = load i8, ptr %.15257.us.i, align 1
-  %33 = getelementptr inbounds i8, ptr %.14859.us.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.14859.us.i, i64 1
   store i8 %32, ptr %.14859.us.i, align 1
-  %34 = getelementptr inbounds i8, ptr %.15058.us.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.15058.us.i, i64 1
   %35 = load i8, ptr %.15058.us.i, align 1
-  %36 = getelementptr inbounds i8, ptr %.14660.us.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.14660.us.i, i64 1
   store i8 %35, ptr %.14660.us.i, align 1
   %37 = add nsw i32 %.04361.us.i, -1
   %38 = icmp sgt i32 %.04361.us.i, 1
@@ -119,9 +119,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.077.us.i = phi i32 [ %1, %.preheader.us.i ], [ %55, %51 ]
   %.376.us.i = phi ptr [ %.280.us.i, %.preheader.us.i ], [ %54, %51 ]
   %.35475.us.i = phi ptr [ %.25379.us.i, %.preheader.us.i ], [ %52, %51 ]
-  %52 = getelementptr inbounds i8, ptr %.35475.us.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.35475.us.i, i64 1
   %53 = load i8, ptr %.35475.us.i, align 1
-  %54 = getelementptr inbounds i8, ptr %.376.us.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.376.us.i, i64 1
   store i8 %53, ptr %.376.us.i, align 1
   %55 = add nsw i32 %.077.us.i, -1
   %56 = icmp sgt i32 %.077.us.i, 1
@@ -164,7 +164,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.12324.us.i = phi ptr [ %.02228.us.i, %.preheader.us.i65 ], [ %72, %70 ]
   %71 = load i8, ptr %.12324.us.i, align 1
   store i8 %71, ptr %.125.us.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.12324.us.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.12324.us.i, i64 1
   %73 = getelementptr inbounds i8, ptr %.125.us.i, i64 -1
   %74 = add nsw i32 %.026.us.i, -1
   %75 = icmp sgt i32 %.026.us.i, 1
@@ -210,7 +210,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.12627.us.i = phi ptr [ %.02531.us.i, %.preheader.us.i70 ], [ %94, %92 ]
   %93 = load i8, ptr %.12627.us.i, align 1
   store i8 %93, ptr %.128.us.i, align 1
-  %94 = getelementptr inbounds i8, ptr %.12627.us.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.12627.us.i, i64 1
   %95 = getelementptr inbounds i8, ptr %.128.us.i, i64 -1
   %96 = add nsw i32 %.029.us.i, -1
   %97 = icmp sgt i32 %.029.us.i, 1
@@ -279,13 +279,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.15162.us.i = phi ptr [ %.05070.us.i, %.preheader59.us.i ], [ %133, %130 ]
   %.15361.us.i = phi ptr [ %.05269.us.i, %.preheader59.us.i ], [ %134, %130 ]
   %.15560.us.i = phi ptr [ %.05468.us.i, %.preheader59.us.i ], [ %131, %130 ]
-  %131 = getelementptr inbounds i8, ptr %.15560.us.i, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.15560.us.i, i64 1
   %132 = load i8, ptr %.15560.us.i, align 1
-  %133 = getelementptr inbounds i8, ptr %.15162.us.i, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.15162.us.i, i64 1
   store i8 %132, ptr %.15162.us.i, align 1
-  %134 = getelementptr inbounds i8, ptr %.15361.us.i, i64 1
+  %134 = getelementptr inbounds nuw i8, ptr %.15361.us.i, i64 1
   %135 = load i8, ptr %.15361.us.i, align 1
-  %136 = getelementptr inbounds i8, ptr %.14963.us.i, i64 1
+  %136 = getelementptr inbounds nuw i8, ptr %.14963.us.i, i64 1
   store i8 %135, ptr %.14963.us.i, align 1
   %137 = add nsw i32 %.04664.us.i, -1
   %138 = icmp sgt i32 %.04664.us.i, 1
@@ -329,9 +329,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.080.us.i = phi i32 [ %1, %.preheader.us.i75 ], [ %156, %152 ]
   %.379.us.i = phi ptr [ %.283.us.i, %.preheader.us.i75 ], [ %155, %152 ]
   %.35778.us.i = phi ptr [ %.25682.us.i, %.preheader.us.i75 ], [ %153, %152 ]
-  %153 = getelementptr inbounds i8, ptr %.35778.us.i, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.35778.us.i, i64 1
   %154 = load i8, ptr %.35778.us.i, align 1
-  %155 = getelementptr inbounds i8, ptr %.379.us.i, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %.379.us.i, i64 1
   store i8 %154, ptr %.379.us.i, align 1
   %156 = add nsw i32 %.080.us.i, -1
   %157 = icmp sgt i32 %.080.us.i, 1
@@ -362,7 +362,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i80, %.lr.ph.us.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i80 ]
   %.01923.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i ], [ %173, %._crit_edge.us.i80 ]
-  %167 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i
+  %167 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   br label %168
 
 168:                                              ; preds = %168, %.lr.ph.us.i
@@ -371,7 +371,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.120.us.i = phi ptr [ %.01923.us.i, %.lr.ph.us.i ], [ %170, %168 ]
   %169 = load i8, ptr %.120.us.i, align 1
   store i8 %169, ptr %.01721.us.i, align 1
-  %170 = getelementptr inbounds i8, ptr %.120.us.i, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.120.us.i, i64 1
   %171 = getelementptr inbounds i8, ptr %.01721.us.i, i64 %165
   %172 = add nuw nsw i32 %.022.us.i, 1
   %exitcond.not.i79 = icmp eq i32 %172, %1
@@ -414,7 +414,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.122.us.i = phi ptr [ %.02125.us.i, %.lr.ph.us.i83 ], [ %185, %183 ]
   %184 = load i8, ptr %.122.us.i, align 1
   store i8 %184, ptr %.01923.us.i85, align 1
-  %185 = getelementptr inbounds i8, ptr %.122.us.i, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %.122.us.i, i64 1
   %186 = getelementptr inbounds i8, ptr %.01923.us.i85, i64 %180
   %187 = add nuw nsw i32 %.024.us.i, 1
   %exitcond.not.i86 = icmp eq i32 %187, %1
@@ -462,7 +462,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.124.us.i = phi ptr [ %.02327.us.i, %.lr.ph.us.i92 ], [ %205, %203 ]
   %204 = load i8, ptr %.124.us.i, align 1
   store i8 %204, ptr %.02125.us.i96, align 1
-  %205 = getelementptr inbounds i8, ptr %.124.us.i, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 1
   %206 = getelementptr inbounds i8, ptr %.02125.us.i96, i64 %200
   %207 = add nuw nsw i32 %.026.us.i95, 1
   %exitcond.not.i97 = icmp eq i32 %207, %1
@@ -497,7 +497,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
 .lr.ph.us.i102:                                   ; preds = %._crit_edge.us.i105, %.lr.ph.us.preheader.i100
   %indvars.iv.i103 = phi i64 [ 0, %.lr.ph.us.preheader.i100 ], [ %indvars.iv.next.i106, %._crit_edge.us.i105 ]
   %.02226.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i100 ], [ %226, %._crit_edge.us.i105 ]
-  %220 = getelementptr inbounds i8, ptr %213, i64 %indvars.iv.i103
+  %220 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv.i103
   br label %221
 
 221:                                              ; preds = %221, %.lr.ph.us.i102
@@ -506,7 +506,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c1EPKhiiiPhiiii(ptr nocapture noundef
   %.123.us.i = phi ptr [ %.02226.us.i, %.lr.ph.us.i102 ], [ %223, %221 ]
   %222 = load i8, ptr %.123.us.i, align 1
   store i8 %222, ptr %.02024.us.i, align 1
-  %223 = getelementptr inbounds i8, ptr %.123.us.i, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %.123.us.i, i64 1
   %224 = getelementptr inbounds i8, ptr %.02024.us.i, i64 %218
   %225 = add nuw nsw i32 %.025.us.i, 1
   %exitcond.not.i104 = icmp eq i32 %225, %1
@@ -593,13 +593,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.14960.us.i = phi ptr [ %.04868.us.i, %.preheader57.us.i ], [ %35, %32 ]
   %.15159.us.i = phi ptr [ %.05067.us.i, %.preheader57.us.i ], [ %36, %32 ]
   %.15358.us.i = phi ptr [ %.05266.us.i, %.preheader57.us.i ], [ %33, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.15358.us.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.15358.us.i, i64 1
   %34 = load i8, ptr %.15358.us.i, align 1
-  %35 = getelementptr inbounds i8, ptr %.14960.us.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.14960.us.i, i64 1
   store i8 %34, ptr %.14960.us.i, align 1
-  %36 = getelementptr inbounds i8, ptr %.15159.us.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.15159.us.i, i64 1
   %37 = load i8, ptr %.15159.us.i, align 1
-  %38 = getelementptr inbounds i8, ptr %.14761.us.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.14761.us.i, i64 1
   store i8 %37, ptr %.14761.us.i, align 1
   %39 = add nsw i32 %.04462.us.i, -1
   %40 = icmp sgt i32 %.04462.us.i, 1
@@ -642,9 +642,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.078.us.i = phi i32 [ %11, %.preheader.us.i ], [ %57, %53 ]
   %.377.us.i = phi ptr [ %.281.us.i, %.preheader.us.i ], [ %56, %53 ]
   %.35576.us.i = phi ptr [ %.25480.us.i, %.preheader.us.i ], [ %54, %53 ]
-  %54 = getelementptr inbounds i8, ptr %.35576.us.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.35576.us.i, i64 1
   %55 = load i8, ptr %.35576.us.i, align 1
-  %56 = getelementptr inbounds i8, ptr %.377.us.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.377.us.i, i64 1
   store i8 %55, ptr %.377.us.i, align 1
   %57 = add nsw i32 %.078.us.i, -1
   %58 = icmp sgt i32 %.078.us.i, 1
@@ -689,11 +689,11 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.12526.us.i = phi ptr [ %.02430.us.i, %.preheader.us.i65 ], [ %79, %74 ]
   %75 = load i8, ptr %.12526.us.i, align 1
   store i8 %75, ptr %.127.us.i, align 1
-  %76 = getelementptr inbounds i8, ptr %.12526.us.i, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.12526.us.i, i64 1
   %77 = load i8, ptr %76, align 1
-  %78 = getelementptr inbounds i8, ptr %.127.us.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.127.us.i, i64 1
   store i8 %77, ptr %78, align 1
-  %79 = getelementptr inbounds i8, ptr %.12526.us.i, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.12526.us.i, i64 2
   %80 = getelementptr inbounds i8, ptr %.127.us.i, i64 -2
   %81 = add nsw i32 %.028.us.i, -1
   %82 = icmp sgt i32 %.028.us.i, 1
@@ -741,11 +741,11 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.12829.us.i = phi ptr [ %.02733.us.i, %.preheader.us.i70 ], [ %106, %101 ]
   %102 = load i8, ptr %.12829.us.i, align 1
   store i8 %102, ptr %.130.us.i, align 1
-  %103 = getelementptr inbounds i8, ptr %.12829.us.i, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.12829.us.i, i64 1
   %104 = load i8, ptr %103, align 1
-  %105 = getelementptr inbounds i8, ptr %.130.us.i, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.130.us.i, i64 1
   store i8 %104, ptr %105, align 1
-  %106 = getelementptr inbounds i8, ptr %.12829.us.i, i64 2
+  %106 = getelementptr inbounds nuw i8, ptr %.12829.us.i, i64 2
   %107 = getelementptr inbounds i8, ptr %.130.us.i, i64 -2
   %108 = add nsw i32 %.031.us.i, -1
   %109 = icmp sgt i32 %.031.us.i, 1
@@ -816,13 +816,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.15263.us.i = phi ptr [ %.05171.us.i, %.preheader60.us.i ], [ %147, %144 ]
   %.15462.us.i = phi ptr [ %.05370.us.i, %.preheader60.us.i ], [ %148, %144 ]
   %.15661.us.i = phi ptr [ %.05569.us.i, %.preheader60.us.i ], [ %145, %144 ]
-  %145 = getelementptr inbounds i8, ptr %.15661.us.i, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.15661.us.i, i64 1
   %146 = load i8, ptr %.15661.us.i, align 1
-  %147 = getelementptr inbounds i8, ptr %.15263.us.i, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.15263.us.i, i64 1
   store i8 %146, ptr %.15263.us.i, align 1
-  %148 = getelementptr inbounds i8, ptr %.15462.us.i, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %.15462.us.i, i64 1
   %149 = load i8, ptr %.15462.us.i, align 1
-  %150 = getelementptr inbounds i8, ptr %.15064.us.i, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %.15064.us.i, i64 1
   store i8 %149, ptr %.15064.us.i, align 1
   %151 = add nsw i32 %.04765.us.i, -1
   %152 = icmp sgt i32 %.04765.us.i, 1
@@ -866,9 +866,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.081.us.i = phi i32 [ %114, %.preheader.us.i75 ], [ %170, %166 ]
   %.380.us.i = phi ptr [ %.284.us.i, %.preheader.us.i75 ], [ %169, %166 ]
   %.35879.us.i = phi ptr [ %.25783.us.i, %.preheader.us.i75 ], [ %167, %166 ]
-  %167 = getelementptr inbounds i8, ptr %.35879.us.i, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %.35879.us.i, i64 1
   %168 = load i8, ptr %.35879.us.i, align 1
-  %169 = getelementptr inbounds i8, ptr %.380.us.i, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %.380.us.i, i64 1
   store i8 %168, ptr %.380.us.i, align 1
   %170 = add nsw i32 %.081.us.i, -1
   %171 = icmp sgt i32 %.081.us.i, 1
@@ -901,7 +901,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i80 ]
   %.02125.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i ], [ %192, %._crit_edge.us.i80 ]
   %182 = shl nuw nsw i64 %indvars.iv.i, 1
-  %183 = getelementptr inbounds i8, ptr %4, i64 %182
+  %183 = getelementptr inbounds nuw i8, ptr %4, i64 %182
   br label %184
 
 184:                                              ; preds = %184, %.lr.ph.us.i
@@ -910,11 +910,11 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.122.us.i = phi ptr [ %.02125.us.i, %.lr.ph.us.i ], [ %189, %184 ]
   %185 = load i8, ptr %.122.us.i, align 1
   store i8 %185, ptr %.01923.us.i, align 1
-  %186 = getelementptr inbounds i8, ptr %.122.us.i, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %.122.us.i, i64 1
   %187 = load i8, ptr %186, align 1
-  %188 = getelementptr inbounds i8, ptr %.01923.us.i, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %.01923.us.i, i64 1
   store i8 %187, ptr %188, align 1
-  %189 = getelementptr inbounds i8, ptr %.122.us.i, i64 2
+  %189 = getelementptr inbounds nuw i8, ptr %.122.us.i, i64 2
   %190 = getelementptr inbounds i8, ptr %.01923.us.i, i64 %180
   %191 = add nuw nsw i32 %.024.us.i, 1
   %exitcond.not.i79 = icmp eq i32 %191, %1
@@ -959,11 +959,11 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.124.us.i = phi ptr [ %.02327.us.i, %.lr.ph.us.i83 ], [ %208, %203 ]
   %204 = load i8, ptr %.124.us.i, align 1
   store i8 %204, ptr %.02125.us.i85, align 1
-  %205 = getelementptr inbounds i8, ptr %.124.us.i, i64 1
+  %205 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 1
   %206 = load i8, ptr %205, align 1
-  %207 = getelementptr inbounds i8, ptr %.02125.us.i85, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr %.02125.us.i85, i64 1
   store i8 %206, ptr %207, align 1
-  %208 = getelementptr inbounds i8, ptr %.124.us.i, i64 2
+  %208 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 2
   %209 = getelementptr inbounds i8, ptr %.02125.us.i85, i64 %201
   %210 = add nuw nsw i32 %.026.us.i, 1
   %exitcond.not.i86 = icmp eq i32 %210, %1
@@ -1013,11 +1013,11 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.126.us.i = phi ptr [ %.02529.us.i, %.lr.ph.us.i92 ], [ %232, %227 ]
   %228 = load i8, ptr %.126.us.i, align 1
   store i8 %228, ptr %.02327.us.i97, align 1
-  %229 = getelementptr inbounds i8, ptr %.126.us.i, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 1
   %230 = load i8, ptr %229, align 1
-  %231 = getelementptr inbounds i8, ptr %.02327.us.i97, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %.02327.us.i97, i64 1
   store i8 %230, ptr %231, align 1
-  %232 = getelementptr inbounds i8, ptr %.126.us.i, i64 2
+  %232 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 2
   %233 = getelementptr inbounds i8, ptr %.02327.us.i97, i64 %225
   %234 = add nuw nsw i32 %.028.us.i96, 1
   %exitcond.not.i98 = icmp eq i32 %234, %1
@@ -1054,7 +1054,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %indvars.iv.i104 = phi i64 [ 0, %.lr.ph.us.preheader.i101 ], [ %indvars.iv.next.i107, %._crit_edge.us.i106 ]
   %.02428.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i101 ], [ %258, %._crit_edge.us.i106 ]
   %248 = shl nuw nsw i64 %indvars.iv.i104, 1
-  %249 = getelementptr inbounds i8, ptr %240, i64 %248
+  %249 = getelementptr inbounds nuw i8, ptr %240, i64 %248
   br label %250
 
 250:                                              ; preds = %250, %.lr.ph.us.i103
@@ -1063,11 +1063,11 @@ define hidden void @_ZN4ncnn15kanna_rotate_c2EPKhiiiPhiiii(ptr noundef readonly 
   %.125.us.i = phi ptr [ %.02428.us.i, %.lr.ph.us.i103 ], [ %255, %250 ]
   %251 = load i8, ptr %.125.us.i, align 1
   store i8 %251, ptr %.02226.us.i, align 1
-  %252 = getelementptr inbounds i8, ptr %.125.us.i, i64 1
+  %252 = getelementptr inbounds nuw i8, ptr %.125.us.i, i64 1
   %253 = load i8, ptr %252, align 1
-  %254 = getelementptr inbounds i8, ptr %.02226.us.i, i64 1
+  %254 = getelementptr inbounds nuw i8, ptr %.02226.us.i, i64 1
   store i8 %253, ptr %254, align 1
-  %255 = getelementptr inbounds i8, ptr %.125.us.i, i64 2
+  %255 = getelementptr inbounds nuw i8, ptr %.125.us.i, i64 2
   %256 = getelementptr inbounds i8, ptr %.02226.us.i, i64 %246
   %257 = add nuw nsw i32 %.027.us.i, 1
   %exitcond.not.i105 = icmp eq i32 %257, %1
@@ -1154,13 +1154,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.14960.us.i = phi ptr [ %.04868.us.i, %.preheader57.us.i ], [ %34, %31 ]
   %.15159.us.i = phi ptr [ %.05067.us.i, %.preheader57.us.i ], [ %35, %31 ]
   %.15358.us.i = phi ptr [ %.05266.us.i, %.preheader57.us.i ], [ %32, %31 ]
-  %32 = getelementptr inbounds i8, ptr %.15358.us.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.15358.us.i, i64 1
   %33 = load i8, ptr %.15358.us.i, align 1
-  %34 = getelementptr inbounds i8, ptr %.14960.us.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.14960.us.i, i64 1
   store i8 %33, ptr %.14960.us.i, align 1
-  %35 = getelementptr inbounds i8, ptr %.15159.us.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.15159.us.i, i64 1
   %36 = load i8, ptr %.15159.us.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.14761.us.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.14761.us.i, i64 1
   store i8 %36, ptr %.14761.us.i, align 1
   %38 = add nsw i32 %.04462.us.i, -1
   %39 = icmp sgt i32 %.04462.us.i, 1
@@ -1203,9 +1203,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.078.us.i = phi i32 [ %11, %.preheader.us.i ], [ %56, %52 ]
   %.377.us.i = phi ptr [ %.281.us.i, %.preheader.us.i ], [ %55, %52 ]
   %.35576.us.i = phi ptr [ %.25480.us.i, %.preheader.us.i ], [ %53, %52 ]
-  %53 = getelementptr inbounds i8, ptr %.35576.us.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.35576.us.i, i64 1
   %54 = load i8, ptr %.35576.us.i, align 1
-  %55 = getelementptr inbounds i8, ptr %.377.us.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.377.us.i, i64 1
   store i8 %54, ptr %.377.us.i, align 1
   %56 = add nsw i32 %.078.us.i, -1
   %57 = icmp sgt i32 %.078.us.i, 1
@@ -1250,15 +1250,15 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.12728.us.i = phi ptr [ %.02632.us.i, %.preheader.us.i66 ], [ %80, %72 ]
   %73 = load i8, ptr %.12728.us.i, align 1
   store i8 %73, ptr %.129.us.i, align 1
-  %74 = getelementptr inbounds i8, ptr %.12728.us.i, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.12728.us.i, i64 1
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %.129.us.i, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.129.us.i, i64 1
   store i8 %75, ptr %76, align 1
-  %77 = getelementptr inbounds i8, ptr %.12728.us.i, i64 2
+  %77 = getelementptr inbounds nuw i8, ptr %.12728.us.i, i64 2
   %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.129.us.i, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.129.us.i, i64 2
   store i8 %78, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %.12728.us.i, i64 3
+  %80 = getelementptr inbounds nuw i8, ptr %.12728.us.i, i64 3
   %81 = getelementptr inbounds i8, ptr %.129.us.i, i64 -3
   %82 = add nsw i32 %.030.us.i, -1
   %83 = icmp sgt i32 %.030.us.i, 1
@@ -1306,15 +1306,15 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.13032.us.i = phi ptr [ %.02936.us.i, %.preheader.us.i72 ], [ %108, %100 ]
   %101 = load i8, ptr %.13032.us.i, align 1
   store i8 %101, ptr %.133.us.i, align 1
-  %102 = getelementptr inbounds i8, ptr %.13032.us.i, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.13032.us.i, i64 1
   %103 = load i8, ptr %102, align 1
-  %104 = getelementptr inbounds i8, ptr %.133.us.i, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.133.us.i, i64 1
   store i8 %103, ptr %104, align 1
-  %105 = getelementptr inbounds i8, ptr %.13032.us.i, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %.13032.us.i, i64 2
   %106 = load i8, ptr %105, align 1
-  %107 = getelementptr inbounds i8, ptr %.133.us.i, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.133.us.i, i64 2
   store i8 %106, ptr %107, align 1
-  %108 = getelementptr inbounds i8, ptr %.13032.us.i, i64 3
+  %108 = getelementptr inbounds nuw i8, ptr %.13032.us.i, i64 3
   %109 = getelementptr inbounds i8, ptr %.133.us.i, i64 -3
   %110 = add nsw i32 %.034.us.i, -1
   %111 = icmp sgt i32 %.034.us.i, 1
@@ -1385,13 +1385,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.15263.us.i = phi ptr [ %.05171.us.i, %.preheader60.us.i ], [ %149, %146 ]
   %.15462.us.i = phi ptr [ %.05370.us.i, %.preheader60.us.i ], [ %150, %146 ]
   %.15661.us.i = phi ptr [ %.05569.us.i, %.preheader60.us.i ], [ %147, %146 ]
-  %147 = getelementptr inbounds i8, ptr %.15661.us.i, i64 1
+  %147 = getelementptr inbounds nuw i8, ptr %.15661.us.i, i64 1
   %148 = load i8, ptr %.15661.us.i, align 1
-  %149 = getelementptr inbounds i8, ptr %.15263.us.i, i64 1
+  %149 = getelementptr inbounds nuw i8, ptr %.15263.us.i, i64 1
   store i8 %148, ptr %.15263.us.i, align 1
-  %150 = getelementptr inbounds i8, ptr %.15462.us.i, i64 1
+  %150 = getelementptr inbounds nuw i8, ptr %.15462.us.i, i64 1
   %151 = load i8, ptr %.15462.us.i, align 1
-  %152 = getelementptr inbounds i8, ptr %.15064.us.i, i64 1
+  %152 = getelementptr inbounds nuw i8, ptr %.15064.us.i, i64 1
   store i8 %151, ptr %.15064.us.i, align 1
   %153 = add nsw i32 %.04765.us.i, -1
   %154 = icmp sgt i32 %.04765.us.i, 1
@@ -1435,9 +1435,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.081.us.i = phi i32 [ %116, %.preheader.us.i77 ], [ %172, %168 ]
   %.380.us.i = phi ptr [ %.284.us.i, %.preheader.us.i77 ], [ %171, %168 ]
   %.35879.us.i = phi ptr [ %.25783.us.i, %.preheader.us.i77 ], [ %169, %168 ]
-  %169 = getelementptr inbounds i8, ptr %.35879.us.i, i64 1
+  %169 = getelementptr inbounds nuw i8, ptr %.35879.us.i, i64 1
   %170 = load i8, ptr %.35879.us.i, align 1
-  %171 = getelementptr inbounds i8, ptr %.380.us.i, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.380.us.i, i64 1
   store i8 %170, ptr %.380.us.i, align 1
   %172 = add nsw i32 %.081.us.i, -1
   %173 = icmp sgt i32 %.081.us.i, 1
@@ -1470,7 +1470,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i83 ]
   %.02327.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i ], [ %196, %._crit_edge.us.i83 ]
   %183 = mul nuw nsw i64 %indvars.iv.i, 3
-  %184 = getelementptr inbounds i8, ptr %4, i64 %183
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 %183
   br label %185
 
 185:                                              ; preds = %185, %.lr.ph.us.i
@@ -1479,15 +1479,15 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.124.us.i = phi ptr [ %.02327.us.i, %.lr.ph.us.i ], [ %193, %185 ]
   %186 = load i8, ptr %.124.us.i, align 1
   store i8 %186, ptr %.02125.us.i, align 1
-  %187 = getelementptr inbounds i8, ptr %.124.us.i, i64 1
+  %187 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 1
   %188 = load i8, ptr %187, align 1
-  %189 = getelementptr inbounds i8, ptr %.02125.us.i, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %.02125.us.i, i64 1
   store i8 %188, ptr %189, align 1
-  %190 = getelementptr inbounds i8, ptr %.124.us.i, i64 2
+  %190 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 2
   %191 = load i8, ptr %190, align 1
-  %192 = getelementptr inbounds i8, ptr %.02125.us.i, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %.02125.us.i, i64 2
   store i8 %191, ptr %192, align 1
-  %193 = getelementptr inbounds i8, ptr %.124.us.i, i64 3
+  %193 = getelementptr inbounds nuw i8, ptr %.124.us.i, i64 3
   %194 = getelementptr inbounds i8, ptr %.02125.us.i, i64 %181
   %195 = add nuw nsw i32 %.026.us.i, 1
   %exitcond.not.i82 = icmp eq i32 %195, %1
@@ -1532,15 +1532,15 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.126.us.i = phi ptr [ %.02529.us.i, %.lr.ph.us.i87 ], [ %214, %206 ]
   %207 = load i8, ptr %.126.us.i, align 1
   store i8 %207, ptr %.02327.us.i89, align 1
-  %208 = getelementptr inbounds i8, ptr %.126.us.i, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 1
   %209 = load i8, ptr %208, align 1
-  %210 = getelementptr inbounds i8, ptr %.02327.us.i89, i64 1
+  %210 = getelementptr inbounds nuw i8, ptr %.02327.us.i89, i64 1
   store i8 %209, ptr %210, align 1
-  %211 = getelementptr inbounds i8, ptr %.126.us.i, i64 2
+  %211 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 2
   %212 = load i8, ptr %211, align 1
-  %213 = getelementptr inbounds i8, ptr %.02327.us.i89, i64 2
+  %213 = getelementptr inbounds nuw i8, ptr %.02327.us.i89, i64 2
   store i8 %212, ptr %213, align 1
-  %214 = getelementptr inbounds i8, ptr %.126.us.i, i64 3
+  %214 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 3
   %215 = getelementptr inbounds i8, ptr %.02327.us.i89, i64 %204
   %216 = add nuw nsw i32 %.028.us.i, 1
   %exitcond.not.i90 = icmp eq i32 %216, %1
@@ -1590,15 +1590,15 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.128.us.i = phi ptr [ %.02731.us.i, %.lr.ph.us.i97 ], [ %240, %232 ]
   %233 = load i8, ptr %.128.us.i, align 1
   store i8 %233, ptr %.02529.us.i101, align 1
-  %234 = getelementptr inbounds i8, ptr %.128.us.i, i64 1
+  %234 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 1
   %235 = load i8, ptr %234, align 1
-  %236 = getelementptr inbounds i8, ptr %.02529.us.i101, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %.02529.us.i101, i64 1
   store i8 %235, ptr %236, align 1
-  %237 = getelementptr inbounds i8, ptr %.128.us.i, i64 2
+  %237 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 2
   %238 = load i8, ptr %237, align 1
-  %239 = getelementptr inbounds i8, ptr %.02529.us.i101, i64 2
+  %239 = getelementptr inbounds nuw i8, ptr %.02529.us.i101, i64 2
   store i8 %238, ptr %239, align 1
-  %240 = getelementptr inbounds i8, ptr %.128.us.i, i64 3
+  %240 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 3
   %241 = getelementptr inbounds i8, ptr %.02529.us.i101, i64 %230
   %242 = add nuw nsw i32 %.030.us.i100, 1
   %exitcond.not.i102 = icmp eq i32 %242, %1
@@ -1635,7 +1635,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.us.preheader.i106 ], [ %indvars.iv.next.i112, %._crit_edge.us.i111 ]
   %.02630.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i106 ], [ %268, %._crit_edge.us.i111 ]
   %255 = mul nuw nsw i64 %indvars.iv.i109, 3
-  %256 = getelementptr inbounds i8, ptr %248, i64 %255
+  %256 = getelementptr inbounds nuw i8, ptr %248, i64 %255
   br label %257
 
 257:                                              ; preds = %257, %.lr.ph.us.i108
@@ -1644,15 +1644,15 @@ define hidden void @_ZN4ncnn15kanna_rotate_c3EPKhiiiPhiiii(ptr noundef readonly 
   %.127.us.i = phi ptr [ %.02630.us.i, %.lr.ph.us.i108 ], [ %265, %257 ]
   %258 = load i8, ptr %.127.us.i, align 1
   store i8 %258, ptr %.02428.us.i, align 1
-  %259 = getelementptr inbounds i8, ptr %.127.us.i, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %.127.us.i, i64 1
   %260 = load i8, ptr %259, align 1
-  %261 = getelementptr inbounds i8, ptr %.02428.us.i, i64 1
+  %261 = getelementptr inbounds nuw i8, ptr %.02428.us.i, i64 1
   store i8 %260, ptr %261, align 1
-  %262 = getelementptr inbounds i8, ptr %.127.us.i, i64 2
+  %262 = getelementptr inbounds nuw i8, ptr %.127.us.i, i64 2
   %263 = load i8, ptr %262, align 1
-  %264 = getelementptr inbounds i8, ptr %.02428.us.i, i64 2
+  %264 = getelementptr inbounds nuw i8, ptr %.02428.us.i, i64 2
   store i8 %263, ptr %264, align 1
-  %265 = getelementptr inbounds i8, ptr %.127.us.i, i64 3
+  %265 = getelementptr inbounds nuw i8, ptr %.127.us.i, i64 3
   %266 = getelementptr inbounds i8, ptr %.02428.us.i, i64 %253
   %267 = add nuw nsw i32 %.029.us.i, 1
   %exitcond.not.i110 = icmp eq i32 %267, %1
@@ -1739,13 +1739,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.14960.us.i = phi ptr [ %.04868.us.i, %.preheader57.us.i ], [ %35, %32 ]
   %.15159.us.i = phi ptr [ %.05067.us.i, %.preheader57.us.i ], [ %36, %32 ]
   %.15358.us.i = phi ptr [ %.05266.us.i, %.preheader57.us.i ], [ %33, %32 ]
-  %33 = getelementptr inbounds i8, ptr %.15358.us.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.15358.us.i, i64 1
   %34 = load i8, ptr %.15358.us.i, align 1
-  %35 = getelementptr inbounds i8, ptr %.14960.us.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.14960.us.i, i64 1
   store i8 %34, ptr %.14960.us.i, align 1
-  %36 = getelementptr inbounds i8, ptr %.15159.us.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.15159.us.i, i64 1
   %37 = load i8, ptr %.15159.us.i, align 1
-  %38 = getelementptr inbounds i8, ptr %.14761.us.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.14761.us.i, i64 1
   store i8 %37, ptr %.14761.us.i, align 1
   %39 = add nsw i32 %.04462.us.i, -1
   %40 = icmp sgt i32 %.04462.us.i, 1
@@ -1788,9 +1788,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.078.us.i = phi i32 [ %11, %.preheader.us.i ], [ %57, %53 ]
   %.377.us.i = phi ptr [ %.281.us.i, %.preheader.us.i ], [ %56, %53 ]
   %.35576.us.i = phi ptr [ %.25480.us.i, %.preheader.us.i ], [ %54, %53 ]
-  %54 = getelementptr inbounds i8, ptr %.35576.us.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.35576.us.i, i64 1
   %55 = load i8, ptr %.35576.us.i, align 1
-  %56 = getelementptr inbounds i8, ptr %.377.us.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.377.us.i, i64 1
   store i8 %55, ptr %.377.us.i, align 1
   %57 = add nsw i32 %.078.us.i, -1
   %58 = icmp sgt i32 %.078.us.i, 1
@@ -1835,19 +1835,19 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.12930.us.i = phi ptr [ %.02834.us.i, %.preheader.us.i65 ], [ %85, %74 ]
   %75 = load i8, ptr %.12930.us.i, align 1
   store i8 %75, ptr %.131.us.i, align 1
-  %76 = getelementptr inbounds i8, ptr %.12930.us.i, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.12930.us.i, i64 1
   %77 = load i8, ptr %76, align 1
-  %78 = getelementptr inbounds i8, ptr %.131.us.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.131.us.i, i64 1
   store i8 %77, ptr %78, align 1
-  %79 = getelementptr inbounds i8, ptr %.12930.us.i, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %.12930.us.i, i64 2
   %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %.131.us.i, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %.131.us.i, i64 2
   store i8 %80, ptr %81, align 1
-  %82 = getelementptr inbounds i8, ptr %.12930.us.i, i64 3
+  %82 = getelementptr inbounds nuw i8, ptr %.12930.us.i, i64 3
   %83 = load i8, ptr %82, align 1
-  %84 = getelementptr inbounds i8, ptr %.131.us.i, i64 3
+  %84 = getelementptr inbounds nuw i8, ptr %.131.us.i, i64 3
   store i8 %83, ptr %84, align 1
-  %85 = getelementptr inbounds i8, ptr %.12930.us.i, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.12930.us.i, i64 4
   %86 = getelementptr inbounds i8, ptr %.131.us.i, i64 -4
   %87 = add nsw i32 %.032.us.i, -1
   %88 = icmp sgt i32 %.032.us.i, 1
@@ -1895,19 +1895,19 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.13233.us.i = phi ptr [ %.03137.us.i, %.preheader.us.i70 ], [ %118, %107 ]
   %108 = load i8, ptr %.13233.us.i, align 1
   store i8 %108, ptr %.134.us.i, align 1
-  %109 = getelementptr inbounds i8, ptr %.13233.us.i, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.13233.us.i, i64 1
   %110 = load i8, ptr %109, align 1
-  %111 = getelementptr inbounds i8, ptr %.134.us.i, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.134.us.i, i64 1
   store i8 %110, ptr %111, align 1
-  %112 = getelementptr inbounds i8, ptr %.13233.us.i, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %.13233.us.i, i64 2
   %113 = load i8, ptr %112, align 1
-  %114 = getelementptr inbounds i8, ptr %.134.us.i, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.134.us.i, i64 2
   store i8 %113, ptr %114, align 1
-  %115 = getelementptr inbounds i8, ptr %.13233.us.i, i64 3
+  %115 = getelementptr inbounds nuw i8, ptr %.13233.us.i, i64 3
   %116 = load i8, ptr %115, align 1
-  %117 = getelementptr inbounds i8, ptr %.134.us.i, i64 3
+  %117 = getelementptr inbounds nuw i8, ptr %.134.us.i, i64 3
   store i8 %116, ptr %117, align 1
-  %118 = getelementptr inbounds i8, ptr %.13233.us.i, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %.13233.us.i, i64 4
   %119 = getelementptr inbounds i8, ptr %.134.us.i, i64 -4
   %120 = add nsw i32 %.035.us.i, -1
   %121 = icmp sgt i32 %.035.us.i, 1
@@ -1978,13 +1978,13 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.15263.us.i = phi ptr [ %.05171.us.i, %.preheader60.us.i ], [ %159, %156 ]
   %.15462.us.i = phi ptr [ %.05370.us.i, %.preheader60.us.i ], [ %160, %156 ]
   %.15661.us.i = phi ptr [ %.05569.us.i, %.preheader60.us.i ], [ %157, %156 ]
-  %157 = getelementptr inbounds i8, ptr %.15661.us.i, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %.15661.us.i, i64 1
   %158 = load i8, ptr %.15661.us.i, align 1
-  %159 = getelementptr inbounds i8, ptr %.15263.us.i, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %.15263.us.i, i64 1
   store i8 %158, ptr %.15263.us.i, align 1
-  %160 = getelementptr inbounds i8, ptr %.15462.us.i, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %.15462.us.i, i64 1
   %161 = load i8, ptr %.15462.us.i, align 1
-  %162 = getelementptr inbounds i8, ptr %.15064.us.i, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %.15064.us.i, i64 1
   store i8 %161, ptr %.15064.us.i, align 1
   %163 = add nsw i32 %.04765.us.i, -1
   %164 = icmp sgt i32 %.04765.us.i, 1
@@ -2028,9 +2028,9 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.081.us.i = phi i32 [ %126, %.preheader.us.i75 ], [ %182, %178 ]
   %.380.us.i = phi ptr [ %.284.us.i, %.preheader.us.i75 ], [ %181, %178 ]
   %.35879.us.i = phi ptr [ %.25783.us.i, %.preheader.us.i75 ], [ %179, %178 ]
-  %179 = getelementptr inbounds i8, ptr %.35879.us.i, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %.35879.us.i, i64 1
   %180 = load i8, ptr %.35879.us.i, align 1
-  %181 = getelementptr inbounds i8, ptr %.380.us.i, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %.380.us.i, i64 1
   store i8 %180, ptr %.380.us.i, align 1
   %182 = add nsw i32 %.081.us.i, -1
   %183 = icmp sgt i32 %.081.us.i, 1
@@ -2063,7 +2063,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.us.i80 ]
   %.02529.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i ], [ %210, %._crit_edge.us.i80 ]
   %194 = shl nsw i64 %indvars.iv.i, 2
-  %195 = getelementptr inbounds i8, ptr %4, i64 %194
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 %194
   br label %196
 
 196:                                              ; preds = %196, %.lr.ph.us.i
@@ -2072,19 +2072,19 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.126.us.i = phi ptr [ %.02529.us.i, %.lr.ph.us.i ], [ %207, %196 ]
   %197 = load i8, ptr %.126.us.i, align 1
   store i8 %197, ptr %.02327.us.i, align 1
-  %198 = getelementptr inbounds i8, ptr %.126.us.i, i64 1
+  %198 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 1
   %199 = load i8, ptr %198, align 1
-  %200 = getelementptr inbounds i8, ptr %.02327.us.i, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %.02327.us.i, i64 1
   store i8 %199, ptr %200, align 1
-  %201 = getelementptr inbounds i8, ptr %.126.us.i, i64 2
+  %201 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 2
   %202 = load i8, ptr %201, align 1
-  %203 = getelementptr inbounds i8, ptr %.02327.us.i, i64 2
+  %203 = getelementptr inbounds nuw i8, ptr %.02327.us.i, i64 2
   store i8 %202, ptr %203, align 1
-  %204 = getelementptr inbounds i8, ptr %.126.us.i, i64 3
+  %204 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 3
   %205 = load i8, ptr %204, align 1
-  %206 = getelementptr inbounds i8, ptr %.02327.us.i, i64 3
+  %206 = getelementptr inbounds nuw i8, ptr %.02327.us.i, i64 3
   store i8 %205, ptr %206, align 1
-  %207 = getelementptr inbounds i8, ptr %.126.us.i, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %.126.us.i, i64 4
   %208 = getelementptr inbounds i8, ptr %.02327.us.i, i64 %192
   %209 = add nuw nsw i32 %.028.us.i, 1
   %exitcond.not.i79 = icmp eq i32 %209, %1
@@ -2129,19 +2129,19 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.128.us.i = phi ptr [ %.02731.us.i, %.lr.ph.us.i83 ], [ %232, %221 ]
   %222 = load i8, ptr %.128.us.i, align 1
   store i8 %222, ptr %.02529.us.i85, align 1
-  %223 = getelementptr inbounds i8, ptr %.128.us.i, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 1
   %224 = load i8, ptr %223, align 1
-  %225 = getelementptr inbounds i8, ptr %.02529.us.i85, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %.02529.us.i85, i64 1
   store i8 %224, ptr %225, align 1
-  %226 = getelementptr inbounds i8, ptr %.128.us.i, i64 2
+  %226 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 2
   %227 = load i8, ptr %226, align 1
-  %228 = getelementptr inbounds i8, ptr %.02529.us.i85, i64 2
+  %228 = getelementptr inbounds nuw i8, ptr %.02529.us.i85, i64 2
   store i8 %227, ptr %228, align 1
-  %229 = getelementptr inbounds i8, ptr %.128.us.i, i64 3
+  %229 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 3
   %230 = load i8, ptr %229, align 1
-  %231 = getelementptr inbounds i8, ptr %.02529.us.i85, i64 3
+  %231 = getelementptr inbounds nuw i8, ptr %.02529.us.i85, i64 3
   store i8 %230, ptr %231, align 1
-  %232 = getelementptr inbounds i8, ptr %.128.us.i, i64 4
+  %232 = getelementptr inbounds nuw i8, ptr %.128.us.i, i64 4
   %233 = getelementptr inbounds i8, ptr %.02529.us.i85, i64 %219
   %234 = add nuw nsw i32 %.030.us.i, 1
   %exitcond.not.i86 = icmp eq i32 %234, %1
@@ -2191,19 +2191,19 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.130.us.i = phi ptr [ %.02933.us.i, %.lr.ph.us.i92 ], [ %262, %251 ]
   %252 = load i8, ptr %.130.us.i, align 1
   store i8 %252, ptr %.02731.us.i97, align 1
-  %253 = getelementptr inbounds i8, ptr %.130.us.i, i64 1
+  %253 = getelementptr inbounds nuw i8, ptr %.130.us.i, i64 1
   %254 = load i8, ptr %253, align 1
-  %255 = getelementptr inbounds i8, ptr %.02731.us.i97, i64 1
+  %255 = getelementptr inbounds nuw i8, ptr %.02731.us.i97, i64 1
   store i8 %254, ptr %255, align 1
-  %256 = getelementptr inbounds i8, ptr %.130.us.i, i64 2
+  %256 = getelementptr inbounds nuw i8, ptr %.130.us.i, i64 2
   %257 = load i8, ptr %256, align 1
-  %258 = getelementptr inbounds i8, ptr %.02731.us.i97, i64 2
+  %258 = getelementptr inbounds nuw i8, ptr %.02731.us.i97, i64 2
   store i8 %257, ptr %258, align 1
-  %259 = getelementptr inbounds i8, ptr %.130.us.i, i64 3
+  %259 = getelementptr inbounds nuw i8, ptr %.130.us.i, i64 3
   %260 = load i8, ptr %259, align 1
-  %261 = getelementptr inbounds i8, ptr %.02731.us.i97, i64 3
+  %261 = getelementptr inbounds nuw i8, ptr %.02731.us.i97, i64 3
   store i8 %260, ptr %261, align 1
-  %262 = getelementptr inbounds i8, ptr %.130.us.i, i64 4
+  %262 = getelementptr inbounds nuw i8, ptr %.130.us.i, i64 4
   %263 = getelementptr inbounds i8, ptr %.02731.us.i97, i64 %249
   %264 = add nuw nsw i32 %.032.us.i96, 1
   %exitcond.not.i98 = icmp eq i32 %264, %1
@@ -2240,7 +2240,7 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %indvars.iv.i104 = phi i64 [ 0, %.lr.ph.us.preheader.i101 ], [ %indvars.iv.next.i107, %._crit_edge.us.i106 ]
   %.02832.us.i = phi ptr [ %0, %.lr.ph.us.preheader.i101 ], [ %294, %._crit_edge.us.i106 ]
   %278 = shl nsw i64 %indvars.iv.i104, 2
-  %279 = getelementptr inbounds i8, ptr %270, i64 %278
+  %279 = getelementptr inbounds nuw i8, ptr %270, i64 %278
   br label %280
 
 280:                                              ; preds = %280, %.lr.ph.us.i103
@@ -2249,19 +2249,19 @@ define hidden void @_ZN4ncnn15kanna_rotate_c4EPKhiiiPhiiii(ptr noundef readonly 
   %.129.us.i = phi ptr [ %.02832.us.i, %.lr.ph.us.i103 ], [ %291, %280 ]
   %281 = load i8, ptr %.129.us.i, align 1
   store i8 %281, ptr %.02630.us.i, align 1
-  %282 = getelementptr inbounds i8, ptr %.129.us.i, i64 1
+  %282 = getelementptr inbounds nuw i8, ptr %.129.us.i, i64 1
   %283 = load i8, ptr %282, align 1
-  %284 = getelementptr inbounds i8, ptr %.02630.us.i, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %.02630.us.i, i64 1
   store i8 %283, ptr %284, align 1
-  %285 = getelementptr inbounds i8, ptr %.129.us.i, i64 2
+  %285 = getelementptr inbounds nuw i8, ptr %.129.us.i, i64 2
   %286 = load i8, ptr %285, align 1
-  %287 = getelementptr inbounds i8, ptr %.02630.us.i, i64 2
+  %287 = getelementptr inbounds nuw i8, ptr %.02630.us.i, i64 2
   store i8 %286, ptr %287, align 1
-  %288 = getelementptr inbounds i8, ptr %.129.us.i, i64 3
+  %288 = getelementptr inbounds nuw i8, ptr %.129.us.i, i64 3
   %289 = load i8, ptr %288, align 1
-  %290 = getelementptr inbounds i8, ptr %.02630.us.i, i64 3
+  %290 = getelementptr inbounds nuw i8, ptr %.02630.us.i, i64 3
   store i8 %289, ptr %290, align 1
-  %291 = getelementptr inbounds i8, ptr %.129.us.i, i64 4
+  %291 = getelementptr inbounds nuw i8, ptr %.129.us.i, i64 4
   %292 = getelementptr inbounds i8, ptr %.02630.us.i, i64 %276
   %293 = add nuw nsw i32 %.031.us.i, 1
   %exitcond.not.i105 = icmp eq i32 %293, %1

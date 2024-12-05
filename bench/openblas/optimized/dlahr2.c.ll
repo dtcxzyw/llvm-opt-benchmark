@@ -208,7 +208,7 @@ define void @dlahr2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %143 = select i1 %142, i32 %138, i32 %134
   %144 = sext i32 %143 to i64
   %145 = getelementptr double, ptr %140, i64 %144
-  %146 = getelementptr inbounds double, ptr %15, i64 %42
+  %146 = getelementptr inbounds nuw double, ptr %15, i64 %42
   call void @dlarfg_(ptr noundef nonnull %12, ptr noundef %141, ptr noundef %145, ptr noundef nonnull @c__1, ptr noundef nonnull %146) #3
   %147 = load i32, ptr %1, align 4, !tbaa !3
   %148 = add nsw i32 %147, %44

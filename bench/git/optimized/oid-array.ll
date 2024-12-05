@@ -13,10 +13,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @oid_array_append(ptr nocapture noundef %array, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %array, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr, align 8
   %add = add i64 %0, 1
-  %alloc = getelementptr inbounds i8, ptr %array, i64 16
+  %alloc = getelementptr inbounds nuw i8, ptr %array, i64 16
   %1 = load i64, ptr %alloc, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then, label %entry.do.end_crit_edge
@@ -54,11 +54,11 @@ do.end:                                           ; preds = %entry.do.end_crit_e
   store i64 %inc.pre-phi, ptr %nr, align 8
   %arrayidx = getelementptr inbounds %struct.object_id, ptr %5, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx, ptr noundef nonnull readonly align 4 dereferenceable(32) %oid, i64 32, i1 false)
-  %algo.i = getelementptr inbounds i8, ptr %oid, i64 32
+  %algo.i = getelementptr inbounds nuw i8, ptr %oid, i64 32
   %6 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %algo3.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   store i32 %6, ptr %algo3.i, align 4
-  %sorted = getelementptr inbounds i8, ptr %array, i64 24
+  %sorted = getelementptr inbounds nuw i8, ptr %array, i64 24
   store i32 0, ptr %sorted, align 8
   ret void
 }
@@ -68,13 +68,13 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @oid_array_sort(ptr nocapture noundef %array) local_unnamed_addr #2 {
 entry:
-  %sorted = getelementptr inbounds i8, ptr %array, i64 24
+  %sorted = getelementptr inbounds nuw i8, ptr %array, i64 24
   %0 = load i32, ptr %sorted, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %nr = getelementptr inbounds i8, ptr %array, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %1 = load i64, ptr %nr, align 8
   %cmp.i = icmp ugt i64 %1, 1
   br i1 %cmp.i, label %if.then.i, label %sane_qsort.exit
@@ -95,14 +95,14 @@ return:                                           ; preds = %entry, %sane_qsort.
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @void_hashcmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
 entry:
-  %algo.i = getelementptr inbounds i8, ptr %a, i64 32
+  %algo.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load i32, ptr %algo.i, align 4
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
   %1 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i = getelementptr inbounds i8, ptr %1, i64 256
+  %hash_algo.i = getelementptr inbounds nuw i8, ptr %1, i64 256
   %2 = load ptr, ptr %hash_algo.i, align 8
   br label %oidcmp.exit
 
@@ -124,13 +124,13 @@ oidcmp.exit:                                      ; preds = %if.then.i, %if.else
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @oid_array_lookup(ptr nocapture noundef %array, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
-  %sorted.i = getelementptr inbounds i8, ptr %array, i64 24
+  %sorted.i = getelementptr inbounds nuw i8, ptr %array, i64 24
   %0 = load i32, ptr %sorted.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %oid_array_sort.exit
 
 if.end.i:                                         ; preds = %entry
-  %nr.i = getelementptr inbounds i8, ptr %array, i64 8
+  %nr.i = getelementptr inbounds nuw i8, ptr %array, i64 8
   %1 = load i64, ptr %nr.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %sane_qsort.exit.i
@@ -146,7 +146,7 @@ sane_qsort.exit.i:                                ; preds = %if.then.i.i, %if.en
 
 oid_array_sort.exit:                              ; preds = %entry, %sane_qsort.exit.i
   %3 = load ptr, ptr %array, align 8
-  %nr = getelementptr inbounds i8, ptr %array, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %4 = load i64, ptr %nr, align 8
   %call = tail call i32 @oid_pos(ptr noundef %oid, ptr noundef %3, i64 noundef %4, ptr noundef nonnull @oid_access) #15
   ret i32 %call
@@ -176,7 +176,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @oid_array_for_each(ptr nocapture noundef readonly %array, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %nr = getelementptr inbounds i8, ptr %array, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr, align 8
   %cmp5.not = icmp eq i64 %0, 0
   br i1 %cmp5.not, label %return, label %for.body
@@ -203,13 +203,13 @@ return:                                           ; preds = %for.body, %for.cond
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @oid_array_for_each_unique(ptr nocapture noundef %array, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
-  %sorted.i = getelementptr inbounds i8, ptr %array, i64 24
+  %sorted.i = getelementptr inbounds nuw i8, ptr %array, i64 24
   %0 = load i32, ptr %sorted.i, align 8
   %tobool.not.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i, label %if.end.i, label %oid_array_sort.exit
 
 if.end.i:                                         ; preds = %entry
-  %nr.i = getelementptr inbounds i8, ptr %array, i64 8
+  %nr.i = getelementptr inbounds nuw i8, ptr %array, i64 8
   %1 = load i64, ptr %nr.i, align 8
   %cmp.i.i = icmp ugt i64 %1, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %sane_qsort.exit.i
@@ -224,7 +224,7 @@ sane_qsort.exit.i:                                ; preds = %if.then.i.i, %if.en
   br label %oid_array_sort.exit
 
 oid_array_sort.exit:                              ; preds = %entry, %sane_qsort.exit.i
-  %nr = getelementptr inbounds i8, ptr %array, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %3 = load i64, ptr %nr, align 8
   %cmp9.not = icmp eq i64 %3, 0
   br i1 %cmp9.not, label %return, label %for.body
@@ -240,7 +240,7 @@ for.body:                                         ; preds = %oid_array_sort.exit
 for.inc:                                          ; preds = %for.body
   %5 = load i64, ptr %nr, align 8
   %6 = load ptr, ptr @the_repository, align 8
-  %hash_algo.i.i = getelementptr inbounds i8, ptr %6, i64 256
+  %hash_algo.i.i = getelementptr inbounds nuw i8, ptr %6, i64 256
   %7 = add nuw i64 %i.010, 1
   %umax.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %7)
   %8 = add i64 %umax.i, -1
@@ -256,7 +256,7 @@ land.rhs.i:                                       ; preds = %do.body.i
   %9 = load ptr, ptr %array, align 8
   %add.ptr.i = getelementptr inbounds %struct.object_id, ptr %9, i64 %inc.i
   %add.ptr3.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -36
-  %algo.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
+  %algo.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %10 = load i32, ptr %algo.i.i, align 4
   %tobool.not.i.i = icmp eq i32 %10, 0
   br i1 %tobool.not.i.i, label %if.then.i.i8, label %if.else.i.i
@@ -292,7 +292,7 @@ return:                                           ; preds = %for.body, %oid_arra
 ; Function Attrs: nounwind uwtable
 define dso_local void @oid_array_filter(ptr nocapture noundef %array, ptr nocapture noundef readonly %want, ptr noundef %cb_data) local_unnamed_addr #0 {
 entry:
-  %nr1 = getelementptr inbounds i8, ptr %array, i64 8
+  %nr1 = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr1, align 8
   %1 = load ptr, ptr %array, align 8
   %cmp12.not = icmp eq i64 %0, 0
@@ -313,9 +313,9 @@ if.then:                                          ; preds = %for.body
 if.then3:                                         ; preds = %if.then
   %arrayidx4 = getelementptr inbounds %struct.object_id, ptr %1, i64 %dst.013
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %arrayidx4, ptr noundef nonnull readonly align 4 dereferenceable(32) %arrayidx, i64 32, i1 false)
-  %algo.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  %algo.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 32
   %2 = load i32, ptr %algo.i, align 4
-  %algo3.i = getelementptr inbounds i8, ptr %arrayidx4, i64 32
+  %algo3.i = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 32
   store i32 %2, ptr %algo3.i, align 4
   br label %if.end
 

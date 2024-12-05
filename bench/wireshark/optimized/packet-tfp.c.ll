@@ -80,7 +80,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_tfp_tcp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.29) #5
   %7 = load ptr, ptr %5, align 8
@@ -109,19 +109,19 @@ define internal range(i32 0, 2) i32 @dissect_tfp_bulk_heur(ptr noundef %0, ptr n
   br i1 %.not, label %17, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %3, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %7 = load i16, ptr %6, align 4
   %8 = icmp eq i16 %7, 5840
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 1597
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   tail call void @col_set_str(ptr noundef %15, i32 noundef 34, ptr noundef nonnull @.str.33) #5
   %16 = load ptr, ptr %14, align 8
@@ -218,7 +218,7 @@ base58_encode.exit:                               ; preds = %.preheader.i, %.lr.
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #5
   %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #5
   %37 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 48, i32 noundef 4) #5
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i8 %35 to i32
   %41 = zext i8 %36 to i32
@@ -238,13 +238,13 @@ base58_encode.exit:                               ; preds = %.preheader.i, %.lr.
   br i1 %.not.i, label %proto_item_set_generated.exit, label %50
 
 50:                                               ; preds = %43
-  %51 = getelementptr inbounds i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %52 = load ptr, ptr %51, align 8
   %.not5.i = icmp eq ptr %52, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %52, i64 28
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 28
   %55 = load i32, ptr %54, align 4
   %56 = or i32 %55, 2
   store i32 %56, ptr %54, align 4

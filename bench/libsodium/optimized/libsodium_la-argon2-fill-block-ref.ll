@@ -22,13 +22,13 @@ entry:
   br i1 %cmp, label %for.end, label %if.end
 
 if.end:                                           ; preds = %entry
-  %type = getelementptr inbounds i8, ptr %instance, i64 44
+  %type = getelementptr inbounds nuw i8, ptr %instance, i64 44
   %0 = load i32, ptr %type, align 4
   %cmp1 = icmp eq i32 %0, 2
   br i1 %cmp1, label %if.end6, label %if.end6.thread
 
 if.end6.thread:                                   ; preds = %if.end
-  %pseudo_rands765 = getelementptr inbounds i8, ptr %instance, i64 8
+  %pseudo_rands765 = getelementptr inbounds nuw i8, ptr %instance, i64 8
   %1 = load ptr, ptr %pseudo_rands765, align 8
   br label %if.then8
 
@@ -36,12 +36,12 @@ if.end6:                                          ; preds = %if.end
   %cmp2 = icmp ne i32 %position.sroa.0.0.extract.trunc, 0
   %cmp3 = icmp ugt i8 %position.sroa.11.8.extract.trunc, 1
   %or.cond = select i1 %cmp2, i1 true, i1 %cmp3
-  %pseudo_rands7 = getelementptr inbounds i8, ptr %instance, i64 8
+  %pseudo_rands7 = getelementptr inbounds nuw i8, ptr %instance, i64 8
   %2 = load ptr, ptr %pseudo_rands7, align 8
   br i1 %or.cond, label %if.end6.if.end9_crit_edge, label %if.then8
 
 if.end6.if.end9_crit_edge:                        ; preds = %if.end6
-  %segment_length.phi.trans.insert = getelementptr inbounds i8, ptr %instance, i64 28
+  %segment_length.phi.trans.insert = getelementptr inbounds nuw i8, ptr %instance, i64 28
   %.pre = load i32, ptr %segment_length.phi.trans.insert, align 4
   br label %if.end9
 
@@ -52,35 +52,35 @@ if.then8:                                         ; preds = %if.end6.thread, %if
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %address_block.i)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %tmp_block.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %zero_block.i, i8 0, i64 1024, i1 false)
-  %4 = getelementptr inbounds i8, ptr %input_block.i, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %input_block.i, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %4, i8 0, i64 968, i1 false)
   %conv.i = and i64 %position.coerce0, 4294967295
   store i64 %conv.i, ptr %input_block.i, align 8
-  %arrayidx4.i = getelementptr inbounds i8, ptr %input_block.i, i64 8
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %input_block.i, i64 8
   store i64 %position.sroa.7.0.extract.shift, ptr %arrayidx4.i, align 8
   %conv5.i = and i64 %position.coerce1, 255
-  %arrayidx7.i = getelementptr inbounds i8, ptr %input_block.i, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %input_block.i, i64 16
   store i64 %conv5.i, ptr %arrayidx7.i, align 8
-  %memory_blocks.i = getelementptr inbounds i8, ptr %instance, i64 24
+  %memory_blocks.i = getelementptr inbounds nuw i8, ptr %instance, i64 24
   %5 = load i32, ptr %memory_blocks.i, align 8
   %conv8.i = zext i32 %5 to i64
-  %arrayidx10.i = getelementptr inbounds i8, ptr %input_block.i, i64 24
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %input_block.i, i64 24
   store i64 %conv8.i, ptr %arrayidx10.i, align 8
-  %passes.i = getelementptr inbounds i8, ptr %instance, i64 16
+  %passes.i = getelementptr inbounds nuw i8, ptr %instance, i64 16
   %6 = load i32, ptr %passes.i, align 8
   %conv11.i = zext i32 %6 to i64
-  %arrayidx13.i = getelementptr inbounds i8, ptr %input_block.i, i64 32
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %input_block.i, i64 32
   store i64 %conv11.i, ptr %arrayidx13.i, align 8
   %conv14.i = zext i32 %0 to i64
-  %arrayidx16.i = getelementptr inbounds i8, ptr %input_block.i, i64 40
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %input_block.i, i64 40
   store i64 %conv14.i, ptr %arrayidx16.i, align 8
-  %segment_length.i = getelementptr inbounds i8, ptr %instance, i64 28
+  %segment_length.i = getelementptr inbounds nuw i8, ptr %instance, i64 28
   %7 = load i32, ptr %segment_length.i, align 4
   %cmp1712.not.i = icmp eq i32 %7, 0
   br i1 %cmp1712.not.i, label %generate_addresses.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then8
-  %arrayidx23.i = getelementptr inbounds i8, ptr %input_block.i, i64 48
+  %arrayidx23.i = getelementptr inbounds nuw i8, ptr %input_block.i, i64 48
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end.i, %for.body.lr.ph.i
@@ -127,10 +127,10 @@ if.end9:                                          ; preds = %if.end6.if.end9_cri
   %cmp16 = icmp eq i8 %position.sroa.11.8.extract.trunc, 0
   %or.cond1 = select i1 %cmp11, i1 %cmp16, i1 false
   %spec.select39 = select i1 %or.cond1, i32 2, i32 0
-  %lane_length = getelementptr inbounds i8, ptr %instance, i64 32
+  %lane_length = getelementptr inbounds nuw i8, ptr %instance, i64 32
   %14 = trunc i64 %position.coerce1 to i32
   %conv21 = and i32 %14, 255
-  %segment_length = getelementptr inbounds i8, ptr %instance, i64 28
+  %segment_length = getelementptr inbounds nuw i8, ptr %instance, i64 28
   %cmp3369 = icmp ult i32 %spec.select39, %12
   br i1 %cmp3369, label %for.body.lr.ph, label %for.end
 
@@ -145,7 +145,7 @@ for.body.lr.ph:                                   ; preds = %if.end9
   %16 = add i32 %15, -1
   %prev_offset.0.in = select i1 %cmp25, i32 %16, i32 -1
   %prev_offset.0 = add i32 %prev_offset.0.in, %add23
-  %lanes = getelementptr inbounds i8, ptr %instance, i64 36
+  %lanes = getelementptr inbounds nuw i8, ptr %instance, i64 36
   %cmp52.i = icmp eq i8 %position.sroa.11.8.extract.trunc, 3
   %add56.i = add nuw nsw i32 %conv21, 1
   %17 = zext nneg i32 %spec.select39 to i64
@@ -169,7 +169,7 @@ if.then43:                                        ; preds = %for.body
 
 if.else44:                                        ; preds = %for.body
   %20 = load ptr, ptr %instance, align 8
-  %memory = getelementptr inbounds i8, ptr %20, i64 8
+  %memory = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %memory, align 8
   %idxprom45 = zext i32 %spec.select40 to i64
   %arrayidx46 = getelementptr %struct.block_, ptr %21, i64 %idxprom45
@@ -252,7 +252,7 @@ index_alpha.exit:                                 ; preds = %if.then3.i, %if.the
   %conv64.i = zext i32 %19 to i64
   %rem.i = urem i64 %add62.i, %conv64.i
   %28 = load ptr, ptr %instance, align 8
-  %memory70 = getelementptr inbounds i8, ptr %28, i64 8
+  %memory70 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %29 = load ptr, ptr %memory70, align 8
   %mul73 = mul nuw i64 %ref_lane.0, %conv64.i
   %add.ptr = getelementptr %struct.block_, ptr %29, i64 %mul73

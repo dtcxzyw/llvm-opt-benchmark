@@ -571,7 +571,7 @@ define internal void @header_fields_header_name_tostr_cb(ptr nocapture noundef r
 define internal void @header_fields_description_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #7
   store ptr %7, ptr %8, align 8
@@ -580,7 +580,7 @@ define internal void @header_fields_description_set_cb(ptr nocapture noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @header_fields_description_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -610,9 +610,9 @@ declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr 
 define internal void @header_fields_header_format_set_cb(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -627,7 +627,7 @@ define internal void @header_fields_header_format_set_cb(ptr nocapture noundef w
   %12 = add i32 %.01621, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -650,13 +650,13 @@ define internal void @header_fields_header_format_set_cb(ptr nocapture noundef w
 
 ; Function Attrs: nounwind uwtable
 define internal void @header_fields_header_format_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
@@ -667,7 +667,7 @@ define internal void @header_fields_header_format_tostr_cb(ptr nocapture noundef
   %12 = add i32 %.01519, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !8
@@ -700,9 +700,9 @@ define internal void @header_fields_header_format_tostr_cb(ptr nocapture noundef
 define internal void @header_fields_add_to_col_info_set_cb(ptr nocapture noundef writeonly initializes((20, 24)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not15 = icmp eq ptr %10, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -717,7 +717,7 @@ define internal void @header_fields_add_to_col_info_set_cb(ptr nocapture noundef
   %12 = add i32 %.01621, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -740,13 +740,13 @@ define internal void @header_fields_add_to_col_info_set_cb(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @header_fields_add_to_col_info_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = load i32, ptr %8, align 4
   %10 = load i32, ptr %3, align 8
   %11 = icmp eq i32 %10, %9
@@ -757,7 +757,7 @@ define internal void @header_fields_add_to_col_info_tostr_cb(ptr nocapture nound
   %12 = add i32 %.01519, 1
   %13 = zext i32 %12 to i64
   %14 = getelementptr %struct._value_string, ptr %3, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %17, !llvm.loop !10
@@ -793,18 +793,18 @@ define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonl
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #7
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %14, ptr %15, align 4
   ret ptr %0
 }
@@ -852,7 +852,7 @@ define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture nounde
 define internal void @header_fields_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #7
   ret void
@@ -964,7 +964,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %48 = getelementptr %struct.hf_register_info, ptr %42, i64 %indvars.iv, i32 1, i32 11
   store ptr null, ptr %48, align 8
   %49 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #9
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %25, ptr %50, align 8
   %51 = tail call noalias ptr @g_ascii_strdown(ptr noundef %29, i64 noundef -1) #7
   store ptr %51, ptr %49, align 8
@@ -981,27 +981,27 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   ]
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds i8, ptr %49, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr null, ptr %56, align 8
   br label %71
 
 57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %49, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @dissect_imf_mailbox, ptr %58, align 8
   br label %71
 
 59:                                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %49, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @dissect_imf_address, ptr %60, align 8
   br label %71
 
 61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds i8, ptr %49, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @dissect_imf_mailbox_list, ptr %62, align 8
   br label %71
 
 63:                                               ; preds = %.lr.ph
-  %64 = getelementptr inbounds i8, ptr %49, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @dissect_imf_address_list, ptr %64, align 8
   br label %71
 
@@ -1009,14 +1009,14 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %66 = load ptr, ptr @dynamic_hf, align 8
   %67 = getelementptr %struct.hf_register_info, ptr %66, i64 %indvars.iv, i32 1, i32 2
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %49, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr @dissect_imf_siolabel, ptr %68, align 8
   %.pre = load ptr, ptr @header_fields, align 8
   %.pre42 = load ptr, ptr %49, align 8
   br label %71
 
 69:                                               ; preds = %.lr.ph
-  %70 = getelementptr inbounds i8, ptr %49, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr null, ptr %70, align 8
   br label %71
 
@@ -1025,7 +1025,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
   %73 = phi ptr [ %52, %69 ], [ %.pre, %65 ], [ %52, %63 ], [ %52, %61 ], [ %52, %59 ], [ %52, %57 ], [ %52, %55 ]
   %74 = getelementptr %struct._header_field_t, ptr %73, i64 %indvars.iv, i32 3
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %49, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 %75, ptr %76, align 8
   %77 = load ptr, ptr @custom_field_table, align 8
   %78 = tail call i32 @g_hash_table_insert(ptr noundef %77, ptr noundef %72, ptr noundef nonnull %49) #7
@@ -1133,18 +1133,18 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %.not, label %.lr.ph184, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noalias ptr @wmem_alloc(ptr noundef %14, i64 noundef 40) #7
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @.str.189, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @.str.189, ptr %17, align 8
   br label %.lr.ph184
 
 .lr.ph184:                                        ; preds = %4, %12
   %.0 = phi ptr [ %15, %12 ], [ null, %4 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_append_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.212) #7
   %20 = load ptr, ptr %18, align 8
@@ -1158,11 +1158,11 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %25 = load i32, ptr @ett_imf, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #7
   %27 = tail call i32 @tvb_captured_length(ptr noundef %0) #7
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr @g_ascii_table, align 8
   %.not159 = icmp eq ptr %.0, null
-  %30 = getelementptr inbounds i8, ptr %.0, i64 16
-  %31 = getelementptr inbounds i8, ptr %.0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %32
 
 32:                                               ; preds = %.lr.ph184, %dissect_imf_content_type.exit
@@ -1196,7 +1196,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %49 = icmp eq ptr %.0139, null
   %spec.select = select i1 %49, i32 %.0148180, i32 %.0144181
   %spec.select168 = select i1 %49, ptr @imf_fields, ptr %.0139
-  %50 = getelementptr inbounds i8, ptr %spec.select168, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select168, i64 8
   %51 = load ptr, ptr %50, align 8
   %52 = load i32, ptr %51, align 4
   %53 = add nuw i32 %34, 1
@@ -1256,7 +1256,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 84:                                               ; preds = %80, %68
   %.0141 = phi ptr [ %79, %68 ], [ %83, %80 ]
-  %85 = getelementptr inbounds i8, ptr %spec.select168, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %spec.select168, i64 24
   %86 = load i32, ptr %85, align 8
   %.not158 = icmp eq i32 %86, 0
   br i1 %.not158, label %110, label %87
@@ -1367,7 +1367,7 @@ define internal i32 @dissect_imf(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br label %dissect_imf_content_type.exit
 
 148:                                              ; preds = %141
-  %149 = getelementptr inbounds i8, ptr %spec.select168, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %spec.select168, i64 16
   %150 = load ptr, ptr %149, align 8
   %.not161 = icmp eq ptr %150, null
   br i1 %.not161, label %dissect_imf_content_type.exit, label %151
@@ -1419,7 +1419,7 @@ thread-pre-split171:                              ; preds = %dissect_imf_content
   br i1 %.not165, label %165, label %172
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds i8, ptr %1, i64 408
+  %166 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %167 = load ptr, ptr %166, align 8
   %168 = call i32 @tvb_reported_length(ptr noundef %0) #7
   %169 = sub i32 %168, %.pre
@@ -1437,9 +1437,9 @@ thread-pre-split171:                              ; preds = %dissect_imf_content
   %.0140 = phi ptr [ %174, %172 ], [ %171, %165 ]
   store i32 5, ptr %9, align 8
   %176 = load ptr, ptr %6, align 8
-  %177 = getelementptr inbounds i8, ptr %9, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %176, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %9, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %178, align 8
   %179 = load ptr, ptr @media_type_dissector_table, align 8
   %180 = load ptr, ptr %5, align 8
@@ -1457,7 +1457,7 @@ thread-pre-split171:                              ; preds = %dissect_imf_content
   br i1 %.not163187, label %.loopexit, label %.lr.ph190
 
 .lr.ph190:                                        ; preds = %182
-  %189 = getelementptr inbounds i8, ptr %1, i64 408
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %190
 
 190:                                              ; preds = %.lr.ph190, %190
@@ -1488,13 +1488,13 @@ thread-pre-split171:                              ; preds = %dissect_imf_content
   br i1 %.not167, label %212, label %204
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %.0, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i32 %27, ptr %205, align 8
-  %206 = getelementptr inbounds i8, ptr %1, i64 408
+  %206 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %207 = load ptr, ptr %206, align 8
   %208 = sext i32 %27 to i64
   %209 = call ptr @tvb_memdup(ptr noundef %207, ptr noundef %0, i32 noundef 0, i64 noundef %208) #7
-  %210 = getelementptr inbounds i8, ptr %.0, i64 32
+  %210 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   store ptr %209, ptr %210, align 8
   %211 = load i32, ptr @imf_eo_tap, align 4
   call void @tap_queue_packet(i32 noundef %211, ptr noundef %1, ptr noundef nonnull %.0) #7
@@ -1528,7 +1528,7 @@ define internal range(i32 0, 2) i32 @imf_eo_packet(ptr nocapture noundef readonl
 
 6:                                                ; preds = %5
   %7 = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #9
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @g_strrstr_len(ptr noundef %9, i64 noundef -1, ptr noundef nonnull @.str.286) #7
   %11 = load ptr, ptr %8, align 8
@@ -1561,31 +1561,31 @@ define internal range(i32 0, 2) i32 @imf_eo_packet(ptr nocapture noundef readonl
 
 29:                                               ; preds = %26, %21
   %.sink = phi ptr [ %28, %26 ], [ %25, %21 ]
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sink, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %7, align 8
   %33 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.289) #7
-  %34 = getelementptr inbounds i8, ptr %7, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %3, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.290, ptr noundef %36) #7
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %3, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %7, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %41, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @g_memdup2(ptr noundef %44, i64 noundef %41) #10
-  %46 = getelementptr inbounds i8, ptr %7, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %45, ptr %46, align 8
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   tail call void %47(ptr noundef %49, ptr noundef nonnull %7) #7
   br label %50
@@ -1830,7 +1830,7 @@ define internal void @dissect_imf_address_list(ptr noundef %0, i32 noundef %1, i
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_imf_siolabel(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %8, ptr noundef nonnull @.str.189) #7
   %10 = load i32, ptr @ett_imf_siolabel, align 4

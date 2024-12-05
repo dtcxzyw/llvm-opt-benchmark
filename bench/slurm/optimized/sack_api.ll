@@ -32,7 +32,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
 
 8:                                                ; preds = %3
   tail call void @pack16(i16 noundef zeroext 10496, ptr noundef %5) #6
-  %9 = getelementptr inbounds i8, ptr %5, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %10 = load i32, ptr %9, align 4
   tail call void @pack32(i32 noundef 0, ptr noundef %5) #6
   tail call void @pack32(i32 noundef 64001, ptr noundef %5) #6
@@ -50,7 +50,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   br label %.lr.ph134
 
 .lr.ph.preheader:                                 ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %14, align 8
   br label %.lr.ph.split.us
 
@@ -94,7 +94,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   %.us-phi = phi i64 [ %17, %.lr.ph.split.us ], [ %24, %23 ]
   %.us-phi121 = phi i32 [ %18, %.lr.ph.split.us ], [ %25, %23 ]
   %31 = and i64 %.us-phi, 2147483647
-  %32 = getelementptr inbounds i8, ptr %.076.ph132, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %.076.ph132, i64 %31
   %33 = sub nsw i32 %.077.ph130, %.us-phi121
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %.lr.ph134.preheader
@@ -144,7 +144,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   %.us-phi140 = phi i64 [ %59, %.lr.ph164.preheader.preheader ], [ %59, %.lr.ph180.preheader ], [ %75, %.lr.ph164.preheader ], [ %67, %.lr.ph180 ]
   %.us-phi141 = phi i32 [ %60, %.lr.ph164.preheader.preheader ], [ %60, %.lr.ph180.preheader ], [ %76, %.lr.ph164.preheader ], [ %68, %.lr.ph180 ]
   %49 = and i64 %.us-phi140, 2147483647
-  %50 = getelementptr inbounds i8, ptr %.074.ph185, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.074.ph185, i64 %49
   %51 = sub nsw i32 %.075.ph183, %.us-phi141
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %.outer95._crit_edge
@@ -338,7 +338,7 @@ define ptr @sack_create(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_un
   %.us-phi193 = phi i64 [ %87, %.lr.ph218.preheader.preheader ], [ %87, %.lr.ph234.preheader ], [ %103, %.lr.ph218.preheader ], [ %95, %.lr.ph234 ]
   %.us-phi194 = phi i32 [ %88, %.lr.ph218.preheader.preheader ], [ %88, %.lr.ph234.preheader ], [ %104, %.lr.ph218.preheader ], [ %96, %.lr.ph234 ]
   %115 = and i64 %.us-phi193, 2147483647
-  %116 = getelementptr inbounds i8, ptr %.0.ph239, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %.0.ph239, i64 %115
   %117 = sub nsw i32 %.072.ph237, %.us-phi194
   %118 = icmp sgt i32 %117, 0
   br i1 %118, label %119, label %.loopexit
@@ -381,8 +381,8 @@ define internal fastcc range(i32 -1, -2147483648) i32 @_sack_connect() unnamed_a
 
 1:                                                ; preds = %0, %24
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %24 ]
-  %2 = getelementptr inbounds [3 x %struct.sockaddr_un], ptr @sack_addrs, i64 0, i64 %indvars.iv
-  %3 = getelementptr inbounds i8, ptr %2, i64 2
+  %2 = getelementptr inbounds nuw [3 x %struct.sockaddr_un], ptr @sack_addrs, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #8
   %5 = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #6
   %6 = icmp slt i32 %5, 0
@@ -478,7 +478,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   tail call void @pack16(i16 noundef zeroext 10496, ptr noundef %3) #6
-  %7 = getelementptr inbounds i8, ptr %3, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %8 = load i32, ptr %7, align 4
   tail call void @pack32(i32 noundef 0, ptr noundef %3) #6
   tail call void @pack32(i32 noundef 64002, ptr noundef %3) #6
@@ -506,7 +506,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph96
 
 .lr.ph.preheader:                                 ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8
   br label %.lr.ph.split.us
 
@@ -550,7 +550,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   %.us-phi = phi i64 [ %20, %.lr.ph.split.us ], [ %27, %26 ]
   %.us-phi83 = phi i32 [ %21, %.lr.ph.split.us ], [ %28, %26 ]
   %34 = and i64 %.us-phi, 2147483647
-  %35 = getelementptr inbounds i8, ptr %.055.ph94, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %.055.ph94, i64 %34
   %36 = sub nsw i32 %.056.ph92, %.us-phi83
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %.lr.ph96.preheader
@@ -600,7 +600,7 @@ define i32 @sack_verify(ptr noundef %0) local_unnamed_addr #0 {
   %.us-phi102 = phi i64 [ %62, %.lr.ph126.preheader.preheader ], [ %62, %.lr.ph142.preheader ], [ %78, %.lr.ph126.preheader ], [ %70, %.lr.ph142 ]
   %.us-phi103 = phi i32 [ %63, %.lr.ph126.preheader.preheader ], [ %63, %.lr.ph142.preheader ], [ %79, %.lr.ph126.preheader ], [ %71, %.lr.ph142 ]
   %52 = and i64 %.us-phi102, 2147483647
-  %53 = getelementptr inbounds i8, ptr %.0.ph147, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %.0.ph147, i64 %52
   %54 = sub nsw i32 %.054.ph145, %.us-phi103
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %56, label %.outer._crit_edge

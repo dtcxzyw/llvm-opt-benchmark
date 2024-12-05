@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4096
@@ -13,7 +13,7 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %57
 
@@ -23,9 +23,9 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not61, label %29, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %13, i64 %16
@@ -66,7 +66,7 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 26:                                               ; preds = %.lr.ph, %25
   %.249 = phi ptr [ %.148, %25 ], [ %.04774, %.lr.ph ]
   %.3 = phi ptr [ %.2, %25 ], [ %.04675, %.lr.ph ]
-  %27 = getelementptr inbounds i8, ptr %.04576, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.04576, i64 8
   %28 = icmp ult ptr %27, %17
   br i1 %28, label %.lr.ph, label %.loopexit
 
@@ -76,18 +76,18 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   br i1 %.not62, label %34, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %33 = load ptr, ptr %32, align 8
   br label %.loopexit
 
 34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not63 = icmp eq ptr %36, null
   br i1 %.not63, label %.loopexit, label %.preheader72
 
 .preheader72:                                     ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not6477 = icmp eq ptr %38, null
   br i1 %.not6477, label %.preheader71, label %.lr.ph79
@@ -109,7 +109,7 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %41 = load ptr, ptr %39, align 8
   store ptr %41, ptr %40, align 8
   store ptr %.05178, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not64 = icmp eq ptr %43, null
   br i1 %.not64, label %.lr.ph85.preheader, label %.lr.ph79
@@ -117,7 +117,7 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %51
   %.15284 = phi ptr [ %.152, %51 ], [ %.1528191, %.lr.ph85.preheader ]
   %.483 = phi ptr [ %.354, %51 ], [ %.051.lcssa92, %.lr.ph85.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.15284, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.15284, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not66 = icmp eq ptr %45, null
   br i1 %.not66, label %51, label %.preheader
@@ -126,10 +126,10 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %.055 = phi ptr [ %49, %.preheader ], [ %45, %.lr.ph85 ]
   %.253 = phi ptr [ %.055, %.preheader ], [ %.15284, %.lr.ph85 ]
   %46 = load ptr, ptr %.055, align 8
-  %47 = getelementptr inbounds i8, ptr %.253, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.253, i64 8
   store ptr %46, ptr %47, align 8
   store ptr %.253, ptr %.055, align 8
-  %48 = getelementptr inbounds i8, ptr %.055, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.055, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not67 = icmp eq ptr %49, null
   br i1 %.not67, label %50, label %.preheader
@@ -147,7 +147,7 @@ define ptr @dtflatten(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %26, %51, %11, %.preheader71, %31, %34
   %.350 = phi ptr [ %33, %31 ], [ null, %34 ], [ %36, %.preheader71 ], [ null, %11 ], [ %.051.lcssa92, %51 ], [ %.249, %26 ]
   %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %.350, ptr %53, align 8
   %54 = load ptr, ptr %2, align 8
   %55 = load i32, ptr %54, align 8

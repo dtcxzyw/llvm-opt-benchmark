@@ -40,7 +40,7 @@ define range(i32 -1, -2147483648) i32 @clock_gettime(i32 noundef %0, ptr noundef
   store i64 %16, ptr %4, align 8
   %17 = load i64, ptr getelementptr inbounds (i8, ptr @g_basetime, i64 8), align 8
   %18 = and i64 %17, 4294967295
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = add nsw i64 %20, %18
   store i64 %21, ptr %19, align 8
@@ -72,7 +72,7 @@ up_irq_restore.exit:                              ; preds = %11, %23
   %31 = phi i64 [ %24, %up_irq_restore.exit ], [ %30, %26 ]
   %32 = phi i64 [ %.pre, %up_irq_restore.exit ], [ %29, %26 ]
   store i64 %32, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %31, ptr %33, align 8
   br label %38
 

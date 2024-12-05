@@ -41,13 +41,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @H5MF_aggr_vfd_alloc(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, -5
   %or.cond = icmp ult i32 %4, -2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   br i1 %or.cond, label %7, label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %6, i64 1904
-  %9 = getelementptr inbounds i8, ptr %6, i64 1944
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 1904
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1944
   %10 = tail call fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %1, i64 noundef %2)
   %11 = icmp eq i64 %10, -1
   br i1 %11, label %12, label %25
@@ -59,8 +59,8 @@ define i64 @H5MF_aggr_vfd_alloc(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
   br label %25
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %6, i64 1944
-  %18 = getelementptr inbounds i8, ptr %6, i64 1904
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1944
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 1904
   %19 = tail call fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef nonnull %17, ptr noundef nonnull %18, i32 noundef 3, i64 noundef %2)
   %20 = icmp eq i64 %19, -1
   br i1 %20, label %21, label %25
@@ -93,9 +93,9 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br label %265
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load i64, ptr %17, align 8
   %19 = load i64, ptr %1, align 8
   %20 = and i64 %19, %18
@@ -103,19 +103,19 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br i1 %.not, label %244, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %16, i64 1520
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 1520
   %23 = load i32, ptr %22, align 8
   %.not221 = icmp eq i32 %23, 3
   br i1 %.not221, label %244, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %16, i64 1482
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 1482
   %26 = load i8, ptr %25, align 2
   %27 = trunc i8 %26 to i1
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %16, i64 1536
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 1536
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %244, label %32
@@ -131,7 +131,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br i1 %.not222, label %47, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %39 = load i64, ptr %38, align 8
   switch i64 %39, label %40 [
     i64 -1, label %47
@@ -161,19 +161,19 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %53 = icmp eq i64 %52, 1
   %54 = select i1 %53, i32 0, i32 3
   %55 = add i64 %.0188, %4
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %59, label %231
 
 59:                                               ; preds = %47
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load i64, ptr %60, align 8
   %.not227 = icmp ult i64 %4, %61
   br i1 %.not227, label %120, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %1, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, %57
   %66 = add i64 %65, %55
@@ -182,7 +182,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
 
 67:                                               ; preds = %62
   %68 = load ptr, ptr %15, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1552
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1552
   %70 = load i64, ptr %69, align 8
   %71 = icmp ugt i64 %66, %70
   br i1 %71, label %72, label %76
@@ -217,20 +217,20 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %86 = add i64 %85, %.0188
   %87 = add i64 %85, %55
   store i64 %87, ptr %63, align 8
-  %88 = getelementptr inbounds i8, ptr %1, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, %55
   store i64 %90, ptr %88, align 8
   br label %222
 
 .thread252:                                       ; preds = %76, %84
-  %91 = getelementptr inbounds i8, ptr %2, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %92 = load i64, ptr %91, align 8
   %.not240 = icmp eq i64 %92, 0
   br i1 %.not240, label %113, label %93
 
 93:                                               ; preds = %.thread252
-  %94 = getelementptr inbounds i8, ptr %2, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %92
   %.not241 = icmp ne i64 %96, -1
@@ -239,14 +239,14 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br i1 %or.cond247, label %98, label %113
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %2, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %100 = load i64, ptr %99, align 8
   %101 = icmp ugt i64 %100, %92
   br i1 %101, label %102, label %113
 
 102:                                              ; preds = %98
   %103 = sub nuw i64 %100, %92
-  %104 = getelementptr inbounds i8, ptr %2, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %105 = load i64, ptr %104, align 8
   %.not242 = icmp ult i64 %103, %105
   br i1 %.not242, label %113, label %106
@@ -281,7 +281,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %121 = sub nuw i64 %61, %4
   %122 = tail call i64 @llvm.usub.sat.i64(i64 %.0188, i64 %121)
   %.0 = add i64 %122, %61
-  %123 = getelementptr inbounds i8, ptr %1, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %124 = load i64, ptr %123, align 8
   %125 = add i64 %124, %57
   %126 = add i64 %125, %.0
@@ -290,7 +290,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
 
 127:                                              ; preds = %120
   %128 = load ptr, ptr %15, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 1552
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1552
   %130 = load i64, ptr %129, align 8
   %131 = icmp ugt i64 %126, %130
   br i1 %131, label %132, label %136
@@ -326,20 +326,20 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %148 = sub i64 %.0, %.0188
   %149 = load i64, ptr %56, align 8
   %150 = add i64 %148, %149
-  %151 = getelementptr inbounds i8, ptr %1, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %152 = load i64, ptr %151, align 8
   %153 = add i64 %152, %.0
   store i64 %153, ptr %151, align 8
   br label %205
 
 .thread255:                                       ; preds = %136, %144
-  %154 = getelementptr inbounds i8, ptr %2, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %155 = load i64, ptr %154, align 8
   %.not232 = icmp eq i64 %155, 0
   br i1 %.not232, label %176, label %156
 
 156:                                              ; preds = %.thread255
-  %157 = getelementptr inbounds i8, ptr %2, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %158 = load i64, ptr %157, align 8
   %159 = add i64 %158, %155
   %.not233 = icmp ne i64 %159, -1
@@ -348,14 +348,14 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br i1 %or.cond249, label %161, label %176
 
 161:                                              ; preds = %156
-  %162 = getelementptr inbounds i8, ptr %2, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %163 = load i64, ptr %162, align 8
   %164 = icmp ugt i64 %163, %155
   br i1 %164, label %165, label %176
 
 165:                                              ; preds = %161
   %166 = sub nuw i64 %163, %155
-  %167 = getelementptr inbounds i8, ptr %2, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %168 = load i64, ptr %167, align 8
   %.not234 = icmp ult i64 %166, %168
   br i1 %.not234, label %176, label %169
@@ -410,7 +410,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   %198 = load i64, ptr %6, align 8
   %199 = load i64, ptr %60, align 8
   %200 = add i64 %199, %195
-  %201 = getelementptr inbounds i8, ptr %1, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %200, ptr %201, align 8
   store i64 -1, ptr %6, align 8
   store i64 0, ptr %7, align 8
@@ -418,7 +418,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
 
 202:                                              ; preds = %194
   %203 = load i64, ptr %60, align 8
-  %204 = getelementptr inbounds i8, ptr %1, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %203, ptr %204, align 8
   br label %205
 
@@ -471,7 +471,7 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr nocapture nound
   br label %265
 
 231:                                              ; preds = %47
-  %232 = getelementptr inbounds i8, ptr %1, i64 32
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %233 = load i64, ptr %232, align 8
   %234 = add i64 %233, %.0188
   %235 = sub nuw i64 %57, %55
@@ -539,9 +539,9 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %1, align 8
   %11 = and i64 %10, %9
@@ -551,7 +551,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   br i1 %or.cond, label %14, label %62
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %3, %16
   br i1 %17, label %18, label %62
@@ -569,7 +569,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
 
 25:                                               ; preds = %18
   %26 = load i64, ptr %15, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, %26
   %30 = icmp eq i64 %19, %29
@@ -590,7 +590,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   br label %62
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load i64, ptr %39, align 8
   %. = tail call i64 @llvm.umax.i64(i64 %4, i64 %40)
   %41 = tail call i32 @H5F__try_extend(ptr noundef nonnull %0, i32 noundef %2, i64 noundef %19, i64 noundef %.) #6
@@ -611,7 +611,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
   %50 = load i64, ptr %15, align 8
   %51 = add i64 %50, %4
   store i64 %51, ptr %15, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load i64, ptr %52, align 8
   %54 = add i64 %53, %.
   store i64 %54, ptr %52, align 8
@@ -643,9 +643,9 @@ declare i32 @H5F__try_extend(ptr noundef, i32 noundef, i64 noundef, i64 noundef)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @H5MF__aggr_can_absorb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %1, align 8
   %10 = and i64 %9, %8
@@ -654,15 +654,15 @@ define range(i32 0, 2) i32 @H5MF__aggr_can_absorb(ptr nocapture noundef readonly
 
 11:                                               ; preds = %4
   %12 = load i64, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, %12
   %.not19 = icmp ne i64 %15, -1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %16 = icmp eq i64 %15, %.pre
   %or.cond25 = select i1 %.not19, i1 %16, i1 false
-  %.phi.trans.insert23 = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre24 = load i64, ptr %.phi.trans.insert23, align 8
   br i1 %or.cond25, label %._crit_edge22, label %._crit_edge
 
@@ -675,7 +675,7 @@ define range(i32 0, 2) i32 @H5MF__aggr_can_absorb(ptr nocapture noundef readonly
 
 ._crit_edge22:                                    ; preds = %11, %._crit_edge
   %19 = add i64 %.pre24, %14
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i64, ptr %20, align 8
   %.not21 = icmp ult i64 %19, %21
   %. = select i1 %.not21, i32 1, i32 2
@@ -689,12 +689,12 @@ define range(i32 0, 2) i32 @H5MF__aggr_can_absorb(ptr nocapture noundef readonly
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %6
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %.not = icmp uge i64 %9, %11
   %brmerge.not = and i1 %3, %.not
@@ -707,7 +707,7 @@ define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr noc
   br i1 %.not39, label %19, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %13, %17
   br i1 %18, label %23, label %19
@@ -722,7 +722,7 @@ define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr noc
 23:                                               ; preds = %15, %19
   %storemerge = phi i64 [ %22, %19 ], [ %9, %15 ]
   store i64 %storemerge, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   br label %38
 
@@ -730,7 +730,7 @@ define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr noc
   br i1 %.not39, label %37, label %26
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = icmp eq i64 %13, %28
   br i1 %29, label %30, label %37
@@ -740,7 +740,7 @@ define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr noc
   %31 = load i64, ptr %7, align 8
   %32 = add i64 %31, %6
   store i64 %32, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = load i64, ptr %33, align 8
   %35 = load i64, ptr %7, align 8
   %36 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 %35)
@@ -757,9 +757,9 @@ define noundef i32 @H5MF__aggr_absorb(ptr nocapture noundef readnone %0, ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5MF__aggr_query(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %1, align 8
   %10 = and i64 %9, %8
@@ -771,7 +771,7 @@ define noundef i32 @H5MF__aggr_query(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not9, label %15, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %2, align 8
   br label %15
@@ -781,7 +781,7 @@ define noundef i32 @H5MF__aggr_query(ptr nocapture noundef readonly %0, ptr noca
   br i1 %.not10, label %19, label %16
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %3, align 8
   br label %19
@@ -792,10 +792,10 @@ define noundef i32 @H5MF__aggr_query(ptr nocapture noundef readonly %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5MF_free_aggrs(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1904
-  %5 = getelementptr inbounds i8, ptr %3, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1904
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %8 = and i64 %7, %6
@@ -803,20 +803,20 @@ define range(i32 -1, 1) i32 @H5MF_free_aggrs(ptr noundef %0) local_unnamed_addr 
   br i1 %.not.i, label %H5MF__aggr_query.exit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 1936
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %11 = load i64, ptr %10, align 8
   br label %H5MF__aggr_query.exit
 
 H5MF__aggr_query.exit:                            ; preds = %1, %9
   %.035 = phi i64 [ -1, %1 ], [ %11, %9 ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 1944
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1944
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %6
   %.not.i25 = icmp eq i64 %14, 0
   br i1 %.not.i25, label %H5MF__aggr_query.exit26.thread, label %H5MF__aggr_query.exit26
 
 H5MF__aggr_query.exit26:                          ; preds = %H5MF__aggr_query.exit
-  %15 = getelementptr inbounds i8, ptr %3, i64 1976
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 1976
   %16 = load i64, ptr %15, align 8
   %17 = icmp ne i64 %.035, -1
   %18 = icmp ne i64 %16, -1
@@ -842,11 +842,11 @@ H5MF__aggr_query.exit26.thread:                   ; preds = %19, %H5MF__aggr_que
   br i1 %.not.i27, label %43, label %24
 
 24:                                               ; preds = %H5MF__aggr_query.exit26.thread
-  %25 = getelementptr inbounds i8, ptr %.022, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.022, i64 32
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %.022, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.022, i64 24
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.022, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %.not16.i = icmp eq i64 %28, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   br i1 %.not16.i, label %43, label %30
@@ -876,18 +876,18 @@ H5MF__aggr_query.exit26.thread:                   ; preds = %19, %H5MF__aggr_que
   %45 = icmp eq i64 %44, 1
   %46 = select i1 %45, i32 0, i32 3
   %47 = load ptr, ptr %2, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = load i64, ptr %48, align 8
   %50 = and i64 %49, %44
   %.not.i28 = icmp eq i64 %50, 0
   br i1 %.not.i28, label %H5MF__aggr_reset.exit32.thread, label %51
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %.021, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.021, i64 32
   %53 = load i64, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %.021, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.021, i64 24
   %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %.021, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %.not16.i29 = icmp eq i64 %55, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, i8 0, i64 24, i1 false)
   br i1 %.not16.i29, label %H5MF__aggr_reset.exit32.thread, label %57
@@ -919,20 +919,20 @@ H5MF__aggr_reset.exit32.thread:                   ; preds = %43, %51, %57, %60, 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @H5F_get_eoa(ptr noundef %0, i32 noundef 0) #6
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %13, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 1928
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1928
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %3, i64 1936
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %11 = load i64, ptr %10, align 8
   %.not12.i = icmp ne i64 %11, -1
   %12 = add i64 %11, %8
@@ -951,16 +951,16 @@ define range(i32 -1, 2) i32 @H5MF__aggrs_try_shrink_eoa(ptr noundef %0) local_un
 
 20:                                               ; preds = %9
   %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1936
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1936
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 1928
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 1928
   %25 = load i64, ptr %24, align 8
   %26 = tail call i32 @H5F__free(ptr noundef nonnull %0, i32 noundef 0, i64 noundef %23, i64 noundef %25) #6
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %29, label %H5MF__aggr_free.exit
 
 H5MF__aggr_free.exit:                             ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %21, i64 1920
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 1920
   store i64 0, ptr %28, align 8
   store i64 -1, ptr %22, align 8
   store i64 0, ptr %24, align 8
@@ -983,13 +983,13 @@ H5MF__aggr_free.exit:                             ; preds = %20
   br i1 %38, label %46, label %39
 
 39:                                               ; preds = %.thread
-  %40 = getelementptr inbounds i8, ptr %36, i64 1968
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 1968
   %41 = load i64, ptr %40, align 8
   %.not.i20 = icmp eq i64 %41, 0
   br i1 %.not.i20, label %.thread35, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %36, i64 1976
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 1976
   %44 = load i64, ptr %43, align 8
   %.not12.i21 = icmp ne i64 %44, -1
   %45 = add i64 %44, %41
@@ -1008,16 +1008,16 @@ H5MF__aggr_free.exit:                             ; preds = %20
 
 53:                                               ; preds = %42
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1976
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1976
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %54, i64 1968
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 1968
   %58 = load i64, ptr %57, align 8
   %59 = tail call i32 @H5F__free(ptr noundef nonnull %0, i32 noundef 3, i64 noundef %56, i64 noundef %58) #6
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %62, label %H5MF__aggr_free.exit25
 
 H5MF__aggr_free.exit25:                           ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %54, i64 1960
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 1960
   store i64 0, ptr %61, align 8
   store i64 -1, ptr %55, align 8
   store i64 0, ptr %57, align 8
@@ -1044,9 +1044,9 @@ H5MF__aggr_free.exit25:                           ; preds = %53
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5MF__aggr_free(ptr noundef %0, i32 noundef range(i32 0, 4) %1, ptr nocapture noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @H5F__free(ptr noundef %0, i32 noundef %1, i64 noundef %5, i64 noundef %7) #6
   %9 = icmp slt i32 %8, 0
@@ -1059,7 +1059,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5MF__aggr_free(ptr noundef %0, i32
   br label %16
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %15, align 8
   store i64 -1, ptr %4, align 8
   store i64 0, ptr %6, align 8

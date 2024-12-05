@@ -152,7 +152,7 @@ define dso_local ptr @SystemAttributeByName(ptr nocapture noundef readonly %0) l
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %4 = getelementptr [6 x ptr], ptr @SysAtt, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #12
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %2
@@ -239,9 +239,9 @@ define dso_local ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %.0108.shrunk, label %45, label %57
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %44, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 115
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 115
   %49 = load i8, ptr %48, align 1
   switch i8 %49, label %.thread [
     i8 114, label %50
@@ -252,16 +252,16 @@ define dso_local ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2
   ]
 
 50:                                               ; preds = %45, %45, %45
-  %51 = getelementptr inbounds i8, ptr %44, i64 312
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 312
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 224
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 224
   %54 = load ptr, ptr %53, align 8
   tail call void %54(ptr noundef nonnull %44, ptr noundef nonnull %44, i8 noundef signext %8, ptr noundef nonnull %12, ptr noundef nonnull %13) #11
   br label %.thread
 
 55:                                               ; preds = %45, %45
   %.sroa.0.0.copyload = load i64, ptr %44, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %56 = tail call ptr @RelationCreateStorage(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i8 noundef signext %8, i1 noundef zeroext true) #11
   br label %.thread
@@ -343,7 +343,7 @@ define dso_local void @CheckAttributeNamesTypes(ptr noundef %0, i8 noundef signe
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %13 ]
   %15 = getelementptr [6 x ptr], ptr @SysAtt, i64 0, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull readonly dereferenceable(1) %12) #12
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %SystemAttributeByName.exit, label %13
@@ -366,7 +366,7 @@ SystemAttributeByName.exit.thread:                ; preds = %13
   br i1 %23, label %.preheader45.lr.ph, label %.preheader
 
 .preheader45.lr.ph:                               ; preds = %.loopexit
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count66 = zext nneg i32 %4 to i64
   br label %.preheader45
 
@@ -382,7 +382,7 @@ SystemAttributeByName.exit.thread:                ; preds = %13
   br i1 %.not53, label %._crit_edge, label %.lr.ph52
 
 .lr.ph52:                                         ; preds = %.preheader
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %smax = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count71 = zext nneg i32 %smax to i64
   br label %37
@@ -417,10 +417,10 @@ SystemAttributeByName.exit.thread:                ; preds = %13
 37:                                               ; preds = %.lr.ph52, %37
   %indvars.iv68 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next69, %37 ]
   %38 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %26, i64 0, i64 %indvars.iv68
-  %39 = getelementptr inbounds i8, ptr %38, i64 4
-  %40 = getelementptr inbounds i8, ptr %38, i64 68
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 68
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %38, i64 100
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 100
   %43 = load i32, ptr %42, align 4
   tail call void @CheckAttributeType(ptr noundef nonnull %39, i32 noundef %41, i32 noundef %43, ptr noundef null, i32 noundef %2)
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
@@ -499,14 +499,14 @@ define dso_local void @CheckAttributeType(ptr noundef %0, i32 noundef %1, i32 no
   %33 = tail call ptr @lappend_oid(ptr noundef %3, i32 noundef %1) #11
   %34 = tail call i32 @get_typ_typrelid(i32 noundef %1) #11
   %35 = tail call ptr @relation_open(i32 noundef %34, i32 noundef 1) #11
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %37, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %41 = and i32 %4, -5
   br label %42
 
@@ -514,16 +514,16 @@ define dso_local void @CheckAttributeType(ptr noundef %0, i32 noundef %1, i32 no
   %43 = phi i32 [ %38, %.lr.ph ], [ %55, %54 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %44 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %40, i64 0, i64 %indvars.iv
-  %45 = getelementptr inbounds i8, ptr %44, i64 95
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 95
   %46 = load i8, ptr %45, align 1
   %47 = trunc i8 %46 to i1
   br i1 %47, label %54, label %48
 
 48:                                               ; preds = %42
-  %49 = getelementptr inbounds i8, ptr %44, i64 4
-  %50 = getelementptr inbounds i8, ptr %44, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 68
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %44, i64 100
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 100
   %53 = load i32, ptr %52, align 4
   tail call void @CheckAttributeType(ptr noundef nonnull %49, i32 noundef %51, i32 noundef %53, ptr noundef %33, i32 noundef %41)
   %.pre = load i32, ptr %37, align 8
@@ -621,7 +621,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
   %spec.select = tail call i32 @llvm.umin.i32(i32 %8, i32 630)
@@ -641,7 +641,7 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   br i1 %13, label %.lr.ph145, label %._crit_edge.thread
 
 .lr.ph145:                                        ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not = icmp eq i32 %2, 0
   %.not137 = icmp eq ptr %3, null
   br label %17
@@ -664,15 +664,15 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   %19 = sext i32 %.0129142 to i64
   %20 = getelementptr ptr, ptr %11, i64 %19
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef %21) #11
   %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
@@ -687,168 +687,168 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
   %.sink.in = phi i32 [ %34, %33 ], [ %2, %17 ]
   %.sink = zext i32 %.sink.in to i64
   %36 = load ptr, ptr %20, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8
   store i64 %.sink, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %18, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %40 = ptrtoint ptr %39 to i64
   %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr i8, ptr %43, i64 8
   store i64 %40, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %18, i64 68
+  %45 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
   %48 = load ptr, ptr %20, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr i8, ptr %50, i64 16
   store i64 %47, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %18, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %53 = load i16, ptr %52, align 4
   %54 = sext i16 %53 to i64
   %55 = load ptr, ptr %20, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr i8, ptr %57, i64 24
   store i64 %54, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %18, i64 74
+  %59 = getelementptr inbounds nuw i8, ptr %18, i64 74
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
   %62 = load ptr, ptr %20, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr i8, ptr %64, i64 32
   store i64 %61, ptr %65, align 8
   %66 = load ptr, ptr %20, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr i8, ptr %68, i64 40
   store i64 -1, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %18, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = load ptr, ptr %20, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 48
   store i64 %72, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %18, i64 84
+  %77 = getelementptr inbounds nuw i8, ptr %18, i64 84
   %78 = load i16, ptr %77, align 4
   %79 = sext i16 %78 to i64
   %80 = load ptr, ptr %20, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr i8, ptr %82, i64 56
   store i64 %79, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %18, i64 86
+  %84 = getelementptr inbounds nuw i8, ptr %18, i64 86
   %85 = load i8, ptr %84, align 2
   %86 = and i8 %85, 1
   %87 = zext nneg i8 %86 to i64
   %88 = load ptr, ptr %20, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr i8, ptr %90, i64 64
   store i64 %87, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %18, i64 87
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 87
   %93 = load i8, ptr %92, align 1
   %94 = sext i8 %93 to i64
   %95 = load ptr, ptr %20, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 72
   store i64 %94, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %18, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %100 = load i8, ptr %99, align 4
   %101 = sext i8 %100 to i64
   %102 = load ptr, ptr %20, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr i8, ptr %104, i64 80
   store i64 %101, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %18, i64 89
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 89
   %107 = load i8, ptr %106, align 1
   %108 = sext i8 %107 to i64
   %109 = load ptr, ptr %20, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 88
   store i64 %108, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %18, i64 90
+  %113 = getelementptr inbounds nuw i8, ptr %18, i64 90
   %114 = load i8, ptr %113, align 2
   %115 = and i8 %114, 1
   %116 = zext nneg i8 %115 to i64
   %117 = load ptr, ptr %20, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr i8, ptr %119, i64 96
   store i64 %116, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %18, i64 91
+  %121 = getelementptr inbounds nuw i8, ptr %18, i64 91
   %122 = load i8, ptr %121, align 1
   %123 = and i8 %122, 1
   %124 = zext nneg i8 %123 to i64
   %125 = load ptr, ptr %20, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr i8, ptr %127, i64 104
   store i64 %124, ptr %128, align 8
-  %129 = getelementptr inbounds i8, ptr %18, i64 92
+  %129 = getelementptr inbounds nuw i8, ptr %18, i64 92
   %130 = load i8, ptr %129, align 4
   %131 = and i8 %130, 1
   %132 = zext nneg i8 %131 to i64
   %133 = load ptr, ptr %20, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 24
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
   %135 = load ptr, ptr %134, align 8
   %136 = getelementptr i8, ptr %135, i64 112
   store i64 %132, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %18, i64 93
+  %137 = getelementptr inbounds nuw i8, ptr %18, i64 93
   %138 = load i8, ptr %137, align 1
   %139 = sext i8 %138 to i64
   %140 = load ptr, ptr %20, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr i8, ptr %142, i64 120
   store i64 %139, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %18, i64 94
+  %144 = getelementptr inbounds nuw i8, ptr %18, i64 94
   %145 = load i8, ptr %144, align 2
   %146 = sext i8 %145 to i64
   %147 = load ptr, ptr %20, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr i8, ptr %149, i64 128
   store i64 %146, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %18, i64 95
+  %151 = getelementptr inbounds nuw i8, ptr %18, i64 95
   %152 = load i8, ptr %151, align 1
   %153 = and i8 %152, 1
   %154 = zext nneg i8 %153 to i64
   %155 = load ptr, ptr %20, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr i8, ptr %157, i64 136
   store i64 %154, ptr %158, align 8
-  %159 = getelementptr inbounds i8, ptr %18, i64 96
+  %159 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %160 = load i8, ptr %159, align 4
   %161 = and i8 %160, 1
   %162 = zext nneg i8 %161 to i64
   %163 = load ptr, ptr %20, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
   %165 = load ptr, ptr %164, align 8
   %166 = getelementptr i8, ptr %165, i64 144
   store i64 %162, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %18, i64 98
+  %167 = getelementptr inbounds nuw i8, ptr %18, i64 98
   %168 = load i16, ptr %167, align 2
   %169 = sext i16 %168 to i64
   %170 = load ptr, ptr %20, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 24
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 24
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr i8, ptr %172, i64 152
   store i64 %169, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %18, i64 100
+  %174 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %175 = load i32, ptr %174, align 4
   %176 = zext i32 %175 to i64
   %177 = load ptr, ptr %20, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = getelementptr i8, ptr %179, i64 160
   store i64 %176, ptr %180, align 8
@@ -862,7 +862,7 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
 
 184:                                              ; preds = %181
   %185 = load ptr, ptr %20, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
   %187 = load ptr, ptr %186, align 8
   %188 = getelementptr i8, ptr %187, i64 184
   store i64 %183, ptr %188, align 8
@@ -870,7 +870,7 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
 
 189:                                              ; preds = %181, %35
   %190 = load ptr, ptr %20, align 8
-  %191 = getelementptr inbounds i8, ptr %190, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr i8, ptr %192, i64 23
   store i8 1, ptr %193, align 1
@@ -878,22 +878,22 @@ define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i
 
 194:                                              ; preds = %189, %184
   %195 = load ptr, ptr %20, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 32
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 32
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr i8, ptr %197, i64 21
   store i8 1, ptr %198, align 1
   %199 = load ptr, ptr %20, align 8
-  %200 = getelementptr inbounds i8, ptr %199, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr i8, ptr %201, i64 22
   store i8 1, ptr %202, align 1
   %203 = load ptr, ptr %20, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %205 = load ptr, ptr %204, align 8
   %206 = getelementptr i8, ptr %205, i64 24
   store i8 1, ptr %206, align 1
   %207 = load ptr, ptr %20, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 32
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 32
   %209 = load ptr, ptr %208, align 8
   %210 = getelementptr i8, ptr %209, i64 25
   store i8 1, ptr %210, align 1
@@ -986,176 +986,176 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [33 x i64], align 16
   %7 = alloca [33 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(264) %10, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(33) %7, i8 0, i64 33, i1 false)
   %11 = zext i32 %2 to i64
   store i64 %11, ptr %6, align 16
-  %12 = getelementptr inbounds i8, ptr %9, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %13 = ptrtoint ptr %12 to i64
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 68
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %17, ptr %18, align 16
-  %19 = getelementptr inbounds i8, ptr %9, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %6, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %9, i64 76
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 76
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %6, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 %25, ptr %26, align 16
-  %27 = getelementptr inbounds i8, ptr %9, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %9, i64 84
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %32 = load i32, ptr %31, align 4
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %6, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i64 %33, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %9, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %36 = load i32, ptr %35, align 4
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %6, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i64 %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %9, i64 92
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 92
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %6, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 64
   store i64 %41, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %9, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %6, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %9, i64 100
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 100
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %6, i64 80
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store i64 %49, ptr %50, align 16
-  %51 = getelementptr inbounds i8, ptr %9, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 104
   %52 = load i32, ptr %51, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %6, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 88
   store i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %9, i64 108
+  %55 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %6, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i64 %57, ptr %58, align 16
-  %59 = getelementptr inbounds i8, ptr %9, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %60 = load i8, ptr %59, align 4
   %61 = and i8 %60, 1
   %62 = zext nneg i8 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %6, i64 104
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store i64 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %9, i64 113
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 113
   %65 = load i8, ptr %64, align 1
   %66 = and i8 %65, 1
   %67 = zext nneg i8 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %6, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i64 %67, ptr %68, align 16
-  %69 = getelementptr inbounds i8, ptr %9, i64 114
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 114
   %70 = load i8, ptr %69, align 2
   %71 = sext i8 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %6, i64 120
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 120
   store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %9, i64 115
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 115
   %74 = load i8, ptr %73, align 1
   %75 = sext i8 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %6, i64 128
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 128
   store i64 %75, ptr %76, align 16
-  %77 = getelementptr inbounds i8, ptr %9, i64 116
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 116
   %78 = load i16, ptr %77, align 4
   %79 = sext i16 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %6, i64 136
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 136
   store i64 %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 118
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 118
   %82 = load i16, ptr %81, align 2
   %83 = sext i16 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %6, i64 144
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i64 %83, ptr %84, align 16
-  %85 = getelementptr inbounds i8, ptr %9, i64 120
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %86 = load i8, ptr %85, align 4
   %87 = and i8 %86, 1
   %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %6, i64 152
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 152
   store i64 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %9, i64 121
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 121
   %91 = load i8, ptr %90, align 1
   %92 = and i8 %91, 1
   %93 = zext nneg i8 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %6, i64 160
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 160
   store i64 %93, ptr %94, align 16
-  %95 = getelementptr inbounds i8, ptr %9, i64 123
+  %95 = getelementptr inbounds nuw i8, ptr %9, i64 123
   %96 = load i8, ptr %95, align 1
   %97 = and i8 %96, 1
   %98 = zext nneg i8 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %6, i64 176
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 176
   store i64 %98, ptr %99, align 16
-  %100 = getelementptr inbounds i8, ptr %9, i64 124
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 124
   %101 = load i8, ptr %100, align 4
   %102 = and i8 %101, 1
   %103 = zext nneg i8 %102 to i64
-  %104 = getelementptr inbounds i8, ptr %6, i64 184
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i64 %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %9, i64 122
+  %105 = getelementptr inbounds nuw i8, ptr %9, i64 122
   %106 = load i8, ptr %105, align 2
   %107 = and i8 %106, 1
   %108 = zext nneg i8 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %6, i64 168
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 168
   store i64 %108, ptr %109, align 8
-  %110 = getelementptr inbounds i8, ptr %9, i64 125
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 125
   %111 = load i8, ptr %110, align 1
   %112 = and i8 %111, 1
   %113 = zext nneg i8 %112 to i64
-  %114 = getelementptr inbounds i8, ptr %6, i64 192
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i64 %113, ptr %114, align 16
-  %115 = getelementptr inbounds i8, ptr %9, i64 126
+  %115 = getelementptr inbounds nuw i8, ptr %9, i64 126
   %116 = load i8, ptr %115, align 2
   %117 = sext i8 %116 to i64
-  %118 = getelementptr inbounds i8, ptr %6, i64 200
+  %118 = getelementptr inbounds nuw i8, ptr %6, i64 200
   store i64 %117, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %9, i64 127
+  %119 = getelementptr inbounds nuw i8, ptr %9, i64 127
   %120 = load i8, ptr %119, align 1
   %121 = and i8 %120, 1
   %122 = zext nneg i8 %121 to i64
-  %123 = getelementptr inbounds i8, ptr %6, i64 208
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 208
   store i64 %122, ptr %123, align 16
-  %124 = getelementptr inbounds i8, ptr %9, i64 128
+  %124 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %125 = load i32, ptr %124, align 4
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds i8, ptr %6, i64 216
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 216
   store i64 %126, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %9, i64 132
+  %128 = getelementptr inbounds nuw i8, ptr %9, i64 132
   %129 = load i32, ptr %128, align 4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %6, i64 224
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 224
   store i64 %130, ptr %131, align 16
-  %132 = getelementptr inbounds i8, ptr %9, i64 136
+  %132 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %133 = load i32, ptr %132, align 4
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds i8, ptr %6, i64 232
+  %135 = getelementptr inbounds nuw i8, ptr %6, i64 232
   store i64 %134, ptr %135, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %138, label %136
 
 136:                                              ; preds = %5
-  %137 = getelementptr inbounds i8, ptr %6, i64 240
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 240
   store i64 %3, ptr %137, align 16
   br label %140
 
 138:                                              ; preds = %5
-  %139 = getelementptr inbounds i8, ptr %7, i64 30
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 30
   store i8 1, ptr %139, align 2
   br label %140
 
@@ -1164,19 +1164,19 @@ define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr nocapture noundef 
   br i1 %.not39, label %143, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %6, i64 248
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 248
   store i64 %4, ptr %142, align 8
   br label %145
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %7, i64 31
+  %144 = getelementptr inbounds nuw i8, ptr %7, i64 31
   store i8 1, ptr %144, align 1
   br label %145
 
 145:                                              ; preds = %143, %141
-  %146 = getelementptr inbounds i8, ptr %7, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %146, align 16
-  %147 = getelementptr inbounds i8, ptr %0, i64 64
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %148 = load ptr, ptr %147, align 8
   %149 = call ptr @heap_form_tuple(ptr noundef %148, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
   call void @CatalogTupleInsert(ptr noundef %0, ptr noundef %149) #11
@@ -1347,18 +1347,18 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
 .thread190:                                       ; preds = %83
   %86 = tail call ptr @get_user_default_acl(i32 noundef 37, i32 noundef %6, i32 noundef %1) #11
   %87 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0, i32 noundef %.0157, i32 noundef %7, ptr noundef %8, i8 noundef signext 83, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext true)
-  %88 = getelementptr inbounds i8, ptr %87, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 56
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 128
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 128
   store i32 %19, ptr %90, align 4
   br label %103
 
 91:                                               ; preds = %.thread, %83, %84
   %.0155 = phi ptr [ %85, %84 ], [ null, %83 ], [ null, %.thread ]
   %92 = call ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.0, i32 noundef %.0157, i32 noundef %7, ptr noundef %8, i8 noundef signext %10, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i1 noundef zeroext %17, ptr noundef nonnull %25, ptr noundef nonnull %26, i1 noundef zeroext true)
-  %93 = getelementptr inbounds i8, ptr %92, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 128
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 128
   store i32 %19, ptr %95, align 4
   switch i8 %10, label %96 [
     i8 116, label %103
@@ -1379,7 +1379,7 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
 99:                                               ; preds = %96
   %.fca.1.extract43 = extractvalue { i64, i32 } %98, 1
   store i64 %.fca.0.extract42, ptr %20, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %.fca.1.extract43, ptr %.sroa.3.0..sroa_idx, align 4
   br label %100
 
@@ -1398,11 +1398,11 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
   %107 = load i32, ptr %26, align 4
   %108 = ptrtoint ptr %.0155193 to i64
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 96
   store i32 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %109, i64 100
+  %111 = getelementptr inbounds nuw i8, ptr %109, i64 100
   store float -1.000000e+00, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %109, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 104
   store i32 0, ptr %112, align 4
   %113 = icmp eq i8 %10, 83
   br i1 %113, label %114, label %AddNewRelationTuple.exit
@@ -1413,26 +1413,26 @@ define dso_local i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i
   br label %AddNewRelationTuple.exit
 
 AddNewRelationTuple.exit:                         ; preds = %103, %114
-  %115 = getelementptr inbounds i8, ptr %109, i64 132
+  %115 = getelementptr inbounds nuw i8, ptr %109, i64 132
   store i32 %106, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %109, i64 136
+  %116 = getelementptr inbounds nuw i8, ptr %109, i64 136
   store i32 %107, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %109, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %109, i64 80
   store i32 %6, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %109, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %109, i64 72
   store i32 %.0156, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %109, i64 76
+  %119 = getelementptr inbounds nuw i8, ptr %109, i64 76
   store i32 %5, ptr %119, align 4
-  %120 = getelementptr inbounds i8, ptr %109, i64 127
+  %120 = getelementptr inbounds nuw i8, ptr %109, i64 127
   store i8 0, ptr %120, align 1
   %.not.i = icmp eq i32 %.0156, 0
   %121 = select i1 %.not.i, i32 2249, i32 %.0156
-  %122 = getelementptr inbounds i8, ptr %105, i64 64
+  %122 = getelementptr inbounds nuw i8, ptr %105, i64 64
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   store i32 %121, ptr %124, align 4
   %125 = load ptr, ptr %122, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 -1, ptr %126, align 8
   call void @InsertPgClassTuple(ptr noundef %29, ptr noundef nonnull readonly %105, i32 noundef %.0, i64 noundef %108, i64 noundef %15)
   %127 = load ptr, ptr %122, align 8
@@ -1446,11 +1446,11 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
   br i1 %131, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %AddNewRelationTuple.exit
-  %132 = getelementptr inbounds i8, ptr %23, i64 4
-  %133 = getelementptr inbounds i8, ptr %23, i64 8
-  %134 = getelementptr inbounds i8, ptr %127, i64 24
-  %135 = getelementptr inbounds i8, ptr %24, i64 4
-  %136 = getelementptr inbounds i8, ptr %24, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %136 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %wide.trip.count.i = zext nneg i32 %128 to i64
   br label %137
 
@@ -1463,12 +1463,12 @@ AddNewRelationTuple.exit:                         ; preds = %103, %114
   store i32 %138, ptr %133, align 4
   store i32 1247, ptr %24, align 4
   %139 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %134, i64 0, i64 %indvars.iv.i
-  %140 = getelementptr inbounds i8, ptr %139, i64 68
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 68
   %141 = load i32, ptr %140, align 4
   store i32 %141, ptr %135, align 4
   store i32 0, ptr %136, align 4
   call void @recordDependencyOn(ptr noundef nonnull %23, ptr noundef nonnull %24, i32 noundef 110) #11
-  %142 = getelementptr inbounds i8, ptr %139, i64 100
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 100
   %143 = load i32, ptr %142, align 4
   switch i32 %143, label %144 [
     i32 0, label %145
@@ -1516,18 +1516,18 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
 
 149:                                              ; preds = %switch.early.test
   store i32 1259, ptr %27, align 4
-  %150 = getelementptr inbounds i8, ptr %27, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 %.0, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %27, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 0, ptr %151, align 4
   call void @recordDependencyOnOwner(i32 noundef 1259, i32 noundef %.0, i32 noundef %6) #11
   call void @recordDependencyOnNewAcl(i32 noundef 1259, i32 noundef %.0, i32 noundef 0, i32 noundef %6, ptr noundef %.0155193) #11
   call void @recordDependencyOnCurrentExtension(ptr noundef nonnull %27, i1 noundef zeroext false) #11
   %152 = call ptr @new_object_addresses() #11
   store i32 2615, ptr %28, align 4
-  %153 = getelementptr inbounds i8, ptr %28, i64 4
+  %153 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store i32 %1, ptr %153, align 4
-  %154 = getelementptr inbounds i8, ptr %28, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 0, ptr %154, align 4
   call void @add_exact_object_address(ptr noundef nonnull %28, ptr noundef %152) #11
   %.not179 = icmp eq i32 %5, 0
@@ -1573,13 +1573,13 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
 
 164:                                              ; preds = %162
   call void @CommandCounterIncrement() #11
-  %165 = getelementptr inbounds i8, ptr %9, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %166 = load i32, ptr %165, align 4
   %.not40.i = icmp sgt i32 %166, 0
   br i1 %.not40.i, label %.lr.ph.i182, label %StoreConstraints.exit
 
 .lr.ph.i182:                                      ; preds = %164
-  %167 = getelementptr inbounds i8, ptr %9, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %168 = getelementptr i8, ptr %105, i64 72
   br label %169
 
@@ -1597,53 +1597,53 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   ]
 
 174:                                              ; preds = %169
-  %175 = getelementptr inbounds i8, ptr %172, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %176 = load i16, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %172, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %178 = load ptr, ptr %177, align 8
   %179 = call i32 @StoreAttrDefault(ptr noundef %105, i16 noundef signext %176, ptr noundef %178, i1 noundef zeroext %18, i1 noundef zeroext false) #11
-  %180 = getelementptr inbounds i8, ptr %172, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %179, ptr %180, align 4
   br label %225
 
 181:                                              ; preds = %169
-  %182 = getelementptr inbounds i8, ptr %172, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %172, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %172, i64 32
+  %186 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %187 = load i8, ptr %186, align 8
   %188 = trunc i8 %187 to i1
   %189 = xor i1 %188, true
-  %190 = getelementptr inbounds i8, ptr %172, i64 33
+  %190 = getelementptr inbounds nuw i8, ptr %172, i64 33
   %191 = load i8, ptr %190, align 1
   %192 = trunc i8 %191 to i1
-  %193 = getelementptr inbounds i8, ptr %172, i64 36
+  %193 = getelementptr inbounds nuw i8, ptr %172, i64 36
   %194 = load i32, ptr %193, align 4
-  %195 = getelementptr inbounds i8, ptr %172, i64 40
+  %195 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %196 = load i8, ptr %195, align 8
   %197 = trunc i8 %196 to i1
   %198 = call fastcc i32 @StoreRelCheck(ptr noundef %105, ptr noundef %183, ptr noundef %185, i1 noundef zeroext %189, i1 noundef zeroext %192, i32 noundef %194, i1 noundef zeroext %197, i1 noundef zeroext %18)
-  %199 = getelementptr inbounds i8, ptr %172, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %198, ptr %199, align 4
   %200 = add i32 %.042.i, 1
   br label %225
 
 201:                                              ; preds = %169
-  %202 = getelementptr inbounds i8, ptr %172, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %172, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %205 = load i16, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %172, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %207 = load i8, ptr %206, align 8
   %208 = trunc i8 %207 to i1
   %209 = xor i1 %208, true
-  %210 = getelementptr inbounds i8, ptr %172, i64 33
+  %210 = getelementptr inbounds nuw i8, ptr %172, i64 33
   %211 = load i8, ptr %210, align 1
   %212 = trunc i8 %211 to i1
-  %213 = getelementptr inbounds i8, ptr %172, i64 36
+  %213 = getelementptr inbounds nuw i8, ptr %172, i64 36
   %214 = load i32, ptr %213, align 4
-  %215 = getelementptr inbounds i8, ptr %172, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %216 = load i8, ptr %215, align 8
   %217 = trunc i8 %216 to i1
   %.val.i = load ptr, ptr %104, align 8
@@ -1654,7 +1654,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   store i16 %205, ptr %22, align 2
   %219 = call i32 @CreateConstraintEntry(ptr noundef %203, i32 noundef %.val.val.i, i8 noundef signext 110, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %209, i32 noundef 0, i32 noundef %.val36.i, ptr noundef nonnull %22, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i8 noundef signext 32, i8 noundef signext 32, ptr noundef null, i32 noundef 0, i8 noundef signext 32, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext %212, i32 noundef %214, i1 noundef zeroext %217, i1 noundef zeroext false, i1 noundef zeroext false) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22)
-  %220 = getelementptr inbounds i8, ptr %172, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %219, ptr %220, align 4
   br label %225
 
@@ -1750,7 +1750,7 @@ define dso_local void @DeleteRelationTuple(i32 noundef %0) local_unnamed_addr #0
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @CatalogTupleDelete(ptr noundef %2, ptr noundef nonnull %9) #11
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #11
   tail call void @table_close(ptr noundef %2, i32 noundef 3) #11
@@ -1776,7 +1776,7 @@ define dso_local void @DeleteAttributeTuples(i32 noundef %0) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %7 = phi ptr [ %9, %.lr.ph ], [ %6, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %8) #11
   %9 = call ptr @systable_getnext(ptr noundef %5) #11
   %.not = icmp eq ptr %9, null
@@ -1802,7 +1802,7 @@ define dso_local void @DeleteSystemAttributeTuples(i32 noundef %0) local_unnamed
   %3 = tail call ptr @table_open(i32 noundef 1249, i32 noundef 3) #11
   %4 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %2, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %2, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @ScanKeyInit(ptr noundef nonnull %5, i16 noundef signext 5, i16 noundef zeroext 2, i32 noundef 148, i64 noundef 0) #11
   %6 = call ptr @systable_beginscan(ptr noundef %3, i32 noundef 2659, i1 noundef zeroext true, ptr noundef null, i32 noundef 2, ptr noundef nonnull %2) #11
   %7 = call ptr @systable_getnext(ptr noundef %6) #11
@@ -1811,7 +1811,7 @@ define dso_local void @DeleteSystemAttributeTuples(i32 noundef %0) local_unnamed
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %8 = phi ptr [ %10, %.lr.ph ], [ %7, %1 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @CatalogTupleDelete(ptr noundef %3, ptr noundef nonnull %9) #11
   %10 = call ptr @systable_getnext(ptr noundef %6) #11
   %.not = icmp eq ptr %10, null
@@ -1849,50 +1849,50 @@ define dso_local void @RemoveAttributeById(i32 noundef %0, i16 noundef signext %
   unreachable
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %11, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 22
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 22
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i64
   %22 = getelementptr i8, ptr %18, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 95
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 95
   store i8 1, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %22, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 68
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 90
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 90
   store i8 0, ptr %25, align 2
-  %26 = getelementptr inbounds i8, ptr %22, i64 94
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 94
   store i8 0, ptr %26, align 2
   %27 = sext i16 %1 to i32
   %28 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %27) #11
-  %29 = getelementptr inbounds i8, ptr %22, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 4
   call void @namestrcpy(ptr noundef nonnull %29, ptr noundef nonnull %3) #11
-  %30 = getelementptr inbounds i8, ptr %22, i64 92
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 92
   store i8 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %5, i64 25
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 25
   store i8 1, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %6, i64 25
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 1, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %5, i64 21
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 21
   store i8 1, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %6, i64 21
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 21
   store i8 1, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %5, i64 22
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 22
   store i8 1, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %6, i64 22
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 22
   store i8 1, ptr %36, align 2
-  %37 = getelementptr inbounds i8, ptr %5, i64 23
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 23
   store i8 1, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %6, i64 23
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 23
   store i8 1, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %5, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i8 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %8, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %42, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   call void @CatalogTupleUpdate(ptr noundef %8, ptr noundef nonnull %44, ptr noundef %43) #11
   call void @table_close(ptr noundef %8, i32 noundef 3) #11
   call void @RemoveStatistics(i32 noundef %0, i16 noundef signext %1)
@@ -1920,7 +1920,7 @@ define dso_local void @RemoveStatistics(i32 noundef %0, i16 noundef signext %1) 
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %9 = sext i16 %1 to i64
   call void @ScanKeyInit(ptr noundef nonnull %8, i16 noundef signext 2, i16 noundef zeroext 3, i32 noundef 63, i64 noundef %9) #11
   br label %10
@@ -1934,7 +1934,7 @@ define dso_local void @RemoveStatistics(i32 noundef %0, i16 noundef signext %1) 
 
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %13 = phi ptr [ %15, %.lr.ph ], [ %12, %10 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @CatalogTupleDelete(ptr noundef %4, ptr noundef nonnull %14) #11
   %15 = call ptr @systable_getnext(ptr noundef %11) #11
   %.not = icmp eq ptr %15, null
@@ -1962,13 +1962,13 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 22
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 22
   %12 = load i8, ptr %11, align 2
   %13 = zext i8 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 127
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 127
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %23
@@ -1995,9 +1995,9 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
   %24 = tail call ptr @relation_open(i32 noundef %0, i32 noundef 8) #11
   tail call void @CheckTableNotInUse(ptr noundef %24, ptr noundef nonnull @.str.23) #11
   tail call void @CheckTableForSerializableConflictIn(ptr noundef %24) #11
-  %25 = getelementptr inbounds i8, ptr %24, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 115
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 115
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 102
   br i1 %29, label %30, label %38
@@ -2016,12 +2016,12 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
   unreachable
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %32, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   tail call void @CatalogTupleDelete(ptr noundef %31, ptr noundef nonnull %37) #11
   tail call void @ReleaseSysCache(ptr noundef nonnull %32) #11
   tail call void @table_close(ptr noundef %31, i32 noundef 3) #11
   %.pre = load ptr, ptr %25, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 115
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 115
   %.pre60 = load i8, ptr %.phi.trans.insert, align 1
   br label %38
 
@@ -2044,7 +2044,7 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
 
 45:                                               ; preds = %44, %42
   %46 = load ptr, ptr %25, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 115
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 115
   %48 = load i8, ptr %47, align 1
   switch i8 %48, label %50 [
     i8 114, label %49
@@ -2074,7 +2074,7 @@ define dso_local void @heap_drop_with_catalog(i32 noundef %0) local_unnamed_addr
 
 .lr.ph.i:                                         ; preds = %50, %.lr.ph.i
   %54 = phi ptr [ %56, %.lr.ph.i ], [ %53, %50 ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   call void @CatalogTupleDelete(ptr noundef %51, ptr noundef nonnull %55) #11
   %56 = call ptr @systable_getnext(ptr noundef %52) #11
   %.not.i = icmp eq ptr %56, null
@@ -2133,7 +2133,7 @@ define dso_local void @RemovePartitionKeyByRelId(i32 noundef %0) local_unnamed_a
   unreachable
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   tail call void @CatalogTupleDelete(ptr noundef %2, ptr noundef nonnull %9) #11
   tail call void @ReleaseSysCache(ptr noundef nonnull %4) #11
   tail call void @table_close(ptr noundef %2, i32 noundef 3) #11
@@ -2159,20 +2159,20 @@ define dso_local void @RelationClearMissing(ptr nocapture noundef readonly %0) l
   %2 = alloca [26 x i64], align 16
   %3 = alloca [26 x i8], align 16
   %4 = alloca [26 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 116
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 116
   %10 = load i16, ptr %9, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %2, i8 0, i64 208, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %3, i8 0, i64 26, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %4, i8 0, i64 26, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 25
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 25
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %4, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 14
   store i8 1, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %4, i64 25
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 25
   store i8 1, ptr %13, align 1
   %14 = tail call ptr @table_open(i32 noundef 1249, i32 noundef 3) #11
   %.not23 = icmp slt i16 %10, 1
@@ -2180,7 +2180,7 @@ define dso_local void @RelationClearMissing(ptr nocapture noundef readonly %0) l
 
 .lr.ph:                                           ; preds = %1
   %15 = zext i32 %6 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %narrow = add nuw i16 %10, 1
   %wide.trip.count = zext i16 %narrow to i64
   br label %17
@@ -2202,13 +2202,13 @@ define dso_local void @RelationClearMissing(ptr nocapture noundef readonly %0) l
   unreachable
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %19, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 22
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 22
   %28 = load i8, ptr %27, align 2
   %29 = zext i8 %28 to i64
   %30 = getelementptr i8, ptr %26, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 92
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 92
   %32 = load i8, ptr %31, align 4
   %33 = trunc i8 %32 to i1
   br i1 %33, label %34, label %38
@@ -2216,7 +2216,7 @@ define dso_local void @RelationClearMissing(ptr nocapture noundef readonly %0) l
 34:                                               ; preds = %24
   %35 = load ptr, ptr %16, align 8
   %36 = call ptr @heap_modify_tuple(ptr noundef nonnull %19, ptr noundef %35, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   call void @CatalogTupleUpdate(ptr noundef %14, ptr noundef nonnull %37, ptr noundef %36) #11
   call void @heap_freetuple(ptr noundef %36) #11
   br label %38
@@ -2243,9 +2243,9 @@ define dso_local void @SetAttrMissing(i32 noundef %0, ptr noundef %1, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %5, i8 0, i64 26, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(26) %6, i8 0, i64 26, i1 false)
   %7 = tail call ptr @table_open(i32 noundef %0, i32 noundef 8) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 115
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 115
   %11 = load i8, ptr %10, align 1
   %.not = icmp eq i8 %11, 114
   br i1 %.not, label %13, label %12
@@ -2268,32 +2268,32 @@ define dso_local void @SetAttrMissing(i32 noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 22
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 22
   %23 = load i8, ptr %22, align 2
   %24 = zext i8 %23 to i64
   %25 = getelementptr i8, ptr %21, i64 %24
   %26 = ptrtoint ptr %2 to i64
-  %27 = getelementptr inbounds i8, ptr %25, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %25, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = tail call i64 @OidFunctionCall3Coll(i32 noundef 750, i32 noundef 0, i64 noundef %26, i64 noundef %29, i64 noundef %32) #11
-  %34 = getelementptr inbounds i8, ptr %4, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store i64 1, ptr %34, align 16
-  %35 = getelementptr inbounds i8, ptr %6, i64 14
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 14
   store i8 1, ptr %35, align 2
-  %36 = getelementptr inbounds i8, ptr %4, i64 200
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store i64 %33, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 25
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 1, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %14, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @heap_modify_tuple(ptr noundef nonnull %15, ptr noundef %39, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   call void @CatalogTupleUpdate(ptr noundef %14, ptr noundef nonnull %41, ptr noundef %40) #11
   call void @ReleaseSysCache(ptr noundef nonnull %15) #11
   call void @table_close(ptr noundef %14, i32 noundef 3) #11
@@ -2313,15 +2313,15 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %8 = alloca i16, align 2
   %9 = alloca [3 x %struct.ScanKeyData], align 16
   %10 = zext i1 %4 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %14, i64 26
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 26
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
   br label %19
@@ -2329,16 +2329,16 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
 19:                                               ; preds = %7, %15
   %.0176 = phi i32 [ %18, %15 ], [ 0, %7 ]
   %20 = tail call ptr @make_parsestate(ptr noundef null) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %6, ptr %21, align 8
   %22 = tail call ptr @addRangeTableEntryForRelation(ptr noundef %20, ptr noundef nonnull %0, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext true) #11
   tail call void @addNSItemToQuery(ptr noundef %20, ptr noundef %22, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true) #11
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not198 = icmp eq ptr %1, null
   br i1 %.not198, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %not.208 = xor i1 %4, true
   %25 = zext i1 %not.208 to i32
   %26 = load i32, ptr %23, align 4
@@ -2351,13 +2351,13 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   br i1 %.not200, label %._crit_edge280, label %.lr.ph279
 
 .lr.ph279:                                        ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %2, i64 4
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %31 = getelementptr i8, ptr %0, i64 56
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
-  %33 = getelementptr inbounds i8, ptr %9, i64 72
-  %34 = getelementptr inbounds i8, ptr %9, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %not. = xor i1 %4, true
   %35 = zext i1 %not. to i32
   %36 = load i32, ptr %28, align 4
@@ -2371,26 +2371,26 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %39 = getelementptr %union.ListCell, ptr %38, i64 %indvars.iv374
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %11, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i16, ptr %40, align 8
   %44 = sext i16 %43 to i64
   %45 = add nsw i64 %44, -1
   %46 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %42, i64 0, i64 %45
-  %47 = getelementptr inbounds i8, ptr %40, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 68
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %46, i64 80
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds i8, ptr %46, i64 4
-  %54 = getelementptr inbounds i8, ptr %46, i64 94
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 94
   %55 = load i8, ptr %54, align 2
   %56 = tail call ptr @cookDefault(ptr noundef %20, ptr noundef %48, i32 noundef %50, i32 noundef %52, ptr noundef nonnull %53, i8 noundef signext %55)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %91, label %58
 
 58:                                               ; preds = %.lr.ph376
-  %59 = getelementptr inbounds i8, ptr %40, i64 17
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 17
   %60 = load i8, ptr %59, align 1
   %.not207 = icmp eq i8 %60, 0
   br i1 %.not207, label %61, label %68
@@ -2401,13 +2401,13 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %56, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %66 = load i8, ptr %65, align 8
   %67 = trunc i8 %66 to i1
   br i1 %67, label %91, label %68
 
 68:                                               ; preds = %64, %61, %58
-  %69 = getelementptr inbounds i8, ptr %40, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %70 = load i8, ptr %69, align 8
   %71 = trunc i8 %70 to i1
   br i1 %71, label %72, label %75
@@ -2431,22 +2431,22 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %79 = tail call i32 @StoreAttrDefault(ptr noundef nonnull %0, i16 noundef signext %77, ptr noundef nonnull %56, i1 noundef zeroext %5, i1 noundef zeroext %78) #11
   %80 = tail call ptr @palloc(i64 noundef 48) #11
   store i32 2, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   store i32 %79, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   store ptr null, ptr %82, align 8
   %83 = load i16, ptr %40, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i16 %83, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store ptr %56, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %80, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store i8 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %80, i64 33
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 33
   store i8 %10, ptr %87, align 1
-  %88 = getelementptr inbounds i8, ptr %80, i64 36
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 36
   store i32 %25, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %80, i64 40
+  %89 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store i8 0, ptr %89, align 8
   %90 = tail call ptr @lappend(ptr noundef %.0175264375, ptr noundef nonnull %80) #11
   br label %91
@@ -2468,7 +2468,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   %95 = load ptr, ptr %29, align 8
   %96 = getelementptr %union.ListCell, ptr %95, i64 %indvars.iv302377
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   switch i32 %99, label %417 [
     i32 5, label %100
@@ -2476,7 +2476,7 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   ]
 
 100:                                              ; preds = %.lr.ph382
-  %101 = getelementptr inbounds i8, ptr %97, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %102 = load ptr, ptr %101, align 8
   %.not203 = icmp eq ptr %102, null
   br i1 %.not203, label %114, label %103
@@ -2491,13 +2491,13 @@ define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef read
   br i1 %.not.i.i, label %list_length.exit.thread.i, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %107, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4
   %.not.i = icmp eq i32 %109, 1
   br i1 %.not.i, label %cookConstraint.exit, label %list_length.exit.thread.i
 
 list_length.exit.thread.i:                        ; preds = %list_length.exit.i, %103
-  %110 = getelementptr inbounds i8, ptr %104, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %111)
   %112 = call i32 @errcode(i32 noundef 393348) #11
@@ -2506,14 +2506,14 @@ list_length.exit.thread.i:                        ; preds = %list_length.exit.i,
   unreachable
 
 114:                                              ; preds = %100
-  %115 = getelementptr inbounds i8, ptr %97, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %116 = load ptr, ptr %115, align 8
   %117 = call ptr @stringToNode(ptr noundef %116) #11
   br label %cookConstraint.exit
 
 cookConstraint.exit:                              ; preds = %list_length.exit.i, %114
   %.0189 = phi ptr [ %117, %114 ], [ %106, %list_length.exit.i ]
-  %118 = getelementptr inbounds i8, ptr %97, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %119 = load ptr, ptr %118, align 8
   %.not204 = icmp eq ptr %119, null
   br i1 %.not204, label %294, label %.preheader
@@ -2523,13 +2523,13 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   br i1 %.not205, label %._crit_edge270.split.us, label %.lr.ph268
 
 .lr.ph268:                                        ; preds = %.preheader
-  %120 = getelementptr inbounds i8, ptr %.0182275380, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %.0182275380, i64 4
   %121 = load i32, ptr %120, align 4
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph272, label %._crit_edge270.split.us
 
 .lr.ph272:                                        ; preds = %.lr.ph268
-  %123 = getelementptr inbounds i8, ptr %.0182275380, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %.0182275380, i64 16
   %124 = load ptr, ptr %123, align 8
   %wide.trip.count = zext nneg i32 %121 to i64
   br label %126
@@ -2557,10 +2557,10 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
 
 ._crit_edge270.split.us:                          ; preds = %125, %.lr.ph268, %.preheader
   %134 = call ptr @lappend(ptr noundef %.0182275380, ptr noundef nonnull %119) #11
-  %135 = getelementptr inbounds i8, ptr %97, i64 19
+  %135 = getelementptr inbounds nuw i8, ptr %97, i64 19
   %136 = load i8, ptr %135, align 1
   %137 = trunc i8 %136 to i1
-  %138 = getelementptr inbounds i8, ptr %97, i64 20
+  %138 = getelementptr inbounds nuw i8, ptr %97, i64 20
   %139 = load i8, ptr %138, align 4
   %140 = trunc i8 %139 to i1
   call void @llvm.lifetime.start.p0(i64 216, ptr nonnull %9)
@@ -2577,21 +2577,21 @@ cookConstraint.exit:                              ; preds = %list_length.exit.i,
   br i1 %.not.i214.not, label %.critedge, label %147
 
 147:                                              ; preds = %._crit_edge270.split.us
-  %148 = getelementptr inbounds i8, ptr %146, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 22
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 22
   %151 = load i8, ptr %150, align 2
   %152 = zext i8 %151 to i64
   %153 = getelementptr i8, ptr %149, i64 %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 72
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 72
   %155 = load i8, ptr %154, align 4
   %156 = icmp eq i8 %155, 99
   br i1 %156, label %157, label %209
 
 157:                                              ; preds = %147
-  %158 = getelementptr inbounds i8, ptr %141, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %141, i64 64
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %149, i64 20
+  %160 = getelementptr inbounds nuw i8, ptr %149, i64 20
   %161 = load i16, ptr %160, align 4
   %162 = and i16 %161, 1
   %.not.i.i215 = icmp eq i16 %162, 0
@@ -2671,7 +2671,7 @@ fastgetattr.exit.i:                               ; preds = %195
   %200 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %200)
   %201 = load ptr, ptr %31, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 4
   %203 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.44, ptr noundef nonnull %202) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2663, ptr noundef nonnull @__func__.MergeWithExistingConstraint) #11
   unreachable
@@ -2689,14 +2689,14 @@ fastgetattr.exit.i:                               ; preds = %195
   br i1 %4, label %210, label %219
 
 210:                                              ; preds = %209
-  %211 = getelementptr inbounds i8, ptr %153, i64 99
+  %211 = getelementptr inbounds nuw i8, ptr %153, i64 99
   %212 = load i8, ptr %211, align 1
   %213 = trunc i8 %212 to i1
   br i1 %213, label %219, label %214
 
 214:                                              ; preds = %210
   %215 = load ptr, ptr %31, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 127
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 127
   %217 = load i8, ptr %216, align 1
   %218 = trunc i8 %217 to i1
   %not..i = xor i1 %218, true
@@ -2713,13 +2713,13 @@ fastgetattr.exit.i:                               ; preds = %195
   call void @llvm.assume(i1 %221)
   %222 = call i32 @errcode(i32 noundef 290948) #11
   %223 = load ptr, ptr %31, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 4
   %225 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %119, ptr noundef nonnull %224) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2683, ptr noundef nonnull @__func__.MergeWithExistingConstraint) #11
   unreachable
 
 226:                                              ; preds = %219
-  %227 = getelementptr inbounds i8, ptr %153, i64 102
+  %227 = getelementptr inbounds nuw i8, ptr %153, i64 102
   %228 = load i8, ptr %227, align 2
   %229 = trunc i8 %228 to i1
   br i1 %229, label %230, label %236
@@ -2729,13 +2729,13 @@ fastgetattr.exit.i:                               ; preds = %195
   call void @llvm.assume(i1 %231)
   %232 = call i32 @errcode(i32 noundef 117833860) #11
   %233 = load ptr, ptr %31, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %235 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.45, ptr noundef nonnull %119, ptr noundef nonnull %234) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2690, ptr noundef nonnull @__func__.MergeWithExistingConstraint) #11
   unreachable
 
 236:                                              ; preds = %226
-  %237 = getelementptr inbounds i8, ptr %153, i64 100
+  %237 = getelementptr inbounds nuw i8, ptr %153, i64 100
   %238 = load i16, ptr %237, align 4
   %239 = icmp sgt i16 %238, 0
   %brmerge53.not.i = and i1 %239, %140
@@ -2746,7 +2746,7 @@ fastgetattr.exit.i:                               ; preds = %195
   call void @llvm.assume(i1 %241)
   %242 = call i32 @errcode(i32 noundef 117833860) #11
   %243 = load ptr, ptr %31, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %245 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46, ptr noundef nonnull %119, ptr noundef nonnull %244) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2701, ptr noundef nonnull @__func__.MergeWithExistingConstraint) #11
   unreachable
@@ -2755,7 +2755,7 @@ fastgetattr.exit.i:                               ; preds = %195
   br i1 %137, label %247, label %257
 
 247:                                              ; preds = %246
-  %248 = getelementptr inbounds i8, ptr %153, i64 75
+  %248 = getelementptr inbounds nuw i8, ptr %153, i64 75
   %249 = load i8, ptr %248, align 1
   %250 = trunc i8 %249 to i1
   br i1 %250, label %257, label %251
@@ -2765,7 +2765,7 @@ fastgetattr.exit.i:                               ; preds = %195
   call void @llvm.assume(i1 %252)
   %253 = call i32 @errcode(i32 noundef 117833860) #11
   %254 = load ptr, ptr %31, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 4
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 4
   %256 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, ptr noundef nonnull %119, ptr noundef nonnull %255) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2711, ptr noundef nonnull @__func__.MergeWithExistingConstraint) #11
   unreachable
@@ -2781,22 +2781,22 @@ fastgetattr.exit.i:                               ; preds = %195
 
 261:                                              ; preds = %259, %257
   %262 = call ptr @heap_copytuple(ptr noundef nonnull %146) #11
-  %263 = getelementptr inbounds i8, ptr %262, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %262, i64 16
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 22
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 22
   %266 = load i8, ptr %265, align 2
   %267 = zext i8 %266 to i64
   %268 = getelementptr i8, ptr %264, i64 %267
   %269 = load ptr, ptr %31, align 8
-  %270 = getelementptr inbounds i8, ptr %269, i64 127
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 127
   %271 = load i8, ptr %270, align 1
   %272 = trunc i8 %271 to i1
   br i1 %272, label %273, label %276
 
 273:                                              ; preds = %261
-  %274 = getelementptr inbounds i8, ptr %268, i64 100
+  %274 = getelementptr inbounds nuw i8, ptr %268, i64 100
   store i16 1, ptr %274, align 4
-  %275 = getelementptr inbounds i8, ptr %268, i64 99
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 99
   store i8 0, ptr %275, align 1
   br label %290
 
@@ -2804,14 +2804,14 @@ fastgetattr.exit.i:                               ; preds = %195
   br i1 %4, label %277, label %279
 
 277:                                              ; preds = %276
-  %278 = getelementptr inbounds i8, ptr %268, i64 99
+  %278 = getelementptr inbounds nuw i8, ptr %268, i64 99
   store i8 1, ptr %278, align 1
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %268, i64 100
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %268, i64 100
   %.pre.i = load i16, ptr %.phi.trans.insert.i, align 4
   br label %283
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds i8, ptr %268, i64 100
+  %280 = getelementptr inbounds nuw i8, ptr %268, i64 100
   %281 = load i16, ptr %280, align 4
   %282 = add i16 %281, 1
   store i16 %282, ptr %280, align 4
@@ -2834,12 +2834,12 @@ fastgetattr.exit.i:                               ; preds = %195
   br i1 %140, label %291, label %MergeWithExistingConstraint.exit
 
 291:                                              ; preds = %290
-  %292 = getelementptr inbounds i8, ptr %268, i64 102
+  %292 = getelementptr inbounds nuw i8, ptr %268, i64 102
   store i8 1, ptr %292, align 2
   br label %MergeWithExistingConstraint.exit
 
 MergeWithExistingConstraint.exit:                 ; preds = %291, %290
-  %293 = getelementptr inbounds i8, ptr %262, i64 4
+  %293 = getelementptr inbounds nuw i8, ptr %262, i64 4
   call void @CatalogTupleUpdate(ptr noundef %141, ptr noundef nonnull %293, ptr noundef nonnull %262) #11
   call void @systable_endscan(ptr noundef %145) #11
   call void @table_close(ptr noundef %141, i32 noundef 3) #11
@@ -2853,7 +2853,7 @@ MergeWithExistingConstraint.exit:                 ; preds = %291, %290
   br i1 %.not.i216, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %294
-  %297 = getelementptr inbounds i8, ptr %296, i64 4
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
   %298 = load i32, ptr %297, align 4
   %299 = icmp eq i32 %298, 1
   br i1 %299, label %300, label %list_length.exit.thread
@@ -2863,7 +2863,7 @@ list_length.exit:                                 ; preds = %294
   %302 = getelementptr i8, ptr %296, i64 16
   %.val210 = load ptr, ptr %302, align 8
   %303 = load ptr, ptr %.val210, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %305 = load i16, ptr %304, align 8
   %306 = call ptr @get_attname(i32 noundef %301, i16 noundef signext %305, i1 noundef zeroext true) #11
   br label %list_length.exit.thread
@@ -2871,8 +2871,8 @@ list_length.exit:                                 ; preds = %294
 list_length.exit.thread:                          ; preds = %294, %list_length.exit, %300
   %.0177 = phi ptr [ %306, %300 ], [ null, %list_length.exit ], [ null, %294 ]
   %307 = load ptr, ptr %31, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 4
-  %309 = getelementptr inbounds i8, ptr %307, i64 68
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
+  %309 = getelementptr inbounds nuw i8, ptr %307, i64 68
   %310 = load i32, ptr %309, align 4
   %311 = call ptr @ChooseConstraintName(ptr noundef nonnull %308, ptr noundef %.0177, ptr noundef nonnull @.str.27, i32 noundef %310, ptr noundef %.0182275380) #11
   %312 = call ptr @lappend(ptr noundef %.0182275380, ptr noundef %311) #11
@@ -2887,35 +2887,35 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 313:                                              ; preds = %.critedge, %list_length.exit.thread
   %.2184 = phi ptr [ %312, %list_length.exit.thread ], [ %134, %.critedge ]
   %.0181 = phi ptr [ %311, %list_length.exit.thread ], [ %119, %.critedge ]
-  %314 = getelementptr inbounds i8, ptr %97, i64 19
+  %314 = getelementptr inbounds nuw i8, ptr %97, i64 19
   %315 = load i8, ptr %314, align 1
   %316 = trunc i8 %315 to i1
-  %317 = getelementptr inbounds i8, ptr %97, i64 20
+  %317 = getelementptr inbounds nuw i8, ptr %97, i64 20
   %318 = load i8, ptr %317, align 4
   %319 = trunc i8 %318 to i1
   %320 = call fastcc i32 @StoreRelCheck(ptr noundef nonnull %0, ptr noundef %.0181, ptr noundef %.0189, i1 noundef zeroext %316, i1 noundef zeroext %4, i32 noundef %35, i1 noundef zeroext %319, i1 noundef zeroext %5)
   %321 = add i32 %.0178276379, 1
   %322 = call ptr @palloc(i64 noundef 48) #11
   store i32 5, ptr %322, align 8
-  %323 = getelementptr inbounds i8, ptr %322, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 4
   store i32 %320, ptr %323, align 4
-  %324 = getelementptr inbounds i8, ptr %322, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %322, i64 8
   store ptr %.0181, ptr %324, align 8
-  %325 = getelementptr inbounds i8, ptr %322, i64 16
+  %325 = getelementptr inbounds nuw i8, ptr %322, i64 16
   store i16 0, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %322, i64 24
+  %326 = getelementptr inbounds nuw i8, ptr %322, i64 24
   store ptr %.0189, ptr %326, align 8
-  %327 = getelementptr inbounds i8, ptr %97, i64 18
+  %327 = getelementptr inbounds nuw i8, ptr %97, i64 18
   %328 = load i8, ptr %327, align 2
-  %329 = getelementptr inbounds i8, ptr %322, i64 32
+  %329 = getelementptr inbounds nuw i8, ptr %322, i64 32
   %330 = and i8 %328, 1
   store i8 %330, ptr %329, align 8
-  %331 = getelementptr inbounds i8, ptr %322, i64 33
+  %331 = getelementptr inbounds nuw i8, ptr %322, i64 33
   store i8 %10, ptr %331, align 1
-  %332 = getelementptr inbounds i8, ptr %322, i64 36
+  %332 = getelementptr inbounds nuw i8, ptr %322, i64 36
   store i32 %35, ptr %332, align 4
   %333 = load i8, ptr %317, align 4
-  %334 = getelementptr inbounds i8, ptr %322, i64 40
+  %334 = getelementptr inbounds nuw i8, ptr %322, i64 40
   %335 = and i8 %333, 1
   store i8 %335, ptr %334, align 8
   %336 = call ptr @lappend(ptr noundef %.2277378, ptr noundef nonnull %322) #11
@@ -2923,12 +2923,12 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 
 337:                                              ; preds = %.lr.ph382
   %338 = load i32, ptr %30, align 8
-  %339 = getelementptr inbounds i8, ptr %97, i64 56
+  %339 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr i8, ptr %340, i64 16
   %.val211 = load ptr, ptr %341, align 8
   %342 = load ptr, ptr %.val211, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load ptr, ptr %343, align 8
   %345 = call signext i16 @get_attnum(i32 noundef %338, ptr noundef %344) #11
   %346 = icmp eq i16 %345, 0
@@ -2941,7 +2941,7 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
   %350 = getelementptr i8, ptr %349, i64 16
   %.val212 = load ptr, ptr %350, align 8
   %351 = load ptr, ptr %.val212, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = load i32, ptr %30, align 8
   %355 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, ptr noundef %353, i32 noundef %354) #11
@@ -2950,16 +2950,16 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 
 356:                                              ; preds = %337
   %357 = load i32, ptr %30, align 8
-  %358 = getelementptr inbounds i8, ptr %97, i64 44
+  %358 = getelementptr inbounds nuw i8, ptr %97, i64 44
   %359 = load i32, ptr %358, align 4
-  %360 = getelementptr inbounds i8, ptr %97, i64 20
+  %360 = getelementptr inbounds nuw i8, ptr %97, i64 20
   %361 = load i8, ptr %360, align 4
   %362 = trunc i8 %361 to i1
   %363 = call zeroext i1 @AdjustNotNullInheritance1(i32 noundef %357, i16 noundef signext %345, i32 noundef %359, i1 noundef zeroext %362) #11
   br i1 %363, label %417, label %364
 
 364:                                              ; preds = %356
-  %365 = getelementptr inbounds i8, ptr %97, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %366 = load ptr, ptr %365, align 8
   %.not202 = icmp eq ptr %366, null
   br i1 %.not202, label %379, label %367
@@ -2975,7 +2975,7 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
   %372 = call i32 @errcode(i32 noundef 290948) #11
   %373 = load ptr, ptr %365, align 8
   %374 = load ptr, ptr %31, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 4
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 4
   %376 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %373, ptr noundef nonnull %375) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2559, ptr noundef nonnull @__func__.AddRelationNewConstraints) #11
   unreachable
@@ -2986,14 +2986,14 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 
 379:                                              ; preds = %364
   %380 = load ptr, ptr %31, align 8
-  %381 = getelementptr inbounds i8, ptr %380, i64 4
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 4
   %382 = load ptr, ptr %339, align 8
   %383 = getelementptr i8, ptr %382, i64 16
   %.val213 = load ptr, ptr %383, align 8
   %384 = load ptr, ptr %.val213, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds i8, ptr %380, i64 68
+  %387 = getelementptr inbounds nuw i8, ptr %380, i64 68
   %388 = load i32, ptr %387, align 4
   %389 = call ptr @ChooseConstraintName(ptr noundef nonnull %381, ptr noundef %386, ptr noundef nonnull @.str.30, i32 noundef %388, ptr noundef %.0185274381) #11
   br label %390
@@ -3001,7 +3001,7 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 390:                                              ; preds = %379, %377
   %.0 = phi ptr [ %378, %377 ], [ %389, %379 ]
   %391 = call ptr @lappend(ptr noundef %.0185274381, ptr noundef %.0) #11
-  %392 = getelementptr inbounds i8, ptr %97, i64 19
+  %392 = getelementptr inbounds nuw i8, ptr %97, i64 19
   %393 = load i8, ptr %392, align 1
   %394 = trunc i8 %393 to i1
   %395 = load i32, ptr %358, align 4
@@ -3018,26 +3018,26 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   %401 = call ptr @palloc(i64 noundef 48) #11
   store i32 1, ptr %401, align 8
-  %402 = getelementptr inbounds i8, ptr %401, i64 4
+  %402 = getelementptr inbounds nuw i8, ptr %401, i64 4
   store i32 %400, ptr %402, align 4
-  %403 = getelementptr inbounds i8, ptr %401, i64 8
+  %403 = getelementptr inbounds nuw i8, ptr %401, i64 8
   store ptr %.0, ptr %403, align 8
-  %404 = getelementptr inbounds i8, ptr %401, i64 16
+  %404 = getelementptr inbounds nuw i8, ptr %401, i64 16
   store i16 %345, ptr %404, align 8
-  %405 = getelementptr inbounds i8, ptr %401, i64 24
+  %405 = getelementptr inbounds nuw i8, ptr %401, i64 24
   store ptr null, ptr %405, align 8
-  %406 = getelementptr inbounds i8, ptr %97, i64 18
+  %406 = getelementptr inbounds nuw i8, ptr %97, i64 18
   %407 = load i8, ptr %406, align 2
-  %408 = getelementptr inbounds i8, ptr %401, i64 32
+  %408 = getelementptr inbounds nuw i8, ptr %401, i64 32
   %409 = and i8 %407, 1
   store i8 %409, ptr %408, align 8
-  %410 = getelementptr inbounds i8, ptr %401, i64 33
+  %410 = getelementptr inbounds nuw i8, ptr %401, i64 33
   store i8 %10, ptr %410, align 1
   %411 = load i32, ptr %358, align 4
-  %412 = getelementptr inbounds i8, ptr %401, i64 36
+  %412 = getelementptr inbounds nuw i8, ptr %401, i64 36
   store i32 %411, ptr %412, align 4
   %413 = load i8, ptr %360, align 4
-  %414 = getelementptr inbounds i8, ptr %401, i64 40
+  %414 = getelementptr inbounds nuw i8, ptr %401, i64 40
   %415 = and i8 %413, 1
   store i8 %415, ptr %414, align 8
   %416 = call ptr @lappend(ptr noundef %.2277378, ptr noundef nonnull %401) #11
@@ -3138,7 +3138,7 @@ define internal fastcc i32 @StoreRelCheck(ptr nocapture noundef readonly %0, ptr
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %list_length.exit.thread
@@ -3152,7 +3152,7 @@ list_length.exit:                                 ; preds = %8
   br i1 %19, label %.lr.ph56, label %list_length.exit.thread
 
 .lr.ph56:                                         ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %21
 
 21:                                               ; preds = %.lr.ph56, %41
@@ -3166,7 +3166,7 @@ list_length.exit:                                 ; preds = %8
   br i1 %26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i16, ptr %27, align 8
   %wide.trip.count = zext nneg i32 %.04253 to i64
   br label %29
@@ -3193,7 +3193,7 @@ list_length.exit:                                 ; preds = %8
   br i1 %35, label %._crit_edge.thread, label %41
 
 ._crit_edge.thread:                               ; preds = %33, %._crit_edge
-  %36 = getelementptr inbounds i8, ptr %25, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %37 = load i16, ptr %36, align 8
   %38 = add i32 %.04253, 1
   %39 = sext i32 %.04253 to i64
@@ -3213,12 +3213,12 @@ list_length.exit:                                 ; preds = %8
 list_length.exit.thread:                          ; preds = %41, %14, %8, %list_length.exit
   %.041 = phi ptr [ null, %list_length.exit ], [ null, %8 ], [ %17, %14 ], [ %17, %41 ]
   %.040 = phi i32 [ %12, %list_length.exit ], [ 0, %8 ], [ 0, %14 ], [ %.1, %41 ]
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
   br i1 %6, label %47, label %list_length.exit.thread._crit_edge
 
 47:                                               ; preds = %list_length.exit.thread
-  %48 = getelementptr inbounds i8, ptr %46, i64 115
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 115
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 112
   br i1 %50, label %51, label %list_length.exit.thread._crit_edge
@@ -3228,15 +3228,15 @@ list_length.exit.thread:                          ; preds = %41, %14, %8, %list_
   tail call void @llvm.assume(i1 %52)
   %53 = tail call i32 @errcode(i32 noundef 101056644) #11
   %54 = load ptr, ptr %45, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.43, ptr noundef nonnull %55) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2112, ptr noundef nonnull @__func__.StoreRelCheck) #11
   unreachable
 
 list_length.exit.thread._crit_edge:               ; preds = %list_length.exit.thread, %47
-  %57 = getelementptr inbounds i8, ptr %46, i64 68
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 68
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load i32, ptr %59, align 8
   %61 = tail call i32 @CreateConstraintEntry(ptr noundef %1, i32 noundef %58, i8 noundef signext 99, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext %3, i32 noundef 0, i32 noundef %60, ptr noundef %.041, i32 noundef %.040, i32 noundef %.040, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, i32 noundef 0, i8 noundef signext 32, i8 noundef signext 32, ptr noundef null, i32 noundef 0, i8 noundef signext 32, ptr noundef null, ptr noundef %2, ptr noundef %9, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext %7) #11
   tail call void @pfree(ptr noundef %9) #11
@@ -3252,7 +3252,7 @@ declare zeroext i1 @ConstraintNameIsUsed(i32 noundef, i32 noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SetRelationNumChecks(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
   %7 = tail call ptr @SearchSysCacheCopy(i32 noundef 55, i64 noundef %6, i64 noundef 0, i64 noundef 0, i64 noundef 0) #11
@@ -3268,13 +3268,13 @@ define internal fastcc void @SetRelationNumChecks(ptr noundef %0, i32 noundef %1
   unreachable
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 22
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 22
   %16 = load i8, ptr %15, align 2
   %17 = zext i8 %16 to i64
   %18 = getelementptr i8, ptr %14, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 118
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 118
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i32
   %.not15 = icmp eq i32 %1, %21
@@ -3283,7 +3283,7 @@ define internal fastcc void @SetRelationNumChecks(ptr noundef %0, i32 noundef %1
 22:                                               ; preds = %12
   %23 = trunc i32 %1 to i16
   store i16 %23, ptr %19, align 2
-  %24 = getelementptr inbounds i8, ptr %7, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %3, ptr noundef nonnull %24, ptr noundef nonnull %7) #11
   br label %26
 
@@ -3305,9 +3305,9 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   br i1 %.not, label %._crit_edge200, label %.lr.ph199
 
 .lr.ph199:                                        ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = getelementptr i8, ptr %0, i64 56
   %10 = load i32, ptr %6, align 4
   %11 = icmp sgt i32 %10, 0
@@ -3323,19 +3323,19 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv215243
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 16
   %.val144 = load ptr, ptr %18, align 8
   %19 = load ptr, ptr %.val144, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = call signext i16 @get_attnum(i32 noundef %15, ptr noundef %21) #11
   %.not135175 = icmp eq ptr %.0197244, null
   br i1 %.not135175, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph248
-  %23 = getelementptr inbounds i8, ptr %14, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 20
   br label %24
 
 24:                                               ; preds = %.lr.ph, %55
@@ -3343,18 +3343,18 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   %.sroa.040.0178 = phi ptr [ %.0197244, %.lr.ph ], [ %.sroa.040.1, %55 ]
   %.sroa.5.0177 = phi i32 [ 0, %.lr.ph ], [ %56, %55 ]
   %.0123176 = phi i32 [ 0, %.lr.ph ], [ %.1124, %55 ]
-  %25 = getelementptr inbounds i8, ptr %.sroa.040.0178, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.040.0178, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %.sroa.5.0177, %26
   br i1 %27, label %28, label %._crit_edge
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.sroa.040.0178, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.040.0178, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %.sroa.5.0177 to i64
   %32 = getelementptr %union.ListCell, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i16, ptr %34, align 8
   %36 = icmp eq i16 %35, %22
   br i1 %36, label %37, label %55
@@ -3365,7 +3365,7 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   br i1 %39, label %40, label %51
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %14, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %42 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %42)
   %43 = call i32 @errcode(i32 noundef 67141764) #11
@@ -3373,7 +3373,7 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   %45 = getelementptr i8, ptr %44, i64 16
   %.val143 = load ptr, ptr %45, align 8
   %46 = load ptr, ptr %.val143, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef %48) #11
   %50 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.32) #11
@@ -3398,7 +3398,7 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
 ._crit_edge:                                      ; preds = %55, %24, %.lr.ph248
   %.0123.lcssa = phi i32 [ 0, %.lr.ph248 ], [ %.0123176, %24 ], [ %.1124, %55 ]
   %.1.lcssa = phi ptr [ null, %.lr.ph248 ], [ %.1179, %24 ], [ %.2, %55 ]
-  %57 = getelementptr inbounds i8, ptr %14, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not137 = icmp eq ptr %58, null
   br i1 %.not137, label %78, label %.preheader164
@@ -3408,13 +3408,13 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   br i1 %.not138, label %._crit_edge187.split.us, label %.lr.ph185
 
 .lr.ph185:                                        ; preds = %.preheader164
-  %59 = getelementptr inbounds i8, ptr %.0102196245, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.0102196245, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %.lr.ph189, label %._crit_edge187.split.us
 
 .lr.ph189:                                        ; preds = %.lr.ph185
-  %62 = getelementptr inbounds i8, ptr %.0102196245, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0102196245, i64 16
   %63 = load ptr, ptr %62, align 8
   %wide.trip.count = zext nneg i32 %60 to i64
   br label %65
@@ -3433,13 +3433,13 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   br i1 %69, label %.split, label %64
 
 .split:                                           ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %14, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %71 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   call void @llvm.assume(i1 %71)
   %72 = call i32 @errcode(i32 noundef 290948) #11
   %73 = load ptr, ptr %70, align 8
   %74 = load ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %76 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %73, ptr noundef nonnull %75) #11
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2867, ptr noundef nonnull @__func__.AddRelationNotNullConstraints) #11
   unreachable
@@ -3450,11 +3450,11 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
 
 78:                                               ; preds = %._crit_edge
   %79 = load ptr, ptr %9, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %8, align 8
   %82 = call ptr @get_attname(i32 noundef %81, i16 noundef signext %22, i1 noundef zeroext false) #11
   %83 = load ptr, ptr %9, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 68
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 68
   %85 = load i32, ptr %84, align 4
   %86 = call ptr @ChooseConstraintName(ptr noundef nonnull %80, ptr noundef %82, ptr noundef nonnull @.str.30, i32 noundef %85, ptr noundef %.0115195246) #11
   br label %87
@@ -3463,7 +3463,7 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   %.0125 = phi ptr [ %58, %._crit_edge187.split.us ], [ %86, %78 ]
   %.1103 = phi ptr [ %77, %._crit_edge187.split.us ], [ %.0102196245, %78 ]
   %88 = call ptr @lappend(ptr noundef %.0115195246, ptr noundef %.0125) #11
-  %89 = getelementptr inbounds i8, ptr %14, i64 20
+  %89 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %90 = load i8, ptr %89, align 4
   %91 = trunc i8 %90 to i1
   %.val141 = load ptr, ptr %9, align 8
@@ -3500,7 +3500,7 @@ define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readon
   br i1 %.not.i, label %list_length.exit, label %102
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds i8, ptr %.3, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %.3, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
   br label %list_length.exit
@@ -3515,10 +3515,10 @@ list_length.exit:                                 ; preds = %101, %102
   %.3.val = load ptr, ptr %109, align 8
   %110 = getelementptr %union.ListCell, ptr %.3.val, i64 %indvars.iv223
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %114 = getelementptr inbounds i8, ptr %111, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %115 = trunc nuw i64 %indvars.iv.next224 to i32
   br label %.outer
 
@@ -3528,7 +3528,7 @@ list_length.exit:                                 ; preds = %101, %102
   %.0104.ph = phi i32 [ %.0104, %136 ], [ %115, %108 ]
   %.4.ph = phi ptr [ %138, %136 ], [ %.3, %108 ]
   %.not.i145 = icmp eq ptr %.4.ph, null
-  %116 = getelementptr inbounds i8, ptr %.4.ph, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 4
   %117 = getelementptr i8, ptr %.4.ph, i64 16
   br label %118
 
@@ -3550,7 +3550,7 @@ list_length.exit146:                              ; preds = %118, %119
   %124 = sext i32 %.0104 to i64
   %125 = getelementptr %union.ListCell, ptr %.4.val, i64 %124
   %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %128 = load i16, ptr %127, align 8
   %129 = load i16, ptr %114, align 8
   %130 = icmp eq i16 %128, %129
@@ -3561,7 +3561,7 @@ list_length.exit146:                              ; preds = %118, %119
   br i1 %132, label %133, label %136
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %126, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %135 = load ptr, ptr %134, align 8
   br label %136
 
@@ -3584,13 +3584,13 @@ list_length.exit146:                              ; preds = %118, %119
   br i1 %.not132, label %.loopexit, label %.lr.ph209
 
 .lr.ph209:                                        ; preds = %.preheader
-  %142 = getelementptr inbounds i8, ptr %.1116, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %.1116, i64 4
   %143 = load i32, ptr %142, align 4
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %.lr.ph212, label %.loopexit
 
 .lr.ph212:                                        ; preds = %.lr.ph209
-  %145 = getelementptr inbounds i8, ptr %.1116, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.1116, i64 16
   %146 = load ptr, ptr %145, align 8
   %wide.trip.count221 = zext nneg i32 %143 to i64
   br label %148
@@ -3610,12 +3610,12 @@ list_length.exit146:                              ; preds = %118, %119
 
 .thread162:                                       ; preds = %148, %141
   %153 = load ptr, ptr %99, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i32, ptr %100, align 8
   %156 = load i16, ptr %114, align 8
   %157 = call ptr @get_attname(i32 noundef %155, i16 noundef signext %156, i1 noundef zeroext false) #11
   %158 = load ptr, ptr %99, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 68
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 68
   %160 = load i32, ptr %159, align 4
   %161 = call ptr @ChooseConstraintName(ptr noundef nonnull %154, ptr noundef %157, ptr noundef nonnull @.str.30, i32 noundef %160, ptr noundef %.1116) #11
   br label %.loopexit
@@ -3624,13 +3624,13 @@ list_length.exit146:                              ; preds = %118, %119
   %.5114 = phi ptr [ %161, %.thread162 ], [ %.1110.ph, %.lr.ph209 ], [ %.1110.ph, %.preheader ], [ %.1110.ph, %147 ]
   %162 = call ptr @lappend(ptr noundef %.1116, ptr noundef %.5114) #11
   %163 = load i16, ptr %114, align 8
-  %164 = getelementptr inbounds i8, ptr %111, i64 33
+  %164 = getelementptr inbounds nuw i8, ptr %111, i64 33
   %165 = load i8, ptr %164, align 1
   %166 = trunc i8 %165 to i1
-  %167 = getelementptr inbounds i8, ptr %111, i64 36
+  %167 = getelementptr inbounds nuw i8, ptr %111, i64 36
   %168 = load i32, ptr %167, align 4
   %169 = add i32 %168, %.0107.ph
-  %170 = getelementptr inbounds i8, ptr %111, i64 40
+  %170 = getelementptr inbounds nuw i8, ptr %111, i64 40
   %171 = load i8, ptr %170, align 8
   %172 = trunc i8 %171 to i1
   %.val = load ptr, ptr %99, align 8
@@ -3659,10 +3659,10 @@ declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 -65535, 65536) i32 @list_cookedconstr_attnum_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i16, ptr %7, align 8
   %9 = sext i16 %5 to i32
   %10 = sext i16 %8 to i32
@@ -3699,9 +3699,9 @@ define dso_local void @CopyStatistics(i32 noundef %0, i32 noundef %1) local_unna
   %8 = phi ptr [ %20, %19 ], [ %7, %2 ]
   %.020 = phi ptr [ %.1, %19 ], [ null, %2 ]
   %9 = call ptr @heap_copytuple(ptr noundef nonnull %8) #11
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 22
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 22
   %13 = load i8, ptr %12, align 2
   %14 = zext i8 %13 to i64
   %15 = getelementptr i8, ptr %11, i64 %14
@@ -3741,12 +3741,12 @@ declare void @CatalogTupleInsertWithInfo(ptr noundef, ptr noundef, ptr noundef) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_truncate(ptr noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %2, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph37, label %._crit_edge.thread
@@ -3771,12 +3771,12 @@ define dso_local void @heap_truncate(ptr noundef readonly %0) local_unnamed_addr
 
 ._crit_edge:                                      ; preds = %.lr.ph37
   tail call void @heap_truncate_check_FKs(ptr noundef %10, i1 noundef zeroext true)
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.not22 = icmp eq ptr %10, null
   br i1 %.not22, label %._crit_edge42, label %.lr.ph41
 
 .lr.ph41:                                         ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load i32, ptr %14, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph45, label %._crit_edge42
@@ -3786,31 +3786,31 @@ define dso_local void @heap_truncate(ptr noundef readonly %0) local_unnamed_addr
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv47
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 115
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 115
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 112
   br i1 %25, label %heap_truncate_one_rel.exit, label %26
 
 26:                                               ; preds = %.lr.ph45
-  %27 = getelementptr inbounds i8, ptr %20, i64 312
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 312
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 232
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 232
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull %20) #11
   tail call fastcc void @RelationTruncateIndexes(ptr noundef nonnull %20)
   %31 = load ptr, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 108
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 108
   %33 = load i32, ptr %32, align 4
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %heap_truncate_one_rel.exit, label %34
 
 34:                                               ; preds = %26
   %35 = tail call ptr @table_open(i32 noundef %33, i32 noundef 8) #11
-  %36 = getelementptr inbounds i8, ptr %35, i64 312
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 312
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 232
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 232
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef %35) #11
   tail call fastcc void @RelationTruncateIndexes(ptr noundef %35)
@@ -3831,12 +3831,12 @@ heap_truncate_one_rel.exit:                       ; preds = %.lr.ph45, %26, %34
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_truncate_check_FKs(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph67, label %.loopexit
@@ -3848,21 +3848,21 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly %0, i1 nound
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr %union.ListCell, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 121
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 121
   %14 = load i8, ptr %13, align 1
   %15 = trunc i8 %14 to i1
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %.lr.ph67
-  %17 = getelementptr inbounds i8, ptr %12, i64 115
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 115
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 112
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16, %.lr.ph67
-  %21 = getelementptr inbounds i8, ptr %10, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %22 = load i32, ptr %21, align 8
   %23 = tail call ptr @lappend_oid(ptr noundef %.06165, i32 noundef %22) #11
   %.pre = load i32, ptr %3, align 4
@@ -3886,13 +3886,13 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly %0, i1 nound
   br i1 %31, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %33 = load i32, ptr %32, align 4
   %.not4778 = icmp sgt i32 %33, 0
   br i1 %.not4778, label %.lr.ph81, label %.loopexit
 
 .lr.ph81:                                         ; preds = %.preheader
-  %34 = getelementptr inbounds i8, ptr %.1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   br label %35
 
 35:                                               ; preds = %.lr.ph81, %._crit_edge73.split.us
@@ -3911,8 +3911,8 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly %0, i1 nound
   br i1 %.not48, label %._crit_edge73.split.us, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %44 = load i32, ptr %42, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph77, label %._crit_edge73.split.us
@@ -3966,31 +3966,31 @@ define dso_local void @heap_truncate_check_FKs(ptr noundef readonly %0, i1 nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @heap_truncate_one_rel(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 115
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 115
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 112
   br i1 %6, label %21, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 312
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 232
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 232
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #11
   tail call fastcc void @RelationTruncateIndexes(ptr noundef nonnull %0)
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 108
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 108
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %7
   %16 = tail call ptr @table_open(i32 noundef %14, i32 noundef 8) #11
-  %17 = getelementptr inbounds i8, ptr %16, i64 312
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 312
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 232
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 232
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef %16) #11
   tail call fastcc void @RelationTruncateIndexes(ptr noundef %16)
@@ -4004,12 +4004,12 @@ define dso_local void @heap_truncate_one_rel(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @RelationTruncateIndexes(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @RelationGetIndexList(ptr noundef %0) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph19, label %._crit_edge
@@ -4061,13 +4061,13 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
 
 9:                                                ; preds = %.lr.ph, %.backedge
   %10 = phi ptr [ %8, %.lr.ph ], [ %19, %.backedge ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %15 = zext i8 %14 to i64
   %16 = getelementptr i8, ptr %12, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load i8, ptr %17, align 4
   %.not61 = icmp eq i8 %18, 102
   br i1 %.not61, label %20, label %.backedge
@@ -4078,13 +4078,13 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   br i1 %.not, label %.outer._crit_edge, label %9, !llvm.loop !29
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %16, i64 92
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 92
   %22 = load i32, ptr %21, align 4
   %23 = call zeroext i1 @list_member_oid(ptr noundef %.044, i32 noundef %22) #11
   br i1 %23, label %24, label %.backedge
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %16, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %26 = load i32, ptr %25, align 4
   %.not62 = icmp eq i32 %26, 0
   br i1 %.not62, label %32, label %27
@@ -4100,7 +4100,7 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
 
 32:                                               ; preds = %29, %27, %24
   %.148 = phi ptr [ %.047.ph70, %27 ], [ %31, %29 ], [ %.047.ph70, %24 ]
-  %33 = getelementptr inbounds i8, ptr %16, i64 76
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 76
   %34 = load i32, ptr %33, align 4
   %35 = call zeroext i1 @list_member_oid(ptr noundef %0, i32 noundef %34) #11
   br i1 %35, label %.outer, label %36
@@ -4120,12 +4120,12 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   %.047.ph.lcssa = phi ptr [ %.047.ph70, %.backedge ], [ %.148, %.outer ]
   %.1.ph.lcssa = phi ptr [ %.1.ph71, %.backedge ], [ %.2, %.outer ]
   call void @systable_endscan(ptr noundef %6) #11
-  %40 = getelementptr inbounds i8, ptr %.047.ph.lcssa, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.047.ph.lcssa, i64 4
   %.not57 = icmp eq ptr %.047.ph.lcssa, null
   br i1 %.not57, label %._crit_edge80.thread, label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.outer._crit_edge
-  %41 = getelementptr inbounds i8, ptr %.047.ph.lcssa, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.047.ph.lcssa, i64 16
   %42 = load i32, ptr %40, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph97, label %._crit_edge80.thread
@@ -4146,13 +4146,13 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   br i1 %.not59, label %68, label %50
 
 50:                                               ; preds = %.lr.ph97
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 22
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 22
   %54 = load i8, ptr %53, align 2
   %55 = zext i8 %54 to i64
   %56 = getelementptr i8, ptr %52, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
   %58 = load i32, ptr %57, align 4
   %.not60 = icmp eq i32 %58, 0
   br i1 %.not60, label %61, label %59
@@ -4162,7 +4162,7 @@ define dso_local ptr @heap_truncate_find_FKs(ptr noundef %0) local_unnamed_addr 
   br label %68
 
 61:                                               ; preds = %50
-  %62 = getelementptr inbounds i8, ptr %56, i64 92
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 92
   %63 = load i32, ptr %62, align 4
   %64 = call zeroext i1 @list_member_oid(ptr noundef %.1457793, i32 noundef %63) #11
   br i1 %64, label %68, label %65
@@ -4246,37 +4246,37 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
 
 22:                                               ; preds = %.thread, %17
   %23 = phi ptr [ %16, %.thread ], [ %21, %17 ]
-  %24 = getelementptr inbounds i8, ptr %9, i64 7
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 7
   store i8 1, ptr %24, align 1
   br label %25
 
 25:                                               ; preds = %22, %17
   %26 = phi ptr [ %23, %22 ], [ %21, %17 ]
   %.04959 = phi i64 [ 0, %22 ], [ %20, %17 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
   store i64 %29, ptr %8, align 16
   %30 = sext i8 %1 to i64
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %30, ptr %31, align 8
   %32 = sext i16 %2 to i64
-  %33 = getelementptr inbounds i8, ptr %8, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %32, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %34, align 8
   %35 = ptrtoint ptr %13 to i64
-  %36 = getelementptr inbounds i8, ptr %8, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %35, ptr %36, align 16
   %37 = ptrtoint ptr %14 to i64
-  %38 = getelementptr inbounds i8, ptr %8, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i64 %37, ptr %38, align 8
   %39 = ptrtoint ptr %15 to i64
-  %40 = getelementptr inbounds i8, ptr %8, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i64 %39, ptr %40, align 16
-  %41 = getelementptr inbounds i8, ptr %8, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store i64 %.04959, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %26, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %43 = load ptr, ptr %42, align 8
   %44 = call ptr @heap_form_tuple(ptr noundef %43, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   call void @CatalogTupleInsert(ptr noundef %26, ptr noundef %44) #11
@@ -4284,16 +4284,16 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
   %45 = call ptr @new_object_addresses() #11
   store i32 1259, ptr %10, align 4
   %46 = load i32, ptr %27, align 8
-  %47 = getelementptr inbounds i8, ptr %10, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %10, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %48, align 4
   %49 = icmp sgt i16 %2, 0
   br i1 %49, label %.lr.ph, label %._crit_edge65.critedge
 
 .lr.ph:                                           ; preds = %25
-  %50 = getelementptr inbounds i8, ptr %11, i64 4
-  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %52
 
@@ -4327,8 +4327,8 @@ define dso_local void @StorePartitionKey(ptr noundef %0, i8 noundef signext %1, 
 ._crit_edge:                                      ; preds = %58
   call void @record_object_address_dependencies(ptr noundef nonnull %10, ptr noundef %45, i32 noundef 110) #11
   call void @free_object_addresses(ptr noundef %45) #11
-  %59 = getelementptr inbounds i8, ptr %11, i64 4
-  %60 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %wide.trip.count70 = zext nneg i32 %12 to i64
   br label %61
 
@@ -4391,7 +4391,7 @@ define dso_local void @StorePartitionBound(ptr nocapture noundef readonly %0, pt
   %5 = alloca [33 x i8], align 16
   %6 = alloca [33 x i8], align 16
   %7 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 3) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = tail call ptr @SearchSysCacheCopy(i32 noundef 55, i64 noundef %10, i64 noundef 0, i64 noundef 0, i64 noundef 0) #11
@@ -4413,34 +4413,34 @@ define dso_local void @StorePartitionBound(ptr nocapture noundef readonly %0, pt
   %17 = tail call ptr @nodeToString(ptr noundef %2) #11
   %18 = tail call ptr @cstring_to_text(ptr noundef %17) #11
   %19 = ptrtoint ptr %18 to i64
-  %20 = getelementptr inbounds i8, ptr %4, i64 256
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 256
   store i64 %19, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %5, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %21, align 16
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 1, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %7, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @heap_modify_tuple(ptr noundef nonnull %11, ptr noundef %24, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 22
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 22
   %29 = load i8, ptr %28, align 2
   %30 = zext i8 %29 to i64
   %31 = getelementptr i8, ptr %27, i64 %30
-  %32 = getelementptr inbounds i8, ptr %31, i64 127
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 127
   store i8 1, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %25, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @CatalogTupleUpdate(ptr noundef %7, ptr noundef nonnull %33, ptr noundef %25) #11
   call void @heap_freetuple(ptr noundef %25) #11
   call void @table_close(ptr noundef %7, i32 noundef 3) #11
-  %34 = getelementptr inbounds i8, ptr %2, i64 5
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 5
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %16
-  %38 = getelementptr inbounds i8, ptr %1, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %39 = load i32, ptr %38, align 8
   %40 = load i32, ptr %8, align 8
   call void @update_default_partition_oid(i32 noundef %39, i32 noundef %40) #11
@@ -4491,9 +4491,9 @@ define internal zeroext i1 @check_nested_generated_walker(ptr noundef %0, ptr no
   br i1 %6, label %7, label %44
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = add i32 %11, -1
   %13 = getelementptr i8, ptr %9, i64 16
@@ -4501,13 +4501,13 @@ define internal zeroext i1 @check_nested_generated_walker(ptr noundef %0, ptr no
   %14 = sext i32 %12 to i64
   %15 = getelementptr %union.ListCell, ptr %.val, i64 %14
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.thread, label %19
 
 19:                                               ; preds = %7
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i16, ptr %20, align 8
   %22 = icmp sgt i16 %21, 0
   br i1 %22, label %23, label %34
@@ -4524,7 +4524,7 @@ define internal zeroext i1 @check_nested_generated_walker(ptr noundef %0, ptr no
   %28 = tail call ptr @get_attname(i32 noundef %18, i16 noundef signext %21, i1 noundef zeroext false) #11
   %29 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef %28) #11
   %30 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.53) #11
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 @parser_errposition(ptr noundef nonnull %1, i32 noundef %32) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3040, ptr noundef nonnull @__func__.check_nested_generated_walker) #11
@@ -4540,7 +4540,7 @@ define internal zeroext i1 @check_nested_generated_walker(ptr noundef %0, ptr no
   %38 = tail call i32 @errcode(i32 noundef 117833860) #11
   %39 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.54) #11
   %40 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.55) #11
-  %41 = getelementptr inbounds i8, ptr %0, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %42 = load i32, ptr %41, align 4
   %43 = tail call i32 @parser_errposition(ptr noundef nonnull %1, i32 noundef %42) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3047, ptr noundef nonnull @__func__.check_nested_generated_walker) #11

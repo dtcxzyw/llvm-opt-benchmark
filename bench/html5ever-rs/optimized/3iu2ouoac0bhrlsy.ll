@@ -94,16 +94,16 @@ define internal fastcc void @"_ZN4core3ptr70drop_in_place$LT$core..option..Optio
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !6
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8, !range !4, !noalias !6, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he556793a03ee103cE.exit", label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %2, align 8, !noalias !6, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noalias !6, !noundef !5
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 1 %13, ptr noundef nonnull %10, i64 noundef %8, i64 noundef %12)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he556793a03ee103cE.exit"
 
@@ -125,7 +125,7 @@ define { i8, i8 } @_ZN9html5ever12tree_builder4data24doctype_error_and_quirks17h
   br i1 %trunc.i, label %10, label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8, !range !16, !noundef !5
   %13 = icmp eq i64 %12, 15
   br i1 %13, label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit, label %14
@@ -142,34 +142,34 @@ define { i8, i8 } @_ZN9html5ever12tree_builder4data24doctype_error_and_quirks17h
   br i1 %.not.i.i.i, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i", label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !noalias !17, !noundef !5
   %23 = zext i32 %22 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i": ; preds = %20, %16
   %.0.i17.i.i = phi i64 [ %23, %20 ], [ 0, %16 ]
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load i32, ptr %25, align 8, !noundef !5
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds i8, ptr %24, i64 %.0.i17.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.0.i17.i.i
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit
 
 _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit: ; preds = %2, %10, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i", %29
   %.sroa.3.0.i = phi i64 [ undef, %2 ], [ %12, %29 ], [ %27, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i" ], [ 0, %10 ]
   %.sroa.0.0.i = phi ptr [ null, %2 ], [ %30, %29 ], [ %28, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i" ], [ @anon.dcf0590ddea9489929259de672f22440.0, %10 ]
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i64, ptr %31, align 8, !range !15, !noundef !5
   %trunc.i124 = trunc nuw i64 %32 to i1
   br i1 %trunc.i124, label %33, label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130
 
 33:                                               ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i64, ptr %34, align 8, !range !16, !noundef !5
   %36 = icmp eq i64 %35, 15
   br i1 %36, label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130, label %37
@@ -186,34 +186,34 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
   br i1 %.not.i.i.i127, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i128", label %43
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %0, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %45 = load i32, ptr %44, align 4, !noalias !20, !noundef !5
   %46 = zext i32 %45 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i128"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i128": ; preds = %43, %39
   %.0.i17.i.i129 = phi i64 [ %46, %43 ], [ 0, %39 ]
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load i32, ptr %48, align 8, !noundef !5
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %47, i64 %.0.i17.i.i129
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i17.i.i129
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130
 
 52:                                               ; preds = %37
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130
 
 _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130: ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit, %33, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i128", %52
   %.sroa.3.0.i125 = phi i64 [ undef, %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit ], [ %35, %52 ], [ %50, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i128" ], [ 0, %33 ]
   %.sroa.0.0.i126 = phi ptr [ null, %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit ], [ %53, %52 ], [ %51, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i128" ], [ @anon.dcf0590ddea9489929259de672f22440.0, %33 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %55 = load i64, ptr %54, align 8, !range !15, !noundef !5
   %trunc.i131 = trunc nuw i64 %55 to i1
   br i1 %trunc.i131, label %56, label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit137
 
 56:                                               ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130
-  %57 = getelementptr inbounds i8, ptr %0, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %58 = load i64, ptr %57, align 8, !range !16, !noundef !5
   %59 = icmp eq i64 %58, 15
   br i1 %59, label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit137, label %60
@@ -230,22 +230,22 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
   br i1 %.not.i.i.i134, label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i135", label %66
 
 66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %0, i64 68
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %68 = load i32, ptr %67, align 4, !noalias !23, !noundef !5
   %69 = zext i32 %68 to i64
   br label %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i135"
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i135": ; preds = %66, %62
   %.0.i17.i.i136 = phi i64 [ %69, %66 ], [ 0, %62 ]
-  %70 = getelementptr inbounds i8, ptr %64, i64 16
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %72 = load i32, ptr %71, align 8, !noundef !5
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %70, i64 %.0.i17.i.i136
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %.0.i17.i.i136
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit137
 
 75:                                               ; preds = %60
-  %76 = getelementptr inbounds i8, ptr %0, i64 64
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit137
 
 _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit137: ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice17hf6339c55bc8e31ebE.exit130, %56, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h21f509f0b96a0ffdE.exit.i.i135", %75
@@ -318,7 +318,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
 
 .lr.ph.i.i.i:                                     ; preds = %90, %.lr.ph.i.i.i
   %.sroa.0.06.i.i.i = phi ptr [ %96, %.lr.ph.i.i.i ], [ %92, %90 ]
-  %96 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i, i64 1
   %97 = load i8, ptr %.sroa.0.06.i.i.i, align 1, !alias.scope !46, !noundef !5
   %98 = add i8 %97, -65
   %99 = icmp ult i8 %98, 26
@@ -331,9 +331,9 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks20opt_tendril_as_slice
 "_ZN5alloc3str21_$LT$impl$u20$str$GT$18to_ascii_lowercase17hb927750bcc6cc9d6E.exit.i": ; preds = %.lr.ph.i.i.i, %90
   %102 = extractvalue { i64, ptr } %91, 0
   store i64 %102, ptr %8, align 8, !alias.scope !34, !noalias !37
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %92, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !34, !noalias !37
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %.sroa.3.0.i125, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !34, !noalias !37
   %103 = icmp eq i64 %102, -9223372036854775808
   br label %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
@@ -348,9 +348,9 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 .thread322:                                       ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
   store i64 -9223372036854775808, ptr %7, align 8, !alias.scope !49, !noalias !52
-  %106 = getelementptr inbounds i8, ptr %8, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.0.0.i202316 = select i1 %.not294314, ptr null, ptr %104
-  %107 = getelementptr inbounds i8, ptr %7, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %148
 
 108:                                              ; preds = %_ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17hb5abb48d52e7a130E.exit
@@ -369,7 +369,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 .lr.ph.i.i.i142:                                  ; preds = %.noexc, %.lr.ph.i.i.i142
   %.sroa.0.06.i.i.i143 = phi ptr [ %114, %.lr.ph.i.i.i142 ], [ %110, %.noexc ]
-  %114 = getelementptr inbounds i8, ptr %.sroa.0.06.i.i.i143, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.06.i.i.i143, i64 1
   %115 = load i8, ptr %.sroa.0.06.i.i.i143, align 1, !alias.scope !54, !noundef !5
   %116 = add i8 %115, -65
   %117 = icmp ult i8 %116, 26
@@ -502,21 +502,21 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 .loopexit332:                                     ; preds = %.lr.ph.i.i.i142, %.noexc
   %144 = extractvalue { i64, ptr } %.fr333, 0
   store i64 %144, ptr %7, align 8, !alias.scope !49, !noalias !52
-  %.sroa.4.0..sroa_idx.i146 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.4.0..sroa_idx.i146 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %110, ptr %.sroa.4.0..sroa_idx.i146, align 8, !alias.scope !49, !noalias !52
-  %.sroa.5.0..sroa_idx.i147 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.5.0..sroa_idx.i147 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.3.0.i132, ptr %.sroa.5.0..sroa_idx.i147, align 8, !alias.scope !49, !noalias !52
   %.pre = load i64, ptr %8, align 8, !range !4, !alias.scope !109
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre297 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !109
-  %.phi.trans.insert298 = getelementptr inbounds i8, ptr %8, i64 16
+  %.phi.trans.insert298 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.pre299 = load i64, ptr %.phi.trans.insert298, align 8, !alias.scope !109
   %145 = icmp ne i64 %144, -9223372036854775808
   %.not294 = icmp eq i64 %.pre, -9223372036854775808
-  %146 = getelementptr inbounds i8, ptr %8, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.3.0.i201 = select i1 %.not294, i64 undef, i64 %.pre299
   %.sroa.0.0.i202 = select i1 %.not294, ptr null, ptr %.pre297
-  %147 = getelementptr inbounds i8, ptr %7, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %spec.select = select i1 %145, ptr %110, ptr null
   br label %148
 
@@ -528,7 +528,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
   %.sroa.0.0.i202320327 = phi ptr [ %.sroa.0.0.i202316, %.thread322 ], [ %.sroa.0.0.i202, %.loopexit332 ]
   %151 = phi ptr [ %107, %.thread322 ], [ %147, %.loopexit332 ]
   %152 = phi ptr [ null, %.thread322 ], [ %spec.select, %.loopexit332 ]
-  %153 = getelementptr inbounds i8, ptr %0, i64 72
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %154 = load i8, ptr %153, align 8, !range !112, !noundef !5
   %155 = trunc nuw i8 %154 to i1
   %.not.i205 = icmp ne i64 %.sroa.3.0.i, 4
@@ -549,7 +549,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 159:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !117
   store ptr @anon.dcf0590ddea9489929259de672f22440.59, ptr %6, align 8, !noalias !117
-  %160 = getelementptr inbounds i8, ptr %6, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.dcf0590ddea9489929259de672f22440.59, i64 48), ptr %160, align 8, !noalias !117
   br label %161
 
@@ -563,7 +563,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 163:                                              ; preds = %.noexc209
   %164 = load ptr, ptr %162, align 8, !alias.scope !121, !noalias !126, !nonnull !5, !align !131, !noundef !5
-  %165 = getelementptr inbounds i8, ptr %162, i64 8
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %166 = load i64, ptr %165, align 8, !alias.scope !121, !noalias !126, !noundef !5
   %167 = invoke noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.llvm.957808626109915165"(ptr noalias noundef nonnull readonly align 1 %164, i64 noundef %166, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i202320327, i64 noundef %.sroa.3.0.i201319328)
           to label %.noexc210 unwind label %.loopexit.split-lp
@@ -595,14 +595,14 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
           to label %.noexc211 unwind label %141
 
 .noexc211:                                        ; preds = %172
-  %173 = getelementptr inbounds i8, ptr %5, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %174 = load i64, ptr %173, align 8, !range !4, !noalias !135, !noundef !5
   %.not.i.i.i.i.i = icmp eq i64 %174, 0
   br i1 %.not.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he556793a03ee103cE.exit.i", label %175
 
 175:                                              ; preds = %.noexc211
   %176 = load ptr, ptr %5, align 8, !noalias !135, !nonnull !5, !noundef !5
-  %177 = getelementptr inbounds i8, ptr %5, i64 16
+  %177 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %178 = load i64, ptr %177, align 8, !noalias !135, !noundef !5
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 1 %151, ptr noundef nonnull %176, i64 noundef %174, i64 noundef %178)
           to label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he556793a03ee103cE.exit.i" unwind label %141
@@ -614,7 +614,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 179:                                              ; preds = %168
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !144
   store ptr @anon.dcf0590ddea9489929259de672f22440.61, ptr %4, align 8, !noalias !144
-  %180 = getelementptr inbounds i8, ptr %4, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr getelementptr inbounds (i8, ptr @anon.dcf0590ddea9489929259de672f22440.61, i64 16), ptr %180, align 8, !noalias !144
   br label %181
 
@@ -628,7 +628,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 183:                                              ; preds = %.noexc214
   %184 = load ptr, ptr %182, align 8, !alias.scope !148, !noalias !153, !nonnull !5, !align !131, !noundef !5
-  %185 = getelementptr inbounds i8, ptr %182, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %186 = load i64, ptr %185, align 8, !alias.scope !148, !noalias !153, !noundef !5
   %187 = invoke noundef zeroext i1 @"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17h256a3fdda6844c00E.llvm.957808626109915165"(ptr noalias noundef nonnull readonly align 1 %184, i64 noundef %186, ptr noalias noundef nonnull readonly align 1 %152, i64 noundef %.sroa.3.0.i132)
           to label %.noexc215 unwind label %.loopexit
@@ -649,7 +649,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 .lr.ph.i.i:                                       ; preds = %188, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i"
   %.idx = phi i64 [ %.add, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i" ], [ 0, %188 ]
-  %.ptr = getelementptr inbounds i8, ptr @anon.dcf0590ddea9489929259de672f22440.55, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr @anon.dcf0590ddea9489929259de672f22440.55, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
   %190 = getelementptr i8, ptr %.ptr, i64 8
   %.val5.i.i = load i64, ptr %190, align 8, !alias.scope !158, !noalias !161, !noundef !5
@@ -668,7 +668,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 .lr.ph.i.i217:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223"
   %.idx277 = phi i64 [ %.add278, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i" ]
-  %.ptr279 = getelementptr inbounds i8, ptr @anon.dcf0590ddea9489929259de672f22440.64, i64 %.idx277
+  %.ptr279 = getelementptr inbounds nuw i8, ptr @anon.dcf0590ddea9489929259de672f22440.64, i64 %.idx277
   %.add278 = add nuw nsw i64 %.idx277, 16
   %192 = getelementptr i8, ptr %.ptr279, i64 8
   %.val5.i.i218 = load i64, ptr %192, align 8, !alias.scope !174, !noalias !177, !noundef !5
@@ -687,7 +687,7 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 
 .lr.ph.i.i227:                                    ; preds = %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223", %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233"
   %.idx281 = phi i64 [ %.add282, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i233" ], [ 0, %"_ZN9html5ever12tree_builder4data24doctype_error_and_quirks12contains_pfx28_$u7b$$u7b$closure$u7d$$u7d$17h1ec7e4457d1b97b7E.exit.backedge.i.i223" ]
-  %.ptr283 = getelementptr inbounds i8, ptr @anon.dcf0590ddea9489929259de672f22440.67, i64 %.idx281
+  %.ptr283 = getelementptr inbounds nuw i8, ptr @anon.dcf0590ddea9489929259de672f22440.67, i64 %.idx281
   %.add282 = add nuw nsw i64 %.idx281, 16
   %194 = getelementptr i8, ptr %.ptr283, i64 8
   %.val5.i.i228 = load i64, ptr %194, align 8, !alias.scope !190, !noalias !193, !noundef !5
@@ -718,14 +718,14 @@ _ZN9html5ever12tree_builder4data24doctype_error_and_quirks18opt_to_ascii_lower17
 199:                                              ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h5d190e9db00c6749E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !209
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h1aa226528d5e00f7E.llvm.5870598909725602671"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
-  %200 = getelementptr inbounds i8, ptr %3, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %201 = load i64, ptr %200, align 8, !range !4, !noalias !209, !noundef !5
   %.not.i.i.i.i.i237 = icmp eq i64 %201, 0
   br i1 %.not.i.i.i.i.i237, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he556793a03ee103cE.exit.i238", label %202
 
 202:                                              ; preds = %199
   %203 = load ptr, ptr %3, align 8, !noalias !209, !nonnull !5, !noundef !5
-  %204 = getelementptr inbounds i8, ptr %3, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %205 = load i64, ptr %204, align 8, !noalias !209, !noundef !5
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.5870598909725602671"(ptr noalias noundef nonnull readonly align 1 %150, ptr noundef nonnull %203, i64 noundef %201, i64 noundef %205)
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he556793a03ee103cE.exit.i238"

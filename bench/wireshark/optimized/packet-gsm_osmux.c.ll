@@ -149,9 +149,9 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal i32 @osmux_hash(ptr nocapture noundef readonly %0) #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader.i, label %.lr.ph.preheader.i18
@@ -176,7 +176,7 @@ define internal i32 @osmux_hash(ptr nocapture noundef readonly %0) #2 {
 
 .lr.ph.preheader.i18:                             ; preds = %.lr.ph.i, %1
   %.011.lcssa.i = phi i32 [ 0, %1 ], [ %13, %.lr.ph.i ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %.lr.ph.i20
 
 .lr.ph.i20:                                       ; preds = %.lr.ph.i20, %.lr.ph.preheader.i18
@@ -194,9 +194,9 @@ define internal i32 @osmux_hash(ptr nocapture noundef readonly %0) #2 {
   br i1 %exitcond.not.i24, label %add_address_to_hash.exit25, label %.lr.ph.i20, !llvm.loop !4
 
 add_address_to_hash.exit25:                       ; preds = %.lr.ph.i20
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph.preheader.i27, label %.lr.ph.preheader.i36
@@ -221,7 +221,7 @@ add_address_to_hash.exit25:                       ; preds = %.lr.ph.i20
 
 .lr.ph.preheader.i36:                             ; preds = %.lr.ph.i29, %add_address_to_hash.exit25
   %.011.lcssa.i26 = phi i32 [ %21, %add_address_to_hash.exit25 ], [ %33, %.lr.ph.i29 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %.lr.ph.i38, %.lr.ph.preheader.i36
@@ -239,7 +239,7 @@ add_address_to_hash.exit25:                       ; preds = %.lr.ph.i20
   br i1 %exitcond.not.i42, label %.lr.ph.preheader.i45, label %.lr.ph.i38, !llvm.loop !4
 
 .lr.ph.preheader.i45:                             ; preds = %.lr.ph.i38
-  %42 = getelementptr inbounds i8, ptr %0, i64 60
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 60
   br label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %.lr.ph.i47, %.lr.ph.preheader.i45
@@ -266,25 +266,25 @@ add_address_to_hash.exit52:                       ; preds = %.lr.ph.i47
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %4, %6
   br i1 %.not, label %7, label %65
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 52
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %13, label %addresses_equal.exit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %15, %17
   br i1 %18, label %19, label %addresses_equal.exit
@@ -296,9 +296,9 @@ define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly 
   br i1 %22, label %23, label %addresses_equal.exit
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
   br i1 %28, label %29, label %addresses_equal.exit
@@ -308,9 +308,9 @@ define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly 
   br i1 %30, label %38, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %25 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %33, ptr %35, i64 %36)
@@ -318,17 +318,17 @@ define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly 
   br i1 %37, label %38, label %addresses_equal.exit
 
 38:                                               ; preds = %31, %29
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i32, ptr %39, align 8
   %42 = load i32, ptr %40, align 8
   %43 = icmp eq i32 %41, %42
   br i1 %43, label %44, label %addresses_equal.exit
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %46, %48
   br i1 %49, label %50, label %addresses_equal.exit
@@ -338,9 +338,9 @@ define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly 
   br i1 %51, label %59, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = sext i32 %46 to i64
   %bcmp.i17 = tail call i32 @bcmp(ptr %54, ptr %56, i64 %57)
@@ -348,9 +348,9 @@ define internal range(i32 0, 2) i32 @osmux_equal(ptr nocapture noundef readonly 
   br i1 %58, label %59, label %addresses_equal.exit
 
 59:                                               ; preds = %52, %50
-  %60 = getelementptr inbounds i8, ptr %0, i64 60
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %61 = load i32, ptr %60, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 60
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %61, %63
   br i1 %64, label %65, label %addresses_equal.exit
@@ -369,7 +369,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.54) #10
   %9 = load ptr, ptr %7, align 8
@@ -379,7 +379,7 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %13
 
 13:                                               ; preds = %.lr.ph, %99
@@ -392,18 +392,18 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 %18, ptr %15, align 8
   %19 = lshr i8 %16, 5
   %20 = and i8 %19, 3
-  %21 = getelementptr inbounds i8, ptr %15, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i8 %20, ptr %21, align 4
   %22 = lshr i8 %16, 2
   %23 = and i8 %22, 7
-  %24 = getelementptr inbounds i8, ptr %15, i64 5
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 5
   store i8 %23, ptr %24, align 1
   %25 = lshr i32 %17, 1
   %.lobit = and i32 %25, 1
-  %26 = getelementptr inbounds i8, ptr %15, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %.lobit, ptr %26, align 4
   %27 = and i32 %17, 1
-  %28 = getelementptr inbounds i8, ptr %15, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %27, ptr %28, align 8
   %29 = load ptr, ptr %7, align 8
   call void @col_append_sep_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.56) #10
@@ -442,13 +442,13 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %52, label %53, label %62
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %15, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i32 1, ptr %54, align 4
   %55 = load i32, ptr @hf_osmux_circuit_id, align 4
   %56 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %44, i32 noundef %55, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #10
   %57 = load i32, ptr %6, align 4
   %58 = trunc i32 %57 to i8
-  %59 = getelementptr inbounds i8, ptr %15, i64 17
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 17
   store i8 %58, ptr %59, align 1
   %60 = load ptr, ptr %7, align 8
   %61 = and i32 %57, 255
@@ -461,14 +461,14 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %44, i32 noundef %63, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #10
   %65 = load i32, ptr %6, align 4
   %66 = trunc i32 %65 to i8
-  %67 = getelementptr inbounds i8, ptr %15, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i8 %66, ptr %67, align 8
   %68 = add i32 %.08086, 2
   %69 = load i32, ptr @hf_osmux_circuit_id, align 4
   %70 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %44, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6) #10
   %71 = load i32, ptr %6, align 4
   %72 = trunc i32 %71 to i8
-  %73 = getelementptr inbounds i8, ptr %15, i64 17
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 17
   store i8 %72, ptr %73, align 1
   %74 = add i32 %.08086, 3
   %75 = load ptr, ptr %7, align 8
@@ -481,10 +481,10 @@ define internal i32 @dissect_osmux(ptr noundef %0, ptr noundef %1, ptr noundef %
   %81 = load i64, ptr %5, align 8
   %82 = trunc i64 %81 to i8
   %83 = lshr i8 %82, 4
-  %84 = getelementptr inbounds i8, ptr %15, i64 19
+  %84 = getelementptr inbounds nuw i8, ptr %15, i64 19
   store i8 %83, ptr %84, align 1
   %85 = and i8 %82, 15
-  %86 = getelementptr inbounds i8, ptr %15, i64 18
+  %86 = getelementptr inbounds nuw i8, ptr %15, i64 18
   store i8 %85, ptr %86, align 2
   %87 = icmp ugt i8 %82, -113
   br i1 %87, label %amr_ft_to_bytes.exit, label %88
@@ -541,29 +541,29 @@ declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
   %6 = alloca %struct.nstime_t, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @address_to_str(ptr noundef null, ptr noundef %9) #10
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = tail call ptr @address_to_str(ptr noundef null, ptr noundef nonnull %12) #10
-  %14 = getelementptr inbounds i8, ptr %1, i64 408
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %8, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 52
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 60
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 60
   %24 = load i32, ptr %23, align 4
   %25 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %15, ptr noundef nonnull @.str.65, i32 noundef %17, ptr noundef %10, i32 noundef %20, ptr noundef %13, i32 noundef %22, i32 noundef %24) #10
   tail call void @wmem_free(ptr noundef null, ptr noundef %10) #10
   tail call void @wmem_free(ptr noundef null, ptr noundef %13) #10
   %26 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.66, i32 noundef 0, i32 noundef 1, i32 noundef 1) #10
-  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %28 = load i32, ptr %27, align 8
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %34
@@ -582,13 +582,13 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %37 = load i32, ptr %27, align 8
   %38 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.68, i32 noundef %37, i32 noundef 1, i32 noundef 1) #10
   %39 = load ptr, ptr %14, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %41 = load i32, ptr %40, align 4
   %.not107 = icmp eq i32 %41, 0
   br i1 %.not107, label %42, label %48
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %3, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %44 = load i8, ptr %43, align 4
   %45 = zext i8 %44 to i64
   %46 = getelementptr [4 x %struct._value_string], ptr @osmux_ft_vals, i64 0, i64 %45, i32 1
@@ -600,7 +600,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %50 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.63, ptr noundef %49) #10
   %51 = load i32, ptr %27, align 8
   %52 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %50, i32 noundef %51, i32 noundef 1, i32 noundef 1) #10
-  %53 = getelementptr inbounds i8, ptr %3, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %54 = load i8, ptr %53, align 4
   %55 = icmp eq i8 %54, 1
   br i1 %55, label %56, label %176
@@ -612,7 +612,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
 
 58:                                               ; preds = %56
   %59 = load i32, ptr %27, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 5
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = add nuw nsw i32 %62, 1
@@ -628,13 +628,13 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %73 = load i32, ptr %27, align 8
   %74 = load i32, ptr %3, align 8
   %75 = tail call i32 @stats_tree_manip_node_int(i32 noundef 3, ptr noundef %0, ptr noundef nonnull @.str.70, i32 noundef %73, i32 noundef 1, i32 noundef %74) #10
-  %76 = getelementptr inbounds i8, ptr %8, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %77 = load i64, ptr %76, align 8
   %78 = icmp eq i64 %77, 0
   br i1 %78, label %79, label %83
 
 79:                                               ; preds = %58
-  %80 = getelementptr inbounds i8, ptr %8, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %85, label %83
@@ -651,19 +651,19 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %89 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.72, i32 noundef %88, i32 noundef 1, i32 noundef 0) #10
   %90 = load i32, ptr %27, align 8
   %91 = tail call i32 @stats_tree_manip_node_int(i32 noundef 2, ptr noundef %0, ptr noundef nonnull @.str.73, i32 noundef %90, i32 noundef 1, i32 noundef 0) #10
-  %92 = getelementptr inbounds i8, ptr %8, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store double 0.000000e+00, ptr %92, align 8
   br label %123
 
 93:                                               ; preds = %83
-  %94 = getelementptr inbounds i8, ptr %1, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %94, ptr noundef nonnull %76) #10
   %95 = call double @nstime_to_msec(ptr noundef nonnull %6) #10
   %96 = fptoui double %95 to i32
-  %97 = getelementptr inbounds i8, ptr %3, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %98 = load i8, ptr %97, align 8
   %99 = zext i8 %98 to i32
-  %100 = getelementptr inbounds i8, ptr %8, i64 20
+  %100 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %101 = load i32, ptr %100, align 4
   %102 = sub i32 %99, %101
   %103 = load i8, ptr %60, align 1
@@ -673,7 +673,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %.neg = mul i32 %106, %105
   %107 = add i32 %.neg, %96
   %108 = call i32 @llvm.abs.i32(i32 %107, i1 false)
-  %109 = getelementptr inbounds i8, ptr %8, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %110 = load double, ptr %109, align 8
   %111 = uitofp i32 %108 to double
   %112 = fsub double %111, %110
@@ -691,20 +691,20 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   br label %123
 
 123:                                              ; preds = %93, %85
-  %124 = getelementptr inbounds i8, ptr %1, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %124, i64 16, i1 false)
-  %125 = getelementptr inbounds i8, ptr %3, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %126 = load i8, ptr %125, align 8
   %127 = zext i8 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %8, i64 20
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %127, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %8, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %130 = load i32, ptr %129, align 4
   %.not110 = icmp eq i32 %130, 0
   br i1 %.not110, label %139, label %131
 
 131:                                              ; preds = %123
-  %132 = getelementptr inbounds i8, ptr %8, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %133 = load i32, ptr %132, align 8
   %134 = add i32 %133, 1
   %135 = and i32 %134, 255
@@ -718,7 +718,7 @@ define internal noundef i32 @osmux_stats_tree_packet(ptr noundef %0, ptr noundef
   %141 = call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.74, i32 noundef %140, i32 noundef 1, i32 noundef 1) #10
   %142 = load i8, ptr %125, align 8
   %143 = zext i8 %142 to i32
-  %144 = getelementptr inbounds i8, ptr %8, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 %143, ptr %144, align 8
   store i32 1, ptr %129, align 4
   br label %176
@@ -816,50 +816,50 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((24, 32)) %3) unnamed_addr #0 {
   %5 = alloca %struct.osmux_stream_key, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 17
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %1, i64 208
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 212
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %1, i64 216
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %14 = load ptr, ptr %13, align 8
   store i32 %10, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %12, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %14, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
-  %19 = getelementptr inbounds i8, ptr %1, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 236
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 240
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %24 = load ptr, ptr %23, align 8
   store i32 %20, ptr %18, align 8
-  %25 = getelementptr inbounds i8, ptr %5, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %22, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %5, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %24, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %5, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 280
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 284
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 288
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %35 = load i32, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 60
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 60
   store i32 %8, ptr %37, align 4
   %38 = load ptr, ptr @osmux_stream_hash, align 8
   %39 = call ptr @wmem_map_lookup(ptr noundef %38, ptr noundef nonnull %5) #10
@@ -882,17 +882,17 @@ define internal fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, 
 48:                                               ; preds = %40
   %49 = sext i32 %45 to i64
   %50 = call noalias ptr @wmem_memdup(ptr noundef %43, ptr noundef %46, i64 noundef %49) #10
-  %51 = getelementptr inbounds i8, ptr %42, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %50, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 %45, ptr %53, align 4
   br label %copy_address_wmem.exit.i
 
 copy_address_wmem.exit.i:                         ; preds = %48, %40
   %54 = call ptr @wmem_file_scope() #10
-  %55 = getelementptr inbounds i8, ptr %42, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %56 = load i32, ptr %18, align 8
   %57 = load i32, ptr %25, align 4
   %58 = load ptr, ptr %26, align 8
@@ -904,11 +904,11 @@ copy_address_wmem.exit.i:                         ; preds = %48, %40
 60:                                               ; preds = %copy_address_wmem.exit.i
   %61 = sext i32 %57 to i64
   %62 = call noalias ptr @wmem_memdup(ptr noundef %54, ptr noundef %58, i64 noundef %61) #10
-  %63 = getelementptr inbounds i8, ptr %42, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %42, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store ptr %62, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %42, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 %57, ptr %65, align 4
   br label %copy_address_wmem.exit16.i
 
@@ -917,7 +917,7 @@ copy_address_wmem.exit16.i:                       ; preds = %60, %copy_address_w
   %67 = call noalias ptr @wmem_alloc0(ptr noundef %66, i64 noundef 56) #10
   store ptr %42, ptr %67, align 8
   %68 = load i32, ptr @osmux_next_stream_id, align 4
-  %69 = getelementptr inbounds i8, ptr %67, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 48
   store i32 %68, ptr %69, align 8
   %70 = add i32 %68, 1
   store i32 %70, ptr @osmux_next_stream_id, align 4
@@ -928,23 +928,23 @@ copy_address_wmem.exit16.i:                       ; preds = %60, %copy_address_w
 get_stream.exit:                                  ; preds = %4, %copy_address_wmem.exit16.i
   %.0.i = phi ptr [ %39, %4 ], [ %67, %copy_address_wmem.exit16.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  %73 = getelementptr inbounds i8, ptr %3, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %.0.i, ptr %73, align 8
   %74 = load i32, ptr @hf_osmux_stream_id, align 4
-  %75 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   %76 = load i32, ptr %75, align 8
   %77 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %76) #10
   %.not.i9 = icmp eq ptr %77, null
   br i1 %.not.i9, label %proto_item_set_generated.exit, label %78
 
 78:                                               ; preds = %get_stream.exit
-  %79 = getelementptr inbounds i8, ptr %77, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 32
   %80 = load ptr, ptr %79, align 8
   %.not5.i = icmp eq ptr %80, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %81
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %80, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = or i32 %83, 2
   store i32 %84, ptr %82, align 4
@@ -995,7 +995,7 @@ declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @stream_hash_clean_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 48)) %1, ptr nocapture readnone %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   ret void
 }

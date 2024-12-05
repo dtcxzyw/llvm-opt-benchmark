@@ -13,19 +13,19 @@ define void @FT_GlyphSlot_Oblique(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %FT_GlyphSlot_Slant.exit, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %.not5.i = icmp eq i32 %5, 1869968492
   br i1 %.not5.i, label %6, label %FT_GlyphSlot_Slant.exit
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 200
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 65536, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 13930, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 65536, ptr %10, align 8
   call void @FT_Outline_Transform(ptr noundef nonnull %7, ptr noundef nonnull %2) #3
   br label %FT_GlyphSlot_Slant.exit
@@ -42,20 +42,20 @@ define void @FT_GlyphSlot_Slant(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   %.not5 = icmp eq i32 %7, 1869968492
   br i1 %.not5, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 200
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i64 65536, ptr %4, align 8
   %10 = sub nsw i64 0, %2
-  %11 = getelementptr inbounds i8, ptr %4, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 65536, ptr %13, align 8
   call void @FT_Outline_Transform(ptr noundef nonnull %9, ptr noundef nonnull %4) #3
   br label %14
@@ -79,7 +79,7 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %72 [
     i32 1869968492, label %8
@@ -87,16 +87,16 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   ]
 
 8:                                                ; preds = %4, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
   %16 = mul nsw i64 %1, %15
   %17 = sdiv i64 %16, 1024
-  %18 = getelementptr inbounds i8, ptr %12, i64 26
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 26
   %19 = load i16, ptr %18, align 2
   %20 = zext i16 %19 to i64
   %21 = mul nsw i64 %2, %20
@@ -105,7 +105,7 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %0, i64 200
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %26 = tail call i32 @FT_Outline_EmboldenXY(ptr noundef nonnull %25, i64 noundef %17, i64 noundef %22) #3
   br label %38
 
@@ -125,7 +125,7 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   br i1 %.not51, label %35, label %72
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 152
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %37 = tail call i32 @FT_Bitmap_Embolden(ptr noundef %5, ptr noundef nonnull %36, i64 noundef %spec.store.select, i64 noundef %30) #3
   %.not52 = icmp eq i32 %37, 0
   br i1 %.not52, label %38, label %72
@@ -133,7 +133,7 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
 38:                                               ; preds = %35, %24
   %.043 = phi i64 [ %17, %24 ], [ %spec.store.select, %35 ]
   %.0 = phi i64 [ %22, %24 ], [ %30, %35 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 128
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %40 = load i64, ptr %39, align 8
   %.not53 = icmp eq i64 %40, 0
   br i1 %.not53, label %43, label %41
@@ -144,7 +144,7 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   br label %43
 
 43:                                               ; preds = %41, %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 136
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %45 = load i64, ptr %44, align 8
   %.not54 = icmp eq i64 %45, 0
   br i1 %.not54, label %48, label %46
@@ -155,23 +155,23 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
   br label %48
 
 48:                                               ; preds = %46, %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, %.043
   store i64 %51, ptr %49, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load i64, ptr %52, align 8
   %54 = add nsw i64 %53, %.0
   store i64 %54, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %56 = load i64, ptr %55, align 8
   %57 = add nsw i64 %56, %.043
   store i64 %57, ptr %55, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %59 = load i64, ptr %58, align 8
   %60 = add nsw i64 %59, %.0
   store i64 %60, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %62 = load i64, ptr %61, align 8
   %63 = add nsw i64 %62, %.0
   store i64 %63, ptr %61, align 8
@@ -182,7 +182,7 @@ define void @FT_GlyphSlot_AdjustWeight(ptr noundef %0, i64 noundef %1, i64 nound
 66:                                               ; preds = %48
   %67 = lshr i64 %.0, 6
   %68 = trunc i64 %67 to i32
-  %69 = getelementptr inbounds i8, ptr %0, i64 196
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %70 = load i32, ptr %69, align 4
   %71 = add nsw i32 %70, %68
   store i32 %71, ptr %69, align 4

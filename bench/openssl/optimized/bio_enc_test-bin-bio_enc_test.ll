@@ -269,10 +269,10 @@ if.end34:                                         ; preds = %if.end27
 if.end39:                                         ; preds = %if.end34
   %call40 = call ptr @BIO_push(ptr noundef %call23, ptr noundef %call35) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
-  %arrayidx = getelementptr inbounds [1056 x i8], ptr %ref, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [1056 x i8], ptr %ref, i64 0, i64 %indvars.iv
   %1 = load i8, ptr %arrayidx, align 1
   %not = xor i8 %1, -1
-  %arrayidx45 = getelementptr inbounds [1056 x i8], ptr %out, i64 0, i64 %indvars.iv
+  %arrayidx45 = getelementptr inbounds nuw [1056 x i8], ptr %out, i64 0, i64 %indvars.iv
   store i8 %not, ptr %arrayidx45, align 1
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call47 = call i32 @BIO_read(ptr noundef %call23, ptr noundef nonnull %out, i32 noundef %2) #4
@@ -441,10 +441,10 @@ if.end162:                                        ; preds = %if.end155
 if.end168:                                        ; preds = %if.end162
   %call169 = call ptr @BIO_push(ptr noundef %call151, ptr noundef %call164) #4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1056) %out, i8 0, i64 1056, i1 false)
-  %arrayidx172 = getelementptr inbounds [1056 x i8], ptr %ref, i64 0, i64 %indvars.iv93
+  %arrayidx172 = getelementptr inbounds nuw [1056 x i8], ptr %ref, i64 0, i64 %indvars.iv93
   %6 = load i8, ptr %arrayidx172, align 1
   %not174 = xor i8 %6, -1
-  %arrayidx177 = getelementptr inbounds [1056 x i8], ptr %out, i64 0, i64 %indvars.iv93
+  %arrayidx177 = getelementptr inbounds nuw [1056 x i8], ptr %out, i64 0, i64 %indvars.iv93
   store i8 %not174, ptr %arrayidx177, align 1
   %7 = trunc nuw nsw i64 %indvars.iv93 to i32
   %call179 = call i32 @BIO_read(ptr noundef %call151, ptr noundef nonnull %out, i32 noundef %7) #4

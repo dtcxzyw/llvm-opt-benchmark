@@ -9,19 +9,19 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.SpecialJoinInfo, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1
   br i1 %5, label %.lr.ph34, label %._crit_edge
 
 .lr.ph34:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
-  %9 = getelementptr inbounds i8, ptr %2, i64 24
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
-  %12 = getelementptr inbounds i8, ptr %2, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 88
   br label %13
 
 13:                                               ; preds = %.lr.ph34, %.thread
@@ -34,23 +34,23 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %22, label %.thread
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %17, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 328
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.not26 = icmp eq ptr %24, null
   br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
-  %27 = getelementptr inbounds i8, ptr %17, i64 296
-  %28 = getelementptr inbounds i8, ptr %17, i64 320
-  %29 = getelementptr inbounds i8, ptr %17, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 296
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 320
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %30 = load i32, ptr %25, align 4
   %31 = icmp sgt i32 %30, 0
   br i1 %31, label %.lr.ph40, label %.thread.loopexit
@@ -74,7 +74,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %2)
-  %41 = getelementptr inbounds i8, ptr %34, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = call ptr @make_restrictinfo(ptr noundef %0, ptr noundef nonnull %39, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %42, ptr noundef null, ptr noundef null, ptr noundef null) #5
   %44 = call double @clause_selectivity(ptr noundef %0, ptr noundef %43, i32 noundef 0, i32 noundef 0, ptr noundef null) #5
@@ -86,7 +86,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   %48 = call ptr @lappend(ptr noundef %47, ptr noundef %43) #5
   store ptr %48, ptr %27, align 8
   %49 = load i32, ptr %28, align 8
-  %50 = getelementptr inbounds i8, ptr %43, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %51 = load i32, ptr %50, align 4
   %..i = call i32 @llvm.umin.i32(i32 %49, i32 %51)
   store i32 %..i, ptr %28, align 8
@@ -95,7 +95,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
 
 53:                                               ; preds = %46
   store i32 304, ptr %2, align 8
-  %54 = getelementptr inbounds i8, ptr %34, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %29, align 8
   %57 = call ptr @bms_difference(ptr noundef %55, ptr noundef %56) #5
@@ -108,7 +108,7 @@ define dso_local void @extract_restriction_or_clauses(ptr noundef %0) local_unna
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   %59 = call double @clause_selectivity(ptr noundef %0, ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2) #5
   %60 = fdiv double %59, %44
-  %61 = getelementptr inbounds i8, ptr %34, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %34, i64 128
   store double %60, ptr %61, align 8
   %62 = fcmp ogt double %60, 1.000000e+00
   br i1 %62, label %63, label %consider_new_or_clause.exit
@@ -149,17 +149,17 @@ declare zeroext i1 @join_clause_is_movable_to(ptr noundef, ptr noundef) local_un
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @extract_or_clause(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread67, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %7, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph96, label %._crit_edge
@@ -179,20 +179,20 @@ define internal fastcc ptr @extract_or_clause(ptr nocapture noundef readonly %0,
   br i1 %17, label %is_andclause.exit, label %is_andclause.exit.thread
 
 is_andclause.exit:                                ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %14, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %is_andclause.exit.thread
 
 21:                                               ; preds = %is_andclause.exit
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not51 = icmp eq ptr %23, null
   br i1 %.not51, label %.thread67, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %23, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i32, ptr %24, align 4
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph77, label %.thread67
@@ -212,20 +212,20 @@ is_andclause.exit:                                ; preds = %15
   br i1 %.not53, label %is_safe_restriction_clause_for.exit.thread, label %is_safe_restriction_clause_for.exit.thread.sink.split
 
 34:                                               ; preds = %.lr.ph77
-  %35 = getelementptr inbounds i8, ptr %30, i64 18
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 18
   %36 = load i8, ptr %35, align 2
   %37 = trunc i8 %36 to i1
   br i1 %37, label %is_safe_restriction_clause_for.exit.thread, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %30, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %9, align 8
   %42 = tail call zeroext i1 @bms_equal(ptr noundef %40, ptr noundef %41) #5
   br i1 %42, label %is_safe_restriction_clause_for.exit, label %is_safe_restriction_clause_for.exit.thread
 
 is_safe_restriction_clause_for.exit:              ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %30, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %44) #5
   br i1 %45, label %is_safe_restriction_clause_for.exit.thread, label %46
@@ -248,20 +248,20 @@ is_safe_restriction_clause_for.exit.thread:       ; preds = %is_safe_restriction
   br i1 %51, label %.lr.ph77, label %.thread61
 
 is_andclause.exit.thread:                         ; preds = %.lr.ph96, %15, %is_andclause.exit
-  %52 = getelementptr inbounds i8, ptr %14, i64 18
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 18
   %53 = load i8, ptr %52, align 2
   %54 = trunc i8 %53 to i1
   br i1 %54, label %.thread67, label %55
 
 55:                                               ; preds = %is_andclause.exit.thread
-  %56 = getelementptr inbounds i8, ptr %14, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %9, align 8
   %59 = tail call zeroext i1 @bms_equal(ptr noundef %57, ptr noundef %58) #5
   br i1 %59, label %is_safe_restriction_clause_for.exit56, label %.thread67
 
 is_safe_restriction_clause_for.exit56:            ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %14, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 @contain_volatile_functions(ptr noundef %61) #5
   br i1 %62, label %.thread67, label %63
@@ -287,13 +287,13 @@ is_safe_restriction_clause_for.exit56:            ; preds = %55
   br i1 %71, label %is_orclause.exit, label %is_orclause.exit.thread
 
 is_orclause.exit:                                 ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %68, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %73 = load i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 1
   br i1 %74, label %75, label %is_orclause.exit.thread
 
 75:                                               ; preds = %is_orclause.exit
-  %76 = getelementptr inbounds i8, ptr %68, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr @list_concat(ptr noundef %.0418095, ptr noundef %77) #5
   br label %80

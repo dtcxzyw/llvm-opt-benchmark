@@ -112,7 +112,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %2 = alloca ptr, align 8
   %3 = alloca %struct.dt_datetime_t, align 4
   %4 = alloca %struct.dt_datetime_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 8), align 8, !tbaa !13
@@ -146,7 +146,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   br i1 %25, label %26, label %31
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %6, i64 148
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 148
   %28 = load ptr, ptr %2, align 8, !tbaa !24
   %29 = call i64 @sqlite3_column_int64(ptr noundef %28, i32 noundef 0) #17
   %30 = call i32 @dt_datetime_gtimespan_to_numbers(ptr noundef nonnull %27, i64 noundef %29) #17
@@ -154,7 +154,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 
 31:                                               ; preds = %26, %22
   %32 = phi i32 [ %30, %26 ], [ 0, %22 ]
-  %33 = getelementptr inbounds i8, ptr %6, i64 204
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 204
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %2, align 8, !tbaa !24
   %35 = call i32 @sqlite3_finalize(ptr noundef %34) #17
@@ -189,7 +189,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   br i1 %54, label %55, label %60
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %6, i64 176
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 176
   %57 = load ptr, ptr %2, align 8, !tbaa !24
   %58 = call i64 @sqlite3_column_int64(ptr noundef %57, i32 noundef 0) #17
   %59 = call i32 @dt_datetime_gtimespan_to_numbers(ptr noundef nonnull %56, i64 noundef %58) #17
@@ -199,27 +199,27 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   %61 = load ptr, ptr %2, align 8, !tbaa !24
   %62 = call i32 @sqlite3_finalize(ptr noundef %61) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  %63 = getelementptr inbounds i8, ptr %6, i64 148
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 148
   %64 = load i32, ptr %63, align 4, !tbaa !25
-  %65 = getelementptr inbounds i8, ptr %6, i64 152
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %66 = load i32, ptr %65, align 4, !tbaa !25
-  %67 = getelementptr inbounds i8, ptr %6, i64 156
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 156
   %68 = load i32, ptr %67, align 4, !tbaa !25
-  %69 = getelementptr inbounds i8, ptr %6, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %70 = load i32, ptr %69, align 4, !tbaa !25
-  %71 = getelementptr inbounds i8, ptr %6, i64 164
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 164
   %72 = load i32, ptr %71, align 4, !tbaa !25
-  %73 = getelementptr inbounds i8, ptr %6, i64 56
-  %74 = getelementptr inbounds i8, ptr %6, i64 128
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %75 = load i32, ptr %74, align 8, !tbaa !26
   %76 = load i32, ptr %73, align 1
-  %77 = getelementptr inbounds i8, ptr %6, i64 60
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %78 = load i32, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %6, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %80 = load i32, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %6, i64 68
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %82 = load i32, ptr %81, align 1
-  %83 = getelementptr inbounds i8, ptr %6, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %84 = load i32, ptr %83, align 1
   %85 = icmp eq i32 %64, %76
   br i1 %85, label %88, label %86
@@ -299,7 +299,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   br i1 %125, label %185, label %126
 
 126:                                              ; preds = %123, %120, %112, %106, %98, %92
-  %127 = getelementptr inbounds i8, ptr %6, i64 120
+  %127 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %128 = load ptr, ptr %127, align 8, !tbaa !29
   %129 = call ptr @g_list_last(ptr noundef %128) #17
   %130 = icmp eq ptr %129, null
@@ -307,16 +307,16 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 
 131:                                              ; preds = %126
   %132 = load ptr, ptr %129, align 8, !tbaa !30
-  %133 = getelementptr inbounds i8, ptr %132, i64 28
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 28
   %134 = load i32, ptr %74, align 8, !tbaa !26
   %135 = load i32, ptr %133, align 4, !tbaa !25
-  %136 = getelementptr inbounds i8, ptr %132, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %137 = load i32, ptr %136, align 4, !tbaa !25
-  %138 = getelementptr inbounds i8, ptr %132, i64 36
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 36
   %139 = load i32, ptr %138, align 4, !tbaa !25
-  %140 = getelementptr inbounds i8, ptr %132, i64 40
+  %140 = getelementptr inbounds nuw i8, ptr %132, i64 40
   %141 = load i32, ptr %140, align 4, !tbaa !25
-  %142 = getelementptr inbounds i8, ptr %132, i64 44
+  %142 = getelementptr inbounds nuw i8, ptr %132, i64 44
   %143 = load i32, ptr %142, align 4, !tbaa !25
   %144 = icmp eq i32 %64, %135
   br i1 %144, label %147, label %145
@@ -406,7 +406,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
   br label %186
 
 186:                                              ; preds = %185, %182, %179, %171, %165, %157, %151, %126
-  %187 = getelementptr inbounds i8, ptr %6, i64 96
+  %187 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %188 = load ptr, ptr %187, align 8, !tbaa !33
   call void @cairo_surface_destroy(ptr noundef %188) #17
   store ptr null, ptr %187, align 8, !tbaa !33
@@ -428,7 +428,7 @@ define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias noc
   %5 = alloca %struct.dt_datetime_t, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(28) %1, i64 28, i1 false), !tbaa.struct !32
-  %6 = getelementptr inbounds i8, ptr %2, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load i32, ptr %6, align 8, !tbaa !34
   %8 = sdiv i32 %7, 122
   %9 = icmp sgt i32 %7, 121
@@ -436,29 +436,29 @@ define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias noc
 
 10:                                               ; preds = %3
   %11 = load i32, ptr %2, align 1
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = load i32, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load i32, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = load i32, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i32, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
-  %21 = getelementptr inbounds i8, ptr %4, i64 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 12
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = add nsw i32 %8, -1
-  %25 = getelementptr inbounds i8, ptr %2, i64 128
-  %26 = getelementptr inbounds i8, ptr %2, i64 28
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
-  %28 = getelementptr inbounds i8, ptr %2, i64 36
-  %29 = getelementptr inbounds i8, ptr %2, i64 40
-  %30 = getelementptr inbounds i8, ptr %2, i64 44
-  %31 = getelementptr inbounds i8, ptr %5, i64 4
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 12
-  %34 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %35
 
 35:                                               ; preds = %96, %10
@@ -594,7 +594,7 @@ declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #6
 define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #19
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %3, ptr %4, align 8, !tbaa !6
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.1) #17
   %6 = icmp sgt i32 %5, 8
@@ -607,13 +607,13 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 
 10:                                               ; preds = %7, %1
   %11 = phi i32 [ 0, %7 ], [ 8, %1 ]
-  %12 = getelementptr inbounds i8, ptr %3, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 %11, ptr %12, align 8, !tbaa !26
   br label %18
 
 13:                                               ; preds = %7
   %14 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.1) #17
-  %15 = getelementptr inbounds i8, ptr %3, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
   store i32 %14, ptr %15, align 8, !tbaa !26
   %16 = and i32 %14, 1
   %17 = icmp eq i32 %16, 0
@@ -630,34 +630,34 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 
 23:                                               ; preds = %21, %18
   %24 = phi i32 [ %22, %21 ], [ %20, %18 ]
-  %25 = getelementptr inbounds i8, ptr %3, i64 132
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 132
   store i32 %24, ptr %25, align 4, !tbaa !40
   store i32 0, ptr %3, align 8, !tbaa !25
-  %26 = getelementptr inbounds i8, ptr %3, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %26, align 4, !tbaa !25
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %27, align 8, !tbaa !25
-  %28 = getelementptr inbounds i8, ptr %3, i64 12
-  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, i8 0, i64 20, i1 false)
   store i32 1, ptr %29, align 4, !tbaa !25
-  %30 = getelementptr inbounds i8, ptr %3, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 1, ptr %30, align 4, !tbaa !25
-  %31 = getelementptr inbounds i8, ptr %3, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
-  %32 = getelementptr inbounds i8, ptr %3, i64 148
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 148
   store i32 0, ptr %32, align 4, !tbaa !25
-  %33 = getelementptr inbounds i8, ptr %3, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 152
   store i32 1, ptr %33, align 4, !tbaa !25
-  %34 = getelementptr inbounds i8, ptr %3, i64 156
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 156
   store i32 1, ptr %34, align 4, !tbaa !25
-  %35 = getelementptr inbounds i8, ptr %3, i64 160
-  %36 = getelementptr inbounds i8, ptr %3, i64 180
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, i8 0, i64 20, i1 false)
   store i32 1, ptr %36, align 4, !tbaa !25
-  %37 = getelementptr inbounds i8, ptr %3, i64 184
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 184
   store i32 1, ptr %37, align 8, !tbaa !25
-  %38 = getelementptr inbounds i8, ptr %3, i64 188
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 188
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %38, i8 0, i64 16, i1 false)
   %39 = load ptr, ptr %4, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
@@ -699,7 +699,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
 
 63:                                               ; preds = %59, %55
   %64 = phi i32 [ %62, %59 ], [ 0, %55 ]
-  %65 = getelementptr inbounds i8, ptr %39, i64 204
+  %65 = getelementptr inbounds nuw i8, ptr %39, i64 204
   store i32 %64, ptr %65, align 4
   %66 = load ptr, ptr %2, align 8, !tbaa !24
   %67 = call i32 @sqlite3_finalize(ptr noundef %66) #17
@@ -734,7 +734,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   br i1 %86, label %87, label %92
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds i8, ptr %39, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %89 = load ptr, ptr %2, align 8, !tbaa !24
   %90 = call i64 @sqlite3_column_int64(ptr noundef %89, i32 noundef 0) #17
   %91 = call i32 @dt_datetime_gtimespan_to_numbers(ptr noundef nonnull %88, i64 noundef %90) #17
@@ -744,16 +744,16 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %93 = load ptr, ptr %2, align 8, !tbaa !24
   %94 = call i32 @sqlite3_finalize(ptr noundef %93) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  %95 = getelementptr inbounds i8, ptr %3, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %95, ptr noundef nonnull align 8 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !32
   %96 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #17
-  %97 = getelementptr inbounds i8, ptr %0, i64 416
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %96, ptr %97, align 8, !tbaa !41
   %98 = call ptr @gtk_event_box_new() #17
-  %99 = getelementptr inbounds i8, ptr %3, i64 88
+  %99 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store ptr %98, ptr %99, align 8, !tbaa !42
   %100 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !43
-  %101 = getelementptr inbounds i8, ptr %100, i64 5576
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 5576
   %102 = load i32, ptr %101, align 8, !tbaa !44
   %103 = or i32 %102, 8964
   call void @gtk_widget_add_events(ptr noundef %98, i32 noundef %103) #17
@@ -783,7 +783,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %126 = load ptr, ptr %97, align 8, !tbaa !41
   call void @gtk_widget_show_all(ptr noundef %126) #17
   %127 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !48
-  %128 = getelementptr inbounds i8, ptr %127, i64 568
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 568
   store ptr %0, ptr %128, align 8, !tbaa !49
   %129 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !63
   %130 = and i32 %129, 2
@@ -838,21 +838,21 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %11 = alloca %struct.cairo_text_extents_t, align 8
   %12 = alloca %struct.dt_datetime_t, align 8
   %13 = alloca %struct.cairo_text_extents_t, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 280
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %15 = load ptr, ptr %14, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #17
   call void @gtk_widget_get_allocation(ptr noundef %0, ptr noundef nonnull %8) #17
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %17 = load i32, ptr %16, align 4, !tbaa !65
-  %18 = getelementptr inbounds i8, ptr %8, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !67
-  %20 = getelementptr inbounds i8, ptr %15, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %21 = load i32, ptr %20, align 8, !tbaa !34
   %22 = icmp eq i32 %17, %21
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %15, i64 116
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 116
   %25 = load i32, ptr %24, align 4, !tbaa !68
   %26 = icmp eq i32 %19, %25
   br i1 %26, label %42, label %27
@@ -862,18 +862,18 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %15, i64 116
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 116
   %31 = load i32, ptr %30, align 4, !tbaa !68
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %29, %27
   store i32 %17, ptr %20, align 8, !tbaa !34
-  %34 = getelementptr inbounds i8, ptr %15, i64 116
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i32 %19, ptr %34, align 4, !tbaa !68
-  %35 = getelementptr inbounds i8, ptr %15, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 56
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %9) #17
-  %36 = getelementptr inbounds i8, ptr %15, i64 148
+  %36 = getelementptr inbounds nuw i8, ptr %15, i64 148
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %10) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, ptr noundef nonnull align 4 dereferenceable(28) %36, i64 28, i1 false), !tbaa.struct !32
   call fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nonnull writable align 4 %9, ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %10, ptr noundef nonnull %15)
@@ -883,7 +883,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %37
 
 37:                                               ; preds = %33, %29
-  %38 = getelementptr inbounds i8, ptr %15, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !33
   %40 = icmp eq ptr %39, null
   br i1 %40, label %46, label %41
@@ -894,15 +894,15 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %46
 
 42:                                               ; preds = %23
-  %43 = getelementptr inbounds i8, ptr %15, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %44 = load ptr, ptr %43, align 8, !tbaa !33
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %991
 
 46:                                               ; preds = %42, %41, %37
-  %47 = getelementptr inbounds i8, ptr %15, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %48 = load ptr, ptr %14, align 8, !tbaa !6
-  %49 = getelementptr inbounds i8, ptr %48, i64 120
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 120
   %50 = load ptr, ptr %49, align 8, !tbaa !29
   %51 = icmp eq ptr %50, null
   br i1 %51, label %53, label %52
@@ -913,27 +913,27 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %53
 
 53:                                               ; preds = %52, %46
-  %54 = getelementptr inbounds i8, ptr %48, i64 148
-  %55 = getelementptr inbounds i8, ptr %48, i64 56
-  %56 = getelementptr inbounds i8, ptr %48, i64 128
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 148
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %57 = load i32, ptr %56, align 8, !tbaa !26
   %58 = load i32, ptr %54, align 4, !tbaa !25
-  %59 = getelementptr inbounds i8, ptr %48, i64 152
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 152
   %60 = load i32, ptr %59, align 4, !tbaa !25
-  %61 = getelementptr inbounds i8, ptr %48, i64 156
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 156
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds i8, ptr %48, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 160
   %64 = load i32, ptr %63, align 4, !tbaa !25
-  %65 = getelementptr inbounds i8, ptr %48, i64 164
+  %65 = getelementptr inbounds nuw i8, ptr %48, i64 164
   %66 = load i32, ptr %65, align 4, !tbaa !25
   %67 = load i32, ptr %55, align 1
-  %68 = getelementptr inbounds i8, ptr %48, i64 60
+  %68 = getelementptr inbounds nuw i8, ptr %48, i64 60
   %69 = load i32, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %48, i64 64
+  %70 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %71 = load i32, ptr %70, align 1
-  %72 = getelementptr inbounds i8, ptr %48, i64 68
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 68
   %73 = load i32, ptr %72, align 1
-  %74 = getelementptr inbounds i8, ptr %48, i64 72
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %75 = load i32, ptr %74, align 1
   %76 = icmp eq i32 %58, %67
   br i1 %76, label %79, label %77
@@ -1013,20 +1013,20 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %48, i64 136
+  %118 = getelementptr inbounds nuw i8, ptr %48, i64 136
   store i32 -2, ptr %118, align 8, !tbaa !69
   br label %119
 
 119:                                              ; preds = %117, %114, %111, %103, %97, %89, %83
-  %120 = getelementptr inbounds i8, ptr %48, i64 176
+  %120 = getelementptr inbounds nuw i8, ptr %48, i64 176
   %121 = load i32, ptr %120, align 1
-  %122 = getelementptr inbounds i8, ptr %48, i64 180
+  %122 = getelementptr inbounds nuw i8, ptr %48, i64 180
   %123 = load i32, ptr %122, align 1
-  %124 = getelementptr inbounds i8, ptr %48, i64 184
+  %124 = getelementptr inbounds nuw i8, ptr %48, i64 184
   %125 = load i32, ptr %124, align 1
-  %126 = getelementptr inbounds i8, ptr %48, i64 188
+  %126 = getelementptr inbounds nuw i8, ptr %48, i64 188
   %127 = load i32, ptr %126, align 1
-  %128 = getelementptr inbounds i8, ptr %48, i64 192
+  %128 = getelementptr inbounds nuw i8, ptr %48, i64 192
   %129 = load i32, ptr %128, align 1
   %130 = icmp eq i32 %121, %67
   br i1 %130, label %133, label %131
@@ -1118,7 +1118,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %172, label %173, label %176
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %48, i64 140
+  %174 = getelementptr inbounds nuw i8, ptr %48, i64 140
   store i32 -1, ptr %174, align 4, !tbaa !70
   br label %176
 
@@ -1145,27 +1145,27 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   ]
 
 177:                                              ; preds = %176, %139
-  %178 = getelementptr inbounds i8, ptr %4, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 1, ptr %178, align 4, !tbaa !36
   br label %179
 
 179:                                              ; preds = %177, %176, %176
-  %180 = getelementptr inbounds i8, ptr %4, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %180, align 4, !tbaa !37
   br label %181
 
 181:                                              ; preds = %179, %176, %176, %175
-  %182 = getelementptr inbounds i8, ptr %4, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %182, align 4, !tbaa !38
   br label %183
 
 183:                                              ; preds = %181, %176, %176, %169
-  %184 = getelementptr inbounds i8, ptr %4, i64 16
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %184, align 4, !tbaa !39
   br label %185
 
 185:                                              ; preds = %183, %176, %176
-  %186 = getelementptr inbounds i8, ptr %4, i64 20
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %186, align 4, !tbaa !71
   %187 = call i64 @dt_datetime_numbers_to_gtimespan(ptr noundef nonnull %4) #17
   br label %188
@@ -1218,13 +1218,13 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %217, label %218, label %249
 
 218:                                              ; preds = %210
-  %219 = getelementptr inbounds i8, ptr %7, i64 16
+  %219 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %219, align 8, !tbaa !39
   %220 = icmp eq i32 %216, 6
   br i1 %220, label %249, label %221
 
 221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %7, i64 12
+  %222 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %223 = load i32, ptr %222, align 4, !tbaa !38
   %224 = freeze i32 %223
   %225 = srem i32 %224, 6
@@ -1239,7 +1239,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %229, label %249, label %230
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds i8, ptr %7, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %232 = load i32, ptr %231, align 8, !tbaa !37
   %233 = freeze i32 %232
   %234 = add i32 %233, -1
@@ -1255,7 +1255,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %239, label %249, label %240
 
 240:                                              ; preds = %238
-  %241 = getelementptr inbounds i8, ptr %7, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %242 = load i32, ptr %241, align 4, !tbaa !36
   %243 = add nsw i32 %242, -1
   %244 = sdiv i32 %243, 4
@@ -1267,16 +1267,16 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %249
 
 249:                                              ; preds = %240, %238, %230, %228, %221, %218, %210
-  %250 = getelementptr inbounds i8, ptr %7, i64 4
-  %251 = getelementptr inbounds i8, ptr %7, i64 16
-  %252 = getelementptr inbounds i8, ptr %7, i64 12
-  %253 = getelementptr inbounds i8, ptr %7, i64 8
-  %254 = getelementptr inbounds i8, ptr %48, i64 136
-  %255 = getelementptr inbounds i8, ptr %48, i64 140
-  %256 = getelementptr inbounds i8, ptr %6, i64 4
-  %257 = getelementptr inbounds i8, ptr %6, i64 8
-  %258 = getelementptr inbounds i8, ptr %6, i64 12
-  %259 = getelementptr inbounds i8, ptr %6, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %251 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %253 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %48, i64 136
+  %255 = getelementptr inbounds nuw i8, ptr %48, i64 140
+  %256 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %257 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %259 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %260
 
 260:                                              ; preds = %352, %249
@@ -1286,7 +1286,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %264 = load i32, ptr %56, align 8, !tbaa !26
   %265 = call fastcc ptr @_time_format_for_ui(ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %7, i32 noundef %264)
   store ptr %265, ptr %263, align 8, !tbaa !72
-  %266 = getelementptr inbounds i8, ptr %263, i64 28
+  %266 = getelementptr inbounds nuw i8, ptr %263, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %266, ptr noundef nonnull align 8 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !32
   %267 = load i32, ptr %56, align 8, !tbaa !26
   %268 = load i32, ptr %7, align 8
@@ -1302,15 +1302,15 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   ]
 
 270:                                              ; preds = %260
-  %271 = getelementptr inbounds i8, ptr %263, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store i32 12, ptr %271, align 8, !tbaa !74
   %272 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 12, i64 noundef 4) #19
-  %273 = getelementptr inbounds i8, ptr %263, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr %272, ptr %273, align 8, !tbaa !75
   %274 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 12, i64 noundef 4) #19
-  %275 = getelementptr inbounds i8, ptr %263, i64 16
+  %275 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr %274, ptr %275, align 8, !tbaa !76
-  %276 = getelementptr inbounds i8, ptr %263, i64 56
+  %276 = getelementptr inbounds nuw i8, ptr %263, i64 56
   store i32 120, ptr %276, align 8, !tbaa !77
   store i32 1, ptr %250, align 4, !tbaa !36
   br label %347
@@ -1385,32 +1385,32 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %340
 
 316:                                              ; preds = %260
-  %317 = getelementptr inbounds i8, ptr %263, i64 24
+  %317 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store i32 1, ptr %317, align 8, !tbaa !74
   %318 = call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #19
-  %319 = getelementptr inbounds i8, ptr %263, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr %318, ptr %319, align 8, !tbaa !75
   %320 = call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #19
-  %321 = getelementptr inbounds i8, ptr %263, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr %320, ptr %321, align 8, !tbaa !76
-  %322 = getelementptr inbounds i8, ptr %263, i64 56
+  %322 = getelementptr inbounds nuw i8, ptr %263, i64 56
   store i32 1, ptr %322, align 8, !tbaa !77
   br label %347
 
 323:                                              ; preds = %302, %302, %302, %302, %302, %302, %302, %303, %313, %294
   %.sink174 = phi i32 [ %301, %294 ], [ %312, %303 ], [ 31, %302 ], [ 31, %302 ], [ 31, %302 ], [ 31, %302 ], [ 31, %302 ], [ 31, %302 ], [ 31, %302 ], [ 30, %313 ]
   %324 = phi i32 [ 1, %294 ], [ 4, %303 ], [ 4, %302 ], [ 4, %302 ], [ 4, %302 ], [ 4, %302 ], [ 4, %302 ], [ 4, %302 ], [ 4, %302 ], [ 4, %313 ]
-  %325 = getelementptr inbounds i8, ptr %263, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store i32 %.sink174, ptr %325, align 8, !tbaa !74
   %326 = zext nneg i32 %.sink174 to i64
   %327 = call noalias ptr @calloc(i64 noundef %326, i64 noundef 4) #19
-  %328 = getelementptr inbounds i8, ptr %263, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr %327, ptr %328, align 8, !tbaa !75
   %329 = call noalias ptr @calloc(i64 noundef %326, i64 noundef 4) #19
-  %330 = getelementptr inbounds i8, ptr %263, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr %329, ptr %330, align 8, !tbaa !76
   %331 = mul nuw nsw i32 %324, %.sink174
-  %332 = getelementptr inbounds i8, ptr %263, i64 56
+  %332 = getelementptr inbounds nuw i8, ptr %263, i64 56
   store i32 %331, ptr %332, align 8, !tbaa !77
   store i32 1, ptr %253, align 8, !tbaa !37
   br label %347
@@ -1418,15 +1418,15 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 333:                                              ; preds = %260, %314
   %.sink182 = phi i32 [ 24, %314 ], [ 120, %260 ]
   %.sink181 = phi i64 [ 24, %314 ], [ 120, %260 ]
-  %334 = getelementptr inbounds i8, ptr %263, i64 24
+  %334 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store i32 %.sink182, ptr %334, align 8, !tbaa !74
   %335 = call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef %.sink181, i64 noundef 4) #19
-  %336 = getelementptr inbounds i8, ptr %263, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr %335, ptr %336, align 8, !tbaa !75
   %337 = call noalias dereferenceable_or_null(96) ptr @calloc(i64 noundef %.sink181, i64 noundef 4) #19
-  %338 = getelementptr inbounds i8, ptr %263, i64 16
+  %338 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr %337, ptr %338, align 8, !tbaa !76
-  %339 = getelementptr inbounds i8, ptr %263, i64 56
+  %339 = getelementptr inbounds nuw i8, ptr %263, i64 56
   store i32 120, ptr %339, align 8, !tbaa !77
   store i32 0, ptr %252, align 4, !tbaa !38
   br label %347
@@ -1434,15 +1434,15 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 340:                                              ; preds = %260, %315
   %.sink190 = phi i32 [ 60, %315 ], [ 120, %260 ]
   %.sink189 = phi i64 [ 60, %315 ], [ 120, %260 ]
-  %341 = getelementptr inbounds i8, ptr %263, i64 24
+  %341 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store i32 %.sink190, ptr %341, align 8, !tbaa !74
   %342 = call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef %.sink189, i64 noundef 4) #19
-  %343 = getelementptr inbounds i8, ptr %263, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store ptr %342, ptr %343, align 8, !tbaa !75
   %344 = call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef %.sink189, i64 noundef 4) #19
-  %345 = getelementptr inbounds i8, ptr %263, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %263, i64 16
   store ptr %344, ptr %345, align 8, !tbaa !76
-  %346 = getelementptr inbounds i8, ptr %263, i64 56
+  %346 = getelementptr inbounds nuw i8, ptr %263, i64 56
   store i32 120, ptr %346, align 8, !tbaa !77
   store i32 0, ptr %251, align 8, !tbaa !39
   br label %347
@@ -1564,7 +1564,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 
 .thread:                                          ; preds = %387, %417
   %419 = zext nneg i32 %362 to i64
-  %420 = getelementptr inbounds [7 x i32], ptr @switch.table._lib_timeline_draw_callback.46, i64 0, i64 %419
+  %420 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._lib_timeline_draw_callback.46, i64 0, i64 %419
   %421 = load i32, ptr %420, align 4
   br label %422
 
@@ -1669,7 +1669,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 
 .thread121:                                       ; preds = %448, %478
   %480 = zext nneg i32 %362 to i64
-  %481 = getelementptr inbounds [7 x i32], ptr @switch.table._lib_timeline_draw_callback.46, i64 0, i64 %480
+  %481 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._lib_timeline_draw_callback.46, i64 0, i64 %480
   %482 = load i32, ptr %481, align 4
   br label %483
 
@@ -1778,7 +1778,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 
 544:                                              ; preds = %541, %538, %528, %522, %512, %504
   %545 = load ptr, ptr %350, align 8, !tbaa !75
-  %546 = getelementptr inbounds i32, ptr %545, i64 %363
+  %546 = getelementptr inbounds nuw i32, ptr %545, i64 %363
   %547 = load i32, ptr %546, align 4, !tbaa !25
   %548 = add nsw i32 %547, 1
   store i32 %548, ptr %546, align 4, !tbaa !25
@@ -1787,7 +1787,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 
 550:                                              ; preds = %544
   %551 = load ptr, ptr %351, align 8, !tbaa !76
-  %552 = getelementptr inbounds i32, ptr %551, i64 %363
+  %552 = getelementptr inbounds nuw i32, ptr %551, i64 %363
   %553 = load i32, ptr %552, align 4, !tbaa !25
   %554 = add nsw i32 %553, 1
   store i32 %554, ptr %552, align 4, !tbaa !25
@@ -2232,7 +2232,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %806, label %807, label %811
 
 807:                                              ; preds = %804, %801, %792, %786, %777, %770
-  %808 = getelementptr inbounds i8, ptr %48, i64 112
+  %808 = getelementptr inbounds nuw i8, ptr %48, i64 112
   %809 = load i32, ptr %808, align 8, !tbaa !34
   %810 = add nsw i32 %809, 1
   store i32 %810, ptr %254, align 8, !tbaa !69
@@ -2326,7 +2326,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %861, label %862, label %866
 
 862:                                              ; preds = %859, %856, %847, %841, %832, %825
-  %863 = getelementptr inbounds i8, ptr %48, i64 112
+  %863 = getelementptr inbounds nuw i8, ptr %48, i64 112
   %864 = load i32, ptr %863, align 8, !tbaa !34
   %865 = add nsw i32 %864, 2
   store i32 %865, ptr %255, align 4, !tbaa !70
@@ -2343,22 +2343,22 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %870 = phi i32 [ %357, %866 ], [ 0, %206 ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #17
-  %871 = getelementptr inbounds i8, ptr %15, i64 104
+  %871 = getelementptr inbounds nuw i8, ptr %15, i64 104
   store i32 %870, ptr %871, align 8, !tbaa !78
   store i32 %17, ptr %20, align 8, !tbaa !34
-  %872 = getelementptr inbounds i8, ptr %15, i64 116
+  %872 = getelementptr inbounds nuw i8, ptr %15, i64 116
   store i32 %19, ptr %872, align 4, !tbaa !68
   %873 = load i32, ptr %18, align 4, !tbaa !67
-  %874 = getelementptr inbounds i8, ptr %15, i64 108
+  %874 = getelementptr inbounds nuw i8, ptr %15, i64 108
   store i32 %873, ptr %874, align 4, !tbaa !79
-  %875 = getelementptr inbounds i8, ptr %15, i64 128
+  %875 = getelementptr inbounds nuw i8, ptr %15, i64 128
   %876 = load i32, ptr %875, align 8, !tbaa !26
   %877 = icmp ult i32 %876, 7
   br i1 %877, label %878, label %882
 
 878:                                              ; preds = %869
   %879 = zext nneg i32 %876 to i64
-  %880 = getelementptr inbounds [7 x i32], ptr @switch.table._lib_timeline_draw_callback.46, i64 0, i64 %879
+  %880 = getelementptr inbounds nuw [7 x i32], ptr @switch.table._lib_timeline_draw_callback.46, i64 0, i64 %879
   %881 = load i32, ptr %880, align 4
   br label %882
 
@@ -2367,7 +2367,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %884 = load i32, ptr %16, align 4, !tbaa !65
   %885 = sitofp i32 %884 to double
   %886 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !43
-  %887 = getelementptr inbounds i8, ptr %886, i64 1456
+  %887 = getelementptr inbounds nuw i8, ptr %886, i64 1456
   %888 = load double, ptr %887, align 8, !tbaa !80
   %889 = fmul reassoc nsz arcp contract afn double %888, %885
   %890 = fptosi double %889 to i32
@@ -2376,26 +2376,26 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %893 = fptosi double %892 to i32
   %894 = call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %890, i32 noundef %893) #17
   %895 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !43
-  %896 = getelementptr inbounds i8, ptr %895, i64 1456
+  %896 = getelementptr inbounds nuw i8, ptr %895, i64 1456
   %897 = load double, ptr %896, align 8, !tbaa !80
   call void @cairo_surface_set_device_scale(ptr noundef %894, double noundef %897, double noundef %897) #17
   store ptr %894, ptr %47, align 8, !tbaa !33
   %898 = call ptr @cairo_create(ptr noundef %894) #17
   call void @dt_gui_gtk_set_source_rgb(ptr noundef %898, i32 noundef 21) #17
   call void @cairo_paint(ptr noundef %898) #17
-  %899 = getelementptr inbounds i8, ptr %15, i64 120
+  %899 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %900 = load ptr, ptr %899, align 8, !tbaa !24
   %901 = icmp eq ptr %900, null
   br i1 %901, label %.loopexit128, label %902
 
 902:                                              ; preds = %882
-  %903 = getelementptr inbounds i8, ptr %11, i64 24
-  %904 = getelementptr inbounds i8, ptr %11, i64 16
+  %903 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %904 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %905 = sitofp i32 %883 to double
   br label %910
 
 906:                                              ; preds = %.loopexit
-  %907 = getelementptr inbounds i8, ptr %911, i64 8
+  %907 = getelementptr inbounds nuw i8, ptr %911, i64 8
   %908 = load ptr, ptr %907, align 8, !tbaa !24
   %909 = icmp eq ptr %908, null
   br i1 %909, label %.loopexit128, label %910
@@ -2404,13 +2404,13 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %911 = phi ptr [ %900, %902 ], [ %908, %906 ]
   %912 = phi i32 [ 0, %902 ], [ %947, %906 ]
   %913 = load ptr, ptr %911, align 8, !tbaa !30
-  %914 = getelementptr inbounds i8, ptr %913, i64 24
+  %914 = getelementptr inbounds nuw i8, ptr %913, i64 24
   %915 = load i32, ptr %914, align 8, !tbaa !74
   %916 = mul nsw i32 %915, %883
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #17
   call void @dt_gui_gtk_set_source_rgb(ptr noundef %898, i32 noundef 25) #17
   %917 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !43
-  %918 = getelementptr inbounds i8, ptr %917, i64 1448
+  %918 = getelementptr inbounds nuw i8, ptr %917, i64 1448
   %919 = load double, ptr %918, align 8, !tbaa !81
   %920 = fmul reassoc nsz arcp contract afn double %919, 5.000000e+00
   %921 = fadd reassoc nsz arcp contract afn double %920, 5.000000e+00
@@ -2445,8 +2445,8 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %942, label %943, label %.loopexit
 
 943:                                              ; preds = %910
-  %944 = getelementptr inbounds i8, ptr %913, i64 8
-  %945 = getelementptr inbounds i8, ptr %913, i64 16
+  %944 = getelementptr inbounds nuw i8, ptr %913, i64 8
+  %945 = getelementptr inbounds nuw i8, ptr %913, i64 16
   br label %950
 
 .loopexit:                                        ; preds = %950, %910
@@ -2461,7 +2461,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %951 = phi i64 [ 0, %943 ], [ %986, %950 ]
   call void @dt_gui_gtk_set_source_rgba(ptr noundef %898, i32 noundef 23, float noundef 5.000000e-01) #17
   %952 = load ptr, ptr %944, align 8, !tbaa !75
-  %953 = getelementptr inbounds i32, ptr %952, i64 %951
+  %953 = getelementptr inbounds nuw i32, ptr %952, i64 %951
   %954 = load i32, ptr %953, align 4, !tbaa !25
   %955 = sitofp i32 %954 to double
   %956 = fadd reassoc nsz arcp contract afn double %955, 4.000000e+00
@@ -2483,7 +2483,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   call void @cairo_fill(ptr noundef %898) #17
   call void @dt_gui_gtk_set_source_rgba(ptr noundef %898, i32 noundef 23, float noundef 1.000000e+00) #17
   %971 = load ptr, ptr %945, align 8, !tbaa !76
-  %972 = getelementptr inbounds i32, ptr %971, i64 %951
+  %972 = getelementptr inbounds nuw i32, ptr %971, i64 %951
   %973 = load i32, ptr %972, align 4, !tbaa !25
   %974 = sitofp i32 %973 to double
   %975 = fadd reassoc nsz arcp contract afn double %974, 4.000000e+00
@@ -2514,19 +2514,19 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %992 = phi ptr [ %990, %.loopexit128 ], [ %44, %42 ]
   call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %992, double noundef 0.000000e+00, double noundef 0.000000e+00) #17
   call void @cairo_paint(ptr noundef %1) #17
-  %993 = getelementptr inbounds i8, ptr %15, i64 204
+  %993 = getelementptr inbounds nuw i8, ptr %15, i64 204
   %994 = load i32, ptr %993, align 4, !tbaa !86
   %995 = icmp eq i32 %994, 0
   br i1 %995, label %1036, label %996
 
 996:                                              ; preds = %991
-  %997 = getelementptr inbounds i8, ptr %15, i64 208
+  %997 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %998 = load i32, ptr %997, align 8, !tbaa !87
   %999 = icmp eq i32 %998, 0
   %1000 = select i1 %999, i64 140, i64 144
-  %1001 = getelementptr inbounds i8, ptr %15, i64 %1000
+  %1001 = getelementptr inbounds nuw i8, ptr %15, i64 %1000
   %1002 = load i32, ptr %1001, align 4, !tbaa !25
-  %1003 = getelementptr inbounds i8, ptr %15, i64 136
+  %1003 = getelementptr inbounds nuw i8, ptr %15, i64 136
   %1004 = load i32, ptr %1003, align 8, !tbaa !69
   %1005 = call i32 @llvm.smax.i32(i32 %1002, i32 %1004)
   %1006 = call i32 @llvm.smin.i32(i32 %1002, i32 %1004)
@@ -2593,26 +2593,26 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %1036
 
 1036:                                             ; preds = %1030, %1022, %1009, %996, %991
-  %1037 = getelementptr inbounds i8, ptr %15, i64 220
+  %1037 = getelementptr inbounds nuw i8, ptr %15, i64 220
   %1038 = load i32, ptr %1037, align 4, !tbaa !88
   %1039 = icmp eq i32 %1038, 0
   br i1 %1039, label %1104, label %1040
 
 1040:                                             ; preds = %1036
-  %1041 = getelementptr inbounds i8, ptr %15, i64 144
+  %1041 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %1042 = load i32, ptr %1041, align 8, !tbaa !89
   %1043 = icmp sgt i32 %1042, 0
   br i1 %1043, label %1044, label %1104
 
 1044:                                             ; preds = %1040
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %12) #17
-  %1045 = getelementptr inbounds i8, ptr %15, i64 208
+  %1045 = getelementptr inbounds nuw i8, ptr %15, i64 208
   %1046 = load i32, ptr %1045, align 8, !tbaa !87
   %1047 = icmp eq i32 %1046, 0
   br i1 %1047, label %1050, label %1048
 
 1048:                                             ; preds = %1044
-  %1049 = getelementptr inbounds i8, ptr %15, i64 176
+  %1049 = getelementptr inbounds nuw i8, ptr %15, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull align 8 dereferenceable(28) %1049, i64 28, i1 false), !tbaa.struct !32
   br label %1051
 
@@ -2626,7 +2626,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br i1 %1053, label %1054, label %1076
 
 1054:                                             ; preds = %1051
-  %1055 = getelementptr inbounds i8, ptr %12, i64 4
+  %1055 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %1056 = load i32, ptr %1055, align 4, !tbaa !36
   %1057 = icmp eq i32 %1056, 1
   br i1 %1057, label %1060, label %1058
@@ -2636,7 +2636,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %1073
 
 1060:                                             ; preds = %1054
-  %1061 = getelementptr inbounds i8, ptr %12, i64 8
+  %1061 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %1062 = load i32, ptr %1061, align 8, !tbaa !37
   %1063 = icmp eq i32 %1062, 1
   br i1 %1063, label %1066, label %1064
@@ -2646,13 +2646,13 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   br label %1073
 
 1066:                                             ; preds = %1060
-  %1067 = getelementptr inbounds i8, ptr %12, i64 12
+  %1067 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %1068 = load i32, ptr %1067, align 4, !tbaa !38
   %1069 = icmp eq i32 %1068, 0
   br i1 %1069, label %1070, label %1076
 
 1070:                                             ; preds = %1066
-  %1071 = getelementptr inbounds i8, ptr %12, i64 16
+  %1071 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %1072 = load i32, ptr %1071, align 8, !tbaa !39
   br label %1073
 
@@ -2672,22 +2672,22 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
   %1082 = sitofp i32 %1081 to double
   call void @cairo_line_to(ptr noundef %1, double noundef %1080, double noundef %1082) #17
   call void @cairo_stroke(ptr noundef %1) #17
-  %1083 = getelementptr inbounds i8, ptr %15, i64 132
+  %1083 = getelementptr inbounds nuw i8, ptr %15, i64 132
   %1084 = load i32, ptr %1083, align 4, !tbaa !40
   %1085 = call fastcc ptr @_time_format_for_ui(ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %12, i32 noundef %1084)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13) #17
   %1086 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !43
-  %1087 = getelementptr inbounds i8, ptr %1086, i64 1448
+  %1087 = getelementptr inbounds nuw i8, ptr %1086, i64 1448
   %1088 = load double, ptr %1087, align 8, !tbaa !81
   %1089 = fmul reassoc nsz arcp contract afn double %1088, 1.000000e+01
   call void @cairo_set_font_size(ptr noundef %1, double noundef %1089) #17
   call void @cairo_text_extents(ptr noundef %1, ptr noundef %1085, ptr noundef nonnull %13) #17
   %1090 = load i32, ptr %1041, align 8, !tbaa !89
   %1091 = sitofp i32 %1090 to double
-  %1092 = getelementptr inbounds i8, ptr %13, i64 16
+  %1092 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %1093 = load double, ptr %1092, align 8, !tbaa !84
   %1094 = fadd reassoc nsz arcp contract afn double %1093, 4.000000e+00
-  %1095 = getelementptr inbounds i8, ptr %13, i64 24
+  %1095 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %1096 = load double, ptr %1095, align 8, !tbaa !82
   %1097 = fadd reassoc nsz arcp contract afn double %1096, 4.000000e+00
   call void @cairo_rectangle(ptr noundef %1, double noundef %1091, double noundef 8.000000e+00, double noundef %1094, double noundef %1097) #17
@@ -2720,9 +2720,9 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   %5 = alloca %struct.dt_datetime_t, align 4
   %6 = alloca %struct.dt_datetime_t, align 8
   %7 = alloca [200 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = getelementptr inbounds i8, ptr %1, i64 52
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %11 = load i32, ptr %10, align 4, !tbaa !90
   switch i32 %11, label %92 [
     i32 1, label %12
@@ -2735,22 +2735,22 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   br i1 %14, label %15, label %92
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load double, ptr %16, align 8, !tbaa !93
-  %18 = getelementptr inbounds i8, ptr %9, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %19 = load i32, ptr %18, align 8, !tbaa !69
   %20 = sitofp i32 %19 to double
   %21 = fsub reassoc nsz arcp contract afn double %17, %20
   %22 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %21)
   %23 = fcmp reassoc nsz arcp contract afn olt double %22, 2.000000e+00
-  %24 = getelementptr inbounds i8, ptr %9, i64 140
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 140
   %25 = load i32, ptr %24, align 4, !tbaa !70
   br i1 %23, label %26, label %32
 
 26:                                               ; preds = %15
   store i32 %25, ptr %18, align 8, !tbaa !69
-  %27 = getelementptr inbounds i8, ptr %9, i64 148
-  %28 = getelementptr inbounds i8, ptr %9, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 148
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %27, ptr noundef nonnull align 8 dereferenceable(28) %28, i64 28, i1 false), !tbaa.struct !32
   %29 = load double, ptr %16, align 8, !tbaa !93
   %30 = fptosi double %29 to i32
@@ -2759,7 +2759,7 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %4, i32 noundef %30, ptr noundef nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %28, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #17
-  %31 = getelementptr inbounds i8, ptr %9, i64 212
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 212
   store i32 1, ptr %31, align 4, !tbaa !94
   br label %75
 
@@ -2773,12 +2773,12 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   br i1 %36, label %38, label %41
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %9, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 176
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #17
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %5, i32 noundef %37, ptr noundef nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %39, ptr noundef nonnull align 4 dereferenceable(28) %5, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %5) #17
-  %40 = getelementptr inbounds i8, ptr %9, i64 212
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 212
   store i32 1, ptr %40, align 4, !tbaa !94
   br label %75
 
@@ -2791,7 +2791,7 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   br i1 %43, label %44, label %70
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %6, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !36
   %47 = icmp eq i32 %46, 1
   br i1 %47, label %50, label %48
@@ -2801,7 +2801,7 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   br label %63
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %6, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !37
   %53 = icmp eq i32 %52, 1
   br i1 %53, label %56, label %54
@@ -2811,13 +2811,13 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   br label %63
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds i8, ptr %6, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !38
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %6, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %62 = load i32, ptr %61, align 8, !tbaa !39
   br label %63
 
@@ -2827,32 +2827,32 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds i8, ptr %9, i64 148
-  %68 = getelementptr inbounds i8, ptr %9, i64 176
-  %69 = getelementptr inbounds i8, ptr %9, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 148
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 176
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %68, ptr noundef nonnull align 4 dereferenceable(28) %69, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %67, ptr noundef nonnull align 4 dereferenceable(28) %69, i64 28, i1 false)
   br label %73
 
 70:                                               ; preds = %63, %56, %41
-  %71 = getelementptr inbounds i8, ptr %9, i64 148
-  %72 = getelementptr inbounds i8, ptr %9, i64 176
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 148
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %72, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %71, ptr noundef nonnull align 8 dereferenceable(28) %6, i64 28, i1 false)
   br label %73
 
 73:                                               ; preds = %70, %66
-  %74 = getelementptr inbounds i8, ptr %9, i64 212
+  %74 = getelementptr inbounds nuw i8, ptr %9, i64 212
   store i32 0, ptr %74, align 4, !tbaa !94
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %6) #17
   br label %75
 
 75:                                               ; preds = %73, %38, %26
-  %76 = getelementptr inbounds i8, ptr %9, i64 208
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store i32 1, ptr %76, align 8, !tbaa !87
-  %77 = getelementptr inbounds i8, ptr %9, i64 204
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 204
   store i32 1, ptr %77, align 4, !tbaa !86
-  %78 = getelementptr inbounds i8, ptr %9, i64 88
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %79 = load ptr, ptr %78, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %79) #17
   br label %92
@@ -2875,7 +2875,7 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
   call void @dt_conf_set_int(ptr noundef nonnull @.str.31, i32 noundef %84) #17
   %89 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 160), align 8, !tbaa !95
   call void @dt_collection_update_query(ptr noundef %89, i32 noundef 3, i32 noundef 36, ptr noundef null) #17
-  %90 = getelementptr inbounds i8, ptr %9, i64 208
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 208
   store i32 0, ptr %90, align 8, !tbaa !87
   br label %91
 
@@ -2890,18 +2890,18 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
   %4 = alloca %struct.dt_datetime_t, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 208
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %8 = load i32, ptr %7, align 8, !tbaa !87
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %85, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load double, ptr %11, align 8, !tbaa !93
   %13 = fptosi double %12 to i32
-  %14 = getelementptr inbounds i8, ptr %6, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 %13, ptr %14, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #17
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %4, i32 noundef %13, ptr noundef nonnull %6)
@@ -2910,7 +2910,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   br i1 %16, label %17, label %42
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !36
   %20 = icmp eq i32 %19, 1
   br i1 %20, label %23, label %21
@@ -2920,7 +2920,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   br label %36
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !37
   %26 = icmp eq i32 %25, 1
   br i1 %26, label %29, label %27
@@ -2930,13 +2930,13 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   br label %36
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %4, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !38
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !39
   br label %36
 
@@ -2946,33 +2946,33 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %6, i64 176
-  %41 = getelementptr inbounds i8, ptr %6, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %40, ptr noundef nonnull align 4 dereferenceable(28) %41, i64 28, i1 false), !tbaa.struct !32
   br label %71
 
 42:                                               ; preds = %36, %29, %10
-  %43 = getelementptr inbounds i8, ptr %6, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, ptr noundef nonnull align 8 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !32
-  %44 = getelementptr inbounds i8, ptr %6, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %45 = load i32, ptr %44, align 8, !tbaa !26
   %46 = icmp ult i32 %45, 5
   br i1 %46, label %47, label %71
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %6, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 192
   store i32 59, ptr %48, align 8, !tbaa !96
   %49 = icmp samesign ult i32 %45, 3
   br i1 %49, label %50, label %71
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %6, i64 188
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 188
   store i32 23, ptr %51, align 4, !tbaa !97
   %52 = icmp eq i32 %45, 0
   br i1 %52, label %53, label %71
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %6, i64 180
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 180
   %55 = load i32, ptr %54, align 4, !tbaa !98
   switch i32 %55, label %67 [
     i32 2, label %56
@@ -3003,19 +3003,19 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
 
 68:                                               ; preds = %67, %56, %53, %53, %53, %53, %53, %53, %53
   %69 = phi i32 [ 30, %67 ], [ 31, %53 ], [ 31, %53 ], [ 31, %53 ], [ 31, %53 ], [ 31, %53 ], [ 31, %53 ], [ 31, %53 ], [ %66, %56 ]
-  %70 = getelementptr inbounds i8, ptr %6, i64 184
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 184
   store i32 %69, ptr %70, align 8, !tbaa !100
   br label %71
 
 71:                                               ; preds = %68, %50, %47, %42, %39
   store i32 0, ptr %7, align 8, !tbaa !87
-  %72 = getelementptr inbounds i8, ptr %6, i64 212
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 212
   %73 = load i32, ptr %72, align 4, !tbaa !94
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %75, label %.split
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %1, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %77 = load i32, ptr %76, align 8, !tbaa !101
   %78 = call i32 @gtk_accelerator_get_default_mod_mask() #17
   %79 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !25
@@ -3030,7 +3030,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
 .split1:                                          ; preds = %75, %.split
   %.sink = phi i32 [ 0, %.split ], [ 1, %75 ]
   call fastcc void @_selection_collect(ptr noundef nonnull %6, i32 noundef %.sink)
-  %83 = getelementptr inbounds i8, ptr %6, i64 88
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %84 = load ptr, ptr %83, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %84) #17
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4) #17
@@ -3046,9 +3046,9 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   %5 = alloca %struct.dt_datetime_t, align 4
   %6 = alloca i32, align 4
   %7 = alloca %struct.dt_datetime_t, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 280
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %11 = load i32, ptr %10, align 8, !tbaa !102
   %12 = tail call i32 @gtk_accelerator_get_default_mod_mask() #17
   %13 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !25
@@ -3058,7 +3058,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   br i1 %16, label %17, label %113
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %9, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %19 = load i32, ptr %18, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #17
   store i32 0, ptr %4, align 4, !tbaa !25
@@ -3093,9 +3093,9 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
 
 39:                                               ; preds = %35
   call void @dt_conf_set_int(ptr noundef nonnull @.str.1, i32 noundef %36) #17
-  %40 = getelementptr inbounds i8, ptr %9, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 56
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %5) #17
-  %41 = getelementptr inbounds i8, ptr %9, i64 144
+  %41 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %42 = load i32, ptr %41, align 8, !tbaa !89
   call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %43 = load i32, ptr %18, align 8, !tbaa !26, !noalias !104
@@ -3104,7 +3104,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
 
 45:                                               ; preds = %39
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %5, i32 noundef %42, ptr noundef nonnull %9)
-  %46 = getelementptr inbounds i8, ptr %9, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %47 = load ptr, ptr %46, align 8, !tbaa !24, !noalias !104
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit, label %.preheader
@@ -3114,7 +3114,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   %50 = phi i32 [ %58, %57 ], [ 0, %45 ]
   %51 = phi i32 [ %59, %57 ], [ 0, %45 ]
   %52 = load ptr, ptr %49, align 8, !tbaa !30
-  %53 = getelementptr inbounds i8, ptr %52, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 56
   %54 = load i32, ptr %53, align 8, !tbaa !77
   %55 = add nsw i32 %54, %51
   %56 = icmp sgt i32 %55, %42
@@ -3123,7 +3123,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
 57:                                               ; preds = %.preheader
   %58 = add nuw nsw i32 %50, 1
   %59 = add i32 %55, 2
-  %60 = getelementptr inbounds i8, ptr %49, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !24
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.loopexit, label %.preheader
@@ -3133,22 +3133,22 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   %64 = sub nsw i32 0, %63
   call fastcc void @_time_add(ptr noundef nonnull %5, i32 noundef %64, i32 noundef %36), !alias.scope !104
   %65 = load i32, ptr %5, align 4, !tbaa !25, !alias.scope !104
-  %66 = getelementptr inbounds i8, ptr %5, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !25, !alias.scope !104
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %69 = load i32, ptr %68, align 4, !tbaa !25, !alias.scope !104
-  %70 = getelementptr inbounds i8, ptr %5, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !25, !alias.scope !104
-  %72 = getelementptr inbounds i8, ptr %5, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %73 = load i32, ptr %72, align 4, !tbaa !25, !alias.scope !104
   %74 = load i32, ptr %9, align 1, !noalias !104
-  %75 = getelementptr inbounds i8, ptr %9, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %76 = load i32, ptr %75, align 1, !noalias !104
-  %77 = getelementptr inbounds i8, ptr %9, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %78 = load i32, ptr %77, align 1, !noalias !104
-  %79 = getelementptr inbounds i8, ptr %9, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %80 = load i32, ptr %79, align 1, !noalias !104
-  %81 = getelementptr inbounds i8, ptr %9, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %82 = load i32, ptr %81, align 1, !noalias !104
   %83 = icmp eq i32 %65, %74
   br i1 %83, label %86, label %84
@@ -3201,13 +3201,13 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   store i32 %36, ptr %18, align 8, !tbaa !26
   %reass.sub = and i32 %36, -2
   %106 = add i32 %reass.sub, 2
-  %107 = getelementptr inbounds i8, ptr %9, i64 132
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 132
   store i32 %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %9, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %109 = load ptr, ptr %108, align 8, !tbaa !33
   call void @cairo_surface_destroy(ptr noundef %109) #17
   store ptr null, ptr %108, align 8, !tbaa !33
-  %110 = getelementptr inbounds i8, ptr %9, i64 88
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %111 = load ptr, ptr %110, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %111) #17
   br label %112
@@ -3232,19 +3232,19 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
   %123 = icmp eq i32 %122, 1
   %124 = zext i1 %123 to i32
   %125 = shl nsw i32 %117, %124
-  %126 = getelementptr inbounds i8, ptr %9, i64 56
-  %127 = getelementptr inbounds i8, ptr %9, i64 128
+  %126 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %128 = load i32, ptr %127, align 8, !tbaa !26
   call fastcc void @_time_add(ptr noundef nonnull %126, i32 noundef %125, i32 noundef %128)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %7) #17
   call fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nonnull writable align 4 %7, ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %126, ptr noundef %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %126, ptr noundef nonnull align 4 dereferenceable(28) %7, i64 28, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %7) #17
-  %129 = getelementptr inbounds i8, ptr %9, i64 96
+  %129 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %130 = load ptr, ptr %129, align 8, !tbaa !33
   call void @cairo_surface_destroy(ptr noundef %130) #17
   store ptr null, ptr %129, align 8, !tbaa !33
-  %131 = getelementptr inbounds i8, ptr %9, i64 88
+  %131 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %132 = load ptr, ptr %131, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %132) #17
   br label %133
@@ -3261,17 +3261,17 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
   %4 = alloca %struct.dt_datetime_t, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
-  %7 = getelementptr inbounds i8, ptr %6, i64 220
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 220
   store i32 1, ptr %7, align 4, !tbaa !88
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load double, ptr %8, align 8, !tbaa !107
   %10 = fcmp reassoc nsz arcp contract afn olt double %9, 1.000000e+01
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %6, i64 112
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %13 = load i32, ptr %12, align 8, !tbaa !34
   %14 = add nsw i32 %13, -10
   %15 = sitofp i32 %14 to double
@@ -3279,7 +3279,7 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %11, %3
-  %18 = getelementptr inbounds i8, ptr %6, i64 216
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 216
   %19 = load i32, ptr %18, align 8, !tbaa !110
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -3297,17 +3297,17 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
 26:                                               ; preds = %24, %21, %17, %11
   %27 = load double, ptr %8, align 8, !tbaa !107
   %28 = fptosi double %27 to i32
-  %29 = getelementptr inbounds i8, ptr %6, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 %28, ptr %29, align 8, !tbaa !89
-  %30 = getelementptr inbounds i8, ptr %6, i64 208
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %31 = load i32, ptr %30, align 8, !tbaa !87
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %36, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %6, i64 140
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 140
   store i32 %28, ptr %34, align 4, !tbaa !70
-  %35 = getelementptr inbounds i8, ptr %6, i64 176
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 176
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #17
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %4, i32 noundef %28, ptr noundef nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %35, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false), !tbaa.struct !32
@@ -3316,7 +3316,7 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
   br label %53
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds i8, ptr %6, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 136
   %38 = load i32, ptr %37, align 8, !tbaa !69
   %39 = sitofp i32 %38 to double
   %40 = fsub reassoc nsz arcp contract afn double %27, %39
@@ -3329,7 +3329,7 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
   br label %53
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds i8, ptr %6, i64 140
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 140
   %46 = load i32, ptr %45, align 4, !tbaa !70
   %47 = sitofp i32 %46 to double
   %48 = fsub reassoc nsz arcp contract afn double %27, %47
@@ -3346,7 +3346,7 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
   br label %53
 
 53:                                               ; preds = %52, %51, %43, %33
-  %54 = getelementptr inbounds i8, ptr %6, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %55) #17
   ret i32 1
@@ -3354,11 +3354,11 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_lib_timeline_mouse_leave_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 220
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 220
   store i32 0, ptr %6, align 4, !tbaa !88
-  %7 = getelementptr inbounds i8, ptr %5, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   tail call void @gtk_widget_queue_draw(ptr noundef %8) #17
   ret i32 1
@@ -3395,7 +3395,7 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %7 = phi ptr [ %9, %.preheader ], [ %0, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !113, !nonnull !114, !noundef !114
   %10 = load i32, ptr %9, align 8, !tbaa !112
   %11 = icmp eq i32 %10, 3
@@ -3403,11 +3403,11 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
 
 .loopexit:                                        ; preds = %.preheader, %1
   %12 = phi ptr [ %0, %1 ], [ %9, %.preheader ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 280
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %14 = load ptr, ptr %13, align 8, !tbaa !6
-  %15 = getelementptr inbounds i8, ptr %14, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 144
   %16 = load i32, ptr %15, align 8, !tbaa !89
-  %17 = getelementptr inbounds i8, ptr %14, i64 136
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 136
   store i32 %16, ptr %17, align 8, !tbaa !69
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #17
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %2, i32 noundef %16, ptr noundef %14)
@@ -3416,7 +3416,7 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
   br i1 %19, label %20, label %45
 
 20:                                               ; preds = %.loopexit
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !36
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %26, label %24
@@ -3426,7 +3426,7 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
   br label %39
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !37
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %32, label %30
@@ -3436,13 +3436,13 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
   br label %39
 
 32:                                               ; preds = %26
-  %33 = getelementptr inbounds i8, ptr %2, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %34 = load i32, ptr %33, align 4, !tbaa !38
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %45
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !39
   br label %39
 
@@ -3452,13 +3452,13 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %14, i64 148
-  %44 = getelementptr inbounds i8, ptr %14, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 148
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %43, ptr noundef nonnull align 4 dereferenceable(28) %44, i64 28, i1 false), !tbaa.struct !32
   br label %47
 
 45:                                               ; preds = %39, %32, %.loopexit
-  %46 = getelementptr inbounds i8, ptr %14, i64 148
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 148
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #17
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %3, i32 noundef %16, ptr noundef nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %46, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false), !tbaa.struct !32
@@ -3466,16 +3466,16 @@ define internal void @_selection_start(ptr noundef readonly %0) #1 {
   br label %47
 
 47:                                               ; preds = %45, %42
-  %48 = getelementptr inbounds i8, ptr %14, i64 140
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 140
   store i32 %16, ptr %48, align 4, !tbaa !70
-  %49 = getelementptr inbounds i8, ptr %14, i64 176
-  %50 = getelementptr inbounds i8, ptr %14, i64 148
+  %49 = getelementptr inbounds nuw i8, ptr %14, i64 176
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %49, ptr noundef nonnull align 4 dereferenceable(28) %50, i64 28, i1 false), !tbaa.struct !32
-  %51 = getelementptr inbounds i8, ptr %14, i64 208
+  %51 = getelementptr inbounds nuw i8, ptr %14, i64 208
   store i32 1, ptr %51, align 8, !tbaa !87
-  %52 = getelementptr inbounds i8, ptr %14, i64 204
+  %52 = getelementptr inbounds nuw i8, ptr %14, i64 204
   store i32 1, ptr %52, align 4, !tbaa !86
-  %53 = getelementptr inbounds i8, ptr %14, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %54 = load ptr, ptr %53, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %54) #17
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #17
@@ -3493,7 +3493,7 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %6 = phi ptr [ %8, %.preheader ], [ %0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !113, !nonnull !114, !noundef !114
   %9 = load i32, ptr %8, align 8, !tbaa !112
   %10 = icmp eq i32 %9, 3
@@ -3501,20 +3501,20 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
 
 .loopexit:                                        ; preds = %.preheader, %1
   %11 = phi ptr [ %0, %1 ], [ %8, %.preheader ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 280
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 280
   %13 = load ptr, ptr %12, align 8, !tbaa !6
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2) #17
-  %14 = getelementptr inbounds i8, ptr %13, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 144
   %15 = load i32, ptr %14, align 8, !tbaa !89
   call fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %2, i32 noundef %15, ptr noundef %13)
-  %16 = getelementptr inbounds i8, ptr %13, i64 140
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 140
   store i32 %15, ptr %16, align 4, !tbaa !70
   %17 = load i32, ptr %2, align 8, !tbaa !35
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %44
 
 19:                                               ; preds = %.loopexit
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !36
   %22 = icmp eq i32 %21, 1
   br i1 %22, label %25, label %23
@@ -3524,7 +3524,7 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
   br label %38
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !37
   %28 = icmp eq i32 %27, 1
   br i1 %28, label %31, label %29
@@ -3534,13 +3534,13 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
   br label %38
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %2, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !38
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %44
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !39
   br label %38
 
@@ -3550,33 +3550,33 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %13, i64 176
-  %43 = getelementptr inbounds i8, ptr %13, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %13, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %42, ptr noundef nonnull align 4 dereferenceable(28) %43, i64 28, i1 false), !tbaa.struct !32
   br label %73
 
 44:                                               ; preds = %38, %31, %.loopexit
-  %45 = getelementptr inbounds i8, ptr %13, i64 176
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %45, ptr noundef nonnull align 8 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !32
-  %46 = getelementptr inbounds i8, ptr %13, i64 128
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %47 = load i32, ptr %46, align 8, !tbaa !26
   %48 = icmp ult i32 %47, 6
   br i1 %48, label %49, label %73
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %13, i64 192
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 192
   store i32 59, ptr %50, align 8, !tbaa !96
   %51 = icmp samesign ult i32 %47, 4
   br i1 %51, label %52, label %73
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %13, i64 188
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 188
   store i32 23, ptr %53, align 4, !tbaa !97
   %54 = icmp samesign ult i32 %47, 2
   br i1 %54, label %55, label %73
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %13, i64 180
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 180
   %57 = load i32, ptr %56, align 4, !tbaa !98
   switch i32 %57, label %69 [
     i32 2, label %58
@@ -3607,15 +3607,15 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
 
 70:                                               ; preds = %69, %58, %55, %55, %55, %55, %55, %55, %55
   %71 = phi i32 [ 30, %69 ], [ 31, %55 ], [ 31, %55 ], [ 31, %55 ], [ 31, %55 ], [ 31, %55 ], [ 31, %55 ], [ 31, %55 ], [ %68, %58 ]
-  %72 = getelementptr inbounds i8, ptr %13, i64 184
+  %72 = getelementptr inbounds nuw i8, ptr %13, i64 184
   store i32 %71, ptr %72, align 8, !tbaa !100
   br label %73
 
 73:                                               ; preds = %70, %52, %49, %44, %41
-  %74 = getelementptr inbounds i8, ptr %13, i64 208
+  %74 = getelementptr inbounds nuw i8, ptr %13, i64 208
   store i32 0, ptr %74, align 8, !tbaa !87
   call fastcc void @_selection_collect(ptr noundef nonnull %13, i32 noundef 0)
-  %75 = getelementptr inbounds i8, ptr %13, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %76 = load ptr, ptr %75, align 8, !tbaa !42
   call void @gtk_widget_queue_draw(ptr noundef %76) #17
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %2) #17
@@ -3624,9 +3624,9 @@ define internal void @_selection_stop(ptr noundef readonly %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = icmp eq ptr %5, null
   br i1 %6, label %8, label %7
@@ -3655,7 +3655,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 96), align 8, !tbaa !64
   tail call void @dt_control_signal_disconnect(ptr noundef %18, ptr noundef nonnull @_lib_timeline_collection_changed, ptr noundef nonnull %0) #17
   %19 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 80), align 8, !tbaa !48
-  %20 = getelementptr inbounds i8, ptr %19, i64 568
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 568
   store ptr null, ptr %20, align 8, !tbaa !49
   %21 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @free(ptr noundef %21) #17
@@ -3673,10 +3673,10 @@ define internal void @_block_free(ptr noundef %0) #1 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !tbaa !72
   tail call void @g_free(ptr noundef %4) #17
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !75
   tail call void @free(ptr noundef %6) #17
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !76
   tail call void @free(ptr noundef %8) #17
   tail call void @free(ptr noundef nonnull %0) #17
@@ -3731,7 +3731,7 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
 
 7:                                                ; preds = %3
   %8 = shl nsw i32 %1, 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !36
   %11 = add i32 %10, %8
   %12 = icmp sgt i32 %11, 12
@@ -3776,7 +3776,7 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   br label %.loopexit
 
 39:                                               ; preds = %3
-  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !36
   %42 = add i32 %41, %1
   %43 = icmp sgt i32 %42, 12
@@ -3822,11 +3822,11 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
 
 70:                                               ; preds = %3
   %71 = mul nsw i32 %1, 10
-  %72 = getelementptr inbounds i8, ptr %0, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %73 = load i32, ptr %72, align 4, !tbaa !37
   %74 = add nsw i32 %73, %71
   store i32 %74, ptr %72, align 4, !tbaa !37
-  %75 = getelementptr inbounds i8, ptr %0, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %76 = load i32, ptr %0, align 4, !tbaa !35
   %77 = load i32, ptr %75, align 4, !tbaa !36
   br label %78
@@ -4055,11 +4055,11 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %204, label %.preheader, label %385
 
 205:                                              ; preds = %3
-  %206 = getelementptr inbounds i8, ptr %0, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %207 = load i32, ptr %206, align 4, !tbaa !37
   %208 = add nsw i32 %207, %1
   store i32 %208, ptr %206, align 4, !tbaa !37
-  %209 = getelementptr inbounds i8, ptr %0, i64 4
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %210 = load i32, ptr %0, align 4, !tbaa !35
   %211 = load i32, ptr %209, align 4, !tbaa !36
   br label %212
@@ -4289,7 +4289,7 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
 
 339:                                              ; preds = %3
   %340 = mul nsw i32 %1, 6
-  %341 = getelementptr inbounds i8, ptr %0, i64 12
+  %341 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %342 = load i32, ptr %341, align 4, !tbaa !38
   %343 = add nsw i32 %342, %340
   store i32 %343, ptr %341, align 4, !tbaa !38
@@ -4320,7 +4320,7 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %354, label %.preheader65, label %.loopexit
 
 355:                                              ; preds = %3
-  %356 = getelementptr inbounds i8, ptr %0, i64 12
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %357 = load i32, ptr %356, align 4, !tbaa !38
   %358 = add nsw i32 %357, %1
   store i32 %358, ptr %356, align 4, !tbaa !38
@@ -4351,7 +4351,7 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %369, label %.preheader68, label %.loopexit
 
 370:                                              ; preds = %3
-  %371 = getelementptr inbounds i8, ptr %0, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %372 = load i32, ptr %371, align 4, !tbaa !39
   %373 = add nsw i32 %372, %1
   store i32 %373, ptr %371, align 4, !tbaa !39
@@ -4444,11 +4444,11 @@ declare void @cairo_stroke(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 28)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !115
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %4, align 4, !tbaa !37, !alias.scope !115
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %5, align 4, !tbaa !36, !alias.scope !115
-  %6 = getelementptr inbounds i8, ptr %2, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -4457,39 +4457,39 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
   %9 = phi ptr [ %87, %84 ], [ %7, %3 ]
   %10 = phi i32 [ %85, %84 ], [ 0, %3 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !30
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i32, ptr %12, align 8, !tbaa !77
   %14 = add nsw i32 %13, %10
   %15 = icmp sgt i32 %14, %1
   br i1 %15, label %16, label %84
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %11, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %18 = load i32, ptr %17, align 4, !tbaa !118
   store i32 %18, ptr %0, align 4, !tbaa !35
-  %19 = getelementptr inbounds i8, ptr %2, i64 128
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %20 = load i32, ptr %19, align 8, !tbaa !26
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %35, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %11, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %24 = load i32, ptr %23, align 4, !tbaa !119
   store i32 %24, ptr %5, align 4, !tbaa !36
   %25 = icmp ugt i32 %20, 2
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %11, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %28 = load i32, ptr %27, align 4, !tbaa !120
   store i32 %28, ptr %4, align 4, !tbaa !37
   %29 = icmp ugt i32 %20, 4
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %11, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %32 = load i32, ptr %31, align 4, !tbaa !121
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %32, ptr %33, align 4, !tbaa !38
   br label %34
 
@@ -4538,7 +4538,7 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
   %55 = shl i32 %54, 1
   %56 = add i32 %55, 2
   tail call fastcc void @_time_add(ptr noundef nonnull %0, i32 noundef %56, i32 noundef 6)
-  %57 = getelementptr inbounds i8, ptr %0, i64 12
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !38
   %59 = icmp slt i32 %58, 0
   br i1 %59, label %60, label %.loopexit
@@ -4551,7 +4551,7 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
   %62 = sub nsw i32 %1, %10
   %63 = sdiv i32 %62, 5
   %64 = add nsw i32 %63, 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %66 = icmp slt i32 %62, -9
   %67 = select i1 %66, i32 0, i32 %64
   store i32 %67, ptr %65, align 4
@@ -4562,7 +4562,7 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
   %70 = mul i32 %69, 3
   %71 = add i32 %70, 3
   tail call fastcc void @_time_add(ptr noundef nonnull %0, i32 noundef %71, i32 noundef 8)
-  %72 = getelementptr inbounds i8, ptr %0, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i32, ptr %72, align 4, !tbaa !39
   %74 = icmp slt i32 %73, 0
   br i1 %74, label %75, label %.loopexit
@@ -4576,7 +4576,7 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
   %78 = sdiv i32 %77, 2
   %79 = add nsw i32 %78, 1
   tail call fastcc void @_time_add(ptr noundef nonnull %0, i32 noundef %79, i32 noundef 8)
-  %80 = getelementptr inbounds i8, ptr %0, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load i32, ptr %80, align 4, !tbaa !39
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %.loopexit
@@ -4587,7 +4587,7 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
 
 84:                                               ; preds = %.preheader
   %85 = add i32 %14, 2
-  %86 = getelementptr inbounds i8, ptr %9, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !24
   %88 = icmp eq ptr %87, null
   br i1 %88, label %.loopexit, label %.preheader
@@ -4616,7 +4616,7 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   br label %112
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !36
   %9 = add nsw i32 %8, -1
   %10 = sdiv i32 %9, 4
@@ -4628,14 +4628,14 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   br label %112
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !36
   %19 = load i32, ptr %0, align 8, !tbaa !35
   %20 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.24, i32 noundef %18, i32 noundef %19) #17
   br label %112
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !37
   %24 = freeze i32 %23
   %25 = add i32 %24, -1
@@ -4644,7 +4644,7 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   %28 = add nsw i32 %27, 1
   %29 = add nsw i32 %27, 10
   %30 = icmp eq i32 %29, 30
-  %31 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !36
   br i1 %30, label %33, label %46
 
@@ -4685,9 +4685,9 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   br label %112
 
 52:                                               ; preds = %2
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load i32, ptr %53, align 8, !tbaa !37
-  %55 = getelementptr inbounds i8, ptr %0, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %56 = load i32, ptr %55, align 4, !tbaa !36
   %57 = load i32, ptr %0, align 8, !tbaa !35
   %58 = srem i32 %57, 100
@@ -4695,13 +4695,13 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   br label %112
 
 60:                                               ; preds = %2
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !37
-  %63 = getelementptr inbounds i8, ptr %0, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !36
   %65 = load i32, ptr %0, align 8, !tbaa !35
   %66 = srem i32 %65, 100
-  %67 = getelementptr inbounds i8, ptr %0, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %68 = load i32, ptr %67, align 4, !tbaa !38
   %69 = freeze i32 %68
   %70 = srem i32 %69, 6
@@ -4711,27 +4711,27 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   br label %112
 
 74:                                               ; preds = %2
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !37
-  %77 = getelementptr inbounds i8, ptr %0, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !36
   %79 = load i32, ptr %0, align 8, !tbaa !35
   %80 = srem i32 %79, 100
-  %81 = getelementptr inbounds i8, ptr %0, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %82 = load i32, ptr %81, align 4, !tbaa !38
   %83 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, i32 noundef %76, i32 noundef %78, i32 noundef %80, i32 noundef %82) #17
   br label %112
 
 84:                                               ; preds = %2
-  %85 = getelementptr inbounds i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !37
-  %87 = getelementptr inbounds i8, ptr %0, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !36
   %89 = load i32, ptr %0, align 8, !tbaa !35
   %90 = srem i32 %89, 100
-  %91 = getelementptr inbounds i8, ptr %0, i64 12
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %92 = load i32, ptr %91, align 4, !tbaa !38
-  %93 = getelementptr inbounds i8, ptr %0, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = load i32, ptr %93, align 8, !tbaa !39
   %95 = freeze i32 %94
   %96 = srem i32 %95, 10
@@ -4741,15 +4741,15 @@ define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef re
   br label %112
 
 100:                                              ; preds = %2
-  %101 = getelementptr inbounds i8, ptr %0, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load i32, ptr %101, align 8, !tbaa !37
-  %103 = getelementptr inbounds i8, ptr %0, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %104 = load i32, ptr %103, align 4, !tbaa !36
   %105 = load i32, ptr %0, align 8, !tbaa !35
   %106 = srem i32 %105, 100
-  %107 = getelementptr inbounds i8, ptr %0, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %108 = load i32, ptr %107, align 4, !tbaa !38
-  %109 = getelementptr inbounds i8, ptr %0, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %110 = load i32, ptr %109, align 8, !tbaa !39
   %111 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.30, i32 noundef %102, i32 noundef %104, i32 noundef %106, i32 noundef %108, i32 noundef %110) #17
   br label %112
@@ -4834,25 +4834,25 @@ define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %
 
 34:                                               ; preds = %32, %2
   %35 = phi i32 [ %33, %32 ], [ 0, %2 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %37 = load i32, ptr %36, align 8, !tbaa !69
-  %38 = getelementptr inbounds i8, ptr %0, i64 140
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %39 = load i32, ptr %38, align 4, !tbaa !70
   %40 = icmp eq i32 %37, %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 148
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 148
   br i1 %40, label %42, label %62
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %0, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %44 = load i32, ptr %43, align 8, !tbaa !26
   %45 = add i32 %44, 1
   %46 = and i32 %45, -2
   %.sroa.019.0.copyload = load i32, ptr %41, align 4, !tbaa !25
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 156
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 156
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !25
   switch i32 %46, label %55 [
     i32 -2, label %47
@@ -4878,7 +4878,7 @@ define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %
   br label %_time_format_for_collect.exit
 
 55:                                               ; preds = %42
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !25
   %56 = icmp eq i32 %46, 6
   call void @llvm.assume(i1 %56)
@@ -4894,23 +4894,23 @@ _time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, 
 
 62:                                               ; preds = %34
   %.sroa.037.0.copyload = load i32, ptr %41, align 4, !tbaa !25
-  %.sroa.539.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.539.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.sroa.539.0.copyload = load i32, ptr %.sroa.539.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.642.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 156
+  %.sroa.642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 156
   %.sroa.642.0.copyload = load i32, ptr %.sroa.642.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.745.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 160
+  %.sroa.745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.sroa.745.0.copyload = load i32, ptr %.sroa.745.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.848.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
+  %.sroa.848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.sroa.848.0.copyload = load i32, ptr %.sroa.848.0..sroa_idx, align 4, !tbaa !25
-  %63 = getelementptr inbounds i8, ptr %0, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %.sroa.068.0.copyload = load i32, ptr %63, align 8, !tbaa !25
-  %.sroa.570.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 180
+  %.sroa.570.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 180
   %.sroa.570.0.copyload = load i32, ptr %.sroa.570.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.673.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
+  %.sroa.673.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 184
   %.sroa.673.0.copyload = load i32, ptr %.sroa.673.0..sroa_idx, align 8, !tbaa !25
-  %.sroa.776.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 188
+  %.sroa.776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 188
   %.sroa.776.0.copyload = load i32, ptr %.sroa.776.0..sroa_idx, align 4, !tbaa !25
-  %.sroa.879.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 192
+  %.sroa.879.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 192
   %.sroa.879.0.copyload = load i32, ptr %.sroa.879.0..sroa_idx, align 8, !tbaa !25
   %64 = icmp sgt i32 %37, %39
   br i1 %64, label %65, label %66
@@ -4929,7 +4929,7 @@ _time_format_for_collect.exit:                    ; preds = %47, %49, %51, %53, 
   %.sroa.673.0 = phi i32 [ %.sroa.642.0.copyload, %65 ], [ %.sroa.673.0.copyload, %62 ]
   %.sroa.776.0 = phi i32 [ %.sroa.745.0.copyload, %65 ], [ %.sroa.776.0.copyload, %62 ]
   %.sroa.879.0 = phi i32 [ %.sroa.848.0.copyload, %65 ], [ %.sroa.879.0.copyload, %62 ]
-  %67 = getelementptr inbounds i8, ptr %0, i64 128
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %68 = load i32, ptr %67, align 8, !tbaa !26
   %69 = add i32 %68, 1
   %70 = and i32 %69, -2
@@ -5071,54 +5071,54 @@ declare i32 @dt_gui_get_scroll_unit_delta(ptr noundef, ptr noundef) local_unname
 define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture noundef readonly %0) #1 {
   %2 = alloca %struct.dt_datetime_t, align 4
   %3 = alloca %struct.dt_datetime_t, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 280
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %5, i64 220
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 220
   %7 = load i32, ptr %6, align 4, !tbaa !88
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 216
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 0, ptr %10, align 8, !tbaa !110
   br label %74
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %5, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %13 = load i32, ptr %12, align 8, !tbaa !89
   %14 = icmp slt i32 %13, 10
   br i1 %14, label %22, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %5, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %17 = load i32, ptr %16, align 8, !tbaa !34
   %18 = add nsw i32 %17, -10
   %19 = icmp sgt i32 %13, %18
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %5, i64 216
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 0, ptr %21, align 8, !tbaa !110
   br label %74
 
 22:                                               ; preds = %15, %11
   %23 = phi i32 [ 1, %15 ], [ -1, %11 ]
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %2)
-  %24 = getelementptr inbounds i8, ptr %5, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(28) %24, i64 28, i1 false), !tbaa.struct !32
-  %25 = getelementptr inbounds i8, ptr %5, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %26 = load i32, ptr %25, align 8, !tbaa !26
   tail call fastcc void @_time_add(ptr noundef nonnull %24, i32 noundef %23, i32 noundef %26)
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #17
   call fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nonnull writable align 4 %3, ptr noundef nonnull byval(%struct.dt_datetime_t) align 8 %24, ptr noundef nonnull %5)
   %27 = load i32, ptr %24, align 1
-  %28 = getelementptr inbounds i8, ptr %5, i64 60
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %29 = load i32, ptr %28, align 1
-  %30 = getelementptr inbounds i8, ptr %5, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %31 = load i32, ptr %30, align 1
-  %32 = getelementptr inbounds i8, ptr %5, i64 68
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %33 = load i32, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %5, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %35 = load i32, ptr %34, align 1
   %36 = load i32, ptr %3, align 8, !tbaa !35
   %37 = icmp eq i32 %36, %27
@@ -5129,7 +5129,7 @@ define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture nou
   br label %62
 
 40:                                               ; preds = %22
-  %41 = getelementptr inbounds i8, ptr %3, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !36
   %43 = icmp eq i32 %42, %29
   br i1 %43, label %46, label %44
@@ -5139,7 +5139,7 @@ define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture nou
   br label %62
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %3, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !37
   %49 = icmp eq i32 %48, %31
   br i1 %49, label %52, label %50
@@ -5149,7 +5149,7 @@ define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture nou
   br label %62
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %3, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %54 = load i32, ptr %53, align 4, !tbaa !38
   %55 = icmp eq i32 %54, %33
   br i1 %55, label %58, label %56
@@ -5159,7 +5159,7 @@ define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture nou
   br label %62
 
 58:                                               ; preds = %52
-  %59 = getelementptr inbounds i8, ptr %3, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !39
   %61 = sub nsw i32 %60, %35
   br label %62
@@ -5171,16 +5171,16 @@ define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture nou
 
 65:                                               ; preds = %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %24, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false), !tbaa.struct !32
-  %66 = getelementptr inbounds i8, ptr %5, i64 216
+  %66 = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 0, ptr %66, align 8, !tbaa !110
   br label %72
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %5, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %69 = load ptr, ptr %68, align 8, !tbaa !33
   tail call void @cairo_surface_destroy(ptr noundef %69) #17
   store ptr null, ptr %68, align 8, !tbaa !33
-  %70 = getelementptr inbounds i8, ptr %5, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %71 = load ptr, ptr %70, align 8, !tbaa !42
   tail call void @gtk_widget_queue_draw(ptr noundef %71) #17
   br label %72

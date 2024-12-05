@@ -235,7 +235,7 @@ switch.early.test:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.early.test
   %10 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.get_optommp_message_len, i64 0, i64 %10
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table.get_optommp_message_len, i64 0, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.fold.split
 
@@ -267,7 +267,7 @@ switch.lookup:                                    ; preds = %switch.early.test
 define internal i32 @dissect_optommp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.22) #2
   %9 = load ptr, ptr %7, align 8

@@ -76,7 +76,7 @@ define void @ompi_pack_external_f(ptr noundef %0, ptr noundef %1, ptr nocapture 
 28:                                               ; preds = %26, %.lr.ph.i
   %29 = phi i8 [ %22, %.lr.ph.i ], [ %.pre.i.i, %26 ]
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   %33 = trunc i8 %29 to i1
   br i1 %33, label %34, label %opal_pointer_array_get_item.exit.i
@@ -88,13 +88,13 @@ define void @ompi_pack_external_f(ptr noundef %0, ptr noundef %1, ptr nocapture 
 
 opal_pointer_array_get_item.exit.i:               ; preds = %34, %28
   %36 = phi i8 [ %29, %28 ], [ %.pre.i, %34 ]
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %13
   br i1 %39, label %40, label %18
 
 40:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %41 = getelementptr inbounds i8, ptr %32, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %42 = load i32, ptr %41, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

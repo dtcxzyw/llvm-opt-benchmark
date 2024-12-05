@@ -121,12 +121,12 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %9 = alloca i32, align 4
   tail call void @ata_eh_autopsy(ptr noundef %0) #9
   tail call void @ata_eh_report(ptr noundef %0) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 60, ptr nonnull %7) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %7, i8 0, i64 60, i1 false), !annotation !5
-  %12 = getelementptr inbounds i8, ptr %0, i64 8256
-  %13 = getelementptr inbounds i8, ptr %0, i64 9408
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8256
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 9408
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
   store i32 0, ptr %9, align 4, !annotation !5
@@ -140,65 +140,65 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   br label %16
 
 16:                                               ; preds = %.loopexit53, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 14728
-  %18 = getelementptr inbounds i8, ptr %11, i64 120
-  %19 = getelementptr inbounds i8, ptr %11, i64 128
-  %20 = getelementptr inbounds i8, ptr %11, i64 136
-  %21 = getelementptr inbounds i8, ptr %11, i64 144
-  %22 = getelementptr inbounds i8, ptr %0, i64 10208
-  %23 = getelementptr inbounds i8, ptr %0, i64 9424
-  %24 = getelementptr inbounds i8, ptr %0, i64 9344
-  %25 = getelementptr inbounds i8, ptr %0, i64 9168
-  %26 = getelementptr inbounds i8, ptr %0, i64 8264
-  %27 = getelementptr inbounds i8, ptr %0, i64 10304
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 14728
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %11, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 10208
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 9424
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 9344
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 9168
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8264
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 10304
   %28 = getelementptr i8, ptr %0, i64 10312
-  %29 = getelementptr inbounds i8, ptr %0, i64 9416
-  %30 = getelementptr inbounds i8, ptr %6, i64 9
-  %31 = getelementptr inbounds i8, ptr %6, i64 20
-  %32 = getelementptr inbounds i8, ptr %6, i64 21
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
-  %34 = getelementptr inbounds i8, ptr %6, i64 15
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 9184
-  %37 = getelementptr inbounds i8, ptr %0, i64 9180
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 9416
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 9
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 21
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 9184
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 9180
   %38 = getelementptr i8, ptr %0, i64 10688
-  %39 = getelementptr inbounds i8, ptr %5, i64 9
-  %40 = getelementptr inbounds i8, ptr %5, i64 20
-  %41 = getelementptr inbounds i8, ptr %5, i64 21
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
-  %43 = getelementptr inbounds i8, ptr %5, i64 15
-  %44 = getelementptr inbounds i8, ptr %5, i64 16
-  %45 = getelementptr inbounds i8, ptr %5, i64 17
-  %46 = getelementptr inbounds i8, ptr %5, i64 18
-  %47 = getelementptr inbounds i8, ptr %5, i64 19
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  %49 = getelementptr inbounds i8, ptr %11, i64 152
-  %50 = getelementptr inbounds i8, ptr %11, i64 160
-  %51 = getelementptr inbounds i8, ptr %11, i64 168
-  %52 = getelementptr inbounds i8, ptr %11, i64 176
-  %53 = getelementptr inbounds i8, ptr %4, i64 9
-  %54 = getelementptr inbounds i8, ptr %4, i64 20
-  %55 = getelementptr inbounds i8, ptr %4, i64 21
-  %56 = getelementptr inbounds i8, ptr %4, i64 8
-  %57 = getelementptr inbounds i8, ptr %4, i64 15
-  %58 = getelementptr inbounds i8, ptr %4, i64 16
-  %59 = getelementptr inbounds i8, ptr %4, i64 17
-  %60 = getelementptr inbounds i8, ptr %4, i64 18
-  %61 = getelementptr inbounds i8, ptr %4, i64 19
-  %62 = getelementptr inbounds i8, ptr %3, i64 9
-  %63 = getelementptr inbounds i8, ptr %3, i64 20
-  %64 = getelementptr inbounds i8, ptr %3, i64 21
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
-  %66 = getelementptr inbounds i8, ptr %3, i64 15
-  %67 = getelementptr inbounds i8, ptr %3, i64 16
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
-  %69 = getelementptr inbounds i8, ptr %0, i64 36
-  %70 = getelementptr inbounds i8, ptr %2, i64 9
-  %71 = getelementptr inbounds i8, ptr %2, i64 21
-  %72 = getelementptr inbounds i8, ptr %2, i64 8
-  %73 = getelementptr inbounds i8, ptr %2, i64 15
-  %74 = getelementptr inbounds i8, ptr %2, i64 20
-  %75 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 9
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 21
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 15
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 18
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 19
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 152
+  %50 = getelementptr inbounds nuw i8, ptr %11, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %11, i64 168
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 176
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 21
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 15
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 19
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 21
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 15
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 21
+  %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %76
 
 76:                                               ; preds = %594, %16
@@ -207,7 +207,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 .preheader52:                                     ; preds = %1, %.preheader52
   %78 = phi ptr [ %83, %.preheader52 ], [ %14, %1 ]
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
   %82 = getelementptr [15 x i32], ptr %7, i64 0, i64 %81
@@ -231,14 +231,14 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   br i1 %94, label %101, label %95
 
 95:                                               ; preds = %88
-  %96 = call ptr @ata_dev_next(ptr noundef null, ptr noundef %12, i32 noundef 2) #9
+  %96 = call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %12, i32 noundef 2) #9
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.thread38, label %.preheader
 
 .preheader:                                       ; preds = %95, %.preheader
   %98 = phi ptr [ %99, %.preheader ], [ %96, %95 ]
   call void @ata_dev_disable(ptr noundef nonnull %98) #9
-  %99 = call ptr @ata_dev_next(ptr noundef nonnull %98, ptr noundef %12, i32 noundef 2) #9
+  %99 = call ptr @ata_dev_next(ptr noundef nonnull %98, ptr noundef nonnull %12, i32 noundef 2) #9
   %100 = icmp eq ptr %99, null
   br i1 %100, label %.thread38, label %.preheader, !llvm.loop !9
 
@@ -255,7 +255,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 .preheader43:                                     ; preds = %104, %.preheader43
   %107 = phi ptr [ %112, %.preheader43 ], [ %105, %104 ]
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i32, ptr %108, align 8
   %110 = sext i32 %109 to i64
   %111 = getelementptr [15 x i32], ptr %7, i64 0, i64 %110
@@ -282,7 +282,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   br label %.preheader41
 
 .thread36:                                        ; preds = %.loopexit44
-  call fastcc void @sata_pmp_detach(ptr noundef %13)
+  call fastcc void @sata_pmp_detach(ptr noundef nonnull %13)
   br label %339
 
 .preheader41:                                     ; preds = %.preheader41.preheader, %321
@@ -294,32 +294,32 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   br i1 %123, label %.thread28, label %127
 
 127:                                              ; preds = %.preheader41
-  %128 = call i32 @ata_eh_reset(ptr noundef %12, i32 noundef 0, ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117) #9
+  %128 = call i32 @ata_eh_reset(ptr noundef nonnull %12, i32 noundef 0, ptr noundef %114, ptr noundef %115, ptr noundef %116, ptr noundef %117) #9
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %148, label %130
 
 130:                                              ; preds = %127
   %131 = load ptr, ptr %12, align 64
-  %132 = getelementptr inbounds i8, ptr %131, i64 14728
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 14728
   %133 = load i32, ptr %132, align 8
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %135, label %139
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %131, i64 14720
+  %136 = getelementptr inbounds nuw i8, ptr %131, i64 14720
   %137 = load ptr, ptr %136, align 64
   %138 = icmp eq ptr %137, null
   br i1 %138, label %144, label %139
 
 139:                                              ; preds = %135, %130
-  %140 = getelementptr inbounds i8, ptr %131, i64 36
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 36
   %141 = load i32, ptr %140, align 4
   %142 = load i32, ptr %26, align 8
   %143 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.32, i32 noundef %141, i32 noundef %142) #10
   br label %.thread
 
 144:                                              ; preds = %135
-  %145 = getelementptr inbounds i8, ptr %131, i64 36
+  %145 = getelementptr inbounds nuw i8, ptr %131, i64 36
   %146 = load i32, ptr %145, align 4
   %147 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.33, i32 noundef %146) #10
   br label %.thread
@@ -331,11 +331,11 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
 
 .preheader39:                                     ; preds = %148, %.preheader39
   %151 = phi ptr [ %158, %.preheader39 ], [ %149, %148 ]
-  %152 = getelementptr inbounds i8, ptr %151, i64 928
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 928
   %153 = load i32, ptr %152, align 8
   %154 = or i32 %153, 3
   store i32 %154, ptr %152, align 8
-  %155 = getelementptr inbounds i8, ptr %151, i64 912
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 912
   %156 = load i32, ptr %155, align 8
   %157 = or i32 %156, 6
   store i32 %157, ptr %155, align 8
@@ -353,7 +353,7 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %164 = load i32, ptr %24, align 8
   %165 = load ptr, ptr %13, align 64
   %166 = load ptr, ptr %165, align 64
-  %167 = getelementptr inbounds i8, ptr %166, i64 15936
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 15936
   call void @ata_eh_about_to_do(ptr noundef %165, ptr noundef null, i32 noundef 1) #9
   %168 = load i32, ptr %22, align 32
   switch i32 %168, label %297 [
@@ -388,15 +388,15 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   %178 = load i32, ptr %177, align 4
   %179 = load ptr, ptr %13, align 64
   %180 = load ptr, ptr %179, align 64
-  %181 = getelementptr inbounds i8, ptr %180, i64 9408
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %182 = load ptr, ptr %181, align 64
   %183 = load ptr, ptr %182, align 64
-  %184 = getelementptr inbounds i8, ptr %183, i64 168
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 168
   %185 = load i8, ptr %184, align 8
   store i8 %185, ptr %70, align 1
-  %186 = getelementptr inbounds i8, ptr %180, i64 9416
+  %186 = getelementptr inbounds nuw i8, ptr %180, i64 9416
   %187 = load i32, ptr %186, align 8
   %188 = icmp eq i32 %187, 0
   %..i = select i1 %188, i8 -96, i8 -80
@@ -406,11 +406,11 @@ define dso_local void @sata_pmp_error_handler(ptr noundef %0) #1 align 16 {
   store i64 7, ptr %2, align 8
   %189 = trunc i32 %178 to i8
   store i8 %189, ptr %73, align 1
-  %190 = getelementptr inbounds i8, ptr %179, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %191 = load i32, ptr %190, align 8
   %192 = trunc i32 %191 to i8
   store i8 %192, ptr %74, align 4
-  %193 = call i32 @ata_exec_internal(ptr noundef %181, ptr noundef nonnull %2, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %193 = call i32 @ata_exec_internal(ptr noundef nonnull %181, ptr noundef nonnull %2, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %170, label %sata_pmp_read_gscr.exit
 
@@ -418,9 +418,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
   %195 = load ptr, ptr %13, align 64
   %196 = load ptr, ptr %195, align 64
-  %197 = getelementptr inbounds i8, ptr %196, i64 36
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 36
   %198 = load i32, ptr %197, align 4
-  %199 = getelementptr inbounds i8, ptr %195, i64 8
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %200 = load i32, ptr %199, align 8
   %201 = load i32, ptr %29, align 8
   %202 = add i32 %201, %200
@@ -443,9 +443,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 215:                                              ; preds = %204
   %216 = load ptr, ptr %13, align 64
   %217 = load ptr, ptr %216, align 64
-  %218 = getelementptr inbounds i8, ptr %217, i64 36
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 36
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %216, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %221 = load i32, ptr %220, align 8
   %222 = load i32, ptr %29, align 8
   %223 = add i32 %222, %221
@@ -461,9 +461,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 229:                                              ; preds = %225
   %230 = load ptr, ptr %13, align 64
   %231 = load ptr, ptr %230, align 64
-  %232 = getelementptr inbounds i8, ptr %231, i64 36
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 36
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %230, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %235 = load i32, ptr %234, align 8
   %236 = load i32, ptr %29, align 8
   %237 = add i32 %236, %235
@@ -477,9 +477,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 241:                                              ; preds = %239
   %242 = load ptr, ptr %13, align 64
   %243 = load ptr, ptr %242, align 64
-  %244 = getelementptr inbounds i8, ptr %243, i64 36
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 36
   %245 = load i32, ptr %244, align 4
-  %246 = getelementptr inbounds i8, ptr %242, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %247 = load i32, ptr %246, align 8
   %248 = load i32, ptr %29, align 8
   %249 = add i32 %248, %247
@@ -487,8 +487,8 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br label %297
 
 251:                                              ; preds = %239
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 64 dereferenceable(512) %27, ptr noundef align 4 dereferenceable(512) %167, i64 512, i1 false)
-  %252 = call fastcc i32 @sata_pmp_configure(ptr noundef %13, i32 noundef 0)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(512) %27, ptr noundef nonnull align 4 dereferenceable(512) %167, i64 512, i1 false)
+  %252 = call fastcc i32 @sata_pmp_configure(ptr noundef nonnull %13, i32 noundef 0)
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %297
 
@@ -499,15 +499,15 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 255:                                              ; preds = %.thread28
   %256 = load ptr, ptr %13, align 64
   %257 = load ptr, ptr %256, align 64
-  %258 = getelementptr inbounds i8, ptr %257, i64 9408
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
   %259 = load ptr, ptr %258, align 64
   %260 = load ptr, ptr %259, align 64
-  %261 = getelementptr inbounds i8, ptr %260, i64 168
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 168
   %262 = load i8, ptr %261, align 8
   store i8 %262, ptr %30, align 1
-  %263 = getelementptr inbounds i8, ptr %257, i64 9416
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 9416
   %264 = load i32, ptr %263, align 8
   %265 = icmp eq i32 %264, 0
   %266 = select i1 %265, i8 -96, i8 -80
@@ -516,11 +516,11 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   store i8 0, ptr %33, align 8
   store i64 7, ptr %6, align 8
   store i8 0, ptr %34, align 1
-  %267 = getelementptr inbounds i8, ptr %256, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %268 = load i32, ptr %267, align 8
   %269 = trunc i32 %268 to i8
   store i8 %269, ptr %31, align 4
-  %270 = call i32 @ata_exec_internal(ptr noundef %258, ptr noundef nonnull %6, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %270 = call i32 @ata_exec_internal(ptr noundef nonnull %258, ptr noundef nonnull %6, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   %271 = icmp eq i32 %270, 0
   br i1 %271, label %282, label %272
 
@@ -528,9 +528,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #9
   %273 = load ptr, ptr %13, align 64
   %274 = load ptr, ptr %273, align 64
-  %275 = getelementptr inbounds i8, ptr %274, i64 36
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 36
   %276 = load i32, ptr %275, align 4
-  %277 = getelementptr inbounds i8, ptr %273, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %278 = load i32, ptr %277, align 8
   %279 = load i32, ptr %29, align 8
   %280 = add i32 %279, %278
@@ -547,9 +547,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 286:                                              ; preds = %282
   %287 = load ptr, ptr %13, align 64
   %288 = load ptr, ptr %287, align 64
-  %289 = getelementptr inbounds i8, ptr %288, i64 36
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 36
   %290 = load i32, ptr %289, align 4
-  %291 = getelementptr inbounds i8, ptr %287, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %292 = load i32, ptr %291, align 8
   %293 = load i32, ptr %29, align 8
   %294 = add i32 %293, %292
@@ -564,9 +564,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %298 = phi i32 [ -5, %sata_pmp_read_gscr.exit ], [ %252, %251 ], [ -19, %241 ], [ -19, %229 ], [ -19, %215 ], [ -19, %163 ], [ -19, %169 ], [ -19, %169 ], [ -19, %169 ], [ -19, %169 ]
   %299 = load ptr, ptr %13, align 64
   %300 = load ptr, ptr %299, align 64
-  %301 = getelementptr inbounds i8, ptr %300, i64 36
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 36
   %302 = load i32, ptr %301, align 4
-  %303 = getelementptr inbounds i8, ptr %299, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %299, i64 8
   %304 = load i32, ptr %303, align 8
   %305 = load i32, ptr %29, align 8
   %306 = add i32 %305, %304
@@ -592,7 +592,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br i1 %124, label %321, label %319
 
 319:                                              ; preds = %318
-  %320 = call i32 @sata_down_spd_limit(ptr noundef %12, i32 noundef 0) #9
+  %320 = call i32 @sata_down_spd_limit(ptr noundef nonnull %12, i32 noundef 0) #9
   br label %321
 
 321:                                              ; preds = %319, %318
@@ -604,9 +604,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 324:                                              ; preds = %314
   %325 = load ptr, ptr %13, align 64
   %326 = load ptr, ptr %325, align 64
-  %327 = getelementptr inbounds i8, ptr %326, i64 36
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 36
   %328 = load i32, ptr %327, align 4
-  %329 = getelementptr inbounds i8, ptr %325, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %330 = load i32, ptr %329, align 8
   %331 = load i32, ptr %29, align 8
   %332 = add i32 %331, %330
@@ -622,28 +622,28 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 .thread:                                          ; preds = %139, %144, %324
   %337 = phi i32 [ %315, %324 ], [ %125, %144 ], [ %125, %139 ]
-  call fastcc void @sata_pmp_detach(ptr noundef %13)
+  call fastcc void @sata_pmp_detach(ptr noundef nonnull %13)
   %338 = icmp eq i32 %337, 0
   br i1 %338, label %340, label %339
 
 339:                                              ; preds = %.thread36, %.thread
-  call void @ata_eh_detach_dev(ptr noundef %13) #9
+  call void @ata_eh_detach_dev(ptr noundef nonnull %13) #9
   br label %.loopexit50
 
 340:                                              ; preds = %.thread
-  call void @ata_dev_disable(ptr noundef %13) #9
+  call void @ata_dev_disable(ptr noundef nonnull %13) #9
   br label %.loopexit50
 
 341:                                              ; preds = %.loopexit42
   %342 = and i32 %334, -9
   store i32 %342, ptr %38, align 4
   %343 = load ptr, ptr %12, align 64
-  %344 = getelementptr inbounds i8, ptr %343, i64 9408
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %345 = load ptr, ptr %344, align 64
   %346 = load ptr, ptr %345, align 64
-  %347 = getelementptr inbounds i8, ptr %346, i64 168
+  %347 = getelementptr inbounds nuw i8, ptr %346, i64 168
   %348 = load i8, ptr %347, align 8
   store i8 %348, ptr %39, align 1
   store i8 -24, ptr %41, align 1
@@ -664,33 +664,33 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %356 = lshr i32 %334, 24
   %357 = trunc nuw i32 %356 to i8
   store i8 %357, ptr %47, align 1
-  %358 = call i32 @ata_exec_internal(ptr noundef %344, ptr noundef nonnull %5, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %358 = call i32 @ata_exec_internal(ptr noundef nonnull %344, ptr noundef nonnull %5, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
   %359 = icmp eq i32 %358, 0
   br i1 %359, label %378, label %360
 
 360:                                              ; preds = %341
   %361 = load ptr, ptr %12, align 64
-  %362 = getelementptr inbounds i8, ptr %361, i64 14728
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 14728
   %363 = load i32, ptr %362, align 8
   %364 = icmp eq i32 %363, 0
   br i1 %364, label %365, label %369
 
 365:                                              ; preds = %360
-  %366 = getelementptr inbounds i8, ptr %361, i64 14720
+  %366 = getelementptr inbounds nuw i8, ptr %361, i64 14720
   %367 = load ptr, ptr %366, align 64
   %368 = icmp eq ptr %367, null
   br i1 %368, label %374, label %369
 
 369:                                              ; preds = %365, %360
-  %370 = getelementptr inbounds i8, ptr %361, i64 36
+  %370 = getelementptr inbounds nuw i8, ptr %361, i64 36
   %371 = load i32, ptr %370, align 4
   %372 = load i32, ptr %26, align 8
   %373 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %371, i32 noundef %372, i32 noundef %358) #10
   br label %.loopexit50
 
 374:                                              ; preds = %365
-  %375 = getelementptr inbounds i8, ptr %361, i64 36
+  %375 = getelementptr inbounds nuw i8, ptr %361, i64 36
   %376 = load i32, ptr %375, align 4
   %377 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, i32 noundef %376, i32 noundef %358) #10
   br label %.loopexit50
@@ -705,7 +705,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 .preheader40:                                     ; preds = %378, %418
   %383 = phi ptr [ %420, %418 ], [ %381, %378 ]
   %384 = phi i64 [ %419, %418 ], [ %380, %378 ]
-  %385 = getelementptr inbounds i8, ptr %383, i64 752
+  %385 = getelementptr inbounds nuw i8, ptr %383, i64 752
   %386 = load i32, ptr %385, align 16
   %387 = and i32 %386, 64
   %388 = icmp eq i32 %387, 0
@@ -723,27 +723,27 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 396:                                              ; preds = %389
   %397 = load ptr, ptr %383, align 64
-  %398 = getelementptr inbounds i8, ptr %397, i64 14728
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 14728
   %399 = load i32, ptr %398, align 8
   %400 = icmp eq i32 %399, 0
   br i1 %400, label %401, label %405
 
 401:                                              ; preds = %396
-  %402 = getelementptr inbounds i8, ptr %397, i64 14720
+  %402 = getelementptr inbounds nuw i8, ptr %397, i64 14720
   %403 = load ptr, ptr %402, align 64
   %404 = icmp eq ptr %403, null
   br i1 %404, label %411, label %405
 
 405:                                              ; preds = %401, %396
-  %406 = getelementptr inbounds i8, ptr %397, i64 36
+  %406 = getelementptr inbounds nuw i8, ptr %397, i64 36
   %407 = load i32, ptr %406, align 4
-  %408 = getelementptr inbounds i8, ptr %383, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %383, i64 8
   %409 = load i32, ptr %408, align 8
   %410 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.41, i32 noundef %407, i32 noundef %409, i32 noundef %394) #10
   br label %.loopexit50
 
 411:                                              ; preds = %401
-  %412 = getelementptr inbounds i8, ptr %397, i64 36
+  %412 = getelementptr inbounds nuw i8, ptr %397, i64 36
   %413 = load i32, ptr %412, align 4
   %414 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.42, i32 noundef %413, i32 noundef %394) #10
   br label %.loopexit50
@@ -772,13 +772,13 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br i1 %429, label %430, label %578
 
 430:                                              ; preds = %.loopexit
-  %431 = call i32 @sata_scr_read(ptr noundef %12, i32 noundef 4, ptr noundef nonnull %9) #9
+  %431 = call i32 @sata_scr_read(ptr noundef nonnull %12, i32 noundef 4, ptr noundef nonnull %9) #9
   %432 = icmp eq i32 %431, 0
   br i1 %432, label %433, label %436
 
 433:                                              ; preds = %430
   %434 = load i32, ptr %9, align 4
-  %435 = call i32 @sata_scr_write(ptr noundef %12, i32 noundef 4, i32 noundef %434) #9
+  %435 = call i32 @sata_scr_write(ptr noundef nonnull %12, i32 noundef 4, i32 noundef %434) #9
   br label %436
 
 436:                                              ; preds = %433, %430
@@ -789,7 +789,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 .preheader46:                                     ; preds = %436, %443
   %439 = phi ptr [ %444, %443 ], [ %437, %436 ]
-  %440 = getelementptr inbounds i8, ptr %439, i64 772
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 772
   %441 = load i32, ptr %440, align 4
   %442 = icmp ugt i32 %441, 1
   br i1 %442, label %.thread38, label %443
@@ -811,12 +811,12 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %451 = or i32 %450, 8
   store i32 %451, ptr %38, align 4
   %452 = load ptr, ptr %12, align 64
-  %453 = getelementptr inbounds i8, ptr %452, i64 9408
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %454 = load ptr, ptr %453, align 64
   %455 = load ptr, ptr %454, align 64
-  %456 = getelementptr inbounds i8, ptr %455, i64 168
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 168
   %457 = load i8, ptr %456, align 8
   store i8 %457, ptr %53, align 1
   store i8 -24, ptr %55, align 1
@@ -837,7 +837,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %465 = lshr i32 %450, 24
   %466 = trunc nuw i32 %465 to i8
   store i8 %466, ptr %61, align 1
-  %467 = call i32 @ata_exec_internal(ptr noundef %453, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %467 = call i32 @ata_exec_internal(ptr noundef nonnull %453, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   %468 = icmp eq i32 %467, 0
   br i1 %468, label %479, label %469
@@ -845,9 +845,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 469:                                              ; preds = %449
   %470 = load ptr, ptr %13, align 64
   %471 = load ptr, ptr %470, align 64
-  %472 = getelementptr inbounds i8, ptr %471, i64 36
+  %472 = getelementptr inbounds nuw i8, ptr %471, i64 36
   %473 = load i32, ptr %472, align 4
-  %474 = getelementptr inbounds i8, ptr %470, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %470, i64 8
   %475 = load i32, ptr %474, align 8
   %476 = load i32, ptr %29, align 8
   %477 = add i32 %476, %475
@@ -856,12 +856,12 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 479:                                              ; preds = %449, %.loopexit48
   %480 = load ptr, ptr %12, align 64
-  %481 = getelementptr inbounds i8, ptr %480, i64 9408
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %482 = load ptr, ptr %481, align 64
   %483 = load ptr, ptr %482, align 64
-  %484 = getelementptr inbounds i8, ptr %483, i64 168
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 168
   %485 = load i8, ptr %484, align 8
   store i8 %485, ptr %62, align 1
   store i8 -28, ptr %64, align 1
@@ -871,7 +871,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   %486 = load i32, ptr %26, align 8
   %487 = trunc i32 %486 to i8
   store i8 %487, ptr %63, align 4
-  %488 = call i32 @ata_exec_internal(ptr noundef %481, ptr noundef nonnull %3, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %488 = call i32 @ata_exec_internal(ptr noundef nonnull %481, ptr noundef nonnull %3, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   %489 = icmp eq i32 %488, 0
   br i1 %489, label %500, label %490
 
@@ -879,9 +879,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   %491 = load ptr, ptr %13, align 64
   %492 = load ptr, ptr %491, align 64
-  %493 = getelementptr inbounds i8, ptr %492, i64 36
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 36
   %494 = load i32, ptr %493, align 4
-  %495 = getelementptr inbounds i8, ptr %491, i64 8
+  %495 = getelementptr inbounds nuw i8, ptr %491, i64 8
   %496 = load i32, ptr %495, align 8
   %497 = load i32, ptr %29, align 8
   %498 = add i32 %497, %496
@@ -899,7 +899,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 .preheader45:                                     ; preds = %500, %568
   %504 = phi i32 [ %569, %568 ], [ 0, %500 ]
   %505 = phi ptr [ %571, %568 ], [ %502, %500 ]
-  %506 = getelementptr inbounds i8, ptr %505, i64 8
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 8
   %507 = load i32, ptr %506, align 8
   %508 = shl nuw i32 1, %507
   %509 = and i32 %508, %501
@@ -913,19 +913,19 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
   br i1 %513, label %529, label %515
 
 515:                                              ; preds = %511
-  %516 = getelementptr inbounds i8, ptr %514, i64 928
+  %516 = getelementptr inbounds nuw i8, ptr %514, i64 928
   %517 = load i32, ptr %516, align 8
   %518 = or i32 %517, 3
   store i32 %518, ptr %516, align 8
-  %519 = getelementptr inbounds i8, ptr %514, i64 924
+  %519 = getelementptr inbounds nuw i8, ptr %514, i64 924
   %520 = load i32, ptr %519, align 4
   %521 = or i32 %520, 1
   store i32 %521, ptr %519, align 4
-  %522 = getelementptr inbounds i8, ptr %514, i64 912
+  %522 = getelementptr inbounds nuw i8, ptr %514, i64 912
   %523 = load i32, ptr %522, align 8
   %524 = or i32 %523, 14
   store i32 %524, ptr %522, align 8
-  %525 = getelementptr inbounds i8, ptr %514, i64 908
+  %525 = getelementptr inbounds nuw i8, ptr %514, i64 908
   %526 = load i32, ptr %525, align 4
   %527 = or i32 %526, 16
   store i32 %527, ptr %525, align 4
@@ -934,27 +934,27 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 529:                                              ; preds = %511
   %530 = load ptr, ptr %514, align 64
-  %531 = getelementptr inbounds i8, ptr %530, i64 14728
+  %531 = getelementptr inbounds nuw i8, ptr %530, i64 14728
   %532 = load i32, ptr %531, align 8
   %533 = icmp eq i32 %532, 0
   br i1 %533, label %534, label %538
 
 534:                                              ; preds = %529
-  %535 = getelementptr inbounds i8, ptr %530, i64 14720
+  %535 = getelementptr inbounds nuw i8, ptr %530, i64 14720
   %536 = load ptr, ptr %535, align 64
   %537 = icmp eq ptr %536, null
   br i1 %537, label %544, label %538
 
 538:                                              ; preds = %534, %529
-  %539 = getelementptr inbounds i8, ptr %530, i64 36
+  %539 = getelementptr inbounds nuw i8, ptr %530, i64 36
   %540 = load i32, ptr %539, align 4
-  %541 = getelementptr inbounds i8, ptr %514, i64 8
+  %541 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %542 = load i32, ptr %541, align 8
   %543 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i32 noundef %540, i32 noundef %542) #10
   br label %548
 
 544:                                              ; preds = %534
-  %545 = getelementptr inbounds i8, ptr %530, i64 36
+  %545 = getelementptr inbounds nuw i8, ptr %530, i64 36
   %546 = load i32, ptr %545, align 4
   %547 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.27, i32 noundef %546) #10
   br label %548
@@ -962,27 +962,27 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 548:                                              ; preds = %544, %538
   %549 = load ptr, ptr %8, align 8
   %550 = load ptr, ptr %549, align 64
-  %551 = getelementptr inbounds i8, ptr %550, i64 14728
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 14728
   %552 = load i32, ptr %551, align 8
   %553 = icmp eq i32 %552, 0
   br i1 %553, label %554, label %558
 
 554:                                              ; preds = %548
-  %555 = getelementptr inbounds i8, ptr %550, i64 14720
+  %555 = getelementptr inbounds nuw i8, ptr %550, i64 14720
   %556 = load ptr, ptr %555, align 64
   %557 = icmp eq ptr %556, null
   br i1 %557, label %564, label %558
 
 558:                                              ; preds = %554, %548
-  %559 = getelementptr inbounds i8, ptr %550, i64 36
+  %559 = getelementptr inbounds nuw i8, ptr %550, i64 36
   %560 = load i32, ptr %559, align 4
-  %561 = getelementptr inbounds i8, ptr %549, i64 8
+  %561 = getelementptr inbounds nuw i8, ptr %549, i64 8
   %562 = load i32, ptr %561, align 8
   %563 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.28, i32 noundef %560, i32 noundef %562) #10
   br label %568
 
 564:                                              ; preds = %554
-  %565 = getelementptr inbounds i8, ptr %550, i64 36
+  %565 = getelementptr inbounds nuw i8, ptr %550, i64 36
   %566 = load i32, ptr %565, align 4
   %567 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.29, i32 noundef %566) #10
   br label %568
@@ -1044,8 +1044,8 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 597:                                              ; preds = %591
   %598 = load i32, ptr %69, align 4
   %599 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.31, i32 noundef %598, i32 noundef 5) #10
-  call fastcc void @sata_pmp_detach(ptr noundef %13)
-  call void @ata_dev_disable(ptr noundef %13) #9
+  call fastcc void @sata_pmp_detach(ptr noundef nonnull %13)
+  call void @ata_dev_disable(ptr noundef nonnull %13) #9
   br label %.thread38
 
 .thread38:                                        ; preds = %500, %.loopexit50, %573, %101, %.preheader46, %.preheader, %597, %95
@@ -1058,11 +1058,11 @@ sata_pmp_read_gscr.exit:                          ; preds = %.thread29
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef %0) #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 64
   %5 = load ptr, ptr %4, align 64
-  %6 = getelementptr inbounds i8, ptr %5, i64 14744
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 14744
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %7, %4
@@ -1070,25 +1070,25 @@ define dso_local i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef %0) #1 align 16 {
   br i1 %10, label %11, label %29
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %5, i64 8232
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8232
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %23, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %4, i64 744
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 744
   %17 = load i32, ptr %16, align 8
   %18 = icmp ult i32 %17, 33
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %4, i64 748
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 748
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %19, %15, %11
-  %24 = getelementptr inbounds i8, ptr %0, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %25 = load i64, ptr %24, align 8
   %26 = or i64 %25, 32
   store i64 %26, ptr %24, align 8
@@ -1121,33 +1121,33 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr nocapture 
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 64
-  %8 = getelementptr inbounds i8, ptr %7, i64 9408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %8, align 64
   %11 = load ptr, ptr %10, align 64
-  %12 = getelementptr inbounds i8, ptr %11, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %13, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 20
-  %16 = getelementptr inbounds i8, ptr %4, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 -28, ptr %16, align 1
   store i64 7, ptr %4, align 8
   %17 = trunc i32 %1 to i8
-  %18 = getelementptr inbounds i8, ptr %4, i64 15
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 %17, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %15, align 4
-  %22 = call i32 @ata_exec_internal(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %22 = call i32 @ata_exec_internal(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %.thread, label %26
 
 .thread:                                          ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load i32, ptr %24, align 8
   store i32 %25, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
@@ -1156,26 +1156,26 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_read(ptr nocapture 
 26:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   %27 = load ptr, ptr %0, align 64
-  %28 = getelementptr inbounds i8, ptr %27, i64 14728
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 14728
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 14720
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 14720
   %33 = load ptr, ptr %32, align 64
   %34 = icmp eq ptr %33, null
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %31, %26
-  %36 = getelementptr inbounds i8, ptr %27, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %37 = load i32, ptr %36, align 4
   %38 = load i32, ptr %19, align 8
   %39 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %37, i32 noundef %38, i32 noundef %1, i32 noundef %22) #10
   br label %44
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %27, i64 36
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 36
   %42 = load i32, ptr %41, align 4
   %43 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, i32 noundef %42, i32 noundef %1, i32 noundef %22) #10
   br label %44
@@ -1196,69 +1196,69 @@ define dso_local noundef range(i32 -22, 1) i32 @sata_pmp_scr_write(ptr nocapture
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 64
-  %8 = getelementptr inbounds i8, ptr %7, i64 9408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 24, i1 false)
   %10 = load ptr, ptr %8, align 64
   %11 = load ptr, ptr %10, align 64
-  %12 = getelementptr inbounds i8, ptr %11, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 168
   %13 = load i8, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 9
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %13, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %4, i64 20
-  %16 = getelementptr inbounds i8, ptr %4, i64 21
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 -24, ptr %16, align 1
   store i64 7, ptr %4, align 8
   %17 = trunc i32 %1 to i8
-  %18 = getelementptr inbounds i8, ptr %4, i64 15
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 %17, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = trunc i32 %20 to i8
   store i8 %21, ptr %15, align 4
   %22 = trunc i32 %2 to i8
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i8 %22, ptr %23, align 8
   %24 = lshr i32 %2, 8
   %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %4, i64 17
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 17
   store i8 %25, ptr %26, align 1
   %27 = lshr i32 %2, 16
   %28 = trunc i32 %27 to i8
-  %29 = getelementptr inbounds i8, ptr %4, i64 18
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 18
   store i8 %28, ptr %29, align 2
   %30 = lshr i32 %2, 24
   %31 = trunc nuw i32 %30 to i8
-  %32 = getelementptr inbounds i8, ptr %4, i64 19
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 19
   store i8 %31, ptr %32, align 1
-  %33 = call i32 @ata_exec_internal(ptr noundef %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %33 = call i32 @ata_exec_internal(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %53, label %35
 
 35:                                               ; preds = %6
   %36 = load ptr, ptr %0, align 64
-  %37 = getelementptr inbounds i8, ptr %36, i64 14728
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 14728
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %36, i64 14720
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 14720
   %42 = load ptr, ptr %41, align 64
   %43 = icmp eq ptr %42, null
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %40, %35
-  %45 = getelementptr inbounds i8, ptr %36, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %46 = load i32, ptr %45, align 4
   %47 = load i32, ptr %19, align 8
   %48 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %46, i32 noundef %47, i32 noundef %1, i32 noundef %33) #10
   br label %53
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %36, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %51 = load i32, ptr %50, align 4
   %52 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %51, i32 noundef %1, i32 noundef %33) #10
   br label %53
@@ -1282,62 +1282,62 @@ define dso_local i32 @sata_pmp_attach(ptr nocapture noundef %0) local_unnamed_ad
   %2 = alloca %struct.ata_taskfile, align 8
   %3 = load ptr, ptr %0, align 64
   %4 = load ptr, ptr %3, align 64
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 524288
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %4, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %15, %13
   %17 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %11, i32 noundef %16) #10
   br label %.loopexit
 
 18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %4, i64 8256
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8256
   %20 = icmp eq ptr %19, %3
   br i1 %20, label %34, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %4, i64 14720
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 14720
   %23 = load ptr, ptr %22, align 64
   %24 = icmp eq ptr %23, %3
   br i1 %24, label %34, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %4, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = add i32 %31, %29
   %33 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.5, i32 noundef %27, i32 noundef %32) #10
   br label %.loopexit
 
 34:                                               ; preds = %21, %18
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %45, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %4, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, %36
   %44 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, i32 noundef %40, i32 noundef %43) #10
   br label %.loopexit
 
 45:                                               ; preds = %34
-  %46 = getelementptr inbounds i8, ptr %3, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %50, label %49, !prof !17
@@ -1350,13 +1350,13 @@ define dso_local i32 @sata_pmp_attach(ptr nocapture noundef %0) local_unnamed_ad
 
 50:                                               ; preds = %49, %45
   store i32 15, ptr %46, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 896
-  %52 = getelementptr inbounds i8, ptr %2, i64 9
-  %53 = getelementptr inbounds i8, ptr %2, i64 21
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 15
-  %56 = getelementptr inbounds i8, ptr %2, i64 20
-  %57 = getelementptr inbounds i8, ptr %2, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 9
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 21
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 15
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %64
 
 58:                                               ; preds = %64
@@ -1375,15 +1375,15 @@ define dso_local i32 @sata_pmp_attach(ptr nocapture noundef %0) local_unnamed_ad
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %0, align 64
   %69 = load ptr, ptr %68, align 64
-  %70 = getelementptr inbounds i8, ptr %69, i64 9408
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %71 = load ptr, ptr %70, align 64
   %72 = load ptr, ptr %71, align 64
-  %73 = getelementptr inbounds i8, ptr %72, i64 168
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 168
   %74 = load i8, ptr %73, align 8
   store i8 %74, ptr %52, align 1
-  %75 = getelementptr inbounds i8, ptr %69, i64 9416
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 9416
   %76 = load i32, ptr %75, align 8
   %77 = icmp eq i32 %76, 0
   %..i = select i1 %77, i8 -96, i8 -80
@@ -1393,11 +1393,11 @@ define dso_local i32 @sata_pmp_attach(ptr nocapture noundef %0) local_unnamed_ad
   store i64 7, ptr %2, align 8
   %78 = trunc i32 %67 to i8
   store i8 %78, ptr %55, align 1
-  %79 = getelementptr inbounds i8, ptr %68, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %80 = load i32, ptr %79, align 8
   %81 = trunc i32 %80 to i8
   store i8 %81, ptr %56, align 4
-  %82 = call i32 @ata_exec_internal(ptr noundef %70, ptr noundef nonnull %2, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %82 = call i32 @ata_exec_internal(ptr noundef nonnull %70, ptr noundef nonnull %2, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %58, label %sata_pmp_read_gscr.exit
 
@@ -1405,9 +1405,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
   %84 = load ptr, ptr %0, align 64
   %85 = load ptr, ptr %84, align 64
-  %86 = getelementptr inbounds i8, ptr %85, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 36
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %89 = load i32, ptr %88, align 8
   %90 = load i32, ptr %35, align 8
   %91 = add i32 %90, %89
@@ -1423,7 +1423,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %97 = getelementptr i8, ptr %0, i64 904
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 15
-  %100 = getelementptr inbounds i8, ptr %4, i64 14736
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 14736
   %101 = load ptr, ptr %100, align 16
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %.loopexit39
@@ -1475,13 +1475,13 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 127:                                              ; preds = %127, %125
   %128 = phi i64 [ 0, %125 ], [ %137, %127 ]
   %129 = getelementptr %struct.ata_link, ptr %123, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 752
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 752
   store i32 0, ptr %130, align 16
-  %131 = getelementptr inbounds i8, ptr %129, i64 928
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 928
   %132 = load i32, ptr %131, align 8
   %133 = or i32 %132, 3
   store i32 %133, ptr %131, align 8
-  %134 = getelementptr inbounds i8, ptr %129, i64 912
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 912
   %135 = load i32, ptr %134, align 8
   %136 = or i32 %135, 6
   store i32 %136, ptr %134, align 8
@@ -1507,9 +1507,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   %144 = phi i32 [ -12, %103 ], [ %115, %.thread19.sink.split ]
   %145 = load ptr, ptr %0, align 64
   %146 = load ptr, ptr %145, align 64
-  %147 = getelementptr inbounds i8, ptr %146, i64 36
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 36
   %148 = load i32, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %145, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %150 = load i32, ptr %149, align 8
   %151 = load i32, ptr %35, align 8
   %152 = add i32 %151, %150
@@ -1517,10 +1517,10 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   br label %267
 
 .thread:                                          ; preds = %127, %.loopexit39
-  %154 = getelementptr inbounds i8, ptr %4, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %155 = load ptr, ptr %154, align 16
   %156 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %155) #9
-  %157 = getelementptr inbounds i8, ptr %4, i64 14728
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 14728
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %161, label %160, !prof !17
@@ -1537,7 +1537,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   store i32 %163, ptr %157, align 8
   %164 = load ptr, ptr %154, align 16
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %164, i64 noundef %156) #9
-  %165 = getelementptr inbounds i8, ptr %4, i64 10304
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 10304
   %166 = load i32, ptr %165, align 4
   %167 = freeze i32 %166
   %168 = lshr i32 %167, 16
@@ -1563,11 +1563,11 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 .preheader34:                                     ; preds = %171, %184
   %174 = phi ptr [ %185, %184 ], [ %172, %171 ]
-  %175 = getelementptr inbounds i8, ptr %174, i64 752
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 752
   %176 = load i32, ptr %175, align 16
   %177 = or i32 %176, 256
   store i32 %177, ptr %175, align 16
-  %178 = getelementptr inbounds i8, ptr %174, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %179 = load i32, ptr %178, align 8
   %180 = icmp slt i32 %179, 5
   br i1 %180, label %.sink.split, label %181
@@ -1594,7 +1594,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 .preheader30:                                     ; preds = %187, %.preheader30
   %190 = phi ptr [ %194, %.preheader30 ], [ %188, %187 ]
-  %191 = getelementptr inbounds i8, ptr %190, i64 752
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 752
   %192 = load i32, ptr %191, align 16
   %193 = or i32 %192, 268
   store i32 %193, ptr %191, align 16
@@ -1609,11 +1609,11 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 .preheader32:                                     ; preds = %196, %209
   %199 = phi ptr [ %210, %209 ], [ %197, %196 ]
-  %200 = getelementptr inbounds i8, ptr %199, i64 752
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 752
   %201 = load i32, ptr %200, align 16
   %202 = or i32 %201, 256
   store i32 %202, ptr %200, align 16
-  %203 = getelementptr inbounds i8, ptr %199, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %204 = load i32, ptr %203, align 8
   %205 = icmp slt i32 %204, 6
   br i1 %205, label %.sink.split72, label %206
@@ -1669,7 +1669,7 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 .preheader36:                                     ; preds = %226, %.preheader36
   %229 = phi ptr [ %233, %.preheader36 ], [ %227, %226 ]
-  %230 = getelementptr inbounds i8, ptr %229, i64 752
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 752
   %231 = load i32, ptr %230, align 16
   %232 = or i32 %231, 268
   store i32 %232, ptr %230, align 16
@@ -1691,13 +1691,13 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
 
 .preheader29:                                     ; preds = %240, %251
   %243 = phi ptr [ %252, %251 ], [ %241, %240 ]
-  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i32, ptr %244, align 8
   %246 = icmp eq i32 %245, 4
   br i1 %246, label %247, label %251
 
 247:                                              ; preds = %.preheader29
-  %248 = getelementptr inbounds i8, ptr %243, i64 752
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 752
   %249 = load i32, ptr %248, align 16
   %250 = or i32 %249, 64
   store i32 %250, ptr %248, align 16
@@ -1709,9 +1709,9 @@ sata_pmp_read_gscr.exit:                          ; preds = %64
   br i1 %253, label %.thread28, label %.preheader29, !llvm.loop !32
 
 .thread28:                                        ; preds = %.preheader36, %209, %.preheader30, %184, %251, %215, %224, %240, %235, %226, %216, %196, %187, %171
-  %254 = getelementptr inbounds i8, ptr %4, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %255 = load ptr, ptr %254, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 240
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 240
   %257 = load ptr, ptr %256, align 8
   %258 = icmp eq ptr %257, null
   br i1 %258, label %260, label %259
@@ -1749,7 +1749,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   %5 = alloca %struct.ata_taskfile, align 8
   %6 = load ptr, ptr %0, align 64
   %7 = load ptr, ptr %6, align 64
-  %8 = getelementptr inbounds i8, ptr %0, i64 896
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 16
   %11 = getelementptr i8, ptr %0, i64 904
@@ -1759,7 +1759,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   br i1 %14, label %146, label %15
 
 15:                                               ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %7, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = and i64 %17, 262144
   %19 = icmp eq i64 %18, 0
@@ -1773,7 +1773,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   br i1 %24, label %29, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 16
   %28 = or i64 %27, 128
   store i64 %28, ptr %26, align 16
@@ -1782,31 +1782,31 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
 
 29:                                               ; preds = %25, %20, %15
   %30 = phi ptr [ %.pre, %25 ], [ %7, %20 ], [ %7, %15 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 9408
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false)
   %33 = load ptr, ptr %31, align 64
   %34 = load ptr, ptr %33, align 64
-  %35 = getelementptr inbounds i8, ptr %34, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 168
   %36 = load i8, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %5, i64 9
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 %36, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %5, i64 20
-  %39 = getelementptr inbounds i8, ptr %5, i64 21
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 21
   store i8 -24, ptr %39, align 1
   store i64 7, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 15
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 15
   store i8 33, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = trunc i32 %42 to i8
   store i8 %43, ptr %38, align 4
-  %44 = getelementptr inbounds i8, ptr %5, i64 17
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 17
   store i8 0, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %5, i64 18
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i8 1, ptr %45, align 2
-  %46 = call i32 @ata_exec_internal(ptr noundef %31, ptr noundef nonnull %5, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %46 = call i32 @ata_exec_internal(ptr noundef nonnull %31, ptr noundef nonnull %5, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #9
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %146
@@ -1824,29 +1824,29 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   ]
 
 53:                                               ; preds = %51, %51
-  %54 = getelementptr inbounds i8, ptr %7, i64 8256
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8256
   %55 = load ptr, ptr %54, align 64
-  %56 = getelementptr inbounds i8, ptr %55, i64 9408
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, i8 0, i64 24, i1 false)
   %58 = load ptr, ptr %56, align 64
   %59 = load ptr, ptr %58, align 64
-  %60 = getelementptr inbounds i8, ptr %59, i64 168
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 168
   %61 = load i8, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %4, i64 9
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 9
   store i8 %61, ptr %62, align 1
-  %63 = getelementptr inbounds i8, ptr %4, i64 20
-  %64 = getelementptr inbounds i8, ptr %4, i64 21
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 21
   store i8 -28, ptr %64, align 1
   store i64 7, ptr %4, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 15
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 15
   store i8 -127, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %7, i64 8264
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8264
   %67 = load i32, ptr %66, align 8
   %68 = trunc i32 %67 to i8
   store i8 %68, ptr %63, align 4
-  %69 = call i32 @ata_exec_internal(ptr noundef %56, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %69 = call i32 @ata_exec_internal(ptr noundef nonnull %56, ptr noundef nonnull %4, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   %70 = icmp eq i32 %69, 0
   br i1 %70, label %71, label %.thread4
 
@@ -1855,45 +1855,45 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   br label %146
 
 71:                                               ; preds = %53
-  %72 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %73 = load i8, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %4, i64 17
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 17
   %75 = load i8, ptr %74, align 1
-  %76 = getelementptr inbounds i8, ptr %4, i64 18
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 18
   %77 = load i8, ptr %76, align 2
-  %78 = getelementptr inbounds i8, ptr %4, i64 19
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 19
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %73, -2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
   %81 = load ptr, ptr %54, align 64
-  %82 = getelementptr inbounds i8, ptr %81, i64 9408
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 9408
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
-  %83 = getelementptr inbounds i8, ptr %3, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 24, i1 false)
   %84 = load ptr, ptr %82, align 64
   %85 = load ptr, ptr %84, align 64
-  %86 = getelementptr inbounds i8, ptr %85, i64 168
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 168
   %87 = load i8, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 9
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 9
   store i8 %87, ptr %88, align 1
-  %89 = getelementptr inbounds i8, ptr %3, i64 20
-  %90 = getelementptr inbounds i8, ptr %3, i64 21
+  %89 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 21
   store i8 -24, ptr %90, align 1
   store i64 7, ptr %3, align 8
-  %91 = getelementptr inbounds i8, ptr %3, i64 15
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 15
   store i8 -127, ptr %91, align 1
   %92 = load i32, ptr %66, align 8
   %93 = trunc i32 %92 to i8
   store i8 %93, ptr %89, align 4
-  %94 = getelementptr inbounds i8, ptr %3, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 %80, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 17
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 17
   store i8 %75, ptr %95, align 1
-  %96 = getelementptr inbounds i8, ptr %3, i64 18
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 18
   store i8 %77, ptr %96, align 2
-  %97 = getelementptr inbounds i8, ptr %3, i64 19
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 19
   store i8 %79, ptr %97, align 1
-  %98 = call i32 @ata_exec_internal(ptr noundef %82, ptr noundef nonnull %3, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
+  %98 = call i32 @ata_exec_internal(ptr noundef nonnull %82, ptr noundef nonnull %3, ptr noundef null, i32 noundef 3, ptr noundef null, i32 noundef 0, i32 noundef 3000) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   %99 = icmp eq i32 %98, 0
   br i1 %99, label %100, label %146
@@ -1905,11 +1905,11 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
 102:                                              ; preds = %100
   %103 = load ptr, ptr %0, align 64
   %104 = load ptr, ptr %103, align 64
-  %105 = getelementptr inbounds i8, ptr %104, i64 36
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 36
   %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %103, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %110 = load i32, ptr %109, align 8
   %111 = add i32 %110, %108
   %112 = getelementptr i8, ptr %0, i64 900
@@ -1938,7 +1938,7 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   %129 = getelementptr i8, ptr %0, i64 1152
   %130 = load i32, ptr %129, align 4
   %131 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14, i32 noundef %106, i32 noundef %111, ptr noundef nonnull %124, i32 noundef %49, i32 noundef %10, i32 noundef %126, i32 noundef %13, i32 noundef %128, i32 noundef %130) #10
-  %132 = getelementptr inbounds i8, ptr %0, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %133 = load i64, ptr %132, align 16
   %134 = and i64 %133, 128
   %135 = icmp eq i64 %134, 0
@@ -1947,9 +1947,9 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
 136:                                              ; preds = %123
   %137 = load ptr, ptr %0, align 64
   %138 = load ptr, ptr %137, align 64
-  %139 = getelementptr inbounds i8, ptr %138, i64 36
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 36
   %140 = load i32, ptr %139, align 4
-  %141 = getelementptr inbounds i8, ptr %137, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %142 = load i32, ptr %141, align 8
   %143 = load i32, ptr %109, align 8
   %144 = add i32 %143, %142
@@ -1962,11 +1962,11 @@ define internal fastcc range(i32 -22, 1) i32 @sata_pmp_configure(ptr nocapture n
   %149 = phi i32 [ -5, %71 ], [ -22, %2 ], [ -5, %29 ], [ -5, %.thread4 ]
   %150 = load ptr, ptr %0, align 64
   %151 = load ptr, ptr %150, align 64
-  %152 = getelementptr inbounds i8, ptr %151, i64 36
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 36
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i8, ptr %150, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %155 = load i32, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %0, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %157 = load i32, ptr %156, align 8
   %158 = add i32 %157, %155
   %159 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, i32 noundef %153, i32 noundef %158, ptr noundef nonnull %148, i32 noundef %147) #10
@@ -2037,7 +2037,7 @@ declare dso_local i32 @sata_scr_write(ptr noundef, i32 noundef, i32 noundef) loc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
   %3 = load ptr, ptr %0, align 64
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   %7 = getelementptr i32, ptr %1, i64 %6
@@ -2052,7 +2052,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(pt
   br i1 %12, label %13, label %46
 
 13:                                               ; preds = %10, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 752
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %15 = load i32, ptr %14, align 16
   %16 = and i32 %15, 64
   %17 = icmp eq i32 %16, 0
@@ -2060,32 +2060,32 @@ define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(pt
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 64
-  %20 = getelementptr inbounds i8, ptr %19, i64 14728
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 14728
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 14720
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 14720
   %25 = load ptr, ptr %24, align 64
   %26 = icmp eq ptr %25, null
   br i1 %26, label %32, label %27
 
 27:                                               ; preds = %23, %18
-  %28 = getelementptr inbounds i8, ptr %19, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %4, align 8
   %31 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.43, i32 noundef %29, i32 noundef %30, i32 noundef 3) #10
   br label %36
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %19, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %34 = load i32, ptr %33, align 4
   %35 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.44, i32 noundef %34, i32 noundef 3) #10
   br label %36
 
 36:                                               ; preds = %32, %27
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load ptr, ptr %37, align 16
   %39 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %38) #9
   %40 = load i32, ptr %14, align 16
@@ -2096,9 +2096,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(pt
   br label %43
 
 43:                                               ; preds = %36, %13
-  %44 = getelementptr inbounds i8, ptr %0, i64 1152
-  tail call void @ata_dev_disable(ptr noundef %44) #9
-  %45 = getelementptr inbounds i8, ptr %0, i64 912
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  tail call void @ata_dev_disable(ptr noundef nonnull %44) #9
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 912
   store i32 0, ptr %45, align 16
   br label %46
 
@@ -2111,21 +2111,21 @@ define internal fastcc noundef range(i32 0, 2) i32 @sata_pmp_handle_link_fail(pt
 define internal fastcc void @sata_pmp_detach(ptr nocapture noundef readonly %0) unnamed_addr #6 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
-  %4 = getelementptr inbounds i8, ptr %3, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, %7
   %11 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.45, i32 noundef %5, i32 noundef %10) #10
   %12 = load ptr, ptr %2, align 64
-  %13 = getelementptr inbounds i8, ptr %12, i64 8256
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8256
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %12, i64 14720
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 14720
   %17 = load ptr, ptr %16, align 64
   %18 = icmp eq ptr %17, %2
   br i1 %18, label %19, label %25
@@ -2147,9 +2147,9 @@ define internal fastcc void @sata_pmp_detach(ptr nocapture noundef readonly %0) 
   br label %26
 
 26:                                               ; preds = %25, %22
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 248
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -2165,17 +2165,17 @@ define internal fastcc void @sata_pmp_detach(ptr nocapture noundef readonly %0) 
 
 .preheader:                                       ; preds = %33, %.preheader
   %36 = phi ptr [ %38, %.preheader ], [ %34, %33 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 1152
-  tail call void @ata_eh_detach_dev(ptr noundef %37) #9
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1152
+  tail call void @ata_eh_detach_dev(ptr noundef nonnull %37) #9
   %38 = tail call ptr @ata_link_next(ptr noundef nonnull %36, ptr noundef %3, i32 noundef 0) #9
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.loopexit, label %.preheader, !llvm.loop !37
 
 .loopexit:                                        ; preds = %.preheader, %33
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %41 = load ptr, ptr %40, align 16
   %42 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %41) #9
-  %43 = getelementptr inbounds i8, ptr %3, i64 14728
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 14728
   store i32 0, ptr %43, align 8
   store i32 0, ptr %6, align 8
   %44 = load ptr, ptr %40, align 16

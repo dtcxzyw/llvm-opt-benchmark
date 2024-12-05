@@ -84,12 +84,12 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br i1 %12, label %.thread24, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %11, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %14, align 8
   %15 = load i64, ptr @__scratch_size, align 8
   %16 = tail call i64 @llvm.umax.i64(i64 %15, i64 %1)
   tail call void @cpus_read_lock() #8
-  %17 = getelementptr inbounds i8, ptr %11, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 24
   br label %18
 
 18:                                               ; preds = %13, %56
@@ -174,7 +174,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   %62 = phi i32 [ %92, %91 ], [ 0, %.thread23 ]
   %63 = sext i32 %62 to i64
   %64 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %63
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %91, label %68
@@ -185,7 +185,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br i1 %70, label %71, label %91
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %64, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %73 = load volatile i32, ptr %72, align 4
   %74 = icmp eq i32 %73, 0
   br i1 %74, label %.thread27, label %.preheader32
@@ -193,7 +193,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 .preheader32:                                     ; preds = %71, %80
   %75 = phi i32 [ %81, %80 ], [ %73, %71 ]
   %76 = add i32 %75, 1
-  %77 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %72, i32 %76, ptr elementtype(i32) %72, i32 %75) #8, !srcloc !13
+  %77 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %72, i32 %76, ptr nonnull elementtype(i32) %72, i32 %75) #8, !srcloc !13
   %78 = extractvalue { i8, i32 } %77, 0
   %79 = icmp ult i8 %78, 2
   tail call void @llvm.assume(i1 %79)
@@ -213,7 +213,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br i1 %86, label %88, label %87, !prof !16
 
 87:                                               ; preds = %.thread27
-  tail call void @refcount_warn_saturate(ptr noundef %72, i32 noundef 0) #8
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %72, i32 noundef 0) #8
   br label %88
 
 88:                                               ; preds = %87, %.thread27
@@ -252,7 +252,7 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %106
   %108 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 3264) #8
-  %109 = getelementptr inbounds i8, ptr %107, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %108, ptr %109, align 8
   %110 = icmp eq ptr %108, null
   br i1 %110, label %.thread24, label %111
@@ -268,11 +268,11 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br label %136
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds i8, ptr %112, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 20
   %119 = load i32, ptr %118, align 4
   %120 = trunc i32 %119 to i16
   %121 = and i16 %120, 1
-  %122 = getelementptr inbounds i8, ptr %107, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %123 = load i16, ptr %122, align 4
   %124 = and i16 %123, -2
   %125 = or disjoint i16 %124, %121
@@ -282,8 +282,8 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
   br i1 %127, label %129, label %.thread29
 
 .thread29:                                        ; preds = %117
-  %128 = getelementptr inbounds i8, ptr %126, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %126, ptr noundef %128) #8
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %126, ptr noundef nonnull %128) #8
   br label %.thread30
 
 129:                                              ; preds = %117
@@ -294,13 +294,13 @@ define dso_local i32 @tcp_sigpool_alloc_ahash(ptr noundef %0, i64 noundef %1) #0
 
 .thread30:                                        ; preds = %129, %.thread29
   store ptr %112, ptr %107, align 8
-  %133 = getelementptr inbounds i8, ptr %107, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %107, i64 16
   store volatile i32 1, ptr %133, align 8
   br label %140
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds i8, ptr %112, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %112, ptr noundef %135) #8
+  %135 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %112, ptr noundef nonnull %135) #8
   br label %136
 
 136:                                              ; preds = %114, %134
@@ -465,7 +465,7 @@ define dso_local i32 @tcp_sigpool_start(i32 noundef %0, ptr nocapture noundef wr
   br label %39
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %15, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = zext i32 %22 to i64
   %24 = add nuw nsw i64 %23, 80
@@ -474,15 +474,15 @@ define dso_local i32 @tcp_sigpool_start(i32 noundef %0, ptr nocapture noundef wr
   br i1 %26, label %36, label %27, !prof !14
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %15, i64 16
-  %29 = getelementptr inbounds i8, ptr %25, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %25, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 16
-  %32 = getelementptr inbounds i8, ptr %25, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 0, ptr %32, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   %33 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @sigpool_scratch) #11, !srcloc !34
   %34 = inttoptr i64 %33 to ptr
   %35 = load volatile ptr, ptr %34, align 8
@@ -490,10 +490,10 @@ define dso_local i32 @tcp_sigpool_start(i32 noundef %0, ptr nocapture noundef wr
   br label %39
 
 36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %15, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %15, ptr noundef %38) #8
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %15, ptr noundef nonnull %38) #8
   tail call void @__local_bh_enable_ip(i64 noundef %3, i32 noundef 512) #8
   br label %39
 
@@ -507,9 +507,9 @@ declare dso_local ptr @crypto_clone_ahash(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tcp_sigpool_end(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -16
   %7 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !35
@@ -554,19 +554,19 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.scatterlist, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 188
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
-  %15 = getelementptr inbounds i8, ptr %1, i64 178
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 178
   %16 = load i16, ptr %15, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false), !annotation !39
@@ -605,28 +605,28 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noca
   %43 = and i64 %42, 3
   %44 = or disjoint i64 %37, %43
   store i64 %44, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %4, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %41, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %39, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %18, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store ptr %4, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %18, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store i32 %39, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %18, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr null, ptr %49, align 8
   %50 = call i32 @crypto_ahash_update(ptr noundef %18) #8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.loopexit
 
 52:                                               ; preds = %23
-  %53 = getelementptr inbounds i8, ptr %14, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %54 = load i8, ptr %53, align 2
   %55 = icmp eq i8 %54, 0
   br i1 %55, label %.loopexit3, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %14, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 48
   br label %63
 
 58:                                               ; preds = %76
@@ -639,7 +639,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noca
 63:                                               ; preds = %58, %56
   %64 = phi i64 [ 0, %56 ], [ %59, %58 ]
   %65 = getelementptr [17 x %struct.bio_vec], ptr %57, i64 0, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %65, align 8
   %69 = lshr i32 %67, 12
@@ -657,7 +657,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noca
 
 76:                                               ; preds = %63
   %77 = and i32 %67, 4095
-  %78 = getelementptr inbounds i8, ptr %65, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %79 = load i32, ptr %78, align 8
   %80 = load i64, ptr %4, align 8
   %81 = and i64 %80, 3
@@ -677,7 +677,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcp_sigpool_hash_skb_data(ptr noca
   %86 = load i32, ptr %11, align 4
   %87 = zext i32 %86 to i64
   %88 = getelementptr i8, ptr %85, i64 %87
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   br label %90
 
 90:                                               ; preds = %94, %.loopexit3
@@ -720,7 +720,7 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @free_old_scratches(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -728,7 +728,7 @@ define internal void @free_old_scratches(ptr noundef %0) #0 align 16 {
   br i1 %5, label %.loopexit, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %8
 
 8:                                                ; preds = %8, %6
@@ -781,21 +781,21 @@ define internal void @cpool_cleanup_work_cb(ptr nocapture readnone %0) #0 align 
   %5 = phi i64 [ %22, %19 ], [ 0, %1 ]
   %6 = phi i8 [ %21, %19 ], [ 1, %1 ]
   %7 = getelementptr [170 x %struct.sigpool_entry], ptr @cpool, i64 0, i64 %5
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load volatile i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %19
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
-  tail call void @crypto_destroy_tfm(ptr noundef %16, ptr noundef %17) #8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  tail call void @crypto_destroy_tfm(ptr noundef %16, ptr noundef nonnull %17) #8
   %18 = load ptr, ptr %12, align 8
   tail call void @kfree(ptr noundef %18) #8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)

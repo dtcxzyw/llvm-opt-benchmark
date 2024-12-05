@@ -77,11 +77,11 @@ define dso_local void @_ZN6ThreadC2ERKNSt7__cxx1112basic_stringIcSt11char_traits
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Thread, i64 16), ptr %this, align 8, !tbaa !4
-  %m_name = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 24
+  %m_name = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %0, ptr %m_name, align 8, !tbaa !7
   %1 = load ptr, ptr %name, align 8, !tbaa !11
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %name, i64 8
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   %2 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__dnew.i.i) #23
   store i64 %2, ptr %__dnew.i.i, align 8, !tbaa !15
@@ -113,14 +113,14 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i, %if.end.i.i
   %6 = load i64, ptr %__dnew.i.i, align 8, !tbaa !15
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %6, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
   %7 = load ptr, ptr %m_name, align 8, !tbaa !11
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %6
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #23
-  %m_retval = getelementptr inbounds i8, ptr %this, i64 40
-  %m_mutex = getelementptr inbounds i8, ptr %this, i64 56
+  %m_retval = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_mutex = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %m_retval, i8 0, i64 11, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %m_mutex, i8 0, i64 88, i1 false)
   ret void
@@ -130,7 +130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 define dso_local void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Thread, i64 16), ptr %this, align 8, !tbaa !4
-  %m_running = getelementptr inbounds i8, ptr %this, i64 50
+  %m_running = getelementptr inbounds nuw i8, ptr %this, i64 50
   %0 = load atomic i8, ptr %m_running seq_cst, align 2
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
@@ -138,7 +138,7 @@ entry:
 
 invoke.cont5:                                     ; preds = %entry
   store atomic i8 0, ptr %m_running seq_cst, align 2
-  %m_thread_obj.i = getelementptr inbounds i8, ptr %this, i64 136
+  %m_thread_obj.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %2 = load ptr, ptr %m_thread_obj.i, align 8, !tbaa !17
   %3 = load i64, ptr %2, align 8, !tbaa !24
   %call8 = invoke i32 @pthread_cancel(i64 noundef %3)
@@ -149,7 +149,7 @@ invoke.cont7.invoke:                              ; preds = %invoke.cont5, %entr
           to label %if.end unwind label %terminate.lpad
 
 if.end:                                           ; preds = %invoke.cont7.invoke
-  %m_start_finished_mutex = getelementptr inbounds i8, ptr %this, i64 96
+  %m_start_finished_mutex = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %m_start_finished_mutex) #23
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %if.then12, label %if.end15
@@ -159,14 +159,14 @@ if.then12:                                        ; preds = %if.end
   br label %if.end15
 
 if.end15:                                         ; preds = %if.then12, %if.end
-  %m_name = getelementptr inbounds i8, ptr %this, i64 8
+  %m_name = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load ptr, ptr %m_name, align 8, !tbaa !11
-  %6 = getelementptr inbounds i8, ptr %this, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %if.then.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %if.end15
-  %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %cmp3.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i)
@@ -190,7 +190,7 @@ terminate.lpad:                                   ; preds = %invoke.cont7.invoke
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN6Thread4waitEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_mutex = getelementptr inbounds i8, ptr %this, i64 56
+  %m_mutex = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #23
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -200,13 +200,13 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  %m_joinable = getelementptr inbounds i8, ptr %this, i64 48
+  %m_joinable = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i8, ptr %m_joinable, align 8, !tbaa !27, !range !28, !noundef !29
   %tobool.not = icmp ne i8 %0, 0
   br i1 %tobool.not, label %if.end, label %_ZNSt11unique_lockISt5mutexED2Ev.exit15
 
 if.end:                                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %m_thread_obj = getelementptr inbounds i8, ptr %this, i64 136
+  %m_thread_obj = getelementptr inbounds nuw i8, ptr %this, i64 136
   %1 = load ptr, ptr %m_thread_obj, align 8, !tbaa !17
   invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %invoke.cont unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -275,7 +275,7 @@ declare void @llvm.trap() #8
 define dso_local noundef zeroext i1 @_ZN6Thread5startEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
-  %m_mutex = getelementptr inbounds i8, ptr %this, i64 56
+  %m_mutex = getelementptr inbounds nuw i8, ptr %this, i64 56
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_mutex) #23
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -285,16 +285,16 @@ if.then.i.i.i:                                    ; preds = %entry
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
-  %m_running = getelementptr inbounds i8, ptr %this, i64 50
+  %m_running = getelementptr inbounds nuw i8, ptr %this, i64 50
   %0 = load atomic i8, ptr %m_running seq_cst, align 2
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not, label %if.end, label %_ZNSt11unique_lockISt5mutexED2Ev.exit55
 
 if.end:                                           ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %m_request_stop = getelementptr inbounds i8, ptr %this, i64 49
+  %m_request_stop = getelementptr inbounds nuw i8, ptr %this, i64 49
   store atomic i8 0, ptr %m_request_stop seq_cst, align 1
-  %m_start_finished_mutex = getelementptr inbounds i8, ptr %this, i64 96
+  %m_start_finished_mutex = getelementptr inbounds nuw i8, ptr %this, i64 96
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull %m_start_finished_mutex) #23
   %tobool.not.i.i.not = icmp eq i32 %call1.i.i.i, 0
   %call5 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
@@ -308,9 +308,9 @@ invoke.cont4:                                     ; preds = %if.end
 
 call.i.noexc:                                     ; preds = %invoke.cont4
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP6ThreadES4_EEEEEE, i64 16), ptr %call.i28, align 8, !tbaa !4
-  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i28, i64 8
+  %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i28, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8, !tbaa !31
-  %2 = getelementptr inbounds i8, ptr %call.i28, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %call.i28, i64 16
   store ptr @_ZN6Thread10threadProcEPS_, ptr %2, align 8, !tbaa !33
   store ptr %call.i28, ptr %agg.tmp.i, align 8, !tbaa !35
   invoke void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %call5, ptr noundef nonnull %agg.tmp.i, ptr noundef null)
@@ -323,7 +323,7 @@ invoke.cont3.i:                                   ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %invoke.cont3.i
   %vtable.i.i.i = load ptr, ptr %3, align 8, !tbaa !4
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %3) #23
   br label %invoke.cont7
@@ -338,14 +338,14 @@ lpad2.i:                                          ; preds = %call.i.noexc
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i7.i: ; preds = %lpad2.i
   %vtable.i.i8.i = load ptr, ptr %6, align 8, !tbaa !4
-  %vfn.i.i9.i = getelementptr inbounds i8, ptr %vtable.i.i8.i, i64 8
+  %vfn.i.i9.i = getelementptr inbounds nuw i8, ptr %vtable.i.i8.i, i64 8
   %7 = load ptr, ptr %vfn.i.i9.i, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %6) #23
   br label %lpad6.body
 
 invoke.cont7:                                     ; preds = %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i, %invoke.cont3.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i)
-  %m_thread_obj = getelementptr inbounds i8, ptr %this, i64 136
+  %m_thread_obj = getelementptr inbounds nuw i8, ptr %this, i64 136
   store ptr %call5, ptr %m_thread_obj, align 8, !tbaa !17
   br label %while.cond
 
@@ -416,7 +416,7 @@ if.then.i:                                        ; preds = %while.end
 
 cleanup.thread:                                   ; preds = %while.end
   %call1.i.i.i31 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_start_finished_mutex) #23
-  %m_joinable = getelementptr inbounds i8, ptr %this, i64 48
+  %m_joinable = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 1, ptr %m_joinable, align 8, !tbaa !27
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit55
 
@@ -457,13 +457,13 @@ define dso_local void @_ZN6Thread10threadProcEPS_(ptr noundef %thr) #3 align 2 p
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_thread)
   store ptr %thr, ptr %0, align 8, !tbaa !35
-  %m_name = getelementptr inbounds i8, ptr %thr, i64 8
+  %m_name = getelementptr inbounds nuw i8, ptr %thr, i64 8
   %1 = load ptr, ptr %m_name, align 8, !tbaa !11
   %call1.i = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef %1) #23
   tail call void @_ZN6Logger14registerThreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(272) @g_logger, ptr noundef nonnull align 8 dereferenceable(32) %m_name)
-  %m_running = getelementptr inbounds i8, ptr %thr, i64 50
+  %m_running = getelementptr inbounds nuw i8, ptr %thr, i64 50
   store atomic i8 1, ptr %m_running seq_cst, align 1
-  %m_start_finished_mutex = getelementptr inbounds i8, ptr %thr, i64 96
+  %m_start_finished_mutex = getelementptr inbounds nuw i8, ptr %thr, i64 96
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_start_finished_mutex) #23
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %if.then.i.i.i
@@ -474,13 +474,13 @@ if.then.i.i.i:                                    ; preds = %entry
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %entry
   %vtable = load ptr, ptr %thr, align 8, !tbaa !4
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call2 = invoke noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(144) %thr)
           to label %invoke.cont5 unwind label %if.then3.i.i24
 
 invoke.cont5:                                     ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
-  %m_retval = getelementptr inbounds i8, ptr %thr, i64 40
+  %m_retval = getelementptr inbounds nuw i8, ptr %thr, i64 40
   store ptr %call2, ptr %m_retval, align 8, !tbaa !38
   store atomic i8 0, ptr %m_running seq_cst, align 1
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_start_finished_mutex) #23
@@ -507,7 +507,7 @@ declare i32 @usleep(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN6Thread4stopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this) local_unnamed_addr #12 align 2 {
 entry:
-  %m_request_stop = getelementptr inbounds i8, ptr %this, i64 49
+  %m_request_stop = getelementptr inbounds nuw i8, ptr %this, i64 49
   store atomic i8 1, ptr %m_request_stop seq_cst, align 1
   ret i1 true
 }
@@ -517,14 +517,14 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN6Thread14getReturnValueEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr nocapture noundef writeonly %ret) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %m_running = getelementptr inbounds i8, ptr %this, i64 50
+  %m_running = getelementptr inbounds nuw i8, ptr %this, i64 50
   %0 = load atomic i8, ptr %m_running seq_cst, align 2
   %1 = and i8 %0, 1
   %tobool.i.i.not = icmp eq i8 %1, 0
   br i1 %tobool.i.i.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %m_retval = getelementptr inbounds i8, ptr %this, i64 40
+  %m_retval = getelementptr inbounds nuw i8, ptr %this, i64 40
   %2 = load ptr, ptr %m_retval, align 8, !tbaa !38
   store ptr %2, ptr %ret, align 8, !tbaa !35
   br label %return
@@ -583,14 +583,14 @@ cond.true:                                        ; preds = %entry
   %rem = and i64 %conv, 63
   %shl = shl nuw i64 1, %rem
   %div28 = lshr i64 %conv, 6
-  %arrayidx = getelementptr inbounds i64, ptr %cpuset, i64 %div28
+  %arrayidx = getelementptr inbounds nuw i64, ptr %cpuset, i64 %div28
   %0 = load i64, ptr %arrayidx, align 8, !tbaa !15
   %or = or i64 %0, %shl
   store i64 %or, ptr %arrayidx, align 8, !tbaa !15
   br label %cond.end
 
 cond.end:                                         ; preds = %cond.true, %entry
-  %m_thread_obj.i = getelementptr inbounds i8, ptr %this, i64 136
+  %m_thread_obj.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %1 = load ptr, ptr %m_thread_obj.i, align 8, !tbaa !17
   %2 = load i64, ptr %1, align 8, !tbaa !24
   %call3 = call i32 @pthread_setaffinity_np(i64 noundef %2, i64 noundef 128, ptr noundef nonnull %cpuset) #23
@@ -612,7 +612,7 @@ entry:
   %policy = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %sparam) #23
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %policy) #23
-  %m_thread_obj.i = getelementptr inbounds i8, ptr %this, i64 136
+  %m_thread_obj.i = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_thread_obj.i, align 8, !tbaa !17
   %1 = load i64, ptr %0, align 8, !tbaa !24
   %call2 = call i32 @pthread_getschedparam(i64 noundef %1, ptr noundef nonnull %policy, ptr noundef nonnull %sparam) #23
@@ -690,8 +690,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP6ThreadES4_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !35
   %1 = load ptr, ptr %_M_func, align 8, !tbaa !35
   tail call void %0(ptr noundef %1)

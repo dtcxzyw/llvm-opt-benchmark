@@ -139,13 +139,13 @@ define i32 @pmix20_bfrop_print(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 pmix_pointer_array_get_item.exit:                 ; preds = %6
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8
   %10 = zext i16 %3 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %pmix_pointer_array_get_item.exit.thread, label %14
 
 14:                                               ; preds = %pmix_pointer_array_get_item.exit
-  %15 = getelementptr inbounds i8, ptr %12, i64 160
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #7
   br label %pmix_pointer_array_get_item.exit.thread
@@ -1097,7 +1097,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_timeval(ptr noundef %0, ptr nou
 
 18:                                               ; preds = %11
   %19 = load i64, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %13, i64 noundef %19, i64 noundef %21) #7
   %23 = icmp slt i32 %22, 0
@@ -1242,7 +1242,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %28 = load i8, ptr %27, align 8
   %29 = zext i8 %28 to i32
   %30 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef %26, i32 noundef %29) #7
@@ -1250,21 +1250,21 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 31:                                               ; preds = %20
   %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds i8, ptr %2, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.46, ptr noundef %32, ptr noundef %34) #7
   br label %196
 
 36:                                               ; preds = %20
   %37 = load ptr, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.47, ptr noundef %37, i64 noundef %39) #7
   br label %196
 
 41:                                               ; preds = %20
   %42 = load ptr, ptr %5, align 8
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
   %46 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef %42, i64 noundef %45) #7
@@ -1272,14 +1272,14 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 47:                                               ; preds = %20
   %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i32, ptr %49, align 8
   %51 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef %48, i32 noundef %50) #7
   br label %196
 
 52:                                               ; preds = %20
   %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %55 = load i8, ptr %54, align 8
   %56 = sext i8 %55 to i32
   %57 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef %53, i32 noundef %56) #7
@@ -1287,7 +1287,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 58:                                               ; preds = %20
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %61 = load i16, ptr %60, align 8
   %62 = sext i16 %61 to i32
   %63 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef %59, i32 noundef %62) #7
@@ -1295,28 +1295,28 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 64:                                               ; preds = %20
   %65 = load ptr, ptr %5, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %67 = load i32, ptr %66, align 8
   %68 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.52, ptr noundef %65, i32 noundef %67) #7
   br label %196
 
 69:                                               ; preds = %20
   %70 = load ptr, ptr %5, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %72 = load i64, ptr %71, align 8
   %73 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.53, ptr noundef %70, i64 noundef %72) #7
   br label %196
 
 74:                                               ; preds = %20
   %75 = load ptr, ptr %5, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.54, ptr noundef %75, i32 noundef %77) #7
   br label %196
 
 79:                                               ; preds = %20
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds i8, ptr %2, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %82 = load i8, ptr %81, align 8
   %83 = zext i8 %82 to i32
   %84 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.55, ptr noundef %80, i32 noundef %83) #7
@@ -1324,7 +1324,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 85:                                               ; preds = %20
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %2, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %88 = load i16, ptr %87, align 8
   %89 = zext i16 %88 to i32
   %90 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.56, ptr noundef %86, i32 noundef %89) #7
@@ -1332,21 +1332,21 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 91:                                               ; preds = %20
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %2, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %94 = load i32, ptr %93, align 8
   %95 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.57, ptr noundef %92, i32 noundef %94) #7
   br label %196
 
 96:                                               ; preds = %20
   %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr inbounds i8, ptr %2, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %99 = load i64, ptr %98, align 8
   %100 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.58, ptr noundef %97, i64 noundef %99) #7
   br label %196
 
 101:                                              ; preds = %20
   %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds i8, ptr %2, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %104 = load float, ptr %103, align 8
   %105 = fpext float %104 to double
   %106 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef %102, double noundef %105) #7
@@ -1354,37 +1354,37 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 107:                                              ; preds = %20
   %108 = load ptr, ptr %5, align 8
-  %109 = getelementptr inbounds i8, ptr %2, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %110 = load double, ptr %109, align 8
   %111 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.60, ptr noundef %108, double noundef %110) #7
   br label %196
 
 112:                                              ; preds = %20
   %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds i8, ptr %2, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %2, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %117 = load i64, ptr %116, align 8
   %118 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.61, ptr noundef %113, i64 noundef %115, i64 noundef %117) #7
   br label %196
 
 119:                                              ; preds = %20
   %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds i8, ptr %2, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %122 = call ptr @ctime(ptr noundef nonnull %121) #7
   %123 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.62, ptr noundef %120, ptr noundef %122) #7
   br label %196
 
 124:                                              ; preds = %20
   %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds i8, ptr %2, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %127 = load i32, ptr %126, align 8
   %128 = call ptr @PMIx_Error_string(i32 noundef %127) #7
   %129 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.63, ptr noundef %125, ptr noundef %128) #7
   br label %196
 
 130:                                              ; preds = %20
-  %131 = getelementptr inbounds i8, ptr %2, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = icmp eq ptr %132, null
   %134 = load ptr, ptr %5, align 8
@@ -1395,7 +1395,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
   br label %196
 
 137:                                              ; preds = %130
-  %138 = getelementptr inbounds i8, ptr %132, i64 256
+  %138 = getelementptr inbounds nuw i8, ptr %132, i64 256
   %139 = load i32, ptr %138, align 4
   %140 = zext i32 %139 to i64
   %141 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.65, ptr noundef %134, ptr noundef nonnull %132, i64 noundef %140) #7
@@ -1403,14 +1403,14 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 142:                                              ; preds = %20
   %143 = load ptr, ptr %5, align 8
-  %144 = getelementptr inbounds i8, ptr %2, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %145 = load i64, ptr %144, align 8
   %146 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.66, ptr noundef %143, i64 noundef %145) #7
   br label %196
 
 147:                                              ; preds = %20
   %148 = load ptr, ptr %5, align 8
-  %149 = getelementptr inbounds i8, ptr %2, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %150 = load i8, ptr %149, align 8
   %151 = call ptr @PMIx_Persistence_string(i8 noundef zeroext %150) #7
   %152 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef %148, ptr noundef %151) #7
@@ -1418,7 +1418,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 153:                                              ; preds = %20
   %154 = load ptr, ptr %5, align 8
-  %155 = getelementptr inbounds i8, ptr %2, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %156 = load i8, ptr %155, align 8
   %157 = call ptr @PMIx_Scope_string(i8 noundef zeroext %156) #7
   %158 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.68, ptr noundef %154, ptr noundef %157) #7
@@ -1426,7 +1426,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 159:                                              ; preds = %20
   %160 = load ptr, ptr %5, align 8
-  %161 = getelementptr inbounds i8, ptr %2, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %162 = load i8, ptr %161, align 8
   %163 = call ptr @PMIx_Data_range_string(i8 noundef zeroext %162) #7
   %164 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.69, ptr noundef %160, ptr noundef %163) #7
@@ -1434,7 +1434,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 165:                                              ; preds = %20
   %166 = load ptr, ptr %5, align 8
-  %167 = getelementptr inbounds i8, ptr %2, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %168 = load i8, ptr %167, align 8
   %169 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %168) #7
   %170 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.70, ptr noundef %166, ptr noundef %169) #7
@@ -1442,16 +1442,16 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 171:                                              ; preds = %20
   %172 = load ptr, ptr %5, align 8
-  %173 = getelementptr inbounds i8, ptr %2, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 256
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 256
   %176 = load i32, ptr %175, align 8
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds i8, ptr %174, i64 264
+  %178 = getelementptr inbounds nuw i8, ptr %174, i64 264
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %174, i64 272
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 272
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %174, i64 280
+  %182 = getelementptr inbounds nuw i8, ptr %174, i64 280
   %183 = load i32, ptr %182, align 8
   %184 = sext i32 %183 to i64
   %185 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef %172, ptr noundef %174, i64 noundef %177, ptr noundef %172, ptr noundef %179, ptr noundef %181, i64 noundef %184) #7
@@ -1459,9 +1459,9 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_value(ptr noundef %0, ptr nound
 
 186:                                              ; preds = %20
   %187 = load ptr, ptr %5, align 8
-  %188 = getelementptr inbounds i8, ptr %2, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i64, ptr %190, align 8
   %192 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.72, ptr noundef %187, i64 noundef %191) #7
   br label %196
@@ -1502,9 +1502,9 @@ declare ptr @PMIx_Proc_state_string(i8 noundef zeroext) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define range(i32 -32, 1) i32 @pmix20_bfrop_print_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 520
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 520
   %7 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, i16 zeroext poison)
-  %8 = getelementptr inbounds i8, ptr %2, i64 512
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 512
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = icmp eq ptr %10, null
@@ -1529,10 +1529,10 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_pdata(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = call i32 @pmix20_bfrop_print_proc(ptr noundef nonnull %5, ptr noundef null, ptr noundef %2, i16 zeroext poison)
-  %8 = getelementptr inbounds i8, ptr %2, i64 776
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 776
   %9 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %8, i16 zeroext poison)
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 260
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 260
   %12 = load ptr, ptr %6, align 8
   %13 = icmp eq ptr %12, null
   %14 = select i1 %13, ptr @.str.77, ptr %12
@@ -1576,7 +1576,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_proc(ptr noundef %0, ptr nounde
   br label %11
 
 11:                                               ; preds = %7, %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 256
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 256
   %13 = load i32, ptr %12, align 4
   %14 = load ptr, ptr %5, align 8
   switch i32 %13, label %21 [
@@ -1877,7 +1877,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_bo(ptr noundef %0, ptr noundef 
   br i1 %.not18, label %24, label %.sink.split
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.89, ptr noundef %13, i64 noundef %20) #7
   %22 = icmp slt i32 %21, 0
@@ -2010,16 +2010,16 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_pinfo(ptr noundef %0, ptr nound
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %7, align 8
   %23 = load ptr, ptr %6, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 264
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %2, i64 272
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 272
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 280
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %2, i64 284
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 284
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %34 = load i8, ptr %33, align 8
   %35 = call ptr @PMIx_Proc_state_string(i8 noundef zeroext %34) #7
   %36 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.93, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %25, ptr noundef %27, ptr noundef %23, i64 noundef %30, i32 noundef %32, ptr noundef %35) #7
@@ -2068,7 +2068,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_darray(ptr noundef %0, ptr noun
 
 11:                                               ; preds = %._crit_edge, %10
   %12 = phi ptr [ %.pre, %._crit_edge ], [ %1, %10 ]
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = call i32 (ptr, ptr, ...) @asprintf(ptr noundef %0, ptr noundef nonnull @.str.94, ptr noundef %12, i64 noundef %14) #7
   %16 = icmp slt i32 %15, 0
@@ -2170,13 +2170,13 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr nocapture noundef wri
   br i1 %.not25, label %.loopexit30, label %.lr.ph, !llvm.loop !4
 
 .loopexit30:                                      ; preds = %37, %.preheader29, %26
-  %44 = getelementptr inbounds i8, ptr %2, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %45 = load i64, ptr %44, align 8
   %.not26 = icmp eq i64 %45, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %.loopexit30
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %47
 
 47:                                               ; preds = %.lr.ph34, %73
@@ -2185,9 +2185,9 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr nocapture noundef wri
   %49 = load ptr, ptr %46, align 8
   %50 = getelementptr inbounds %struct.pmix_info, ptr %49, i64 %.133
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %51 = getelementptr inbounds i8, ptr %50, i64 520
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 520
   %52 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %51, i16 zeroext poison)
-  %53 = getelementptr inbounds i8, ptr %50, i64 512
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 512
   %54 = load i32, ptr %53, align 8
   %55 = load ptr, ptr %5, align 8
   %56 = icmp eq ptr %55, null
@@ -2386,7 +2386,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr nocapture noundef wri
   br label %.loopexit
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %23, 0
@@ -2401,9 +2401,9 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr nocapture noundef wri
   %24 = load ptr, ptr %9, align 8
   %25 = getelementptr inbounds %struct.pmix_info, ptr %22, i64 %.01112
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %26 = getelementptr inbounds i8, ptr %25, i64 520
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 520
   %27 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %26, i16 zeroext poison)
-  %28 = getelementptr inbounds i8, ptr %25, i64 512
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 512
   %29 = load i32, ptr %28, align 8
   %30 = load ptr, ptr %5, align 8
   %31 = icmp eq ptr %30, null

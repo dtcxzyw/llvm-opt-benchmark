@@ -42,7 +42,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6google8protobuf8internal31MergePartialFromCodedStreamLiteEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 16
   br i1 %6, label %7, label %9
@@ -123,17 +123,17 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %54 = alloca i64, align 8
   %55 = alloca i64, align 8
   %56 = alloca i32, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
-  %62 = getelementptr inbounds i8, ptr %1, i64 48
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
-  %66 = getelementptr inbounds i8, ptr %2, i64 52
-  %67 = getelementptr inbounds i8, ptr %2, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %68
 
 68:                                               ; preds = %.backedge, %3
@@ -149,7 +149,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %69, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %69, i64 1
   store ptr %77, ptr %2, align 8
   br label %80
 
@@ -178,15 +178,15 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
 89:                                               ; preds = %80
   %90 = load ptr, ptr %1, align 8
   %91 = zext nneg i32 %82 to i64
-  %92 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %90, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %92 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %90, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = zext i32 %94 to i64
   %96 = load i32, ptr %92, align 4
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds i8, ptr %92, i64 10
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 10
   %99 = load i8, ptr %98, align 2
-  %100 = getelementptr inbounds i8, ptr %92, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %101 = load i8, ptr %100, align 4
   %102 = trunc nuw nsw i32 %81 to i8
   %103 = icmp eq i8 %101, %102
@@ -264,7 +264,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   br i1 %112, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread: ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %106, i64 1
+  %113 = getelementptr inbounds nuw i8, ptr %106, i64 1
   store ptr %113, ptr %2, align 8
   br label %117
 
@@ -281,16 +281,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %105, 
   %119 = shl nuw i32 1, %118
   %120 = lshr i32 %94, 5
   %121 = zext nneg i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %59, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %59, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, %119
   store i32 %124, ptr %122, align 4
-  %125 = getelementptr inbounds i8, ptr %0, i64 %97
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.ph, ptr %125, align 4
   br label %.backedge
 
 126:                                              ; preds = %104
-  %127 = getelementptr inbounds i8, ptr %0, i64 %97
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %128 = load ptr, ptr %2, align 8
   %129 = load ptr, ptr %60, align 8
   %130 = icmp ult ptr %128, %129
@@ -303,7 +303,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %105, 
   br i1 %134, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1720.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1720
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1720.thread: ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %128, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %128, i64 1
   store ptr %135, ptr %2, align 8
   br label %139
 
@@ -349,7 +349,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1720: ; preds = %1
   br i1 %157, label %158, label %.backedge
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %151, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %151, i64 1
   br label %.critedge1595
 
 160:                                              ; preds = %149
@@ -372,14 +372,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1720: ; preds = %1
   br i1 %172, label %173, label %.backedge
 
 173:                                              ; preds = %169
-  %174 = getelementptr inbounds i8, ptr %163, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %163, i64 1
   %175 = load i8, ptr %174, align 1
   %176 = zext i8 %175 to i32
   %177 = icmp eq i32 %148, %176
   br i1 %177, label %178, label %.backedge
 
 178:                                              ; preds = %173
-  %179 = getelementptr inbounds i8, ptr %163, i64 2
+  %179 = getelementptr inbounds nuw i8, ptr %163, i64 2
   br label %.critedge1595
 
 .critedge1595:                                    ; preds = %178, %158
@@ -396,7 +396,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1720: ; preds = %1
   br i1 %185, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1723.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1723
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1723.thread: ; preds = %182
-  %186 = getelementptr inbounds i8, ptr %storemerge2474, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %storemerge2474, i64 1
   store ptr %186, ptr %2, align 8
   br label %190
 
@@ -430,7 +430,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1723: ; preds = %.
   br i1 %202, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726.thread: ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %196, i64 1
+  %203 = getelementptr inbounds nuw i8, ptr %196, i64 1
   store ptr %203, ptr %2, align 8
   br label %207
 
@@ -444,10 +444,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726: ; preds = %1
 207:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726.thread
   %.ph2174 = phi i32 [ %201, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726.thread ], [ %205, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726 ]
   %208 = load ptr, ptr %1, align 8
-  %209 = getelementptr inbounds i32, ptr %195, i64 %95
+  %209 = getelementptr inbounds nuw i32, ptr %195, i64 %95
   %210 = load i32, ptr %209, align 4
   %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %208, i64 %211
+  %212 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %208, i64 %211
   %213 = load ptr, ptr %64, align 8
   %214 = ptrtoint ptr %213 to i64
   %215 = and i64 %214, 1
@@ -462,7 +462,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1726: ; preds = %1
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %207, %216
   %.0.i1727 = phi ptr [ %219, %216 ], [ %213, %207 ]
-  %220 = getelementptr inbounds i8, ptr %212, i64 10
+  %220 = getelementptr inbounds nuw i8, ptr %212, i64 10
   %221 = load i8, ptr %220, align 2
   %222 = and i8 %221, 31
   switch i8 %222, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit [
@@ -478,14 +478,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %207, %216
 225:                                              ; preds = %223
   %226 = load i32, ptr %212, align 4
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds i8, ptr %0, i64 %227
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 %227
   %229 = load ptr, ptr %228, align 8
   %230 = icmp eq ptr %229, null
   br i1 %230, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit, label %231
 
 231:                                              ; preds = %225
   %232 = load ptr, ptr %229, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
   call void %234(ptr noundef nonnull align 8 dereferenceable(16) %229) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
@@ -493,13 +493,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %207, %216
 235:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
   %236 = load i32, ptr %212, align 4
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds i8, ptr %0, i64 %237
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 %237
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %238, ptr noundef %.0.i1727)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %223, %225, %231, %235
   store i32 %82, ptr %209, align 4
-  %239 = getelementptr inbounds i8, ptr %0, i64 %97
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.ph2174, ptr %239, align 4
   br label %.backedge
 
@@ -516,7 +516,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread: ; preds = %244
   %247 = zext nneg i8 %245 to i64
-  %248 = getelementptr inbounds i8, ptr %241, i64 1
+  %248 = getelementptr inbounds nuw i8, ptr %241, i64 1
   store ptr %248, ptr %2, align 8
   br label %253
 
@@ -533,16 +533,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %240, 
   %255 = shl nuw i32 1, %254
   %256 = lshr i32 %94, 5
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds i32, ptr %59, i64 %257
+  %258 = getelementptr inbounds nuw i32, ptr %59, i64 %257
   %259 = load i32, ptr %258, align 4
   %260 = or i32 %259, %255
   store i32 %260, ptr %258, align 4
-  %261 = getelementptr inbounds i8, ptr %0, i64 %97
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %.ph2183, ptr %261, align 8
   br label %.backedge
 
 262:                                              ; preds = %104
-  %263 = getelementptr inbounds i8, ptr %0, i64 %97
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %264 = load ptr, ptr %2, align 8
   %265 = load ptr, ptr %60, align 8
   %266 = icmp ult ptr %264, %265
@@ -555,7 +555,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %240, 
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1730.thread: ; preds = %267
   %270 = zext nneg i8 %268 to i64
-  %271 = getelementptr inbounds i8, ptr %264, i64 1
+  %271 = getelementptr inbounds nuw i8, ptr %264, i64 1
   store ptr %271, ptr %2, align 8
   br label %276
 
@@ -601,7 +601,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1730: ; preds = %2
   br i1 %294, label %295, label %.backedge
 
 295:                                              ; preds = %291
-  %296 = getelementptr inbounds i8, ptr %288, i64 1
+  %296 = getelementptr inbounds nuw i8, ptr %288, i64 1
   br label %.critedge1602
 
 297:                                              ; preds = %286
@@ -624,14 +624,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1730: ; preds = %2
   br i1 %309, label %310, label %.backedge
 
 310:                                              ; preds = %306
-  %311 = getelementptr inbounds i8, ptr %300, i64 1
+  %311 = getelementptr inbounds nuw i8, ptr %300, i64 1
   %312 = load i8, ptr %311, align 1
   %313 = zext i8 %312 to i32
   %314 = icmp eq i32 %285, %313
   br i1 %314, label %315, label %.backedge
 
 315:                                              ; preds = %310
-  %316 = getelementptr inbounds i8, ptr %300, i64 2
+  %316 = getelementptr inbounds nuw i8, ptr %300, i64 2
   br label %.critedge1602
 
 .critedge1602:                                    ; preds = %315, %295
@@ -648,7 +648,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1730: ; preds = %2
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1732.thread: ; preds = %319
   %322 = zext nneg i8 %320 to i64
-  %323 = getelementptr inbounds i8, ptr %storemerge2473, i64 1
+  %323 = getelementptr inbounds nuw i8, ptr %storemerge2473, i64 1
   store ptr %323, ptr %2, align 8
   br label %328
 
@@ -682,7 +682,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1732: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734.thread: ; preds = %337
   %340 = zext nneg i8 %338 to i64
-  %341 = getelementptr inbounds i8, ptr %334, i64 1
+  %341 = getelementptr inbounds nuw i8, ptr %334, i64 1
   store ptr %341, ptr %2, align 8
   br label %346
 
@@ -696,10 +696,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %3
 346:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734.thread
   %.ph2198 = phi i64 [ %340, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734.thread ], [ %343, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734 ]
   %347 = load ptr, ptr %1, align 8
-  %348 = getelementptr inbounds i32, ptr %333, i64 %95
+  %348 = getelementptr inbounds nuw i32, ptr %333, i64 %95
   %349 = load i32, ptr %348, align 4
   %350 = zext i32 %349 to i64
-  %351 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %347, i64 %350
+  %351 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %347, i64 %350
   %352 = load ptr, ptr %64, align 8
   %353 = ptrtoint ptr %352 to i64
   %354 = and i64 %353, 1
@@ -714,7 +714,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %3
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1737: ; preds = %346, %355
   %.0.i1736 = phi ptr [ %358, %355 ], [ %352, %346 ]
-  %359 = getelementptr inbounds i8, ptr %351, i64 10
+  %359 = getelementptr inbounds nuw i8, ptr %351, i64 10
   %360 = load i8, ptr %359, align 2
   %361 = and i8 %360, 31
   switch i8 %361, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1738 [
@@ -730,14 +730,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1737: ; preds = %346, %355
 364:                                              ; preds = %362
   %365 = load i32, ptr %351, align 4
   %366 = zext i32 %365 to i64
-  %367 = getelementptr inbounds i8, ptr %0, i64 %366
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 %366
   %368 = load ptr, ptr %367, align 8
   %369 = icmp eq ptr %368, null
   br i1 %369, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1738, label %370
 
 370:                                              ; preds = %364
   %371 = load ptr, ptr %368, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load ptr, ptr %372, align 8
   call void %373(ptr noundef nonnull align 8 dereferenceable(16) %368) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1738
@@ -745,13 +745,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1737: ; preds = %346, %355
 374:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1737, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1737
   %375 = load i32, ptr %351, align 4
   %376 = zext i32 %375 to i64
-  %377 = getelementptr inbounds i8, ptr %0, i64 %376
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 %376
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %377, ptr noundef %.0.i1736)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1738
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1738: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1737, %362, %364, %370, %374
   store i32 %82, ptr %348, align 4
-  %378 = getelementptr inbounds i8, ptr %0, i64 %97
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %.ph2198, ptr %378, align 8
   br label %.backedge
 
@@ -768,7 +768,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %386, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1741.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1741
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1741.thread: ; preds = %383
-  %387 = getelementptr inbounds i8, ptr %380, i64 1
+  %387 = getelementptr inbounds nuw i8, ptr %380, i64 1
   store ptr %387, ptr %2, align 8
   br label %391
 
@@ -789,16 +789,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1741: ; preds = %3
   %397 = shl nuw i32 1, %396
   %398 = lshr i32 %94, 5
   %399 = zext nneg i32 %398 to i64
-  %400 = getelementptr inbounds i32, ptr %59, i64 %399
+  %400 = getelementptr inbounds nuw i32, ptr %59, i64 %399
   %401 = load i32, ptr %400, align 4
   %402 = or i32 %401, %397
   store i32 %402, ptr %400, align 4
-  %403 = getelementptr inbounds i8, ptr %0, i64 %97
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %395, ptr %403, align 4
   br label %.backedge
 
 404:                                              ; preds = %104
-  %405 = getelementptr inbounds i8, ptr %0, i64 %97
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %406 = load ptr, ptr %2, align 8
   %407 = load ptr, ptr %60, align 8
   %408 = icmp ult ptr %406, %407
@@ -811,7 +811,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1741: ; preds = %3
   br i1 %412, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1744.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1744
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1744.thread: ; preds = %409
-  %413 = getelementptr inbounds i8, ptr %406, i64 1
+  %413 = getelementptr inbounds nuw i8, ptr %406, i64 1
   store ptr %413, ptr %2, align 8
   br label %417
 
@@ -861,7 +861,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1744: ; preds = %4
   br i1 %439, label %440, label %.backedge
 
 440:                                              ; preds = %436
-  %441 = getelementptr inbounds i8, ptr %433, i64 1
+  %441 = getelementptr inbounds nuw i8, ptr %433, i64 1
   br label %.critedge1609
 
 442:                                              ; preds = %431
@@ -884,14 +884,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1744: ; preds = %4
   br i1 %454, label %455, label %.backedge
 
 455:                                              ; preds = %451
-  %456 = getelementptr inbounds i8, ptr %445, i64 1
+  %456 = getelementptr inbounds nuw i8, ptr %445, i64 1
   %457 = load i8, ptr %456, align 1
   %458 = zext i8 %457 to i32
   %459 = icmp eq i32 %430, %458
   br i1 %459, label %460, label %.backedge
 
 460:                                              ; preds = %455
-  %461 = getelementptr inbounds i8, ptr %445, i64 2
+  %461 = getelementptr inbounds nuw i8, ptr %445, i64 2
   br label %.critedge1609
 
 .critedge1609:                                    ; preds = %460, %440
@@ -908,7 +908,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1744: ; preds = %4
   br i1 %467, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1747.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1747
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1747.thread: ; preds = %464
-  %468 = getelementptr inbounds i8, ptr %storemerge2472, i64 1
+  %468 = getelementptr inbounds nuw i8, ptr %storemerge2472, i64 1
   store ptr %468, ptr %2, align 8
   br label %472
 
@@ -946,7 +946,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1747: ; preds = %.
   br i1 %488, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1750.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1750
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1750.thread: ; preds = %485
-  %489 = getelementptr inbounds i8, ptr %482, i64 1
+  %489 = getelementptr inbounds nuw i8, ptr %482, i64 1
   store ptr %489, ptr %2, align 8
   br label %493
 
@@ -964,10 +964,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1750: ; preds = %4
   %496 = sub nsw i32 0, %495
   %497 = xor i32 %494, %496
   %498 = load ptr, ptr %1, align 8
-  %499 = getelementptr inbounds i32, ptr %481, i64 %95
+  %499 = getelementptr inbounds nuw i32, ptr %481, i64 %95
   %500 = load i32, ptr %499, align 4
   %501 = zext i32 %500 to i64
-  %502 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %498, i64 %501
+  %502 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %498, i64 %501
   %503 = load ptr, ptr %64, align 8
   %504 = ptrtoint ptr %503 to i64
   %505 = and i64 %504, 1
@@ -982,7 +982,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1750: ; preds = %4
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1753: ; preds = %493, %506
   %.0.i1752 = phi ptr [ %509, %506 ], [ %503, %493 ]
-  %510 = getelementptr inbounds i8, ptr %502, i64 10
+  %510 = getelementptr inbounds nuw i8, ptr %502, i64 10
   %511 = load i8, ptr %510, align 2
   %512 = and i8 %511, 31
   switch i8 %512, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1754 [
@@ -998,14 +998,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1753: ; preds = %493, %506
 515:                                              ; preds = %513
   %516 = load i32, ptr %502, align 4
   %517 = zext i32 %516 to i64
-  %518 = getelementptr inbounds i8, ptr %0, i64 %517
+  %518 = getelementptr inbounds nuw i8, ptr %0, i64 %517
   %519 = load ptr, ptr %518, align 8
   %520 = icmp eq ptr %519, null
   br i1 %520, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1754, label %521
 
 521:                                              ; preds = %515
   %522 = load ptr, ptr %519, align 8
-  %523 = getelementptr inbounds i8, ptr %522, i64 8
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8
   call void %524(ptr noundef nonnull align 8 dereferenceable(16) %519) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1754
@@ -1013,13 +1013,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1753: ; preds = %493, %506
 525:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1753, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1753
   %526 = load i32, ptr %502, align 4
   %527 = zext i32 %526 to i64
-  %528 = getelementptr inbounds i8, ptr %0, i64 %527
+  %528 = getelementptr inbounds nuw i8, ptr %0, i64 %527
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %528, ptr noundef %.0.i1752)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1754
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1754: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1753, %513, %515, %521, %525
   store i32 %82, ptr %499, align 4
-  %529 = getelementptr inbounds i8, ptr %0, i64 %97
+  %529 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %497, ptr %529, align 4
   br label %.backedge
 
@@ -1036,7 +1036,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1756.thread: ; preds = %534
   %537 = zext nneg i8 %535 to i64
-  %538 = getelementptr inbounds i8, ptr %531, i64 1
+  %538 = getelementptr inbounds nuw i8, ptr %531, i64 1
   store ptr %538, ptr %2, align 8
   br label %543
 
@@ -1057,16 +1057,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1756: ; preds = %5
   %549 = shl nuw i32 1, %548
   %550 = lshr i32 %94, 5
   %551 = zext nneg i32 %550 to i64
-  %552 = getelementptr inbounds i32, ptr %59, i64 %551
+  %552 = getelementptr inbounds nuw i32, ptr %59, i64 %551
   %553 = load i32, ptr %552, align 4
   %554 = or i32 %553, %549
   store i32 %554, ptr %552, align 4
-  %555 = getelementptr inbounds i8, ptr %0, i64 %97
+  %555 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %547, ptr %555, align 8
   br label %.backedge
 
 556:                                              ; preds = %104
-  %557 = getelementptr inbounds i8, ptr %0, i64 %97
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %558 = load ptr, ptr %2, align 8
   %559 = load ptr, ptr %60, align 8
   %560 = icmp ult ptr %558, %559
@@ -1079,7 +1079,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1756: ; preds = %5
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1758.thread: ; preds = %561
   %564 = zext nneg i8 %562 to i64
-  %565 = getelementptr inbounds i8, ptr %558, i64 1
+  %565 = getelementptr inbounds nuw i8, ptr %558, i64 1
   store ptr %565, ptr %2, align 8
   br label %570
 
@@ -1129,7 +1129,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1758: ; preds = %5
   br i1 %592, label %593, label %.backedge
 
 593:                                              ; preds = %589
-  %594 = getelementptr inbounds i8, ptr %586, i64 1
+  %594 = getelementptr inbounds nuw i8, ptr %586, i64 1
   br label %.critedge1616
 
 595:                                              ; preds = %584
@@ -1152,14 +1152,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1758: ; preds = %5
   br i1 %607, label %608, label %.backedge
 
 608:                                              ; preds = %604
-  %609 = getelementptr inbounds i8, ptr %598, i64 1
+  %609 = getelementptr inbounds nuw i8, ptr %598, i64 1
   %610 = load i8, ptr %609, align 1
   %611 = zext i8 %610 to i32
   %612 = icmp eq i32 %583, %611
   br i1 %612, label %613, label %.backedge
 
 613:                                              ; preds = %608
-  %614 = getelementptr inbounds i8, ptr %598, i64 2
+  %614 = getelementptr inbounds nuw i8, ptr %598, i64 2
   br label %.critedge1616
 
 .critedge1616:                                    ; preds = %613, %593
@@ -1176,7 +1176,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1758: ; preds = %5
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760.thread: ; preds = %617
   %620 = zext nneg i8 %618 to i64
-  %621 = getelementptr inbounds i8, ptr %storemerge2471, i64 1
+  %621 = getelementptr inbounds nuw i8, ptr %storemerge2471, i64 1
   store ptr %621, ptr %2, align 8
   br label %626
 
@@ -1214,7 +1214,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762.thread: ; preds = %639
   %642 = zext nneg i8 %640 to i64
-  %643 = getelementptr inbounds i8, ptr %636, i64 1
+  %643 = getelementptr inbounds nuw i8, ptr %636, i64 1
   store ptr %643, ptr %2, align 8
   br label %648
 
@@ -1232,10 +1232,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %6
   %651 = sub nsw i64 0, %650
   %652 = xor i64 %649, %651
   %653 = load ptr, ptr %1, align 8
-  %654 = getelementptr inbounds i32, ptr %635, i64 %95
+  %654 = getelementptr inbounds nuw i32, ptr %635, i64 %95
   %655 = load i32, ptr %654, align 4
   %656 = zext i32 %655 to i64
-  %657 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %653, i64 %656
+  %657 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %653, i64 %656
   %658 = load ptr, ptr %64, align 8
   %659 = ptrtoint ptr %658 to i64
   %660 = and i64 %659, 1
@@ -1250,7 +1250,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %6
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1765: ; preds = %648, %661
   %.0.i1764 = phi ptr [ %664, %661 ], [ %658, %648 ]
-  %665 = getelementptr inbounds i8, ptr %657, i64 10
+  %665 = getelementptr inbounds nuw i8, ptr %657, i64 10
   %666 = load i8, ptr %665, align 2
   %667 = and i8 %666, 31
   switch i8 %667, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1766 [
@@ -1266,14 +1266,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1765: ; preds = %648, %661
 670:                                              ; preds = %668
   %671 = load i32, ptr %657, align 4
   %672 = zext i32 %671 to i64
-  %673 = getelementptr inbounds i8, ptr %0, i64 %672
+  %673 = getelementptr inbounds nuw i8, ptr %0, i64 %672
   %674 = load ptr, ptr %673, align 8
   %675 = icmp eq ptr %674, null
   br i1 %675, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1766, label %676
 
 676:                                              ; preds = %670
   %677 = load ptr, ptr %674, align 8
-  %678 = getelementptr inbounds i8, ptr %677, i64 8
+  %678 = getelementptr inbounds nuw i8, ptr %677, i64 8
   %679 = load ptr, ptr %678, align 8
   call void %679(ptr noundef nonnull align 8 dereferenceable(16) %674) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1766
@@ -1281,13 +1281,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1765: ; preds = %648, %661
 680:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1765, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1765
   %681 = load i32, ptr %657, align 4
   %682 = zext i32 %681 to i64
-  %683 = getelementptr inbounds i8, ptr %0, i64 %682
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 %682
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %683, ptr noundef %.0.i1764)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1766
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1766: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1765, %668, %670, %676, %680
   store i32 %82, ptr %654, align 4
-  %684 = getelementptr inbounds i8, ptr %0, i64 %97
+  %684 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %652, ptr %684, align 8
   br label %.backedge
 
@@ -1304,7 +1304,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %692, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1769.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1769
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1769.thread: ; preds = %689
-  %693 = getelementptr inbounds i8, ptr %686, i64 1
+  %693 = getelementptr inbounds nuw i8, ptr %686, i64 1
   store ptr %693, ptr %2, align 8
   br label %697
 
@@ -1321,16 +1321,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1769: ; preds = %6
   %699 = shl nuw i32 1, %698
   %700 = lshr i32 %94, 5
   %701 = zext nneg i32 %700 to i64
-  %702 = getelementptr inbounds i32, ptr %59, i64 %701
+  %702 = getelementptr inbounds nuw i32, ptr %59, i64 %701
   %703 = load i32, ptr %702, align 4
   %704 = or i32 %703, %699
   store i32 %704, ptr %702, align 4
-  %705 = getelementptr inbounds i8, ptr %0, i64 %97
+  %705 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.021162251, ptr %705, align 4
   br label %.backedge
 
 706:                                              ; preds = %104
-  %707 = getelementptr inbounds i8, ptr %0, i64 %97
+  %707 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %708 = load ptr, ptr %2, align 8
   %709 = load ptr, ptr %60, align 8
   %710 = icmp ult ptr %708, %709
@@ -1344,7 +1344,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1769: ; preds = %6
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1772.thread: ; preds = %711
   store i32 %713, ptr %47, align 4
-  %715 = getelementptr inbounds i8, ptr %708, i64 1
+  %715 = getelementptr inbounds nuw i8, ptr %708, i64 1
   store ptr %715, ptr %2, align 8
   br label %719
 
@@ -1389,7 +1389,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1772: ; preds = %7
   br i1 %737, label %738, label %.backedge
 
 738:                                              ; preds = %734
-  %739 = getelementptr inbounds i8, ptr %731, i64 1
+  %739 = getelementptr inbounds nuw i8, ptr %731, i64 1
   br label %.critedge1621
 
 740:                                              ; preds = %729
@@ -1412,14 +1412,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1772: ; preds = %7
   br i1 %752, label %753, label %.backedge
 
 753:                                              ; preds = %749
-  %754 = getelementptr inbounds i8, ptr %743, i64 1
+  %754 = getelementptr inbounds nuw i8, ptr %743, i64 1
   %755 = load i8, ptr %754, align 1
   %756 = zext i8 %755 to i32
   %757 = icmp eq i32 %728, %756
   br i1 %757, label %758, label %.backedge
 
 758:                                              ; preds = %753
-  %759 = getelementptr inbounds i8, ptr %743, i64 2
+  %759 = getelementptr inbounds nuw i8, ptr %743, i64 2
   br label %.critedge1621
 
 .critedge1621:                                    ; preds = %758, %738
@@ -1437,7 +1437,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1772: ; preds = %7
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1775.thread: ; preds = %762
   store i32 %764, ptr %47, align 4
-  %766 = getelementptr inbounds i8, ptr %storemerge2470, i64 1
+  %766 = getelementptr inbounds nuw i8, ptr %storemerge2470, i64 1
   store ptr %766, ptr %2, align 8
   br label %770
 
@@ -1470,7 +1470,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1775: ; preds = %.
   br i1 %782, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778.thread: ; preds = %779
-  %783 = getelementptr inbounds i8, ptr %776, i64 1
+  %783 = getelementptr inbounds nuw i8, ptr %776, i64 1
   store ptr %783, ptr %2, align 8
   br label %787
 
@@ -1484,10 +1484,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778: ; preds = %7
 787:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778
   %.021152256 = phi i32 [ %781, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778.thread ], [ %785, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778 ]
   %788 = load ptr, ptr %1, align 8
-  %789 = getelementptr inbounds i32, ptr %775, i64 %95
+  %789 = getelementptr inbounds nuw i32, ptr %775, i64 %95
   %790 = load i32, ptr %789, align 4
   %791 = zext i32 %790 to i64
-  %792 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %788, i64 %791
+  %792 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %788, i64 %791
   %793 = load ptr, ptr %64, align 8
   %794 = ptrtoint ptr %793 to i64
   %795 = and i64 %794, 1
@@ -1502,7 +1502,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1778: ; preds = %7
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1781: ; preds = %787, %796
   %.0.i1780 = phi ptr [ %799, %796 ], [ %793, %787 ]
-  %800 = getelementptr inbounds i8, ptr %792, i64 10
+  %800 = getelementptr inbounds nuw i8, ptr %792, i64 10
   %801 = load i8, ptr %800, align 2
   %802 = and i8 %801, 31
   switch i8 %802, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1782 [
@@ -1518,14 +1518,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1781: ; preds = %787, %796
 805:                                              ; preds = %803
   %806 = load i32, ptr %792, align 4
   %807 = zext i32 %806 to i64
-  %808 = getelementptr inbounds i8, ptr %0, i64 %807
+  %808 = getelementptr inbounds nuw i8, ptr %0, i64 %807
   %809 = load ptr, ptr %808, align 8
   %810 = icmp eq ptr %809, null
   br i1 %810, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1782, label %811
 
 811:                                              ; preds = %805
   %812 = load ptr, ptr %809, align 8
-  %813 = getelementptr inbounds i8, ptr %812, i64 8
+  %813 = getelementptr inbounds nuw i8, ptr %812, i64 8
   %814 = load ptr, ptr %813, align 8
   call void %814(ptr noundef nonnull align 8 dereferenceable(16) %809) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1782
@@ -1533,13 +1533,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1781: ; preds = %787, %796
 815:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1781, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1781
   %816 = load i32, ptr %792, align 4
   %817 = zext i32 %816 to i64
-  %818 = getelementptr inbounds i8, ptr %0, i64 %817
+  %818 = getelementptr inbounds nuw i8, ptr %0, i64 %817
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %818, ptr noundef %.0.i1780)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1782
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1782: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1781, %803, %805, %811, %815
   store i32 %82, ptr %789, align 4
-  %819 = getelementptr inbounds i8, ptr %0, i64 %97
+  %819 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.021152256, ptr %819, align 4
   br label %.backedge
 
@@ -1556,7 +1556,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1784.thread: ; preds = %824
   %827 = zext nneg i8 %825 to i64
-  %828 = getelementptr inbounds i8, ptr %821, i64 1
+  %828 = getelementptr inbounds nuw i8, ptr %821, i64 1
   store ptr %828, ptr %2, align 8
   br label %833
 
@@ -1573,16 +1573,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1784: ; preds = %8
   %835 = shl nuw i32 1, %834
   %836 = lshr i32 %94, 5
   %837 = zext nneg i32 %836 to i64
-  %838 = getelementptr inbounds i32, ptr %59, i64 %837
+  %838 = getelementptr inbounds nuw i32, ptr %59, i64 %837
   %839 = load i32, ptr %838, align 4
   %840 = or i32 %839, %835
   store i32 %840, ptr %838, align 4
-  %841 = getelementptr inbounds i8, ptr %0, i64 %97
+  %841 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %.021142259, ptr %841, align 8
   br label %.backedge
 
 842:                                              ; preds = %104
-  %843 = getelementptr inbounds i8, ptr %0, i64 %97
+  %843 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %844 = load ptr, ptr %2, align 8
   %845 = load ptr, ptr %60, align 8
   %846 = icmp ult ptr %844, %845
@@ -1596,7 +1596,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1784: ; preds = %8
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1786.thread: ; preds = %847
   %850 = zext nneg i8 %848 to i64
   store i64 %850, ptr %46, align 8
-  %851 = getelementptr inbounds i8, ptr %844, i64 1
+  %851 = getelementptr inbounds nuw i8, ptr %844, i64 1
   store ptr %851, ptr %2, align 8
   br label %856
 
@@ -1641,7 +1641,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1786: ; preds = %8
   br i1 %874, label %875, label %.backedge
 
 875:                                              ; preds = %871
-  %876 = getelementptr inbounds i8, ptr %868, i64 1
+  %876 = getelementptr inbounds nuw i8, ptr %868, i64 1
   br label %.critedge1624
 
 877:                                              ; preds = %866
@@ -1664,14 +1664,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1786: ; preds = %8
   br i1 %889, label %890, label %.backedge
 
 890:                                              ; preds = %886
-  %891 = getelementptr inbounds i8, ptr %880, i64 1
+  %891 = getelementptr inbounds nuw i8, ptr %880, i64 1
   %892 = load i8, ptr %891, align 1
   %893 = zext i8 %892 to i32
   %894 = icmp eq i32 %865, %893
   br i1 %894, label %895, label %.backedge
 
 895:                                              ; preds = %890
-  %896 = getelementptr inbounds i8, ptr %880, i64 2
+  %896 = getelementptr inbounds nuw i8, ptr %880, i64 2
   br label %.critedge1624
 
 .critedge1624:                                    ; preds = %895, %875
@@ -1689,7 +1689,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1786: ; preds = %8
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788.thread: ; preds = %899
   %902 = zext nneg i8 %900 to i64
   store i64 %902, ptr %46, align 8
-  %903 = getelementptr inbounds i8, ptr %storemerge2469, i64 1
+  %903 = getelementptr inbounds nuw i8, ptr %storemerge2469, i64 1
   store ptr %903, ptr %2, align 8
   br label %908
 
@@ -1722,7 +1722,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790.thread: ; preds = %917
   %920 = zext nneg i8 %918 to i64
-  %921 = getelementptr inbounds i8, ptr %914, i64 1
+  %921 = getelementptr inbounds nuw i8, ptr %914, i64 1
   store ptr %921, ptr %2, align 8
   br label %926
 
@@ -1736,10 +1736,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %9
 926:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790
   %.021132264 = phi i64 [ %920, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790.thread ], [ %923, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790 ]
   %927 = load ptr, ptr %1, align 8
-  %928 = getelementptr inbounds i32, ptr %913, i64 %95
+  %928 = getelementptr inbounds nuw i32, ptr %913, i64 %95
   %929 = load i32, ptr %928, align 4
   %930 = zext i32 %929 to i64
-  %931 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %927, i64 %930
+  %931 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %927, i64 %930
   %932 = load ptr, ptr %64, align 8
   %933 = ptrtoint ptr %932 to i64
   %934 = and i64 %933, 1
@@ -1754,7 +1754,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %9
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1793: ; preds = %926, %935
   %.0.i1792 = phi ptr [ %938, %935 ], [ %932, %926 ]
-  %939 = getelementptr inbounds i8, ptr %931, i64 10
+  %939 = getelementptr inbounds nuw i8, ptr %931, i64 10
   %940 = load i8, ptr %939, align 2
   %941 = and i8 %940, 31
   switch i8 %941, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1794 [
@@ -1770,14 +1770,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1793: ; preds = %926, %935
 944:                                              ; preds = %942
   %945 = load i32, ptr %931, align 4
   %946 = zext i32 %945 to i64
-  %947 = getelementptr inbounds i8, ptr %0, i64 %946
+  %947 = getelementptr inbounds nuw i8, ptr %0, i64 %946
   %948 = load ptr, ptr %947, align 8
   %949 = icmp eq ptr %948, null
   br i1 %949, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1794, label %950
 
 950:                                              ; preds = %944
   %951 = load ptr, ptr %948, align 8
-  %952 = getelementptr inbounds i8, ptr %951, i64 8
+  %952 = getelementptr inbounds nuw i8, ptr %951, i64 8
   %953 = load ptr, ptr %952, align 8
   call void %953(ptr noundef nonnull align 8 dereferenceable(16) %948) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1794
@@ -1785,13 +1785,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1793: ; preds = %926, %935
 954:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1793, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1793
   %955 = load i32, ptr %931, align 4
   %956 = zext i32 %955 to i64
-  %957 = getelementptr inbounds i8, ptr %0, i64 %956
+  %957 = getelementptr inbounds nuw i8, ptr %0, i64 %956
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %957, ptr noundef %.0.i1792)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1794
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1794: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1793, %942, %944, %950, %954
   store i32 %82, ptr %928, align 4
-  %958 = getelementptr inbounds i8, ptr %0, i64 %97
+  %958 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %.021132264, ptr %958, align 8
   br label %.backedge
 
@@ -1808,7 +1808,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit.thread: ; preds = %959
   %967 = load i32, ptr %961, align 1
   store i32 %967, ptr %52, align 4
-  %968 = getelementptr inbounds i8, ptr %961, i64 4
+  %968 = getelementptr inbounds nuw i8, ptr %961, i64 4
   store ptr %968, ptr %2, align 8
   br label %970
 
@@ -1826,17 +1826,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit._crit_edge:
   %973 = shl nuw i32 1, %972
   %974 = lshr i32 %94, 5
   %975 = zext nneg i32 %974 to i64
-  %976 = getelementptr inbounds i32, ptr %59, i64 %975
+  %976 = getelementptr inbounds nuw i32, ptr %59, i64 %975
   %977 = load i32, ptr %976, align 4
   %978 = or i32 %977, %973
   store i32 %978, ptr %976, align 4
-  %979 = getelementptr inbounds i8, ptr %0, i64 %97
+  %979 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %971, ptr %979, align 4
   br label %.backedge
 
 980:                                              ; preds = %104
-  %981 = getelementptr inbounds i8, ptr %0, i64 %97
-  %982 = getelementptr inbounds i8, ptr %92, i64 11
+  %981 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %982 = getelementptr inbounds nuw i8, ptr %92, i64 11
   %983 = load i8, ptr %982, align 1
   %984 = zext i8 %983 to i32
   %985 = load ptr, ptr %60, align 8
@@ -1851,7 +1851,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit._crit_edge:
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1797.thread: ; preds = %980
   %992 = load i32, ptr %986, align 1
   store i32 %992, ptr %29, align 4
-  %993 = getelementptr inbounds i8, ptr %986, i64 4
+  %993 = getelementptr inbounds nuw i8, ptr %986, i64 4
   store ptr %993, ptr %2, align 8
   br label %995
 
@@ -1897,7 +1897,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1797: ; pred
   %1017 = load i8, ptr %.013772667, align 1
   %1018 = zext i8 %1017 to i32
   %1019 = icmp eq i32 %.sroa.0587.0, %1018
-  %1020 = getelementptr inbounds i8, ptr %.013772667, i64 1
+  %1020 = getelementptr inbounds nuw i8, ptr %.013772667, i64 1
   br i1 %1019, label %select.unfold, label %.critedge12
 
 1021:                                             ; preds = %1015
@@ -1910,18 +1910,18 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1797: ; pred
   br i1 %1025, label %1026, label %.critedge12
 
 1026:                                             ; preds = %1022
-  %1027 = getelementptr inbounds i8, ptr %.013772667, i64 1
+  %1027 = getelementptr inbounds nuw i8, ptr %.013772667, i64 1
   %1028 = load i8, ptr %1027, align 1
   %1029 = zext i8 %1028 to i32
   %1030 = icmp eq i32 %1014, %1029
-  %1031 = getelementptr inbounds i8, ptr %.013772667, i64 2
+  %1031 = getelementptr inbounds nuw i8, ptr %.013772667, i64 2
   br i1 %1030, label %select.unfold, label %.critedge12
 
 select.unfold:                                    ; preds = %1026, %1016
   %.01375 = phi ptr [ %1020, %1016 ], [ %1031, %1026 ]
   %1032 = load i32, ptr %.01375, align 1
   store i32 %1032, ptr %29, align 4
-  %1033 = getelementptr inbounds i8, ptr %.01375, i64 4
+  %1033 = getelementptr inbounds nuw i8, ptr %.01375, i64 4
   call void @_ZN6google8protobuf13RepeatedFieldIjE18AddAlreadyReservedERKj(ptr noundef nonnull align 8 dereferenceable(16) %981, ptr noundef nonnull align 4 dereferenceable(4) %29)
   %1034 = add nuw nsw i32 %.013782666, 1
   %exitcond2836.not = icmp eq i32 %1034, %.sroa.speculated
@@ -1945,7 +1945,7 @@ select.unfold:                                    ; preds = %1026, %1016
 
 1042:                                             ; preds = %.critedge12.thread2853
   %1043 = zext nneg i32 %1035 to i64
-  %1044 = getelementptr inbounds i8, ptr %1037, i64 %1043
+  %1044 = getelementptr inbounds nuw i8, ptr %1037, i64 %1043
   store ptr %1044, ptr %2, align 8
   br label %.backedge
 
@@ -1968,7 +1968,7 @@ select.unfold:                                    ; preds = %1026, %1016
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801.thread: ; preds = %1047
   %1057 = load i32, ptr %1051, align 1
   store i32 %1057, ptr %53, align 4
-  %1058 = getelementptr inbounds i8, ptr %1051, i64 4
+  %1058 = getelementptr inbounds nuw i8, ptr %1051, i64 4
   store ptr %1058, ptr %2, align 8
   br label %1060
 
@@ -1978,10 +1978,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801: ; pred
 
 1060:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801
   %1061 = load ptr, ptr %1, align 8
-  %1062 = getelementptr inbounds i32, ptr %1049, i64 %95
+  %1062 = getelementptr inbounds nuw i32, ptr %1049, i64 %95
   %1063 = load i32, ptr %1062, align 4
   %1064 = zext i32 %1063 to i64
-  %1065 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1061, i64 %1064
+  %1065 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1061, i64 %1064
   %1066 = load ptr, ptr %64, align 8
   %1067 = ptrtoint ptr %1066 to i64
   %1068 = and i64 %1067, 1
@@ -1996,7 +1996,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1804: ; preds = %1060, %1069
   %.0.i1803 = phi ptr [ %1072, %1069 ], [ %1066, %1060 ]
-  %1073 = getelementptr inbounds i8, ptr %1065, i64 10
+  %1073 = getelementptr inbounds nuw i8, ptr %1065, i64 10
   %1074 = load i8, ptr %1073, align 2
   %1075 = and i8 %1074, 31
   switch i8 %1075, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1805 [
@@ -2012,14 +2012,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1804: ; preds = %1060, %1069
 1078:                                             ; preds = %1076
   %1079 = load i32, ptr %1065, align 4
   %1080 = zext i32 %1079 to i64
-  %1081 = getelementptr inbounds i8, ptr %0, i64 %1080
+  %1081 = getelementptr inbounds nuw i8, ptr %0, i64 %1080
   %1082 = load ptr, ptr %1081, align 8
   %1083 = icmp eq ptr %1082, null
   br i1 %1083, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1805, label %1084
 
 1084:                                             ; preds = %1078
   %1085 = load ptr, ptr %1082, align 8
-  %1086 = getelementptr inbounds i8, ptr %1085, i64 8
+  %1086 = getelementptr inbounds nuw i8, ptr %1085, i64 8
   %1087 = load ptr, ptr %1086, align 8
   call void %1087(ptr noundef nonnull align 8 dereferenceable(16) %1082) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1805
@@ -2027,14 +2027,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1804: ; preds = %1060, %1069
 1088:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1804, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1804
   %1089 = load i32, ptr %1065, align 4
   %1090 = zext i32 %1089 to i64
-  %1091 = getelementptr inbounds i8, ptr %0, i64 %1090
+  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 %1090
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1091, ptr noundef %.0.i1803)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1805
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1805: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1804, %1076, %1078, %1084, %1088
   %1092 = load i32, ptr %53, align 4
   store i32 %82, ptr %1062, align 4
-  %1093 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1093 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %1092, ptr %1093, align 4
   br label %.backedge
 
@@ -2051,7 +2051,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit.thread: ; preds = %1094
   %1102 = load i64, ptr %1096, align 1
   store i64 %1102, ptr %54, align 8
-  %1103 = getelementptr inbounds i8, ptr %1096, i64 8
+  %1103 = getelementptr inbounds nuw i8, ptr %1096, i64 8
   store ptr %1103, ptr %2, align 8
   br label %1105
 
@@ -2069,17 +2069,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit._crit_edge:
   %1108 = shl nuw i32 1, %1107
   %1109 = lshr i32 %94, 5
   %1110 = zext nneg i32 %1109 to i64
-  %1111 = getelementptr inbounds i32, ptr %59, i64 %1110
+  %1111 = getelementptr inbounds nuw i32, ptr %59, i64 %1110
   %1112 = load i32, ptr %1111, align 4
   %1113 = or i32 %1112, %1108
   store i32 %1113, ptr %1111, align 4
-  %1114 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1114 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %1106, ptr %1114, align 8
   br label %.backedge
 
 1115:                                             ; preds = %104
-  %1116 = getelementptr inbounds i8, ptr %0, i64 %97
-  %1117 = getelementptr inbounds i8, ptr %92, i64 11
+  %1116 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %1117 = getelementptr inbounds nuw i8, ptr %92, i64 11
   %1118 = load i8, ptr %1117, align 1
   %1119 = zext i8 %1118 to i32
   %1120 = load ptr, ptr %60, align 8
@@ -2094,7 +2094,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit._crit_edge:
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1808.thread: ; preds = %1115
   %1127 = load i64, ptr %1121, align 1
   store i64 %1127, ptr %28, align 8
-  %1128 = getelementptr inbounds i8, ptr %1121, i64 8
+  %1128 = getelementptr inbounds nuw i8, ptr %1121, i64 8
   store ptr %1128, ptr %2, align 8
   br label %1130
 
@@ -2140,7 +2140,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1808: ; pred
   %1152 = load i8, ptr %.013732654, align 1
   %1153 = zext i8 %1152 to i32
   %1154 = icmp eq i32 %.sroa.0587.0, %1153
-  %1155 = getelementptr inbounds i8, ptr %.013732654, i64 1
+  %1155 = getelementptr inbounds nuw i8, ptr %.013732654, i64 1
   br i1 %1154, label %select.unfold2277, label %.critedge14
 
 1156:                                             ; preds = %1150
@@ -2153,18 +2153,18 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1808: ; pred
   br i1 %1160, label %1161, label %.critedge14
 
 1161:                                             ; preds = %1157
-  %1162 = getelementptr inbounds i8, ptr %.013732654, i64 1
+  %1162 = getelementptr inbounds nuw i8, ptr %.013732654, i64 1
   %1163 = load i8, ptr %1162, align 1
   %1164 = zext i8 %1163 to i32
   %1165 = icmp eq i32 %1149, %1164
-  %1166 = getelementptr inbounds i8, ptr %.013732654, i64 2
+  %1166 = getelementptr inbounds nuw i8, ptr %.013732654, i64 2
   br i1 %1165, label %select.unfold2277, label %.critedge14
 
 select.unfold2277:                                ; preds = %1161, %1151
   %.01371 = phi ptr [ %1155, %1151 ], [ %1166, %1161 ]
   %1167 = load i64, ptr %.01371, align 1
   store i64 %1167, ptr %28, align 8
-  %1168 = getelementptr inbounds i8, ptr %.01371, i64 8
+  %1168 = getelementptr inbounds nuw i8, ptr %.01371, i64 8
   call void @_ZN6google8protobuf13RepeatedFieldImE18AddAlreadyReservedERKm(ptr noundef nonnull align 8 dereferenceable(16) %1116, ptr noundef nonnull align 8 dereferenceable(8) %28)
   %1169 = add nuw nsw i32 %.013742653, 1
   %exitcond2835.not = icmp eq i32 %1169, %.sroa.speculated2048
@@ -2188,7 +2188,7 @@ select.unfold2277:                                ; preds = %1161, %1151
 
 1177:                                             ; preds = %.critedge14.thread2859
   %1178 = zext nneg i32 %1170 to i64
-  %1179 = getelementptr inbounds i8, ptr %1172, i64 %1178
+  %1179 = getelementptr inbounds nuw i8, ptr %1172, i64 %1178
   store ptr %1179, ptr %2, align 8
   br label %.backedge
 
@@ -2211,7 +2211,7 @@ select.unfold2277:                                ; preds = %1161, %1151
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1814.thread: ; preds = %1182
   %1192 = load i64, ptr %1186, align 1
   store i64 %1192, ptr %55, align 8
-  %1193 = getelementptr inbounds i8, ptr %1186, i64 8
+  %1193 = getelementptr inbounds nuw i8, ptr %1186, i64 8
   store ptr %1193, ptr %2, align 8
   br label %1195
 
@@ -2221,10 +2221,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1814: ; pred
 
 1195:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1814.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1814
   %1196 = load ptr, ptr %1, align 8
-  %1197 = getelementptr inbounds i32, ptr %1184, i64 %95
+  %1197 = getelementptr inbounds nuw i32, ptr %1184, i64 %95
   %1198 = load i32, ptr %1197, align 4
   %1199 = zext i32 %1198 to i64
-  %1200 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1196, i64 %1199
+  %1200 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1196, i64 %1199
   %1201 = load ptr, ptr %64, align 8
   %1202 = ptrtoint ptr %1201 to i64
   %1203 = and i64 %1202, 1
@@ -2239,7 +2239,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1814: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1817: ; preds = %1195, %1204
   %.0.i1816 = phi ptr [ %1207, %1204 ], [ %1201, %1195 ]
-  %1208 = getelementptr inbounds i8, ptr %1200, i64 10
+  %1208 = getelementptr inbounds nuw i8, ptr %1200, i64 10
   %1209 = load i8, ptr %1208, align 2
   %1210 = and i8 %1209, 31
   switch i8 %1210, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1818 [
@@ -2255,14 +2255,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1817: ; preds = %1195, %1204
 1213:                                             ; preds = %1211
   %1214 = load i32, ptr %1200, align 4
   %1215 = zext i32 %1214 to i64
-  %1216 = getelementptr inbounds i8, ptr %0, i64 %1215
+  %1216 = getelementptr inbounds nuw i8, ptr %0, i64 %1215
   %1217 = load ptr, ptr %1216, align 8
   %1218 = icmp eq ptr %1217, null
   br i1 %1218, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1818, label %1219
 
 1219:                                             ; preds = %1213
   %1220 = load ptr, ptr %1217, align 8
-  %1221 = getelementptr inbounds i8, ptr %1220, i64 8
+  %1221 = getelementptr inbounds nuw i8, ptr %1220, i64 8
   %1222 = load ptr, ptr %1221, align 8
   call void %1222(ptr noundef nonnull align 8 dereferenceable(16) %1217) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1818
@@ -2270,14 +2270,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1817: ; preds = %1195, %1204
 1223:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1817, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1817
   %1224 = load i32, ptr %1200, align 4
   %1225 = zext i32 %1224 to i64
-  %1226 = getelementptr inbounds i8, ptr %0, i64 %1225
+  %1226 = getelementptr inbounds nuw i8, ptr %0, i64 %1225
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1226, ptr noundef %.0.i1816)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1818
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1818: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1817, %1211, %1213, %1219, %1223
   %1227 = load i64, ptr %55, align 8
   store i32 %82, ptr %1197, align 4
-  %1228 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1228 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %1227, ptr %1228, align 8
   br label %.backedge
 
@@ -2294,7 +2294,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1820.thread: ; preds = %1229
   %1237 = load i32, ptr %1231, align 1
   store i32 %1237, ptr %44, align 4
-  %1238 = getelementptr inbounds i8, ptr %1231, i64 4
+  %1238 = getelementptr inbounds nuw i8, ptr %1231, i64 4
   store ptr %1238, ptr %2, align 8
   br label %1241
 
@@ -2309,17 +2309,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1820: ; pred
   %1243 = shl nuw i32 1, %1242
   %1244 = lshr i32 %94, 5
   %1245 = zext nneg i32 %1244 to i64
-  %1246 = getelementptr inbounds i32, ptr %59, i64 %1245
+  %1246 = getelementptr inbounds nuw i32, ptr %59, i64 %1245
   %1247 = load i32, ptr %1246, align 4
   %1248 = or i32 %1247, %1243
   store i32 %1248, ptr %1246, align 4
-  %1249 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1249 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.ph2288, ptr %1249, align 4
   br label %.backedge
 
 1250:                                             ; preds = %104
-  %1251 = getelementptr inbounds i8, ptr %0, i64 %97
-  %1252 = getelementptr inbounds i8, ptr %92, i64 11
+  %1251 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %1252 = getelementptr inbounds nuw i8, ptr %92, i64 11
   %1253 = load i8, ptr %1252, align 1
   %1254 = zext i8 %1253 to i32
   %1255 = load ptr, ptr %60, align 8
@@ -2334,7 +2334,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1820: ; pred
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1822.thread: ; preds = %1250
   %1262 = load i32, ptr %1256, align 1
   store i32 %1262, ptr %26, align 4
-  %1263 = getelementptr inbounds i8, ptr %1256, i64 4
+  %1263 = getelementptr inbounds nuw i8, ptr %1256, i64 4
   store ptr %1263, ptr %2, align 8
   br label %1265
 
@@ -2386,7 +2386,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1822._crit_e
   %1288 = load i8, ptr %.013692641, align 1
   %1289 = zext i8 %1288 to i32
   %1290 = icmp eq i32 %.sroa.0587.0, %1289
-  %1291 = getelementptr inbounds i8, ptr %.013692641, i64 1
+  %1291 = getelementptr inbounds nuw i8, ptr %.013692641, i64 1
   br i1 %1290, label %select.unfold2293, label %.critedge16
 
 1292:                                             ; preds = %1286
@@ -2399,17 +2399,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1822._crit_e
   br i1 %1296, label %1297, label %.critedge16
 
 1297:                                             ; preds = %1293
-  %1298 = getelementptr inbounds i8, ptr %.013692641, i64 1
+  %1298 = getelementptr inbounds nuw i8, ptr %.013692641, i64 1
   %1299 = load i8, ptr %1298, align 1
   %1300 = zext i8 %1299 to i32
   %1301 = icmp eq i32 %1285, %1300
-  %1302 = getelementptr inbounds i8, ptr %.013692641, i64 2
+  %1302 = getelementptr inbounds nuw i8, ptr %.013692641, i64 2
   br i1 %1301, label %select.unfold2293, label %.critedge16
 
 select.unfold2293:                                ; preds = %1297, %1287
   %.01366 = phi ptr [ %1291, %1287 ], [ %1302, %1297 ]
   %1303 = load i32, ptr %.01366, align 1
-  %1304 = getelementptr inbounds i8, ptr %.01366, i64 4
+  %1304 = getelementptr inbounds nuw i8, ptr %.01366, i64 4
   store i32 %1303, ptr %27, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIiE18AddAlreadyReservedERKi(ptr noundef nonnull align 8 dereferenceable(16) %1251, ptr noundef nonnull align 4 dereferenceable(4) %27)
   %1305 = add nuw nsw i32 %.013702640, 1
@@ -2434,7 +2434,7 @@ select.unfold2293:                                ; preds = %1297, %1287
 
 1313:                                             ; preds = %.critedge16.thread2865
   %1314 = zext nneg i32 %1306 to i64
-  %1315 = getelementptr inbounds i8, ptr %1308, i64 %1314
+  %1315 = getelementptr inbounds nuw i8, ptr %1308, i64 %1314
   store ptr %1315, ptr %2, align 8
   br label %.backedge
 
@@ -2457,7 +2457,7 @@ select.unfold2293:                                ; preds = %1297, %1287
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828.thread: ; preds = %1318
   %1328 = load i32, ptr %1322, align 1
   store i32 %1328, ptr %45, align 4
-  %1329 = getelementptr inbounds i8, ptr %1322, i64 4
+  %1329 = getelementptr inbounds nuw i8, ptr %1322, i64 4
   store ptr %1329, ptr %2, align 8
   br label %1332
 
@@ -2469,10 +2469,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828: ; pred
 1332:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828.thread
   %.ph2303 = phi i32 [ %1328, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828.thread ], [ %1331, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828 ]
   %1333 = load ptr, ptr %1, align 8
-  %1334 = getelementptr inbounds i32, ptr %1320, i64 %95
+  %1334 = getelementptr inbounds nuw i32, ptr %1320, i64 %95
   %1335 = load i32, ptr %1334, align 4
   %1336 = zext i32 %1335 to i64
-  %1337 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1333, i64 %1336
+  %1337 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1333, i64 %1336
   %1338 = load ptr, ptr %64, align 8
   %1339 = ptrtoint ptr %1338 to i64
   %1340 = and i64 %1339, 1
@@ -2487,7 +2487,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1828: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1831: ; preds = %1332, %1341
   %.0.i1830 = phi ptr [ %1344, %1341 ], [ %1338, %1332 ]
-  %1345 = getelementptr inbounds i8, ptr %1337, i64 10
+  %1345 = getelementptr inbounds nuw i8, ptr %1337, i64 10
   %1346 = load i8, ptr %1345, align 2
   %1347 = and i8 %1346, 31
   switch i8 %1347, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1832 [
@@ -2503,14 +2503,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1831: ; preds = %1332, %1341
 1350:                                             ; preds = %1348
   %1351 = load i32, ptr %1337, align 4
   %1352 = zext i32 %1351 to i64
-  %1353 = getelementptr inbounds i8, ptr %0, i64 %1352
+  %1353 = getelementptr inbounds nuw i8, ptr %0, i64 %1352
   %1354 = load ptr, ptr %1353, align 8
   %1355 = icmp eq ptr %1354, null
   br i1 %1355, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1832, label %1356
 
 1356:                                             ; preds = %1350
   %1357 = load ptr, ptr %1354, align 8
-  %1358 = getelementptr inbounds i8, ptr %1357, i64 8
+  %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 8
   %1359 = load ptr, ptr %1358, align 8
   call void %1359(ptr noundef nonnull align 8 dereferenceable(16) %1354) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1832
@@ -2518,13 +2518,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1831: ; preds = %1332, %1341
 1360:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1831, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1831
   %1361 = load i32, ptr %1337, align 4
   %1362 = zext i32 %1361 to i64
-  %1363 = getelementptr inbounds i8, ptr %0, i64 %1362
+  %1363 = getelementptr inbounds nuw i8, ptr %0, i64 %1362
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1363, ptr noundef %.0.i1830)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1832
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1832: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1831, %1348, %1350, %1356, %1360
   store i32 %82, ptr %1334, align 4
-  %1364 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1364 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.ph2303, ptr %1364, align 4
   br label %.backedge
 
@@ -2541,7 +2541,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1834.thread: ; preds = %1365
   %1373 = load i64, ptr %1367, align 1
   store i64 %1373, ptr %42, align 8
-  %1374 = getelementptr inbounds i8, ptr %1367, i64 8
+  %1374 = getelementptr inbounds nuw i8, ptr %1367, i64 8
   store ptr %1374, ptr %2, align 8
   br label %1377
 
@@ -2556,17 +2556,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1834: ; pred
   %1379 = shl nuw i32 1, %1378
   %1380 = lshr i32 %94, 5
   %1381 = zext nneg i32 %1380 to i64
-  %1382 = getelementptr inbounds i32, ptr %59, i64 %1381
+  %1382 = getelementptr inbounds nuw i32, ptr %59, i64 %1381
   %1383 = load i32, ptr %1382, align 4
   %1384 = or i32 %1383, %1379
   store i32 %1384, ptr %1382, align 4
-  %1385 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1385 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %.ph2310, ptr %1385, align 8
   br label %.backedge
 
 1386:                                             ; preds = %104
-  %1387 = getelementptr inbounds i8, ptr %0, i64 %97
-  %1388 = getelementptr inbounds i8, ptr %92, i64 11
+  %1387 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %1388 = getelementptr inbounds nuw i8, ptr %92, i64 11
   %1389 = load i8, ptr %1388, align 1
   %1390 = zext i8 %1389 to i32
   %1391 = load ptr, ptr %60, align 8
@@ -2581,7 +2581,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1834: ; pred
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1836.thread: ; preds = %1386
   %1398 = load i64, ptr %1392, align 1
   store i64 %1398, ptr %24, align 8
-  %1399 = getelementptr inbounds i8, ptr %1392, i64 8
+  %1399 = getelementptr inbounds nuw i8, ptr %1392, i64 8
   store ptr %1399, ptr %2, align 8
   br label %1401
 
@@ -2633,7 +2633,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1836._crit_e
   %1424 = load i8, ptr %.013642628, align 1
   %1425 = zext i8 %1424 to i32
   %1426 = icmp eq i32 %.sroa.0587.0, %1425
-  %1427 = getelementptr inbounds i8, ptr %.013642628, i64 1
+  %1427 = getelementptr inbounds nuw i8, ptr %.013642628, i64 1
   br i1 %1426, label %select.unfold2315, label %.critedge18
 
 1428:                                             ; preds = %1422
@@ -2646,17 +2646,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1836._crit_e
   br i1 %1432, label %1433, label %.critedge18
 
 1433:                                             ; preds = %1429
-  %1434 = getelementptr inbounds i8, ptr %.013642628, i64 1
+  %1434 = getelementptr inbounds nuw i8, ptr %.013642628, i64 1
   %1435 = load i8, ptr %1434, align 1
   %1436 = zext i8 %1435 to i32
   %1437 = icmp eq i32 %1421, %1436
-  %1438 = getelementptr inbounds i8, ptr %.013642628, i64 2
+  %1438 = getelementptr inbounds nuw i8, ptr %.013642628, i64 2
   br i1 %1437, label %select.unfold2315, label %.critedge18
 
 select.unfold2315:                                ; preds = %1433, %1423
   %.01360 = phi ptr [ %1427, %1423 ], [ %1438, %1433 ]
   %1439 = load i64, ptr %.01360, align 1
-  %1440 = getelementptr inbounds i8, ptr %.01360, i64 8
+  %1440 = getelementptr inbounds nuw i8, ptr %.01360, i64 8
   store i64 %1439, ptr %25, align 8
   call void @_ZN6google8protobuf13RepeatedFieldIlE18AddAlreadyReservedERKl(ptr noundef nonnull align 8 dereferenceable(16) %1387, ptr noundef nonnull align 8 dereferenceable(8) %25)
   %1441 = add nuw nsw i32 %.013652627, 1
@@ -2681,7 +2681,7 @@ select.unfold2315:                                ; preds = %1433, %1423
 
 1449:                                             ; preds = %.critedge18.thread2871
   %1450 = zext nneg i32 %1442 to i64
-  %1451 = getelementptr inbounds i8, ptr %1444, i64 %1450
+  %1451 = getelementptr inbounds nuw i8, ptr %1444, i64 %1450
   store ptr %1451, ptr %2, align 8
   br label %.backedge
 
@@ -2704,7 +2704,7 @@ select.unfold2315:                                ; preds = %1433, %1423
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842.thread: ; preds = %1454
   %1464 = load i64, ptr %1458, align 1
   store i64 %1464, ptr %43, align 8
-  %1465 = getelementptr inbounds i8, ptr %1458, i64 8
+  %1465 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   store ptr %1465, ptr %2, align 8
   br label %1468
 
@@ -2716,10 +2716,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842: ; pred
 1468:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842.thread
   %.ph2325 = phi i64 [ %1464, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842.thread ], [ %1467, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842 ]
   %1469 = load ptr, ptr %1, align 8
-  %1470 = getelementptr inbounds i32, ptr %1456, i64 %95
+  %1470 = getelementptr inbounds nuw i32, ptr %1456, i64 %95
   %1471 = load i32, ptr %1470, align 4
   %1472 = zext i32 %1471 to i64
-  %1473 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1469, i64 %1472
+  %1473 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1469, i64 %1472
   %1474 = load ptr, ptr %64, align 8
   %1475 = ptrtoint ptr %1474 to i64
   %1476 = and i64 %1475, 1
@@ -2734,7 +2734,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1842: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1845: ; preds = %1468, %1477
   %.0.i1844 = phi ptr [ %1480, %1477 ], [ %1474, %1468 ]
-  %1481 = getelementptr inbounds i8, ptr %1473, i64 10
+  %1481 = getelementptr inbounds nuw i8, ptr %1473, i64 10
   %1482 = load i8, ptr %1481, align 2
   %1483 = and i8 %1482, 31
   switch i8 %1483, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1846 [
@@ -2750,14 +2750,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1845: ; preds = %1468, %1477
 1486:                                             ; preds = %1484
   %1487 = load i32, ptr %1473, align 4
   %1488 = zext i32 %1487 to i64
-  %1489 = getelementptr inbounds i8, ptr %0, i64 %1488
+  %1489 = getelementptr inbounds nuw i8, ptr %0, i64 %1488
   %1490 = load ptr, ptr %1489, align 8
   %1491 = icmp eq ptr %1490, null
   br i1 %1491, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1846, label %1492
 
 1492:                                             ; preds = %1486
   %1493 = load ptr, ptr %1490, align 8
-  %1494 = getelementptr inbounds i8, ptr %1493, i64 8
+  %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 8
   %1495 = load ptr, ptr %1494, align 8
   call void %1495(ptr noundef nonnull align 8 dereferenceable(16) %1490) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1846
@@ -2765,13 +2765,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1845: ; preds = %1468, %1477
 1496:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1845, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1845
   %1497 = load i32, ptr %1473, align 4
   %1498 = zext i32 %1497 to i64
-  %1499 = getelementptr inbounds i8, ptr %0, i64 %1498
+  %1499 = getelementptr inbounds nuw i8, ptr %0, i64 %1498
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1499, ptr noundef %.0.i1844)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1846
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1846: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1845, %1484, %1486, %1492, %1496
   store i32 %82, ptr %1470, align 4
-  %1500 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1500 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i64 %.ph2325, ptr %1500, align 8
   br label %.backedge
 
@@ -2788,7 +2788,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1848.thread: ; preds = %1501
   %1509 = load i32, ptr %1503, align 1
   store i32 %1509, ptr %40, align 4
-  %1510 = getelementptr inbounds i8, ptr %1503, i64 4
+  %1510 = getelementptr inbounds nuw i8, ptr %1503, i64 4
   store ptr %1510, ptr %2, align 8
   %1511 = bitcast i32 %1509 to float
   br label %1513
@@ -2807,17 +2807,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1848._crit_e
   %1516 = shl nuw i32 1, %1515
   %1517 = lshr i32 %94, 5
   %1518 = zext nneg i32 %1517 to i64
-  %1519 = getelementptr inbounds i32, ptr %59, i64 %1518
+  %1519 = getelementptr inbounds nuw i32, ptr %59, i64 %1518
   %1520 = load i32, ptr %1519, align 4
   %1521 = or i32 %1520, %1516
   store i32 %1521, ptr %1519, align 4
-  %1522 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1522 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store float %1514, ptr %1522, align 4
   br label %.backedge
 
 1523:                                             ; preds = %104
-  %1524 = getelementptr inbounds i8, ptr %0, i64 %97
-  %1525 = getelementptr inbounds i8, ptr %92, i64 11
+  %1524 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %1525 = getelementptr inbounds nuw i8, ptr %92, i64 11
   %1526 = load i8, ptr %1525, align 1
   %1527 = zext i8 %1526 to i32
   %1528 = load ptr, ptr %60, align 8
@@ -2832,7 +2832,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1848._crit_e
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1850.thread: ; preds = %1523
   %1535 = load i32, ptr %1529, align 1
   store i32 %1535, ptr %22, align 4
-  %1536 = getelementptr inbounds i8, ptr %1529, i64 4
+  %1536 = getelementptr inbounds nuw i8, ptr %1529, i64 4
   store ptr %1536, ptr %2, align 8
   %1537 = bitcast i32 %1535 to float
   br label %1539
@@ -2885,7 +2885,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1850._crit_e
   %1562 = load i8, ptr %.013582615, align 1
   %1563 = zext i8 %1562 to i32
   %1564 = icmp eq i32 %.sroa.0587.0, %1563
-  %1565 = getelementptr inbounds i8, ptr %.013582615, i64 1
+  %1565 = getelementptr inbounds nuw i8, ptr %.013582615, i64 1
   br i1 %1564, label %select.unfold2337, label %.critedge20
 
 1566:                                             ; preds = %1560
@@ -2898,17 +2898,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1850._crit_e
   br i1 %1570, label %1571, label %.critedge20
 
 1571:                                             ; preds = %1567
-  %1572 = getelementptr inbounds i8, ptr %.013582615, i64 1
+  %1572 = getelementptr inbounds nuw i8, ptr %.013582615, i64 1
   %1573 = load i8, ptr %1572, align 1
   %1574 = zext i8 %1573 to i32
   %1575 = icmp eq i32 %1559, %1574
-  %1576 = getelementptr inbounds i8, ptr %.013582615, i64 2
+  %1576 = getelementptr inbounds nuw i8, ptr %.013582615, i64 2
   br i1 %1575, label %select.unfold2337, label %.critedge20
 
 select.unfold2337:                                ; preds = %1571, %1561
   %.01353 = phi ptr [ %1565, %1561 ], [ %1576, %1571 ]
   %1577 = load float, ptr %.01353, align 1
-  %1578 = getelementptr inbounds i8, ptr %.01353, i64 4
+  %1578 = getelementptr inbounds nuw i8, ptr %.01353, i64 4
   store float %1577, ptr %23, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE18AddAlreadyReservedERKf(ptr noundef nonnull align 8 dereferenceable(16) %1524, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %1579 = add nuw nsw i32 %.013592614, 1
@@ -2933,7 +2933,7 @@ select.unfold2337:                                ; preds = %1571, %1561
 
 1587:                                             ; preds = %.critedge20.thread2877
   %1588 = zext nneg i32 %1580 to i64
-  %1589 = getelementptr inbounds i8, ptr %1582, i64 %1588
+  %1589 = getelementptr inbounds nuw i8, ptr %1582, i64 %1588
   store ptr %1589, ptr %2, align 8
   br label %.backedge
 
@@ -2956,7 +2956,7 @@ select.unfold2337:                                ; preds = %1571, %1561
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856.thread: ; preds = %1592
   %1602 = load i32, ptr %1596, align 1
   store i32 %1602, ptr %41, align 4
-  %1603 = getelementptr inbounds i8, ptr %1596, i64 4
+  %1603 = getelementptr inbounds nuw i8, ptr %1596, i64 4
   store ptr %1603, ptr %2, align 8
   %1604 = bitcast i32 %1602 to float
   br label %1606
@@ -2972,10 +2972,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856._crit_e
 1606:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856.thread
   %1607 = phi float [ %.pre2844, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856._crit_edge ], [ %1604, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856.thread ]
   %1608 = load ptr, ptr %1, align 8
-  %1609 = getelementptr inbounds i32, ptr %1594, i64 %95
+  %1609 = getelementptr inbounds nuw i32, ptr %1594, i64 %95
   %1610 = load i32, ptr %1609, align 4
   %1611 = zext i32 %1610 to i64
-  %1612 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1608, i64 %1611
+  %1612 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1608, i64 %1611
   %1613 = load ptr, ptr %64, align 8
   %1614 = ptrtoint ptr %1613 to i64
   %1615 = and i64 %1614, 1
@@ -2990,7 +2990,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1856._crit_e
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1859: ; preds = %1606, %1616
   %.0.i1858 = phi ptr [ %1619, %1616 ], [ %1613, %1606 ]
-  %1620 = getelementptr inbounds i8, ptr %1612, i64 10
+  %1620 = getelementptr inbounds nuw i8, ptr %1612, i64 10
   %1621 = load i8, ptr %1620, align 2
   %1622 = and i8 %1621, 31
   switch i8 %1622, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1860 [
@@ -3006,14 +3006,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1859: ; preds = %1606, %1616
 1625:                                             ; preds = %1623
   %1626 = load i32, ptr %1612, align 4
   %1627 = zext i32 %1626 to i64
-  %1628 = getelementptr inbounds i8, ptr %0, i64 %1627
+  %1628 = getelementptr inbounds nuw i8, ptr %0, i64 %1627
   %1629 = load ptr, ptr %1628, align 8
   %1630 = icmp eq ptr %1629, null
   br i1 %1630, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1860, label %1631
 
 1631:                                             ; preds = %1625
   %1632 = load ptr, ptr %1629, align 8
-  %1633 = getelementptr inbounds i8, ptr %1632, i64 8
+  %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 8
   %1634 = load ptr, ptr %1633, align 8
   call void %1634(ptr noundef nonnull align 8 dereferenceable(16) %1629) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1860
@@ -3021,13 +3021,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1859: ; preds = %1606, %1616
 1635:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1859, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1859
   %1636 = load i32, ptr %1612, align 4
   %1637 = zext i32 %1636 to i64
-  %1638 = getelementptr inbounds i8, ptr %0, i64 %1637
+  %1638 = getelementptr inbounds nuw i8, ptr %0, i64 %1637
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1638, ptr noundef %.0.i1858)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1860
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1860: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1859, %1623, %1625, %1631, %1635
   store i32 %82, ptr %1609, align 4
-  %1639 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1639 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store float %1607, ptr %1639, align 4
   br label %.backedge
 
@@ -3044,7 +3044,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1862.thread: ; preds = %1640
   %1648 = load i64, ptr %1642, align 1
   store i64 %1648, ptr %38, align 8
-  %1649 = getelementptr inbounds i8, ptr %1642, i64 8
+  %1649 = getelementptr inbounds nuw i8, ptr %1642, i64 8
   store ptr %1649, ptr %2, align 8
   %1650 = bitcast i64 %1648 to double
   br label %1652
@@ -3063,17 +3063,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1862._crit_e
   %1655 = shl nuw i32 1, %1654
   %1656 = lshr i32 %94, 5
   %1657 = zext nneg i32 %1656 to i64
-  %1658 = getelementptr inbounds i32, ptr %59, i64 %1657
+  %1658 = getelementptr inbounds nuw i32, ptr %59, i64 %1657
   %1659 = load i32, ptr %1658, align 4
   %1660 = or i32 %1659, %1655
   store i32 %1660, ptr %1658, align 4
-  %1661 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1661 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store double %1653, ptr %1661, align 8
   br label %.backedge
 
 1662:                                             ; preds = %104
-  %1663 = getelementptr inbounds i8, ptr %0, i64 %97
-  %1664 = getelementptr inbounds i8, ptr %92, i64 11
+  %1663 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %1664 = getelementptr inbounds nuw i8, ptr %92, i64 11
   %1665 = load i8, ptr %1664, align 1
   %1666 = zext i8 %1665 to i32
   %1667 = load ptr, ptr %60, align 8
@@ -3088,7 +3088,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1862._crit_e
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1864.thread: ; preds = %1662
   %1674 = load i64, ptr %1668, align 1
   store i64 %1674, ptr %20, align 8
-  %1675 = getelementptr inbounds i8, ptr %1668, i64 8
+  %1675 = getelementptr inbounds nuw i8, ptr %1668, i64 8
   store ptr %1675, ptr %2, align 8
   %1676 = bitcast i64 %1674 to double
   br label %1678
@@ -3141,7 +3141,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1864._crit_e
   %1701 = load i8, ptr %.013502603, align 1
   %1702 = zext i8 %1701 to i32
   %1703 = icmp eq i32 %.sroa.0587.0, %1702
-  %1704 = getelementptr inbounds i8, ptr %.013502603, i64 1
+  %1704 = getelementptr inbounds nuw i8, ptr %.013502603, i64 1
   br i1 %1703, label %select.unfold2359, label %.critedge22
 
 1705:                                             ; preds = %1699
@@ -3154,17 +3154,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1864._crit_e
   br i1 %1709, label %1710, label %.critedge22
 
 1710:                                             ; preds = %1706
-  %1711 = getelementptr inbounds i8, ptr %.013502603, i64 1
+  %1711 = getelementptr inbounds nuw i8, ptr %.013502603, i64 1
   %1712 = load i8, ptr %1711, align 1
   %1713 = zext i8 %1712 to i32
   %1714 = icmp eq i32 %1698, %1713
-  %1715 = getelementptr inbounds i8, ptr %.013502603, i64 2
+  %1715 = getelementptr inbounds nuw i8, ptr %.013502603, i64 2
   br i1 %1714, label %select.unfold2359, label %.critedge22
 
 select.unfold2359:                                ; preds = %1710, %1700
   %.01347 = phi ptr [ %1704, %1700 ], [ %1715, %1710 ]
   %1716 = load double, ptr %.01347, align 1
-  %1717 = getelementptr inbounds i8, ptr %.01347, i64 8
+  %1717 = getelementptr inbounds nuw i8, ptr %.01347, i64 8
   store double %1716, ptr %21, align 8
   call void @_ZN6google8protobuf13RepeatedFieldIdE18AddAlreadyReservedERKd(ptr noundef nonnull align 8 dereferenceable(16) %1663, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %1718 = add nuw nsw i32 %.013512602, 1
@@ -3189,7 +3189,7 @@ select.unfold2359:                                ; preds = %1710, %1700
 
 1726:                                             ; preds = %.critedge22.thread2883
   %1727 = zext nneg i32 %1719 to i64
-  %1728 = getelementptr inbounds i8, ptr %1721, i64 %1727
+  %1728 = getelementptr inbounds nuw i8, ptr %1721, i64 %1727
   store ptr %1728, ptr %2, align 8
   br label %.backedge
 
@@ -3212,7 +3212,7 @@ select.unfold2359:                                ; preds = %1710, %1700
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870.thread: ; preds = %1731
   %1741 = load i64, ptr %1735, align 1
   store i64 %1741, ptr %39, align 8
-  %1742 = getelementptr inbounds i8, ptr %1735, i64 8
+  %1742 = getelementptr inbounds nuw i8, ptr %1735, i64 8
   store ptr %1742, ptr %2, align 8
   %1743 = bitcast i64 %1741 to double
   br label %1745
@@ -3228,10 +3228,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870._crit_e
 1745:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870.thread
   %1746 = phi double [ %.pre2841, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870._crit_edge ], [ %1743, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870.thread ]
   %1747 = load ptr, ptr %1, align 8
-  %1748 = getelementptr inbounds i32, ptr %1733, i64 %95
+  %1748 = getelementptr inbounds nuw i32, ptr %1733, i64 %95
   %1749 = load i32, ptr %1748, align 4
   %1750 = zext i32 %1749 to i64
-  %1751 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1747, i64 %1750
+  %1751 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1747, i64 %1750
   %1752 = load ptr, ptr %64, align 8
   %1753 = ptrtoint ptr %1752 to i64
   %1754 = and i64 %1753, 1
@@ -3246,7 +3246,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1870._crit_e
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1873: ; preds = %1745, %1755
   %.0.i1872 = phi ptr [ %1758, %1755 ], [ %1752, %1745 ]
-  %1759 = getelementptr inbounds i8, ptr %1751, i64 10
+  %1759 = getelementptr inbounds nuw i8, ptr %1751, i64 10
   %1760 = load i8, ptr %1759, align 2
   %1761 = and i8 %1760, 31
   switch i8 %1761, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1874 [
@@ -3262,14 +3262,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1873: ; preds = %1745, %1755
 1764:                                             ; preds = %1762
   %1765 = load i32, ptr %1751, align 4
   %1766 = zext i32 %1765 to i64
-  %1767 = getelementptr inbounds i8, ptr %0, i64 %1766
+  %1767 = getelementptr inbounds nuw i8, ptr %0, i64 %1766
   %1768 = load ptr, ptr %1767, align 8
   %1769 = icmp eq ptr %1768, null
   br i1 %1769, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1874, label %1770
 
 1770:                                             ; preds = %1764
   %1771 = load ptr, ptr %1768, align 8
-  %1772 = getelementptr inbounds i8, ptr %1771, i64 8
+  %1772 = getelementptr inbounds nuw i8, ptr %1771, i64 8
   %1773 = load ptr, ptr %1772, align 8
   call void %1773(ptr noundef nonnull align 8 dereferenceable(16) %1768) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1874
@@ -3277,13 +3277,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1873: ; preds = %1745, %1755
 1774:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1873, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1873
   %1775 = load i32, ptr %1751, align 4
   %1776 = zext i32 %1775 to i64
-  %1777 = getelementptr inbounds i8, ptr %0, i64 %1776
+  %1777 = getelementptr inbounds nuw i8, ptr %0, i64 %1776
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1777, ptr noundef %.0.i1872)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1874
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1874: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1873, %1762, %1764, %1770, %1774
   store i32 %82, ptr %1748, align 4
-  %1778 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1778 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store double %1746, ptr %1778, align 8
   br label %.backedge
 
@@ -3299,7 +3299,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %1785, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1876.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1876
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1876.thread: ; preds = %1783
-  %1786 = getelementptr inbounds i8, ptr %1780, i64 1
+  %1786 = getelementptr inbounds nuw i8, ptr %1780, i64 1
   store ptr %1786, ptr %2, align 8
   %1787 = icmp ne i8 %1784, 0
   br label %1793
@@ -3319,16 +3319,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1876: ; preds = %1
   %1796 = shl nuw i32 1, %1795
   %1797 = lshr i32 %94, 5
   %1798 = zext nneg i32 %1797 to i64
-  %1799 = getelementptr inbounds i32, ptr %59, i64 %1798
+  %1799 = getelementptr inbounds nuw i32, ptr %59, i64 %1798
   %1800 = load i32, ptr %1799, align 4
   %1801 = or i32 %1800, %1796
   store i32 %1801, ptr %1799, align 4
-  %1802 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1802 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i8 %1794, ptr %1802, align 1
   br label %.backedge
 
 1803:                                             ; preds = %104
-  %1804 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1804 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %1805 = load ptr, ptr %2, align 8
   %1806 = load ptr, ptr %60, align 8
   %1807 = icmp ult ptr %1805, %1806
@@ -3341,7 +3341,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1876: ; preds = %1
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1878.thread: ; preds = %1808
   %1811 = zext nneg i8 %1809 to i64
-  %1812 = getelementptr inbounds i8, ptr %1805, i64 1
+  %1812 = getelementptr inbounds nuw i8, ptr %1805, i64 1
   store ptr %1812, ptr %2, align 8
   br label %1817
 
@@ -3389,7 +3389,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1878: ; preds = %1
   br i1 %1837, label %1838, label %.backedge
 
 1838:                                             ; preds = %1834
-  %1839 = getelementptr inbounds i8, ptr %1831, i64 1
+  %1839 = getelementptr inbounds nuw i8, ptr %1831, i64 1
   br label %.critedge1649
 
 1840:                                             ; preds = %1829
@@ -3412,14 +3412,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1878: ; preds = %1
   br i1 %1852, label %1853, label %.backedge
 
 1853:                                             ; preds = %1849
-  %1854 = getelementptr inbounds i8, ptr %1843, i64 1
+  %1854 = getelementptr inbounds nuw i8, ptr %1843, i64 1
   %1855 = load i8, ptr %1854, align 1
   %1856 = zext i8 %1855 to i32
   %1857 = icmp eq i32 %1828, %1856
   br i1 %1857, label %1858, label %.backedge
 
 1858:                                             ; preds = %1853
-  %1859 = getelementptr inbounds i8, ptr %1843, i64 2
+  %1859 = getelementptr inbounds nuw i8, ptr %1843, i64 2
   br label %.critedge1649
 
 .critedge1649:                                    ; preds = %1858, %1838
@@ -3436,7 +3436,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1878: ; preds = %1
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880.thread: ; preds = %1862
   %1865 = zext nneg i8 %1863 to i64
-  %1866 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %1866 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   store ptr %1866, ptr %2, align 8
   br label %1871
 
@@ -3471,7 +3471,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880: ; preds = %.
   br i1 %1884, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882.thread: ; preds = %1882
-  %1885 = getelementptr inbounds i8, ptr %1879, i64 1
+  %1885 = getelementptr inbounds nuw i8, ptr %1879, i64 1
   store ptr %1885, ptr %2, align 8
   %1886 = icmp ne i8 %1883, 0
   br label %1892
@@ -3487,10 +3487,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
 1892:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882.thread
   %.ph2391.in = phi i1 [ %1886, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882.thread ], [ %1891, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882 ]
   %1893 = load ptr, ptr %1, align 8
-  %1894 = getelementptr inbounds i32, ptr %1878, i64 %95
+  %1894 = getelementptr inbounds nuw i32, ptr %1878, i64 %95
   %1895 = load i32, ptr %1894, align 4
   %1896 = zext i32 %1895 to i64
-  %1897 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1893, i64 %1896
+  %1897 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1893, i64 %1896
   %1898 = load ptr, ptr %64, align 8
   %1899 = ptrtoint ptr %1898 to i64
   %1900 = and i64 %1899, 1
@@ -3505,7 +3505,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1885: ; preds = %1892, %1901
   %.0.i1884 = phi ptr [ %1904, %1901 ], [ %1898, %1892 ]
-  %1905 = getelementptr inbounds i8, ptr %1897, i64 10
+  %1905 = getelementptr inbounds nuw i8, ptr %1897, i64 10
   %1906 = load i8, ptr %1905, align 2
   %1907 = and i8 %1906, 31
   switch i8 %1907, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1886 [
@@ -3521,14 +3521,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1885: ; preds = %1892, %1901
 1910:                                             ; preds = %1908
   %1911 = load i32, ptr %1897, align 4
   %1912 = zext i32 %1911 to i64
-  %1913 = getelementptr inbounds i8, ptr %0, i64 %1912
+  %1913 = getelementptr inbounds nuw i8, ptr %0, i64 %1912
   %1914 = load ptr, ptr %1913, align 8
   %1915 = icmp eq ptr %1914, null
   br i1 %1915, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1886, label %1916
 
 1916:                                             ; preds = %1910
   %1917 = load ptr, ptr %1914, align 8
-  %1918 = getelementptr inbounds i8, ptr %1917, i64 8
+  %1918 = getelementptr inbounds nuw i8, ptr %1917, i64 8
   %1919 = load ptr, ptr %1918, align 8
   call void %1919(ptr noundef nonnull align 8 dereferenceable(16) %1914) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1886
@@ -3536,14 +3536,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1885: ; preds = %1892, %1901
 1920:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1885, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1885
   %1921 = load i32, ptr %1897, align 4
   %1922 = zext i32 %1921 to i64
-  %1923 = getelementptr inbounds i8, ptr %0, i64 %1922
+  %1923 = getelementptr inbounds nuw i8, ptr %0, i64 %1922
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1923, ptr noundef %.0.i1884)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1886
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1886: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1885, %1908, %1910, %1916, %1920
   %1924 = zext i1 %.ph2391.in to i8
   store i32 %82, ptr %1894, align 4
-  %1925 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1925 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i8 %1924, ptr %1925, align 1
   br label %.backedge
 
@@ -3563,17 +3563,17 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1926, %1930
   %.0.i1888 = phi ptr [ %1933, %1930 ], [ %1927, %1926 ]
   %1934 = load ptr, ptr %63, align 8
-  %1935 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1934, i64 %91
+  %1935 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1934, i64 %91
   %1936 = load ptr, ptr %1935, align 8
   %1937 = and i32 %94, 31
   %1938 = shl nuw i32 1, %1937
   %1939 = lshr i32 %94, 5
   %1940 = zext nneg i32 %1939 to i64
-  %1941 = getelementptr inbounds i32, ptr %59, i64 %1940
+  %1941 = getelementptr inbounds nuw i32, ptr %59, i64 %1940
   %1942 = load i32, ptr %1941, align 4
   %1943 = or i32 %1942, %1938
   store i32 %1943, ptr %1941, align 4
-  %1944 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1944 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %1945 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1944, ptr noundef %1936, ptr noundef %.0.i1888)
   %1946 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %1945)
   br i1 %1946, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE0ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -3605,9 +3605,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1892: ; preds = %1953, %1957
   %1961 = load i64, ptr %65, align 8
   %1962 = getelementptr inbounds i8, ptr %0, i64 %1961
   %1963 = load ptr, ptr %63, align 8
-  %1964 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1963, i64 %91
+  %1964 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1963, i64 %91
   %1965 = load ptr, ptr %1964, align 8
-  %1966 = getelementptr inbounds i32, ptr %1962, i64 %95
+  %1966 = getelementptr inbounds nuw i32, ptr %1962, i64 %95
   %1967 = load i32, ptr %1966, align 4
   %1968 = icmp eq i32 %1967, %82
   br i1 %1968, label %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit, label %1969
@@ -3618,8 +3618,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1892: ; preds = %1953, %1957
 
 1970:                                             ; preds = %1969
   %1971 = zext i32 %1967 to i64
-  %1972 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %90, i64 %1971
-  %1973 = getelementptr inbounds i8, ptr %1972, i64 10
+  %1972 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %90, i64 %1971
+  %1973 = getelementptr inbounds nuw i8, ptr %1972, i64 10
   %1974 = load i8, ptr %1973, align 2
   %1975 = and i8 %1974, 31
   switch i8 %1975, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i [
@@ -3635,14 +3635,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1892: ; preds = %1953, %1957
 1978:                                             ; preds = %1976
   %1979 = load i32, ptr %1972, align 4
   %1980 = zext i32 %1979 to i64
-  %1981 = getelementptr inbounds i8, ptr %0, i64 %1980
+  %1981 = getelementptr inbounds nuw i8, ptr %0, i64 %1980
   %1982 = load ptr, ptr %1981, align 8
   %1983 = icmp eq ptr %1982, null
   br i1 %1983, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i, label %1984
 
 1984:                                             ; preds = %1978
   %1985 = load ptr, ptr %1982, align 8
-  %1986 = getelementptr inbounds i8, ptr %1985, i64 8
+  %1986 = getelementptr inbounds nuw i8, ptr %1985, i64 8
   %1987 = load ptr, ptr %1986, align 8
   call void %1987(ptr noundef nonnull align 8 dereferenceable(16) %1982) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
@@ -3650,18 +3650,18 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1892: ; preds = %1953, %1957
 1988:                                             ; preds = %1970, %1970
   %1989 = load i32, ptr %1972, align 4
   %1990 = zext i32 %1989 to i64
-  %1991 = getelementptr inbounds i8, ptr %0, i64 %1990
+  %1991 = getelementptr inbounds nuw i8, ptr %0, i64 %1990
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1991, ptr noundef %.0.i1891)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i: ; preds = %1988, %1984, %1978, %1976, %1970, %1969
   store i32 %82, ptr %1966, align 4
-  %1992 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1992 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store ptr %1965, ptr %1992, align 8
   br label %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit
 
 _ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1892, %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
-  %1993 = getelementptr inbounds i8, ptr %0, i64 %97
+  %1993 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %1994 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1993, ptr noundef %1965, ptr noundef %.0.i1891)
   %1995 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %1994)
   br i1 %1995, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -3676,7 +3676,7 @@ _ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHand
   br label %.backedge
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %104, %104
-  %2002 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2002 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2003 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %2002)
   %2004 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %2003)
   br i1 %2004, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -3699,7 +3699,7 @@ _ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHand
   br i1 %2014, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i: ; preds = %2011
-  %2015 = getelementptr inbounds i8, ptr %2008, i64 1
+  %2015 = getelementptr inbounds nuw i8, ptr %2008, i64 1
   store ptr %2015, ptr %2, align 8
   br label %2019
 
@@ -3713,7 +3713,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %201
 2019:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i
   %.022.i = phi i32 [ %2013, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i ], [ %2017, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i ]
   %2020 = load ptr, ptr %63, align 8
-  %2021 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2020, i64 %91
+  %2021 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2020, i64 %91
   %2022 = load ptr, ptr %2021, align 8
   %2023 = icmp eq ptr %2022, null
   br i1 %2023, label %2026, label %2024
@@ -3727,11 +3727,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %201
   %2028 = shl nuw i32 1, %2027
   %2029 = lshr i32 %94, 5
   %2030 = zext nneg i32 %2029 to i64
-  %2031 = getelementptr inbounds i32, ptr %59, i64 %2030
+  %2031 = getelementptr inbounds nuw i32, ptr %59, i64 %2030
   %2032 = load i32, ptr %2031, align 4
   %2033 = or i32 %2032, %2028
   store i32 %2033, ptr %2031, align 4
-  %2034 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2034 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   store i32 %.022.i, ptr %2034, align 4
   br label %.backedge
 
@@ -3753,7 +3753,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %201
   br i1 %2043, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1900, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1900: ; preds = %2040
-  %2044 = getelementptr inbounds i8, ptr %2037, i64 1
+  %2044 = getelementptr inbounds nuw i8, ptr %2037, i64 1
   store ptr %2044, ptr %2, align 8
   br label %2048
 
@@ -3767,7 +3767,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897: ; preds = 
 2048:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1900
   %.03.i = phi i32 [ %2042, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1900 ], [ %2046, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897 ]
   %2049 = load ptr, ptr %63, align 8
-  %2050 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2049, i64 %91
+  %2050 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2049, i64 %91
   %2051 = load ptr, ptr %2050, align 8
   %2052 = icmp eq ptr %2051, null
   br i1 %2052, label %2055, label %2053
@@ -3777,7 +3777,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897: ; preds = 
   br i1 %2054, label %2055, label %2058
 
 2055:                                             ; preds = %2053, %2048
-  %2056 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2056 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2057 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %2056)
   store i32 %.03.i, ptr %2057, align 4
   br label %.backedge
@@ -3798,11 +3798,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897: ; preds = 
   %2065 = shl nuw i32 1, %2064
   %2066 = lshr i32 %94, 5
   %2067 = zext nneg i32 %2066 to i64
-  %2068 = getelementptr inbounds i32, ptr %59, i64 %2067
+  %2068 = getelementptr inbounds nuw i32, ptr %59, i64 %2067
   %2069 = load i32, ptr %2068, align 4
   %2070 = or i32 %2069, %2065
   store i32 %2070, ptr %2068, align 4
-  %2071 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2071 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2072 = load ptr, ptr %2071, align 8
   %2073 = icmp eq ptr %2072, null
   br i1 %2073, label %2074, label %2089
@@ -3823,10 +3823,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1897: ; preds = 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1903: ; preds = %2074, %2078
   %.0.i1902 = phi ptr [ %2081, %2078 ], [ %2075, %2074 ]
   %2082 = load ptr, ptr %63, align 8
-  %2083 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2082, i64 %91
+  %2083 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2082, i64 %91
   %2084 = load ptr, ptr %2083, align 8
   %2085 = load ptr, ptr %2084, align 8
-  %2086 = getelementptr inbounds i8, ptr %2085, i64 32
+  %2086 = getelementptr inbounds nuw i8, ptr %2085, i64 32
   %2087 = load ptr, ptr %2086, align 8
   %2088 = call noundef ptr %2087(ptr noundef nonnull align 8 dereferenceable(16) %2084, ptr noundef %.0.i1902)
   store ptr %2088, ptr %2071, align 8
@@ -3855,29 +3855,29 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   br i1 %2100, label %.backedge, label %.critedge1598
 
 2101:                                             ; preds = %104
-  %2102 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2102 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2103 = load ptr, ptr %63, align 8
-  %2104 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2103, i64 %91
+  %2104 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2103, i64 %91
   %2105 = load ptr, ptr %2104, align 8
-  %2106 = getelementptr inbounds i8, ptr %2102, i64 16
+  %2106 = getelementptr inbounds nuw i8, ptr %2102, i64 16
   %2107 = load ptr, ptr %2106, align 8
   %.not.i.i = icmp eq ptr %2107, null
   br i1 %.not.i.i, label %..thread_crit_edge.i.i, label %2108
 
 ..thread_crit_edge.i.i:                           ; preds = %2101
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %2102, i64 12
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2102, i64 12
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %.thread.i.i
 
 2108:                                             ; preds = %2101
-  %2109 = getelementptr inbounds i8, ptr %2102, i64 8
+  %2109 = getelementptr inbounds nuw i8, ptr %2102, i64 8
   %2110 = load i32, ptr %2109, align 8
   %2111 = load i32, ptr %2107, align 8
   %2112 = icmp slt i32 %2110, %2111
   br i1 %2112, label %2113, label %2119
 
 2113:                                             ; preds = %2108
-  %2114 = getelementptr inbounds i8, ptr %2107, i64 8
+  %2114 = getelementptr inbounds nuw i8, ptr %2107, i64 8
   %2115 = add nsw i32 %2110, 1
   store i32 %2115, ptr %2109, align 8
   %2116 = sext i32 %2110 to i64
@@ -3886,7 +3886,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
 2119:                                             ; preds = %2108
-  %2120 = getelementptr inbounds i8, ptr %2102, i64 12
+  %2120 = getelementptr inbounds nuw i8, ptr %2102, i64 12
   %2121 = load i32, ptr %2120, align 4
   %2122 = icmp eq i32 %2111, %2121
   br i1 %2122, label %.thread.i.i, label %2125
@@ -3906,12 +3906,12 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   store i32 %2128, ptr %2127, align 8
   %2129 = load ptr, ptr %2102, align 8
   %2130 = load ptr, ptr %2105, align 8
-  %2131 = getelementptr inbounds i8, ptr %2130, i64 32
+  %2131 = getelementptr inbounds nuw i8, ptr %2130, i64 32
   %2132 = load ptr, ptr %2131, align 8
   %2133 = call noundef ptr %2132(ptr noundef nonnull align 8 dereferenceable(16) %2105, ptr noundef %2129)
   %2134 = load ptr, ptr %2106, align 8
-  %2135 = getelementptr inbounds i8, ptr %2134, i64 8
-  %2136 = getelementptr inbounds i8, ptr %2102, i64 8
+  %2135 = getelementptr inbounds nuw i8, ptr %2134, i64 8
+  %2136 = getelementptr inbounds nuw i8, ptr %2102, i64 8
   %2137 = load i32, ptr %2136, align 8
   %2138 = add nsw i32 %2137, 1
   store i32 %2138, ptr %2136, align 8
@@ -3947,11 +3947,11 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2154 = shl nuw i32 1, %2153
   %2155 = lshr i32 %94, 5
   %2156 = zext nneg i32 %2155 to i64
-  %2157 = getelementptr inbounds i32, ptr %59, i64 %2156
+  %2157 = getelementptr inbounds nuw i32, ptr %59, i64 %2156
   %2158 = load i32, ptr %2157, align 4
   %2159 = or i32 %2158, %2154
   store i32 %2159, ptr %2157, align 4
-  %2160 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2160 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2161 = load ptr, ptr %2160, align 8
   %2162 = icmp eq ptr %2161, null
   br i1 %2162, label %2163, label %2182
@@ -3972,7 +3972,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1909: ; preds = %2163, %2167
   %.0.i1908 = phi ptr [ %2170, %2167 ], [ %2164, %2163 ]
   %2171 = load ptr, ptr %63, align 8
-  %2172 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2171, i64 %91
+  %2172 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2171, i64 %91
   %2173 = load ptr, ptr %2172, align 8
   %2174 = icmp eq ptr %2173, null
   br i1 %2174, label %2175, label %2177
@@ -3984,7 +3984,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1909: ; preds = %2163, %2167
 2177:                                             ; preds = %2175, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1909
   %.01354 = phi ptr [ %2176, %2175 ], [ %2173, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1909 ]
   %2178 = load ptr, ptr %.01354, align 8
-  %2179 = getelementptr inbounds i8, ptr %2178, i64 32
+  %2179 = getelementptr inbounds nuw i8, ptr %2178, i64 32
   %2180 = load ptr, ptr %2179, align 8
   %2181 = call noundef ptr %2180(ptr noundef nonnull align 8 dereferenceable(16) %.01354, ptr noundef %.0.i1908)
   store ptr %2181, ptr %2160, align 8
@@ -4004,7 +4004,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1909: ; preds = %2163, %2167
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i: ; preds = %2186
   %2189 = zext nneg i8 %2187 to i32
-  %2190 = getelementptr inbounds i8, ptr %2183, i64 1
+  %2190 = getelementptr inbounds nuw i8, ptr %2183, i64 1
   store ptr %2190, ptr %2, align 8
   br label %2193
 
@@ -4029,9 +4029,9 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   br i1 %2198, label %.backedge, label %.critedge1598
 
 2199:                                             ; preds = %104
-  %2200 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2200 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2201 = load ptr, ptr %63, align 8
-  %2202 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2201, i64 %91
+  %2202 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2201, i64 %91
   %2203 = load ptr, ptr %2202, align 8
   %2204 = icmp eq ptr %2203, null
   br i1 %2204, label %2205, label %2207
@@ -4042,25 +4042,25 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 2207:                                             ; preds = %2205, %2199
   %.01352 = phi ptr [ %2206, %2205 ], [ %2203, %2199 ]
-  %2208 = getelementptr inbounds i8, ptr %2200, i64 16
+  %2208 = getelementptr inbounds nuw i8, ptr %2200, i64 16
   %2209 = load ptr, ptr %2208, align 8
   %.not.i.i1911 = icmp eq ptr %2209, null
   br i1 %.not.i.i1911, label %..thread_crit_edge.i.i1916, label %2210
 
 ..thread_crit_edge.i.i1916:                       ; preds = %2207
-  %.phi.trans.insert.i.i1917 = getelementptr inbounds i8, ptr %2200, i64 12
+  %.phi.trans.insert.i.i1917 = getelementptr inbounds nuw i8, ptr %2200, i64 12
   %.pre.i.i1918 = load i32, ptr %.phi.trans.insert.i.i1917, align 4
   br label %.thread.i.i1913
 
 2210:                                             ; preds = %2207
-  %2211 = getelementptr inbounds i8, ptr %2200, i64 8
+  %2211 = getelementptr inbounds nuw i8, ptr %2200, i64 8
   %2212 = load i32, ptr %2211, align 8
   %2213 = load i32, ptr %2209, align 8
   %2214 = icmp slt i32 %2212, %2213
   br i1 %2214, label %2215, label %2221
 
 2215:                                             ; preds = %2210
-  %2216 = getelementptr inbounds i8, ptr %2209, i64 8
+  %2216 = getelementptr inbounds nuw i8, ptr %2209, i64 8
   %2217 = add nsw i32 %2212, 1
   store i32 %2217, ptr %2211, align 8
   %2218 = sext i32 %2212 to i64
@@ -4069,7 +4069,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1919
 
 2221:                                             ; preds = %2210
-  %2222 = getelementptr inbounds i8, ptr %2200, i64 12
+  %2222 = getelementptr inbounds nuw i8, ptr %2200, i64 12
   %2223 = load i32, ptr %2222, align 4
   %2224 = icmp eq i32 %2213, %2223
   br i1 %2224, label %.thread.i.i1913, label %2227
@@ -4089,12 +4089,12 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   store i32 %2230, ptr %2229, align 8
   %2231 = load ptr, ptr %2200, align 8
   %2232 = load ptr, ptr %.01352, align 8
-  %2233 = getelementptr inbounds i8, ptr %2232, i64 32
+  %2233 = getelementptr inbounds nuw i8, ptr %2232, i64 32
   %2234 = load ptr, ptr %2233, align 8
   %2235 = call noundef ptr %2234(ptr noundef nonnull align 8 dereferenceable(16) %.01352, ptr noundef %2231)
   %2236 = load ptr, ptr %2208, align 8
-  %2237 = getelementptr inbounds i8, ptr %2236, i64 8
-  %2238 = getelementptr inbounds i8, ptr %2200, i64 8
+  %2237 = getelementptr inbounds nuw i8, ptr %2236, i64 8
+  %2238 = getelementptr inbounds nuw i8, ptr %2200, i64 8
   %2239 = load i32, ptr %2238, align 8
   %2240 = add nsw i32 %2239, 1
   store i32 %2240, ptr %2238, align 8
@@ -4117,7 +4117,7 @@ _ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20Repea
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i1924: ; preds = %2246
   %2249 = zext nneg i8 %2247 to i32
-  %2250 = getelementptr inbounds i8, ptr %2243, i64 1
+  %2250 = getelementptr inbounds nuw i8, ptr %2243, i64 1
   store ptr %2250, ptr %2, align 8
   br label %2253
 
@@ -4158,8 +4158,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1928: ; preds = %2259, %2263
   %.0.i1927 = phi ptr [ %2266, %2263 ], [ %2260, %2259 ]
   %2267 = load i64, ptr %65, align 8
   %2268 = getelementptr inbounds i8, ptr %0, i64 %2267
-  %2269 = getelementptr inbounds i8, ptr %0, i64 %97
-  %2270 = getelementptr inbounds i32, ptr %2268, i64 %95
+  %2269 = getelementptr inbounds nuw i8, ptr %0, i64 %97
+  %2270 = getelementptr inbounds nuw i32, ptr %2268, i64 %95
   %2271 = load i32, ptr %2270, align 4
   %2272 = icmp eq i32 %2271, %82
   br i1 %2272, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1928._ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE3EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit_crit_edge, label %2273
@@ -4174,8 +4174,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1928._ZN6google8protobuf8intern
 
 2274:                                             ; preds = %2273
   %2275 = zext i32 %2271 to i64
-  %2276 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %90, i64 %2275
-  %2277 = getelementptr inbounds i8, ptr %2276, i64 10
+  %2276 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %90, i64 %2275
+  %2277 = getelementptr inbounds nuw i8, ptr %2276, i64 10
   %2278 = load i8, ptr %2277, align 2
   %2279 = and i8 %2278, 31
   switch i8 %2279, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1930 [
@@ -4191,14 +4191,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1928._ZN6google8protobuf8intern
 2282:                                             ; preds = %2280
   %2283 = load i32, ptr %2276, align 4
   %2284 = zext i32 %2283 to i64
-  %2285 = getelementptr inbounds i8, ptr %0, i64 %2284
+  %2285 = getelementptr inbounds nuw i8, ptr %0, i64 %2284
   %2286 = load ptr, ptr %2285, align 8
   %2287 = icmp eq ptr %2286, null
   br i1 %2287, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1930, label %2288
 
 2288:                                             ; preds = %2282
   %2289 = load ptr, ptr %2286, align 8
-  %2290 = getelementptr inbounds i8, ptr %2289, i64 8
+  %2290 = getelementptr inbounds nuw i8, ptr %2289, i64 8
   %2291 = load ptr, ptr %2290, align 8
   call void %2291(ptr noundef nonnull align 8 dereferenceable(16) %2286) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1930
@@ -4206,17 +4206,17 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1928._ZN6google8protobuf8intern
 2292:                                             ; preds = %2274, %2274
   %2293 = load i32, ptr %2276, align 4
   %2294 = zext i32 %2293 to i64
-  %2295 = getelementptr inbounds i8, ptr %0, i64 %2294
+  %2295 = getelementptr inbounds nuw i8, ptr %0, i64 %2294
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2295, ptr noundef %.0.i1927)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1930
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1930: ; preds = %2292, %2288, %2282, %2280, %2274, %2273
   store i32 %82, ptr %2270, align 4
   %2296 = load ptr, ptr %63, align 8
-  %2297 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2296, i64 %91
+  %2297 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2296, i64 %91
   %2298 = load ptr, ptr %2297, align 8
   %2299 = load ptr, ptr %2298, align 8
-  %2300 = getelementptr inbounds i8, ptr %2299, i64 32
+  %2300 = getelementptr inbounds nuw i8, ptr %2299, i64 32
   %2301 = load ptr, ptr %2300, align 8
   %2302 = call noundef ptr %2301(ptr noundef nonnull align 8 dereferenceable(16) %2298, ptr noundef %.0.i1927)
   store ptr %2302, ptr %2269, align 8
@@ -4236,7 +4236,7 @@ _ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE3EEEvRKNS1_1
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i1935: ; preds = %2307
   %2310 = zext nneg i8 %2308 to i32
-  %2311 = getelementptr inbounds i8, ptr %2304, i64 1
+  %2311 = getelementptr inbounds nuw i8, ptr %2304, i64 1
   store ptr %2311, ptr %2, align 8
   br label %2314
 
@@ -4262,9 +4262,9 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 2320:                                             ; preds = %104
   %2321 = load ptr, ptr %63, align 8
-  %2322 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2321, i64 %91
+  %2322 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2321, i64 %91
   %2323 = load ptr, ptr %2322, align 8
-  %2324 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2324 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2325 = call noundef zeroext i1 %2323(ptr noundef nonnull %2, ptr noundef %2324)
   br i1 %2325, label %.backedge, label %.critedge1598
 
@@ -4276,7 +4276,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   unreachable
 
 2328:                                             ; preds = %89
-  %2329 = getelementptr inbounds i8, ptr %92, i64 9
+  %2329 = getelementptr inbounds nuw i8, ptr %92, i64 9
   %2330 = load i8, ptr %2329, align 1
   %2331 = icmp eq i8 %2330, %102
   br i1 %2331, label %2332, label %2847
@@ -4305,7 +4305,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   ]
 
 2334:                                             ; preds = %2332
-  %2335 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2335 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2336 = load ptr, ptr %2, align 8
   %2337 = load ptr, ptr %60, align 8
   %2338 = icmp ult ptr %2336, %2337
@@ -4318,7 +4318,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread: ; preds = %2339
   %2342 = zext nneg i8 %2340 to i32
-  %2343 = getelementptr inbounds i8, ptr %2336, i64 1
+  %2343 = getelementptr inbounds nuw i8, ptr %2336, i64 1
   store ptr %2343, ptr %2, align 8
   br label %2346
 
@@ -4347,7 +4347,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit: ; preds =
   br i1 %2356, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1940.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1940
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1940.thread: ; preds = %2353
-  %2357 = getelementptr inbounds i8, ptr %2350, i64 1
+  %2357 = getelementptr inbounds nuw i8, ptr %2350, i64 1
   store ptr %2357, ptr %2, align 8
   br label %2361
 
@@ -4371,7 +4371,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1940: ; preds = %.
   br label %.backedge
 
 2364:                                             ; preds = %2332
-  %2365 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2365 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2366 = load ptr, ptr %2, align 8
   %2367 = load ptr, ptr %60, align 8
   %2368 = icmp ult ptr %2366, %2367
@@ -4384,7 +4384,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1940: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1942.thread: ; preds = %2369
   %2372 = zext nneg i8 %2370 to i32
-  %2373 = getelementptr inbounds i8, ptr %2366, i64 1
+  %2373 = getelementptr inbounds nuw i8, ptr %2366, i64 1
   store ptr %2373, ptr %2, align 8
   br label %2376
 
@@ -4413,7 +4413,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1942: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1944.thread: ; preds = %2383
   %2386 = zext nneg i8 %2384 to i64
-  %2387 = getelementptr inbounds i8, ptr %2380, i64 1
+  %2387 = getelementptr inbounds nuw i8, ptr %2380, i64 1
   store ptr %2387, ptr %2, align 8
   br label %2392
 
@@ -4437,7 +4437,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1944: ; preds = %.
   br label %.backedge
 
 2395:                                             ; preds = %2332
-  %2396 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2396 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2397 = load ptr, ptr %2, align 8
   %2398 = load ptr, ptr %60, align 8
   %2399 = icmp ult ptr %2397, %2398
@@ -4450,7 +4450,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1944: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1946.thread: ; preds = %2400
   %2403 = zext nneg i8 %2401 to i32
-  %2404 = getelementptr inbounds i8, ptr %2397, i64 1
+  %2404 = getelementptr inbounds nuw i8, ptr %2397, i64 1
   store ptr %2404, ptr %2, align 8
   br label %2407
 
@@ -4479,7 +4479,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1946: ; pre
   br i1 %2417, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1949.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1949
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1949.thread: ; preds = %2414
-  %2418 = getelementptr inbounds i8, ptr %2411, i64 1
+  %2418 = getelementptr inbounds nuw i8, ptr %2411, i64 1
   store ptr %2418, ptr %2, align 8
   br label %2422
 
@@ -4507,7 +4507,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1949: ; preds = %.
   br label %.backedge
 
 2429:                                             ; preds = %2332
-  %2430 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2430 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2431 = load ptr, ptr %2, align 8
   %2432 = load ptr, ptr %60, align 8
   %2433 = icmp ult ptr %2431, %2432
@@ -4520,7 +4520,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1949: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1951.thread: ; preds = %2434
   %2437 = zext nneg i8 %2435 to i32
-  %2438 = getelementptr inbounds i8, ptr %2431, i64 1
+  %2438 = getelementptr inbounds nuw i8, ptr %2431, i64 1
   store ptr %2438, ptr %2, align 8
   br label %2441
 
@@ -4549,7 +4549,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1951: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1953.thread: ; preds = %2448
   %2451 = zext nneg i8 %2449 to i64
-  %2452 = getelementptr inbounds i8, ptr %2445, i64 1
+  %2452 = getelementptr inbounds nuw i8, ptr %2445, i64 1
   store ptr %2452, ptr %2, align 8
   br label %2457
 
@@ -4577,7 +4577,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1953: ; preds = %.
   br label %.backedge
 
 2464:                                             ; preds = %2332
-  %2465 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2465 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2466 = load ptr, ptr %2, align 8
   %2467 = load ptr, ptr %60, align 8
   %2468 = icmp ult ptr %2466, %2467
@@ -4590,7 +4590,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1953: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1955.thread: ; preds = %2469
   %2472 = zext nneg i8 %2470 to i32
-  %2473 = getelementptr inbounds i8, ptr %2466, i64 1
+  %2473 = getelementptr inbounds nuw i8, ptr %2466, i64 1
   store ptr %2473, ptr %2, align 8
   br label %2476
 
@@ -4620,7 +4620,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1955: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1958.thread: ; preds = %2483
   store i32 %2485, ptr %32, align 4
-  %2487 = getelementptr inbounds i8, ptr %2480, i64 1
+  %2487 = getelementptr inbounds nuw i8, ptr %2480, i64 1
   store ptr %2487, ptr %2, align 8
   br label %2491
 
@@ -4643,7 +4643,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1958: ; preds = %.
   br label %.backedge
 
 2494:                                             ; preds = %2332
-  %2495 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2495 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2496 = load ptr, ptr %2, align 8
   %2497 = load ptr, ptr %60, align 8
   %2498 = icmp ult ptr %2496, %2497
@@ -4656,7 +4656,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1958: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1960.thread: ; preds = %2499
   %2502 = zext nneg i8 %2500 to i32
-  %2503 = getelementptr inbounds i8, ptr %2496, i64 1
+  %2503 = getelementptr inbounds nuw i8, ptr %2496, i64 1
   store ptr %2503, ptr %2, align 8
   br label %2506
 
@@ -4686,7 +4686,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1960: ; pre
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1962.thread: ; preds = %2513
   %2516 = zext nneg i8 %2514 to i64
   store i64 %2516, ptr %31, align 8
-  %2517 = getelementptr inbounds i8, ptr %2510, i64 1
+  %2517 = getelementptr inbounds nuw i8, ptr %2510, i64 1
   store ptr %2517, ptr %2, align 8
   br label %2522
 
@@ -4709,7 +4709,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1962: ; preds = %.
   br label %.backedge
 
 2525:                                             ; preds = %2332
-  %2526 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2526 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2527 = load ptr, ptr %2, align 8
   %2528 = load ptr, ptr %60, align 8
   %2529 = icmp ult ptr %2527, %2528
@@ -4722,7 +4722,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1962: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964.thread: ; preds = %2530
   %2533 = zext nneg i8 %2531 to i32
-  %2534 = getelementptr inbounds i8, ptr %2527, i64 1
+  %2534 = getelementptr inbounds nuw i8, ptr %2527, i64 1
   store ptr %2534, ptr %2, align 8
   br label %2537
 
@@ -4780,7 +4780,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1967.thread: ; preds = %.lr.ph2580
   %2560 = load i32, ptr %2554, align 1
   store i32 %2560, ptr %19, align 4
-  %2561 = getelementptr inbounds i8, ptr %2554, i64 4
+  %2561 = getelementptr inbounds nuw i8, ptr %2554, i64 4
   store ptr %2561, ptr %2, align 8
   br label %2563
 
@@ -4795,7 +4795,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1967: ; pred
   br i1 %exitcond2830.not, label %.backedge, label %.lr.ph2580, !llvm.loop !24
 
 2565:                                             ; preds = %2332
-  %2566 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2566 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2567 = load ptr, ptr %2, align 8
   %2568 = load ptr, ptr %60, align 8
   %2569 = icmp ult ptr %2567, %2568
@@ -4808,7 +4808,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1967: ; pred
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1969.thread: ; preds = %2570
   %2573 = zext nneg i8 %2571 to i32
-  %2574 = getelementptr inbounds i8, ptr %2567, i64 1
+  %2574 = getelementptr inbounds nuw i8, ptr %2567, i64 1
   store ptr %2574, ptr %2, align 8
   br label %2577
 
@@ -4866,7 +4866,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1969: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1972.thread: ; preds = %.lr.ph2578
   %2600 = load i64, ptr %2594, align 1
   store i64 %2600, ptr %17, align 8
-  %2601 = getelementptr inbounds i8, ptr %2594, i64 8
+  %2601 = getelementptr inbounds nuw i8, ptr %2594, i64 8
   store ptr %2601, ptr %2, align 8
   br label %2603
 
@@ -4881,7 +4881,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1972: ; pred
   br i1 %exitcond2829.not, label %.backedge, label %.lr.ph2578, !llvm.loop !25
 
 2605:                                             ; preds = %2332
-  %2606 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2606 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2607 = load ptr, ptr %2, align 8
   %2608 = load ptr, ptr %60, align 8
   %2609 = icmp ult ptr %2607, %2608
@@ -4894,7 +4894,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1972: ; pred
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1974.thread: ; preds = %2610
   %2613 = zext nneg i8 %2611 to i32
-  %2614 = getelementptr inbounds i8, ptr %2607, i64 1
+  %2614 = getelementptr inbounds nuw i8, ptr %2607, i64 1
   store ptr %2614, ptr %2, align 8
   br label %2617
 
@@ -4952,7 +4952,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1974: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1977.thread: ; preds = %.lr.ph2576
   %2640 = load i32, ptr %2634, align 1
   store i32 %2640, ptr %13, align 4
-  %2641 = getelementptr inbounds i8, ptr %2634, i64 4
+  %2641 = getelementptr inbounds nuw i8, ptr %2634, i64 4
   store ptr %2641, ptr %2, align 8
   br label %2643
 
@@ -4973,7 +4973,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1977._crit_e
   br i1 %exitcond2828.not, label %.backedge, label %.lr.ph2576, !llvm.loop !26
 
 2646:                                             ; preds = %2332
-  %2647 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2647 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2648 = load ptr, ptr %2, align 8
   %2649 = load ptr, ptr %60, align 8
   %2650 = icmp ult ptr %2648, %2649
@@ -4986,7 +4986,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1977._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1979.thread: ; preds = %2651
   %2654 = zext nneg i8 %2652 to i32
-  %2655 = getelementptr inbounds i8, ptr %2648, i64 1
+  %2655 = getelementptr inbounds nuw i8, ptr %2648, i64 1
   store ptr %2655, ptr %2, align 8
   br label %2658
 
@@ -5044,7 +5044,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1979: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1982.thread: ; preds = %.lr.ph2574
   %2681 = load i64, ptr %2675, align 1
   store i64 %2681, ptr %10, align 8
-  %2682 = getelementptr inbounds i8, ptr %2675, i64 8
+  %2682 = getelementptr inbounds nuw i8, ptr %2675, i64 8
   store ptr %2682, ptr %2, align 8
   br label %2684
 
@@ -5065,7 +5065,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1982._crit_e
   br i1 %exitcond2827.not, label %.backedge, label %.lr.ph2574, !llvm.loop !27
 
 2687:                                             ; preds = %2332
-  %2688 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2688 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2689 = load ptr, ptr %2, align 8
   %2690 = load ptr, ptr %60, align 8
   %2691 = icmp ult ptr %2689, %2690
@@ -5078,7 +5078,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1982._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1984.thread: ; preds = %2692
   %2695 = zext nneg i8 %2693 to i32
-  %2696 = getelementptr inbounds i8, ptr %2689, i64 1
+  %2696 = getelementptr inbounds nuw i8, ptr %2689, i64 1
   store ptr %2696, ptr %2, align 8
   br label %2699
 
@@ -5136,7 +5136,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1984: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1987.thread: ; preds = %.lr.ph2572
   %2722 = load i32, ptr %2716, align 1
   store i32 %2722, ptr %7, align 4
-  %2723 = getelementptr inbounds i8, ptr %2716, i64 4
+  %2723 = getelementptr inbounds nuw i8, ptr %2716, i64 4
   store ptr %2723, ptr %2, align 8
   %2724 = bitcast i32 %2722 to float
   br label %2726
@@ -5158,7 +5158,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1987._crit_e
   br i1 %exitcond2826.not, label %.backedge, label %.lr.ph2572, !llvm.loop !28
 
 2729:                                             ; preds = %2332
-  %2730 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2730 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2731 = load ptr, ptr %2, align 8
   %2732 = load ptr, ptr %60, align 8
   %2733 = icmp ult ptr %2731, %2732
@@ -5171,7 +5171,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1987._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1989.thread: ; preds = %2734
   %2737 = zext nneg i8 %2735 to i32
-  %2738 = getelementptr inbounds i8, ptr %2731, i64 1
+  %2738 = getelementptr inbounds nuw i8, ptr %2731, i64 1
   store ptr %2738, ptr %2, align 8
   br label %2741
 
@@ -5229,7 +5229,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1989: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1992.thread: ; preds = %.lr.ph2570
   %2764 = load i64, ptr %2758, align 1
   store i64 %2764, ptr %4, align 8
-  %2765 = getelementptr inbounds i8, ptr %2758, i64 8
+  %2765 = getelementptr inbounds nuw i8, ptr %2758, i64 8
   store ptr %2765, ptr %2, align 8
   %2766 = bitcast i64 %2764 to double
   br label %2768
@@ -5251,7 +5251,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1992._crit_e
   br i1 %exitcond.not, label %.backedge, label %.lr.ph2570, !llvm.loop !29
 
 2771:                                             ; preds = %2332
-  %2772 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2772 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2773 = load ptr, ptr %2, align 8
   %2774 = load ptr, ptr %60, align 8
   %2775 = icmp ult ptr %2773, %2774
@@ -5264,7 +5264,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1992._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1994.thread: ; preds = %2776
   %2779 = zext nneg i8 %2777 to i32
-  %2780 = getelementptr inbounds i8, ptr %2773, i64 1
+  %2780 = getelementptr inbounds nuw i8, ptr %2773, i64 1
   store ptr %2780, ptr %2, align 8
   br label %2783
 
@@ -5293,7 +5293,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1994: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1996.thread: ; preds = %2790
   %2793 = zext nneg i8 %2791 to i64
-  %2794 = getelementptr inbounds i8, ptr %2787, i64 1
+  %2794 = getelementptr inbounds nuw i8, ptr %2787, i64 1
   store ptr %2794, ptr %2, align 8
   br label %2799
 
@@ -5331,7 +5331,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1996: ; preds = %.
   br i1 %2811, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999.thread: ; preds = %2808
-  %2812 = getelementptr inbounds i8, ptr %2805, i64 1
+  %2812 = getelementptr inbounds nuw i8, ptr %2805, i64 1
   store ptr %2812, ptr %2, align 8
   br label %2816
 
@@ -5345,9 +5345,9 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999: ; preds = %2
 2816:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999
   %.02465 = phi i32 [ %2810, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999.thread ], [ %2814, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999 ]
   %2817 = load ptr, ptr %63, align 8
-  %2818 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2817, i64 %91
+  %2818 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2817, i64 %91
   %2819 = load ptr, ptr %2818, align 8
-  %2820 = getelementptr inbounds i8, ptr %0, i64 %97
+  %2820 = getelementptr inbounds nuw i8, ptr %0, i64 %97
   %2821 = call noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %.02465)
   %2822 = call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
   %2823 = icmp sgt i32 %2822, 0
@@ -5370,7 +5370,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1999: ; preds = %2
   br i1 %2832, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2002.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2002
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2002.thread: ; preds = %2829
-  %2833 = getelementptr inbounds i8, ptr %2826, i64 1
+  %2833 = getelementptr inbounds nuw i8, ptr %2826, i64 1
   store ptr %2833, ptr %2, align 8
   br label %2837
 
@@ -5492,17 +5492,17 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %54 = alloca i64, align 8
   %55 = alloca i64, align 8
   %56 = alloca i32, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
-  %62 = getelementptr inbounds i8, ptr %1, i64 48
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
-  %66 = getelementptr inbounds i8, ptr %2, i64 52
-  %67 = getelementptr inbounds i8, ptr %2, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %68
 
 68:                                               ; preds = %.backedge, %3
@@ -5515,7 +5515,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %73 = load i8, ptr %69, align 1
   %74 = zext i8 %73 to i32
   %75 = icmp sgt i8 %73, 0
-  %76 = getelementptr inbounds i8, ptr %69, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 1
   br i1 %75, label %77, label %78
 
 77:                                               ; preds = %72
@@ -5538,7 +5538,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %87 = shl nuw nsw i32 %82, 7
   %88 = add nsw i32 %74, -128
   %89 = add nuw nsw i32 %88, %87
-  %90 = getelementptr inbounds i8, ptr %69, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store ptr %90, ptr %2, align 8
   br label %93
 
@@ -5567,15 +5567,15 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
 102:                                              ; preds = %93
   %103 = load ptr, ptr %1, align 8
   %104 = zext nneg i32 %95 to i64
-  %105 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %104
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %105 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = load i32, ptr %105, align 4
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %105, i64 10
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 10
   %112 = load i8, ptr %111, align 2
-  %113 = getelementptr inbounds i8, ptr %105, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %114 = load i8, ptr %113, align 4
   %115 = trunc nuw nsw i32 %94 to i8
   %116 = icmp eq i8 %114, %115
@@ -5653,7 +5653,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   br i1 %125, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread: ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %119, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store ptr %126, ptr %2, align 8
   br label %130
 
@@ -5670,16 +5670,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %118, 
   %132 = shl nuw i32 1, %131
   %133 = lshr i32 %107, 5
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %59, i64 %134
+  %135 = getelementptr inbounds nuw i32, ptr %59, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = or i32 %136, %132
   store i32 %137, ptr %135, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 %110
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph, ptr %138, align 4
   br label %.backedge
 
 139:                                              ; preds = %117
-  %140 = getelementptr inbounds i8, ptr %0, i64 %110
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %141 = load ptr, ptr %2, align 8
   %142 = load ptr, ptr %60, align 8
   %143 = icmp ult ptr %141, %142
@@ -5692,7 +5692,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %118, 
   br i1 %147, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724.thread: ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %141, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 1
   store ptr %148, ptr %2, align 8
   br label %152
 
@@ -5738,7 +5738,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724: ; preds = %1
   br i1 %170, label %171, label %.backedge
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %164, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 1
   br label %.critedge1595
 
 173:                                              ; preds = %162
@@ -5761,14 +5761,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724: ; preds = %1
   br i1 %185, label %186, label %.backedge
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %176, i64 1
+  %187 = getelementptr inbounds nuw i8, ptr %176, i64 1
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
   %190 = icmp eq i32 %161, %189
   br i1 %190, label %191, label %.backedge
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %176, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %176, i64 2
   br label %.critedge1595
 
 .critedge1595:                                    ; preds = %191, %171
@@ -5785,7 +5785,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724: ; preds = %1
   br i1 %198, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727.thread: ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %storemerge2480, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %storemerge2480, i64 1
   store ptr %199, ptr %2, align 8
   br label %203
 
@@ -5819,7 +5819,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727: ; preds = %.
   br i1 %215, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread: ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %209, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %209, i64 1
   store ptr %216, ptr %2, align 8
   br label %220
 
@@ -5833,10 +5833,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730: ; preds = %2
 220:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread
   %.ph2180 = phi i32 [ %214, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread ], [ %218, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730 ]
   %221 = load ptr, ptr %1, align 8
-  %222 = getelementptr inbounds i32, ptr %208, i64 %108
+  %222 = getelementptr inbounds nuw i32, ptr %208, i64 %108
   %223 = load i32, ptr %222, align 4
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %221, i64 %224
+  %225 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %221, i64 %224
   %226 = load ptr, ptr %64, align 8
   %227 = ptrtoint ptr %226 to i64
   %228 = and i64 %227, 1
@@ -5851,7 +5851,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730: ; preds = %2
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %220, %229
   %.0.i1731 = phi ptr [ %232, %229 ], [ %226, %220 ]
-  %233 = getelementptr inbounds i8, ptr %225, i64 10
+  %233 = getelementptr inbounds nuw i8, ptr %225, i64 10
   %234 = load i8, ptr %233, align 2
   %235 = and i8 %234, 31
   switch i8 %235, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit [
@@ -5867,14 +5867,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %220, %229
 238:                                              ; preds = %236
   %239 = load i32, ptr %225, align 4
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds i8, ptr %0, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
   br i1 %243, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit, label %244
 
 244:                                              ; preds = %238
   %245 = load ptr, ptr %242, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load ptr, ptr %246, align 8
   call void %247(ptr noundef nonnull align 8 dereferenceable(16) %242) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
@@ -5882,13 +5882,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %220, %229
 248:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
   %249 = load i32, ptr %225, align 4
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds i8, ptr %0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 %250
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %251, ptr noundef %.0.i1731)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %236, %238, %244, %248
   store i32 %95, ptr %222, align 4
-  %252 = getelementptr inbounds i8, ptr %0, i64 %110
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph2180, ptr %252, align 4
   br label %.backedge
 
@@ -5905,7 +5905,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread: ; preds = %257
   %260 = zext nneg i8 %258 to i64
-  %261 = getelementptr inbounds i8, ptr %254, i64 1
+  %261 = getelementptr inbounds nuw i8, ptr %254, i64 1
   store ptr %261, ptr %2, align 8
   br label %266
 
@@ -5922,16 +5922,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %253, 
   %268 = shl nuw i32 1, %267
   %269 = lshr i32 %107, 5
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds i32, ptr %59, i64 %270
+  %271 = getelementptr inbounds nuw i32, ptr %59, i64 %270
   %272 = load i32, ptr %271, align 4
   %273 = or i32 %272, %268
   store i32 %273, ptr %271, align 4
-  %274 = getelementptr inbounds i8, ptr %0, i64 %110
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2189, ptr %274, align 8
   br label %.backedge
 
 275:                                              ; preds = %117
-  %276 = getelementptr inbounds i8, ptr %0, i64 %110
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %277 = load ptr, ptr %2, align 8
   %278 = load ptr, ptr %60, align 8
   %279 = icmp ult ptr %277, %278
@@ -5944,7 +5944,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %253, 
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734.thread: ; preds = %280
   %283 = zext nneg i8 %281 to i64
-  %284 = getelementptr inbounds i8, ptr %277, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %277, i64 1
   store ptr %284, ptr %2, align 8
   br label %289
 
@@ -5990,7 +5990,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %2
   br i1 %307, label %308, label %.backedge
 
 308:                                              ; preds = %304
-  %309 = getelementptr inbounds i8, ptr %301, i64 1
+  %309 = getelementptr inbounds nuw i8, ptr %301, i64 1
   br label %.critedge1602
 
 310:                                              ; preds = %299
@@ -6013,14 +6013,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %2
   br i1 %322, label %323, label %.backedge
 
 323:                                              ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %313, i64 1
+  %324 = getelementptr inbounds nuw i8, ptr %313, i64 1
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i32
   %327 = icmp eq i32 %298, %326
   br i1 %327, label %328, label %.backedge
 
 328:                                              ; preds = %323
-  %329 = getelementptr inbounds i8, ptr %313, i64 2
+  %329 = getelementptr inbounds nuw i8, ptr %313, i64 2
   br label %.critedge1602
 
 .critedge1602:                                    ; preds = %328, %308
@@ -6037,7 +6037,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %2
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1736.thread: ; preds = %332
   %335 = zext nneg i8 %333 to i64
-  %336 = getelementptr inbounds i8, ptr %storemerge2479, i64 1
+  %336 = getelementptr inbounds nuw i8, ptr %storemerge2479, i64 1
   store ptr %336, ptr %2, align 8
   br label %341
 
@@ -6071,7 +6071,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1736: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738.thread: ; preds = %350
   %353 = zext nneg i8 %351 to i64
-  %354 = getelementptr inbounds i8, ptr %347, i64 1
+  %354 = getelementptr inbounds nuw i8, ptr %347, i64 1
   store ptr %354, ptr %2, align 8
   br label %359
 
@@ -6085,10 +6085,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738: ; preds = %3
 359:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738.thread
   %.ph2204 = phi i64 [ %353, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738.thread ], [ %356, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738 ]
   %360 = load ptr, ptr %1, align 8
-  %361 = getelementptr inbounds i32, ptr %346, i64 %108
+  %361 = getelementptr inbounds nuw i32, ptr %346, i64 %108
   %362 = load i32, ptr %361, align 4
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %360, i64 %363
+  %364 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %360, i64 %363
   %365 = load ptr, ptr %64, align 8
   %366 = ptrtoint ptr %365 to i64
   %367 = and i64 %366, 1
@@ -6103,7 +6103,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738: ; preds = %3
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741: ; preds = %359, %368
   %.0.i1740 = phi ptr [ %371, %368 ], [ %365, %359 ]
-  %372 = getelementptr inbounds i8, ptr %364, i64 10
+  %372 = getelementptr inbounds nuw i8, ptr %364, i64 10
   %373 = load i8, ptr %372, align 2
   %374 = and i8 %373, 31
   switch i8 %374, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742 [
@@ -6119,14 +6119,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741: ; preds = %359, %368
 377:                                              ; preds = %375
   %378 = load i32, ptr %364, align 4
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds i8, ptr %0, i64 %379
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 %379
   %381 = load ptr, ptr %380, align 8
   %382 = icmp eq ptr %381, null
   br i1 %382, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742, label %383
 
 383:                                              ; preds = %377
   %384 = load ptr, ptr %381, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8
   call void %386(ptr noundef nonnull align 8 dereferenceable(16) %381) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742
@@ -6134,13 +6134,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741: ; preds = %359, %368
 387:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741
   %388 = load i32, ptr %364, align 4
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds i8, ptr %0, i64 %389
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 %389
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef %.0.i1740)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741, %375, %377, %383, %387
   store i32 %95, ptr %361, align 4
-  %391 = getelementptr inbounds i8, ptr %0, i64 %110
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2204, ptr %391, align 8
   br label %.backedge
 
@@ -6157,7 +6157,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %399, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745.thread: ; preds = %396
-  %400 = getelementptr inbounds i8, ptr %393, i64 1
+  %400 = getelementptr inbounds nuw i8, ptr %393, i64 1
   store ptr %400, ptr %2, align 8
   br label %404
 
@@ -6178,16 +6178,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745: ; preds = %3
   %410 = shl nuw i32 1, %409
   %411 = lshr i32 %107, 5
   %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds i32, ptr %59, i64 %412
+  %413 = getelementptr inbounds nuw i32, ptr %59, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = or i32 %414, %410
   store i32 %415, ptr %413, align 4
-  %416 = getelementptr inbounds i8, ptr %0, i64 %110
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %408, ptr %416, align 4
   br label %.backedge
 
 417:                                              ; preds = %117
-  %418 = getelementptr inbounds i8, ptr %0, i64 %110
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %419 = load ptr, ptr %2, align 8
   %420 = load ptr, ptr %60, align 8
   %421 = icmp ult ptr %419, %420
@@ -6200,7 +6200,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745: ; preds = %3
   br i1 %425, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748.thread: ; preds = %422
-  %426 = getelementptr inbounds i8, ptr %419, i64 1
+  %426 = getelementptr inbounds nuw i8, ptr %419, i64 1
   store ptr %426, ptr %2, align 8
   br label %430
 
@@ -6250,7 +6250,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748: ; preds = %4
   br i1 %452, label %453, label %.backedge
 
 453:                                              ; preds = %449
-  %454 = getelementptr inbounds i8, ptr %446, i64 1
+  %454 = getelementptr inbounds nuw i8, ptr %446, i64 1
   br label %.critedge1609
 
 455:                                              ; preds = %444
@@ -6273,14 +6273,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748: ; preds = %4
   br i1 %467, label %468, label %.backedge
 
 468:                                              ; preds = %464
-  %469 = getelementptr inbounds i8, ptr %458, i64 1
+  %469 = getelementptr inbounds nuw i8, ptr %458, i64 1
   %470 = load i8, ptr %469, align 1
   %471 = zext i8 %470 to i32
   %472 = icmp eq i32 %443, %471
   br i1 %472, label %473, label %.backedge
 
 473:                                              ; preds = %468
-  %474 = getelementptr inbounds i8, ptr %458, i64 2
+  %474 = getelementptr inbounds nuw i8, ptr %458, i64 2
   br label %.critedge1609
 
 .critedge1609:                                    ; preds = %473, %453
@@ -6297,7 +6297,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748: ; preds = %4
   br i1 %480, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751.thread: ; preds = %477
-  %481 = getelementptr inbounds i8, ptr %storemerge2478, i64 1
+  %481 = getelementptr inbounds nuw i8, ptr %storemerge2478, i64 1
   store ptr %481, ptr %2, align 8
   br label %485
 
@@ -6335,7 +6335,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751: ; preds = %.
   br i1 %501, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754.thread: ; preds = %498
-  %502 = getelementptr inbounds i8, ptr %495, i64 1
+  %502 = getelementptr inbounds nuw i8, ptr %495, i64 1
   store ptr %502, ptr %2, align 8
   br label %506
 
@@ -6353,10 +6353,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754: ; preds = %4
   %509 = sub nsw i32 0, %508
   %510 = xor i32 %507, %509
   %511 = load ptr, ptr %1, align 8
-  %512 = getelementptr inbounds i32, ptr %494, i64 %108
+  %512 = getelementptr inbounds nuw i32, ptr %494, i64 %108
   %513 = load i32, ptr %512, align 4
   %514 = zext i32 %513 to i64
-  %515 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %511, i64 %514
+  %515 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %511, i64 %514
   %516 = load ptr, ptr %64, align 8
   %517 = ptrtoint ptr %516 to i64
   %518 = and i64 %517, 1
@@ -6371,7 +6371,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754: ; preds = %4
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757: ; preds = %506, %519
   %.0.i1756 = phi ptr [ %522, %519 ], [ %516, %506 ]
-  %523 = getelementptr inbounds i8, ptr %515, i64 10
+  %523 = getelementptr inbounds nuw i8, ptr %515, i64 10
   %524 = load i8, ptr %523, align 2
   %525 = and i8 %524, 31
   switch i8 %525, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758 [
@@ -6387,14 +6387,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757: ; preds = %506, %519
 528:                                              ; preds = %526
   %529 = load i32, ptr %515, align 4
   %530 = zext i32 %529 to i64
-  %531 = getelementptr inbounds i8, ptr %0, i64 %530
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 %530
   %532 = load ptr, ptr %531, align 8
   %533 = icmp eq ptr %532, null
   br i1 %533, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758, label %534
 
 534:                                              ; preds = %528
   %535 = load ptr, ptr %532, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %537 = load ptr, ptr %536, align 8
   call void %537(ptr noundef nonnull align 8 dereferenceable(16) %532) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758
@@ -6402,13 +6402,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757: ; preds = %506, %519
 538:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757
   %539 = load i32, ptr %515, align 4
   %540 = zext i32 %539 to i64
-  %541 = getelementptr inbounds i8, ptr %0, i64 %540
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 %540
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %541, ptr noundef %.0.i1756)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757, %526, %528, %534, %538
   store i32 %95, ptr %512, align 4
-  %542 = getelementptr inbounds i8, ptr %0, i64 %110
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %510, ptr %542, align 4
   br label %.backedge
 
@@ -6425,7 +6425,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760.thread: ; preds = %547
   %550 = zext nneg i8 %548 to i64
-  %551 = getelementptr inbounds i8, ptr %544, i64 1
+  %551 = getelementptr inbounds nuw i8, ptr %544, i64 1
   store ptr %551, ptr %2, align 8
   br label %556
 
@@ -6446,16 +6446,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760: ; preds = %5
   %562 = shl nuw i32 1, %561
   %563 = lshr i32 %107, 5
   %564 = zext nneg i32 %563 to i64
-  %565 = getelementptr inbounds i32, ptr %59, i64 %564
+  %565 = getelementptr inbounds nuw i32, ptr %59, i64 %564
   %566 = load i32, ptr %565, align 4
   %567 = or i32 %566, %562
   store i32 %567, ptr %565, align 4
-  %568 = getelementptr inbounds i8, ptr %0, i64 %110
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %560, ptr %568, align 8
   br label %.backedge
 
 569:                                              ; preds = %117
-  %570 = getelementptr inbounds i8, ptr %0, i64 %110
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %571 = load ptr, ptr %2, align 8
   %572 = load ptr, ptr %60, align 8
   %573 = icmp ult ptr %571, %572
@@ -6468,7 +6468,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760: ; preds = %5
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762.thread: ; preds = %574
   %577 = zext nneg i8 %575 to i64
-  %578 = getelementptr inbounds i8, ptr %571, i64 1
+  %578 = getelementptr inbounds nuw i8, ptr %571, i64 1
   store ptr %578, ptr %2, align 8
   br label %583
 
@@ -6518,7 +6518,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %5
   br i1 %605, label %606, label %.backedge
 
 606:                                              ; preds = %602
-  %607 = getelementptr inbounds i8, ptr %599, i64 1
+  %607 = getelementptr inbounds nuw i8, ptr %599, i64 1
   br label %.critedge1616
 
 608:                                              ; preds = %597
@@ -6541,14 +6541,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %5
   br i1 %620, label %621, label %.backedge
 
 621:                                              ; preds = %617
-  %622 = getelementptr inbounds i8, ptr %611, i64 1
+  %622 = getelementptr inbounds nuw i8, ptr %611, i64 1
   %623 = load i8, ptr %622, align 1
   %624 = zext i8 %623 to i32
   %625 = icmp eq i32 %596, %624
   br i1 %625, label %626, label %.backedge
 
 626:                                              ; preds = %621
-  %627 = getelementptr inbounds i8, ptr %611, i64 2
+  %627 = getelementptr inbounds nuw i8, ptr %611, i64 2
   br label %.critedge1616
 
 .critedge1616:                                    ; preds = %626, %606
@@ -6565,7 +6565,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %5
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1764.thread: ; preds = %630
   %633 = zext nneg i8 %631 to i64
-  %634 = getelementptr inbounds i8, ptr %storemerge2477, i64 1
+  %634 = getelementptr inbounds nuw i8, ptr %storemerge2477, i64 1
   store ptr %634, ptr %2, align 8
   br label %639
 
@@ -6603,7 +6603,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1764: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1766.thread: ; preds = %652
   %655 = zext nneg i8 %653 to i64
-  %656 = getelementptr inbounds i8, ptr %649, i64 1
+  %656 = getelementptr inbounds nuw i8, ptr %649, i64 1
   store ptr %656, ptr %2, align 8
   br label %661
 
@@ -6621,10 +6621,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1766: ; preds = %6
   %664 = sub nsw i64 0, %663
   %665 = xor i64 %662, %664
   %666 = load ptr, ptr %1, align 8
-  %667 = getelementptr inbounds i32, ptr %648, i64 %108
+  %667 = getelementptr inbounds nuw i32, ptr %648, i64 %108
   %668 = load i32, ptr %667, align 4
   %669 = zext i32 %668 to i64
-  %670 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %666, i64 %669
+  %670 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %666, i64 %669
   %671 = load ptr, ptr %64, align 8
   %672 = ptrtoint ptr %671 to i64
   %673 = and i64 %672, 1
@@ -6639,7 +6639,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1766: ; preds = %6
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769: ; preds = %661, %674
   %.0.i1768 = phi ptr [ %677, %674 ], [ %671, %661 ]
-  %678 = getelementptr inbounds i8, ptr %670, i64 10
+  %678 = getelementptr inbounds nuw i8, ptr %670, i64 10
   %679 = load i8, ptr %678, align 2
   %680 = and i8 %679, 31
   switch i8 %680, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770 [
@@ -6655,14 +6655,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769: ; preds = %661, %674
 683:                                              ; preds = %681
   %684 = load i32, ptr %670, align 4
   %685 = zext i32 %684 to i64
-  %686 = getelementptr inbounds i8, ptr %0, i64 %685
+  %686 = getelementptr inbounds nuw i8, ptr %0, i64 %685
   %687 = load ptr, ptr %686, align 8
   %688 = icmp eq ptr %687, null
   br i1 %688, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770, label %689
 
 689:                                              ; preds = %683
   %690 = load ptr, ptr %687, align 8
-  %691 = getelementptr inbounds i8, ptr %690, i64 8
+  %691 = getelementptr inbounds nuw i8, ptr %690, i64 8
   %692 = load ptr, ptr %691, align 8
   call void %692(ptr noundef nonnull align 8 dereferenceable(16) %687) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770
@@ -6670,13 +6670,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769: ; preds = %661, %674
 693:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769
   %694 = load i32, ptr %670, align 4
   %695 = zext i32 %694 to i64
-  %696 = getelementptr inbounds i8, ptr %0, i64 %695
+  %696 = getelementptr inbounds nuw i8, ptr %0, i64 %695
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %696, ptr noundef %.0.i1768)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769, %681, %683, %689, %693
   store i32 %95, ptr %667, align 4
-  %697 = getelementptr inbounds i8, ptr %0, i64 %110
+  %697 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %665, ptr %697, align 8
   br label %.backedge
 
@@ -6693,7 +6693,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %705, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773.thread: ; preds = %702
-  %706 = getelementptr inbounds i8, ptr %699, i64 1
+  %706 = getelementptr inbounds nuw i8, ptr %699, i64 1
   store ptr %706, ptr %2, align 8
   br label %710
 
@@ -6710,16 +6710,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773: ; preds = %6
   %712 = shl nuw i32 1, %711
   %713 = lshr i32 %107, 5
   %714 = zext nneg i32 %713 to i64
-  %715 = getelementptr inbounds i32, ptr %59, i64 %714
+  %715 = getelementptr inbounds nuw i32, ptr %59, i64 %714
   %716 = load i32, ptr %715, align 4
   %717 = or i32 %716, %712
   store i32 %717, ptr %715, align 4
-  %718 = getelementptr inbounds i8, ptr %0, i64 %110
+  %718 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.021222257, ptr %718, align 4
   br label %.backedge
 
 719:                                              ; preds = %117
-  %720 = getelementptr inbounds i8, ptr %0, i64 %110
+  %720 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %721 = load ptr, ptr %2, align 8
   %722 = load ptr, ptr %60, align 8
   %723 = icmp ult ptr %721, %722
@@ -6733,7 +6733,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773: ; preds = %6
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776.thread: ; preds = %724
   store i32 %726, ptr %47, align 4
-  %728 = getelementptr inbounds i8, ptr %721, i64 1
+  %728 = getelementptr inbounds nuw i8, ptr %721, i64 1
   store ptr %728, ptr %2, align 8
   br label %732
 
@@ -6778,7 +6778,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776: ; preds = %7
   br i1 %750, label %751, label %.backedge
 
 751:                                              ; preds = %747
-  %752 = getelementptr inbounds i8, ptr %744, i64 1
+  %752 = getelementptr inbounds nuw i8, ptr %744, i64 1
   br label %.critedge1621
 
 753:                                              ; preds = %742
@@ -6801,14 +6801,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776: ; preds = %7
   br i1 %765, label %766, label %.backedge
 
 766:                                              ; preds = %762
-  %767 = getelementptr inbounds i8, ptr %756, i64 1
+  %767 = getelementptr inbounds nuw i8, ptr %756, i64 1
   %768 = load i8, ptr %767, align 1
   %769 = zext i8 %768 to i32
   %770 = icmp eq i32 %741, %769
   br i1 %770, label %771, label %.backedge
 
 771:                                              ; preds = %766
-  %772 = getelementptr inbounds i8, ptr %756, i64 2
+  %772 = getelementptr inbounds nuw i8, ptr %756, i64 2
   br label %.critedge1621
 
 .critedge1621:                                    ; preds = %771, %751
@@ -6826,7 +6826,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776: ; preds = %7
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1779.thread: ; preds = %775
   store i32 %777, ptr %47, align 4
-  %779 = getelementptr inbounds i8, ptr %storemerge2476, i64 1
+  %779 = getelementptr inbounds nuw i8, ptr %storemerge2476, i64 1
   store ptr %779, ptr %2, align 8
   br label %783
 
@@ -6859,7 +6859,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1779: ; preds = %.
   br i1 %795, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread: ; preds = %792
-  %796 = getelementptr inbounds i8, ptr %789, i64 1
+  %796 = getelementptr inbounds nuw i8, ptr %789, i64 1
   store ptr %796, ptr %2, align 8
   br label %800
 
@@ -6873,10 +6873,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782: ; preds = %7
 800:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782
   %.021212262 = phi i32 [ %794, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread ], [ %798, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782 ]
   %801 = load ptr, ptr %1, align 8
-  %802 = getelementptr inbounds i32, ptr %788, i64 %108
+  %802 = getelementptr inbounds nuw i32, ptr %788, i64 %108
   %803 = load i32, ptr %802, align 4
   %804 = zext i32 %803 to i64
-  %805 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %801, i64 %804
+  %805 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %801, i64 %804
   %806 = load ptr, ptr %64, align 8
   %807 = ptrtoint ptr %806 to i64
   %808 = and i64 %807, 1
@@ -6891,7 +6891,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782: ; preds = %7
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785: ; preds = %800, %809
   %.0.i1784 = phi ptr [ %812, %809 ], [ %806, %800 ]
-  %813 = getelementptr inbounds i8, ptr %805, i64 10
+  %813 = getelementptr inbounds nuw i8, ptr %805, i64 10
   %814 = load i8, ptr %813, align 2
   %815 = and i8 %814, 31
   switch i8 %815, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786 [
@@ -6907,14 +6907,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785: ; preds = %800, %809
 818:                                              ; preds = %816
   %819 = load i32, ptr %805, align 4
   %820 = zext i32 %819 to i64
-  %821 = getelementptr inbounds i8, ptr %0, i64 %820
+  %821 = getelementptr inbounds nuw i8, ptr %0, i64 %820
   %822 = load ptr, ptr %821, align 8
   %823 = icmp eq ptr %822, null
   br i1 %823, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786, label %824
 
 824:                                              ; preds = %818
   %825 = load ptr, ptr %822, align 8
-  %826 = getelementptr inbounds i8, ptr %825, i64 8
+  %826 = getelementptr inbounds nuw i8, ptr %825, i64 8
   %827 = load ptr, ptr %826, align 8
   call void %827(ptr noundef nonnull align 8 dereferenceable(16) %822) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786
@@ -6922,13 +6922,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785: ; preds = %800, %809
 828:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785
   %829 = load i32, ptr %805, align 4
   %830 = zext i32 %829 to i64
-  %831 = getelementptr inbounds i8, ptr %0, i64 %830
+  %831 = getelementptr inbounds nuw i8, ptr %0, i64 %830
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %831, ptr noundef %.0.i1784)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785, %816, %818, %824, %828
   store i32 %95, ptr %802, align 4
-  %832 = getelementptr inbounds i8, ptr %0, i64 %110
+  %832 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.021212262, ptr %832, align 4
   br label %.backedge
 
@@ -6945,7 +6945,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788.thread: ; preds = %837
   %840 = zext nneg i8 %838 to i64
-  %841 = getelementptr inbounds i8, ptr %834, i64 1
+  %841 = getelementptr inbounds nuw i8, ptr %834, i64 1
   store ptr %841, ptr %2, align 8
   br label %846
 
@@ -6962,16 +6962,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788: ; preds = %8
   %848 = shl nuw i32 1, %847
   %849 = lshr i32 %107, 5
   %850 = zext nneg i32 %849 to i64
-  %851 = getelementptr inbounds i32, ptr %59, i64 %850
+  %851 = getelementptr inbounds nuw i32, ptr %59, i64 %850
   %852 = load i32, ptr %851, align 4
   %853 = or i32 %852, %848
   store i32 %853, ptr %851, align 4
-  %854 = getelementptr inbounds i8, ptr %0, i64 %110
+  %854 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.021202265, ptr %854, align 8
   br label %.backedge
 
 855:                                              ; preds = %117
-  %856 = getelementptr inbounds i8, ptr %0, i64 %110
+  %856 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %857 = load ptr, ptr %2, align 8
   %858 = load ptr, ptr %60, align 8
   %859 = icmp ult ptr %857, %858
@@ -6985,7 +6985,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788: ; preds = %8
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790.thread: ; preds = %860
   %863 = zext nneg i8 %861 to i64
   store i64 %863, ptr %46, align 8
-  %864 = getelementptr inbounds i8, ptr %857, i64 1
+  %864 = getelementptr inbounds nuw i8, ptr %857, i64 1
   store ptr %864, ptr %2, align 8
   br label %869
 
@@ -7030,7 +7030,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %8
   br i1 %887, label %888, label %.backedge
 
 888:                                              ; preds = %884
-  %889 = getelementptr inbounds i8, ptr %881, i64 1
+  %889 = getelementptr inbounds nuw i8, ptr %881, i64 1
   br label %.critedge1624
 
 890:                                              ; preds = %879
@@ -7053,14 +7053,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %8
   br i1 %902, label %903, label %.backedge
 
 903:                                              ; preds = %899
-  %904 = getelementptr inbounds i8, ptr %893, i64 1
+  %904 = getelementptr inbounds nuw i8, ptr %893, i64 1
   %905 = load i8, ptr %904, align 1
   %906 = zext i8 %905 to i32
   %907 = icmp eq i32 %878, %906
   br i1 %907, label %908, label %.backedge
 
 908:                                              ; preds = %903
-  %909 = getelementptr inbounds i8, ptr %893, i64 2
+  %909 = getelementptr inbounds nuw i8, ptr %893, i64 2
   br label %.critedge1624
 
 .critedge1624:                                    ; preds = %908, %888
@@ -7078,7 +7078,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %8
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1792.thread: ; preds = %912
   %915 = zext nneg i8 %913 to i64
   store i64 %915, ptr %46, align 8
-  %916 = getelementptr inbounds i8, ptr %storemerge2475, i64 1
+  %916 = getelementptr inbounds nuw i8, ptr %storemerge2475, i64 1
   store ptr %916, ptr %2, align 8
   br label %921
 
@@ -7111,7 +7111,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1792: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794.thread: ; preds = %930
   %933 = zext nneg i8 %931 to i64
-  %934 = getelementptr inbounds i8, ptr %927, i64 1
+  %934 = getelementptr inbounds nuw i8, ptr %927, i64 1
   store ptr %934, ptr %2, align 8
   br label %939
 
@@ -7125,10 +7125,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794: ; preds = %9
 939:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794
   %.021192270 = phi i64 [ %933, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794.thread ], [ %936, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794 ]
   %940 = load ptr, ptr %1, align 8
-  %941 = getelementptr inbounds i32, ptr %926, i64 %108
+  %941 = getelementptr inbounds nuw i32, ptr %926, i64 %108
   %942 = load i32, ptr %941, align 4
   %943 = zext i32 %942 to i64
-  %944 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %940, i64 %943
+  %944 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %940, i64 %943
   %945 = load ptr, ptr %64, align 8
   %946 = ptrtoint ptr %945 to i64
   %947 = and i64 %946, 1
@@ -7143,7 +7143,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794: ; preds = %9
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797: ; preds = %939, %948
   %.0.i1796 = phi ptr [ %951, %948 ], [ %945, %939 ]
-  %952 = getelementptr inbounds i8, ptr %944, i64 10
+  %952 = getelementptr inbounds nuw i8, ptr %944, i64 10
   %953 = load i8, ptr %952, align 2
   %954 = and i8 %953, 31
   switch i8 %954, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798 [
@@ -7159,14 +7159,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797: ; preds = %939, %948
 957:                                              ; preds = %955
   %958 = load i32, ptr %944, align 4
   %959 = zext i32 %958 to i64
-  %960 = getelementptr inbounds i8, ptr %0, i64 %959
+  %960 = getelementptr inbounds nuw i8, ptr %0, i64 %959
   %961 = load ptr, ptr %960, align 8
   %962 = icmp eq ptr %961, null
   br i1 %962, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798, label %963
 
 963:                                              ; preds = %957
   %964 = load ptr, ptr %961, align 8
-  %965 = getelementptr inbounds i8, ptr %964, i64 8
+  %965 = getelementptr inbounds nuw i8, ptr %964, i64 8
   %966 = load ptr, ptr %965, align 8
   call void %966(ptr noundef nonnull align 8 dereferenceable(16) %961) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798
@@ -7174,13 +7174,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797: ; preds = %939, %948
 967:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797
   %968 = load i32, ptr %944, align 4
   %969 = zext i32 %968 to i64
-  %970 = getelementptr inbounds i8, ptr %0, i64 %969
+  %970 = getelementptr inbounds nuw i8, ptr %0, i64 %969
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %970, ptr noundef %.0.i1796)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797, %955, %957, %963, %967
   store i32 %95, ptr %941, align 4
-  %971 = getelementptr inbounds i8, ptr %0, i64 %110
+  %971 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.021192270, ptr %971, align 8
   br label %.backedge
 
@@ -7197,7 +7197,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit.thread: ; preds = %972
   %980 = load i32, ptr %974, align 1
   store i32 %980, ptr %52, align 4
-  %981 = getelementptr inbounds i8, ptr %974, i64 4
+  %981 = getelementptr inbounds nuw i8, ptr %974, i64 4
   store ptr %981, ptr %2, align 8
   br label %983
 
@@ -7215,17 +7215,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit._crit_edge:
   %986 = shl nuw i32 1, %985
   %987 = lshr i32 %107, 5
   %988 = zext nneg i32 %987 to i64
-  %989 = getelementptr inbounds i32, ptr %59, i64 %988
+  %989 = getelementptr inbounds nuw i32, ptr %59, i64 %988
   %990 = load i32, ptr %989, align 4
   %991 = or i32 %990, %986
   store i32 %991, ptr %989, align 4
-  %992 = getelementptr inbounds i8, ptr %0, i64 %110
+  %992 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %984, ptr %992, align 4
   br label %.backedge
 
 993:                                              ; preds = %117
-  %994 = getelementptr inbounds i8, ptr %0, i64 %110
-  %995 = getelementptr inbounds i8, ptr %105, i64 11
+  %994 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %995 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %996 = load i8, ptr %995, align 1
   %997 = zext i8 %996 to i32
   %998 = load ptr, ptr %60, align 8
@@ -7240,7 +7240,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit._crit_edge:
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801.thread: ; preds = %993
   %1005 = load i32, ptr %999, align 1
   store i32 %1005, ptr %29, align 4
-  %1006 = getelementptr inbounds i8, ptr %999, i64 4
+  %1006 = getelementptr inbounds nuw i8, ptr %999, i64 4
   store ptr %1006, ptr %2, align 8
   br label %1008
 
@@ -7286,7 +7286,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801: ; pred
   %1030 = load i8, ptr %.013772673, align 1
   %1031 = zext i8 %1030 to i32
   %1032 = icmp eq i32 %.sroa.0587.0, %1031
-  %1033 = getelementptr inbounds i8, ptr %.013772673, i64 1
+  %1033 = getelementptr inbounds nuw i8, ptr %.013772673, i64 1
   br i1 %1032, label %select.unfold, label %.critedge12
 
 1034:                                             ; preds = %1028
@@ -7299,18 +7299,18 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801: ; pred
   br i1 %1038, label %1039, label %.critedge12
 
 1039:                                             ; preds = %1035
-  %1040 = getelementptr inbounds i8, ptr %.013772673, i64 1
+  %1040 = getelementptr inbounds nuw i8, ptr %.013772673, i64 1
   %1041 = load i8, ptr %1040, align 1
   %1042 = zext i8 %1041 to i32
   %1043 = icmp eq i32 %1027, %1042
-  %1044 = getelementptr inbounds i8, ptr %.013772673, i64 2
+  %1044 = getelementptr inbounds nuw i8, ptr %.013772673, i64 2
   br i1 %1043, label %select.unfold, label %.critedge12
 
 select.unfold:                                    ; preds = %1039, %1029
   %.01375 = phi ptr [ %1033, %1029 ], [ %1044, %1039 ]
   %1045 = load i32, ptr %.01375, align 1
   store i32 %1045, ptr %29, align 4
-  %1046 = getelementptr inbounds i8, ptr %.01375, i64 4
+  %1046 = getelementptr inbounds nuw i8, ptr %.01375, i64 4
   call void @_ZN6google8protobuf13RepeatedFieldIjE18AddAlreadyReservedERKj(ptr noundef nonnull align 8 dereferenceable(16) %994, ptr noundef nonnull align 4 dereferenceable(4) %29)
   %1047 = add nuw nsw i32 %.013782672, 1
   %exitcond2842.not = icmp eq i32 %1047, %.sroa.speculated
@@ -7334,7 +7334,7 @@ select.unfold:                                    ; preds = %1039, %1029
 
 1055:                                             ; preds = %.critedge12.thread2859
   %1056 = zext nneg i32 %1048 to i64
-  %1057 = getelementptr inbounds i8, ptr %1050, i64 %1056
+  %1057 = getelementptr inbounds nuw i8, ptr %1050, i64 %1056
   store ptr %1057, ptr %2, align 8
   br label %.backedge
 
@@ -7357,7 +7357,7 @@ select.unfold:                                    ; preds = %1039, %1029
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805.thread: ; preds = %1060
   %1070 = load i32, ptr %1064, align 1
   store i32 %1070, ptr %53, align 4
-  %1071 = getelementptr inbounds i8, ptr %1064, i64 4
+  %1071 = getelementptr inbounds nuw i8, ptr %1064, i64 4
   store ptr %1071, ptr %2, align 8
   br label %1073
 
@@ -7367,10 +7367,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805: ; pred
 
 1073:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805
   %1074 = load ptr, ptr %1, align 8
-  %1075 = getelementptr inbounds i32, ptr %1062, i64 %108
+  %1075 = getelementptr inbounds nuw i32, ptr %1062, i64 %108
   %1076 = load i32, ptr %1075, align 4
   %1077 = zext i32 %1076 to i64
-  %1078 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1074, i64 %1077
+  %1078 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1074, i64 %1077
   %1079 = load ptr, ptr %64, align 8
   %1080 = ptrtoint ptr %1079 to i64
   %1081 = and i64 %1080, 1
@@ -7385,7 +7385,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808: ; preds = %1073, %1082
   %.0.i1807 = phi ptr [ %1085, %1082 ], [ %1079, %1073 ]
-  %1086 = getelementptr inbounds i8, ptr %1078, i64 10
+  %1086 = getelementptr inbounds nuw i8, ptr %1078, i64 10
   %1087 = load i8, ptr %1086, align 2
   %1088 = and i8 %1087, 31
   switch i8 %1088, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809 [
@@ -7401,14 +7401,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808: ; preds = %1073, %1082
 1091:                                             ; preds = %1089
   %1092 = load i32, ptr %1078, align 4
   %1093 = zext i32 %1092 to i64
-  %1094 = getelementptr inbounds i8, ptr %0, i64 %1093
+  %1094 = getelementptr inbounds nuw i8, ptr %0, i64 %1093
   %1095 = load ptr, ptr %1094, align 8
   %1096 = icmp eq ptr %1095, null
   br i1 %1096, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809, label %1097
 
 1097:                                             ; preds = %1091
   %1098 = load ptr, ptr %1095, align 8
-  %1099 = getelementptr inbounds i8, ptr %1098, i64 8
+  %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   %1100 = load ptr, ptr %1099, align 8
   call void %1100(ptr noundef nonnull align 8 dereferenceable(16) %1095) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809
@@ -7416,14 +7416,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808: ; preds = %1073, %1082
 1101:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808
   %1102 = load i32, ptr %1078, align 4
   %1103 = zext i32 %1102 to i64
-  %1104 = getelementptr inbounds i8, ptr %0, i64 %1103
+  %1104 = getelementptr inbounds nuw i8, ptr %0, i64 %1103
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1104, ptr noundef %.0.i1807)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808, %1089, %1091, %1097, %1101
   %1105 = load i32, ptr %53, align 4
   store i32 %95, ptr %1075, align 4
-  %1106 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1106 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %1105, ptr %1106, align 4
   br label %.backedge
 
@@ -7440,7 +7440,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit.thread: ; preds = %1107
   %1115 = load i64, ptr %1109, align 1
   store i64 %1115, ptr %54, align 8
-  %1116 = getelementptr inbounds i8, ptr %1109, i64 8
+  %1116 = getelementptr inbounds nuw i8, ptr %1109, i64 8
   store ptr %1116, ptr %2, align 8
   br label %1118
 
@@ -7458,17 +7458,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit._crit_edge:
   %1121 = shl nuw i32 1, %1120
   %1122 = lshr i32 %107, 5
   %1123 = zext nneg i32 %1122 to i64
-  %1124 = getelementptr inbounds i32, ptr %59, i64 %1123
+  %1124 = getelementptr inbounds nuw i32, ptr %59, i64 %1123
   %1125 = load i32, ptr %1124, align 4
   %1126 = or i32 %1125, %1121
   store i32 %1126, ptr %1124, align 4
-  %1127 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1127 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %1119, ptr %1127, align 8
   br label %.backedge
 
 1128:                                             ; preds = %117
-  %1129 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1130 = getelementptr inbounds i8, ptr %105, i64 11
+  %1129 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1130 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1131 = load i8, ptr %1130, align 1
   %1132 = zext i8 %1131 to i32
   %1133 = load ptr, ptr %60, align 8
@@ -7483,7 +7483,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit._crit_edge:
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1812.thread: ; preds = %1128
   %1140 = load i64, ptr %1134, align 1
   store i64 %1140, ptr %28, align 8
-  %1141 = getelementptr inbounds i8, ptr %1134, i64 8
+  %1141 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   store ptr %1141, ptr %2, align 8
   br label %1143
 
@@ -7529,7 +7529,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1812: ; pred
   %1165 = load i8, ptr %.013732660, align 1
   %1166 = zext i8 %1165 to i32
   %1167 = icmp eq i32 %.sroa.0587.0, %1166
-  %1168 = getelementptr inbounds i8, ptr %.013732660, i64 1
+  %1168 = getelementptr inbounds nuw i8, ptr %.013732660, i64 1
   br i1 %1167, label %select.unfold2283, label %.critedge14
 
 1169:                                             ; preds = %1163
@@ -7542,18 +7542,18 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1812: ; pred
   br i1 %1173, label %1174, label %.critedge14
 
 1174:                                             ; preds = %1170
-  %1175 = getelementptr inbounds i8, ptr %.013732660, i64 1
+  %1175 = getelementptr inbounds nuw i8, ptr %.013732660, i64 1
   %1176 = load i8, ptr %1175, align 1
   %1177 = zext i8 %1176 to i32
   %1178 = icmp eq i32 %1162, %1177
-  %1179 = getelementptr inbounds i8, ptr %.013732660, i64 2
+  %1179 = getelementptr inbounds nuw i8, ptr %.013732660, i64 2
   br i1 %1178, label %select.unfold2283, label %.critedge14
 
 select.unfold2283:                                ; preds = %1174, %1164
   %.01371 = phi ptr [ %1168, %1164 ], [ %1179, %1174 ]
   %1180 = load i64, ptr %.01371, align 1
   store i64 %1180, ptr %28, align 8
-  %1181 = getelementptr inbounds i8, ptr %.01371, i64 8
+  %1181 = getelementptr inbounds nuw i8, ptr %.01371, i64 8
   call void @_ZN6google8protobuf13RepeatedFieldImE18AddAlreadyReservedERKm(ptr noundef nonnull align 8 dereferenceable(16) %1129, ptr noundef nonnull align 8 dereferenceable(8) %28)
   %1182 = add nuw nsw i32 %.013742659, 1
   %exitcond2841.not = icmp eq i32 %1182, %.sroa.speculated2054
@@ -7577,7 +7577,7 @@ select.unfold2283:                                ; preds = %1174, %1164
 
 1190:                                             ; preds = %.critedge14.thread2865
   %1191 = zext nneg i32 %1183 to i64
-  %1192 = getelementptr inbounds i8, ptr %1185, i64 %1191
+  %1192 = getelementptr inbounds nuw i8, ptr %1185, i64 %1191
   store ptr %1192, ptr %2, align 8
   br label %.backedge
 
@@ -7600,7 +7600,7 @@ select.unfold2283:                                ; preds = %1174, %1164
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818.thread: ; preds = %1195
   %1205 = load i64, ptr %1199, align 1
   store i64 %1205, ptr %55, align 8
-  %1206 = getelementptr inbounds i8, ptr %1199, i64 8
+  %1206 = getelementptr inbounds nuw i8, ptr %1199, i64 8
   store ptr %1206, ptr %2, align 8
   br label %1208
 
@@ -7610,10 +7610,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818: ; pred
 
 1208:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818
   %1209 = load ptr, ptr %1, align 8
-  %1210 = getelementptr inbounds i32, ptr %1197, i64 %108
+  %1210 = getelementptr inbounds nuw i32, ptr %1197, i64 %108
   %1211 = load i32, ptr %1210, align 4
   %1212 = zext i32 %1211 to i64
-  %1213 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1209, i64 %1212
+  %1213 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1209, i64 %1212
   %1214 = load ptr, ptr %64, align 8
   %1215 = ptrtoint ptr %1214 to i64
   %1216 = and i64 %1215, 1
@@ -7628,7 +7628,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821: ; preds = %1208, %1217
   %.0.i1820 = phi ptr [ %1220, %1217 ], [ %1214, %1208 ]
-  %1221 = getelementptr inbounds i8, ptr %1213, i64 10
+  %1221 = getelementptr inbounds nuw i8, ptr %1213, i64 10
   %1222 = load i8, ptr %1221, align 2
   %1223 = and i8 %1222, 31
   switch i8 %1223, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822 [
@@ -7644,14 +7644,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821: ; preds = %1208, %1217
 1226:                                             ; preds = %1224
   %1227 = load i32, ptr %1213, align 4
   %1228 = zext i32 %1227 to i64
-  %1229 = getelementptr inbounds i8, ptr %0, i64 %1228
+  %1229 = getelementptr inbounds nuw i8, ptr %0, i64 %1228
   %1230 = load ptr, ptr %1229, align 8
   %1231 = icmp eq ptr %1230, null
   br i1 %1231, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822, label %1232
 
 1232:                                             ; preds = %1226
   %1233 = load ptr, ptr %1230, align 8
-  %1234 = getelementptr inbounds i8, ptr %1233, i64 8
+  %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 8
   %1235 = load ptr, ptr %1234, align 8
   call void %1235(ptr noundef nonnull align 8 dereferenceable(16) %1230) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822
@@ -7659,14 +7659,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821: ; preds = %1208, %1217
 1236:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821
   %1237 = load i32, ptr %1213, align 4
   %1238 = zext i32 %1237 to i64
-  %1239 = getelementptr inbounds i8, ptr %0, i64 %1238
+  %1239 = getelementptr inbounds nuw i8, ptr %0, i64 %1238
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1239, ptr noundef %.0.i1820)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821, %1224, %1226, %1232, %1236
   %1240 = load i64, ptr %55, align 8
   store i32 %95, ptr %1210, align 4
-  %1241 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1241 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %1240, ptr %1241, align 8
   br label %.backedge
 
@@ -7683,7 +7683,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1824.thread: ; preds = %1242
   %1250 = load i32, ptr %1244, align 1
   store i32 %1250, ptr %44, align 4
-  %1251 = getelementptr inbounds i8, ptr %1244, i64 4
+  %1251 = getelementptr inbounds nuw i8, ptr %1244, i64 4
   store ptr %1251, ptr %2, align 8
   br label %1254
 
@@ -7698,17 +7698,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1824: ; pred
   %1256 = shl nuw i32 1, %1255
   %1257 = lshr i32 %107, 5
   %1258 = zext nneg i32 %1257 to i64
-  %1259 = getelementptr inbounds i32, ptr %59, i64 %1258
+  %1259 = getelementptr inbounds nuw i32, ptr %59, i64 %1258
   %1260 = load i32, ptr %1259, align 4
   %1261 = or i32 %1260, %1256
   store i32 %1261, ptr %1259, align 4
-  %1262 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1262 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph2294, ptr %1262, align 4
   br label %.backedge
 
 1263:                                             ; preds = %117
-  %1264 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1265 = getelementptr inbounds i8, ptr %105, i64 11
+  %1264 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1265 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1266 = load i8, ptr %1265, align 1
   %1267 = zext i8 %1266 to i32
   %1268 = load ptr, ptr %60, align 8
@@ -7723,7 +7723,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1824: ; pred
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1826.thread: ; preds = %1263
   %1275 = load i32, ptr %1269, align 1
   store i32 %1275, ptr %26, align 4
-  %1276 = getelementptr inbounds i8, ptr %1269, i64 4
+  %1276 = getelementptr inbounds nuw i8, ptr %1269, i64 4
   store ptr %1276, ptr %2, align 8
   br label %1278
 
@@ -7775,7 +7775,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1826._crit_e
   %1301 = load i8, ptr %.013692647, align 1
   %1302 = zext i8 %1301 to i32
   %1303 = icmp eq i32 %.sroa.0587.0, %1302
-  %1304 = getelementptr inbounds i8, ptr %.013692647, i64 1
+  %1304 = getelementptr inbounds nuw i8, ptr %.013692647, i64 1
   br i1 %1303, label %select.unfold2299, label %.critedge16
 
 1305:                                             ; preds = %1299
@@ -7788,17 +7788,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1826._crit_e
   br i1 %1309, label %1310, label %.critedge16
 
 1310:                                             ; preds = %1306
-  %1311 = getelementptr inbounds i8, ptr %.013692647, i64 1
+  %1311 = getelementptr inbounds nuw i8, ptr %.013692647, i64 1
   %1312 = load i8, ptr %1311, align 1
   %1313 = zext i8 %1312 to i32
   %1314 = icmp eq i32 %1298, %1313
-  %1315 = getelementptr inbounds i8, ptr %.013692647, i64 2
+  %1315 = getelementptr inbounds nuw i8, ptr %.013692647, i64 2
   br i1 %1314, label %select.unfold2299, label %.critedge16
 
 select.unfold2299:                                ; preds = %1310, %1300
   %.01366 = phi ptr [ %1304, %1300 ], [ %1315, %1310 ]
   %1316 = load i32, ptr %.01366, align 1
-  %1317 = getelementptr inbounds i8, ptr %.01366, i64 4
+  %1317 = getelementptr inbounds nuw i8, ptr %.01366, i64 4
   store i32 %1316, ptr %27, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIiE18AddAlreadyReservedERKi(ptr noundef nonnull align 8 dereferenceable(16) %1264, ptr noundef nonnull align 4 dereferenceable(4) %27)
   %1318 = add nuw nsw i32 %.013702646, 1
@@ -7823,7 +7823,7 @@ select.unfold2299:                                ; preds = %1310, %1300
 
 1326:                                             ; preds = %.critedge16.thread2871
   %1327 = zext nneg i32 %1319 to i64
-  %1328 = getelementptr inbounds i8, ptr %1321, i64 %1327
+  %1328 = getelementptr inbounds nuw i8, ptr %1321, i64 %1327
   store ptr %1328, ptr %2, align 8
   br label %.backedge
 
@@ -7846,7 +7846,7 @@ select.unfold2299:                                ; preds = %1310, %1300
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832.thread: ; preds = %1331
   %1341 = load i32, ptr %1335, align 1
   store i32 %1341, ptr %45, align 4
-  %1342 = getelementptr inbounds i8, ptr %1335, i64 4
+  %1342 = getelementptr inbounds nuw i8, ptr %1335, i64 4
   store ptr %1342, ptr %2, align 8
   br label %1345
 
@@ -7858,10 +7858,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832: ; pred
 1345:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832.thread
   %.ph2309 = phi i32 [ %1341, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832.thread ], [ %1344, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832 ]
   %1346 = load ptr, ptr %1, align 8
-  %1347 = getelementptr inbounds i32, ptr %1333, i64 %108
+  %1347 = getelementptr inbounds nuw i32, ptr %1333, i64 %108
   %1348 = load i32, ptr %1347, align 4
   %1349 = zext i32 %1348 to i64
-  %1350 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1346, i64 %1349
+  %1350 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1346, i64 %1349
   %1351 = load ptr, ptr %64, align 8
   %1352 = ptrtoint ptr %1351 to i64
   %1353 = and i64 %1352, 1
@@ -7876,7 +7876,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835: ; preds = %1345, %1354
   %.0.i1834 = phi ptr [ %1357, %1354 ], [ %1351, %1345 ]
-  %1358 = getelementptr inbounds i8, ptr %1350, i64 10
+  %1358 = getelementptr inbounds nuw i8, ptr %1350, i64 10
   %1359 = load i8, ptr %1358, align 2
   %1360 = and i8 %1359, 31
   switch i8 %1360, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836 [
@@ -7892,14 +7892,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835: ; preds = %1345, %1354
 1363:                                             ; preds = %1361
   %1364 = load i32, ptr %1350, align 4
   %1365 = zext i32 %1364 to i64
-  %1366 = getelementptr inbounds i8, ptr %0, i64 %1365
+  %1366 = getelementptr inbounds nuw i8, ptr %0, i64 %1365
   %1367 = load ptr, ptr %1366, align 8
   %1368 = icmp eq ptr %1367, null
   br i1 %1368, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836, label %1369
 
 1369:                                             ; preds = %1363
   %1370 = load ptr, ptr %1367, align 8
-  %1371 = getelementptr inbounds i8, ptr %1370, i64 8
+  %1371 = getelementptr inbounds nuw i8, ptr %1370, i64 8
   %1372 = load ptr, ptr %1371, align 8
   call void %1372(ptr noundef nonnull align 8 dereferenceable(16) %1367) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836
@@ -7907,13 +7907,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835: ; preds = %1345, %1354
 1373:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835
   %1374 = load i32, ptr %1350, align 4
   %1375 = zext i32 %1374 to i64
-  %1376 = getelementptr inbounds i8, ptr %0, i64 %1375
+  %1376 = getelementptr inbounds nuw i8, ptr %0, i64 %1375
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1376, ptr noundef %.0.i1834)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835, %1361, %1363, %1369, %1373
   store i32 %95, ptr %1347, align 4
-  %1377 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1377 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph2309, ptr %1377, align 4
   br label %.backedge
 
@@ -7930,7 +7930,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1838.thread: ; preds = %1378
   %1386 = load i64, ptr %1380, align 1
   store i64 %1386, ptr %42, align 8
-  %1387 = getelementptr inbounds i8, ptr %1380, i64 8
+  %1387 = getelementptr inbounds nuw i8, ptr %1380, i64 8
   store ptr %1387, ptr %2, align 8
   br label %1390
 
@@ -7945,17 +7945,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1838: ; pred
   %1392 = shl nuw i32 1, %1391
   %1393 = lshr i32 %107, 5
   %1394 = zext nneg i32 %1393 to i64
-  %1395 = getelementptr inbounds i32, ptr %59, i64 %1394
+  %1395 = getelementptr inbounds nuw i32, ptr %59, i64 %1394
   %1396 = load i32, ptr %1395, align 4
   %1397 = or i32 %1396, %1392
   store i32 %1397, ptr %1395, align 4
-  %1398 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1398 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2316, ptr %1398, align 8
   br label %.backedge
 
 1399:                                             ; preds = %117
-  %1400 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1401 = getelementptr inbounds i8, ptr %105, i64 11
+  %1400 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1401 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1402 = load i8, ptr %1401, align 1
   %1403 = zext i8 %1402 to i32
   %1404 = load ptr, ptr %60, align 8
@@ -7970,7 +7970,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1838: ; pred
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1840.thread: ; preds = %1399
   %1411 = load i64, ptr %1405, align 1
   store i64 %1411, ptr %24, align 8
-  %1412 = getelementptr inbounds i8, ptr %1405, i64 8
+  %1412 = getelementptr inbounds nuw i8, ptr %1405, i64 8
   store ptr %1412, ptr %2, align 8
   br label %1414
 
@@ -8022,7 +8022,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1840._crit_e
   %1437 = load i8, ptr %.013642634, align 1
   %1438 = zext i8 %1437 to i32
   %1439 = icmp eq i32 %.sroa.0587.0, %1438
-  %1440 = getelementptr inbounds i8, ptr %.013642634, i64 1
+  %1440 = getelementptr inbounds nuw i8, ptr %.013642634, i64 1
   br i1 %1439, label %select.unfold2321, label %.critedge18
 
 1441:                                             ; preds = %1435
@@ -8035,17 +8035,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1840._crit_e
   br i1 %1445, label %1446, label %.critedge18
 
 1446:                                             ; preds = %1442
-  %1447 = getelementptr inbounds i8, ptr %.013642634, i64 1
+  %1447 = getelementptr inbounds nuw i8, ptr %.013642634, i64 1
   %1448 = load i8, ptr %1447, align 1
   %1449 = zext i8 %1448 to i32
   %1450 = icmp eq i32 %1434, %1449
-  %1451 = getelementptr inbounds i8, ptr %.013642634, i64 2
+  %1451 = getelementptr inbounds nuw i8, ptr %.013642634, i64 2
   br i1 %1450, label %select.unfold2321, label %.critedge18
 
 select.unfold2321:                                ; preds = %1446, %1436
   %.01360 = phi ptr [ %1440, %1436 ], [ %1451, %1446 ]
   %1452 = load i64, ptr %.01360, align 1
-  %1453 = getelementptr inbounds i8, ptr %.01360, i64 8
+  %1453 = getelementptr inbounds nuw i8, ptr %.01360, i64 8
   store i64 %1452, ptr %25, align 8
   call void @_ZN6google8protobuf13RepeatedFieldIlE18AddAlreadyReservedERKl(ptr noundef nonnull align 8 dereferenceable(16) %1400, ptr noundef nonnull align 8 dereferenceable(8) %25)
   %1454 = add nuw nsw i32 %.013652633, 1
@@ -8070,7 +8070,7 @@ select.unfold2321:                                ; preds = %1446, %1436
 
 1462:                                             ; preds = %.critedge18.thread2877
   %1463 = zext nneg i32 %1455 to i64
-  %1464 = getelementptr inbounds i8, ptr %1457, i64 %1463
+  %1464 = getelementptr inbounds nuw i8, ptr %1457, i64 %1463
   store ptr %1464, ptr %2, align 8
   br label %.backedge
 
@@ -8093,7 +8093,7 @@ select.unfold2321:                                ; preds = %1446, %1436
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846.thread: ; preds = %1467
   %1477 = load i64, ptr %1471, align 1
   store i64 %1477, ptr %43, align 8
-  %1478 = getelementptr inbounds i8, ptr %1471, i64 8
+  %1478 = getelementptr inbounds nuw i8, ptr %1471, i64 8
   store ptr %1478, ptr %2, align 8
   br label %1481
 
@@ -8105,10 +8105,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846: ; pred
 1481:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846.thread
   %.ph2331 = phi i64 [ %1477, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846.thread ], [ %1480, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846 ]
   %1482 = load ptr, ptr %1, align 8
-  %1483 = getelementptr inbounds i32, ptr %1469, i64 %108
+  %1483 = getelementptr inbounds nuw i32, ptr %1469, i64 %108
   %1484 = load i32, ptr %1483, align 4
   %1485 = zext i32 %1484 to i64
-  %1486 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1482, i64 %1485
+  %1486 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1482, i64 %1485
   %1487 = load ptr, ptr %64, align 8
   %1488 = ptrtoint ptr %1487 to i64
   %1489 = and i64 %1488, 1
@@ -8123,7 +8123,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849: ; preds = %1481, %1490
   %.0.i1848 = phi ptr [ %1493, %1490 ], [ %1487, %1481 ]
-  %1494 = getelementptr inbounds i8, ptr %1486, i64 10
+  %1494 = getelementptr inbounds nuw i8, ptr %1486, i64 10
   %1495 = load i8, ptr %1494, align 2
   %1496 = and i8 %1495, 31
   switch i8 %1496, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850 [
@@ -8139,14 +8139,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849: ; preds = %1481, %1490
 1499:                                             ; preds = %1497
   %1500 = load i32, ptr %1486, align 4
   %1501 = zext i32 %1500 to i64
-  %1502 = getelementptr inbounds i8, ptr %0, i64 %1501
+  %1502 = getelementptr inbounds nuw i8, ptr %0, i64 %1501
   %1503 = load ptr, ptr %1502, align 8
   %1504 = icmp eq ptr %1503, null
   br i1 %1504, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850, label %1505
 
 1505:                                             ; preds = %1499
   %1506 = load ptr, ptr %1503, align 8
-  %1507 = getelementptr inbounds i8, ptr %1506, i64 8
+  %1507 = getelementptr inbounds nuw i8, ptr %1506, i64 8
   %1508 = load ptr, ptr %1507, align 8
   call void %1508(ptr noundef nonnull align 8 dereferenceable(16) %1503) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850
@@ -8154,13 +8154,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849: ; preds = %1481, %1490
 1509:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849
   %1510 = load i32, ptr %1486, align 4
   %1511 = zext i32 %1510 to i64
-  %1512 = getelementptr inbounds i8, ptr %0, i64 %1511
+  %1512 = getelementptr inbounds nuw i8, ptr %0, i64 %1511
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1512, ptr noundef %.0.i1848)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849, %1497, %1499, %1505, %1509
   store i32 %95, ptr %1483, align 4
-  %1513 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1513 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2331, ptr %1513, align 8
   br label %.backedge
 
@@ -8177,7 +8177,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1852.thread: ; preds = %1514
   %1522 = load i32, ptr %1516, align 1
   store i32 %1522, ptr %40, align 4
-  %1523 = getelementptr inbounds i8, ptr %1516, i64 4
+  %1523 = getelementptr inbounds nuw i8, ptr %1516, i64 4
   store ptr %1523, ptr %2, align 8
   %1524 = bitcast i32 %1522 to float
   br label %1526
@@ -8196,17 +8196,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1852._crit_e
   %1529 = shl nuw i32 1, %1528
   %1530 = lshr i32 %107, 5
   %1531 = zext nneg i32 %1530 to i64
-  %1532 = getelementptr inbounds i32, ptr %59, i64 %1531
+  %1532 = getelementptr inbounds nuw i32, ptr %59, i64 %1531
   %1533 = load i32, ptr %1532, align 4
   %1534 = or i32 %1533, %1529
   store i32 %1534, ptr %1532, align 4
-  %1535 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1535 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store float %1527, ptr %1535, align 4
   br label %.backedge
 
 1536:                                             ; preds = %117
-  %1537 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1538 = getelementptr inbounds i8, ptr %105, i64 11
+  %1537 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1538 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1539 = load i8, ptr %1538, align 1
   %1540 = zext i8 %1539 to i32
   %1541 = load ptr, ptr %60, align 8
@@ -8221,7 +8221,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1852._crit_e
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1854.thread: ; preds = %1536
   %1548 = load i32, ptr %1542, align 1
   store i32 %1548, ptr %22, align 4
-  %1549 = getelementptr inbounds i8, ptr %1542, i64 4
+  %1549 = getelementptr inbounds nuw i8, ptr %1542, i64 4
   store ptr %1549, ptr %2, align 8
   %1550 = bitcast i32 %1548 to float
   br label %1552
@@ -8274,7 +8274,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1854._crit_e
   %1575 = load i8, ptr %.013582621, align 1
   %1576 = zext i8 %1575 to i32
   %1577 = icmp eq i32 %.sroa.0587.0, %1576
-  %1578 = getelementptr inbounds i8, ptr %.013582621, i64 1
+  %1578 = getelementptr inbounds nuw i8, ptr %.013582621, i64 1
   br i1 %1577, label %select.unfold2343, label %.critedge20
 
 1579:                                             ; preds = %1573
@@ -8287,17 +8287,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1854._crit_e
   br i1 %1583, label %1584, label %.critedge20
 
 1584:                                             ; preds = %1580
-  %1585 = getelementptr inbounds i8, ptr %.013582621, i64 1
+  %1585 = getelementptr inbounds nuw i8, ptr %.013582621, i64 1
   %1586 = load i8, ptr %1585, align 1
   %1587 = zext i8 %1586 to i32
   %1588 = icmp eq i32 %1572, %1587
-  %1589 = getelementptr inbounds i8, ptr %.013582621, i64 2
+  %1589 = getelementptr inbounds nuw i8, ptr %.013582621, i64 2
   br i1 %1588, label %select.unfold2343, label %.critedge20
 
 select.unfold2343:                                ; preds = %1584, %1574
   %.01353 = phi ptr [ %1578, %1574 ], [ %1589, %1584 ]
   %1590 = load float, ptr %.01353, align 1
-  %1591 = getelementptr inbounds i8, ptr %.01353, i64 4
+  %1591 = getelementptr inbounds nuw i8, ptr %.01353, i64 4
   store float %1590, ptr %23, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE18AddAlreadyReservedERKf(ptr noundef nonnull align 8 dereferenceable(16) %1537, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %1592 = add nuw nsw i32 %.013592620, 1
@@ -8322,7 +8322,7 @@ select.unfold2343:                                ; preds = %1584, %1574
 
 1600:                                             ; preds = %.critedge20.thread2883
   %1601 = zext nneg i32 %1593 to i64
-  %1602 = getelementptr inbounds i8, ptr %1595, i64 %1601
+  %1602 = getelementptr inbounds nuw i8, ptr %1595, i64 %1601
   store ptr %1602, ptr %2, align 8
   br label %.backedge
 
@@ -8345,7 +8345,7 @@ select.unfold2343:                                ; preds = %1584, %1574
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860.thread: ; preds = %1605
   %1615 = load i32, ptr %1609, align 1
   store i32 %1615, ptr %41, align 4
-  %1616 = getelementptr inbounds i8, ptr %1609, i64 4
+  %1616 = getelementptr inbounds nuw i8, ptr %1609, i64 4
   store ptr %1616, ptr %2, align 8
   %1617 = bitcast i32 %1615 to float
   br label %1619
@@ -8361,10 +8361,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_e
 1619:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860.thread
   %1620 = phi float [ %.pre2850, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_edge ], [ %1617, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860.thread ]
   %1621 = load ptr, ptr %1, align 8
-  %1622 = getelementptr inbounds i32, ptr %1607, i64 %108
+  %1622 = getelementptr inbounds nuw i32, ptr %1607, i64 %108
   %1623 = load i32, ptr %1622, align 4
   %1624 = zext i32 %1623 to i64
-  %1625 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1621, i64 %1624
+  %1625 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1621, i64 %1624
   %1626 = load ptr, ptr %64, align 8
   %1627 = ptrtoint ptr %1626 to i64
   %1628 = and i64 %1627, 1
@@ -8379,7 +8379,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_e
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863: ; preds = %1619, %1629
   %.0.i1862 = phi ptr [ %1632, %1629 ], [ %1626, %1619 ]
-  %1633 = getelementptr inbounds i8, ptr %1625, i64 10
+  %1633 = getelementptr inbounds nuw i8, ptr %1625, i64 10
   %1634 = load i8, ptr %1633, align 2
   %1635 = and i8 %1634, 31
   switch i8 %1635, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864 [
@@ -8395,14 +8395,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863: ; preds = %1619, %1629
 1638:                                             ; preds = %1636
   %1639 = load i32, ptr %1625, align 4
   %1640 = zext i32 %1639 to i64
-  %1641 = getelementptr inbounds i8, ptr %0, i64 %1640
+  %1641 = getelementptr inbounds nuw i8, ptr %0, i64 %1640
   %1642 = load ptr, ptr %1641, align 8
   %1643 = icmp eq ptr %1642, null
   br i1 %1643, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864, label %1644
 
 1644:                                             ; preds = %1638
   %1645 = load ptr, ptr %1642, align 8
-  %1646 = getelementptr inbounds i8, ptr %1645, i64 8
+  %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 8
   %1647 = load ptr, ptr %1646, align 8
   call void %1647(ptr noundef nonnull align 8 dereferenceable(16) %1642) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864
@@ -8410,13 +8410,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863: ; preds = %1619, %1629
 1648:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863
   %1649 = load i32, ptr %1625, align 4
   %1650 = zext i32 %1649 to i64
-  %1651 = getelementptr inbounds i8, ptr %0, i64 %1650
+  %1651 = getelementptr inbounds nuw i8, ptr %0, i64 %1650
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1651, ptr noundef %.0.i1862)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863, %1636, %1638, %1644, %1648
   store i32 %95, ptr %1622, align 4
-  %1652 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1652 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store float %1620, ptr %1652, align 4
   br label %.backedge
 
@@ -8433,7 +8433,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1866.thread: ; preds = %1653
   %1661 = load i64, ptr %1655, align 1
   store i64 %1661, ptr %38, align 8
-  %1662 = getelementptr inbounds i8, ptr %1655, i64 8
+  %1662 = getelementptr inbounds nuw i8, ptr %1655, i64 8
   store ptr %1662, ptr %2, align 8
   %1663 = bitcast i64 %1661 to double
   br label %1665
@@ -8452,17 +8452,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1866._crit_e
   %1668 = shl nuw i32 1, %1667
   %1669 = lshr i32 %107, 5
   %1670 = zext nneg i32 %1669 to i64
-  %1671 = getelementptr inbounds i32, ptr %59, i64 %1670
+  %1671 = getelementptr inbounds nuw i32, ptr %59, i64 %1670
   %1672 = load i32, ptr %1671, align 4
   %1673 = or i32 %1672, %1668
   store i32 %1673, ptr %1671, align 4
-  %1674 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1674 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store double %1666, ptr %1674, align 8
   br label %.backedge
 
 1675:                                             ; preds = %117
-  %1676 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1677 = getelementptr inbounds i8, ptr %105, i64 11
+  %1676 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1677 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1678 = load i8, ptr %1677, align 1
   %1679 = zext i8 %1678 to i32
   %1680 = load ptr, ptr %60, align 8
@@ -8477,7 +8477,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1866._crit_e
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1868.thread: ; preds = %1675
   %1687 = load i64, ptr %1681, align 1
   store i64 %1687, ptr %20, align 8
-  %1688 = getelementptr inbounds i8, ptr %1681, i64 8
+  %1688 = getelementptr inbounds nuw i8, ptr %1681, i64 8
   store ptr %1688, ptr %2, align 8
   %1689 = bitcast i64 %1687 to double
   br label %1691
@@ -8530,7 +8530,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1868._crit_e
   %1714 = load i8, ptr %.013502609, align 1
   %1715 = zext i8 %1714 to i32
   %1716 = icmp eq i32 %.sroa.0587.0, %1715
-  %1717 = getelementptr inbounds i8, ptr %.013502609, i64 1
+  %1717 = getelementptr inbounds nuw i8, ptr %.013502609, i64 1
   br i1 %1716, label %select.unfold2365, label %.critedge22
 
 1718:                                             ; preds = %1712
@@ -8543,17 +8543,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1868._crit_e
   br i1 %1722, label %1723, label %.critedge22
 
 1723:                                             ; preds = %1719
-  %1724 = getelementptr inbounds i8, ptr %.013502609, i64 1
+  %1724 = getelementptr inbounds nuw i8, ptr %.013502609, i64 1
   %1725 = load i8, ptr %1724, align 1
   %1726 = zext i8 %1725 to i32
   %1727 = icmp eq i32 %1711, %1726
-  %1728 = getelementptr inbounds i8, ptr %.013502609, i64 2
+  %1728 = getelementptr inbounds nuw i8, ptr %.013502609, i64 2
   br i1 %1727, label %select.unfold2365, label %.critedge22
 
 select.unfold2365:                                ; preds = %1723, %1713
   %.01347 = phi ptr [ %1717, %1713 ], [ %1728, %1723 ]
   %1729 = load double, ptr %.01347, align 1
-  %1730 = getelementptr inbounds i8, ptr %.01347, i64 8
+  %1730 = getelementptr inbounds nuw i8, ptr %.01347, i64 8
   store double %1729, ptr %21, align 8
   call void @_ZN6google8protobuf13RepeatedFieldIdE18AddAlreadyReservedERKd(ptr noundef nonnull align 8 dereferenceable(16) %1676, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %1731 = add nuw nsw i32 %.013512608, 1
@@ -8578,7 +8578,7 @@ select.unfold2365:                                ; preds = %1723, %1713
 
 1739:                                             ; preds = %.critedge22.thread2889
   %1740 = zext nneg i32 %1732 to i64
-  %1741 = getelementptr inbounds i8, ptr %1734, i64 %1740
+  %1741 = getelementptr inbounds nuw i8, ptr %1734, i64 %1740
   store ptr %1741, ptr %2, align 8
   br label %.backedge
 
@@ -8601,7 +8601,7 @@ select.unfold2365:                                ; preds = %1723, %1713
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874.thread: ; preds = %1744
   %1754 = load i64, ptr %1748, align 1
   store i64 %1754, ptr %39, align 8
-  %1755 = getelementptr inbounds i8, ptr %1748, i64 8
+  %1755 = getelementptr inbounds nuw i8, ptr %1748, i64 8
   store ptr %1755, ptr %2, align 8
   %1756 = bitcast i64 %1754 to double
   br label %1758
@@ -8617,10 +8617,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_e
 1758:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874.thread
   %1759 = phi double [ %.pre2847, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_edge ], [ %1756, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874.thread ]
   %1760 = load ptr, ptr %1, align 8
-  %1761 = getelementptr inbounds i32, ptr %1746, i64 %108
+  %1761 = getelementptr inbounds nuw i32, ptr %1746, i64 %108
   %1762 = load i32, ptr %1761, align 4
   %1763 = zext i32 %1762 to i64
-  %1764 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1760, i64 %1763
+  %1764 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1760, i64 %1763
   %1765 = load ptr, ptr %64, align 8
   %1766 = ptrtoint ptr %1765 to i64
   %1767 = and i64 %1766, 1
@@ -8635,7 +8635,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_e
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877: ; preds = %1758, %1768
   %.0.i1876 = phi ptr [ %1771, %1768 ], [ %1765, %1758 ]
-  %1772 = getelementptr inbounds i8, ptr %1764, i64 10
+  %1772 = getelementptr inbounds nuw i8, ptr %1764, i64 10
   %1773 = load i8, ptr %1772, align 2
   %1774 = and i8 %1773, 31
   switch i8 %1774, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878 [
@@ -8651,14 +8651,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877: ; preds = %1758, %1768
 1777:                                             ; preds = %1775
   %1778 = load i32, ptr %1764, align 4
   %1779 = zext i32 %1778 to i64
-  %1780 = getelementptr inbounds i8, ptr %0, i64 %1779
+  %1780 = getelementptr inbounds nuw i8, ptr %0, i64 %1779
   %1781 = load ptr, ptr %1780, align 8
   %1782 = icmp eq ptr %1781, null
   br i1 %1782, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878, label %1783
 
 1783:                                             ; preds = %1777
   %1784 = load ptr, ptr %1781, align 8
-  %1785 = getelementptr inbounds i8, ptr %1784, i64 8
+  %1785 = getelementptr inbounds nuw i8, ptr %1784, i64 8
   %1786 = load ptr, ptr %1785, align 8
   call void %1786(ptr noundef nonnull align 8 dereferenceable(16) %1781) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878
@@ -8666,13 +8666,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877: ; preds = %1758, %1768
 1787:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877
   %1788 = load i32, ptr %1764, align 4
   %1789 = zext i32 %1788 to i64
-  %1790 = getelementptr inbounds i8, ptr %0, i64 %1789
+  %1790 = getelementptr inbounds nuw i8, ptr %0, i64 %1789
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1790, ptr noundef %.0.i1876)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877, %1775, %1777, %1783, %1787
   store i32 %95, ptr %1761, align 4
-  %1791 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1791 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store double %1759, ptr %1791, align 8
   br label %.backedge
 
@@ -8688,7 +8688,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %1798, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880.thread: ; preds = %1796
-  %1799 = getelementptr inbounds i8, ptr %1793, i64 1
+  %1799 = getelementptr inbounds nuw i8, ptr %1793, i64 1
   store ptr %1799, ptr %2, align 8
   %1800 = icmp ne i8 %1797, 0
   br label %1806
@@ -8708,16 +8708,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880: ; preds = %1
   %1809 = shl nuw i32 1, %1808
   %1810 = lshr i32 %107, 5
   %1811 = zext nneg i32 %1810 to i64
-  %1812 = getelementptr inbounds i32, ptr %59, i64 %1811
+  %1812 = getelementptr inbounds nuw i32, ptr %59, i64 %1811
   %1813 = load i32, ptr %1812, align 4
   %1814 = or i32 %1813, %1809
   store i32 %1814, ptr %1812, align 4
-  %1815 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1815 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i8 %1807, ptr %1815, align 1
   br label %.backedge
 
 1816:                                             ; preds = %117
-  %1817 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1817 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %1818 = load ptr, ptr %2, align 8
   %1819 = load ptr, ptr %60, align 8
   %1820 = icmp ult ptr %1818, %1819
@@ -8730,7 +8730,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880: ; preds = %1
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882.thread: ; preds = %1821
   %1824 = zext nneg i8 %1822 to i64
-  %1825 = getelementptr inbounds i8, ptr %1818, i64 1
+  %1825 = getelementptr inbounds nuw i8, ptr %1818, i64 1
   store ptr %1825, ptr %2, align 8
   br label %1830
 
@@ -8778,7 +8778,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
   br i1 %1850, label %1851, label %.backedge
 
 1851:                                             ; preds = %1847
-  %1852 = getelementptr inbounds i8, ptr %1844, i64 1
+  %1852 = getelementptr inbounds nuw i8, ptr %1844, i64 1
   br label %.critedge1649
 
 1853:                                             ; preds = %1842
@@ -8801,14 +8801,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
   br i1 %1865, label %1866, label %.backedge
 
 1866:                                             ; preds = %1862
-  %1867 = getelementptr inbounds i8, ptr %1856, i64 1
+  %1867 = getelementptr inbounds nuw i8, ptr %1856, i64 1
   %1868 = load i8, ptr %1867, align 1
   %1869 = zext i8 %1868 to i32
   %1870 = icmp eq i32 %1841, %1869
   br i1 %1870, label %1871, label %.backedge
 
 1871:                                             ; preds = %1866
-  %1872 = getelementptr inbounds i8, ptr %1856, i64 2
+  %1872 = getelementptr inbounds nuw i8, ptr %1856, i64 2
   br label %.critedge1649
 
 .critedge1649:                                    ; preds = %1871, %1851
@@ -8825,7 +8825,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1884.thread: ; preds = %1875
   %1878 = zext nneg i8 %1876 to i64
-  %1879 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %1879 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   store ptr %1879, ptr %2, align 8
   br label %1884
 
@@ -8860,7 +8860,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1884: ; preds = %.
   br i1 %1897, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread: ; preds = %1895
-  %1898 = getelementptr inbounds i8, ptr %1892, i64 1
+  %1898 = getelementptr inbounds nuw i8, ptr %1892, i64 1
   store ptr %1898, ptr %2, align 8
   %1899 = icmp ne i8 %1896, 0
   br label %1905
@@ -8876,10 +8876,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886: ; preds = %1
 1905:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread
   %.ph2397.in = phi i1 [ %1899, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread ], [ %1904, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886 ]
   %1906 = load ptr, ptr %1, align 8
-  %1907 = getelementptr inbounds i32, ptr %1891, i64 %108
+  %1907 = getelementptr inbounds nuw i32, ptr %1891, i64 %108
   %1908 = load i32, ptr %1907, align 4
   %1909 = zext i32 %1908 to i64
-  %1910 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1906, i64 %1909
+  %1910 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1906, i64 %1909
   %1911 = load ptr, ptr %64, align 8
   %1912 = ptrtoint ptr %1911 to i64
   %1913 = and i64 %1912, 1
@@ -8894,7 +8894,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886: ; preds = %1
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1905, %1914
   %.0.i1888 = phi ptr [ %1917, %1914 ], [ %1911, %1905 ]
-  %1918 = getelementptr inbounds i8, ptr %1910, i64 10
+  %1918 = getelementptr inbounds nuw i8, ptr %1910, i64 10
   %1919 = load i8, ptr %1918, align 2
   %1920 = and i8 %1919, 31
   switch i8 %1920, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890 [
@@ -8910,14 +8910,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1905, %1914
 1923:                                             ; preds = %1921
   %1924 = load i32, ptr %1910, align 4
   %1925 = zext i32 %1924 to i64
-  %1926 = getelementptr inbounds i8, ptr %0, i64 %1925
+  %1926 = getelementptr inbounds nuw i8, ptr %0, i64 %1925
   %1927 = load ptr, ptr %1926, align 8
   %1928 = icmp eq ptr %1927, null
   br i1 %1928, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890, label %1929
 
 1929:                                             ; preds = %1923
   %1930 = load ptr, ptr %1927, align 8
-  %1931 = getelementptr inbounds i8, ptr %1930, i64 8
+  %1931 = getelementptr inbounds nuw i8, ptr %1930, i64 8
   %1932 = load ptr, ptr %1931, align 8
   call void %1932(ptr noundef nonnull align 8 dereferenceable(16) %1927) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890
@@ -8925,14 +8925,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1905, %1914
 1933:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889
   %1934 = load i32, ptr %1910, align 4
   %1935 = zext i32 %1934 to i64
-  %1936 = getelementptr inbounds i8, ptr %0, i64 %1935
+  %1936 = getelementptr inbounds nuw i8, ptr %0, i64 %1935
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1936, ptr noundef %.0.i1888)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889, %1921, %1923, %1929, %1933
   %1937 = zext i1 %.ph2397.in to i8
   store i32 %95, ptr %1907, align 4
-  %1938 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1938 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i8 %1937, ptr %1938, align 1
   br label %.backedge
 
@@ -8952,17 +8952,17 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1893: ; preds = %1939, %1943
   %.0.i1892 = phi ptr [ %1946, %1943 ], [ %1940, %1939 ]
   %1947 = load ptr, ptr %63, align 8
-  %1948 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1947, i64 %104
+  %1948 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1947, i64 %104
   %1949 = load ptr, ptr %1948, align 8
   %1950 = and i32 %107, 31
   %1951 = shl nuw i32 1, %1950
   %1952 = lshr i32 %107, 5
   %1953 = zext nneg i32 %1952 to i64
-  %1954 = getelementptr inbounds i32, ptr %59, i64 %1953
+  %1954 = getelementptr inbounds nuw i32, ptr %59, i64 %1953
   %1955 = load i32, ptr %1954, align 4
   %1956 = or i32 %1955, %1951
   store i32 %1956, ptr %1954, align 4
-  %1957 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1957 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %1958 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1957, ptr noundef %1949, ptr noundef %.0.i1892)
   %1959 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %1958)
   br i1 %1959, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE0ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -8994,9 +8994,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
   %1974 = load i64, ptr %65, align 8
   %1975 = getelementptr inbounds i8, ptr %0, i64 %1974
   %1976 = load ptr, ptr %63, align 8
-  %1977 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1976, i64 %104
+  %1977 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1976, i64 %104
   %1978 = load ptr, ptr %1977, align 8
-  %1979 = getelementptr inbounds i32, ptr %1975, i64 %108
+  %1979 = getelementptr inbounds nuw i32, ptr %1975, i64 %108
   %1980 = load i32, ptr %1979, align 4
   %1981 = icmp eq i32 %1980, %95
   br i1 %1981, label %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit, label %1982
@@ -9007,8 +9007,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
 
 1983:                                             ; preds = %1982
   %1984 = zext i32 %1980 to i64
-  %1985 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %1984
-  %1986 = getelementptr inbounds i8, ptr %1985, i64 10
+  %1985 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %1984
+  %1986 = getelementptr inbounds nuw i8, ptr %1985, i64 10
   %1987 = load i8, ptr %1986, align 2
   %1988 = and i8 %1987, 31
   switch i8 %1988, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i [
@@ -9024,14 +9024,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
 1991:                                             ; preds = %1989
   %1992 = load i32, ptr %1985, align 4
   %1993 = zext i32 %1992 to i64
-  %1994 = getelementptr inbounds i8, ptr %0, i64 %1993
+  %1994 = getelementptr inbounds nuw i8, ptr %0, i64 %1993
   %1995 = load ptr, ptr %1994, align 8
   %1996 = icmp eq ptr %1995, null
   br i1 %1996, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i, label %1997
 
 1997:                                             ; preds = %1991
   %1998 = load ptr, ptr %1995, align 8
-  %1999 = getelementptr inbounds i8, ptr %1998, i64 8
+  %1999 = getelementptr inbounds nuw i8, ptr %1998, i64 8
   %2000 = load ptr, ptr %1999, align 8
   call void %2000(ptr noundef nonnull align 8 dereferenceable(16) %1995) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
@@ -9039,18 +9039,18 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
 2001:                                             ; preds = %1983, %1983
   %2002 = load i32, ptr %1985, align 4
   %2003 = zext i32 %2002 to i64
-  %2004 = getelementptr inbounds i8, ptr %0, i64 %2003
+  %2004 = getelementptr inbounds nuw i8, ptr %0, i64 %2003
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2004, ptr noundef %.0.i1895)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i: ; preds = %2001, %1997, %1991, %1989, %1983, %1982
   store i32 %95, ptr %1979, align 4
-  %2005 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2005 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store ptr %1978, ptr %2005, align 8
   br label %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit
 
 _ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896, %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
-  %2006 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2006 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2007 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2006, ptr noundef %1978, ptr noundef %.0.i1895)
   %2008 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %2007)
   br i1 %2008, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -9065,7 +9065,7 @@ _ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHand
   br label %.backedge
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1900: ; preds = %117, %117
-  %2015 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2015 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2016 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %2015)
   %2017 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %2016)
   br i1 %2017, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -9088,7 +9088,7 @@ _ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHand
   br i1 %2027, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i: ; preds = %2024
-  %2028 = getelementptr inbounds i8, ptr %2021, i64 1
+  %2028 = getelementptr inbounds nuw i8, ptr %2021, i64 1
   store ptr %2028, ptr %2, align 8
   br label %2032
 
@@ -9102,7 +9102,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %202
 2032:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i
   %.022.i = phi i32 [ %2026, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i ], [ %2030, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i ]
   %2033 = load ptr, ptr %63, align 8
-  %2034 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2033, i64 %104
+  %2034 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2033, i64 %104
   %2035 = load ptr, ptr %2034, align 8
   %2036 = icmp eq ptr %2035, null
   br i1 %2036, label %2039, label %2037
@@ -9116,11 +9116,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %202
   %2041 = shl nuw i32 1, %2040
   %2042 = lshr i32 %107, 5
   %2043 = zext nneg i32 %2042 to i64
-  %2044 = getelementptr inbounds i32, ptr %59, i64 %2043
+  %2044 = getelementptr inbounds nuw i32, ptr %59, i64 %2043
   %2045 = load i32, ptr %2044, align 4
   %2046 = or i32 %2045, %2041
   store i32 %2046, ptr %2044, align 4
-  %2047 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2047 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.022.i, ptr %2047, align 4
   br label %.backedge
 
@@ -9142,7 +9142,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %202
   br i1 %2056, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904: ; preds = %2053
-  %2057 = getelementptr inbounds i8, ptr %2050, i64 1
+  %2057 = getelementptr inbounds nuw i8, ptr %2050, i64 1
   store ptr %2057, ptr %2, align 8
   br label %2061
 
@@ -9156,7 +9156,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
 2061:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904
   %.03.i = phi i32 [ %2055, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904 ], [ %2059, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901 ]
   %2062 = load ptr, ptr %63, align 8
-  %2063 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2062, i64 %104
+  %2063 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2062, i64 %104
   %2064 = load ptr, ptr %2063, align 8
   %2065 = icmp eq ptr %2064, null
   br i1 %2065, label %2068, label %2066
@@ -9166,7 +9166,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
   br i1 %2067, label %2068, label %2071
 
 2068:                                             ; preds = %2066, %2061
-  %2069 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2069 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2070 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %2069)
   store i32 %.03.i, ptr %2070, align 4
   br label %.backedge
@@ -9187,11 +9187,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
   %2078 = shl nuw i32 1, %2077
   %2079 = lshr i32 %107, 5
   %2080 = zext nneg i32 %2079 to i64
-  %2081 = getelementptr inbounds i32, ptr %59, i64 %2080
+  %2081 = getelementptr inbounds nuw i32, ptr %59, i64 %2080
   %2082 = load i32, ptr %2081, align 4
   %2083 = or i32 %2082, %2078
   store i32 %2083, ptr %2081, align 4
-  %2084 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2084 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2085 = load ptr, ptr %2084, align 8
   %2086 = icmp eq ptr %2085, null
   br i1 %2086, label %2087, label %2102
@@ -9212,10 +9212,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1907: ; preds = %2087, %2091
   %.0.i1906 = phi ptr [ %2094, %2091 ], [ %2088, %2087 ]
   %2095 = load ptr, ptr %63, align 8
-  %2096 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2095, i64 %104
+  %2096 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2095, i64 %104
   %2097 = load ptr, ptr %2096, align 8
   %2098 = load ptr, ptr %2097, align 8
-  %2099 = getelementptr inbounds i8, ptr %2098, i64 32
+  %2099 = getelementptr inbounds nuw i8, ptr %2098, i64 32
   %2100 = load ptr, ptr %2099, align 8
   %2101 = call noundef ptr %2100(ptr noundef nonnull align 8 dereferenceable(16) %2097, ptr noundef %.0.i1906)
   store ptr %2101, ptr %2084, align 8
@@ -9244,29 +9244,29 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   br i1 %2113, label %.backedge, label %.critedge1598
 
 2114:                                             ; preds = %117
-  %2115 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2115 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2116 = load ptr, ptr %63, align 8
-  %2117 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2116, i64 %104
+  %2117 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2116, i64 %104
   %2118 = load ptr, ptr %2117, align 8
-  %2119 = getelementptr inbounds i8, ptr %2115, i64 16
+  %2119 = getelementptr inbounds nuw i8, ptr %2115, i64 16
   %2120 = load ptr, ptr %2119, align 8
   %.not.i.i = icmp eq ptr %2120, null
   br i1 %.not.i.i, label %..thread_crit_edge.i.i, label %2121
 
 ..thread_crit_edge.i.i:                           ; preds = %2114
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %2115, i64 12
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2115, i64 12
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %.thread.i.i
 
 2121:                                             ; preds = %2114
-  %2122 = getelementptr inbounds i8, ptr %2115, i64 8
+  %2122 = getelementptr inbounds nuw i8, ptr %2115, i64 8
   %2123 = load i32, ptr %2122, align 8
   %2124 = load i32, ptr %2120, align 8
   %2125 = icmp slt i32 %2123, %2124
   br i1 %2125, label %2126, label %2132
 
 2126:                                             ; preds = %2121
-  %2127 = getelementptr inbounds i8, ptr %2120, i64 8
+  %2127 = getelementptr inbounds nuw i8, ptr %2120, i64 8
   %2128 = add nsw i32 %2123, 1
   store i32 %2128, ptr %2122, align 8
   %2129 = sext i32 %2123 to i64
@@ -9275,7 +9275,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
 2132:                                             ; preds = %2121
-  %2133 = getelementptr inbounds i8, ptr %2115, i64 12
+  %2133 = getelementptr inbounds nuw i8, ptr %2115, i64 12
   %2134 = load i32, ptr %2133, align 4
   %2135 = icmp eq i32 %2124, %2134
   br i1 %2135, label %.thread.i.i, label %2138
@@ -9295,12 +9295,12 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   store i32 %2141, ptr %2140, align 8
   %2142 = load ptr, ptr %2115, align 8
   %2143 = load ptr, ptr %2118, align 8
-  %2144 = getelementptr inbounds i8, ptr %2143, i64 32
+  %2144 = getelementptr inbounds nuw i8, ptr %2143, i64 32
   %2145 = load ptr, ptr %2144, align 8
   %2146 = call noundef ptr %2145(ptr noundef nonnull align 8 dereferenceable(16) %2118, ptr noundef %2142)
   %2147 = load ptr, ptr %2119, align 8
-  %2148 = getelementptr inbounds i8, ptr %2147, i64 8
-  %2149 = getelementptr inbounds i8, ptr %2115, i64 8
+  %2148 = getelementptr inbounds nuw i8, ptr %2147, i64 8
+  %2149 = getelementptr inbounds nuw i8, ptr %2115, i64 8
   %2150 = load i32, ptr %2149, align 8
   %2151 = add nsw i32 %2150, 1
   store i32 %2151, ptr %2149, align 8
@@ -9336,11 +9336,11 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2167 = shl nuw i32 1, %2166
   %2168 = lshr i32 %107, 5
   %2169 = zext nneg i32 %2168 to i64
-  %2170 = getelementptr inbounds i32, ptr %59, i64 %2169
+  %2170 = getelementptr inbounds nuw i32, ptr %59, i64 %2169
   %2171 = load i32, ptr %2170, align 4
   %2172 = or i32 %2171, %2167
   store i32 %2172, ptr %2170, align 4
-  %2173 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2173 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2174 = load ptr, ptr %2173, align 8
   %2175 = icmp eq ptr %2174, null
   br i1 %2175, label %2176, label %2195
@@ -9361,7 +9361,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913: ; preds = %2176, %2180
   %.0.i1912 = phi ptr [ %2183, %2180 ], [ %2177, %2176 ]
   %2184 = load ptr, ptr %63, align 8
-  %2185 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2184, i64 %104
+  %2185 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2184, i64 %104
   %2186 = load ptr, ptr %2185, align 8
   %2187 = icmp eq ptr %2186, null
   br i1 %2187, label %2188, label %2190
@@ -9373,7 +9373,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913: ; preds = %2176, %2180
 2190:                                             ; preds = %2188, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913
   %.01354 = phi ptr [ %2189, %2188 ], [ %2186, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913 ]
   %2191 = load ptr, ptr %.01354, align 8
-  %2192 = getelementptr inbounds i8, ptr %2191, i64 32
+  %2192 = getelementptr inbounds nuw i8, ptr %2191, i64 32
   %2193 = load ptr, ptr %2192, align 8
   %2194 = call noundef ptr %2193(ptr noundef nonnull align 8 dereferenceable(16) %.01354, ptr noundef %.0.i1912)
   store ptr %2194, ptr %2173, align 8
@@ -9393,7 +9393,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913: ; preds = %2176, %2180
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i: ; preds = %2199
   %2202 = zext nneg i8 %2200 to i32
-  %2203 = getelementptr inbounds i8, ptr %2196, i64 1
+  %2203 = getelementptr inbounds nuw i8, ptr %2196, i64 1
   store ptr %2203, ptr %2, align 8
   br label %2206
 
@@ -9418,9 +9418,9 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   br i1 %2211, label %.backedge, label %.critedge1598
 
 2212:                                             ; preds = %117
-  %2213 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2213 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2214 = load ptr, ptr %63, align 8
-  %2215 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2214, i64 %104
+  %2215 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2214, i64 %104
   %2216 = load ptr, ptr %2215, align 8
   %2217 = icmp eq ptr %2216, null
   br i1 %2217, label %2218, label %2220
@@ -9431,25 +9431,25 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 2220:                                             ; preds = %2218, %2212
   %.01352 = phi ptr [ %2219, %2218 ], [ %2216, %2212 ]
-  %2221 = getelementptr inbounds i8, ptr %2213, i64 16
+  %2221 = getelementptr inbounds nuw i8, ptr %2213, i64 16
   %2222 = load ptr, ptr %2221, align 8
   %.not.i.i1915 = icmp eq ptr %2222, null
   br i1 %.not.i.i1915, label %..thread_crit_edge.i.i1920, label %2223
 
 ..thread_crit_edge.i.i1920:                       ; preds = %2220
-  %.phi.trans.insert.i.i1921 = getelementptr inbounds i8, ptr %2213, i64 12
+  %.phi.trans.insert.i.i1921 = getelementptr inbounds nuw i8, ptr %2213, i64 12
   %.pre.i.i1922 = load i32, ptr %.phi.trans.insert.i.i1921, align 4
   br label %.thread.i.i1917
 
 2223:                                             ; preds = %2220
-  %2224 = getelementptr inbounds i8, ptr %2213, i64 8
+  %2224 = getelementptr inbounds nuw i8, ptr %2213, i64 8
   %2225 = load i32, ptr %2224, align 8
   %2226 = load i32, ptr %2222, align 8
   %2227 = icmp slt i32 %2225, %2226
   br i1 %2227, label %2228, label %2234
 
 2228:                                             ; preds = %2223
-  %2229 = getelementptr inbounds i8, ptr %2222, i64 8
+  %2229 = getelementptr inbounds nuw i8, ptr %2222, i64 8
   %2230 = add nsw i32 %2225, 1
   store i32 %2230, ptr %2224, align 8
   %2231 = sext i32 %2225 to i64
@@ -9458,7 +9458,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1923
 
 2234:                                             ; preds = %2223
-  %2235 = getelementptr inbounds i8, ptr %2213, i64 12
+  %2235 = getelementptr inbounds nuw i8, ptr %2213, i64 12
   %2236 = load i32, ptr %2235, align 4
   %2237 = icmp eq i32 %2226, %2236
   br i1 %2237, label %.thread.i.i1917, label %2240
@@ -9478,12 +9478,12 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   store i32 %2243, ptr %2242, align 8
   %2244 = load ptr, ptr %2213, align 8
   %2245 = load ptr, ptr %.01352, align 8
-  %2246 = getelementptr inbounds i8, ptr %2245, i64 32
+  %2246 = getelementptr inbounds nuw i8, ptr %2245, i64 32
   %2247 = load ptr, ptr %2246, align 8
   %2248 = call noundef ptr %2247(ptr noundef nonnull align 8 dereferenceable(16) %.01352, ptr noundef %2244)
   %2249 = load ptr, ptr %2221, align 8
-  %2250 = getelementptr inbounds i8, ptr %2249, i64 8
-  %2251 = getelementptr inbounds i8, ptr %2213, i64 8
+  %2250 = getelementptr inbounds nuw i8, ptr %2249, i64 8
+  %2251 = getelementptr inbounds nuw i8, ptr %2213, i64 8
   %2252 = load i32, ptr %2251, align 8
   %2253 = add nsw i32 %2252, 1
   store i32 %2253, ptr %2251, align 8
@@ -9506,7 +9506,7 @@ _ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20Repea
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i1928: ; preds = %2259
   %2262 = zext nneg i8 %2260 to i32
-  %2263 = getelementptr inbounds i8, ptr %2256, i64 1
+  %2263 = getelementptr inbounds nuw i8, ptr %2256, i64 1
   store ptr %2263, ptr %2, align 8
   br label %2266
 
@@ -9547,8 +9547,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932: ; preds = %2272, %2276
   %.0.i1931 = phi ptr [ %2279, %2276 ], [ %2273, %2272 ]
   %2280 = load i64, ptr %65, align 8
   %2281 = getelementptr inbounds i8, ptr %0, i64 %2280
-  %2282 = getelementptr inbounds i8, ptr %0, i64 %110
-  %2283 = getelementptr inbounds i32, ptr %2281, i64 %108
+  %2282 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %2283 = getelementptr inbounds nuw i32, ptr %2281, i64 %108
   %2284 = load i32, ptr %2283, align 4
   %2285 = icmp eq i32 %2284, %95
   br i1 %2285, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE3EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit_crit_edge, label %2286
@@ -9563,8 +9563,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8intern
 
 2287:                                             ; preds = %2286
   %2288 = zext i32 %2284 to i64
-  %2289 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %2288
-  %2290 = getelementptr inbounds i8, ptr %2289, i64 10
+  %2289 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %2288
+  %2290 = getelementptr inbounds nuw i8, ptr %2289, i64 10
   %2291 = load i8, ptr %2290, align 2
   %2292 = and i8 %2291, 31
   switch i8 %2292, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934 [
@@ -9580,14 +9580,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8intern
 2295:                                             ; preds = %2293
   %2296 = load i32, ptr %2289, align 4
   %2297 = zext i32 %2296 to i64
-  %2298 = getelementptr inbounds i8, ptr %0, i64 %2297
+  %2298 = getelementptr inbounds nuw i8, ptr %0, i64 %2297
   %2299 = load ptr, ptr %2298, align 8
   %2300 = icmp eq ptr %2299, null
   br i1 %2300, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934, label %2301
 
 2301:                                             ; preds = %2295
   %2302 = load ptr, ptr %2299, align 8
-  %2303 = getelementptr inbounds i8, ptr %2302, i64 8
+  %2303 = getelementptr inbounds nuw i8, ptr %2302, i64 8
   %2304 = load ptr, ptr %2303, align 8
   call void %2304(ptr noundef nonnull align 8 dereferenceable(16) %2299) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934
@@ -9595,17 +9595,17 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8intern
 2305:                                             ; preds = %2287, %2287
   %2306 = load i32, ptr %2289, align 4
   %2307 = zext i32 %2306 to i64
-  %2308 = getelementptr inbounds i8, ptr %0, i64 %2307
+  %2308 = getelementptr inbounds nuw i8, ptr %0, i64 %2307
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2308, ptr noundef %.0.i1931)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934: ; preds = %2305, %2301, %2295, %2293, %2287, %2286
   store i32 %95, ptr %2283, align 4
   %2309 = load ptr, ptr %63, align 8
-  %2310 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2309, i64 %104
+  %2310 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2309, i64 %104
   %2311 = load ptr, ptr %2310, align 8
   %2312 = load ptr, ptr %2311, align 8
-  %2313 = getelementptr inbounds i8, ptr %2312, i64 32
+  %2313 = getelementptr inbounds nuw i8, ptr %2312, i64 32
   %2314 = load ptr, ptr %2313, align 8
   %2315 = call noundef ptr %2314(ptr noundef nonnull align 8 dereferenceable(16) %2311, ptr noundef %.0.i1931)
   store ptr %2315, ptr %2282, align 8
@@ -9625,7 +9625,7 @@ _ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE3EEEvRKNS1_1
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i1939: ; preds = %2320
   %2323 = zext nneg i8 %2321 to i32
-  %2324 = getelementptr inbounds i8, ptr %2317, i64 1
+  %2324 = getelementptr inbounds nuw i8, ptr %2317, i64 1
   store ptr %2324, ptr %2, align 8
   br label %2327
 
@@ -9651,9 +9651,9 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 2333:                                             ; preds = %117
   %2334 = load ptr, ptr %63, align 8
-  %2335 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2334, i64 %104
+  %2335 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2334, i64 %104
   %2336 = load ptr, ptr %2335, align 8
-  %2337 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2337 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2338 = call noundef zeroext i1 %2336(ptr noundef nonnull %2, ptr noundef %2337)
   br i1 %2338, label %.backedge, label %.critedge1598
 
@@ -9665,7 +9665,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   unreachable
 
 2341:                                             ; preds = %102
-  %2342 = getelementptr inbounds i8, ptr %105, i64 9
+  %2342 = getelementptr inbounds nuw i8, ptr %105, i64 9
   %2343 = load i8, ptr %2342, align 1
   %2344 = icmp eq i8 %2343, %115
   br i1 %2344, label %2345, label %2860
@@ -9694,7 +9694,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   ]
 
 2347:                                             ; preds = %2345
-  %2348 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2348 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2349 = load ptr, ptr %2, align 8
   %2350 = load ptr, ptr %60, align 8
   %2351 = icmp ult ptr %2349, %2350
@@ -9707,7 +9707,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread: ; preds = %2352
   %2355 = zext nneg i8 %2353 to i32
-  %2356 = getelementptr inbounds i8, ptr %2349, i64 1
+  %2356 = getelementptr inbounds nuw i8, ptr %2349, i64 1
   store ptr %2356, ptr %2, align 8
   br label %2359
 
@@ -9736,7 +9736,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit: ; preds =
   br i1 %2369, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944.thread: ; preds = %2366
-  %2370 = getelementptr inbounds i8, ptr %2363, i64 1
+  %2370 = getelementptr inbounds nuw i8, ptr %2363, i64 1
   store ptr %2370, ptr %2, align 8
   br label %2374
 
@@ -9760,7 +9760,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944: ; preds = %.
   br label %.backedge
 
 2377:                                             ; preds = %2345
-  %2378 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2378 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2379 = load ptr, ptr %2, align 8
   %2380 = load ptr, ptr %60, align 8
   %2381 = icmp ult ptr %2379, %2380
@@ -9773,7 +9773,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1946.thread: ; preds = %2382
   %2385 = zext nneg i8 %2383 to i32
-  %2386 = getelementptr inbounds i8, ptr %2379, i64 1
+  %2386 = getelementptr inbounds nuw i8, ptr %2379, i64 1
   store ptr %2386, ptr %2, align 8
   br label %2389
 
@@ -9802,7 +9802,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1946: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1948.thread: ; preds = %2396
   %2399 = zext nneg i8 %2397 to i64
-  %2400 = getelementptr inbounds i8, ptr %2393, i64 1
+  %2400 = getelementptr inbounds nuw i8, ptr %2393, i64 1
   store ptr %2400, ptr %2, align 8
   br label %2405
 
@@ -9826,7 +9826,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1948: ; preds = %.
   br label %.backedge
 
 2408:                                             ; preds = %2345
-  %2409 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2409 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2410 = load ptr, ptr %2, align 8
   %2411 = load ptr, ptr %60, align 8
   %2412 = icmp ult ptr %2410, %2411
@@ -9839,7 +9839,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1948: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1950.thread: ; preds = %2413
   %2416 = zext nneg i8 %2414 to i32
-  %2417 = getelementptr inbounds i8, ptr %2410, i64 1
+  %2417 = getelementptr inbounds nuw i8, ptr %2410, i64 1
   store ptr %2417, ptr %2, align 8
   br label %2420
 
@@ -9868,7 +9868,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1950: ; pre
   br i1 %2430, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953.thread: ; preds = %2427
-  %2431 = getelementptr inbounds i8, ptr %2424, i64 1
+  %2431 = getelementptr inbounds nuw i8, ptr %2424, i64 1
   store ptr %2431, ptr %2, align 8
   br label %2435
 
@@ -9896,7 +9896,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953: ; preds = %.
   br label %.backedge
 
 2442:                                             ; preds = %2345
-  %2443 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2443 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2444 = load ptr, ptr %2, align 8
   %2445 = load ptr, ptr %60, align 8
   %2446 = icmp ult ptr %2444, %2445
@@ -9909,7 +9909,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1955.thread: ; preds = %2447
   %2450 = zext nneg i8 %2448 to i32
-  %2451 = getelementptr inbounds i8, ptr %2444, i64 1
+  %2451 = getelementptr inbounds nuw i8, ptr %2444, i64 1
   store ptr %2451, ptr %2, align 8
   br label %2454
 
@@ -9938,7 +9938,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1955: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1957.thread: ; preds = %2461
   %2464 = zext nneg i8 %2462 to i64
-  %2465 = getelementptr inbounds i8, ptr %2458, i64 1
+  %2465 = getelementptr inbounds nuw i8, ptr %2458, i64 1
   store ptr %2465, ptr %2, align 8
   br label %2470
 
@@ -9966,7 +9966,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1957: ; preds = %.
   br label %.backedge
 
 2477:                                             ; preds = %2345
-  %2478 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2478 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2479 = load ptr, ptr %2, align 8
   %2480 = load ptr, ptr %60, align 8
   %2481 = icmp ult ptr %2479, %2480
@@ -9979,7 +9979,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1957: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1959.thread: ; preds = %2482
   %2485 = zext nneg i8 %2483 to i32
-  %2486 = getelementptr inbounds i8, ptr %2479, i64 1
+  %2486 = getelementptr inbounds nuw i8, ptr %2479, i64 1
   store ptr %2486, ptr %2, align 8
   br label %2489
 
@@ -10009,7 +10009,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1959: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1962.thread: ; preds = %2496
   store i32 %2498, ptr %32, align 4
-  %2500 = getelementptr inbounds i8, ptr %2493, i64 1
+  %2500 = getelementptr inbounds nuw i8, ptr %2493, i64 1
   store ptr %2500, ptr %2, align 8
   br label %2504
 
@@ -10032,7 +10032,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1962: ; preds = %.
   br label %.backedge
 
 2507:                                             ; preds = %2345
-  %2508 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2508 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2509 = load ptr, ptr %2, align 8
   %2510 = load ptr, ptr %60, align 8
   %2511 = icmp ult ptr %2509, %2510
@@ -10045,7 +10045,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1962: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964.thread: ; preds = %2512
   %2515 = zext nneg i8 %2513 to i32
-  %2516 = getelementptr inbounds i8, ptr %2509, i64 1
+  %2516 = getelementptr inbounds nuw i8, ptr %2509, i64 1
   store ptr %2516, ptr %2, align 8
   br label %2519
 
@@ -10075,7 +10075,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964: ; pre
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1966.thread: ; preds = %2526
   %2529 = zext nneg i8 %2527 to i64
   store i64 %2529, ptr %31, align 8
-  %2530 = getelementptr inbounds i8, ptr %2523, i64 1
+  %2530 = getelementptr inbounds nuw i8, ptr %2523, i64 1
   store ptr %2530, ptr %2, align 8
   br label %2535
 
@@ -10098,7 +10098,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1966: ; preds = %.
   br label %.backedge
 
 2538:                                             ; preds = %2345
-  %2539 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2539 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2540 = load ptr, ptr %2, align 8
   %2541 = load ptr, ptr %60, align 8
   %2542 = icmp ult ptr %2540, %2541
@@ -10111,7 +10111,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1966: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1968.thread: ; preds = %2543
   %2546 = zext nneg i8 %2544 to i32
-  %2547 = getelementptr inbounds i8, ptr %2540, i64 1
+  %2547 = getelementptr inbounds nuw i8, ptr %2540, i64 1
   store ptr %2547, ptr %2, align 8
   br label %2550
 
@@ -10169,7 +10169,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1968: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1971.thread: ; preds = %.lr.ph2586
   %2573 = load i32, ptr %2567, align 1
   store i32 %2573, ptr %19, align 4
-  %2574 = getelementptr inbounds i8, ptr %2567, i64 4
+  %2574 = getelementptr inbounds nuw i8, ptr %2567, i64 4
   store ptr %2574, ptr %2, align 8
   br label %2576
 
@@ -10184,7 +10184,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1971: ; pred
   br i1 %exitcond2836.not, label %.backedge, label %.lr.ph2586, !llvm.loop !24
 
 2578:                                             ; preds = %2345
-  %2579 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2579 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2580 = load ptr, ptr %2, align 8
   %2581 = load ptr, ptr %60, align 8
   %2582 = icmp ult ptr %2580, %2581
@@ -10197,7 +10197,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1971: ; pred
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1973.thread: ; preds = %2583
   %2586 = zext nneg i8 %2584 to i32
-  %2587 = getelementptr inbounds i8, ptr %2580, i64 1
+  %2587 = getelementptr inbounds nuw i8, ptr %2580, i64 1
   store ptr %2587, ptr %2, align 8
   br label %2590
 
@@ -10255,7 +10255,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1973: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1976.thread: ; preds = %.lr.ph2584
   %2613 = load i64, ptr %2607, align 1
   store i64 %2613, ptr %17, align 8
-  %2614 = getelementptr inbounds i8, ptr %2607, i64 8
+  %2614 = getelementptr inbounds nuw i8, ptr %2607, i64 8
   store ptr %2614, ptr %2, align 8
   br label %2616
 
@@ -10270,7 +10270,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1976: ; pred
   br i1 %exitcond2835.not, label %.backedge, label %.lr.ph2584, !llvm.loop !25
 
 2618:                                             ; preds = %2345
-  %2619 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2619 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2620 = load ptr, ptr %2, align 8
   %2621 = load ptr, ptr %60, align 8
   %2622 = icmp ult ptr %2620, %2621
@@ -10283,7 +10283,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1976: ; pred
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1978.thread: ; preds = %2623
   %2626 = zext nneg i8 %2624 to i32
-  %2627 = getelementptr inbounds i8, ptr %2620, i64 1
+  %2627 = getelementptr inbounds nuw i8, ptr %2620, i64 1
   store ptr %2627, ptr %2, align 8
   br label %2630
 
@@ -10341,7 +10341,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1978: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1981.thread: ; preds = %.lr.ph2582
   %2653 = load i32, ptr %2647, align 1
   store i32 %2653, ptr %13, align 4
-  %2654 = getelementptr inbounds i8, ptr %2647, i64 4
+  %2654 = getelementptr inbounds nuw i8, ptr %2647, i64 4
   store ptr %2654, ptr %2, align 8
   br label %2656
 
@@ -10362,7 +10362,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1981._crit_e
   br i1 %exitcond2834.not, label %.backedge, label %.lr.ph2582, !llvm.loop !26
 
 2659:                                             ; preds = %2345
-  %2660 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2660 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2661 = load ptr, ptr %2, align 8
   %2662 = load ptr, ptr %60, align 8
   %2663 = icmp ult ptr %2661, %2662
@@ -10375,7 +10375,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1981._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1983.thread: ; preds = %2664
   %2667 = zext nneg i8 %2665 to i32
-  %2668 = getelementptr inbounds i8, ptr %2661, i64 1
+  %2668 = getelementptr inbounds nuw i8, ptr %2661, i64 1
   store ptr %2668, ptr %2, align 8
   br label %2671
 
@@ -10433,7 +10433,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1983: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1986.thread: ; preds = %.lr.ph2580
   %2694 = load i64, ptr %2688, align 1
   store i64 %2694, ptr %10, align 8
-  %2695 = getelementptr inbounds i8, ptr %2688, i64 8
+  %2695 = getelementptr inbounds nuw i8, ptr %2688, i64 8
   store ptr %2695, ptr %2, align 8
   br label %2697
 
@@ -10454,7 +10454,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1986._crit_e
   br i1 %exitcond2833.not, label %.backedge, label %.lr.ph2580, !llvm.loop !27
 
 2700:                                             ; preds = %2345
-  %2701 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2701 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2702 = load ptr, ptr %2, align 8
   %2703 = load ptr, ptr %60, align 8
   %2704 = icmp ult ptr %2702, %2703
@@ -10467,7 +10467,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1986._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1988.thread: ; preds = %2705
   %2708 = zext nneg i8 %2706 to i32
-  %2709 = getelementptr inbounds i8, ptr %2702, i64 1
+  %2709 = getelementptr inbounds nuw i8, ptr %2702, i64 1
   store ptr %2709, ptr %2, align 8
   br label %2712
 
@@ -10525,7 +10525,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1988: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1991.thread: ; preds = %.lr.ph2578
   %2735 = load i32, ptr %2729, align 1
   store i32 %2735, ptr %7, align 4
-  %2736 = getelementptr inbounds i8, ptr %2729, i64 4
+  %2736 = getelementptr inbounds nuw i8, ptr %2729, i64 4
   store ptr %2736, ptr %2, align 8
   %2737 = bitcast i32 %2735 to float
   br label %2739
@@ -10547,7 +10547,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1991._crit_e
   br i1 %exitcond2832.not, label %.backedge, label %.lr.ph2578, !llvm.loop !28
 
 2742:                                             ; preds = %2345
-  %2743 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2743 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2744 = load ptr, ptr %2, align 8
   %2745 = load ptr, ptr %60, align 8
   %2746 = icmp ult ptr %2744, %2745
@@ -10560,7 +10560,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1991._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1993.thread: ; preds = %2747
   %2750 = zext nneg i8 %2748 to i32
-  %2751 = getelementptr inbounds i8, ptr %2744, i64 1
+  %2751 = getelementptr inbounds nuw i8, ptr %2744, i64 1
   store ptr %2751, ptr %2, align 8
   br label %2754
 
@@ -10618,7 +10618,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1993: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1996.thread: ; preds = %.lr.ph2576
   %2777 = load i64, ptr %2771, align 1
   store i64 %2777, ptr %4, align 8
-  %2778 = getelementptr inbounds i8, ptr %2771, i64 8
+  %2778 = getelementptr inbounds nuw i8, ptr %2771, i64 8
   store ptr %2778, ptr %2, align 8
   %2779 = bitcast i64 %2777 to double
   br label %2781
@@ -10640,7 +10640,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1996._crit_e
   br i1 %exitcond.not, label %.backedge, label %.lr.ph2576, !llvm.loop !29
 
 2784:                                             ; preds = %2345
-  %2785 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2785 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2786 = load ptr, ptr %2, align 8
   %2787 = load ptr, ptr %60, align 8
   %2788 = icmp ult ptr %2786, %2787
@@ -10653,7 +10653,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1996._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1998.thread: ; preds = %2789
   %2792 = zext nneg i8 %2790 to i32
-  %2793 = getelementptr inbounds i8, ptr %2786, i64 1
+  %2793 = getelementptr inbounds nuw i8, ptr %2786, i64 1
   store ptr %2793, ptr %2, align 8
   br label %2796
 
@@ -10682,7 +10682,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1998: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit2000.thread: ; preds = %2803
   %2806 = zext nneg i8 %2804 to i64
-  %2807 = getelementptr inbounds i8, ptr %2800, i64 1
+  %2807 = getelementptr inbounds nuw i8, ptr %2800, i64 1
   store ptr %2807, ptr %2, align 8
   br label %2812
 
@@ -10720,7 +10720,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit2000: ; preds = %.
   br i1 %2824, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread: ; preds = %2821
-  %2825 = getelementptr inbounds i8, ptr %2818, i64 1
+  %2825 = getelementptr inbounds nuw i8, ptr %2818, i64 1
   store ptr %2825, ptr %2, align 8
   br label %2829
 
@@ -10734,9 +10734,9 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003: ; preds = %2
 2829:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003
   %.02471 = phi i32 [ %2823, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread ], [ %2827, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003 ]
   %2830 = load ptr, ptr %63, align 8
-  %2831 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2830, i64 %104
+  %2831 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2830, i64 %104
   %2832 = load ptr, ptr %2831, align 8
-  %2833 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2833 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2834 = call noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %.02471)
   %2835 = call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
   %2836 = icmp sgt i32 %2835, 0
@@ -10759,7 +10759,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003: ; preds = %2
   br i1 %2845, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006.thread: ; preds = %2842
-  %2846 = getelementptr inbounds i8, ptr %2839, i64 1
+  %2846 = getelementptr inbounds nuw i8, ptr %2839, i64 1
   store ptr %2846, ptr %2, align 8
   br label %2850
 
@@ -10881,17 +10881,17 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %54 = alloca i64, align 8
   %55 = alloca i64, align 8
   %56 = alloca i32, align 4
-  %57 = getelementptr inbounds i8, ptr %1, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 %58
-  %60 = getelementptr inbounds i8, ptr %2, i64 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
-  %62 = getelementptr inbounds i8, ptr %1, i64 48
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 32
-  %66 = getelementptr inbounds i8, ptr %2, i64 52
-  %67 = getelementptr inbounds i8, ptr %2, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %68
 
 68:                                               ; preds = %.backedge, %3
@@ -10904,7 +10904,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %73 = load i8, ptr %69, align 1
   %74 = zext i8 %73 to i32
   %75 = icmp sgt i8 %73, 0
-  %76 = getelementptr inbounds i8, ptr %69, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %69, i64 1
   br i1 %75, label %77, label %78
 
 77:                                               ; preds = %72
@@ -10927,7 +10927,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   %87 = shl nuw nsw i32 %82, 7
   %88 = add nsw i32 %74, -128
   %89 = add nuw nsw i32 %88, %87
-  %90 = getelementptr inbounds i8, ptr %69, i64 2
+  %90 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store ptr %90, ptr %2, align 8
   br label %93
 
@@ -10956,15 +10956,15 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
 102:                                              ; preds = %93
   %103 = load ptr, ptr %1, align 8
   %104 = zext nneg i32 %95 to i64
-  %105 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %104
-  %106 = getelementptr inbounds i8, ptr %105, i64 4
+  %105 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
   %109 = load i32, ptr %105, align 4
   %110 = zext i32 %109 to i64
-  %111 = getelementptr inbounds i8, ptr %105, i64 10
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 10
   %112 = load i8, ptr %111, align 2
-  %113 = getelementptr inbounds i8, ptr %105, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %114 = load i8, ptr %113, align 4
   %115 = trunc nuw nsw i32 %94 to i8
   %116 = icmp eq i8 %114, %115
@@ -11042,7 +11042,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal34MergePa
   br i1 %125, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread: ; preds = %122
-  %126 = getelementptr inbounds i8, ptr %119, i64 1
+  %126 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store ptr %126, ptr %2, align 8
   br label %130
 
@@ -11059,16 +11059,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %118, 
   %132 = shl nuw i32 1, %131
   %133 = lshr i32 %107, 5
   %134 = zext nneg i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %59, i64 %134
+  %135 = getelementptr inbounds nuw i32, ptr %59, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = or i32 %136, %132
   store i32 %137, ptr %135, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 %110
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph, ptr %138, align 4
   br label %.backedge
 
 139:                                              ; preds = %117
-  %140 = getelementptr inbounds i8, ptr %0, i64 %110
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %141 = load ptr, ptr %2, align 8
   %142 = load ptr, ptr %60, align 8
   %143 = icmp ult ptr %141, %142
@@ -11081,7 +11081,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %118, 
   br i1 %147, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724.thread: ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %141, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %141, i64 1
   store ptr %148, ptr %2, align 8
   br label %152
 
@@ -11127,7 +11127,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724: ; preds = %1
   br i1 %170, label %171, label %.backedge
 
 171:                                              ; preds = %167
-  %172 = getelementptr inbounds i8, ptr %164, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %164, i64 1
   br label %.critedge1595
 
 173:                                              ; preds = %162
@@ -11150,14 +11150,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724: ; preds = %1
   br i1 %185, label %186, label %.backedge
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds i8, ptr %176, i64 1
+  %187 = getelementptr inbounds nuw i8, ptr %176, i64 1
   %188 = load i8, ptr %187, align 1
   %189 = zext i8 %188 to i32
   %190 = icmp eq i32 %161, %189
   br i1 %190, label %191, label %.backedge
 
 191:                                              ; preds = %186
-  %192 = getelementptr inbounds i8, ptr %176, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %176, i64 2
   br label %.critedge1595
 
 .critedge1595:                                    ; preds = %191, %171
@@ -11174,7 +11174,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1724: ; preds = %1
   br i1 %198, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727.thread: ; preds = %195
-  %199 = getelementptr inbounds i8, ptr %storemerge2481, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %storemerge2481, i64 1
   store ptr %199, ptr %2, align 8
   br label %203
 
@@ -11208,7 +11208,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1727: ; preds = %.
   br i1 %215, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread: ; preds = %212
-  %216 = getelementptr inbounds i8, ptr %209, i64 1
+  %216 = getelementptr inbounds nuw i8, ptr %209, i64 1
   store ptr %216, ptr %2, align 8
   br label %220
 
@@ -11222,10 +11222,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730: ; preds = %2
 220:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread
   %.ph2180 = phi i32 [ %214, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730.thread ], [ %218, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730 ]
   %221 = load ptr, ptr %1, align 8
-  %222 = getelementptr inbounds i32, ptr %208, i64 %108
+  %222 = getelementptr inbounds nuw i32, ptr %208, i64 %108
   %223 = load i32, ptr %222, align 4
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %221, i64 %224
+  %225 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %221, i64 %224
   %226 = load ptr, ptr %64, align 8
   %227 = ptrtoint ptr %226 to i64
   %228 = and i64 %227, 1
@@ -11240,7 +11240,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1730: ; preds = %2
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %220, %229
   %.0.i1731 = phi ptr [ %232, %229 ], [ %226, %220 ]
-  %233 = getelementptr inbounds i8, ptr %225, i64 10
+  %233 = getelementptr inbounds nuw i8, ptr %225, i64 10
   %234 = load i8, ptr %233, align 2
   %235 = and i8 %234, 31
   switch i8 %235, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit [
@@ -11256,14 +11256,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %220, %229
 238:                                              ; preds = %236
   %239 = load i32, ptr %225, align 4
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds i8, ptr %0, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = icmp eq ptr %242, null
   br i1 %243, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit, label %244
 
 244:                                              ; preds = %238
   %245 = load ptr, ptr %242, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
   %247 = load ptr, ptr %246, align 8
   call void %247(ptr noundef nonnull align 8 dereferenceable(16) %242) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
@@ -11271,13 +11271,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %220, %229
 248:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
   %249 = load i32, ptr %225, align 4
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds i8, ptr %0, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 %250
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %251, ptr noundef %.0.i1731)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %236, %238, %244, %248
   store i32 %95, ptr %222, align 4
-  %252 = getelementptr inbounds i8, ptr %0, i64 %110
+  %252 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph2180, ptr %252, align 4
   br label %.backedge
 
@@ -11294,7 +11294,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread: ; preds = %257
   %260 = zext nneg i8 %258 to i64
-  %261 = getelementptr inbounds i8, ptr %254, i64 1
+  %261 = getelementptr inbounds nuw i8, ptr %254, i64 1
   store ptr %261, ptr %2, align 8
   br label %266
 
@@ -11311,16 +11311,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %253, 
   %268 = shl nuw i32 1, %267
   %269 = lshr i32 %107, 5
   %270 = zext nneg i32 %269 to i64
-  %271 = getelementptr inbounds i32, ptr %59, i64 %270
+  %271 = getelementptr inbounds nuw i32, ptr %59, i64 %270
   %272 = load i32, ptr %271, align 4
   %273 = or i32 %272, %268
   store i32 %273, ptr %271, align 4
-  %274 = getelementptr inbounds i8, ptr %0, i64 %110
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2189, ptr %274, align 8
   br label %.backedge
 
 275:                                              ; preds = %117
-  %276 = getelementptr inbounds i8, ptr %0, i64 %110
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %277 = load ptr, ptr %2, align 8
   %278 = load ptr, ptr %60, align 8
   %279 = icmp ult ptr %277, %278
@@ -11333,7 +11333,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %253, 
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734.thread: ; preds = %280
   %283 = zext nneg i8 %281 to i64
-  %284 = getelementptr inbounds i8, ptr %277, i64 1
+  %284 = getelementptr inbounds nuw i8, ptr %277, i64 1
   store ptr %284, ptr %2, align 8
   br label %289
 
@@ -11379,7 +11379,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %2
   br i1 %307, label %308, label %.backedge
 
 308:                                              ; preds = %304
-  %309 = getelementptr inbounds i8, ptr %301, i64 1
+  %309 = getelementptr inbounds nuw i8, ptr %301, i64 1
   br label %.critedge1602
 
 310:                                              ; preds = %299
@@ -11402,14 +11402,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %2
   br i1 %322, label %323, label %.backedge
 
 323:                                              ; preds = %319
-  %324 = getelementptr inbounds i8, ptr %313, i64 1
+  %324 = getelementptr inbounds nuw i8, ptr %313, i64 1
   %325 = load i8, ptr %324, align 1
   %326 = zext i8 %325 to i32
   %327 = icmp eq i32 %298, %326
   br i1 %327, label %328, label %.backedge
 
 328:                                              ; preds = %323
-  %329 = getelementptr inbounds i8, ptr %313, i64 2
+  %329 = getelementptr inbounds nuw i8, ptr %313, i64 2
   br label %.critedge1602
 
 .critedge1602:                                    ; preds = %328, %308
@@ -11426,7 +11426,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1734: ; preds = %2
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1736.thread: ; preds = %332
   %335 = zext nneg i8 %333 to i64
-  %336 = getelementptr inbounds i8, ptr %storemerge2480, i64 1
+  %336 = getelementptr inbounds nuw i8, ptr %storemerge2480, i64 1
   store ptr %336, ptr %2, align 8
   br label %341
 
@@ -11460,7 +11460,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1736: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738.thread: ; preds = %350
   %353 = zext nneg i8 %351 to i64
-  %354 = getelementptr inbounds i8, ptr %347, i64 1
+  %354 = getelementptr inbounds nuw i8, ptr %347, i64 1
   store ptr %354, ptr %2, align 8
   br label %359
 
@@ -11474,10 +11474,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738: ; preds = %3
 359:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738.thread
   %.ph2204 = phi i64 [ %353, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738.thread ], [ %356, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738 ]
   %360 = load ptr, ptr %1, align 8
-  %361 = getelementptr inbounds i32, ptr %346, i64 %108
+  %361 = getelementptr inbounds nuw i32, ptr %346, i64 %108
   %362 = load i32, ptr %361, align 4
   %363 = zext i32 %362 to i64
-  %364 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %360, i64 %363
+  %364 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %360, i64 %363
   %365 = load ptr, ptr %64, align 8
   %366 = ptrtoint ptr %365 to i64
   %367 = and i64 %366, 1
@@ -11492,7 +11492,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1738: ; preds = %3
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741: ; preds = %359, %368
   %.0.i1740 = phi ptr [ %371, %368 ], [ %365, %359 ]
-  %372 = getelementptr inbounds i8, ptr %364, i64 10
+  %372 = getelementptr inbounds nuw i8, ptr %364, i64 10
   %373 = load i8, ptr %372, align 2
   %374 = and i8 %373, 31
   switch i8 %374, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742 [
@@ -11508,14 +11508,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741: ; preds = %359, %368
 377:                                              ; preds = %375
   %378 = load i32, ptr %364, align 4
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds i8, ptr %0, i64 %379
+  %380 = getelementptr inbounds nuw i8, ptr %0, i64 %379
   %381 = load ptr, ptr %380, align 8
   %382 = icmp eq ptr %381, null
   br i1 %382, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742, label %383
 
 383:                                              ; preds = %377
   %384 = load ptr, ptr %381, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8
   call void %386(ptr noundef nonnull align 8 dereferenceable(16) %381) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742
@@ -11523,13 +11523,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741: ; preds = %359, %368
 387:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741
   %388 = load i32, ptr %364, align 4
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds i8, ptr %0, i64 %389
+  %390 = getelementptr inbounds nuw i8, ptr %0, i64 %389
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %390, ptr noundef %.0.i1740)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1742: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1741, %375, %377, %383, %387
   store i32 %95, ptr %361, align 4
-  %391 = getelementptr inbounds i8, ptr %0, i64 %110
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2204, ptr %391, align 8
   br label %.backedge
 
@@ -11546,7 +11546,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %399, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745.thread: ; preds = %396
-  %400 = getelementptr inbounds i8, ptr %393, i64 1
+  %400 = getelementptr inbounds nuw i8, ptr %393, i64 1
   store ptr %400, ptr %2, align 8
   br label %404
 
@@ -11567,16 +11567,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745: ; preds = %3
   %410 = shl nuw i32 1, %409
   %411 = lshr i32 %107, 5
   %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds i32, ptr %59, i64 %412
+  %413 = getelementptr inbounds nuw i32, ptr %59, i64 %412
   %414 = load i32, ptr %413, align 4
   %415 = or i32 %414, %410
   store i32 %415, ptr %413, align 4
-  %416 = getelementptr inbounds i8, ptr %0, i64 %110
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %408, ptr %416, align 4
   br label %.backedge
 
 417:                                              ; preds = %117
-  %418 = getelementptr inbounds i8, ptr %0, i64 %110
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %419 = load ptr, ptr %2, align 8
   %420 = load ptr, ptr %60, align 8
   %421 = icmp ult ptr %419, %420
@@ -11589,7 +11589,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1745: ; preds = %3
   br i1 %425, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748.thread: ; preds = %422
-  %426 = getelementptr inbounds i8, ptr %419, i64 1
+  %426 = getelementptr inbounds nuw i8, ptr %419, i64 1
   store ptr %426, ptr %2, align 8
   br label %430
 
@@ -11639,7 +11639,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748: ; preds = %4
   br i1 %452, label %453, label %.backedge
 
 453:                                              ; preds = %449
-  %454 = getelementptr inbounds i8, ptr %446, i64 1
+  %454 = getelementptr inbounds nuw i8, ptr %446, i64 1
   br label %.critedge1609
 
 455:                                              ; preds = %444
@@ -11662,14 +11662,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748: ; preds = %4
   br i1 %467, label %468, label %.backedge
 
 468:                                              ; preds = %464
-  %469 = getelementptr inbounds i8, ptr %458, i64 1
+  %469 = getelementptr inbounds nuw i8, ptr %458, i64 1
   %470 = load i8, ptr %469, align 1
   %471 = zext i8 %470 to i32
   %472 = icmp eq i32 %443, %471
   br i1 %472, label %473, label %.backedge
 
 473:                                              ; preds = %468
-  %474 = getelementptr inbounds i8, ptr %458, i64 2
+  %474 = getelementptr inbounds nuw i8, ptr %458, i64 2
   br label %.critedge1609
 
 .critedge1609:                                    ; preds = %473, %453
@@ -11686,7 +11686,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1748: ; preds = %4
   br i1 %480, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751.thread: ; preds = %477
-  %481 = getelementptr inbounds i8, ptr %storemerge2479, i64 1
+  %481 = getelementptr inbounds nuw i8, ptr %storemerge2479, i64 1
   store ptr %481, ptr %2, align 8
   br label %485
 
@@ -11724,7 +11724,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1751: ; preds = %.
   br i1 %501, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754.thread: ; preds = %498
-  %502 = getelementptr inbounds i8, ptr %495, i64 1
+  %502 = getelementptr inbounds nuw i8, ptr %495, i64 1
   store ptr %502, ptr %2, align 8
   br label %506
 
@@ -11742,10 +11742,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754: ; preds = %4
   %509 = sub nsw i32 0, %508
   %510 = xor i32 %507, %509
   %511 = load ptr, ptr %1, align 8
-  %512 = getelementptr inbounds i32, ptr %494, i64 %108
+  %512 = getelementptr inbounds nuw i32, ptr %494, i64 %108
   %513 = load i32, ptr %512, align 4
   %514 = zext i32 %513 to i64
-  %515 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %511, i64 %514
+  %515 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %511, i64 %514
   %516 = load ptr, ptr %64, align 8
   %517 = ptrtoint ptr %516 to i64
   %518 = and i64 %517, 1
@@ -11760,7 +11760,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1754: ; preds = %4
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757: ; preds = %506, %519
   %.0.i1756 = phi ptr [ %522, %519 ], [ %516, %506 ]
-  %523 = getelementptr inbounds i8, ptr %515, i64 10
+  %523 = getelementptr inbounds nuw i8, ptr %515, i64 10
   %524 = load i8, ptr %523, align 2
   %525 = and i8 %524, 31
   switch i8 %525, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758 [
@@ -11776,14 +11776,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757: ; preds = %506, %519
 528:                                              ; preds = %526
   %529 = load i32, ptr %515, align 4
   %530 = zext i32 %529 to i64
-  %531 = getelementptr inbounds i8, ptr %0, i64 %530
+  %531 = getelementptr inbounds nuw i8, ptr %0, i64 %530
   %532 = load ptr, ptr %531, align 8
   %533 = icmp eq ptr %532, null
   br i1 %533, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758, label %534
 
 534:                                              ; preds = %528
   %535 = load ptr, ptr %532, align 8
-  %536 = getelementptr inbounds i8, ptr %535, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
   %537 = load ptr, ptr %536, align 8
   call void %537(ptr noundef nonnull align 8 dereferenceable(16) %532) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758
@@ -11791,13 +11791,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757: ; preds = %506, %519
 538:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757
   %539 = load i32, ptr %515, align 4
   %540 = zext i32 %539 to i64
-  %541 = getelementptr inbounds i8, ptr %0, i64 %540
+  %541 = getelementptr inbounds nuw i8, ptr %0, i64 %540
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %541, ptr noundef %.0.i1756)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1758: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1757, %526, %528, %534, %538
   store i32 %95, ptr %512, align 4
-  %542 = getelementptr inbounds i8, ptr %0, i64 %110
+  %542 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %510, ptr %542, align 4
   br label %.backedge
 
@@ -11814,7 +11814,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760.thread: ; preds = %547
   %550 = zext nneg i8 %548 to i64
-  %551 = getelementptr inbounds i8, ptr %544, i64 1
+  %551 = getelementptr inbounds nuw i8, ptr %544, i64 1
   store ptr %551, ptr %2, align 8
   br label %556
 
@@ -11835,16 +11835,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760: ; preds = %5
   %562 = shl nuw i32 1, %561
   %563 = lshr i32 %107, 5
   %564 = zext nneg i32 %563 to i64
-  %565 = getelementptr inbounds i32, ptr %59, i64 %564
+  %565 = getelementptr inbounds nuw i32, ptr %59, i64 %564
   %566 = load i32, ptr %565, align 4
   %567 = or i32 %566, %562
   store i32 %567, ptr %565, align 4
-  %568 = getelementptr inbounds i8, ptr %0, i64 %110
+  %568 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %560, ptr %568, align 8
   br label %.backedge
 
 569:                                              ; preds = %117
-  %570 = getelementptr inbounds i8, ptr %0, i64 %110
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %571 = load ptr, ptr %2, align 8
   %572 = load ptr, ptr %60, align 8
   %573 = icmp ult ptr %571, %572
@@ -11857,7 +11857,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1760: ; preds = %5
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762.thread: ; preds = %574
   %577 = zext nneg i8 %575 to i64
-  %578 = getelementptr inbounds i8, ptr %571, i64 1
+  %578 = getelementptr inbounds nuw i8, ptr %571, i64 1
   store ptr %578, ptr %2, align 8
   br label %583
 
@@ -11907,7 +11907,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %5
   br i1 %605, label %606, label %.backedge
 
 606:                                              ; preds = %602
-  %607 = getelementptr inbounds i8, ptr %599, i64 1
+  %607 = getelementptr inbounds nuw i8, ptr %599, i64 1
   br label %.critedge1616
 
 608:                                              ; preds = %597
@@ -11930,14 +11930,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %5
   br i1 %620, label %621, label %.backedge
 
 621:                                              ; preds = %617
-  %622 = getelementptr inbounds i8, ptr %611, i64 1
+  %622 = getelementptr inbounds nuw i8, ptr %611, i64 1
   %623 = load i8, ptr %622, align 1
   %624 = zext i8 %623 to i32
   %625 = icmp eq i32 %596, %624
   br i1 %625, label %626, label %.backedge
 
 626:                                              ; preds = %621
-  %627 = getelementptr inbounds i8, ptr %611, i64 2
+  %627 = getelementptr inbounds nuw i8, ptr %611, i64 2
   br label %.critedge1616
 
 .critedge1616:                                    ; preds = %626, %606
@@ -11954,7 +11954,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1762: ; preds = %5
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1764.thread: ; preds = %630
   %633 = zext nneg i8 %631 to i64
-  %634 = getelementptr inbounds i8, ptr %storemerge2478, i64 1
+  %634 = getelementptr inbounds nuw i8, ptr %storemerge2478, i64 1
   store ptr %634, ptr %2, align 8
   br label %639
 
@@ -11992,7 +11992,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1764: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1766.thread: ; preds = %652
   %655 = zext nneg i8 %653 to i64
-  %656 = getelementptr inbounds i8, ptr %649, i64 1
+  %656 = getelementptr inbounds nuw i8, ptr %649, i64 1
   store ptr %656, ptr %2, align 8
   br label %661
 
@@ -12010,10 +12010,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1766: ; preds = %6
   %664 = sub nsw i64 0, %663
   %665 = xor i64 %662, %664
   %666 = load ptr, ptr %1, align 8
-  %667 = getelementptr inbounds i32, ptr %648, i64 %108
+  %667 = getelementptr inbounds nuw i32, ptr %648, i64 %108
   %668 = load i32, ptr %667, align 4
   %669 = zext i32 %668 to i64
-  %670 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %666, i64 %669
+  %670 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %666, i64 %669
   %671 = load ptr, ptr %64, align 8
   %672 = ptrtoint ptr %671 to i64
   %673 = and i64 %672, 1
@@ -12028,7 +12028,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1766: ; preds = %6
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769: ; preds = %661, %674
   %.0.i1768 = phi ptr [ %677, %674 ], [ %671, %661 ]
-  %678 = getelementptr inbounds i8, ptr %670, i64 10
+  %678 = getelementptr inbounds nuw i8, ptr %670, i64 10
   %679 = load i8, ptr %678, align 2
   %680 = and i8 %679, 31
   switch i8 %680, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770 [
@@ -12044,14 +12044,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769: ; preds = %661, %674
 683:                                              ; preds = %681
   %684 = load i32, ptr %670, align 4
   %685 = zext i32 %684 to i64
-  %686 = getelementptr inbounds i8, ptr %0, i64 %685
+  %686 = getelementptr inbounds nuw i8, ptr %0, i64 %685
   %687 = load ptr, ptr %686, align 8
   %688 = icmp eq ptr %687, null
   br i1 %688, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770, label %689
 
 689:                                              ; preds = %683
   %690 = load ptr, ptr %687, align 8
-  %691 = getelementptr inbounds i8, ptr %690, i64 8
+  %691 = getelementptr inbounds nuw i8, ptr %690, i64 8
   %692 = load ptr, ptr %691, align 8
   call void %692(ptr noundef nonnull align 8 dereferenceable(16) %687) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770
@@ -12059,13 +12059,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769: ; preds = %661, %674
 693:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769
   %694 = load i32, ptr %670, align 4
   %695 = zext i32 %694 to i64
-  %696 = getelementptr inbounds i8, ptr %0, i64 %695
+  %696 = getelementptr inbounds nuw i8, ptr %0, i64 %695
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %696, ptr noundef %.0.i1768)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1770: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1769, %681, %683, %689, %693
   store i32 %95, ptr %667, align 4
-  %697 = getelementptr inbounds i8, ptr %0, i64 %110
+  %697 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %665, ptr %697, align 8
   br label %.backedge
 
@@ -12082,7 +12082,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %705, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773.thread: ; preds = %702
-  %706 = getelementptr inbounds i8, ptr %699, i64 1
+  %706 = getelementptr inbounds nuw i8, ptr %699, i64 1
   store ptr %706, ptr %2, align 8
   br label %710
 
@@ -12099,16 +12099,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773: ; preds = %6
   %712 = shl nuw i32 1, %711
   %713 = lshr i32 %107, 5
   %714 = zext nneg i32 %713 to i64
-  %715 = getelementptr inbounds i32, ptr %59, i64 %714
+  %715 = getelementptr inbounds nuw i32, ptr %59, i64 %714
   %716 = load i32, ptr %715, align 4
   %717 = or i32 %716, %712
   store i32 %717, ptr %715, align 4
-  %718 = getelementptr inbounds i8, ptr %0, i64 %110
+  %718 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.021222257, ptr %718, align 4
   br label %.backedge
 
 719:                                              ; preds = %117
-  %720 = getelementptr inbounds i8, ptr %0, i64 %110
+  %720 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %721 = load ptr, ptr %2, align 8
   %722 = load ptr, ptr %60, align 8
   %723 = icmp ult ptr %721, %722
@@ -12122,7 +12122,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1773: ; preds = %6
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776.thread: ; preds = %724
   store i32 %726, ptr %47, align 4
-  %728 = getelementptr inbounds i8, ptr %721, i64 1
+  %728 = getelementptr inbounds nuw i8, ptr %721, i64 1
   store ptr %728, ptr %2, align 8
   br label %732
 
@@ -12167,7 +12167,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776: ; preds = %7
   br i1 %750, label %751, label %.backedge
 
 751:                                              ; preds = %747
-  %752 = getelementptr inbounds i8, ptr %744, i64 1
+  %752 = getelementptr inbounds nuw i8, ptr %744, i64 1
   br label %.critedge1621
 
 753:                                              ; preds = %742
@@ -12190,14 +12190,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776: ; preds = %7
   br i1 %765, label %766, label %.backedge
 
 766:                                              ; preds = %762
-  %767 = getelementptr inbounds i8, ptr %756, i64 1
+  %767 = getelementptr inbounds nuw i8, ptr %756, i64 1
   %768 = load i8, ptr %767, align 1
   %769 = zext i8 %768 to i32
   %770 = icmp eq i32 %741, %769
   br i1 %770, label %771, label %.backedge
 
 771:                                              ; preds = %766
-  %772 = getelementptr inbounds i8, ptr %756, i64 2
+  %772 = getelementptr inbounds nuw i8, ptr %756, i64 2
   br label %.critedge1621
 
 .critedge1621:                                    ; preds = %771, %751
@@ -12215,7 +12215,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1776: ; preds = %7
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1779.thread: ; preds = %775
   store i32 %777, ptr %47, align 4
-  %779 = getelementptr inbounds i8, ptr %storemerge2477, i64 1
+  %779 = getelementptr inbounds nuw i8, ptr %storemerge2477, i64 1
   store ptr %779, ptr %2, align 8
   br label %783
 
@@ -12248,7 +12248,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1779: ; preds = %.
   br i1 %795, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread: ; preds = %792
-  %796 = getelementptr inbounds i8, ptr %789, i64 1
+  %796 = getelementptr inbounds nuw i8, ptr %789, i64 1
   store ptr %796, ptr %2, align 8
   br label %800
 
@@ -12262,10 +12262,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782: ; preds = %7
 800:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782
   %.021212262 = phi i32 [ %794, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782.thread ], [ %798, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782 ]
   %801 = load ptr, ptr %1, align 8
-  %802 = getelementptr inbounds i32, ptr %788, i64 %108
+  %802 = getelementptr inbounds nuw i32, ptr %788, i64 %108
   %803 = load i32, ptr %802, align 4
   %804 = zext i32 %803 to i64
-  %805 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %801, i64 %804
+  %805 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %801, i64 %804
   %806 = load ptr, ptr %64, align 8
   %807 = ptrtoint ptr %806 to i64
   %808 = and i64 %807, 1
@@ -12280,7 +12280,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1782: ; preds = %7
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785: ; preds = %800, %809
   %.0.i1784 = phi ptr [ %812, %809 ], [ %806, %800 ]
-  %813 = getelementptr inbounds i8, ptr %805, i64 10
+  %813 = getelementptr inbounds nuw i8, ptr %805, i64 10
   %814 = load i8, ptr %813, align 2
   %815 = and i8 %814, 31
   switch i8 %815, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786 [
@@ -12296,14 +12296,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785: ; preds = %800, %809
 818:                                              ; preds = %816
   %819 = load i32, ptr %805, align 4
   %820 = zext i32 %819 to i64
-  %821 = getelementptr inbounds i8, ptr %0, i64 %820
+  %821 = getelementptr inbounds nuw i8, ptr %0, i64 %820
   %822 = load ptr, ptr %821, align 8
   %823 = icmp eq ptr %822, null
   br i1 %823, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786, label %824
 
 824:                                              ; preds = %818
   %825 = load ptr, ptr %822, align 8
-  %826 = getelementptr inbounds i8, ptr %825, i64 8
+  %826 = getelementptr inbounds nuw i8, ptr %825, i64 8
   %827 = load ptr, ptr %826, align 8
   call void %827(ptr noundef nonnull align 8 dereferenceable(16) %822) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786
@@ -12311,13 +12311,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785: ; preds = %800, %809
 828:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785
   %829 = load i32, ptr %805, align 4
   %830 = zext i32 %829 to i64
-  %831 = getelementptr inbounds i8, ptr %0, i64 %830
+  %831 = getelementptr inbounds nuw i8, ptr %0, i64 %830
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %831, ptr noundef %.0.i1784)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1786: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1785, %816, %818, %824, %828
   store i32 %95, ptr %802, align 4
-  %832 = getelementptr inbounds i8, ptr %0, i64 %110
+  %832 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.021212262, ptr %832, align 4
   br label %.backedge
 
@@ -12334,7 +12334,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788.thread: ; preds = %837
   %840 = zext nneg i8 %838 to i64
-  %841 = getelementptr inbounds i8, ptr %834, i64 1
+  %841 = getelementptr inbounds nuw i8, ptr %834, i64 1
   store ptr %841, ptr %2, align 8
   br label %846
 
@@ -12351,16 +12351,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788: ; preds = %8
   %848 = shl nuw i32 1, %847
   %849 = lshr i32 %107, 5
   %850 = zext nneg i32 %849 to i64
-  %851 = getelementptr inbounds i32, ptr %59, i64 %850
+  %851 = getelementptr inbounds nuw i32, ptr %59, i64 %850
   %852 = load i32, ptr %851, align 4
   %853 = or i32 %852, %848
   store i32 %853, ptr %851, align 4
-  %854 = getelementptr inbounds i8, ptr %0, i64 %110
+  %854 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.021202265, ptr %854, align 8
   br label %.backedge
 
 855:                                              ; preds = %117
-  %856 = getelementptr inbounds i8, ptr %0, i64 %110
+  %856 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %857 = load ptr, ptr %2, align 8
   %858 = load ptr, ptr %60, align 8
   %859 = icmp ult ptr %857, %858
@@ -12374,7 +12374,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1788: ; preds = %8
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790.thread: ; preds = %860
   %863 = zext nneg i8 %861 to i64
   store i64 %863, ptr %46, align 8
-  %864 = getelementptr inbounds i8, ptr %857, i64 1
+  %864 = getelementptr inbounds nuw i8, ptr %857, i64 1
   store ptr %864, ptr %2, align 8
   br label %869
 
@@ -12419,7 +12419,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %8
   br i1 %887, label %888, label %.backedge
 
 888:                                              ; preds = %884
-  %889 = getelementptr inbounds i8, ptr %881, i64 1
+  %889 = getelementptr inbounds nuw i8, ptr %881, i64 1
   br label %.critedge1624
 
 890:                                              ; preds = %879
@@ -12442,14 +12442,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %8
   br i1 %902, label %903, label %.backedge
 
 903:                                              ; preds = %899
-  %904 = getelementptr inbounds i8, ptr %893, i64 1
+  %904 = getelementptr inbounds nuw i8, ptr %893, i64 1
   %905 = load i8, ptr %904, align 1
   %906 = zext i8 %905 to i32
   %907 = icmp eq i32 %878, %906
   br i1 %907, label %908, label %.backedge
 
 908:                                              ; preds = %903
-  %909 = getelementptr inbounds i8, ptr %893, i64 2
+  %909 = getelementptr inbounds nuw i8, ptr %893, i64 2
   br label %.critedge1624
 
 .critedge1624:                                    ; preds = %908, %888
@@ -12467,7 +12467,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1790: ; preds = %8
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1792.thread: ; preds = %912
   %915 = zext nneg i8 %913 to i64
   store i64 %915, ptr %46, align 8
-  %916 = getelementptr inbounds i8, ptr %storemerge2476, i64 1
+  %916 = getelementptr inbounds nuw i8, ptr %storemerge2476, i64 1
   store ptr %916, ptr %2, align 8
   br label %921
 
@@ -12500,7 +12500,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1792: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794.thread: ; preds = %930
   %933 = zext nneg i8 %931 to i64
-  %934 = getelementptr inbounds i8, ptr %927, i64 1
+  %934 = getelementptr inbounds nuw i8, ptr %927, i64 1
   store ptr %934, ptr %2, align 8
   br label %939
 
@@ -12514,10 +12514,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794: ; preds = %9
 939:                                              ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794
   %.021192270 = phi i64 [ %933, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794.thread ], [ %936, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794 ]
   %940 = load ptr, ptr %1, align 8
-  %941 = getelementptr inbounds i32, ptr %926, i64 %108
+  %941 = getelementptr inbounds nuw i32, ptr %926, i64 %108
   %942 = load i32, ptr %941, align 4
   %943 = zext i32 %942 to i64
-  %944 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %940, i64 %943
+  %944 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %940, i64 %943
   %945 = load ptr, ptr %64, align 8
   %946 = ptrtoint ptr %945 to i64
   %947 = and i64 %946, 1
@@ -12532,7 +12532,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1794: ; preds = %9
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797: ; preds = %939, %948
   %.0.i1796 = phi ptr [ %951, %948 ], [ %945, %939 ]
-  %952 = getelementptr inbounds i8, ptr %944, i64 10
+  %952 = getelementptr inbounds nuw i8, ptr %944, i64 10
   %953 = load i8, ptr %952, align 2
   %954 = and i8 %953, 31
   switch i8 %954, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798 [
@@ -12548,14 +12548,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797: ; preds = %939, %948
 957:                                              ; preds = %955
   %958 = load i32, ptr %944, align 4
   %959 = zext i32 %958 to i64
-  %960 = getelementptr inbounds i8, ptr %0, i64 %959
+  %960 = getelementptr inbounds nuw i8, ptr %0, i64 %959
   %961 = load ptr, ptr %960, align 8
   %962 = icmp eq ptr %961, null
   br i1 %962, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798, label %963
 
 963:                                              ; preds = %957
   %964 = load ptr, ptr %961, align 8
-  %965 = getelementptr inbounds i8, ptr %964, i64 8
+  %965 = getelementptr inbounds nuw i8, ptr %964, i64 8
   %966 = load ptr, ptr %965, align 8
   call void %966(ptr noundef nonnull align 8 dereferenceable(16) %961) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798
@@ -12563,13 +12563,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797: ; preds = %939, %948
 967:                                              ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797
   %968 = load i32, ptr %944, align 4
   %969 = zext i32 %968 to i64
-  %970 = getelementptr inbounds i8, ptr %0, i64 %969
+  %970 = getelementptr inbounds nuw i8, ptr %0, i64 %969
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %970, ptr noundef %.0.i1796)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1798: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1797, %955, %957, %963, %967
   store i32 %95, ptr %941, align 4
-  %971 = getelementptr inbounds i8, ptr %0, i64 %110
+  %971 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.021192270, ptr %971, align 8
   br label %.backedge
 
@@ -12586,7 +12586,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit.thread: ; preds = %972
   %980 = load i32, ptr %974, align 1
   store i32 %980, ptr %52, align 4
-  %981 = getelementptr inbounds i8, ptr %974, i64 4
+  %981 = getelementptr inbounds nuw i8, ptr %974, i64 4
   store ptr %981, ptr %2, align 8
   br label %983
 
@@ -12604,17 +12604,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit._crit_edge:
   %986 = shl nuw i32 1, %985
   %987 = lshr i32 %107, 5
   %988 = zext nneg i32 %987 to i64
-  %989 = getelementptr inbounds i32, ptr %59, i64 %988
+  %989 = getelementptr inbounds nuw i32, ptr %59, i64 %988
   %990 = load i32, ptr %989, align 4
   %991 = or i32 %990, %986
   store i32 %991, ptr %989, align 4
-  %992 = getelementptr inbounds i8, ptr %0, i64 %110
+  %992 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %984, ptr %992, align 4
   br label %.backedge
 
 993:                                              ; preds = %117
-  %994 = getelementptr inbounds i8, ptr %0, i64 %110
-  %995 = getelementptr inbounds i8, ptr %105, i64 11
+  %994 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %995 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %996 = load i8, ptr %995, align 1
   %997 = zext i8 %996 to i32
   %998 = load ptr, ptr %60, align 8
@@ -12629,7 +12629,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit._crit_edge:
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801.thread: ; preds = %993
   %1005 = load i32, ptr %999, align 1
   store i32 %1005, ptr %29, align 4
-  %1006 = getelementptr inbounds i8, ptr %999, i64 4
+  %1006 = getelementptr inbounds nuw i8, ptr %999, i64 4
   store ptr %1006, ptr %2, align 8
   br label %1008
 
@@ -12675,7 +12675,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801: ; pred
   %1030 = load i8, ptr %.013772674, align 1
   %1031 = zext i8 %1030 to i32
   %1032 = icmp eq i32 %.sroa.0587.0, %1031
-  %1033 = getelementptr inbounds i8, ptr %.013772674, i64 1
+  %1033 = getelementptr inbounds nuw i8, ptr %.013772674, i64 1
   br i1 %1032, label %select.unfold, label %.critedge12
 
 1034:                                             ; preds = %1028
@@ -12688,18 +12688,18 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1801: ; pred
   br i1 %1038, label %1039, label %.critedge12
 
 1039:                                             ; preds = %1035
-  %1040 = getelementptr inbounds i8, ptr %.013772674, i64 1
+  %1040 = getelementptr inbounds nuw i8, ptr %.013772674, i64 1
   %1041 = load i8, ptr %1040, align 1
   %1042 = zext i8 %1041 to i32
   %1043 = icmp eq i32 %1027, %1042
-  %1044 = getelementptr inbounds i8, ptr %.013772674, i64 2
+  %1044 = getelementptr inbounds nuw i8, ptr %.013772674, i64 2
   br i1 %1043, label %select.unfold, label %.critedge12
 
 select.unfold:                                    ; preds = %1039, %1029
   %.01375 = phi ptr [ %1033, %1029 ], [ %1044, %1039 ]
   %1045 = load i32, ptr %.01375, align 1
   store i32 %1045, ptr %29, align 4
-  %1046 = getelementptr inbounds i8, ptr %.01375, i64 4
+  %1046 = getelementptr inbounds nuw i8, ptr %.01375, i64 4
   call void @_ZN6google8protobuf13RepeatedFieldIjE18AddAlreadyReservedERKj(ptr noundef nonnull align 8 dereferenceable(16) %994, ptr noundef nonnull align 4 dereferenceable(4) %29)
   %1047 = add nuw nsw i32 %.013782673, 1
   %exitcond2843.not = icmp eq i32 %1047, %.sroa.speculated
@@ -12723,7 +12723,7 @@ select.unfold:                                    ; preds = %1039, %1029
 
 1055:                                             ; preds = %.critedge12.thread2860
   %1056 = zext nneg i32 %1048 to i64
-  %1057 = getelementptr inbounds i8, ptr %1050, i64 %1056
+  %1057 = getelementptr inbounds nuw i8, ptr %1050, i64 %1056
   store ptr %1057, ptr %2, align 8
   br label %.backedge
 
@@ -12746,7 +12746,7 @@ select.unfold:                                    ; preds = %1039, %1029
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805.thread: ; preds = %1060
   %1070 = load i32, ptr %1064, align 1
   store i32 %1070, ptr %53, align 4
-  %1071 = getelementptr inbounds i8, ptr %1064, i64 4
+  %1071 = getelementptr inbounds nuw i8, ptr %1064, i64 4
   store ptr %1071, ptr %2, align 8
   br label %1073
 
@@ -12756,10 +12756,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805: ; pred
 
 1073:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805
   %1074 = load ptr, ptr %1, align 8
-  %1075 = getelementptr inbounds i32, ptr %1062, i64 %108
+  %1075 = getelementptr inbounds nuw i32, ptr %1062, i64 %108
   %1076 = load i32, ptr %1075, align 4
   %1077 = zext i32 %1076 to i64
-  %1078 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1074, i64 %1077
+  %1078 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1074, i64 %1077
   %1079 = load ptr, ptr %64, align 8
   %1080 = ptrtoint ptr %1079 to i64
   %1081 = and i64 %1080, 1
@@ -12774,7 +12774,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1805: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808: ; preds = %1073, %1082
   %.0.i1807 = phi ptr [ %1085, %1082 ], [ %1079, %1073 ]
-  %1086 = getelementptr inbounds i8, ptr %1078, i64 10
+  %1086 = getelementptr inbounds nuw i8, ptr %1078, i64 10
   %1087 = load i8, ptr %1086, align 2
   %1088 = and i8 %1087, 31
   switch i8 %1088, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809 [
@@ -12790,14 +12790,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808: ; preds = %1073, %1082
 1091:                                             ; preds = %1089
   %1092 = load i32, ptr %1078, align 4
   %1093 = zext i32 %1092 to i64
-  %1094 = getelementptr inbounds i8, ptr %0, i64 %1093
+  %1094 = getelementptr inbounds nuw i8, ptr %0, i64 %1093
   %1095 = load ptr, ptr %1094, align 8
   %1096 = icmp eq ptr %1095, null
   br i1 %1096, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809, label %1097
 
 1097:                                             ; preds = %1091
   %1098 = load ptr, ptr %1095, align 8
-  %1099 = getelementptr inbounds i8, ptr %1098, i64 8
+  %1099 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   %1100 = load ptr, ptr %1099, align 8
   call void %1100(ptr noundef nonnull align 8 dereferenceable(16) %1095) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809
@@ -12805,14 +12805,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808: ; preds = %1073, %1082
 1101:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808
   %1102 = load i32, ptr %1078, align 4
   %1103 = zext i32 %1102 to i64
-  %1104 = getelementptr inbounds i8, ptr %0, i64 %1103
+  %1104 = getelementptr inbounds nuw i8, ptr %0, i64 %1103
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1104, ptr noundef %.0.i1807)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1809: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1808, %1089, %1091, %1097, %1101
   %1105 = load i32, ptr %53, align 4
   store i32 %95, ptr %1075, align 4
-  %1106 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1106 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %1105, ptr %1106, align 4
   br label %.backedge
 
@@ -12829,7 +12829,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit.thread: ; preds = %1107
   %1115 = load i64, ptr %1109, align 1
   store i64 %1115, ptr %54, align 8
-  %1116 = getelementptr inbounds i8, ptr %1109, i64 8
+  %1116 = getelementptr inbounds nuw i8, ptr %1109, i64 8
   store ptr %1116, ptr %2, align 8
   br label %1118
 
@@ -12847,17 +12847,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit._crit_edge:
   %1121 = shl nuw i32 1, %1120
   %1122 = lshr i32 %107, 5
   %1123 = zext nneg i32 %1122 to i64
-  %1124 = getelementptr inbounds i32, ptr %59, i64 %1123
+  %1124 = getelementptr inbounds nuw i32, ptr %59, i64 %1123
   %1125 = load i32, ptr %1124, align 4
   %1126 = or i32 %1125, %1121
   store i32 %1126, ptr %1124, align 4
-  %1127 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1127 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %1119, ptr %1127, align 8
   br label %.backedge
 
 1128:                                             ; preds = %117
-  %1129 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1130 = getelementptr inbounds i8, ptr %105, i64 11
+  %1129 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1130 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1131 = load i8, ptr %1130, align 1
   %1132 = zext i8 %1131 to i32
   %1133 = load ptr, ptr %60, align 8
@@ -12872,7 +12872,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit._crit_edge:
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1812.thread: ; preds = %1128
   %1140 = load i64, ptr %1134, align 1
   store i64 %1140, ptr %28, align 8
-  %1141 = getelementptr inbounds i8, ptr %1134, i64 8
+  %1141 = getelementptr inbounds nuw i8, ptr %1134, i64 8
   store ptr %1141, ptr %2, align 8
   br label %1143
 
@@ -12918,7 +12918,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1812: ; pred
   %1165 = load i8, ptr %.013732661, align 1
   %1166 = zext i8 %1165 to i32
   %1167 = icmp eq i32 %.sroa.0587.0, %1166
-  %1168 = getelementptr inbounds i8, ptr %.013732661, i64 1
+  %1168 = getelementptr inbounds nuw i8, ptr %.013732661, i64 1
   br i1 %1167, label %select.unfold2283, label %.critedge14
 
 1169:                                             ; preds = %1163
@@ -12931,18 +12931,18 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1812: ; pred
   br i1 %1173, label %1174, label %.critedge14
 
 1174:                                             ; preds = %1170
-  %1175 = getelementptr inbounds i8, ptr %.013732661, i64 1
+  %1175 = getelementptr inbounds nuw i8, ptr %.013732661, i64 1
   %1176 = load i8, ptr %1175, align 1
   %1177 = zext i8 %1176 to i32
   %1178 = icmp eq i32 %1162, %1177
-  %1179 = getelementptr inbounds i8, ptr %.013732661, i64 2
+  %1179 = getelementptr inbounds nuw i8, ptr %.013732661, i64 2
   br i1 %1178, label %select.unfold2283, label %.critedge14
 
 select.unfold2283:                                ; preds = %1174, %1164
   %.01371 = phi ptr [ %1168, %1164 ], [ %1179, %1174 ]
   %1180 = load i64, ptr %.01371, align 1
   store i64 %1180, ptr %28, align 8
-  %1181 = getelementptr inbounds i8, ptr %.01371, i64 8
+  %1181 = getelementptr inbounds nuw i8, ptr %.01371, i64 8
   call void @_ZN6google8protobuf13RepeatedFieldImE18AddAlreadyReservedERKm(ptr noundef nonnull align 8 dereferenceable(16) %1129, ptr noundef nonnull align 8 dereferenceable(8) %28)
   %1182 = add nuw nsw i32 %.013742660, 1
   %exitcond2842.not = icmp eq i32 %1182, %.sroa.speculated2054
@@ -12966,7 +12966,7 @@ select.unfold2283:                                ; preds = %1174, %1164
 
 1190:                                             ; preds = %.critedge14.thread2866
   %1191 = zext nneg i32 %1183 to i64
-  %1192 = getelementptr inbounds i8, ptr %1185, i64 %1191
+  %1192 = getelementptr inbounds nuw i8, ptr %1185, i64 %1191
   store ptr %1192, ptr %2, align 8
   br label %.backedge
 
@@ -12989,7 +12989,7 @@ select.unfold2283:                                ; preds = %1174, %1164
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818.thread: ; preds = %1195
   %1205 = load i64, ptr %1199, align 1
   store i64 %1205, ptr %55, align 8
-  %1206 = getelementptr inbounds i8, ptr %1199, i64 8
+  %1206 = getelementptr inbounds nuw i8, ptr %1199, i64 8
   store ptr %1206, ptr %2, align 8
   br label %1208
 
@@ -12999,10 +12999,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818: ; pred
 
 1208:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818.thread, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818
   %1209 = load ptr, ptr %1, align 8
-  %1210 = getelementptr inbounds i32, ptr %1197, i64 %108
+  %1210 = getelementptr inbounds nuw i32, ptr %1197, i64 %108
   %1211 = load i32, ptr %1210, align 4
   %1212 = zext i32 %1211 to i64
-  %1213 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1209, i64 %1212
+  %1213 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1209, i64 %1212
   %1214 = load ptr, ptr %64, align 8
   %1215 = ptrtoint ptr %1214 to i64
   %1216 = and i64 %1215, 1
@@ -13017,7 +13017,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1818: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821: ; preds = %1208, %1217
   %.0.i1820 = phi ptr [ %1220, %1217 ], [ %1214, %1208 ]
-  %1221 = getelementptr inbounds i8, ptr %1213, i64 10
+  %1221 = getelementptr inbounds nuw i8, ptr %1213, i64 10
   %1222 = load i8, ptr %1221, align 2
   %1223 = and i8 %1222, 31
   switch i8 %1223, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822 [
@@ -13033,14 +13033,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821: ; preds = %1208, %1217
 1226:                                             ; preds = %1224
   %1227 = load i32, ptr %1213, align 4
   %1228 = zext i32 %1227 to i64
-  %1229 = getelementptr inbounds i8, ptr %0, i64 %1228
+  %1229 = getelementptr inbounds nuw i8, ptr %0, i64 %1228
   %1230 = load ptr, ptr %1229, align 8
   %1231 = icmp eq ptr %1230, null
   br i1 %1231, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822, label %1232
 
 1232:                                             ; preds = %1226
   %1233 = load ptr, ptr %1230, align 8
-  %1234 = getelementptr inbounds i8, ptr %1233, i64 8
+  %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 8
   %1235 = load ptr, ptr %1234, align 8
   call void %1235(ptr noundef nonnull align 8 dereferenceable(16) %1230) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822
@@ -13048,14 +13048,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821: ; preds = %1208, %1217
 1236:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821
   %1237 = load i32, ptr %1213, align 4
   %1238 = zext i32 %1237 to i64
-  %1239 = getelementptr inbounds i8, ptr %0, i64 %1238
+  %1239 = getelementptr inbounds nuw i8, ptr %0, i64 %1238
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1239, ptr noundef %.0.i1820)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1822: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1821, %1224, %1226, %1232, %1236
   %1240 = load i64, ptr %55, align 8
   store i32 %95, ptr %1210, align 4
-  %1241 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1241 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %1240, ptr %1241, align 8
   br label %.backedge
 
@@ -13072,7 +13072,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1824.thread: ; preds = %1242
   %1250 = load i32, ptr %1244, align 1
   store i32 %1250, ptr %44, align 4
-  %1251 = getelementptr inbounds i8, ptr %1244, i64 4
+  %1251 = getelementptr inbounds nuw i8, ptr %1244, i64 4
   store ptr %1251, ptr %2, align 8
   br label %1254
 
@@ -13087,17 +13087,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1824: ; pred
   %1256 = shl nuw i32 1, %1255
   %1257 = lshr i32 %107, 5
   %1258 = zext nneg i32 %1257 to i64
-  %1259 = getelementptr inbounds i32, ptr %59, i64 %1258
+  %1259 = getelementptr inbounds nuw i32, ptr %59, i64 %1258
   %1260 = load i32, ptr %1259, align 4
   %1261 = or i32 %1260, %1256
   store i32 %1261, ptr %1259, align 4
-  %1262 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1262 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph2294, ptr %1262, align 4
   br label %.backedge
 
 1263:                                             ; preds = %117
-  %1264 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1265 = getelementptr inbounds i8, ptr %105, i64 11
+  %1264 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1265 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1266 = load i8, ptr %1265, align 1
   %1267 = zext i8 %1266 to i32
   %1268 = load ptr, ptr %60, align 8
@@ -13112,7 +13112,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1824: ; pred
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1826.thread: ; preds = %1263
   %1275 = load i32, ptr %1269, align 1
   store i32 %1275, ptr %26, align 4
-  %1276 = getelementptr inbounds i8, ptr %1269, i64 4
+  %1276 = getelementptr inbounds nuw i8, ptr %1269, i64 4
   store ptr %1276, ptr %2, align 8
   br label %1278
 
@@ -13164,7 +13164,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1826._crit_e
   %1301 = load i8, ptr %.013692648, align 1
   %1302 = zext i8 %1301 to i32
   %1303 = icmp eq i32 %.sroa.0587.0, %1302
-  %1304 = getelementptr inbounds i8, ptr %.013692648, i64 1
+  %1304 = getelementptr inbounds nuw i8, ptr %.013692648, i64 1
   br i1 %1303, label %select.unfold2299, label %.critedge16
 
 1305:                                             ; preds = %1299
@@ -13177,17 +13177,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1826._crit_e
   br i1 %1309, label %1310, label %.critedge16
 
 1310:                                             ; preds = %1306
-  %1311 = getelementptr inbounds i8, ptr %.013692648, i64 1
+  %1311 = getelementptr inbounds nuw i8, ptr %.013692648, i64 1
   %1312 = load i8, ptr %1311, align 1
   %1313 = zext i8 %1312 to i32
   %1314 = icmp eq i32 %1298, %1313
-  %1315 = getelementptr inbounds i8, ptr %.013692648, i64 2
+  %1315 = getelementptr inbounds nuw i8, ptr %.013692648, i64 2
   br i1 %1314, label %select.unfold2299, label %.critedge16
 
 select.unfold2299:                                ; preds = %1310, %1300
   %.01366 = phi ptr [ %1304, %1300 ], [ %1315, %1310 ]
   %1316 = load i32, ptr %.01366, align 1
-  %1317 = getelementptr inbounds i8, ptr %.01366, i64 4
+  %1317 = getelementptr inbounds nuw i8, ptr %.01366, i64 4
   store i32 %1316, ptr %27, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIiE18AddAlreadyReservedERKi(ptr noundef nonnull align 8 dereferenceable(16) %1264, ptr noundef nonnull align 4 dereferenceable(4) %27)
   %1318 = add nuw nsw i32 %.013702647, 1
@@ -13212,7 +13212,7 @@ select.unfold2299:                                ; preds = %1310, %1300
 
 1326:                                             ; preds = %.critedge16.thread2872
   %1327 = zext nneg i32 %1319 to i64
-  %1328 = getelementptr inbounds i8, ptr %1321, i64 %1327
+  %1328 = getelementptr inbounds nuw i8, ptr %1321, i64 %1327
   store ptr %1328, ptr %2, align 8
   br label %.backedge
 
@@ -13235,7 +13235,7 @@ select.unfold2299:                                ; preds = %1310, %1300
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832.thread: ; preds = %1331
   %1341 = load i32, ptr %1335, align 1
   store i32 %1341, ptr %45, align 4
-  %1342 = getelementptr inbounds i8, ptr %1335, i64 4
+  %1342 = getelementptr inbounds nuw i8, ptr %1335, i64 4
   store ptr %1342, ptr %2, align 8
   br label %1345
 
@@ -13247,10 +13247,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832: ; pred
 1345:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832.thread
   %.ph2309 = phi i32 [ %1341, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832.thread ], [ %1344, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832 ]
   %1346 = load ptr, ptr %1, align 8
-  %1347 = getelementptr inbounds i32, ptr %1333, i64 %108
+  %1347 = getelementptr inbounds nuw i32, ptr %1333, i64 %108
   %1348 = load i32, ptr %1347, align 4
   %1349 = zext i32 %1348 to i64
-  %1350 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1346, i64 %1349
+  %1350 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1346, i64 %1349
   %1351 = load ptr, ptr %64, align 8
   %1352 = ptrtoint ptr %1351 to i64
   %1353 = and i64 %1352, 1
@@ -13265,7 +13265,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1832: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835: ; preds = %1345, %1354
   %.0.i1834 = phi ptr [ %1357, %1354 ], [ %1351, %1345 ]
-  %1358 = getelementptr inbounds i8, ptr %1350, i64 10
+  %1358 = getelementptr inbounds nuw i8, ptr %1350, i64 10
   %1359 = load i8, ptr %1358, align 2
   %1360 = and i8 %1359, 31
   switch i8 %1360, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836 [
@@ -13281,14 +13281,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835: ; preds = %1345, %1354
 1363:                                             ; preds = %1361
   %1364 = load i32, ptr %1350, align 4
   %1365 = zext i32 %1364 to i64
-  %1366 = getelementptr inbounds i8, ptr %0, i64 %1365
+  %1366 = getelementptr inbounds nuw i8, ptr %0, i64 %1365
   %1367 = load ptr, ptr %1366, align 8
   %1368 = icmp eq ptr %1367, null
   br i1 %1368, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836, label %1369
 
 1369:                                             ; preds = %1363
   %1370 = load ptr, ptr %1367, align 8
-  %1371 = getelementptr inbounds i8, ptr %1370, i64 8
+  %1371 = getelementptr inbounds nuw i8, ptr %1370, i64 8
   %1372 = load ptr, ptr %1371, align 8
   call void %1372(ptr noundef nonnull align 8 dereferenceable(16) %1367) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836
@@ -13296,13 +13296,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835: ; preds = %1345, %1354
 1373:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835
   %1374 = load i32, ptr %1350, align 4
   %1375 = zext i32 %1374 to i64
-  %1376 = getelementptr inbounds i8, ptr %0, i64 %1375
+  %1376 = getelementptr inbounds nuw i8, ptr %0, i64 %1375
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1376, ptr noundef %.0.i1834)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1836: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1835, %1361, %1363, %1369, %1373
   store i32 %95, ptr %1347, align 4
-  %1377 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1377 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.ph2309, ptr %1377, align 4
   br label %.backedge
 
@@ -13319,7 +13319,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1838.thread: ; preds = %1378
   %1386 = load i64, ptr %1380, align 1
   store i64 %1386, ptr %42, align 8
-  %1387 = getelementptr inbounds i8, ptr %1380, i64 8
+  %1387 = getelementptr inbounds nuw i8, ptr %1380, i64 8
   store ptr %1387, ptr %2, align 8
   br label %1390
 
@@ -13334,17 +13334,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1838: ; pred
   %1392 = shl nuw i32 1, %1391
   %1393 = lshr i32 %107, 5
   %1394 = zext nneg i32 %1393 to i64
-  %1395 = getelementptr inbounds i32, ptr %59, i64 %1394
+  %1395 = getelementptr inbounds nuw i32, ptr %59, i64 %1394
   %1396 = load i32, ptr %1395, align 4
   %1397 = or i32 %1396, %1392
   store i32 %1397, ptr %1395, align 4
-  %1398 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1398 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2316, ptr %1398, align 8
   br label %.backedge
 
 1399:                                             ; preds = %117
-  %1400 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1401 = getelementptr inbounds i8, ptr %105, i64 11
+  %1400 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1401 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1402 = load i8, ptr %1401, align 1
   %1403 = zext i8 %1402 to i32
   %1404 = load ptr, ptr %60, align 8
@@ -13359,7 +13359,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1838: ; pred
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1840.thread: ; preds = %1399
   %1411 = load i64, ptr %1405, align 1
   store i64 %1411, ptr %24, align 8
-  %1412 = getelementptr inbounds i8, ptr %1405, i64 8
+  %1412 = getelementptr inbounds nuw i8, ptr %1405, i64 8
   store ptr %1412, ptr %2, align 8
   br label %1414
 
@@ -13411,7 +13411,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1840._crit_e
   %1437 = load i8, ptr %.013642635, align 1
   %1438 = zext i8 %1437 to i32
   %1439 = icmp eq i32 %.sroa.0587.0, %1438
-  %1440 = getelementptr inbounds i8, ptr %.013642635, i64 1
+  %1440 = getelementptr inbounds nuw i8, ptr %.013642635, i64 1
   br i1 %1439, label %select.unfold2321, label %.critedge18
 
 1441:                                             ; preds = %1435
@@ -13424,17 +13424,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1840._crit_e
   br i1 %1445, label %1446, label %.critedge18
 
 1446:                                             ; preds = %1442
-  %1447 = getelementptr inbounds i8, ptr %.013642635, i64 1
+  %1447 = getelementptr inbounds nuw i8, ptr %.013642635, i64 1
   %1448 = load i8, ptr %1447, align 1
   %1449 = zext i8 %1448 to i32
   %1450 = icmp eq i32 %1434, %1449
-  %1451 = getelementptr inbounds i8, ptr %.013642635, i64 2
+  %1451 = getelementptr inbounds nuw i8, ptr %.013642635, i64 2
   br i1 %1450, label %select.unfold2321, label %.critedge18
 
 select.unfold2321:                                ; preds = %1446, %1436
   %.01360 = phi ptr [ %1440, %1436 ], [ %1451, %1446 ]
   %1452 = load i64, ptr %.01360, align 1
-  %1453 = getelementptr inbounds i8, ptr %.01360, i64 8
+  %1453 = getelementptr inbounds nuw i8, ptr %.01360, i64 8
   store i64 %1452, ptr %25, align 8
   call void @_ZN6google8protobuf13RepeatedFieldIlE18AddAlreadyReservedERKl(ptr noundef nonnull align 8 dereferenceable(16) %1400, ptr noundef nonnull align 8 dereferenceable(8) %25)
   %1454 = add nuw nsw i32 %.013652634, 1
@@ -13459,7 +13459,7 @@ select.unfold2321:                                ; preds = %1446, %1436
 
 1462:                                             ; preds = %.critedge18.thread2878
   %1463 = zext nneg i32 %1455 to i64
-  %1464 = getelementptr inbounds i8, ptr %1457, i64 %1463
+  %1464 = getelementptr inbounds nuw i8, ptr %1457, i64 %1463
   store ptr %1464, ptr %2, align 8
   br label %.backedge
 
@@ -13482,7 +13482,7 @@ select.unfold2321:                                ; preds = %1446, %1436
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846.thread: ; preds = %1467
   %1477 = load i64, ptr %1471, align 1
   store i64 %1477, ptr %43, align 8
-  %1478 = getelementptr inbounds i8, ptr %1471, i64 8
+  %1478 = getelementptr inbounds nuw i8, ptr %1471, i64 8
   store ptr %1478, ptr %2, align 8
   br label %1481
 
@@ -13494,10 +13494,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846: ; pred
 1481:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846.thread
   %.ph2331 = phi i64 [ %1477, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846.thread ], [ %1480, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846 ]
   %1482 = load ptr, ptr %1, align 8
-  %1483 = getelementptr inbounds i32, ptr %1469, i64 %108
+  %1483 = getelementptr inbounds nuw i32, ptr %1469, i64 %108
   %1484 = load i32, ptr %1483, align 4
   %1485 = zext i32 %1484 to i64
-  %1486 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1482, i64 %1485
+  %1486 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1482, i64 %1485
   %1487 = load ptr, ptr %64, align 8
   %1488 = ptrtoint ptr %1487 to i64
   %1489 = and i64 %1488, 1
@@ -13512,7 +13512,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1846: ; pred
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849: ; preds = %1481, %1490
   %.0.i1848 = phi ptr [ %1493, %1490 ], [ %1487, %1481 ]
-  %1494 = getelementptr inbounds i8, ptr %1486, i64 10
+  %1494 = getelementptr inbounds nuw i8, ptr %1486, i64 10
   %1495 = load i8, ptr %1494, align 2
   %1496 = and i8 %1495, 31
   switch i8 %1496, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850 [
@@ -13528,14 +13528,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849: ; preds = %1481, %1490
 1499:                                             ; preds = %1497
   %1500 = load i32, ptr %1486, align 4
   %1501 = zext i32 %1500 to i64
-  %1502 = getelementptr inbounds i8, ptr %0, i64 %1501
+  %1502 = getelementptr inbounds nuw i8, ptr %0, i64 %1501
   %1503 = load ptr, ptr %1502, align 8
   %1504 = icmp eq ptr %1503, null
   br i1 %1504, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850, label %1505
 
 1505:                                             ; preds = %1499
   %1506 = load ptr, ptr %1503, align 8
-  %1507 = getelementptr inbounds i8, ptr %1506, i64 8
+  %1507 = getelementptr inbounds nuw i8, ptr %1506, i64 8
   %1508 = load ptr, ptr %1507, align 8
   call void %1508(ptr noundef nonnull align 8 dereferenceable(16) %1503) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850
@@ -13543,13 +13543,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849: ; preds = %1481, %1490
 1509:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849
   %1510 = load i32, ptr %1486, align 4
   %1511 = zext i32 %1510 to i64
-  %1512 = getelementptr inbounds i8, ptr %0, i64 %1511
+  %1512 = getelementptr inbounds nuw i8, ptr %0, i64 %1511
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1512, ptr noundef %.0.i1848)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1850: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1849, %1497, %1499, %1505, %1509
   store i32 %95, ptr %1483, align 4
-  %1513 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1513 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i64 %.ph2331, ptr %1513, align 8
   br label %.backedge
 
@@ -13566,7 +13566,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1852.thread: ; preds = %1514
   %1522 = load i32, ptr %1516, align 1
   store i32 %1522, ptr %40, align 4
-  %1523 = getelementptr inbounds i8, ptr %1516, i64 4
+  %1523 = getelementptr inbounds nuw i8, ptr %1516, i64 4
   store ptr %1523, ptr %2, align 8
   %1524 = bitcast i32 %1522 to float
   br label %1526
@@ -13585,17 +13585,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1852._crit_e
   %1529 = shl nuw i32 1, %1528
   %1530 = lshr i32 %107, 5
   %1531 = zext nneg i32 %1530 to i64
-  %1532 = getelementptr inbounds i32, ptr %59, i64 %1531
+  %1532 = getelementptr inbounds nuw i32, ptr %59, i64 %1531
   %1533 = load i32, ptr %1532, align 4
   %1534 = or i32 %1533, %1529
   store i32 %1534, ptr %1532, align 4
-  %1535 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1535 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store float %1527, ptr %1535, align 4
   br label %.backedge
 
 1536:                                             ; preds = %117
-  %1537 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1538 = getelementptr inbounds i8, ptr %105, i64 11
+  %1537 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1538 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1539 = load i8, ptr %1538, align 1
   %1540 = zext i8 %1539 to i32
   %1541 = load ptr, ptr %60, align 8
@@ -13610,7 +13610,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1852._crit_e
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1854.thread: ; preds = %1536
   %1548 = load i32, ptr %1542, align 1
   store i32 %1548, ptr %22, align 4
-  %1549 = getelementptr inbounds i8, ptr %1542, i64 4
+  %1549 = getelementptr inbounds nuw i8, ptr %1542, i64 4
   store ptr %1549, ptr %2, align 8
   %1550 = bitcast i32 %1548 to float
   br label %1552
@@ -13663,7 +13663,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1854._crit_e
   %1575 = load i8, ptr %.013582622, align 1
   %1576 = zext i8 %1575 to i32
   %1577 = icmp eq i32 %.sroa.0587.0, %1576
-  %1578 = getelementptr inbounds i8, ptr %.013582622, i64 1
+  %1578 = getelementptr inbounds nuw i8, ptr %.013582622, i64 1
   br i1 %1577, label %select.unfold2343, label %.critedge20
 
 1579:                                             ; preds = %1573
@@ -13676,17 +13676,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1854._crit_e
   br i1 %1583, label %1584, label %.critedge20
 
 1584:                                             ; preds = %1580
-  %1585 = getelementptr inbounds i8, ptr %.013582622, i64 1
+  %1585 = getelementptr inbounds nuw i8, ptr %.013582622, i64 1
   %1586 = load i8, ptr %1585, align 1
   %1587 = zext i8 %1586 to i32
   %1588 = icmp eq i32 %1572, %1587
-  %1589 = getelementptr inbounds i8, ptr %.013582622, i64 2
+  %1589 = getelementptr inbounds nuw i8, ptr %.013582622, i64 2
   br i1 %1588, label %select.unfold2343, label %.critedge20
 
 select.unfold2343:                                ; preds = %1584, %1574
   %.01353 = phi ptr [ %1578, %1574 ], [ %1589, %1584 ]
   %1590 = load float, ptr %.01353, align 1
-  %1591 = getelementptr inbounds i8, ptr %.01353, i64 4
+  %1591 = getelementptr inbounds nuw i8, ptr %.01353, i64 4
   store float %1590, ptr %23, align 4
   call void @_ZN6google8protobuf13RepeatedFieldIfE18AddAlreadyReservedERKf(ptr noundef nonnull align 8 dereferenceable(16) %1537, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %1592 = add nuw nsw i32 %.013592621, 1
@@ -13711,7 +13711,7 @@ select.unfold2343:                                ; preds = %1584, %1574
 
 1600:                                             ; preds = %.critedge20.thread2884
   %1601 = zext nneg i32 %1593 to i64
-  %1602 = getelementptr inbounds i8, ptr %1595, i64 %1601
+  %1602 = getelementptr inbounds nuw i8, ptr %1595, i64 %1601
   store ptr %1602, ptr %2, align 8
   br label %.backedge
 
@@ -13734,7 +13734,7 @@ select.unfold2343:                                ; preds = %1584, %1574
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860.thread: ; preds = %1605
   %1615 = load i32, ptr %1609, align 1
   store i32 %1615, ptr %41, align 4
-  %1616 = getelementptr inbounds i8, ptr %1609, i64 4
+  %1616 = getelementptr inbounds nuw i8, ptr %1609, i64 4
   store ptr %1616, ptr %2, align 8
   %1617 = bitcast i32 %1615 to float
   br label %1619
@@ -13750,10 +13750,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_e
 1619:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860.thread
   %1620 = phi float [ %.pre2851, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_edge ], [ %1617, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860.thread ]
   %1621 = load ptr, ptr %1, align 8
-  %1622 = getelementptr inbounds i32, ptr %1607, i64 %108
+  %1622 = getelementptr inbounds nuw i32, ptr %1607, i64 %108
   %1623 = load i32, ptr %1622, align 4
   %1624 = zext i32 %1623 to i64
-  %1625 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1621, i64 %1624
+  %1625 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1621, i64 %1624
   %1626 = load ptr, ptr %64, align 8
   %1627 = ptrtoint ptr %1626 to i64
   %1628 = and i64 %1627, 1
@@ -13768,7 +13768,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1860._crit_e
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863: ; preds = %1619, %1629
   %.0.i1862 = phi ptr [ %1632, %1629 ], [ %1626, %1619 ]
-  %1633 = getelementptr inbounds i8, ptr %1625, i64 10
+  %1633 = getelementptr inbounds nuw i8, ptr %1625, i64 10
   %1634 = load i8, ptr %1633, align 2
   %1635 = and i8 %1634, 31
   switch i8 %1635, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864 [
@@ -13784,14 +13784,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863: ; preds = %1619, %1629
 1638:                                             ; preds = %1636
   %1639 = load i32, ptr %1625, align 4
   %1640 = zext i32 %1639 to i64
-  %1641 = getelementptr inbounds i8, ptr %0, i64 %1640
+  %1641 = getelementptr inbounds nuw i8, ptr %0, i64 %1640
   %1642 = load ptr, ptr %1641, align 8
   %1643 = icmp eq ptr %1642, null
   br i1 %1643, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864, label %1644
 
 1644:                                             ; preds = %1638
   %1645 = load ptr, ptr %1642, align 8
-  %1646 = getelementptr inbounds i8, ptr %1645, i64 8
+  %1646 = getelementptr inbounds nuw i8, ptr %1645, i64 8
   %1647 = load ptr, ptr %1646, align 8
   call void %1647(ptr noundef nonnull align 8 dereferenceable(16) %1642) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864
@@ -13799,13 +13799,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863: ; preds = %1619, %1629
 1648:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863
   %1649 = load i32, ptr %1625, align 4
   %1650 = zext i32 %1649 to i64
-  %1651 = getelementptr inbounds i8, ptr %0, i64 %1650
+  %1651 = getelementptr inbounds nuw i8, ptr %0, i64 %1650
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1651, ptr noundef %.0.i1862)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1864: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1863, %1636, %1638, %1644, %1648
   store i32 %95, ptr %1622, align 4
-  %1652 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1652 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store float %1620, ptr %1652, align 4
   br label %.backedge
 
@@ -13822,7 +13822,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1866.thread: ; preds = %1653
   %1661 = load i64, ptr %1655, align 1
   store i64 %1661, ptr %38, align 8
-  %1662 = getelementptr inbounds i8, ptr %1655, i64 8
+  %1662 = getelementptr inbounds nuw i8, ptr %1655, i64 8
   store ptr %1662, ptr %2, align 8
   %1663 = bitcast i64 %1661 to double
   br label %1665
@@ -13841,17 +13841,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1866._crit_e
   %1668 = shl nuw i32 1, %1667
   %1669 = lshr i32 %107, 5
   %1670 = zext nneg i32 %1669 to i64
-  %1671 = getelementptr inbounds i32, ptr %59, i64 %1670
+  %1671 = getelementptr inbounds nuw i32, ptr %59, i64 %1670
   %1672 = load i32, ptr %1671, align 4
   %1673 = or i32 %1672, %1668
   store i32 %1673, ptr %1671, align 4
-  %1674 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1674 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store double %1666, ptr %1674, align 8
   br label %.backedge
 
 1675:                                             ; preds = %117
-  %1676 = getelementptr inbounds i8, ptr %0, i64 %110
-  %1677 = getelementptr inbounds i8, ptr %105, i64 11
+  %1676 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %1677 = getelementptr inbounds nuw i8, ptr %105, i64 11
   %1678 = load i8, ptr %1677, align 1
   %1679 = zext i8 %1678 to i32
   %1680 = load ptr, ptr %60, align 8
@@ -13866,7 +13866,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1866._crit_e
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1868.thread: ; preds = %1675
   %1687 = load i64, ptr %1681, align 1
   store i64 %1687, ptr %20, align 8
-  %1688 = getelementptr inbounds i8, ptr %1681, i64 8
+  %1688 = getelementptr inbounds nuw i8, ptr %1681, i64 8
   store ptr %1688, ptr %2, align 8
   %1689 = bitcast i64 %1687 to double
   br label %1691
@@ -13919,7 +13919,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1868._crit_e
   %1714 = load i8, ptr %.013502610, align 1
   %1715 = zext i8 %1714 to i32
   %1716 = icmp eq i32 %.sroa.0587.0, %1715
-  %1717 = getelementptr inbounds i8, ptr %.013502610, i64 1
+  %1717 = getelementptr inbounds nuw i8, ptr %.013502610, i64 1
   br i1 %1716, label %select.unfold2365, label %.critedge22
 
 1718:                                             ; preds = %1712
@@ -13932,17 +13932,17 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1868._crit_e
   br i1 %1722, label %1723, label %.critedge22
 
 1723:                                             ; preds = %1719
-  %1724 = getelementptr inbounds i8, ptr %.013502610, i64 1
+  %1724 = getelementptr inbounds nuw i8, ptr %.013502610, i64 1
   %1725 = load i8, ptr %1724, align 1
   %1726 = zext i8 %1725 to i32
   %1727 = icmp eq i32 %1711, %1726
-  %1728 = getelementptr inbounds i8, ptr %.013502610, i64 2
+  %1728 = getelementptr inbounds nuw i8, ptr %.013502610, i64 2
   br i1 %1727, label %select.unfold2365, label %.critedge22
 
 select.unfold2365:                                ; preds = %1723, %1713
   %.01347 = phi ptr [ %1717, %1713 ], [ %1728, %1723 ]
   %1729 = load double, ptr %.01347, align 1
-  %1730 = getelementptr inbounds i8, ptr %.01347, i64 8
+  %1730 = getelementptr inbounds nuw i8, ptr %.01347, i64 8
   store double %1729, ptr %21, align 8
   call void @_ZN6google8protobuf13RepeatedFieldIdE18AddAlreadyReservedERKd(ptr noundef nonnull align 8 dereferenceable(16) %1676, ptr noundef nonnull align 8 dereferenceable(8) %21)
   %1731 = add nuw nsw i32 %.013512609, 1
@@ -13967,7 +13967,7 @@ select.unfold2365:                                ; preds = %1723, %1713
 
 1739:                                             ; preds = %.critedge22.thread2890
   %1740 = zext nneg i32 %1732 to i64
-  %1741 = getelementptr inbounds i8, ptr %1734, i64 %1740
+  %1741 = getelementptr inbounds nuw i8, ptr %1734, i64 %1740
   store ptr %1741, ptr %2, align 8
   br label %.backedge
 
@@ -13990,7 +13990,7 @@ select.unfold2365:                                ; preds = %1723, %1713
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874.thread: ; preds = %1744
   %1754 = load i64, ptr %1748, align 1
   store i64 %1754, ptr %39, align 8
-  %1755 = getelementptr inbounds i8, ptr %1748, i64 8
+  %1755 = getelementptr inbounds nuw i8, ptr %1748, i64 8
   store ptr %1755, ptr %2, align 8
   %1756 = bitcast i64 %1754 to double
   br label %1758
@@ -14006,10 +14006,10 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_e
 1758:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874.thread
   %1759 = phi double [ %.pre2848, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_edge ], [ %1756, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874.thread ]
   %1760 = load ptr, ptr %1, align 8
-  %1761 = getelementptr inbounds i32, ptr %1746, i64 %108
+  %1761 = getelementptr inbounds nuw i32, ptr %1746, i64 %108
   %1762 = load i32, ptr %1761, align 4
   %1763 = zext i32 %1762 to i64
-  %1764 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1760, i64 %1763
+  %1764 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1760, i64 %1763
   %1765 = load ptr, ptr %64, align 8
   %1766 = ptrtoint ptr %1765 to i64
   %1767 = and i64 %1766, 1
@@ -14024,7 +14024,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1874._crit_e
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877: ; preds = %1758, %1768
   %.0.i1876 = phi ptr [ %1771, %1768 ], [ %1765, %1758 ]
-  %1772 = getelementptr inbounds i8, ptr %1764, i64 10
+  %1772 = getelementptr inbounds nuw i8, ptr %1764, i64 10
   %1773 = load i8, ptr %1772, align 2
   %1774 = and i8 %1773, 31
   switch i8 %1774, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878 [
@@ -14040,14 +14040,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877: ; preds = %1758, %1768
 1777:                                             ; preds = %1775
   %1778 = load i32, ptr %1764, align 4
   %1779 = zext i32 %1778 to i64
-  %1780 = getelementptr inbounds i8, ptr %0, i64 %1779
+  %1780 = getelementptr inbounds nuw i8, ptr %0, i64 %1779
   %1781 = load ptr, ptr %1780, align 8
   %1782 = icmp eq ptr %1781, null
   br i1 %1782, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878, label %1783
 
 1783:                                             ; preds = %1777
   %1784 = load ptr, ptr %1781, align 8
-  %1785 = getelementptr inbounds i8, ptr %1784, i64 8
+  %1785 = getelementptr inbounds nuw i8, ptr %1784, i64 8
   %1786 = load ptr, ptr %1785, align 8
   call void %1786(ptr noundef nonnull align 8 dereferenceable(16) %1781) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878
@@ -14055,13 +14055,13 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877: ; preds = %1758, %1768
 1787:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877
   %1788 = load i32, ptr %1764, align 4
   %1789 = zext i32 %1788 to i64
-  %1790 = getelementptr inbounds i8, ptr %0, i64 %1789
+  %1790 = getelementptr inbounds nuw i8, ptr %0, i64 %1789
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1790, ptr noundef %.0.i1876)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1878: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1877, %1775, %1777, %1783, %1787
   store i32 %95, ptr %1761, align 4
-  %1791 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1791 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store double %1759, ptr %1791, align 8
   br label %.backedge
 
@@ -14077,7 +14077,7 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
   br i1 %1798, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880.thread: ; preds = %1796
-  %1799 = getelementptr inbounds i8, ptr %1793, i64 1
+  %1799 = getelementptr inbounds nuw i8, ptr %1793, i64 1
   store ptr %1799, ptr %2, align 8
   %1800 = icmp ne i8 %1797, 0
   br label %1806
@@ -14097,16 +14097,16 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880: ; preds = %1
   %1809 = shl nuw i32 1, %1808
   %1810 = lshr i32 %107, 5
   %1811 = zext nneg i32 %1810 to i64
-  %1812 = getelementptr inbounds i32, ptr %59, i64 %1811
+  %1812 = getelementptr inbounds nuw i32, ptr %59, i64 %1811
   %1813 = load i32, ptr %1812, align 4
   %1814 = or i32 %1813, %1809
   store i32 %1814, ptr %1812, align 4
-  %1815 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1815 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i8 %1807, ptr %1815, align 1
   br label %.backedge
 
 1816:                                             ; preds = %117
-  %1817 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1817 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %1818 = load ptr, ptr %2, align 8
   %1819 = load ptr, ptr %60, align 8
   %1820 = icmp ult ptr %1818, %1819
@@ -14119,7 +14119,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1880: ; preds = %1
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882.thread: ; preds = %1821
   %1824 = zext nneg i8 %1822 to i64
-  %1825 = getelementptr inbounds i8, ptr %1818, i64 1
+  %1825 = getelementptr inbounds nuw i8, ptr %1818, i64 1
   store ptr %1825, ptr %2, align 8
   br label %1830
 
@@ -14167,7 +14167,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
   br i1 %1850, label %1851, label %.backedge
 
 1851:                                             ; preds = %1847
-  %1852 = getelementptr inbounds i8, ptr %1844, i64 1
+  %1852 = getelementptr inbounds nuw i8, ptr %1844, i64 1
   br label %.critedge1649
 
 1853:                                             ; preds = %1842
@@ -14190,14 +14190,14 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
   br i1 %1865, label %1866, label %.backedge
 
 1866:                                             ; preds = %1862
-  %1867 = getelementptr inbounds i8, ptr %1856, i64 1
+  %1867 = getelementptr inbounds nuw i8, ptr %1856, i64 1
   %1868 = load i8, ptr %1867, align 1
   %1869 = zext i8 %1868 to i32
   %1870 = icmp eq i32 %1841, %1869
   br i1 %1870, label %1871, label %.backedge
 
 1871:                                             ; preds = %1866
-  %1872 = getelementptr inbounds i8, ptr %1856, i64 2
+  %1872 = getelementptr inbounds nuw i8, ptr %1856, i64 2
   br label %.critedge1649
 
 .critedge1649:                                    ; preds = %1871, %1851
@@ -14214,7 +14214,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1882: ; preds = %1
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1884.thread: ; preds = %1875
   %1878 = zext nneg i8 %1876 to i64
-  %1879 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %1879 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   store ptr %1879, ptr %2, align 8
   br label %1884
 
@@ -14249,7 +14249,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1884: ; preds = %.
   br i1 %1897, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread: ; preds = %1895
-  %1898 = getelementptr inbounds i8, ptr %1892, i64 1
+  %1898 = getelementptr inbounds nuw i8, ptr %1892, i64 1
   store ptr %1898, ptr %2, align 8
   %1899 = icmp ne i8 %1896, 0
   br label %1905
@@ -14265,10 +14265,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886: ; preds = %1
 1905:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread
   %.ph2397.in = phi i1 [ %1899, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886.thread ], [ %1904, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886 ]
   %1906 = load ptr, ptr %1, align 8
-  %1907 = getelementptr inbounds i32, ptr %1891, i64 %108
+  %1907 = getelementptr inbounds nuw i32, ptr %1891, i64 %108
   %1908 = load i32, ptr %1907, align 4
   %1909 = zext i32 %1908 to i64
-  %1910 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %1906, i64 %1909
+  %1910 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %1906, i64 %1909
   %1911 = load ptr, ptr %64, align 8
   %1912 = ptrtoint ptr %1911 to i64
   %1913 = and i64 %1912, 1
@@ -14283,7 +14283,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1886: ; preds = %1
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1905, %1914
   %.0.i1888 = phi ptr [ %1917, %1914 ], [ %1911, %1905 ]
-  %1918 = getelementptr inbounds i8, ptr %1910, i64 10
+  %1918 = getelementptr inbounds nuw i8, ptr %1910, i64 10
   %1919 = load i8, ptr %1918, align 2
   %1920 = and i8 %1919, 31
   switch i8 %1920, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890 [
@@ -14299,14 +14299,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1905, %1914
 1923:                                             ; preds = %1921
   %1924 = load i32, ptr %1910, align 4
   %1925 = zext i32 %1924 to i64
-  %1926 = getelementptr inbounds i8, ptr %0, i64 %1925
+  %1926 = getelementptr inbounds nuw i8, ptr %0, i64 %1925
   %1927 = load ptr, ptr %1926, align 8
   %1928 = icmp eq ptr %1927, null
   br i1 %1928, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890, label %1929
 
 1929:                                             ; preds = %1923
   %1930 = load ptr, ptr %1927, align 8
-  %1931 = getelementptr inbounds i8, ptr %1930, i64 8
+  %1931 = getelementptr inbounds nuw i8, ptr %1930, i64 8
   %1932 = load ptr, ptr %1931, align 8
   call void %1932(ptr noundef nonnull align 8 dereferenceable(16) %1927) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890
@@ -14314,14 +14314,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889: ; preds = %1905, %1914
 1933:                                             ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889
   %1934 = load i32, ptr %1910, align 4
   %1935 = zext i32 %1934 to i64
-  %1936 = getelementptr inbounds i8, ptr %0, i64 %1935
+  %1936 = getelementptr inbounds nuw i8, ptr %0, i64 %1935
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1936, ptr noundef %.0.i1888)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit1890: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1889, %1921, %1923, %1929, %1933
   %1937 = zext i1 %.ph2397.in to i8
   store i32 %95, ptr %1907, align 4
-  %1938 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1938 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i8 %1937, ptr %1938, align 1
   br label %.backedge
 
@@ -14341,17 +14341,17 @@ _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5Aren
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1893: ; preds = %1939, %1943
   %.0.i1892 = phi ptr [ %1946, %1943 ], [ %1940, %1939 ]
   %1947 = load ptr, ptr %63, align 8
-  %1948 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1947, i64 %104
+  %1948 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1947, i64 %104
   %1949 = load ptr, ptr %1948, align 8
   %1950 = and i32 %107, 31
   %1951 = shl nuw i32 1, %1950
   %1952 = lshr i32 %107, 5
   %1953 = zext nneg i32 %1952 to i64
-  %1954 = getelementptr inbounds i32, ptr %59, i64 %1953
+  %1954 = getelementptr inbounds nuw i32, ptr %59, i64 %1953
   %1955 = load i32, ptr %1954, align 4
   %1956 = or i32 %1955, %1951
   store i32 %1956, ptr %1954, align 4
-  %1957 = getelementptr inbounds i8, ptr %0, i64 %110
+  %1957 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %1958 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %1957, ptr noundef %1949, ptr noundef %.0.i1892)
   %1959 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %1958)
   br i1 %1959, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE0ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -14383,9 +14383,9 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
   %1974 = load i64, ptr %65, align 8
   %1975 = getelementptr inbounds i8, ptr %0, i64 %1974
   %1976 = load ptr, ptr %63, align 8
-  %1977 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1976, i64 %104
+  %1977 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %1976, i64 %104
   %1978 = load ptr, ptr %1977, align 8
-  %1979 = getelementptr inbounds i32, ptr %1975, i64 %108
+  %1979 = getelementptr inbounds nuw i32, ptr %1975, i64 %108
   %1980 = load i32, ptr %1979, align 4
   %1981 = icmp eq i32 %1980, %95
   br i1 %1981, label %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit, label %1982
@@ -14396,8 +14396,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
 
 1983:                                             ; preds = %1982
   %1984 = zext i32 %1980 to i64
-  %1985 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %1984
-  %1986 = getelementptr inbounds i8, ptr %1985, i64 10
+  %1985 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %1984
+  %1986 = getelementptr inbounds nuw i8, ptr %1985, i64 10
   %1987 = load i8, ptr %1986, align 2
   %1988 = and i8 %1987, 31
   switch i8 %1988, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i [
@@ -14413,14 +14413,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
 1991:                                             ; preds = %1989
   %1992 = load i32, ptr %1985, align 4
   %1993 = zext i32 %1992 to i64
-  %1994 = getelementptr inbounds i8, ptr %0, i64 %1993
+  %1994 = getelementptr inbounds nuw i8, ptr %0, i64 %1993
   %1995 = load ptr, ptr %1994, align 8
   %1996 = icmp eq ptr %1995, null
   br i1 %1996, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i, label %1997
 
 1997:                                             ; preds = %1991
   %1998 = load ptr, ptr %1995, align 8
-  %1999 = getelementptr inbounds i8, ptr %1998, i64 8
+  %1999 = getelementptr inbounds nuw i8, ptr %1998, i64 8
   %2000 = load ptr, ptr %1999, align 8
   call void %2000(ptr noundef nonnull align 8 dereferenceable(16) %1995) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
@@ -14428,18 +14428,18 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896: ; preds = %1966, %1970
 2001:                                             ; preds = %1983, %1983
   %2002 = load i32, ptr %1985, align 4
   %2003 = zext i32 %2002 to i64
-  %2004 = getelementptr inbounds i8, ptr %0, i64 %2003
+  %2004 = getelementptr inbounds nuw i8, ptr %0, i64 %2003
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2004, ptr noundef %.0.i1895)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i: ; preds = %2001, %1997, %1991, %1989, %1983, %1982
   store i32 %95, ptr %1979, align 4
-  %2005 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2005 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store ptr %1978, ptr %2005, align 8
   br label %_ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit
 
 _ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE0EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1896, %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i
-  %2006 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2006 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2007 = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr13MutableNoCopyEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2006, ptr noundef %1978, ptr noundef %.0.i1895)
   %2008 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %2007)
   br i1 %2008, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -14454,7 +14454,7 @@ _ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHand
   br label %.backedge
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1900: ; preds = %117, %117
-  %2015 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2015 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2016 = call noundef ptr @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3AddEv(ptr noundef nonnull align 8 dereferenceable(24) %2015)
   %2017 = call noundef zeroext i1 @_ZN6google8protobuf8internal14WireFormatLite9ReadBytesEPNS0_2io16CodedInputStreamEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull %2, ptr noundef %2016)
   br i1 %2017, label %_ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE1ELb0ELNS1_10StringTypeE0EEEbPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPNS0_5ArenaEPjjlPKvPKc.exit.thread, label %.critedge1598
@@ -14477,7 +14477,7 @@ _ZN6google8protobuf8internalL12HandleStringINS1_12_GLOBAL__N_123UnknownFieldHand
   br i1 %2027, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i: ; preds = %2024
-  %2028 = getelementptr inbounds i8, ptr %2021, i64 1
+  %2028 = getelementptr inbounds nuw i8, ptr %2021, i64 1
   store ptr %2028, ptr %2, align 8
   br label %2032
 
@@ -14491,7 +14491,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %202
 2032:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i
   %.022.i = phi i32 [ %2026, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i ], [ %2030, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i ]
   %2033 = load ptr, ptr %63, align 8
-  %2034 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2033, i64 %104
+  %2034 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2033, i64 %104
   %2035 = load ptr, ptr %2034, align 8
   %2036 = icmp eq ptr %2035, null
   br i1 %2036, label %2039, label %2037
@@ -14505,11 +14505,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %202
   %2041 = shl nuw i32 1, %2040
   %2042 = lshr i32 %107, 5
   %2043 = zext nneg i32 %2042 to i64
-  %2044 = getelementptr inbounds i32, ptr %59, i64 %2043
+  %2044 = getelementptr inbounds nuw i32, ptr %59, i64 %2043
   %2045 = load i32, ptr %2044, align 4
   %2046 = or i32 %2045, %2041
   store i32 %2046, ptr %2044, align 4
-  %2047 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2047 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   store i32 %.022.i, ptr %2047, align 4
   br label %.backedge
 
@@ -14531,7 +14531,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i: ; preds = %202
   br i1 %2056, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904: ; preds = %2053
-  %2057 = getelementptr inbounds i8, ptr %2050, i64 1
+  %2057 = getelementptr inbounds nuw i8, ptr %2050, i64 1
   store ptr %2057, ptr %2, align 8
   br label %2061
 
@@ -14545,7 +14545,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
 2061:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904
   %.03.i = phi i32 [ %2055, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread.i1904 ], [ %2059, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901 ]
   %2062 = load ptr, ptr %63, align 8
-  %2063 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2062, i64 %104
+  %2063 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2062, i64 %104
   %2064 = load ptr, ptr %2063, align 8
   %2065 = icmp eq ptr %2064, null
   br i1 %2065, label %2068, label %2066
@@ -14555,7 +14555,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
   br i1 %2067, label %2068, label %2071
 
 2068:                                             ; preds = %2066, %2061
-  %2069 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2069 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2070 = call noundef ptr @_ZN6google8protobuf13RepeatedFieldIiE3AddEv(ptr noundef nonnull align 8 dereferenceable(16) %2069)
   store i32 %.03.i, ptr %2070, align 4
   br label %.backedge
@@ -14576,11 +14576,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
   %2078 = shl nuw i32 1, %2077
   %2079 = lshr i32 %107, 5
   %2080 = zext nneg i32 %2079 to i64
-  %2081 = getelementptr inbounds i32, ptr %59, i64 %2080
+  %2081 = getelementptr inbounds nuw i32, ptr %59, i64 %2080
   %2082 = load i32, ptr %2081, align 4
   %2083 = or i32 %2082, %2078
   store i32 %2083, ptr %2081, align 4
-  %2084 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2084 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2085 = load ptr, ptr %2084, align 8
   %2086 = icmp eq ptr %2085, null
   br i1 %2086, label %2087, label %2102
@@ -14601,10 +14601,10 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.i1901: ; preds = 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1907: ; preds = %2087, %2091
   %.0.i1906 = phi ptr [ %2094, %2091 ], [ %2088, %2087 ]
   %2095 = load ptr, ptr %63, align 8
-  %2096 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2095, i64 %104
+  %2096 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2095, i64 %104
   %2097 = load ptr, ptr %2096, align 8
   %2098 = load ptr, ptr %2097, align 8
-  %2099 = getelementptr inbounds i8, ptr %2098, i64 32
+  %2099 = getelementptr inbounds nuw i8, ptr %2098, i64 32
   %2100 = load ptr, ptr %2099, align 8
   %2101 = call noundef ptr %2100(ptr noundef nonnull align 8 dereferenceable(16) %2097, ptr noundef %.0.i1906)
   store ptr %2101, ptr %2084, align 8
@@ -14633,29 +14633,29 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   br i1 %2113, label %.backedge, label %.critedge1598
 
 2114:                                             ; preds = %117
-  %2115 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2115 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2116 = load ptr, ptr %63, align 8
-  %2117 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2116, i64 %104
+  %2117 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2116, i64 %104
   %2118 = load ptr, ptr %2117, align 8
-  %2119 = getelementptr inbounds i8, ptr %2115, i64 16
+  %2119 = getelementptr inbounds nuw i8, ptr %2115, i64 16
   %2120 = load ptr, ptr %2119, align 8
   %.not.i.i = icmp eq ptr %2120, null
   br i1 %.not.i.i, label %..thread_crit_edge.i.i, label %2121
 
 ..thread_crit_edge.i.i:                           ; preds = %2114
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %2115, i64 12
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2115, i64 12
   %.pre.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   br label %.thread.i.i
 
 2121:                                             ; preds = %2114
-  %2122 = getelementptr inbounds i8, ptr %2115, i64 8
+  %2122 = getelementptr inbounds nuw i8, ptr %2115, i64 8
   %2123 = load i32, ptr %2122, align 8
   %2124 = load i32, ptr %2120, align 8
   %2125 = icmp slt i32 %2123, %2124
   br i1 %2125, label %2126, label %2132
 
 2126:                                             ; preds = %2121
-  %2127 = getelementptr inbounds i8, ptr %2120, i64 8
+  %2127 = getelementptr inbounds nuw i8, ptr %2120, i64 8
   %2128 = add nsw i32 %2123, 1
   store i32 %2128, ptr %2122, align 8
   %2129 = sext i32 %2123 to i64
@@ -14664,7 +14664,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit
 
 2132:                                             ; preds = %2121
-  %2133 = getelementptr inbounds i8, ptr %2115, i64 12
+  %2133 = getelementptr inbounds nuw i8, ptr %2115, i64 12
   %2134 = load i32, ptr %2133, align 4
   %2135 = icmp eq i32 %2124, %2134
   br i1 %2135, label %.thread.i.i, label %2138
@@ -14684,12 +14684,12 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   store i32 %2141, ptr %2140, align 8
   %2142 = load ptr, ptr %2115, align 8
   %2143 = load ptr, ptr %2118, align 8
-  %2144 = getelementptr inbounds i8, ptr %2143, i64 32
+  %2144 = getelementptr inbounds nuw i8, ptr %2143, i64 32
   %2145 = load ptr, ptr %2144, align 8
   %2146 = call noundef ptr %2145(ptr noundef nonnull align 8 dereferenceable(16) %2118, ptr noundef %2142)
   %2147 = load ptr, ptr %2119, align 8
-  %2148 = getelementptr inbounds i8, ptr %2147, i64 8
-  %2149 = getelementptr inbounds i8, ptr %2115, i64 8
+  %2148 = getelementptr inbounds nuw i8, ptr %2147, i64 8
+  %2149 = getelementptr inbounds nuw i8, ptr %2115, i64 8
   %2150 = load i32, ptr %2149, align 8
   %2151 = add nsw i32 %2150, 1
   store i32 %2151, ptr %2149, align 8
@@ -14725,11 +14725,11 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
   %2167 = shl nuw i32 1, %2166
   %2168 = lshr i32 %107, 5
   %2169 = zext nneg i32 %2168 to i64
-  %2170 = getelementptr inbounds i32, ptr %59, i64 %2169
+  %2170 = getelementptr inbounds nuw i32, ptr %59, i64 %2169
   %2171 = load i32, ptr %2170, align 4
   %2172 = or i32 %2171, %2167
   store i32 %2172, ptr %2170, align 4
-  %2173 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2173 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2174 = load ptr, ptr %2173, align 8
   %2175 = icmp eq ptr %2174, null
   br i1 %2175, label %2176, label %2195
@@ -14750,7 +14750,7 @@ _ZN6google8protobuf8internal14WireFormatLite9ReadGroupINS0_11MessageLiteEEEbiPNS
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913: ; preds = %2176, %2180
   %.0.i1912 = phi ptr [ %2183, %2180 ], [ %2177, %2176 ]
   %2184 = load ptr, ptr %63, align 8
-  %2185 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2184, i64 %104
+  %2185 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2184, i64 %104
   %2186 = load ptr, ptr %2185, align 8
   %2187 = icmp eq ptr %2186, null
   br i1 %2187, label %2188, label %2190
@@ -14762,7 +14762,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913: ; preds = %2176, %2180
 2190:                                             ; preds = %2188, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913
   %.01354 = phi ptr [ %2189, %2188 ], [ %2186, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913 ]
   %2191 = load ptr, ptr %.01354, align 8
-  %2192 = getelementptr inbounds i8, ptr %2191, i64 32
+  %2192 = getelementptr inbounds nuw i8, ptr %2191, i64 32
   %2193 = load ptr, ptr %2192, align 8
   %2194 = call noundef ptr %2193(ptr noundef nonnull align 8 dereferenceable(16) %.01354, ptr noundef %.0.i1912)
   store ptr %2194, ptr %2173, align 8
@@ -14782,7 +14782,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1913: ; preds = %2176, %2180
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i: ; preds = %2199
   %2202 = zext nneg i8 %2200 to i32
-  %2203 = getelementptr inbounds i8, ptr %2196, i64 1
+  %2203 = getelementptr inbounds nuw i8, ptr %2196, i64 1
   store ptr %2203, ptr %2, align 8
   br label %2206
 
@@ -14807,9 +14807,9 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   br i1 %2211, label %.backedge, label %.critedge1598
 
 2212:                                             ; preds = %117
-  %2213 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2213 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2214 = load ptr, ptr %63, align 8
-  %2215 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2214, i64 %104
+  %2215 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2214, i64 %104
   %2216 = load ptr, ptr %2215, align 8
   %2217 = icmp eq ptr %2216, null
   br i1 %2217, label %2218, label %2220
@@ -14820,25 +14820,25 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 2220:                                             ; preds = %2218, %2212
   %.01352 = phi ptr [ %2219, %2218 ], [ %2216, %2212 ]
-  %2221 = getelementptr inbounds i8, ptr %2213, i64 16
+  %2221 = getelementptr inbounds nuw i8, ptr %2213, i64 16
   %2222 = load ptr, ptr %2221, align 8
   %.not.i.i1915 = icmp eq ptr %2222, null
   br i1 %.not.i.i1915, label %..thread_crit_edge.i.i1920, label %2223
 
 ..thread_crit_edge.i.i1920:                       ; preds = %2220
-  %.phi.trans.insert.i.i1921 = getelementptr inbounds i8, ptr %2213, i64 12
+  %.phi.trans.insert.i.i1921 = getelementptr inbounds nuw i8, ptr %2213, i64 12
   %.pre.i.i1922 = load i32, ptr %.phi.trans.insert.i.i1921, align 4
   br label %.thread.i.i1917
 
 2223:                                             ; preds = %2220
-  %2224 = getelementptr inbounds i8, ptr %2213, i64 8
+  %2224 = getelementptr inbounds nuw i8, ptr %2213, i64 8
   %2225 = load i32, ptr %2224, align 8
   %2226 = load i32, ptr %2222, align 8
   %2227 = icmp slt i32 %2225, %2226
   br i1 %2227, label %2228, label %2234
 
 2228:                                             ; preds = %2223
-  %2229 = getelementptr inbounds i8, ptr %2222, i64 8
+  %2229 = getelementptr inbounds nuw i8, ptr %2222, i64 8
   %2230 = add nsw i32 %2225, 1
   store i32 %2230, ptr %2224, align 8
   %2231 = sext i32 %2225 to i64
@@ -14847,7 +14847,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   br label %_ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20RepeatedPtrFieldBaseEPKNS0_11MessageLiteE.exit1923
 
 2234:                                             ; preds = %2223
-  %2235 = getelementptr inbounds i8, ptr %2213, i64 12
+  %2235 = getelementptr inbounds nuw i8, ptr %2213, i64 12
   %2236 = load i32, ptr %2235, align 4
   %2237 = icmp eq i32 %2226, %2236
   br i1 %2237, label %.thread.i.i1917, label %2240
@@ -14867,12 +14867,12 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   store i32 %2243, ptr %2242, align 8
   %2244 = load ptr, ptr %2213, align 8
   %2245 = load ptr, ptr %.01352, align 8
-  %2246 = getelementptr inbounds i8, ptr %2245, i64 32
+  %2246 = getelementptr inbounds nuw i8, ptr %2245, i64 32
   %2247 = load ptr, ptr %2246, align 8
   %2248 = call noundef ptr %2247(ptr noundef nonnull align 8 dereferenceable(16) %.01352, ptr noundef %2244)
   %2249 = load ptr, ptr %2221, align 8
-  %2250 = getelementptr inbounds i8, ptr %2249, i64 8
-  %2251 = getelementptr inbounds i8, ptr %2213, i64 8
+  %2250 = getelementptr inbounds nuw i8, ptr %2249, i64 8
+  %2251 = getelementptr inbounds nuw i8, ptr %2213, i64 8
   %2252 = load i32, ptr %2251, align 8
   %2253 = add nsw i32 %2252, 1
   store i32 %2253, ptr %2251, align 8
@@ -14895,7 +14895,7 @@ _ZN6google8protobuf8internal33MergePartialFromCodedStreamHelper3AddEPNS1_20Repea
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i1928: ; preds = %2259
   %2262 = zext nneg i8 %2260 to i32
-  %2263 = getelementptr inbounds i8, ptr %2256, i64 1
+  %2263 = getelementptr inbounds nuw i8, ptr %2256, i64 1
   store ptr %2263, ptr %2, align 8
   br label %2266
 
@@ -14936,8 +14936,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932: ; preds = %2272, %2276
   %.0.i1931 = phi ptr [ %2279, %2276 ], [ %2273, %2272 ]
   %2280 = load i64, ptr %65, align 8
   %2281 = getelementptr inbounds i8, ptr %0, i64 %2280
-  %2282 = getelementptr inbounds i8, ptr %0, i64 %110
-  %2283 = getelementptr inbounds i32, ptr %2281, i64 %108
+  %2282 = getelementptr inbounds nuw i8, ptr %0, i64 %110
+  %2283 = getelementptr inbounds nuw i32, ptr %2281, i64 %108
   %2284 = load i32, ptr %2283, align 4
   %2285 = icmp eq i32 %2284, %95
   br i1 %2285, label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE3EEEvRKNS1_10ParseTableEiPNS0_5ArenaEPNS0_11MessageLiteEPjlPKv.exit_crit_edge, label %2286
@@ -14952,8 +14952,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8intern
 
 2287:                                             ; preds = %2286
   %2288 = zext i32 %2284 to i64
-  %2289 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %2288
-  %2290 = getelementptr inbounds i8, ptr %2289, i64 10
+  %2289 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %103, i64 %2288
+  %2290 = getelementptr inbounds nuw i8, ptr %2289, i64 10
   %2291 = load i8, ptr %2290, align 2
   %2292 = and i8 %2291, 31
   switch i8 %2292, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934 [
@@ -14969,14 +14969,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8intern
 2295:                                             ; preds = %2293
   %2296 = load i32, ptr %2289, align 4
   %2297 = zext i32 %2296 to i64
-  %2298 = getelementptr inbounds i8, ptr %0, i64 %2297
+  %2298 = getelementptr inbounds nuw i8, ptr %0, i64 %2297
   %2299 = load ptr, ptr %2298, align 8
   %2300 = icmp eq ptr %2299, null
   br i1 %2300, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934, label %2301
 
 2301:                                             ; preds = %2295
   %2302 = load ptr, ptr %2299, align 8
-  %2303 = getelementptr inbounds i8, ptr %2302, i64 8
+  %2303 = getelementptr inbounds nuw i8, ptr %2302, i64 8
   %2304 = load ptr, ptr %2303, align 8
   call void %2304(ptr noundef nonnull align 8 dereferenceable(16) %2299) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934
@@ -14984,17 +14984,17 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit1932._ZN6google8protobuf8intern
 2305:                                             ; preds = %2287, %2287
   %2306 = load i32, ptr %2289, align 4
   %2307 = zext i32 %2306 to i64
-  %2308 = getelementptr inbounds i8, ptr %0, i64 %2307
+  %2308 = getelementptr inbounds nuw i8, ptr %0, i64 %2307
   call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %2308, ptr noundef %.0.i1931)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit.i1934: ; preds = %2305, %2301, %2295, %2293, %2287, %2286
   store i32 %95, ptr %2283, align 4
   %2309 = load ptr, ptr %63, align 8
-  %2310 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2309, i64 %104
+  %2310 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2309, i64 %104
   %2311 = load ptr, ptr %2310, align 8
   %2312 = load ptr, ptr %2311, align 8
-  %2313 = getelementptr inbounds i8, ptr %2312, i64 32
+  %2313 = getelementptr inbounds nuw i8, ptr %2312, i64 32
   %2314 = load ptr, ptr %2313, align 8
   %2315 = call noundef ptr %2314(ptr noundef nonnull align 8 dereferenceable(16) %2311, ptr noundef %.0.i1931)
   store ptr %2315, ptr %2282, align 8
@@ -15014,7 +15014,7 @@ _ZN6google8protobuf8internal15ResetOneofFieldILNS1_14ProcessingTypeE3EEEvRKNS1_1
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread.i1939: ; preds = %2320
   %2323 = zext nneg i8 %2321 to i32
-  %2324 = getelementptr inbounds i8, ptr %2317, i64 1
+  %2324 = getelementptr inbounds nuw i8, ptr %2317, i64 1
   store ptr %2324, ptr %2, align 8
   br label %2327
 
@@ -15040,9 +15040,9 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 2333:                                             ; preds = %117
   %2334 = load ptr, ptr %63, align 8
-  %2335 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2334, i64 %104
+  %2335 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2334, i64 %104
   %2336 = load ptr, ptr %2335, align 8
-  %2337 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2337 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2338 = call noundef zeroext i1 %2336(ptr noundef nonnull %2, ptr noundef %2337)
   br i1 %2338, label %.backedge, label %.critedge1598
 
@@ -15054,7 +15054,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   unreachable
 
 2341:                                             ; preds = %102
-  %2342 = getelementptr inbounds i8, ptr %105, i64 9
+  %2342 = getelementptr inbounds nuw i8, ptr %105, i64 9
   %2343 = load i8, ptr %2342, align 1
   %2344 = icmp eq i8 %2343, %115
   br i1 %2344, label %2345, label %2860
@@ -15083,7 +15083,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
   ]
 
 2347:                                             ; preds = %2345
-  %2348 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2348 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2349 = load ptr, ptr %2, align 8
   %2350 = load ptr, ptr %60, align 8
   %2351 = icmp ult ptr %2349, %2350
@@ -15096,7 +15096,7 @@ _ZN6google8protobuf8internal14WireFormatLite11ReadMessageINS0_11MessageLiteEEEbP
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit.thread: ; preds = %2352
   %2355 = zext nneg i8 %2353 to i32
-  %2356 = getelementptr inbounds i8, ptr %2349, i64 1
+  %2356 = getelementptr inbounds nuw i8, ptr %2349, i64 1
   store ptr %2356, ptr %2, align 8
   br label %2359
 
@@ -15125,7 +15125,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit: ; preds =
   br i1 %2369, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944.thread: ; preds = %2366
-  %2370 = getelementptr inbounds i8, ptr %2363, i64 1
+  %2370 = getelementptr inbounds nuw i8, ptr %2363, i64 1
   store ptr %2370, ptr %2, align 8
   br label %2374
 
@@ -15149,7 +15149,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944: ; preds = %.
   br label %.backedge
 
 2377:                                             ; preds = %2345
-  %2378 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2378 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2379 = load ptr, ptr %2, align 8
   %2380 = load ptr, ptr %60, align 8
   %2381 = icmp ult ptr %2379, %2380
@@ -15162,7 +15162,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1944: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1946.thread: ; preds = %2382
   %2385 = zext nneg i8 %2383 to i32
-  %2386 = getelementptr inbounds i8, ptr %2379, i64 1
+  %2386 = getelementptr inbounds nuw i8, ptr %2379, i64 1
   store ptr %2386, ptr %2, align 8
   br label %2389
 
@@ -15191,7 +15191,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1946: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1948.thread: ; preds = %2396
   %2399 = zext nneg i8 %2397 to i64
-  %2400 = getelementptr inbounds i8, ptr %2393, i64 1
+  %2400 = getelementptr inbounds nuw i8, ptr %2393, i64 1
   store ptr %2400, ptr %2, align 8
   br label %2405
 
@@ -15215,7 +15215,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1948: ; preds = %.
   br label %.backedge
 
 2408:                                             ; preds = %2345
-  %2409 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2409 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2410 = load ptr, ptr %2, align 8
   %2411 = load ptr, ptr %60, align 8
   %2412 = icmp ult ptr %2410, %2411
@@ -15228,7 +15228,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1948: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1950.thread: ; preds = %2413
   %2416 = zext nneg i8 %2414 to i32
-  %2417 = getelementptr inbounds i8, ptr %2410, i64 1
+  %2417 = getelementptr inbounds nuw i8, ptr %2410, i64 1
   store ptr %2417, ptr %2, align 8
   br label %2420
 
@@ -15257,7 +15257,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1950: ; pre
   br i1 %2430, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953.thread: ; preds = %2427
-  %2431 = getelementptr inbounds i8, ptr %2424, i64 1
+  %2431 = getelementptr inbounds nuw i8, ptr %2424, i64 1
   store ptr %2431, ptr %2, align 8
   br label %2435
 
@@ -15285,7 +15285,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953: ; preds = %.
   br label %.backedge
 
 2442:                                             ; preds = %2345
-  %2443 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2443 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2444 = load ptr, ptr %2, align 8
   %2445 = load ptr, ptr %60, align 8
   %2446 = icmp ult ptr %2444, %2445
@@ -15298,7 +15298,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1953: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1955.thread: ; preds = %2447
   %2450 = zext nneg i8 %2448 to i32
-  %2451 = getelementptr inbounds i8, ptr %2444, i64 1
+  %2451 = getelementptr inbounds nuw i8, ptr %2444, i64 1
   store ptr %2451, ptr %2, align 8
   br label %2454
 
@@ -15327,7 +15327,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1955: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1957.thread: ; preds = %2461
   %2464 = zext nneg i8 %2462 to i64
-  %2465 = getelementptr inbounds i8, ptr %2458, i64 1
+  %2465 = getelementptr inbounds nuw i8, ptr %2458, i64 1
   store ptr %2465, ptr %2, align 8
   br label %2470
 
@@ -15355,7 +15355,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1957: ; preds = %.
   br label %.backedge
 
 2477:                                             ; preds = %2345
-  %2478 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2478 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2479 = load ptr, ptr %2, align 8
   %2480 = load ptr, ptr %60, align 8
   %2481 = icmp ult ptr %2479, %2480
@@ -15368,7 +15368,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1957: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1959.thread: ; preds = %2482
   %2485 = zext nneg i8 %2483 to i32
-  %2486 = getelementptr inbounds i8, ptr %2479, i64 1
+  %2486 = getelementptr inbounds nuw i8, ptr %2479, i64 1
   store ptr %2486, ptr %2, align 8
   br label %2489
 
@@ -15398,7 +15398,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1959: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1962.thread: ; preds = %2496
   store i32 %2498, ptr %32, align 4
-  %2500 = getelementptr inbounds i8, ptr %2493, i64 1
+  %2500 = getelementptr inbounds nuw i8, ptr %2493, i64 1
   store ptr %2500, ptr %2, align 8
   br label %2504
 
@@ -15421,7 +15421,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1962: ; preds = %.
   br label %.backedge
 
 2507:                                             ; preds = %2345
-  %2508 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2508 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2509 = load ptr, ptr %2, align 8
   %2510 = load ptr, ptr %60, align 8
   %2511 = icmp ult ptr %2509, %2510
@@ -15434,7 +15434,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit1962: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964.thread: ; preds = %2512
   %2515 = zext nneg i8 %2513 to i32
-  %2516 = getelementptr inbounds i8, ptr %2509, i64 1
+  %2516 = getelementptr inbounds nuw i8, ptr %2509, i64 1
   store ptr %2516, ptr %2, align 8
   br label %2519
 
@@ -15464,7 +15464,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1964: ; pre
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1966.thread: ; preds = %2526
   %2529 = zext nneg i8 %2527 to i64
   store i64 %2529, ptr %31, align 8
-  %2530 = getelementptr inbounds i8, ptr %2523, i64 1
+  %2530 = getelementptr inbounds nuw i8, ptr %2523, i64 1
   store ptr %2530, ptr %2, align 8
   br label %2535
 
@@ -15487,7 +15487,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1966: ; preds = %.
   br label %.backedge
 
 2538:                                             ; preds = %2345
-  %2539 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2539 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2540 = load ptr, ptr %2, align 8
   %2541 = load ptr, ptr %60, align 8
   %2542 = icmp ult ptr %2540, %2541
@@ -15500,7 +15500,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit1966: ; preds = %.
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1968.thread: ; preds = %2543
   %2546 = zext nneg i8 %2544 to i32
-  %2547 = getelementptr inbounds i8, ptr %2540, i64 1
+  %2547 = getelementptr inbounds nuw i8, ptr %2540, i64 1
   store ptr %2547, ptr %2, align 8
   br label %2550
 
@@ -15558,7 +15558,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1968: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1971.thread: ; preds = %.lr.ph2587
   %2573 = load i32, ptr %2567, align 1
   store i32 %2573, ptr %19, align 4
-  %2574 = getelementptr inbounds i8, ptr %2567, i64 4
+  %2574 = getelementptr inbounds nuw i8, ptr %2567, i64 4
   store ptr %2574, ptr %2, align 8
   br label %2576
 
@@ -15573,7 +15573,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1971: ; pred
   br i1 %exitcond2837.not, label %.backedge, label %.lr.ph2587, !llvm.loop !24
 
 2578:                                             ; preds = %2345
-  %2579 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2579 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2580 = load ptr, ptr %2, align 8
   %2581 = load ptr, ptr %60, align 8
   %2582 = icmp ult ptr %2580, %2581
@@ -15586,7 +15586,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1971: ; pred
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1973.thread: ; preds = %2583
   %2586 = zext nneg i8 %2584 to i32
-  %2587 = getelementptr inbounds i8, ptr %2580, i64 1
+  %2587 = getelementptr inbounds nuw i8, ptr %2580, i64 1
   store ptr %2587, ptr %2, align 8
   br label %2590
 
@@ -15644,7 +15644,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1973: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1976.thread: ; preds = %.lr.ph2585
   %2613 = load i64, ptr %2607, align 1
   store i64 %2613, ptr %17, align 8
-  %2614 = getelementptr inbounds i8, ptr %2607, i64 8
+  %2614 = getelementptr inbounds nuw i8, ptr %2607, i64 8
   store ptr %2614, ptr %2, align 8
   br label %2616
 
@@ -15659,7 +15659,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1976: ; pred
   br i1 %exitcond2836.not, label %.backedge, label %.lr.ph2585, !llvm.loop !25
 
 2618:                                             ; preds = %2345
-  %2619 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2619 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2620 = load ptr, ptr %2, align 8
   %2621 = load ptr, ptr %60, align 8
   %2622 = icmp ult ptr %2620, %2621
@@ -15672,7 +15672,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1976: ; pred
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1978.thread: ; preds = %2623
   %2626 = zext nneg i8 %2624 to i32
-  %2627 = getelementptr inbounds i8, ptr %2620, i64 1
+  %2627 = getelementptr inbounds nuw i8, ptr %2620, i64 1
   store ptr %2627, ptr %2, align 8
   br label %2630
 
@@ -15730,7 +15730,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1978: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1981.thread: ; preds = %.lr.ph2583
   %2653 = load i32, ptr %2647, align 1
   store i32 %2653, ptr %13, align 4
-  %2654 = getelementptr inbounds i8, ptr %2647, i64 4
+  %2654 = getelementptr inbounds nuw i8, ptr %2647, i64 4
   store ptr %2654, ptr %2, align 8
   br label %2656
 
@@ -15751,7 +15751,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1981._crit_e
   br i1 %exitcond2835.not, label %.backedge, label %.lr.ph2583, !llvm.loop !26
 
 2659:                                             ; preds = %2345
-  %2660 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2660 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2661 = load ptr, ptr %2, align 8
   %2662 = load ptr, ptr %60, align 8
   %2663 = icmp ult ptr %2661, %2662
@@ -15764,7 +15764,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1981._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1983.thread: ; preds = %2664
   %2667 = zext nneg i8 %2665 to i32
-  %2668 = getelementptr inbounds i8, ptr %2661, i64 1
+  %2668 = getelementptr inbounds nuw i8, ptr %2661, i64 1
   store ptr %2668, ptr %2, align 8
   br label %2671
 
@@ -15822,7 +15822,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1983: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1986.thread: ; preds = %.lr.ph2581
   %2694 = load i64, ptr %2688, align 1
   store i64 %2694, ptr %10, align 8
-  %2695 = getelementptr inbounds i8, ptr %2688, i64 8
+  %2695 = getelementptr inbounds nuw i8, ptr %2688, i64 8
   store ptr %2695, ptr %2, align 8
   br label %2697
 
@@ -15843,7 +15843,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1986._crit_e
   br i1 %exitcond2834.not, label %.backedge, label %.lr.ph2581, !llvm.loop !27
 
 2700:                                             ; preds = %2345
-  %2701 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2701 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2702 = load ptr, ptr %2, align 8
   %2703 = load ptr, ptr %60, align 8
   %2704 = icmp ult ptr %2702, %2703
@@ -15856,7 +15856,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1986._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1988.thread: ; preds = %2705
   %2708 = zext nneg i8 %2706 to i32
-  %2709 = getelementptr inbounds i8, ptr %2702, i64 1
+  %2709 = getelementptr inbounds nuw i8, ptr %2702, i64 1
   store ptr %2709, ptr %2, align 8
   br label %2712
 
@@ -15914,7 +15914,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1988: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1991.thread: ; preds = %.lr.ph2579
   %2735 = load i32, ptr %2729, align 1
   store i32 %2735, ptr %7, align 4
-  %2736 = getelementptr inbounds i8, ptr %2729, i64 4
+  %2736 = getelementptr inbounds nuw i8, ptr %2729, i64 4
   store ptr %2736, ptr %2, align 8
   %2737 = bitcast i32 %2735 to float
   br label %2739
@@ -15936,7 +15936,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1991._crit_e
   br i1 %exitcond2833.not, label %.backedge, label %.lr.ph2579, !llvm.loop !28
 
 2742:                                             ; preds = %2345
-  %2743 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2743 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2744 = load ptr, ptr %2, align 8
   %2745 = load ptr, ptr %60, align 8
   %2746 = icmp ult ptr %2744, %2745
@@ -15949,7 +15949,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit1991._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1993.thread: ; preds = %2747
   %2750 = zext nneg i8 %2748 to i32
-  %2751 = getelementptr inbounds i8, ptr %2744, i64 1
+  %2751 = getelementptr inbounds nuw i8, ptr %2744, i64 1
   store ptr %2751, ptr %2, align 8
   br label %2754
 
@@ -16007,7 +16007,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1993: ; pre
 _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1996.thread: ; preds = %.lr.ph2577
   %2777 = load i64, ptr %2771, align 1
   store i64 %2777, ptr %4, align 8
-  %2778 = getelementptr inbounds i8, ptr %2771, i64 8
+  %2778 = getelementptr inbounds nuw i8, ptr %2771, i64 8
   store ptr %2778, ptr %2, align 8
   %2779 = bitcast i64 %2777 to double
   br label %2781
@@ -16029,7 +16029,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1996._crit_e
   br i1 %exitcond.not, label %.backedge, label %.lr.ph2577, !llvm.loop !29
 
 2784:                                             ; preds = %2345
-  %2785 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2785 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2786 = load ptr, ptr %2, align 8
   %2787 = load ptr, ptr %60, align 8
   %2788 = icmp ult ptr %2786, %2787
@@ -16042,7 +16042,7 @@ _ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit1996._crit_e
 
 _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1998.thread: ; preds = %2789
   %2792 = zext nneg i8 %2790 to i32
-  %2793 = getelementptr inbounds i8, ptr %2786, i64 1
+  %2793 = getelementptr inbounds nuw i8, ptr %2786, i64 1
   store ptr %2793, ptr %2, align 8
   br label %2796
 
@@ -16071,7 +16071,7 @@ _ZN6google8protobuf2io16CodedInputStream19ReadVarintSizeAsIntEPi.exit1998: ; pre
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit2000.thread: ; preds = %2803
   %2806 = zext nneg i8 %2804 to i64
-  %2807 = getelementptr inbounds i8, ptr %2800, i64 1
+  %2807 = getelementptr inbounds nuw i8, ptr %2800, i64 1
   store ptr %2807, ptr %2, align 8
   br label %2812
 
@@ -16109,7 +16109,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit2000: ; preds = %.
   br i1 %2824, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread: ; preds = %2821
-  %2825 = getelementptr inbounds i8, ptr %2818, i64 1
+  %2825 = getelementptr inbounds nuw i8, ptr %2818, i64 1
   store ptr %2825, ptr %2, align 8
   br label %2829
 
@@ -16123,9 +16123,9 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003: ; preds = %2
 2829:                                             ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003
   %.02471 = phi i32 [ %2823, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003.thread ], [ %2827, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003 ]
   %2830 = load ptr, ptr %63, align 8
-  %2831 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2830, i64 %104
+  %2831 = getelementptr inbounds nuw %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %2830, i64 %104
   %2832 = load ptr, ptr %2831, align 8
-  %2833 = getelementptr inbounds i8, ptr %0, i64 %110
+  %2833 = getelementptr inbounds nuw i8, ptr %0, i64 %110
   %2834 = call noundef i32 @_ZN6google8protobuf2io16CodedInputStream9PushLimitEi(ptr noundef nonnull align 8 dereferenceable(80) %2, i32 noundef %.02471)
   %2835 = call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %2)
   %2836 = icmp sgt i32 %2835, 0
@@ -16148,7 +16148,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2003: ; preds = %2
   br i1 %2845, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit2006.thread: ; preds = %2842
-  %2846 = getelementptr inbounds i8, ptr %2839, i64 1
+  %2846 = getelementptr inbounds nuw i8, ptr %2839, i64 1
   store ptr %2846, ptr %2, align 8
   br label %2850
 
@@ -16221,7 +16221,7 @@ declare i32 @__gxx_personality_v0(...)
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite14ParseExtensionEPNS0_11MessageLiteERKNS1_10ParseTableEPNS0_2io16CodedInputStreamEi(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::protobuf::io::StringOutputStream", align 8
   %6 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, -1
   %10 = getelementptr inbounds i8, ptr %0, i64 %8
@@ -16230,9 +16230,9 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
   br i1 %12, label %51, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -16244,7 +16244,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
 22:                                               ; preds = %13
   %23 = and i64 %20, -2
   %24 = inttoptr i64 %23 to ptr
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
 
 26:                                               ; preds = %13
@@ -16256,19 +16256,19 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %19, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 1
   %.not.i.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %19, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef 40)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
@@ -16280,7 +16280,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %28
   %.sink.i.i = phi ptr [ %42, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %29, %28 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
-  %43 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #9
   %44 = ptrtoint ptr %.sink.i.i to i64
   %45 = or i64 %44, 1
@@ -16325,7 +16325,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
 10:                                               ; preds = %3
   %11 = and i64 %8, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
 
 14:                                               ; preds = %3
@@ -16337,19 +16337,19 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal12_GLOBAL
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1
   %.not.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef 40)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
@@ -16361,7 +16361,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %16
   %.sink.i.i = phi ptr [ %30, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %17, %16 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
-  %31 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #9
   %32 = ptrtoint ptr %.sink.i.i to i64
   %33 = or i64 %32, 1
@@ -16391,7 +16391,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal10HandleEnumINS1_12_GLOBAL__N_123UnknownFieldHandlerLiteELNS1_11CardinalityE3EEEbRKNS1_10ParseTableEPNS0_2io16CodedInputStreamEPNS0_11MessageLiteEPjjlji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = icmp ult ptr %9, %11
   br i1 %12, label %13, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
@@ -16403,7 +16403,7 @@ define internal fastcc noundef zeroext i1 @_ZN6google8protobuf8internal10HandleE
   br i1 %16, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread: ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %9, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store ptr %17, ptr %1, align 8
   br label %21
 
@@ -16416,7 +16416,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %8, %1
 
 21:                                               ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
   %.029 = phi i32 [ %15, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread ], [ %19, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = sext i32 %7 to i64
   %25 = getelementptr inbounds %"union.google::protobuf::internal::AuxiliaryParseTableField", ptr %23, i64 %24
@@ -16431,11 +16431,11 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %8, %1
 30:                                               ; preds = %28, %21
   %31 = load ptr, ptr %0, align 8
   %32 = zext i32 %4 to i64
-  %33 = getelementptr inbounds i32, ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.google::protobuf::internal::ParseTableField", ptr %31, i64 %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %36 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ParseTableField", ptr %31, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -16450,7 +16450,7 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit: ; preds = %8, %1
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %30, %41
   %.0.i26 = phi ptr [ %44, %41 ], [ %38, %30 ]
-  %45 = getelementptr inbounds i8, ptr %36, i64 10
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 10
   %46 = load i8, ptr %45, align 2
   %47 = and i8 %46, 31
   switch i8 %47, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit [
@@ -16466,14 +16466,14 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %30, %41
 50:                                               ; preds = %48
   %51 = load i32, ptr %36, align 4
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %2, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit, label %56
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull align 8 dereferenceable(16) %54) #9
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
@@ -16481,18 +16481,18 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %30, %41
 60:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
   %61 = load i32, ptr %36, align 4
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %2, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %62
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr7DestroyENS2_12EmptyDefaultEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef %.0.i26)
   br label %_ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit
 
 _ZN6google8protobuf8internal15ClearOneofFieldERKNS1_15ParseTableFieldEPNS0_5ArenaEPNS0_11MessageLiteE.exit: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %48, %50, %56, %60
   store i32 %7, ptr %33, align 4
-  %64 = getelementptr inbounds i8, ptr %2, i64 %5
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 %5
   store i32 %.029, ptr %64, align 4
   br label %67
 
 65:                                               ; preds = %28
-  %66 = getelementptr inbounds i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load i64, ptr %66, align 8
   tail call fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123UnknownFieldHandlerLite6VarintEPNS0_11MessageLiteERKNS1_10ParseTableEii(ptr noundef %2, i64 %.val, i32 noundef %6, i32 noundef %.029)
   br label %67
@@ -16524,7 +16524,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123Unknown
 10:                                               ; preds = %3
   %11 = and i64 %8, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %_ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11MessageLiteEl.exit
 
 14:                                               ; preds = %3
@@ -16536,19 +16536,19 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_123Unknown
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %7, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 1
   %.not.i.i.i = icmp eq i64 %21, 0
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull @_ZTIN6google8protobuf8internal16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 noundef 40)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i
@@ -16560,7 +16560,7 @@ _ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i: ;
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i, %16
   %.sink.i.i = phi ptr [ %30, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit.i.i ], [ %17, %16 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
-  %31 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #9
   %32 = ptrtoint ptr %.sink.i.i to i64
   %33 = or i64 %32, 1
@@ -16573,7 +16573,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_120MutableUnknownFieldsB5cxx11EPNS0_11M
   %.0.i = phi ptr [ %13, %10 ], [ %31, %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i ]
   call void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %.0.i)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC1EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull %4, i1 noundef zeroext false)
-  %35 = getelementptr inbounds i8, ptr %5, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %5, align 8
   %.not.i.i = icmp ult ptr %36, %37
@@ -16591,7 +16591,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %3
 
 42:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   store i8 %41, ptr %.0.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %63
 
 44:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
@@ -16603,13 +16603,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %3
 
 48:                                               ; preds = %44
   %49 = trunc nuw nsw i32 %46 to i8
-  %50 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 %49, ptr %50, align 1
-  %51 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   br label %63
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %54
 
 54:                                               ; preds = %54, %52
@@ -16619,13 +16619,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %3
   %56 = or i8 %55, -128
   store i8 %56, ptr %.023.i.i, align 1
   %57 = lshr i32 %.022.i.i, 7
-  %58 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 1
   %59 = icmp samesign ugt i32 %.022.i.i, 16383
   br i1 %59, label %54, label %60, !llvm.loop !37
 
 60:                                               ; preds = %54
   %61 = trunc nuw nsw i32 %57 to i8
-  %62 = getelementptr inbounds i8, ptr %.023.i.i, i64 2
+  %62 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 2
   store i8 %61, ptr %58, align 1
   br label %63
 
@@ -16648,7 +16648,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8: ; preds = %
 
 69:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8
   store i8 %68, ptr %.0.i.i9, align 1
-  %70 = getelementptr inbounds i8, ptr %.0.i.i9, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 1
   br label %90
 
 71:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8
@@ -16660,13 +16660,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8: ; preds = %
 
 75:                                               ; preds = %71
   %76 = trunc nuw nsw i32 %73 to i8
-  %77 = getelementptr inbounds i8, ptr %.0.i.i9, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 1
   store i8 %76, ptr %77, align 1
-  %78 = getelementptr inbounds i8, ptr %.0.i.i9, i64 2
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 2
   br label %90
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %.0.i.i9, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 1
   br label %81
 
 81:                                               ; preds = %81, %79
@@ -16676,13 +16676,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i8: ; preds = %
   %83 = or i8 %82, -128
   store i8 %83, ptr %.023.i.i10, align 1
   %84 = lshr i32 %.022.i.i11, 7
-  %85 = getelementptr inbounds i8, ptr %.023.i.i10, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.023.i.i10, i64 1
   %86 = icmp samesign ugt i32 %.022.i.i11, 16383
   br i1 %86, label %81, label %87, !llvm.loop !37
 
 87:                                               ; preds = %81
   %88 = trunc nuw nsw i32 %84 to i8
-  %89 = getelementptr inbounds i8, ptr %.023.i.i10, i64 2
+  %89 = getelementptr inbounds nuw i8, ptr %.023.i.i10, i64 2
   store i8 %88, ptr %85, align 1
   br label %90
 
@@ -16725,7 +16725,7 @@ declare noundef ptr @_ZN6google8protobuf8internal9ArenaImpl28AllocateAlignedAndA
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #6 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #9
   ret void
 }

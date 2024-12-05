@@ -36,7 +36,7 @@ define hidden noundef zeroext i1 @_ZN24LinuxSystemMemoryBarrier10initializeEv() 
   br i1 %2, label %3, label %5
 
 3:                                                ; preds = %0
-  %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not9 = icmp eq ptr %4, null
   br i1 %.not9, label %20, label %.sink.split
 
@@ -46,7 +46,7 @@ define hidden noundef zeroext i1 @_ZN24LinuxSystemMemoryBarrier10initializeEv() 
   br i1 %or.cond.not, label %9, label %7
 
 7:                                                ; preds = %5
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %20, label %.sink.split
 
@@ -66,7 +66,7 @@ define hidden noundef zeroext i1 @_ZN24LinuxSystemMemoryBarrier10initializeEv() 
   unreachable
 
 18:                                               ; preds = %9
-  %19 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %19 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %.sink.split
 

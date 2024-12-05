@@ -39,9 +39,9 @@ define noundef i32 @domatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
 
 26:                                               ; preds = %.preheader, %26
   %27 = phi i64 [ %31, %26 ], [ 0, %.preheader ]
-  %28 = getelementptr inbounds double, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw double, ptr %24, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !3
-  %30 = getelementptr inbounds double, ptr %23, i64 %27
+  %30 = getelementptr inbounds nuw double, ptr %23, i64 %27
   store double %29, ptr %30, align 8, !tbaa !3
   %31 = add nuw nsw i64 %27, 1
   %32 = icmp eq i64 %31, %1
@@ -62,10 +62,10 @@ define noundef i32 @domatcopy_k_rn(i64 noundef %0, i64 noundef %1, double nounde
 
 41:                                               ; preds = %.preheader7, %41
   %42 = phi i64 [ %47, %41 ], [ 0, %.preheader7 ]
-  %43 = getelementptr inbounds double, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw double, ptr %39, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !3
   %45 = fmul double %2, %44
-  %46 = getelementptr inbounds double, ptr %38, i64 %42
+  %46 = getelementptr inbounds nuw double, ptr %38, i64 %42
   store double %45, ptr %46, align 8, !tbaa !3
   %47 = add nuw nsw i64 %42, 1
   %48 = icmp eq i64 %47, %1

@@ -27,34 +27,34 @@ if.end7:                                          ; preds = %entry
   store i8 %conv13, ptr %d, align 1
   %1 = lshr i32 %add8, 16
   %conv18 = trunc i32 %1 to i8
-  %arrayidx19 = getelementptr inbounds i8, ptr %d, i64 1
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %d, i64 1
   store i8 %conv18, ptr %arrayidx19, align 1
   %2 = lshr i32 %add8, 8
   %conv24 = trunc i32 %2 to i8
-  %arrayidx25 = getelementptr inbounds i8, ptr %d, i64 2
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %d, i64 2
   store i8 %conv24, ptr %arrayidx25, align 1
   %conv29 = trunc i32 %add8 to i8
-  %arrayidx30 = getelementptr inbounds i8, ptr %d, i64 3
+  %arrayidx30 = getelementptr inbounds nuw i8, ptr %d, i64 3
   store i8 %conv29, ptr %arrayidx30, align 1
   br i1 %narrow, label %if.then31, label %if.end33
 
 if.then31:                                        ; preds = %if.end7
-  %arrayidx32 = getelementptr inbounds i8, ptr %d, i64 4
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %d, i64 4
   store i8 0, ptr %arrayidx32, align 1
   br label %if.end33
 
 if.end33:                                         ; preds = %if.then31, %if.end7
   %add34 = or disjoint i32 %ext.0, 4
   %idxprom = zext nneg i32 %add34 to i64
-  %arrayidx35 = getelementptr inbounds i8, ptr %d, i64 %idxprom
+  %arrayidx35 = getelementptr inbounds nuw i8, ptr %d, i64 %idxprom
   %call36 = tail call i32 @BN_bn2bin(ptr noundef %a, ptr noundef nonnull %arrayidx35) #2
-  %neg = getelementptr inbounds i8, ptr %a, i64 16
+  %neg = getelementptr inbounds nuw i8, ptr %a, i64 16
   %3 = load i32, ptr %neg, align 8
   %tobool37.not = icmp eq i32 %3, 0
   br i1 %tobool37.not, label %return, label %if.then38
 
 if.then38:                                        ; preds = %if.end33
-  %arrayidx39 = getelementptr inbounds i8, ptr %d, i64 4
+  %arrayidx39 = getelementptr inbounds nuw i8, ptr %d, i64 4
   %4 = load i8, ptr %arrayidx39, align 1
   %5 = or i8 %4, -128
   store i8 %5, ptr %arrayidx39, align 1
@@ -91,17 +91,17 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %conv4 = zext nneg i8 %0 to i64
   %shl = shl nuw nsw i64 %conv4, 24
-  %arrayidx5 = getelementptr inbounds i8, ptr %d, i64 1
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %d, i64 1
   %1 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %1 to i64
   %shl7 = shl nuw nsw i64 %conv6, 16
   %or = or disjoint i64 %shl7, %shl
-  %arrayidx8 = getelementptr inbounds i8, ptr %d, i64 2
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %d, i64 2
   %2 = load i8, ptr %arrayidx8, align 1
   %conv9 = zext i8 %2 to i64
   %shl10 = shl nuw nsw i64 %conv9, 8
   %or12 = or disjoint i64 %or, %shl10
-  %arrayidx13 = getelementptr inbounds i8, ptr %d, i64 3
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %d, i64 3
   %3 = load i8, ptr %arrayidx13, align 1
   %conv15 = zext i8 %3 to i64
   %or16 = or disjoint i64 %or12, %conv15
@@ -131,14 +131,14 @@ if.end29:                                         ; preds = %if.end21, %if.end25
   br i1 %cmp30, label %if.then32, label %if.end34
 
 if.then32:                                        ; preds = %if.end29
-  %neg33 = getelementptr inbounds i8, ptr %a.025, i64 16
+  %neg33 = getelementptr inbounds nuw i8, ptr %a.025, i64 16
   store i32 0, ptr %neg33, align 8
-  %top = getelementptr inbounds i8, ptr %a.025, i64 8
+  %top = getelementptr inbounds nuw i8, ptr %a.025, i64 8
   store i32 0, ptr %top, align 8
   br label %return
 
 if.end34:                                         ; preds = %if.end29
-  %add.ptr = getelementptr inbounds i8, ptr %d, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %d, i64 4
   %4 = load i8, ptr %add.ptr, align 1
   %conv39 = trunc nuw nsw i64 %or16 to i32
   %call40 = tail call ptr @BN_bin2bn(ptr noundef nonnull %add.ptr, i32 noundef %conv39, ptr noundef nonnull %a.025) #2
@@ -156,7 +156,7 @@ if.end48:                                         ; preds = %if.end34
   %tobool.not = icmp slt i8 %4, 0
   %.lobit = lshr i8 %4, 7
   %spec.select = zext nneg i8 %.lobit to i32
-  %neg49 = getelementptr inbounds i8, ptr %a.025, i64 16
+  %neg49 = getelementptr inbounds nuw i8, ptr %a.025, i64 16
   store i32 %spec.select, ptr %neg49, align 8
   br i1 %tobool.not, label %if.then51, label %return
 

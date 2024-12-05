@@ -76,7 +76,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_smp_ops: ; .
 define dso_local void @sysvec_reboot(ptr noundef %0) local_unnamed_addr #0 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #12
   tail call void asm sideeffect "1041: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1041b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1041) #12, !srcloc !6
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -168,7 +168,7 @@ define dso_local void @sysvec_reschedule_ipi(ptr noundef %0) local_unnamed_addr 
 define dso_local void @sysvec_call_function(ptr noundef %0) local_unnamed_addr #0 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #12
   tail call void asm sideeffect "1045: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1045b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1045) #12, !srcloc !20
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -225,7 +225,7 @@ define internal void @__sysvec_call_function(ptr nocapture readnone %0) #6 align
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_call_function_entry(ptr noundef %13, i32 noundef 252) #12
   br label %15
@@ -267,7 +267,7 @@ define internal void @__sysvec_call_function(ptr nocapture readnone %0) #6 align
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @__SCT__tp_func_call_function_exit(ptr noundef %34, i32 noundef 252) #12
   br label %36
@@ -294,7 +294,7 @@ define internal void @__sysvec_call_function(ptr nocapture readnone %0) #6 align
 define dso_local void @sysvec_call_function_single(ptr noundef %0) local_unnamed_addr #0 section ".noinstr.text" align 16 {
   %2 = tail call i8 @irqentry_enter(ptr noundef %0) #12
   tail call void asm sideeffect "1047: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1047b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1047) #12, !srcloc !41
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -351,7 +351,7 @@ define internal void @__sysvec_call_function_single(ptr nocapture readnone %0) #
   br i1 %10, label %15, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @__SCT__tp_func_call_function_single_entry(ptr noundef %13, i32 noundef 251) #12
   br label %15
@@ -393,7 +393,7 @@ define internal void @__sysvec_call_function_single(ptr nocapture readnone %0) #
   br i1 %31, label %36, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @__SCT__tp_func_call_function_single_exit(ptr noundef %34, i32 noundef 251) #12
   br label %36
@@ -622,7 +622,7 @@ define internal fastcc void @trace_reschedule_entry() unnamed_addr #9 align 16 {
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @__SCT__tp_func_reschedule_entry(ptr noundef %12, i32 noundef 253) #12
   br label %14
@@ -667,7 +667,7 @@ define internal fastcc void @trace_reschedule_exit() unnamed_addr #9 align 16 {
   br i1 %9, label %14, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @__SCT__tp_func_reschedule_exit(ptr noundef %12, i32 noundef 253) #12
   br label %14

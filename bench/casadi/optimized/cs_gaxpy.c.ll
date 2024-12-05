@@ -9,7 +9,7 @@ define range(i32 0, 2) i32 @cs_gaxpy(ptr noundef readonly %0, ptr noundef readon
   br i1 %.not, label %.loopexit32, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
   %8 = icmp ne ptr %1, null
@@ -19,13 +19,13 @@ define range(i32 0, 2) i32 @cs_gaxpy(ptr noundef readonly %0, ptr noundef readon
   br i1 %or.cond3, label %10, label %.loopexit32
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp sgt i32 %12, 0
   br i1 %19, label %.lr.ph35.preheader, label %.loopexit32
@@ -44,13 +44,13 @@ define range(i32 0, 2) i32 @cs_gaxpy(ptr noundef readonly %0, ptr noundef readon
   %21 = phi i32 [ %.pre, %.lr.ph35.preheader ], [ %20, %.loopexit ]
   %indvars.iv37 = phi i64 [ 0, %.lr.ph35.preheader ], [ %indvars.iv.next38, %.loopexit ]
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
-  %22 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.next38
+  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next38
   %23 = load i32, ptr %22, align 4
   %24 = icmp slt i32 %21, %23
   br i1 %24, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph35
-  %25 = getelementptr inbounds double, ptr %1, i64 %indvars.iv37
+  %25 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv37
   %26 = sext i32 %21 to i64
   br label %27
 

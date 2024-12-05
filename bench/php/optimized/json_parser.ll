@@ -37,21 +37,21 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %4 = alloca [200 x %union.PHP_JSON_YYSTYPE], align 16
   %5 = alloca %union.PHP_JSON_YYSTYPE, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
-  %11 = getelementptr inbounds i8, ptr %0, i64 65
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
-  %15 = getelementptr inbounds i8, ptr %0, i64 136
-  %16 = getelementptr inbounds i8, ptr %0, i64 108
-  %17 = getelementptr inbounds i8, ptr %0, i64 128
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 65
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %23
 
 21:                                               ; preds = %236, %106
@@ -59,7 +59,7 @@ define hidden range(i32 0, 3) i32 @php_json_yyparse(ptr noundef %0) local_unname
   %.1267 = phi ptr [ %215, %236 ], [ %.2268, %106 ]
   %.1254 = phi i32 [ %237, %236 ], [ %102, %106 ]
   %.1 = phi i32 [ %.8, %236 ], [ -2, %106 ]
-  %22 = getelementptr inbounds i8, ptr %.1267, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.1267, i64 1
   br label %23
 
 23:                                               ; preds = %21, %1
@@ -202,7 +202,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 87:                                               ; preds = %85
   %88 = zext nneg i32 %.5 to i64
-  %89 = getelementptr inbounds [267 x i8], ptr @yytranslate, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [267 x i8], ptr @yytranslate, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1
   %91 = sext i8 %90 to i32
   br label %92
@@ -216,14 +216,14 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 94:                                               ; preds = %92
   %95 = zext nneg i32 %93 to i64
-  %96 = getelementptr inbounds [27 x i8], ptr @yycheck, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [27 x i8], ptr @yycheck, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = sext i8 %97 to i32
   %.not316 = icmp eq i32 %.0286, %98
   br i1 %.not316, label %99, label %108
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds [27 x i8], ptr @yytable, i64 0, i64 %95
+  %100 = getelementptr inbounds nuw [27 x i8], ptr @yytable, i64 0, i64 %95
   %101 = load i8, ptr %100, align 1
   %102 = sext i8 %101 to i32
   %103 = icmp eq i32 %93, 20
@@ -234,7 +234,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   br label %113
 
 106:                                              ; preds = %99
-  %107 = getelementptr inbounds i8, ptr %.2278, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.2278, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   br label %21
 
@@ -280,12 +280,12 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %124 = load i32, ptr %123, align 8
   store ptr %122, ptr %5, align 8
   store i32 %124, ptr %13, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 96
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %121, align 8
   %128 = load i32, ptr %123, align 8
   store ptr %127, ptr %126, align 8
-  %129 = getelementptr inbounds i8, ptr %126, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i32 %128, ptr %129, align 8
   br label %php_json_yyerror.exit336
 
@@ -448,7 +448,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   %213 = sub nsw i64 0, %117
   %214 = getelementptr inbounds %union.PHP_JSON_YYSTYPE, ptr %.2278, i64 %213
   %215 = getelementptr inbounds i8, ptr %.2268, i64 %213
-  %216 = getelementptr inbounds i8, ptr %214, i64 16
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %216, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %217 = getelementptr inbounds [30 x i8], ptr @yyr1, i64 0, i64 %114
   %218 = load i8, ptr %217, align 1
@@ -465,13 +465,13 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 227:                                              ; preds = %212
   %228 = zext nneg i32 %226 to i64
-  %229 = getelementptr inbounds [27 x i8], ptr @yycheck, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw [27 x i8], ptr @yycheck, i64 0, i64 %228
   %230 = load i8, ptr %229, align 1
   %231 = icmp eq i8 %230, %224
   br i1 %231, label %232, label %234
 
 232:                                              ; preds = %227
-  %233 = getelementptr inbounds [27 x i8], ptr @yytable, i64 0, i64 %228
+  %233 = getelementptr inbounds nuw [27 x i8], ptr @yytable, i64 0, i64 %228
   br label %236
 
 234:                                              ; preds = %227, %212
@@ -485,7 +485,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
   br label %21
 
 238:                                              ; preds = %108
-  %239 = getelementptr inbounds i8, ptr %0, i64 84
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %240 = load i32, ptr %239, align 4
   %.not.i334 = icmp eq i32 %240, 0
   br i1 %.not.i334, label %241, label %php_json_yyerror.exit
@@ -496,7 +496,7 @@ php_json_yylex.exit:                              ; preds = %.critedge.i, %81, %
 
 .loopexit.sink.split:                             ; preds = %113, %175, %113, %130
   %.sink = phi i32 [ 1, %130 ], [ 2, %113 ], [ 1, %175 ], [ 2, %113 ]
-  %242 = getelementptr inbounds i8, ptr %0, i64 84
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %.sink, ptr %242, align 4
   br label %.loopexit
 
@@ -533,7 +533,7 @@ php_json_yyerror.exit:                            ; preds = %83, %241, %238, %.l
   br i1 %257, label %php_json_yyerror.exit336, label %.lr.ph
 
 258:                                              ; preds = %33, %27
-  %259 = getelementptr inbounds i8, ptr %0, i64 84
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %260 = load i32, ptr %259, align 4
   %.not.i335 = icmp eq i32 %260, 0
   br i1 %.not.i335, label %261, label %php_json_yyerror.exit336
@@ -558,7 +558,7 @@ php_json_yyerror.exit336:                         ; preds = %44, %48, %.lr.ph, %
 
 .thread:                                          ; preds = %262
   %263 = zext nneg i32 %.9 to i64
-  %264 = getelementptr inbounds [267 x i8], ptr @yytranslate, i64 0, i64 %263
+  %264 = getelementptr inbounds nuw [267 x i8], ptr @yytranslate, i64 0, i64 %263
   %265 = load i8, ptr %264, align 1
   %266 = sext i8 %265 to i32
   br label %267
@@ -615,7 +615,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_json_parser_object_create(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -624,7 +624,7 @@ define internal noundef i32 @php_json_parser_object_create(ptr nocapture noundef
 6:                                                ; preds = %2
   %7 = tail call ptr @_zend_new_array_0() #12
   store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %8, align 8
   br label %10
 
@@ -640,7 +640,7 @@ define internal noundef i32 @php_json_parser_object_create(ptr nocapture noundef
 define internal noundef i32 @php_json_parser_array_create(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 {
   %3 = tail call ptr @_zend_new_array_0() #12
   store ptr %3, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %4, align 8
   ret i32 0
 }
@@ -667,7 +667,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %5 = load i8, ptr %4, align 1
   %.not158 = icmp eq i8 %5, 0
   br i1 %.not158, label %132, label %6
@@ -683,7 +683,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not159, label %.sink.split, label %132
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 9
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %13 = load i8, ptr %12, align 1
   %.not156 = icmp eq i8 %13, 0
   br i1 %.not156, label %132, label %14
@@ -699,7 +699,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not157, label %.sink.split, label %132
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 9
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %21 = load i8, ptr %20, align 1
   %.not154 = icmp eq i8 %21, 0
   br i1 %.not154, label %132, label %22
@@ -715,7 +715,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not155, label %.sink.split, label %132
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %1, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %29 = load i8, ptr %28, align 1
   %.not152 = icmp eq i8 %29, 0
   br i1 %.not152, label %132, label %30
@@ -731,7 +731,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not153, label %.sink.split, label %132
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %1, i64 9
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %37 = load i8, ptr %36, align 1
   %.not150 = icmp eq i8 %37, 0
   br i1 %.not150, label %132, label %38
@@ -747,7 +747,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not151, label %.sink.split, label %132
 
 43:                                               ; preds = %2
-  %44 = getelementptr inbounds i8, ptr %1, i64 9
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %45 = load i8, ptr %44, align 1
   %.not148 = icmp eq i8 %45, 0
   br i1 %.not148, label %132, label %46
@@ -763,7 +763,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not149, label %.sink.split, label %132
 
 51:                                               ; preds = %2
-  %52 = getelementptr inbounds i8, ptr %1, i64 9
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %53 = load i8, ptr %52, align 1
   %.not146 = icmp eq i8 %53, 0
   br i1 %.not146, label %132, label %54
@@ -779,7 +779,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not147, label %.sink.split, label %132
 
 59:                                               ; preds = %2
-  %60 = getelementptr inbounds i8, ptr %1, i64 9
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %61 = load i8, ptr %60, align 1
   %.not144 = icmp eq i8 %61, 0
   br i1 %.not144, label %132, label %62
@@ -795,7 +795,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not145, label %.sink.split, label %132
 
 67:                                               ; preds = %2
-  %68 = getelementptr inbounds i8, ptr %1, i64 9
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %69 = load i8, ptr %68, align 1
   %.not142 = icmp eq i8 %69, 0
   br i1 %.not142, label %132, label %70
@@ -811,7 +811,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not143, label %.sink.split, label %132
 
 75:                                               ; preds = %2
-  %76 = getelementptr inbounds i8, ptr %1, i64 9
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %77 = load i8, ptr %76, align 1
   %.not140 = icmp eq i8 %77, 0
   br i1 %.not140, label %132, label %78
@@ -827,7 +827,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not141, label %.sink.split, label %132
 
 83:                                               ; preds = %2
-  %84 = getelementptr inbounds i8, ptr %1, i64 9
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %85 = load i8, ptr %84, align 1
   %.not138 = icmp eq i8 %85, 0
   br i1 %.not138, label %132, label %86
@@ -843,7 +843,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not139, label %.sink.split, label %132
 
 91:                                               ; preds = %2
-  %92 = getelementptr inbounds i8, ptr %1, i64 9
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %93 = load i8, ptr %92, align 1
   %.not136 = icmp eq i8 %93, 0
   br i1 %.not136, label %132, label %94
@@ -859,7 +859,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not137, label %.sink.split, label %132
 
 99:                                               ; preds = %2
-  %100 = getelementptr inbounds i8, ptr %1, i64 9
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %101 = load i8, ptr %100, align 1
   %.not134 = icmp eq i8 %101, 0
   br i1 %.not134, label %132, label %102
@@ -875,7 +875,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not135, label %.sink.split, label %132
 
 107:                                              ; preds = %2
-  %108 = getelementptr inbounds i8, ptr %1, i64 9
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %109 = load i8, ptr %108, align 1
   %.not132 = icmp eq i8 %109, 0
   br i1 %.not132, label %132, label %110
@@ -891,7 +891,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not133, label %.sink.split, label %132
 
 115:                                              ; preds = %2
-  %116 = getelementptr inbounds i8, ptr %1, i64 9
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %117 = load i8, ptr %116, align 1
   %.not130 = icmp eq i8 %117, 0
   br i1 %.not130, label %132, label %118
@@ -907,7 +907,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
   br i1 %.not131, label %.sink.split, label %132
 
 123:                                              ; preds = %2
-  %124 = getelementptr inbounds i8, ptr %1, i64 9
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %125 = load i8, ptr %124, align 1
   %.not = icmp eq i8 %125, 0
   br i1 %.not, label %132, label %126
@@ -933,7 +933,7 @@ define internal fastcc void @yydestruct(i32 noundef range(i32 -128, 128) %0, ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @php_json_parser_error_code(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 84
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
@@ -942,13 +942,13 @@ define i32 @php_json_parser_error_code(ptr nocapture noundef readonly %0) local_
 define void @php_json_parser_init_ex(ptr noundef initializes((0, 176)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   tail call void @php_json_scanner_init(ptr noundef %0, ptr noundef %2, i64 noundef %3, i32 noundef %4) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 108
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %5, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false)
   ret void
 }
@@ -962,13 +962,13 @@ declare void @php_json_scanner_init(ptr noundef, ptr noundef, i64 noundef, i32 n
 define void @php_json_parser_init(ptr noundef initializes((0, 176)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 0, i64 176, i1 false)
   tail call void @php_json_scanner_init(ptr noundef %0, ptr noundef %2, i64 noundef %3, i32 noundef %4) #12
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 108
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %5, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) @default_parser_methods, i64 64, i1 false)
   ret void
 }
@@ -997,7 +997,7 @@ declare i32 @php_json_scan(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @php_json_parser_array_create_validate(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
@@ -1009,7 +1009,7 @@ define internal noundef i32 @php_json_parser_array_append_validate(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @php_json_parser_object_create_validate(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #9 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
@@ -1031,15 +1031,15 @@ define internal noundef i32 @php_json_parser_array_append(ptr nocapture readnone
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 7
   br i1 %8, label %9, label %29
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = load i8, ptr %11, align 1
   %15 = icmp sgt i8 %14, 57
@@ -1054,7 +1054,7 @@ define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocaptur
   br i1 %.not78, label %19, label %.critedge
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %2, i64 25
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %21 = load i8, ptr %20, align 1
   %22 = add i8 %21, -58
   %or.cond = icmp ult i8 %22, -10
@@ -1074,21 +1074,21 @@ define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocaptur
   br label %77
 
 29:                                               ; preds = %4
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load i64, ptr %30, align 8
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %67, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %2, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %36, label %67
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %0, i64 84
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 9, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %2, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 64
   %.not73 = icmp eq i32 %40, 0
@@ -1108,7 +1108,7 @@ define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocaptur
   br label %47
 
 47:                                               ; preds = %41, %46, %36
-  %48 = getelementptr inbounds i8, ptr %3, i64 9
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %49 = load i8, ptr %48, align 1
   %.not74 = icmp eq i8 %49, 0
   br i1 %.not74, label %57, label %50
@@ -1129,7 +1129,7 @@ define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocaptur
   br label %57
 
 57:                                               ; preds = %55, %50, %47
-  %58 = getelementptr inbounds i8, ptr %1, i64 9
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %59 = load i8, ptr %58, align 1
   %.not76 = icmp eq i8 %59, 0
   br i1 %.not76, label %87, label %60
@@ -1152,7 +1152,7 @@ define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocaptur
 67:                                               ; preds = %32, %29
   %68 = load ptr, ptr %1, align 8
   %69 = tail call ptr @zend_std_write_property(ptr noundef %68, ptr noundef nonnull %2, ptr noundef %3, ptr noundef null) #12
-  %70 = getelementptr inbounds i8, ptr %3, i64 9
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %71 = load i8, ptr %70, align 1
   %.not72 = icmp eq i8 %71, 0
   br i1 %.not72, label %77, label %72
@@ -1167,7 +1167,7 @@ define internal range(i32 -1, 1) i32 @php_json_parser_object_update(ptr nocaptur
   br label %77
 
 77:                                               ; preds = %72, %67, %25, %.critedge
-  %78 = getelementptr inbounds i8, ptr %2, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 64
   %.not79 = icmp eq i32 %80, 0

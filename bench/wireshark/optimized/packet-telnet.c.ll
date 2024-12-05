@@ -646,7 +646,7 @@ define internal i32 @dissect_telnet(ptr noundef %0, ptr noundef %1, ptr noundef 
   %5 = alloca [30 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca [30 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.147) #5
   %10 = load ptr, ptr %8, align 8
@@ -664,7 +664,7 @@ define internal i32 @dissect_telnet(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph:                                           ; preds = %4
   %.not61 = icmp eq i32 %11, 0
   %.not62 = icmp eq i32 %12, 0
-  %18 = getelementptr inbounds i8, ptr %1, i64 408
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %19
 
 19:                                               ; preds = %.lr.ph, %telnet_command.exit
@@ -775,7 +775,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %71 = icmp eq i8 %67, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i.i = select i1 %71, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i.i = select i1 %68, ptr %70, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i.i
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i, label %.thread.i, label %.thread.sink.split.i
@@ -789,7 +789,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %80 = icmp eq i8 %76, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i31.i = select i1 %80, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i32.i = select i1 %77, ptr %79, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i31.i
-  %81 = getelementptr inbounds i8, ptr %.0.i.i32.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i.i32.i, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not.i33.i = icmp eq ptr %82, null
   br i1 %.not.i33.i, label %.thread.i, label %.thread.sink.split.i
@@ -803,7 +803,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %89 = icmp eq i8 %85, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i36.i = select i1 %89, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i37.i = select i1 %86, ptr %88, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i36.i
-  %90 = getelementptr inbounds i8, ptr %.0.i.i37.i, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.0.i.i37.i, i64 8
   %91 = load ptr, ptr %90, align 8
   %.not.i38.i = icmp eq ptr %91, null
   br i1 %.not.i38.i, label %.thread.i, label %.thread.sink.split.i
@@ -817,7 +817,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %98 = icmp eq i8 %94, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i41.i = select i1 %98, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i42.i = select i1 %95, ptr %97, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i41.i
-  %99 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0.i.i42.i, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not.i43.i = icmp eq ptr %100, null
   br i1 %.not.i43.i, label %.thread.i, label %.thread.sink.split.i
@@ -831,7 +831,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %107 = icmp eq i8 %103, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i46.i = select i1 %107, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i47.i = select i1 %104, ptr %106, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i46.i
-  %108 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i.i47.i, i64 8
   %109 = load ptr, ptr %108, align 8
   %.not.i48.i = icmp eq ptr %109, null
   br i1 %.not.i48.i, label %.thread.i, label %.thread.sink.split.i
@@ -953,13 +953,13 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   br i1 %160, label %161, label %telnet_command.exit
 
 161:                                              ; preds = %.loopexit.i.i
-  %162 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 24
+  %162 = getelementptr inbounds nuw i8, ptr %.0.i.i52.i, i64 24
   %163 = load ptr, ptr %162, align 8
   %.not96.i.i = icmp eq ptr %163, null
   br i1 %.not96.i.i, label %216, label %164
 
 164:                                              ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %.0.i.i52.i, i64 16
   %166 = load i32, ptr %165, align 8
   switch i32 %166, label %182 [
     i32 0, label %167
@@ -973,7 +973,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
 
 169:                                              ; preds = %164
   %170 = sub i32 %159, %.0134.i.i
-  %171 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 20
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i.i52.i, i64 20
   %172 = load i32, ptr %171, align 4
   %.not97.i.i = icmp eq i32 %170, %172
   br i1 %.not97.i.i, label %182, label %173
@@ -984,7 +984,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
 
 175:                                              ; preds = %164
   %176 = sub i32 %159, %.0134.i.i
-  %177 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 20
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i52.i, i64 20
   %178 = load i32, ptr %177, align 4
   %179 = icmp slt i32 %176, %178
   br i1 %179, label %180, label %182
@@ -1163,9 +1163,9 @@ telnet_command.exit:                              ; preds = %119, %add_telnet_in
   br i1 %or.cond, label %257, label %260
 
 257:                                              ; preds = %.loopexit
-  %258 = getelementptr inbounds i8, ptr %1, i64 332
+  %258 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.056104, ptr %258, align 4
-  %259 = getelementptr inbounds i8, ptr %1, i64 336
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %259, align 8
   br label %.loopexit76
 
@@ -1452,7 +1452,7 @@ define internal void @dissect_string_subopt(ptr noundef %0, ptr noundef %1, ptr 
   br label %18
 
 18:                                               ; preds = %15, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @tvb_format_text(ptr noundef %20, ptr noundef %2, i32 noundef %12, i32 noundef %13) #5
   %22 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(14) @.str.310) #6
@@ -1852,7 +1852,7 @@ define internal void @dissect_tn3270e_subopt(ptr noundef %0, ptr nocapture readn
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.loopexit
@@ -1989,7 +1989,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   br label %203
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 408
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %23 = load ptr, ptr %22, align 8
   %24 = add i32 %3, 1
   %25 = tail call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %2, i32 noundef %24, i32 noundef %16, i32 noundef 0) #5
@@ -2319,15 +2319,15 @@ telnet_get_session.exit:                          ; preds = %7, %11
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %15, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %17 = load i32, ptr %.0.i, align 4
   %18 = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 4
   br i1 %18, label %21, label %25
 
 21:                                               ; preds = %telnet_get_session.exit
   store i32 %20, ptr %.0.i, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 284
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 %23, ptr %24, align 4
   br label %36
 
@@ -2336,9 +2336,9 @@ telnet_get_session.exit:                          ; preds = %7, %11
   br i1 %26, label %27, label %36
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 284
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %31 = load i32, ptr %30, align 4
   %.not = icmp eq i32 %29, %31
   br i1 %.not, label %36, label %32

@@ -425,7 +425,7 @@ define internal fastcc i32 @dissect_wifi_dpp_attributes(ptr noundef %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 2, 65538) i32 @dissect_wifi_dpp_public_action(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.2) #2
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
@@ -594,7 +594,7 @@ define internal i32 @get_wifi_dpp_tcp_len(ptr nocapture readnone %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wifi_dpp_tcp_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.88) #2
   %7 = load i32, ptr @hf_wifi_dpp_tcp_pdu_length, align 4

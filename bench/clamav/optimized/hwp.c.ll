@@ -186,9 +186,9 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @cli_scanhwpole2(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32
   %8 = add i32 %7, -4
@@ -197,7 +197,7 @@ define i32 @cli_scanhwpole2(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %1
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %6, i64 4)
-  %10 = getelementptr inbounds i8, ptr %4, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %4, i64 noundef 0, i64 noundef %spec.select.i, i32 noundef 0) #9
   %.not26.i = icmp eq ptr %12, null
@@ -250,7 +250,7 @@ define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly %0, ptr noundef
   br i1 %or.cond, label %5, label %84
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 2
@@ -258,7 +258,7 @@ define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly %0, ptr noundef
   br i1 %.not, label %84, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @cli_jsonobj(ptr noundef %12, ptr noundef nonnull @.str.3) #9
   %.not40 = icmp eq ptr %13, null
@@ -269,10 +269,10 @@ define range(i32 0, 21) i32 @cli_hwp5header(ptr noundef readonly %0, ptr noundef
   br label %84
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @cli_jsonint(ptr noundef nonnull %13, ptr noundef nonnull @.str.5, i32 noundef %17) #9
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @cli_jsonint(ptr noundef nonnull %13, ptr noundef nonnull @.str.6, i32 noundef %20) #9
   %22 = tail call ptr @cli_jsonarray(ptr noundef nonnull %13, ptr noundef nonnull @.str.7) #9
@@ -447,13 +447,13 @@ sub_0:                                            ; preds = %9
   br i1 %.not47, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %2, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %12 = load i8, ptr %11, align 1
   %.not48 = icmp eq i8 %12, 105
   br i1 %.not48, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %13 = getelementptr inbounds i8, ptr %2, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 110
   br i1 %15, label %25, label %.tail.thread
@@ -484,7 +484,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not40, label %25, label %46
 
 25:                                               ; preds = %23, %21, %19, %17, %.tail.thread, %.tail
-  %26 = getelementptr inbounds i8, ptr %1, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 2
   %.not41 = icmp eq i32 %28, 0
@@ -510,7 +510,7 @@ sub_1:                                            ; preds = %sub_0
   br label %61
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %6, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %39 = load i64, ptr %38, align 8
   %40 = tail call ptr @fmap(i32 noundef %3, i64 noundef 0, i64 noundef %39, ptr noundef null) #9
   %.not43 = icmp eq ptr %40, null
@@ -522,13 +522,13 @@ sub_1:                                            ; preds = %sub_0
 
 42:                                               ; preds = %37
   %43 = tail call fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef nonnull %40, i64 noundef 0, ptr noundef nonnull @.str.31, ptr noundef nonnull @hwp5_cb)
-  %44 = getelementptr inbounds i8, ptr %40, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef nonnull %40) #9
   br label %61
 
 46:                                               ; preds = %31, %23
-  %47 = getelementptr inbounds i8, ptr %0, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, 2
@@ -536,7 +536,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not44, label %59, label %51
 
 51:                                               ; preds = %46
-  %52 = getelementptr inbounds i8, ptr %0, i64 152
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %53 = load ptr, ptr %52, align 8
   %.not45 = icmp eq ptr %53, null
   br i1 %.not45, label %59, label %54
@@ -586,7 +586,7 @@ define internal fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef 
   br i1 %or.cond3, label %14, label %87
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @cli_gentempfd(ptr noundef %16, ptr noundef nonnull %8, ptr noundef nonnull %6) #9
   %.not = icmp eq i32 %17, 0
@@ -597,21 +597,21 @@ define internal fastcc i32 @decompress_and_callback(ptr noundef %0, ptr noundef 
   br label %87
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %7, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %20, i8 0, i64 104, i1 false)
   store ptr %9, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %10, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 8192, ptr %23, align 8
   %24 = call i32 @inflateInit2_(ptr noundef nonnull %7, i32 noundef -15, ptr noundef nonnull @.str.51, i32 noundef 112) #9
   %.not97 = icmp eq i32 %24, 0
   br i1 %.not97, label %.preheader, label %27
 
 .preheader:                                       ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %1, i64 88
-  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   br label %28
 
 27:                                               ; preds = %19
@@ -745,9 +745,9 @@ fmap_readn.exit.thread:                           ; preds = %35, %33
   %.484 = phi i32 [ %spec.store.select, %73 ], [ %.080, %71 ]
   %76 = load i32, ptr %6, align 4
   %77 = call i32 @close(i32 noundef %76) #9
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8
   %.not103 = icmp eq i32 %81, 0
   br i1 %.not103, label %82, label %85
@@ -792,9 +792,9 @@ declare i32 @cli_ole2_summary_json(ptr noundef, i32 noundef, i32 noundef) local_
 define i32 @cli_scanhwp3(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %4, i64 noundef 30, i64 noundef 128, i32 noundef 0) #9
   %.not.i = icmp eq ptr %7, null
@@ -805,17 +805,17 @@ define i32 @cli_scanhwp3(ptr noundef %0) local_unnamed_addr #0 {
   br label %parsehwp3_docinfo.exit.thread
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %11 = load i32, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %7, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %13 = load i16, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %7, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %15 = load i16, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %7, i64 124
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 124
   %17 = load i8, ptr %16, align 1
-  %18 = getelementptr inbounds i8, ptr %7, i64 126
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 126
   %19 = load i16, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 2
@@ -823,7 +823,7 @@ define i32 @cli_scanhwp3(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not50.i, label %parsehwp3_docsummary.exit, label %24
 
 24:                                               ; preds = %9
-  %25 = getelementptr inbounds i8, ptr %0, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @cli_jsonobj(ptr noundef %26, ptr noundef nonnull @.str.62) #9
   %.not51.i = icmp eq ptr %27, null
@@ -884,7 +884,7 @@ convert_hstr_to_utf8.exit.thread.i:               ; preds = %44
   br label %parsehwp3_docinfo.exit.thread
 
 convert_hstr_to_utf8.exit.i:                      ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %7, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %45, ptr noundef nonnull readonly align 1 dereferenceable(40) %46, i64 40, i1 false)
   %47 = tail call ptr @cl_base64_encode(ptr noundef nonnull %45, i64 noundef 40) #9
   tail call void @free(ptr noundef nonnull %45) #9
@@ -904,7 +904,7 @@ convert_hstr_to_utf8.exit64.thread.i:             ; preds = %48
   br label %parsehwp3_docinfo.exit.thread
 
 convert_hstr_to_utf8.exit64.i:                    ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %7, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %51, ptr noundef nonnull readonly align 1 dereferenceable(24) %52, i64 24, i1 false)
   %53 = tail call ptr @cl_base64_encode(ptr noundef nonnull %51, i64 noundef 24) #9
   tail call void @free(ptr noundef nonnull %51) #9
@@ -923,7 +923,7 @@ parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf
 
 57:                                               ; preds = %parsehwp3_docinfo.exit
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 104
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 104
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr %60(ptr noundef %58, i64 noundef 158, i64 noundef 1008, i32 noundef 0) #9
   %.not32.i = icmp eq ptr %61, null
@@ -934,7 +934,7 @@ parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf
   br label %parsehwp3_docinfo.exit.thread
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %0, i64 160
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @cli_jsonobj(ptr noundef %65, ptr noundef nonnull @.str.73) #9
   %.not33.i = icmp eq ptr %66, null
@@ -951,7 +951,7 @@ parsehwp3_docinfo.exit:                           ; preds = %convert_hstr_to_utf
 
 .preheader.i:                                     ; preds = %63, %68
   %.02640.i = phi i64 [ %69, %68 ], [ 0, %63 ]
-  %70 = getelementptr inbounds [9 x %struct.hwp3_docsummary_entry], ptr @hwp3_docsummary_fields, i64 0, i64 %.02640.i
+  %70 = getelementptr inbounds nuw [9 x %struct.hwp3_docsummary_entry], ptr @hwp3_docsummary_fields, i64 0, i64 %.02640.i
   %71 = load i64, ptr %70, align 16
   %72 = tail call ptr @cli_max_calloc(i64 noundef 1, i64 noundef 113) #9
   %.not.i.i29 = icmp eq ptr %72, null
@@ -970,7 +970,7 @@ convert_hstr_to_utf8.exit.i30:                    ; preds = %.preheader.i
   br i1 %.not34.i, label %parsehwp3_docinfo.exit.thread, label %75
 
 75:                                               ; preds = %convert_hstr_to_utf8.exit.i30
-  %76 = getelementptr inbounds i8, ptr %70, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #10
   %79 = add i64 %78, 8
@@ -1010,7 +1010,7 @@ parsehwp3_docsummary.exit:                        ; preds = %68, %9, %parsehwp3_
 90:                                               ; preds = %89
   %91 = zext i16 %19 to i64
   %92 = add nuw nsw i64 %91, 1166
-  %93 = getelementptr inbounds i8, ptr %4, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %94 = load i64, ptr %93, align 8
   %.not25 = icmp ult i64 %92, %94
   br i1 %.not25, label %97, label %95
@@ -1080,7 +1080,7 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   br label %292
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %11, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %24 = load i64, ptr %23, align 8
   %25 = tail call ptr @fmap(i32 noundef %1, i64 noundef 0, i64 noundef %24, ptr noundef null) #9
   %.not71 = icmp eq ptr %25, null
@@ -1091,7 +1091,7 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   br label %292
 
 27:                                               ; preds = %13
-  %28 = getelementptr inbounds i8, ptr %3, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -1099,7 +1099,7 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   %.promoted = phi i64 [ 0, %22 ], [ %14, %27 ]
   %.065 = phi ptr [ %25, %22 ], [ %29, %27 ]
   %.064 = phi ptr [ %25, %22 ], [ null, %27 ]
-  %31 = getelementptr inbounds i8, ptr %3, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 2
@@ -1107,15 +1107,15 @@ define internal i32 @hwp3_cb(ptr noundef readonly %0, i32 noundef %1, ptr nocapt
   br i1 %.not72, label %39, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %3, i64 160
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @cli_jsonarray(ptr noundef %37, ptr noundef nonnull @.str.80) #9
   br label %39
 
 39:                                               ; preds = %35, %30
   %.059 = phi ptr [ %38, %35 ], [ null, %30 ]
-  %40 = getelementptr inbounds i8, ptr %.065, i64 88
-  %41 = getelementptr inbounds i8, ptr %.065, i64 104
+  %40 = getelementptr inbounds nuw i8, ptr %.065, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %.065, i64 104
   %.pre = load i64, ptr %40, align 8
   br label %44
 
@@ -1149,7 +1149,7 @@ fmap_readn.exit.thread:                           ; preds = %47, %44, %fmap_read
   br i1 %.not88, label %292, label %51
 
 51:                                               ; preds = %fmap_readn.exit.thread
-  %52 = getelementptr inbounds i8, ptr %.064, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull %.064) #9
   br label %292
@@ -1187,7 +1187,7 @@ fmap_readn.exit.thread:                           ; preds = %47, %44, %fmap_read
   br i1 %.not87, label %292, label %70
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds i8, ptr %.064, i64 96
+  %71 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull %.064) #9
   br label %292
@@ -1210,7 +1210,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br i1 %.not82, label %292, label %77
 
 77:                                               ; preds = %fmap_readn.exit93.thread
-  %78 = getelementptr inbounds i8, ptr %.064, i64 96
+  %78 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull %.064) #9
   br label %292
@@ -1224,7 +1224,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br i1 %.not74, label %89, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %3, i64 160
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %86 = load ptr, ptr %85, align 8
   %87 = zext i16 %.0..0..0.99.pre to i32
   %88 = tail call i32 @cli_jsonint(ptr noundef %86, ptr noundef nonnull @.str.82, i32 noundef %87) #9
@@ -1250,7 +1250,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br i1 %.not81, label %292, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.064, i64 96
+  %99 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %100 = load ptr, ptr %99, align 8
   tail call void %100(ptr noundef nonnull %.064) #9
   br label %292
@@ -1279,7 +1279,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br i1 %.not80, label %292, label %109
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds i8, ptr %.064, i64 96
+  %110 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %111 = load ptr, ptr %110, align 8
   tail call void %111(ptr noundef nonnull %.064) #9
   br label %292
@@ -1292,7 +1292,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
   br i1 %.not78, label %120, label %116
 
 116:                                              ; preds = %112
-  %117 = getelementptr inbounds i8, ptr %3, i64 160
+  %117 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %118 = load ptr, ptr %117, align 8
   %119 = tail call i32 @cli_jsonint(ptr noundef %118, ptr noundef nonnull @.str.84, i32 noundef %103) #9
   br label %120
@@ -1300,8 +1300,8 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
 120:                                              ; preds = %116, %112
   store i32 0, ptr %9, align 4
   %.not.i94 = icmp eq ptr %.065, null
-  %121 = getelementptr inbounds i8, ptr %3, i64 96
-  %122 = getelementptr inbounds i8, ptr %3, i64 160
+  %121 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 160
   br label %123
 
 123:                                              ; preds = %120, %parsehwp3_infoblk_1.exit
@@ -1360,7 +1360,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
 
 146:                                              ; preds = %.sink.split.i, %126
   %.083.i = phi ptr [ null, %126 ], [ %137, %.sink.split.i ]
-  %147 = getelementptr inbounds i8, ptr %127, i64 88
+  %147 = getelementptr inbounds nuw i8, ptr %127, i64 88
   %148 = load i64, ptr %147, align 8
   %or.cond.not.i = icmp ult i64 %128, %148
   br i1 %or.cond.not.i, label %149, label %fmap_readn.exit.thread.i
@@ -1368,7 +1368,7 @@ fmap_readn.exit93.thread:                         ; preds = %73, %fmap_readn.exi
 149:                                              ; preds = %146
   %150 = sub nuw i64 %148, %128
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %150, i64 4)
-  %151 = getelementptr inbounds i8, ptr %127, i64 104
+  %151 = getelementptr inbounds nuw i8, ptr %127, i64 104
   %152 = load ptr, ptr %151, align 8
   %153 = call ptr %152(ptr noundef nonnull %127, i64 noundef %128, i64 noundef %spec.select.i.i, i32 noundef 0) #9
   %.not26.i.i = icmp eq ptr %153, null
@@ -1716,7 +1716,7 @@ parsehwp3_infoblk_1.exit:                         ; preds = %167, %171, %203, %.
   br i1 %.not79, label %292, label %289
 
 289:                                              ; preds = %288
-  %290 = getelementptr inbounds i8, ptr %.064, i64 96
+  %290 = getelementptr inbounds nuw i8, ptr %.064, i64 96
   %291 = load ptr, ptr %290, align 8
   call void %291(ptr noundef nonnull %.064) #9
   br label %292
@@ -1736,9 +1736,9 @@ define i32 @cli_scanhwpml(ptr noundef %0) local_unnamed_addr #0 {
 
 4:                                                ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8
   %8 = call ptr @xmlReaderForIO(ptr noundef nonnull @msxml_read_cb, ptr noundef null, ptr noundef nonnull %2, ptr noundef nonnull @.str.47, ptr noundef null, i32 noundef 2080) #9
   %.not12 = icmp eq ptr %8, null
@@ -1746,13 +1746,13 @@ define i32 @cli_scanhwpml(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %4
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.48) #9
-  %10 = getelementptr inbounds i8, ptr %0, i64 160
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %11 = load ptr, ptr %10, align 8
   %12 = call i32 @cli_json_parse_error(ptr noundef %11, ptr noundef nonnull @.str.49) #9
   br label %17
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 32, i1 false)
   store ptr @hwpml_binary_cb, ptr %3, align 8
   %15 = call i32 @cli_msxml_parse_document(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @hwpml_keys, i64 noundef 22, i32 noundef 1, ptr noundef nonnull %3) #9
@@ -1793,14 +1793,14 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
   %.05380 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %28 ]
   %.05479 = phi i32 [ 0, %.lr.ph.preheader ], [ %.155, %28 ]
-  %13 = getelementptr inbounds %struct.attrib_entry, ptr %4, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %struct.attrib_entry, ptr %4, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(9) @.str.118) #10
   %.not70 = icmp eq i32 %15, 0
   br i1 %.not70, label %16, label %22
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(5) @.str.119) #10
   %.not71 = icmp eq i32 %19, 0
@@ -1819,7 +1819,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not73, label %24, label %28
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %13, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(7) @.str.122) #10
   %.not74 = icmp eq i32 %27, 0
@@ -1856,7 +1856,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %110
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %9, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %41 = load i64, ptr %40, align 8
   %42 = tail call ptr @fmap(i32 noundef %0, i64 noundef 0, i64 noundef %41, ptr noundef null) #9
   %.not = icmp eq ptr %42, null
@@ -1867,9 +1867,9 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %110
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %42, i64 88
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 104
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr %48(ptr noundef nonnull %42, i64 noundef 0, i64 noundef %46, i32 noundef 0) #9
   %.not62 = icmp eq ptr %49, null
@@ -1877,7 +1877,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
 
 50:                                               ; preds = %44
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.126) #9
-  %51 = getelementptr inbounds i8, ptr %42, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %42) #9
   br label %110
@@ -1885,7 +1885,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
 53:                                               ; preds = %44
   %54 = load i64, ptr %45, align 8
   %55 = call ptr @cl_base64_decode(ptr noundef nonnull %49, i64 noundef %54, ptr noundef null, ptr noundef nonnull %10, i32 noundef 0) #9
-  %56 = getelementptr inbounds i8, ptr %42, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull %42) #9
   %.not63 = icmp eq ptr %55, null
@@ -1897,7 +1897,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %110
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds i8, ptr %2, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 @cli_gentempfd(ptr noundef %62, ptr noundef nonnull %8, ptr noundef nonnull %7) #9
   %.not64 = icmp eq i32 %63, 0
@@ -1936,7 +1936,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
   br label %hwpml_scan_cb.exit
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %11, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %80 = load i64, ptr %79, align 8
   %81 = call ptr @fmap(i32 noundef %.05095, i64 noundef 0, i64 noundef %80, ptr noundef null) #9
   %.not67 = icmp eq ptr %81, null
@@ -1948,7 +1948,7 @@ define internal i32 @hwpml_binary_cb(i32 noundef %0, ptr noundef %1, ptr noundef
 
 83:                                               ; preds = %78
   %84 = call fastcc i32 @decompress_and_callback(ptr noundef %2, ptr noundef nonnull %81, i64 noundef 0, ptr noundef nonnull @.str.130, ptr noundef nonnull @hwpml_scan_cb)
-  %85 = getelementptr inbounds i8, ptr %81, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull %81) #9
   br label %hwpml_scan_cb.exit
@@ -1985,9 +1985,9 @@ hwpml_scan_cb.exit:                               ; preds = %65, %96, %95, %92, 
 
 99:                                               ; preds = %hwpml_scan_cb.exit
   %100 = call i32 @close(i32 noundef %98) #9
-  %101 = getelementptr inbounds i8, ptr %2, i64 48
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 40
   %104 = load i32, ptr %103, align 8
   %.not69 = icmp eq i32 %104, 0
   br i1 %.not69, label %105, label %108
@@ -2062,21 +2062,21 @@ define internal fastcc range(i32 0, 28) i32 @parsehwp3_paragraph(ptr noundef %0,
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = load i64, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1160
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1160
   %21 = load i32, ptr %20, align 8
   %.not = icmp ult i32 %3, %21
   br i1 %.not, label %22, label %fmap_readn.exit.thread
 
 22:                                               ; preds = %6
-  %23 = getelementptr inbounds i8, ptr %1, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %24 = load i64, ptr %23, align 8
   %or.cond276.not = icmp ult i64 %17, %24
   br i1 %or.cond276.not, label %25, label %fmap_readn.exit.thread
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %1, i64 noundef %17, i64 noundef 1, i32 noundef 0) #9
   %.not26.i = icmp eq ptr %28, null

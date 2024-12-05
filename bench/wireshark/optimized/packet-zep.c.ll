@@ -107,7 +107,7 @@ define internal i32 @dissect_zep(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %9, label %.tail.thread, label %sub_0
 
 sub_0:                                            ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @tvb_get_string_enc(ptr noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #2
   %13 = load i8, ptr %12, align 1
@@ -115,13 +115,13 @@ sub_0:                                            ; preds = %4
   br i1 %.not94, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %.not95 = icmp eq i8 %15, 88
   br i1 %.not95, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %16 = getelementptr inbounds i8, ptr %12, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %19, label %.tail.thread
@@ -166,7 +166,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %38, label %.tail.thread, label %39
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = select i1 %22, ptr @.str.28, ptr @.str.41
   tail call void @col_set_str(ptr noundef %41, i32 noundef 34, ptr noundef nonnull %42) #2

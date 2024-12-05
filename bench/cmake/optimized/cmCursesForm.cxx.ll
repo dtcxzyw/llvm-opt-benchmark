@@ -47,7 +47,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12cmCursesFormC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12cmCursesForm, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
@@ -55,7 +55,7 @@ define dso_local void @_ZN12cmCursesFormC2Ev(ptr nocapture noundef nonnull write
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12cmCursesFormD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12cmCursesForm, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -181,11 +181,11 @@ define dso_local void @_ZN12cmCursesForm12HandleResizeEv(ptr noundef nonnull ali
   br i1 %.not, label %.thread, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i16, ptr %15, align 4
   %17 = sext i16 %16 to i32
   %18 = add nsw i32 %17, 1
-  %19 = getelementptr inbounds i8, ptr %13, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 6
   %20 = load i16, ptr %19, align 2
   %21 = sext i16 %20 to i32
   %22 = add nsw i32 %21, 1
@@ -195,11 +195,11 @@ define dso_local void @_ZN12cmCursesForm12HandleResizeEv(ptr noundef nonnull ali
   %23 = phi i32 [ %18, %14 ], [ -1, %7 ]
   %24 = phi i32 [ %22, %14 ], [ -1, %7 ]
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 1, i32 noundef 1, i32 noundef %24, i32 noundef %23)
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void

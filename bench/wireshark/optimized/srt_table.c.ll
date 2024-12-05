@@ -30,48 +30,48 @@ define i32 @get_srt_proto_id(ptr noundef readonly %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_srt_tap_listener_name(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @get_srt_max_tables(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_srt_packet_func(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @set_srt_table_param_data(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @get_srt_table_param_data(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define void @free_srt_table_data(ptr nocapture noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
@@ -90,11 +90,11 @@ define void @free_srt_table_data(ptr nocapture noundef %0) local_unnamed_addr #2
   br i1 %14, label %6, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %6, %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @g_free(ptr noundef %16) #8
   store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void @g_free(ptr noundef %18) #8
   store ptr null, ptr %17, align 8
@@ -106,7 +106,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @free_srt_table(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -116,13 +116,13 @@ define void @free_srt_table(ptr nocapture noundef %0, ptr noundef %1) local_unna
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %free_srt_table_data.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
@@ -141,11 +141,11 @@ define void @free_srt_table(ptr nocapture noundef %0, ptr noundef %1) local_unna
   br i1 %20, label %12, label %free_srt_table_data.exit, !llvm.loop !4
 
 free_srt_table_data.exit:                         ; preds = %12, %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void @g_free(ptr noundef %22) #8
   store ptr null, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %24 = load ptr, ptr %23, align 8
   tail call void @g_free(ptr noundef %24) #8
   store ptr null, ptr %23, align 8
@@ -159,7 +159,7 @@ free_srt_table_data.exit:                         ; preds = %12, %.lr.ph
 
 ._crit_edge:                                      ; preds = %free_srt_table_data.exit, %2
   %28 = tail call ptr @g_array_set_size(ptr noundef nonnull %1, i32 noundef 0) #8
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load ptr, ptr %29, align 8
   tail call void @g_free(ptr noundef %30) #8
   store ptr null, ptr %29, align 8
@@ -170,7 +170,7 @@ declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define void @reset_srt_table(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -181,13 +181,13 @@ define void @reset_srt_table(ptr nocapture noundef readonly %0) local_unnamed_ad
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph.i, label %reset_srt_table_data.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br label %12
 
 12:                                               ; preds = %12, %.lr.ph.i
@@ -260,7 +260,7 @@ define void @srt_table_get_filter(ptr noundef %0, ptr noundef %1, ptr nocapture 
   br i1 %.not, label %14, label %30
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %.not25 = icmp eq ptr %16, null
   br i1 %.not25, label %23, label %17
@@ -307,7 +307,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define void @srt_table_dissector_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef %0, ptr noundef %1) #8
   ret void
@@ -343,17 +343,17 @@ define void @register_srt_table(i32 noundef %0, ptr noundef %1, i32 noundef %2, 
 
 15:                                               ; preds = %10, %13
   %.sink = phi ptr [ %14, %13 ], [ %1, %10 ]
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %.sink, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 %2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %3, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %12, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %5, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %12, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr null, ptr %21, align 8
   %22 = load ptr, ptr @registered_srt_tables, align 8
   %23 = icmp eq ptr %22, null
@@ -398,18 +398,18 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   %9 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc_n(i64 noundef 1, i64 noundef 56) #11
   store ptr %9, ptr %8, align 8
   %10 = tail call noalias ptr @g_strdup(ptr noundef %5) #8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %10, ptr %11, align 8
   store ptr %0, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %4, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 %3, ptr %14, align 8
   %15 = sext i32 %3 to i64
   %16 = tail call noalias ptr @g_malloc_n(i64 noundef %15, i64 noundef 88) #11
-  %17 = getelementptr inbounds i8, ptr %9, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %16, ptr %17, align 8
   %18 = icmp sgt i32 %3, 0
   br i1 %18, label %.lr.ph.preheader, label %._crit_edge
@@ -434,11 +434,11 @@ define ptr @init_srt_table(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %7
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = call ptr @g_array_insert_vals(ptr noundef %2, i32 noundef %26, ptr noundef nonnull %8, i32 noundef 1) #8
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 48
   store ptr %6, ptr %29, align 8
   ret ptr %28
 }
@@ -454,7 +454,7 @@ declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %5
   br i1 %.not, label %.loopexit, label %6
@@ -462,7 +462,7 @@ define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr no
 6:                                                ; preds = %3
   %7 = add i32 %1, 1
   store i32 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = mul nsw i64 %10, 88
@@ -495,7 +495,7 @@ define void @init_srt_table_row(ptr nocapture noundef %0, i32 noundef %1, ptr no
   br i1 %25, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph, %6, %3
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %1 to i64
   %29 = getelementptr %struct._srt_procedure_t, ptr %27, i64 %28
@@ -513,10 +513,10 @@ declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 define void @add_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = alloca %struct.nstime_t, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false)
   call void @nstime_delta(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef %2) #8
   %11 = getelementptr %struct._srt_procedure_t, ptr %8, i64 %9, i32 1

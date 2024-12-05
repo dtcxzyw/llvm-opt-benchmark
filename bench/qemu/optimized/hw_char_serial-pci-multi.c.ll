@@ -114,7 +114,7 @@ do.body.i:                                        ; preds = %entry
 
 multi_serial_get_port_count.exit:                 ; preds = %entry, %sw.bb1.i
   %retval.0.i = phi i64 [ 4, %sw.bb1.i ], [ 2, %entry ]
-  %state = getelementptr inbounds i8, ptr %call.i, i64 2928
+  %state = getelementptr inbounds nuw i8, ptr %call.i, i64 2928
   br label %for.body
 
 for.body:                                         ; preds = %multi_serial_get_port_count.exit, %for.body
@@ -134,22 +134,22 @@ define internal void @multi_2x_serial_pci_class_initfn(ptr noundef %klass, ptr n
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3
-  %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i9, i64 176
   store ptr @multi_serial_pci_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i9, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i9, i64 184
   store ptr @multi_serial_pci_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i9, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i9, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 210
   store i16 3, ptr %device_id, align 2
-  %revision = getelementptr inbounds i8, ptr %call.i9, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call.i9, i64 212
   store i8 1, ptr %revision, align 4
-  %class_id = getelementptr inbounds i8, ptr %call.i9, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 214
   store i16 1792, ptr %class_id, align 2
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_pci_multi_serial, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @multi_2x_serial_pci_properties) #3
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8
@@ -188,26 +188,26 @@ do.body.i:                                        ; preds = %entry
 
 multi_serial_get_port_count.exit:                 ; preds = %entry, %sw.bb1.i
   %retval.0.i = phi i64 [ 4, %sw.bb1.i ], [ 2, %entry ]
-  %prog_if = getelementptr inbounds i8, ptr %dev, i64 5576
+  %prog_if = getelementptr inbounds nuw i8, ptr %dev, i64 5576
   %1 = load i8, ptr %prog_if, align 8
-  %config = getelementptr inbounds i8, ptr %dev, i64 168
+  %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %2 = load ptr, ptr %config, align 8
   %arrayidx = getelementptr i8, ptr %2, i64 9
   store i8 %1, ptr %arrayidx, align 1
   %3 = load ptr, ptr %config, align 8
   %arrayidx6 = getelementptr i8, ptr %3, i64 61
   store i8 1, ptr %arrayidx6, align 1
-  %iobar = getelementptr inbounds i8, ptr %dev, i64 2608
+  %iobar = getelementptr inbounds nuw i8, ptr %dev, i64 2608
   %mul = shl nuw nsw i64 %retval.0.i, 3
   tail call void @memory_region_init(ptr noundef nonnull %iobar, ptr noundef %dev, ptr noundef nonnull @.str.9, i64 noundef %mul) #3
   tail call void @pci_register_bar(ptr noundef %dev, i32 noundef 0, i8 noundef zeroext 1, ptr noundef nonnull %iobar) #3
   %conv = trunc nuw nsw i64 %retval.0.i to i32
   %call9 = tail call ptr @qemu_allocate_irqs(ptr noundef nonnull @multi_serial_irq_mux, ptr noundef %dev, i32 noundef %conv) #3
-  %irqs = getelementptr inbounds i8, ptr %dev, i64 5568
+  %irqs = getelementptr inbounds nuw i8, ptr %dev, i64 5568
   store ptr %call9, ptr %irqs, align 16
-  %state = getelementptr inbounds i8, ptr %dev, i64 2928
-  %name = getelementptr inbounds i8, ptr %dev, i64 2888
-  %ports = getelementptr inbounds i8, ptr %dev, i64 2880
+  %state = getelementptr inbounds nuw i8, ptr %dev, i64 2928
+  %name = getelementptr inbounds nuw i8, ptr %dev, i64 2888
+  %ports = getelementptr inbounds nuw i8, ptr %dev, i64 2880
   br label %for.body
 
 for.body:                                         ; preds = %multi_serial_get_port_count.exit, %if.end
@@ -228,7 +228,7 @@ for.body.i:                                       ; preds = %if.then, %for.body.
   %add.ptr2.i = getelementptr %struct.SerialState, ptr %state, i64 %idx.ext.i
   %call.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr2.i, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   tail call void @qdev_unrealize(ptr noundef %call.i.i) #3
-  %io.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 384
+  %io.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 384
   tail call void @memory_region_del_subregion(ptr noundef nonnull %iobar, ptr noundef nonnull %io.i) #3
   %arrayidx.i = getelementptr [4 x ptr], ptr %name, i64 0, i64 %idx.ext.i
   %5 = load ptr, ptr %arrayidx.i, align 8
@@ -248,13 +248,13 @@ if.end:                                           ; preds = %for.body
   %8 = load ptr, ptr %irqs, align 16
   %arrayidx15 = getelementptr ptr, ptr %8, i64 %i.032
   %9 = load ptr, ptr %arrayidx15, align 8
-  %irq = getelementptr inbounds i8, ptr %add.ptr11, i64 184
+  %irq = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 184
   store ptr %9, ptr %irq, align 8
   %add = add nuw nsw i64 %i.032, 1
   %call16 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.10, i64 noundef %add) #3
   %arrayidx17 = getelementptr [4 x ptr], ptr %name, i64 0, i64 %i.032
   store ptr %call16, ptr %arrayidx17, align 8
-  %io = getelementptr inbounds i8, ptr %add.ptr11, i64 384
+  %io = getelementptr inbounds nuw i8, ptr %add.ptr11, i64 384
   tail call void @memory_region_init_io(ptr noundef nonnull %io, ptr noundef nonnull %dev, ptr noundef nonnull @serial_io_ops, ptr noundef %add.ptr11, ptr noundef %call16, i64 noundef 8) #3
   %mul21 = shl nuw nsw i64 %i.032, 3
   tail call void @memory_region_add_subregion(ptr noundef nonnull %iobar, i64 noundef %mul21, ptr noundef nonnull %io) #3
@@ -271,15 +271,15 @@ for.end:                                          ; preds = %if.end, %multi_seri
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @multi_serial_pci_exit(ptr noundef %dev) #0 {
 entry:
-  %ports = getelementptr inbounds i8, ptr %dev, i64 2880
+  %ports = getelementptr inbounds nuw i8, ptr %dev, i64 2880
   %0 = load i32, ptr %ports, align 16
   %cmp10.not = icmp eq i32 %0, 0
   br i1 %cmp10.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
-  %state = getelementptr inbounds i8, ptr %dev, i64 2928
-  %iobar = getelementptr inbounds i8, ptr %dev, i64 2608
-  %name = getelementptr inbounds i8, ptr %dev, i64 2888
+  %state = getelementptr inbounds nuw i8, ptr %dev, i64 2928
+  %iobar = getelementptr inbounds nuw i8, ptr %dev, i64 2608
+  %name = getelementptr inbounds nuw i8, ptr %dev, i64 2888
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -288,7 +288,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr2 = getelementptr %struct.SerialState, ptr %state, i64 %idx.ext
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %add.ptr2, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #3
   tail call void @qdev_unrealize(ptr noundef %call.i) #3
-  %io = getelementptr inbounds i8, ptr %add.ptr2, i64 384
+  %io = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 384
   tail call void @memory_region_del_subregion(ptr noundef nonnull %iobar, ptr noundef nonnull %io) #3
   %arrayidx = getelementptr [4 x ptr], ptr %name, i64 0, i64 %idx.ext
   %1 = load ptr, ptr %arrayidx, align 8
@@ -300,7 +300,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.end:                                          ; preds = %for.body, %entry
   %.lcssa = phi i32 [ 0, %entry ], [ %2, %for.body ]
-  %irqs = getelementptr inbounds i8, ptr %dev, i64 5568
+  %irqs = getelementptr inbounds nuw i8, ptr %dev, i64 5568
   %3 = load ptr, ptr %irqs, align 16
   tail call void @qemu_free_irqs(ptr noundef %3, i32 noundef %.lcssa) #3
   ret void
@@ -317,11 +317,11 @@ declare ptr @qemu_allocate_irqs(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @multi_serial_irq_mux(ptr noundef %opaque, i32 noundef %n, i32 noundef %level) #0 {
 entry:
-  %level1 = getelementptr inbounds i8, ptr %opaque, i64 5552
+  %level1 = getelementptr inbounds nuw i8, ptr %opaque, i64 5552
   %idxprom = sext i32 %n to i64
   %arrayidx = getelementptr [4 x i32], ptr %level1, i64 0, i64 %idxprom
   store i32 %level, ptr %arrayidx, align 4
-  %ports = getelementptr inbounds i8, ptr %opaque, i64 2880
+  %ports = getelementptr inbounds nuw i8, ptr %opaque, i64 2880
   %0 = load i32, ptr %ports, align 16
   %cmp6.not = icmp eq i32 %0, 0
   br i1 %cmp6.not, label %for.end, label %for.body
@@ -367,22 +367,22 @@ define internal void @multi_4x_serial_pci_class_initfn(ptr noundef %klass, ptr n
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #3
   %call.i9 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #3
-  %realize = getelementptr inbounds i8, ptr %call.i9, i64 176
+  %realize = getelementptr inbounds nuw i8, ptr %call.i9, i64 176
   store ptr @multi_serial_pci_realize, ptr %realize, align 8
-  %exit = getelementptr inbounds i8, ptr %call.i9, i64 184
+  %exit = getelementptr inbounds nuw i8, ptr %call.i9, i64 184
   store ptr @multi_serial_pci_exit, ptr %exit, align 8
-  %vendor_id = getelementptr inbounds i8, ptr %call.i9, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 208
   store i16 6966, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i9, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 210
   store i16 4, ptr %device_id, align 2
-  %revision = getelementptr inbounds i8, ptr %call.i9, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call.i9, i64 212
   store i8 1, ptr %revision, align 4
-  %class_id = getelementptr inbounds i8, ptr %call.i9, i64 214
+  %class_id = getelementptr inbounds nuw i8, ptr %call.i9, i64 214
   store i16 1792, ptr %class_id, align 2
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_pci_multi_serial, ptr %vmsd, align 8
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @multi_4x_serial_pci_properties) #3
-  %categories = getelementptr inbounds i8, ptr %call.i, i64 96
+  %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   %0 = load i64, ptr %categories, align 8
   %or.i = or i64 %0, 16
   store i64 %or.i, ptr %categories, align 8

@@ -16,8 +16,8 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   br i1 %.not104, label %.loopexit, label %.preheader120
 
 .preheader120:                                    ; preds = %4
-  %.082.ptr122 = getelementptr inbounds i8, ptr %1, i64 1
-  %.080123 = getelementptr inbounds i8, ptr %6, i64 1
+  %.082.ptr122 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.080123 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %7 = load i8, ptr %.080123, align 1
   %.not105124 = icmp eq i8 %7, 0
   %8 = load i8, ptr %.082.ptr122, align 1
@@ -44,8 +44,8 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %11 = phi i8 [ %14, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %12 = icmp eq i8 %11, %10
   %13 = and i1 %.081126195, %12
-  %.082.ptr = getelementptr inbounds i8, ptr %.082.ptr127194, i64 1
-  %.080 = getelementptr inbounds i8, ptr %.080128193, i64 1
+  %.082.ptr = getelementptr inbounds nuw i8, ptr %.082.ptr127194, i64 1
+  %.080 = getelementptr inbounds nuw i8, ptr %.080128193, i64 1
   %14 = load i8, ptr %.080, align 1
   %.not105 = icmp eq i8 %14, 0
   br i1 %.not105, label %.critedge, label %.lr.ph, !llvm.loop !6
@@ -84,7 +84,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %25 = zext i8 %24 to i64
   %26 = or disjoint i64 %23, %25
   %27 = shl i64 %.087138, 8
-  %28 = getelementptr inbounds i8, ptr %.1141, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1141, i64 1
   %29 = load i8, ptr %.1141, align 1
   %30 = zext i8 %29 to i64
   %31 = or disjoint i64 %27, %30
@@ -106,10 +106,10 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %.084156 = phi ptr [ %40, %44 ], [ %6, %33 ]
   %.188155 = phi i64 [ %39, %44 ], [ %31, %33 ]
   %36 = shl i64 %.188155, 8
-  %37 = getelementptr inbounds i8, ptr %.2157, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.2157, i64 1
   %38 = zext i8 %35 to i64
   %39 = or disjoint i64 %36, %38
-  %40 = getelementptr inbounds i8, ptr %.084156, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.084156, i64 1
   %41 = icmp eq i64 %39, %26
   br i1 %41, label %42, label %44
 
@@ -139,10 +139,10 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
   %.185148 = phi ptr [ %52, %57 ], [ %6, %.preheader ]
   %.289147 = phi i64 [ %51, %57 ], [ %31, %.preheader ]
   %48 = shl i64 %.289147, 8
-  %49 = getelementptr inbounds i8, ptr %.3149, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.3149, i64 1
   %50 = zext i8 %47 to i64
   %51 = or disjoint i64 %48, %50
-  %52 = getelementptr inbounds i8, ptr %.185148, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.185148, i64 1
   %53 = icmp eq i64 %51, %26
   br i1 %53, label %54, label %57
 
@@ -165,7 +165,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
 
 60:                                               ; preds = %.preheader118
   %61 = shl i64 %.390, 8
-  %62 = getelementptr inbounds i8, ptr %.4, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %63 = zext i8 %59 to i64
   %64 = or disjoint i64 %61, %63
   %65 = icmp eq i64 %64, %26
@@ -191,7 +191,7 @@ define ptr @strstr(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #
 
 74:                                               ; preds = %72
   %75 = shl i64 %.491, 8
-  %76 = getelementptr inbounds i8, ptr %.5, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %77 = zext i8 %73 to i64
   %78 = or disjoint i64 %75, %77
   %79 = and i64 %78, %70

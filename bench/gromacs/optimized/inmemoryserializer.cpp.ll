@@ -92,21 +92,21 @@ define linkonce_odr noundef zeroext i1 @_ZNK3gmx18InMemorySerializer7readingEv(p
 define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.gmx::(anonymous namespace)::CharBuffer", align 1
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %8 = and i8 %7, 1
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %..i = select i1 %11, ptr %3, ptr %4
   store i8 %8, ptr %..i, align 1
   %13 = load ptr, ptr %12, align 8
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %11, ptr %3, ptr %4
-  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
   %14 = load ptr, ptr %6, align 8
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
@@ -122,20 +122,20 @@ define void @_ZN3gmx18InMemorySerializer6doBoolEPb(ptr nocapture noundef nonnull
 define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.4", align 1
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.4", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %..i = select i1 %10, ptr %3, ptr %4
   store i8 %7, ptr %..i, align 1
   %12 = load ptr, ptr %11, align 8
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %3, ptr %4
-  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
   %13 = load ptr, ptr %6, align 8
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -151,20 +151,20 @@ define void @_ZN3gmx18InMemorySerializer7doUCharEPh(ptr nocapture noundef nonnul
 define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.7", align 1
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.7", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %1, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %..i = select i1 %10, ptr %3, ptr %4
   store i8 %7, ptr %..i, align 1
   %12 = load ptr, ptr %11, align 8
   %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %10, ptr %3, ptr %4
-  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
+  %..i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %..i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 1
   %13 = load ptr, ptr %6, align 8
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
@@ -180,15 +180,15 @@ define void @_ZN3gmx18InMemorySerializer6doCharEPc(ptr nocapture noundef nonnull
 define void @_ZN3gmx18InMemorySerializer8doUShortEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.10", align 2
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.10", align 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i16, ptr %1, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %3, i64 2
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %3, i64 2
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
@@ -214,14 +214,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i: ; preds = %12
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit
 
 14:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %4, i64 2
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 %7, ptr %4, align 2
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueItEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i, %14
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %14 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %4, %14 ], [ %3, %_ZN3gmx12_GLOBAL__N_110swapEndianItEET_RKS2_.exit.i ]
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %6, align 8
   %18 = ptrtoint ptr %16 to i64
@@ -239,15 +239,15 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr nocapture noundef nonnull 
   %3 = alloca %union.anon.16, align 4
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.14", align 4
   %5 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.14", align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %4, i64 4
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
@@ -258,7 +258,7 @@ define void @_ZN3gmx18InMemorySerializer5doIntEPi(ptr nocapture noundef nonnull 
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
@@ -276,14 +276,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 20:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 4
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, %20
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -301,15 +301,15 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr nocapture noundef nonnul
   %3 = alloca %union.anon.16, align 4
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.14", align 4
   %5 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.14", align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %4, i64 4
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
@@ -320,7 +320,7 @@ define void @_ZN3gmx18InMemorySerializer7doInt32EPi(ptr nocapture noundef nonnul
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
@@ -338,14 +338,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i: ; preds = %13
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 20:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 4
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIiEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i, %20
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIiEET_RKS2_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -363,15 +363,15 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr nocapture noundef nonnul
   %3 = alloca %union.anon.20, align 8
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.18", align 8
   %5 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.18", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
@@ -382,7 +382,7 @@ define void @_ZN3gmx18InMemorySerializer7doInt64EPl(ptr nocapture noundef nonnul
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 7, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
@@ -400,14 +400,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i: ; preds = %13
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit
 
 20:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %8, ptr %5, align 8
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIlEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i, %20
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIlEET_RKS2_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -425,15 +425,15 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr nocapture noundef nonnul
   %3 = alloca %union.anon.24, align 4
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.22", align 4
   %5 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.22", align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load float, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %4, i64 4
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
@@ -444,7 +444,7 @@ define void @_ZN3gmx18InMemorySerializer7doFloatEPf(ptr nocapture noundef nonnul
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
@@ -462,14 +462,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 20:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 4
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, %20
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -487,15 +487,15 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr nocapture noundef nonnu
   %3 = alloca %union.anon.27, align 8
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.25", align 8
   %5 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.25", align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load double, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
@@ -506,7 +506,7 @@ define void @_ZN3gmx18InMemorySerializer8doDoubleEPd(ptr nocapture noundef nonnu
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 7, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
@@ -524,14 +524,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i: ; preds = %13
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit
 
 20:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %8, ptr %5, align 8
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIdEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i, %20
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIdEET_RKS2_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -549,15 +549,15 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr nocapture noundef nonnull
   %3 = alloca %union.anon.24, align 4
   %4 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.22", align 4
   %5 = alloca %"class.gmx::(anonymous namespace)::CharBuffer.22", align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load float, ptr %1, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
-  %.sink.i.sroa.gep2 = getelementptr inbounds i8, ptr %4, i64 4
+  %.sink.i.sroa.gep2 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %2
@@ -568,7 +568,7 @@ define void @_ZN3gmx18InMemorySerializer6doRealEPf(ptr nocapture noundef nonnull
 13:                                               ; preds = %13, %12
   %indvars.iv3.i.i = phi i64 [ 3, %12 ], [ %indvars.iv.next4.i.i, %13 ]
   %indvars.iv.i.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i.i, %13 ]
-  %14 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %15 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %16 = load i8, ptr %14, align 1
   %17 = load i8, ptr %15, align 1
@@ -586,14 +586,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i: ; preds = %13
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 20:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 4
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %8, ptr %5, align 4
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueIfEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i, %20
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %20 ], [ %.sink.i.sroa.gep2, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %20 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianIfEET_RKS2_.exit.i ]
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %7, align 8
   %24 = ptrtoint ptr %22 to i64
@@ -612,9 +612,9 @@ define void @_ZN3gmx18InMemorySerializer6doIvecEPA3_i(ptr noundef nonnull align 
 
 3:                                                ; preds = %2, %3
   %.0.idx9 = phi i64 [ 0, %2 ], [ %.0.add, %3 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.0.idx9
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx9
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.ptr)
   %.0.add = add nuw nsw i64 %.0.idx9, 4
@@ -631,9 +631,9 @@ define void @_ZN3gmx18InMemorySerializer6doRvecEPA3_f(ptr noundef nonnull align 
 
 3:                                                ; preds = %2, %3
   %.0.idx9 = phi i64 [ 0, %2 ], [ %.0.add, %3 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.0.idx9
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx9
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.ptr)
   %.0.add = add nuw nsw i64 %.0.idx9, 4
@@ -646,7 +646,7 @@ define void @_ZN3gmx18InMemorySerializer6doRvecEPA3_f(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18InMemorySerializer8doStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(28) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
@@ -654,9 +654,9 @@ define void @_ZN3gmx18InMemorySerializer8doStringEPNSt7__cxx1112basic_stringIcSt
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx18InMemorySerializer8doOpaqueEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   %9 = load ptr, ptr %5, align 8
@@ -679,9 +679,9 @@ define linkonce_odr void @_ZN3gmx11ISerializer11doCharArrayEPci(ptr noundef nonn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -703,9 +703,9 @@ define linkonce_odr void @_ZN3gmx11ISerializer12doUCharArrayEPhi(ptr noundef non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -727,9 +727,9 @@ define linkonce_odr void @_ZN3gmx11ISerializer11doRvecArrayEPA3_fi(ptr noundef n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds [3 x float], ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -754,9 +754,9 @@ define linkonce_odr noundef zeroext i1 @_ZNK3gmx20InMemoryDeserializer7readingEv
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer6doBoolEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %storemerge.in.in.in.v.i = inttoptr i64 %7 to ptr
@@ -772,9 +772,9 @@ define void @_ZN3gmx20InMemoryDeserializer6doBoolEPb(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer7doUCharEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %storemerge.in.v.i = inttoptr i64 %7 to ptr
@@ -789,9 +789,9 @@ define void @_ZN3gmx20InMemoryDeserializer7doUCharEPh(ptr nocapture noundef nonn
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer6doCharEPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %4, align 8
   %storemerge.in.v.i = inttoptr i64 %7 to ptr
@@ -806,12 +806,12 @@ define void @_ZN3gmx20InMemoryDeserializer6doCharEPc(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer8doUShortEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
-  %8 = getelementptr inbounds i8, ptr %4, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %4, align 8
   %11 = inttoptr i64 %10 to ptr
@@ -852,12 +852,12 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueItEEvPT_.exit: ; preds = %2, %_ZN3gmx1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
   %3 = alloca %union.anon.16, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -873,7 +873,7 @@ define void @_ZN3gmx20InMemoryDeserializer5doIntEPi(ptr nocapture noundef nonnul
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
@@ -901,12 +901,12 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
   %3 = alloca %union.anon.16, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -922,7 +922,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt32EPi(ptr nocapture noundef nonn
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
@@ -950,12 +950,12 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueIiEEvPT_.exit: ; preds = %2, %_ZN3gmx1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
   %3 = alloca %union.anon.20, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -971,7 +971,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doInt64EPl(ptr nocapture noundef nonn
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
@@ -999,12 +999,12 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueIlEEvPT_.exit: ; preds = %2, %_ZN3gmx1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
   %3 = alloca %union.anon.24, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -1020,7 +1020,7 @@ define void @_ZN3gmx20InMemoryDeserializer7doFloatEPf(ptr nocapture noundef nonn
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 3, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds [4 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
@@ -1048,12 +1048,12 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueIfEEvPT_.exit: ; preds = %2, %_ZN3gmx1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #3 align 2 {
   %3 = alloca %union.anon.27, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %5, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -1069,7 +1069,7 @@ define void @_ZN3gmx20InMemoryDeserializer8doDoubleEPd(ptr nocapture noundef non
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1
@@ -1098,9 +1098,9 @@ _ZN3gmx20InMemoryDeserializer4Impl7doValueIdEEvPT_.exit: ; preds = %2, %_ZN3gmx1
 define void @_ZN3gmx20InMemoryDeserializer6doRealEPf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #1 align 2 {
   %3 = alloca double, align 8
   %4 = alloca float, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %16
@@ -1108,7 +1108,7 @@ define void @_ZN3gmx20InMemoryDeserializer6doRealEPf(ptr noundef nonnull align 8
 10:                                               ; preds = %2
   store double 0.000000e+00, ptr %3, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %3)
   %14 = load double, ptr %3, align 8
@@ -1118,7 +1118,7 @@ define void @_ZN3gmx20InMemoryDeserializer6doRealEPf(ptr noundef nonnull align 8
 16:                                               ; preds = %2
   store float 0.000000e+00, ptr %4, align 4
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %4)
   %20 = load float, ptr %4, align 4
@@ -1136,9 +1136,9 @@ define void @_ZN3gmx20InMemoryDeserializer6doIvecEPA3_i(ptr noundef nonnull alig
 
 3:                                                ; preds = %2, %3
   %.0.idx9 = phi i64 [ 0, %2 ], [ %.0.add, %3 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.0.idx9
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx9
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.ptr)
   %.0.add = add nuw nsw i64 %.0.idx9, 4
@@ -1155,9 +1155,9 @@ define void @_ZN3gmx20InMemoryDeserializer6doRvecEPA3_f(ptr noundef nonnull alig
 
 3:                                                ; preds = %2, %3
   %.0.idx9 = phi i64 [ 0, %2 ], [ %.0.add, %3 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.0.idx9
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx9
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.0.ptr)
   %.0.add = add nuw nsw i64 %.0.idx9, 4
@@ -1170,7 +1170,7 @@ define void @_ZN3gmx20InMemoryDeserializer6doRvecEPA3_f(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx20InMemoryDeserializer8doStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %4, ptr noundef %1)
   ret void
@@ -1178,9 +1178,9 @@ define void @_ZN3gmx20InMemoryDeserializer8doStringEPNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3gmx20InMemoryDeserializer8doOpaqueEPcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1, i64 noundef %2) unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load i64, ptr %6, align 8
   %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZN3gmx20InMemoryDeserializer4Impl8doOpaqueEPcm.exit, label %8
@@ -1219,9 +1219,9 @@ define void @_ZN3gmx18InMemorySerializerC2ENS_18EndianSwapBehaviorE(ptr nocaptur
 
 6:                                                ; preds = %5, %4, %2
   %.0.i.i = phi i32 [ 1, %4 ], [ %1, %5 ], [ 0, %2 ]
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %.0.i.i, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8
   ret void
 }
@@ -1243,7 +1243,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx18InMemorySerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18InMemorySerializerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev.exit, label %4
@@ -1269,17 +1269,17 @@ _ZNSt10unique_ptrIN3gmx18InMemorySerializer4ImplESt14default_deleteIS2_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx18InMemorySerializer18finishAndGetBufferEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -1298,9 +1298,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPcEEvN9__gnu_cxx
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1432,7 +1432,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %61, %63
   store ptr %52, ptr %0, align 8
   store ptr %62, ptr %11, align 8
-  %64 = getelementptr inbounds i8, ptr %52, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %49
   store ptr %64, ptr %9, align 8
   br label %_ZSt4copyIPcN9__gnu_cxx17__normal_iteratorIS0_St6vectorIcSaIcEEEEET0_T_S8_S7_.exit59
 
@@ -1454,10 +1454,10 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
-  %.sink.i.sroa.gep7 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink.i.sroa.gep7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %2
@@ -1468,7 +1468,7 @@ define linkonce_odr void @_ZN3gmx18InMemorySerializer4Impl8doStringERKNSt7__cxx1
 11:                                               ; preds = %11, %10
   %indvars.iv3.i.i = phi i64 [ 7, %10 ], [ %indvars.iv.next4.i.i, %11 ]
   %indvars.iv.i.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i.i, %11 ]
-  %12 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %13 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %14 = load i8, ptr %12, align 1
   %15 = load i8, ptr %13, align 1
@@ -1486,14 +1486,14 @@ _ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i: ; preds = %11
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit
 
 18:                                               ; preds = %2
-  %.sink.i.sroa.gep = getelementptr inbounds i8, ptr %5, i64 8
+  %.sink.i.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %6, ptr %5, align 8
   br label %_ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit
 
 _ZN3gmx18InMemorySerializer4Impl7doValueImEEvT_.exit: ; preds = %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i, %18
   %.sink.i.sroa.phi = phi ptr [ %.sink.i.sroa.gep, %18 ], [ %.sink.i.sroa.gep7, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i ]
   %.sink.i = phi ptr [ %5, %18 ], [ %4, %_ZN3gmx12_GLOBAL__N_110swapEndianImEET_RKS2_.exit.i ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %0, align 8
   %22 = ptrtoint ptr %20 to i64
@@ -1533,9 +1533,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIN9__gnu_cxx17__n
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1667,7 +1667,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %61, %63
   store ptr %52, ptr %0, align 8
   store ptr %62, ptr %11, align 8
-  %64 = getelementptr inbounds i8, ptr %52, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %49
   store ptr %64, ptr %9, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_IPcSt6vectorIcS8_EEEET0_T_SG_SF_.exit
 
@@ -1684,9 +1684,9 @@ define linkonce_odr void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKcEEvN9__gnu_cx
   %6 = ptrtoint ptr %3 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %10 to i64
   %14 = ptrtoint ptr %12 to i64
@@ -1818,7 +1818,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIcSaIc
 _ZNSt12_Vector_baseIcSaIcEE13_M_deallocateEPcm.exit: ; preds = %61, %63
   store ptr %52, ptr %0, align 8
   store ptr %62, ptr %11, align 8
-  %64 = getelementptr inbounds i8, ptr %52, i64 %49
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %49
   store ptr %64, ptr %9, align 8
   br label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit59
 
@@ -1836,11 +1836,11 @@ define void @_ZN3gmx20InMemoryDeserializerC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBe
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
   %11 = zext i1 %3 to i8
   store ptr %1, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
   switch i32 %4, label %16 [
     i32 2, label %17
@@ -1855,9 +1855,9 @@ define void @_ZN3gmx20InMemoryDeserializerC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBe
 
 17:                                               ; preds = %16, %15, %5
   %.0.i.i = phi i32 [ 1, %15 ], [ %4, %16 ], [ 0, %5 ]
-  %18 = getelementptr inbounds i8, ptr %6, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %.0.i.i, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %19, align 8
   ret void
 }
@@ -1865,7 +1865,7 @@ define void @_ZN3gmx20InMemoryDeserializerC2ENS_8ArrayRefIKcEEbNS_18EndianSwapBe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3gmx20InMemoryDeserializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx20InMemoryDeserializerE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx20InMemoryDeserializer4ImplEEclEPS2_.exit.i
@@ -1881,9 +1881,9 @@ _ZNSt10unique_ptrIN3gmx20InMemoryDeserializer4ImplESt14default_deleteIS2_EED2Ev.
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx20InMemoryDeserializer14sourceIsDoubleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
   ret i1 %6
@@ -1894,10 +1894,10 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
   %3 = alloca %union.anon.32, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %0, align 8
   %12 = inttoptr i64 %11 to ptr
@@ -1913,7 +1913,7 @@ define linkonce_odr void @_ZN3gmx20InMemoryDeserializer4Impl8doStringEPNSt7__cxx
 16:                                               ; preds = %16, %15
   %indvars.iv3.i.i = phi i64 [ 7, %15 ], [ %indvars.iv.next4.i.i, %16 ]
   %indvars.iv.i.i = phi i64 [ 0, %15 ], [ %indvars.iv.next.i.i, %16 ]
-  %17 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 0, i64 %indvars.iv.i.i
   %18 = getelementptr inbounds [8 x i8], ptr %3, i64 0, i64 %indvars.iv3.i.i
   %19 = load i8, ptr %17, align 1
   %20 = load i8, ptr %18, align 1

@@ -17,7 +17,7 @@ define dso_local noundef range(i32 2, 5) i32 @_ZN4llvm21RISCVMCObjectFileInfo23g
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 17592186044416
   %.not = icmp eq i64 %4, 0
-  %5 = getelementptr inbounds i8, ptr %0, i64 224
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 2199023255552
   %.not2 = icmp eq i64 %7, 0
@@ -36,7 +36,7 @@ define dso_local noundef range(i32 2, 5) i32 @_ZNK4llvm21RISCVMCObjectFileInfo23
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 17592186044416
   %.not.i = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds i8, ptr %5, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 2199023255552
   %.not2.i = icmp eq i64 %11, 0

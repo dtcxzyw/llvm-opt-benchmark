@@ -445,7 +445,7 @@ define internal i32 @dissect_xra(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %29 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.234, i32 noundef %28, i32 noundef %29) #4
   call void @proto_item_set_len(ptr noundef %15, i32 noundef %28) #4
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %11, align 4
   %33 = call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @packettype, ptr noundef nonnull @.str.235) #4
@@ -548,7 +548,7 @@ define internal i32 @dissect_xra(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %.lr.ph.i.i
   %79 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_xra, i64 0, i64 %79
+  %switch.gep = getelementptr inbounds nuw [10 x ptr], ptr @switch.table.dissect_xra, i64 0, i64 %79
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %80
 
@@ -683,7 +683,7 @@ dissect_xra_tlv_burst_info.exit.i:                ; preds = %135, %119
 
 switch.lookup77:                                  ; preds = %.lr.ph.i137.i
   %154 = zext nneg i8 %switch.tableidx78 to i64
-  %switch.gep79 = getelementptr inbounds [3 x ptr], ptr @switch.table.dissect_xra.9, i64 0, i64 %154
+  %switch.gep79 = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.dissect_xra.9, i64 0, i64 %154
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   br label %155
 
@@ -812,7 +812,7 @@ dissect_xra_tlv.exit:                             ; preds = %206, %4
   br i1 %226, label %.lr.ph.i73, label %.sink.split
 
 .lr.ph.i73:                                       ; preds = %219
-  %227 = getelementptr inbounds i8, ptr %7, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %233
 
 228:                                              ; preds = %dissect_message_block.exit.i

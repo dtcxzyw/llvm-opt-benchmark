@@ -132,55 +132,55 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
 39:                                               ; preds = %9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %36, i8 0, i64 104, i1 false)
   store i32 %2, ptr %36, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 80
   store i32 %3, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 88
   store volatile i64 0, ptr %41, align 8
   %42 = call i32 @pgstat_get_slru_index(ptr noundef %1) #15
-  %43 = getelementptr inbounds i8, ptr %36, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 96
   store i32 %42, ptr %43, align 8
   %44 = getelementptr i8, ptr %36, i64 104
-  %45 = getelementptr inbounds i8, ptr %36, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %44, ptr %45, align 8
   %46 = add nsw i64 %13, 104
   %47 = getelementptr i8, ptr %36, i64 %46
-  %48 = getelementptr inbounds i8, ptr %36, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %47, ptr %48, align 8
   %49 = shl nsw i64 %12, 2
   %50 = add nsw i64 %49, 7
   %51 = and i64 %50, -8
   %52 = add nsw i64 %51, %46
   %53 = getelementptr i8, ptr %36, i64 %52
-  %54 = getelementptr inbounds i8, ptr %36, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store ptr %53, ptr %54, align 8
   %55 = add nsw i64 %52, %15
   %56 = getelementptr i8, ptr %36, i64 %55
-  %57 = getelementptr inbounds i8, ptr %36, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %36, i64 32
   store ptr %56, ptr %57, align 8
   %58 = add nsw i64 %55, %13
   %59 = getelementptr i8, ptr %36, i64 %58
-  %60 = getelementptr inbounds i8, ptr %36, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %36, i64 40
   store ptr %59, ptr %60, align 8
   %61 = add i64 %58, %51
   %62 = getelementptr i8, ptr %36, i64 %61
-  %63 = getelementptr inbounds i8, ptr %36, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %62, ptr %63, align 8
   %64 = shl nsw i64 %12, 7
   %65 = add i64 %61, %64
   %66 = getelementptr i8, ptr %36, i64 %65
-  %67 = getelementptr inbounds i8, ptr %36, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %36, i64 56
   store ptr %66, ptr %67, align 8
   %68 = shl nsw i64 %16, 7
   %69 = add i64 %65, %68
   %70 = getelementptr i8, ptr %36, i64 %69
-  %71 = getelementptr inbounds i8, ptr %36, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr %70, ptr %71, align 8
   %72 = add i64 %69, %19
   br i1 %20, label %73, label %77
 
 73:                                               ; preds = %39
   %74 = getelementptr i8, ptr %36, i64 %72
-  %75 = getelementptr inbounds i8, ptr %36, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %36, i64 72
   store ptr %74, ptr %75, align 8
   %76 = add i64 %72, %23
   br label %77
@@ -243,15 +243,15 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
 .loopexit:                                        ; preds = %.lr.ph102, %77, %.preheader, %9
   %98 = zext i1 %8 to i8
   store ptr %36, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 12
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %7, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %0, i64 10
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i8 %98, ptr %100, align 2
   %101 = trunc i32 %11 to i16
   %102 = add i16 %101, -1
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %105 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %104, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64) #15
   ret void
 }
@@ -298,26 +298,26 @@ declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #3
 define dso_local i32 @SimpleLruZeroPage(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
   %8 = getelementptr i64, ptr %6, i64 %7
   store i64 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i32, ptr %10, i64 %7
   store i32 2, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr i8, ptr %13, i64 %7
   store i8 1, ptr %14, align 1
   %15 = ashr i32 %4, 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = sext i32 %15 to i64
   %19 = getelementptr i32, ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %3, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr i32, ptr %22, i64 %7
   %24 = load i32, ptr %23, align 4
@@ -333,19 +333,19 @@ define dso_local i32 @SimpleLruZeroPage(ptr noundef %0, i64 noundef %1) local_un
   br label %SlruRecentlyUsed.exit
 
 SlruRecentlyUsed.exit:                            ; preds = %2, %25
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr ptr, ptr %30, i64 %7
   %32 = load ptr, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %32, i8 0, i64 8192, i1 false)
   %.val = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %.val, i64 80
+  %33 = getelementptr inbounds nuw i8, ptr %.val, i64 80
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %SimpleLruZeroLSNs.exit
 
 36:                                               ; preds = %SlruRecentlyUsed.exit
-  %37 = getelementptr inbounds i8, ptr %.val, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %.val, i64 72
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %38 to i64
   %40 = mul i32 %34, %4
@@ -384,9 +384,9 @@ SimpleLruZeroLSNs.exit.sink.split:                ; preds = %36, %.lr.ph.prehead
   br label %SimpleLruZeroLSNs.exit
 
 SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.exit.sink.split, %SlruRecentlyUsed.exit, %49
-  %61 = getelementptr inbounds i8, ptr %3, i64 88
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store volatile i64 %1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %3, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %63 = load i32, ptr %62, align 8
   tail call void @pgstat_count_slru_page_zeroed(i32 noundef %63) #15
   ret i32 %4
@@ -395,14 +395,14 @@ SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.e
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @SlruSelectLRUPage(ptr noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
-  %9 = getelementptr inbounds i8, ptr %3, i64 88
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
@@ -579,7 +579,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
   %5 = alloca [1024 x i8], align 16
   %6 = load ptr, ptr %0, align 8
   %7 = tail call fastcc i32 @SlruSelectLRUPage(ptr noundef nonnull %0, i64 noundef %1)
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %7 to i64
   %11 = getelementptr i32, ptr %9, i64 %10
@@ -588,7 +588,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
   br i1 %.not60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %6, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %22
@@ -647,12 +647,12 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
   %.us-phi66 = phi i32 [ %16, %21 ], [ %30, %35 ]
   %.us-phi67 = phi i64 [ %15, %21 ], [ %29, %35 ]
   %42 = ashr i32 %.us-phi66, 4
-  %43 = getelementptr inbounds i8, ptr %6, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %44 = load ptr, ptr %43, align 8
   %45 = sext i32 %42 to i64
   %46 = getelementptr i32, ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %6, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i32, ptr %49, i64 %.us-phi67
   %51 = load i32, ptr %50, align 4
@@ -668,7 +668,7 @@ define dso_local i32 @SimpleLruReadPage(ptr noundef %0, i64 noundef %1, i1 nound
   br label %SlruRecentlyUsed.exit
 
 SlruRecentlyUsed.exit:                            ; preds = %.split.us, %52
-  %56 = getelementptr inbounds i8, ptr %6, i64 96
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %57 = load i32, ptr %56, align 8
   tail call void @pgstat_count_slru_page_hit(i32 noundef %57) #15
   br label %176
@@ -676,23 +676,23 @@ SlruRecentlyUsed.exit:                            ; preds = %.split.us, %52
 ._crit_edge:                                      ; preds = %36, %.lr.ph.split, %22, %.lr.ph.split.us, %4
   %.lcssa58 = phi i32 [ %7, %4 ], [ %16, %.lr.ph.split.us ], [ %23, %22 ], [ %30, %.lr.ph.split ], [ %37, %36 ]
   %.lcssa = phi i64 [ %10, %4 ], [ %15, %.lr.ph.split.us ], [ %25, %22 ], [ %29, %.lr.ph.split ], [ %39, %36 ]
-  %58 = getelementptr inbounds i8, ptr %6, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i64, ptr %59, i64 %.lcssa
   store i64 %1, ptr %60, align 8
   %61 = load ptr, ptr %8, align 8
   %62 = getelementptr i32, ptr %61, i64 %.lcssa
   store i32 1, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %6, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr i8, ptr %64, i64 %.lcssa
   store i8 0, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %6, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr %union.LWLockPadded, ptr %67, i64 %.lcssa
   %69 = tail call zeroext i1 @LWLockAcquire(ptr noundef %68, i32 noundef 0) #15
   %70 = ashr i32 %.lcssa58, 4
-  %71 = getelementptr inbounds i8, ptr %6, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %72 = load ptr, ptr %71, align 8
   %73 = sext i32 %70 to i64
   %74 = getelementptr %union.LWLockPadded, ptr %72, i64 %73
@@ -701,10 +701,10 @@ SlruRecentlyUsed.exit:                            ; preds = %.split.us, %52
   %75 = load ptr, ptr %0, align 8
   %76 = sdiv i64 %1, 32
   %77 = srem i64 %1, 32
-  %78 = getelementptr inbounds i8, ptr %0, i64 10
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %79 = load i8, ptr %78, align 2
   %80 = trunc i8 %79 to i1
-  %81 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %80, label %82, label %84
 
 82:                                               ; preds = %._crit_edge
@@ -747,7 +747,7 @@ SlruFileName.exit.i:                              ; preds = %84, %82
   br label %100
 
 100:                                              ; preds = %98, %96
-  %101 = getelementptr inbounds i8, ptr %75, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr ptr, ptr %102, i64 %.lcssa
   %104 = load ptr, ptr %103, align 8
@@ -762,7 +762,7 @@ SlruFileName.exit.i:                              ; preds = %84, %82
   store i32 0, ptr %109, align 4
   %110 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772207, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %75, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr ptr, ptr %112, i64 %.lcssa
   %114 = load ptr, ptr %113, align 8
@@ -794,13 +794,13 @@ SlruPhysicalReadPage.exit:                        ; preds = %95, %100, %117, %12
   %.0.i = phi i1 [ false, %95 ], [ true, %100 ], [ false, %117 ], [ false, %122 ], [ true, %120 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
   %.val51 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %.val51, i64 80
+  %124 = getelementptr inbounds nuw i8, ptr %.val51, i64 80
   %125 = load i32, ptr %124, align 8
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %127, label %SimpleLruZeroLSNs.exit
 
 127:                                              ; preds = %SlruPhysicalReadPage.exit
-  %128 = getelementptr inbounds i8, ptr %.val51, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %.val51, i64 72
   %129 = load ptr, ptr %128, align 8
   %130 = ptrtoint ptr %129 to i64
   %131 = mul i32 %125, %.lcssa58
@@ -856,11 +856,11 @@ SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.e
   br label %161
 
 161:                                              ; preds = %160, %SimpleLruZeroLSNs.exit
-  %162 = getelementptr inbounds i8, ptr %6, i64 64
+  %162 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr i32, ptr %163, i64 %73
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %6, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %167 = load ptr, ptr %166, align 8
   %168 = getelementptr i32, ptr %167, i64 %.lcssa
   %169 = load i32, ptr %168, align 4
@@ -876,7 +876,7 @@ SimpleLruZeroLSNs.exit:                           ; preds = %SimpleLruZeroLSNs.e
   br label %SlruRecentlyUsed.exit54
 
 SlruRecentlyUsed.exit54:                          ; preds = %161, %170
-  %174 = getelementptr inbounds i8, ptr %6, i64 96
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %175 = load i32, ptr %174, align 8
   call void @pgstat_count_slru_page_read(i32 noundef %175) #15
   br label %176
@@ -889,12 +889,12 @@ SlruRecentlyUsed.exit54:                          ; preds = %161, %170
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @SimpleLruWaitIO(ptr nocapture readonly %.0.val, i32 noundef %0) unnamed_addr #2 {
   %2 = ashr i32 %0, 4
-  %3 = getelementptr inbounds i8, ptr %.0.val, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %2 to i64
   %6 = getelementptr %union.LWLockPadded, ptr %4, i64 %5
   tail call void @LWLockRelease(ptr noundef %6) #15
-  %7 = getelementptr inbounds i8, ptr %.0.val, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %.0.val, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %0 to i64
   %10 = getelementptr %union.LWLockPadded, ptr %8, i64 %9
@@ -905,7 +905,7 @@ define internal fastcc void @SimpleLruWaitIO(ptr nocapture readonly %.0.val, i32
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr %union.LWLockPadded, ptr %14, i64 %5
   %16 = tail call zeroext i1 @LWLockAcquire(ptr noundef %15, i32 noundef 0) #15
-  %17 = getelementptr inbounds i8, ptr %.0.val, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i32, ptr %18, i64 %9
   %20 = load i32, ptr %19, align 4
@@ -933,7 +933,7 @@ define internal fastcc void @SimpleLruWaitIO(ptr nocapture readonly %.0.val, i32
 
 31:                                               ; preds = %25
   store i32 2, ptr %27, align 4
-  %32 = getelementptr inbounds i8, ptr %.0.val, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr i8, ptr %33, i64 %9
   store i8 1, ptr %34, align 1
@@ -962,10 +962,10 @@ define internal fastcc void @SlruReportIOError(ptr noundef %0, i64 noundef %1, i
   %6 = srem i64 %1, 32
   %7 = trunc nsw i64 %6 to i32
   %8 = shl nsw i32 %7, 13
-  %9 = getelementptr inbounds i8, ptr %0, i64 10
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %10 = load i8, ptr %9, align 2
   %11 = trunc i8 %10 to i1
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %11, label %13, label %15
 
 13:                                               ; preds = %3
@@ -1080,18 +1080,18 @@ declare void @pgstat_count_slru_page_read(i32 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i16, ptr %5, align 8
   %7 = zext i16 %6 to i64
   %8 = and i64 %1, %7
   %9 = shl nuw nsw i64 %8, 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr %union.LWLockPadded, ptr %11, i64 %8
   %13 = tail call zeroext i1 @LWLockAcquire(ptr noundef %12, i32 noundef 1) #15
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %17 = shl nuw nsw i64 %8, 4
   %18 = or disjoint i64 %9, 15
   br label %19
@@ -1115,12 +1115,12 @@ define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1,
 27:                                               ; preds = %22
   %28 = trunc nuw nsw i64 %indvars.iv to i32
   %29 = lshr i64 %indvars.iv, 4
-  %30 = getelementptr inbounds i8, ptr %4, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %31 = load ptr, ptr %30, align 8
   %32 = and i64 %29, 268435455
   %33 = getelementptr i32, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %4, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = and i64 %indvars.iv, 4294967295
   %38 = getelementptr i32, ptr %36, i64 %37
@@ -1137,7 +1137,7 @@ define dso_local i32 @SimpleLruReadPage_ReadOnly(ptr noundef %0, i64 noundef %1,
   br label %SlruRecentlyUsed.exit
 
 SlruRecentlyUsed.exit:                            ; preds = %27, %40
-  %44 = getelementptr inbounds i8, ptr %4, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %45 = load i32, ptr %44, align 8
   tail call void @pgstat_count_slru_page_hit(i32 noundef %45) #15
   br label %54
@@ -1173,13 +1173,13 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.FileTag, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %1 to i64
   %10 = getelementptr i64, ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = ashr i32 %1, 4
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i32, ptr %14, i64 %9
   %16 = load i32, ptr %15, align 4
@@ -1206,7 +1206,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %.lcssa71 = phi ptr [ %14, %3 ], [ %23, %22 ]
   %.lcssa = phi i32 [ %16, %3 ], [ %25, %22 ]
   %27 = getelementptr i32, ptr %.lcssa71, i64 %9
-  %28 = getelementptr inbounds i8, ptr %6, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 %9
   %31 = load i8, ptr %30, align 1
@@ -1227,11 +1227,11 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %38 = load ptr, ptr %28, align 8
   %39 = getelementptr i8, ptr %38, i64 %9
   store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %6, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr %union.LWLockPadded, ptr %41, i64 %9
   %43 = tail call zeroext i1 @LWLockAcquire(ptr noundef %42, i32 noundef 0) #15
-  %44 = getelementptr inbounds i8, ptr %6, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %12 to i64
   %47 = getelementptr %union.LWLockPadded, ptr %45, i64 %46
@@ -1244,16 +1244,16 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   %51 = trunc nsw i64 %50 to i32
   %52 = shl nsw i32 %51, 13
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %48, i64 96
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 96
   %55 = load i32, ptr %54, align 8
   tail call void @pgstat_count_slru_page_written(i32 noundef %55) #15
-  %56 = getelementptr inbounds i8, ptr %48, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %57 = load ptr, ptr %56, align 8
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %76, label %58
 
 58:                                               ; preds = %37
-  %59 = getelementptr inbounds i8, ptr %48, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 80
   %60 = load i32, ptr %59, align 8
   %61 = mul i32 %60, %1
   %62 = sext i32 %61 to i64
@@ -1300,7 +1300,7 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   br i1 %78, label %.lr.ph80.i, label %.thread.i
 
 .lr.ph80.i:                                       ; preds = %.preheader.i
-  %79 = getelementptr inbounds i8, ptr %2, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %wide.trip.count.i = zext nneg i32 %77 to i64
   br label %81
 
@@ -1317,17 +1317,17 @@ define internal fastcc void @SlruInternalWritePage(ptr noundef %0, i32 noundef %
   br i1 %84, label %85, label %80
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %2, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %87 = getelementptr [16 x i32], ptr %86, i64 0, i64 %indvars.iv.i
   %88 = load i32, ptr %87, align 4
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %.thread.i, label %118
 
 .thread.i:                                        ; preds = %80, %85, %.preheader.i, %76
-  %90 = getelementptr inbounds i8, ptr %0, i64 10
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %91 = load i8, ptr %90, align 2
   %92 = trunc i8 %91 to i1
-  %93 = getelementptr inbounds i8, ptr %0, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %92, label %94, label %96
 
 94:                                               ; preds = %.thread.i
@@ -1360,11 +1360,11 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br i1 %107, label %108, label %118
 
 108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %2, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %110 = sext i32 %106 to i64
   %111 = getelementptr [16 x i32], ptr %109, i64 0, i64 %110
   store i32 %99, ptr %111, align 4
-  %112 = getelementptr inbounds i8, ptr %2, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %113 = load i32, ptr %2, align 8
   %114 = sext i32 %113 to i64
   %115 = getelementptr [16 x i64], ptr %112, i64 0, i64 %114
@@ -1381,7 +1381,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   store i32 0, ptr %119, align 4
   %120 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 167772209, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %48, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %122 = load ptr, ptr %121, align 8
   %123 = getelementptr ptr, ptr %122, i64 %9
   %124 = load ptr, ptr %123, align 8
@@ -1411,7 +1411,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   br label %SlruPhysicalWritePage.exit
 
 135:                                              ; preds = %118
-  %136 = getelementptr inbounds i8, ptr %0, i64 12
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %137 = load i32, ptr %136, align 4
   %.not70.i = icmp eq i32 %137, 5
   br i1 %.not70.i, label %149, label %138
@@ -1420,7 +1420,7 @@ SlruFileName.exit.i:                              ; preds = %96, %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 16, i1 false)
   %139 = trunc i32 %137 to i16
   store i16 %139, ptr %5, align 8
-  %140 = getelementptr inbounds i8, ptr %5, i64 16
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %49, ptr %140, align 8
   %141 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext false) #15
   br i1 %141, label %149, label %142
@@ -1480,7 +1480,7 @@ SlruPhysicalWritePage.exit:                       ; preds = %101, %131, %133, %1
   br i1 %162, label %.lr.ph74, label %.thread63
 
 .lr.ph74:                                         ; preds = %.preheader
-  %163 = getelementptr inbounds i8, ptr %2, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %164
 
 164:                                              ; preds = %.lr.ph74, %164
@@ -1531,13 +1531,13 @@ define dso_local zeroext i1 @SimpleLruDoesPhysicalPageExist(ptr noundef %0, i64 
   %6 = trunc nsw i64 %5 to i32
   %7 = shl nsw i32 %6, 13
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load i32, ptr %9, align 8
   tail call void @pgstat_count_slru_page_exists(i32 noundef %10) #15
-  %11 = getelementptr inbounds i8, ptr %0, i64 10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %12 = load i8, ptr %11, align 2
   %13 = trunc i8 %12 to i1
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %13, label %15, label %17
 
 15:                                               ; preds = %2
@@ -1615,11 +1615,11 @@ declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #3
 define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = alloca %struct.SlruWriteAllData, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8
   tail call void @pgstat_count_slru_flush(i32 noundef %6) #15
   store i32 0, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i1 @LWLockAcquire(ptr noundef %8, i32 noundef 0) #15
   %10 = load i32, ptr %4, align 8
@@ -1627,7 +1627,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %13
 
 13:                                               ; preds = %.lr.ph, %30
@@ -1682,8 +1682,8 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %38, label %.lr.ph44, label %._crit_edge45.thread
 
 .lr.ph44:                                         ; preds = %._crit_edge
-  %39 = getelementptr inbounds i8, ptr %3, i64 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 72
   br label %41
 
 41:                                               ; preds = %.lr.ph44, %51
@@ -1723,13 +1723,13 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br label %._crit_edge45.thread
 
 ._crit_edge45.thread:                             ; preds = %._crit_edge, %55, %._crit_edge45
-  %56 = getelementptr inbounds i8, ptr %0, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %57 = load i32, ptr %56, align 4
   %.not = icmp eq i32 %57, 5
   br i1 %.not, label %60, label %58
 
 58:                                               ; preds = %._crit_edge45.thread
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @fsync_fname(ptr noundef nonnull %59, i1 noundef zeroext true) #15
   br label %60
 
@@ -1746,21 +1746,21 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i32, ptr %5, align 8
   tail call void @pgstat_count_slru_truncate(i32 noundef %6) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %9 = load ptr, ptr %7, align 8
   %10 = load volatile i64, ptr %8, align 8
   %11 = tail call zeroext i1 %9(i64 noundef %10, i64 noundef %1) #15
   br i1 %11, label %._crit_edge55, label %.lr.ph54
 
 .lr.ph54:                                         ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %4, i64 56
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %20
 
 ._crit_edge55:                                    ; preds = %59, %2
@@ -1768,7 +1768,7 @@ define dso_local void @SimpleLruTruncate(ptr noundef %0, i64 noundef %1) local_u
   br i1 %16, label %17, label %74
 
 17:                                               ; preds = %._crit_edge55
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %18) #15
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1418, ptr noundef nonnull @__func__.SimpleLruTruncate) #15
   br label %74
@@ -1888,7 +1888,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call ptr @AllocateDir(ptr noundef nonnull %4) #15
   %6 = tail call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull %4) #15
   %.not20.not = icmp eq ptr %6, null
@@ -1900,7 +1900,7 @@ define dso_local noundef zeroext i1 @SlruScanDirectory(ptr noundef %0, ptr nocap
 
 8:                                                ; preds = %.lr.ph, %26
   %9 = phi ptr [ %6, %.lr.ph ], [ %27, %26 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 19
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #18
   %.val = load i8, ptr %7, align 2
   %12 = trunc i8 %.val to i1
@@ -1949,7 +1949,7 @@ SlruCorrectSegmentFilenameLength.exit:            ; preds = %8
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @SlruScanDirCbDeleteCutoff(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture noundef readonly %3) #2 {
   %5 = load i64, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 %7(i64 noundef %2, i64 noundef %5) #15
   br i1 %8, label %SlruMayDeleteSegment.exit, label %SlruMayDeleteSegment.exit.thread
@@ -1972,12 +1972,12 @@ SlruMayDeleteSegment.exit.thread:                 ; preds = %4, %12, %SlruMayDel
 ; Function Attrs: nounwind uwtable
 define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 0) #15
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = getelementptr inbounds i8, ptr %3, i64 32
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %10 = load i32, ptr %3, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.split, label %.split47.us
@@ -2047,12 +2047,12 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
 
 44:                                               ; preds = %35
   %.val = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %.val, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %15 to i64
   %48 = getelementptr %union.LWLockPadded, ptr %46, i64 %47
   tail call void @LWLockRelease(ptr noundef %48) #15
-  %49 = getelementptr inbounds i8, ptr %.val, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.val, i64 48
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr %union.LWLockPadded, ptr %50, i64 %indvars.iv
   %52 = tail call zeroext i1 @LWLockAcquire(ptr noundef %51, i32 noundef 1) #15
@@ -2062,7 +2062,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
   %55 = load ptr, ptr %45, align 8
   %56 = getelementptr %union.LWLockPadded, ptr %55, i64 %47
   %57 = tail call zeroext i1 @LWLockAcquire(ptr noundef %56, i32 noundef 0) #15
-  %58 = getelementptr inbounds i8, ptr %.val, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr i32, ptr %59, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
@@ -2090,7 +2090,7 @@ define dso_local void @SlruDeleteSegment(ptr noundef %0, i64 noundef %1) local_u
 
 72:                                               ; preds = %66
   store i32 2, ptr %68, align 4
-  %73 = getelementptr inbounds i8, ptr %.val, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr i8, ptr %74, i64 %indvars.iv
   store i8 1, ptr %75, align 1
@@ -2131,7 +2131,7 @@ SimpleLruWaitIO.exit:                             ; preds = %76, %62, %44, %43, 
 define internal fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 noundef %1) unnamed_addr #2 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.FileTag, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %11, label %7
@@ -2140,16 +2140,16 @@ define internal fastcc void @SlruInternalDeleteSegment(ptr noundef %0, i64 nound
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 16, i1 false)
   %8 = trunc i32 %6 to i16
   store i16 %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %1, ptr %9, align 8
   %10 = call zeroext i1 @RegisterSyncRequest(ptr noundef nonnull %4, i32 noundef 2, i1 noundef zeroext true) #15
   br label %11
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %13 = load i8, ptr %12, align 2
   %14 = trunc i8 %13 to i1
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %14, label %16, label %18
 
 16:                                               ; preds = %11
@@ -2178,7 +2178,7 @@ SlruFileName.exit:                                ; preds = %16, %18
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @SlruScanDirCbReportPresence(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
   %5 = load i64, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 %7(i64 noundef %2, i64 noundef %5) #15
   br i1 %8, label %9, label %SlruMayDeleteSegment.exit
@@ -2220,12 +2220,12 @@ declare i32 @FreeDir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @SlruSyncFileTag(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %7 = load i8, ptr %6, align 2
   %8 = trunc i8 %7 to i1
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %8, label %10, label %12
 
 10:                                               ; preds = %3

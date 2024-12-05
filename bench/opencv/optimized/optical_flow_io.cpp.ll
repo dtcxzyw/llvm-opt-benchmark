@@ -112,16 +112,16 @@ define void @_ZN2cv15readOpticalFlowERKNSt7__cxx1112basic_stringIcSt11char_trait
           to label %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader unwind label %.loopexit.split-lp
 
 _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.preheader.lr.ph, label %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit._crit_edge
 
 .preheader.lr.ph:                                 ; preds = %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
-  %39 = getelementptr inbounds i8, ptr %8, i64 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 16
-  %41 = getelementptr inbounds i8, ptr %3, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %42 = load i32, ptr %38, align 4
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.preheader, label %_ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit._crit_edge
@@ -172,7 +172,7 @@ _ZN2cv4Mat_INS_6Point_IfEEE6createEii.exit.preheader: ; preds = %32
   %65 = load i64, ptr %64, align 8
   %66 = mul i64 %65, %indvars.iv16
   %67 = getelementptr inbounds i8, ptr %63, i64 %66
-  %68 = getelementptr inbounds %"class.cv::Point_", ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw %"class.cv::Point_", ptr %67, i64 %indvars.iv
   %69 = load i64, ptr %8, align 8
   store i64 %69, ptr %68, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -247,7 +247,7 @@ define noundef zeroext i1 @_ZN2cv16writeOpticalFlowERKNSt7__cxx1112basic_stringI
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noalias !8
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %10)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -304,17 +304,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   br label %69
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %3, i64 64
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %31, align 4
   %35 = load ptr, ptr @_ZN2cv15FLOW_TAG_STRINGE, align 8
   %36 = load i32, ptr %35, align 1
   store i32 %36, ptr %5, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %33, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %34, ptr %38, align 4
   %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull %5, i64 noundef 12)
           to label %40 unwind label %.loopexit.split-lp
@@ -335,8 +335,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %8, %11
   br i1 %47, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %3, i64 16
-  %49 = getelementptr inbounds i8, ptr %3, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %50 = shl nsw i32 %33, 1
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2

@@ -53,7 +53,7 @@ define noundef zeroext i1 @_lv_svg_tokenizer(ptr noundef %0, i32 noundef %1, ptr
   call void @lv_array_init(ptr noundef nonnull %13, i32 noundef 4, i32 noundef 32) #6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #6
   store i32 0, ptr %6, align 8, !tbaa !13
-  %14 = getelementptr inbounds i8, ptr %6, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %15, align 8, !tbaa !15
@@ -202,7 +202,7 @@ _lv_svg_token_process.exit:                       ; preds = %51
   br i1 %81, label %82, label %.thread
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %72, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %84 = load i8, ptr %83, align 1, !tbaa !17
   %85 = icmp eq i8 %84, 45
   br i1 %85, label %.thread.sink.split, label %.thread

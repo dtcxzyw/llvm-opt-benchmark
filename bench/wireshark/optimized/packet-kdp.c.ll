@@ -146,7 +146,7 @@ define internal i32 @dissect_kdp(ptr noundef %0, ptr nocapture noundef readonly 
   %5 = alloca [80 x i8], align 16
   %6 = alloca [80 x i8], align 16
   %7 = alloca [80 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.63) #3
   %10 = load ptr, ptr %8, align 8

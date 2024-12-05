@@ -22,7 +22,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br label %222
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr (...) @Extra_TimeStamp() #5
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef %10, ptr noundef %11) #5
@@ -62,7 +62,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val133181 = phi ptr [ %.val133, %.lr.ph ], [ %.val133178, %8 ]
   %29 = getelementptr i8, ptr %.val133181, i64 8
   %.val139.val = load ptr, ptr %29, align 8
-  %30 = getelementptr inbounds ptr, ptr %.val139.val, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %.val139.val, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @Abc_ObjName(ptr noundef %31) #5
   %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef %32, i32 noundef 0) #5
@@ -75,7 +75,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   br i1 %36, label %.lr.ph, label %.critedge.preheader, !llvm.loop !4
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
-  %37 = getelementptr inbounds i8, ptr %0, i64 80
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr i8, ptr %38, i64 4
   %.val187 = load i32, ptr %39, align 4
@@ -87,7 +87,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val135185 = phi ptr [ %.val135, %.critedge ], [ %.val135182, %.critedge.preheader ]
   %41 = getelementptr i8, ptr %.val135185, i64 8
   %.val140.val = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds ptr, ptr %.val140.val, i64 %indvars.iv213
+  %42 = getelementptr inbounds nuw ptr, ptr %.val140.val, i64 %indvars.iv213
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @Abc_ObjName(ptr noundef %43) #5
   %45 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.3, ptr noundef %44, i32 noundef 0) #5
@@ -104,7 +104,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.critedge2 ], [ 0, %.critedge2.preheader ]
   %50 = getelementptr i8, ptr %49, i64 8
   %.val141.val = load ptr, ptr %50, align 8
-  %51 = getelementptr inbounds ptr, ptr %.val141.val, i64 %indvars.iv216
+  %51 = getelementptr inbounds nuw ptr, ptr %.val141.val, i64 %indvars.iv216
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr i8, ptr %52, i64 20
   %.val142 = load i32, ptr %53, align 4
@@ -168,7 +168,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 .critedge6.preheader:                             ; preds = %.critedge6.preheader.loopexit, %.critedge4
   %.0116.lcssa = phi i32 [ 1, %.critedge4 ], [ %81, %.critedge6.preheader.loopexit ]
-  %82 = getelementptr inbounds i8, ptr %0, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr i8, ptr %83, i64 4
   %.val130196 = load i32, ptr %84, align 4
@@ -181,11 +181,11 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.val156194 = phi ptr [ %.val156, %.lr.ph195 ], [ %.val156190, %.critedge4 ]
   %86 = getelementptr i8, ptr %.val156194, i64 8
   %.val157.val = load ptr, ptr %86, align 8
-  %87 = getelementptr inbounds ptr, ptr %.val157.val, i64 %indvars.iv221
+  %87 = getelementptr inbounds nuw ptr, ptr %.val157.val, i64 %indvars.iv221
   %88 = load ptr, ptr %87, align 8
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %89 = inttoptr i64 %indvars.iv219 to ptr
-  %90 = getelementptr inbounds i8, ptr %88, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 64
   store ptr %89, ptr %90, align 8
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %.val156 = load ptr, ptr %78, align 8
@@ -201,7 +201,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.1117198 = phi i32 [ %.2118, %.critedge6 ], [ %.0116.lcssa, %.critedge6.preheader ]
   %95 = getelementptr i8, ptr %94, i64 8
   %.val158.val = load ptr, ptr %95, align 8
-  %96 = getelementptr inbounds ptr, ptr %.val158.val, i64 %indvars.iv226
+  %96 = getelementptr inbounds nuw ptr, ptr %.val158.val, i64 %indvars.iv226
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.critedge6, label %99
@@ -216,7 +216,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %102 = add nsw i32 %.1117198, 1
   %103 = sext i32 %.1117198 to i64
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %97, i64 64
+  %105 = getelementptr inbounds nuw i8, ptr %97, i64 64
   store ptr %104, ptr %105, align 8
   %.pre239 = load ptr, ptr %82, align 8
   br label %.critedge6
@@ -277,7 +277,7 @@ define void @Io_WriteBaf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.0202 = phi i32 [ 0, %.lr.ph203 ], [ %.1, %169 ]
   %127 = getelementptr i8, ptr %126, i64 8
   %.val159.val = load ptr, ptr %127, align 8
-  %128 = getelementptr inbounds ptr, ptr %.val159.val, i64 %indvars.iv229
+  %128 = getelementptr inbounds nuw ptr, ptr %.val159.val, i64 %indvars.iv229
   %129 = load ptr, ptr %128, align 8
   %130 = icmp eq ptr %129, null
   br i1 %130, label %169, label %131
@@ -314,7 +314,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %134, %137
   %141 = sext i32 %.val147.val to i64
   %142 = getelementptr inbounds ptr, ptr %.val146.val.val, i64 %141
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 64
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 64
   %145 = load ptr, ptr %144, align 8
   %146 = ptrtoint ptr %145 to i64
   %147 = trunc i64 %146 to i32
@@ -332,7 +332,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %134, %137
   %156 = sext i32 %.val167.val to i64
   %157 = getelementptr inbounds ptr, ptr %.val146.val.val, i64 %156
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 64
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 64
   %160 = load ptr, ptr %159, align 8
   %161 = ptrtoint ptr %160 to i64
   %162 = trunc i64 %161 to i32
@@ -362,7 +362,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %134, %137
   %.val163209 = phi ptr [ %.val163205, %.lr.ph210 ], [ %.val163, %.critedge10 ]
   %175 = getelementptr i8, ptr %.val163209, i64 8
   %.val169.val = load ptr, ptr %175, align 8
-  %176 = getelementptr inbounds ptr, ptr %.val169.val, i64 %indvars.iv234
+  %176 = getelementptr inbounds nuw ptr, ptr %.val169.val, i64 %indvars.iv234
   %177 = load ptr, ptr %176, align 8
   br i1 %.not.i172, label %182, label %178
 
@@ -389,7 +389,7 @@ Extra_ProgressBarUpdate.exit173:                  ; preds = %178, %182
   %187 = sext i32 %.val149.val to i64
   %188 = getelementptr inbounds ptr, ptr %.val148.val.val, i64 %187
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 64
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 64
   %191 = load ptr, ptr %190, align 8
   %192 = ptrtoint ptr %191 to i64
   %193 = trunc i64 %192 to i32

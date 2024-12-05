@@ -8,25 +8,25 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @Map_NodeReadRefPhaseAct(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %10
   br label %14
 
 12:                                               ; preds = %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %14
 
 14:                                               ; preds = %12, %8
@@ -37,25 +37,25 @@ define i32 @Map_NodeReadRefPhaseAct(ptr nocapture noundef readonly %0, i32 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define float @Map_NodeReadRefPhaseEst(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %12, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds [3 x float], ptr %9, i64 0, i64 %10
   br label %14
 
 12:                                               ; preds = %5, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %14
 
 14:                                               ; preds = %12, %8
@@ -66,19 +66,19 @@ define float @Map_NodeReadRefPhaseEst(ptr nocapture noundef readonly %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @Map_NodeIncRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
@@ -87,7 +87,7 @@ define i32 @Map_NodeIncRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) loc
   br label %18
 
 14:                                               ; preds = %5, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %15, align 8
@@ -100,19 +100,19 @@ define i32 @Map_NodeIncRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) loc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %10
   %12 = load i32, ptr %11, align 4
@@ -121,7 +121,7 @@ define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nocapt
   br label %18
 
 14:                                               ; preds = %5, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = add nsw i32 %16, -1
   store i32 %17, ptr %15, align 8
@@ -134,9 +134,9 @@ define range(i32 -2147483648, 2147483647) i32 @Map_NodeDecRefPhaseAct(ptr nocapt
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Map_MappingEstimateRefsInit(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -145,20 +145,20 @@ define void @Map_MappingEstimateRefsInit(ptr nocapture noundef readonly %0) loca
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %7 = phi ptr [ %17, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = sitofp i32 %12 to float
-  %14 = getelementptr inbounds i8, ptr %10, i64 44
-  %15 = getelementptr inbounds i8, ptr %10, i64 52
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 52
   store float %13, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %10, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store float %13, ptr %16, align 4
   store float %13, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
@@ -170,9 +170,9 @@ define void @Map_MappingEstimateRefsInit(ptr nocapture noundef readonly %0) loca
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Map_MappingEstimateRefs(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -181,32 +181,32 @@ define void @Map_MappingEstimateRefs(ptr nocapture noundef readonly %0) local_un
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %7 = phi ptr [ %38, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sitofp i32 %15 to double
   %17 = tail call double @llvm.fmuladd.f64(double %13, double 3.000000e+00, double %16)
   %18 = fmul double %17, 2.500000e-01
   %19 = fptrunc double %18 to float
   store float %19, ptr %11, align 4
-  %20 = getelementptr inbounds i8, ptr %10, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
-  %23 = getelementptr inbounds i8, ptr %10, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %24 = load i32, ptr %23, align 4
   %25 = sitofp i32 %24 to double
   %26 = tail call double @llvm.fmuladd.f64(double %22, double 3.000000e+00, double %25)
   %27 = fmul double %26, 2.500000e-01
   %28 = fptrunc double %27 to float
   store float %28, ptr %20, align 4
-  %29 = getelementptr inbounds i8, ptr %10, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %30 = load float, ptr %29, align 4
   %31 = fpext float %30 to double
-  %32 = getelementptr inbounds i8, ptr %10, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = sitofp i32 %33 to double
   %35 = tail call double @llvm.fmuladd.f64(double %31, double 3.000000e+00, double %34)
@@ -215,7 +215,7 @@ define void @Map_MappingEstimateRefs(ptr nocapture noundef readonly %0) local_un
   store float %37, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load ptr, ptr %2, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
@@ -230,23 +230,23 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %3, i64 %4
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 236
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 236
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 76
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %13 = load i8, ptr %12, align 4
   %14 = icmp sgt i8 %13, 0
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %wide.trip.count = zext nneg i8 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %16
 
 16:                                               ; preds = %.lr.ph, %Map_NodeReadRefPhaseEst.exit
@@ -256,11 +256,11 @@ define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local
   %18 = shl nuw i32 1, %17
   %19 = and i32 %18, %9
   %20 = icmp eq i32 %19, 0
-  %21 = getelementptr inbounds [6 x ptr], ptr %15, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [6 x ptr], ptr %15, i64 0, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 144
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = zext i1 %20 to i64
-  %25 = getelementptr inbounds [2 x ptr], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %33
@@ -268,35 +268,35 @@ define float @Map_CutGetAreaFlow(ptr nocapture noundef %0, i32 noundef %1) local
 28:                                               ; preds = %16
   %29 = xor i1 %20, true
   %30 = zext i1 %29 to i64
-  %31 = getelementptr inbounds [2 x ptr], ptr %23, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [2 x ptr], ptr %23, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8
   br label %33
 
 33:                                               ; preds = %28, %16
   %.031 = phi ptr [ %32, %28 ], [ %26, %16 ]
   %.0.in = phi i1 [ %29, %28 ], [ %20, %16 ]
-  %34 = getelementptr inbounds i8, ptr %.031, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %.031, i64 80
   %.offs = select i1 %.0.in, i64 76, i64 36
-  %35 = getelementptr inbounds i8, ptr %34, i64 %.offs
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 %.offs
   %36 = load float, ptr %35, align 4
   %37 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %37, null
   br i1 %.not.i, label %45, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %22, i64 152
+  %39 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %40 = load ptr, ptr %39, align 8
   %.not5.i = icmp eq ptr %40, null
   br i1 %.not5.i, label %45, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %22, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %22, i64 44
   %43 = zext i1 %.0.in to i64
-  %44 = getelementptr inbounds [3 x float], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %43
   br label %Map_NodeReadRefPhaseEst.exit
 
 45:                                               ; preds = %38, %33
-  %46 = getelementptr inbounds i8, ptr %22, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 52
   br label %Map_NodeReadRefPhaseEst.exit
 
 Map_NodeReadRefPhaseEst.exit:                     ; preds = %41, %45
@@ -312,14 +312,14 @@ Map_NodeReadRefPhaseEst.exit:                     ; preds = %41, %45
 
 ._crit_edge:                                      ; preds = %Map_NodeReadRefPhaseEst.exit, %2
   %.032.lcssa = phi float [ %11, %2 ], [ %49, %Map_NodeReadRefPhaseEst.exit ]
-  %50 = getelementptr inbounds i8, ptr %5, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store float %.032.lcssa, ptr %50, align 4
   ret float %.032.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
 define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %6 = load i8, ptr %5, align 4
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %.loopexit, label %8
@@ -336,7 +336,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %12 = getelementptr i8, ptr %0, i64 96
   %13 = getelementptr i8, ptr %12, i64 %.idx
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   br i1 %.not59, label %.thread, label %17
 
@@ -356,35 +356,35 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %22, label %.lr.ph.split.us.preheader, label %.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not61 = icmp eq i32 %2, 0
   br i1 %.not61, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.thread, %.lr.ph
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %79
   %indvars.iv71 = phi i64 [ %indvars.iv.next72, %79 ], [ 0, %.lr.ph.split.us.preheader ]
   %.05567.us = phi float [ %.1.us, %79 ], [ %9, %.lr.ph.split.us.preheader ]
-  %25 = getelementptr inbounds [6 x ptr], ptr %24, i64 0, i64 %indvars.iv71
+  %25 = getelementptr inbounds nuw [6 x ptr], ptr %24, i64 0, i64 %indvars.iv71
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv71 to i32
   %28 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %27) #7
-  %29 = getelementptr inbounds i8, ptr %26, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %30 = load ptr, ptr %29, align 8
   %.not62.us = icmp eq ptr %30, null
   br i1 %.not62.us, label %44, label %31
 
 31:                                               ; preds = %.lr.ph.split.us
-  %32 = getelementptr inbounds i8, ptr %26, i64 152
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %33 = load ptr, ptr %32, align 8
   %.not63.us = icmp eq ptr %33, null
   br i1 %.not63.us, label %44, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %26, i64 32
-  %36 = getelementptr inbounds i8, ptr %26, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %36, align 8
@@ -397,7 +397,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %43, label %79, label %67
 
 44:                                               ; preds = %31, %.lr.ph.split.us
-  %45 = getelementptr inbounds i8, ptr %26, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %46 = sext i32 %28 to i64
   %47 = getelementptr inbounds [3 x i32], ptr %45, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
@@ -414,16 +414,16 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %26, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 168
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 168
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 140
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 140
   %60 = load float, ptr %59, align 4
   %61 = fadd float %.05567.us, %60
   br label %62
 
 62:                                               ; preds = %55, %51, %44
   %.4.us = phi float [ %61, %55 ], [ %.05567.us, %51 ], [ %.05567.us, %44 ]
-  %63 = getelementptr inbounds i8, ptr %26, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %64 = load i32, ptr %63, align 8
   %65 = add nsw i32 %64, -1
   store i32 %65, ptr %63, align 8
@@ -442,7 +442,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.not66.us = icmp eq i32 %28, 0
   %72 = zext i1 %.not66.us to i32
   %73 = zext i1 %.not66.us to i64
-  %74 = getelementptr inbounds [2 x ptr], ptr %29, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [2 x ptr], ptr %29, i64 0, i64 %73
   %75 = load ptr, ptr %74, align 8
   br label %76
 
@@ -464,24 +464,24 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 .lr.ph.split:                                     ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ %indvars.iv.next, %137 ], [ 0, %.lr.ph ]
   %.05567 = phi float [ %.1, %137 ], [ %9, %.lr.ph ]
-  %83 = getelementptr inbounds [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [6 x ptr], ptr %23, i64 0, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   %86 = tail call i32 @Map_CutGetLeafPhase(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %85) #7
-  %87 = getelementptr inbounds i8, ptr %84, i64 144
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 144
   %88 = load ptr, ptr %87, align 8
   %.not64 = icmp eq ptr %88, null
   br i1 %.not64, label %102, label %89
 
 89:                                               ; preds = %.lr.ph.split
-  %90 = getelementptr inbounds i8, ptr %84, i64 152
+  %90 = getelementptr inbounds nuw i8, ptr %84, i64 152
   %91 = load ptr, ptr %90, align 8
   %.not65 = icmp eq ptr %91, null
   br i1 %.not65, label %102, label %92
 
 92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %84, i64 32
-  %94 = getelementptr inbounds i8, ptr %84, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %95 = load i32, ptr %94, align 8
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %94, align 8
@@ -494,7 +494,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   br i1 %101, label %137, label %125
 
 102:                                              ; preds = %89, %.lr.ph.split
-  %103 = getelementptr inbounds i8, ptr %84, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %104 = sext i32 %86 to i64
   %105 = getelementptr inbounds [3 x i32], ptr %103, i64 0, i64 %104
   %106 = load i32, ptr %105, align 4
@@ -511,16 +511,16 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
 
 113:                                              ; preds = %109
   %114 = load ptr, ptr %84, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 168
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 168
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 140
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 140
   %118 = load float, ptr %117, align 4
   %119 = fadd float %.05567, %118
   br label %120
 
 120:                                              ; preds = %113, %109, %102
   %.2 = phi float [ %119, %113 ], [ %.05567, %109 ], [ %.05567, %102 ]
-  %121 = getelementptr inbounds i8, ptr %84, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %122 = load i32, ptr %121, align 8
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %121, align 8
@@ -539,7 +539,7 @@ define float @Map_CutRefDeref(ptr noundef %0, i32 noundef %1, i32 noundef %2, i3
   %.not66 = icmp eq i32 %86, 0
   %130 = zext i1 %.not66 to i32
   %131 = zext i1 %.not66 to i64
-  %132 = getelementptr inbounds [2 x ptr], ptr %87, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [2 x ptr], ptr %87, i64 0, i64 %131
   %133 = load ptr, ptr %132, align 8
   br label %134
 
@@ -605,13 +605,13 @@ define void @Map_MappingSetRefs_rec(ptr nocapture noundef readonly %0, ptr nound
   %6 = trunc i64 %3 to i32
   %7 = and i32 %6, 1
   %8 = xor i32 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 8
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [3 x i32], ptr %9, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -634,7 +634,7 @@ define void @Map_MappingSetRefs_rec(ptr nocapture noundef readonly %0, ptr nound
   br i1 %.not33, label %42, label %tailrecurse
 
 tailrecurse:                                      ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %20, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %26 = load ptr, ptr %25, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = xor i64 %21, %27
@@ -643,13 +643,13 @@ tailrecurse:                                      ; preds = %23
   %31 = trunc i64 %28 to i32
   %32 = and i32 %31, 1
   %33 = xor i32 %32, 1
-  %34 = getelementptr inbounds i8, ptr %30, i64 32
-  %35 = getelementptr inbounds i8, ptr %30, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %36 = load i32, ptr %35, align 8
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %35, align 8
   %38 = zext nneg i32 %33 to i64
-  %39 = getelementptr inbounds [3 x i32], ptr %34, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [3 x i32], ptr %34, i64 0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = add nsw i32 %40, 1
   store i32 %41, ptr %39, align 4
@@ -657,22 +657,22 @@ tailrecurse:                                      ; preds = %23
   br i1 %.not, label %.lr.ph, label %.loopexit
 
 42:                                               ; preds = %23
-  %43 = getelementptr inbounds i8, ptr %20, i64 144
-  %44 = getelementptr inbounds [2 x ptr], ptr %43, i64 0, i64 %17
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 144
+  %44 = getelementptr inbounds nuw [2 x ptr], ptr %43, i64 0, i64 %17
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %42
   %48 = and i64 %21, 1
-  %49 = getelementptr inbounds [2 x ptr], ptr %43, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [2 x ptr], ptr %43, i64 0, i64 %48
   %50 = load ptr, ptr %49, align 8
   br label %51
 
 51:                                               ; preds = %47, %42
   %.029 = phi i32 [ %19, %47 ], [ %18, %42 ]
   %.0 = phi ptr [ %50, %47 ], [ %45, %42 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %53 = load i32, ptr %52, align 8
   %.not35 = icmp eq i32 %53, 0
   %.pre = zext nneg i32 %.029 to i64
@@ -683,7 +683,7 @@ tailrecurse:                                      ; preds = %23
   %55 = getelementptr i8, ptr %.0, i64 96
   %56 = getelementptr i8, ptr %55, i64 %.pre62
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load ptr, ptr %58, align 8
   tail call void @Mio_GateIncProfile2(ptr noundef %59) #7
   br label %._crit_edge
@@ -692,13 +692,13 @@ tailrecurse:                                      ; preds = %23
   %60 = getelementptr i8, ptr %.0, i64 92
   %61 = getelementptr i8, ptr %60, i64 %.pre62
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %.0, i64 76
+  %63 = getelementptr inbounds nuw i8, ptr %.0, i64 76
   %64 = load i8, ptr %63, align 4
   %65 = icmp sgt i8 %64, 0
   br i1 %65, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %._crit_edge
-  %66 = getelementptr inbounds i8, ptr %.0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   br label %67
 
 67:                                               ; preds = %.lr.ph50, %67
@@ -706,7 +706,7 @@ tailrecurse:                                      ; preds = %23
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   %69 = lshr i32 %62, %68
   %70 = and i32 %69, 1
-  %71 = getelementptr inbounds [6 x ptr], ptr %66, i64 0, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [6 x ptr], ptr %66, i64 0, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8
   %73 = ptrtoint ptr %72 to i64
   %74 = zext nneg i32 %70 to i64
@@ -729,52 +729,52 @@ declare i32 @Map_NodeIsBuf(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingSetRefs(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #7
   br label %9
 
 9:                                                ; preds = %4, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph20, label %._crit_edge
 
 .lr.ph20:                                         ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %31
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
   %19 = phi ptr [ %26, %.lr.ph ], [ %11, %9 ]
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %22, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 36
   store i32 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store i32 0, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %29 = sext i32 %28 to i64
   %30 = icmp slt i64 %indvars.iv.next, %29
@@ -783,7 +783,7 @@ define void @Map_MappingSetRefs(ptr nocapture noundef readonly %0) local_unnamed
 31:                                               ; preds = %.lr.ph20, %37
   %indvars.iv22 = phi i64 [ 0, %.lr.ph20 ], [ %indvars.iv.next23, %37 ]
   %32 = load ptr, ptr %18, align 8
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv22
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv22
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 @Map_NodeIsConst(ptr noundef %34) #7
   %.not17 = icmp eq i32 %35, 0
@@ -810,41 +810,41 @@ declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @Mio_LibraryCleanProfile2(ptr noundef %8) #7
   br label %9
 
 9:                                                ; preds = %4, %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 168
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %21
 
 .preheader:                                       ; preds = %94, %9
   %.039.lcssa = phi float [ 0.000000e+00, %9 ], [ %.140, %94 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph53, label %._crit_edge
 
 .lr.ph53:                                         ; preds = %.preheader
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
-  %20 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %100
 
 21:                                               ; preds = %.lr.ph, %94
@@ -852,10 +852,10 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   %22 = phi ptr [ %11, %.lr.ph ], [ %95, %94 ]
   %.03949 = phi float [ 0.000000e+00, %.lr.ph ], [ %.140, %94 ]
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
-  %27 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %94, label %30
@@ -871,7 +871,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not44, label %74, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %25, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 144
   %36 = load ptr, ptr %35, align 8
   %.not45 = icmp eq ptr %36, null
   br i1 %.not45, label %54, label %37
@@ -882,15 +882,15 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %25, i64 152
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %54
 
 44:                                               ; preds = %40, %37
-  %45 = getelementptr inbounds i8, ptr %36, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 236
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 236
   %48 = load float, ptr %47, align 4
   %49 = fadd float %.03949, %48
   %50 = load i32, ptr %2, align 8
@@ -898,20 +898,20 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not46, label %54, label %51
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %46, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %53 = load ptr, ptr %52, align 8
   tail call void @Mio_GateIncProfile2(ptr noundef %53) #7
   br label %54
 
 54:                                               ; preds = %44, %51, %40, %34
   %.3 = phi float [ %49, %51 ], [ %49, %44 ], [ %.03949, %40 ], [ %.03949, %34 ]
-  %55 = getelementptr inbounds i8, ptr %25, i64 152
+  %55 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %56 = load ptr, ptr %55, align 8
   %.not47 = icmp eq ptr %56, null
   br i1 %.not47, label %74, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %25, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %64, label %61
@@ -922,9 +922,9 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %63, label %64, label %74
 
 64:                                               ; preds = %61, %57
-  %65 = getelementptr inbounds i8, ptr %56, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 236
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 236
   %68 = load float, ptr %67, align 4
   %69 = fadd float %.3, %68
   %70 = load i32, ptr %2, align 8
@@ -932,14 +932,14 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %.not48, label %74, label %71
 
 71:                                               ; preds = %64
-  %72 = getelementptr inbounds i8, ptr %66, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %73 = load ptr, ptr %72, align 8
   tail call void @Mio_GateIncProfile2(ptr noundef %73) #7
   br label %74
 
 74:                                               ; preds = %54, %61, %71, %64, %32
   %.2 = phi float [ %69, %71 ], [ %69, %64 ], [ %.3, %61 ], [ %.3, %54 ], [ %.03949, %32 ]
-  %75 = getelementptr inbounds i8, ptr %25, i64 144
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 144
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
   br i1 %77, label %78, label %81
@@ -950,20 +950,20 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   br i1 %80, label %89, label %81
 
 81:                                               ; preds = %78, %74
-  %82 = getelementptr inbounds i8, ptr %25, i64 152
+  %82 = getelementptr inbounds nuw i8, ptr %25, i64 152
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %85, label %94
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %25, i64 36
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %87 = load i32, ptr %86, align 4
   %88 = icmp sgt i32 %87, 0
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %85, %78
   %90 = load ptr, ptr %15, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 140
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 140
   %92 = load float, ptr %91, align 4
   %93 = fadd float %.2, %92
   br label %94
@@ -972,7 +972,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   %.140 = phi float [ %.03949, %21 ], [ %.03949, %30 ], [ %93, %89 ], [ %.2, %85 ], [ %.2, %81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %95 = load ptr, ptr %10, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load i32, ptr %96, align 8
   %98 = sext i32 %97 to i64
   %99 = icmp slt i64 %indvars.iv.next, %98
@@ -982,7 +982,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
   %indvars.iv56 = phi i64 [ 0, %.lr.ph53 ], [ %indvars.iv.next57, %116 ]
   %.451 = phi float [ %.039.lcssa, %.lr.ph53 ], [ %.5, %116 ]
   %101 = load ptr, ptr %19, align 8
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv56
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv56
   %103 = load ptr, ptr %102, align 8
   %104 = tail call i32 @Map_NodeIsVar(ptr noundef %103) #7
   %.not41 = icmp eq i32 %104, 0
@@ -990,7 +990,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %19, align 8
-  %107 = getelementptr inbounds ptr, ptr %106, i64 %indvars.iv56
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv56
   %108 = load ptr, ptr %107, align 8
   %109 = ptrtoint ptr %108 to i64
   %110 = and i64 %109, 1
@@ -999,7 +999,7 @@ define float @Map_MappingGetArea(ptr nocapture noundef readonly %0) local_unname
 
 111:                                              ; preds = %105
   %112 = load ptr, ptr %20, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 144
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 144
   %114 = load float, ptr %113, align 8
   %115 = fadd float %.451, %114
   br label %116

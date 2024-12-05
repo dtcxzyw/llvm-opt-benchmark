@@ -20,7 +20,7 @@ define i32 @OCSP_basic_verify(ptr noundef %bs, ptr noundef %certs, ptr noundef %
 entry:
   %chain = alloca ptr, align 8
   store ptr null, ptr %chain, align 8
-  %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
+  %responderId.i = getelementptr inbounds nuw i8, ptr %bs, i64 8
   %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %certs, ptr noundef nonnull readonly %responderId.i)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %land.lhs.true
@@ -31,7 +31,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %land.lhs.true.i, label %if.then
 
 land.lhs.true.i:                                  ; preds = %if.end.i
-  %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
+  %certs2.i = getelementptr inbounds nuw i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
   %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull readonly %responderId.i)
   %tobool.not.i = icmp eq ptr %call3.i, null
@@ -65,7 +65,7 @@ if.then11:                                        ; preds = %if.end4
   br i1 %cmp13, label %if.then14, label %if.end24
 
 if.then14:                                        ; preds = %if.then11
-  %certs15 = getelementptr inbounds i8, ptr %bs, i64 72
+  %certs15 = getelementptr inbounds nuw i8, ptr %bs, i64 72
   %2 = load ptr, ptr %certs15, align 8
   %call17 = tail call ptr @OPENSSL_sk_dup(ptr noundef %2) #3
   %cmp18 = icmp eq ptr %call17, null
@@ -231,25 +231,25 @@ if.end:                                           ; preds = %if.then
 
 if.then4:                                         ; preds = %if.end
   %call5 = tail call ptr @OCSP_REQINFO_it() #3
-  %optionalSignature = getelementptr inbounds i8, ptr %req, i64 32
+  %optionalSignature = getelementptr inbounds nuw i8, ptr %req, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
-  %signature = getelementptr inbounds i8, ptr %0, i64 16
+  %signature = getelementptr inbounds nuw i8, ptr %0, i64 16
   %1 = load ptr, ptr %signature, align 8
-  %libctx = getelementptr inbounds i8, ptr %signer, i64 368
+  %libctx = getelementptr inbounds nuw i8, ptr %signer, i64 368
   %2 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds i8, ptr %signer, i64 376
+  %propq = getelementptr inbounds nuw i8, ptr %signer, i64 376
   %3 = load ptr, ptr %propq, align 8
   %call7 = tail call i32 @ASN1_item_verify_ex(ptr noundef %call5, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %req, ptr noundef null, ptr noundef nonnull %call, ptr noundef %2, ptr noundef %3) #3
   br label %if.end14
 
 if.else:                                          ; preds = %if.end
   %call8 = tail call ptr @OCSP_RESPDATA_it() #3
-  %signatureAlgorithm9 = getelementptr inbounds i8, ptr %bs, i64 48
-  %signature10 = getelementptr inbounds i8, ptr %bs, i64 64
+  %signatureAlgorithm9 = getelementptr inbounds nuw i8, ptr %bs, i64 48
+  %signature10 = getelementptr inbounds nuw i8, ptr %bs, i64 64
   %4 = load ptr, ptr %signature10, align 8
-  %libctx11 = getelementptr inbounds i8, ptr %signer, i64 368
+  %libctx11 = getelementptr inbounds nuw i8, ptr %signer, i64 368
   %5 = load ptr, ptr %libctx11, align 8
-  %propq12 = getelementptr inbounds i8, ptr %signer, i64 376
+  %propq12 = getelementptr inbounds nuw i8, ptr %signer, i64 376
   %6 = load ptr, ptr %propq12, align 8
   %call13 = tail call i32 @ASN1_item_verify_ex(ptr noundef %call8, ptr noundef nonnull %signatureAlgorithm9, ptr noundef %4, ptr noundef %bs, ptr noundef null, ptr noundef nonnull %call, ptr noundef %5, ptr noundef %6) #3
   br label %if.end14
@@ -372,13 +372,13 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 8)) %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
 entry:
-  %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
+  %responderId.i = getelementptr inbounds nuw i8, ptr %bs, i64 8
   %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull readonly %responderId.i)
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %if.end.i, label %ocsp_find_signer.exit
 
 if.end.i:                                         ; preds = %entry
-  %certs2.i = getelementptr inbounds i8, ptr %bs, i64 72
+  %certs2.i = getelementptr inbounds nuw i8, ptr %bs, i64 72
   %0 = load ptr, ptr %certs2.i, align 8
   %call3.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %0, ptr noundef nonnull readonly %responderId.i)
   %tobool.not.i = icmp ne ptr %call3.i, null
@@ -395,7 +395,7 @@ ocsp_find_signer.exit:                            ; preds = %if.end.i, %entry
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OCSP_request_verify(ptr noundef %req, ptr noundef %certs, ptr noundef %store, i64 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %optionalSignature = getelementptr inbounds i8, ptr %req, i64 32
+  %optionalSignature = getelementptr inbounds nuw i8, ptr %req, i64 32
   %0 = load ptr, ptr %optionalSignature, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -407,7 +407,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %requestorName = getelementptr inbounds i8, ptr %req, i64 8
+  %requestorName = getelementptr inbounds nuw i8, ptr %req, i64 8
   %1 = load ptr, ptr %requestorName, align 8
   %tobool1.not = icmp eq ptr %1, null
   br i1 %tobool1.not, label %if.then2, label %lor.lhs.false
@@ -424,14 +424,14 @@ if.then2:                                         ; preds = %lor.lhs.false, %if.
   br label %return
 
 if.end3:                                          ; preds = %lor.lhs.false
-  %d = getelementptr inbounds i8, ptr %1, i64 8
+  %d = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %d, align 8
   %and.i = and i64 %flags, 2
   %cmp.i = icmp eq i64 %and.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end4.i
 
 if.then.i:                                        ; preds = %if.end3
-  %certs1.i = getelementptr inbounds i8, ptr %0, i64 24
+  %certs1.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %certs1.i, align 8
   %call.i = tail call ptr @X509_find_by_subject(ptr noundef %4, ptr noundef %3) #3
   %cmp2.not.i = icmp eq ptr %call.i, null
@@ -473,7 +473,7 @@ if.end18:                                         ; preds = %if.end14
 
 cond.false:                                       ; preds = %if.end18
   %6 = load ptr, ptr %optionalSignature, align 8
-  %certs22 = getelementptr inbounds i8, ptr %6, i64 24
+  %certs22 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %7 = load ptr, ptr %certs22, align 8
   br label %cond.end
 
@@ -529,7 +529,7 @@ entry:
   %tmphash = alloca [20 x i8], align 16
   %0 = load i32, ptr %id, align 8
   %cmp = icmp eq i32 %0, 0
-  %value = getelementptr inbounds i8, ptr %id, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %id, i64 8
   %1 = load ptr, ptr %value, align 8
   br i1 %cmp, label %if.then, label %if.end
 
@@ -543,7 +543,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %data = getelementptr inbounds i8, ptr %1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %data, align 8
   %call712 = tail call i32 @OPENSSL_sk_num(ptr noundef %certs) #3
   %cmp813 = icmp sgt i32 %call712, 0
@@ -556,9 +556,9 @@ for.body:                                         ; preds = %if.end4, %for.inc
   br i1 %cmp11.not, label %for.inc, label %if.then12
 
 if.then12:                                        ; preds = %for.body
-  %libctx = getelementptr inbounds i8, ptr %call10, i64 368
+  %libctx = getelementptr inbounds nuw i8, ptr %call10, i64 368
   %4 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds i8, ptr %call10, i64 376
+  %propq = getelementptr inbounds nuw i8, ptr %call10, i64 376
   %5 = load ptr, ptr %propq, align 8
   %call13 = call ptr @EVP_MD_fetch(ptr noundef %4, ptr noundef nonnull @.str.2, ptr noundef %5) #3
   %cmp14 = icmp eq ptr %call13, null
@@ -641,13 +641,13 @@ if.then15:                                        ; preds = %if.end11
   br label %end
 
 if.end16:                                         ; preds = %if.end11
-  %issuerNameHash = getelementptr inbounds i8, ptr %cid, i64 16
+  %issuerNameHash = getelementptr inbounds nuw i8, ptr %cid, i64 16
   %1 = load i32, ptr %issuerNameHash, align 8
   %cmp17.not = icmp eq i32 %1, %call13
   br i1 %cmp17.not, label %lor.lhs.false, label %end
 
 lor.lhs.false:                                    ; preds = %if.end16
-  %issuerKeyHash = getelementptr inbounds i8, ptr %cid, i64 40
+  %issuerKeyHash = getelementptr inbounds nuw i8, ptr %cid, i64 40
   %2 = load i32, ptr %issuerKeyHash, align 8
   %cmp19.not = icmp eq i32 %2, %call13
   br i1 %cmp19.not, label %if.end21, label %end
@@ -659,7 +659,7 @@ if.end21:                                         ; preds = %lor.lhs.false
   br i1 %tobool.not, label %end, label %if.end26
 
 if.end26:                                         ; preds = %if.end21
-  %data = getelementptr inbounds i8, ptr %cid, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %cid, i64 24
   %3 = load ptr, ptr %data, align 8
   %conv = zext nneg i32 %call13 to i64
   %bcmp = call i32 @bcmp(ptr nonnull %md, ptr %3, i64 %conv)
@@ -678,7 +678,7 @@ if.then37:                                        ; preds = %if.end33
   br label %end
 
 if.end38:                                         ; preds = %if.end33
-  %data41 = getelementptr inbounds i8, ptr %cid, i64 48
+  %data41 = getelementptr inbounds nuw i8, ptr %cid, i64 48
   %4 = load ptr, ptr %data41, align 8
   %bcmp22 = call i32 @bcmp(ptr nonnull %md, ptr %4, i64 %conv)
   %cmp44 = icmp eq i32 %bcmp22, 0

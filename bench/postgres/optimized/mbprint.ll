@@ -225,7 +225,7 @@ define dso_local void @pg_wcsformat(ptr noundef %0, i64 noundef %1, i32 noundef 
 
 27:                                               ; preds = %17
   store i8 0, ptr %.05990, align 1
-  %28 = getelementptr inbounds i8, ptr %.06684, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.06684, i64 8
   store i32 %.06089, ptr %28, align 8
   %29 = add i32 %.06485, -1
   %30 = icmp slt i32 %29, 1
@@ -402,7 +402,7 @@ utf8_to_unicode.exit:                             ; preds = %57, %79, %.sink.spl
   %.064.lcssa = phi i32 [ %4, %5 ], [ %.06485, %.lr.ph92 ], [ %.165, %.loopexit ]
   %.060.lcssa = phi i32 [ 0, %5 ], [ %.06089, %.lr.ph92 ], [ %.262, %.loopexit ]
   %.059.lcssa = phi ptr [ %6, %5 ], [ %.05990, %.lr.ph92 ], [ %.2, %.loopexit ]
-  %118 = getelementptr inbounds i8, ptr %.066.lcssa, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.066.lcssa, i64 8
   store i32 %.060.lcssa, ptr %118, align 8
   store i8 0, ptr %.059.lcssa, align 1
   %119 = icmp slt i32 %.064.lcssa, 1

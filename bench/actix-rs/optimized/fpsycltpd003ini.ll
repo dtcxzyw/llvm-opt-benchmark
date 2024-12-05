@@ -20,7 +20,7 @@ define void @_ZN12actix_router6quoter6Quoter3new17h7ae370efd2a02222E(ptr nocaptu
   %11 = icmp ne ptr %3, null
   call void @llvm.assume(i1 %11)
   store ptr %3, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %12, align 8
   %13 = call align 1 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde1bdfa01caa1a22E"(ptr nonnull align 8 %7)
   %14 = icmp eq ptr %13, null
@@ -45,7 +45,7 @@ define void @_ZN12actix_router6quoter6Quoter3new17h7ae370efd2a02222E(ptr nocaptu
 _ZN12actix_router6quoter11AsciiBitmap7set_bit17hc49d8f36105148d1E.exit: ; preds = %.lr.ph
   %21 = and i8 %16, 7
   %22 = shl nuw i8 1, %21
-  %23 = getelementptr inbounds [16 x i8], ptr %8, i64 0, i64 %18
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 0, i64 %18
   %24 = load i8, ptr %23, align 1, !noundef !3
   %25 = or i8 %24, %22
   store i8 %25, ptr %23, align 1
@@ -65,9 +65,9 @@ define void @_ZN12actix_router6quoter6Quoter7requote17h0f7b2ad503a8c37dE(ptr noc
 
 .lr.ph:                                           ; preds = %4
   %8 = icmp ne ptr %2, null
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = icmp ne ptr %1, null
   br label %13
 
@@ -93,9 +93,9 @@ define void @_ZN12actix_router6quoter6Quoter7requote17h0f7b2ad503a8c37dE(ptr noc
 21:                                               ; preds = %18
   %22 = load ptr, ptr %5, align 8, !nonnull !3, !align !5, !noundef !3
   %23 = load i64, ptr %11, align 8, !noundef !3
-  %24 = getelementptr inbounds i8, ptr %15, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %25 = load i8, ptr %24, align 1, !noundef !3
-  %26 = getelementptr inbounds i8, ptr %15, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %27 = load i8, ptr %26, align 1, !noundef !3
   %28 = zext i8 %25 to i32
   %29 = call { i32, i32 } @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17ha4e4ecd6ff821e97E"(i32 %28, i32 16)
@@ -133,9 +133,9 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
   store i64 %46, ptr %7, align 8
-  %48 = getelementptr inbounds i8, ptr %7, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %7, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %49, align 8
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h291d18f3299bf193E"(ptr nonnull align 8 %7, ptr nonnull align 1 %22, i64 %23)
           to label %50 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -171,15 +171,15 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
           to label %.preheader unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .preheader:                                       ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %6, i64 16
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %55
 
 55:                                               ; preds = %.preheader, %90
   %.sroa.6.0.in = phi i64 [ %59, %90 ], [ %16, %.preheader ]
   %.pn = phi ptr [ %58, %90 ], [ %15, %.preheader ]
-  %.sroa.0.036 = getelementptr inbounds i8, ptr %.pn, i64 3
+  %.sroa.0.036 = getelementptr inbounds nuw i8, ptr %.pn, i64 3
   %.sroa.6.0 = add i64 %.sroa.6.0.in, -3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %.not.i76.not = icmp eq i64 %.sroa.6.0, 0
@@ -212,9 +212,9 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
 64:                                               ; preds = %61
   %65 = load ptr, ptr %6, align 8, !nonnull !3, !align !5, !noundef !3
   %66 = load i64, ptr %54, align 8, !noundef !3
-  %67 = getelementptr inbounds i8, ptr %58, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %68 = load i8, ptr %67, align 1, !noundef !3
-  %69 = getelementptr inbounds i8, ptr %58, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %58, i64 2
   %70 = load i8, ptr %69, align 1, !noundef !3
   %71 = zext i8 %68 to i32
   %72 = invoke { i32, i32 } @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$8to_digit17ha4e4ecd6ff821e97E"(i32 %71, i32 16)
@@ -322,7 +322,7 @@ define hidden zeroext i1 @_ZN12actix_router6quoter11AsciiBitmap6bit_at17h27be25e
   br i1 %5, label %6, label %13, !prof !4
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds [16 x i8], ptr %0, i64 0, i64 %4
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 0, i64 %4
   %8 = load i8, ptr %7, align 1, !noundef !3
   %9 = and i8 %1, 7
   %10 = shl nuw i8 1, %9

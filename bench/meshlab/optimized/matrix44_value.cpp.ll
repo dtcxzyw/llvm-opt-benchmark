@@ -118,7 +118,7 @@ define linkonce_odr void @_ZNK5Value9getStringEv(ptr dead_on_unwind noalias writ
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK13Matrix44Value11getMatrix44Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Matrix44") align 4 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   ret void
 }
@@ -131,21 +131,21 @@ define linkonce_odr { <2 x float>, float } @_ZNK5Value9getPoint3Ev(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK5Value7getShotEv(ptr dead_on_unwind noalias writable sret(%"class.vcg::Shot") align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 56, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = getelementptr inbounds i8, ptr %0, i64 60
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 76
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store float 1.000000e+00, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float 1.000000e+00, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 116
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store float 1.000000e+00, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store float 0.000000e+00, ptr %8, align 4
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 124
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 124
   store float 0.000000e+00, ptr %.sroa.2.0..sroa_idx.i.i, align 4
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 128
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 128
   store float 0.000000e+00, ptr %.sroa.3.0..sroa_idx.i.i, align 4
   ret void
 }
@@ -153,9 +153,9 @@ define linkonce_odr void @_ZNK5Value7getShotEv(ptr dead_on_unwind noalias writab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNK5Value8getColorEv(ptr dead_on_unwind noalias writable sret(%class.QColor) align 4 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 comdat align 2 {
   store i32 0, ptr %0, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 -1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i64 0, ptr %4, align 2
   ret void
 }
@@ -211,10 +211,10 @@ define void @_ZNK13Matrix44Value8typeNameEv(ptr dead_on_unwind noalias nocapture
 define void @_ZN13Matrix44Value3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 72)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   call void %6(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false)
   ret void
 }
@@ -223,8 +223,8 @@ define void @_ZN13Matrix44Value3setERK5Value(ptr nocapture noundef nonnull write
 define noalias noundef nonnull ptr @_ZNK13Matrix44Value5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #14
   store ptr getelementptr inbounds (i8, ptr @_ZTV13Matrix44Value, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   ret ptr %2
 }
@@ -233,15 +233,15 @@ define noalias noundef nonnull ptr @_ZNK13Matrix44Value5cloneEv(ptr nocapture no
 define noundef zeroext i1 @_ZNK13Matrix44ValueeqERK5Value(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %7, label %8, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.vcg::Matrix44") align 4 %3, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br label %.preheader.i
@@ -259,9 +259,9 @@ define noundef zeroext i1 @_ZNK13Matrix44ValueeqERK5Value(ptr nocapture noundef 
 15:                                               ; preds = %14, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %14 ]
   %16 = add nuw nsw i64 %indvars.iv.i, %13
-  %17 = getelementptr inbounds [16 x float], ptr %9, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x float], ptr %9, i64 0, i64 %16
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds [16 x float], ptr %3, i64 0, i64 %16
+  %19 = getelementptr inbounds nuw [16 x float], ptr %3, i64 0, i64 %16
   %20 = load float, ptr %19, align 4
   %21 = fcmp oeq float %18, %20
   br i1 %21, label %14, label %_ZNK3vcg8Matrix44IfEeqERKS1_.exit
@@ -282,7 +282,7 @@ define void @_ZNK13Matrix44Value16fillToXMLElementER11QDomElement(ptr nocapture 
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %8
 
 8:                                                ; preds = %2, %_ZN7QStringD2Ev.exit31
@@ -315,7 +315,7 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %14, %11
   br label %.body
 
 _ZplRK7QStringS1_.exit:                           ; preds = %_ZN7QStringC2ERKS_.exit.i
-  %19 = getelementptr inbounds float, ptr %7, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %20 = load float, ptr %19, align 4
   %21 = fpext float %20 to double
   invoke void @_ZN7QString6numberEdci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, double noundef %21, i8 noundef signext 103, i32 noundef 6)
@@ -460,7 +460,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN13Matrix44ValueC2ERKN3vcg8Matrix44IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13Matrix44Value, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }

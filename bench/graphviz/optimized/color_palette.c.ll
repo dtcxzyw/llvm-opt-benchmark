@@ -575,7 +575,7 @@ define range(i32 0, 2) i32 @knownColorScheme(ptr nocapture noundef readonly %0) 
 
 .preheader:                                       ; preds = %10, %13
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %10 ]
-  %14 = getelementptr inbounds [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 16
   %16 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %15) #4
   %17 = icmp eq i32 %16, 0
@@ -603,7 +603,7 @@ define range(i32 0, 2) i32 @color_palettes_Q(ptr nocapture noundef readonly %0) 
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #4
   %7 = icmp eq i32 %6, 0
@@ -628,14 +628,14 @@ define ptr @color_palettes_get(ptr nocapture noundef readonly %0) local_unnamed_
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [265 x [2 x ptr]], ptr @color_palettes, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %2
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load ptr, ptr %9, align 8
   br label %.loopexit
 

@@ -100,7 +100,7 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br i1 %25, label %26, label %34
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %28)
           to label %34 unwind label %32
@@ -160,15 +160,15 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
   br label %116
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %7, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %7, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 0, ptr %51, align 4
   store i32 16842752, ptr %7, align 8
-  %52 = getelementptr inbounds i8, ptr %7, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @src, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %8, i64 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %54, align 8
   store i32 33619968, ptr %8, align 8
   store ptr @src_gray, ptr %53, align 8
@@ -176,15 +176,15 @@ define hidden noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture n
           to label %55 unwind label %85
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %9, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %9, i64 20
+  %57 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %57, align 4
   store i32 16842752, ptr %9, align 8
-  %58 = getelementptr inbounds i8, ptr %9, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @src_gray, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %10, i64 8
-  %60 = getelementptr inbounds i8, ptr %10, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %60, align 8
   store i32 33619968, ptr %10, align 8
   store ptr @edges, ptr %59, align 8
@@ -435,15 +435,15 @@ define hidden void @_Z14Standard_HoughiPv(i32 %0, ptr nocapture readnone %1) #6 
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::_InputArray", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %14, align 4
   store i32 16842752, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @edges, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %17, align 8
   store i32 33619968, ptr %5, align 8
   store ptr @standard_hough, ptr %16, align 8
@@ -451,15 +451,15 @@ define hidden void @_Z14Standard_HoughiPv(i32 %0, ptr nocapture readnone %1) #6 
           to label %18 unwind label %68
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %20, align 4
   store i32 16842752, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @edges, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %23, align 8
   store i32 -2113732595, ptr %7, align 8
   store ptr %3, ptr %22, align 8
@@ -470,16 +470,16 @@ define hidden void @_Z14Standard_HoughiPv(i32 %0, ptr nocapture readnone %1) #6 
           to label %.preheader unwind label %70
 
 .preheader:                                       ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %28, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %59
@@ -487,7 +487,7 @@ define hidden void @_Z14Standard_HoughiPv(i32 %0, ptr nocapture readnone %1) #6 
   %.02942 = phi i64 [ 0, %.lr.ph ], [ %60, %59 ]
   %35 = getelementptr inbounds %"class.cv::Vec", ptr %34, i64 %.02942
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load float, ptr %37, align 4
   %39 = call noundef float @cosf(float noundef %38) #14
   %40 = fpext float %39 to double
@@ -558,12 +558,12 @@ define hidden void @_Z14Standard_HoughiPv(i32 %0, ptr nocapture readnone %1) #6 
           to label %75 unwind label %82
 
 75:                                               ; preds = %._crit_edge
-  %76 = getelementptr inbounds i8, ptr %12, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %12, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %77, align 4
   store i32 16842752, ptr %12, align 8
-  %78 = getelementptr inbounds i8, ptr %12, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @standard_hough, ptr %78, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %79 unwind label %84
@@ -625,15 +625,15 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr nocapture readnone %1
   %11 = alloca %"class.std::allocator", align 1
   %12 = alloca %"class.cv::_InputArray", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %14, align 4
   store i32 16842752, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @edges, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %17, align 8
   store i32 33619968, ptr %5, align 8
   store ptr @probabilistic_hough, ptr %16, align 8
@@ -641,15 +641,15 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr nocapture readnone %1
           to label %18 unwind label %45
 
 18:                                               ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %20, align 4
   store i32 16842752, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @edges, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 8
-  %23 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %23, align 8
   store i32 -2113732580, ptr %7, align 8
   store ptr %3, ptr %22, align 8
@@ -660,16 +660,16 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr nocapture readnone %1
           to label %.preheader unwind label %47
 
 .preheader:                                       ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %28, %29
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %8, i64 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 16
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %36
@@ -677,7 +677,7 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr nocapture readnone %1
   %.022 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
   %35 = getelementptr inbounds %"class.cv::Vec.10", ptr %34, i64 %.022
   %.sroa.0.0.copyload = load i64, ptr %35, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
   store i64 0, ptr %31, align 8
   store i32 50397184, ptr %8, align 8
@@ -720,12 +720,12 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr nocapture readnone %1
           to label %52 unwind label %59
 
 52:                                               ; preds = %._crit_edge
-  %53 = getelementptr inbounds i8, ptr %12, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 20
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %54, align 4
   store i32 16842752, ptr %12, align 8
-  %55 = getelementptr inbounds i8, ptr %12, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @probabilistic_hough, ptr %55, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %56 unwind label %61

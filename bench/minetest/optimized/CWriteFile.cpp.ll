@@ -37,10 +37,10 @@ $_ZTIN3irr2io10IWriteFileE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileC2ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %vtt, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %vtt, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %3 = load ptr, ptr %2, align 8
   %vbase.offset.ptr.i = getelementptr i8, ptr %1, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -48,23 +48,23 @@ entry:
   store ptr %3, ptr %add.ptr.i, align 8, !tbaa !3
   %4 = load ptr, ptr %vtt, align 8
   store ptr %4, ptr %this, align 8, !tbaa !3
-  %5 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %6 = load ptr, ptr %5, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %4, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %6, ptr %add.ptr, align 8, !tbaa !3
-  %Filename = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = getelementptr inbounds i8, ptr %this, i64 24
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %7, ptr %Filename, align 8, !tbaa !6
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
   store i8 0, ptr %7, align 8, !tbaa !13
   %cmp.i.i = icmp eq ptr %Filename, %fileName
   br i1 %cmp.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread, label %_ZN3irr4core6stringIcEC2ERKS2_.exit
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.thread:       ; preds = %entry
-  %FileSize4 = getelementptr inbounds i8, ptr %this, i64 48
+  %FileSize4 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %FileSize4, align 8, !tbaa !14
   br label %if.then.i
 
@@ -73,12 +73,12 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %entry
   %.pre = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
   %8 = and i64 %.pre, 4294967295
   %9 = icmp eq i64 %8, 0
-  %FileSize = getelementptr inbounds i8, ptr %this, i64 48
+  %FileSize = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %FileSize, align 8, !tbaa !14
   br i1 %9, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN3irr4core6stringIcEC2ERKS2_.exit, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread
-  %File.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %File.i, align 8, !tbaa !18
   br label %_ZN3irr2io10CWriteFile8openFileEb.exit
 
@@ -86,7 +86,7 @@ if.end.i:                                         ; preds = %_ZN3irr4core6string
   %10 = load ptr, ptr %Filename, align 8, !tbaa !19
   %.str..str.1.i = select i1 %append, ptr @.str, ptr @.str.1
   %call4.i = tail call noalias ptr @fopen(ptr noundef %10, ptr noundef nonnull %.str..str.1.i)
-  %File5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %call4.i, ptr %File5.i, align 8, !tbaa !18
   %tobool7.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool7.not.i, label %_ZN3irr2io10CWriteFile8openFileEb.exit, label %if.then8.i
@@ -107,23 +107,23 @@ _ZN3irr2io10CWriteFile8openFileEb.exit:           ; preds = %if.then8.i, %if.end
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN3irr2io10CWriteFile8openFileEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %this, i1 noundef zeroext %append) local_unnamed_addr #1 align 2 {
 entry:
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !10
   %1 = and i64 %0, 4294967295
   %cmp = icmp eq i64 %1, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %File = getelementptr inbounds i8, ptr %this, i64 40
+  %File = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %File, align 8, !tbaa !18
   br label %if.end15
 
 if.end:                                           ; preds = %entry
-  %Filename = getelementptr inbounds i8, ptr %this, i64 8
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %Filename, align 8, !tbaa !19
   %.str..str.1 = select i1 %append, ptr @.str, ptr @.str.1
   %call4 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull %.str..str.1)
-  %File5 = getelementptr inbounds i8, ptr %this, i64 40
+  %File5 = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %call4, ptr %File5, align 8, !tbaa !18
   %tobool7.not = icmp eq ptr %call4, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
@@ -132,7 +132,7 @@ if.then8:                                         ; preds = %if.end
   %call10 = tail call i32 @fseek(ptr noundef nonnull %call4, i64 noundef 0, i32 noundef 2)
   %3 = load ptr, ptr %File5, align 8, !tbaa !18
   %call12 = tail call i64 @ftell(ptr noundef %3)
-  %FileSize = getelementptr inbounds i8, ptr %this, i64 48
+  %FileSize = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 %call12, ptr %FileSize, align 8, !tbaa !14
   %4 = load ptr, ptr %File5, align 8, !tbaa !18
   %call14 = tail call i32 @fseek(ptr noundef %4, i64 noundef 0, i32 noundef 0)
@@ -145,24 +145,24 @@ if.end15:                                         ; preds = %if.then8, %if.end, 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileC1ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 76)) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 56
-  %DebugName.i = getelementptr inbounds i8, ptr %this, i64 64
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   store ptr null, ptr %DebugName.i, align 8, !tbaa !20
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %this, i64 72
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i32 1, ptr %ReferenceCounter.i, align 8, !tbaa !23
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %0, align 8, !tbaa !3
-  %Filename = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = getelementptr inbounds i8, ptr %this, i64 24
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %1, ptr %Filename, align 8, !tbaa !6
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
   store i8 0, ptr %1, align 8, !tbaa !13
   %cmp.i.i = icmp eq ptr %Filename, %fileName
   br i1 %cmp.i.i, label %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread, label %_ZN3irr4core6stringIcEC2ERKS2_.exit
 
 _ZN3irr4core6stringIcEC2ERKS2_.exit.thread:       ; preds = %entry
-  %FileSize3 = getelementptr inbounds i8, ptr %this, i64 48
+  %FileSize3 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %FileSize3, align 8, !tbaa !14
   br label %if.then.i
 
@@ -171,12 +171,12 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit:              ; preds = %entry
   %.pre = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
   %2 = and i64 %.pre, 4294967295
   %3 = icmp eq i64 %2, 0
-  %FileSize = getelementptr inbounds i8, ptr %this, i64 48
+  %FileSize = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 0, ptr %FileSize, align 8, !tbaa !14
   br i1 %3, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %_ZN3irr4core6stringIcEC2ERKS2_.exit, %_ZN3irr4core6stringIcEC2ERKS2_.exit.thread
-  %File.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %File.i, align 8, !tbaa !18
   br label %_ZN3irr2io10CWriteFile8openFileEb.exit
 
@@ -184,7 +184,7 @@ if.end.i:                                         ; preds = %_ZN3irr4core6string
   %4 = load ptr, ptr %Filename, align 8, !tbaa !19
   %.str..str.1.i = select i1 %append, ptr @.str, ptr @.str.1
   %call4.i = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull %.str..str.1.i)
-  %File5.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File5.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %call4.i, ptr %File5.i, align 8, !tbaa !18
   %tobool7.not.i = icmp eq ptr %call4.i, null
   br i1 %tobool7.not.i, label %_ZN3irr2io10CWriteFile8openFileEb.exit, label %if.then8.i
@@ -207,13 +207,13 @@ define void @_ZN3irr2io10CWriteFileD2Ev(ptr noundef nonnull align 8 dereferencea
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
-  %1 = getelementptr inbounds i8, ptr %vtt, i64 24
+  %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 24
   %2 = load ptr, ptr %1, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %0, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 %vbase.offset
   store ptr %2, ptr %add.ptr, align 8, !tbaa !3
-  %File = getelementptr inbounds i8, ptr %this, i64 40
+  %File = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load ptr, ptr %File, align 8, !tbaa !18
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -223,14 +223,14 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %Filename = getelementptr inbounds i8, ptr %this, i64 8
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %Filename, align 8, !tbaa !19
-  %5 = getelementptr inbounds i8, ptr %this, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i = icmp eq ptr %4, %5
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %if.end
-  %_M_string_length.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !10
   %cmp3.i.i.i.i = icmp ult i64 %6, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i)
@@ -251,9 +251,9 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 define void @_ZN3irr2io10CWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i, align 8, !tbaa !3
-  %File.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -263,14 +263,14 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %Filename.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Filename.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %Filename.i, align 8, !tbaa !19
-  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, label %if.then.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i: ; preds = %if.end.i
-  %_M_string_length.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i, align 8, !tbaa !10
   %cmp3.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i)
@@ -292,9 +292,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %File.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %File.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load ptr, ptr %File.i.i, align 8, !tbaa !18
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -304,14 +304,14 @@ if.then.i.i:                                      ; preds = %entry
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
-  %Filename.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %Filename.i.i, align 8, !tbaa !19
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %cmp.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.end.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
   %cmp3.i.i.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -329,9 +329,9 @@ _ZN3irr2io10CWriteFileD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, 
 define void @_ZN3irr2io10CWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i, align 8, !tbaa !3
-  %File.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i.i, align 8, !tbaa !18
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %if.end.i.i, label %if.then.i.i
@@ -341,14 +341,14 @@ if.then.i.i:                                      ; preds = %entry
   br label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i, %entry
-  %Filename.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %Filename.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %Filename.i.i, align 8, !tbaa !19
-  %2 = getelementptr inbounds i8, ptr %this, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %cmp.i.i.i.i.i.i = icmp eq ptr %1, %2
   br i1 %cmp.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i: ; preds = %if.end.i.i
-  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_string_length.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !10
   %cmp3.i.i.i.i.i.i = icmp ult i64 %3, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i)
@@ -374,9 +374,9 @@ entry:
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %3, align 8, !tbaa !3
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 56
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 104), ptr %add.ptr.i.i.i, align 8, !tbaa !3
-  %File.i.i.i = getelementptr inbounds i8, ptr %3, i64 40
+  %File.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load ptr, ptr %File.i.i.i, align 8, !tbaa !18
   %tobool.not.i.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i.i, label %if.end.i.i.i, label %if.then.i.i.i
@@ -386,14 +386,14 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %entry
-  %Filename.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %Filename.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %Filename.i.i.i, align 8, !tbaa !19
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %cmp.i.i.i.i.i.i.i = icmp eq ptr %5, %6
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %if.end.i.i.i
-  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %_M_string_length.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i, align 8, !tbaa !10
   %cmp3.i.i.i.i.i.i.i = icmp ult i64 %7, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i)
@@ -411,7 +411,7 @@ _ZN3irr2io10CWriteFileD0Ev.exit:                  ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZN3irr2io10CWriteFile5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef %buffer, i64 noundef %sizeToWrite) unnamed_addr #1 align 2 {
 entry:
-  %File.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %return, label %if.end
@@ -431,7 +431,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef zeroext i1 @_ZN3irr2io10CWriteFile4seekElb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %finalPos, i1 noundef zeroext %relativeMovement) unnamed_addr #1 align 2 {
 entry:
-  %File.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %return, label %if.end
@@ -453,7 +453,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef i64 @_ZNK3irr2io10CWriteFile6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
-  %File = getelementptr inbounds i8, ptr %this, i64 40
+  %File = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File, align 8, !tbaa !18
   %call = tail call i64 @ftell(ptr noundef %0)
   ret i64 %call
@@ -468,14 +468,14 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io10CWriteFile11getFileNameEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
-  %Filename = getelementptr inbounds i8, ptr %this, i64 8
+  %Filename = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %Filename
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef zeroext i1 @_ZN3irr2io10CWriteFile5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
-  %File.i = getelementptr inbounds i8, ptr %this, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %return, label %if.end
@@ -498,7 +498,7 @@ define noundef ptr @_ZN3irr2io10CWriteFile15createWriteFileERKNS_4core6stringIcE
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #14
   tail call void @_ZN3irr2io10CWriteFileC1ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) %call, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append)
-  %File.i = getelementptr inbounds i8, ptr %call, i64 40
+  %File.i = getelementptr inbounds nuw i8, ptr %call, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
   %cmp.i.not = icmp eq ptr %0, null
   br i1 %cmp.i.not, label %if.end, label %cleanup
@@ -508,7 +508,7 @@ if.end:                                           ; preds = %entry
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 %vbase.offset
-  %ReferenceCounter.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %ReferenceCounter.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %1 = load i32, ptr %ReferenceCounter.i, align 8, !tbaa !23
   %dec.i = add nsw i32 %1, -1
   store i32 %dec.i, ptr %ReferenceCounter.i, align 8, !tbaa !23
@@ -517,7 +517,7 @@ if.end:                                           ; preds = %entry
 
 delete.notnull.i:                                 ; preds = %if.end
   %vtable.i = load ptr, ptr %add.ptr, align 8, !tbaa !3
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 8
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(20) %add.ptr) #12
   br label %cleanup

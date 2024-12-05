@@ -93,34 +93,34 @@ define dso_local noundef zeroext i1 @cast_implicit(ptr noundef %0, ptr noundef %
 define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.CastContext, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 23
   br i1 %11, label %12, label %33
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 23
   br i1 %.not, label %33, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %9, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %14
   br i1 %19, label %20, label %33
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i16, ptr %21, align 8
   %23 = and i16 %22, 255
   %24 = icmp eq i16 %23, 34
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
   br i1 %28, label %29, label %33
@@ -129,7 +129,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %4, label %cast_is_allowed.exit.thread, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %32, ptr noundef nonnull @.str.11) #10
   br label %cast_is_allowed.exit.thread
@@ -158,7 +158,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %44, label %45, label %.thread126
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %47, align 8
   br label %.thread126
@@ -182,7 +182,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %7, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %57 = load ptr, ptr %56, align 8
   br label %.thread
 
@@ -193,7 +193,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %.thread
-  %61 = getelementptr inbounds i8, ptr %2, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %62 = load ptr, ptr %61, align 8
   br label %63
 
@@ -207,12 +207,12 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 66:                                               ; preds = %63
   %67 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %67, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %68 = getelementptr inbounds i8, ptr %1, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %69 = load i16, ptr %68, align 8
   %70 = and i16 %69, -256
   %71 = or disjoint i16 %70, 9
   store i16 %71, ptr %68, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 37, ptr %72, align 8
   %73 = load ptr, ptr @expr_arena, align 8
   %74 = ptrtoint ptr %67 to i64
@@ -220,29 +220,29 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   %76 = sub i64 %74, %75
   %77 = sdiv exact i64 %76, 56
   %78 = trunc i64 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %1, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %1, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %80, align 8
   store ptr %36, ptr %1, align 8
   br label %cast_is_allowed.exit.thread
 
 81:                                               ; preds = %63
-  %82 = getelementptr inbounds i8, ptr %.0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %64, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %85 = load ptr, ptr %84, align 8
   store ptr %0, ptr %6, align 8
-  %86 = getelementptr inbounds i8, ptr %6, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %6, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %83, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %6, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %64, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %6, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %85, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %6, i64 40
-  %91 = getelementptr inbounds i8, ptr %83, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr @type_voidptr, align 8
   %94 = icmp eq ptr %92, %93
@@ -254,7 +254,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %97, label %98, label %.preheader136
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %92, i64 56
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %100, align 8
   switch i32 %101, label %.preheader136 [
@@ -285,22 +285,22 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 .backedge132:                                     ; preds = %102, %102, %102, %102, %102, %102, %104
   %.sink = phi i64 [ 8, %104 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ], [ 56, %102 ]
-  %105 = getelementptr inbounds i8, ptr %.0100, i64 %.sink
+  %105 = getelementptr inbounds nuw i8, ptr %.0100, i64 %.sink
   %.0100.be = load ptr, ptr %105, align 8
   %.pre133 = load i32, ptr %.0100.be, align 8
   br label %102
 
 .critedge122:                                     ; preds = %102
   %106 = zext i32 %96 to i64
-  %107 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %106
   %108 = load i32, ptr %107, align 4
   br label %.loopexit131
 
 .loopexit131:                                     ; preds = %102, %102, %98, %98, %81, %.critedge122
   %109 = phi i32 [ %108, %.critedge122 ], [ 19, %81 ], [ 20, %98 ], [ 20, %98 ], [ 21, %102 ], [ 21, %102 ]
   store i32 %109, ptr %90, align 8
-  %110 = getelementptr inbounds i8, ptr %6, i64 44
-  %111 = getelementptr inbounds i8, ptr %85, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %112 = load ptr, ptr %111, align 8
   %113 = icmp eq ptr %112, %93
   br i1 %113, label %.loopexit, label %114
@@ -311,7 +311,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %116, label %117, label %.preheader
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %112, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 56
   %119 = load ptr, ptr %118, align 8
   %120 = load i32, ptr %119, align 8
   switch i32 %120, label %.preheader [
@@ -342,14 +342,14 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
 
 .backedge:                                        ; preds = %121, %121, %121, %121, %121, %121, %123
   %.sink135 = phi i64 [ 8, %123 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ], [ 56, %121 ]
-  %124 = getelementptr inbounds i8, ptr %.098, i64 %.sink135
+  %124 = getelementptr inbounds nuw i8, ptr %.098, i64 %.sink135
   %.098.be = load ptr, ptr %124, align 8
   %.pre134 = load i32, ptr %.098.be, align 8
   br label %121
 
 .critedge124:                                     ; preds = %121
   %125 = zext i32 %115 to i64
-  %126 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %125
+  %126 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %125
   %127 = load i32, ptr %126, align 4
   br label %.loopexit
 
@@ -382,7 +382,7 @@ define internal fastcc noundef zeroext i1 @cast_if_valid(ptr noundef %0, ptr nou
   br i1 %4, label %cast_is_allowed.exit.thread, label %141
 
 141:                                              ; preds = %.thread.i
-  %142 = getelementptr inbounds i8, ptr %1, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %143 = load ptr, ptr %1, align 8
   %144 = tail call ptr @type_quoted_error_string(ptr noundef %143) #10
   %145 = tail call ptr @type_quoted_error_string(ptr noundef %64) #10
@@ -425,21 +425,21 @@ define dso_local noundef zeroext i1 @cast_implicit_silent(ptr noundef %0, ptr no
 define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.CastContext, align 8
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   store ptr %0, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %11, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 40
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @type_voidptr, align 8
   %20 = icmp eq ptr %18, %19
@@ -451,7 +451,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %24, label %.preheader61
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %18, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
   switch i32 %27, label %.preheader61 [
@@ -482,21 +482,21 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .backedge58:                                      ; preds = %28, %28, %28, %28, %28, %28, %30
   %.sink = phi i64 [ 8, %30 ], [ 56, %28 ], [ 56, %28 ], [ 56, %28 ], [ 56, %28 ], [ 56, %28 ], [ 56, %28 ]
-  %31 = getelementptr inbounds i8, ptr %.048, i64 %.sink
+  %31 = getelementptr inbounds nuw i8, ptr %.048, i64 %.sink
   %.048.be = load ptr, ptr %31, align 8
   %.pre = load i32, ptr %.048.be, align 8
   br label %28
 
 .critedge:                                        ; preds = %28
   %32 = zext i32 %22 to i64
-  %33 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %32
   %34 = load i32, ptr %33, align 4
   br label %.loopexit57
 
 .loopexit57:                                      ; preds = %28, %28, %24, %24, %5, %.critedge
   %.049 = phi i32 [ %34, %.critedge ], [ 19, %5 ], [ 20, %24 ], [ 20, %24 ], [ 21, %28 ], [ 21, %28 ]
   store i32 %.049, ptr %16, align 8
-  %35 = getelementptr inbounds i8, ptr %11, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %19
   br i1 %37, label %.loopexit, label %38
@@ -507,7 +507,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %40, label %41, label %.preheader
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %36, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 56
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
   switch i32 %44, label %.preheader [
@@ -538,20 +538,20 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .backedge:                                        ; preds = %45, %45, %45, %45, %45, %45, %47
   %.sink60 = phi i64 [ 8, %47 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ], [ 56, %45 ]
-  %48 = getelementptr inbounds i8, ptr %.046, i64 %.sink60
+  %48 = getelementptr inbounds nuw i8, ptr %.046, i64 %.sink60
   %.046.be = load ptr, ptr %48, align 8
   %.pre59 = load i32, ptr %.046.be, align 8
   br label %45
 
 .critedge56:                                      ; preds = %45
   %49 = zext i32 %39 to i64
-  %50 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %45, %41, %41, %.loopexit57, %.critedge56
   %.050 = phi i32 [ %51, %.critedge56 ], [ 19, %.loopexit57 ], [ 20, %41 ], [ 20, %41 ], [ 21, %45 ], [ 21, %45 ]
-  %52 = getelementptr inbounds i8, ptr %6, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 44
   store i32 %.050, ptr %52, align 4
   %53 = icmp eq ptr %18, %11
   br i1 %53, label %cast_is_allowed.exit, label %54
@@ -574,7 +574,7 @@ define dso_local zeroext i1 @may_cast(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %4, label %cast_is_allowed.exit, label %62
 
 62:                                               ; preds = %.thread.i
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = tail call ptr @type_quoted_error_string(ptr noundef %7) #10
   %65 = tail call ptr @type_quoted_error_string(ptr noundef %2) #10
   %66 = load i64, ptr %63, align 8
@@ -596,7 +596,7 @@ define dso_local void @cast_no_check(ptr noundef %0, ptr noundef %1, ptr noundef
 
 5:                                                ; preds = %18, %4
   %.0.i = phi ptr [ %2, %4 ], [ %.1.i, %18 ]
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %type_flatten.exit [
@@ -606,15 +606,15 @@ define dso_local void @cast_no_check(ptr noundef %0, ptr noundef %1, ptr noundef
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %18
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   br label %18
 
 17:                                               ; preds = %5
@@ -632,7 +632,7 @@ type_flatten.exit:                                ; preds = %5
 
 20:                                               ; preds = %33, %type_flatten.exit
   %.0.i82 = phi ptr [ %19, %type_flatten.exit ], [ %.1.i84, %33 ]
-  %21 = getelementptr inbounds i8, ptr %.0.i82, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i82, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %type_flatten.exit85 [
@@ -642,15 +642,15 @@ type_flatten.exit:                                ; preds = %5
   ]
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %22, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 96
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %33
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %22, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 56
   br label %33
 
 32:                                               ; preds = %20
@@ -675,7 +675,7 @@ type_flatten.exit85:                              ; preds = %20
   br i1 %38, label %88, label %.sink.split
 
 39:                                               ; preds = %type_flatten.exit85
-  %40 = getelementptr inbounds i8, ptr %7, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @type_voidptr, align 8
   %43 = icmp eq ptr %41, %42
@@ -687,7 +687,7 @@ type_flatten.exit85:                              ; preds = %20
   br i1 %46, label %47, label %.preheader103
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %41, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 8
   switch i32 %50, label %.preheader103 [
@@ -718,21 +718,21 @@ type_flatten.exit85:                              ; preds = %20
 
 .backedge87:                                      ; preds = %51, %51, %51, %51, %51, %51, %53
   %.sink = phi i64 [ 8, %53 ], [ 56, %51 ], [ 56, %51 ], [ 56, %51 ], [ 56, %51 ], [ 56, %51 ], [ 56, %51 ]
-  %54 = getelementptr inbounds i8, ptr %.068, i64 %.sink
+  %54 = getelementptr inbounds nuw i8, ptr %.068, i64 %.sink
   %.068.be = load ptr, ptr %54, align 8
   %.pre = load i32, ptr %.068.be, align 8
   br label %51
 
 .critedge:                                        ; preds = %51
   %55 = zext i32 %45 to i64
-  %56 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   br label %.loopexit86
 
 .loopexit86:                                      ; preds = %51, %51, %47, %47, %39, %.critedge
   %.071 = phi i64 [ %58, %.critedge ], [ 19, %39 ], [ 20, %47 ], [ 20, %47 ], [ 21, %51 ], [ 21, %51 ]
-  %59 = getelementptr inbounds i8, ptr %22, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, %42
   br i1 %61, label %.loopexit, label %62
@@ -743,7 +743,7 @@ type_flatten.exit85:                              ; preds = %20
   br i1 %64, label %65, label %.preheader
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %60, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 8
   switch i32 %68, label %.preheader [
@@ -774,14 +774,14 @@ type_flatten.exit85:                              ; preds = %20
 
 .backedge:                                        ; preds = %69, %69, %69, %69, %69, %69, %71
   %.sink98 = phi i64 [ 8, %71 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ], [ 56, %69 ]
-  %72 = getelementptr inbounds i8, ptr %.066, i64 %.sink98
+  %72 = getelementptr inbounds nuw i8, ptr %.066, i64 %.sink98
   %.066.be = load ptr, ptr %72, align 8
   %.pre94 = load i32, ptr %.066.be, align 8
   br label %69
 
 .critedge81:                                      ; preds = %69
   %73 = zext i32 %63 to i64
-  %74 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %73
   %75 = load i32, ptr %74, align 4
   %76 = sext i32 %75 to i64
   br label %.loopexit
@@ -827,10 +827,10 @@ declare ptr @type_quoted_error_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cast_to_int_to_max_bit_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 255
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 255
   %12 = icmp eq i32 %8, %11
@@ -867,7 +867,7 @@ define dso_local void @cast_to_int_to_max_bit_size(ptr noundef %0, ptr noundef %
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   br label %34
@@ -909,7 +909,7 @@ define dso_local void @cast_to_int_to_max_bit_size(ptr noundef %0, ptr noundef %
   br i1 %51, label %52, label %56
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 8
   br label %56
@@ -939,7 +939,7 @@ define dso_local void @cast_promote_vararg(ptr noundef %0, ptr noundef %1) local
 
 4:                                                ; preds = %17, %2
   %.0.i = phi ptr [ %3, %2 ], [ %.1.i, %17 ]
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_flatten.exit [
@@ -949,15 +949,15 @@ define dso_local void @cast_promote_vararg(ptr noundef %0, ptr noundef %1) local
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %17
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %17
 
 16:                                               ; preds = %4
@@ -975,7 +975,7 @@ type_flatten.exit:                                ; preds = %4
   br i1 %19, label %20, label %.critedge
 
 20:                                               ; preds = %type_flatten.exit
-  %21 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %22 = load i32, ptr %21, align 8
   %23 = and i32 %22, 255
   %24 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -993,7 +993,7 @@ type_flatten.exit:                                ; preds = %4
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 8
   br label %35
@@ -1009,14 +1009,14 @@ type_flatten.exit:                                ; preds = %4
   br label %87
 
 .critedge:                                        ; preds = %type_flatten.exit, %20
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 31
   br i1 %41, label %42, label %46
 
 42:                                               ; preds = %.critedge
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
   br label %46
@@ -1028,12 +1028,12 @@ type_flatten.exit:                                ; preds = %4
   br i1 %48, label %49, label %.critedge2
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %6, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %51 = load i32, ptr %50, align 8
   %52 = lshr i32 %51, 8
   %53 = and i32 %52, 255
   %54 = load ptr, ptr @type_double, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %56 = load i32, ptr %55, align 8
   %57 = lshr i32 %56, 8
   %58 = and i32 %57, 255
@@ -1050,7 +1050,7 @@ type_flatten.exit:                                ; preds = %4
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %66, align 8
   br label %68
@@ -1070,7 +1070,7 @@ type_flatten.exit:                                ; preds = %4
   br i1 %71, label %72, label %87
 
 72:                                               ; preds = %.critedge2
-  %73 = getelementptr inbounds i8, ptr %6, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr @type_get_ptr(ptr noundef %74) #10
   %76 = load ptr, ptr %1, align 8
@@ -1083,7 +1083,7 @@ type_flatten.exit:                                ; preds = %4
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %76, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %82 = load ptr, ptr %81, align 8
   %83 = load i32, ptr %82, align 8
   br label %84
@@ -1106,7 +1106,7 @@ declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @sema_error_failed_cast(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call ptr @type_quoted_error_string(ptr noundef %1) #10
   %6 = tail call ptr @type_quoted_error_string(ptr noundef %2) #10
   %7 = load i64, ptr %4, align 8
@@ -1127,7 +1127,7 @@ define dso_local ptr @type_infer_len_from_actual_type(ptr noundef %0, ptr nounde
 
 thread-pre-split:                                 ; preds = %6, %8, %9
   %.sink = phi i64 [ 56, %8 ], [ 56, %9 ], [ 8, %6 ]
-  %5 = getelementptr inbounds i8, ptr %.093, i64 %.sink
+  %5 = getelementptr inbounds nuw i8, ptr %.093, i64 %.sink
   %.093.ph = load ptr, ptr %5, align 8
   %.pr = load i32, ptr %.093.ph, align 8
   br label %6
@@ -1158,7 +1158,7 @@ thread-pre-split:                                 ; preds = %6, %8, %9
   br i1 %11, label %12, label %.critedge111
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   br label %.critedge111
@@ -1169,7 +1169,7 @@ thread-pre-split:                                 ; preds = %6, %8, %9
   br i1 %16, label %17, label %.critedge111.thread
 
 17:                                               ; preds = %.critedge111
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8
   br label %.critedge111.thread
 
@@ -1185,7 +1185,7 @@ thread-pre-split:                                 ; preds = %6, %8, %9
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %1, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %25 = load ptr, ptr %24, align 8
   br label %26
 
@@ -1198,7 +1198,7 @@ thread-pre-split:                                 ; preds = %6, %8, %9
 
 thread-pre-split120:                              ; preds = %.preheader123, %31, %32
   %.sink133 = phi i64 [ 56, %31 ], [ 56, %32 ], [ 8, %.preheader123 ]
-  %29 = getelementptr inbounds i8, ptr %.in, i64 %.sink133
+  %29 = getelementptr inbounds nuw i8, ptr %.in, i64 %.sink133
   %.096.ph = load ptr, ptr %29, align 8
   br label %.preheader123
 
@@ -1249,7 +1249,7 @@ thread-pre-split120:                              ; preds = %.preheader123, %31,
   br i1 %39, label %.critedge, label %.critedge.sink.split
 
 40:                                               ; preds = %.critedge113
-  %41 = getelementptr inbounds i8, ptr %.091, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %.091, i64 64
   %42 = load i32, ptr %41, align 8
   %43 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %42) #10
   br i1 %.098119, label %44, label %.critedge
@@ -1261,7 +1261,7 @@ thread-pre-split120:                              ; preds = %.preheader123, %31,
 
 .preheader:                                       ; preds = %.critedge113, %59
   %.0.i = phi ptr [ %.1.i, %59 ], [ %.0, %.critedge113 ]
-  %47 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %48, align 8
   switch i32 %49, label %type_flatten.exit [
@@ -1271,15 +1271,15 @@ thread-pre-split120:                              ; preds = %.preheader123, %31,
   ]
 
 50:                                               ; preds = %.preheader
-  %51 = getelementptr inbounds i8, ptr %48, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   br label %59
 
 56:                                               ; preds = %.preheader
-  %57 = getelementptr inbounds i8, ptr %48, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 56
   br label %59
 
 58:                                               ; preds = %.preheader
@@ -1292,7 +1292,7 @@ thread-pre-split120:                              ; preds = %.preheader123, %31,
   br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %48, i64 64
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %61 = load i32, ptr %60, align 8
   %62 = tail call ptr @type_get_array(ptr noundef %.089, i32 noundef %61) #10
   br i1 %.098119, label %63, label %.critedge
@@ -1304,7 +1304,7 @@ type_flatten.exit:                                ; preds = %.preheader
 
 .preheader122:                                    ; preds = %.critedge113, %78
   %.0.i114 = phi ptr [ %.1.i116, %78 ], [ %.0, %.critedge113 ]
-  %66 = getelementptr inbounds i8, ptr %.0.i114, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 8
   switch i32 %68, label %type_flatten.exit117 [
@@ -1314,15 +1314,15 @@ type_flatten.exit:                                ; preds = %.preheader
   ]
 
 69:                                               ; preds = %.preheader122
-  %70 = getelementptr inbounds i8, ptr %67, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 96
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   br label %78
 
 75:                                               ; preds = %.preheader122
-  %76 = getelementptr inbounds i8, ptr %67, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 56
   br label %78
 
 77:                                               ; preds = %.preheader122
@@ -1335,7 +1335,7 @@ type_flatten.exit:                                ; preds = %.preheader
   br label %.preheader122
 
 type_flatten.exit117:                             ; preds = %.preheader122
-  %79 = getelementptr inbounds i8, ptr %67, i64 64
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 64
   %80 = load i32, ptr %79, align 8
   %81 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %80) #10
   br i1 %.098119, label %82, label %.critedge
@@ -1355,7 +1355,7 @@ type_flatten.exit117:                             ; preds = %.preheader122
   br i1 %89, label %.critedge, label %.critedge.sink.split
 
 90:                                               ; preds = %.critedge113
-  %91 = getelementptr inbounds i8, ptr %.091, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %.091, i64 64
   %92 = load i32, ptr %91, align 8
   %93 = tail call ptr @type_get_vector(ptr noundef %.089, i32 noundef %92) #10
   br i1 %.098119, label %94, label %.critedge
@@ -1393,7 +1393,7 @@ define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr nocapture noundef r
 
 2:                                                ; preds = %15, %1
   %.0.i = phi ptr [ %0, %1 ], [ %.1.i, %15 ]
-  %3 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %19 [
@@ -1444,15 +1444,15 @@ define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr nocapture noundef r
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %15
 
 14:                                               ; preds = %2
@@ -1505,7 +1505,7 @@ define dso_local noundef zeroext i1 @cast_to_index(ptr noundef %0, ptr noundef %
 3:                                                ; preds = %17, %2
   %.pn.in = phi ptr [ %1, %2 ], [ %22, %17 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %4 = load i32, ptr %.0, align 8
   switch i32 %4, label %23 [
@@ -1533,27 +1533,27 @@ define dso_local noundef zeroext i1 @cast_to_index(ptr noundef %0, ptr noundef %
   br label %28
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %13, ptr noundef nonnull @.str.5) #10
   br label %28
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %16, ptr noundef nonnull @.str.6) #10
   br label %28
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %.0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %3
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %1, align 8
   %26 = tail call ptr @type_to_error_string(ptr noundef %25) #10
   %27 = load i64, ptr %24, align 8
@@ -1573,7 +1573,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0)
   br i1 %.not, label %23, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %23 [
@@ -1592,7 +1592,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0)
   ]
 
 6:                                                ; preds = %2, %2, %2, %2, %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 255
   %10 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -1602,7 +1602,7 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0)
   br label %23
 
 13:                                               ; preds = %2, %2, %2, %2, %2
-  %14 = getelementptr inbounds i8, ptr %4, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @platform_target, i64 312), align 8
@@ -1641,12 +1641,12 @@ define internal noundef zeroext i1 @rule_explicit_ok(ptr nocapture noundef reado
   br i1 %brmerge, label %14, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %6, align 8
   %9 = tail call ptr @type_quoted_error_string(ptr noundef %8) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @type_quoted_error_string(ptr noundef %11) #10
   %13 = load i64, ptr %7, align 8
@@ -1659,13 +1659,13 @@ define internal noundef zeroext i1 @rule_explicit_ok(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 
 5:                                                ; preds = %.backedge85, %3
   %.0.i.in = phi ptr [ %4, %3 ], [ %.0.i.in.be, %.backedge85 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %type_flatten.exit [
@@ -1675,15 +1675,15 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %.backedge85
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   br label %.backedge85
 
 .backedge85:                                      ; preds = %15, %9
@@ -1695,7 +1695,7 @@ define internal zeroext i1 @rule_to_distinct(ptr noundef %0, i1 noundef zeroext 
   unreachable
 
 type_flatten.exit:                                ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @type_voidptr, align 8
   %21 = icmp eq ptr %19, %20
@@ -1707,7 +1707,7 @@ type_flatten.exit:                                ; preds = %5
   br i1 %24, label %25, label %.preheader
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %19, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   switch i32 %28, label %.preheader [
@@ -1738,31 +1738,31 @@ type_flatten.exit:                                ; preds = %5
 
 .backedge:                                        ; preds = %29, %29, %29, %29, %29, %29, %31
   %.sink = phi i64 [ 8, %31 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ], [ 56, %29 ]
-  %32 = getelementptr inbounds i8, ptr %.055, i64 %.sink
+  %32 = getelementptr inbounds nuw i8, ptr %.055, i64 %.sink
   %.055.be = load ptr, ptr %32, align 8
   %.pre = load i32, ptr %.055.be, align 8
   br label %29
 
 .critedge:                                        ; preds = %29
   %33 = zext i32 %23 to i64
-  %34 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %33
   %35 = load i32, ptr %34, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %29, %29, %25, %25, %type_flatten.exit, %.critedge
   %.056 = phi i32 [ %35, %.critedge ], [ 19, %type_flatten.exit ], [ 20, %25 ], [ 20, %25 ], [ 21, %29 ], [ 21, %29 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i16, ptr %38, align 8
   %40 = and i16 %39, 255
   %41 = icmp eq i16 %40, 14
   store ptr %7, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 44
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.056, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, %7
   br i1 %41, label %48, label %80
@@ -1771,7 +1771,7 @@ type_flatten.exit:                                ; preds = %5
   br i1 %47, label %cast_is_allowed.exit.thread, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %0, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, -1
   %53 = icmp eq i32 %.056, -1
@@ -1800,7 +1800,7 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %59
 
 62:                                               ; preds = %61
   %63 = load ptr, ptr %43, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %4, align 8
   %67 = icmp eq ptr %65, %66
@@ -1830,7 +1830,7 @@ cast_is_allowed.exit:                             ; preds = %49, %54, %59
   br i1 %47, label %cast_is_allowed.exit77, label %81
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %0, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, -1
   %85 = icmp eq i32 %.056, -1
@@ -1873,13 +1873,13 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br i1 %1, label %82, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @type_size(ptr noundef %6) #10
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @type_size(ptr noundef %9) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp ugt i32 %7, %10
   br i1 %13, label %14, label %32
@@ -1891,7 +1891,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   br label %22
@@ -1905,8 +1905,8 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br i1 %brmerge, label %82, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @type_quoted_error_string(ptr noundef %29) #10
   %31 = load i64, ptr %27, align 8
@@ -1914,14 +1914,14 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br label %82
 
 32:                                               ; preds = %4
-  %33 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %34 = load i16, ptr %33, align 8
   %35 = and i16 %34, 255
   %36 = icmp eq i16 %35, 14
   br i1 %36, label %37, label %56
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %12, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %39 = load ptr, ptr %5, align 8
   %40 = load i32, ptr %39, align 8
   %41 = tail call zeroext i1 @expr_const_will_overflow(ptr noundef nonnull %38, i32 noundef %40) #10
@@ -1931,15 +1931,15 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br i1 %2, label %82, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 44
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp eq i32 %45, 3
   br i1 %.not52, label %53, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %12, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %48 = tail call ptr @expr_const_to_error_string(ptr noundef nonnull %38) #10
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8
   %51 = tail call ptr @type_quoted_error_string(ptr noundef %50) #10
   %52 = load i64, ptr %47, align 8
@@ -1947,7 +1947,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   br label %82
 
 53:                                               ; preds = %43
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = load ptr, ptr %54, align 8
   tail call fastcc void @sema_error_const_int_out_of_range(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef %55)
   br label %82
@@ -1966,7 +1966,7 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
 .preheader:                                       ; preds = %58, %.preheader.backedge
   %.0.i.in = phi ptr [ %.0.i.in.be, %.preheader.backedge ], [ %60, %58 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %61 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %62, align 8
   switch i32 %63, label %type_flatten.exit [
@@ -1976,15 +1976,15 @@ define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0,
   ]
 
 64:                                               ; preds = %.preheader
-  %65 = getelementptr inbounds i8, ptr %62, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 56
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   br label %.preheader.backedge
 
 70:                                               ; preds = %.preheader
-  %71 = getelementptr inbounds i8, ptr %62, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 56
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %70, %64
@@ -1999,10 +1999,10 @@ type_flatten.exit:                                ; preds = %.preheader
   %73 = add i32 %63, -3
   %74 = icmp ult i32 %73, 10
   %spec.select = select i1 %74, ptr %60, ptr %12
-  %75 = getelementptr inbounds i8, ptr %spec.select, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %76 = load ptr, ptr %spec.select, align 8
   %77 = tail call ptr @type_quoted_error_string(ptr noundef %76) #10
-  %78 = getelementptr inbounds i8, ptr %0, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = tail call ptr @type_quoted_error_string(ptr noundef %79) #10
   %81 = load i64, ptr %75, align 8
@@ -2019,15 +2019,15 @@ define internal zeroext i1 @rule_int_to_float(ptr nocapture noundef readonly %0,
   br i1 %1, label %14, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @expr_is_simple(ptr noundef %6, i1 noundef zeroext true) #10
   %brmerge = or i1 %2, %7
   br i1 %brmerge, label %14, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @type_quoted_error_string(ptr noundef %11) #10
   %13 = load i64, ptr %9, align 8
@@ -2041,9 +2041,9 @@ define internal zeroext i1 @rule_int_to_float(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, 255
   %9 = icmp eq i16 %8, 14
@@ -2058,7 +2058,7 @@ define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i
 12:                                               ; preds = %11
   %13 = getelementptr i8, ptr %0, i64 24
   %.val28 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %15 = load ptr, ptr %5, align 8
   %.not29.i = icmp eq ptr %15, null
   br i1 %.not29.i, label %22, label %16
@@ -2069,7 +2069,7 @@ define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %15, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %21 = load ptr, ptr %20, align 8
   br label %22
 
@@ -2086,7 +2086,7 @@ define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i
   br i1 %27, label %28, label %report_cast_error.exit
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %.val28, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %.val28, i64 56
   %30 = load ptr, ptr %29, align 8
   br label %report_cast_error.exit
 
@@ -2098,9 +2098,9 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   br label %77
 
 33:                                               ; preds = %10
-  %34 = getelementptr inbounds i8, ptr %5, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %35 = load ptr, ptr @type_uptr, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   %39 = tail call zeroext i1 @int_fits(ptr noundef nonnull byval(%struct.Int) align 8 %34, i32 noundef %38) #10
@@ -2108,14 +2108,14 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   br i1 %brmerge, label %77, label %40
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = tail call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %34, i32 noundef 16) #10
   %43 = load i64, ptr %41, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %43, ptr noundef nonnull @.str.19, ptr noundef %42) #10
   br label %77
 
 44:                                               ; preds = %3
-  %45 = getelementptr inbounds i8, ptr %0, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @type_size(ptr noundef %46) #10
   %48 = load ptr, ptr @type_iptr, align 8
@@ -2127,7 +2127,7 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   br i1 %2, label %77, label %52
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %5, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %54 = load i64, ptr %53, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %54, ptr noundef nonnull @.str.20) #10
   br label %77
@@ -2140,7 +2140,7 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   %.val29 = load ptr, ptr %4, align 8
   %57 = getelementptr i8, ptr %0, i64 24
   %.val30 = load ptr, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %.val29, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %.val29, i64 8
   %59 = load ptr, ptr %.val29, align 8
   %.not29.i31 = icmp eq ptr %59, null
   br i1 %.not29.i31, label %66, label %60
@@ -2151,7 +2151,7 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %59, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %65 = load ptr, ptr %64, align 8
   br label %66
 
@@ -2168,7 +2168,7 @@ report_cast_error.exit:                           ; preds = %22, %25, %28
   br i1 %71, label %72, label %report_cast_error.exit35
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %.val30, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %.val30, i64 56
   %74 = load ptr, ptr %73, align 8
   br label %report_cast_error.exit35
 
@@ -2186,22 +2186,22 @@ report_cast_error.exit35:                         ; preds = %66, %69, %72
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_int_to_bits(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %11, align 8
   %15 = icmp eq i32 %14, 31
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   br label %20
@@ -2249,7 +2249,7 @@ define internal zeroext i1 @rule_int_to_enum(ptr nocapture noundef readonly %0, 
   %.val = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %0, i64 24
   %.val26 = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %11 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %11, null
   br i1 %.not29.i, label %18, label %12
@@ -2260,7 +2260,7 @@ define internal zeroext i1 @rule_int_to_enum(ptr nocapture noundef readonly %0, 
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %11, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -2277,7 +2277,7 @@ define internal zeroext i1 @rule_int_to_enum(ptr nocapture noundef readonly %0, 
   br i1 %23, label %24, label %report_cast_error.exit
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %.val26, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.val26, i64 56
   %26 = load ptr, ptr %25, align 8
   br label %report_cast_error.exit
 
@@ -2289,20 +2289,20 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
   br label %64
 
 29:                                               ; preds = %3
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i16, ptr %32, align 8
   %34 = and i16 %33, 255
   %35 = icmp eq i16 %34, 14
   br i1 %35, label %36, label %64
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %47, label %43
@@ -2315,7 +2315,7 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
 
 47:                                               ; preds = %36, %43
   %.0 = phi i64 [ %46, %43 ], [ 0, %36 ]
-  %48 = getelementptr inbounds i8, ptr %31, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
   %49 = tail call zeroext i1 @int_is_neg(ptr noundef nonnull byval(%struct.Int) align 8 %48) #10
   br i1 %49, label %50, label %55
@@ -2325,16 +2325,16 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
 
 51:                                               ; preds = %50
   %52 = load ptr, ptr %30, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %54, ptr noundef nonnull @.str.21) #10
   br label %64
 
 55:                                               ; preds = %47
   store i64 0, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %5, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 10, ptr %57, align 8
   %58 = tail call zeroext i1 @int_comp(ptr noundef nonnull byval(%struct.Int) align 8 %4, ptr noundef nonnull byval(%struct.Int) align 8 %5, i32 noundef 15) #10
   %.not25 = xor i1 %58, true
@@ -2343,7 +2343,7 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %30, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %40, align 8
   %63 = load i64, ptr %61, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %63, ptr noundef nonnull @.str.22, ptr noundef %62) #10
@@ -2356,7 +2356,7 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_ptr_to_int(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @type_size(ptr noundef %5) #10
   %7 = load ptr, ptr @type_uptr, align 8
@@ -2380,12 +2380,12 @@ define internal zeroext i1 @rule_ptr_to_int(ptr nocapture noundef readonly %0, i
   br i1 %brmerge, label %29, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %17, align 8
   %20 = tail call ptr @type_quoted_error_string(ptr noundef %19) #10
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @type_quoted_error_string(ptr noundef %22) #10
   %24 = load ptr, ptr %21, align 8
@@ -2406,9 +2406,9 @@ define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readon
   br i1 %1, label %35, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.val13 = load ptr, ptr %0, align 8
   %9 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val13, ptr noundef %6, ptr noundef %8, i1 noundef zeroext %2) #10
@@ -2430,7 +2430,7 @@ define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readon
   %.val = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %0, i64 24
   %.val12 = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %.val, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %16 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %16, null
   br i1 %.not29.i, label %23, label %17
@@ -2441,7 +2441,7 @@ define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readon
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %16, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -2458,7 +2458,7 @@ define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readon
   br i1 %28, label %29, label %report_cast_error.exit
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.val12, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.val12, i64 56
   %31 = load ptr, ptr %30, align 8
   br label %report_cast_error.exit
 
@@ -2483,16 +2483,16 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr nocapture noundef 
   br i1 %1, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 31
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   br label %15
@@ -2509,13 +2509,13 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr nocapture noundef 
   ]
 
 16:                                               ; preds = %15, %15, %15, %15, %15, %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.critedge, label %25
@@ -2537,14 +2537,14 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = tail call zeroext i1 @sema_resolve_type_info(ptr noundef %31, ptr noundef %30, i32 noundef 2) #10
   br i1 %32, label %33, label %.loopexit
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %20
   br i1 %36, label %.loopexit, label %28
@@ -2553,12 +2553,12 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr nocapture noundef 
   br i1 %2, label %.loopexit, label %37
 
 37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %39, align 8
   %42 = tail call ptr @type_quoted_error_string(ptr noundef %41) #10
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = tail call ptr @type_quoted_error_string(ptr noundef %44) #10
   %46 = load i64, ptr %40, align 8
@@ -2572,7 +2572,7 @@ define internal noundef zeroext i1 @rule_ptr_to_interface(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_ptr_to_infer(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, 23
@@ -2586,7 +2586,7 @@ define internal zeroext i1 @rule_ptr_to_infer(ptr noundef %0, i1 noundef zeroext
   %.val = load ptr, ptr %9, align 8
   %10 = getelementptr i8, ptr %0, i64 24
   %.val71 = load ptr, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %.val, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %12 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %12, null
   br i1 %.not29.i, label %report_cast_error.exit, label %13
@@ -2597,7 +2597,7 @@ define internal zeroext i1 @rule_ptr_to_infer(ptr noundef %0, i1 noundef zeroext
   br i1 %15, label %16, label %report_cast_error.exit
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %12, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %18 = load ptr, ptr %17, align 8
   br label %report_cast_error.exit
 
@@ -2610,15 +2610,15 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   br label %cast_is_allowed.exit
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @type_infer_len_from_actual_type(ptr noundef nonnull %5, ptr noundef %24)
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @type_voidptr, align 8
   %33 = icmp eq ptr %31, %32
@@ -2630,7 +2630,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   br i1 %36, label %37, label %.preheader76
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %31, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 8
   switch i32 %40, label %.preheader76 [
@@ -2661,26 +2661,26 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
 
 .backedge73:                                      ; preds = %41, %41, %41, %41, %41, %41, %43
   %.sink = phi i64 [ 8, %43 ], [ 56, %41 ], [ 56, %41 ], [ 56, %41 ], [ 56, %41 ], [ 56, %41 ], [ 56, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.062, i64 %.sink
+  %44 = getelementptr inbounds nuw i8, ptr %.062, i64 %.sink
   %.062.be = load ptr, ptr %44, align 8
   %.pre = load i32, ptr %.062.be, align 8
   br label %41
 
 .critedge:                                        ; preds = %41
   %45 = zext i32 %35 to i64
-  %46 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %45
   %47 = load i32, ptr %46, align 4
   br label %.loopexit72
 
 .loopexit72:                                      ; preds = %41, %41, %37, %37, %22, %.critedge
   %.064 = phi i32 [ %47, %.critedge ], [ 19, %22 ], [ 20, %37 ], [ 20, %37 ], [ 21, %41 ], [ 21, %41 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 44
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.064, ptr %48, align 4
   %49 = load ptr, ptr %23, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %23, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, %32
   br i1 %54, label %.loopexit, label %55
@@ -2691,7 +2691,7 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   br i1 %57, label %58, label %.preheader
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %53, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 56
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 8
   switch i32 %61, label %.preheader [
@@ -2722,20 +2722,20 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
 
 .backedge:                                        ; preds = %62, %62, %62, %62, %62, %62, %64
   %.sink75 = phi i64 [ 8, %64 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ], [ 56, %62 ]
-  %65 = getelementptr inbounds i8, ptr %.058, i64 %.sink75
+  %65 = getelementptr inbounds nuw i8, ptr %.058, i64 %.sink75
   %.058.be = load ptr, ptr %65, align 8
   %.pre74 = load i32, ptr %.058.be, align 8
   br label %62
 
 .critedge70:                                      ; preds = %62
   %66 = zext i32 %56 to i64
-  %67 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %66
   %68 = load i32, ptr %67, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %62, %58, %58, %.loopexit72, %.critedge70
   %.059 = phi i32 [ %68, %.critedge70 ], [ 19, %.loopexit72 ], [ 20, %58 ], [ 20, %58 ], [ 21, %62 ], [ 21, %62 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.059, ptr %69, align 8
   %70 = load ptr, ptr %52, align 8
   %71 = icmp eq ptr %70, %29
@@ -2759,12 +2759,12 @@ report_cast_error.exit:                           ; preds = %8, %13, %16
   br i1 %2, label %cast_is_allowed.exit, label %80
 
 80:                                               ; preds = %.thread.i
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %82, align 8
   %85 = tail call ptr @type_quoted_error_string(ptr noundef %84) #10
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @type_quoted_error_string(ptr noundef %87) #10
   %89 = load i64, ptr %83, align 8
@@ -2782,14 +2782,14 @@ cast_is_allowed.exit:                             ; preds = %90, %80, %.thread.i
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @type_get_ptr(ptr noundef %9) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %.val22 = load ptr, ptr %0, align 8
   %13 = tail call i32 @type_is_pointer_equivalent(ptr noundef %.val22, ptr noundef %10, ptr noundef %12, i1 noundef zeroext %1) #10
@@ -2804,16 +2804,16 @@ define internal noundef zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonl
   br i1 %1, label %rule_sa_to_ptr.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 255
   %21 = icmp eq i16 %20, 14
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %17, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 6
@@ -2832,9 +2832,9 @@ define internal noundef zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonl
 
 29:                                               ; preds = %22, %.critedge
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr @type_get_ptr(ptr noundef %34) #10
   %36 = load ptr, ptr %11, align 8
@@ -2866,19 +2866,19 @@ rule_sa_to_ptr.exit:                              ; preds = %22, %.critedge, %sw
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_sa_to_sa(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
   br i1 %1, label %.preheader, label %type_flatten.exit72
 
 .preheader:                                       ; preds = %3, %24
   %.0.i = phi ptr [ %.1.i, %24 ], [ %11, %3 ]
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %type_flatten.exit [
@@ -2888,15 +2888,15 @@ define internal zeroext i1 @rule_sa_to_sa(ptr nocapture noundef readonly %0, i1 
   ]
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %13, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 96
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %24
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds i8, ptr %13, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 56
   br label %24
 
 23:                                               ; preds = %.preheader
@@ -2910,7 +2910,7 @@ define internal zeroext i1 @rule_sa_to_sa(ptr nocapture noundef readonly %0, i1 
 
 type_flatten.exit:                                ; preds = %.preheader, %37
   %.0.i69 = phi ptr [ %.1.i71, %37 ], [ %7, %.preheader ]
-  %25 = getelementptr inbounds i8, ptr %.0.i69, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %26, align 8
   switch i32 %27, label %type_flatten.exit72 [
@@ -2920,15 +2920,15 @@ type_flatten.exit:                                ; preds = %.preheader, %37
   ]
 
 28:                                               ; preds = %type_flatten.exit
-  %29 = getelementptr inbounds i8, ptr %26, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 96
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   br label %37
 
 34:                                               ; preds = %type_flatten.exit
-  %35 = getelementptr inbounds i8, ptr %26, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 56
   br label %37
 
 36:                                               ; preds = %type_flatten.exit
@@ -2957,7 +2957,7 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %.0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %47, align 8
   br label %49
@@ -2977,7 +2977,7 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %.054, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = load i32, ptr %58, align 8
   br label %60
@@ -3005,7 +3005,7 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
 69:                                               ; preds = %66
   %70 = getelementptr i8, ptr %0, i64 24
   %.val64 = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %72 = load ptr, ptr %68, align 8
   %.not29.i = icmp eq ptr %72, null
   br i1 %.not29.i, label %report_cast_error.exit, label %73
@@ -3016,7 +3016,7 @@ type_flatten.exit72:                              ; preds = %type_flatten.exit, 
   br i1 %75, label %76, label %report_cast_error.exit
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %72, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 56
   %78 = load ptr, ptr %77, align 8
   br label %report_cast_error.exit
 
@@ -3029,10 +3029,10 @@ report_cast_error.exit:                           ; preds = %69, %73, %76
   br label %141
 
 82:                                               ; preds = %66
-  %83 = getelementptr inbounds i8, ptr %68, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %84 = load ptr, ptr %68, align 8
   %85 = tail call ptr @type_quoted_error_string(ptr noundef %84) #10
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @type_quoted_error_string(ptr noundef %87) #10
   %89 = load i64, ptr %83, align 8
@@ -3053,7 +3053,7 @@ report_cast_error.exit:                           ; preds = %69, %73, %76
 97:                                               ; preds = %94
   %98 = getelementptr i8, ptr %0, i64 24
   %.val66 = load ptr, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %96, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %100 = load ptr, ptr %96, align 8
   %.not29.i73 = icmp eq ptr %100, null
   br i1 %.not29.i73, label %report_cast_error.exit75, label %101
@@ -3064,7 +3064,7 @@ report_cast_error.exit:                           ; preds = %69, %73, %76
   br i1 %103, label %104, label %report_cast_error.exit75
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %100, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 56
   %106 = load ptr, ptr %105, align 8
   br label %report_cast_error.exit75
 
@@ -3077,10 +3077,10 @@ report_cast_error.exit75:                         ; preds = %97, %101, %104
   br label %141
 
 110:                                              ; preds = %94
-  %111 = getelementptr inbounds i8, ptr %96, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %112 = load ptr, ptr %96, align 8
   %113 = tail call ptr @type_quoted_error_string(ptr noundef %112) #10
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load ptr, ptr %114, align 8
   %116 = tail call ptr @type_quoted_error_string(ptr noundef %115) #10
   %117 = load i64, ptr %111, align 8
@@ -3095,7 +3095,7 @@ report_cast_error.exit75:                         ; preds = %97, %101, %104
   %.val67 = load ptr, ptr %120, align 8
   %121 = getelementptr i8, ptr %0, i64 24
   %.val68 = load ptr, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %.val67, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.val67, i64 8
   %123 = load ptr, ptr %.val67, align 8
   %.not29.i76 = icmp eq ptr %123, null
   br i1 %.not29.i76, label %130, label %124
@@ -3106,7 +3106,7 @@ report_cast_error.exit75:                         ; preds = %97, %101, %104
   br i1 %126, label %127, label %130
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %123, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %123, i64 56
   %129 = load ptr, ptr %128, align 8
   br label %130
 
@@ -3123,7 +3123,7 @@ report_cast_error.exit75:                         ; preds = %97, %101, %104
   br i1 %135, label %136, label %report_cast_error.exit78
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds i8, ptr %.val68, i64 56
+  %137 = getelementptr inbounds nuw i8, ptr %.val68, i64 56
   %138 = load ptr, ptr %137, align 8
   br label %report_cast_error.exit78
 
@@ -3141,7 +3141,7 @@ report_cast_error.exit78:                         ; preds = %130, %133, %136
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @sema_len_from_const(ptr noundef %5) #10
   %7 = icmp slt i32 %6, 0
@@ -3151,7 +3151,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br i1 %2, label %cast_is_allowed.exit, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i64, ptr %10, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %11, ptr noundef nonnull @.str.27) #10
   br label %cast_is_allowed.exit
@@ -3164,26 +3164,26 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br i1 %2, label %cast_is_allowed.exit, label %15
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load i64, ptr %16, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %17, ptr noundef nonnull @.str.28) #10
   br label %cast_is_allowed.exit
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, 10
   br i1 %21, label %22, label %56
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %26 = icmp eq i16 %25, 14
   br i1 %26, label %27, label %.critedge2
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %5, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %29 = load i16, ptr %28, align 8
   %30 = and i16 %29, 255
   %.off = add nsw i16 %30, -5
@@ -3191,22 +3191,22 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br i1 %switch, label %31, label %.critedge2
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %35 = load i32, ptr %34, align 8
   %spec.select = tail call i32 @llvm.umax.i32(i32 %35, i32 %6)
   br label %.critedge2
 
 .critedge2:                                       ; preds = %27, %22, %31
   %.0 = phi i32 [ %spec.select, %31 ], [ %6, %22 ], [ %6, %27 ]
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @type_get_array(ptr noundef %39, i32 noundef %.0) #10
   store ptr %40, ptr %36, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr @type_voidptr, align 8
   %44 = icmp eq ptr %42, %43
@@ -3218,7 +3218,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br i1 %47, label %48, label %.preheader
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %42, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
   switch i32 %51, label %.preheader [
@@ -3249,19 +3249,19 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 .backedge:                                        ; preds = %52, %52, %52, %52, %52, %52, %54
   %.sink = phi i64 [ 8, %54 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ], [ 56, %52 ]
-  %55 = getelementptr inbounds i8, ptr %.072, i64 %.sink
+  %55 = getelementptr inbounds nuw i8, ptr %.072, i64 %.sink
   %.072.be = load ptr, ptr %55, align 8
   %.pre90 = load i32, ptr %.072.be, align 8
   br label %52
 
 56:                                               ; preds = %18
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %60 = load ptr, ptr %59, align 8
   %61 = tail call ptr @type_get_vector(ptr noundef %60, i32 noundef %6) #10
   store ptr %61, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr @type_voidptr, align 8
   %65 = icmp eq ptr %63, %64
@@ -3273,7 +3273,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   br i1 %68, label %69, label %.preheader98
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %63, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 56
   %71 = load ptr, ptr %70, align 8
   %72 = load i32, ptr %71, align 8
   switch i32 %72, label %.preheader98 [
@@ -3304,7 +3304,7 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 .backedge89:                                      ; preds = %73, %73, %73, %73, %73, %73, %75
   %.sink91 = phi i64 [ 8, %75 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ], [ 56, %73 ]
-  %76 = getelementptr inbounds i8, ptr %.077, i64 %.sink91
+  %76 = getelementptr inbounds nuw i8, ptr %.077, i64 %.sink91
   %.077.be = load ptr, ptr %76, align 8
   %.pre = load i32, ptr %.077.be, align 8
   br label %73
@@ -3313,18 +3313,18 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
   %.sink95 = phi i32 [ %46, %52 ], [ %67, %73 ]
   %.ph = phi ptr [ %40, %52 ], [ %61, %73 ]
   %77 = zext i32 %.sink95 to i64
-  %78 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %77
   %79 = load i32, ptr %78, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %73, %73, %52, %52, %.loopexit.sink.split, %56, %69, %69, %.critedge2, %48, %48
   %.076.sink = phi i32 [ 19, %.critedge2 ], [ 20, %48 ], [ 20, %48 ], [ 19, %56 ], [ 20, %69 ], [ 20, %69 ], [ %79, %.loopexit.sink.split ], [ 21, %52 ], [ 21, %52 ], [ 21, %73 ], [ 21, %73 ]
   %80 = phi ptr [ %40, %.critedge2 ], [ %40, %48 ], [ %40, %48 ], [ %61, %56 ], [ %61, %69 ], [ %61, %69 ], [ %.ph, %.loopexit.sink.split ], [ %40, %52 ], [ %40, %52 ], [ %61, %73 ], [ %61, %73 ]
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.076.sink, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %80, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %85 = load ptr, ptr %84, align 8
   %86 = icmp eq ptr %83, %85
   br i1 %86, label %cast_is_allowed.exit, label %87
@@ -3349,10 +3349,10 @@ define internal zeroext i1 @rule_sa_to_vecarr(ptr noundef %0, i1 noundef zeroext
 
 96:                                               ; preds = %.thread.i
   %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %97, align 8
   %100 = tail call ptr @type_quoted_error_string(ptr noundef %99) #10
-  %101 = getelementptr inbounds i8, ptr %0, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %102 = load ptr, ptr %101, align 8
   %103 = tail call ptr @type_quoted_error_string(ptr noundef %102) #10
   %104 = load i64, ptr %98, align 8
@@ -3370,21 +3370,21 @@ cast_is_allowed.exit:                             ; preds = %105, %96, %.thread.
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 34
   br i1 %9, label %10, label %74
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @type_voidptr, align 8
   %18 = icmp eq ptr %16, %17
@@ -3396,7 +3396,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %21, label %22, label %.preheader118
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %16, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %.preheader118 [
@@ -3427,25 +3427,25 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .backedge111:                                     ; preds = %26, %26, %26, %26, %26, %26, %28
   %.sink = phi i64 [ 8, %28 ], [ 56, %26 ], [ 56, %26 ], [ 56, %26 ], [ 56, %26 ], [ 56, %26 ], [ 56, %26 ]
-  %29 = getelementptr inbounds i8, ptr %.085, i64 %.sink
+  %29 = getelementptr inbounds nuw i8, ptr %.085, i64 %.sink
   %.085.be = load ptr, ptr %29, align 8
   %.pre114 = load i32, ptr %.085.be, align 8
   br label %26
 
 .critedge:                                        ; preds = %26
   %30 = zext i32 %20 to i64
-  %31 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   br label %.loopexit110
 
 .loopexit110:                                     ; preds = %26, %26, %22, %22, %10, %.critedge
   %.086 = phi i32 [ %32, %.critedge ], [ 19, %10 ], [ 20, %22 ], [ 20, %22 ], [ 21, %26 ], [ 21, %26 ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.086, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %6, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, %17
   br i1 %38, label %.loopexit, label %39
@@ -3456,7 +3456,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %41, label %42, label %.preheader
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %37, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 8
   switch i32 %45, label %.preheader [
@@ -3487,20 +3487,20 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .backedge:                                        ; preds = %46, %46, %46, %46, %46, %46, %48
   %.sink116 = phi i64 [ 8, %48 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ], [ 56, %46 ]
-  %49 = getelementptr inbounds i8, ptr %.091, i64 %.sink116
+  %49 = getelementptr inbounds nuw i8, ptr %.091, i64 %.sink116
   %.091.be = load ptr, ptr %49, align 8
   %.pre115 = load i32, ptr %.091.be, align 8
   br label %46
 
 .critedge102:                                     ; preds = %46
   %50 = zext i32 %40 to i64
-  %51 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %50
   %52 = load i32, ptr %51, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %46, %46, %42, %42, %.loopexit110, %.critedge102
   %.090 = phi i32 [ %52, %.critedge102 ], [ 19, %.loopexit110 ], [ 20, %42 ], [ 20, %42 ], [ 21, %46 ], [ 21, %46 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.090, ptr %53, align 4
   %54 = load ptr, ptr %15, align 8
   %55 = icmp eq ptr %54, %35
@@ -3524,10 +3524,10 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %2, label %cast_is_allowed.exit, label %64
 
 64:                                               ; preds = %.thread.i
-  %65 = getelementptr inbounds i8, ptr %5, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %66 = load ptr, ptr %5, align 8
   %67 = tail call ptr @type_quoted_error_string(ptr noundef %66) #10
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @type_quoted_error_string(ptr noundef %69) #10
   %71 = load i64, ptr %65, align 8
@@ -3547,7 +3547,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %2, label %cast_is_allowed.exit, label %78
 
 78:                                               ; preds = %77
-  %79 = getelementptr inbounds i8, ptr %5, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %80 = load i64, ptr %79, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %80, ptr noundef nonnull @.str.27) #10
   br label %cast_is_allowed.exit
@@ -3560,19 +3560,19 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %2, label %cast_is_allowed.exit, label %84
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %5, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %86 = load i64, ptr %85, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %86, ptr noundef nonnull @.str.28) #10
   br label %cast_is_allowed.exit
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load ptr, ptr %90, align 8
   %92 = tail call ptr @type_get_array(ptr noundef %91, i32 noundef %75) #10
   store ptr %92, ptr %88, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr @type_voidptr, align 8
   %96 = icmp eq ptr %94, %95
@@ -3584,7 +3584,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %99, label %100, label %.preheader119
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %94, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %102 = load ptr, ptr %101, align 8
   %103 = load i32, ptr %102, align 8
   switch i32 %103, label %.preheader119 [
@@ -3615,20 +3615,20 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 .backedge113:                                     ; preds = %104, %104, %104, %104, %104, %104, %106
   %.sink117 = phi i64 [ 8, %106 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ], [ 56, %104 ]
-  %107 = getelementptr inbounds i8, ptr %.089, i64 %.sink117
+  %107 = getelementptr inbounds nuw i8, ptr %.089, i64 %.sink117
   %.089.be = load ptr, ptr %107, align 8
   %.pre = load i32, ptr %.089.be, align 8
   br label %104
 
 .critedge104:                                     ; preds = %104
   %108 = zext i32 %98 to i64
-  %109 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %108
   %110 = load i32, ptr %109, align 4
   br label %.loopexit112
 
 .loopexit112:                                     ; preds = %104, %104, %100, %100, %87, %.critedge104
   %.093 = phi i32 [ %110, %.critedge104 ], [ 19, %87 ], [ 20, %100 ], [ 20, %100 ], [ 21, %104 ], [ 21, %104 ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.093, ptr %111, align 8
   %112 = load ptr, ptr %93, align 8
   %113 = load ptr, ptr %6, align 8
@@ -3636,7 +3636,7 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
   br i1 %114, label %cast_is_allowed.exit, label %115
 
 115:                                              ; preds = %.loopexit112
-  %116 = getelementptr inbounds i8, ptr %0, i64 44
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %117 = load i32, ptr %116, align 4
   %118 = icmp eq i32 %.093, -1
   %119 = icmp eq i32 %117, -1
@@ -3656,10 +3656,10 @@ define internal zeroext i1 @rule_sa_to_infer(ptr noundef %0, i1 noundef zeroext 
 
 125:                                              ; preds = %.thread.i108
   %126 = load ptr, ptr %4, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %126, align 8
   %129 = tail call ptr @type_quoted_error_string(ptr noundef %128) #10
-  %130 = getelementptr inbounds i8, ptr %0, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %131 = load ptr, ptr %130, align 8
   %132 = tail call ptr @type_quoted_error_string(ptr noundef %131) #10
   %133 = load i64, ptr %127, align 8
@@ -3677,13 +3677,13 @@ cast_is_allowed.exit:                             ; preds = %134, %125, %.thread
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_vec_to_vec(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %7, %11
   br i1 %.not, label %27, label %12
@@ -3696,7 +3696,7 @@ define internal zeroext i1 @rule_vec_to_vec(ptr noundef %0, i1 noundef zeroext %
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 24
   %.val73 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %17 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %17, null
   br i1 %.not29.i, label %report_cast_error.exit, label %18
@@ -3707,7 +3707,7 @@ define internal zeroext i1 @rule_vec_to_vec(ptr noundef %0, i1 noundef zeroext %
   br i1 %20, label %21, label %report_cast_error.exit
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %17, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
   br label %report_cast_error.exit
 
@@ -3720,12 +3720,12 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %cast_is_allowed.exit
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %9, i64 56
-  %29 = getelementptr inbounds i8, ptr %5, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %28, align 8
   store ptr %31, ptr %8, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @type_voidptr, align 8
   %35 = icmp eq ptr %33, %34
@@ -3737,7 +3737,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br i1 %38, label %39, label %.preheader80
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %33, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %41, align 8
   switch i32 %42, label %.preheader80 [
@@ -3768,22 +3768,22 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 .backedge77:                                      ; preds = %43, %43, %43, %43, %43, %43, %45
   %.sink = phi i64 [ 8, %45 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ], [ 56, %43 ]
-  %46 = getelementptr inbounds i8, ptr %.064, i64 %.sink
+  %46 = getelementptr inbounds nuw i8, ptr %.064, i64 %.sink
   %.064.be = load ptr, ptr %46, align 8
   %.pre = load i32, ptr %.064.be, align 8
   br label %43
 
 .thread:                                          ; preds = %43, %43, %27, %39, %39
   %.066.ph = phi i32 [ 20, %39 ], [ 20, %39 ], [ 19, %27 ], [ 21, %43 ], [ 21, %43 ]
-  %47 = getelementptr inbounds i8, ptr %0, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.066.ph, ptr %47, align 4
   br label %57
 
 48:                                               ; preds = %43
   %49 = zext i32 %37 to i64
-  %50 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %51, ptr %52, align 4
   %53 = load ptr, ptr @type_bool, align 8
   %54 = icmp eq ptr %30, %53
@@ -3795,7 +3795,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 57:                                               ; preds = %.thread, %48
   %.06676 = phi i32 [ %.066.ph, %.thread ], [ %51, %48 ]
   store ptr %30, ptr %4, align 8
-  %58 = getelementptr inbounds i8, ptr %30, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, %34
   br i1 %60, label %.loopexit, label %61
@@ -3806,7 +3806,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br i1 %63, label %64, label %.preheader
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %59, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %66, align 8
   switch i32 %67, label %.preheader [
@@ -3837,20 +3837,20 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 .backedge:                                        ; preds = %68, %68, %68, %68, %68, %68, %70
   %.sink79 = phi i64 [ 8, %70 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ], [ 56, %68 ]
-  %71 = getelementptr inbounds i8, ptr %.060, i64 %.sink79
+  %71 = getelementptr inbounds nuw i8, ptr %.060, i64 %.sink79
   %.060.be = load ptr, ptr %71, align 8
   %.pre78 = load i32, ptr %.060.be, align 8
   br label %68
 
 .critedge72:                                      ; preds = %68
   %72 = zext i32 %62 to i64
-  %73 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %72
+  %73 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %72
   %74 = load i32, ptr %73, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %68, %64, %64, %57, %.critedge72
   %.061 = phi i32 [ %74, %.critedge72 ], [ 19, %57 ], [ 20, %64 ], [ 20, %64 ], [ 21, %68 ], [ 21, %68 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.061, ptr %75, align 8
   %76 = load ptr, ptr %58, align 8
   %77 = icmp eq ptr %76, %31
@@ -3874,12 +3874,12 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br i1 %2, label %cast_is_allowed.exit, label %86
 
 86:                                               ; preds = %.thread.i
-  %87 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %88, align 8
   %91 = tail call ptr @type_quoted_error_string(ptr noundef %90) #10
-  %92 = getelementptr inbounds i8, ptr %0, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %93 = load ptr, ptr %92, align 8
   %94 = tail call ptr @type_quoted_error_string(ptr noundef %93) #10
   %95 = load i64, ptr %89, align 8
@@ -3897,13 +3897,13 @@ cast_is_allowed.exit:                             ; preds = %96, %86, %.thread.i
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_vec_to_arr(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %7, %11
   br i1 %.not, label %27, label %12
@@ -3916,7 +3916,7 @@ define internal zeroext i1 @rule_vec_to_arr(ptr noundef %0, i1 noundef zeroext %
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 24
   %.val44 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %17 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %17, null
   br i1 %.not29.i, label %report_cast_error.exit, label %18
@@ -3927,7 +3927,7 @@ define internal zeroext i1 @rule_vec_to_arr(ptr noundef %0, i1 noundef zeroext %
   br i1 %20, label %21, label %report_cast_error.exit
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %17, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
   br label %report_cast_error.exit
 
@@ -3940,11 +3940,11 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %cast_is_allowed.exit
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %5, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @type_get_array(ptr noundef %29, i32 noundef %7) #10
   store ptr %30, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @type_voidptr, align 8
   %34 = icmp eq ptr %32, %33
@@ -3956,7 +3956,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br i1 %37, label %38, label %.preheader
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %32, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %.preheader [
@@ -3987,20 +3987,20 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
 
 .backedge:                                        ; preds = %42, %42, %42, %42, %42, %42, %44
   %.sink = phi i64 [ 8, %44 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ]
-  %45 = getelementptr inbounds i8, ptr %.037, i64 %.sink
+  %45 = getelementptr inbounds nuw i8, ptr %.037, i64 %.sink
   %.037.be = load ptr, ptr %45, align 8
   %.pre = load i32, ptr %.037.be, align 8
   br label %42
 
 .critedge:                                        ; preds = %42
   %46 = zext i32 %36 to i64
-  %47 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %42, %38, %38, %27, %.critedge
   %.038 = phi i32 [ %48, %.critedge ], [ 19, %27 ], [ 20, %38 ], [ 20, %38 ], [ 21, %42 ], [ 21, %42 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.038, ptr %49, align 8
   %50 = load ptr, ptr %31, align 8
   %51 = load ptr, ptr %8, align 8
@@ -4008,7 +4008,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br i1 %52, label %cast_is_allowed.exit, label %53
 
 53:                                               ; preds = %.loopexit
-  %54 = getelementptr inbounds i8, ptr %0, i64 44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %.038, -1
   %57 = icmp eq i32 %55, -1
@@ -4027,12 +4027,12 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br i1 %2, label %cast_is_allowed.exit, label %63
 
 63:                                               ; preds = %.thread.i
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %65, align 8
   %68 = tail call ptr @type_quoted_error_string(ptr noundef %67) #10
-  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr @type_quoted_error_string(ptr noundef %70) #10
   %72 = load i64, ptr %66, align 8
@@ -4050,13 +4050,13 @@ cast_is_allowed.exit:                             ; preds = %73, %63, %.thread.i
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @type_infer_len_from_actual_type(ptr noundef %5, ptr noundef %7)
   store ptr %8, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @type_voidptr, align 8
   %12 = icmp eq ptr %10, %11
@@ -4068,7 +4068,7 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
   br i1 %15, label %16, label %.preheader
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %10, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %.preheader [
@@ -4099,29 +4099,29 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
 
 .backedge:                                        ; preds = %20, %20, %20, %20, %20, %20, %22
   %.sink = phi i64 [ 8, %22 ], [ 56, %20 ], [ 56, %20 ], [ 56, %20 ], [ 56, %20 ], [ 56, %20 ], [ 56, %20 ]
-  %23 = getelementptr inbounds i8, ptr %.027, i64 %.sink
+  %23 = getelementptr inbounds nuw i8, ptr %.027, i64 %.sink
   %.027.be = load ptr, ptr %23, align 8
   %.pre = load i32, ptr %.027.be, align 8
   br label %20
 
 .critedge:                                        ; preds = %20
   %24 = zext i32 %14 to i64
-  %25 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %20, %16, %16, %3, %.critedge
   %.028 = phi i32 [ %26, %.critedge ], [ 19, %3 ], [ 20, %16 ], [ 20, %16 ], [ 21, %20 ], [ 21, %20 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 44
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %.028, ptr %27, align 4
   %28 = load ptr, ptr %6, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %8
   br i1 %31, label %cast_is_allowed.exit, label %32
 
 32:                                               ; preds = %.loopexit
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, -1
   %36 = icmp eq i32 %.028, -1
@@ -4140,12 +4140,12 @@ define internal zeroext i1 @rule_vecarr_to_infer(ptr noundef %0, i1 noundef zero
   br i1 %2, label %cast_is_allowed.exit, label %42
 
 42:                                               ; preds = %.thread.i
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %44, align 8
   %47 = tail call ptr @type_quoted_error_string(ptr noundef %46) #10
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = tail call ptr @type_quoted_error_string(ptr noundef %49) #10
   %51 = load i64, ptr %45, align 8
@@ -4168,17 +4168,17 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef reado
   br i1 %brmerge, label %4, label %68
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %14, %16
   br i1 %.not, label %45, label %17
@@ -4189,7 +4189,7 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef reado
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %14, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 8
   br label %24
@@ -4214,7 +4214,7 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef reado
   %.val = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %0, i64 24
   %.val36 = load ptr, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %.val, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %35 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %35, null
   br i1 %.not29.i, label %report_cast_error.exit, label %36
@@ -4225,7 +4225,7 @@ define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef reado
   br i1 %38, label %39, label %report_cast_error.exit
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %35, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %41 = load ptr, ptr %40, align 8
   br label %report_cast_error.exit
 
@@ -4246,7 +4246,7 @@ report_cast_error.exit:                           ; preds = %31, %36, %39
   %.val37 = load ptr, ptr %47, align 8
   %48 = getelementptr i8, ptr %0, i64 24
   %.val38 = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.val37, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.val37, i64 8
   %50 = load ptr, ptr %.val37, align 8
   %.not29.i39 = icmp eq ptr %50, null
   br i1 %.not29.i39, label %57, label %51
@@ -4257,7 +4257,7 @@ report_cast_error.exit:                           ; preds = %31, %36, %39
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %50, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %56 = load ptr, ptr %55, align 8
   br label %57
 
@@ -4274,7 +4274,7 @@ report_cast_error.exit:                           ; preds = %31, %36, %39
   br i1 %62, label %63, label %report_cast_error.exit40
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %.val38, i64 56
+  %64 = getelementptr inbounds nuw i8, ptr %.val38, i64 56
   %65 = load ptr, ptr %64, align 8
   br label %report_cast_error.exit40
 
@@ -4297,17 +4297,17 @@ define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef reado
   br i1 %brmerge, label %4, label %55
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %14, %16
   br i1 %.not, label %32, label %17
@@ -4320,7 +4320,7 @@ define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef reado
   %.val = load ptr, ptr %19, align 8
   %20 = getelementptr i8, ptr %0, i64 24
   %.val23 = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.val, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %22 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %22, null
   br i1 %.not29.i, label %report_cast_error.exit, label %23
@@ -4331,7 +4331,7 @@ define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef reado
   br i1 %25, label %26, label %report_cast_error.exit
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %22, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %28 = load ptr, ptr %27, align 8
   br label %report_cast_error.exit
 
@@ -4352,7 +4352,7 @@ report_cast_error.exit:                           ; preds = %18, %23, %26
   %.val24 = load ptr, ptr %34, align 8
   %35 = getelementptr i8, ptr %0, i64 24
   %.val25 = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.val24, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
   %37 = load ptr, ptr %.val24, align 8
   %.not29.i26 = icmp eq ptr %37, null
   br i1 %.not29.i26, label %44, label %38
@@ -4363,7 +4363,7 @@ report_cast_error.exit:                           ; preds = %18, %23, %26
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %37, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %43 = load ptr, ptr %42, align 8
   br label %44
 
@@ -4380,7 +4380,7 @@ report_cast_error.exit:                           ; preds = %18, %23, %26
   br i1 %49, label %50, label %report_cast_error.exit27
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %.val25, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %.val25, i64 56
   %52 = load ptr, ptr %51, align 8
   br label %report_cast_error.exit27
 
@@ -4398,14 +4398,14 @@ report_cast_error.exit27:                         ; preds = %44, %47, %50
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   br i1 %1, label %.preheader51, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %5, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = and i64 %10, 32768
   %.not = icmp eq i64 %11, 0
@@ -4428,7 +4428,7 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
 
 17:                                               ; preds = %.preheader51, %30
   %.0.i = phi ptr [ %.1.i, %30 ], [ %5, %.preheader51 ]
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %type_flatten.exit [
@@ -4438,15 +4438,15 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
   ]
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %19, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %30
 
 27:                                               ; preds = %17
-  %28 = getelementptr inbounds i8, ptr %19, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 56
   br label %30
 
 29:                                               ; preds = %17
@@ -4460,7 +4460,7 @@ define internal zeroext i1 @rule_from_distinct(ptr noundef %0, i1 noundef zeroex
 
 type_flatten.exit:                                ; preds = %17
   store ptr %19, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %19, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @type_voidptr, align 8
   %34 = icmp eq ptr %32, %33
@@ -4472,7 +4472,7 @@ type_flatten.exit:                                ; preds = %17
   br i1 %37, label %38, label %.preheader
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %32, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %.preheader [
@@ -4503,29 +4503,29 @@ type_flatten.exit:                                ; preds = %17
 
 .backedge:                                        ; preds = %42, %42, %42, %42, %42, %42, %44
   %.sink = phi i64 [ 8, %44 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ], [ 56, %42 ]
-  %45 = getelementptr inbounds i8, ptr %.038, i64 %.sink
+  %45 = getelementptr inbounds nuw i8, ptr %.038, i64 %.sink
   %.038.be = load ptr, ptr %45, align 8
   %.pre = load i32, ptr %.038.be, align 8
   br label %42
 
 .critedge:                                        ; preds = %42
   %46 = zext i32 %36 to i64
-  %47 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %42, %42, %38, %38, %type_flatten.exit, %.critedge
   %.039 = phi i32 [ %48, %.critedge ], [ 19, %type_flatten.exit ], [ 20, %38 ], [ 20, %38 ], [ 21, %42 ], [ 21, %42 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.039, ptr %49, align 8
   %50 = load ptr, ptr %31, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %50, %52
   br i1 %53, label %cast_is_allowed.exit, label %54
 
 54:                                               ; preds = %.loopexit
-  %55 = getelementptr inbounds i8, ptr %0, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %.039, -1
   %58 = icmp eq i32 %56, -1
@@ -4544,12 +4544,12 @@ type_flatten.exit:                                ; preds = %17
   br i1 %2, label %cast_is_allowed.exit, label %64
 
 64:                                               ; preds = %.thread.i
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %66, align 8
   %69 = tail call ptr @type_quoted_error_string(ptr noundef %68) #10
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = tail call ptr @type_quoted_error_string(ptr noundef %71) #10
   %73 = load i64, ptr %67, align 8
@@ -4567,13 +4567,13 @@ cast_is_allowed.exit:                             ; preds = %74, %64, %.thread.i
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_arr_to_vec(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %7, %11
   br i1 %.not, label %27, label %12
@@ -4586,7 +4586,7 @@ define internal zeroext i1 @rule_arr_to_vec(ptr noundef %0, i1 noundef zeroext %
   %.val = load ptr, ptr %14, align 8
   %15 = getelementptr i8, ptr %0, i64 24
   %.val77 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %17 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %17, null
   br i1 %.not29.i, label %report_cast_error.exit, label %18
@@ -4597,7 +4597,7 @@ define internal zeroext i1 @rule_arr_to_vec(ptr noundef %0, i1 noundef zeroext %
   br i1 %20, label %21, label %report_cast_error.exit
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %17, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %23 = load ptr, ptr %22, align 8
   br label %report_cast_error.exit
 
@@ -4610,13 +4610,13 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %cast_is_allowed.exit
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %5, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %29 = load ptr, ptr %28, align 8
   br label %30
 
 30:                                               ; preds = %43, %27
   %.0.i = phi ptr [ %29, %27 ], [ %.1.i, %43 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %type_flatten.exit [
@@ -4626,15 +4626,15 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   ]
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %43
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %32, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br label %43
 
 42:                                               ; preds = %30
@@ -4647,7 +4647,7 @@ report_cast_error.exit:                           ; preds = %13, %18, %21
   br label %30
 
 type_flatten.exit:                                ; preds = %30
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @type_voidptr, align 8
   %47 = icmp eq ptr %45, %46
@@ -4659,7 +4659,7 @@ type_flatten.exit:                                ; preds = %30
   br i1 %50, label %51, label %.preheader95
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %45, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 8
   switch i32 %54, label %.preheader95 [
@@ -4690,14 +4690,14 @@ type_flatten.exit:                                ; preds = %30
 
 .backedge88:                                      ; preds = %55, %55, %55, %55, %55, %55, %57
   %.sink = phi i64 [ 8, %57 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ], [ 56, %55 ]
-  %58 = getelementptr inbounds i8, ptr %.066, i64 %.sink
+  %58 = getelementptr inbounds nuw i8, ptr %.066, i64 %.sink
   %.066.be = load ptr, ptr %58, align 8
   %.pre = load i32, ptr %.066.be, align 8
   br label %55
 
 59:                                               ; preds = %55
   %60 = zext i32 %49 to i64
-  %61 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %60
   %62 = load i32, ptr %61, align 4
   switch i32 %62, label %.thread86 [
     i32 2, label %.thread
@@ -4720,7 +4720,7 @@ type_flatten.exit:                                ; preds = %30
   %.val78 = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %0, i64 24
   %.val79 = load ptr, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %.val78, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.val78, i64 8
   %67 = load ptr, ptr %.val78, align 8
   %.not29.i80 = icmp eq ptr %67, null
   br i1 %.not29.i80, label %report_cast_error.exit82, label %68
@@ -4731,7 +4731,7 @@ type_flatten.exit:                                ; preds = %30
   br i1 %70, label %71, label %report_cast_error.exit82
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %67, i64 56
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 56
   %73 = load ptr, ptr %72, align 8
   br label %report_cast_error.exit82
 
@@ -4746,7 +4746,7 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
 .thread:                                          ; preds = %51, %51, %type_flatten.exit, %59, %59, %59, %59, %59, %59, %59, %59, %59, %59
   %77 = tail call ptr @type_get_vector(ptr noundef %29, i32 noundef %7) #10
   store ptr %77, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr @type_voidptr, align 8
   %81 = icmp eq ptr %79, %80
@@ -4758,7 +4758,7 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br i1 %84, label %85, label %.preheader
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %79, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %87, align 8
   switch i32 %88, label %.preheader [
@@ -4789,20 +4789,20 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
 
 .backedge:                                        ; preds = %89, %89, %89, %89, %89, %89, %91
   %.sink93 = phi i64 [ 8, %91 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ], [ 56, %89 ]
-  %92 = getelementptr inbounds i8, ptr %.062, i64 %.sink93
+  %92 = getelementptr inbounds nuw i8, ptr %.062, i64 %.sink93
   %.062.be = load ptr, ptr %92, align 8
   %.pre91 = load i32, ptr %.062.be, align 8
   br label %89
 
 .critedge76:                                      ; preds = %89
   %93 = zext i32 %83 to i64
-  %94 = getelementptr inbounds [44 x i32], ptr @group_from_type, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [44 x i32], ptr @group_from_type, i64 0, i64 %93
   %95 = load i32, ptr %94, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %89, %85, %85, %.thread, %.critedge76
   %.063 = phi i32 [ %95, %.critedge76 ], [ 19, %.thread ], [ 20, %85 ], [ 20, %85 ], [ 21, %89 ], [ 21, %89 ]
-  %96 = getelementptr inbounds i8, ptr %0, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %.063, ptr %96, align 8
   %97 = load ptr, ptr %78, align 8
   %98 = load ptr, ptr %8, align 8
@@ -4810,7 +4810,7 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br i1 %99, label %cast_is_allowed.exit, label %100
 
 100:                                              ; preds = %.loopexit
-  %101 = getelementptr inbounds i8, ptr %0, i64 44
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %.063, -1
   %104 = icmp eq i32 %102, -1
@@ -4829,12 +4829,12 @@ report_cast_error.exit82:                         ; preds = %63, %68, %71
   br i1 %2, label %cast_is_allowed.exit, label %110
 
 110:                                              ; preds = %.thread.i
-  %111 = getelementptr inbounds i8, ptr %0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %112, align 8
   %115 = tail call ptr @type_quoted_error_string(ptr noundef %114) #10
-  %116 = getelementptr inbounds i8, ptr %0, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %117 = load ptr, ptr %116, align 8
   %118 = tail call ptr @type_quoted_error_string(ptr noundef %117) #10
   %119 = load i64, ptr %113, align 8
@@ -4856,15 +4856,15 @@ define internal noundef zeroext i1 @rule_arr_to_bits(ptr nocapture noundef reado
   br i1 %brmerge, label %18, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %6, %14
   %16 = getelementptr i8, ptr %0, i64 8
@@ -4880,10 +4880,10 @@ define internal noundef zeroext i1 @rule_arr_to_bits(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_arr_to_arr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @type_size(ptr noundef %5) #10
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @type_size(ptr noundef %8) #10
   %.not = icmp eq i32 %6, %9
@@ -4893,9 +4893,9 @@ define internal zeroext i1 @rule_arr_to_arr(ptr nocapture noundef readonly %0, i
   br i1 %2, label %18, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %15, ptr noundef nonnull @.str.29) #10
   br label %18
@@ -4911,9 +4911,9 @@ define internal zeroext i1 @rule_arr_to_arr(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @type_is_subtype(ptr noundef %7, ptr noundef %5) #10
   %brmerge = or i1 %2, %8
@@ -4924,7 +4924,7 @@ define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %0, i64 24
   %.val10 = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.val, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = load ptr, ptr %.val, align 8
   %.not29.i = icmp eq ptr %13, null
   br i1 %.not29.i, label %report_cast_error.exit, label %14
@@ -4935,7 +4935,7 @@ define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly
   br i1 %16, label %17, label %report_cast_error.exit
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %13, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %19 = load ptr, ptr %18, align 8
   br label %report_cast_error.exit
 
@@ -4953,9 +4953,9 @@ report_cast_error.exit:                           ; preds = %9, %14, %17
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @rule_to_struct_to_distinct(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call zeroext i1 @type_is_subtype(ptr noundef %7, ptr noundef %5) #10
   br i1 %8, label %11, label %9
@@ -4974,24 +4974,24 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr nocapture no
   br i1 %1, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = tail call zeroext i1 @sema_resolve_type_decl(ptr noundef %15, ptr noundef %8) #10
   br i1 %16, label %17, label %.loopexit
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %8, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %22
@@ -5013,11 +5013,11 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr nocapture no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, %14
   br i1 %32, label %.loopexit, label %25
@@ -5026,15 +5026,15 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr nocapture no
   br i1 %2, label %.loopexit, label %33
 
 33:                                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @type_quoted_error_string(ptr noundef %39) #10
   %41 = tail call ptr @type_quoted_error_string(ptr noundef %8) #10
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @type_to_error_string(ptr noundef %43) #10
   %45 = load i64, ptr %36, align 8
@@ -5048,21 +5048,21 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   br i1 %1, label %.preheader, label %type_flatten.exit32
 
 .preheader:                                       ; preds = %3, %26
   %.0.i = phi ptr [ %.1.i, %26 ], [ %7, %3 ]
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %type_flatten.exit [
@@ -5072,15 +5072,15 @@ define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr nocapture noundef read
   ]
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %15, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %26
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %15, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 56
   br label %26
 
 25:                                               ; preds = %.preheader
@@ -5094,7 +5094,7 @@ define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr nocapture noundef read
 
 type_flatten.exit:                                ; preds = %.preheader, %39
   %.0.i29 = phi ptr [ %.1.i31, %39 ], [ %13, %.preheader ]
-  %27 = getelementptr inbounds i8, ptr %.0.i29, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 8
   switch i32 %29, label %type_flatten.exit32 [
@@ -5104,15 +5104,15 @@ type_flatten.exit:                                ; preds = %.preheader, %39
   ]
 
 30:                                               ; preds = %type_flatten.exit
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %39
 
 36:                                               ; preds = %type_flatten.exit
-  %37 = getelementptr inbounds i8, ptr %28, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 56
   br label %39
 
 38:                                               ; preds = %type_flatten.exit
@@ -5180,13 +5180,13 @@ common.ret51:                                     ; preds = %49, %52, %47, %type
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %12
@@ -5203,7 +5203,7 @@ define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %0, align 8
   %19 = tail call zeroext i1 @may_cast(ptr noundef %18, ptr noundef %17, ptr noundef %7, i1 noundef zeroext false, i1 noundef zeroext %2)
@@ -5219,9 +5219,9 @@ define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
@@ -5233,9 +5233,9 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr nocapture noundef r
   br i1 %.not34, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load i32, ptr %14, align 8
   %.not35 = icmp eq i32 %10, %15
   br i1 %.not35, label %.lr.ph.preheader, label %16
@@ -5244,26 +5244,26 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr nocapture noundef r
   br i1 %2, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @type_quoted_error_string(ptr noundef %20) #10
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load i32, ptr %23, align 8
   %25 = load i64, ptr %18, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %25, ptr noundef nonnull @.str.31, ptr noundef %21, i32 noundef %24, i32 noundef %10) #10
   br label %.thread
 
 .lr.ph.preheader:                                 ; preds = %11
-  %26 = getelementptr inbounds i8, ptr %13, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %27 = load ptr, ptr %26, align 8
   %wide.trip.count = zext i32 %10 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %0, align 8
   %31 = tail call zeroext i1 @may_cast(ptr noundef %30, ptr noundef %29, ptr noundef %27, i1 noundef zeroext false, i1 noundef zeroext %2)
@@ -5279,9 +5279,9 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
@@ -5293,11 +5293,11 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
   br i1 %.not50, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not51 = icmp eq ptr %17, null
   br i1 %.not51, label %.thread55, label %18
@@ -5315,13 +5315,13 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
   br i1 %2, label %.thread, label %25
 
 21:                                               ; preds = %.thread55
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @type_quoted_error_string(ptr noundef %23) #10
   br label %30
 
 25:                                               ; preds = %.thread58
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @type_quoted_error_string(ptr noundef %27) #10
   %29 = load i32, ptr %19, align 4
@@ -5330,7 +5330,7 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
 30:                                               ; preds = %21, %25
   %31 = phi ptr [ %28, %25 ], [ %24, %21 ]
   %.044 = phi i32 [ %29, %25 ], [ 0, %21 ]
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load i64, ptr %32, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %33, ptr noundef nonnull @.str.31, ptr noundef %31, i32 noundef %.044, i32 noundef %10) #10
   br label %.thread
@@ -5351,12 +5351,12 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %39 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @may_cast(ptr noundef %41, ptr noundef %40, ptr noundef %45, i1 noundef zeroext false, i1 noundef zeroext %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5371,9 +5371,9 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.critedge, label %8
@@ -5388,22 +5388,22 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr nocapture noundef
   br i1 %2, label %.loopexit, label %12
 
 12:                                               ; preds = %.critedge
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i64, ptr %13, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %14, ptr noundef nonnull @.str.32) #10
   br label %.loopexit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   %wide.trip.count = zext i32 %10 to i64
   br label %20
 
 20:                                               ; preds = %20, %15
   %indvars.iv = phi i64 [ 0, %15 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = tail call zeroext i1 @may_cast(ptr noundef %23, ptr noundef %22, ptr noundef %19, i1 noundef zeroext false, i1 noundef zeroext %2)
@@ -5428,12 +5428,12 @@ define internal void @cast_all_to_void(ptr nocapture readnone %0, ptr nocapture 
   %4 = load ptr, ptr @type_void, align 8
   %5 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i16, ptr %6, align 8
   %8 = and i16 %7, -256
   %9 = or disjoint i16 %8, 9
   store i16 %9, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 37, ptr %10, align 8
   %11 = load ptr, ptr @expr_arena, align 8
   %12 = ptrtoint ptr %5 to i64
@@ -5441,9 +5441,9 @@ define internal void @cast_all_to_void(ptr nocapture readnone %0, ptr nocapture 
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 56
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %1, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %18, align 8
   store ptr %4, ptr %1, align 8
   ret void
@@ -5451,14 +5451,14 @@ define internal void @cast_all_to_void(ptr nocapture readnone %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -5471,7 +5471,7 @@ define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture 
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 6, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -5479,15 +5479,15 @@ define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture 
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %48
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = and i8 %27, 1
   %29 = zext nneg i8 %28 to i64
@@ -5496,7 +5496,7 @@ define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture 
 
 30:                                               ; preds = %43, %25
   %.0.i = phi ptr [ %2, %25 ], [ %.1.i, %43 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %type_flatten.exit [
@@ -5506,15 +5506,15 @@ define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture 
   ]
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %43
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %32, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br label %43
 
 42:                                               ; preds = %30
@@ -5528,9 +5528,9 @@ define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture 
 
 type_flatten.exit:                                ; preds = %30
   store i64 0, ptr %26, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %29, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %33, ptr %45, align 8
   %46 = and i16 %10, -512
   %47 = or disjoint i16 %46, 1
@@ -5543,14 +5543,14 @@ type_flatten.exit:                                ; preds = %30
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -5563,7 +5563,7 @@ define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocaptur
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 5, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -5571,15 +5571,15 @@ define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocaptur
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %48
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
   %29 = select i1 %28, double 1.000000e+00, double 0.000000e+00
@@ -5588,7 +5588,7 @@ define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocaptur
 
 30:                                               ; preds = %43, %25
   %.0.i = phi ptr [ %2, %25 ], [ %.1.i, %43 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %type_flatten.exit [
@@ -5598,15 +5598,15 @@ define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocaptur
   ]
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %32, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %43
 
 40:                                               ; preds = %30
-  %41 = getelementptr inbounds i8, ptr %32, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br label %43
 
 42:                                               ; preds = %30
@@ -5625,7 +5625,7 @@ type_flatten.exit:                                ; preds = %30
   %.0 = select i1 %cond, double %45, double %29
   store i16 0, ptr %9, align 8
   store double %.0, ptr %26, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %33, ptr %.sroa.8.0..sroa_idx, align 8
   %46 = and i16 %5, -4082
   %47 = or disjoint i16 %46, 512
@@ -5649,7 +5649,7 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %8, label %9, label %13
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   br label %13
@@ -5664,12 +5664,12 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i1 noundef zeroext %.0)
   %16 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i16, ptr %17, align 8
   %19 = and i16 %18, -256
   %20 = or disjoint i16 %19, 9
   store i16 %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 40, ptr %21, align 8
   %22 = load ptr, ptr @expr_arena, align 8
   %23 = ptrtoint ptr %16 to i64
@@ -5677,9 +5677,9 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
   %25 = sub i64 %23, %24
   %26 = sdiv exact i64 %25, 56
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %1, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %27, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %29, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -5687,14 +5687,14 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -5707,7 +5707,7 @@ define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 20, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -5715,25 +5715,25 @@ define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %33
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = tail call zeroext i1 @int_is_zero(ptr noundef nonnull byval(%struct.Int) align 8 %26) #10
   %28 = xor i1 %27, true
   %29 = zext i1 %28 to i8
   %30 = load i16, ptr %4, align 8
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %29, ptr %26, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %31 = and i16 %30, -4096
   %32 = or disjoint i16 %31, 526
@@ -5747,14 +5747,14 @@ define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Int, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 255
   %8 = icmp eq i16 %7, 9
   br i1 %8, label %9, label %18
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i8, ptr %10, align 8
   %12 = icmp eq i8 %11, 29
   br i1 %12, label %13, label %18
@@ -5781,7 +5781,7 @@ define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1,
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %.not22 = icmp eq i16 %25, 8
@@ -5794,7 +5794,7 @@ define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1,
   %28 = and i16 %27, -256
   %29 = or disjoint i16 %28, 9
   store i16 %29, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 19, ptr %30, align 8
   %31 = load ptr, ptr @expr_arena, align 8
   %32 = ptrtoint ptr %26 to i64
@@ -5802,16 +5802,16 @@ define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1,
   %34 = sub i64 %32, %33
   %35 = sdiv exact i64 %34, 56
   %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %1, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %38, align 8
   store ptr %2, ptr %1, align 8
   br label %68
 
 .preheader:                                       ; preds = %22, %63
   %.0.i = phi ptr [ %.1.i, %63 ], [ %2, %22 ]
-  %39 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = load i32, ptr %40, align 8
   switch i32 %41, label %type_flatten_to_int.exit [
@@ -5823,31 +5823,31 @@ define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1,
   ]
 
 42:                                               ; preds = %.preheader
-  %43 = getelementptr inbounds i8, ptr %40, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %63
 
 48:                                               ; preds = %.preheader
-  %49 = getelementptr inbounds i8, ptr %40, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 56
   br label %63
 
 50:                                               ; preds = %.preheader
-  %51 = getelementptr inbounds i8, ptr %40, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 96
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   br label %63
 
 56:                                               ; preds = %.preheader
-  %57 = getelementptr inbounds i8, ptr %40, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 112
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   br label %63
 
 62:                                               ; preds = %.preheader
@@ -5860,7 +5860,7 @@ define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr noundef %1,
   br label %.preheader
 
 type_flatten_to_int.exit:                         ; preds = %.preheader
-  %64 = getelementptr inbounds i8, ptr %1, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @int_conv(ptr dead_on_unwind nonnull writable sret(%struct.Int) align 8 %4, ptr noundef nonnull byval(%struct.Int) align 8 %64, i32 noundef %41) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %65 = load i16, ptr %23, align 8
@@ -5876,14 +5876,14 @@ type_flatten_to_int.exit:                         ; preds = %.preheader
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -5896,7 +5896,7 @@ define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 22, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -5904,15 +5904,15 @@ define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %49
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = tail call double @int_to_real(ptr noundef nonnull byval(%struct.Int) align 8 %26) #10
   %28 = load i16, ptr %4, align 8
   %29 = and i16 %28, -256
@@ -5923,7 +5923,7 @@ define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %
 
 31:                                               ; preds = %44, %25
   %.0.i = phi ptr [ %2, %25 ], [ %.1.i, %44 ]
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %type_flatten.exit [
@@ -5933,15 +5933,15 @@ define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr noundef %
   ]
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %33, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %44
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %33, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 56
   br label %44
 
 43:                                               ; preds = %31
@@ -5960,7 +5960,7 @@ type_flatten.exit:                                ; preds = %31
   %.0 = select i1 %cond, double %46, double %27
   store i16 0, ptr %9, align 8
   store double %.0, ptr %26, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %34, ptr %.sroa.8.0..sroa_idx, align 8
   %47 = and i16 %30, -4082
   %48 = or disjoint i16 %47, 512
@@ -5973,7 +5973,7 @@ type_flatten.exit:                                ; preds = %31
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
@@ -5981,9 +5981,9 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
 
 8:                                                ; preds = %3
   store ptr %2, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %10, align 8
   %13 = load i16, ptr %9, align 8
@@ -6004,7 +6004,7 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
   br label %26
@@ -6023,7 +6023,7 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
   %31 = and i16 %30, -256
   %32 = or disjoint i16 %31, 9
   store i16 %32, ptr %4, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 39, ptr %33, align 8
   %34 = load ptr, ptr @expr_arena, align 8
   %35 = ptrtoint ptr %29 to i64
@@ -6031,9 +6031,9 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
   %37 = sub i64 %35, %36
   %38 = sdiv exact i64 %37, 56
   %39 = trunc i64 %38 to i32
-  %40 = getelementptr inbounds i8, ptr %1, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %39, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %41, align 8
   store ptr %2, ptr %1, align 8
   br label %42
@@ -6044,30 +6044,30 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_int_arr_to_bitstruct(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 9
   br i1 %7, label %8, label %47
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 8
   br i1 %11, label %12, label %47
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr @expr_arena, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds %struct.Expr_, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %16
   br label %18
 
 18:                                               ; preds = %.backedge, %12
   %.0.i.in = phi ptr [ %17, %12 ], [ %.0.i.in.be, %.backedge ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %19 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load i32, ptr %20, align 8
   switch i32 %21, label %type_flatten.exit [
@@ -6077,15 +6077,15 @@ define internal void @cast_int_arr_to_bitstruct(ptr nocapture readnone %0, ptr n
   ]
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %.backedge
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %20, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %28, %22
@@ -6098,7 +6098,7 @@ define internal void @cast_int_arr_to_bitstruct(ptr nocapture readnone %0, ptr n
 
 type_flatten.exit:                                ; preds = %18, %43
   %.0.i16 = phi ptr [ %.1.i18, %43 ], [ %2, %18 ]
-  %31 = getelementptr inbounds i8, ptr %.0.i16, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   switch i32 %33, label %type_flatten.exit19 [
@@ -6108,15 +6108,15 @@ type_flatten.exit:                                ; preds = %18, %43
   ]
 
 34:                                               ; preds = %type_flatten.exit
-  %35 = getelementptr inbounds i8, ptr %32, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   br label %43
 
 40:                                               ; preds = %type_flatten.exit
-  %41 = getelementptr inbounds i8, ptr %32, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br label %43
 
 42:                                               ; preds = %type_flatten.exit
@@ -6133,7 +6133,7 @@ type_flatten.exit19:                              ; preds = %type_flatten.exit
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %type_flatten.exit19
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %46, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %46, align 8
@@ -6146,7 +6146,7 @@ type_flatten.exit19:                              ; preds = %type_flatten.exit
   %50 = and i16 %49, -256
   %51 = or disjoint i16 %50, 9
   store i16 %51, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 9, ptr %52, align 8
   %53 = load ptr, ptr @expr_arena, align 8
   %54 = ptrtoint ptr %48 to i64
@@ -6154,9 +6154,9 @@ type_flatten.exit19:                              ; preds = %type_flatten.exit
   %56 = sub i64 %54, %55
   %57 = sdiv exact i64 %56, 56
   %58 = trunc i64 %57 to i32
-  %59 = getelementptr inbounds i8, ptr %1, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %58, ptr %59, align 4
-  %60 = getelementptr inbounds i8, ptr %1, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %60, align 8
   br label %61
 
@@ -6171,7 +6171,7 @@ define internal void @cast_int_to_enum(ptr nocapture readnone %0, ptr nocapture 
 
 4:                                                ; preds = %17, %3
   %.0.i = phi ptr [ %2, %3 ], [ %.1.i, %17 ]
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_flatten.exit [
@@ -6181,15 +6181,15 @@ define internal void @cast_int_to_enum(ptr nocapture readnone %0, ptr nocapture 
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %17
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %17
 
 16:                                               ; preds = %4
@@ -6202,14 +6202,14 @@ define internal void @cast_int_to_enum(ptr nocapture readnone %0, ptr nocapture 
   br label %4
 
 type_flatten.exit:                                ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 255
   %21 = icmp eq i16 %20, 14
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %type_flatten.exit
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 255
   %.not = icmp eq i16 %25, 8
@@ -6222,7 +6222,7 @@ type_flatten.exit:                                ; preds = %4
   %28 = and i16 %27, -256
   %29 = or disjoint i16 %28, 9
   store i16 %29, ptr %18, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 21, ptr %30, align 8
   %31 = load ptr, ptr @expr_arena, align 8
   %32 = ptrtoint ptr %26 to i64
@@ -6230,19 +6230,19 @@ type_flatten.exit:                                ; preds = %4
   %34 = sub i64 %32, %33
   %35 = sdiv exact i64 %34, 56
   %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %1, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %36, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %38, align 8
   br label %49
 
 39:                                               ; preds = %22
-  %40 = getelementptr inbounds i8, ptr %6, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 32
-  %45 = getelementptr inbounds i8, ptr %1, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr inbounds ptr, ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8
@@ -6257,14 +6257,14 @@ type_flatten.exit:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -6277,7 +6277,7 @@ define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocaptur
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 16, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -6285,24 +6285,24 @@ define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocaptur
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %32
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load double, ptr %26, align 8
   %28 = fcmp une double %27, 0.000000e+00
   %29 = zext i1 %28 to i8
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %29, ptr %26, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %30 = and i16 %5, -4082
   %31 = or disjoint i16 %30, 512
@@ -6316,14 +6316,14 @@ define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal void @cast_float_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Int, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, 255
   %8 = icmp eq i16 %7, 14
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i16, ptr %10, align 8
   %12 = and i16 %11, 255
   %.not = icmp eq i16 %12, 8
@@ -6336,7 +6336,7 @@ define internal void @cast_float_to_int(ptr nocapture readnone %0, ptr nocapture
   %15 = and i16 %14, -256
   %16 = or disjoint i16 %15, 9
   store i16 %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 18, ptr %17, align 8
   %18 = load ptr, ptr @expr_arena, align 8
   %19 = ptrtoint ptr %13 to i64
@@ -6344,21 +6344,21 @@ define internal void @cast_float_to_int(ptr nocapture readnone %0, ptr nocapture
   %21 = sub i64 %19, %20
   %22 = sdiv exact i64 %21, 56
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %1, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %23, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %25, align 8
   store ptr %2, ptr %1, align 8
   br label %46
 
 26:                                               ; preds = %9
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load double, ptr %27, align 8
   br label %29
 
 29:                                               ; preds = %42, %26
   %.0.i = phi ptr [ %2, %26 ], [ %.1.i, %42 ]
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %type_flatten.exit [
@@ -6368,15 +6368,15 @@ define internal void @cast_float_to_int(ptr nocapture readnone %0, ptr nocapture
   ]
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br label %42
 
 39:                                               ; preds = %29
-  %40 = getelementptr inbounds i8, ptr %31, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 56
   br label %42
 
 41:                                               ; preds = %29
@@ -6404,14 +6404,14 @@ type_flatten.exit:                                ; preds = %29
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_float_to_float(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -6424,7 +6424,7 @@ define internal void @cast_float_to_float(ptr nocapture readnone %0, ptr nocaptu
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 17, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -6432,22 +6432,22 @@ define internal void @cast_float_to_float(ptr nocapture readnone %0, ptr nocaptu
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %46
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load double, ptr %26, align 8
   store ptr %2, ptr %1, align 8
   br label %28
 
 28:                                               ; preds = %41, %25
   %.0.i = phi ptr [ %2, %25 ], [ %.1.i, %41 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %type_flatten.exit [
@@ -6457,15 +6457,15 @@ define internal void @cast_float_to_float(ptr nocapture readnone %0, ptr nocaptu
   ]
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   br label %41
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %30, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 56
   br label %41
 
 40:                                               ; preds = %28
@@ -6484,7 +6484,7 @@ type_flatten.exit:                                ; preds = %28
   %.0 = select i1 %cond, double %43, double %27
   store i16 0, ptr %9, align 8
   store double %.0, ptr %26, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %31, ptr %.sroa.8.0..sroa_idx, align 8
   %44 = and i16 %5, -4082
   %45 = or disjoint i16 %44, 512
@@ -6497,14 +6497,14 @@ type_flatten.exit:                                ; preds = %28
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %trunc = trunc i16 %10 to i8
   switch i8 %trunc, label %31 [
@@ -6519,7 +6519,7 @@ define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture 
   %13 = and i16 %12, -256
   %14 = or disjoint i16 %13, 9
   store i16 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 27, ptr %15, align 8
   %16 = load ptr, ptr @expr_arena, align 8
   %17 = ptrtoint ptr %11 to i64
@@ -6527,24 +6527,24 @@ define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture 
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 56
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %23, align 8
   store ptr %2, ptr %1, align 8
   br label %34
 
 24:                                               ; preds = %8
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = icmp ne i64 %26, 0
   %28 = zext i1 %27 to i8
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.423.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.423.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.423.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %28, ptr %25, align 8
-  %.sroa.525.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.525.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.525.0..sroa_idx, i8 0, i64 23, i1 false)
   %29 = and i16 %5, -4082
   %30 = or disjoint i16 %29, 512
@@ -6554,11 +6554,11 @@ define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture 
 31:                                               ; preds = %8
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
-  %.sroa.414.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 1, ptr %.sroa.414.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %32 = and i16 %5, -4082
   %33 = or disjoint i16 %32, 512
@@ -6571,14 +6571,14 @@ define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_ptr_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -6591,7 +6591,7 @@ define internal void @cast_ptr_to_int(ptr nocapture readnone %0, ptr nocapture n
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 29, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -6599,22 +6599,22 @@ define internal void @cast_ptr_to_int(ptr nocapture readnone %0, ptr nocapture n
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %59
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load i64, ptr %26, align 8
   store ptr %2, ptr %1, align 8
   br label %28
 
 28:                                               ; preds = %41, %25
   %.0.i = phi ptr [ %2, %25 ], [ %.1.i, %41 ]
-  %29 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %type_flatten.exit [
@@ -6624,15 +6624,15 @@ define internal void @cast_ptr_to_int(ptr nocapture readnone %0, ptr nocapture n
   ]
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   br label %41
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %30, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 56
   br label %41
 
 40:                                               ; preds = %28
@@ -6679,9 +6679,9 @@ type_flatten.exit:                                ; preds = %28
 
 54:                                               ; preds = %48, %50, %52, %47, %44, %46
   %.0 = phi i64 [ %27, %46 ], [ %27, %44 ], [ %27, %47 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ]
-  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %31, ptr %56, align 8
   %57 = and i16 %10, -512
   %58 = or disjoint i16 %57, 1
@@ -6694,14 +6694,14 @@ type_flatten.exit:                                ; preds = %28
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %trunc = trunc i16 %10 to i8
   switch i8 %trunc, label %37 [
@@ -6716,7 +6716,7 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
   %13 = and i16 %12, -256
   %14 = or disjoint i16 %13, 9
   store i16 %14, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 28, ptr %15, align 8
   %16 = load ptr, ptr @expr_arena, align 8
   %17 = ptrtoint ptr %11 to i64
@@ -6724,9 +6724,9 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
   %19 = sub i64 %17, %18
   %20 = sdiv exact i64 %19, 56
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %23, align 8
   store ptr %2, ptr %1, align 8
   br label %39
@@ -6745,9 +6745,9 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
   %32 = sub i64 %30, %31
   %33 = sdiv exact i64 %32, 56
   %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %1, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %34, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %36, align 8
   store ptr %2, ptr %1, align 8
   br label %39
@@ -6766,12 +6766,12 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 define internal void @cast_ptr_to_any(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 26, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -6779,9 +6779,9 @@ define internal void @cast_ptr_to_any(ptr nocapture readnone %0, ptr nocapture n
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -6794,7 +6794,7 @@ define internal void @cast_ptr_to_infer(ptr noundef %0, ptr noundef %1, ptr noun
 4:                                                ; preds = %.backedge, %3
   %.0.i.in = phi ptr [ %1, %3 ], [ %.0.i.in.be, %.backedge ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_flatten.exit [
@@ -6804,15 +6804,15 @@ define internal void @cast_ptr_to_infer(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %.backedge
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %14, %8
@@ -6831,21 +6831,21 @@ type_flatten.exit:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %12 = icmp eq i16 %11, 9
   br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %.critedge [
@@ -6857,7 +6857,7 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
 17:                                               ; preds = %13
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.440.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   %18 = and i16 %5, -4082
   %19 = or disjoint i16 %18, 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %.sroa.440.0..sroa_idx, i8 0, i64 30, i1 false)
@@ -6865,7 +6865,7 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
   br label %55
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %15, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not55 = icmp eq ptr %22, null
   br i1 %.not55, label %28, label %23
@@ -6881,10 +6881,10 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
   %.052 = phi i8 [ %27, %23 ], [ 0, %20 ]
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.429.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.429.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %.052, ptr %14, align 8
-  %.sroa.531.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.531.0..sroa_idx, i8 0, i64 23, i1 false)
   %29 = and i16 %5, -4082
   %30 = or disjoint i16 %29, 512
@@ -6892,7 +6892,7 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
   br label %55
 
 31:                                               ; preds = %13
-  %32 = getelementptr inbounds i8, ptr %15, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %33 = load ptr, ptr %32, align 8
   %.not = icmp eq ptr %33, null
   br i1 %.not, label %39, label %34
@@ -6908,10 +6908,10 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
   %.0 = phi i8 [ %38, %34 ], [ 0, %31 ]
   store ptr %2, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %.0, ptr %14, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %40 = and i16 %5, -4082
   %41 = or disjoint i16 %40, 512
@@ -6925,7 +6925,7 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
   %44 = and i16 %43, -256
   %45 = or disjoint i16 %44, 9
   store i16 %45, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 30, ptr %46, align 8
   %47 = load ptr, ptr @expr_arena, align 8
   %48 = ptrtoint ptr %42 to i64
@@ -6933,9 +6933,9 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
   %50 = sub i64 %48, %49
   %51 = sdiv exact i64 %50, 56
   %52 = trunc i64 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %1, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %52, ptr %53, align 4
-  %54 = getelementptr inbounds i8, ptr %1, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %54, align 8
   store ptr %2, ptr %1, align 8
   br label %55
@@ -6946,14 +6946,14 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_sa_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge2
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.off = add nsw i16 %11, -5
@@ -6967,7 +6967,7 @@ define internal void @cast_sa_to_ptr(ptr nocapture readnone %0, ptr nocapture no
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 31, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -6975,9 +6975,9 @@ define internal void @cast_sa_to_ptr(ptr nocapture readnone %0, ptr nocapture no
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   br label %25
 
@@ -6992,7 +6992,7 @@ define internal void @cast_sa_to_sa(ptr nocapture readnone %0, ptr nocapture nou
 
 4:                                                ; preds = %17, %3
   %.0.i = phi ptr [ %2, %3 ], [ %.1.i, %17 ]
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_flatten.exit [
@@ -7002,15 +7002,15 @@ define internal void @cast_sa_to_sa(ptr nocapture readnone %0, ptr nocapture nou
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %17
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %17
 
 16:                                               ; preds = %4
@@ -7023,13 +7023,13 @@ define internal void @cast_sa_to_sa(ptr nocapture readnone %0, ptr nocapture nou
   br label %4
 
 type_flatten.exit:                                ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %19
 
 19:                                               ; preds = %.backedge86, %type_flatten.exit
   %.0.i24.in = phi ptr [ %18, %type_flatten.exit ], [ %.0.i24.in.be, %.backedge86 ]
   %.0.i24 = load ptr, ptr %.0.i24.in, align 8
-  %20 = getelementptr inbounds i8, ptr %.0.i24, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %type_flatten.exit27 [
@@ -7039,15 +7039,15 @@ type_flatten.exit:                                ; preds = %4
   ]
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %.backedge86
 
 29:                                               ; preds = %19
-  %30 = getelementptr inbounds i8, ptr %21, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 56
   br label %.backedge86
 
 .backedge86:                                      ; preds = %29, %23
@@ -7061,7 +7061,7 @@ type_flatten.exit:                                ; preds = %4
 type_flatten.exit27:                              ; preds = %19, %type_flatten.exit27.backedge
   %.0.i28.in = phi ptr [ %.0.i28.in.be, %type_flatten.exit27.backedge ], [ %1, %19 ]
   %.0.i28 = load ptr, ptr %.0.i28.in, align 8
-  %32 = getelementptr inbounds i8, ptr %.0.i28, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i28, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 8
   switch i32 %34, label %type_flatten.exit31 [
@@ -7071,15 +7071,15 @@ type_flatten.exit27:                              ; preds = %19, %type_flatten.e
   ]
 
 35:                                               ; preds = %type_flatten.exit27
-  %36 = getelementptr inbounds i8, ptr %33, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   br label %type_flatten.exit27.backedge
 
 41:                                               ; preds = %type_flatten.exit27
-  %42 = getelementptr inbounds i8, ptr %33, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 56
   br label %type_flatten.exit27.backedge
 
 type_flatten.exit27.backedge:                     ; preds = %41, %35
@@ -7091,13 +7091,13 @@ type_flatten.exit27.backedge:                     ; preds = %41, %35
   unreachable
 
 type_flatten.exit31:                              ; preds = %type_flatten.exit27
-  %44 = getelementptr inbounds i8, ptr %33, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 56
   br label %45
 
 45:                                               ; preds = %.backedge, %type_flatten.exit31
   %.0.i32.in = phi ptr [ %44, %type_flatten.exit31 ], [ %.0.i32.in.be, %.backedge ]
   %.0.i32 = load ptr, ptr %.0.i32.in, align 8
-  %46 = getelementptr inbounds i8, ptr %.0.i32, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i32, ptr %47, align 8
   switch i32 %48, label %type_flatten.exit35 [
@@ -7107,15 +7107,15 @@ type_flatten.exit31:                              ; preds = %type_flatten.exit27
   ]
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %47, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 96
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 96
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   br label %.backedge
 
 55:                                               ; preds = %45
-  %56 = getelementptr inbounds i8, ptr %47, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %55, %49
@@ -7127,7 +7127,7 @@ type_flatten.exit31:                              ; preds = %type_flatten.exit27
   unreachable
 
 type_flatten.exit35:                              ; preds = %45
-  %58 = getelementptr inbounds i8, ptr %1, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %59 = load i16, ptr %58, align 8
   %60 = and i16 %59, 255
   %61 = icmp eq i16 %60, 14
@@ -7140,7 +7140,7 @@ type_flatten.exit35:                              ; preds = %45
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %21, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 8
   br label %69
@@ -7159,7 +7159,7 @@ type_flatten.exit35:                              ; preds = %45
   %75 = and i16 %74, -256
   %76 = or disjoint i16 %75, 9
   store i16 %76, ptr %58, align 8
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 32, ptr %77, align 8
   %78 = load ptr, ptr @expr_arena, align 8
   %79 = ptrtoint ptr %73 to i64
@@ -7167,9 +7167,9 @@ type_flatten.exit35:                              ; preds = %45
   %81 = sub i64 %79, %80
   %82 = sdiv exact i64 %81, 56
   %83 = trunc i64 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %1, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %1, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %85, align 8
   br label %86
 
@@ -7180,7 +7180,7 @@ type_flatten.exit35:                              ; preds = %45
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
@@ -7194,13 +7194,13 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr @expr_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.Expr_, ptr %12, i64 %13, i32 3
+  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %12, i64 %13, i32 3
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %16, align 8
@@ -7214,7 +7214,7 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
   %20 = and i16 %19, -256
   %21 = or disjoint i16 %20, 9
   store i16 %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 33, ptr %22, align 8
   %23 = load ptr, ptr @expr_arena, align 8
   %24 = ptrtoint ptr %18 to i64
@@ -7222,9 +7222,9 @@ define internal void @cast_sa_to_vecarr(ptr noundef %0, ptr noundef %1, ptr noun
   %26 = sub i64 %24, %25
   %27 = sdiv exact i64 %26, 56
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %1, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %28, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %30, align 8
   store ptr %2, ptr %1, align 8
   br label %33
@@ -7254,7 +7254,7 @@ define internal void @cast_sa_to_infer(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_vec_to_vec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
@@ -7263,7 +7263,7 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr nocapture noundef %1, 
 .preheader:                                       ; preds = %3, %.preheader.backedge
   %.0.i.in = phi ptr [ %.0.i.in.be, %.preheader.backedge ], [ %1, %3 ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %8 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %type_flatten.exit [
@@ -7273,15 +7273,15 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr nocapture noundef %1, 
   ]
 
 11:                                               ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %9, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %.preheader.backedge
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %9, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 56
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %17, %11
@@ -7293,13 +7293,13 @@ define internal void @cast_vec_to_vec(ptr noundef %0, ptr nocapture noundef %1, 
   unreachable
 
 type_flatten.exit:                                ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %9, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %35, %type_flatten.exit
   %.0.i71 = phi ptr [ %2, %type_flatten.exit ], [ %.1.i73, %35 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i71, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i71, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %type_flatten.exit74 [
@@ -7309,15 +7309,15 @@ type_flatten.exit:                                ; preds = %.preheader
   ]
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %24, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 96
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %35
 
 32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %24, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 56
   br label %35
 
 34:                                               ; preds = %22
@@ -7330,14 +7330,14 @@ type_flatten.exit:                                ; preds = %.preheader
   br label %22
 
 type_flatten.exit74:                              ; preds = %22
-  %36 = getelementptr inbounds i8, ptr %24, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %21, align 8
   %39 = icmp eq i32 %38, 31
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %type_flatten.exit74
-  %41 = getelementptr inbounds i8, ptr %21, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %42, align 8
   br label %44
@@ -7376,7 +7376,7 @@ type_flatten.exit74:                              ; preds = %22
   %52 = and i16 %51, -256
   %53 = or disjoint i16 %52, 9
   store i16 %53, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 17, ptr %54, align 8
   %55 = load ptr, ptr @expr_arena, align 8
   %56 = ptrtoint ptr %50 to i64
@@ -7384,9 +7384,9 @@ type_flatten.exit74:                              ; preds = %22
   %58 = sub i64 %56, %57
   %59 = sdiv exact i64 %58, 56
   %60 = trunc i64 %59 to i32
-  %61 = getelementptr inbounds i8, ptr %1, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %60, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %1, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %62, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7402,7 +7402,7 @@ type_flatten.exit74:                              ; preds = %22
   %67 = and i16 %66, -256
   %68 = or disjoint i16 %67, 9
   store i16 %68, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 18, ptr %69, align 8
   %70 = load ptr, ptr @expr_arena, align 8
   %71 = ptrtoint ptr %65 to i64
@@ -7410,9 +7410,9 @@ type_flatten.exit74:                              ; preds = %22
   %73 = sub i64 %71, %72
   %74 = sdiv exact i64 %73, 56
   %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %1, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %1, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %77, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7432,7 +7432,7 @@ type_flatten.exit74:                              ; preds = %22
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %37, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = load i32, ptr %87, align 8
   %89 = add i32 %88, -3
@@ -7451,7 +7451,7 @@ type_flatten.exit74:                              ; preds = %22
   %96 = and i16 %95, -256
   %97 = or disjoint i16 %96, 9
   store i16 %97, ptr %4, align 8
-  %98 = getelementptr inbounds i8, ptr %1, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 7, ptr %98, align 8
   %99 = load ptr, ptr @expr_arena, align 8
   %100 = ptrtoint ptr %94 to i64
@@ -7459,9 +7459,9 @@ type_flatten.exit74:                              ; preds = %22
   %102 = sub i64 %100, %101
   %103 = sdiv exact i64 %102, 56
   %104 = trunc i64 %103 to i32
-  %105 = getelementptr inbounds i8, ptr %1, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %104, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %1, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %106, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7479,7 +7479,7 @@ type_flatten.exit74:                              ; preds = %22
   %112 = and i16 %111, -256
   %113 = or disjoint i16 %112, 9
   store i16 %113, ptr %4, align 8
-  %114 = getelementptr inbounds i8, ptr %1, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 5, ptr %114, align 8
   %115 = load ptr, ptr @expr_arena, align 8
   %116 = ptrtoint ptr %110 to i64
@@ -7487,9 +7487,9 @@ type_flatten.exit74:                              ; preds = %22
   %118 = sub i64 %116, %117
   %119 = sdiv exact i64 %118, 56
   %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds i8, ptr %1, i64 28
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %120, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %1, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %122, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7502,7 +7502,7 @@ type_flatten.exit74:                              ; preds = %22
   br i1 %39, label %125, label %129
 
 125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %21, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %127 = load ptr, ptr %126, align 8
   %128 = load i32, ptr %127, align 8
   br label %129
@@ -7545,7 +7545,7 @@ type_flatten.exit74:                              ; preds = %22
   %137 = and i16 %136, -256
   %138 = or disjoint i16 %137, 9
   store i16 %138, ptr %4, align 8
-  %139 = getelementptr inbounds i8, ptr %1, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 22, ptr %139, align 8
   %140 = load ptr, ptr @expr_arena, align 8
   %141 = ptrtoint ptr %135 to i64
@@ -7553,9 +7553,9 @@ type_flatten.exit74:                              ; preds = %22
   %143 = sub i64 %141, %142
   %144 = sdiv exact i64 %143, 56
   %145 = trunc i64 %144 to i32
-  %146 = getelementptr inbounds i8, ptr %1, i64 28
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %145, ptr %146, align 4
-  %147 = getelementptr inbounds i8, ptr %1, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %147, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7571,7 +7571,7 @@ type_flatten.exit74:                              ; preds = %22
   %152 = and i16 %151, -256
   %153 = or disjoint i16 %152, 9
   store i16 %153, ptr %4, align 8
-  %154 = getelementptr inbounds i8, ptr %1, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 19, ptr %154, align 8
   %155 = load ptr, ptr @expr_arena, align 8
   %156 = ptrtoint ptr %150 to i64
@@ -7579,9 +7579,9 @@ type_flatten.exit74:                              ; preds = %22
   %158 = sub i64 %156, %157
   %159 = sdiv exact i64 %158, 56
   %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds i8, ptr %1, i64 28
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %160, ptr %161, align 4
-  %162 = getelementptr inbounds i8, ptr %1, i64 32
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %162, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7633,7 +7633,7 @@ type_flatten.exit74:                              ; preds = %22
   %171 = and i16 %170, -256
   %172 = or disjoint i16 %171, 9
   store i16 %172, ptr %4, align 8
-  %173 = getelementptr inbounds i8, ptr %1, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 39, ptr %173, align 8
   %174 = load ptr, ptr @expr_arena, align 8
   %175 = ptrtoint ptr %169 to i64
@@ -7641,9 +7641,9 @@ type_flatten.exit74:                              ; preds = %22
   %177 = sub i64 %175, %176
   %178 = sdiv exact i64 %177, 56
   %179 = trunc i64 %178 to i32
-  %180 = getelementptr inbounds i8, ptr %1, i64 28
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %179, ptr %180, align 4
-  %181 = getelementptr inbounds i8, ptr %1, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %181, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7655,7 +7655,7 @@ type_flatten.exit74:                              ; preds = %22
   %185 = and i16 %184, -256
   %186 = or disjoint i16 %185, 9
   store i16 %186, ptr %4, align 8
-  %187 = getelementptr inbounds i8, ptr %1, i64 24
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 28, ptr %187, align 8
   %188 = load ptr, ptr @expr_arena, align 8
   %189 = ptrtoint ptr %183 to i64
@@ -7663,9 +7663,9 @@ type_flatten.exit74:                              ; preds = %22
   %191 = sub i64 %189, %190
   %192 = sdiv exact i64 %191, 56
   %193 = trunc i64 %192 to i32
-  %194 = getelementptr inbounds i8, ptr %1, i64 28
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %193, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %1, i64 32
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %195, align 8
   store ptr %24, ptr %1, align 8
   br label %200
@@ -7675,7 +7675,7 @@ type_flatten.exit74:                              ; preds = %22
   unreachable
 
 197:                                              ; preds = %3
-  %198 = getelementptr inbounds i8, ptr %1, i64 32
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %199 = load ptr, ptr %198, align 8
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %199, ptr noundef %2)
   store ptr %2, ptr %1, align 8
@@ -7687,14 +7687,14 @@ type_flatten.exit74:                              ; preds = %22
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_vec_to_arr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -7707,7 +7707,7 @@ define internal void @cast_vec_to_arr(ptr nocapture readnone %0, ptr nocapture n
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 36, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -7715,16 +7715,16 @@ define internal void @cast_vec_to_arr(ptr nocapture readnone %0, ptr nocapture n
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   br label %29
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %2, ptr %28, align 8
   br label %29
 
@@ -7740,7 +7740,7 @@ define internal void @cast_vecarr_to_infer(ptr noundef %0, ptr noundef %1, ptr n
 4:                                                ; preds = %.backedge, %3
   %.0.i.in = phi ptr [ %1, %3 ], [ %.0.i.in.be, %.backedge ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_flatten.exit [
@@ -7750,15 +7750,15 @@ define internal void @cast_vecarr_to_infer(ptr noundef %0, ptr noundef %1, ptr n
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %.backedge
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %14, %8
@@ -7777,25 +7777,25 @@ type_flatten.exit:                                ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_bitstruct_to_int_arr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 9
   br i1 %7, label %8, label %19
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i8, ptr %9, align 8
   %11 = icmp eq i8 %10, 9
   br i1 %11, label %12, label %19
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = load ptr, ptr @expr_arena, align 8
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds %struct.Expr_, ptr %15, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %18, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %18, align 8
@@ -7808,7 +7808,7 @@ define internal void @cast_bitstruct_to_int_arr(ptr nocapture readnone %0, ptr n
   %22 = and i16 %21, -256
   %23 = or disjoint i16 %22, 9
   store i16 %23, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 8, ptr %24, align 8
   %25 = load ptr, ptr @expr_arena, align 8
   %26 = ptrtoint ptr %20 to i64
@@ -7816,9 +7816,9 @@ define internal void @cast_bitstruct_to_int_arr(ptr nocapture readnone %0, ptr n
   %28 = sub i64 %26, %27
   %29 = sdiv exact i64 %28, 56
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %1, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %32, align 8
   store ptr %2, ptr %1, align 8
   br label %33
@@ -7834,7 +7834,7 @@ define internal void @cast_arr_to_vec(ptr noundef %0, ptr nocapture noundef %1, 
 
 5:                                                ; preds = %18, %3
   %.0.i = phi ptr [ %4, %3 ], [ %.1.i, %18 ]
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %type_flatten.exit [
@@ -7844,15 +7844,15 @@ define internal void @cast_arr_to_vec(ptr noundef %0, ptr nocapture noundef %1, 
   ]
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %18
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   br label %18
 
 17:                                               ; preds = %5
@@ -7871,7 +7871,7 @@ type_flatten.exit:                                ; preds = %5
 
 21:                                               ; preds = %34, %type_flatten.exit
   %.0.i22 = phi ptr [ %20, %type_flatten.exit ], [ %.1.i24, %34 ]
-  %22 = getelementptr inbounds i8, ptr %.0.i22, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i22, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %23, align 8
   switch i32 %24, label %type_flatten.exit25 [
@@ -7881,15 +7881,15 @@ type_flatten.exit:                                ; preds = %5
   ]
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %23, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %34
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %23, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 56
   br label %34
 
 33:                                               ; preds = %21
@@ -7908,7 +7908,7 @@ type_flatten.exit25:                              ; preds = %21
 .preheader:                                       ; preds = %type_flatten.exit25, %.preheader.backedge
   %.0.i26.in = phi ptr [ %.0.i26.in.be, %.preheader.backedge ], [ %1, %type_flatten.exit25 ]
   %.0.i26 = load ptr, ptr %.0.i26.in, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i26, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i26, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   switch i32 %38, label %type_flatten.exit29 [
@@ -7918,15 +7918,15 @@ type_flatten.exit25:                              ; preds = %21
   ]
 
 39:                                               ; preds = %.preheader
-  %40 = getelementptr inbounds i8, ptr %37, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 96
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   br label %.preheader.backedge
 
 45:                                               ; preds = %.preheader
-  %46 = getelementptr inbounds i8, ptr %37, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 56
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %45, %39
@@ -7938,23 +7938,23 @@ type_flatten.exit25:                              ; preds = %21
   unreachable
 
 type_flatten.exit29:                              ; preds = %.preheader
-  %48 = getelementptr inbounds i8, ptr %37, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %49 = load i32, ptr %48, align 8
   %50 = tail call ptr @type_get_vector(ptr noundef nonnull %23, i32 noundef %49) #10
   br label %51
 
 51:                                               ; preds = %type_flatten.exit25, %type_flatten.exit29
   %52 = phi ptr [ %50, %type_flatten.exit29 ], [ %2, %type_flatten.exit25 ]
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load i16, ptr %53, align 8
   %55 = and i16 %54, 255
   %56 = icmp eq i16 %55, 14
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr %52, ptr %60, align 8
   br label %75
 
@@ -7965,7 +7965,7 @@ type_flatten.exit29:                              ; preds = %.preheader
   %64 = and i16 %63, -256
   %65 = or disjoint i16 %64, 9
   store i16 %65, ptr %53, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 3, ptr %66, align 8
   %67 = load ptr, ptr @expr_arena, align 8
   %68 = ptrtoint ptr %62 to i64
@@ -7973,9 +7973,9 @@ type_flatten.exit29:                              ; preds = %.preheader
   %70 = sub i64 %68, %69
   %71 = sdiv exact i64 %70, 56
   %72 = trunc i64 %71 to i32
-  %73 = getelementptr inbounds i8, ptr %1, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds i8, ptr %1, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %74, align 8
   br label %75
 
@@ -8002,12 +8002,12 @@ define internal void @cast_arr_to_arr(ptr nocapture readnone %0, ptr nocapture n
 define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 35, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8015,9 +8015,9 @@ define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocap
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8027,12 +8027,12 @@ define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocap
 define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 1, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8040,9 +8040,9 @@ define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture 
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8052,12 +8052,12 @@ define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture 
 define internal void @cast_any_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8065,9 +8065,9 @@ define internal void @cast_any_to_ptr(ptr nocapture readnone %0, ptr nocapture n
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8075,14 +8075,14 @@ define internal void @cast_any_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -8095,7 +8095,7 @@ define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocap
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 14, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -8103,25 +8103,25 @@ define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocap
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %33
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr @type_bool, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
   %30 = zext i1 %29 to i8
   store ptr %26, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %30, ptr %27, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %31 = and i16 %5, -4082
   %32 = or disjoint i16 %31, 512
@@ -8136,12 +8136,12 @@ define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocap
 define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 11, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8149,9 +8149,9 @@ define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8161,12 +8161,12 @@ define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture
 define internal void @cast_fault_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 12, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8174,9 +8174,9 @@ define internal void @cast_fault_to_ptr(ptr nocapture readnone %0, ptr nocapture
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8195,7 +8195,7 @@ define internal void @cast_enum_to_int(ptr nocapture readnone %0, ptr noundef %1
 4:                                                ; preds = %.backedge, %3
   %.0.i.in = phi ptr [ %1, %3 ], [ %.0.i.in.be, %.backedge ]
   %.0.i = load ptr, ptr %.0.i.in, align 8
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_base.exit [
@@ -8206,23 +8206,23 @@ define internal void @cast_enum_to_int(ptr nocapture readnone %0, ptr noundef %1
   ]
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %.backedge
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %.backedge
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %6, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %20, %14, %8
@@ -8234,7 +8234,7 @@ define internal void @cast_enum_to_int(ptr nocapture readnone %0, ptr noundef %1
   unreachable
 
 type_base.exit:                                   ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i16, ptr %23, align 8
   %trunc = trunc i16 %24 to i8
   switch i8 %trunc, label %.thread [
@@ -8243,10 +8243,10 @@ type_base.exit:                                   ; preds = %4
   ]
 
 25:                                               ; preds = %type_base.exit
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 88
   %30 = load i32, ptr %29, align 8
   %31 = zext i32 %30 to i64
   store ptr %6, ptr %1, align 8
@@ -8254,7 +8254,7 @@ type_base.exit:                                   ; preds = %4
 
 32:                                               ; preds = %45, %25
   %.0.i51 = phi ptr [ %6, %25 ], [ %.1.i53, %45 ]
-  %33 = getelementptr inbounds i8, ptr %.0.i51, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 8
   switch i32 %35, label %type_flatten.exit [
@@ -8264,15 +8264,15 @@ type_base.exit:                                   ; preds = %4
   ]
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %34, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br label %45
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %34, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %34, i64 56
   br label %45
 
 44:                                               ; preds = %32
@@ -8306,9 +8306,9 @@ type_flatten.exit:                                ; preds = %32
 
 53:                                               ; preds = %type_flatten.exit, %49, %51, %48
   %.0 = phi i64 [ %52, %51 ], [ %50, %49 ], [ %31, %type_flatten.exit ], [ %31, %48 ]
-  %54 = getelementptr inbounds i8, ptr %1, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %.0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 %35, ptr %55, align 8
   %56 = load i16, ptr %26, align 8
   %57 = and i16 %56, -512
@@ -8317,17 +8317,17 @@ type_flatten.exit:                                ; preds = %32
   br label %.thread
 
 59:                                               ; preds = %type_base.exit
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load i8, ptr %.phi.trans.insert, align 8
   %60 = icmp eq i8 %.pre, 21
   br i1 %60, label %61, label %.thread
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %1, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr @expr_arena, align 8
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds %struct.Expr_, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw %struct.Expr_, ptr %64, i64 %65
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %66, i64 56, i1 false)
   br label %.thread
 
@@ -8342,7 +8342,7 @@ type_flatten.exit:                                ; preds = %32
   br i1 %70, label %71, label %75
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %67, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = load i32, ptr %73, align 8
   br label %75
@@ -8370,14 +8370,14 @@ type_flatten.exit:                                ; preds = %32
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -8390,7 +8390,7 @@ define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocaptu
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 24, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -8398,25 +8398,25 @@ define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocaptu
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   br label %33
 
 25:                                               ; preds = %8
   %26 = load ptr, ptr @type_bool, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = icmp ne ptr %28, null
   %30 = zext i1 %29 to i8
   store ptr %26, ptr %1, align 8
   store i16 2, ptr %9, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 26
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.4.0..sroa_idx, i8 0, i64 6, i1 false)
   store i8 %30, ptr %27, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 33
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.5.0..sroa_idx, i8 0, i64 23, i1 false)
   %31 = and i16 %5, -4082
   %32 = or disjoint i16 %31, 512
@@ -8431,12 +8431,12 @@ define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocaptu
 define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 25, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8444,9 +8444,9 @@ define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocaptur
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8456,12 +8456,12 @@ define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocaptur
 define internal void @cast_typeid_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 23, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8469,9 +8469,9 @@ define internal void @cast_typeid_to_ptr(ptr nocapture readnone %0, ptr nocaptur
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8479,14 +8479,14 @@ define internal void @cast_typeid_to_ptr(ptr nocapture readnone %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
   %7 = icmp eq i16 %6, 14
   br i1 %7, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i16, ptr %9, align 8
   %11 = and i16 %10, 255
   %.not = icmp eq i16 %11, 8
@@ -8499,7 +8499,7 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
   %14 = and i16 %13, -256
   %15 = or disjoint i16 %14, 9
   store i16 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 15, ptr %16, align 8
   %17 = load ptr, ptr @expr_arena, align 8
   %18 = ptrtoint ptr %12 to i64
@@ -8507,9 +8507,9 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 56
   %22 = trunc i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %24, align 8
   store ptr %2, ptr %1, align 8
   %25 = load i16, ptr %16, align 8
@@ -8519,15 +8519,15 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
 
 28:                                               ; preds = %8, %.critedge
   %29 = phi i16 [ %10, %8 ], [ %25, %.critedge ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
   %33 = load ptr, ptr %32, align 8
   %.not16 = icmp eq ptr %33, %2
   br i1 %.not16, label %38, label %34
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %1, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = and i16 %29, -256
   %37 = or disjoint i16 %36, 7
   store i16 %37, ptr %35, align 8
@@ -8546,12 +8546,12 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
 define internal void @cast_vaptr_to_sa(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 2, ptr %9, align 8
   %10 = load ptr, ptr @expr_arena, align 8
   %11 = ptrtoint ptr %4 to i64
@@ -8559,9 +8559,9 @@ define internal void @cast_vaptr_to_sa(ptr nocapture readnone %0, ptr nocapture 
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 56
   %15 = trunc i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %1, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %15, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
   store ptr %2, ptr %1, align 8
   ret void
@@ -8569,14 +8569,14 @@ define internal void @cast_vaptr_to_sa(ptr nocapture readnone %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @cast_untyped_list_to_other(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @expr_recursively_rewrite_untyped_list(ptr noundef %1, ptr noundef %5)
   br label %6
 
 6:                                                ; preds = %19, %3
   %.0.i = phi ptr [ %2, %3 ], [ %.1.i, %19 ]
-  %7 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %type_flatten.exit [
@@ -8586,15 +8586,15 @@ define internal void @cast_untyped_list_to_other(ptr noundef %0, ptr noundef %1,
   ]
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %8, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %19
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %8, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 56
   br label %19
 
 18:                                               ; preds = %6
@@ -8620,12 +8620,12 @@ declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #2
 define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 noundef range(i32 0, 41) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
   %8 = or disjoint i16 %7, 9
   store i16 %8, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = trunc nuw nsw i32 %1 to i8
   store i8 %10, ptr %9, align 8
   %11 = load ptr, ptr @expr_arena, align 8
@@ -8634,9 +8634,9 @@ define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 n
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 56
   %16 = trunc i64 %15 to i32
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %18, align 8
   store ptr %2, ptr %0, align 8
   ret void
@@ -8651,7 +8651,7 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, ptr %.24.val, i1 noundef zeroext %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %.8.val, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %3 = load ptr, ptr %.8.val, align 8
   %.not29 = icmp eq ptr %3, null
   br i1 %0, label %4, label %23
@@ -8665,7 +8665,7 @@ define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, p
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -8682,7 +8682,7 @@ define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, p
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.24.val, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %.24.val, i64 56
   %19 = load ptr, ptr %18, align 8
   br label %20
 
@@ -8702,7 +8702,7 @@ define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, p
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -8728,7 +8728,7 @@ declare ptr @expr_const_to_error_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 256
   %.not = icmp eq i16 %6, 0
@@ -8741,8 +8741,8 @@ define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, p
   br i1 %.not15, label %17, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i64, ptr %12, align 8
   %14 = trunc i64 %13 to i32
   %15 = tail call ptr @type_quoted_error_string(ptr noundef %2) #10
@@ -8756,10 +8756,10 @@ define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, p
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %25 = load i32, ptr %24, align 8
   %26 = tail call ptr @type_quoted_error_string(ptr noundef %2) #10
   %27 = load i64, ptr %21, align 8
@@ -8772,7 +8772,7 @@ define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, p
   br i1 %.not16, label %33, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = tail call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %31, i32 noundef 16) #10
   br label %35
 
@@ -8782,7 +8782,7 @@ define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, p
 
 35:                                               ; preds = %33, %30
   %36 = phi ptr [ %32, %30 ], [ %34, %33 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = tail call ptr @type_quoted_error_string(ptr noundef %2) #10
   %39 = load i64, ptr %37, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %39, ptr noundef nonnull @.str.16, ptr noundef %36, ptr noundef %38) #10
@@ -8798,7 +8798,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 
 .backedge:                                        ; preds = %.backedge.backedge, %2
   %.053 = phi ptr [ %0, %2 ], [ %.053.be, %.backedge.backedge ]
-  %3 = getelementptr inbounds i8, ptr %.053, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %4 = load i16, ptr %3, align 8
   %trunc = trunc i16 %4 to i8
   switch i8 %trunc, label %.loopexit [
@@ -8817,8 +8817,8 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   ]
 
 5:                                                ; preds = %.backedge, %.backedge
-  %6 = getelementptr inbounds i8, ptr %.053, i64 24
-  %7 = getelementptr inbounds i8, ptr %.053, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.053, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.053, i64 32
   %8 = load i8, ptr %7, align 8
   switch i8 %8, label %28 [
     i8 0, label %9
@@ -8862,24 +8862,24 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %11 = load i32, ptr %6, align 8
   %12 = load ptr, ptr @expr_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds %struct.Expr_, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %12, i64 %13
   %15 = tail call fastcc ptr @recursive_may_narrow(ptr noundef %14, ptr noundef %1)
   %.not63 = icmp eq ptr %15, null
   br i1 %.not63, label %16, label %.loopexit72
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %.053, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %.053, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr @expr_arena, align 8
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds %struct.Expr_, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw %struct.Expr_, ptr %19, i64 %20
   br label %.backedge.backedge
 
 22:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5, %5
   %23 = load i32, ptr %6, align 8
   %24 = load ptr, ptr @expr_arena, align 8
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds %struct.Expr_, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw %struct.Expr_, ptr %24, i64 %25
   br label %.backedge.backedge
 
 27:                                               ; preds = %5, %5, %5, %5, %5, %5, %5, %5
@@ -8891,7 +8891,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   unreachable
 
 29:                                               ; preds = %.backedge
-  %30 = getelementptr inbounds i8, ptr %.053, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %31 = load i8, ptr %30, align 8
   switch i8 %31, label %37 [
     i8 0, label %32
@@ -8916,7 +8916,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   unreachable
 
 38:                                               ; preds = %.backedge
-  %39 = getelementptr inbounds i8, ptr %.053, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not61 = icmp eq ptr %40, null
   br i1 %.not61, label %.backedge.backedge, label %41
@@ -8930,7 +8930,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
 44:                                               ; preds = %41
   %45 = add i32 %43, -1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %40, i64 %46
+  %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %46
   %48 = load ptr, ptr %47, align 8
   br label %.backedge.backedge
 
@@ -8939,13 +8939,13 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br label %.backedge
 
 49:                                               ; preds = %.backedge
-  %50 = getelementptr inbounds i8, ptr %.053, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %.053, i64 28
   %51 = load i32, ptr %50, align 4
   %.not59 = icmp eq i32 %51, 0
   br i1 %.not59, label %52, label %55
 
 52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %.053, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %54 = load i32, ptr %53, align 8
   br label %55
 
@@ -8953,21 +8953,21 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %56 = phi i32 [ %54, %52 ], [ %51, %49 ]
   %57 = load ptr, ptr @expr_arena, align 8
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds %struct.Expr_, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw %struct.Expr_, ptr %57, i64 %58
   %60 = tail call fastcc ptr @recursive_may_narrow(ptr noundef %59, ptr noundef %1)
   %.not60 = icmp eq ptr %60, null
   br i1 %.not60, label %61, label %.loopexit72
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %.053, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.053, i64 32
   %63 = load i32, ptr %62, align 8
   %64 = load ptr, ptr @expr_arena, align 8
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds %struct.Expr_, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw %struct.Expr_, ptr %64, i64 %65
   br label %.backedge.backedge
 
 67:                                               ; preds = %.backedge
-  %68 = getelementptr inbounds i8, ptr %.053, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %69 = load i8, ptr %68, align 8
   switch i8 %69, label %.loopexit [
     i8 19, label %70
@@ -8982,11 +8982,11 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br i1 %.not, label %74, label %.loopexit72
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %.053, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %.053, i64 28
   %76 = load i32, ptr %75, align 4
   %77 = load ptr, ptr @expr_arena, align 8
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds %struct.Expr_, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw %struct.Expr_, ptr %77, i64 %78
   br label %.backedge.backedge
 
 80:                                               ; preds = %.backedge
@@ -8995,7 +8995,7 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %80
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   %86 = load i32, ptr %85, align 8
   br label %87
@@ -9004,12 +9004,12 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   %.051 = phi i32 [ %86, %83 ], [ %81, %80 ]
   %88 = add i32 %.051, -3
   %89 = icmp ult i32 %88, 10
-  %90 = getelementptr inbounds i8, ptr %.053, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   br i1 %89, label %.preheader, label %.preheader109
 
 .preheader:                                       ; preds = %87, %103
   %.0.i = phi ptr [ %.1.i, %103 ], [ %1, %87 ]
-  %91 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %92, align 8
   switch i32 %93, label %type_flatten.exit [
@@ -9019,15 +9019,15 @@ define internal fastcc ptr @recursive_may_narrow(ptr noundef %0, ptr noundef %1)
   ]
 
 94:                                               ; preds = %.preheader
-  %95 = getelementptr inbounds i8, ptr %92, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 96
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 96
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   br label %103
 
 100:                                              ; preds = %.preheader
-  %101 = getelementptr inbounds i8, ptr %92, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %92, i64 56
   br label %103
 
 102:                                              ; preds = %.preheader
@@ -9046,7 +9046,7 @@ type_flatten.exit:                                ; preds = %.preheader
 
 .preheader109:                                    ; preds = %87, %117
   %.0.i66 = phi ptr [ %.1.i68, %117 ], [ %1, %87 ]
-  %105 = getelementptr inbounds i8, ptr %.0.i66, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = load i32, ptr %106, align 8
   switch i32 %107, label %type_flatten.exit69 [
@@ -9056,15 +9056,15 @@ type_flatten.exit:                                ; preds = %.preheader
   ]
 
 108:                                              ; preds = %.preheader109
-  %109 = getelementptr inbounds i8, ptr %106, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 96
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %117
 
 114:                                              ; preds = %.preheader109
-  %115 = getelementptr inbounds i8, ptr %106, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %106, i64 56
   br label %117
 
 116:                                              ; preds = %.preheader109
@@ -9082,22 +9082,22 @@ type_flatten.exit69:                              ; preds = %.preheader109
   br label %.loopexit72
 
 119:                                              ; preds = %.backedge
-  %120 = getelementptr inbounds i8, ptr %.053, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %121 = load ptr, ptr %120, align 8
   br label %.backedge.backedge
 
 122:                                              ; preds = %.backedge, %.backedge
-  %123 = getelementptr inbounds i8, ptr %.053, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %124 = load ptr, ptr %123, align 8
   br label %.backedge.backedge
 
 125:                                              ; preds = %.backedge
-  %126 = getelementptr inbounds i8, ptr %.053, i64 24
+  %126 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %127 = load ptr, ptr %126, align 8
   br label %.backedge.backedge
 
 128:                                              ; preds = %.backedge
-  %129 = getelementptr inbounds i8, ptr %.053, i64 32
+  %129 = getelementptr inbounds nuw i8, ptr %.053, i64 32
   %130 = load i8, ptr %129, align 8
   switch i8 %130, label %.loopexit [
     i8 0, label %131
@@ -9116,7 +9116,7 @@ type_flatten.exit69:                              ; preds = %.preheader109
   unreachable
 
 132:                                              ; preds = %128, %128, %128, %128, %128
-  %133 = getelementptr inbounds i8, ptr %.053, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %.053, i64 24
   %134 = load ptr, ptr %133, align 8
   br label %.backedge.backedge
 
@@ -9180,7 +9180,7 @@ define internal fastcc void @vector_const_initializer_convert_to_type(ptr nounde
 
 .preheader:                                       ; preds = %3, %17
   %.0.i = phi ptr [ %.1.i, %17 ], [ %2, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   switch i32 %7, label %type_flatten.exit [
@@ -9190,15 +9190,15 @@ define internal fastcc void @vector_const_initializer_convert_to_type(ptr nounde
   ]
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %6, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %17
 
 14:                                               ; preds = %.preheader
-  %15 = getelementptr inbounds i8, ptr %6, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %17
 
 16:                                               ; preds = %.preheader
@@ -9211,9 +9211,9 @@ define internal fastcc void @vector_const_initializer_convert_to_type(ptr nounde
   br label %.preheader
 
 type_flatten.exit:                                ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %6, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not69 = icmp eq ptr %21, null
   br i1 %.not69, label %.loopexit, label %22
@@ -9230,7 +9230,7 @@ type_flatten.exit:                                ; preds = %.preheader
 
 .lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
   %indvars.iv105 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next106, %.lr.ph94 ]
-  %25 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv105
+  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv105
   %26 = load ptr, ptr %25, align 8
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %26, ptr noundef %19)
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
@@ -9239,7 +9239,7 @@ type_flatten.exit:                                ; preds = %.preheader
 
 .preheader83:                                     ; preds = %3, %39
   %.0.i70 = phi ptr [ %.1.i72, %39 ], [ %2, %3 ]
-  %27 = getelementptr inbounds i8, ptr %.0.i70, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 8
   switch i32 %29, label %type_flatten.exit73 [
@@ -9249,15 +9249,15 @@ type_flatten.exit:                                ; preds = %.preheader
   ]
 
 30:                                               ; preds = %.preheader83
-  %31 = getelementptr inbounds i8, ptr %28, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %39
 
 36:                                               ; preds = %.preheader83
-  %37 = getelementptr inbounds i8, ptr %28, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 56
   br label %39
 
 38:                                               ; preds = %.preheader83
@@ -9270,9 +9270,9 @@ type_flatten.exit:                                ; preds = %.preheader
   br label %.preheader83
 
 type_flatten.exit73:                              ; preds = %.preheader83
-  %40 = getelementptr inbounds i8, ptr %28, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not68 = icmp eq ptr %43, null
   br i1 %.not68, label %.loopexit, label %44
@@ -9289,7 +9289,7 @@ type_flatten.exit73:                              ; preds = %.preheader83
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %48, ptr noundef %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9298,7 +9298,7 @@ type_flatten.exit73:                              ; preds = %.preheader83
 
 .preheader84:                                     ; preds = %3, %61
   %.0.i74 = phi ptr [ %.1.i76, %61 ], [ %2, %3 ]
-  %49 = getelementptr inbounds i8, ptr %.0.i74, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i74, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
   switch i32 %51, label %type_flatten.exit77 [
@@ -9308,15 +9308,15 @@ type_flatten.exit73:                              ; preds = %.preheader83
   ]
 
 52:                                               ; preds = %.preheader84
-  %53 = getelementptr inbounds i8, ptr %50, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 96
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   br label %61
 
 58:                                               ; preds = %.preheader84
-  %59 = getelementptr inbounds i8, ptr %50, i64 56
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 56
   br label %61
 
 60:                                               ; preds = %.preheader84
@@ -9329,13 +9329,13 @@ type_flatten.exit73:                              ; preds = %.preheader83
   br label %.preheader84
 
 type_flatten.exit77:                              ; preds = %.preheader84
-  %62 = getelementptr inbounds i8, ptr %1, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %63
 
 63:                                               ; preds = %.backedge, %type_flatten.exit77
   %.0.i78.in = phi ptr [ %62, %type_flatten.exit77 ], [ %.0.i78.in.be, %.backedge ]
   %.0.i78 = load ptr, ptr %.0.i78.in, align 8
-  %64 = getelementptr inbounds i8, ptr %.0.i78, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i78, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %65, align 8
   switch i32 %66, label %type_flatten.exit81 [
@@ -9345,15 +9345,15 @@ type_flatten.exit77:                              ; preds = %.preheader84
   ]
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %65, i64 56
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %.backedge
 
 73:                                               ; preds = %63
-  %74 = getelementptr inbounds i8, ptr %65, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %65, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %73, %67
@@ -9367,22 +9367,22 @@ type_flatten.exit77:                              ; preds = %.preheader84
 type_flatten.exit81:                              ; preds = %63
   %76 = load ptr, ptr @type_bool, align 8
   %77 = icmp eq ptr %65, %76
-  %78 = getelementptr inbounds i8, ptr %1, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %79 = load ptr, ptr %78, align 8
   br i1 %77, label %80, label %.critedge
 
 80:                                               ; preds = %type_flatten.exit81
-  %81 = getelementptr inbounds i8, ptr %79, i64 24
-  %82 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %83 = load i8, ptr %82, align 8
   %84 = and i8 %83, 1
   %85 = zext nneg i8 %84 to i64
   %. = sub nsw i64 0, %85
   store i16 1, ptr %81, align 8
   store i64 %., ptr %82, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 40
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 40
   store i64 %., ptr %.sroa.9.0..sroa_idx, align 8
-  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %79, i64 48
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i32 %51, ptr %.sroa.11.0..sroa_idx, align 8
   %86 = load ptr, ptr %78, align 8
   store ptr %2, ptr %86, align 8
@@ -9399,7 +9399,7 @@ type_flatten.exit81:                              ; preds = %63
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %88
-  %92 = getelementptr inbounds i8, ptr %87, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = load i32, ptr %93, align 8
   br label %95
@@ -9419,27 +9419,27 @@ type_flatten.exit81:                              ; preds = %63
   unreachable
 
 99:                                               ; preds = %3
-  %100 = getelementptr inbounds i8, ptr %1, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %101 = load ptr, ptr %100, align 8
   tail call fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef %101, ptr noundef %2)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph94, %type_flatten.exit73, %type_flatten.exit, %44, %22, %80, %97, %99, %3
-  %102 = getelementptr inbounds i8, ptr %1, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %102, align 8
   ret void
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @expr_recursively_rewrite_untyped_list(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 255
   %6 = icmp eq i16 %5, 14
   br i1 %6, label %7, label %.critedge
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i16, ptr %8, align 8
   %10 = and i16 %9, 255
   %11 = icmp eq i16 %10, 10
@@ -9465,9 +9465,9 @@ define internal fastcc void @expr_recursively_rewrite_untyped_list(ptr nocapture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @expr_recursively_rewrite_untyped_list(ptr noundef %19, ptr noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

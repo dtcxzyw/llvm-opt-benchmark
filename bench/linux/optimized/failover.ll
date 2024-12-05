@@ -70,7 +70,7 @@ define dso_local noundef range(i32 0, 2) i32 @failover_slave_unregister(ptr noun
   br label %11
 
 11:                                               ; preds = %10, %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 780
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 780
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
   %13 = getelementptr i8, ptr %0, i64 784
   br label %14
@@ -86,9 +86,9 @@ define dso_local noundef range(i32 0, 2) i32 @failover_slave_unregister(ptr noun
   br label %57
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 780
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 780
   %22 = load i32, ptr %21, align 4
   %23 = load i32, ptr %12, align 4
   %24 = xor i32 %23, %22
@@ -102,7 +102,7 @@ define dso_local noundef range(i32 0, 2) i32 @failover_slave_unregister(ptr noun
   br i1 %31, label %32, label %14, !llvm.loop !11
 
 32:                                               ; preds = %18
-  %33 = getelementptr inbounds i8, ptr %16, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #7
   %35 = icmp eq ptr %20, null
@@ -113,7 +113,7 @@ define dso_local noundef range(i32 0, 2) i32 @failover_slave_unregister(ptr noun
   br i1 %37, label %54, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %34, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %45, label %42
@@ -129,7 +129,7 @@ define dso_local noundef range(i32 0, 2) i32 @failover_slave_unregister(ptr noun
   %46 = load i64, ptr %0, align 8
   %47 = and i64 %46, -1342177281
   store i64 %47, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %34, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %57, label %51
@@ -175,7 +175,7 @@ declare dso_local void @netdev_upper_dev_unlink(ptr noundef, ptr noundef) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @failover_register(ptr noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 1
   br i1 %5, label %6, label %54
@@ -188,13 +188,13 @@ define dso_local noundef ptr @failover_register(ptr noundef %0, ptr noundef %1) 
 
 10:                                               ; preds = %6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !14
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store volatile ptr %1, ptr %11, align 8
   %12 = icmp eq ptr %0, null
   br i1 %12, label %16, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 1280
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %15 = load ptr, ptr %14, align 8
   tail call void asm sideeffect "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15, ptr elementtype(i32) %15) #7, !srcloc !15
   br label %16
@@ -204,28 +204,28 @@ define dso_local noundef ptr @failover_register(ptr noundef %0, ptr noundef %1) 
   %18 = or i64 %17, 134217728
   store i64 %18, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !16
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store volatile ptr %0, ptr %19, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
   %20 = load ptr, ptr getelementptr inbounds (i8, ptr @failover_list, i64 8), align 8
   store ptr %8, ptr getelementptr inbounds (i8, ptr @failover_list, i64 8), align 8
   store ptr @failover_list, ptr %8, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %20, ptr %21, align 8
   store volatile ptr %8, ptr %20, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 296
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %22) #9
-  %23 = getelementptr inbounds i8, ptr %0, i64 272
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %22) #9
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %24 = load ptr, ptr %23, align 8
   tail call void @rtnl_lock() #7
-  %25 = getelementptr inbounds i8, ptr %24, i64 144
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 144
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %25
   br i1 %27, label %.loopexit, label %28
 
 28:                                               ; preds = %16
-  %29 = getelementptr inbounds i8, ptr %0, i64 780
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %30 = getelementptr i8, ptr %0, i64 784
   br label %31
 
@@ -274,10 +274,10 @@ declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @failover_unregister(ptr noundef %0) #4 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load volatile ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 296
-  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef %4) #9
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 296
+  tail call void (ptr, ptr, ...) @netdev_info(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #9
   %5 = load i64, ptr %3, align 8
   %6 = and i64 %5, -134217729
   store i64 %6, ptr %3, align 8
@@ -285,17 +285,17 @@ define dso_local void @failover_unregister(ptr noundef %0) #4 align 16 {
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 1280
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 1280
   %10 = load ptr, ptr %9, align 8
   tail call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, ptr elementtype(i32) %10) #7, !srcloc !19
   br label %11
 
 11:                                               ; preds = %8, %1
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %13, ptr %15, align 8
   store volatile ptr %14, ptr %13, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %0, align 8
@@ -339,7 +339,7 @@ declare dso_local void @rtnl_lock() local_unnamed_addr #2
 define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca %struct.netdev_lag_upper_info, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 552
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load i16, ptr %3, align 8
   %5 = icmp eq i16 %4, 1
   br i1 %5, label %6, label %70
@@ -363,7 +363,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr 
 
 12:                                               ; preds = %11, %6
   store i64 4, ptr %2, align 8, !annotation !25
-  %13 = getelementptr inbounds i8, ptr %0, i64 780
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 780
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
   %14 = getelementptr i8, ptr %0, i64 784
   br label %15
@@ -379,9 +379,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr 
   br label %70
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 780
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 780
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %13, align 4
   %25 = xor i32 %24, %23
@@ -395,7 +395,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr 
   br i1 %32, label %33, label %15, !llvm.loop !11
 
 33:                                               ; preds = %19
-  %34 = getelementptr inbounds i8, ptr %17, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %35 = load ptr, ptr %34, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #7
   %36 = icmp eq ptr %21, null
@@ -416,7 +416,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr 
   br i1 %44, label %45, label %70
 
 45:                                               ; preds = %42, %39, %37
-  %46 = getelementptr inbounds i8, ptr %35, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @netdev_rx_handler_register(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %21) #7
   %49 = icmp eq i32 %48, 0
@@ -432,8 +432,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr 
   br i1 %53, label %56, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %21, i64 296
-  call void (ptr, ptr, ...) @netdev_err(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef %55, i32 noundef %52) #9
+  %55 = getelementptr inbounds nuw i8, ptr %21, i64 296
+  call void (ptr, ptr, ...) @netdev_err(ptr noundef %0, ptr noundef nonnull @.str.6, ptr noundef nonnull %55, i32 noundef %52) #9
   br label %69
 
 56:                                               ; preds = %51
@@ -443,7 +443,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @failover_slave_register(ptr 
   br i1 %38, label %66, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %35, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %66, label %63
@@ -534,7 +534,7 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br label %22
 
 22:                                               ; preds = %21, %16
-  %23 = getelementptr inbounds i8, ptr %4, i64 780
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 780
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
   %24 = getelementptr i8, ptr %4, i64 784
   br label %25
@@ -550,9 +550,9 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br label %61
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 780
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 780
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %23, align 4
   %35 = xor i32 %34, %33
@@ -566,14 +566,14 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br i1 %42, label %43, label %25, !llvm.loop !11
 
 43:                                               ; preds = %29
-  %44 = getelementptr inbounds i8, ptr %27, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #7
   %46 = icmp eq ptr %31, null
   br i1 %46, label %61, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %31, i64 352
+  %48 = getelementptr inbounds nuw i8, ptr %31, i64 352
   %49 = load volatile i64, ptr %48, align 8
   %50 = and i64 %49, 1
   %51 = icmp ne i64 %50, 0
@@ -582,7 +582,7 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br i1 %53, label %54, label %61
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %45, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %61, label %58
@@ -618,7 +618,7 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br label %71
 
 71:                                               ; preds = %70, %65
-  %72 = getelementptr inbounds i8, ptr %4, i64 780
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 780
   tail call void @_raw_spin_lock(ptr noundef nonnull @failover_lock) #7
   %73 = getelementptr i8, ptr %4, i64 784
   br label %74
@@ -634,9 +634,9 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br label %110
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %76, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 780
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 780
   %82 = load i32, ptr %81, align 4
   %83 = load i32, ptr %72, align 4
   %84 = xor i32 %83, %82
@@ -650,14 +650,14 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br i1 %91, label %92, label %74, !llvm.loop !11
 
 92:                                               ; preds = %78
-  %93 = getelementptr inbounds i8, ptr %76, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %94 = load ptr, ptr %93, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @failover_lock) #7
   %95 = icmp eq ptr %80, null
   br i1 %95, label %110, label %96
 
 96:                                               ; preds = %92
-  %97 = getelementptr inbounds i8, ptr %80, i64 352
+  %97 = getelementptr inbounds nuw i8, ptr %80, i64 352
   %98 = load volatile i64, ptr %97, align 8
   %99 = and i64 %98, 1
   %100 = icmp ne i64 %99, 0
@@ -666,7 +666,7 @@ define internal noundef range(i32 0, 2) i32 @failover_event(ptr nocapture readno
   br i1 %102, label %103, label %110
 
 103:                                              ; preds = %96
-  %104 = getelementptr inbounds i8, ptr %94, i64 40
+  %104 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %110, label %107

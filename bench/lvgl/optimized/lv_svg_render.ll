@@ -140,25 +140,25 @@ define internal void @_freetype_outline_cb(ptr noundef %0) #0 {
   %48 = load i32, ptr %47, align 4, !tbaa !21
   %49 = sitofp i32 %48 to float
   %50 = fmul float %49, 1.562500e-02
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %50, ptr %51, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %53 = load i32, ptr %52, align 4, !tbaa !22
   %54 = sitofp i32 %53 to float
   %55 = fmul float %54, -1.562500e-02
-  %56 = getelementptr inbounds i8, ptr %4, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %55, ptr %56, align 4, !tbaa !18
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !13
   %59 = sitofp i32 %58 to float
   %60 = fmul float %59, 1.562500e-02
-  %61 = getelementptr inbounds i8, ptr %4, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store float %60, ptr %61, align 16, !tbaa !14
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %63 = load i32, ptr %62, align 4, !tbaa !17
   %64 = sitofp i32 %63 to float
   %65 = fmul float %64, -1.562500e-02
-  %66 = getelementptr inbounds i8, ptr %4, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float %65, ptr %66, align 4, !tbaa !18
   %67 = load ptr, ptr %7, align 8, !tbaa !8
   call void @lv_vector_path_cubic_to(ptr noundef %67, ptr noundef nonnull %4, ptr noundef nonnull %51, ptr noundef nonnull %61) #9
@@ -182,13 +182,13 @@ define internal void @_freetype_outline_cb(ptr noundef %0) #0 {
   %79 = load i32, ptr %78, align 4, !tbaa !13
   %80 = sitofp i32 %79 to float
   %81 = fmul float %80, 1.562500e-02
-  %82 = getelementptr inbounds i8, ptr %5, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %81, ptr %82, align 8, !tbaa !14
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %84 = load i32, ptr %83, align 4, !tbaa !17
   %85 = sitofp i32 %84 to float
   %86 = fmul float %85, -1.562500e-02
-  %87 = getelementptr inbounds i8, ptr %5, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %86, ptr %87, align 4, !tbaa !18
   %88 = load ptr, ptr %7, align 8, !tbaa !8
   call void @lv_vector_path_quad_to(ptr noundef %88, ptr noundef nonnull %5, ptr noundef nonnull %82) #9
@@ -1396,7 +1396,7 @@ define internal void @_set_viewport_attr(ptr noundef %0, ptr nocapture noundef w
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !166
   %20 = load float, ptr %19, align 4, !tbaa !168
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !168
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %24 = load float, ptr %23, align 8, !tbaa !160
@@ -1404,7 +1404,7 @@ define internal void @_set_viewport_attr(ptr noundef %0, ptr nocapture noundef w
   br i1 %25, label %26, label %32
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %28 = load float, ptr %27, align 4, !tbaa !168
   %29 = fcmp ogt float %28, 0.000000e+00
   br i1 %29, label %30, label %32
@@ -1421,7 +1421,7 @@ define internal void @_set_viewport_attr(ptr noundef %0, ptr nocapture noundef w
   br i1 %35, label %36, label %42
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %19, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %38 = load float, ptr %37, align 4, !tbaa !168
   %39 = fcmp ogt float %38, 0.000000e+00
   br i1 %39, label %40, label %42
@@ -2585,17 +2585,17 @@ define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
 .lr.ph:                                           ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 12
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
-  %21 = getelementptr inbounds i8, ptr %7, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 588
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %28 = getelementptr inbounds i8, ptr %6, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 4
   br label %31
@@ -2736,10 +2736,10 @@ define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %98 = getelementptr inbounds nuw i8, ptr %.0125, i64 8
   %99 = load float, ptr %98, align 4, !tbaa !193
   store float %99, ptr %26, align 4, !tbaa !18
-  %100 = getelementptr inbounds i8, ptr %.0125, i64 12
+  %100 = getelementptr inbounds nuw i8, ptr %.0125, i64 12
   %101 = load float, ptr %100, align 4, !tbaa !190
   store float %101, ptr %27, align 8, !tbaa !14
-  %102 = getelementptr inbounds i8, ptr %.0125, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.0125, i64 16
   %103 = load float, ptr %102, align 4, !tbaa !193
   store float %103, ptr %28, align 4, !tbaa !18
   %104 = load ptr, ptr %11, align 8, !tbaa !187
@@ -2846,16 +2846,16 @@ define internal void @_set_path_attr(ptr noundef %0, ptr noundef %1, ptr nocaptu
   %158 = getelementptr inbounds nuw i8, ptr %.0125, i64 8
   %159 = load float, ptr %158, align 4, !tbaa !193
   store float %159, ptr %17, align 4, !tbaa !18
-  %160 = getelementptr inbounds i8, ptr %.0125, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %.0125, i64 12
   %161 = load float, ptr %160, align 4, !tbaa !190
   store float %161, ptr %18, align 8, !tbaa !14
-  %162 = getelementptr inbounds i8, ptr %.0125, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %.0125, i64 16
   %163 = load float, ptr %162, align 4, !tbaa !193
   store float %163, ptr %19, align 4, !tbaa !18
-  %164 = getelementptr inbounds i8, ptr %.0125, i64 20
+  %164 = getelementptr inbounds nuw i8, ptr %.0125, i64 20
   %165 = load float, ptr %164, align 4, !tbaa !190
   store float %165, ptr %20, align 16, !tbaa !14
-  %166 = getelementptr inbounds i8, ptr %.0125, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %.0125, i64 24
   %167 = load float, ptr %166, align 4, !tbaa !193
   store float %167, ptr %21, align 4, !tbaa !18
   %168 = load ptr, ptr %11, align 8, !tbaa !187

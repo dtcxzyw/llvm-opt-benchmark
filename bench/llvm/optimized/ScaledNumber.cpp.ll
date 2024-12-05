@@ -396,7 +396,7 @@ define dso_local void @_ZN4llvm16ScaledNumberBase8toStringB5cxx11Emsij(ptr dead_
   %65 = shl i64 %.0, %64
   %66 = add nsw i32 %.sroa.speculated.i, 16383
   store i64 %65, ptr %6, align 16, !noalias !6
-  %67 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %68 = zext i32 %66 to i64
   %.not.inv.i = icmp slt i64 %65, 0
   %69 = select i1 %.not.inv.i, i64 %68, i64 0
@@ -432,7 +432,7 @@ _ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit.i: ; preds = %74, %73
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
 _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %81, %78, %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit.i
-  %82 = getelementptr inbounds i8, ptr %9, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %82, i64 noundef 24) #12, !noalias !6
   %83 = load ptr, ptr %71, align 8, !noalias !6
   %.not.i.i = icmp eq ptr %83, %72
@@ -542,7 +542,7 @@ _ZL12appendNumberRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm.exit: ; 
   %118 = load i8, ptr %.sroa.0.010.i.i, align 1
   store i8 %118, ptr %.sroa.05.09.i.i, align 1
   store i8 %117, ptr %.sroa.0.010.i.i, align 1
-  %119 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 1
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -1
   %120 = icmp ult ptr %119, %.sroa.0.0.i.i
   br i1 %120, label %.lr.ph.i.i, label %_ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvT_SA_.exit, !llvm.loop !10
@@ -888,7 +888,7 @@ define dso_local void @_ZN4llvm16ScaledNumberBase4dumpEmsi(i64 noundef %0, i16 n
 16:                                               ; preds = %3
   store i8 91, ptr %12, align 1
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %18, ptr %11, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -910,7 +910,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 28:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   store i8 58, ptr %24, align 1
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store ptr %30, ptr %23, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit8
 
@@ -934,7 +934,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %26, %28
 42:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %35, ptr noundef nonnull align 1 dereferenceable(3) @.str.4, i64 3, i1 false)
   %43 = load ptr, ptr %34, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 3
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 3
   store ptr %44, ptr %34, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit11
 
@@ -956,7 +956,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %40, %42
 54:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
   store i8 93, ptr %50, align 1
   %55 = load ptr, ptr %49, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %56, ptr %49, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit14
 

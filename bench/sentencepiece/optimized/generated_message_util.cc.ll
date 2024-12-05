@@ -238,7 +238,7 @@ define noundef i64 @_ZN6google8protobuf8internal32StringSpaceUsedExcludingSelfLo
   br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   %6 = icmp ult ptr %5, %4
   br i1 %6, label %9, label %7
@@ -260,10 +260,10 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capa
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11MessageLiteEPNS0_2io17CodedOutputStreamE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4, ptr noundef %1)
   store ptr %8, ptr %3, align 8
@@ -277,15 +277,15 @@ define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11Messa
   %5 = load ptr, ptr %1, align 8
   call void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, i32 noundef 2147483647, i32 noundef -1)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull %3, i1 noundef zeroext true)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, 1
-  %9 = getelementptr inbounds i8, ptr %4, i64 58
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 58
   store i8 %8, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %4, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   %15 = invoke noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %11, ptr noundef nonnull %4)
           to label %16 unwind label %25
@@ -296,7 +296,7 @@ define void @_ZN6google8protobuf8internal23SerializeMessageNoTableEPKNS0_11Messa
           to label %18 unwind label %25
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %4, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %20 = load i64, ptr %19, align 8
   %21 = sub nsw i64 %17, %20
   %22 = load ptr, ptr %1, align 8
@@ -333,17 +333,17 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
   br i1 %7, label %.lr.ph1049, label %._crit_edge
 
 .lr.ph1049:                                       ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph1049, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
   %indvars.iv1192 = phi i64 [ 0, %.lr.ph1049 ], [ %indvars.iv.next1193, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit ]
-  %10 = getelementptr inbounds %"struct.google::protobuf::internal::FieldMetadata", ptr %1, i64 %indvars.iv1192
+  %10 = getelementptr inbounds nuw %"struct.google::protobuf::internal::FieldMetadata", ptr %1, i64 %indvars.iv1192
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
-  %14 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %2683 [
     i32 0, label %28
@@ -440,36 +440,36 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
   ]
 
 .preheader907:                                    ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph:                                           ; preds = %.preheader907
-  %19 = getelementptr inbounds i8, ptr %10, i64 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
-  %21 = getelementptr inbounds i8, ptr %10, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %1754
 
 .preheader:                                       ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %13, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph1047, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph1047:                                       ; preds = %.preheader
-  %25 = getelementptr inbounds i8, ptr %10, i64 4
-  %26 = getelementptr inbounds i8, ptr %13, i64 16
-  %27 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.pre = load ptr, ptr %8, align 8
   br label %1586
 
 28:                                               ; preds = %9
-  %29 = getelementptr inbounds i8, ptr %10, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %30, 31
   %36 = shl nuw i32 1, %35
@@ -478,7 +478,7 @@ define void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMet
   br i1 %.not905, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %38
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %10, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = load ptr, ptr %8, align 8
   %42 = load ptr, ptr %3, align 8
@@ -497,7 +497,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i: ; 
 
 47:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i
   store i8 %46, ptr %.0.i.i.i.i.i.i.i, align 1
-  %48 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i
 
 49:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i
@@ -509,13 +509,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i: ; 
 
 53:                                               ; preds = %49
   %54 = trunc nuw nsw i32 %51 to i8
-  %55 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 1
   store i8 %54, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i
 
 57:                                               ; preds = %49
-  %58 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 1
   br label %59
 
 59:                                               ; preds = %59, %57
@@ -525,13 +525,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i: ; 
   %61 = or i8 %60, -128
   store i8 %61, ptr %.023.i.i.i.i.i.i.i, align 1
   %62 = lshr i32 %.022.i.i.i.i.i.i.i, 7
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i, i64 1
   %64 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i, 16383
   br i1 %64, label %59, label %65, !llvm.loop !5
 
 65:                                               ; preds = %59
   %66 = trunc nuw nsw i32 %62 to i8
-  %67 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i, i64 2
   store i8 %66, ptr %63, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i
 
@@ -550,7 +550,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i, %70
   %.0.i.i.i.i.i.i = phi ptr [ %71, %70 ], [ %.0.i1.i.i.i.i.i.i, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i ]
   store i64 %68, ptr %.0.i.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %72, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -560,7 +560,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17Coded
   br i1 %75, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %10, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %8, align 8
   %80 = load ptr, ptr %3, align 8
@@ -579,7 +579,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394:
 
 85:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394
   store i8 %84, ptr %.0.i.i.i.i.i.i.i395, align 1
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i395, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i395, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398
 
 87:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394
@@ -591,13 +591,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394:
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i32 %89 to i8
-  %93 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i395, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i395, i64 1
   store i8 %92, ptr %93, align 1
-  %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i395, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i395, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398
 
 95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i395, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i395, i64 1
   br label %97
 
 97:                                               ; preds = %97, %95
@@ -607,13 +607,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i394:
   %99 = or i8 %98, -128
   store i8 %99, ptr %.023.i.i.i.i.i.i.i396, align 1
   %100 = lshr i32 %.022.i.i.i.i.i.i.i397, 7
-  %101 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i396, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i396, i64 1
   %102 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i397, 16383
   br i1 %102, label %97, label %103, !llvm.loop !5
 
 103:                                              ; preds = %97
   %104 = trunc nuw nsw i32 %100 to i8
-  %105 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i396, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i396, i64 2
   store i8 %104, ptr %101, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398
 
@@ -632,7 +632,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit402: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398, %108
   %.0.i.i.i.i.i.i401 = phi ptr [ %109, %108 ], [ %.0.i1.i.i.i.i.i.i399, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i398 ]
   store i64 %106, ptr %.0.i.i.i.i.i.i401, align 1
-  %110 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i401, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i401, i64 8
   store ptr %110, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -645,12 +645,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 113:                                              ; preds = %9
-  %114 = getelementptr inbounds i8, ptr %10, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %115 = load i32, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %10, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = zext i32 %115 to i64
-  %119 = getelementptr inbounds i8, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 %118
   %120 = load i32, ptr %119, align 4
   %121 = lshr i32 %117, 3
   %122 = icmp eq i32 %120, %121
@@ -674,7 +674,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i: 
 
 130:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i
   store i8 %129, ptr %.0.i.i.i.i.i.i.i.i, align 1
-  %131 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 1
+  %131 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i
 
 132:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i
@@ -686,13 +686,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i: 
 
 136:                                              ; preds = %132
   %137 = trunc nuw nsw i32 %134 to i8
-  %138 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 1
   store i8 %137, ptr %138, align 1
-  %139 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i
 
 140:                                              ; preds = %132
-  %141 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i, i64 1
   br label %142
 
 142:                                              ; preds = %142, %140
@@ -702,13 +702,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i: 
   %144 = or i8 %143, -128
   store i8 %144, ptr %.023.i.i.i.i.i.i.i.i, align 1
   %145 = lshr i32 %.022.i.i.i.i.i.i.i.i, 7
-  %146 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i, i64 1
   %147 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i, 16383
   br i1 %147, label %142, label %148, !llvm.loop !5
 
 148:                                              ; preds = %142
   %149 = trunc nuw nsw i32 %145 to i8
-  %150 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i, i64 2
+  %150 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i, i64 2
   store i8 %149, ptr %146, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i
 
@@ -727,16 +727,16 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i, %153
   %.0.i.i.i.i.i.i.i404 = phi ptr [ %154, %153 ], [ %.0.i1.i.i.i.i.i.i.i, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i ]
   store i64 %151, ptr %.0.i.i.i.i.i.i.i404, align 1
-  %155 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i404, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i404, i64 8
   store ptr %155, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 156:                                              ; preds = %9
-  %157 = getelementptr inbounds i8, ptr %10, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %158 = load i32, ptr %157, align 8
   %159 = lshr i32 %158, 5
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds i32, ptr %0, i64 %160
+  %161 = getelementptr inbounds nuw i32, ptr %0, i64 %160
   %162 = load i32, ptr %161, align 4
   %163 = and i32 %158, 31
   %164 = shl nuw i32 1, %163
@@ -745,7 +745,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS0_2io17CodedOut
   br i1 %.not904, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %166
 
 166:                                              ; preds = %156
-  %167 = getelementptr inbounds i8, ptr %10, i64 4
+  %167 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %168 = load i32, ptr %167, align 4
   %169 = load ptr, ptr %8, align 8
   %170 = load ptr, ptr %3, align 8
@@ -764,7 +764,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406:
 
 175:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406
   store i8 %174, ptr %.0.i.i.i.i.i.i.i407, align 1
-  %176 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i407, i64 1
+  %176 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i407, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410
 
 177:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406
@@ -776,13 +776,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406:
 
 181:                                              ; preds = %177
   %182 = trunc nuw nsw i32 %179 to i8
-  %183 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i407, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i407, i64 1
   store i8 %182, ptr %183, align 1
-  %184 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i407, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i407, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410
 
 185:                                              ; preds = %177
-  %186 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i407, i64 1
+  %186 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i407, i64 1
   br label %187
 
 187:                                              ; preds = %187, %185
@@ -792,13 +792,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i406:
   %189 = or i8 %188, -128
   store i8 %189, ptr %.023.i.i.i.i.i.i.i408, align 1
   %190 = lshr i32 %.022.i.i.i.i.i.i.i409, 7
-  %191 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i408, i64 1
+  %191 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i408, i64 1
   %192 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i409, 16383
   br i1 %192, label %187, label %193, !llvm.loop !5
 
 193:                                              ; preds = %187
   %194 = trunc nuw nsw i32 %190 to i8
-  %195 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i408, i64 2
+  %195 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i408, i64 2
   store i8 %194, ptr %191, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410
 
@@ -817,7 +817,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410, %198
   %.0.i.i.i.i.i.i413 = phi ptr [ %199, %198 ], [ %.0.i1.i.i.i.i.i.i411, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i410 ]
   store i32 %196, ptr %.0.i.i.i.i.i.i413, align 1
-  %200 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i413, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i413, i64 4
   store ptr %200, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -827,7 +827,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17Coded
   br i1 %203, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %204
 
 204:                                              ; preds = %201
-  %205 = getelementptr inbounds i8, ptr %10, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %206 = load i32, ptr %205, align 4
   %207 = load ptr, ptr %8, align 8
   %208 = load ptr, ptr %3, align 8
@@ -846,7 +846,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415:
 
 213:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415
   store i8 %212, ptr %.0.i.i.i.i.i.i.i416, align 1
-  %214 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i416, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i416, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419
 
 215:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415
@@ -858,13 +858,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415:
 
 219:                                              ; preds = %215
   %220 = trunc nuw nsw i32 %217 to i8
-  %221 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i416, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i416, i64 1
   store i8 %220, ptr %221, align 1
-  %222 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i416, i64 2
+  %222 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i416, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419
 
 223:                                              ; preds = %215
-  %224 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i416, i64 1
+  %224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i416, i64 1
   br label %225
 
 225:                                              ; preds = %225, %223
@@ -874,13 +874,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i415:
   %227 = or i8 %226, -128
   store i8 %227, ptr %.023.i.i.i.i.i.i.i417, align 1
   %228 = lshr i32 %.022.i.i.i.i.i.i.i418, 7
-  %229 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i417, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i417, i64 1
   %230 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i418, 16383
   br i1 %230, label %225, label %231, !llvm.loop !5
 
 231:                                              ; preds = %225
   %232 = trunc nuw nsw i32 %228 to i8
-  %233 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i417, i64 2
+  %233 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i417, i64 2
   store i8 %232, ptr %229, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419
 
@@ -899,7 +899,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit423: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419, %236
   %.0.i.i.i.i.i.i422 = phi ptr [ %237, %236 ], [ %.0.i1.i.i.i.i.i.i420, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i419 ]
   store i32 %234, ptr %.0.i.i.i.i.i.i422, align 1
-  %238 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i422, i64 4
+  %238 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i422, i64 4
   store ptr %238, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -912,12 +912,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 241:                                              ; preds = %9
-  %242 = getelementptr inbounds i8, ptr %10, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %243 = load i32, ptr %242, align 8
-  %244 = getelementptr inbounds i8, ptr %10, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %245 = load i32, ptr %244, align 4
   %246 = zext i32 %243 to i64
-  %247 = getelementptr inbounds i8, ptr %0, i64 %246
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 %246
   %248 = load i32, ptr %247, align 4
   %249 = lshr i32 %245, 3
   %250 = icmp eq i32 %248, %249
@@ -941,7 +941,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i42
 
 258:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i425
   store i8 %257, ptr %.0.i.i.i.i.i.i.i.i426, align 1
-  %259 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429
 
 260:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i425
@@ -953,13 +953,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i42
 
 264:                                              ; preds = %260
   %265 = trunc nuw nsw i32 %262 to i8
-  %266 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 1
+  %266 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 1
   store i8 %265, ptr %266, align 1
-  %267 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 2
+  %267 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429
 
 268:                                              ; preds = %260
-  %269 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 1
+  %269 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i426, i64 1
   br label %270
 
 270:                                              ; preds = %270, %268
@@ -969,13 +969,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i42
   %272 = or i8 %271, -128
   store i8 %272, ptr %.023.i.i.i.i.i.i.i.i427, align 1
   %273 = lshr i32 %.022.i.i.i.i.i.i.i.i428, 7
-  %274 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i427, i64 1
+  %274 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i427, i64 1
   %275 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i428, 16383
   br i1 %275, label %270, label %276, !llvm.loop !5
 
 276:                                              ; preds = %270
   %277 = trunc nuw nsw i32 %273 to i8
-  %278 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i427, i64 2
+  %278 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i427, i64 2
   store i8 %277, ptr %274, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429
 
@@ -994,16 +994,16 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429, %281
   %.0.i.i.i.i.i.i.i432 = phi ptr [ %282, %281 ], [ %.0.i1.i.i.i.i.i.i.i430, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i429 ]
   store i32 %279, ptr %.0.i.i.i.i.i.i.i432, align 1
-  %283 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i432, i64 4
+  %283 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i432, i64 4
   store ptr %283, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 284:                                              ; preds = %9
-  %285 = getelementptr inbounds i8, ptr %10, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %286 = load i32, ptr %285, align 8
   %287 = lshr i32 %286, 5
   %288 = zext nneg i32 %287 to i64
-  %289 = getelementptr inbounds i32, ptr %0, i64 %288
+  %289 = getelementptr inbounds nuw i32, ptr %0, i64 %288
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %286, 31
   %292 = shl nuw i32 1, %291
@@ -1012,7 +1012,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS0_2io17CodedOut
   br i1 %.not903, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %294
 
 294:                                              ; preds = %284
-  %295 = getelementptr inbounds i8, ptr %10, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %296 = load i32, ptr %295, align 4
   %297 = load ptr, ptr %8, align 8
   %298 = load ptr, ptr %3, align 8
@@ -1031,7 +1031,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434:
 
 303:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434
   store i8 %302, ptr %.0.i.i.i.i.i.i.i435, align 1
-  %304 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i435, i64 1
+  %304 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i435, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i438
 
 305:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434
@@ -1043,13 +1043,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434:
 
 309:                                              ; preds = %305
   %310 = trunc nuw nsw i32 %307 to i8
-  %311 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i435, i64 1
+  %311 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i435, i64 1
   store i8 %310, ptr %311, align 1
-  %312 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i435, i64 2
+  %312 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i435, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i438
 
 313:                                              ; preds = %305
-  %314 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i435, i64 1
+  %314 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i435, i64 1
   br label %315
 
 315:                                              ; preds = %315, %313
@@ -1059,13 +1059,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i434:
   %317 = or i8 %316, -128
   store i8 %317, ptr %.023.i.i.i.i.i.i.i436, align 1
   %318 = lshr i32 %.022.i.i.i.i.i.i.i437, 7
-  %319 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i436, i64 1
+  %319 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i436, i64 1
   %320 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i437, 16383
   br i1 %320, label %315, label %321, !llvm.loop !5
 
 321:                                              ; preds = %315
   %322 = trunc nuw nsw i32 %318 to i8
-  %323 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i436, i64 2
+  %323 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i436, i64 2
   store i8 %322, ptr %319, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i438
 
@@ -1089,7 +1089,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 330:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %329, ptr %.0.i.i.i.i.i.i441, align 1
-  %331 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i441, i64 1
+  %331 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i441, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 332:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -1101,13 +1101,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 336:                                              ; preds = %332
   %337 = trunc nuw nsw i64 %334 to i8
-  %338 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i441, i64 1
+  %338 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i441, i64 1
   store i8 %337, ptr %338, align 1
-  %339 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i441, i64 2
+  %339 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i441, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 340:                                              ; preds = %332
-  %341 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i441, i64 1
+  %341 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i441, i64 1
   br label %342
 
 342:                                              ; preds = %342, %340
@@ -1117,13 +1117,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %344 = or i8 %343, -128
   store i8 %344, ptr %.023.i.i.i.i.i.i, align 1
   %345 = lshr i64 %.022.i.i.i.i.i.i, 7
-  %346 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %346 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %347 = icmp samesign ugt i64 %.022.i.i.i.i.i.i, 16383
   br i1 %347, label %342, label %348, !llvm.loop !7
 
 348:                                              ; preds = %342
   %349 = trunc nuw nsw i64 %345 to i8
-  %350 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %350 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %349, ptr %346, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -1138,7 +1138,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17Coded
   br i1 %353, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %354
 
 354:                                              ; preds = %351
-  %355 = getelementptr inbounds i8, ptr %10, i64 4
+  %355 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %356 = load i32, ptr %355, align 4
   %357 = load ptr, ptr %8, align 8
   %358 = load ptr, ptr %3, align 8
@@ -1157,7 +1157,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443:
 
 363:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443
   store i8 %362, ptr %.0.i.i.i.i.i.i.i444, align 1
-  %364 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i444, i64 1
+  %364 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i444, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i447
 
 365:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443
@@ -1169,13 +1169,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443:
 
 369:                                              ; preds = %365
   %370 = trunc nuw nsw i32 %367 to i8
-  %371 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i444, i64 1
+  %371 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i444, i64 1
   store i8 %370, ptr %371, align 1
-  %372 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i444, i64 2
+  %372 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i444, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i447
 
 373:                                              ; preds = %365
-  %374 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i444, i64 1
+  %374 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i444, i64 1
   br label %375
 
 375:                                              ; preds = %375, %373
@@ -1185,13 +1185,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i443:
   %377 = or i8 %376, -128
   store i8 %377, ptr %.023.i.i.i.i.i.i.i445, align 1
   %378 = lshr i32 %.022.i.i.i.i.i.i.i446, 7
-  %379 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i445, i64 1
+  %379 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i445, i64 1
   %380 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i446, 16383
   br i1 %380, label %375, label %381, !llvm.loop !5
 
 381:                                              ; preds = %375
   %382 = trunc nuw nsw i32 %378 to i8
-  %383 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i445, i64 2
+  %383 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i445, i64 2
   store i8 %382, ptr %379, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i447
 
@@ -1215,7 +1215,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450: ;
 
 390:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450
   store i8 %389, ptr %.0.i.i.i.i.i.i451, align 1
-  %391 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i451, i64 1
+  %391 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i451, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit455
 
 392:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450
@@ -1227,13 +1227,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450: ;
 
 396:                                              ; preds = %392
   %397 = trunc nuw nsw i64 %394 to i8
-  %398 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i451, i64 1
+  %398 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i451, i64 1
   store i8 %397, ptr %398, align 1
-  %399 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i451, i64 2
+  %399 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i451, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit455
 
 400:                                              ; preds = %392
-  %401 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i451, i64 1
+  %401 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i451, i64 1
   br label %402
 
 402:                                              ; preds = %402, %400
@@ -1243,13 +1243,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i450: ;
   %404 = or i8 %403, -128
   store i8 %404, ptr %.023.i.i.i.i.i.i452, align 1
   %405 = lshr i64 %.022.i.i.i.i.i.i453, 7
-  %406 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i452, i64 1
+  %406 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i452, i64 1
   %407 = icmp samesign ugt i64 %.022.i.i.i.i.i.i453, 16383
   br i1 %407, label %402, label %408, !llvm.loop !7
 
 408:                                              ; preds = %402
   %409 = trunc nuw nsw i64 %405 to i8
-  %410 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i452, i64 2
+  %410 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i452, i64 2
   store i8 %409, ptr %406, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit455
 
@@ -1267,12 +1267,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 413:                                              ; preds = %9
-  %414 = getelementptr inbounds i8, ptr %10, i64 8
+  %414 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %415 = load i32, ptr %414, align 8
-  %416 = getelementptr inbounds i8, ptr %10, i64 4
+  %416 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %417 = load i32, ptr %416, align 4
   %418 = zext i32 %415 to i64
-  %419 = getelementptr inbounds i8, ptr %0, i64 %418
+  %419 = getelementptr inbounds nuw i8, ptr %0, i64 %418
   %420 = load i32, ptr %419, align 4
   %421 = lshr i32 %417, 3
   %422 = icmp eq i32 %420, %421
@@ -1296,7 +1296,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i45
 
 430:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i457
   store i8 %429, ptr %.0.i.i.i.i.i.i.i.i458, align 1
-  %431 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 1
+  %431 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i461
 
 432:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i457
@@ -1308,13 +1308,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i45
 
 436:                                              ; preds = %432
   %437 = trunc nuw nsw i32 %434 to i8
-  %438 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 1
+  %438 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 1
   store i8 %437, ptr %438, align 1
-  %439 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 2
+  %439 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i461
 
 440:                                              ; preds = %432
-  %441 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 1
+  %441 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i458, i64 1
   br label %442
 
 442:                                              ; preds = %442, %440
@@ -1324,13 +1324,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i45
   %444 = or i8 %443, -128
   store i8 %444, ptr %.023.i.i.i.i.i.i.i.i459, align 1
   %445 = lshr i32 %.022.i.i.i.i.i.i.i.i460, 7
-  %446 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i459, i64 1
+  %446 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i459, i64 1
   %447 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i460, 16383
   br i1 %447, label %442, label %448, !llvm.loop !5
 
 448:                                              ; preds = %442
   %449 = trunc nuw nsw i32 %445 to i8
-  %450 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i459, i64 2
+  %450 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i459, i64 2
   store i8 %449, ptr %446, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i461
 
@@ -1354,7 +1354,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464:
 
 457:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464
   store i8 %456, ptr %.0.i.i.i.i.i.i.i465, align 1
-  %458 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i465, i64 1
+  %458 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i465, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 459:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464
@@ -1366,13 +1366,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464:
 
 463:                                              ; preds = %459
   %464 = trunc nuw nsw i64 %461 to i8
-  %465 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i465, i64 1
+  %465 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i465, i64 1
   store i8 %464, ptr %465, align 1
-  %466 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i465, i64 2
+  %466 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i465, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 467:                                              ; preds = %459
-  %468 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i465, i64 1
+  %468 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i465, i64 1
   br label %469
 
 469:                                              ; preds = %469, %467
@@ -1382,13 +1382,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i464:
   %471 = or i8 %470, -128
   store i8 %471, ptr %.023.i.i.i.i.i.i.i466, align 1
   %472 = lshr i64 %.022.i.i.i.i.i.i.i467, 7
-  %473 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i466, i64 1
+  %473 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i466, i64 1
   %474 = icmp samesign ugt i64 %.022.i.i.i.i.i.i.i467, 16383
   br i1 %474, label %469, label %475, !llvm.loop !7
 
 475:                                              ; preds = %469
   %476 = trunc nuw nsw i64 %472 to i8
-  %477 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i466, i64 2
+  %477 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i466, i64 2
   store i8 %476, ptr %473, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -1398,11 +1398,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 478:                                              ; preds = %9
-  %479 = getelementptr inbounds i8, ptr %10, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %480 = load i32, ptr %479, align 8
   %481 = lshr i32 %480, 5
   %482 = zext nneg i32 %481 to i64
-  %483 = getelementptr inbounds i32, ptr %0, i64 %482
+  %483 = getelementptr inbounds nuw i32, ptr %0, i64 %482
   %484 = load i32, ptr %483, align 4
   %485 = and i32 %480, 31
   %486 = shl nuw i32 1, %485
@@ -1411,7 +1411,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS0_2io17CodedOut
   br i1 %.not902, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %488
 
 488:                                              ; preds = %478
-  %489 = getelementptr inbounds i8, ptr %10, i64 4
+  %489 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %490 = load i32, ptr %489, align 4
   %491 = load ptr, ptr %8, align 8
   %492 = load ptr, ptr %3, align 8
@@ -1430,7 +1430,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470:
 
 497:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470
   store i8 %496, ptr %.0.i.i.i.i.i.i.i471, align 1
-  %498 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i471, i64 1
+  %498 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i471, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i474
 
 499:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470
@@ -1442,13 +1442,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470:
 
 503:                                              ; preds = %499
   %504 = trunc nuw nsw i32 %501 to i8
-  %505 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i471, i64 1
+  %505 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i471, i64 1
   store i8 %504, ptr %505, align 1
-  %506 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i471, i64 2
+  %506 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i471, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i474
 
 507:                                              ; preds = %499
-  %508 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i471, i64 1
+  %508 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i471, i64 1
   br label %509
 
 509:                                              ; preds = %509, %507
@@ -1458,13 +1458,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i470:
   %511 = or i8 %510, -128
   store i8 %511, ptr %.023.i.i.i.i.i.i.i472, align 1
   %512 = lshr i32 %.022.i.i.i.i.i.i.i473, 7
-  %513 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i472, i64 1
+  %513 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i472, i64 1
   %514 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i473, 16383
   br i1 %514, label %509, label %515, !llvm.loop !5
 
 515:                                              ; preds = %509
   %516 = trunc nuw nsw i32 %512 to i8
-  %517 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i472, i64 2
+  %517 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i472, i64 2
   store i8 %516, ptr %513, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i474
 
@@ -1488,7 +1488,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477: ;
 
 524:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477
   store i8 %523, ptr %.0.i.i.i.i.i.i478, align 1
-  %525 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i478, i64 1
+  %525 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i478, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 526:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477
@@ -1500,13 +1500,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477: ;
 
 530:                                              ; preds = %526
   %531 = trunc nuw nsw i64 %528 to i8
-  %532 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i478, i64 1
+  %532 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i478, i64 1
   store i8 %531, ptr %532, align 1
-  %533 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i478, i64 2
+  %533 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i478, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 534:                                              ; preds = %526
-  %535 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i478, i64 1
+  %535 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i478, i64 1
   br label %536
 
 536:                                              ; preds = %536, %534
@@ -1516,13 +1516,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i477: ;
   %538 = or i8 %537, -128
   store i8 %538, ptr %.023.i.i.i.i.i.i479, align 1
   %539 = lshr i64 %.022.i.i.i.i.i.i480, 7
-  %540 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i479, i64 1
+  %540 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i479, i64 1
   %541 = icmp samesign ugt i64 %.022.i.i.i.i.i.i480, 16383
   br i1 %541, label %536, label %542, !llvm.loop !7
 
 542:                                              ; preds = %536
   %543 = trunc nuw nsw i64 %539 to i8
-  %544 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i479, i64 2
+  %544 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i479, i64 2
   store i8 %543, ptr %540, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -1537,7 +1537,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17Coded
   br i1 %547, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %548
 
 548:                                              ; preds = %545
-  %549 = getelementptr inbounds i8, ptr %10, i64 4
+  %549 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %550 = load i32, ptr %549, align 4
   %551 = load ptr, ptr %8, align 8
   %552 = load ptr, ptr %3, align 8
@@ -1556,7 +1556,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483:
 
 557:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483
   store i8 %556, ptr %.0.i.i.i.i.i.i.i484, align 1
-  %558 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i484, i64 1
+  %558 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i484, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i487
 
 559:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483
@@ -1568,13 +1568,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483:
 
 563:                                              ; preds = %559
   %564 = trunc nuw nsw i32 %561 to i8
-  %565 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i484, i64 1
+  %565 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i484, i64 1
   store i8 %564, ptr %565, align 1
-  %566 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i484, i64 2
+  %566 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i484, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i487
 
 567:                                              ; preds = %559
-  %568 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i484, i64 1
+  %568 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i484, i64 1
   br label %569
 
 569:                                              ; preds = %569, %567
@@ -1584,13 +1584,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i483:
   %571 = or i8 %570, -128
   store i8 %571, ptr %.023.i.i.i.i.i.i.i485, align 1
   %572 = lshr i32 %.022.i.i.i.i.i.i.i486, 7
-  %573 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i485, i64 1
+  %573 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i485, i64 1
   %574 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i486, 16383
   br i1 %574, label %569, label %575, !llvm.loop !5
 
 575:                                              ; preds = %569
   %576 = trunc nuw nsw i32 %572 to i8
-  %577 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i485, i64 2
+  %577 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i485, i64 2
   store i8 %576, ptr %573, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i487
 
@@ -1614,7 +1614,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490: ;
 
 584:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490
   store i8 %583, ptr %.0.i.i.i.i.i.i491, align 1
-  %585 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i491, i64 1
+  %585 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i491, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit495
 
 586:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490
@@ -1626,13 +1626,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490: ;
 
 590:                                              ; preds = %586
   %591 = trunc nuw nsw i64 %588 to i8
-  %592 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i491, i64 1
+  %592 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i491, i64 1
   store i8 %591, ptr %592, align 1
-  %593 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i491, i64 2
+  %593 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i491, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit495
 
 594:                                              ; preds = %586
-  %595 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i491, i64 1
+  %595 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i491, i64 1
   br label %596
 
 596:                                              ; preds = %596, %594
@@ -1642,13 +1642,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i490: ;
   %598 = or i8 %597, -128
   store i8 %598, ptr %.023.i.i.i.i.i.i492, align 1
   %599 = lshr i64 %.022.i.i.i.i.i.i493, 7
-  %600 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i492, i64 1
+  %600 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i492, i64 1
   %601 = icmp samesign ugt i64 %.022.i.i.i.i.i.i493, 16383
   br i1 %601, label %596, label %602, !llvm.loop !7
 
 602:                                              ; preds = %596
   %603 = trunc nuw nsw i64 %599 to i8
-  %604 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i492, i64 2
+  %604 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i492, i64 2
   store i8 %603, ptr %600, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit495
 
@@ -1666,12 +1666,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 607:                                              ; preds = %9
-  %608 = getelementptr inbounds i8, ptr %10, i64 8
+  %608 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %609 = load i32, ptr %608, align 8
-  %610 = getelementptr inbounds i8, ptr %10, i64 4
+  %610 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %611 = load i32, ptr %610, align 4
   %612 = zext i32 %609 to i64
-  %613 = getelementptr inbounds i8, ptr %0, i64 %612
+  %613 = getelementptr inbounds nuw i8, ptr %0, i64 %612
   %614 = load i32, ptr %613, align 4
   %615 = lshr i32 %611, 3
   %616 = icmp eq i32 %614, %615
@@ -1695,7 +1695,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i49
 
 624:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i497
   store i8 %623, ptr %.0.i.i.i.i.i.i.i.i498, align 1
-  %625 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 1
+  %625 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i501
 
 626:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i497
@@ -1707,13 +1707,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i49
 
 630:                                              ; preds = %626
   %631 = trunc nuw nsw i32 %628 to i8
-  %632 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 1
+  %632 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 1
   store i8 %631, ptr %632, align 1
-  %633 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 2
+  %633 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i501
 
 634:                                              ; preds = %626
-  %635 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 1
+  %635 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i498, i64 1
   br label %636
 
 636:                                              ; preds = %636, %634
@@ -1723,13 +1723,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i49
   %638 = or i8 %637, -128
   store i8 %638, ptr %.023.i.i.i.i.i.i.i.i499, align 1
   %639 = lshr i32 %.022.i.i.i.i.i.i.i.i500, 7
-  %640 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i499, i64 1
+  %640 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i499, i64 1
   %641 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i500, 16383
   br i1 %641, label %636, label %642, !llvm.loop !5
 
 642:                                              ; preds = %636
   %643 = trunc nuw nsw i32 %639 to i8
-  %644 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i499, i64 2
+  %644 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i499, i64 2
   store i8 %643, ptr %640, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i501
 
@@ -1753,7 +1753,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504:
 
 651:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504
   store i8 %650, ptr %.0.i.i.i.i.i.i.i505, align 1
-  %652 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i505, i64 1
+  %652 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i505, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 653:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504
@@ -1765,13 +1765,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504:
 
 657:                                              ; preds = %653
   %658 = trunc nuw nsw i64 %655 to i8
-  %659 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i505, i64 1
+  %659 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i505, i64 1
   store i8 %658, ptr %659, align 1
-  %660 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i505, i64 2
+  %660 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i505, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 661:                                              ; preds = %653
-  %662 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i505, i64 1
+  %662 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i505, i64 1
   br label %663
 
 663:                                              ; preds = %663, %661
@@ -1781,13 +1781,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i504:
   %665 = or i8 %664, -128
   store i8 %665, ptr %.023.i.i.i.i.i.i.i506, align 1
   %666 = lshr i64 %.022.i.i.i.i.i.i.i507, 7
-  %667 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i506, i64 1
+  %667 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i506, i64 1
   %668 = icmp samesign ugt i64 %.022.i.i.i.i.i.i.i507, 16383
   br i1 %668, label %663, label %669, !llvm.loop !7
 
 669:                                              ; preds = %663
   %670 = trunc nuw nsw i64 %666 to i8
-  %671 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i506, i64 2
+  %671 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i506, i64 2
   store i8 %670, ptr %667, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -1797,11 +1797,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 672:                                              ; preds = %9
-  %673 = getelementptr inbounds i8, ptr %10, i64 8
+  %673 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %674 = load i32, ptr %673, align 8
   %675 = lshr i32 %674, 5
   %676 = zext nneg i32 %675 to i64
-  %677 = getelementptr inbounds i32, ptr %0, i64 %676
+  %677 = getelementptr inbounds nuw i32, ptr %0, i64 %676
   %678 = load i32, ptr %677, align 4
   %679 = and i32 %674, 31
   %680 = shl nuw i32 1, %679
@@ -1810,7 +1810,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS0_2io17CodedOut
   br i1 %.not901, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %682
 
 682:                                              ; preds = %672
-  %683 = getelementptr inbounds i8, ptr %10, i64 4
+  %683 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %684 = load i32, ptr %683, align 4
   %685 = load ptr, ptr %8, align 8
   %686 = load ptr, ptr %3, align 8
@@ -1829,7 +1829,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510:
 
 691:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510
   store i8 %690, ptr %.0.i.i.i.i.i.i.i511, align 1
-  %692 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i511, i64 1
+  %692 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i511, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i514
 
 693:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510
@@ -1841,13 +1841,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510:
 
 697:                                              ; preds = %693
   %698 = trunc nuw nsw i32 %695 to i8
-  %699 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i511, i64 1
+  %699 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i511, i64 1
   store i8 %698, ptr %699, align 1
-  %700 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i511, i64 2
+  %700 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i511, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i514
 
 701:                                              ; preds = %693
-  %702 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i511, i64 1
+  %702 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i511, i64 1
   br label %703
 
 703:                                              ; preds = %703, %701
@@ -1857,13 +1857,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i510:
   %705 = or i8 %704, -128
   store i8 %705, ptr %.023.i.i.i.i.i.i.i512, align 1
   %706 = lshr i32 %.022.i.i.i.i.i.i.i513, 7
-  %707 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i512, i64 1
+  %707 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i512, i64 1
   %708 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i513, 16383
   br i1 %708, label %703, label %709, !llvm.loop !5
 
 709:                                              ; preds = %703
   %710 = trunc nuw nsw i32 %706 to i8
-  %711 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i512, i64 2
+  %711 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i512, i64 2
   store i8 %710, ptr %707, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i514
 
@@ -1888,7 +1888,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i: ;
 
 719:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i
   store i8 %718, ptr %.0.i.i.i.i.i.i6.i, align 1
-  %720 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i, i64 1
+  %720 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 721:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i
@@ -1900,13 +1900,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i: ;
 
 725:                                              ; preds = %721
   %726 = trunc nuw nsw i64 %723 to i8
-  %727 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i, i64 1
+  %727 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i, i64 1
   store i8 %726, ptr %727, align 1
-  %728 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i, i64 2
+  %728 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 729:                                              ; preds = %721
-  %730 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i, i64 1
+  %730 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i, i64 1
   br label %731
 
 731:                                              ; preds = %731, %729
@@ -1916,13 +1916,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i: ;
   %733 = or i8 %732, -128
   store i8 %733, ptr %.023.i.i.i.i.i.i7.i, align 1
   %734 = lshr i64 %.022.i.i.i.i.i.i8.i, 7
-  %735 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i, i64 1
+  %735 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i, i64 1
   %736 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i, 16383
   br i1 %736, label %731, label %737, !llvm.loop !7
 
 737:                                              ; preds = %731
   %738 = trunc nuw nsw i64 %734 to i8
-  %739 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i, i64 2
+  %739 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i, i64 2
   store i8 %738, ptr %735, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -1937,7 +1937,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17Coded
   br i1 %742, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %743
 
 743:                                              ; preds = %740
-  %744 = getelementptr inbounds i8, ptr %10, i64 4
+  %744 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %745 = load i32, ptr %744, align 4
   %746 = load ptr, ptr %8, align 8
   %747 = load ptr, ptr %3, align 8
@@ -1956,7 +1956,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517:
 
 752:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517
   store i8 %751, ptr %.0.i.i.i.i.i.i.i518, align 1
-  %753 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i518, i64 1
+  %753 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i518, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i521
 
 754:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517
@@ -1968,13 +1968,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517:
 
 758:                                              ; preds = %754
   %759 = trunc nuw nsw i32 %756 to i8
-  %760 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i518, i64 1
+  %760 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i518, i64 1
   store i8 %759, ptr %760, align 1
-  %761 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i518, i64 2
+  %761 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i518, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i521
 
 762:                                              ; preds = %754
-  %763 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i518, i64 1
+  %763 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i518, i64 1
   br label %764
 
 764:                                              ; preds = %764, %762
@@ -1984,13 +1984,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i517:
   %766 = or i8 %765, -128
   store i8 %766, ptr %.023.i.i.i.i.i.i.i519, align 1
   %767 = lshr i32 %.022.i.i.i.i.i.i.i520, 7
-  %768 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i519, i64 1
+  %768 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i519, i64 1
   %769 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i520, 16383
   br i1 %769, label %764, label %770, !llvm.loop !5
 
 770:                                              ; preds = %764
   %771 = trunc nuw nsw i32 %767 to i8
-  %772 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i519, i64 2
+  %772 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i519, i64 2
   store i8 %771, ptr %768, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i521
 
@@ -2015,7 +2015,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
 
 780:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
   store i8 %779, ptr %.0.i.i.i.i.i.i6.i525, align 1
-  %781 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i525, i64 1
+  %781 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i525, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit529
 
 782:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
@@ -2027,13 +2027,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
 
 786:                                              ; preds = %782
   %787 = trunc nuw nsw i64 %784 to i8
-  %788 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i525, i64 1
+  %788 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i525, i64 1
   store i8 %787, ptr %788, align 1
-  %789 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i525, i64 2
+  %789 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i525, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit529
 
 790:                                              ; preds = %782
-  %791 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i525, i64 1
+  %791 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i525, i64 1
   br label %792
 
 792:                                              ; preds = %792, %790
@@ -2043,13 +2043,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i524
   %794 = or i8 %793, -128
   store i8 %794, ptr %.023.i.i.i.i.i.i7.i526, align 1
   %795 = lshr i64 %.022.i.i.i.i.i.i8.i527, 7
-  %796 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i526, i64 1
+  %796 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i526, i64 1
   %797 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i527, 16383
   br i1 %797, label %792, label %798, !llvm.loop !7
 
 798:                                              ; preds = %792
   %799 = trunc nuw nsw i64 %795 to i8
-  %800 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i526, i64 2
+  %800 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i526, i64 2
   store i8 %799, ptr %796, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit529
 
@@ -2067,12 +2067,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 803:                                              ; preds = %9
-  %804 = getelementptr inbounds i8, ptr %10, i64 8
+  %804 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %805 = load i32, ptr %804, align 8
-  %806 = getelementptr inbounds i8, ptr %10, i64 4
+  %806 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %807 = load i32, ptr %806, align 4
   %808 = zext i32 %805 to i64
-  %809 = getelementptr inbounds i8, ptr %0, i64 %808
+  %809 = getelementptr inbounds nuw i8, ptr %0, i64 %808
   %810 = load i32, ptr %809, align 4
   %811 = lshr i32 %807, 3
   %812 = icmp eq i32 %810, %811
@@ -2096,7 +2096,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i53
 
 820:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i531
   store i8 %819, ptr %.0.i.i.i.i.i.i.i.i532, align 1
-  %821 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 1
+  %821 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i535
 
 822:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i531
@@ -2108,13 +2108,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i53
 
 826:                                              ; preds = %822
   %827 = trunc nuw nsw i32 %824 to i8
-  %828 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 1
+  %828 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 1
   store i8 %827, ptr %828, align 1
-  %829 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 2
+  %829 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i535
 
 830:                                              ; preds = %822
-  %831 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 1
+  %831 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i532, i64 1
   br label %832
 
 832:                                              ; preds = %832, %830
@@ -2124,13 +2124,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i53
   %834 = or i8 %833, -128
   store i8 %834, ptr %.023.i.i.i.i.i.i.i.i533, align 1
   %835 = lshr i32 %.022.i.i.i.i.i.i.i.i534, 7
-  %836 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i533, i64 1
+  %836 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i533, i64 1
   %837 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i534, 16383
   br i1 %837, label %832, label %838, !llvm.loop !5
 
 838:                                              ; preds = %832
   %839 = trunc nuw nsw i32 %835 to i8
-  %840 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i533, i64 2
+  %840 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i533, i64 2
   store i8 %839, ptr %836, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i535
 
@@ -2155,7 +2155,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i:
 
 848:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i
   store i8 %847, ptr %.0.i.i.i.i.i.i6.i.i, align 1
-  %849 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 1
+  %849 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 850:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i
@@ -2167,13 +2167,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i:
 
 854:                                              ; preds = %850
   %855 = trunc nuw nsw i64 %852 to i8
-  %856 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 1
+  %856 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 1
   store i8 %855, ptr %856, align 1
-  %857 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 2
+  %857 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 858:                                              ; preds = %850
-  %859 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 1
+  %859 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i, i64 1
   br label %860
 
 860:                                              ; preds = %860, %858
@@ -2183,13 +2183,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i:
   %862 = or i8 %861, -128
   store i8 %862, ptr %.023.i.i.i.i.i.i7.i.i, align 1
   %863 = lshr i64 %.022.i.i.i.i.i.i8.i.i, 7
-  %864 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i.i, i64 1
+  %864 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i.i, i64 1
   %865 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i.i, 16383
   br i1 %865, label %860, label %866, !llvm.loop !7
 
 866:                                              ; preds = %860
   %867 = trunc nuw nsw i64 %863 to i8
-  %868 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i.i, i64 2
+  %868 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i.i, i64 2
   store i8 %867, ptr %864, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2199,11 +2199,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 869:                                              ; preds = %9
-  %870 = getelementptr inbounds i8, ptr %10, i64 8
+  %870 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %871 = load i32, ptr %870, align 8
   %872 = lshr i32 %871, 5
   %873 = zext nneg i32 %872 to i64
-  %874 = getelementptr inbounds i32, ptr %0, i64 %873
+  %874 = getelementptr inbounds nuw i32, ptr %0, i64 %873
   %875 = load i32, ptr %874, align 4
   %876 = and i32 %871, 31
   %877 = shl nuw i32 1, %876
@@ -2212,7 +2212,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS0_2io17CodedOut
   br i1 %.not900, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %879
 
 879:                                              ; preds = %869
-  %880 = getelementptr inbounds i8, ptr %10, i64 4
+  %880 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %881 = load i32, ptr %880, align 4
   %882 = load ptr, ptr %8, align 8
   %883 = load ptr, ptr %3, align 8
@@ -2231,7 +2231,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538:
 
 888:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538
   store i8 %887, ptr %.0.i.i.i.i.i.i.i539, align 1
-  %889 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i539, i64 1
+  %889 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i539, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542
 
 890:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538
@@ -2243,13 +2243,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538:
 
 894:                                              ; preds = %890
   %895 = trunc nuw nsw i32 %892 to i8
-  %896 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i539, i64 1
+  %896 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i539, i64 1
   store i8 %895, ptr %896, align 1
-  %897 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i539, i64 2
+  %897 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i539, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542
 
 898:                                              ; preds = %890
-  %899 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i539, i64 1
+  %899 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i539, i64 1
   br label %900
 
 900:                                              ; preds = %900, %898
@@ -2259,13 +2259,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i538:
   %902 = or i8 %901, -128
   store i8 %902, ptr %.023.i.i.i.i.i.i.i540, align 1
   %903 = lshr i32 %.022.i.i.i.i.i.i.i541, 7
-  %904 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i540, i64 1
+  %904 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i540, i64 1
   %905 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i541, 16383
   br i1 %905, label %900, label %906, !llvm.loop !5
 
 906:                                              ; preds = %900
   %907 = trunc nuw nsw i32 %903 to i8
-  %908 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i540, i64 2
+  %908 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i540, i64 2
   store i8 %907, ptr %904, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542
 
@@ -2284,7 +2284,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542, %911
   %.0.i.i.i.i.i.i545 = phi ptr [ %912, %911 ], [ %.0.i1.i.i.i.i.i.i543, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i542 ]
   store i64 %909, ptr %.0.i.i.i.i.i.i545, align 1
-  %913 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i545, i64 8
+  %913 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i545, i64 8
   store ptr %913, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2294,7 +2294,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17Coded
   br i1 %916, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %917
 
 917:                                              ; preds = %914
-  %918 = getelementptr inbounds i8, ptr %10, i64 4
+  %918 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %919 = load i32, ptr %918, align 4
   %920 = load ptr, ptr %8, align 8
   %921 = load ptr, ptr %3, align 8
@@ -2313,7 +2313,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547:
 
 926:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547
   store i8 %925, ptr %.0.i.i.i.i.i.i.i548, align 1
-  %927 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i548, i64 1
+  %927 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i548, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551
 
 928:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547
@@ -2325,13 +2325,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547:
 
 932:                                              ; preds = %928
   %933 = trunc nuw nsw i32 %930 to i8
-  %934 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i548, i64 1
+  %934 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i548, i64 1
   store i8 %933, ptr %934, align 1
-  %935 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i548, i64 2
+  %935 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i548, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551
 
 936:                                              ; preds = %928
-  %937 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i548, i64 1
+  %937 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i548, i64 1
   br label %938
 
 938:                                              ; preds = %938, %936
@@ -2341,13 +2341,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i547:
   %940 = or i8 %939, -128
   store i8 %940, ptr %.023.i.i.i.i.i.i.i549, align 1
   %941 = lshr i32 %.022.i.i.i.i.i.i.i550, 7
-  %942 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i549, i64 1
+  %942 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i549, i64 1
   %943 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i550, 16383
   br i1 %943, label %938, label %944, !llvm.loop !5
 
 944:                                              ; preds = %938
   %945 = trunc nuw nsw i32 %941 to i8
-  %946 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i549, i64 2
+  %946 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i549, i64 2
   store i8 %945, ptr %942, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551
 
@@ -2366,7 +2366,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit555: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551, %949
   %.0.i.i.i.i.i.i554 = phi ptr [ %950, %949 ], [ %.0.i1.i.i.i.i.i.i552, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i551 ]
   store i64 %947, ptr %.0.i.i.i.i.i.i554, align 1
-  %951 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i554, i64 8
+  %951 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i554, i64 8
   store ptr %951, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2379,12 +2379,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 954:                                              ; preds = %9
-  %955 = getelementptr inbounds i8, ptr %10, i64 8
+  %955 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %956 = load i32, ptr %955, align 8
-  %957 = getelementptr inbounds i8, ptr %10, i64 4
+  %957 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %958 = load i32, ptr %957, align 4
   %959 = zext i32 %956 to i64
-  %960 = getelementptr inbounds i8, ptr %0, i64 %959
+  %960 = getelementptr inbounds nuw i8, ptr %0, i64 %959
   %961 = load i32, ptr %960, align 4
   %962 = lshr i32 %958, 3
   %963 = icmp eq i32 %961, %962
@@ -2408,7 +2408,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i55
 
 971:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i557
   store i8 %970, ptr %.0.i.i.i.i.i.i.i.i558, align 1
-  %972 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 1
+  %972 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561
 
 973:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i557
@@ -2420,13 +2420,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i55
 
 977:                                              ; preds = %973
   %978 = trunc nuw nsw i32 %975 to i8
-  %979 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 1
+  %979 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 1
   store i8 %978, ptr %979, align 1
-  %980 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 2
+  %980 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561
 
 981:                                              ; preds = %973
-  %982 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 1
+  %982 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i558, i64 1
   br label %983
 
 983:                                              ; preds = %983, %981
@@ -2436,13 +2436,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i55
   %985 = or i8 %984, -128
   store i8 %985, ptr %.023.i.i.i.i.i.i.i.i559, align 1
   %986 = lshr i32 %.022.i.i.i.i.i.i.i.i560, 7
-  %987 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i559, i64 1
+  %987 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i559, i64 1
   %988 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i560, 16383
   br i1 %988, label %983, label %989, !llvm.loop !5
 
 989:                                              ; preds = %983
   %990 = trunc nuw nsw i32 %986 to i8
-  %991 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i559, i64 2
+  %991 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i559, i64 2
   store i8 %990, ptr %987, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561
 
@@ -2461,16 +2461,16 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561, %994
   %.0.i.i.i.i.i.i.i564 = phi ptr [ %995, %994 ], [ %.0.i1.i.i.i.i.i.i.i562, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i561 ]
   store i64 %992, ptr %.0.i.i.i.i.i.i.i564, align 1
-  %996 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i564, i64 8
+  %996 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i564, i64 8
   store ptr %996, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 997:                                              ; preds = %9
-  %998 = getelementptr inbounds i8, ptr %10, i64 8
+  %998 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %999 = load i32, ptr %998, align 8
   %1000 = lshr i32 %999, 5
   %1001 = zext nneg i32 %1000 to i64
-  %1002 = getelementptr inbounds i32, ptr %0, i64 %1001
+  %1002 = getelementptr inbounds nuw i32, ptr %0, i64 %1001
   %1003 = load i32, ptr %1002, align 4
   %1004 = and i32 %999, 31
   %1005 = shl nuw i32 1, %1004
@@ -2479,7 +2479,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS0_2io17CodedOut
   br i1 %.not899, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1007
 
 1007:                                             ; preds = %997
-  %1008 = getelementptr inbounds i8, ptr %10, i64 4
+  %1008 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1009 = load i32, ptr %1008, align 4
   %1010 = load ptr, ptr %8, align 8
   %1011 = load ptr, ptr %3, align 8
@@ -2498,7 +2498,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566:
 
 1016:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566
   store i8 %1015, ptr %.0.i.i.i.i.i.i.i567, align 1
-  %1017 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i567, i64 1
+  %1017 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i567, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570
 
 1018:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566
@@ -2510,13 +2510,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566:
 
 1022:                                             ; preds = %1018
   %1023 = trunc nuw nsw i32 %1020 to i8
-  %1024 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i567, i64 1
+  %1024 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i567, i64 1
   store i8 %1023, ptr %1024, align 1
-  %1025 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i567, i64 2
+  %1025 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i567, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570
 
 1026:                                             ; preds = %1018
-  %1027 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i567, i64 1
+  %1027 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i567, i64 1
   br label %1028
 
 1028:                                             ; preds = %1028, %1026
@@ -2526,13 +2526,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i566:
   %1030 = or i8 %1029, -128
   store i8 %1030, ptr %.023.i.i.i.i.i.i.i568, align 1
   %1031 = lshr i32 %.022.i.i.i.i.i.i.i569, 7
-  %1032 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i568, i64 1
+  %1032 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i568, i64 1
   %1033 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i569, 16383
   br i1 %1033, label %1028, label %1034, !llvm.loop !5
 
 1034:                                             ; preds = %1028
   %1035 = trunc nuw nsw i32 %1031 to i8
-  %1036 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i568, i64 2
+  %1036 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i568, i64 2
   store i8 %1035, ptr %1032, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570
 
@@ -2551,7 +2551,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570, %1039
   %.0.i.i.i.i.i.i573 = phi ptr [ %1040, %1039 ], [ %.0.i1.i.i.i.i.i.i571, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i570 ]
   store i32 %1037, ptr %.0.i.i.i.i.i.i573, align 1
-  %1041 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i573, i64 4
+  %1041 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i573, i64 4
   store ptr %1041, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2561,7 +2561,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17Coded
   br i1 %1044, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1045
 
 1045:                                             ; preds = %1042
-  %1046 = getelementptr inbounds i8, ptr %10, i64 4
+  %1046 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1047 = load i32, ptr %1046, align 4
   %1048 = load ptr, ptr %8, align 8
   %1049 = load ptr, ptr %3, align 8
@@ -2580,7 +2580,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575:
 
 1054:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575
   store i8 %1053, ptr %.0.i.i.i.i.i.i.i576, align 1
-  %1055 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i576, i64 1
+  %1055 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i576, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579
 
 1056:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575
@@ -2592,13 +2592,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575:
 
 1060:                                             ; preds = %1056
   %1061 = trunc nuw nsw i32 %1058 to i8
-  %1062 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i576, i64 1
+  %1062 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i576, i64 1
   store i8 %1061, ptr %1062, align 1
-  %1063 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i576, i64 2
+  %1063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i576, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579
 
 1064:                                             ; preds = %1056
-  %1065 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i576, i64 1
+  %1065 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i576, i64 1
   br label %1066
 
 1066:                                             ; preds = %1066, %1064
@@ -2608,13 +2608,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i575:
   %1068 = or i8 %1067, -128
   store i8 %1068, ptr %.023.i.i.i.i.i.i.i577, align 1
   %1069 = lshr i32 %.022.i.i.i.i.i.i.i578, 7
-  %1070 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i577, i64 1
+  %1070 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i577, i64 1
   %1071 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i578, 16383
   br i1 %1071, label %1066, label %1072, !llvm.loop !5
 
 1072:                                             ; preds = %1066
   %1073 = trunc nuw nsw i32 %1069 to i8
-  %1074 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i577, i64 2
+  %1074 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i577, i64 2
   store i8 %1073, ptr %1070, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579
 
@@ -2633,7 +2633,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit583: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579, %1077
   %.0.i.i.i.i.i.i582 = phi ptr [ %1078, %1077 ], [ %.0.i1.i.i.i.i.i.i580, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i579 ]
   store i32 %1075, ptr %.0.i.i.i.i.i.i582, align 1
-  %1079 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i582, i64 4
+  %1079 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i582, i64 4
   store ptr %1079, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2646,12 +2646,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1082:                                             ; preds = %9
-  %1083 = getelementptr inbounds i8, ptr %10, i64 8
+  %1083 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1084 = load i32, ptr %1083, align 8
-  %1085 = getelementptr inbounds i8, ptr %10, i64 4
+  %1085 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1086 = load i32, ptr %1085, align 4
   %1087 = zext i32 %1084 to i64
-  %1088 = getelementptr inbounds i8, ptr %0, i64 %1087
+  %1088 = getelementptr inbounds nuw i8, ptr %0, i64 %1087
   %1089 = load i32, ptr %1088, align 4
   %1090 = lshr i32 %1086, 3
   %1091 = icmp eq i32 %1089, %1090
@@ -2675,7 +2675,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i58
 
 1099:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i585
   store i8 %1098, ptr %.0.i.i.i.i.i.i.i.i586, align 1
-  %1100 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 1
+  %1100 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589
 
 1101:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i585
@@ -2687,13 +2687,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i58
 
 1105:                                             ; preds = %1101
   %1106 = trunc nuw nsw i32 %1103 to i8
-  %1107 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 1
+  %1107 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 1
   store i8 %1106, ptr %1107, align 1
-  %1108 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 2
+  %1108 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589
 
 1109:                                             ; preds = %1101
-  %1110 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 1
+  %1110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i586, i64 1
   br label %1111
 
 1111:                                             ; preds = %1111, %1109
@@ -2703,13 +2703,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i58
   %1113 = or i8 %1112, -128
   store i8 %1113, ptr %.023.i.i.i.i.i.i.i.i587, align 1
   %1114 = lshr i32 %.022.i.i.i.i.i.i.i.i588, 7
-  %1115 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i587, i64 1
+  %1115 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i587, i64 1
   %1116 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i588, 16383
   br i1 %1116, label %1111, label %1117, !llvm.loop !5
 
 1117:                                             ; preds = %1111
   %1118 = trunc nuw nsw i32 %1114 to i8
-  %1119 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i587, i64 2
+  %1119 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i587, i64 2
   store i8 %1118, ptr %1115, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589
 
@@ -2728,16 +2728,16 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589, %1122
   %.0.i.i.i.i.i.i.i592 = phi ptr [ %1123, %1122 ], [ %.0.i1.i.i.i.i.i.i.i590, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i589 ]
   store i32 %1120, ptr %.0.i.i.i.i.i.i.i592, align 1
-  %1124 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i592, i64 4
+  %1124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i592, i64 4
   store ptr %1124, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1125:                                             ; preds = %9
-  %1126 = getelementptr inbounds i8, ptr %10, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1127 = load i32, ptr %1126, align 8
   %1128 = lshr i32 %1127, 5
   %1129 = zext nneg i32 %1128 to i64
-  %1130 = getelementptr inbounds i32, ptr %0, i64 %1129
+  %1130 = getelementptr inbounds nuw i32, ptr %0, i64 %1129
   %1131 = load i32, ptr %1130, align 4
   %1132 = and i32 %1127, 31
   %1133 = shl nuw i32 1, %1132
@@ -2746,7 +2746,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS0_2io17CodedOut
   br i1 %.not898, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1135
 
 1135:                                             ; preds = %1125
-  %1136 = getelementptr inbounds i8, ptr %10, i64 4
+  %1136 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1137 = load i32, ptr %1136, align 4
   %1138 = load ptr, ptr %8, align 8
   %1139 = load ptr, ptr %3, align 8
@@ -2765,7 +2765,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594:
 
 1144:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594
   store i8 %1143, ptr %.0.i.i.i.i.i.i.i595, align 1
-  %1145 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
+  %1145 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598
 
 1146:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594
@@ -2777,13 +2777,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594:
 
 1150:                                             ; preds = %1146
   %1151 = trunc nuw nsw i32 %1148 to i8
-  %1152 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
+  %1152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
   store i8 %1151, ptr %1152, align 1
-  %1153 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 2
+  %1153 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598
 
 1154:                                             ; preds = %1146
-  %1155 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
+  %1155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
   br label %1156
 
 1156:                                             ; preds = %1156, %1154
@@ -2793,13 +2793,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i594:
   %1158 = or i8 %1157, -128
   store i8 %1158, ptr %.023.i.i.i.i.i.i.i596, align 1
   %1159 = lshr i32 %.022.i.i.i.i.i.i.i597, 7
-  %1160 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i596, i64 1
+  %1160 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i596, i64 1
   %1161 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i597, 16383
   br i1 %1161, label %1156, label %1162, !llvm.loop !5
 
 1162:                                             ; preds = %1156
   %1163 = trunc nuw nsw i32 %1159 to i8
-  %1164 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i596, i64 2
+  %1164 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i596, i64 2
   store i8 %1163, ptr %1160, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598
 
@@ -2819,7 +2819,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   %.0.i.i.i.i.i.i601 = phi ptr [ %1168, %1167 ], [ %.0.i1.i.i.i.i.i.i599, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i598 ]
   %1169 = and i8 %1165, 1
   store i8 %1169, ptr %.0.i.i.i.i.i.i601, align 1
-  %1170 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i601, i64 1
+  %1170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i601, i64 1
   store ptr %1170, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2830,7 +2830,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   br i1 %1174, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1175
 
 1175:                                             ; preds = %1171
-  %1176 = getelementptr inbounds i8, ptr %10, i64 4
+  %1176 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1177 = load i32, ptr %1176, align 4
   %1178 = load ptr, ptr %8, align 8
   %1179 = load ptr, ptr %3, align 8
@@ -2849,7 +2849,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603:
 
 1184:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603
   store i8 %1183, ptr %.0.i.i.i.i.i.i.i604, align 1
-  %1185 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i604, i64 1
+  %1185 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i604, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607
 
 1186:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603
@@ -2861,13 +2861,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603:
 
 1190:                                             ; preds = %1186
   %1191 = trunc nuw nsw i32 %1188 to i8
-  %1192 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i604, i64 1
+  %1192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i604, i64 1
   store i8 %1191, ptr %1192, align 1
-  %1193 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i604, i64 2
+  %1193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i604, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607
 
 1194:                                             ; preds = %1186
-  %1195 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i604, i64 1
+  %1195 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i604, i64 1
   br label %1196
 
 1196:                                             ; preds = %1196, %1194
@@ -2877,13 +2877,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i603:
   %1198 = or i8 %1197, -128
   store i8 %1198, ptr %.023.i.i.i.i.i.i.i605, align 1
   %1199 = lshr i32 %.022.i.i.i.i.i.i.i606, 7
-  %1200 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i605, i64 1
+  %1200 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i605, i64 1
   %1201 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i606, 16383
   br i1 %1201, label %1196, label %1202, !llvm.loop !5
 
 1202:                                             ; preds = %1196
   %1203 = trunc nuw nsw i32 %1199 to i8
-  %1204 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i605, i64 2
+  %1204 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i605, i64 2
   store i8 %1203, ptr %1200, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607
 
@@ -2903,7 +2903,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   %.0.i.i.i.i.i.i610 = phi ptr [ %1208, %1207 ], [ %.0.i1.i.i.i.i.i.i608, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i607 ]
   %1209 = and i8 %1205, 1
   store i8 %1209, ptr %.0.i.i.i.i.i.i610, align 1
-  %1210 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i610, i64 1
+  %1210 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i610, i64 1
   store ptr %1210, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -2916,12 +2916,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1213:                                             ; preds = %9
-  %1214 = getelementptr inbounds i8, ptr %10, i64 8
+  %1214 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1215 = load i32, ptr %1214, align 8
-  %1216 = getelementptr inbounds i8, ptr %10, i64 4
+  %1216 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1217 = load i32, ptr %1216, align 4
   %1218 = zext i32 %1215 to i64
-  %1219 = getelementptr inbounds i8, ptr %0, i64 %1218
+  %1219 = getelementptr inbounds nuw i8, ptr %0, i64 %1218
   %1220 = load i32, ptr %1219, align 4
   %1221 = lshr i32 %1217, 3
   %1222 = icmp eq i32 %1220, %1221
@@ -2945,7 +2945,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i61
 
 1230:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i613
   store i8 %1229, ptr %.0.i.i.i.i.i.i.i.i614, align 1
-  %1231 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 1
+  %1231 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617
 
 1232:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i613
@@ -2957,13 +2957,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i61
 
 1236:                                             ; preds = %1232
   %1237 = trunc nuw nsw i32 %1234 to i8
-  %1238 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 1
+  %1238 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 1
   store i8 %1237, ptr %1238, align 1
-  %1239 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 2
+  %1239 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617
 
 1240:                                             ; preds = %1232
-  %1241 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 1
+  %1241 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i614, i64 1
   br label %1242
 
 1242:                                             ; preds = %1242, %1240
@@ -2973,13 +2973,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i61
   %1244 = or i8 %1243, -128
   store i8 %1244, ptr %.023.i.i.i.i.i.i.i.i615, align 1
   %1245 = lshr i32 %.022.i.i.i.i.i.i.i.i616, 7
-  %1246 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i615, i64 1
+  %1246 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i615, i64 1
   %1247 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i616, 16383
   br i1 %1247, label %1242, label %1248, !llvm.loop !5
 
 1248:                                             ; preds = %1242
   %1249 = trunc nuw nsw i32 %1245 to i8
-  %1250 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i615, i64 2
+  %1250 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i615, i64 2
   store i8 %1249, ptr %1246, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617
 
@@ -2999,16 +2999,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOut
   %.0.i.i.i.i.i.i.i620 = phi ptr [ %1254, %1253 ], [ %.0.i1.i.i.i.i.i.i.i618, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i617 ]
   %1255 = and i8 %1251, 1
   store i8 %1255, ptr %.0.i.i.i.i.i.i.i620, align 1
-  %1256 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i620, i64 1
+  %1256 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i620, i64 1
   store ptr %1256, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1257:                                             ; preds = %9
-  %1258 = getelementptr inbounds i8, ptr %10, i64 8
+  %1258 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1259 = load i32, ptr %1258, align 8
   %1260 = lshr i32 %1259, 5
   %1261 = zext nneg i32 %1260 to i64
-  %1262 = getelementptr inbounds i32, ptr %0, i64 %1261
+  %1262 = getelementptr inbounds nuw i32, ptr %0, i64 %1261
   %1263 = load i32, ptr %1262, align 4
   %1264 = and i32 %1259, 31
   %1265 = shl nuw i32 1, %1264
@@ -3017,7 +3017,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS0_2io17CodedOut
   br i1 %.not897, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1267
 
 1267:                                             ; preds = %1257
-  %1268 = getelementptr inbounds i8, ptr %10, i64 4
+  %1268 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1269 = load i32, ptr %1268, align 4
   %1270 = load ptr, ptr %8, align 8
   %1271 = load ptr, ptr %3, align 8
@@ -3036,7 +3036,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622:
 
 1276:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622
   store i8 %1275, ptr %.0.i.i.i.i.i.i.i623, align 1
-  %1277 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i623, i64 1
+  %1277 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i623, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1278:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622
@@ -3048,13 +3048,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622:
 
 1282:                                             ; preds = %1278
   %1283 = trunc nuw nsw i32 %1280 to i8
-  %1284 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i623, i64 1
+  %1284 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i623, i64 1
   store i8 %1283, ptr %1284, align 1
-  %1285 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i623, i64 2
+  %1285 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i623, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1286:                                             ; preds = %1278
-  %1287 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i623, i64 1
+  %1287 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i623, i64 1
   br label %1288
 
 1288:                                             ; preds = %1288, %1286
@@ -3064,13 +3064,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i622:
   %1290 = or i8 %1289, -128
   store i8 %1290, ptr %.023.i.i.i.i.i.i.i624, align 1
   %1291 = lshr i32 %.022.i.i.i.i.i.i.i625, 7
-  %1292 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i624, i64 1
+  %1292 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i624, i64 1
   %1293 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i625, 16383
   br i1 %1293, label %1288, label %1294, !llvm.loop !5
 
 1294:                                             ; preds = %1288
   %1295 = trunc nuw nsw i32 %1291 to i8
-  %1296 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i624, i64 2
+  %1296 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i624, i64 2
   store i8 %1295, ptr %1292, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -3094,7 +3094,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br i1 %1307, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1308
 
 1308:                                             ; preds = %1301
-  %1309 = getelementptr inbounds i8, ptr %10, i64 4
+  %1309 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1310 = load i32, ptr %1309, align 4
   %1311 = load ptr, ptr %8, align 8
   %1312 = load ptr, ptr %3, align 8
@@ -3113,7 +3113,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629:
 
 1317:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629
   store i8 %1316, ptr %.0.i.i.i.i.i.i.i630, align 1
-  %1318 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i630, i64 1
+  %1318 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i630, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit635
 
 1319:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629
@@ -3125,13 +3125,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629:
 
 1323:                                             ; preds = %1319
   %1324 = trunc nuw nsw i32 %1321 to i8
-  %1325 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i630, i64 1
+  %1325 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i630, i64 1
   store i8 %1324, ptr %1325, align 1
-  %1326 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i630, i64 2
+  %1326 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i630, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit635
 
 1327:                                             ; preds = %1319
-  %1328 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i630, i64 1
+  %1328 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i630, i64 1
   br label %1329
 
 1329:                                             ; preds = %1329, %1327
@@ -3141,13 +3141,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i629:
   %1331 = or i8 %1330, -128
   store i8 %1331, ptr %.023.i.i.i.i.i.i.i631, align 1
   %1332 = lshr i32 %.022.i.i.i.i.i.i.i632, 7
-  %1333 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i631, i64 1
+  %1333 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i631, i64 1
   %1334 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i632, 16383
   br i1 %1334, label %1329, label %1335, !llvm.loop !5
 
 1335:                                             ; preds = %1329
   %1336 = trunc nuw nsw i32 %1332 to i8
-  %1337 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i631, i64 2
+  %1337 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i631, i64 2
   store i8 %1336, ptr %1333, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit635
 
@@ -3162,14 +3162,14 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1342:                                             ; preds = %9
-  %1343 = getelementptr inbounds i8, ptr %13, i64 8
+  %1343 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %1344 = load i32, ptr %1343, align 8
   %1345 = icmp sgt i32 %1344, 0
   br i1 %1345, label %.lr.ph.i, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i:                                         ; preds = %1342
-  %1346 = getelementptr inbounds i8, ptr %10, i64 4
-  %1347 = getelementptr inbounds i8, ptr %13, i64 16
+  %1346 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %1347 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %1348
 
 1348:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i641, %.lr.ph.i
@@ -3192,7 +3192,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637:
 
 1356:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637
   store i8 %1355, ptr %.0.i.i.i.i.i.i.i638, align 1
-  %1357 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i638, i64 1
+  %1357 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i638, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i641
 
 1358:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637
@@ -3204,13 +3204,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637:
 
 1362:                                             ; preds = %1358
   %1363 = trunc nuw nsw i32 %1360 to i8
-  %1364 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i638, i64 1
+  %1364 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i638, i64 1
   store i8 %1363, ptr %1364, align 1
-  %1365 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i638, i64 2
+  %1365 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i638, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i641
 
 1366:                                             ; preds = %1358
-  %1367 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i638, i64 1
+  %1367 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i638, i64 1
   br label %1368
 
 1368:                                             ; preds = %1368, %1366
@@ -3220,13 +3220,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i637:
   %1370 = or i8 %1369, -128
   store i8 %1370, ptr %.023.i.i.i.i.i.i.i639, align 1
   %1371 = lshr i32 %.022.i.i.i.i.i.i.i640, 7
-  %1372 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i639, i64 1
+  %1372 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i639, i64 1
   %1373 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i640, 16383
   br i1 %1373, label %1368, label %1374, !llvm.loop !5
 
 1374:                                             ; preds = %1368
   %1375 = trunc nuw nsw i32 %1371 to i8
-  %1376 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i639, i64 2
+  %1376 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i639, i64 2
   store i8 %1375, ptr %1372, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i641
 
@@ -3235,9 +3235,9 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i642, ptr %8, align 8
   %1377 = load ptr, ptr %1347, align 8
   %.not.i.i.i = icmp eq ptr %1377, null
-  %1378 = getelementptr inbounds i8, ptr %1377, i64 8
+  %1378 = getelementptr inbounds nuw i8, ptr %1377, i64 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %1378
-  %1379 = getelementptr inbounds ptr, ptr %spec.select.i.i.i, i64 %indvars.iv.i
+  %1379 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i.i, i64 %indvars.iv.i
   %1380 = load ptr, ptr %1379, align 8
   call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1380, ptr noundef nonnull %3)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3251,12 +3251,12 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1385:                                             ; preds = %9
-  %1386 = getelementptr inbounds i8, ptr %10, i64 8
+  %1386 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1387 = load i32, ptr %1386, align 8
-  %1388 = getelementptr inbounds i8, ptr %10, i64 4
+  %1388 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1389 = load i32, ptr %1388, align 4
   %1390 = zext i32 %1387 to i64
-  %1391 = getelementptr inbounds i8, ptr %0, i64 %1390
+  %1391 = getelementptr inbounds nuw i8, ptr %0, i64 %1390
   %1392 = load i32, ptr %1391, align 4
   %1393 = lshr i32 %1389, 3
   %1394 = icmp eq i32 %1392, %1393
@@ -3280,7 +3280,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i64
 
 1402:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i644
   store i8 %1401, ptr %.0.i.i.i.i.i.i.i.i645, align 1
-  %1403 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 1
+  %1403 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1404:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i644
@@ -3292,13 +3292,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i64
 
 1408:                                             ; preds = %1404
   %1409 = trunc nuw nsw i32 %1406 to i8
-  %1410 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 1
+  %1410 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 1
   store i8 %1409, ptr %1410, align 1
-  %1411 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 2
+  %1411 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1412:                                             ; preds = %1404
-  %1413 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 1
+  %1413 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i645, i64 1
   br label %1414
 
 1414:                                             ; preds = %1414, %1412
@@ -3308,13 +3308,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i64
   %1416 = or i8 %1415, -128
   store i8 %1416, ptr %.023.i.i.i.i.i.i.i.i646, align 1
   %1417 = lshr i32 %.022.i.i.i.i.i.i.i.i647, 7
-  %1418 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i646, i64 1
+  %1418 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i646, i64 1
   %1419 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i647, 16383
   br i1 %1419, label %1414, label %1420, !llvm.loop !5
 
 1420:                                             ; preds = %1414
   %1421 = trunc nuw nsw i32 %1417 to i8
-  %1422 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i646, i64 2
+  %1422 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i646, i64 2
   store i8 %1421, ptr %1418, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -3329,11 +3329,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1427:                                             ; preds = %9
-  %1428 = getelementptr inbounds i8, ptr %10, i64 8
+  %1428 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1429 = load i32, ptr %1428, align 8
   %1430 = lshr i32 %1429, 5
   %1431 = zext nneg i32 %1430 to i64
-  %1432 = getelementptr inbounds i32, ptr %0, i64 %1431
+  %1432 = getelementptr inbounds nuw i32, ptr %0, i64 %1431
   %1433 = load i32, ptr %1432, align 4
   %1434 = and i32 %1429, 31
   %1435 = shl nuw i32 1, %1434
@@ -3342,7 +3342,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS0_2io17CodedOut
   br i1 %.not896, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1437
 
 1437:                                             ; preds = %1427
-  %1438 = getelementptr inbounds i8, ptr %10, i64 4
+  %1438 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1439 = load i32, ptr %1438, align 4
   %1440 = load ptr, ptr %8, align 8
   %1441 = load ptr, ptr %3, align 8
@@ -3361,7 +3361,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828: ;
 
 1446:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828
   store i8 %1445, ptr %.0.i.i.i.i.i.i829, align 1
-  %1447 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i829, i64 1
+  %1447 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i829, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit833
 
 1448:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828
@@ -3373,13 +3373,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828: ;
 
 1452:                                             ; preds = %1448
   %1453 = trunc nuw nsw i32 %1450 to i8
-  %1454 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i829, i64 1
+  %1454 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i829, i64 1
   store i8 %1453, ptr %1454, align 1
-  %1455 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i829, i64 2
+  %1455 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i829, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit833
 
 1456:                                             ; preds = %1448
-  %1457 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i829, i64 1
+  %1457 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i829, i64 1
   br label %1458
 
 1458:                                             ; preds = %1458, %1456
@@ -3389,13 +3389,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i828: ;
   %1460 = or i8 %1459, -128
   store i8 %1460, ptr %.023.i.i.i.i.i.i830, align 1
   %1461 = lshr i32 %.022.i.i.i.i.i.i831, 7
-  %1462 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i830, i64 1
+  %1462 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i830, i64 1
   %1463 = icmp samesign ugt i32 %.022.i.i.i.i.i.i831, 16383
   br i1 %1463, label %1458, label %1464, !llvm.loop !5
 
 1464:                                             ; preds = %1458
   %1465 = trunc nuw nsw i32 %1461 to i8
-  %1466 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i830, i64 2
+  %1466 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i830, i64 2
   store i8 %1465, ptr %1462, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit833
 
@@ -3403,25 +3403,25 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.0.i1.i.i.i.i.i832 = phi ptr [ %1447, %1446 ], [ %1455, %1452 ], [ %1466, %1464 ]
   store ptr %.0.i1.i.i.i.i.i832, ptr %8, align 8
   %1467 = load ptr, ptr %13, align 8
-  %1468 = getelementptr inbounds i8, ptr %10, i64 16
+  %1468 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %1469 = load ptr, ptr %1468, align 8
   %.not.i = icmp eq ptr %1469, null
   br i1 %.not.i, label %1470, label %1475
 
 1470:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit833
   %1471 = load ptr, ptr %1467, align 8
-  %1472 = getelementptr inbounds i8, ptr %1471, i64 96
+  %1472 = getelementptr inbounds nuw i8, ptr %1471, i64 96
   %1473 = load ptr, ptr %1472, align 8
   %1474 = call noundef ptr %1473(ptr noundef nonnull align 8 dereferenceable(16) %1467, ptr noundef nonnull %.0.i1.i.i.i.i.i832, ptr noundef nonnull %3)
   store ptr %1474, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 1475:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit833
-  %1476 = getelementptr inbounds i8, ptr %1469, i64 8
+  %1476 = getelementptr inbounds nuw i8, ptr %1469, i64 8
   %1477 = load ptr, ptr %1476, align 8
   %1478 = load i32, ptr %1469, align 8
   %1479 = add nsw i32 %1478, -1
-  %1480 = getelementptr inbounds i8, ptr %1477, i64 24
+  %1480 = getelementptr inbounds nuw i8, ptr %1477, i64 24
   call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %1467, ptr noundef nonnull %1480, i32 noundef %1479, ptr noundef nonnull %3)
   %.pre1197 = load ptr, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -3446,7 +3446,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822: ;
 
 1489:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822
   store i8 %1488, ptr %.0.i.i.i.i.i.i823, align 1
-  %1490 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i823, i64 1
+  %1490 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i823, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 1491:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822
@@ -3458,13 +3458,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822: ;
 
 1495:                                             ; preds = %1491
   %1496 = trunc nuw nsw i32 %1493 to i8
-  %1497 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i823, i64 1
+  %1497 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i823, i64 1
   store i8 %1496, ptr %1497, align 1
-  %1498 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i823, i64 2
+  %1498 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i823, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 1499:                                             ; preds = %1491
-  %1500 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i823, i64 1
+  %1500 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i823, i64 1
   br label %1501
 
 1501:                                             ; preds = %1501, %1499
@@ -3474,13 +3474,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i822: ;
   %1503 = or i8 %1502, -128
   store i8 %1503, ptr %.023.i.i.i.i.i.i824, align 1
   %1504 = lshr i32 %.022.i.i.i.i.i.i825, 7
-  %1505 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i824, i64 1
+  %1505 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i824, i64 1
   %1506 = icmp samesign ugt i32 %.022.i.i.i.i.i.i825, 16383
   br i1 %1506, label %1501, label %1507, !llvm.loop !5
 
 1507:                                             ; preds = %1501
   %1508 = trunc nuw nsw i32 %1504 to i8
-  %1509 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i824, i64 2
+  %1509 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i824, i64 2
   store i8 %1508, ptr %1505, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -3495,7 +3495,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %1512, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1513
 
 1513:                                             ; preds = %1510
-  %1514 = getelementptr inbounds i8, ptr %10, i64 4
+  %1514 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1515 = load i32, ptr %1514, align 4
   %1516 = load ptr, ptr %8, align 8
   %1517 = load ptr, ptr %3, align 8
@@ -3514,7 +3514,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844: ;
 
 1522:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844
   store i8 %1521, ptr %.0.i.i.i.i.i.i845, align 1
-  %1523 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i845, i64 1
+  %1523 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i845, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit849
 
 1524:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844
@@ -3526,13 +3526,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844: ;
 
 1528:                                             ; preds = %1524
   %1529 = trunc nuw nsw i32 %1526 to i8
-  %1530 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i845, i64 1
+  %1530 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i845, i64 1
   store i8 %1529, ptr %1530, align 1
-  %1531 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i845, i64 2
+  %1531 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i845, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit849
 
 1532:                                             ; preds = %1524
-  %1533 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i845, i64 1
+  %1533 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i845, i64 1
   br label %1534
 
 1534:                                             ; preds = %1534, %1532
@@ -3542,13 +3542,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i844: ;
   %1536 = or i8 %1535, -128
   store i8 %1536, ptr %.023.i.i.i.i.i.i846, align 1
   %1537 = lshr i32 %.022.i.i.i.i.i.i847, 7
-  %1538 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i846, i64 1
+  %1538 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i846, i64 1
   %1539 = icmp samesign ugt i32 %.022.i.i.i.i.i.i847, 16383
   br i1 %1539, label %1534, label %1540, !llvm.loop !5
 
 1540:                                             ; preds = %1534
   %1541 = trunc nuw nsw i32 %1537 to i8
-  %1542 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i846, i64 2
+  %1542 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i846, i64 2
   store i8 %1541, ptr %1538, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit849
 
@@ -3556,25 +3556,25 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.0.i1.i.i.i.i.i848 = phi ptr [ %1523, %1522 ], [ %1531, %1528 ], [ %1542, %1540 ]
   store ptr %.0.i1.i.i.i.i.i848, ptr %8, align 8
   %1543 = load ptr, ptr %13, align 8
-  %1544 = getelementptr inbounds i8, ptr %10, i64 16
+  %1544 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %1545 = load ptr, ptr %1544, align 8
   %.not.i841 = icmp eq ptr %1545, null
   br i1 %.not.i841, label %1546, label %1551
 
 1546:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit849
   %1547 = load ptr, ptr %1543, align 8
-  %1548 = getelementptr inbounds i8, ptr %1547, i64 96
+  %1548 = getelementptr inbounds nuw i8, ptr %1547, i64 96
   %1549 = load ptr, ptr %1548, align 8
   %1550 = call noundef ptr %1549(ptr noundef nonnull align 8 dereferenceable(16) %1543, ptr noundef nonnull %.0.i1.i.i.i.i.i848, ptr noundef nonnull %3)
   store ptr %1550, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit842
 
 1551:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit849
-  %1552 = getelementptr inbounds i8, ptr %1545, i64 8
+  %1552 = getelementptr inbounds nuw i8, ptr %1545, i64 8
   %1553 = load ptr, ptr %1552, align 8
   %1554 = load i32, ptr %1545, align 8
   %1555 = add nsw i32 %1554, -1
-  %1556 = getelementptr inbounds i8, ptr %1553, i64 24
+  %1556 = getelementptr inbounds nuw i8, ptr %1553, i64 24
   call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %1543, ptr noundef nonnull %1556, i32 noundef %1555, ptr noundef nonnull %3)
   %.pre1196 = load ptr, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit842
@@ -3599,7 +3599,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835: ;
 
 1565:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835
   store i8 %1564, ptr %.0.i.i.i.i.i.i836, align 1
-  %1566 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i836, i64 1
+  %1566 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i836, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit840
 
 1567:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835
@@ -3611,13 +3611,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835: ;
 
 1571:                                             ; preds = %1567
   %1572 = trunc nuw nsw i32 %1569 to i8
-  %1573 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i836, i64 1
+  %1573 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i836, i64 1
   store i8 %1572, ptr %1573, align 1
-  %1574 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i836, i64 2
+  %1574 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i836, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit840
 
 1575:                                             ; preds = %1567
-  %1576 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i836, i64 1
+  %1576 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i836, i64 1
   br label %1577
 
 1577:                                             ; preds = %1577, %1575
@@ -3627,13 +3627,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i835: ;
   %1579 = or i8 %1578, -128
   store i8 %1579, ptr %.023.i.i.i.i.i.i837, align 1
   %1580 = lshr i32 %.022.i.i.i.i.i.i838, 7
-  %1581 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i837, i64 1
+  %1581 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i837, i64 1
   %1582 = icmp samesign ugt i32 %.022.i.i.i.i.i.i838, 16383
   br i1 %1582, label %1577, label %1583, !llvm.loop !5
 
 1583:                                             ; preds = %1577
   %1584 = trunc nuw nsw i32 %1580 to i8
-  %1585 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i837, i64 2
+  %1585 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i837, i64 2
   store i8 %1584, ptr %1581, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit840
 
@@ -3662,7 +3662,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860: ;
 
 1594:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860
   store i8 %1593, ptr %.0.i.i.i.i.i.i861, align 1
-  %1595 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i861, i64 1
+  %1595 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i861, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit865
 
 1596:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860
@@ -3674,13 +3674,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860: ;
 
 1600:                                             ; preds = %1596
   %1601 = trunc nuw nsw i32 %1598 to i8
-  %1602 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i861, i64 1
+  %1602 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i861, i64 1
   store i8 %1601, ptr %1602, align 1
-  %1603 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i861, i64 2
+  %1603 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i861, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit865
 
 1604:                                             ; preds = %1596
-  %1605 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i861, i64 1
+  %1605 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i861, i64 1
   br label %1606
 
 1606:                                             ; preds = %1606, %1604
@@ -3690,13 +3690,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i860: ;
   %1608 = or i8 %1607, -128
   store i8 %1608, ptr %.023.i.i.i.i.i.i862, align 1
   %1609 = lshr i32 %.022.i.i.i.i.i.i863, 7
-  %1610 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i862, i64 1
+  %1610 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i862, i64 1
   %1611 = icmp samesign ugt i32 %.022.i.i.i.i.i.i863, 16383
   br i1 %1611, label %1606, label %1612, !llvm.loop !5
 
 1612:                                             ; preds = %1606
   %1613 = trunc nuw nsw i32 %1609 to i8
-  %1614 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i862, i64 2
+  %1614 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i862, i64 2
   store i8 %1613, ptr %1610, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit865
 
@@ -3705,9 +3705,9 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i864, ptr %8, align 8
   %1615 = load ptr, ptr %26, align 8
   %.not.i.i = icmp eq ptr %1615, null
-  %1616 = getelementptr inbounds i8, ptr %1615, i64 8
+  %1616 = getelementptr inbounds nuw i8, ptr %1615, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %1616
-  %1617 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %indvars.iv1189
+  %1617 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i, i64 %indvars.iv1189
   %1618 = load ptr, ptr %1617, align 8
   %1619 = load ptr, ptr %27, align 8
   %.not.i857 = icmp eq ptr %1619, null
@@ -3715,18 +3715,18 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 1620:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit865
   %1621 = load ptr, ptr %1618, align 8
-  %1622 = getelementptr inbounds i8, ptr %1621, i64 96
+  %1622 = getelementptr inbounds nuw i8, ptr %1621, i64 96
   %1623 = load ptr, ptr %1622, align 8
   %1624 = call noundef ptr %1623(ptr noundef nonnull align 8 dereferenceable(16) %1618, ptr noundef nonnull %.0.i1.i.i.i.i.i864, ptr noundef nonnull %3)
   store ptr %1624, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit858
 
 1625:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit865
-  %1626 = getelementptr inbounds i8, ptr %1619, i64 8
+  %1626 = getelementptr inbounds nuw i8, ptr %1619, i64 8
   %1627 = load ptr, ptr %1626, align 8
   %1628 = load i32, ptr %1619, align 8
   %1629 = add nsw i32 %1628, -1
-  %1630 = getelementptr inbounds i8, ptr %1627, i64 24
+  %1630 = getelementptr inbounds nuw i8, ptr %1627, i64 24
   call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %1618, ptr noundef nonnull %1630, i32 noundef %1629, ptr noundef nonnull %3)
   %.pre1195 = load ptr, ptr %8, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit858
@@ -3751,7 +3751,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851: ;
 
 1639:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851
   store i8 %1638, ptr %.0.i.i.i.i.i.i852, align 1
-  %1640 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i852, i64 1
+  %1640 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i852, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit856
 
 1641:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851
@@ -3763,13 +3763,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851: ;
 
 1645:                                             ; preds = %1641
   %1646 = trunc nuw nsw i32 %1643 to i8
-  %1647 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i852, i64 1
+  %1647 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i852, i64 1
   store i8 %1646, ptr %1647, align 1
-  %1648 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i852, i64 2
+  %1648 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i852, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit856
 
 1649:                                             ; preds = %1641
-  %1650 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i852, i64 1
+  %1650 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i852, i64 1
   br label %1651
 
 1651:                                             ; preds = %1651, %1649
@@ -3779,13 +3779,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i851: ;
   %1653 = or i8 %1652, -128
   store i8 %1653, ptr %.023.i.i.i.i.i.i853, align 1
   %1654 = lshr i32 %.022.i.i.i.i.i.i854, 7
-  %1655 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i853, i64 1
+  %1655 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i853, i64 1
   %1656 = icmp samesign ugt i32 %.022.i.i.i.i.i.i854, 16383
   br i1 %1656, label %1651, label %1657, !llvm.loop !5
 
 1657:                                             ; preds = %1651
   %1658 = trunc nuw nsw i32 %1654 to i8
-  %1659 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i853, i64 2
+  %1659 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i853, i64 2
   store i8 %1658, ptr %1655, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit856
 
@@ -3803,12 +3803,12 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1664:                                             ; preds = %9
-  %1665 = getelementptr inbounds i8, ptr %10, i64 8
+  %1665 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1666 = load i32, ptr %1665, align 8
-  %1667 = getelementptr inbounds i8, ptr %10, i64 4
+  %1667 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1668 = load i32, ptr %1667, align 4
   %1669 = zext i32 %1666 to i64
-  %1670 = getelementptr inbounds i8, ptr %0, i64 %1669
+  %1670 = getelementptr inbounds nuw i8, ptr %0, i64 %1669
   %1671 = load i32, ptr %1670, align 4
   %1672 = lshr i32 %1668, 3
   %1673 = icmp eq i32 %1671, %1672
@@ -3819,11 +3819,11 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1675:                                             ; preds = %9
-  %1676 = getelementptr inbounds i8, ptr %10, i64 8
+  %1676 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1677 = load i32, ptr %1676, align 8
   %1678 = lshr i32 %1677, 5
   %1679 = zext nneg i32 %1678 to i64
-  %1680 = getelementptr inbounds i32, ptr %0, i64 %1679
+  %1680 = getelementptr inbounds nuw i32, ptr %0, i64 %1679
   %1681 = load i32, ptr %1680, align 4
   %1682 = and i32 %1677, 31
   %1683 = shl nuw i32 1, %1682
@@ -3832,7 +3832,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not895, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1685
 
 1685:                                             ; preds = %1675
-  %1686 = getelementptr inbounds i8, ptr %10, i64 4
+  %1686 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1687 = load i32, ptr %1686, align 4
   %1688 = load ptr, ptr %8, align 8
   %1689 = load ptr, ptr %3, align 8
@@ -3851,7 +3851,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867: ;
 
 1694:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867
   store i8 %1693, ptr %.0.i.i.i.i.i.i868, align 1
-  %1695 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i868, i64 1
+  %1695 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i868, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit872
 
 1696:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867
@@ -3863,13 +3863,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867: ;
 
 1700:                                             ; preds = %1696
   %1701 = trunc nuw nsw i32 %1698 to i8
-  %1702 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i868, i64 1
+  %1702 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i868, i64 1
   store i8 %1701, ptr %1702, align 1
-  %1703 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i868, i64 2
+  %1703 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i868, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit872
 
 1704:                                             ; preds = %1696
-  %1705 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i868, i64 1
+  %1705 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i868, i64 1
   br label %1706
 
 1706:                                             ; preds = %1706, %1704
@@ -3879,13 +3879,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i867: ;
   %1708 = or i8 %1707, -128
   store i8 %1708, ptr %.023.i.i.i.i.i.i869, align 1
   %1709 = lshr i32 %.022.i.i.i.i.i.i870, 7
-  %1710 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i869, i64 1
+  %1710 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i869, i64 1
   %1711 = icmp samesign ugt i32 %.022.i.i.i.i.i.i870, 16383
   br i1 %1711, label %1706, label %1712, !llvm.loop !5
 
 1712:                                             ; preds = %1706
   %1713 = trunc nuw nsw i32 %1709 to i8
-  %1714 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i869, i64 2
+  %1714 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i869, i64 2
   store i8 %1713, ptr %1710, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit872
 
@@ -3893,7 +3893,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.0.i1.i.i.i.i.i871 = phi ptr [ %1695, %1694 ], [ %1703, %1700 ], [ %1714, %1712 ]
   store ptr %.0.i1.i.i.i.i.i871, ptr %8, align 8
   %1715 = load ptr, ptr %13, align 8
-  %1716 = getelementptr inbounds i8, ptr %10, i64 16
+  %1716 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %1717 = load ptr, ptr %1716, align 8
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1715, ptr noundef %1717, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -3904,7 +3904,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %1720, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1721
 
 1721:                                             ; preds = %1718
-  %1722 = getelementptr inbounds i8, ptr %10, i64 4
+  %1722 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1723 = load i32, ptr %1722, align 4
   %1724 = load ptr, ptr %8, align 8
   %1725 = load ptr, ptr %3, align 8
@@ -3923,7 +3923,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874: ;
 
 1730:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874
   store i8 %1729, ptr %.0.i.i.i.i.i.i875, align 1
-  %1731 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i875, i64 1
+  %1731 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i875, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit879
 
 1732:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874
@@ -3935,13 +3935,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874: ;
 
 1736:                                             ; preds = %1732
   %1737 = trunc nuw nsw i32 %1734 to i8
-  %1738 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i875, i64 1
+  %1738 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i875, i64 1
   store i8 %1737, ptr %1738, align 1
-  %1739 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i875, i64 2
+  %1739 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i875, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit879
 
 1740:                                             ; preds = %1732
-  %1741 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i875, i64 1
+  %1741 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i875, i64 1
   br label %1742
 
 1742:                                             ; preds = %1742, %1740
@@ -3951,13 +3951,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i874: ;
   %1744 = or i8 %1743, -128
   store i8 %1744, ptr %.023.i.i.i.i.i.i876, align 1
   %1745 = lshr i32 %.022.i.i.i.i.i.i877, 7
-  %1746 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i876, i64 1
+  %1746 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i876, i64 1
   %1747 = icmp samesign ugt i32 %.022.i.i.i.i.i.i877, 16383
   br i1 %1747, label %1742, label %1748, !llvm.loop !5
 
 1748:                                             ; preds = %1742
   %1749 = trunc nuw nsw i32 %1745 to i8
-  %1750 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i876, i64 2
+  %1750 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i876, i64 2
   store i8 %1749, ptr %1746, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit879
 
@@ -3965,7 +3965,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.0.i1.i.i.i.i.i878 = phi ptr [ %1731, %1730 ], [ %1739, %1736 ], [ %1750, %1748 ]
   store ptr %.0.i1.i.i.i.i.i878, ptr %8, align 8
   %1751 = load ptr, ptr %13, align 8
-  %1752 = getelementptr inbounds i8, ptr %10, i64 16
+  %1752 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %1753 = load ptr, ptr %1752, align 8
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1751, ptr noundef %1753, ptr noundef nonnull %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -3990,7 +3990,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883: ;
 
 1762:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883
   store i8 %1761, ptr %.0.i.i.i.i.i.i884, align 1
-  %1763 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i884, i64 1
+  %1763 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i884, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit888
 
 1764:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883
@@ -4002,13 +4002,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883: ;
 
 1768:                                             ; preds = %1764
   %1769 = trunc nuw nsw i32 %1766 to i8
-  %1770 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i884, i64 1
+  %1770 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i884, i64 1
   store i8 %1769, ptr %1770, align 1
-  %1771 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i884, i64 2
+  %1771 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i884, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit888
 
 1772:                                             ; preds = %1764
-  %1773 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i884, i64 1
+  %1773 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i884, i64 1
   br label %1774
 
 1774:                                             ; preds = %1774, %1772
@@ -4018,13 +4018,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i883: ;
   %1776 = or i8 %1775, -128
   store i8 %1776, ptr %.023.i.i.i.i.i.i885, align 1
   %1777 = lshr i32 %.022.i.i.i.i.i.i886, 7
-  %1778 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i885, i64 1
+  %1778 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i885, i64 1
   %1779 = icmp samesign ugt i32 %.022.i.i.i.i.i.i886, 16383
   br i1 %1779, label %1774, label %1780, !llvm.loop !5
 
 1780:                                             ; preds = %1774
   %1781 = trunc nuw nsw i32 %1777 to i8
-  %1782 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i885, i64 2
+  %1782 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i885, i64 2
   store i8 %1781, ptr %1778, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit888
 
@@ -4033,9 +4033,9 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i887, ptr %8, align 8
   %1783 = load ptr, ptr %20, align 8
   %.not.i.i880 = icmp eq ptr %1783, null
-  %1784 = getelementptr inbounds i8, ptr %1783, i64 8
+  %1784 = getelementptr inbounds nuw i8, ptr %1783, i64 8
   %spec.select.i.i881 = select i1 %.not.i.i880, ptr null, ptr %1784
-  %1785 = getelementptr inbounds ptr, ptr %spec.select.i.i881, i64 %indvars.iv
+  %1785 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i881, i64 %indvars.iv
   %1786 = load ptr, ptr %1785, align 8
   %1787 = load ptr, ptr %21, align 8
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1786, ptr noundef %1787, ptr noundef nonnull %3)
@@ -4050,12 +4050,12 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1792:                                             ; preds = %9
-  %1793 = getelementptr inbounds i8, ptr %10, i64 8
+  %1793 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1794 = load i32, ptr %1793, align 8
-  %1795 = getelementptr inbounds i8, ptr %10, i64 4
+  %1795 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1796 = load i32, ptr %1795, align 4
   %1797 = zext i32 %1794 to i64
-  %1798 = getelementptr inbounds i8, ptr %0, i64 %1797
+  %1798 = getelementptr inbounds nuw i8, ptr %0, i64 %1797
   %1799 = load i32, ptr %1798, align 4
   %1800 = lshr i32 %1796, 3
   %1801 = icmp eq i32 %1799, %1800
@@ -4066,11 +4066,11 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1803:                                             ; preds = %9
-  %1804 = getelementptr inbounds i8, ptr %10, i64 8
+  %1804 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1805 = load i32, ptr %1804, align 8
   %1806 = lshr i32 %1805, 5
   %1807 = zext nneg i32 %1806 to i64
-  %1808 = getelementptr inbounds i32, ptr %0, i64 %1807
+  %1808 = getelementptr inbounds nuw i32, ptr %0, i64 %1807
   %1809 = load i32, ptr %1808, align 4
   %1810 = and i32 %1805, 31
   %1811 = shl nuw i32 1, %1810
@@ -4079,7 +4079,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br i1 %.not894, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1813
 
 1813:                                             ; preds = %1803
-  %1814 = getelementptr inbounds i8, ptr %10, i64 4
+  %1814 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1815 = load i32, ptr %1814, align 4
   %1816 = load ptr, ptr %8, align 8
   %1817 = load ptr, ptr %3, align 8
@@ -4098,7 +4098,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651:
 
 1822:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651
   store i8 %1821, ptr %.0.i.i.i.i.i.i.i652, align 1
-  %1823 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i652, i64 1
+  %1823 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i652, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit657
 
 1824:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651
@@ -4110,13 +4110,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651:
 
 1828:                                             ; preds = %1824
   %1829 = trunc nuw nsw i32 %1826 to i8
-  %1830 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i652, i64 1
+  %1830 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i652, i64 1
   store i8 %1829, ptr %1830, align 1
-  %1831 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i652, i64 2
+  %1831 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i652, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit657
 
 1832:                                             ; preds = %1824
-  %1833 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i652, i64 1
+  %1833 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i652, i64 1
   br label %1834
 
 1834:                                             ; preds = %1834, %1832
@@ -4126,13 +4126,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i651:
   %1836 = or i8 %1835, -128
   store i8 %1836, ptr %.023.i.i.i.i.i.i.i653, align 1
   %1837 = lshr i32 %.022.i.i.i.i.i.i.i654, 7
-  %1838 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i653, i64 1
+  %1838 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i653, i64 1
   %1839 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i654, 16383
   br i1 %1839, label %1834, label %1840, !llvm.loop !5
 
 1840:                                             ; preds = %1834
   %1841 = trunc nuw nsw i32 %1837 to i8
-  %1842 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i653, i64 2
+  %1842 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i653, i64 2
   store i8 %1841, ptr %1838, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit657
 
@@ -4156,7 +4156,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br i1 %1853, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1854
 
 1854:                                             ; preds = %1847
-  %1855 = getelementptr inbounds i8, ptr %10, i64 4
+  %1855 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1856 = load i32, ptr %1855, align 4
   %1857 = load ptr, ptr %8, align 8
   %1858 = load ptr, ptr %3, align 8
@@ -4175,7 +4175,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659:
 
 1863:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659
   store i8 %1862, ptr %.0.i.i.i.i.i.i.i660, align 1
-  %1864 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i660, i64 1
+  %1864 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i660, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit665
 
 1865:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659
@@ -4187,13 +4187,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659:
 
 1869:                                             ; preds = %1865
   %1870 = trunc nuw nsw i32 %1867 to i8
-  %1871 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i660, i64 1
+  %1871 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i660, i64 1
   store i8 %1870, ptr %1871, align 1
-  %1872 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i660, i64 2
+  %1872 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i660, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit665
 
 1873:                                             ; preds = %1865
-  %1874 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i660, i64 1
+  %1874 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i660, i64 1
   br label %1875
 
 1875:                                             ; preds = %1875, %1873
@@ -4203,13 +4203,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i659:
   %1877 = or i8 %1876, -128
   store i8 %1877, ptr %.023.i.i.i.i.i.i.i661, align 1
   %1878 = lshr i32 %.022.i.i.i.i.i.i.i662, 7
-  %1879 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i661, i64 1
+  %1879 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i661, i64 1
   %1880 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i662, 16383
   br i1 %1880, label %1875, label %1881, !llvm.loop !5
 
 1881:                                             ; preds = %1875
   %1882 = trunc nuw nsw i32 %1878 to i8
-  %1883 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i661, i64 2
+  %1883 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i661, i64 2
   store i8 %1882, ptr %1879, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit665
 
@@ -4224,14 +4224,14 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS0_2io17Coded
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1888:                                             ; preds = %9
-  %1889 = getelementptr inbounds i8, ptr %13, i64 8
+  %1889 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %1890 = load i32, ptr %1889, align 8
   %1891 = icmp sgt i32 %1890, 0
   br i1 %1891, label %.lr.ph.i666, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i666:                                      ; preds = %1888
-  %1892 = getelementptr inbounds i8, ptr %10, i64 4
-  %1893 = getelementptr inbounds i8, ptr %13, i64 16
+  %1892 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %1893 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %1894
 
 1894:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i673, %.lr.ph.i666
@@ -4254,7 +4254,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669:
 
 1902:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669
   store i8 %1901, ptr %.0.i.i.i.i.i.i.i670, align 1
-  %1903 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i670, i64 1
+  %1903 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i670, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i673
 
 1904:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669
@@ -4266,13 +4266,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669:
 
 1908:                                             ; preds = %1904
   %1909 = trunc nuw nsw i32 %1906 to i8
-  %1910 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i670, i64 1
+  %1910 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i670, i64 1
   store i8 %1909, ptr %1910, align 1
-  %1911 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i670, i64 2
+  %1911 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i670, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i673
 
 1912:                                             ; preds = %1904
-  %1913 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i670, i64 1
+  %1913 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i670, i64 1
   br label %1914
 
 1914:                                             ; preds = %1914, %1912
@@ -4282,13 +4282,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i669:
   %1916 = or i8 %1915, -128
   store i8 %1916, ptr %.023.i.i.i.i.i.i.i671, align 1
   %1917 = lshr i32 %.022.i.i.i.i.i.i.i672, 7
-  %1918 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i671, i64 1
+  %1918 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i671, i64 1
   %1919 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i672, 16383
   br i1 %1919, label %1914, label %1920, !llvm.loop !5
 
 1920:                                             ; preds = %1914
   %1921 = trunc nuw nsw i32 %1917 to i8
-  %1922 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i671, i64 2
+  %1922 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i671, i64 2
   store i8 %1921, ptr %1918, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i673
 
@@ -4297,9 +4297,9 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   store ptr %.0.i1.i.i.i.i.i.i674, ptr %8, align 8
   %1923 = load ptr, ptr %1893, align 8
   %.not.i.i.i675 = icmp eq ptr %1923, null
-  %1924 = getelementptr inbounds i8, ptr %1923, i64 8
+  %1924 = getelementptr inbounds nuw i8, ptr %1923, i64 8
   %spec.select.i.i.i676 = select i1 %.not.i.i.i675, ptr null, ptr %1924
-  %1925 = getelementptr inbounds ptr, ptr %spec.select.i.i.i676, i64 %indvars.iv.i667
+  %1925 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i.i676, i64 %indvars.iv.i667
   %1926 = load ptr, ptr %1925, align 8
   call void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %1926, ptr noundef nonnull %3)
   %indvars.iv.next.i677 = add nuw nsw i64 %indvars.iv.i667, 1
@@ -4313,12 +4313,12 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1931:                                             ; preds = %9
-  %1932 = getelementptr inbounds i8, ptr %10, i64 8
+  %1932 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1933 = load i32, ptr %1932, align 8
-  %1934 = getelementptr inbounds i8, ptr %10, i64 4
+  %1934 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1935 = load i32, ptr %1934, align 4
   %1936 = zext i32 %1933 to i64
-  %1937 = getelementptr inbounds i8, ptr %0, i64 %1936
+  %1937 = getelementptr inbounds nuw i8, ptr %0, i64 %1936
   %1938 = load i32, ptr %1937, align 4
   %1939 = lshr i32 %1935, 3
   %1940 = icmp eq i32 %1938, %1939
@@ -4342,7 +4342,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i68
 
 1948:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i680
   store i8 %1947, ptr %.0.i.i.i.i.i.i.i.i681, align 1
-  %1949 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 1
+  %1949 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1950:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i680
@@ -4354,13 +4354,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i68
 
 1954:                                             ; preds = %1950
   %1955 = trunc nuw nsw i32 %1952 to i8
-  %1956 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 1
+  %1956 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 1
   store i8 %1955, ptr %1956, align 1
-  %1957 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 2
+  %1957 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1958:                                             ; preds = %1950
-  %1959 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 1
+  %1959 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i681, i64 1
   br label %1960
 
 1960:                                             ; preds = %1960, %1958
@@ -4370,13 +4370,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i68
   %1962 = or i8 %1961, -128
   store i8 %1962, ptr %.023.i.i.i.i.i.i.i.i682, align 1
   %1963 = lshr i32 %.022.i.i.i.i.i.i.i.i683, 7
-  %1964 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i682, i64 1
+  %1964 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i682, i64 1
   %1965 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i683, 16383
   br i1 %1965, label %1960, label %1966, !llvm.loop !5
 
 1966:                                             ; preds = %1960
   %1967 = trunc nuw nsw i32 %1963 to i8
-  %1968 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i682, i64 2
+  %1968 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i682, i64 2
   store i8 %1967, ptr %1964, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -4391,11 +4391,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1973:                                             ; preds = %9
-  %1974 = getelementptr inbounds i8, ptr %10, i64 8
+  %1974 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1975 = load i32, ptr %1974, align 8
   %1976 = lshr i32 %1975, 5
   %1977 = zext nneg i32 %1976 to i64
-  %1978 = getelementptr inbounds i32, ptr %0, i64 %1977
+  %1978 = getelementptr inbounds nuw i32, ptr %0, i64 %1977
   %1979 = load i32, ptr %1978, align 4
   %1980 = and i32 %1975, 31
   %1981 = shl nuw i32 1, %1980
@@ -4404,7 +4404,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS0_2io17CodedOu
   br i1 %.not893, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1983
 
 1983:                                             ; preds = %1973
-  %1984 = getelementptr inbounds i8, ptr %10, i64 4
+  %1984 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %1985 = load i32, ptr %1984, align 4
   %1986 = load ptr, ptr %8, align 8
   %1987 = load ptr, ptr %3, align 8
@@ -4423,7 +4423,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686:
 
 1992:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686
   store i8 %1991, ptr %.0.i.i.i.i.i.i.i687, align 1
-  %1993 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i687, i64 1
+  %1993 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i687, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i690
 
 1994:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686
@@ -4435,13 +4435,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686:
 
 1998:                                             ; preds = %1994
   %1999 = trunc nuw nsw i32 %1996 to i8
-  %2000 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i687, i64 1
+  %2000 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i687, i64 1
   store i8 %1999, ptr %2000, align 1
-  %2001 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i687, i64 2
+  %2001 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i687, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i690
 
 2002:                                             ; preds = %1994
-  %2003 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i687, i64 1
+  %2003 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i687, i64 1
   br label %2004
 
 2004:                                             ; preds = %2004, %2002
@@ -4451,13 +4451,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i686:
   %2006 = or i8 %2005, -128
   store i8 %2006, ptr %.023.i.i.i.i.i.i.i688, align 1
   %2007 = lshr i32 %.022.i.i.i.i.i.i.i689, 7
-  %2008 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i688, i64 1
+  %2008 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i688, i64 1
   %2009 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i689, 16383
   br i1 %2009, label %2004, label %2010, !llvm.loop !5
 
 2010:                                             ; preds = %2004
   %2011 = trunc nuw nsw i32 %2007 to i8
-  %2012 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i688, i64 2
+  %2012 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i688, i64 2
   store i8 %2011, ptr %2008, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i690
 
@@ -4481,7 +4481,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693: ;
 
 2019:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693
   store i8 %2018, ptr %.0.i.i.i.i.i.i694, align 1
-  %2020 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i694, i64 1
+  %2020 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i694, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2021:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693
@@ -4493,13 +4493,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693: ;
 
 2025:                                             ; preds = %2021
   %2026 = trunc nuw nsw i32 %2023 to i8
-  %2027 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i694, i64 1
+  %2027 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i694, i64 1
   store i8 %2026, ptr %2027, align 1
-  %2028 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i694, i64 2
+  %2028 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i694, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2029:                                             ; preds = %2021
-  %2030 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i694, i64 1
+  %2030 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i694, i64 1
   br label %2031
 
 2031:                                             ; preds = %2031, %2029
@@ -4509,13 +4509,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i693: ;
   %2033 = or i8 %2032, -128
   store i8 %2033, ptr %.023.i.i.i.i.i.i695, align 1
   %2034 = lshr i32 %.022.i.i.i.i.i.i696, 7
-  %2035 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i695, i64 1
+  %2035 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i695, i64 1
   %2036 = icmp samesign ugt i32 %.022.i.i.i.i.i.i696, 16383
   br i1 %2036, label %2031, label %2037, !llvm.loop !5
 
 2037:                                             ; preds = %2031
   %2038 = trunc nuw nsw i32 %2034 to i8
-  %2039 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i695, i64 2
+  %2039 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i695, i64 2
   store i8 %2038, ptr %2035, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -4530,7 +4530,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17Code
   br i1 %2042, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2043
 
 2043:                                             ; preds = %2040
-  %2044 = getelementptr inbounds i8, ptr %10, i64 4
+  %2044 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2045 = load i32, ptr %2044, align 4
   %2046 = load ptr, ptr %8, align 8
   %2047 = load ptr, ptr %3, align 8
@@ -4549,7 +4549,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699:
 
 2052:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699
   store i8 %2051, ptr %.0.i.i.i.i.i.i.i700, align 1
-  %2053 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i700, i64 1
+  %2053 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i700, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i703
 
 2054:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699
@@ -4561,13 +4561,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699:
 
 2058:                                             ; preds = %2054
   %2059 = trunc nuw nsw i32 %2056 to i8
-  %2060 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i700, i64 1
+  %2060 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i700, i64 1
   store i8 %2059, ptr %2060, align 1
-  %2061 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i700, i64 2
+  %2061 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i700, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i703
 
 2062:                                             ; preds = %2054
-  %2063 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i700, i64 1
+  %2063 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i700, i64 1
   br label %2064
 
 2064:                                             ; preds = %2064, %2062
@@ -4577,13 +4577,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i699:
   %2066 = or i8 %2065, -128
   store i8 %2066, ptr %.023.i.i.i.i.i.i.i701, align 1
   %2067 = lshr i32 %.022.i.i.i.i.i.i.i702, 7
-  %2068 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i701, i64 1
+  %2068 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i701, i64 1
   %2069 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i702, 16383
   br i1 %2069, label %2064, label %2070, !llvm.loop !5
 
 2070:                                             ; preds = %2064
   %2071 = trunc nuw nsw i32 %2067 to i8
-  %2072 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i701, i64 2
+  %2072 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i701, i64 2
   store i8 %2071, ptr %2068, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i703
 
@@ -4607,7 +4607,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706: ;
 
 2079:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706
   store i8 %2078, ptr %.0.i.i.i.i.i.i707, align 1
-  %2080 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i707, i64 1
+  %2080 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i707, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit711
 
 2081:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706
@@ -4619,13 +4619,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706: ;
 
 2085:                                             ; preds = %2081
   %2086 = trunc nuw nsw i32 %2083 to i8
-  %2087 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i707, i64 1
+  %2087 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i707, i64 1
   store i8 %2086, ptr %2087, align 1
-  %2088 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i707, i64 2
+  %2088 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i707, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit711
 
 2089:                                             ; preds = %2081
-  %2090 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i707, i64 1
+  %2090 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i707, i64 1
   br label %2091
 
 2091:                                             ; preds = %2091, %2089
@@ -4635,13 +4635,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i706: ;
   %2093 = or i8 %2092, -128
   store i8 %2093, ptr %.023.i.i.i.i.i.i708, align 1
   %2094 = lshr i32 %.022.i.i.i.i.i.i709, 7
-  %2095 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i708, i64 1
+  %2095 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i708, i64 1
   %2096 = icmp samesign ugt i32 %.022.i.i.i.i.i.i709, 16383
   br i1 %2096, label %2091, label %2097, !llvm.loop !5
 
 2097:                                             ; preds = %2091
   %2098 = trunc nuw nsw i32 %2094 to i8
-  %2099 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i708, i64 2
+  %2099 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i708, i64 2
   store i8 %2098, ptr %2095, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit711
 
@@ -4659,12 +4659,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS0_2io17Code
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2102:                                             ; preds = %9
-  %2103 = getelementptr inbounds i8, ptr %10, i64 8
+  %2103 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2104 = load i32, ptr %2103, align 8
-  %2105 = getelementptr inbounds i8, ptr %10, i64 4
+  %2105 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2106 = load i32, ptr %2105, align 4
   %2107 = zext i32 %2104 to i64
-  %2108 = getelementptr inbounds i8, ptr %0, i64 %2107
+  %2108 = getelementptr inbounds nuw i8, ptr %0, i64 %2107
   %2109 = load i32, ptr %2108, align 4
   %2110 = lshr i32 %2106, 3
   %2111 = icmp eq i32 %2109, %2110
@@ -4688,7 +4688,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i71
 
 2119:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i713
   store i8 %2118, ptr %.0.i.i.i.i.i.i.i.i714, align 1
-  %2120 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 1
+  %2120 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i717
 
 2121:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i713
@@ -4700,13 +4700,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i71
 
 2125:                                             ; preds = %2121
   %2126 = trunc nuw nsw i32 %2123 to i8
-  %2127 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 1
+  %2127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 1
   store i8 %2126, ptr %2127, align 1
-  %2128 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 2
+  %2128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i717
 
 2129:                                             ; preds = %2121
-  %2130 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 1
+  %2130 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i714, i64 1
   br label %2131
 
 2131:                                             ; preds = %2131, %2129
@@ -4716,13 +4716,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i71
   %2133 = or i8 %2132, -128
   store i8 %2133, ptr %.023.i.i.i.i.i.i.i.i715, align 1
   %2134 = lshr i32 %.022.i.i.i.i.i.i.i.i716, 7
-  %2135 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i715, i64 1
+  %2135 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i715, i64 1
   %2136 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i716, 16383
   br i1 %2136, label %2131, label %2137, !llvm.loop !5
 
 2137:                                             ; preds = %2131
   %2138 = trunc nuw nsw i32 %2134 to i8
-  %2139 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i715, i64 2
+  %2139 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i715, i64 2
   store i8 %2138, ptr %2135, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i717
 
@@ -4746,7 +4746,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720:
 
 2146:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720
   store i8 %2145, ptr %.0.i.i.i.i.i.i.i721, align 1
-  %2147 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i721, i64 1
+  %2147 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i721, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2148:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720
@@ -4758,13 +4758,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720:
 
 2152:                                             ; preds = %2148
   %2153 = trunc nuw nsw i32 %2150 to i8
-  %2154 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i721, i64 1
+  %2154 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i721, i64 1
   store i8 %2153, ptr %2154, align 1
-  %2155 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i721, i64 2
+  %2155 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i721, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2156:                                             ; preds = %2148
-  %2157 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i721, i64 1
+  %2157 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i721, i64 1
   br label %2158
 
 2158:                                             ; preds = %2158, %2156
@@ -4774,13 +4774,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i720:
   %2160 = or i8 %2159, -128
   store i8 %2160, ptr %.023.i.i.i.i.i.i.i722, align 1
   %2161 = lshr i32 %.022.i.i.i.i.i.i.i723, 7
-  %2162 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i722, i64 1
+  %2162 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i722, i64 1
   %2163 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i723, 16383
   br i1 %2163, label %2158, label %2164, !llvm.loop !5
 
 2164:                                             ; preds = %2158
   %2165 = trunc nuw nsw i32 %2161 to i8
-  %2166 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i722, i64 2
+  %2166 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i722, i64 2
   store i8 %2165, ptr %2162, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -4790,11 +4790,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2167:                                             ; preds = %9
-  %2168 = getelementptr inbounds i8, ptr %10, i64 8
+  %2168 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2169 = load i32, ptr %2168, align 8
   %2170 = lshr i32 %2169, 5
   %2171 = zext nneg i32 %2170 to i64
-  %2172 = getelementptr inbounds i32, ptr %0, i64 %2171
+  %2172 = getelementptr inbounds nuw i32, ptr %0, i64 %2171
   %2173 = load i32, ptr %2172, align 4
   %2174 = and i32 %2169, 31
   %2175 = shl nuw i32 1, %2174
@@ -4803,7 +4803,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS0_2io17CodedOu
   br i1 %.not892, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2177
 
 2177:                                             ; preds = %2167
-  %2178 = getelementptr inbounds i8, ptr %10, i64 4
+  %2178 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2179 = load i32, ptr %2178, align 4
   %2180 = load ptr, ptr %8, align 8
   %2181 = load ptr, ptr %3, align 8
@@ -4822,7 +4822,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726:
 
 2186:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726
   store i8 %2185, ptr %.0.i.i.i.i.i.i.i727, align 1
-  %2187 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i727, i64 1
+  %2187 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i727, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i730
 
 2188:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726
@@ -4834,13 +4834,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726:
 
 2192:                                             ; preds = %2188
   %2193 = trunc nuw nsw i32 %2190 to i8
-  %2194 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i727, i64 1
+  %2194 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i727, i64 1
   store i8 %2193, ptr %2194, align 1
-  %2195 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i727, i64 2
+  %2195 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i727, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i730
 
 2196:                                             ; preds = %2188
-  %2197 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i727, i64 1
+  %2197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i727, i64 1
   br label %2198
 
 2198:                                             ; preds = %2198, %2196
@@ -4850,13 +4850,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i726:
   %2200 = or i8 %2199, -128
   store i8 %2200, ptr %.023.i.i.i.i.i.i.i728, align 1
   %2201 = lshr i32 %.022.i.i.i.i.i.i.i729, 7
-  %2202 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i728, i64 1
+  %2202 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i728, i64 1
   %2203 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i729, 16383
   br i1 %2203, label %2198, label %2204, !llvm.loop !5
 
 2204:                                             ; preds = %2198
   %2205 = trunc nuw nsw i32 %2201 to i8
-  %2206 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i728, i64 2
+  %2206 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i728, i64 2
   store i8 %2205, ptr %2202, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i730
 
@@ -4881,7 +4881,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
 
 2214:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
   store i8 %2213, ptr %.0.i.i.i.i.i.i6.i734, align 1
-  %2215 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i734, i64 1
+  %2215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i734, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2216:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
@@ -4893,13 +4893,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
 
 2220:                                             ; preds = %2216
   %2221 = trunc nuw nsw i64 %2218 to i8
-  %2222 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i734, i64 1
+  %2222 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i734, i64 1
   store i8 %2221, ptr %2222, align 1
-  %2223 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i734, i64 2
+  %2223 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i734, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2224:                                             ; preds = %2216
-  %2225 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i734, i64 1
+  %2225 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i734, i64 1
   br label %2226
 
 2226:                                             ; preds = %2226, %2224
@@ -4909,13 +4909,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i733
   %2228 = or i8 %2227, -128
   store i8 %2228, ptr %.023.i.i.i.i.i.i7.i735, align 1
   %2229 = lshr i64 %.022.i.i.i.i.i.i8.i736, 7
-  %2230 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i735, i64 1
+  %2230 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i735, i64 1
   %2231 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i736, 16383
   br i1 %2231, label %2226, label %2232, !llvm.loop !7
 
 2232:                                             ; preds = %2226
   %2233 = trunc nuw nsw i64 %2229 to i8
-  %2234 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i735, i64 2
+  %2234 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i735, i64 2
   store i8 %2233, ptr %2230, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -4930,7 +4930,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17Code
   br i1 %2237, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2238
 
 2238:                                             ; preds = %2235
-  %2239 = getelementptr inbounds i8, ptr %10, i64 4
+  %2239 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2240 = load i32, ptr %2239, align 4
   %2241 = load ptr, ptr %8, align 8
   %2242 = load ptr, ptr %3, align 8
@@ -4949,7 +4949,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739:
 
 2247:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739
   store i8 %2246, ptr %.0.i.i.i.i.i.i.i740, align 1
-  %2248 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i740, i64 1
+  %2248 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i740, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i743
 
 2249:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739
@@ -4961,13 +4961,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739:
 
 2253:                                             ; preds = %2249
   %2254 = trunc nuw nsw i32 %2251 to i8
-  %2255 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i740, i64 1
+  %2255 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i740, i64 1
   store i8 %2254, ptr %2255, align 1
-  %2256 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i740, i64 2
+  %2256 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i740, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i743
 
 2257:                                             ; preds = %2249
-  %2258 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i740, i64 1
+  %2258 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i740, i64 1
   br label %2259
 
 2259:                                             ; preds = %2259, %2257
@@ -4977,13 +4977,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i739:
   %2261 = or i8 %2260, -128
   store i8 %2261, ptr %.023.i.i.i.i.i.i.i741, align 1
   %2262 = lshr i32 %.022.i.i.i.i.i.i.i742, 7
-  %2263 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i741, i64 1
+  %2263 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i741, i64 1
   %2264 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i742, 16383
   br i1 %2264, label %2259, label %2265, !llvm.loop !5
 
 2265:                                             ; preds = %2259
   %2266 = trunc nuw nsw i32 %2262 to i8
-  %2267 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i741, i64 2
+  %2267 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i741, i64 2
   store i8 %2266, ptr %2263, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i743
 
@@ -5008,7 +5008,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
 
 2275:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
   store i8 %2274, ptr %.0.i.i.i.i.i.i6.i747, align 1
-  %2276 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i747, i64 1
+  %2276 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i747, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit751
 
 2277:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
@@ -5020,13 +5020,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
 
 2281:                                             ; preds = %2277
   %2282 = trunc nuw nsw i64 %2279 to i8
-  %2283 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i747, i64 1
+  %2283 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i747, i64 1
   store i8 %2282, ptr %2283, align 1
-  %2284 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i747, i64 2
+  %2284 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i747, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit751
 
 2285:                                             ; preds = %2277
-  %2286 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i747, i64 1
+  %2286 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i747, i64 1
   br label %2287
 
 2287:                                             ; preds = %2287, %2285
@@ -5036,13 +5036,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i746
   %2289 = or i8 %2288, -128
   store i8 %2289, ptr %.023.i.i.i.i.i.i7.i748, align 1
   %2290 = lshr i64 %.022.i.i.i.i.i.i8.i749, 7
-  %2291 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i748, i64 1
+  %2291 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i748, i64 1
   %2292 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i749, 16383
   br i1 %2292, label %2287, label %2293, !llvm.loop !7
 
 2293:                                             ; preds = %2287
   %2294 = trunc nuw nsw i64 %2290 to i8
-  %2295 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i748, i64 2
+  %2295 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i748, i64 2
   store i8 %2294, ptr %2291, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit751
 
@@ -5060,12 +5060,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS0_2io17Code
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2298:                                             ; preds = %9
-  %2299 = getelementptr inbounds i8, ptr %10, i64 8
+  %2299 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2300 = load i32, ptr %2299, align 8
-  %2301 = getelementptr inbounds i8, ptr %10, i64 4
+  %2301 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2302 = load i32, ptr %2301, align 4
   %2303 = zext i32 %2300 to i64
-  %2304 = getelementptr inbounds i8, ptr %0, i64 %2303
+  %2304 = getelementptr inbounds nuw i8, ptr %0, i64 %2303
   %2305 = load i32, ptr %2304, align 4
   %2306 = lshr i32 %2302, 3
   %2307 = icmp eq i32 %2305, %2306
@@ -5089,7 +5089,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i75
 
 2315:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i753
   store i8 %2314, ptr %.0.i.i.i.i.i.i.i.i754, align 1
-  %2316 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 1
+  %2316 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i757
 
 2317:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i753
@@ -5101,13 +5101,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i75
 
 2321:                                             ; preds = %2317
   %2322 = trunc nuw nsw i32 %2319 to i8
-  %2323 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 1
+  %2323 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 1
   store i8 %2322, ptr %2323, align 1
-  %2324 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 2
+  %2324 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i757
 
 2325:                                             ; preds = %2317
-  %2326 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 1
+  %2326 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i754, i64 1
   br label %2327
 
 2327:                                             ; preds = %2327, %2325
@@ -5117,13 +5117,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i75
   %2329 = or i8 %2328, -128
   store i8 %2329, ptr %.023.i.i.i.i.i.i.i.i755, align 1
   %2330 = lshr i32 %.022.i.i.i.i.i.i.i.i756, 7
-  %2331 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i755, i64 1
+  %2331 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i755, i64 1
   %2332 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i756, 16383
   br i1 %2332, label %2327, label %2333, !llvm.loop !5
 
 2333:                                             ; preds = %2327
   %2334 = trunc nuw nsw i32 %2330 to i8
-  %2335 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i755, i64 2
+  %2335 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i755, i64 2
   store i8 %2334, ptr %2331, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i757
 
@@ -5148,7 +5148,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i7
 
 2343:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i760
   store i8 %2342, ptr %.0.i.i.i.i.i.i6.i.i761, align 1
-  %2344 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 1
+  %2344 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2345:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i760
@@ -5160,13 +5160,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i7
 
 2349:                                             ; preds = %2345
   %2350 = trunc nuw nsw i64 %2347 to i8
-  %2351 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 1
+  %2351 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 1
   store i8 %2350, ptr %2351, align 1
-  %2352 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 2
+  %2352 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2353:                                             ; preds = %2345
-  %2354 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 1
+  %2354 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i6.i.i761, i64 1
   br label %2355
 
 2355:                                             ; preds = %2355, %2353
@@ -5176,13 +5176,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i5.i.i7
   %2357 = or i8 %2356, -128
   store i8 %2357, ptr %.023.i.i.i.i.i.i7.i.i762, align 1
   %2358 = lshr i64 %.022.i.i.i.i.i.i8.i.i763, 7
-  %2359 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i.i762, i64 1
+  %2359 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i.i762, i64 1
   %2360 = icmp samesign ugt i64 %.022.i.i.i.i.i.i8.i.i763, 16383
   br i1 %2360, label %2355, label %2361, !llvm.loop !7
 
 2361:                                             ; preds = %2355
   %2362 = trunc nuw nsw i64 %2358 to i8
-  %2363 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i7.i.i762, i64 2
+  %2363 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i7.i.i762, i64 2
   store i8 %2362, ptr %2359, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -5192,11 +5192,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2364:                                             ; preds = %9
-  %2365 = getelementptr inbounds i8, ptr %10, i64 8
+  %2365 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2366 = load i32, ptr %2365, align 8
   %2367 = lshr i32 %2366, 5
   %2368 = zext nneg i32 %2367 to i64
-  %2369 = getelementptr inbounds i32, ptr %0, i64 %2368
+  %2369 = getelementptr inbounds nuw i32, ptr %0, i64 %2368
   %2370 = load i32, ptr %2369, align 4
   %2371 = and i32 %2366, 31
   %2372 = shl nuw i32 1, %2371
@@ -5205,7 +5205,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS0_2io17CodedOu
   br i1 %.not891, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2374
 
 2374:                                             ; preds = %2364
-  %2375 = getelementptr inbounds i8, ptr %10, i64 4
+  %2375 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2376 = load i32, ptr %2375, align 4
   %2377 = load ptr, ptr %8, align 8
   %2378 = load ptr, ptr %3, align 8
@@ -5224,7 +5224,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766:
 
 2383:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766
   store i8 %2382, ptr %.0.i.i.i.i.i.i.i767, align 1
-  %2384 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i767, i64 1
+  %2384 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i767, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770
 
 2385:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766
@@ -5236,13 +5236,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766:
 
 2389:                                             ; preds = %2385
   %2390 = trunc nuw nsw i32 %2387 to i8
-  %2391 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i767, i64 1
+  %2391 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i767, i64 1
   store i8 %2390, ptr %2391, align 1
-  %2392 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i767, i64 2
+  %2392 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i767, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770
 
 2393:                                             ; preds = %2385
-  %2394 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i767, i64 1
+  %2394 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i767, i64 1
   br label %2395
 
 2395:                                             ; preds = %2395, %2393
@@ -5252,13 +5252,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i766:
   %2397 = or i8 %2396, -128
   store i8 %2397, ptr %.023.i.i.i.i.i.i.i768, align 1
   %2398 = lshr i32 %.022.i.i.i.i.i.i.i769, 7
-  %2399 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i768, i64 1
+  %2399 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i768, i64 1
   %2400 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i769, 16383
   br i1 %2400, label %2395, label %2401, !llvm.loop !5
 
 2401:                                             ; preds = %2395
   %2402 = trunc nuw nsw i32 %2398 to i8
-  %2403 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i768, i64 2
+  %2403 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i768, i64 2
   store i8 %2402, ptr %2399, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770
 
@@ -5277,7 +5277,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770, %2406
   %.0.i.i.i.i.i.i773 = phi ptr [ %2407, %2406 ], [ %.0.i1.i.i.i.i.i.i771, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i770 ]
   store i32 %2404, ptr %.0.i.i.i.i.i.i773, align 1
-  %2408 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i773, i64 4
+  %2408 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i773, i64 4
   store ptr %2408, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -5287,7 +5287,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17Code
   br i1 %2411, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2412
 
 2412:                                             ; preds = %2409
-  %2413 = getelementptr inbounds i8, ptr %10, i64 4
+  %2413 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2414 = load i32, ptr %2413, align 4
   %2415 = load ptr, ptr %8, align 8
   %2416 = load ptr, ptr %3, align 8
@@ -5306,7 +5306,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775:
 
 2421:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775
   store i8 %2420, ptr %.0.i.i.i.i.i.i.i776, align 1
-  %2422 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i776, i64 1
+  %2422 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i776, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779
 
 2423:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775
@@ -5318,13 +5318,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775:
 
 2427:                                             ; preds = %2423
   %2428 = trunc nuw nsw i32 %2425 to i8
-  %2429 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i776, i64 1
+  %2429 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i776, i64 1
   store i8 %2428, ptr %2429, align 1
-  %2430 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i776, i64 2
+  %2430 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i776, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779
 
 2431:                                             ; preds = %2423
-  %2432 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i776, i64 1
+  %2432 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i776, i64 1
   br label %2433
 
 2433:                                             ; preds = %2433, %2431
@@ -5334,13 +5334,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i775:
   %2435 = or i8 %2434, -128
   store i8 %2435, ptr %.023.i.i.i.i.i.i.i777, align 1
   %2436 = lshr i32 %.022.i.i.i.i.i.i.i778, 7
-  %2437 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i777, i64 1
+  %2437 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i777, i64 1
   %2438 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i778, 16383
   br i1 %2438, label %2433, label %2439, !llvm.loop !5
 
 2439:                                             ; preds = %2433
   %2440 = trunc nuw nsw i32 %2436 to i8
-  %2441 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i777, i64 2
+  %2441 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i777, i64 2
   store i8 %2440, ptr %2437, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779
 
@@ -5359,7 +5359,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit783: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779, %2444
   %.0.i.i.i.i.i.i782 = phi ptr [ %2445, %2444 ], [ %.0.i1.i.i.i.i.i.i780, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i779 ]
   store i32 %2442, ptr %.0.i.i.i.i.i.i782, align 1
-  %2446 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i782, i64 4
+  %2446 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i782, i64 4
   store ptr %2446, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -5372,12 +5372,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS0_2io17Code
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2449:                                             ; preds = %9
-  %2450 = getelementptr inbounds i8, ptr %10, i64 8
+  %2450 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2451 = load i32, ptr %2450, align 8
-  %2452 = getelementptr inbounds i8, ptr %10, i64 4
+  %2452 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2453 = load i32, ptr %2452, align 4
   %2454 = zext i32 %2451 to i64
-  %2455 = getelementptr inbounds i8, ptr %0, i64 %2454
+  %2455 = getelementptr inbounds nuw i8, ptr %0, i64 %2454
   %2456 = load i32, ptr %2455, align 4
   %2457 = lshr i32 %2453, 3
   %2458 = icmp eq i32 %2456, %2457
@@ -5401,7 +5401,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i78
 
 2466:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i785
   store i8 %2465, ptr %.0.i.i.i.i.i.i.i.i786, align 1
-  %2467 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 1
+  %2467 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789
 
 2468:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i785
@@ -5413,13 +5413,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i78
 
 2472:                                             ; preds = %2468
   %2473 = trunc nuw nsw i32 %2470 to i8
-  %2474 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 1
+  %2474 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 1
   store i8 %2473, ptr %2474, align 1
-  %2475 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 2
+  %2475 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789
 
 2476:                                             ; preds = %2468
-  %2477 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 1
+  %2477 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i786, i64 1
   br label %2478
 
 2478:                                             ; preds = %2478, %2476
@@ -5429,13 +5429,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i78
   %2480 = or i8 %2479, -128
   store i8 %2480, ptr %.023.i.i.i.i.i.i.i.i787, align 1
   %2481 = lshr i32 %.022.i.i.i.i.i.i.i.i788, 7
-  %2482 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i787, i64 1
+  %2482 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i787, i64 1
   %2483 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i788, 16383
   br i1 %2483, label %2478, label %2484, !llvm.loop !5
 
 2484:                                             ; preds = %2478
   %2485 = trunc nuw nsw i32 %2481 to i8
-  %2486 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i787, i64 2
+  %2486 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i787, i64 2
   store i8 %2485, ptr %2482, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789
 
@@ -5454,16 +5454,16 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789, %2489
   %.0.i.i.i.i.i.i.i792 = phi ptr [ %2490, %2489 ], [ %.0.i1.i.i.i.i.i.i.i790, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i789 ]
   store i32 %2487, ptr %.0.i.i.i.i.i.i.i792, align 1
-  %2491 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i792, i64 4
+  %2491 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i792, i64 4
   store ptr %2491, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2492:                                             ; preds = %9
-  %2493 = getelementptr inbounds i8, ptr %10, i64 8
+  %2493 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2494 = load i32, ptr %2493, align 8
   %2495 = lshr i32 %2494, 5
   %2496 = zext nneg i32 %2495 to i64
-  %2497 = getelementptr inbounds i32, ptr %0, i64 %2496
+  %2497 = getelementptr inbounds nuw i32, ptr %0, i64 %2496
   %2498 = load i32, ptr %2497, align 4
   %2499 = and i32 %2494, 31
   %2500 = shl nuw i32 1, %2499
@@ -5472,7 +5472,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS0_2io17CodedOu
   br i1 %.not890, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2502
 
 2502:                                             ; preds = %2492
-  %2503 = getelementptr inbounds i8, ptr %10, i64 4
+  %2503 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2504 = load i32, ptr %2503, align 4
   %2505 = load ptr, ptr %8, align 8
   %2506 = load ptr, ptr %3, align 8
@@ -5491,7 +5491,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794:
 
 2511:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794
   store i8 %2510, ptr %.0.i.i.i.i.i.i.i795, align 1
-  %2512 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i795, i64 1
+  %2512 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i795, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798
 
 2513:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794
@@ -5503,13 +5503,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794:
 
 2517:                                             ; preds = %2513
   %2518 = trunc nuw nsw i32 %2515 to i8
-  %2519 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i795, i64 1
+  %2519 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i795, i64 1
   store i8 %2518, ptr %2519, align 1
-  %2520 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i795, i64 2
+  %2520 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i795, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798
 
 2521:                                             ; preds = %2513
-  %2522 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i795, i64 1
+  %2522 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i795, i64 1
   br label %2523
 
 2523:                                             ; preds = %2523, %2521
@@ -5519,13 +5519,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i794:
   %2525 = or i8 %2524, -128
   store i8 %2525, ptr %.023.i.i.i.i.i.i.i796, align 1
   %2526 = lshr i32 %.022.i.i.i.i.i.i.i797, 7
-  %2527 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i796, i64 1
+  %2527 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i796, i64 1
   %2528 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i797, 16383
   br i1 %2528, label %2523, label %2529, !llvm.loop !5
 
 2529:                                             ; preds = %2523
   %2530 = trunc nuw nsw i32 %2526 to i8
-  %2531 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i796, i64 2
+  %2531 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i796, i64 2
   store i8 %2530, ptr %2527, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798
 
@@ -5544,7 +5544,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798, %2534
   %.0.i.i.i.i.i.i801 = phi ptr [ %2535, %2534 ], [ %.0.i1.i.i.i.i.i.i799, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i798 ]
   store i64 %2532, ptr %.0.i.i.i.i.i.i801, align 1
-  %2536 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i801, i64 8
+  %2536 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i801, i64 8
   store ptr %2536, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -5554,7 +5554,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17Code
   br i1 %2539, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2540
 
 2540:                                             ; preds = %2537
-  %2541 = getelementptr inbounds i8, ptr %10, i64 4
+  %2541 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2542 = load i32, ptr %2541, align 4
   %2543 = load ptr, ptr %8, align 8
   %2544 = load ptr, ptr %3, align 8
@@ -5573,7 +5573,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803:
 
 2549:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803
   store i8 %2548, ptr %.0.i.i.i.i.i.i.i804, align 1
-  %2550 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i804, i64 1
+  %2550 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i804, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807
 
 2551:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803
@@ -5585,13 +5585,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803:
 
 2555:                                             ; preds = %2551
   %2556 = trunc nuw nsw i32 %2553 to i8
-  %2557 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i804, i64 1
+  %2557 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i804, i64 1
   store i8 %2556, ptr %2557, align 1
-  %2558 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i804, i64 2
+  %2558 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i804, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807
 
 2559:                                             ; preds = %2551
-  %2560 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i804, i64 1
+  %2560 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i804, i64 1
   br label %2561
 
 2561:                                             ; preds = %2561, %2559
@@ -5601,13 +5601,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i803:
   %2563 = or i8 %2562, -128
   store i8 %2563, ptr %.023.i.i.i.i.i.i.i805, align 1
   %2564 = lshr i32 %.022.i.i.i.i.i.i.i806, 7
-  %2565 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i805, i64 1
+  %2565 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i805, i64 1
   %2566 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i806, 16383
   br i1 %2566, label %2561, label %2567, !llvm.loop !5
 
 2567:                                             ; preds = %2561
   %2568 = trunc nuw nsw i32 %2564 to i8
-  %2569 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i805, i64 2
+  %2569 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i805, i64 2
   store i8 %2568, ptr %2565, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807
 
@@ -5626,7 +5626,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit811: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807, %2572
   %.0.i.i.i.i.i.i810 = phi ptr [ %2573, %2572 ], [ %.0.i1.i.i.i.i.i.i808, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i807 ]
   store i64 %2570, ptr %.0.i.i.i.i.i.i810, align 1
-  %2574 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i810, i64 8
+  %2574 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i810, i64 8
   store ptr %2574, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -5639,12 +5639,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS0_2io17Code
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2577:                                             ; preds = %9
-  %2578 = getelementptr inbounds i8, ptr %10, i64 8
+  %2578 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2579 = load i32, ptr %2578, align 8
-  %2580 = getelementptr inbounds i8, ptr %10, i64 4
+  %2580 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2581 = load i32, ptr %2580, align 4
   %2582 = zext i32 %2579 to i64
-  %2583 = getelementptr inbounds i8, ptr %0, i64 %2582
+  %2583 = getelementptr inbounds nuw i8, ptr %0, i64 %2582
   %2584 = load i32, ptr %2583, align 4
   %2585 = lshr i32 %2581, 3
   %2586 = icmp eq i32 %2584, %2585
@@ -5668,7 +5668,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i81
 
 2594:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i813
   store i8 %2593, ptr %.0.i.i.i.i.i.i.i.i814, align 1
-  %2595 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 1
+  %2595 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817
 
 2596:                                             ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i813
@@ -5680,13 +5680,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i81
 
 2600:                                             ; preds = %2596
   %2601 = trunc nuw nsw i32 %2598 to i8
-  %2602 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 1
+  %2602 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 1
   store i8 %2601, ptr %2602, align 1
-  %2603 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 2
+  %2603 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817
 
 2604:                                             ; preds = %2596
-  %2605 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 1
+  %2605 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i814, i64 1
   br label %2606
 
 2606:                                             ; preds = %2606, %2604
@@ -5696,13 +5696,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i.i.i81
   %2608 = or i8 %2607, -128
   store i8 %2608, ptr %.023.i.i.i.i.i.i.i.i815, align 1
   %2609 = lshr i32 %.022.i.i.i.i.i.i.i.i816, 7
-  %2610 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i815, i64 1
+  %2610 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i815, i64 1
   %2611 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i.i816, 16383
   br i1 %2611, label %2606, label %2612, !llvm.loop !5
 
 2612:                                             ; preds = %2606
   %2613 = trunc nuw nsw i32 %2609 to i8
-  %2614 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i.i815, i64 2
+  %2614 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i.i815, i64 2
   store i8 %2613, ptr %2610, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817
 
@@ -5721,16 +5721,16 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817, %2617
   %.0.i.i.i.i.i.i.i820 = phi ptr [ %2618, %2617 ], [ %.0.i1.i.i.i.i.i.i.i818, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit.i.i817 ]
   store i64 %2615, ptr %.0.i.i.i.i.i.i.i820, align 1
-  %2619 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i820, i64 8
+  %2619 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i820, i64 8
   store ptr %2619, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2620:                                             ; preds = %9
-  %2621 = getelementptr inbounds i8, ptr %10, i64 8
+  %2621 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2622 = load i32, ptr %2621, align 8
   %2623 = lshr i32 %2622, 5
   %2624 = zext nneg i32 %2623 to i64
-  %2625 = getelementptr inbounds i32, ptr %0, i64 %2624
+  %2625 = getelementptr inbounds nuw i32, ptr %0, i64 %2624
   %2626 = load i32, ptr %2625, align 4
   %2627 = and i32 %2622, 31
   %2628 = shl nuw i32 1, %2627
@@ -5760,12 +5760,12 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2637:                                             ; preds = %9
-  %2638 = getelementptr inbounds i8, ptr %10, i64 8
+  %2638 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2639 = load i32, ptr %2638, align 8
-  %2640 = getelementptr inbounds i8, ptr %10, i64 4
+  %2640 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2641 = load i32, ptr %2640, align 4
   %2642 = zext i32 %2639 to i64
-  %2643 = getelementptr inbounds i8, ptr %0, i64 %2642
+  %2643 = getelementptr inbounds nuw i8, ptr %0, i64 %2642
   %2644 = load i32, ptr %2643, align 4
   %2645 = lshr i32 %2641, 3
   %2646 = icmp eq i32 %2644, %2645
@@ -5776,11 +5776,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2648:                                             ; preds = %9
-  %2649 = getelementptr inbounds i8, ptr %10, i64 8
+  %2649 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2650 = load i32, ptr %2649, align 8
   %2651 = lshr i32 %2650, 5
   %2652 = zext nneg i32 %2651 to i64
-  %2653 = getelementptr inbounds i32, ptr %0, i64 %2652
+  %2653 = getelementptr inbounds nuw i32, ptr %0, i64 %2652
   %2654 = load i32, ptr %2653, align 4
   %2655 = and i32 %2650, 31
   %2656 = shl nuw i32 1, %2655
@@ -5810,12 +5810,12 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2665:                                             ; preds = %9
-  %2666 = getelementptr inbounds i8, ptr %10, i64 8
+  %2666 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2667 = load i32, ptr %2666, align 8
-  %2668 = getelementptr inbounds i8, ptr %10, i64 4
+  %2668 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2669 = load i32, ptr %2668, align 4
   %2670 = zext i32 %2667 to i64
-  %2671 = getelementptr inbounds i8, ptr %0, i64 %2670
+  %2671 = getelementptr inbounds nuw i8, ptr %0, i64 %2670
   %2672 = load i32, ptr %2671, align 4
   %2673 = lshr i32 %2669, 3
   %2674 = icmp eq i32 %2672, %2673
@@ -5826,11 +5826,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS0_2io17CodedOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2676:                                             ; preds = %9
-  %2677 = getelementptr inbounds i8, ptr %10, i64 16
+  %2677 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %2678 = load ptr, ptr %2677, align 8
-  %2679 = getelementptr inbounds i8, ptr %10, i64 4
+  %2679 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %2680 = load i32, ptr %2679, align 4
-  %2681 = getelementptr inbounds i8, ptr %10, i64 8
+  %2681 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %2682 = load i32, ptr %2681, align 8
   call void %2678(ptr noundef %0, i32 noundef %11, i32 noundef %2680, i32 noundef %2682, ptr noundef %3)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -5873,7 +5873,7 @@ _ZN6google8protobuf8internal19RepeatedFieldHelperILi9EE9SerializeINS0_2io17Coded
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal24SerializeMessageDispatchERKNS0_11MessageLiteEPKNS1_13FieldMetadataEiiPNS1_11ArrayOutputE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   %9 = load ptr, ptr %4, align 8
@@ -5891,25 +5891,25 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
   %10 = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %11 = zext i1 %3 to i8
   store ptr %4, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %11, ptr %12, align 8
   %13 = icmp sgt i32 %2, 0
   br i1 %13, label %.lr.ph947, label %._crit_edge
 
 .lr.ph947:                                        ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %10, i64 58
-  %15 = getelementptr inbounds i8, ptr %10, i64 64
-  %16 = getelementptr inbounds i8, ptr %10, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 58
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %17
 
 17:                                               ; preds = %.lr.ph947, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
   %indvars.iv1135 = phi i64 [ 0, %.lr.ph947 ], [ %indvars.iv.next1136, %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit ]
-  %18 = getelementptr inbounds %"struct.google::protobuf::internal::FieldMetadata", ptr %1, i64 %indvars.iv1135
+  %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::FieldMetadata", ptr %1, i64 %indvars.iv1135
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 %20
-  %22 = getelementptr inbounds i8, ptr %18, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %3009 [
     i32 0, label %36
@@ -6006,35 +6006,35 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
   ]
 
 .preheader765:                                    ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph:                                           ; preds = %.preheader765
-  %27 = getelementptr inbounds i8, ptr %18, i64 4
-  %28 = getelementptr inbounds i8, ptr %21, i64 16
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %1764
 
 .preheader:                                       ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %21, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph945, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph945:                                        ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %18, i64 4
-  %34 = getelementptr inbounds i8, ptr %21, i64 16
-  %35 = getelementptr inbounds i8, ptr %18, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %18, i64 16
   br label %1609
 
 36:                                               ; preds = %17
-  %37 = getelementptr inbounds i8, ptr %18, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = lshr i32 %38, 5
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %0, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %38, 31
   %44 = shl nuw i32 1, %43
@@ -6043,7 +6043,7 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
   br i1 %.not758, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %46
 
 46:                                               ; preds = %36
-  %47 = getelementptr inbounds i8, ptr %18, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = load ptr, ptr %8, align 8
   %50 = icmp ult i32 %48, 128
@@ -6052,7 +6052,7 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
 
 52:                                               ; preds = %46
   store i8 %51, ptr %49, align 1
-  %53 = getelementptr inbounds i8, ptr %49, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 54:                                               ; preds = %46
@@ -6064,13 +6064,13 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
 
 58:                                               ; preds = %54
   %59 = trunc nuw nsw i32 %56 to i8
-  %60 = getelementptr inbounds i8, ptr %49, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 %59, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %49, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %49, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds i8, ptr %49, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 1
   br label %64
 
 64:                                               ; preds = %64, %62
@@ -6080,13 +6080,13 @@ define noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPK
   %66 = or i8 %65, -128
   store i8 %66, ptr %.023.i.i.i.i.i.i, align 1
   %67 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %68 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %69 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %69, label %64, label %70, !llvm.loop !5
 
 70:                                               ; preds = %64
   %71 = trunc nuw nsw i32 %67 to i8
-  %72 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %71, ptr %68, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6094,7 +6094,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i = phi ptr [ %53, %52 ], [ %61, %58 ], [ %72, %70 ]
   %73 = load i64, ptr %21, align 8
   store i64 %73, ptr %.0.i.i.i.i.i.i, align 1
-  %74 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 8
   store ptr %74, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6104,7 +6104,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   br i1 %77, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %78
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %18, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = load ptr, ptr %8, align 8
   %82 = icmp ult i32 %80, 128
@@ -6113,7 +6113,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
 
 84:                                               ; preds = %78
   store i8 %83, ptr %81, align 1
-  %85 = getelementptr inbounds i8, ptr %81, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %81, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit403
 
 86:                                               ; preds = %78
@@ -6125,13 +6125,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
 
 90:                                               ; preds = %86
   %91 = trunc nuw nsw i32 %88 to i8
-  %92 = getelementptr inbounds i8, ptr %81, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 1
   store i8 %91, ptr %92, align 1
-  %93 = getelementptr inbounds i8, ptr %81, i64 2
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit403
 
 94:                                               ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %81, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %81, i64 1
   br label %96
 
 96:                                               ; preds = %96, %94
@@ -6141,13 +6141,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   %98 = or i8 %97, -128
   store i8 %98, ptr %.023.i.i.i.i.i.i400, align 1
   %99 = lshr i32 %.022.i.i.i.i.i.i401, 7
-  %100 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i400, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i400, i64 1
   %101 = icmp samesign ugt i32 %.022.i.i.i.i.i.i401, 16383
   br i1 %101, label %96, label %102, !llvm.loop !5
 
 102:                                              ; preds = %96
   %103 = trunc nuw nsw i32 %99 to i8
-  %104 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i400, i64 2
+  %104 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i400, i64 2
   store i8 %103, ptr %100, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit403
 
@@ -6155,7 +6155,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i402 = phi ptr [ %85, %84 ], [ %93, %90 ], [ %104, %102 ]
   %105 = load i64, ptr %21, align 8
   store i64 %105, ptr %.0.i.i.i.i.i.i402, align 1
-  %106 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i402, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i402, i64 8
   store ptr %106, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6165,7 +6165,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   br i1 %109, label %.lr.ph.i, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i:                                         ; preds = %107
-  %110 = getelementptr inbounds i8, ptr %18, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %111
 
 111:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i, %.lr.ph.i
@@ -6178,7 +6178,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
 
 116:                                              ; preds = %111
   store i8 %115, ptr %113, align 1
-  %117 = getelementptr inbounds i8, ptr %113, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i
 
 118:                                              ; preds = %111
@@ -6190,13 +6190,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
 
 122:                                              ; preds = %118
   %123 = trunc nuw nsw i32 %120 to i8
-  %124 = getelementptr inbounds i8, ptr %113, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %113, i64 1
   store i8 %123, ptr %124, align 1
-  %125 = getelementptr inbounds i8, ptr %113, i64 2
+  %125 = getelementptr inbounds nuw i8, ptr %113, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i
 
 126:                                              ; preds = %118
-  %127 = getelementptr inbounds i8, ptr %113, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %113, i64 1
   br label %128
 
 128:                                              ; preds = %128, %126
@@ -6206,13 +6206,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi1EE9SerializeINS1_11ArrayOut
   %130 = or i8 %129, -128
   store i8 %130, ptr %.023.i.i.i.i.i.i404, align 1
   %131 = lshr i32 %.022.i.i.i.i.i.i405, 7
-  %132 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i404, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i404, i64 1
   %133 = icmp samesign ugt i32 %.022.i.i.i.i.i.i405, 16383
   br i1 %133, label %128, label %134, !llvm.loop !5
 
 134:                                              ; preds = %128
   %135 = trunc nuw nsw i32 %131 to i8
-  %136 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i404, i64 2
+  %136 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i404, i64 2
   store i8 %135, ptr %132, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i
 
@@ -6223,7 +6223,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; pre
   %138 = load ptr, ptr %8, align 8
   %139 = load i64, ptr %137, align 8
   store i64 %139, ptr %138, align 1
-  %140 = getelementptr inbounds i8, ptr %138, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
   store ptr %140, ptr %8, align 8
   %141 = add nuw nsw i32 %.09.i, 1
   %142 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -6235,12 +6235,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; pre
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 145:                                              ; preds = %17
-  %146 = getelementptr inbounds i8, ptr %18, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %147 = load i32, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %18, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %149 = load i32, ptr %148, align 4
   %150 = zext i32 %147 to i64
-  %151 = getelementptr inbounds i8, ptr %0, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 %150
   %152 = load i32, ptr %151, align 4
   %153 = lshr i32 %149, 3
   %154 = icmp eq i32 %152, %153
@@ -6254,7 +6254,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; pre
 
 159:                                              ; preds = %155
   store i8 %158, ptr %156, align 1
-  %160 = getelementptr inbounds i8, ptr %156, i64 1
+  %160 = getelementptr inbounds nuw i8, ptr %156, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 161:                                              ; preds = %155
@@ -6266,13 +6266,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; pre
 
 165:                                              ; preds = %161
   %166 = trunc nuw nsw i32 %163 to i8
-  %167 = getelementptr inbounds i8, ptr %156, i64 1
+  %167 = getelementptr inbounds nuw i8, ptr %156, i64 1
   store i8 %166, ptr %167, align 1
-  %168 = getelementptr inbounds i8, ptr %156, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %156, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 169:                                              ; preds = %161
-  %170 = getelementptr inbounds i8, ptr %156, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %156, i64 1
   br label %171
 
 171:                                              ; preds = %171, %169
@@ -6282,13 +6282,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i: ; pre
   %173 = or i8 %172, -128
   store i8 %173, ptr %.023.i.i.i.i.i.i.i, align 1
   %174 = lshr i32 %.022.i.i.i.i.i.i.i, 7
-  %175 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i, i64 1
+  %175 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i, i64 1
   %176 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i, 16383
   br i1 %176, label %171, label %177, !llvm.loop !5
 
 177:                                              ; preds = %171
   %178 = trunc nuw nsw i32 %174 to i8
-  %179 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i, i64 2
+  %179 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i, i64 2
   store i8 %178, ptr %175, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6296,16 +6296,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
   %.0.i.i.i.i.i.i.i = phi ptr [ %160, %159 ], [ %168, %165 ], [ %179, %177 ]
   %180 = load i64, ptr %21, align 8
   store i64 %180, ptr %.0.i.i.i.i.i.i.i, align 1
-  %181 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
   store ptr %181, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 182:                                              ; preds = %17
-  %183 = getelementptr inbounds i8, ptr %18, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %184 = load i32, ptr %183, align 8
   %185 = lshr i32 %184, 5
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds i32, ptr %0, i64 %186
+  %187 = getelementptr inbounds nuw i32, ptr %0, i64 %186
   %188 = load i32, ptr %187, align 4
   %189 = and i32 %184, 31
   %190 = shl nuw i32 1, %189
@@ -6314,7 +6314,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
   br i1 %.not757, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %192
 
 192:                                              ; preds = %182
-  %193 = getelementptr inbounds i8, ptr %18, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %194 = load i32, ptr %193, align 4
   %195 = load ptr, ptr %8, align 8
   %196 = icmp ult i32 %194, 128
@@ -6323,7 +6323,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
 
 198:                                              ; preds = %192
   store i8 %197, ptr %195, align 1
-  %199 = getelementptr inbounds i8, ptr %195, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 200:                                              ; preds = %192
@@ -6335,13 +6335,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
 
 204:                                              ; preds = %200
   %205 = trunc nuw nsw i32 %202 to i8
-  %206 = getelementptr inbounds i8, ptr %195, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %195, i64 1
   store i8 %205, ptr %206, align 1
-  %207 = getelementptr inbounds i8, ptr %195, i64 2
+  %207 = getelementptr inbounds nuw i8, ptr %195, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 208:                                              ; preds = %200
-  %209 = getelementptr inbounds i8, ptr %195, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %195, i64 1
   br label %210
 
 210:                                              ; preds = %210, %208
@@ -6351,13 +6351,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi1EE9SerializeINS1_11ArrayOutput
   %212 = or i8 %211, -128
   store i8 %212, ptr %.023.i.i.i.i.i.i407, align 1
   %213 = lshr i32 %.022.i.i.i.i.i.i408, 7
-  %214 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i407, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i407, i64 1
   %215 = icmp samesign ugt i32 %.022.i.i.i.i.i.i408, 16383
   br i1 %215, label %210, label %216, !llvm.loop !5
 
 216:                                              ; preds = %210
   %217 = trunc nuw nsw i32 %213 to i8
-  %218 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i407, i64 2
+  %218 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i407, i64 2
   store i8 %217, ptr %214, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6365,7 +6365,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i410 = phi ptr [ %199, %198 ], [ %207, %204 ], [ %218, %216 ]
   %219 = load i32, ptr %21, align 4
   store i32 %219, ptr %.0.i.i.i.i.i.i410, align 1
-  %220 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i410, i64 4
+  %220 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i410, i64 4
   store ptr %220, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6375,7 +6375,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   br i1 %223, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %224
 
 224:                                              ; preds = %221
-  %225 = getelementptr inbounds i8, ptr %18, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %226 = load i32, ptr %225, align 4
   %227 = load ptr, ptr %8, align 8
   %228 = icmp ult i32 %226, 128
@@ -6384,7 +6384,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
 
 230:                                              ; preds = %224
   store i8 %229, ptr %227, align 1
-  %231 = getelementptr inbounds i8, ptr %227, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit415
 
 232:                                              ; preds = %224
@@ -6396,13 +6396,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
 
 236:                                              ; preds = %232
   %237 = trunc nuw nsw i32 %234 to i8
-  %238 = getelementptr inbounds i8, ptr %227, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %227, i64 1
   store i8 %237, ptr %238, align 1
-  %239 = getelementptr inbounds i8, ptr %227, i64 2
+  %239 = getelementptr inbounds nuw i8, ptr %227, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit415
 
 240:                                              ; preds = %232
-  %241 = getelementptr inbounds i8, ptr %227, i64 1
+  %241 = getelementptr inbounds nuw i8, ptr %227, i64 1
   br label %242
 
 242:                                              ; preds = %242, %240
@@ -6412,13 +6412,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   %244 = or i8 %243, -128
   store i8 %244, ptr %.023.i.i.i.i.i.i411, align 1
   %245 = lshr i32 %.022.i.i.i.i.i.i412, 7
-  %246 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i411, i64 1
+  %246 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i411, i64 1
   %247 = icmp samesign ugt i32 %.022.i.i.i.i.i.i412, 16383
   br i1 %247, label %242, label %248, !llvm.loop !5
 
 248:                                              ; preds = %242
   %249 = trunc nuw nsw i32 %245 to i8
-  %250 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i411, i64 2
+  %250 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i411, i64 2
   store i8 %249, ptr %246, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit415
 
@@ -6426,7 +6426,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i414 = phi ptr [ %231, %230 ], [ %239, %236 ], [ %250, %248 ]
   %251 = load i32, ptr %21, align 4
   store i32 %251, ptr %.0.i.i.i.i.i.i414, align 1
-  %252 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i414, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i414, i64 4
   store ptr %252, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6436,7 +6436,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   br i1 %255, label %.lr.ph.i416, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i416:                                      ; preds = %253
-  %256 = getelementptr inbounds i8, ptr %18, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %257
 
 257:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420, %.lr.ph.i416
@@ -6449,7 +6449,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
 
 262:                                              ; preds = %257
   store i8 %261, ptr %259, align 1
-  %263 = getelementptr inbounds i8, ptr %259, i64 1
+  %263 = getelementptr inbounds nuw i8, ptr %259, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420
 
 264:                                              ; preds = %257
@@ -6461,13 +6461,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
 
 268:                                              ; preds = %264
   %269 = trunc nuw nsw i32 %266 to i8
-  %270 = getelementptr inbounds i8, ptr %259, i64 1
+  %270 = getelementptr inbounds nuw i8, ptr %259, i64 1
   store i8 %269, ptr %270, align 1
-  %271 = getelementptr inbounds i8, ptr %259, i64 2
+  %271 = getelementptr inbounds nuw i8, ptr %259, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420
 
 272:                                              ; preds = %264
-  %273 = getelementptr inbounds i8, ptr %259, i64 1
+  %273 = getelementptr inbounds nuw i8, ptr %259, i64 1
   br label %274
 
 274:                                              ; preds = %274, %272
@@ -6477,13 +6477,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi2EE9SerializeINS1_11ArrayOut
   %276 = or i8 %275, -128
   store i8 %276, ptr %.023.i.i.i.i.i.i418, align 1
   %277 = lshr i32 %.022.i.i.i.i.i.i419, 7
-  %278 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i418, i64 1
+  %278 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i418, i64 1
   %279 = icmp samesign ugt i32 %.022.i.i.i.i.i.i419, 16383
   br i1 %279, label %274, label %280, !llvm.loop !5
 
 280:                                              ; preds = %274
   %281 = trunc nuw nsw i32 %277 to i8
-  %282 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i418, i64 2
+  %282 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i418, i64 2
   store i8 %281, ptr %278, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420
 
@@ -6494,7 +6494,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420: ; 
   %284 = load ptr, ptr %8, align 8
   %285 = load i32, ptr %283, align 4
   store i32 %285, ptr %284, align 1
-  %286 = getelementptr inbounds i8, ptr %284, i64 4
+  %286 = getelementptr inbounds nuw i8, ptr %284, i64 4
   store ptr %286, ptr %8, align 8
   %287 = add nuw nsw i32 %.09.i417, 1
   %288 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -6506,12 +6506,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 291:                                              ; preds = %17
-  %292 = getelementptr inbounds i8, ptr %18, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %293 = load i32, ptr %292, align 8
-  %294 = getelementptr inbounds i8, ptr %18, i64 4
+  %294 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %295 = load i32, ptr %294, align 4
   %296 = zext i32 %293 to i64
-  %297 = getelementptr inbounds i8, ptr %0, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 %296
   %298 = load i32, ptr %297, align 4
   %299 = lshr i32 %295, 3
   %300 = icmp eq i32 %298, %299
@@ -6525,7 +6525,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420: ; 
 
 305:                                              ; preds = %301
   store i8 %304, ptr %302, align 1
-  %306 = getelementptr inbounds i8, ptr %302, i64 1
+  %306 = getelementptr inbounds nuw i8, ptr %302, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 307:                                              ; preds = %301
@@ -6537,13 +6537,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420: ; 
 
 311:                                              ; preds = %307
   %312 = trunc nuw nsw i32 %309 to i8
-  %313 = getelementptr inbounds i8, ptr %302, i64 1
+  %313 = getelementptr inbounds nuw i8, ptr %302, i64 1
   store i8 %312, ptr %313, align 1
-  %314 = getelementptr inbounds i8, ptr %302, i64 2
+  %314 = getelementptr inbounds nuw i8, ptr %302, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 315:                                              ; preds = %307
-  %316 = getelementptr inbounds i8, ptr %302, i64 1
+  %316 = getelementptr inbounds nuw i8, ptr %302, i64 1
   br label %317
 
 317:                                              ; preds = %317, %315
@@ -6553,13 +6553,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i420: ; 
   %319 = or i8 %318, -128
   store i8 %319, ptr %.023.i.i.i.i.i.i.i422, align 1
   %320 = lshr i32 %.022.i.i.i.i.i.i.i423, 7
-  %321 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i422, i64 1
+  %321 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i422, i64 1
   %322 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i423, 16383
   br i1 %322, label %317, label %323, !llvm.loop !5
 
 323:                                              ; preds = %317
   %324 = trunc nuw nsw i32 %320 to i8
-  %325 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i422, i64 2
+  %325 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i422, i64 2
   store i8 %324, ptr %321, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6567,16 +6567,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
   %.0.i.i.i.i.i.i.i424 = phi ptr [ %306, %305 ], [ %314, %311 ], [ %325, %323 ]
   %326 = load i32, ptr %21, align 4
   store i32 %326, ptr %.0.i.i.i.i.i.i.i424, align 1
-  %327 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i424, i64 4
+  %327 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i424, i64 4
   store ptr %327, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 328:                                              ; preds = %17
-  %329 = getelementptr inbounds i8, ptr %18, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %330 = load i32, ptr %329, align 8
   %331 = lshr i32 %330, 5
   %332 = zext nneg i32 %331 to i64
-  %333 = getelementptr inbounds i32, ptr %0, i64 %332
+  %333 = getelementptr inbounds nuw i32, ptr %0, i64 %332
   %334 = load i32, ptr %333, align 4
   %335 = and i32 %330, 31
   %336 = shl nuw i32 1, %335
@@ -6585,7 +6585,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
   br i1 %.not756, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %338
 
 338:                                              ; preds = %328
-  %339 = getelementptr inbounds i8, ptr %18, i64 4
+  %339 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %340 = load i32, ptr %339, align 4
   %341 = load ptr, ptr %8, align 8
   %342 = icmp ult i32 %340, 128
@@ -6594,7 +6594,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
 
 344:                                              ; preds = %338
   store i8 %343, ptr %341, align 1
-  %345 = getelementptr inbounds i8, ptr %341, i64 1
+  %345 = getelementptr inbounds nuw i8, ptr %341, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427
 
 346:                                              ; preds = %338
@@ -6606,13 +6606,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
 
 350:                                              ; preds = %346
   %351 = trunc nuw nsw i32 %348 to i8
-  %352 = getelementptr inbounds i8, ptr %341, i64 1
+  %352 = getelementptr inbounds nuw i8, ptr %341, i64 1
   store i8 %351, ptr %352, align 1
-  %353 = getelementptr inbounds i8, ptr %341, i64 2
+  %353 = getelementptr inbounds nuw i8, ptr %341, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427
 
 354:                                              ; preds = %346
-  %355 = getelementptr inbounds i8, ptr %341, i64 1
+  %355 = getelementptr inbounds nuw i8, ptr %341, i64 1
   br label %356
 
 356:                                              ; preds = %356, %354
@@ -6622,13 +6622,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi2EE9SerializeINS1_11ArrayOutput
   %358 = or i8 %357, -128
   store i8 %358, ptr %.023.i.i.i.i.i.i425, align 1
   %359 = lshr i32 %.022.i.i.i.i.i.i426, 7
-  %360 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i425, i64 1
+  %360 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i425, i64 1
   %361 = icmp samesign ugt i32 %.022.i.i.i.i.i.i426, 16383
   br i1 %361, label %356, label %362, !llvm.loop !5
 
 362:                                              ; preds = %356
   %363 = trunc nuw nsw i32 %359 to i8
-  %364 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i425, i64 2
+  %364 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i425, i64 2
   store i8 %363, ptr %360, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427
 
@@ -6641,7 +6641,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427: ; 
 
 368:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427
   store i8 %367, ptr %.0.i.i.i.i.i.i428, align 1
-  %369 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i428, i64 1
+  %369 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i428, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 370:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427
@@ -6653,13 +6653,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427: ; 
 
 374:                                              ; preds = %370
   %375 = trunc nuw nsw i64 %372 to i8
-  %376 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i428, i64 1
+  %376 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i428, i64 1
   store i8 %375, ptr %376, align 1
-  %377 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i428, i64 2
+  %377 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i428, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 378:                                              ; preds = %370
-  %379 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i428, i64 1
+  %379 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i428, i64 1
   br label %380
 
 380:                                              ; preds = %380, %378
@@ -6669,13 +6669,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i427: ; 
   %382 = or i8 %381, -128
   store i8 %382, ptr %.023.i.i.i.i.i, align 1
   %383 = lshr i64 %.022.i.i.i.i.i, 7
-  %384 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %384 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %385 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %385, label %380, label %386, !llvm.loop !7
 
 386:                                              ; preds = %380
   %387 = trunc nuw nsw i64 %383 to i8
-  %388 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %388 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %387, ptr %384, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6690,7 +6690,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
   br i1 %391, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %392
 
 392:                                              ; preds = %389
-  %393 = getelementptr inbounds i8, ptr %18, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %394 = load i32, ptr %393, align 4
   %395 = load ptr, ptr %8, align 8
   %396 = icmp ult i32 %394, 128
@@ -6699,7 +6699,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
 
 398:                                              ; preds = %392
   store i8 %397, ptr %395, align 1
-  %399 = getelementptr inbounds i8, ptr %395, i64 1
+  %399 = getelementptr inbounds nuw i8, ptr %395, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431
 
 400:                                              ; preds = %392
@@ -6711,13 +6711,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
 
 404:                                              ; preds = %400
   %405 = trunc nuw nsw i32 %402 to i8
-  %406 = getelementptr inbounds i8, ptr %395, i64 1
+  %406 = getelementptr inbounds nuw i8, ptr %395, i64 1
   store i8 %405, ptr %406, align 1
-  %407 = getelementptr inbounds i8, ptr %395, i64 2
+  %407 = getelementptr inbounds nuw i8, ptr %395, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431
 
 408:                                              ; preds = %400
-  %409 = getelementptr inbounds i8, ptr %395, i64 1
+  %409 = getelementptr inbounds nuw i8, ptr %395, i64 1
   br label %410
 
 410:                                              ; preds = %410, %408
@@ -6727,13 +6727,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
   %412 = or i8 %411, -128
   store i8 %412, ptr %.023.i.i.i.i.i.i429, align 1
   %413 = lshr i32 %.022.i.i.i.i.i.i430, 7
-  %414 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i429, i64 1
+  %414 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i429, i64 1
   %415 = icmp samesign ugt i32 %.022.i.i.i.i.i.i430, 16383
   br i1 %415, label %410, label %416, !llvm.loop !5
 
 416:                                              ; preds = %410
   %417 = trunc nuw nsw i32 %413 to i8
-  %418 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i429, i64 2
+  %418 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i429, i64 2
   store i8 %417, ptr %414, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431
 
@@ -6746,7 +6746,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431: ; 
 
 422:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431
   store i8 %421, ptr %.0.i.i.i.i.i.i432, align 1
-  %423 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i432, i64 1
+  %423 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i432, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit436
 
 424:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431
@@ -6758,13 +6758,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431: ; 
 
 428:                                              ; preds = %424
   %429 = trunc nuw nsw i64 %426 to i8
-  %430 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i432, i64 1
+  %430 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i432, i64 1
   store i8 %429, ptr %430, align 1
-  %431 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i432, i64 2
+  %431 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i432, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit436
 
 432:                                              ; preds = %424
-  %433 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i432, i64 1
+  %433 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i432, i64 1
   br label %434
 
 434:                                              ; preds = %434, %432
@@ -6774,13 +6774,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i431: ; 
   %436 = or i8 %435, -128
   store i8 %436, ptr %.023.i.i.i.i.i433, align 1
   %437 = lshr i64 %.022.i.i.i.i.i434, 7
-  %438 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i433, i64 1
+  %438 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i433, i64 1
   %439 = icmp samesign ugt i64 %.022.i.i.i.i.i434, 16383
   br i1 %439, label %434, label %440, !llvm.loop !7
 
 440:                                              ; preds = %434
   %441 = trunc nuw nsw i64 %437 to i8
-  %442 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i433, i64 2
+  %442 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i433, i64 2
   store i8 %441, ptr %438, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit436
 
@@ -6798,12 +6798,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 445:                                              ; preds = %17
-  %446 = getelementptr inbounds i8, ptr %18, i64 8
+  %446 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %447 = load i32, ptr %446, align 8
-  %448 = getelementptr inbounds i8, ptr %18, i64 4
+  %448 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %449 = load i32, ptr %448, align 4
   %450 = zext i32 %447 to i64
-  %451 = getelementptr inbounds i8, ptr %0, i64 %450
+  %451 = getelementptr inbounds nuw i8, ptr %0, i64 %450
   %452 = load i32, ptr %451, align 4
   %453 = lshr i32 %449, 3
   %454 = icmp eq i32 %452, %453
@@ -6817,7 +6817,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
 
 459:                                              ; preds = %455
   store i8 %458, ptr %456, align 1
-  %460 = getelementptr inbounds i8, ptr %456, i64 1
+  %460 = getelementptr inbounds nuw i8, ptr %456, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i
 
 461:                                              ; preds = %455
@@ -6829,13 +6829,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
 
 465:                                              ; preds = %461
   %466 = trunc nuw nsw i32 %463 to i8
-  %467 = getelementptr inbounds i8, ptr %456, i64 1
+  %467 = getelementptr inbounds nuw i8, ptr %456, i64 1
   store i8 %466, ptr %467, align 1
-  %468 = getelementptr inbounds i8, ptr %456, i64 2
+  %468 = getelementptr inbounds nuw i8, ptr %456, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i
 
 469:                                              ; preds = %461
-  %470 = getelementptr inbounds i8, ptr %456, i64 1
+  %470 = getelementptr inbounds nuw i8, ptr %456, i64 1
   br label %471
 
 471:                                              ; preds = %471, %469
@@ -6845,13 +6845,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi3EE9SerializeINS1_11ArrayOut
   %473 = or i8 %472, -128
   store i8 %473, ptr %.023.i.i.i.i.i.i.i437, align 1
   %474 = lshr i32 %.022.i.i.i.i.i.i.i438, 7
-  %475 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i437, i64 1
+  %475 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i437, i64 1
   %476 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i438, 16383
   br i1 %476, label %471, label %477, !llvm.loop !5
 
 477:                                              ; preds = %471
   %478 = trunc nuw nsw i32 %474 to i8
-  %479 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i437, i64 2
+  %479 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i437, i64 2
   store i8 %478, ptr %475, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i
 
@@ -6864,7 +6864,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i: ; p
 
 483:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i
   store i8 %482, ptr %.0.i.i.i.i.i.i.i439, align 1
-  %484 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i439, i64 1
+  %484 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i439, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 485:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i
@@ -6876,13 +6876,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i: ; p
 
 489:                                              ; preds = %485
   %490 = trunc nuw nsw i64 %487 to i8
-  %491 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i439, i64 1
+  %491 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i439, i64 1
   store i8 %490, ptr %491, align 1
-  %492 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i439, i64 2
+  %492 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i439, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 493:                                              ; preds = %485
-  %494 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i439, i64 1
+  %494 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i439, i64 1
   br label %495
 
 495:                                              ; preds = %495, %493
@@ -6892,13 +6892,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i: ; p
   %497 = or i8 %496, -128
   store i8 %497, ptr %.023.i.i.i.i.i.i440, align 1
   %498 = lshr i64 %.022.i.i.i.i.i.i441, 7
-  %499 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i440, i64 1
+  %499 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i440, i64 1
   %500 = icmp samesign ugt i64 %.022.i.i.i.i.i.i441, 16383
   br i1 %500, label %495, label %501, !llvm.loop !7
 
 501:                                              ; preds = %495
   %502 = trunc nuw nsw i64 %498 to i8
-  %503 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i440, i64 2
+  %503 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i440, i64 2
   store i8 %502, ptr %499, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -6908,11 +6908,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 504:                                              ; preds = %17
-  %505 = getelementptr inbounds i8, ptr %18, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %506 = load i32, ptr %505, align 8
   %507 = lshr i32 %506, 5
   %508 = zext nneg i32 %507 to i64
-  %509 = getelementptr inbounds i32, ptr %0, i64 %508
+  %509 = getelementptr inbounds nuw i32, ptr %0, i64 %508
   %510 = load i32, ptr %509, align 4
   %511 = and i32 %506, 31
   %512 = shl nuw i32 1, %511
@@ -6921,7 +6921,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
   br i1 %.not755, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %514
 
 514:                                              ; preds = %504
-  %515 = getelementptr inbounds i8, ptr %18, i64 4
+  %515 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %516 = load i32, ptr %515, align 4
   %517 = load ptr, ptr %8, align 8
   %518 = icmp ult i32 %516, 128
@@ -6930,7 +6930,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
 
 520:                                              ; preds = %514
   store i8 %519, ptr %517, align 1
-  %521 = getelementptr inbounds i8, ptr %517, i64 1
+  %521 = getelementptr inbounds nuw i8, ptr %517, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445
 
 522:                                              ; preds = %514
@@ -6942,13 +6942,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
 
 526:                                              ; preds = %522
   %527 = trunc nuw nsw i32 %524 to i8
-  %528 = getelementptr inbounds i8, ptr %517, i64 1
+  %528 = getelementptr inbounds nuw i8, ptr %517, i64 1
   store i8 %527, ptr %528, align 1
-  %529 = getelementptr inbounds i8, ptr %517, i64 2
+  %529 = getelementptr inbounds nuw i8, ptr %517, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445
 
 530:                                              ; preds = %522
-  %531 = getelementptr inbounds i8, ptr %517, i64 1
+  %531 = getelementptr inbounds nuw i8, ptr %517, i64 1
   br label %532
 
 532:                                              ; preds = %532, %530
@@ -6958,13 +6958,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi3EE9SerializeINS1_11ArrayOutput
   %534 = or i8 %533, -128
   store i8 %534, ptr %.023.i.i.i.i.i.i443, align 1
   %535 = lshr i32 %.022.i.i.i.i.i.i444, 7
-  %536 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i443, i64 1
+  %536 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i443, i64 1
   %537 = icmp samesign ugt i32 %.022.i.i.i.i.i.i444, 16383
   br i1 %537, label %532, label %538, !llvm.loop !5
 
 538:                                              ; preds = %532
   %539 = trunc nuw nsw i32 %535 to i8
-  %540 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i443, i64 2
+  %540 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i443, i64 2
   store i8 %539, ptr %536, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445
 
@@ -6977,7 +6977,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445: ; 
 
 544:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445
   store i8 %543, ptr %.0.i.i.i.i.i.i446, align 1
-  %545 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i446, i64 1
+  %545 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i446, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 546:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445
@@ -6989,13 +6989,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445: ; 
 
 550:                                              ; preds = %546
   %551 = trunc nuw nsw i64 %548 to i8
-  %552 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i446, i64 1
+  %552 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i446, i64 1
   store i8 %551, ptr %552, align 1
-  %553 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i446, i64 2
+  %553 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i446, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 554:                                              ; preds = %546
-  %555 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i446, i64 1
+  %555 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i446, i64 1
   br label %556
 
 556:                                              ; preds = %556, %554
@@ -7005,13 +7005,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i445: ; 
   %558 = or i8 %557, -128
   store i8 %558, ptr %.023.i.i.i.i.i447, align 1
   %559 = lshr i64 %.022.i.i.i.i.i448, 7
-  %560 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i447, i64 1
+  %560 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i447, i64 1
   %561 = icmp samesign ugt i64 %.022.i.i.i.i.i448, 16383
   br i1 %561, label %556, label %562, !llvm.loop !7
 
 562:                                              ; preds = %556
   %563 = trunc nuw nsw i64 %559 to i8
-  %564 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i447, i64 2
+  %564 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i447, i64 2
   store i8 %563, ptr %560, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7026,7 +7026,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
   br i1 %567, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %568
 
 568:                                              ; preds = %565
-  %569 = getelementptr inbounds i8, ptr %18, i64 4
+  %569 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %570 = load i32, ptr %569, align 4
   %571 = load ptr, ptr %8, align 8
   %572 = icmp ult i32 %570, 128
@@ -7035,7 +7035,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
 
 574:                                              ; preds = %568
   store i8 %573, ptr %571, align 1
-  %575 = getelementptr inbounds i8, ptr %571, i64 1
+  %575 = getelementptr inbounds nuw i8, ptr %571, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452
 
 576:                                              ; preds = %568
@@ -7047,13 +7047,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
 
 580:                                              ; preds = %576
   %581 = trunc nuw nsw i32 %578 to i8
-  %582 = getelementptr inbounds i8, ptr %571, i64 1
+  %582 = getelementptr inbounds nuw i8, ptr %571, i64 1
   store i8 %581, ptr %582, align 1
-  %583 = getelementptr inbounds i8, ptr %571, i64 2
+  %583 = getelementptr inbounds nuw i8, ptr %571, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452
 
 584:                                              ; preds = %576
-  %585 = getelementptr inbounds i8, ptr %571, i64 1
+  %585 = getelementptr inbounds nuw i8, ptr %571, i64 1
   br label %586
 
 586:                                              ; preds = %586, %584
@@ -7063,13 +7063,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
   %588 = or i8 %587, -128
   store i8 %588, ptr %.023.i.i.i.i.i.i450, align 1
   %589 = lshr i32 %.022.i.i.i.i.i.i451, 7
-  %590 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i450, i64 1
+  %590 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i450, i64 1
   %591 = icmp samesign ugt i32 %.022.i.i.i.i.i.i451, 16383
   br i1 %591, label %586, label %592, !llvm.loop !5
 
 592:                                              ; preds = %586
   %593 = trunc nuw nsw i32 %589 to i8
-  %594 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i450, i64 2
+  %594 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i450, i64 2
   store i8 %593, ptr %590, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452
 
@@ -7082,7 +7082,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452: ; 
 
 598:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452
   store i8 %597, ptr %.0.i.i.i.i.i.i453, align 1
-  %599 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i453, i64 1
+  %599 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i453, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit457
 
 600:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452
@@ -7094,13 +7094,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452: ; 
 
 604:                                              ; preds = %600
   %605 = trunc nuw nsw i64 %602 to i8
-  %606 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i453, i64 1
+  %606 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i453, i64 1
   store i8 %605, ptr %606, align 1
-  %607 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i453, i64 2
+  %607 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i453, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit457
 
 608:                                              ; preds = %600
-  %609 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i453, i64 1
+  %609 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i453, i64 1
   br label %610
 
 610:                                              ; preds = %610, %608
@@ -7110,13 +7110,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i452: ; 
   %612 = or i8 %611, -128
   store i8 %612, ptr %.023.i.i.i.i.i454, align 1
   %613 = lshr i64 %.022.i.i.i.i.i455, 7
-  %614 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i454, i64 1
+  %614 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i454, i64 1
   %615 = icmp samesign ugt i64 %.022.i.i.i.i.i455, 16383
   br i1 %615, label %610, label %616, !llvm.loop !7
 
 616:                                              ; preds = %610
   %617 = trunc nuw nsw i64 %613 to i8
-  %618 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i454, i64 2
+  %618 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i454, i64 2
   store i8 %617, ptr %614, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit457
 
@@ -7134,12 +7134,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 621:                                              ; preds = %17
-  %622 = getelementptr inbounds i8, ptr %18, i64 8
+  %622 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %623 = load i32, ptr %622, align 8
-  %624 = getelementptr inbounds i8, ptr %18, i64 4
+  %624 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %625 = load i32, ptr %624, align 4
   %626 = zext i32 %623 to i64
-  %627 = getelementptr inbounds i8, ptr %0, i64 %626
+  %627 = getelementptr inbounds nuw i8, ptr %0, i64 %626
   %628 = load i32, ptr %627, align 4
   %629 = lshr i32 %625, 3
   %630 = icmp eq i32 %628, %629
@@ -7153,7 +7153,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
 
 635:                                              ; preds = %631
   store i8 %634, ptr %632, align 1
-  %636 = getelementptr inbounds i8, ptr %632, i64 1
+  %636 = getelementptr inbounds nuw i8, ptr %632, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460
 
 637:                                              ; preds = %631
@@ -7165,13 +7165,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
 
 641:                                              ; preds = %637
   %642 = trunc nuw nsw i32 %639 to i8
-  %643 = getelementptr inbounds i8, ptr %632, i64 1
+  %643 = getelementptr inbounds nuw i8, ptr %632, i64 1
   store i8 %642, ptr %643, align 1
-  %644 = getelementptr inbounds i8, ptr %632, i64 2
+  %644 = getelementptr inbounds nuw i8, ptr %632, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460
 
 645:                                              ; preds = %637
-  %646 = getelementptr inbounds i8, ptr %632, i64 1
+  %646 = getelementptr inbounds nuw i8, ptr %632, i64 1
   br label %647
 
 647:                                              ; preds = %647, %645
@@ -7181,13 +7181,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi4EE9SerializeINS1_11ArrayOut
   %649 = or i8 %648, -128
   store i8 %649, ptr %.023.i.i.i.i.i.i.i458, align 1
   %650 = lshr i32 %.022.i.i.i.i.i.i.i459, 7
-  %651 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i458, i64 1
+  %651 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i458, i64 1
   %652 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i459, 16383
   br i1 %652, label %647, label %653, !llvm.loop !5
 
 653:                                              ; preds = %647
   %654 = trunc nuw nsw i32 %650 to i8
-  %655 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i458, i64 2
+  %655 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i458, i64 2
   store i8 %654, ptr %651, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460
 
@@ -7200,7 +7200,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460: 
 
 659:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460
   store i8 %658, ptr %.0.i.i.i.i.i.i.i461, align 1
-  %660 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i461, i64 1
+  %660 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i461, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 661:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460
@@ -7212,13 +7212,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460: 
 
 665:                                              ; preds = %661
   %666 = trunc nuw nsw i64 %663 to i8
-  %667 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i461, i64 1
+  %667 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i461, i64 1
   store i8 %666, ptr %667, align 1
-  %668 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i461, i64 2
+  %668 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i461, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 669:                                              ; preds = %661
-  %670 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i461, i64 1
+  %670 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i461, i64 1
   br label %671
 
 671:                                              ; preds = %671, %669
@@ -7228,13 +7228,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i460: 
   %673 = or i8 %672, -128
   store i8 %673, ptr %.023.i.i.i.i.i.i462, align 1
   %674 = lshr i64 %.022.i.i.i.i.i.i463, 7
-  %675 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i462, i64 1
+  %675 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i462, i64 1
   %676 = icmp samesign ugt i64 %.022.i.i.i.i.i.i463, 16383
   br i1 %676, label %671, label %677, !llvm.loop !7
 
 677:                                              ; preds = %671
   %678 = trunc nuw nsw i64 %674 to i8
-  %679 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i462, i64 2
+  %679 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i462, i64 2
   store i8 %678, ptr %675, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7244,11 +7244,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 680:                                              ; preds = %17
-  %681 = getelementptr inbounds i8, ptr %18, i64 8
+  %681 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %682 = load i32, ptr %681, align 8
   %683 = lshr i32 %682, 5
   %684 = zext nneg i32 %683 to i64
-  %685 = getelementptr inbounds i32, ptr %0, i64 %684
+  %685 = getelementptr inbounds nuw i32, ptr %0, i64 %684
   %686 = load i32, ptr %685, align 4
   %687 = and i32 %682, 31
   %688 = shl nuw i32 1, %687
@@ -7257,7 +7257,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
   br i1 %.not754, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %690
 
 690:                                              ; preds = %680
-  %691 = getelementptr inbounds i8, ptr %18, i64 4
+  %691 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %692 = load i32, ptr %691, align 4
   %693 = load ptr, ptr %8, align 8
   %694 = icmp ult i32 %692, 128
@@ -7266,7 +7266,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
 
 696:                                              ; preds = %690
   store i8 %695, ptr %693, align 1
-  %697 = getelementptr inbounds i8, ptr %693, i64 1
+  %697 = getelementptr inbounds nuw i8, ptr %693, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467
 
 698:                                              ; preds = %690
@@ -7278,13 +7278,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
 
 702:                                              ; preds = %698
   %703 = trunc nuw nsw i32 %700 to i8
-  %704 = getelementptr inbounds i8, ptr %693, i64 1
+  %704 = getelementptr inbounds nuw i8, ptr %693, i64 1
   store i8 %703, ptr %704, align 1
-  %705 = getelementptr inbounds i8, ptr %693, i64 2
+  %705 = getelementptr inbounds nuw i8, ptr %693, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467
 
 706:                                              ; preds = %698
-  %707 = getelementptr inbounds i8, ptr %693, i64 1
+  %707 = getelementptr inbounds nuw i8, ptr %693, i64 1
   br label %708
 
 708:                                              ; preds = %708, %706
@@ -7294,13 +7294,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi4EE9SerializeINS1_11ArrayOutput
   %710 = or i8 %709, -128
   store i8 %710, ptr %.023.i.i.i.i.i.i465, align 1
   %711 = lshr i32 %.022.i.i.i.i.i.i466, 7
-  %712 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i465, i64 1
+  %712 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i465, i64 1
   %713 = icmp samesign ugt i32 %.022.i.i.i.i.i.i466, 16383
   br i1 %713, label %708, label %714, !llvm.loop !5
 
 714:                                              ; preds = %708
   %715 = trunc nuw nsw i32 %711 to i8
-  %716 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i465, i64 2
+  %716 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i465, i64 2
   store i8 %715, ptr %712, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467
 
@@ -7313,7 +7313,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467: ; 
 
 720:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467
   store i8 %719, ptr %.0.i.i.i.i.i.i468, align 1
-  %721 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i468, i64 1
+  %721 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i468, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 722:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467
@@ -7326,13 +7326,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467: ; 
 
 727:                                              ; preds = %722
   %728 = trunc nuw nsw i64 %725 to i8
-  %729 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i468, i64 1
+  %729 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i468, i64 1
   store i8 %728, ptr %729, align 1
-  %730 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i468, i64 2
+  %730 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i468, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 731:                                              ; preds = %722
-  %732 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i468, i64 1
+  %732 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i468, i64 1
   br label %733
 
 733:                                              ; preds = %733, %731
@@ -7342,13 +7342,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i467: ; 
   %735 = or i8 %734, -128
   store i8 %735, ptr %.023.i.i.i.i.i4.i, align 1
   %736 = lshr i64 %.022.i.i.i.i.i5.i, 7
-  %737 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i, i64 1
+  %737 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i, i64 1
   %738 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i, 16383
   br i1 %738, label %733, label %739, !llvm.loop !7
 
 739:                                              ; preds = %733
   %740 = trunc nuw nsw i64 %736 to i8
-  %741 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i, i64 2
+  %741 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i, i64 2
   store i8 %740, ptr %737, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7363,7 +7363,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
   br i1 %744, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %745
 
 745:                                              ; preds = %742
-  %746 = getelementptr inbounds i8, ptr %18, i64 4
+  %746 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %747 = load i32, ptr %746, align 4
   %748 = load ptr, ptr %8, align 8
   %749 = icmp ult i32 %747, 128
@@ -7372,7 +7372,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
 
 751:                                              ; preds = %745
   store i8 %750, ptr %748, align 1
-  %752 = getelementptr inbounds i8, ptr %748, i64 1
+  %752 = getelementptr inbounds nuw i8, ptr %748, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471
 
 753:                                              ; preds = %745
@@ -7384,13 +7384,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
 
 757:                                              ; preds = %753
   %758 = trunc nuw nsw i32 %755 to i8
-  %759 = getelementptr inbounds i8, ptr %748, i64 1
+  %759 = getelementptr inbounds nuw i8, ptr %748, i64 1
   store i8 %758, ptr %759, align 1
-  %760 = getelementptr inbounds i8, ptr %748, i64 2
+  %760 = getelementptr inbounds nuw i8, ptr %748, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471
 
 761:                                              ; preds = %753
-  %762 = getelementptr inbounds i8, ptr %748, i64 1
+  %762 = getelementptr inbounds nuw i8, ptr %748, i64 1
   br label %763
 
 763:                                              ; preds = %763, %761
@@ -7400,13 +7400,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
   %765 = or i8 %764, -128
   store i8 %765, ptr %.023.i.i.i.i.i.i469, align 1
   %766 = lshr i32 %.022.i.i.i.i.i.i470, 7
-  %767 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i469, i64 1
+  %767 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i469, i64 1
   %768 = icmp samesign ugt i32 %.022.i.i.i.i.i.i470, 16383
   br i1 %768, label %763, label %769, !llvm.loop !5
 
 769:                                              ; preds = %763
   %770 = trunc nuw nsw i32 %766 to i8
-  %771 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i469, i64 2
+  %771 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i469, i64 2
   store i8 %770, ptr %767, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471
 
@@ -7419,7 +7419,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471: ; 
 
 775:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471
   store i8 %774, ptr %.0.i.i.i.i.i.i472, align 1
-  %776 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i472, i64 1
+  %776 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i472, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit476
 
 777:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471
@@ -7432,13 +7432,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471: ; 
 
 782:                                              ; preds = %777
   %783 = trunc nuw nsw i64 %780 to i8
-  %784 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i472, i64 1
+  %784 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i472, i64 1
   store i8 %783, ptr %784, align 1
-  %785 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i472, i64 2
+  %785 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i472, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit476
 
 786:                                              ; preds = %777
-  %787 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i472, i64 1
+  %787 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i472, i64 1
   br label %788
 
 788:                                              ; preds = %788, %786
@@ -7448,13 +7448,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i471: ; 
   %790 = or i8 %789, -128
   store i8 %790, ptr %.023.i.i.i.i.i4.i473, align 1
   %791 = lshr i64 %.022.i.i.i.i.i5.i474, 7
-  %792 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i473, i64 1
+  %792 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i473, i64 1
   %793 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i474, 16383
   br i1 %793, label %788, label %794, !llvm.loop !7
 
 794:                                              ; preds = %788
   %795 = trunc nuw nsw i64 %791 to i8
-  %796 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i473, i64 2
+  %796 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i473, i64 2
   store i8 %795, ptr %792, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit476
 
@@ -7472,12 +7472,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 799:                                              ; preds = %17
-  %800 = getelementptr inbounds i8, ptr %18, i64 8
+  %800 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %801 = load i32, ptr %800, align 8
-  %802 = getelementptr inbounds i8, ptr %18, i64 4
+  %802 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %803 = load i32, ptr %802, align 4
   %804 = zext i32 %801 to i64
-  %805 = getelementptr inbounds i8, ptr %0, i64 %804
+  %805 = getelementptr inbounds nuw i8, ptr %0, i64 %804
   %806 = load i32, ptr %805, align 4
   %807 = lshr i32 %803, 3
   %808 = icmp eq i32 %806, %807
@@ -7491,7 +7491,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
 
 813:                                              ; preds = %809
   store i8 %812, ptr %810, align 1
-  %814 = getelementptr inbounds i8, ptr %810, i64 1
+  %814 = getelementptr inbounds nuw i8, ptr %810, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479
 
 815:                                              ; preds = %809
@@ -7503,13 +7503,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
 
 819:                                              ; preds = %815
   %820 = trunc nuw nsw i32 %817 to i8
-  %821 = getelementptr inbounds i8, ptr %810, i64 1
+  %821 = getelementptr inbounds nuw i8, ptr %810, i64 1
   store i8 %820, ptr %821, align 1
-  %822 = getelementptr inbounds i8, ptr %810, i64 2
+  %822 = getelementptr inbounds nuw i8, ptr %810, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479
 
 823:                                              ; preds = %815
-  %824 = getelementptr inbounds i8, ptr %810, i64 1
+  %824 = getelementptr inbounds nuw i8, ptr %810, i64 1
   br label %825
 
 825:                                              ; preds = %825, %823
@@ -7519,13 +7519,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi5EE9SerializeINS1_11ArrayOut
   %827 = or i8 %826, -128
   store i8 %827, ptr %.023.i.i.i.i.i.i.i477, align 1
   %828 = lshr i32 %.022.i.i.i.i.i.i.i478, 7
-  %829 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i477, i64 1
+  %829 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i477, i64 1
   %830 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i478, 16383
   br i1 %830, label %825, label %831, !llvm.loop !5
 
 831:                                              ; preds = %825
   %832 = trunc nuw nsw i32 %828 to i8
-  %833 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i477, i64 2
+  %833 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i477, i64 2
   store i8 %832, ptr %829, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479
 
@@ -7538,7 +7538,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479: 
 
 837:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479
   store i8 %836, ptr %.0.i.i.i.i.i.i.i480, align 1
-  %838 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i480, i64 1
+  %838 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i480, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 839:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479
@@ -7551,13 +7551,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479: 
 
 844:                                              ; preds = %839
   %845 = trunc nuw nsw i64 %842 to i8
-  %846 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i480, i64 1
+  %846 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i480, i64 1
   store i8 %845, ptr %846, align 1
-  %847 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i480, i64 2
+  %847 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i480, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 848:                                              ; preds = %839
-  %849 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i480, i64 1
+  %849 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i480, i64 1
   br label %850
 
 850:                                              ; preds = %850, %848
@@ -7567,13 +7567,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i479: 
   %852 = or i8 %851, -128
   store i8 %852, ptr %.023.i.i.i.i.i4.i.i, align 1
   %853 = lshr i64 %.022.i.i.i.i.i5.i.i, 7
-  %854 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i.i, i64 1
+  %854 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i.i, i64 1
   %855 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i.i, 16383
   br i1 %855, label %850, label %856, !llvm.loop !7
 
 856:                                              ; preds = %850
   %857 = trunc nuw nsw i64 %853 to i8
-  %858 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i.i, i64 2
+  %858 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i.i, i64 2
   store i8 %857, ptr %854, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7583,11 +7583,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 859:                                              ; preds = %17
-  %860 = getelementptr inbounds i8, ptr %18, i64 8
+  %860 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %861 = load i32, ptr %860, align 8
   %862 = lshr i32 %861, 5
   %863 = zext nneg i32 %862 to i64
-  %864 = getelementptr inbounds i32, ptr %0, i64 %863
+  %864 = getelementptr inbounds nuw i32, ptr %0, i64 %863
   %865 = load i32, ptr %864, align 4
   %866 = and i32 %861, 31
   %867 = shl nuw i32 1, %866
@@ -7596,7 +7596,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
   br i1 %.not753, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %869
 
 869:                                              ; preds = %859
-  %870 = getelementptr inbounds i8, ptr %18, i64 4
+  %870 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %871 = load i32, ptr %870, align 4
   %872 = load ptr, ptr %8, align 8
   %873 = icmp ult i32 %871, 128
@@ -7605,7 +7605,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
 
 875:                                              ; preds = %869
   store i8 %874, ptr %872, align 1
-  %876 = getelementptr inbounds i8, ptr %872, i64 1
+  %876 = getelementptr inbounds nuw i8, ptr %872, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 877:                                              ; preds = %869
@@ -7617,13 +7617,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
 
 881:                                              ; preds = %877
   %882 = trunc nuw nsw i32 %879 to i8
-  %883 = getelementptr inbounds i8, ptr %872, i64 1
+  %883 = getelementptr inbounds nuw i8, ptr %872, i64 1
   store i8 %882, ptr %883, align 1
-  %884 = getelementptr inbounds i8, ptr %872, i64 2
+  %884 = getelementptr inbounds nuw i8, ptr %872, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 885:                                              ; preds = %877
-  %886 = getelementptr inbounds i8, ptr %872, i64 1
+  %886 = getelementptr inbounds nuw i8, ptr %872, i64 1
   br label %887
 
 887:                                              ; preds = %887, %885
@@ -7633,13 +7633,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi5EE9SerializeINS1_11ArrayOutput
   %889 = or i8 %888, -128
   store i8 %889, ptr %.023.i.i.i.i.i.i481, align 1
   %890 = lshr i32 %.022.i.i.i.i.i.i482, 7
-  %891 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i481, i64 1
+  %891 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i481, i64 1
   %892 = icmp samesign ugt i32 %.022.i.i.i.i.i.i482, 16383
   br i1 %892, label %887, label %893, !llvm.loop !5
 
 893:                                              ; preds = %887
   %894 = trunc nuw nsw i32 %890 to i8
-  %895 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i481, i64 2
+  %895 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i481, i64 2
   store i8 %894, ptr %891, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7647,7 +7647,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i484 = phi ptr [ %876, %875 ], [ %884, %881 ], [ %895, %893 ]
   %896 = load i64, ptr %21, align 8
   store i64 %896, ptr %.0.i.i.i.i.i.i484, align 1
-  %897 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i484, i64 8
+  %897 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i484, i64 8
   store ptr %897, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7657,7 +7657,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   br i1 %900, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %901
 
 901:                                              ; preds = %898
-  %902 = getelementptr inbounds i8, ptr %18, i64 4
+  %902 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %903 = load i32, ptr %902, align 4
   %904 = load ptr, ptr %8, align 8
   %905 = icmp ult i32 %903, 128
@@ -7666,7 +7666,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
 
 907:                                              ; preds = %901
   store i8 %906, ptr %904, align 1
-  %908 = getelementptr inbounds i8, ptr %904, i64 1
+  %908 = getelementptr inbounds nuw i8, ptr %904, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit489
 
 909:                                              ; preds = %901
@@ -7678,13 +7678,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
 
 913:                                              ; preds = %909
   %914 = trunc nuw nsw i32 %911 to i8
-  %915 = getelementptr inbounds i8, ptr %904, i64 1
+  %915 = getelementptr inbounds nuw i8, ptr %904, i64 1
   store i8 %914, ptr %915, align 1
-  %916 = getelementptr inbounds i8, ptr %904, i64 2
+  %916 = getelementptr inbounds nuw i8, ptr %904, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit489
 
 917:                                              ; preds = %909
-  %918 = getelementptr inbounds i8, ptr %904, i64 1
+  %918 = getelementptr inbounds nuw i8, ptr %904, i64 1
   br label %919
 
 919:                                              ; preds = %919, %917
@@ -7694,13 +7694,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   %921 = or i8 %920, -128
   store i8 %921, ptr %.023.i.i.i.i.i.i485, align 1
   %922 = lshr i32 %.022.i.i.i.i.i.i486, 7
-  %923 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i485, i64 1
+  %923 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i485, i64 1
   %924 = icmp samesign ugt i32 %.022.i.i.i.i.i.i486, 16383
   br i1 %924, label %919, label %925, !llvm.loop !5
 
 925:                                              ; preds = %919
   %926 = trunc nuw nsw i32 %922 to i8
-  %927 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i485, i64 2
+  %927 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i485, i64 2
   store i8 %926, ptr %923, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit489
 
@@ -7708,7 +7708,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i488 = phi ptr [ %908, %907 ], [ %916, %913 ], [ %927, %925 ]
   %928 = load i64, ptr %21, align 8
   store i64 %928, ptr %.0.i.i.i.i.i.i488, align 1
-  %929 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i488, i64 8
+  %929 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i488, i64 8
   store ptr %929, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7718,7 +7718,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   br i1 %932, label %.lr.ph.i490, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i490:                                      ; preds = %930
-  %933 = getelementptr inbounds i8, ptr %18, i64 4
+  %933 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %934
 
 934:                                              ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494, %.lr.ph.i490
@@ -7731,7 +7731,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
 
 939:                                              ; preds = %934
   store i8 %938, ptr %936, align 1
-  %940 = getelementptr inbounds i8, ptr %936, i64 1
+  %940 = getelementptr inbounds nuw i8, ptr %936, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494
 
 941:                                              ; preds = %934
@@ -7743,13 +7743,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
 
 945:                                              ; preds = %941
   %946 = trunc nuw nsw i32 %943 to i8
-  %947 = getelementptr inbounds i8, ptr %936, i64 1
+  %947 = getelementptr inbounds nuw i8, ptr %936, i64 1
   store i8 %946, ptr %947, align 1
-  %948 = getelementptr inbounds i8, ptr %936, i64 2
+  %948 = getelementptr inbounds nuw i8, ptr %936, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494
 
 949:                                              ; preds = %941
-  %950 = getelementptr inbounds i8, ptr %936, i64 1
+  %950 = getelementptr inbounds nuw i8, ptr %936, i64 1
   br label %951
 
 951:                                              ; preds = %951, %949
@@ -7759,13 +7759,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi6EE9SerializeINS1_11ArrayOut
   %953 = or i8 %952, -128
   store i8 %953, ptr %.023.i.i.i.i.i.i492, align 1
   %954 = lshr i32 %.022.i.i.i.i.i.i493, 7
-  %955 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i492, i64 1
+  %955 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i492, i64 1
   %956 = icmp samesign ugt i32 %.022.i.i.i.i.i.i493, 16383
   br i1 %956, label %951, label %957, !llvm.loop !5
 
 957:                                              ; preds = %951
   %958 = trunc nuw nsw i32 %954 to i8
-  %959 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i492, i64 2
+  %959 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i492, i64 2
   store i8 %958, ptr %955, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494
 
@@ -7776,7 +7776,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; 
   %961 = load ptr, ptr %8, align 8
   %962 = load i64, ptr %960, align 8
   store i64 %962, ptr %961, align 1
-  %963 = getelementptr inbounds i8, ptr %961, i64 8
+  %963 = getelementptr inbounds nuw i8, ptr %961, i64 8
   store ptr %963, ptr %8, align 8
   %964 = add nuw nsw i32 %.09.i491, 1
   %965 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -7788,12 +7788,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 968:                                              ; preds = %17
-  %969 = getelementptr inbounds i8, ptr %18, i64 8
+  %969 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %970 = load i32, ptr %969, align 8
-  %971 = getelementptr inbounds i8, ptr %18, i64 4
+  %971 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %972 = load i32, ptr %971, align 4
   %973 = zext i32 %970 to i64
-  %974 = getelementptr inbounds i8, ptr %0, i64 %973
+  %974 = getelementptr inbounds nuw i8, ptr %0, i64 %973
   %975 = load i32, ptr %974, align 4
   %976 = lshr i32 %972, 3
   %977 = icmp eq i32 %975, %976
@@ -7807,7 +7807,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; 
 
 982:                                              ; preds = %978
   store i8 %981, ptr %979, align 1
-  %983 = getelementptr inbounds i8, ptr %979, i64 1
+  %983 = getelementptr inbounds nuw i8, ptr %979, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 984:                                              ; preds = %978
@@ -7819,13 +7819,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; 
 
 988:                                              ; preds = %984
   %989 = trunc nuw nsw i32 %986 to i8
-  %990 = getelementptr inbounds i8, ptr %979, i64 1
+  %990 = getelementptr inbounds nuw i8, ptr %979, i64 1
   store i8 %989, ptr %990, align 1
-  %991 = getelementptr inbounds i8, ptr %979, i64 2
+  %991 = getelementptr inbounds nuw i8, ptr %979, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 992:                                              ; preds = %984
-  %993 = getelementptr inbounds i8, ptr %979, i64 1
+  %993 = getelementptr inbounds nuw i8, ptr %979, i64 1
   br label %994
 
 994:                                              ; preds = %994, %992
@@ -7835,13 +7835,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i494: ; 
   %996 = or i8 %995, -128
   store i8 %996, ptr %.023.i.i.i.i.i.i.i496, align 1
   %997 = lshr i32 %.022.i.i.i.i.i.i.i497, 7
-  %998 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i496, i64 1
+  %998 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i496, i64 1
   %999 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i497, 16383
   br i1 %999, label %994, label %1000, !llvm.loop !5
 
 1000:                                             ; preds = %994
   %1001 = trunc nuw nsw i32 %997 to i8
-  %1002 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i496, i64 2
+  %1002 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i496, i64 2
   store i8 %1001, ptr %998, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7849,16 +7849,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
   %.0.i.i.i.i.i.i.i498 = phi ptr [ %983, %982 ], [ %991, %988 ], [ %1002, %1000 ]
   %1003 = load i64, ptr %21, align 8
   store i64 %1003, ptr %.0.i.i.i.i.i.i.i498, align 1
-  %1004 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i498, i64 8
+  %1004 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i498, i64 8
   store ptr %1004, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1005:                                             ; preds = %17
-  %1006 = getelementptr inbounds i8, ptr %18, i64 8
+  %1006 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1007 = load i32, ptr %1006, align 8
   %1008 = lshr i32 %1007, 5
   %1009 = zext nneg i32 %1008 to i64
-  %1010 = getelementptr inbounds i32, ptr %0, i64 %1009
+  %1010 = getelementptr inbounds nuw i32, ptr %0, i64 %1009
   %1011 = load i32, ptr %1010, align 4
   %1012 = and i32 %1007, 31
   %1013 = shl nuw i32 1, %1012
@@ -7867,7 +7867,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
   br i1 %.not752, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1015
 
 1015:                                             ; preds = %1005
-  %1016 = getelementptr inbounds i8, ptr %18, i64 4
+  %1016 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1017 = load i32, ptr %1016, align 4
   %1018 = load ptr, ptr %8, align 8
   %1019 = icmp ult i32 %1017, 128
@@ -7876,7 +7876,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
 
 1021:                                             ; preds = %1015
   store i8 %1020, ptr %1018, align 1
-  %1022 = getelementptr inbounds i8, ptr %1018, i64 1
+  %1022 = getelementptr inbounds nuw i8, ptr %1018, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1023:                                             ; preds = %1015
@@ -7888,13 +7888,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
 
 1027:                                             ; preds = %1023
   %1028 = trunc nuw nsw i32 %1025 to i8
-  %1029 = getelementptr inbounds i8, ptr %1018, i64 1
+  %1029 = getelementptr inbounds nuw i8, ptr %1018, i64 1
   store i8 %1028, ptr %1029, align 1
-  %1030 = getelementptr inbounds i8, ptr %1018, i64 2
+  %1030 = getelementptr inbounds nuw i8, ptr %1018, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1031:                                             ; preds = %1023
-  %1032 = getelementptr inbounds i8, ptr %1018, i64 1
+  %1032 = getelementptr inbounds nuw i8, ptr %1018, i64 1
   br label %1033
 
 1033:                                             ; preds = %1033, %1031
@@ -7904,13 +7904,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi6EE9SerializeINS1_11ArrayOutput
   %1035 = or i8 %1034, -128
   store i8 %1035, ptr %.023.i.i.i.i.i.i499, align 1
   %1036 = lshr i32 %.022.i.i.i.i.i.i500, 7
-  %1037 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i499, i64 1
+  %1037 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i499, i64 1
   %1038 = icmp samesign ugt i32 %.022.i.i.i.i.i.i500, 16383
   br i1 %1038, label %1033, label %1039, !llvm.loop !5
 
 1039:                                             ; preds = %1033
   %1040 = trunc nuw nsw i32 %1036 to i8
-  %1041 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i499, i64 2
+  %1041 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i499, i64 2
   store i8 %1040, ptr %1037, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7918,7 +7918,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i502 = phi ptr [ %1022, %1021 ], [ %1030, %1027 ], [ %1041, %1039 ]
   %1042 = load i32, ptr %21, align 4
   store i32 %1042, ptr %.0.i.i.i.i.i.i502, align 1
-  %1043 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i502, i64 4
+  %1043 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i502, i64 4
   store ptr %1043, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7928,7 +7928,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   br i1 %1046, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1047
 
 1047:                                             ; preds = %1044
-  %1048 = getelementptr inbounds i8, ptr %18, i64 4
+  %1048 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1049 = load i32, ptr %1048, align 4
   %1050 = load ptr, ptr %8, align 8
   %1051 = icmp ult i32 %1049, 128
@@ -7937,7 +7937,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
 
 1053:                                             ; preds = %1047
   store i8 %1052, ptr %1050, align 1
-  %1054 = getelementptr inbounds i8, ptr %1050, i64 1
+  %1054 = getelementptr inbounds nuw i8, ptr %1050, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit507
 
 1055:                                             ; preds = %1047
@@ -7949,13 +7949,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
 
 1059:                                             ; preds = %1055
   %1060 = trunc nuw nsw i32 %1057 to i8
-  %1061 = getelementptr inbounds i8, ptr %1050, i64 1
+  %1061 = getelementptr inbounds nuw i8, ptr %1050, i64 1
   store i8 %1060, ptr %1061, align 1
-  %1062 = getelementptr inbounds i8, ptr %1050, i64 2
+  %1062 = getelementptr inbounds nuw i8, ptr %1050, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit507
 
 1063:                                             ; preds = %1055
-  %1064 = getelementptr inbounds i8, ptr %1050, i64 1
+  %1064 = getelementptr inbounds nuw i8, ptr %1050, i64 1
   br label %1065
 
 1065:                                             ; preds = %1065, %1063
@@ -7965,13 +7965,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   %1067 = or i8 %1066, -128
   store i8 %1067, ptr %.023.i.i.i.i.i.i503, align 1
   %1068 = lshr i32 %.022.i.i.i.i.i.i504, 7
-  %1069 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i503, i64 1
+  %1069 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i503, i64 1
   %1070 = icmp samesign ugt i32 %.022.i.i.i.i.i.i504, 16383
   br i1 %1070, label %1065, label %1071, !llvm.loop !5
 
 1071:                                             ; preds = %1065
   %1072 = trunc nuw nsw i32 %1068 to i8
-  %1073 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i503, i64 2
+  %1073 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i503, i64 2
   store i8 %1072, ptr %1069, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit507
 
@@ -7979,7 +7979,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   %.0.i.i.i.i.i.i506 = phi ptr [ %1054, %1053 ], [ %1062, %1059 ], [ %1073, %1071 ]
   %1074 = load i32, ptr %21, align 4
   store i32 %1074, ptr %.0.i.i.i.i.i.i506, align 1
-  %1075 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i506, i64 4
+  %1075 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i506, i64 4
   store ptr %1075, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -7989,7 +7989,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   br i1 %1078, label %.lr.ph.i508, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i508:                                      ; preds = %1076
-  %1079 = getelementptr inbounds i8, ptr %18, i64 4
+  %1079 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %1080
 
 1080:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512, %.lr.ph.i508
@@ -8002,7 +8002,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
 
 1085:                                             ; preds = %1080
   store i8 %1084, ptr %1082, align 1
-  %1086 = getelementptr inbounds i8, ptr %1082, i64 1
+  %1086 = getelementptr inbounds nuw i8, ptr %1082, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512
 
 1087:                                             ; preds = %1080
@@ -8014,13 +8014,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
 
 1091:                                             ; preds = %1087
   %1092 = trunc nuw nsw i32 %1089 to i8
-  %1093 = getelementptr inbounds i8, ptr %1082, i64 1
+  %1093 = getelementptr inbounds nuw i8, ptr %1082, i64 1
   store i8 %1092, ptr %1093, align 1
-  %1094 = getelementptr inbounds i8, ptr %1082, i64 2
+  %1094 = getelementptr inbounds nuw i8, ptr %1082, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512
 
 1095:                                             ; preds = %1087
-  %1096 = getelementptr inbounds i8, ptr %1082, i64 1
+  %1096 = getelementptr inbounds nuw i8, ptr %1082, i64 1
   br label %1097
 
 1097:                                             ; preds = %1097, %1095
@@ -8030,13 +8030,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi7EE9SerializeINS1_11ArrayOut
   %1099 = or i8 %1098, -128
   store i8 %1099, ptr %.023.i.i.i.i.i.i510, align 1
   %1100 = lshr i32 %.022.i.i.i.i.i.i511, 7
-  %1101 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i510, i64 1
+  %1101 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i510, i64 1
   %1102 = icmp samesign ugt i32 %.022.i.i.i.i.i.i511, 16383
   br i1 %1102, label %1097, label %1103, !llvm.loop !5
 
 1103:                                             ; preds = %1097
   %1104 = trunc nuw nsw i32 %1100 to i8
-  %1105 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i510, i64 2
+  %1105 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i510, i64 2
   store i8 %1104, ptr %1101, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512
 
@@ -8047,7 +8047,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512: ; 
   %1107 = load ptr, ptr %8, align 8
   %1108 = load i32, ptr %1106, align 4
   store i32 %1108, ptr %1107, align 1
-  %1109 = getelementptr inbounds i8, ptr %1107, i64 4
+  %1109 = getelementptr inbounds nuw i8, ptr %1107, i64 4
   store ptr %1109, ptr %8, align 8
   %1110 = add nuw nsw i32 %.09.i509, 1
   %1111 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -8059,12 +8059,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1114:                                             ; preds = %17
-  %1115 = getelementptr inbounds i8, ptr %18, i64 8
+  %1115 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1116 = load i32, ptr %1115, align 8
-  %1117 = getelementptr inbounds i8, ptr %18, i64 4
+  %1117 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1118 = load i32, ptr %1117, align 4
   %1119 = zext i32 %1116 to i64
-  %1120 = getelementptr inbounds i8, ptr %0, i64 %1119
+  %1120 = getelementptr inbounds nuw i8, ptr %0, i64 %1119
   %1121 = load i32, ptr %1120, align 4
   %1122 = lshr i32 %1118, 3
   %1123 = icmp eq i32 %1121, %1122
@@ -8078,7 +8078,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512: ; 
 
 1128:                                             ; preds = %1124
   store i8 %1127, ptr %1125, align 1
-  %1129 = getelementptr inbounds i8, ptr %1125, i64 1
+  %1129 = getelementptr inbounds nuw i8, ptr %1125, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1130:                                             ; preds = %1124
@@ -8090,13 +8090,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512: ; 
 
 1134:                                             ; preds = %1130
   %1135 = trunc nuw nsw i32 %1132 to i8
-  %1136 = getelementptr inbounds i8, ptr %1125, i64 1
+  %1136 = getelementptr inbounds nuw i8, ptr %1125, i64 1
   store i8 %1135, ptr %1136, align 1
-  %1137 = getelementptr inbounds i8, ptr %1125, i64 2
+  %1137 = getelementptr inbounds nuw i8, ptr %1125, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1138:                                             ; preds = %1130
-  %1139 = getelementptr inbounds i8, ptr %1125, i64 1
+  %1139 = getelementptr inbounds nuw i8, ptr %1125, i64 1
   br label %1140
 
 1140:                                             ; preds = %1140, %1138
@@ -8106,13 +8106,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i512: ; 
   %1142 = or i8 %1141, -128
   store i8 %1142, ptr %.023.i.i.i.i.i.i.i514, align 1
   %1143 = lshr i32 %.022.i.i.i.i.i.i.i515, 7
-  %1144 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i514, i64 1
+  %1144 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i514, i64 1
   %1145 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i515, 16383
   br i1 %1145, label %1140, label %1146, !llvm.loop !5
 
 1146:                                             ; preds = %1140
   %1147 = trunc nuw nsw i32 %1143 to i8
-  %1148 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i514, i64 2
+  %1148 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i514, i64 2
   store i8 %1147, ptr %1144, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8120,16 +8120,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
   %.0.i.i.i.i.i.i.i516 = phi ptr [ %1129, %1128 ], [ %1137, %1134 ], [ %1148, %1146 ]
   %1149 = load i32, ptr %21, align 4
   store i32 %1149, ptr %.0.i.i.i.i.i.i.i516, align 1
-  %1150 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i516, i64 4
+  %1150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i516, i64 4
   store ptr %1150, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1151:                                             ; preds = %17
-  %1152 = getelementptr inbounds i8, ptr %18, i64 8
+  %1152 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1153 = load i32, ptr %1152, align 8
   %1154 = lshr i32 %1153, 5
   %1155 = zext nneg i32 %1154 to i64
-  %1156 = getelementptr inbounds i32, ptr %0, i64 %1155
+  %1156 = getelementptr inbounds nuw i32, ptr %0, i64 %1155
   %1157 = load i32, ptr %1156, align 4
   %1158 = and i32 %1153, 31
   %1159 = shl nuw i32 1, %1158
@@ -8138,7 +8138,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
   br i1 %.not751, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1161
 
 1161:                                             ; preds = %1151
-  %1162 = getelementptr inbounds i8, ptr %18, i64 4
+  %1162 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1163 = load i32, ptr %1162, align 4
   %1164 = load ptr, ptr %8, align 8
   %1165 = icmp ult i32 %1163, 128
@@ -8147,7 +8147,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
 
 1167:                                             ; preds = %1161
   store i8 %1166, ptr %1164, align 1
-  %1168 = getelementptr inbounds i8, ptr %1164, i64 1
+  %1168 = getelementptr inbounds nuw i8, ptr %1164, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1169:                                             ; preds = %1161
@@ -8159,13 +8159,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
 
 1173:                                             ; preds = %1169
   %1174 = trunc nuw nsw i32 %1171 to i8
-  %1175 = getelementptr inbounds i8, ptr %1164, i64 1
+  %1175 = getelementptr inbounds nuw i8, ptr %1164, i64 1
   store i8 %1174, ptr %1175, align 1
-  %1176 = getelementptr inbounds i8, ptr %1164, i64 2
+  %1176 = getelementptr inbounds nuw i8, ptr %1164, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1177:                                             ; preds = %1169
-  %1178 = getelementptr inbounds i8, ptr %1164, i64 1
+  %1178 = getelementptr inbounds nuw i8, ptr %1164, i64 1
   br label %1179
 
 1179:                                             ; preds = %1179, %1177
@@ -8175,13 +8175,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi7EE9SerializeINS1_11ArrayOutput
   %1181 = or i8 %1180, -128
   store i8 %1181, ptr %.023.i.i.i.i.i.i517, align 1
   %1182 = lshr i32 %.022.i.i.i.i.i.i518, 7
-  %1183 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i517, i64 1
+  %1183 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i517, i64 1
   %1184 = icmp samesign ugt i32 %.022.i.i.i.i.i.i518, 16383
   br i1 %1184, label %1179, label %1185, !llvm.loop !5
 
 1185:                                             ; preds = %1179
   %1186 = trunc nuw nsw i32 %1182 to i8
-  %1187 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i517, i64 2
+  %1187 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i517, i64 2
   store i8 %1186, ptr %1183, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8190,7 +8190,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   %1188 = load i8, ptr %21, align 1
   %1189 = and i8 %1188, 1
   store i8 %1189, ptr %.0.i.i.i.i.i.i520, align 1
-  %1190 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i520, i64 1
+  %1190 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i520, i64 1
   store ptr %1190, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8201,7 +8201,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   br i1 %1194, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1195
 
 1195:                                             ; preds = %1191
-  %1196 = getelementptr inbounds i8, ptr %18, i64 4
+  %1196 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1197 = load i32, ptr %1196, align 4
   %1198 = load ptr, ptr %8, align 8
   %1199 = icmp ult i32 %1197, 128
@@ -8210,7 +8210,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
 
 1201:                                             ; preds = %1195
   store i8 %1200, ptr %1198, align 1
-  %1202 = getelementptr inbounds i8, ptr %1198, i64 1
+  %1202 = getelementptr inbounds nuw i8, ptr %1198, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit525
 
 1203:                                             ; preds = %1195
@@ -8222,13 +8222,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
 
 1207:                                             ; preds = %1203
   %1208 = trunc nuw nsw i32 %1205 to i8
-  %1209 = getelementptr inbounds i8, ptr %1198, i64 1
+  %1209 = getelementptr inbounds nuw i8, ptr %1198, i64 1
   store i8 %1208, ptr %1209, align 1
-  %1210 = getelementptr inbounds i8, ptr %1198, i64 2
+  %1210 = getelementptr inbounds nuw i8, ptr %1198, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit525
 
 1211:                                             ; preds = %1203
-  %1212 = getelementptr inbounds i8, ptr %1198, i64 1
+  %1212 = getelementptr inbounds nuw i8, ptr %1198, i64 1
   br label %1213
 
 1213:                                             ; preds = %1213, %1211
@@ -8238,13 +8238,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   %1215 = or i8 %1214, -128
   store i8 %1215, ptr %.023.i.i.i.i.i.i521, align 1
   %1216 = lshr i32 %.022.i.i.i.i.i.i522, 7
-  %1217 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i521, i64 1
+  %1217 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i521, i64 1
   %1218 = icmp samesign ugt i32 %.022.i.i.i.i.i.i522, 16383
   br i1 %1218, label %1213, label %1219, !llvm.loop !5
 
 1219:                                             ; preds = %1213
   %1220 = trunc nuw nsw i32 %1216 to i8
-  %1221 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i521, i64 2
+  %1221 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i521, i64 2
   store i8 %1220, ptr %1217, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit525
 
@@ -8253,7 +8253,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   %1222 = load i8, ptr %21, align 1
   %1223 = and i8 %1222, 1
   store i8 %1223, ptr %.0.i.i.i.i.i.i524, align 1
-  %1224 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i524, i64 1
+  %1224 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i524, i64 1
   store ptr %1224, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8263,7 +8263,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   br i1 %1227, label %.lr.ph.i526, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i526:                                      ; preds = %1225
-  %1228 = getelementptr inbounds i8, ptr %18, i64 4
+  %1228 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %1229
 
 1229:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530, %.lr.ph.i526
@@ -8276,7 +8276,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
 
 1234:                                             ; preds = %1229
   store i8 %1233, ptr %1231, align 1
-  %1235 = getelementptr inbounds i8, ptr %1231, i64 1
+  %1235 = getelementptr inbounds nuw i8, ptr %1231, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530
 
 1236:                                             ; preds = %1229
@@ -8288,13 +8288,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
 
 1240:                                             ; preds = %1236
   %1241 = trunc nuw nsw i32 %1238 to i8
-  %1242 = getelementptr inbounds i8, ptr %1231, i64 1
+  %1242 = getelementptr inbounds nuw i8, ptr %1231, i64 1
   store i8 %1241, ptr %1242, align 1
-  %1243 = getelementptr inbounds i8, ptr %1231, i64 2
+  %1243 = getelementptr inbounds nuw i8, ptr %1231, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530
 
 1244:                                             ; preds = %1236
-  %1245 = getelementptr inbounds i8, ptr %1231, i64 1
+  %1245 = getelementptr inbounds nuw i8, ptr %1231, i64 1
   br label %1246
 
 1246:                                             ; preds = %1246, %1244
@@ -8304,13 +8304,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi8EE9SerializeINS1_11ArrayOut
   %1248 = or i8 %1247, -128
   store i8 %1248, ptr %.023.i.i.i.i.i.i528, align 1
   %1249 = lshr i32 %.022.i.i.i.i.i.i529, 7
-  %1250 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i528, i64 1
+  %1250 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i528, i64 1
   %1251 = icmp samesign ugt i32 %.022.i.i.i.i.i.i529, 16383
   br i1 %1251, label %1246, label %1252, !llvm.loop !5
 
 1252:                                             ; preds = %1246
   %1253 = trunc nuw nsw i32 %1249 to i8
-  %1254 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i528, i64 2
+  %1254 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i528, i64 2
   store i8 %1253, ptr %1250, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530
 
@@ -8322,7 +8322,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530: ; 
   %1257 = load i8, ptr %1255, align 1
   %1258 = and i8 %1257, 1
   store i8 %1258, ptr %1256, align 1
-  %1259 = getelementptr inbounds i8, ptr %1256, i64 1
+  %1259 = getelementptr inbounds nuw i8, ptr %1256, i64 1
   store ptr %1259, ptr %8, align 8
   %1260 = add nuw nsw i32 %.09.i527, 1
   %1261 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -8334,12 +8334,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1264:                                             ; preds = %17
-  %1265 = getelementptr inbounds i8, ptr %18, i64 8
+  %1265 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1266 = load i32, ptr %1265, align 8
-  %1267 = getelementptr inbounds i8, ptr %18, i64 4
+  %1267 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1268 = load i32, ptr %1267, align 4
   %1269 = zext i32 %1266 to i64
-  %1270 = getelementptr inbounds i8, ptr %0, i64 %1269
+  %1270 = getelementptr inbounds nuw i8, ptr %0, i64 %1269
   %1271 = load i32, ptr %1270, align 4
   %1272 = lshr i32 %1268, 3
   %1273 = icmp eq i32 %1271, %1272
@@ -8353,7 +8353,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530: ; 
 
 1278:                                             ; preds = %1274
   store i8 %1277, ptr %1275, align 1
-  %1279 = getelementptr inbounds i8, ptr %1275, i64 1
+  %1279 = getelementptr inbounds nuw i8, ptr %1275, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1280:                                             ; preds = %1274
@@ -8365,13 +8365,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530: ; 
 
 1284:                                             ; preds = %1280
   %1285 = trunc nuw nsw i32 %1282 to i8
-  %1286 = getelementptr inbounds i8, ptr %1275, i64 1
+  %1286 = getelementptr inbounds nuw i8, ptr %1275, i64 1
   store i8 %1285, ptr %1286, align 1
-  %1287 = getelementptr inbounds i8, ptr %1275, i64 2
+  %1287 = getelementptr inbounds nuw i8, ptr %1275, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1288:                                             ; preds = %1280
-  %1289 = getelementptr inbounds i8, ptr %1275, i64 1
+  %1289 = getelementptr inbounds nuw i8, ptr %1275, i64 1
   br label %1290
 
 1290:                                             ; preds = %1290, %1288
@@ -8381,13 +8381,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i530: ; 
   %1292 = or i8 %1291, -128
   store i8 %1292, ptr %.023.i.i.i.i.i.i.i532, align 1
   %1293 = lshr i32 %.022.i.i.i.i.i.i.i533, 7
-  %1294 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i532, i64 1
+  %1294 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i532, i64 1
   %1295 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i533, 16383
   br i1 %1295, label %1290, label %1296, !llvm.loop !5
 
 1296:                                             ; preds = %1290
   %1297 = trunc nuw nsw i32 %1293 to i8
-  %1298 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i532, i64 2
+  %1298 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i532, i64 2
   store i8 %1297, ptr %1294, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8396,16 +8396,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
   %1299 = load i8, ptr %21, align 1
   %1300 = and i8 %1299, 1
   store i8 %1300, ptr %.0.i.i.i.i.i.i.i534, align 1
-  %1301 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i534, i64 1
+  %1301 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i534, i64 1
   store ptr %1301, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1302:                                             ; preds = %17
-  %1303 = getelementptr inbounds i8, ptr %18, i64 8
+  %1303 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1304 = load i32, ptr %1303, align 8
   %1305 = lshr i32 %1304, 5
   %1306 = zext nneg i32 %1305 to i64
-  %1307 = getelementptr inbounds i32, ptr %0, i64 %1306
+  %1307 = getelementptr inbounds nuw i32, ptr %0, i64 %1306
   %1308 = load i32, ptr %1307, align 4
   %1309 = and i32 %1304, 31
   %1310 = shl nuw i32 1, %1309
@@ -8414,7 +8414,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
   br i1 %.not750, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1312
 
 1312:                                             ; preds = %1302
-  %1313 = getelementptr inbounds i8, ptr %18, i64 4
+  %1313 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1314 = load i32, ptr %1313, align 4
   %1315 = load ptr, ptr %8, align 8
   %1316 = icmp ult i32 %1314, 128
@@ -8423,7 +8423,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
 
 1318:                                             ; preds = %1312
   store i8 %1317, ptr %1315, align 1
-  %1319 = getelementptr inbounds i8, ptr %1315, i64 1
+  %1319 = getelementptr inbounds nuw i8, ptr %1315, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1320:                                             ; preds = %1312
@@ -8435,13 +8435,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
 
 1324:                                             ; preds = %1320
   %1325 = trunc nuw nsw i32 %1322 to i8
-  %1326 = getelementptr inbounds i8, ptr %1315, i64 1
+  %1326 = getelementptr inbounds nuw i8, ptr %1315, i64 1
   store i8 %1325, ptr %1326, align 1
-  %1327 = getelementptr inbounds i8, ptr %1315, i64 2
+  %1327 = getelementptr inbounds nuw i8, ptr %1315, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1328:                                             ; preds = %1320
-  %1329 = getelementptr inbounds i8, ptr %1315, i64 1
+  %1329 = getelementptr inbounds nuw i8, ptr %1315, i64 1
   br label %1330
 
 1330:                                             ; preds = %1330, %1328
@@ -8451,13 +8451,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi8EE9SerializeINS1_11ArrayOutput
   %1332 = or i8 %1331, -128
   store i8 %1332, ptr %.023.i.i.i.i.i.i535, align 1
   %1333 = lshr i32 %.022.i.i.i.i.i.i536, 7
-  %1334 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i535, i64 1
+  %1334 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i535, i64 1
   %1335 = icmp samesign ugt i32 %.022.i.i.i.i.i.i536, 16383
   br i1 %1335, label %1330, label %1336, !llvm.loop !5
 
 1336:                                             ; preds = %1330
   %1337 = trunc nuw nsw i32 %1333 to i8
-  %1338 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i535, i64 2
+  %1338 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i535, i64 2
   store i8 %1337, ptr %1334, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8482,7 +8482,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   br i1 %1350, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1351
 
 1351:                                             ; preds = %1344
-  %1352 = getelementptr inbounds i8, ptr %18, i64 4
+  %1352 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1353 = load i32, ptr %1352, align 4
   %1354 = load ptr, ptr %8, align 8
   %1355 = icmp ult i32 %1353, 128
@@ -8491,7 +8491,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1357:                                             ; preds = %1351
   store i8 %1356, ptr %1354, align 1
-  %1358 = getelementptr inbounds i8, ptr %1354, i64 1
+  %1358 = getelementptr inbounds nuw i8, ptr %1354, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit543
 
 1359:                                             ; preds = %1351
@@ -8503,13 +8503,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1363:                                             ; preds = %1359
   %1364 = trunc nuw nsw i32 %1361 to i8
-  %1365 = getelementptr inbounds i8, ptr %1354, i64 1
+  %1365 = getelementptr inbounds nuw i8, ptr %1354, i64 1
   store i8 %1364, ptr %1365, align 1
-  %1366 = getelementptr inbounds i8, ptr %1354, i64 2
+  %1366 = getelementptr inbounds nuw i8, ptr %1354, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit543
 
 1367:                                             ; preds = %1359
-  %1368 = getelementptr inbounds i8, ptr %1354, i64 1
+  %1368 = getelementptr inbounds nuw i8, ptr %1354, i64 1
   br label %1369
 
 1369:                                             ; preds = %1369, %1367
@@ -8519,13 +8519,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   %1371 = or i8 %1370, -128
   store i8 %1371, ptr %.023.i.i.i.i.i.i539, align 1
   %1372 = lshr i32 %.022.i.i.i.i.i.i540, 7
-  %1373 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i539, i64 1
+  %1373 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i539, i64 1
   %1374 = icmp samesign ugt i32 %.022.i.i.i.i.i.i540, 16383
   br i1 %1374, label %1369, label %1375, !llvm.loop !5
 
 1375:                                             ; preds = %1369
   %1376 = trunc nuw nsw i32 %1372 to i8
-  %1377 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i539, i64 2
+  %1377 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i539, i64 2
   store i8 %1376, ptr %1373, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit543
 
@@ -8541,14 +8541,14 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1383:                                             ; preds = %17
-  %1384 = getelementptr inbounds i8, ptr %21, i64 8
+  %1384 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %1385 = load i32, ptr %1384, align 8
   %1386 = icmp sgt i32 %1385, 0
   br i1 %1386, label %.lr.ph.i544, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i544:                                      ; preds = %1383
-  %1387 = getelementptr inbounds i8, ptr %18, i64 4
-  %1388 = getelementptr inbounds i8, ptr %21, i64 16
+  %1387 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %1388 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.pre.i = load ptr, ptr %8, align 8
   br label %1389
 
@@ -8562,7 +8562,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1394:                                             ; preds = %1389
   store i8 %1393, ptr %1390, align 1
-  %1395 = getelementptr inbounds i8, ptr %1390, i64 1
+  %1395 = getelementptr inbounds nuw i8, ptr %1390, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547
 
 1396:                                             ; preds = %1389
@@ -8574,13 +8574,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1400:                                             ; preds = %1396
   %1401 = trunc nuw nsw i32 %1398 to i8
-  %1402 = getelementptr inbounds i8, ptr %1390, i64 1
+  %1402 = getelementptr inbounds nuw i8, ptr %1390, i64 1
   store i8 %1401, ptr %1402, align 1
-  %1403 = getelementptr inbounds i8, ptr %1390, i64 2
+  %1403 = getelementptr inbounds nuw i8, ptr %1390, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547
 
 1404:                                             ; preds = %1396
-  %1405 = getelementptr inbounds i8, ptr %1390, i64 1
+  %1405 = getelementptr inbounds nuw i8, ptr %1390, i64 1
   br label %1406
 
 1406:                                             ; preds = %1406, %1404
@@ -8590,13 +8590,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   %1408 = or i8 %1407, -128
   store i8 %1408, ptr %.023.i.i.i.i.i.i545, align 1
   %1409 = lshr i32 %.022.i.i.i.i.i.i546, 7
-  %1410 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i545, i64 1
+  %1410 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i545, i64 1
   %1411 = icmp samesign ugt i32 %.022.i.i.i.i.i.i546, 16383
   br i1 %1411, label %1406, label %1412, !llvm.loop !5
 
 1412:                                             ; preds = %1406
   %1413 = trunc nuw nsw i32 %1409 to i8
-  %1414 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i545, i64 2
+  %1414 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i545, i64 2
   store i8 %1413, ptr %1410, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547
 
@@ -8605,9 +8605,9 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547: ; 
   store ptr %.0.i.i.i.i.i.i548, ptr %8, align 8
   %1415 = load ptr, ptr %1388, align 8
   %.not.i.i.i = icmp eq ptr %1415, null
-  %1416 = getelementptr inbounds i8, ptr %1415, i64 8
+  %1416 = getelementptr inbounds nuw i8, ptr %1415, i64 8
   %spec.select.i.i.i = select i1 %.not.i.i.i, ptr null, ptr %1416
-  %1417 = getelementptr inbounds ptr, ptr %spec.select.i.i.i, i64 %indvars.iv.i
+  %1417 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i.i, i64 %indvars.iv.i
   %1418 = load ptr, ptr %1417, align 8
   %1419 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %1418, ptr noundef nonnull %.0.i.i.i.i.i.i548)
   store ptr %1419, ptr %8, align 8
@@ -8622,12 +8622,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1424:                                             ; preds = %17
-  %1425 = getelementptr inbounds i8, ptr %18, i64 8
+  %1425 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1426 = load i32, ptr %1425, align 8
-  %1427 = getelementptr inbounds i8, ptr %18, i64 4
+  %1427 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1428 = load i32, ptr %1427, align 4
   %1429 = zext i32 %1426 to i64
-  %1430 = getelementptr inbounds i8, ptr %0, i64 %1429
+  %1430 = getelementptr inbounds nuw i8, ptr %0, i64 %1429
   %1431 = load i32, ptr %1430, align 4
   %1432 = lshr i32 %1428, 3
   %1433 = icmp eq i32 %1431, %1432
@@ -8641,7 +8641,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547: ; 
 
 1438:                                             ; preds = %1434
   store i8 %1437, ptr %1435, align 1
-  %1439 = getelementptr inbounds i8, ptr %1435, i64 1
+  %1439 = getelementptr inbounds nuw i8, ptr %1435, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1440:                                             ; preds = %1434
@@ -8653,13 +8653,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547: ; 
 
 1444:                                             ; preds = %1440
   %1445 = trunc nuw nsw i32 %1442 to i8
-  %1446 = getelementptr inbounds i8, ptr %1435, i64 1
+  %1446 = getelementptr inbounds nuw i8, ptr %1435, i64 1
   store i8 %1445, ptr %1446, align 1
-  %1447 = getelementptr inbounds i8, ptr %1435, i64 2
+  %1447 = getelementptr inbounds nuw i8, ptr %1435, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1448:                                             ; preds = %1440
-  %1449 = getelementptr inbounds i8, ptr %1435, i64 1
+  %1449 = getelementptr inbounds nuw i8, ptr %1435, i64 1
   br label %1450
 
 1450:                                             ; preds = %1450, %1448
@@ -8669,13 +8669,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i547: ; 
   %1452 = or i8 %1451, -128
   store i8 %1452, ptr %.023.i.i.i.i.i.i.i549, align 1
   %1453 = lshr i32 %.022.i.i.i.i.i.i.i550, 7
-  %1454 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i549, i64 1
+  %1454 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i549, i64 1
   %1455 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i550, 16383
   br i1 %1455, label %1450, label %1456, !llvm.loop !5
 
 1456:                                             ; preds = %1450
   %1457 = trunc nuw nsw i32 %1453 to i8
-  %1458 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i549, i64 2
+  %1458 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i549, i64 2
   store i8 %1457, ptr %1454, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -8691,11 +8691,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1464:                                             ; preds = %17
-  %1465 = getelementptr inbounds i8, ptr %18, i64 8
+  %1465 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1466 = load i32, ptr %1465, align 8
   %1467 = lshr i32 %1466, 5
   %1468 = zext nneg i32 %1467 to i64
-  %1469 = getelementptr inbounds i32, ptr %0, i64 %1468
+  %1469 = getelementptr inbounds nuw i32, ptr %0, i64 %1468
   %1470 = load i32, ptr %1469, align 4
   %1471 = and i32 %1466, 31
   %1472 = shl nuw i32 1, %1471
@@ -8704,7 +8704,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
   br i1 %.not749, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1474
 
 1474:                                             ; preds = %1464
-  %1475 = getelementptr inbounds i8, ptr %18, i64 4
+  %1475 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1476 = load i32, ptr %1475, align 4
   %1477 = load ptr, ptr %8, align 8
   %1478 = icmp ult i32 %1476, 128
@@ -8713,7 +8713,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
 
 1480:                                             ; preds = %1474
   store i8 %1479, ptr %1477, align 1
-  %1481 = getelementptr inbounds i8, ptr %1477, i64 1
+  %1481 = getelementptr inbounds nuw i8, ptr %1477, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707
 
 1482:                                             ; preds = %1474
@@ -8725,13 +8725,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
 
 1486:                                             ; preds = %1482
   %1487 = trunc nuw nsw i32 %1484 to i8
-  %1488 = getelementptr inbounds i8, ptr %1477, i64 1
+  %1488 = getelementptr inbounds nuw i8, ptr %1477, i64 1
   store i8 %1487, ptr %1488, align 1
-  %1489 = getelementptr inbounds i8, ptr %1477, i64 2
+  %1489 = getelementptr inbounds nuw i8, ptr %1477, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707
 
 1490:                                             ; preds = %1482
-  %1491 = getelementptr inbounds i8, ptr %1477, i64 1
+  %1491 = getelementptr inbounds nuw i8, ptr %1477, i64 1
   br label %1492
 
 1492:                                             ; preds = %1492, %1490
@@ -8741,13 +8741,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi9EE9SerializeINS1_11ArrayOutput
   %1494 = or i8 %1493, -128
   store i8 %1494, ptr %.023.i.i.i.i.i704, align 1
   %1495 = lshr i32 %.022.i.i.i.i.i705, 7
-  %1496 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i704, i64 1
+  %1496 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i704, i64 1
   %1497 = icmp samesign ugt i32 %.022.i.i.i.i.i705, 16383
   br i1 %1497, label %1492, label %1498, !llvm.loop !5
 
 1498:                                             ; preds = %1492
   %1499 = trunc nuw nsw i32 %1495 to i8
-  %1500 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i704, i64 2
+  %1500 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i704, i64 2
   store i8 %1499, ptr %1496, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707
 
@@ -8755,7 +8755,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707: ; pr
   %.0.i.i.i.i.i706 = phi ptr [ %1481, %1480 ], [ %1489, %1486 ], [ %1500, %1498 ]
   store ptr %.0.i.i.i.i.i706, ptr %8, align 8
   %1501 = load ptr, ptr %21, align 8
-  %1502 = getelementptr inbounds i8, ptr %18, i64 16
+  %1502 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %1503 = load ptr, ptr %1502, align 8
   %.not.i = icmp eq ptr %1503, null
   br i1 %.not.i, label %1504, label %1505
@@ -8766,11 +8766,11 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707: ; pr
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 1505:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit707
-  %1506 = getelementptr inbounds i8, ptr %1503, i64 8
+  %1506 = getelementptr inbounds nuw i8, ptr %1503, i64 8
   %1507 = load ptr, ptr %1506, align 8
   %1508 = load i32, ptr %1503, align 8
   %1509 = add nsw i32 %1508, -1
-  %1510 = getelementptr inbounds i8, ptr %1507, i64 24
+  %1510 = getelementptr inbounds nuw i8, ptr %1507, i64 24
   %1511 = load i8, ptr %12, align 8
   %1512 = trunc i8 %1511 to i1
   %1513 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %1501, ptr noundef nonnull %1510, i32 noundef %1509, i1 noundef zeroext %1512, ptr noundef nonnull %.0.i.i.i.i.i706)
@@ -8786,7 +8786,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 1519:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
   store i8 %1518, ptr %1514, align 1
-  %1520 = getelementptr inbounds i8, ptr %1514, i64 1
+  %1520 = getelementptr inbounds nuw i8, ptr %1514, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 1521:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -8798,13 +8798,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 1525:                                             ; preds = %1521
   %1526 = trunc nuw nsw i32 %1523 to i8
-  %1527 = getelementptr inbounds i8, ptr %1514, i64 1
+  %1527 = getelementptr inbounds nuw i8, ptr %1514, i64 1
   store i8 %1526, ptr %1527, align 1
-  %1528 = getelementptr inbounds i8, ptr %1514, i64 2
+  %1528 = getelementptr inbounds nuw i8, ptr %1514, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 1529:                                             ; preds = %1521
-  %1530 = getelementptr inbounds i8, ptr %1514, i64 1
+  %1530 = getelementptr inbounds nuw i8, ptr %1514, i64 1
   br label %1531
 
 1531:                                             ; preds = %1531, %1529
@@ -8814,13 +8814,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   %1533 = or i8 %1532, -128
   store i8 %1533, ptr %.023.i.i.i.i.i701, align 1
   %1534 = lshr i32 %.022.i.i.i.i.i702, 7
-  %1535 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i701, i64 1
+  %1535 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i701, i64 1
   %1536 = icmp samesign ugt i32 %.022.i.i.i.i.i702, 16383
   br i1 %1536, label %1531, label %1537, !llvm.loop !5
 
 1537:                                             ; preds = %1531
   %1538 = trunc nuw nsw i32 %1534 to i8
-  %1539 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i701, i64 2
+  %1539 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i701, i64 2
   store i8 %1538, ptr %1535, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -8835,7 +8835,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   br i1 %1542, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1543
 
 1543:                                             ; preds = %1540
-  %1544 = getelementptr inbounds i8, ptr %18, i64 4
+  %1544 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1545 = load i32, ptr %1544, align 4
   %1546 = load ptr, ptr %8, align 8
   %1547 = icmp ult i32 %1545, 128
@@ -8844,7 +8844,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 1549:                                             ; preds = %1543
   store i8 %1548, ptr %1546, align 1
-  %1550 = getelementptr inbounds i8, ptr %1546, i64 1
+  %1550 = getelementptr inbounds nuw i8, ptr %1546, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717
 
 1551:                                             ; preds = %1543
@@ -8856,13 +8856,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 1555:                                             ; preds = %1551
   %1556 = trunc nuw nsw i32 %1553 to i8
-  %1557 = getelementptr inbounds i8, ptr %1546, i64 1
+  %1557 = getelementptr inbounds nuw i8, ptr %1546, i64 1
   store i8 %1556, ptr %1557, align 1
-  %1558 = getelementptr inbounds i8, ptr %1546, i64 2
+  %1558 = getelementptr inbounds nuw i8, ptr %1546, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717
 
 1559:                                             ; preds = %1551
-  %1560 = getelementptr inbounds i8, ptr %1546, i64 1
+  %1560 = getelementptr inbounds nuw i8, ptr %1546, i64 1
   br label %1561
 
 1561:                                             ; preds = %1561, %1559
@@ -8872,13 +8872,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %1563 = or i8 %1562, -128
   store i8 %1563, ptr %.023.i.i.i.i.i714, align 1
   %1564 = lshr i32 %.022.i.i.i.i.i715, 7
-  %1565 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i714, i64 1
+  %1565 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i714, i64 1
   %1566 = icmp samesign ugt i32 %.022.i.i.i.i.i715, 16383
   br i1 %1566, label %1561, label %1567, !llvm.loop !5
 
 1567:                                             ; preds = %1561
   %1568 = trunc nuw nsw i32 %1564 to i8
-  %1569 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i714, i64 2
+  %1569 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i714, i64 2
   store i8 %1568, ptr %1565, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717
 
@@ -8886,7 +8886,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717: ; pr
   %.0.i.i.i.i.i716 = phi ptr [ %1550, %1549 ], [ %1558, %1555 ], [ %1569, %1567 ]
   store ptr %.0.i.i.i.i.i716, ptr %8, align 8
   %1570 = load ptr, ptr %21, align 8
-  %1571 = getelementptr inbounds i8, ptr %18, i64 16
+  %1571 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %1572 = load ptr, ptr %1571, align 8
   %.not.i712 = icmp eq ptr %1572, null
   br i1 %.not.i712, label %1573, label %1574
@@ -8897,11 +8897,11 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717: ; pr
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit713
 
 1574:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit717
-  %1575 = getelementptr inbounds i8, ptr %1572, i64 8
+  %1575 = getelementptr inbounds nuw i8, ptr %1572, i64 8
   %1576 = load ptr, ptr %1575, align 8
   %1577 = load i32, ptr %1572, align 8
   %1578 = add nsw i32 %1577, -1
-  %1579 = getelementptr inbounds i8, ptr %1576, i64 24
+  %1579 = getelementptr inbounds nuw i8, ptr %1576, i64 24
   %1580 = load i8, ptr %12, align 8
   %1581 = trunc i8 %1580 to i1
   %1582 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %1570, ptr noundef nonnull %1579, i32 noundef %1578, i1 noundef zeroext %1581, ptr noundef nonnull %.0.i.i.i.i.i716)
@@ -8917,7 +8917,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 1588:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit713
   store i8 %1587, ptr %1583, align 1
-  %1589 = getelementptr inbounds i8, ptr %1583, i64 1
+  %1589 = getelementptr inbounds nuw i8, ptr %1583, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711
 
 1590:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit713
@@ -8929,13 +8929,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 1594:                                             ; preds = %1590
   %1595 = trunc nuw nsw i32 %1592 to i8
-  %1596 = getelementptr inbounds i8, ptr %1583, i64 1
+  %1596 = getelementptr inbounds nuw i8, ptr %1583, i64 1
   store i8 %1595, ptr %1596, align 1
-  %1597 = getelementptr inbounds i8, ptr %1583, i64 2
+  %1597 = getelementptr inbounds nuw i8, ptr %1583, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711
 
 1598:                                             ; preds = %1590
-  %1599 = getelementptr inbounds i8, ptr %1583, i64 1
+  %1599 = getelementptr inbounds nuw i8, ptr %1583, i64 1
   br label %1600
 
 1600:                                             ; preds = %1600, %1598
@@ -8945,13 +8945,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   %1602 = or i8 %1601, -128
   store i8 %1602, ptr %.023.i.i.i.i.i708, align 1
   %1603 = lshr i32 %.022.i.i.i.i.i709, 7
-  %1604 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i708, i64 1
+  %1604 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i708, i64 1
   %1605 = icmp samesign ugt i32 %.022.i.i.i.i.i709, 16383
   br i1 %1605, label %1600, label %1606, !llvm.loop !5
 
 1606:                                             ; preds = %1600
   %1607 = trunc nuw nsw i32 %1603 to i8
-  %1608 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i708, i64 2
+  %1608 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i708, i64 2
   store i8 %1607, ptr %1604, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711
 
@@ -8970,7 +8970,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711: ; pr
 
 1614:                                             ; preds = %1609
   store i8 %1613, ptr %1611, align 1
-  %1615 = getelementptr inbounds i8, ptr %1611, i64 1
+  %1615 = getelementptr inbounds nuw i8, ptr %1611, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727
 
 1616:                                             ; preds = %1609
@@ -8982,13 +8982,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711: ; pr
 
 1620:                                             ; preds = %1616
   %1621 = trunc nuw nsw i32 %1618 to i8
-  %1622 = getelementptr inbounds i8, ptr %1611, i64 1
+  %1622 = getelementptr inbounds nuw i8, ptr %1611, i64 1
   store i8 %1621, ptr %1622, align 1
-  %1623 = getelementptr inbounds i8, ptr %1611, i64 2
+  %1623 = getelementptr inbounds nuw i8, ptr %1611, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727
 
 1624:                                             ; preds = %1616
-  %1625 = getelementptr inbounds i8, ptr %1611, i64 1
+  %1625 = getelementptr inbounds nuw i8, ptr %1611, i64 1
   br label %1626
 
 1626:                                             ; preds = %1626, %1624
@@ -8998,13 +8998,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit711: ; pr
   %1628 = or i8 %1627, -128
   store i8 %1628, ptr %.023.i.i.i.i.i724, align 1
   %1629 = lshr i32 %.022.i.i.i.i.i725, 7
-  %1630 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i724, i64 1
+  %1630 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i724, i64 1
   %1631 = icmp samesign ugt i32 %.022.i.i.i.i.i725, 16383
   br i1 %1631, label %1626, label %1632, !llvm.loop !5
 
 1632:                                             ; preds = %1626
   %1633 = trunc nuw nsw i32 %1629 to i8
-  %1634 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i724, i64 2
+  %1634 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i724, i64 2
   store i8 %1633, ptr %1630, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727
 
@@ -9013,9 +9013,9 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727: ; pr
   store ptr %.0.i.i.i.i.i726, ptr %8, align 8
   %1635 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %1635, null
-  %1636 = getelementptr inbounds i8, ptr %1635, i64 8
+  %1636 = getelementptr inbounds nuw i8, ptr %1635, i64 8
   %spec.select.i.i = select i1 %.not.i.i, ptr null, ptr %1636
-  %1637 = getelementptr inbounds ptr, ptr %spec.select.i.i, i64 %indvars.iv1132
+  %1637 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i, i64 %indvars.iv1132
   %1638 = load ptr, ptr %1637, align 8
   %1639 = load ptr, ptr %35, align 8
   %.not.i722 = icmp eq ptr %1639, null
@@ -9027,11 +9027,11 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727: ; pr
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit723
 
 1641:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit727
-  %1642 = getelementptr inbounds i8, ptr %1639, i64 8
+  %1642 = getelementptr inbounds nuw i8, ptr %1639, i64 8
   %1643 = load ptr, ptr %1642, align 8
   %1644 = load i32, ptr %1639, align 8
   %1645 = add nsw i32 %1644, -1
-  %1646 = getelementptr inbounds i8, ptr %1643, i64 24
+  %1646 = getelementptr inbounds nuw i8, ptr %1643, i64 24
   %1647 = load i8, ptr %12, align 8
   %1648 = trunc i8 %1647 to i1
   %1649 = call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %1638, ptr noundef nonnull %1646, i32 noundef %1645, i1 noundef zeroext %1648, ptr noundef nonnull %.0.i.i.i.i.i726)
@@ -9047,7 +9047,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 1655:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit723
   store i8 %1654, ptr %1650, align 1
-  %1656 = getelementptr inbounds i8, ptr %1650, i64 1
+  %1656 = getelementptr inbounds nuw i8, ptr %1650, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721
 
 1657:                                             ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit723
@@ -9059,13 +9059,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 1661:                                             ; preds = %1657
   %1662 = trunc nuw nsw i32 %1659 to i8
-  %1663 = getelementptr inbounds i8, ptr %1650, i64 1
+  %1663 = getelementptr inbounds nuw i8, ptr %1650, i64 1
   store i8 %1662, ptr %1663, align 1
-  %1664 = getelementptr inbounds i8, ptr %1650, i64 2
+  %1664 = getelementptr inbounds nuw i8, ptr %1650, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721
 
 1665:                                             ; preds = %1657
-  %1666 = getelementptr inbounds i8, ptr %1650, i64 1
+  %1666 = getelementptr inbounds nuw i8, ptr %1650, i64 1
   br label %1667
 
 1667:                                             ; preds = %1667, %1665
@@ -9075,13 +9075,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   %1669 = or i8 %1668, -128
   store i8 %1669, ptr %.023.i.i.i.i.i718, align 1
   %1670 = lshr i32 %.022.i.i.i.i.i719, 7
-  %1671 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i718, i64 1
+  %1671 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i718, i64 1
   %1672 = icmp samesign ugt i32 %.022.i.i.i.i.i719, 16383
   br i1 %1672, label %1667, label %1673, !llvm.loop !5
 
 1673:                                             ; preds = %1667
   %1674 = trunc nuw nsw i32 %1670 to i8
-  %1675 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i718, i64 2
+  %1675 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i718, i64 2
   store i8 %1674, ptr %1671, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721
 
@@ -9099,12 +9099,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1680:                                             ; preds = %17
-  %1681 = getelementptr inbounds i8, ptr %18, i64 8
+  %1681 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1682 = load i32, ptr %1681, align 8
-  %1683 = getelementptr inbounds i8, ptr %18, i64 4
+  %1683 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1684 = load i32, ptr %1683, align 4
   %1685 = zext i32 %1682 to i64
-  %1686 = getelementptr inbounds i8, ptr %0, i64 %1685
+  %1686 = getelementptr inbounds nuw i8, ptr %0, i64 %1685
   %1687 = load i32, ptr %1686, align 4
   %1688 = lshr i32 %1684, 3
   %1689 = icmp eq i32 %1687, %1688
@@ -9115,11 +9115,11 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1691:                                             ; preds = %17
-  %1692 = getelementptr inbounds i8, ptr %18, i64 8
+  %1692 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1693 = load i32, ptr %1692, align 8
   %1694 = lshr i32 %1693, 5
   %1695 = zext nneg i32 %1694 to i64
-  %1696 = getelementptr inbounds i32, ptr %0, i64 %1695
+  %1696 = getelementptr inbounds nuw i32, ptr %0, i64 %1695
   %1697 = load i32, ptr %1696, align 4
   %1698 = and i32 %1693, 31
   %1699 = shl nuw i32 1, %1698
@@ -9128,7 +9128,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
   br i1 %.not748, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1701
 
 1701:                                             ; preds = %1691
-  %1702 = getelementptr inbounds i8, ptr %18, i64 4
+  %1702 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1703 = load i32, ptr %1702, align 4
   %1704 = load ptr, ptr %8, align 8
   %1705 = icmp ult i32 %1703, 128
@@ -9137,7 +9137,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
 
 1707:                                             ; preds = %1701
   store i8 %1706, ptr %1704, align 1
-  %1708 = getelementptr inbounds i8, ptr %1704, i64 1
+  %1708 = getelementptr inbounds nuw i8, ptr %1704, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731
 
 1709:                                             ; preds = %1701
@@ -9149,13 +9149,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
 
 1713:                                             ; preds = %1709
   %1714 = trunc nuw nsw i32 %1711 to i8
-  %1715 = getelementptr inbounds i8, ptr %1704, i64 1
+  %1715 = getelementptr inbounds nuw i8, ptr %1704, i64 1
   store i8 %1714, ptr %1715, align 1
-  %1716 = getelementptr inbounds i8, ptr %1704, i64 2
+  %1716 = getelementptr inbounds nuw i8, ptr %1704, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731
 
 1717:                                             ; preds = %1709
-  %1718 = getelementptr inbounds i8, ptr %1704, i64 1
+  %1718 = getelementptr inbounds nuw i8, ptr %1704, i64 1
   br label %1719
 
 1719:                                             ; preds = %1719, %1717
@@ -9165,13 +9165,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit721: ; pr
   %1721 = or i8 %1720, -128
   store i8 %1721, ptr %.023.i.i.i.i.i728, align 1
   %1722 = lshr i32 %.022.i.i.i.i.i729, 7
-  %1723 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i728, i64 1
+  %1723 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i728, i64 1
   %1724 = icmp samesign ugt i32 %.022.i.i.i.i.i729, 16383
   br i1 %1724, label %1719, label %1725, !llvm.loop !5
 
 1725:                                             ; preds = %1719
   %1726 = trunc nuw nsw i32 %1722 to i8
-  %1727 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i728, i64 2
+  %1727 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i728, i64 2
   store i8 %1726, ptr %1723, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731
 
@@ -9179,7 +9179,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731: ; pr
   %.0.i.i.i.i.i730 = phi ptr [ %1708, %1707 ], [ %1716, %1713 ], [ %1727, %1725 ]
   store ptr %.0.i.i.i.i.i730, ptr %8, align 8
   %1728 = load ptr, ptr %21, align 8
-  %1729 = getelementptr inbounds i8, ptr %18, i64 16
+  %1729 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %1730 = load ptr, ptr %1729, align 8
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1728, ptr noundef %1730, ptr noundef nonnull %8)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -9190,7 +9190,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731: ; pr
   br i1 %1733, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1734
 
 1734:                                             ; preds = %1731
-  %1735 = getelementptr inbounds i8, ptr %18, i64 4
+  %1735 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1736 = load i32, ptr %1735, align 4
   %1737 = load ptr, ptr %8, align 8
   %1738 = icmp ult i32 %1736, 128
@@ -9199,7 +9199,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731: ; pr
 
 1740:                                             ; preds = %1734
   store i8 %1739, ptr %1737, align 1
-  %1741 = getelementptr inbounds i8, ptr %1737, i64 1
+  %1741 = getelementptr inbounds nuw i8, ptr %1737, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735
 
 1742:                                             ; preds = %1734
@@ -9211,13 +9211,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731: ; pr
 
 1746:                                             ; preds = %1742
   %1747 = trunc nuw nsw i32 %1744 to i8
-  %1748 = getelementptr inbounds i8, ptr %1737, i64 1
+  %1748 = getelementptr inbounds nuw i8, ptr %1737, i64 1
   store i8 %1747, ptr %1748, align 1
-  %1749 = getelementptr inbounds i8, ptr %1737, i64 2
+  %1749 = getelementptr inbounds nuw i8, ptr %1737, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735
 
 1750:                                             ; preds = %1742
-  %1751 = getelementptr inbounds i8, ptr %1737, i64 1
+  %1751 = getelementptr inbounds nuw i8, ptr %1737, i64 1
   br label %1752
 
 1752:                                             ; preds = %1752, %1750
@@ -9227,13 +9227,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit731: ; pr
   %1754 = or i8 %1753, -128
   store i8 %1754, ptr %.023.i.i.i.i.i732, align 1
   %1755 = lshr i32 %.022.i.i.i.i.i733, 7
-  %1756 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i732, i64 1
+  %1756 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i732, i64 1
   %1757 = icmp samesign ugt i32 %.022.i.i.i.i.i733, 16383
   br i1 %1757, label %1752, label %1758, !llvm.loop !5
 
 1758:                                             ; preds = %1752
   %1759 = trunc nuw nsw i32 %1755 to i8
-  %1760 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i732, i64 2
+  %1760 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i732, i64 2
   store i8 %1759, ptr %1756, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735
 
@@ -9241,7 +9241,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735: ; pr
   %.0.i.i.i.i.i734 = phi ptr [ %1741, %1740 ], [ %1749, %1746 ], [ %1760, %1758 ]
   store ptr %.0.i.i.i.i.i734, ptr %8, align 8
   %1761 = load ptr, ptr %21, align 8
-  %1762 = getelementptr inbounds i8, ptr %18, i64 16
+  %1762 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %1763 = load ptr, ptr %1762, align 8
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1761, ptr noundef %1763, ptr noundef nonnull %8)
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
@@ -9256,7 +9256,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735: ; pr
 
 1769:                                             ; preds = %1764
   store i8 %1768, ptr %1766, align 1
-  %1770 = getelementptr inbounds i8, ptr %1766, i64 1
+  %1770 = getelementptr inbounds nuw i8, ptr %1766, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741
 
 1771:                                             ; preds = %1764
@@ -9268,13 +9268,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735: ; pr
 
 1775:                                             ; preds = %1771
   %1776 = trunc nuw nsw i32 %1773 to i8
-  %1777 = getelementptr inbounds i8, ptr %1766, i64 1
+  %1777 = getelementptr inbounds nuw i8, ptr %1766, i64 1
   store i8 %1776, ptr %1777, align 1
-  %1778 = getelementptr inbounds i8, ptr %1766, i64 2
+  %1778 = getelementptr inbounds nuw i8, ptr %1766, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741
 
 1779:                                             ; preds = %1771
-  %1780 = getelementptr inbounds i8, ptr %1766, i64 1
+  %1780 = getelementptr inbounds nuw i8, ptr %1766, i64 1
   br label %1781
 
 1781:                                             ; preds = %1781, %1779
@@ -9284,13 +9284,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit735: ; pr
   %1783 = or i8 %1782, -128
   store i8 %1783, ptr %.023.i.i.i.i.i738, align 1
   %1784 = lshr i32 %.022.i.i.i.i.i739, 7
-  %1785 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i738, i64 1
+  %1785 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i738, i64 1
   %1786 = icmp samesign ugt i32 %.022.i.i.i.i.i739, 16383
   br i1 %1786, label %1781, label %1787, !llvm.loop !5
 
 1787:                                             ; preds = %1781
   %1788 = trunc nuw nsw i32 %1784 to i8
-  %1789 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i738, i64 2
+  %1789 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i738, i64 2
   store i8 %1788, ptr %1785, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741
 
@@ -9299,9 +9299,9 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
   store ptr %.0.i.i.i.i.i740, ptr %8, align 8
   %1790 = load ptr, ptr %28, align 8
   %.not.i.i736 = icmp eq ptr %1790, null
-  %1791 = getelementptr inbounds i8, ptr %1790, i64 8
+  %1791 = getelementptr inbounds nuw i8, ptr %1790, i64 8
   %spec.select.i.i737 = select i1 %.not.i.i736, ptr null, ptr %1791
-  %1792 = getelementptr inbounds ptr, ptr %spec.select.i.i737, i64 %indvars.iv
+  %1792 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i737, i64 %indvars.iv
   %1793 = load ptr, ptr %1792, align 8
   %1794 = load ptr, ptr %29, align 8
   call void @_ZN6google8protobuf8internal18SerializeMessageToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_(ptr noundef %1793, ptr noundef %1794, ptr noundef nonnull %8)
@@ -9316,12 +9316,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1799:                                             ; preds = %17
-  %1800 = getelementptr inbounds i8, ptr %18, i64 8
+  %1800 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1801 = load i32, ptr %1800, align 8
-  %1802 = getelementptr inbounds i8, ptr %18, i64 4
+  %1802 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1803 = load i32, ptr %1802, align 4
   %1804 = zext i32 %1801 to i64
-  %1805 = getelementptr inbounds i8, ptr %0, i64 %1804
+  %1805 = getelementptr inbounds nuw i8, ptr %0, i64 %1804
   %1806 = load i32, ptr %1805, align 4
   %1807 = lshr i32 %1803, 3
   %1808 = icmp eq i32 %1806, %1807
@@ -9332,11 +9332,11 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1810:                                             ; preds = %17
-  %1811 = getelementptr inbounds i8, ptr %18, i64 8
+  %1811 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1812 = load i32, ptr %1811, align 8
   %1813 = lshr i32 %1812, 5
   %1814 = zext nneg i32 %1813 to i64
-  %1815 = getelementptr inbounds i32, ptr %0, i64 %1814
+  %1815 = getelementptr inbounds nuw i32, ptr %0, i64 %1814
   %1816 = load i32, ptr %1815, align 4
   %1817 = and i32 %1812, 31
   %1818 = shl nuw i32 1, %1817
@@ -9345,7 +9345,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
   br i1 %.not747, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1820
 
 1820:                                             ; preds = %1810
-  %1821 = getelementptr inbounds i8, ptr %18, i64 4
+  %1821 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1822 = load i32, ptr %1821, align 4
   %1823 = load ptr, ptr %8, align 8
   %1824 = icmp ult i32 %1822, 128
@@ -9354,7 +9354,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
 
 1826:                                             ; preds = %1820
   store i8 %1825, ptr %1823, align 1
-  %1827 = getelementptr inbounds i8, ptr %1823, i64 1
+  %1827 = getelementptr inbounds nuw i8, ptr %1823, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit557
 
 1828:                                             ; preds = %1820
@@ -9366,13 +9366,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
 
 1832:                                             ; preds = %1828
   %1833 = trunc nuw nsw i32 %1830 to i8
-  %1834 = getelementptr inbounds i8, ptr %1823, i64 1
+  %1834 = getelementptr inbounds nuw i8, ptr %1823, i64 1
   store i8 %1833, ptr %1834, align 1
-  %1835 = getelementptr inbounds i8, ptr %1823, i64 2
+  %1835 = getelementptr inbounds nuw i8, ptr %1823, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit557
 
 1836:                                             ; preds = %1828
-  %1837 = getelementptr inbounds i8, ptr %1823, i64 1
+  %1837 = getelementptr inbounds nuw i8, ptr %1823, i64 1
   br label %1838
 
 1838:                                             ; preds = %1838, %1836
@@ -9382,13 +9382,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit741: ; pr
   %1840 = or i8 %1839, -128
   store i8 %1840, ptr %.023.i.i.i.i.i.i553, align 1
   %1841 = lshr i32 %.022.i.i.i.i.i.i554, 7
-  %1842 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i553, i64 1
+  %1842 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i553, i64 1
   %1843 = icmp samesign ugt i32 %.022.i.i.i.i.i.i554, 16383
   br i1 %1843, label %1838, label %1844, !llvm.loop !5
 
 1844:                                             ; preds = %1838
   %1845 = trunc nuw nsw i32 %1841 to i8
-  %1846 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i553, i64 2
+  %1846 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i553, i64 2
   store i8 %1845, ptr %1842, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit557
 
@@ -9413,7 +9413,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   br i1 %1858, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1859
 
 1859:                                             ; preds = %1852
-  %1860 = getelementptr inbounds i8, ptr %18, i64 4
+  %1860 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1861 = load i32, ptr %1860, align 4
   %1862 = load ptr, ptr %8, align 8
   %1863 = icmp ult i32 %1861, 128
@@ -9422,7 +9422,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1865:                                             ; preds = %1859
   store i8 %1864, ptr %1862, align 1
-  %1866 = getelementptr inbounds i8, ptr %1862, i64 1
+  %1866 = getelementptr inbounds nuw i8, ptr %1862, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit562
 
 1867:                                             ; preds = %1859
@@ -9434,13 +9434,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1871:                                             ; preds = %1867
   %1872 = trunc nuw nsw i32 %1869 to i8
-  %1873 = getelementptr inbounds i8, ptr %1862, i64 1
+  %1873 = getelementptr inbounds nuw i8, ptr %1862, i64 1
   store i8 %1872, ptr %1873, align 1
-  %1874 = getelementptr inbounds i8, ptr %1862, i64 2
+  %1874 = getelementptr inbounds nuw i8, ptr %1862, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit562
 
 1875:                                             ; preds = %1867
-  %1876 = getelementptr inbounds i8, ptr %1862, i64 1
+  %1876 = getelementptr inbounds nuw i8, ptr %1862, i64 1
   br label %1877
 
 1877:                                             ; preds = %1877, %1875
@@ -9450,13 +9450,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   %1879 = or i8 %1878, -128
   store i8 %1879, ptr %.023.i.i.i.i.i.i558, align 1
   %1880 = lshr i32 %.022.i.i.i.i.i.i559, 7
-  %1881 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i558, i64 1
+  %1881 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i558, i64 1
   %1882 = icmp samesign ugt i32 %.022.i.i.i.i.i.i559, 16383
   br i1 %1882, label %1877, label %1883, !llvm.loop !5
 
 1883:                                             ; preds = %1877
   %1884 = trunc nuw nsw i32 %1880 to i8
-  %1885 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i558, i64 2
+  %1885 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i558, i64 2
   store i8 %1884, ptr %1881, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit562
 
@@ -9472,14 +9472,14 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1891:                                             ; preds = %17
-  %1892 = getelementptr inbounds i8, ptr %21, i64 8
+  %1892 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %1893 = load i32, ptr %1892, align 8
   %1894 = icmp sgt i32 %1893, 0
   br i1 %1894, label %.lr.ph.i563, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i563:                                      ; preds = %1891
-  %1895 = getelementptr inbounds i8, ptr %18, i64 4
-  %1896 = getelementptr inbounds i8, ptr %21, i64 16
+  %1895 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %1896 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %.pre.i564 = load ptr, ptr %8, align 8
   br label %1897
 
@@ -9493,7 +9493,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1902:                                             ; preds = %1897
   store i8 %1901, ptr %1898, align 1
-  %1903 = getelementptr inbounds i8, ptr %1898, i64 1
+  %1903 = getelementptr inbounds nuw i8, ptr %1898, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568
 
 1904:                                             ; preds = %1897
@@ -9505,13 +9505,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
 
 1908:                                             ; preds = %1904
   %1909 = trunc nuw nsw i32 %1906 to i8
-  %1910 = getelementptr inbounds i8, ptr %1898, i64 1
+  %1910 = getelementptr inbounds nuw i8, ptr %1898, i64 1
   store i8 %1909, ptr %1910, align 1
-  %1911 = getelementptr inbounds i8, ptr %1898, i64 2
+  %1911 = getelementptr inbounds nuw i8, ptr %1898, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568
 
 1912:                                             ; preds = %1904
-  %1913 = getelementptr inbounds i8, ptr %1898, i64 1
+  %1913 = getelementptr inbounds nuw i8, ptr %1898, i64 1
   br label %1914
 
 1914:                                             ; preds = %1914, %1912
@@ -9521,13 +9521,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi9EE9SerializeINS1_11ArrayOut
   %1916 = or i8 %1915, -128
   store i8 %1916, ptr %.023.i.i.i.i.i.i566, align 1
   %1917 = lshr i32 %.022.i.i.i.i.i.i567, 7
-  %1918 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i566, i64 1
+  %1918 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i566, i64 1
   %1919 = icmp samesign ugt i32 %.022.i.i.i.i.i.i567, 16383
   br i1 %1919, label %1914, label %1920, !llvm.loop !5
 
 1920:                                             ; preds = %1914
   %1921 = trunc nuw nsw i32 %1917 to i8
-  %1922 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i566, i64 2
+  %1922 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i566, i64 2
   store i8 %1921, ptr %1918, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568
 
@@ -9536,9 +9536,9 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568: ; 
   store ptr %.0.i.i.i.i.i.i569, ptr %8, align 8
   %1923 = load ptr, ptr %1896, align 8
   %.not.i.i.i570 = icmp eq ptr %1923, null
-  %1924 = getelementptr inbounds i8, ptr %1923, i64 8
+  %1924 = getelementptr inbounds nuw i8, ptr %1923, i64 8
   %spec.select.i.i.i571 = select i1 %.not.i.i.i570, ptr null, ptr %1924
-  %1925 = getelementptr inbounds ptr, ptr %spec.select.i.i.i571, i64 %indvars.iv.i565
+  %1925 = getelementptr inbounds nuw ptr, ptr %spec.select.i.i.i571, i64 %indvars.iv.i565
   %1926 = load ptr, ptr %1925, align 8
   %1927 = call noundef ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %1926, ptr noundef nonnull %.0.i.i.i.i.i.i569)
   store ptr %1927, ptr %8, align 8
@@ -9553,12 +9553,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1932:                                             ; preds = %17
-  %1933 = getelementptr inbounds i8, ptr %18, i64 8
+  %1933 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1934 = load i32, ptr %1933, align 8
-  %1935 = getelementptr inbounds i8, ptr %18, i64 4
+  %1935 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1936 = load i32, ptr %1935, align 4
   %1937 = zext i32 %1934 to i64
-  %1938 = getelementptr inbounds i8, ptr %0, i64 %1937
+  %1938 = getelementptr inbounds nuw i8, ptr %0, i64 %1937
   %1939 = load i32, ptr %1938, align 4
   %1940 = lshr i32 %1936, 3
   %1941 = icmp eq i32 %1939, %1940
@@ -9572,7 +9572,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568: ; 
 
 1946:                                             ; preds = %1942
   store i8 %1945, ptr %1943, align 1
-  %1947 = getelementptr inbounds i8, ptr %1943, i64 1
+  %1947 = getelementptr inbounds nuw i8, ptr %1943, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1948:                                             ; preds = %1942
@@ -9584,13 +9584,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568: ; 
 
 1952:                                             ; preds = %1948
   %1953 = trunc nuw nsw i32 %1950 to i8
-  %1954 = getelementptr inbounds i8, ptr %1943, i64 1
+  %1954 = getelementptr inbounds nuw i8, ptr %1943, i64 1
   store i8 %1953, ptr %1954, align 1
-  %1955 = getelementptr inbounds i8, ptr %1943, i64 2
+  %1955 = getelementptr inbounds nuw i8, ptr %1943, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1956:                                             ; preds = %1948
-  %1957 = getelementptr inbounds i8, ptr %1943, i64 1
+  %1957 = getelementptr inbounds nuw i8, ptr %1943, i64 1
   br label %1958
 
 1958:                                             ; preds = %1958, %1956
@@ -9600,13 +9600,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i568: ; 
   %1960 = or i8 %1959, -128
   store i8 %1960, ptr %.023.i.i.i.i.i.i.i574, align 1
   %1961 = lshr i32 %.022.i.i.i.i.i.i.i575, 7
-  %1962 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i574, i64 1
+  %1962 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i574, i64 1
   %1963 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i575, 16383
   br i1 %1963, label %1958, label %1964, !llvm.loop !5
 
 1964:                                             ; preds = %1958
   %1965 = trunc nuw nsw i32 %1961 to i8
-  %1966 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i574, i64 2
+  %1966 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i574, i64 2
   store i8 %1965, ptr %1962, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -9622,11 +9622,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 1972:                                             ; preds = %17
-  %1973 = getelementptr inbounds i8, ptr %18, i64 8
+  %1973 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %1974 = load i32, ptr %1973, align 8
   %1975 = lshr i32 %1974, 5
   %1976 = zext nneg i32 %1975 to i64
-  %1977 = getelementptr inbounds i32, ptr %0, i64 %1976
+  %1977 = getelementptr inbounds nuw i32, ptr %0, i64 %1976
   %1978 = load i32, ptr %1977, align 4
   %1979 = and i32 %1974, 31
   %1980 = shl nuw i32 1, %1979
@@ -9635,7 +9635,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
   br i1 %.not746, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %1982
 
 1982:                                             ; preds = %1972
-  %1983 = getelementptr inbounds i8, ptr %18, i64 4
+  %1983 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %1984 = load i32, ptr %1983, align 4
   %1985 = load ptr, ptr %8, align 8
   %1986 = icmp ult i32 %1984, 128
@@ -9644,7 +9644,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
 
 1988:                                             ; preds = %1982
   store i8 %1987, ptr %1985, align 1
-  %1989 = getelementptr inbounds i8, ptr %1985, i64 1
+  %1989 = getelementptr inbounds nuw i8, ptr %1985, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579
 
 1990:                                             ; preds = %1982
@@ -9656,13 +9656,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
 
 1994:                                             ; preds = %1990
   %1995 = trunc nuw nsw i32 %1992 to i8
-  %1996 = getelementptr inbounds i8, ptr %1985, i64 1
+  %1996 = getelementptr inbounds nuw i8, ptr %1985, i64 1
   store i8 %1995, ptr %1996, align 1
-  %1997 = getelementptr inbounds i8, ptr %1985, i64 2
+  %1997 = getelementptr inbounds nuw i8, ptr %1985, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579
 
 1998:                                             ; preds = %1990
-  %1999 = getelementptr inbounds i8, ptr %1985, i64 1
+  %1999 = getelementptr inbounds nuw i8, ptr %1985, i64 1
   br label %2000
 
 2000:                                             ; preds = %2000, %1998
@@ -9672,13 +9672,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi12EE9SerializeINS1_11ArrayOutpu
   %2002 = or i8 %2001, -128
   store i8 %2002, ptr %.023.i.i.i.i.i.i577, align 1
   %2003 = lshr i32 %.022.i.i.i.i.i.i578, 7
-  %2004 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i577, i64 1
+  %2004 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i577, i64 1
   %2005 = icmp samesign ugt i32 %.022.i.i.i.i.i.i578, 16383
   br i1 %2005, label %2000, label %2006, !llvm.loop !5
 
 2006:                                             ; preds = %2000
   %2007 = trunc nuw nsw i32 %2003 to i8
-  %2008 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i577, i64 2
+  %2008 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i577, i64 2
   store i8 %2007, ptr %2004, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579
 
@@ -9691,7 +9691,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579: ; 
 
 2012:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579
   store i8 %2011, ptr %.0.i.i.i.i.i.i580, align 1
-  %2013 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i580, i64 1
+  %2013 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i580, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2014:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579
@@ -9703,13 +9703,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579: ; 
 
 2018:                                             ; preds = %2014
   %2019 = trunc nuw nsw i32 %2016 to i8
-  %2020 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i580, i64 1
+  %2020 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i580, i64 1
   store i8 %2019, ptr %2020, align 1
-  %2021 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i580, i64 2
+  %2021 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i580, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2022:                                             ; preds = %2014
-  %2023 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i580, i64 1
+  %2023 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i580, i64 1
   br label %2024
 
 2024:                                             ; preds = %2024, %2022
@@ -9719,13 +9719,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i579: ; 
   %2026 = or i8 %2025, -128
   store i8 %2026, ptr %.023.i.i.i.i.i581, align 1
   %2027 = lshr i32 %.022.i.i.i.i.i582, 7
-  %2028 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i581, i64 1
+  %2028 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i581, i64 1
   %2029 = icmp samesign ugt i32 %.022.i.i.i.i.i582, 16383
   br i1 %2029, label %2024, label %2030, !llvm.loop !5
 
 2030:                                             ; preds = %2024
   %2031 = trunc nuw nsw i32 %2027 to i8
-  %2032 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i581, i64 2
+  %2032 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i581, i64 2
   store i8 %2031, ptr %2028, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -9740,7 +9740,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
   br i1 %2035, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2036
 
 2036:                                             ; preds = %2033
-  %2037 = getelementptr inbounds i8, ptr %18, i64 4
+  %2037 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2038 = load i32, ptr %2037, align 4
   %2039 = load ptr, ptr %8, align 8
   %2040 = icmp ult i32 %2038, 128
@@ -9749,7 +9749,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
 
 2042:                                             ; preds = %2036
   store i8 %2041, ptr %2039, align 1
-  %2043 = getelementptr inbounds i8, ptr %2039, i64 1
+  %2043 = getelementptr inbounds nuw i8, ptr %2039, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586
 
 2044:                                             ; preds = %2036
@@ -9761,13 +9761,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
 
 2048:                                             ; preds = %2044
   %2049 = trunc nuw nsw i32 %2046 to i8
-  %2050 = getelementptr inbounds i8, ptr %2039, i64 1
+  %2050 = getelementptr inbounds nuw i8, ptr %2039, i64 1
   store i8 %2049, ptr %2050, align 1
-  %2051 = getelementptr inbounds i8, ptr %2039, i64 2
+  %2051 = getelementptr inbounds nuw i8, ptr %2039, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586
 
 2052:                                             ; preds = %2044
-  %2053 = getelementptr inbounds i8, ptr %2039, i64 1
+  %2053 = getelementptr inbounds nuw i8, ptr %2039, i64 1
   br label %2054
 
 2054:                                             ; preds = %2054, %2052
@@ -9777,13 +9777,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
   %2056 = or i8 %2055, -128
   store i8 %2056, ptr %.023.i.i.i.i.i.i584, align 1
   %2057 = lshr i32 %.022.i.i.i.i.i.i585, 7
-  %2058 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i584, i64 1
+  %2058 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i584, i64 1
   %2059 = icmp samesign ugt i32 %.022.i.i.i.i.i.i585, 16383
   br i1 %2059, label %2054, label %2060, !llvm.loop !5
 
 2060:                                             ; preds = %2054
   %2061 = trunc nuw nsw i32 %2057 to i8
-  %2062 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i584, i64 2
+  %2062 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i584, i64 2
   store i8 %2061, ptr %2058, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586
 
@@ -9796,7 +9796,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586: ; 
 
 2066:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586
   store i8 %2065, ptr %.0.i.i.i.i.i.i587, align 1
-  %2067 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i587, i64 1
+  %2067 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i587, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit591
 
 2068:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586
@@ -9808,13 +9808,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586: ; 
 
 2072:                                             ; preds = %2068
   %2073 = trunc nuw nsw i32 %2070 to i8
-  %2074 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i587, i64 1
+  %2074 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i587, i64 1
   store i8 %2073, ptr %2074, align 1
-  %2075 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i587, i64 2
+  %2075 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i587, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit591
 
 2076:                                             ; preds = %2068
-  %2077 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i587, i64 1
+  %2077 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i587, i64 1
   br label %2078
 
 2078:                                             ; preds = %2078, %2076
@@ -9824,13 +9824,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i586: ; 
   %2080 = or i8 %2079, -128
   store i8 %2080, ptr %.023.i.i.i.i.i588, align 1
   %2081 = lshr i32 %.022.i.i.i.i.i589, 7
-  %2082 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i588, i64 1
+  %2082 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i588, i64 1
   %2083 = icmp samesign ugt i32 %.022.i.i.i.i.i589, 16383
   br i1 %2083, label %2078, label %2084, !llvm.loop !5
 
 2084:                                             ; preds = %2078
   %2085 = trunc nuw nsw i32 %2081 to i8
-  %2086 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i588, i64 2
+  %2086 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i588, i64 2
   store i8 %2085, ptr %2082, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit591
 
@@ -9848,12 +9848,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2089:                                             ; preds = %17
-  %2090 = getelementptr inbounds i8, ptr %18, i64 8
+  %2090 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2091 = load i32, ptr %2090, align 8
-  %2092 = getelementptr inbounds i8, ptr %18, i64 4
+  %2092 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2093 = load i32, ptr %2092, align 4
   %2094 = zext i32 %2091 to i64
-  %2095 = getelementptr inbounds i8, ptr %0, i64 %2094
+  %2095 = getelementptr inbounds nuw i8, ptr %0, i64 %2094
   %2096 = load i32, ptr %2095, align 4
   %2097 = lshr i32 %2093, 3
   %2098 = icmp eq i32 %2096, %2097
@@ -9867,7 +9867,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
 
 2103:                                             ; preds = %2099
   store i8 %2102, ptr %2100, align 1
-  %2104 = getelementptr inbounds i8, ptr %2100, i64 1
+  %2104 = getelementptr inbounds nuw i8, ptr %2100, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594
 
 2105:                                             ; preds = %2099
@@ -9879,13 +9879,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
 
 2109:                                             ; preds = %2105
   %2110 = trunc nuw nsw i32 %2107 to i8
-  %2111 = getelementptr inbounds i8, ptr %2100, i64 1
+  %2111 = getelementptr inbounds nuw i8, ptr %2100, i64 1
   store i8 %2110, ptr %2111, align 1
-  %2112 = getelementptr inbounds i8, ptr %2100, i64 2
+  %2112 = getelementptr inbounds nuw i8, ptr %2100, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594
 
 2113:                                             ; preds = %2105
-  %2114 = getelementptr inbounds i8, ptr %2100, i64 1
+  %2114 = getelementptr inbounds nuw i8, ptr %2100, i64 1
   br label %2115
 
 2115:                                             ; preds = %2115, %2113
@@ -9895,13 +9895,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi13EE9SerializeINS1_11ArrayOu
   %2117 = or i8 %2116, -128
   store i8 %2117, ptr %.023.i.i.i.i.i.i.i592, align 1
   %2118 = lshr i32 %.022.i.i.i.i.i.i.i593, 7
-  %2119 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i592, i64 1
+  %2119 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i592, i64 1
   %2120 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i593, 16383
   br i1 %2120, label %2115, label %2121, !llvm.loop !5
 
 2121:                                             ; preds = %2115
   %2122 = trunc nuw nsw i32 %2118 to i8
-  %2123 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i592, i64 2
+  %2123 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i592, i64 2
   store i8 %2122, ptr %2119, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594
 
@@ -9914,7 +9914,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594: 
 
 2127:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594
   store i8 %2126, ptr %.0.i.i.i.i.i.i.i595, align 1
-  %2128 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
+  %2128 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2129:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594
@@ -9926,13 +9926,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594: 
 
 2133:                                             ; preds = %2129
   %2134 = trunc nuw nsw i32 %2131 to i8
-  %2135 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
+  %2135 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
   store i8 %2134, ptr %2135, align 1
-  %2136 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 2
+  %2136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2137:                                             ; preds = %2129
-  %2138 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
+  %2138 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i595, i64 1
   br label %2139
 
 2139:                                             ; preds = %2139, %2137
@@ -9942,13 +9942,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i594: 
   %2141 = or i8 %2140, -128
   store i8 %2141, ptr %.023.i.i.i.i.i.i596, align 1
   %2142 = lshr i32 %.022.i.i.i.i.i.i597, 7
-  %2143 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i596, i64 1
+  %2143 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i596, i64 1
   %2144 = icmp samesign ugt i32 %.022.i.i.i.i.i.i597, 16383
   br i1 %2144, label %2139, label %2145, !llvm.loop !5
 
 2145:                                             ; preds = %2139
   %2146 = trunc nuw nsw i32 %2142 to i8
-  %2147 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i596, i64 2
+  %2147 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i596, i64 2
   store i8 %2146, ptr %2143, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -9958,11 +9958,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2148:                                             ; preds = %17
-  %2149 = getelementptr inbounds i8, ptr %18, i64 8
+  %2149 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2150 = load i32, ptr %2149, align 8
   %2151 = lshr i32 %2150, 5
   %2152 = zext nneg i32 %2151 to i64
-  %2153 = getelementptr inbounds i32, ptr %0, i64 %2152
+  %2153 = getelementptr inbounds nuw i32, ptr %0, i64 %2152
   %2154 = load i32, ptr %2153, align 4
   %2155 = and i32 %2150, 31
   %2156 = shl nuw i32 1, %2155
@@ -9971,7 +9971,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
   br i1 %.not745, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2158
 
 2158:                                             ; preds = %2148
-  %2159 = getelementptr inbounds i8, ptr %18, i64 4
+  %2159 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2160 = load i32, ptr %2159, align 4
   %2161 = load ptr, ptr %8, align 8
   %2162 = icmp ult i32 %2160, 128
@@ -9980,7 +9980,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
 
 2164:                                             ; preds = %2158
   store i8 %2163, ptr %2161, align 1
-  %2165 = getelementptr inbounds i8, ptr %2161, i64 1
+  %2165 = getelementptr inbounds nuw i8, ptr %2161, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601
 
 2166:                                             ; preds = %2158
@@ -9992,13 +9992,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
 
 2170:                                             ; preds = %2166
   %2171 = trunc nuw nsw i32 %2168 to i8
-  %2172 = getelementptr inbounds i8, ptr %2161, i64 1
+  %2172 = getelementptr inbounds nuw i8, ptr %2161, i64 1
   store i8 %2171, ptr %2172, align 1
-  %2173 = getelementptr inbounds i8, ptr %2161, i64 2
+  %2173 = getelementptr inbounds nuw i8, ptr %2161, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601
 
 2174:                                             ; preds = %2166
-  %2175 = getelementptr inbounds i8, ptr %2161, i64 1
+  %2175 = getelementptr inbounds nuw i8, ptr %2161, i64 1
   br label %2176
 
 2176:                                             ; preds = %2176, %2174
@@ -10008,13 +10008,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi13EE9SerializeINS1_11ArrayOutpu
   %2178 = or i8 %2177, -128
   store i8 %2178, ptr %.023.i.i.i.i.i.i599, align 1
   %2179 = lshr i32 %.022.i.i.i.i.i.i600, 7
-  %2180 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i599, i64 1
+  %2180 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i599, i64 1
   %2181 = icmp samesign ugt i32 %.022.i.i.i.i.i.i600, 16383
   br i1 %2181, label %2176, label %2182, !llvm.loop !5
 
 2182:                                             ; preds = %2176
   %2183 = trunc nuw nsw i32 %2179 to i8
-  %2184 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i599, i64 2
+  %2184 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i599, i64 2
   store i8 %2183, ptr %2180, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601
 
@@ -10027,7 +10027,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601: ; 
 
 2188:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601
   store i8 %2187, ptr %.0.i.i.i.i.i.i602, align 1
-  %2189 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i602, i64 1
+  %2189 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i602, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2190:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601
@@ -10040,13 +10040,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601: ; 
 
 2195:                                             ; preds = %2190
   %2196 = trunc nuw nsw i64 %2193 to i8
-  %2197 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i602, i64 1
+  %2197 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i602, i64 1
   store i8 %2196, ptr %2197, align 1
-  %2198 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i602, i64 2
+  %2198 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i602, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2199:                                             ; preds = %2190
-  %2200 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i602, i64 1
+  %2200 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i602, i64 1
   br label %2201
 
 2201:                                             ; preds = %2201, %2199
@@ -10056,13 +10056,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i601: ; 
   %2203 = or i8 %2202, -128
   store i8 %2203, ptr %.023.i.i.i.i.i4.i603, align 1
   %2204 = lshr i64 %.022.i.i.i.i.i5.i604, 7
-  %2205 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i603, i64 1
+  %2205 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i603, i64 1
   %2206 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i604, 16383
   br i1 %2206, label %2201, label %2207, !llvm.loop !7
 
 2207:                                             ; preds = %2201
   %2208 = trunc nuw nsw i64 %2204 to i8
-  %2209 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i603, i64 2
+  %2209 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i603, i64 2
   store i8 %2208, ptr %2205, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10077,7 +10077,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
   br i1 %2212, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2213
 
 2213:                                             ; preds = %2210
-  %2214 = getelementptr inbounds i8, ptr %18, i64 4
+  %2214 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2215 = load i32, ptr %2214, align 4
   %2216 = load ptr, ptr %8, align 8
   %2217 = icmp ult i32 %2215, 128
@@ -10086,7 +10086,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
 
 2219:                                             ; preds = %2213
   store i8 %2218, ptr %2216, align 1
-  %2220 = getelementptr inbounds i8, ptr %2216, i64 1
+  %2220 = getelementptr inbounds nuw i8, ptr %2216, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608
 
 2221:                                             ; preds = %2213
@@ -10098,13 +10098,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
 
 2225:                                             ; preds = %2221
   %2226 = trunc nuw nsw i32 %2223 to i8
-  %2227 = getelementptr inbounds i8, ptr %2216, i64 1
+  %2227 = getelementptr inbounds nuw i8, ptr %2216, i64 1
   store i8 %2226, ptr %2227, align 1
-  %2228 = getelementptr inbounds i8, ptr %2216, i64 2
+  %2228 = getelementptr inbounds nuw i8, ptr %2216, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608
 
 2229:                                             ; preds = %2221
-  %2230 = getelementptr inbounds i8, ptr %2216, i64 1
+  %2230 = getelementptr inbounds nuw i8, ptr %2216, i64 1
   br label %2231
 
 2231:                                             ; preds = %2231, %2229
@@ -10114,13 +10114,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
   %2233 = or i8 %2232, -128
   store i8 %2233, ptr %.023.i.i.i.i.i.i606, align 1
   %2234 = lshr i32 %.022.i.i.i.i.i.i607, 7
-  %2235 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i606, i64 1
+  %2235 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i606, i64 1
   %2236 = icmp samesign ugt i32 %.022.i.i.i.i.i.i607, 16383
   br i1 %2236, label %2231, label %2237, !llvm.loop !5
 
 2237:                                             ; preds = %2231
   %2238 = trunc nuw nsw i32 %2234 to i8
-  %2239 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i606, i64 2
+  %2239 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i606, i64 2
   store i8 %2238, ptr %2235, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608
 
@@ -10133,7 +10133,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608: ; 
 
 2243:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608
   store i8 %2242, ptr %.0.i.i.i.i.i.i609, align 1
-  %2244 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i609, i64 1
+  %2244 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i609, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit613
 
 2245:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608
@@ -10146,13 +10146,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608: ; 
 
 2250:                                             ; preds = %2245
   %2251 = trunc nuw nsw i64 %2248 to i8
-  %2252 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i609, i64 1
+  %2252 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i609, i64 1
   store i8 %2251, ptr %2252, align 1
-  %2253 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i609, i64 2
+  %2253 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i609, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit613
 
 2254:                                             ; preds = %2245
-  %2255 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i609, i64 1
+  %2255 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i609, i64 1
   br label %2256
 
 2256:                                             ; preds = %2256, %2254
@@ -10162,13 +10162,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i608: ; 
   %2258 = or i8 %2257, -128
   store i8 %2258, ptr %.023.i.i.i.i.i4.i610, align 1
   %2259 = lshr i64 %.022.i.i.i.i.i5.i611, 7
-  %2260 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i610, i64 1
+  %2260 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i610, i64 1
   %2261 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i611, 16383
   br i1 %2261, label %2256, label %2262, !llvm.loop !7
 
 2262:                                             ; preds = %2256
   %2263 = trunc nuw nsw i64 %2259 to i8
-  %2264 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i610, i64 2
+  %2264 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i610, i64 2
   store i8 %2263, ptr %2260, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit613
 
@@ -10186,12 +10186,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2267:                                             ; preds = %17
-  %2268 = getelementptr inbounds i8, ptr %18, i64 8
+  %2268 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2269 = load i32, ptr %2268, align 8
-  %2270 = getelementptr inbounds i8, ptr %18, i64 4
+  %2270 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2271 = load i32, ptr %2270, align 4
   %2272 = zext i32 %2269 to i64
-  %2273 = getelementptr inbounds i8, ptr %0, i64 %2272
+  %2273 = getelementptr inbounds nuw i8, ptr %0, i64 %2272
   %2274 = load i32, ptr %2273, align 4
   %2275 = lshr i32 %2271, 3
   %2276 = icmp eq i32 %2274, %2275
@@ -10205,7 +10205,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
 
 2281:                                             ; preds = %2277
   store i8 %2280, ptr %2278, align 1
-  %2282 = getelementptr inbounds i8, ptr %2278, i64 1
+  %2282 = getelementptr inbounds nuw i8, ptr %2278, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616
 
 2283:                                             ; preds = %2277
@@ -10217,13 +10217,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
 
 2287:                                             ; preds = %2283
   %2288 = trunc nuw nsw i32 %2285 to i8
-  %2289 = getelementptr inbounds i8, ptr %2278, i64 1
+  %2289 = getelementptr inbounds nuw i8, ptr %2278, i64 1
   store i8 %2288, ptr %2289, align 1
-  %2290 = getelementptr inbounds i8, ptr %2278, i64 2
+  %2290 = getelementptr inbounds nuw i8, ptr %2278, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616
 
 2291:                                             ; preds = %2283
-  %2292 = getelementptr inbounds i8, ptr %2278, i64 1
+  %2292 = getelementptr inbounds nuw i8, ptr %2278, i64 1
   br label %2293
 
 2293:                                             ; preds = %2293, %2291
@@ -10233,13 +10233,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi14EE9SerializeINS1_11ArrayOu
   %2295 = or i8 %2294, -128
   store i8 %2295, ptr %.023.i.i.i.i.i.i.i614, align 1
   %2296 = lshr i32 %.022.i.i.i.i.i.i.i615, 7
-  %2297 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i614, i64 1
+  %2297 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i614, i64 1
   %2298 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i615, 16383
   br i1 %2298, label %2293, label %2299, !llvm.loop !5
 
 2299:                                             ; preds = %2293
   %2300 = trunc nuw nsw i32 %2296 to i8
-  %2301 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i614, i64 2
+  %2301 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i614, i64 2
   store i8 %2300, ptr %2297, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616
 
@@ -10252,7 +10252,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616: 
 
 2305:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616
   store i8 %2304, ptr %.0.i.i.i.i.i.i.i617, align 1
-  %2306 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i617, i64 1
+  %2306 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i617, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2307:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616
@@ -10265,13 +10265,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616: 
 
 2312:                                             ; preds = %2307
   %2313 = trunc nuw nsw i64 %2310 to i8
-  %2314 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i617, i64 1
+  %2314 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i617, i64 1
   store i8 %2313, ptr %2314, align 1
-  %2315 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i617, i64 2
+  %2315 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i617, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2316:                                             ; preds = %2307
-  %2317 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i617, i64 1
+  %2317 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i617, i64 1
   br label %2318
 
 2318:                                             ; preds = %2318, %2316
@@ -10281,13 +10281,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i616: 
   %2320 = or i8 %2319, -128
   store i8 %2320, ptr %.023.i.i.i.i.i4.i.i618, align 1
   %2321 = lshr i64 %.022.i.i.i.i.i5.i.i619, 7
-  %2322 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i.i618, i64 1
+  %2322 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i.i618, i64 1
   %2323 = icmp samesign ugt i64 %.022.i.i.i.i.i5.i.i619, 16383
   br i1 %2323, label %2318, label %2324, !llvm.loop !7
 
 2324:                                             ; preds = %2318
   %2325 = trunc nuw nsw i64 %2321 to i8
-  %2326 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i4.i.i618, i64 2
+  %2326 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i4.i.i618, i64 2
   store i8 %2325, ptr %2322, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10297,11 +10297,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2327:                                             ; preds = %17
-  %2328 = getelementptr inbounds i8, ptr %18, i64 8
+  %2328 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2329 = load i32, ptr %2328, align 8
   %2330 = lshr i32 %2329, 5
   %2331 = zext nneg i32 %2330 to i64
-  %2332 = getelementptr inbounds i32, ptr %0, i64 %2331
+  %2332 = getelementptr inbounds nuw i32, ptr %0, i64 %2331
   %2333 = load i32, ptr %2332, align 4
   %2334 = and i32 %2329, 31
   %2335 = shl nuw i32 1, %2334
@@ -10310,7 +10310,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
   br i1 %.not744, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2337
 
 2337:                                             ; preds = %2327
-  %2338 = getelementptr inbounds i8, ptr %18, i64 4
+  %2338 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2339 = load i32, ptr %2338, align 4
   %2340 = load ptr, ptr %8, align 8
   %2341 = icmp ult i32 %2339, 128
@@ -10319,7 +10319,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
 
 2343:                                             ; preds = %2337
   store i8 %2342, ptr %2340, align 1
-  %2344 = getelementptr inbounds i8, ptr %2340, i64 1
+  %2344 = getelementptr inbounds nuw i8, ptr %2340, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2345:                                             ; preds = %2337
@@ -10331,13 +10331,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
 
 2349:                                             ; preds = %2345
   %2350 = trunc nuw nsw i32 %2347 to i8
-  %2351 = getelementptr inbounds i8, ptr %2340, i64 1
+  %2351 = getelementptr inbounds nuw i8, ptr %2340, i64 1
   store i8 %2350, ptr %2351, align 1
-  %2352 = getelementptr inbounds i8, ptr %2340, i64 2
+  %2352 = getelementptr inbounds nuw i8, ptr %2340, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2353:                                             ; preds = %2345
-  %2354 = getelementptr inbounds i8, ptr %2340, i64 1
+  %2354 = getelementptr inbounds nuw i8, ptr %2340, i64 1
   br label %2355
 
 2355:                                             ; preds = %2355, %2353
@@ -10347,13 +10347,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi14EE9SerializeINS1_11ArrayOutpu
   %2357 = or i8 %2356, -128
   store i8 %2357, ptr %.023.i.i.i.i.i.i621, align 1
   %2358 = lshr i32 %.022.i.i.i.i.i.i622, 7
-  %2359 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i621, i64 1
+  %2359 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i621, i64 1
   %2360 = icmp samesign ugt i32 %.022.i.i.i.i.i.i622, 16383
   br i1 %2360, label %2355, label %2361, !llvm.loop !5
 
 2361:                                             ; preds = %2355
   %2362 = trunc nuw nsw i32 %2358 to i8
-  %2363 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i621, i64 2
+  %2363 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i621, i64 2
   store i8 %2362, ptr %2359, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10361,7 +10361,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   %.0.i.i.i.i.i.i624 = phi ptr [ %2344, %2343 ], [ %2352, %2349 ], [ %2363, %2361 ]
   %2364 = load i32, ptr %21, align 4
   store i32 %2364, ptr %.0.i.i.i.i.i.i624, align 1
-  %2365 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i624, i64 4
+  %2365 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i624, i64 4
   store ptr %2365, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10371,7 +10371,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   br i1 %2368, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2369
 
 2369:                                             ; preds = %2366
-  %2370 = getelementptr inbounds i8, ptr %18, i64 4
+  %2370 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2371 = load i32, ptr %2370, align 4
   %2372 = load ptr, ptr %8, align 8
   %2373 = icmp ult i32 %2371, 128
@@ -10380,7 +10380,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
 
 2375:                                             ; preds = %2369
   store i8 %2374, ptr %2372, align 1
-  %2376 = getelementptr inbounds i8, ptr %2372, i64 1
+  %2376 = getelementptr inbounds nuw i8, ptr %2372, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit629
 
 2377:                                             ; preds = %2369
@@ -10392,13 +10392,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
 
 2381:                                             ; preds = %2377
   %2382 = trunc nuw nsw i32 %2379 to i8
-  %2383 = getelementptr inbounds i8, ptr %2372, i64 1
+  %2383 = getelementptr inbounds nuw i8, ptr %2372, i64 1
   store i8 %2382, ptr %2383, align 1
-  %2384 = getelementptr inbounds i8, ptr %2372, i64 2
+  %2384 = getelementptr inbounds nuw i8, ptr %2372, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit629
 
 2385:                                             ; preds = %2377
-  %2386 = getelementptr inbounds i8, ptr %2372, i64 1
+  %2386 = getelementptr inbounds nuw i8, ptr %2372, i64 1
   br label %2387
 
 2387:                                             ; preds = %2387, %2385
@@ -10408,13 +10408,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   %2389 = or i8 %2388, -128
   store i8 %2389, ptr %.023.i.i.i.i.i.i625, align 1
   %2390 = lshr i32 %.022.i.i.i.i.i.i626, 7
-  %2391 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i625, i64 1
+  %2391 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i625, i64 1
   %2392 = icmp samesign ugt i32 %.022.i.i.i.i.i.i626, 16383
   br i1 %2392, label %2387, label %2393, !llvm.loop !5
 
 2393:                                             ; preds = %2387
   %2394 = trunc nuw nsw i32 %2390 to i8
-  %2395 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i625, i64 2
+  %2395 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i625, i64 2
   store i8 %2394, ptr %2391, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit629
 
@@ -10422,7 +10422,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   %.0.i.i.i.i.i.i628 = phi ptr [ %2376, %2375 ], [ %2384, %2381 ], [ %2395, %2393 ]
   %2396 = load i32, ptr %21, align 4
   store i32 %2396, ptr %.0.i.i.i.i.i.i628, align 1
-  %2397 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i628, i64 4
+  %2397 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i628, i64 4
   store ptr %2397, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10432,7 +10432,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   br i1 %2400, label %.lr.ph.i630, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i630:                                      ; preds = %2398
-  %2401 = getelementptr inbounds i8, ptr %18, i64 4
+  %2401 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %2402
 
 2402:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634, %.lr.ph.i630
@@ -10445,7 +10445,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
 
 2407:                                             ; preds = %2402
   store i8 %2406, ptr %2404, align 1
-  %2408 = getelementptr inbounds i8, ptr %2404, i64 1
+  %2408 = getelementptr inbounds nuw i8, ptr %2404, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634
 
 2409:                                             ; preds = %2402
@@ -10457,13 +10457,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
 
 2413:                                             ; preds = %2409
   %2414 = trunc nuw nsw i32 %2411 to i8
-  %2415 = getelementptr inbounds i8, ptr %2404, i64 1
+  %2415 = getelementptr inbounds nuw i8, ptr %2404, i64 1
   store i8 %2414, ptr %2415, align 1
-  %2416 = getelementptr inbounds i8, ptr %2404, i64 2
+  %2416 = getelementptr inbounds nuw i8, ptr %2404, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634
 
 2417:                                             ; preds = %2409
-  %2418 = getelementptr inbounds i8, ptr %2404, i64 1
+  %2418 = getelementptr inbounds nuw i8, ptr %2404, i64 1
   br label %2419
 
 2419:                                             ; preds = %2419, %2417
@@ -10473,13 +10473,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi15EE9SerializeINS1_11ArrayOu
   %2421 = or i8 %2420, -128
   store i8 %2421, ptr %.023.i.i.i.i.i.i632, align 1
   %2422 = lshr i32 %.022.i.i.i.i.i.i633, 7
-  %2423 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i632, i64 1
+  %2423 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i632, i64 1
   %2424 = icmp samesign ugt i32 %.022.i.i.i.i.i.i633, 16383
   br i1 %2424, label %2419, label %2425, !llvm.loop !5
 
 2425:                                             ; preds = %2419
   %2426 = trunc nuw nsw i32 %2422 to i8
-  %2427 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i632, i64 2
+  %2427 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i632, i64 2
   store i8 %2426, ptr %2423, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634
 
@@ -10490,7 +10490,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634: ; 
   %2429 = load ptr, ptr %8, align 8
   %2430 = load i32, ptr %2428, align 4
   store i32 %2430, ptr %2429, align 1
-  %2431 = getelementptr inbounds i8, ptr %2429, i64 4
+  %2431 = getelementptr inbounds nuw i8, ptr %2429, i64 4
   store ptr %2431, ptr %8, align 8
   %2432 = add nuw nsw i32 %.09.i631, 1
   %2433 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -10502,12 +10502,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2436:                                             ; preds = %17
-  %2437 = getelementptr inbounds i8, ptr %18, i64 8
+  %2437 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2438 = load i32, ptr %2437, align 8
-  %2439 = getelementptr inbounds i8, ptr %18, i64 4
+  %2439 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2440 = load i32, ptr %2439, align 4
   %2441 = zext i32 %2438 to i64
-  %2442 = getelementptr inbounds i8, ptr %0, i64 %2441
+  %2442 = getelementptr inbounds nuw i8, ptr %0, i64 %2441
   %2443 = load i32, ptr %2442, align 4
   %2444 = lshr i32 %2440, 3
   %2445 = icmp eq i32 %2443, %2444
@@ -10521,7 +10521,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634: ; 
 
 2450:                                             ; preds = %2446
   store i8 %2449, ptr %2447, align 1
-  %2451 = getelementptr inbounds i8, ptr %2447, i64 1
+  %2451 = getelementptr inbounds nuw i8, ptr %2447, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2452:                                             ; preds = %2446
@@ -10533,13 +10533,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634: ; 
 
 2456:                                             ; preds = %2452
   %2457 = trunc nuw nsw i32 %2454 to i8
-  %2458 = getelementptr inbounds i8, ptr %2447, i64 1
+  %2458 = getelementptr inbounds nuw i8, ptr %2447, i64 1
   store i8 %2457, ptr %2458, align 1
-  %2459 = getelementptr inbounds i8, ptr %2447, i64 2
+  %2459 = getelementptr inbounds nuw i8, ptr %2447, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2460:                                             ; preds = %2452
-  %2461 = getelementptr inbounds i8, ptr %2447, i64 1
+  %2461 = getelementptr inbounds nuw i8, ptr %2447, i64 1
   br label %2462
 
 2462:                                             ; preds = %2462, %2460
@@ -10549,13 +10549,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i634: ; 
   %2464 = or i8 %2463, -128
   store i8 %2464, ptr %.023.i.i.i.i.i.i.i636, align 1
   %2465 = lshr i32 %.022.i.i.i.i.i.i.i637, 7
-  %2466 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i636, i64 1
+  %2466 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i636, i64 1
   %2467 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i637, 16383
   br i1 %2467, label %2462, label %2468, !llvm.loop !5
 
 2468:                                             ; preds = %2462
   %2469 = trunc nuw nsw i32 %2465 to i8
-  %2470 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i636, i64 2
+  %2470 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i636, i64 2
   store i8 %2469, ptr %2466, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10563,16 +10563,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
   %.0.i.i.i.i.i.i.i638 = phi ptr [ %2451, %2450 ], [ %2459, %2456 ], [ %2470, %2468 ]
   %2471 = load i32, ptr %21, align 4
   store i32 %2471, ptr %.0.i.i.i.i.i.i.i638, align 1
-  %2472 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i638, i64 4
+  %2472 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i638, i64 4
   store ptr %2472, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2473:                                             ; preds = %17
-  %2474 = getelementptr inbounds i8, ptr %18, i64 8
+  %2474 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2475 = load i32, ptr %2474, align 8
   %2476 = lshr i32 %2475, 5
   %2477 = zext nneg i32 %2476 to i64
-  %2478 = getelementptr inbounds i32, ptr %0, i64 %2477
+  %2478 = getelementptr inbounds nuw i32, ptr %0, i64 %2477
   %2479 = load i32, ptr %2478, align 4
   %2480 = and i32 %2475, 31
   %2481 = shl nuw i32 1, %2480
@@ -10581,7 +10581,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
   br i1 %.not743, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2483
 
 2483:                                             ; preds = %2473
-  %2484 = getelementptr inbounds i8, ptr %18, i64 4
+  %2484 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2485 = load i32, ptr %2484, align 4
   %2486 = load ptr, ptr %8, align 8
   %2487 = icmp ult i32 %2485, 128
@@ -10590,7 +10590,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
 
 2489:                                             ; preds = %2483
   store i8 %2488, ptr %2486, align 1
-  %2490 = getelementptr inbounds i8, ptr %2486, i64 1
+  %2490 = getelementptr inbounds nuw i8, ptr %2486, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2491:                                             ; preds = %2483
@@ -10602,13 +10602,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
 
 2495:                                             ; preds = %2491
   %2496 = trunc nuw nsw i32 %2493 to i8
-  %2497 = getelementptr inbounds i8, ptr %2486, i64 1
+  %2497 = getelementptr inbounds nuw i8, ptr %2486, i64 1
   store i8 %2496, ptr %2497, align 1
-  %2498 = getelementptr inbounds i8, ptr %2486, i64 2
+  %2498 = getelementptr inbounds nuw i8, ptr %2486, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2499:                                             ; preds = %2491
-  %2500 = getelementptr inbounds i8, ptr %2486, i64 1
+  %2500 = getelementptr inbounds nuw i8, ptr %2486, i64 1
   br label %2501
 
 2501:                                             ; preds = %2501, %2499
@@ -10618,13 +10618,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi15EE9SerializeINS1_11ArrayOutpu
   %2503 = or i8 %2502, -128
   store i8 %2503, ptr %.023.i.i.i.i.i.i639, align 1
   %2504 = lshr i32 %.022.i.i.i.i.i.i640, 7
-  %2505 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i639, i64 1
+  %2505 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i639, i64 1
   %2506 = icmp samesign ugt i32 %.022.i.i.i.i.i.i640, 16383
   br i1 %2506, label %2501, label %2507, !llvm.loop !5
 
 2507:                                             ; preds = %2501
   %2508 = trunc nuw nsw i32 %2504 to i8
-  %2509 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i639, i64 2
+  %2509 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i639, i64 2
   store i8 %2508, ptr %2505, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10632,7 +10632,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   %.0.i.i.i.i.i.i642 = phi ptr [ %2490, %2489 ], [ %2498, %2495 ], [ %2509, %2507 ]
   %2510 = load i64, ptr %21, align 8
   store i64 %2510, ptr %.0.i.i.i.i.i.i642, align 1
-  %2511 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i642, i64 8
+  %2511 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i642, i64 8
   store ptr %2511, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10642,7 +10642,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   br i1 %2514, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2515
 
 2515:                                             ; preds = %2512
-  %2516 = getelementptr inbounds i8, ptr %18, i64 4
+  %2516 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2517 = load i32, ptr %2516, align 4
   %2518 = load ptr, ptr %8, align 8
   %2519 = icmp ult i32 %2517, 128
@@ -10651,7 +10651,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
 
 2521:                                             ; preds = %2515
   store i8 %2520, ptr %2518, align 1
-  %2522 = getelementptr inbounds i8, ptr %2518, i64 1
+  %2522 = getelementptr inbounds nuw i8, ptr %2518, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit647
 
 2523:                                             ; preds = %2515
@@ -10663,13 +10663,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
 
 2527:                                             ; preds = %2523
   %2528 = trunc nuw nsw i32 %2525 to i8
-  %2529 = getelementptr inbounds i8, ptr %2518, i64 1
+  %2529 = getelementptr inbounds nuw i8, ptr %2518, i64 1
   store i8 %2528, ptr %2529, align 1
-  %2530 = getelementptr inbounds i8, ptr %2518, i64 2
+  %2530 = getelementptr inbounds nuw i8, ptr %2518, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit647
 
 2531:                                             ; preds = %2523
-  %2532 = getelementptr inbounds i8, ptr %2518, i64 1
+  %2532 = getelementptr inbounds nuw i8, ptr %2518, i64 1
   br label %2533
 
 2533:                                             ; preds = %2533, %2531
@@ -10679,13 +10679,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   %2535 = or i8 %2534, -128
   store i8 %2535, ptr %.023.i.i.i.i.i.i643, align 1
   %2536 = lshr i32 %.022.i.i.i.i.i.i644, 7
-  %2537 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i643, i64 1
+  %2537 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i643, i64 1
   %2538 = icmp samesign ugt i32 %.022.i.i.i.i.i.i644, 16383
   br i1 %2538, label %2533, label %2539, !llvm.loop !5
 
 2539:                                             ; preds = %2533
   %2540 = trunc nuw nsw i32 %2536 to i8
-  %2541 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i643, i64 2
+  %2541 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i643, i64 2
   store i8 %2540, ptr %2537, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit647
 
@@ -10693,7 +10693,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   %.0.i.i.i.i.i.i646 = phi ptr [ %2522, %2521 ], [ %2530, %2527 ], [ %2541, %2539 ]
   %2542 = load i64, ptr %21, align 8
   store i64 %2542, ptr %.0.i.i.i.i.i.i646, align 1
-  %2543 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i646, i64 8
+  %2543 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i646, i64 8
   store ptr %2543, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10703,7 +10703,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   br i1 %2546, label %.lr.ph.i648, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 .lr.ph.i648:                                      ; preds = %2544
-  %2547 = getelementptr inbounds i8, ptr %18, i64 4
+  %2547 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %2548
 
 2548:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652, %.lr.ph.i648
@@ -10716,7 +10716,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
 
 2553:                                             ; preds = %2548
   store i8 %2552, ptr %2550, align 1
-  %2554 = getelementptr inbounds i8, ptr %2550, i64 1
+  %2554 = getelementptr inbounds nuw i8, ptr %2550, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652
 
 2555:                                             ; preds = %2548
@@ -10728,13 +10728,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
 
 2559:                                             ; preds = %2555
   %2560 = trunc nuw nsw i32 %2557 to i8
-  %2561 = getelementptr inbounds i8, ptr %2550, i64 1
+  %2561 = getelementptr inbounds nuw i8, ptr %2550, i64 1
   store i8 %2560, ptr %2561, align 1
-  %2562 = getelementptr inbounds i8, ptr %2550, i64 2
+  %2562 = getelementptr inbounds nuw i8, ptr %2550, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652
 
 2563:                                             ; preds = %2555
-  %2564 = getelementptr inbounds i8, ptr %2550, i64 1
+  %2564 = getelementptr inbounds nuw i8, ptr %2550, i64 1
   br label %2565
 
 2565:                                             ; preds = %2565, %2563
@@ -10744,13 +10744,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi16EE9SerializeINS1_11ArrayOu
   %2567 = or i8 %2566, -128
   store i8 %2567, ptr %.023.i.i.i.i.i.i650, align 1
   %2568 = lshr i32 %.022.i.i.i.i.i.i651, 7
-  %2569 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i650, i64 1
+  %2569 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i650, i64 1
   %2570 = icmp samesign ugt i32 %.022.i.i.i.i.i.i651, 16383
   br i1 %2570, label %2565, label %2571, !llvm.loop !5
 
 2571:                                             ; preds = %2565
   %2572 = trunc nuw nsw i32 %2568 to i8
-  %2573 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i650, i64 2
+  %2573 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i650, i64 2
   store i8 %2572, ptr %2569, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652
 
@@ -10761,7 +10761,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652: ; 
   %2575 = load ptr, ptr %8, align 8
   %2576 = load i64, ptr %2574, align 8
   store i64 %2576, ptr %2575, align 1
-  %2577 = getelementptr inbounds i8, ptr %2575, i64 8
+  %2577 = getelementptr inbounds nuw i8, ptr %2575, i64 8
   store ptr %2577, ptr %8, align 8
   %2578 = add nuw nsw i32 %.09.i649, 1
   %2579 = call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21)
@@ -10773,12 +10773,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652: ; 
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2582:                                             ; preds = %17
-  %2583 = getelementptr inbounds i8, ptr %18, i64 8
+  %2583 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2584 = load i32, ptr %2583, align 8
-  %2585 = getelementptr inbounds i8, ptr %18, i64 4
+  %2585 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2586 = load i32, ptr %2585, align 4
   %2587 = zext i32 %2584 to i64
-  %2588 = getelementptr inbounds i8, ptr %0, i64 %2587
+  %2588 = getelementptr inbounds nuw i8, ptr %0, i64 %2587
   %2589 = load i32, ptr %2588, align 4
   %2590 = lshr i32 %2586, 3
   %2591 = icmp eq i32 %2589, %2590
@@ -10792,7 +10792,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652: ; 
 
 2596:                                             ; preds = %2592
   store i8 %2595, ptr %2593, align 1
-  %2597 = getelementptr inbounds i8, ptr %2593, i64 1
+  %2597 = getelementptr inbounds nuw i8, ptr %2593, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2598:                                             ; preds = %2592
@@ -10804,13 +10804,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652: ; 
 
 2602:                                             ; preds = %2598
   %2603 = trunc nuw nsw i32 %2600 to i8
-  %2604 = getelementptr inbounds i8, ptr %2593, i64 1
+  %2604 = getelementptr inbounds nuw i8, ptr %2593, i64 1
   store i8 %2603, ptr %2604, align 1
-  %2605 = getelementptr inbounds i8, ptr %2593, i64 2
+  %2605 = getelementptr inbounds nuw i8, ptr %2593, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2606:                                             ; preds = %2598
-  %2607 = getelementptr inbounds i8, ptr %2593, i64 1
+  %2607 = getelementptr inbounds nuw i8, ptr %2593, i64 1
   br label %2608
 
 2608:                                             ; preds = %2608, %2606
@@ -10820,13 +10820,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i652: ; 
   %2610 = or i8 %2609, -128
   store i8 %2610, ptr %.023.i.i.i.i.i.i.i654, align 1
   %2611 = lshr i32 %.022.i.i.i.i.i.i.i655, 7
-  %2612 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i654, i64 1
+  %2612 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i654, i64 1
   %2613 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i655, 16383
   br i1 %2613, label %2608, label %2614, !llvm.loop !5
 
 2614:                                             ; preds = %2608
   %2615 = trunc nuw nsw i32 %2611 to i8
-  %2616 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i654, i64 2
+  %2616 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i654, i64 2
   store i8 %2615, ptr %2612, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10834,16 +10834,16 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
   %.0.i.i.i.i.i.i.i656 = phi ptr [ %2597, %2596 ], [ %2605, %2602 ], [ %2616, %2614 ]
   %2617 = load i64, ptr %21, align 8
   store i64 %2617, ptr %.0.i.i.i.i.i.i.i656, align 1
-  %2618 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i656, i64 8
+  %2618 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i656, i64 8
   store ptr %2618, ptr %8, align 8
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2619:                                             ; preds = %17
-  %2620 = getelementptr inbounds i8, ptr %18, i64 8
+  %2620 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2621 = load i32, ptr %2620, align 8
   %2622 = lshr i32 %2621, 5
   %2623 = zext nneg i32 %2622 to i64
-  %2624 = getelementptr inbounds i32, ptr %0, i64 %2623
+  %2624 = getelementptr inbounds nuw i32, ptr %0, i64 %2623
   %2625 = load i32, ptr %2624, align 4
   %2626 = and i32 %2621, 31
   %2627 = shl nuw i32 1, %2626
@@ -10852,7 +10852,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
   br i1 %.not742, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2629
 
 2629:                                             ; preds = %2619
-  %2630 = getelementptr inbounds i8, ptr %18, i64 4
+  %2630 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2631 = load i32, ptr %2630, align 4
   %2632 = load ptr, ptr %8, align 8
   %2633 = icmp ult i32 %2631, 128
@@ -10861,7 +10861,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
 
 2635:                                             ; preds = %2629
   store i8 %2634, ptr %2632, align 1
-  %2636 = getelementptr inbounds i8, ptr %2632, i64 1
+  %2636 = getelementptr inbounds nuw i8, ptr %2632, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659
 
 2637:                                             ; preds = %2629
@@ -10873,13 +10873,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
 
 2641:                                             ; preds = %2637
   %2642 = trunc nuw nsw i32 %2639 to i8
-  %2643 = getelementptr inbounds i8, ptr %2632, i64 1
+  %2643 = getelementptr inbounds nuw i8, ptr %2632, i64 1
   store i8 %2642, ptr %2643, align 1
-  %2644 = getelementptr inbounds i8, ptr %2632, i64 2
+  %2644 = getelementptr inbounds nuw i8, ptr %2632, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659
 
 2645:                                             ; preds = %2637
-  %2646 = getelementptr inbounds i8, ptr %2632, i64 1
+  %2646 = getelementptr inbounds nuw i8, ptr %2632, i64 1
   br label %2647
 
 2647:                                             ; preds = %2647, %2645
@@ -10889,13 +10889,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi16EE9SerializeINS1_11ArrayOutpu
   %2649 = or i8 %2648, -128
   store i8 %2649, ptr %.023.i.i.i.i.i.i657, align 1
   %2650 = lshr i32 %.022.i.i.i.i.i.i658, 7
-  %2651 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i657, i64 1
+  %2651 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i657, i64 1
   %2652 = icmp samesign ugt i32 %.022.i.i.i.i.i.i658, 16383
   br i1 %2652, label %2647, label %2653, !llvm.loop !5
 
 2653:                                             ; preds = %2647
   %2654 = trunc nuw nsw i32 %2650 to i8
-  %2655 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i657, i64 2
+  %2655 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i657, i64 2
   store i8 %2654, ptr %2651, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659
 
@@ -10911,7 +10911,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659: ; 
 
 2662:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659
   store i8 %2661, ptr %.0.i.i.i.i.i.i660, align 1
-  %2663 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i660, i64 1
+  %2663 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i660, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2664:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659
@@ -10923,13 +10923,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659: ; 
 
 2668:                                             ; preds = %2664
   %2669 = trunc nuw nsw i32 %2666 to i8
-  %2670 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i660, i64 1
+  %2670 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i660, i64 1
   store i8 %2669, ptr %2670, align 1
-  %2671 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i660, i64 2
+  %2671 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i660, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2672:                                             ; preds = %2664
-  %2673 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i660, i64 1
+  %2673 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i660, i64 1
   br label %2674
 
 2674:                                             ; preds = %2674, %2672
@@ -10939,13 +10939,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i659: ; 
   %2676 = or i8 %2675, -128
   store i8 %2676, ptr %.023.i.i.i.i.i661, align 1
   %2677 = lshr i32 %.022.i.i.i.i.i662, 7
-  %2678 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i661, i64 1
+  %2678 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i661, i64 1
   %2679 = icmp samesign ugt i32 %.022.i.i.i.i.i662, 16383
   br i1 %2679, label %2674, label %2680, !llvm.loop !5
 
 2680:                                             ; preds = %2674
   %2681 = trunc nuw nsw i32 %2677 to i8
-  %2682 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i661, i64 2
+  %2682 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i661, i64 2
   store i8 %2681, ptr %2678, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -10960,7 +10960,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
   br i1 %2685, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2686
 
 2686:                                             ; preds = %2683
-  %2687 = getelementptr inbounds i8, ptr %18, i64 4
+  %2687 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2688 = load i32, ptr %2687, align 4
   %2689 = load ptr, ptr %8, align 8
   %2690 = icmp ult i32 %2688, 128
@@ -10969,7 +10969,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
 
 2692:                                             ; preds = %2686
   store i8 %2691, ptr %2689, align 1
-  %2693 = getelementptr inbounds i8, ptr %2689, i64 1
+  %2693 = getelementptr inbounds nuw i8, ptr %2689, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666
 
 2694:                                             ; preds = %2686
@@ -10981,13 +10981,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
 
 2698:                                             ; preds = %2694
   %2699 = trunc nuw nsw i32 %2696 to i8
-  %2700 = getelementptr inbounds i8, ptr %2689, i64 1
+  %2700 = getelementptr inbounds nuw i8, ptr %2689, i64 1
   store i8 %2699, ptr %2700, align 1
-  %2701 = getelementptr inbounds i8, ptr %2689, i64 2
+  %2701 = getelementptr inbounds nuw i8, ptr %2689, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666
 
 2702:                                             ; preds = %2694
-  %2703 = getelementptr inbounds i8, ptr %2689, i64 1
+  %2703 = getelementptr inbounds nuw i8, ptr %2689, i64 1
   br label %2704
 
 2704:                                             ; preds = %2704, %2702
@@ -10997,13 +10997,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
   %2706 = or i8 %2705, -128
   store i8 %2706, ptr %.023.i.i.i.i.i.i664, align 1
   %2707 = lshr i32 %.022.i.i.i.i.i.i665, 7
-  %2708 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i664, i64 1
+  %2708 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i664, i64 1
   %2709 = icmp samesign ugt i32 %.022.i.i.i.i.i.i665, 16383
   br i1 %2709, label %2704, label %2710, !llvm.loop !5
 
 2710:                                             ; preds = %2704
   %2711 = trunc nuw nsw i32 %2707 to i8
-  %2712 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i664, i64 2
+  %2712 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i664, i64 2
   store i8 %2711, ptr %2708, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666
 
@@ -11019,7 +11019,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666: ; 
 
 2719:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666
   store i8 %2718, ptr %.0.i.i.i.i.i.i667, align 1
-  %2720 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i667, i64 1
+  %2720 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i667, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit671
 
 2721:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666
@@ -11031,13 +11031,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666: ; 
 
 2725:                                             ; preds = %2721
   %2726 = trunc nuw nsw i32 %2723 to i8
-  %2727 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i667, i64 1
+  %2727 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i667, i64 1
   store i8 %2726, ptr %2727, align 1
-  %2728 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i667, i64 2
+  %2728 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i667, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit671
 
 2729:                                             ; preds = %2721
-  %2730 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i667, i64 1
+  %2730 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i667, i64 1
   br label %2731
 
 2731:                                             ; preds = %2731, %2729
@@ -11047,13 +11047,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i666: ; 
   %2733 = or i8 %2732, -128
   store i8 %2733, ptr %.023.i.i.i.i.i668, align 1
   %2734 = lshr i32 %.022.i.i.i.i.i669, 7
-  %2735 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i668, i64 1
+  %2735 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i668, i64 1
   %2736 = icmp samesign ugt i32 %.022.i.i.i.i.i669, 16383
   br i1 %2736, label %2731, label %2737, !llvm.loop !5
 
 2737:                                             ; preds = %2731
   %2738 = trunc nuw nsw i32 %2734 to i8
-  %2739 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i668, i64 2
+  %2739 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i668, i64 2
   store i8 %2738, ptr %2735, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit671
 
@@ -11071,12 +11071,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2742:                                             ; preds = %17
-  %2743 = getelementptr inbounds i8, ptr %18, i64 8
+  %2743 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2744 = load i32, ptr %2743, align 8
-  %2745 = getelementptr inbounds i8, ptr %18, i64 4
+  %2745 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2746 = load i32, ptr %2745, align 4
   %2747 = zext i32 %2744 to i64
-  %2748 = getelementptr inbounds i8, ptr %0, i64 %2747
+  %2748 = getelementptr inbounds nuw i8, ptr %0, i64 %2747
   %2749 = load i32, ptr %2748, align 4
   %2750 = lshr i32 %2746, 3
   %2751 = icmp eq i32 %2749, %2750
@@ -11090,7 +11090,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
 
 2756:                                             ; preds = %2752
   store i8 %2755, ptr %2753, align 1
-  %2757 = getelementptr inbounds i8, ptr %2753, i64 1
+  %2757 = getelementptr inbounds nuw i8, ptr %2753, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674
 
 2758:                                             ; preds = %2752
@@ -11102,13 +11102,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
 
 2762:                                             ; preds = %2758
   %2763 = trunc nuw nsw i32 %2760 to i8
-  %2764 = getelementptr inbounds i8, ptr %2753, i64 1
+  %2764 = getelementptr inbounds nuw i8, ptr %2753, i64 1
   store i8 %2763, ptr %2764, align 1
-  %2765 = getelementptr inbounds i8, ptr %2753, i64 2
+  %2765 = getelementptr inbounds nuw i8, ptr %2753, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674
 
 2766:                                             ; preds = %2758
-  %2767 = getelementptr inbounds i8, ptr %2753, i64 1
+  %2767 = getelementptr inbounds nuw i8, ptr %2753, i64 1
   br label %2768
 
 2768:                                             ; preds = %2768, %2766
@@ -11118,13 +11118,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS1_11ArrayOu
   %2770 = or i8 %2769, -128
   store i8 %2770, ptr %.023.i.i.i.i.i.i.i672, align 1
   %2771 = lshr i32 %.022.i.i.i.i.i.i.i673, 7
-  %2772 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i672, i64 1
+  %2772 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i672, i64 1
   %2773 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i673, 16383
   br i1 %2773, label %2768, label %2774, !llvm.loop !5
 
 2774:                                             ; preds = %2768
   %2775 = trunc nuw nsw i32 %2771 to i8
-  %2776 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i672, i64 2
+  %2776 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i672, i64 2
   store i8 %2775, ptr %2772, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674
 
@@ -11140,7 +11140,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674: 
 
 2783:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674
   store i8 %2782, ptr %.0.i.i.i.i.i.i.i675, align 1
-  %2784 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i675, i64 1
+  %2784 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i675, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2785:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674
@@ -11152,13 +11152,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674: 
 
 2789:                                             ; preds = %2785
   %2790 = trunc nuw nsw i32 %2787 to i8
-  %2791 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i675, i64 1
+  %2791 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i675, i64 1
   store i8 %2790, ptr %2791, align 1
-  %2792 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i675, i64 2
+  %2792 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i675, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2793:                                             ; preds = %2785
-  %2794 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i675, i64 1
+  %2794 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i675, i64 1
   br label %2795
 
 2795:                                             ; preds = %2795, %2793
@@ -11168,13 +11168,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i674: 
   %2797 = or i8 %2796, -128
   store i8 %2797, ptr %.023.i.i.i.i.i.i676, align 1
   %2798 = lshr i32 %.022.i.i.i.i.i.i677, 7
-  %2799 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i676, i64 1
+  %2799 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i676, i64 1
   %2800 = icmp samesign ugt i32 %.022.i.i.i.i.i.i677, 16383
   br i1 %2800, label %2795, label %2801, !llvm.loop !5
 
 2801:                                             ; preds = %2795
   %2802 = trunc nuw nsw i32 %2798 to i8
-  %2803 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i676, i64 2
+  %2803 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i676, i64 2
   store i8 %2802, ptr %2799, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -11184,11 +11184,11 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2804:                                             ; preds = %17
-  %2805 = getelementptr inbounds i8, ptr %18, i64 8
+  %2805 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2806 = load i32, ptr %2805, align 8
   %2807 = lshr i32 %2806, 5
   %2808 = zext nneg i32 %2807 to i64
-  %2809 = getelementptr inbounds i32, ptr %0, i64 %2808
+  %2809 = getelementptr inbounds nuw i32, ptr %0, i64 %2808
   %2810 = load i32, ptr %2809, align 4
   %2811 = and i32 %2806, 31
   %2812 = shl nuw i32 1, %2811
@@ -11197,7 +11197,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
   br i1 %.not, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2814
 
 2814:                                             ; preds = %2804
-  %2815 = getelementptr inbounds i8, ptr %18, i64 4
+  %2815 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2816 = load i32, ptr %2815, align 4
   %2817 = load ptr, ptr %8, align 8
   %2818 = icmp ult i32 %2816, 128
@@ -11206,7 +11206,7 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
 
 2820:                                             ; preds = %2814
   store i8 %2819, ptr %2817, align 1
-  %2821 = getelementptr inbounds i8, ptr %2817, i64 1
+  %2821 = getelementptr inbounds nuw i8, ptr %2817, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681
 
 2822:                                             ; preds = %2814
@@ -11218,13 +11218,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
 
 2826:                                             ; preds = %2822
   %2827 = trunc nuw nsw i32 %2824 to i8
-  %2828 = getelementptr inbounds i8, ptr %2817, i64 1
+  %2828 = getelementptr inbounds nuw i8, ptr %2817, i64 1
   store i8 %2827, ptr %2828, align 1
-  %2829 = getelementptr inbounds i8, ptr %2817, i64 2
+  %2829 = getelementptr inbounds nuw i8, ptr %2817, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681
 
 2830:                                             ; preds = %2822
-  %2831 = getelementptr inbounds i8, ptr %2817, i64 1
+  %2831 = getelementptr inbounds nuw i8, ptr %2817, i64 1
   br label %2832
 
 2832:                                             ; preds = %2832, %2830
@@ -11234,13 +11234,13 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi17EE9SerializeINS1_11ArrayOutpu
   %2834 = or i8 %2833, -128
   store i8 %2834, ptr %.023.i.i.i.i.i.i679, align 1
   %2835 = lshr i32 %.022.i.i.i.i.i.i680, 7
-  %2836 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i679, i64 1
+  %2836 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i679, i64 1
   %2837 = icmp samesign ugt i32 %.022.i.i.i.i.i.i680, 16383
   br i1 %2837, label %2832, label %2838, !llvm.loop !5
 
 2838:                                             ; preds = %2832
   %2839 = trunc nuw nsw i32 %2835 to i8
-  %2840 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i679, i64 2
+  %2840 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i679, i64 2
   store i8 %2839, ptr %2836, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681
 
@@ -11256,7 +11256,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681: ; 
 
 2847:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681
   store i8 %2846, ptr %.0.i.i.i.i.i.i682, align 1
-  %2848 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i682, i64 1
+  %2848 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i682, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2849:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681
@@ -11268,13 +11268,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681: ; 
 
 2853:                                             ; preds = %2849
   %2854 = trunc nuw nsw i64 %2851 to i8
-  %2855 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i682, i64 1
+  %2855 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i682, i64 1
   store i8 %2854, ptr %2855, align 1
-  %2856 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i682, i64 2
+  %2856 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i682, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2857:                                             ; preds = %2849
-  %2858 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i682, i64 1
+  %2858 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i682, i64 1
   br label %2859
 
 2859:                                             ; preds = %2859, %2857
@@ -11284,13 +11284,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i681: ; 
   %2861 = or i8 %2860, -128
   store i8 %2861, ptr %.023.i.i.i.i.i683, align 1
   %2862 = lshr i64 %.022.i.i.i.i.i684, 7
-  %2863 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i683, i64 1
+  %2863 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i683, i64 1
   %2864 = icmp samesign ugt i64 %.022.i.i.i.i.i684, 16383
   br i1 %2864, label %2859, label %2865, !llvm.loop !7
 
 2865:                                             ; preds = %2859
   %2866 = trunc nuw nsw i64 %2862 to i8
-  %2867 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i683, i64 2
+  %2867 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i683, i64 2
   store i8 %2866, ptr %2863, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -11305,7 +11305,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
   br i1 %2870, label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit, label %2871
 
 2871:                                             ; preds = %2868
-  %2872 = getelementptr inbounds i8, ptr %18, i64 4
+  %2872 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2873 = load i32, ptr %2872, align 4
   %2874 = load ptr, ptr %8, align 8
   %2875 = icmp ult i32 %2873, 128
@@ -11314,7 +11314,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
 
 2877:                                             ; preds = %2871
   store i8 %2876, ptr %2874, align 1
-  %2878 = getelementptr inbounds i8, ptr %2874, i64 1
+  %2878 = getelementptr inbounds nuw i8, ptr %2874, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688
 
 2879:                                             ; preds = %2871
@@ -11326,13 +11326,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
 
 2883:                                             ; preds = %2879
   %2884 = trunc nuw nsw i32 %2881 to i8
-  %2885 = getelementptr inbounds i8, ptr %2874, i64 1
+  %2885 = getelementptr inbounds nuw i8, ptr %2874, i64 1
   store i8 %2884, ptr %2885, align 1
-  %2886 = getelementptr inbounds i8, ptr %2874, i64 2
+  %2886 = getelementptr inbounds nuw i8, ptr %2874, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688
 
 2887:                                             ; preds = %2879
-  %2888 = getelementptr inbounds i8, ptr %2874, i64 1
+  %2888 = getelementptr inbounds nuw i8, ptr %2874, i64 1
   br label %2889
 
 2889:                                             ; preds = %2889, %2887
@@ -11342,13 +11342,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
   %2891 = or i8 %2890, -128
   store i8 %2891, ptr %.023.i.i.i.i.i.i686, align 1
   %2892 = lshr i32 %.022.i.i.i.i.i.i687, 7
-  %2893 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i686, i64 1
+  %2893 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i686, i64 1
   %2894 = icmp samesign ugt i32 %.022.i.i.i.i.i.i687, 16383
   br i1 %2894, label %2889, label %2895, !llvm.loop !5
 
 2895:                                             ; preds = %2889
   %2896 = trunc nuw nsw i32 %2892 to i8
-  %2897 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i686, i64 2
+  %2897 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i686, i64 2
   store i8 %2896, ptr %2893, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688
 
@@ -11364,7 +11364,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688: ; 
 
 2904:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688
   store i8 %2903, ptr %.0.i.i.i.i.i.i689, align 1
-  %2905 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i689, i64 1
+  %2905 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i689, i64 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit693
 
 2906:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688
@@ -11376,13 +11376,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688: ; 
 
 2910:                                             ; preds = %2906
   %2911 = trunc nuw nsw i64 %2908 to i8
-  %2912 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i689, i64 1
+  %2912 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i689, i64 1
   store i8 %2911, ptr %2912, align 1
-  %2913 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i689, i64 2
+  %2913 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i689, i64 2
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit693
 
 2914:                                             ; preds = %2906
-  %2915 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i689, i64 1
+  %2915 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i689, i64 1
   br label %2916
 
 2916:                                             ; preds = %2916, %2914
@@ -11392,13 +11392,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i688: ; 
   %2918 = or i8 %2917, -128
   store i8 %2918, ptr %.023.i.i.i.i.i690, align 1
   %2919 = lshr i64 %.022.i.i.i.i.i691, 7
-  %2920 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i690, i64 1
+  %2920 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i690, i64 1
   %2921 = icmp samesign ugt i64 %.022.i.i.i.i.i691, 16383
   br i1 %2921, label %2916, label %2922, !llvm.loop !7
 
 2922:                                             ; preds = %2916
   %2923 = trunc nuw nsw i64 %2919 to i8
-  %2924 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i690, i64 2
+  %2924 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i690, i64 2
   store i8 %2923, ptr %2920, align 1
   br label %_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit693
 
@@ -11416,12 +11416,12 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
   br label %_ZN6google8protobuf8internal19RepeatedFieldHelperILi1EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2927:                                             ; preds = %17
-  %2928 = getelementptr inbounds i8, ptr %18, i64 8
+  %2928 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2929 = load i32, ptr %2928, align 8
-  %2930 = getelementptr inbounds i8, ptr %18, i64 4
+  %2930 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2931 = load i32, ptr %2930, align 4
   %2932 = zext i32 %2929 to i64
-  %2933 = getelementptr inbounds i8, ptr %0, i64 %2932
+  %2933 = getelementptr inbounds nuw i8, ptr %0, i64 %2932
   %2934 = load i32, ptr %2933, align 4
   %2935 = lshr i32 %2931, 3
   %2936 = icmp eq i32 %2934, %2935
@@ -11435,7 +11435,7 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
 
 2941:                                             ; preds = %2937
   store i8 %2940, ptr %2938, align 1
-  %2942 = getelementptr inbounds i8, ptr %2938, i64 1
+  %2942 = getelementptr inbounds nuw i8, ptr %2938, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696
 
 2943:                                             ; preds = %2937
@@ -11447,13 +11447,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
 
 2947:                                             ; preds = %2943
   %2948 = trunc nuw nsw i32 %2945 to i8
-  %2949 = getelementptr inbounds i8, ptr %2938, i64 1
+  %2949 = getelementptr inbounds nuw i8, ptr %2938, i64 1
   store i8 %2948, ptr %2949, align 1
-  %2950 = getelementptr inbounds i8, ptr %2938, i64 2
+  %2950 = getelementptr inbounds nuw i8, ptr %2938, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696
 
 2951:                                             ; preds = %2943
-  %2952 = getelementptr inbounds i8, ptr %2938, i64 1
+  %2952 = getelementptr inbounds nuw i8, ptr %2938, i64 1
   br label %2953
 
 2953:                                             ; preds = %2953, %2951
@@ -11463,13 +11463,13 @@ _ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS1_11ArrayOu
   %2955 = or i8 %2954, -128
   store i8 %2955, ptr %.023.i.i.i.i.i.i.i694, align 1
   %2956 = lshr i32 %.022.i.i.i.i.i.i.i695, 7
-  %2957 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i694, i64 1
+  %2957 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i694, i64 1
   %2958 = icmp samesign ugt i32 %.022.i.i.i.i.i.i.i695, 16383
   br i1 %2958, label %2953, label %2959, !llvm.loop !5
 
 2959:                                             ; preds = %2953
   %2960 = trunc nuw nsw i32 %2956 to i8
-  %2961 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i.i694, i64 2
+  %2961 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i.i694, i64 2
   store i8 %2960, ptr %2957, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696
 
@@ -11485,7 +11485,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696: 
 
 2968:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696
   store i8 %2967, ptr %.0.i.i.i.i.i.i.i697, align 1
-  %2969 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i697, i64 1
+  %2969 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i697, i64 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2970:                                             ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696
@@ -11497,13 +11497,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696: 
 
 2974:                                             ; preds = %2970
   %2975 = trunc nuw nsw i64 %2972 to i8
-  %2976 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i697, i64 1
+  %2976 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i697, i64 1
   store i8 %2975, ptr %2976, align 1
-  %2977 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i697, i64 2
+  %2977 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i697, i64 2
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
 2978:                                             ; preds = %2970
-  %2979 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i.i697, i64 1
+  %2979 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i697, i64 1
   br label %2980
 
 2980:                                             ; preds = %2980, %2978
@@ -11513,13 +11513,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit.i.i696: 
   %2982 = or i8 %2981, -128
   store i8 %2982, ptr %.023.i.i.i.i.i.i698, align 1
   %2983 = lshr i64 %.022.i.i.i.i.i.i699, 7
-  %2984 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i698, i64 1
+  %2984 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i698, i64 1
   %2985 = icmp samesign ugt i64 %.022.i.i.i.i.i.i699, 16383
   br i1 %2985, label %2980, label %2986, !llvm.loop !7
 
 2986:                                             ; preds = %2980
   %2987 = trunc nuw nsw i64 %2983 to i8
-  %2988 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i698, i64 2
+  %2988 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i698, i64 2
   store i8 %2987, ptr %2984, align 1
   br label %_ZN6google8protobuf8internal16OneOfFieldHelperILi18EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_.exit
 
@@ -11533,12 +11533,12 @@ _ZN6google8protobuf8internal16OneOfFieldHelperILi18EE9SerializeINS1_11ArrayOutpu
   call void @_ZN6google8protobuf2io17ArrayOutputStreamC1EPvii(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %2990, i32 noundef 2147483647, i32 noundef -1)
   call void @_ZN6google8protobuf2io17CodedOutputStreamC2EPNS1_20ZeroCopyOutputStreamEb(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef nonnull %9, i1 noundef zeroext true)
   store i8 %11, ptr %14, align 2
-  %2991 = getelementptr inbounds i8, ptr %18, i64 16
+  %2991 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %2992 = load ptr, ptr %2991, align 8
   %2993 = load i32, ptr %18, align 8
-  %2994 = getelementptr inbounds i8, ptr %18, i64 4
+  %2994 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %2995 = load i32, ptr %2994, align 4
-  %2996 = getelementptr inbounds i8, ptr %18, i64 8
+  %2996 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %2997 = load i32, ptr %2996, align 8
   invoke void %2992(ptr noundef %0, i32 noundef %2993, i32 noundef %2995, i32 noundef %2997, ptr noundef nonnull %10)
           to label %2998 unwind label %3007
@@ -11698,8 +11698,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi1E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -11722,7 +11722,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -11734,13 +11734,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -11750,13 +11750,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -11777,7 +11777,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   store i64 %38, ptr %.0.i.i.i.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %43, ptr %7, align 8
   %44 = add nuw nsw i32 %.09, 1
   %45 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -11794,9 +11794,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -11814,7 +11814,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -11826,13 +11826,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -11842,20 +11842,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -11873,7 +11873,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -11885,13 +11885,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -11901,13 +11901,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -11934,7 +11934,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
 _ZN6google8protobuf8internal11SerializeToILi1ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   store i64 %67, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %72, ptr %8, align 8
   %73 = add nuw nsw i32 %.021, 1
   %74 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -11952,8 +11952,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi2E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -11976,7 +11976,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -11988,13 +11988,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -12004,13 +12004,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12031,7 +12031,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   store i32 %38, ptr %.0.i.i.i.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   store ptr %43, ptr %7, align 8
   %44 = add nuw nsw i32 %.09, 1
   %45 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -12048,9 +12048,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -12068,7 +12068,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -12080,13 +12080,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -12096,20 +12096,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -12127,7 +12127,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -12139,13 +12139,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -12155,13 +12155,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12188,7 +12188,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
 _ZN6google8protobuf8internal11SerializeToILi2ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   store i32 %67, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   store ptr %72, ptr %8, align 8
   %73 = add nuw nsw i32 %.021, 1
   %74 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -12206,8 +12206,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -12230,7 +12230,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -12242,13 +12242,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -12258,13 +12258,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12290,7 +12290,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %44, ptr %.0.i.i.i.i.i, align 1
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 47:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -12302,13 +12302,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 51:                                               ; preds = %47
   %52 = trunc nuw nsw i64 %49 to i8
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %57
 
 57:                                               ; preds = %57, %55
@@ -12318,13 +12318,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %59 = or i8 %58, -128
   store i8 %59, ptr %.023.i.i.i.i.i, align 1
   %60 = lshr i64 %.022.i.i.i.i.i, 7
-  %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %62 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %62, label %57, label %63, !llvm.loop !7
 
 63:                                               ; preds = %57
   %64 = trunc nuw nsw i64 %60 to i8
-  %65 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %64, ptr %61, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -12346,9 +12346,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -12366,7 +12366,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -12378,13 +12378,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -12394,20 +12394,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -12425,7 +12425,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -12437,13 +12437,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -12453,13 +12453,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12491,7 +12491,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 74:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %73, ptr %.0.i.i.i.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 76:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -12503,13 +12503,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 80:                                               ; preds = %76
   %81 = trunc nuw nsw i64 %78 to i8
-  %82 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %81, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %86
 
 86:                                               ; preds = %86, %84
@@ -12519,13 +12519,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %88 = or i8 %87, -128
   store i8 %88, ptr %.023.i.i.i.i.i, align 1
   %89 = lshr i64 %.022.i.i.i.i.i, 7
-  %90 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %91 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %91, label %86, label %92, !llvm.loop !7
 
 92:                                               ; preds = %86
   %93 = trunc nuw nsw i64 %89 to i8
-  %94 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %93, ptr %90, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -12548,8 +12548,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -12572,7 +12572,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -12584,13 +12584,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -12600,13 +12600,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12632,7 +12632,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %44, ptr %.0.i.i.i.i.i, align 1
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 47:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -12644,13 +12644,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 51:                                               ; preds = %47
   %52 = trunc nuw nsw i64 %49 to i8
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %57
 
 57:                                               ; preds = %57, %55
@@ -12660,13 +12660,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %59 = or i8 %58, -128
   store i8 %59, ptr %.023.i.i.i.i.i, align 1
   %60 = lshr i64 %.022.i.i.i.i.i, 7
-  %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %62 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %62, label %57, label %63, !llvm.loop !7
 
 63:                                               ; preds = %57
   %64 = trunc nuw nsw i64 %60 to i8
-  %65 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %64, ptr %61, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -12688,9 +12688,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -12708,7 +12708,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -12720,13 +12720,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -12736,20 +12736,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -12767,7 +12767,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -12779,13 +12779,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -12795,13 +12795,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12833,7 +12833,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 74:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %73, ptr %.0.i.i.i.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 76:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -12845,13 +12845,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 80:                                               ; preds = %76
   %81 = trunc nuw nsw i64 %78 to i8
-  %82 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %81, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %86
 
 86:                                               ; preds = %86, %84
@@ -12861,13 +12861,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %88 = or i8 %87, -128
   store i8 %88, ptr %.023.i.i.i.i.i, align 1
   %89 = lshr i64 %.022.i.i.i.i.i, 7
-  %90 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %91 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %91, label %86, label %92, !llvm.loop !7
 
 92:                                               ; preds = %86
   %93 = trunc nuw nsw i64 %89 to i8
-  %94 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %93, ptr %90, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -12890,8 +12890,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -12914,7 +12914,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -12926,13 +12926,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -12942,13 +12942,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -12975,7 +12975,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
 
 46:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9
   store i8 %45, ptr %.0.i.i.i.i.i.i10, align 1
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 48:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9
@@ -12987,13 +12987,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
 
 52:                                               ; preds = %48
   %53 = trunc nuw nsw i64 %50 to i8
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 1
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 1
   br label %58
 
 58:                                               ; preds = %58, %56
@@ -13003,13 +13003,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
   %60 = or i8 %59, -128
   store i8 %60, ptr %.023.i.i.i.i.i.i11, align 1
   %61 = lshr i64 %.022.i.i.i.i.i.i12, 7
-  %62 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i11, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i11, i64 1
   %63 = icmp samesign ugt i64 %.022.i.i.i.i.i.i12, 16383
   br i1 %63, label %58, label %64, !llvm.loop !7
 
 64:                                               ; preds = %58
   %65 = trunc nuw nsw i64 %61 to i8
-  %66 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i11, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i11, i64 2
   store i8 %65, ptr %62, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -13031,9 +13031,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -13051,7 +13051,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13063,13 +13063,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -13079,20 +13079,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -13110,7 +13110,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -13122,13 +13122,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -13138,13 +13138,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13177,7 +13177,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
 
 75:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19
   store i8 %74, ptr %.0.i.i.i.i.i.i20, align 1
-  %76 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 77:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19
@@ -13189,13 +13189,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
 
 81:                                               ; preds = %77
   %82 = trunc nuw nsw i64 %79 to i8
-  %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 1
   store i8 %82, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 85:                                               ; preds = %77
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 1
   br label %87
 
 87:                                               ; preds = %87, %85
@@ -13205,13 +13205,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
   %89 = or i8 %88, -128
   store i8 %89, ptr %.023.i.i.i.i.i.i21, align 1
   %90 = lshr i64 %.022.i.i.i.i.i.i22, 7
-  %91 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i21, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i21, i64 1
   %92 = icmp samesign ugt i64 %.022.i.i.i.i.i.i22, 16383
   br i1 %92, label %87, label %93, !llvm.loop !7
 
 93:                                               ; preds = %87
   %94 = trunc nuw nsw i64 %90 to i8
-  %95 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i21, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i21, i64 2
   store i8 %94, ptr %91, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -13234,8 +13234,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi6E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -13258,7 +13258,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13270,13 +13270,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -13286,13 +13286,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13313,7 +13313,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   store i64 %38, ptr %.0.i.i.i.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %43, ptr %7, align 8
   %44 = add nuw nsw i32 %.09, 1
   %45 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13330,9 +13330,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -13350,7 +13350,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13362,13 +13362,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -13378,20 +13378,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -13409,7 +13409,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -13421,13 +13421,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -13437,13 +13437,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13470,7 +13470,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
 _ZN6google8protobuf8internal11SerializeToILi6ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   store i64 %67, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %72, ptr %8, align 8
   %73 = add nuw nsw i32 %.021, 1
   %74 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13488,8 +13488,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi7E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -13512,7 +13512,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13524,13 +13524,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -13540,13 +13540,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13567,7 +13567,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   store i32 %38, ptr %.0.i.i.i.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   store ptr %43, ptr %7, align 8
   %44 = add nuw nsw i32 %.09, 1
   %45 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13584,9 +13584,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -13604,7 +13604,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13616,13 +13616,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -13632,20 +13632,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -13663,7 +13663,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -13675,13 +13675,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -13691,13 +13691,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13724,7 +13724,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
 _ZN6google8protobuf8internal11SerializeToILi7ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   store i32 %67, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   store ptr %72, ptr %8, align 8
   %73 = add nuw nsw i32 %.021, 1
   %74 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13742,8 +13742,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi8E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -13766,7 +13766,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13778,13 +13778,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -13794,13 +13794,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13822,7 +13822,7 @@ _ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvP
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   %43 = and i8 %38, 1
   store i8 %43, ptr %.0.i.i.i.i.i, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store ptr %44, ptr %7, align 8
   %45 = add nuw nsw i32 %.09, 1
   %46 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13839,9 +13839,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -13859,7 +13859,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -13871,13 +13871,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -13887,20 +13887,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -13918,7 +13918,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -13930,13 +13930,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -13946,13 +13946,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -13980,7 +13980,7 @@ _ZN6google8protobuf8internal11SerializeToILi8ENS0_2io17CodedOutputStreamEEEvPKvP
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   %72 = and i8 %67, 1
   store i8 %72, ptr %.0.i.i.i.i.i, align 1
-  %73 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store ptr %73, ptr %8, align 8
   %74 = add nuw nsw i32 %.021, 1
   %75 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -14000,7 +14000,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9
           to label %7 unwind label %19
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEj(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %9)
           to label %11 unwind label %19
@@ -14010,7 +14010,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9
           to label %13 unwind label %19
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEj(ptr noundef nonnull align 8 dereferenceable(56) %12, i32 noundef %15)
           to label %17 unwind label %19
@@ -14032,9 +14032,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
@@ -14052,7 +14052,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 13:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %12, ptr %.0.i.i.i.i.i.i, align 1
-  %14 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -14064,13 +14064,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 19:                                               ; preds = %15
   %20 = trunc nuw nsw i32 %17 to i8
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %20, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %25
 
 25:                                               ; preds = %25, %23
@@ -14080,13 +14080,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %27 = or i8 %26, -128
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
   %32 = trunc nuw nsw i32 %28 to i8
-  %33 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %32, ptr %29, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -14094,25 +14094,25 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.0.i1.i.i.i.i.i = phi ptr [ %14, %13 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %6, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %37, label %42
 
 37:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %.0.i1.i.i.i.i.i, ptr noundef nonnull %2)
   store ptr %41, ptr %6, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 42:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %43 = getelementptr inbounds i8, ptr %36, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %36, align 8
   %46 = add nsw i32 %45, -1
-  %47 = getelementptr inbounds i8, ptr %44, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %47, i32 noundef %46, ptr noundef nonnull %2)
   %.pre = load ptr, ptr %6, align 8
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -14137,7 +14137,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8: ; p
 
 56:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8
   store i8 %55, ptr %.0.i.i.i.i.i.i9, align 1
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i9, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit13
 
 58:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8
@@ -14149,13 +14149,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8: ; p
 
 62:                                               ; preds = %58
   %63 = trunc nuw nsw i32 %60 to i8
-  %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i9, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i9, i64 1
   store i8 %63, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i9, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit13
 
 66:                                               ; preds = %58
-  %67 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i9, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i9, i64 1
   br label %68
 
 68:                                               ; preds = %68, %66
@@ -14165,13 +14165,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i8: ; p
   %70 = or i8 %69, -128
   store i8 %70, ptr %.023.i.i.i.i.i.i10, align 1
   %71 = lshr i32 %.022.i.i.i.i.i.i11, 7
-  %72 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i10, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i10, i64 1
   %73 = icmp samesign ugt i32 %.022.i.i.i.i.i.i11, 16383
   br i1 %73, label %68, label %74, !llvm.loop !5
 
 74:                                               ; preds = %68
   %75 = trunc nuw nsw i32 %71 to i8
-  %76 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i10, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i10, i64 2
   store i8 %75, ptr %72, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit13
 
@@ -14183,9 +14183,9 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
@@ -14203,7 +14203,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 13:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %12, ptr %.0.i.i.i.i.i.i, align 1
-  %14 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -14215,13 +14215,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 19:                                               ; preds = %15
   %20 = trunc nuw nsw i32 %17 to i8
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %20, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %25
 
 25:                                               ; preds = %25, %23
@@ -14231,13 +14231,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %27 = or i8 %26, -128
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
   %32 = trunc nuw nsw i32 %28 to i8
-  %33 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %32, ptr %29, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -14245,14 +14245,14 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %.0.i1.i.i.i.i.i = phi ptr [ %14, %13 ], [ %22, %19 ], [ %33, %31 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %6, align 8
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load ptr, ptr %35, align 8
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %37, label %73
 
 37:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef i32 %40(ptr noundef nonnull align 8 dereferenceable(16) %34)
   %42 = load ptr, ptr %6, align 8
@@ -14272,7 +14272,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12: ; 
 
 48:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12
   store i8 %47, ptr %.0.i.i.i.i.i.i13, align 1
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i13, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i13, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit17
 
 50:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12
@@ -14284,13 +14284,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12: ; 
 
 54:                                               ; preds = %50
   %55 = trunc nuw nsw i32 %52 to i8
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i13, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i13, i64 1
   store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i13, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i13, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit17
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i13, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i13, i64 1
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -14300,13 +14300,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i12: ; 
   %62 = or i8 %61, -128
   store i8 %62, ptr %.023.i.i.i.i.i.i14, align 1
   %63 = lshr i32 %.022.i.i.i.i.i.i15, 7
-  %64 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i14, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i14, i64 1
   %65 = icmp samesign ugt i32 %.022.i.i.i.i.i.i15, 16383
   br i1 %65, label %60, label %66, !llvm.loop !5
 
 66:                                               ; preds = %60
   %67 = trunc nuw nsw i32 %63 to i8
-  %68 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i14, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i14, i64 2
   store i8 %67, ptr %64, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit17
 
@@ -14314,18 +14314,18 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %.0.i1.i.i.i.i.i16 = phi ptr [ %49, %48 ], [ %57, %54 ], [ %68, %66 ]
   store ptr %.0.i1.i.i.i.i.i16, ptr %6, align 8
   %69 = load ptr, ptr %34, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 96
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef ptr %71(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %.0.i1.i.i.i.i.i16, ptr noundef nonnull %2)
   store ptr %72, ptr %6, align 8
   br label %_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 73:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
-  %74 = getelementptr inbounds i8, ptr %36, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %75, align 8
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %34, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %34, i64 %77
   %79 = load i32, ptr %78, align 4
   %80 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i5 = icmp ult ptr %.0.i1.i.i.i.i.i, %80
@@ -14343,7 +14343,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6: ; p
 
 85:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6
   store i8 %84, ptr %.0.i.i.i.i.i.i7, align 1
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i7, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i7, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 87:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6
@@ -14355,13 +14355,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6: ; p
 
 91:                                               ; preds = %87
   %92 = trunc nuw nsw i32 %89 to i8
-  %93 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i7, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i7, i64 1
   store i8 %92, ptr %93, align 1
-  %94 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i7, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i7, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 95:                                               ; preds = %87
-  %96 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i7, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i7, i64 1
   br label %97
 
 97:                                               ; preds = %97, %95
@@ -14371,13 +14371,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i6: ; p
   %99 = or i8 %98, -128
   store i8 %99, ptr %.023.i.i.i.i.i.i8, align 1
   %100 = lshr i32 %.022.i.i.i.i.i.i9, 7
-  %101 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i8, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i8, i64 1
   %102 = icmp samesign ugt i32 %.022.i.i.i.i.i.i9, 16383
   br i1 %102, label %97, label %103, !llvm.loop !5
 
 103:                                              ; preds = %97
   %104 = trunc nuw nsw i32 %100 to i8
-  %105 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i8, i64 2
+  %105 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i8, i64 2
   store i8 %104, ptr %101, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -14386,7 +14386,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   store ptr %.0.i1.i.i.i.i.i10, ptr %6, align 8
   %106 = load i32, ptr %36, align 8
   %107 = add nsw i32 %106, -1
-  %108 = getelementptr inbounds i8, ptr %75, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %75, i64 24
   tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %108, i32 noundef %107, ptr noundef nonnull %2)
   br label %_ZN6google8protobuf8internal18SerializeMessageToINS0_2io17CodedOutputStreamEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
@@ -14401,8 +14401,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -14425,7 +14425,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -14437,13 +14437,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -14453,13 +14453,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -14485,7 +14485,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %44, ptr %.0.i.i.i.i.i, align 1
-  %46 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 47:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -14497,13 +14497,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 51:                                               ; preds = %47
   %52 = trunc nuw nsw i32 %49 to i8
-  %53 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %52, ptr %53, align 1
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %57
 
 57:                                               ; preds = %57, %55
@@ -14513,13 +14513,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %59 = or i8 %58, -128
   store i8 %59, ptr %.023.i.i.i.i.i, align 1
   %60 = lshr i32 %.022.i.i.i.i.i, 7
-  %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %62 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %62, label %57, label %63, !llvm.loop !5
 
 63:                                               ; preds = %57
   %64 = trunc nuw nsw i32 %60 to i8
-  %65 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %64, ptr %61, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -14541,9 +14541,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -14561,7 +14561,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -14573,13 +14573,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -14589,20 +14589,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -14620,7 +14620,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -14632,13 +14632,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -14648,13 +14648,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -14686,7 +14686,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 74:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %73, ptr %.0.i.i.i.i.i, align 1
-  %75 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 76:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -14698,13 +14698,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 80:                                               ; preds = %76
   %81 = trunc nuw nsw i32 %78 to i8
-  %82 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %81, ptr %82, align 1
-  %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %86
 
 86:                                               ; preds = %86, %84
@@ -14714,13 +14714,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %88 = or i8 %87, -128
   store i8 %88, ptr %.023.i.i.i.i.i, align 1
   %89 = lshr i32 %.022.i.i.i.i.i, 7
-  %90 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %91 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %91, label %86, label %92, !llvm.loop !5
 
 92:                                               ; preds = %86
   %93 = trunc nuw nsw i32 %89 to i8
-  %94 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %94 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %93, ptr %90, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -14743,8 +14743,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -14767,7 +14767,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -14779,13 +14779,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -14795,13 +14795,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -14828,7 +14828,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
 
 46:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9
   store i8 %45, ptr %.0.i.i.i.i.i.i10, align 1
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 48:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9
@@ -14840,13 +14840,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
 
 52:                                               ; preds = %48
   %53 = trunc nuw nsw i64 %50 to i8
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 1
   store i8 %53, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 2
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i10, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i10, i64 1
   br label %58
 
 58:                                               ; preds = %58, %56
@@ -14856,13 +14856,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i9: ; p
   %60 = or i8 %59, -128
   store i8 %60, ptr %.023.i.i.i.i.i.i11, align 1
   %61 = lshr i64 %.022.i.i.i.i.i.i12, 7
-  %62 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i11, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i11, i64 1
   %63 = icmp samesign ugt i64 %.022.i.i.i.i.i.i12, 16383
   br i1 %63, label %58, label %64, !llvm.loop !7
 
 64:                                               ; preds = %58
   %65 = trunc nuw nsw i64 %61 to i8
-  %66 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i11, i64 2
+  %66 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i11, i64 2
   store i8 %65, ptr %62, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -14884,9 +14884,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -14904,7 +14904,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -14916,13 +14916,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -14932,20 +14932,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -14963,7 +14963,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -14975,13 +14975,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -14991,13 +14991,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15030,7 +15030,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
 
 75:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19
   store i8 %74, ptr %.0.i.i.i.i.i.i20, align 1
-  %76 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 77:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19
@@ -15042,13 +15042,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
 
 81:                                               ; preds = %77
   %82 = trunc nuw nsw i64 %79 to i8
-  %83 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 1
   store i8 %82, ptr %83, align 1
-  %84 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 85:                                               ; preds = %77
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i20, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i20, i64 1
   br label %87
 
 87:                                               ; preds = %87, %85
@@ -15058,13 +15058,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i19: ; 
   %89 = or i8 %88, -128
   store i8 %89, ptr %.023.i.i.i.i.i.i21, align 1
   %90 = lshr i64 %.022.i.i.i.i.i.i22, 7
-  %91 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i21, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i21, i64 1
   %92 = icmp samesign ugt i64 %.022.i.i.i.i.i.i22, 16383
   br i1 %92, label %87, label %93, !llvm.loop !7
 
 93:                                               ; preds = %87
   %94 = trunc nuw nsw i64 %90 to i8
-  %95 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i21, i64 2
+  %95 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i21, i64 2
   store i8 %94, ptr %91, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -15087,8 +15087,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi15
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -15111,7 +15111,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15123,13 +15123,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -15139,13 +15139,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15166,7 +15166,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   store i32 %38, ptr %.0.i.i.i.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   store ptr %43, ptr %7, align 8
   %44 = add nuw nsw i32 %.09, 1
   %45 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -15183,9 +15183,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -15203,7 +15203,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15215,13 +15215,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -15231,20 +15231,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -15262,7 +15262,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -15274,13 +15274,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -15290,13 +15290,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15323,7 +15323,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
 _ZN6google8protobuf8internal11SerializeToILi15ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   store i32 %67, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 4
   store ptr %72, ptr %8, align 8
   %73 = add nuw nsw i32 %.021, 1
   %74 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -15341,8 +15341,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi16
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -15365,7 +15365,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15377,13 +15377,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -15393,13 +15393,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15420,7 +15420,7 @@ _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 _ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit, %41
   %.0.i.i.i.i.i = phi ptr [ %42, %41 ], [ %39, %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit ]
   store i64 %38, ptr %.0.i.i.i.i.i, align 1
-  %43 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %43, ptr %7, align 8
   %44 = add nuw nsw i32 %.09, 1
   %45 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -15437,9 +15437,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -15457,7 +15457,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15469,13 +15469,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -15485,20 +15485,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -15516,7 +15516,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -15528,13 +15528,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -15544,13 +15544,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15577,7 +15577,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
 _ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit: ; preds = %.lr.ph, %70
   %.0.i.i.i.i.i = phi ptr [ %71, %70 ], [ %68, %.lr.ph ]
   store i64 %67, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
   store ptr %72, ptr %8, align 8
   %73 = add nuw nsw i32 %.021, 1
   %74 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -15590,9 +15590,9 @@ _ZN6google8protobuf8internal11SerializeToILi16ENS0_2io17CodedOutputStreamEEEvPKv
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi17EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
@@ -15610,7 +15610,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 13:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %12, ptr %.0.i.i.i.i.i.i, align 1
-  %14 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15622,13 +15622,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 19:                                               ; preds = %15
   %20 = trunc nuw nsw i32 %17 to i8
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %20, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %25
 
 25:                                               ; preds = %25, %23
@@ -15638,13 +15638,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %27 = or i8 %26, -128
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
   %32 = trunc nuw nsw i32 %28 to i8
-  %33 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %32, ptr %29, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15671,7 +15671,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %42, ptr %.0.i.i.i.i.i, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -15683,13 +15683,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -15699,13 +15699,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i, align 1
   %58 = lshr i32 %.022.i.i.i.i.i, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -15722,8 +15722,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -15746,7 +15746,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15758,13 +15758,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -15774,13 +15774,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -15809,7 +15809,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 48:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %47, ptr %.0.i.i.i.i.i, align 1
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 50:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -15821,13 +15821,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 54:                                               ; preds = %50
   %55 = trunc nuw nsw i32 %52 to i8
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -15837,13 +15837,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %62 = or i8 %61, -128
   store i8 %62, ptr %.023.i.i.i.i.i, align 1
   %63 = lshr i32 %.022.i.i.i.i.i, 7
-  %64 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %65 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %65, label %60, label %66, !llvm.loop !5
 
 66:                                               ; preds = %60
   %67 = trunc nuw nsw i32 %63 to i8
-  %68 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %67, ptr %64, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -15865,9 +15865,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -15885,7 +15885,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -15897,13 +15897,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -15913,20 +15913,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -15944,7 +15944,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -15956,13 +15956,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -15972,13 +15972,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -16013,7 +16013,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 77:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %76, ptr %.0.i.i.i.i.i, align 1
-  %78 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 79:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -16025,13 +16025,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 83:                                               ; preds = %79
   %84 = trunc nuw nsw i32 %81 to i8
-  %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %84, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %89
 
 89:                                               ; preds = %89, %87
@@ -16041,13 +16041,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %91 = or i8 %90, -128
   store i8 %91, ptr %.023.i.i.i.i.i, align 1
   %92 = lshr i32 %.022.i.i.i.i.i, 7
-  %93 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %94 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %94, label %89, label %95, !llvm.loop !5
 
 95:                                               ; preds = %89
   %96 = trunc nuw nsw i32 %92 to i8
-  %97 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %96, ptr %93, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -16065,9 +16065,9 @@ _ZN6google8protobuf8internal11SerializeToILi17ENS0_2io17CodedOutputStreamEEEvPKv
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi18EE9SerializeINS0_2io17CodedOutputStreamEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %7, %8
@@ -16085,7 +16085,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 13:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %12, ptr %.0.i.i.i.i.i.i, align 1
-  %14 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -16097,13 +16097,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 19:                                               ; preds = %15
   %20 = trunc nuw nsw i32 %17 to i8
-  %21 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %20, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %25
 
 25:                                               ; preds = %25, %23
@@ -16113,13 +16113,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %27 = or i8 %26, -128
   store i8 %27, ptr %.023.i.i.i.i.i.i, align 1
   %28 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %30 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %30, label %25, label %31, !llvm.loop !5
 
 31:                                               ; preds = %25
   %32 = trunc nuw nsw i32 %28 to i8
-  %33 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %32, ptr %29, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -16146,7 +16146,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %42, ptr %.0.i.i.i.i.i, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -16158,13 +16158,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i64 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -16174,13 +16174,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i, align 1
   %58 = lshr i64 %.022.i.i.i.i.i, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %60 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %60, label %55, label %61, !llvm.loop !7
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i64 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -16197,8 +16197,8 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
@@ -16221,7 +16221,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -16233,13 +16233,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -16249,13 +16249,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -16284,7 +16284,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 48:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %47, ptr %.0.i.i.i.i.i, align 1
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 50:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -16296,13 +16296,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 54:                                               ; preds = %50
   %55 = trunc nuw nsw i64 %52 to i8
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -16312,13 +16312,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %62 = or i8 %61, -128
   store i8 %62, ptr %.023.i.i.i.i.i, align 1
   %63 = lshr i64 %.022.i.i.i.i.i, 7
-  %64 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %65 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %65, label %60, label %66, !llvm.loop !7
 
 66:                                               ; preds = %60
   %67 = trunc nuw nsw i64 %63 to i8
-  %68 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %67, ptr %64, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -16340,9 +16340,9 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %9, %10
@@ -16360,7 +16360,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 15:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %14, ptr %.0.i.i.i.i.i.i, align 1
-  %16 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 17:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -16372,13 +16372,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 21:                                               ; preds = %17
   %22 = trunc nuw nsw i32 %19 to i8
-  %23 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %22, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %27
 
 27:                                               ; preds = %27, %25
@@ -16388,20 +16388,20 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %29 = or i8 %28, -128
   store i8 %29, ptr %.023.i.i.i.i.i.i, align 1
   %30 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %32 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %32, label %27, label %33, !llvm.loop !5
 
 33:                                               ; preds = %27
   %34 = trunc nuw nsw i32 %30 to i8
-  %35 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %34, ptr %31, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS0_2io17CodedOutputStreamEEEvjPT_.exit: ; preds = %15, %21, %33
   %.0.i1.i.i.i.i.i = phi ptr [ %16, %15 ], [ %24, %21 ], [ %35, %33 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load i32, ptr %36, align 4
   %38 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i12 = icmp ult ptr %.0.i1.i.i.i.i.i, %38
@@ -16419,7 +16419,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 43:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
   store i8 %42, ptr %.0.i.i.i.i.i.i14, align 1
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 45:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13
@@ -16431,13 +16431,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i14, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i14, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -16447,13 +16447,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i13: ; 
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i.i15, align 1
   %58 = lshr i32 %.022.i.i.i.i.i.i16, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i.i16, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i15, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i15, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -16488,7 +16488,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 77:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
   store i8 %76, ptr %.0.i.i.i.i.i, align 1
-  %78 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 79:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i
@@ -16500,13 +16500,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
 
 83:                                               ; preds = %79
   %84 = trunc nuw nsw i64 %81 to i8
-  %85 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %84, ptr %85, align 1
-  %86 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %88 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %89
 
 89:                                               ; preds = %89, %87
@@ -16516,13 +16516,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i: ; pred
   %91 = or i8 %90, -128
   store i8 %91, ptr %.023.i.i.i.i.i, align 1
   %92 = lshr i64 %.022.i.i.i.i.i, 7
-  %93 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %94 = icmp samesign ugt i64 %.022.i.i.i.i.i, 16383
   br i1 %94, label %89, label %95, !llvm.loop !7
 
 95:                                               ; preds = %89
   %96 = trunc nuw nsw i64 %92 to i8
-  %97 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %96, ptr %93, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS0_2io17CodedOutputStreamEEEvPKvPT0_.exit
 
@@ -16544,7 +16544,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -16553,7 +16553,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -16565,13 +16565,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -16581,20 +16581,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi1EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -16602,7 +16602,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -16614,13 +16614,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -16630,13 +16630,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -16653,7 +16653,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %60 = load ptr, ptr %2, align 8
   %61 = load i64, ptr %59, align 8
   store i64 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %62, ptr %2, align 8
   %63 = add nuw nsw i32 %.018, 1
   %64 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIdE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -16670,7 +16670,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -16679,7 +16679,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -16691,13 +16691,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -16707,20 +16707,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi2EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -16728,7 +16728,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -16740,13 +16740,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -16756,13 +16756,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -16779,7 +16779,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %60 = load ptr, ptr %2, align 8
   %61 = load i32, ptr %59, align 4
   store i32 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store ptr %62, ptr %2, align 8
   %63 = add nuw nsw i32 %.018, 1
   %64 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIfE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -16797,7 +16797,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -16810,7 +16810,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -16822,13 +16822,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -16838,13 +16838,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi3E
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -16860,7 +16860,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %37, ptr %34, align 1
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 40:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -16872,13 +16872,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 44:                                               ; preds = %40
   %45 = trunc nuw nsw i64 %42 to i8
-  %46 = getelementptr inbounds i8, ptr %34, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %45, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %34, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %34, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %50
 
 50:                                               ; preds = %50, %48
@@ -16888,13 +16888,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %52 = or i8 %51, -128
   store i8 %52, ptr %.023.i.i.i.i, align 1
   %53 = lshr i64 %.022.i.i.i.i, 7
-  %54 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %55 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %55, label %50, label %56, !llvm.loop !7
 
 56:                                               ; preds = %50
   %57 = trunc nuw nsw i64 %53 to i8
-  %58 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %57, ptr %54, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -16916,7 +16916,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -16925,7 +16925,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -16937,13 +16937,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -16953,20 +16953,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi3EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -16974,7 +16974,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -16986,13 +16986,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -17002,13 +17002,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17030,7 +17030,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 64:                                               ; preds = %.lr.ph
   store i8 %63, ptr %60, align 1
-  %65 = getelementptr inbounds i8, ptr %60, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 66:                                               ; preds = %.lr.ph
@@ -17042,13 +17042,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 70:                                               ; preds = %66
   %71 = trunc nuw nsw i64 %68 to i8
-  %72 = getelementptr inbounds i8, ptr %60, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %71, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %60, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %60, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %76
 
 76:                                               ; preds = %76, %74
@@ -17058,13 +17058,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %78 = or i8 %77, -128
   store i8 %78, ptr %.023.i.i.i.i, align 1
   %79 = lshr i64 %.022.i.i.i.i, 7
-  %80 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %81 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %81, label %76, label %82, !llvm.loop !7
 
 82:                                               ; preds = %76
   %83 = trunc nuw nsw i64 %79 to i8
-  %84 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %83, ptr %80, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi3ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -17087,7 +17087,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -17100,7 +17100,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -17112,13 +17112,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -17128,13 +17128,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi4E
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17150,7 +17150,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %37, ptr %34, align 1
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 40:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17162,13 +17162,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 44:                                               ; preds = %40
   %45 = trunc nuw nsw i64 %42 to i8
-  %46 = getelementptr inbounds i8, ptr %34, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %45, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %34, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %34, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %50
 
 50:                                               ; preds = %50, %48
@@ -17178,13 +17178,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %52 = or i8 %51, -128
   store i8 %52, ptr %.023.i.i.i.i, align 1
   %53 = lshr i64 %.022.i.i.i.i, 7
-  %54 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %55 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %55, label %50, label %56, !llvm.loop !7
 
 56:                                               ; preds = %50
   %57 = trunc nuw nsw i64 %53 to i8
-  %58 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %57, ptr %54, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -17206,7 +17206,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -17215,7 +17215,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -17227,13 +17227,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -17243,20 +17243,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi4EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -17264,7 +17264,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17276,13 +17276,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -17292,13 +17292,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17320,7 +17320,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 64:                                               ; preds = %.lr.ph
   store i8 %63, ptr %60, align 1
-  %65 = getelementptr inbounds i8, ptr %60, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 66:                                               ; preds = %.lr.ph
@@ -17332,13 +17332,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 70:                                               ; preds = %66
   %71 = trunc nuw nsw i64 %68 to i8
-  %72 = getelementptr inbounds i8, ptr %60, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %71, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %60, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %60, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %76
 
 76:                                               ; preds = %76, %74
@@ -17348,13 +17348,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %78 = or i8 %77, -128
   store i8 %78, ptr %.023.i.i.i.i, align 1
   %79 = lshr i64 %.022.i.i.i.i, 7
-  %80 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %81 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %81, label %76, label %82, !llvm.loop !7
 
 82:                                               ; preds = %76
   %83 = trunc nuw nsw i64 %79 to i8
-  %84 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %83, ptr %80, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi4ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -17377,7 +17377,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -17390,7 +17390,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -17402,13 +17402,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -17418,13 +17418,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi5E
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17440,7 +17440,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %37, ptr %34, align 1
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 40:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17453,13 +17453,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 45:                                               ; preds = %40
   %46 = trunc nuw nsw i64 %43 to i8
-  %47 = getelementptr inbounds i8, ptr %34, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %46, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %34, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %34, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %51
 
 51:                                               ; preds = %51, %49
@@ -17469,13 +17469,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %53 = or i8 %52, -128
   store i8 %53, ptr %.023.i.i.i.i.i8, align 1
   %54 = lshr i64 %.022.i.i.i.i.i9, 7
-  %55 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i8, i64 1
   %56 = icmp samesign ugt i64 %.022.i.i.i.i.i9, 16383
   br i1 %56, label %51, label %57, !llvm.loop !7
 
 57:                                               ; preds = %51
   %58 = trunc nuw nsw i64 %54 to i8
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i8, i64 2
   store i8 %58, ptr %55, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -17497,7 +17497,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -17506,7 +17506,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -17518,13 +17518,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -17534,20 +17534,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi5EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -17555,7 +17555,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17567,13 +17567,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -17583,13 +17583,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17611,7 +17611,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 64:                                               ; preds = %.lr.ph
   store i8 %63, ptr %60, align 1
-  %65 = getelementptr inbounds i8, ptr %60, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 66:                                               ; preds = %.lr.ph
@@ -17624,13 +17624,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 71:                                               ; preds = %66
   %72 = trunc nuw nsw i64 %69 to i8
-  %73 = getelementptr inbounds i8, ptr %60, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %72, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %60, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %60, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %77
 
 77:                                               ; preds = %77, %75
@@ -17640,13 +17640,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %79 = or i8 %78, -128
   store i8 %79, ptr %.023.i.i.i.i.i15, align 1
   %80 = lshr i64 %.022.i.i.i.i.i16, 7
-  %81 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i15, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i15, i64 1
   %82 = icmp samesign ugt i64 %.022.i.i.i.i.i16, 16383
   br i1 %82, label %77, label %83, !llvm.loop !7
 
 83:                                               ; preds = %77
   %84 = trunc nuw nsw i64 %80 to i8
-  %85 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i15, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i15, i64 2
   store i8 %84, ptr %81, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi5ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -17668,7 +17668,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -17677,7 +17677,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -17689,13 +17689,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -17705,20 +17705,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi6EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -17726,7 +17726,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17738,13 +17738,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -17754,13 +17754,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17777,7 +17777,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %60 = load ptr, ptr %2, align 8
   %61 = load i64, ptr %59, align 8
   store i64 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %62, ptr %2, align 8
   %63 = add nuw nsw i32 %.018, 1
   %64 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -17794,7 +17794,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -17803,7 +17803,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -17815,13 +17815,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -17831,20 +17831,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi7EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -17852,7 +17852,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17864,13 +17864,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -17880,13 +17880,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -17903,7 +17903,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %60 = load ptr, ptr %2, align 8
   %61 = load i32, ptr %59, align 4
   store i32 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store ptr %62, ptr %2, align 8
   %63 = add nuw nsw i32 %.018, 1
   %64 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -17920,7 +17920,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -17929,7 +17929,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -17941,13 +17941,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -17957,20 +17957,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi8EE9
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -17978,7 +17978,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -17990,13 +17990,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -18006,13 +18006,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18030,7 +18030,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %61 = load i8, ptr %59, align 1
   %62 = and i8 %61, 1
   store i8 %62, ptr %60, align 1
-  %63 = getelementptr inbounds i8, ptr %60, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %63, ptr %2, align 8
   %64 = add nuw nsw i32 %.018, 1
   %65 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIbE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -18050,7 +18050,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9
           to label %7 unwind label %19
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEj(ptr noundef nonnull align 8 dereferenceable(56) %6, i32 noundef %9)
           to label %11 unwind label %19
@@ -18060,7 +18060,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9
           to label %13 unwind label %19
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEj(ptr noundef nonnull align 8 dereferenceable(56) %12, i32 noundef %15)
           to label %17 unwind label %19
@@ -18082,7 +18082,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi9EE9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %2, align 8
   %7 = icmp ult i32 %5, 128
@@ -18091,7 +18091,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10
 
 9:                                                ; preds = %3
   store i8 %8, ptr %6, align 1
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 11:                                               ; preds = %3
@@ -18103,13 +18103,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10
 
 15:                                               ; preds = %11
   %16 = trunc nuw nsw i32 %13 to i8
-  %17 = getelementptr inbounds i8, ptr %6, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %16, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %6, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %6, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %21
 
 21:                                               ; preds = %21, %19
@@ -18119,13 +18119,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi10
   %23 = or i8 %22, -128
   store i8 %23, ptr %.023.i.i.i.i.i, align 1
   %24 = lshr i32 %.022.i.i.i.i.i, 7
-  %25 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %26 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %26, label %21, label %27, !llvm.loop !5
 
 27:                                               ; preds = %21
   %28 = trunc nuw nsw i32 %24 to i8
-  %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %28, ptr %25, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18133,7 +18133,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %.0.i.i.i.i.i = phi ptr [ %10, %9 ], [ %18, %15 ], [ %29, %27 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %34
@@ -18144,12 +18144,12 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   br label %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 34:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load i32, ptr %32, align 8
   %38 = add nsw i32 %37, -1
-  %39 = getelementptr inbounds i8, ptr %36, i64 24
-  %40 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
   %43 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %39, i32 noundef %38, i1 noundef zeroext %42, ptr noundef nonnull %.0.i.i.i.i.i)
@@ -18166,7 +18166,7 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 49:                                               ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
   store i8 %48, ptr %44, align 1
-  %50 = getelementptr inbounds i8, ptr %44, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit10
 
 51:                                               ; preds = %_ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
@@ -18178,13 +18178,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
 
 55:                                               ; preds = %51
   %56 = trunc nuw nsw i32 %53 to i8
-  %57 = getelementptr inbounds i8, ptr %44, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %44, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit10
 
 59:                                               ; preds = %51
-  %60 = getelementptr inbounds i8, ptr %44, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 1
   br label %61
 
 61:                                               ; preds = %61, %59
@@ -18194,13 +18194,13 @@ _ZN6google8protobuf8internal16SerializeGroupToINS1_11ArrayOutputEEEvPKNS0_11Mess
   %63 = or i8 %62, -128
   store i8 %63, ptr %.023.i.i.i.i.i7, align 1
   %64 = lshr i32 %.022.i.i.i.i.i8, 7
-  %65 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i7, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i7, i64 1
   %66 = icmp samesign ugt i32 %.022.i.i.i.i.i8, 16383
   br i1 %66, label %61, label %67, !llvm.loop !5
 
 67:                                               ; preds = %61
   %68 = trunc nuw nsw i32 %64 to i8
-  %69 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i7, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i7, i64 2
   store i8 %68, ptr %65, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit10
 
@@ -18212,7 +18212,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit10: ; pre
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11EE9SerializeINS1_11ArrayOutputEEEvPKvRKNS1_13FieldMetadataEPT_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %2, align 8
   %7 = icmp ult i32 %5, 128
@@ -18221,7 +18221,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11
 
 9:                                                ; preds = %3
   store i8 %8, ptr %6, align 1
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 11:                                               ; preds = %3
@@ -18233,13 +18233,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11
 
 15:                                               ; preds = %11
   %16 = trunc nuw nsw i32 %13 to i8
-  %17 = getelementptr inbounds i8, ptr %6, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store i8 %16, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %6, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %6, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 1
   br label %21
 
 21:                                               ; preds = %21, %19
@@ -18249,13 +18249,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19SingularFieldHelperILi11
   %23 = or i8 %22, -128
   store i8 %23, ptr %.023.i.i.i.i.i, align 1
   %24 = lshr i32 %.022.i.i.i.i.i, 7
-  %25 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %26 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %26, label %21, label %27, !llvm.loop !5
 
 27:                                               ; preds = %21
   %28 = trunc nuw nsw i32 %24 to i8
-  %29 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %28, ptr %25, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18263,14 +18263,14 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %.0.i.i.i.i.i = phi ptr [ %10, %9 ], [ %18, %15 ], [ %29, %27 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not.i = icmp eq ptr %32, null
   br i1 %.not.i, label %33, label %62
 
 33:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   %34 = load ptr, ptr %30, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i32 %36(ptr noundef nonnull align 8 dereferenceable(16) %30)
   %38 = load ptr, ptr %2, align 8
@@ -18280,7 +18280,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 41:                                               ; preds = %33
   store i8 %40, ptr %38, align 1
-  %42 = getelementptr inbounds i8, ptr %38, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11
 
 43:                                               ; preds = %33
@@ -18292,13 +18292,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 47:                                               ; preds = %43
   %48 = trunc nuw nsw i32 %45 to i8
-  %49 = getelementptr inbounds i8, ptr %38, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %38, i64 1
   store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %38, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %38, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %38, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %38, i64 1
   br label %53
 
 53:                                               ; preds = %53, %51
@@ -18308,13 +18308,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %55 = or i8 %54, -128
   store i8 %55, ptr %.023.i.i.i.i.i8, align 1
   %56 = lshr i32 %.022.i.i.i.i.i9, 7
-  %57 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i8, i64 1
   %58 = icmp samesign ugt i32 %.022.i.i.i.i.i9, 16383
   br i1 %58, label %53, label %59, !llvm.loop !5
 
 59:                                               ; preds = %53
   %60 = trunc nuw nsw i32 %56 to i8
-  %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i8, i64 2
   store i8 %60, ptr %57, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11
 
@@ -18325,11 +18325,11 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11: ; 
   br label %_ZN6google8protobuf8internal18SerializeMessageToINS1_11ArrayOutputEEEvPKNS0_11MessageLiteEPKvPT_.exit
 
 62:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
-  %63 = getelementptr inbounds i8, ptr %32, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %30, i64 %66
+  %67 = getelementptr inbounds nuw i8, ptr %30, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = icmp ult i32 %68, 128
   %70 = trunc i32 %68 to i8
@@ -18337,7 +18337,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11: ; 
 
 71:                                               ; preds = %62
   store i8 %70, ptr %.0.i.i.i.i.i, align 1
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 73:                                               ; preds = %62
@@ -18349,13 +18349,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11: ; 
 
 77:                                               ; preds = %73
   %78 = trunc nuw nsw i32 %75 to i8
-  %79 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %78, ptr %79, align 1
-  %80 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 81:                                               ; preds = %73
-  %82 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %83
 
 83:                                               ; preds = %83, %81
@@ -18365,13 +18365,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit11: ; 
   %85 = or i8 %84, -128
   store i8 %85, ptr %.023.i.i.i.i.i5, align 1
   %86 = lshr i32 %.022.i.i.i.i.i6, 7
-  %87 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i5, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i5, i64 1
   %88 = icmp samesign ugt i32 %.022.i.i.i.i.i6, 16383
   br i1 %88, label %83, label %89, !llvm.loop !5
 
 89:                                               ; preds = %83
   %90 = trunc nuw nsw i32 %86 to i8
-  %91 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i5, i64 2
+  %91 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i5, i64 2
   store i8 %90, ptr %87, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18380,8 +18380,8 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   store ptr %.0.i.i.i.i.i7, ptr %2, align 8
   %92 = load i32, ptr %32, align 8
   %93 = add nsw i32 %92, -1
-  %94 = getelementptr inbounds i8, ptr %64, i64 24
-  %95 = getelementptr inbounds i8, ptr %2, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %96 = load i8, ptr %95, align 8
   %97 = trunc i8 %96 to i1
   %98 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull %94, i32 noundef %93, i1 noundef zeroext %97, ptr noundef nonnull %.0.i.i.i.i.i7)
@@ -18399,7 +18399,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -18412,7 +18412,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -18424,13 +18424,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -18440,13 +18440,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi13
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18462,7 +18462,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %37, ptr %34, align 1
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 40:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -18474,13 +18474,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 44:                                               ; preds = %40
   %45 = trunc nuw nsw i32 %42 to i8
-  %46 = getelementptr inbounds i8, ptr %34, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %45, ptr %46, align 1
-  %47 = getelementptr inbounds i8, ptr %34, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %34, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %50
 
 50:                                               ; preds = %50, %48
@@ -18490,13 +18490,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %52 = or i8 %51, -128
   store i8 %52, ptr %.023.i.i.i.i, align 1
   %53 = lshr i32 %.022.i.i.i.i, 7
-  %54 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %55 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %55, label %50, label %56, !llvm.loop !5
 
 56:                                               ; preds = %50
   %57 = trunc nuw nsw i32 %53 to i8
-  %58 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %58 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %57, ptr %54, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -18518,7 +18518,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -18527,7 +18527,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -18539,13 +18539,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -18555,20 +18555,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi13EE
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -18576,7 +18576,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -18588,13 +18588,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -18604,13 +18604,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18632,7 +18632,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 64:                                               ; preds = %.lr.ph
   store i8 %63, ptr %60, align 1
-  %65 = getelementptr inbounds i8, ptr %60, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 66:                                               ; preds = %.lr.ph
@@ -18644,13 +18644,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 70:                                               ; preds = %66
   %71 = trunc nuw nsw i32 %68 to i8
-  %72 = getelementptr inbounds i8, ptr %60, i64 1
+  %72 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %71, ptr %72, align 1
-  %73 = getelementptr inbounds i8, ptr %60, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %60, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %76
 
 76:                                               ; preds = %76, %74
@@ -18660,13 +18660,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %78 = or i8 %77, -128
   store i8 %78, ptr %.023.i.i.i.i, align 1
   %79 = lshr i32 %.022.i.i.i.i, 7
-  %80 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %81 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %81, label %76, label %82, !llvm.loop !5
 
 82:                                               ; preds = %76
   %83 = trunc nuw nsw i32 %79 to i8
-  %84 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %83, ptr %80, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi13ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -18689,7 +18689,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -18702,7 +18702,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -18714,13 +18714,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -18730,13 +18730,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi14
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18752,7 +18752,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %37, ptr %34, align 1
-  %39 = getelementptr inbounds i8, ptr %34, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 40:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -18765,13 +18765,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 45:                                               ; preds = %40
   %46 = trunc nuw nsw i64 %43 to i8
-  %47 = getelementptr inbounds i8, ptr %34, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %46, ptr %47, align 1
-  %48 = getelementptr inbounds i8, ptr %34, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %34, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %51
 
 51:                                               ; preds = %51, %49
@@ -18781,13 +18781,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %53 = or i8 %52, -128
   store i8 %53, ptr %.023.i.i.i.i.i8, align 1
   %54 = lshr i64 %.022.i.i.i.i.i9, 7
-  %55 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i8, i64 1
   %56 = icmp samesign ugt i64 %.022.i.i.i.i.i9, 16383
   br i1 %56, label %51, label %57, !llvm.loop !7
 
 57:                                               ; preds = %51
   %58 = trunc nuw nsw i64 %54 to i8
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i8, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i8, i64 2
   store i8 %58, ptr %55, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -18809,7 +18809,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -18818,7 +18818,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -18830,13 +18830,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -18846,20 +18846,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi14EE
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -18867,7 +18867,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -18879,13 +18879,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -18895,13 +18895,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -18923,7 +18923,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 64:                                               ; preds = %.lr.ph
   store i8 %63, ptr %60, align 1
-  %65 = getelementptr inbounds i8, ptr %60, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 66:                                               ; preds = %.lr.ph
@@ -18936,13 +18936,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 71:                                               ; preds = %66
   %72 = trunc nuw nsw i64 %69 to i8
-  %73 = getelementptr inbounds i8, ptr %60, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %72, ptr %73, align 1
-  %74 = getelementptr inbounds i8, ptr %60, i64 2
+  %74 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %60, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %77
 
 77:                                               ; preds = %77, %75
@@ -18952,13 +18952,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %79 = or i8 %78, -128
   store i8 %79, ptr %.023.i.i.i.i.i15, align 1
   %80 = lshr i64 %.022.i.i.i.i.i16, 7
-  %81 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i15, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i15, i64 1
   %82 = icmp samesign ugt i64 %.022.i.i.i.i.i16, 16383
   br i1 %82, label %77, label %83, !llvm.loop !7
 
 83:                                               ; preds = %77
   %84 = trunc nuw nsw i64 %80 to i8
-  %85 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i15, i64 2
+  %85 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i15, i64 2
   store i8 %84, ptr %81, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi14ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -18980,7 +18980,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -18989,7 +18989,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -19001,13 +19001,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -19017,20 +19017,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi15EE
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -19038,7 +19038,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -19050,13 +19050,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -19066,13 +19066,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -19089,7 +19089,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %60 = load ptr, ptr %2, align 8
   %61 = load i32, ptr %59, align 4
   store i32 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 4
   store ptr %62, ptr %2, align 8
   %63 = add nuw nsw i32 %.018, 1
   %64 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIiE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -19106,7 +19106,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -19115,7 +19115,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -19127,13 +19127,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -19143,20 +19143,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi16EE
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -19164,7 +19164,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -19176,13 +19176,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -19192,13 +19192,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -19215,7 +19215,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %60 = load ptr, ptr %2, align 8
   %61 = load i64, ptr %59, align 8
   store i64 %61, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %62, ptr %2, align 8
   %63 = add nuw nsw i32 %.018, 1
   %64 = tail call noundef i32 @_ZNK6google8protobuf13RepeatedFieldIlE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -19233,7 +19233,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -19246,7 +19246,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -19258,13 +19258,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -19274,13 +19274,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi17
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -19299,7 +19299,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %40, ptr %34, align 1
-  %42 = getelementptr inbounds i8, ptr %34, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 43:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -19311,13 +19311,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 47:                                               ; preds = %43
   %48 = trunc nuw nsw i32 %45 to i8
-  %49 = getelementptr inbounds i8, ptr %34, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %34, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %34, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %53
 
 53:                                               ; preds = %53, %51
@@ -19327,13 +19327,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %55 = or i8 %54, -128
   store i8 %55, ptr %.023.i.i.i.i, align 1
   %56 = lshr i32 %.022.i.i.i.i, 7
-  %57 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %58 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %58, label %53, label %59, !llvm.loop !5
 
 59:                                               ; preds = %53
   %60 = trunc nuw nsw i32 %56 to i8
-  %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %60, ptr %57, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -19355,7 +19355,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -19364,7 +19364,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -19376,13 +19376,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -19392,20 +19392,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi17EE
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -19413,7 +19413,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -19425,13 +19425,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -19441,13 +19441,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -19472,7 +19472,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 67:                                               ; preds = %.lr.ph
   store i8 %66, ptr %60, align 1
-  %68 = getelementptr inbounds i8, ptr %60, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 69:                                               ; preds = %.lr.ph
@@ -19484,13 +19484,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 73:                                               ; preds = %69
   %74 = trunc nuw nsw i32 %71 to i8
-  %75 = getelementptr inbounds i8, ptr %60, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %74, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %60, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %60, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %79
 
 79:                                               ; preds = %79, %77
@@ -19500,13 +19500,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %81 = or i8 %80, -128
   store i8 %81, ptr %.023.i.i.i.i, align 1
   %82 = lshr i32 %.022.i.i.i.i, 7
-  %83 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %84 = icmp samesign ugt i32 %.022.i.i.i.i, 16383
   br i1 %84, label %79, label %85, !llvm.loop !5
 
 85:                                               ; preds = %79
   %86 = trunc nuw nsw i32 %82 to i8
-  %87 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %86, ptr %83, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi17ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -19529,7 +19529,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
@@ -19542,7 +19542,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
 
 12:                                               ; preds = %7
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %7
@@ -19554,13 +19554,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -19570,13 +19570,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal19RepeatedFieldHelperILi18
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -19595,7 +19595,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 41:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %40, ptr %34, align 1
-  %42 = getelementptr inbounds i8, ptr %34, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 43:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -19607,13 +19607,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 47:                                               ; preds = %43
   %48 = trunc nuw nsw i64 %45 to i8
-  %49 = getelementptr inbounds i8, ptr %34, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i8 %48, ptr %49, align 1
-  %50 = getelementptr inbounds i8, ptr %34, i64 2
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %34, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 1
   br label %53
 
 53:                                               ; preds = %53, %51
@@ -19623,13 +19623,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %55 = or i8 %54, -128
   store i8 %55, ptr %.023.i.i.i.i, align 1
   %56 = lshr i64 %.022.i.i.i.i, 7
-  %57 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %58 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %58, label %53, label %59, !llvm.loop !7
 
 59:                                               ; preds = %53
   %60 = trunc nuw nsw i64 %56 to i8
-  %61 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %60, ptr %57, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -19651,7 +19651,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = load ptr, ptr %2, align 8
   %9 = icmp ult i32 %7, 128
@@ -19660,7 +19660,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
 
 11:                                               ; preds = %5
   store i8 %10, ptr %8, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 13:                                               ; preds = %5
@@ -19672,13 +19672,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
 
 17:                                               ; preds = %13
   %18 = trunc nuw nsw i32 %15 to i8
-  %19 = getelementptr inbounds i8, ptr %8, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %18, ptr %19, align 1
-  %20 = getelementptr inbounds i8, ptr %8, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 2
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %8, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %23
 
 23:                                               ; preds = %23, %21
@@ -19688,20 +19688,20 @@ define linkonce_odr void @_ZN6google8protobuf8internal17PackedFieldHelperILi18EE
   %25 = or i8 %24, -128
   store i8 %25, ptr %.023.i.i.i.i.i, align 1
   %26 = lshr i32 %.022.i.i.i.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %28 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %28, label %23, label %29, !llvm.loop !5
 
 29:                                               ; preds = %23
   %30 = trunc nuw nsw i32 %26 to i8
-  %31 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %30, ptr %27, align 1
   br label %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
 
 _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds = %11, %17, %29
   %.0.i.i.i.i.i = phi ptr [ %12, %11 ], [ %20, %17 ], [ %31, %29 ]
   store ptr %.0.i.i.i.i.i, ptr %2, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 128
   %35 = trunc i32 %33 to i8
@@ -19709,7 +19709,7 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 36:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
   store i8 %35, ptr %.0.i.i.i.i.i, align 1
-  %37 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 38:                                               ; preds = %_ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit
@@ -19721,13 +19721,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
 
 42:                                               ; preds = %38
   %43 = trunc nuw nsw i32 %40 to i8
-  %44 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   store i8 %43, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   br label %48
 
 48:                                               ; preds = %48, %46
@@ -19737,13 +19737,13 @@ _ZN6google8protobuf8internal10WriteTagToINS1_11ArrayOutputEEEvjPT_.exit: ; preds
   %50 = or i8 %49, -128
   store i8 %50, ptr %.023.i.i.i.i.i12, align 1
   %51 = lshr i32 %.022.i.i.i.i.i13, 7
-  %52 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 1
   %53 = icmp samesign ugt i32 %.022.i.i.i.i.i13, 16383
   br i1 %53, label %48, label %54, !llvm.loop !5
 
 54:                                               ; preds = %48
   %55 = trunc nuw nsw i32 %51 to i8
-  %56 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i12, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i12, i64 2
   store i8 %55, ptr %52, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -19768,7 +19768,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 67:                                               ; preds = %.lr.ph
   store i8 %66, ptr %60, align 1
-  %68 = getelementptr inbounds i8, ptr %60, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 69:                                               ; preds = %.lr.ph
@@ -19780,13 +19780,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 73:                                               ; preds = %69
   %74 = trunc nuw nsw i64 %71 to i8
-  %75 = getelementptr inbounds i8, ptr %60, i64 1
+  %75 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store i8 %74, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %60, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 2
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %60, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %60, i64 1
   br label %79
 
 79:                                               ; preds = %79, %77
@@ -19796,13 +19796,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %81 = or i8 %80, -128
   store i8 %81, ptr %.023.i.i.i.i, align 1
   %82 = lshr i64 %.022.i.i.i.i, 7
-  %83 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 1
   %84 = icmp samesign ugt i64 %.022.i.i.i.i, 16383
   br i1 %84, label %79, label %85, !llvm.loop !7
 
 85:                                               ; preds = %79
   %86 = trunc nuw nsw i64 %82 to i8
-  %87 = getelementptr inbounds i8, ptr %.023.i.i.i.i, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i, i64 2
   store i8 %86, ptr %83, align 1
   br label %_ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 
@@ -19821,8 +19821,8 @@ _ZN6google8protobuf8internal11SerializeToILi18ENS1_11ArrayOutputEEEvPKvPT0_.exit
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal19ExtensionSerializerEPKhjjjPNS0_2io17CodedOutputStreamE(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %4, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet18_InternalSerializeEiiPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %2, i32 noundef %3, ptr noundef %9, ptr noundef %4)
   store ptr %10, ptr %8, align 8
@@ -19832,7 +19832,7 @@ define void @_ZN6google8protobuf8internal19ExtensionSerializerEPKhjjjPNS0_2io17C
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0_2io17CodedOutputStreamE(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -19842,7 +19842,7 @@ define void @_ZN6google8protobuf8internal26UnknownFieldSerializerLiteEPKhjjjPNS0
 11:                                               ; preds = %5
   %12 = and i64 %9, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit
 
 15:                                               ; preds = %5
@@ -19878,7 +19878,7 @@ _ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev.exit: ; preds = %24, %21, 
   %.0 = phi ptr [ %14, %11 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringE, %15 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringE, %18 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringE, %21 ], [ @_ZN6google8protobuf8internal26fixed_address_empty_stringE, %24 ]
   %27 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.0) #12
   %28 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.0) #12
-  %29 = getelementptr inbounds i8, ptr %4, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %4, align 8
   %32 = ptrtoint ptr %31 to i64
@@ -19912,11 +19912,11 @@ define noundef ptr @_ZN6google8protobuf8internal26DuplicateIfNonNullInternalEPNS
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
   br label %10
@@ -19929,46 +19929,46 @@ define noundef ptr @_ZN6google8protobuf8internal26DuplicateIfNonNullInternalEPNS
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8internal11GenericSwapEPNS0_11MessageLiteES3_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %10 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %14 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %18 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
   invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %1)
           to label %22 unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %24, align 8
   invoke void %25(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit10
 
 _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.exit: ; preds = %22
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
   ret void
@@ -19977,7 +19977,7 @@ _ZNSt10unique_ptrIN6google8protobuf11MessageLiteESt14default_deleteIS2_EED2Ev.ex
   %29 = landingpad { ptr, i32 }
           cleanup
   %30 = load ptr, ptr %6, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %6) #12
   resume { ptr, i32 } %29
@@ -20000,11 +20000,11 @@ define noundef ptr @_ZN6google8protobuf8internal23GetOwnedMessageInternalEPNS0_5
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %0)
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %_ZN6google8protobuf5Arena3OwnINS0_11MessageLiteEEEvPT_.exit
@@ -20126,8 +20126,8 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 
 3:                                                ; preds = %1
   store atomic i32 1, ptr %0 monotonic, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.._crit_edge_crit_edge
@@ -20139,7 +20139,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 .lr.ph:                                           ; preds = %3, %12
   %8 = phi i32 [ %13, %12 ], [ %6, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %3 ]
-  %9 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not45 = icmp eq ptr %10, null
   br i1 %.not45, label %12, label %11
@@ -20159,7 +20159,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 ._crit_edge:                                      ; preds = %12, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre57, %.._crit_edge_crit_edge ], [ %14, %12 ]
   %16 = getelementptr inbounds ptr, ptr %4, i64 %.pre-phi
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph49, label %._crit_edge50
@@ -20167,7 +20167,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
 .lr.ph49:                                         ; preds = %._crit_edge, %25
   %20 = phi i32 [ %26, %25 ], [ %18, %._crit_edge ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %25 ], [ 0, %._crit_edge ]
-  %21 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv53
+  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv53
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
   %.not44 = icmp eq ptr %23, null
@@ -20186,7 +20186,7 @@ define internal fastcc void @_ZN6google8protobuf8internal12_GLOBAL__N_111InitSCC
   br i1 %28, label %.lr.ph49, label %._crit_edge50, !llvm.loop !73
 
 ._crit_edge50:                                    ; preds = %25, %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   tail call void %30()
   store atomic i32 0, ptr %0 release, align 4
@@ -20269,7 +20269,7 @@ declare noundef zeroext i1 @_ZNK6google8protobuf13RepeatedFieldIbE5emptyEv(ptr n
 define linkonce_odr void @_ZN6google8protobuf8internal19PrimitiveTypeHelperILi9EE9SerializeEPKvPNS0_2io17CodedOutputStreamE(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %1, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %.not.i.i = icmp ult ptr %6, %7
@@ -20287,7 +20287,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %8
 
 12:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
   store i8 %11, ptr %.0.i.i, align 1
-  %13 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
 
 14:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i
@@ -20299,13 +20299,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %8
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %.0.i.i, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -20315,13 +20315,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i: ; preds = %8
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i, align 1
   %27 = lshr i32 %.022.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit
 
@@ -20332,7 +20332,7 @@ _ZN6google8protobuf2io17CodedOutputStream13WriteVarint32Ej.exit: ; preds = %12, 
   %34 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
   %35 = trunc i64 %34 to i32
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 57
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 57
   %38 = load i8, ptr %37, align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %42
@@ -20377,10 +20377,10 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS0_2
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %9 = getelementptr inbounds i8, ptr %2, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp ult ptr %10, %11
@@ -20398,7 +20398,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
   store i8 %15, ptr %.0.i.i.i.i.i.i, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i
@@ -20410,13 +20410,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
 
 22:                                               ; preds = %18
   %23 = trunc nuw nsw i32 %20 to i8
-  %24 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 1
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -20426,13 +20426,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i: ; pr
   %30 = or i8 %29, -128
   store i8 %30, ptr %.023.i.i.i.i.i.i, align 1
   %31 = lshr i32 %.022.i.i.i.i.i.i, 7
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 1
   %33 = icmp samesign ugt i32 %.022.i.i.i.i.i.i, 16383
   br i1 %33, label %28, label %34, !llvm.loop !5
 
 34:                                               ; preds = %28
   %35 = trunc nuw nsw i32 %31 to i8
-  %36 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i, i64 2
   store i8 %35, ptr %32, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit
 
@@ -20440,20 +20440,20 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   %.0.i1.i.i.i.i.i = phi ptr [ %17, %16 ], [ %25, %22 ], [ %36, %34 ]
   store ptr %.0.i1.i.i.i.i.i, ptr %9, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.0.i1.i.i.i.i.i, ptr noundef nonnull %2)
   store ptr %40, ptr %9, align 8
   br label %79
 
 41:                                               ; preds = %3
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 8
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 %45
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %2, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i17 = icmp ult ptr %49, %50
@@ -20471,7 +20471,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18: ; 
 
 55:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18
   store i8 %54, ptr %.0.i.i.i.i.i.i19, align 1
-  %56 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i19, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i19, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit23
 
 57:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18
@@ -20483,13 +20483,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18: ; 
 
 61:                                               ; preds = %57
   %62 = trunc nuw nsw i32 %59 to i8
-  %63 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i19, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i19, i64 1
   store i8 %62, ptr %63, align 1
-  %64 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i19, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i19, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit23
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds i8, ptr %.0.i.i.i.i.i.i19, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i19, i64 1
   br label %67
 
 67:                                               ; preds = %67, %65
@@ -20499,13 +20499,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit.i.i.i.i.i18: ; 
   %69 = or i8 %68, -128
   store i8 %69, ptr %.023.i.i.i.i.i.i20, align 1
   %70 = lshr i32 %.022.i.i.i.i.i.i21, 7
-  %71 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i20, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i20, i64 1
   %72 = icmp samesign ugt i32 %.022.i.i.i.i.i.i21, 16383
   br i1 %72, label %67, label %73, !llvm.loop !5
 
 73:                                               ; preds = %67
   %74 = trunc nuw nsw i32 %70 to i8
-  %75 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i.i20, i64 2
+  %75 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i.i20, i64 2
   store i8 %74, ptr %71, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.exit23
 
@@ -20514,7 +20514,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS0_2io17CodedOutputStreamEEEvjPT_.e
   store ptr %.0.i1.i.i.i.i.i22, ptr %48, align 8
   %76 = load i32, ptr %1, align 8
   %77 = add nsw i32 %76, -1
-  %78 = getelementptr inbounds i8, ptr %43, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %43, i64 24
   tail call void @_ZN6google8protobuf8internal17SerializeInternalEPKhPKNS1_13FieldMetadataEiPNS0_2io17CodedOutputStreamE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %78, i32 noundef %77, ptr noundef nonnull %2)
   br label %79
 
@@ -20531,7 +20531,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS1_1
 
 4:                                                ; preds = %3
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %9 = load ptr, ptr %2, align 8
@@ -20541,7 +20541,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS1_1
 
 12:                                               ; preds = %4
   store i8 %11, ptr %9, align 1
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 14:                                               ; preds = %4
@@ -20553,13 +20553,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS1_1
 
 18:                                               ; preds = %14
   %19 = trunc nuw nsw i32 %16 to i8
-  %20 = getelementptr inbounds i8, ptr %9, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 1
   store i8 %19, ptr %20, align 1
-  %21 = getelementptr inbounds i8, ptr %9, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %9, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %24
 
 24:                                               ; preds = %24, %22
@@ -20569,13 +20569,13 @@ define linkonce_odr void @_ZN6google8protobuf8internal18SerializeMessageToINS1_1
   %26 = or i8 %25, -128
   store i8 %26, ptr %.023.i.i.i.i.i, align 1
   %27 = lshr i32 %.022.i.i.i.i.i, 7
-  %28 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 1
   %29 = icmp samesign ugt i32 %.022.i.i.i.i.i, 16383
   br i1 %29, label %24, label %30, !llvm.loop !5
 
 30:                                               ; preds = %24
   %31 = trunc nuw nsw i32 %27 to i8
-  %32 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i, i64 2
   store i8 %31, ptr %28, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit
 
@@ -20586,11 +20586,11 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   br label %71
 
 33:                                               ; preds = %3
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = load ptr, ptr %2, align 8
   %41 = icmp ult i32 %39, 128
@@ -20599,7 +20599,7 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 43:                                               ; preds = %33
   store i8 %42, ptr %40, align 1
-  %44 = getelementptr inbounds i8, ptr %40, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit20
 
 45:                                               ; preds = %33
@@ -20611,13 +20611,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
 
 49:                                               ; preds = %45
   %50 = trunc nuw nsw i32 %47 to i8
-  %51 = getelementptr inbounds i8, ptr %40, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store i8 %50, ptr %51, align 1
-  %52 = getelementptr inbounds i8, ptr %40, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 2
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit20
 
 53:                                               ; preds = %45
-  %54 = getelementptr inbounds i8, ptr %40, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %40, i64 1
   br label %55
 
 55:                                               ; preds = %55, %53
@@ -20627,13 +20627,13 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit: ; pr
   %57 = or i8 %56, -128
   store i8 %57, ptr %.023.i.i.i.i.i17, align 1
   %58 = lshr i32 %.022.i.i.i.i.i18, 7
-  %59 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i17, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i17, i64 1
   %60 = icmp samesign ugt i32 %.022.i.i.i.i.i18, 16383
   br i1 %60, label %55, label %61, !llvm.loop !5
 
 61:                                               ; preds = %55
   %62 = trunc nuw nsw i32 %58 to i8
-  %63 = getelementptr inbounds i8, ptr %.023.i.i.i.i.i17, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.023.i.i.i.i.i17, i64 2
   store i8 %62, ptr %59, align 1
   br label %_ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit20
 
@@ -20642,8 +20642,8 @@ _ZN6google8protobuf8internal13WriteLengthToINS1_11ArrayOutputEEEvjPT_.exit20: ; 
   store ptr %.0.i.i.i.i.i19, ptr %2, align 8
   %64 = load i32, ptr %1, align 8
   %65 = add nsw i32 %64, -1
-  %66 = getelementptr inbounds i8, ptr %35, i64 24
-  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
   %70 = tail call noundef ptr @_ZN6google8protobuf8internal24SerializeInternalToArrayEPKhPKNS1_13FieldMetadataEibPh(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %66, i32 noundef %65, i1 noundef zeroext %69, ptr noundef nonnull %.0.i.i.i.i.i19)
@@ -20663,7 +20663,7 @@ define linkonce_odr void @_ZN6google8protobuf8internal19arena_delete_objectINS0_
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #12
   br label %7

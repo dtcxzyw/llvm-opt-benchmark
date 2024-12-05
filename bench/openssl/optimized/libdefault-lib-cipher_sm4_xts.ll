@@ -95,19 +95,19 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %xts = getelementptr inbounds i8, ptr %vctx, i64 456
+  %xts = getelementptr inbounds nuw i8, ptr %vctx, i64 456
   %0 = load ptr, ptr %xts, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %return, label %lor.lhs.false1
 
 lor.lhs.false1:                                   ; preds = %lor.lhs.false
-  %key2 = getelementptr inbounds i8, ptr %vctx, i64 464
+  %key2 = getelementptr inbounds nuw i8, ptr %vctx, i64 464
   %1 = load ptr, ptr %key2, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %return, label %lor.lhs.false4
 
 lor.lhs.false4:                                   ; preds = %lor.lhs.false1
-  %iv_set = getelementptr inbounds i8, ptr %vctx, i64 108
+  %iv_set = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %bf.load = load i8, ptr %iv_set, align 4
   %2 = and i8 %bf.load, 4
   %tobool5 = icmp eq i8 %2, 0
@@ -130,17 +130,17 @@ if.then13:                                        ; preds = %if.end
   br label %return
 
 if.end14:                                         ; preds = %if.end
-  %xts_standard = getelementptr inbounds i8, ptr %vctx, i64 448
+  %xts_standard = getelementptr inbounds nuw i8, ptr %vctx, i64 448
   %3 = load i32, ptr %xts_standard, align 8
   %tobool15.not = icmp eq i32 %3, 0
-  %iv65 = getelementptr inbounds i8, ptr %vctx, i64 32
+  %iv65 = getelementptr inbounds nuw i8, ptr %vctx, i64 32
   %bf.lshr70 = lshr i8 %bf.load, 1
   %bf.clear71 = and i8 %bf.lshr70, 1
   %bf.cast72 = zext nneg i8 %bf.clear71 to i32
   br i1 %tobool15.not, label %if.else45, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %stream = getelementptr inbounds i8, ptr %vctx, i64 496
+  %stream = getelementptr inbounds nuw i8, ptr %vctx, i64 496
   %4 = load ptr, ptr %stream, align 8
   %cmp17.not = icmp eq ptr %4, null
   br i1 %cmp17.not, label %if.else, label %if.end78.sink.split
@@ -151,7 +151,7 @@ if.else:                                          ; preds = %if.then16
   br i1 %tobool41.not, label %if.end78, label %return
 
 if.else45:                                        ; preds = %if.end14
-  %stream_gb = getelementptr inbounds i8, ptr %vctx, i64 488
+  %stream_gb = getelementptr inbounds nuw i8, ptr %vctx, i64 488
   %5 = load ptr, ptr %stream_gb, align 8
   %cmp46.not = icmp eq ptr %5, null
   br i1 %cmp46.not, label %if.else62, label %if.end78.sink.split
@@ -191,19 +191,19 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %xts = getelementptr inbounds i8, ptr %vctx, i64 456
+  %xts = getelementptr inbounds nuw i8, ptr %vctx, i64 456
   %0 = load ptr, ptr %xts, align 8
   %cmp.not = icmp eq ptr %0, null
-  %ks1 = getelementptr inbounds i8, ptr %vctx, i64 192
+  %ks1 = getelementptr inbounds nuw i8, ptr %vctx, i64 192
   %cmp4.not = icmp eq ptr %0, %ks1
   %or.cond = select i1 %cmp.not, i1 true, i1 %cmp4.not
   br i1 %or.cond, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end
-  %key2 = getelementptr inbounds i8, ptr %vctx, i64 464
+  %key2 = getelementptr inbounds nuw i8, ptr %vctx, i64 464
   %1 = load ptr, ptr %key2, align 8
   %cmp9.not = icmp eq ptr %1, null
-  %ks2 = getelementptr inbounds i8, ptr %vctx, i64 320
+  %ks2 = getelementptr inbounds nuw i8, ptr %vctx, i64 320
   %cmp13.not = icmp eq ptr %1, %ks2
   %or.cond11 = select i1 %cmp9.not, i1 true, i1 %cmp13.not
   br i1 %or.cond11, label %if.end16, label %return
@@ -214,9 +214,9 @@ if.end16:                                         ; preds = %if.end7
   br i1 %cmp18, label %return, label %if.end20
 
 if.end20:                                         ; preds = %if.end16
-  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %vctx, i64 168
   %2 = load ptr, ptr %hw, align 8
-  %copyctx = getelementptr inbounds i8, ptr %2, i64 16
+  %copyctx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %copyctx, align 8
   tail call void %3(ptr noundef nonnull %call17, ptr noundef nonnull %vctx) #3
   br label %return
@@ -253,7 +253,7 @@ if.end:                                           ; preds = %entry
 
 if.then2:                                         ; preds = %if.end
   store ptr null, ptr %xts_standard, align 8
-  %data_type = getelementptr inbounds i8, ptr %call, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp3.not = icmp eq i32 %0, 4
   br i1 %cmp3.not, label %if.end5, label %return
@@ -276,7 +276,7 @@ if.end8:                                          ; preds = %if.end5
   br i1 %cmp10, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.end8
-  %xts_standard12 = getelementptr inbounds i8, ptr %vxctx, i64 448
+  %xts_standard12 = getelementptr inbounds nuw i8, ptr %vxctx, i64 448
   store i32 0, ptr %xts_standard12, align 8
   br label %return
 
@@ -287,7 +287,7 @@ if.else:                                          ; preds = %if.end8
   br i1 %cmp14, label %if.then15, label %if.else17
 
 if.then15:                                        ; preds = %if.else
-  %xts_standard16 = getelementptr inbounds i8, ptr %vxctx, i64 448
+  %xts_standard16 = getelementptr inbounds nuw i8, ptr %vxctx, i64 448
   store i32 1, ptr %xts_standard16, align 8
   br label %return
 
@@ -322,7 +322,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
+  %enc1 = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.shl = shl nuw nsw i8 %0, 1
@@ -342,7 +342,7 @@ if.end7:                                          ; preds = %if.then2, %if.end
   br i1 %cmp8.not, label %if.end18, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
-  %keylen10 = getelementptr inbounds i8, ptr %vctx, i64 72
+  %keylen10 = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %1 = load i64, ptr %keylen10, align 8
   %cmp11.not = icmp eq i64 %keylen, %1
   br i1 %cmp11.not, label %if.end13, label %if.then12
@@ -354,7 +354,7 @@ if.then12:                                        ; preds = %if.then9
   br label %return
 
 if.end13:                                         ; preds = %if.then9
-  %hw = getelementptr inbounds i8, ptr %vctx, i64 168
+  %hw = getelementptr inbounds nuw i8, ptr %vctx, i64 168
   %2 = load ptr, ptr %hw, align 8
   %3 = load ptr, ptr %2, align 8
   %call14 = tail call i32 %3(ptr noundef nonnull %vctx, ptr noundef nonnull %key, i64 noundef %keylen) #3

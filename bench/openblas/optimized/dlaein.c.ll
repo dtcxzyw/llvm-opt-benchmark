@@ -134,7 +134,7 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 98:                                               ; preds = %98, %95
   %99 = phi i64 [ 1, %95 ], [ %101, %98 ]
-  %100 = getelementptr inbounds double, ptr %33, i64 %99
+  %100 = getelementptr inbounds nuw double, ptr %33, i64 %99
   store double %.pre61, ptr %100, align 8, !tbaa !7
   %101 = add nuw nsw i64 %99, 1
   %102 = icmp eq i64 %101, %97
@@ -456,7 +456,7 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 294:                                              ; preds = %294, %291
   %295 = phi i64 [ 2, %291 ], [ %297, %294 ]
-  %296 = getelementptr inbounds double, ptr %33, i64 %295
+  %296 = getelementptr inbounds nuw double, ptr %33, i64 %295
   store double %288, ptr %296, align 8, !tbaa !7
   %297 = add nuw nsw i64 %295, 1
   %298 = icmp eq i64 %297, %293
@@ -512,9 +512,9 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 322:                                              ; preds = %322, %319
   %323 = phi i64 [ 1, %319 ], [ %327, %322 ]
   %324 = load double, ptr %12, align 8, !tbaa !7
-  %325 = getelementptr inbounds double, ptr %33, i64 %323
+  %325 = getelementptr inbounds nuw double, ptr %33, i64 %323
   store double %324, ptr %325, align 8, !tbaa !7
-  %326 = getelementptr inbounds double, ptr %34, i64 %323
+  %326 = getelementptr inbounds nuw double, ptr %34, i64 %323
   store double 0.000000e+00, ptr %326, align 8, !tbaa !7
   %327 = add nuw nsw i64 %323, 1
   %328 = icmp eq i64 %327, %321
@@ -806,7 +806,7 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %506 = getelementptr double, ptr %505, i64 %365
   %507 = call double @dasum_(ptr noundef nonnull %19, ptr noundef %506, ptr noundef nonnull @c__1) #6
   %508 = fadd double %504, %507
-  %509 = getelementptr inbounds double, ptr %39, i64 %360
+  %509 = getelementptr inbounds nuw double, ptr %39, i64 %360
   store double %508, ptr %509, align 8, !tbaa !7
   %510 = load i32, ptr %17, align 4, !tbaa !3
   %511 = sext i32 %510 to i64
@@ -1239,14 +1239,14 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %789 = phi double [ %743, %748 ], [ %804, %786 ]
   %790 = getelementptr double, ptr %752, i64 %787
   %791 = load double, ptr %790, align 8, !tbaa !7
-  %792 = getelementptr inbounds double, ptr %33, i64 %787
+  %792 = getelementptr inbounds nuw double, ptr %33, i64 %787
   %793 = load double, ptr %792, align 8, !tbaa !7
   %794 = fneg double %791
   %795 = call double @llvm.fmuladd.f64(double %794, double %793, double %788)
   %796 = mul nsw i64 %787, %717
   %797 = getelementptr double, ptr %753, i64 %796
   %798 = load double, ptr %797, align 8, !tbaa !7
-  %799 = getelementptr inbounds double, ptr %34, i64 %787
+  %799 = getelementptr inbounds nuw double, ptr %34, i64 %787
   %800 = load double, ptr %799, align 8, !tbaa !7
   %801 = call double @llvm.fmuladd.f64(double %798, double %800, double %795)
   %802 = call double @llvm.fmuladd.f64(double %794, double %800, double %789)
@@ -1353,9 +1353,9 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 871:                                              ; preds = %871, %868
   %872 = phi i64 [ 1, %868 ], [ %875, %871 ]
-  %873 = getelementptr inbounds double, ptr %33, i64 %872
+  %873 = getelementptr inbounds nuw double, ptr %33, i64 %872
   store double 0.000000e+00, ptr %873, align 8, !tbaa !7
-  %874 = getelementptr inbounds double, ptr %34, i64 %872
+  %874 = getelementptr inbounds nuw double, ptr %34, i64 %872
   store double 0.000000e+00, ptr %874, align 8, !tbaa !7
   %875 = add nuw nsw i64 %872, 1
   %876 = icmp eq i64 %875, %870
@@ -1406,9 +1406,9 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 903:                                              ; preds = %903, %900
   %904 = phi i64 [ 2, %900 ], [ %907, %903 ]
-  %905 = getelementptr inbounds double, ptr %33, i64 %904
+  %905 = getelementptr inbounds nuw double, ptr %33, i64 %904
   store double %897, ptr %905, align 8, !tbaa !7
-  %906 = getelementptr inbounds double, ptr %34, i64 %904
+  %906 = getelementptr inbounds nuw double, ptr %34, i64 %904
   store double 0.000000e+00, ptr %906, align 8, !tbaa !7
   %907 = add nuw nsw i64 %904, 1
   %908 = icmp eq i64 %907, %902
@@ -1446,12 +1446,12 @@ define void @dlaein_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 924:                                              ; preds = %924, %921
   %925 = phi i64 [ 1, %921 ], [ %940, %924 ]
   %926 = phi double [ 0.000000e+00, %921 ], [ %939, %924 ]
-  %927 = getelementptr inbounds double, ptr %33, i64 %925
+  %927 = getelementptr inbounds nuw double, ptr %33, i64 %925
   %928 = load double, ptr %927, align 8, !tbaa !7
   %929 = fcmp oge double %928, 0.000000e+00
   %930 = fneg double %928
   %931 = select i1 %929, double %928, double %930
-  %932 = getelementptr inbounds double, ptr %34, i64 %925
+  %932 = getelementptr inbounds nuw double, ptr %34, i64 %925
   %933 = load double, ptr %932, align 8, !tbaa !7
   %934 = fcmp oge double %933, 0.000000e+00
   %935 = fneg double %933

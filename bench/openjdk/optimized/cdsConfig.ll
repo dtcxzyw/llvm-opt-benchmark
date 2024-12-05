@@ -105,7 +105,7 @@ define hidden noundef range(i32 0, 16) i32 @_ZN9CDSConfig10get_statusEv() local_
   br i1 %.not.i.i, label %_ZN9CDSConfig31is_logging_lambda_form_invokersEv.exit, label %_ZN15ClassListWriter10is_enabledEv.exit.i
 
 _ZN15ClassListWriter10is_enabledEv.exit.i:        ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp ne ptr %6, null
   %brmerge = or i1 %.not.i, %3
@@ -139,7 +139,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig31is_logging_lambda_form_invokers
   br i1 %.not.i, label %_ZN15ClassListWriter10is_enabledEv.exit.thread, label %_ZN15ClassListWriter10is_enabledEv.exit
 
 _ZN15ClassListWriter10is_enabledEv.exit:          ; preds = %0
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN15ClassListWriter10is_enabledEv.exit.thread, label %6
@@ -244,7 +244,7 @@ define hidden void @_ZN9CDSConfig25init_shared_archive_pathsEv() local_unnamed_a
 
 .preheader.i.i:                                   ; preds = %7, %16
   %.0714.i.i = phi ptr [ %.07.i.i, %16 ], [ %.0712.i.i, %7 ]
-  %8 = getelementptr inbounds i8, ptr %.0714.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.0714.i.i, i64 8
   %9 = load ptr, ptr %8, align 8
   br label %11
 
@@ -255,20 +255,20 @@ define hidden void @_ZN9CDSConfig25init_shared_archive_pathsEv() local_unnamed_a
 
 11:                                               ; preds = %10, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %10 ]
-  %12 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %13) #10
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %_ZL34find_any_unsupported_module_optionv.exit.i, label %10
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %.0714.i.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0714.i.i, i64 16
   %.07.i.i = load ptr, ptr %17, align 8
   %.not.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not.i.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread.i, label %.preheader.i.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %11
-  %18 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i.i
   %19 = load ptr, ptr %18, align 8
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.22, ptr noundef nonnull %19) #9
   br label %_ZL34find_any_unsupported_module_optionv.exit.thread.i
@@ -317,7 +317,7 @@ _ZN9CDSConfig40check_unsupported_dumping_module_optionsEv.exit: ; preds = %_ZL34
   %37 = icmp eq i8 %34, %36
   %38 = zext i1 %37 to i32
   %spec.select.i = add nuw nsw i32 %.0712.i, %38
-  %39 = getelementptr inbounds i8, ptr %.013.i, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %40 = load i8, ptr %39, align 1
   %.not.i = icmp eq i8 %40, 0
   br i1 %.not.i, label %_ZN9CDSConfig12num_archivesEPKc.exit, label %.lr.ph.i, !llvm.loop !9
@@ -588,7 +588,7 @@ define hidden noundef i32 @_ZN9CDSConfig12num_archivesEPKc(ptr noundef readonly 
   %7 = icmp eq i8 %4, %6
   %8 = zext i1 %7 to i32
   %spec.select = add nuw nsw i32 %.0712, %8
-  %9 = getelementptr inbounds i8, ptr %.013, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.013, i64 1
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
@@ -625,7 +625,7 @@ define hidden void @_ZN9CDSConfig28extract_shared_archive_pathsEPKcPPcS3_(ptr no
   %18 = getelementptr inbounds i8, ptr %16, i64 %14
   store i8 0, ptr %18, align 1
   store ptr %16, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %22, label %23
@@ -659,7 +659,7 @@ define hidden void @_ZN9CDSConfig40check_unsupported_dumping_module_optionsEv() 
 
 .preheader.i:                                     ; preds = %0, %9
   %.0714.i = phi ptr [ %.07.i, %9 ], [ %.0712.i, %0 ]
-  %1 = getelementptr inbounds i8, ptr %.0714.i, i64 8
+  %1 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 8
   %2 = load ptr, ptr %1, align 8
   br label %4
 
@@ -670,20 +670,20 @@ define hidden void @_ZN9CDSConfig40check_unsupported_dumping_module_optionsEv() 
 
 4:                                                ; preds = %3, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %6) #10
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %_ZL34find_any_unsupported_module_optionv.exit, label %3
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %.0714.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 16
   %.07.i = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %.07.i, null
   br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %4
-  %11 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   tail call void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef nonnull @.str.22, ptr noundef nonnull %12) #9
   br label %_ZL34find_any_unsupported_module_optionv.exit.thread
@@ -720,7 +720,7 @@ define hidden void @_ZN9CDSConfig30check_internal_module_propertyEPKcS1_(ptr nou
   store i8 0, ptr @_ZN9CDSConfig35_is_using_optimized_module_handlingE, align 1
   store i8 0, ptr @_ZN9CDSConfig29_is_dumping_full_module_graphE, align 1
   store i8 0, ptr @_ZN9CDSConfig27_is_using_full_module_graphE, align 1
-  %5 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %5 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
 
@@ -762,7 +762,7 @@ define hidden void @_ZN9CDSConfig27check_incompatible_propertyEPKcS1_(ptr nounde
 
 4:                                                ; preds = %2, %3
   %.0.idx9 = phi i64 [ 0, %2 ], [ %.0.add, %3 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZZN9CDSConfig27check_incompatible_propertyEPKcS1_E23incompatible_properties, i64 %.0.idx9
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZZN9CDSConfig27check_incompatible_propertyEPKcS1_E23incompatible_properties, i64 %.0.idx9
   %5 = load ptr, ptr %.0.ptr, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %5) #10
   %7 = icmp eq i32 %6, 0
@@ -787,7 +787,7 @@ _ZN9CDSConfig30stop_dumping_full_module_graphEPKc.exit: ; preds = %8, %11
   br label %_ZN9CDSConfig28stop_using_full_module_graphEPKc.exit
 
 _ZN9CDSConfig28stop_using_full_module_graphEPKc.exit: ; preds = %_ZN9CDSConfig30stop_dumping_full_module_graphEPKc.exit, %14
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8 = icmp eq ptr %15, null
   br i1 %.not8, label %.loopexit, label %16
 
@@ -814,7 +814,7 @@ define hidden void @_ZN9CDSConfig30stop_dumping_full_module_graphEPKc(ptr nounde
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %6, null
   br i1 %.not2, label %8, label %7
 
@@ -838,7 +838,7 @@ define hidden void @_ZN9CDSConfig28stop_using_full_module_graphEPKc(ptr noundef 
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %4
-  %6 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %6, null
   br i1 %.not2, label %8, label %7
 
@@ -861,7 +861,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig38has_unsupported_runtime_module_
 
 .preheader.i:                                     ; preds = %0, %10
   %.0714.i = phi ptr [ %.07.i, %10 ], [ %.0712.i, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.0714.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 8
   %3 = load ptr, ptr %2, align 8
   br label %5
 
@@ -872,20 +872,20 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig38has_unsupported_runtime_module_
 
 5:                                                ; preds = %4, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %4 ]
-  %6 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %7) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %_ZL34find_any_unsupported_module_optionv.exit, label %4
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %.0714.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0714.i, i64 16
   %.07.i = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %.07.i, null
   br i1 %.not.i, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %.preheader.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %5
-  %12 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = load i8, ptr @RequireSharedSpaces, align 1
   %15 = trunc i8 %14 to i1
@@ -896,7 +896,7 @@ _ZL34find_any_unsupported_module_optionv.exit:    ; preds = %5
   br label %_ZL34find_any_unsupported_module_optionv.exit.thread
 
 17:                                               ; preds = %_ZL34find_any_unsupported_module_optionv.exit
-  %18 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %18 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8 = icmp eq ptr %18, null
   br i1 %.not8, label %_ZL34find_any_unsupported_module_optionv.exit.thread, label %19
 
@@ -924,7 +924,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %6
-  %10 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %10 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not6 = icmp eq ptr %10, null
   br i1 %.not6, label %.sink.split, label %11
 
@@ -979,7 +979,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
   br i1 %32, label %33, label %36
 
 33:                                               ; preds = %30
-  %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %34 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not11 = icmp eq ptr %34, null
   br i1 %.not11, label %77, label %35
 
@@ -991,7 +991,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
   br i1 %.not, label %40, label %37
 
 37:                                               ; preds = %36
-  %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
+  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
   %.not7 = icmp eq ptr %38, null
   br i1 %.not7, label %77, label %39
 
@@ -1025,7 +1025,7 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
 
 .preheader.i.i:                                   ; preds = %45, %55
   %.0714.i.i = phi ptr [ %.07.i.i, %55 ], [ %.0712.i.i, %45 ]
-  %47 = getelementptr inbounds i8, ptr %.0714.i.i, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.0714.i.i, i64 8
   %48 = load ptr, ptr %47, align 8
   br label %50
 
@@ -1036,20 +1036,20 @@ define hidden noundef zeroext i1 @_ZN9CDSConfig25check_vm_args_consistencyEbb(i1
 
 50:                                               ; preds = %49, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %49 ]
-  %51 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE29unsupported_module_properties, i64 0, i64 %indvars.iv.i.i
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %52) #10
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %_ZL34find_any_unsupported_module_optionv.exit.i, label %49
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds i8, ptr %.0714.i.i, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.0714.i.i, i64 16
   %.07.i.i = load ptr, ptr %56, align 8
   %.not.i.i = icmp eq ptr %.07.i.i, null
   br i1 %.not.i.i, label %_ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit, label %.preheader.i.i, !llvm.loop !8
 
 _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %50
-  %57 = getelementptr inbounds [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [3 x ptr], ptr @_ZZL34find_any_unsupported_module_optionvE26unsupported_module_options, i64 0, i64 %indvars.iv.i.i
   %58 = load ptr, ptr %57, align 8
   %59 = load i8, ptr @RequireSharedSpaces, align 1
   %60 = trunc i8 %59 to i1
@@ -1060,7 +1060,7 @@ _ZL34find_any_unsupported_module_optionv.exit.i:  ; preds = %50
   br label %65
 
 62:                                               ; preds = %_ZL34find_any_unsupported_module_optionv.exit.i
-  %63 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not8.i = icmp eq ptr %63, null
   br i1 %.not8.i, label %65, label %64
 
@@ -1087,7 +1087,7 @@ _ZN9CDSConfig38has_unsupported_runtime_module_optionsEv.exit: ; preds = %55, %45
 
 74:                                               ; preds = %71
   store i8 1, ptr @BytecodeVerificationRemote, align 1
-  %75 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %75 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not10 = icmp eq ptr %75, null
   br i1 %.not10, label %77, label %76
 

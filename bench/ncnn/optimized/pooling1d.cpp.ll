@@ -139,7 +139,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 41:                                               ; preds = %.lr.ph.us, %41
   %indvars.iv389 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next390, %41 ]
   %.0235303.us = phi float [ 0.000000e+00, %.lr.ph.us ], [ %44, %41 ]
-  %42 = getelementptr inbounds float, ptr %40, i64 %indvars.iv389
+  %42 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv389
   %43 = load float, ptr %42, align 4
   %44 = fadd fast float %43, %.0235303.us
   %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
@@ -149,7 +149,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 ._crit_edge.us:                                   ; preds = %41
   %45 = fmul fast float %44, %33
   %46 = load ptr, ptr %2, align 8
-  %47 = getelementptr inbounds float, ptr %46, i64 %indvars.iv394
+  %47 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv394
   store float %45, ptr %47, align 4
   %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
   %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397
@@ -180,7 +180,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 .lr.ph:                                           ; preds = %50, %.lr.ph
   %indvars.iv399 = phi i64 [ %indvars.iv.next400, %.lr.ph ], [ 0, %50 ]
   %.0287306 = phi float [ %.sroa.speculated285, %.lr.ph ], [ %58, %50 ]
-  %59 = getelementptr inbounds float, ptr %57, i64 %indvars.iv399
+  %59 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv399
   %60 = load float, ptr %59, align 4
   %61 = fcmp fast olt float %.0287306, %60
   %.sroa.speculated285 = select i1 %61, float %60, float %.0287306
@@ -191,7 +191,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 ._crit_edge:                                      ; preds = %.lr.ph, %50
   %.0287.lcssa = phi float [ %58, %50 ], [ %.sroa.speculated285, %.lr.ph ]
   %62 = load ptr, ptr %2, align 8
-  %63 = getelementptr inbounds float, ptr %62, i64 %indvars.iv404
+  %63 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv404
   store float %.0287.lcssa, ptr %63, align 4
   %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
@@ -200,7 +200,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 .lr.ph305.split:                                  ; preds = %.lr.ph305, %.lr.ph305.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph305.split ], [ 0, %.lr.ph305 ]
   %64 = load ptr, ptr %2, align 8
-  %65 = getelementptr inbounds float, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
   store float 0.000000e+00, ptr %65, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count397
@@ -317,7 +317,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 
 ._crit_edge326:                                   ; preds = %.lr.ph325, %.lr.ph330
   %.0289.lcssa = phi float [ %121, %.lr.ph330 ], [ %.sroa.speculated280, %.lr.ph325 ]
-  %126 = getelementptr inbounds float, ptr %108, i64 %indvars.iv427
+  %126 = getelementptr inbounds nuw float, ptr %108, i64 %indvars.iv427
   store float %.0289.lcssa, ptr %126, align 4
   %127 = load i32, ptr %70, align 4
   %128 = sext i32 %127 to i64
@@ -385,7 +385,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
   %.0248.lcssa = phi float [ 0.000000e+00, %.lr.ph318 ], [ %162, %.lr.ph313 ]
   %163 = sitofp i32 %157 to float
   %164 = fdiv fast float %.0248.lcssa, %163
-  %165 = getelementptr inbounds float, ptr %146, i64 %indvars.iv414
+  %165 = getelementptr inbounds nuw float, ptr %146, i64 %indvars.iv414
   store float %164, ptr %165, align 4
   %166 = load i32, ptr %70, align 4
   %167 = sext i32 %166 to i64
@@ -445,7 +445,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 
 196:                                              ; preds = %193
   %197 = load ptr, ptr %194, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 24
   %199 = load ptr, ptr %198, align 8
   invoke void %199(ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef %195)
           to label %202 unwind label %203
@@ -555,7 +555,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 .lr.ph370:                                        ; preds = %.lr.ph370.preheader, %.lr.ph370
   %indvars.iv465 = phi i64 [ 0, %.lr.ph370.preheader ], [ %indvars.iv.next466, %.lr.ph370 ]
   %.0288367 = phi float [ %255, %.lr.ph370.preheader ], [ %.sroa.speculated, %.lr.ph370 ]
-  %258 = getelementptr inbounds float, ptr %254, i64 %indvars.iv465
+  %258 = getelementptr inbounds nuw float, ptr %254, i64 %indvars.iv465
   %259 = load float, ptr %258, align 4
   %260 = fcmp fast olt float %.0288367, %259
   %.sroa.speculated = select i1 %260, float %259, float %.0288367
@@ -565,7 +565,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 
 ._crit_edge371:                                   ; preds = %.lr.ph370, %.lr.ph376
   %.0288.lcssa = phi float [ %255, %.lr.ph376 ], [ %.sroa.speculated, %.lr.ph370 ]
-  %261 = getelementptr inbounds float, ptr %249, i64 %indvars.iv470
+  %261 = getelementptr inbounds nuw float, ptr %249, i64 %indvars.iv470
   store float %.0288.lcssa, ptr %261, align 4
   %indvars.iv.next471 = add nuw nsw i64 %indvars.iv470, 1
   %exitcond474.not = icmp eq i64 %indvars.iv.next471, %wide.trip.count473
@@ -700,7 +700,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 
 ._crit_edge353:                                   ; preds = %._crit_edge353.loopexit, %.lr.ph362
   %327 = phi float [ 0x7FF8000000000000, %.lr.ph362 ], [ %326, %._crit_edge353.loopexit ]
-  %328 = getelementptr inbounds float, ptr %303, i64 %indvars.iv455
+  %328 = getelementptr inbounds nuw float, ptr %303, i64 %indvars.iv455
   store float %327, ptr %328, align 4
   %indvars.iv.next456 = add nuw nsw i64 %indvars.iv455, 1
   %exitcond459.not = icmp eq i64 %indvars.iv.next456, %wide.trip.count458
@@ -747,7 +747,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 .lr.ph337:                                        ; preds = %.lr.ph337.preheader, %.lr.ph337
   %indvars.iv435 = phi i64 [ 0, %.lr.ph337.preheader ], [ %indvars.iv.next436, %.lr.ph337 ]
   %.0224334 = phi float [ 0.000000e+00, %.lr.ph337.preheader ], [ %353, %.lr.ph337 ]
-  %351 = getelementptr inbounds float, ptr %348, i64 %indvars.iv435
+  %351 = getelementptr inbounds nuw float, ptr %348, i64 %indvars.iv435
   %352 = load float, ptr %351, align 4
   %353 = fadd fast float %352, %.0224334
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
@@ -758,7 +758,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
   %.0224.lcssa = phi float [ 0.000000e+00, %.lr.ph344 ], [ %353, %.lr.ph337 ]
   %354 = sitofp i32 %349 to float
   %355 = fdiv fast float %.0224.lcssa, %354
-  %356 = getelementptr inbounds float, ptr %343, i64 %indvars.iv440
+  %356 = getelementptr inbounds nuw float, ptr %343, i64 %indvars.iv440
   store float %355, ptr %356, align 4
   %indvars.iv.next441 = add nuw nsw i64 %indvars.iv440, 1
   %exitcond444.not = icmp eq i64 %indvars.iv.next441, %wide.trip.count443
@@ -788,7 +788,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Pooling1D7forwardERKNS_3
 
 364:                                              ; preds = %361
   %365 = load ptr, ptr %362, align 8
-  %366 = getelementptr inbounds i8, ptr %365, i64 24
+  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
   %367 = load ptr, ptr %366, align 8
   invoke void %367(ptr noundef nonnull align 8 dereferenceable(8) %362, ptr noundef %363)
           to label %.critedge unwind label %370
@@ -859,7 +859,7 @@ define hidden void @_ZNK4ncnn9Pooling1D12make_paddingERKNS_3MatERS1_RKNS_6Option
 
 27:                                               ; preds = %23
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26)
   br label %33

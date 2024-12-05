@@ -25,18 +25,18 @@ define hidden void @_ZN6hermes18appendSignedLEB128ERSt6vectorIhSaIhEEl(ptr nocap
 entry:
   %data = alloca %"class.llvh::SmallVector", align 8
   %OS = alloca %"class.llvh::raw_svector_ostream", align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 16
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %data, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %data, i64 12
+  %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %data, i64 12
   store i32 16, ptr %Capacity2.i.i.i.i.i, align 4
-  %BufferMode.i.i.i = getelementptr inbounds i8, ptr %OS, i64 32
+  %BufferMode.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 32
   store i32 1, ptr %BufferMode.i.i.i, align 8
-  %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS, i64 8
+  %OutBufStart.i.i.i = getelementptr inbounds nuw i8, ptr %OS, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh19raw_svector_ostreamE, i64 16), ptr %OS, align 8
-  %OS.i = getelementptr inbounds i8, ptr %OS, i64 40
+  %OS.i = getelementptr inbounds nuw i8, ptr %OS, i64 40
   store ptr %data, ptr %OS.i, align 8
   call void @_ZN4llvh11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr noundef nonnull align 8 dereferenceable(48) %OS, ptr noundef null, i64 noundef 0, i32 noundef 0) #12
   %call = call noundef i32 @_ZN4llvh13encodeSLEB128ElRNS_11raw_ostreamEj(i64 noundef %value, ptr noundef nonnull align 8 dereferenceable(36) %OS, i32 noundef 0)
@@ -45,8 +45,8 @@ entry:
   br i1 %cmp5, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %vector, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %vector, i64 16
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %vector, i64 8
+  %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %vector, i64 16
   %wide.trip.count = zext nneg i32 %0 to i64
   %.pre = load ptr, ptr %_M_finish.i.i, align 8
   br label %for.body
@@ -55,7 +55,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %1 = phi ptr [ %.pre, %for.body.lr.ph ], [ %8, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIhSaIhEE9push_backEOh.exit ]
   %2 = load ptr, ptr %data, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %3 = load i8, ptr %arrayidx.i, align 1
   %4 = load ptr, ptr %_M_end_of_storage.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %1, %4
@@ -64,7 +64,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 if.then.i.i:                                      ; preds = %for.body
   store i8 %3, ptr %1, align 1
   %5 = load ptr, ptr %_M_finish.i.i, align 8
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
@@ -105,7 +105,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_base
   br label %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit17.i.i.i
 
 _ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit17.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIhSaIhEE11_M_allocateEm.exit.i.i.i
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 1
+  %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1
   %tobool.not.i.i.i.i = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i, label %if.then.i18.i.i.i
 
@@ -116,7 +116,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIhSaIhE
 _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJhEEEvN9__gnu_cxx17__normal_iteratorIPhS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIhSaIhEE11_S_relocateEPhS2_S2_RS0_.exit17.i.i.i
   store ptr %cond.i10.i.i.i, ptr %vector, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i10.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIhSaIhEE9push_backEOh.exit
 
@@ -143,8 +143,8 @@ _ZN4llvh11SmallVectorIcLj16EED2Ev.exit:           ; preds = %for.end, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN4llvh13encodeSLEB128ElRNS_11raw_ostreamEj(i64 noundef %Value, ptr noundef nonnull align 8 dereferenceable(36) %OS, i32 noundef %PadTo) local_unnamed_addr #0 comdat {
 entry:
-  %OutBufCur.i = getelementptr inbounds i8, ptr %OS, i64 24
-  %OutBufEnd.i = getelementptr inbounds i8, ptr %OS, i64 16
+  %OutBufCur.i = getelementptr inbounds nuw i8, ptr %OS, i64 24
+  %OutBufEnd.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   br label %do.body
 
 do.body:                                          ; preds = %_ZN4llvh11raw_ostreamlsEc.exit, %entry
@@ -180,7 +180,7 @@ if.then.i:                                        ; preds = %lor.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit
 
 if.end.i:                                         ; preds = %lor.end
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 1
   store ptr %incdec.ptr.i, ptr %OutBufCur.i, align 8
   store i8 %Byte.0, ptr %1, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit
@@ -214,7 +214,7 @@ if.then.i25:                                      ; preds = %for.body
   br label %_ZN4llvh11raw_ostreamlsEc.exit30
 
 if.end.i28:                                       ; preds = %for.body
-  %incdec.ptr.i29 = getelementptr inbounds i8, ptr %4, i64 1
+  %incdec.ptr.i29 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %incdec.ptr.i29, ptr %OutBufCur.i, align 8
   store i8 %3, ptr %4, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit30
@@ -236,7 +236,7 @@ if.then.i34:                                      ; preds = %for.end
   br label %_ZN4llvh11raw_ostreamlsEc.exit39
 
 if.end.i37:                                       ; preds = %for.end
-  %incdec.ptr.i38 = getelementptr inbounds i8, ptr %6, i64 1
+  %incdec.ptr.i38 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %incdec.ptr.i38, ptr %OutBufCur.i, align 8
   store i8 %conv15, ptr %6, align 1
   br label %_ZN4llvh11raw_ostreamlsEc.exit39
@@ -254,14 +254,14 @@ if.end24:                                         ; preds = %_ZN4llvh11raw_ostre
 define hidden noundef i32 @_ZN6hermes16readSignedLEB128EN4llvh8ArrayRefIhEEjPl(ptr %data.coerce0, i64 %data.coerce1, i32 noundef %offset, ptr nocapture noundef writeonly %output) local_unnamed_addr #1 {
 entry:
   %conv = zext i32 %offset to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %data.coerce0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %data.coerce0, i64 %conv
   br label %do.body.us.i
 
 do.body.us.i:                                     ; preds = %do.body.us.i, %entry
   %p.addr.0.us.i = phi ptr [ %incdec.ptr.us.i, %do.body.us.i ], [ %arrayidx.i, %entry ]
   %Value.0.us.i = phi i64 [ %or.us.i, %do.body.us.i ], [ 0, %entry ]
   %Shift.0.us.i = phi i32 [ %add.us.i, %do.body.us.i ], [ 0, %entry ]
-  %incdec.ptr.us.i = getelementptr inbounds i8, ptr %p.addr.0.us.i, i64 1
+  %incdec.ptr.us.i = getelementptr inbounds nuw i8, ptr %p.addr.0.us.i, i64 1
   %0 = load i8, ptr %p.addr.0.us.i, align 1
   %1 = and i8 %0, 127
   %conv8.us.i = zext nneg i8 %1 to i64
@@ -303,7 +303,7 @@ if.then:                                          ; preds = %entry, %if.then
   %i.013 = phi i64 [ %add15, %if.then ], [ 0, %entry ]
   %1 = trunc i32 %input.addr.014 to i8
   %conv5 = or i8 %1, -128
-  %arrayidx = getelementptr inbounds [5 x i8], ptr %buf, i64 0, i64 %i.013
+  %arrayidx = getelementptr inbounds nuw [5 x i8], ptr %buf, i64 0, i64 %i.013
   store i8 %conv5, ptr %arrayidx, align 1
   %shr = ashr i32 %input.addr.014, 7
   %cmp = icmp samesign ult i64 %add15, 5
@@ -321,7 +321,7 @@ if.else:                                          ; preds = %if.then, %entry
   %add.lcssa = phi i64 [ 1, %entry ], [ %add, %if.then ]
   %3 = trunc i32 %input.addr.0.lcssa to i8
   %conv8 = and i8 %3, 127
-  %arrayidx9 = getelementptr inbounds [5 x i8], ptr %buf, i64 0, i64 %i.0.lcssa
+  %arrayidx9 = getelementptr inbounds nuw [5 x i8], ptr %buf, i64 0, i64 %i.0.lcssa
   store i8 %conv8, ptr %arrayidx9, align 1
   %call11 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull %buf, i64 noundef %add.lcssa) #12
   ret void

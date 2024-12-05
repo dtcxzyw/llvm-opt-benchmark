@@ -21,10 +21,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gro_cells_de
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @gro_cells_receive(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @__rcu_read_lock() #5
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 1
   %8 = icmp eq i32 %7, 0
@@ -36,34 +36,34 @@ define dso_local i32 @gro_cells_receive(ptr nocapture noundef readonly %0, ptr n
   br i1 %11, label %37, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 126
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 126
   %14 = load i8, ptr %13, align 2
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 192
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 188
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %21 = load i32, ptr %20, align 4
   %22 = zext i32 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load volatile i32, ptr %24, align 4
   %26 = and i32 %25, 65535
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %28, label %37
 
 28:                                               ; preds = %17, %12
-  %29 = getelementptr inbounds i8, ptr %4, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, 16384
   %32 = icmp eq i64 %31, 0
   br i1 %32, label %37, label %33
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %4, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %39, label %37
@@ -75,7 +75,7 @@ define dso_local i32 @gro_cells_receive(ptr nocapture noundef readonly %0, ptr n
 39:                                               ; preds = %33
   %40 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull %10) #6, !srcloc !6
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = load volatile i32, ptr @netdev_max_backlog, align 4
   %45 = icmp ugt i32 %43, %44
@@ -87,10 +87,10 @@ define dso_local i32 @gro_cells_receive(ptr nocapture noundef readonly %0, ptr n
   br label %58
 
 47:                                               ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %41, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %49 = load ptr, ptr %48, align 8
   store volatile ptr %41, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store volatile ptr %49, ptr %50, align 8
   store volatile ptr %1, ptr %48, align 8
   store volatile ptr %1, ptr %49, align 8
@@ -101,12 +101,12 @@ define dso_local i32 @gro_cells_receive(ptr nocapture noundef readonly %0, ptr n
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %41, i64 24
-  %56 = tail call zeroext i1 @napi_schedule_prep(ptr noundef %55) #5
+  %55 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %56 = tail call zeroext i1 @napi_schedule_prep(ptr noundef nonnull %55) #5
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %54
-  tail call void @__napi_schedule(ptr noundef %55) #5
+  tail call void @__napi_schedule(ptr noundef nonnull %55) #5
   br label %58
 
 58:                                               ; preds = %57, %54, %47, %46, %37
@@ -148,15 +148,15 @@ define dso_local noundef range(i32 -12, 1) i32 @gro_cells_init(ptr nocapture nou
   %20 = add i64 %19, %16
   %21 = inttoptr i64 %20 to ptr
   store ptr %21, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
-  %25 = getelementptr inbounds i8, ptr %21, i64 40
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %25, i32 32, ptr elementtype(i8) %25) #5, !srcloc !8
-  tail call void @netif_napi_add_weight(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @gro_cell_poll, i32 noundef 64) #5
-  tail call void @napi_enable(ptr noundef %24) #5
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 32, ptr nonnull elementtype(i8) %25) #5, !srcloc !8
+  tail call void @netif_napi_add_weight(ptr noundef %1, ptr noundef nonnull %24, ptr noundef nonnull @gro_cell_poll, i32 noundef 64) #5
+  tail call void @napi_enable(ptr noundef nonnull %24) #5
   %26 = add nuw nsw i64 %11, 1
   %27 = and i64 %26, 127
   %28 = icmp samesign ugt i64 %27, 63
@@ -193,9 +193,9 @@ define internal i32 @gro_cell_poll(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %15 = add i32 %14, -1
   store volatile i32 %15, ptr %6, align 8
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store volatile ptr %18, ptr %19, align 8
   store volatile ptr %16, ptr %18, align 8
@@ -244,9 +244,9 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, %15
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 24
-  tail call void @napi_disable(ptr noundef %21) #5
-  tail call void @__netif_napi_del(ptr noundef %21) #5
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  tail call void @napi_disable(ptr noundef nonnull %21) #5
+  tail call void @__netif_napi_del(ptr noundef nonnull %21) #5
   %22 = load ptr, ptr %20, align 8
   %23 = icmp eq ptr %22, %20
   %24 = icmp eq ptr %22, null
@@ -254,7 +254,7 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %20, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   br label %28
 
 28:                                               ; preds = %28, %26
@@ -263,9 +263,9 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
   %31 = add i32 %30, -1
   store volatile i32 %31, ptr %27, align 8
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store volatile ptr %34, ptr %35, align 8
   store volatile ptr %32, ptr %34, align 8
@@ -290,7 +290,7 @@ define dso_local void @gro_cells_destroy(ptr nocapture noundef %0) #0 align 16 {
 
 46:                                               ; preds = %.thread
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %47, ptr %48, align 8
   tail call void @call_rcu(ptr noundef nonnull %44, ptr noundef nonnull @percpu_free_defer_callback) #5
   br label %51
@@ -320,7 +320,7 @@ declare dso_local void @call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @percpu_free_defer_callback(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free_percpu(ptr noundef %3) #5
   tail call void @kfree(ptr noundef %0) #5

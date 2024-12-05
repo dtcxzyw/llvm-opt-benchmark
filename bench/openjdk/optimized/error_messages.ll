@@ -186,7 +186,7 @@ define hidden void @print_message(ptr nocapture noundef %0, ptr noundef %1, ptr 
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %6)
   %8 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 8704, ptr noundef readonly %3, ptr noundef nonnull %7) #10
-  %9 = getelementptr inbounds i8, ptr %5, i64 8703
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8703
   store i8 0, ptr %9, align 1
   %10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #11
   %11 = trunc i64 %10 to i32
@@ -214,7 +214,7 @@ define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %3)
   %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 8703
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8703
   store i8 0, ptr %7, align 1
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %9 = trunc i64 %8 to i32
@@ -224,7 +224,7 @@ define hidden void @error_message(ptr nocapture noundef readonly %0, ...) local_
   call void @llvm.lifetime.end.p0(i64 8704, ptr nonnull %3)
   call void @llvm.va_end.p0(ptr nonnull %4)
   %12 = load ptr, ptr @gdata, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 22
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 22
   %14 = load i8, ptr %13, align 2
   %.not = icmp eq i8 %14, 0
   br i1 %.not, label %17, label %15
@@ -557,7 +557,7 @@ define hidden void @tty_message(ptr nocapture noundef readonly %0, ...) local_un
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8704, ptr nonnull %3)
   %6 = call i32 @vsnprintf(ptr noundef nonnull %2, i64 noundef 8704, ptr noundef readonly %0, ptr noundef nonnull %4) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 8703
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8703
   store i8 0, ptr %7, align 1
   %8 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
   %9 = trunc i64 %8 to i32
@@ -577,7 +577,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define hidden void @jdiAssertionFailed(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gdata, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 528
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 528
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 8
   %.not = icmp eq i32 %7, 0
@@ -596,7 +596,7 @@ define hidden void @jdiAssertionFailed(ptr noundef %0, i32 noundef %1, ptr nound
   br i1 %.not5, label %17, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 18
   %14 = load i8, ptr %13, align 2
   %.not6 = icmp eq i8 %14, 0
   br i1 %.not6, label %17, label %15
@@ -623,7 +623,7 @@ define hidden noundef nonnull ptr @eventText(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [22 x ptr], ptr @switch.table.eventText, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [22 x ptr], ptr @switch.table.eventText, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

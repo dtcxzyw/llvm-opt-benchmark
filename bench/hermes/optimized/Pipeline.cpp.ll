@@ -49,18 +49,18 @@ define hidden noundef zeroext i1 @_ZN6hermes27runCustomOptimizationPassesERNS_6M
 entry:
   %PM = alloca %"class.hermes::PassManager", align 8
   %P = alloca %"class.std::__cxx11::basic_string", align 8
-  %Ctx.i = getelementptr inbounds i8, ptr %M, i64 40
+  %Ctx.i = getelementptr inbounds nuw i8, ptr %M, i64 40
   %0 = load ptr, ptr %Ctx.i, align 8
-  %codeGenerationSettings_.i = getelementptr inbounds i8, ptr %0, i64 240
+  %codeGenerationSettings_.i = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @_ZN6hermes11PassManagerC1ERKNS_22CodeGenerationSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %PM, ptr noundef nonnull align 8 dereferenceable(392) %codeGenerationSettings_.i) #8
   %1 = load ptr, ptr %Opts, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %Opts, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %Opts, i64 8
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not8 = icmp eq ptr %1, %2
   br i1 %cmp.i.not8, label %for.end, label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.09, i64 32
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.09, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -130,7 +130,7 @@ if.then:                                          ; preds = %if.end.i552
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i: ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br label %_ZN6hermes11PassManager6addDCEEv.exit
@@ -154,7 +154,7 @@ if.then6:                                         ; preds = %if.end.i543
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i91: ; preds = %if.then6
   %vtable.i.i.i92 = load ptr, ptr %4, align 8
-  %vfn.i.i.i93 = getelementptr inbounds i8, ptr %vtable.i.i.i92, i64 8
+  %vfn.i.i.i93 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i92, i64 8
   %5 = load ptr, ptr %vfn.i.i.i93, align 8
   call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   br label %_ZN6hermes11PassManager14addFuncSigOptsEv.exit
@@ -187,7 +187,7 @@ if.then16:                                        ; preds = %if.end.i525
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i96: ; preds = %if.then16
   %vtable.i.i.i97 = load ptr, ptr %8, align 8
-  %vfn.i.i.i98 = getelementptr inbounds i8, ptr %vtable.i.i.i97, i64 8
+  %vfn.i.i.i98 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i97, i64 8
   %9 = load ptr, ptr %vfn.i.i.i98, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(32) %8) #8
   br label %_ZN6hermes11PassManager13addCodeMotionEv.exit
@@ -211,7 +211,7 @@ if.then21:                                        ; preds = %if.end.i516
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i101: ; preds = %if.then21
   %vtable.i.i.i102 = load ptr, ptr %11, align 8
-  %vfn.i.i.i103 = getelementptr inbounds i8, ptr %vtable.i.i.i102, i64 8
+  %vfn.i.i.i103 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i102, i64 8
   %12 = load ptr, ptr %vfn.i.i.i103, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   br label %_ZN6hermes11PassManager10addMem2RegEv.exit
@@ -235,7 +235,7 @@ if.then26:                                        ; preds = %if.end.i507
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i106: ; preds = %if.then26
   %vtable.i.i.i107 = load ptr, ptr %14, align 8
-  %vfn.i.i.i108 = getelementptr inbounds i8, ptr %vtable.i.i.i107, i64 8
+  %vfn.i.i.i108 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i107, i64 8
   %15 = load ptr, ptr %vfn.i.i.i108, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(32) %14) #8
   br label %_ZN6hermes11PassManager15addInstSimplifyEv.exit
@@ -268,7 +268,7 @@ if.then36:                                        ; preds = %if.end.i489
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i111: ; preds = %if.then36
   %vtable.i.i.i112 = load ptr, ptr %18, align 8
-  %vfn.i.i.i113 = getelementptr inbounds i8, ptr %vtable.i.i.i112, i64 8
+  %vfn.i.i.i113 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i112, i64 8
   %19 = load ptr, ptr %vfn.i.i.i113, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(32) %18) #8
   br label %_ZN6hermes11PassManager17addStackPromotionEv.exit
@@ -292,7 +292,7 @@ if.then41:                                        ; preds = %if.end.i480
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i116: ; preds = %if.then41
   %vtable.i.i.i117 = load ptr, ptr %21, align 8
-  %vfn.i.i.i118 = getelementptr inbounds i8, ptr %vtable.i.i.i117, i64 8
+  %vfn.i.i.i118 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i117, i64 8
   %22 = load ptr, ptr %vfn.i.i.i118, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(32) %21) #8
   br label %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit
@@ -316,7 +316,7 @@ if.then46:                                        ; preds = %if.end.i471
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i121: ; preds = %if.then46
   %vtable.i.i.i122 = load ptr, ptr %24, align 8
-  %vfn.i.i.i123 = getelementptr inbounds i8, ptr %vtable.i.i.i122, i64 8
+  %vfn.i.i.i123 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i122, i64 8
   %25 = load ptr, ptr %vfn.i.i.i123, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(32) %24) #8
   br label %_ZN6hermes11PassManager16addTypeInferenceEv.exit
@@ -340,7 +340,7 @@ if.then51:                                        ; preds = %if.end.i462
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i126: ; preds = %if.then51
   %vtable.i.i.i127 = load ptr, ptr %27, align 8
-  %vfn.i.i.i128 = getelementptr inbounds i8, ptr %vtable.i.i.i127, i64 8
+  %vfn.i.i.i128 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i127, i64 8
   %28 = load ptr, ptr %vfn.i.i.i128, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(32) %27) #8
   br label %_ZN6hermes11PassManager11addInliningEv.exit
@@ -373,7 +373,7 @@ if.then61:                                        ; preds = %if.end.i444
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i131: ; preds = %if.then61
   %vtable.i.i.i132 = load ptr, ptr %31, align 8
-  %vfn.i.i.i133 = getelementptr inbounds i8, ptr %vtable.i.i.i132, i64 8
+  %vfn.i.i.i133 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i132, i64 8
   %32 = load ptr, ptr %vfn.i.i.i133, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(32) %31) #8
   br label %_ZN6hermes11PassManager22addHoistStartGeneratorEv.exit
@@ -397,7 +397,7 @@ if.then66:                                        ; preds = %if.end.i435
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i136: ; preds = %if.then66
   %vtable.i.i.i137 = load ptr, ptr %34, align 8
-  %vfn.i.i.i138 = getelementptr inbounds i8, ptr %vtable.i.i.i137, i64 8
+  %vfn.i.i.i138 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i137, i64 8
   %35 = load ptr, ptr %vfn.i.i.i138, align 8
   call void %35(ptr noundef nonnull align 8 dereferenceable(32) %34) #8
   br label %_ZN6hermes11PassManager10addAuditorEv.exit
@@ -421,7 +421,7 @@ if.then71:                                        ; preds = %if.end.i
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i141: ; preds = %if.then71
   %vtable.i.i.i142 = load ptr, ptr %37, align 8
-  %vfn.i.i.i143 = getelementptr inbounds i8, ptr %vtable.i.i.i142, i64 8
+  %vfn.i.i.i143 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i142, i64 8
   %38 = load ptr, ptr %vfn.i.i.i143, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
   br label %_ZN6hermes11PassManager11addTDZDedupEv.exit
@@ -472,12 +472,12 @@ entry:
   %agg.tmp.i5 = alloca %"class.std::unique_ptr.108", align 8
   %agg.tmp.i = alloca %"class.std::unique_ptr.108", align 8
   %PM = alloca %"class.hermes::PassManager", align 8
-  %Ctx.i = getelementptr inbounds i8, ptr %M, i64 40
+  %Ctx.i = getelementptr inbounds nuw i8, ptr %M, i64 40
   %0 = load ptr, ptr %Ctx.i, align 8
-  %codeGenerationSettings_.i = getelementptr inbounds i8, ptr %0, i64 240
+  %codeGenerationSettings_.i = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @_ZN6hermes11PassManagerC1ERKNS_22CodeGenerationSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %PM, ptr noundef nonnull align 8 dereferenceable(392) %codeGenerationSettings_.i) #8
   %1 = load ptr, ptr %Ctx.i, align 8
-  %enableBlockScoping = getelementptr inbounds i8, ptr %1, i64 249
+  %enableBlockScoping = getelementptr inbounds nuw i8, ptr %1, i64 249
   %2 = load i8, ptr %enableBlockScoping, align 1
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -485,14 +485,14 @@ entry:
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #9, !noalias !4
-  %kind.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %kind.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 0, ptr %kind.i.i.i.i.i, align 8, !noalias !4
-  %name2.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %name2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store ptr @.str.15, ptr %name2.i.i.i.i.i, align 8, !noalias !4
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store i64 11, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes11ScopeMergerE, i64 16), ptr %call.i.i, align 8, !noalias !4
-  %mergedMap_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %mergedMap_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %mergedMap_.i.i.i, i8 0, i64 20, i1 false), !noalias !4
   store ptr %call.i.i, ptr %agg.tmp.i, align 8
   call void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(32) %PM, ptr noundef nonnull %agg.tmp.i) #8
@@ -502,7 +502,7 @@ if.then:                                          ; preds = %entry
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i: ; preds = %if.then
   %vtable.i.i.i = load ptr, ptr %3, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   br label %_ZN6hermes11PassManager7addPassINS_11ScopeMergerEJEEEvDpOT0_.exit
@@ -521,7 +521,7 @@ if.end:                                           ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i7: ; preds = %if.end
   %vtable.i.i.i8 = load ptr, ptr %5, align 8
-  %vfn.i.i.i9 = getelementptr inbounds i8, ptr %vtable.i.i.i8, i64 8
+  %vfn.i.i.i9 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i8, i64 8
   %6 = load ptr, ptr %vfn.i.i.i9, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   br label %_ZN6hermes11PassManager15addInstSimplifyEv.exit
@@ -537,7 +537,7 @@ _ZN6hermes11PassManager15addInstSimplifyEv.exit:  ; preds = %if.end, %_ZNKSt14de
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i12: ; preds = %_ZN6hermes11PassManager15addInstSimplifyEv.exit
   %vtable.i.i.i13 = load ptr, ptr %7, align 8
-  %vfn.i.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i.i13, i64 8
+  %vfn.i.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i13, i64 8
   %8 = load ptr, ptr %vfn.i.i.i14, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(32) %7) #8
   br label %_ZN6hermes11PassManager23addResolveStaticRequireEv.exit
@@ -553,7 +553,7 @@ _ZN6hermes11PassManager23addResolveStaticRequireEv.exit: ; preds = %_ZN6hermes11
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i17: ; preds = %_ZN6hermes11PassManager23addResolveStaticRequireEv.exit
   %vtable.i.i.i18 = load ptr, ptr %9, align 8
-  %vfn.i.i.i19 = getelementptr inbounds i8, ptr %vtable.i.i.i18, i64 8
+  %vfn.i.i.i19 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i18, i64 8
   %10 = load ptr, ptr %vfn.i.i.i19, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(32) %9) #8
   br label %_ZN6hermes11PassManager6addDCEEv.exit
@@ -569,7 +569,7 @@ _ZN6hermes11PassManager6addDCEEv.exit:            ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i22: ; preds = %_ZN6hermes11PassManager6addDCEEv.exit
   %vtable.i.i.i23 = load ptr, ptr %11, align 8
-  %vfn.i.i.i24 = getelementptr inbounds i8, ptr %vtable.i.i.i23, i64 8
+  %vfn.i.i.i24 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i23, i64 8
   %12 = load ptr, ptr %vfn.i.i.i24, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(32) %11) #8
   br label %_ZN6hermes11PassManager16addTypeInferenceEv.exit
@@ -585,7 +585,7 @@ _ZN6hermes11PassManager16addTypeInferenceEv.exit: ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i27: ; preds = %_ZN6hermes11PassManager16addTypeInferenceEv.exit
   %vtable.i.i.i28 = load ptr, ptr %13, align 8
-  %vfn.i.i.i29 = getelementptr inbounds i8, ptr %vtable.i.i.i28, i64 8
+  %vfn.i.i.i29 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i28, i64 8
   %14 = load ptr, ptr %vfn.i.i.i29, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(32) %13) #8
   br label %_ZN6hermes11PassManager14addSimplifyCFGEv.exit
@@ -601,7 +601,7 @@ _ZN6hermes11PassManager14addSimplifyCFGEv.exit:   ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i32: ; preds = %_ZN6hermes11PassManager14addSimplifyCFGEv.exit
   %vtable.i.i.i33 = load ptr, ptr %15, align 8
-  %vfn.i.i.i34 = getelementptr inbounds i8, ptr %vtable.i.i.i33, i64 8
+  %vfn.i.i.i34 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i33, i64 8
   %16 = load ptr, ptr %vfn.i.i.i34, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
   br label %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit
@@ -617,7 +617,7 @@ _ZN6hermes11PassManager23addSimpleStackPromotionEv.exit: ; preds = %_ZN6hermes11
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i37: ; preds = %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit
   %vtable.i.i.i38 = load ptr, ptr %17, align 8
-  %vfn.i.i.i39 = getelementptr inbounds i8, ptr %vtable.i.i.i38, i64 8
+  %vfn.i.i.i39 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i38, i64 8
   %18 = load ptr, ptr %vfn.i.i.i39, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(32) %17) #8
   br label %_ZN6hermes11PassManager10addMem2RegEv.exit
@@ -633,7 +633,7 @@ _ZN6hermes11PassManager10addMem2RegEv.exit:       ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i42: ; preds = %_ZN6hermes11PassManager10addMem2RegEv.exit
   %vtable.i.i.i43 = load ptr, ptr %19, align 8
-  %vfn.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i43, i64 8
+  %vfn.i.i.i44 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i43, i64 8
   %20 = load ptr, ptr %vfn.i.i.i44, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(32) %19) #8
   br label %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit45
@@ -649,7 +649,7 @@ _ZN6hermes11PassManager23addSimpleStackPromotionEv.exit45: ; preds = %_ZN6hermes
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i48: ; preds = %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit45
   %vtable.i.i.i49 = load ptr, ptr %21, align 8
-  %vfn.i.i.i50 = getelementptr inbounds i8, ptr %vtable.i.i.i49, i64 8
+  %vfn.i.i.i50 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i49, i64 8
   %22 = load ptr, ptr %vfn.i.i.i50, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(32) %21) #8
   br label %_ZN6hermes11PassManager11addInliningEv.exit
@@ -665,7 +665,7 @@ _ZN6hermes11PassManager11addInliningEv.exit:      ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i53: ; preds = %_ZN6hermes11PassManager11addInliningEv.exit
   %vtable.i.i.i54 = load ptr, ptr %23, align 8
-  %vfn.i.i.i55 = getelementptr inbounds i8, ptr %vtable.i.i.i54, i64 8
+  %vfn.i.i.i55 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i54, i64 8
   %24 = load ptr, ptr %vfn.i.i.i55, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(32) %23) #8
   br label %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit56
@@ -681,7 +681,7 @@ _ZN6hermes11PassManager23addSimpleStackPromotionEv.exit56: ; preds = %_ZN6hermes
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i59: ; preds = %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit56
   %vtable.i.i.i60 = load ptr, ptr %25, align 8
-  %vfn.i.i.i61 = getelementptr inbounds i8, ptr %vtable.i.i.i60, i64 8
+  %vfn.i.i.i61 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i60, i64 8
   %26 = load ptr, ptr %vfn.i.i.i61, align 8
   call void %26(ptr noundef nonnull align 8 dereferenceable(32) %25) #8
   br label %_ZN6hermes11PassManager15addInstSimplifyEv.exit62
@@ -697,7 +697,7 @@ _ZN6hermes11PassManager15addInstSimplifyEv.exit62: ; preds = %_ZN6hermes11PassMa
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i65: ; preds = %_ZN6hermes11PassManager15addInstSimplifyEv.exit62
   %vtable.i.i.i66 = load ptr, ptr %27, align 8
-  %vfn.i.i.i67 = getelementptr inbounds i8, ptr %vtable.i.i.i66, i64 8
+  %vfn.i.i.i67 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i66, i64 8
   %28 = load ptr, ptr %vfn.i.i.i67, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(32) %27) #8
   br label %_ZN6hermes11PassManager6addDCEEv.exit68
@@ -713,7 +713,7 @@ _ZN6hermes11PassManager6addDCEEv.exit68:          ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i71: ; preds = %_ZN6hermes11PassManager6addDCEEv.exit68
   %vtable.i.i.i72 = load ptr, ptr %29, align 8
-  %vfn.i.i.i73 = getelementptr inbounds i8, ptr %vtable.i.i.i72, i64 8
+  %vfn.i.i.i73 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i72, i64 8
   %30 = load ptr, ptr %vfn.i.i.i73, align 8
   call void %30(ptr noundef nonnull align 8 dereferenceable(32) %29) #8
   br label %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit74
@@ -729,7 +729,7 @@ _ZN6hermes11PassManager23addSimpleStackPromotionEv.exit74: ; preds = %_ZN6hermes
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i77: ; preds = %_ZN6hermes11PassManager23addSimpleStackPromotionEv.exit74
   %vtable.i.i.i78 = load ptr, ptr %31, align 8
-  %vfn.i.i.i79 = getelementptr inbounds i8, ptr %vtable.i.i.i78, i64 8
+  %vfn.i.i.i79 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i78, i64 8
   %32 = load ptr, ptr %vfn.i.i.i79, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(32) %31) #8
   br label %_ZN6hermes11PassManager16addTypeInferenceEv.exit80
@@ -745,7 +745,7 @@ _ZN6hermes11PassManager16addTypeInferenceEv.exit80: ; preds = %_ZN6hermes11PassM
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i83: ; preds = %_ZN6hermes11PassManager16addTypeInferenceEv.exit80
   %vtable.i.i.i84 = load ptr, ptr %33, align 8
-  %vfn.i.i.i85 = getelementptr inbounds i8, ptr %vtable.i.i.i84, i64 8
+  %vfn.i.i.i85 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i84, i64 8
   %34 = load ptr, ptr %vfn.i.i.i85, align 8
   call void %34(ptr noundef nonnull align 8 dereferenceable(32) %33) #8
   br label %_ZN6hermes11PassManager6addCSEEv.exit
@@ -761,7 +761,7 @@ _ZN6hermes11PassManager6addCSEEv.exit:            ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i88: ; preds = %_ZN6hermes11PassManager6addCSEEv.exit
   %vtable.i.i.i89 = load ptr, ptr %35, align 8
-  %vfn.i.i.i90 = getelementptr inbounds i8, ptr %vtable.i.i.i89, i64 8
+  %vfn.i.i.i90 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i89, i64 8
   %36 = load ptr, ptr %vfn.i.i.i90, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(32) %35) #8
   br label %_ZN6hermes11PassManager14addSimplifyCFGEv.exit91
@@ -777,7 +777,7 @@ _ZN6hermes11PassManager14addSimplifyCFGEv.exit91: ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i94: ; preds = %_ZN6hermes11PassManager14addSimplifyCFGEv.exit91
   %vtable.i.i.i95 = load ptr, ptr %37, align 8
-  %vfn.i.i.i96 = getelementptr inbounds i8, ptr %vtable.i.i.i95, i64 8
+  %vfn.i.i.i96 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i95, i64 8
   %38 = load ptr, ptr %vfn.i.i.i96, align 8
   call void %38(ptr noundef nonnull align 8 dereferenceable(32) %37) #8
   br label %_ZN6hermes11PassManager15addInstSimplifyEv.exit97
@@ -793,7 +793,7 @@ _ZN6hermes11PassManager15addInstSimplifyEv.exit97: ; preds = %_ZN6hermes11PassMa
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i100: ; preds = %_ZN6hermes11PassManager15addInstSimplifyEv.exit97
   %vtable.i.i.i101 = load ptr, ptr %39, align 8
-  %vfn.i.i.i102 = getelementptr inbounds i8, ptr %vtable.i.i.i101, i64 8
+  %vfn.i.i.i102 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i101, i64 8
   %40 = load ptr, ptr %vfn.i.i.i102, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(32) %39) #8
   br label %_ZN6hermes11PassManager14addFuncSigOptsEv.exit
@@ -809,7 +809,7 @@ _ZN6hermes11PassManager14addFuncSigOptsEv.exit:   ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i105: ; preds = %_ZN6hermes11PassManager14addFuncSigOptsEv.exit
   %vtable.i.i.i106 = load ptr, ptr %41, align 8
-  %vfn.i.i.i107 = getelementptr inbounds i8, ptr %vtable.i.i.i106, i64 8
+  %vfn.i.i.i107 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i106, i64 8
   %42 = load ptr, ptr %vfn.i.i.i107, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(32) %41) #8
   br label %_ZN6hermes11PassManager6addDCEEv.exit108
@@ -825,7 +825,7 @@ _ZN6hermes11PassManager6addDCEEv.exit108:         ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i111: ; preds = %_ZN6hermes11PassManager6addDCEEv.exit108
   %vtable.i.i.i112 = load ptr, ptr %43, align 8
-  %vfn.i.i.i113 = getelementptr inbounds i8, ptr %vtable.i.i.i112, i64 8
+  %vfn.i.i.i113 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i112, i64 8
   %44 = load ptr, ptr %vfn.i.i.i113, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(32) %43) #8
   br label %_ZN6hermes11PassManager14addSimplifyCFGEv.exit114
@@ -841,7 +841,7 @@ _ZN6hermes11PassManager14addSimplifyCFGEv.exit114: ; preds = %_ZN6hermes11PassMa
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i117: ; preds = %_ZN6hermes11PassManager14addSimplifyCFGEv.exit114
   %vtable.i.i.i118 = load ptr, ptr %45, align 8
-  %vfn.i.i.i119 = getelementptr inbounds i8, ptr %vtable.i.i.i118, i64 8
+  %vfn.i.i.i119 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i118, i64 8
   %46 = load ptr, ptr %vfn.i.i.i119, align 8
   call void %46(ptr noundef nonnull align 8 dereferenceable(32) %45) #8
   br label %_ZN6hermes11PassManager10addMem2RegEv.exit120
@@ -857,7 +857,7 @@ _ZN6hermes11PassManager10addMem2RegEv.exit120:    ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i123: ; preds = %_ZN6hermes11PassManager10addMem2RegEv.exit120
   %vtable.i.i.i124 = load ptr, ptr %47, align 8
-  %vfn.i.i.i125 = getelementptr inbounds i8, ptr %vtable.i.i.i124, i64 8
+  %vfn.i.i.i125 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i124, i64 8
   %48 = load ptr, ptr %vfn.i.i.i125, align 8
   call void %48(ptr noundef nonnull align 8 dereferenceable(32) %47) #8
   br label %_ZN6hermes11PassManager10addAuditorEv.exit
@@ -873,7 +873,7 @@ _ZN6hermes11PassManager10addAuditorEv.exit:       ; preds = %_ZN6hermes11PassMan
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i128: ; preds = %_ZN6hermes11PassManager10addAuditorEv.exit
   %vtable.i.i.i129 = load ptr, ptr %49, align 8
-  %vfn.i.i.i130 = getelementptr inbounds i8, ptr %vtable.i.i.i129, i64 8
+  %vfn.i.i.i130 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i129, i64 8
   %50 = load ptr, ptr %vfn.i.i.i130, align 8
   call void %50(ptr noundef nonnull align 8 dereferenceable(32) %49) #8
   br label %_ZN6hermes11PassManager16addTypeInferenceEv.exit131
@@ -889,7 +889,7 @@ _ZN6hermes11PassManager16addTypeInferenceEv.exit131: ; preds = %_ZN6hermes11Pass
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i134: ; preds = %_ZN6hermes11PassManager16addTypeInferenceEv.exit131
   %vtable.i.i.i135 = load ptr, ptr %51, align 8
-  %vfn.i.i.i136 = getelementptr inbounds i8, ptr %vtable.i.i.i135, i64 8
+  %vfn.i.i.i136 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i135, i64 8
   %52 = load ptr, ptr %vfn.i.i.i136, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(32) %51) #8
   br label %_ZN6hermes11PassManager22addHoistStartGeneratorEv.exit
@@ -913,7 +913,7 @@ entry:
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
@@ -934,7 +934,7 @@ entry:
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
@@ -955,7 +955,7 @@ entry:
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i: ; preds = %entry
   %vtable.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %1 = load ptr, ptr %vfn.i.i, align 8
   call void %1(ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   br label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
@@ -971,9 +971,9 @@ entry:
   %agg.tmp.i2 = alloca %"class.std::unique_ptr.108", align 8
   %agg.tmp.i = alloca %"class.std::unique_ptr.108", align 8
   %PM = alloca %"class.hermes::PassManager", align 8
-  %Ctx.i = getelementptr inbounds i8, ptr %M, i64 40
+  %Ctx.i = getelementptr inbounds nuw i8, ptr %M, i64 40
   %0 = load ptr, ptr %Ctx.i, align 8
-  %codeGenerationSettings_.i = getelementptr inbounds i8, ptr %0, i64 240
+  %codeGenerationSettings_.i = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @_ZN6hermes11PassManagerC1ERKNS_22CodeGenerationSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %PM, ptr noundef nonnull align 8 dereferenceable(392) %codeGenerationSettings_.i) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   call void @_ZN6hermes18createInstSimplifyEv(ptr nonnull sret(%"class.std::unique_ptr.108") align 8 %agg.tmp.i) #8
@@ -984,7 +984,7 @@ entry:
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i: ; preds = %entry
   %vtable.i.i.i = load ptr, ptr %1, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(32) %1) #8
   br label %_ZN6hermes11PassManager15addInstSimplifyEv.exit
@@ -1000,7 +1000,7 @@ _ZN6hermes11PassManager15addInstSimplifyEv.exit:  ; preds = %entry, %_ZNKSt14def
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i4: ; preds = %_ZN6hermes11PassManager15addInstSimplifyEv.exit
   %vtable.i.i.i5 = load ptr, ptr %3, align 8
-  %vfn.i.i.i6 = getelementptr inbounds i8, ptr %vtable.i.i.i5, i64 8
+  %vfn.i.i.i6 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i5, i64 8
   %4 = load ptr, ptr %vfn.i.i.i6, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
   br label %_ZN6hermes11PassManager23addResolveStaticRequireEv.exit
@@ -1016,7 +1016,7 @@ _ZN6hermes11PassManager23addResolveStaticRequireEv.exit: ; preds = %_ZN6hermes11
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i9: ; preds = %_ZN6hermes11PassManager23addResolveStaticRequireEv.exit
   %vtable.i.i.i10 = load ptr, ptr %5, align 8
-  %vfn.i.i.i11 = getelementptr inbounds i8, ptr %vtable.i.i.i10, i64 8
+  %vfn.i.i.i11 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i10, i64 8
   %6 = load ptr, ptr %vfn.i.i.i11, align 8
   call void %6(ptr noundef nonnull align 8 dereferenceable(32) %5) #8
   br label %_ZN6hermes11PassManager22addHoistStartGeneratorEv.exit

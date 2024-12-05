@@ -64,20 +64,20 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3GLU7forwardERKNS_3MatERS
 
 .lr.ph557.preheader:                              ; preds = %13
   %22 = zext nneg i32 %16 to i64
-  %invariant.gep622 = getelementptr inbounds float, ptr %19, i64 %22
+  %invariant.gep624 = getelementptr inbounds nuw float, ptr %19, i64 %22
   br label %.lr.ph557
 
 .lr.ph557:                                        ; preds = %.lr.ph557.preheader, %.lr.ph557
   %indvars.iv606 = phi i64 [ 0, %.lr.ph557.preheader ], [ %indvars.iv.next607, %.lr.ph557 ]
-  %gep623 = getelementptr inbounds float, ptr %invariant.gep622, i64 %indvars.iv606
-  %23 = load float, ptr %gep623, align 4
+  %gep625 = getelementptr inbounds nuw float, ptr %invariant.gep624, i64 %indvars.iv606
+  %23 = load float, ptr %gep625, align 4
   %24 = fneg fast float %23
   %25 = tail call fast float @llvm.exp.f32(float %24)
   %26 = fadd fast float %25, 1.000000e+00
-  %27 = getelementptr inbounds float, ptr %19, i64 %indvars.iv606
+  %27 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv606
   %28 = load float, ptr %27, align 4
   %29 = fdiv fast float %28, %26
-  %30 = getelementptr inbounds float, ptr %20, i64 %indvars.iv606
+  %30 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv606
   store float %29, ptr %30, align 4
   %indvars.iv.next607 = add nuw nsw i64 %indvars.iv606, 1
   %exitcond610.not = icmp eq i64 %indvars.iv.next607, %22
@@ -106,20 +106,20 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3GLU7forwardERKNS_3MatERS
 
 .lr.ph554.preheader:                              ; preds = %34
   %46 = zext nneg i32 %42 to i64
-  %invariant.gep620 = getelementptr inbounds float, ptr %43, i64 %46
+  %invariant.gep622 = getelementptr inbounds nuw float, ptr %43, i64 %46
   br label %.lr.ph554
 
 .lr.ph554:                                        ; preds = %.lr.ph554.preheader, %.lr.ph554
   %indvars.iv601 = phi i64 [ 0, %.lr.ph554.preheader ], [ %indvars.iv.next602, %.lr.ph554 ]
-  %gep621 = getelementptr inbounds float, ptr %invariant.gep620, i64 %indvars.iv601
-  %47 = load float, ptr %gep621, align 4
+  %gep623 = getelementptr inbounds nuw float, ptr %invariant.gep622, i64 %indvars.iv601
+  %47 = load float, ptr %gep623, align 4
   %48 = fneg fast float %47
   %49 = tail call fast float @llvm.exp.f32(float %48)
   %50 = fadd fast float %49, 1.000000e+00
-  %51 = getelementptr inbounds float, ptr %43, i64 %indvars.iv601
+  %51 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv601
   %52 = load float, ptr %51, align 4
   %53 = fdiv fast float %52, %50
-  %54 = getelementptr inbounds float, ptr %44, i64 %indvars.iv601
+  %54 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv601
   store float %53, ptr %54, align 4
   %indvars.iv.next602 = add nuw nsw i64 %indvars.iv601, 1
   %exitcond605.not = icmp eq i64 %indvars.iv.next602, %46
@@ -170,20 +170,20 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3GLU7forwardERKNS_3MatERS
   br i1 %69, label %.lr.ph547.preheader, label %._crit_edge548
 
 .lr.ph547.preheader:                              ; preds = %71
-  %invariant.gep618 = getelementptr inbounds float, ptr %78, i64 %70
+  %invariant.gep620 = getelementptr inbounds nuw float, ptr %78, i64 %70
   br label %.lr.ph547
 
 .lr.ph547:                                        ; preds = %.lr.ph547.preheader, %.lr.ph547
   %indvars.iv591 = phi i64 [ 0, %.lr.ph547.preheader ], [ %indvars.iv.next592, %.lr.ph547 ]
-  %gep619 = getelementptr inbounds float, ptr %invariant.gep618, i64 %indvars.iv591
-  %86 = load float, ptr %gep619, align 4
+  %gep621 = getelementptr inbounds nuw float, ptr %invariant.gep620, i64 %indvars.iv591
+  %86 = load float, ptr %gep621, align 4
   %87 = fneg fast float %86
   %88 = tail call fast float @llvm.exp.f32(float %87)
   %89 = fadd fast float %88, 1.000000e+00
-  %90 = getelementptr inbounds float, ptr %78, i64 %indvars.iv591
+  %90 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv591
   %91 = load float, ptr %90, align 4
   %92 = fdiv fast float %91, %89
-  %93 = getelementptr inbounds float, ptr %85, i64 %indvars.iv591
+  %93 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv591
   store float %92, ptr %93, align 4
   %indvars.iv.next592 = add nuw nsw i64 %indvars.iv591, 1
   %exitcond595.not = icmp eq i64 %indvars.iv.next592, %70
@@ -245,20 +245,20 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3GLU7forwardERKNS_3MatERS
   br i1 %115, label %.lr.ph540.preheader, label %._crit_edge541
 
 .lr.ph540.preheader:                              ; preds = %117
-  %invariant.gep616 = getelementptr float, ptr %123, i64 %116
+  %invariant.gep618 = getelementptr float, ptr %123, i64 %116
   br label %.lr.ph540
 
 .lr.ph540:                                        ; preds = %.lr.ph540.preheader, %.lr.ph540
   %indvars.iv581 = phi i64 [ 0, %.lr.ph540.preheader ], [ %indvars.iv.next582, %.lr.ph540 ]
-  %gep617 = getelementptr float, ptr %invariant.gep616, i64 %indvars.iv581
-  %130 = load float, ptr %gep617, align 4
+  %gep619 = getelementptr float, ptr %invariant.gep618, i64 %indvars.iv581
+  %130 = load float, ptr %gep619, align 4
   %131 = fneg fast float %130
   %132 = tail call fast float @llvm.exp.f32(float %131)
   %133 = fadd fast float %132, 1.000000e+00
-  %134 = getelementptr inbounds float, ptr %123, i64 %indvars.iv581
+  %134 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv581
   %135 = load float, ptr %134, align 4
   %136 = fdiv fast float %135, %133
-  %137 = getelementptr inbounds float, ptr %129, i64 %indvars.iv581
+  %137 = getelementptr inbounds nuw float, ptr %129, i64 %indvars.iv581
   store float %136, ptr %137, align 4
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
@@ -315,20 +315,20 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3GLU7forwardERKNS_3MatERS
   br i1 %155, label %.lr.ph534.preheader, label %._crit_edge
 
 .lr.ph534.preheader:                              ; preds = %157
-  %invariant.gep = getelementptr inbounds float, ptr %163, i64 %156
+  %invariant.gep616 = getelementptr inbounds nuw float, ptr %163, i64 %156
   br label %.lr.ph534
 
 .lr.ph534:                                        ; preds = %.lr.ph534.preheader, %.lr.ph534
   %indvars.iv571 = phi i64 [ 0, %.lr.ph534.preheader ], [ %indvars.iv.next572, %.lr.ph534 ]
-  %gep = getelementptr inbounds float, ptr %invariant.gep, i64 %indvars.iv571
-  %170 = load float, ptr %gep, align 4
+  %gep617 = getelementptr inbounds nuw float, ptr %invariant.gep616, i64 %indvars.iv571
+  %170 = load float, ptr %gep617, align 4
   %171 = fneg fast float %170
   %172 = tail call fast float @llvm.exp.f32(float %171)
   %173 = fadd fast float %172, 1.000000e+00
-  %174 = getelementptr inbounds float, ptr %163, i64 %indvars.iv571
+  %174 = getelementptr inbounds nuw float, ptr %163, i64 %indvars.iv571
   %175 = load float, ptr %174, align 4
   %176 = fdiv fast float %175, %173
-  %177 = getelementptr inbounds float, ptr %169, i64 %indvars.iv571
+  %177 = getelementptr inbounds nuw float, ptr %169, i64 %indvars.iv571
   store float %176, ptr %177, align 4
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next572, %156
@@ -392,33 +392,33 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3GLU7forwardERKNS_3MatERS
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.0362530.us = phi i32 [ %226, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.0363529.us = phi ptr [ %225, %._crit_edge.us ], [ %212, %.preheader.us.preheader ]
-  %.0364528.us = phi ptr [ %224, %._crit_edge.us ], [ %206, %.preheader.us.preheader ]
+  %.0362530.us = phi i32 [ %224, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.0363529.us = phi ptr [ %223, %._crit_edge.us ], [ %212, %.preheader.us.preheader ]
+  %.0364528.us = phi ptr [ %222, %._crit_edge.us ], [ %206, %.preheader.us.preheader ]
+  %invariant.gep = getelementptr inbounds nuw float, ptr %.0364528.us, i64 %199
   br label %213
 
 213:                                              ; preds = %.preheader.us, %213
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %213 ]
-  %214 = add nuw nsw i64 %indvars.iv, %199
-  %215 = getelementptr inbounds float, ptr %.0364528.us, i64 %214
-  %216 = load float, ptr %215, align 4
-  %217 = fneg fast float %216
-  %218 = tail call fast float @llvm.exp.f32(float %217)
-  %219 = fadd fast float %218, 1.000000e+00
-  %220 = getelementptr inbounds float, ptr %.0364528.us, i64 %indvars.iv
-  %221 = load float, ptr %220, align 4
-  %222 = fdiv fast float %221, %219
-  %223 = getelementptr inbounds float, ptr %.0363529.us, i64 %indvars.iv
-  store float %222, ptr %223, align 4
+  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %214 = load float, ptr %gep, align 4
+  %215 = fneg fast float %214
+  %216 = tail call fast float @llvm.exp.f32(float %215)
+  %217 = fadd fast float %216, 1.000000e+00
+  %218 = getelementptr inbounds nuw float, ptr %.0364528.us, i64 %indvars.iv
+  %219 = load float, ptr %218, align 4
+  %220 = fdiv fast float %219, %217
+  %221 = getelementptr inbounds nuw float, ptr %.0363529.us, i64 %indvars.iv
+  store float %220, ptr %221, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %199
   br i1 %exitcond.not, label %._crit_edge.us, label %213, !llvm.loop !13
 
 ._crit_edge.us:                                   ; preds = %213
-  %224 = getelementptr inbounds float, ptr %.0364528.us, i64 %197
-  %225 = getelementptr inbounds float, ptr %.0363529.us, i64 %198
-  %226 = add nuw nsw i32 %.0362530.us, 1
-  %exitcond565.not = icmp eq i32 %226, %184
+  %222 = getelementptr inbounds nuw float, ptr %.0364528.us, i64 %197
+  %223 = getelementptr inbounds nuw float, ptr %.0363529.us, i64 %198
+  %224 = add nuw nsw i32 %.0362530.us, 1
+  %exitcond565.not = icmp eq i32 %224, %184
   br i1 %exitcond565.not, label %._crit_edge531, label %.preheader.us, !llvm.loop !14
 
 ._crit_edge531:                                   ; preds = %._crit_edge.us, %200

@@ -688,7 +688,7 @@ define internal i32 @dissect_ged125_base_messages(ptr noundef %0, ptr noundef %1
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #2
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4) #2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.246) #2
   %10 = load ptr, ptr %8, align 8

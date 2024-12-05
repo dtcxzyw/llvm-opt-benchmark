@@ -125,22 +125,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4pstd3pmr25monotonic_buffer_resource11do_allocateEmm(ptr nocapture noundef nonnull align 64 dereferenceable(48) %this, i64 noundef %bytes, i64 noundef %align) unnamed_addr #9 align 2 {
 entry:
-  %block_size = getelementptr inbounds i8, ptr %this, i64 16
+  %block_size = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %block_size, align 16
   %cmp = icmp ugt i64 %bytes, %0
   br i1 %cmp, label %_ZN4pstd3pmr15memory_resource8allocateEmm.exit, label %if.end
 
 _ZN4pstd3pmr15memory_resource8allocateEmm.exit:   ; preds = %entry
-  %upstream = getelementptr inbounds i8, ptr %this, i64 8
+  %upstream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %upstream, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %2 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %bytes, i64 noundef %align)
   br label %return
 
 if.end:                                           ; preds = %entry
-  %current_pos = getelementptr inbounds i8, ptr %this, i64 32
+  %current_pos = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load i64, ptr %current_pos, align 32
   %rem = urem i64 %3, %align
   %cmp2.not = icmp eq i64 %rem, 0
@@ -154,14 +154,14 @@ if.then3:                                         ; preds = %if.end
 
 do.end:                                           ; preds = %if.then3, %if.end
   %4 = phi i64 [ %add, %if.then3 ], [ %3, %if.end ]
-  %current = getelementptr inbounds i8, ptr %this, i64 24
+  %current = getelementptr inbounds nuw i8, ptr %this, i64 24
   %5 = load ptr, ptr %current, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.then12, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %do.end
   %add9 = add i64 %4, %bytes
-  %size = getelementptr inbounds i8, ptr %5, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i64, ptr %size, align 8
   %cmp11 = icmp ugt i64 %add9, %6
   br i1 %cmp11, label %if.then12, label %if.end17
@@ -172,23 +172,23 @@ if.then12:                                        ; preds = %lor.lhs.false, %do.
   br i1 %cmp.i.i, label %_ZN4pstd3pmr25monotonic_buffer_resource14allocate_blockEm.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then12
-  %upstream.i = getelementptr inbounds i8, ptr %this, i64 8
+  %upstream.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %7 = load ptr, ptr %upstream.i, align 8
   %vtable.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %add.i, i64 noundef 8)
   br label %_ZN4pstd3pmr25monotonic_buffer_resource14allocate_blockEm.exit
 
 _ZN4pstd3pmr25monotonic_buffer_resource14allocate_blockEm.exit: ; preds = %if.then12, %if.end.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end.i.i ], [ null, %if.then12 ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 24
   store ptr %add.ptr.i, ptr %retval.0.i.i, align 8
-  %size2.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %size2.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   store i64 %0, ptr %size2.i, align 8
-  %block_list.i = getelementptr inbounds i8, ptr %this, i64 40
+  %block_list.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %9 = load ptr, ptr %block_list.i, align 8
-  %next.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  %next.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 16
   store ptr %9, ptr %next.i, align 8
   store ptr %retval.0.i.i, ptr %block_list.i, align 8
   store ptr %retval.0.i.i, ptr %current, align 8
@@ -215,25 +215,25 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr dso_local void @_ZN4pstd3pmr25monotonic_buffer_resourceD2Ev(ptr noundef nonnull align 64 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 16), ptr %this, align 64
-  %block_list.i = getelementptr inbounds i8, ptr %this, i64 40
+  %block_list.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %block_list.i, align 8
   %tobool.not3.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i, label %invoke.cont, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %entry
-  %upstream.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %upstream.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %while.body.i
 
 while.body.i:                                     ; preds = %.noexc, %while.body.lr.ph.i
   %b.04.i = phi ptr [ %0, %while.body.lr.ph.i ], [ %1, %.noexc ]
-  %next2.i = getelementptr inbounds i8, ptr %b.04.i, i64 16
+  %next2.i = getelementptr inbounds nuw i8, ptr %b.04.i, i64 16
   %1 = load ptr, ptr %next2.i, align 8
   %2 = load ptr, ptr %upstream.i.i, align 8
-  %size.i.i = getelementptr inbounds i8, ptr %b.04.i, i64 8
+  %size.i.i = getelementptr inbounds nuw i8, ptr %b.04.i, i64 8
   %3 = load i64, ptr %size.i.i, align 8
   %add.i.i = add i64 %3, 24
   %vtable.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %b.04.i, i64 noundef %add.i.i, i64 noundef 16)
           to label %.noexc unwind label %terminate.lpad
@@ -244,7 +244,7 @@ while.body.i:                                     ; preds = %.noexc, %while.body
 
 invoke.cont:                                      ; preds = %.noexc, %entry
   store ptr null, ptr %block_list.i, align 8
-  %current.i = getelementptr inbounds i8, ptr %this, i64 24
+  %current.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %current.i, align 8
   ret void
 
@@ -260,25 +260,25 @@ terminate.lpad:                                   ; preds = %while.body.i
 define linkonce_odr dso_local void @_ZN4pstd3pmr25monotonic_buffer_resourceD0Ev(ptr noundef nonnull align 64 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 16), ptr %this, align 64
-  %block_list.i.i = getelementptr inbounds i8, ptr %this, i64 40
+  %block_list.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %block_list.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %0, null
   br i1 %tobool.not3.i.i, label %_ZN4pstd3pmr25monotonic_buffer_resourceD2Ev.exit, label %while.body.lr.ph.i.i
 
 while.body.lr.ph.i.i:                             ; preds = %entry
-  %upstream.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %upstream.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %.noexc.i, %while.body.lr.ph.i.i
   %b.04.i.i = phi ptr [ %0, %while.body.lr.ph.i.i ], [ %1, %.noexc.i ]
-  %next2.i.i = getelementptr inbounds i8, ptr %b.04.i.i, i64 16
+  %next2.i.i = getelementptr inbounds nuw i8, ptr %b.04.i.i, i64 16
   %1 = load ptr, ptr %next2.i.i, align 8
   %2 = load ptr, ptr %upstream.i.i.i, align 8
-  %size.i.i.i = getelementptr inbounds i8, ptr %b.04.i.i, i64 8
+  %size.i.i.i = getelementptr inbounds nuw i8, ptr %b.04.i.i, i64 8
   %3 = load i64, ptr %size.i.i.i, align 8
   %add.i.i.i = add i64 %3, 24
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %b.04.i.i, i64 noundef %add.i.i.i, i64 noundef 16)
           to label %.noexc.i unwind label %terminate.lpad.i
@@ -302,7 +302,7 @@ _ZN4pstd3pmr25monotonic_buffer_resourceD2Ev.exit: ; preds = %.noexc.i, %entry
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4pstd3pmr25monotonic_buffer_resource13do_deallocateEPvmm(ptr noundef nonnull align 64 dereferenceable(48) %this, ptr noundef %p, i64 noundef %bytes, i64 noundef %alignment) unnamed_addr #9 comdat align 2 {
 entry:
-  %block_size = getelementptr inbounds i8, ptr %this, i64 16
+  %block_size = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %block_size, align 16
   %cmp = icmp ule i64 %bytes, %0
   %tobool.not.i = icmp eq ptr %p, null
@@ -310,10 +310,10 @@ entry:
   br i1 %or.cond, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %upstream = getelementptr inbounds i8, ptr %this, i64 8
+  %upstream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %upstream, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %2 = load ptr, ptr %vfn.i, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %p, i64 noundef %bytes, i64 noundef 16)
   br label %if.end

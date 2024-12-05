@@ -116,7 +116,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define linkonce_odr void @_ZN3gmx22CommandLineHelpContext4ImplC2EPNS_10TextWriterENS_16HelpOutputFormatEPKNS_9HelpLinksE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   tail call void @_ZN3gmx17HelpWriterContextC1EPNS_10TextWriterENS_16HelpOutputFormatEPKNS_9HelpLinksE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
   %7 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %12
@@ -137,9 +137,9 @@ define linkonce_odr void @_ZN3gmx22CommandLineHelpContext4ImplC2EPNS_10TextWrite
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc5
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #18
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %11, align 8
   ret void
 
@@ -178,7 +178,7 @@ define linkonce_odr void @_ZNSt10unique_ptrIN3gmx22CommandLineHelpContext4ImplES
   br i1 %.not, label %4, label %_ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit
 
 _ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit: ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %2) #18
   tail call void @_ZdlPv(ptr noundef nonnull %2) #19
@@ -310,11 +310,11 @@ define void @_ZN3gmx22CommandLineHelpContextC2ERKNS_17HelpWriterContextE(ptr noc
           to label %4 unwind label %8
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
-  %6 = getelementptr inbounds i8, ptr %3, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 0, ptr %7, align 8
   store ptr %3, ptr %0, align 8
   ret void
@@ -343,7 +343,7 @@ define void @_ZN3gmx22CommandLineHelpContextC2EPNS_21ShellCompletionWriterE(ptr 
 
 6:                                                ; preds = %5
   store ptr %3, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %1, ptr %7, align 8
   ret void
 
@@ -364,8 +364,8 @@ define void @_ZN3gmx22CommandLineHelpContextC2ERKS0_(ptr nocapture noundef nonnu
           to label %.noexc unwind label %12
 
 .noexc:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %9 unwind label %7
 
@@ -376,8 +376,8 @@ define void @_ZN3gmx22CommandLineHelpContextC2ERKS0_(ptr nocapture noundef nonnu
   br label %.body
 
 9:                                                ; preds = %.noexc
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %10, ptr noundef nonnull align 8 dereferenceable(9) %11, i64 9, i1 false)
   store ptr %3, ptr %0, align 8
   ret void
@@ -416,7 +416,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx22CommandLineHelpC
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN3gmx22CommandLineHelpContext4ImplESt14default_deleteIS2_EEaSEOS5_.exit, label %_ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit.i.i.i.i: ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %4) #18
   tail call void @_ZdlPv(ptr noundef nonnull %4) #19
@@ -433,7 +433,7 @@ define void @_ZN3gmx22CommandLineHelpContextD2Ev(ptr nocapture noundef nonnull a
   br i1 %.not.i, label %_ZNSt10unique_ptrIN3gmx22CommandLineHelpContext4ImplESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN3gmx22CommandLineHelpContext4ImplEEclEPS2_.exit.i: ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   tail call void @_ZN3gmx17HelpWriterContextD1Ev(ptr noundef nonnull align 8 dereferenceable(49) %2) #18
   tail call void @_ZdlPv(ptr noundef nonnull %2) #19
@@ -488,7 +488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #18
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 
@@ -591,7 +591,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 define void @_ZN3gmx22CommandLineHelpContext13setShowHiddenEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 %3, ptr %5, align 8
   ret void
 }
@@ -614,7 +614,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx22CommandLineHelp
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZNK3gmx22CommandLineHelpContext17moduleDisplayNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   ret ptr %4
 }
@@ -625,7 +625,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx22CommandLineHelpContext10showHiddenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -634,7 +634,7 @@ define noundef zeroext i1 @_ZNK3gmx22CommandLineHelpContext10showHiddenEv(ptr no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx22CommandLineHelpContext18isCompletionExportEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
   ret i1 %5
@@ -643,7 +643,7 @@ define noundef zeroext i1 @_ZNK3gmx22CommandLineHelpContext18isCompletionExportE
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx22CommandLineHelpContext21shellCompletionWriterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6

@@ -42,9 +42,9 @@ declare void @decrRefCount(ptr noundef) local_unnamed_addr #1
 define dso_local void @lazyfreeFreeDatabase(ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %args, i64 16
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %2 = load ptr, ptr %arrayidx2, align 8
   %3 = load i32, ptr %2, align 4
   %cmp14 = icmp sgt i32 %3, 0
@@ -52,15 +52,15 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %entry ]
-  %arrayidx3 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %arrayidx3 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx3, align 8
-  %ht_used = getelementptr inbounds i8, ptr %4, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %4, i64 24
   %5 = load i64, ptr %ht_used, align 8
-  %arrayidx8 = getelementptr inbounds i8, ptr %4, i64 32
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i64, ptr %arrayidx8, align 8
   %add = add i64 %6, %5
   tail call void @dictRelease(ptr noundef %4) #5
-  %arrayidx12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx12, align 8
   tail call void @dictRelease(ptr noundef %7) #5
   %8 = atomicrmw sub ptr @lazyfree_objects, i64 %add monotonic, align 8
@@ -86,7 +86,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #1
 define dso_local void @lazyFreeTrackingTable(ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %numele = getelementptr inbounds i8, ptr %0, i64 8
+  %numele = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load i64, ptr %numele, align 8
   tail call void @freeTrackingRadixTree(ptr noundef %0) #5
   %2 = atomicrmw sub ptr @lazyfree_objects, i64 %1 monotonic, align 8
@@ -100,9 +100,9 @@ declare void @freeTrackingRadixTree(ptr noundef) local_unnamed_addr #1
 define dso_local void @lazyFreeLuaScripts(ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %ht_used = getelementptr inbounds i8, ptr %0, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %ht_used, align 8
-  %arrayidx3 = getelementptr inbounds i8, ptr %0, i64 32
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %arrayidx3, align 8
   %add = add i64 %2, %1
   tail call void @dictRelease(ptr noundef %0) #5
@@ -130,9 +130,9 @@ declare void @functionsLibCtxFree(ptr noundef) local_unnamed_addr #1
 define dso_local void @lazyFreeReplicationBacklogRefMem(ptr nocapture noundef readonly %args) #0 {
 entry:
   %0 = load ptr, ptr %args, align 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %args, i64 8
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %1 = load ptr, ptr %arrayidx1, align 8
-  %len2 = getelementptr inbounds i8, ptr %0, i64 40
+  %len2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = load i64, ptr %len2, align 8
   %call = tail call i64 @raxSize(ptr noundef %1) #5
   %add = add i64 %call, %2
@@ -184,37 +184,37 @@ entry:
   ]
 
 if.then:                                          ; preds = %entry
-  %ptr = getelementptr inbounds i8, ptr %obj, i64 8
+  %ptr = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %0 = load ptr, ptr %ptr, align 8
-  %len = getelementptr inbounds i8, ptr %0, i64 24
+  %len = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i64, ptr %len, align 8
   br label %return
 
 if.then12:                                        ; preds = %entry
-  %ptr13 = getelementptr inbounds i8, ptr %obj, i64 8
+  %ptr13 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %2 = load ptr, ptr %ptr13, align 8
-  %ht_used = getelementptr inbounds i8, ptr %2, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i64, ptr %ht_used, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %2, i64 32
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load i64, ptr %arrayidx15, align 8
   %add = add i64 %4, %3
   br label %return
 
 if.then25:                                        ; preds = %entry
-  %ptr26 = getelementptr inbounds i8, ptr %obj, i64 8
+  %ptr26 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %5 = load ptr, ptr %ptr26, align 8
-  %zsl = getelementptr inbounds i8, ptr %5, i64 8
+  %zsl = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load ptr, ptr %zsl, align 8
-  %length = getelementptr inbounds i8, ptr %6, i64 16
+  %length = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load i64, ptr %length, align 8
   br label %return
 
 if.then36:                                        ; preds = %entry
-  %ptr38 = getelementptr inbounds i8, ptr %obj, i64 8
+  %ptr38 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %8 = load ptr, ptr %ptr38, align 8
-  %ht_used39 = getelementptr inbounds i8, ptr %8, i64 24
+  %ht_used39 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %9 = load i64, ptr %ht_used39, align 8
-  %arrayidx42 = getelementptr inbounds i8, ptr %8, i64 32
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i64, ptr %arrayidx42, align 8
   %add43 = add i64 %10, %9
   br label %return
@@ -227,12 +227,12 @@ if.else44:                                        ; preds = %entry
   ]
 
 if.then48:                                        ; preds = %if.else44
-  %ptr49 = getelementptr inbounds i8, ptr %obj, i64 8
+  %ptr49 = getelementptr inbounds nuw i8, ptr %obj, i64 8
   %11 = load ptr, ptr %ptr49, align 8
   %12 = load ptr, ptr %11, align 8
-  %numnodes = getelementptr inbounds i8, ptr %12, i64 16
+  %numnodes = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load i64, ptr %numnodes, align 8
-  %cgroups = getelementptr inbounds i8, ptr %11, i64 72
+  %cgroups = getelementptr inbounds nuw i8, ptr %11, i64 72
   %14 = load ptr, ptr %cgroups, align 8
   %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %return, label %land.lhs.true51
@@ -256,11 +256,11 @@ cond.false:                                       ; preds = %if.then54
   unreachable
 
 cond.end:                                         ; preds = %if.then54
-  %data = getelementptr inbounds i8, ptr %ri, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %ri, i64 24
   %16 = load ptr, ptr %data, align 8
   %17 = load ptr, ptr %cgroups, align 8
   %call62 = call i64 @raxSize(ptr noundef %17) #5
-  %pel = getelementptr inbounds i8, ptr %16, i64 24
+  %pel = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %pel, align 8
   %call63 = call i64 @raxSize(ptr noundef %18) #5
   %add64 = add i64 %call63, 1
@@ -303,7 +303,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.else
 
 land.lhs.true:                                    ; preds = %entry
-  %refcount = getelementptr inbounds i8, ptr %obj, i64 4
+  %refcount = getelementptr inbounds nuw i8, ptr %obj, i64 4
   %0 = load i32, ptr %refcount, align 4
   %cmp1 = icmp eq i32 %0, 1
   br i1 %cmp1, label %if.then, label %if.else
@@ -326,21 +326,21 @@ declare void @bioCreateLazyFreeJob(ptr noundef, i32 noundef, ...) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @emptyDbAsync(ptr noundef %db) local_unnamed_addr #0 {
 entry:
-  %dict_count = getelementptr inbounds i8, ptr %db, i64 80
+  %dict_count = getelementptr inbounds nuw i8, ptr %db, i64 80
   %0 = load i32, ptr %dict_count, align 8
   %cmp21 = icmp sgt i32 %0, 0
   br i1 %cmp21, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %expires = getelementptr inbounds i8, ptr %db, i64 8
+  %expires = getelementptr inbounds nuw i8, ptr %db, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %db, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %2 = load ptr, ptr %arrayidx, align 8
-  %metadata1 = getelementptr inbounds i8, ptr %2, i64 56
+  %metadata1 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load ptr, ptr %metadata1, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -353,9 +353,9 @@ if.then:                                          ; preds = %for.body
 
 if.end:                                           ; preds = %if.then, %for.body
   %5 = load ptr, ptr %expires, align 8
-  %arrayidx5 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %arrayidx5 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx5, align 8
-  %metadata6 = getelementptr inbounds i8, ptr %6, i64 56
+  %metadata6 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %7 = load ptr, ptr %metadata6, align 8
   %tobool8.not = icmp eq ptr %7, null
   br i1 %tobool8.not, label %for.inc, label %if.then9
@@ -375,7 +375,7 @@ for.inc:                                          ; preds = %if.end, %if.then9
 
 for.end:                                          ; preds = %for.inc, %entry
   %11 = load ptr, ptr %db, align 8
-  %expires14 = getelementptr inbounds i8, ptr %db, i64 8
+  %expires14 = getelementptr inbounds nuw i8, ptr %db, i64 8
   %12 = load ptr, ptr %expires14, align 8
   %call = tail call i64 @dbSize(ptr noundef nonnull %db, i32 noundef 0) #5
   %13 = atomicrmw add ptr @lazyfree_objects, i64 %call monotonic, align 8
@@ -404,13 +404,13 @@ declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeTrackingRadixTreeAsync(ptr noundef %tracking) local_unnamed_addr #0 {
 entry:
-  %numnodes = getelementptr inbounds i8, ptr %tracking, i64 16
+  %numnodes = getelementptr inbounds nuw i8, ptr %tracking, i64 16
   %0 = load i64, ptr %numnodes, align 8
   %cmp = icmp ugt i64 %0, 64
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %numele = getelementptr inbounds i8, ptr %tracking, i64 8
+  %numele = getelementptr inbounds nuw i8, ptr %tracking, i64 8
   %1 = load i64, ptr %numele, align 8
   %2 = atomicrmw add ptr @lazyfree_objects, i64 %1 monotonic, align 8
   tail call void (ptr, i32, ...) @bioCreateLazyFreeJob(ptr noundef nonnull @lazyFreeTrackingTable, i32 noundef 1, ptr noundef nonnull %tracking) #5
@@ -427,9 +427,9 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeLuaScriptsAsync(ptr noundef %lua_scripts) local_unnamed_addr #0 {
 entry:
-  %ht_used = getelementptr inbounds i8, ptr %lua_scripts, i64 24
+  %ht_used = getelementptr inbounds nuw i8, ptr %lua_scripts, i64 24
   %0 = load i64, ptr %ht_used, align 8
-  %arrayidx2 = getelementptr inbounds i8, ptr %lua_scripts, i64 32
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %lua_scripts, i64 32
   %1 = load i64, ptr %arrayidx2, align 8
   %add = add i64 %1, %0
   %cmp = icmp ugt i64 %add, 64
@@ -472,7 +472,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: nounwind uwtable
 define dso_local void @freeReplicationBacklogRefMemAsync(ptr noundef %blocks, ptr noundef %index) local_unnamed_addr #0 {
 entry:
-  %len = getelementptr inbounds i8, ptr %blocks, i64 40
+  %len = getelementptr inbounds nuw i8, ptr %blocks, i64 40
   %0 = load i64, ptr %len, align 8
   %cmp = icmp ugt i64 %0, 64
   br i1 %cmp, label %if.then, label %lor.lhs.false

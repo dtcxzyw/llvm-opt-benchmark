@@ -26,7 +26,7 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   br label %.loopexit.thread
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %2, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %2, align 4
   %25 = load i32, ptr %1, align 4
@@ -52,7 +52,7 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %33 = load i32, ptr %gep86, align 4
   %34 = sext i32 %33 to i64
   %35 = mul nsw i64 %.06887, %34
-  %36 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv109
+  %36 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv109
   %37 = load i32, ptr %36, align 4
   %38 = call i32 @PMPI_Type_create_hvector(i32 noundef %37, i32 noundef 1, i64 noundef %35, ptr noundef %32, ptr noundef nonnull %13) #2
   %39 = call i32 @PMPI_Type_free(ptr noundef nonnull %12) #2
@@ -81,7 +81,7 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %45 = load i32, ptr %gep91, align 4
   %46 = sext i32 %45 to i64
   %47 = mul nsw i64 %.16994, %46
-  %48 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv112
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv112
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %47, %50
@@ -113,7 +113,7 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %67 = getelementptr inbounds i32, ptr %1, i64 %64
   %68 = load i32, ptr %67, align 4
   %69 = call i32 @PMPI_Type_vector(i32 noundef %62, i32 noundef %66, i32 noundef %68, ptr noundef %5, ptr noundef nonnull %12) #2
-  %invariant.gep = getelementptr inbounds i8, ptr %1, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %70 = icmp sgt i32 %0, 2
   br i1 %70, label %.lr.ph.preheader, label %.loopexit77
 
@@ -131,11 +131,11 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %77 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %85, %.lr.ph ]
   %indvars.iv = phi i64 [ %76, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.27078 = phi i64 [ %75, %.lr.ph.preheader ], [ %80, %.lr.ph ]
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
   %78 = load i32, ptr %gep, align 4
   %79 = sext i32 %78 to i64
   %80 = mul nsw i64 %.27078, %79
-  %81 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4
   %83 = call i32 @PMPI_Type_create_hvector(i32 noundef %82, i32 noundef 1, i64 noundef %80, ptr noundef %77, ptr noundef nonnull %13) #2
   %84 = call i32 @PMPI_Type_free(ptr noundef nonnull %12) #2
@@ -150,7 +150,7 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %87 = getelementptr i8, ptr %86, i64 -4
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %invariant.gep80 = getelementptr inbounds i8, ptr %1, i64 4
+  %invariant.gep80 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %90 = icmp sgt i32 %0, 1
   br i1 %90, label %.lr.ph84.preheader, label %.loopexit
 
@@ -163,11 +163,11 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
   %indvars.iv106 = phi i64 [ %92, %.lr.ph84.preheader ], [ %indvars.iv.next107, %.lr.ph84 ]
   %.37182 = phi i64 [ 1, %.lr.ph84.preheader ], [ %96, %.lr.ph84 ]
   %93 = phi i64 [ %89, %.lr.ph84.preheader ], [ %101, %.lr.ph84 ]
-  %gep81 = getelementptr inbounds i32, ptr %invariant.gep80, i64 %indvars.iv106
+  %gep81 = getelementptr inbounds nuw i32, ptr %invariant.gep80, i64 %indvars.iv106
   %94 = load i32, ptr %gep81, align 4
   %95 = sext i32 %94 to i64
   %96 = mul nsw i64 %.37182, %95
-  %97 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
+  %97 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv106
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
   %100 = mul nsw i64 %96, %99
@@ -201,7 +201,7 @@ define noundef i32 @ADIO_Type_create_subarray(i32 noundef %0, ptr nocapture noun
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv117 = phi i64 [ 0, %.lr.ph100.preheader ], [ %indvars.iv.next118, %.lr.ph100 ]
   %.07298 = phi i64 [ %108, %.lr.ph100.preheader ], [ %112, %.lr.ph100 ]
-  %109 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv117
+  %109 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv117
   %110 = load i32, ptr %109, align 4
   %111 = sext i32 %110 to i64
   %112 = mul nsw i64 %.07298, %111

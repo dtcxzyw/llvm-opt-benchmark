@@ -125,7 +125,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_create_ex(pt
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.thread, label %27
@@ -584,7 +584,7 @@ uv_once.exit:                                     ; preds = %2
   br label %uv__custom_sem_init.exit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %8, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %16 = call i32 @pthread_condattr_init(ptr noundef nonnull %3) #10
   %.not.i.i = icmp eq i32 %16, 0
@@ -607,7 +607,7 @@ uv_once.exit:                                     ; preds = %2
 
 uv_cond_init.exit.thread.i:                       ; preds = %21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  %23 = getelementptr inbounds i8, ptr %8, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store i32 %1, ptr %23, align 8
   store ptr %8, ptr %0, align 8
   br label %uv__custom_sem_init.exit
@@ -661,13 +661,13 @@ define internal void @glibc_version_check() #0 {
   br i1 %3, label %4, label %13
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 46
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = tail call i32 @atoi(ptr nocapture noundef nonnull %9) #13
   %11 = icmp slt i32 %10, 21
   %12 = zext i1 %11 to i32
@@ -687,7 +687,7 @@ define dso_local void @uv_sem_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %.val = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %.val, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %5 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %4) #10
   %.not.i.i = icmp eq i32 %5, 0
   br i1 %.not.i.i, label %uv_cond_destroy.exit.i, label %6
@@ -739,7 +739,7 @@ define dso_local void @uv_sem_post(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 uv_mutex_lock.exit.i:                             ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %.val, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 8
@@ -747,7 +747,7 @@ uv_mutex_lock.exit.i:                             ; preds = %3
   br i1 %9, label %10, label %uv_cond_signal.exit.i
 
 10:                                               ; preds = %uv_mutex_lock.exit.i
-  %11 = getelementptr inbounds i8, ptr %.val, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   %12 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %11) #10
   %.not.i6.i = icmp eq i32 %12, 0
   br i1 %.not.i6.i, label %uv_cond_signal.exit.i, label %13
@@ -791,8 +791,8 @@ define dso_local void @uv_sem_wait(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i.i, label %uv_mutex_lock.exit.preheader.i, label %7
 
 uv_mutex_lock.exit.preheader.i:                   ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %.val, i64 88
-  %6 = getelementptr inbounds i8, ptr %.val, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %.val, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %.val, i64 40
   br label %uv_mutex_lock.exit.i
 
 7:                                                ; preds = %3
@@ -865,7 +865,7 @@ define dso_local range(i32 -11, 1) i32 @uv_sem_trywait(ptr noundef %0) local_unn
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %.val, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %.val, i64 88
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %13
@@ -1050,7 +1050,7 @@ define dso_local range(i32 -110, 1) i32 @uv_cond_timedwait(ptr noundef %0, ptr n
   %7 = udiv i64 %6, 1000000000
   store i64 %7, ptr %4, align 8
   %8 = urem i64 %6, 1000000000
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %8, ptr %9, align 8
   %10 = call i32 @pthread_cond_timedwait(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4) #10
   switch i32 %10, label %12 [

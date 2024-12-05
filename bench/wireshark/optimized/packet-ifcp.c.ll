@@ -284,7 +284,7 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %7, label %120, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.45) #2
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12) #2
@@ -411,7 +411,7 @@ define internal i32 @dissect_ifcp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %106
 
 106:                                              ; preds = %94, %66
-  %107 = getelementptr inbounds i8, ptr %5, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 0, ptr %107, align 4
   switch i8 %.0145, label %109 [
     i8 46, label %.sink.split

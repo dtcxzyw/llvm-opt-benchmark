@@ -130,25 +130,25 @@ define void @s_p_hashtbl_destroy(ptr noundef %0) #0 {
 .preheader8:                                      ; preds = %1, %._crit_edge17
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %._crit_edge17 ], [ 0, %1 ]
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 64
-  %6 = getelementptr inbounds [173 x ptr], ptr %5, i64 0, i64 %indvars.iv24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %6 = getelementptr inbounds nuw [173 x ptr], ptr %5, i64 0, i64 %indvars.iv24
   %7 = load ptr, ptr %6, align 8
   %.not713 = icmp eq ptr %7, null
   br i1 %.not713, label %._crit_edge17, label %.lr.ph16
 
 .lr.ph16:                                         ; preds = %.preheader8, %_conf_file_values_free.exit
   %8 = phi ptr [ %10, %_conf_file_values_free.exit ], [ %7, %.preheader8 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %8, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %14, label %_conf_file_values_free.exit
 
 14:                                               ; preds = %.lr.ph16
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load i32, ptr %15, align 8
   switch i32 %16, label %56 [
     i32 7, label %.lr.ph11
@@ -159,12 +159,12 @@ define void @s_p_hashtbl_destroy(ptr noundef %0) #0 {
 .lr.ph11:                                         ; preds = %14, %26
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %26 ], [ 0, %14 ]
   %17 = phi ptr [ %27, %26 ], [ %8, %14 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %indvars.iv21
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv21
   br i1 %.not.i, label %25, label %23
 
 23:                                               ; preds = %.lr.ph11
@@ -179,62 +179,62 @@ define void @s_p_hashtbl_destroy(ptr noundef %0) #0 {
 26:                                               ; preds = %25, %23
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next22, %30
   br i1 %31, label %.lr.ph11, label %._crit_edge12, !llvm.loop !6
 
 ._crit_edge12:                                    ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %27, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
   call void @slurm_xfree(ptr noundef nonnull %32) #14
   br label %_conf_file_values_free.exit
 
 33:                                               ; preds = %14, %14
-  %34 = getelementptr inbounds i8, ptr %8, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8
   call void @s_p_hashtbl_destroy(ptr noundef %36)
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8
   call void @s_p_hashtbl_destroy(ptr noundef %38)
   %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %33
-  %43 = getelementptr inbounds i8, ptr %35, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 16
   br label %44
 
 44:                                               ; preds = %.lr.ph, %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %44 ]
   %45 = load ptr, ptr %43, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   call void @s_p_hashtbl_destroy(ptr noundef %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
   %52 = icmp slt i64 %indvars.iv.next, %51
   br i1 %52, label %44, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %44, %33
-  %53 = getelementptr inbounds i8, ptr %35, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @slurm_xfree(ptr noundef nonnull %53) #14
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   call void @slurm_xfree(ptr noundef nonnull %55) #14
   br label %_conf_file_values_free.exit
 
 56:                                               ; preds = %14
-  %57 = getelementptr inbounds i8, ptr %8, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %58 = load ptr, ptr %57, align 8
   %.not14.i = icmp eq ptr %58, null
-  %59 = getelementptr inbounds i8, ptr %8, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br i1 %.not14.i, label %62, label %60
 
 60:                                               ; preds = %56
@@ -281,8 +281,8 @@ define range(i32 -1, 1) i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture read
   br i1 %.not, label %13, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %11 = load i32, ptr %9, align 8
   %12 = load i32, ptr %10, align 4
   %.not193437 = icmp eq i32 %11, %12
@@ -352,7 +352,7 @@ define range(i32 -1, 1) i32 @s_p_parse_buffer(ptr noundef %0, ptr nocapture read
 
 40:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %41 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i64
   %44 = getelementptr inbounds i16, ptr %38, i64 %43
@@ -489,7 +489,7 @@ define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %30, label %32, label %.preheader75
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %13, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %36, label %40
@@ -519,7 +519,7 @@ define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr 
   %.not.i.i = icmp eq ptr %1, null
   %48 = and i32 %3, 2
   %.not34.i = icmp eq i32 %48, 0
-  %49 = getelementptr inbounds i8, ptr %11, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.not36.i = icmp eq ptr %4, null
   %50 = and i64 %16, 4
   %.not48 = icmp eq i64 %50, 0
@@ -562,7 +562,7 @@ define range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr 
 62:                                               ; preds = %73, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %73 ]
   %storemerge18.lcssa23.i.i = phi i32 [ %.promoted22.i.i, %.lr.ph.i.i ], [ %storemerge.i.i, %73 ]
-  %63 = getelementptr inbounds i8, ptr %.01940.i, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.01940.i, i64 %indvars.iv.i.i
   %64 = load i8, ptr %63, align 1
   %65 = sext i8 %64 to i32
   %66 = shl nsw i32 %65, 8
@@ -600,7 +600,7 @@ _compute_hash_val.exit.i:                         ; preds = %73, %58, %.lr.ph.i
 .lr.ph.i23.i:                                     ; preds = %84, %.lr.ph.preheader.i.i
   %indvars.iv.i24.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i25.i, %84 ]
   %.015.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %.1.i.i, %84 ]
-  %77 = getelementptr inbounds i8, ptr %.01940.i, i64 %indvars.iv.i24.i
+  %77 = getelementptr inbounds nuw i8, ptr %.01940.i, i64 %indvars.iv.i24.i
   %78 = load i8, ptr %77, align 1
   %79 = icmp eq i8 %78, 35
   %80 = and i32 %.015.i.i, 1
@@ -609,7 +609,7 @@ _compute_hash_val.exit.i:                         ; preds = %73, %58, %.lr.ph.i
   br i1 %or.cond.i.i, label %82, label %84
 
 82:                                               ; preds = %.lr.ph.i23.i
-  %83 = getelementptr inbounds i8, ptr %.01940.i, i64 %indvars.iv.i24.i
+  %83 = getelementptr inbounds nuw i8, ptr %.01940.i, i64 %indvars.iv.i24.i
   store i8 0, ptr %83, align 1
   br label %_strip_comments.exit.i
 
@@ -673,7 +673,7 @@ _strip_comments.exit.i:                           ; preds = %84, %82, %_compute_
 
 109:                                              ; preds = %._crit_edge.i.i
   %110 = zext nneg i32 %.0.lcssa.i.i to i64
-  %111 = getelementptr inbounds i8, ptr %.019.lcssa.i.i, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %.019.lcssa.i.i, i64 %110
   store i8 0, ptr %111, align 1
   %112 = ptrtoint ptr %111 to i64
   %113 = ptrtoint ptr %.01940.i to i64
@@ -713,7 +713,7 @@ _strip_continuation.exit.thread.i:                ; preds = %117, %_strip_contin
   %129 = sext i32 %spec.select.i.i to i64
   %130 = getelementptr inbounds i8, ptr %52, i64 %129
   %131 = load i8, ptr %130, align 1
-  %132 = getelementptr inbounds i8, ptr %52, i64 %indvars.iv.i33.i
+  %132 = getelementptr inbounds nuw i8, ptr %52, i64 %indvars.iv.i33.i
   store i8 %131, ptr %132, align 1
   %133 = add nsw i32 %spec.select.i.i, 1
   %indvars.iv.next.i34.i = add nuw nsw i64 %indvars.iv.i33.i, 1
@@ -745,7 +745,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
   br i1 %143, label %144, label %_parse_include_directive.exit
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %136, i64 7
+  %145 = getelementptr inbounds nuw i8, ptr %136, i64 7
   %146 = tail call ptr @__ctype_b_loc() #16
   %147 = load ptr, ptr %146, align 8
   %148 = load i8, ptr %145, align 1
@@ -764,7 +764,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
   %156 = load i16, ptr %155, align 2
   %157 = and i16 %156, 8192
   %.not31.i = icmp eq i16 %157, 0
-  %158 = getelementptr inbounds i8, ptr %.027.i, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %.027.i, i64 1
   br i1 %.not31.i, label %.preheader, label %.preheader74, !llvm.loop !21
 
 .preheader:                                       ; preds = %.preheader74, %.preheader
@@ -775,7 +775,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
   %162 = load i16, ptr %161, align 2
   %163 = and i16 %162, 8192
   %.not32.i = icmp eq i16 %163, 0
-  %164 = getelementptr inbounds i8, ptr %.1.i52, i64 1
+  %164 = getelementptr inbounds nuw i8, ptr %.1.i52, i64 1
   br i1 %.not32.i, label %.preheader, label %165, !llvm.loop !22
 
 165:                                              ; preds = %.preheader
@@ -814,7 +814,7 @@ _get_next_line.exit:                              ; preds = %.lr.ph.i32.i, %_str
 180:                                              ; preds = %176
   store i8 0, ptr %172, align 1
   %181 = load ptr, ptr %7, align 8
-  %182 = getelementptr inbounds i8, ptr %172, i64 2
+  %182 = getelementptr inbounds nuw i8, ptr %172, i64 2
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.48, ptr noundef %181, ptr noundef nonnull %182) #14
   call void @slurm_xfree(ptr noundef nonnull %7) #14
   %183 = load ptr, ptr %6, align 8
@@ -974,7 +974,7 @@ _parse_include_directive.exit:                    ; preds = %141, %144
 
 237:                                              ; preds = %236, %.lr.ph.i54
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i54 ], [ %indvars.iv.next.i, %236 ]
-  %238 = getelementptr inbounds i8, ptr %228, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw i8, ptr %228, i64 %indvars.iv.i
   %239 = load i8, ptr %238, align 1
   %240 = sext i8 %239 to i64
   %241 = getelementptr inbounds i16, ptr %235, i64 %240
@@ -1059,7 +1059,7 @@ define range(i32 0, 2) i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %3
   %.not.i = icmp eq ptr %0, null
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %.not.i, label %.loopexit, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %34
@@ -1076,7 +1076,7 @@ define range(i32 0, 2) i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr n
   %15 = call i32 @tolower(i32 noundef %14) #15
   %16 = mul i32 %.08.i.i, 31
   %17 = add i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %19 = load i8, ptr %18, align 1
   %.not.i.i = icmp eq i8 %19, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -1088,7 +1088,7 @@ define range(i32 0, 2) i32 @s_p_parse_line(ptr noundef %0, ptr noundef %1, ptr n
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %.lr.ph.split
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.split ], [ %21, %._crit_edge.loopexit.i.i ]
-  %22 = getelementptr inbounds [173 x ptr], ptr %10, i64 0, i64 %.0.lcssa.i.i
+  %22 = getelementptr inbounds nuw [173 x ptr], ptr %10, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %22, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -1101,14 +1101,14 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %25, label %_conf_hashtbl_lookup.exit, label %26
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %27, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %28 = load i32, ptr %7, align 4
-  %29 = getelementptr inbounds i8, ptr %.014.i, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %.014.i, i64 12
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %6, align 8
@@ -1150,13 +1150,13 @@ define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %or.cond, label %.preheader, label %.loopexit43
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
 8:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
   %.02646 = load ptr, ptr %9, align 8
   %.not47 = icmp eq ptr %.02646, null
   br i1 %.not47, label %._crit_edge, label %.lr.ph
@@ -1164,13 +1164,13 @@ define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
 .lr.ph:                                           ; preds = %8, %.backedge
   %.02649 = phi ptr [ %.026, %.backedge ], [ %.02646, %8 ]
   %.02748 = phi ptr [ %.027.be, %.backedge ], [ %9, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.02649, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.02649, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.02649, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.02649, i64 48
   br label %.backedge
 
 .backedge:                                        ; preds = %41, %_conf_hashtbl_insert.exit, %13
@@ -1193,7 +1193,7 @@ define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
   %20 = tail call i32 @tolower(i32 noundef %19) #15
   %21 = mul i32 %.08.i.i, 31
   %22 = add i32 %20, %21
-  %23 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %24 = load i8, ptr %23, align 1
   %.not.i.i = icmp eq i8 %24, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -1205,7 +1205,7 @@ define void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %15
   %.0.lcssa.i.i = phi i64 [ 0, %15 ], [ %26, %._crit_edge.loopexit.i.i ]
-  %27 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
+  %27 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %27, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -1218,22 +1218,22 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %30, label %_conf_hashtbl_lookup.exit, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %32, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
-  %33 = getelementptr inbounds i8, ptr %.014.i, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %34 = load i32, ptr %33, align 8
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %_conf_hashtbl_lookup.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  %37 = getelementptr inbounds i8, ptr %.02649, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.02649, i64 48
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %40 = load ptr, ptr %39, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %.02649, i64 56, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02649, ptr noundef nonnull align 8 dereferenceable(56) %.014.i, i64 48, i1 false)
@@ -1244,11 +1244,11 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br label %41
 
 41:                                               ; preds = %36, %_conf_hashtbl_lookup.exit
-  %42 = getelementptr inbounds i8, ptr %.02649, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.02649, i64 48
   br label %.backedge
 
 .loopexit:                                        ; preds = %31, %_conf_hashtbl_index.exit.i
-  %43 = getelementptr inbounds i8, ptr %.02649, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %.02649, i64 48
   %44 = load ptr, ptr %43, align 8
   store ptr %44, ptr %.02748, align 8
   store ptr null, ptr %43, align 8
@@ -1265,7 +1265,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %49 = tail call i32 @tolower(i32 noundef %48) #15
   %50 = mul i32 %.08.i.i35, 31
   %51 = add i32 %49, %50
-  %52 = getelementptr inbounds i8, ptr %.047.i.i36, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.047.i.i36, i64 1
   %53 = load i8, ptr %52, align 1
   %.not.i.i37 = icmp eq i8 %53, 0
   br i1 %.not.i.i37, label %._crit_edge.loopexit.i.i38, label %.lr.ph.i.i34, !llvm.loop !23
@@ -1277,7 +1277,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_edge.loopexit.i.i38
   %.0.lcssa.i.i40 = phi i64 [ 0, %.loopexit ], [ %55, %._crit_edge.loopexit.i.i38 ]
-  %56 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i40
+  %56 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i40
   %57 = load ptr, ptr %56, align 8
   store ptr %57, ptr %43, align 8
   store ptr %.02649, ptr %56, align 8
@@ -1310,7 +1310,7 @@ define range(i32 0, 2) i32 @s_p_get_string(ptr nocapture noundef writeonly %0, p
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1322,8 +1322,8 @@ define range(i32 0, 2) i32 @s_p_get_string(ptr nocapture noundef writeonly %0, p
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1336,7 +1336,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1346,7 +1346,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 1
   br i1 %.not12.i, label %27, label %25
@@ -1356,13 +1356,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @xstrdup(ptr noundef %32) #14
   store ptr %33, ptr %0, align 8
@@ -1391,7 +1391,7 @@ define range(i32 0, 2) i32 @s_p_get_long(ptr nocapture noundef writeonly %0, ptr
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1403,8 +1403,8 @@ define range(i32 0, 2) i32 @s_p_get_long(ptr nocapture noundef writeonly %0, ptr
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1417,7 +1417,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1427,7 +1427,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 2
   br i1 %.not12.i, label %27, label %25
@@ -1437,13 +1437,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %0, align 8
@@ -1472,7 +1472,7 @@ define range(i32 0, 2) i32 @s_p_get_uint16(ptr nocapture noundef writeonly %0, p
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1484,8 +1484,8 @@ define range(i32 0, 2) i32 @s_p_get_uint16(ptr nocapture noundef writeonly %0, p
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1498,7 +1498,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1508,7 +1508,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 3
   br i1 %.not12.i, label %27, label %25
@@ -1518,13 +1518,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i16, ptr %32, align 2
   store i16 %33, ptr %0, align 2
@@ -1553,7 +1553,7 @@ define range(i32 0, 2) i32 @s_p_get_uint32(ptr nocapture noundef writeonly %0, p
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1565,8 +1565,8 @@ define range(i32 0, 2) i32 @s_p_get_uint32(ptr nocapture noundef writeonly %0, p
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1579,7 +1579,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1589,7 +1589,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 4
   br i1 %.not12.i, label %27, label %25
@@ -1599,13 +1599,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %0, align 4
@@ -1634,7 +1634,7 @@ define range(i32 0, 2) i32 @s_p_get_uint64(ptr nocapture noundef writeonly %0, p
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1646,8 +1646,8 @@ define range(i32 0, 2) i32 @s_p_get_uint64(ptr nocapture noundef writeonly %0, p
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1660,7 +1660,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1670,7 +1670,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 5
   br i1 %.not12.i, label %27, label %25
@@ -1680,13 +1680,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i64, ptr %32, align 8
   store i64 %33, ptr %0, align 8
@@ -1715,7 +1715,7 @@ define range(i32 0, 2) i32 @s_p_get_float(ptr nocapture noundef writeonly %0, pt
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1727,8 +1727,8 @@ define range(i32 0, 2) i32 @s_p_get_float(ptr nocapture noundef writeonly %0, pt
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1741,7 +1741,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1751,7 +1751,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 12
   br i1 %.not12.i, label %27, label %25
@@ -1761,13 +1761,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load float, ptr %32, align 4
   store float %33, ptr %0, align 4
@@ -1796,7 +1796,7 @@ define range(i32 0, 2) i32 @s_p_get_double(ptr nocapture noundef writeonly %0, p
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1808,8 +1808,8 @@ define range(i32 0, 2) i32 @s_p_get_double(ptr nocapture noundef writeonly %0, p
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1822,7 +1822,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1832,7 +1832,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 13
   br i1 %.not12.i, label %27, label %25
@@ -1842,13 +1842,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load double, ptr %32, align 8
   store double %33, ptr %0, align 8
@@ -1877,7 +1877,7 @@ define range(i32 0, 2) i32 @s_p_get_long_double(ptr nocapture noundef writeonly 
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1889,8 +1889,8 @@ define range(i32 0, 2) i32 @s_p_get_long_double(ptr nocapture noundef writeonly 
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1903,7 +1903,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1913,7 +1913,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 14
   br i1 %.not12.i, label %27, label %25
@@ -1923,13 +1923,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load x86_fp80, ptr %32, align 16
   store x86_fp80 %33, ptr %0, align 16
@@ -1958,7 +1958,7 @@ define range(i32 0, 2) i32 @s_p_get_pointer(ptr nocapture noundef writeonly %0, 
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -1970,8 +1970,8 @@ define range(i32 0, 2) i32 @s_p_get_pointer(ptr nocapture noundef writeonly %0, 
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -1984,7 +1984,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -1994,7 +1994,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 6
   br i1 %.not12.i, label %27, label %25
@@ -2004,13 +2004,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %0, align 8
   br label %_get_check.exit.thread
@@ -2038,7 +2038,7 @@ define range(i32 0, 2) i32 @s_p_get_array(ptr nocapture noundef writeonly %0, pt
   %9 = tail call i32 @tolower(i32 noundef %8) #15
   %10 = mul i32 %.08.i.i.i, 31
   %11 = add i32 %9, %10
-  %12 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -2050,8 +2050,8 @@ define range(i32 0, 2) i32 @s_p_get_array(ptr nocapture noundef writeonly %0, pt
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %5
   %.0.lcssa.i.i.i = phi i64 [ 0, %5 ], [ %15, %._crit_edge.loopexit.i.i.i ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 64
-  %17 = getelementptr inbounds [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %17 = getelementptr inbounds nuw [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %17, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -2064,7 +2064,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %20, label %_conf_hashtbl_lookup.exit.i, label %21
 
 21:                                               ; preds = %.lr.ph.i.i
-  %22 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -2074,7 +2074,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %25 = load i32, ptr %24, align 8
   %.not12.i = icmp eq i32 %25, 7
   br i1 %.not12.i, label %28, label %26
@@ -2084,13 +2084,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 28:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %29 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %0, align 8
   %34 = load i32, ptr %29, align 8
@@ -2120,7 +2120,7 @@ define range(i32 0, 2) i32 @s_p_get_boolean(ptr nocapture noundef writeonly %0, 
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -2132,8 +2132,8 @@ define range(i32 0, 2) i32 @s_p_get_boolean(ptr nocapture noundef writeonly %0, 
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %4
   %.0.lcssa.i.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %16, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -2146,7 +2146,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %21, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -2156,7 +2156,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %24 = load i32, ptr %23, align 8
   %.not12.i = icmp eq i32 %24, 8
   br i1 %.not12.i, label %27, label %25
@@ -2166,13 +2166,13 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 27:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %28 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %32 = load ptr, ptr %31, align 8
   %33 = load i8, ptr %32, align 1
   %34 = and i8 %33, 1
@@ -2205,7 +2205,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
 .lr.ph:                                           ; preds = %2, %168
   %16 = phi ptr [ %170, %168 ], [ %15, %2 ]
   %.071 = phi ptr [ %169, %168 ], [ %1, %2 ]
-  %17 = getelementptr inbounds i8, ptr %.071, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.071, i64 8
   %18 = load i32, ptr %17, align 8
   switch i32 %18, label %168 [
     i32 1, label %19
@@ -2546,7 +2546,7 @@ define void @s_p_dump_values(ptr noundef %0, ptr nocapture noundef readonly %1) 
   br label %168
 
 168:                                              ; preds = %.lr.ph, %28, %29, %27, %39, %40, %35, %36, %51, %52, %46, %47, %62, %63, %58, %59, %73, %74, %69, %70, %85, %86, %80, %81, %96, %97, %92, %93, %107, %108, %103, %104, %118, %119, %114, %115, %131, %132, %125, %126, %143, %144, %138, %139, %154, %155, %150, %151, %165, %166, %161, %162
-  %169 = getelementptr inbounds i8, ptr %.071, i64 56
+  %169 = getelementptr inbounds nuw i8, ptr %.071, i64 56
   %170 = load ptr, ptr %169, align 8
   %.not = icmp eq ptr %170, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
@@ -2577,7 +2577,7 @@ define void @transfer_s_p_options(ptr noundef %0, ptr nocapture noundef readonly
   %10 = load ptr, ptr %.017, align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #14
   store ptr %11, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %.017, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %.017, i64 56
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !29
@@ -2608,7 +2608,7 @@ define ptr @s_p_hashtbl_create_cnt(ptr nocapture noundef readonly %0, ptr nounde
   br i1 %.not3335, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_conf_hashtbl_insert.exit
@@ -2626,25 +2626,25 @@ define ptr @s_p_hashtbl_create_cnt(ptr nocapture noundef readonly %0, ptr nounde
   %14 = load ptr, ptr %.036, align 8
   %15 = tail call ptr @xstrdup(ptr noundef %14) #14
   store ptr %15, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %.036, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %9, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.036, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %9, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.036, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.036, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %9, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %27, ptr %28, align 8
   %29 = load i32, ptr %17, align 8
   %.off = add i32 %29, -9
@@ -2653,14 +2653,14 @@ define ptr @s_p_hashtbl_create_cnt(ptr nocapture noundef readonly %0, ptr nounde
 
 30:                                               ; preds = %13
   %31 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 192, ptr noundef nonnull @__func__.s_p_hashtbl_create_cnt) #14
-  %32 = getelementptr inbounds i8, ptr %.036, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.036, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = tail call ptr @s_p_hashtbl_create_cnt(ptr noundef %33, ptr noundef null)
   store ptr %34, ptr %31, align 8
   %35 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 196, ptr noundef nonnull @__func__.s_p_hashtbl_create_cnt) #14
-  %36 = getelementptr inbounds i8, ptr %31, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %31, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr null, ptr %37, align 8
   store ptr %31, ptr %21, align 8
   %.pre = load ptr, ptr %9, align 8
@@ -2680,7 +2680,7 @@ define ptr @s_p_hashtbl_create_cnt(ptr nocapture noundef readonly %0, ptr nounde
   %43 = tail call i32 @tolower(i32 noundef %42) #15
   %44 = mul i32 %.08.i.i, 31
   %45 = add i32 %43, %44
-  %46 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %47 = load i8, ptr %46, align 1
   %.not.i.i = icmp eq i8 %47, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -2692,11 +2692,11 @@ define ptr @s_p_hashtbl_create_cnt(ptr nocapture noundef readonly %0, ptr nounde
 
 _conf_hashtbl_insert.exit:                        ; preds = %38, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %38 ], [ %49, %._crit_edge.loopexit.i.i ]
-  %50 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
+  %50 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %22, align 8
   store ptr %9, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.036, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %.036, i64 56
   %53 = load ptr, ptr %52, align 8
   %.not33 = icmp eq ptr %53, null
   br i1 %.not33, label %._crit_edge, label %8, !llvm.loop !30
@@ -2730,13 +2730,13 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @_hashtbl_copy_keys(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @__func__._hashtbl_copy_keys) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
-  %4 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 64
   br label %5
 
 5:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
-  %6 = getelementptr inbounds [173 x ptr], ptr %3, i64 0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [173 x ptr], ptr %3, i64 0, i64 %indvars.iv
   %.01921 = load ptr, ptr %6, align 8
   %.not2022 = icmp eq ptr %.01921, null
   br i1 %.not2022, label %._crit_edge, label %.lr.ph
@@ -2747,21 +2747,21 @@ define ptr @_hashtbl_copy_keys(ptr nocapture noundef readonly %0) local_unnamed_
   %8 = load ptr, ptr %.01923, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #14
   store ptr %9, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %.01923, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %.01923, i64 12
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %11, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %.01923, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01923, i64 8
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.01923, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.01923, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %.01923, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.01923, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %20, ptr %21, align 8
   %22 = load i8, ptr %9, align 1
   %.not6.i.i = icmp eq i8 %22, 0
@@ -2775,7 +2775,7 @@ define ptr @_hashtbl_copy_keys(ptr nocapture noundef readonly %0) local_unnamed_
   %25 = tail call i32 @tolower(i32 noundef %24) #15
   %26 = mul i32 %.08.i.i, 31
   %27 = add i32 %25, %26
-  %28 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %29 = load i8, ptr %28, align 1
   %.not.i.i = icmp eq i8 %29, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -2787,12 +2787,12 @@ define ptr @_hashtbl_copy_keys(ptr nocapture noundef readonly %0) local_unnamed_
 
 _conf_hashtbl_insert.exit:                        ; preds = %.lr.ph, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %31, %._crit_edge.loopexit.i.i ]
-  %32 = getelementptr inbounds [173 x ptr], ptr %4, i64 0, i64 %.0.lcssa.i.i
+  %32 = getelementptr inbounds nuw [173 x ptr], ptr %4, i64 0, i64 %.0.lcssa.i.i
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %7, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %33, ptr %34, align 8
   store ptr %7, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %.01923, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.01923, i64 48
   %.019 = load ptr, ptr %35, align 8
   %.not20 = icmp eq ptr %.019, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph, !llvm.loop !31
@@ -2834,20 +2834,20 @@ define internal fastcc range(i32 -1, 1) i32 @_keyvalue_regex(ptr noundef %0, ptr
   br label %59
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %7, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %16, %12
   %18 = sext i32 %17 to i64
   %19 = call ptr @xstrndup(ptr noundef %14, i64 noundef %18) #14
   store ptr %19, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load i32, ptr %20, align 16
   %.not36 = icmp eq i32 %21, -1
-  %22 = getelementptr inbounds i8, ptr %7, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %23 = load i32, ptr %22, align 4
   %.not37 = icmp eq i32 %21, %23
   %or.cond = select i1 %.not36, i1 true, i1 %.not37
@@ -2868,13 +2868,13 @@ switch.hole_check:                                ; preds = %24
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %29 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._keyvalue_regex, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table._keyvalue_regex, i64 0, i64 %29
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %5, align 4
   br label %30
 
 30:                                               ; preds = %switch.hole_check, %24, %switch.lookup, %10
-  %31 = getelementptr inbounds i8, ptr %7, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %32 = load i32, ptr %31, align 8
   %.not38 = icmp eq i32 %32, -1
   br i1 %.not38, label %41, label %33
@@ -2882,7 +2882,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 33:                                               ; preds = %30
   %34 = sext i32 %32 to i64
   %35 = getelementptr inbounds i8, ptr %1, i64 %34
-  %36 = getelementptr inbounds i8, ptr %7, i64 44
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %37, %32
   %39 = sext i32 %38 to i64
@@ -2890,7 +2890,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %54
 
 41:                                               ; preds = %30
-  %42 = getelementptr inbounds i8, ptr %7, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %43 = load i32, ptr %42, align 16
   %.not39 = icmp eq i32 %43, -1
   br i1 %.not39, label %52, label %44
@@ -2898,7 +2898,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 44:                                               ; preds = %41
   %45 = sext i32 %43 to i64
   %46 = getelementptr inbounds i8, ptr %1, i64 %45
-  %47 = getelementptr inbounds i8, ptr %7, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %48 = load i32, ptr %47, align 4
   %49 = sub nsw i32 %48, %43
   %50 = sext i32 %49 to i64
@@ -2912,7 +2912,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 54:                                               ; preds = %44, %52, %33
   %.sink42 = phi ptr [ %51, %44 ], [ %53, %52 ], [ %40, %33 ]
   store ptr %.sink42, ptr %3, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds i8, ptr %1, i64 %57
@@ -2929,7 +2929,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %143 [
     i32 0, label %_handle_common.exit
@@ -2949,7 +2949,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   ]
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %.not.i = icmp eq i32 %12, 0
   br i1 %.not.i, label %25, label %13
@@ -2974,19 +2974,19 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   br label %23
 
 23:                                               ; preds = %21, %18, %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %24) #14
   store i32 0, ptr %11, align 8
   br label %25
 
 25:                                               ; preds = %23, %10
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8
   %.not23.i = icmp eq ptr %27, null
   br i1 %.not23.i, label %36, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load i32, ptr %8, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = tail call i32 %27(ptr noundef nonnull %29, i32 noundef %30, ptr noundef %31, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
@@ -3000,7 +3000,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
 
 36:                                               ; preds = %25
   %37 = tail call ptr @xstrdup(ptr noundef %1) #14
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %37, ptr %38, align 8
   %.not24.i = icmp eq ptr %37, null
   br i1 %.not24.i, label %_handle_common.exit, label %39
@@ -3026,13 +3026,13 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   br label %_handle_common.exit
 
 48:                                               ; preds = %4
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
   %.not.i54 = icmp eq ptr %50, null
   br i1 %.not.i54, label %58, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load ptr, ptr %0, align 8
   %54 = tail call i32 %50(ptr noundef nonnull %52, i32 noundef 6, ptr noundef %53, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
   %.not21.i = icmp eq i32 %54, 1
@@ -3044,7 +3044,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   br label %_handle_common.exit
 
 58:                                               ; preds = %48
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i32, ptr %59, align 8
   %.not20.i = icmp eq i32 %60, 0
   br i1 %.not20.i, label %73, label %61
@@ -3069,25 +3069,25 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   br label %71
 
 71:                                               ; preds = %69, %66, %63
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %72) #14
   store i32 0, ptr %59, align 8
   br label %73
 
 73:                                               ; preds = %71, %58
   %74 = tail call ptr @xstrdup(ptr noundef %1) #14
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %74, ptr %75, align 8
   br label %76
 
 76:                                               ; preds = %73, %51
-  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 1, ptr %77, align 8
   br label %_handle_common.exit
 
 78:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8
   %.not.i56 = icmp eq ptr %80, null
   br i1 %.not.i56, label %87, label %81
@@ -3109,11 +3109,11 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_keyvalue_match(ptr noundef 
   br label %89
 
 89:                                               ; preds = %87, %81
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %90, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = sext i32 %92 to i64
   %95 = shl nsw i64 %94, 3
   %96 = call ptr @slurm_xrecalloc(ptr noundef nonnull %93, i64 noundef 1, i64 noundef %95, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 686, ptr noundef nonnull @__func__._handle_array) #14
@@ -3136,7 +3136,7 @@ _handle_array.exit:                               ; preds = %84, %89
   br label %_handle_common.exit
 
 104:                                              ; preds = %4
-  %105 = getelementptr inbounds i8, ptr %0, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @_hashtbl_copy_keys(ptr noundef %107)
@@ -3165,7 +3165,7 @@ _handle_array.exit:                               ; preds = %84, %89
   br label %_handle_common.exit
 
 s_p_parse_line_complete.exit:                     ; preds = %113
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %121 = load ptr, ptr %0, align 8
   tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %106, ptr noundef %120, ptr noundef %121, ptr noundef %108)
   br label %_handle_common.exit
@@ -3173,7 +3173,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
 122:                                              ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %123 = getelementptr inbounds i8, ptr %0, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %124 = load ptr, ptr %123, align 8
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %0, align 8
@@ -3187,7 +3187,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
   br i1 %130, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %131 = getelementptr inbounds i8, ptr %0, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %132 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %129 to i64
   br label %133
@@ -3195,7 +3195,7 @@ s_p_parse_line_complete.exit:                     ; preds = %113
 133:                                              ; preds = %.lr.ph, %133
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
   %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8
   tail call fastcc void @_handle_expline_merge(ptr noundef nonnull %124, ptr noundef %131, ptr noundef %134, ptr noundef %136)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3277,7 +3277,7 @@ define internal fastcc range(i32 0, 2) i32 @_parse_next_key(ptr noundef %0, ptr 
   %17 = tail call i32 @tolower(i32 noundef %16) #15
   %18 = mul i32 %.08.i.i, 31
   %19 = add i32 %17, %18
-  %20 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %21 = load i8, ptr %20, align 1
   %.not.i.i = icmp eq i8 %21, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -3289,8 +3289,8 @@ define internal fastcc range(i32 0, 2) i32 @_parse_next_key(ptr noundef %0, ptr 
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %13
   %.0.lcssa.i.i = phi i64 [ 0, %13 ], [ %23, %._crit_edge.loopexit.i.i ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
-  %25 = getelementptr inbounds [173 x ptr], ptr %24, i64 0, i64 %.0.lcssa.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw [173 x ptr], ptr %24, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %25, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3303,14 +3303,14 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %28, label %_conf_hashtbl_lookup.exit, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %30, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %31 = load i32, ptr %8, align 4
-  %32 = getelementptr inbounds i8, ptr %.014.i, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i, i64 12
   store i32 %31, ptr %32, align 4
   %33 = load ptr, ptr %6, align 8
   %34 = load ptr, ptr %7, align 8
@@ -3379,13 +3379,13 @@ define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_un
   br i1 %or.cond, label %.preheader, label %.loopexit42
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
 8:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
   %.02545 = load ptr, ptr %9, align 8
   %.not46 = icmp eq ptr %.02545, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph
@@ -3393,13 +3393,13 @@ define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph:                                           ; preds = %8, %.backedge
   %.02548 = phi ptr [ %.025, %.backedge ], [ %.02545, %8 ]
   %.02647 = phi ptr [ %.026.be, %.backedge ], [ %9, %8 ]
-  %10 = getelementptr inbounds i8, ptr %.02548, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.02548, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.02548, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %.02548, i64 48
   br label %.backedge
 
 .backedge:                                        ; preds = %_conf_hashtbl_lookup.exit, %_conf_hashtbl_insert.exit, %13
@@ -3422,7 +3422,7 @@ define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_un
   %20 = tail call i32 @tolower(i32 noundef %19) #15
   %21 = mul i32 %.08.i.i, 31
   %22 = add i32 %20, %21
-  %23 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %24 = load i8, ptr %23, align 1
   %.not.i.i = icmp eq i8 %24, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -3434,7 +3434,7 @@ define void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_un
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %15
   %.0.lcssa.i.i = phi i64 [ 0, %15 ], [ %26, %._crit_edge.loopexit.i.i ]
-  %27 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
+  %27 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %27, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3447,16 +3447,16 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %30, label %_conf_hashtbl_lookup.exit, label %31
 
 31:                                               ; preds = %.lr.ph.i
-  %32 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %32, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  %33 = getelementptr inbounds i8, ptr %.02548, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.02548, i64 48
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %36 = load ptr, ptr %35, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %.02548, i64 56, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.02548, ptr noundef nonnull align 8 dereferenceable(56) %.014.i, i64 48, i1 false)
@@ -3467,7 +3467,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br label %.backedge
 
 .loopexit:                                        ; preds = %31, %_conf_hashtbl_index.exit.i
-  %37 = getelementptr inbounds i8, ptr %.02548, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.02548, i64 48
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %.02647, align 8
   store ptr null, ptr %37, align 8
@@ -3484,7 +3484,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %43 = tail call i32 @tolower(i32 noundef %42) #15
   %44 = mul i32 %.08.i.i34, 31
   %45 = add i32 %43, %44
-  %46 = getelementptr inbounds i8, ptr %.047.i.i35, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.047.i.i35, i64 1
   %47 = load i8, ptr %46, align 1
   %.not.i.i36 = icmp eq i8 %47, 0
   br i1 %.not.i.i36, label %._crit_edge.loopexit.i.i37, label %.lr.ph.i.i33, !llvm.loop !23
@@ -3496,7 +3496,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_edge.loopexit.i.i37
   %.0.lcssa.i.i39 = phi i64 [ 0, %.loopexit ], [ %49, %._crit_edge.loopexit.i.i37 ]
-  %50 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i39
+  %50 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i39
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %37, align 8
   store ptr %.02548, ptr %50, align 8
@@ -3520,13 +3520,13 @@ define void @s_p_hashtbl_merge_keys(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %or.cond, label %.preheader, label %.loopexit46
 
 .preheader:                                       ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
 8:                                                ; preds = %.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %9 = getelementptr inbounds [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [173 x ptr], ptr %6, i64 0, i64 %indvars.iv
   %.02749 = load ptr, ptr %9, align 8
   %.not50 = icmp eq ptr %.02749, null
   br i1 %.not50, label %._crit_edge, label %.lr.ph
@@ -3547,7 +3547,7 @@ define void @s_p_hashtbl_merge_keys(ptr noundef %0, ptr noundef %1) local_unname
   %14 = call i32 @tolower(i32 noundef %13) #15
   %15 = mul i32 %.08.i.i, 31
   %16 = add i32 %14, %15
-  %17 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %18 = load i8, ptr %17, align 1
   %.not.i.i = icmp eq i8 %18, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -3559,7 +3559,7 @@ define void @s_p_hashtbl_merge_keys(ptr noundef %0, ptr noundef %1) local_unname
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %.lr.ph
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %20, %._crit_edge.loopexit.i.i ]
-  %21 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
+  %21 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %21, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -3572,15 +3572,15 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %24, label %_conf_hashtbl_lookup.exit, label %25
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %26, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
-  %27 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.02752, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.02752, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %28, %30
   %.off = add i32 %30, -9
@@ -3589,9 +3589,9 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br i1 %or.cond35, label %32, label %44
 
 32:                                               ; preds = %_conf_hashtbl_lookup.exit
-  %33 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.02752, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.02752, i64 24
   %36 = load ptr, ptr %35, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %34, align 8
@@ -3601,18 +3601,18 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %40 = load ptr, ptr %39, align 8
   call void @s_p_hashtbl_destroy(ptr noundef %40)
   %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   call void @s_p_hashtbl_destroy(ptr noundef %43)
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   br label %44
 
 44:                                               ; preds = %32, %_conf_hashtbl_lookup.exit
-  %45 = getelementptr inbounds i8, ptr %.02752, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %.02752, i64 48
   br label %61
 
 .loopexit:                                        ; preds = %25, %_conf_hashtbl_index.exit.i
-  %46 = getelementptr inbounds i8, ptr %.02752, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %.02752, i64 48
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %.02851, align 8
   store ptr null, ptr %46, align 8
@@ -3629,7 +3629,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %52 = call i32 @tolower(i32 noundef %51) #15
   %53 = mul i32 %.08.i.i38, 31
   %54 = add i32 %52, %53
-  %55 = getelementptr inbounds i8, ptr %.047.i.i39, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.047.i.i39, i64 1
   %56 = load i8, ptr %55, align 1
   %.not.i.i40 = icmp eq i8 %56, 0
   br i1 %.not.i.i40, label %._crit_edge.loopexit.i.i41, label %.lr.ph.i.i37, !llvm.loop !23
@@ -3641,7 +3641,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_edge.loopexit.i.i41
   %.0.lcssa.i.i43 = phi i64 [ 0, %.loopexit ], [ %58, %._crit_edge.loopexit.i.i41 ]
-  %59 = getelementptr inbounds [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i43
+  %59 = getelementptr inbounds nuw [173 x ptr], ptr %7, i64 0, i64 %.0.lcssa.i.i43
   %60 = load ptr, ptr %59, align 8
   store ptr %60, ptr %46, align 8
   store ptr %.02752, ptr %59, align 8
@@ -3694,13 +3694,13 @@ define range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr nocapture noundef reado
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 1557, ptr noundef nonnull @__func__._parse_expline_adapt_table) #14
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
-  %12 = getelementptr inbounds i8, ptr %10, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 64
   br label %13
 
 13:                                               ; preds = %._crit_edge.i, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %14 = getelementptr inbounds [173 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [173 x ptr], ptr %11, i64 0, i64 %indvars.iv.i
   %.01820.i = load ptr, ptr %14, align 8
   %.not1921.i = icmp eq ptr %.01820.i, null
   br i1 %.not1921.i, label %._crit_edge.i, label %.lr.ph.i
@@ -3711,25 +3711,25 @@ define range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr nocapture noundef reado
   %16 = load ptr, ptr %.01822.i, align 8
   %17 = tail call ptr @xstrdup(ptr noundef %16) #14
   store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %.01822.i, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 12
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %15, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %.01822.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 11
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds i8, ptr %15, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr @_parse_line_expanded_handler, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %15, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr @_parse_line_expanded_destroyer, ptr %26, align 8
   br label %27
 
 27:                                               ; preds = %24, %.lr.ph.i
   %.sink.i = phi i32 [ 6, %24 ], [ 1, %.lr.ph.i ]
-  %28 = getelementptr inbounds i8, ptr %15, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 %.sink.i, ptr %28, align 8
   %29 = load i8, ptr %17, align 1
   %.not6.i.i.i = icmp eq i8 %29, 0
@@ -3743,7 +3743,7 @@ define range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr nocapture noundef reado
   %32 = tail call i32 @tolower(i32 noundef %31) #15
   %33 = mul i32 %.08.i.i.i, 31
   %34 = add i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %36 = load i8, ptr %35, align 1
   %.not.i.i.i = icmp eq i8 %36, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -3755,12 +3755,12 @@ define range(i32 -1, 1) i32 @s_p_parse_line_expanded(ptr nocapture noundef reado
 
 _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexit.i.i.i, %27
   %.0.lcssa.i.i.i = phi i64 [ 0, %27 ], [ %38, %._crit_edge.loopexit.i.i.i ]
-  %39 = getelementptr inbounds [173 x ptr], ptr %12, i64 0, i64 %.0.lcssa.i.i.i
+  %39 = getelementptr inbounds nuw [173 x ptr], ptr %12, i64 0, i64 %.0.lcssa.i.i.i
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %15, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store ptr %40, ptr %41, align 8
   store ptr %15, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %.01822.i, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %.01822.i, i64 48
   %.018.i = load ptr, ptr %42, align 8
   %.not19.i = icmp eq ptr %.018.i, null
   br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !38
@@ -3821,7 +3821,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   tail call void @free(ptr noundef %.181) #14
   %57 = tail call ptr @hostlist_shift(ptr noundef %46) #14
   %58 = tail call ptr @_hashtbl_copy_keys(ptr noundef %0)
-  %59 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   store ptr %58, ptr %59, align 8
   tail call fastcc void @_hashtbl_plain_to_string(ptr noundef %58)
   %60 = load ptr, ptr %59, align 8
@@ -3835,7 +3835,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 
 64:                                               ; preds = %.preheader65, %._crit_edge98
   %indvars.iv131 = phi i64 [ 0, %.preheader65 ], [ %indvars.iv.next132, %._crit_edge98 ]
-  %65 = getelementptr inbounds [173 x ptr], ptr %12, i64 0, i64 %indvars.iv131
+  %65 = getelementptr inbounds nuw [173 x ptr], ptr %12, i64 0, i64 %indvars.iv131
   %.092 = load ptr, ptr %65, align 8
   %.not5193 = icmp eq ptr %.092, null
   br i1 %.not5193, label %._crit_edge98, label %.lr.ph97
@@ -3843,13 +3843,13 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 .lr.ph97:                                         ; preds = %64, %.loopexit
   %.094 = phi ptr [ %.0, %.loopexit ], [ %.092, %64 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %66 = getelementptr inbounds i8, ptr %.094, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.094, i64 24
   %67 = load ptr, ptr %66, align 8
   %.not.i57 = icmp eq ptr %67, null
   br i1 %.not.i57, label %.loopexit, label %68
 
 68:                                               ; preds = %.lr.ph97
-  %69 = getelementptr inbounds i8, ptr %.094, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.094, i64 8
   %70 = load i32, ptr %69, align 8
   %71 = icmp eq i32 %70, 1
   br i1 %71, label %.preheader64, label %82
@@ -3864,7 +3864,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 
 .lr.ph91:                                         ; preds = %.preheader64, %72
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %72 ], [ 0, %.preheader64 ]
-  %73 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv126
+  %73 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv126
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %.094, align 8
   %76 = load ptr, ptr %66, align 8
@@ -3905,7 +3905,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
 
 .lr.ph89:                                         ; preds = %94
   %95 = icmp sgt i32 %.054.i, 1
-  %96 = getelementptr inbounds i8, ptr %.094, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %.094, i64 12
   br label %98
 
 97:                                               ; preds = %123
@@ -3982,7 +3982,7 @@ _parse_expline_adapt_table.exit:                  ; preds = %43
   %124 = phi ptr [ %118, %117 ], [ %122, %121 ], [ %99, %119 ]
   %.159.i = phi i32 [ %.058.i86, %117 ], [ 0, %121 ], [ %.058.i86, %119 ]
   %.3.i = phi i32 [ %spec.store.select.i, %117 ], [ %.0.i88, %121 ], [ %.0.i88, %119 ]
-  %125 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv121
+  %125 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv121
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %.094, align 8
   %128 = load i32, ptr %96, align 4
@@ -4010,7 +4010,7 @@ _parse_expline_doexpand.exit:                     ; preds = %78, %90, %130
 
 .loopexit:                                        ; preds = %72, %94, %.preheader64, %.lr.ph97, %133, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %134 = getelementptr inbounds i8, ptr %.094, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %.094, i64 48
   %.0 = load ptr, ptr %134, align 8
   %.not51 = icmp eq ptr %.0, null
   br i1 %.not51, label %._crit_edge98, label %.lr.ph97, !llvm.loop !44
@@ -4058,7 +4058,7 @@ _parse_expline_doexpand.exit:                     ; preds = %78, %90, %130
 
 .lr.ph101:                                        ; preds = %.lr.ph101.preheader, %147
   %indvars.iv135 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next136, %147 ]
-  %144 = getelementptr inbounds ptr, ptr %141, i64 %indvars.iv135
+  %144 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv135
   %145 = load ptr, ptr %144, align 8
   %.not56 = icmp eq ptr %145, null
   br i1 %.not56, label %147, label %146
@@ -4095,19 +4095,19 @@ declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_hashtbl_plain_to_string(ptr nocapture noundef readonly %0) unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %3
 
 3:                                                ; preds = %1, %._crit_edge
   %indvars.iv25 = phi i64 [ 0, %1 ], [ %indvars.iv.next26, %._crit_edge ]
-  %4 = getelementptr inbounds [173 x ptr], ptr %2, i64 0, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw [173 x ptr], ptr %2, i64 0, i64 %indvars.iv25
   %.01619 = load ptr, ptr %4, align 8
   %.not20 = icmp eq ptr %.01619, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %3, %.loopexit
   %.01621 = phi ptr [ %.016, %.loopexit ], [ %.01619, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.01621, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.01621, i64 8
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.loopexit [
     i32 11, label %7
@@ -4120,21 +4120,21 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr nocapture noundef read
   br label %.loopexit
 
 8:                                                ; preds = %.lr.ph22, %.lr.ph22
-  %9 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %.01621, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.01621, i64 24
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call fastcc void @_hashtbl_plain_to_string(ptr noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4144,7 +4144,7 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr nocapture noundef read
   br i1 %21, label %15, label %.loopexit, !llvm.loop !47
 
 .loopexit:                                        ; preds = %15, %8, %.lr.ph22, %7
-  %22 = getelementptr inbounds i8, ptr %.01621, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.01621, i64 48
   %.016 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %.016, null
   br i1 %.not, label %._crit_edge, label %.lr.ph22, !llvm.loop !48
@@ -4181,7 +4181,7 @@ define range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr 
   %11 = tail call i32 @tolower(i32 noundef %10) #15
   %12 = mul i32 %.08.i.i, 31
   %13 = add i32 %11, %12
-  %14 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %15 = load i8, ptr %14, align 1
   %.not.i.i = icmp eq i8 %15, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -4193,8 +4193,8 @@ define range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr 
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %7
   %.0.lcssa.i.i = phi i64 [ 0, %7 ], [ %17, %._crit_edge.loopexit.i.i ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
-  %19 = getelementptr inbounds [173 x ptr], ptr %18, i64 0, i64 %.0.lcssa.i.i
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw [173 x ptr], ptr %18, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %19, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -4207,7 +4207,7 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %22, label %_conf_hashtbl_lookup.exit, label %23
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %24, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
@@ -4227,7 +4227,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br label %83
 
 28:                                               ; preds = %_conf_hashtbl_lookup.exit
-  %29 = getelementptr inbounds i8, ptr %.014.i, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %.014.i, i64 12
   store i32 %3, ptr %29, align 4
   %30 = load i8, ptr %2, align 1
   %cond34 = icmp eq i8 %30, 0
@@ -4261,7 +4261,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br i1 %.not21, label %.critedge, label %42
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %37, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 1
   store ptr %43, ptr %5, align 8
   %44 = load i8, ptr %43, align 1
   %cond = icmp eq i8 %44, 0
@@ -4272,7 +4272,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br i1 %45, label %46, label %.preheader
 
 46:                                               ; preds = %.critedge
-  %47 = getelementptr inbounds i8, ptr %37, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %48 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %47, i32 noundef 34) #15
   store ptr %48, ptr %6, align 8
   %49 = icmp eq ptr %48, null
@@ -4284,7 +4284,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br label %83
 
 52:                                               ; preds = %55
-  %53 = getelementptr inbounds i8, ptr %storemerge36, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %storemerge36, i64 1
   store ptr %53, ptr %6, align 8
   %54 = load i8, ptr %53, align 1
   %.not22 = icmp eq i8 %54, 0
@@ -4313,7 +4313,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br i1 %.not24, label %.critedge4, label %67
 
 67:                                               ; preds = %.critedge2
-  %68 = getelementptr inbounds i8, ptr %61, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %68, ptr %6, align 8
   %.pre54 = load i8, ptr %68, align 1
   %.not2540 = icmp eq i8 %.pre54, 0
@@ -4335,7 +4335,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   br i1 %.not26, label %.critedge4, label %77
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %72, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 1
   store ptr %78, ptr %6, align 8
   %79 = load i8, ptr %78, align 1
   %.not25 = icmp eq i8 %79, 0
@@ -4383,7 +4383,7 @@ define range(i32 0, 2) i32 @s_p_get_operator(ptr nocapture noundef writeonly %0,
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -4395,8 +4395,8 @@ define range(i32 0, 2) i32 @s_p_get_operator(ptr nocapture noundef writeonly %0,
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %4
   %.0.lcssa.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i ]
-  %15 = getelementptr inbounds i8, ptr %2, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %16, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %.loopexit, label %.lr.ph.i
@@ -4409,13 +4409,13 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %19, label %_conf_hashtbl_lookup.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %21, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %.014.i, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %.014.i, i64 12
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %0, align 4
   br label %25
@@ -4447,7 +4447,7 @@ define range(i32 0, 2) i32 @s_p_get_line(ptr nocapture noundef writeonly %0, ptr
   %9 = tail call i32 @tolower(i32 noundef %8) #15
   %10 = mul i32 %.08.i.i.i, 31
   %11 = add i32 %9, %10
-  %12 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -4459,8 +4459,8 @@ define range(i32 0, 2) i32 @s_p_get_line(ptr nocapture noundef writeonly %0, ptr
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %5
   %.0.lcssa.i.i.i = phi i64 [ 0, %5 ], [ %15, %._crit_edge.loopexit.i.i.i ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 64
-  %17 = getelementptr inbounds [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %17 = getelementptr inbounds nuw [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %17, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -4473,7 +4473,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %20, label %_conf_hashtbl_lookup.exit.i, label %21
 
 21:                                               ; preds = %.lr.ph.i.i
-  %22 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -4483,7 +4483,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %25 = load i32, ptr %24, align 8
   %.not12.i = icmp eq i32 %25, 9
   br i1 %.not12.i, label %28, label %26
@@ -4493,15 +4493,15 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 28:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %29 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %0, align 8
   %36 = load i32, ptr %29, align 8
@@ -4531,7 +4531,7 @@ define range(i32 0, 2) i32 @s_p_get_expline(ptr nocapture noundef writeonly %0, 
   %9 = tail call i32 @tolower(i32 noundef %8) #15
   %10 = mul i32 %.08.i.i.i, 31
   %11 = add i32 %9, %10
-  %12 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i.i.i = icmp eq i8 %13, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -4543,8 +4543,8 @@ define range(i32 0, 2) i32 @s_p_get_expline(ptr nocapture noundef writeonly %0, 
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %5
   %.0.lcssa.i.i.i = phi i64 [ 0, %5 ], [ %15, %._crit_edge.loopexit.i.i.i ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 64
-  %17 = getelementptr inbounds [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i.i
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %17 = getelementptr inbounds nuw [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %17, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -4557,7 +4557,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %20, label %_conf_hashtbl_lookup.exit.i, label %21
 
 21:                                               ; preds = %.lr.ph.i.i
-  %22 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %22, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
@@ -4567,7 +4567,7 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br label %_get_check.exit.thread
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.014.i.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 8
   %25 = load i32, ptr %24, align 8
   %.not12.i = icmp eq i32 %25, 10
   br i1 %.not12.i, label %28, label %26
@@ -4577,15 +4577,15 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i
   br label %_get_check.exit.thread
 
 28:                                               ; preds = %_conf_hashtbl_lookup.exit.i
-  %29 = getelementptr inbounds i8, ptr %.014.i.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %_get_check.exit.thread, label %_get_check.exit
 
 _get_check.exit:                                  ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8
   store ptr %35, ptr %0, align 8
   %36 = load i32, ptr %29, align 8
@@ -4606,13 +4606,13 @@ define noundef ptr @s_p_pack_hashtbl(ptr noundef readonly %0, ptr nocapture noun
 
 .lr.ph72:                                         ; preds = %3
   %.not.i = icmp eq ptr %0, null
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %wide.trip.count = zext i32 %2 to i64
   br label %6
 
 6:                                                ; preds = %.lr.ph72, %.loopexit
   %indvars.iv76 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next77, %.loopexit ]
-  %7 = getelementptr inbounds %struct.conf_file_options, ptr %1, i64 %indvars.iv76
+  %7 = getelementptr inbounds nuw %struct.conf_file_options, ptr %1, i64 %indvars.iv76
   %8 = load ptr, ptr %7, align 8
   br i1 %.not.i, label %_conf_hashtbl_lookup.exit, label %9
 
@@ -4629,7 +4629,7 @@ define noundef ptr @s_p_pack_hashtbl(ptr noundef readonly %0, ptr nocapture noun
   %13 = tail call i32 @tolower(i32 noundef %12) #15
   %14 = mul i32 %.08.i.i, 31
   %15 = add i32 %13, %14
-  %16 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %17 = load i8, ptr %16, align 1
   %.not.i.i = icmp eq i8 %17, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -4641,7 +4641,7 @@ define noundef ptr @s_p_pack_hashtbl(ptr noundef readonly %0, ptr nocapture noun
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %9
   %.0.lcssa.i.i = phi i64 [ 0, %9 ], [ %19, %._crit_edge.loopexit.i.i ]
-  %20 = getelementptr inbounds [173 x ptr], ptr %5, i64 0, i64 %.0.lcssa.i.i
+  %20 = getelementptr inbounds nuw [173 x ptr], ptr %5, i64 0, i64 %.0.lcssa.i.i
   %.012.i = load ptr, ptr %20, align 8
   %.not1113.i = icmp eq ptr %.012.i, null
   br i1 %.not1113.i, label %_conf_hashtbl_lookup.exit, label %.lr.ph.i
@@ -4654,14 +4654,14 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   br i1 %23, label %_conf_hashtbl_lookup.exit, label %24
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   %.0.i = load ptr, ptr %25, align 8
   %.not11.i = icmp eq ptr %.0.i, null
   br i1 %.not11.i, label %_conf_hashtbl_lookup.exit, label %.lr.ph.i, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, %_conf_hashtbl_index.exit.i
   %.09.i = phi ptr [ null, %6 ], [ null, %_conf_hashtbl_index.exit.i ], [ null, %24 ], [ %.014.i, %.lr.ph.i ]
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = trunc i32 %27 to i16
   tail call void @pack16(i16 noundef zeroext %28, ptr noundef %4) #14
@@ -4678,11 +4678,11 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
 34:                                               ; preds = %30, %_conf_hashtbl_lookup.exit
   %.062 = phi i32 [ %33, %30 ], [ 0, %_conf_hashtbl_lookup.exit ]
   tail call void @packmem(ptr noundef %29, i32 noundef %.062, ptr noundef %4) #14
-  %35 = getelementptr inbounds i8, ptr %.09.i, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %.09.i, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = trunc i32 %36 to i16
   tail call void @pack16(i16 noundef zeroext %37, ptr noundef %4) #14
-  %38 = getelementptr inbounds i8, ptr %.09.i, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.09.i, i64 16
   %39 = load i32, ptr %38, align 8
   tail call void @pack32(i32 noundef %39, ptr noundef %4) #14
   %40 = load i32, ptr %38, align 8
@@ -4707,14 +4707,14 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
   ]
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %7, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %45 = load ptr, ptr %44, align 8
   %.not68 = icmp eq ptr %45, null
   br i1 %.not68, label %.loopexit, label %46
 
 46:                                               ; preds = %43
   tail call void @pack32(i32 noundef %40, ptr noundef %4) #14
-  %47 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %38, align 8
   %50 = icmp sgt i32 %49, 0
@@ -4723,7 +4723,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
 .lr.ph:                                           ; preds = %46, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %46 ]
   %51 = load ptr, ptr %44, align 8
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8
   tail call void %51(ptr noundef %53, ptr noundef %4) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4733,7 +4733,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
   br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !53
 
 57:                                               ; preds = %41, %41
-  %58 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %59 = load ptr, ptr %58, align 8
   %.not67 = icmp eq ptr %59, null
   br i1 %.not67, label %64, label %60
@@ -4750,28 +4750,28 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
   br label %.loopexit
 
 65:                                               ; preds = %41, %41
-  %66 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = load i32, ptr %67, align 4
   tail call void @pack32(i32 noundef %68, ptr noundef %4) #14
   br label %.loopexit
 
 69:                                               ; preds = %41
-  %70 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = load i16, ptr %71, align 2
   tail call void @pack16(i16 noundef zeroext %72, ptr noundef %4) #14
   br label %.loopexit
 
 73:                                               ; preds = %41
-  %74 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = load i64, ptr %75, align 8
   tail call void @pack64(i64 noundef %76, ptr noundef %4) #14
   br label %.loopexit
 
 77:                                               ; preds = %41
-  %78 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %79 = load ptr, ptr %78, align 8
   %80 = load i8, ptr %79, align 1
   %81 = trunc i8 %80 to i1
@@ -4779,21 +4779,21 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i, %24, %6, 
   br label %.loopexit
 
 82:                                               ; preds = %41
-  %83 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = load float, ptr %84, align 4
   tail call void @packfloat(float noundef %85, ptr noundef %4) #14
   br label %.loopexit
 
 86:                                               ; preds = %41
-  %87 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %88 = load ptr, ptr %87, align 8
   %89 = load double, ptr %88, align 8
   tail call void @packdouble(double noundef %89, ptr noundef %4) #14
   br label %.loopexit
 
 90:                                               ; preds = %41
-  %91 = getelementptr inbounds i8, ptr %.09.i, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %.09.i, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = load x86_fp80, ptr %92, align 16
   tail call void @packlongdouble(x86_fp80 noundef %93, ptr noundef %4) #14
@@ -4855,7 +4855,7 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
   br i1 %.not84, label %.loopexit78, label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %14, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 64
   br label %17
 
 17:                                               ; preds = %.lr.ph83, %.loopexit
@@ -4868,7 +4868,7 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
 20:                                               ; preds = %17
   %21 = load i16, ptr %4, align 2
   %22 = zext i16 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %18, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %22, ptr %23, align 8
   %24 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %18, ptr noundef nonnull %6, ptr noundef %0) #14
   %.not63 = icmp eq i32 %24, 0
@@ -4882,7 +4882,7 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
 27:                                               ; preds = %25
   %28 = load i16, ptr %4, align 2
   %29 = zext i16 %28 to i32
-  %30 = getelementptr inbounds i8, ptr %18, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 %29, ptr %30, align 4
   %31 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %0) #14
   %.not65 = icmp eq i32 %31, 0
@@ -4890,7 +4890,7 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
 
 32:                                               ; preds = %27
   %33 = load i32, ptr %6, align 4
-  %34 = getelementptr inbounds i8, ptr %18, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i32 %33, ptr %34, align 8
   %35 = load ptr, ptr %18, align 8
   %36 = load i8, ptr %35, align 1
@@ -4905,7 +4905,7 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
   %39 = call i32 @tolower(i32 noundef %38) #15
   %40 = mul i32 %.08.i.i, 31
   %41 = add i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %43 = load i8, ptr %42, align 1
   %.not.i.i = icmp eq i8 %43, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -4917,9 +4917,9 @@ define ptr @s_p_unpack_hashtbl_full(ptr noundef %0, ptr nocapture noundef readon
 
 _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi i64 [ 0, %32 ], [ %45, %._crit_edge.loopexit.i.i ]
-  %46 = getelementptr inbounds [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i
+  %46 = getelementptr inbounds nuw [173 x ptr], ptr %16, i64 0, i64 %.0.lcssa.i.i
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %18, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 48
   store ptr %47, ptr %48, align 8
   store ptr %18, ptr %46, align 8
   %49 = load i32, ptr %34, align 8
@@ -4944,7 +4944,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
   ]
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds %struct.conf_file_options, ptr %1, i64 %indvars.iv87, i32 6
+  %53 = getelementptr inbounds nuw %struct.conf_file_options, ptr %1, i64 %indvars.iv87, i32 6
   %54 = load ptr, ptr %53, align 8
   %.not76 = icmp eq ptr %54, null
   br i1 %.not76, label %.loopexit, label %55
@@ -4959,7 +4959,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
   store i32 %58, ptr %34, align 8
   %59 = sext i32 %58 to i64
   %60 = call ptr @slurm_xcalloc(i64 noundef %59, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2353, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %61 = getelementptr inbounds i8, ptr %18, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %60, ptr %61, align 8
   %62 = load i32, ptr %34, align 8
   %63 = icmp sgt i32 %62, 0
@@ -4969,7 +4969,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %57 ]
   %64 = load ptr, ptr %53, align 8
   %65 = call ptr %64(ptr noundef %0) #14
-  %66 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv
   store ptr %65, ptr %66, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %34, align 8
@@ -4984,7 +4984,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %11, align 8
-  %74 = getelementptr inbounds i8, ptr %18, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %73, ptr %74, align 8
   br label %.loopexit
 
@@ -4995,7 +4995,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 77:                                               ; preds = %75
   %78 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2368, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %79 = getelementptr inbounds i8, ptr %18, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %78, ptr %79, align 8
   %80 = load i32, ptr %6, align 4
   store i32 %80, ptr %78, align 4
@@ -5008,7 +5008,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 83:                                               ; preds = %81
   %84 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2373, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %85 = getelementptr inbounds i8, ptr %18, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %84, ptr %85, align 8
   %86 = load i32, ptr %6, align 4
   %87 = zext i32 %86 to i64
@@ -5022,7 +5022,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 90:                                               ; preds = %88
   %91 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2378, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %92 = getelementptr inbounds i8, ptr %18, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %91, ptr %92, align 8
   %93 = load i16, ptr %4, align 2
   store i16 %93, ptr %91, align 2
@@ -5035,7 +5035,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 96:                                               ; preds = %94
   %97 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2383, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %98 = getelementptr inbounds i8, ptr %18, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %97, ptr %98, align 8
   %99 = load i64, ptr %7, align 8
   store i64 %99, ptr %97, align 8
@@ -5048,7 +5048,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 102:                                              ; preds = %100
   %103 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2388, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %104 = getelementptr inbounds i8, ptr %18, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %103, ptr %104, align 8
   %105 = load i8, ptr %3, align 1
   %106 = and i8 %105, 1
@@ -5062,7 +5062,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 109:                                              ; preds = %107
   %110 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 4, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2393, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %111 = getelementptr inbounds i8, ptr %18, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %110, ptr %111, align 8
   %112 = load float, ptr %8, align 4
   store float %112, ptr %110, align 4
@@ -5075,7 +5075,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 115:                                              ; preds = %113
   %116 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2398, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %117 = getelementptr inbounds i8, ptr %18, i64 24
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %116, ptr %117, align 8
   %118 = load double, ptr %9, align 8
   store double %118, ptr %116, align 8
@@ -5088,7 +5088,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %32, %._crit_edge.lo
 
 121:                                              ; preds = %119
   %122 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 2403, ptr noundef nonnull @__func__.s_p_unpack_hashtbl_full) #14
-  %123 = getelementptr inbounds i8, ptr %18, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %122, ptr %123, align 8
   %124 = load x86_fp80, ptr %10, align 16
   store x86_fp80 %124, ptr %122, align 16
@@ -5155,7 +5155,7 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %20, label %8
@@ -5180,20 +5180,20 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef nonnull 
   br label %18
 
 18:                                               ; preds = %10, %16, %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %19) #14
   store i32 0, ptr %6, align 8
   br label %20
 
 20:                                               ; preds = %18, %5
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not23 = icmp eq ptr %22, null
   br i1 %.not23, label %32, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = load ptr, ptr %0, align 8
   %28 = tail call i32 %22(ptr noundef nonnull %24, i32 noundef %26, ptr noundef %27, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) #14
@@ -5208,7 +5208,7 @@ define internal fastcc range(i32 -1, 2) i32 @_handle_common(ptr noundef nonnull 
 32:                                               ; preds = %20
   %33 = load ptr, ptr %0, align 8
   %34 = tail call ptr %4(ptr noundef %33, ptr noundef %1) #14
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %34, ptr %35, align 8
   %.not24 = icmp eq ptr %34, null
   br i1 %.not24, label %37, label %36
@@ -5394,7 +5394,7 @@ define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr nocapture
   %8 = tail call i32 @tolower(i32 noundef %7) #15
   %9 = mul i32 %.08.i.i, 31
   %10 = add i32 %8, %9
-  %11 = getelementptr inbounds i8, ptr %.047.i.i, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.047.i.i, i64 1
   %12 = load i8, ptr %11, align 1
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -5406,8 +5406,8 @@ define internal fastcc void @_handle_expline_merge(ptr noundef %0, ptr nocapture
 
 _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexit.i.i, %4
   %.0.lcssa.i.i = phi i64 [ 0, %4 ], [ %14, %._crit_edge.loopexit.i.i ]
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
-  %16 = getelementptr inbounds [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %16 = getelementptr inbounds nuw [173 x ptr], ptr %15, i64 0, i64 %.0.lcssa.i.i
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_conf_hashtbl_index.exit.i
@@ -5416,11 +5416,11 @@ _conf_hashtbl_index.exit.i:                       ; preds = %._crit_edge.loopexi
   %17 = load ptr, ptr %.014.i, align 8
   %18 = tail call i32 @xstrcasecmp(ptr noundef %17, ptr noundef nonnull %2) #14
   %19 = icmp eq i32 %18, 0
-  %20 = getelementptr inbounds i8, ptr %.014.i, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %.014.i, i64 48
   br i1 %19, label %_conf_hashtbl_lookup.exit, label %.lr.ph.i
 
 _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %.014.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.014.i, i64 8
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %_handle_expline_sc.exit [
     i32 1, label %23
@@ -5434,11 +5434,11 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   ]
 
 23:                                               ; preds = %_conf_hashtbl_lookup.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i43 = icmp eq ptr %25, null
   br i1 %.not.i.i43, label %.loopexit.i, label %29
 
@@ -5455,7 +5455,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
   %33 = tail call i32 @tolower(i32 noundef %32) #15
   %34 = mul i32 %.08.i.i.i, 31
   %35 = add i32 %33, %34
-  %36 = getelementptr inbounds i8, ptr %.047.i.i.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.047.i.i.i, i64 1
   %37 = load i8, ptr %36, align 1
   %.not.i.i.i = icmp eq i8 %37, 0
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !23
@@ -5467,8 +5467,8 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 
 _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexit.i.i.i, %29
   %.0.lcssa.i.i.i = phi i64 [ 0, %29 ], [ %39, %._crit_edge.loopexit.i.i.i ]
-  %40 = getelementptr inbounds i8, ptr %25, i64 64
-  %41 = getelementptr inbounds [173 x ptr], ptr %40, i64 0, i64 %.0.lcssa.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %41 = getelementptr inbounds nuw [173 x ptr], ptr %40, i64 0, i64 %.0.lcssa.i.i.i
   %.012.i.i = load ptr, ptr %41, align 8
   %.not1113.i.i = icmp eq ptr %.012.i.i, null
   br i1 %.not1113.i.i, label %.loopexit.i, label %.lr.ph.i.i44
@@ -5481,13 +5481,13 @@ _conf_hashtbl_index.exit.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %44, label %_conf_hashtbl_lookup.exit.i, label %45
 
 45:                                               ; preds = %.lr.ph.i.i44
-  %46 = getelementptr inbounds i8, ptr %.014.i.i, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 48
   %.0.i.i = load ptr, ptr %46, align 8
   %.not11.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not11.i.i, label %.loopexit.i, label %.lr.ph.i.i44, !llvm.loop !24
 
 _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
-  %47 = getelementptr inbounds i8, ptr %.014.i.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.014.i.i, i64 24
   %48 = load ptr, ptr %47, align 8
   tail call void @s_p_hashtbl_merge_override(ptr noundef %48, ptr noundef nonnull %3)
   tail call void @s_p_hashtbl_destroy(ptr noundef nonnull %3)
@@ -5497,9 +5497,9 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
   %49 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 715, ptr noundef nonnull @__func__._handle_expline_sc) #14
   %50 = tail call ptr @xstrdup(ptr noundef %27) #14
   store ptr %50, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %49, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 40
   store ptr @_empty_destroy, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %49, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %3, ptr %52, align 8
   %53 = load i8, ptr %50, align 1
   %.not6.i.i20.i = icmp eq i8 %53, 0
@@ -5513,7 +5513,7 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
   %56 = tail call i32 @tolower(i32 noundef %55) #15
   %57 = mul i32 %.08.i.i22.i, 31
   %58 = add i32 %56, %57
-  %59 = getelementptr inbounds i8, ptr %.047.i.i23.i, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.047.i.i23.i, i64 1
   %60 = load i8, ptr %59, align 1
   %.not.i.i24.i = icmp eq i8 %60, 0
   br i1 %.not.i.i24.i, label %._crit_edge.loopexit.i.i25.i, label %.lr.ph.i.i21.i, !llvm.loop !23
@@ -5525,10 +5525,10 @@ _conf_hashtbl_lookup.exit.i:                      ; preds = %.lr.ph.i.i44
 
 _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexit.i.i25.i, %.loopexit.i
   %.0.lcssa.i.i27.i = phi i64 [ 0, %.loopexit.i ], [ %62, %._crit_edge.loopexit.i.i25.i ]
-  %63 = getelementptr inbounds i8, ptr %25, i64 64
-  %64 = getelementptr inbounds [173 x ptr], ptr %63, i64 0, i64 %.0.lcssa.i.i27.i
+  %63 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %64 = getelementptr inbounds nuw [173 x ptr], ptr %63, i64 0, i64 %.0.lcssa.i.i27.i
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %49, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %49, i64 48
   store ptr %65, ptr %66, align 8
   store ptr %49, ptr %64, align 8
   %67 = load i32, ptr %1, align 4
@@ -5546,9 +5546,9 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
   br label %_handle_expline_sc.exit
 
 76:                                               ; preds = %_conf_hashtbl_lookup.exit
-  %77 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i32, ptr %1, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.lr.ph.i45, label %._crit_edge.i
@@ -5563,7 +5563,7 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
 .lr.ph.i45:                                       ; preds = %76, %82
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %82 ], [ 0, %76 ]
   %86 = load ptr, ptr %79, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i
   %88 = load ptr, ptr %87, align 8, !nonnull !57, !noundef !57
   %89 = load i8, ptr %2, align 1
   %.not6.i.i.i46 = icmp eq i8 %89, 0
@@ -5577,7 +5577,7 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
   %92 = tail call i32 @tolower(i32 noundef %91) #15
   %93 = mul i32 %.08.i.i.i48, 31
   %94 = add i32 %92, %93
-  %95 = getelementptr inbounds i8, ptr %.047.i.i.i49, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.047.i.i.i49, i64 1
   %96 = load i8, ptr %95, align 1
   %.not.i.i.i50 = icmp eq i8 %96, 0
   br i1 %.not.i.i.i50, label %._crit_edge.loopexit.i.i.i51, label %.lr.ph.i.i.i47, !llvm.loop !23
@@ -5589,8 +5589,8 @@ _conf_hashtbl_insert.exit.i:                      ; preds = %._crit_edge.loopexi
 
 _conf_hashtbl_index.exit.i.i52:                   ; preds = %._crit_edge.loopexit.i.i.i51, %.lr.ph.i45
   %.0.lcssa.i.i.i53 = phi i64 [ 0, %.lr.ph.i45 ], [ %98, %._crit_edge.loopexit.i.i.i51 ]
-  %99 = getelementptr inbounds i8, ptr %88, i64 64
-  %100 = getelementptr inbounds [173 x ptr], ptr %99, i64 0, i64 %.0.lcssa.i.i.i53
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 64
+  %100 = getelementptr inbounds nuw [173 x ptr], ptr %99, i64 0, i64 %.0.lcssa.i.i.i53
   br label %.lr.ph.i.i54
 
 .lr.ph.i.i54:                                     ; preds = %.lr.ph.i.i54, %_conf_hashtbl_index.exit.i.i52
@@ -5599,11 +5599,11 @@ _conf_hashtbl_index.exit.i.i52:                   ; preds = %._crit_edge.loopexi
   %101 = load ptr, ptr %.014.i.i55, align 8
   %102 = tail call i32 @xstrcasecmp(ptr noundef %101, ptr noundef nonnull %2) #14
   %103 = icmp eq i32 %102, 0
-  %104 = getelementptr inbounds i8, ptr %.014.i.i55, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %.014.i.i55, i64 48
   br i1 %103, label %_conf_hashtbl_lookup.exit.i56, label %.lr.ph.i.i54
 
 _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
-  %105 = getelementptr inbounds i8, ptr %.014.i.i55, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %.014.i.i55, i64 24
   %106 = load ptr, ptr %105, align 8
   %107 = load i64, ptr %106, align 8
   %108 = load i64, ptr %78, align 8
@@ -5632,9 +5632,9 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
   br label %_handle_expline_sc.exit
 
 119:                                              ; preds = %_conf_hashtbl_lookup.exit
-  %120 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %123 = load i32, ptr %1, align 4
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %.lr.ph.i60, label %._crit_edge.i58
@@ -5649,7 +5649,7 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
 .lr.ph.i60:                                       ; preds = %119, %125
   %indvars.iv.i61 = phi i64 [ %indvars.iv.next.i75, %125 ], [ 0, %119 ]
   %129 = load ptr, ptr %122, align 8
-  %130 = getelementptr inbounds ptr, ptr %129, i64 %indvars.iv.i61
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv.i61
   %131 = load ptr, ptr %130, align 8, !nonnull !57, !noundef !57
   %132 = load i8, ptr %2, align 1
   %.not6.i.i.i62 = icmp eq i8 %132, 0
@@ -5663,7 +5663,7 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
   %135 = tail call i32 @tolower(i32 noundef %134) #15
   %136 = mul i32 %.08.i.i.i64, 31
   %137 = add i32 %135, %136
-  %138 = getelementptr inbounds i8, ptr %.047.i.i.i65, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.047.i.i.i65, i64 1
   %139 = load i8, ptr %138, align 1
   %.not.i.i.i66 = icmp eq i8 %139, 0
   br i1 %.not.i.i.i66, label %._crit_edge.loopexit.i.i.i67, label %.lr.ph.i.i.i63, !llvm.loop !23
@@ -5675,8 +5675,8 @@ _conf_hashtbl_lookup.exit.i56:                    ; preds = %.lr.ph.i.i54
 
 _conf_hashtbl_index.exit.i.i68:                   ; preds = %._crit_edge.loopexit.i.i.i67, %.lr.ph.i60
   %.0.lcssa.i.i.i69 = phi i64 [ 0, %.lr.ph.i60 ], [ %141, %._crit_edge.loopexit.i.i.i67 ]
-  %142 = getelementptr inbounds i8, ptr %131, i64 64
-  %143 = getelementptr inbounds [173 x ptr], ptr %142, i64 0, i64 %.0.lcssa.i.i.i69
+  %142 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %143 = getelementptr inbounds nuw [173 x ptr], ptr %142, i64 0, i64 %.0.lcssa.i.i.i69
   br label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %.lr.ph.i.i70, %_conf_hashtbl_index.exit.i.i68
@@ -5685,11 +5685,11 @@ _conf_hashtbl_index.exit.i.i68:                   ; preds = %._crit_edge.loopexi
   %144 = load ptr, ptr %.014.i.i72, align 8
   %145 = tail call i32 @xstrcasecmp(ptr noundef %144, ptr noundef nonnull %2) #14
   %146 = icmp eq i32 %145, 0
-  %147 = getelementptr inbounds i8, ptr %.014.i.i72, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %.014.i.i72, i64 48
   br i1 %146, label %_conf_hashtbl_lookup.exit.i73, label %.lr.ph.i.i70
 
 _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
-  %148 = getelementptr inbounds i8, ptr %.014.i.i72, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %.014.i.i72, i64 24
   %149 = load ptr, ptr %148, align 8
   %150 = load i16, ptr %149, align 2
   %151 = load i16, ptr %121, align 2
@@ -5718,9 +5718,9 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
   br label %_handle_expline_sc.exit
 
 162:                                              ; preds = %_conf_hashtbl_lookup.exit
-  %163 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %163 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 16
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %166 = load i32, ptr %1, align 4
   %167 = icmp sgt i32 %166, 0
   br i1 %167, label %.lr.ph.i79, label %._crit_edge.i77
@@ -5735,7 +5735,7 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
 .lr.ph.i79:                                       ; preds = %162, %168
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i94, %168 ], [ 0, %162 ]
   %172 = load ptr, ptr %165, align 8
-  %173 = getelementptr inbounds ptr, ptr %172, i64 %indvars.iv.i80
+  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %indvars.iv.i80
   %174 = load ptr, ptr %173, align 8, !nonnull !57, !noundef !57
   %175 = load i8, ptr %2, align 1
   %.not6.i.i.i81 = icmp eq i8 %175, 0
@@ -5749,7 +5749,7 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
   %178 = tail call i32 @tolower(i32 noundef %177) #15
   %179 = mul i32 %.08.i.i.i83, 31
   %180 = add i32 %178, %179
-  %181 = getelementptr inbounds i8, ptr %.047.i.i.i84, i64 1
+  %181 = getelementptr inbounds nuw i8, ptr %.047.i.i.i84, i64 1
   %182 = load i8, ptr %181, align 1
   %.not.i.i.i85 = icmp eq i8 %182, 0
   br i1 %.not.i.i.i85, label %._crit_edge.loopexit.i.i.i86, label %.lr.ph.i.i.i82, !llvm.loop !23
@@ -5761,8 +5761,8 @@ _conf_hashtbl_lookup.exit.i73:                    ; preds = %.lr.ph.i.i70
 
 _conf_hashtbl_index.exit.i.i87:                   ; preds = %._crit_edge.loopexit.i.i.i86, %.lr.ph.i79
   %.0.lcssa.i.i.i88 = phi i64 [ 0, %.lr.ph.i79 ], [ %184, %._crit_edge.loopexit.i.i.i86 ]
-  %185 = getelementptr inbounds i8, ptr %174, i64 64
-  %186 = getelementptr inbounds [173 x ptr], ptr %185, i64 0, i64 %.0.lcssa.i.i.i88
+  %185 = getelementptr inbounds nuw i8, ptr %174, i64 64
+  %186 = getelementptr inbounds nuw [173 x ptr], ptr %185, i64 0, i64 %.0.lcssa.i.i.i88
   br label %.lr.ph.i.i89
 
 .lr.ph.i.i89:                                     ; preds = %.lr.ph.i.i89, %_conf_hashtbl_index.exit.i.i87
@@ -5771,11 +5771,11 @@ _conf_hashtbl_index.exit.i.i87:                   ; preds = %._crit_edge.loopexi
   %187 = load ptr, ptr %.014.i.i91, align 8
   %188 = tail call i32 @xstrcasecmp(ptr noundef %187, ptr noundef nonnull %2) #14
   %189 = icmp eq i32 %188, 0
-  %190 = getelementptr inbounds i8, ptr %.014.i.i91, i64 48
+  %190 = getelementptr inbounds nuw i8, ptr %.014.i.i91, i64 48
   br i1 %189, label %_conf_hashtbl_lookup.exit.i92, label %.lr.ph.i.i89
 
 _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
-  %191 = getelementptr inbounds i8, ptr %.014.i.i91, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %.014.i.i91, i64 24
   %192 = load ptr, ptr %191, align 8
   %193 = load i32, ptr %192, align 4
   %194 = load i32, ptr %164, align 4
@@ -5804,9 +5804,9 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
   br label %_handle_expline_sc.exit
 
 205:                                              ; preds = %_conf_hashtbl_lookup.exit
-  %206 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %0, i64 16
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %209 = load i32, ptr %1, align 4
   %210 = icmp sgt i32 %209, 0
   br i1 %210, label %.lr.ph.i98, label %._crit_edge.i96
@@ -5821,7 +5821,7 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
 .lr.ph.i98:                                       ; preds = %205, %211
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i113, %211 ], [ 0, %205 ]
   %215 = load ptr, ptr %208, align 8
-  %216 = getelementptr inbounds ptr, ptr %215, i64 %indvars.iv.i99
+  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %indvars.iv.i99
   %217 = load ptr, ptr %216, align 8, !nonnull !57, !noundef !57
   %218 = load i8, ptr %2, align 1
   %.not6.i.i.i100 = icmp eq i8 %218, 0
@@ -5835,7 +5835,7 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
   %221 = tail call i32 @tolower(i32 noundef %220) #15
   %222 = mul i32 %.08.i.i.i102, 31
   %223 = add i32 %221, %222
-  %224 = getelementptr inbounds i8, ptr %.047.i.i.i103, i64 1
+  %224 = getelementptr inbounds nuw i8, ptr %.047.i.i.i103, i64 1
   %225 = load i8, ptr %224, align 1
   %.not.i.i.i104 = icmp eq i8 %225, 0
   br i1 %.not.i.i.i104, label %._crit_edge.loopexit.i.i.i105, label %.lr.ph.i.i.i101, !llvm.loop !23
@@ -5847,8 +5847,8 @@ _conf_hashtbl_lookup.exit.i92:                    ; preds = %.lr.ph.i.i89
 
 _conf_hashtbl_index.exit.i.i106:                  ; preds = %._crit_edge.loopexit.i.i.i105, %.lr.ph.i98
   %.0.lcssa.i.i.i107 = phi i64 [ 0, %.lr.ph.i98 ], [ %227, %._crit_edge.loopexit.i.i.i105 ]
-  %228 = getelementptr inbounds i8, ptr %217, i64 64
-  %229 = getelementptr inbounds [173 x ptr], ptr %228, i64 0, i64 %.0.lcssa.i.i.i107
+  %228 = getelementptr inbounds nuw i8, ptr %217, i64 64
+  %229 = getelementptr inbounds nuw [173 x ptr], ptr %228, i64 0, i64 %.0.lcssa.i.i.i107
   br label %.lr.ph.i.i108
 
 .lr.ph.i.i108:                                    ; preds = %.lr.ph.i.i108, %_conf_hashtbl_index.exit.i.i106
@@ -5857,11 +5857,11 @@ _conf_hashtbl_index.exit.i.i106:                  ; preds = %._crit_edge.loopexi
   %230 = load ptr, ptr %.014.i.i110, align 8
   %231 = tail call i32 @xstrcasecmp(ptr noundef %230, ptr noundef nonnull %2) #14
   %232 = icmp eq i32 %231, 0
-  %233 = getelementptr inbounds i8, ptr %.014.i.i110, i64 48
+  %233 = getelementptr inbounds nuw i8, ptr %.014.i.i110, i64 48
   br i1 %232, label %_conf_hashtbl_lookup.exit.i111, label %.lr.ph.i.i108
 
 _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
-  %234 = getelementptr inbounds i8, ptr %.014.i.i110, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %.014.i.i110, i64 24
   %235 = load ptr, ptr %234, align 8
   %236 = load i64, ptr %235, align 8
   %237 = load i64, ptr %207, align 8
@@ -5890,9 +5890,9 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
   br label %_handle_expline_sc.exit
 
 248:                                              ; preds = %_conf_hashtbl_lookup.exit
-  %249 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %249 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %250 = load ptr, ptr %249, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 16
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %252 = load i32, ptr %1, align 4
   %253 = icmp sgt i32 %252, 0
   br i1 %253, label %.lr.ph.i117, label %._crit_edge.i115
@@ -5907,7 +5907,7 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
 .lr.ph.i117:                                      ; preds = %248, %254
   %indvars.iv.i118 = phi i64 [ %indvars.iv.next.i132, %254 ], [ 0, %248 ]
   %258 = load ptr, ptr %251, align 8
-  %259 = getelementptr inbounds ptr, ptr %258, i64 %indvars.iv.i118
+  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %indvars.iv.i118
   %260 = load ptr, ptr %259, align 8, !nonnull !57, !noundef !57
   %261 = load i8, ptr %2, align 1
   %.not6.i.i.i119 = icmp eq i8 %261, 0
@@ -5921,7 +5921,7 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
   %264 = tail call i32 @tolower(i32 noundef %263) #15
   %265 = mul i32 %.08.i.i.i121, 31
   %266 = add i32 %264, %265
-  %267 = getelementptr inbounds i8, ptr %.047.i.i.i122, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %.047.i.i.i122, i64 1
   %268 = load i8, ptr %267, align 1
   %.not.i.i.i123 = icmp eq i8 %268, 0
   br i1 %.not.i.i.i123, label %._crit_edge.loopexit.i.i.i124, label %.lr.ph.i.i.i120, !llvm.loop !23
@@ -5933,8 +5933,8 @@ _conf_hashtbl_lookup.exit.i111:                   ; preds = %.lr.ph.i.i108
 
 _conf_hashtbl_index.exit.i.i125:                  ; preds = %._crit_edge.loopexit.i.i.i124, %.lr.ph.i117
   %.0.lcssa.i.i.i126 = phi i64 [ 0, %.lr.ph.i117 ], [ %270, %._crit_edge.loopexit.i.i.i124 ]
-  %271 = getelementptr inbounds i8, ptr %260, i64 64
-  %272 = getelementptr inbounds [173 x ptr], ptr %271, i64 0, i64 %.0.lcssa.i.i.i126
+  %271 = getelementptr inbounds nuw i8, ptr %260, i64 64
+  %272 = getelementptr inbounds nuw [173 x ptr], ptr %271, i64 0, i64 %.0.lcssa.i.i.i126
   br label %.lr.ph.i.i127
 
 .lr.ph.i.i127:                                    ; preds = %.lr.ph.i.i127, %_conf_hashtbl_index.exit.i.i125
@@ -5943,11 +5943,11 @@ _conf_hashtbl_index.exit.i.i125:                  ; preds = %._crit_edge.loopexi
   %273 = load ptr, ptr %.014.i.i129, align 8
   %274 = tail call i32 @xstrcasecmp(ptr noundef %273, ptr noundef nonnull %2) #14
   %275 = icmp eq i32 %274, 0
-  %276 = getelementptr inbounds i8, ptr %.014.i.i129, i64 48
+  %276 = getelementptr inbounds nuw i8, ptr %.014.i.i129, i64 48
   br i1 %275, label %_conf_hashtbl_lookup.exit.i130, label %.lr.ph.i.i127
 
 _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
-  %277 = getelementptr inbounds i8, ptr %.014.i.i129, i64 24
+  %277 = getelementptr inbounds nuw i8, ptr %.014.i.i129, i64 24
   %278 = load ptr, ptr %277, align 8
   %279 = load float, ptr %278, align 4
   %280 = load float, ptr %250, align 4
@@ -5976,9 +5976,9 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
   br label %_handle_expline_sc.exit
 
 292:                                              ; preds = %_conf_hashtbl_lookup.exit
-  %293 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %293 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %0, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %296 = load i32, ptr %1, align 4
   %297 = icmp sgt i32 %296, 0
   br i1 %297, label %.lr.ph.i136, label %._crit_edge.i134
@@ -5993,7 +5993,7 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
 .lr.ph.i136:                                      ; preds = %292, %298
   %indvars.iv.i137 = phi i64 [ %indvars.iv.next.i151, %298 ], [ 0, %292 ]
   %302 = load ptr, ptr %295, align 8
-  %303 = getelementptr inbounds ptr, ptr %302, i64 %indvars.iv.i137
+  %303 = getelementptr inbounds nuw ptr, ptr %302, i64 %indvars.iv.i137
   %304 = load ptr, ptr %303, align 8, !nonnull !57, !noundef !57
   %305 = load i8, ptr %2, align 1
   %.not6.i.i.i138 = icmp eq i8 %305, 0
@@ -6007,7 +6007,7 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
   %308 = tail call i32 @tolower(i32 noundef %307) #15
   %309 = mul i32 %.08.i.i.i140, 31
   %310 = add i32 %308, %309
-  %311 = getelementptr inbounds i8, ptr %.047.i.i.i141, i64 1
+  %311 = getelementptr inbounds nuw i8, ptr %.047.i.i.i141, i64 1
   %312 = load i8, ptr %311, align 1
   %.not.i.i.i142 = icmp eq i8 %312, 0
   br i1 %.not.i.i.i142, label %._crit_edge.loopexit.i.i.i143, label %.lr.ph.i.i.i139, !llvm.loop !23
@@ -6019,8 +6019,8 @@ _conf_hashtbl_lookup.exit.i130:                   ; preds = %.lr.ph.i.i127
 
 _conf_hashtbl_index.exit.i.i144:                  ; preds = %._crit_edge.loopexit.i.i.i143, %.lr.ph.i136
   %.0.lcssa.i.i.i145 = phi i64 [ 0, %.lr.ph.i136 ], [ %314, %._crit_edge.loopexit.i.i.i143 ]
-  %315 = getelementptr inbounds i8, ptr %304, i64 64
-  %316 = getelementptr inbounds [173 x ptr], ptr %315, i64 0, i64 %.0.lcssa.i.i.i145
+  %315 = getelementptr inbounds nuw i8, ptr %304, i64 64
+  %316 = getelementptr inbounds nuw [173 x ptr], ptr %315, i64 0, i64 %.0.lcssa.i.i.i145
   br label %.lr.ph.i.i146
 
 .lr.ph.i.i146:                                    ; preds = %.lr.ph.i.i146, %_conf_hashtbl_index.exit.i.i144
@@ -6029,11 +6029,11 @@ _conf_hashtbl_index.exit.i.i144:                  ; preds = %._crit_edge.loopexi
   %317 = load ptr, ptr %.014.i.i148, align 8
   %318 = tail call i32 @xstrcasecmp(ptr noundef %317, ptr noundef nonnull %2) #14
   %319 = icmp eq i32 %318, 0
-  %320 = getelementptr inbounds i8, ptr %.014.i.i148, i64 48
+  %320 = getelementptr inbounds nuw i8, ptr %.014.i.i148, i64 48
   br i1 %319, label %_conf_hashtbl_lookup.exit.i149, label %.lr.ph.i.i146
 
 _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
-  %321 = getelementptr inbounds i8, ptr %.014.i.i148, i64 24
+  %321 = getelementptr inbounds nuw i8, ptr %.014.i.i148, i64 24
   %322 = load ptr, ptr %321, align 8
   %323 = load double, ptr %322, align 8
   %324 = load double, ptr %294, align 8
@@ -6062,9 +6062,9 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
   br label %_handle_expline_sc.exit
 
 336:                                              ; preds = %_conf_hashtbl_lookup.exit
-  %337 = getelementptr inbounds i8, ptr %.014.i, i64 24
+  %337 = getelementptr inbounds nuw i8, ptr %.014.i, i64 24
   %338 = load ptr, ptr %337, align 8
-  %339 = getelementptr inbounds i8, ptr %0, i64 16
+  %339 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %340 = load i32, ptr %1, align 4
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %.lr.ph.i155, label %._crit_edge.i153
@@ -6079,7 +6079,7 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
 .lr.ph.i155:                                      ; preds = %336, %342
   %indvars.iv.i156 = phi i64 [ %indvars.iv.next.i170, %342 ], [ 0, %336 ]
   %346 = load ptr, ptr %339, align 8
-  %347 = getelementptr inbounds ptr, ptr %346, i64 %indvars.iv.i156
+  %347 = getelementptr inbounds nuw ptr, ptr %346, i64 %indvars.iv.i156
   %348 = load ptr, ptr %347, align 8, !nonnull !57, !noundef !57
   %349 = load i8, ptr %2, align 1
   %.not6.i.i.i157 = icmp eq i8 %349, 0
@@ -6093,7 +6093,7 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
   %352 = tail call i32 @tolower(i32 noundef %351) #15
   %353 = mul i32 %.08.i.i.i159, 31
   %354 = add i32 %352, %353
-  %355 = getelementptr inbounds i8, ptr %.047.i.i.i160, i64 1
+  %355 = getelementptr inbounds nuw i8, ptr %.047.i.i.i160, i64 1
   %356 = load i8, ptr %355, align 1
   %.not.i.i.i161 = icmp eq i8 %356, 0
   br i1 %.not.i.i.i161, label %._crit_edge.loopexit.i.i.i162, label %.lr.ph.i.i.i158, !llvm.loop !23
@@ -6105,8 +6105,8 @@ _conf_hashtbl_lookup.exit.i149:                   ; preds = %.lr.ph.i.i146
 
 _conf_hashtbl_index.exit.i.i163:                  ; preds = %._crit_edge.loopexit.i.i.i162, %.lr.ph.i155
   %.0.lcssa.i.i.i164 = phi i64 [ 0, %.lr.ph.i155 ], [ %358, %._crit_edge.loopexit.i.i.i162 ]
-  %359 = getelementptr inbounds i8, ptr %348, i64 64
-  %360 = getelementptr inbounds [173 x ptr], ptr %359, i64 0, i64 %.0.lcssa.i.i.i164
+  %359 = getelementptr inbounds nuw i8, ptr %348, i64 64
+  %360 = getelementptr inbounds nuw [173 x ptr], ptr %359, i64 0, i64 %.0.lcssa.i.i.i164
   br label %.lr.ph.i.i165
 
 .lr.ph.i.i165:                                    ; preds = %.lr.ph.i.i165, %_conf_hashtbl_index.exit.i.i163
@@ -6115,11 +6115,11 @@ _conf_hashtbl_index.exit.i.i163:                  ; preds = %._crit_edge.loopexi
   %361 = load ptr, ptr %.014.i.i167, align 8
   %362 = tail call i32 @xstrcasecmp(ptr noundef %361, ptr noundef nonnull %2) #14
   %363 = icmp eq i32 %362, 0
-  %364 = getelementptr inbounds i8, ptr %.014.i.i167, i64 48
+  %364 = getelementptr inbounds nuw i8, ptr %.014.i.i167, i64 48
   br i1 %363, label %_conf_hashtbl_lookup.exit.i168, label %.lr.ph.i.i165
 
 _conf_hashtbl_lookup.exit.i168:                   ; preds = %.lr.ph.i.i165
-  %365 = getelementptr inbounds i8, ptr %.014.i.i167, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %.014.i.i167, i64 24
   %366 = load ptr, ptr %365, align 8
   %367 = load x86_fp80, ptr %366, align 16
   %368 = load x86_fp80, ptr %338, align 16
@@ -6197,7 +6197,7 @@ define internal fastcc void @_handle_include(ptr noundef %0, ptr noundef %1) unn
   %11 = tail call ptr @xstrdup(ptr noundef %1) #14
   store ptr %11, ptr %10, align 8
   %12 = tail call ptr @list_create(ptr noundef nonnull @xfree_ptr) #14
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %12, ptr %13, align 8
   %14 = tail call ptr @xstrdup(ptr noundef %0) #14
   tail call void @list_append(ptr noundef %12, ptr noundef %14) #14
@@ -6206,7 +6206,7 @@ define internal fastcc void @_handle_include(ptr noundef %0, ptr noundef %1) unn
   br label %23
 
 16:                                               ; preds = %6
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @list_find_first_ro(ptr noundef %18, ptr noundef nonnull @slurm_find_char_exact_in_list, ptr noundef %0) #14
   %.not12 = icmp eq ptr %19, null
@@ -6240,7 +6240,7 @@ define internal void @_delete_conf_includes(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not2 = icmp eq ptr %5, null
   br i1 %.not2, label %7, label %6

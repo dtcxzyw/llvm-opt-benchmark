@@ -56,9 +56,9 @@ define hidden void @_ZN4llvm13WasmException9endModuleEv(ptr nocapture noundef no
 
 10:                                               ; preds = %1
   store ptr @.str, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 33
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -70,7 +70,7 @@ define hidden void @_ZN4llvm13WasmException9endModuleEv(ptr nocapture noundef no
 
 20:                                               ; preds = %10, %_ZN4llvm11SmallStringILj60EED2Ev.exit
   %.0.idx16 = phi i64 [ 0, %10 ], [ %.0.add, %_ZN4llvm11SmallStringILj60EED2Ev.exit ]
-  %.0.ptr = getelementptr inbounds i8, ptr %2, i64 %.0.idx16
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx16
   %21 = load ptr, ptr %.0.ptr, align 8
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(84) %3, ptr noundef nonnull %12, i64 noundef 60) #6
   store i8 1, ptr %13, align 8
@@ -122,7 +122,7 @@ _ZN4llvm5TwineC2EPKc.exit13:                      ; preds = %32, %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 200
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 200
   %42 = load ptr, ptr %41, align 8
   call void %42(ptr noundef nonnull align 8 dereferenceable(288) %39, ptr noundef %36, ptr null) #6
   br label %43
@@ -188,7 +188,7 @@ define hidden void @_ZN4llvm13WasmException11endFunctionEPKNS_15MachineFunctionE
   %19 = xor i32 %17, %18
   %.01618.i.i.i.i.i = and i32 %19, %13
   %20 = zext nneg i32 %.01618.i.i.i.i.i to i64
-  %21 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %14, %22
   br i1 %23, label %.loopexit, label %.lr.ph.i.i.i.i.i
@@ -205,13 +205,13 @@ define hidden void @_ZN4llvm13WasmException11endFunctionEPKNS_15MachineFunctionE
   %27 = add i32 %.01519.i.i.i.i.i, %.01620.i.i.i.i.i
   %.016.i.i.i.i.i = and i32 %27, %13
   %28 = zext i32 %.016.i.i.i.i.i to i64
-  %29 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %9, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %14, %30
   br i1 %31, label %.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
 
 _ZNK4llvm15MachineFunction22hasWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exit.loopexit: ; preds = %.lr.ph.i.i.i.i.i
-  %32 = getelementptr inbounds i8, ptr %.sroa.015.020, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.015.020, i64 120
   %.not = icmp eq ptr %32, %7
   br i1 %.not, label %.critedge, label %.lr.ph.split
 
@@ -229,7 +229,7 @@ _ZNK4llvm15MachineFunction22hasWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exi
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 80
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 200
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 200
   %44 = load ptr, ptr %43, align 8
   call void %44(ptr noundef nonnull align 8 dereferenceable(288) %41, ptr noundef %38, ptr null) #6
   %45 = load ptr, ptr %34, align 8
@@ -244,7 +244,7 @@ _ZNK4llvm15MachineFunction22hasWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exi
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 432
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 432
   %58 = load ptr, ptr %57, align 8
   call void %58(ptr noundef nonnull align 8 dereferenceable(288) %55, ptr noundef %33, ptr noundef %52) #6
   br label %.critedge
@@ -287,7 +287,7 @@ define hidden void @_ZN4llvm13WasmException20computeCallSiteTableERNS_15SmallVec
   %16 = phi i32 [ %.pr, %.lr.ph.splitthread-pre-split ], [ %14, %.lr.ph.split.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph.split.preheader ]
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %12, align 8
@@ -303,7 +303,7 @@ define hidden void @_ZN4llvm13WasmException20computeCallSiteTableERNS_15SmallVec
   %29 = add i32 %16, -1
   %.01618.i.i.i.i.i = and i32 %28, %29
   %30 = zext nneg i32 %.01618.i.i.i.i.i to i64
-  %31 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %20, %32
   br i1 %33, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i, label %.lr.ph.i.i.i.i.i
@@ -320,7 +320,7 @@ define hidden void @_ZN4llvm13WasmException20computeCallSiteTableERNS_15SmallVec
   %37 = add i32 %.01519.i.i.i.i.i, %.01620.i.i.i.i.i
   %.016.i.i.i.i.i = and i32 %37, %29
   %38 = zext i32 %.016.i.i.i.i.i to i64
-  %39 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %20, %40
   br i1 %41, label %.lr.ph.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !4
@@ -337,21 +337,21 @@ define hidden void @_ZN4llvm13WasmException20computeCallSiteTableERNS_15SmallVec
   %46 = add i32 %.01519.i.i.i.i, %.01620.i.i.i.i
   %.016.i.i.i.i = and i32 %46, %29
   %47 = zext i32 %.016.i.i.i.i to i64
-  %48 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %20, %49
   br i1 %50, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i: ; preds = %44, %23
   %51 = phi i64 [ %30, %23 ], [ %47, %44 ]
-  %52 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %51, i32 0, i32 1
+  %52 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %51, i32 0, i32 1
   %53 = load i32, ptr %52, align 4
   br label %_ZNK4llvm15MachineFunction22getWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exit
 
 _ZNK4llvm15MachineFunction22getWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i
   %.0.i.i = phi i32 [ %53, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E6doFindIS4_EEPKS9_RKT_.exit.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
   %56 = load i32, ptr %55, align 4
   %57 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #6
   %58 = add i32 %.0.i.i, 1
@@ -366,11 +366,11 @@ _ZNK4llvm15MachineFunction22getWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exi
 62:                                               ; preds = %61, %_ZNK4llvm15MachineFunction22getWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exit
   %63 = zext i32 %.0.i.i to i64
   %64 = load ptr, ptr %1, align 8
-  %65 = getelementptr inbounds %"struct.llvm::EHStreamer::CallSiteEntry", ptr %64, i64 %63
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 16
+  %65 = getelementptr inbounds nuw %"struct.llvm::EHStreamer::CallSiteEntry", ptr %64, i64 %63
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
   store ptr %19, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 24
   store i32 %56, ptr %.sroa.4.0..sroa_idx, align 8
   br label %_ZNK4llvm15MachineFunction22hasWasmLandingPadIndexEPKNS_17MachineBasicBlockE.exit
 
@@ -470,7 +470,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_10EHStreamer13Call
   br i1 %12, label %13, label %_ZN4llvm15SmallVectorImplINS_10EHStreamer13CallSiteEntryEE7reserveEm.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %14, i64 noundef %1, i64 noundef 32) #6
   br label %_ZN4llvm15SmallVectorImplINS_10EHStreamer13CallSiteEntryEE7reserveEm.exit
 

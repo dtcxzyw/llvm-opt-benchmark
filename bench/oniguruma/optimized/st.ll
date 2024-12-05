@@ -27,7 +27,7 @@ define noalias noundef ptr @onig_st_init_table_with_size(ptr noundef %0, i32 nou
 
 new_size.exit:                                    ; preds = %3
   %8 = zext nneg i32 %.0710.i to i64
-  %9 = getelementptr inbounds [29 x i64], ptr @primes, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   %12 = icmp slt i32 %11, 1
@@ -40,13 +40,13 @@ new_size.exit:                                    ; preds = %3
 
 16:                                               ; preds = %13
   store ptr %0, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %11, ptr %18, align 8
   %19 = and i64 %10, 2147483647
   %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #12
-  %21 = getelementptr inbounds i8, ptr %14, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %23, label %new_size.exit.thread
@@ -77,12 +77,12 @@ define noalias noundef ptr @onig_st_init_table(ptr noundef %0) local_unnamed_add
 
 4:                                                ; preds = %1
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 11, ptr %6, align 8
   %7 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 11, i64 noundef 8) #12
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %onig_st_init_table_with_size.exit
@@ -104,12 +104,12 @@ define noalias noundef ptr @onig_st_init_numtable() local_unnamed_addr #4 {
 
 3:                                                ; preds = %0
   store ptr @type_numhash, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 11, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 11, i64 noundef 8) #12
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %onig_st_init_table.exit
@@ -141,7 +141,7 @@ define noalias noundef ptr @onig_st_init_numtable_with_size(i32 noundef %0) loca
 
 new_size.exit.i:                                  ; preds = %2
   %7 = zext nneg i32 %.0710.i.i to i64
-  %8 = getelementptr inbounds [29 x i64], ptr @primes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1
@@ -154,13 +154,13 @@ new_size.exit.i:                                  ; preds = %2
 
 15:                                               ; preds = %12
   store ptr @type_numhash, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %10, ptr %17, align 8
   %18 = and i64 %9, 2147483647
   %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #12
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
   br i1 %21, label %22, label %onig_st_init_table_with_size.exit
@@ -182,12 +182,12 @@ define noalias noundef ptr @onig_st_init_strtable() local_unnamed_addr #4 {
 
 3:                                                ; preds = %0
   store ptr @type_strhash, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 11, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 11, i64 noundef 8) #12
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
   br i1 %8, label %9, label %onig_st_init_table.exit
@@ -219,7 +219,7 @@ define noalias noundef ptr @onig_st_init_strtable_with_size(i32 noundef %0) loca
 
 new_size.exit.i:                                  ; preds = %2
   %7 = zext nneg i32 %.0710.i.i to i64
-  %8 = getelementptr inbounds [29 x i64], ptr @primes, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %7
   %9 = load i64, ptr %8, align 8
   %10 = trunc i64 %9 to i32
   %11 = icmp slt i32 %10, 1
@@ -232,13 +232,13 @@ new_size.exit.i:                                  ; preds = %2
 
 15:                                               ; preds = %12
   store ptr @type_strhash, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 0, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %10, ptr %17, align 8
   %18 = and i64 %9, 2147483647
   %19 = tail call noalias ptr @calloc(i64 noundef %18, i64 noundef 8) #12
-  %20 = getelementptr inbounds i8, ptr %13, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %19, ptr %20, align 8
   %21 = icmp eq ptr %19, null
   br i1 %21, label %22, label %onig_st_init_table_with_size.exit
@@ -254,27 +254,27 @@ onig_st_init_table_with_size.exit:                ; preds = %4, %new_size.exit.i
 
 ; Function Attrs: nounwind uwtable
 define void @onig_st_free_table(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph15, label %._crit_edge16
 
 .lr.ph15:                                         ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %6
 
 6:                                                ; preds = %.lr.ph15, %._crit_edge
   %7 = phi i32 [ %3, %.lr.ph15 ], [ %13, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next, %._crit_edge ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.01012 = phi ptr [ %12, %.lr.ph ], [ %10, %6 ]
-  %11 = getelementptr inbounds i8, ptr %.01012, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.01012, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @free(ptr noundef nonnull %.01012) #13
   %.not = icmp eq ptr %12, null
@@ -292,7 +292,7 @@ define void @onig_st_free_table(ptr nocapture noundef %0) local_unnamed_addr #5 
   br i1 %15, label %6, label %._crit_edge16, !llvm.loop !7
 
 ._crit_edge16:                                    ; preds = %._crit_edge, %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #13
   tail call void @free(ptr noundef nonnull %0) #13
@@ -302,16 +302,16 @@ define void @onig_st_free_table(ptr nocapture noundef %0) local_unnamed_addr #5 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i64 noundef %1) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = urem i32 %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.thread46, label %16
@@ -322,7 +322,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
   br i1 %.not39, label %18, label %27
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %1, %20
   br i1 %21, label %.thread, label %22
@@ -335,7 +335,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %22, %16
-  %28 = getelementptr inbounds i8, ptr %15, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not4051 = icmp eq ptr %29, null
   br i1 %.not4051, label %.thread46, label %.lr.ph
@@ -348,7 +348,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
   br i1 %.not41, label %33, label %.critedge2
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %1, %35
   br i1 %36, label %.thread, label %37
@@ -363,7 +363,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
 
 .critedge2:                                       ; preds = %37, %.lr.ph
   %41 = phi ptr [ %30, %.lr.ph ], [ %.pr.pre, %37 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not40 = icmp eq ptr %43, null
   br i1 %.not40, label %.thread46, label %.lr.ph, !llvm.loop !8
@@ -378,7 +378,7 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
   br i1 %.not42, label %.thread46, label %46
 
 46:                                               ; preds = %.thread
-  %47 = getelementptr inbounds i8, ptr %.145, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %.145, i64 16
   %48 = load i64, ptr %47, align 8
   store i64 %48, ptr %2, align 8
   br label %.thread46
@@ -391,16 +391,16 @@ define range(i32 0, 2) i32 @onig_st_lookup(ptr nocapture noundef readonly %0, i6
 ; Function Attrs: nounwind uwtable
 define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i64 noundef %1) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = urem i32 %7, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.thread64, label %16
@@ -411,7 +411,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
   br i1 %.not58, label %18, label %27
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %1, %20
   br i1 %21, label %.thread, label %22
@@ -424,7 +424,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
   br i1 %26, label %.thread, label %27
 
 27:                                               ; preds = %22, %16
-  %28 = getelementptr inbounds i8, ptr %15, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not5970 = icmp eq ptr %29, null
   br i1 %.not5970, label %.thread64, label %.lr.ph
@@ -437,7 +437,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
   br i1 %.not60, label %33, label %.critedge2
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds i8, ptr %30, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %1, %35
   br i1 %36, label %.thread, label %37
@@ -452,7 +452,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
 
 .critedge2:                                       ; preds = %37, %.lr.ph
   %41 = phi ptr [ %30, %.lr.ph ], [ %.pr.pre, %37 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not59 = icmp eq ptr %43, null
   br i1 %.not59, label %.thread64, label %.lr.ph, !llvm.loop !9
@@ -462,7 +462,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
   br i1 %45, label %.thread64, label %.thread
 
 .thread64:                                        ; preds = %.critedge2, %27, %3, %44
-  %46 = getelementptr inbounds i8, ptr %0, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = load i32, ptr %8, align 8
   %49 = sdiv i32 %47, %48
@@ -487,7 +487,7 @@ define range(i32 -5, 2) i32 @onig_st_insert(ptr nocapture noundef %0, i64 nounde
 
 new_size.exit.i:                                  ; preds = %53
   %58 = zext nneg i32 %.0710.i.i to i64
-  %59 = getelementptr inbounds [29 x i64], ptr @primes, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = trunc i64 %60 to i32
   %62 = icmp slt i32 %61, 1
@@ -510,19 +510,19 @@ new_size.exit.i:                                  ; preds = %53
 68:                                               ; preds = %._crit_edge.i, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %69 = load ptr, ptr %11, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8
   %.not30.i = icmp eq ptr %71, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.i
   %.031.i = phi ptr [ %73, %.lr.ph.i ], [ %71, %68 ]
-  %72 = getelementptr inbounds i8, ptr %.031.i, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = load i32, ptr %.031.i, align 8
   %75 = urem i32 %74, %61
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %65, i64 %76
+  %77 = getelementptr inbounds nuw ptr, ptr %65, i64 %76
   %78 = load ptr, ptr %77, align 8
   store ptr %78, ptr %72, align 8
   store ptr %.031.i, ptr %77, align 8
@@ -554,15 +554,15 @@ rehash.exit:                                      ; preds = %55, %new_size.exit.
 
 85:                                               ; preds = %82
   store i32 %7, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store i64 %1, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %83, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 %2, ptr %87, align 8
   %88 = load ptr, ptr %11, align 8
   %89 = zext i32 %.049 to i64
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %83, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %83, i64 24
   store ptr %91, ptr %92, align 8
   store ptr %83, ptr %90, align 8
   %93 = load i32, ptr %46, align 4
@@ -572,7 +572,7 @@ rehash.exit:                                      ; preds = %55, %new_size.exit.
 
 .thread:                                          ; preds = %33, %22, %18, %44
   %.163 = phi ptr [ %.pr.pre, %44 ], [ %15, %18 ], [ %15, %22 ], [ %30, %33 ]
-  %95 = getelementptr inbounds i8, ptr %.163, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.163, i64 16
   store i64 %2, ptr %95, align 8
   br label %96
 
@@ -584,12 +584,12 @@ rehash.exit:                                      ; preds = %55, %new_size.exit.
 ; Function Attrs: nounwind uwtable
 define void @onig_st_add_direct(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(i64 noundef %1) #13
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = sdiv i32 %11, %9
   %13 = icmp sgt i32 %12, 5
@@ -613,7 +613,7 @@ define void @onig_st_add_direct(ptr nocapture noundef %0, i64 noundef %1, i64 no
 
 new_size.exit.i:                                  ; preds = %16
   %21 = zext nneg i32 %.0710.i.i to i64
-  %22 = getelementptr inbounds [29 x i64], ptr @primes, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [29 x i64], ptr @primes, i64 0, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = trunc i64 %23 to i32
   %25 = icmp slt i32 %24, 1
@@ -630,26 +630,26 @@ new_size.exit.i:                                  ; preds = %16
   br i1 %30, label %.lr.ph33.i, label %._crit_edge34.i
 
 .lr.ph33.i:                                       ; preds = %.preheader.i
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count.i = zext nneg i32 %9 to i64
   br label %32
 
 32:                                               ; preds = %._crit_edge.i, %.lr.ph33.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph33.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %33 = load ptr, ptr %31, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv.i
   %35 = load ptr, ptr %34, align 8
   %.not30.i = icmp eq ptr %35, null
   br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %.031.i = phi ptr [ %37, %.lr.ph.i ], [ %35, %32 ]
-  %36 = getelementptr inbounds i8, ptr %.031.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %.031.i, align 8
   %39 = urem i32 %38, %24
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds ptr, ptr %28, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %40
   %42 = load ptr, ptr %41, align 8
   store ptr %42, ptr %36, align 8
   store ptr %.031.i, ptr %41, align 8
@@ -662,7 +662,7 @@ new_size.exit.i:                                  ; preds = %16
   br i1 %exitcond.not.i, label %._crit_edge34.i, label %32, !llvm.loop !11
 
 ._crit_edge34.i:                                  ; preds = %._crit_edge.i, %.preheader.i
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   tail call void @free(ptr noundef %44) #13
   store i32 %24, ptr %8, align 8
@@ -678,16 +678,16 @@ rehash.exit:                                      ; preds = %18, %._crit_edge34.
 47:                                               ; preds = %rehash.exit
   %.0 = urem i32 %7, %.pn
   store i32 %7, ptr %45, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i64 %1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 %2, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %.0 to i64
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %45, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %54, ptr %55, align 8
   store ptr %45, ptr %53, align 8
   %56 = load i32, ptr %10, align 4
@@ -701,7 +701,7 @@ rehash.exit:                                      ; preds = %18, %._crit_edge34.
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #11
   %5 = icmp eq ptr %4, null
@@ -711,7 +711,7 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 16, i1 false)
   %7 = zext i32 %3 to i64
   %8 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #12
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %8, ptr %9, align 8
   %10 = icmp eq ptr %8, null
   br i1 %10, label %.loopexit.sink.split, label %.preheader
@@ -721,15 +721,15 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
   br i1 %11, label %.lr.ph37, label %.loopexit
 
 .lr.ph37:                                         ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   br label %14
 
 14:                                               ; preds = %.lr.ph37, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %._crit_edge ]
-  %15 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %.03033 = load ptr, ptr %16, align 8
   %.not34 = icmp eq ptr %.03033, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph
@@ -747,10 +747,10 @@ define noalias noundef ptr @onig_st_copy(ptr nocapture noundef readonly %0) loca
 
 21:                                               ; preds = %.lr.ph
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %.03035, i64 24, i1 false)
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %17, ptr %22, align 8
   store ptr %18, ptr %15, align 8
-  %23 = getelementptr inbounds i8, ptr %.03035, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.03035, i64 24
   %.030 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %.030, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -775,17 +775,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %1, align 8
   %8 = tail call i32 %6(i64 noundef %7) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = urem i32 %8, %10
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %20
@@ -800,7 +800,7 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
 
 20:                                               ; preds = %3
   %21 = load i64, ptr %1, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp eq i64 %21, %23
   br i1 %24, label %32, label %25
@@ -817,18 +817,18 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
   br label %32
 
 .preheader:                                       ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %16, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not52 = icmp eq ptr %31, null
   br i1 %.not52, label %.loopexit, label %.lr.ph
 
 32:                                               ; preds = %._crit_edge, %20
   %33 = phi ptr [ %.pre54, %._crit_edge ], [ %13, %20 ]
-  %34 = getelementptr inbounds i8, ptr %16, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds ptr, ptr %33, i64 %14
+  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %14
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, -1
   store i32 %39, ptr %37, align 4
@@ -836,7 +836,7 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not49, label %43, label %40
 
 40:                                               ; preds = %32
-  %41 = getelementptr inbounds i8, ptr %16, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %42 = load i64, ptr %41, align 8
   store i64 %42, ptr %2, align 8
   br label %43
@@ -850,7 +850,7 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
 .lr.ph:                                           ; preds = %.preheader, %69
   %45 = phi ptr [ %71, %69 ], [ %31, %.preheader ]
   %46 = phi ptr [ %70, %69 ], [ %30, %.preheader ]
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = load i64, ptr %1, align 8
   %50 = icmp eq i64 %48, %49
@@ -866,10 +866,10 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
 
 56:                                               ; preds = %51, %.lr.ph
   %57 = phi ptr [ %.pre, %51 ], [ %45, %.lr.ph ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load ptr, ptr %58, align 8
   store ptr %59, ptr %46, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = add nsw i32 %61, -1
   store i32 %62, ptr %60, align 4
@@ -877,20 +877,20 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
   br i1 %.not48, label %66, label %63
 
 63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %57, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %65 = load i64, ptr %64, align 8
   store i64 %65, ptr %2, align 8
   br label %66
 
 66:                                               ; preds = %63, %56
-  %67 = getelementptr inbounds i8, ptr %57, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %68 = load i64, ptr %67, align 8
   store i64 %68, ptr %1, align 8
   tail call void @free(ptr noundef nonnull %57) #13
   br label %.loopexit
 
 69:                                               ; preds = %51
-  %70 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %71 = load ptr, ptr %70, align 8
   %.not = icmp eq ptr %71, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !14
@@ -903,17 +903,17 @@ define range(i32 0, 2) i32 @onig_st_delete(ptr nocapture noundef %0, ptr nocaptu
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %1, align 8
   %9 = tail call i32 %7(i64 noundef %8) #13
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = urem i32 %9, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %.preheader
@@ -928,7 +928,7 @@ define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr no
 
 .preheader:                                       ; preds = %4, %42
   %.036 = phi ptr [ %44, %42 ], [ %17, %4 ]
-  %21 = getelementptr inbounds i8, ptr %.036, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %22 = load i64, ptr %21, align 8
   %.not32 = icmp eq i64 %22, %3
   br i1 %.not32, label %42, label %23
@@ -946,8 +946,8 @@ define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr no
   br i1 %30, label %31, label %42
 
 31:                                               ; preds = %26, %23
-  %32 = getelementptr inbounds i8, ptr %.036, i64 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.036, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = add nsw i32 %34, -1
   store i32 %35, ptr %33, align 4
@@ -957,19 +957,19 @@ define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr no
   br i1 %.not33, label %40, label %37
 
 37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %.036, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   %39 = load i64, ptr %38, align 8
   store i64 %39, ptr %2, align 8
   br label %40
 
 40:                                               ; preds = %37, %31
-  %41 = getelementptr inbounds i8, ptr %.036, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.036, i64 16
   store i64 %3, ptr %41, align 8
   store i64 %3, ptr %32, align 8
   br label %.loopexit
 
 42:                                               ; preds = %.preheader, %26
-  %43 = getelementptr inbounds i8, ptr %.036, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %.036, i64 24
   %44 = load ptr, ptr %43, align 8
   %.not = icmp eq ptr %44, null
   br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !15
@@ -981,22 +981,22 @@ define range(i32 0, 2) i32 @onig_st_delete_safe(ptr nocapture noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define void @onig_st_cleanup_safe(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph52.i, label %onig_st_foreach.exit
 
 .lr.ph52.i:                                       ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %9
 
 9:                                                ; preds = %._crit_edge.i, %.lr.ph52.i
   %10 = phi i32 [ %6, %.lr.ph52.i ], [ %32, %._crit_edge.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %.not46.i = icmp eq ptr %13, null
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph49.i
@@ -1004,30 +1004,30 @@ define void @onig_st_cleanup_safe(ptr nocapture noundef %0, i64 noundef %1) loca
 .lr.ph49.i:                                       ; preds = %9, %31
   %.03448.i = phi ptr [ %.135.i, %31 ], [ null, %9 ]
   %.03647.i = phi ptr [ %.137.i, %31 ], [ %13, %9 ]
-  %14 = getelementptr inbounds i8, ptr %.03647.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.03647.i, i64 16
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, %1
   br i1 %16, label %19, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph49.i
-  %17 = getelementptr inbounds i8, ptr %.03647.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.03647.i, i64 24
   %18 = load ptr, ptr %17, align 8
   br label %31
 
 19:                                               ; preds = %.lr.ph49.i
   %20 = icmp eq ptr %.03448.i, null
-  %21 = getelementptr inbounds i8, ptr %.03647.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.03647.i, i64 24
   %22 = load ptr, ptr %21, align 8
   br i1 %20, label %23, label %26
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %8, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
   store ptr %22, ptr %25, align 8
   br label %28
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds i8, ptr %.03448.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.03448.i, i64 24
   store ptr %22, ptr %27, align 8
   br label %28
 
@@ -1062,21 +1062,21 @@ onig_st_foreach.exit:                             ; preds = %._crit_edge.i, %2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph52, label %.loopexit
 
 .lr.ph52:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %9
 
 9:                                                ; preds = %.lr.ph52, %._crit_edge
   %10 = phi i32 [ %5, %.lr.ph52 ], [ %44, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %._crit_edge ]
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not46 = icmp eq ptr %13, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph49
@@ -1084,9 +1084,9 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
 .lr.ph49:                                         ; preds = %9, %43
   %.03448 = phi ptr [ %.135, %43 ], [ null, %9 ]
   %.03647 = phi ptr [ %.137, %43 ], [ %13, %9 ]
-  %14 = getelementptr inbounds i8, ptr %.03647, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.03647, i64 8
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %.03647, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.03647, i64 16
   %17 = load i64, ptr %16, align 8
   %18 = tail call i32 %1(i64 noundef %15, i64 noundef %17, i64 noundef %2) #13
   switch i32 %18, label %43 [
@@ -1104,13 +1104,13 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
 
 23:                                               ; preds = %19
   %24 = load ptr, ptr %7, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %.142 = load ptr, ptr %25, align 8
   %.not3843 = icmp eq ptr %.142, null
   br i1 %.not3843, label %.loopexit, label %.lr.ph
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds i8, ptr %.144, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.144, i64 24
   %.1 = load ptr, ptr %27, align 8
   %.not38 = icmp eq ptr %.1, null
   br i1 %.not38, label %.loopexit, label %.lr.ph, !llvm.loop !18
@@ -1121,24 +1121,24 @@ define range(i32 0, 2) i32 @onig_st_foreach(ptr nocapture noundef %0, ptr nocapt
   br i1 %28, label %.critedge, label %26
 
 .critedge:                                        ; preds = %.lr.ph, %.lr.ph49
-  %29 = getelementptr inbounds i8, ptr %.03647, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.03647, i64 24
   %30 = load ptr, ptr %29, align 8
   br label %43
 
 31:                                               ; preds = %.lr.ph49
   %32 = icmp eq ptr %.03448, null
-  %33 = getelementptr inbounds i8, ptr %.03647, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.03647, i64 24
   %34 = load ptr, ptr %33, align 8
   br i1 %32, label %35, label %38
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   store ptr %34, ptr %37, align 8
   br label %40
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %.03448, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %.03448, i64 24
   store ptr %34, ptr %39, align 8
   br label %40
 
@@ -1204,7 +1204,7 @@ define internal i32 @str_hash(i64 noundef %0) #9 {
   %.09 = phi i32 [ %8, %.lr.ph ], [ 0, %1 ]
   %.058 = phi ptr [ %6, %.lr.ph ], [ %2, %1 ]
   %5 = sext i8 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %.058, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %7 = mul nsw i32 %.09, 997
   %8 = add nsw i32 %7, %5
   %9 = load i8, ptr %6, align 1

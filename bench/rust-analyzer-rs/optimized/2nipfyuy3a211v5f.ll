@@ -26,7 +26,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit
 
 .lr.ph.split.i:                                   ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val5.i = load ptr, ptr %.promoted.i, align 8, !noalias !18, !nonnull !19, !align !20, !noundef !19
   %5 = getelementptr i8, ptr %.promoted.i, i64 8
   %.val6.i = load i64, ptr %5, align 8, !noalias !18, !noundef !19
@@ -43,7 +43,7 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i", label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %2, align 8, !alias.scope !30, !noalias !33
   %11 = tail call noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !36
   br i1 %11, label %7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit
@@ -66,9 +66,9 @@ define hidden void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$G
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf6e395938f654987E.llvm.3336102713667318113(ptr noalias nocapture noundef align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %.sroa.4.sroa.5.4..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.4.sroa.5.4..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %4, align 8, !alias.scope !39, !noalias !44, !noundef !19
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %"_ZN99_$LT$hashbrown..raw..RawIntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h527363ff8fe49769E.exit.thread", label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h112c65d363d507fcE.llvm.4771513731481558538.exit.i"
@@ -160,9 +160,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 
 .lr.ph.split:                                     ; preds = %2
   %.val = load ptr, ptr %1, align 8, !nonnull !19, !align !52, !noundef !19
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val4 = load ptr, ptr %3, align 8, !nonnull !19, !align !52, !noundef !19
-  %4 = getelementptr inbounds i8, ptr %.val4, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.val4, i64 8
   %.val5 = load ptr, ptr %.promoted, align 8, !nonnull !19, !align !20, !noundef !19
   %5 = getelementptr i8, ptr %.promoted, i64 8
   %.val6 = load i64, ptr %5, align 8, !noundef !19
@@ -179,7 +179,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit", label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %10, ptr %.val4, align 8, !alias.scope !62, !noalias !65
   %11 = tail call noundef zeroext i1 @"_ZN10line_index9LineIndex12try_line_col28_$u7b$$u7b$closure$u7d$$u7d$17hb561609238ba9622E.llvm.4272966154850254059"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.val, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %8), !noalias !68
   br i1 %11, label %7, label %.loopexit

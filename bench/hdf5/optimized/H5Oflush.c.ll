@@ -100,7 +100,7 @@ define range(i32 -1, 1) i32 @H5O_flush(ptr noundef %0, i64 noundef %1) local_unn
   br label %40
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %17, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %33, label %26
@@ -191,7 +191,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__oh_tag(ptr noundef %0, ptr noc
   br i1 %4, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %3, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %1, align 8
@@ -249,7 +249,7 @@ define range(i32 -1, 1) i32 @H5O_refresh_metadata(ptr noundef %0, i64 noundef %1
 13:                                               ; preds = %2
   %14 = load ptr, ptr %0, align 8
   store ptr %7, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %15, align 8
   %16 = call i32 @H5G_loc_reset(ptr noundef nonnull %6) #3
   %17 = load ptr, ptr %0, align 8
@@ -281,9 +281,9 @@ define range(i32 -1, 1) i32 @H5O_refresh_metadata(ptr noundef %0, i64 noundef %1
   br label %123
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %29, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i64, ptr %38, align 8
   %40 = add nsw i64 %39, 1
   store i64 %40, ptr %38, align 8

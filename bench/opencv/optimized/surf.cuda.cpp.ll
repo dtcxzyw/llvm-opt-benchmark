@@ -33,85 +33,85 @@ $__clang_call_terminate = comdat any
 define void @_ZN2cv4cuda9SURF_CUDAC2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((24, 36), (40, 88)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
   store i32 0, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
   store ptr %5, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %12 unwind label %47
 
 12:                                               ; preds = %1
   store i32 0, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 92
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 0, i64 40, i1 false)
   store ptr %11, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %18 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %19 unwind label %49
 
 19:                                               ; preds = %12
   store i32 0, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 156
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 160
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
-  %23 = getelementptr inbounds i8, ptr %0, i64 208
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %22, i8 0, i64 40, i1 false)
   store ptr %18, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 216
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %25 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %26 unwind label %51
 
 26:                                               ; preds = %19
   store i32 0, ptr %24, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 220
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 224
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 232
-  %30 = getelementptr inbounds i8, ptr %0, i64 272
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %29, i8 0, i64 40, i1 false)
   store ptr %25, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 280
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %32 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %33 unwind label %53
 
 33:                                               ; preds = %26
   store i32 0, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 284
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 0, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 288
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 296
-  %37 = getelementptr inbounds i8, ptr %0, i64 336
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 40, i1 false)
   store ptr %32, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 344
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %39 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %40 unwind label %55
 
 40:                                               ; preds = %33
   store i32 0, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 348
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 352
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 360
-  %44 = getelementptr inbounds i8, ptr %0, i64 400
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, i8 0, i64 40, i1 false)
   store ptr %39, ptr %44, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
@@ -260,85 +260,85 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define void @_ZN2cv4cuda9SURF_CUDAC2Ediibfb(ptr noundef nonnull align 8 dereferenceable(408) initializes((24, 36), (40, 88)) %0, double %1, i32 %2, i32 %3, i1 zeroext %4, float %5, i1 zeroext %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = tail call noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
   store i32 0, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, i8 0, i64 40, i1 false)
   store ptr %11, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %17 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %18 unwind label %53
 
 18:                                               ; preds = %7
   store i32 0, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 92
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
-  %22 = getelementptr inbounds i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, i8 0, i64 40, i1 false)
   store ptr %17, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %25 unwind label %55
 
 25:                                               ; preds = %18
   store i32 0, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 156
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 168
-  %29 = getelementptr inbounds i8, ptr %0, i64 208
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
   store ptr %24, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 216
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %31 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %32 unwind label %57
 
 32:                                               ; preds = %25
   store i32 0, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 220
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 224
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 232
-  %36 = getelementptr inbounds i8, ptr %0, i64 272
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, i8 0, i64 40, i1 false)
   store ptr %31, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 280
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %38 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %39 unwind label %59
 
 39:                                               ; preds = %32
   store i32 0, ptr %37, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 284
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 284
   store i32 0, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 288
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store i32 0, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 296
-  %43 = getelementptr inbounds i8, ptr %0, i64 336
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 40, i1 false)
   store ptr %38, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 344
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %45 = invoke noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv()
           to label %46 unwind label %61
 
 46:                                               ; preds = %39
   store i32 0, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 348
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 348
   store i32 0, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 352
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 360
-  %50 = getelementptr inbounds i8, ptr %0, i64 400
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 360
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 400
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %49, i8 0, i64 40, i1 false)
   store ptr %45, ptr %50, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #7

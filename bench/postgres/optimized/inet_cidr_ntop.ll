@@ -155,9 +155,9 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %7, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store i8 58, ptr %7, align 16
-  %68 = getelementptr inbounds i8, ptr %7, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 58, ptr %67, align 1
   store i8 0, ptr %68, align 2
   br label %.loopexit.i14
@@ -258,20 +258,20 @@ define dso_local noundef ptr @pg_inet_cidr_ntop(i32 noundef %0, ptr nocapture no
   ]
 
 113:                                              ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %6, i64 10
+  %114 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %115 = load i8, ptr %114, align 2
   %116 = icmp eq i8 %115, -1
-  %117 = getelementptr inbounds i8, ptr %6, i64 11
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 11
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, -1
   %or.cond126.i = select i1 %116, i1 %119, i1 false
   br i1 %or.cond126.i, label %.lr.ph149.split.split.preheader.i, label %.lr.ph149.split.us.split.i.preheader
 
 120:                                              ; preds = %112
-  %.old.i = getelementptr inbounds i8, ptr %6, i64 14
+  %.old.i = getelementptr inbounds nuw i8, ptr %6, i64 14
   %.old127.i = load i8, ptr %.old.i, align 2
   %.not117.old.i = icmp eq i8 %.old127.i, 0
-  %121 = getelementptr inbounds i8, ptr %6, i64 15
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %122 = load i8, ptr %121, align 1
   %.not118.i = icmp eq i8 %122, 1
   %or.cond135.i = select i1 %.not117.old.i, i1 true, i1 %.not118.i

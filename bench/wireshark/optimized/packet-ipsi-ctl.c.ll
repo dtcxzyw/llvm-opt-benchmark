@@ -216,7 +216,7 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
   %.0113188.lcssa = phi i32 [ %81, %._crit_edge199 ], [ 0, %.lr.ph ]
   %.0115186.lcssa = phi i32 [ %.1116153, %._crit_edge199 ], [ -1, %.lr.ph ]
   %.0117185.lcssa = phi i32 [ %.1118152, %._crit_edge199 ], [ -1, %.lr.ph ]
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call void @col_set_str(ptr noundef %84, i32 noundef 34, ptr noundef nonnull @.str.21) #2
   %85 = icmp eq i32 %.0115186.lcssa, -1
@@ -234,7 +234,7 @@ define internal i32 @dissect_ipsictl(ptr noundef %0, ptr nocapture noundef reado
 ._crit_edge:                                      ; preds = %4
   %89 = load i32, ptr @hf_ipsictl_data, align 4
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %89, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
-  %91 = getelementptr inbounds i8, ptr %1, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %92 = load ptr, ptr %91, align 8
   tail call void @col_set_str(ptr noundef %92, i32 noundef 34, ptr noundef nonnull @.str.21) #2
   %93 = load ptr, ptr %91, align 8

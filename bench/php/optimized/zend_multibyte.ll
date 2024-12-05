@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 -1, 1) i32 @zend_multibyte_set_functions(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull @.str) #12
   store ptr %6, ptr @zend_multibyte_encoding_utf32be, align 8

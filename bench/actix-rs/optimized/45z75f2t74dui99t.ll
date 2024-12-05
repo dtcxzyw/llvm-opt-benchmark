@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h66eb319f956957e5E"(ptr nocapture writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 initializes((32, 33)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [32 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !range !3, !noundef !4
   %6 = icmp eq i8 %5, 2
   %7 = icmp eq ptr %1, null
@@ -16,13 +16,13 @@ define void @"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$co
 
 9:                                                ; preds = %2
   call void @_ZN4core3ops8function6FnOnce9call_once17hecbe91d6a0baf406E(ptr nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 %3, ptr nonnull align 8 %1)
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load i8, ptr %10, align 8, !range !3, !noundef !4
   %.not6.i = icmp eq i8 %11, 2
   br i1 %.not6.i, label %14, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 2, ptr %13, align 8
   br label %_ZN4core4iter8adapters4fuse17and_then_or_clear17h03581fe48827f002E.exit
 
@@ -42,7 +42,7 @@ _ZN4core4iter8adapters4fuse17and_then_or_clear17h03581fe48827f002E.exit: ; preds
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @_ZN4core4iter8adapters4fuse17and_then_or_clear17h03581fe48827f002E(ptr nocapture writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 initializes((32, 33)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [32 x i8], i8, [7 x i8] }, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !range !3, !noundef !4
   %6 = icmp eq i8 %5, 2
   %7 = icmp eq ptr %1, null
@@ -51,13 +51,13 @@ define void @_ZN4core4iter8adapters4fuse17and_then_or_clear17h03581fe48827f002E(
 
 9:                                                ; preds = %2
   call void @_ZN4core3ops8function6FnOnce9call_once17hecbe91d6a0baf406E(ptr nonnull sret({ [32 x i8], i8, [7 x i8] }) align 8 %3, ptr nonnull align 8 %1)
-  %10 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %11 = load i8, ptr %10, align 8, !range !3, !noundef !4
   %.not6 = icmp eq i8 %11, 2
   br i1 %.not6, label %14, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 2, ptr %13, align 8
   br label %16
 

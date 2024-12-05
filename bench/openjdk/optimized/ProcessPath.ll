@@ -32,27 +32,27 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not353, label %36, label %20
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, %19
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %22, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %28 = load i32, ptr %27, align 4
   %.not354 = icmp sgt i32 %28, %19
   br i1 %.not354, label %29, label %.thread
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %22, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, %17
   br i1 %32, label %.thread, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %22, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %35 = load i32, ptr %34, align 8
   %.not355 = icmp sgt i32 %35, %17
   br i1 %.not355, label %36, label %.thread
@@ -64,53 +64,53 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
 
 39:                                               ; preds = %36
   store i32 1, ptr %5, align 4
-  %40 = getelementptr inbounds i8, ptr %5, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %17, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %19, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %5, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %17, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %5, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %19, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef %45, i32 noundef %17, i32 noundef %19) #12
   br label %.thread
 
 48:                                               ; preds = %36
-  %49 = getelementptr inbounds i8, ptr %5, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %50 = load i32, ptr %49, align 4
   %.not356 = icmp eq i32 %17, %50
   br i1 %.not356, label %51, label %54
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %53 = load i32, ptr %52, align 4
   %.not357 = icmp eq i32 %19, %53
   br i1 %.not357, label %.thread, label %54
 
 54:                                               ; preds = %51, %48
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %56 = load i32, ptr %55, align 4
   %.not358 = icmp eq i32 %17, %56
   br i1 %.not358, label %57, label %60
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i32, ptr %58, align 4
   %.not359 = icmp eq i32 %19, %59
   br i1 %.not359, label %.thread, label %60
 
 60:                                               ; preds = %57, %54
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void %64(ptr noundef %62, i32 noundef %17, i32 noundef %19) #12
   store i32 %17, ptr %49, align 4
-  %65 = getelementptr inbounds i8, ptr %5, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %19, ptr %65, align 4
   br label %.thread
 
@@ -226,18 +226,18 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not347, label %241, label %135
 
 135:                                              ; preds = %130
-  %136 = getelementptr inbounds i8, ptr %0, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 40
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 40
   %139 = load float, ptr %138, align 8
   %140 = fadd float %139, 5.000000e-01
-  %141 = getelementptr inbounds i8, ptr %137, i64 44
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 44
   %142 = load float, ptr %141, align 4
   %143 = fadd float %142, 5.000000e-01
-  %144 = getelementptr inbounds i8, ptr %137, i64 48
+  %144 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %145 = load float, ptr %144, align 8
   %146 = fadd float %145, 5.000000e-01
-  %147 = getelementptr inbounds i8, ptr %137, i64 52
+  %147 = getelementptr inbounds nuw i8, ptr %137, i64 52
   %148 = load float, ptr %147, align 4
   %149 = fadd float %148, 5.000000e-01
   %150 = sitofp i32 %132 to float
@@ -406,53 +406,53 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
 
 248:                                              ; preds = %247
   store i32 1, ptr %5, align 4
-  %249 = getelementptr inbounds i8, ptr %5, i64 4
+  %249 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0317, ptr %249, align 4
-  %250 = getelementptr inbounds i8, ptr %5, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.0314, ptr %250, align 4
-  %251 = getelementptr inbounds i8, ptr %5, i64 12
+  %251 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.0317, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %5, i64 16
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0314, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %0, i64 16
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load ptr, ptr %255, align 8
   tail call void %256(ptr noundef %254, i32 noundef %.0317, i32 noundef %.0314) #12
   br label %.thread
 
 257:                                              ; preds = %247
-  %258 = getelementptr inbounds i8, ptr %5, i64 12
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %259 = load i32, ptr %258, align 4
   %.not349 = icmp eq i32 %.0317, %259
   br i1 %.not349, label %260, label %263
 
 260:                                              ; preds = %257
-  %261 = getelementptr inbounds i8, ptr %5, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %262 = load i32, ptr %261, align 4
   %.not350 = icmp eq i32 %.0314, %262
   br i1 %.not350, label %.thread, label %263
 
 263:                                              ; preds = %260, %257
-  %264 = getelementptr inbounds i8, ptr %5, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %265 = load i32, ptr %264, align 4
   %.not351 = icmp eq i32 %.0317, %265
   br i1 %.not351, label %266, label %269
 
 266:                                              ; preds = %263
-  %267 = getelementptr inbounds i8, ptr %5, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %268 = load i32, ptr %267, align 4
   %.not352 = icmp eq i32 %.0314, %268
   br i1 %.not352, label %.thread, label %269
 
 269:                                              ; preds = %266, %263
-  %270 = getelementptr inbounds i8, ptr %0, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %271 = load ptr, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 8
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %273 = load ptr, ptr %272, align 8
   tail call void %273(ptr noundef %271, i32 noundef %.0317, i32 noundef %.0314) #12
   store i32 %.0317, ptr %258, align 4
-  %274 = getelementptr inbounds i8, ptr %5, i64 16
+  %274 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0314, ptr %274, align 4
   br label %.thread
 
@@ -460,39 +460,39 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
   br i1 %246, label %297, label %276
 
 276:                                              ; preds = %275
-  %277 = getelementptr inbounds i8, ptr %5, i64 4
+  %277 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %278 = load i32, ptr %277, align 4
   %279 = icmp eq i32 %278, %.0317
   br i1 %279, label %280, label %284
 
 280:                                              ; preds = %276
-  %281 = getelementptr inbounds i8, ptr %5, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %282 = load i32, ptr %281, align 4
   %283 = icmp eq i32 %282, %.0314
   br i1 %283, label %292, label %284
 
 284:                                              ; preds = %280, %276
-  %285 = getelementptr inbounds i8, ptr %5, i64 12
+  %285 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %286 = load i32, ptr %285, align 4
   %287 = icmp eq i32 %286, %.0317
   br i1 %287, label %288, label %297
 
 288:                                              ; preds = %284
-  %289 = getelementptr inbounds i8, ptr %5, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %290 = load i32, ptr %289, align 4
   %291 = icmp eq i32 %290, %.0314
   br i1 %291, label %292, label %297
 
 292:                                              ; preds = %288, %280
-  %293 = getelementptr inbounds i8, ptr %0, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = load ptr, ptr %295, align 8
   tail call void %296(ptr noundef %294, i32 noundef %.0317, i32 noundef %.0314) #12
   br label %297
 
 297:                                              ; preds = %292, %288, %284, %275
-  %298 = getelementptr inbounds i8, ptr %0, i64 16
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %299 = load ptr, ptr %298, align 8
   %300 = load ptr, ptr %299, align 8
   tail call void %300(ptr noundef nonnull %299, i32 noundef %.0317, i32 noundef %.0314, i32 noundef %.0311, i32 noundef %.0308) #12
@@ -501,19 +501,19 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
   br i1 %302, label %303, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %297
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %308
 
 303:                                              ; preds = %297
   store i32 1, ptr %5, align 4
-  %304 = getelementptr inbounds i8, ptr %5, i64 4
+  %304 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0317, ptr %304, align 4
-  %305 = getelementptr inbounds i8, ptr %5, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %.0314, ptr %305, align 4
-  %306 = getelementptr inbounds i8, ptr %5, i64 12
+  %306 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.0317, ptr %306, align 4
-  %307 = getelementptr inbounds i8, ptr %5, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0314, ptr %307, align 4
   br label %308
 
@@ -523,34 +523,34 @@ define hidden void @ProcessFixedLine(ptr nocapture noundef readonly %0, i32 noun
   br i1 %310, label %311, label %315
 
 311:                                              ; preds = %308
-  %312 = getelementptr inbounds i8, ptr %5, i64 8
+  %312 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %313 = load i32, ptr %312, align 4
   %314 = icmp eq i32 %313, %.0308
   br i1 %314, label %323, label %315
 
 315:                                              ; preds = %311, %308
-  %316 = getelementptr inbounds i8, ptr %5, i64 12
+  %316 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %317 = load i32, ptr %316, align 4
   %318 = icmp eq i32 %317, %.0311
   br i1 %318, label %319, label %327
 
 319:                                              ; preds = %315
-  %320 = getelementptr inbounds i8, ptr %5, i64 16
+  %320 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %321 = load i32, ptr %320, align 4
   %322 = icmp eq i32 %321, %.0308
   br i1 %322, label %323, label %327
 
 323:                                              ; preds = %319, %311
   %324 = load ptr, ptr %298, align 8
-  %325 = getelementptr inbounds i8, ptr %324, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %326 = load ptr, ptr %325, align 8
   tail call void %326(ptr noundef %324, i32 noundef %.0311, i32 noundef %.0308) #12
   br label %327
 
 327:                                              ; preds = %323, %319, %315
-  %328 = getelementptr inbounds i8, ptr %5, i64 12
+  %328 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 %.0311, ptr %328, align 4
-  %329 = getelementptr inbounds i8, ptr %5, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %.0308, ptr %329, align 4
   br label %.thread
 
@@ -569,7 +569,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %14 = alloca [8 x float], align 16
   %15 = alloca [5 x i32], align 16
   store i32 0, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, 0
   %19 = fadd float %1, -5.000000e-01
@@ -577,9 +577,9 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %.sroa.13.0 = select i1 %18, float -5.000000e-01, float 0.000000e+00
   %.0194 = select i1 %18, float %20, float %2
   %.0193 = select i1 %18, float %19, float %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp slt i32 %24, -1048576
   br i1 %25, label %.sink.split, label %26
@@ -595,7 +595,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 28:                                               ; preds = %.sink.split, %26
   %29 = load ptr, ptr %21, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = icmp slt i32 %31, -1048576
   br i1 %32, label %.sink.split288, label %33
@@ -611,7 +611,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 35:                                               ; preds = %.sink.split288, %33
   %36 = load ptr, ptr %21, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load i32, ptr %37, align 8
   %39 = icmp slt i32 %38, -1048576
   br i1 %39, label %.sink.split290, label %40
@@ -627,7 +627,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 42:                                               ; preds = %.sink.split290, %40
   %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = icmp slt i32 %45, -1048576
   br i1 %46, label %.sink.split292, label %47
@@ -643,77 +643,77 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
 
 49:                                               ; preds = %.sink.split292, %47
   %50 = load ptr, ptr %21, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = sitofp i32 %52 to float
   %54 = fadd float %53, -5.000000e-01
-  %55 = getelementptr inbounds i8, ptr %50, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 40
   store float %54, ptr %55, align 8
   %56 = load ptr, ptr %21, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = sitofp i32 %58 to float
   %60 = fadd float %59, -5.000000e-01
-  %61 = getelementptr inbounds i8, ptr %56, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 44
   store float %60, ptr %61, align 4
   %62 = load ptr, ptr %21, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %64 = load i32, ptr %63, align 8
   %65 = sitofp i32 %64 to float
   %66 = fadd float %65, -5.000000e-01
   %67 = fadd float %66, 0xBF50000000000000
-  %68 = getelementptr inbounds i8, ptr %62, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 48
   store float %67, ptr %68, align 8
   %69 = load ptr, ptr %21, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 36
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 36
   %71 = load i32, ptr %70, align 4
   %72 = sitofp i32 %71 to float
   %73 = fadd float %72, -5.000000e-01
   %74 = fadd float %73, 0xBF50000000000000
-  %75 = getelementptr inbounds i8, ptr %69, i64 52
+  %75 = getelementptr inbounds nuw i8, ptr %69, i64 52
   store float %74, ptr %75, align 4
   %76 = icmp sgt i32 %6, 0
   br i1 %76, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %49
-  %77 = getelementptr inbounds i8, ptr %14, i64 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
-  %79 = getelementptr inbounds i8, ptr %14, i64 8
-  %80 = getelementptr inbounds i8, ptr %14, i64 12
-  %81 = getelementptr inbounds i8, ptr %14, i64 16
-  %82 = getelementptr inbounds i8, ptr %14, i64 20
-  %83 = getelementptr inbounds i8, ptr %14, i64 24
-  %84 = getelementptr inbounds i8, ptr %14, i64 28
-  %85 = getelementptr inbounds i8, ptr %9, i64 4
-  %86 = getelementptr inbounds i8, ptr %9, i64 8
-  %87 = getelementptr inbounds i8, ptr %9, i64 12
-  %88 = getelementptr inbounds i8, ptr %9, i64 16
-  %89 = getelementptr inbounds i8, ptr %9, i64 20
-  %90 = getelementptr inbounds i8, ptr %9, i64 24
-  %91 = getelementptr inbounds i8, ptr %9, i64 28
-  %92 = getelementptr inbounds i8, ptr %8, i64 4
-  %93 = getelementptr inbounds i8, ptr %8, i64 8
-  %94 = getelementptr inbounds i8, ptr %8, i64 12
-  %95 = getelementptr inbounds i8, ptr %8, i64 16
-  %96 = getelementptr inbounds i8, ptr %8, i64 20
-  %97 = getelementptr inbounds i8, ptr %8, i64 24
-  %98 = getelementptr inbounds i8, ptr %8, i64 28
-  %99 = getelementptr inbounds i8, ptr %13, i64 4
-  %100 = getelementptr inbounds i8, ptr %13, i64 8
-  %101 = getelementptr inbounds i8, ptr %13, i64 12
-  %102 = getelementptr inbounds i8, ptr %13, i64 16
-  %103 = getelementptr inbounds i8, ptr %13, i64 20
-  %104 = getelementptr inbounds i8, ptr %12, i64 4
-  %105 = getelementptr inbounds i8, ptr %12, i64 8
-  %106 = getelementptr inbounds i8, ptr %12, i64 12
-  %107 = getelementptr inbounds i8, ptr %12, i64 16
-  %108 = getelementptr inbounds i8, ptr %12, i64 20
-  %109 = getelementptr inbounds i8, ptr %11, i64 4
-  %110 = getelementptr inbounds i8, ptr %11, i64 8
-  %111 = getelementptr inbounds i8, ptr %11, i64 12
-  %112 = getelementptr inbounds i8, ptr %11, i64 16
-  %113 = getelementptr inbounds i8, ptr %11, i64 20
-  %114 = getelementptr inbounds i8, ptr %0, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %95 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  %97 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %112 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %115
 
@@ -724,7 +724,7 @@ define hidden zeroext range(i8 0, 2) i8 @ProcessPath(ptr noundef %0, float nound
   %.0190278 = phi i8 [ 0, %.lr.ph ], [ %.1191, %533 ]
   %.sroa.0.1276 = phi float [ %.sroa.13.0, %.lr.ph ], [ %.sroa.0.2, %533 ]
   %.sroa.13.1274 = phi float [ %.sroa.13.0, %.lr.ph ], [ %.sroa.13.2, %533 ]
-  %116 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %117 = load i8, ptr %116, align 1
   switch i8 %117, label %533 [
     i8 0, label %118
@@ -1201,7 +1201,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
 359:                                              ; preds = %355
   %360 = add nuw nsw i32 %.1.i, 1
   %361 = zext nneg i32 %.1.i to i64
-  %362 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %361
+  %362 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %361
   store double %356, ptr %362, align 8
   br label %371
 
@@ -1283,7 +1283,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
 409:                                              ; preds = %400
   %410 = add nuw nsw i32 %.0.i, 1
   %411 = zext nneg i32 %.0.i to i64
-  %412 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %411
+  %412 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %411
   store double %406, ptr %412, align 8
   br label %413
 
@@ -1323,7 +1323,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
   %.sink.i = phi double [ %417, %416 ], [ %424, %422 ]
   %428 = add nuw nsw i32 %.0.sink207.i, 1
   %429 = zext nneg i32 %.0.sink207.i to i64
-  %430 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %429
   store double %.sink.i, ptr %430, align 8
   br label %.preheader.i
 
@@ -1338,20 +1338,20 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.critedge.i ]
-  %432 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv.i
+  %432 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv.i
   %433 = load double, ptr %432, align 8
   br label %434
 
 434:                                              ; preds = %438, %.lr.ph.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next188.i, %438 ]
   %indvars.iv.next188.i = add nsw i64 %indvars.iv187.i, -1
-  %435 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv.next188.i
+  %435 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv.next188.i
   %436 = load double, ptr %435, align 8
   %437 = fcmp ogt double %436, %433
   br i1 %437, label %438, label %.critedge.i
 
 438:                                              ; preds = %434
-  %439 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv187.i
+  %439 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv187.i
   store double %436, ptr %439, align 8
   %440 = icmp sgt i64 %indvars.iv187.i, 1
   br i1 %440, label %434, label %.critedge.i, !llvm.loop !6
@@ -1427,7 +1427,7 @@ ProcessQuad.exit:                                 ; preds = %227, %.thread84.i, 
 477:                                              ; preds = %519, %.lr.ph186.i
   %478 = phi double [ %443, %.lr.ph186.i ], [ %480, %519 ]
   %indvars.iv191.i = phi i64 [ 1, %.lr.ph186.i ], [ %indvars.iv.next192.i, %519 ]
-  %479 = getelementptr inbounds [4 x double], ptr %10, i64 0, i64 %indvars.iv191.i
+  %479 = getelementptr inbounds nuw [4 x double], ptr %10, i64 0, i64 %indvars.iv191.i
   %480 = load double, ptr %479, align 8
   %481 = fsub double %480, %478
   %482 = fcmp ogt double %481, 0.000000e+00
@@ -1552,7 +1552,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
   br i1 %537, label %.loopexit, label %538
 
 538:                                              ; preds = %._crit_edge
-  %539 = getelementptr inbounds i8, ptr %0, i64 28
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %540 = load i32, ptr %539, align 4
   %541 = icmp eq i32 %540, 1
   br i1 %541, label %542, label %549
@@ -1560,7 +1560,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
 542:                                              ; preds = %538
   %543 = load float, ptr %14, align 16
   %544 = fcmp une float %543, %.sroa.0.2
-  %545 = getelementptr inbounds i8, ptr %14, i64 4
+  %545 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %546 = load float, ptr %545, align 4
   %547 = fcmp une float %546, %.sroa.13.2
   %or.cond269 = select i1 %544, i1 true, i1 %547
@@ -1571,7 +1571,7 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
   br label %549
 
 549:                                              ; preds = %542, %548, %538
-  %550 = getelementptr inbounds i8, ptr %0, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %551 = load ptr, ptr %550, align 8
   call void %551(ptr noundef nonnull %0) #12
   br label %.loopexit
@@ -1583,15 +1583,15 @@ ProcessCubic.exit:                                ; preds = %519, %427, %._crit_
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, ptr noundef nonnull %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load float, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %8 = load float, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %10 = load float, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %12 = load float, ptr %11, align 4
   %13 = fcmp olt float %.4.val, %8
   %14 = fcmp ogt float %.4.val, %12
@@ -1665,7 +1665,7 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
   %.0224 = phi float [ %.0221.in, %40 ], [ %.4.val3, %32 ]
   %53 = zext i1 %or.cond259 to i8
   %54 = or i1 %or.cond, %or.cond259
-  %55 = getelementptr inbounds i8, ptr %0, i64 28
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %56 = load i32, ptr %55, align 4
   %57 = icmp eq i32 %56, 0
   %58 = fcmp olt float %.0232, %6
@@ -1890,16 +1890,16 @@ define internal fastcc void @ProcessLine(ptr noundef %0, float %.0.val, float %.
 
 ; Function Attrs: nounwind uwtable
 define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, -1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 14352
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 14352
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 14356
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 14356
   %13 = load i32, ptr %12, align 4
   %14 = sub nsw i32 %13, %11
   %15 = ashr i32 %14, 10
@@ -1909,7 +1909,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %19 = icmp eq i32 %1, 1
   %20 = select i1 %19, i32 -1, i32 1
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds i8, ptr %9, i64 14344
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 14344
   %23 = load i32, ptr %22, align 8
   %24 = icmp slt i32 %23, 2
   br i1 %24, label %266, label %25
@@ -1931,9 +1931,9 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %32 = zext nneg i32 %23 to i64
   %33 = mul nuw nsw i64 %32, 40
   %34 = tail call noalias ptr @malloc(i64 noundef %33) #13
-  %35 = getelementptr inbounds i8, ptr %21, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr null, ptr %35, align 8
-  %36 = getelementptr inbounds %struct._Point, ptr %21, i64 %32
+  %36 = getelementptr inbounds nuw %struct._Point, ptr %21, i64 %32
   %37 = getelementptr inbounds i8, ptr %36, i64 -56
   %.not356 = icmp eq ptr %21, %37
   %.pre420 = xor i32 %18, -1
@@ -1941,22 +1941,22 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 
 .lr.ph359:                                        ; preds = %._crit_edge, %.lr.ph359
   %.0302357 = phi ptr [ %38, %.lr.ph359 ], [ %21, %._crit_edge ]
-  %38 = getelementptr inbounds i8, ptr %.0302357, i64 56
-  %39 = getelementptr inbounds i8, ptr %.0302357, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.0302357, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %.0302357, i64 4
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, %.pre420
   %42 = ashr i32 %41, 10
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds ptr, ptr %28, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %.0302357, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.0302357, i64 32
   store ptr %45, ptr %46, align 8
   store ptr %.0302357, ptr %44, align 8
-  %47 = getelementptr inbounds i8, ptr %.0302357, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.0302357, i64 24
   store ptr %38, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %.0302357, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %.0302357, i64 72
   store ptr %.0302357, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %.0302357, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.0302357, i64 48
   store ptr null, ptr %49, align 8
   %.not = icmp eq ptr %38, %37
   br i1 %.not, label %._crit_edge360, label %.lr.ph359, !llvm.loop !11
@@ -1986,7 +1986,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.0284404 = phi i32 [ %.0284, %._crit_edge397.thread ], [ %.0284400, %._crit_edge360 ]
   %.0290402 = phi ptr [ %.6, %._crit_edge397.thread ], [ null, %._crit_edge360 ]
   %.0297401 = phi i32 [ %.1298.lcssa, %._crit_edge397.thread ], [ 0, %._crit_edge360 ]
-  %62 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
   %.0301361 = load ptr, ptr %62, align 8
   %.not322362 = icmp eq ptr %.0301361, null
   br i1 %.not322362, label %._crit_edge369, label %.lr.ph368
@@ -1995,37 +1995,37 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.0301365 = phi ptr [ %.0301, %199 ], [ %.0301361, %.lr.ph406 ]
   %.1291364 = phi ptr [ %.5, %199 ], [ %.0290402, %.lr.ph406 ]
   %.1298363 = phi i32 [ %.3300, %199 ], [ %.0297401, %.lr.ph406 ]
-  %63 = getelementptr inbounds i8, ptr %.0301365, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.0301365, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not331 = icmp eq ptr %64, null
   br i1 %.not331, label %138, label %65
 
 65:                                               ; preds = %.lr.ph368
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i8, ptr %66, align 8
   %.not332 = icmp eq i8 %67, 0
   br i1 %.not332, label %68, label %138
 
 68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %64, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 48
   %70 = load ptr, ptr %69, align 8
   %.not333 = icmp eq ptr %70, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %64, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %64, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.not334 = icmp sgt i32 %.pre, %.0284404
   %or.cond441 = select i1 %.not333, i1 true, i1 %.not334
   br i1 %or.cond441, label %._crit_edge414, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %70, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %70, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %75 = load ptr, ptr %74, align 8
   %.not336 = icmp eq ptr %73, null
   br i1 %.not336, label %78, label %76
 
 76:                                               ; preds = %71
-  %77 = getelementptr inbounds i8, ptr %73, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %75, ptr %77, align 8
   br label %78
 
@@ -2035,13 +2035,13 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not337, label %81, label %79
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds i8, ptr %75, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store ptr %73, ptr %80, align 8
   br label %81
 
 81:                                               ; preds = %78, %79
   %82 = load ptr, ptr %63, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   store ptr null, ptr %83, align 8
   br label %138
 
@@ -2050,11 +2050,11 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %84, label %85, label %138
 
 85:                                               ; preds = %._crit_edge414
-  %86 = getelementptr inbounds i8, ptr %64, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %87 = load ptr, ptr %86, align 8
   %88 = sext i32 %.1298363 to i64
   %89 = getelementptr inbounds %struct._Edge, ptr %34, i64 %88
-  %90 = getelementptr inbounds i8, ptr %87, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %.pre, %91
   br i1 %92, label %138, label %93
@@ -2065,23 +2065,23 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %96 = sub nsw i32 %94, %95
   %97 = sub nsw i32 %91, %.pre
   %98 = icmp slt i32 %.pre, %91
-  %99 = getelementptr inbounds i8, ptr %89, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 16
   br i1 %98, label %100, label %106
 
 100:                                              ; preds = %93
   store i32 -1, ptr %99, align 8
   %101 = load ptr, ptr %63, align 8
-  %102 = getelementptr inbounds i8, ptr %89, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %101, ptr %102, align 8
   %103 = load i32, ptr %101, align 8
   store i32 %103, ptr %89, align 8
   %104 = load ptr, ptr %63, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   br label %109
 
 106:                                              ; preds = %93
   store i32 1, ptr %99, align 8
-  %107 = getelementptr inbounds i8, ptr %89, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %87, ptr %107, align 8
   %108 = load i32, ptr %87, align 8
   store i32 %108, ptr %89, align 8
@@ -2119,24 +2119,24 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.sink = phi i32 [ %118, %113 ], [ %125, %123 ]
   %.pn421 = phi i32 [ %122, %113 ], [ %127, %123 ]
   %storemerge = add nsw i32 %110, %.pn421
-  %129 = getelementptr inbounds i8, ptr %89, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %89, i64 4
   store i32 %.sink, ptr %129, align 4
   store i32 %storemerge, ptr %89, align 8
-  %130 = getelementptr inbounds i8, ptr %89, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %89, i64 32
   store ptr %.1291364, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %89, i64 24
+  %131 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr null, ptr %131, align 8
   %.not335 = icmp eq ptr %.1291364, null
   br i1 %.not335, label %134, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %.1291364, i64 24
+  %133 = getelementptr inbounds nuw i8, ptr %.1291364, i64 24
   store ptr %89, ptr %133, align 8
   br label %134
 
 134:                                              ; preds = %132, %128
   %135 = load ptr, ptr %63, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
   store ptr %89, ptr %136, align 8
   %137 = add nsw i32 %.1298363, 1
   br label %138
@@ -2144,37 +2144,37 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 138:                                              ; preds = %81, %134, %85, %._crit_edge414, %65, %.lr.ph368
   %.2299 = phi i32 [ %.1298363, %65 ], [ %.1298363, %81 ], [ %.1298363, %85 ], [ %137, %134 ], [ %.1298363, %._crit_edge414 ], [ %.1298363, %.lr.ph368 ]
   %.2292 = phi ptr [ %.1291364, %65 ], [ %.3, %81 ], [ %.1291364, %85 ], [ %89, %134 ], [ %.1291364, %._crit_edge414 ], [ %.1291364, %.lr.ph368 ]
-  %139 = getelementptr inbounds i8, ptr %.0301365, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.0301365, i64 8
   %140 = load i8, ptr %139, align 8
   %.not338 = icmp eq i8 %140, 0
   br i1 %.not338, label %141, label %199
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %.0301365, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %.0301365, i64 24
   %143 = load ptr, ptr %142, align 8
   %.not339 = icmp eq ptr %143, null
   br i1 %.not339, label %199, label %144
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %.0301365, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %.0301365, i64 48
   %146 = load ptr, ptr %145, align 8
   %.not340 = icmp eq ptr %146, null
-  %.phi.trans.insert416 = getelementptr inbounds i8, ptr %143, i64 4
+  %.phi.trans.insert416 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %.pre417 = load i32, ptr %.phi.trans.insert416, align 4
   %.not341 = icmp sgt i32 %.pre417, %.0284404
   %or.cond442 = select i1 %.not340, i1 true, i1 %.not341
   br i1 %or.cond442, label %._crit_edge415, label %147
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %146, i64 24
+  %148 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %146, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %151 = load ptr, ptr %150, align 8
   %.not345 = icmp eq ptr %149, null
   br i1 %.not345, label %154, label %152
 
 152:                                              ; preds = %147
-  %153 = getelementptr inbounds i8, ptr %149, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 32
   store ptr %151, ptr %153, align 8
   br label %154
 
@@ -2184,7 +2184,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not346, label %157, label %155
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %151, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 24
   store ptr %149, ptr %156, align 8
   br label %157
 
@@ -2193,14 +2193,14 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br label %199
 
 ._crit_edge415:                                   ; preds = %144
-  %158 = getelementptr inbounds i8, ptr %143, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %159 = icmp sgt i32 %.pre417, %.0284404
   br i1 %159, label %160, label %199
 
 160:                                              ; preds = %._crit_edge415
   %161 = sext i32 %.2299 to i64
   %162 = getelementptr inbounds %struct._Edge, ptr %34, i64 %161
-  %163 = getelementptr inbounds i8, ptr %.0301365, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %.0301365, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = icmp eq i32 %164, %.pre417
   br i1 %165, label %199, label %166
@@ -2214,9 +2214,9 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.sink412 = select i1 %171, i32 -1, i32 1
   %.sink411 = select i1 %171, ptr %.0301365, ptr %143
   %.pn342.in = select i1 %171, ptr %163, ptr %158
-  %172 = getelementptr inbounds i8, ptr %162, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i32 %.sink412, ptr %172, align 8
-  %173 = getelementptr inbounds i8, ptr %162, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %.sink411, ptr %173, align 8
   %storemerge352 = load i32, ptr %.sink411, align 8
   store i32 %storemerge352, ptr %162, align 8
@@ -2249,18 +2249,18 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.sink413 = phi i32 [ %181, %176 ], [ %188, %186 ]
   %.pn422 = phi i32 [ %185, %176 ], [ %190, %186 ]
   %storemerge343 = add nsw i32 %storemerge352, %.pn422
-  %192 = getelementptr inbounds i8, ptr %162, i64 4
+  %192 = getelementptr inbounds nuw i8, ptr %162, i64 4
   store i32 %.sink413, ptr %192, align 4
   store i32 %storemerge343, ptr %162, align 8
-  %193 = getelementptr inbounds i8, ptr %162, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %162, i64 32
   store ptr %.2292, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %162, i64 24
+  %194 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store ptr null, ptr %194, align 8
   %.not344 = icmp eq ptr %.2292, null
   br i1 %.not344, label %197, label %195
 
 195:                                              ; preds = %191
-  %196 = getelementptr inbounds i8, ptr %.2292, i64 24
+  %196 = getelementptr inbounds nuw i8, ptr %.2292, i64 24
   store ptr %162, ptr %196, align 8
   br label %197
 
@@ -2272,7 +2272,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 199:                                              ; preds = %138, %141, %._crit_edge415, %160, %197, %157
   %.3300 = phi i32 [ %.2299, %138 ], [ %.2299, %157 ], [ %.2299, %160 ], [ %198, %197 ], [ %.2299, %._crit_edge415 ], [ %.2299, %141 ]
   %.5 = phi ptr [ %.2292, %138 ], [ %.4, %157 ], [ %.2292, %160 ], [ %162, %197 ], [ %.2292, %._crit_edge415 ], [ %.2292, %141 ]
-  %200 = getelementptr inbounds i8, ptr %.0301365, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %.0301365, i64 32
   %.0301 = load ptr, ptr %200, align 8
   %.not322 = icmp eq ptr %.0301, null
   br i1 %.not322, label %._crit_edge369, label %.lr.ph368, !llvm.loop !12
@@ -2284,14 +2284,14 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   br i1 %.not323, label %._crit_edge397.thread, label %.preheader354
 
 .preheader354:                                    ; preds = %._crit_edge369
-  %201 = getelementptr inbounds i8, ptr %.1291.lcssa, i64 32
+  %201 = getelementptr inbounds nuw i8, ptr %.1291.lcssa, i64 32
   %202 = load ptr, ptr %201, align 8
   %.not408 = icmp eq ptr %202, null
   br i1 %.not408, label %.lr.ph388.preheader, label %.preheader
 
 .loopexit:                                        ; preds = %221
   %203 = icmp ne i32 %.2, 0
-  %204 = getelementptr inbounds i8, ptr %.9, i64 32
+  %204 = getelementptr inbounds nuw i8, ptr %.9, i64 32
   %205 = load ptr, ptr %204, align 8
   %206 = icmp ne ptr %.1280, %205
   %207 = select i1 %206, i1 %203, i1 false
@@ -2322,20 +2322,20 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 
 211:                                              ; preds = %.lr.ph378
   %212 = icmp eq ptr %.0279373, %.8372
-  %213 = getelementptr inbounds i8, ptr %.0278374, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %.0278374, i64 32
   %214 = load ptr, ptr %213, align 8
   store ptr %.0279373, ptr %213, align 8
-  %215 = getelementptr inbounds i8, ptr %.0279373, i64 32
+  %215 = getelementptr inbounds nuw i8, ptr %.0279373, i64 32
   store ptr %214, ptr %215, align 8
   br i1 %212, label %221, label %216
 
 216:                                              ; preds = %211
-  %217 = getelementptr inbounds i8, ptr %.0276375, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %.0276375, i64 32
   store ptr %.0278374, ptr %217, align 8
   br label %221
 
 218:                                              ; preds = %.lr.ph378
-  %219 = getelementptr inbounds i8, ptr %.0279373, i64 32
+  %219 = getelementptr inbounds nuw i8, ptr %.0279373, i64 32
   %220 = load ptr, ptr %219, align 8
   br label %221
 
@@ -2344,7 +2344,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.1280 = phi ptr [ %.0279373, %216 ], [ %220, %218 ], [ %.0279373, %211 ]
   %.1277 = phi ptr [ %.0278374, %216 ], [ %.0279373, %218 ], [ %.0278374, %211 ]
   %.2 = phi i32 [ 1, %216 ], [ %.1377, %218 ], [ 1, %211 ]
-  %222 = getelementptr inbounds i8, ptr %.1280, i64 32
+  %222 = getelementptr inbounds nuw i8, ptr %.1280, i64 32
   %223 = load ptr, ptr %222, align 8
   %224 = icmp eq ptr %223, %.1274376
   %spec.select = select i1 %224, ptr %.1280, ptr %.1274376
@@ -2354,16 +2354,16 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 .lr.ph388:                                        ; preds = %.lr.ph388.preheader, %.lr.ph388
   %.0294387 = phi ptr [ %227, %.lr.ph388 ], [ %.7.lcssa429, %.lr.ph388.preheader ]
   %.0296386 = phi ptr [ %.0294387, %.lr.ph388 ], [ null, %.lr.ph388.preheader ]
-  %225 = getelementptr inbounds i8, ptr %.0294387, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %.0294387, i64 24
   store ptr %.0296386, ptr %225, align 8
-  %226 = getelementptr inbounds i8, ptr %.0294387, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %.0294387, i64 32
   %227 = load ptr, ptr %226, align 8
   %.not324 = icmp eq ptr %227, null
   br i1 %.not324, label %._crit_edge389, label %.lr.ph388, !llvm.loop !15
 
 ._crit_edge389:                                   ; preds = %.lr.ph388
   %228 = load ptr, ptr %3, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 24
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 24
   %230 = load i32, ptr %229, align 8
   %231 = ashr exact i32 %.0284404, 10
   br label %232
@@ -2373,7 +2373,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %.0287393 = phi i32 [ 0, %._crit_edge389 ], [ %.2289, %250 ]
   %.1295392 = phi ptr [ %.7.lcssa429, %._crit_edge389 ], [ %256, %250 ]
   %.0303391 = phi i32 [ 0, %._crit_edge389 ], [ %235, %250 ]
-  %233 = getelementptr inbounds i8, ptr %.1295392, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %.1295392, i64 16
   %234 = load i32, ptr %233, align 8
   %235 = add nsw i32 %234, %.0303391
   %236 = and i32 %235, %20
@@ -2401,7 +2401,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 
 246:                                              ; preds = %243
   %247 = load ptr, ptr %3, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   %249 = load ptr, ptr %248, align 8
   tail call void %249(ptr noundef %247, i32 noundef %.0285394, i32 noundef %245, i32 noundef %231) #12
   %.pre418 = load i32, ptr %.1295392, align 8
@@ -2411,11 +2411,11 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
   %251 = phi i32 [ %.pre419, %242 ], [ %.pre418, %246 ], [ %.pre419, %243 ], [ %239, %.thread ]
   %.1286351 = phi i32 [ %.0285394, %242 ], [ %.0285394, %246 ], [ %.0285394, %243 ], [ %241, %.thread ]
   %.2289 = phi i32 [ %.0287393, %242 ], [ 0, %246 ], [ 0, %243 ], [ 1, %.thread ]
-  %252 = getelementptr inbounds i8, ptr %.1295392, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %.1295392, i64 4
   %253 = load i32, ptr %252, align 4
   %254 = add nsw i32 %251, %253
   store i32 %254, ptr %.1295392, align 8
-  %255 = getelementptr inbounds i8, ptr %.1295392, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %.1295392, i64 32
   %256 = load ptr, ptr %255, align 8
   %.not325 = icmp eq ptr %256, null
   br i1 %.not325, label %._crit_edge397, label %232, !llvm.loop !16
@@ -2428,7 +2428,7 @@ define hidden void @FillPolygon(ptr nocapture noundef readonly %0, i32 noundef %
 
 258:                                              ; preds = %._crit_edge397
   %259 = load ptr, ptr %3, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = ashr exact i32 %.0284404, 10
   tail call void %261(ptr noundef %259, i32 noundef %.1286351, i32 noundef %7, i32 noundef %262) #12
@@ -2464,21 +2464,21 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not357, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load float, ptr %11, align 8
   %13 = fmul float %12, 1.024000e+03
   %14 = fptosi float %13 to i32
-  %15 = getelementptr inbounds i8, ptr %10, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %16 = load float, ptr %15, align 8
   %17 = fmul float %16, 1.024000e+03
   %18 = fptosi float %17 to i32
-  %19 = getelementptr inbounds i8, ptr %10, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %20 = load float, ptr %19, align 4
   %21 = fmul float %20, 1.024000e+03
   %22 = fptosi float %21 to i32
-  %23 = getelementptr inbounds i8, ptr %10, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %24 = load float, ptr %23, align 4
   %25 = fmul float %24, 1.024000e+03
   %26 = fptosi float %25 to i32
@@ -2652,9 +2652,9 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   %.tr347.lcssa = phi i32 [ %3, %8 ], [ %.3229.ph, %.fold.split280.thread ], [ %.0233.in, %110 ]
   %.tr348.lcssa = phi i32 [ %4, %8 ], [ %.1231331.ph, %.fold.split280.thread ], [ %.0230, %110 ]
   %.tr351.lcssa = phi i8 [ %7, %8 ], [ %109, %.fold.split280.thread ], [ %67, %110 ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 14344
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 14344
   %114 = load i32, ptr %113, align 8
   %.not270 = icmp eq i32 %114, 0
   %.pre = load ptr, ptr %112, align 8
@@ -2669,14 +2669,14 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   br i1 %.not271, label %thread-pre-split, label %120
 
 120:                                              ; preds = %tailrecurse._crit_edge, %115
-  %121 = getelementptr inbounds i8, ptr %112, i64 14348
+  %121 = getelementptr inbounds nuw i8, ptr %112, i64 14348
   %122 = load i32, ptr %121, align 4
   %.not272 = icmp slt i32 %114, %122
   br i1 %.not272, label %137, label %123
 
 123:                                              ; preds = %120
   %124 = shl nsw i32 %122, 1
-  %125 = getelementptr inbounds i8, ptr %112, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %126 = icmp eq ptr %.pre, %125
   %127 = sext i32 %124 to i64
   %128 = mul nsw i64 %127, 56
@@ -2705,11 +2705,11 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   %138 = sext i32 %114 to i64
   %139 = getelementptr inbounds %struct._Point, ptr %.0232, i64 %138
   store i32 %.tr345.lcssa, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store i32 %.tr346.lcssa, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %139, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store i8 0, ptr %141, align 8
-  %142 = getelementptr inbounds i8, ptr %112, i64 14352
+  %142 = getelementptr inbounds nuw i8, ptr %112, i64 14352
   br i1 %.not270, label %152, label %143
 
 143:                                              ; preds = %137
@@ -2722,7 +2722,7 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
   br label %147
 
 147:                                              ; preds = %146, %143
-  %148 = getelementptr inbounds i8, ptr %112, i64 14356
+  %148 = getelementptr inbounds nuw i8, ptr %112, i64 14356
   %149 = load i32, ptr %148, align 4
   %150 = icmp slt i32 %149, %.tr346.lcssa
   br i1 %150, label %151, label %154
@@ -2733,7 +2733,7 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
 
 152:                                              ; preds = %137
   store i32 %.tr346.lcssa, ptr %142, align 8
-  %153 = getelementptr inbounds i8, ptr %112, i64 14356
+  %153 = getelementptr inbounds nuw i8, ptr %112, i64 14356
   store i32 %.tr346.lcssa, ptr %153, align 4
   br label %154
 
@@ -2746,14 +2746,14 @@ tailrecurse._crit_edge:                           ; preds = %110, %.fold.split28
 thread-pre-split:                                 ; preds = %115, %154
   %156 = phi ptr [ %.pre367, %154 ], [ %.pre, %115 ]
   %157 = phi i32 [ %155, %154 ], [ %114, %115 ]
-  %158 = getelementptr inbounds i8, ptr %112, i64 14348
+  %158 = getelementptr inbounds nuw i8, ptr %112, i64 14348
   %159 = load i32, ptr %158, align 4
   %.not274 = icmp slt i32 %157, %159
   br i1 %.not274, label %174, label %160
 
 160:                                              ; preds = %thread-pre-split
   %161 = shl nsw i32 %159, 1
-  %162 = getelementptr inbounds i8, ptr %112, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %163 = icmp eq ptr %156, %162
   %164 = sext i32 %161 to i64
   %165 = mul nsw i64 %164, 56
@@ -2782,12 +2782,12 @@ thread-pre-split:                                 ; preds = %115, %154
   %175 = sext i32 %157 to i64
   %176 = getelementptr inbounds %struct._Point, ptr %.0225, i64 %175
   store i32 %.tr347.lcssa, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i32 %.tr348.lcssa, ptr %177, align 4
-  %178 = getelementptr inbounds i8, ptr %176, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %176, i64 8
   store i8 0, ptr %178, align 8
   %.not275 = icmp eq i32 %157, 0
-  %179 = getelementptr inbounds i8, ptr %112, i64 14352
+  %179 = getelementptr inbounds nuw i8, ptr %112, i64 14352
   br i1 %.not275, label %189, label %180
 
 180:                                              ; preds = %174
@@ -2800,7 +2800,7 @@ thread-pre-split:                                 ; preds = %115, %154
   br label %184
 
 184:                                              ; preds = %183, %180
-  %185 = getelementptr inbounds i8, ptr %112, i64 14356
+  %185 = getelementptr inbounds nuw i8, ptr %112, i64 14356
   %186 = load i32, ptr %185, align 4
   %187 = icmp slt i32 %186, %.tr348.lcssa
   br i1 %187, label %188, label %191
@@ -2811,7 +2811,7 @@ thread-pre-split:                                 ; preds = %115, %154
 
 189:                                              ; preds = %174
   store i32 %.tr348.lcssa, ptr %179, align 8
-  %190 = getelementptr inbounds i8, ptr %112, i64 14356
+  %190 = getelementptr inbounds nuw i8, ptr %112, i64 14356
   store i32 %.tr348.lcssa, ptr %190, align 4
   br label %191
 
@@ -2842,17 +2842,17 @@ define zeroext range(i8 0, 2) i8 @doFillPath(ptr noundef %0, i32 noundef %1, i32
   %10 = alloca %struct.FillData, align 8
   %11 = alloca %struct._ProcessHandler, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) @__const.doFillPath.hnd, i64 32, i1 false)
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %10, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 %7, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 14344
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 14344
   store i32 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %10, i64 14348
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 14348
   store i32 256, ptr %17, align 4
   %18 = sitofp i32 %1 to float
   %19 = sitofp i32 %2 to float
@@ -2884,9 +2884,9 @@ define zeroext range(i8 0, 2) i8 @doFillPath(ptr noundef %0, i32 noundef %1, i32
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @endSubPath(ptr nocapture noundef readonly %0) #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 14344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 14344
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %6
@@ -2907,13 +2907,13 @@ define internal void @endSubPath(ptr nocapture noundef readonly %0) #5 {
 define zeroext range(i8 0, 2) i8 @doDrawPath(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct._ProcessHandler, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) @__const.doDrawPath.hnd, i64 40, i1 false)
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 %8, ptr %12, align 8
   %13 = icmp eq ptr %1, null
   %14 = select i1 %13, ptr @stubEndSubPath, ptr %1
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %15, align 8
   %16 = sitofp i32 %2 to float
   %17 = sitofp i32 %3 to float
@@ -2933,83 +2933,83 @@ declare float @llvm.fmuladd.f32(float, float, float) #7
 define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [6 x float], align 16
   %5 = load float, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
   %10 = fcmp olt float %9, %5
   %. = select i1 %10, float %9, float %5
   %11 = fcmp ogt float %9, %5
   %12 = select i1 %11, float %9, float %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load float, ptr %13, align 4
   %15 = fcmp olt float %14, %7
   %16 = select i1 %15, float %14, float %7
   %17 = fcmp ogt float %14, %7
   %18 = select i1 %17, float %14, float %7
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load float, ptr %19, align 4
   %21 = fcmp olt float %20, %.
   %22 = select i1 %21, float %20, float %.
   %23 = fcmp ogt float %20, %12
   %24 = select i1 %23, float %20, float %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load float, ptr %25, align 4
   %27 = fcmp olt float %26, %16
   %28 = select i1 %27, float %26, float %16
   %29 = fcmp ogt float %26, %18
   %30 = select i1 %29, float %26, float %18
-  %31 = getelementptr inbounds i8, ptr %0, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   br i1 %33, label %36, label %52
 
 36:                                               ; preds = %3
-  %37 = getelementptr inbounds i8, ptr %35, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %38 = load float, ptr %37, align 8
   %39 = fcmp olt float %38, %22
   br i1 %39, label %188, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %35, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %42 = load float, ptr %41, align 8
   %43 = fcmp ogt float %42, %24
   br i1 %43, label %188, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %35, i64 52
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 52
   %46 = load float, ptr %45, align 4
   %47 = fcmp olt float %46, %28
   br i1 %47, label %188, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %35, i64 44
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 44
   %50 = load float, ptr %49, align 4
   %51 = fcmp ogt float %50, %30
   br i1 %51, label %188, label %69
 
 52:                                               ; preds = %3
-  %53 = getelementptr inbounds i8, ptr %35, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 52
   %54 = load float, ptr %53, align 4
   %55 = fcmp olt float %54, %28
   br i1 %55, label %188, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %35, i64 44
+  %57 = getelementptr inbounds nuw i8, ptr %35, i64 44
   %58 = load float, ptr %57, align 4
   %59 = fcmp ogt float %58, %30
   br i1 %59, label %188, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %35, i64 48
+  %61 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %62 = load float, ptr %61, align 8
   %63 = fcmp olt float %62, %22
   br i1 %63, label %188, label %64
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %35, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %66 = load float, ptr %65, align 8
   %67 = fcmp ogt float %66, %24
   br i1 %67, label %68, label %69
@@ -3032,17 +3032,17 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   br i1 %or.cond, label %77, label %95
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %4, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store float %71, ptr %78, align 16
-  %79 = getelementptr inbounds i8, ptr %4, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float %26, ptr %79, align 4
   %80 = fadd float %71, %70
   %81 = fmul float %80, 5.000000e-01
-  %82 = getelementptr inbounds i8, ptr %4, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %81, ptr %82, align 8
   %83 = fadd float %14, %26
   %84 = fmul float %83, 5.000000e-01
-  %85 = getelementptr inbounds i8, ptr %4, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %84, ptr %85, align 4
   %86 = fadd float %70, %72
   %87 = fmul float %86, 5.000000e-01
@@ -3056,7 +3056,7 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   store float %91, ptr %19, align 4
   %92 = fadd float %89, %84
   %93 = fmul float %92, 5.000000e-01
-  %94 = getelementptr inbounds i8, ptr %4, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %93, ptr %94, align 4
   store float %93, ptr %25, align 4
   tail call fastcc void @ProcessMonotonicQuad(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
@@ -3064,27 +3064,27 @@ define internal fastcc void @ProcessMonotonicQuad(ptr noundef %0, ptr nocapture 
   br label %188
 
 95:                                               ; preds = %69
-  %96 = getelementptr inbounds i8, ptr %0, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 40
   %99 = load float, ptr %98, align 8
   %100 = fcmp ult float %99, %22
   br i1 %100, label %101, label %114
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %97, i64 48
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 48
   %103 = load float, ptr %102, align 8
   %104 = fcmp ugt float %103, %24
   br i1 %104, label %105, label %114
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %97, i64 44
+  %106 = getelementptr inbounds nuw i8, ptr %97, i64 44
   %107 = load float, ptr %106, align 4
   %108 = fcmp ult float %107, %28
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %97, i64 52
+  %110 = getelementptr inbounds nuw i8, ptr %97, i64 52
   %111 = load float, ptr %110, align 4
   %112 = fcmp ole float %111, %30
   %113 = zext i1 %112 to i8
@@ -3222,95 +3222,95 @@ declare double @sqrt(double noundef) local_unnamed_addr #8
 define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca [8 x float], align 16
   %5 = load float, ptr %1, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load float, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
   %10 = fcmp olt float %9, %5
   %. = select i1 %10, float %9, float %5
   %11 = fcmp ogt float %9, %5
   %12 = select i1 %11, float %9, float %5
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load float, ptr %13, align 4
   %15 = fcmp olt float %14, %7
   %16 = select i1 %15, float %14, float %7
   %17 = fcmp ogt float %14, %7
   %18 = select i1 %17, float %14, float %7
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load float, ptr %19, align 4
   %21 = fcmp olt float %20, %.
   %22 = select i1 %21, float %20, float %.
   %23 = fcmp ogt float %20, %12
   %24 = select i1 %23, float %20, float %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %26 = load float, ptr %25, align 4
   %27 = fcmp olt float %26, %16
   %28 = select i1 %27, float %26, float %16
   %29 = fcmp ogt float %26, %18
   %30 = select i1 %29, float %26, float %18
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %32 = load float, ptr %31, align 4
   %33 = fcmp olt float %32, %22
   %34 = select i1 %33, float %32, float %22
   %35 = fcmp ogt float %32, %24
   %36 = select i1 %35, float %32, float %24
-  %37 = getelementptr inbounds i8, ptr %1, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %38 = load float, ptr %37, align 4
   %39 = fcmp olt float %38, %28
   %40 = select i1 %39, float %38, float %28
   %41 = fcmp ogt float %38, %30
   %42 = select i1 %41, float %38, float %30
-  %43 = getelementptr inbounds i8, ptr %0, i64 28
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8
   br i1 %45, label %48, label %64
 
 48:                                               ; preds = %3
-  %49 = getelementptr inbounds i8, ptr %47, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %50 = load float, ptr %49, align 8
   %51 = fcmp olt float %50, %34
   br i1 %51, label %DrawMonotonicCubic.exit, label %52
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %47, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %54 = load float, ptr %53, align 8
   %55 = fcmp ogt float %54, %36
   br i1 %55, label %DrawMonotonicCubic.exit, label %56
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %47, i64 52
+  %57 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %58 = load float, ptr %57, align 4
   %59 = fcmp olt float %58, %40
   br i1 %59, label %DrawMonotonicCubic.exit, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %47, i64 44
+  %61 = getelementptr inbounds nuw i8, ptr %47, i64 44
   %62 = load float, ptr %61, align 4
   %63 = fcmp ogt float %62, %42
   br i1 %63, label %DrawMonotonicCubic.exit, label %81
 
 64:                                               ; preds = %3
-  %65 = getelementptr inbounds i8, ptr %47, i64 52
+  %65 = getelementptr inbounds nuw i8, ptr %47, i64 52
   %66 = load float, ptr %65, align 4
   %67 = fcmp olt float %66, %40
   br i1 %67, label %DrawMonotonicCubic.exit, label %68
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %47, i64 44
+  %69 = getelementptr inbounds nuw i8, ptr %47, i64 44
   %70 = load float, ptr %69, align 4
   %71 = fcmp ogt float %70, %42
   br i1 %71, label %DrawMonotonicCubic.exit, label %72
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %47, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %74 = load float, ptr %73, align 8
   %75 = fcmp olt float %74, %34
   br i1 %75, label %DrawMonotonicCubic.exit, label %76
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %47, i64 40
+  %77 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %78 = load float, ptr %77, align 8
   %79 = fcmp ogt float %78, %36
   br i1 %79, label %80, label %81
@@ -3335,17 +3335,17 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   br i1 %or.cond, label %90, label %122
 
 90:                                               ; preds = %81
-  %91 = getelementptr inbounds i8, ptr %4, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store float %84, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %4, i64 28
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store float %38, ptr %92, align 4
   %93 = fadd float %84, %82
   %94 = fmul float %93, 5.000000e-01
-  %95 = getelementptr inbounds i8, ptr %4, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store float %94, ptr %95, align 16
   %96 = fadd float %26, %38
   %97 = fmul float %96, 5.000000e-01
-  %98 = getelementptr inbounds i8, ptr %4, i64 20
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float %97, ptr %98, align 4
   %99 = fadd float %82, %83
   %100 = fmul float %99, 5.000000e-01
@@ -3353,11 +3353,11 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   %102 = fmul float %101, 5.000000e-01
   %103 = fadd float %94, %100
   %104 = fmul float %103, 5.000000e-01
-  %105 = getelementptr inbounds i8, ptr %4, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %104, ptr %105, align 8
   %106 = fadd float %102, %97
   %107 = fmul float %106, 5.000000e-01
-  %108 = getelementptr inbounds i8, ptr %4, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %107, ptr %108, align 4
   %109 = fadd float %83, %85
   %110 = fmul float %109, 5.000000e-01
@@ -3377,7 +3377,7 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   store float %118, ptr %31, align 4
   %119 = fadd float %116, %107
   %120 = fmul float %119, 5.000000e-01
-  %121 = getelementptr inbounds i8, ptr %4, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %120, ptr %121, align 4
   store float %120, ptr %37, align 4
   tail call fastcc void @ProcessMonotonicCubic(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
@@ -3385,27 +3385,27 @@ define internal fastcc void @ProcessMonotonicCubic(ptr noundef %0, ptr nocapture
   br label %DrawMonotonicCubic.exit
 
 122:                                              ; preds = %81
-  %123 = getelementptr inbounds i8, ptr %0, i64 16
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 40
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 40
   %126 = load float, ptr %125, align 8
   %127 = fcmp ogt float %126, %34
   br i1 %127, label %141, label %128
 
 128:                                              ; preds = %122
-  %129 = getelementptr inbounds i8, ptr %124, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 48
   %130 = load float, ptr %129, align 8
   %131 = fcmp olt float %130, %36
   br i1 %131, label %141, label %132
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %124, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %124, i64 44
   %134 = load float, ptr %133, align 4
   %135 = fcmp ogt float %134, %40
   br i1 %135, label %141, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %124, i64 52
+  %137 = getelementptr inbounds nuw i8, ptr %124, i64 52
   %138 = load float, ptr %137, align 4
   %139 = fcmp olt float %138, %42
   %140 = zext i1 %139 to i8

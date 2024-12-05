@@ -57,11 +57,11 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_stat(i32 noundef %0, ptr no
   call void @slurm_msg_t_init(ptr noundef nonnull %4) #8
   call void @slurm_msg_t_init(ptr noundef nonnull %5) #8
   store i32 %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 204
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 204
   store i16 2055, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 192
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store ptr %6, ptr %9, align 8
   %10 = load ptr, ptr @working_cluster_rec, align 8
   %11 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %10) #8
@@ -69,7 +69,7 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_stat(i32 noundef %0, ptr no
   br i1 %12, label %27, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %5, i64 204
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 204
   %15 = load i16, ptr %14, align 4
   switch i16 %15, label %26 [
     i16 2056, label %16
@@ -77,7 +77,7 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_stat(i32 noundef %0, ptr no
   ]
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %5, i64 192
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %2, align 8
@@ -85,7 +85,7 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_stat(i32 noundef %0, ptr no
   br label %27
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %5, i64 192
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4
   call void @slurm_free_return_code_msg(ptr noundef nonnull %22) #8
@@ -123,9 +123,9 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr nocapture noundef 
   %3 = alloca %struct.slurm_msg, align 8
   call void @slurm_msg_t_init(ptr noundef nonnull %2) #8
   call void @slurm_msg_t_init(ptr noundef nonnull %3) #8
-  %4 = getelementptr inbounds i8, ptr %2, i64 204
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i16 2037, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store ptr null, ptr %5, align 8
   %6 = load ptr, ptr @working_cluster_rec, align 8
   %7 = call i32 @slurm_send_recv_controller_msg(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %6) #8
@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr nocapture noundef 
   br i1 %8, label %22, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %3, i64 204
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %11 = load i16, ptr %10, align 4
   switch i16 %11, label %20 [
     i16 2038, label %12
@@ -141,12 +141,12 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr nocapture noundef 
   ]
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %3, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %14 = load ptr, ptr %13, align 8
   br label %21
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %3, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   call void @slurm_free_return_code_msg(ptr noundef nonnull %17) #8
@@ -173,7 +173,7 @@ define range(i32 -1, 1) i32 @slurm_load_burst_buffer_info(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_print_burst_buffer_info_msg(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %.lr.ph.preheader
@@ -191,7 +191,7 @@ define void @slurm_print_burst_buffer_info_msg(ptr nocapture noundef %0, ptr noc
   %.0910 = phi i32 [ %11, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   tail call void @slurm_print_burst_buffer_record(ptr noundef %0, ptr noundef %.011, i32 noundef %2, i32 noundef %3)
   %11 = add nuw nsw i32 %.0910, 1
-  %12 = getelementptr inbounds i8, ptr %.011, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %.011, i64 200
   %13 = load i32, ptr %5, align 8
   %14 = icmp ult i32 %11, %13
   br i1 %14, label %.lr.ph, label %.loopexit, !llvm.loop !6
@@ -220,59 +220,59 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   store ptr null, ptr %17, align 8
   %.not = icmp eq i32 %2, 0
   %18 = select i1 %.not, ptr @.str.2, ptr @.str.1
-  %19 = getelementptr inbounds i8, ptr %1, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %22 = load i64, ptr %21, align 8
   %23 = sub i64 %20, %22
   call fastcc void @_get_size_str(ptr noundef %13, i64 noundef %23)
-  %24 = getelementptr inbounds i8, ptr %1, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = load i64, ptr %24, align 8
   call fastcc void @_get_size_str(ptr noundef %14, i64 noundef %25)
   %26 = load i64, ptr %19, align 8
   call fastcc void @_get_size_str(ptr noundef %15, i64 noundef %26)
-  %27 = getelementptr inbounds i8, ptr %1, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %28 = load i64, ptr %27, align 8
   call fastcc void @_get_size_str(ptr noundef %16, i64 noundef %28)
-  %29 = getelementptr inbounds i8, ptr %1, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.3, ptr noundef %30, ptr noundef %32, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16) #8
-  %33 = getelementptr inbounds i8, ptr %1, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load i32, ptr %33, align 8
   %.not110 = icmp eq i32 %34, 0
   br i1 %.not110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %35 = getelementptr inbounds i8, ptr %1, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %36
 
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %37, i64 %indvars.iv
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %38 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %42 = load i64, ptr %41, align 8
   %43 = sub i64 %40, %42
   call fastcc void @_get_size_str(ptr noundef %13, i64 noundef %43)
   %44 = load ptr, ptr %35, align 8
-  %45 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %44, i64 %indvars.iv
   %46 = load i64, ptr %45, align 8
   call fastcc void @_get_size_str(ptr noundef %14, i64 noundef %46)
   %47 = load ptr, ptr %35, align 8
-  %48 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %47, i64 %indvars.iv, i32 2
+  %48 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %47, i64 %indvars.iv, i32 2
   %49 = load i64, ptr %48, align 8
   call fastcc void @_get_size_str(ptr noundef %15, i64 noundef %49)
   %50 = load ptr, ptr %35, align 8
-  %51 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %50, i64 %indvars.iv, i32 3
+  %51 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %50, i64 %indvars.iv, i32 3
   %52 = load i64, ptr %51, align 8
   call fastcc void @_get_size_str(ptr noundef %16, i64 noundef %52)
   %53 = load ptr, ptr %35, align 8
-  %54 = getelementptr inbounds %struct.burst_buffer_pool_t, ptr %53, i64 %indvars.iv, i32 1
+  %54 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %53, i64 %indvars.iv, i32 1
   %55 = load ptr, ptr %54, align 8
   %56 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.4, i32 noundef %56, ptr noundef %55, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %13, ptr noundef nonnull %16) #8
@@ -284,22 +284,22 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
 
 ._crit_edge:                                      ; preds = %36, %4
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %60 = getelementptr inbounds i8, ptr %1, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %61 = load i32, ptr %60, align 8
   %62 = call ptr @slurm_bb_flags2str(i32 noundef %61) #8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.5, ptr noundef %62) #8
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %63 = getelementptr inbounds i8, ptr %1, i64 96
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %64 = load i32, ptr %63, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.6, i32 noundef %64) #8
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %65 = getelementptr inbounds i8, ptr %1, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %66 = load i32, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 108
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds i8, ptr %1, i64 168
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 100
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %72 = load i32, ptr %71, align 4
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.7, i32 noundef %66, i32 noundef %68, i32 noundef %70, i32 noundef %72) #8
   %73 = load ptr, ptr %1, align 8
@@ -313,7 +313,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %81
 
 76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds i8, ptr %1, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %78 = load ptr, ptr %77, align 8
   %.not88 = icmp eq ptr %78, null
   br i1 %.not88, label %81, label %79
@@ -325,7 +325,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %81
 
 81:                                               ; preds = %76, %79, %74
-  %82 = getelementptr inbounds i8, ptr %1, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not89 = icmp eq ptr %83, null
   br i1 %.not89, label %86, label %84
@@ -337,7 +337,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %86
 
 86:                                               ; preds = %84, %81
-  %87 = getelementptr inbounds i8, ptr %1, i64 32
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %88 = load ptr, ptr %87, align 8
   %.not90 = icmp eq ptr %88, null
   br i1 %.not90, label %91, label %89
@@ -350,14 +350,14 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
 
 91:                                               ; preds = %89, %86
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %92 = getelementptr inbounds i8, ptr %1, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %93 = load ptr, ptr %92, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.12, ptr noundef %93) #8
   call void @_xstrcat(ptr noundef nonnull %17, ptr noundef nonnull %18) #8
-  %94 = getelementptr inbounds i8, ptr %1, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %95 = load ptr, ptr %94, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %17, ptr noundef nonnull @.str.13, ptr noundef %95) #8
-  %96 = getelementptr inbounds i8, ptr %1, i64 112
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %97 = load ptr, ptr %96, align 8
   %.not91 = icmp eq ptr %97, null
   br i1 %.not91, label %100, label %98
@@ -369,7 +369,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %100
 
 100:                                              ; preds = %98, %91
-  %101 = getelementptr inbounds i8, ptr %1, i64 120
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %102 = load ptr, ptr %101, align 8
   %.not92 = icmp eq ptr %102, null
   br i1 %.not92, label %105, label %103
@@ -381,7 +381,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %105
 
 105:                                              ; preds = %103, %100
-  %106 = getelementptr inbounds i8, ptr %1, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %107 = load ptr, ptr %106, align 8
   %.not93 = icmp eq ptr %107, null
   br i1 %.not93, label %110, label %108
@@ -393,7 +393,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %110
 
 110:                                              ; preds = %108, %105
-  %111 = getelementptr inbounds i8, ptr %1, i64 136
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %112 = load ptr, ptr %111, align 8
   %.not94 = icmp eq ptr %112, null
   br i1 %.not94, label %115, label %113
@@ -409,7 +409,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   %116 = load ptr, ptr %17, align 8
   %fputs = call i32 @fputs(ptr %116, ptr %0)
   call void @slurm_xfree(ptr noundef nonnull %17) #8
-  %117 = getelementptr inbounds i8, ptr %1, i64 172
+  %117 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %118 = load i32, ptr %117, align 4
   %.not95 = icmp eq i32 %118, 0
   br i1 %.not95, label %._crit_edge104, label %119
@@ -421,7 +421,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br i1 %121, label %._crit_edge104, label %.lr.ph103
 
 .lr.ph103:                                        ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %1, i64 176
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %123 = load ptr, ptr %122, align 8
   %.not98 = icmp eq i32 %3, 0
   br label %124
@@ -435,13 +435,13 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   store ptr null, ptr %10, align 8
-  %125 = getelementptr inbounds i8, ptr %.086100, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.086100, i64 24
   %126 = load i32, ptr %125, align 8
   %.not.i = icmp eq i32 %126, 0
   br i1 %.not.i, label %135, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %.086100, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %.086100, i64 12
   %129 = load i32, ptr %128, align 4
   %130 = icmp eq i32 %129, -2
   br i1 %130, label %131, label %132
@@ -451,22 +451,22 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %138
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds i8, ptr %.086100, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.086100, i64 8
   %134 = load i32, ptr %133, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.34, i32 noundef %134, i32 noundef %129, i32 noundef %126) #8
   br label %138
 
 135:                                              ; preds = %124
-  %136 = getelementptr inbounds i8, ptr %.086100, i64 32
+  %136 = getelementptr inbounds nuw i8, ptr %.086100, i64 32
   %137 = load ptr, ptr %136, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %10, ptr noundef nonnull @.str.35, ptr noundef %137) #8
   br label %138
 
 138:                                              ; preds = %135, %132, %131
-  %139 = getelementptr inbounds i8, ptr %.086100, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %.086100, i64 64
   %140 = load i64, ptr %139, align 8
   call fastcc void @_get_size_str(ptr noundef %8, i64 noundef %140)
-  %141 = getelementptr inbounds i8, ptr %.086100, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %.086100, i64 16
   %142 = load i64, ptr %141, align 8
   %.not24.i = icmp eq i64 %142, 0
   br i1 %.not24.i, label %143, label %145
@@ -479,7 +479,7 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
 145:                                              ; preds = %143, %138
   %.sink.i = phi ptr [ %12, %143 ], [ %141, %138 ]
   call void @slurm_make_time_str(ptr noundef nonnull %.sink.i, ptr noundef nonnull %9, i32 noundef 256) #8
-  %146 = getelementptr inbounds i8, ptr %.086100, i64 76
+  %146 = getelementptr inbounds nuw i8, ptr %.086100, i64 76
   %147 = load i32, ptr %146, align 4
   %148 = call ptr @uid_to_string(i32 noundef %147) #8
   store ptr %148, ptr %11, align 8
@@ -487,13 +487,13 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
 
 149:                                              ; preds = %145
   %150 = load ptr, ptr %.086100, align 8
-  %151 = getelementptr inbounds i8, ptr %.086100, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %.086100, i64 40
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %.086100, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %.086100, i64 48
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %.086100, i64 56
+  %155 = getelementptr inbounds nuw i8, ptr %.086100, i64 56
   %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %.086100, i64 72
+  %157 = getelementptr inbounds nuw i8, ptr %.086100, i64 72
   %158 = load i16, ptr %157, align 8
   %159 = call ptr @bb_state_string(i16 noundef zeroext %158) #8
   %160 = load i32, ptr %146, align 4
@@ -501,9 +501,9 @@ define void @slurm_print_burst_buffer_record(ptr nocapture noundef %0, ptr nocap
   br label %_print_burst_buffer_resv.exit
 
 161:                                              ; preds = %145
-  %162 = getelementptr inbounds i8, ptr %.086100, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %.086100, i64 48
   %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds i8, ptr %.086100, i64 72
+  %164 = getelementptr inbounds nuw i8, ptr %.086100, i64 72
   %165 = load i16, ptr %164, align 8
   %166 = call ptr @bb_state_string(i16 noundef zeroext %165) #8
   %167 = load i32, ptr %146, align 4
@@ -522,13 +522,13 @@ _print_burst_buffer_resv.exit:                    ; preds = %149, %161
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   %169 = add nuw nsw i32 %.1101, 1
-  %170 = getelementptr inbounds i8, ptr %.086100, i64 80
+  %170 = getelementptr inbounds nuw i8, ptr %.086100, i64 80
   %171 = load i32, ptr %117, align 4
   %172 = icmp ult i32 %169, %171
   br i1 %172, label %124, label %._crit_edge104, !llvm.loop !9
 
 ._crit_edge104:                                   ; preds = %_print_burst_buffer_resv.exit, %115, %119
-  %173 = getelementptr inbounds i8, ptr %1, i64 184
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %174 = load i32, ptr %173, align 8
   %.not96 = icmp eq i32 %174, 0
   br i1 %.not96, label %._crit_edge109, label %175
@@ -540,7 +540,7 @@ _print_burst_buffer_resv.exit:                    ; preds = %149, %161
   br i1 %177, label %._crit_edge109, label %.lr.ph108.preheader
 
 .lr.ph108.preheader:                              ; preds = %175
-  %178 = getelementptr inbounds i8, ptr %1, i64 192
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %179 = load ptr, ptr %178, align 8
   br label %.lr.ph108
 
@@ -554,7 +554,7 @@ _print_burst_buffer_resv.exit:                    ; preds = %149, %161
   %180 = load i32, ptr %.085105, align 8
   %181 = call ptr @uid_to_string(i32 noundef %180) #8
   store ptr %181, ptr %7, align 8
-  %182 = getelementptr inbounds i8, ptr %.085105, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %.085105, i64 8
   %183 = load i64, ptr %182, align 8
   call fastcc void @_get_size_str(ptr noundef %5, i64 noundef %183)
   %184 = load i32, ptr %.085105, align 8
@@ -568,7 +568,7 @@ _print_burst_buffer_resv.exit:                    ; preds = %149, %161
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %186 = add nuw nsw i32 %.2106, 1
-  %187 = getelementptr inbounds i8, ptr %.085105, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %.085105, i64 16
   %188 = load i32, ptr %173, align 8
   %189 = icmp ult i32 %186, %188
   br i1 %189, label %.lr.ph108, label %._crit_edge109, !llvm.loop !10

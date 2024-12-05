@@ -25,28 +25,28 @@ define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf64_note(ptr 
 entry:
   %note = alloca %struct.riscv64_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
-  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
-  %0 = getelementptr inbounds i8, ptr %note, i64 17
+  %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
+  %0 = getelementptr inbounds nuw i8, ptr %note, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(396) %0, i8 0, i64 379, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 376) #6
-  %n_descsz.i = getelementptr inbounds i8, ptr %note, i64 4
+  %n_descsz.i = getelementptr inbounds nuw i8, ptr %note, i64 4
   store i32 %call1.i, ptr %n_descsz.i, align 4
   %call3.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 1) #6
-  %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
+  %n_type.i = getelementptr inbounds nuw i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
-  %name5.i = getelementptr inbounds i8, ptr %note, i64 12
+  %name5.i = getelementptr inbounds nuw i8, ptr %note, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
-  %pr_pid = getelementptr inbounds i8, ptr %note, i64 52
+  %pr_pid = getelementptr inbounds nuw i8, ptr %note, i64 52
   store i32 %call2, ptr %pr_pid, align 4
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   %1 = load i64, ptr %pc, align 16
   %call3 = tail call i64 @cpu_to_dump64(ptr noundef %s, i64 noundef %1) #6
-  %pr_reg = getelementptr inbounds i8, ptr %note, i64 132
+  %pr_reg = getelementptr inbounds nuw i8, ptr %note, i64 132
   store i64 %call3, ptr %pr_reg, align 4
-  %regs = getelementptr inbounds i8, ptr %note, i64 140
+  %regs = getelementptr inbounds nuw i8, ptr %note, i64 140
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -78,29 +78,29 @@ define dso_local range(i32 -1, -2147483648) i32 @riscv_cpu_write_elf32_note(ptr 
 entry:
   %note = alloca %struct.riscv32_note, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
-  %env1 = getelementptr inbounds i8, ptr %call.i, i64 10176
-  %0 = getelementptr inbounds i8, ptr %note, i64 17
+  %env1 = getelementptr inbounds nuw i8, ptr %call.i, i64 10176
+  %0 = getelementptr inbounds nuw i8, ptr %note, i64 17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(224) %0, i8 0, i64 207, i1 false)
   %call.i10 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 5) #6
   store i32 %call.i10, ptr %note, align 4
   %call1.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 204) #6
-  %n_descsz.i = getelementptr inbounds i8, ptr %note, i64 4
+  %n_descsz.i = getelementptr inbounds nuw i8, ptr %note, i64 4
   store i32 %call1.i, ptr %n_descsz.i, align 4
   %call3.i = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef 1) #6
-  %n_type.i = getelementptr inbounds i8, ptr %note, i64 8
+  %n_type.i = getelementptr inbounds nuw i8, ptr %note, i64 8
   store i32 %call3.i, ptr %n_type.i, align 4
-  %name5.i = getelementptr inbounds i8, ptr %note, i64 12
+  %name5.i = getelementptr inbounds nuw i8, ptr %note, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(5) %name5.i, ptr noundef nonnull readonly align 1 dereferenceable(5) @__const.riscv_cpu_write_elf32_note.name, i64 5, i1 false)
   %call2 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %cpuid) #6
-  %pr_pid = getelementptr inbounds i8, ptr %note, i64 44
+  %pr_pid = getelementptr inbounds nuw i8, ptr %note, i64 44
   store i32 %call2, ptr %pr_pid, align 4
-  %pc = getelementptr inbounds i8, ptr %call.i, i64 14832
+  %pc = getelementptr inbounds nuw i8, ptr %call.i, i64 14832
   %1 = load i64, ptr %pc, align 16
   %conv = trunc i64 %1 to i32
   %call3 = tail call i32 @cpu_to_dump32(ptr noundef %s, i32 noundef %conv) #6
-  %pr_reg = getelementptr inbounds i8, ptr %note, i64 92
+  %pr_reg = getelementptr inbounds nuw i8, ptr %note, i64 92
   store i32 %call3, ptr %pr_reg, align 4
-  %regs = getelementptr inbounds i8, ptr %note, i64 96
+  %regs = getelementptr inbounds nuw i8, ptr %note, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
@@ -135,14 +135,14 @@ while.end5:                                       ; preds = %entry
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !9
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #6
   store i32 243, ptr %info, align 8
-  %d_class = getelementptr inbounds i8, ptr %info, i64 8
+  %d_class = getelementptr inbounds nuw i8, ptr %info, i64 8
   store i32 2, ptr %d_class, align 8
-  %mstatus = getelementptr inbounds i8, ptr %call.i, i64 15264
+  %mstatus = getelementptr inbounds nuw i8, ptr %call.i, i64 15264
   %3 = load i64, ptr %mstatus, align 16
   %and = and i64 %3, 64
   %cmp8.not = icmp eq i64 %and, 0
   %cond = select i1 %cmp8.not, i32 1, i32 2
-  %d_endian = getelementptr inbounds i8, ptr %info, i64 4
+  %d_endian = getelementptr inbounds nuw i8, ptr %info, i64 4
   store i32 %cond, ptr %d_endian, align 4
   br label %return
 

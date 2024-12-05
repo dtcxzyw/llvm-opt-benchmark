@@ -79,14 +79,14 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %59 = getelementptr i8, ptr %58, i64 8
   call void @dcopy_(ptr noundef nonnull %11, ptr noundef %56, ptr noundef nonnull %3, ptr noundef %59, ptr noundef nonnull @c__1) #4
   %60 = zext nneg i32 %43 to i64
-  %61 = getelementptr inbounds double, ptr %20, i64 %60
+  %61 = getelementptr inbounds nuw double, ptr %20, i64 %60
   %62 = zext nneg i32 %44 to i64
-  %63 = getelementptr inbounds double, ptr %20, i64 %62
+  %63 = getelementptr inbounds nuw double, ptr %20, i64 %62
   %64 = zext nneg i32 %45 to i64
-  %65 = getelementptr inbounds double, ptr %20, i64 %64
-  %66 = getelementptr inbounds i32, ptr %21, i64 %60
-  %67 = getelementptr inbounds i32, ptr %21, i64 %64
-  %68 = getelementptr inbounds i32, ptr %21, i64 %62
+  %65 = getelementptr inbounds nuw double, ptr %20, i64 %64
+  %66 = getelementptr inbounds nuw i32, ptr %21, i64 %60
+  %67 = getelementptr inbounds nuw i32, ptr %21, i64 %64
+  %68 = getelementptr inbounds nuw i32, ptr %21, i64 %62
   call void @dlaed2_(ptr noundef nonnull %12, ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %7, ptr noundef nonnull %61, ptr noundef nonnull %63, ptr noundef nonnull %65, ptr noundef %8, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %68, ptr noundef nonnull %9) #4
   %69 = load i32, ptr %9, align 4, !tbaa !3
   %70 = icmp eq i32 %69, 0
@@ -140,7 +140,7 @@ define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 103:                                              ; preds = %103, %100
   %104 = phi i64 [ 1, %100 ], [ %107, %103 ]
-  %105 = getelementptr inbounds i32, ptr %19, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %19, i64 %104
   %106 = trunc i64 %104 to i32
   store i32 %106, ptr %105, align 4, !tbaa !3
   %107 = add nuw nsw i64 %104, 1

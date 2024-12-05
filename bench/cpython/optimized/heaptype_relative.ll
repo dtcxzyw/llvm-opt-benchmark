@@ -79,25 +79,25 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr @.str.7, ptr %base_spec, align 8
-  %basicsize1 = getelementptr inbounds i8, ptr %base_spec, i64 8
+  %basicsize1 = getelementptr inbounds nuw i8, ptr %base_spec, i64 8
   %0 = load i32, ptr %extra_base_size, align 4
   %add = add i32 %0, 16
   store i32 %add, ptr %basicsize1, align 8
-  %itemsize = getelementptr inbounds i8, ptr %base_spec, i64 12
+  %itemsize = getelementptr inbounds nuw i8, ptr %base_spec, i64 12
   store i32 0, ptr %itemsize, align 4
-  %flags = getelementptr inbounds i8, ptr %base_spec, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %base_spec, i64 16
   store i32 1024, ptr %flags, align 8
-  %slots = getelementptr inbounds i8, ptr %base_spec, i64 24
+  %slots = getelementptr inbounds nuw i8, ptr %base_spec, i64 24
   store ptr @empty_slots, ptr %slots, align 8
   store ptr @.str.8, ptr %sub_spec, align 8
-  %basicsize4 = getelementptr inbounds i8, ptr %sub_spec, i64 8
+  %basicsize4 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 8
   %1 = load i32, ptr %basicsize, align 4
   store i32 %1, ptr %basicsize4, align 8
-  %itemsize5 = getelementptr inbounds i8, ptr %sub_spec, i64 12
+  %itemsize5 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 12
   store i32 0, ptr %itemsize5, align 4
-  %flags6 = getelementptr inbounds i8, ptr %sub_spec, i64 16
+  %flags6 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 16
   store i32 0, ptr %flags6, align 8
-  %slots7 = getelementptr inbounds i8, ptr %sub_spec, i64 24
+  %slots7 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 24
   store ptr @empty_slots, ptr %slots7, align 8
   %call8 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %module, ptr noundef nonnull %base_spec, ptr noundef null) #7
   %tobool9.not = icmp eq ptr %call8, null
@@ -163,15 +163,15 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %slots, ptr noundef nonnull align 16 dereferenceable(32) @__const.subclass_heaptype.slots, i64 32, i1 false)
   store ptr @.str.8, ptr %sub_spec, align 8
-  %basicsize1 = getelementptr inbounds i8, ptr %sub_spec, i64 8
+  %basicsize1 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 8
   %0 = load i32, ptr %basicsize, align 4
   store i32 %0, ptr %basicsize1, align 8
-  %itemsize2 = getelementptr inbounds i8, ptr %sub_spec, i64 12
+  %itemsize2 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 12
   %1 = load i32, ptr %itemsize, align 4
   store i32 %1, ptr %itemsize2, align 4
-  %flags = getelementptr inbounds i8, ptr %sub_spec, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %sub_spec, i64 16
   store i32 8388608, ptr %flags, align 8
-  %slots3 = getelementptr inbounds i8, ptr %sub_spec, i64 24
+  %slots3 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 24
   store ptr %slots, ptr %slots3, align 8
   %2 = load ptr, ptr %base, align 8
   %call4 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %module, ptr noundef nonnull %sub_spec, ptr noundef %2) #7
@@ -197,15 +197,15 @@ entry:
 if.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %slots, ptr noundef nonnull align 16 dereferenceable(32) @__const.subclass_heaptype.slots, i64 32, i1 false)
   store ptr @.str.8, ptr %sub_spec, align 8
-  %basicsize1 = getelementptr inbounds i8, ptr %sub_spec, i64 8
+  %basicsize1 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 8
   %0 = load i32, ptr %basicsize, align 4
   store i32 %0, ptr %basicsize1, align 8
-  %itemsize2 = getelementptr inbounds i8, ptr %sub_spec, i64 12
+  %itemsize2 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 12
   %1 = load i32, ptr %itemsize, align 4
   store i32 %1, ptr %itemsize2, align 4
-  %flags = getelementptr inbounds i8, ptr %sub_spec, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %sub_spec, i64 16
   store i32 0, ptr %flags, align 8
-  %slots3 = getelementptr inbounds i8, ptr %sub_spec, i64 24
+  %slots3 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 24
   store ptr %slots, ptr %slots3, align 8
   %2 = load ptr, ptr %base, align 8
   %call4 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %module, ptr noundef nonnull %sub_spec, ptr noundef %2) #7
@@ -233,15 +233,15 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr @.str.7, ptr %base_spec, align 8
-  %basicsize1 = getelementptr inbounds i8, ptr %base_spec, i64 8
+  %basicsize1 = getelementptr inbounds nuw i8, ptr %base_spec, i64 8
   %0 = load i32, ptr %extra_base_size, align 4
   %add = add i32 %0, 16
   store i32 %add, ptr %basicsize1, align 8
-  %itemsize = getelementptr inbounds i8, ptr %base_spec, i64 12
+  %itemsize = getelementptr inbounds nuw i8, ptr %base_spec, i64 12
   store i32 0, ptr %itemsize, align 4
-  %flags = getelementptr inbounds i8, ptr %base_spec, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %base_spec, i64 16
   store i32 1024, ptr %flags, align 8
-  %slots = getelementptr inbounds i8, ptr %base_spec, i64 24
+  %slots = getelementptr inbounds nuw i8, ptr %base_spec, i64 24
   store ptr @empty_slots, ptr %slots, align 8
   %call3 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %module, ptr noundef nonnull %base_spec, ptr noundef null) #7
   %tobool4.not = icmp eq ptr %call3, null
@@ -249,39 +249,39 @@ if.end:                                           ; preds = %entry
 
 if.then.i:                                        ; preds = %if.end
   store ptr @.str.15, ptr %members, align 16
-  %type = getelementptr inbounds i8, ptr %members, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %members, i64 8
   store i32 8, ptr %type, align 8
-  %offset8 = getelementptr inbounds i8, ptr %members, i64 16
+  %offset8 = getelementptr inbounds nuw i8, ptr %members, i64 16
   %1 = load i32, ptr %offset, align 4
   %conv9 = sext i32 %1 to i64
   store i64 %conv9, ptr %offset8, align 16
-  %flags10 = getelementptr inbounds i8, ptr %members, i64 24
+  %flags10 = getelementptr inbounds nuw i8, ptr %members, i64 24
   %2 = load i32, ptr %add_flag, align 4
   %tobool11.not = icmp eq i32 %2, 0
   %cond = select i1 %tobool11.not, i32 0, i32 8
   store i32 %cond, ptr %flags10, align 8
-  %doc = getelementptr inbounds i8, ptr %members, i64 32
+  %doc = getelementptr inbounds nuw i8, ptr %members, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %doc, i8 0, i64 48, i1 false)
   store i32 72, ptr %slots17, align 16
-  %pfunc = getelementptr inbounds i8, ptr %slots17, i64 8
+  %pfunc = getelementptr inbounds nuw i8, ptr %slots17, i64 8
   store ptr %members, ptr %pfunc, align 8
-  %arrayinit.element19 = getelementptr inbounds i8, ptr %slots17, i64 16
+  %arrayinit.element19 = getelementptr inbounds nuw i8, ptr %slots17, i64 16
   store i32 64, ptr %arrayinit.element19, align 16
-  %pfunc21 = getelementptr inbounds i8, ptr %slots17, i64 24
+  %pfunc21 = getelementptr inbounds nuw i8, ptr %slots17, i64 24
   store ptr @heaptype_with_member_methods, ptr %pfunc21, align 8
-  %arrayinit.element22 = getelementptr inbounds i8, ptr %slots17, i64 32
+  %arrayinit.element22 = getelementptr inbounds nuw i8, ptr %slots17, i64 32
   store i32 0, ptr %arrayinit.element22, align 16
-  %pfunc24 = getelementptr inbounds i8, ptr %slots17, i64 40
+  %pfunc24 = getelementptr inbounds nuw i8, ptr %slots17, i64 40
   store ptr null, ptr %pfunc24, align 8
   store ptr @.str.8, ptr %sub_spec, align 8
-  %basicsize26 = getelementptr inbounds i8, ptr %sub_spec, i64 8
+  %basicsize26 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 8
   %3 = load i32, ptr %basicsize, align 4
   store i32 %3, ptr %basicsize26, align 8
-  %itemsize27 = getelementptr inbounds i8, ptr %sub_spec, i64 12
+  %itemsize27 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 12
   store i32 0, ptr %itemsize27, align 4
-  %flags28 = getelementptr inbounds i8, ptr %sub_spec, i64 16
+  %flags28 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 16
   store i32 0, ptr %flags28, align 8
-  %slots29 = getelementptr inbounds i8, ptr %sub_spec, i64 24
+  %slots29 = getelementptr inbounds nuw i8, ptr %sub_spec, i64 24
   store ptr %slots17, ptr %slots29, align 8
   %call31 = call ptr @PyType_FromMetaclass(ptr noundef null, ptr noundef %module, ptr noundef nonnull %sub_spec, ptr noundef nonnull %call3) #7
   call void @_Py_DecRef(ptr noundef nonnull %call3) #7
@@ -393,7 +393,7 @@ if.end13.i:                                       ; preds = %if.end8.i
   br i1 %tobool17.not.i, label %if.end19.i, label %return.sink.split.i
 
 if.end19.i:                                       ; preds = %if.end13.i
-  %flags.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %tobool21.not.i = icmp eq i32 %3, 0
   br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.exit, label %return.sink.split.i
@@ -441,7 +441,7 @@ if.end13.i:                                       ; preds = %if.end8.i
   br i1 %tobool17.not.i, label %if.end19.i, label %return.sink.split.i
 
 if.end19.i:                                       ; preds = %if.end13.i
-  %flags.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %tobool21.not.i = icmp eq i32 %3, 0
   br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.exit, label %return.sink.split.i
@@ -492,7 +492,7 @@ if.end13.i:                                       ; preds = %if.end8.i
   br i1 %tobool17.not.i, label %if.end19.i, label %return.sink.split.i
 
 if.end19.i:                                       ; preds = %if.end13.i
-  %flags.i = getelementptr inbounds i8, ptr %call1.i, i64 24
+  %flags.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 24
   %3 = load i32, ptr %flags.i, align 8
   %tobool21.not.i = icmp eq i32 %3, 0
   br i1 %tobool21.not.i, label %heaptype_with_member_extract_and_check_memb.exit, label %return.sink.split.i
@@ -504,7 +504,7 @@ return.sink.split.i:                              ; preds = %if.then.i, %if.end1
   unreachable
 
 heaptype_with_member_extract_and_check_memb.exit: ; preds = %if.end19.i
-  %offset = getelementptr inbounds i8, ptr %call1.i, i64 16
+  %offset = getelementptr inbounds nuw i8, ptr %call1.i, i64 16
   %5 = load i64, ptr %offset, align 8
   %call1 = tail call ptr @PyLong_FromSsize_t(i64 noundef %5) #7
   ret ptr %call1

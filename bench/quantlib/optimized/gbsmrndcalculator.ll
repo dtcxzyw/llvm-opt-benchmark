@@ -200,7 +200,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -213,7 +213,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -259,12 +259,12 @@ entry:
   %mul = fmul double %k, 1.000000e-03
   %add = fadd double %k, %mul
   %vtable = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %add, double noundef %t)
   %sub = fsub double %k, %mul
   %vtable2 = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 8
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 8
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef double %1(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %sub, double noundef %t)
   %sub5 = fsub double %call, %call4
@@ -337,7 +337,7 @@ invoke.cont4:                                     ; preds = %.noexc, %invoke.con
 
 .noexc35:                                         ; preds = %.noexc34
   %vtable.i = load ptr, ptr %6, align 8, !tbaa !14
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 112
   %7 = load ptr, ptr %vfn.i, align 8
   %call.i36 = invoke noundef double %7(ptr noundef nonnull align 8 dereferenceable(68) %6, double noundef %t, double noundef %add)
           to label %invoke.cont6 unwind label %lpad
@@ -371,7 +371,7 @@ invoke.cont10:                                    ; preds = %.noexc40, %invoke.c
 
 .noexc45:                                         ; preds = %.noexc44
   %vtable.i42 = load ptr, ptr %9, align 8, !tbaa !14
-  %vfn.i43 = getelementptr inbounds i8, ptr %vtable.i42, i64 112
+  %vfn.i43 = getelementptr inbounds nuw i8, ptr %vtable.i42, i64 112
   %10 = load ptr, ptr %vfn.i43, align 8
   %call.i46 = invoke noundef double %10(ptr noundef nonnull align 8 dereferenceable(68) %9, double noundef %t, double noundef %sub)
           to label %invoke.cont12 unwind label %lpad
@@ -475,7 +475,7 @@ cond.false.i68:                                   ; preds = %invoke.cont38
 invoke.cont42:                                    ; preds = %.noexc70, %invoke.cont38
   %20 = phi ptr [ %19, %invoke.cont38 ], [ %.pre.i69, %.noexc70 ]
   %vtable = load ptr, ptr %20, align 8, !tbaa !14
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %21 = load ptr, ptr %vfn, align 8
   %call45 = invoke noundef double %21(ptr noundef nonnull align 8 dereferenceable(250) %20)
           to label %invoke.cont44 unwind label %lpad41
@@ -528,7 +528,7 @@ invoke.cont56:                                    ; preds = %.noexc80, %invoke.c
 
 .noexc85:                                         ; preds = %.noexc84
   %vtable.i82 = load ptr, ptr %25, align 8, !tbaa !14
-  %vfn.i83 = getelementptr inbounds i8, ptr %vtable.i82, i64 104
+  %vfn.i83 = getelementptr inbounds nuw i8, ptr %vtable.i82, i64 104
   %26 = load ptr, ptr %vfn.i83, align 8
   %call.i86 = invoke noundef double %26(ptr noundef nonnull align 8 dereferenceable(68) %25, double noundef %t, double noundef %k)
           to label %invoke.cont58 unwind label %lpad49
@@ -646,7 +646,7 @@ if.then.i.i.i89:                                  ; preds = %cleanup
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i89
   %vtable.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %40 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %40(ptr noundef nonnull align 8 dereferenceable(16) %38)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -659,7 +659,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i89
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !14
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %42 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %42(ptr noundef nonnull align 8 dereferenceable(16) %38)
           to label %_ZN8QuantLib6HandleINS_21BlackVolTermStructureEED2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -1096,7 +1096,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -1109,7 +1109,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib6HandleINS1_21BlackVolTermStructureEE4LinkEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -1177,7 +1177,7 @@ cond.false.i:                                     ; preds = %entry
 _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; preds = %entry, %cond.false.i
   %1 = phi ptr [ %0, %entry ], [ %.pre.i, %cond.false.i ]
   %vtable = load ptr, ptr %1, align 8, !tbaa !14
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 120
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef double %2(ptr noundef nonnull align 8 dereferenceable(250) %1)
   %3 = load ptr, ptr %process_, align 8, !tbaa !18
@@ -1259,7 +1259,7 @@ _ZNK5boost10shared_ptrIN8QuantLib21BlackVolTermStructureEEptEv.exit: ; preds = %
   tail call void @_ZNK8QuantLib13TermStructure10checkRangeEdb(ptr noundef nonnull align 8 dereferenceable(68) %14, double noundef %t, i1 noundef zeroext true)
   tail call void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68) %14, double noundef %mul, i1 noundef zeroext true)
   %vtable.i = load ptr, ptr %14, align 8, !tbaa !14
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 104
   %15 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef double %15(ptr noundef nonnull align 8 dereferenceable(68) %14, double noundef %t, double noundef %mul)
   %call21 = tail call double @sqrt(double noundef %call.i) #19, !tbaa !27
@@ -1315,7 +1315,7 @@ _ZNK8QuantLib23InverseCumulativeNormalclEd.exit:  ; preds = %if.then.i.i, %if.el
 land.rhs:                                         ; preds = %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit, %while.body
   %lower.0184 = phi double [ %mul31, %while.body ], [ %mul25, %_ZNK8QuantLib23InverseCumulativeNormalclEd.exit ]
   %vtable27 = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn28 = getelementptr inbounds i8, ptr %vtable27, i64 8
+  %vfn28 = getelementptr inbounds nuw i8, ptr %vtable27, i64 8
   %40 = load ptr, ptr %vfn28, align 8
   %call29 = tail call noundef double %40(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %lower.0184, double noundef %t)
   %cmp30 = fcmp ogt double %call29, %q
@@ -1336,7 +1336,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
 land.rhs35:                                       ; preds = %while.end, %while.body41
   %upper.0191 = phi double [ %mul42, %while.body41 ], [ %mul25, %while.end ]
   %vtable36 = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn37 = getelementptr inbounds i8, ptr %vtable36, i64 8
+  %vfn37 = getelementptr inbounds nuw i8, ptr %vtable36, i64 8
   %41 = load ptr, ptr %vfn37, align 8
   %call38 = tail call noundef double %41(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %upper.0191, double noundef %t)
   %cmp39 = fcmp olt double %call38, %q
@@ -1376,7 +1376,7 @@ invoke.cont53:                                    ; preds = %invoke.cont51
 
 invoke.cont55:                                    ; preds = %invoke.cont53
   %vtable57 = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 8
+  %vfn58 = getelementptr inbounds nuw i8, ptr %vtable57, i64 8
   %42 = load ptr, ptr %vfn58, align 8
   %call60 = invoke noundef double %42(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %lower.0.lcssa, double noundef %t)
           to label %invoke.cont59 unwind label %lpad
@@ -1391,7 +1391,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
 
 invoke.cont63:                                    ; preds = %invoke.cont61
   %vtable65 = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn66 = getelementptr inbounds i8, ptr %vtable65, i64 8
+  %vfn66 = getelementptr inbounds nuw i8, ptr %vtable65, i64 8
   %43 = load ptr, ptr %vfn66, align 8
   %call68 = invoke noundef double %43(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %upper.0181, double noundef %t)
           to label %invoke.cont67 unwind label %lpad
@@ -1738,7 +1738,7 @@ ehcleanup80.i:                                    ; preds = %cleanup.action78.i,
 
 do.end187.i:                                      ; preds = %do.end
   %vtable.i.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %86 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i88 = tail call noundef double %86(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %lower.0.lcssa, double noundef %t)
   %sub.i.i89 = fsub double %call.i.i88, %q
@@ -1750,7 +1750,7 @@ do.end187.i:                                      ; preds = %do.end
 
 if.end194.i:                                      ; preds = %do.end187.i
   %vtable.i131.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn.i132.i = getelementptr inbounds i8, ptr %vtable.i131.i, i64 8
+  %vfn.i132.i = getelementptr inbounds nuw i8, ptr %vtable.i131.i, i64 8
   %88 = load ptr, ptr %vfn.i132.i, align 8
   %call.i133.i = tail call noundef double %88(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %upper.0191, double noundef %t)
   %sub.i134.i = fsub double %call.i133.i, %q
@@ -2316,7 +2316,7 @@ ehcleanup362.i:                                   ; preds = %cleanup.action360.i
 
 do.end365.i:                                      ; preds = %do.body316.i
   %vtable.i.i.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %154 = load ptr, ptr %vfn.i.i.i, align 8
   %call.i.i276.i = tail call noundef double %154(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %mul99, double noundef %t)
   %sub.i.i.i = fsub double %call.i.i276.i, %q
@@ -2487,7 +2487,7 @@ if.end122.i.i:                                    ; preds = %if.else118.i.i, %if
   %cond.i.pn.i.i = phi double [ %cond.i.i.i, %if.else118.i.i ], [ %d.2.i.i, %if.end111.i.i ]
   %storemerge.i.i = fadd double %ref.tmp97.sroa.0.1, %cond.i.pn.i.i
   %vtable.i63.i.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn.i64.i.i = getelementptr inbounds i8, ptr %vtable.i63.i.i, i64 8
+  %vfn.i64.i.i = getelementptr inbounds nuw i8, ptr %vtable.i63.i.i, i64 8
   %174 = load ptr, ptr %vfn.i64.i.i, align 8
   %call.i65.i.i = tail call noundef double %174(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %storemerge.i.i, double noundef %t)
   %sub.i66.i.i = fsub double %call.i65.i.i, %q
@@ -2664,7 +2664,7 @@ unreachable.i.i:                                  ; preds = %invoke.cont144.i.i
 
 "_ZNK8QuantLib5Brent9solveImplIZNKS_17GBSMRNDCalculator6invcdfEddE3$_0EEdRKT_d.exit.i": ; preds = %if.end40.i.i
   %vtable.i51.i.i = load ptr, ptr %this, align 8, !tbaa !14
-  %vfn.i52.i.i = getelementptr inbounds i8, ptr %vtable.i51.i.i, i64 8
+  %vfn.i52.i.i = getelementptr inbounds nuw i8, ptr %vtable.i51.i.i, i64 8
   %196 = load ptr, ptr %vfn.i52.i.i, align 8
   %call.i53.i.i = tail call noundef double %196(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %ref.tmp97.sroa.0.1, double noundef %t)
   br label %"_ZNK8QuantLib8Solver1DINS_5BrentEE5solveIZNKS_17GBSMRNDCalculator6invcdfEddE3$_0EEdRKT_dddd.exit"
@@ -2703,7 +2703,7 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   %vtable.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i unwind label %terminate.lpad.i.i
@@ -2716,7 +2716,7 @@ if.then.i.i.i:                                    ; preds = %if.then.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 24
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEED2Ev.exit unwind label %terminate.lpad.i.i
@@ -2749,7 +2749,7 @@ if.then.i.i.i:                                    ; preds = %entry
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %vtable.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %2 = load ptr, ptr %vfn.i.i.i.i, align 8
   invoke void %2(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
@@ -2762,7 +2762,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8, !tbaa !14
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
   %4 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   invoke void %4(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %_ZN8QuantLib17GBSMRNDCalculatorD2Ev.exit unwind label %terminate.lpad.i.i.i

@@ -535,7 +535,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %79 = load i32, ptr %.057.i.i, align 4
   %80 = sext i32 %79 to i64
   %81 = add i64 %.08.i.i, %80
-  %82 = getelementptr inbounds i8, ptr %.057.i.i, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %.057.i.i, i64 4
   %.not.i.i27 = icmp eq ptr %82, %78
   br i1 %.not.i.i27, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeNumPointsERKNS_7VtArrayIiEES4_.exit, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -549,7 +549,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 
 .noexc32:                                         ; preds = %.noexc31
   %86 = icmp eq ptr %84, %85
-  %87 = getelementptr inbounds i8, ptr %84, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %.not17.i.i.i = icmp eq ptr %87, %85
   %or.cond.i.i.i = select i1 %86, i1 true, i1 %.not17.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.preheader.i.i.i
@@ -566,7 +566,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %91 = icmp slt i32 %88, %90
   %92 = tail call i32 @llvm.smax.i32(i32 %88, i32 %90)
   %spec.select.i.i.i = select i1 %91, ptr %89, ptr %.018.i.i.i
-  %93 = getelementptr inbounds i8, ptr %89, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %.not.i.i.i = icmp eq ptr %93, %85
   br i1 %.not.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -1283,7 +1283,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %276 = load i32, ptr %.057.i.i, align 4
   %277 = sext i32 %276 to i64
   %278 = add i64 %.08.i.i, %277
-  %279 = getelementptr inbounds i8, ptr %.057.i.i, i64 4
+  %279 = getelementptr inbounds nuw i8, ptr %.057.i.i, i64 4
   %.not.i.i82 = icmp eq ptr %279, %275
   br i1 %.not.i.i82, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_ComputeNumPointsERKNS_7VtArrayIiEES4_.exit, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -1297,7 +1297,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
 
 .noexc87:                                         ; preds = %.noexc86
   %283 = icmp eq ptr %281, %282
-  %284 = getelementptr inbounds i8, ptr %281, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %281, i64 4
   %.not17.i.i.i = icmp eq ptr %284, %282
   %or.cond.i.i.i = select i1 %283, i1 true, i1 %.not17.i.i.i
   br i1 %or.cond.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.preheader.i.i.i
@@ -1314,7 +1314,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdPerfTokens_StaticTok
   %288 = icmp slt i32 %285, %287
   %289 = call i32 @llvm.smax.i32(i32 %285, i32 %287)
   %spec.select.i.i.i = select i1 %288, ptr %286, ptr %.018.i.i.i
-  %290 = getelementptr inbounds i8, ptr %286, i64 4
+  %290 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %.not.i.i.i = icmp eq ptr %290, %282
   br i1 %.not.i.i.i, label %_ZSt11max_elementIPKiET_S2_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !6
 
@@ -2328,7 +2328,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
 
 115:                                              ; preds = %110, %.lr.ph.split.us
   %.1.us = phi i64 [ %.01870.us, %.lr.ph.split.us ], [ %114, %110 ]
-  %116 = getelementptr inbounds i8, ptr %.071.us, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %.071.us, i64 4
   %117 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
   %.not.us = icmp eq ptr %116, %117
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !27
@@ -2372,7 +2372,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
 
 131:                                              ; preds = %126, %.lr.ph.split
   %.1 = phi i64 [ %.01870, %.lr.ph.split ], [ %130, %126 ]
-  %132 = getelementptr inbounds i8, ptr %.071, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %.071, i64 4
   %133 = tail call noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE4cendEv(ptr noundef nonnull align 8 dereferenceable(40) %105)
   %.not = icmp eq ptr %132, %133
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !27

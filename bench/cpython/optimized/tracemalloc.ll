@@ -1065,28 +1065,28 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #3 {
 entry:
-  %nframe = getelementptr inbounds i8, ptr %key1, i64 8
+  %nframe = getelementptr inbounds nuw i8, ptr %key1, i64 8
   %0 = load i16, ptr %nframe, align 8
-  %nframe1 = getelementptr inbounds i8, ptr %key2, i64 8
+  %nframe1 = getelementptr inbounds nuw i8, ptr %key2, i64 8
   %1 = load i16, ptr %nframe1, align 8
   %cmp.not = icmp eq i16 %0, %1
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %total_nframe = getelementptr inbounds i8, ptr %key1, i64 10
+  %total_nframe = getelementptr inbounds nuw i8, ptr %key1, i64 10
   %2 = load i16, ptr %total_nframe, align 2
-  %total_nframe5 = getelementptr inbounds i8, ptr %key2, i64 10
+  %total_nframe5 = getelementptr inbounds nuw i8, ptr %key2, i64 10
   %3 = load i16, ptr %total_nframe5, align 2
   %cmp7.not = icmp eq i16 %2, %3
   br i1 %cmp7.not, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %if.end
-  %frames = getelementptr inbounds i8, ptr %key1, i64 12
+  %frames = getelementptr inbounds nuw i8, ptr %key1, i64 12
   %cmp1311.not = icmp eq i16 %0, 0
   br i1 %cmp1311.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %frames15 = getelementptr inbounds i8, ptr %key2, i64 12
+  %frames15 = getelementptr inbounds nuw i8, ptr %key2, i64 12
   %wide.trip.count = zext i16 %0 to i64
   br label %for.body
 
@@ -1099,9 +1099,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %arrayidx = getelementptr [1 x %struct.tracemalloc_frame], ptr %frames, i64 0, i64 %indvars.iv
   %arrayidx17 = getelementptr [1 x %struct.tracemalloc_frame], ptr %frames15, i64 0, i64 %indvars.iv
-  %lineno = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %lineno = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load i32, ptr %lineno, align 1
-  %lineno18 = getelementptr inbounds i8, ptr %arrayidx17, i64 8
+  %lineno18 = getelementptr inbounds nuw i8, ptr %arrayidx17, i64 8
   %5 = load i32, ptr %lineno18, align 1
   %cmp19.not = icmp eq i32 %4, %5
   br i1 %cmp19.not, label %if.end22, label %return
@@ -1169,13 +1169,13 @@ if.then14:                                        ; preds = %if.end9
   br label %return
 
 if.end16:                                         ; preds = %if.end9
-  %malloc = getelementptr inbounds i8, ptr %alloc, i64 8
+  %malloc = getelementptr inbounds nuw i8, ptr %alloc, i64 8
   store ptr @tracemalloc_raw_malloc, ptr %malloc, align 8
-  %calloc = getelementptr inbounds i8, ptr %alloc, i64 16
+  %calloc = getelementptr inbounds nuw i8, ptr %alloc, i64 16
   store ptr @tracemalloc_raw_calloc, ptr %calloc, align 8
-  %realloc = getelementptr inbounds i8, ptr %alloc, i64 24
+  %realloc = getelementptr inbounds nuw i8, ptr %alloc, i64 24
   store ptr @tracemalloc_raw_realloc, ptr %realloc, align 8
-  %free = getelementptr inbounds i8, ptr %alloc, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %alloc, i64 32
   store ptr @tracemalloc_free, ptr %free, align 8
   store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360), ptr %alloc, align 8
   tail call void @PyMem_GetAllocator(i32 noundef 0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 3360)) #13
@@ -1222,7 +1222,7 @@ entry:
   br i1 %cmp.not.i.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
+  %realloc = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call2 = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #13
@@ -1278,7 +1278,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %free = getelementptr inbounds i8, ptr %ctx, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %0 = load ptr, ptr %free, align 8
   %1 = load ptr, ptr %ctx, align 8
   tail call void %0(ptr noundef %1, ptr noundef nonnull %ptr) #13
@@ -1336,7 +1336,7 @@ entry:
   br i1 %cmp.not.i.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %entry
-  %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
+  %realloc = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call2 = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #13
@@ -1450,20 +1450,20 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool6.not.i, label %return, label %tracemalloc_get_traceback.exit
 
 tracemalloc_get_traceback.exit:                   ; preds = %if.end5.i
-  %traceback.i = getelementptr inbounds i8, ptr %call4.i, i64 8
+  %traceback.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 8
   %5 = load ptr, ptr %traceback.i, align 8
   %cmp = icmp eq ptr %5, null
   br i1 %cmp, label %return, label %if.end3
 
 if.end3:                                          ; preds = %tracemalloc_get_traceback.exit
   %call4 = tail call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef nonnull @.str.4, i64 noundef 52) #13
-  %nframe = getelementptr inbounds i8, ptr %5, i64 8
+  %nframe = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load i16, ptr %nframe, align 8
   %cmp512.not = icmp eq i16 %6, 0
   br i1 %cmp512.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end3
-  %frames = getelementptr inbounds i8, ptr %5, i64 12
+  %frames = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1473,7 +1473,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %7 = load ptr, ptr %arrayidx, align 1
   tail call void @_Py_DumpASCII(i32 noundef %fd, ptr noundef %7) #13
   %call1.i = tail call i64 @_Py_write_noraise(i32 noundef %fd, ptr noundef nonnull @.str.10, i64 noundef 8) #13
-  %lineno.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %lineno.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %8 = load i32, ptr %lineno.i, align 1
   %conv.i = zext i32 %8 to i64
   tail call void @_Py_DumpDecimal(i32 noundef %fd, i64 noundef %conv.i) #13
@@ -1581,7 +1581,7 @@ if.then17:                                        ; preds = %if.end13
   %sub = sub i64 %7, %6
   store i64 %sub, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3448), align 8
   store i64 %size, ptr %call14, align 8
-  %traceback20 = getelementptr inbounds i8, ptr %call14, i64 8
+  %traceback20 = getelementptr inbounds nuw i8, ptr %call14, i64 8
   store ptr %call, ptr %traceback20, align 8
   br label %if.end33
 
@@ -1594,7 +1594,7 @@ if.else:                                          ; preds = %if.end13
 
 if.end25:                                         ; preds = %if.else
   store i64 %size, ptr %call.i21, align 8
-  %traceback27 = getelementptr inbounds i8, ptr %call.i21, i64 8
+  %traceback27 = getelementptr inbounds nuw i8, ptr %call.i21, i64 8
   store ptr %call, ptr %traceback27, align 8
   %call28 = call i32 @_Py_hashtable_set(ptr noundef nonnull %traces.0, ptr noundef %5, ptr noundef nonnull %call.i21) #13
   %cmp29.not = icmp eq i32 %call28, 0
@@ -1750,7 +1750,7 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.then4
-  %traceback8 = getelementptr inbounds i8, ptr %call3, i64 8
+  %traceback8 = getelementptr inbounds nuw i8, ptr %call3, i64 8
   store ptr %call5, ptr %traceback8, align 8
   br label %if.end10
 
@@ -1771,9 +1771,9 @@ declare ptr @_Py_hashtable_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc ptr @traceback_new() unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3472), align 8
-  %nframe = getelementptr inbounds i8, ptr %0, i64 8
+  %nframe = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 0, ptr %nframe, align 8
-  %total_nframe = getelementptr inbounds i8, ptr %0, i64 10
+  %total_nframe = getelementptr inbounds nuw i8, ptr %0, i64 10
   store i16 0, ptr %total_nframe, align 2
   %call.i = tail call ptr @PyGILState_GetThisThreadState() #13
   %cmp.i = icmp eq ptr %call.i, null
@@ -1787,7 +1787,7 @@ if.end.i:                                         ; preds = %entry
 
 land.rhs.i.i.i:                                   ; preds = %if.end.i, %while.body.i.i.i
   %frame.addr.08.i.i.i = phi ptr [ %5, %while.body.i.i.i ], [ %call.val.i, %if.end.i ]
-  %owner.i.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i.i, i64 70
+  %owner.i.i.i.i = getelementptr inbounds nuw i8, ptr %frame.addr.08.i.i.i, i64 70
   %2 = load i8, ptr %owner.i.i.i.i, align 2
   switch i8 %2, label %_PyFrame_IsIncomplete.exit.i.i.i [
     i8 3, label %while.body.i.i.i
@@ -1795,11 +1795,11 @@ land.rhs.i.i.i:                                   ; preds = %if.end.i, %while.bo
   ]
 
 _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %land.rhs.i.i.i
-  %instr_ptr.i.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i.i, i64 56
+  %instr_ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %frame.addr.08.i.i.i, i64 56
   %3 = load ptr, ptr %instr_ptr.i.i.i.i, align 8
   %frame.val.i.i.i.i = load ptr, ptr %frame.addr.08.i.i.i, align 8
-  %co_code_adaptive.i.i.i.i = getelementptr inbounds i8, ptr %frame.val.i.i.i.i, i64 200
-  %_co_firsttraceable.i.i.i.i = getelementptr inbounds i8, ptr %frame.val.i.i.i.i, i64 184
+  %co_code_adaptive.i.i.i.i = getelementptr inbounds nuw i8, ptr %frame.val.i.i.i.i, i64 200
+  %_co_firsttraceable.i.i.i.i = getelementptr inbounds nuw i8, ptr %frame.val.i.i.i.i, i64 184
   %4 = load i32, ptr %_co_firsttraceable.i.i.i.i, align 8
   %idx.ext.i.i.i.i = sext i32 %4 to i64
   %add.ptr.i.i.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i.i.i, i64 %idx.ext.i.i.i.i
@@ -1807,13 +1807,13 @@ _PyFrame_IsIncomplete.exit.i.i.i:                 ; preds = %land.rhs.i.i.i
   br i1 %cmp7.i.i.i.i, label %while.body.i.i.i, label %while.body.lr.ph.i
 
 while.body.i.i.i:                                 ; preds = %_PyFrame_IsIncomplete.exit.i.i.i, %land.rhs.i.i.i
-  %previous.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i.i, i64 8
+  %previous.i.i.i = getelementptr inbounds nuw i8, ptr %frame.addr.08.i.i.i, i64 8
   %5 = load ptr, ptr %previous.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i, label %traceback_get_frames.exit, label %land.rhs.i.i.i, !llvm.loop !8
 
 while.body.lr.ph.i:                               ; preds = %_PyFrame_IsIncomplete.exit.i.i.i, %land.rhs.i.i.i
-  %frames.i = getelementptr inbounds i8, ptr %0, i64 12
+  %frames.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.pre.i = load i16, ptr %nframe, align 8
   br label %while.body.i
 
@@ -1834,10 +1834,10 @@ if.then4.i:                                       ; preds = %while.body.i
   store ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 24808), ptr %arrayidx.i, align 1
   %call.i.i = tail call i32 @PyUnstable_InterpreterFrame_GetLine(ptr noundef nonnull %pyframe.011.i) #13
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %call.i.i, i32 0)
-  %lineno1.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %lineno1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i32 %spec.store.select.i.i, ptr %lineno1.i.i, align 1
   %8 = load ptr, ptr %pyframe.011.i, align 8
-  %co_filename.i.i = getelementptr inbounds i8, ptr %8, i64 112
+  %co_filename.i.i = getelementptr inbounds nuw i8, ptr %8, i64 112
   %9 = load ptr, ptr %co_filename.i.i, align 8
   %cmp3.i.i = icmp eq ptr %9, null
   br i1 %cmp3.i.i, label %tracemalloc_get_frame.exit.i, label %if.end5.i.i
@@ -1853,14 +1853,14 @@ if.end5.i.i:                                      ; preds = %if.then4.i
 
 if.end9.i.i:                                      ; preds = %if.end5.i.i
   %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3464), align 8
-  %get_entry_func.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
+  %get_entry_func.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load ptr, ptr %get_entry_func.i.i.i, align 8
   %call.i.i.i = tail call ptr %14(ptr noundef %13, ptr noundef nonnull %9) #13
   %cmp16.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp16.not.i.i, label %if.else.i.i, label %if.then17.i.i
 
 if.then17.i.i:                                    ; preds = %if.end9.i.i
-  %key.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
+  %key.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 16
   %15 = load ptr, ptr %key.i.i, align 8
   br label %if.end23.i.i
 
@@ -1919,14 +1919,14 @@ if.then11.i:                                      ; preds = %if.end7.i
   br label %if.end14.i
 
 if.end14.i:                                       ; preds = %if.then11.i, %if.end7.i
-  %previous.i = getelementptr inbounds i8, ptr %pyframe.011.i, i64 8
+  %previous.i = getelementptr inbounds nuw i8, ptr %pyframe.011.i, i64 8
   %23 = load ptr, ptr %previous.i, align 8
   %tobool.not7.i.i = icmp eq ptr %23, null
   br i1 %tobool.not7.i.i, label %traceback_get_frames.exit, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end14.i, %while.body.i.i
   %frame.addr.08.i.i = phi ptr [ %27, %while.body.i.i ], [ %23, %if.end14.i ]
-  %owner.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 70
+  %owner.i.i.i = getelementptr inbounds nuw i8, ptr %frame.addr.08.i.i, i64 70
   %24 = load i8, ptr %owner.i.i.i, align 2
   switch i8 %24, label %_PyFrame_IsIncomplete.exit.i.i [
     i8 3, label %while.body.i.i
@@ -1934,11 +1934,11 @@ land.rhs.i.i:                                     ; preds = %if.end14.i, %while.
   ], !llvm.loop !9
 
 _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i.i
-  %instr_ptr.i.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 56
+  %instr_ptr.i.i.i = getelementptr inbounds nuw i8, ptr %frame.addr.08.i.i, i64 56
   %25 = load ptr, ptr %instr_ptr.i.i.i, align 8
   %frame.val.i.i.i = load ptr, ptr %frame.addr.08.i.i, align 8
-  %co_code_adaptive.i.i.i = getelementptr inbounds i8, ptr %frame.val.i.i.i, i64 200
-  %_co_firsttraceable.i.i.i = getelementptr inbounds i8, ptr %frame.val.i.i.i, i64 184
+  %co_code_adaptive.i.i.i = getelementptr inbounds nuw i8, ptr %frame.val.i.i.i, i64 200
+  %_co_firsttraceable.i.i.i = getelementptr inbounds nuw i8, ptr %frame.val.i.i.i, i64 184
   %26 = load i32, ptr %_co_firsttraceable.i.i.i, align 8
   %idx.ext.i.i.i = sext i32 %26 to i64
   %add.ptr.i.i.i = getelementptr %union._Py_CODEUNIT, ptr %co_code_adaptive.i.i.i, i64 %idx.ext.i.i.i
@@ -1946,7 +1946,7 @@ _PyFrame_IsIncomplete.exit.i.i:                   ; preds = %land.rhs.i.i
   br i1 %cmp7.i.i.i, label %while.body.i.i, label %while.body.i.loopexit, !llvm.loop !9
 
 while.body.i.i:                                   ; preds = %_PyFrame_IsIncomplete.exit.i.i, %land.rhs.i.i
-  %previous.i.i = getelementptr inbounds i8, ptr %frame.addr.08.i.i, i64 8
+  %previous.i.i = getelementptr inbounds nuw i8, ptr %frame.addr.08.i.i, i64 8
   %27 = load ptr, ptr %previous.i.i, align 8
   %tobool.not.i9.i = icmp eq ptr %27, null
   br i1 %tobool.not.i9.i, label %traceback_get_frames.exit, label %land.rhs.i.i, !llvm.loop !8
@@ -1988,14 +1988,14 @@ traceback_hash.exit:                              ; preds = %while.body.i17
   %add10.i = add i64 %xor9.i, 97531
   store i64 %add10.i, ptr %0, align 8
   %33 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 3480), align 8
-  %get_entry_func.i = getelementptr inbounds i8, ptr %33, i64 24
+  %get_entry_func.i = getelementptr inbounds nuw i8, ptr %33, i64 24
   %34 = load ptr, ptr %get_entry_func.i, align 8
   %call.i21 = tail call ptr %34(ptr noundef %33, ptr noundef nonnull %0) #13
   %cmp5.not = icmp eq ptr %call.i21, null
   br i1 %cmp5.not, label %if.else, label %if.then7
 
 if.then7:                                         ; preds = %traceback_hash.exit
-  %key = getelementptr inbounds i8, ptr %call.i21, i64 16
+  %key = getelementptr inbounds nuw i8, ptr %call.i21, i64 16
   %35 = load ptr, ptr %key, align 8
   br label %return
 
@@ -2071,7 +2071,7 @@ if.end5.i:                                        ; preds = %tracemalloc_get_tra
   br i1 %tobool6.not.i, label %return, label %tracemalloc_get_traceback.exit
 
 tracemalloc_get_traceback.exit:                   ; preds = %if.end5.i
-  %traceback.i = getelementptr inbounds i8, ptr %call4.i, i64 8
+  %traceback.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 8
   %8 = load ptr, ptr %traceback.i, align 8
   %cmp = icmp eq ptr %8, null
   br i1 %cmp, label %return, label %if.end
@@ -2107,7 +2107,7 @@ if.end.i.i:                                       ; preds = %if.then1
   br label %return
 
 if.end3:                                          ; preds = %if.then, %entry
-  %nframe = getelementptr inbounds i8, ptr %traceback, i64 8
+  %nframe = getelementptr inbounds nuw i8, ptr %traceback, i64 8
   %1 = load i16, ptr %nframe, align 8
   %conv = zext i16 %1 to i64
   %call4 = tail call ptr @PyTuple_New(i64 noundef %conv) #13
@@ -2120,8 +2120,8 @@ for.cond.preheader:                               ; preds = %if.end3
   br i1 %cmp1134.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %frames13 = getelementptr inbounds i8, ptr %traceback, i64 12
-  %ob_item.i = getelementptr inbounds i8, ptr %call4, i64 24
+  %frames13 = getelementptr inbounds nuw i8, ptr %traceback, i64 12
+  %ob_item.i = getelementptr inbounds nuw i8, ptr %call4, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end18
@@ -2143,9 +2143,9 @@ if.end.i.i.i:                                     ; preds = %if.end.i27
   br label %_Py_NewRef.exit.i
 
 _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %if.end.i27
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %3, ptr %ob_item.i.i, align 8
-  %lineno.i = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %lineno.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %5 = load i32, ptr %lineno.i, align 1
   %conv.i = zext i32 %5 to i64
   %call2.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv.i) #13
@@ -2281,13 +2281,13 @@ entry:
   %hashtable_alloc.i.i.i = alloca %struct._Py_hashtable_allocator_t, align 8
   %hashtable_alloc.i = alloca %struct._Py_hashtable_allocator_t, align 8
   %get_traces = alloca %struct.get_traces_t, align 8
-  %domain = getelementptr inbounds i8, ptr %get_traces, i64 32
+  %domain = getelementptr inbounds nuw i8, ptr %get_traces, i64 32
   store i32 0, ptr %domain, align 8
-  %domains = getelementptr inbounds i8, ptr %get_traces, i64 8
-  %tracebacks = getelementptr inbounds i8, ptr %get_traces, i64 16
+  %domains = getelementptr inbounds nuw i8, ptr %get_traces, i64 8
+  %tracebacks = getelementptr inbounds nuw i8, ptr %get_traces, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %get_traces, i8 0, i64 24, i1 false)
   %call = tail call ptr @PyList_New(i64 noundef 0) #13
-  %list = getelementptr inbounds i8, ptr %get_traces, i64 24
+  %list = getelementptr inbounds nuw i8, ptr %get_traces, i64 24
   store ptr %call, ptr %list, align 8
   %cmp = icmp eq ptr %call, null
   br i1 %cmp, label %if.end44, label %if.end
@@ -2474,9 +2474,9 @@ declare i32 @_Py_hashtable_foreach(ptr noundef, ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr nocapture readnone %traces, ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture noundef readonly %user_data) #0 {
 entry:
-  %domain = getelementptr inbounds i8, ptr %user_data, i64 32
+  %domain = getelementptr inbounds nuw i8, ptr %user_data, i64 32
   %0 = load i32, ptr %domain, align 8
-  %tracebacks = getelementptr inbounds i8, ptr %user_data, i64 16
+  %tracebacks = getelementptr inbounds nuw i8, ptr %user_data, i64 16
   %1 = load ptr, ptr %tracebacks, align 8
   %call.i = tail call ptr @PyTuple_New(i64 noundef 4) #13
   %cmp.i7 = icmp eq ptr %call.i, null
@@ -2505,7 +2505,7 @@ if.then1.i47.i:                                   ; preds = %if.end.i44.i
   br label %return
 
 if.end5.i:                                        ; preds = %if.end.i8
-  %ob_item.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %ob_item.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %call1.i, ptr %ob_item.i.i, align 8
   %4 = load i64, ptr %value, align 8
   %call6.i = tail call ptr @PyLong_FromSize_t(i64 noundef %4) #13
@@ -2531,7 +2531,7 @@ if.then1.i38.i:                                   ; preds = %if.end.i35.i
 if.end10.i:                                       ; preds = %if.end5.i
   %arrayidx.i.i = getelementptr i8, ptr %call.i, i64 32
   store ptr %call6.i, ptr %arrayidx.i.i, align 8
-  %traceback.i = getelementptr inbounds i8, ptr %value, i64 8
+  %traceback.i = getelementptr inbounds nuw i8, ptr %value, i64 8
   %7 = load ptr, ptr %traceback.i, align 8
   %call11.i = tail call fastcc ptr @traceback_to_pyobject(ptr noundef %7, ptr noundef %1)
   %cmp12.i = icmp eq ptr %call11.i, null
@@ -2557,7 +2557,7 @@ if.end15.i:                                       ; preds = %if.end10.i
   %arrayidx.i29.i = getelementptr i8, ptr %call.i, i64 40
   store ptr %call11.i, ptr %arrayidx.i29.i, align 8
   %10 = load ptr, ptr %traceback.i, align 8
-  %total_nframe.i = getelementptr inbounds i8, ptr %10, i64 10
+  %total_nframe.i = getelementptr inbounds nuw i8, ptr %10, i64 10
   %11 = load i16, ptr %total_nframe.i, align 2
   %conv17.i = zext i16 %11 to i64
   %call18.i = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %conv17.i) #13
@@ -2583,7 +2583,7 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
 if.end:                                           ; preds = %if.end15.i
   %arrayidx.i31.i = getelementptr i8, ptr %call.i, i64 48
   store ptr %call18.i, ptr %arrayidx.i31.i, align 8
-  %list = getelementptr inbounds i8, ptr %user_data, i64 24
+  %list = getelementptr inbounds nuw i8, ptr %user_data, i64 24
   %14 = load ptr, ptr %list, align 8
   %call1 = tail call i32 @PyList_Append(ptr noundef %14, ptr noundef nonnull %call.i) #13
   %15 = load i64, ptr %call.i, align 8
@@ -2615,7 +2615,7 @@ define internal i32 @tracemalloc_get_traces_domain(ptr nocapture readnone %domai
 entry:
   %0 = ptrtoint ptr %key to i64
   %conv = trunc i64 %0 to i32
-  %domain1 = getelementptr inbounds i8, ptr %user_data, i64 32
+  %domain1 = getelementptr inbounds nuw i8, ptr %user_data, i64 32
   store i32 %conv, ptr %domain1, align 8
   %call = tail call i32 @_Py_hashtable_foreach(ptr noundef %value, ptr noundef nonnull @tracemalloc_get_traces_fill, ptr noundef %user_data) #13
   ret i32 %call
@@ -2662,7 +2662,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %tobool6.not.i, label %return, label %tracemalloc_get_traceback.exit
 
 tracemalloc_get_traceback.exit:                   ; preds = %if.end5.i
-  %traceback.i = getelementptr inbounds i8, ptr %call4.i, i64 8
+  %traceback.i = getelementptr inbounds nuw i8, ptr %call4.i, i64 8
   %9 = load ptr, ptr %traceback.i, align 8
   %cmp = icmp eq ptr %9, null
   br i1 %cmp, label %return, label %if.end
@@ -2802,13 +2802,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %calloc = getelementptr inbounds i8, ptr %ctx, i64 16
+  %calloc = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %calloc, align 8
   %call4 = tail call ptr %1(ptr noundef %0, i64 noundef %nelem, i64 noundef %elsize) #13
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %malloc = getelementptr inbounds i8, ptr %ctx, i64 8
+  %malloc = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %malloc, align 8
   %mul = mul i64 %elsize, %nelem
   %call6 = tail call ptr %2(ptr noundef %0, i64 noundef %mul) #13
@@ -2822,13 +2822,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %calloc.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %calloc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %calloc.i, align 8
   %call.i10 = tail call ptr %4(ptr noundef %3, i64 noundef %nelem, i64 noundef %elsize) #13
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
-  %malloc.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %malloc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %malloc.i, align 8
   %mul.i = mul i64 %elsize, %nelem
   %call3.i = tail call ptr %5(ptr noundef %3, i64 noundef %mul.i) #13
@@ -2851,7 +2851,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp9.i, label %if.then10.i, label %tracemalloc_alloc.exit
 
 if.then10.i:                                      ; preds = %if.end5.i
-  %free.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %free.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %9 = load ptr, ptr %free.i, align 8
   %10 = load ptr, ptr %ctx, align 8
   tail call void %9(ptr noundef %10, ptr noundef nonnull %ptr.0.i) #13
@@ -2873,7 +2873,7 @@ declare ptr @PyThread_tss_get(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @tracemalloc_realloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) unnamed_addr #0 {
 entry:
-  %realloc = getelementptr inbounds i8, ptr %ctx, i64 24
+  %realloc = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
   %1 = load ptr, ptr %ctx, align 8
   %call = tail call ptr %0(ptr noundef %1, ptr noundef %ptr, i64 noundef %new_size) #13
@@ -2934,7 +2934,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp14, label %if.then15, label %return
 
 if.then15:                                        ; preds = %if.else
-  %free = getelementptr inbounds i8, ptr %ctx, i64 32
+  %free = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %12 = load ptr, ptr %free, align 8
   %13 = load ptr, ptr %ctx, align 8
   tail call void %12(ptr noundef %13, ptr noundef nonnull %call) #13
@@ -2961,13 +2961,13 @@ if.then:                                          ; preds = %entry
   br i1 %tobool1.not, label %if.else, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %calloc = getelementptr inbounds i8, ptr %ctx, i64 16
+  %calloc = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %1 = load ptr, ptr %calloc, align 8
   %call4 = tail call ptr %1(ptr noundef %0, i64 noundef %nelem, i64 noundef %elsize) #13
   br label %return
 
 if.else:                                          ; preds = %if.then
-  %malloc = getelementptr inbounds i8, ptr %ctx, i64 8
+  %malloc = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %2 = load ptr, ptr %malloc, align 8
   %mul = mul i64 %elsize, %nelem
   %call6 = tail call ptr %2(ptr noundef %0, i64 noundef %mul) #13
@@ -2980,13 +2980,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %calloc.i = getelementptr inbounds i8, ptr %ctx, i64 16
+  %calloc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %4 = load ptr, ptr %calloc.i, align 8
   %call.i10 = tail call ptr %4(ptr noundef %3, i64 noundef %nelem, i64 noundef %elsize) #13
   br label %if.end.i
 
 if.else.i:                                        ; preds = %if.end
-  %malloc.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %malloc.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %5 = load ptr, ptr %malloc.i, align 8
   %mul.i = mul i64 %elsize, %nelem
   %call3.i = tail call ptr %5(ptr noundef %3, i64 noundef %mul.i) #13
@@ -3009,7 +3009,7 @@ if.end5.i:                                        ; preds = %if.end.i
   br i1 %cmp9.i, label %if.then10.i, label %tracemalloc_alloc.exit
 
 if.then10.i:                                      ; preds = %if.end5.i
-  %free.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %free.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   %9 = load ptr, ptr %free.i, align 8
   %10 = load ptr, ptr %ctx, align 8
   tail call void %9(ptr noundef %10, ptr noundef nonnull %ptr.0.i) #13

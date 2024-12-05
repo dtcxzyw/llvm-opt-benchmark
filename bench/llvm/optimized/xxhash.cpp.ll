@@ -30,28 +30,28 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
   %9 = add i64 %8, %.057
   %10 = tail call noundef i64 @llvm.fshl.i64(i64 %9, i64 %9, i64 31)
   %11 = mul i64 %10, -7046029288634856825
-  %12 = getelementptr inbounds i8, ptr %.0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
   %.0.copyload.i.i.i.i.i.i66 = load i64, ptr %12, align 1
   %13 = mul i64 %.0.copyload.i.i.i.i.i.i66, -4417276706812531889
   %14 = add i64 %13, %.056
   %15 = tail call noundef i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 31)
   %16 = mul i64 %15, -7046029288634856825
-  %17 = getelementptr inbounds i8, ptr %.0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr %17, i64 1) ]
   %.0.copyload.i.i.i.i.i.i67 = load i64, ptr %17, align 1
   %18 = mul i64 %.0.copyload.i.i.i.i.i.i67, -4417276706812531889
   %19 = add i64 %18, %.055
   %20 = tail call noundef i64 @llvm.fshl.i64(i64 %19, i64 %19, i64 31)
   %21 = mul i64 %20, -7046029288634856825
-  %22 = getelementptr inbounds i8, ptr %.0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   call void @llvm.assume(i1 true) [ "align"(ptr %22, i64 1) ]
   %.0.copyload.i.i.i.i.i.i68 = load i64, ptr %22, align 1
   %23 = mul i64 %.0.copyload.i.i.i.i.i.i68, -4417276706812531889
   %24 = add i64 %23, %.054
   %25 = tail call noundef i64 @llvm.fshl.i64(i64 %24, i64 %24, i64 31)
   %26 = mul i64 %25, -7046029288634856825
-  %27 = getelementptr inbounds i8, ptr %.0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %.not = icmp ugt ptr %27, %6
   br i1 %.not, label %28, label %7, !llvm.loop !4
 
@@ -111,7 +111,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
   %69 = tail call noundef i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 27)
   %70 = mul i64 %69, -7046029288634856825
   %71 = add i64 %70, -8796714831421723037
-  %72 = getelementptr inbounds i8, ptr %.285, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %.285, i64 8
   %73 = ptrtoint ptr %72 to i64
   %74 = add i64 %73, 8
   %.not64 = icmp ugt i64 %74, %62
@@ -134,7 +134,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
   %80 = tail call noundef i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 23)
   %81 = mul i64 %80, -4417276706812531889
   %82 = add i64 %81, 1609587929392839161
-  %83 = getelementptr inbounds i8, ptr %.2.lcssa, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 4
   br label %84
 
 84:                                               ; preds = %76, %._crit_edge
@@ -152,7 +152,7 @@ define dso_local noundef i64 @_ZN4llvm8xxHash64ENS_9StringRefE(ptr %0, i64 %1) l
   %89 = xor i64 %88, %.36189
   %90 = tail call noundef i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 11)
   %91 = mul i64 %90, -7046029288634856825
-  %92 = getelementptr inbounds i8, ptr %.490, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.490, i64 1
   %93 = icmp ult ptr %92, %3
   br i1 %93, label %.lr.ph92, label %._crit_edge93, !llvm.loop !7
 
@@ -193,7 +193,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %0, align 1
   %8 = xor i64 %.0.copyload.i.i.i.i.i.i.i, 7458650908927343033
-  %9 = getelementptr inbounds i8, ptr %0, i64 %1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   call void @llvm.assume(i1 true) [ "align"(ptr %10, i64 1) ]
   %.0.copyload.i.i.i.i.i.i16.i = load i64, ptr %10, align 1
@@ -222,7 +222,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
 29:                                               ; preds = %27
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i75 = load i32, ptr %0, align 1
-  %30 = getelementptr inbounds i8, ptr %0, i64 %1
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %31 = getelementptr inbounds i8, ptr %30, i64 -4
   call void @llvm.assume(i1 true) [ "align"(ptr %31, i64 1) ]
   %.0.copyload.i.i.i.i.i.i21.i = load i32, ptr %31, align 1
@@ -253,7 +253,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
 49:                                               ; preds = %48
   %50 = load i8, ptr %0, align 1
   %51 = lshr i64 %1, 1
-  %52 = getelementptr inbounds i8, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 %51
   %53 = load i8, ptr %52, align 1
   %54 = getelementptr i8, ptr %0, i64 %1
   %55 = getelementptr i8, ptr %54, i64 -1
@@ -290,11 +290,11 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
 76:                                               ; preds = %74
   %77 = mul i64 %1, -7046029288634856825
   call void @llvm.assume(i1 true) [ "align"(ptr @_ZL7kSecret, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 8), i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 8), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i = load i64, ptr %0, align 1
   %78 = xor i64 %.0.copyload.i.i.i.i.i.i12.i, -4734510112055689544
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %79, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i = load i64, ptr %79, align 1
   %80 = xor i64 %.0.copyload.i.i.i.i.i.i13.i, 2066345149520216444
@@ -305,7 +305,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %85 = xor i128 %84, %83
   %86 = trunc i128 %85 to i64
   %87 = add i64 %77, %86
-  %88 = getelementptr inbounds i8, ptr %0, i64 %1
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %89 = getelementptr inbounds i8, ptr %88, i64 -16
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 16), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 24), i64 1) ]
@@ -326,13 +326,13 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   br i1 %99, label %100, label %171
 
 100:                                              ; preds = %76
-  %101 = getelementptr inbounds i8, ptr %0, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 32), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 40), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %101, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i78 = load i64, ptr %101, align 1
   %102 = xor i64 %.0.copyload.i.i.i.i.i.i12.i78, 8711581037947681227
-  %103 = getelementptr inbounds i8, ptr %0, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.assume(i1 true) [ "align"(ptr %103, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i79 = load i64, ptr %103, align 1
   %104 = xor i64 %.0.copyload.i.i.i.i.i.i13.i79, 2410270004345854594
@@ -364,13 +364,13 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   br i1 %123, label %124, label %171
 
 124:                                              ; preds = %100
-  %125 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 64), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 72), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %125, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i82 = load i64, ptr %125, align 1
   %126 = xor i64 %.0.copyload.i.i.i.i.i.i12.i82, -3818837453329782724
-  %127 = getelementptr inbounds i8, ptr %0, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.assume(i1 true) [ "align"(ptr %127, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i83 = load i64, ptr %127, align 1
   %128 = xor i64 %.0.copyload.i.i.i.i.i.i13.i83, -6688317018830679928
@@ -402,13 +402,13 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   br i1 %147, label %148, label %171
 
 148:                                              ; preds = %124
-  %149 = getelementptr inbounds i8, ptr %0, i64 48
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 96), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 104), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %149, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i86 = load i64, ptr %149, align 1
   %150 = xor i64 %.0.copyload.i.i.i.i.i.i12.i86, 4554437623014685352
-  %151 = getelementptr inbounds i8, ptr %0, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.assume(i1 true) [ "align"(ptr %151, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i87 = load i64, ptr %151, align 1
   %152 = xor i64 %.0.copyload.i.i.i.i.i.i13.i87, 2111919702937427193
@@ -461,17 +461,17 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %indvars.iv.i = phi i64 [ 0, %180 ], [ %indvars.iv.next.i, %182 ]
   %.0261.i = phi i64 [ %181, %180 ], [ %196, %182 ]
   %183 = shl nuw nsw i64 %indvars.iv.i, 4
-  %184 = getelementptr inbounds i8, ptr %0, i64 %183
-  %185 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %183
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 %183
+  %185 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %183
   call void @llvm.assume(i1 true) [ "align"(ptr %185, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %185, align 16
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %186, i64 1) ]
   %.0.copyload.i.i.i.i.i.i11.i.i = load i64, ptr %186, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %184, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i.i = load i64, ptr %184, align 1
   %187 = xor i64 %.0.copyload.i.i.i.i.i.i12.i.i, %.0.copyload.i.i.i.i.i.i.i.i
-  %188 = getelementptr inbounds i8, ptr %184, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %188, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i.i = load i64, ptr %188, align 1
   %189 = xor i64 %.0.copyload.i.i.i.i.i.i13.i.i, %.0.copyload.i.i.i.i.i.i11.i.i
@@ -500,7 +500,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   %indvars.iv7.i = phi i64 [ %indvars.iv.next8.i, %.lr.ph.i ], [ 8, %197 ]
   %.13.i = phi i64 [ %218, %.lr.ph.i ], [ %203, %197 ]
   %204 = shl nuw nsw i64 %indvars.iv7.i, 4
-  %205 = getelementptr inbounds i8, ptr %0, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 %204
   %206 = getelementptr i8, ptr @_ZL7kSecret, i64 %204
   %207 = getelementptr i8, ptr %206, i64 -125
   call void @llvm.assume(i1 true) [ "align"(ptr %207, i64 1) ]
@@ -511,7 +511,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
   call void @llvm.assume(i1 true) [ "align"(ptr %205, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i29.i = load i64, ptr %205, align 1
   %209 = xor i64 %.0.copyload.i.i.i.i.i.i12.i29.i, %.0.copyload.i.i.i.i.i.i.i27.i
-  %210 = getelementptr inbounds i8, ptr %205, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %205, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %210, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i30.i = load i64, ptr %210, align 1
   %211 = xor i64 %.0.copyload.i.i.i.i.i.i13.i30.i, %.0.copyload.i.i.i.i.i.i11.i28.i
@@ -528,7 +528,7 @@ define dso_local noundef i64 @_ZN4llvm11xxh3_64bitsENS_8ArrayRefIhEE(ptr %0, i64
 
 _ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
   %.1.lcssa.i = phi i64 [ %203, %197 ], [ %218, %.lr.ph.i ]
-  %219 = getelementptr inbounds i8, ptr %0, i64 %1
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %220 = getelementptr inbounds i8, ptr %219, i64 -16
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 119), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 127), i64 1) ]
@@ -570,30 +570,30 @@ _ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
 241:                                              ; preds = %262, %.lr.ph.i91
   %.01012.i = phi i64 [ 0, %.lr.ph.i91 ], [ %263, %262 ]
   %242 = shl nuw nsw i64 %.01012.i, 6
-  %243 = getelementptr inbounds i8, ptr %240, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr %240, i64 %242
   %244 = shl nuw nsw i64 %.01012.i, 3
-  %245 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %244
   br label %246
 
 246:                                              ; preds = %246, %241
   %.0981.i = phi i64 [ 0, %241 ], [ %261, %246 ]
   %247 = shl nuw nsw i64 %.0981.i, 3
-  %248 = getelementptr inbounds i8, ptr %243, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr %243, i64 %247
   call void @llvm.assume(i1 true) [ "align"(ptr %248, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i92 = load i64, ptr %248, align 1
-  %249 = getelementptr inbounds i8, ptr %245, i64 %247
+  %249 = getelementptr inbounds nuw i8, ptr %245, i64 %247
   call void @llvm.assume(i1 true) [ "align"(ptr %249, i64 1) ]
   %.0.copyload.i.i.i.i.i.i104.i = load i64, ptr %249, align 8
   %250 = xor i64 %.0.copyload.i.i.i.i.i.i104.i, %.0.copyload.i.i.i.i.i.i.i92
   %251 = xor i64 %.0981.i, 1
-  %252 = getelementptr inbounds i64, ptr %3, i64 %251
+  %252 = getelementptr inbounds nuw i64, ptr %3, i64 %251
   %253 = load i64, ptr %252, align 8
   %254 = add i64 %253, %.0.copyload.i.i.i.i.i.i.i92
   store i64 %254, ptr %252, align 8
   %255 = and i64 %250, 4294967295
   %256 = lshr i64 %250, 32
   %257 = mul nuw i64 %255, %256
-  %258 = getelementptr inbounds i64, ptr %3, i64 %.0981.i
+  %258 = getelementptr inbounds nuw i64, ptr %3, i64 %.0981.i
   %259 = load i64, ptr %258, align 8
   %260 = add i64 %259, %257
   store i64 %260, ptr %258, align 8
@@ -608,11 +608,11 @@ _ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
 
 .preheader.i:                                     ; preds = %262, %.preheader.i
   %.01003.i = phi i64 [ %272, %.preheader.i ], [ 0, %262 ]
-  %264 = getelementptr inbounds i64, ptr %3, i64 %.01003.i
+  %264 = getelementptr inbounds nuw i64, ptr %3, i64 %.01003.i
   %265 = load i64, ptr %264, align 8
   %266 = lshr i64 %265, 47
   %267 = shl nuw nsw i64 %.01003.i, 3
-  %268 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 128), i64 %267
+  %268 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 128), i64 %267
   call void @llvm.assume(i1 true) [ "align"(ptr %268, i64 1) ]
   %.0.copyload.i.i.i.i.i.i105.i = load i64, ptr %268, align 8
   %269 = xor i64 %266, %.0.copyload.i.i.i.i.i.i105.i
@@ -641,28 +641,28 @@ _ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
   %279 = shl nuw i64 %.01026.i, 6
   %280 = getelementptr inbounds i8, ptr %278, i64 %279
   %281 = shl nuw nsw i64 %.01026.i, 3
-  %282 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %281
+  %282 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %281
   br label %283
 
 283:                                              ; preds = %283, %.lr.ph8.i
   %.0975.i = phi i64 [ 0, %.lr.ph8.i ], [ %298, %283 ]
   %284 = shl nuw nsw i64 %.0975.i, 3
-  %285 = getelementptr inbounds i8, ptr %280, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr %280, i64 %284
   call void @llvm.assume(i1 true) [ "align"(ptr %285, i64 1) ]
   %.0.copyload.i.i.i.i.i.i106.i = load i64, ptr %285, align 1
-  %286 = getelementptr inbounds i8, ptr %282, i64 %284
+  %286 = getelementptr inbounds nuw i8, ptr %282, i64 %284
   call void @llvm.assume(i1 true) [ "align"(ptr %286, i64 1) ]
   %.0.copyload.i.i.i.i.i.i107.i = load i64, ptr %286, align 8
   %287 = xor i64 %.0.copyload.i.i.i.i.i.i107.i, %.0.copyload.i.i.i.i.i.i106.i
   %288 = xor i64 %.0975.i, 1
-  %289 = getelementptr inbounds i64, ptr %3, i64 %288
+  %289 = getelementptr inbounds nuw i64, ptr %3, i64 %288
   %290 = load i64, ptr %289, align 8
   %291 = add i64 %290, %.0.copyload.i.i.i.i.i.i106.i
   store i64 %291, ptr %289, align 8
   %292 = and i64 %287, 4294967295
   %293 = lshr i64 %287, 32
   %294 = mul nuw i64 %292, %293
-  %295 = getelementptr inbounds i64, ptr %3, i64 %.0975.i
+  %295 = getelementptr inbounds nuw i64, ptr %3, i64 %.0975.i
   %296 = load i64, ptr %295, align 8
   %297 = add i64 %296, %294
   store i64 %297, ptr %295, align 8
@@ -683,22 +683,22 @@ _ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
 303:                                              ; preds = %303, %._crit_edge9.i
   %.010.i = phi i64 [ 0, %._crit_edge9.i ], [ %318, %303 ]
   %304 = shl nuw nsw i64 %.010.i, 3
-  %305 = getelementptr inbounds i8, ptr %302, i64 %304
+  %305 = getelementptr inbounds nuw i8, ptr %302, i64 %304
   call void @llvm.assume(i1 true) [ "align"(ptr %305, i64 1) ]
   %.0.copyload.i.i.i.i.i.i108.i = load i64, ptr %305, align 1
-  %306 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 121), i64 %304
+  %306 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 121), i64 %304
   call void @llvm.assume(i1 true) [ "align"(ptr %306, i64 1) ]
   %.0.copyload.i.i.i.i.i.i109.i = load i64, ptr %306, align 1
   %307 = xor i64 %.0.copyload.i.i.i.i.i.i109.i, %.0.copyload.i.i.i.i.i.i108.i
   %308 = xor i64 %.010.i, 1
-  %309 = getelementptr inbounds i64, ptr %3, i64 %308
+  %309 = getelementptr inbounds nuw i64, ptr %3, i64 %308
   %310 = load i64, ptr %309, align 8
   %311 = add i64 %310, %.0.copyload.i.i.i.i.i.i108.i
   store i64 %311, ptr %309, align 8
   %312 = and i64 %307, 4294967295
   %313 = lshr i64 %307, 32
   %314 = mul nuw i64 %312, %313
-  %315 = getelementptr inbounds i64, ptr %3, i64 %.010.i
+  %315 = getelementptr inbounds nuw i64, ptr %3, i64 %.010.i
   %316 = load i64, ptr %315, align 8
   %317 = add i64 %316, %314
   store i64 %317, ptr %315, align 8
@@ -714,15 +714,15 @@ _ZL21XXH3_len_129to240_64bPKhmS0_m.exit:          ; preds = %.lr.ph.i, %197
   %.011.i.i = phi i64 [ 0, %319 ], [ %335, %321 ]
   %.0810.i.i = phi i64 [ %320, %319 ], [ %334, %321 ]
   %.idx.i.i = shl nuw nsw i64 %.011.i.i, 4
-  %322 = getelementptr inbounds i8, ptr %3, i64 %.idx.i.i
-  %323 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 11), i64 %.idx.i.i
+  %322 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
+  %323 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 11), i64 %.idx.i.i
   %.val.i.i = load i64, ptr %322, align 16
   %324 = getelementptr i8, ptr %322, i64 8
   %.val9.i.i = load i64, ptr %324, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %323, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %323, align 1
   %325 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.val.i.i
-  %326 = getelementptr inbounds i8, ptr %323, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %323, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %326, i64 1) ]
   %.0.copyload.i.i.i.i.i.i4.i.i.i = load i64, ptr %326, align 1
   %327 = xor i64 %.0.copyload.i.i.i.i.i.i4.i.i.i, %.val9.i.i
@@ -768,7 +768,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 56), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   call void @llvm.assume(i1 true) [ "align"(ptr %9, i64 1) ]
   %.0.copyload.i.i.i.i.i.i366 = load i64, ptr %9, align 1
@@ -815,7 +815,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 46:                                               ; preds = %44
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i369 = load i32, ptr %0, align 1
-  %47 = getelementptr inbounds i8, ptr %0, i64 %1
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   call void @llvm.assume(i1 true) [ "align"(ptr %48, i64 1) ]
   %.0.copyload.i.i.i.i.i.i370 = load i32, ptr %48, align 1
@@ -857,7 +857,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 77:                                               ; preds = %76
   %78 = load i8, ptr %0, align 1
   %79 = lshr i64 %1, 1
-  %80 = getelementptr inbounds i8, ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = getelementptr i8, ptr %0, i64 %1
   %83 = getelementptr i8, ptr %82, i64 -1
@@ -921,15 +921,15 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   br i1 %122, label %123, label %150
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
-  %125 = getelementptr inbounds i8, ptr %0, i64 %1
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %126 = getelementptr inbounds i8, ptr %125, i64 -64
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 96), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 104), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i = load i64, ptr %124, align 1
   %127 = xor i64 %.0.copyload.i.i.i.i.i.i12.i, 4554437623014685352
-  %128 = getelementptr inbounds i8, ptr %0, i64 56
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.assume(i1 true) [ "align"(ptr %128, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i = load i64, ptr %128, align 1
   %129 = xor i64 %.0.copyload.i.i.i.i.i.i13.i, 2111919702937427193
@@ -968,15 +968,15 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 150:                                              ; preds = %123, %121
   %.sroa.052.2 = phi i64 [ %139, %123 ], [ %117, %121 ]
   %.sroa.11.2 = phi i64 [ %149, %123 ], [ 0, %121 ]
-  %151 = getelementptr inbounds i8, ptr %0, i64 32
-  %152 = getelementptr inbounds i8, ptr %0, i64 %1
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %153 = getelementptr inbounds i8, ptr %152, i64 -48
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 64), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 72), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %151, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i379 = load i64, ptr %151, align 1
   %154 = xor i64 %.0.copyload.i.i.i.i.i.i12.i379, -3818837453329782724
-  %155 = getelementptr inbounds i8, ptr %0, i64 40
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.assume(i1 true) [ "align"(ptr %155, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i380 = load i64, ptr %155, align 1
   %156 = xor i64 %.0.copyload.i.i.i.i.i.i13.i380, -6688317018830679928
@@ -1016,15 +1016,15 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 178:                                              ; preds = %150, %119
   %.sroa.052.1 = phi i64 [ %166, %150 ], [ %117, %119 ]
   %.sroa.11.1 = phi i64 [ %177, %150 ], [ 0, %119 ]
-  %179 = getelementptr inbounds i8, ptr %0, i64 16
-  %180 = getelementptr inbounds i8, ptr %0, i64 %1
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %181 = getelementptr inbounds i8, ptr %180, i64 -32
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 32), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 40), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %179, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i387 = load i64, ptr %179, align 1
   %182 = xor i64 %.0.copyload.i.i.i.i.i.i12.i387, 8711581037947681227
-  %183 = getelementptr inbounds i8, ptr %0, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.assume(i1 true) [ "align"(ptr %183, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i388 = load i64, ptr %183, align 1
   %184 = xor i64 %.0.copyload.i.i.i.i.i.i13.i388, 2410270004345854594
@@ -1064,14 +1064,14 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 206:                                              ; preds = %178, %116
   %.sroa.052.0 = phi i64 [ %194, %178 ], [ %117, %116 ]
   %.sroa.11.0 = phi i64 [ %205, %178 ], [ 0, %116 ]
-  %207 = getelementptr inbounds i8, ptr %0, i64 %1
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %208 = getelementptr inbounds i8, ptr %207, i64 -16
   call void @llvm.assume(i1 true) [ "align"(ptr @_ZL7kSecret, i64 1) ]
-  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 8), i64 1) ]
+  call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_ZL7kSecret, i64 8), i64 1) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %0, i64 1) ]
   %.0.copyload.i.i.i.i.i.i12.i395 = load i64, ptr %0, align 1
   %209 = xor i64 %.0.copyload.i.i.i.i.i.i12.i395, -4734510112055689544
-  %210 = getelementptr inbounds i8, ptr %0, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %210, i64 1) ]
   %.0.copyload.i.i.i.i.i.i13.i396 = load i64, ptr %210, align 1
   %211 = xor i64 %.0.copyload.i.i.i.i.i.i13.i396, 2066345149520216444
@@ -1137,10 +1137,10 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %indvars.iv.i = phi i64 [ 32, %252 ], [ %indvars.iv.next.i, %254 ]
   %.sroa.11.03.i = phi i64 [ 0, %252 ], [ %286, %254 ]
   %.sroa.020.02.i = phi i64 [ %253, %252 ], [ %273, %254 ]
-  %255 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %255 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %256 = getelementptr inbounds i8, ptr %255, i64 -32
   %257 = getelementptr inbounds i8, ptr %255, i64 -16
-  %258 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %indvars.iv.i
+  %258 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %indvars.iv.i
   %259 = getelementptr inbounds i8, ptr %258, i64 -32
   call void @llvm.assume(i1 true) [ "align"(ptr %259, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %259, align 16
@@ -1211,10 +1211,10 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
   %indvars.iv13.i = phi i64 [ %indvars.iv.next14.i, %.lr.ph.i ], [ 160, %288 ]
   %.sroa.11.17.i = phi i64 [ %330, %.lr.ph.i ], [ %298, %288 ]
   %.sroa.020.16.i = phi i64 [ %317, %.lr.ph.i ], [ %293, %288 ]
-  %299 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv13.i
+  %299 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv13.i
   %300 = getelementptr inbounds i8, ptr %299, i64 -32
   %301 = getelementptr inbounds i8, ptr %299, i64 -16
-  %302 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 3), i64 %indvars.iv13.i
+  %302 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 3), i64 %indvars.iv13.i
   %303 = getelementptr inbounds i8, ptr %302, i64 -160
   call void @llvm.assume(i1 true) [ "align"(ptr %303, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i113.i = load i64, ptr %303, align 1
@@ -1270,7 +1270,7 @@ define dso_local { i64, i64 } @_ZN4llvm12xxh3_128bitsENS_8ArrayRefIhEE(ptr %0, i
 _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %.sroa.020.1.lcssa.i = phi i64 [ %293, %288 ], [ %317, %.lr.ph.i ]
   %.sroa.11.1.lcssa.i = phi i64 [ %298, %288 ], [ %330, %.lr.ph.i ]
-  %331 = getelementptr inbounds i8, ptr %0, i64 %1
+  %331 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %332 = getelementptr inbounds i8, ptr %331, i64 -16
   %333 = getelementptr inbounds i8, ptr %331, i64 -32
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 103), i64 1) ]
@@ -1351,30 +1351,30 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
 380:                                              ; preds = %.lr.ph, %401
   %.0362429 = phi i64 [ 0, %.lr.ph ], [ %402, %401 ]
   %381 = shl nuw nsw i64 %.0362429, 6
-  %382 = getelementptr inbounds i8, ptr %379, i64 %381
+  %382 = getelementptr inbounds nuw i8, ptr %379, i64 %381
   %383 = shl nuw nsw i64 %.0362429, 3
-  %384 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %383
   br label %385
 
 385:                                              ; preds = %380, %385
   %.0358428 = phi i64 [ 0, %380 ], [ %400, %385 ]
   %386 = shl nuw nsw i64 %.0358428, 3
-  %387 = getelementptr inbounds i8, ptr %382, i64 %386
+  %387 = getelementptr inbounds nuw i8, ptr %382, i64 %386
   call void @llvm.assume(i1 true) [ "align"(ptr %387, i64 1) ]
   %.0.copyload.i.i.i.i.i.i405 = load i64, ptr %387, align 1
-  %388 = getelementptr inbounds i8, ptr %384, i64 %386
+  %388 = getelementptr inbounds nuw i8, ptr %384, i64 %386
   call void @llvm.assume(i1 true) [ "align"(ptr %388, i64 1) ]
   %.0.copyload.i.i.i.i.i.i406 = load i64, ptr %388, align 8
   %389 = xor i64 %.0.copyload.i.i.i.i.i.i406, %.0.copyload.i.i.i.i.i.i405
   %390 = xor i64 %.0358428, 1
-  %391 = getelementptr inbounds i64, ptr %3, i64 %390
+  %391 = getelementptr inbounds nuw i64, ptr %3, i64 %390
   %392 = load i64, ptr %391, align 8
   %393 = add i64 %392, %.0.copyload.i.i.i.i.i.i405
   store i64 %393, ptr %391, align 8
   %394 = and i64 %389, 4294967295
   %395 = lshr i64 %389, 32
   %396 = mul nuw i64 %394, %395
-  %397 = getelementptr inbounds i64, ptr %3, i64 %.0358428
+  %397 = getelementptr inbounds nuw i64, ptr %3, i64 %.0358428
   %398 = load i64, ptr %397, align 8
   %399 = add i64 %398, %396
   store i64 %399, ptr %397, align 8
@@ -1389,11 +1389,11 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
 
 .preheader:                                       ; preds = %401, %.preheader
   %.0360430 = phi i64 [ %411, %.preheader ], [ 0, %401 ]
-  %403 = getelementptr inbounds i64, ptr %3, i64 %.0360430
+  %403 = getelementptr inbounds nuw i64, ptr %3, i64 %.0360430
   %404 = load i64, ptr %403, align 8
   %405 = lshr i64 %404, 47
   %406 = shl nuw nsw i64 %.0360430, 3
-  %407 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 128), i64 %406
+  %407 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 128), i64 %406
   call void @llvm.assume(i1 true) [ "align"(ptr %407, i64 1) ]
   %.0.copyload.i.i.i.i.i.i407 = load i64, ptr %407, align 8
   %408 = xor i64 %405, %.0.copyload.i.i.i.i.i.i407
@@ -1422,28 +1422,28 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %418 = shl nuw i64 %.0361433, 6
   %419 = getelementptr inbounds i8, ptr %417, i64 %418
   %420 = shl nuw nsw i64 %.0361433, 3
-  %421 = getelementptr inbounds i8, ptr @_ZL7kSecret, i64 %420
+  %421 = getelementptr inbounds nuw i8, ptr @_ZL7kSecret, i64 %420
   br label %422
 
 422:                                              ; preds = %.lr.ph435, %422
   %.0359432 = phi i64 [ 0, %.lr.ph435 ], [ %437, %422 ]
   %423 = shl nuw nsw i64 %.0359432, 3
-  %424 = getelementptr inbounds i8, ptr %419, i64 %423
+  %424 = getelementptr inbounds nuw i8, ptr %419, i64 %423
   call void @llvm.assume(i1 true) [ "align"(ptr %424, i64 1) ]
   %.0.copyload.i.i.i.i.i.i408 = load i64, ptr %424, align 1
-  %425 = getelementptr inbounds i8, ptr %421, i64 %423
+  %425 = getelementptr inbounds nuw i8, ptr %421, i64 %423
   call void @llvm.assume(i1 true) [ "align"(ptr %425, i64 1) ]
   %.0.copyload.i.i.i.i.i.i409 = load i64, ptr %425, align 8
   %426 = xor i64 %.0.copyload.i.i.i.i.i.i409, %.0.copyload.i.i.i.i.i.i408
   %427 = xor i64 %.0359432, 1
-  %428 = getelementptr inbounds i64, ptr %3, i64 %427
+  %428 = getelementptr inbounds nuw i64, ptr %3, i64 %427
   %429 = load i64, ptr %428, align 8
   %430 = add i64 %429, %.0.copyload.i.i.i.i.i.i408
   store i64 %430, ptr %428, align 8
   %431 = and i64 %426, 4294967295
   %432 = lshr i64 %426, 32
   %433 = mul nuw i64 %431, %432
-  %434 = getelementptr inbounds i64, ptr %3, i64 %.0359432
+  %434 = getelementptr inbounds nuw i64, ptr %3, i64 %.0359432
   %435 = load i64, ptr %434, align 8
   %436 = add i64 %435, %433
   store i64 %436, ptr %434, align 8
@@ -1464,22 +1464,22 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
 442:                                              ; preds = %._crit_edge436, %442
   %.0437 = phi i64 [ 0, %._crit_edge436 ], [ %457, %442 ]
   %443 = shl nuw nsw i64 %.0437, 3
-  %444 = getelementptr inbounds i8, ptr %441, i64 %443
+  %444 = getelementptr inbounds nuw i8, ptr %441, i64 %443
   call void @llvm.assume(i1 true) [ "align"(ptr %444, i64 1) ]
   %.0.copyload.i.i.i.i.i.i410 = load i64, ptr %444, align 1
-  %445 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 121), i64 %443
+  %445 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 121), i64 %443
   call void @llvm.assume(i1 true) [ "align"(ptr %445, i64 1) ]
   %.0.copyload.i.i.i.i.i.i411 = load i64, ptr %445, align 1
   %446 = xor i64 %.0.copyload.i.i.i.i.i.i411, %.0.copyload.i.i.i.i.i.i410
   %447 = xor i64 %.0437, 1
-  %448 = getelementptr inbounds i64, ptr %3, i64 %447
+  %448 = getelementptr inbounds nuw i64, ptr %3, i64 %447
   %449 = load i64, ptr %448, align 8
   %450 = add i64 %449, %.0.copyload.i.i.i.i.i.i410
   store i64 %450, ptr %448, align 8
   %451 = and i64 %446, 4294967295
   %452 = lshr i64 %446, 32
   %453 = mul nuw i64 %451, %452
-  %454 = getelementptr inbounds i64, ptr %3, i64 %.0437
+  %454 = getelementptr inbounds nuw i64, ptr %3, i64 %.0437
   %455 = load i64, ptr %454, align 8
   %456 = add i64 %455, %453
   store i64 %456, ptr %454, align 8
@@ -1495,15 +1495,15 @@ _ZL22XXH3_len_129to240_128bPKhmS0_mm.exit:        ; preds = %.lr.ph.i, %288
   %.011.i = phi i64 [ 0, %458 ], [ %474, %460 ]
   %.0810.i = phi i64 [ %459, %458 ], [ %473, %460 ]
   %.idx.i = shl nuw nsw i64 %.011.i, 4
-  %461 = getelementptr inbounds i8, ptr %3, i64 %.idx.i
-  %462 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 11), i64 %.idx.i
+  %461 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i
+  %462 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 11), i64 %.idx.i
   %.val.i = load i64, ptr %461, align 16
   %463 = getelementptr i8, ptr %461, i64 8
   %.val9.i = load i64, ptr %463, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %462, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i412 = load i64, ptr %462, align 1
   %464 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i412, %.val.i
-  %465 = getelementptr inbounds i8, ptr %462, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %462, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %465, i64 1) ]
   %.0.copyload.i.i.i.i.i.i4.i.i = load i64, ptr %465, align 1
   %466 = xor i64 %.0.copyload.i.i.i.i.i.i4.i.i, %.val9.i
@@ -1531,15 +1531,15 @@ _ZL14XXH3_mergeAccsPKmPKhm.exit:                  ; preds = %460
   %.011.i413 = phi i64 [ 0, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %495, %481 ]
   %.0810.i414 = phi i64 [ %480, %_ZL14XXH3_mergeAccsPKmPKhm.exit ], [ %494, %481 ]
   %.idx.i415 = shl nuw nsw i64 %.011.i413, 4
-  %482 = getelementptr inbounds i8, ptr %3, i64 %.idx.i415
-  %483 = getelementptr inbounds i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 117), i64 %.idx.i415
+  %482 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i415
+  %483 = getelementptr inbounds nuw i8, ptr getelementptr inbounds (i8, ptr @_ZL7kSecret, i64 117), i64 %.idx.i415
   %.val.i416 = load i64, ptr %482, align 16
   %484 = getelementptr i8, ptr %482, i64 8
   %.val9.i417 = load i64, ptr %484, align 8
   call void @llvm.assume(i1 true) [ "align"(ptr %483, i64 1) ]
   %.0.copyload.i.i.i.i.i.i.i.i418 = load i64, ptr %483, align 1
   %485 = xor i64 %.0.copyload.i.i.i.i.i.i.i.i418, %.val.i416
-  %486 = getelementptr inbounds i8, ptr %483, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %483, i64 8
   call void @llvm.assume(i1 true) [ "align"(ptr %486, i64 1) ]
   %.0.copyload.i.i.i.i.i.i4.i.i419 = load i64, ptr %486, align 1
   %487 = xor i64 %.0.copyload.i.i.i.i.i.i4.i.i419, %.val9.i417

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17hc3d4f452b7a01a82E.llvm.7001225483423634667"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias nocapture nonnull readonly align 1 %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [56 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !4, !noalias !7, !noundef !9
   %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 %1)
   %9 = extractvalue { i64, i1 } %8, 1
@@ -17,7 +17,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 10:                                               ; preds = %4
   %11 = add nuw i64 %7, %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8, !alias.scope !4, !noalias !7, !noundef !9
   %14 = icmp ult i64 %13, 8
   %15 = add i64 %13, 1
@@ -103,17 +103,17 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h4004be209a52c5d9E.exit.thr
   %55 = lshr i64 %.sroa.4.0.i.ph8.i, 3
   %56 = mul nuw nsw i64 %55, 7
   %.sroa.02.0.i.i = select i1 %53, i64 %54, i64 %56
-  %57 = getelementptr inbounds i8, ptr %48, i64 %38
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 %38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %57, i8 -1, i64 %39, i1 false), !noalias !16
-  %.sroa.527.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.527.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 16, ptr %.sroa.527.0..sroa_idx.i.i, align 8, !noalias !14
-  %.sroa.628.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.628.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %57, ptr %.sroa.628.0..sroa_idx.i.i, align 8, !noalias !14
-  %.sroa.628.sroa.4.0..sroa.628.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.628.sroa.4.0..sroa.628.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %54, ptr %.sroa.628.sroa.4.0..sroa.628.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !14
-  %.sroa.628.sroa.5.0..sroa.628.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.628.sroa.5.0..sroa.628.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %.sroa.02.0.i.i, ptr %.sroa.628.sroa.5.0..sroa.628.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !14
-  %.sroa.628.sroa.6.0..sroa.628.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 48
+  %.sroa.628.sroa.6.0..sroa.628.0..sroa_idx.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 0, ptr %.sroa.628.sroa.6.0..sroa.628.0..sroa_idx.sroa_idx.i.i, align 8, !noalias !14
   %invariant.gep = getelementptr i8, ptr %57, i64 16
   %.not53 = icmp eq i64 %7, 0
@@ -139,7 +139,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h4004be209a52c5d9E.exit.thr
 .noexc2:                                          ; preds = %.preheader, %.noexc2
   %.sroa.011.250 = phi ptr [ %64, %.noexc2 ], [ %.sroa.011.057, %.preheader ]
   %.sroa.5.249 = phi i64 [ %68, %.noexc2 ], [ %.sroa.5.056, %.preheader ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.011.250, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.011.250, i64 16
   %65 = load <16 x i8>, ptr %64, align 16, !noalias !27
   %66 = icmp slt <16 x i8> %65, zeroinitializer
   %67 = bitcast <16 x i1> %66 to i16
@@ -181,8 +181,8 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h4004be209a52c5d9E.exit.thr
 
 83:                                               ; preds = %83, %.thread37
   %.sroa.0.05.i.i = phi i64 [ 0, %.thread37 ], [ %88, %83 ]
-  %84 = getelementptr inbounds i64, ptr %0, i64 %.sroa.0.05.i.i
-  %85 = getelementptr inbounds i64, ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
+  %84 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i
+  %85 = getelementptr inbounds nuw i64, ptr %.sroa.628.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i
   %86 = load i64, ptr %84, align 8
   %87 = load i64, ptr %85, align 8
   store i64 %87, ptr %84, align 8
@@ -419,8 +419,8 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit.i: ;
 
 .preheader.i:                                     ; preds = %179, %.preheader.i
   %.sroa.04.09.i.i = phi i64 [ %199, %.preheader.i ], [ 0, %179 ]
-  %195 = getelementptr inbounds i8, ptr %150, i64 %.sroa.04.09.i.i
-  %196 = getelementptr inbounds i8, ptr %182, i64 %.sroa.04.09.i.i
+  %195 = getelementptr inbounds nuw i8, ptr %150, i64 %.sroa.04.09.i.i
+  %196 = getelementptr inbounds nuw i8, ptr %182, i64 %.sroa.04.09.i.i
   %197 = load i8, ptr %195, align 1, !noalias !55
   %198 = load i8, ptr %196, align 1, !noalias !55
   store i8 %198, ptr %195, align 1, !noalias !55
@@ -443,7 +443,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit.i: ;
   br i1 %exitcond.not.i, label %_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit, label %143
 
 _ZN9hashbrown3raw13RawTableInner15rehash_in_place17h3136a4fc5ae63fadE.exit: ; preds = %203, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.i
-  %204 = getelementptr inbounds i8, ptr %0, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %205 = sub i64 %.sroa.03.0.i, %7
   store i64 %205, ptr %204, align 8, !alias.scope !55
   br label %_ZN9hashbrown3raw13RawTableInner12resize_inner17h16fa7660bd424218E.exit.i
@@ -462,7 +462,7 @@ _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17ha6a6fb1a32b73bceE.exit:
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17ha449572dc28a995cE"(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = icmp ugt i64 %1, %5
   br i1 %6, label %7, label %11

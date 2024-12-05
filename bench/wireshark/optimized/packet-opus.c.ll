@@ -175,7 +175,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca [48 x %struct.FRAME_T], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %5, i8 0, i64 192, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.41) #4
   %8 = load i32, ptr @proto_opus, align 4
@@ -206,7 +206,7 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i16 1, ptr %5, align 16
   %21 = trunc i32 %13 to i16
   %22 = add i16 %21, -1
-  %23 = getelementptr inbounds i8, ptr %5, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %22, ptr %23, align 2
   br label %.loopexit243
 
@@ -224,10 +224,10 @@ define internal i32 @dissect_opus(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i16 1, ptr %5, align 16
   %30 = lshr exact i32 %25, 1
   %31 = trunc i32 %30 to i16
-  %32 = getelementptr inbounds i8, ptr %5, i64 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 6
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 %31, ptr %33, align 2
-  %34 = getelementptr inbounds i8, ptr %5, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %31, ptr %34, align 2
   %35 = add i16 %31, 1
   store i16 %35, ptr %32, align 4
@@ -280,12 +280,12 @@ parse_size_field.exit.thread:                     ; preds = %.split194, %parse_s
   %58 = trunc nuw nsw i32 %phi.call to i16
   %59 = add nuw nsw i16 %58, 1
   store i16 %59, ptr %5, align 16
-  %60 = getelementptr inbounds i8, ptr %5, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i16 %.0226, ptr %60, align 2
   %61 = add nuw nsw i16 %59, %.0226
-  %62 = getelementptr inbounds i8, ptr %5, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 %61, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %5, i64 6
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 -1, ptr %63, align 2
   br label %.loopexit243
 
@@ -460,7 +460,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   %138 = trunc i32 %.3187255 to i16
   %139 = getelementptr [48 x %struct.FRAME_T], ptr %5, i64 0, i64 %indvars.iv267
   store i16 %138, ptr %139, align 4
-  %140 = getelementptr inbounds i8, ptr %139, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 2
   %141 = load i16, ptr %140, align 2
   %142 = sext i16 %141 to i32
   %143 = add i32 %.3187255, %142
@@ -501,7 +501,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
   %159 = trunc i32 %158 to i16
   %160 = getelementptr [48 x %struct.FRAME_T], ptr %5, i64 0, i64 %indvars.iv272
   store i16 %159, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %160, i64 2
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 2
   store i16 %152, ptr %161, align 2
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond277.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count276
@@ -517,7 +517,7 @@ parse_size_field.exit223:                         ; preds = %.thread, %117, %125
 162:                                              ; preds = %.loopexit243, %169
   %indvars.iv278 = phi i64 [ 0, %.loopexit243 ], [ %indvars.iv.next279, %169 ]
   %163 = getelementptr [48 x %struct.FRAME_T], ptr %5, i64 0, i64 %indvars.iv278
-  %164 = getelementptr inbounds i8, ptr %163, i64 2
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 2
   %165 = load i16, ptr %164, align 2
   %166 = icmp sgt i16 %165, 1275
   br i1 %166, label %167, label %169

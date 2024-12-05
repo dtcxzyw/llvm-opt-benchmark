@@ -70,44 +70,44 @@ define void @dcopy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %32 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %33, ptr %34, align 8
   %35 = or disjoint i64 %indvars.iv, 1
-  %36 = getelementptr inbounds double, ptr %1, i64 %35
+  %36 = getelementptr inbounds nuw double, ptr %1, i64 %35
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %3, i64 %35
+  %38 = getelementptr inbounds nuw double, ptr %3, i64 %35
   store double %37, ptr %38, align 8
   %39 = or disjoint i64 %indvars.iv, 2
-  %40 = getelementptr inbounds double, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw double, ptr %1, i64 %39
   %41 = load double, ptr %40, align 8
-  %42 = getelementptr inbounds double, ptr %3, i64 %39
+  %42 = getelementptr inbounds nuw double, ptr %3, i64 %39
   store double %41, ptr %42, align 8
   %43 = or disjoint i64 %indvars.iv, 3
-  %44 = getelementptr inbounds double, ptr %1, i64 %43
+  %44 = getelementptr inbounds nuw double, ptr %1, i64 %43
   %45 = load double, ptr %44, align 8
-  %46 = getelementptr inbounds double, ptr %3, i64 %43
+  %46 = getelementptr inbounds nuw double, ptr %3, i64 %43
   store double %45, ptr %46, align 8
   %47 = or disjoint i64 %indvars.iv, 4
-  %48 = getelementptr inbounds double, ptr %1, i64 %47
+  %48 = getelementptr inbounds nuw double, ptr %1, i64 %47
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds double, ptr %3, i64 %47
+  %50 = getelementptr inbounds nuw double, ptr %3, i64 %47
   store double %49, ptr %50, align 8
   %51 = or disjoint i64 %indvars.iv, 5
-  %52 = getelementptr inbounds double, ptr %1, i64 %51
+  %52 = getelementptr inbounds nuw double, ptr %1, i64 %51
   %53 = load double, ptr %52, align 8
-  %54 = getelementptr inbounds double, ptr %3, i64 %51
+  %54 = getelementptr inbounds nuw double, ptr %3, i64 %51
   store double %53, ptr %54, align 8
   %55 = or disjoint i64 %indvars.iv, 6
-  %56 = getelementptr inbounds double, ptr %1, i64 %55
+  %56 = getelementptr inbounds nuw double, ptr %1, i64 %55
   %57 = load double, ptr %56, align 8
-  %58 = getelementptr inbounds double, ptr %3, i64 %55
+  %58 = getelementptr inbounds nuw double, ptr %3, i64 %55
   store double %57, ptr %58, align 8
   %59 = or disjoint i64 %indvars.iv, 7
-  %60 = getelementptr inbounds double, ptr %1, i64 %59
+  %60 = getelementptr inbounds nuw double, ptr %1, i64 %59
   %61 = load double, ptr %60, align 8
-  %62 = getelementptr inbounds double, ptr %3, i64 %59
+  %62 = getelementptr inbounds nuw double, ptr %3, i64 %59
   store double %61, ptr %62, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %63 = icmp samesign ult i64 %indvars.iv.next, %13
@@ -115,9 +115,9 @@ define void @dcopy_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv82 = phi i64 [ %31, %.lr.ph74.preheader ], [ %indvars.iv.next83, %.lr.ph74 ]
-  %64 = getelementptr inbounds double, ptr %1, i64 %indvars.iv82
+  %64 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv82
   %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds double, ptr %3, i64 %indvars.iv82
+  %66 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv82
   store double %65, ptr %66, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count

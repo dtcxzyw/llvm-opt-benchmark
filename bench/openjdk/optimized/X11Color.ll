@@ -53,25 +53,25 @@ define hidden i32 @awt_color_matchTC(i32 noundef %0, i32 noundef %1, i32 noundef
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
   %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %11 = getelementptr inbounds i8, ptr %3, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %6, %14
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = shl i32 %15, %17
-  %19 = getelementptr inbounds i8, ptr %12, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = lshr i32 %8, %20
-  %22 = getelementptr inbounds i8, ptr %12, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %23 = load i32, ptr %22, align 4
   %24 = shl i32 %21, %23
   %25 = or i32 %24, %18
-  %26 = getelementptr inbounds i8, ptr %12, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %27 = load i32, ptr %26, align 4
   %28 = lshr i32 %10, %27
-  %29 = getelementptr inbounds i8, ptr %12, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = shl i32 %28, %30
   %32 = or i32 %25, %31
@@ -86,9 +86,9 @@ define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 nound
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 0)
   %9 = tail call i32 @llvm.smin.i32(i32 %2, i32 255)
   %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
-  %11 = getelementptr inbounds i8, ptr %3, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = uitofp nneg i32 %6 to double
   %16 = uitofp nneg i32 %8 to double
@@ -110,7 +110,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
@@ -122,7 +122,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %14 = icmp eq i32 %9, %11
   %15 = icmp eq i32 %11, %13
   %or.cond = and i1 %14, %15
-  %16 = getelementptr inbounds i8, ptr %3, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %or.cond, label %.preheader, label %.preheader92
@@ -138,7 +138,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %.068103 = phi i32 [ %39, %38 ], [ 0, %.preheader ]
   %.070102 = phi i32 [ %.171, %38 ], [ 256, %.preheader ]
   %.072101 = phi i32 [ %.173, %38 ], [ 0, %.preheader ]
-  %19 = getelementptr inbounds i8, ptr %.0104, i64 3
+  %19 = getelementptr inbounds nuw i8, ptr %.0104, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 3
   br i1 %21, label %22, label %38
@@ -146,13 +146,13 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
 22:                                               ; preds = %.lr.ph105
   %23 = load i8, ptr %.0104, align 1
   %24 = zext i8 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %.0104, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.0104, i64 1
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %23, %26
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %.0104, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %.0104, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = icmp eq i8 %23, %30
   br i1 %31, label %32, label %38
@@ -173,7 +173,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %.173 = phi i32 [ %.072101, %28 ], [ %.072101, %22 ], [ %.072101, %.lr.ph105 ], [ %spec.select, %34 ]
   %.171 = phi i32 [ %.070102, %28 ], [ %.070102, %22 ], [ %.070102, %.lr.ph105 ], [ %spec.select89, %34 ]
   %39 = add nuw nsw i32 %.068103, 1
-  %40 = getelementptr inbounds i8, ptr %.0104, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0104, i64 4
   %exitcond111.not = icmp eq i32 %39, %17
   br i1 %exitcond111.not, label %.loopexit, label %.lr.ph105, !llvm.loop !6
 
@@ -182,7 +182,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %.16997 = phi i32 [ %66, %65 ], [ 0, %.preheader92 ]
   %.296 = phi i32 [ %.3, %65 ], [ 16777216, %.preheader92 ]
   %.27495 = phi i32 [ %.375, %65 ], [ 0, %.preheader92 ]
-  %41 = getelementptr inbounds i8, ptr %.198, i64 3
+  %41 = getelementptr inbounds nuw i8, ptr %.198, i64 3
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 3
   br i1 %43, label %44, label %65
@@ -196,7 +196,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not, label %49, label %65
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds i8, ptr %.198, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.198, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = sub nsw i32 %52, %11
@@ -206,7 +206,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   br i1 %.not87, label %56, label %65
 
 56:                                               ; preds = %49
-  %57 = getelementptr inbounds i8, ptr %.198, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.198, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = sub nsw i32 %59, %13
@@ -223,7 +223,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
   %.375 = phi i32 [ %.27495, %44 ], [ %.27495, %49 ], [ %.27495, %56 ], [ %.27495, %.lr.ph ], [ %.16997, %63 ]
   %.3 = phi i32 [ %.296, %44 ], [ %.296, %49 ], [ %.296, %56 ], [ %.296, %.lr.ph ], [ %62, %63 ]
   %66 = add nuw nsw i32 %.16997, 1
-  %67 = getelementptr inbounds i8, ptr %.198, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.198, i64 4
   %exitcond.not = icmp eq i32 %66, %17
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
@@ -244,7 +244,7 @@ define hidden void @awt_fill_imgcv(ptr nocapture noundef writeonly %0, i32 nound
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %3, ptr %10, align 8
   br label %11
 
@@ -259,7 +259,7 @@ define hidden void @awt_fill_imgcv(ptr nocapture noundef writeonly %0, i32 nound
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -270,13 +270,13 @@ define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8
   %.not22 = icmp eq ptr %7, null
   br i1 %.not22, label %33, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not23 = icmp eq ptr %10, null
   br i1 %.not23, label %12, label %11
@@ -288,7 +288,7 @@ define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local
 
 12:                                               ; preds = %11, %8
   %13 = phi ptr [ %.pre, %11 ], [ %7, %8 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not24 = icmp eq ptr %15, null
   br i1 %.not24, label %17, label %16
@@ -300,7 +300,7 @@ define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local
 
 17:                                               ; preds = %16, %12
   %18 = phi ptr [ %.pre28, %16 ], [ %13, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not25 = icmp eq ptr %20, null
   br i1 %.not25, label %22, label %21
@@ -323,7 +323,7 @@ define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local
 
 26:                                               ; preds = %25, %22
   %27 = phi ptr [ %.pre30, %25 ], [ %23, %22 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not27 = icmp eq ptr %29, null
   br i1 %.not27, label %31, label %30
@@ -365,15 +365,15 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %or.cond = or i1 %12, %13
   %spec.select = select i1 %or.cond, ptr %11, ptr %10
   %14 = load ptr, ptr @awt_display, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = load i32, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %19, ptr %20, align 8
   %21 = tail call noalias dereferenceable_or_null(560) ptr @calloc(i64 noundef 1, i64 noundef 560) #15
-  %22 = getelementptr inbounds i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
   br i1 %23, label %.loopexit, label %24
@@ -399,14 +399,14 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds %struct.XPixmapFormatValues, ptr %25, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %25, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, %17
   br i1 %31, label %32, label %28
 
 32:                                               ; preds = %.lr.ph
   %33 = load ptr, ptr %22, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false)
   br label %.loopexit431
 
@@ -416,11 +416,11 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 36:                                               ; preds = %.loopexit431, %24
   %37 = load ptr, ptr %22, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 4
   %40 = icmp eq i32 %39, 24
   %spec.store.select = select i1 %40, i32 32, i32 %39
-  %41 = getelementptr inbounds i8, ptr %37, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 20
   store i32 %spec.store.select, ptr %41, align 4
   %42 = load ptr, ptr %22, align 8
   store i32 %17, ptr %42, align 8
@@ -430,7 +430,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   ]
 
 43:                                               ; preds = %36, %36
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 4
   %47 = icmp sgt i32 %17, 14
@@ -438,12 +438,12 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %or.cond5, label %48, label %119
 
 48:                                               ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %0, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @awt_color_matchTC, ptr %49, align 8
   %50 = load ptr, ptr %22, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load i64, ptr %52, align 8
   %54 = trunc i64 %53 to i32
   %55 = and i32 %54, 1
@@ -453,7 +453,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .lr.ph434:                                        ; preds = %48, %.lr.ph434
   %.1368433 = phi i32 [ %61, %.lr.ph434 ], [ %54, %48 ]
   %57 = load ptr, ptr %22, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = add nsw i32 %59, 1
   store i32 %60, ptr %58, align 8
@@ -465,7 +465,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 ._crit_edge:                                      ; preds = %.lr.ph434, %48
   %.1368.lcssa = phi i32 [ %54, %48 ], [ %61, %.lr.ph434 ]
   %64 = load ptr, ptr %22, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 36
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 36
   store i32 0, ptr %65, align 4
   %66 = icmp slt i32 %.1368.lcssa, 128
   br i1 %66, label %.lr.ph437, label %._crit_edge438
@@ -473,7 +473,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .lr.ph437:                                        ; preds = %._crit_edge, %.lr.ph437
   %.2369435 = phi i32 [ %71, %.lr.ph437 ], [ %.1368.lcssa, %._crit_edge ]
   %67 = load ptr, ptr %22, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 36
   %69 = load i32, ptr %68, align 4
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %68, align 4
@@ -483,9 +483,9 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 ._crit_edge438:                                   ; preds = %.lr.ph437, %._crit_edge
   %73 = load ptr, ptr %22, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 28
   store i32 0, ptr %74, align 4
-  %75 = getelementptr inbounds i8, ptr %0, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = load i64, ptr %75, align 8
   %77 = trunc i64 %76 to i32
   %78 = and i32 %77, 1
@@ -495,7 +495,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .lr.ph441:                                        ; preds = %._crit_edge438, %.lr.ph441
   %.3439 = phi i32 [ %84, %.lr.ph441 ], [ %77, %._crit_edge438 ]
   %80 = load ptr, ptr %22, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %82 = load i32, ptr %81, align 4
   %83 = add nsw i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -507,7 +507,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 ._crit_edge442:                                   ; preds = %.lr.ph441, %._crit_edge438
   %.3.lcssa = phi i32 [ %77, %._crit_edge438 ], [ %84, %.lr.ph441 ]
   %87 = load ptr, ptr %22, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 40
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
   store i32 0, ptr %88, align 8
   %89 = icmp slt i32 %.3.lcssa, 128
   br i1 %89, label %.lr.ph446, label %._crit_edge447
@@ -515,7 +515,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .lr.ph446:                                        ; preds = %._crit_edge442, %.lr.ph446
   %.4444 = phi i32 [ %94, %.lr.ph446 ], [ %.3.lcssa, %._crit_edge442 ]
   %90 = load ptr, ptr %22, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 40
   %92 = load i32, ptr %91, align 8
   %93 = add nsw i32 %92, 1
   store i32 %93, ptr %91, align 8
@@ -525,9 +525,9 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 ._crit_edge447:                                   ; preds = %.lr.ph446, %._crit_edge442
   %96 = load ptr, ptr %22, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   store i32 0, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 64
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %99 = load i64, ptr %98, align 8
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 1
@@ -537,7 +537,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .lr.ph450:                                        ; preds = %._crit_edge447, %.lr.ph450
   %.5448 = phi i32 [ %107, %.lr.ph450 ], [ %100, %._crit_edge447 ]
   %103 = load ptr, ptr %22, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %105 = load i32, ptr %104, align 8
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %104, align 8
@@ -549,7 +549,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 ._crit_edge451:                                   ; preds = %.lr.ph450, %._crit_edge447
   %.5.lcssa = phi i32 [ %100, %._crit_edge447 ], [ %107, %.lr.ph450 ]
   %110 = load ptr, ptr %22, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 44
   store i32 0, ptr %111, align 4
   %112 = icmp slt i32 %.5.lcssa, 128
   br i1 %112, label %.lr.ph455, label %.loopexit429
@@ -557,7 +557,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .lr.ph455:                                        ; preds = %._crit_edge451, %.lr.ph455
   %.6453 = phi i32 [ %117, %.lr.ph455 ], [ %.5.lcssa, %._crit_edge451 ]
   %113 = load ptr, ptr %22, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 44
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 44
   %115 = load i32, ptr %114, align 4
   %116 = add nsw i32 %115, 1
   store i32 %116, ptr %114, align 4
@@ -570,7 +570,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %120, label %121, label %134
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %0, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %123 = load i32, ptr %122, align 8
   %switch = icmp ult i32 %123, 2
   br i1 %switch, label %127, label %124
@@ -582,14 +582,14 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %or.cond7, label %127, label %134
 
 127:                                              ; preds = %121, %124
-  %128 = getelementptr inbounds i8, ptr %0, i64 96
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @awt_color_matchGS, ptr %128, align 8
   %129 = load ptr, ptr %22, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store i32 1, ptr %130, align 8
   %131 = call i32 @llvm.smax.i32(i32 %spec.store.select, i32 8)
   %132 = load ptr, ptr %22, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 20
   store i32 %131, ptr %133, align 4
   br label %.loopexit429
 
@@ -598,7 +598,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %135, label %136, label %.loopexit.sink.split
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %0, i64 40
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %138 = load i32, ptr %137, align 8
   %.off = add i32 %138, -2
   %switch413 = icmp ult i32 %.off, 3
@@ -609,18 +609,18 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %140, label %141, label %.thread
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %0, i64 36
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %143 = load i32, ptr %142, align 4
   %144 = shl nuw i32 1, %143
   store i32 %144, ptr %20, align 8
   br label %.thread
 
 .thread:                                          ; preds = %139, %141
-  %145 = getelementptr inbounds i8, ptr %0, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr @awt_color_match, ptr %145, align 8
   %146 = call i32 @llvm.smax.i32(i32 %spec.store.select, i32 8)
   %147 = load ptr, ptr %22, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 20
   store i32 %146, ptr %148, align 4
   br label %150
 
@@ -637,13 +637,13 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 154:                                              ; preds = %150
   %155 = call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #15
-  %156 = getelementptr inbounds i8, ptr %0, i64 144
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %155, ptr %156, align 8
   %157 = icmp eq ptr %155, null
   br i1 %157, label %.loopexit.sink.split, label %158
 
 158:                                              ; preds = %154
-  %159 = getelementptr inbounds i8, ptr %155, i64 80
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 80
   store i32 1, ptr %159, align 8
   %160 = icmp sgt i32 %152, 0
   br i1 %160, label %.lr.ph458.preheader, label %._crit_edge459
@@ -654,7 +654,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 .lr.ph458:                                        ; preds = %.lr.ph458.preheader, %.lr.ph458
   %indvars.iv527 = phi i64 [ 0, %.lr.ph458.preheader ], [ %indvars.iv.next528, %.lr.ph458 ]
-  %161 = getelementptr inbounds [4096 x %struct.XColor], ptr %4, i64 0, i64 %indvars.iv527
+  %161 = getelementptr inbounds nuw [4096 x %struct.XColor], ptr %4, i64 0, i64 %indvars.iv527
   store i64 %indvars.iv527, ptr %161, align 16
   %indvars.iv.next528 = add nuw nsw i64 %indvars.iv527, 1
   %exitcond531.not = icmp eq i64 %indvars.iv.next528, %wide.trip.count530
@@ -678,34 +678,34 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 .lr.ph462:                                        ; preds = %165, %.lr.ph462
   %indvars.iv532 = phi i64 [ %indvars.iv.next533, %.lr.ph462 ], [ 0, %165 ]
-  %169 = getelementptr inbounds [4096 x %struct.XColor], ptr %4, i64 0, i64 %indvars.iv532
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %169 = getelementptr inbounds nuw [4096 x %struct.XColor], ptr %4, i64 0, i64 %indvars.iv532
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i16, ptr %170, align 8
   %172 = lshr i16 %171, 8
   %173 = trunc nuw i16 %172 to i8
   %174 = load ptr, ptr %156, align 8
   %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds %struct.ColorEntry, ptr %175, i64 %indvars.iv532
+  %176 = getelementptr inbounds nuw %struct.ColorEntry, ptr %175, i64 %indvars.iv532
   store i8 %173, ptr %176, align 1
-  %177 = getelementptr inbounds i8, ptr %169, i64 10
+  %177 = getelementptr inbounds nuw i8, ptr %169, i64 10
   %178 = load i16, ptr %177, align 2
   %179 = lshr i16 %178, 8
   %180 = trunc nuw i16 %179 to i8
   %181 = load ptr, ptr %156, align 8
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds %struct.ColorEntry, ptr %182, i64 %indvars.iv532, i32 1
+  %183 = getelementptr inbounds nuw %struct.ColorEntry, ptr %182, i64 %indvars.iv532, i32 1
   store i8 %180, ptr %183, align 1
-  %184 = getelementptr inbounds i8, ptr %169, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %169, i64 12
   %185 = load i16, ptr %184, align 4
   %186 = lshr i16 %185, 8
   %187 = trunc nuw i16 %186 to i8
   %188 = load ptr, ptr %156, align 8
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds %struct.ColorEntry, ptr %189, i64 %indvars.iv532, i32 2
+  %190 = getelementptr inbounds nuw %struct.ColorEntry, ptr %189, i64 %indvars.iv532, i32 2
   store i8 %187, ptr %190, align 1
   %191 = load ptr, ptr %156, align 8
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds %struct.ColorEntry, ptr %192, i64 %indvars.iv532, i32 3
+  %193 = getelementptr inbounds nuw %struct.ColorEntry, ptr %192, i64 %indvars.iv532, i32 3
   store i8 1, ptr %193, align 1
   %indvars.iv.next533 = add nuw nsw i64 %indvars.iv532, 1
   %194 = load i32, ptr %20, align 8
@@ -726,7 +726,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.0380463 = phi i32 [ %spec.select410, %.preheader428 ], [ 0, %.preheader428.preheader ]
   %.9 = lshr i32 %.9.in464, 1
   %197 = zext nneg i32 %.0380463 to i64
-  %198 = getelementptr inbounds i64, ptr %2, i64 %197
+  %198 = getelementptr inbounds nuw i64, ptr %2, i64 %197
   %199 = call i32 @XAllocColorCells(ptr noundef %14, i64 noundef %16, i32 noundef 0, ptr noundef nonnull %3, i32 noundef 0, ptr noundef nonnull %198, i32 noundef %.9) #14
   %.not409 = icmp eq i32 %199, 0
   %200 = select i1 %.not409, i32 0, i32 %.9
@@ -738,7 +738,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %indvars.iv535 = phi i64 [ 0, %.lr.ph466.preheader ], [ %indvars.iv.next536, %.lr.ph466 ]
   %201 = load ptr, ptr %156, align 8
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds [4096 x i64], ptr %2, i64 0, i64 %indvars.iv535
+  %203 = getelementptr inbounds nuw [4096 x i64], ptr %2, i64 0, i64 %indvars.iv535
   %204 = load i64, ptr %203, align 8
   %205 = getelementptr inbounds %struct.ColorEntry, ptr %202, i64 %204, i32 3
   store i8 0, ptr %205, align 1
@@ -757,7 +757,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %indvars.iv540 = phi i64 [ %indvars.iv.next541, %229 ], [ 0, %._crit_edge467 ]
   %210 = load ptr, ptr %156, align 8
   %211 = load ptr, ptr %210, align 8
-  %212 = getelementptr inbounds %struct.ColorEntry, ptr %211, i64 %indvars.iv540, i32 3
+  %212 = getelementptr inbounds nuw %struct.ColorEntry, ptr %211, i64 %indvars.iv540, i32 3
   %213 = load i8, ptr %212, align 1
   %214 = icmp eq i8 %213, 1
   br i1 %214, label %215, label %229
@@ -766,13 +766,13 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   store i8 0, ptr %212, align 1
   %216 = load ptr, ptr %156, align 8
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds %struct.ColorEntry, ptr %217, i64 %indvars.iv540
+  %218 = getelementptr inbounds nuw %struct.ColorEntry, ptr %217, i64 %indvars.iv540
   %219 = load i8, ptr %218, align 1
   %220 = zext i8 %219 to i32
-  %221 = getelementptr inbounds i8, ptr %218, i64 1
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 1
   %222 = load i8, ptr %221, align 1
   %223 = zext i8 %222 to i32
-  %224 = getelementptr inbounds i8, ptr %218, i64 2
+  %224 = getelementptr inbounds nuw i8, ptr %218, i64 2
   %225 = load i8, ptr %224, align 1
   %226 = zext i8 %225 to i32
   %227 = trunc nuw nsw i64 %indvars.iv540 to i32
@@ -791,7 +791,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %233 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef 255, i32 noundef 255, i32 noundef 255, i32 noundef -1, ptr noundef nonnull %0)
   %234 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %0)
   %235 = load ptr, ptr %22, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 16
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %237 = load i32, ptr %236, align 8
   %.not399 = icmp eq i32 %237, 0
   br i1 %.not399, label %353, label %238
@@ -820,10 +820,10 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .loopexit426:                                     ; preds = %._crit_edge474, %238
   %246 = call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #15
   %247 = load ptr, ptr %156, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 32
   store ptr %246, ptr %248, align 8
   %249 = load ptr, ptr %156, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 32
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 32
   %251 = load ptr, ptr %250, align 8
   %252 = icmp eq ptr %251, null
   br i1 %252, label %.loopexit.sink.split, label %.preheader423
@@ -852,7 +852,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.0360478.us.us = phi i32 [ %.1361.us.us, %272 ], [ 256, %.lr.ph481.split.us ]
   %.0362477.us.us = phi ptr [ %274, %272 ], [ %255, %.lr.ph481.split.us ]
   %.13476.us.us = phi i32 [ %273, %272 ], [ 0, %.lr.ph481.split.us ]
-  %259 = getelementptr inbounds i8, ptr %.0362477.us.us, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %.0362477.us.us, i64 1
   %260 = load i8, ptr %259, align 1
   switch i8 %260, label %272 [
     i8 0, label %261
@@ -860,7 +860,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   ]
 
 261:                                              ; preds = %.lr.ph481.split.us.split.us, %.lr.ph481.split.us.split.us
-  %262 = getelementptr inbounds i8, ptr %.0362477.us.us, i64 3
+  %262 = getelementptr inbounds nuw i8, ptr %.0362477.us.us, i64 3
   %263 = load i8, ptr %262, align 1
   %264 = icmp eq i8 %263, 3
   br i1 %264, label %265, label %272
@@ -881,7 +881,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.1361.us.us = phi i32 [ %.0360478.us.us, %265 ], [ %.0360478.us.us, %261 ], [ %.0360478.us.us, %.lr.ph481.split.us.split.us ], [ %spec.select411.us.us, %269 ]
   %.2.us.us = phi i32 [ %.0359479.us.us, %265 ], [ %.0359479.us.us, %261 ], [ %.0359479.us.us, %.lr.ph481.split.us.split.us ], [ %.13476.us.us, %269 ]
   %273 = add nuw nsw i32 %.13476.us.us, 1
-  %274 = getelementptr inbounds i8, ptr %.0362477.us.us, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %.0362477.us.us, i64 4
   %exitcond546.not = icmp eq i32 %273, %256
   br i1 %exitcond546.not, label %._crit_edge482, label %.lr.ph481.split.us.split.us, !llvm.loop !24
 
@@ -890,13 +890,13 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.0360478.us = phi i32 [ %.1361.us, %287 ], [ 256, %.lr.ph481.split.us ]
   %.0362477.us = phi ptr [ %289, %287 ], [ %255, %.lr.ph481.split.us ]
   %.13476.us = phi i32 [ %288, %287 ], [ 0, %.lr.ph481.split.us ]
-  %275 = getelementptr inbounds i8, ptr %.0362477.us, i64 3
+  %275 = getelementptr inbounds nuw i8, ptr %.0362477.us, i64 3
   %276 = load i8, ptr %275, align 1
   %277 = icmp eq i8 %276, 3
   br i1 %277, label %278, label %287
 
 278:                                              ; preds = %.lr.ph481.split.us.split
-  %279 = getelementptr inbounds i8, ptr %.0362477.us, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %.0362477.us, i64 1
   %280 = load i8, ptr %279, align 1
   %281 = zext i8 %280 to i32
   %282 = sub nsw i32 %281, %258
@@ -913,7 +913,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.1361.us = phi i32 [ %.0360478.us, %278 ], [ %.0360478.us, %.lr.ph481.split.us.split ], [ %spec.select411.us, %284 ]
   %.2.us = phi i32 [ %.0359479.us, %278 ], [ %.0359479.us, %.lr.ph481.split.us.split ], [ %.13476.us, %284 ]
   %288 = add nuw nsw i32 %.13476.us, 1
-  %289 = getelementptr inbounds i8, ptr %.0362477.us, i64 4
+  %289 = getelementptr inbounds nuw i8, ptr %.0362477.us, i64 4
   %exitcond545.not = icmp eq i32 %288, %256
   br i1 %exitcond545.not, label %._crit_edge482, label %.lr.ph481.split.us.split, !llvm.loop !24
 
@@ -926,13 +926,13 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.0362477.us489 = phi ptr [ %310, %308 ], [ %255, %.lr.ph481.split ]
   %.13476.us490 = phi i32 [ %309, %308 ], [ 0, %.lr.ph481.split ]
   %290 = load i8, ptr %.0362477.us489, align 1
-  %291 = getelementptr inbounds i8, ptr %.0362477.us489, i64 1
+  %291 = getelementptr inbounds nuw i8, ptr %.0362477.us489, i64 1
   %292 = load i8, ptr %291, align 1
   %.not405.us = icmp eq i8 %290, %292
   br i1 %.not405.us, label %293, label %308
 
 293:                                              ; preds = %.lr.ph481.split.split.us
-  %294 = getelementptr inbounds i8, ptr %.0362477.us489, i64 2
+  %294 = getelementptr inbounds nuw i8, ptr %.0362477.us489, i64 2
   %295 = load i8, ptr %294, align 1
   %.not406.us = icmp eq i8 %290, %295
   br i1 %.not406.us, label %296, label %308
@@ -944,7 +944,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   ]
 
 297:                                              ; preds = %296, %296
-  %298 = getelementptr inbounds i8, ptr %.0362477.us489, i64 3
+  %298 = getelementptr inbounds nuw i8, ptr %.0362477.us489, i64 3
   %299 = load i8, ptr %298, align 1
   %300 = icmp eq i8 %299, 3
   br i1 %300, label %301, label %308
@@ -965,7 +965,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.1361.us492 = phi i32 [ %.0360478.us488, %.lr.ph481.split.split.us ], [ %.0360478.us488, %293 ], [ %.0360478.us488, %301 ], [ %.0360478.us488, %297 ], [ %.0360478.us488, %296 ], [ %spec.select411.us491, %305 ]
   %.2.us493 = phi i32 [ %.0359479.us487, %.lr.ph481.split.split.us ], [ %.0359479.us487, %293 ], [ %.0359479.us487, %301 ], [ %.0359479.us487, %297 ], [ %.0359479.us487, %296 ], [ %.13476.us490, %305 ]
   %309 = add nuw nsw i32 %.13476.us490, 1
-  %310 = getelementptr inbounds i8, ptr %.0362477.us489, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %.0362477.us489, i64 4
   %exitcond544.not = icmp eq i32 %309, %256
   br i1 %exitcond544.not, label %._crit_edge482, label %.lr.ph481.split.split.us, !llvm.loop !24
 
@@ -975,19 +975,19 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.0362477 = phi ptr [ %330, %328 ], [ %255, %.lr.ph481.split ]
   %.13476 = phi i32 [ %329, %328 ], [ 0, %.lr.ph481.split ]
   %311 = load i8, ptr %.0362477, align 1
-  %312 = getelementptr inbounds i8, ptr %.0362477, i64 1
+  %312 = getelementptr inbounds nuw i8, ptr %.0362477, i64 1
   %313 = load i8, ptr %312, align 1
   %.not405 = icmp eq i8 %311, %313
   br i1 %.not405, label %314, label %328
 
 314:                                              ; preds = %.lr.ph481.split.split
-  %315 = getelementptr inbounds i8, ptr %.0362477, i64 2
+  %315 = getelementptr inbounds nuw i8, ptr %.0362477, i64 2
   %316 = load i8, ptr %315, align 1
   %.not406 = icmp eq i8 %311, %316
   br i1 %.not406, label %317, label %328
 
 317:                                              ; preds = %314
-  %318 = getelementptr inbounds i8, ptr %.0362477, i64 3
+  %318 = getelementptr inbounds nuw i8, ptr %.0362477, i64 3
   %319 = load i8, ptr %318, align 1
   %320 = icmp eq i8 %319, 3
   br i1 %320, label %321, label %328
@@ -1008,16 +1008,16 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %.1361 = phi i32 [ %.0360478, %.lr.ph481.split.split ], [ %.0360478, %314 ], [ %.0360478, %321 ], [ %.0360478, %317 ], [ %spec.select411, %325 ]
   %.2 = phi i32 [ %.0359479, %.lr.ph481.split.split ], [ %.0359479, %314 ], [ %.0359479, %321 ], [ %.0359479, %317 ], [ %.13476, %325 ]
   %329 = add nuw nsw i32 %.13476, 1
-  %330 = getelementptr inbounds i8, ptr %.0362477, i64 4
+  %330 = getelementptr inbounds nuw i8, ptr %.0362477, i64 4
   %exitcond543.not = icmp eq i32 %329, %256
   br i1 %exitcond543.not, label %._crit_edge482, label %.lr.ph481.split.split, !llvm.loop !24
 
 ._crit_edge482:                                   ; preds = %328, %325, %308, %305, %287, %284, %272, %269, %253
   %.1 = phi i32 [ 0, %253 ], [ %.13476.us.us, %269 ], [ %.2.us.us, %272 ], [ %.13476.us, %284 ], [ %.2.us, %287 ], [ %.13476.us490, %305 ], [ %.2.us493, %308 ], [ %.13476, %325 ], [ %.2, %328 ]
   %331 = trunc i32 %.1 to i8
-  %332 = getelementptr inbounds i8, ptr %254, i64 32
+  %332 = getelementptr inbounds nuw i8, ptr %254, i64 32
   %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 %indvars.iv547
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 %indvars.iv547
   store i8 %331, ptr %334, align 1
   %indvars.iv.next548 = add nuw nsw i64 %indvars.iv547, 1
   %exitcond550.not = icmp eq i64 %indvars.iv.next548, 256
@@ -1046,7 +1046,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %347 = fmul double %346, 2.550000e+02
   %348 = fptosi double %347 to i32
   %349 = trunc i32 %348 to i8
-  %350 = getelementptr inbounds [256 x i8], ptr @img_bwgamma, i64 0, i64 %indvars.iv555
+  %350 = getelementptr inbounds nuw [256 x i8], ptr @img_bwgamma, i64 0, i64 %indvars.iv555
   store i8 %349, ptr %350, align 1
   %indvars.iv.next556 = add nuw nsw i64 %indvars.iv555, 1
   %exitcond558.not = icmp eq i64 %indvars.iv.next556, 256
@@ -1055,7 +1055,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .preheader421:                                    ; preds = %335, %.preheader421
   %indvars.iv551 = phi i64 [ %indvars.iv.next552, %.preheader421 ], [ 0, %335 ]
   %351 = trunc i64 %indvars.iv551 to i8
-  %352 = getelementptr inbounds [256 x i8], ptr @img_bwgamma, i64 0, i64 %indvars.iv551
+  %352 = getelementptr inbounds nuw [256 x i8], ptr @img_bwgamma, i64 0, i64 %indvars.iv551
   store i8 %351, ptr %352, align 1
   %indvars.iv.next552 = add nuw nsw i64 %indvars.iv551, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next552, 256
@@ -1086,8 +1086,8 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %indvars.iv559 = phi i64 [ 0, %.loopexit420 ], [ %indvars.iv.next560, %385 ]
   %.0372507 = phi i32 [ 0, %.loopexit420 ], [ %.1373, %385 ]
   %.0374506 = phi i32 [ 0, %.loopexit420 ], [ %.1375, %385 ]
-  %369 = getelementptr inbounds %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559
-  %370 = getelementptr inbounds i8, ptr %369, i64 3
+  %369 = getelementptr inbounds nuw %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 3
   %371 = load i8, ptr %370, align 1
   switch i8 %371, label %385 [
     i8 3, label %372
@@ -1099,11 +1099,11 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %374 = sext i32 %.0374506 to i64
   %375 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %374
   store i8 %373, ptr %375, align 1
-  %376 = getelementptr inbounds %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559, i32 1
+  %376 = getelementptr inbounds nuw %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559, i32 1
   %377 = load i8, ptr %376, align 1
   %378 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %374
   store i8 %377, ptr %378, align 1
-  %379 = getelementptr inbounds %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559, i32 2
+  %379 = getelementptr inbounds nuw %struct.ColorEntry, ptr %.pre577, i64 %indvars.iv559, i32 2
   %380 = load i8, ptr %379, align 1
   %381 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %374
   store i8 %380, ptr %381, align 1
@@ -1173,10 +1173,10 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 407:                                              ; preds = %403, %.thread417
   %.1371 = phi i32 [ 32, %.thread417 ], [ %401, %403 ]
   %408 = call noalias dereferenceable_or_null(32768) ptr @calloc(i64 noundef 32768, i64 noundef 1) #15
-  %409 = getelementptr inbounds i8, ptr %367, i64 40
+  %409 = getelementptr inbounds nuw i8, ptr %367, i64 40
   store ptr %408, ptr %409, align 8
   %410 = load ptr, ptr %156, align 8
-  %411 = getelementptr inbounds i8, ptr %410, i64 40
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 40
   %412 = load ptr, ptr %411, align 8
   %413 = icmp eq ptr %412, null
   br i1 %413, label %.loopexit.sink.split, label %414
@@ -1192,17 +1192,17 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 .lr.ph511:                                        ; preds = %.lr.ph511.preheader, %.lr.ph511
   %indvars.iv563 = phi i64 [ 0, %.lr.ph511.preheader ], [ %indvars.iv.next564, %.lr.ph511 ]
-  %416 = getelementptr inbounds [256 x i8], ptr %5, i64 0, i64 %indvars.iv563
+  %416 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %indvars.iv563
   %417 = load i8, ptr %416, align 1
   %418 = zext i8 %417 to i32
-  %419 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %indvars.iv563
+  %419 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv563
   %420 = load i8, ptr %419, align 1
   %421 = zext i8 %420 to i32
-  %422 = getelementptr inbounds [256 x i8], ptr %7, i64 0, i64 %indvars.iv563
+  %422 = getelementptr inbounds nuw [256 x i8], ptr %7, i64 0, i64 %indvars.iv563
   %423 = load i8, ptr %422, align 1
   %424 = zext i8 %423 to i32
   %425 = call fastcc i32 @alloc_col(ptr noundef %14, i64 noundef %16, i32 noundef %418, i32 noundef %421, i32 noundef %424, i32 noundef -1, ptr noundef nonnull %0)
-  %426 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %indvars.iv563
+  %426 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %indvars.iv563
   store i32 %425, ptr %426, align 4
   %indvars.iv.next564 = add nuw nsw i64 %indvars.iv563, 1
   %exitcond567.not = icmp eq i64 %indvars.iv.next564, %wide.trip.count566
@@ -1214,12 +1214,12 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 .preheader419:                                    ; preds = %.preheader419.preheader, %.preheader419
   %indvars.iv568 = phi i64 [ %indvars.iv.next569, %.preheader419 ], [ 0, %.preheader419.preheader ]
   %427 = load ptr, ptr %156, align 8
-  %428 = getelementptr inbounds i8, ptr %427, i64 40
+  %428 = getelementptr inbounds nuw i8, ptr %427, i64 40
   %429 = load ptr, ptr %428, align 8
-  %430 = getelementptr inbounds i8, ptr %429, i64 %indvars.iv568
+  %430 = getelementptr inbounds nuw i8, ptr %429, i64 %indvars.iv568
   %431 = load i8, ptr %430, align 1
   %432 = zext i8 %431 to i64
-  %433 = getelementptr inbounds [256 x i32], ptr %8, i64 0, i64 %432
+  %433 = getelementptr inbounds nuw [256 x i32], ptr %8, i64 0, i64 %432
   %434 = load i32, ptr %433, align 4
   %435 = trunc i32 %434 to i8
   store i8 %435, ptr %430, align 1
@@ -1229,36 +1229,36 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 436:                                              ; preds = %.preheader419
   %437 = load ptr, ptr %156, align 8
-  %438 = getelementptr inbounds i8, ptr %437, i64 48
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 48
   store ptr @std_img_oda_red, ptr %438, align 8
   %439 = load ptr, ptr %156, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 56
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 56
   store ptr @std_img_oda_green, ptr %440, align 8
   %441 = load ptr, ptr %156, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 64
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 64
   store ptr @std_img_oda_blue, ptr %442, align 8
   %443 = load ptr, ptr %156, align 8
   call void @make_dither_arrays(i32 noundef %.0376, ptr noundef %443) #14
   store i32 1, ptr @std_odas_computed, align 4
   %444 = load ptr, ptr %156, align 8
-  %445 = getelementptr inbounds i8, ptr %444, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   store i32 0, ptr %445, align 8
   %446 = call noalias ptr @calloc(i64 noundef %162, i64 noundef 1) #15
   %447 = load ptr, ptr %156, align 8
-  %448 = getelementptr inbounds i8, ptr %447, i64 24
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 24
   store ptr %446, ptr %448, align 8
   %449 = call noalias ptr @calloc(i64 noundef %162, i64 noundef 4) #15
   %450 = load ptr, ptr %156, align 8
-  %451 = getelementptr inbounds i8, ptr %450, i64 16
+  %451 = getelementptr inbounds nuw i8, ptr %450, i64 16
   store ptr %449, ptr %451, align 8
   %452 = load ptr, ptr %156, align 8
-  %453 = getelementptr inbounds i8, ptr %452, i64 24
+  %453 = getelementptr inbounds nuw i8, ptr %452, i64 24
   %454 = load ptr, ptr %453, align 8
   %455 = icmp eq ptr %454, null
   br i1 %455, label %.loopexit.sink.split, label %456
 
 456:                                              ; preds = %436
-  %457 = getelementptr inbounds i8, ptr %452, i64 16
+  %457 = getelementptr inbounds nuw i8, ptr %452, i64 16
   %458 = load ptr, ptr %457, align 8
   %459 = icmp eq ptr %458, null
   br i1 %459, label %.loopexit.sink.split, label %.preheader
@@ -1267,17 +1267,17 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %indvars.iv572 = phi i64 [ %indvars.iv.next573, %488 ], [ 0, %456 ]
   %460 = trunc i64 %indvars.iv572 to i8
   %461 = load ptr, ptr %156, align 8
-  %462 = getelementptr inbounds i8, ptr %461, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %461, i64 24
   %463 = load ptr, ptr %462, align 8
-  %464 = getelementptr inbounds i8, ptr %461, i64 8
+  %464 = getelementptr inbounds nuw i8, ptr %461, i64 8
   %465 = load i32, ptr %464, align 8
   %466 = sext i32 %465 to i64
   %467 = getelementptr inbounds i8, ptr %463, i64 %466
   store i8 %460, ptr %467, align 1
   %468 = load ptr, ptr %156, align 8
   %469 = load ptr, ptr %468, align 8
-  %470 = getelementptr inbounds %struct.ColorEntry, ptr %469, i64 %indvars.iv572
-  %471 = getelementptr inbounds i8, ptr %470, i64 3
+  %470 = getelementptr inbounds nuw %struct.ColorEntry, ptr %469, i64 %indvars.iv572
+  %471 = getelementptr inbounds nuw i8, ptr %470, i64 3
   %472 = load i8, ptr %471, align 1
   %473 = icmp eq i8 %472, 3
   br i1 %473, label %474, label %488
@@ -1286,11 +1286,11 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   %475 = load i8, ptr %470, align 1
   %476 = zext i8 %475 to i32
   %477 = shl nuw nsw i32 %476, 16
-  %478 = getelementptr inbounds i8, ptr %470, i64 1
+  %478 = getelementptr inbounds nuw i8, ptr %470, i64 1
   %479 = load i8, ptr %478, align 1
   %480 = zext i8 %479 to i32
   %481 = shl nuw nsw i32 %480, 8
-  %482 = getelementptr inbounds i8, ptr %470, i64 2
+  %482 = getelementptr inbounds nuw i8, ptr %470, i64 2
   %483 = load i8, ptr %482, align 1
   %484 = zext i8 %483 to i32
   %485 = or disjoint i32 %477, %481
@@ -1300,9 +1300,9 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 
 488:                                              ; preds = %.preheader, %474
   %.sink = phi i32 [ %487, %474 ], [ 0, %.preheader ]
-  %489 = getelementptr inbounds i8, ptr %468, i64 16
+  %489 = getelementptr inbounds nuw i8, ptr %468, i64 16
   %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds i8, ptr %468, i64 8
+  %491 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %492 = load i32, ptr %491, align 8
   %493 = add nsw i32 %492, 1
   store i32 %493, ptr %491, align 8
@@ -1349,22 +1349,22 @@ define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 nounde
   %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %10 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
   %11 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
-  %12 = getelementptr inbounds i8, ptr %8, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 14
   store i8 7, ptr %12, align 2
   %13 = shl nuw nsw i32 %9, 8
   %14 = or i32 %13, %9
   %15 = trunc nuw i32 %14 to i16
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 %15, ptr %16, align 8
   %17 = shl nuw nsw i32 %10, 8
   %18 = or i32 %17, %10
   %19 = trunc nuw i32 %18 to i16
-  %20 = getelementptr inbounds i8, ptr %8, i64 10
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 10
   store i16 %19, ptr %20, align 2
   %21 = shl nuw nsw i32 %11, 8
   %22 = or i32 %21, %11
   %23 = trunc nuw i32 %22 to i16
-  %24 = getelementptr inbounds i8, ptr %8, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i16 %23, ptr %24, align 4
   %25 = call i32 @XAllocColor(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8) #14
   %.not = icmp eq i32 %25, 0
@@ -1381,10 +1381,10 @@ define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 nounde
   br i1 %.not46, label %thread-pre-split, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %6, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct.ColorEntry, ptr %34, i64 %30, i32 3
+  %35 = getelementptr inbounds nuw %struct.ColorEntry, ptr %34, i64 %30, i32 3
   store i8 2, ptr %35, align 1
   %36 = call i32 @XFreeColors(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %8, i32 noundef 1, i64 noundef 0) #14
   br label %101
@@ -1399,10 +1399,10 @@ thread-pre-split:                                 ; preds = %26, %29
   br label %101
 
 41:                                               ; preds = %thread-pre-split
-  %42 = getelementptr inbounds i8, ptr %6, i64 144
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds %struct.ColorEntry, ptr %44, i64 %28, i32 3
+  %45 = getelementptr inbounds nuw %struct.ColorEntry, ptr %44, i64 %28, i32 3
   store i8 3, ptr %45, align 1
   %46 = load i16, ptr %16, align 8
   %47 = lshr i16 %46, 8
@@ -1429,7 +1429,7 @@ thread-pre-split:                                 ; preds = %26, %29
   %66 = getelementptr inbounds %struct.ColorEntry, ptr %64, i64 %65, i32 2
   store i8 %62, ptr %66, align 1
   %67 = load ptr, ptr %42, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = load ptr, ptr %68, align 8
   %.not47 = icmp eq ptr %69, null
   br i1 %.not47, label %96, label %70
@@ -1437,7 +1437,7 @@ thread-pre-split:                                 ; preds = %26, %29
 70:                                               ; preds = %41
   %71 = load i64, ptr %8, align 8
   %72 = trunc i64 %71 to i8
-  %73 = getelementptr inbounds i8, ptr %67, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds i8, ptr %74, i64 %71
   store i8 %72, ptr %75, align 1
@@ -1448,17 +1448,17 @@ thread-pre-split:                                 ; preds = %26, %29
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i32
   %82 = shl nuw nsw i32 %81, 16
-  %83 = getelementptr inbounds i8, ptr %79, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 1
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 8
-  %87 = getelementptr inbounds i8, ptr %79, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %79, i64 2
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   %90 = or disjoint i32 %82, %86
   %91 = or disjoint i32 %90, %89
   %92 = or disjoint i32 %91, -16777216
-  %93 = getelementptr inbounds i8, ptr %76, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds i32, ptr %94, i64 %78
   store i32 %92, ptr %95, align 4
@@ -1494,7 +1494,7 @@ declare void @make_dither_arrays(i32 noundef, ptr noundef) local_unnamed_addr #7
 ; Function Attrs: nounwind uwtable
 define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
   %7 = icmp eq ptr %6, null
@@ -1502,7 +1502,7 @@ define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 904
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 904
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #14
   %13 = icmp eq ptr %12, null
@@ -1510,7 +1510,7 @@ define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 912
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 912
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %12, i32 noundef %1) #14
   br label %19
@@ -1526,14 +1526,14 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
   %4 = alloca [4096 x i32], align 16
   %5 = alloca [512 x i8], align 16
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 16) #14
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %386, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   switch i32 %13, label %.thread [
     i32 4, label %14
@@ -1547,7 +1547,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #14
   %22 = icmp eq ptr %21, null
@@ -1555,20 +1555,20 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 160
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 160
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %1, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %30 = load i32, ptr %29, align 8
   %.not265 = icmp eq i32 %30, 0
   %31 = load ptr, ptr %0, align 8
   br i1 %.not265, label %32, label %54
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %31, i64 264
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 264
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %34(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #14
   %36 = icmp eq ptr %35, null
@@ -1576,27 +1576,27 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
   br i1 %36, label %38, label %42
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds i8, ptr %37, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 160
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %37, i64 224
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 224
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %52 = load i64, ptr %51, align 8
   %53 = tail call ptr (ptr, ptr, ptr, ...) %44(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef nonnull %35, i32 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %52, i32 noundef 0) #14
   br label %122
 
 54:                                               ; preds = %28
-  %55 = getelementptr inbounds i8, ptr %31, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %56 = load ptr, ptr %55, align 8
   %57 = tail call ptr %56(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #14
   %58 = icmp eq ptr %57, null
@@ -1604,17 +1604,17 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 160
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 160
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %62(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 64:                                               ; preds = %54
-  %65 = getelementptr inbounds i8, ptr %1, i64 184
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %66 = load i16, ptr %65, align 8
   %67 = icmp eq i16 %66, 16
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 904
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 904
   %70 = load ptr, ptr %69, align 8
   br i1 %67, label %71, label %110
 
@@ -1625,38 +1625,38 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
   br i1 %73, label %75, label %79
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %74, i64 160
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 160
   %77 = load ptr, ptr %76, align 8
   %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 79:                                               ; preds = %71
-  %80 = getelementptr inbounds i8, ptr %74, i64 912
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 912
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 186
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 186
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   %85 = load i16, ptr %65, align 8
   %86 = zext nneg i16 %85 to i32
   %87 = shl i32 %84, %86
-  %88 = getelementptr inbounds i8, ptr %1, i64 190
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 190
   %89 = load i16, ptr %88, align 2
   %90 = sext i16 %89 to i32
-  %91 = getelementptr inbounds i8, ptr %1, i64 188
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 188
   %92 = load i16, ptr %91, align 4
   %93 = zext nneg i16 %92 to i32
   %94 = shl i32 %90, %93
-  %95 = getelementptr inbounds i8, ptr %1, i64 194
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 194
   %96 = load i16, ptr %95, align 2
   %97 = sext i16 %96 to i32
-  %98 = getelementptr inbounds i8, ptr %1, i64 192
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %99 = load i16, ptr %98, align 8
   %100 = zext nneg i16 %99 to i32
   %101 = shl i32 %97, %100
-  %102 = getelementptr inbounds i8, ptr %1, i64 198
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 198
   %103 = load i16, ptr %102, align 2
   %104 = sext i16 %103 to i32
-  %105 = getelementptr inbounds i8, ptr %1, i64 196
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 196
   %106 = load i16, ptr %105, align 4
   %107 = zext nneg i16 %106 to i32
   %108 = shl i32 %104, %107
@@ -1670,13 +1670,13 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
   br i1 %112, label %114, label %118
 
 114:                                              ; preds = %110
-  %115 = getelementptr inbounds i8, ptr %113, i64 160
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 160
   %116 = load ptr, ptr %115, align 8
   %117 = tail call ptr %116(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds i8, ptr %113, i64 912
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 912
   %120 = load ptr, ptr %119, align 8
   %121 = tail call ptr (ptr, ptr, ptr, ...) %120(ptr noundef nonnull %0, ptr noundef nonnull %57, ptr noundef nonnull %111) #14
   br label %122
@@ -1688,20 +1688,20 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %0, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 160
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 160
   %127 = load ptr, ptr %126, align 8
   %128 = tail call ptr %127(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 129:                                              ; preds = %11
-  %130 = getelementptr inbounds i8, ptr %1, i64 80
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, 256
   br i1 %132, label %133, label %.thread
 
 133:                                              ; preds = %129
   %134 = load ptr, ptr %0, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 48
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 48
   %136 = load ptr, ptr %135, align 8
   %137 = tail call ptr %136(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #14
   %138 = icmp eq ptr %137, null
@@ -1709,7 +1709,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
 
 139:                                              ; preds = %133
   %140 = load ptr, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 904
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 904
   %142 = load ptr, ptr %141, align 8
   %143 = tail call ptr %142(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #14
   %144 = icmp eq ptr %143, null
@@ -1717,7 +1717,7 @@ define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef re
 
 getColorSpace.exit:                               ; preds = %139
   %145 = load ptr, ptr %0, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 912
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 912
   %147 = load ptr, ptr %146, align 8
   %148 = tail call ptr (ptr, ptr, ptr, ...) %147(ptr noundef nonnull %0, ptr noundef nonnull %137, ptr noundef nonnull %143, i32 noundef 1003) #14
   %149 = icmp eq ptr %148, null
@@ -1725,7 +1725,7 @@ getColorSpace.exit:                               ; preds = %139
 
 getColorSpace.exit.thread:                        ; preds = %139, %133, %getColorSpace.exit
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 160
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 160
   %152 = load ptr, ptr %151, align 8
   %153 = tail call ptr %152(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
@@ -1733,7 +1733,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 154:                                              ; preds = %getColorSpace.exit
   store i32 8, ptr %3, align 4
   %155 = load ptr, ptr %0, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 1432
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 1432
   %157 = load ptr, ptr %156, align 8
   %158 = tail call ptr %157(ptr noundef nonnull %0, i32 noundef 1) #14
   %159 = icmp eq ptr %158, null
@@ -1741,17 +1741,17 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %159, label %161, label %165
 
 161:                                              ; preds = %154
-  %162 = getelementptr inbounds i8, ptr %160, i64 160
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 160
   %163 = load ptr, ptr %162, align 8
   %164 = tail call ptr %163(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 165:                                              ; preds = %154
-  %166 = getelementptr inbounds i8, ptr %160, i64 1688
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 1688
   %167 = load ptr, ptr %166, align 8
   call void %167(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %3) #14
   %168 = load ptr, ptr %0, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
   %170 = load ptr, ptr %169, align 8
   %171 = call ptr %170(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #14
   %172 = icmp eq ptr %171, null
@@ -1759,13 +1759,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %172, label %174, label %178
 
 174:                                              ; preds = %165
-  %175 = getelementptr inbounds i8, ptr %173, i64 160
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 160
   %176 = load ptr, ptr %175, align 8
   %177 = call ptr %176(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 178:                                              ; preds = %165
-  %179 = getelementptr inbounds i8, ptr %173, i64 264
+  %179 = getelementptr inbounds nuw i8, ptr %173, i64 264
   %180 = load ptr, ptr %179, align 8
   %181 = call ptr %180(ptr noundef nonnull %0, ptr noundef nonnull %171, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.18) #14
   %182 = icmp eq ptr %181, null
@@ -1773,13 +1773,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %182, label %184, label %188
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %183, i64 160
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 160
   %186 = load ptr, ptr %185, align 8
   %187 = call ptr %186(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 188:                                              ; preds = %178
-  %189 = getelementptr inbounds i8, ptr %183, i64 224
+  %189 = getelementptr inbounds nuw i8, ptr %183, i64 224
   %190 = load ptr, ptr %189, align 8
   %191 = call ptr (ptr, ptr, ptr, ...) %190(ptr noundef nonnull %0, ptr noundef nonnull %171, ptr noundef nonnull %181, ptr noundef nonnull %148, ptr noundef nonnull %158, i32 noundef 0, i32 noundef 0, i64 noundef 1, i64 noundef 0) #14
   %192 = icmp eq ptr %191, null
@@ -1787,20 +1787,20 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 
 193:                                              ; preds = %188
   %194 = load ptr, ptr %0, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 160
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 160
   %196 = load ptr, ptr %195, align 8
   %197 = call ptr %196(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 .thread:                                          ; preds = %11, %14, %129
-  %198 = getelementptr inbounds i8, ptr %1, i64 36
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %199 = load i32, ptr %198, align 4
   %200 = icmp eq i32 %199, 12
   %. = select i1 %200, i32 4096, i32 256
-  %201 = getelementptr inbounds i8, ptr %1, i64 144
+  %201 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %5, i64 512
+  %204 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %wide.trip.count = zext nneg i32 %. to i64
   br label %205
 
@@ -1811,7 +1811,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %.0228271 = phi i32 [ 1, %.thread ], [ %.2230, %240 ]
   %.0232269 = phi ptr [ %203, %.thread ], [ %241, %240 ]
   %.0237268 = phi ptr [ %204, %.thread ], [ %.1238, %240 ]
-  %206 = getelementptr inbounds i8, ptr %.0232269, i64 3
+  %206 = getelementptr inbounds nuw i8, ptr %.0232269, i64 3
   %207 = load i8, ptr %206, align 1
   %208 = icmp eq i8 %207, 3
   br i1 %208, label %209, label %228
@@ -1820,17 +1820,17 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %210 = load i8, ptr %.0232269, align 1
   %211 = zext i8 %210 to i32
   %212 = shl nuw nsw i32 %211, 16
-  %213 = getelementptr inbounds i8, ptr %.0232269, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.0232269, i64 1
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i32
   %216 = shl nuw nsw i32 %215, 8
-  %217 = getelementptr inbounds i8, ptr %.0232269, i64 2
+  %217 = getelementptr inbounds nuw i8, ptr %.0232269, i64 2
   %218 = load i8, ptr %217, align 1
   %219 = zext i8 %218 to i32
   %220 = or disjoint i32 %212, %216
   %221 = or disjoint i32 %220, %219
   %222 = or disjoint i32 %221, -16777216
-  %223 = getelementptr inbounds [4096 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %223 = getelementptr inbounds nuw [4096 x i32], ptr %4, i64 0, i64 %indvars.iv
   store i32 %222, ptr %223, align 4
   %.not263 = icmp eq i8 %210, %214
   %.not264 = icmp eq i8 %210, %218
@@ -1843,7 +1843,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br label %235
 
 228:                                              ; preds = %205
-  %229 = getelementptr inbounds [4096 x i32], ptr %4, i64 0, i64 %indvars.iv
+  %229 = getelementptr inbounds nuw [4096 x i32], ptr %4, i64 0, i64 %indvars.iv
   store i32 0, ptr %229, align 4
   %230 = trunc nuw nsw i64 %indvars.iv to i32
   %231 = and i32 %230, 7
@@ -1869,7 +1869,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 240:                                              ; preds = %235, %237
   %.1238 = phi ptr [ %239, %237 ], [ %.0237268, %235 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %241 = getelementptr inbounds i8, ptr %.0232269, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %.0232269, i64 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %242, label %205, !llvm.loop !32
 
@@ -1878,9 +1878,9 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %.not, label %.loopexit, label %243
 
 243:                                              ; preds = %242
-  %244 = getelementptr inbounds i8, ptr %1, i64 88
+  %244 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %247 = load i32, ptr %246, align 8
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %249, label %.loopexit
@@ -1889,17 +1889,17 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   store i32 1, ptr %246, align 8
   %250 = tail call noalias dereferenceable_or_null(256) ptr @calloc(i64 noundef 256, i64 noundef 1) #15
   %251 = load ptr, ptr %201, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   store ptr %250, ptr %252, align 8
   %253 = load ptr, ptr %201, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
   %255 = load ptr, ptr %254, align 8
   %256 = icmp eq ptr %255, null
   br i1 %256, label %257, label %.preheader267
 
 257:                                              ; preds = %249
   %258 = load ptr, ptr %0, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 160
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 160
   %260 = load ptr, ptr %259, align 8
   %261 = tail call ptr %260(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
@@ -1916,13 +1916,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %.0214276 = phi i32 [ 256, %.preheader267 ], [ %.1215, %278 ]
   %.0216275 = phi ptr [ %263, %.preheader267 ], [ %280, %278 ]
   %.0218274 = phi i32 [ 0, %.preheader267 ], [ %279, %278 ]
-  %266 = getelementptr inbounds i8, ptr %.0216275, i64 3
+  %266 = getelementptr inbounds nuw i8, ptr %.0216275, i64 3
   %267 = load i8, ptr %266, align 1
   %268 = icmp eq i8 %267, 3
   br i1 %268, label %269, label %278
 
 269:                                              ; preds = %265
-  %270 = getelementptr inbounds i8, ptr %.0216275, i64 1
+  %270 = getelementptr inbounds nuw i8, ptr %.0216275, i64 1
   %271 = load i8, ptr %270, align 1
   %272 = zext i8 %271 to i32
   %273 = sub nsw i32 %272, %264
@@ -1939,16 +1939,16 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %.1215 = phi i32 [ %.0214276, %269 ], [ %.0214276, %265 ], [ %spec.select, %275 ]
   %.2 = phi i32 [ %.0213277, %269 ], [ %.0213277, %265 ], [ %.0218274, %275 ]
   %279 = add nuw nsw i32 %.0218274, 1
-  %280 = getelementptr inbounds i8, ptr %.0216275, i64 4
+  %280 = getelementptr inbounds nuw i8, ptr %.0216275, i64 4
   %exitcond286.not = icmp eq i32 %279, %.
   br i1 %exitcond286.not, label %281, label %265, !llvm.loop !33
 
 281:                                              ; preds = %275, %278
   %.1 = phi i32 [ %.0218274, %275 ], [ %.2, %278 ]
   %282 = trunc i32 %.1 to i8
-  %283 = getelementptr inbounds i8, ptr %262, i64 32
+  %283 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %284 = load ptr, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 %indvars.iv287
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 %indvars.iv287
   store i8 %282, ptr %285, align 1
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next288, 256
@@ -1957,16 +1957,16 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 .preheader:                                       ; preds = %281, %.preheader
   %indvars.iv291 = phi i64 [ %indvars.iv.next292, %.preheader ], [ 0, %281 ]
   %286 = trunc i64 %indvars.iv291 to i8
-  %287 = getelementptr inbounds [256 x i8], ptr @img_bwgamma, i64 0, i64 %indvars.iv291
+  %287 = getelementptr inbounds nuw [256 x i8], ptr @img_bwgamma, i64 0, i64 %indvars.iv291
   store i8 %286, ptr %287, align 1
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond294.not = icmp eq i64 %indvars.iv.next292, 256
   br i1 %exitcond294.not, label %.loopexit, label %.preheader, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.preheader, %243, %242
-  %288 = getelementptr inbounds i8, ptr %1, i64 88
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 16
   %291 = load i32, ptr %290, align 8
   %.not258 = icmp eq i32 %291, 0
   br i1 %.not258, label %332, label %292
@@ -1982,26 +1982,26 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   %.3282 = phi i32 [ %.1222, %292 ], [ %.4, %322 ]
   %.2226281 = phi i32 [ 0, %292 ], [ %.3227, %322 ]
   %.2239280 = phi ptr [ %204, %292 ], [ %.3240, %322 ]
-  %296 = getelementptr inbounds i8, ptr %.0210284, i64 3
+  %296 = getelementptr inbounds nuw i8, ptr %.0210284, i64 3
   %297 = load i8, ptr %296, align 1
   %.not260 = icmp eq i8 %297, 3
   br i1 %.not260, label %298, label %305
 
 298:                                              ; preds = %295
   %299 = load i8, ptr %.0210284, align 1
-  %300 = getelementptr inbounds i8, ptr %.0210284, i64 1
+  %300 = getelementptr inbounds nuw i8, ptr %.0210284, i64 1
   %301 = load i8, ptr %300, align 1
   %.not261 = icmp eq i8 %299, %301
   br i1 %.not261, label %302, label %305
 
 302:                                              ; preds = %298
-  %303 = getelementptr inbounds i8, ptr %.0210284, i64 2
+  %303 = getelementptr inbounds nuw i8, ptr %.0210284, i64 2
   %304 = load i8, ptr %303, align 1
   %.not262 = icmp eq i8 %299, %304
   br i1 %.not262, label %312, label %305
 
 305:                                              ; preds = %302, %298, %295
-  %306 = getelementptr inbounds [4096 x i32], ptr %4, i64 0, i64 %indvars.iv295
+  %306 = getelementptr inbounds nuw [4096 x i32], ptr %4, i64 0, i64 %indvars.iv295
   store i32 0, ptr %306, align 4
   %307 = trunc nuw nsw i64 %indvars.iv295 to i32
   %308 = and i32 %307, 7
@@ -2033,19 +2033,19 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 322:                                              ; preds = %317, %319
   %.3240 = phi ptr [ %321, %319 ], [ %.2239280, %317 ]
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %323 = getelementptr inbounds i8, ptr %.0210284, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %.0210284, i64 4
   %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count
   br i1 %exitcond299.not, label %324, label %295, !llvm.loop !36
 
 324:                                              ; preds = %322
   %325 = load ptr, ptr %201, align 8
-  %326 = getelementptr inbounds i8, ptr %325, i64 72
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 72
   %327 = load ptr, ptr %326, align 8
   %328 = icmp eq ptr %327, null
   br i1 %328, label %329, label %332
 
 329:                                              ; preds = %324
-  %330 = getelementptr inbounds i8, ptr %1, i64 80
+  %330 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %331 = load i32, ptr %330, align 8
   call void @initInverseGrayLut(ptr noundef nonnull %4, i32 noundef %331, ptr noundef nonnull %325) #14
   br label %332
@@ -2057,7 +2057,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 
 333:                                              ; preds = %332
   %334 = load ptr, ptr %0, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 1408
+  %335 = getelementptr inbounds nuw i8, ptr %334, i64 1408
   %336 = load ptr, ptr %335, align 8
   %337 = call ptr %336(ptr noundef nonnull %0, i32 noundef 512) #14
   %338 = icmp eq ptr %337, null
@@ -2065,13 +2065,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %338, label %340, label %344
 
 340:                                              ; preds = %333
-  %341 = getelementptr inbounds i8, ptr %339, i64 160
+  %341 = getelementptr inbounds nuw i8, ptr %339, i64 160
   %342 = load ptr, ptr %341, align 8
   %343 = call ptr %342(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 344:                                              ; preds = %333
-  %345 = getelementptr inbounds i8, ptr %339, i64 1664
+  %345 = getelementptr inbounds nuw i8, ptr %339, i64 1664
   %346 = load ptr, ptr %345, align 8
   call void %346(ptr noundef nonnull %0, ptr noundef nonnull %337, i32 noundef 0, i32 noundef 512, ptr noundef nonnull %5) #14
   %347 = call ptr (ptr, ptr, ptr, ...) @JNU_NewObjectByName(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.20, ptr noundef nonnull %337) #14
@@ -2080,7 +2080,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 
 349:                                              ; preds = %344
   %350 = load ptr, ptr %0, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 160
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 160
   %352 = load ptr, ptr %351, align 8
   %353 = call ptr %352(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
@@ -2088,7 +2088,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 354:                                              ; preds = %344, %332
   %.0233 = phi ptr [ null, %332 ], [ %347, %344 ]
   %355 = load ptr, ptr %0, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 1432
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 1432
   %357 = load ptr, ptr %356, align 8
   %358 = call ptr %357(ptr noundef nonnull %0, i32 noundef %.) #14
   %359 = icmp eq ptr %358, null
@@ -2096,13 +2096,13 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
   br i1 %359, label %361, label %365
 
 361:                                              ; preds = %354
-  %362 = getelementptr inbounds i8, ptr %360, i64 160
+  %362 = getelementptr inbounds nuw i8, ptr %360, i64 160
   %363 = load ptr, ptr %362, align 8
   %364 = call ptr %363(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
 
 365:                                              ; preds = %354
-  %366 = getelementptr inbounds i8, ptr %360, i64 1688
+  %366 = getelementptr inbounds nuw i8, ptr %360, i64 1688
   %367 = load ptr, ptr %366, align 8
   call void %367(ptr noundef nonnull %0, ptr noundef nonnull %358, i32 noundef 0, i32 noundef %., ptr noundef nonnull %4) #14
   %368 = load i32, ptr %198, align 4
@@ -2124,7 +2124,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 
 376:                                              ; preds = %374
   %377 = load ptr, ptr %0, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 160
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 160
   %379 = load ptr, ptr %378, align 8
   %380 = call ptr %379(ptr noundef nonnull %0, ptr noundef null) #14
   br label %386
@@ -2132,7 +2132,7 @@ getColorSpace.exit.thread:                        ; preds = %139, %133, %getColo
 381:                                              ; preds = %188, %374, %122
   %.1235 = phi ptr [ %.0234, %122 ], [ %191, %188 ], [ %.2236, %374 ]
   %382 = load ptr, ptr %0, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 160
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 160
   %384 = load ptr, ptr %383, align 8
   %385 = call ptr %384(ptr noundef nonnull %0, ptr noundef nonnull %.1235) #14
   br label %386
@@ -2152,7 +2152,7 @@ define hidden void @awt_allocate_systemrgbcolors(ptr nocapture noundef readonly 
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %6
 
@@ -2160,7 +2160,7 @@ define hidden void @awt_allocate_systemrgbcolors(ptr nocapture noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr @awt_display, align 8
   %8 = load i64, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %11 = lshr i32 %10, 16
   %12 = and i32 %11, 255
@@ -2183,29 +2183,29 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr nocapture noundef %0
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = load ptr, ptr @awt_display, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 232
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %9 to i64
   %15 = getelementptr inbounds %struct.Screen, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %10, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %15, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %21 = load i64, ptr %20, align 8
   br label %52
 
 22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %15, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 1
   %.not = icmp eq i32 %27, 0
@@ -2225,20 +2225,20 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr nocapture noundef %0
 
 .lr.ph:                                           ; preds = %28
   %.promoted = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load i64, ptr %37, align 8
   br label %39
 
 39:                                               ; preds = %.lr.ph, %44
   %storemerge26 = phi i64 [ %36, %.lr.ph ], [ %46, %44 ]
   %40 = phi ptr [ %.promoted, %.lr.ph ], [ %45, %44 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 64
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 64
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, %38
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %40, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 80
   store ptr %45, ptr %6, align 8
   %46 = add nsw i64 %storemerge26, -1
   %.not19 = icmp eq i64 %46, 0
@@ -2263,7 +2263,7 @@ define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr nocapture noundef %0
 
 52:                                               ; preds = %47, %.thread, %19
   %.017 = phi i64 [ %21, %19 ], [ %48, %47 ], [ %51, %.thread ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.017, ptr %53, align 8
   %54 = call i32 @awt_allocate_colors(ptr noundef nonnull %0)
   %.not21 = icmp eq i32 %54, 0
@@ -2295,7 +2295,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1824
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
   %8 = load ptr, ptr %7, align 8
   %9 = tail call zeroext i8 %8(ptr noundef nonnull %0) #14
   %.not92 = icmp eq i8 %9, 0
@@ -2303,20 +2303,20 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 136
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull %0) #14
   br label %14
 
 14:                                               ; preds = %10, %5
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 1128
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 1128
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @tkClass, align 8
   %19 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %17(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19) #14
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %0) #14
   %.not93 = icmp eq i8 %23, 0
@@ -2324,7 +2324,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 24:                                               ; preds = %14
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0) #14
   br label %28
@@ -2338,7 +2338,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
   ]
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 3
   br i1 %34, label %35, label %awt_allocate_systemrgbcolors.exit
@@ -2349,7 +2349,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 36:                                               ; preds = %35
   tail call void (...) @awt_output_flush() #14
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 120
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 120
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr %39(ptr noundef nonnull %0) #14
   %.not94 = icmp eq ptr %40, null
@@ -2357,20 +2357,20 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 136
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 136
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull %0) #14
   br label %45
 
 45:                                               ; preds = %41, %36
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1128
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1128
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr @tkClass, align 8
   %50 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %48(ptr noundef nonnull %0, ptr noundef %49, ptr noundef %50) #14
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1824
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #14
   %.not95 = icmp eq i8 %54, 0
@@ -2378,7 +2378,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 55:                                               ; preds = %45
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 136
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 136
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %0) #14
   br label %59
@@ -2388,14 +2388,14 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 60:                                               ; preds = %59
   %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 %63(ptr noundef nonnull %0, ptr noundef nonnull %40) #14
   br label %65
 
 65:                                               ; preds = %59, %60
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1824
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1824
   %68 = load ptr, ptr %67, align 8
   %69 = tail call zeroext i8 %68(ptr noundef nonnull %0) #14
   %.not96 = icmp eq i8 %69, 0
@@ -2403,7 +2403,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 70:                                               ; preds = %65, %35
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = tail call ptr %73(ptr noundef %0, ptr noundef nonnull @.str.23) #14
   %75 = icmp eq ptr %74, null
@@ -2414,7 +2414,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1824
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1824
   %80 = load ptr, ptr %79, align 8
   %81 = tail call zeroext i8 %80(ptr noundef nonnull %0) #14
   %.not97 = icmp eq i8 %81, 0
@@ -2422,20 +2422,20 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 82:                                               ; preds = %77
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 136
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 136
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull %0) #14
   br label %86
 
 86:                                               ; preds = %82, %77
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1128
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1128
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr @tkClass, align 8
   %91 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %89(ptr noundef nonnull %0, ptr noundef %90, ptr noundef %91) #14
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 1824
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 1824
   %94 = load ptr, ptr %93, align 8
   %95 = tail call zeroext i8 %94(ptr noundef nonnull %0) #14
   %.not98 = icmp eq i8 %95, 0
@@ -2443,14 +2443,14 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 96:                                               ; preds = %86
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 136
   %99 = load ptr, ptr %98, align 8
   tail call void %99(ptr noundef nonnull %0) #14
   br label %100
 
 100:                                              ; preds = %96, %86, %76
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 1152
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 1152
   %103 = load ptr, ptr %102, align 8
   %104 = tail call ptr %103(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25) #14
   %105 = icmp eq ptr %104, null
@@ -2462,7 +2462,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 107:                                              ; preds = %106
   tail call void (...) @awt_output_flush() #14
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 120
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 120
   %110 = load ptr, ptr %109, align 8
   %111 = tail call ptr %110(ptr noundef nonnull %0) #14
   %.not101 = icmp eq ptr %111, null
@@ -2470,20 +2470,20 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 112:                                              ; preds = %107
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 136
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 136
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef nonnull %0) #14
   br label %116
 
 116:                                              ; preds = %112, %107
   %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 1128
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 1128
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr @tkClass, align 8
   %121 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %119(ptr noundef nonnull %0, ptr noundef %120, ptr noundef %121) #14
   %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 1824
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1824
   %124 = load ptr, ptr %123, align 8
   %125 = tail call zeroext i8 %124(ptr noundef nonnull %0) #14
   %.not102 = icmp eq i8 %125, 0
@@ -2491,7 +2491,7 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 126:                                              ; preds = %116
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 136
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 136
   %129 = load ptr, ptr %128, align 8
   tail call void %129(ptr noundef nonnull %0) #14
   br label %130
@@ -2501,28 +2501,28 @@ define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 104
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 104
   %134 = load ptr, ptr %133, align 8
   %135 = tail call i32 %134(ptr noundef nonnull %0, ptr noundef nonnull %111) #14
   br label %185
 
 136:                                              ; preds = %100
   %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 1160
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 1160
   %139 = load ptr, ptr %138, align 8
   %140 = tail call ptr %139(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull %104) #14
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 1624
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 1624
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull %0, ptr noundef %140, i32 noundef 0, i32 noundef 26, ptr noundef nonnull %4) #14
-  %144 = getelementptr inbounds i8, ptr %1, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %145
 
 145:                                              ; preds = %145, %136
   %indvars.iv.i = phi i64 [ 0, %136 ], [ %indvars.iv.next.i, %145 ]
   %146 = load ptr, ptr @awt_display, align 8
   %147 = load i64, ptr %144, align 8
-  %148 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
   %149 = load i32, ptr %148, align 4
   %150 = lshr i32 %149, 16
   %151 = and i32 %150, 255
@@ -2540,7 +2540,7 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
 156:                                              ; preds = %awt_allocate_systemrgbcolors.exit
   call void (...) @awt_output_flush() #14
   %157 = load ptr, ptr %0, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 120
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 120
   %159 = load ptr, ptr %158, align 8
   %160 = call ptr %159(ptr noundef %0) #14
   %.not99 = icmp eq ptr %160, null
@@ -2548,20 +2548,20 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
 
 161:                                              ; preds = %156
   %162 = load ptr, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 136
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 136
   %164 = load ptr, ptr %163, align 8
   call void %164(ptr noundef nonnull %0) #14
   br label %165
 
 165:                                              ; preds = %161, %156
   %166 = load ptr, ptr %0, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 1128
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 1128
   %168 = load ptr, ptr %167, align 8
   %169 = load ptr, ptr @tkClass, align 8
   %170 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %168(ptr noundef nonnull %0, ptr noundef %169, ptr noundef %170) #14
   %171 = load ptr, ptr %0, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 1824
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 1824
   %173 = load ptr, ptr %172, align 8
   %174 = call zeroext i8 %173(ptr noundef nonnull %0) #14
   %.not100 = icmp eq i8 %174, 0
@@ -2569,7 +2569,7 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
 
 175:                                              ; preds = %165
   %176 = load ptr, ptr %0, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 136
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 136
   %178 = load ptr, ptr %177, align 8
   call void %178(ptr noundef nonnull %0) #14
   br label %179
@@ -2579,7 +2579,7 @@ awt_allocate_systemrgbcolors.exit:                ; preds = %145, %28, %31
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr %0, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 104
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 104
   %183 = load ptr, ptr %182, align 8
   %184 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %160) #14
   br label %185

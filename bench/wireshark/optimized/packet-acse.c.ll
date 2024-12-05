@@ -637,9 +637,9 @@ define internal i32 @dissect_acse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   unreachable
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %3, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 128
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 128
   store ptr %2, ptr %20, align 8
   switch i8 %14, label %52 [
     i8 1, label %21
@@ -685,7 +685,7 @@ define internal i32 @dissect_acse(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %36 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %37 = load i32, ptr @ett_acse, align 4
   %38 = call ptr @proto_item_add_subtree(ptr noundef %36, i32 noundef %37) #5
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   call void @col_set_str(ptr noundef %40, i32 noundef 34, ptr noundef nonnull %.str.247.sink) #5
   %41 = load ptr, ptr %39, align 8
@@ -742,11 +742,11 @@ declare i32 @dissect_ber_sequence(i1 noundef zeroext, ptr noundef, ptr noundef, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_direct_reference(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8
@@ -754,11 +754,11 @@ define internal i32 @dissect_acse_T_direct_reference(i1 noundef zeroext %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_indirect_reference(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr @hf_acse_indirect_reference, align 4
   %10 = tail call i32 @dissect_ber_integer(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %9, ptr noundef nonnull @indir_ref) #5
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr @indir_ref, align 4
   %14 = tail call ptr @find_oid_by_pres_ctx_id(ptr noundef %12, i32 noundef %13) #5
@@ -767,12 +767,12 @@ define internal i32 @dissect_acse_T_indirect_reference(i1 zeroext %0, ptr nounde
 
 15:                                               ; preds = %6
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noalias ptr @wmem_strdup(ptr noundef %18, ptr noundef nonnull %14) #5
-  %20 = getelementptr inbounds i8, ptr %3, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %3, i64 61
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 61
   store i8 1, ptr %21, align 1
   br label %22
 
@@ -783,7 +783,7 @@ define internal i32 @dissect_acse_T_indirect_reference(i1 zeroext %0, ptr nounde
 23:                                               ; preds = %22
   %24 = load i32, ptr @indir_ref, align 4
   %25 = trunc i32 %24 to i8
-  %26 = getelementptr inbounds i8, ptr %8, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 2
   store i8 %25, ptr %26, align 2
   br label %27
 
@@ -814,21 +814,21 @@ declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 61
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   %. = select i1 %.not, ptr %4, ptr %16
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @call_ber_oid_callback(ptr noundef %12, ptr noundef %1, i32 noundef %2, ptr noundef %14, ptr noundef %., ptr noundef %18) #5
   br label %20
@@ -840,21 +840,21 @@ define internal i32 @dissect_acse_T_single_ASN1_type(i1 zeroext %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_octet_aligned(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 61
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   %. = select i1 %.not, ptr %4, ptr %16
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @call_ber_oid_callback(ptr noundef %12, ptr noundef %1, i32 noundef %2, ptr noundef %14, ptr noundef %., ptr noundef %18) #5
   br label %20
@@ -964,9 +964,9 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_AARQ_apdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.290) #5
   %11 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 0, i1 noundef zeroext true, ptr noundef nonnull @dissect_acse_AARQ_apdu_U) #5
@@ -975,9 +975,9 @@ define internal i32 @dissect_acse_AARQ_apdu(i1 noundef zeroext %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_AARE_apdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.291) #5
   %11 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull @dissect_acse_AARE_apdu_U) #5
@@ -986,9 +986,9 @@ define internal i32 @dissect_acse_AARE_apdu(i1 noundef zeroext %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_RLRQ_apdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.292) #5
   %11 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 2, i1 noundef zeroext true, ptr noundef nonnull @dissect_acse_RLRQ_apdu_U) #5
@@ -997,9 +997,9 @@ define internal i32 @dissect_acse_RLRQ_apdu(i1 noundef zeroext %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_RLRE_apdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.295) #5
   %11 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 3, i1 noundef zeroext true, ptr noundef nonnull @dissect_acse_RLRE_apdu_U) #5
@@ -1008,9 +1008,9 @@ define internal i32 @dissect_acse_RLRE_apdu(i1 noundef zeroext %0, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_ABRT_apdu(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_append_str(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.296) #5
   %11 = tail call i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, i8 noundef signext 1, i32 noundef 4, i1 noundef zeroext true, ptr noundef nonnull @dissect_acse_ABRT_apdu_U) #5
@@ -1053,11 +1053,11 @@ define internal i32 @dissect_acse_T_AARQ_protocol_version(i1 noundef zeroext %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_AARQ_aSO_context_name(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8
@@ -1132,11 +1132,11 @@ define internal i32 @dissect_acse_Authentication_value_other(i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_other_mechanism_name(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8
@@ -1144,19 +1144,19 @@ define internal i32 @dissect_acse_T_other_mechanism_name(i1 noundef zeroext %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_other_mechanism_value(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, i32 %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 61
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %20
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @call_ber_oid_callback(ptr noundef %12, ptr noundef %1, i32 noundef %2, ptr noundef %14, ptr noundef %16, ptr noundef %18) #5
   br label %20
@@ -1260,11 +1260,11 @@ define internal i32 @dissect_acse_T_AARE_protocol_version(i1 noundef zeroext %0,
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_AARE_aSO_context_name(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8
@@ -1344,9 +1344,9 @@ define internal i32 @dissect_acse_Release_request_reason(i1 noundef zeroext %0, 
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @acse_Release_request_reason_vals, ptr noundef nonnull @.str.294) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef %15) #5
@@ -1377,9 +1377,9 @@ define internal i32 @dissect_acse_Release_response_reason(i1 noundef zeroext %0,
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @acse_Release_response_reason_vals, ptr noundef nonnull @.str.294) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef %15) #5
@@ -1406,9 +1406,9 @@ define internal i32 @dissect_acse_ABRT_source(i1 noundef zeroext %0, ptr noundef
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %9, ptr noundef nonnull @acse_ABRT_source_vals, ptr noundef nonnull @.str.297) #5
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.293, ptr noundef %15) #5
@@ -1485,11 +1485,11 @@ define internal i32 @dissect_acse_ACRQ_apdu_U(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_ACRQ_aSO_context_name(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8
@@ -1504,11 +1504,11 @@ define internal i32 @dissect_acse_ACRP_apdu_U(i1 noundef zeroext %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_acse_T_ACRP_aSO_context_name(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = tail call i32 @dissect_ber_object_identifier_str(i1 noundef zeroext false, ptr noundef %3, ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %5, ptr noundef nonnull %7) #5
   %9 = load ptr, ptr %7, align 8
   %10 = icmp ne ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %3, i64 61
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 61
   %12 = zext i1 %10 to i8
   store i8 %12, ptr %11, align 1
   ret i32 %8

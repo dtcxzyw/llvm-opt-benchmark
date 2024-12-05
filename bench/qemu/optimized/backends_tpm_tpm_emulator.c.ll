@@ -239,7 +239,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.3, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #12
   br label %trace_tpm_emulator_inst_init.exit
@@ -251,14 +251,14 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_tpm_emulator_inst_init.exit:                ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %call1 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8) #13
-  %options = getelementptr inbounds i8, ptr %call.i, i64 88
+  %options = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   store ptr %call1, ptr %options, align 8
-  %cur_locty_number = getelementptr inbounds i8, ptr %call.i, i64 176
+  %cur_locty_number = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   store i8 -1, ptr %cur_locty_number, align 8
-  %mutex = getelementptr inbounds i8, ptr %call.i, i64 192
+  %mutex = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   tail call void @qemu_mutex_init(ptr noundef nonnull %mutex) #12
   %call2 = tail call ptr @qemu_add_vm_change_state_handler(ptr noundef nonnull @tpm_emulator_vm_state_change, ptr noundef %call.i) #12
-  %vmstate = getelementptr inbounds i8, ptr %call.i, i64 328
+  %vmstate = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   store ptr %call2, ptr %vmstate, align 8
   %call.i6 = tail call i32 @vmstate_register_with_alias_id(ptr noundef null, i32 noundef -1, ptr noundef nonnull @vmstate_tpm_emulator, ptr noundef %obj, i32 noundef -1, i32 noundef 0, ptr noundef null) #12
   ret void
@@ -271,7 +271,7 @@ entry:
   %res.i = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i)
-  %options.i = getelementptr inbounds i8, ptr %call.i, i64 88
+  %options.i = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %1 = load ptr, ptr %options.i, align 8
   %2 = load ptr, ptr %1, align 8
   %tobool.not.i = icmp eq ptr %2, null
@@ -280,8 +280,8 @@ entry:
 if.end.i:                                         ; preds = %entry
   %savedstack.i = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %0)
-  %ctrl_chr.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void %4(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
@@ -330,7 +330,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %if.t
   br i1 %cmp2.i.i, label %if.then.i.i, label %for.cond.i.i
 
 if.then.i.i:                                      ; preds = %for.body.i.i
-  %string.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %string.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %9 = load ptr, ptr %string.i.i, align 8
   br label %tpm_emulator_strerror.exit.i
 
@@ -341,24 +341,24 @@ tpm_emulator_strerror.exit.i:                     ; preds = %for.cond.i.i, %if.t
 
 tpm_emulator_shutdown.exit:                       ; preds = %entry, %qemu_lockable_auto_unlock.exit.i.i.i.i, %tpm_emulator_ctrlcmd.exit.i, %tpm_emulator_strerror.exit.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %res.i)
-  %data_ioc = getelementptr inbounds i8, ptr %call.i, i64 152
+  %data_ioc = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %10 = load ptr, ptr %data_ioc, align 8
   call void @object_unref(ptr noundef %10) #12
-  %ctrl_chr = getelementptr inbounds i8, ptr %call.i, i64 96
+  %ctrl_chr = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   call void @qemu_chr_fe_deinit(ptr noundef nonnull %ctrl_chr, i1 noundef zeroext false) #12
   %11 = load ptr, ptr %options.i, align 8
   call void @qapi_free_TPMEmulatorOptions(ptr noundef %11) #12
-  %migration_blocker = getelementptr inbounds i8, ptr %call.i, i64 184
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   call void @migrate_del_blocker(ptr noundef nonnull %migration_blocker) #12
-  %volatil = getelementptr inbounds i8, ptr %call.i, i64 280
+  %volatil = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   call void @tpm_sized_buffer_reset(ptr noundef nonnull %volatil) #12
-  %permanent = getelementptr inbounds i8, ptr %call.i, i64 256
+  %permanent = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   call void @tpm_sized_buffer_reset(ptr noundef nonnull %permanent) #12
-  %savestate = getelementptr inbounds i8, ptr %call.i, i64 304
+  %savestate = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   call void @tpm_sized_buffer_reset(ptr noundef nonnull %savestate) #12
-  %mutex = getelementptr inbounds i8, ptr %call.i, i64 192
+  %mutex = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   call void @qemu_mutex_destroy(ptr noundef nonnull %mutex) #12
-  %vmstate = getelementptr inbounds i8, ptr %call.i, i64 328
+  %vmstate = getelementptr inbounds nuw i8, ptr %call.i, i64 328
   %12 = load ptr, ptr %vmstate, align 8
   call void @qemu_del_vm_change_state_handler(ptr noundef %12) #12
   call void @vmstate_unregister(ptr noundef null, ptr noundef nonnull @vmstate_tpm_emulator, ptr noundef %obj) #12
@@ -369,29 +369,29 @@ tpm_emulator_shutdown.exit:                       ; preds = %entry, %qemu_lockab
 define internal void @tpm_emulator_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.68, i32 noundef 25, ptr noundef nonnull @__func__.TPM_BACKEND_CLASS) #12
-  %type = getelementptr inbounds i8, ptr %call.i, i64 96
+  %type = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store i32 1, ptr %type, align 8
-  %opts = getelementptr inbounds i8, ptr %call.i, i64 104
+  %opts = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @tpm_emulator_cmdline_opts, ptr %opts, align 8
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.67, ptr %desc, align 8
-  %create = getelementptr inbounds i8, ptr %call.i, i64 120
+  %create = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @tpm_emulator_create, ptr %create, align 8
-  %startup_tpm = getelementptr inbounds i8, ptr %call.i, i64 128
+  %startup_tpm = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr @tpm_emulator_startup_tpm, ptr %startup_tpm, align 8
-  %cancel_cmd = getelementptr inbounds i8, ptr %call.i, i64 144
+  %cancel_cmd = getelementptr inbounds nuw i8, ptr %call.i, i64 144
   store ptr @tpm_emulator_cancel_cmd, ptr %cancel_cmd, align 8
-  %get_tpm_established_flag = getelementptr inbounds i8, ptr %call.i, i64 152
+  %get_tpm_established_flag = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   store ptr @tpm_emulator_get_tpm_established_flag, ptr %get_tpm_established_flag, align 8
-  %reset_tpm_established_flag = getelementptr inbounds i8, ptr %call.i, i64 160
+  %reset_tpm_established_flag = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @tpm_emulator_reset_tpm_established_flag, ptr %reset_tpm_established_flag, align 8
-  %get_tpm_version = getelementptr inbounds i8, ptr %call.i, i64 168
+  %get_tpm_version = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   store ptr @tpm_emulator_get_tpm_version, ptr %get_tpm_version, align 8
-  %get_buffer_size = getelementptr inbounds i8, ptr %call.i, i64 176
+  %get_buffer_size = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   store ptr @tpm_emulator_get_buffer_size, ptr %get_buffer_size, align 8
-  %get_tpm_options = getelementptr inbounds i8, ptr %call.i, i64 184
+  %get_tpm_options = getelementptr inbounds nuw i8, ptr %call.i, i64 184
   store ptr @tpm_emulator_get_tpm_options, ptr %get_tpm_options, align 8
-  %handle_request = getelementptr inbounds i8, ptr %call.i, i64 192
+  %handle_request = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   store ptr @tpm_emulator_handle_request, ptr %handle_request, align 8
   ret void
 }
@@ -435,7 +435,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.5, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 2) %conv, i32 noundef %state) #12
   br label %trace_tpm_emulator_vm_state_change.exit
@@ -451,14 +451,14 @@ trace_tpm_emulator_vm_state_change.exit:          ; preds = %entry, %land.lhs.tr
   br i1 %or.cond.not, label %lor.lhs.false3, label %return
 
 lor.lhs.false3:                                   ; preds = %trace_tpm_emulator_vm_state_change.exit
-  %relock_storage = getelementptr inbounds i8, ptr %call.i, i64 320
+  %relock_storage = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   %7 = load i8, ptr %relock_storage, align 8
   %tobool4 = trunc i8 %7 to i1
   br i1 %tobool4, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %pls.i)
-  %caps.i = getelementptr inbounds i8, ptr %call.i, i64 168
+  %caps.i = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %8 = load i64, ptr %caps.i, align 8
   %and.i = and i64 %8, 65536
   %cmp.not.i = icmp eq i64 %and.i, 0
@@ -488,7 +488,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %13 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.9, i32 noundef %call10.i.i.i, i64 noundef %13, i64 noundef %14) #12
   br label %trace_tpm_emulator_lock_storage_cmd_not_supt.exit.i
@@ -505,13 +505,13 @@ if.end.i:                                         ; preds = %if.end
   store i32 738263040, ptr %pls.i, align 4
   %savedstack.i = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0)
-  %ctrl_chr.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
   tail call void %16(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 318767104, ptr %0, align 16
-  %add.ptr.us50.i.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 738263040, ptr %add.ptr.us50.i.i, align 4
   %call3.us52.i.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i.i = icmp slt i32 %call3.us52.i.i, 1
@@ -555,7 +555,7 @@ for.body.i.i:                                     ; preds = %tpm_emulator_ctrlcm
   br i1 %cmp2.i.i, label %if.then.i.i5, label %for.cond.i.i
 
 if.then.i.i5:                                     ; preds = %for.body.i.i
-  %string.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %string.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   %21 = load ptr, ptr %string.i.i, align 8
   br label %tpm_emulator_strerror.exit.i
 
@@ -633,7 +633,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.34, i32 noundef %call10.i.i.i, i64 noundef %4, i64 noundef %5) #12
   br label %trace_tpm_emulator_set_state_blobs.exit.i
@@ -672,7 +672,7 @@ if.then8.i.i20.i:                                 ; preds = %if.then.i.i17.i
   %call9.i.i21.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i10.i, ptr noundef null) #12
   %call10.i.i22.i = tail call i32 @qemu_get_thread_id() #12
   %10 = load i64, ptr %_now.i.i10.i, align 8
-  %tv_usec.i.i23.i = getelementptr inbounds i8, ptr %_now.i.i10.i, i64 8
+  %tv_usec.i.i23.i = getelementptr inbounds nuw i8, ptr %_now.i.i10.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i23.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i22.i, i64 noundef %10, i64 noundef %11, ptr noundef nonnull @.str.33) #12
   br label %trace_tpm_emulator_set_state_blobs_error.exit.i
@@ -686,24 +686,24 @@ trace_tpm_emulator_set_state_blobs_error.exit.i:  ; preds = %if.else.i.i19.i, %i
   br label %return
 
 if.end.i:                                         ; preds = %trace_tpm_emulator_set_state_blobs.exit.i
-  %state_blobs1.i = getelementptr inbounds i8, ptr %call.i.i, i64 248
-  %permanent.i = getelementptr inbounds i8, ptr %call.i.i, i64 256
+  %state_blobs1.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 248
+  %permanent.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 256
   %12 = load i32, ptr %state_blobs1.i, align 8
   %call3.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef %call.i.i, i32 noundef 1, ptr noundef nonnull %permanent.i, i32 noundef %12)
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %return, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i
-  %volatil.i = getelementptr inbounds i8, ptr %call.i.i, i64 280
-  %volatil_flags.i = getelementptr inbounds i8, ptr %call.i.i, i64 272
+  %volatil.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 280
+  %volatil_flags.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 272
   %13 = load i32, ptr %volatil_flags.i, align 8
   %call5.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef nonnull %call.i.i, i32 noundef 2, ptr noundef nonnull %volatil.i, i32 noundef %13)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %return, label %lor.lhs.false7.i
 
 lor.lhs.false7.i:                                 ; preds = %lor.lhs.false.i
-  %savestate.i = getelementptr inbounds i8, ptr %call.i.i, i64 304
-  %savestate_flags.i = getelementptr inbounds i8, ptr %call.i.i, i64 296
+  %savestate.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 304
+  %savestate_flags.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 296
   %14 = load i32, ptr %savestate_flags.i, align 8
   %call8.i = tail call fastcc i32 @tpm_emulator_set_state_blob(ptr noundef nonnull %call.i.i, i32 noundef 3, ptr noundef nonnull %savestate.i, i32 noundef %14)
   %cmp9.i = icmp slt i32 %call8.i, 0
@@ -733,7 +733,7 @@ if.then8.i.i34.i:                                 ; preds = %if.then.i.i31.i
   %call9.i.i35.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i24.i, ptr noundef null) #12
   %call10.i.i36.i = tail call i32 @qemu_get_thread_id() #12
   %19 = load i64, ptr %_now.i.i24.i, align 8
-  %tv_usec.i.i37.i = getelementptr inbounds i8, ptr %_now.i.i24.i, i64 8
+  %tv_usec.i.i37.i = getelementptr inbounds nuw i8, ptr %_now.i.i24.i, i64 8
   %20 = load i64, ptr %tv_usec.i.i37.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.46, i32 noundef %call10.i.i36.i, i64 noundef %19, i64 noundef %20) #12
   br label %if.end
@@ -782,7 +782,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.56, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #12
   br label %trace_tpm_emulator_pre_save.exit
@@ -794,38 +794,38 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 trace_tpm_emulator_pre_save.exit:                 ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   tail call void @tpm_backend_finish_sync(ptr noundef %opaque) #12
-  %state_blobs1.i = getelementptr inbounds i8, ptr %call.i, i64 248
-  %permanent.i = getelementptr inbounds i8, ptr %call.i, i64 256
+  %state_blobs1.i = getelementptr inbounds nuw i8, ptr %call.i, i64 248
+  %permanent.i = getelementptr inbounds nuw i8, ptr %call.i, i64 256
   %call.i4 = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 1, ptr noundef nonnull %permanent.i, ptr noundef nonnull %state_blobs1.i)
   %cmp.i = icmp slt i32 %call.i4, 0
   br i1 %cmp.i, label %err_exit.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %trace_tpm_emulator_pre_save.exit
-  %volatil.i = getelementptr inbounds i8, ptr %call.i, i64 280
-  %volatil_flags.i = getelementptr inbounds i8, ptr %call.i, i64 272
+  %volatil.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
+  %volatil_flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 272
   %call2.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 2, ptr noundef nonnull %volatil.i, ptr noundef nonnull %volatil_flags.i)
   %cmp3.i = icmp slt i32 %call2.i, 0
   br i1 %cmp3.i, label %err_exit.i, label %lor.lhs.false4.i
 
 lor.lhs.false4.i:                                 ; preds = %lor.lhs.false.i
-  %savestate.i = getelementptr inbounds i8, ptr %call.i, i64 304
-  %savestate_flags.i = getelementptr inbounds i8, ptr %call.i, i64 296
+  %savestate.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
+  %savestate_flags.i = getelementptr inbounds nuw i8, ptr %call.i, i64 296
   %call5.i = tail call fastcc i32 @tpm_emulator_get_state_blob(ptr noundef %call.i, i8 noundef zeroext 3, ptr noundef nonnull %savestate.i, ptr noundef nonnull %savestate_flags.i)
   %cmp6.i = icmp slt i32 %call5.i, 0
   br i1 %cmp6.i, label %err_exit.i, label %tpm_emulator_get_state_blobs.exit
 
 err_exit.i:                                       ; preds = %lor.lhs.false4.i, %lor.lhs.false.i, %trace_tpm_emulator_pre_save.exit
-  %volatil7.i = getelementptr inbounds i8, ptr %call.i, i64 280
+  %volatil7.i = getelementptr inbounds nuw i8, ptr %call.i, i64 280
   tail call void @tpm_sized_buffer_reset(ptr noundef nonnull %volatil7.i) #12
   tail call void @tpm_sized_buffer_reset(ptr noundef nonnull %permanent.i) #12
-  %savestate9.i = getelementptr inbounds i8, ptr %call.i, i64 304
+  %savestate9.i = getelementptr inbounds nuw i8, ptr %call.i, i64 304
   tail call void @tpm_sized_buffer_reset(ptr noundef nonnull %savestate9.i) #12
   br label %tpm_emulator_get_state_blobs.exit
 
 tpm_emulator_get_state_blobs.exit:                ; preds = %lor.lhs.false4.i, %err_exit.i
   %cmp = phi i8 [ 0, %err_exit.i ], [ 1, %lor.lhs.false4.i ]
   %retval.0.i = phi i32 [ -1, %err_exit.i ], [ 0, %lor.lhs.false4.i ]
-  %relock_storage = getelementptr inbounds i8, ptr %call.i, i64 320
+  %relock_storage = getelementptr inbounds nuw i8, ptr %call.i, i64 320
   store i8 %cmp, ptr %relock_storage, align 8
   ret i32 %retval.0.i
 }
@@ -861,7 +861,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   %conv12.i.i = zext i1 %is_resume to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.50, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef %conv12.i.i, i64 noundef %buffersize) #12
@@ -893,13 +893,13 @@ if.end6:                                          ; preds = %if.then4, %if.end
   %7 = phi i32 [ 16777216, %if.then4 ], [ 0, %if.end ]
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 33554432, ptr %0, align 16
-  %add.ptr.us50.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %7, ptr %add.ptr.us50.i, align 4
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
@@ -942,7 +942,7 @@ for.body.i:                                       ; preds = %tpm_emulator_ctrlcm
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %string.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %string.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %14 = load ptr, ptr %string.i, align 8
   br label %tpm_emulator_strerror.exit
 
@@ -964,8 +964,8 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
@@ -1012,7 +1012,7 @@ for.body.i:                                       ; preds = %tpm_emulator_ctrlcm
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %string.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %string.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %7 = load ptr, ptr %string.i, align 8
   br label %tpm_emulator_strerror.exit
 
@@ -1037,25 +1037,25 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %.compoundliteral.sroa.5.0.pss.sroa_idx = getelementptr inbounds i8, ptr %pss, i64 12
+  %.compoundliteral.sroa.5.0.pss.sroa_idx = getelementptr inbounds nuw i8, ptr %pss, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3072) %.compoundliteral.sroa.5.0.pss.sroa_idx, i8 0, i64 3072, i1 false)
   %2 = tail call noundef i32 @llvm.bswap.i32(i32 %flags)
   %3 = shl nuw nsw i32 %type, 24
   %4 = tail call noundef i32 @llvm.bswap.i32(i32 %1)
   store i32 %2, ptr %pss, align 4
-  %.compoundliteral.sroa.3.0.pss.sroa_idx = getelementptr inbounds i8, ptr %pss, i64 4
+  %.compoundliteral.sroa.3.0.pss.sroa_idx = getelementptr inbounds nuw i8, ptr %pss, i64 4
   store i32 %3, ptr %.compoundliteral.sroa.3.0.pss.sroa_idx, align 4
-  %.compoundliteral.sroa.4.0.pss.sroa_idx = getelementptr inbounds i8, ptr %pss, i64 8
+  %.compoundliteral.sroa.4.0.pss.sroa_idx = getelementptr inbounds nuw i8, ptr %pss, i64 8
   store i32 %4, ptr %.compoundliteral.sroa.4.0.pss.sroa_idx, align 4
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %tpm_emu, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %tpm_emu, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 192
   %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %6 = inttoptr i64 %5 to ptr
   tail call void %6(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 218103808, ptr %0, align 16
-  %add.ptr.us50.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.us50.i, ptr noundef nonnull align 4 dereferenceable(12) %pss, i64 12, i1 false)
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 16) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
@@ -1072,7 +1072,7 @@ if.then7:                                         ; preds = %if.end
   br label %return
 
 if.end10:                                         ; preds = %if.end
-  %buffer = getelementptr inbounds i8, ptr %tsb, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %tsb, i64 8
   %8 = load ptr, ptr %buffer, align 8
   %9 = load i32, ptr %tsb, align 8
   %call12 = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef %8, i32 noundef %9) #12
@@ -1115,7 +1115,7 @@ for.body.i:                                       ; preds = %if.end26, %for.cond
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %string.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %string.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %14 = load ptr, ptr %string.i, align 8
   br label %tpm_emulator_strerror.exit
 
@@ -1149,7 +1149,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = call i32 @qemu_get_thread_id() #12
   %20 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %type, i32 noundef %15, i32 noundef %flags) #12
   br label %trace_tpm_emulator_set_state_blob.exit
@@ -1187,13 +1187,13 @@ if.end:                                           ; preds = %entry
   store i32 %1, ptr %psbs, align 4
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 285212672, ptr %0, align 16
-  %add.ptr.us50.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %add.ptr.us50.i, align 4
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 8) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
@@ -1237,7 +1237,7 @@ for.body.i:                                       ; preds = %tpm_emulator_ctrlcm
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %string.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %string.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %8 = load ptr, ptr %string.i, align 8
   br label %tpm_emulator_strerror.exit
 
@@ -1248,7 +1248,7 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
 
 if.end24:                                         ; preds = %tpm_emulator_ctrlcmd.exit
   %tobool.not = icmp eq ptr %actual_size, null
-  %buffersize32.phi.trans.insert = getelementptr inbounds i8, ptr %psbs, i64 4
+  %buffersize32.phi.trans.insert = getelementptr inbounds nuw i8, ptr %psbs, i64 4
   %.pre = load i32, ptr %buffersize32.phi.trans.insert, align 4
   %.pre5 = call noundef i32 @llvm.bswap.i32(i32 %.pre)
   br i1 %tobool.not, label %if.end30, label %if.then25
@@ -1259,10 +1259,10 @@ if.then25:                                        ; preds = %if.end24
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end24, %if.then25
-  %minsize = getelementptr inbounds i8, ptr %psbs, i64 8
+  %minsize = getelementptr inbounds nuw i8, ptr %psbs, i64 8
   %9 = load i32, ptr %minsize, align 4
   %10 = call noundef i32 @llvm.bswap.i32(i32 %9)
-  %maxsize = getelementptr inbounds i8, ptr %psbs, i64 12
+  %maxsize = getelementptr inbounds nuw i8, ptr %psbs, i64 12
   %11 = load i32, ptr %maxsize, align 4
   %12 = call noundef i32 @llvm.bswap.i32(i32 %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1288,7 +1288,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = call i32 @qemu_get_thread_id() #12
   %17 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %18 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.54, i32 noundef %call10.i.i, i64 noundef %17, i64 noundef %18, i32 noundef %.pre5, i32 noundef %10, i32 noundef %12) #12
   br label %trace_tpm_emulator_set_buffer_size.exit
@@ -1318,19 +1318,19 @@ entry:
   store i32 16777216, ptr %pgs, align 4
   %conv = zext nneg i8 %type to i32
   %1 = shl nuw nsw i32 %conv, 24
-  %type3 = getelementptr inbounds i8, ptr %pgs, i64 4
+  %type3 = getelementptr inbounds nuw i8, ptr %pgs, i64 4
   store i32 %1, ptr %type3, align 4
-  %offset = getelementptr inbounds i8, ptr %pgs, i64 8
+  %offset = getelementptr inbounds nuw i8, ptr %pgs, i64 8
   store i32 0, ptr %offset, align 4
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %tpm_emu, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %tpm_emu, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 192
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 201326592, ptr %0, align 16
-  %add.ptr.us50.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.us50.i, ptr noundef nonnull align 4 dereferenceable(12) %pgs, i64 12, i1 false)
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 16) #12
   %cmp.us53.i = icmp slt i32 %call3.us52.i, 1
@@ -1376,7 +1376,7 @@ for.body.i:                                       ; preds = %tpm_emulator_ctrlcm
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %string.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %string.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %8 = load ptr, ptr %string.i, align 8
   br label %tpm_emulator_strerror.exit
 
@@ -1388,7 +1388,7 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
 if.end19:                                         ; preds = %tpm_emulator_ctrlcmd.exit
   %9 = load i32, ptr %offset, align 4
   %10 = call noundef i32 @llvm.bswap.i32(i32 %9)
-  %length24 = getelementptr inbounds i8, ptr %pgs, i64 12
+  %length24 = getelementptr inbounds nuw i8, ptr %pgs, i64 12
   %11 = load i32, ptr %length24, align 4
   %cmp26.not = icmp eq i32 %9, %11
   br i1 %cmp26.not, label %if.end29, label %if.then28
@@ -1408,7 +1408,7 @@ if.end29:                                         ; preds = %if.end19
 if.then35:                                        ; preds = %if.end29
   %conv36 = zext i32 %10 to i64
   %call37 = call noalias ptr @g_try_malloc(i64 noundef %conv36) #15
-  %buffer = getelementptr inbounds i8, ptr %tsb, i64 8
+  %buffer = getelementptr inbounds nuw i8, ptr %tsb, i64 8
   store ptr %call37, ptr %buffer, align 8
   %tobool.not = icmp eq ptr %call37, null
   br i1 %tobool.not, label %if.then39, label %if.end40
@@ -1453,7 +1453,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = call i32 @qemu_get_thread_id() #12
   %20 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %21 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.63, i32 noundef %call10.i.i, i64 noundef %20, i64 noundef %21, i32 noundef %conv, i32 noundef %10, i32 noundef %15) #12
   br label %trace_tpm_emulator_get_state_blob.exit
@@ -1524,7 +1524,7 @@ if.then3.i:                                       ; preds = %if.end.i
   br label %err30.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i3, i64 96
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 96
   %call5.i = call zeroext i1 @qemu_chr_fe_init(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %call1.i, ptr noundef nonnull %err.i) #12
   br i1 %call5.i, label %if.end7.i, label %if.then6.i
 
@@ -1536,7 +1536,7 @@ if.then6.i:                                       ; preds = %if.end4.i
 
 if.end7.i:                                        ; preds = %if.end4.i
   %call8.i = call noalias ptr @g_strdup(ptr noundef nonnull %call.i4) #12
-  %options.i = getelementptr inbounds i8, ptr %call.i3, i64 88
+  %options.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 88
   %3 = load ptr, ptr %options.i, align 8
   store ptr %call8.i, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %res.i.i)
@@ -1553,11 +1553,11 @@ if.then.i.i:                                      ; preds = %if.end7.i
   br label %tpm_emulator_prepare_data_fd.exit.thread.i
 
 if.end.i.i:                                       ; preds = %if.end7.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %fds.i.i, i64 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %fds.i.i, i64 4
   %call2.i.i = call i32 @qemu_chr_fe_set_msgfds(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %add.ptr.i.i, i32 noundef 1) #12
   %savedstack.i.i = call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %mutex.i.i.i = getelementptr inbounds i8, ptr %call.i3, i64 192
+  %mutex.i.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 192
   %4 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   call void %5(ptr noundef nonnull %mutex.i.i.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
@@ -1595,7 +1595,7 @@ if.end9.i.i:                                      ; preds = %tpm_emulator_ctrlcm
   %8 = load i32, ptr %fds.i.i, align 8
   %call10.i.i = call ptr @qio_channel_socket_new_fd(i32 noundef %8, ptr noundef nonnull %err.i.i) #12
   %call.i.i.i = call ptr @object_dynamic_cast_assert(ptr noundef %call10.i.i, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL) #12
-  %data_ioc.i.i = getelementptr inbounds i8, ptr %call.i3, i64 152
+  %data_ioc.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 152
   store ptr %call.i.i.i, ptr %data_ioc.i.i, align 8
   %9 = load ptr, ptr %err.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
@@ -1628,9 +1628,9 @@ if.end11.i:                                       ; preds = %if.end9.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %fds.i.i)
   %14 = load ptr, ptr %data_ioc.i.i, align 8
   %call.i15.i = call ptr @object_dynamic_cast_assert(ptr noundef %14, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83, i32 noundef 30, ptr noundef nonnull @__func__.QIO_CHANNEL_SOCKET) #12
-  %fd.i = getelementptr inbounds i8, ptr %call.i15.i, i64 96
+  %fd.i = getelementptr inbounds nuw i8, ptr %call.i15.i, i64 96
   %15 = load i32, ptr %fd.i, align 8
-  %tpm_version.i = getelementptr inbounds i8, ptr %call.i3, i64 160
+  %tpm_version.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 160
   %call13.i = call i32 @tpm_util_test_tpmdev(i32 noundef %15, ptr noundef nonnull %tpm_version.i) #12
   %tobool14.not.i = icmp eq i32 %call13.i, 0
   br i1 %tobool14.not.i, label %if.end20.i, label %if.then15.i
@@ -1664,7 +1664,7 @@ sw.default.i:                                     ; preds = %if.end20.i
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.default.i, %sw.bb22.i, %sw.bb.i
-  %caps.i.i = getelementptr inbounds i8, ptr %call.i3, i64 168
+  %caps.i.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 168
   %savedstack.i16.i = call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %0)
   %20 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -1710,7 +1710,7 @@ if.then8.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
   %call9.i.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i.i, ptr noundef null) #12
   %call10.i.i.i.i = call i32 @qemu_get_thread_id() #12
   %28 = load i64, ptr %_now.i.i.i.i, align 8
-  %tv_usec.i.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i.i, i64 8
+  %tv_usec.i.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i.i, i64 8
   %29 = load i64, ptr %tv_usec.i.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.91, i32 noundef %call10.i.i.i.i, i64 noundef %28, i64 noundef %29, i64 noundef %23) #12
   br label %lor.lhs.false.i
@@ -1759,7 +1759,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i27.i = call i32 @qemu_get_thread_id() #12
   %35 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %36 = load i64, ptr %tv_usec.i.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.98, i32 noundef %call10.i.i27.i, i64 noundef %35, i64 noundef %36) #12
   br label %tpm_emulator_handle_device_opts.exit.thread
@@ -1818,7 +1818,7 @@ entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %res = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
-  %caps = getelementptr inbounds i8, ptr %call.i, i64 168
+  %caps = getelementptr inbounds nuw i8, ptr %call.i, i64 168
   %1 = load i64, ptr %caps, align 8
   %and = and i64 %1, 32
   %cmp.not = icmp eq i64 %and, 0
@@ -1848,7 +1848,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.102, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7) #12
   br label %trace_tpm_emulator_cancel_cmd_not_supt.exit
@@ -1864,8 +1864,8 @@ trace_tpm_emulator_cancel_cmd_not_supt.exit:      ; preds = %if.then, %land.lhs.
 if.end:                                           ; preds = %entry
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %8 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   tail call void %9(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
@@ -1913,7 +1913,7 @@ entry:
   %0 = alloca [4 x i8], align 16
   %est = alloca %struct.ptm_est, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
-  %established_flag_cached = getelementptr inbounds i8, ptr %call.i, i64 240
+  %established_flag_cached = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %bf.load = load i8, ptr %established_flag_cached, align 8
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -1927,8 +1927,8 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %3 = inttoptr i64 %2 to ptr
   tail call void %3(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
@@ -1956,7 +1956,7 @@ tpm_emulator_ctrlcmd.exit:                        ; preds = %if.end.i
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 132) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %0)
   call void @llvm.stackrestore.p0(ptr %savedstack)
-  %bit = getelementptr inbounds i8, ptr %est, i64 4
+  %bit = getelementptr inbounds nuw i8, ptr %est, i64 4
   %5 = load i8, ptr %bit, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %6 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1981,7 +1981,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = call i32 @qemu_get_thread_id() #12
   %10 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %11 = load i64, ptr %tv_usec.i.i, align 8
   %conv11.i.i = zext i8 %5 to i32
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.105, i32 noundef %call10.i.i, i64 noundef %10, i64 noundef %11, i32 noundef %conv11.i.i) #12
@@ -2015,24 +2015,24 @@ entry:
   %0 = alloca [8 x i8], align 16
   %reset_est = alloca %struct.ptm_reset_est, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
-  %tpm_version = getelementptr inbounds i8, ptr %call.i, i64 160
+  %tpm_version = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %1 = load i32, ptr %tpm_version, align 8
   %cmp.not = icmp eq i32 %1, 2
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %cur_locty_number = getelementptr inbounds i8, ptr %call.i, i64 176
+  %cur_locty_number = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   %2 = load i8, ptr %cur_locty_number, align 8
   store i8 %2, ptr %reset_est, align 4
   %savedstack = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0)
-  %ctrl_chr.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void %4(ptr noundef nonnull %mutex.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 184549376, ptr %0, align 16
-  %add.ptr.us50.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %reset_est, align 4
   store i32 %5, ptr %add.ptr.us50.i, align 4
   %call3.us52.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i, ptr noundef nonnull %0, i32 noundef 8) #12
@@ -2076,7 +2076,7 @@ for.body.i:                                       ; preds = %tpm_emulator_ctrlcm
   br i1 %cmp2.i, label %if.then.i, label %for.cond.i
 
 if.then.i:                                        ; preds = %for.body.i
-  %string.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %string.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %10 = load ptr, ptr %string.i, align 8
   br label %tpm_emulator_strerror.exit
 
@@ -2086,7 +2086,7 @@ tpm_emulator_strerror.exit:                       ; preds = %for.cond.i, %if.the
   br label %return
 
 if.end11:                                         ; preds = %tpm_emulator_ctrlcmd.exit
-  %established_flag_cached = getelementptr inbounds i8, ptr %call.i, i64 240
+  %established_flag_cached = getelementptr inbounds nuw i8, ptr %call.i, i64 240
   %bf.load = load i8, ptr %established_flag_cached, align 8
   %bf.clear = and i8 %bf.load, -3
   store i8 %bf.clear, ptr %established_flag_cached, align 8
@@ -2101,7 +2101,7 @@ return:                                           ; preds = %entry, %if.end11, %
 define internal i32 @tpm_emulator_get_tpm_version(ptr noundef %tb) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
-  %tpm_version = getelementptr inbounds i8, ptr %call.i, i64 160
+  %tpm_version = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   %0 = load i32, ptr %tpm_version, align 8
   ret i32 %0
 }
@@ -2123,10 +2123,10 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %tb, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 50, ptr noundef nonnull @__func__.TPM_EMULATOR) #12
   %call1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #13
   store i32 1, ptr %call1, align 8
-  %options2 = getelementptr inbounds i8, ptr %call.i, i64 88
+  %options2 = getelementptr inbounds nuw i8, ptr %call.i, i64 88
   %0 = load ptr, ptr %options2, align 8
   %call3 = tail call ptr @qapi_clone(ptr noundef %0, ptr noundef nonnull @visit_type_TPMEmulatorOptions) #12
-  %u = getelementptr inbounds i8, ptr %call1, i64 8
+  %u = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store ptr %call3, ptr %u, align 8
   ret ptr %call1
 }
@@ -2162,7 +2162,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #12
   %call10.i.i = tail call i32 @qemu_get_thread_id() #12
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.109, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6) #12
   br label %trace_tpm_emulator_handle_request.exit
@@ -2175,7 +2175,7 @@ trace_tpm_emulator_handle_request.exit:           ; preds = %entry, %land.lhs.tr
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i8, ptr %cmd, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %loc.i)
-  %cur_locty_number.i = getelementptr inbounds i8, ptr %call.i, i64 176
+  %cur_locty_number.i = getelementptr inbounds nuw i8, ptr %call.i, i64 176
   %8 = load i8, ptr %cur_locty_number.i, align 8
   %cmp.i = icmp eq i8 %8, %7
   br i1 %cmp.i, label %lor.lhs.false, label %if.end.i
@@ -2204,7 +2204,7 @@ if.then8.i.i.i:                                   ; preds = %if.then.i.i.i
   %call9.i.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i.i, ptr noundef null) #12
   %call10.i.i.i = tail call i32 @qemu_get_thread_id() #12
   %13 = load i64, ptr %_now.i.i.i, align 8
-  %tv_usec.i.i.i = getelementptr inbounds i8, ptr %_now.i.i.i, i64 8
+  %tv_usec.i.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i.i, i64 8
   %14 = load i64, ptr %tv_usec.i.i.i, align 8
   %conv11.i.i.i = zext i8 %7 to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.113, i32 noundef %call10.i.i.i, i64 noundef %13, i64 noundef %14, i32 noundef %conv11.i.i.i) #12
@@ -2221,13 +2221,13 @@ trace_tpm_emulator_set_locality.exit.i:           ; preds = %if.else.i.i.i, %if.
   store i8 %7, ptr %loc.i, align 4
   %savedstack.i = tail call ptr @llvm.stacksave.p0()
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %0)
-  %ctrl_chr.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i, i64 192
+  %ctrl_chr.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 96
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 192
   %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %16 = inttoptr i64 %15 to ptr
   tail call void %16(ptr noundef nonnull %mutex.i.i, ptr noundef nonnull @.str.11, i32 noundef 122) #12
   store i32 83886080, ptr %0, align 16
-  %add.ptr.us50.i.i = getelementptr inbounds i8, ptr %0, i64 4
+  %add.ptr.us50.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %loc.i, align 4
   store i32 %17, ptr %add.ptr.us50.i.i, align 4
   %call3.us52.i.i = call i32 @qemu_chr_fe_write_all(ptr noundef nonnull %ctrl_chr.i.i, ptr noundef nonnull %0, i32 noundef 8) #12
@@ -2273,16 +2273,16 @@ tpm_emulator_set_locality.exit.thread:            ; preds = %qemu_lockable_auto_
 
 lor.lhs.false:                                    ; preds = %if.end21.i, %trace_tpm_emulator_handle_request.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %loc.i)
-  %in = getelementptr inbounds i8, ptr %cmd, i64 8
+  %in = getelementptr inbounds nuw i8, ptr %cmd, i64 8
   %21 = load ptr, ptr %in, align 8
-  %in_len = getelementptr inbounds i8, ptr %cmd, i64 16
+  %in_len = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %22 = load i32, ptr %in_len, align 8
-  %out = getelementptr inbounds i8, ptr %cmd, i64 24
+  %out = getelementptr inbounds nuw i8, ptr %cmd, i64 24
   %23 = load ptr, ptr %out, align 8
-  %selftest_done = getelementptr inbounds i8, ptr %cmd, i64 36
+  %selftest_done = getelementptr inbounds nuw i8, ptr %cmd, i64 36
   store i8 0, ptr %selftest_done, align 1
   %call.i11 = call zeroext i1 @tpm_util_is_selftest(ptr noundef %21, i32 noundef %22) #12
-  %data_ioc.i = getelementptr inbounds i8, ptr %call.i, i64 152
+  %data_ioc.i = getelementptr inbounds nuw i8, ptr %call.i, i64 152
   %24 = load ptr, ptr %data_ioc.i, align 8
   %conv.i = zext i32 %22 to i64
   %call1.i = call i32 @qio_channel_write_all(ptr noundef %24, ptr noundef %21, i64 noundef %conv.i, ptr noundef %errp) #12
@@ -2320,9 +2320,9 @@ tpm_emulator_unix_tx_bufs.exit:                   ; preds = %if.end12.i
   br i1 %cmp18.not.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %if.end5.i, %lor.lhs.false, %tpm_emulator_set_locality.exit.thread, %tpm_emulator_unix_tx_bufs.exit
-  %out4 = getelementptr inbounds i8, ptr %cmd, i64 24
+  %out4 = getelementptr inbounds nuw i8, ptr %cmd, i64 24
   %30 = load ptr, ptr %out4, align 8
-  %out_len5 = getelementptr inbounds i8, ptr %cmd, i64 32
+  %out_len5 = getelementptr inbounds nuw i8, ptr %cmd, i64 32
   %31 = load i32, ptr %out_len5, align 8
   call void @tpm_util_write_fatal_error_response(ptr noundef %30, i32 noundef %31) #12
   br label %if.end
@@ -2376,7 +2376,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.84, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #12
   br label %_nocheck__trace_tpm_emulator_handle_device_opts_tpm12.exit
@@ -2417,7 +2417,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.86, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #12
   br label %_nocheck__trace_tpm_emulator_handle_device_opts_tpm2.exit
@@ -2458,7 +2458,7 @@ if.then8.i:                                       ; preds = %if.then.i
   %call9.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i, ptr noundef null) #12
   %call10.i = tail call i32 @qemu_get_thread_id() #12
   %4 = load i64, ptr %_now.i, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %_now.i, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %_now.i, i64 8
   %5 = load i64, ptr %tv_usec.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.88, i32 noundef %call10.i, i64 noundef %4, i64 noundef %5) #12
   br label %_nocheck__trace_tpm_emulator_handle_device_opts_unspec.exit
@@ -2475,7 +2475,7 @@ _nocheck__trace_tpm_emulator_handle_device_opts_unspec.exit: ; preds = %entry, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_check_caps(ptr nocapture noundef readonly %tpm_emu) unnamed_addr #0 {
 entry:
-  %tpm_version = getelementptr inbounds i8, ptr %tpm_emu, i64 160
+  %tpm_version = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 160
   %0 = load i32, ptr %tpm_version, align 8
   switch i32 %0, label %sw.epilog [
     i32 1, label %sw.bb
@@ -2496,7 +2496,7 @@ sw.bb2:                                           ; preds = %entry
 sw.epilog:                                        ; preds = %sw.bb1, %sw.bb, %entry
   %caps.0 = phi i64 [ 0, %entry ], [ 13455, %sw.bb1 ], [ 13327, %sw.bb ]
   %tpm.0 = phi ptr [ null, %entry ], [ @.str.94, %sw.bb1 ], [ @.str.93, %sw.bb ]
-  %caps3 = getelementptr inbounds i8, ptr %tpm_emu, i64 168
+  %caps3 = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 168
   %1 = load i64, ptr %caps3, align 8
   %and = and i64 %1, %caps.0
   %cmp = icmp eq i64 %and, %caps.0
@@ -2517,14 +2517,14 @@ define internal fastcc range(i32 -1, 1) i32 @tpm_emulator_block_migration(ptr no
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
-  %caps1 = getelementptr inbounds i8, ptr %tpm_emu, i64 168
+  %caps1 = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 168
   %0 = load i64, ptr %caps1, align 8
   %and = and i64 %0, 1792
   %cmp = icmp eq i64 %and, 1792
   br i1 %cmp, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %migration_blocker = getelementptr inbounds i8, ptr %tpm_emu, i64 184
+  %migration_blocker = getelementptr inbounds nuw i8, ptr %tpm_emu, i64 184
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %migration_blocker, ptr noundef nonnull @.str.2, i32 noundef 536, ptr noundef nonnull @__func__.tpm_emulator_block_migration, ptr noundef nonnull @.str.97) #12
   %call = call i32 @migrate_add_blocker(ptr noundef nonnull %migration_blocker, ptr noundef nonnull %err) #12
   %cmp3 = icmp slt i32 %call, 0

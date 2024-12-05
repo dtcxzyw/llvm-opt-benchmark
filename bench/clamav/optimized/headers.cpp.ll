@@ -18,16 +18,16 @@ $_ZN5ArrayIhEaSERKS0_ = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN10FileHeader5ResetEm(ptr noundef nonnull align 8 dereferenceable(17184) initializes((16, 17), (8240, 8248)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8232
-  %4 = getelementptr inbounds i8, ptr %0, i64 8248
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8232
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8248
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8240
   store i64 %1, ptr %7, align 8
   br i1 %6, label %8, label %_ZN5ArrayIhE5AllocEm.exit
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 8256
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8256
   %10 = load i64, ptr %9, align 8
   %.not.i.i = icmp ne i64 %10, 0
   %11 = icmp ugt i64 %1, %10
@@ -63,25 +63,25 @@ _ZN5ArrayIhE3AddEm.exit.i:                        ; preds = %22, %13
   br label %_ZN5ArrayIhE5AllocEm.exit
 
 _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %2, %_ZN5ArrayIhE3AddEm.exit.i
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8312
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8312
   tail call void @_ZN9HashValue4InitE9HASH_TYPE(ptr noundef nonnull align 4 dereferenceable(36) %24, i32 noundef 0)
-  %25 = getelementptr inbounds i8, ptr %0, i64 8264
-  %26 = getelementptr inbounds i8, ptr %0, i64 8352
-  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8264
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8352
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 8393
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8393
   store i8 0, ptr %28, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 8402
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8402
   store i8 0, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %0, i64 8436
-  %31 = getelementptr inbounds i8, ptr %0, i64 8448
-  %32 = getelementptr inbounds i8, ptr %0, i64 8464
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8436
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8448
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8464
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 16660
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16660
   store i8 0, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 16661
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16661
   store i8 0, ptr %34, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %26, i8 0, i64 9, i1 false)
@@ -94,7 +94,7 @@ declare void @_ZN9HashValue4InitE9HASH_TYPE(ptr noundef nonnull align 4 derefere
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(17184) ptr @_ZN10FileHeaderaSERS_(ptr noundef nonnull returned align 8 dereferenceable(17184) initializes((0, 8232), (8240, 17184)) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8232
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8232
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZN5ArrayIhE5ResetEv.exit, label %5
@@ -105,11 +105,11 @@ define noundef nonnull align 8 dereferenceable(17184) ptr @_ZN10FileHeaderaSERS_
   br label %_ZN5ArrayIhE5ResetEv.exit
 
 _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %2, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 8240
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17184) %0, ptr noundef nonnull align 8 dereferenceable(17184) %1, i64 17184, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
-  %7 = getelementptr inbounds i8, ptr %1, i64 8232
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8232
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ArrayIhEaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %7)
   ret ptr %0
 }
@@ -129,17 +129,17 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZN5ArrayIh
   br label %_ZN5ArrayIhE5ResetEv.exit
 
 _ZN5ArrayIhE5ResetEv.exit:                        ; preds = %2, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not6 = icmp eq i64 %7, 0
   store i64 %7, ptr %5, align 8
   br i1 %.not6, label %_ZN5ArrayIhE5AllocEm.exit.thread, label %9
 
 9:                                                ; preds = %_ZN5ArrayIhE5ResetEv.exit
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %.not.i.i = icmp ne i64 %11, 0
   %12 = icmp ugt i64 %7, %11
@@ -190,17 +190,17 @@ _ZN5ArrayIhE5AllocEm.exit.thread:                 ; preds = %_ZN5ArrayIhE5ResetE
 define void @_ZN10MainHeader5ResetEv(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 72)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.MainHeader, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
-  %3 = getelementptr inbounds i8, ptr %2, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %4 = getelementptr inbounds i8, ptr %2, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i64 0, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 20, i1 false)
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %5, ptr noundef nonnull align 4 dereferenceable(52) %6, i64 52, i1 false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %3) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = load i64, ptr %4, align 8
   store i64 %10, ptr %9, align 8
   call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #10

@@ -57,9 +57,9 @@ define internal void @rtspstat_init(ptr noundef %0, ptr nocapture readnone %1) #
 
 12:                                               ; preds = %2
   %13 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = load ptr, ptr getelementptr inbounds (i8, ptr @rtsp_status_code_vals, i64 8), align 8
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rtsp_status_code_vals, i64 8), align 8
   %.not13.i = icmp eq ptr %15, null
   br i1 %.not13.i, label %rtsp_init_hash.exit, label %.lr.ph.i
 
@@ -70,11 +70,11 @@ define internal void @rtspstat_init(ptr noundef %0, ptr nocapture readnone %1) #
   %18 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   store i32 0, ptr %18, align 8
   %19 = load i32, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %16, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %5, ptr %22, align 8
   %23 = load ptr, ptr %14, align 8
   %24 = zext i32 %19 to i64
@@ -83,14 +83,14 @@ define internal void @rtspstat_init(ptr noundef %0, ptr nocapture readnone %1) #
   %27 = add i32 %.014.i, 1
   %28 = sext i32 %27 to i64
   %29 = getelementptr [0 x %struct._value_string], ptr @rtsp_status_code_vals, i64 0, i64 %28
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %rtsp_init_hash.exit, label %.lr.ph.i, !llvm.loop !5
 
 rtsp_init_hash.exit:                              ; preds = %.lr.ph.i, %12
   %32 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal) #10
-  %33 = getelementptr inbounds i8, ptr %5, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %32, ptr %33, align 8
   ret void
 }
@@ -107,10 +107,10 @@ declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 no
 
 ; Function Attrs: nounwind uwtable
 define internal void @rtspstat_reset(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_hash_table_foreach(ptr noundef %3, ptr noundef nonnull @rtsp_reset_hash_responses, ptr noundef null) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @g_hash_table_foreach(ptr noundef %5, ptr noundef nonnull @rtsp_reset_hash_requests, ptr noundef null) #10
   ret void
@@ -118,13 +118,13 @@ define internal void @rtspstat_reset(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %34, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %7 to i64
   %12 = inttoptr i64 %11 to ptr
@@ -171,13 +171,13 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr nocaptu
   br label %54
 
 34:                                               ; preds = %5
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not39 = icmp eq ptr %36, null
   br i1 %.not39, label %54, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = tail call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef nonnull %36) #10
   %41 = icmp eq ptr %40, null
@@ -188,16 +188,16 @@ define internal range(i32 0, 2) i32 @rtspstat_packet(ptr noundef %0, ptr nocaptu
   %44 = load ptr, ptr %35, align 8
   %45 = tail call noalias ptr @g_strdup(ptr noundef %44) #10
   store ptr %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %0, ptr %47, align 8
   %48 = load ptr, ptr %38, align 8
   %49 = tail call i32 @g_hash_table_insert(ptr noundef %48, ptr noundef %45, ptr noundef nonnull %43) #10
   br label %54
 
 50:                                               ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %40, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = add i32 %52, 1
   store i32 %53, ptr %51, align 8
@@ -231,11 +231,11 @@ define internal void @rtspstat_draw(ptr nocapture noundef readonly %0) #0 {
 
 8:                                                ; preds = %6, %5
   %puts8 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @g_hash_table_foreach(ptr noundef %10, ptr noundef nonnull @rtsp_draw_hash_responses, ptr noundef nonnull @.str.9) #10
   %puts9 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   tail call void @g_hash_table_foreach(ptr noundef %12, ptr noundef nonnull @rtsp_draw_hash_requests, ptr noundef nonnull @.str.11) #10
   %puts10 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
@@ -261,7 +261,7 @@ define internal void @rtsp_reset_hash_responses(ptr nocapture readnone %0, ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @rtsp_reset_hash_requests(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2) #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void
 }
@@ -291,9 +291,9 @@ define internal void @rtsp_draw_hash_responses(ptr noundef %0, ptr noundef reado
   br i1 %10, label %17, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %2, i32 noundef %13, ptr noundef %15, i32 noundef %9)
   br label %17
@@ -304,7 +304,7 @@ define internal void @rtsp_draw_hash_responses(ptr noundef %0, ptr noundef reado
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @rtsp_draw_hash_requests(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7

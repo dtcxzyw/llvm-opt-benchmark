@@ -407,13 +407,13 @@ sw.default:                                       ; preds = %if.end20
 
 switch.lookup:                                    ; preds = %if.end20
   %2 = zext nneg i8 %div7137 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.test_rpk, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %3 = zext nneg i8 %div7137 to i64
-  %switch.gep143 = getelementptr inbounds [4 x ptr], ptr @switch.table.test_rpk.1, i64 0, i64 %3
+  %switch.gep143 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk.1, i64 0, i64 %3
   %switch.load144 = load ptr, ptr %switch.gep143, align 8
   %4 = zext nneg i8 %div7137 to i64
-  %switch.gep145 = getelementptr inbounds [4 x ptr], ptr @switch.table.test_rpk.2, i64 0, i64 %4
+  %switch.gep145 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.test_rpk.2, i64 0, i64 %4
   %switch.load146 = load ptr, ptr %switch.gep145, align 8
   %other_cert_file.0 = load ptr, ptr %switch.load146, align 8
   %privkey_file.0 = load ptr, ptr %switch.load144, align 8

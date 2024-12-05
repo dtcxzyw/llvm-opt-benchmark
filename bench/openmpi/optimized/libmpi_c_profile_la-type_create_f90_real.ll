@@ -89,7 +89,7 @@ define i32 @PMPI_Type_create_f90_real(i32 noundef %0, i32 noundef %1, ptr nounde
   %ompi_mpi_long_double.sink = select i1 %or.cond9, ptr @ompi_mpi_long_double, ptr %ompi_mpi_double.ompi_mpi_float
   store ptr %ompi_mpi_long_double.sink, ptr %2, align 8
   store ptr %4, ptr %7, align 16
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %5, ptr %30, align 8
   %31 = sext i32 %spec.select to i64
   %32 = shl nsw i64 %31, 32
@@ -113,13 +113,13 @@ define i32 @PMPI_Type_create_f90_real(i32 noundef %0, i32 noundef %1, ptr nounde
 
 44:                                               ; preds = %37
   %45 = load ptr, ptr %6, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i16, ptr %46, align 8
   %48 = or i16 %47, 512
   store i16 %48, ptr %46, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 240
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 240
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %52 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %49, i64 noundef 64, ptr noundef nonnull @.str, ptr noundef nonnull %51) #5
   %53 = load ptr, ptr %6, align 8
   %54 = call i32 @ompi_datatype_set_args(ptr noundef %53, i32 noundef 2, ptr noundef nonnull %7, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 14) #5
@@ -166,7 +166,7 @@ define i32 @PMPI_Type_create_f90_real(i32 noundef %0, i32 noundef %1, ptr nounde
 71:                                               ; preds = %69, %.lr.ph.i
   %72 = phi i8 [ %65, %.lr.ph.i ], [ %.pre.i.i, %69 ]
   %73 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8
   %76 = trunc i8 %72 to i1
   br i1 %76, label %77, label %opal_pointer_array_get_item.exit.i
@@ -178,13 +178,13 @@ define i32 @PMPI_Type_create_f90_real(i32 noundef %0, i32 noundef %1, ptr nounde
 
 opal_pointer_array_get_item.exit.i:               ; preds = %77, %71
   %79 = phi i8 [ %72, %71 ], [ %.pre.i, %77 ]
-  %80 = getelementptr inbounds i8, ptr %75, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, %56
   br i1 %82, label %83, label %61
 
 83:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %84 = getelementptr inbounds i8, ptr %75, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %75, i64 20
   %85 = load i32, ptr %84, align 4
   br label %ompi_errcode_get_mpi_code.exit
 

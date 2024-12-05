@@ -32,7 +32,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, -3
   %or.cond = icmp ult i32 %7, -2
@@ -43,8 +43,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br label %.thread131
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
-  %11 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %12 = load i8, ptr %11, align 8
   %13 = icmp eq i8 %12, 6
   br i1 %13, label %.critedge, label %15
@@ -63,8 +63,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   br i1 %18, label %.thread141thread-pre-split, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
-  %21 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %22 = load i8, ptr %21, align 8
   %23 = icmp eq i8 %22, 4
   br i1 %23, label %.thread120, label %25
@@ -105,8 +105,8 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 32:                                               ; preds = %.thread141
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %27, 0
   %. = select i1 %37, i64 %36, i64 %27
@@ -115,11 +115,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %40 = call noalias ptr @_emalloc(i64 noundef %39) #9
   %.sink.i = add i64 %., 1
   store i32 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 22, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i64 %.sink.i, ptr %43, align 8
   %44 = tail call ptr @__ctype_b_loc() #10
   %45 = load ptr, ptr %44, align 8
@@ -143,11 +143,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 55:                                               ; preds = %53
   %56 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 1, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %56, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %60 = load i32, ptr %59, align 4
   %61 = and i32 %60, -513
   store i32 %61, ptr %59, align 4
@@ -155,13 +155,13 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 62:                                               ; preds = %55, %53
   %.15 = phi ptr [ %56, %55 ], [ %40, %53 ]
-  %63 = getelementptr inbounds i8, ptr %.15, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.15, i64 24
   store i8 0, ptr %63, align 1
   br label %metaphone.exit
 
 64:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %65 = getelementptr inbounds i8, ptr %34, i64 %indvars.iv.next.i
+  %65 = getelementptr inbounds nuw i8, ptr %34, i64 %indvars.iv.next.i
   %66 = load i8, ptr %65, align 1
   %67 = sext i8 %66 to i64
   %68 = getelementptr inbounds i16, ptr %45, i64 %67
@@ -178,7 +178,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %.lcssa3993.i = phi i64 [ 0, %32 ], [ %indvars.iv.next.i, %._crit_edge.loopexit.i ]
   %.03703.lcssa.i = phi i32 [ 0, %32 ], [ %71, %._crit_edge.loopexit.i ]
   %.lcssa3984.i = phi i8 [ %46, %32 ], [ %66, %._crit_edge.loopexit.i ]
-  %72 = getelementptr inbounds i8, ptr %34, i64 %.lcssa3993.i
+  %72 = getelementptr inbounds nuw i8, ptr %34, i64 %.lcssa3993.i
   %73 = sext i8 %.lcssa3984.i to i32
   %74 = call i32 @toupper(i32 noundef %73) #12
   %75 = trunc i32 %74 to i8
@@ -200,7 +200,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 77:                                               ; preds = %._crit_edge.i
   %78 = add nuw nsw i32 %.03703.lcssa.i, 1
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %34, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %34, i64 %79
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = call i32 @toupper(i32 noundef %82) #12
@@ -213,11 +213,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 87:                                               ; preds = %86
   %88 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i64 2, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %88, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %88, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = and i32 %92, -513
   store i32 %93, ptr %91, align 4
@@ -226,9 +226,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 94:                                               ; preds = %87, %86
   %.14 = phi ptr [ %88, %87 ], [ %40, %86 ]
   %.1.i = phi i64 [ 2, %87 ], [ %., %86 ]
-  %95 = getelementptr inbounds i8, ptr %.14, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %.14, i64 24
   store i8 69, ptr %95, align 1
-  %96 = getelementptr inbounds i8, ptr %.14, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.14, i64 16
   store i64 1, ptr %96, align 8
   %97 = add nuw nsw i32 %.03703.lcssa.i, 2
   br label %.critedge3945.i
@@ -238,11 +238,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 99:                                               ; preds = %98
   %100 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   store i64 2, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %100, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i64 0, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %100, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, -513
   store i32 %105, ptr %103, align 4
@@ -251,14 +251,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 106:                                              ; preds = %99, %98
   %.13 = phi ptr [ %100, %99 ], [ %40, %98 ]
   %.2.i = phi i64 [ 2, %99 ], [ %., %98 ]
-  %107 = getelementptr inbounds i8, ptr %.13, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %.13, i64 24
   store i8 65, ptr %107, align 1
-  %108 = getelementptr inbounds i8, ptr %.13, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %.13, i64 16
   store i64 1, ptr %108, align 8
   br label %.critedge3945.i
 
 109:                                              ; preds = %._crit_edge.i, %._crit_edge.i, %._crit_edge.i
-  %110 = getelementptr inbounds i8, ptr %72, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %111 = load i8, ptr %110, align 1
   %112 = zext i8 %111 to i32
   %113 = call i32 @toupper(i32 noundef %112) #12
@@ -271,11 +271,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 117:                                              ; preds = %115
   %118 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %119 = getelementptr inbounds i8, ptr %118, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store i64 2, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %118, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store i64 0, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %118, i64 4
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 4
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %122, -513
   store i32 %123, ptr %121, align 4
@@ -284,15 +284,15 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 124:                                              ; preds = %117, %115
   %.12 = phi ptr [ %118, %117 ], [ %40, %115 ]
   %.4.i = phi i64 [ 2, %117 ], [ %., %115 ]
-  %125 = getelementptr inbounds i8, ptr %.12, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %.12, i64 24
   store i8 78, ptr %125, align 1
-  %126 = getelementptr inbounds i8, ptr %.12, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %.12, i64 16
   store i64 1, ptr %126, align 8
   %127 = add nuw nsw i32 %.03703.lcssa.i, 2
   br label %.critedge3945.i
 
 128:                                              ; preds = %._crit_edge.i
-  %129 = getelementptr inbounds i8, ptr %72, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %130 = load i8, ptr %129, align 1
   %131 = zext i8 %130 to i32
   %132 = call i32 @toupper(i32 noundef %131) #12
@@ -309,11 +309,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 136:                                              ; preds = %134
   %137 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %138 = getelementptr inbounds i8, ptr %137, i64 16
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   store i64 2, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %137, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i64 0, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %137, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %137, i64 4
   %141 = load i32, ptr %140, align 4
   %142 = and i32 %141, -513
   store i32 %142, ptr %140, align 4
@@ -322,9 +322,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 143:                                              ; preds = %136, %134
   %.11 = phi ptr [ %137, %136 ], [ %40, %134 ]
   %.5.i = phi i64 [ 2, %136 ], [ %., %134 ]
-  %144 = getelementptr inbounds i8, ptr %.11, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %.11, i64 24
   store i8 82, ptr %144, align 1
-  %145 = getelementptr inbounds i8, ptr %.11, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.11, i64 16
   store i64 1, ptr %145, align 8
   %146 = add nuw nsw i32 %.03703.lcssa.i, 2
   br label %.critedge3945.i
@@ -355,11 +355,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 161:                                              ; preds = %159
   %162 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %163 = getelementptr inbounds i8, ptr %162, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i64 2, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %162, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store i64 0, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %166 = load i32, ptr %165, align 4
   %167 = and i32 %166, -513
   store i32 %167, ptr %165, align 4
@@ -368,9 +368,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 168:                                              ; preds = %161, %159
   %.10 = phi ptr [ %162, %161 ], [ %40, %159 ]
   %.6.i = phi i64 [ 2, %161 ], [ %., %159 ]
-  %169 = getelementptr inbounds i8, ptr %.10, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %.10, i64 24
   store i8 87, ptr %169, align 1
-  %170 = getelementptr inbounds i8, ptr %.10, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.10, i64 16
   store i64 1, ptr %170, align 8
   %171 = add nuw nsw i32 %.03703.lcssa.i, 2
   br label %.critedge3945.i
@@ -381,11 +381,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 174:                                              ; preds = %172
   %175 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %176 = getelementptr inbounds i8, ptr %175, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store i64 2, ptr %176, align 8
-  %177 = getelementptr inbounds i8, ptr %175, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
   store i64 0, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %175, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %179 = load i32, ptr %178, align 4
   %180 = and i32 %179, -513
   store i32 %180, ptr %178, align 4
@@ -394,9 +394,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 181:                                              ; preds = %174, %172
   %.9 = phi ptr [ %175, %174 ], [ %40, %172 ]
   %.7.i = phi i64 [ 2, %174 ], [ %., %172 ]
-  %182 = getelementptr inbounds i8, ptr %.9, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %.9, i64 24
   store i8 83, ptr %182, align 1
-  %183 = getelementptr inbounds i8, ptr %.9, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.9, i64 16
   store i64 1, ptr %183, align 8
   %184 = add nuw nsw i32 %.03703.lcssa.i, 1
   br label %.critedge3945.i
@@ -407,11 +407,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 187:                                              ; preds = %185
   %188 = call dereferenceable_or_null(32) ptr @_erealloc(ptr noundef nonnull %40, i64 noundef 32) #11
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   store i64 2, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %188, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
   store i64 0, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %188, i64 4
+  %191 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %192 = load i32, ptr %191, align 4
   %193 = and i32 %192, -513
   store i32 %193, ptr %191, align 4
@@ -420,9 +420,9 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 194:                                              ; preds = %187, %185
   %.0115 = phi ptr [ %188, %187 ], [ %40, %185 ]
   %.8.i = phi i64 [ 2, %187 ], [ %., %185 ]
-  %195 = getelementptr inbounds i8, ptr %.0115, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %.0115, i64 24
   store i8 %75, ptr %195, align 1
-  %196 = getelementptr inbounds i8, ptr %.0115, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.0115, i64 16
   store i64 1, ptr %196, align 8
   %197 = add nuw nsw i32 %.03703.lcssa.i, 1
   br label %.critedge3945.i
@@ -520,11 +520,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 228:                                              ; preds = %227
   %229 = add i64 %.94010.i, 2
-  %230 = getelementptr inbounds i8, ptr %.2, i64 16
+  %230 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %231 = load i64, ptr %230, align 8
   %232 = icmp uge i64 %229, %231
   call void @llvm.assume(i1 %232)
-  %233 = getelementptr inbounds i8, ptr %.2, i64 4
+  %233 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %234 = load i32, ptr %233, align 4
   %235 = and i32 %234, 64
   %.not3940.i = icmp eq i32 %235, 0
@@ -539,11 +539,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %240 = add i64 %.94010.i, 34
   %241 = and i64 %240, -8
   %242 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %241) #11
-  %243 = getelementptr inbounds i8, ptr %242, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store i64 %229, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %242, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %242, i64 8
   store i64 0, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %242, i64 4
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 4
   %246 = load i32, ptr %245, align 4
   %247 = and i32 %246, -513
   store i32 %247, ptr %245, align 4
@@ -554,14 +554,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %250 = and i64 %249, -8
   %251 = call noalias ptr @_emalloc(i64 noundef %250) #9
   store i32 1, ptr %251, align 4
-  %252 = getelementptr inbounds i8, ptr %251, i64 4
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 4
   store i32 22, ptr %252, align 4
-  %253 = getelementptr inbounds i8, ptr %251, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store i64 0, ptr %253, align 8
-  %254 = getelementptr inbounds i8, ptr %251, i64 16
+  %254 = getelementptr inbounds nuw i8, ptr %251, i64 16
   store i64 %229, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %251, i64 24
-  %256 = getelementptr inbounds i8, ptr %.2, i64 24
+  %255 = getelementptr inbounds nuw i8, ptr %251, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %257 = load i64, ptr %230, align 8
   %258 = add i64 %257, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %255, ptr nonnull align 8 %256, i64 %258, i1 false)
@@ -624,11 +624,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 291:                                              ; preds = %290
   %292 = add i64 %.94010.i, 2
-  %293 = getelementptr inbounds i8, ptr %.2, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %294 = load i64, ptr %293, align 8
   %295 = icmp uge i64 %292, %294
   call void @llvm.assume(i1 %295)
-  %296 = getelementptr inbounds i8, ptr %.2, i64 4
+  %296 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %297 = load i32, ptr %296, align 4
   %298 = and i32 %297, 64
   %.not3936.i = icmp eq i32 %298, 0
@@ -643,11 +643,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %303 = add i64 %.94010.i, 34
   %304 = and i64 %303, -8
   %305 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %304) #11
-  %306 = getelementptr inbounds i8, ptr %305, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
   store i64 %292, ptr %306, align 8
-  %307 = getelementptr inbounds i8, ptr %305, i64 8
+  %307 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i64 0, ptr %307, align 8
-  %308 = getelementptr inbounds i8, ptr %305, i64 4
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, -513
   store i32 %310, ptr %308, align 4
@@ -658,14 +658,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %313 = and i64 %312, -8
   %314 = call noalias ptr @_emalloc(i64 noundef %313) #9
   store i32 1, ptr %314, align 4
-  %315 = getelementptr inbounds i8, ptr %314, i64 4
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 4
   store i32 22, ptr %315, align 4
-  %316 = getelementptr inbounds i8, ptr %314, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i64 0, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %314, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %314, i64 16
   store i64 %292, ptr %317, align 8
-  %318 = getelementptr inbounds i8, ptr %314, i64 24
-  %319 = getelementptr inbounds i8, ptr %.2, i64 24
+  %318 = getelementptr inbounds nuw i8, ptr %314, i64 24
+  %319 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %320 = load i64, ptr %293, align 8
   %321 = add i64 %320, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %318, ptr nonnull align 8 %319, i64 %321, i1 false)
@@ -692,11 +692,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 330:                                              ; preds = %329
   %331 = add i64 %.94010.i, 2
-  %332 = getelementptr inbounds i8, ptr %.2, i64 16
+  %332 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %333 = load i64, ptr %332, align 8
   %334 = icmp uge i64 %331, %333
   call void @llvm.assume(i1 %334)
-  %335 = getelementptr inbounds i8, ptr %.2, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %336 = load i32, ptr %335, align 4
   %337 = and i32 %336, 64
   %.not3933.i = icmp eq i32 %337, 0
@@ -711,11 +711,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %342 = add i64 %.94010.i, 34
   %343 = and i64 %342, -8
   %344 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %343) #11
-  %345 = getelementptr inbounds i8, ptr %344, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %344, i64 16
   store i64 %331, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %344, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %344, i64 8
   store i64 0, ptr %346, align 8
-  %347 = getelementptr inbounds i8, ptr %344, i64 4
+  %347 = getelementptr inbounds nuw i8, ptr %344, i64 4
   %348 = load i32, ptr %347, align 4
   %349 = and i32 %348, -513
   store i32 %349, ptr %347, align 4
@@ -726,14 +726,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %352 = and i64 %351, -8
   %353 = call noalias ptr @_emalloc(i64 noundef %352) #9
   store i32 1, ptr %353, align 4
-  %354 = getelementptr inbounds i8, ptr %353, i64 4
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 4
   store i32 22, ptr %354, align 4
-  %355 = getelementptr inbounds i8, ptr %353, i64 8
+  %355 = getelementptr inbounds nuw i8, ptr %353, i64 8
   store i64 0, ptr %355, align 8
-  %356 = getelementptr inbounds i8, ptr %353, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %353, i64 16
   store i64 %331, ptr %356, align 8
-  %357 = getelementptr inbounds i8, ptr %353, i64 24
-  %358 = getelementptr inbounds i8, ptr %.2, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %353, i64 24
+  %358 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %359 = load i64, ptr %332, align 8
   %360 = add i64 %359, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %357, ptr nonnull align 8 %358, i64 %360, i1 false)
@@ -760,11 +760,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 369:                                              ; preds = %368
   %370 = add i64 %.94010.i, 2
-  %371 = getelementptr inbounds i8, ptr %.2, i64 16
+  %371 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %372 = load i64, ptr %371, align 8
   %373 = icmp uge i64 %370, %372
   call void @llvm.assume(i1 %373)
-  %374 = getelementptr inbounds i8, ptr %.2, i64 4
+  %374 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %375 = load i32, ptr %374, align 4
   %376 = and i32 %375, 64
   %.not3929.i = icmp eq i32 %376, 0
@@ -779,11 +779,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %381 = add i64 %.94010.i, 34
   %382 = and i64 %381, -8
   %383 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %382) #11
-  %384 = getelementptr inbounds i8, ptr %383, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
   store i64 %370, ptr %384, align 8
-  %385 = getelementptr inbounds i8, ptr %383, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %383, i64 8
   store i64 0, ptr %385, align 8
-  %386 = getelementptr inbounds i8, ptr %383, i64 4
+  %386 = getelementptr inbounds nuw i8, ptr %383, i64 4
   %387 = load i32, ptr %386, align 4
   %388 = and i32 %387, -513
   store i32 %388, ptr %386, align 4
@@ -794,14 +794,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %391 = and i64 %390, -8
   %392 = call noalias ptr @_emalloc(i64 noundef %391) #9
   store i32 1, ptr %392, align 4
-  %393 = getelementptr inbounds i8, ptr %392, i64 4
+  %393 = getelementptr inbounds nuw i8, ptr %392, i64 4
   store i32 22, ptr %393, align 4
-  %394 = getelementptr inbounds i8, ptr %392, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store i64 0, ptr %394, align 8
-  %395 = getelementptr inbounds i8, ptr %392, i64 16
+  %395 = getelementptr inbounds nuw i8, ptr %392, i64 16
   store i64 %370, ptr %395, align 8
-  %396 = getelementptr inbounds i8, ptr %392, i64 24
-  %397 = getelementptr inbounds i8, ptr %.2, i64 24
+  %396 = getelementptr inbounds nuw i8, ptr %392, i64 24
+  %397 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %398 = load i64, ptr %371, align 8
   %399 = add i64 %398, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %396, ptr nonnull align 8 %397, i64 %399, i1 false)
@@ -823,11 +823,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 407:                                              ; preds = %406
   %408 = add i64 %.94010.i, 2
-  %409 = getelementptr inbounds i8, ptr %.2, i64 16
+  %409 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %410 = load i64, ptr %409, align 8
   %411 = icmp uge i64 %408, %410
   call void @llvm.assume(i1 %411)
-  %412 = getelementptr inbounds i8, ptr %.2, i64 4
+  %412 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %413 = load i32, ptr %412, align 4
   %414 = and i32 %413, 64
   %.not3926.i = icmp eq i32 %414, 0
@@ -842,11 +842,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %419 = add i64 %.94010.i, 34
   %420 = and i64 %419, -8
   %421 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %420) #11
-  %422 = getelementptr inbounds i8, ptr %421, i64 16
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
   store i64 %408, ptr %422, align 8
-  %423 = getelementptr inbounds i8, ptr %421, i64 8
+  %423 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store i64 0, ptr %423, align 8
-  %424 = getelementptr inbounds i8, ptr %421, i64 4
+  %424 = getelementptr inbounds nuw i8, ptr %421, i64 4
   %425 = load i32, ptr %424, align 4
   %426 = and i32 %425, -513
   store i32 %426, ptr %424, align 4
@@ -857,14 +857,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %429 = and i64 %428, -8
   %430 = call noalias ptr @_emalloc(i64 noundef %429) #9
   store i32 1, ptr %430, align 4
-  %431 = getelementptr inbounds i8, ptr %430, i64 4
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 4
   store i32 22, ptr %431, align 4
-  %432 = getelementptr inbounds i8, ptr %430, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %430, i64 8
   store i64 0, ptr %432, align 8
-  %433 = getelementptr inbounds i8, ptr %430, i64 16
+  %433 = getelementptr inbounds nuw i8, ptr %430, i64 16
   store i64 %408, ptr %433, align 8
-  %434 = getelementptr inbounds i8, ptr %430, i64 24
-  %435 = getelementptr inbounds i8, ptr %.2, i64 24
+  %434 = getelementptr inbounds nuw i8, ptr %430, i64 24
+  %435 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %436 = load i64, ptr %409, align 8
   %437 = add i64 %436, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %434, ptr nonnull align 8 %435, i64 %437, i1 false)
@@ -929,11 +929,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 471:                                              ; preds = %470
   %472 = add i64 %.94010.i, 2
-  %473 = getelementptr inbounds i8, ptr %.2, i64 16
+  %473 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %474 = load i64, ptr %473, align 8
   %475 = icmp uge i64 %472, %474
   call void @llvm.assume(i1 %475)
-  %476 = getelementptr inbounds i8, ptr %.2, i64 4
+  %476 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %477 = load i32, ptr %476, align 4
   %478 = and i32 %477, 64
   %.not3920.i = icmp eq i32 %478, 0
@@ -948,11 +948,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %483 = add i64 %.94010.i, 34
   %484 = and i64 %483, -8
   %485 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %484) #11
-  %486 = getelementptr inbounds i8, ptr %485, i64 16
+  %486 = getelementptr inbounds nuw i8, ptr %485, i64 16
   store i64 %472, ptr %486, align 8
-  %487 = getelementptr inbounds i8, ptr %485, i64 8
+  %487 = getelementptr inbounds nuw i8, ptr %485, i64 8
   store i64 0, ptr %487, align 8
-  %488 = getelementptr inbounds i8, ptr %485, i64 4
+  %488 = getelementptr inbounds nuw i8, ptr %485, i64 4
   %489 = load i32, ptr %488, align 4
   %490 = and i32 %489, -513
   store i32 %490, ptr %488, align 4
@@ -963,14 +963,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %493 = and i64 %492, -8
   %494 = call noalias ptr @_emalloc(i64 noundef %493) #9
   store i32 1, ptr %494, align 4
-  %495 = getelementptr inbounds i8, ptr %494, i64 4
+  %495 = getelementptr inbounds nuw i8, ptr %494, i64 4
   store i32 22, ptr %495, align 4
-  %496 = getelementptr inbounds i8, ptr %494, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
   store i64 0, ptr %496, align 8
-  %497 = getelementptr inbounds i8, ptr %494, i64 16
+  %497 = getelementptr inbounds nuw i8, ptr %494, i64 16
   store i64 %472, ptr %497, align 8
-  %498 = getelementptr inbounds i8, ptr %494, i64 24
-  %499 = getelementptr inbounds i8, ptr %.2, i64 24
+  %498 = getelementptr inbounds nuw i8, ptr %494, i64 24
+  %499 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %500 = load i64, ptr %473, align 8
   %501 = add i64 %500, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %498, ptr nonnull align 8 %499, i64 %501, i1 false)
@@ -993,11 +993,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 508:                                              ; preds = %.critedge3952.i
   %509 = add i64 %.94010.i, 2
-  %510 = getelementptr inbounds i8, ptr %.2, i64 16
+  %510 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %511 = load i64, ptr %510, align 8
   %512 = icmp uge i64 %509, %511
   call void @llvm.assume(i1 %512)
-  %513 = getelementptr inbounds i8, ptr %.2, i64 4
+  %513 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %514 = load i32, ptr %513, align 4
   %515 = and i32 %514, 64
   %.not3917.i = icmp eq i32 %515, 0
@@ -1012,11 +1012,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %520 = add i64 %.94010.i, 34
   %521 = and i64 %520, -8
   %522 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %521) #11
-  %523 = getelementptr inbounds i8, ptr %522, i64 16
+  %523 = getelementptr inbounds nuw i8, ptr %522, i64 16
   store i64 %509, ptr %523, align 8
-  %524 = getelementptr inbounds i8, ptr %522, i64 8
+  %524 = getelementptr inbounds nuw i8, ptr %522, i64 8
   store i64 0, ptr %524, align 8
-  %525 = getelementptr inbounds i8, ptr %522, i64 4
+  %525 = getelementptr inbounds nuw i8, ptr %522, i64 4
   %526 = load i32, ptr %525, align 4
   %527 = and i32 %526, -513
   store i32 %527, ptr %525, align 4
@@ -1027,14 +1027,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %530 = and i64 %529, -8
   %531 = call noalias ptr @_emalloc(i64 noundef %530) #9
   store i32 1, ptr %531, align 4
-  %532 = getelementptr inbounds i8, ptr %531, i64 4
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 4
   store i32 22, ptr %532, align 4
-  %533 = getelementptr inbounds i8, ptr %531, i64 8
+  %533 = getelementptr inbounds nuw i8, ptr %531, i64 8
   store i64 0, ptr %533, align 8
-  %534 = getelementptr inbounds i8, ptr %531, i64 16
+  %534 = getelementptr inbounds nuw i8, ptr %531, i64 16
   store i64 %509, ptr %534, align 8
-  %535 = getelementptr inbounds i8, ptr %531, i64 24
-  %536 = getelementptr inbounds i8, ptr %.2, i64 24
+  %535 = getelementptr inbounds nuw i8, ptr %531, i64 24
+  %536 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %537 = load i64, ptr %510, align 8
   %538 = add i64 %537, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %535, ptr nonnull align 8 %536, i64 %538, i1 false)
@@ -1117,11 +1117,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 579:                                              ; preds = %.critedge3956.i
   %580 = add i64 %.94010.i, 2
-  %581 = getelementptr inbounds i8, ptr %.2, i64 16
+  %581 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %582 = load i64, ptr %581, align 8
   %583 = icmp uge i64 %580, %582
   call void @llvm.assume(i1 %583)
-  %584 = getelementptr inbounds i8, ptr %.2, i64 4
+  %584 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %585 = load i32, ptr %584, align 4
   %586 = and i32 %585, 64
   %.not3910.i = icmp eq i32 %586, 0
@@ -1136,11 +1136,11 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %591 = add i64 %.94010.i, 34
   %592 = and i64 %591, -8
   %593 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %592) #11
-  %594 = getelementptr inbounds i8, ptr %593, i64 16
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 16
   store i64 %580, ptr %594, align 8
-  %595 = getelementptr inbounds i8, ptr %593, i64 8
+  %595 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store i64 0, ptr %595, align 8
-  %596 = getelementptr inbounds i8, ptr %593, i64 4
+  %596 = getelementptr inbounds nuw i8, ptr %593, i64 4
   %597 = load i32, ptr %596, align 4
   %598 = and i32 %597, -513
   store i32 %598, ptr %596, align 4
@@ -1151,14 +1151,14 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
   %601 = and i64 %600, -8
   %602 = call noalias ptr @_emalloc(i64 noundef %601) #9
   store i32 1, ptr %602, align 4
-  %603 = getelementptr inbounds i8, ptr %602, i64 4
+  %603 = getelementptr inbounds nuw i8, ptr %602, i64 4
   store i32 22, ptr %603, align 4
-  %604 = getelementptr inbounds i8, ptr %602, i64 8
+  %604 = getelementptr inbounds nuw i8, ptr %602, i64 8
   store i64 0, ptr %604, align 8
-  %605 = getelementptr inbounds i8, ptr %602, i64 16
+  %605 = getelementptr inbounds nuw i8, ptr %602, i64 16
   store i64 %580, ptr %605, align 8
-  %606 = getelementptr inbounds i8, ptr %602, i64 24
-  %607 = getelementptr inbounds i8, ptr %.2, i64 24
+  %606 = getelementptr inbounds nuw i8, ptr %602, i64 24
+  %607 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %608 = load i64, ptr %581, align 8
   %609 = add i64 %608, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %606, ptr nonnull align 8 %607, i64 %609, i1 false)
@@ -1205,7 +1205,7 @@ define hidden void @zif_metaphone(ptr noundef %0, ptr nocapture noundef writeonl
 
 .preheader.i:                                     ; preds = %629, %.preheader.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 0, %629 ]
-  %631 = getelementptr inbounds i8, ptr %203, i64 %indvars.iv.i.i
+  %631 = getelementptr inbounds nuw i8, ptr %203, i64 %indvars.iv.i.i
   %632 = load i8, ptr %631, align 1
   %633 = icmp ne i8 %632, 0
   %634 = icmp samesign ult i64 %indvars.iv.i.i, 3
@@ -1225,11 +1225,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 639:                                              ; preds = %.thread3968.i
   %640 = add i64 %.94010.i, 2
-  %641 = getelementptr inbounds i8, ptr %.2, i64 16
+  %641 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %642 = load i64, ptr %641, align 8
   %643 = icmp uge i64 %640, %642
   call void @llvm.assume(i1 %643)
-  %644 = getelementptr inbounds i8, ptr %.2, i64 4
+  %644 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %645 = load i32, ptr %644, align 4
   %646 = and i32 %645, 64
   %.not3904.i = icmp eq i32 %646, 0
@@ -1244,11 +1244,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %651 = add i64 %.94010.i, 34
   %652 = and i64 %651, -8
   %653 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %652) #11
-  %654 = getelementptr inbounds i8, ptr %653, i64 16
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 16
   store i64 %640, ptr %654, align 8
-  %655 = getelementptr inbounds i8, ptr %653, i64 8
+  %655 = getelementptr inbounds nuw i8, ptr %653, i64 8
   store i64 0, ptr %655, align 8
-  %656 = getelementptr inbounds i8, ptr %653, i64 4
+  %656 = getelementptr inbounds nuw i8, ptr %653, i64 4
   %657 = load i32, ptr %656, align 4
   %658 = and i32 %657, -513
   store i32 %658, ptr %656, align 4
@@ -1259,14 +1259,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %661 = and i64 %660, -8
   %662 = call noalias ptr @_emalloc(i64 noundef %661) #9
   store i32 1, ptr %662, align 4
-  %663 = getelementptr inbounds i8, ptr %662, i64 4
+  %663 = getelementptr inbounds nuw i8, ptr %662, i64 4
   store i32 22, ptr %663, align 4
-  %664 = getelementptr inbounds i8, ptr %662, i64 8
+  %664 = getelementptr inbounds nuw i8, ptr %662, i64 8
   store i64 0, ptr %664, align 8
-  %665 = getelementptr inbounds i8, ptr %662, i64 16
+  %665 = getelementptr inbounds nuw i8, ptr %662, i64 16
   store i64 %640, ptr %665, align 8
-  %666 = getelementptr inbounds i8, ptr %662, i64 24
-  %667 = getelementptr inbounds i8, ptr %.2, i64 24
+  %666 = getelementptr inbounds nuw i8, ptr %662, i64 24
+  %667 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %668 = load i64, ptr %641, align 8
   %669 = add i64 %668, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %666, ptr nonnull align 8 %667, i64 %669, i1 false)
@@ -1311,11 +1311,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 691:                                              ; preds = %690
   %692 = add i64 %.94010.i, 2
-  %693 = getelementptr inbounds i8, ptr %.2, i64 16
+  %693 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %694 = load i64, ptr %693, align 8
   %695 = icmp uge i64 %692, %694
   call void @llvm.assume(i1 %695)
-  %696 = getelementptr inbounds i8, ptr %.2, i64 4
+  %696 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %697 = load i32, ptr %696, align 4
   %698 = and i32 %697, 64
   %.not3898.i = icmp eq i32 %698, 0
@@ -1330,11 +1330,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %703 = add i64 %.94010.i, 34
   %704 = and i64 %703, -8
   %705 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %704) #11
-  %706 = getelementptr inbounds i8, ptr %705, i64 16
+  %706 = getelementptr inbounds nuw i8, ptr %705, i64 16
   store i64 %692, ptr %706, align 8
-  %707 = getelementptr inbounds i8, ptr %705, i64 8
+  %707 = getelementptr inbounds nuw i8, ptr %705, i64 8
   store i64 0, ptr %707, align 8
-  %708 = getelementptr inbounds i8, ptr %705, i64 4
+  %708 = getelementptr inbounds nuw i8, ptr %705, i64 4
   %709 = load i32, ptr %708, align 4
   %710 = and i32 %709, -513
   store i32 %710, ptr %708, align 4
@@ -1345,14 +1345,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %713 = and i64 %712, -8
   %714 = call noalias ptr @_emalloc(i64 noundef %713) #9
   store i32 1, ptr %714, align 4
-  %715 = getelementptr inbounds i8, ptr %714, i64 4
+  %715 = getelementptr inbounds nuw i8, ptr %714, i64 4
   store i32 22, ptr %715, align 4
-  %716 = getelementptr inbounds i8, ptr %714, i64 8
+  %716 = getelementptr inbounds nuw i8, ptr %714, i64 8
   store i64 0, ptr %716, align 8
-  %717 = getelementptr inbounds i8, ptr %714, i64 16
+  %717 = getelementptr inbounds nuw i8, ptr %714, i64 16
   store i64 %692, ptr %717, align 8
-  %718 = getelementptr inbounds i8, ptr %714, i64 24
-  %719 = getelementptr inbounds i8, ptr %.2, i64 24
+  %718 = getelementptr inbounds nuw i8, ptr %714, i64 24
+  %719 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %720 = load i64, ptr %693, align 8
   %721 = add i64 %720, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %718, ptr nonnull align 8 %719, i64 %721, i1 false)
@@ -1375,11 +1375,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 728:                                              ; preds = %.thread3969.i
   %729 = add i64 %.94010.i, 2
-  %730 = getelementptr inbounds i8, ptr %.2, i64 16
+  %730 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %731 = load i64, ptr %730, align 8
   %732 = icmp uge i64 %729, %731
   call void @llvm.assume(i1 %732)
-  %733 = getelementptr inbounds i8, ptr %.2, i64 4
+  %733 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %734 = load i32, ptr %733, align 4
   %735 = and i32 %734, 64
   %.not3895.i = icmp eq i32 %735, 0
@@ -1394,11 +1394,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %740 = add i64 %.94010.i, 34
   %741 = and i64 %740, -8
   %742 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %741) #11
-  %743 = getelementptr inbounds i8, ptr %742, i64 16
+  %743 = getelementptr inbounds nuw i8, ptr %742, i64 16
   store i64 %729, ptr %743, align 8
-  %744 = getelementptr inbounds i8, ptr %742, i64 8
+  %744 = getelementptr inbounds nuw i8, ptr %742, i64 8
   store i64 0, ptr %744, align 8
-  %745 = getelementptr inbounds i8, ptr %742, i64 4
+  %745 = getelementptr inbounds nuw i8, ptr %742, i64 4
   %746 = load i32, ptr %745, align 4
   %747 = and i32 %746, -513
   store i32 %747, ptr %745, align 4
@@ -1409,14 +1409,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %750 = and i64 %749, -8
   %751 = call noalias ptr @_emalloc(i64 noundef %750) #9
   store i32 1, ptr %751, align 4
-  %752 = getelementptr inbounds i8, ptr %751, i64 4
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 4
   store i32 22, ptr %752, align 4
-  %753 = getelementptr inbounds i8, ptr %751, i64 8
+  %753 = getelementptr inbounds nuw i8, ptr %751, i64 8
   store i64 0, ptr %753, align 8
-  %754 = getelementptr inbounds i8, ptr %751, i64 16
+  %754 = getelementptr inbounds nuw i8, ptr %751, i64 16
   store i64 %729, ptr %754, align 8
-  %755 = getelementptr inbounds i8, ptr %751, i64 24
-  %756 = getelementptr inbounds i8, ptr %.2, i64 24
+  %755 = getelementptr inbounds nuw i8, ptr %751, i64 24
+  %756 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %757 = load i64, ptr %730, align 8
   %758 = add i64 %757, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %755, ptr nonnull align 8 %756, i64 %758, i1 false)
@@ -1485,11 +1485,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 794:                                              ; preds = %.critedge3960.i
   %795 = add i64 %.94010.i, 2
-  %796 = getelementptr inbounds i8, ptr %.2, i64 16
+  %796 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %797 = load i64, ptr %796, align 8
   %798 = icmp uge i64 %795, %797
   call void @llvm.assume(i1 %798)
-  %799 = getelementptr inbounds i8, ptr %.2, i64 4
+  %799 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %800 = load i32, ptr %799, align 4
   %801 = and i32 %800, 64
   %.not3890.i = icmp eq i32 %801, 0
@@ -1504,11 +1504,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %806 = add i64 %.94010.i, 34
   %807 = and i64 %806, -8
   %808 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %807) #11
-  %809 = getelementptr inbounds i8, ptr %808, i64 16
+  %809 = getelementptr inbounds nuw i8, ptr %808, i64 16
   store i64 %795, ptr %809, align 8
-  %810 = getelementptr inbounds i8, ptr %808, i64 8
+  %810 = getelementptr inbounds nuw i8, ptr %808, i64 8
   store i64 0, ptr %810, align 8
-  %811 = getelementptr inbounds i8, ptr %808, i64 4
+  %811 = getelementptr inbounds nuw i8, ptr %808, i64 4
   %812 = load i32, ptr %811, align 4
   %813 = and i32 %812, -513
   store i32 %813, ptr %811, align 4
@@ -1519,14 +1519,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %816 = and i64 %815, -8
   %817 = call noalias ptr @_emalloc(i64 noundef %816) #9
   store i32 1, ptr %817, align 4
-  %818 = getelementptr inbounds i8, ptr %817, i64 4
+  %818 = getelementptr inbounds nuw i8, ptr %817, i64 4
   store i32 22, ptr %818, align 4
-  %819 = getelementptr inbounds i8, ptr %817, i64 8
+  %819 = getelementptr inbounds nuw i8, ptr %817, i64 8
   store i64 0, ptr %819, align 8
-  %820 = getelementptr inbounds i8, ptr %817, i64 16
+  %820 = getelementptr inbounds nuw i8, ptr %817, i64 16
   store i64 %795, ptr %820, align 8
-  %821 = getelementptr inbounds i8, ptr %817, i64 24
-  %822 = getelementptr inbounds i8, ptr %.2, i64 24
+  %821 = getelementptr inbounds nuw i8, ptr %817, i64 24
+  %822 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %823 = load i64, ptr %796, align 8
   %824 = add i64 %823, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %821, ptr nonnull align 8 %822, i64 %824, i1 false)
@@ -1553,11 +1553,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 833:                                              ; preds = %832
   %834 = add i64 %.94010.i, 2
-  %835 = getelementptr inbounds i8, ptr %.2, i64 16
+  %835 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %836 = load i64, ptr %835, align 8
   %837 = icmp uge i64 %834, %836
   call void @llvm.assume(i1 %837)
-  %838 = getelementptr inbounds i8, ptr %.2, i64 4
+  %838 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %839 = load i32, ptr %838, align 4
   %840 = and i32 %839, 64
   %.not3882.i = icmp eq i32 %840, 0
@@ -1572,11 +1572,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %845 = add i64 %.94010.i, 34
   %846 = and i64 %845, -8
   %847 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %846) #11
-  %848 = getelementptr inbounds i8, ptr %847, i64 16
+  %848 = getelementptr inbounds nuw i8, ptr %847, i64 16
   store i64 %834, ptr %848, align 8
-  %849 = getelementptr inbounds i8, ptr %847, i64 8
+  %849 = getelementptr inbounds nuw i8, ptr %847, i64 8
   store i64 0, ptr %849, align 8
-  %850 = getelementptr inbounds i8, ptr %847, i64 4
+  %850 = getelementptr inbounds nuw i8, ptr %847, i64 4
   %851 = load i32, ptr %850, align 4
   %852 = and i32 %851, -513
   store i32 %852, ptr %850, align 4
@@ -1587,14 +1587,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %855 = and i64 %854, -8
   %856 = call noalias ptr @_emalloc(i64 noundef %855) #9
   store i32 1, ptr %856, align 4
-  %857 = getelementptr inbounds i8, ptr %856, i64 4
+  %857 = getelementptr inbounds nuw i8, ptr %856, i64 4
   store i32 22, ptr %857, align 4
-  %858 = getelementptr inbounds i8, ptr %856, i64 8
+  %858 = getelementptr inbounds nuw i8, ptr %856, i64 8
   store i64 0, ptr %858, align 8
-  %859 = getelementptr inbounds i8, ptr %856, i64 16
+  %859 = getelementptr inbounds nuw i8, ptr %856, i64 16
   store i64 %834, ptr %859, align 8
-  %860 = getelementptr inbounds i8, ptr %856, i64 24
-  %861 = getelementptr inbounds i8, ptr %.2, i64 24
+  %860 = getelementptr inbounds nuw i8, ptr %856, i64 24
+  %861 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %862 = load i64, ptr %835, align 8
   %863 = add i64 %862, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %860, ptr nonnull align 8 %861, i64 %863, i1 false)
@@ -1625,11 +1625,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 877:                                              ; preds = %876
   %878 = add i64 %.94010.i, 2
-  %879 = getelementptr inbounds i8, ptr %.2, i64 16
+  %879 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %880 = load i64, ptr %879, align 8
   %881 = icmp uge i64 %878, %880
   call void @llvm.assume(i1 %881)
-  %882 = getelementptr inbounds i8, ptr %.2, i64 4
+  %882 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %883 = load i32, ptr %882, align 4
   %884 = and i32 %883, 64
   %.not3878.i = icmp eq i32 %884, 0
@@ -1644,11 +1644,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %889 = add i64 %.94010.i, 34
   %890 = and i64 %889, -8
   %891 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %890) #11
-  %892 = getelementptr inbounds i8, ptr %891, i64 16
+  %892 = getelementptr inbounds nuw i8, ptr %891, i64 16
   store i64 %878, ptr %892, align 8
-  %893 = getelementptr inbounds i8, ptr %891, i64 8
+  %893 = getelementptr inbounds nuw i8, ptr %891, i64 8
   store i64 0, ptr %893, align 8
-  %894 = getelementptr inbounds i8, ptr %891, i64 4
+  %894 = getelementptr inbounds nuw i8, ptr %891, i64 4
   %895 = load i32, ptr %894, align 4
   %896 = and i32 %895, -513
   store i32 %896, ptr %894, align 4
@@ -1659,14 +1659,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %899 = and i64 %898, -8
   %900 = call noalias ptr @_emalloc(i64 noundef %899) #9
   store i32 1, ptr %900, align 4
-  %901 = getelementptr inbounds i8, ptr %900, i64 4
+  %901 = getelementptr inbounds nuw i8, ptr %900, i64 4
   store i32 22, ptr %901, align 4
-  %902 = getelementptr inbounds i8, ptr %900, i64 8
+  %902 = getelementptr inbounds nuw i8, ptr %900, i64 8
   store i64 0, ptr %902, align 8
-  %903 = getelementptr inbounds i8, ptr %900, i64 16
+  %903 = getelementptr inbounds nuw i8, ptr %900, i64 16
   store i64 %878, ptr %903, align 8
-  %904 = getelementptr inbounds i8, ptr %900, i64 24
-  %905 = getelementptr inbounds i8, ptr %.2, i64 24
+  %904 = getelementptr inbounds nuw i8, ptr %900, i64 24
+  %905 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %906 = load i64, ptr %879, align 8
   %907 = add i64 %906, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %904, ptr nonnull align 8 %905, i64 %907, i1 false)
@@ -1688,11 +1688,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 915:                                              ; preds = %914
   %916 = add i64 %.94010.i, 2
-  %917 = getelementptr inbounds i8, ptr %.2, i64 16
+  %917 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %918 = load i64, ptr %917, align 8
   %919 = icmp uge i64 %916, %918
   call void @llvm.assume(i1 %919)
-  %920 = getelementptr inbounds i8, ptr %.2, i64 4
+  %920 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %921 = load i32, ptr %920, align 4
   %922 = and i32 %921, 64
   %.not3875.i = icmp eq i32 %922, 0
@@ -1707,11 +1707,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %927 = add i64 %.94010.i, 34
   %928 = and i64 %927, -8
   %929 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %928) #11
-  %930 = getelementptr inbounds i8, ptr %929, i64 16
+  %930 = getelementptr inbounds nuw i8, ptr %929, i64 16
   store i64 %916, ptr %930, align 8
-  %931 = getelementptr inbounds i8, ptr %929, i64 8
+  %931 = getelementptr inbounds nuw i8, ptr %929, i64 8
   store i64 0, ptr %931, align 8
-  %932 = getelementptr inbounds i8, ptr %929, i64 4
+  %932 = getelementptr inbounds nuw i8, ptr %929, i64 4
   %933 = load i32, ptr %932, align 4
   %934 = and i32 %933, -513
   store i32 %934, ptr %932, align 4
@@ -1722,14 +1722,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %937 = and i64 %936, -8
   %938 = call noalias ptr @_emalloc(i64 noundef %937) #9
   store i32 1, ptr %938, align 4
-  %939 = getelementptr inbounds i8, ptr %938, i64 4
+  %939 = getelementptr inbounds nuw i8, ptr %938, i64 4
   store i32 22, ptr %939, align 4
-  %940 = getelementptr inbounds i8, ptr %938, i64 8
+  %940 = getelementptr inbounds nuw i8, ptr %938, i64 8
   store i64 0, ptr %940, align 8
-  %941 = getelementptr inbounds i8, ptr %938, i64 16
+  %941 = getelementptr inbounds nuw i8, ptr %938, i64 16
   store i64 %916, ptr %941, align 8
-  %942 = getelementptr inbounds i8, ptr %938, i64 24
-  %943 = getelementptr inbounds i8, ptr %.2, i64 24
+  %942 = getelementptr inbounds nuw i8, ptr %938, i64 24
+  %943 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %944 = load i64, ptr %917, align 8
   %945 = add i64 %944, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %942, ptr nonnull align 8 %943, i64 %945, i1 false)
@@ -1752,11 +1752,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 953:                                              ; preds = %952
   %954 = add i64 %.94010.i, 2
-  %955 = getelementptr inbounds i8, ptr %.2, i64 16
+  %955 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %956 = load i64, ptr %955, align 8
   %957 = icmp uge i64 %954, %956
   call void @llvm.assume(i1 %957)
-  %958 = getelementptr inbounds i8, ptr %.2, i64 4
+  %958 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %959 = load i32, ptr %958, align 4
   %960 = and i32 %959, 64
   %.not3872.i = icmp eq i32 %960, 0
@@ -1771,11 +1771,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %965 = add i64 %.94010.i, 34
   %966 = and i64 %965, -8
   %967 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %966) #11
-  %968 = getelementptr inbounds i8, ptr %967, i64 16
+  %968 = getelementptr inbounds nuw i8, ptr %967, i64 16
   store i64 %954, ptr %968, align 8
-  %969 = getelementptr inbounds i8, ptr %967, i64 8
+  %969 = getelementptr inbounds nuw i8, ptr %967, i64 8
   store i64 0, ptr %969, align 8
-  %970 = getelementptr inbounds i8, ptr %967, i64 4
+  %970 = getelementptr inbounds nuw i8, ptr %967, i64 4
   %971 = load i32, ptr %970, align 4
   %972 = and i32 %971, -513
   store i32 %972, ptr %970, align 4
@@ -1786,14 +1786,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %975 = and i64 %974, -8
   %976 = call noalias ptr @_emalloc(i64 noundef %975) #9
   store i32 1, ptr %976, align 4
-  %977 = getelementptr inbounds i8, ptr %976, i64 4
+  %977 = getelementptr inbounds nuw i8, ptr %976, i64 4
   store i32 22, ptr %977, align 4
-  %978 = getelementptr inbounds i8, ptr %976, i64 8
+  %978 = getelementptr inbounds nuw i8, ptr %976, i64 8
   store i64 0, ptr %978, align 8
-  %979 = getelementptr inbounds i8, ptr %976, i64 16
+  %979 = getelementptr inbounds nuw i8, ptr %976, i64 16
   store i64 %954, ptr %979, align 8
-  %980 = getelementptr inbounds i8, ptr %976, i64 24
-  %981 = getelementptr inbounds i8, ptr %.2, i64 24
+  %980 = getelementptr inbounds nuw i8, ptr %976, i64 24
+  %981 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %982 = load i64, ptr %955, align 8
   %983 = add i64 %982, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %980, ptr nonnull align 8 %981, i64 %983, i1 false)
@@ -1843,11 +1843,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1003:                                             ; preds = %1002
   %1004 = add i64 %.94010.i, 2
-  %1005 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1005 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1006 = load i64, ptr %1005, align 8
   %1007 = icmp uge i64 %1004, %1006
   call void @llvm.assume(i1 %1007)
-  %1008 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1008 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1009 = load i32, ptr %1008, align 4
   %1010 = and i32 %1009, 64
   %.not3869.i = icmp eq i32 %1010, 0
@@ -1862,11 +1862,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1015 = add i64 %.94010.i, 34
   %1016 = and i64 %1015, -8
   %1017 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1016) #11
-  %1018 = getelementptr inbounds i8, ptr %1017, i64 16
+  %1018 = getelementptr inbounds nuw i8, ptr %1017, i64 16
   store i64 %1004, ptr %1018, align 8
-  %1019 = getelementptr inbounds i8, ptr %1017, i64 8
+  %1019 = getelementptr inbounds nuw i8, ptr %1017, i64 8
   store i64 0, ptr %1019, align 8
-  %1020 = getelementptr inbounds i8, ptr %1017, i64 4
+  %1020 = getelementptr inbounds nuw i8, ptr %1017, i64 4
   %1021 = load i32, ptr %1020, align 4
   %1022 = and i32 %1021, -513
   store i32 %1022, ptr %1020, align 4
@@ -1877,14 +1877,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1025 = and i64 %1024, -8
   %1026 = call noalias ptr @_emalloc(i64 noundef %1025) #9
   store i32 1, ptr %1026, align 4
-  %1027 = getelementptr inbounds i8, ptr %1026, i64 4
+  %1027 = getelementptr inbounds nuw i8, ptr %1026, i64 4
   store i32 22, ptr %1027, align 4
-  %1028 = getelementptr inbounds i8, ptr %1026, i64 8
+  %1028 = getelementptr inbounds nuw i8, ptr %1026, i64 8
   store i64 0, ptr %1028, align 8
-  %1029 = getelementptr inbounds i8, ptr %1026, i64 16
+  %1029 = getelementptr inbounds nuw i8, ptr %1026, i64 16
   store i64 %1004, ptr %1029, align 8
-  %1030 = getelementptr inbounds i8, ptr %1026, i64 24
-  %1031 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1030 = getelementptr inbounds nuw i8, ptr %1026, i64 24
+  %1031 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1032 = load i64, ptr %1005, align 8
   %1033 = add i64 %1032, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1030, ptr nonnull align 8 %1031, i64 %1033, i1 false)
@@ -1907,11 +1907,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1041:                                             ; preds = %1040
   %1042 = add i64 %.94010.i, 2
-  %1043 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1043 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1044 = load i64, ptr %1043, align 8
   %1045 = icmp uge i64 %1042, %1044
   call void @llvm.assume(i1 %1045)
-  %1046 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1046 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1047 = load i32, ptr %1046, align 4
   %1048 = and i32 %1047, 64
   %.not3866.i = icmp eq i32 %1048, 0
@@ -1926,11 +1926,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1053 = add i64 %.94010.i, 34
   %1054 = and i64 %1053, -8
   %1055 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1054) #11
-  %1056 = getelementptr inbounds i8, ptr %1055, i64 16
+  %1056 = getelementptr inbounds nuw i8, ptr %1055, i64 16
   store i64 %1042, ptr %1056, align 8
-  %1057 = getelementptr inbounds i8, ptr %1055, i64 8
+  %1057 = getelementptr inbounds nuw i8, ptr %1055, i64 8
   store i64 0, ptr %1057, align 8
-  %1058 = getelementptr inbounds i8, ptr %1055, i64 4
+  %1058 = getelementptr inbounds nuw i8, ptr %1055, i64 4
   %1059 = load i32, ptr %1058, align 4
   %1060 = and i32 %1059, -513
   store i32 %1060, ptr %1058, align 4
@@ -1941,14 +1941,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1063 = and i64 %1062, -8
   %1064 = call noalias ptr @_emalloc(i64 noundef %1063) #9
   store i32 1, ptr %1064, align 4
-  %1065 = getelementptr inbounds i8, ptr %1064, i64 4
+  %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 4
   store i32 22, ptr %1065, align 4
-  %1066 = getelementptr inbounds i8, ptr %1064, i64 8
+  %1066 = getelementptr inbounds nuw i8, ptr %1064, i64 8
   store i64 0, ptr %1066, align 8
-  %1067 = getelementptr inbounds i8, ptr %1064, i64 16
+  %1067 = getelementptr inbounds nuw i8, ptr %1064, i64 16
   store i64 %1042, ptr %1067, align 8
-  %1068 = getelementptr inbounds i8, ptr %1064, i64 24
-  %1069 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1068 = getelementptr inbounds nuw i8, ptr %1064, i64 24
+  %1069 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1070 = load i64, ptr %1043, align 8
   %1071 = add i64 %1070, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1068, ptr nonnull align 8 %1069, i64 %1071, i1 false)
@@ -1971,11 +1971,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1078:                                             ; preds = %.thread3972.i
   %1079 = add i64 %.94010.i, 2
-  %1080 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1080 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1081 = load i64, ptr %1080, align 8
   %1082 = icmp uge i64 %1079, %1081
   call void @llvm.assume(i1 %1082)
-  %1083 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1083 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1084 = load i32, ptr %1083, align 4
   %1085 = and i32 %1084, 64
   %.not3863.i = icmp eq i32 %1085, 0
@@ -1990,11 +1990,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1090 = add i64 %.94010.i, 34
   %1091 = and i64 %1090, -8
   %1092 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1091) #11
-  %1093 = getelementptr inbounds i8, ptr %1092, i64 16
+  %1093 = getelementptr inbounds nuw i8, ptr %1092, i64 16
   store i64 %1079, ptr %1093, align 8
-  %1094 = getelementptr inbounds i8, ptr %1092, i64 8
+  %1094 = getelementptr inbounds nuw i8, ptr %1092, i64 8
   store i64 0, ptr %1094, align 8
-  %1095 = getelementptr inbounds i8, ptr %1092, i64 4
+  %1095 = getelementptr inbounds nuw i8, ptr %1092, i64 4
   %1096 = load i32, ptr %1095, align 4
   %1097 = and i32 %1096, -513
   store i32 %1097, ptr %1095, align 4
@@ -2005,14 +2005,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1100 = and i64 %1099, -8
   %1101 = call noalias ptr @_emalloc(i64 noundef %1100) #9
   store i32 1, ptr %1101, align 4
-  %1102 = getelementptr inbounds i8, ptr %1101, i64 4
+  %1102 = getelementptr inbounds nuw i8, ptr %1101, i64 4
   store i32 22, ptr %1102, align 4
-  %1103 = getelementptr inbounds i8, ptr %1101, i64 8
+  %1103 = getelementptr inbounds nuw i8, ptr %1101, i64 8
   store i64 0, ptr %1103, align 8
-  %1104 = getelementptr inbounds i8, ptr %1101, i64 16
+  %1104 = getelementptr inbounds nuw i8, ptr %1101, i64 16
   store i64 %1079, ptr %1104, align 8
-  %1105 = getelementptr inbounds i8, ptr %1101, i64 24
-  %1106 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1105 = getelementptr inbounds nuw i8, ptr %1101, i64 24
+  %1106 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1107 = load i64, ptr %1080, align 8
   %1108 = add i64 %1107, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1105, ptr nonnull align 8 %1106, i64 %1108, i1 false)
@@ -2063,11 +2063,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1128:                                             ; preds = %1127
   %1129 = add i64 %.94010.i, 2
-  %1130 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1130 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1131 = load i64, ptr %1130, align 8
   %1132 = icmp uge i64 %1129, %1131
   call void @llvm.assume(i1 %1132)
-  %1133 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1133 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1134 = load i32, ptr %1133, align 4
   %1135 = and i32 %1134, 64
   %.not3857.i = icmp eq i32 %1135, 0
@@ -2082,11 +2082,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1140 = add i64 %.94010.i, 34
   %1141 = and i64 %1140, -8
   %1142 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1141) #11
-  %1143 = getelementptr inbounds i8, ptr %1142, i64 16
+  %1143 = getelementptr inbounds nuw i8, ptr %1142, i64 16
   store i64 %1129, ptr %1143, align 8
-  %1144 = getelementptr inbounds i8, ptr %1142, i64 8
+  %1144 = getelementptr inbounds nuw i8, ptr %1142, i64 8
   store i64 0, ptr %1144, align 8
-  %1145 = getelementptr inbounds i8, ptr %1142, i64 4
+  %1145 = getelementptr inbounds nuw i8, ptr %1142, i64 4
   %1146 = load i32, ptr %1145, align 4
   %1147 = and i32 %1146, -513
   store i32 %1147, ptr %1145, align 4
@@ -2097,14 +2097,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1150 = and i64 %1149, -8
   %1151 = call noalias ptr @_emalloc(i64 noundef %1150) #9
   store i32 1, ptr %1151, align 4
-  %1152 = getelementptr inbounds i8, ptr %1151, i64 4
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 4
   store i32 22, ptr %1152, align 4
-  %1153 = getelementptr inbounds i8, ptr %1151, i64 8
+  %1153 = getelementptr inbounds nuw i8, ptr %1151, i64 8
   store i64 0, ptr %1153, align 8
-  %1154 = getelementptr inbounds i8, ptr %1151, i64 16
+  %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 16
   store i64 %1129, ptr %1154, align 8
-  %1155 = getelementptr inbounds i8, ptr %1151, i64 24
-  %1156 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1155 = getelementptr inbounds nuw i8, ptr %1151, i64 24
+  %1156 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1157 = load i64, ptr %1130, align 8
   %1158 = add i64 %1157, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1155, ptr nonnull align 8 %1156, i64 %1158, i1 false)
@@ -2127,11 +2127,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1166:                                             ; preds = %1165
   %1167 = add i64 %.94010.i, 2
-  %1168 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1168 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1169 = load i64, ptr %1168, align 8
   %1170 = icmp uge i64 %1167, %1169
   call void @llvm.assume(i1 %1170)
-  %1171 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1171 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1172 = load i32, ptr %1171, align 4
   %1173 = and i32 %1172, 64
   %.not3854.i = icmp eq i32 %1173, 0
@@ -2146,11 +2146,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1178 = add i64 %.94010.i, 34
   %1179 = and i64 %1178, -8
   %1180 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1179) #11
-  %1181 = getelementptr inbounds i8, ptr %1180, i64 16
+  %1181 = getelementptr inbounds nuw i8, ptr %1180, i64 16
   store i64 %1167, ptr %1181, align 8
-  %1182 = getelementptr inbounds i8, ptr %1180, i64 8
+  %1182 = getelementptr inbounds nuw i8, ptr %1180, i64 8
   store i64 0, ptr %1182, align 8
-  %1183 = getelementptr inbounds i8, ptr %1180, i64 4
+  %1183 = getelementptr inbounds nuw i8, ptr %1180, i64 4
   %1184 = load i32, ptr %1183, align 4
   %1185 = and i32 %1184, -513
   store i32 %1185, ptr %1183, align 4
@@ -2161,14 +2161,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1188 = and i64 %1187, -8
   %1189 = call noalias ptr @_emalloc(i64 noundef %1188) #9
   store i32 1, ptr %1189, align 4
-  %1190 = getelementptr inbounds i8, ptr %1189, i64 4
+  %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 4
   store i32 22, ptr %1190, align 4
-  %1191 = getelementptr inbounds i8, ptr %1189, i64 8
+  %1191 = getelementptr inbounds nuw i8, ptr %1189, i64 8
   store i64 0, ptr %1191, align 8
-  %1192 = getelementptr inbounds i8, ptr %1189, i64 16
+  %1192 = getelementptr inbounds nuw i8, ptr %1189, i64 16
   store i64 %1167, ptr %1192, align 8
-  %1193 = getelementptr inbounds i8, ptr %1189, i64 24
-  %1194 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1193 = getelementptr inbounds nuw i8, ptr %1189, i64 24
+  %1194 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1195 = load i64, ptr %1168, align 8
   %1196 = add i64 %1195, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1193, ptr nonnull align 8 %1194, i64 %1196, i1 false)
@@ -2203,11 +2203,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1210:                                             ; preds = %.critedge3962.i
   %1211 = add i64 %.94010.i, 2
-  %1212 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1212 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1213 = load i64, ptr %1212, align 8
   %1214 = icmp uge i64 %1211, %1213
   call void @llvm.assume(i1 %1214)
-  %1215 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1215 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1216 = load i32, ptr %1215, align 4
   %1217 = and i32 %1216, 64
   %.not3851.i = icmp eq i32 %1217, 0
@@ -2222,11 +2222,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1222 = add i64 %.94010.i, 34
   %1223 = and i64 %1222, -8
   %1224 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1223) #11
-  %1225 = getelementptr inbounds i8, ptr %1224, i64 16
+  %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 16
   store i64 %1211, ptr %1225, align 8
-  %1226 = getelementptr inbounds i8, ptr %1224, i64 8
+  %1226 = getelementptr inbounds nuw i8, ptr %1224, i64 8
   store i64 0, ptr %1226, align 8
-  %1227 = getelementptr inbounds i8, ptr %1224, i64 4
+  %1227 = getelementptr inbounds nuw i8, ptr %1224, i64 4
   %1228 = load i32, ptr %1227, align 4
   %1229 = and i32 %1228, -513
   store i32 %1229, ptr %1227, align 4
@@ -2237,14 +2237,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1232 = and i64 %1231, -8
   %1233 = call noalias ptr @_emalloc(i64 noundef %1232) #9
   store i32 1, ptr %1233, align 4
-  %1234 = getelementptr inbounds i8, ptr %1233, i64 4
+  %1234 = getelementptr inbounds nuw i8, ptr %1233, i64 4
   store i32 22, ptr %1234, align 4
-  %1235 = getelementptr inbounds i8, ptr %1233, i64 8
+  %1235 = getelementptr inbounds nuw i8, ptr %1233, i64 8
   store i64 0, ptr %1235, align 8
-  %1236 = getelementptr inbounds i8, ptr %1233, i64 16
+  %1236 = getelementptr inbounds nuw i8, ptr %1233, i64 16
   store i64 %1211, ptr %1236, align 8
-  %1237 = getelementptr inbounds i8, ptr %1233, i64 24
-  %1238 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1237 = getelementptr inbounds nuw i8, ptr %1233, i64 24
+  %1238 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1239 = load i64, ptr %1212, align 8
   %1240 = add i64 %1239, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1237, ptr nonnull align 8 %1238, i64 %1240, i1 false)
@@ -2267,11 +2267,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1248:                                             ; preds = %1247
   %1249 = add i64 %.94010.i, 2
-  %1250 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1250 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1251 = load i64, ptr %1250, align 8
   %1252 = icmp uge i64 %1249, %1251
   call void @llvm.assume(i1 %1252)
-  %1253 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1253 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1254 = load i32, ptr %1253, align 4
   %1255 = and i32 %1254, 64
   %.not3844.i = icmp eq i32 %1255, 0
@@ -2286,11 +2286,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1260 = add i64 %.94010.i, 34
   %1261 = and i64 %1260, -8
   %1262 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1261) #11
-  %1263 = getelementptr inbounds i8, ptr %1262, i64 16
+  %1263 = getelementptr inbounds nuw i8, ptr %1262, i64 16
   store i64 %1249, ptr %1263, align 8
-  %1264 = getelementptr inbounds i8, ptr %1262, i64 8
+  %1264 = getelementptr inbounds nuw i8, ptr %1262, i64 8
   store i64 0, ptr %1264, align 8
-  %1265 = getelementptr inbounds i8, ptr %1262, i64 4
+  %1265 = getelementptr inbounds nuw i8, ptr %1262, i64 4
   %1266 = load i32, ptr %1265, align 4
   %1267 = and i32 %1266, -513
   store i32 %1267, ptr %1265, align 4
@@ -2301,14 +2301,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1270 = and i64 %1269, -8
   %1271 = call noalias ptr @_emalloc(i64 noundef %1270) #9
   store i32 1, ptr %1271, align 4
-  %1272 = getelementptr inbounds i8, ptr %1271, i64 4
+  %1272 = getelementptr inbounds nuw i8, ptr %1271, i64 4
   store i32 22, ptr %1272, align 4
-  %1273 = getelementptr inbounds i8, ptr %1271, i64 8
+  %1273 = getelementptr inbounds nuw i8, ptr %1271, i64 8
   store i64 0, ptr %1273, align 8
-  %1274 = getelementptr inbounds i8, ptr %1271, i64 16
+  %1274 = getelementptr inbounds nuw i8, ptr %1271, i64 16
   store i64 %1249, ptr %1274, align 8
-  %1275 = getelementptr inbounds i8, ptr %1271, i64 24
-  %1276 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1275 = getelementptr inbounds nuw i8, ptr %1271, i64 24
+  %1276 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1277 = load i64, ptr %1250, align 8
   %1278 = add i64 %1277, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1275, ptr nonnull align 8 %1276, i64 %1278, i1 false)
@@ -2357,11 +2357,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1303:                                             ; preds = %1302
   %1304 = add i64 %.94010.i, 2
-  %1305 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1305 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1306 = load i64, ptr %1305, align 8
   %1307 = icmp uge i64 %1304, %1306
   call void @llvm.assume(i1 %1307)
-  %1308 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1308 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1309 = load i32, ptr %1308, align 4
   %1310 = and i32 %1309, 64
   %.not3841.i = icmp eq i32 %1310, 0
@@ -2376,11 +2376,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1315 = add i64 %.94010.i, 34
   %1316 = and i64 %1315, -8
   %1317 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1316) #11
-  %1318 = getelementptr inbounds i8, ptr %1317, i64 16
+  %1318 = getelementptr inbounds nuw i8, ptr %1317, i64 16
   store i64 %1304, ptr %1318, align 8
-  %1319 = getelementptr inbounds i8, ptr %1317, i64 8
+  %1319 = getelementptr inbounds nuw i8, ptr %1317, i64 8
   store i64 0, ptr %1319, align 8
-  %1320 = getelementptr inbounds i8, ptr %1317, i64 4
+  %1320 = getelementptr inbounds nuw i8, ptr %1317, i64 4
   %1321 = load i32, ptr %1320, align 4
   %1322 = and i32 %1321, -513
   store i32 %1322, ptr %1320, align 4
@@ -2391,14 +2391,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1325 = and i64 %1324, -8
   %1326 = call noalias ptr @_emalloc(i64 noundef %1325) #9
   store i32 1, ptr %1326, align 4
-  %1327 = getelementptr inbounds i8, ptr %1326, i64 4
+  %1327 = getelementptr inbounds nuw i8, ptr %1326, i64 4
   store i32 22, ptr %1327, align 4
-  %1328 = getelementptr inbounds i8, ptr %1326, i64 8
+  %1328 = getelementptr inbounds nuw i8, ptr %1326, i64 8
   store i64 0, ptr %1328, align 8
-  %1329 = getelementptr inbounds i8, ptr %1326, i64 16
+  %1329 = getelementptr inbounds nuw i8, ptr %1326, i64 16
   store i64 %1304, ptr %1329, align 8
-  %1330 = getelementptr inbounds i8, ptr %1326, i64 24
-  %1331 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1330 = getelementptr inbounds nuw i8, ptr %1326, i64 24
+  %1331 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1332 = load i64, ptr %1305, align 8
   %1333 = add i64 %1332, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1330, ptr nonnull align 8 %1331, i64 %1333, i1 false)
@@ -2421,11 +2421,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1341:                                             ; preds = %1340
   %1342 = add i64 %.94010.i, 2
-  %1343 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1343 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1344 = load i64, ptr %1343, align 8
   %1345 = icmp uge i64 %1342, %1344
   call void @llvm.assume(i1 %1345)
-  %1346 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1346 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1347 = load i32, ptr %1346, align 4
   %1348 = and i32 %1347, 64
   %.not3832.i = icmp eq i32 %1348, 0
@@ -2440,11 +2440,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1353 = add i64 %.94010.i, 34
   %1354 = and i64 %1353, -8
   %1355 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1354) #11
-  %1356 = getelementptr inbounds i8, ptr %1355, i64 16
+  %1356 = getelementptr inbounds nuw i8, ptr %1355, i64 16
   store i64 %1342, ptr %1356, align 8
-  %1357 = getelementptr inbounds i8, ptr %1355, i64 8
+  %1357 = getelementptr inbounds nuw i8, ptr %1355, i64 8
   store i64 0, ptr %1357, align 8
-  %1358 = getelementptr inbounds i8, ptr %1355, i64 4
+  %1358 = getelementptr inbounds nuw i8, ptr %1355, i64 4
   %1359 = load i32, ptr %1358, align 4
   %1360 = and i32 %1359, -513
   store i32 %1360, ptr %1358, align 4
@@ -2455,14 +2455,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1363 = and i64 %1362, -8
   %1364 = call noalias ptr @_emalloc(i64 noundef %1363) #9
   store i32 1, ptr %1364, align 4
-  %1365 = getelementptr inbounds i8, ptr %1364, i64 4
+  %1365 = getelementptr inbounds nuw i8, ptr %1364, i64 4
   store i32 22, ptr %1365, align 4
-  %1366 = getelementptr inbounds i8, ptr %1364, i64 8
+  %1366 = getelementptr inbounds nuw i8, ptr %1364, i64 8
   store i64 0, ptr %1366, align 8
-  %1367 = getelementptr inbounds i8, ptr %1364, i64 16
+  %1367 = getelementptr inbounds nuw i8, ptr %1364, i64 16
   store i64 %1342, ptr %1367, align 8
-  %1368 = getelementptr inbounds i8, ptr %1364, i64 24
-  %1369 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1368 = getelementptr inbounds nuw i8, ptr %1364, i64 24
+  %1369 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1370 = load i64, ptr %1343, align 8
   %1371 = add i64 %1370, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1368, ptr nonnull align 8 %1369, i64 %1371, i1 false)
@@ -2482,11 +2482,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 1378:                                             ; preds = %1352, %1361, %1374, %1340
   %.8 = phi ptr [ %.2, %1340 ], [ %1355, %1352 ], [ %1364, %1374 ], [ %1364, %1361 ]
   %.39.i = phi i64 [ %.94010.i, %1340 ], [ %1342, %1352 ], [ %1342, %1374 ], [ %1342, %1361 ]
-  %1379 = getelementptr inbounds i8, ptr %.8, i64 24
+  %1379 = getelementptr inbounds nuw i8, ptr %.8, i64 24
   %1380 = add i64 %.136994009.i, 1
   %1381 = getelementptr inbounds [1 x i8], ptr %1379, i64 0, i64 %.136994009.i
   store i8 75, ptr %1381, align 1
-  %1382 = getelementptr inbounds i8, ptr %.8, i64 16
+  %1382 = getelementptr inbounds nuw i8, ptr %.8, i64 16
   store i64 %1380, ptr %1382, align 8
   %.not3834.i = icmp ult i64 %1380, %.39.i
   br i1 %.not3834.i, label %.critedge3958.sink.split.i, label %1383
@@ -2495,7 +2495,7 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1384 = add i64 %.39.i, 2
   %1385 = icmp uge i64 %1384, %1380
   call void @llvm.assume(i1 %1385)
-  %1386 = getelementptr inbounds i8, ptr %.8, i64 4
+  %1386 = getelementptr inbounds nuw i8, ptr %.8, i64 4
   %1387 = load i32, ptr %1386, align 4
   %1388 = and i32 %1387, 64
   %.not3835.i = icmp eq i32 %1388, 0
@@ -2510,11 +2510,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1393 = add i64 %.39.i, 34
   %1394 = and i64 %1393, -8
   %1395 = call ptr @_erealloc(ptr noundef nonnull %.8, i64 noundef %1394) #11
-  %1396 = getelementptr inbounds i8, ptr %1395, i64 16
+  %1396 = getelementptr inbounds nuw i8, ptr %1395, i64 16
   store i64 %1384, ptr %1396, align 8
-  %1397 = getelementptr inbounds i8, ptr %1395, i64 8
+  %1397 = getelementptr inbounds nuw i8, ptr %1395, i64 8
   store i64 0, ptr %1397, align 8
-  %1398 = getelementptr inbounds i8, ptr %1395, i64 4
+  %1398 = getelementptr inbounds nuw i8, ptr %1395, i64 4
   %1399 = load i32, ptr %1398, align 4
   %1400 = and i32 %1399, -513
   store i32 %1400, ptr %1398, align 4
@@ -2525,13 +2525,13 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1403 = and i64 %1402, -8
   %1404 = call noalias ptr @_emalloc(i64 noundef %1403) #9
   store i32 1, ptr %1404, align 4
-  %1405 = getelementptr inbounds i8, ptr %1404, i64 4
+  %1405 = getelementptr inbounds nuw i8, ptr %1404, i64 4
   store i32 22, ptr %1405, align 4
-  %1406 = getelementptr inbounds i8, ptr %1404, i64 8
+  %1406 = getelementptr inbounds nuw i8, ptr %1404, i64 8
   store i64 0, ptr %1406, align 8
-  %1407 = getelementptr inbounds i8, ptr %1404, i64 16
+  %1407 = getelementptr inbounds nuw i8, ptr %1404, i64 16
   store i64 %1384, ptr %1407, align 8
-  %1408 = getelementptr inbounds i8, ptr %1404, i64 24
+  %1408 = getelementptr inbounds nuw i8, ptr %1404, i64 24
   %1409 = load i64, ptr %1382, align 8
   %1410 = add i64 %1409, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1408, ptr nonnull align 8 %1379, i64 %1410, i1 false)
@@ -2580,11 +2580,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1435:                                             ; preds = %1434
   %1436 = add i64 %.94010.i, 2
-  %1437 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1437 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1438 = load i64, ptr %1437, align 8
   %1439 = icmp uge i64 %1436, %1438
   call void @llvm.assume(i1 %1439)
-  %1440 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1440 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1441 = load i32, ptr %1440, align 4
   %1442 = and i32 %1441, 64
   %.not3829.i = icmp eq i32 %1442, 0
@@ -2599,11 +2599,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1447 = add i64 %.94010.i, 34
   %1448 = and i64 %1447, -8
   %1449 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1448) #11
-  %1450 = getelementptr inbounds i8, ptr %1449, i64 16
+  %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 16
   store i64 %1436, ptr %1450, align 8
-  %1451 = getelementptr inbounds i8, ptr %1449, i64 8
+  %1451 = getelementptr inbounds nuw i8, ptr %1449, i64 8
   store i64 0, ptr %1451, align 8
-  %1452 = getelementptr inbounds i8, ptr %1449, i64 4
+  %1452 = getelementptr inbounds nuw i8, ptr %1449, i64 4
   %1453 = load i32, ptr %1452, align 4
   %1454 = and i32 %1453, -513
   store i32 %1454, ptr %1452, align 4
@@ -2614,14 +2614,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1457 = and i64 %1456, -8
   %1458 = call noalias ptr @_emalloc(i64 noundef %1457) #9
   store i32 1, ptr %1458, align 4
-  %1459 = getelementptr inbounds i8, ptr %1458, i64 4
+  %1459 = getelementptr inbounds nuw i8, ptr %1458, i64 4
   store i32 22, ptr %1459, align 4
-  %1460 = getelementptr inbounds i8, ptr %1458, i64 8
+  %1460 = getelementptr inbounds nuw i8, ptr %1458, i64 8
   store i64 0, ptr %1460, align 8
-  %1461 = getelementptr inbounds i8, ptr %1458, i64 16
+  %1461 = getelementptr inbounds nuw i8, ptr %1458, i64 16
   store i64 %1436, ptr %1461, align 8
-  %1462 = getelementptr inbounds i8, ptr %1458, i64 24
-  %1463 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1462 = getelementptr inbounds nuw i8, ptr %1458, i64 24
+  %1463 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1464 = load i64, ptr %1437, align 8
   %1465 = add i64 %1464, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1462, ptr nonnull align 8 %1463, i64 %1465, i1 false)
@@ -2644,11 +2644,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1473:                                             ; preds = %1472
   %1474 = add i64 %.94010.i, 2
-  %1475 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1475 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1476 = load i64, ptr %1475, align 8
   %1477 = icmp uge i64 %1474, %1476
   call void @llvm.assume(i1 %1477)
-  %1478 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1478 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1479 = load i32, ptr %1478, align 4
   %1480 = and i32 %1479, 64
   %.not3823.i = icmp eq i32 %1480, 0
@@ -2663,11 +2663,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1485 = add i64 %.94010.i, 34
   %1486 = and i64 %1485, -8
   %1487 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1486) #11
-  %1488 = getelementptr inbounds i8, ptr %1487, i64 16
+  %1488 = getelementptr inbounds nuw i8, ptr %1487, i64 16
   store i64 %1474, ptr %1488, align 8
-  %1489 = getelementptr inbounds i8, ptr %1487, i64 8
+  %1489 = getelementptr inbounds nuw i8, ptr %1487, i64 8
   store i64 0, ptr %1489, align 8
-  %1490 = getelementptr inbounds i8, ptr %1487, i64 4
+  %1490 = getelementptr inbounds nuw i8, ptr %1487, i64 4
   %1491 = load i32, ptr %1490, align 4
   %1492 = and i32 %1491, -513
   store i32 %1492, ptr %1490, align 4
@@ -2678,14 +2678,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1495 = and i64 %1494, -8
   %1496 = call noalias ptr @_emalloc(i64 noundef %1495) #9
   store i32 1, ptr %1496, align 4
-  %1497 = getelementptr inbounds i8, ptr %1496, i64 4
+  %1497 = getelementptr inbounds nuw i8, ptr %1496, i64 4
   store i32 22, ptr %1497, align 4
-  %1498 = getelementptr inbounds i8, ptr %1496, i64 8
+  %1498 = getelementptr inbounds nuw i8, ptr %1496, i64 8
   store i64 0, ptr %1498, align 8
-  %1499 = getelementptr inbounds i8, ptr %1496, i64 16
+  %1499 = getelementptr inbounds nuw i8, ptr %1496, i64 16
   store i64 %1474, ptr %1499, align 8
-  %1500 = getelementptr inbounds i8, ptr %1496, i64 24
-  %1501 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1500 = getelementptr inbounds nuw i8, ptr %1496, i64 24
+  %1501 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1502 = load i64, ptr %1475, align 8
   %1503 = add i64 %1502, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1500, ptr nonnull align 8 %1501, i64 %1503, i1 false)
@@ -2708,11 +2708,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1511:                                             ; preds = %1510
   %1512 = add i64 %.94010.i, 2
-  %1513 = getelementptr inbounds i8, ptr %.2, i64 16
+  %1513 = getelementptr inbounds nuw i8, ptr %.2, i64 16
   %1514 = load i64, ptr %1513, align 8
   %1515 = icmp uge i64 %1512, %1514
   call void @llvm.assume(i1 %1515)
-  %1516 = getelementptr inbounds i8, ptr %.2, i64 4
+  %1516 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %1517 = load i32, ptr %1516, align 4
   %1518 = and i32 %1517, 64
   %.not3820.i = icmp eq i32 %1518, 0
@@ -2727,11 +2727,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1523 = add i64 %.94010.i, 34
   %1524 = and i64 %1523, -8
   %1525 = call ptr @_erealloc(ptr noundef nonnull %.2, i64 noundef %1524) #11
-  %1526 = getelementptr inbounds i8, ptr %1525, i64 16
+  %1526 = getelementptr inbounds nuw i8, ptr %1525, i64 16
   store i64 %1512, ptr %1526, align 8
-  %1527 = getelementptr inbounds i8, ptr %1525, i64 8
+  %1527 = getelementptr inbounds nuw i8, ptr %1525, i64 8
   store i64 0, ptr %1527, align 8
-  %1528 = getelementptr inbounds i8, ptr %1525, i64 4
+  %1528 = getelementptr inbounds nuw i8, ptr %1525, i64 4
   %1529 = load i32, ptr %1528, align 4
   %1530 = and i32 %1529, -513
   store i32 %1530, ptr %1528, align 4
@@ -2742,14 +2742,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1533 = and i64 %1532, -8
   %1534 = call noalias ptr @_emalloc(i64 noundef %1533) #9
   store i32 1, ptr %1534, align 4
-  %1535 = getelementptr inbounds i8, ptr %1534, i64 4
+  %1535 = getelementptr inbounds nuw i8, ptr %1534, i64 4
   store i32 22, ptr %1535, align 4
-  %1536 = getelementptr inbounds i8, ptr %1534, i64 8
+  %1536 = getelementptr inbounds nuw i8, ptr %1534, i64 8
   store i64 0, ptr %1536, align 8
-  %1537 = getelementptr inbounds i8, ptr %1534, i64 16
+  %1537 = getelementptr inbounds nuw i8, ptr %1534, i64 16
   store i64 %1512, ptr %1537, align 8
-  %1538 = getelementptr inbounds i8, ptr %1534, i64 24
-  %1539 = getelementptr inbounds i8, ptr %.2, i64 24
+  %1538 = getelementptr inbounds nuw i8, ptr %1534, i64 24
+  %1539 = getelementptr inbounds nuw i8, ptr %.2, i64 24
   %1540 = load i64, ptr %1513, align 8
   %1541 = add i64 %1540, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1538, ptr nonnull align 8 %1539, i64 %1541, i1 false)
@@ -2773,11 +2773,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %.sink4059.i = phi i8 [ %212, %1510 ], [ 83, %1472 ], [ 89, %1434 ], [ 83, %1378 ], [ 87, %1302 ], [ 70, %1247 ], [ 84, %.critedge3962.i ], [ 48, %1165 ], [ 88, %1127 ], [ 83, %.thread3972.i ], [ 88, %1040 ], [ 88, %1002 ], [ 75, %952 ], [ 70, %876 ], [ 80, %914 ], [ 75, %832 ], [ 72, %.critedge3960.i ], [ 75, %.thread3969.i ], [ 74, %690 ], [ 75, %.thread3968.i ], [ 70, %.critedge3956.i ], [ 84, %.critedge3952.i ], [ 74, %470 ], [ 88, %368 ], [ 75, %406 ], [ 83, %329 ], [ 88, %290 ], [ 66, %227 ], [ 66, %239 ], [ 66, %261 ], [ 66, %248 ], [ 88, %302 ], [ 88, %324 ], [ 88, %311 ], [ 83, %341 ], [ 83, %363 ], [ 83, %350 ], [ 88, %380 ], [ 88, %402 ], [ 88, %389 ], [ 75, %418 ], [ 75, %440 ], [ 75, %427 ], [ 74, %482 ], [ 74, %504 ], [ 74, %491 ], [ 84, %519 ], [ 84, %541 ], [ 84, %528 ], [ 70, %590 ], [ 70, %612 ], [ 70, %599 ], [ 75, %650 ], [ 75, %672 ], [ 75, %659 ], [ 74, %702 ], [ 74, %724 ], [ 74, %711 ], [ 75, %739 ], [ 75, %761 ], [ 75, %748 ], [ 72, %805 ], [ 72, %827 ], [ 72, %814 ], [ 75, %844 ], [ 75, %866 ], [ 75, %853 ], [ 70, %888 ], [ 70, %910 ], [ 70, %897 ], [ 80, %926 ], [ 80, %948 ], [ 80, %935 ], [ 75, %964 ], [ 75, %986 ], [ 75, %973 ], [ 88, %1014 ], [ 88, %1036 ], [ 88, %1023 ], [ 88, %1052 ], [ 88, %1074 ], [ 88, %1061 ], [ 83, %1089 ], [ 83, %1111 ], [ 83, %1098 ], [ 88, %1139 ], [ 88, %1161 ], [ 88, %1148 ], [ 48, %1177 ], [ 48, %1199 ], [ 48, %1186 ], [ 84, %1221 ], [ 84, %1243 ], [ 84, %1230 ], [ 70, %1259 ], [ 70, %1281 ], [ 70, %1268 ], [ 87, %1314 ], [ 87, %1336 ], [ 87, %1323 ], [ 83, %1392 ], [ 83, %1413 ], [ 83, %1401 ], [ 89, %1446 ], [ 89, %1468 ], [ 89, %1455 ], [ 83, %1484 ], [ 83, %1506 ], [ 83, %1493 ], [ %212, %1522 ], [ %212, %1544 ], [ %212, %1531 ]
   %.12.ph.i = phi i64 [ %.94010.i, %1510 ], [ %.94010.i, %1472 ], [ %.94010.i, %1434 ], [ %.39.i, %1378 ], [ %.94010.i, %1302 ], [ %.94010.i, %1247 ], [ %.94010.i, %.critedge3962.i ], [ %.94010.i, %1165 ], [ %.94010.i, %1127 ], [ %.94010.i, %.thread3972.i ], [ %.94010.i, %1040 ], [ %.94010.i, %1002 ], [ %.94010.i, %952 ], [ %.94010.i, %876 ], [ %.94010.i, %914 ], [ %.94010.i, %832 ], [ %.94010.i, %.critedge3960.i ], [ %.94010.i, %.thread3969.i ], [ %.94010.i, %690 ], [ %.94010.i, %.thread3968.i ], [ %.94010.i, %.critedge3956.i ], [ %.94010.i, %.critedge3952.i ], [ %.94010.i, %470 ], [ %.94010.i, %368 ], [ %.94010.i, %406 ], [ %.94010.i, %329 ], [ %.94010.i, %290 ], [ %.94010.i, %227 ], [ %229, %239 ], [ %229, %261 ], [ %229, %248 ], [ %292, %302 ], [ %292, %324 ], [ %292, %311 ], [ %331, %341 ], [ %331, %363 ], [ %331, %350 ], [ %370, %380 ], [ %370, %402 ], [ %370, %389 ], [ %408, %418 ], [ %408, %440 ], [ %408, %427 ], [ %472, %482 ], [ %472, %504 ], [ %472, %491 ], [ %509, %519 ], [ %509, %541 ], [ %509, %528 ], [ %580, %590 ], [ %580, %612 ], [ %580, %599 ], [ %640, %650 ], [ %640, %672 ], [ %640, %659 ], [ %692, %702 ], [ %692, %724 ], [ %692, %711 ], [ %729, %739 ], [ %729, %761 ], [ %729, %748 ], [ %795, %805 ], [ %795, %827 ], [ %795, %814 ], [ %834, %844 ], [ %834, %866 ], [ %834, %853 ], [ %878, %888 ], [ %878, %910 ], [ %878, %897 ], [ %916, %926 ], [ %916, %948 ], [ %916, %935 ], [ %954, %964 ], [ %954, %986 ], [ %954, %973 ], [ %1004, %1014 ], [ %1004, %1036 ], [ %1004, %1023 ], [ %1042, %1052 ], [ %1042, %1074 ], [ %1042, %1061 ], [ %1079, %1089 ], [ %1079, %1111 ], [ %1079, %1098 ], [ %1129, %1139 ], [ %1129, %1161 ], [ %1129, %1148 ], [ %1167, %1177 ], [ %1167, %1199 ], [ %1167, %1186 ], [ %1211, %1221 ], [ %1211, %1243 ], [ %1211, %1230 ], [ %1249, %1259 ], [ %1249, %1281 ], [ %1249, %1268 ], [ %1304, %1314 ], [ %1304, %1336 ], [ %1304, %1323 ], [ %1384, %1392 ], [ %1384, %1413 ], [ %1384, %1401 ], [ %1436, %1446 ], [ %1436, %1468 ], [ %1436, %1455 ], [ %1474, %1484 ], [ %1474, %1506 ], [ %1474, %1493 ], [ %1512, %1522 ], [ %1512, %1544 ], [ %1512, %1531 ]
   %.03695.ph.i = phi i32 [ 0, %1510 ], [ 0, %1472 ], [ 0, %1434 ], [ 0, %1378 ], [ 0, %1302 ], [ 0, %1247 ], [ 0, %.critedge3962.i ], [ 1, %1165 ], [ 0, %1127 ], [ 0, %.thread3972.i ], [ 1, %1040 ], [ 0, %1002 ], [ 0, %952 ], [ 0, %876 ], [ 0, %914 ], [ 0, %832 ], [ 0, %.critedge3960.i ], [ 0, %.thread3969.i ], [ 0, %690 ], [ 0, %.thread3968.i ], [ 1, %.critedge3956.i ], [ 0, %.critedge3952.i ], [ 1, %470 ], [ 1, %368 ], [ 0, %406 ], [ 0, %329 ], [ 0, %290 ], [ 0, %227 ], [ 0, %239 ], [ 0, %261 ], [ 0, %248 ], [ 0, %302 ], [ 0, %324 ], [ 0, %311 ], [ 0, %341 ], [ 0, %363 ], [ 0, %350 ], [ 1, %380 ], [ 1, %402 ], [ 1, %389 ], [ 0, %418 ], [ 0, %440 ], [ 0, %427 ], [ 1, %482 ], [ 1, %504 ], [ 1, %491 ], [ 0, %519 ], [ 0, %541 ], [ 0, %528 ], [ 1, %590 ], [ 1, %612 ], [ 1, %599 ], [ 0, %650 ], [ 0, %672 ], [ 0, %659 ], [ 0, %702 ], [ 0, %724 ], [ 0, %711 ], [ 0, %739 ], [ 0, %761 ], [ 0, %748 ], [ 0, %805 ], [ 0, %827 ], [ 0, %814 ], [ 0, %844 ], [ 0, %866 ], [ 0, %853 ], [ 0, %888 ], [ 0, %910 ], [ 0, %897 ], [ 0, %926 ], [ 0, %948 ], [ 0, %935 ], [ 0, %964 ], [ 0, %986 ], [ 0, %973 ], [ 0, %1014 ], [ 0, %1036 ], [ 0, %1023 ], [ 1, %1052 ], [ 1, %1074 ], [ 1, %1061 ], [ 0, %1089 ], [ 0, %1111 ], [ 0, %1098 ], [ 0, %1139 ], [ 0, %1161 ], [ 0, %1148 ], [ 1, %1177 ], [ 1, %1199 ], [ 1, %1186 ], [ 0, %1221 ], [ 0, %1243 ], [ 0, %1230 ], [ 0, %1259 ], [ 0, %1281 ], [ 0, %1268 ], [ 0, %1314 ], [ 0, %1336 ], [ 0, %1323 ], [ 0, %1392 ], [ 0, %1413 ], [ 0, %1401 ], [ 0, %1446 ], [ 0, %1468 ], [ 0, %1455 ], [ 0, %1484 ], [ 0, %1506 ], [ 0, %1493 ], [ 0, %1522 ], [ 0, %1544 ], [ 0, %1531 ]
-  %1548 = getelementptr inbounds i8, ptr %.3, i64 24
+  %1548 = getelementptr inbounds nuw i8, ptr %.3, i64 24
   %1549 = add i64 %.sink4062.i, %.136994009.i
   %1550 = getelementptr inbounds [1 x i8], ptr %1548, i64 0, i64 %.136994009.sink.i
   store i8 %.sink4059.i, ptr %1550, align 1
-  %1551 = getelementptr inbounds i8, ptr %.3, i64 16
+  %1551 = getelementptr inbounds nuw i8, ptr %.3, i64 16
   store i64 %1549, ptr %1551, align 8
   br label %.critedge3958.i
 
@@ -2812,11 +2812,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1559:                                             ; preds = %.critedge.i
   %1560 = add i64 %.13699.lcssa.i, 1
-  %1561 = getelementptr inbounds i8, ptr %.6, i64 16
+  %1561 = getelementptr inbounds nuw i8, ptr %.6, i64 16
   %1562 = load i64, ptr %1561, align 8
   %1563 = icmp uge i64 %1560, %1562
   call void @llvm.assume(i1 %1563)
-  %1564 = getelementptr inbounds i8, ptr %.6, i64 4
+  %1564 = getelementptr inbounds nuw i8, ptr %.6, i64 4
   %1565 = load i32, ptr %1564, align 4
   %1566 = and i32 %1565, 64
   %.not3814.i = icmp eq i32 %1566, 0
@@ -2831,11 +2831,11 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1571 = add i64 %.13699.lcssa.i, 33
   %1572 = and i64 %1571, -8
   %1573 = call ptr @_erealloc(ptr noundef nonnull %.6, i64 noundef %1572) #11
-  %1574 = getelementptr inbounds i8, ptr %1573, i64 16
+  %1574 = getelementptr inbounds nuw i8, ptr %1573, i64 16
   store i64 %1560, ptr %1574, align 8
-  %1575 = getelementptr inbounds i8, ptr %1573, i64 8
+  %1575 = getelementptr inbounds nuw i8, ptr %1573, i64 8
   store i64 0, ptr %1575, align 8
-  %1576 = getelementptr inbounds i8, ptr %1573, i64 4
+  %1576 = getelementptr inbounds nuw i8, ptr %1573, i64 4
   %1577 = load i32, ptr %1576, align 4
   %1578 = and i32 %1577, -513
   store i32 %1578, ptr %1576, align 4
@@ -2846,14 +2846,14 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
   %1581 = and i64 %1580, -8
   %1582 = call noalias ptr @_emalloc(i64 noundef %1581) #9
   store i32 1, ptr %1582, align 4
-  %1583 = getelementptr inbounds i8, ptr %1582, i64 4
+  %1583 = getelementptr inbounds nuw i8, ptr %1582, i64 4
   store i32 22, ptr %1583, align 4
-  %1584 = getelementptr inbounds i8, ptr %1582, i64 8
+  %1584 = getelementptr inbounds nuw i8, ptr %1582, i64 8
   store i64 0, ptr %1584, align 8
-  %1585 = getelementptr inbounds i8, ptr %1582, i64 16
+  %1585 = getelementptr inbounds nuw i8, ptr %1582, i64 16
   store i64 %1560, ptr %1585, align 8
-  %1586 = getelementptr inbounds i8, ptr %1582, i64 24
-  %1587 = getelementptr inbounds i8, ptr %.6, i64 24
+  %1586 = getelementptr inbounds nuw i8, ptr %1582, i64 24
+  %1587 = getelementptr inbounds nuw i8, ptr %.6, i64 24
   %1588 = load i64, ptr %1561, align 8
   %1589 = add i64 %1588, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %1586, ptr nonnull align 8 %1587, i64 %1589, i1 false)
@@ -2872,7 +2872,7 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 
 1596:                                             ; preds = %1570, %1579, %1592, %.critedge.i
   %.7 = phi ptr [ %.6, %.critedge.i ], [ %1573, %1570 ], [ %1582, %1592 ], [ %1582, %1579 ]
-  %1597 = getelementptr inbounds i8, ptr %.7, i64 24
+  %1597 = getelementptr inbounds nuw i8, ptr %.7, i64 24
   %1598 = getelementptr inbounds [1 x i8], ptr %1597, i64 0, i64 %.13699.lcssa.i
   store i8 0, ptr %1598, align 1
   br label %metaphone.exit
@@ -2880,15 +2880,15 @@ Lookahead.exit.i:                                 ; preds = %.preheader.i
 metaphone.exit:                                   ; preds = %62, %1596
   %.16 = phi ptr [ %.15, %62 ], [ %.7, %1596 ]
   %.13699.lcssa.sink.i = phi i64 [ 0, %62 ], [ %.13699.lcssa.i, %1596 ]
-  %1599 = getelementptr inbounds i8, ptr %.16, i64 16
+  %1599 = getelementptr inbounds nuw i8, ptr %.16, i64 16
   store i64 %.13699.lcssa.sink.i, ptr %1599, align 8
   store ptr %.16, ptr %1, align 8
-  %1600 = getelementptr inbounds i8, ptr %.16, i64 4
+  %1600 = getelementptr inbounds nuw i8, ptr %.16, i64 4
   %1601 = load i32, ptr %1600, align 4
   %1602 = and i32 %1601, 64
   %.not103 = icmp eq i32 %1602, 0
   %1603 = select i1 %.not103, i32 262, i32 6
-  %1604 = getelementptr inbounds i8, ptr %1, i64 8
+  %1604 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %1603, ptr %1604, align 8
   br label %1605
 

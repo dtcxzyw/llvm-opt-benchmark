@@ -66,20 +66,20 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN8CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store volatile i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8
   store i64 0, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTV8Compiler, i64 16), ptr %0, align 8
@@ -90,7 +90,7 @@ define hidden void @_ZN8CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable
 define hidden void @_ZN8Compiler15init_c1_runtimeEv() local_unnamed_addr #1 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1840
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1840
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN8Runtime110initializeEP10BufferBlob(ptr noundef %4) #10
   tail call void @_ZN8FrameMap10initializeEv() #10
@@ -123,14 +123,14 @@ _ZN8Compiler16init_buffer_blobEv.exit:            ; preds = %1
 _ZN8Compiler16init_buffer_blobEv.exit.thread:     ; preds = %1
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1840
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1840
   store ptr %2, ptr %6, align 8
   %7 = tail call noundef zeroext i1 @_ZN16AbstractCompiler19should_perform_initEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #10
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %_ZN8Compiler16init_buffer_blobEv.exit.thread
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1840
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1840
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN8Runtime110initializeEP10BufferBlob(ptr noundef %11) #10
   tail call void @_ZN8FrameMap10initializeEv() #10
@@ -157,7 +157,7 @@ define hidden noundef ptr @_ZN8Compiler16init_buffer_blobEv(ptr nocapture nounde
 3:                                                ; preds = %1
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 1840
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 1840
   store ptr %2, ptr %6, align 8
   br label %7
 
@@ -179,14 +179,14 @@ declare noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef, i32 noundef) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN8Compiler22is_intrinsic_supportedERK12methodHandle(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 8
   %5 = and i32 %.sroa.0.0.copyload.i.i, 32
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 52
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
   %10 = tail call noundef zeroext i1 @_ZN8Compiler22is_intrinsic_supportedE13vmIntrinsicID(i32 noundef %9)
@@ -360,17 +360,17 @@ define hidden void @_ZN8Compiler14compile_methodEP5ciEnvP8ciMethodibP12Directive
   %7 = alloca %class.Compilation, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1840
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1840
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %13, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %13, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %21 = load i64, ptr %20, align 8
   call void @_ZN11CompilationC1EP16AbstractCompilerP5ciEnvP8ciMethodiP10BufferBlobbP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(704) %7, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %11, i1 noundef zeroext %4, ptr noundef %5) #10
   call void @_ZN11CompilationD1Ev(ptr noundef nonnull align 8 dereferenceable(704) %7) #10

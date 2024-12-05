@@ -105,7 +105,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit.thread15: ; 
 _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit: ; preds = %5
   %14 = extractvalue { i64, i1 } %12, 0
   %15 = load ptr, ptr %6, align 8, !noalias !9
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !9
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(15) %6) #12, !noalias !9
   %.sink8.i.sink5.i.i = inttoptr i64 %14 to ptr
@@ -140,7 +140,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit: ; preds = %
   %.sink8.i.sink5.i.i10 = phi ptr [ %.sink8.i.sink5.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit ], [ %.sink8.i.sink5.i.i10.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
   %27 = load ptr, ptr %.sink8.i.sink5.i.i10, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = invoke noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(15) %.sink8.i.sink5.i.i10)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i unwind label %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i3
@@ -152,7 +152,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 33:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
   %34 = load ptr, ptr %.sink8.i.sink5.i.i10, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(12) %.sink8.i.sink5.i.i10) #12
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit
@@ -169,7 +169,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i3
   %41 = load ptr, ptr %.sink8.i.sink5.i.i10, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull align 8 dereferenceable(12) %.sink8.i.sink5.i.i10) #12
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit4
@@ -209,7 +209,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit.thread10: ; 
 _ZNK32pxrInternal_v0_24__pxrReserved__10TfWeakBase9_RegisterEv.exit: ; preds = %5
   %14 = extractvalue { i64, i1 } %12, 0
   %15 = load ptr, ptr %6, align 8, !noalias !17
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !17
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(15) %6) #12, !noalias !17
   %.sink8.i.sink5.i.i = inttoptr i64 %14 to ptr
@@ -251,7 +251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 29:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i
   %30 = load ptr, ptr %.sink8.i.sink5.i.i9, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(12) %.sink8.i.sink5.i.i9) #12
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit

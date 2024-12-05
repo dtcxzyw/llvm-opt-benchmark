@@ -79,7 +79,7 @@ define noundef i32 @task_p_slurmd_batch_request(ptr noundef %0) local_unnamed_ad
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 3, ptr noundef nonnull @.str.2, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_p_slurmd_batch_request, i32 noundef %6) #5
   br label %7
@@ -100,7 +100,7 @@ define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %.not, label %19, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %9 = load i16, ptr %8, align 8
   %10 = zext i16 %9 to i32
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %4, i32 noundef %10) #5
@@ -115,7 +115,7 @@ define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 232
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load ptr, ptr %17, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_p_slurmd_launch_request, ptr noundef nonnull %4, ptr noundef %18) #5
   br label %21
@@ -140,7 +140,7 @@ define i32 @task_p_slurmd_launch_request(ptr noundef %0, i32 noundef %1, ptr nou
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 232
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %32 = load ptr, ptr %31, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.4, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_p_slurmd_launch_request, ptr noundef nonnull %4, ptr noundef %32) #5
   br label %33
@@ -184,33 +184,33 @@ define noundef i32 @task_p_slurmd_resume_job(i32 noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 312
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %_calc_cpu_affinity.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
   %.not13.i = icmp eq i32 %5, 0
   br i1 %.not13.i, label %_calc_cpu_affinity.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %6 = getelementptr inbounds i8, ptr %0, i64 472
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 472
   br label %7
 
 7:                                                ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
   %8 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.9, i32 noundef 172, ptr noundef nonnull @__func__._calc_cpu_affinity) #5
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store ptr %8, ptr %12, align 8
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = tail call i32 @get_cpuset(ptr noundef %17, ptr noundef nonnull %0, i32 noundef %18) #5
@@ -219,9 +219,9 @@ define noundef i32 @task_p_pre_setuid(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %7
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %24) #5
   br label %25
 
@@ -251,7 +251,7 @@ define range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_add
   br i1 %8, label %9, label %20
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 312
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load i32, ptr %10, align 8
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %4, i32 noundef %11) #5
   %12 = call i32 @slurm_get_log_level() #5
@@ -259,16 +259,16 @@ define range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_add
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 112
-  %16 = getelementptr inbounds i8, ptr %0, i64 680
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 136
   %19 = load i32, ptr %18, align 8
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.7, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_p_pre_launch, ptr noundef nonnull %15, i32 noundef %19, ptr noundef nonnull %4) #5
   br label %20
 
 20:                                               ; preds = %9, %14, %1
-  %21 = getelementptr inbounds i8, ptr %0, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %22 = load i32, ptr %21, align 8
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %47, label %23
@@ -284,11 +284,11 @@ define range(i32 -1, 1) i32 @task_p_pre_launch(ptr noundef %0) local_unnamed_add
   call void @copy_bitmask_to_nodemask(ptr noundef %27, ptr noundef nonnull %3) #5
   call void @numa_bitmask_free(ptr noundef %27) #5
   %.fca.0.load.i = load i64, ptr %3, align 8
-  %.fca.1.gep.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fca.1.load.i = load i64, ptr %.fca.1.gep.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   store i64 %.fca.0.load.i, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %.fca.1.load.i, ptr %.sroa.2.0..sroa_idx, align 8
   %28 = load i32, ptr %21, align 8
   %.fr15 = freeze i32 %28
@@ -316,7 +316,7 @@ switch.early.test:                                ; preds = %26
 nodemask_isset_compat.exit.i:                     ; preds = %32, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %32 ]
   %35 = lshr i64 %indvars.iv.i, 6
-  %36 = getelementptr inbounds [2 x i64], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i64], ptr %5, i64 0, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = and i64 %indvars.iv.i, 63
   %39 = shl nuw i64 1, %38
@@ -336,7 +336,7 @@ nodemask_isset_compat.exit.i:                     ; preds = %32, %43
 
 44:                                               ; preds = %32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %45, align 8
   store i64 128, ptr %2, align 8
   call void @numa_set_membind(ptr noundef nonnull %2) #5
@@ -369,14 +369,14 @@ declare void @slurm_chk_memset(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @task_p_pre_launch_priv(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cpu_set_t, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 472
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %13 = load i32, ptr %12, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread, label %14
@@ -412,8 +412,8 @@ define noundef i32 @task_p_post_term(ptr noundef %0, ptr nocapture noundef reado
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load i32, ptr %7, align 8
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 5, ptr noundef nonnull @.str.8, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.task_p_post_term, ptr noundef nonnull %6, i32 noundef %8) #5
   br label %9

@@ -67,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
 19:                                               ; preds = %2, %2, %2, %2, %2, %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 7
   switch i64 %24, label %.critedge [
@@ -126,14 +126,14 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
   %.025 = phi i32 [ 13913, %38 ], [ 13834, %37 ], [ 13958, %36 ], [ 13995, %35 ], [ 13917, %34 ], [ 13954, %33 ], [ 13755, %32 ], [ 13759, %31 ], [ 13615, %30 ], [ 13619, %29 ], [ 13480, %28 ], [ 13517, %27 ], [ 13439, %26 ], [ 13476, %25 ], [ 0, %18 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ], [ 13811, %2 ]
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds %"class.llvm::MCOperand", ptr %41, i64 %.026, i32 1
+  %42 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %41, i64 %.026, i32 1
   %43 = load i32, ptr %42, align 8
   %44 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegEj(i32 noundef %43)
   br i1 %44, label %.critedge, label %45
 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds %"class.llvm::MCOperand", ptr %46, i64 %.027, i32 1
+  %47 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %46, i64 %.027, i32 1
   %48 = load i32, ptr %47, align 8
   %49 = tail call noundef zeroext i1 @_ZN4llvm5X86II19isX86_64ExtendedRegEj(i32 noundef %48)
   br i1 %49, label %50, label %.critedge
@@ -147,8 +147,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8626optimizeInstFromVEX3ToVEX2ERN
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %40, align 8
-  %54 = getelementptr inbounds %"class.llvm::MCOperand", ptr %53, i64 %.026
-  %55 = getelementptr inbounds %"class.llvm::MCOperand", ptr %53, i64 %.027
+  %54 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %53, i64 %.026
+  %55 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %53, i64 %.027
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %55, i64 16, i1 false)
@@ -1244,7 +1244,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
   %253 = add i64 %252, 4294967295
   %254 = and i64 %253, 4294967295
   %255 = load ptr, ptr %251, align 8
-  %256 = getelementptr inbounds %"class.llvm::MCOperand", ptr %255, i64 %254
+  %256 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %255, i64 %254
   %257 = load i8, ptr %256, align 8
   %258 = icmp eq i8 %257, 2
   br i1 %258, label %259, label %272
@@ -1257,7 +1257,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8635optimizeShiftRotateWithImmedi
 
 262:                                              ; preds = %259
   store i32 %.09, ptr %0, align 8
-  %263 = getelementptr inbounds i8, ptr %256, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %256, i64 16
   %264 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %251) #6
   %265 = getelementptr inbounds %"class.llvm::MCOperand", ptr %255, i64 %264
   %.not.i.i.i.i.i.i.i = icmp eq ptr %265, %263
@@ -1532,7 +1532,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
   %65 = add i64 %64, 4294967295
   %66 = and i64 %65, 4294967295
   %67 = load ptr, ptr %63, align 8
-  %68 = getelementptr inbounds %"class.llvm::MCOperand", ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %67, i64 %66
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i64, ptr %69, align 8
   switch i64 %70, label %82 [
@@ -1546,7 +1546,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8634optimizeVPCMPWithImmediateOne
 72:                                               ; preds = %62, %71
   %.0 = phi i32 [ %.014, %71 ], [ %.013, %62 ]
   store i32 %.0, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %68, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %74 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #6
   %75 = getelementptr inbounds %"class.llvm::MCOperand", ptr %67, i64 %74
   %.not.i.i.i.i.i.i.i = icmp eq ptr %75, %73
@@ -1588,7 +1588,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8613optimizeMOVSXERNS_6MCInstE(pt
   br i1 %.not23, label %8, label %.critedge
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %10 = load i32, ptr %9, align 8
   %.not24 = icmp eq i32 %10, 2
   br i1 %.not24, label %27, label %.critedge
@@ -1602,7 +1602,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8613optimizeMOVSXERNS_6MCInstE(pt
   br i1 %.not21, label %16, label %.critedge
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load i32, ptr %17, align 8
   %.not22 = icmp eq i32 %18, 3
   br i1 %.not22, label %27, label %.critedge
@@ -1616,7 +1616,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8613optimizeMOVSXERNS_6MCInstE(pt
   br i1 %.not, label %24, label %.critedge
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load i32, ptr %25, align 8
   %.not20 = icmp eq i32 %26, 22
   br i1 %.not20, label %27, label %.critedge
@@ -1708,7 +1708,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   br i1 %14, label %15, label %.thread57
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %17 = load i8, ptr %16, align 8
   %.fr = freeze i8 %17
   %18 = icmp eq i8 %.fr, 1
@@ -1721,7 +1721,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   %20 = phi i64 [ 5, %10 ], [ 0, %15 ], [ 5, %19 ]
   %.shrunk = phi i1 [ false, %10 ], [ true, %15 ], [ false, %19 ]
   %21 = phi i64 [ 3, %10 ], [ 4, %15 ], [ 3, %19 ]
-  %22 = getelementptr inbounds %"class.llvm::MCOperand", ptr %12, i64 %20, i32 1
+  %22 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %20, i32 1
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %.critedge2 [
     i32 22, label %24
@@ -1731,7 +1731,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   ]
 
 24:                                               ; preds = %.thread57, %.thread57, %.thread57, %.thread57
-  %25 = getelementptr inbounds %"class.llvm::MCOperand", ptr %12, i64 %21
+  %25 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %21
   %26 = load i8, ptr %25, align 8
   %27 = icmp eq i8 %26, 5
   br i1 %27, label %28, label %.critedge49
@@ -1753,36 +1753,36 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
 
 .critedge49:                                      ; preds = %28, %24, %32
   %37 = zext i1 %.shrunk to i64
-  %38 = getelementptr inbounds %"class.llvm::MCOperand", ptr %12, i64 %37, i32 1
+  %38 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %37, i32 1
   %39 = load i32, ptr %38, align 8
   %.not63 = icmp eq i32 %39, 0
   br i1 %.not63, label %40, label %.critedge2
 
 40:                                               ; preds = %.critedge49
   %41 = select i1 %.shrunk, i64 2, i64 1
-  %42 = getelementptr inbounds %"class.llvm::MCOperand", ptr %12, i64 %41, i32 1
+  %42 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %41, i32 1
   %43 = load i64, ptr %42, align 8
   %.not47 = icmp eq i64 %43, 1
   br i1 %.not47, label %44, label %.critedge2
 
 44:                                               ; preds = %40
   %45 = select i1 %.shrunk, i64 3, i64 2
-  %46 = getelementptr inbounds %"class.llvm::MCOperand", ptr %12, i64 %45, i32 1
+  %46 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %45, i32 1
   %47 = load i32, ptr %46, align 8
   %.not64 = icmp eq i32 %47, 0
   br i1 %.not64, label %..critedge_crit_edge, label %.critedge2
 
 ..critedge_crit_edge:                             ; preds = %44
-  %.sroa.311.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %25, i64 8
+  %.sroa.311.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.311.0.copyload.pre = load i64, ptr %.sroa.311.0..sroa_idx.phi.trans.insert, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %32
   %.sroa.311.0.copyload = phi i64 [ %.sroa.311.0.copyload.pre, %..critedge_crit_edge ], [ %33, %32 ]
   %48 = select i1 %.shrunk, i64 5, i64 4
-  %49 = getelementptr inbounds %"class.llvm::MCOperand", ptr %12, i64 %48
+  %49 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %12, i64 %48
   %.sroa.07.0.copyload = load i8, ptr %49, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %50 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #6
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1795,7 +1795,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8611optimizeMOVERNS_6MCInstEb(ptr
   br i1 %.not.i.i.i.i, label %55, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
 55:                                               ; preds = %.critedge
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %56, i64 noundef %53, i64 noundef 16) #6
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
 
@@ -1804,7 +1804,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %.critedge, %55
   %58 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #6
   %59 = getelementptr inbounds %"class.llvm::MCOperand", ptr %57, i64 %58
   store i8 %26, ptr %59, align 1
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.sroa.311.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i, align 1
   %60 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #6
   %61 = add i64 %60, 1
@@ -1816,7 +1816,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit:  ; preds = %.critedge, %55
   br i1 %.not.i.i.i.i50, label %65, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit52
 
 65:                                               ; preds = %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %66, i64 noundef %63, i64 noundef 16) #6
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit52
 
@@ -1825,7 +1825,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit52: ; preds = %_ZN4llvm6MCInst10a
   %68 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #6
   %69 = getelementptr inbounds %"class.llvm::MCOperand", ptr %67, i64 %68
   store i8 %.sroa.07.0.copyload, ptr %69, align 1
-  %.sroa.22.0..sroa_idx.i.i51 = getelementptr inbounds i8, ptr %69, i64 8
+  %.sroa.22.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %.sroa.3.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i51, align 1
   %70 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %11) #6
   %71 = add i64 %70, 1
@@ -4501,7 +4501,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm3X8643optimizeToFixedRegisterOrShor
   %226 = add i64 %225, %.neg.i
   %227 = and i64 %226, 4294967295
   %228 = load ptr, ptr %223, align 8
-  %229 = getelementptr inbounds %"class.llvm::MCOperand", ptr %228, i64 %227
+  %229 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %228, i64 %227
   %230 = load i8, ptr %229, align 8
   switch i8 %230, label %244 [
     i8 5, label %231
@@ -4702,9 +4702,9 @@ _ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit: ; preds = %_ZL28optimizeT
   %288 = add i64 %287, 4294967295
   %289 = and i64 %288, 4294967295
   %290 = load ptr, ptr %282, align 8
-  %291 = getelementptr inbounds %"class.llvm::MCOperand", ptr %290, i64 %289
+  %291 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %290, i64 %289
   %.sroa.02.0.copyload.i = load i8, ptr %291, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %291, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %291, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %292 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %282) #6
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4717,7 +4717,7 @@ _ZL28optimizeToShortImmediateFormRN4llvm6MCInstE.exit: ; preds = %_ZL28optimizeT
   br i1 %.not.i.i.i.i.i, label %297, label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
 297:                                              ; preds = %286
-  %298 = getelementptr inbounds i8, ptr %0, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %282, ptr noundef nonnull %298, i64 noundef %295, i64 noundef 16) #6
   br label %_ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i
 
@@ -4726,7 +4726,7 @@ _ZN4llvm6MCInst10addOperandENS_9MCOperandE.exit.i: ; preds = %297, %286
   %300 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %282) #6
   %301 = getelementptr inbounds %"class.llvm::MCOperand", ptr %299, i64 %300
   store i8 %.sroa.02.0.copyload.i, ptr %301, align 1
-  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %301, i64 8
+  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %301, i64 8
   store i64 %.sroa.3.0.copyload.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 1
   %302 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %282) #6
   %303 = add i64 %302, 1

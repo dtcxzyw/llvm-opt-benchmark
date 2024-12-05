@@ -28,11 +28,11 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %4 = icmp eq ptr %1, null
   %5 = select i1 %4, ptr @_ZN6asmjit9_abi_1_10L23JitAllocatorParams_noneE, ptr %1
   %6 = load i32, ptr %5, align 4, !tbaa !3
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !9
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !10
-  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = and i32 %6, 2
   %14 = icmp eq i32 %13, 0
@@ -67,58 +67,58 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %41 = icmp eq i32 %40, 1
   %42 = zext i1 %41 to i32
   %43 = or i32 %6, %42
-  %44 = getelementptr inbounds i8, ptr %24, i64 96
-  %45 = getelementptr inbounds i8, ptr %24, i64 64
-  %46 = getelementptr inbounds i8, ptr %24, i64 80
-  %47 = getelementptr inbounds i8, ptr %24, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %24, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %47, i8 0, i64 40, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   store ptr %44, ptr %46, align 8, !tbaa !14
-  %48 = getelementptr inbounds i8, ptr %24, i64 88
+  %48 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store i64 %15, ptr %48, align 8, !tbaa !21
   store i32 %43, ptr %24, align 8, !tbaa !22
-  %49 = getelementptr inbounds i8, ptr %24, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %37, ptr %49, align 4, !tbaa !23
-  %50 = getelementptr inbounds i8, ptr %24, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %21, ptr %50, align 8, !tbaa !24
-  %51 = getelementptr inbounds i8, ptr %24, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 %29, ptr %51, align 4, !tbaa !25
-  %52 = getelementptr inbounds i8, ptr %24, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 56
   store i32 %38, ptr %52, align 8, !tbaa !26
-  %53 = getelementptr inbounds i8, ptr %24, i64 124
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 124
   %54 = trunc i32 %21 to i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %44, i8 0, i64 28, i1 false)
   store i16 %54, ptr %53, align 4, !tbaa !27
-  %55 = getelementptr inbounds i8, ptr %24, i64 126
+  %55 = getelementptr inbounds nuw i8, ptr %24, i64 126
   %56 = tail call noundef i32 @llvm.cttz.i32(i32 %21, i1 true), !range !12
   %57 = trunc nuw nsw i32 %56 to i8
   store i8 %57, ptr %55, align 2, !tbaa !31
-  %58 = getelementptr inbounds i8, ptr %24, i64 127
+  %58 = getelementptr inbounds nuw i8, ptr %24, i64 127
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %58, i8 0, i64 25, i1 false)
   br i1 %14, label %75, label %59, !llvm.loop !32
 
 59:                                               ; preds = %26
-  %60 = getelementptr inbounds i8, ptr %24, i64 152
+  %60 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %61 = shl nuw nsw i32 %21, 1
-  %62 = getelementptr inbounds i8, ptr %24, i64 180
+  %62 = getelementptr inbounds nuw i8, ptr %24, i64 180
   %63 = trunc i32 %61 to i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %60, i8 0, i64 28, i1 false)
   store i16 %63, ptr %62, align 4, !tbaa !27
-  %64 = getelementptr inbounds i8, ptr %24, i64 182
+  %64 = getelementptr inbounds nuw i8, ptr %24, i64 182
   %65 = tail call noundef i32 @llvm.cttz.i32(i32 %61, i1 true), !range !12
   %66 = trunc nuw nsw i32 %65 to i8
   store i8 %66, ptr %64, align 2, !tbaa !31
-  %67 = getelementptr inbounds i8, ptr %24, i64 183
+  %67 = getelementptr inbounds nuw i8, ptr %24, i64 183
   %68 = shl nuw nsw i32 %21, 2
-  %69 = getelementptr inbounds i8, ptr %24, i64 236
+  %69 = getelementptr inbounds nuw i8, ptr %24, i64 236
   %70 = trunc i32 %68 to i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(53) %67, i8 0, i64 53, i1 false)
   store i16 %70, ptr %69, align 4, !tbaa !27
-  %71 = getelementptr inbounds i8, ptr %24, i64 238
+  %71 = getelementptr inbounds nuw i8, ptr %24, i64 238
   %72 = tail call noundef i32 @llvm.cttz.i32(i32 %68, i1 true), !range !12
   %73 = trunc nuw nsw i32 %72 to i8
   store i8 %73, ptr %71, align 2, !tbaa !31
-  %74 = getelementptr inbounds i8, ptr %24, i64 239
+  %74 = getelementptr inbounds nuw i8, ptr %24, i64 239
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(25) %74, i8 0, i64 25, i1 false)
   br label %75
 
@@ -137,7 +137,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorD2Ev(ptr nocapture noun
 4:                                                ; preds = %1
   tail call void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef 1) #9
   %5 = load ptr, ptr %0, align 8, !tbaa !34
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %6) #9
   tail call void @free(ptr noundef %5) #9
   br label %8
@@ -154,17 +154,17 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %5, label %.loopexit21, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr null, ptr %7, align 8, !tbaa !36
-  %8 = getelementptr inbounds i8, ptr %4, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %9 = load i64, ptr %8, align 8, !tbaa !21
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.loopexit21, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %4, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %13 = icmp eq i32 %1, 1
-  %14 = getelementptr inbounds i8, ptr %4, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %15
 
 15:                                               ; preds = %221, %11
@@ -181,7 +181,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %19, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %26 = load ptr, ptr %25, align 8, !tbaa !37
   br label %27
 
@@ -193,30 +193,30 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 .preheader19:                                     ; preds = %27, %48
   %31 = phi ptr [ %33, %48 ], [ %28, %27 ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !37
-  %34 = getelementptr inbounds i8, ptr %31, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %35 = load i32, ptr %34, align 8, !tbaa !38
   %36 = and i32 %35, 4
   %37 = icmp eq i32 %36, 0
-  %38 = getelementptr inbounds i8, ptr %31, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 40
   br i1 %37, label %43, label %39
 
 39:                                               ; preds = %.preheader19
-  %40 = getelementptr inbounds i8, ptr %31, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %41 = load i64, ptr %40, align 8, !tbaa !44
   %42 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem18releaseDualMappingEPNS1_11DualMappingEm(ptr noundef nonnull %38, i64 noundef %41) #9
   br label %48
 
 43:                                               ; preds = %.preheader19
   %44 = load ptr, ptr %38, align 8, !tbaa !45
-  %45 = getelementptr inbounds i8, ptr %31, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %46 = load i64, ptr %45, align 8, !tbaa !44
   %47 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem7releaseEPvm(ptr noundef %44, i64 noundef %46) #9
   br label %48
 
 48:                                               ; preds = %43, %39
-  %49 = getelementptr inbounds i8, ptr %31, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %50 = load ptr, ptr %49, align 8, !tbaa !46
   call void @free(ptr noundef %50) #9
   call void @free(ptr noundef nonnull %31) #9
@@ -224,15 +224,15 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %51, label %.loopexit20, label %.preheader19, !llvm.loop !47
 
 .loopexit20:                                      ; preds = %48, %27
-  %52 = getelementptr inbounds i8, ptr %18, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %18, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
   %53 = icmp eq ptr %29, null
   br i1 %53, label %221, label %54
 
 54:                                               ; preds = %.loopexit20
-  %55 = getelementptr inbounds i8, ptr %29, i64 16
-  %56 = getelementptr inbounds i8, ptr %29, i64 64
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %29, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
   %57 = load i32, ptr %56, align 8, !tbaa !38
   %58 = and i32 %57, 1
@@ -240,11 +240,11 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %59, label %60, label %190
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %29, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %62 = load ptr, ptr %61, align 8, !tbaa !48
-  %63 = getelementptr inbounds i8, ptr %29, i64 68
+  %63 = getelementptr inbounds nuw i8, ptr %29, i64 68
   %64 = load i32, ptr %63, align 4, !tbaa !49
-  %65 = getelementptr inbounds i8, ptr %62, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 28
   %66 = load i16, ptr %65, align 4, !tbaa !27
   %67 = zext i32 %64 to i64
   %68 = add nuw nsw i64 %67, 63
@@ -255,9 +255,9 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %71, label %.loopexit18, label %72
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds i8, ptr %29, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !50
-  %75 = getelementptr inbounds i8, ptr %29, i64 88
+  %75 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %76 = load ptr, ptr %75, align 8, !tbaa !46
   %77 = load i32, ptr %63, align 4, !tbaa !49
   %78 = zext i32 %77 to i64
@@ -291,7 +291,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br i1 %96, label %97, label %.loopexit18
 
 97:                                               ; preds = %.preheader17
-  %98 = getelementptr inbounds i8, ptr %93, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %99 = load i64, ptr %98, align 8, !tbaa !51
   %100 = icmp eq i64 %99, -1
   br i1 %100, label %.preheader17, label %101, !llvm.loop !52
@@ -330,7 +330,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   %121 = phi i64 [ %119, %118 ], [ %112, %116 ]
   %122 = phi i64 [ %121, %118 ], [ %105, %116 ]
   %123 = phi ptr [ %124, %118 ], [ %106, %116 ]
-  %124 = getelementptr inbounds i8, ptr %123, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %125 = load i64, ptr %124, align 8, !tbaa !51
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %133, label %127
@@ -386,9 +386,9 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 162:                                              ; preds = %162, %158
   %163 = phi i64 [ 0, %158 ], [ %168, %162 ]
   %164 = getelementptr inbounds i32, ptr %150, i64 %163
-  %165 = getelementptr inbounds i8, ptr %164, i64 32
-  %166 = getelementptr inbounds i8, ptr %164, i64 64
-  %167 = getelementptr inbounds i8, ptr %164, i64 96
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 64
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 96
   store <8 x i32> %161, ptr %164, align 4, !tbaa !55
   store <8 x i32> %161, ptr %165, align 4, !tbaa !55
   store <8 x i32> %161, ptr %166, align 4, !tbaa !55
@@ -407,7 +407,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 172:                                              ; preds = %.preheader58, %172
   %173 = phi i64 [ %175, %172 ], [ %.ph, %.preheader58 ]
-  %174 = getelementptr inbounds i32, ptr %150, i64 %173
+  %174 = getelementptr inbounds nuw i32, ptr %150, i64 %173
   store i32 %153, ptr %174, align 4, !tbaa !55
   %175 = add nuw nsw i64 %173, 1
   %176 = icmp eq i64 %175, %154
@@ -419,21 +419,21 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
 
 .loopexit18:                                      ; preds = %.preheader17, %60
   call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #9
-  %177 = getelementptr inbounds i8, ptr %29, i64 88
+  %177 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %178 = load ptr, ptr %177, align 8, !tbaa !46
   %179 = lshr i64 %68, 3
   %180 = and i64 %179, 1073741816
   call void @llvm.memset.p0.i64(ptr align 8 %178, i8 0, i64 %180, i1 false)
-  %181 = getelementptr inbounds i8, ptr %29, i64 96
+  %181 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %182 = load ptr, ptr %181, align 8, !tbaa !61
   call void @llvm.memset.p0.i64(ptr align 8 %182, i8 0, i64 %180, i1 false)
-  %183 = getelementptr inbounds i8, ptr %29, i64 72
+  %183 = getelementptr inbounds nuw i8, ptr %29, i64 72
   store i32 0, ptr %183, align 8, !tbaa !62
-  %184 = getelementptr inbounds i8, ptr %29, i64 76
+  %184 = getelementptr inbounds nuw i8, ptr %29, i64 76
   store i32 %64, ptr %184, align 4, !tbaa !63
-  %185 = getelementptr inbounds i8, ptr %29, i64 80
+  %185 = getelementptr inbounds nuw i8, ptr %29, i64 80
   store i32 0, ptr %185, align 8, !tbaa !64
-  %186 = getelementptr inbounds i8, ptr %29, i64 84
+  %186 = getelementptr inbounds nuw i8, ptr %29, i64 84
   store i32 %64, ptr %186, align 4, !tbaa !65
   %187 = load i32, ptr %56, align 8, !tbaa !38
   %188 = and i32 %187, -4
@@ -442,9 +442,9 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   br label %190
 
 190:                                              ; preds = %.loopexit18, %54
-  %191 = getelementptr inbounds i8, ptr %29, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %192 = load ptr, ptr %191, align 8, !tbaa !48
-  %193 = getelementptr inbounds i8, ptr %192, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %194 = load ptr, ptr %193, align 8, !tbaa !66
   %195 = icmp eq ptr %194, null
   br i1 %195, label %196, label %197
@@ -457,22 +457,22 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6insertINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPS2_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %29, ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
-  %198 = getelementptr inbounds i8, ptr %192, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !37
   store ptr %199, ptr %55, align 8, !tbaa !37
   store ptr %29, ptr %198, align 8, !tbaa !37
   %200 = icmp eq ptr %199, null
-  %201 = getelementptr inbounds i8, ptr %199, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 24
   %202 = select i1 %200, ptr %192, ptr %201
   store ptr %29, ptr %202, align 8, !tbaa !37
-  %203 = getelementptr inbounds i8, ptr %192, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %192, i64 24
   %204 = load i32, ptr %203, align 8, !tbaa !67
   %205 = add i32 %204, 1
   store i32 %205, ptr %203, align 8, !tbaa !67
-  %206 = getelementptr inbounds i8, ptr %29, i64 68
+  %206 = getelementptr inbounds nuw i8, ptr %29, i64 68
   %207 = load i32, ptr %206, align 4, !tbaa !49
   %208 = zext i32 %207 to i64
-  %209 = getelementptr inbounds i8, ptr %192, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %210 = load i64, ptr %209, align 8, !tbaa !68
   %211 = add i64 %210, %208
   store i64 %211, ptr %209, align 8, !tbaa !68
@@ -481,11 +481,11 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocator5resetENS0_11ResetPolic
   %214 = and i32 %213, 1073741808
   %215 = add nuw nsw i32 %214, 104
   %216 = zext nneg i32 %215 to i64
-  %217 = getelementptr inbounds i8, ptr %192, i64 48
+  %217 = getelementptr inbounds nuw i8, ptr %192, i64 48
   %218 = load i64, ptr %217, align 8, !tbaa !69
   %219 = add i64 %218, %216
   store i64 %219, ptr %217, align 8, !tbaa !69
-  %220 = getelementptr inbounds i8, ptr %18, i64 31
+  %220 = getelementptr inbounds nuw i8, ptr %18, i64 31
   store i8 1, ptr %220, align 1, !tbaa !70
   br label %221
 
@@ -507,25 +507,25 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.asmjit::_abi_1_10::JitAllocator::Statistics") align 8 initializes((0, 8), (16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8, !tbaa !72
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8, !tbaa !34
   %5 = icmp eq ptr %4, @_ZN6asmjit9_abi_1_10L21JitAllocatorImpl_noneE
   br i1 %5, label %233, label %6, !prof !13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #9
-  %9 = getelementptr inbounds i8, ptr %4, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %10 = load i64, ptr %9, align 8, !tbaa !21
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %199, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %4, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !14
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = icmp ult i64 %10, 16
   br i1 %17, label %.preheader, label %18
 
@@ -592,37 +592,37 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %68 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %64, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
   %69 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %65, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
   %70 = extractelement <4 x ptr> %42, i64 0
-  %71 = getelementptr inbounds i8, ptr %70, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 28
   %72 = extractelement <4 x ptr> %42, i64 1
-  %73 = getelementptr inbounds i8, ptr %72, i64 28
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %74 = extractelement <4 x ptr> %42, i64 2
-  %75 = getelementptr inbounds i8, ptr %74, i64 28
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %76 = extractelement <4 x ptr> %42, i64 3
-  %77 = getelementptr inbounds i8, ptr %76, i64 28
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 28
   %78 = extractelement <4 x ptr> %43, i64 0
-  %79 = getelementptr inbounds i8, ptr %78, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 28
   %80 = extractelement <4 x ptr> %43, i64 1
-  %81 = getelementptr inbounds i8, ptr %80, i64 28
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 28
   %82 = extractelement <4 x ptr> %43, i64 2
-  %83 = getelementptr inbounds i8, ptr %82, i64 28
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 28
   %84 = extractelement <4 x ptr> %43, i64 3
-  %85 = getelementptr inbounds i8, ptr %84, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %86 = extractelement <4 x ptr> %44, i64 0
-  %87 = getelementptr inbounds i8, ptr %86, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %88 = extractelement <4 x ptr> %44, i64 1
-  %89 = getelementptr inbounds i8, ptr %88, i64 28
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 28
   %90 = extractelement <4 x ptr> %44, i64 2
-  %91 = getelementptr inbounds i8, ptr %90, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 28
   %92 = extractelement <4 x ptr> %44, i64 3
-  %93 = getelementptr inbounds i8, ptr %92, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = extractelement <4 x ptr> %45, i64 0
-  %95 = getelementptr inbounds i8, ptr %94, i64 28
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 28
   %96 = extractelement <4 x ptr> %45, i64 1
-  %97 = getelementptr inbounds i8, ptr %96, i64 28
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 28
   %98 = extractelement <4 x ptr> %45, i64 2
-  %99 = getelementptr inbounds i8, ptr %98, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 28
   %100 = extractelement <4 x ptr> %45, i64 3
-  %101 = getelementptr inbounds i8, ptr %100, i64 28
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 28
   %102 = load i16, ptr %71, align 4, !tbaa !27
   %103 = load i16, ptr %73, align 4, !tbaa !27
   %104 = load i16, ptr %75, align 4, !tbaa !27
@@ -734,9 +734,9 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %201 = phi i64 [ %195, %.loopexit ], [ 0, %6 ]
   store i64 %201, ptr %0, align 8, !tbaa !72
   store i64 %200, ptr %3, align 8, !tbaa !78
-  %202 = getelementptr inbounds i8, ptr %4, i64 64
+  %202 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %203 = load i64, ptr %202, align 8, !tbaa !79
-  %204 = getelementptr inbounds i8, ptr %0, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %203, ptr %204, align 8, !tbaa !80
   %205 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #9
   br label %233
@@ -748,22 +748,22 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %210 = phi i64 [ %216, %206 ], [ %.ph81, %.preheader ]
   %211 = phi i64 [ %227, %206 ], [ %.ph82, %.preheader ]
   %212 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, i64 %209
-  %213 = getelementptr inbounds i8, ptr %212, i64 24
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = load i32, ptr %213, align 8, !tbaa !67
   %215 = zext i32 %214 to i64
   %216 = add i64 %210, %215
-  %217 = getelementptr inbounds i8, ptr %212, i64 32
+  %217 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %218 = load i64, ptr %217, align 8, !tbaa !68
-  %219 = getelementptr inbounds i8, ptr %212, i64 28
+  %219 = getelementptr inbounds nuw i8, ptr %212, i64 28
   %220 = load i16, ptr %219, align 4, !tbaa !27
   %221 = zext i16 %220 to i64
   %222 = mul i64 %218, %221
   %223 = add i64 %222, %208
-  %224 = getelementptr inbounds i8, ptr %212, i64 40
+  %224 = getelementptr inbounds nuw i8, ptr %212, i64 40
   %225 = load i64, ptr %224, align 8, !tbaa !74
   %226 = mul i64 %225, %221
   %227 = add i64 %226, %211
-  %228 = getelementptr inbounds i8, ptr %212, i64 48
+  %228 = getelementptr inbounds nuw i8, ptr %212, i64 48
   %229 = load i64, ptr %228, align 8, !tbaa !69
   %230 = add i64 %229, %207
   %231 = add nuw i64 %209, 1
@@ -785,7 +785,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 9:                                                ; preds = %4
   store ptr null, ptr %1, align 8, !tbaa !37
   store ptr null, ptr %2, align 8, !tbaa !37
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !24
   %12 = zext i32 %11 to i64
   %13 = add i64 %3, -1
@@ -800,11 +800,11 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %19, label %427, label %20, !prof !13
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %7, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %21) #9
-  %23 = getelementptr inbounds i8, ptr %7, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !14
-  %25 = getelementptr inbounds i8, ptr %7, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %26 = load i64, ptr %25, align 8, !tbaa !21
   %27 = add i64 %26, -1
   %28 = add nsw i64 %16, -1
@@ -835,11 +835,11 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 .loopexit32:                                      ; preds = %41, %34, %20
   %45 = phi i64 [ 0, %20 ], [ %36, %34 ], [ 0, %41 ]
   %46 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %24, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %48 = load i16, ptr %47, align 4, !tbaa !27
   %49 = zext i16 %48 to i64
   %50 = add nuw nsw i64 %28, %49
-  %51 = getelementptr inbounds i8, ptr %46, i64 30
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 30
   %52 = load i8, ptr %51, align 2, !tbaa !31
   %53 = zext nneg i8 %52 to i64
   %54 = lshr i64 %50, %53
@@ -854,44 +854,44 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 
 60:                                               ; preds = %181, %58
   %61 = phi ptr [ %65, %181 ], [ %56, %58 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !37
   %64 = icmp eq ptr %63, null
   %65 = select i1 %64, ptr %56, ptr %63
-  %66 = getelementptr inbounds i8, ptr %61, i64 68
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 68
   %67 = load i32, ptr %66, align 4, !tbaa !49
-  %68 = getelementptr inbounds i8, ptr %61, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %69 = load i32, ptr %68, align 8, !tbaa !62
   %70 = sub i32 %67, %69
   %71 = icmp ult i32 %70, %55
   br i1 %71, label %181, label %72
 
 72:                                               ; preds = %60
-  %73 = getelementptr inbounds i8, ptr %61, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 64
   %74 = load i32, ptr %73, align 8, !tbaa !38
   %75 = and i32 %74, 2
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %72
-  %78 = getelementptr inbounds i8, ptr %61, i64 76
+  %78 = getelementptr inbounds nuw i8, ptr %61, i64 76
   %79 = load i32, ptr %78, align 4, !tbaa !63
   %80 = icmp ult i32 %79, %55
   br i1 %80, label %181, label %81
 
 81:                                               ; preds = %77, %72
-  %82 = getelementptr inbounds i8, ptr %61, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %61, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !46
   %84 = zext i32 %67 to i64
-  %85 = getelementptr inbounds i8, ptr %61, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %61, i64 80
   %86 = load i32, ptr %85, align 8, !tbaa !64
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %61, i64 84
+  %88 = getelementptr inbounds nuw i8, ptr %61, i64 84
   %89 = load i32, ptr %88, align 4, !tbaa !65
   %90 = zext i32 %89 to i64
   %91 = and i64 %87, 4294967232
   %92 = lshr i64 %87, 6
-  %93 = getelementptr inbounds i64, ptr %83, i64 %92
+  %93 = getelementptr inbounds nuw i64, ptr %83, i64 %92
   %94 = icmp samesign ult i64 %91, %90
   br i1 %94, label %95, label %.preheader135
 
@@ -925,7 +925,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %112, label %113, label %.thread
 
 113:                                              ; preds = %.preheader30
-  %114 = getelementptr inbounds i8, ptr %109, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %115 = load i64, ptr %114, align 8, !tbaa !51
   %116 = icmp eq i64 %115, -1
   br i1 %116, label %.preheader30, label %117, !llvm.loop !52
@@ -964,7 +964,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %137 = phi i64 [ %135, %134 ], [ %128, %132 ]
   %138 = phi i64 [ %137, %134 ], [ %120, %132 ]
   %139 = phi ptr [ %140, %134 ], [ %121, %132 ]
-  %140 = getelementptr inbounds i8, ptr %139, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !51
   %142 = icmp eq i64 %141, 0
   br i1 %142, label %149, label %143
@@ -1023,7 +1023,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %177 = trunc nuw i64 %173 to i32
   store i32 %177, ptr %88, align 4, !tbaa !65
   %178 = trunc nuw i64 %106 to i32
-  %179 = getelementptr inbounds i8, ptr %61, i64 76
+  %179 = getelementptr inbounds nuw i8, ptr %61, i64 76
   store i32 %178, ptr %179, align 4, !tbaa !63
   %180 = and i32 %74, -3
   store i32 %180, ptr %73, align 8, !tbaa !38
@@ -1034,18 +1034,18 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %182, label %.loopexit31, label %60, !llvm.loop !83
 
 .loopexit31:                                      ; preds = %181, %.loopexit32
-  %183 = getelementptr inbounds i8, ptr %46, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %184 = load ptr, ptr %183, align 8, !tbaa !37
   %185 = icmp eq ptr %184, null
   br i1 %185, label %189, label %186
 
 186:                                              ; preds = %.loopexit31
-  %187 = getelementptr inbounds i8, ptr %184, i64 56
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %188 = load i64, ptr %187, align 8, !tbaa !44
   br label %193
 
 189:                                              ; preds = %.loopexit31
-  %190 = getelementptr inbounds i8, ptr %7, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %191 = load i32, ptr %190, align 4, !tbaa !23
   %192 = zext i32 %191 to i64
   br label %193
@@ -1059,7 +1059,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %198, label %199, label %207
 
 199:                                              ; preds = %193
-  %200 = getelementptr inbounds i8, ptr %7, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %201 = load i32, ptr %200, align 4, !tbaa !23
   %202 = zext i32 %201 to i64
   %203 = add nuw nsw i64 %28, %202
@@ -1106,7 +1106,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 230:                                              ; preds = %224
   %231 = call noundef i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr noundef nonnull %6, i64 noundef %210, i32 noundef 7) #9
   %232 = load ptr, ptr %6, align 16, !tbaa !85
-  %233 = getelementptr inbounds i8, ptr %6, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %232, ptr %233, align 8, !tbaa !86
   br label %234
 
@@ -1131,11 +1131,11 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %243, label %274, label %244
 
 244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %6, i64 8
+  %245 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !86
   call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
   %247 = load ptr, ptr %245, align 8, !tbaa !86
-  %248 = getelementptr inbounds i8, ptr %7, i64 12
+  %248 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %249 = load i32, ptr %248, align 4, !tbaa !25
   %250 = lshr i64 %210, 2
   %251 = icmp ult i64 %210, 4
@@ -1153,10 +1153,10 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 
 258:                                              ; preds = %258, %254
   %259 = phi i64 [ 0, %254 ], [ %264, %258 ]
-  %260 = getelementptr inbounds i32, ptr %247, i64 %259
-  %261 = getelementptr inbounds i8, ptr %260, i64 32
-  %262 = getelementptr inbounds i8, ptr %260, i64 64
-  %263 = getelementptr inbounds i8, ptr %260, i64 96
+  %260 = getelementptr inbounds nuw i32, ptr %247, i64 %259
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 32
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 64
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 96
   store <8 x i32> %257, ptr %260, align 4, !tbaa !55
   store <8 x i32> %257, ptr %261, align 4, !tbaa !55
   store <8 x i32> %257, ptr %262, align 4, !tbaa !55
@@ -1175,7 +1175,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
 
 268:                                              ; preds = %.preheader133, %268
   %269 = phi i64 [ %271, %268 ], [ %.ph, %.preheader133 ]
-  %270 = getelementptr inbounds i32, ptr %247, i64 %269
+  %270 = getelementptr inbounds nuw i32, ptr %247, i64 %269
   store i32 %249, ptr %270, align 4, !tbaa !55
   %271 = add nuw nsw i64 %269, 1
   %272 = icmp eq i64 %271, %250
@@ -1194,33 +1194,33 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %275 = zext nneg i32 %216 to i64
   %276 = shl nuw nsw i64 %275, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %222, i8 0, i64 %276, i1 false)
-  %277 = getelementptr inbounds i64, ptr %222, i64 %275
-  %278 = getelementptr inbounds i8, ptr %217, i64 32
+  %277 = getelementptr inbounds nuw i64, ptr %222, i64 %275
+  %278 = getelementptr inbounds nuw i8, ptr %217, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %217, i8 0, i64 32, i1 false)
   store ptr %46, ptr %278, align 8, !tbaa !48
-  %279 = getelementptr inbounds i8, ptr %217, i64 40
+  %279 = getelementptr inbounds nuw i8, ptr %217, i64 40
   %280 = load <2 x ptr>, ptr %6, align 16, !tbaa !37
   store <2 x ptr> %280, ptr %279, align 8, !tbaa !37
-  %281 = getelementptr inbounds i8, ptr %217, i64 56
+  %281 = getelementptr inbounds nuw i8, ptr %217, i64 56
   store i64 %210, ptr %281, align 8, !tbaa !44
-  %282 = getelementptr inbounds i8, ptr %217, i64 64
+  %282 = getelementptr inbounds nuw i8, ptr %217, i64 64
   store i32 %236, ptr %282, align 8, !tbaa !38
-  %283 = getelementptr inbounds i8, ptr %217, i64 68
+  %283 = getelementptr inbounds nuw i8, ptr %217, i64 68
   store i32 %214, ptr %283, align 4, !tbaa !49
-  %284 = getelementptr inbounds i8, ptr %217, i64 72
+  %284 = getelementptr inbounds nuw i8, ptr %217, i64 72
   store i32 0, ptr %284, align 8, !tbaa !62
-  %285 = getelementptr inbounds i8, ptr %217, i64 76
+  %285 = getelementptr inbounds nuw i8, ptr %217, i64 76
   store i32 %214, ptr %285, align 4, !tbaa !63
-  %286 = getelementptr inbounds i8, ptr %217, i64 80
+  %286 = getelementptr inbounds nuw i8, ptr %217, i64 80
   store i32 0, ptr %286, align 8, !tbaa !64
-  %287 = getelementptr inbounds i8, ptr %217, i64 84
+  %287 = getelementptr inbounds nuw i8, ptr %217, i64 84
   store i32 %214, ptr %287, align 4, !tbaa !65
-  %288 = getelementptr inbounds i8, ptr %217, i64 88
+  %288 = getelementptr inbounds nuw i8, ptr %217, i64 88
   store ptr %222, ptr %288, align 8, !tbaa !46
-  %289 = getelementptr inbounds i8, ptr %217, i64 96
+  %289 = getelementptr inbounds nuw i8, ptr %217, i64 96
   store ptr %277, ptr %289, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
-  %290 = getelementptr inbounds i8, ptr %46, i64 16
+  %290 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %291 = load ptr, ptr %290, align 8, !tbaa !66
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %294
@@ -1230,25 +1230,25 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br label %294
 
 294:                                              ; preds = %293, %274
-  %295 = getelementptr inbounds i8, ptr %7, i64 72
+  %295 = getelementptr inbounds nuw i8, ptr %7, i64 72
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #9
   call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6insertINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPS2_RKT_(ptr noundef nonnull align 8 dereferenceable(8) %295, ptr noundef %217, ptr noundef nonnull align 1 dereferenceable(1) %5) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #9
   %296 = load ptr, ptr %183, align 8, !tbaa !37
-  %297 = getelementptr inbounds i8, ptr %217, i64 16
+  %297 = getelementptr inbounds nuw i8, ptr %217, i64 16
   store ptr %296, ptr %297, align 8, !tbaa !37
   store ptr %217, ptr %183, align 8, !tbaa !37
   %298 = icmp eq ptr %296, null
-  %299 = getelementptr inbounds i8, ptr %296, i64 24
+  %299 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %300 = select i1 %298, ptr %46, ptr %299
   store ptr %217, ptr %300, align 8, !tbaa !37
-  %301 = getelementptr inbounds i8, ptr %46, i64 24
+  %301 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %302 = load i32, ptr %301, align 8, !tbaa !67
   %303 = add i32 %302, 1
   store i32 %303, ptr %301, align 8, !tbaa !67
   %304 = load i32, ptr %283, align 4, !tbaa !49
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds i8, ptr %46, i64 32
+  %306 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %307 = load i64, ptr %306, align 8, !tbaa !68
   %308 = add i64 %307, %305
   store i64 %308, ptr %306, align 8, !tbaa !68
@@ -1257,7 +1257,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %311 = and i32 %310, 1073741808
   %312 = add nuw nsw i32 %311, 104
   %313 = zext nneg i32 %312 to i64
-  %314 = getelementptr inbounds i8, ptr %46, i64 48
+  %314 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %315 = load i64, ptr %314, align 8, !tbaa !69
   %316 = add i64 %315, %313
   store i64 %316, ptr %314, align 8, !tbaa !69
@@ -1274,7 +1274,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br i1 %321, label %327, label %322
 
 322:                                              ; preds = %319
-  %323 = getelementptr inbounds i8, ptr %46, i64 31
+  %323 = getelementptr inbounds nuw i8, ptr %46, i64 31
   %324 = load i8, ptr %323, align 1, !tbaa !70
   %325 = add i8 %324, -1
   store i8 %325, ptr %323, align 1, !tbaa !70
@@ -1289,7 +1289,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %331 = phi i64 [ %318, %294 ], [ %59, %319 ], [ %59, %322 ]
   %332 = phi ptr [ %217, %294 ], [ %61, %319 ], [ %61, %322 ]
   %333 = phi i32 [ 0, %294 ], [ %171, %319 ], [ %171, %322 ]
-  %334 = getelementptr inbounds i8, ptr %7, i64 64
+  %334 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %335 = load i64, ptr %334, align 8, !tbaa !79
   %336 = add i64 %335, 1
   store i64 %336, ptr %334, align 8, !tbaa !79
@@ -1301,7 +1301,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %340 = zext i32 %333 to i64
   %341 = lshr i64 %340, 6
   %342 = and i64 %340, 63
-  %343 = getelementptr inbounds i64, ptr %330, i64 %341
+  %343 = getelementptr inbounds nuw i64, ptr %330, i64 %341
   %344 = sub nuw nsw i64 64, %342
   %345 = call noundef i64 @llvm.umin.i64(i64 %331, i64 %344)
   %346 = load i64, ptr %343, align 8, !tbaa !51
@@ -1344,38 +1344,38 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br label %374
 
 374:                                              ; preds = %369, %365, %327
-  %375 = getelementptr inbounds i8, ptr %332, i64 96
+  %375 = getelementptr inbounds nuw i8, ptr %332, i64 96
   %376 = load ptr, ptr %375, align 8, !tbaa !61
   %377 = add i32 %337, -1
   %378 = zext i32 %377 to i64
   %379 = lshr i64 %378, 6
   %380 = and i64 %378, 63
   %381 = shl nuw i64 1, %380
-  %382 = getelementptr inbounds i64, ptr %376, i64 %379
+  %382 = getelementptr inbounds nuw i64, ptr %376, i64 %379
   %383 = load i64, ptr %382, align 8, !tbaa !51
   %384 = or i64 %383, %381
   store i64 %384, ptr %382, align 8, !tbaa !51
-  %385 = getelementptr inbounds i8, ptr %332, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %332, i64 32
   %386 = load ptr, ptr %385, align 8, !tbaa !48
-  %387 = getelementptr inbounds i8, ptr %386, i64 40
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 40
   %388 = load i64, ptr %387, align 8, !tbaa !74
   %389 = add i64 %388, %331
   store i64 %389, ptr %387, align 8, !tbaa !74
-  %390 = getelementptr inbounds i8, ptr %332, i64 72
+  %390 = getelementptr inbounds nuw i8, ptr %332, i64 72
   %391 = load i32, ptr %390, align 8, !tbaa !62
   %392 = add i32 %391, %55
   store i32 %392, ptr %390, align 8, !tbaa !62
   %393 = icmp eq i32 %329, %392
-  %394 = getelementptr inbounds i8, ptr %332, i64 80
+  %394 = getelementptr inbounds nuw i8, ptr %332, i64 80
   br i1 %393, label %395, label %401
 
 395:                                              ; preds = %374
   store i32 %329, ptr %394, align 8, !tbaa !64
-  %396 = getelementptr inbounds i8, ptr %332, i64 84
+  %396 = getelementptr inbounds nuw i8, ptr %332, i64 84
   store i32 0, ptr %396, align 4, !tbaa !65
-  %397 = getelementptr inbounds i8, ptr %332, i64 76
+  %397 = getelementptr inbounds nuw i8, ptr %332, i64 76
   store i32 0, ptr %397, align 4, !tbaa !63
-  %398 = getelementptr inbounds i8, ptr %332, i64 64
+  %398 = getelementptr inbounds nuw i8, ptr %332, i64 64
   %399 = load i32, ptr %398, align 8, !tbaa !38
   %400 = and i32 %399, -3
   store i32 %400, ptr %398, align 8, !tbaa !38
@@ -1390,7 +1390,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br label %404
 
 404:                                              ; preds = %403, %401
-  %405 = getelementptr inbounds i8, ptr %332, i64 84
+  %405 = getelementptr inbounds nuw i8, ptr %332, i64 84
   %406 = load i32, ptr %405, align 4, !tbaa !65
   %407 = icmp eq i32 %406, %337
   br i1 %407, label %408, label %409
@@ -1400,7 +1400,7 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   br label %409
 
 409:                                              ; preds = %408, %404
-  %410 = getelementptr inbounds i8, ptr %332, i64 64
+  %410 = getelementptr inbounds nuw i8, ptr %332, i64 64
   %411 = load i32, ptr %410, align 8, !tbaa !38
   %412 = or i32 %411, 2
   store i32 %412, ptr %410, align 8, !tbaa !38
@@ -1411,13 +1411,13 @@ define dso_local noundef range(i32 0, 10) i32 @_ZN6asmjit9_abi_1_1012JitAllocato
   %415 = load i16, ptr %47, align 4, !tbaa !27
   %416 = zext i16 %415 to i64
   %417 = mul nuw nsw i64 %416, %414
-  %418 = getelementptr inbounds i8, ptr %332, i64 40
+  %418 = getelementptr inbounds nuw i8, ptr %332, i64 40
   %419 = load ptr, ptr %418, align 8, !tbaa !45
-  %420 = getelementptr inbounds i8, ptr %419, i64 %417
+  %420 = getelementptr inbounds nuw i8, ptr %419, i64 %417
   store ptr %420, ptr %1, align 8, !tbaa !37
-  %421 = getelementptr inbounds i8, ptr %332, i64 48
+  %421 = getelementptr inbounds nuw i8, ptr %332, i64 48
   %422 = load ptr, ptr %421, align 8, !tbaa !50
-  %423 = getelementptr inbounds i8, ptr %422, i64 %417
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 %417
   store ptr %423, ptr %2, align 8, !tbaa !37
   br label %424
 
@@ -1443,20 +1443,20 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %7, label %258, label %8, !prof !13
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #9
-  %11 = getelementptr inbounds i8, ptr %4, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit14, label %.preheader13
 
 .preheader13:                                     ; preds = %8, %26
   %14 = phi ptr [ %32, %26 ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = icmp ugt ptr %16, %1
   %18 = zext i1 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %14, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = getelementptr inbounds i8, ptr %16, i64 %20
   %22 = icmp ule ptr %21, %1
@@ -1468,7 +1468,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 26:                                               ; preds = %.preheader13
   %27 = lshr i32 %24, 31
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i64], ptr %14, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !51
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
@@ -1476,24 +1476,24 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %33, label %.loopexit14, label %.preheader13
 
 34:                                               ; preds = %.preheader13
-  %35 = getelementptr inbounds i8, ptr %14, i64 40
-  %36 = getelementptr inbounds i8, ptr %14, i64 56
-  %37 = getelementptr inbounds i8, ptr %14, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !48
   %39 = ptrtoint ptr %1 to i64
   %40 = ptrtoint ptr %16 to i64
   %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %38, i64 30
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 30
   %43 = load i8, ptr %42, align 2, !tbaa !31
   %44 = zext nneg i8 %43 to i64
   %45 = lshr i64 %41, %44
   %46 = trunc i64 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %14, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %48 = load ptr, ptr %47, align 8, !tbaa !61
   %49 = lshr i64 %45, 6
   %50 = and i64 %49, 67108863
   %51 = and i64 %45, 63
-  %52 = getelementptr inbounds i64, ptr %48, i64 %50
+  %52 = getelementptr inbounds nuw i64, ptr %48, i64 %50
   %53 = load i64, ptr %52, align 8, !tbaa !51
   %54 = shl nsw i64 -1, %51
   %55 = and i64 %54, %53
@@ -1502,7 +1502,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 .preheader:                                       ; preds = %34, %.preheader
   %57 = phi ptr [ %58, %.preheader ], [ %52, %34 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !51
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %.preheader, label %.loopexit12, !llvm.loop !90
@@ -1518,35 +1518,35 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %68 = add i64 %66, %67
   %69 = trunc i64 %68 to i32
   %70 = add i32 %69, 1
-  %71 = getelementptr inbounds i8, ptr %4, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %72 = load i64, ptr %71, align 8, !tbaa !79
   %73 = add i64 %72, -1
   store i64 %73, ptr %71, align 8, !tbaa !79
   %74 = sub i32 %70, %46
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %38, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %77 = load i64, ptr %76, align 8, !tbaa !74
   %78 = sub i64 %77, %75
   store i64 %78, ptr %76, align 8, !tbaa !74
-  %79 = getelementptr inbounds i8, ptr %14, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %80 = load i32, ptr %79, align 8, !tbaa !62
   %81 = sub i32 %80, %74
   store i32 %81, ptr %79, align 8, !tbaa !62
-  %82 = getelementptr inbounds i8, ptr %14, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %83 = load i32, ptr %82, align 4, !tbaa !55
   %84 = tail call noundef i32 @llvm.umin.i32(i32 %46, i32 %83)
   store i32 %84, ptr %82, align 8, !tbaa !64
-  %85 = getelementptr inbounds i8, ptr %14, i64 84
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %86 = load i32, ptr %85, align 4, !tbaa !55
   %87 = tail call noundef i32 @llvm.umax.i32(i32 %86, i32 %70)
   store i32 %87, ptr %85, align 4, !tbaa !65
-  %88 = getelementptr inbounds i8, ptr %14, i64 88
+  %88 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %89 = load ptr, ptr %88, align 8, !tbaa !46
   %90 = icmp eq i32 %70, %46
   br i1 %90, label %125, label %91
 
 91:                                               ; preds = %.loopexit12
-  %92 = getelementptr inbounds i64, ptr %89, i64 %50
+  %92 = getelementptr inbounds nuw i64, ptr %89, i64 %50
   %93 = sub nuw nsw i64 64, %51
   %94 = tail call noundef i64 @llvm.umin.i64(i64 %75, i64 %93)
   %95 = load i64, ptr %92, align 8, !tbaa !51
@@ -1596,7 +1596,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %128 = and i64 %68, 63
   %129 = shl nuw i64 1, %128
   %130 = xor i64 %129, -1
-  %131 = getelementptr inbounds i64, ptr %48, i64 %127
+  %131 = getelementptr inbounds nuw i64, ptr %48, i64 %127
   %132 = load i64, ptr %131, align 8, !tbaa !51
   %133 = and i64 %132, %130
   store i64 %133, ptr %131, align 8, !tbaa !51
@@ -1605,12 +1605,12 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 135:                                              ; preds = %125
   store i32 0, ptr %82, align 8, !tbaa !64
-  %136 = getelementptr inbounds i8, ptr %14, i64 68
+  %136 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %137 = load i32, ptr %136, align 4, !tbaa !49
   store i32 %137, ptr %85, align 4, !tbaa !65
-  %138 = getelementptr inbounds i8, ptr %14, i64 76
+  %138 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 %137, ptr %138, align 4, !tbaa !63
-  %139 = getelementptr inbounds i8, ptr %14, i64 64
+  %139 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %140 = load i32, ptr %139, align 8, !tbaa !38
   %141 = and i32 %140, -4
   %142 = or disjoint i32 %141, 1
@@ -1618,7 +1618,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br label %147
 
 143:                                              ; preds = %125
-  %144 = getelementptr inbounds i8, ptr %14, i64 64
+  %144 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %145 = load i32, ptr %144, align 8, !tbaa !38
   %146 = or i32 %145, 2
   store i32 %146, ptr %144, align 8, !tbaa !38
@@ -1631,18 +1631,18 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %150, label %188, label %151
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %14, i64 48
+  %152 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %153 = load ptr, ptr %152, align 8, !tbaa !50
-  %154 = getelementptr inbounds i8, ptr %38, i64 28
+  %154 = getelementptr inbounds nuw i8, ptr %38, i64 28
   %155 = load i16, ptr %154, align 4, !tbaa !27
   %156 = zext i16 %155 to i32
   %157 = mul i32 %156, %46
   %158 = zext i32 %157 to i64
-  %159 = getelementptr inbounds i8, ptr %153, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %153, i64 %158
   %160 = mul i32 %74, %156
   %161 = zext i32 %160 to i64
   tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
-  %162 = getelementptr inbounds i8, ptr %4, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %163 = load i32, ptr %162, align 4, !tbaa !25
   %164 = lshr i64 %161, 2
   %165 = icmp ult i32 %160, 4
@@ -1661,9 +1661,9 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 172:                                              ; preds = %172, %168
   %173 = phi i64 [ 0, %168 ], [ %178, %172 ]
   %174 = getelementptr inbounds i32, ptr %159, i64 %173
-  %175 = getelementptr inbounds i8, ptr %174, i64 32
-  %176 = getelementptr inbounds i8, ptr %174, i64 64
-  %177 = getelementptr inbounds i8, ptr %174, i64 96
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 32
+  %176 = getelementptr inbounds nuw i8, ptr %174, i64 64
+  %177 = getelementptr inbounds nuw i8, ptr %174, i64 96
   store <8 x i32> %171, ptr %174, align 4, !tbaa !55
   store <8 x i32> %171, ptr %175, align 4, !tbaa !55
   store <8 x i32> %171, ptr %176, align 4, !tbaa !55
@@ -1682,7 +1682,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 182:                                              ; preds = %.preheader47, %182
   %183 = phi i64 [ %185, %182 ], [ %.ph, %.preheader47 ]
-  %184 = getelementptr inbounds i32, ptr %159, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %159, i64 %183
   store i32 %163, ptr %184, align 4, !tbaa !55
   %185 = add nuw nsw i64 %183, 1
   %186 = icmp eq i64 %185, %164
@@ -1700,7 +1700,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %190, label %191, label %.loopexit14
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %38, i64 31
+  %192 = getelementptr inbounds nuw i8, ptr %38, i64 31
   %193 = load i8, ptr %192, align 1, !tbaa !70
   %194 = icmp eq i8 %193, 0
   br i1 %194, label %195, label %199
@@ -1713,19 +1713,19 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 199:                                              ; preds = %195, %191
   %200 = load ptr, ptr %37, align 8, !tbaa !48
-  %201 = getelementptr inbounds i8, ptr %200, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load ptr, ptr %201, align 8, !tbaa !66
   %203 = icmp eq ptr %202, %14
   br i1 %203, label %204, label %213
 
 204:                                              ; preds = %199
-  %205 = getelementptr inbounds i8, ptr %14, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %206 = load ptr, ptr %205, align 8, !tbaa !37
   %207 = icmp eq ptr %206, null
   br i1 %207, label %208, label %211
 
 208:                                              ; preds = %204
-  %209 = getelementptr inbounds i8, ptr %14, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %210 = load ptr, ptr %209, align 8, !tbaa !37
   br label %211
 
@@ -1738,28 +1738,28 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #9
   call void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocatorBlockEE6removeINS0_7Support7CompareILNS5_9SortOrderE0EEEEEvPNS0_12ZoneTreeNodeERKT_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %3) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #9
-  %214 = getelementptr inbounds i8, ptr %14, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %215 = load ptr, ptr %214, align 8, !tbaa !37
-  %216 = getelementptr inbounds i8, ptr %14, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %217 = load ptr, ptr %216, align 8, !tbaa !37
   %218 = icmp eq ptr %215, null
-  %219 = getelementptr inbounds i8, ptr %215, i64 24
+  %219 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %220 = select i1 %218, ptr %200, ptr %219
   store ptr %217, ptr %220, align 8, !tbaa !37
   %221 = icmp eq ptr %217, null
-  %222 = getelementptr inbounds i8, ptr %200, i64 8
-  %223 = getelementptr inbounds i8, ptr %217, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %217, i64 16
   %224 = select i1 %221, ptr %222, ptr %223
   store ptr %215, ptr %224, align 8, !tbaa !37
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %214, i8 0, i64 16, i1 false)
-  %225 = getelementptr inbounds i8, ptr %200, i64 24
+  %225 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %226 = load i32, ptr %225, align 8, !tbaa !67
   %227 = add i32 %226, -1
   store i32 %227, ptr %225, align 8, !tbaa !67
-  %228 = getelementptr inbounds i8, ptr %14, i64 68
+  %228 = getelementptr inbounds nuw i8, ptr %14, i64 68
   %229 = load i32, ptr %228, align 4, !tbaa !49
   %230 = zext i32 %229 to i64
-  %231 = getelementptr inbounds i8, ptr %200, i64 32
+  %231 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %232 = load i64, ptr %231, align 8, !tbaa !68
   %233 = sub i64 %232, %230
   store i64 %233, ptr %231, align 8, !tbaa !68
@@ -1768,11 +1768,11 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %236 = and i32 %235, 1073741808
   %237 = add nuw nsw i32 %236, 104
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds i8, ptr %200, i64 48
+  %239 = getelementptr inbounds nuw i8, ptr %200, i64 48
   %240 = load i64, ptr %239, align 8, !tbaa !69
   %241 = sub i64 %240, %238
   store i64 %241, ptr %239, align 8, !tbaa !69
-  %242 = getelementptr inbounds i8, ptr %14, i64 64
+  %242 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %243 = load i32, ptr %242, align 8, !tbaa !38
   %244 = and i32 %243, 4
   %245 = icmp eq i32 %244, 0
@@ -1828,20 +1828,20 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br label %207
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %14 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %13) #9
-  %15 = getelementptr inbounds i8, ptr %4, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !36
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit16, label %.preheader15
 
 .preheader15:                                     ; preds = %12, %30
   %18 = phi ptr [ %36, %30 ], [ %16, %12 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = icmp ugt ptr %20, %1
   %22 = zext i1 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %18, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %24 = load i64, ptr %23, align 8, !tbaa !44
   %25 = getelementptr inbounds i8, ptr %20, i64 %24
   %26 = icmp ule ptr %25, %1
@@ -1853,7 +1853,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 30:                                               ; preds = %.preheader15
   %31 = lshr i32 %28, 31
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds [2 x i64], ptr %18, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !51
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
@@ -1861,22 +1861,22 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %37, label %.loopexit16, label %.preheader15
 
 38:                                               ; preds = %.preheader15
-  %39 = getelementptr inbounds i8, ptr %18, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !48
   %41 = ptrtoint ptr %1 to i64
   %42 = ptrtoint ptr %20 to i64
   %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds i8, ptr %40, i64 30
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 30
   %45 = load i8, ptr %44, align 2, !tbaa !31
   %46 = zext nneg i8 %45 to i64
   %47 = lshr i64 %43, %46
   %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %18, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %50 = load ptr, ptr %49, align 8, !tbaa !46
   %51 = lshr i64 %47, 6
   %52 = and i64 %51, 67108863
   %53 = and i64 %47, 63
-  %54 = getelementptr inbounds i64, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw i64, ptr %50, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !51
   %56 = shl nuw i64 1, %53
   %57 = and i64 %56, %55
@@ -1884,9 +1884,9 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %58, label %.loopexit16, label %59, !prof !13
 
 59:                                               ; preds = %38
-  %60 = getelementptr inbounds i8, ptr %18, i64 96
+  %60 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %61 = load ptr, ptr %60, align 8, !tbaa !61
-  %62 = getelementptr inbounds i64, ptr %61, i64 %52
+  %62 = getelementptr inbounds nuw i64, ptr %61, i64 %52
   %63 = load i64, ptr %62, align 8, !tbaa !51
   %64 = shl nsw i64 -1, %53
   %65 = and i64 %63, %64
@@ -1895,7 +1895,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 .preheader:                                       ; preds = %59, %.preheader
   %67 = phi ptr [ %68, %.preheader ], [ %62, %59 ]
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !51
   %70 = icmp eq i64 %69, 0
   br i1 %70, label %.preheader, label %.loopexit14, !llvm.loop !90
@@ -1912,7 +1912,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %79 = trunc i64 %78 to i32
   %80 = add i32 %79, 1
   %81 = sub i32 %80, %48
-  %82 = getelementptr inbounds i8, ptr %40, i64 28
+  %82 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %83 = load i16, ptr %82, align 4, !tbaa !27
   %84 = zext i16 %83 to i64
   %85 = add i64 %2, -1
@@ -1931,19 +1931,19 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %94 = add i32 %88, %48
   %95 = sub i32 %80, %94
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %40, i64 40
+  %97 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %98 = load i64, ptr %97, align 8, !tbaa !74
   %99 = sub i64 %98, %96
   store i64 %99, ptr %97, align 8, !tbaa !74
-  %100 = getelementptr inbounds i8, ptr %18, i64 72
+  %100 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %101 = load i32, ptr %100, align 8, !tbaa !62
   %102 = sub i32 %101, %95
   store i32 %102, ptr %100, align 8, !tbaa !62
-  %103 = getelementptr inbounds i8, ptr %18, i64 80
+  %103 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %104 = load i32, ptr %103, align 4, !tbaa !55
   %105 = tail call noundef i32 @llvm.umin.i32(i32 %94, i32 %104)
   store i32 %105, ptr %103, align 8, !tbaa !64
-  %106 = getelementptr inbounds i8, ptr %18, i64 84
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 84
   %107 = load i32, ptr %106, align 4, !tbaa !55
   %108 = tail call noundef i32 @llvm.umax.i32(i32 %107, i32 %80)
   store i32 %108, ptr %106, align 4, !tbaa !65
@@ -1954,7 +1954,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %111 = zext i32 %94 to i64
   %112 = lshr i64 %111, 6
   %113 = and i64 %111, 63
-  %114 = getelementptr inbounds i64, ptr %50, i64 %112
+  %114 = getelementptr inbounds nuw i64, ptr %50, i64 %112
   %115 = sub nuw nsw i64 64, %113
   %116 = tail call noundef i64 @llvm.umin.i64(i64 %96, i64 %115)
   %117 = load i64, ptr %114, align 8, !tbaa !51
@@ -2004,7 +2004,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %150 = and i64 %78, 63
   %151 = shl nuw i64 1, %150
   %152 = xor i64 %151, -1
-  %153 = getelementptr inbounds i64, ptr %61, i64 %149
+  %153 = getelementptr inbounds nuw i64, ptr %61, i64 %149
   %154 = load i64, ptr %153, align 8, !tbaa !51
   %155 = and i64 %154, %152
   store i64 %155, ptr %153, align 8, !tbaa !51
@@ -2013,11 +2013,11 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   %158 = lshr i64 %157, 6
   %159 = and i64 %157, 63
   %160 = shl nuw i64 1, %159
-  %161 = getelementptr inbounds i64, ptr %61, i64 %158
+  %161 = getelementptr inbounds nuw i64, ptr %61, i64 %158
   %162 = load i64, ptr %161, align 8, !tbaa !51
   %163 = or i64 %162, %160
   store i64 %163, ptr %161, align 8, !tbaa !51
-  %164 = getelementptr inbounds i8, ptr %18, i64 64
+  %164 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %165 = load i32, ptr %164, align 8, !tbaa !38
   %166 = or i32 %165, 2
   store i32 %166, ptr %164, align 8, !tbaa !38
@@ -2027,17 +2027,17 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
   br i1 %169, label %.loopexit16, label %170
 
 170:                                              ; preds = %147
-  %171 = getelementptr inbounds i8, ptr %18, i64 48
+  %171 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %172 = load ptr, ptr %171, align 8, !tbaa !50
   %173 = zext i16 %83 to i32
   %174 = mul i32 %94, %173
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds i8, ptr %172, i64 %175
+  %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
   %177 = mul i32 %91, %173
   %178 = zext i32 %177 to i64
   tail call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 0) #9
   %179 = load ptr, ptr %0, align 8, !tbaa !34
-  %180 = getelementptr inbounds i8, ptr %179, i64 12
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %181 = load i32, ptr %180, align 4, !tbaa !25
   %182 = lshr i64 %178, 2
   %183 = icmp ult i32 %177, 4
@@ -2056,9 +2056,9 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 190:                                              ; preds = %190, %186
   %191 = phi i64 [ 0, %186 ], [ %196, %190 ]
   %192 = getelementptr inbounds i32, ptr %176, i64 %191
-  %193 = getelementptr inbounds i8, ptr %192, i64 32
-  %194 = getelementptr inbounds i8, ptr %192, i64 64
-  %195 = getelementptr inbounds i8, ptr %192, i64 96
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
+  %194 = getelementptr inbounds nuw i8, ptr %192, i64 64
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 96
   store <8 x i32> %189, ptr %192, align 4, !tbaa !55
   store <8 x i32> %189, ptr %193, align 4, !tbaa !55
   store <8 x i32> %189, ptr %194, align 4, !tbaa !55
@@ -2077,7 +2077,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN6asmjit9_abi_1_1012JitAllocator
 
 200:                                              ; preds = %.preheader37, %200
   %201 = phi i64 [ %203, %200 ], [ %.ph, %.preheader37 ]
-  %202 = getelementptr inbounds i32, ptr %176, i64 %201
+  %202 = getelementptr inbounds nuw i32, ptr %176, i64 %201
   store i32 %181, ptr %202, align 4, !tbaa !55
   %203 = add nuw nsw i64 %201, 1
   %204 = icmp eq i64 %203, %182
@@ -2108,20 +2108,20 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
   br i1 %7, label %88, label %8, !prof !13
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %9) #9
-  %11 = getelementptr inbounds i8, ptr %6, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.loopexit6, label %.preheader5
 
 .preheader5:                                      ; preds = %8, %26
   %14 = phi ptr [ %32, %26 ], [ %12, %8 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !45
   %17 = icmp ugt ptr %16, %1
   %18 = zext i1 %17 to i32
-  %19 = getelementptr inbounds i8, ptr %14, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %20 = load i64, ptr %19, align 8, !tbaa !44
   %21 = getelementptr inbounds i8, ptr %16, i64 %20
   %22 = icmp ule ptr %21, %1
@@ -2133,7 +2133,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
 26:                                               ; preds = %.preheader5
   %27 = lshr i32 %24, 31
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i64], ptr %14, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !51
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
@@ -2141,21 +2141,21 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
   br i1 %33, label %.loopexit6, label %.preheader5
 
 34:                                               ; preds = %.preheader5
-  %35 = getelementptr inbounds i8, ptr %14, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !48
   %37 = ptrtoint ptr %1 to i64
   %38 = ptrtoint ptr %16 to i64
   %39 = sub i64 %37, %38
-  %40 = getelementptr inbounds i8, ptr %36, i64 30
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 30
   %41 = load i8, ptr %40, align 2, !tbaa !31
   %42 = zext nneg i8 %41 to i64
   %43 = lshr i64 %39, %42
-  %44 = getelementptr inbounds i8, ptr %14, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %45 = load ptr, ptr %44, align 8, !tbaa !46
   %46 = lshr i64 %43, 6
   %47 = and i64 %46, 67108863
   %48 = and i64 %43, 63
-  %49 = getelementptr inbounds i64, ptr %45, i64 %47
+  %49 = getelementptr inbounds nuw i64, ptr %45, i64 %47
   %50 = load i64, ptr %49, align 8, !tbaa !51
   %51 = shl nuw i64 1, %48
   %52 = and i64 %51, %50
@@ -2163,9 +2163,9 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
   br i1 %53, label %.loopexit6, label %54, !prof !13
 
 54:                                               ; preds = %34
-  %55 = getelementptr inbounds i8, ptr %14, i64 96
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %56 = load ptr, ptr %55, align 8, !tbaa !61
-  %57 = getelementptr inbounds i64, ptr %56, i64 %47
+  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %47
   %58 = load i64, ptr %57, align 8, !tbaa !51
   %59 = shl nsw i64 -1, %48
   %60 = and i64 %58, %59
@@ -2174,7 +2174,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
 
 .preheader:                                       ; preds = %54, %.preheader
   %62 = phi ptr [ %63, %.preheader ], [ %57, %54 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i64, ptr %63, align 8, !tbaa !51
   %65 = icmp eq i64 %64, 0
   br i1 %65, label %.preheader, label %.loopexit, !llvm.loop !90
@@ -2188,7 +2188,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
   %71 = shl i64 %70, 3
   %72 = tail call i64 @llvm.cttz.i64(i64 %67, i1 true), !range !53
   %73 = and i64 %43, 4294967295
-  %74 = getelementptr inbounds i8, ptr %36, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %75 = load i16, ptr %74, align 4, !tbaa !27
   %76 = zext i16 %75 to i64
   %77 = mul nuw nsw i64 %73, %76
@@ -2197,11 +2197,11 @@ define dso_local noundef range(i32 0, 6) i32 @_ZNK6asmjit9_abi_1_1012JitAllocato
   %79 = add i64 %78, %71
   %80 = and i64 %79, 4294967295
   %81 = mul nuw nsw i64 %80, %76
-  %82 = getelementptr inbounds i8, ptr %16, i64 %77
+  %82 = getelementptr inbounds nuw i8, ptr %16, i64 %77
   store ptr %82, ptr %2, align 8, !tbaa !37
-  %83 = getelementptr inbounds i8, ptr %14, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %84 = load ptr, ptr %83, align 8, !tbaa !50
-  %85 = getelementptr inbounds i8, ptr %84, i64 %77
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %77
   store ptr %85, ptr %3, align 8, !tbaa !37
   store i64 %81, ptr %4, align 8, !tbaa !51
   br label %.loopexit6
@@ -2264,13 +2264,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   store i64 0, ptr %4, align 8
   %9 = ptrtoint ptr %5 to i64
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %10, align 8, !tbaa !51
   %11 = load i64, ptr %1, align 8, !tbaa !51
   %12 = or i64 %11, 1
   store i64 %12, ptr %1, align 8, !tbaa !51
   %13 = ptrtoint ptr %1 to i64
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %15
 
 15:                                               ; preds = %133, %8
@@ -2284,7 +2284,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 %20
+  %24 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %20
   %25 = load i64, ptr %24, align 8, !tbaa !51
   %26 = and i64 %25, 1
   %27 = or i64 %26, %13
@@ -2305,7 +2305,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %36, label %54, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %19, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !51
   %40 = icmp eq i64 %39, 0
   br i1 %40, label %54, label %41
@@ -2348,7 +2348,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 65:                                               ; preds = %61
   %66 = icmp ne ptr %16, null
   tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds i8, ptr %18, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !51
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
@@ -2362,13 +2362,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %78 = zext i1 %77 to i64
   %79 = xor i1 %77, true
   %80 = zext i1 %79 to i64
-  %81 = getelementptr inbounds [2 x i64], ptr %16, i64 0, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i64], ptr %16, i64 0, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !51
   %83 = and i64 %82, -2
   %84 = inttoptr i64 %83 to ptr
   %85 = icmp ne i64 %83, 0
   tail call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds [2 x i64], ptr %84, i64 0, i64 %78
+  %86 = getelementptr inbounds nuw [2 x i64], ptr %84, i64 0, i64 %78
   %87 = load i64, ptr %86, align 8, !tbaa !51
   %88 = and i64 %87, -2
   br i1 %76, label %89, label %92
@@ -2382,7 +2382,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %93 = inttoptr i64 %88 to ptr
   %94 = icmp ne i64 %88, 0
   tail call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds [2 x i64], ptr %93, i64 0, i64 %80
+  %95 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %80
   %96 = load i64, ptr %95, align 8, !tbaa !51
   %97 = and i64 %96, -2
   %98 = and i64 %87, 1
@@ -2402,7 +2402,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %108 = and i64 %107, 1
   %109 = or disjoint i64 %108, %88
   store i64 %109, ptr %81, align 8, !tbaa !51
-  %110 = getelementptr inbounds [2 x i64], ptr %93, i64 0, i64 %78
+  %110 = getelementptr inbounds nuw [2 x i64], ptr %93, i64 0, i64 %78
   %111 = load i64, ptr %110, align 8, !tbaa !51
   %112 = and i64 %111, -2
   %113 = or disjoint i64 %112, %108
@@ -2425,7 +2425,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %125 = load i64, ptr %117, align 8, !tbaa !51
   %126 = and i64 %125, -2
   store i64 %126, ptr %117, align 8, !tbaa !51
-  %127 = getelementptr inbounds [2 x i64], ptr %18, i64 0, i64 %71
+  %127 = getelementptr inbounds nuw [2 x i64], ptr %18, i64 0, i64 %71
   %128 = load i64, ptr %127, align 8, !tbaa !51
   %129 = and i64 %128, 1
   %130 = or disjoint i64 %129, %118
@@ -2437,14 +2437,14 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %132, label %145, label %133
 
 133:                                              ; preds = %131
-  %134 = getelementptr inbounds i8, ptr %55, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %55, i64 40
   %135 = load ptr, ptr %134, align 8, !tbaa !45
   %136 = load ptr, ptr %14, align 8, !tbaa !45
   %137 = icmp ult ptr %135, %136
   %138 = zext i1 %137 to i64
   %139 = icmp eq ptr %16, null
   %140 = select i1 %139, ptr %18, ptr %16
-  %141 = getelementptr inbounds [2 x i64], ptr %55, i64 0, i64 %138
+  %141 = getelementptr inbounds nuw [2 x i64], ptr %55, i64 0, i64 %138
   %142 = load i64, ptr %141, align 8, !tbaa !51
   %143 = and i64 %142, -2
   %144 = inttoptr i64 %143 to ptr
@@ -2486,11 +2486,11 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   store i64 0, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !36
   %6 = ptrtoint ptr %5 to i64
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %7, align 8, !tbaa !51
   %8 = icmp ugt ptr %5, inttoptr (i64 1 to ptr)
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   br label %11
 
@@ -2504,7 +2504,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %18 = phi ptr [ null, %3 ], [ %32, %198 ]
   %19 = and i64 %12, -2
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !45
   %23 = icmp ugt ptr %22, %10
   %24 = zext i1 %23 to i32
@@ -2523,7 +2523,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %36, label %37, label %198
 
 37:                                               ; preds = %11
-  %38 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %30
+  %38 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %30
   %39 = load i64, ptr %38, align 8, !tbaa !51
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, 0
@@ -2538,7 +2538,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 47:                                               ; preds = %42, %37
   %48 = zext i1 %28 to i64
-  %49 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !51
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
@@ -2552,7 +2552,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %57, label %74, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds [2 x i64], ptr %52, i64 0, i64 %30
+  %59 = getelementptr inbounds nuw [2 x i64], ptr %52, i64 0, i64 %30
   %60 = load i64, ptr %59, align 8, !tbaa !51
   %61 = and i64 %60, -2
   %62 = and i64 %50, 1
@@ -2577,7 +2577,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 74:                                               ; preds = %54, %47
   %75 = icmp eq i64 %17, 0
   %76 = zext i1 %75 to i64
-  %77 = getelementptr inbounds [2 x i64], ptr %15, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i64], ptr %15, i64 0, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !51
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
@@ -2585,7 +2585,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %81, label %198, label %82
 
 82:                                               ; preds = %74
-  %83 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 %76
+  %83 = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %76
   %84 = load i64, ptr %83, align 8, !tbaa !51
   %85 = and i64 %84, -2
   %86 = inttoptr i64 %85 to ptr
@@ -2599,13 +2599,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   br i1 %91, label %96, label %92
 
 92:                                               ; preds = %88
-  %93 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 %17
+  %93 = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %17
   %94 = load i64, ptr %93, align 8, !tbaa !51
   %95 = and i64 %94, -2
   br label %113
 
 96:                                               ; preds = %88, %82
-  %97 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 %17
+  %97 = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %17
   %98 = load i64, ptr %97, align 8, !tbaa !51
   %99 = and i64 %98, -2
   %100 = icmp eq i64 %99, 0
@@ -2634,16 +2634,16 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %114 = phi i64 [ %95, %92 ], [ %99, %101 ]
   %115 = icmp ne ptr %14, null
   call void @llvm.assume(i1 %115)
-  %116 = getelementptr inbounds i8, ptr %14, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %117 = load i64, ptr %116, align 8, !tbaa !51
   %118 = inttoptr i64 %117 to ptr
   %119 = icmp eq ptr %15, %118
   %120 = zext i1 %119 to i64
-  %121 = getelementptr inbounds [2 x i64], ptr %14, i64 0, i64 %120
+  %121 = getelementptr inbounds nuw [2 x i64], ptr %14, i64 0, i64 %120
   %122 = load i64, ptr %121, align 8, !tbaa !51
   %123 = and i64 %122, -2
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 %17
+  %125 = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %17
   %126 = icmp eq i64 %114, 0
   br i1 %126, label %159, label %127
 
@@ -2657,13 +2657,13 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 132:                                              ; preds = %127
   %133 = xor i1 %75, true
   %134 = zext i1 %133 to i64
-  %135 = getelementptr inbounds [2 x i64], ptr %80, i64 0, i64 %134
+  %135 = getelementptr inbounds nuw [2 x i64], ptr %80, i64 0, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !51
   %137 = and i64 %136, -2
   %138 = inttoptr i64 %137 to ptr
   %139 = icmp ne i64 %137, 0
   call void @llvm.assume(i1 %139)
-  %140 = getelementptr inbounds [2 x i64], ptr %138, i64 0, i64 %76
+  %140 = getelementptr inbounds nuw [2 x i64], ptr %138, i64 0, i64 %76
   %141 = load i64, ptr %140, align 8, !tbaa !51
   %142 = and i64 %141, -2
   %143 = and i64 %136, 1
@@ -2683,7 +2683,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %153 = and i64 %152, 1
   %154 = or disjoint i64 %153, %137
   store i64 %154, ptr %77, align 8, !tbaa !51
-  %155 = getelementptr inbounds [2 x i64], ptr %138, i64 0, i64 %17
+  %155 = getelementptr inbounds nuw [2 x i64], ptr %138, i64 0, i64 %17
   %156 = load i64, ptr %155, align 8, !tbaa !51
   %157 = and i64 %156, -2
   %158 = or disjoint i64 %157, %153
@@ -2740,7 +2740,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %191 = load i64, ptr %190, align 8, !tbaa !51
   %192 = and i64 %191, -2
   store i64 %192, ptr %190, align 8, !tbaa !51
-  %193 = getelementptr inbounds i8, ptr %185, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %194 = load i64, ptr %193, align 8, !tbaa !51
   %195 = inttoptr i64 %194 to ptr
   %196 = load i64, ptr %195, align 8, !tbaa !51
@@ -2750,23 +2750,23 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 198:                                              ; preds = %183, %106, %74, %58, %42, %11
   %199 = phi ptr [ %15, %11 ], [ %15, %42 ], [ %52, %58 ], [ %15, %74 ], [ %15, %183 ], [ %15, %106 ]
-  %200 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %30
+  %200 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %30
   %201 = load i64, ptr %200, align 8, !tbaa !51
   %202 = icmp ugt i64 %201, 1
   br i1 %202, label %11, label %203, !llvm.loop !96
 
 203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %199, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %205 = load i64, ptr %204, align 8, !tbaa !51
   %206 = icmp eq i64 %19, %205
   %207 = zext i1 %206 to i64
   %208 = load i64, ptr %20, align 8, !tbaa !51
   %209 = icmp ult i64 %208, 2
   %210 = zext i1 %209 to i64
-  %211 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %210
+  %211 = getelementptr inbounds nuw [2 x i64], ptr %20, i64 0, i64 %210
   %212 = load i64, ptr %211, align 8, !tbaa !51
   %213 = and i64 %212, -2
-  %214 = getelementptr inbounds [2 x i64], ptr %199, i64 0, i64 %207
+  %214 = getelementptr inbounds nuw [2 x i64], ptr %199, i64 0, i64 %207
   %215 = load i64, ptr %214, align 8, !tbaa !51
   %216 = and i64 %215, 1
   %217 = or disjoint i64 %216, %213
@@ -2782,7 +2782,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 223:                                              ; preds = %219
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %220, ptr %4, ptr %32
-  %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 40
+  %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 40
   %224 = load ptr, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !45
   %225 = icmp ult ptr %224, %10
   %226 = zext i1 %225 to i64
@@ -2790,7 +2790,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 
 227:                                              ; preds = %223, %219
   %228 = phi i64 [ %226, %223 ], [ 1, %219 ]
-  %229 = getelementptr inbounds [2 x i64], ptr %221, i64 0, i64 %228
+  %229 = getelementptr inbounds nuw [2 x i64], ptr %221, i64 0, i64 %228
   %230 = load i64, ptr %229, align 8, !tbaa !51
   %231 = and i64 %230, -2
   %232 = inttoptr i64 %231 to ptr
@@ -2807,19 +2807,19 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   store i64 %239, ptr %237, align 8, !tbaa !51
   %240 = load i64, ptr %33, align 8, !tbaa !51
   store i64 %240, ptr %20, align 8, !tbaa !51
-  %241 = getelementptr inbounds i8, ptr %33, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %242 = load i64, ptr %241, align 8, !tbaa !51
-  %243 = getelementptr inbounds i8, ptr %20, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %242, ptr %243, align 8, !tbaa !51
   br label %254
 
 .preheader:                                       ; preds = %227, %.preheader
   %244 = phi ptr [ %252, %.preheader ], [ %232, %227 ]
-  %245 = getelementptr inbounds i8, ptr %244, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 40
   %246 = load ptr, ptr %245, align 8, !tbaa !45
   %247 = icmp ult ptr %246, %10
   %248 = zext i1 %247 to i64
-  %249 = getelementptr inbounds [2 x i64], ptr %244, i64 0, i64 %248
+  %249 = getelementptr inbounds nuw [2 x i64], ptr %244, i64 0, i64 %248
   %250 = load i64, ptr %249, align 8, !tbaa !51
   %251 = and i64 %250, -2
   %252 = inttoptr i64 %251 to ptr

@@ -64,11 +64,11 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_led_trigger_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 %4, i64 noundef %5) #0 align 16 {
-  %7 = getelementptr inbounds i8, ptr %1, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 376
-  tail call void @mutex_lock(ptr noundef %9) #10
-  %10 = getelementptr inbounds i8, ptr %8, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 376
+  tail call void @mutex_lock(ptr noundef nonnull %9) #10
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 131072
   %13 = icmp eq i32 %12, 0
@@ -79,10 +79,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr n
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %8, i64 248
-  tail call void @down_write(ptr noundef %17) #10
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 248
+  tail call void @down_write(ptr noundef nonnull %17) #10
   %18 = tail call i32 @led_trigger_set(ptr noundef %8, ptr noundef null)
-  tail call void @up_write(ptr noundef %17) #10
+  tail call void @up_write(ptr noundef nonnull %17) #10
   br label %43
 
 19:                                               ; preds = %14
@@ -92,7 +92,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr n
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %8, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 328
   br label %24
 
 24:                                               ; preds = %40, %22
@@ -115,10 +115,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr n
 
 36:                                               ; preds = %33, %29
   %37 = getelementptr i8, ptr %25, i64 -56
-  %38 = getelementptr inbounds i8, ptr %8, i64 248
-  tail call void @down_write(ptr noundef %38) #10
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 248
+  tail call void @down_write(ptr noundef nonnull %38) #10
   %39 = tail call i32 @led_trigger_set(ptr noundef %8, ptr noundef %37)
-  tail call void @up_write(ptr noundef %38) #10
+  tail call void @up_write(ptr noundef nonnull %38) #10
   tail call void @up_read(ptr noundef nonnull @triggers_list_lock) #10
   br label %43
 
@@ -133,7 +133,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr n
 
 43:                                               ; preds = %.loopexit, %36, %16, %6
   %44 = phi i64 [ %5, %16 ], [ %5, %36 ], [ -22, %.loopexit ], [ -16, %6 ]
-  tail call void @mutex_unlock(ptr noundef %9) #10
+  tail call void @mutex_unlock(ptr noundef nonnull %9) #10
   %45 = shl i64 %44, 32
   %46 = ashr exact i64 %45, 32
   ret i64 %46
@@ -153,10 +153,10 @@ declare dso_local zeroext i1 @sysfs_streq(ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @led_trigger_remove(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @down_write(ptr noundef %2) #10
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  tail call void @down_write(ptr noundef nonnull %2) #10
   %3 = tail call i32 @led_trigger_set(ptr noundef %0, ptr noundef null)
-  tail call void @up_write(ptr noundef %2) #10
+  tail call void @up_write(ptr noundef nonnull %2) #10
   ret void
 }
 
@@ -170,7 +170,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
-  %4 = getelementptr inbounds i8, ptr %0, i64 288
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   %7 = icmp ne ptr %1, null
@@ -192,25 +192,25 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %16, label %44, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %15, i64 32
-  tail call void @_raw_spin_lock(ptr noundef %18) #10
-  %19 = getelementptr inbounds i8, ptr %0, i64 296
-  %20 = getelementptr inbounds i8, ptr %0, i64 304
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  tail call void @_raw_spin_lock(ptr noundef nonnull %18) #10
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %21, ptr %23, align 8
   store volatile ptr %22, ptr %21, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %20, align 8
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
-  tail call void @_raw_spin_unlock(ptr noundef %25) #10
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %25) #10
   tail call void @synchronize_rcu() #10
-  %26 = getelementptr inbounds i8, ptr %0, i64 192
-  %27 = tail call zeroext i1 @cancel_work_sync(ptr noundef %26) #10
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %27 = tail call zeroext i1 @cancel_work_sync(ptr noundef nonnull %26) #10
   tail call void @led_stop_software_blink(ptr noundef %0) #10
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -222,17 +222,17 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
 
 33:                                               ; preds = %32, %17
   %34 = phi ptr [ %.pre, %32 ], [ %28, %17 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 72
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 72
   %38 = load ptr, ptr %37, align 8
   tail call void @device_remove_groups(ptr noundef %36, ptr noundef %38) #10
   store ptr null, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 312
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr null, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 320
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i8 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, -8388609
   store i32 %43, ptr %41, align 4
@@ -243,21 +243,21 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %7, label %45, label %69
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %1, i64 32
-  tail call void @_raw_spin_lock(ptr noundef %46) #10
-  %47 = getelementptr inbounds i8, ptr %0, i64 296
-  %48 = getelementptr inbounds i8, ptr %1, i64 40
-  %49 = getelementptr inbounds i8, ptr %1, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  tail call void @_raw_spin_lock(ptr noundef nonnull %46) #10
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = load ptr, ptr %49, align 8
   store ptr %48, ptr %47, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 304
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store ptr %50, ptr %51, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !8
   store volatile ptr %47, ptr %50, align 8
   store ptr %47, ptr %49, align 8
-  tail call void @_raw_spin_unlock(ptr noundef %46) #10
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %46) #10
   store ptr %1, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.thread, label %55
@@ -268,9 +268,9 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
   br i1 %57, label %.thread, label %81
 
 .thread:                                          ; preds = %45, %55
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 @device_add_groups(ptr noundef %59, ptr noundef %61) #10
   %63 = icmp eq i32 %62, 0
@@ -279,7 +279,7 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
 64:                                               ; preds = %.thread
   %65 = load ptr, ptr %58, align 8
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %65, ptr noundef nonnull @.str.2) #11
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
   br i1 %68, label %81, label %80
@@ -290,9 +290,9 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
 
 71:                                               ; preds = %69
   store ptr %14, ptr %3, align 16
-  %72 = getelementptr inbounds i8, ptr %3, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 @kobject_uevent_env(ptr noundef %74, i32 noundef 2, ptr noundef nonnull %3) #10
   %76 = icmp eq i32 %75, 0
@@ -314,20 +314,20 @@ define dso_local i32 @led_trigger_set(ptr noundef %0, ptr noundef %1) #0 align 1
 81:                                               ; preds = %80, %64, %55
   %82 = phi i32 [ %56, %55 ], [ %62, %80 ], [ %62, %64 ]
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 32
-  tail call void @_raw_spin_lock(ptr noundef %84) #10
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
+  tail call void @_raw_spin_lock(ptr noundef nonnull %84) #10
   %85 = load ptr, ptr %51, align 8
   %86 = load ptr, ptr %47, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %85, ptr %87, align 8
   store volatile ptr %86, ptr %85, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %51, align 8
   %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 32
-  tail call void @_raw_spin_unlock(ptr noundef %89) #10
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %89) #10
   tail call void @synchronize_rcu() #10
   store ptr null, ptr %4, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 312
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store ptr null, ptr %90, align 8
   tail call void @led_set_brightness(ptr noundef %0, i32 noundef 0) #10
   tail call void @kfree(ptr noundef %14) #10
@@ -352,11 +352,11 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
   %7 = alloca i64, align 8
   store i64 %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %9 = load ptr, ptr %8, align 8
   tail call void @down_read(ptr noundef nonnull @triggers_list_lock) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 248
-  tail call void @down_read(ptr noundef %10) #10
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 248
+  tail call void @down_read(ptr noundef nonnull %10) #10
   %11 = tail call fastcc i32 @led_trigger_format(ptr noundef null, i64 noundef 0, ptr noundef %9)
   %12 = add i32 %11, 1
   %13 = sext i32 %12 to i64
@@ -365,13 +365,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr no
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %6
-  tail call void @up_read(ptr noundef %10) #10
+  tail call void @up_read(ptr noundef nonnull %10) #10
   tail call void @up_read(ptr noundef nonnull @triggers_list_lock) #10
   br label %23
 
 17:                                               ; preds = %6
   %18 = tail call fastcc i32 @led_trigger_format(ptr noundef nonnull %14, i64 noundef %13, ptr noundef %9)
-  tail call void @up_read(ptr noundef %10) #10
+  tail call void @up_read(ptr noundef nonnull %10) #10
   tail call void @up_read(ptr noundef nonnull @triggers_list_lock) #10
   %19 = sext i32 %18 to i64
   %20 = call i64 @memory_read_from_buffer(ptr noundef %3, i64 noundef %5, ptr noundef nonnull %7, ptr noundef nonnull %14, i64 noundef %19) #10
@@ -387,7 +387,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr no
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 288
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   %7 = select i1 %6, ptr @.str.8, ptr @.str
@@ -397,7 +397,7 @@ define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range
   br i1 %10, label %.loopexit, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %2, i64 328
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 328
   br label %13
 
 13:                                               ; preds = %39, %11
@@ -501,22 +501,22 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @led_trigger_set_default(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %34, label %5
 
 5:                                                ; preds = %1
   tail call void @down_read(ptr noundef nonnull @triggers_list_lock) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 248
-  tail call void @down_write(ptr noundef %6) #10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  tail call void @down_write(ptr noundef nonnull %6) #10
   %7 = load ptr, ptr @trigger_list, align 8
   %8 = icmp eq ptr %7, @trigger_list
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 328
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   br label %12
 
 12:                                               ; preds = %31, %9
@@ -540,7 +540,7 @@ define dso_local void @led_trigger_set_default(ptr noundef %0) #0 align 16 {
 
 25:                                               ; preds = %22, %18
   %26 = getelementptr i8, ptr %13, i64 -56
-  %27 = getelementptr inbounds i8, ptr %0, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 8388608
   store i32 %29, ptr %27, align 4
@@ -553,7 +553,7 @@ define dso_local void @led_trigger_set_default(ptr noundef %0) #0 align 16 {
   br i1 %33, label %.loopexit, label %12, !llvm.loop !10
 
 .loopexit:                                        ; preds = %31, %25, %5
-  tail call void @up_write(ptr noundef %6) #10
+  tail call void @up_write(ptr noundef nonnull %6) #10
   tail call void @up_read(ptr noundef nonnull @triggers_list_lock) #10
   br label %34
 
@@ -566,11 +566,11 @@ declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef initializes((32, 36)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %3, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile ptr %3, ptr %4, align 8
   tail call void @down_write(ptr noundef nonnull @triggers_list_lock) #10
   %5 = load ptr, ptr @trigger_list, align 8
@@ -579,7 +579,7 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
 10:                                               ; preds = %26, %7
@@ -611,11 +611,11 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
   br i1 %28, label %.loopexit6, label %10, !llvm.loop !11
 
 .loopexit6:                                       ; preds = %26, %1
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load ptr, ptr getelementptr inbounds (i8, ptr @trigger_list, i64 8), align 8
   store ptr %29, ptr getelementptr inbounds (i8, ptr @trigger_list, i64 8), align 8
   store ptr @trigger_list, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %30, ptr %31, align 8
   store volatile ptr %29, ptr %30, align 8
   tail call void @up_write(ptr noundef nonnull @triggers_list_lock) #10
@@ -625,7 +625,7 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
   br i1 %33, label %.loopexit, label %34
 
 34:                                               ; preds = %.loopexit6
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %36
 
 36:                                               ; preds = %63, %34
@@ -686,24 +686,24 @@ define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @led_trigger_unregister(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !13
   %4 = icmp eq ptr %3, %2
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
   br i1 %8, label %27, label %9
 
 9:                                                ; preds = %5, %1
   tail call void @down_write(ptr noundef nonnull @triggers_list_lock) #10
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %11, ptr %13, align 8
   store volatile ptr %12, ptr %11, align 8
   store volatile ptr %2, ptr %2, align 8
@@ -790,7 +790,7 @@ define dso_local void @led_trigger_event(ptr noundef %0, i32 noundef %1) #0 alig
 
 4:                                                ; preds = %2
   tail call void @__rcu_read_lock() #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
   br i1 %7, label %.loopexit, label %.preheader
@@ -818,7 +818,7 @@ define dso_local void @led_trigger_blink(ptr noundef %0, i64 noundef %1, i64 nou
 
 5:                                                ; preds = %3
   tail call void @__rcu_read_lock() #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %.loopexit, label %.preheader
@@ -852,7 +852,7 @@ define dso_local void @led_trigger_blink_oneshot(ptr noundef %0, i64 noundef %1,
 
 8:                                                ; preds = %4
   tail call void @__rcu_read_lock() #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %9
   br i1 %11, label %.loopexit, label %.preheader

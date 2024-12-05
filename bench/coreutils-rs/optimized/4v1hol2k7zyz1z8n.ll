@@ -27,8 +27,8 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
 
 .lr.ph:                                           ; preds = %3
   %8 = load i32, ptr %0, align 4, !alias.scope !5, !noalias !10, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %5, i64 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %19
@@ -60,11 +60,11 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   store ptr @anon.36b2d1bcd16c154c863694636a29dc30.1.llvm.1966342284610798123, ptr %4, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @anon.36b2d1bcd16c154c863694636a29dc30.2.llvm.1966342284610798123, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.66.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @_ZN4core9panicking13assert_failed17hc16184d854a9c291E(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.36b2d1bcd16c154c863694636a29dc30.4.llvm.1966342284610798123, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.36b2d1bcd16c154c863694636a29dc30.6.llvm.1966342284610798123) #7
   unreachable
@@ -89,7 +89,7 @@ define hidden void @_ZN6uucore8features5pipes8vmsplice17h0179fce1bb133243E(ptr n
   %6 = load i32, ptr %1, align 4, !alias.scope !18, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %2, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %7, align 8
   call void @_ZN3nix5fcntl8vmsplice17hbde116034cf04cd2E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, i32 noundef %6, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -101,7 +101,7 @@ define hidden void @_ZN6uucore8features5pipes8vmsplice17h3984414b15011e7bE(ptr n
   %5 = alloca [1 x { { { ptr, i64 }, {} } }], align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %3, ptr %6, align 8
   call void @_ZN3nix5fcntl8vmsplice17hbde116034cf04cd2E(ptr noalias nocapture noundef nonnull sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, i32 noundef 1, ptr noalias noundef nonnull readonly align 8 %5, i64 noundef 1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)

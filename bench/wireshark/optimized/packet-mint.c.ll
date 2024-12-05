@@ -312,7 +312,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4, i32 noundef range(i32 24576, 34692) %5) unnamed_addr #0 {
   %7 = add nuw nsw i32 %3, 12
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7) #4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.67) #4
   %11 = load ptr, ptr %9, align 8
@@ -633,17 +633,17 @@ define internal fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef %1, pt
   %9 = alloca %struct.except_stacknode, align 8
   %10 = alloca %struct.except_catch, align 8
   store volatile i32 %3, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   call void @col_set_writable(ptr noundef %12, i32 noundef -1, i32 noundef 0) #4
   %.0..0..0..0.20 = load volatile i32, ptr %6, align 4
   %13 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0..0..0..0.20, i32 noundef %4) #4
   store volatile i32 0, ptr %8, align 4
   call void @except_setup_try(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull @dissect_eth_frame.catch_spec, i64 noundef 1) #4
-  %14 = getelementptr inbounds i8, ptr %10, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %15 = call i32 @_setjmp(ptr noundef nonnull %14) #6
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %10, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sink = select i1 %.not, ptr null, ptr %16
   store volatile ptr %.sink, ptr %7, align 8
   %.0..0..0..0. = load volatile i32, ptr %8, align 4
@@ -687,28 +687,28 @@ define internal fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef %1, pt
 
 31:                                               ; preds = %30
   %.0..0..0..0.9 = load volatile ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %33 = load volatile i64, ptr %32, align 8
   %34 = icmp eq i64 %33, 3
   br i1 %34, label %47, label %35
 
 35:                                               ; preds = %31
   %.0..0..0..0.10 = load volatile ptr, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %37 = load volatile i64, ptr %36, align 8
   %38 = icmp eq i64 %37, 2
   br i1 %38, label %47, label %39
 
 39:                                               ; preds = %35
   %.0..0..0..0.11 = load volatile ptr, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %41 = load volatile i64, ptr %40, align 8
   %42 = icmp eq i64 %41, 7
   br i1 %42, label %47, label %43
 
 43:                                               ; preds = %39
   %.0..0..0..0.12 = load volatile ptr, ptr %7, align 8
-  %44 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %45 = load volatile i64, ptr %44, align 8
   %46 = icmp eq i64 %45, 9
   br i1 %46, label %47, label %53
@@ -718,10 +718,10 @@ define internal fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef %1, pt
   %48 = or i32 %.0..0..0..0.5, 1
   store volatile i32 %48, ptr %8, align 4
   %.0..0..0..0.13 = load volatile ptr, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %50 = load volatile i64, ptr %49, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %7, align 8
-  %51 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 16
   %52 = load volatile ptr, ptr %51, align 8
   call void @show_exception(ptr noundef %13, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %50, ptr noundef %52) #4
   br label %53
@@ -743,7 +743,7 @@ define internal fastcc i32 @dissect_eth_frame(ptr noundef %0, ptr noundef %1, pt
   unreachable
 
 57:                                               ; preds = %55, %53
-  %58 = getelementptr inbounds i8, ptr %10, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %59 = load volatile ptr, ptr %58, align 8
   call void @except_free(ptr noundef %59) #4
   %60 = call ptr @except_pop() #4

@@ -56,32 +56,32 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %ip_addr = getelementptr inbounds i8, ptr %this, i64 4
-  %ip_addr3 = getelementptr inbounds i8, ptr %other, i64 4
+  %ip_addr = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %ip_addr3 = getelementptr inbounds nuw i8, ptr %other, i64 4
   %conv = sext i32 %0 to i64
   %bcmp = tail call i32 @bcmp(ptr nonnull %ip_addr, ptr nonnull %ip_addr3, i64 %conv)
   %cmp6.not = icmp eq i32 %bcmp, 0
   br i1 %cmp6.not, label %if.end8, label %return
 
 if.end8:                                          ; preds = %if.end
-  %port = getelementptr inbounds i8, ptr %this, i64 20
+  %port = getelementptr inbounds nuw i8, ptr %this, i64 20
   %2 = load i32, ptr %port, align 4
-  %port9 = getelementptr inbounds i8, ptr %other, i64 20
+  %port9 = getelementptr inbounds nuw i8, ptr %other, i64 20
   %3 = load i32, ptr %port9, align 4
   %cmp10.not = icmp eq i32 %2, %3
   br i1 %cmp10.not, label %if.end12, label %return
 
 if.end12:                                         ; preds = %if.end8
-  %load_balance_token = getelementptr inbounds i8, ptr %this, i64 24
-  %load_balance_token14 = getelementptr inbounds i8, ptr %other, i64 24
+  %load_balance_token = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %load_balance_token14 = getelementptr inbounds nuw i8, ptr %other, i64 24
   %call16 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %load_balance_token, ptr noundef nonnull dereferenceable(1) %load_balance_token14, i64 noundef 50) #16
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end12
-  %drop = getelementptr inbounds i8, ptr %this, i64 74
+  %drop = getelementptr inbounds nuw i8, ptr %this, i64 74
   %4 = load i8, ptr %drop, align 2
-  %drop21 = getelementptr inbounds i8, ptr %other, i64 74
+  %drop21 = getelementptr inbounds nuw i8, ptr %other, i64 74
   %5 = load i8, ptr %drop21, align 2
   %6 = xor i8 %5, %4
   %7 = and i8 %6, 1
@@ -101,12 +101,12 @@ define void @_ZN9grpc_core19GrpcLbRequestCreateESt17basic_string_viewIcSt11char_
 entry:
   %ptr.i.i = alloca ptr, align 8
   %buf_length.i = alloca i64, align 8
-  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 16), align 8
+  %0 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
+  %end.i.i.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 8
   %1 = load ptr, ptr %end.i.i.i.i, align 8
   %2 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -120,7 +120,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %upb_Arena_Malloc.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %div7.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %div7.i.i.i
   store ptr %add.ptr.i.i.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i
 
@@ -130,7 +130,7 @@ upb_Arena_Malloc.exit.i.i:                        ; preds = %if.end.i.i.i, %if.t
   br i1 %tobool.not.i.i, label %grpc_lb_v1_LoadBalanceRequest_new.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %upb_Arena_Malloc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   br label %grpc_lb_v1_LoadBalanceRequest_new.exit
 
@@ -141,14 +141,14 @@ grpc_lb_v1_LoadBalanceRequest_new.exit:           ; preds = %upb_Arena_Malloc.ex
   br i1 %cmp.i13.i.i, label %grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i, label %if.then.i
 
 grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i: ; preds = %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %add.ptr.i.i.i20 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %add.ptr.i.i.i20 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   %4 = load i64, ptr %add.ptr.i.i.i20, align 1
   %5 = inttoptr i64 %4 to ptr
   %cmp.i = icmp eq i64 %4, 0
   br i1 %cmp.i, label %if.then.i, label %grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit
 
 if.then.i:                                        ; preds = %grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i, %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__InitialLoadBalanceRequest_msg_init, i64 16), align 8
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__lb__v1__InitialLoadBalanceRequest_msg_init, i64 16), align 8
   %conv.i.i.i4 = zext i16 %6 to i64
   %add.i.i.i5 = add nuw nsw i64 %conv.i.i.i4, 8
   %sub.i.i.i6 = add nuw nsw i64 %conv.i.i.i4, 23
@@ -166,7 +166,7 @@ if.then.i.i.i18:                                  ; preds = %if.then.i
   br label %upb_Arena_Malloc.exit.i.i14
 
 if.end.i.i.i13:                                   ; preds = %if.then.i
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %8, i64 %div7.i.i.i7
+  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %8, i64 %div7.i.i.i7
   store ptr %add.ptr.i.i5.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i14
 
@@ -174,10 +174,10 @@ upb_Arena_Malloc.exit.i.i14:                      ; preds = %if.end.i.i.i13, %if
   %retval.0.i.i.i15 = phi ptr [ %call2.i.i.i19, %if.then.i.i.i18 ], [ %8, %if.end.i.i.i13 ]
   %tobool.not.i.i16 = icmp ne ptr %retval.0.i.i.i15, null
   tail call void @llvm.assume(i1 %tobool.not.i.i16)
-  %add.ptr.i.i17 = getelementptr inbounds i8, ptr %retval.0.i.i.i15, i64 8
+  %add.ptr.i.i17 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i15, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i15, i8 0, i64 %add.i.i.i5, i1 false)
   store i32 1, ptr %retval.0.i.i, align 4
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   %9 = ptrtoint ptr %add.ptr.i.i17 to i64
   store i64 %9, ptr %add.ptr.i.i.i.i, align 1
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit
@@ -186,7 +186,7 @@ grpc_lb_v1_LoadBalanceRequest_mutable_initial_request.exit: ; preds = %grpc_lb_v
   %sub.0.i = phi ptr [ %add.ptr.i.i17, %upb_Arena_Malloc.exit.i.i14 ], [ %5, %grpc_lb_v1_LoadBalanceRequest_initial_request.exit.i ]
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %lb_service_name.coerce0, i64 128)
   store ptr %lb_service_name.coerce1, ptr %sub.0.i, align 1
-  %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %sub.0.i, i64 8
+  %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 8
   store i64 %.sroa.speculated, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf_length.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i.i), !noalias !4
@@ -205,12 +205,12 @@ entry:
   %ptr.i.i = alloca ptr, align 8
   %buf_length.i = alloca i64, align 8
   %field.i = alloca %struct.upb_MiniTableField, align 4
-  %0 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 16), align 8
+  %0 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__lb__v1__LoadBalanceRequest_msg_init, i64 16), align 8
   %conv.i.i.i = zext i16 %0 to i64
   %add.i.i.i = add nuw nsw i64 %conv.i.i.i, 8
   %sub.i.i.i = add nuw nsw i64 %conv.i.i.i, 23
   %div7.i.i.i = and i64 %sub.i.i.i, 131064
-  %end.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
+  %end.i.i.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 8
   %1 = load ptr, ptr %end.i.i.i.i, align 8
   %2 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %1 to i64
@@ -224,7 +224,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %upb_Arena_Malloc.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %div7.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %div7.i.i.i
   store ptr %add.ptr.i.i.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i
 
@@ -234,7 +234,7 @@ upb_Arena_Malloc.exit.i.i:                        ; preds = %if.end.i.i.i, %if.t
   br i1 %tobool.not.i.i, label %grpc_lb_v1_LoadBalanceRequest_new.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %upb_Arena_Malloc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i, i8 0, i64 %add.i.i.i, i1 false)
   br label %grpc_lb_v1_LoadBalanceRequest_new.exit
 
@@ -245,14 +245,14 @@ grpc_lb_v1_LoadBalanceRequest_new.exit:           ; preds = %upb_Arena_Malloc.ex
   br i1 %cmp.i13.i.i, label %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, label %if.then.i
 
 grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i: ; preds = %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %add.ptr.i.i.i39 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %add.ptr.i.i.i39 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   %4 = load i64, ptr %add.ptr.i.i.i39, align 1
   %5 = inttoptr i64 %4 to ptr
   %cmp.i = icmp eq i64 %4, 0
   br i1 %cmp.i, label %if.then.i, label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
 if.then.i:                                        ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %grpc_lb_v1_LoadBalanceRequest_new.exit
-  %6 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__ClientStats_msg_init, i64 16), align 8
+  %6 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__lb__v1__ClientStats_msg_init, i64 16), align 8
   %conv.i.i.i23 = zext i16 %6 to i64
   %add.i.i.i24 = add nuw nsw i64 %conv.i.i.i23, 8
   %sub.i.i.i25 = add nuw nsw i64 %conv.i.i.i23, 23
@@ -270,7 +270,7 @@ if.then.i.i.i37:                                  ; preds = %if.then.i
   br label %upb_Arena_Malloc.exit.i.i33
 
 if.end.i.i.i32:                                   ; preds = %if.then.i
-  %add.ptr.i.i5.i = getelementptr inbounds i8, ptr %8, i64 %div7.i.i.i26
+  %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %8, i64 %div7.i.i.i26
   store ptr %add.ptr.i.i5.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i33
 
@@ -280,24 +280,24 @@ upb_Arena_Malloc.exit.i.i33:                      ; preds = %if.end.i.i.i32, %if
   br i1 %tobool.not.i.i35, label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %upb_Arena_Malloc.exit.i.i33
-  %add.ptr.i.i36 = getelementptr inbounds i8, ptr %retval.0.i.i.i34, i64 8
+  %add.ptr.i.i36 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i34, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i34, i8 0, i64 %add.i.i.i24, i1 false)
   store i32 2, ptr %retval.0.i.i, align 4
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   %9 = ptrtoint ptr %add.ptr.i.i36 to i64
   store i64 %9, ptr %add.ptr.i.i.i.i, align 1
   br label %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
 
 grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit: ; preds = %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i, %upb_Arena_Malloc.exit.i.i33, %if.then2.i
   %sub.0.i = phi ptr [ %add.ptr.i.i36, %if.then2.i ], [ %5, %grpc_lb_v1_LoadBalanceRequest_client_stats.exit.i ], [ null, %upb_Arena_Malloc.exit.i.i33 ]
-  %add.ptr.i.i.i40 = getelementptr inbounds i8, ptr %sub.0.i, i64 8
+  %add.ptr.i.i.i40 = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 8
   %10 = load i64, ptr %add.ptr.i.i.i40, align 1
   %11 = inttoptr i64 %10 to ptr
   %cmp.i41 = icmp eq i64 %10, 0
   br i1 %cmp.i41, label %if.then.i43, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit
 
 if.then.i43:                                      ; preds = %grpc_lb_v1_LoadBalanceRequest_mutable_client_stats.exit
-  %12 = load i16, ptr getelementptr inbounds (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
+  %12 = load i16, ptr getelementptr inbounds nuw (i8, ptr @google__protobuf__Timestamp_msg_init, i64 16), align 8
   %conv.i.i.i44 = zext i16 %12 to i64
   %add.i.i.i45 = add nuw nsw i64 %conv.i.i.i44, 8
   %sub.i.i.i46 = add nuw nsw i64 %conv.i.i.i44, 23
@@ -315,7 +315,7 @@ if.then.i.i.i60:                                  ; preds = %if.then.i43
   br label %upb_Arena_Malloc.exit.i.i55
 
 if.end.i.i.i53:                                   ; preds = %if.then.i43
-  %add.ptr.i.i5.i54 = getelementptr inbounds i8, ptr %14, i64 %div7.i.i.i47
+  %add.ptr.i.i5.i54 = getelementptr inbounds nuw i8, ptr %14, i64 %div7.i.i.i47
   store ptr %add.ptr.i.i5.i54, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i55
 
@@ -325,7 +325,7 @@ upb_Arena_Malloc.exit.i.i55:                      ; preds = %if.end.i.i.i53, %if
   br i1 %tobool.not.i.i57, label %grpc_lb_v1_ClientStats_mutable_timestamp.exit, label %if.then2.i58
 
 if.then2.i58:                                     ; preds = %upb_Arena_Malloc.exit.i.i55
-  %add.ptr.i.i59 = getelementptr inbounds i8, ptr %retval.0.i.i.i56, i64 8
+  %add.ptr.i.i59 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i56, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i56, i8 0, i64 %add.i.i.i45, i1 false)
   %15 = load i8, ptr %sub.0.i, align 1
   %or2.i.i.i.i.i.i = or i8 %15, 2
@@ -340,16 +340,16 @@ grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBala
   %17 = extractvalue { i64, i64 } %call3, 0
   %18 = extractvalue { i64, i64 } %call3, 1
   %ref.tmp.sroa.2.8.extract.trunc = trunc i64 %18 to i32
-  %add.ptr.i.i.i.i62 = getelementptr inbounds i8, ptr %sub.0.i42, i64 8
+  %add.ptr.i.i.i.i62 = getelementptr inbounds nuw i8, ptr %sub.0.i42, i64 8
   store i64 %17, ptr %add.ptr.i.i.i.i62, align 1
   store i32 %ref.tmp.sroa.2.8.extract.trunc, ptr %sub.0.i42, align 1
-  %add.ptr.i.i.i63 = getelementptr inbounds i8, ptr %sub.0.i, i64 16
+  %add.ptr.i.i.i63 = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 16
   store i64 %num_calls_started, ptr %add.ptr.i.i.i63, align 1
-  %add.ptr.i.i.i64 = getelementptr inbounds i8, ptr %sub.0.i, i64 24
+  %add.ptr.i.i.i64 = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 24
   store i64 %num_calls_finished, ptr %add.ptr.i.i.i64, align 1
-  %add.ptr.i.i.i65 = getelementptr inbounds i8, ptr %sub.0.i, i64 32
+  %add.ptr.i.i.i65 = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 32
   store i64 %num_calls_finished_with_client_failed_to_send, ptr %add.ptr.i.i.i65, align 1
-  %add.ptr.i.i.i66 = getelementptr inbounds i8, ptr %sub.0.i, i64 40
+  %add.ptr.i.i.i66 = getelementptr inbounds nuw i8, ptr %sub.0.i, i64 40
   store i64 %num_calls_finished_known_received, ptr %add.ptr.i.i.i66, align 1
   %cmp.not = icmp eq ptr %drop_token_counts, null
   br i1 %cmp.not, label %if.end, label %for.cond.preheader
@@ -360,7 +360,7 @@ for.cond.preheader:                               ; preds = %grpc_lb_v1_ClientSt
   br i1 %cmp590.not, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %data_.i.i.i = getelementptr inbounds i8, ptr %drop_token_counts, i64 8
+  %data_.i.i.i = getelementptr inbounds nuw i8, ptr %drop_token_counts, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %upb_Arena_Malloc.exit
@@ -370,7 +370,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %up
   %tobool.i.not.i.i = icmp eq i64 %and.i.i.i, 0
   %21 = load ptr, ptr %data_.i.i.i, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %data_.i.i.i, ptr %21
-  %arrayidx.i = getelementptr inbounds %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.091
+  %arrayidx.i = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %cond.i.i, i64 %i.091
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %field.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %field.i, ptr noundef nonnull align 4 dereferenceable(12) @__const.grpc_lb_v1_ClientStats_add_calls_finished_with_drop.field, i64 12, i1 false)
   %call.i = call ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %sub.0.i, ptr noundef nonnull %field.i, ptr noundef nonnull %arena)
@@ -378,10 +378,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %up
   br i1 %tobool.not.i, label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body
-  %size.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %22 = load i64, ptr %size.i, align 8
   %add.i = add i64 %22, 1
-  %capacity.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %capacity.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %23 = load i64, ptr %capacity.i.i.i, align 8
   %cmp.i.i.i67 = icmp ult i64 %23, %add.i
   br i1 %cmp.i.i.i67, label %_upb_array_reserve.exit.i.i, label %if.end.i
@@ -392,7 +392,7 @@ _upb_array_reserve.exit.i.i:                      ; preds = %lor.lhs.false.i
 
 if.end.i:                                         ; preds = %_upb_array_reserve.exit.i.i, %lor.lhs.false.i
   store i64 %add.i, ptr %size.i, align 8
-  %24 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__ClientStatsPerToken_msg_init, i64 16), align 8
+  %24 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__lb__v1__ClientStatsPerToken_msg_init, i64 16), align 8
   %conv.i.i.i68 = zext i16 %24 to i64
   %add.i.i.i69 = add nuw nsw i64 %conv.i.i.i68, 8
   %sub.i.i.i70 = add nuw nsw i64 %conv.i.i.i68, 23
@@ -410,7 +410,7 @@ if.then.i.i.i82:                                  ; preds = %if.end.i
   br label %upb_Arena_Malloc.exit.i.i78
 
 if.end.i.i.i76:                                   ; preds = %if.end.i
-  %add.ptr.i.i.i77 = getelementptr inbounds i8, ptr %26, i64 %div7.i.i.i71
+  %add.ptr.i.i.i77 = getelementptr inbounds nuw i8, ptr %26, i64 %div7.i.i.i71
   store ptr %add.ptr.i.i.i77, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i78
 
@@ -420,7 +420,7 @@ upb_Arena_Malloc.exit.i.i78:                      ; preds = %if.end.i.i.i76, %if
   br i1 %tobool.not.i.i80, label %grpc_lb_v1_ClientStats_add_calls_finished_with_drop.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %upb_Arena_Malloc.exit.i.i78
-  %add.ptr.i.i81 = getelementptr inbounds i8, ptr %retval.0.i.i.i79, i64 8
+  %add.ptr.i.i81 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i79, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i79, i8 0, i64 %add.i.i.i69, i1 false)
   %27 = load i64, ptr %size.i, align 8
   %28 = load i64, ptr %call.i, align 8
@@ -461,11 +461,11 @@ upb_Arena_Malloc.exit:                            ; preds = %if.then.i87, %if.en
   %34 = load ptr, ptr %arrayidx.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %retval.0.i86, ptr align 1 %34, i64 %call9, i1 false)
   store ptr %retval.0.i86, ptr %retval.0.i, align 1
-  %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %value.sroa.5.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   store i64 %call9, ptr %value.sroa.5.0.add.ptr.i.i.sroa_idx.i, align 1
-  %count = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %count = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %35 = load i64, ptr %count, align 8
-  %add.ptr.i.i.i88 = getelementptr inbounds i8, ptr %retval.0.i, i64 16
+  %add.ptr.i.i.i88 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 16
   store i64 %35, ptr %add.ptr.i.i.i88, align 1
   %inc = add nuw nsw i64 %i.091, 1
   %36 = load i64, ptr %drop_token_counts, align 8
@@ -498,20 +498,20 @@ define noundef zeroext i1 @_ZN9grpc_core19GrpcLbResponseParseERK10grpc_sliceP9up
 entry:
   %0 = load ptr, ptr %serialized_response, align 8
   %tobool.not = icmp eq ptr %0, null
-  %bytes = getelementptr inbounds i8, ptr %serialized_response, i64 16
+  %bytes = getelementptr inbounds nuw i8, ptr %serialized_response, i64 16
   %1 = load ptr, ptr %bytes, align 8
-  %bytes2 = getelementptr inbounds i8, ptr %serialized_response, i64 9
+  %bytes2 = getelementptr inbounds nuw i8, ptr %serialized_response, i64 9
   %cond = select i1 %tobool.not, ptr %bytes2, ptr %1
-  %data6 = getelementptr inbounds i8, ptr %serialized_response, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %serialized_response, i64 8
   %2 = load i64, ptr %data6, align 8
   %conv = and i64 %2, 255
   %cond11 = select i1 %tobool.not, i64 %conv, i64 %2
-  %3 = load i16, ptr getelementptr inbounds (i8, ptr @grpc__lb__v1__LoadBalanceResponse_msg_init, i64 16), align 8
+  %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @grpc__lb__v1__LoadBalanceResponse_msg_init, i64 16), align 8
   %conv.i.i.i.i = zext i16 %3 to i64
   %add.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 8
   %sub.i.i.i.i = add nuw nsw i64 %conv.i.i.i.i, 23
   %div7.i.i.i.i = and i64 %sub.i.i.i.i, 131064
-  %end.i.i.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
+  %end.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 8
   %4 = load ptr, ptr %end.i.i.i.i.i, align 8
   %5 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %4 to i64
@@ -525,7 +525,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %upb_Arena_Malloc.exit.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %entry
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 %div7.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %div7.i.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %arena, align 8
   br label %upb_Arena_Malloc.exit.i.i.i
 
@@ -535,7 +535,7 @@ upb_Arena_Malloc.exit.i.i.i:                      ; preds = %if.end.i.i.i.i, %if
   br i1 %tobool.not.i.i.i, label %grpc_lb_v1_LoadBalanceResponse_parse.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %upb_Arena_Malloc.exit.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i.i.i, i8 0, i64 %add.i.i.i.i, i1 false)
   %call1.i = tail call i32 @upb_Decode(ptr noundef %cond, i64 noundef %cond11, ptr noundef nonnull %add.ptr.i.i.i, ptr noundef nonnull @grpc__lb__v1__LoadBalanceResponse_msg_init, ptr noundef null, i32 noundef 0, ptr noundef nonnull %arena)
   %cmp.not.i = icmp eq i32 %call1.i, 0
@@ -544,7 +544,7 @@ if.end.i:                                         ; preds = %upb_Arena_Malloc.ex
 
 grpc_lb_v1_LoadBalanceResponse_parse.exit:        ; preds = %upb_Arena_Malloc.exit.i.i.i, %if.end.i
   %retval.0.i = phi ptr [ %call..i, %if.end.i ], [ null, %upb_Arena_Malloc.exit.i.i.i ]
-  %serverlist = getelementptr inbounds i8, ptr %result, i64 16
+  %serverlist = getelementptr inbounds nuw i8, ptr %result, i64 16
   %6 = load i32, ptr %retval.0.i, align 4
   switch i32 %6, label %return [
     i32 2, label %grpc_lb_v1_LoadBalanceResponse_server_list.exit.i
@@ -553,7 +553,7 @@ grpc_lb_v1_LoadBalanceResponse_parse.exit:        ; preds = %upb_Arena_Malloc.ex
   ]
 
 grpc_lb_v1_LoadBalanceResponse_server_list.exit.i: ; preds = %grpc_lb_v1_LoadBalanceResponse_parse.exit
-  %add.ptr.i.i.i15 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %add.ptr.i.i.i15 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %7 = load i64, ptr %add.ptr.i.i.i15, align 1
   %cmp.not.i16 = icmp eq i64 %7, 0
   br i1 %cmp.not.i16, label %return, label %if.end.i17
@@ -566,7 +566,7 @@ if.end.i17:                                       ; preds = %grpc_lb_v1_LoadBala
 
 grpc_lb_v1_ServerList_servers.exit.i:             ; preds = %if.end.i17
   %10 = inttoptr i64 %9 to ptr
-  %size3.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load i64, ptr %size3.i.i, align 8
   %12 = load i64, ptr %10, align 8
   %and.i.i.i = and i64 %12, -8
@@ -583,7 +583,7 @@ if.then.i24.i:                                    ; preds = %if.then3.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then3.i
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %result, i64 32
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 32
   %14 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
   %15 = load ptr, ptr %serverlist, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %14 to i64
@@ -594,7 +594,7 @@ if.end.i.i:                                       ; preds = %if.then3.i
   br i1 %cmp3.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i.i, label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
 
 _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %if.end.i.i
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %result, i64 24
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %result, i64 24
   %16 = load ptr, ptr %_M_finish.i.i.i, align 8
   %sub.ptr.lhs.cast.i6.i.i = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i8.i.i = sub i64 %sub.ptr.lhs.cast.i6.i.i, %sub.ptr.rhs.cast.i.i.i
@@ -619,12 +619,12 @@ _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit
   store ptr %call5.i.i.i.i.i, ptr %serverlist, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i8.i.i
   store ptr %add.ptr.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr21.i.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %call5.i.i.i.i.i, i64 %11
+  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbServer", ptr %call5.i.i.i.i.i, i64 %11
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit.i.i, %if.end.i.i
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %result, i64 24
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %result, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end38.i, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
@@ -633,18 +633,18 @@ for.body.i:                                       ; preds = %if.end38.i, %_ZNSt6
   %call.i.i = tail call ptr @_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENS6_IPKS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %serverlist, ptr %17)
   %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %i.040.i
   %18 = load ptr, ptr %arrayidx.i, align 8
-  %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 16
+  %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %retval.sroa.9.0.copyload33.i.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i.i, align 1
   %19 = add i64 %retval.sroa.9.0.copyload33.i.i, -1
   %or.cond.i = icmp ult i64 %19, 16
   br i1 %or.cond.i, label %if.then16.i, label %if.end20.i
 
 if.then16.i:                                      ; preds = %for.body.i
-  %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %18, i64 8
+  %add.ptr.i.i25.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %retval.sroa.0.0.copyload32.i.i = load ptr, ptr %add.ptr.i.i25.i, align 1
   %conv.i = trunc nuw nsw i64 %retval.sroa.9.0.copyload33.i.i to i32
   store i32 %conv.i, ptr %call.i.i, align 4
-  %ip_addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %ip_addr.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ip_addr.i, ptr align 1 %retval.sroa.0.0.copyload32.i.i, i64 %retval.sroa.9.0.copyload33.i.i, i1 false)
   %.pre.i = load ptr, ptr %arrayidx.i, align 8
   br label %if.end20.i
@@ -652,12 +652,12 @@ if.then16.i:                                      ; preds = %for.body.i
 if.end20.i:                                       ; preds = %if.then16.i, %for.body.i
   %20 = phi ptr [ %.pre.i, %if.then16.i ], [ %18, %for.body.i ]
   %21 = load i32, ptr %20, align 1
-  %port.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  %port.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 20
   store i32 %21, ptr %port.i, align 4
   %22 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i.i26.i = getelementptr inbounds i8, ptr %22, i64 24
+  %add.ptr.i.i26.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   %retval.sroa.0.0.copyload32.i27.i = load ptr, ptr %add.ptr.i.i26.i, align 1
-  %retval.sroa.9.0.add.ptr.i.sroa_idx.i28.i = getelementptr inbounds i8, ptr %22, i64 32
+  %retval.sroa.9.0.add.ptr.i.sroa_idx.i28.i = getelementptr inbounds nuw i8, ptr %22, i64 32
   %retval.sroa.9.0.copyload33.i29.i = load i64, ptr %retval.sroa.9.0.add.ptr.i.sroa_idx.i28.i, align 1
   %cmp26.i = icmp eq i64 %retval.sroa.9.0.copyload33.i29.i, 0
   br i1 %cmp26.i, label %if.end38.i, label %if.else28.i
@@ -667,7 +667,7 @@ if.else28.i:                                      ; preds = %if.end20.i
   br i1 %cmp30.i, label %if.then31.i, label %if.else35.i
 
 if.then31.i:                                      ; preds = %if.else28.i
-  %load_balance_token.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %load_balance_token.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %load_balance_token.i, ptr align 1 %retval.sroa.0.0.copyload32.i27.i, i64 %retval.sroa.9.0.copyload33.i29.i, i1 false)
   br label %if.end38.i
 
@@ -677,9 +677,9 @@ if.else35.i:                                      ; preds = %if.else28.i
 
 if.end38.i:                                       ; preds = %if.else35.i, %if.then31.i, %if.end20.i
   %23 = load ptr, ptr %arrayidx.i, align 8
-  %add.ptr.i.i32.i = getelementptr inbounds i8, ptr %23, i64 4
+  %add.ptr.i.i32.i = getelementptr inbounds nuw i8, ptr %23, i64 4
   %24 = load i8, ptr %add.ptr.i.i32.i, align 1
-  %drop.i = getelementptr inbounds i8, ptr %call.i.i, i64 74
+  %drop.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 74
   %frombool.i = and i8 %24, 1
   store i8 %frombool.i, ptr %drop.i, align 2
   %inc.i = add nuw i64 %i.040.i, 1
@@ -691,7 +691,7 @@ if.then:                                          ; preds = %if.end38.i, %grpc_l
   br label %return
 
 grpc_lb_v1_LoadBalanceResponse_initial_response.exit: ; preds = %grpc_lb_v1_LoadBalanceResponse_parse.exit
-  %add.ptr.i.i19 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %add.ptr.i.i19 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %25 = load i64, ptr %add.ptr.i.i19, align 1
   %cmp.not = icmp eq i64 %25, 0
   br i1 %cmp.not, label %return, label %if.then14
@@ -699,7 +699,7 @@ grpc_lb_v1_LoadBalanceResponse_initial_response.exit: ; preds = %grpc_lb_v1_Load
 if.then14:                                        ; preds = %grpc_lb_v1_LoadBalanceResponse_initial_response.exit
   %26 = inttoptr i64 %25 to ptr
   store i32 0, ptr %result, align 8
-  %add.ptr.i.i20 = getelementptr inbounds i8, ptr %26, i64 8
+  %add.ptr.i.i20 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load i64, ptr %add.ptr.i.i20, align 1
   %cmp17.not = icmp eq i64 %27, 0
   br i1 %cmp17.not, label %return, label %if.then18
@@ -740,7 +740,7 @@ if.end7.i.i.i.i.i:                                ; preds = %if.else.i.i.i.i.i, 
 
 _ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit: ; preds = %if.then18, %if.then.i.i.i.i.i, %if.else.i.i.i.i.i, %if.end7.i.i.i.i.i
   %retval.0.i.i.i.i21 = phi i64 [ %add.i.i.i.i.i, %if.end7.i.i.i.i.i ], [ 9223372036854775807, %if.then.i.i.i.i.i ], [ -9223372036854775808, %if.else.i.i.i.i.i ], [ %cond10.i.i.i.i, %if.then18 ]
-  %client_stats_report_interval20 = getelementptr inbounds i8, ptr %result, i64 8
+  %client_stats_report_interval20 = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i64 %retval.0.i.i.i.i21, ptr %client_stats_report_interval20, align 8
   br label %return
 
@@ -763,40 +763,40 @@ declare i32 @upb_Encode(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @upb_Message_GetOrCreateMutableArray(ptr noundef %msg, ptr noundef %field, ptr noundef %arena) local_unnamed_addr #5 comdat {
 entry:
-  %mode.i.i = getelementptr inbounds i8, ptr %field, i64 11
+  %mode.i.i = getelementptr inbounds nuw i8, ptr %field, i64 11
   %0 = load i8, ptr %mode.i.i, align 1
   %cmp.i = icmp ugt i8 %0, -65
   tail call void @llvm.assume(i1 %cmp.i)
   %1 = and i8 %0, 3
   %cmp2.i = icmp eq i8 %1, 1
   tail call void @llvm.assume(i1 %cmp2.i)
-  %presence.i = getelementptr inbounds i8, ptr %field, i64 6
+  %presence.i = getelementptr inbounds nuw i8, ptr %field, i64 6
   %2 = load i16, ptr %presence.i, align 2
   %cmp5.i = icmp eq i16 %2, 0
   tail call void @llvm.assume(i1 %cmp5.i)
   %3 = and i8 %0, 8
   %tobool.i.not.i.i = icmp eq i8 %3, 0
   tail call void @llvm.assume(i1 %tobool.i.not.i.i)
-  %offset.i.i.i = getelementptr inbounds i8, ptr %field, i64 4
+  %offset.i.i.i = getelementptr inbounds nuw i8, ptr %field, i64 4
   %4 = load i16, ptr %offset.i.i.i, align 4
   %idx.ext.i.i.i = zext i16 %4 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %msg, i64 %idx.ext.i.i.i
   %5 = load i64, ptr %add.ptr.i.i.i, align 1
   %6 = inttoptr i64 %5 to ptr
   %tobool.not = icmp eq i64 %5, 0
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %descriptortype_dont_copy_me__upb_internal_use_only.i = getelementptr inbounds i8, ptr %field, i64 10
+  %descriptortype_dont_copy_me__upb_internal_use_only.i = getelementptr inbounds nuw i8, ptr %field, i64 10
   %7 = load i8, ptr %descriptortype_dont_copy_me__upb_internal_use_only.i, align 2
   %idxprom.i = zext i8 %7 to i64
-  %arrayidx.i = getelementptr inbounds [19 x i8], ptr @__const._upb_MiniTable_ElementSizeLg2.table, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [19 x i8], ptr @__const._upb_MiniTable_ElementSizeLg2.table, i64 0, i64 %idxprom.i
   %8 = load i8, ptr %arrayidx.i, align 1
   %sh_prom.i = zext i8 %8 to i64
   %shl.i = shl i64 4, %sh_prom.i
   %sub.i.i = add nuw i64 %shl.i, 31
   %div7.i.i = and i64 %sub.i.i, -8
-  %end.i.i.i = getelementptr inbounds i8, ptr %arena, i64 8
+  %end.i.i.i = getelementptr inbounds nuw i8, ptr %arena, i64 8
   %9 = load ptr, ptr %end.i.i.i, align 8
   %10 = load ptr, ptr %arena, align 8
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %9 to i64
@@ -820,13 +820,13 @@ upb_Arena_Malloc.exit.i:                          ; preds = %if.end.i.i, %if.the
   br i1 %tobool.not.i, label %_upb_Array_New.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %upb_Arena_Malloc.exit.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 24
   %11 = ptrtoint ptr %add.ptr.i to i64
   %or.i.i = or i64 %11, %sh_prom.i
   store i64 %or.i.i, ptr %retval.0.i.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %size.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   store i64 0, ptr %size.i, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  %capacity.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 16
   store i64 4, ptr %capacity.i, align 8
   br label %_upb_Array_New.exit
 
@@ -850,7 +850,7 @@ if.then.i:                                        ; preds = %_upb_Array_New.exit
   br i1 %tobool.not.i.not.i, label %if.end, label %if.end.i.i14
 
 if.end.i.i14:                                     ; preds = %if.then.i
-  %data.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %data.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %16 = load i8, ptr %mode.i.i, align 1
   %17 = lshr i8 %16, 6
   switch i8 %17, label %default.unreachable [
@@ -887,7 +887,7 @@ default.unreachable:                              ; preds = %if.end.i.i14
 sw.bb2.i.i6.i:                                    ; preds = %_upb_Array_New.exit
   %21 = load i16, ptr %offset.i.i.i, align 4
   %idx.ext.i.i.i16 = zext i16 %21 to i64
-  %add.ptr.i.i.i17 = getelementptr inbounds i8, ptr %msg, i64 %idx.ext.i.i.i16
+  %add.ptr.i.i.i17 = getelementptr inbounds nuw i8, ptr %msg, i64 %idx.ext.i.i.i16
   %22 = ptrtoint ptr %retval.0.i.i to i64
   store i64 %22, ptr %add.ptr.i.i.i17, align 1
   br label %if.end
@@ -926,9 +926,9 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__position.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %_M_finish = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %_M_finish, align 8
-  %_M_end_of_storage = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_end_of_storage, align 8
   %cmp.not = icmp eq ptr %1, %2
   br i1 %cmp.not, label %if.else22, label %if.then
@@ -940,7 +940,7 @@ if.then:                                          ; preds = %entry
 if.then9:                                         ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %1, i8 0, i64 76, i1 false)
   %3 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %3, i64 76
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %3, i64 76
   store ptr %incdec.ptr, ptr %_M_finish, align 8
   br label %if.end30
 
@@ -949,7 +949,7 @@ if.else:                                          ; preds = %if.then
   %add.ptr.i5 = getelementptr inbounds i8, ptr %1, i64 -76
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %1, ptr noundef nonnull align 4 dereferenceable(76) %add.ptr.i5, i64 76, i1 false)
   %4 = load ptr, ptr %_M_finish, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 76
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 76
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8
   %add.ptr9.i = getelementptr inbounds i8, ptr %4, i64 -76
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %add.ptr9.i, %__position.coerce
@@ -985,35 +985,27 @@ _ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i: ; pr
   %cmp7.i.i = icmp ult i64 %add.i.i, %sub.ptr.div.i.i.i
   %5 = tail call i64 @llvm.umin.i64(i64 %add.i.i, i64 121360158379668102)
   %cond.i.i = select i1 %cmp7.i.i, i64 121360158379668102, i64 %5
-  %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i, 76
-  %cmp.not.i.i = icmp eq i64 %cond.i.i, 0
-  br i1 %cmp.not.i.i, label %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i, label %cond.true.i.i
-
-cond.true.i.i:                                    ; preds = %_ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %cmp.not.i.i = icmp ne i64 %cond.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i)
   %mul.i.i.i.i = mul nuw nsw i64 %cond.i.i, 76
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #18
-  br label %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i
-
-_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i: ; preds = %cond.true.i.i, %_ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i
-  %cond.i10.i = phi ptr [ %call5.i.i.i.i, %cond.true.i.i ], [ null, %_ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i ]
-  %add.ptr.i7 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %cond.i10.i, i64 %sub.ptr.div.i.i
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %add.ptr.i7, i8 0, i64 76, i1 false)
   %cmp.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i, 0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
 
-if.then.i.i.i.i:                                  ; preds = %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %cond.i10.i, ptr align 4 %0, i64 %sub.ptr.sub.i, i1 false)
+if.then.i.i.i.i:                                  ; preds = %_ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i, ptr align 4 %0, i64 %sub.ptr.sub.i, i1 false)
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
 
-_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE11_M_allocateEm.exit.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i, i64 %sub.ptr.sub.i
-  %incdec.ptr.i8 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 76
+_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %if.then.i.i.i.i, %_ZNKSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE12_M_check_lenEmPKc.exit.i
+  %incdec.ptr.i8 = getelementptr inbounds nuw i8, ptr %add.ptr.i7, i64 76
   %sub.ptr.sub.i.i.i13.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.lhs.cast.i
   %cmp.i.i.i14.i = icmp sgt i64 %sub.ptr.sub.i.i.i13.i, 0
   br i1 %cmp.i.i.i14.i, label %if.then.i.i.i16.i, label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i
 
 if.then.i.i.i16.i:                                ; preds = %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr.i8, ptr align 4 %add.ptr.i6, i64 %sub.ptr.sub.i.i.i13.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %incdec.ptr.i8, ptr align 4 %add.ptr.i6, i64 %sub.ptr.sub.i.i.i13.i, i1 false)
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i: ; preds = %if.then.i.i.i16.i, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
@@ -1026,9 +1018,9 @@ if.then.i18.i:                                    ; preds = %_ZNSt6vectorIN9grpc
 
 _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i, %if.then.i18.i
   %add.ptr.i.i.i15.i = getelementptr inbounds i8, ptr %incdec.ptr.i8, i64 %sub.ptr.sub.i.i.i13.i
-  store ptr %cond.i10.i, ptr %this, align 8
+  store ptr %call5.i.i.i.i, ptr %this, align 8
   store ptr %add.ptr.i.i.i15.i, ptr %_M_finish, align 8
-  %add.ptr19.i = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %cond.i10.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbServer", ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage, align 8
   br label %if.end30
 

@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 1) i32 @output_nativesvg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias ptr @open_output(ptr noundef %1, i32 noundef %4) #8
   %.not = icmp eq ptr %5, null
@@ -44,22 +44,22 @@ define hidden range(i32 -1, 1) i32 @output_nativesvg(ptr noundef %0, ptr noundef
   br label %30
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1600
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   store ptr @native_svg_draw_methods, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 1592
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %16 = load i64, ptr %15, align 8
   %17 = or i64 %16, 2
   store i64 %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 1608
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i32 0, ptr %18, align 8
   tail call void @output_draw(ptr noundef nonnull %0) #8
   store i32 1, ptr %18, align 8
   %19 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 39, i64 1, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 1612
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 1616
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.2, i32 noundef %21, i32 noundef %23, i32 noundef %21, i32 noundef %23) #8
   tail call void @declare_colors(ptr noundef nonnull %0) #8
@@ -112,7 +112,7 @@ define internal void @native_svg_box(ptr nocapture noundef readonly %0, ptr noca
   %12 = alloca [12 x i8], align 1
   %13 = alloca [32 x i8], align 16
   %14 = alloca [64 x i8], align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %0, i64 1304
   %.val = load i32, ptr %17, align 8
@@ -122,24 +122,24 @@ define internal void @native_svg_box(ptr nocapture noundef readonly %0, ptr noca
   br i1 %or.cond.i, label %20, label %lstopo_obj_cpukind_style.exit
 
 20:                                               ; preds = %9
-  %21 = getelementptr inbounds i8, ptr %7, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %25 = load i32, ptr %24, align 4
   br label %lstopo_obj_cpukind_style.exit
 
 lstopo_obj_cpukind_style.exit:                    ; preds = %9, %20, %23
   %.0.i = phi i32 [ %25, %23 ], [ 0, %20 ], [ 0, %9 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 944
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %27 = load i32, ptr %26, align 8
   %28 = load i32, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %10, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %11, i8 0, i64 128, i1 false)
@@ -158,7 +158,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %20, %23
 
 36:                                               ; preds = %35
   %37 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %14, i64 noundef 64, ptr noundef nonnull %7, i64 noundef 0) #8
-  %38 = getelementptr inbounds i8, ptr %7, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %39 = load i32, ptr %38, align 4
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.5, ptr noundef nonnull %14, i32 noundef %39, ptr noundef nonnull %12) #8
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef nonnull %14) #8
@@ -190,7 +190,7 @@ define internal void @native_svg_line(ptr nocapture noundef readonly %0, i32 %1,
   %10 = alloca [128 x i8], align 16
   %11 = alloca [12 x i8], align 1
   %12 = alloca [64 x i8], align 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %9, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %10, i8 0, i64 128, i1 false)
@@ -208,7 +208,7 @@ define internal void @native_svg_line(ptr nocapture noundef readonly %0, i32 %1,
 
 18:                                               ; preds = %17
   %19 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %12, i64 noundef 64, ptr noundef nonnull %6, i64 noundef 0) #8
-  %20 = getelementptr inbounds i8, ptr %6, i64 52
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %21 = load i32, ptr %20, align 4
   %22 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.10, ptr noundef nonnull %12, i32 noundef %21, ptr noundef nonnull %11) #8
   %23 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef nonnull %12) #8
@@ -219,7 +219,7 @@ define internal void @native_svg_line(ptr nocapture noundef readonly %0, i32 %1,
   br label %26
 
 26:                                               ; preds = %24, %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 944
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %28 = load i32, ptr %27, align 8
   %29 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.12, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %28) #8
   ret void
@@ -231,7 +231,7 @@ define internal void @native_svg_text(ptr nocapture noundef readonly %0, ptr noc
   %11 = alloca [128 x i8], align 16
   %12 = alloca [12 x i8], align 1
   %13 = alloca [64 x i8], align 16
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %0, i64 1304
   %.val = load i32, ptr %16, align 8
@@ -241,13 +241,13 @@ define internal void @native_svg_text(ptr nocapture noundef readonly %0, ptr noc
   br i1 %or.cond.i, label %19, label %lstopo_obj_cpukind_style.exit
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds i8, ptr %7, i64 232
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 232
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %lstopo_obj_cpukind_style.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 68
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 1
   %26 = icmp eq i32 %25, 0
@@ -257,9 +257,9 @@ define internal void @native_svg_text(ptr nocapture noundef readonly %0, ptr noc
 lstopo_obj_cpukind_style.exit:                    ; preds = %9, %19, %22
   %.0.i = phi ptr [ %27, %22 ], [ @.str.13, %19 ], [ @.str.13, %9 ]
   %28 = load i32, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %10, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %11, i8 0, i64 128, i1 false)
@@ -277,7 +277,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %19, %22
 
 36:                                               ; preds = %35
   %37 = call i32 @hwloc_obj_type_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull %7, i64 noundef 0) #8
-  %38 = getelementptr inbounds i8, ptr %7, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %39 = load i32, ptr %38, align 4
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %10, i64 noundef 128, ptr noundef nonnull @.str.14, ptr noundef nonnull %13, i32 noundef %39, ptr noundef nonnull %12) #8
   %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 128, ptr noundef nonnull @.str.6, ptr noundef nonnull %13) #8

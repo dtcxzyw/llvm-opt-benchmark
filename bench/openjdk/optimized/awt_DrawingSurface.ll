@@ -43,10 +43,10 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %4, ptr noundef nonnull @.str) #5
   %11 = icmp eq ptr %10, null
@@ -54,7 +54,7 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 256
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 256
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 %15(ptr noundef nonnull %4, ptr noundef %6, ptr noundef nonnull %10) #5
   %.not = icmp eq i8 %16, 0
@@ -65,7 +65,7 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1824
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1824
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i8 %21(ptr noundef nonnull %4) #5
   %.not50 = icmp eq i8 %22, 0
@@ -73,20 +73,20 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %4) #5
   br label %27
 
 27:                                               ; preds = %23, %18
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1128
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1128
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr @tkClass, align 8
   %32 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %30(ptr noundef nonnull %4, ptr noundef %31, ptr noundef %32) #5
   %33 = load ptr, ptr %4, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 1824
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1824
   %35 = load ptr, ptr %34, align 8
   %36 = tail call zeroext i8 %35(ptr noundef nonnull %4) #5
   %.not51 = icmp eq i8 %36, 0
@@ -94,14 +94,14 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 37:                                               ; preds = %27
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 136
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 136
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %4) #5
   br label %41
 
 41:                                               ; preds = %27, %37
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 760
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 760
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 32), align 8
   %46 = tail call ptr %44(ptr noundef nonnull %4, ptr noundef %6, ptr noundef %45) #5
@@ -111,7 +111,7 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 48:                                               ; preds = %41
   tail call void (...) @awt_output_flush() #5
   %49 = load ptr, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr %51(ptr noundef nonnull %4) #5
   %.not52 = icmp eq ptr %52, null
@@ -119,20 +119,20 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %4, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull %4) #5
   br label %57
 
 57:                                               ; preds = %53, %48
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 1128
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1128
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr @tkClass, align 8
   %62 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %60(ptr noundef nonnull %4, ptr noundef %61, ptr noundef %62) #5
   %63 = load ptr, ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i8 %65(ptr noundef nonnull %4) #5
   %.not53 = icmp eq i8 %66, 0
@@ -140,7 +140,7 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 67:                                               ; preds = %57
   %68 = load ptr, ptr %4, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 136
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull %4) #5
   br label %71
@@ -150,19 +150,19 @@ define i32 @awt_DrawingSurface_Lock(ptr noundef readonly %0) #0 {
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %4, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 104
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i32 %75(ptr noundef nonnull %4, ptr noundef nonnull %52) #5
   br label %87
 
 77:                                               ; preds = %41
   %78 = load ptr, ptr %4, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 800
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 800
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr @drawStateID, align 8
   %82 = tail call i32 %80(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef %81) #5
   %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 872
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 872
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr @drawStateID, align 8
   tail call void %85(ptr noundef nonnull %4, ptr noundef nonnull %46, ptr noundef %86, i32 noundef 0) #5
@@ -182,10 +182,10 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %7, ptr noundef nonnull @.str) #5
   %14 = icmp eq ptr %13, null
@@ -193,7 +193,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 15:                                               ; preds = %6
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 256
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 256
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i8 %18(ptr noundef nonnull %7, ptr noundef %9, ptr noundef nonnull %13) #5
   %.not = icmp eq i8 %19, 0
@@ -204,7 +204,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 21:                                               ; preds = %15
   %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1824
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1824
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i8 %24(ptr noundef nonnull %7) #5
   %.not73 = icmp eq i8 %25, 0
@@ -212,20 +212,20 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 26:                                               ; preds = %21
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 136
   %29 = load ptr, ptr %28, align 8
   tail call void %29(ptr noundef nonnull %7) #5
   br label %30
 
 30:                                               ; preds = %26, %21
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1128
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1128
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr @tkClass, align 8
   %35 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %7, ptr noundef %34, ptr noundef %35) #5
   %36 = load ptr, ptr %7, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1824
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1824
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i8 %38(ptr noundef nonnull %7) #5
   %.not74 = icmp eq i8 %39, 0
@@ -233,14 +233,14 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 40:                                               ; preds = %30
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 136
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 136
   %43 = load ptr, ptr %42, align 8
   tail call void %43(ptr noundef nonnull %7) #5
   br label %44
 
 44:                                               ; preds = %30, %40
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 760
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 760
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 32), align 8
   %49 = tail call ptr %47(ptr noundef nonnull %7, ptr noundef %9, ptr noundef %48) #5
@@ -250,7 +250,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 51:                                               ; preds = %44
   tail call void (...) @awt_output_flush() #5
   %52 = load ptr, ptr %7, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 120
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %54 = load ptr, ptr %53, align 8
   %55 = tail call ptr %54(ptr noundef nonnull %7) #5
   %.not78 = icmp eq ptr %55, null
@@ -258,20 +258,20 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 136
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 136
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %7) #5
   br label %60
 
 60:                                               ; preds = %56, %51
   %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 1128
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1128
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr @tkClass, align 8
   %65 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %63(ptr noundef nonnull %7, ptr noundef %64, ptr noundef %65) #5
   %66 = load ptr, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 1824
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1824
   %68 = load ptr, ptr %67, align 8
   %69 = tail call zeroext i8 %68(ptr noundef nonnull %7) #5
   %.not79 = icmp eq i8 %69, 0
@@ -279,7 +279,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 70:                                               ; preds = %60
   %71 = load ptr, ptr %7, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 136
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 136
   %73 = load ptr, ptr %72, align 8
   tail call void %73(ptr noundef nonnull %7) #5
   br label %74
@@ -289,7 +289,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 75:                                               ; preds = %44
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 760
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 760
   %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr @graphicsConfigID, align 8
   %80 = tail call ptr %78(ptr noundef nonnull %7, ptr noundef nonnull %49, ptr noundef %79) #5
@@ -298,7 +298,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 81:                                               ; preds = %75
   %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 808
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 808
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr @x11GraphicsConfigIDs, align 8
   %86 = tail call i64 %84(ptr noundef nonnull %7, ptr noundef nonnull %80, ptr noundef %85) #5
@@ -307,19 +307,19 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 88:                                               ; preds = %75
   %89 = load ptr, ptr @awt_display, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 224
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 224
   %91 = load i32, ptr %90, align 8
   %92 = tail call ptr @getDefaultConfig(i32 noundef %91) #5
   br label %93
 
 93:                                               ; preds = %88, %81
   %.065 = phi ptr [ %87, %81 ], [ %92, %88 ]
-  %94 = getelementptr inbounds i8, ptr %.065, i64 96
+  %94 = getelementptr inbounds nuw i8, ptr %.065, i64 96
   %95 = load ptr, ptr %94, align 8
   %96 = tail call i32 %95(i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %.065) #5
   tail call void (...) @awt_output_flush() #5
   %97 = load ptr, ptr %7, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 120
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 120
   %99 = load ptr, ptr %98, align 8
   %100 = tail call ptr %99(ptr noundef nonnull %7) #5
   %.not76 = icmp eq ptr %100, null
@@ -327,20 +327,20 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 101:                                              ; preds = %93
   %102 = load ptr, ptr %7, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 136
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 136
   %104 = load ptr, ptr %103, align 8
   tail call void %104(ptr noundef nonnull %7) #5
   br label %105
 
 105:                                              ; preds = %101, %93
   %106 = load ptr, ptr %7, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 1128
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1128
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr @tkClass, align 8
   %110 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %108(ptr noundef nonnull %7, ptr noundef %109, ptr noundef %110) #5
   %111 = load ptr, ptr %7, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 1824
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 1824
   %113 = load ptr, ptr %112, align 8
   %114 = tail call zeroext i8 %113(ptr noundef nonnull %7) #5
   %.not77 = icmp eq i8 %114, 0
@@ -348,7 +348,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
 
 115:                                              ; preds = %105
   %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 136
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 136
   %118 = load ptr, ptr %117, align 8
   tail call void %118(ptr noundef nonnull %7) #5
   br label %119
@@ -360,7 +360,7 @@ define i32 @awt_GetColor(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2
   %.sink = phi ptr [ %55, %74 ], [ %100, %119 ]
   %.0.ph = phi i32 [ 0, %74 ], [ %96, %119 ]
   %120 = load ptr, ptr %7, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 104
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 104
   %122 = load ptr, ptr %121, align 8
   %123 = tail call i32 %122(ptr noundef nonnull %7, ptr noundef nonnull %.sink) #5
   br label %124
@@ -380,10 +380,10 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %5, ptr noundef nonnull @.str) #5
   %12 = icmp eq ptr %11, null
@@ -391,7 +391,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 256
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 256
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i8 %16(ptr noundef nonnull %5, ptr noundef %7, ptr noundef nonnull %11) #5
   %.not = icmp eq i8 %17, 0
@@ -402,7 +402,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 19:                                               ; preds = %13
   %20 = load ptr, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1824
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1824
   %22 = load ptr, ptr %21, align 8
   %23 = tail call zeroext i8 %22(ptr noundef nonnull %5) #5
   %.not93 = icmp eq i8 %23, 0
@@ -410,20 +410,20 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %5) #5
   br label %28
 
 28:                                               ; preds = %24, %19
   %29 = load ptr, ptr %5, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1128
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1128
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr @tkClass, align 8
   %33 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %31(ptr noundef nonnull %5, ptr noundef %32, ptr noundef %33) #5
   %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1824
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1824
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i8 %36(ptr noundef nonnull %5) #5
   %.not94 = icmp eq i8 %37, 0
@@ -431,21 +431,21 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 136
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 136
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %5) #5
   br label %42
 
 42:                                               ; preds = %28, %38
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 760
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 760
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 32), align 8
   %47 = tail call ptr %45(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %46) #5
   %48 = icmp eq ptr %47, null
   tail call void (...) @awt_output_flush() #5
   %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 120
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr %51(ptr noundef nonnull %5) #5
   %.not97 = icmp eq ptr %52, null
@@ -456,20 +456,20 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 54:                                               ; preds = %53
   %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 136
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 136
   %57 = load ptr, ptr %56, align 8
   tail call void %57(ptr noundef nonnull %5) #5
   br label %58
 
 58:                                               ; preds = %54, %53
   %59 = load ptr, ptr %5, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1128
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1128
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr @tkClass, align 8
   %63 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %5, ptr noundef %62, ptr noundef %63) #5
   %64 = load ptr, ptr %5, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1824
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1824
   %66 = load ptr, ptr %65, align 8
   %67 = tail call zeroext i8 %66(ptr noundef nonnull %5) #5
   %.not98 = icmp eq i8 %67, 0
@@ -477,7 +477,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 68:                                               ; preds = %58
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %5) #5
   br label %72
@@ -487,7 +487,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 73:                                               ; preds = %72
   %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
   %76 = load ptr, ptr %75, align 8
   %77 = tail call i32 %76(ptr noundef nonnull %5, ptr noundef nonnull %52) #5
   br label %152
@@ -497,20 +497,20 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 79:                                               ; preds = %78
   %80 = load ptr, ptr %5, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 136
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 136
   %82 = load ptr, ptr %81, align 8
   tail call void %82(ptr noundef nonnull %5) #5
   br label %83
 
 83:                                               ; preds = %79, %78
   %84 = load ptr, ptr %5, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 1128
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1128
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr @tkClass, align 8
   %88 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %86(ptr noundef nonnull %5, ptr noundef %87, ptr noundef %88) #5
   %89 = load ptr, ptr %5, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1824
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
   %91 = load ptr, ptr %90, align 8
   %92 = tail call zeroext i8 %91(ptr noundef nonnull %5) #5
   %.not96 = icmp eq i8 %92, 0
@@ -518,7 +518,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 93:                                               ; preds = %83
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 136
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 136
   %96 = load ptr, ptr %95, align 8
   tail call void %96(ptr noundef nonnull %5) #5
   br label %97
@@ -528,7 +528,7 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %5, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
   %101 = load ptr, ptr %100, align 8
   %102 = tail call i32 %101(ptr noundef nonnull %5, ptr noundef nonnull %52) #5
   br label %103
@@ -536,65 +536,65 @@ define noundef ptr @awt_DrawingSurface_GetDrawingSurfaceInfo(ptr noundef %0) #0 
 103:                                              ; preds = %98, %97
   %104 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
   %105 = load ptr, ptr %5, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 808
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 808
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr @windowID, align 8
   %109 = tail call i64 %107(ptr noundef nonnull %5, ptr noundef nonnull %47, ptr noundef %108) #5
   store i64 %109, ptr %104, align 8
   %110 = load ptr, ptr @awt_display, align 8
-  %111 = getelementptr inbounds i8, ptr %104, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %110, ptr %111, align 8
   %112 = call i32 @XGetWindowAttributes(ptr noundef %110, i64 noundef %109, ptr noundef nonnull %2) #5
-  %113 = getelementptr inbounds i8, ptr %2, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %114 = load ptr, ptr %113, align 8
   %115 = call i64 @XVisualIDFromVisual(ptr noundef %114) #5
-  %116 = getelementptr inbounds i8, ptr %104, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 16
   store i64 %115, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %2, i64 80
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %104, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %104, i64 24
   store i64 %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %2, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %121 = load i32, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %104, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store i32 %121, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %104, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %104, i64 40
   store ptr @awt_GetColor, ptr %123, align 8
   %124 = call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
   store ptr %104, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   store ptr %0, ptr %125, align 8
   %126 = load ptr, ptr %5, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 800
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 800
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr @componentIDs, align 8
   %130 = call i32 %128(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %129) #5
-  %131 = getelementptr inbounds i8, ptr %124, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %124, i64 16
   store i32 %130, ptr %131, align 8
   %132 = load ptr, ptr %5, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 800
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 800
   %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 8), align 8
   %136 = call i32 %134(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %135) #5
-  %137 = getelementptr inbounds i8, ptr %124, i64 20
+  %137 = getelementptr inbounds nuw i8, ptr %124, i64 20
   store i32 %136, ptr %137, align 4
   %138 = load ptr, ptr %5, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 800
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 800
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 16), align 8
   %142 = call i32 %140(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %141) #5
-  %143 = getelementptr inbounds i8, ptr %124, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i32 %142, ptr %143, align 8
   %144 = load ptr, ptr %5, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 800
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 800
   %146 = load ptr, ptr %145, align 8
   %147 = load ptr, ptr getelementptr inbounds (i8, ptr @componentIDs, i64 24), align 8
   %148 = call i32 %146(ptr noundef nonnull %5, ptr noundef %7, ptr noundef %147) #5
-  %149 = getelementptr inbounds i8, ptr %124, i64 28
+  %149 = getelementptr inbounds nuw i8, ptr %124, i64 28
   store i32 %148, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %124, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %124, i64 32
   store i32 1, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %124, i64 40
+  %151 = getelementptr inbounds nuw i8, ptr %124, i64 40
   store ptr %131, ptr %151, align 8
   br label %152
 
@@ -637,7 +637,7 @@ define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {
   %4 = load ptr, ptr %0, align 8
   tail call void (...) @awt_output_flush() #5
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %4) #5
   %.not = icmp eq ptr %8, null
@@ -645,20 +645,20 @@ define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {
 
 9:                                                ; preds = %3
   %10 = load ptr, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull %4) #5
   br label %13
 
 13:                                               ; preds = %9, %3
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1128
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @tkClass, align 8
   %18 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %16(ptr noundef nonnull %4, ptr noundef %17, ptr noundef %18) #5
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 1824
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1824
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i8 %21(ptr noundef nonnull %4) #5
   %.not17 = icmp eq i8 %22, 0
@@ -666,7 +666,7 @@ define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {
 
 23:                                               ; preds = %13
   %24 = load ptr, ptr %4, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 136
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %4) #5
   br label %27
@@ -676,7 +676,7 @@ define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {
 
 28:                                               ; preds = %27
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 %31(ptr noundef nonnull %4, ptr noundef nonnull %8) #5
   br label %33
@@ -688,7 +688,7 @@ define void @awt_DrawingSurface_Unlock(ptr noundef readonly %0) #0 {
 ; Function Attrs: nounwind uwtable
 define noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #5
   %7 = icmp eq ptr %6, null
@@ -696,7 +696,7 @@ define noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1) local_
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 256
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 256
   %11 = load ptr, ptr %10, align 8
   %12 = tail call zeroext i8 %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %6) #5
   %.not = icmp eq i8 %12, 0
@@ -706,18 +706,18 @@ define noundef ptr @awt_GetDrawingSurface(ptr noundef %0, ptr noundef %1) local_
   %14 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #6
   store ptr %0, ptr %14, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr %17(ptr noundef nonnull %0, ptr noundef %1) #5
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %14, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr @awt_DrawingSurface_Lock, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %14, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr @awt_DrawingSurface_GetDrawingSurfaceInfo, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %14, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr @awt_DrawingSurface_FreeDrawingSurfaceInfo, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %14, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr @awt_DrawingSurface_Unlock, ptr %23, align 8
   br label %24
 
@@ -734,9 +734,9 @@ define void @awt_FreeDrawingSurface(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void %7(ptr noundef nonnull %4, ptr noundef %9) #5
   tail call void @free(ptr noundef nonnull %0) #5
@@ -754,7 +754,7 @@ define void @awt_Lock(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #5
   %.not10 = icmp eq i8 %7, 0
@@ -762,20 +762,20 @@ define void @awt_Lock(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #5
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #5
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #5
   %.not11 = icmp eq i8 %21, 0
@@ -783,7 +783,7 @@ define void @awt_Lock(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #5
   br label %26
@@ -801,7 +801,7 @@ define void @awt_Unlock(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   tail call void (...) @awt_output_flush() #5
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0) #5
   %.not14 = icmp eq ptr %7, null
@@ -809,20 +809,20 @@ define void @awt_Unlock(ptr noundef %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #5
   br label %12
 
 12:                                               ; preds = %8, %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #5
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #5
   %.not15 = icmp eq i8 %21, 0
@@ -830,7 +830,7 @@ define void @awt_Unlock(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #5
   br label %26
@@ -840,7 +840,7 @@ define void @awt_Unlock(ptr noundef %0) local_unnamed_addr #0 {
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 104
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 104
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 %30(ptr noundef nonnull %0, ptr noundef nonnull %7) #5
   br label %32
@@ -853,7 +853,7 @@ define void @awt_Unlock(ptr noundef %0) local_unnamed_addr #0 {
 define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1824
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i8 %6(ptr noundef nonnull %0) #5
   %.not = icmp eq i8 %7, 0
@@ -861,20 +861,20 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull %0) #5
   br label %12
 
 12:                                               ; preds = %8, %2
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1128
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @tkClass, align 8
   %17 = load ptr, ptr @awtLockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %15(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %17) #5
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1824
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1824
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i8 %20(ptr noundef nonnull %0) #5
   %.not75 = icmp eq i8 %21, 0
@@ -882,7 +882,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 22:                                               ; preds = %12
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0) #5
   br label %26
@@ -895,7 +895,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %28 = tail call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallStaticMethodByName(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i64 noundef %3) #5
   %29 = inttoptr i64 %28 to ptr
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1824
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1824
   %32 = load ptr, ptr %31, align 8
   %33 = tail call zeroext i8 %32(ptr noundef nonnull %0) #5
   %.not77 = icmp eq i8 %33, 0
@@ -904,7 +904,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 34:                                               ; preds = %27
   tail call void (...) @awt_output_flush() #5
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 120
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr %37(ptr noundef nonnull %0) #5
   %.not83 = icmp eq ptr %38, null
@@ -912,20 +912,20 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 39:                                               ; preds = %34
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull %0) #5
   br label %43
 
 43:                                               ; preds = %39, %34
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 1128
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 1128
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr @tkClass, align 8
   %48 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %46(ptr noundef nonnull %0, ptr noundef %47, ptr noundef %48) #5
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 1824
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1824
   %51 = load ptr, ptr %50, align 8
   %52 = tail call zeroext i8 %51(ptr noundef nonnull %0) #5
   %.not84 = icmp eq i8 %52, 0
@@ -933,7 +933,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 53:                                               ; preds = %43
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 136
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull %0) #5
   br label %57
@@ -952,7 +952,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 760
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 760
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr @targetID, align 8
   %67 = tail call ptr %65(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %66) #5
@@ -961,13 +961,13 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 .thread87:                                        ; preds = %26, %58, %59, %62
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 136
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %71 = load ptr, ptr %70, align 8
   tail call void %71(ptr noundef nonnull %0) #5
   tail call void @JNU_ThrowNullPointerException(ptr noundef nonnull %0, ptr noundef nonnull @.str.5) #5
   tail call void (...) @awt_output_flush() #5
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 120
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr %74(ptr noundef nonnull %0) #5
   %.not81 = icmp eq ptr %75, null
@@ -975,20 +975,20 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 76:                                               ; preds = %.thread87
   %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 136
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 136
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull %0) #5
   br label %80
 
 80:                                               ; preds = %76, %.thread87
   %81 = load ptr, ptr %0, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 1128
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1128
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr @tkClass, align 8
   %85 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %83(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %85) #5
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1824
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i8 %88(ptr noundef nonnull %0) #5
   %.not82 = icmp eq i8 %89, 0
@@ -996,7 +996,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 90:                                               ; preds = %80
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 136
   %93 = load ptr, ptr %92, align 8
   tail call void %93(ptr noundef nonnull %0) #5
   br label %94
@@ -1007,7 +1007,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 95:                                               ; preds = %62
   tail call void (...) @awt_output_flush() #5
   %96 = load ptr, ptr %0, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 120
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 120
   %98 = load ptr, ptr %97, align 8
   %99 = tail call ptr %98(ptr noundef nonnull %0) #5
   %.not79 = icmp eq ptr %99, null
@@ -1015,20 +1015,20 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %0, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 136
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %103 = load ptr, ptr %102, align 8
   tail call void %103(ptr noundef nonnull %0) #5
   br label %104
 
 104:                                              ; preds = %100, %95
   %105 = load ptr, ptr %0, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 1128
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 1128
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr @tkClass, align 8
   %109 = load ptr, ptr @awtUnlockMID, align 8
   tail call void (ptr, ptr, ptr, ...) %107(ptr noundef nonnull %0, ptr noundef %108, ptr noundef %109) #5
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 1824
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 1824
   %112 = load ptr, ptr %111, align 8
   %113 = tail call zeroext i8 %112(ptr noundef nonnull %0) #5
   %.not80 = icmp eq i8 %113, 0
@@ -1036,7 +1036,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 
 114:                                              ; preds = %104
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 136
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 136
   %117 = load ptr, ptr %116, align 8
   tail call void %117(ptr noundef nonnull %0) #5
   br label %118
@@ -1048,7 +1048,7 @@ define ptr @awt_GetComponent(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %.sink = phi ptr [ %38, %57 ], [ %75, %94 ], [ %99, %118 ]
   %.0.ph = phi ptr [ null, %57 ], [ null, %94 ], [ %67, %118 ]
   %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 104
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 104
   %121 = load ptr, ptr %120, align 8
   %122 = tail call i32 %121(ptr noundef nonnull %0, ptr noundef nonnull %.sink) #5
   br label %123
@@ -1072,7 +1072,7 @@ define ptr @awt_CreateEmbeddedFrame(ptr noundef %0, ptr noundef %1) local_unname
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
   store ptr %9, ptr @awt_CreateEmbeddedFrame.cls, align 8
@@ -1081,7 +1081,7 @@ define ptr @awt_CreateEmbeddedFrame(ptr noundef %0, ptr noundef %1) local_unname
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 264
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #5
   store ptr %15, ptr @awt_CreateEmbeddedFrame.mid, align 8
@@ -1091,7 +1091,7 @@ define ptr @awt_CreateEmbeddedFrame(ptr noundef %0, ptr noundef %1) local_unname
 17:                                               ; preds = %11, %2
   %18 = phi ptr [ %15, %11 ], [ %3, %2 ]
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 224
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @awt_CreateEmbeddedFrame.cls, align 8
   %23 = tail call ptr (ptr, ptr, ptr, ...) %21(ptr noundef nonnull %0, ptr noundef %22, ptr noundef nonnull %18, ptr noundef %1, i32 noundef 1) #5
@@ -1110,7 +1110,7 @@ define void @awt_SetBounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
   %14 = icmp eq ptr %13, null
@@ -1118,7 +1118,7 @@ define void @awt_SetBounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 
 15:                                               ; preds = %9
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull %13, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10) #5
   store ptr %19, ptr @awt_SetBounds.mid, align 8
@@ -1128,7 +1128,7 @@ define void @awt_SetBounds(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 n
 21:                                               ; preds = %15, %6
   %22 = phi ptr [ %19, %15 ], [ %7, %6 ]
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 488
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 488
   %25 = load ptr, ptr %24, align 8
   tail call void (ptr, ptr, ptr, ...) %25(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %22, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #5
   br label %26
@@ -1145,7 +1145,7 @@ define void @awt_SynthesizeWindowActivation(ptr noundef %0, ptr noundef %1, i8 n
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #5
   %11 = icmp eq ptr %10, null
@@ -1153,7 +1153,7 @@ define void @awt_SynthesizeWindowActivation(ptr noundef %0, ptr noundef %1, i8 n
 
 12:                                               ; preds = %6
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #5
   store ptr %16, ptr @awt_SynthesizeWindowActivation.mid, align 8
@@ -1163,7 +1163,7 @@ define void @awt_SynthesizeWindowActivation(ptr noundef %0, ptr noundef %1, i8 n
 18:                                               ; preds = %12, %3
   %19 = phi ptr [ %16, %12 ], [ %4, %3 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 488
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 488
   %22 = load ptr, ptr %21, align 8
   %23 = zext i8 %2 to i32
   tail call void (ptr, ptr, ptr, ...) %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %23) #5

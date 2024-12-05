@@ -52,7 +52,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
   %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -73,7 +73,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
   br i1 %.not25.i, label %31, label %25
 
 25:                                               ; preds = %.lr.ph30.i
-  %26 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv32.i
+  %26 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv32.i
   %27 = load i32, ptr %26, align 4
   %28 = sext i32 %23 to i64
   %29 = getelementptr inbounds i32, ptr %14, i64 %28
@@ -91,7 +91,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
   %32 = tail call { i64, ptr } @construct_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %14) #18
   %33 = extractvalue { i64, ptr } %32, 0
   store i64 %33, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %35 = extractvalue { i64, ptr } %32, 1
   store ptr %35, ptr %34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -111,7 +111,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
 
 .lr.ph.i35:                                       ; preds = %.lr.ph.i35, %.lr.ph.preheader.i33
   %indvars.iv.i36 = phi i64 [ 0, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i37, %.lr.ph.i35 ]
-  %37 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.i36
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i36
   %38 = trunc nuw nsw i64 %indvars.iv.i36 to i32
   store i32 %38, ptr %37, align 4
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i36, 1
@@ -132,7 +132,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
   br i1 %.not25.i44, label %53, label %47
 
 47:                                               ; preds = %.lr.ph30.i41
-  %48 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv32.i43
+  %48 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv32.i43
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %45 to i64
   %51 = getelementptr inbounds i32, ptr %14, i64 %50
@@ -150,20 +150,20 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
   %54 = call { i64, ptr } @construct_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %14) #18
   %55 = extractvalue { i64, ptr } %54, 0
   store i64 %55, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %57 = extractvalue { i64, ptr } %54, 1
   store ptr %57, ptr %56, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %7, i32 noundef 1, ptr noundef %8)
   %58 = load ptr, ptr %56, align 8
   call void @free(ptr noundef %58) #18
-  %59 = getelementptr inbounds i8, ptr %8, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %60 = load i64, ptr %59, align 8
   %.not = icmp eq i64 %60, 0
   br i1 %.not, label %._crit_edge76, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %generateRandomOrdering.exit47
-  %61 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %62 = load i64, ptr %61, align 8
   %.not80 = icmp eq i64 %62, 0
   br i1 %.not80, label %._crit_edge76, label %.preheader
@@ -192,19 +192,19 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
   %71 = load double, ptr %68, align 8
   %72 = load double, ptr %70, align 8
   %73 = call double @llvm.maxnum.f64(double %71, double %72)
-  %74 = getelementptr inbounds i8, ptr %68, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %75 = load double, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %70, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %77 = load double, ptr %76, align 8
   %78 = call double @llvm.minnum.f64(double %75, double %77)
-  %79 = getelementptr inbounds i8, ptr %68, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %80 = load double, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %70, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %82 = load double, ptr %81, align 8
   %83 = call double @llvm.maxnum.f64(double %80, double %82)
-  %84 = getelementptr inbounds i8, ptr %68, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %85 = load double, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %70, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %87 = load double, ptr %86, align 8
   %88 = call double @llvm.minnum.f64(double %85, double %87)
   %89 = fcmp ult double %73, %78
@@ -250,11 +250,11 @@ boxes_append.exit:                                ; preds = %92, %101
   %.sroa.10.3 = phi i64 [ %spec.select.i.i, %101 ], [ %.sroa.10.168, %92 ]
   %110 = getelementptr inbounds %struct.boxf, ptr %.sroa.048.3, i64 %.sroa.550.167
   store double %73, ptr %110, align 8
-  %.sroa.458.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 8
+  %.sroa.458.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 8
   store double %83, ptr %.sroa.458.0..sroa_idx, align 8
-  %.sroa.559.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 16
+  %.sroa.559.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 16
   store double %78, ptr %.sroa.559.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %110, i64 24
   store double %88, ptr %.sroa.6.0..sroa_idx, align 8
   %111 = add i64 %.sroa.550.167, 1
   %.pre = load i64, ptr %61, align 8
@@ -289,7 +289,7 @@ boxes_append.exit:                                ; preds = %92, %101
   %.sroa.550.0.lcssa = phi i64 [ 0, %generateRandomOrdering.exit47 ], [ 0, %.preheader.lr.ph ], [ %.sroa.550.1.lcssa, %._crit_edge ]
   call void @free(ptr noundef %13) #18
   call void @free(ptr noundef %14) #18
-  %121 = getelementptr inbounds i8, ptr %6, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %121, align 8
   %122 = load ptr, ptr %6, align 8
   call void @free(ptr noundef %122) #18
@@ -342,34 +342,34 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 define internal fastcc void @genSegments(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %2, ptr nocapture noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = alloca [4 x %struct.pointf_s], align 16
   %.sroa.0.0.copyload = load double, ptr %2, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.6.0.copyload = load double, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.8.0.copyload = load double, ptr %.sroa.8.0..sroa_idx, align 8
   store double %.sroa.0.0.copyload, ptr %6, align 16
-  %.sroa.5.0..sroa_idx31 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.5.0..sroa_idx31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx31, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store double %.sroa.6.0.copyload, ptr %7, align 16
-  %.sroa.8.16..sroa_idx = getelementptr inbounds i8, ptr %6, i64 40
+  %.sroa.8.16..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 40
   store double %.sroa.8.0.copyload, ptr %.sroa.8.16..sroa_idx, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store double %.sroa.6.0.copyload, ptr %8, align 16
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store double %.sroa.5.0.copyload, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store double %.sroa.0.0.copyload, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %6, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store double %.sroa.8.0.copyload, ptr %11, align 8
   %.not22.i = icmp eq i32 %4, 0
   br i1 %.not22.i, label %convert.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %5 ]
-  %12 = getelementptr inbounds %struct.pointf_s, ptr %6, i64 %indvars.iv.i
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %12 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load double, ptr %13, align 8
   %15 = load double, ptr %12, align 16
   store double %15, ptr %13, align 8
@@ -380,10 +380,10 @@ define internal fastcc void @genSegments(ptr nocapture noundef readonly %0, i32 
   br i1 %exitcond.not.i, label %convert.exit, label %.preheader.i
 
 convert.exit:                                     ; preds = %.preheader.i, %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 268
-  %18 = getelementptr inbounds i8, ptr %3, i64 272
-  %19 = getelementptr inbounds i8, ptr %3, i64 100
-  %20 = getelementptr inbounds i8, ptr %3, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 268
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 100
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 104
   br label %21
 
 21:                                               ; preds = %31, %convert.exit
@@ -405,25 +405,25 @@ convert.exit:                                     ; preds = %.preheader.i, %5
   br label %31
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %indvars.iv42.i
-  %26 = getelementptr inbounds i8, ptr %25, i64 44
+  %25 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv42.i
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 44
   %27 = trunc i64 %indvars.iv42.i to i32
   %28 = add i32 %27, 1
   store i32 %28, ptr %26, align 4
-  %29 = getelementptr inbounds i8, ptr %25, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %30 = add i32 %27, -1
   store i32 %30, ptr %29, align 8
   br label %31
 
 31:                                               ; preds = %24, %23, %22
-  %32 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %indvars.iv42.i
-  %33 = getelementptr inbounds i8, ptr %32, i64 32
+  %32 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv42.i
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i8 0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %35 = load i32, ptr %34, align 8
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %36, i32 1
-  %38 = getelementptr inbounds %struct.pointf_s, ptr %6, i64 %indvars.iv.i11
+  %38 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i64 %indvars.iv.i11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull readonly align 16 dereferenceable(16) %38, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull readonly align 16 dereferenceable(16) %38, i64 16, i1 false)
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
@@ -443,13 +443,13 @@ store.exit.preheader:                             ; preds = %31
   %indvars.iv42 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next43, %store.exit29 ]
   %indvars.iv = phi i64 [ 5, %.lr.ph.preheader ], [ %indvars.iv.next, %store.exit29 ]
   %indvars44 = trunc i64 %indvars.iv to i32
-  %40 = getelementptr inbounds %struct.cell, ptr %0, i64 %indvars.iv42, i32 5
+  %40 = getelementptr inbounds nuw %struct.cell, ptr %0, i64 %indvars.iv42, i32 5
   %.sroa.033.0.copyload = load double, ptr %40, align 1
-  %.sroa.535.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 8
+  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 8
   %.sroa.535.0.copyload = load double, ptr %.sroa.535.0..sroa_idx, align 1
-  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 16
+  %.sroa.638.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 16
   %.sroa.638.0.copyload = load double, ptr %.sroa.638.0..sroa_idx, align 1
-  %.sroa.839.0..sroa_idx = getelementptr inbounds i8, ptr %40, i64 24
+  %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 24
   %.sroa.839.0.copyload = load double, ptr %.sroa.839.0..sroa_idx, align 1
   store double %.sroa.033.0.copyload, ptr %6, align 16
   store double %.sroa.535.0.copyload, ptr %.sroa.5.0..sroa_idx31, align 8
@@ -463,8 +463,8 @@ store.exit.preheader:                             ; preds = %31
 
 .preheader.i19:                                   ; preds = %.lr.ph, %.preheader.i19
   %indvars.iv.i20 = phi i64 [ %indvars.iv.next.i21, %.preheader.i19 ], [ 0, %.lr.ph ]
-  %41 = getelementptr inbounds %struct.pointf_s, ptr %6, i64 %indvars.iv.i20
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %41 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i64 %indvars.iv.i20
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load double, ptr %42, align 8
   %44 = load double, ptr %41, align 16
   store double %44, ptr %42, align 8
@@ -484,11 +484,11 @@ convert.exit23:                                   ; preds = %.preheader.i19, %.l
   %49 = add i32 %reass.sub, 1
   %wide.trip.count.i = zext i32 %49 to i64
   %50 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %sext.i
-  %51 = getelementptr inbounds i8, ptr %50, i64 44
-  %52 = getelementptr inbounds i8, ptr %50, i64 48
-  %53 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %indvars.iv
-  %54 = getelementptr inbounds i8, ptr %53, i64 44
-  %55 = getelementptr inbounds i8, ptr %53, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %53 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %56 = trunc i64 %indvars.iv to i32
   %57 = add i32 %56, 2
   %58 = trunc i64 %indvars.iv to i32
@@ -516,25 +516,25 @@ convert.exit23:                                   ; preds = %.preheader.i19, %.l
   br label %73
 
 66:                                               ; preds = %63
-  %67 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %indvars.iv42.i24
-  %68 = getelementptr inbounds i8, ptr %67, i64 44
+  %67 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv42.i24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %69 = trunc i64 %indvars.iv42.i24 to i32
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
-  %71 = getelementptr inbounds i8, ptr %67, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %72 = add i32 %69, -1
   store i32 %72, ptr %71, align 8
   br label %73
 
 73:                                               ; preds = %66, %65, %62
-  %74 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %indvars.iv42.i24
-  %75 = getelementptr inbounds i8, ptr %74, i64 32
+  %74 = getelementptr inbounds nuw %struct.segment_t, ptr %3, i64 %indvars.iv42.i24
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   store i8 0, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %74, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 48
   %77 = load i32, ptr %76, align 8
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds %struct.segment_t, ptr %3, i64 %78, i32 1
-  %80 = getelementptr inbounds %struct.pointf_s, ptr %6, i64 %indvars.iv.i25
+  %80 = getelementptr inbounds nuw %struct.pointf_s, ptr %6, i64 %indvars.iv.i25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, ptr noundef nonnull readonly align 16 dereferenceable(16) %80, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull readonly align 16 dereferenceable(16) %80, i64 16, i1 false)
   %indvars.iv.next43.i26 = add nuw nsw i64 %indvars.iv42.i24, 1
@@ -586,7 +586,7 @@ define internal fastcc void @monotonate_trapezoids(i32 noundef %0, ptr noundef %
 bitarray_new.exit:                                ; preds = %5, %9
   %.sroa.0.0.i = phi ptr [ null, %5 ], [ %15, %9 ]
   store ptr %.sroa.0.0.i, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %7, ptr %20, align 8
   %21 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 16)
   store ptr %21, ptr @mchain, align 8
@@ -602,16 +602,16 @@ bitarray_new.exit:                                ; preds = %5, %9
   br i1 %.not66, label %inside_polygon.exit.thread54, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bitarray_new.exit
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %30
 
 30:                                               ; preds = %.lr.ph, %inside_polygon.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %inside_polygon.exit.thread ]
-  %31 = getelementptr inbounds %struct.trap_t, ptr %29, i64 %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %31 = getelementptr inbounds nuw %struct.trap_t, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 68
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 68
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, 2
   br i1 %36, label %inside_polygon.exit.thread, label %37
@@ -624,36 +624,36 @@ bitarray_new.exit:                                ; preds = %5, %9
   br i1 %or.cond.i, label %inside_polygon.exit.thread, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %31, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = icmp slt i32 %43, 1
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %31, i64 44
+  %46 = getelementptr inbounds nuw i8, ptr %31, i64 44
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %57, label %49
 
 49:                                               ; preds = %45, %41
-  %50 = getelementptr inbounds i8, ptr %31, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %51 = load i32, ptr %50, align 8
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %53, label %inside_polygon.exit.thread
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %31, i64 52
+  %54 = getelementptr inbounds nuw i8, ptr %31, i64 52
   %55 = load i32, ptr %54, align 4
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %57, label %inside_polygon.exit.thread
 
 57:                                               ; preds = %53, %45
   %58 = zext nneg i32 %33 to i64
-  %59 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 16
-  %61 = getelementptr inbounds i8, ptr %59, i64 24
+  %59 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %62 = load double, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %59, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %64 = load double, ptr %63, align 8
   %65 = fadd double %64, 0x3E7AD7F29ABCAF48
   %66 = fcmp ogt double %62, %65
@@ -694,26 +694,26 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
 
 75:                                               ; preds = %.lr.ph65, %75
   %indvars.iv68 = phi i64 [ 1, %.lr.ph65 ], [ %indvars.iv.next69, %75 ]
-  %76 = getelementptr inbounds %struct.segment_t, ptr %1, i64 %indvars.iv68
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %76 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv68
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds %struct.monchain_t, ptr %73, i64 %indvars.iv68, i32 2
+  %79 = getelementptr inbounds nuw %struct.monchain_t, ptr %73, i64 %indvars.iv68, i32 2
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %76, i64 44
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 44
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds %struct.monchain_t, ptr %73, i64 %indvars.iv68, i32 1
+  %82 = getelementptr inbounds nuw %struct.monchain_t, ptr %73, i64 %indvars.iv68, i32 1
   store i32 %81, ptr %82, align 4
-  %83 = getelementptr inbounds %struct.monchain_t, ptr %73, i64 %indvars.iv68
+  %83 = getelementptr inbounds nuw %struct.monchain_t, ptr %73, i64 %indvars.iv68
   %84 = trunc nuw nsw i64 %indvars.iv68 to i32
   store i32 %84, ptr %83, align 4
-  %85 = getelementptr inbounds %struct.vertexchain_t, ptr %74, i64 %indvars.iv68
+  %85 = getelementptr inbounds nuw %struct.vertexchain_t, ptr %74, i64 %indvars.iv68
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
   %86 = load i32, ptr %80, align 4
-  %87 = getelementptr inbounds %struct.vertexchain_t, ptr %74, i64 %indvars.iv68, i32 1
+  %87 = getelementptr inbounds nuw %struct.vertexchain_t, ptr %74, i64 %indvars.iv68, i32 1
   store i32 %86, ptr %87, align 8
-  %88 = getelementptr inbounds %struct.vertexchain_t, ptr %74, i64 %indvars.iv68, i32 2
+  %88 = getelementptr inbounds nuw %struct.vertexchain_t, ptr %74, i64 %indvars.iv68, i32 2
   store i32 %84, ptr %88, align 8
-  %89 = getelementptr inbounds %struct.vertexchain_t, ptr %74, i64 %indvars.iv68, i32 3
+  %89 = getelementptr inbounds nuw %struct.vertexchain_t, ptr %74, i64 %indvars.iv68, i32 3
   store i32 1, ptr %89, align 8
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
@@ -723,10 +723,10 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
   store i32 %0, ptr @chain_idx, align 4
   store i32 0, ptr @mon_idx, align 4
   store i32 1, ptr %26, align 4
-  %90 = getelementptr inbounds i8, ptr %2, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds %struct.trap_t, ptr %91, i64 %.lcssa
-  %93 = getelementptr inbounds i8, ptr %92, i64 40
+  %92 = getelementptr inbounds nuw %struct.trap_t, ptr %91, i64 %.lcssa
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %94 = load i32, ptr %93, align 8
   %95 = icmp sgt i32 %94, 0
   br i1 %95, label %96, label %97
@@ -736,7 +736,7 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
   br label %102
 
 97:                                               ; preds = %._crit_edge
-  %98 = getelementptr inbounds i8, ptr %92, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %99 = load i32, ptr %98, align 8
   %100 = icmp sgt i32 %99, 0
   br i1 %100, label %101, label %102
@@ -800,12 +800,12 @@ define internal fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr nounde
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.not = icmp eq i32 %7, 0
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %17
 
 17:                                               ; preds = %.lr.ph, %tailrecurse.backedge
@@ -822,7 +822,7 @@ define internal fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr nounde
   %21 = icmp ult i64 %20, 65
   %.0.i = select i1 %21, ptr %10, ptr %19
   %22 = lshr i64 %18, 3
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 %22
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = and i32 %.tr819824, 7
@@ -834,20 +834,20 @@ define internal fastcc void @traverse_polygon(ptr noundef nonnull %0, ptr nounde
 
 bitarray_set.exit:                                ; preds = %17
   %29 = load ptr, ptr %14, align 8
-  %30 = getelementptr inbounds %struct.trap_t, ptr %29, i64 %18
+  %30 = getelementptr inbounds nuw %struct.trap_t, ptr %29, i64 %18
   %spec.select = select i1 %21, ptr %0, ptr %19
   %31 = trunc i32 %.tr819824 to i8
   %32 = and i8 %31, 7
   %33 = shl nuw i8 1, %32
-  %34 = getelementptr inbounds i8, ptr %spec.select, i64 %22
+  %34 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %22
   %35 = load i8, ptr %34, align 1
   %36 = or i8 %35, %33
   store i8 %36, ptr %34, align 1
-  %37 = getelementptr inbounds i8, ptr %30, i64 8
-  %38 = getelementptr inbounds i8, ptr %30, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %39 = load double, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %30, i64 24
-  %41 = getelementptr inbounds i8, ptr %30, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %42 = load double, ptr %41, align 8
   %43 = fadd double %42, 0x3E7AD7F29ABCAF48
   %44 = fcmp ogt double %39, %43
@@ -858,7 +858,7 @@ bitarray_set.exit:                                ; preds = %17
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %47
   %49 = load double, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %51 = load double, ptr %50, align 8
   %52 = fsub double %49, %51
   %53 = tail call double @llvm.fabs.f64(double %52)
@@ -866,12 +866,12 @@ bitarray_set.exit:                                ; preds = %17
   br i1 %54, label %97, label %55
 
 55:                                               ; preds = %45
-  %56 = getelementptr inbounds i8, ptr %30, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %57 = load i32, ptr %56, align 4
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %58
   %60 = load double, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = load double, ptr %61, align 8
   %63 = fsub double %60, %62
   %64 = tail call double @llvm.fabs.f64(double %63)
@@ -939,11 +939,11 @@ boxes_append.exit:                                ; preds = %._crit_edge.i.i, %8
   %93 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %80, %82 ]
   %94 = getelementptr inbounds %struct.boxf, ptr %93, i64 %92
   store double %.sroa.0.0, ptr %94, align 8
-  %.sroa.4810.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 8
+  %.sroa.4810.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 8
   store double %.sroa.4.0, ptr %.sroa.4810.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 16
   store double %.sroa.6.0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6811.0..sroa_idx = getelementptr inbounds i8, ptr %94, i64 24
+  %.sroa.6811.0..sroa_idx = getelementptr inbounds nuw i8, ptr %94, i64 24
   store double %.sroa.8.0, ptr %.sroa.6811.0..sroa_idx, align 8
   %95 = load i64, ptr %15, align 8
   %96 = add i64 %95, 1
@@ -951,25 +951,25 @@ boxes_append.exit:                                ; preds = %._crit_edge.i.i, %8
   br label %97
 
 97:                                               ; preds = %boxes_append.exit, %55, %45, %bitarray_set.exit
-  %98 = getelementptr inbounds i8, ptr %30, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %99 = load i32, ptr %98, align 8
   %100 = icmp slt i32 %99, 1
   br i1 %100, label %101, label %131
 
 101:                                              ; preds = %97
-  %102 = getelementptr inbounds i8, ptr %30, i64 44
+  %102 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %103 = load i32, ptr %102, align 4
   %104 = icmp slt i32 %103, 1
   br i1 %104, label %105, label %131
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %30, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %107 = load i32, ptr %106, align 8
   %108 = icmp sgt i32 %107, 0
   br i1 %108, label %109, label %127
 
 109:                                              ; preds = %105
-  %110 = getelementptr inbounds i8, ptr %30, i64 52
+  %110 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %127
@@ -977,7 +977,7 @@ boxes_append.exit:                                ; preds = %._crit_edge.i.i, %8
 113:                                              ; preds = %109
   %114 = load ptr, ptr %14, align 8
   %115 = zext nneg i32 %111 to i64
-  %116 = getelementptr inbounds %struct.trap_t, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw %struct.trap_t, ptr %114, i64 %115
   %117 = load i32, ptr %116, align 8
   %118 = load i32, ptr %30, align 8
   %119 = icmp eq i32 %.tr820825, %111
@@ -1009,17 +1009,17 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %128, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %129 = load i32, ptr %106, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %129, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
-  %130 = getelementptr inbounds i8, ptr %30, i64 52
+  %130 = getelementptr inbounds nuw i8, ptr %30, i64 52
   br label %tailrecurse.backedge
 
 131:                                              ; preds = %101, %97
-  %132 = getelementptr inbounds i8, ptr %30, i64 48
+  %132 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %133 = load i32, ptr %132, align 8
   %134 = icmp slt i32 %133, 1
   br i1 %134, label %135, label %163
 
 135:                                              ; preds = %131
-  %136 = getelementptr inbounds i8, ptr %30, i64 52
+  %136 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %137 = load i32, ptr %136, align 4
   %138 = icmp slt i32 %137, 1
   br i1 %138, label %139, label %163
@@ -1029,17 +1029,17 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br i1 %140, label %141, label %159
 
 141:                                              ; preds = %139
-  %142 = getelementptr inbounds i8, ptr %30, i64 44
+  %142 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %143 = load i32, ptr %142, align 4
   %144 = icmp sgt i32 %143, 0
   br i1 %144, label %145, label %159
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %30, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %147 = load i32, ptr %146, align 4
   %148 = load ptr, ptr %14, align 8
   %149 = zext nneg i32 %99 to i64
-  %150 = getelementptr inbounds %struct.trap_t, ptr %148, i64 %149, i32 1
+  %150 = getelementptr inbounds nuw %struct.trap_t, ptr %148, i64 %149, i32 1
   %151 = load i32, ptr %150, align 4
   %152 = icmp eq i32 %.tr820825, %143
   br i1 %152, label %153, label %156
@@ -1058,7 +1058,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 
 159:                                              ; preds = %141, %139
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %160 = getelementptr inbounds i8, ptr %30, i64 44
+  %160 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %161 = load i32, ptr %160, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %161, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %162 = load i32, ptr %132, align 8
@@ -1067,7 +1067,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 
 163:                                              ; preds = %135, %131
   %164 = icmp sgt i32 %99, 0
-  %165 = getelementptr inbounds i8, ptr %30, i64 44
+  %165 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %166 = load i32, ptr %165, align 4
   %167 = icmp sgt i32 %166, 0
   br i1 %164, label %168, label %257
@@ -1080,7 +1080,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br i1 %170, label %171, label %198
 
 171:                                              ; preds = %169
-  %172 = getelementptr inbounds i8, ptr %30, i64 52
+  %172 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %173 = load i32, ptr %172, align 4
   %174 = icmp sgt i32 %173, 0
   br i1 %174, label %175, label %198
@@ -1088,10 +1088,10 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 175:                                              ; preds = %171
   %176 = load ptr, ptr %14, align 8
   %177 = zext nneg i32 %173 to i64
-  %178 = getelementptr inbounds %struct.trap_t, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw %struct.trap_t, ptr %176, i64 %177
   %179 = load i32, ptr %178, align 8
   %180 = zext nneg i32 %99 to i64
-  %181 = getelementptr inbounds %struct.trap_t, ptr %176, i64 %180, i32 1
+  %181 = getelementptr inbounds nuw %struct.trap_t, ptr %176, i64 %180, i32 1
   %182 = load i32, ptr %181, align 4
   %183 = icmp eq i32 %.tr822826, 2
   %184 = icmp eq i32 %173, %.tr820825
@@ -1129,7 +1129,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %200 = load i32, ptr %30, align 8
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %201
-  %203 = getelementptr inbounds i8, ptr %202, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load double, ptr %203, align 8
   %205 = fsub double %199, %204
   %206 = tail call double @llvm.fabs.f64(double %205)
@@ -1137,7 +1137,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br i1 %207, label %236, label %208
 
 208:                                              ; preds = %198
-  %209 = getelementptr inbounds i8, ptr %202, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %202, i64 16
   %210 = load double, ptr %40, align 8
   %211 = load double, ptr %209, align 8
   %212 = fsub double %210, %211
@@ -1148,9 +1148,9 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 215:                                              ; preds = %208
   %216 = load ptr, ptr %14, align 8
   %217 = zext nneg i32 %99 to i64
-  %218 = getelementptr inbounds %struct.trap_t, ptr %216, i64 %217, i32 1
+  %218 = getelementptr inbounds nuw %struct.trap_t, ptr %216, i64 %217, i32 1
   %219 = load i32, ptr %218, align 4
-  %220 = getelementptr inbounds i8, ptr %202, i64 44
+  %220 = getelementptr inbounds nuw i8, ptr %202, i64 44
   %221 = load i32, ptr %220, align 4
   %222 = icmp eq i32 %.tr822826, 1
   %223 = icmp eq i32 %99, %.tr820825
@@ -1165,7 +1165,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %225, i32 noundef %227, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %228 = load i32, ptr %165, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %225, i32 noundef %228, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %229 = getelementptr inbounds i8, ptr %30, i64 52
+  %229 = getelementptr inbounds nuw i8, ptr %30, i64 52
   br label %tailrecurse.backedge
 
 230:                                              ; preds = %215
@@ -1174,17 +1174,17 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %232, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %233 = load i32, ptr %132, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %233, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
-  %234 = getelementptr inbounds i8, ptr %30, i64 52
+  %234 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %235 = load i32, ptr %234, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %235, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 236:                                              ; preds = %208, %198
-  %237 = getelementptr inbounds i8, ptr %30, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %238 = load i32, ptr %237, align 4
   %239 = load ptr, ptr %14, align 8
   %240 = zext nneg i32 %99 to i64
-  %241 = getelementptr inbounds %struct.trap_t, ptr %239, i64 %240, i32 1
+  %241 = getelementptr inbounds nuw %struct.trap_t, ptr %239, i64 %240, i32 1
   %242 = load i32, ptr %241, align 4
   %243 = icmp eq i32 %.tr822826, 1
   %244 = icmp eq i32 %166, %.tr820825
@@ -1195,7 +1195,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %246 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %242, i32 noundef %238)
   %247 = load i32, ptr %165, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %247, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %248 = getelementptr inbounds i8, ptr %30, i64 52
+  %248 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %249 = load i32, ptr %248, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %246, i32 noundef %249, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %250 = load i32, ptr %132, align 8
@@ -1208,7 +1208,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %253, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %254 = load i32, ptr %132, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %254, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
-  %255 = getelementptr inbounds i8, ptr %30, i64 52
+  %255 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %256 = load i32, ptr %255, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %256, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
@@ -1226,7 +1226,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br label %320
 
 259:                                              ; preds = %.thread
-  %260 = getelementptr inbounds i8, ptr %30, i64 52
+  %260 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %261 = load i32, ptr %260, align 4
   %262 = icmp sgt i32 %261, 0
   %.pre828 = load double, ptr %38, align 8
@@ -1236,7 +1236,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 263:                                              ; preds = %259
   %264 = sext i32 %.pre830 to i64
   %265 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %264
-  %266 = getelementptr inbounds i8, ptr %265, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load double, ptr %266, align 8
   %268 = fsub double %.pre828, %267
   %269 = tail call double @llvm.fabs.f64(double %268)
@@ -1254,7 +1254,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 277:                                              ; preds = %271
   %278 = load ptr, ptr %14, align 8
   %279 = zext nneg i32 %261 to i64
-  %280 = getelementptr inbounds %struct.trap_t, ptr %278, i64 %279
+  %280 = getelementptr inbounds nuw %struct.trap_t, ptr %278, i64 %279
   %281 = load i32, ptr %280, align 8
   %282 = icmp eq i32 %.tr822826, 2
   %283 = icmp eq i32 %133, %.tr820825
@@ -1263,7 +1263,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 
 284:                                              ; preds = %277
   %285 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %.pre830, i32 noundef %281)
-  %286 = getelementptr inbounds i8, ptr %30, i64 44
+  %286 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %287 = load i32, ptr %286, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %287, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %288 = load i32, ptr %260, align 4
@@ -1278,7 +1278,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %292, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %293 = load i32, ptr %98, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %291, i32 noundef %293, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %294 = getelementptr inbounds i8, ptr %30, i64 44
+  %294 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %295 = load i32, ptr %294, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %291, i32 noundef %295, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
@@ -1286,9 +1286,9 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 296:                                              ; preds = %271, %263
   %297 = load ptr, ptr %14, align 8
   %298 = zext nneg i32 %261 to i64
-  %299 = getelementptr inbounds %struct.trap_t, ptr %297, i64 %298
+  %299 = getelementptr inbounds nuw %struct.trap_t, ptr %297, i64 %298
   %300 = load i32, ptr %299, align 8
-  %301 = getelementptr inbounds i8, ptr %30, i64 4
+  %301 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %302 = load i32, ptr %301, align 4
   %303 = sext i32 %302 to i64
   %304 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %303, i32 5
@@ -1302,7 +1302,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %309 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %305, i32 noundef %300)
   %310 = load i32, ptr %260, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %310, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
-  %311 = getelementptr inbounds i8, ptr %30, i64 44
+  %311 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %312 = load i32, ptr %311, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %309, i32 noundef %312, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %313 = load i32, ptr %98, align 8
@@ -1315,7 +1315,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %316, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %317 = load i32, ptr %132, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %317, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
-  %318 = getelementptr inbounds i8, ptr %30, i64 44
+  %318 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %319 = load i32, ptr %318, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %319, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   br label %tailrecurse.backedge
@@ -1325,7 +1325,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %322 = phi double [ %.pre, %.thread._crit_edge ], [ %.pre828, %259 ]
   %323 = sext i32 %321 to i64
   %324 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %323
-  %325 = getelementptr inbounds i8, ptr %324, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %326 = load double, ptr %325, align 8
   %327 = fsub double %322, %326
   %328 = tail call double @llvm.fabs.f64(double %327)
@@ -1342,11 +1342,11 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 
 336:                                              ; preds = %330
   %337 = load double, ptr %41, align 8
-  %338 = getelementptr inbounds i8, ptr %30, i64 4
+  %338 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %339 = load i32, ptr %338, align 4
   %340 = sext i32 %339 to i64
   %341 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %340
-  %342 = getelementptr inbounds i8, ptr %341, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %343 = load double, ptr %342, align 8
   %344 = fsub double %337, %343
   %345 = tail call double @llvm.fabs.f64(double %344)
@@ -1369,32 +1369,32 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %356 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %321, i32 noundef %339)
   %357 = load i32, ptr %98, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %357, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %358 = getelementptr inbounds i8, ptr %30, i64 44
+  %358 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %359 = load i32, ptr %358, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %359, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %360 = getelementptr inbounds i8, ptr %30, i64 52
+  %360 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %361 = load i32, ptr %360, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %356, i32 noundef %361, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 362:                                              ; preds = %353
   %363 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %339, i32 noundef %321)
-  %364 = getelementptr inbounds i8, ptr %30, i64 52
+  %364 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %365 = load i32, ptr %364, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %365, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %366 = load i32, ptr %132, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %366, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %367 = load i32, ptr %98, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %363, i32 noundef %367, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %368 = getelementptr inbounds i8, ptr %30, i64 44
+  %368 = getelementptr inbounds nuw i8, ptr %30, i64 44
   br label %tailrecurse.backedge
 
 369:                                              ; preds = %347, %336, %330, %320
-  %370 = getelementptr inbounds i8, ptr %30, i64 4
+  %370 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %371 = load i32, ptr %370, align 4
   %372 = sext i32 %371 to i64
   %373 = getelementptr inbounds %struct.segment_t, ptr %2, i64 %372
-  %374 = getelementptr inbounds i8, ptr %373, i64 24
+  %374 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %375 = load double, ptr %374, align 8
   %376 = fsub double %322, %375
   %377 = tail call double @llvm.fabs.f64(double %376)
@@ -1402,7 +1402,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br i1 %378, label %420, label %379
 
 379:                                              ; preds = %369
-  %380 = getelementptr inbounds i8, ptr %373, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %373, i64 16
   %381 = load double, ptr %37, align 8
   %382 = load double, ptr %380, align 8
   %383 = fsub double %381, %382
@@ -1412,7 +1412,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 
 386:                                              ; preds = %379
   %387 = load double, ptr %41, align 8
-  %388 = getelementptr inbounds i8, ptr %324, i64 24
+  %388 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %389 = load double, ptr %388, align 8
   %390 = fsub double %387, %389
   %391 = tail call double @llvm.fabs.f64(double %390)
@@ -1420,7 +1420,7 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br i1 %392, label %420, label %393
 
 393:                                              ; preds = %386
-  %394 = getelementptr inbounds i8, ptr %324, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %395 = load double, ptr %40, align 8
   %396 = load double, ptr %394, align 8
   %397 = fsub double %395, %396
@@ -1429,9 +1429,9 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   br i1 %399, label %420, label %400
 
 400:                                              ; preds = %393
-  %401 = getelementptr inbounds i8, ptr %373, i64 44
+  %401 = getelementptr inbounds nuw i8, ptr %373, i64 44
   %402 = load i32, ptr %401, align 4
-  %403 = getelementptr inbounds i8, ptr %324, i64 44
+  %403 = getelementptr inbounds nuw i8, ptr %324, i64 44
   %404 = load i32, ptr %403, align 4
   %405 = icmp eq i32 %.tr822826, 1
   br i1 %405, label %406, label %413
@@ -1440,34 +1440,34 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
   %407 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %404, i32 noundef %402)
   %408 = load i32, ptr %98, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %408, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %409 = getelementptr inbounds i8, ptr %30, i64 44
+  %409 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %410 = load i32, ptr %409, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %410, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %411 = getelementptr inbounds i8, ptr %30, i64 52
+  %411 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %412 = load i32, ptr %411, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %407, i32 noundef %412, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   br label %tailrecurse.backedge
 
 413:                                              ; preds = %400
   %414 = tail call fastcc i32 @make_new_monotone_poly(i32 noundef %.tr818823, i32 noundef %402, i32 noundef %404)
-  %415 = getelementptr inbounds i8, ptr %30, i64 52
+  %415 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %416 = load i32, ptr %415, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %416, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %417 = load i32, ptr %132, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %417, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
   %418 = load i32, ptr %98, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %414, i32 noundef %418, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %419 = getelementptr inbounds i8, ptr %30, i64 44
+  %419 = getelementptr inbounds nuw i8, ptr %30, i64 44
   br label %tailrecurse.backedge
 
 420:                                              ; preds = %393, %386, %379, %369
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %99, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
   %421 = load i32, ptr %132, align 8
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %421, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 1)
-  %422 = getelementptr inbounds i8, ptr %30, i64 44
+  %422 = getelementptr inbounds nuw i8, ptr %30, i64 44
   %423 = load i32, ptr %422, align 4
   tail call fastcc void @traverse_polygon(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.tr818823, i32 noundef %423, i32 noundef %.tr819824, i32 noundef %7, i32 noundef 2)
-  %424 = getelementptr inbounds i8, ptr %30, i64 52
+  %424 = getelementptr inbounds nuw i8, ptr %30, i64 52
   br label %tailrecurse.backedge
 
 ._crit_edge:                                      ; preds = %17, %tailrecurse.backedge, %257, %9
@@ -1487,7 +1487,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   %8 = getelementptr inbounds %struct.vertexchain_t, ptr %6, i64 %7
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds %struct.vertexchain_t, ptr %6, i64 %9
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = getelementptr i8, ptr %8, i64 8
   %13 = getelementptr i8, ptr %10, i64 8
   br label %14
@@ -1496,7 +1496,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %48 ]
   %.02752.i = phi i32 [ 0, %3 ], [ %.128.i, %48 ]
   %.02951.i = phi double [ -4.000000e+00, %3 ], [ %.130.i, %48 ]
-  %15 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 0, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %48, label %18
@@ -1504,7 +1504,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
 18:                                               ; preds = %14
   %19 = load ptr, ptr @vert, align 8
   %20 = zext nneg i32 %16 to i64
-  %21 = getelementptr inbounds %struct.vertexchain_t, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw %struct.vertexchain_t, ptr %19, i64 %20
   %.val.i = load double, ptr %8, align 8
   %.val37.i = load double, ptr %12, align 8
   %.val38.i = load double, ptr %21, align 8
@@ -1557,14 +1557,14 @@ get_angle.exit.i:                                 ; preds = %38, %33
   br i1 %exitcond.not.i, label %49, label %14
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %10, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %51
 
 51:                                               ; preds = %85, %49
   %indvars.iv57.i = phi i64 [ 0, %49 ], [ %indvars.iv.next58.i, %85 ]
   %.055.i = phi i32 [ 0, %49 ], [ %.1.i, %85 ]
   %.254.i = phi double [ -4.000000e+00, %49 ], [ %.3.i, %85 ]
-  %52 = getelementptr inbounds [4 x i32], ptr %50, i64 0, i64 %indvars.iv57.i
+  %52 = getelementptr inbounds nuw [4 x i32], ptr %50, i64 0, i64 %indvars.iv57.i
   %53 = load i32, ptr %52, align 4
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %85, label %55
@@ -1572,7 +1572,7 @@ get_angle.exit.i:                                 ; preds = %38, %33
 55:                                               ; preds = %51
   %56 = load ptr, ptr @vert, align 8
   %57 = zext nneg i32 %53 to i64
-  %58 = getelementptr inbounds %struct.vertexchain_t, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw %struct.vertexchain_t, ptr %56, i64 %57
   %.val42.i = load double, ptr %10, align 8
   %.val43.i = load double, ptr %13, align 8
   %.val44.i = load double, ptr %58, align 8
@@ -1625,11 +1625,11 @@ get_angle.exit49.i:                               ; preds = %75, %70
   br i1 %exitcond60.not.i, label %get_vertex_positions.exit, label %51
 
 get_vertex_positions.exit:                        ; preds = %85
-  %86 = getelementptr inbounds i8, ptr %8, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %87 = sext i32 %.128.i to i64
   %88 = getelementptr inbounds [4 x i32], ptr %86, i64 0, i64 %87
   %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %10, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %91 = sext i32 %.1.i to i64
   %92 = getelementptr inbounds [4 x i32], ptr %90, i64 0, i64 %91
   %93 = load i32, ptr %92, align 4
@@ -1666,9 +1666,9 @@ get_vertex_positions.exit:                        ; preds = %85
   store i32 %96, ptr %115, align 4
   store i32 %93, ptr %103, align 4
   store i32 %89, ptr %111, align 4
-  %116 = getelementptr inbounds i8, ptr %8, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %117 = load i32, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %10, i64 48
+  %118 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %119 = load i32, ptr %118, align 8
   %120 = getelementptr inbounds [4 x i32], ptr %11, i64 0, i64 %87
   store i32 %2, ptr %120, align 4

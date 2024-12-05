@@ -536,7 +536,7 @@ define internal i32 @dissect_noe(ptr noundef %0, ptr nocapture noundef readonly 
   %11 = load i32, ptr @hf_noe_length, align 4
   %12 = tail call ptr @proto_tree_add_uint(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef %10) #5
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #5
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i8 %13 to i32
   %17 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @servers_short_vals, ptr noundef nonnull @.str.359) #5

@@ -37,9 +37,9 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getTotalSwapSpa
   br label %get_total_or_available_swap_space_size.exit
 
 get_total_or_available_swap_space_size.exit:      ; preds = %2, %5
-  %6 = getelementptr inbounds i8, ptr %3, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
   %11 = mul nsw i64 %7, %10
@@ -60,10 +60,10 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getFreeSwapSpac
   br label %get_total_or_available_swap_space_size.exit
 
 get_total_or_available_swap_space_size.exit:      ; preds = %2, %5
-  %6 = getelementptr inbounds i8, ptr %3, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load i64, ptr %9, align 8
   %11 = mul nsw i64 %10, %8
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3)
@@ -85,7 +85,7 @@ define i64 @Java_com_sun_management_internal_OperatingSystemImpl_getProcessCpuTi
   %8 = call i64 @times(ptr noundef nonnull %3) #6
   %9 = sdiv i64 1000000000, %4
   %10 = load i64, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = add nsw i64 %12, %10
   %14 = mul nsw i64 %13, %9
@@ -140,7 +140,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @Java_com_sun_ma
   %9 = phi ptr [ %5, %.lr.ph ], [ %19, %8 ]
   %.011 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %8 ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 19
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 19
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i64
   %14 = getelementptr inbounds i16, ptr %10, i64 %13

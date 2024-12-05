@@ -756,7 +756,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   %12 = alloca %struct.nstime_t, align 8
   %13 = alloca %struct.nstime_t, align 8
   %14 = alloca %struct.pvfs2_io_tracking_key, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_set_str(ptr noundef %16, i32 noundef 34, ptr noundef nonnull @.str.248) #9
   %17 = load ptr, ptr %15, align 8
@@ -789,16 +789,16 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   br i1 %40, label %41, label %89
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %1, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 50
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 50
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8
   %.not68 = icmp eq i16 %46, 0
   br i1 %.not68, label %47, label %89
 
 47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %1, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = tail call ptr @wmem_file_scope() #9
   %51 = tail call noalias ptr @wmem_alloc0(ptr noundef %50, i64 noundef 8) #9
@@ -818,43 +818,43 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %89, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %1, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 50
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 50
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 8
   %.not67 = icmp eq i16 %64, 0
   br i1 %.not67, label %65, label %79
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds i8, ptr %58, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 0
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 20
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %71 = load i32, ptr %70, align 4
   store i32 %71, ptr %66, align 4
   br label %79
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %58, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %72
-  %77 = getelementptr inbounds i8, ptr %1, i64 20
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %78 = load i32, ptr %77, align 4
   store i32 %78, ptr %73, align 4
   br label %79
 
 79:                                               ; preds = %47, %59, %69, %76, %72
   %.0.ph = phi ptr [ %58, %72 ], [ %58, %76 ], [ %58, %69 ], [ %58, %59 ], [ %53, %47 ]
-  %80 = getelementptr inbounds i8, ptr %.0.ph, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.0.ph, i64 8
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %1, i64 20
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %83 = load i32, ptr %82, align 4
   %84 = icmp eq i32 %81, %83
   br i1 %84, label %85, label %89
@@ -1105,7 +1105,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %254, ptr %13, align 8
   %255 = add i32 %246, 12
   %256 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %255) #9
-  %257 = getelementptr inbounds i8, ptr %13, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 %256, ptr %257, align 8
   %258 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %250, ptr noundef %0, i32 noundef %249, i32 noundef 8, ptr noundef nonnull %13) #9
   %259 = load i32, ptr @ett_pvfs_time, align 4
@@ -1123,7 +1123,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %268, ptr %12, align 8
   %269 = add i32 %246, 20
   %270 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %269) #9
-  %271 = getelementptr inbounds i8, ptr %12, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %270, ptr %271, align 8
   %272 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 8, ptr noundef nonnull %12) #9
   %273 = load i32, ptr @ett_pvfs_time, align 4
@@ -1141,7 +1141,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %282, ptr %11, align 8
   %283 = add i32 %246, 28
   %284 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %283) #9
-  %285 = getelementptr inbounds i8, ptr %11, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %284, ptr %285, align 8
   %286 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %278, ptr noundef %0, i32 noundef %277, i32 noundef 8, ptr noundef nonnull %11) #9
   %287 = load i32, ptr @ett_pvfs_time, align 4
@@ -1167,7 +1167,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %302, ptr %10, align 8
   %303 = add i32 %294, 12
   %304 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %303) #9
-  %305 = getelementptr inbounds i8, ptr %10, i64 8
+  %305 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 %304, ptr %305, align 8
   %306 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %298, ptr noundef %0, i32 noundef %297, i32 noundef 8, ptr noundef nonnull %10) #9
   %307 = load i32, ptr @ett_pvfs_time, align 4
@@ -1185,7 +1185,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %316, ptr %9, align 8
   %317 = add i32 %294, 20
   %318 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %317) #9
-  %319 = getelementptr inbounds i8, ptr %9, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %318, ptr %319, align 8
   %320 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %312, ptr noundef %0, i32 noundef %311, i32 noundef 8, ptr noundef nonnull %9) #9
   %321 = load i32, ptr @ett_pvfs_time, align 4
@@ -1203,7 +1203,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %330, ptr %8, align 8
   %331 = add i32 %294, 28
   %332 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %331) #9
-  %333 = getelementptr inbounds i8, ptr %8, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %332, ptr %333, align 8
   %334 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %326, ptr noundef %0, i32 noundef %325, i32 noundef 8, ptr noundef nonnull %8) #9
   %335 = load i32, ptr @ett_pvfs_time, align 4
@@ -1230,7 +1230,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %351, ptr %7, align 8
   %352 = add i32 %343, 8
   %353 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %352) #9
-  %354 = getelementptr inbounds i8, ptr %7, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %353, ptr %354, align 8
   %355 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %347, ptr noundef %0, i32 noundef %346, i32 noundef 8, ptr noundef nonnull %7) #9
   %356 = load i32, ptr @ett_pvfs_time, align 4
@@ -1248,7 +1248,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %365, ptr %6, align 8
   %366 = add i32 %343, 16
   %367 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %366) #9
-  %368 = getelementptr inbounds i8, ptr %6, i64 8
+  %368 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %367, ptr %368, align 8
   %369 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %361, ptr noundef %0, i32 noundef %360, i32 noundef 8, ptr noundef nonnull %6) #9
   %370 = load i32, ptr @ett_pvfs_time, align 4
@@ -1266,7 +1266,7 @@ define internal fastcc void @dissect_pvfs_common(ptr noundef %0, ptr noundef %1,
   store i64 %379, ptr %5, align 8
   %380 = add i32 %343, 24
   %381 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %380) #9
-  %382 = getelementptr inbounds i8, ptr %5, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %381, ptr %382, align 8
   %383 = call ptr @proto_tree_add_time(ptr noundef %21, i32 noundef %375, ptr noundef %0, i32 noundef %374, i32 noundef 8, ptr noundef nonnull %5) #9
   %384 = load i32, ptr @ett_pvfs_time, align 4
@@ -1624,8 +1624,8 @@ dissect_pvfs2_error.exit.i:                       ; preds = %513, %508
   br i1 %.not167.i.i, label %._crit_edge.i82.i, label %.preheader.lr.ph.i.i
 
 .preheader.lr.ph.i.i:                             ; preds = %570
-  %572 = getelementptr inbounds i8, ptr %4, i64 255
-  %573 = getelementptr inbounds i8, ptr %1, i64 408
+  %572 = getelementptr inbounds nuw i8, ptr %4, i64 255
+  %573 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %574 = load ptr, ptr @g_ascii_table, align 8
   br label %.preheader.i.i
 
@@ -2070,7 +2070,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_pvfs_distribution(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %2) #9
-  %6 = getelementptr inbounds i8, ptr %3, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = add i32 %2, 4
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %0, i32 noundef %8, i32 noundef %5, i32 noundef 0) #9
@@ -2130,7 +2130,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
 .thread.i:                                        ; preds = %5
   %12 = icmp ult i32 %10, %8
   %..i = select i1 %12, i64 3, i64 1
-  %13 = getelementptr inbounds i8, ptr %4, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef %7, i32 noundef %9, i32 noundef 0) #9
   br label %30
@@ -2149,7 +2149,7 @@ define internal fastcc i32 @dissect_pvfs_string(ptr noundef %0, ptr noundef %1, 
   %.146.i = select i1 %26, i64 3, i64 1
   %.0124.i = select i1 %24, i32 %20, i32 %23
   %.0123.i = select i1 %24, i64 0, i64 %.146.i
-  %27 = getelementptr inbounds i8, ptr %4, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr @tvb_get_string_enc(ptr noundef %28, ptr noundef %0, i32 noundef %7, i32 noundef %8, i32 noundef 0) #9
   %.not.i = icmp eq i32 %8, 0
@@ -2283,7 +2283,7 @@ define internal fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef
   store i64 %23, ptr %7, align 8
   %24 = add i32 %2, 20
   %25 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %24) #9
-  %26 = getelementptr inbounds i8, ptr %7, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %25, ptr %26, align 8
   %27 = call ptr @proto_tree_add_time(ptr noundef %9, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 8, ptr noundef nonnull %7) #9
   %28 = load i32, ptr @ett_pvfs_time, align 4
@@ -2301,7 +2301,7 @@ define internal fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef
   store i64 %37, ptr %6, align 8
   %38 = add i32 %2, 28
   %39 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %38) #9
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %39, ptr %40, align 8
   %41 = call ptr @proto_tree_add_time(ptr noundef %9, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 8, ptr noundef nonnull %6) #9
   %42 = load i32, ptr @ett_pvfs_time, align 4
@@ -2319,7 +2319,7 @@ define internal fastcc i32 @dissect_pvfs_object_attr(ptr noundef %0, ptr noundef
   store i64 %51, ptr %5, align 8
   %52 = add i32 %2, 36
   %53 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %52) #9
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %53, ptr %54, align 8
   %55 = call ptr @proto_tree_add_time(ptr noundef %9, i32 noundef %47, ptr noundef %0, i32 noundef %46, i32 noundef 8, ptr noundef nonnull %5) #9
   %56 = load i32, ptr @ett_pvfs_time, align 4

@@ -28,15 +28,15 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr noundef initializes((0, 8)) %6) local_unnamed_addr #0 {
   %8 = zext i1 %5 to i8
   store ptr @ompi_mpi_comm_null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = icmp slt i32 %12, %2
   br i1 %13, label %mca_topo_base_graph_allocate.exit.thread, label %14
 
 14:                                               ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %10, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i = icmp sge i32 %16, %2
   %17 = icmp eq i32 %16, -32766
@@ -61,9 +61,9 @@ define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 nound
 
 25:                                               ; preds = %24
   store ptr @mca_topo_base_comm_graph_2_2_0_t_class, ptr %20, align 8
-  %26 = getelementptr inbounds i8, ptr %20, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile i32 1, ptr %26, align 8
-  %27 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 40), align 8
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_topo_base_comm_graph_2_2_0_t_class, i64 40), align 8
   %28 = load ptr, ptr %27, align 8
   %.not6.i.i.i = icmp eq ptr %28, null
   br i1 %.not6.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i
@@ -72,18 +72,18 @@ define i32 @mca_topo_base_graph_create(ptr noundef %0, ptr noundef %1, i32 nound
   %29 = phi ptr [ %31, %.lr.ph.i.i.i ], [ %28, %25 ]
   %.07.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %27, %25 ]
   tail call void %29(ptr noundef nonnull %20) #9
-  %30 = getelementptr inbounds i8, ptr %.07.i.i.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i.i, label %opal_obj_new.exit.thread42.i, label %.lr.ph.i.i.i, !llvm.loop !4
 
 opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %25
-  %32 = getelementptr inbounds i8, ptr %20, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 %2, ptr %32, align 8
   %33 = sext i32 %2 to i64
   %34 = shl nsw i64 %33, 2
   %35 = tail call noalias ptr @malloc(i64 noundef %34) #8
-  %36 = getelementptr inbounds i8, ptr %20, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %35, ptr %36, align 8
   %37 = getelementptr i32, ptr %3, i64 %33
   %38 = getelementptr i8, ptr %37, i64 -4
@@ -91,7 +91,7 @@ opal_obj_new.exit.thread42.i:                     ; preds = %.lr.ph.i.i.i, %25
   %40 = sext i32 %39 to i64
   %41 = shl nsw i64 %40, 2
   %42 = tail call noalias ptr @malloc(i64 noundef %41) #8
-  %43 = getelementptr inbounds i8, ptr %20, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store ptr %42, ptr %43, align 8
   %44 = icmp eq ptr %35, null
   %45 = icmp eq ptr %42, null
@@ -122,7 +122,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %52, %49
 
 57:                                               ; preds = %opal_thread_add_fetch_32.exit.i
   %58 = load ptr, ptr %20, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %60, align 8
   %.not6.i.i = icmp eq ptr %61, null
@@ -132,7 +132,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %52, %49
   %62 = phi ptr [ %64, %.lr.ph.i.i ], [ %61, %57 ]
   %.07.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %60, %57 ]
   tail call void %62(ptr noundef nonnull %20) #9
-  %63 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %.not.i41.i = icmp eq ptr %64, null
   br i1 %.not.i41.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !6
@@ -155,7 +155,7 @@ mca_topo_base_graph_allocate.exit:                ; preds = %65, %14
   br i1 %68, label %69, label %89
 
 69:                                               ; preds = %mca_topo_base_graph_allocate.exit
-  %70 = getelementptr inbounds i8, ptr %.047, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %71 = load i8, ptr @opal_uses_threads, align 1
   %72 = trunc i8 %71 to i1
   br i1 %72, label %73, label %76
@@ -179,7 +179,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %73, %76
 
 81:                                               ; preds = %opal_thread_add_fetch_32.exit
   %82 = load ptr, ptr %.047, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %84, align 8
   %.not6.i = icmp eq ptr %85, null
@@ -189,7 +189,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %73, %76
   %86 = phi ptr [ %88, %.lr.ph.i ], [ %85, %81 ]
   %.07.i = phi ptr [ %87, %.lr.ph.i ], [ %84, %81 ]
   tail call void %86(ptr noundef nonnull %.047) #9
-  %87 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not.i33 = icmp eq ptr %88, null
   br i1 %.not.i33, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !6
@@ -204,7 +204,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %81
   br i1 %.not30, label %111, label %91
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %.047, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %93 = load i8, ptr @opal_uses_threads, align 1
   %94 = trunc i8 %93 to i1
   br i1 %94, label %95, label %98
@@ -228,7 +228,7 @@ opal_thread_add_fetch_32.exit35:                  ; preds = %95, %98
 
 103:                                              ; preds = %opal_thread_add_fetch_32.exit35
   %104 = load ptr, ptr %.047, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 48
   %106 = load ptr, ptr %105, align 8
   %107 = load ptr, ptr %106, align 8
   %.not6.i36 = icmp eq ptr %107, null
@@ -238,7 +238,7 @@ opal_thread_add_fetch_32.exit35:                  ; preds = %95, %98
   %108 = phi ptr [ %110, %.lr.ph.i37 ], [ %107, %103 ]
   %.07.i38 = phi ptr [ %109, %.lr.ph.i37 ], [ %106, %103 ]
   tail call void %108(ptr noundef nonnull %.047) #9
-  %109 = getelementptr inbounds i8, ptr %.07.i38, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.07.i38, i64 8
   %110 = load ptr, ptr %109, align 8
   %.not.i39 = icmp eq ptr %110, null
   br i1 %.not.i39, label %opal_obj_run_destructors.exit40, label %.lr.ph.i37, !llvm.loop !6
@@ -253,22 +253,22 @@ opal_obj_run_destructors.exit40:                  ; preds = %.lr.ph.i37, %103
   br i1 %.not31, label %mca_topo_base_graph_allocate.exit.thread, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds i8, ptr %112, i64 280
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 280
   store ptr %0, ptr %114, align 8
   %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 280
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 280
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 96
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 96
   store ptr %.047, ptr %118, align 8
   %119 = load ptr, ptr %6, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 224
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 224
   %121 = load i32, ptr %120, align 8
   %122 = or i32 %121, 512
   store i32 %122, ptr %120, align 8
   %123 = load ptr, ptr %6, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 280
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 280
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 20
   store i8 %8, ptr %126, align 4
   br label %mca_topo_base_graph_allocate.exit.thread
 
@@ -286,16 +286,16 @@ declare i32 @ompi_comm_create(ptr noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @mca_topo_base_comm_graph_2_2_0_construct(ptr nocapture noundef writeonly initializes((16, 20), (24, 40)) %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @mca_topo_base_comm_graph_2_2_0_destruct(ptr nocapture noundef readonly %0) #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -305,7 +305,7 @@ define internal void @mca_topo_base_comm_graph_2_2_0_destruct(ptr nocapture noun
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not5 = icmp eq ptr %7, null
   br i1 %.not5, label %9, label %8

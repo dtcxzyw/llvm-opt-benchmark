@@ -864,7 +864,7 @@ define internal i32 @dissect_edonkey_tcp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_clear(ptr noundef %13, i32 noundef 25) #7
   %14 = load i32, ptr @edonkey_desegment, align 4
@@ -891,7 +891,7 @@ define internal i32 @dissect_edonkey_udp(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %10, label %104, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.293) #7
   %.not89 = icmp eq ptr %2, null
@@ -1108,7 +1108,7 @@ define internal i32 @get_edonkey_tcp_pdu_len(ptr nocapture readnone %0, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_edonkey_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.293) #7
   %7 = load i32, ptr @proto_edonkey, align 4
@@ -3293,13 +3293,13 @@ define internal fastcc i32 @dissect_kademlia_udp_message(i8 noundef zeroext %0, 
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not5.i = icmp eq ptr %22, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %22, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = or i32 %25, 1
   store i32 %26, ptr %24, align 4
@@ -3521,7 +3521,7 @@ proto_item_set_hidden.exit:                       ; preds = %17, %20, %23
   br i1 %exitcond371.not, label %130, label %118, !llvm.loop !16
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %12, i64 128
+  %131 = getelementptr inbounds nuw i8, ptr %12, i64 128
   store i8 0, ptr %131, align 16
   %132 = load i32, ptr @hf_kademlia_distance, align 4
   %133 = call ptr @proto_tree_add_string(ptr noundef %5, i32 noundef %132, ptr noundef %1, i32 noundef %117, i32 noundef 0, ptr noundef nonnull %12) #7
@@ -3815,7 +3815,7 @@ define internal noundef i32 @dissect_kademlia_peer(ptr noundef %0, ptr nocapture
 define internal fastcc noundef i32 @dissect_kademlia_hash(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [4 x i32], align 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   br label %10
@@ -3834,11 +3834,11 @@ define internal fastcc noundef i32 @dissect_kademlia_hash(ptr noundef %0, ptr no
 
 kademlia_hash.exit:                               ; preds = %10
   %15 = load i32, ptr %7, align 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %19 = load i32, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %9, ptr noundef nonnull @.str.610, i32 noundef %15, i32 noundef %17, i32 noundef %19, i32 noundef %21) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
@@ -3862,11 +3862,11 @@ kademlia_hash.exit:                               ; preds = %10
 
 kademlia_hash.exit.i:                             ; preds = %25
   %30 = load i32, ptr %6, align 16
-  %31 = getelementptr inbounds i8, ptr %6, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %34 = load i32, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %.val, ptr noundef nonnull @.str.610, i32 noundef %30, i32 noundef %32, i32 noundef %34, i32 noundef %36) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -3876,13 +3876,13 @@ kademlia_hash.exit.i:                             ; preds = %25
   br i1 %.not.i.i, label %dissect_kademlia_hash_hidden.exit, label %40
 
 40:                                               ; preds = %kademlia_hash.exit.i
-  %41 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %42 = load ptr, ptr %41, align 8
   %.not5.i.i = icmp eq ptr %42, null
   br i1 %.not5.i.i, label %dissect_kademlia_hash_hidden.exit, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %42, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = or i32 %45, 1
   store i32 %46, ptr %44, align 4
@@ -4048,7 +4048,7 @@ define internal noundef i32 @dissect_kademlia_tag(ptr noundef %0, ptr noundef %1
 
 34:                                               ; preds = %33
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 408
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %37 = load ptr, ptr %36, align 8
   %38 = call ptr @tvb_bytes_to_str(ptr noundef %37, ptr noundef %0, i32 noundef %21, i32 noundef 16) #7
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.546, ptr noundef %38) #7
@@ -4070,11 +4070,11 @@ define internal noundef i32 @dissect_kademlia_tag(ptr noundef %0, ptr noundef %1
 
 kademlia_hash.exit.i:                             ; preds = %40
   %45 = load i32, ptr %6, align 16
-  %46 = getelementptr inbounds i8, ptr %6, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %6, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %6, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %39, ptr noundef nonnull @.str.610, i32 noundef %45, i32 noundef %47, i32 noundef %49, i32 noundef %51) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -4098,11 +4098,11 @@ kademlia_hash.exit.i:                             ; preds = %40
 
 kademlia_hash.exit.i.i:                           ; preds = %55
   %60 = load i32, ptr %5, align 16
-  %61 = getelementptr inbounds i8, ptr %5, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %5, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = load i32, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %5, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %.val.i, ptr noundef nonnull @.str.610, i32 noundef %60, i32 noundef %62, i32 noundef %64, i32 noundef %66) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -4112,13 +4112,13 @@ kademlia_hash.exit.i.i:                           ; preds = %55
   br i1 %.not.i.i.i, label %dissect_kademlia_tag_hash.exit, label %70
 
 70:                                               ; preds = %kademlia_hash.exit.i.i
-  %71 = getelementptr inbounds i8, ptr %69, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 32
   %72 = load ptr, ptr %71, align 8
   %.not5.i.i.i = icmp eq ptr %72, null
   br i1 %.not5.i.i.i, label %dissect_kademlia_tag_hash.exit, label %73
 
 73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %72, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %75 = load i32, ptr %74, align 4
   %76 = or i32 %75, 1
   store i32 %76, ptr %74, align 4
@@ -4137,13 +4137,13 @@ dissect_kademlia_tag_hash.exit:                   ; preds = %kademlia_hash.exit.
   br i1 %.not.i.i, label %proto_item_set_hidden.exit.i, label %83
 
 83:                                               ; preds = %78
-  %84 = getelementptr inbounds i8, ptr %82, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not5.i.i = icmp eq ptr %85, null
   br i1 %.not5.i.i, label %proto_item_set_hidden.exit.i, label %86
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds i8, ptr %85, i64 28
+  %87 = getelementptr inbounds nuw i8, ptr %85, i64 28
   %88 = load i32, ptr %87, align 4
   %89 = or i32 %88, 1
   store i32 %89, ptr %87, align 4
@@ -4152,20 +4152,20 @@ dissect_kademlia_tag_hash.exit:                   ; preds = %kademlia_hash.exit.
 proto_item_set_hidden.exit.i:                     ; preds = %86, %83, %78
   %90 = load i32, ptr @hf_edonkey_string, align 4
   %91 = add i32 %21, 2
-  %92 = getelementptr inbounds i8, ptr %1, i64 408
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %93 = load ptr, ptr %92, align 8
   %94 = call ptr @proto_tree_add_item_ret_string(ptr noundef %12, i32 noundef %90, ptr noundef %0, i32 noundef %91, i32 noundef %81, i32 noundef 0, ptr noundef %93, ptr noundef nonnull %10) #7
   %.not.i19.i = icmp eq ptr %94, null
   br i1 %.not.i19.i, label %dissect_kademlia_tag_string.exit, label %95
 
 95:                                               ; preds = %proto_item_set_hidden.exit.i
-  %96 = getelementptr inbounds i8, ptr %94, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %97 = load ptr, ptr %96, align 8
   %.not5.i20.i = icmp eq ptr %97, null
   br i1 %.not5.i20.i, label %dissect_kademlia_tag_string.exit, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %97, i64 28
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 28
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, 1
   store i32 %101, ptr %99, align 4
@@ -4268,7 +4268,7 @@ dissect_kademlia_tag_string.exit:                 ; preds = %proto_item_set_hidd
 
 156:                                              ; preds = %33
   %157 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %21) #7
-  %158 = getelementptr inbounds i8, ptr %1, i64 408
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %159 = load ptr, ptr %158, align 8
   %160 = add i32 %21, 1
   %161 = zext i8 %157 to i32
@@ -4308,20 +4308,20 @@ define internal fastcc noundef i32 @dissect_kademlia_tagname(ptr noundef %0, ptr
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 1
   store i32 %19, ptr %17, align 4
   br label %proto_item_set_hidden.exit
 
 proto_item_set_hidden.exit:                       ; preds = %6, %13, %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %21 = load ptr, ptr %20, align 8
   %22 = add i32 %2, 2
   %23 = tail call ptr @tvb_get_string_enc(ptr noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %9, i32 noundef 0) #7

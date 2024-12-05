@@ -57,9 +57,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @map_begin_page(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %39 [
     i32 0, label %6
@@ -69,7 +69,7 @@ define internal void @map_begin_page(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.7) #4
-  %8 = getelementptr inbounds i8, ptr %3, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %9 = load ptr, ptr %8, align 8
   %.not27 = icmp eq ptr %9, null
   br i1 %.not27, label %39, label %10
@@ -85,7 +85,7 @@ define internal void @map_begin_page(ptr noundef %0) #0 {
   br label %.sink.split
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %3, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %39, label %18
@@ -100,14 +100,14 @@ define internal void @map_begin_page(ptr noundef %0) #0 {
   %22 = load ptr, ptr %16, align 8
   %23 = tail call i32 @gvputs_xml(ptr noundef nonnull %0, ptr noundef %22) #4
   %24 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #4
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @agnameof(ptr noundef %26) #4
   br label %.sink.split
 
 28:                                               ; preds = %1
   %29 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #4
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @agnameof(ptr noundef %31) #4
   %33 = tail call i32 @gvputs_xml(ptr noundef nonnull %0, ptr noundef %32) #4
@@ -129,9 +129,9 @@ define internal void @map_begin_page(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @map_end_page(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %37 [
     i32 2, label %6
@@ -139,37 +139,37 @@ define internal void @map_end_page(ptr noundef %0) #0 {
   ]
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 348
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 348
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %3, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 352
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 280
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 312
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %3, i64 248
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @map_output_shape(ptr noundef nonnull %0, i32 noundef %8, ptr noundef %10, i64 noundef %12, ptr noundef %14, ptr noundef %16, ptr noundef %18, ptr noundef %20)
   br label %37
 
 21:                                               ; preds = %1
-  %22 = getelementptr inbounds i8, ptr %3, i64 348
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 348
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %3, i64 360
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 360
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 352
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 240
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 280
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 312
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %3, i64 248
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %35 = load ptr, ptr %34, align 8
   tail call fastcc void @map_output_shape(ptr noundef nonnull %0, i32 noundef %23, ptr noundef %25, i64 noundef %27, ptr noundef %29, ptr noundef %31, ptr noundef %33, ptr noundef %35)
   %36 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.14) #4
@@ -181,13 +181,13 @@ define internal void @map_end_page(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @map_begin_anchor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 348
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 348
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 360
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 360
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 352
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 352
   %13 = load i64, ptr %12, align 8
   tail call fastcc void @map_output_shape(ptr noundef %0, i32 noundef %9, ptr noundef %11, i64 noundef %13, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret void
@@ -207,7 +207,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   br i1 %or.cond, label %11, label %.thread277
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   %15 = icmp ne ptr %4, null
@@ -232,19 +232,19 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   %.in272.v = select i1 %21, double -5.000000e-01, double 5.000000e-01
   %.in272 = fadd double %20, %.in272.v
   %22 = fptosi double %.in272 to i32
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fcmp ult double %24, 0.000000e+00
   %.in273.v = select i1 %25, double -5.000000e-01, double 5.000000e-01
   %.in273 = fadd double %24, %.in273.v
   %26 = fptosi double %.in273 to i32
-  %27 = getelementptr inbounds i8, ptr %2, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %28 = load double, ptr %27, align 8
   %29 = fcmp ult double %28, 0.000000e+00
   %.in274.v = select i1 %29, double -5.000000e-01, double 5.000000e-01
   %.in274 = fadd double %28, %.in274.v
   %30 = fptosi double %.in274 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %32 = load double, ptr %31, align 8
   %33 = fcmp ult double %32, 0.000000e+00
   %.in275.v = select i1 %33, double -5.000000e-01, double 5.000000e-01
@@ -259,13 +259,13 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   %.in269.v = select i1 %37, double -5.000000e-01, double 5.000000e-01
   %.in269 = fadd double %36, %.in269.v
   %38 = fptosi double %.in269 to i32
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %40 = load double, ptr %39, align 8
   %41 = fcmp ult double %40, 0.000000e+00
   %.in270.v = select i1 %41, double -5.000000e-01, double 5.000000e-01
   %.in270 = fadd double %40, %.in270.v
   %42 = fptosi double %.in270 to i32
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %44 = load double, ptr %43, align 8
   %45 = fcmp ult double %44, 0.000000e+00
   %.in271.v = select i1 %45, double -5.000000e-01, double 5.000000e-01
@@ -287,7 +287,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   %.in267.v = select i1 %52, double -5.000000e-01, double 5.000000e-01
   %.in267 = fadd double %51, %.in267.v
   %53 = fptosi double %.in267 to i32
-  %54 = getelementptr inbounds i8, ptr %50, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %55 = load double, ptr %54, align 8
   %56 = fcmp ult double %55, 0.000000e+00
   %.in268.v = select i1 %56, double -5.000000e-01, double 5.000000e-01
@@ -328,19 +328,19 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
   %.in263.v = select i1 %71, double -5.000000e-01, double 5.000000e-01
   %.in263 = fadd double %70, %.in263.v
   %72 = fptosi double %.in263 to i32
-  %73 = getelementptr inbounds i8, ptr %2, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load double, ptr %73, align 8
   %75 = fcmp ult double %74, 0.000000e+00
   %.in264.v = select i1 %75, double -5.000000e-01, double 5.000000e-01
   %.in264 = fadd double %74, %.in264.v
   %76 = fptosi double %.in264 to i32
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = load double, ptr %77, align 8
   %79 = fcmp ult double %78, 0.000000e+00
   %.in265.v = select i1 %79, double -5.000000e-01, double 5.000000e-01
   %.in265 = fadd double %78, %.in265.v
   %80 = fptosi double %.in265 to i32
-  %81 = getelementptr inbounds i8, ptr %2, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %82 = load double, ptr %81, align 8
   %83 = fcmp ult double %82, 0.000000e+00
   %.in266.v = select i1 %83, double -5.000000e-01, double 5.000000e-01
@@ -372,7 +372,7 @@ define internal fastcc void @map_output_shape(ptr noundef %0, i32 noundef %1, pt
 
 switch.lookup:                                    ; preds = %90
   %95 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.map_output_shape, i64 0, i64 %95
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.map_output_shape, i64 0, i64 %95
   %switch.load = load ptr, ptr %switch.gep, align 8
   %96 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull %switch.load) #4
   %.not246 = icmp eq ptr %7, null
@@ -441,7 +441,7 @@ switch.lookup:                                    ; preds = %90
   %.in260.v = select i1 %128, double -5.000000e-01, double 5.000000e-01
   %.in260 = fadd double %127, %.in260.v
   %129 = fptosi double %.in260 to i32
-  %130 = getelementptr inbounds i8, ptr %2, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %131 = load double, ptr %130, align 8
   %132 = fcmp ult double %131, 0.000000e+00
   %.in261.v = select i1 %132, double -5.000000e-01, double 5.000000e-01
@@ -454,7 +454,7 @@ switch.lookup:                                    ; preds = %90
   ]
 
 134:                                              ; preds = %124
-  %135 = getelementptr inbounds i8, ptr %2, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %136 = load double, ptr %135, align 8
   %137 = fcmp ult double %136, 0.000000e+00
   %.in262.v = select i1 %137, double -5.000000e-01, double 5.000000e-01
@@ -465,13 +465,13 @@ switch.lookup:                                    ; preds = %90
   br label %.loopexit
 
 140:                                              ; preds = %124
-  %141 = getelementptr inbounds i8, ptr %2, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %142 = load double, ptr %141, align 8
   %143 = fcmp ult double %142, 0.000000e+00
   %.in258.v = select i1 %143, double -5.000000e-01, double 5.000000e-01
   %.in258 = fadd double %142, %.in258.v
   %144 = fptosi double %.in258 to i32
-  %145 = getelementptr inbounds i8, ptr %2, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %146 = load double, ptr %145, align 8
   %147 = fcmp ult double %146, 0.000000e+00
   %.in259.v = select i1 %147, double -5.000000e-01, double 5.000000e-01
@@ -493,7 +493,7 @@ switch.lookup:                                    ; preds = %90
   %.in254.v = select i1 %153, double -5.000000e-01, double 5.000000e-01
   %.in254 = fadd double %152, %.in254.v
   %154 = fptosi double %.in254 to i32
-  %155 = getelementptr inbounds i8, ptr %151, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %156 = load double, ptr %155, align 8
   %157 = fcmp ult double %156, 0.000000e+00
   %.in255.v = select i1 %157, double -5.000000e-01, double 5.000000e-01

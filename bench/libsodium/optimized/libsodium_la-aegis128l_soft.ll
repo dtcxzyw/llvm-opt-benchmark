@@ -22,25 +22,25 @@ entry:
   %npub.val21 = load i64, ptr %1, align 1
   %xor1.i.i = xor i64 %npub.val, %k.val
   %xor84.i.i = xor i64 %npub.val21, %k.val20
-  %tmp5.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %state, i64 16
-  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 24
-  %arrayidx8.i = getelementptr inbounds i8, ptr %state, i64 32
-  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 40
-  %arrayidx9.i = getelementptr inbounds i8, ptr %state, i64 48
-  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 56
-  %arrayidx10.i = getelementptr inbounds i8, ptr %state, i64 64
-  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 72
-  %arrayidx13.i = getelementptr inbounds i8, ptr %state, i64 80
+  %tmp5.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 8
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %state, i64 16
+  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 24
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %state, i64 32
+  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 40
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %state, i64 48
+  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 56
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %state, i64 64
+  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 72
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %state, i64 80
   %xor1.i39.i = xor i64 %k.val, 939006032783409408
   %xor84.i40.i = xor i64 %k.val20, 7095959494080274965
-  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 88
-  %arrayidx16.i = getelementptr inbounds i8, ptr %state, i64 96
+  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 88
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %state, i64 96
   %xor1.i43.i = xor i64 %k.val, -1067420811828642341
   %xor84.i44.i = xor i64 %k.val20, -2510557285622673120
-  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 104
-  %arrayidx19.i = getelementptr inbounds i8, ptr %state, i64 112
-  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 120
+  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 104
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %state, i64 112
+  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 120
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -220,11 +220,11 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, i8 0, i64 %74, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %src, ptr align 1 %add.ptr5, i64 %rem, i1 false)
   %src.0.src.0.in.val.i.i22 = load i64, ptr %src, align 32
-  %src.8.src.8.add.ptr3.i.i23.sroa_idx = getelementptr inbounds i8, ptr %src, i64 8
+  %src.8.src.8.add.ptr3.i.i23.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 8
   %src.8.src.8.add.ptr3.val.i.i24 = load i64, ptr %src.8.src.8.add.ptr3.i.i23.sroa_idx, align 8
-  %src.16.src.16.add.ptr.i25.sroa_idx = getelementptr inbounds i8, ptr %src, i64 16
+  %src.16.src.16.add.ptr.i25.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 16
   %src.16.src.16.in.val.i2.i26 = load i64, ptr %src.16.src.16.add.ptr.i25.sroa_idx, align 16
-  %src.24.src.24.add.ptr3.i3.i27.sroa_idx = getelementptr inbounds i8, ptr %src, i64 24
+  %src.24.src.24.add.ptr3.i3.i27.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 24
   %src.24.src.24.add.ptr3.val.i4.i28 = load i64, ptr %src.24.src.24.add.ptr3.i3.i27.sroa_idx, align 8
   %call.i108 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %73, i64 %72, i64 %tmp.sroa.0.0.copyload.i104, i64 %tmp.sroa.2.0.copyload.i106) #5
   %76 = extractvalue { i64, i64 } %call.i108, 0
@@ -443,11 +443,11 @@ if.then21:                                        ; preds = %for.end18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %146, i8 0, i64 %145, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %src, ptr align 1 %add.ptr24, i64 %rem19, i1 false)
   %src.0.src.0.in.val.i.i36 = load i64, ptr %src, align 32
-  %src.8.src.8.add.ptr3.i.i37.sroa_idx = getelementptr inbounds i8, ptr %src, i64 8
+  %src.8.src.8.add.ptr3.i.i37.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 8
   %src.8.src.8.add.ptr3.val.i.i38 = load i64, ptr %src.8.src.8.add.ptr3.i.i37.sroa_idx, align 8
-  %src.16.src.16.add.ptr.i39.sroa_idx = getelementptr inbounds i8, ptr %src, i64 16
+  %src.16.src.16.add.ptr.i39.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 16
   %src.16.src.16.in.val.i23.i40 = load i64, ptr %src.16.src.16.add.ptr.i39.sroa_idx, align 16
-  %src.24.src.24.add.ptr3.i24.i41.sroa_idx = getelementptr inbounds i8, ptr %src, i64 24
+  %src.24.src.24.add.ptr3.i24.i41.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 24
   %src.24.src.24.add.ptr3.val.i25.i42 = load i64, ptr %src.24.src.24.add.ptr3.i24.i41.sroa_idx, align 8
   %and1.i.i48 = and i64 %136, %138
   %and84.i.i49 = and i64 %135, %137
@@ -472,11 +472,11 @@ if.then21:                                        ; preds = %for.end18
   %in.sroa.5.8.extract.shift.i.i61 = lshr i64 %xor84.i45.i51, 32
   %in.sroa.5.8.extract.trunc.i.i62 = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i61 to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i57, ptr %dst, align 32
-  %dst.4.dst.4.dst.4.add.ptr1.i.i63.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 4
+  %dst.4.dst.4.dst.4.add.ptr1.i.i63.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i59, ptr %dst.4.dst.4.dst.4.add.ptr1.i.i63.sroa_idx, align 4
-  %dst.8.dst.8.dst.8.add.ptr2.i.i64.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 8
+  %dst.8.dst.8.dst.8.add.ptr2.i.i64.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 8
   store i32 %in.sroa.3.8.extract.trunc.i.i60, ptr %dst.8.dst.8.dst.8.add.ptr2.i.i64.sroa_idx, align 8
-  %dst.12.dst.12.dst.12.add.ptr3.i56.i65.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 12
+  %dst.12.dst.12.dst.12.add.ptr3.i56.i65.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i.i62, ptr %dst.12.dst.12.dst.12.add.ptr3.i56.i65.sroa_idx, align 4
   %in.sroa.0.0.extract.trunc.i57.i67 = trunc i64 %xor1.i52.i55 to i32
   %in.sroa.2.0.extract.shift.i58.i68 = lshr i64 %xor1.i52.i55, 32
@@ -484,13 +484,13 @@ if.then21:                                        ; preds = %for.end18
   %in.sroa.3.8.extract.trunc.i60.i70 = trunc i64 %xor84.i53.i56 to i32
   %in.sroa.5.8.extract.shift.i61.i71 = lshr i64 %xor84.i53.i56, 32
   %in.sroa.5.8.extract.trunc.i62.i72 = trunc nuw i64 %in.sroa.5.8.extract.shift.i61.i71 to i32
-  %dst.16.dst.16.dst.16.add.ptr26.i66.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 16
+  %dst.16.dst.16.dst.16.add.ptr26.i66.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 16
   store i32 %in.sroa.0.0.extract.trunc.i57.i67, ptr %dst.16.dst.16.dst.16.add.ptr26.i66.sroa_idx, align 16
-  %dst.20.dst.20.dst.20.add.ptr1.i63.i73.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 20
+  %dst.20.dst.20.dst.20.add.ptr1.i63.i73.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i59.i69, ptr %dst.20.dst.20.dst.20.add.ptr1.i63.i73.sroa_idx, align 4
-  %dst.24.dst.24.dst.24.add.ptr2.i64.i74.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 24
+  %dst.24.dst.24.dst.24.add.ptr2.i64.i74.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i32 %in.sroa.3.8.extract.trunc.i60.i70, ptr %dst.24.dst.24.dst.24.add.ptr2.i64.i74.sroa_idx, align 8
-  %dst.28.dst.28.dst.28.add.ptr3.i65.i75.sroa_idx = getelementptr inbounds i8, ptr %dst, i64 28
+  %dst.28.dst.28.dst.28.add.ptr3.i65.i75.sroa_idx = getelementptr inbounds nuw i8, ptr %dst, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i62.i72, ptr %dst.28.dst.28.dst.28.add.ptr3.i65.i75.sroa_idx, align 4
   %call.i152 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %144, i64 %143, i64 %134, i64 %133) #5
   %155 = extractvalue { i64, i64 } %call.i152, 0
@@ -561,25 +561,25 @@ entry:
   %npub.val37 = load i64, ptr %1, align 1
   %xor1.i.i = xor i64 %npub.val, %k.val
   %xor84.i.i = xor i64 %npub.val37, %k.val36
-  %tmp5.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 8
-  %arrayidx7.i = getelementptr inbounds i8, ptr %state, i64 16
-  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 24
-  %arrayidx8.i = getelementptr inbounds i8, ptr %state, i64 32
-  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 40
-  %arrayidx9.i = getelementptr inbounds i8, ptr %state, i64 48
-  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 56
-  %arrayidx10.i = getelementptr inbounds i8, ptr %state, i64 64
-  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 72
-  %arrayidx13.i = getelementptr inbounds i8, ptr %state, i64 80
+  %tmp5.sroa.2.0.arrayidx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 8
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %state, i64 16
+  %c1.sroa.4.0.arrayidx7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 24
+  %arrayidx8.i = getelementptr inbounds nuw i8, ptr %state, i64 32
+  %c0.sroa.4.0.arrayidx8.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 40
+  %arrayidx9.i = getelementptr inbounds nuw i8, ptr %state, i64 48
+  %c1.sroa.4.0.arrayidx9.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 56
+  %arrayidx10.i = getelementptr inbounds nuw i8, ptr %state, i64 64
+  %tmp11.sroa.2.0.arrayidx10.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 72
+  %arrayidx13.i = getelementptr inbounds nuw i8, ptr %state, i64 80
   %xor1.i39.i = xor i64 %k.val, 939006032783409408
   %xor84.i40.i = xor i64 %k.val36, 7095959494080274965
-  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 88
-  %arrayidx16.i = getelementptr inbounds i8, ptr %state, i64 96
+  %tmp14.sroa.2.0.arrayidx13.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 88
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %state, i64 96
   %xor1.i43.i = xor i64 %k.val, -1067420811828642341
   %xor84.i44.i = xor i64 %k.val36, -2510557285622673120
-  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 104
-  %arrayidx19.i = getelementptr inbounds i8, ptr %state, i64 112
-  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds i8, ptr %state, i64 120
+  %tmp17.sroa.2.0.arrayidx16.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 104
+  %arrayidx19.i = getelementptr inbounds nuw i8, ptr %state, i64 112
+  %tmp20.sroa.2.0.arrayidx19.sroa_idx.i = getelementptr inbounds nuw i8, ptr %state, i64 120
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
@@ -759,11 +759,11 @@ if.then:                                          ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %75, i8 0, i64 %74, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 32 %src, ptr align 1 %add.ptr5, i64 %rem, i1 false)
   %src.0.src.0.in.val.i.i38 = load i64, ptr %src, align 32
-  %src.8.src.8.add.ptr3.i.i39.sroa_idx = getelementptr inbounds i8, ptr %src, i64 8
+  %src.8.src.8.add.ptr3.i.i39.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 8
   %src.8.src.8.add.ptr3.val.i.i40 = load i64, ptr %src.8.src.8.add.ptr3.i.i39.sroa_idx, align 8
-  %src.16.src.16.add.ptr.i41.sroa_idx = getelementptr inbounds i8, ptr %src, i64 16
+  %src.16.src.16.add.ptr.i41.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 16
   %src.16.src.16.in.val.i2.i42 = load i64, ptr %src.16.src.16.add.ptr.i41.sroa_idx, align 16
-  %src.24.src.24.add.ptr3.i3.i43.sroa_idx = getelementptr inbounds i8, ptr %src, i64 24
+  %src.24.src.24.add.ptr3.i3.i43.sroa_idx = getelementptr inbounds nuw i8, ptr %src, i64 24
   %src.24.src.24.add.ptr3.val.i4.i44 = load i64, ptr %src.24.src.24.add.ptr3.i3.i43.sroa_idx, align 8
   %call.i191 = tail call { i64, i64 } @_sodium_softaes_block_encrypt(i64 %73, i64 %72, i64 %tmp.sroa.0.0.copyload.i187, i64 %tmp.sroa.2.0.copyload.i189) #5
   %76 = extractvalue { i64, i64 } %call.i191, 0
@@ -1092,11 +1092,11 @@ if.then36:                                        ; preds = %if.end31.thread546,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr38, i64 range(i64 1, 32) %rem32541553, i1 false)
   %in.val.i.i93 = load i64, ptr %pad.i, align 16
-  %add.ptr3.i.i94 = getelementptr inbounds i8, ptr %pad.i, i64 8
+  %add.ptr3.i.i94 = getelementptr inbounds nuw i8, ptr %pad.i, i64 8
   %add.ptr3.val.i.i95 = load i64, ptr %add.ptr3.i.i94, align 8
-  %add.ptr.i96 = getelementptr inbounds i8, ptr %pad.i, i64 16
+  %add.ptr.i96 = getelementptr inbounds nuw i8, ptr %pad.i, i64 16
   %in.val.i28.i = load i64, ptr %add.ptr.i96, align 16
-  %add.ptr3.i29.i = getelementptr inbounds i8, ptr %pad.i, i64 24
+  %add.ptr3.i29.i = getelementptr inbounds nuw i8, ptr %pad.i, i64 24
   %add.ptr3.val.i30.i = load i64, ptr %add.ptr3.i29.i, align 8
   %and1.i.i103 = and i64 %177, %179
   %and84.i.i104 = and i64 %176, %178
@@ -1121,10 +1121,10 @@ if.then36:                                        ; preds = %if.end31.thread546,
   %in.sroa.5.8.extract.shift.i.i109 = lshr i64 %xor84.i50.i, 32
   %in.sroa.5.8.extract.trunc.i.i110 = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i109 to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i105, ptr %pad.i, align 16
-  %add.ptr1.i.i111 = getelementptr inbounds i8, ptr %pad.i, i64 4
+  %add.ptr1.i.i111 = getelementptr inbounds nuw i8, ptr %pad.i, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i107, ptr %add.ptr1.i.i111, align 4
   store i32 %in.sroa.3.8.extract.trunc.i.i108, ptr %add.ptr3.i.i94, align 8
-  %add.ptr3.i61.i = getelementptr inbounds i8, ptr %pad.i, i64 12
+  %add.ptr3.i61.i = getelementptr inbounds nuw i8, ptr %pad.i, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i.i110, ptr %add.ptr3.i61.i, align 4
   %in.sroa.0.0.extract.trunc.i62.i = trunc i64 %xor1.i57.i to i32
   %in.sroa.2.0.extract.shift.i63.i = lshr i64 %xor1.i57.i, 32
@@ -1133,10 +1133,10 @@ if.then36:                                        ; preds = %if.end31.thread546,
   %in.sroa.5.8.extract.shift.i66.i = lshr i64 %xor84.i58.i, 32
   %in.sroa.5.8.extract.trunc.i67.i = trunc nuw i64 %in.sroa.5.8.extract.shift.i66.i to i32
   store i32 %in.sroa.0.0.extract.trunc.i62.i, ptr %add.ptr.i96, align 16
-  %add.ptr1.i68.i = getelementptr inbounds i8, ptr %pad.i, i64 20
+  %add.ptr1.i68.i = getelementptr inbounds nuw i8, ptr %pad.i, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i64.i, ptr %add.ptr1.i68.i, align 4
   store i32 %in.sroa.3.8.extract.trunc.i65.i, ptr %add.ptr3.i29.i, align 8
-  %add.ptr3.i70.i = getelementptr inbounds i8, ptr %pad.i, i64 28
+  %add.ptr3.i70.i = getelementptr inbounds nuw i8, ptr %pad.i, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i, ptr %add.ptr3.i70.i, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %187, i8 0, i64 %186, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr37, ptr noundef nonnull align 16 dereferenceable(1) %pad.i, i64 range(i64 1, 32) %rem32541553, i1 false)
@@ -1217,11 +1217,11 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %pad.i112, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr43, i64 range(i64 1, 32) %rem32541544, i1 false)
   %in.val.i.i113 = load i64, ptr %pad.i112, align 16
-  %add.ptr3.i.i114 = getelementptr inbounds i8, ptr %pad.i112, i64 8
+  %add.ptr3.i.i114 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 8
   %add.ptr3.val.i.i115 = load i64, ptr %add.ptr3.i.i114, align 8
-  %add.ptr.i116 = getelementptr inbounds i8, ptr %pad.i112, i64 16
+  %add.ptr.i116 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 16
   %in.val.i28.i117 = load i64, ptr %add.ptr.i116, align 16
-  %add.ptr3.i29.i118 = getelementptr inbounds i8, ptr %pad.i112, i64 24
+  %add.ptr3.i29.i118 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 24
   %add.ptr3.val.i30.i119 = load i64, ptr %add.ptr3.i29.i118, align 8
   %and1.i.i127 = and i64 %219, %221
   %and84.i.i128 = and i64 %218, %220
@@ -1246,10 +1246,10 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %in.sroa.5.8.extract.shift.i.i140 = lshr i64 %xor84.i50.i130, 32
   %in.sroa.5.8.extract.trunc.i.i141 = trunc nuw i64 %in.sroa.5.8.extract.shift.i.i140 to i32
   store i32 %in.sroa.0.0.extract.trunc.i.i136, ptr %pad.i112, align 16
-  %add.ptr1.i.i142 = getelementptr inbounds i8, ptr %pad.i112, i64 4
+  %add.ptr1.i.i142 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 4
   store i32 %in.sroa.2.0.extract.trunc.i.i138, ptr %add.ptr1.i.i142, align 4
   store i32 %in.sroa.3.8.extract.trunc.i.i139, ptr %add.ptr3.i.i114, align 8
-  %add.ptr3.i61.i143 = getelementptr inbounds i8, ptr %pad.i112, i64 12
+  %add.ptr3.i61.i143 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 12
   store i32 %in.sroa.5.8.extract.trunc.i.i141, ptr %add.ptr3.i61.i143, align 4
   %in.sroa.0.0.extract.trunc.i62.i144 = trunc i64 %xor1.i57.i134 to i32
   %in.sroa.2.0.extract.shift.i63.i145 = lshr i64 %xor1.i57.i134, 32
@@ -1258,10 +1258,10 @@ if.else41:                                        ; preds = %if.end31.thread, %i
   %in.sroa.5.8.extract.shift.i66.i148 = lshr i64 %xor84.i58.i135, 32
   %in.sroa.5.8.extract.trunc.i67.i149 = trunc nuw i64 %in.sroa.5.8.extract.shift.i66.i148 to i32
   store i32 %in.sroa.0.0.extract.trunc.i62.i144, ptr %add.ptr.i116, align 16
-  %add.ptr1.i68.i150 = getelementptr inbounds i8, ptr %pad.i112, i64 20
+  %add.ptr1.i68.i150 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 20
   store i32 %in.sroa.2.0.extract.trunc.i64.i146, ptr %add.ptr1.i68.i150, align 4
   store i32 %in.sroa.3.8.extract.trunc.i65.i147, ptr %add.ptr3.i29.i118, align 8
-  %add.ptr3.i70.i151 = getelementptr inbounds i8, ptr %pad.i112, i64 28
+  %add.ptr3.i70.i151 = getelementptr inbounds nuw i8, ptr %pad.i112, i64 28
   store i32 %in.sroa.5.8.extract.trunc.i67.i149, ptr %add.ptr3.i70.i151, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %229, i8 0, i64 %228, i1 false)
   %in.val.i71.i154 = load i64, ptr %pad.i112, align 16
@@ -1404,7 +1404,7 @@ if.then:                                          ; preds = %for.end
   %18 = getelementptr i8, ptr %state, i64 24
   %19 = load i64, ptr %18, align 4
   %20 = load i64, ptr %state, align 4
-  %21 = getelementptr inbounds i8, ptr %state, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %state, i64 8
   %22 = load i64, ptr %21, align 4
   %xor1.i59 = xor i64 %6, %3
   %xor1.i51 = xor i64 %xor1.i59, %9
@@ -1445,7 +1445,7 @@ if.then25:                                        ; preds = %for.end
   %29 = getelementptr i8, ptr %state, i64 24
   %30 = load i64, ptr %29, align 4
   %31 = load i64, ptr %state, align 4
-  %32 = getelementptr inbounds i8, ptr %state, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %state, i64 8
   %33 = load i64, ptr %32, align 4
   %xor1.i71 = xor i64 %26, %23
   %xor1.i67 = xor i64 %xor1.i71, %28
@@ -1585,7 +1585,7 @@ entry:
   store i64 %38, ptr %arrayidx22, align 4
   store i64 %39, ptr %27, align 4
   %40 = load i64, ptr %state, align 4
-  %41 = getelementptr inbounds i8, ptr %state, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %state, i64 8
   %42 = load i64, ptr %41, align 4
   %43 = load i64, ptr %arrayidx27, align 4
   %44 = load i64, ptr %34, align 4

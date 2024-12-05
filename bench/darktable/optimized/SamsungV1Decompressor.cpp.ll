@@ -56,13 +56,13 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN8rawspeed21SamsungV1DecompressorC2ERKNS_8RawImageENS_10ByteStreamEi(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !6
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = icmp eq ptr %7, null
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %16, label %13
@@ -79,23 +79,23 @@ define hidden void @_ZN8rawspeed21SamsungV1DecompressorC2ERKNS_8RawImageENS_10By
 
 18:                                               ; preds = %16, %13, %4
   store ptr %5, ptr %0, align 8, !tbaa !6
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %19, align 8, !tbaa !12
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  %21 = getelementptr inbounds i8, ptr %5, i64 584
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 584
   %22 = load i32, ptr %21, align 8, !tbaa !16
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %5, i64 548
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 548
   %26 = load i32, ptr %25, align 4, !tbaa !77
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %5, i64 588
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 588
   %30 = load i32, ptr %29, align 4, !tbaa !78
   %31 = icmp eq i32 %30, 2
   br i1 %31, label %36, label %32
@@ -124,9 +124,9 @@ define hidden void @_ZN8rawspeed21SamsungV1DecompressorC2ERKNS_8RawImageENS_10By
   unreachable
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %5, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %42 = load i32, ptr %41, align 8, !tbaa !79
-  %43 = getelementptr inbounds i8, ptr %5, i64 44
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %44 = load i32, ptr %43, align 4, !tbaa !80
   %45 = icmp ne i32 %42, 0
   %46 = icmp ne i32 %44, 0
@@ -204,13 +204,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %29, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = icmp eq i64 %7, 4294967297
   %9 = trunc i64 %7 to i32
@@ -218,14 +218,14 @@ define linkonce_odr hidden void @_ZN8rawspeed27AbstractSamsungDecompressorD2Ev(p
 
 10:                                               ; preds = %5
   store i32 0, ptr %6, align 8, !tbaa !81
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %11, align 4, !tbaa !83
   %12 = load ptr, ptr %3, align 8, !tbaa !84
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %15 = load ptr, ptr %3, align 8, !tbaa !84
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br label %29
@@ -263,22 +263,22 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %3 = alloca %"struct.std::array.53", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(2048) ptr @_Znwm(i64 noundef 2048) #19
   store i16 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %4, i64 2
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 6
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 10
-  %10 = getelementptr inbounds i8, ptr %4, i64 12
-  %11 = getelementptr inbounds i8, ptr %4, i64 14
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
-  %13 = getelementptr inbounds i8, ptr %4, i64 18
-  %14 = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 10
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 14
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 18
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 20
   br label %15
 
 15:                                               ; preds = %15, %1
   %16 = phi i16 [ 0, %1 ], [ %20, %15 ]
   %17 = phi i64 [ 2, %1 ], [ %30, %15 ]
-  %18 = getelementptr inbounds i8, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %17
   store i16 %16, ptr %18, align 1, !tbaa.struct !87
   %19 = getelementptr i8, ptr %5, i64 %17
   %20 = load i16, ptr %4, align 1
@@ -306,96 +306,96 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   br i1 %31, label %32, label %15, !llvm.loop !88
 
 32:                                               ; preds = %15
-  %33 = getelementptr inbounds i8, ptr %4, i64 64
-  %34 = getelementptr inbounds i8, ptr %4, i64 128
-  %35 = getelementptr inbounds i8, ptr %4, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %4, align 1, !tbaa !13
   store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %33, align 1, !tbaa !13
   store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %34, align 1, !tbaa !13
   store <64 x i8> <i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4>, ptr %35, align 1, !tbaa !13
-  %36 = getelementptr inbounds i8, ptr %4, i64 256
-  %37 = getelementptr inbounds i8, ptr %4, i64 320
-  %38 = getelementptr inbounds i8, ptr %4, i64 384
-  %39 = getelementptr inbounds i8, ptr %4, i64 448
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 256
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 320
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 384
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 448
   store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %36, align 1, !tbaa !13
   store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %37, align 1, !tbaa !13
   store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %38, align 1, !tbaa !13
   store <64 x i8> <i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7, i8 3, i8 7>, ptr %39, align 1, !tbaa !13
-  %40 = getelementptr inbounds i8, ptr %4, i64 512
-  %41 = getelementptr inbounds i8, ptr %4, i64 576
-  %42 = getelementptr inbounds i8, ptr %4, i64 640
-  %43 = getelementptr inbounds i8, ptr %4, i64 704
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 512
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 576
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 640
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 704
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %40, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %41, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %42, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %43, align 1, !tbaa !13
-  %44 = getelementptr inbounds i8, ptr %4, i64 768
-  %45 = getelementptr inbounds i8, ptr %4, i64 832
-  %46 = getelementptr inbounds i8, ptr %4, i64 896
-  %47 = getelementptr inbounds i8, ptr %4, i64 960
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 768
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 832
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 896
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 960
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %44, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %45, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %46, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6, i8 2, i8 6>, ptr %47, align 1, !tbaa !13
-  %48 = getelementptr inbounds i8, ptr %4, i64 1024
-  %49 = getelementptr inbounds i8, ptr %4, i64 1088
-  %50 = getelementptr inbounds i8, ptr %4, i64 1152
-  %51 = getelementptr inbounds i8, ptr %4, i64 1216
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1024
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 1088
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 1152
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 1216
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %48, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %49, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %50, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %51, align 1, !tbaa !13
-  %52 = getelementptr inbounds i8, ptr %4, i64 1280
-  %53 = getelementptr inbounds i8, ptr %4, i64 1344
-  %54 = getelementptr inbounds i8, ptr %4, i64 1408
-  %55 = getelementptr inbounds i8, ptr %4, i64 1472
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 1280
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 1344
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 1408
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 1472
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %52, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %53, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %54, align 1, !tbaa !13
   store <64 x i8> <i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5, i8 2, i8 5>, ptr %55, align 1, !tbaa !13
-  %56 = getelementptr inbounds i8, ptr %4, i64 1536
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 1536
   store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %56, align 1, !tbaa !13
-  %57 = getelementptr inbounds i8, ptr %4, i64 1568
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 1568
   store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %57, align 1, !tbaa !13
-  %58 = getelementptr inbounds i8, ptr %4, i64 1600
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 1600
   store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %58, align 1, !tbaa !13
-  %59 = getelementptr inbounds i8, ptr %4, i64 1632
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 1632
   store <32 x i8> <i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3, i8 4, i8 3>, ptr %59, align 1, !tbaa !13
-  %60 = getelementptr inbounds i8, ptr %4, i64 1664
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 1664
   store <32 x i8> <i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0, i8 6, i8 0>, ptr %60, align 1, !tbaa !13
-  %61 = getelementptr inbounds i8, ptr %4, i64 1696
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 1696
   store <32 x i8> <i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 7, i8 9, i8 8, i8 10, i8 8, i8 10, i8 8, i8 10, i8 8, i8 10, i8 9, i8 11, i8 9, i8 11, i8 10, i8 12, i8 10, i8 13>, ptr %61, align 1, !tbaa !13
-  %62 = getelementptr inbounds i8, ptr %4, i64 1728
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 1728
   store <32 x i8> <i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1>, ptr %62, align 1, !tbaa !13
-  %63 = getelementptr inbounds i8, ptr %4, i64 1760
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 1760
   store <32 x i8> <i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1, i8 5, i8 1>, ptr %63, align 1, !tbaa !13
-  %64 = getelementptr inbounds i8, ptr %4, i64 1792
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 1792
   store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %64, align 1, !tbaa !13
-  %65 = getelementptr inbounds i8, ptr %4, i64 1824
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 1824
   store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %65, align 1, !tbaa !13
-  %66 = getelementptr inbounds i8, ptr %4, i64 1856
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 1856
   store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %66, align 1, !tbaa !13
-  %67 = getelementptr inbounds i8, ptr %4, i64 1888
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 1888
   store <32 x i8> <i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8, i8 4, i8 8>, ptr %67, align 1, !tbaa !13
-  %68 = getelementptr inbounds i8, ptr %4, i64 1920
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 1920
   store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %68, align 1, !tbaa !13
-  %69 = getelementptr inbounds i8, ptr %4, i64 1952
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 1952
   store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %69, align 1, !tbaa !13
-  %70 = getelementptr inbounds i8, ptr %4, i64 1984
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 1984
   store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %70, align 1, !tbaa !13
-  %71 = getelementptr inbounds i8, ptr %4, i64 2016
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 2016
   store <32 x i8> <i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2, i8 4, i8 2>, ptr %71, align 1, !tbaa !13
   %72 = load ptr, ptr %0, align 8, !tbaa !6
-  %73 = getelementptr inbounds i8, ptr %72, i64 560
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 560
   %74 = load ptr, ptr %73, align 8, !tbaa !90, !noalias !91, !nonnull !94, !noundef !94
-  %75 = getelementptr inbounds i8, ptr %72, i64 584
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 584
   %76 = load i32, ptr %75, align 8, !tbaa !16, !noalias !91
-  %77 = getelementptr inbounds i8, ptr %72, i64 600
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 600
   %78 = load i32, ptr %77, align 8, !tbaa !95, !noalias !91
   %79 = mul nsw i32 %78, %76
-  %80 = getelementptr inbounds i8, ptr %72, i64 604
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 604
   %81 = load i32, ptr %80, align 4, !tbaa !96, !noalias !91
-  %82 = getelementptr inbounds i8, ptr %72, i64 48
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %83 = load i32, ptr %82, align 8, !tbaa !97, !noalias !91
   %84 = ashr i32 %83, 1
   %85 = mul nuw nsw i32 %84, %81
@@ -420,9 +420,9 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %97 = icmp eq i32 %96, 0
   tail call void @llvm.assume(i1 %97)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %98 = getelementptr inbounds i8, ptr %0, i64 32
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %99 = load i32, ptr %98, align 8, !tbaa !98
-  %100 = getelementptr inbounds i8, ptr %0, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %101 = load i32, ptr %100, align 8, !tbaa !103
   %102 = icmp samesign uge i32 %101, %99
   tail call void @llvm.assume(i1 %102)
@@ -439,11 +439,11 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   br i1 %110, label %234, label %111
 
 111:                                              ; preds = %32
-  %112 = getelementptr inbounds i8, ptr %0, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !104, !nonnull !94, !noundef !94
   %114 = icmp sgt i32 %105, -1
   tail call void @llvm.assume(i1 %114)
-  %115 = getelementptr inbounds i8, ptr %113, i64 %106
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 %106
   store i32 0, ptr %2, align 4
   %116 = icmp samesign ult i32 %105, 4
   br i1 %116, label %234, label %117
@@ -498,7 +498,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %146 = trunc i64 %145 to i32
   %147 = add i32 %79, %146
   %148 = icmp ule i32 %147, %85
-  %149 = getelementptr inbounds i16, ptr %74, i64 %145
+  %149 = getelementptr inbounds nuw i16, ptr %74, i64 %145
   br label %150
 
 150:                                              ; preds = %226, %144
@@ -518,7 +518,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
 
 160:                                              ; preds = %157
   %161 = zext nneg i32 %154 to i64
-  %162 = getelementptr inbounds i8, ptr %115, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %115, i64 %161
   br label %174
 
 163:                                              ; preds = %157
@@ -534,7 +534,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %170 = icmp ult i32 %169, 5
   tail call void @llvm.assume(i1 %170)
   %171 = zext nneg i32 %166 to i64
-  %172 = getelementptr inbounds i8, ptr %115, i64 %171
+  %172 = getelementptr inbounds nuw i8, ptr %115, i64 %171
   %173 = zext nneg i32 %169 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr nonnull align 1 %172, i64 %173, i1 false)
   br label %174
@@ -556,7 +556,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %186 = phi i64 [ %183, %174 ], [ %152, %150 ]
   %187 = phi i32 [ %179, %174 ], [ %153, %150 ]
   %188 = lshr i64 %186, 54
-  %189 = getelementptr inbounds %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %4, i64 %188
+  %189 = getelementptr inbounds nuw %"struct.rawspeed::SamsungV1Decompressor::encTableItem", ptr %4, i64 %188
   %190 = load i8, ptr %189, align 1, !tbaa !107
   %191 = zext nneg i8 %190 to i32
   %192 = icmp ult i8 %190, 33
@@ -566,7 +566,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %194 = sub nsw i32 %187, %191
   %195 = zext nneg i8 %190 to i64
   %196 = shl i64 %186, %195
-  %197 = getelementptr inbounds i8, ptr %189, i64 1
+  %197 = getelementptr inbounds nuw i8, ptr %189, i64 1
   %198 = load i8, ptr %197, align 1, !tbaa !109
   %199 = icmp eq i8 %198, 0
   br i1 %199, label %217, label %200
@@ -598,7 +598,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
   %219 = phi i64 [ %196, %184 ], [ %211, %200 ]
   %220 = phi i32 [ 0, %184 ], [ %216, %200 ]
   %221 = and i64 %151, 1
-  %222 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %221
+  %222 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !14
   %224 = add nsw i32 %223, %220
   store i32 %224, ptr %222, align 4, !tbaa !14
@@ -607,7 +607,7 @@ define hidden void @_ZNK8rawspeed21SamsungV1Decompressor10decompressEv(ptr nocap
 
 226:                                              ; preds = %217
   tail call void @llvm.assume(i1 %148)
-  %227 = getelementptr inbounds i16, ptr %149, i64 %151
+  %227 = getelementptr inbounds nuw i16, ptr %149, i64 %151
   %228 = trunc nuw nsw i32 %224 to i16
   store i16 %228, ptr %227, align 2, !tbaa !105
   %229 = add nuw nsw i64 %151, 1
@@ -681,10 +681,10 @@ declare void @llvm.assume(i1 noundef) #5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !84
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !13
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %11, label %8
@@ -706,7 +706,7 @@ define linkonce_odr hidden void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_pol
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr %0, align 8, !tbaa !84
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(16) %0) #17
   br label %20

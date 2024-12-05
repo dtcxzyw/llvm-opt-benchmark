@@ -27,7 +27,7 @@ define void @_Z10print_timeP8_IO_FILEP23gmx_walltime_accountinglPK10t_inputrecPK
   %11 = call i32 @fputs(ptr noundef %10, ptr noundef %0)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #6
   %12 = call i32 @fflush(ptr noundef %0)
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %.not = icmp slt i64 %2, %15
@@ -37,13 +37,13 @@ define void @_Z10print_timeP8_IO_FILEP23gmx_walltime_accountinglPK10t_inputrecPK
   %17 = call noundef double @_Z11gmx_gettimev()
   %18 = call noundef double @_Z40walltime_accounting_get_start_time_stampP23gmx_walltime_accounting(ptr noundef %1)
   %19 = fsub double %17, %18
-  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %2, 1
   %23 = sub i64 %22, %21
   %24 = sitofp i64 %23 to double
   %25 = fdiv double %19, %24
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = sub i64 %21, %2
   %29 = add i64 %28, %27
@@ -84,7 +84,7 @@ define void @_Z10print_timeP8_IO_FILEP23gmx_walltime_accountinglPK10t_inputrecPK
   br label %58
 
 49:                                               ; preds = %16
-  %50 = getelementptr inbounds i8, ptr %3, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %51 = load double, ptr %50, align 8
   %52 = fdiv double %51, 1.000000e+03
   %53 = fmul double %52, 2.400000e+01
@@ -155,7 +155,7 @@ define void @_Z11print_startP8_IO_FILEPK9t_commrecP23gmx_walltime_accountingPKc(
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca [4096 x i8], align 16
   %8 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.7, ptr noundef %3) #6
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = tail call noundef double @_Z40walltime_accounting_get_start_time_stampP23gmx_walltime_accounting(ptr noundef %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)

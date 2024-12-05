@@ -48,23 +48,23 @@ land.lhs.true:                                    ; preds = %entry
 
 if.then:                                          ; preds = %land.lhs.true
   store i64 %type_url_prefix.coerce0, ptr %ref.tmp, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr %type_url_prefix.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i, align 8
   store i64 %message_name.coerce0, ptr %ref.tmp3, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i2 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i2 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   store ptr %message_name.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i2, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3)
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %entry
   store i64 %type_url_prefix.coerce0, ptr %ref.tmp5, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i3 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   store ptr %type_url_prefix.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i3, align 8
   store i64 1, ptr %ref.tmp7, align 8
-  %2 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %ref.tmp7, i64 8
   store ptr @.str, ptr %2, align 8
   store i64 %message_name.coerce0, ptr %ref.tmp8, align 8
-  %pc.sroa.2.0.piece_.sroa_idx.i4 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store ptr %message_name.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i4, align 8
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8)
   br label %return
@@ -88,7 +88,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %this, align 8
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %type_name, align 8
-  %agg.tmp.sroa.2.0.type_name.sroa_idx = getelementptr inbounds i8, ptr %type_name, i64 8
+  %agg.tmp.sroa.2.0.type_name.sroa_idx = getelementptr inbounds nuw i8, ptr %type_name, i64 8
   %agg.tmp.sroa.2.0.copyload = load ptr, ptr %agg.tmp.sroa.2.0.type_name.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %ref.tmp3.i)
@@ -107,23 +107,23 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   store i64 %type_url_prefix.coerce0, ptr %ref.tmp.i, align 8, !noalias !4
-  %pc.sroa.2.0.piece_.sroa_idx.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr %type_url_prefix.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i.i, align 8, !noalias !4
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %ref.tmp3.i, align 8, !noalias !4
-  %pc.sroa.2.0.piece_.sroa_idx.i2.i = getelementptr inbounds i8, ptr %ref.tmp3.i, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp3.i, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload, ptr %pc.sroa.2.0.piece_.sroa_idx.i2.i, align 8, !noalias !4
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3.i)
   br label %_ZN6google8protobuf8internal10GetTypeUrlB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES5_.exit
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %entry
   store i64 %type_url_prefix.coerce0, ptr %ref.tmp5.i, align 8, !noalias !4
-  %pc.sroa.2.0.piece_.sroa_idx.i3.i = getelementptr inbounds i8, ptr %ref.tmp5.i, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i3.i = getelementptr inbounds nuw i8, ptr %ref.tmp5.i, i64 8
   store ptr %type_url_prefix.coerce1, ptr %pc.sroa.2.0.piece_.sroa_idx.i3.i, align 8, !noalias !4
   store i64 1, ptr %ref.tmp7.i, align 8, !noalias !4
-  %3 = getelementptr inbounds i8, ptr %ref.tmp7.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp7.i, i64 8
   store ptr @.str, ptr %3, align 8, !noalias !4
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %ref.tmp8.i, align 8, !noalias !4
-  %pc.sroa.2.0.piece_.sroa_idx.i4.i = getelementptr inbounds i8, ptr %ref.tmp8.i, i64 8
+  %pc.sroa.2.0.piece_.sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %ref.tmp8.i, i64 8
   store ptr %agg.tmp.sroa.2.0.copyload, ptr %pc.sroa.2.0.piece_.sroa_idx.i4.i, align 8, !noalias !4
   call void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp5.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp7.i, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8.i)
   br label %_ZN6google8protobuf8internal10GetTypeUrlB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES5_.exit
@@ -139,7 +139,7 @@ _ZN6google8protobuf8internal10GetTypeUrlB5cxx11ESt17basic_string_viewIcSt11char_
 
 invoke.cont:                                      ; preds = %_ZN6google8protobuf8internal10GetTypeUrlB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES5_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #8
-  %value_ = getelementptr inbounds i8, ptr %this, i64 8
+  %value_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load ptr, ptr %value_, align 8
   %call = call noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %arena)
   %call3 = call noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %message, ptr noundef %call)
@@ -202,7 +202,7 @@ _ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt
   br i1 %cmp9.i.i, label %if.end, label %return
 
 if.end:                                           ; preds = %land.rhs.i, %_ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %value_ = getelementptr inbounds i8, ptr %this, i64 8
+  %value_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load ptr, ptr %value_, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
@@ -307,7 +307,7 @@ if.then3:                                         ; preds = %if.end
   %2 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %1, ptr %2) #8
   %3 = load i64, ptr %agg.tmp.i, align 8
-  %4 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 %3, ptr %5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp7)
           to label %invoke.cont unwind label %lpad
@@ -334,7 +334,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit: ; preds = %if.end
   %8 = extractvalue { i64, ptr } %call.i16, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i12, i64 %7, ptr %8) #8
   %9 = load i64, ptr %agg.tmp.i12, align 8
-  %10 = getelementptr inbounds i8, ptr %agg.tmp.i12, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %agg.tmp.i12, i64 8
   %11 = load ptr, ptr %10, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp10, i64 %9, ptr %11, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14)
           to label %invoke.cont16 unwind label %lpad15

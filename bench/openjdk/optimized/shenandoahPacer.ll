@@ -75,7 +75,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer14setup_for_markEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load volatile i64, ptr %2, align 8
   %4 = icmp eq i64 %3, -1
   br i1 %4, label %5, label %13
@@ -84,7 +84,7 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_markEv(ptr noundef nonnull a
   store volatile i64 0, ptr %2, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(2657) %6) #8
   %11 = uitofp i64 %10 to double
@@ -92,12 +92,12 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_markEv(ptr noundef nonnull a
   br label %_ZN15ShenandoahPacer31update_and_get_progress_historyEv.exit
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load volatile i64, ptr %2, align 8
   %17 = sitofp i64 %16 to double
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(72) %15, double noundef %17) #8
   store volatile i64 0, ptr %2, align 8
@@ -110,11 +110,11 @@ _ZN15ShenandoahPacer31update_and_get_progress_historyEv.exit: ; preds = %5, %13
   %.0.in.i = phi double [ %12, %5 ], [ %23, %13 ]
   %.0.i = fptoui double %.0.in.i to i64
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1656
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1656
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 144
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 144
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 160
   %30 = load i64, ptr %29, align 8
   %31 = sub i64 %28, %30
   %32 = load i64, ptr @ShenandoahPacingCycleSlack, align 8
@@ -130,14 +130,14 @@ _ZN15ShenandoahPacer31update_and_get_progress_historyEv.exit: ; preds = %5, %13
   %42 = fmul double %40, %41
   %43 = fptoui double %42 to i64
   %44 = lshr i64 %43, 3
-  %45 = getelementptr inbounds i8, ptr %0, i64 272
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %46 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %44, ptr nonnull %45) #8, !srcloc !6
-  %47 = getelementptr inbounds i8, ptr %0, i64 200
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %48 = bitcast double %40 to i64
   store volatile i64 %48, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 192
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %50 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %49) #8, !srcloc !7
-  %51 = getelementptr inbounds i8, ptr %0, i64 96
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %52 = load volatile i8, ptr %51, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %53 = icmp eq i8 %52, 1
@@ -148,7 +148,7 @@ _ZN15ShenandoahPacer31update_and_get_progress_historyEv.exit: ; preds = %5, %13
   br label %_ZN15ShenandoahPacer12restart_withEmd.exit
 
 _ZN15ShenandoahPacer12restart_withEmd.exit:       ; preds = %_ZN15ShenandoahPacer31update_and_get_progress_historyEv.exit, %54
-  %56 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %56 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %56, null
   br i1 %.not, label %82, label %57
 
@@ -237,7 +237,7 @@ _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread42, %_Z24byt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN15ShenandoahPacer31update_and_get_progress_historyEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load volatile i64, ptr %2, align 8
   %4 = icmp eq i64 %3, -1
   br i1 %4, label %5, label %13
@@ -246,7 +246,7 @@ define hidden noundef i64 @_ZN15ShenandoahPacer31update_and_get_progress_history
   store volatile i64 0, ptr %2, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(2657) %6) #8
   %11 = uitofp i64 %10 to double
@@ -254,12 +254,12 @@ define hidden noundef i64 @_ZN15ShenandoahPacer31update_and_get_progress_history
   br label %24
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load volatile i64, ptr %2, align 8
   %17 = sitofp i64 %16 to double
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(72) %15, double noundef %17) #8
   store volatile i64 0, ptr %2, align 8
@@ -280,14 +280,14 @@ define hidden void @_ZN15ShenandoahPacer12restart_withEmd(ptr noundef nonnull al
   %5 = fmul double %2, %4
   %6 = fptoui double %5 to i64
   %7 = lshr i64 %6, 3
-  %8 = getelementptr inbounds i8, ptr %0, i64 272
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %9 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %7, ptr nonnull %8) #8, !srcloc !6
-  %10 = getelementptr inbounds i8, ptr %0, i64 200
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %11 = bitcast double %2 to i64
   store volatile i64 %11, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 192
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %12) #8, !srcloc !7
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %15 = load volatile i8, ptr %14, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %16 = icmp eq i8 %15, 1
@@ -313,15 +313,15 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer14setup_for_evacEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 2440
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 2440
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 1656
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 1656
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 %10, %12
   %14 = load i64, ptr @ShenandoahPacingCycleSlack, align 8
@@ -340,14 +340,14 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_evacEv(ptr noundef nonnull a
   %27 = fmul double %25, %26
   %28 = fptoui double %27 to i64
   %29 = lshr i64 %28, 3
-  %30 = getelementptr inbounds i8, ptr %0, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %31 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, ptr nonnull %30) #8, !srcloc !6
-  %32 = getelementptr inbounds i8, ptr %0, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %33 = bitcast double %25 to i64
   store volatile i64 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %34) #8, !srcloc !7
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load volatile i8, ptr %36, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %38 = icmp eq i8 %37, 1
@@ -358,7 +358,7 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_evacEv(ptr noundef nonnull a
   br label %_ZN15ShenandoahPacer12restart_withEmd.exit
 
 _ZN15ShenandoahPacer12restart_withEmd.exit:       ; preds = %1, %39
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %67, label %42
 
@@ -449,15 +449,15 @@ _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread42, %_Z24byt
 define hidden void @_ZN15ShenandoahPacer20setup_for_updaterefsEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(2657) %2) #8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1656
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1656
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 160
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %11, %13
   %15 = load i64, ptr @ShenandoahPacingCycleSlack, align 8
@@ -475,14 +475,14 @@ define hidden void @_ZN15ShenandoahPacer20setup_for_updaterefsEv(ptr noundef non
   %27 = fmul double %25, %26
   %28 = fptoui double %27 to i64
   %29 = lshr i64 %28, 3
-  %30 = getelementptr inbounds i8, ptr %0, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %31 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, ptr nonnull %30) #8, !srcloc !6
-  %32 = getelementptr inbounds i8, ptr %0, i64 200
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %33 = bitcast double %25 to i64
   store volatile i64 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 192
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %35 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %34) #8, !srcloc !7
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %37 = load volatile i8, ptr %36, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %38 = icmp eq i8 %37, 1
@@ -493,7 +493,7 @@ define hidden void @_ZN15ShenandoahPacer20setup_for_updaterefsEv(ptr noundef non
   br label %_ZN15ShenandoahPacer12restart_withEmd.exit
 
 _ZN15ShenandoahPacer12restart_withEmd.exit:       ; preds = %1, %39
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %67, label %42
 
@@ -584,7 +584,7 @@ _Z25proper_unit_for_byte_sizem.exit29:            ; preds = %.thread42, %_Z24byt
 define hidden void @_ZN15ShenandoahPacer14setup_for_idleEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(2657) %2) #8
   %7 = udiv i64 %6, 100
@@ -593,13 +593,13 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_idleEv(ptr noundef nonnull a
   %10 = uitofp i64 %9 to double
   %11 = fptoui double %10 to i64
   %12 = lshr i64 %11, 3
-  %13 = getelementptr inbounds i8, ptr %0, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %14 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %13) #8, !srcloc !6
-  %15 = getelementptr inbounds i8, ptr %0, i64 200
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store volatile i64 4607182418800017408, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %16) #8, !srcloc !7
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %19 = load volatile i8, ptr %18, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %20 = icmp eq i8 %19, 1
@@ -610,7 +610,7 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_idleEv(ptr noundef nonnull a
   br label %_ZN15ShenandoahPacer12restart_withEmd.exit
 
 _ZN15ShenandoahPacer12restart_withEmd.exit:       ; preds = %1, %21
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %33, label %24
 
@@ -651,19 +651,19 @@ _Z25proper_unit_for_byte_sizem.exit:              ; preds = %.thread, %_Z24byte_
 define hidden void @_ZN15ShenandoahPacer15setup_for_resetEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(2657) %2) #8
   %7 = uitofp i64 %6 to double
   %8 = fptoui double %7 to i64
   %9 = lshr i64 %8, 3
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %11 = tail call noundef i64 asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %9, ptr nonnull %10) #8, !srcloc !6
-  %12 = getelementptr inbounds i8, ptr %0, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store volatile i64 4607182418800017408, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 192
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %14 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %13) #8, !srcloc !7
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %16 = load volatile i8, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %17 = icmp eq i8 %16, 1
@@ -674,7 +674,7 @@ define hidden void @_ZN15ShenandoahPacer15setup_for_resetEv(ptr noundef nonnull 
   br label %_ZN15ShenandoahPacer12restart_withEmd.exit
 
 _ZN15ShenandoahPacer12restart_withEmd.exit:       ; preds = %1, %18
-  %20 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %20 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %30, label %21
 
@@ -716,13 +716,13 @@ declare noundef double @_ZNK6AbsSeq3avgEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN15ShenandoahPacer15claim_for_allocEmb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = getelementptr inbounds i8, ptr %0, i64 200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load volatile i64, ptr %5, align 8
   %7 = bitcast i64 %6 to double
   %8 = fmul double %4, %7
   %9 = fptosi double %8 to i64
   %10 = tail call noundef i64 @llvm.smax.i64(i64 %9, i64 1)
-  %11 = getelementptr inbounds i8, ptr %0, i64 272
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br i1 %2, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %.split.us
@@ -750,20 +750,20 @@ define hidden noundef zeroext i1 @_ZN15ShenandoahPacer15claim_for_allocEmb(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load volatile i64, ptr %4, align 8
   %.not = icmp eq i64 %5, %1
   br i1 %.not, label %6, label %_ZN15ShenandoahPacer10add_budgetEm.exit
 
 6:                                                ; preds = %3
   %7 = uitofp i64 %2 to double
-  %8 = getelementptr inbounds i8, ptr %0, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load volatile i64, ptr %8, align 8
   %10 = bitcast i64 %9 to double
   %11 = fmul double %7, %10
   %12 = fptoui double %11 to i64
   %13 = tail call noundef i64 @llvm.umax.i64(i64 %12, i64 1)
-  %14 = getelementptr inbounds i8, ptr %0, i64 272
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %15 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %13, ptr nonnull %14) #8, !srcloc !7
   %16 = add nsw i64 %13, %15
   %17 = icmp sgt i64 %16, -1
@@ -772,7 +772,7 @@ define hidden void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnul
   br i1 %or.cond.i, label %19, label %_ZN15ShenandoahPacer10add_budgetEm.exit
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds i8, ptr %0, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %21 = load volatile i8, ptr %20, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %22 = icmp eq i8 %21, 1
@@ -788,7 +788,7 @@ _ZN15ShenandoahPacer10add_budgetEm.exit:          ; preds = %23, %19, %6, %3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i64 @_ZN15ShenandoahPacer5epochEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load volatile i64, ptr %2, align 8
   ret i64 %3
 }
@@ -796,13 +796,13 @@ define hidden noundef i64 @_ZN15ShenandoahPacer5epochEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer14pace_for_allocEm(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = uitofp i64 %1 to double
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load volatile i64, ptr %4, align 8
   %6 = bitcast i64 %5 to double
   %7 = fmul double %3, %6
   %8 = fptosi double %7 to i64
   %9 = tail call noundef i64 @llvm.smax.i64(i64 %8, i64 1)
-  %10 = getelementptr inbounds i8, ptr %0, i64 272
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %.split.i
 
 .split.i:                                         ; preds = %12, %2
@@ -834,14 +834,14 @@ _ZN15ShenandoahPacer15claim_for_allocEmb.exit:    ; preds = %.split.i
 _ZN15ShenandoahPacer15claim_for_allocEmb.exit18:  ; preds = %.split.us.i
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1144
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1144
   %26 = load volatile i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 2
   br i1 %27, label %_ZN15ShenandoahPacer15claim_for_allocEmb.exit.thread, label %28
 
 28:                                               ; preds = %_ZN15ShenandoahPacer15claim_for_allocEmb.exit18
   %29 = load ptr, ptr %24, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 160
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(1800) %24) #8
   br i1 %32, label %33, label %_ZN15ShenandoahPacer15claim_for_allocEmb.exit.thread
@@ -849,7 +849,7 @@ _ZN15ShenandoahPacer15claim_for_allocEmb.exit18:  ; preds = %.split.us.i
 33:                                               ; preds = %28
   %34 = tail call noundef double @_ZN2os11elapsedTimeEv() #8
   %35 = load i64, ptr @ShenandoahPacingMaxDelay, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %37
 
 37:                                               ; preds = %51, %33
@@ -887,7 +887,7 @@ _ZN15ShenandoahPacer4waitEm.exit:                 ; preds = %_ZN13MonitorLockerC
 
 54:                                               ; preds = %51, %_ZN15ShenandoahPacer4waitEm.exit
   %55 = load ptr, ptr %23, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 88
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 88
   %57 = load double, ptr %56, align 8
   %58 = fadd double %47, %57
   store double %58, ptr %56, align 8
@@ -901,7 +901,7 @@ declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer4waitEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, label %6
@@ -925,7 +925,7 @@ declare noundef zeroext i1 @_ZN7Monitor4waitEm(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer14notify_waitersEv(ptr noundef nonnull align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load volatile i8, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %4 = icmp eq i8 %3, 1
@@ -937,7 +937,7 @@ _ZN20ShenandoahSharedFlag9try_unsetEv.exit:       ; preds = %1
   br i1 %6, label %7, label %_ZN13MonitorLockerD2Ev.exit
 
 7:                                                ; preds = %_ZN20ShenandoahSharedFlag9try_unsetEv.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread, label %10
@@ -962,21 +962,21 @@ declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15ShenandoahPacer20flush_stats_to_cycleEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(480) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.JavaThreadIteratorWithHandle, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %5) #8
-  %6 = getelementptr inbounds i8, ptr %2, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %.not.i7.not = icmp eq i32 %10, 0
   br i1 %.not.i7.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph: ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.lr.ph, %21
@@ -986,7 +986,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
   store i32 %13, ptr %6, align 8
   %14 = load ptr, ptr %11, align 8
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %21
@@ -995,13 +995,13 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %.0.lcssa = phi double [ 0.000000e+00, %1 ], [ %24, %21 ], [ %.08, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #8
   %18 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1680
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1680
   %20 = load ptr, ptr %19, align 8
   call void @_ZN22ShenandoahPhaseTimings17record_phase_timeENS_5PhaseEd(ptr noundef nonnull align 8 dereferenceable(30352) %20, i32 noundef 304, double noundef %.0.lcssa) #8
   ret void
 
 21:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
-  %22 = getelementptr inbounds i8, ptr %17, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %23 = load double, ptr %22, align 8
   %24 = fadd double %.08, %23
   %25 = load i32, ptr %9, align 4
@@ -1024,21 +1024,21 @@ define hidden void @_ZN15ShenandoahPacer14print_cycle_onEP12outputStream(ptr noc
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %5
   %6 = tail call noundef double @_ZN2os11elapsedTimeEv() #8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
   %9 = fsub double %6, %8
   store double %6, ptr %7, align 8
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8) #8
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %12 = load ptr, ptr %11, align 8
   call void @_ZN17ThreadsListHandleC1EP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef %12) #8
-  %13 = getelementptr inbounds i8, ptr %3, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
   %.not.i50.not = icmp eq i32 %17, 0
   %.pre60 = fmul double %9, 1.000000e+03
@@ -1052,10 +1052,10 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN11MutexLockerC2E
   %.04151 = phi double [ %.142, %43 ], [ 0.000000e+00, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit ]
   %20 = add nuw i32 %19, 1
   store i32 %20, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %19 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %29
@@ -1073,7 +1073,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   br i1 %.not45, label %55, label %49
 
 29:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
-  %30 = getelementptr inbounds i8, ptr %25, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %31 = load double, ptr %30, align 8
   %32 = fcmp ogt double %31, 0.000000e+00
   br i1 %32, label %33, label %43
@@ -1085,7 +1085,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %37 = fdiv double %31, %9
   %38 = fmul double %37, 1.000000e+02
   %39 = load ptr, ptr %25, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 168
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(1800) %25) #8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, double noundef %36, double noundef %.pre60, double noundef %38, ptr noundef %42) #8
@@ -1100,7 +1100,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
   %.1 = phi i64 [ %34, %33 ], [ %.04052, %29 ]
   %46 = add i64 %.053, 1
   store double 0.000000e+00, ptr %30, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %48 = load i32, ptr %47, align 4
   %.not.i = icmp ult i32 %45, %48
   br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !15
@@ -1145,9 +1145,9 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN33ShenandoahPeriodicPacerNotifyTask4taskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load volatile i8, ptr %4, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %6 = icmp eq i8 %5, 1
@@ -1159,7 +1159,7 @@ _ZN20ShenandoahSharedFlag9try_unsetEv.exit.i:     ; preds = %1
   br i1 %8, label %9, label %_ZN15ShenandoahPacer14notify_waitersEv.exit
 
 9:                                                ; preds = %_ZN20ShenandoahSharedFlag9try_unsetEv.exit.i
-  %10 = getelementptr inbounds i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit.thread.i, label %12

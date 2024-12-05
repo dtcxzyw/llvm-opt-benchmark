@@ -57,24 +57,24 @@ define hidden range(i32 -1, 2) i32 @autosar_dlt_open(ptr nocapture noundef %0, p
   %15 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #9
   %16 = call ptr @g_hash_table_new_full(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal, ptr noundef null, ptr noundef null) #8
   store ptr %16, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 96
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %15, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 148
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 -2, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @autosar_dlt_read, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @autosar_dlt_seek_read, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @autosar_dlt_close, ptr %24, align 8
   %25 = load i32, ptr @autosar_dlt_file_type_subtype, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %25, ptr %26, align 4
   br label %27
 
@@ -105,15 +105,15 @@ define internal range(i32 0, 2) i32 @autosar_dlt_read(ptr noundef %0, ptr nounde
   %7 = alloca %struct.autosar_dlt_params, align 8
   store ptr %0, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %13, ptr %14, align 8
   %15 = tail call i64 @file_tell(ptr noundef %8) #8
   store i64 %15, ptr %5, align 8
@@ -125,17 +125,17 @@ define internal range(i32 0, 2) i32 @autosar_dlt_read(ptr noundef %0, ptr nounde
 define internal range(i32 0, 2) i32 @autosar_dlt_seek_read(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.autosar_dlt_params, align 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %14, ptr %15, align 8
   %16 = tail call i64 @file_seek(ptr noundef %9, i64 noundef %1, i32 noundef 0, ptr noundef %4) #8
   %17 = icmp eq i64 %16, -1
@@ -152,7 +152,7 @@ define internal range(i32 0, 2) i32 @autosar_dlt_seek_read(ptr noundef %0, i64 n
 
 ; Function Attrs: nounwind uwtable
 define internal void @autosar_dlt_close(ptr nocapture noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -192,13 +192,13 @@ define internal fastcc range(i32 0, 2) i32 @autosar_dlt_read_block(ptr nocapture
   %5 = alloca ptr, align 8
   %6 = alloca %struct.autosar_dlt_blockheader, align 4
   %7 = alloca %struct.autosar_dlt_itemheader, align 2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @wtap_read_bytes_or_eof(ptr noundef %14, ptr noundef nonnull %6, i32 noundef 16, ptr noundef %2, ptr noundef %3) #8
   %.not = icmp eq i32 %15, 0
@@ -246,7 +246,7 @@ define internal fastcc range(i32 0, 2) i32 @autosar_dlt_read_block(ptr nocapture
 
 33:                                               ; preds = %25
   %34 = add i64 %27, -12
-  %35 = getelementptr inbounds i8, ptr %7, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %36 = load i16, ptr %35, align 2
   %rev.i = call i16 @llvm.bswap.i16(i16 %36)
   store i16 %rev.i, ptr %35, align 2
@@ -311,49 +311,49 @@ define internal fastcc range(i32 0, 2) i32 @autosar_dlt_read_block(ptr nocapture
   %69 = zext i16 %68 to i64
   call void @ws_buffer_append(ptr noundef %67, ptr noundef nonnull %55, i64 noundef %69) #8
   call void @g_free(ptr noundef nonnull %55) #8
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 8
   store i32 0, ptr %71, align 8
   %72 = call ptr @wtap_block_create(i32 noundef 5) #8
   %73 = load ptr, ptr %70, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 232
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 232
   store ptr %72, ptr %74, align 8
   %75 = load ptr, ptr %70, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   store i32 7, ptr %76, align 4
   %77 = load ptr, ptr %70, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store i32 6, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %6, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = zext i32 %80 to i64
   %82 = load ptr, ptr %70, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   store i64 %81, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %6, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %85 = load i32, ptr %84, align 4
   %86 = mul i32 %85, 1000
   %87 = load ptr, ptr %70, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i32 %86, ptr %88, align 8
   %89 = load i16, ptr %35, align 2
   %90 = zext i16 %89 to i32
   %91 = add nuw nsw i32 %90, 16
   %92 = load ptr, ptr %70, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 64
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 64
   store i32 %91, ptr %93, align 8
   %94 = load ptr, ptr %70, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 68
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 68
   store i32 %91, ptr %95, align 4
   %96 = load ptr, ptr %70, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
   store i32 218, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %6, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %99 = getelementptr inbounds i8, ptr %6, i64 13
-  %100 = getelementptr inbounds i8, ptr %6, i64 14
-  %101 = getelementptr inbounds i8, ptr %6, i64 15
-  %102 = getelementptr inbounds i8, ptr %0, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %6, i64 13
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 14
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 15
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %103 = load ptr, ptr %102, align 8
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
@@ -392,21 +392,21 @@ define internal fastcc range(i32 0, 2) i32 @autosar_dlt_read_block(ptr nocapture
   %130 = call ptr @wtap_block_get_mandatory_data(ptr noundef %129) #8
   store i32 218, ptr %130, align 8
   %131 = call i32 @wtap_block_add_string_option(ptr noundef %129, i32 noundef 2, ptr noundef nonnull %98, i64 noundef 4) #8
-  %132 = getelementptr inbounds i8, ptr %130, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i64 1000000000, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %130, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %130, i64 16
   store i32 9, ptr %133, align 8
   %134 = call i32 @wtap_block_add_uint8_option(ptr noundef %129, i32 noundef 9, i8 noundef zeroext 9) #8
-  %135 = getelementptr inbounds i8, ptr %130, i64 20
+  %135 = getelementptr inbounds nuw i8, ptr %130, i64 20
   store i32 262144, ptr %135, align 4
-  %136 = getelementptr inbounds i8, ptr %130, i64 24
+  %136 = getelementptr inbounds nuw i8, ptr %130, i64 24
   store i8 0, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %130, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %130, i64 32
   store ptr null, ptr %137, align 8
   %138 = load ptr, ptr %0, align 8
   call void @wtap_add_idb(ptr noundef %138, ptr noundef %129) #8
   %139 = load ptr, ptr %0, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 144
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 144
   %141 = load i32, ptr %140, align 8
   %142 = icmp eq i32 %141, 0
   %143 = load i32, ptr %130, align 8
@@ -437,7 +437,7 @@ autosar_dlt_add_interface.exit.i:                 ; preds = %.sink.split.i.i, %1
   %157 = zext i8 %156 to i32
   %158 = or disjoint i32 %155, %157
   %159 = load ptr, ptr %102, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = add i32 %161, 1
   store i32 %162, ptr %160, align 8
@@ -454,7 +454,7 @@ autosar_dlt_lookup_interface.exit:                ; preds = %66, %124, %autosar_
   %.0.i = phi i32 [ %127, %124 ], [ %161, %autosar_dlt_add_interface.exit.i ], [ 0, %66 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %170 = load ptr, ptr %70, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 76
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 76
   store i32 %.0.i, ptr %171, align 4
   br label %172
 

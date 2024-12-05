@@ -151,17 +151,17 @@ module asm ".previous\09\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @pci_vpd_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2000
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %9, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1968
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %7 = tail call zeroext i8 @pci_find_capability(ptr noundef %0, i32 noundef 3) #12
-  %8 = getelementptr inbounds i8, ptr %0, i64 2004
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2004
   store i8 %7, ptr %8, align 4
-  tail call void @__mutex_init(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull @pci_vpd_init.__key) #12
+  tail call void @__mutex_init(ptr noundef nonnull %6, ptr noundef nonnull @.str, ptr noundef nonnull @pci_vpd_init.__key) #12
   br label %9
 
 9:                                                ; preds = %5, %1
@@ -182,7 +182,7 @@ define internal zeroext i16 @vpd_attr_is_visible(ptr nocapture noundef readonly 
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i16, ptr %8, align 8
   br label %10
 
@@ -197,7 +197,7 @@ define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0
   br i1 %3, label %4, label %35
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 2000
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %7, i32 noundef 3264) #13
@@ -205,16 +205,16 @@ define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0
   br i1 %9, label %35, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1694
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 256
   %14 = icmp eq i16 %13, 0
   br i1 %14, label %25, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 248
   %21 = tail call ptr @pci_get_slot(ptr noundef %17, i32 noundef %20) #12
@@ -259,13 +259,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2004
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2004
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %98, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 2000
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 0
   %11 = and i1 %1, %10
@@ -274,10 +274,10 @@ define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 
 12:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %3, i8 0, i64 3, i1 false), !annotation !5
-  %13 = getelementptr inbounds i8, ptr %0, i64 1694
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
-  %16 = getelementptr inbounds i8, ptr %3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1694
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %17
 
 17:                                               ; preds = %.backedge, %12
@@ -318,7 +318,7 @@ define internal fastcc noundef zeroext i1 @pci_vpd_available(ptr noundef %0, i1 
   br i1 %or.cond, label %split.thread, label %thread-pre-split
 
 split.thread:                                     ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 184
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %41 = zext i8 %37 to i32
   br label %85
 
@@ -342,12 +342,12 @@ thread-pre-split:                                 ; preds = %35
   br i1 %53, label %.thread3, label %54
 
 54:                                               ; preds = %48
-  %55 = call fastcc i64 @pci_vpd_read(ptr noundef nonnull %52, i64 noundef %44, i64 noundef 2, ptr noundef %16, i1 noundef zeroext false)
+  %55 = call fastcc i64 @pci_vpd_read(ptr noundef nonnull %52, i64 noundef %44, i64 noundef 2, ptr noundef nonnull %16, i1 noundef zeroext false)
   tail call void @pci_dev_put(ptr noundef nonnull %52) #12
   br label %58
 
 56:                                               ; preds = %43
-  %57 = call fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %44, i64 noundef 2, ptr noundef %16, i1 noundef zeroext false)
+  %57 = call fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %44, i64 noundef 2, ptr noundef nonnull %16, i1 noundef zeroext false)
   br label %58
 
 58:                                               ; preds = %56, %54
@@ -356,8 +356,8 @@ thread-pre-split:                                 ; preds = %35
   br i1 %60, label %63, label %.thread3
 
 .thread3:                                         ; preds = %48, %58
-  %61 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %61, ptr noundef nonnull @.str.3, i64 noundef %44) #14
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %61, ptr noundef nonnull @.str.3, i64 noundef %44) #14
   %62 = select i1 %36, i64 4294967295, i64 %18
   br label %.thread
 
@@ -370,7 +370,7 @@ thread-pre-split:                                 ; preds = %35
 
 ._crit_edge:                                      ; preds = %63
   %.pre = load i8, ptr %3, align 1
-  %68 = getelementptr inbounds i8, ptr %0, i64 184
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %69 = zext i8 %.pre to i32
   br i1 %36, label %85, label %89
 
@@ -398,7 +398,7 @@ thread-pre-split:                                 ; preds = %35
   br label %17, !llvm.loop !6
 
 split:                                            ; preds = %73
-  %83 = getelementptr inbounds i8, ptr %0, i64 184
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %84 = zext nneg i8 %37 to i32
   br i1 %36, label %85, label %89
 
@@ -416,7 +416,7 @@ split:                                            ; preds = %73
   %.lcssa419 = phi i64 [ 4294967295, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %.lcssa1217 = phi i64 [ %.lcssa1218, %85 ], [ %18, %split ], [ %18, %._crit_edge ]
   %93 = phi ptr [ @.str.5, %85 ], [ @.str.6, %split ], [ @.str.6, %._crit_edge ]
-  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1217, ptr noundef nonnull %93) #14
+  tail call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %91, ptr noundef nonnull @.str.4, i32 noundef %90, i64 noundef %92, i64 noundef %.lcssa1217, ptr noundef nonnull %93) #14
   br label %.thread
 
 .thread:                                          ; preds = %22, %78, %32, %89, %.thread3
@@ -438,16 +438,16 @@ split:                                            ; preds = %73
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @pci_read_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1694
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
   %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
@@ -520,16 +520,16 @@ define dso_local i32 @pci_vpd_find_id_string(ptr nocapture noundef readonly %0, 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @pci_read_vpd_any(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1694
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
   %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
@@ -552,16 +552,16 @@ define dso_local i64 @pci_read_vpd_any(ptr noundef %0, i64 noundef %1, i64 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @pci_write_vpd(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1694
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
   %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
@@ -584,16 +584,16 @@ define dso_local i64 @pci_write_vpd(ptr noundef %0, i64 noundef %1, i64 noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 1694
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %6 = load i16, ptr %5, align 2
   %7 = and i16 %6, 256
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %19, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 248
   %15 = tail call ptr @pci_get_slot(ptr noundef %11, i32 noundef %14) #12
@@ -832,14 +832,14 @@ define dso_local i32 @pci_vpd_check_csum(ptr nocapture noundef readonly %0, i32 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %39, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = and i32 %3, 248
   %10 = tail call ptr @pci_get_slot(ptr noundef %8, i32 noundef %9) #12
@@ -847,37 +847,37 @@ define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
   br i1 %11, label %39, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %10, i64 2004
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 2004
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %38, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 68
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 68
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %22, label %38
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds i8, ptr %0, i64 60
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %24 = load i16, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %10, i64 60
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 60
   %26 = load i16, ptr %25, align 4
   %27 = icmp eq i16 %24, %26
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 62
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %30 = load i16, ptr %29, align 2
-  %31 = getelementptr inbounds i8, ptr %10, i64 62
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 62
   %32 = load i16, ptr %31, align 2
   %33 = icmp eq i16 %30, %32
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %0, i64 1694
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1694
   %36 = load i16, ptr %35, align 2
   %37 = or i16 %36, 256
   store i16 %37, ptr %35, align 2
@@ -893,16 +893,16 @@ define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @quirk_blacklist_vpd(ptr noundef initializes((2000, 2004)) %0) #6 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2000
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %3, ptr noundef nonnull @.str.9) #14
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %3, ptr noundef nonnull @.str.9) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define internal void @quirk_chelsio_extend_vpd(ptr nocapture noundef %0) #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 62
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
   %5 = and i32 %4, 224
@@ -920,7 +920,7 @@ define internal void @quirk_chelsio_extend_vpd(ptr nocapture noundef %0) #7 alig
 
 14:                                               ; preds = %9, %1
   %15 = phi i32 [ 8192, %1 ], [ 2048, %9 ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 2000
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   store i32 %15, ptr %16, align 8
   br label %17
 
@@ -950,16 +950,16 @@ define internal i64 @vpd_read(ptr nocapture readnone %0, ptr noundef %1, ptr noc
 20:                                               ; preds = %12, %6
   %21 = phi ptr [ %18, %12 ], [ %7, %6 ]
   tail call void @pci_config_pm_runtime_get(ptr noundef %21) #12
-  %22 = getelementptr inbounds i8, ptr %21, i64 1694
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1694
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 256
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 248
   %32 = tail call ptr @pci_get_slot(ptr noundef %28, i32 noundef %31) #12
@@ -1014,16 +1014,16 @@ define internal i64 @vpd_write(ptr nocapture readnone %0, ptr noundef %1, ptr no
 20:                                               ; preds = %12, %6
   %21 = phi ptr [ %18, %12 ], [ %7, %6 ]
   tail call void @pci_config_pm_runtime_get(ptr noundef %21) #12
-  %22 = getelementptr inbounds i8, ptr %21, i64 1694
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1694
   %23 = load i16, ptr %22, align 2
   %24 = and i16 %23, 256
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %36, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %21, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %21, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = and i32 %30, 248
   %32 = tail call ptr @pci_get_slot(ptr noundef %28, i32 noundef %31) #12
@@ -1083,7 +1083,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 1968
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %8 = add i64 %2, %1
   %9 = tail call fastcc zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext %4)
   br i1 %9, label %10, label %86
@@ -1096,7 +1096,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %4, label %13, label %17
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 2000
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   br label %17
@@ -1111,7 +1111,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   %22 = sub nuw nsw i64 %18, %1
   %23 = select i1 %21, i64 %22, i64 %2
   %24 = tail call i64 @llvm.smin.i64(i64 %8, i64 %18)
-  %25 = tail call i32 @mutex_lock_killable(ptr noundef %7) #12
+  %25 = tail call i32 @mutex_lock_killable(ptr noundef nonnull %7) #12
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %86
 
@@ -1120,14 +1120,14 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %28, label %29, label %.thread10
 
 .thread10:                                        ; preds = %27
-  tail call void @mutex_unlock(ptr noundef %7) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #12
   br label %85
 
 29:                                               ; preds = %27
   %30 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !12
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 1936
-  %33 = getelementptr inbounds i8, ptr %0, i64 2004
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1936
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2004
   br label %34
 
 34:                                               ; preds = %81, %29
@@ -1213,7 +1213,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
 .thread12:                                        ; preds = %54, %51, %.critedge, %40
   %.ph = phi i32 [ %.fr, %54 ], [ %52, %51 ], [ %49, %.critedge ], [ -4, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
-  call void @mutex_unlock(ptr noundef %7) #12
+  call void @mutex_unlock(ptr noundef nonnull %7) #12
   %80 = sext i32 %.ph to i64
   br label %86
 
@@ -1223,7 +1223,7 @@ define internal fastcc i64 @pci_vpd_read(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %82, label %34, label %.loopexit
 
 .loopexit:                                        ; preds = %81, %.thread
-  call void @mutex_unlock(ptr noundef %7) #12
+  call void @mutex_unlock(ptr noundef nonnull %7) #12
   %83 = icmp eq i32 %.fr, 0
   %84 = zext nneg i32 %.fr to i64
   br i1 %83, label %85, label %86
@@ -1249,7 +1249,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %
   %5 = add i64 %4, 125
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #12
   store i16 0, ptr %3, align 2, !annotation !5
-  %6 = getelementptr inbounds i8, ptr %0, i64 2004
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2004
   %7 = load i8, ptr %6, align 4
   %8 = zext i8 %7 to i32
   %9 = add nuw nsw i32 %8, 2
@@ -1283,8 +1283,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @pci_vpd_wait(ptr noundef %
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !15
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %30, ptr noundef nonnull @.str.8) #14
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %30, ptr noundef nonnull @.str.8) #14
   br label %.loopexit
 
 .loopexit:                                        ; preds = %20, %.preheader, %29, %2
@@ -1308,7 +1308,7 @@ declare dso_local void @usleep_range_state(i64 noundef, i64 noundef, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = alloca i16, align 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1968
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %8 = add i64 %2, %1
   %9 = tail call fastcc zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext %4)
   br i1 %9, label %10, label %75
@@ -1324,7 +1324,7 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %4, label %16, label %20
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %0, i64 2000
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
   br label %20
@@ -1335,12 +1335,12 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %22, label %75, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @mutex_lock_killable(ptr noundef %7) #12
+  %24 = tail call i32 @mutex_lock_killable(ptr noundef nonnull %7) #12
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %75
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 2004
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 2004
   %28 = icmp sgt i64 %8, %1
   br i1 %28, label %.preheader, label %.loopexit
 
@@ -1402,8 +1402,8 @@ define internal fastcc i64 @pci_vpd_write(ptr noundef %0, i64 noundef %1, i64 no
   br i1 %68, label %pci_vpd_wait.exit.thread, label %.preheader.i, !llvm.loop !15
 
 69:                                               ; preds = %56
-  %70 = getelementptr inbounds i8, ptr %0, i64 184
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %70, ptr noundef nonnull @.str.8) #14
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %70, ptr noundef nonnull @.str.8) #14
   br label %pci_vpd_wait.exit.thread
 
 pci_vpd_wait.exit.thread:                         ; preds = %45, %60, %69
@@ -1420,12 +1420,12 @@ pci_vpd_wait.exit:                                ; preds = %.preheader.i
 
 .thread:                                          ; preds = %.preheader, %37, %pci_vpd_wait.exit.thread
   %.ph5 = phi i32 [ %.ph, %pci_vpd_wait.exit.thread ], [ %35, %.preheader ], [ %43, %37 ]
-  tail call void @mutex_unlock(ptr noundef %7) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #12
   %74 = sext i32 %.ph5 to i64
   br label %75
 
 .loopexit:                                        ; preds = %pci_vpd_wait.exit, %26
-  tail call void @mutex_unlock(ptr noundef %7) #12
+  tail call void @mutex_unlock(ptr noundef nonnull %7) #12
   br label %75
 
 75:                                               ; preds = %.loopexit, %.thread, %23, %20, %10, %5

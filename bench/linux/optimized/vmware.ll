@@ -125,8 +125,8 @@ define internal noundef range(i32 0, 1073741825) i32 @vmware_platform() #1 secti
 
 5:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %1) #10
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call { i32, i32, i32, i32 } asm sideeffect "cpuid", "={ax},={bx},={cx},={dx},0,2,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1073741824, i32 0) #10, !srcloc !5
   %9 = extractvalue { i32, i32, i32, i32 } %8, 1
   %10 = extractvalue { i32, i32, i32, i32 } %8, 2

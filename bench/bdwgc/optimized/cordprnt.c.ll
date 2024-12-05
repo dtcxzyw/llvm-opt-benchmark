@@ -19,11 +19,11 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %6 = alloca [51 x i8], align 16
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %4, align 16
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %8, ptr %9, align 8
   call void @CORD_set_pos(ptr noundef nonnull %5, ptr noundef %1, i64 noundef 0) #10
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %.not186 = icmp eq i32 %11, 1431655765
   br i1 %.not186, label %.._crit_edge_crit_edge, label %.lr.ph187
@@ -33,15 +33,15 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   br label %._crit_edge
 
 .lr.ph187:                                        ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
-  %14 = getelementptr inbounds i8, ptr %5, i64 24
-  %15 = getelementptr inbounds i8, ptr %4, i64 144
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = ptrtoint ptr %8 to i64
   %.neg = add i64 %18, 128
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br label %20
 
 20:                                               ; preds = %.lr.ph187, %454
@@ -122,7 +122,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 59:                                               ; preds = %55, %58
   %60 = phi ptr [ %56, %55 ], [ %.pre203, %58 ]
-  %61 = getelementptr inbounds i8, ptr %60, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %61, ptr %9, align 8
   store i8 37, ptr %60, align 1
   br label %.loopexit
@@ -161,7 +161,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 74:                                               ; preds = %72, %65
   %.in.i = phi i8 [ %71, %65 ], [ %73, %72 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %75 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
   store i8 %.in.i, ptr %75, align 1
   switch i8 %.in.i, label %extract_conv_spec.exit.thread [
     i8 42, label %89
@@ -274,7 +274,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
   %100 = select i1 %.not49.i, i1 true, i1 %.not50.i
   %.4 = select i1 %100, i32 -1, i32 %.04558.i
   %101 = and i64 %indvars.iv.next.i, 4294967295
-  %102 = getelementptr inbounds i8, ptr %6, i64 %101
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 %101
   store i8 0, ptr %102, align 1
   %103 = load i64, ptr %12, align 16
   %.not115 = icmp eq i64 %103, 0
@@ -562,7 +562,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 262:                                              ; preds = %254
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %257, i8 32, i64 %255, i1 false)
-  %263 = getelementptr inbounds i8, ptr %257, i64 %255
+  %263 = getelementptr inbounds nuw i8, ptr %257, i64 %255
   store i8 0, ptr %263, align 1
   %.not120 = icmp eq i32 %.0144, 0
   br i1 %.not120, label %266, label %264
@@ -620,7 +620,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 290:                                              ; preds = %283, %289
   %291 = phi ptr [ %287, %283 ], [ %.pre199, %289 ]
-  %292 = getelementptr inbounds i8, ptr %291, i64 1
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 1
   store ptr %292, ptr %9, align 8
   store i8 %286, ptr %291, align 1
   br label %.loopexit
@@ -660,7 +660,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 .lr.ph:                                           ; preds = %307, %316
   %311 = phi i8 [ %319, %316 ], [ %310, %307 ]
   %.pn = phi ptr [ %312, %316 ], [ %309, %307 ]
-  %312 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %312 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %313 = load ptr, ptr %9, align 8
   %314 = icmp eq ptr %313, %15
   br i1 %314, label %315, label %316
@@ -672,7 +672,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 316:                                              ; preds = %.lr.ph, %315
   %317 = phi ptr [ %313, %.lr.ph ], [ %.pre198, %315 ]
-  %318 = getelementptr inbounds i8, ptr %317, i64 1
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 1
   store ptr %318, ptr %9, align 8
   store i8 %311, ptr %317, align 1
   %319 = load i8, ptr %312, align 1
@@ -918,7 +918,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 .lr.ph185:                                        ; preds = %.preheader, %435
   %430 = phi i8 [ %438, %435 ], [ %429, %.preheader ]
   %.pn188 = phi ptr [ %431, %435 ], [ %.073, %.preheader ]
-  %431 = getelementptr inbounds i8, ptr %.pn188, i64 1
+  %431 = getelementptr inbounds nuw i8, ptr %.pn188, i64 1
   %432 = load ptr, ptr %9, align 8
   %433 = icmp eq ptr %432, %15
   br i1 %433, label %434, label %435
@@ -930,7 +930,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 435:                                              ; preds = %.lr.ph185, %434
   %436 = phi ptr [ %432, %.lr.ph185 ], [ %.pre202, %434 ]
-  %437 = getelementptr inbounds i8, ptr %436, i64 1
+  %437 = getelementptr inbounds nuw i8, ptr %436, i64 1
   store ptr %437, ptr %9, align 8
   store i8 %430, ptr %436, align 1
   %438 = load i8, ptr %431, align 1
@@ -954,7 +954,7 @@ define i32 @CORD_vsprintf(ptr nocapture noundef writeonly %0, ptr noundef %1, pt
 
 445:                                              ; preds = %441, %444
   %446 = phi ptr [ %442, %441 ], [ %.pre, %444 ]
-  %447 = getelementptr inbounds i8, ptr %446, i64 1
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 1
   store ptr %447, ptr %9, align 8
   store i8 %.in, ptr %446, align 1
   br label %.loopexit

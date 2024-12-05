@@ -261,7 +261,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wtp_fromwtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.138) #4
   %7 = load ptr, ptr %5, align 8
@@ -273,7 +273,7 @@ define internal i32 @dissect_wtp_fromwtls(ptr noundef %0, ptr noundef %1, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_wtp_fromudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.160) #4
   %7 = load ptr, ptr %5, align 8
@@ -311,7 +311,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_wtp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 408
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 256) #4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
@@ -339,7 +339,7 @@ define internal fastcc void @dissect_wtp_common(ptr noundef %0, ptr noundef %1, 
   br i1 %18, label %.lr.ph400, label %._crit_edge401
 
 .lr.ph400:                                        ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %20
 
 20:                                               ; preds = %.lr.ph400, %38
@@ -828,7 +828,7 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
   br i1 %.not390, label %308, label %280
 
 280:                                              ; preds = %278
-  %281 = getelementptr inbounds i8, ptr %1, i64 272
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %282 = load i32, ptr %281, align 8
   store i32 1, ptr %281, align 8
   %283 = zext i16 %.0368 to i32
@@ -840,9 +840,9 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
   br i1 %.not392, label %302, label %288
 
 288:                                              ; preds = %280
-  %289 = getelementptr inbounds i8, ptr %286, i64 40
+  %289 = getelementptr inbounds nuw i8, ptr %286, i64 40
   %290 = load i32, ptr %289, align 8
-  %291 = getelementptr inbounds i8, ptr %1, i64 20
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %292 = load i32, ptr %291, align 4
   %293 = icmp eq i32 %292, %290
   br i1 %293, label %294, label %297
@@ -853,7 +853,7 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
   br label %307
 
 297:                                              ; preds = %288
-  %298 = getelementptr inbounds i8, ptr %1, i64 8
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %299 = load ptr, ptr %298, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %299, i32 noundef 25, ptr noundef nonnull @.str.157, ptr noundef %6, i32 noundef %290) #4
   %300 = load i32, ptr @hf_wtp_payload, align 4
@@ -861,7 +861,7 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
   br label %307
 
 302:                                              ; preds = %280
-  %303 = getelementptr inbounds i8, ptr %1, i64 8
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %304 = load ptr, ptr %303, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %304, i32 noundef 25, ptr noundef nonnull @.str.158, ptr noundef %6, i32 noundef %.0369) #4
   %305 = load i32, ptr @hf_wtp_payload, align 4
@@ -886,13 +886,13 @@ wtp_handle_tpi.exit:                              ; preds = %261, %253, %249, %2
   br label %321
 
 315:                                              ; preds = %308
-  %316 = getelementptr inbounds i8, ptr %1, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %317 = load ptr, ptr %316, align 8
   tail call void @col_append_str(ptr noundef %317, i32 noundef 25, ptr noundef %6) #4
   br label %321
 
 318:                                              ; preds = %267
-  %319 = getelementptr inbounds i8, ptr %1, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %320 = load ptr, ptr %319, align 8
   tail call void @col_append_str(ptr noundef %320, i32 noundef 25, ptr noundef %6) #4
   br label %321

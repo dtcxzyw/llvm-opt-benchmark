@@ -156,7 +156,7 @@ define void @AxestoTranspose(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 11:                                               ; preds = %.lr.ph56.split.us, %23
   %indvars.iv = phi i64 [ 1, %.lr.ph56.split.us ], [ %indvars.iv.next, %23 ]
   %12 = phi i32 [ %spec.select, %.lr.ph56.split.us ], [ %.sink, %23 ]
-  %13 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, %.05054.us
   %.not52.us = icmp eq i32 %15, 0
@@ -261,7 +261,7 @@ define void @AxestoTranspose(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
   %indvars.iv76 = phi i64 [ %52, %.lr.ph65.preheader ], [ %indvars.iv.next77, %.lr.ph65 ]
-  %53 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv76
+  %53 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv76
   %54 = load i32, ptr %53, align 4
   %.reass.reass = xor i32 %54, %invariant.op
   store i32 %.reass.reass, ptr %53, align 4

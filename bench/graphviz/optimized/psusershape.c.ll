@@ -147,29 +147,29 @@ user_init.exit.thread:                            ; preds = %19
 
 gv_alloc.exit.i:                                  ; preds = %._crit_edge.i.thread
   %40 = load i32, ptr %4, align 4
-  %41 = getelementptr inbounds i8, ptr %35, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 56
   store i32 %40, ptr %41, align 8
   %42 = load i32, ptr %5, align 4
-  %43 = getelementptr inbounds i8, ptr %35, i64 60
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 60
   store i32 %42, ptr %43, align 4
   %44 = load i32, ptr %6, align 4
   %45 = sub nsw i32 %44, %40
-  %46 = getelementptr inbounds i8, ptr %35, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 64
   store i32 %45, ptr %46, align 8
   %47 = load i32, ptr %7, align 4
   %48 = sub nsw i32 %47, %42
-  %49 = getelementptr inbounds i8, ptr %35, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 68
   store i32 %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %35, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %9, ptr %50, align 8
   %51 = load i32, ptr @N_EPSF_files, align 4
   %52 = add nsw i32 %51, 1
   store i32 %52, ptr @N_EPSF_files, align 4
-  %53 = getelementptr inbounds i8, ptr %35, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i32 %51, ptr %53, align 8
   %54 = call i32 @fileno(ptr noundef nonnull %20) #15
   %55 = call i32 @fstat(i32 noundef %54, ptr noundef nonnull %3) #15
-  %56 = getelementptr inbounds i8, ptr %3, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %57 = load i64, ptr %56, align 8
   %58 = add i64 %57, 1
   %.not.i.i = icmp eq i64 %58, 0
@@ -192,7 +192,7 @@ gv_alloc.exit.i:                                  ; preds = %._crit_edge.i.threa
 
 gv_calloc.exit.i:                                 ; preds = %60, %.thread.i.i
   %66 = phi ptr [ %59, %.thread.i.i ], [ %61, %60 ]
-  %67 = getelementptr inbounds i8, ptr %35, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %35, i64 80
   store ptr %66, ptr %67, align 8
   %68 = call i32 @fseek(ptr noundef nonnull %20, i64 noundef 0, i32 noundef 0)
   %69 = call i64 @fread(ptr noundef %66, i64 noundef %57, i64 noundef 1, ptr noundef nonnull %20)
@@ -225,7 +225,7 @@ user_init.exit:                                   ; preds = %gv_calloc.exit.i
   %76 = load ptr, ptr @EPSF_contents, align 8
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr %77(ptr noundef nonnull %76, ptr noundef nonnull %35, i32 noundef 1) #15
-  %79 = getelementptr inbounds i8, ptr %35, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %35, i64 28
   store i8 %34, ptr %79, align 4
   %80 = call i32 @fclose(ptr noundef nonnull %20)
   br label %user_init.exit.thread26
@@ -238,20 +238,20 @@ user_init.exit.thread26:                          ; preds = %15, %user_init.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %81 = getelementptr inbounds i8, ptr %.0.i29, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 64
   %82 = load i32, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %.0.i29, i64 68
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 68
   %84 = load i32, ptr %83, align 4
   %85 = sitofp i32 %82 to double
   %86 = fdiv double %85, 7.200000e+01
-  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
   store double %86, ptr %89, align 8
   %90 = sitofp i32 %84 to double
   %91 = fdiv double %90, 7.200000e+01
   %92 = load ptr, ptr %87, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 56
   store double %91, ptr %93, align 8
   %94 = call noalias dereferenceable_or_null(12) ptr @calloc(i64 noundef 1, i64 noundef range(i64 1, 105) 12) #17
   %95 = icmp eq ptr %94, null
@@ -265,22 +265,22 @@ user_init.exit.thread26:                          ; preds = %15, %user_init.exit
 
 gv_alloc.exit:                                    ; preds = %user_init.exit.thread26
   %99 = load ptr, ptr %87, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store ptr %94, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %.0.i29, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 24
   %102 = load i32, ptr %101, align 8
   store i32 %102, ptr %94, align 4
-  %103 = getelementptr inbounds i8, ptr %.0.i29, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 56
   %104 = load i32, ptr %103, align 8
   %.neg = sdiv i32 %82, -2
   %105 = sub i32 %.neg, %104
-  %106 = getelementptr inbounds i8, ptr %94, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 4
   store i32 %105, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %.0.i29, i64 60
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i29, i64 60
   %108 = load i32, ptr %107, align 4
   %.neg20 = sdiv i32 %84, -2
   %109 = sub i32 %.neg20, %108
-  %110 = getelementptr inbounds i8, ptr %94, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %109, ptr %110, align 4
   br label %114
 
@@ -303,9 +303,9 @@ declare ptr @agnameof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @epsf_free(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #15
   ret void
@@ -323,7 +323,7 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
 .preheader45:                                     ; preds = %3, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %3 ]
   %.147 = phi i8 [ %spec.select, %7 ], [ 1, %3 ]
-  %5 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not37 = icmp eq ptr %6, null
   br i1 %.not37, label %.critedge, label %7
@@ -351,7 +351,7 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
   %.02949 = phi ptr [ %16, %.lr.ph ], [ %2, %.preheader43 ]
   %14 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull %13) #15
   %15 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.2) #15
-  %16 = getelementptr inbounds i8, ptr %.02949, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02949, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not38 = icmp eq ptr %17, null
   br i1 %.not38, label %.loopexit44, label %.lr.ph
@@ -403,7 +403,7 @@ define void @cat_libfile(ptr noundef %0, ptr noundef readonly %1, ptr nocapture 
 
 36:                                               ; preds = %24, %34, %31, %.lr.ph52
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next54
+  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next54
   %38 = load ptr, ptr %37, align 8
   %.not39 = icmp eq ptr %38, null
   br i1 %.not39, label %.loopexit, label %.lr.ph52
@@ -430,7 +430,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
   %.not52 = icmp eq i8 %5, 0
@@ -471,18 +471,18 @@ define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) l
   ]
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.1, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.pre61 = load i8, ptr %17, align 1
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %.1, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 10
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.1, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   br label %.backedge
 
 .loopexit.loopexit:                               ; preds = %14, %14
@@ -492,7 +492,7 @@ define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) l
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %18
   %.not38 = phi i64 [ %25, %.loopexit.loopexit ], [ 1, %18 ]
-  %spec.select = getelementptr inbounds i8, ptr %.1, i64 %.not38
+  %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %.not38
   br label %.backedge
 
 .backedge:                                        ; preds = %22, %.loopexit, %.loopexit44
@@ -513,12 +513,12 @@ define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) l
 28:                                               ; preds = %.preheader
   %29 = sext i8 %27 to i32
   %30 = tail call i32 @gvputc(ptr noundef %0, i32 noundef %29) #15
-  %31 = getelementptr inbounds i8, ptr %.3, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %.pre = load i8, ptr %31, align 1
   br label %.preheader
 
 32:                                               ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %.3, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 10
   %spec.select74 = select i1 %35, i64 2, i64 1
@@ -531,7 +531,7 @@ define void @epsf_emit_body(ptr noundef %0, ptr nocapture noundef readonly %1) l
 
 .loopexit44:                                      ; preds = %32, %.loopexit44.loopexit
   %.not42.sink = phi i64 [ %37, %.loopexit44.loopexit ], [ %spec.select74, %32 ]
-  %spec.select43 = getelementptr inbounds i8, ptr %.3, i64 %.not42.sink
+  %spec.select43 = getelementptr inbounds nuw i8, ptr %.3, i64 %.not42.sink
   %38 = tail call i32 @gvputc(ptr noundef %0, i32 noundef 10) #15
   br label %.backedge
 
@@ -558,13 +558,13 @@ define void @epsf_define(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %3, %15
   %.013 = phi ptr [ %18, %15 ], [ %5, %3 ]
-  %6 = getelementptr inbounds i8, ptr %.013, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %.013, i64 28
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.013, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.013, i64 24
   %11 = load i32, ptr %10, align 8
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %11) #15
   %12 = tail call i32 @gvputs(ptr noundef %0, ptr noundef nonnull @.str.11) #15
@@ -609,14 +609,14 @@ define ptr @ps_string(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br i1 %.not.i, label %charsetOf.exit, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %.06.i, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %9 = icmp ult i8 %6, 127
   br i1 %9, label %5, label %10
 
 10:                                               ; preds = %7
   %11 = and i8 %6, -4
   %12 = icmp eq i8 %11, -64
-  %13 = getelementptr inbounds i8, ptr %.06.i, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.06.i, i64 2
   br i1 %12, label %.outer.i, label %charsetOf.exit.thread
 
 charsetOf.exit:                                   ; preds = %5
@@ -741,7 +741,7 @@ gv_calloc.exit.i.i:                               ; preds = %47, %.thread.i.i.i
   br label %60
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds [31 x i8], ptr @ps_string.xb, i64 0, i64 %22
+  %57 = getelementptr inbounds nuw [31 x i8], ptr @ps_string.xb, i64 0, i64 %22
   store i8 92, ptr %57, align 1
   %58 = load i8, ptr getelementptr inbounds (i8, ptr @ps_string.xb, i64 31), align 1
   %59 = add i8 %58, 1
@@ -759,7 +759,7 @@ gv_calloc.exit.i.i:                               ; preds = %47, %.thread.i.i.i
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %60, %56, %agxbputc.exit36
-  %66 = getelementptr inbounds i8, ptr %.0, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %67 = load i8, ptr %.0, align 1
   %68 = load i8, ptr getelementptr inbounds (i8, ptr @ps_string.xb, i64 31), align 1
   %.pr.fr.i22 = freeze i8 %68
@@ -851,7 +851,7 @@ gv_calloc.exit.i.i29:                             ; preds = %94, %.thread.i.i.i3
   br label %107
 
 103:                                              ; preds = %102
-  %104 = getelementptr inbounds [31 x i8], ptr @ps_string.xb, i64 0, i64 %69
+  %104 = getelementptr inbounds nuw [31 x i8], ptr @ps_string.xb, i64 0, i64 %69
   store i8 %67, ptr %104, align 1
   %105 = load i8, ptr getelementptr inbounds (i8, ptr @ps_string.xb, i64 31), align 1
   %106 = add i8 %105, 1
@@ -996,7 +996,7 @@ gv_calloc.exit.i:                                 ; preds = %28, %.thread.i.i
 
 37:                                               ; preds = %36
   %38 = zext i8 %.pr.fr to i64
-  %39 = getelementptr inbounds [31 x i8], ptr @ps_string.xb, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [31 x i8], ptr @ps_string.xb, i64 0, i64 %38
   store i8 %0, ptr %39, align 1
   %40 = load i8, ptr getelementptr inbounds (i8, ptr @ps_string.xb, i64 31), align 1
   %41 = add i8 %40, 1
@@ -1039,7 +1039,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal void @ps_image_free(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #15
   ret void

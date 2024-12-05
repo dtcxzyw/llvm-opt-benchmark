@@ -26,7 +26,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5Clock11clockResGetE16__w
 
 11:                                               ; preds = %2
   %12 = load i64, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = mul nsw i64 %12, 1000000000
   %16 = add nsw i64 %15, %14
@@ -72,7 +72,7 @@ define range(i32 0, -65535) i32 @_ZN8WasmEdge4Host4WASI5Clock12clockTimeGetE16__
 
 12:                                               ; preds = %3
   %13 = load i64, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = mul nsw i64 %13, 1000000000
   %17 = add nsw i64 %16, %15

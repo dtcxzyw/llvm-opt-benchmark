@@ -27,18 +27,18 @@ define dso_local noundef ptr @shm_mq_create(ptr noundef returned initializes((0,
   %3 = and i64 %1, -8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   store i8 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store volatile i64 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store volatile i64 0, ptr %6, align 8
   %7 = add i64 %3, -56
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 49
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 6, ptr %10, align 1
   ret ptr %0
 }
@@ -54,9 +54,9 @@ define dso_local void @shm_mq_set_receiver(ptr noundef %0, ptr noundef %1) local
   br label %6
 
 6:                                                ; preds = %2, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !7
   store i8 0, ptr %0, align 8
@@ -64,7 +64,7 @@ define dso_local void @shm_mq_set_receiver(ptr noundef %0, ptr noundef %1) local
   br i1 %.not8, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 36
   tail call void @SetLatch(ptr noundef nonnull %11) #11
   br label %12
 
@@ -87,9 +87,9 @@ define dso_local void @shm_mq_set_sender(ptr noundef %0, ptr noundef %1) local_u
   br label %6
 
 6:                                                ; preds = %2, %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !8
   store i8 0, ptr %0, align 8
@@ -97,7 +97,7 @@ define dso_local void @shm_mq_set_sender(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not8, label %12, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 36
   tail call void @SetLatch(ptr noundef nonnull %11) #11
   br label %12
 
@@ -116,7 +116,7 @@ define dso_local ptr @shm_mq_get_receiver(ptr noundef %0) local_unnamed_addr #0 
   br label %5
 
 5:                                                ; preds = %1, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   store i8 0, ptr %0, align 8
@@ -134,7 +134,7 @@ define dso_local ptr @shm_mq_get_sender(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %1, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   store i8 0, ptr %0, align 8
@@ -145,14 +145,14 @@ define dso_local ptr @shm_mq_get_sender(ptr noundef %0) local_unnamed_addr #0 {
 define dso_local noundef ptr @shm_mq_attach(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc(i64 noundef 88) #11
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %7, i8 0, i64 50, i1 false)
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr %8, ptr %9, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %10
@@ -182,20 +182,20 @@ define internal void @shm_mq_detach_callback(ptr nocapture readnone %0, i64 noun
   br label %7
 
 7:                                                ; preds = %5, %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @MyProc, align 8
   %11 = icmp eq ptr %9, %10
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %15
 
 15:                                               ; preds = %12, %7
   %.0.i = phi ptr [ %14, %12 ], [ %9, %7 ]
-  %16 = getelementptr inbounds i8, ptr %3, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i8 1, ptr %16, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   store i8 0, ptr %3, align 8
@@ -203,7 +203,7 @@ define internal void @shm_mq_detach_callback(ptr nocapture readnone %0, i64 noun
   br i1 %.not10.i, label %shm_mq_detach_internal.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   tail call void @SetLatch(ptr noundef nonnull %18) #11
   br label %shm_mq_detach_internal.exit
 
@@ -213,7 +213,7 @@ shm_mq_detach_internal.exit:                      ; preds = %15, %17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @shm_mq_set_handle(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -222,7 +222,7 @@ define dso_local void @shm_mq_set_handle(ptr nocapture noundef writeonly initial
 define dso_local range(i32 0, 3) i32 @shm_mq_send(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %struct.shm_mq_iovec, align 8
   store ptr %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %1, ptr %7, align 8
   %8 = call i32 @shm_mq_sendv(ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1, i1 noundef zeroext %3, i1 noundef zeroext %4)
   ret i32 %8
@@ -262,8 +262,8 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
 
 .preheader140:                                    ; preds = %._crit_edge.thread, %._crit_edge
   %.lcssa146159 = phi i64 [ 0, %._crit_edge.thread ], [ %14, %._crit_edge ]
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %22
 
 18:                                               ; preds = %._crit_edge
@@ -315,7 +315,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
   %.0103 = phi i64 [ %.1104, %88 ], [ %25, %22 ]
   %40 = sext i32 %.0106 to i64
   %41 = getelementptr %struct.shm_mq_iovec, ptr %1, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8
   %.not = icmp ult i64 %.0103, %43
   br i1 %.not, label %47, label %44
@@ -432,19 +432,19 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
 91:                                               ; preds = %44, %88
   store i64 0, ptr %17, align 8
   store i8 0, ptr %16, align 8
-  %92 = getelementptr inbounds i8, ptr %9, i64 48
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %93 = load i8, ptr %92, align 8
   %94 = trunc i8 %93 to i1
   br i1 %94, label %.loopexit, label %95
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %0, i64 73
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %97 = load i8, ptr %96, align 1
   %98 = trunc i8 %97 to i1
   br i1 %98, label %99, label %102
 
 99:                                               ; preds = %95
-  %100 = getelementptr inbounds i8, ptr %9, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %101 = load ptr, ptr %100, align 8
   br label %110
 
@@ -458,7 +458,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
   br label %106
 
 106:                                              ; preds = %102, %104
-  %107 = getelementptr inbounds i8, ptr %9, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %108 = load ptr, ptr %107, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !16
   store i8 0, ptr %9, align 8
@@ -471,21 +471,21 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
 
 110:                                              ; preds = %106, %109, %99
   %.0112 = phi ptr [ %101, %99 ], [ %108, %109 ], [ null, %106 ]
-  %.phi.trans.insert156 = getelementptr inbounds i8, ptr %0, i64 48
+  %.phi.trans.insert156 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre157 = load i64, ptr %.phi.trans.insert156, align 8
   br i1 %4, label %._crit_edge155, label %111
 
 111:                                              ; preds = %110
-  %112 = getelementptr inbounds i8, ptr %9, i64 40
+  %112 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %113 = load i64, ptr %112, align 8
   %114 = lshr i64 %113, 2
   %115 = icmp ugt i64 %.pre157, %114
   br i1 %115, label %._crit_edge155, label %.loopexit
 
 ._crit_edge155:                                   ; preds = %110, %111
-  %116 = getelementptr inbounds i8, ptr %0, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
-  %117 = getelementptr inbounds i8, ptr %9, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %118 = load volatile i64, ptr %117, align 8
   %119 = add i64 %118, %.pre157
   store volatile i64 %119, ptr %117, align 8
@@ -493,7 +493,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_sendv(ptr nocapture noundef %0, ptr
   br i1 %.not137, label %122, label %120
 
 120:                                              ; preds = %._crit_edge155
-  %121 = getelementptr inbounds i8, ptr %.0112, i64 36
+  %121 = getelementptr inbounds nuw i8, ptr %.0112, i64 36
   tail call void @SetLatch(ptr noundef nonnull %121) #11
   br label %122
 
@@ -519,21 +519,21 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define internal fastcc range(i32 0, 3) i32 @shm_mq_send_bytes(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8
   %.not83 = icmp eq i64 %1, 0
   br i1 %.not83, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
-  %11 = getelementptr inbounds i8, ptr %7, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
-  %14 = getelementptr inbounds i8, ptr %7, i64 50
-  %15 = getelementptr inbounds i8, ptr %7, i64 49
-  %16 = getelementptr inbounds i8, ptr %0, i64 73
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 49
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 73
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %19
 
 19:                                               ; preds = %.lr.ph, %74
@@ -615,7 +615,7 @@ shm_mq_get_receiver.exit:                         ; preds = %39, %41
   %52 = add i64 %51, %50
   store volatile i64 %52, ptr %11, align 8
   %53 = load ptr, ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 36
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 36
   call void @SetLatch(ptr noundef nonnull %54) #11
   store i64 0, ptr %12, align 8
   br i1 %3, label %._crit_edge, label %55
@@ -671,7 +671,7 @@ define dso_local range(i32 0, 3) i32 @shm_mq_receive(ptr nocapture noundef %0, p
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8
   store i64 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 73
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   br i1 %11, label %43, label %12
@@ -680,10 +680,10 @@ define dso_local range(i32 0, 3) i32 @shm_mq_receive(ptr nocapture noundef %0, p
   br i1 %3, label %13, label %29
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %16 = getelementptr inbounds i8, ptr %8, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %17 = load i8, ptr %16, align 8
   %18 = trunc i8 %17 to i1
   br i1 %18, label %shm_mq_counterparty_gone.exit, label %19
@@ -713,7 +713,7 @@ shm_mq_counterparty_gone.exit:                    ; preds = %13, %19, %20, %22
   br label %shm_mq_get_sender.exit
 
 shm_mq_get_sender.exit:                           ; preds = %shm_mq_counterparty_gone.exit, %24
-  %26 = getelementptr inbounds i8, ptr %8, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %27 = load ptr, ptr %26, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !10
   store i8 0, ptr %8, align 8
@@ -721,8 +721,8 @@ shm_mq_get_sender.exit:                           ; preds = %shm_mq_counterparty
   br i1 %28, label %.loopexit, label %42
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %8, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = tail call fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %8, ptr noundef nonnull %30, ptr noundef %32)
   br i1 %33, label %42, label %34
@@ -744,7 +744,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %shm_mq_get_sender.exit128
-  %41 = getelementptr inbounds i8, ptr %8, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store i8 1, ptr %41, align 8
   br label %.loopexit
 
@@ -753,9 +753,9 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br label %43
 
 43:                                               ; preds = %42, %4
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %8, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = lshr i64 %47, 2
   %49 = icmp ugt i64 %45, %48
@@ -763,29 +763,29 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 
 50:                                               ; preds = %43
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !21
-  %51 = getelementptr inbounds i8, ptr %8, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %52 = load volatile i64, ptr %51, align 8
   %53 = add i64 %52, %45
   store volatile i64 %53, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %8, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 36
   call void @SetLatch(ptr noundef nonnull %56) #11
   store i64 0, ptr %44, align 8
   br label %57
 
 57:                                               ; preds = %50, %43
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %59 = load i8, ptr %58, align 8
   %60 = trunc i8 %59 to i1
   br i1 %60, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
-  %62 = getelementptr inbounds i8, ptr %0, i64 24
-  %63 = getelementptr inbounds i8, ptr %0, i64 80
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
-  %65 = getelementptr inbounds i8, ptr %0, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i64, ptr %61, align 8
   br label %66
 
@@ -883,7 +883,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 
 ._crit_edge:                                      ; preds = %114, %85, %111, %57
   %116 = phi i64 [ 0, %57 ], [ %88, %85 ], [ %109, %111 ], [ %109, %114 ]
-  %117 = getelementptr inbounds i8, ptr %0, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %118 = load i64, ptr %117, align 8
   %119 = icmp ugt i64 %118, 1073741823
   br i1 %119, label %120, label %124
@@ -897,7 +897,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   unreachable
 
 124:                                              ; preds = %._crit_edge
-  %125 = getelementptr inbounds i8, ptr %0, i64 56
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %126 = load i64, ptr %125, align 8
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %128, label %156
@@ -925,7 +925,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br label %.loopexit
 
 138:                                              ; preds = %130
-  %139 = getelementptr inbounds i8, ptr %0, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %140 = load i64, ptr %139, align 8
   %141 = icmp ult i64 %140, %118
   br i1 %141, label %142, label %156
@@ -938,7 +938,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   %147 = shl nuw nsw i64 1, %146
   %.0.i129 = select i1 %144, i64 %118, i64 %147
   %148 = call i64 @llvm.umin.i64(i64 %.0.i129, i64 1073741823)
-  %149 = getelementptr inbounds i8, ptr %0, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %150 = load ptr, ptr %149, align 8
   %.not120 = icmp eq ptr %150, null
   br i1 %.not120, label %152, label %151
@@ -949,7 +949,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
   br label %152
 
 152:                                              ; preds = %151, %142
-  %153 = getelementptr inbounds i8, ptr %0, i64 80
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %154 = load ptr, ptr %153, align 8
   %155 = call ptr @MemoryContextAlloc(ptr noundef %154, i64 noundef %148) #11
   store ptr %155, ptr %149, align 8
@@ -958,7 +958,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 
 156:                                              ; preds = %138, %152, %124
   %157 = phi i64 [ %131, %138 ], [ %131, %152 ], [ %116, %124 ]
-  %158 = getelementptr inbounds i8, ptr %0, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %159
 
 159:                                              ; preds = %176, %156
@@ -1015,7 +1015,7 @@ shm_mq_get_sender.exit128:                        ; preds = %34, %36
 ; Function Attrs: nounwind uwtable
 define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.not12 = icmp eq ptr %2, null
   br i1 %.not12, label %.split.us, label %.split
 
@@ -1108,11 +1108,11 @@ define internal fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef %0, ptr noca
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load volatile i64, ptr %9, align 8
   %13 = load volatile i64, ptr %10, align 8
   %14 = load i64, ptr %11, align 8
@@ -1126,8 +1126,8 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture n
   br i1 %or.cond44, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %19 = getelementptr inbounds i8, ptr %6, i64 48
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1151,7 +1151,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture n
   %28 = add i64 %27, %.lcssa48
   store volatile i64 %28, ptr %10, align 8
   %29 = load ptr, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 36
   tail call void @SetLatch(ptr noundef nonnull %30) #11
   store i64 0, ptr %11, align 8
   br label %.loopexit
@@ -1182,8 +1182,8 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture n
   %40 = sub i64 %8, %.lcssa
   %41 = tail call i64 @llvm.umin.i64(i64 %.lcssa40, i64 %40)
   store i64 %41, ptr %3, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 50
-  %43 = getelementptr inbounds i8, ptr %6, i64 49
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 50
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 49
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
   %46 = add i64 %.lcssa, %45
@@ -1215,7 +1215,7 @@ define internal fastcc range(i32 0, 3) i32 @shm_mq_receive_bytes(ptr nocapture n
   %57 = add i64 %56, %48
   store volatile i64 %57, ptr %10, align 8
   %58 = load ptr, ptr %20, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 36
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 36
   tail call void @SetLatch(ptr noundef nonnull %59) #11
   store i64 0, ptr %11, align 8
   br label %60
@@ -1270,15 +1270,15 @@ define dso_local range(i32 0, 3) i32 @shm_mq_wait_for_attach(ptr nocapture nound
   br label %shm_mq_get_receiver.exit
 
 shm_mq_get_receiver.exit:                         ; preds = %1, %4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !9
   store i8 0, ptr %2, align 8
   %8 = load ptr, ptr @MyProc, align 8
   %9 = icmp eq ptr %7, %8
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.0 = select i1 %9, ptr %10, ptr %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call fastcc zeroext i1 @shm_mq_wait_internal(ptr noundef nonnull %2, ptr noundef nonnull %.0, ptr noundef %12)
   %.07 = select i1 %13, i32 0, i32 2
@@ -1287,7 +1287,7 @@ shm_mq_get_receiver.exit:                         ; preds = %1, %4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @shm_mq_detach(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %4
@@ -1295,7 +1295,7 @@ define dso_local void @shm_mq_detach(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load volatile i64, ptr %6, align 8
   %8 = add i64 %7, %3
   store volatile i64 %8, ptr %6, align 8
@@ -1313,20 +1313,20 @@ define dso_local void @shm_mq_detach(ptr noundef %0) local_unnamed_addr #0 {
   br label %14
 
 14:                                               ; preds = %12, %9
-  %15 = getelementptr inbounds i8, ptr %10, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @MyProc, align 8
   %18 = icmp eq ptr %16, %17
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %22
 
 22:                                               ; preds = %19, %14
   %.0.i = phi ptr [ %21, %19 ], [ %16, %14 ]
-  %23 = getelementptr inbounds i8, ptr %10, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store i8 1, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !11
   store i8 0, ptr %10, align 8
@@ -1334,12 +1334,12 @@ define dso_local void @shm_mq_detach(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not10.i, label %shm_mq_detach_internal.exit, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
   tail call void @SetLatch(ptr noundef nonnull %25) #11
   br label %shm_mq_detach_internal.exit
 
 shm_mq_detach_internal.exit:                      ; preds = %22, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not13 = icmp eq ptr %27, null
   br i1 %.not13, label %31, label %28
@@ -1351,7 +1351,7 @@ shm_mq_detach_internal.exit:                      ; preds = %22, %24
   br label %31
 
 31:                                               ; preds = %28, %shm_mq_detach_internal.exit
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not14 = icmp eq ptr %33, null
   br i1 %.not14, label %35, label %34

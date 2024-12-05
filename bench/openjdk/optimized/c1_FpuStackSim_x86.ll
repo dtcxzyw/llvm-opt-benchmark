@@ -12,7 +12,7 @@ $_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE9expand_toEi = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK11FpuStackSim7regs_atEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
@@ -21,7 +21,7 @@ define hidden noundef i32 @_ZNK11FpuStackSim7regs_atEi(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11FpuStackSim11set_regs_atEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [8 x i32], ptr %4, i64 0, i64 %5
   store i32 %2, ptr %6, align 4
@@ -30,7 +30,7 @@ define hidden void @_ZN11FpuStackSim11set_regs_atEii(ptr nocapture noundef nonnu
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim14dec_stack_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -39,7 +39,7 @@ define hidden void @_ZN11FpuStackSim14dec_stack_sizeEv(ptr nocapture noundef non
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim14inc_stack_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -49,19 +49,19 @@ define hidden void @_ZN11FpuStackSim14inc_stack_sizeEv(ptr nocapture noundef non
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11FpuStackSimC2EP11Compilation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, i8 -1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim3popEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %6
   store i32 -1, ptr %7, align 4
@@ -73,10 +73,10 @@ define hidden void @_ZN11FpuStackSim3popEv(ptr nocapture noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim3popEi(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = sext i32 %5 to i64
   %8 = getelementptr inbounds [8 x i32], ptr %6, i64 0, i64 %7
   store i32 -1, ptr %8, align 4
@@ -88,9 +88,9 @@ define hidden void @_ZN11FpuStackSim3popEi(ptr nocapture noundef nonnull align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim4pushEi(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = sext i32 %4 to i64
   %7 = getelementptr inbounds [8 x i32], ptr %5, i64 0, i64 %6
   store i32 %1, ptr %7, align 4
@@ -102,11 +102,11 @@ define hidden void @_ZN11FpuStackSim4pushEi(ptr nocapture noundef nonnull align 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim4swapEi(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
   %6 = sub nsw i32 %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
@@ -124,20 +124,20 @@ define hidden void @_ZN11FpuStackSim4swapEi(ptr nocapture noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK11FpuStackSim15offset_from_tosEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %8
 
 8:                                                ; preds = %.lr.ph, %15
   %.08 = phi i32 [ %5, %.lr.ph ], [ %16, %15 ]
   %9 = zext nneg i32 %.08 to i64
-  %10 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %15
@@ -163,11 +163,11 @@ define hidden noundef i32 @_ZNK11FpuStackSim15offset_from_tosEi(ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK11FpuStackSim8get_slotEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = xor i32 %1, -1
   %6 = add i32 %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
@@ -176,11 +176,11 @@ define hidden noundef i32 @_ZNK11FpuStackSim8get_slotEi(ptr nocapture noundef no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim8set_slotEii(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = xor i32 %1, -1
   %7 = add i32 %5, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = sext i32 %7 to i64
   %10 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %9
   store i32 %2, ptr %10, align 4
@@ -193,19 +193,19 @@ define hidden void @_ZN11FpuStackSim6renameEii(ptr nocapture noundef nonnull ali
   br i1 %4, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %10 = getelementptr inbounds [8 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i32], ptr %8, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %1
   br i1 %12, label %13, label %14
@@ -225,8 +225,8 @@ define hidden void @_ZN11FpuStackSim6renameEii(ptr nocapture noundef nonnull ali
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN11FpuStackSim8containsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -237,7 +237,7 @@ define hidden noundef zeroext i1 @_ZN11FpuStackSim8containsEi(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds [8 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @_ZN11FpuStackSim8containsEi(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN11FpuStackSim8is_emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   ret i1 %4
@@ -260,11 +260,11 @@ define hidden noundef zeroext i1 @_ZN11FpuStackSim8is_emptyEv(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN11FpuStackSim13slot_is_emptyEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = xor i32 %1, -1
   %6 = add i32 %4, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = sext i32 %6 to i64
   %9 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %8
   %10 = load i32, ptr %9, align 4
@@ -274,13 +274,13 @@ define hidden noundef zeroext i1 @_ZN11FpuStackSim13slot_is_emptyEi(ptr nocaptur
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN11FpuStackSim5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = zext nneg i32 %3 to i64
   %7 = shl nuw nsw i64 %6, 2
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %5, i8 -1, i64 %7, i1 false)
@@ -296,14 +296,14 @@ define hidden noundef ptr @_ZN11FpuStackSim11write_stateEv(ptr nocapture noundef
   %2 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #10
   %3 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 9, i32 noundef 4) #10
   store i32 0, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 9, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load i32, ptr %2, align 8
   %10 = load i32, ptr %4, align 4
@@ -332,12 +332,12 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds i32, ptr %22, i64 %23
   store i32 %8, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %26
 
 26:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit9
   %indvars.iv = phi i64 [ 0, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit9 ]
-  %27 = getelementptr inbounds [8 x i32], ptr %25, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i32], ptr %25, i64 0, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %2, align 8
   %30 = load i32, ptr %4, align 4
@@ -376,21 +376,21 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit9: ; preds =
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11FpuStackSim10read_stateEP13GrowableArrayIiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((8, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %8
 
 8:                                                ; preds = %2, %8
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds [8 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i32], ptr %7, i64 0, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %13, label %8, !llvm.loop !11
@@ -405,9 +405,9 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -439,7 +439,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIiE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -458,9 +458,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -470,14 +470,14 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !12
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIiE10deallocateEPi.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds i32, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv21
   store i32 0, ptr %35, align 4
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

@@ -33,17 +33,17 @@ define noundef i32 @SUNModifiedGS(ptr nocapture noundef readonly %0, ptr nocaptu
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %7, align 8
   %26 = tail call double @N_VDotProd(ptr noundef %24, ptr noundef %25) #7
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds double, ptr %28, i64 %20
+  %29 = getelementptr inbounds nuw double, ptr %28, i64 %20
   store double %26, ptr %29, align 8
   %30 = load ptr, ptr %7, align 8
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr inbounds double, ptr %31, i64 %20
+  %32 = getelementptr inbounds nuw double, ptr %31, i64 %20
   %33 = load double, ptr %32, align 8
   %34 = fneg double %33
   %35 = load ptr, ptr %23, align 8
@@ -79,13 +79,13 @@ define noundef i32 @SUNModifiedGS(ptr nocapture noundef readonly %0, ptr nocaptu
 47:                                               ; preds = %.lr.ph91, %65
   %indvars.iv94 = phi i64 [ %46, %.lr.ph91 ], [ %indvars.iv.next95, %65 ]
   %.090 = phi double [ 0.000000e+00, %.lr.ph91 ], [ %.1, %65 ]
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv94
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv94
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %7, align 8
   %51 = tail call double @N_VDotProd(ptr noundef %49, ptr noundef %50) #7
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv94
+  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv94
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds double, ptr %53, i64 %45
+  %54 = getelementptr inbounds nuw double, ptr %53, i64 %45
   %55 = load double, ptr %54, align 8
   %56 = fmul double %55, 1.000000e+03
   %57 = fadd double %51, %56
@@ -153,7 +153,7 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr nocapture noundef readonl
   %14 = getelementptr inbounds ptr, ptr %0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %18 = tail call i32 @N_VDotProdMulti(i32 noundef %12, ptr noundef %15, ptr noundef %17, ptr noundef %5) #7
   %19 = sext i32 %11 to i64
   %20 = getelementptr inbounds double, ptr %5, i64 %19
@@ -178,18 +178,18 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr nocapture noundef readonl
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %31 = getelementptr inbounds double, ptr %5, i64 %indvars.iv.next
+  %31 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv.next
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds double, ptr %34, i64 %28
   store double %32, ptr %35, align 8
   %36 = fneg double %32
-  %37 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   store double %36, ptr %37, align 8
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv.next
+  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %39, ptr %40, align 8
   %41 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %41, label %30, label %._crit_edge
@@ -219,7 +219,7 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr nocapture noundef readonl
 
 55:                                               ; preds = %51
   %56 = load ptr, ptr %14, align 8
-  %57 = getelementptr inbounds i8, ptr %5, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %58 = tail call i32 @N_VDotProdMulti(i32 noundef %11, ptr noundef %56, ptr noundef nonnull %17, ptr noundef nonnull %57) #7
   store double 1.000000e+00, ptr %5, align 8
   %59 = load ptr, ptr %14, align 8
@@ -237,9 +237,9 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr nocapture noundef readonl
   %indvars.iv111 = phi i64 [ %16, %.lr.ph108 ], [ %indvars.iv.next112, %63 ]
   %64 = sub nuw nsw i64 %indvars.iv111, %62
   %65 = add nuw nsw i64 %64, 1
-  %66 = getelementptr inbounds double, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw double, ptr %5, i64 %65
   %67 = load double, ptr %66, align 8
-  %68 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv111
+  %68 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv111
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds double, ptr %69, i64 %61
   %71 = load double, ptr %70, align 8
@@ -248,9 +248,9 @@ define noundef i32 @SUNClassicalGS(ptr noundef %0, ptr nocapture noundef readonl
   %73 = load double, ptr %66, align 8
   %74 = fneg double %73
   store double %74, ptr %66, align 8
-  %75 = getelementptr inbounds ptr, ptr %0, i64 %64
+  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %64
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds ptr, ptr %6, i64 %65
+  %77 = getelementptr inbounds nuw ptr, ptr %6, i64 %65
   store ptr %76, ptr %77, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count
@@ -315,19 +315,19 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 7:                                                ; preds = %.lr.ph162, %7
   %indvars.iv167 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next168, %7 ]
   %8 = shl nuw nsw i64 %indvars.iv167, 1
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv167
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv167
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds double, ptr %10, i64 %indvars.iv174
+  %11 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv174
   %12 = load double, ptr %11, align 8
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %13 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next168
+  %13 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next168
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %14, i64 %indvars.iv174
+  %15 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv174
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds double, ptr %2, i64 %8
+  %17 = getelementptr inbounds nuw double, ptr %2, i64 %8
   %18 = load double, ptr %17, align 8
   %19 = or disjoint i64 %8, 1
-  %20 = getelementptr inbounds double, ptr %2, i64 %19
+  %20 = getelementptr inbounds nuw double, ptr %2, i64 %19
   %21 = load double, ptr %20, align 8
   %22 = fneg double %16
   %23 = fmul double %21, %22
@@ -336,21 +336,21 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %25 = fmul double %16, %18
   %26 = tail call double @llvm.fmuladd.f64(double %21, double %12, double %25)
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds double, ptr %27, i64 %indvars.iv174
+  %28 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv174
   store double %26, ptr %28, align 8
   %exitcond173.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count172
   br i1 %exitcond173.not, label %._crit_edge163, label %7
 
 ._crit_edge163:                                   ; preds = %7, %.preheader
   %29 = shl nuw nsw i64 %indvars.iv174, 1
-  %30 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv174
+  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv174
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds double, ptr %31, i64 %indvars.iv174
+  %32 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv174
   %33 = load double, ptr %32, align 8
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next175
+  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next175
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %35, i64 %indvars.iv174
+  %36 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv174
   %37 = load double, ptr %36, align 8
   %38 = fcmp oeq double %37, 0.000000e+00
   br i1 %38, label %59, label %39
@@ -386,16 +386,16 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 59:                                               ; preds = %._crit_edge163, %43, %51
   %.0146 = phi double [ %48, %43 ], [ %58, %51 ], [ 0.000000e+00, %._crit_edge163 ]
   %.0141 = phi double [ %50, %43 ], [ %56, %51 ], [ 1.000000e+00, %._crit_edge163 ]
-  %60 = getelementptr inbounds double, ptr %2, i64 %29
+  %60 = getelementptr inbounds nuw double, ptr %2, i64 %29
   store double %.0141, ptr %60, align 8
   %61 = or disjoint i64 %29, 1
-  %62 = getelementptr inbounds double, ptr %2, i64 %61
+  %62 = getelementptr inbounds nuw double, ptr %2, i64 %61
   store double %.0146, ptr %62, align 8
   %63 = fneg double %37
   %64 = fmul double %.0146, %63
   %65 = tail call double @llvm.fmuladd.f64(double %.0141, double %33, double %64)
   %66 = load ptr, ptr %30, align 8
-  %67 = getelementptr inbounds double, ptr %66, i64 %indvars.iv174
+  %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv174
   store double %65, ptr %67, align 8
   %68 = fcmp oeq double %65, 0.000000e+00
   %69 = trunc nuw nsw i64 %indvars.iv.next175 to i32
@@ -421,19 +421,19 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
 74:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %75 = shl nuw nsw i64 %indvars.iv, 1
-  %76 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds double, ptr %77, i64 %73
+  %78 = getelementptr inbounds nuw double, ptr %77, i64 %73
   %79 = load double, ptr %78, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next
+  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds double, ptr %81, i64 %73
+  %82 = getelementptr inbounds nuw double, ptr %81, i64 %73
   %83 = load double, ptr %82, align 8
-  %84 = getelementptr inbounds double, ptr %2, i64 %75
+  %84 = getelementptr inbounds nuw double, ptr %2, i64 %75
   %85 = load double, ptr %84, align 8
   %86 = or disjoint i64 %75, 1
-  %87 = getelementptr inbounds double, ptr %2, i64 %86
+  %87 = getelementptr inbounds nuw double, ptr %2, i64 %86
   %88 = load double, ptr %87, align 8
   %89 = fneg double %83
   %90 = fmul double %88, %89
@@ -442,7 +442,7 @@ define i32 @SUNQRfact(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noc
   %92 = fmul double %83, %85
   %93 = tail call double @llvm.fmuladd.f64(double %88, double %79, double %92)
   %94 = load ptr, ptr %80, align 8
-  %95 = getelementptr inbounds double, ptr %94, i64 %73
+  %95 = getelementptr inbounds nuw double, ptr %94, i64 %73
   store double %93, ptr %95, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %74
@@ -538,14 +538,14 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr nocapture nou
   %7 = phi double [ %.pre, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = shl nuw nsw i64 %indvars.iv, 1
-  %9 = getelementptr inbounds double, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw double, ptr %2, i64 %8
   %10 = load double, ptr %9, align 8
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds double, ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw double, ptr %2, i64 %11
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next
   %16 = load double, ptr %15, align 8
   %17 = fneg double %16
   %18 = fmul double %13, %17
@@ -564,15 +564,15 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr nocapture nou
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.loopexit
   %indvars.iv63 = phi i64 [ %6, %.lr.ph56.preheader ], [ %indvars.iv.next64, %.loopexit ]
   %indvars.iv.next64 = add nsw i64 %indvars.iv63, -1
-  %23 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next64
+  %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next64
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds double, ptr %24, i64 %indvars.iv.next64
+  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv.next64
   %26 = load double, ptr %25, align 8
   %27 = fcmp oeq double %26, 0.000000e+00
   br i1 %27, label %._crit_edge.loopexit.split.loop.exit66, label %28
 
 28:                                               ; preds = %.lr.ph56
-  %29 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.next64
+  %29 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.next64
   %30 = load double, ptr %29, align 8
   %31 = fdiv double %30, %26
   store double %31, ptr %29, align 8
@@ -582,11 +582,11 @@ define range(i32 0, -2147483648) i32 @SUNQRsol(i32 noundef %0, ptr nocapture nou
 .lr.ph52:                                         ; preds = %28, %.lr.ph52
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph52 ], [ 0, %28 ]
   %33 = load double, ptr %29, align 8
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv60
+  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv60
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %35, i64 %indvars.iv.next64
+  %36 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.next64
   %37 = load double, ptr %36, align 8
-  %38 = getelementptr inbounds double, ptr %3, i64 %indvars.iv60
+  %38 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv60
   %39 = load double, ptr %38, align 8
   %40 = fneg double %33
   %41 = tail call double @llvm.fmuladd.f64(double %40, double %37, double %39)
@@ -620,7 +620,7 @@ define noundef i32 @SUNQRAdd_MGS(ptr nocapture noundef readonly %0, ptr nocaptur
 
 12:                                               ; preds = %.lr.ph, %12
   %.048 = phi i64 [ 0, %.lr.ph ], [ %20, %12 ]
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %.048
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %.048
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %5, align 8
   %16 = tail call double @N_VDotProd(ptr noundef %14, ptr noundef %15) #7
@@ -671,9 +671,9 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
 9:                                                ; preds = %6
   %10 = add nsw i32 %3, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = mul nsw i32 %10, %4
   %17 = sext i32 %16 to i64
@@ -725,7 +725,7 @@ define noundef i32 @SUNQRAdd_ICWY(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %exitcond.not, label %.loopexit, label %34
 
 45:                                               ; preds = %.loopexit
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %27, ptr noundef %0, ptr noundef %47) #7
   %49 = load ptr, ptr %5, align 8
@@ -769,9 +769,9 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
 9:                                                ; preds = %6
   %10 = add nsw i32 %3, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = mul nsw i32 %10, %4
   %17 = sext i32 %16 to i64
@@ -781,7 +781,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   %21 = load ptr, ptr %14, align 8
   %22 = getelementptr inbounds double, ptr %21, i64 %17
   %23 = zext nneg i32 %3 to i64
-  %24 = getelementptr inbounds double, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw double, ptr %22, i64 %23
   %25 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %3, ptr noundef %20, ptr noundef %0, ptr noundef nonnull %24) #7
   %26 = shl nuw nsw i32 %3, 1
   %27 = load ptr, ptr %5, align 8
@@ -848,7 +848,7 @@ define noundef i32 @SUNQRAdd_ICWY_SB(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %exitcond104.not, label %.loopexit, label %50
 
 61:                                               ; preds = %.loopexit
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %63 = load ptr, ptr %62, align 8
   %64 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %invariant.gep, ptr noundef %0, ptr noundef %63) #7
   %65 = load ptr, ptr %5, align 8
@@ -899,19 +899,19 @@ define noundef i32 @SUNQRAdd_CGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %12 = sext i32 %11 to i64
   %13 = getelementptr double, ptr %1, i64 %12
   %14 = tail call i32 @N_VDotProdMulti(i32 noundef %3, ptr noundef %10, ptr noundef %0, ptr noundef %13) #7
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %13, ptr noundef %0, ptr noundef %16) #7
   %18 = load ptr, ptr %5, align 8
   %19 = load ptr, ptr %15, align 8
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %18, double noundef -1.000000e+00, ptr noundef %19, ptr noundef %19) #7
   %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @N_VDotProdMulti(i32 noundef %3, ptr noundef %20, ptr noundef %0, ptr noundef %22) #7
   %24 = load ptr, ptr %21, align 8
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %24, ptr noundef %0, ptr noundef %27) #7
   %29 = load ptr, ptr %15, align 8
@@ -925,7 +925,7 @@ define noundef i32 @SUNQRAdd_CGS2(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %gep = getelementptr double, ptr %13, i64 %.072
   %33 = load double, ptr %gep, align 8
   %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds double, ptr %34, i64 %.072
+  %35 = getelementptr inbounds nuw double, ptr %34, i64 %.072
   %36 = load double, ptr %35, align 8
   %37 = fadd double %33, %36
   store double %37, ptr %gep, align 8
@@ -978,13 +978,13 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
 .lr.ph:                                           ; preds = %9
   %15 = add nsw i32 %3, -1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 @N_VDotProdMulti(i32 noundef %15, ptr noundef %18, ptr noundef %0, ptr noundef %20) #7
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @N_VLinearCombination(i32 noundef %15, ptr noundef %22, ptr noundef %0, ptr noundef %24) #7
   %26 = load ptr, ptr %17, align 8
@@ -1000,7 +1000,7 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
   %gep = getelementptr double, ptr %invariant.gep, i64 %.074
   %31 = load double, ptr %gep, align 8
   %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr inbounds double, ptr %32, i64 %.074
+  %33 = getelementptr inbounds nuw double, ptr %32, i64 %.074
   %34 = load double, ptr %33, align 8
   %35 = fadd double %31, %34
   store double %35, ptr %gep, align 8
@@ -1009,7 +1009,7 @@ define noundef i32 @SUNQRAdd_DCGS2(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not, label %.loopexit, label %30
 
 .loopexit:                                        ; preds = %30, %9
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %13, ptr noundef %0, ptr noundef %38) #7
   %40 = load ptr, ptr %5, align 8
@@ -1064,16 +1064,16 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %.loopexit
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %3, ptr noundef %11, ptr noundef %0, ptr noundef %18) #7
   %20 = add nsw i32 %3, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %17, align 8
   %25 = zext nneg i32 %3 to i64
-  %26 = getelementptr inbounds double, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw double, ptr %24, i64 %25
   %27 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %20, ptr noundef %23, ptr noundef %0, ptr noundef nonnull %26) #7
   %28 = shl nuw nsw i32 %3, 1
   %29 = add nsw i32 %28, -1
@@ -1088,7 +1088,7 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
 35:                                               ; preds = %16, %35
   %.096 = phi i64 [ 0, %16 ], [ %39, %35 ]
   %36 = load ptr, ptr %17, align 8
-  %37 = getelementptr inbounds double, ptr %36, i64 %.096
+  %37 = getelementptr inbounds nuw double, ptr %36, i64 %.096
   %38 = load double, ptr %37, align 8
   %gep = getelementptr double, ptr %invariant.gep, i64 %.096
   store double %38, ptr %gep, align 8
@@ -1098,8 +1098,8 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
 
 40:                                               ; preds = %35
   %41 = load ptr, ptr %17, align 8
-  %42 = getelementptr inbounds double, ptr %41, i64 %25
-  %43 = getelementptr inbounds i8, ptr %5, i64 8
+  %42 = getelementptr inbounds nuw double, ptr %41, i64 %25
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @N_VLinearCombination(i32 noundef %20, ptr noundef nonnull %42, ptr noundef %0, ptr noundef %44) #7
   %46 = load ptr, ptr %22, align 8
@@ -1119,8 +1119,8 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
   %gep99 = getelementptr double, ptr %invariant.gep98, i64 %.197
   %51 = load double, ptr %gep99, align 8
   %52 = load ptr, ptr %17, align 8
-  %53 = getelementptr inbounds double, ptr %52, i64 %.197
-  %54 = getelementptr inbounds double, ptr %53, i64 %25
+  %53 = getelementptr inbounds nuw double, ptr %52, i64 %.197
+  %54 = getelementptr inbounds nuw double, ptr %53, i64 %25
   %55 = load double, ptr %54, align 8
   %56 = fadd double %51, %55
   store double %56, ptr %gep99, align 8
@@ -1131,7 +1131,7 @@ define noundef i32 @SUNQRAdd_DCGS2_SB(ptr noundef %0, ptr noundef %1, ptr nounde
 .loopexit:                                        ; preds = %50, %40, %12
   %.pre-phi102 = phi i64 [ %34, %40 ], [ %.pre101, %12 ], [ %34, %50 ]
   %58 = getelementptr inbounds double, ptr %1, i64 %.pre-phi102
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @N_VLinearCombination(i32 noundef %3, ptr noundef %58, ptr noundef %0, ptr noundef %60) #7
   %62 = load ptr, ptr %5, align 8

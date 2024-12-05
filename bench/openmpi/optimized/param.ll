@@ -158,14 +158,14 @@ define dso_local void @prte_info_do_params(i1 noundef zeroext %0, i1 noundef zer
 
 .lr.ph.i:                                         ; preds = %2, %10
   %.03.i = phi ptr [ %.0.i, %10 ], [ %.01.i, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.03.i, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %.03.i, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(6) @.str.18) #9
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %pmix_cmd_line_get_param.exit, label %10
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds i8, ptr %.03.i, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %.03.i, i64 120
   %.0.i = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
   br i1 %.not.i, label %pmix_cmd_line_get_param.exit, label %.lr.ph.i, !llvm.loop !5
@@ -179,7 +179,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i, %10, %2
   br i1 %.not, label %.thread67, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.08.i, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %.08.i, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @PMIx_Argv_split(ptr noundef %16, i32 noundef 58) #8
@@ -198,7 +198,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %40
   %23 = phi i32 [ %41, %40 ], [ %21, %.preheader ]
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %40 ], [ 0, %.preheader ]
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_types, i64 152), align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv80
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv80
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %40, label %28
@@ -240,7 +240,7 @@ prte_info_show_mca_params.exit:                   ; preds = %32, %35, %.sink.spl
   br i1 %43, label %pmix_pointer_array_get_item.exit, label %.loopexit, !llvm.loop !7
 
 44:                                               ; preds = %13
-  %45 = getelementptr inbounds i8, ptr %17, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not43 = icmp eq ptr %46, null
   br i1 %.not43, label %75, label %47
@@ -265,7 +265,7 @@ pmix_pointer_array_get_item.exit48.lr.ph:         ; preds = %.preheader70
 
 pmix_pointer_array_get_item.exit48:               ; preds = %pmix_pointer_array_get_item.exit48.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %pmix_pointer_array_get_item.exit48.lr.ph ], [ %indvars.iv.next, %60 ]
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
@@ -311,7 +311,7 @@ pmix_pointer_array_get_item.exit48:               ; preds = %pmix_pointer_array_
 prte_info_show_mca_params.exit51:                 ; preds = %65, %68, %.sink.split.i49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
-  %73 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.next78
+  %73 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.next78
   %74 = load ptr, ptr %73, align 8
   %.not44 = icmp eq ptr %74, null
   br i1 %.not44, label %._crit_edge, label %.preheader70, !llvm.loop !9
@@ -403,7 +403,7 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %0, i64 480
   %.val = load i64, ptr %8, align 8
@@ -413,12 +413,12 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
 
 .lr.ph30.preheader:                               ; preds = %1
   %wide.trip.count = and i64 %.val, 2147483647
-  %11 = getelementptr inbounds i8, ptr %0, i64 168
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %.lr.ph30.preheader, %44
   %indvars.iv38 = phi i64 [ 0, %.lr.ph30.preheader ], [ %indvars.iv.next39, %44 ]
-  %12 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv38
+  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv38
   %13 = load i32, ptr %12, align 4
   %14 = call i32 @pmix_mca_base_var_get(i32 noundef %13, ptr noundef nonnull %3) #8
   %.not22 = icmp eq i32 %14, 0
@@ -468,12 +468,12 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
 
 37:                                               ; preds = %36, %29
   %38 = load ptr, ptr %4, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8
   call void @free(ptr noundef %40) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = load ptr, ptr %4, align 8
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8
   %.not24 = icmp eq ptr %43, null
   br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !10
@@ -489,7 +489,7 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
   br i1 %exitcond.not, label %._crit_edge31, label %.lr.ph30, !llvm.loop !11
 
 ._crit_edge31:                                    ; preds = %44, %1
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr i8, ptr %0, i64 328
   %.val25 = load i64, ptr %47, align 8
@@ -503,7 +503,7 @@ define internal fastcc void @prte_info_show_mca_group_params(ptr noundef %0) unn
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %55
   %indvars.iv41 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next42, %55 ]
-  %50 = getelementptr inbounds i32, ptr %46, i64 %indvars.iv41
+  %50 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv41
   %51 = load i32, ptr %50, align 4
   %52 = call i32 @pmix_mca_base_var_group_get(i32 noundef %51, ptr noundef nonnull %2) #8
   %.not = icmp eq i32 %52, 0
@@ -560,14 +560,14 @@ define dso_local void @prte_info_do_path(i1 noundef zeroext %0) local_unnamed_ad
 
 .lr.ph.i:                                         ; preds = %1, %35
   %.03.i = phi ptr [ %.0.i, %35 ], [ %.01.i, %1 ]
-  %31 = getelementptr inbounds i8, ptr %.03.i, i64 144
+  %31 = getelementptr inbounds nuw i8, ptr %.03.i, i64 144
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(5) @.str.22) #9
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %pmix_cmd_line_get_param.exit, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds i8, ptr %.03.i, i64 120
+  %36 = getelementptr inbounds nuw i8, ptr %.03.i, i64 120
   %.0.i = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %.0.i, getelementptr inbounds (i8, ptr @prte_info_cmd_line, i64 240)
   br i1 %.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !5
@@ -577,7 +577,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br i1 %.not, label %.loopexit.thread61, label %.preheader48
 
 .preheader48:                                     ; preds = %pmix_cmd_line_get_param.exit
-  %37 = getelementptr inbounds i8, ptr %.03.i, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %.03.i, i64 152
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %.not3550 = icmp eq ptr %39, null
@@ -585,7 +585,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 
 40:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next
   %42 = load ptr, ptr %41, align 8
   %.not35 = icmp eq ptr %42, null
   br i1 %.not35, label %.loopexit, label %.lr.ph, !llvm.loop !13
@@ -901,7 +901,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
   br label %.thread45
 
 .preheader:                                       ; preds = %.loopexit, %.loopexit.thread
-  %226 = getelementptr inbounds i8, ptr %.03.i, i64 152
+  %226 = getelementptr inbounds nuw i8, ptr %.03.i, i64 152
   %227 = load ptr, ptr %226, align 8
   %228 = load ptr, ptr %227, align 8
   %.not3652 = icmp eq ptr %228, null
@@ -1247,7 +1247,7 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i
 421:                                              ; preds = %233, %261, %289, %317, %345, %373, %393, %405, %417, %411, %399, %387, %359, %331, %303, %275, %247
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %422 = load ptr, ptr %226, align 8
-  %423 = getelementptr inbounds ptr, ptr %422, i64 %indvars.iv.next58
+  %423 = getelementptr inbounds nuw ptr, ptr %422, i64 %indvars.iv.next58
   %424 = load ptr, ptr %423, align 8
   %.not36 = icmp eq ptr %424, null
   br i1 %.not36, label %.thread45, label %.lr.ph54, !llvm.loop !14

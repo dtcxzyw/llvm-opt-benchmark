@@ -24,9 +24,9 @@ $_ZN7b2JointD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z17b2LinearStiffnessRfS_ffPK6b2BodyS2_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %stiffness, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr nocapture noundef readonly %bodyA, ptr nocapture noundef readonly %bodyB) local_unnamed_addr #0 {
 entry:
-  %m_mass.i = getelementptr inbounds i8, ptr %bodyA, i64 144
+  %m_mass.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 144
   %0 = load float, ptr %m_mass.i, align 8
-  %m_mass.i11 = getelementptr inbounds i8, ptr %bodyB, i64 144
+  %m_mass.i11 = getelementptr inbounds nuw i8, ptr %bodyB, i64 144
   %1 = load float, ptr %m_mass.i11, align 8
   %cmp = fcmp ogt float %0, 0.000000e+00
   %cmp2 = fcmp ogt float %1, 0.000000e+00
@@ -59,24 +59,24 @@ if.end6:                                          ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_Z18b2AngularStiffnessRfS_ffPK6b2BodyS2_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %stiffness, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %damping, float noundef %frequencyHertz, float noundef %dampingRatio, ptr nocapture noundef readonly %bodyA, ptr nocapture noundef readonly %bodyB) local_unnamed_addr #0 {
 entry:
-  %m_I.i = getelementptr inbounds i8, ptr %bodyA, i64 152
+  %m_I.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 152
   %0 = load float, ptr %m_I.i, align 8
-  %m_mass.i = getelementptr inbounds i8, ptr %bodyA, i64 144
+  %m_mass.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 144
   %1 = load float, ptr %m_mass.i, align 8
-  %m_sweep.i = getelementptr inbounds i8, ptr %bodyA, i64 28
+  %m_sweep.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 28
   %2 = load float, ptr %m_sweep.i, align 4
-  %y.i.i = getelementptr inbounds i8, ptr %bodyA, i64 32
+  %y.i.i = getelementptr inbounds nuw i8, ptr %bodyA, i64 32
   %3 = load float, ptr %y.i.i, align 4
   %mul3.i.i = fmul float %3, %3
   %4 = tail call noundef float @llvm.fmuladd.f32(float %2, float %2, float %mul3.i.i)
   %5 = tail call noundef float @llvm.fmuladd.f32(float %1, float %4, float %0)
-  %m_I.i11 = getelementptr inbounds i8, ptr %bodyB, i64 152
+  %m_I.i11 = getelementptr inbounds nuw i8, ptr %bodyB, i64 152
   %6 = load float, ptr %m_I.i11, align 8
-  %m_mass.i12 = getelementptr inbounds i8, ptr %bodyB, i64 144
+  %m_mass.i12 = getelementptr inbounds nuw i8, ptr %bodyB, i64 144
   %7 = load float, ptr %m_mass.i12, align 8
-  %m_sweep.i13 = getelementptr inbounds i8, ptr %bodyB, i64 28
+  %m_sweep.i13 = getelementptr inbounds nuw i8, ptr %bodyB, i64 28
   %8 = load float, ptr %m_sweep.i13, align 4
-  %y.i.i14 = getelementptr inbounds i8, ptr %bodyB, i64 32
+  %y.i.i14 = getelementptr inbounds nuw i8, ptr %bodyB, i64 32
   %9 = load float, ptr %y.i.i14, align 4
   %mul3.i.i15 = fmul float %9, %9
   %10 = tail call noundef float @llvm.fmuladd.f32(float %8, float %8, float %mul3.i.i15)
@@ -207,10 +207,10 @@ declare void @_ZN12b2MotorJointC1EPK15b2MotorJointDef(ptr noundef nonnull align 
 define void @_ZN7b2Joint7DestroyEPS_P16b2BlockAllocator(ptr noundef %joint, ptr noundef %allocator) local_unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %joint, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(128) %joint) #9
-  %m_type = getelementptr inbounds i8, ptr %joint, i64 8
+  %m_type = getelementptr inbounds nuw i8, ptr %joint, i64 8
   %1 = load i32, ptr %m_type, align 8
   %switch.tableidx = add i32 %1, -1
   %2 = icmp ult i32 %switch.tableidx, 10
@@ -218,7 +218,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [10 x i32], ptr @switch.table._ZN7b2Joint7DestroyEPS_P16b2BlockAllocator, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [10 x i32], ptr @switch.table._ZN7b2Joint7DestroyEPS_P16b2BlockAllocator, i64 0, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, ptr noundef nonnull %joint, i32 noundef %switch.load)
   br label %sw.epilog
@@ -233,34 +233,34 @@ declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 derefer
 define void @_ZN7b2JointC2EPK10b2JointDef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 12), (16, 118), (120, 128)) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV7b2Joint, i64 16), ptr %this, align 8
-  %m_userData = getelementptr inbounds i8, ptr %this, i64 120
+  %m_userData = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i64 0, ptr %m_userData, align 8
   %0 = load i32, ptr %def, align 8
-  %m_type = getelementptr inbounds i8, ptr %this, i64 8
+  %m_type = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %0, ptr %m_type, align 8
-  %m_prev = getelementptr inbounds i8, ptr %this, i64 16
-  %bodyA = getelementptr inbounds i8, ptr %def, i64 16
+  %m_prev = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %bodyA = getelementptr inbounds nuw i8, ptr %def, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_prev, i8 0, i64 16, i1 false)
   %1 = load ptr, ptr %bodyA, align 8
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %1, ptr %m_bodyA, align 8
-  %bodyB = getelementptr inbounds i8, ptr %def, i64 24
+  %bodyB = getelementptr inbounds nuw i8, ptr %def, i64 24
   %2 = load ptr, ptr %bodyB, align 8
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   store ptr %2, ptr %m_bodyB, align 8
-  %m_index = getelementptr inbounds i8, ptr %this, i64 112
+  %m_index = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 0, ptr %m_index, align 8
-  %collideConnected = getelementptr inbounds i8, ptr %def, i64 32
+  %collideConnected = getelementptr inbounds nuw i8, ptr %def, i64 32
   %3 = load i8, ptr %collideConnected, align 8
-  %m_collideConnected = getelementptr inbounds i8, ptr %this, i64 117
+  %m_collideConnected = getelementptr inbounds nuw i8, ptr %this, i64 117
   %frombool = and i8 %3, 1
   store i8 %frombool, ptr %m_collideConnected, align 1
-  %m_islandFlag = getelementptr inbounds i8, ptr %this, i64 116
+  %m_islandFlag = getelementptr inbounds nuw i8, ptr %this, i64 116
   store i8 0, ptr %m_islandFlag, align 4
-  %userData = getelementptr inbounds i8, ptr %def, i64 8
+  %userData = getelementptr inbounds nuw i8, ptr %def, i64 8
   %4 = load i64, ptr %userData, align 8
   store i64 %4, ptr %m_userData, align 8
-  %m_edgeA3 = getelementptr inbounds i8, ptr %this, i64 32
+  %m_edgeA3 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_edgeA3, i8 0, i64 64, i1 false)
   ret void
 }
@@ -268,18 +268,18 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK7b2Joint9IsEnabledEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_flags.i = getelementptr inbounds i8, ptr %0, i64 4
+  %m_flags.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i16, ptr %m_flags.i, align 4
   %2 = and i16 %1, 32
   %cmp.i.not = icmp eq i16 %2, 0
   br i1 %cmp.i.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %entry
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %3 = load ptr, ptr %m_bodyB, align 8
-  %m_flags.i1 = getelementptr inbounds i8, ptr %3, i64 4
+  %m_flags.i1 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4 = load i16, ptr %m_flags.i1, align 4
   %5 = and i16 %4, 32
   %cmp.i2 = icmp ne i16 %5, 0
@@ -301,12 +301,12 @@ entry:
   %s1 = alloca %struct.b2Vec2, align 8
   %s2 = alloca %struct.b2Vec2, align 8
   %c = alloca %struct.b2Color, align 4
-  %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
+  %m_bodyA = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
-  %m_xf.i = getelementptr inbounds i8, ptr %0, i64 12
-  %m_bodyB = getelementptr inbounds i8, ptr %this, i64 104
+  %m_xf.i = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %m_bodyB = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load ptr, ptr %m_bodyB, align 8
-  %m_xf.i11 = getelementptr inbounds i8, ptr %1, i64 12
+  %m_xf.i11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %2 = load i64, ptr %m_xf.i, align 4
   store i64 %2, ptr %x1, align 8
   %3 = load i64, ptr %m_xf.i11, align 4
@@ -316,18 +316,18 @@ entry:
   %call4 = tail call <2 x float> %4(ptr noundef nonnull align 8 dereferenceable(128) %this)
   store <2 x float> %call4, ptr %p1, align 8
   %vtable5 = load ptr, ptr %this, align 8
-  %vfn6 = getelementptr inbounds i8, ptr %vtable5, i64 8
+  %vfn6 = getelementptr inbounds nuw i8, ptr %vtable5, i64 8
   %5 = load ptr, ptr %vfn6, align 8
   %call7 = tail call <2 x float> %5(ptr noundef nonnull align 8 dereferenceable(128) %this)
   store <2 x float> %call7, ptr %p2, align 8
   store float 5.000000e-01, ptr %color, align 4
-  %g.i = getelementptr inbounds i8, ptr %color, i64 4
+  %g.i = getelementptr inbounds nuw i8, ptr %color, i64 4
   store float 0x3FE99999A0000000, ptr %g.i, align 4
-  %b.i = getelementptr inbounds i8, ptr %color, i64 8
+  %b.i = getelementptr inbounds nuw i8, ptr %color, i64 8
   store float 0x3FE99999A0000000, ptr %b.i, align 4
-  %a.i = getelementptr inbounds i8, ptr %color, i64 12
+  %a.i = getelementptr inbounds nuw i8, ptr %color, i64 12
   store float 1.000000e+00, ptr %a.i, align 4
-  %m_type = getelementptr inbounds i8, ptr %this, i64 8
+  %m_type = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i32, ptr %m_type, align 8
   switch i32 %6, label %sw.default [
     i32 3, label %sw.bb
@@ -337,7 +337,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry
   %vtable8 = load ptr, ptr %draw, align 8
-  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 48
+  %vfn9 = getelementptr inbounds nuw i8, ptr %vtable8, i64 48
   %7 = load ptr, ptr %vfn9, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   br label %sw.epilog
@@ -348,33 +348,33 @@ sw.bb10:                                          ; preds = %entry
   %call12 = tail call <2 x float> @_ZNK13b2PulleyJoint16GetGroundAnchorBEv(ptr noundef nonnull align 8 dereferenceable(256) %this)
   store <2 x float> %call12, ptr %s2, align 8
   %vtable13 = load ptr, ptr %draw, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 48
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 48
   %8 = load ptr, ptr %vfn14, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %s1, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable15 = load ptr, ptr %draw, align 8
-  %vfn16 = getelementptr inbounds i8, ptr %vtable15, i64 48
+  %vfn16 = getelementptr inbounds nuw i8, ptr %vtable15, i64 48
   %9 = load ptr, ptr %vfn16, align 8
   call void %9(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %s2, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable17 = load ptr, ptr %draw, align 8
-  %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 48
+  %vfn18 = getelementptr inbounds nuw i8, ptr %vtable17, i64 48
   %10 = load ptr, ptr %vfn18, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %s1, ptr noundef nonnull align 4 dereferenceable(8) %s2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   br label %sw.epilog
 
 sw.bb19:                                          ; preds = %entry
   store float 0.000000e+00, ptr %c, align 4
-  %g.i12 = getelementptr inbounds i8, ptr %c, i64 4
+  %g.i12 = getelementptr inbounds nuw i8, ptr %c, i64 4
   store float 1.000000e+00, ptr %g.i12, align 4
-  %b.i13 = getelementptr inbounds i8, ptr %c, i64 8
+  %b.i13 = getelementptr inbounds nuw i8, ptr %c, i64 8
   store float 0.000000e+00, ptr %b.i13, align 4
-  %a.i14 = getelementptr inbounds i8, ptr %c, i64 12
+  %a.i14 = getelementptr inbounds nuw i8, ptr %c, i64 12
   store float 1.000000e+00, ptr %a.i14, align 4
   %vtable20 = load ptr, ptr %draw, align 8
-  %vfn21 = getelementptr inbounds i8, ptr %vtable20, i64 64
+  %vfn21 = getelementptr inbounds nuw i8, ptr %vtable20, i64 64
   %11 = load ptr, ptr %vfn21, align 8
   call void %11(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, float noundef 4.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c)
   %vtable22 = load ptr, ptr %draw, align 8
-  %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 64
+  %vfn23 = getelementptr inbounds nuw i8, ptr %vtable22, i64 64
   %12 = load ptr, ptr %vfn23, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p2, float noundef 4.000000e+00, ptr noundef nonnull align 4 dereferenceable(16) %c)
   store float 0x3FE99999A0000000, ptr %c, align 4
@@ -382,22 +382,22 @@ sw.bb19:                                          ; preds = %entry
   store float 0x3FE99999A0000000, ptr %b.i13, align 4
   store float 1.000000e+00, ptr %a.i14, align 4
   %vtable24 = load ptr, ptr %draw, align 8
-  %vfn25 = getelementptr inbounds i8, ptr %vtable24, i64 48
+  %vfn25 = getelementptr inbounds nuw i8, ptr %vtable24, i64 48
   %13 = load ptr, ptr %vfn25, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %c)
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   %vtable26 = load ptr, ptr %draw, align 8
-  %vfn27 = getelementptr inbounds i8, ptr %vtable26, i64 48
+  %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 48
   %14 = load ptr, ptr %vfn27, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %x1, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable28 = load ptr, ptr %draw, align 8
-  %vfn29 = getelementptr inbounds i8, ptr %vtable28, i64 48
+  %vfn29 = getelementptr inbounds nuw i8, ptr %vtable28, i64 48
   %15 = load ptr, ptr %vfn29, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %p1, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   %vtable30 = load ptr, ptr %draw, align 8
-  %vfn31 = getelementptr inbounds i8, ptr %vtable30, i64 48
+  %vfn31 = getelementptr inbounds nuw i8, ptr %vtable30, i64 48
   %16 = load ptr, ptr %vfn31, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(12) %draw, ptr noundef nonnull align 4 dereferenceable(8) %x2, ptr noundef nonnull align 4 dereferenceable(8) %p2, ptr noundef nonnull align 4 dereferenceable(16) %color)
   br label %sw.epilog

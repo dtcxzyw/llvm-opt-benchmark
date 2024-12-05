@@ -37,7 +37,7 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
   %7 = alloca %struct.xl_smgr_create, align 4
   %8 = alloca %struct.RelFileLocator, align 8
   store i64 %0, ptr %8, align 8
-  %.sroa.217.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %1, ptr %.sroa.217.0..sroa_idx, align 8
   switch i8 %2, label %15 [
     i8 116, label %9
@@ -73,7 +73,7 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull readonly align 4 dereferenceable(12) %20, i64 12, i1 false)
-  %22 = getelementptr inbounds i8, ptr %7, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 0, ptr %22, align 4
   tail call void @XLogBeginInsert() #8
   call void @XLogRegisterData(ptr noundef nonnull %7, i32 noundef 16) #8
@@ -88,15 +88,15 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
   %26 = load ptr, ptr @TopMemoryContext, align 8
   %27 = call ptr @MemoryContextAlloc(ptr noundef %26, i64 noundef 32) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %8, i64 12, i1 false)
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %.0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %27, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i8 0, ptr %29, align 8
   %30 = call i32 @GetCurrentTransactionNestLevel() #8
-  %31 = getelementptr inbounds i8, ptr %27, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 20
   store i32 %30, ptr %31, align 4
   %32 = load ptr, ptr @pendingDeletes, align 8
-  %33 = getelementptr inbounds i8, ptr %27, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %32, ptr %33, align 8
   store ptr %27, ptr @pendingDeletes, align 8
   br label %34
@@ -116,12 +116,12 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
   br i1 %.not.i, label %40, label %AddPendingSync.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %6, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i64 12, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 16, ptr %42, align 8
   %43 = load ptr, ptr @TopTransactionContext, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 80
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 80
   store ptr %43, ptr %44, align 8
   %45 = call ptr @hash_create(ptr noundef nonnull @.str.5, i64 noundef 16, ptr noundef nonnull %6, i32 noundef 1064) #8
   store ptr %45, ptr @pendingSyncHash, align 8
@@ -130,7 +130,7 @@ define dso_local noundef ptr @RelationCreateStorage(i64 %0, i32 %1, i8 noundef s
 AddPendingSync.exit:                              ; preds = %38, %40
   %46 = phi ptr [ %45, %40 ], [ %39, %38 ]
   %47 = call ptr @hash_search(ptr noundef %46, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %5) #8
-  %48 = getelementptr inbounds i8, ptr %47, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   store i8 0, ptr %48, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
@@ -158,7 +158,7 @@ declare void @smgrcreate(ptr noundef, i32 noundef, i1 noundef zeroext) local_unn
 define dso_local void @log_smgrcreate(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.xl_smgr_create, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %1, ptr %4, align 4
   tail call void @XLogBeginInsert() #8
   call void @XLogRegisterData(ptr noundef nonnull %3, i32 noundef 16) #8
@@ -181,20 +181,20 @@ define dso_local void @RelationDropStorage(ptr nocapture noundef %0) local_unnam
   %2 = load ptr, ptr @TopMemoryContext, align 8
   %3 = tail call ptr @MemoryContextAlloc(ptr noundef %2, i64 noundef 32) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i8 1, ptr %7, align 8
   %8 = tail call i32 @GetCurrentTransactionNestLevel() #8
-  %9 = getelementptr inbounds i8, ptr %3, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 %8, ptr %9, align 4
   %10 = load ptr, ptr @pendingDeletes, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %10, ptr %11, align 8
   store ptr %3, ptr @pendingDeletes, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %RelationCloseSmgr.exit, label %14
@@ -222,15 +222,15 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
 .lr.ph:                                           ; preds = %3, %27
   %.019 = phi ptr [ %6, %27 ], [ %4, %3 ]
   %.01518 = phi ptr [ %.1, %27 ], [ null, %3 ]
-  %5 = getelementptr inbounds i8, ptr %.019, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.019, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.019, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.019, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %1, %8
   br i1 %9, label %10, label %27
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.019, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.019, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %.sroa.214.0.extract.trunc
   br i1 %13, label %14, label %27
@@ -241,7 +241,7 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
   br i1 %16, label %17, label %27
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %.019, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.019, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   %21 = xor i1 %2, %20
@@ -252,7 +252,7 @@ define dso_local void @RelationPreserveStorage(i64 %0, i32 %1, i1 noundef zeroex
   br i1 %.not16, label %25, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %.01518, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.01518, i64 24
   store ptr %6, ptr %24, align 8
   br label %26
 
@@ -280,16 +280,16 @@ define dso_local void @RelationTruncate(ptr noundef %0, i32 noundef %1) local_un
   %3 = alloca [3 x i32], align 4
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.xl_smgr_truncate, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %RelationGetSmgr.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %11 = load i32, ptr %10, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %12 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %11) #8
   store ptr %12, ptr %6, align 8
@@ -299,7 +299,7 @@ define dso_local void @RelationTruncate(ptr noundef %0, i32 noundef %1) local_un
 
 RelationGetSmgr.exit:                             ; preds = %2, %9
   %13 = phi ptr [ %.pre.i, %9 ], [ %7, %2 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %14, i8 -1, i64 20, i1 false)
   store i32 0, ptr %3, align 4
   store i32 %1, ptr %4, align 4
@@ -308,10 +308,10 @@ RelationGetSmgr.exit:                             ; preds = %2, %9
   br i1 %16, label %17, label %RelationGetSmgr.exit45
 
 17:                                               ; preds = %RelationGetSmgr.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %.sroa.0.0.copyload.i41 = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i42 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i43 = load i32, ptr %.sroa.2.0..sroa_idx.i42, align 8
   %20 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i41, i32 %.sroa.2.0.copyload.i43, i32 noundef %19) #8
   store ptr %20, ptr %6, align 8
@@ -326,13 +326,13 @@ RelationGetSmgr.exit45:                           ; preds = %RelationGetSmgr.exi
 
 23:                                               ; preds = %RelationGetSmgr.exit45
   %24 = tail call i32 @FreeSpaceMapPrepareTruncateRel(ptr noundef nonnull %0, i32 noundef %1) #8
-  %25 = getelementptr inbounds i8, ptr %4, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %24, ptr %25, align 4
   %.not = icmp eq i32 %24, -1
   br i1 %.not, label %28, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %27, align 4
   br label %28
 
@@ -344,10 +344,10 @@ RelationGetSmgr.exit45:                           ; preds = %RelationGetSmgr.exi
   br i1 %30, label %31, label %RelationGetSmgr.exit50
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4
   %.sroa.0.0.copyload.i46 = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i48 = load i32, ptr %.sroa.2.0..sroa_idx.i47, align 8
   %34 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i46, i32 %.sroa.2.0.copyload.i48, i32 noundef %33) #8
   store ptr %34, ptr %6, align 8
@@ -386,10 +386,10 @@ RelationGetSmgr.exit50:                           ; preds = %28, %31
   br i1 %48, label %49, label %RelationGetSmgr.exit.i
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i32, ptr %50, align 4
   %.sroa.0.0.copyload.i.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %52 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i, i32 noundef %51) #8
   store ptr %52, ptr %6, align 8
@@ -404,19 +404,19 @@ RelationGetSmgr.exit.i:                           ; preds = %49, %46
   br i1 %.not4.i, label %RelationPreTruncate.exit, label %55
 
 55:                                               ; preds = %RelationGetSmgr.exit.i
-  %56 = getelementptr inbounds i8, ptr %54, i64 12
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i8 1, ptr %56, align 4
   br label %RelationPreTruncate.exit
 
 RelationPreTruncate.exit:                         ; preds = %44, %RelationGetSmgr.exit.i, %55
   %57 = load ptr, ptr @MyProc, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 144
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 144
   %59 = load i32, ptr %58, align 8
   %60 = or i32 %59, 2
   store i32 %60, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 114
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 114
   %64 = load i8, ptr %63, align 2
   %65 = icmp eq i8 %64, 112
   br i1 %65, label %66, label %82
@@ -427,22 +427,22 @@ RelationPreTruncate.exit:                         ; preds = %44, %RelationGetSmg
   br i1 %68, label %77, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %0, i64 40
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %82
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %73, %66
   store i32 %1, ptr %5, align 4
-  %78 = getelementptr inbounds i8, ptr %5, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %78, ptr noundef nonnull align 8 dereferenceable(12) %0, i64 12, i1 false)
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 7, ptr %79, align 4
   tail call void @XLogBeginInsert() #8
   call void @XLogRegisterData(ptr noundef nonnull %5, i32 noundef 20) #8
@@ -460,10 +460,10 @@ RelationPreTruncate.exit:                         ; preds = %44, %RelationGetSmg
   br i1 %84, label %85, label %RelationGetSmgr.exit55
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %0, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %87 = load i32, ptr %86, align 4
   %.sroa.0.0.copyload.i51 = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i52 = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i53 = load i32, ptr %.sroa.2.0..sroa_idx.i52, align 8
   %88 = call ptr @smgropen(i64 %.sroa.0.0.copyload.i51, i32 %.sroa.2.0.copyload.i53, i32 noundef %87) #8
   store ptr %88, ptr %6, align 8
@@ -475,7 +475,7 @@ RelationGetSmgr.exit55:                           ; preds = %82, %85
   %89 = phi ptr [ %.pre.i54, %85 ], [ %83, %82 ]
   call void @smgrtruncate(ptr noundef %89, ptr noundef nonnull %3, i32 noundef %.1, ptr noundef nonnull %4) #8
   %90 = load ptr, ptr @MyProc, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 144
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 144
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, -3
   store i32 %93, ptr %91, align 8
@@ -502,16 +502,16 @@ define dso_local void @RelationPreTruncate(ptr nocapture noundef %0) local_unnam
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %RelationGetSmgr.exit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %.sroa.0.0.copyload.i = load i64, ptr %0, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8
   %10 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload.i, i32 %.sroa.2.0.copyload.i, i32 noundef %9) #8
   store ptr %10, ptr %4, align 8
@@ -526,7 +526,7 @@ RelationGetSmgr.exit:                             ; preds = %3, %7
   br i1 %.not4, label %15, label %13
 
 13:                                               ; preds = %RelationGetSmgr.exit
-  %14 = getelementptr inbounds i8, ptr %12, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 1, ptr %14, align 4
   br label %15
 
@@ -584,12 +584,12 @@ define dso_local void @RelationCopyStorage(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i32, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = call ptr @GetRelationPath(i32 noundef %25, i32 noundef %26, i32 noundef %28, i32 noundef %30, i32 noundef %2) #8
   %32 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
@@ -634,7 +634,7 @@ declare void @smgr_bulk_finish(ptr noundef) local_unnamed_addr #3
 define dso_local zeroext i1 @RelFileLocatorSkippingWAL(i64 %0, i32 %1) local_unnamed_addr #0 {
   %3 = alloca %struct.RelFileLocator, align 8
   store i64 %0, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %.sroa.2.0..sroa_idx, align 8
   %4 = load ptr, ptr @pendingSyncHash, align 8
   %.not = icmp eq ptr %4, null
@@ -680,12 +680,12 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr nocapture nound
   br i1 %.not, label %29, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 12, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 12, ptr %8, align 8
   %9 = load ptr, ptr @CurrentMemoryContext, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %9, ptr %10, align 8
   %11 = tail call i64 @hash_get_num_entries(ptr noundef nonnull %5) #8
   %12 = call ptr @hash_create(ptr noundef nonnull @.str.3, i64 noundef %11, ptr noundef nonnull %3, i32 noundef 1064) #8
@@ -709,7 +709,7 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr nocapture nound
 
 .lr.ph39:                                         ; preds = %.preheader, %23
   %.038 = phi ptr [ %.0, %23 ], [ %.036, %.preheader ]
-  %18 = getelementptr inbounds i8, ptr %.038, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.038, i64 16
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
   br i1 %20, label %21, label %23
@@ -719,7 +719,7 @@ define dso_local void @SerializePendingSyncs(i64 noundef %0, ptr nocapture nound
   br label %23
 
 23:                                               ; preds = %.lr.ph39, %21
-  %24 = getelementptr inbounds i8, ptr %.038, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.038, i64 24
   %.0 = load ptr, ptr %24, align 8
   %.not33 = icmp eq ptr %.0, null
   br i1 %.not33, label %._crit_edge, label %.lr.ph39, !llvm.loop !9
@@ -765,15 +765,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define dso_local void @RestorePendingSyncs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.HASHCTL, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %.not4 = icmp eq i32 %5, 0
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
-  %8 = getelementptr inbounds i8, ptr %3, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   br label %9
 
 9:                                                ; preds = %.lr.ph, %AddPendingSync.exit
@@ -796,7 +796,7 @@ define dso_local void @RestorePendingSyncs(ptr noundef %0) local_unnamed_addr #0
 AddPendingSync.exit:                              ; preds = %9, %11
   %14 = phi ptr [ %13, %11 ], [ %10, %9 ]
   %15 = call ptr @hash_search(ptr noundef %14, ptr noundef nonnull %.05, i32 noundef 1, ptr noundef nonnull %2) #8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i8 0, ptr %16, align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
@@ -823,9 +823,9 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   %.03549 = phi i32 [ %.2, %36 ], [ 0, %1 ]
   %.03748 = phi ptr [ %.3, %36 ], [ null, %1 ]
   %.04047 = phi i32 [ %.343, %36 ], [ 0, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.03351, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.03351, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.03351, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %.03351, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, %2
   br i1 %8, label %36, label %9
@@ -835,7 +835,7 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   br i1 %.not44, label %12, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %.03450, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %.03450, i64 24
   store ptr %5, ptr %11, align 8
   br label %13
 
@@ -844,17 +844,17 @@ define dso_local void @smgrDoPendingDeletes(i1 noundef zeroext %0) local_unnamed
   br label %13
 
 13:                                               ; preds = %12, %10
-  %14 = getelementptr inbounds i8, ptr %.03351, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.03351, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   %17 = xor i1 %0, %16
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %.03351, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %.03351, i64 12
   %20 = load i32, ptr %19, align 4
   %.sroa.0.0.copyload = load i64, ptr %.03351, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.03351, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.03351, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8
   %21 = tail call ptr @smgropen(i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, i32 noundef %20) #8
   %22 = icmp eq i32 %.04047, 0
@@ -962,7 +962,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
 
 .lr.ph:                                           ; preds = %.preheader64, %16
   %.067 = phi ptr [ %.0, %16 ], [ %.065, %.preheader64 ]
-  %10 = getelementptr inbounds i8, ptr %.067, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.067, i64 16
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %16
@@ -973,7 +973,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   br label %16
 
 16:                                               ; preds = %.lr.ph, %13
-  %17 = getelementptr inbounds i8, ptr %.067, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.067, i64 24
   %.0 = load ptr, ptr %17, align 8
   %.not57 = icmp eq ptr %.0, null
   br i1 %.not57, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
@@ -999,10 +999,10 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   %.04673 = phi i32 [ %.2, %.loopexit ], [ 0, %._crit_edge ]
   %.04872 = phi ptr [ %.250, %.loopexit ], [ null, %._crit_edge ]
   %.sroa.05.0.copyload = load i64, ptr %20, align 4
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.26.0.copyload = load i32, ptr %.sroa.26.0..sroa_idx, align 4
   %21 = call ptr @smgropen(i64 %.sroa.05.0.copyload, i32 %.sroa.26.0.copyload, i32 noundef -1) #8
-  %22 = getelementptr inbounds i8, ptr %20, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i8, ptr %22, align 4
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.loopexit63, label %.preheader62
@@ -1044,7 +1044,7 @@ define dso_local void @smgrDoPendingSyncs(i1 noundef zeroext %0, i1 noundef zero
   br i1 %or.cond.not, label %37, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit63
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   br label %51
 
 37:                                               ; preds = %.loopexit63
@@ -1136,20 +1136,20 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture
 .lr.ph:                                           ; preds = %2, %16
   %.035 = phi ptr [ %.0, %16 ], [ %.032, %2 ]
   %.02634 = phi i32 [ %.127, %16 ], [ 0, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.035, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %.035, i64 20
   %5 = load i32, ptr %4, align 4
   %.not31 = icmp slt i32 %5, %3
   br i1 %.not31, label %16, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds i8, ptr %.035, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   %10 = xor i1 %0, %9
   br i1 %10, label %16, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %.035, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %.035, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, -1
   %15 = zext i1 %14 to i32
@@ -1158,7 +1158,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture
 
 16:                                               ; preds = %11, %.lr.ph, %6
   %.127 = phi i32 [ %.02634, %6 ], [ %.02634, %.lr.ph ], [ %spec.select, %11 ]
-  %17 = getelementptr inbounds i8, ptr %.035, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %.0 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
@@ -1183,20 +1183,20 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture
 .lr.ph41:                                         ; preds = %19, %36
   %.139 = phi ptr [ %.1, %36 ], [ %.136, %19 ]
   %.02438 = phi ptr [ %.125, %36 ], [ %22, %19 ]
-  %23 = getelementptr inbounds i8, ptr %.139, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %.139, i64 20
   %24 = load i32, ptr %23, align 4
   %.not30 = icmp slt i32 %24, %3
   br i1 %.not30, label %36, label %25
 
 25:                                               ; preds = %.lr.ph41
-  %26 = getelementptr inbounds i8, ptr %.139, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.139, i64 16
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
   %29 = xor i1 %0, %28
   br i1 %29, label %36, label %30
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %.139, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.139, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %34, label %36
@@ -1208,7 +1208,7 @@ define dso_local i32 @smgrGetPendingDeletes(i1 noundef zeroext %0, ptr nocapture
 
 36:                                               ; preds = %.lr.ph41, %25, %30, %34
   %.125 = phi ptr [ %35, %34 ], [ %.02438, %30 ], [ %.02438, %25 ], [ %.02438, %.lr.ph41 ]
-  %37 = getelementptr inbounds i8, ptr %.139, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.139, i64 24
   %.1 = load ptr, ptr %37, align 8
   %.not29 = icmp eq ptr %.1, null
   br i1 %.not29, label %.loopexit, label %.lr.ph41, !llvm.loop !19
@@ -1226,7 +1226,7 @@ define dso_local void @PostPrepare_smgr() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %.06 = phi ptr [ %3, %.lr.ph ], [ %1, %0 ]
-  %2 = getelementptr inbounds i8, ptr %.06, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %.06, i64 24
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr @pendingDeletes, align 8
   tail call void @pfree(ptr noundef nonnull %.06) #8
@@ -1250,7 +1250,7 @@ define dso_local void @AtSubCommit_smgr() local_unnamed_addr #0 {
 
 3:                                                ; preds = %.lr.ph, %7
   %.09 = phi ptr [ %.07, %.lr.ph ], [ %.0, %7 ]
-  %4 = getelementptr inbounds i8, ptr %.09, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %.09, i64 20
   %5 = load i32, ptr %4, align 4
   %.not6 = icmp slt i32 %5, %1
   br i1 %.not6, label %7, label %6
@@ -1260,7 +1260,7 @@ define dso_local void @AtSubCommit_smgr() local_unnamed_addr #0 {
   br label %7
 
 7:                                                ; preds = %3, %6
-  %8 = getelementptr inbounds i8, ptr %.09, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.09, i64 24
   %.0 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %3, !llvm.loop !21
@@ -1279,9 +1279,9 @@ define dso_local void @AtSubAbort_smgr() local_unnamed_addr #0 {
 define dso_local void @smgr_redo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [3 x i32], align 4
   %3 = alloca [3 x i32], align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -16
   switch i8 %8, label %59 [
@@ -1290,30 +1290,30 @@ define dso_local void @smgr_redo(ptr nocapture noundef readonly %0) local_unname
   ]
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load ptr, ptr %10, align 8
   %.sroa.036.0.copyload = load i64, ptr %11, align 4
-  %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
+  %.sroa.237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.237.0.copyload = load i32, ptr %.sroa.237.0..sroa_idx, align 4
   %12 = tail call ptr @smgropen(i64 %.sroa.036.0.copyload, i32 %.sroa.237.0.copyload, i32 noundef -1) #8
-  %13 = getelementptr inbounds i8, ptr %11, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %14 = load i32, ptr %13, align 4
   tail call void @smgrcreate(ptr noundef %12, i32 noundef %14, i1 noundef zeroext true) #8
   br label %63
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.03.0.copyload = load i64, ptr %20, align 4
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 12
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 12
   %.sroa.24.0.copyload = load i32, ptr %.sroa.24.0..sroa_idx, align 4
   %21 = tail call ptr @smgropen(i64 %.sroa.03.0.copyload, i32 %.sroa.24.0.copyload, i32 noundef -1) #8
   tail call void @smgrcreate(ptr noundef %21, i32 noundef 0, i1 noundef zeroext true) #8
   tail call void @XLogFlush(i64 noundef %17) #8
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, 1
   %.not = icmp eq i32 %24, 0

@@ -41,14 +41,14 @@ define hidden void @_ZN9vmClasses21metaspace_pointers_doEP16MetaspaceClosure(ptr
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [0 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 24, i32 noundef 0) #5
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE, i64 16), ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %3, ptr %7, align 8
   tail call void @_ZN16MetaspaceClosure9push_implEPNS_3RefE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -65,7 +65,7 @@ define hidden noundef zeroext i1 @_ZN9vmClasses9is_loadedEP13InstanceKlass(ptr n
   br i1 %.not, label %6, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 305
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 305
   %4 = load volatile i8, ptr %3, align 1
   %5 = icmp ne i8 %4, 0
   br label %6
@@ -91,7 +91,7 @@ define hidden noundef zeroext i1 @_ZN9vmClasses7resolveE9vmClassIDP10JavaThread(
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %10, ptr noundef %11, ptr null, ptr noundef %1)
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br label %28
@@ -102,7 +102,7 @@ define hidden noundef zeroext i1 @_ZN9vmClasses7resolveE9vmClassIDP10JavaThread(
   br i1 %.not.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit:    ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 305
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 305
   %17 = load volatile i8, ptr %16, align 1
   %.not15 = icmp eq i8 %17, 0
   br i1 %.not15, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread, label %28
@@ -114,7 +114,7 @@ _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread: ; preds = %14, %_ZN9vmClas
   %21 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef %22, ptr null, ptr null, i1 noundef zeroext true, ptr noundef %1) #5
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %.not16 = icmp eq ptr %25, null
   br i1 %.not16, label %26, label %28
@@ -133,48 +133,48 @@ declare noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() local_unnamed_ad
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef %0, ptr noundef %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %.loopexit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not34 = icmp eq ptr %9, null
   br i1 %.not34, label %17, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 152
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %17
 
 14:                                               ; preds = %10
   tail call void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15ClassLoaderData6HandleP10JavaThread(ptr noundef nonnull %9, ptr noundef %1, ptr %2, ptr noundef %3)
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not35 = icmp eq ptr %16, null
   br i1 %.not35, label %17, label %.loopexit
 
 17:                                               ; preds = %14, %10, %7
-  %18 = getelementptr inbounds i8, ptr %0, i64 416
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %24
 
 24:                                               ; preds = %.lr.ph, %33
   %25 = phi i32 [ %20, %.lr.ph ], [ %34, %33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
@@ -199,9 +199,9 @@ define hidden void @_ZN9vmClasses20resolve_shared_classEP13InstanceKlassP15Class
 ._crit_edge:                                      ; preds = %33, %17
   tail call void @_ZN13InstanceKlass24restore_unshareable_infoEP15ClassLoaderData6HandleP12PackageEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr %2, ptr noundef null, ptr noundef %3) #5
   tail call void @_ZN16SystemDictionary22load_shared_class_miscEP13InstanceKlassP15ClassLoaderData(ptr noundef nonnull %0, ptr noundef %1) #5
-  %37 = getelementptr inbounds i8, ptr %1, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   tail call void @_ZN10Dictionary9add_klassEP10JavaThreadP6SymbolP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef %3, ptr noundef %40, ptr noundef nonnull %0) #5
   tail call void @_ZN13InstanceKlass16add_to_hierarchyEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %3) #5
@@ -218,7 +218,7 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = sext i32 %4 to i64
   br label %9
 
@@ -251,7 +251,7 @@ define hidden void @_ZN9vmClasses13resolve_untilE9vmClassIDRS0_P10JavaThread(i32
   br i1 %.not.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i:  ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 305
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 305
   %21 = load volatile i8, ptr %20, align 1
   %.not15.i = icmp eq i8 %21, 0
   br i1 %.not15.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit
@@ -289,7 +289,7 @@ define hidden void @_ZN9vmClasses11resolve_allEP10JavaThread(ptr noundef %0) loc
 .lr.ph.i.i:
   %1 = alloca i32, align 4
   tail call void @_ZN11ClassLoader17classLoader_init2EP10JavaThread(ptr noundef %0) #5
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   br i1 %3, label %4, label %10
 
@@ -310,7 +310,7 @@ define hidden void @_ZN9vmClasses11resolve_allEP10JavaThread(ptr noundef %0) loc
   br i1 %.not.i.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i: ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 305
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 305
   %13 = load volatile i8, ptr %12, align 1
   %.not15.i.i.i = icmp eq i8 %13, 0
   br i1 %.not15.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i
@@ -341,7 +341,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i: ; preds = %_ZN9vmClasses
 20:                                               ; preds = %17
   tail call void @_ZN17ArchiveHeapLoader12fixup_regionEv() #5
   %21 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 16
-  %22 = getelementptr inbounds i8, ptr %21, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %23 = load ptr, ptr %22, align 8
   tail call void @_ZN12ConstantPool24restore_unshareable_infoEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %23, ptr noundef nonnull %0) #5
   %24 = load ptr, ptr %2, align 8
@@ -355,7 +355,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i: ; preds = %_ZN9vmClasses
 
 .lr.ph.i.i22:                                     ; preds = %20, %25
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i30, %25 ], [ 1, %20 ]
-  %26 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i23
+  %26 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i23
   %27 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   br i1 %27, label %28, label %34
 
@@ -376,13 +376,13 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i: ; preds = %_ZN9vmClasses
   br i1 %.not.i.i.i.i24, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25: ; preds = %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 305
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 305
   %37 = load volatile i8, ptr %36, align 1
   %.not15.i.i.i26 = icmp eq i8 %37, 0
   br i1 %.not15.i.i.i26, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i33: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i25, %34
-  %38 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i23
+  %38 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i23
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %40
@@ -408,7 +408,7 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27: ; preds = %45, %_ZN9vm
 
 .lr.ph.i.i37:                                     ; preds = %17, %46
   %indvars.iv.i.i38 = phi i64 [ %indvars.iv.next.i.i45, %46 ], [ 1, %17 ]
-  %47 = getelementptr inbounds [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i38
+  %47 = getelementptr inbounds nuw [117 x ptr], ptr @_ZN9vmClasses8_klassesE, i64 0, i64 %indvars.iv.i.i38
   %48 = tail call noundef zeroext i1 @_ZN9CDSConfig16is_using_archiveEv() #5
   br i1 %48, label %49, label %55
 
@@ -429,13 +429,13 @@ _ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i27: ; preds = %45, %_ZN9vm
   br i1 %.not.i.i.i.i39, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40: ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 305
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 305
   %58 = load volatile i8, ptr %57, align 1
   %.not15.i.i.i41 = icmp eq i8 %58, 0
   br i1 %.not15.i.i.i41, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i.i42
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i.i48: ; preds = %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i.i40, %55
-  %59 = getelementptr inbounds [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i38
+  %59 = getelementptr inbounds nuw [118 x i16], ptr @_ZL17vm_class_name_ids, i64 0, i64 %indvars.iv.i.i38
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
   %62 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %61
@@ -536,7 +536,7 @@ define linkonce_odr hidden void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P1
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = sext i32 %5 to i64
   br label %10
 
@@ -569,7 +569,7 @@ define linkonce_odr hidden void @_ZN9vmClasses15resolve_throughE9vmClassIDRS0_P1
   br i1 %.not.i.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i
 
 _ZN9vmClasses9is_loadedEP13InstanceKlass.exit.i.i: ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 305
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 305
   %22 = load volatile i8, ptr %21, align 1
   %.not15.i.i = icmp eq i8 %22, 0
   br i1 %.not15.i.i, label %_ZN9vmClasses9is_loadedEP13InstanceKlass.exit.thread.i.i, label %_ZN9vmClasses7resolveE9vmClassIDP10JavaThread.exit.i
@@ -636,7 +636,7 @@ define hidden noundef zeroext range(i8 0, 15) i8 @_ZN9vmClasses14box_klass_typeE
 
 2:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 4, %1 ], [ %indvars.iv.next, %8 ]
-  %3 = getelementptr inbounds [15 x ptr], ptr @_ZN9vmClasses12_box_klassesE, i64 0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [15 x ptr], ptr @_ZN9vmClasses12_box_klassesE, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %6, label %8
@@ -663,14 +663,14 @@ declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE3mppEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE8not_nullEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
@@ -679,11 +679,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK16MetaspaceClosure6MSORefI13I
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(464) %4) #5
   ret i32 %8
@@ -691,11 +691,11 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI13Instance
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE21metaspace_pointers_doEPS_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(464) %5, ptr noundef %1) #5
   ret void
@@ -704,7 +704,7 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE24metaspace_pointers_do_atEPS_Ph(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1) #5
   ret void
@@ -712,11 +712,11 @@ define linkonce_odr hidden void @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure6MSORefI13InstanceKlassE7msotypeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(196) %4) #5
   ret i32 %8

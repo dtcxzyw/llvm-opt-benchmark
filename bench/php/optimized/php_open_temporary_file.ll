@@ -210,7 +210,7 @@ define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, p
   %12 = call noalias ptr @_estrdup(ptr noundef nonnull %5) #9
   store ptr %12, ptr %6, align 8
   %13 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %13, ptr %14, align 8
   %15 = call i32 @virtual_file_ex(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef null, i32 noundef 2) #9
   %.not69 = icmp eq i32 %15, 0
@@ -245,13 +245,13 @@ define internal fastcc i32 @php_do_open_temporary_file(ptr noundef nonnull %0, p
   %34 = add i64 %33, 32
   %35 = call noalias ptr @_emalloc(i64 noundef %34) #10
   store i32 1, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %35, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 22, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i64 %32, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 16 %4, i64 %32, i1 false)
   %40 = getelementptr inbounds [1 x i8], ptr %39, i64 0, i64 %32
   store i8 0, ptr %40, align 1

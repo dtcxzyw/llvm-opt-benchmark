@@ -50,10 +50,10 @@ define noalias noundef ptr @rgb2spec_load(ptr nocapture noundef readonly %0) loc
   %20 = mul i64 %19, %17
   %21 = mul i64 %20, %18
   %22 = tail call noalias ptr @malloc(i64 noundef %18) #15
-  %23 = getelementptr inbounds i8, ptr %10, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %22, ptr %23, align 8
   %24 = tail call noalias ptr @malloc(i64 noundef %21) #15
-  %25 = getelementptr inbounds i8, ptr %10, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %24, ptr %25, align 8
   %.not36 = icmp eq ptr %24, null
   %.not37 = icmp eq ptr %22, null
@@ -103,10 +103,10 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @rgb2spec_free(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @free(ptr noundef %5) #16
   tail call void @free(ptr noundef %0) #16
@@ -121,7 +121,7 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 6:                                                ; preds = %3, %6
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %8 = load float, ptr %7, align 4
   %9 = fcmp contract uge float %8, 1.000000e+00
   %10 = fcmp contract ogt float %8, 0.000000e+00
@@ -130,7 +130,7 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   %brmerge = or i1 %9, %12
   %.mux = select i1 %11, float 1.000000e+00, float 0.000000e+00
   %13 = select contract i1 %brmerge, float %.mux, float %8
-  %14 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv
   store float %13, ptr %14, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -138,10 +138,10 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 15:                                               ; preds = %6
   %16 = load float, ptr %4, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = load float, ptr %17, align 4
   %19 = fcmp contract oeq float %16, %18
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = load float, ptr %20, align 4
   %22 = fcmp contract oeq float %18, %21
   %or.cond = select i1 %19, i1 %22, i1 false
@@ -165,20 +165,20 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 33:                                               ; preds = %25, %23, %27
   %.0116 = phi float [ %32, %27 ], [ 0xFFF0000000000000, %23 ], [ 0x7FF0000000000000, %25 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float 0.000000e+00, ptr %34, align 4
   store float 0.000000e+00, ptr %2, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float %.0116, ptr %35, align 4
   br label %.loopexit
 
 .preheader:                                       ; preds = %15, %.preheader
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.preheader ], [ 1, %15 ]
   %.0114128 = phi i32 [ %.1, %.preheader ], [ 0, %15 ]
-  %36 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv134
+  %36 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %indvars.iv134
   %37 = load float, ptr %36, align 4
   %38 = zext nneg i32 %.0114128 to i64
-  %39 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fcmp contract ult float %37, %40
   %42 = trunc nuw nsw i64 %indvars.iv134 to i32
@@ -189,7 +189,7 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 43:                                               ; preds = %.preheader
   %44 = zext nneg i32 %.1 to i64
-  %45 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %44
+  %45 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = add nsw i32 %5, -1
   %48 = sitofp i32 %47 to float
@@ -197,13 +197,13 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   %50 = add nuw nsw i32 %.1, 1
   %51 = urem i32 %50, 3
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %52
   %54 = load float, ptr %53, align 4
   %55 = fmul contract float %54, %49
   %56 = add nuw nsw i32 %.1, 2
   %57 = urem i32 %56, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [3 x float], ptr %4, i64 0, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = fmul contract float %49, %60
   %62 = fptoui float %55 to i32
@@ -211,7 +211,7 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   %64 = tail call i32 @llvm.umin.i32(i32 %63, i32 %62)
   %65 = fptoui float %61 to i32
   %66 = tail call i32 @llvm.umin.i32(i32 %63, i32 %65)
-  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp sgt i32 %5, 2
   br i1 %69, label %.lr.ph.i, label %rgb2spec_find_interval.exit
@@ -252,17 +252,17 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %93 = fsub contract float %61, %92
   %94 = fsub contract float 1.000000e+00, %93
   %95 = zext i32 %79 to i64
-  %96 = getelementptr inbounds float, ptr %68, i64 %95
+  %96 = getelementptr inbounds nuw float, ptr %68, i64 %95
   %97 = load float, ptr %96, align 4
   %98 = fsub contract float %46, %97
   %99 = add nsw i32 %79, 1
   %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds float, ptr %68, i64 %100
+  %101 = getelementptr inbounds nuw float, ptr %68, i64 %100
   %102 = load float, ptr %101, align 4
   %103 = fsub contract float %102, %97
   %104 = fdiv contract float %98, %103
   %105 = fsub contract float 1.000000e+00, %104
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %invariant.op = add i32 %87, 3
   br label %107
 
@@ -271,24 +271,24 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %.0118131 = phi i32 [ %86, %rgb2spec_find_interval.exit ], [ %160, %107 ]
   %108 = load ptr, ptr %106, align 8
   %109 = zext i32 %.0118131 to i64
-  %110 = getelementptr inbounds float, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw float, ptr %108, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = fmul contract float %91, %111
   %113 = add i32 %.0118131, 3
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds float, ptr %108, i64 %114
+  %115 = getelementptr inbounds nuw float, ptr %108, i64 %114
   %116 = load float, ptr %115, align 4
   %117 = fmul contract float %90, %116
   %118 = fadd contract float %112, %117
   %119 = fmul contract float %94, %118
   %120 = add i32 %.0118131, %87
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds float, ptr %108, i64 %121
+  %122 = getelementptr inbounds nuw float, ptr %108, i64 %121
   %123 = load float, ptr %122, align 4
   %124 = fmul contract float %91, %123
   %.reass = add i32 %.0118131, %invariant.op
   %125 = zext i32 %.reass to i64
-  %126 = getelementptr inbounds float, ptr %108, i64 %125
+  %126 = getelementptr inbounds nuw float, ptr %108, i64 %125
   %127 = load float, ptr %126, align 4
   %128 = fmul contract float %90, %127
   %129 = fadd contract float %124, %128
@@ -297,24 +297,24 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %132 = fmul contract float %105, %131
   %133 = add i32 %.0118131, %88
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds float, ptr %108, i64 %134
+  %135 = getelementptr inbounds nuw float, ptr %108, i64 %134
   %136 = load float, ptr %135, align 4
   %137 = fmul contract float %91, %136
   %138 = add i32 %133, 3
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds float, ptr %108, i64 %139
+  %140 = getelementptr inbounds nuw float, ptr %108, i64 %139
   %141 = load float, ptr %140, align 4
   %142 = fmul contract float %90, %141
   %143 = fadd contract float %137, %142
   %144 = fmul contract float %94, %143
   %145 = add i32 %133, %87
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds float, ptr %108, i64 %146
+  %147 = getelementptr inbounds nuw float, ptr %108, i64 %146
   %148 = load float, ptr %147, align 4
   %149 = fmul contract float %91, %148
   %.reass130 = add i32 %133, %invariant.op
   %150 = zext i32 %.reass130 to i64
-  %151 = getelementptr inbounds float, ptr %108, i64 %150
+  %151 = getelementptr inbounds nuw float, ptr %108, i64 %150
   %152 = load float, ptr %151, align 4
   %153 = fmul contract float %90, %152
   %154 = fadd contract float %149, %153
@@ -322,7 +322,7 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
   %156 = fadd contract float %144, %155
   %157 = fmul contract float %104, %156
   %158 = fadd contract float %132, %157
-  %159 = getelementptr inbounds float, ptr %2, i64 %indvars.iv138
+  %159 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv138
   store float %158, ptr %159, align 4
   %160 = add i32 %.0118131, 1
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
@@ -339,10 +339,10 @@ declare float @llvm.sqrt.f32(float) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @rgb2spec_eval_precise(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #7 {
   %3 = load float, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = tail call contract noundef float @llvm.fma.f32(float %3, float %1, float %5)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = tail call contract noundef float @llvm.fma.f32(float %6, float %1, float %8)
   %10 = tail call contract noundef float @llvm.fma.f32(float %9, float %9, float 1.000000e+00)
@@ -356,10 +356,10 @@ define noundef float @rgb2spec_eval_precise(ptr nocapture noundef readonly %0, f
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef float @rgb2spec_eval_fast(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #8 {
   %3 = load float, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
   %6 = tail call contract noundef float @llvm.fma.f32(float %3, float %1, float %5)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load float, ptr %7, align 4
   %9 = tail call contract noundef float @llvm.fma.f32(float %6, float %1, float %8)
   %10 = tail call contract noundef float @llvm.fma.f32(float %9, float %9, float 1.000000e+00)
@@ -376,11 +376,11 @@ define noundef <4 x float> @rgb2spec_eval_sse(ptr nocapture noundef readonly %0,
   %3 = load float, ptr %0, align 4
   %4 = insertelement <4 x float> poison, float %3, i64 0
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> zeroinitializer
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = insertelement <4 x float> poison, float %7, i64 0
   %9 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> zeroinitializer
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load float, ptr %10, align 4
   %12 = insertelement <4 x float> poison, float %11, i64 0
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
@@ -404,11 +404,11 @@ define noundef <8 x float> @rgb2spec_eval_avx(ptr nocapture noundef readonly %0,
   %3 = load float, ptr %0, align 4
   %4 = insertelement <8 x float> poison, float %3, i64 0
   %5 = shufflevector <8 x float> %4, <8 x float> poison, <8 x i32> zeroinitializer
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = insertelement <8 x float> poison, float %7, i64 0
   %9 = shufflevector <8 x float> %8, <8 x float> poison, <8 x i32> zeroinitializer
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load float, ptr %10, align 4
   %12 = insertelement <8 x float> poison, float %11, i64 0
   %13 = shufflevector <8 x float> %12, <8 x float> poison, <8 x i32> zeroinitializer
@@ -426,11 +426,11 @@ define <16 x float> @rgb2spec_eval_avx512(ptr nocapture noundef readonly %0, <16
   %3 = load float, ptr %0, align 4
   %4 = insertelement <16 x float> poison, float %3, i64 0
   %5 = shufflevector <16 x float> %4, <16 x float> poison, <16 x i32> zeroinitializer
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load float, ptr %6, align 4
   %8 = insertelement <16 x float> poison, float %7, i64 0
   %9 = shufflevector <16 x float> %8, <16 x float> poison, <16 x i32> zeroinitializer
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load float, ptr %10, align 4
   %12 = insertelement <16 x float> poison, float %11, i64 0
   %13 = shufflevector <16 x float> %12, <16 x float> poison, <16 x i32> zeroinitializer

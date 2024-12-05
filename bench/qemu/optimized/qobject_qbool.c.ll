@@ -17,10 +17,10 @@ define dso_local noalias noundef ptr @qbool_from_bool(i1 noundef zeroext %value)
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #6
   %frombool = zext i1 %value to i8
-  %refcnt.i = getelementptr inbounds i8, ptr %call, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i64 1, ptr %refcnt.i, align 8
   store i32 6, ptr %call, align 8
-  %value3 = getelementptr inbounds i8, ptr %call, i64 16
+  %value3 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store i8 %frombool, ptr %value3, align 8
   ret ptr %call
 }
@@ -31,7 +31,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @qbool_get_bool(ptr nocapture noundef readonly %qb) local_unnamed_addr #2 {
 entry:
-  %value = getelementptr inbounds i8, ptr %qb, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %qb, i64 16
   %0 = load i8, ptr %value, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -54,7 +54,7 @@ if.else.i.i:                                      ; preds = %entry
 qobject_type.exit.i:                              ; preds = %entry
   %cmp.i = icmp eq i32 %obj.val.i, 6
   tail call void @llvm.assume(i1 %cmp.i)
-  %value = getelementptr inbounds i8, ptr %x, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %x, i64 16
   %1 = load i8, ptr %value, align 8
   %tobool.not.i1 = icmp ne ptr %y, null
   tail call void @llvm.assume(i1 %tobool.not.i1)
@@ -70,7 +70,7 @@ if.else.i.i5:                                     ; preds = %qobject_type.exit.i
 qobject_type.exit.i6:                             ; preds = %qobject_type.exit.i
   %cmp.i7 = icmp eq i32 %obj.val.i3, 6
   tail call void @llvm.assume(i1 %cmp.i7)
-  %value2 = getelementptr inbounds i8, ptr %y, i64 16
+  %value2 = getelementptr inbounds nuw i8, ptr %y, i64 16
   %3 = load i8, ptr %value2, align 8
   %4 = xor i8 %3, %1
   %5 = and i8 %4, 1
@@ -117,7 +117,7 @@ entry:
   br i1 %tobool.not, label %qobject_unref_impl.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %refcnt.i = getelementptr inbounds i8, ptr %q, i64 8
+  %refcnt.i = getelementptr inbounds nuw i8, ptr %q, i64 8
   %0 = load i64, ptr %refcnt.i, align 8
   %tobool1.not.i = icmp eq i64 %0, 0
   br i1 %tobool1.not.i, label %if.else.i, label %land.lhs.true.i

@@ -45,7 +45,7 @@ if.end28:                                         ; preds = %if.end
   br i1 %cmp45, label %if.then46, label %if.end51
 
 if.then46:                                        ; preds = %if.end28
-  %add.ptr47 = getelementptr inbounds i8, ptr %arrayidx30, i64 1
+  %add.ptr47 = getelementptr inbounds nuw i8, ptr %arrayidx30, i64 1
   %sub50 = add nsw i64 %reass.sub, -1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr47, i8 %conv2, i64 %sub50, i1 false)
   br label %if.end51

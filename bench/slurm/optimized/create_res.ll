@@ -73,7 +73,7 @@ define dso_local i32 @scontrol_update_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %.not, label %6, label %17
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -117,30 +117,30 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %3, i64 136
-  %11 = getelementptr inbounds i8, ptr %3, i64 144
-  %12 = getelementptr inbounds i8, ptr %3, i64 48
-  %13 = getelementptr inbounds i8, ptr %3, i64 112
-  %14 = getelementptr inbounds i8, ptr %3, i64 72
-  %15 = getelementptr inbounds i8, ptr %3, i64 40
-  %16 = getelementptr inbounds i8, ptr %3, i64 104
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  %18 = getelementptr inbounds i8, ptr %3, i64 96
-  %19 = getelementptr inbounds i8, ptr %3, i64 80
-  %20 = getelementptr inbounds i8, ptr %3, i64 28
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
-  %22 = getelementptr inbounds i8, ptr %3, i64 128
-  %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = getelementptr inbounds i8, ptr %3, i64 88
-  %25 = getelementptr inbounds i8, ptr %3, i64 152
-  %26 = getelementptr inbounds i8, ptr %3, i64 56
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 128
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %28
 
 28:                                               ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %30, i32 noundef 61) #10
   %32 = ptrtoint ptr %31 to i64
@@ -170,7 +170,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
 43:                                               ; preds = %.critedge, %41
   %.0238 = phi i32 [ %42, %41 ], [ %35, %.critedge ]
   %.0237 = phi i8 [ %40, %41 ], [ 0, %.critedge ]
-  %44 = getelementptr inbounds i8, ptr %31, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %45 = call i32 @llvm.smax.i32(i32 %.0238, i32 1)
   %46 = zext nneg i32 %45 to i64
   %47 = call i32 @xstrncasecmp(ptr noundef %30, ptr noundef nonnull @.str.20, i64 noundef %46) #9
@@ -199,7 +199,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br label %.thread
 
 58:                                               ; preds = %48
-  %59 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.19, ptr noundef %60, ptr noundef %2) #9
@@ -211,7 +211,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not248, label %68, label %64
 
 64:                                               ; preds = %62
-  %65 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %66 = load ptr, ptr %65, align 8
   %67 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %66) #9
@@ -246,7 +246,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not270, label %85, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %83 = load ptr, ptr %82, align 8
   %84 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %83) #9
@@ -298,7 +298,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not253, label %107, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %105) #9
@@ -331,7 +331,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not256, label %121, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %119 = load ptr, ptr %118, align 8
   %120 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %119) #9
@@ -384,7 +384,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %141, label %142, label %146
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %144 = load ptr, ptr %143, align 8
   %145 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef %144, ptr noundef %2) #9
@@ -407,7 +407,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %154, label %155, label %159
 
 155:                                              ; preds = %150
-  %156 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %157 = load ptr, ptr %156, align 8
   %158 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef %157, ptr noundef %2) #9
@@ -428,7 +428,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %or.cond, label %165, label %169
 
 165:                                              ; preds = %163
-  %166 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %167 = load ptr, ptr %166, align 8
   %168 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef %167, ptr noundef %2) #9
@@ -462,7 +462,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %182, label %183, label %187
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %185 = load ptr, ptr %184, align 8
   %186 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.33, ptr noundef %185, ptr noundef %2) #9
@@ -602,7 +602,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not263, label %255, label %251
 
 251:                                              ; preds = %249
-  %252 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %253 = load ptr, ptr %252, align 8
   %254 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %253) #9
@@ -613,7 +613,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not264, label %260, label %256
 
 256:                                              ; preds = %255
-  %257 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %258 = load ptr, ptr %257, align 8
   %259 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %258) #9
@@ -634,7 +634,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not261, label %270, label %266
 
 266:                                              ; preds = %264
-  %267 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %267 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %268 = load ptr, ptr %267, align 8
   %269 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef %268) #9
@@ -645,7 +645,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %.not262, label %275, label %271
 
 271:                                              ; preds = %270
-  %272 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %272 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %273 = load ptr, ptr %272, align 8
   %274 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.49, ptr noundef %273) #9
@@ -687,7 +687,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_res_options(i32 noundef %0, 
   br i1 %291, label %.thread, label %292
 
 292:                                              ; preds = %289
-  %293 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %293 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   store i32 1, ptr @exit_code, align 4
   %294 = load ptr, ptr %293, align 8
   %295 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.53, ptr noundef %294, ptr noundef %2) #9
@@ -734,7 +734,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %.not, label %6, label %170
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %8 = load i64, ptr %7, align 8
   %9 = icmp eq i64 %8, 4294967294
   br i1 %9, label %10, label %12
@@ -745,10 +745,10 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br label %170
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 4294967294
-  %16 = getelementptr inbounds i8, ptr %3, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -2
   %or.cond = select i1 %15, i1 %18, i1 false
@@ -788,10 +788,10 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br label %170
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %3, i64 112
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %36 = load ptr, ptr %35, align 8
   %37 = icmp ne ptr %36, null
-  %38 = getelementptr inbounds i8, ptr %3, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %39 = load ptr, ptr %38, align 8
   %40 = icmp ne ptr %39, null
   %or.cond11 = select i1 %37, i1 %40, i1 false
@@ -803,7 +803,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %43, label %.sink.split, label %48
 
 .sink.split:                                      ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %3, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %45 = load i64, ptr %44, align 8
   %46 = icmp eq i64 %45, -2
   %47 = or i64 %45, 4096
@@ -812,7 +812,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br label %48
 
 48:                                               ; preds = %.sink.split, %41, %34
-  %49 = getelementptr inbounds i8, ptr %3, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %50 = load i64, ptr %49, align 8
   %.not62 = icmp eq i64 %50, -2
   %51 = and i64 %50, 4096
@@ -837,7 +837,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br label %170
 
 59:                                               ; preds = %54, %48
-  %60 = getelementptr inbounds i8, ptr %3, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %61 = load i32, ptr %60, align 8
   switch i32 %61, label %105 [
     i32 -2, label %62
@@ -845,7 +845,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   ]
 
 62:                                               ; preds = %59, %59
-  %63 = getelementptr inbounds i8, ptr %3, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %69, label %66
@@ -856,7 +856,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %68, label %69, label %105
 
 69:                                               ; preds = %66, %62
-  %70 = getelementptr inbounds i8, ptr %3, i64 96
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %71 = load i32, ptr %70, align 8
   switch i32 %71, label %105 [
     i32 -2, label %72
@@ -874,7 +874,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %77, label %78, label %105
 
 78:                                               ; preds = %75, %72
-  %79 = getelementptr inbounds i8, ptr %3, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %85, label %82
@@ -885,7 +885,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %84, label %85, label %105
 
 85:                                               ; preds = %82, %78
-  %86 = getelementptr inbounds i8, ptr %3, i64 144
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %95, label %89
@@ -893,14 +893,14 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
 89:                                               ; preds = %85
   %90 = load i8, ptr %87, align 1
   %91 = icmp eq i8 %90, 0
-  %92 = getelementptr inbounds i8, ptr %3, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %93 = load i32, ptr %92, align 8
   %94 = icmp eq i32 %93, -2
   %or.cond20 = select i1 %91, i1 %94, i1 false
   br i1 %or.cond20, label %96, label %105
 
 95:                                               ; preds = %85
-  %.old = getelementptr inbounds i8, ptr %3, i64 136
+  %.old = getelementptr inbounds nuw i8, ptr %3, i64 136
   %.old18 = load i32, ptr %.old, align 8
   %.old19 = icmp eq i32 %.old18, -2
   br i1 %.old19, label %96, label %105
@@ -925,7 +925,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br label %105
 
 105:                                              ; preds = %69, %59, %101, %95, %89, %82, %75, %66
-  %106 = getelementptr inbounds i8, ptr %3, i64 152
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %112, label %109
@@ -936,12 +936,12 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %111, label %112, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %109
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %127
 
 112:                                              ; preds = %109, %105
-  %113 = getelementptr inbounds i8, ptr %3, i64 56
+  %113 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, null
   br i1 %115, label %119, label %116
@@ -979,7 +979,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br label %170
 
 133:                                              ; preds = %127
-  %134 = getelementptr inbounds i8, ptr %3, i64 136
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %135 = load i32, ptr %134, align 8
   %.not66 = icmp eq i32 %135, -2
   br i1 %.not66, label %154, label %136
@@ -997,7 +997,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   ]
 
 140:                                              ; preds = %139, %139
-  %141 = getelementptr inbounds i8, ptr %3, i64 96
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %142 = load i32, ptr %141, align 8
   switch i32 %142, label %152 [
     i32 -2, label %143
@@ -1015,7 +1015,7 @@ define dso_local i32 @scontrol_create_res(i32 noundef %0, ptr nocapture noundef 
   br i1 %.not69, label %147, label %152
 
 147:                                              ; preds = %145, %143
-  %148 = getelementptr inbounds i8, ptr %3, i64 72
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %149 = load ptr, ptr %148, align 8
   %.not70 = icmp eq ptr %149, null
   br i1 %.not70, label %154, label %150

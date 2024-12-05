@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @parent_path(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
   br label %5
@@ -74,7 +74,7 @@ define dso_local void @parent_path(ptr nocapture noundef %0) local_unnamed_addr 
 8:                                                ; preds = %5
   %9 = add nsw i64 %indvars.iv, -1
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 %9
   %12 = load i8, ptr %11, align 1
   %13 = icmp eq i8 %12, 58
   br i1 %13, label %14, label %5, !llvm.loop !7
@@ -97,13 +97,13 @@ define dso_local void @sema_analyse_pass_top(ptr noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %2, %1
   %.0 = phi ptr [ %0, %1 ], [ %4, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %2, !llvm.loop !9
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %.0, ptr %6, align 8
   ret void
 }
@@ -111,7 +111,7 @@ define dso_local void @sema_analyse_pass_top(ptr noundef %0) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analyse_pass_module_hierarchy(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
   %6 = and i64 %5, 4294967295
@@ -125,7 +125,7 @@ define dso_local void @sema_analyse_pass_module_hierarchy(ptr noundef %0) local_
 
 10:                                               ; preds = %7
   %11 = add nsw i64 %indvars.iv.i, -1
-  %12 = getelementptr inbounds i8, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 %11
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 58
   br i1 %14, label %parent_path.exit, label %7, !llvm.loop !7
@@ -154,33 +154,33 @@ parent_path.exit:                                 ; preds = %10
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %67 ]
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %.not48 = icmp eq i64 %16, %27
   br i1 %.not48, label %28, label %67
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %30 = load ptr, ptr %29, align 8
   %bcmp = tail call i32 @bcmp(ptr %30, ptr %4, i64 %16)
   %31 = icmp eq i32 %bcmp, 0
   br i1 %31, label %32, label %67
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %23, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %23, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %36, label %39
 
 36:                                               ; preds = %32
   %37 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 8, ptr %38, align 4
   br label %41
 
@@ -198,13 +198,13 @@ parent_path.exit:                                 ; preds = %10
   br i1 %44, label %45, label %59
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %47 = shl i32 %42, 1
   %48 = zext i32 %47 to i64
   %49 = shl nuw nsw i64 %48, 3
   %50 = or disjoint i64 %49, 8
   %51 = tail call ptr @calloc_arena(i64 noundef %50) #11
-  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 %47, ptr %52, align 4
   %53 = load i32, ptr %46, align 4
   %54 = zext i32 %53 to i64
@@ -222,12 +222,12 @@ parent_path.exit:                                 ; preds = %10
   %.1.i = phi ptr [ %51, %45 ], [ %.0.i, %41 ]
   %61 = add i32 %60, 1
   store i32 %61, ptr %.1.i, align 4
-  %62 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %62, ptr %34, align 8
   %63 = load i32, ptr %.1.i, align 4
   %64 = add i32 %63, -1
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %62, i64 %65
   store ptr %0, ptr %66, align 8
   br label %parent_path.exit.thread
 
@@ -241,16 +241,16 @@ parent_path.exit:                                 ; preds = %10
   %69 = load i64, ptr %2, align 8
   %70 = tail call ptr @path_create_from_string(ptr noundef %4, i32 noundef %68, i64 %69) #11
   %71 = tail call ptr @compiler_find_or_create_module(ptr noundef %70, ptr noundef null) #11
-  %72 = getelementptr inbounds i8, ptr %0, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %71, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %71, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 88
   %74 = load ptr, ptr %73, align 8
   %.not.i50 = icmp eq ptr %74, null
   br i1 %.not.i50, label %75, label %78
 
 75:                                               ; preds = %._crit_edge
   %76 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   store i32 8, ptr %77, align 4
   br label %80
 
@@ -268,13 +268,13 @@ parent_path.exit:                                 ; preds = %10
   br i1 %83, label %84, label %98
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %.0.i53, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 4
   %86 = shl i32 %81, 1
   %87 = zext i32 %86 to i64
   %88 = shl nuw nsw i64 %87, 3
   %89 = or disjoint i64 %88, 8
   %90 = tail call ptr @calloc_arena(i64 noundef %89) #11
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   store i32 %86, ptr %91, align 4
   %92 = load i32, ptr %85, align 4
   %93 = zext i32 %92 to i64
@@ -292,12 +292,12 @@ parent_path.exit:                                 ; preds = %10
   %.1.i54 = phi ptr [ %90, %84 ], [ %.0.i53, %80 ]
   %100 = add i32 %99, 1
   store i32 %100, ptr %.1.i54, align 4
-  %101 = getelementptr inbounds i8, ptr %.1.i54, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.1.i54, i64 8
   store ptr %101, ptr %73, align 8
   %102 = load i32, ptr %.1.i54, align 4
   %103 = add i32 %102, -1
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %101, i64 %104
+  %105 = getelementptr inbounds nuw ptr, ptr %101, i64 %104
   store ptr %0, ptr %105, align 8
   tail call void @sema_analyze_stage(ptr noundef nonnull %71, i32 noundef 1) #11
   br label %parent_path.exit.thread
@@ -314,7 +314,7 @@ declare void @sema_analyze_stage(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge74, label %4
@@ -332,9 +332,9 @@ define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %._crit_edge70
   %indvars.iv85 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next86, %._crit_edge70 ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv85
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv85
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not61 = icmp eq ptr %11, null
   br i1 %.not61, label %._crit_edge70, label %12
@@ -351,17 +351,17 @@ define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %
 
 .lr.ph69:                                         ; preds = %.lr.ph69.preheader, %60
   %indvars.iv80 = phi i64 [ 0, %.lr.ph69.preheader ], [ %indvars.iv.next81, %60 ]
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv80
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv80
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, -897
   %20 = or disjoint i64 %19, 128
   store i64 %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %22 = load ptr, ptr %21, align 8
   %.not77 = icmp eq i64 %indvars.iv80, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %22, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not77, label %._crit_edge, label %.lr.ph
 
@@ -372,22 +372,22 @@ define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %
 
 .lr.ph:                                           ; preds = %.lr.ph69, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.lr.ph69 ]
-  %24 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %.pre
   br i1 %30, label %31, label %23
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
-  %33 = getelementptr inbounds i8, ptr %16, i64 16
+  %32 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %34 = load i64, ptr %33, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %34, ptr noundef nonnull @.str, ptr noundef %.pre) #11
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %36, align 8
   tail call void (i64, ptr, ...) @sema_error_prev_at(i64 %37, ptr noundef nonnull @.str.1) #11
   %38 = load i64, ptr %17, align 8
@@ -402,8 +402,8 @@ define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %
   br i1 %.not62, label %42, label %50
 
 42:                                               ; preds = %._crit_edge
-  %43 = getelementptr inbounds i8, ptr %22, i64 8
-  %44 = getelementptr inbounds i8, ptr %16, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %45 = load ptr, ptr %43, align 8
   %46 = load i64, ptr %44, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %46, ptr noundef nonnull @.str.2, ptr noundef %45) #11
@@ -418,7 +418,7 @@ define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i8, ptr %16, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %54 = load i64, ptr %53, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %54, ptr noundef nonnull @.str.3) #11
   %55 = load i64, ptr %17, align 8
@@ -428,7 +428,7 @@ define dso_local void @sema_analysis_pass_process_imports(ptr noundef readonly %
   br label %60
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %16, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store ptr %41, ptr %59, align 8
   br label %60
 
@@ -454,13 +454,13 @@ declare ptr @global_context_find_module(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not57 = icmp eq ptr %3, null
   br i1 %.not57, label %._crit_edge60, label %.lr.ph59
 
 .lr.ph59:                                         ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %5
 
 .loopexit:                                        ; preds = %._crit_edge
@@ -482,9 +482,9 @@ define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr 
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %._crit_edge
   %indvars.iv64 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next65, %._crit_edge ]
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv64
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv64
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 127
   %14 = icmp eq i64 %13, 6
@@ -515,9 +515,9 @@ define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 4294967296
   %.not51 = icmp eq i64 %28, 0
@@ -530,7 +530,7 @@ define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr 
 
 31:                                               ; preds = %29
   %32 = tail call ptr @calloc_arena(i64 noundef 72) #11
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 8, ptr %33, align 4
   br label %36
 
@@ -548,13 +548,13 @@ define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr 
   br i1 %39, label %40, label %54
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %42 = shl i32 %37, 1
   %43 = zext i32 %42 to i64
   %44 = shl nuw nsw i64 %43, 3
   %45 = or disjoint i64 %44, 8
   %46 = tail call ptr @calloc_arena(i64 noundef %45) #11
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %42, ptr %47, align 4
   %48 = load i32, ptr %41, align 4
   %49 = zext i32 %48 to i64
@@ -572,12 +572,12 @@ define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr 
   %.1.i = phi ptr [ %46, %40 ], [ %.0.i, %36 ]
   %56 = add i32 %55, 1
   store i32 %56, ptr %.1.i, align 4
-  %57 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %57, ptr %4, align 8
   %58 = load i32, ptr %.1.i, align 4
   %59 = add i32 %58, -1
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
   store ptr %25, ptr %61, align 8
   br label %63
 
@@ -601,7 +601,7 @@ define dso_local void @sema_process_includes(ptr noundef %0) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_register_global_declarations(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge38, label %4
@@ -619,16 +619,16 @@ define dso_local void @sema_analysis_pass_register_global_declarations(ptr nound
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %21
   %indvars.iv42 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next43, %21 ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv42
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv42
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %.not32 = icmp eq ptr %11, null
   br i1 %.not32, label %12, label %21
 
 12:                                               ; preds = %.lr.ph37
   store ptr %0, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 176
   %14 = load ptr, ptr %13, align 8
   %.not33 = icmp eq ptr %14, null
   br i1 %.not33, label %vec_resize.exit, label %15
@@ -645,7 +645,7 @@ define dso_local void @sema_analysis_pass_register_global_declarations(ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   tail call void @unit_register_global_decl(ptr noundef nonnull %9, ptr noundef %19) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -673,7 +673,7 @@ vec_resize.exit:                                  ; preds = %12, %.loopexit
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit144, label %5
@@ -691,15 +691,15 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocaptu
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %vec_resize.exit129
   %indvars.iv203 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next204, %vec_resize.exit129 ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv203
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv203
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
   %.not111 = icmp eq ptr %12, null
   br i1 %.not111, label %13, label %17
 
 13:                                               ; preds = %.lr.ph164
-  %14 = getelementptr inbounds i8, ptr %10, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %15 = load ptr, ptr %14, align 8
   %.not112 = icmp eq ptr %15, null
   br i1 %.not112, label %vec_resize.exit129, label %16
@@ -710,7 +710,7 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocaptu
 
 17:                                               ; preds = %.lr.ph164
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef nonnull %10) #11
-  %18 = getelementptr inbounds i8, ptr %12, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %19 = load ptr, ptr %18, align 8
   %.not113 = icmp eq ptr %19, null
   br i1 %.not113, label %.critedge125, label %20
@@ -722,7 +722,7 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocaptu
   br i1 %23, label %26, label %.critedge125
 
 .critedge125:                                     ; preds = %17, %20
-  %24 = getelementptr inbounds i8, ptr %12, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %25 = load i64, ptr %24, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %25, ptr noundef nonnull @.str.4) #11
   br label %.loopexit
@@ -733,7 +733,7 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocaptu
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i16, ptr %30, align 8
   %32 = and i16 %31, 255
   %33 = icmp eq i16 %32, 14
@@ -741,26 +741,26 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocaptu
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %27, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @type_bool, align 8
   %.not115 = icmp eq ptr %37, %38
   br i1 %.not115, label %42, label %39
 
 39:                                               ; preds = %34, %29
-  %40 = getelementptr inbounds i8, ptr %27, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %41 = load i64, ptr %40, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef nonnull @.str.5) #11
   br label %.loopexit
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %27, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %44 = load i8, ptr %43, align 8
   %45 = trunc i8 %44 to i1
   br i1 %45, label %55, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %10, i64 176
+  %47 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %48 = load ptr, ptr %47, align 8
   %.not.i = icmp eq ptr %48, null
   br i1 %.not.i, label %vec_resize.exit, label %49
@@ -771,7 +771,7 @@ define dso_local void @sema_analysis_pass_register_conditional_units(ptr nocaptu
   br label %vec_resize.exit
 
 vec_resize.exit:                                  ; preds = %46, %49
-  %51 = getelementptr inbounds i8, ptr %10, i64 184
+  %51 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %52 = load ptr, ptr %51, align 8
   %.not.i128 = icmp eq ptr %52, null
   br i1 %.not.i128, label %vec_resize.exit129, label %53
@@ -782,7 +782,7 @@ vec_resize.exit:                                  ; preds = %46, %49
   br label %vec_resize.exit129
 
 55:                                               ; preds = %16, %42
-  %56 = getelementptr inbounds i8, ptr %10, i64 104
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %57 = load ptr, ptr %56, align 8
   %.not116 = icmp eq ptr %57, null
   br i1 %.not116, label %.loopexit142, label %58
@@ -794,15 +794,15 @@ vec_resize.exit:                                  ; preds = %46, %49
   br i1 %.not166, label %.loopexit142, label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %10, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %wide.trip.count196 = zext i32 %60 to i64
   br label %62
 
 62:                                               ; preds = %.lr.ph157, %._crit_edge
   %indvars.iv193 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next194, %._crit_edge ]
-  %63 = getelementptr inbounds ptr, ptr %57, i64 %indvars.iv193
+  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv193
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load ptr, ptr %65, align 8
   %.not118 = icmp eq ptr %66, null
   br i1 %.not118, label %._crit_edge, label %67
@@ -823,21 +823,21 @@ vec_resize.exit:                                  ; preds = %46, %49
   br i1 %74, label %75, label %.loopexit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %72, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %77 = load i16, ptr %76, align 8
   %78 = and i16 %77, 255
   %79 = icmp eq i16 %78, 14
   br i1 %79, label %.critedge127, label %.critedge127.thread
 
 .critedge127:                                     ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %72, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %81 = load i16, ptr %80, align 8
   %82 = and i16 %81, 255
   %.not141 = icmp eq i16 %82, 2
   br i1 %.not141, label %83, label %.critedge127.thread
 
 83:                                               ; preds = %.critedge127
-  %84 = getelementptr inbounds i8, ptr %72, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %85 = load i8, ptr %84, align 8
   %.fr167 = freeze i8 %85
   %86 = and i8 %.fr167, 1
@@ -861,20 +861,20 @@ vec_resize.exit:                                  ; preds = %46, %49
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %105
   %indvars.iv189 = phi i64 [ %90, %.lr.ph.split.us.preheader ], [ %indvars.iv.next190, %105 ]
   %91 = load ptr, ptr %65, align 8
-  %92 = getelementptr inbounds ptr, ptr %91, i64 %indvars.iv189
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv189
   %93 = load ptr, ptr %92, align 8
   %94 = call zeroext i1 @sema_analyse_expr(ptr noundef nonnull %2, ptr noundef %93) #11
   br i1 %94, label %95, label %.loopexit
 
 95:                                               ; preds = %.lr.ph.split.us
-  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %97 = load i16, ptr %96, align 8
   %98 = and i16 %97, 255
   %99 = icmp eq i16 %98, 14
   br i1 %99, label %100, label %.critedge
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %93, i64 24
+  %101 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %102 = load i16, ptr %101, align 8
   %103 = and i16 %102, 255
   %104 = icmp eq i16 %103, 6
@@ -888,20 +888,20 @@ vec_resize.exit:                                  ; preds = %46, %49
 .lr.ph.split:                                     ; preds = %.lr.ph, %147
   %indvars.iv = phi i64 [ %indvars.iv.next, %147 ], [ %90, %.lr.ph ]
   %106 = load ptr, ptr %65, align 8
-  %107 = getelementptr inbounds ptr, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8
   %109 = call zeroext i1 @sema_analyse_expr(ptr noundef nonnull %2, ptr noundef %108) #11
   br i1 %109, label %110, label %.loopexit
 
 110:                                              ; preds = %.lr.ph.split
-  %111 = getelementptr inbounds i8, ptr %108, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %112 = load i16, ptr %111, align 8
   %113 = and i16 %112, 255
   %114 = icmp eq i16 %113, 14
   br i1 %114, label %115, label %.critedge
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %108, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %117 = load i16, ptr %116, align 8
   %118 = and i16 %117, 255
   %119 = icmp eq i16 %118, 6
@@ -909,7 +909,7 @@ vec_resize.exit:                                  ; preds = %46, %49
 
 .critedge:                                        ; preds = %115, %110, %95, %100
   %.us-phi = phi ptr [ %93, %100 ], [ %93, %95 ], [ %108, %110 ], [ %108, %115 ]
-  %120 = getelementptr inbounds i8, ptr %.us-phi, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 8
   %121 = load i64, ptr %120, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %121, ptr noundef nonnull @.str.6) #11
   br label %.loopexit
@@ -921,7 +921,7 @@ vec_resize.exit:                                  ; preds = %46, %49
 
 124:                                              ; preds = %122
   %125 = call ptr @calloc_arena(i64 noundef 72) #11
-  %126 = getelementptr inbounds i8, ptr %125, i64 4
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 8, ptr %126, align 4
   br label %129
 
@@ -939,13 +939,13 @@ vec_resize.exit:                                  ; preds = %46, %49
   br i1 %132, label %133, label %147
 
 133:                                              ; preds = %129
-  %134 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %135 = shl i32 %130, 1
   %136 = zext i32 %135 to i64
   %137 = shl nuw nsw i64 %136, 3
   %138 = or disjoint i64 %137, 8
   %139 = call ptr @calloc_arena(i64 noundef %138) #11
-  %140 = getelementptr inbounds i8, ptr %139, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store i32 %135, ptr %140, align 4
   %141 = load i32, ptr %134, align 4
   %142 = zext i32 %141 to i64
@@ -963,14 +963,14 @@ vec_resize.exit:                                  ; preds = %46, %49
   %.1.i = phi ptr [ %139, %133 ], [ %.0.i, %129 ]
   %149 = add i32 %148, 1
   store i32 %149, ptr %.1.i, align 4
-  %150 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %150, ptr %61, align 8
-  %151 = getelementptr inbounds i8, ptr %108, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %108, i64 32
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %.1.i, align 4
   %154 = add i32 %153, -1
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %150, i64 %155
+  %156 = getelementptr inbounds nuw ptr, ptr %150, i64 %155
   store ptr %152, ptr %156, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -984,7 +984,7 @@ vec_resize.exit:                                  ; preds = %46, %49
 
 .loopexit142:                                     ; preds = %._crit_edge, %58, %55
   call void @sema_context_destroy(ptr noundef nonnull %2) #11
-  %157 = getelementptr inbounds i8, ptr %10, i64 176
+  %157 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %158 = load ptr, ptr %157, align 8
   %.not117 = icmp eq ptr %158, null
   br i1 %.not117, label %vec_resize.exit132, label %159
@@ -1001,7 +1001,7 @@ vec_resize.exit:                                  ; preds = %46, %49
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %.lr.ph160
   %indvars.iv198 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next199, %.lr.ph160 ]
-  %162 = getelementptr inbounds ptr, ptr %158, i64 %indvars.iv198
+  %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv198
   %163 = load ptr, ptr %162, align 8
   call void @unit_register_global_decl(ptr noundef %10, ptr noundef %163) #11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
@@ -1041,7 +1041,7 @@ declare void @sema_context_destroy(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_register_conditional_declarations(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge112, label %5
@@ -1059,11 +1059,11 @@ define dso_local void @sema_analysis_pass_register_conditional_declarations(ptr 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.critedge
   %indvars.iv128 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next129, %.critedge ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv128
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv128
   %10 = load ptr, ptr %9, align 8
   store ptr %0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 184
-  %12 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 184
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %.pre = load ptr, ptr %11, align 8
   br label %13
 
@@ -1084,7 +1084,7 @@ define dso_local void @sema_analysis_pass_register_conditional_declarations(ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %18 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef nonnull %10) #11
   %20 = call zeroext i1 @sema_decl_if_cond(ptr noundef nonnull %2, ptr noundef %19) #11
@@ -1127,9 +1127,9 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %._crit_edge104
   %indvars.iv123 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next124, %._crit_edge104 ]
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv123
+  %29 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv123
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 127
   %34 = icmp eq i64 %33, 6
@@ -1160,9 +1160,9 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %83
   %indvars.iv118 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next119, %83 ]
-  %44 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv118
+  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv118
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 4294967296
   %.not97 = icmp eq i64 %48, 0
@@ -1175,7 +1175,7 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
 
 51:                                               ; preds = %49
   %52 = call ptr @calloc_arena(i64 noundef 72) #11
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 8, ptr %53, align 4
   br label %56
 
@@ -1193,13 +1193,13 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
   br i1 %59, label %60, label %74
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %62 = shl i32 %57, 1
   %63 = zext i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
   %65 = or disjoint i64 %64, 8
   %66 = call ptr @calloc_arena(i64 noundef %65) #11
-  %67 = getelementptr inbounds i8, ptr %66, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   store i32 %62, ptr %67, align 4
   %68 = load i32, ptr %61, align 4
   %69 = zext i32 %68 to i64
@@ -1217,12 +1217,12 @@ vec_resize.exit:                                  ; preds = %13, %.loopexit
   %.1.i = phi ptr [ %66, %60 ], [ %.0.i, %56 ]
   %76 = add i32 %75, 1
   store i32 %76, ptr %.1.i, align 4
-  %77 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %77, ptr %11, align 8
   %78 = load i32, ptr %.1.i, align 4
   %79 = add i32 %78, -1
   %80 = zext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %77, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %77, i64 %80
   store ptr %45, ptr %81, align 8
   br label %83
 
@@ -1272,7 +1272,7 @@ declare void @unit_register_global_decl(ptr noundef, ptr noundef) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_ct_assert(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -1284,18 +1284,18 @@ define dso_local void @sema_analysis_pass_ct_assert(ptr nocapture noundef readon
   br i1 %.not33, label %.loopexit, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count38 = zext i32 %7 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph32, %._crit_edge
   %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %._crit_edge ]
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv35
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv35
   %12 = load ptr, ptr %11, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %12) #11
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 120
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
   %.not26 = icmp eq ptr %15, null
   br i1 %.not26, label %._crit_edge, label %16
@@ -1317,9 +1317,9 @@ define dso_local void @sema_analysis_pass_ct_assert(ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = call zeroext i1 @sema_analyse_ct_assert_stmt(ptr noundef nonnull %2, ptr noundef %23) #11
   br i1 %24, label %19, label %25
@@ -1343,7 +1343,7 @@ declare zeroext i1 @sema_analyse_ct_assert_stmt(ptr noundef, ptr noundef) local_
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_ct_echo(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -1355,18 +1355,18 @@ define dso_local void @sema_analysis_pass_ct_echo(ptr nocapture noundef readonly
   br i1 %.not33, label %.loopexit, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %wide.trip.count38 = zext i32 %7 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph32, %._crit_edge
   %indvars.iv35 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next36, %._crit_edge ]
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv35
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv35
   %12 = load ptr, ptr %11, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %12) #11
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %15 = load ptr, ptr %14, align 8
   %.not26 = icmp eq ptr %15, null
   br i1 %.not26, label %._crit_edge, label %16
@@ -1388,9 +1388,9 @@ define dso_local void @sema_analysis_pass_ct_echo(ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load ptr, ptr %22, align 8
   %24 = call zeroext i1 @sema_analyse_ct_echo_stmt(ptr noundef nonnull %2, ptr noundef %23) #11
   br i1 %24, label %19, label %25
@@ -1414,7 +1414,7 @@ declare zeroext i1 @sema_analyse_ct_echo_stmt(ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge215, label %5
@@ -1426,18 +1426,18 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %.not216, label %._crit_edge215, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 248
   %wide.trip.count276 = zext i32 %7 to i64
   br label %9
 
 9:                                                ; preds = %.lr.ph214, %._crit_edge211
   %indvars.iv273 = phi i64 [ 0, %.lr.ph214 ], [ %indvars.iv.next274, %._crit_edge211 ]
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv273
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv273
   %12 = load ptr, ptr %11, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %12) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
-  %13 = getelementptr inbounds i8, ptr %12, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   %.not162 = icmp eq ptr %14, null
   br i1 %.not162, label %._crit_edge, label %15
@@ -1455,7 +1455,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %20) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1463,7 +1463,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %15
-  %22 = getelementptr inbounds i8, ptr %12, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %23 = load ptr, ptr %22, align 8
   %.not163 = icmp eq ptr %23, null
   br i1 %.not163, label %._crit_edge179, label %24
@@ -1481,7 +1481,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
   %indvars.iv228 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next229, %.lr.ph178 ]
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv228
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv228
   %29 = load ptr, ptr %28, align 8
   %30 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %29) #11
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
@@ -1489,7 +1489,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond232.not, label %._crit_edge179, label %.lr.ph178, !llvm.loop !31
 
 ._crit_edge179:                                   ; preds = %.lr.ph178, %._crit_edge, %24
-  %31 = getelementptr inbounds i8, ptr %12, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %32 = load ptr, ptr %31, align 8
   %.not164 = icmp eq ptr %32, null
   br i1 %.not164, label %._crit_edge183, label %33
@@ -1507,10 +1507,10 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph182:                                        ; preds = %.lr.ph182.preheader, %59
   %indvars.iv233 = phi i64 [ 0, %.lr.ph182.preheader ], [ %indvars.iv.next234, %59 ]
   %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv233
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv233
   %38 = load ptr, ptr %37, align 8
   %39 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %38) #11
-  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %41 = load i64, ptr %40, align 8
   %42 = trunc i64 %41 to i32
   %43 = and i32 %42, 127
@@ -1524,16 +1524,16 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 
 45:                                               ; preds = %.lr.ph182, %44
   %.sink = phi i64 [ 72, %44 ], [ 96, %.lr.ph182 ]
-  %46 = getelementptr inbounds i8, ptr %38, i64 %.sink
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 %.sink
   %.pn = load ptr, ptr %46, align 8
-  %.0.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %47 = load i32, ptr %.0, align 8
   %.not174 = icmp eq i32 %47, 23
   br i1 %.not174, label %48, label %59
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %.0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 25
@@ -1556,7 +1556,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond237.not, label %._crit_edge183, label %.lr.ph182, !llvm.loop !32
 
 ._crit_edge183:                                   ; preds = %59, %._crit_edge179, %33
-  %60 = getelementptr inbounds i8, ptr %12, i64 152
+  %60 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %61 = load ptr, ptr %60, align 8
   %.not165 = icmp eq ptr %61, null
   br i1 %.not165, label %._crit_edge187, label %62
@@ -1574,7 +1574,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph186:                                        ; preds = %.lr.ph186.preheader, %.lr.ph186
   %indvars.iv238 = phi i64 [ 0, %.lr.ph186.preheader ], [ %indvars.iv.next239, %.lr.ph186 ]
   %65 = load ptr, ptr %60, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %indvars.iv238
+  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv238
   %67 = load ptr, ptr %66, align 8
   %68 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %67) #11
   %indvars.iv.next239 = add nuw nsw i64 %indvars.iv238, 1
@@ -1582,7 +1582,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond242.not, label %._crit_edge187, label %.lr.ph186, !llvm.loop !33
 
 ._crit_edge187:                                   ; preds = %.lr.ph186, %._crit_edge183, %62
-  %69 = getelementptr inbounds i8, ptr %12, i64 160
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %70 = load ptr, ptr %69, align 8
   %.not166 = icmp eq ptr %70, null
   br i1 %.not166, label %._crit_edge191, label %71
@@ -1600,7 +1600,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph190:                                        ; preds = %.lr.ph190.preheader, %.lr.ph190
   %indvars.iv243 = phi i64 [ 0, %.lr.ph190.preheader ], [ %indvars.iv.next244, %.lr.ph190 ]
   %74 = load ptr, ptr %69, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv243
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv243
   %76 = load ptr, ptr %75, align 8
   %77 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %76) #11
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
@@ -1608,7 +1608,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond247.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !34
 
 ._crit_edge191:                                   ; preds = %.lr.ph190, %._crit_edge187, %71
-  %78 = getelementptr inbounds i8, ptr %12, i64 168
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %79 = load ptr, ptr %78, align 8
   %.not167 = icmp eq ptr %79, null
   br i1 %.not167, label %._crit_edge195, label %80
@@ -1626,7 +1626,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph194:                                        ; preds = %.lr.ph194.preheader, %.lr.ph194
   %indvars.iv248 = phi i64 [ 0, %.lr.ph194.preheader ], [ %indvars.iv.next249, %.lr.ph194 ]
   %83 = load ptr, ptr %78, align 8
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %indvars.iv248
+  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv248
   %85 = load ptr, ptr %84, align 8
   %86 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %85) #11
   %indvars.iv.next249 = add nuw nsw i64 %indvars.iv248, 1
@@ -1634,7 +1634,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond252.not, label %._crit_edge195, label %.lr.ph194, !llvm.loop !35
 
 ._crit_edge195:                                   ; preds = %.lr.ph194, %._crit_edge191, %80
-  %87 = getelementptr inbounds i8, ptr %12, i64 144
+  %87 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %88 = load ptr, ptr %87, align 8
   %.not168 = icmp eq ptr %88, null
   br i1 %.not168, label %._crit_edge199, label %89
@@ -1652,7 +1652,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
   %indvars.iv253 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next254, %.lr.ph198 ]
   %92 = load ptr, ptr %87, align 8
-  %93 = getelementptr inbounds ptr, ptr %92, i64 %indvars.iv253
+  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv253
   %94 = load ptr, ptr %93, align 8
   %95 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %94) #11
   %indvars.iv.next254 = add nuw nsw i64 %indvars.iv253, 1
@@ -1660,7 +1660,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond257.not, label %._crit_edge199, label %.lr.ph198, !llvm.loop !36
 
 ._crit_edge199:                                   ; preds = %.lr.ph198, %._crit_edge195, %89
-  %96 = getelementptr inbounds i8, ptr %12, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %97 = load ptr, ptr %96, align 8
   %.not169 = icmp eq ptr %97, null
   br i1 %.not169, label %._crit_edge203, label %98
@@ -1678,7 +1678,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph202:                                        ; preds = %.lr.ph202.preheader, %.lr.ph202
   %indvars.iv258 = phi i64 [ 0, %.lr.ph202.preheader ], [ %indvars.iv.next259, %.lr.ph202 ]
   %101 = load ptr, ptr %96, align 8
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv258
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv258
   %103 = load ptr, ptr %102, align 8
   %104 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %103) #11
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
@@ -1686,13 +1686,13 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond262.not, label %._crit_edge203, label %.lr.ph202, !llvm.loop !37
 
 ._crit_edge203:                                   ; preds = %.lr.ph202, %._crit_edge199, %98
-  %105 = getelementptr inbounds i8, ptr %12, i64 192
+  %105 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %106 = load ptr, ptr %105, align 8
   %.not170 = icmp eq ptr %106, null
   br i1 %.not170, label %113, label %107
 
 107:                                              ; preds = %._crit_edge203
-  %108 = getelementptr inbounds i8, ptr %106, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %109 = load i64, ptr %108, align 8
   %110 = and i64 %109, 134217728
   %.not171 = icmp eq i64 %110, 0
@@ -1703,7 +1703,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br label %113
 
 113:                                              ; preds = %111, %107, %._crit_edge203
-  %114 = getelementptr inbounds i8, ptr %12, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %115 = load ptr, ptr %114, align 8
   %.not172 = icmp eq ptr %115, null
   br i1 %.not172, label %._crit_edge207, label %116
@@ -1721,7 +1721,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %.lr.ph206
   %indvars.iv263 = phi i64 [ 0, %.lr.ph206.preheader ], [ %indvars.iv.next264, %.lr.ph206 ]
   %119 = load ptr, ptr %114, align 8
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv263
+  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %indvars.iv263
   %121 = load ptr, ptr %120, align 8
   %122 = call zeroext i1 @sema_analyse_decl(ptr noundef nonnull %2, ptr noundef %121) #11
   %indvars.iv.next264 = add nuw nsw i64 %indvars.iv263, 1
@@ -1729,7 +1729,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
   br i1 %exitcond267.not, label %._crit_edge207, label %.lr.ph206, !llvm.loop !38
 
 ._crit_edge207:                                   ; preds = %.lr.ph206, %113, %116
-  %123 = getelementptr inbounds i8, ptr %12, i64 232
+  %123 = getelementptr inbounds nuw i8, ptr %12, i64 232
   %124 = load ptr, ptr %123, align 8
   %.not173 = icmp eq ptr %124, null
   br i1 %.not173, label %._crit_edge211, label %125
@@ -1746,7 +1746,7 @@ define dso_local void @sema_analysis_pass_decls(ptr nocapture noundef readonly %
 
 .lr.ph210:                                        ; preds = %.lr.ph210.preheader, %.lr.ph210
   %indvars.iv268 = phi i64 [ 0, %.lr.ph210.preheader ], [ %indvars.iv.next269, %.lr.ph210 ]
-  %128 = getelementptr inbounds ptr, ptr %124, i64 %indvars.iv268
+  %128 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv268
   %129 = load ptr, ptr %128, align 8
   %130 = call zeroext i1 @sema_check_type_variable_array(ptr noundef nonnull %2, ptr noundef %129) #11
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
@@ -1776,7 +1776,7 @@ declare zeroext i1 @sema_check_type_variable_array(ptr noundef, ptr noundef) loc
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %5
@@ -1788,7 +1788,7 @@ define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly 
   br i1 %.not54, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %._crit_edge, label %.preheader
@@ -1809,9 +1809,9 @@ define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly 
 16:                                               ; preds = %.lr.ph
   %17 = add i32 %14, -1
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %12, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %12, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %22) #11
   %23 = load ptr, ptr %8, align 8
@@ -1819,26 +1819,26 @@ define dso_local void @sema_analysis_pass_lambda(ptr nocapture noundef readonly 
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %25, -1
   store i32 %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %20, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %28 = load i32, ptr %27, align 8
   %.not.i = icmp eq i32 %28, 0
   br i1 %.not.i, label %53, label %29
 
 29:                                               ; preds = %16
-  %30 = getelementptr inbounds i8, ptr %20, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, 16384
   %.not14.i = icmp eq i64 %32, 0
   br i1 %.not14.i, label %36, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %20, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %35 = load i64, ptr %34, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %35, ptr noundef nonnull @.str.27) #11
   br label %analyse_func_body.exit
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %20, i64 120
+  %37 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %38 = load i16, ptr %37, align 8
   %39 = and i16 %38, 32
   %.not15.i = icmp eq i16 %39, 0
@@ -1871,14 +1871,14 @@ analyse_func_body.exit:                           ; preds = %33, %48
   br label %87
 
 53:                                               ; preds = %16, %40, %45, %48
-  %54 = getelementptr inbounds i8, ptr %22, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %55 = load ptr, ptr %54, align 8
   %.not.i48 = icmp eq ptr %55, null
   br i1 %.not.i48, label %56, label %59
 
 56:                                               ; preds = %53
   %57 = call ptr @calloc_arena(i64 noundef 72) #11
-  %58 = getelementptr inbounds i8, ptr %57, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 8, ptr %58, align 4
   br label %61
 
@@ -1896,13 +1896,13 @@ analyse_func_body.exit:                           ; preds = %33, %48
   br i1 %64, label %65, label %79
 
 65:                                               ; preds = %61
-  %66 = getelementptr inbounds i8, ptr %.0.i49, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 4
   %67 = shl i32 %62, 1
   %68 = zext i32 %67 to i64
   %69 = shl nuw nsw i64 %68, 3
   %70 = or disjoint i64 %69, 8
   %71 = call ptr @calloc_arena(i64 noundef %70) #11
-  %72 = getelementptr inbounds i8, ptr %71, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
   store i32 %67, ptr %72, align 4
   %73 = load i32, ptr %66, align 4
   %74 = zext i32 %73 to i64
@@ -1920,12 +1920,12 @@ analyse_func_body.exit:                           ; preds = %33, %48
   %.1.i = phi ptr [ %71, %65 ], [ %.0.i49, %61 ]
   %81 = add i32 %80, 1
   store i32 %81, ptr %.1.i, align 4
-  %82 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %82, ptr %54, align 8
   %83 = load i32, ptr %.1.i, align 4
   %84 = add i32 %83, -1
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %82, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %82, i64 %85
   store ptr %20, ptr %86, align 8
   br label %87
 
@@ -1948,7 +1948,7 @@ analyse_func_body.exit:                           ; preds = %33, %48
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge50, label %5
@@ -1966,10 +1966,10 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
 .lr.ph49:                                         ; preds = %.lr.ph49.preheader, %._crit_edge
   %indvars.iv69 = phi i64 [ 0, %.lr.ph49.preheader ], [ %indvars.iv.next70, %._crit_edge ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv69
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv69
   %10 = load ptr, ptr %9, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not29 = icmp eq ptr %12, null
   br i1 %.not29, label %._crit_edge, label %13
@@ -1986,9 +1986,9 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %88 ]
-  %16 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
   %21 = and i32 %20, 127
@@ -2002,14 +2002,14 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
   ]
 
 22:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %17, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %24 = load ptr, ptr %23, align 8
   %.not30 = icmp eq ptr %24, null
   br i1 %.not30, label %88, label %25
 
 25:                                               ; preds = %22
   %26 = call ptr @sema_decl_stack_store() #11
-  %27 = getelementptr inbounds i8, ptr %17, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %28 = load ptr, ptr %27, align 8
   %.not.i = icmp eq ptr %28, null
   br i1 %.not.i, label %._crit_edge.i, label %29
@@ -2026,7 +2026,7 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i
   %33 = load ptr, ptr %32, align 8
   call void @sema_decl_stack_push(ptr noundef %33) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2050,13 +2050,13 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
 
 .lr.ph95.i:                                       ; preds = %._crit_edge92.i, %.lr.ph95.preheader.i
   %indvars.iv121.i = phi i64 [ 0, %.lr.ph95.preheader.i ], [ %indvars.iv.next122.i, %._crit_edge92.i ]
-  %39 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv121.i
+  %39 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv121.i
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 56
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 96
   %46 = load ptr, ptr %45, align 8
   %.not67.i = icmp eq ptr %46, null
   br i1 %.not67.i, label %._crit_edge92.i, label %47
@@ -2073,7 +2073,7 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
 
 .lr.ph91.i:                                       ; preds = %87, %.lr.ph91.preheader.i
   %indvars.iv116.i = phi i64 [ 0, %.lr.ph91.preheader.i ], [ %indvars.iv.next117.i, %87 ]
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv116.i
+  %50 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv116.i
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %51, align 8
   %53 = call ptr @sema_decl_stack_resolve_symbol(ptr noundef %52) #11
@@ -2081,14 +2081,14 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
   br i1 %.not68.i, label %54, label %63
 
 54:                                               ; preds = %.lr.ph91.i
-  %55 = getelementptr inbounds i8, ptr %51, i64 120
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 120
   %56 = load i16, ptr %55, align 8
   %57 = and i16 %56, 128
   %.not69.i = icmp eq i16 %57, 0
   br i1 %.not69.i, label %58, label %87
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %40, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %60 = load ptr, ptr %44, align 8
   %61 = load ptr, ptr %51, align 8
   %62 = load i64, ptr %59, align 8
@@ -2096,21 +2096,21 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
   br label %sema_check_interfaces.exit
 
 63:                                               ; preds = %.lr.ph91.i
-  %64 = getelementptr inbounds i8, ptr %53, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %65 = load i64, ptr %64, align 8
   %66 = and i64 %65, 127
   %.not70.i = icmp eq i64 %66, 17
   br i1 %.not70.i, label %76, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %51, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %51, i64 120
   %69 = load i16, ptr %68, align 8
   %70 = and i16 %69, 128
   %.not72.i = icmp eq i16 %70, 0
   br i1 %.not72.i, label %71, label %87
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %53, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %73 = load ptr, ptr %44, align 8
   %74 = load ptr, ptr %51, align 8
   %75 = load i64, ptr %72, align 8
@@ -2118,19 +2118,19 @@ define dso_local void @sema_analysis_pass_interface(ptr nocapture noundef readon
   br label %sema_check_interfaces.exit
 
 76:                                               ; preds = %63
-  %77 = getelementptr inbounds i8, ptr %53, i64 120
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 120
   %78 = load i16, ptr %77, align 8
   %79 = and i16 %78, 2048
   %.not71.i = icmp eq i16 %79, 0
   br i1 %.not71.i, label %80, label %87
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %53, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %82 = load ptr, ptr %51, align 8
   %83 = load ptr, ptr %44, align 8
   %84 = load i64, ptr %81, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %84, ptr noundef nonnull @.str.30, ptr noundef %82, ptr noundef %82, ptr noundef %83) #11
-  %85 = getelementptr inbounds i8, ptr %51, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %86 = load i64, ptr %85, align 8
   call void (i64, ptr, ...) @sema_error_prev_at(i64 %86, ptr noundef nonnull @.str.31) #11
   br label %sema_check_interfaces.exit
@@ -2167,7 +2167,7 @@ sema_check_interfaces.exit:                       ; preds = %._crit_edge92.i, %.
 ; Function Attrs: nounwind uwtable
 define dso_local void @sema_analysis_pass_functions(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SemaContext_, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge68, label %5
@@ -2185,10 +2185,10 @@ define dso_local void @sema_analysis_pass_functions(ptr nocapture noundef readon
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %analyse_func_body.exit59
   %indvars.iv78 = phi i64 [ 0, %.lr.ph67.preheader ], [ %indvars.iv.next79, %analyse_func_body.exit59 ]
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv78
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv78
   %10 = load ptr, ptr %9, align 8
   call void @sema_context_init(ptr noundef nonnull %2, ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %10, i64 160
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %12 = load ptr, ptr %11, align 8
   %.not42 = icmp eq ptr %12, null
   br i1 %.not42, label %._crit_edge, label %13
@@ -2206,28 +2206,28 @@ define dso_local void @sema_analysis_pass_functions(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %analyse_func_body.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %analyse_func_body.exit ]
   %16 = load ptr, ptr %11, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 112
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %20 = load i32, ptr %19, align 8
   %.not.i = icmp eq i32 %20, 0
   br i1 %.not.i, label %analyse_func_body.exit, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %18, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %23, 16384
   %.not14.i = icmp eq i64 %24, 0
   br i1 %.not14.i, label %28, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %18, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %27 = load i64, ptr %26, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.27) #11
   br label %.sink.split.i
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %18, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %30 = load i16, ptr %29, align 8
   %31 = and i16 %30, 32
   %.not15.i = icmp eq i16 %31, 0
@@ -2265,7 +2265,7 @@ analyse_func_body.exit:                           ; preds = %.lr.ph, %32, %37, %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %analyse_func_body.exit, %.lr.ph67, %13
-  %45 = getelementptr inbounds i8, ptr %10, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not43 = icmp eq ptr %46, null
   br i1 %.not43, label %._crit_edge64, label %47
@@ -2283,28 +2283,28 @@ analyse_func_body.exit:                           ; preds = %.lr.ph, %32, %37, %
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %analyse_func_body.exit52
   %indvars.iv73 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next74, %analyse_func_body.exit52 ]
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv73
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv73
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 112
   %54 = load i32, ptr %53, align 8
   %.not.i46 = icmp eq i32 %54, 0
   br i1 %.not.i46, label %analyse_func_body.exit52, label %55
 
 55:                                               ; preds = %.lr.ph63
-  %56 = getelementptr inbounds i8, ptr %52, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %57 = load i64, ptr %56, align 8
   %58 = and i64 %57, 16384
   %.not14.i47 = icmp eq i64 %58, 0
   br i1 %.not14.i47, label %62, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %52, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %61 = load i64, ptr %60, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %61, ptr noundef nonnull @.str.27) #11
   br label %.sink.split.i48
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds i8, ptr %52, i64 120
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 120
   %64 = load i16, ptr %63, align 8
   %65 = and i16 %64, 32
   %.not15.i50 = icmp eq i16 %65, 0
@@ -2342,20 +2342,20 @@ analyse_func_body.exit52:                         ; preds = %.lr.ph63, %66, %71,
   br i1 %exitcond77.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !50
 
 ._crit_edge64:                                    ; preds = %analyse_func_body.exit52, %._crit_edge, %47
-  %79 = getelementptr inbounds i8, ptr %10, i64 192
+  %79 = getelementptr inbounds nuw i8, ptr %10, i64 192
   %80 = load ptr, ptr %79, align 8
   %.not44 = icmp eq ptr %80, null
   br i1 %.not44, label %analyse_func_body.exit59, label %81
 
 81:                                               ; preds = %._crit_edge64
-  %82 = getelementptr inbounds i8, ptr %80, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %83 = load i64, ptr %82, align 8
   %84 = and i64 %83, 134217728
   %.not45 = icmp eq i64 %84, 0
   br i1 %.not45, label %analyse_func_body.exit59, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds i8, ptr %80, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %87 = load i32, ptr %86, align 8
   %.not.i53 = icmp eq i32 %87, 0
   br i1 %.not.i53, label %analyse_func_body.exit59, label %88
@@ -2366,13 +2366,13 @@ analyse_func_body.exit52:                         ; preds = %.lr.ph63, %66, %71,
   br i1 %.not14.i54, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %80, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %92 = load i64, ptr %91, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %92, ptr noundef nonnull @.str.27) #11
   br label %.sink.split.i55
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %80, i64 120
+  %94 = getelementptr inbounds nuw i8, ptr %80, i64 120
   %95 = load i16, ptr %94, align 8
   %96 = and i16 %95, 32
   %.not15.i57 = icmp eq i16 %96, 0
@@ -2427,14 +2427,14 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %8, ptr noundef nonnull @.str.7) #11
   br label %134
 
 9:                                                ; preds = %2
   call void @sema_context_init(ptr noundef nonnull %3, ptr noundef %0) #11
-  %10 = getelementptr inbounds i8, ptr %1, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %12
@@ -2456,25 +2456,25 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i16, ptr %18, align 8
   %20 = and i16 %19, 255
   %.not95 = icmp eq i16 %20, 11
   br i1 %.not95, label %15, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load i64, ptr %22, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %23, ptr noundef nonnull @.str.8) #11
   br label %134
 
 ._crit_edge:                                      ; preds = %15, %9, %12
-  %24 = getelementptr inbounds i8, ptr %1, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %25 = load ptr, ptr %24, align 8
   %26 = call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %3, ptr noundef %25) #11
-  %27 = getelementptr inbounds i8, ptr %1, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = load ptr, ptr %27, align 8
   %.not89 = icmp eq ptr %28, null
   br i1 %.not89, label %.thread131, label %29
@@ -2496,7 +2496,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
 .lr.ph103:                                        ; preds = %.lr.ph103.preheader, %.lr.ph103
   %indvars.iv120 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next121, %.lr.ph103 ]
   %.083.in101 = phi i1 [ %26, %.lr.ph103.preheader ], [ %35, %.lr.ph103 ]
-  %32 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv120
+  %32 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv120
   %33 = load ptr, ptr %32, align 8
   %34 = call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %3, ptr noundef %33) #11
   %35 = and i1 %.083.in101, %34
@@ -2510,28 +2510,28 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br i1 %.083.in.lcssa, label %36, label %134
 
 36:                                               ; preds = %.thread131, %._crit_edge104
-  %37 = getelementptr inbounds i8, ptr %25, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %38 = load i16, ptr %37, align 8
   %39 = and i16 %38, 255
   %40 = icmp eq i16 %39, 14
   br i1 %40, label %41, label %.critedge
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %25, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %43 = load i16, ptr %42, align 8
   %44 = and i16 %43, 255
   %45 = icmp eq i16 %44, 6
   br i1 %45, label %48, label %.critedge
 
 .critedge:                                        ; preds = %36, %41
-  %46 = getelementptr inbounds i8, ptr %25, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %47 = load i64, ptr %46, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %47, ptr noundef nonnull @.str.9) #11
   br label %134
 
 48:                                               ; preds = %41
   call void @scratch_buffer_clear() #11
-  %49 = getelementptr inbounds i8, ptr %25, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %50 = load ptr, ptr %49, align 8
   %51 = call zeroext i1 @str_has_suffix(ptr noundef %50, ptr noundef nonnull @.str.10) #11
   br i1 %51, label %53, label %52
@@ -2558,7 +2558,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %99
   %indvars.iv124 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next125, %99 ]
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv124
+  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv124
   %59 = load ptr, ptr %58, align 8
   %.not93 = icmp eq i64 %indvars.iv124, 0
   br i1 %.not93, label %61, label %60
@@ -2568,7 +2568,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br label %61
 
 61:                                               ; preds = %60, %.lr.ph107
-  %62 = getelementptr inbounds i8, ptr %59, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %63 = load i16, ptr %62, align 8
   %trunc = trunc i16 %63 to i8
   switch i8 %trunc, label %98 [
@@ -2587,19 +2587,19 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   ]
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %59, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %66 = load double, ptr %65, align 8
   call void @scratch_buffer_append_double(double noundef %66) #11
   br label %99
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %59, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %69 = call ptr @int_to_str(ptr noundef nonnull byval(%struct.Int) align 8 %68, i32 noundef 10) #11
   call void @scratch_buffer_append(ptr noundef %69) #11
   br label %99
 
 70:                                               ; preds = %61
-  %71 = getelementptr inbounds i8, ptr %59, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %72 = load i8, ptr %71, align 8
   %73 = trunc i8 %72 to i1
   %74 = select i1 %73, ptr @.str.12, ptr @.str.13
@@ -2607,22 +2607,22 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br label %99
 
 75:                                               ; preds = %61, %61
-  %76 = getelementptr inbounds i8, ptr %59, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr %77, align 8
   call void @scratch_buffer_append(ptr noundef %78) #11
   br label %99
 
 79:                                               ; preds = %61
-  %80 = getelementptr inbounds i8, ptr %59, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %.not94 = icmp eq ptr %83, null
   br i1 %.not94, label %84, label %88
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %59, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %86 = call ptr @type_quoted_error_string(ptr noundef nonnull %81) #11
   %87 = load i64, ptr %85, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %87, ptr noundef nonnull @.str.14, ptr noundef %86) #11
@@ -2633,19 +2633,19 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br label %99
 
 89:                                               ; preds = %61
-  %90 = getelementptr inbounds i8, ptr %59, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %91 = load ptr, ptr %90, align 8
   call void @scratch_buffer_append(ptr noundef %91) #11
   br label %99
 
 92:                                               ; preds = %61
-  %93 = getelementptr inbounds i8, ptr %59, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %59, i64 32
   %94 = load i64, ptr %93, align 8
   call void @scratch_buffer_append_unsigned_int(i64 noundef %94) #11
   br label %99
 
 95:                                               ; preds = %61, %61, %61, %61
-  %96 = getelementptr inbounds i8, ptr %59, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %97 = load i64, ptr %96, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %97, ptr noundef nonnull @.str.15) #11
   br label %134
@@ -2672,7 +2672,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
 
 105:                                              ; preds = %101
   call void @free(ptr noundef %102) #11
-  %106 = getelementptr inbounds i8, ptr %1, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 144), align 8
   %108 = load i64, ptr %106, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %108, ptr noundef nonnull @.str.19, ptr noundef %107) #11
@@ -2705,7 +2705,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br i1 %120, label %125, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %1, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %123 = load ptr, ptr getelementptr inbounds (i8, ptr @active_target, i64 144), align 8
   %124 = load i64, ptr %122, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %124, ptr noundef nonnull @.str.20, ptr noundef %123) #11
@@ -2719,7 +2719,7 @@ define internal fastcc ptr @sema_run_exec(ptr noundef %0, ptr nocapture noundef 
   br i1 %128, label %129, label %132
 
 129:                                              ; preds = %125
-  %130 = getelementptr inbounds i8, ptr %1, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %131 = load i64, ptr %130, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %131, ptr noundef nonnull @.str.21, i32 noundef 2048) #11
   br label %134
@@ -2745,14 +2745,14 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr nocapture noun
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %12, ptr noundef nonnull @.str.22) #11
   br label %.thread
 
 13:                                               ; preds = %2
   call void @sema_context_init(ptr noundef nonnull %7, ptr noundef %0) #11
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16
@@ -2774,56 +2774,56 @@ define internal fastcc ptr @sema_load_include(ptr noundef %0, ptr nocapture noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i16, ptr %22, align 8
   %24 = and i16 %23, 255
   %.not47 = icmp eq i16 %24, 11
   br i1 %.not47, label %19, label %25
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load i64, ptr %26, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull @.str.23) #11
   br label %.thread
 
 ._crit_edge:                                      ; preds = %19, %13, %16
-  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = call zeroext i1 @sema_analyse_ct_expr(ptr noundef nonnull %7, ptr noundef %29) #11
   call void @sema_context_destroy(ptr noundef nonnull %7) #11
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %._crit_edge
-  %32 = getelementptr inbounds i8, ptr %1, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %28, align 8
   %34 = load i64, ptr %32, align 8
-  %35 = getelementptr inbounds i8, ptr %33, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i16, ptr %35, align 8
   %37 = and i16 %36, 255
   %38 = icmp eq i16 %37, 14
   br i1 %38, label %39, label %.critedge
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %33, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = load i16, ptr %40, align 8
   %42 = and i16 %41, 255
   %43 = icmp eq i16 %42, 6
   br i1 %43, label %46, label %.critedge
 
 .critedge:                                        ; preds = %31, %39
-  %44 = getelementptr inbounds i8, ptr %33, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %45 = load i64, ptr %44, align 8
   call void (i64, ptr, ...) @sema_error_at(i64 %45, ptr noundef nonnull @.str.25) #11
   br label %.thread
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %33, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = call zeroext i1 @file_namesplit(ptr noundef %52, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   br i1 %53, label %54, label %57

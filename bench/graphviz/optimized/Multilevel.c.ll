@@ -25,7 +25,7 @@ define void @Multilevel_delete(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not, label %common.ret12, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not11 = icmp eq ptr %4, null
   br i1 %.not11, label %12, label %5
@@ -36,7 +36,7 @@ define void @Multilevel_delete(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %7, label %8, label %.sink.split
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.sink.split, label %12
@@ -49,13 +49,13 @@ common.ret12:                                     ; preds = %1, %12
   br label %12
 
 12:                                               ; preds = %.sink.split, %8, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   tail call void @SparseMatrix_delete(ptr noundef %14) #14
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void @SparseMatrix_delete(ptr noundef %16) #14
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   tail call void @Multilevel_delete(ptr noundef %18)
   tail call void @free(ptr noundef nonnull %0) #14
@@ -75,9 +75,9 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = sitofp i32 %10 to double
   br label %13
 
@@ -90,9 +90,9 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %.0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %.0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %14 to i64
   %20 = call fastcc ptr @gv_calloc(i64 noundef %19, i64 noundef 4)
@@ -109,7 +109,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %26 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i.i
   %27 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   store i32 %27, ptr %26, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -119,7 +119,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %13
   call void @SparseMatrix_decompose_to_supervariables(ptr noundef nonnull %.0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   store i32 0, ptr %23, align 4
-  %28 = getelementptr inbounds i8, ptr %.0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %6, align 4
   %31 = icmp sgt i32 %30, 0
@@ -138,7 +138,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
   %indvars.iv171.i.i = phi i64 [ %indvars.iv.next172.i.i, %68 ], [ 0, %.lr.ph139.i.preheader.i ]
   %.0108137.i.i = phi i32 [ %.1109.i.i, %68 ], [ 0, %.lr.ph139.i.preheader.i ]
   %indvars.iv.next172.i.i = add nuw nsw i64 %indvars.iv171.i.i, 1
-  %36 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.next172.i.i
+  %36 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.next172.i.i
   %37 = load i32, ptr %36, align 4
   %38 = sub nsw i32 %37, %35
   %39 = icmp slt i32 %38, 2
@@ -229,7 +229,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
   %.3155.i.i = phi i32 [ %.0108.lcssa.i.i, %.lr.ph157.preheader.i.i ], [ %.4.i.i, %._crit_edge148.thread.i.i ]
   %.0113154.i.i = phi i32 [ 0, %.lr.ph157.preheader.i.i ], [ %.1114.i.i, %._crit_edge148.thread.i.i ]
   %.0117153.i.i = phi double [ 0.000000e+00, %.lr.ph157.preheader.i.i ], [ %.1118.i.i, %._crit_edge148.thread.i.i ]
-  %70 = getelementptr inbounds i32, ptr %69, i64 %indvars.iv179.i.i
+  %70 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv179.i.i
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds i32, ptr %24, i64 %72
@@ -322,7 +322,7 @@ define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initialize
   %.8.i = phi i32 [ %.9.i, %121 ], [ %.7.i, %._crit_edge148.thread.i.i ]
   %indvars.iv185.i.i = phi i64 [ %indvars.iv.next186.i.i, %121 ], [ 0, %._crit_edge148.thread.i.i ]
   %.5160.i.i = phi i32 [ %.6.i.i, %121 ], [ %.4.i.i, %._crit_edge148.thread.i.i ]
-  %109 = getelementptr inbounds i32, ptr %24, i64 %indvars.iv185.i.i
+  %109 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv185.i.i
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
   %112 = icmp eq i64 %indvars.iv185.i.i, %111
@@ -389,7 +389,7 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
   %indvars.iv40.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next41.i, %.loopexit.i ]
   %.05326.i = phi i32 [ 0, %.lr.ph28.preheader.i ], [ %.1.lcssa.i, %.loopexit.i ]
   %indvars.iv.next41.i = add nuw nsw i64 %indvars.iv40.i, 1
-  %133 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv.next41.i
+  %133 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.next41.i
   %134 = load i32, ptr %133, align 4
   %135 = icmp slt i32 %132, %134
   br i1 %135, label %.lr.ph.preheader.i, label %.loopexit.i
@@ -433,7 +433,7 @@ maximal_independent_edge_set_heavest_edge_pernode_supernodes_first.exit.i: ; pre
 
 151:                                              ; preds = %._crit_edge.i
   %152 = call ptr @SparseMatrix_divide_row_by_degree(ptr noundef %149) #14
-  %153 = getelementptr inbounds i8, ptr %150, i64 52
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 52
   %154 = load i32, ptr %153, align 4
   %155 = or i32 %154, 3
   store i32 %155, ptr %153, align 4
@@ -456,7 +456,7 @@ Multilevel_coarsen_internal.exit:                 ; preds = %maximal_independent
   br i1 %.not, label %176, label %157
 
 157:                                              ; preds = %Multilevel_coarsen_internal.exit
-  %158 = getelementptr inbounds i8, ptr %.040, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %.040, i64 4
   %159 = load i32, ptr %158, align 4
   %160 = load ptr, ptr %2, align 8
   %.not24 = icmp eq ptr %160, null
@@ -531,7 +531,7 @@ define noundef ptr @Multilevel_new(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 1
   br i1 %.not, label %.thread, label %11
@@ -554,11 +554,11 @@ define noundef ptr @Multilevel_new(ptr noundef %0, ptr nocapture noundef readonl
   unreachable
 
 gv_alloc.exit.i:                                  ; preds = %.thread
-  %18 = getelementptr inbounds i8, ptr %.014, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %19 = load i32, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 %19, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.014, ptr %21, align 8
   br label %Multilevel_init.exit
 
@@ -570,7 +570,7 @@ Multilevel_init.exit:                             ; preds = %11, %gv_alloc.exit.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, -1
   %.not24.i = icmp sgt i32 %23, 1
@@ -578,7 +578,7 @@ Multilevel_init.exit:                             ; preds = %11, %gv_alloc.exit.
 
 .lr.ph.i:                                         ; preds = %Multilevel_init.exit, %Multilevel_init.exit.i
   %.tr25.i = phi ptr [ %29, %Multilevel_init.exit.i ], [ %.0.i, %Multilevel_init.exit ]
-  %25 = getelementptr inbounds i8, ptr %.tr25.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.tr25.i, i64 8
   %26 = load ptr, ptr %25, align 8
   call void @Multilevel_coarsen(ptr noundef %26, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull byval(%struct.Multilevel_control) align 8 %6)
   %27 = load ptr, ptr %5, align 8
@@ -597,13 +597,13 @@ Multilevel_init.exit:                             ; preds = %11, %gv_alloc.exit.
   unreachable
 
 Multilevel_init.exit.i:                           ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %27, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %29, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i32 %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %29, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %27, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %.tr25.i, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.tr25.i, i64 32
   store ptr %29, ptr %38, align 8
   %39 = load i32, ptr %.tr25.i, align 8
   %40 = add nsw i32 %39, 1
@@ -611,12 +611,12 @@ Multilevel_init.exit.i:                           ; preds = %28
   %41 = load i32, ptr %27, align 8
   store i32 %41, ptr %36, align 4
   %42 = load ptr, ptr %3, align 8
-  %43 = getelementptr inbounds i8, ptr %29, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %42, ptr %43, align 8
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %.tr25.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.tr25.i, i64 24
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %29, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 40
   store ptr %.tr25.i, ptr %46, align 8
   %47 = load i32, ptr %29, align 8
   %.not.i11 = icmp slt i32 %47, %24
@@ -631,7 +631,7 @@ Multilevel_establish.exit:                        ; preds = %.lr.ph.i, %Multilev
   br i1 %.not10, label %50, label %48
 
 48:                                               ; preds = %Multilevel_establish.exit
-  %49 = getelementptr inbounds i8, ptr %.0.i, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
   store i8 1, ptr %49, align 8
   br label %50
 
@@ -649,7 +649,7 @@ define ptr @Multilevel_get_coarsest(ptr noundef readonly %0) local_unnamed_addr 
 
 2:                                                ; preds = %2, %1
   %.0 = phi ptr [ %0, %1 ], [ %4, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %2

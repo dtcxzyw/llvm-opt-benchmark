@@ -104,15 +104,15 @@ define hidden noundef ptr @_Z20init_unit_test_suiteiPPc(i32 noundef %0, ptr noun
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(400) ptr @_ZN5boost9unit_test9framework17master_test_suiteEv()
-  %7 = getelementptr inbounds i8, ptr %6, i64 144
-  %8 = getelementptr inbounds i8, ptr %6, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %9 = load i64, ptr %8, align 8, !tbaa !4
   %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef 0, i64 noundef %9, ptr noundef nonnull @.str, i64 noundef 12)
   %11 = tail call noundef nonnull align 8 dereferenceable(400) ptr @_ZN5boost9unit_test9framework17master_test_suiteEv()
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #18
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %0, ptr %12, align 8, !tbaa !11
-  %.sroa.21.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.21.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %.sroa.21.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !13
   %13 = or disjoint i64 ptrtoint (ptr @_ZZN5boost10function_nIvJEE9assign_toI16test_main_callerEEvT_E13stored_vtable to i64), 1
   %14 = inttoptr i64 %13 to ptr
@@ -476,7 +476,7 @@ define linkonce_odr hidden void @_ZN16test_main_callerclEv(ptr noundef nonnull a
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %26, align 8, !tbaa !40
-  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8
   invoke void %34(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %.noexc.i.i.i unwind label %42
@@ -489,7 +489,7 @@ define linkonce_odr hidden void @_ZN16test_main_callerclEv(ptr noundef nonnull a
 
 38:                                               ; preds = %.noexc.i.i.i
   %39 = load ptr, ptr %26, align 8, !tbaa !40
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   invoke void %41(ptr noundef nonnull align 8 dereferenceable(16) %26)
           to label %45 unwind label %42
@@ -541,7 +541,7 @@ define linkonce_odr hidden void @_ZN5boost10test_tools16assertion_resultD2Ev(ptr
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !40
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %.noexc.i.i unwind label %19
@@ -554,7 +554,7 @@ define linkonce_odr hidden void @_ZN5boost10test_tools16assertion_resultD2Ev(ptr
 
 15:                                               ; preds = %.noexc.i.i
   %16 = load ptr, ptr %3, align 8, !tbaa !40
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %_ZN5boost10shared_ptrINS_23basic_wrap_stringstreamIcEEED2Ev.exit unwind label %19
@@ -581,7 +581,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = load ptr, ptr %4, align 8, !tbaa !40
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr %7(ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(8) %1)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24

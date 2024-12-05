@@ -21,15 +21,15 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef zeroext i1 @fdmon_io_uring_setup(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %fdmon_io_uring = getelementptr inbounds i8, ptr %ctx, i64 256
+  %fdmon_io_uring = getelementptr inbounds nuw i8, ptr %ctx, i64 256
   %call = tail call i32 @io_uring_queue_init(i32 noundef 128, ptr noundef nonnull %fdmon_io_uring, i32 noundef 0) #6
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %do.body, label %return
 
 do.body:                                          ; preds = %entry
-  %submit_list = getelementptr inbounds i8, ptr %ctx, i64 472
+  %submit_list = getelementptr inbounds nuw i8, ptr %ctx, i64 472
   store ptr null, ptr %submit_list, align 8
-  %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
+  %fdmon_ops = getelementptr inbounds nuw i8, ptr %ctx, i64 576
   store ptr @fdmon_io_uring_ops, ptr %fdmon_ops, align 8
   br label %return
 
@@ -42,36 +42,36 @@ declare i32 @io_uring_queue_init(i32 noundef, ptr noundef, i32 noundef) local_un
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @fdmon_io_uring_destroy(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
-  %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
+  %fdmon_ops = getelementptr inbounds nuw i8, ptr %ctx, i64 576
   %0 = load ptr, ptr %fdmon_ops, align 8
   %cmp = icmp eq ptr %0, @fdmon_io_uring_ops
   br i1 %cmp, label %if.then, label %if.end48
 
 if.then:                                          ; preds = %entry
-  %fdmon_io_uring = getelementptr inbounds i8, ptr %ctx, i64 256
+  %fdmon_io_uring = getelementptr inbounds nuw i8, ptr %ctx, i64 256
   tail call void @io_uring_queue_exit(ptr noundef nonnull %fdmon_io_uring) #6
-  %submit_list = getelementptr inbounds i8, ptr %ctx, i64 472
+  %submit_list = getelementptr inbounds nuw i8, ptr %ctx, i64 472
   %1 = load atomic i64, ptr %submit_list monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !5
   %tobool.not16 = icmp eq i64 %1, 0
   br i1 %tobool.not16, label %while.end46, label %while.body2.lr.ph
 
 while.body2.lr.ph:                                ; preds = %if.then
-  %deleted_aio_handlers = getelementptr inbounds i8, ptr %ctx, i64 160
+  %deleted_aio_handlers = getelementptr inbounds nuw i8, ptr %ctx, i64 160
   br label %while.body2
 
 while.body2:                                      ; preds = %while.body2.lr.ph, %while.end38
   %2 = phi i64 [ %1, %while.body2.lr.ph ], [ %10, %while.end38 ]
   %3 = inttoptr i64 %2 to ptr
-  %flags3 = getelementptr inbounds i8, ptr %3, i64 136
+  %flags3 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %4 = atomicrmw and ptr %flags3, i32 -8 seq_cst, align 8
   %and = and i32 %4, 4
   %tobool4.not = icmp eq i32 %and, 0
   br i1 %tobool4.not, label %while.end38, label %do.body6
 
 do.body6:                                         ; preds = %while.body2
-  %node_deleted = getelementptr inbounds i8, ptr %3, i64 96
-  %le_prev = getelementptr inbounds i8, ptr %3, i64 104
+  %node_deleted = getelementptr inbounds nuw i8, ptr %3, i64 96
+  %le_prev = getelementptr inbounds nuw i8, ptr %3, i64 104
   store ptr %deleted_aio_handlers, ptr %le_prev, align 8
   %5 = load ptr, ptr %deleted_aio_handlers, align 8
   store ptr %5, ptr %node_deleted, align 8
@@ -81,13 +81,13 @@ do.body6:                                         ; preds = %while.body2
   br i1 %cmp22.not, label %while.end38, label %if.then23
 
 if.then23:                                        ; preds = %do.body6
-  %le_prev29 = getelementptr inbounds i8, ptr %6, i64 104
+  %le_prev29 = getelementptr inbounds nuw i8, ptr %6, i64 104
   store ptr %node_deleted, ptr %le_prev29, align 8
   br label %while.end38
 
 while.end38:                                      ; preds = %if.then23, %do.body6, %while.body2
   %7 = load ptr, ptr %submit_list, align 8
-  %node_submitted = getelementptr inbounds i8, ptr %7, i64 128
+  %node_submitted = getelementptr inbounds nuw i8, ptr %7, i64 128
   %8 = load ptr, ptr %node_submitted, align 8
   %9 = ptrtoint ptr %8 to i64
   store atomic i64 %9, ptr %submit_list monotonic, align 8
@@ -113,15 +113,15 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %submit_list = getelementptr inbounds i8, ptr %ctx, i64 472
-  %flags1.i = getelementptr inbounds i8, ptr %new_node, i64 136
+  %submit_list = getelementptr inbounds nuw i8, ptr %ctx, i64 472
+  %flags1.i = getelementptr inbounds nuw i8, ptr %new_node, i64 136
   %0 = atomicrmw or ptr %flags1.i, i32 3 seq_cst, align 8
   %and.i = and i32 %0, 1
   %tobool.not.i = icmp eq i32 %and.i, 0
   br i1 %tobool.not.i, label %do.body2.preheader.i, label %if.end
 
 do.body2.preheader.i:                             ; preds = %if.then
-  %node_submitted.i = getelementptr inbounds i8, ptr %new_node, i64 128
+  %node_submitted.i = getelementptr inbounds nuw i8, ptr %new_node, i64 128
   %1 = ptrtoint ptr %new_node to i64
   br label %do.body2.i
 
@@ -142,7 +142,7 @@ if.end:                                           ; preds = %do.body2.i, %if.the
   br i1 %tobool1.not, label %if.end9, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %le_prev = getelementptr inbounds i8, ptr %old_node, i64 104
+  %le_prev = getelementptr inbounds nuw i8, ptr %old_node, i64 104
   %8 = load ptr, ptr %le_prev, align 8
   %cmp.not = icmp eq ptr %8, null
   br i1 %cmp.not, label %if.end4, label %if.else
@@ -152,17 +152,17 @@ if.else:                                          ; preds = %if.then2
   unreachable
 
 if.end4:                                          ; preds = %if.then2
-  %node_deleted = getelementptr inbounds i8, ptr %old_node, i64 96
+  %node_deleted = getelementptr inbounds nuw i8, ptr %old_node, i64 96
   store ptr %node_deleted, ptr %le_prev, align 8
-  %submit_list8 = getelementptr inbounds i8, ptr %ctx, i64 472
-  %flags1.i7 = getelementptr inbounds i8, ptr %old_node, i64 136
+  %submit_list8 = getelementptr inbounds nuw i8, ptr %ctx, i64 472
+  %flags1.i7 = getelementptr inbounds nuw i8, ptr %old_node, i64 136
   %9 = atomicrmw or ptr %flags1.i7, i32 5 seq_cst, align 8
   %and.i8 = and i32 %9, 1
   %tobool.not.i9 = icmp eq i32 %and.i8, 0
   br i1 %tobool.not.i9, label %do.body2.preheader.i10, label %if.end9
 
 do.body2.preheader.i10:                           ; preds = %if.end4
-  %node_submitted.i11 = getelementptr inbounds i8, ptr %old_node, i64 128
+  %node_submitted.i11 = getelementptr inbounds nuw i8, ptr %old_node, i64 128
   %10 = ptrtoint ptr %old_node to i64
   br label %do.body2.i12
 
@@ -195,7 +195,7 @@ if.else:                                          ; preds = %entry
 
 if.then2:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
-  %fdmon_io_uring.i.i = getelementptr inbounds i8, ptr %ctx, i64 256
+  %fdmon_io_uring.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 256
   %call.i.i = tail call ptr @io_uring_get_sqe(ptr noundef nonnull %fdmon_io_uring.i.i) #6
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %do.body.i.i, label %add_timeout_sqe.exit
@@ -225,42 +225,42 @@ if.else12.i.i:                                    ; preds = %if.end8.i.i
 add_timeout_sqe.exit:                             ; preds = %if.then2, %if.end8.i.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.then2 ], [ %call9.i.i, %if.end8.i.i ]
   store i8 11, ptr %retval.0.i.i, align 8
-  %flags.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 1
+  %flags.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 1
   store i8 0, ptr %flags.i.i.i, align 1
-  %ioprio.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2
+  %ioprio.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 2
   store i16 0, ptr %ioprio.i.i.i, align 2
-  %fd1.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 4
+  %fd1.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 4
   store i32 -1, ptr %fd1.i.i.i, align 4
-  %0 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 8
   store i64 1, ptr %0, align 8
   %1 = ptrtoint ptr %ts.i to i64
-  %2 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 16
   store i64 %1, ptr %2, align 8
-  %len2.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 24
+  %len2.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 24
   store i32 1, ptr %len2.i.i.i, align 8
-  %3 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %3, i8 0, i64 36, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ts.i)
   br label %if.end3
 
 if.end3:                                          ; preds = %entry, %if.else, %add_timeout_sqe.exit
   %wait_nr.0 = phi i32 [ 1, %add_timeout_sqe.exit ], [ 1, %if.else ], [ 0, %entry ]
-  %submit_list3.i = getelementptr inbounds i8, ptr %ctx, i64 472
+  %submit_list3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 472
   %4 = atomicrmw xchg ptr %submit_list3.i, i64 0 seq_cst, align 8
   %tobool.not.i7.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i7.i, label %fill_sq_ring.exit, label %while.body7.lr.ph.i
 
 while.body7.lr.ph.i:                              ; preds = %if.end3
   %5 = inttoptr i64 %4 to ptr
-  %fdmon_io_uring.i.i.i = getelementptr inbounds i8, ptr %ctx, i64 256
+  %fdmon_io_uring.i.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 256
   br label %while.body7.i
 
 while.body7.i:                                    ; preds = %if.end12.i, %while.body7.lr.ph.i
   %submit_list.sroa.0.08.i = phi ptr [ %5, %while.body7.lr.ph.i ], [ %6, %if.end12.i ]
-  %node_submitted.i.i = getelementptr inbounds i8, ptr %submit_list.sroa.0.08.i, i64 128
+  %node_submitted.i.i = getelementptr inbounds nuw i8, ptr %submit_list.sroa.0.08.i, i64 128
   %6 = load ptr, ptr %node_submitted.i.i, align 8
   store ptr null, ptr %node_submitted.i.i, align 8
-  %flags5.i.i = getelementptr inbounds i8, ptr %submit_list.sroa.0.08.i, i64 136
+  %flags5.i.i = getelementptr inbounds nuw i8, ptr %submit_list.sroa.0.08.i, i64 136
   %7 = atomicrmw and ptr %flags5.i.i, i32 -4 seq_cst, align 8
   %and.i = and i32 %7, 2
   %tobool8.not.i = icmp eq i32 %and.i, 0
@@ -305,18 +305,18 @@ if.else12.i.i.i:                                  ; preds = %if.end8.i.i.i
 add_poll_remove_sqe.exit.i:                       ; preds = %if.end8.i.i.i, %if.then11.i
   %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then11.i ], [ %call9.i.i.i, %if.end8.i.i.i ]
   store i8 7, ptr %retval.0.i.i.i, align 8
-  %flags.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 1
+  %flags.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 1
   store i8 0, ptr %flags.i.i.i.i, align 1
-  %ioprio.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 2
+  %ioprio.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 2
   store i16 0, ptr %ioprio.i.i.i.i, align 2
-  %fd1.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 4
+  %fd1.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 4
   store i32 -1, ptr %fd1.i.i.i.i, align 4
-  %8 = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 8
   store i64 0, ptr %8, align 8
   %9 = ptrtoint ptr %submit_list.sroa.0.08.i to i64
-  %10 = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 16
   store i64 %9, ptr %10, align 8
-  %len2.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
+  %len2.i.i.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %len2.i.i.i.i, i8 0, i64 40, i1 false)
   br label %if.end12.i
 
@@ -325,7 +325,7 @@ if.end12.i:                                       ; preds = %add_poll_remove_sqe
   br i1 %tobool.not.i.i7, label %fill_sq_ring.exit, label %while.body7.i, !llvm.loop !10
 
 fill_sq_ring.exit:                                ; preds = %if.end12.i, %if.end3
-  %fdmon_io_uring = getelementptr inbounds i8, ptr %ctx, i64 256
+  %fdmon_io_uring = getelementptr inbounds nuw i8, ptr %ctx, i64 256
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %fill_sq_ring.exit
@@ -342,19 +342,19 @@ if.else7:                                         ; preds = %do.end
   unreachable
 
 if.end8:                                          ; preds = %do.end
-  %cq.i = getelementptr inbounds i8, ptr %ctx, i64 360
+  %cq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 360
   %11 = load ptr, ptr %cq.i, align 8
   %12 = load i32, ptr %11, align 4
-  %cqes.i = getelementptr inbounds i8, ptr %ctx, i64 408
-  %ktail.i = getelementptr inbounds i8, ptr %ctx, i64 368
+  %cqes.i = getelementptr inbounds nuw i8, ptr %ctx, i64 408
+  %ktail.i = getelementptr inbounds nuw i8, ptr %ctx, i64 368
   %13 = load ptr, ptr %ktail.i, align 8
   %14 = load atomic i32, ptr %13 acquire, align 4
   %cmp.not16.i = icmp eq i32 %12, %14
   br i1 %cmp.not16.i, label %process_cq_ring.exit, label %cond.end.lr.ph.i
 
 cond.end.lr.ph.i:                                 ; preds = %if.end8
-  %kring_mask.i = getelementptr inbounds i8, ptr %ctx, i64 376
-  %deleted_aio_handlers.i.i = getelementptr inbounds i8, ptr %ctx, i64 160
+  %kring_mask.i = getelementptr inbounds nuw i8, ptr %ctx, i64 376
+  %deleted_aio_handlers.i.i = getelementptr inbounds nuw i8, ptr %ctx, i64 160
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %process_cqe.exit.thread.i, %cond.end.lr.ph.i
@@ -377,15 +377,15 @@ for.body.i:                                       ; preds = %cond.end.i
   br i1 %tobool.not.i.i9, label %process_cqe.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.body.i
-  %flags1.i.i = getelementptr inbounds i8, ptr %18, i64 136
+  %flags1.i.i = getelementptr inbounds nuw i8, ptr %18, i64 136
   %19 = atomicrmw and ptr %flags1.i.i, i32 -5 seq_cst, align 8
   %and.i.i = and i32 %19, 4
   %tobool2.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool2.not.i.i, label %22, label %do.body.i.i10
 
 do.body.i.i10:                                    ; preds = %if.end.i.i
-  %node_deleted.i.i = getelementptr inbounds i8, ptr %18, i64 96
-  %le_prev.i.i = getelementptr inbounds i8, ptr %18, i64 104
+  %node_deleted.i.i = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %le_prev.i.i = getelementptr inbounds nuw i8, ptr %18, i64 104
   store ptr %deleted_aio_handlers.i.i, ptr %le_prev.i.i, align 8
   %20 = load ptr, ptr %deleted_aio_handlers.i.i, align 8
   store ptr %20, ptr %node_deleted.i.i, align 8
@@ -395,12 +395,12 @@ do.body.i.i10:                                    ; preds = %if.end.i.i
   br i1 %cmp.not.i.i, label %process_cqe.exit.thread.i, label %if.then15.i.i
 
 if.then15.i.i:                                    ; preds = %do.body.i.i10
-  %le_prev21.i.i = getelementptr inbounds i8, ptr %21, i64 104
+  %le_prev21.i.i = getelementptr inbounds nuw i8, ptr %21, i64 104
   store ptr %node_deleted.i.i, ptr %le_prev21.i.i, align 8
   br label %process_cqe.exit.thread.i
 
 22:                                               ; preds = %if.end.i.i
-  %res.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %res.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %23 = load i32, ptr %res.i.i, align 8
   %or11.i.i.i = and i32 %23, 29
   call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef nonnull %18, i32 noundef %or11.i.i.i) #6
@@ -438,8 +438,8 @@ process_cq_ring.exit:                             ; preds = %if.end8, %for.end.i
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal zeroext i1 @fdmon_io_uring_need_wait(ptr nocapture noundef readonly %ctx) #2 {
 entry:
-  %cq.i = getelementptr inbounds i8, ptr %ctx, i64 360
-  %ktail.i = getelementptr inbounds i8, ptr %ctx, i64 368
+  %cq.i = getelementptr inbounds nuw i8, ptr %ctx, i64 360
+  %ktail.i = getelementptr inbounds nuw i8, ptr %ctx, i64 368
   %0 = load ptr, ptr %ktail.i, align 8
   %1 = load atomic i32, ptr %0 acquire, align 4
   %2 = load ptr, ptr %cq.i, align 8
@@ -448,12 +448,12 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %fdmon_io_uring = getelementptr inbounds i8, ptr %ctx, i64 256
-  %flags.i = getelementptr inbounds i8, ptr %ctx, i64 448
+  %fdmon_io_uring = getelementptr inbounds nuw i8, ptr %ctx, i64 256
+  %flags.i = getelementptr inbounds nuw i8, ptr %ctx, i64 448
   %4 = load i32, ptr %flags.i, align 8
   %and.i = and i32 %4, 2
   %tobool.not.i = icmp eq i32 %and.i, 0
-  %sqe_tail3.i = getelementptr inbounds i8, ptr %ctx, i64 324
+  %sqe_tail3.i = getelementptr inbounds nuw i8, ptr %ctx, i64 324
   %5 = load i32, ptr %sqe_tail3.i, align 4
   %6 = load ptr, ptr %fdmon_io_uring, align 8
   br i1 %tobool.not.i, label %if.end.i, label %if.then.i
@@ -472,7 +472,7 @@ io_uring_sq_ready.exit:                           ; preds = %if.then.i, %if.end.
   br i1 %tobool3.not, label %while.end, label %return
 
 while.end:                                        ; preds = %io_uring_sq_ready.exit
-  %submit_list = getelementptr inbounds i8, ptr %ctx, i64 472
+  %submit_list = getelementptr inbounds nuw i8, ptr %ctx, i64 472
   %9 = load atomic i64, ptr %submit_list monotonic, align 8
   %cmp = icmp ne i64 %9, 0
   br label %return
@@ -494,7 +494,7 @@ declare i32 @io_uring_submit(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @add_poll_add_sqe(ptr noundef %ctx, ptr noundef nonnull %node) unnamed_addr #0 {
 entry:
-  %fdmon_io_uring.i = getelementptr inbounds i8, ptr %ctx, i64 256
+  %fdmon_io_uring.i = getelementptr inbounds nuw i8, ptr %ctx, i64 256
   %call.i = tail call ptr @io_uring_get_sqe(ptr noundef nonnull %fdmon_io_uring.i) #6
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %do.body.i, label %get_sqe.exit
@@ -523,24 +523,24 @@ if.else12.i:                                      ; preds = %if.end8.i
 
 get_sqe.exit:                                     ; preds = %entry, %if.end8.i
   %retval.0.i = phi ptr [ %call.i, %entry ], [ %call9.i, %if.end8.i ]
-  %events1 = getelementptr inbounds i8, ptr %node, i64 4
+  %events1 = getelementptr inbounds nuw i8, ptr %node, i64 4
   %0 = load i16, ptr %events1, align 4
   %1 = and i16 %0, 29
   %or11.i = zext nneg i16 %1 to i32
   %2 = load i32, ptr %node, align 8
   store i8 6, ptr %retval.0.i, align 8
-  %flags.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
+  %flags.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 1
   store i8 0, ptr %flags.i.i, align 1
-  %ioprio.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 2
+  %ioprio.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 2
   store i16 0, ptr %ioprio.i.i, align 2
-  %fd1.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 4
+  %fd1.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 4
   store i32 %2, ptr %fd1.i.i, align 4
-  %3 = getelementptr inbounds i8, ptr %retval.0.i, i64 8
-  %4 = getelementptr inbounds i8, ptr %retval.0.i, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 %or11.i, ptr %4, align 4
   %5 = ptrtoint ptr %node to i64
-  %user_data.i = getelementptr inbounds i8, ptr %retval.0.i, i64 32
+  %user_data.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 32
   store i64 %5, ptr %user_data.i, align 8
   ret void
 }

@@ -61,7 +61,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit: ; preds = %13, %1
 18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit
   %19 = load i32, ptr %3, align 4
   %20 = call i32 @close(i32 noundef %19)
-  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %22 = load i32, ptr %21, align 4
   %23 = call i32 @close(i32 noundef %22)
   br label %103
@@ -71,7 +71,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit: ; preds = %13, %1
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = call i32 @close(i32 noundef %28)
   %30 = load i32, ptr %3, align 4
@@ -105,7 +105,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit: ; preds = %13, %1
   %47 = tail call ptr @__errno_location() #18
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %5, align 4
-  %49 = getelementptr inbounds i8, ptr %3, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = call i64 @write(i32 noundef %50, ptr noundef nonnull %5, i64 noundef 4)
   call void @_exit(i32 noundef 1) #19
@@ -134,7 +134,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   %61 = tail call ptr @__errno_location() #18
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %6, align 4
-  %63 = getelementptr inbounds i8, ptr %3, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = call i64 @write(i32 noundef %64, ptr noundef nonnull %6, i64 noundef 4)
   call void @_exit(i32 noundef 2) #19
@@ -149,7 +149,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   unreachable
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %3, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %71 = call noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPKi(i32 noundef 1, ptr noundef nonnull %70)
   store i32 %71, ptr %7, align 4
   %72 = icmp eq i32 %71, -1
@@ -277,7 +277,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   ]
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %.037, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.037, i64 1
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %24 [
     i8 112, label %12
@@ -319,7 +319,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
 26:                                               ; preds = %12, %24, %21
   %.138 = phi ptr [ %10, %12 ], [ %10, %21 ], [ %.037, %24 ]
   %.136 = phi i64 [ %13, %12 ], [ %23, %21 ], [ %25, %24 ]
-  %27 = getelementptr inbounds i8, ptr %.138, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.138, i64 1
   br label %7, !llvm.loop !6
 
 28:                                               ; preds = %7
@@ -328,13 +328,13 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   %30 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #17
   store ptr %30, ptr %29, align 8
   %31 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.4) #17
-  %32 = getelementptr inbounds i8, ptr %29, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %31, ptr %32, align 8
   %33 = add i64 %.035, 1
   %34 = call noalias ptr @malloc(i64 noundef %33) #20
-  %35 = getelementptr inbounds i8, ptr %29, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %29, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr null, ptr %36, align 8
   br label %37
 
@@ -348,7 +348,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   ]
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %.0, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %53 [
     i8 112, label %42
@@ -364,7 +364,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   %.134 = phi ptr [ %.033, %42 ], [ %47, %45 ]
   %46 = load i8, ptr %.134, align 1
   %.not45 = icmp eq i8 %46, 0
-  %47 = getelementptr inbounds i8, ptr %.134, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.134, i64 1
   br i1 %.not45, label %.loopexit, label %45, !llvm.loop !7
 
 48:                                               ; preds = %39
@@ -375,14 +375,14 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   br label %.loopexit
 
 53:                                               ; preds = %39, %37
-  %54 = getelementptr inbounds i8, ptr %.033, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   store i8 %38, ptr %.033, align 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %45, %53, %48
   %.2 = phi ptr [ %52, %48 ], [ %54, %53 ], [ %.134, %45 ]
   %.1 = phi ptr [ %40, %48 ], [ %.0, %53 ], [ %40, %45 ]
-  %55 = getelementptr inbounds i8, ptr %.1, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %37, !llvm.loop !8
 
 56:                                               ; preds = %37

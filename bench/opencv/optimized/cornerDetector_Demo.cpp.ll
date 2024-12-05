@@ -236,15 +236,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br label %204
 
 73:                                               ; preds = %42
-  %74 = getelementptr inbounds i8, ptr %11, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i32 0, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %11, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %11, i64 20
   store i32 0, ptr %75, align 4
   store i32 16842752, ptr %11, align 8
-  %76 = getelementptr inbounds i8, ptr %11, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr @src, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %12, i64 8
-  %78 = getelementptr inbounds i8, ptr %12, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %78, align 8
   store i32 33619968, ptr %12, align 8
   store ptr @src_gray, ptr %77, align 8
@@ -252,15 +252,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %79 unwind label %122
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %13, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %13, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %81, align 4
   store i32 16842752, ptr %13, align 8
-  %82 = getelementptr inbounds i8, ptr %13, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @src_gray, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %14, i64 8
-  %84 = getelementptr inbounds i8, ptr %14, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %84, align 8
   store i32 33619968, ptr %14, align 8
   store ptr @myHarris_dst, ptr %83, align 8
@@ -269,7 +269,7 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 85:                                               ; preds = %79
   %86 = load ptr, ptr getelementptr inbounds (i8, ptr @src_gray, i64 64), align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = load i32, ptr %86, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %89 to i64
@@ -301,25 +301,25 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %100 = load ptr, ptr getelementptr inbounds (i8, ptr @myHarris_dst, i64 16), align 8
-  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @myHarris_dst, i64 72), align 8
+  %100 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myHarris_dst, i64 16), align 8
+  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myHarris_dst, i64 72), align 8
   %102 = load i64, ptr %101, align 8
   %103 = mul i64 %102, %indvars.iv74
   %104 = getelementptr inbounds i8, ptr %100, i64 %103
-  %105 = getelementptr inbounds %"class.cv::Vec", ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw %"class.cv::Vec", ptr %104, i64 %indvars.iv
   %106 = load float, ptr %105, align 4
-  %107 = getelementptr inbounds i8, ptr %105, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %108 = load float, ptr %107, align 4
   %109 = fadd float %106, %108
   %110 = fmul float %109, %109
   %111 = fmul float %110, 0xBFA47AE140000000
   %112 = call float @llvm.fmuladd.f32(float %106, float %108, float %111)
-  %113 = load ptr, ptr getelementptr inbounds (i8, ptr @Mc, i64 16), align 8
-  %114 = load ptr, ptr getelementptr inbounds (i8, ptr @Mc, i64 72), align 8
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8
+  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8
   %115 = load i64, ptr %114, align 8
   %116 = mul i64 %115, %indvars.iv74
   %117 = getelementptr inbounds i8, ptr %113, i64 %116
-  %118 = getelementptr inbounds float, ptr %117, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv
   store float %112, ptr %118, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %119 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
@@ -356,12 +356,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %131, label %.preheader, label %._crit_edge71, !llvm.loop !7
 
 ._crit_edge71:                                    ; preds = %._crit_edge, %92
-  %132 = getelementptr inbounds i8, ptr %16, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %16, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %133, align 4
   store i32 16842752, ptr %16, align 8
-  %134 = getelementptr inbounds i8, ptr %16, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr @Mc, ptr %134, align 8
   %135 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %136 unwind label %171
@@ -407,15 +407,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %147 unwind label %71
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds i8, ptr %23, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i32 0, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %23, i64 20
+  %149 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 0, ptr %149, align 4
   store i32 16842752, ptr %23, align 8
-  %150 = getelementptr inbounds i8, ptr %23, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @src_gray, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %24, i64 8
-  %152 = getelementptr inbounds i8, ptr %24, i64 16
+  %151 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 0, ptr %152, align 8
   store i32 33619968, ptr %24, align 8
   store ptr @myShiTomasi_dst, ptr %151, align 8
@@ -423,12 +423,12 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %153 unwind label %186
 
 153:                                              ; preds = %147
-  %154 = getelementptr inbounds i8, ptr %25, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %25, i64 20
+  %155 = getelementptr inbounds nuw i8, ptr %25, i64 20
   store i32 0, ptr %155, align 4
   store i32 16842752, ptr %25, align 8
-  %156 = getelementptr inbounds i8, ptr %25, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr @myShiTomasi_dst, ptr %156, align 8
   %157 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv()
           to label %158 unwind label %188
@@ -661,11 +661,11 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge20
 
 .preheader.lr.ph:                                 ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.preheader, label %._crit_edge20
@@ -681,8 +681,8 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
 
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv23, 32
-  %.pre26 = load ptr, ptr getelementptr inbounds (i8, ptr @Mc, i64 16), align 8
-  %.pre28 = load ptr, ptr getelementptr inbounds (i8, ptr @Mc, i64 72), align 8
+  %.pre26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8
+  %.pre28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8
   %.pre30 = load double, ptr @myHarris_minVal, align 8
   %.pre32 = load double, ptr @myHarris_maxVal, align 8
   %.pre36 = load i32, ptr @max_qualityLevel, align 4
@@ -701,7 +701,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   %34 = load i64, ptr %32, align 8
   %35 = mul i64 %34, %indvars.iv23
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds float, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
   %38 = load float, ptr %37, align 4
   %39 = fpext float %38 to double
   %40 = fsub double %30, %31
@@ -746,8 +746,8 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
   store double 0.000000e+00, ptr %19, align 8
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
   call void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %.sroa.0.0.insert.insert, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef -1, i32 noundef 8, i32 noundef 0)
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @Mc, i64 16), align 8
-  %.pre27 = load ptr, ptr getelementptr inbounds (i8, ptr @Mc, i64 72), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 16), align 8
+  %.pre27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @Mc, i64 72), align 8
   %.pre29 = load double, ptr @myHarris_minVal, align 8
   %.pre31 = load double, ptr @myHarris_maxVal, align 8
   %.pre33 = load i32, ptr @myHarris_qualityLevel, align 4
@@ -796,12 +796,12 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr nocapture readnone %1) 
           to label %88 unwind label %93
 
 88:                                               ; preds = %._crit_edge20
-  %89 = getelementptr inbounds i8, ptr %8, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %8, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %90, align 4
   store i32 16842752, ptr %8, align 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @myHarris_copy, ptr %91, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %92 unwind label %95
@@ -856,11 +856,11 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge20
 
 .preheader.lr.ph:                                 ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 16
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 16
-  %19 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @src_gray, i64 12), align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.preheader, label %._crit_edge20
@@ -876,8 +876,8 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
 
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.2.0.insert.shift = shl nuw nsw i64 %indvars.iv23, 32
-  %.pre26 = load ptr, ptr getelementptr inbounds (i8, ptr @myShiTomasi_dst, i64 16), align 8
-  %.pre28 = load ptr, ptr getelementptr inbounds (i8, ptr @myShiTomasi_dst, i64 72), align 8
+  %.pre26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 16), align 8
+  %.pre28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 72), align 8
   %.pre30 = load double, ptr @myShiTomasi_minVal, align 8
   %.pre32 = load double, ptr @myShiTomasi_maxVal, align 8
   %.pre36 = load i32, ptr @max_qualityLevel, align 4
@@ -896,7 +896,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   %34 = load i64, ptr %32, align 8
   %35 = mul i64 %34, %indvars.iv23
   %36 = getelementptr inbounds i8, ptr %33, i64 %35
-  %37 = getelementptr inbounds float, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
   %38 = load float, ptr %37, align 4
   %39 = fpext float %38 to double
   %40 = fsub double %30, %31
@@ -941,8 +941,8 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
   store double 0.000000e+00, ptr %19, align 8
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %indvars.iv
   call void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %.sroa.0.0.insert.insert, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef -1, i32 noundef 8, i32 noundef 0)
-  %.pre = load ptr, ptr getelementptr inbounds (i8, ptr @myShiTomasi_dst, i64 16), align 8
-  %.pre27 = load ptr, ptr getelementptr inbounds (i8, ptr @myShiTomasi_dst, i64 72), align 8
+  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 16), align 8
+  %.pre27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @myShiTomasi_dst, i64 72), align 8
   %.pre29 = load double, ptr @myShiTomasi_minVal, align 8
   %.pre31 = load double, ptr @myShiTomasi_maxVal, align 8
   %.pre33 = load i32, ptr @myShiTomasi_qualityLevel, align 4
@@ -991,12 +991,12 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr nocapture readnone %
           to label %88 unwind label %93
 
 88:                                               ; preds = %._crit_edge20
-  %89 = getelementptr inbounds i8, ptr %8, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %8, i64 20
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %90, align 4
   store i32 16842752, ptr %8, align 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @myShiTomasi_copy, ptr %91, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %92 unwind label %95

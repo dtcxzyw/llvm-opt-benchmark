@@ -38,10 +38,10 @@ sw.bb:                                            ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %empty_block.i, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %ux.i, i8 0, i64 32, i1 false)
   store i8 0, ptr %t.i, align 1
-  %arrayinit.element.i = getelementptr inbounds i8, ptr %t.i, i64 1
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %t.i, i64 1
   %conv.i = trunc i64 %h_len to i8
   store i8 %conv.i, ptr %arrayinit.element.i, align 1
-  %arrayinit.element1.i = getelementptr inbounds i8, ptr %t.i, i64 2
+  %arrayinit.element1.i = getelementptr inbounds nuw i8, ptr %t.i, i64 2
   store i8 0, ptr %arrayinit.element1.i, align 1
   %cmp.not.i = icmp eq ptr %ctx, null
   br i1 %cmp.not.i, label %if.end.i, label %cond.end.i
@@ -126,10 +126,10 @@ sw.bb1:                                           ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %empty_block.i7, i8 0, i64 128, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %ux.i9, i8 0, i64 64, i1 false)
   store i8 0, ptr %t.i10, align 1
-  %arrayinit.element.i12 = getelementptr inbounds i8, ptr %t.i10, i64 1
+  %arrayinit.element.i12 = getelementptr inbounds nuw i8, ptr %t.i10, i64 1
   %conv.i13 = trunc i64 %h_len to i8
   store i8 %conv.i13, ptr %arrayinit.element.i12, align 1
-  %arrayinit.element1.i14 = getelementptr inbounds i8, ptr %t.i10, i64 2
+  %arrayinit.element1.i14 = getelementptr inbounds nuw i8, ptr %t.i10, i64 2
   store i8 0, ptr %arrayinit.element1.i14, align 1
   %cmp.not.i15 = icmp eq ptr %ctx, null
   br i1 %cmp.not.i15, label %if.end.i19, label %cond.end.i16

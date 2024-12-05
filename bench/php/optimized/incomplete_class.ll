@@ -46,7 +46,7 @@ define void @php_register_incomplete_class_handlers() local_unnamed_addr #0 {
   store ptr @incomplete_class_get_property_ptr_ptr, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 64), align 8
   store ptr @incomplete_class_get_method, ptr getelementptr inbounds (i8, ptr @php_incomplete_object_handlers, i64 112), align 8
   %1 = load ptr, ptr @php_ce_incomplete_class, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 384
   store ptr @php_create_incomplete_object, ptr %2, align 8
   ret void
 }
@@ -64,7 +64,7 @@ define internal noundef ptr @incomplete_class_get_property(ptr nocapture noundef
   br i1 %or.cond, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 15, ptr %9, align 8
   br label %10
 
@@ -117,7 +117,7 @@ define internal noalias noundef ptr @incomplete_class_get_method(ptr nocapture n
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @php_create_incomplete_object(ptr noundef %0) #2 {
   %2 = tail call ptr @zend_objects_new(ptr noundef %0) #5
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @php_incomplete_object_handlers, ptr %3, align 8
   tail call void @object_properties_init(ptr noundef %2, ptr noundef %0) #5
   ret ptr %2
@@ -125,7 +125,7 @@ define internal noundef ptr @php_create_incomplete_object(ptr noundef %0) #2 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_lookup_class_name(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %18, label %4
@@ -136,14 +136,14 @@ define ptr @php_lookup_class_name(ptr nocapture noundef readonly %0) local_unnam
   br i1 %.not13, label %18, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i8, ptr %7, align 8
   %9 = icmp eq i8 %8, 6
   br i1 %9, label %10, label %18
 
 10:                                               ; preds = %6
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, 64
   %.not14 = icmp eq i32 %14, 0
@@ -166,7 +166,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 define void @php_store_class_name(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   store ptr %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 64
   %.not = icmp eq i32 %6, 0
@@ -180,12 +180,12 @@ define void @php_store_class_name(ptr nocapture noundef readonly %0, ptr noundef
 
 10:                                               ; preds = %2, %7
   %.sink = phi i32 [ 262, %7 ], [ 6, %2 ]
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sink, ptr %11, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef %12) #5
   %18 = call ptr @zend_hash_str_update(ptr noundef %17, ptr noundef nonnull @.str, i64 noundef 27, ptr noundef nonnull %3) #5
@@ -205,14 +205,14 @@ define internal fastcc void @incomplete_class_message(ptr %.32.val) unnamed_addr
   br i1 %.not13.i, label %php_lookup_class_name.exit.thread, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 6
   br i1 %6, label %7, label %php_lookup_class_name.exit.thread
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 64
   %.not14.i = icmp eq i32 %11, 0
@@ -229,7 +229,7 @@ php_lookup_class_name.exit.thread:                ; preds = %1, %3, %0
   br label %25
 
 15:                                               ; preds = %12, %7
-  %16 = getelementptr inbounds i8, ptr %8, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 24
   tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef nonnull %16) #5
   %17 = load i32, ptr %9, align 4
   %18 = and i32 %17, 64
@@ -271,14 +271,14 @@ define internal fastcc void @throw_incomplete_class_error(ptr %.32.val, ptr noun
   br i1 %.not13.i, label %php_lookup_class_name.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 6
   br i1 %7, label %8, label %php_lookup_class_name.exit.thread
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 64
   %.not14.i = icmp eq i32 %12, 0
@@ -295,7 +295,7 @@ php_lookup_class_name.exit.thread:                ; preds = %2, %4, %1
   br label %26
 
 16:                                               ; preds = %13, %8
-  %17 = getelementptr inbounds i8, ptr %9, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 24
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %17) #5
   %18 = load i32, ptr %10, align 4
   %19 = and i32 %18, 64

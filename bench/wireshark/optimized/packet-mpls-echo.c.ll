@@ -947,7 +947,7 @@ define internal i32 @dissect_mpls_echo(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not, label %9, label %72
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.605) #3
   %12 = load ptr, ptr %10, align 8
@@ -1251,13 +1251,13 @@ define internal fastcc i32 @dissect_mpls_echo_tlv(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %82
 
 82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %81, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not5.i = icmp eq ptr %84, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %84, i64 28
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 28
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, 1
   store i32 %88, ptr %86, align 4
@@ -1286,13 +1286,13 @@ proto_item_set_hidden.exit:                       ; preds = %77, %82, %85
   br i1 %.not.i209, label %proto_item_set_hidden.exit211, label %100
 
 100:                                              ; preds = %95
-  %101 = getelementptr inbounds i8, ptr %99, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %102 = load ptr, ptr %101, align 8
   %.not5.i210 = icmp eq ptr %102, null
   br i1 %.not5.i210, label %proto_item_set_hidden.exit211, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %105 = load i32, ptr %104, align 4
   %106 = or i32 %105, 1
   store i32 %106, ptr %104, align 4
@@ -2026,19 +2026,19 @@ switch.hole_check:                                ; preds = %384
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %397 = zext nneg i32 %395 to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec, i64 0, i64 %397
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec, i64 0, i64 %397
   %switch.load = load ptr, ptr %switch.gep, align 8
   %398 = zext nneg i32 %395 to i64
-  %switch.gep602 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.1, i64 0, i64 %398
+  %switch.gep602 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.1, i64 0, i64 %398
   %switch.load603 = load i32, ptr %switch.gep602, align 4
   %399 = zext nneg i32 %395 to i64
-  %switch.gep604 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.2, i64 0, i64 %399
+  %switch.gep604 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.2, i64 0, i64 %399
   %switch.load605 = load i32, ptr %switch.gep604, align 4
   %400 = zext nneg i32 %395 to i64
-  %switch.gep606 = getelementptr inbounds [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec.3, i64 0, i64 %400
+  %switch.gep606 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.dissect_mpls_echo_tlv_fec.3, i64 0, i64 %400
   %switch.load607 = load ptr, ptr %switch.gep606, align 8
   %401 = zext nneg i32 %395 to i64
-  %switch.gep608 = getelementptr inbounds [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.4, i64 0, i64 %401
+  %switch.gep608 = getelementptr inbounds nuw [7 x i32], ptr @switch.table.dissect_mpls_echo_tlv_fec.4, i64 0, i64 %401
   %switch.load609 = load i32, ptr %switch.gep608, align 4
   %402 = load i32, ptr %switch.load, align 4
   %403 = call ptr @proto_tree_add_item(ptr noundef %.0453, i32 noundef %402, ptr noundef %0, i32 noundef %394, i32 noundef %switch.load603, i32 noundef 0) #3

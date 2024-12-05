@@ -84,15 +84,15 @@ define hidden range(i32 -1, 2) i32 @systemd_journal_open(ptr noundef %0, ptr nou
 
 31:                                               ; preds = %27
   %32 = load i32, ptr @systemd_journal_file_type_subtype, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %32, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @systemd_journal_read, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @systemd_journal_seek_read, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 203, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 148
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %37, align 4
   tail call void @wtap_add_generated_idb(ptr noundef nonnull %0) #9
   br label %38
@@ -129,7 +129,7 @@ define internal range(i32 0, 2) i32 @systemd_journal_read(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @systemd_journal_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #9
   %10 = icmp eq i64 %9, -1
@@ -176,12 +176,12 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   %6 = alloca i64, align 8
   tail call void @ws_buffer_assure_space(ptr noundef %2, i64 noundef 262144) #9
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %14
 
 14:                                               ; preds = %66, %5
@@ -331,12 +331,12 @@ define internal fastcc range(i32 0, 2) i32 @systemd_journal_read_export_entry(pt
   %.19195 = phi i64 [ %.1, %77 ], [ %21, %.thread ]
   store i32 4, ptr %1, align 8
   %79 = call ptr @wtap_block_create(i32 noundef 10) #9
-  %80 = getelementptr inbounds i8, ptr %1, i64 232
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %79, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 3, ptr %81, align 4
   %82 = trunc i64 %.19195 to i32
-  %83 = getelementptr inbounds i8, ptr %1, i64 64
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %82, ptr %83, align 8
   br label %.loopexit
 

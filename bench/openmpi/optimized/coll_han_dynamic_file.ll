@@ -154,10 +154,10 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 .lr.ph312:                                        ; preds = %48, %.loopexit217
   %indvars.iv364 = phi i64 [ %indvars.iv.next365, %.loopexit217 ], [ 0, %48 ]
   %.0179311 = phi i32 [ %.1, %.loopexit217 ], [ 0, %48 ]
-  %54 = getelementptr inbounds %struct.collective_rule_s, ptr %51, i64 %indvars.iv364
-  %55 = getelementptr inbounds i8, ptr %54, i64 4
+  %54 = getelementptr inbounds nuw %struct.collective_rule_s, ptr %51, i64 %indvars.iv364
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr null, ptr %56, align 8
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %57 = trunc nuw i64 %indvars.iv.next365 to i32
@@ -285,10 +285,10 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 .lr.ph308:                                        ; preds = %120, %.loopexit215
   %indvars.iv361 = phi i64 [ %indvars.iv.next362, %.loopexit215 ], [ 0, %120 ]
   %.2307 = phi i32 [ %.3, %.loopexit215 ], [ %.0179311, %120 ]
-  %125 = getelementptr inbounds %struct.topologic_rule_s, ptr %122, i64 %indvars.iv361
-  %126 = getelementptr inbounds i8, ptr %125, i64 8
+  %125 = getelementptr inbounds nuw %struct.topologic_rule_s, ptr %122, i64 %indvars.iv361
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   store i32 0, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %125, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 16
   store ptr null, ptr %127, align 8
   %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
   %128 = trunc nuw i64 %indvars.iv.next362 to i32
@@ -373,7 +373,7 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 172:                                              ; preds = %159
   store i32 %.0186, ptr %125, align 8
   %173 = trunc nsw i64 %.0182 to i32
-  %174 = getelementptr inbounds i8, ptr %125, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 %173, ptr %174, align 4
   %175 = trunc i64 %163 to i32
   store i32 %175, ptr %126, align 8
@@ -410,10 +410,10 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 189:                                              ; preds = %.lr.ph304, %.loopexit213
   %indvars.iv358 = phi i64 [ 0, %.lr.ph304 ], [ %indvars.iv.next359, %.loopexit213 ]
   %.4303 = phi i32 [ %.2307, %.lr.ph304 ], [ %.5, %.loopexit213 ]
-  %190 = getelementptr inbounds %struct.configuration_rule_s, ptr %186, i64 %indvars.iv358
-  %191 = getelementptr inbounds i8, ptr %190, i64 12
+  %190 = getelementptr inbounds nuw %struct.configuration_rule_s, ptr %186, i64 %indvars.iv358
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 12
   store i32 0, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %190, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
   store ptr null, ptr %192, align 8
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
   %193 = trunc nuw i64 %indvars.iv.next359 to i32
@@ -465,11 +465,11 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 220:                                              ; preds = %208
   store i32 %.0186, ptr %190, align 8
-  %221 = getelementptr inbounds i8, ptr %190, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %190, i64 4
   store i32 %173, ptr %221, align 4
   %222 = load i64, ptr %7, align 8
   %223 = trunc i64 %222 to i32
-  %224 = getelementptr inbounds i8, ptr %190, i64 8
+  %224 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i32 %223, ptr %224, align 8
   %225 = trunc i64 %211 to i32
   store i32 %225, ptr %191, align 4
@@ -641,20 +641,20 @@ define range(i32 -1, 1) i32 @mca_coll_han_init_dynamic_rules() local_unnamed_add
 
 317:                                              ; preds = %312, %309, %276, %274
   %.0184 = phi i32 [ %.1185, %312 ], [ %.1185, %309 ], [ 0, %276 ], [ 0, %274 ]
-  %318 = getelementptr inbounds %struct.msg_size_rule_s, ptr %236, i64 %indvars.iv
+  %318 = getelementptr inbounds nuw %struct.msg_size_rule_s, ptr %236, i64 %indvars.iv
   store i32 %.0186, ptr %318, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 4
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   store i32 %173, ptr %319, align 4
   %320 = load i64, ptr %7, align 8
   %321 = trunc i64 %320 to i32
-  %322 = getelementptr inbounds i8, ptr %318, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %318, i64 8
   store i32 %321, ptr %322, align 8
   %323 = load i64, ptr %9, align 8
-  %324 = getelementptr inbounds i8, ptr %318, i64 16
+  %324 = getelementptr inbounds nuw i8, ptr %318, i64 16
   store i64 %323, ptr %324, align 8
-  %325 = getelementptr inbounds i8, ptr %318, i64 24
+  %325 = getelementptr inbounds nuw i8, ptr %318, i64 24
   store i32 %265, ptr %325, align 8
-  %326 = getelementptr inbounds i8, ptr %318, i64 28
+  %326 = getelementptr inbounds nuw i8, ptr %318, i64 28
   store i32 %.0184, ptr %326, align 4
   %327 = add nsw i32 %.6301, 1
   %328 = call i32 @ompi_coll_base_file_peek_next_char_is(ptr noundef nonnull %27, ptr noundef nonnull @fileline, i32 noundef 91) #7
@@ -884,11 +884,11 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %._crit_edge59
   %indvars.iv77 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next78, %._crit_edge59 ]
   %.04562 = phi i32 [ 0, %.lr.ph64.preheader ], [ %.1.lcssa, %._crit_edge59 ]
-  %4 = getelementptr inbounds %struct.collective_rule_s, ptr %2, i64 %indvars.iv77
+  %4 = getelementptr inbounds nuw %struct.collective_rule_s, ptr %2, i64 %indvars.iv77
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %7, 0
   br i1 %10, label %.lr.ph58.preheader, label %._crit_edge59
@@ -900,12 +900,12 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %._crit_edge53
   %indvars.iv72 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next73, %._crit_edge53 ]
   %.155 = phi i32 [ %.04562, %.lr.ph58.preheader ], [ %.2.lcssa, %._crit_edge53 ]
-  %11 = getelementptr inbounds %struct.topologic_rule_s, ptr %9, i64 %indvars.iv72
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %11 = getelementptr inbounds nuw %struct.topologic_rule_s, ptr %9, i64 %indvars.iv72
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp sgt i32 %15, 0
   br i1 %18, label %.lr.ph52.preheader, label %._crit_edge53
@@ -917,12 +917,12 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
 .lr.ph52:                                         ; preds = %.lr.ph52.preheader, %._crit_edge
   %indvars.iv67 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next68, %._crit_edge ]
   %.249 = phi i32 [ %.155, %.lr.ph52.preheader ], [ %.3.lcssa, %._crit_edge ]
-  %19 = getelementptr inbounds %struct.configuration_rule_s, ptr %17, i64 %indvars.iv67
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %19 = getelementptr inbounds nuw %struct.configuration_rule_s, ptr %17, i64 %indvars.iv67
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = icmp sgt i32 %23, 0
   br i1 %26, label %.lr.ph.preheader, label %._crit_edge
@@ -934,17 +934,17 @@ define void @mca_coll_han_dump_dynamic_rules() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.347 = phi i32 [ %.249, %.lr.ph.preheader ], [ %39, %.lr.ph ]
-  %27 = getelementptr inbounds %struct.msg_size_rule_s, ptr %25, i64 %indvars.iv
-  %28 = getelementptr inbounds i8, ptr %27, i64 16
+  %27 = getelementptr inbounds nuw %struct.msg_size_rule_s, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %27, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = load i32, ptr getelementptr inbounds (i8, ptr @mca_coll_han_component, i64 284), align 4
   %34 = tail call ptr @mca_coll_base_colltype_to_str(i32 noundef %5) #7
   %35 = tail call ptr @mca_coll_han_topo_lvl_to_str(i32 noundef %13) #7
   %36 = zext i32 %32 to i64
-  %37 = getelementptr inbounds [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %36, i32 1
+  %37 = getelementptr inbounds nuw [7 x %struct.ompi_coll_han_components], ptr @ompi_coll_han_available_components, i64 0, i64 %36, i32 1
   %38 = load ptr, ptr %37, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %33, ptr noundef nonnull @.str.29, i32 noundef %.347, i32 noundef %5, ptr noundef %34, i32 noundef %13, ptr noundef %35, i32 noundef %21, i32 noundef %30, i32 noundef %32, ptr noundef %38) #7
   %39 = add nsw i32 %.347, 1
@@ -990,11 +990,11 @@ define internal fastcc void @check_dynamic_rules() unnamed_addr #0 {
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %._crit_edge
   %indvars.iv105 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next106, %._crit_edge ]
-  %4 = getelementptr inbounds %struct.collective_rule_s, ptr %2, i64 %indvars.iv105
+  %4 = getelementptr inbounds nuw %struct.collective_rule_s, ptr %2, i64 %indvars.iv105
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %7, 0
   br i1 %10, label %.lr.ph76.preheader, label %._crit_edge
@@ -1005,13 +1005,13 @@ define internal fastcc void @check_dynamic_rules() unnamed_addr #0 {
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %._crit_edge70
   %indvars.iv100 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next101, %._crit_edge70 ]
-  %11 = getelementptr inbounds %struct.topologic_rule_s, ptr %9, i64 %indvars.iv100
-  %12 = getelementptr inbounds i8, ptr %11, i64 4
+  %11 = getelementptr inbounds nuw %struct.topologic_rule_s, ptr %9, i64 %indvars.iv100
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %.fr81 = freeze i32 %13
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = icmp sgt i32 %15, 0
   br i1 %18, label %.lr.ph69, label %._crit_edge70
@@ -1023,12 +1023,12 @@ define internal fastcc void @check_dynamic_rules() unnamed_addr #0 {
 
 .lr.ph69.split.us:                                ; preds = %.lr.ph69, %._crit_edge.split.us73
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %._crit_edge.split.us73 ], [ 0, %.lr.ph69 ]
-  %19 = getelementptr inbounds %struct.configuration_rule_s, ptr %17, i64 %indvars.iv85
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %19 = getelementptr inbounds nuw %struct.configuration_rule_s, ptr %17, i64 %indvars.iv85
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not.us = icmp eq i64 %indvars.iv85, 0
   br i1 %.not.us, label %36, label %26
@@ -1065,10 +1065,10 @@ define internal fastcc void @check_dynamic_rules() unnamed_addr #0 {
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %60 ]
-  %38 = getelementptr inbounds %struct.msg_size_rule_s, ptr %25, i64 %indvars.iv
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %38 = getelementptr inbounds nuw %struct.msg_size_rule_s, ptr %25, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %42 = load i32, ptr %41, align 8
   %.not65.us72 = icmp eq i64 %indvars.iv, 0
   br i1 %.not65.us72, label %53, label %43
@@ -1111,12 +1111,12 @@ define internal fastcc void @check_dynamic_rules() unnamed_addr #0 {
 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %._crit_edge.split.us
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %._crit_edge.split.us ], [ 0, %.lr.ph69 ]
-  %61 = getelementptr inbounds %struct.configuration_rule_s, ptr %17, i64 %indvars.iv95
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %61 = getelementptr inbounds nuw %struct.configuration_rule_s, ptr %17, i64 %indvars.iv95
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i32, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 12
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %61, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not = icmp eq i64 %indvars.iv95, 0
   br i1 %.not, label %78, label %68
@@ -1148,8 +1148,8 @@ define internal fastcc void @check_dynamic_rules() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %93
   %indvars.iv90 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next91, %93 ]
-  %80 = getelementptr inbounds %struct.msg_size_rule_s, ptr %67, i64 %indvars.iv90
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %80 = getelementptr inbounds nuw %struct.msg_size_rule_s, ptr %67, i64 %indvars.iv90
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i64, ptr %81, align 8
   %.not65.us = icmp eq i64 %indvars.iv90, 0
   br i1 %.not65.us, label %93, label %83
@@ -1208,10 +1208,10 @@ define void @mca_coll_han_free_dynamic_rules() local_unnamed_addr #0 {
 
 .lr.ph38:                                         ; preds = %.lr.ph38.preheader, %._crit_edge35.thread
   %indvars.iv46 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next47, %._crit_edge35.thread ]
-  %4 = getelementptr inbounds %struct.collective_rule_s, ptr %2, i64 %indvars.iv46
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %4 = getelementptr inbounds nuw %struct.collective_rule_s, ptr %2, i64 %indvars.iv46
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i32 %6, 0
   br i1 %9, label %.lr.ph34.preheader, label %._crit_edge35.thread
@@ -1222,10 +1222,10 @@ define void @mca_coll_han_free_dynamic_rules() local_unnamed_addr #0 {
 
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %._crit_edge.thread
   %indvars.iv41 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next42, %._crit_edge.thread ]
-  %10 = getelementptr inbounds %struct.topologic_rule_s, ptr %8, i64 %indvars.iv41
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %10 = getelementptr inbounds nuw %struct.topologic_rule_s, ptr %8, i64 %indvars.iv41
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = icmp sgt i32 %12, 0
   br i1 %15, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -1236,14 +1236,14 @@ define void @mca_coll_han_free_dynamic_rules() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
-  %16 = getelementptr inbounds %struct.configuration_rule_s, ptr %14, i64 %indvars.iv
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %16 = getelementptr inbounds nuw %struct.configuration_rule_s, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %23
 
 20:                                               ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #7
   br label %23

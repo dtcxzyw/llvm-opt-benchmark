@@ -160,7 +160,7 @@ define noundef nonnull ptr @fc_strerror(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [19 x ptr], ptr @switch.table.fc_strerror, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [19 x ptr], ptr @switch.table.fc_strerror, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -225,7 +225,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   %32 = lshr i16 %31, 5
   %33 = and i16 %32, 1
   store i16 %33, ptr @mprintf_progress, align 2
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = trunc i32 %35 to i16
   %37 = and i16 %36, 1
@@ -239,7 +239,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   %42 = lshr i16 %36, 3
   %43 = and i16 %42, 1
   store i16 %43, ptr @logg_rotate, align 2
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i64, ptr %44, align 8
   store i64 %45, ptr @logg_size, align 8
   %46 = load ptr, ptr @logg_file, align 8
@@ -247,7 +247,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br i1 %47, label %48, label %56
 
 48:                                               ; preds = %13
-  %49 = getelementptr inbounds i8, ptr %0, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %50 = load ptr, ptr %49, align 8
   %.not68 = icmp eq ptr %50, null
   br i1 %.not68, label %56, label %51
@@ -276,7 +276,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br i1 %61, label %62, label %70
 
 62:                                               ; preds = %59
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
   %.not71 = icmp eq ptr %64, null
   br i1 %.not71, label %70, label %65
@@ -298,7 +298,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %71
 
 71:                                               ; preds = %70, %56
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = load ptr, ptr %72, align 8
   %.not72 = icmp eq ptr %73, null
   br i1 %.not72, label %76, label %74
@@ -309,7 +309,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %76
 
 76:                                               ; preds = %74, %71
-  %77 = getelementptr inbounds i8, ptr %0, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %78 = load ptr, ptr %77, align 8
   %.not73 = icmp eq ptr %78, null
   br i1 %.not73, label %81, label %79
@@ -320,7 +320,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %81
 
 81:                                               ; preds = %79, %76
-  %82 = getelementptr inbounds i8, ptr %0, i64 64
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %83 = load ptr, ptr %82, align 8
   %.not74 = icmp eq ptr %83, null
   br i1 %.not74, label %97, label %84
@@ -328,7 +328,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
 84:                                               ; preds = %81
   %85 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %83) #15
   store ptr %85, ptr @g_proxyServer, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %87 = load i16, ptr %86, align 8
   %.not75 = icmp eq i16 %87, 0
   br i1 %.not75, label %89, label %88
@@ -343,7 +343,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br i1 %.not76, label %96, label %91
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %93 = load i32, ptr %92, align 8
   %94 = trunc i32 %93 to i16
   %95 = tail call zeroext i16 @ntohs(i16 noundef zeroext %94) #16
@@ -356,7 +356,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %97
 
 97:                                               ; preds = %88, %96, %81
-  %98 = getelementptr inbounds i8, ptr %0, i64 80
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %99 = load ptr, ptr %98, align 8
   %.not77 = icmp eq ptr %99, null
   br i1 %.not77, label %102, label %100
@@ -367,7 +367,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %102
 
 102:                                              ; preds = %100, %97
-  %103 = getelementptr inbounds i8, ptr %0, i64 88
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %104 = load ptr, ptr %103, align 8
   %.not78 = icmp eq ptr %104, null
   br i1 %.not78, label %107, label %105
@@ -378,7 +378,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %107
 
 107:                                              ; preds = %105, %102
-  %108 = getelementptr inbounds i8, ptr %0, i64 96
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %109 = load ptr, ptr %108, align 8
   %110 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %109) #17
   %111 = getelementptr i8, ptr %109, i64 %110
@@ -414,7 +414,7 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %155
 
 129:                                              ; preds = %122
-  %130 = getelementptr inbounds i8, ptr %2, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %131 = load i32, ptr %130, align 8
   %132 = and i32 %131, 61440
   %133 = icmp eq i32 %132, 16384
@@ -426,20 +426,20 @@ define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unname
   br label %155
 
 137:                                              ; preds = %129
-  %138 = getelementptr inbounds i8, ptr %0, i64 104
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %139 = load ptr, ptr %138, align 8
   %140 = tail call ptr @cli_safer_strdup(ptr noundef %139) #15
   store ptr %140, ptr @g_tempDirectory, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load i32, ptr %141, align 8
   store i32 %142, ptr @g_maxAttempts, align 4
-  %143 = getelementptr inbounds i8, ptr %0, i64 20
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %144 = load i32, ptr %143, align 4
   store i32 %144, ptr @g_connectTimeout, align 4
-  %145 = getelementptr inbounds i8, ptr %0, i64 24
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = load i32, ptr %145, align 8
   store i32 %146, ptr @g_requestTimeout, align 4
-  %147 = getelementptr inbounds i8, ptr %0, i64 28
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %148 = load i32, ptr %147, align 4
   store i32 %148, ptr @g_bCompressLocalDatabase, align 4
   %149 = tail call i32 @load_freshclam_dat() #15
@@ -647,7 +647,7 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr nocapture noundef r
   br i1 %.not28.us, label %30, label %15
 
 15:                                               ; preds = %.lr.ph41.split.us
-  %16 = getelementptr inbounds i8, ptr %13, i64 19
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %17 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.36) #17
   %.not29.us = icmp eq ptr %17, null
   br i1 %.not29.us, label %18, label %.lr.ph.us
@@ -673,7 +673,7 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr nocapture noundef r
 25:                                               ; preds = %.lr.ph.us, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %25 ]
   %.039.us = phi i32 [ 0, %.lr.ph.us ], [ %spec.select.us, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @strncmp(ptr noundef %27, ptr noundef nonnull %16, i64 noundef %22) #17
   %29 = icmp eq i32 %28, 0
@@ -703,7 +703,7 @@ define range(i32 0, 11) i32 @fc_prune_database_directory(ptr nocapture noundef r
   br i1 %.not28, label %44, label %37
 
 37:                                               ; preds = %.lr.ph41.split
-  %38 = getelementptr inbounds i8, ptr %35, i64 19
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 19
   %39 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.36) #17
   %.not29 = icmp eq ptr %39, null
   br i1 %.not29, label %40, label %42
@@ -852,7 +852,7 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
   br i1 %10, label %42, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = or i64 %13, 1
   store i64 %14, ptr %12, align 8
@@ -871,10 +871,10 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
   br i1 %.not24, label %30, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %9, i64 416
-  %22 = getelementptr inbounds i8, ptr %9, i64 168
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 416
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 168
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 4
   %26 = call i32 @cli_bytecode_prepare2(ptr noundef nonnull %9, ptr noundef nonnull %21, i32 noundef %25) #15
   %.not25 = icmp eq i32 %26, 0
@@ -892,13 +892,13 @@ define range(i32 0, 17) i32 @fc_test_database(ptr noundef %0, i32 noundef %1) lo
 
 33:                                               ; preds = %16, %27, %30
   %.018.ph = phi i32 [ 0, %30 ], [ 8, %27 ], [ 8, %16 ]
-  %34 = getelementptr inbounds i8, ptr %9, i64 152
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %35 = load ptr, ptr %34, align 8
   %.not27 = icmp eq ptr %35, null
   br i1 %.not27, label %40, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %35, i64 904
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 904
   %38 = load ptr, ptr %37, align 8
   %.not28 = icmp eq ptr %38, null
   br i1 %.not28, label %40, label %39
@@ -1013,7 +1013,7 @@ define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr nounde
   %49 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.54, ptr noundef nonnull %43) #15
   %50 = call ptr @get_version() #15
   %51 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %50, i64 noundef 32) #15
-  %52 = getelementptr inbounds i8, ptr %6, i64 31
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 31
   store i8 0, ptr %52, align 1
   br i1 %48, label %77, label %53
 
@@ -1146,7 +1146,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, 
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %31 = icmp eq i64 %indvars.iv, %27
   br i1 %31, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1272,7 +1272,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, 
 
 .split75.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %76 = load ptr, ptr @g_freshclamDat, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
   %78 = call ptr @localtime(ptr noundef nonnull %77) #15
   %79 = icmp eq ptr %78, null
   br i1 %79, label %80, label %82
@@ -1311,7 +1311,7 @@ define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, 
 
 .split77.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
   %103 = load ptr, ptr @g_freshclamDat, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = call ptr @localtime(ptr noundef nonnull %104) #15
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %109
@@ -1448,7 +1448,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1,
 18:                                               ; preds = %9
   store i32 0, ptr %8, align 4
   %19 = load ptr, ptr @g_freshclamDat, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load i64, ptr %20, align 8
   %22 = icmp sgt i64 %21, 0
   br i1 %22, label %23, label %.lr.ph.preheader
@@ -1457,7 +1457,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1,
   %24 = tail call i64 @time(ptr noundef null) #15
   %25 = icmp sgt i64 %21, %24
   %26 = load ptr, ptr @g_freshclamDat, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   br i1 %25, label %28, label %55
 
 28:                                               ; preds = %23
@@ -1512,7 +1512,7 @@ define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
   %.02740 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %61 ]
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 @fc_update_database(ptr noundef %59, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef nonnull %10)
   %.not = icmp eq i32 %60, 0
@@ -1630,7 +1630,7 @@ define range(i32 19, 18) i32 @fc_download_url_database(ptr noundef %0, ptr nound
 
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr @g_freshclamDat, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = call ptr @localtime(ptr noundef nonnull %47) #15
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %52
@@ -1667,7 +1667,7 @@ define range(i32 19, 18) i32 @fc_download_url_database(ptr noundef %0, ptr nound
 
 71:                                               ; preds = %.lr.ph
   %72 = load ptr, ptr @g_freshclamDat, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = call ptr @localtime(ptr noundef nonnull %73) #15
   %75 = icmp eq ptr %74, null
   br i1 %75, label %76, label %78
@@ -1734,7 +1734,7 @@ define range(i32 19, 18) i32 @fc_download_url_databases(ptr noundef readonly %0,
 12:                                               ; preds = %11, %29
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %29 ]
   %.01961 = phi i32 [ 0, %11 ], [ %spec.select, %29 ]
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @fc_download_url_database(ptr noundef %14, ptr noundef %2, ptr noundef nonnull %5)
   switch i32 %15, label %27 [

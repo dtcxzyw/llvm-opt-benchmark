@@ -53,7 +53,7 @@ define hidden void @_ZN25ModRefBarrierSetAssembler18arraycopy_prologueEP14MacroA
 
 20:                                               ; preds = %17, %19, %18, %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 120
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i32 %5, i32 %6) #3
   br label %_Z17is_reference_type9BasicTypeb.exit
@@ -91,7 +91,7 @@ define hidden void @_ZN25ModRefBarrierSetAssembler18arraycopy_epilogueEP14MacroA
   %.sroa.013.0 = select i1 %brmerge.not, i32 %6, i32 %.mux18
   %.sroa.014.0 = select i1 %brmerge.not, i32 %spec.select, i32 %5
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 128
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i32 %.sroa.014.0, i32 %.sroa.013.0, i32 %.sroa.03.0) #3
   br label %_Z17is_reference_type9BasicTypeb.exit
@@ -106,27 +106,27 @@ define hidden void @_ZN25ModRefBarrierSetAssembler8store_atEP14MacroAssemblerm9B
   %11 = alloca %class.Address, align 8
   %12 = and i8 %3, -2
   %or.cond.i = icmp eq i8 %12, 12
-  %13 = getelementptr inbounds i8, ptr %4, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br i1 %or.cond.i, label %14, label %_Z17is_reference_type9BasicTypeb.exit
 
 14:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   call void %18(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %15) #3
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %10, i32 %5, i32 %6, i32 %7, i32 %8) #3
   br label %26
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 21, i1 false)
-  %22 = getelementptr inbounds i8, ptr %11, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %23 = load ptr, ptr %13, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %22) #3
   call void @_ZN19BarrierSetAssembler8store_atEP14MacroAssemblerm9BasicType7Address8RegisterS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i8 noundef zeroext %3, ptr noundef nonnull %11, i32 %5, i32 %6, i32 %7, i32 %8) #3

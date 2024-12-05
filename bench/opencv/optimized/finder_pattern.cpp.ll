@@ -28,15 +28,15 @@ $_ZTIN5zxing6qrcode13FinderPatternE = comdat any
 define hidden void @_ZN5zxing6qrcode13FinderPatternC2Efff(ptr noundef nonnull align 8 dereferenceable(40) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %0, float noundef %1, float noundef %2)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float -1.000000e+00, ptr %9, align 4
   ret void
 }
@@ -47,29 +47,29 @@ declare void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenc
 define hidden void @_ZN5zxing6qrcode13FinderPatternC2Efffi(ptr noundef nonnull align 8 dereferenceable(40) %0, float noundef %1, float noundef %2, float noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   tail call void @_ZN5zxing11ResultPointC2Eff(ptr noundef nonnull align 8 dereferenceable(20) %0, float noundef %1, float noundef %2)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %3, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 3, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float -1.000000e+00, ptr %10, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK5zxing6qrcode13FinderPattern8getCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN5zxing6qrcode13FinderPattern14incrementCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -79,7 +79,7 @@ define hidden void @_ZN5zxing6qrcode13FinderPattern14incrementCountEv(ptr nocapt
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK5zxing6qrcode13FinderPattern11aboutEqualsEfff(ptr noundef nonnull align 8 dereferenceable(40) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef float %7(ptr noundef nonnull align 8 dereferenceable(20) %0)
   %9 = fsub float %2, %8
@@ -89,7 +89,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode13FinderPattern11aboutEqualsE
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(20) %0)
   %17 = fsub float %3, %16
@@ -98,7 +98,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode13FinderPattern11aboutEqualsE
   br i1 %19, label %28, label %20
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load float, ptr %21, align 4
   %23 = fsub float %1, %22
   %24 = tail call noundef float @llvm.fabs.f32(float %23)
@@ -114,25 +114,25 @@ define hidden noundef zeroext i1 @_ZNK5zxing6qrcode13FinderPattern11aboutEqualsE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef float @_ZNK5zxing6qrcode13FinderPattern22getEstimatedModuleSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef float %11(ptr noundef nonnull align 8 dereferenceable(20) %1)
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef float %15(ptr noundef nonnull align 8 dereferenceable(20) %1)
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load float, ptr %17, align 4
   %19 = icmp slt i32 %7, 3
   br i1 %19, label %20, label %43
@@ -141,7 +141,7 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
   %21 = load i32, ptr %6, align 8
   %22 = sitofp i32 %21 to float
   %23 = load ptr, ptr %1, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef float %25(ptr noundef nonnull align 8 dereferenceable(20) %1)
   %27 = tail call float @llvm.fmuladd.f32(float %22, float %26, float %3)
@@ -150,7 +150,7 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
   %30 = load i32, ptr %6, align 8
   %31 = sitofp i32 %30 to float
   %32 = load ptr, ptr %1, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef float %34(ptr noundef nonnull align 8 dereferenceable(20) %1)
   %36 = tail call float @llvm.fmuladd.f32(float %31, float %35, float %2)
@@ -172,17 +172,17 @@ define hidden void @_ZNK5zxing6qrcode13FinderPattern15combineEstimateEfff(ptr de
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2EPS2_.exit: ; preds = %43
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing6qrcode13FinderPatternE, i64 16), ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store float %.014, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i32 %8, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 32
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 36
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 36
   store i32 3, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %44, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 28
   store float -1.000000e+00, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %44, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 8
@@ -213,7 +213,7 @@ define hidden void @_ZN5zxing6qrcode13FinderPattern23setHorizontalCheckStateEi(p
   br i1 %switch, label %.sink.split, label %4
 
 .sink.split:                                      ; preds = %2
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   br label %4
 
@@ -228,7 +228,7 @@ define hidden void @_ZN5zxing6qrcode13FinderPattern21setVerticalCheckStateEi(ptr
 
 switch.lookup:                                    ; preds = %2
   %switch.offset = add nuw nsw i32 %1, 3
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %switch.offset, ptr %4, align 4
   br label %5
 

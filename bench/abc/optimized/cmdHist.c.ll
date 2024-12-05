@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Cmd_HistoryAddCommand(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [32768 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 92
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %54
@@ -42,7 +42,7 @@ define void @Cmd_HistoryAddCommand(ptr nocapture noundef readonly %0, ptr nocapt
 11:                                               ; preds = %6
   %12 = add i64 %7, 4294967295
   %13 = and i64 %12, 4294967295
-  %14 = getelementptr inbounds [32768 x i8], ptr %3, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [32768 x i8], ptr %3, i64 0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 10
   br i1 %16, label %17, label %18
@@ -109,7 +109,7 @@ define void @Cmd_HistoryAddCommand(ptr nocapture noundef readonly %0, ptr nocapt
   br i1 %.not46, label %54, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr i8, ptr %36, i64 4
   %.val = load i32, ptr %37, align 4
@@ -176,14 +176,14 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
   %6 = icmp eq i32 %4, %5
   br i1 %6, label %7, label %.Vec_PtrGrow.exit11_crit_edge
 
 .Vec_PtrGrow.exit11_crit_edge:                    ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %Vec_PtrGrow.exit11
 
@@ -192,7 +192,7 @@ define internal fastcc void @Vec_PtrPush(ptr nocapture noundef %0, ptr noundef %
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not9.i = icmp eq ptr %11, null
   br i1 %.not9.i, label %14, label %12
@@ -213,7 +213,7 @@ Vec_PtrGrow.exit:                                 ; preds = %12, %14
 
 17:                                               ; preds = %7
   %18 = shl nuw nsw i32 %4, 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not9.i10 = icmp eq ptr %20, null
   %21 = zext nneg i32 %18 to i64
@@ -258,7 +258,7 @@ define void @Cmd_HistoryWrite(ptr nocapture noundef readonly %0, i32 noundef %1)
   br label %24
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr i8, ptr %8, i64 4
   %.val12 = load i32, ptr %9, align 4
@@ -276,7 +276,7 @@ define void @Cmd_HistoryWrite(ptr nocapture noundef readonly %0, i32 noundef %1)
   %14 = phi ptr [ %8, %.lr.ph.preheader ], [ %19, %.lr.ph ]
   %15 = getelementptr i8, ptr %14, i64 8
   %.val13 = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds ptr, ptr %.val13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %3, ptr noundef nonnull @.str.14, ptr noundef %17) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -297,9 +297,9 @@ define void @Cmd_HistoryWrite(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @Vec_PtrRemove(ptr nocapture noundef %0, ptr noundef readnone %1) unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %4 to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %4, i32 0)
   br label %7
@@ -313,7 +313,7 @@ define internal fastcc void @Vec_PtrRemove(ptr nocapture noundef %0, ptr noundef
 10:                                               ; preds = %7
   %11 = add nsw i64 %indvars.iv, -1
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %7, !llvm.loop !7
@@ -360,7 +360,7 @@ define void @Cmd_HistoryRead(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %.lr.ph, %Vec_PtrPush.exit
@@ -380,14 +380,14 @@ define void @Cmd_HistoryRead(ptr nocapture noundef readonly %0) local_unnamed_ad
 15:                                               ; preds = %14, %7
   %16 = load ptr, ptr %6, align 8
   %17 = call ptr @Extra_UtilStrsav(ptr noundef nonnull %2) #16
-  %18 = getelementptr inbounds i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = load i32, ptr %16, align 8
   %21 = icmp eq i32 %19, %20
   br i1 %21, label %22, label %.Vec_PtrGrow.exit11_crit_edge.i
 
 .Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %15
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %16, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
@@ -396,7 +396,7 @@ define void @Cmd_HistoryRead(ptr nocapture noundef readonly %0) local_unnamed_ad
   br i1 %23, label %24, label %32
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %16, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not9.i.i = icmp eq ptr %26, null
   br i1 %.not9.i.i, label %29, label %27
@@ -417,7 +417,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %29, %27
 
 32:                                               ; preds = %22
   %33 = shl nuw nsw i32 %19, 1
-  %34 = getelementptr inbounds i8, ptr %16, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %35 = load ptr, ptr %34, align 8
   %.not9.i10.i = icmp eq ptr %35, null
   %36 = zext nneg i32 %33 to i64
@@ -520,7 +520,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Cmd_HistoryPrint(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
   %.val10 = load i32, ptr %5, align 4
@@ -542,7 +542,7 @@ define void @Cmd_HistoryPrint(ptr nocapture noundef readonly %0, i32 noundef %1)
   %12 = phi ptr [ %8, %.lr.ph.preheader ], [ %16, %.lr.ph ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val11 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds ptr, ptr %.val11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %puts9 = tail call i32 @puts(ptr nonnull dereferenceable(1) %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -637,7 +637,7 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   %26 = alloca i32, align 4
   %27 = alloca i32, align 4
   %28 = alloca i32, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @col_set_str(ptr noundef %30, i32 noundef 34, ptr noundef nonnull @.str.222) #5
   %31 = load ptr, ptr %29, align 8
@@ -886,15 +886,15 @@ define internal i32 @dissect_pldm(ptr noundef %0, ptr nocapture noundef readonly
   store i64 %164, ptr %25, align 16
   %165 = or disjoint i32 %163, 8
   %166 = call i64 @tvb_get_letoh64(ptr noundef %53, i32 noundef %165) #5
-  %167 = getelementptr inbounds i8, ptr %25, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 %166, ptr %167, align 8
   %168 = or disjoint i32 %163, 16
   %169 = call i64 @tvb_get_letoh64(ptr noundef %53, i32 noundef %168) #5
-  %170 = getelementptr inbounds i8, ptr %25, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %169, ptr %170, align 16
   %171 = or disjoint i32 %163, 24
   %172 = call i64 @tvb_get_letoh64(ptr noundef %53, i32 noundef %171) #5
-  %173 = getelementptr inbounds i8, ptr %25, i64 24
+  %173 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 %172, ptr %173, align 8
   br label %174
 
@@ -2190,7 +2190,7 @@ define internal fastcc zeroext i16 @parse_fru_record_table(ptr noundef %0, ptr n
   br i1 %12, label %.lr.ph56, label %._crit_edge57
 
 .lr.ph56:                                         ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %14
 
 14:                                               ; preds = %.lr.ph56, %._crit_edge

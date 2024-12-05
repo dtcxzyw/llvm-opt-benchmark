@@ -57,11 +57,11 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @luaU_print(ptr noundef %f, i32 noundef %full) local_unnamed_addr #0 {
 entry:
-  %sizep = getelementptr inbounds i8, ptr %f, i64 88
+  %sizep = getelementptr inbounds nuw i8, ptr %f, i64 88
   %0 = load i32, ptr %sizep, align 8, !tbaa !4
-  %source.i = getelementptr inbounds i8, ptr %f, i64 64
+  %source.i = getelementptr inbounds nuw i8, ptr %f, i64 64
   %1 = load ptr, ptr %source.i, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 24
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 24
   %2 = load i8, ptr %add.ptr.i, align 1, !tbaa !11
   switch i8 %2, label %if.else10.i [
     i8 64, label %if.then.i
@@ -70,7 +70,7 @@ entry:
   ]
 
 if.then.i:                                        ; preds = %entry, %entry
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %1, i64 25
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 25
   br label %PrintHeader.exit
 
 if.else10.i:                                      ; preds = %entry
@@ -78,43 +78,43 @@ if.else10.i:                                      ; preds = %entry
 
 PrintHeader.exit:                                 ; preds = %if.else10.i, %if.then.i, %entry
   %s.0.i = phi ptr [ %incdec.ptr.i, %if.then.i ], [ @.str.2, %if.else10.i ], [ @.str.1, %entry ]
-  %linedefined.i = getelementptr inbounds i8, ptr %f, i64 96
+  %linedefined.i = getelementptr inbounds nuw i8, ptr %f, i64 96
   %3 = load i32, ptr %linedefined.i, align 8, !tbaa !12
   %cmp12.i = icmp eq i32 %3, 0
   %cond.i = select i1 %cmp12.i, ptr @.str.4, ptr @.str.5
-  %lastlinedefined.i = getelementptr inbounds i8, ptr %f, i64 100
+  %lastlinedefined.i = getelementptr inbounds nuw i8, ptr %f, i64 100
   %4 = load i32, ptr %lastlinedefined.i, align 4, !tbaa !13
-  %sizecode.i = getelementptr inbounds i8, ptr %f, i64 80
+  %sizecode.i = getelementptr inbounds nuw i8, ptr %f, i64 80
   %5 = load i32, ptr %sizecode.i, align 8, !tbaa !14
   %cmp16.i = icmp eq i32 %5, 1
   %cond18.i = select i1 %cmp16.i, ptr @.str.6, ptr @.str.7
   %mul.i = shl nsw i32 %5, 2
   %call.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull %cond.i, ptr noundef nonnull %s.0.i, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull %cond18.i, i32 noundef %mul.i, ptr noundef nonnull %f)
-  %numparams.i = getelementptr inbounds i8, ptr %f, i64 113
+  %numparams.i = getelementptr inbounds nuw i8, ptr %f, i64 113
   %6 = load i8, ptr %numparams.i, align 1, !tbaa !15
   %conv20.i = zext i8 %6 to i32
-  %is_vararg.i = getelementptr inbounds i8, ptr %f, i64 114
+  %is_vararg.i = getelementptr inbounds nuw i8, ptr %f, i64 114
   %7 = load i8, ptr %is_vararg.i, align 2, !tbaa !16
   %tobool.not.i = icmp eq i8 %7, 0
   %cond22.i = select i1 %tobool.not.i, ptr @.str.6, ptr @.str.9
   %cmp25.i = icmp eq i8 %6, 1
   %cond27.i = select i1 %cmp25.i, ptr @.str.6, ptr @.str.7
-  %maxstacksize.i = getelementptr inbounds i8, ptr %f, i64 115
+  %maxstacksize.i = getelementptr inbounds nuw i8, ptr %f, i64 115
   %8 = load i8, ptr %maxstacksize.i, align 1, !tbaa !17
   %conv28.i = zext i8 %8 to i32
   %cmp31.i = icmp eq i8 %8, 1
   %cond33.i = select i1 %cmp31.i, ptr @.str.6, ptr @.str.7
-  %nups.i = getelementptr inbounds i8, ptr %f, i64 112
+  %nups.i = getelementptr inbounds nuw i8, ptr %f, i64 112
   %9 = load i8, ptr %nups.i, align 8, !tbaa !18
   %conv34.i = zext i8 %9 to i32
   %cmp37.i = icmp eq i8 %9, 1
   %cond39.i = select i1 %cmp37.i, ptr @.str.6, ptr @.str.7
   %call40.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %conv20.i, ptr noundef nonnull %cond22.i, ptr noundef nonnull %cond27.i, i32 noundef %conv28.i, ptr noundef nonnull %cond33.i, i32 noundef %conv34.i, ptr noundef nonnull %cond39.i)
-  %sizelocvars.i = getelementptr inbounds i8, ptr %f, i64 92
+  %sizelocvars.i = getelementptr inbounds nuw i8, ptr %f, i64 92
   %10 = load i32, ptr %sizelocvars.i, align 4, !tbaa !19
   %cmp42.i = icmp eq i32 %10, 1
   %cond44.i = select i1 %cmp42.i, ptr @.str.6, ptr @.str.7
-  %sizek.i = getelementptr inbounds i8, ptr %f, i64 76
+  %sizek.i = getelementptr inbounds nuw i8, ptr %f, i64 76
   %11 = load i32, ptr %sizek.i, align 4, !tbaa !20
   %cmp46.i = icmp eq i32 %11, 1
   %cond48.i = select i1 %cmp46.i, ptr @.str.6, ptr @.str.7
@@ -122,18 +122,18 @@ PrintHeader.exit:                                 ; preds = %if.else10.i, %if.th
   %cmp50.i = icmp eq i32 %12, 1
   %cond52.i = select i1 %cmp50.i, ptr @.str.6, ptr @.str.7
   %call53.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %10, ptr noundef nonnull %cond44.i, i32 noundef %11, ptr noundef nonnull %cond48.i, i32 noundef %12, ptr noundef nonnull %cond52.i)
-  %code1.i = getelementptr inbounds i8, ptr %f, i64 24
+  %code1.i = getelementptr inbounds nuw i8, ptr %f, i64 24
   %13 = load ptr, ptr %code1.i, align 8, !tbaa !21
   %14 = load i32, ptr %sizecode.i, align 8, !tbaa !14
   %cmp218.i = icmp sgt i32 %14, 0
   br i1 %cmp218.i, label %for.body.lr.ph.i, label %PrintCode.exit
 
 for.body.lr.ph.i:                                 ; preds = %PrintHeader.exit
-  %lineinfo.i = getelementptr inbounds i8, ptr %f, i64 40
-  %p.i = getelementptr inbounds i8, ptr %f, i64 32
+  %lineinfo.i = getelementptr inbounds nuw i8, ptr %f, i64 40
+  %p.i = getelementptr inbounds nuw i8, ptr %f, i64 32
   %k.i = getelementptr i8, ptr %f, i64 16
-  %sizeupvalues.i = getelementptr inbounds i8, ptr %f, i64 72
-  %upvalues.i = getelementptr inbounds i8, ptr %f, i64 56
+  %sizeupvalues.i = getelementptr inbounds nuw i8, ptr %f, i64 72
+  %upvalues.i = getelementptr inbounds nuw i8, ptr %f, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %sw.epilog148.i, %for.body.lr.ph.i
@@ -177,10 +177,10 @@ if.else.i:                                        ; preds = %cond.end.i, %cond.e
 if.end.i:                                         ; preds = %if.else.i, %if.then.i14
   %add216.i = phi i32 [ %add217.i, %if.else.i ], [ %add.i, %if.then.i14 ]
   %idxprom18.i = zext nneg i32 %and.i to i64
-  %arrayidx19.i = getelementptr inbounds [39 x ptr], ptr @luaP_opnames, i64 0, i64 %idxprom18.i
+  %arrayidx19.i = getelementptr inbounds nuw [39 x ptr], ptr @luaP_opnames, i64 0, i64 %idxprom18.i
   %18 = load ptr, ptr %arrayidx19.i, align 8, !tbaa !24
   %call20.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %18)
-  %arrayidx22.i = getelementptr inbounds [38 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom18.i
+  %arrayidx22.i = getelementptr inbounds nuw [38 x i8], ptr @luaP_opmodes, i64 0, i64 %idxprom18.i
   %19 = load i8, ptr %arrayidx22.i, align 1, !tbaa !11
   %conv.i = zext i8 %19 to i32
   %and23.i = and i32 %conv.i, 3
@@ -287,9 +287,9 @@ sw.bb85.i:                                        ; preds = %sw.epilog.i, %sw.ep
 cond.true88.i:                                    ; preds = %sw.bb85.i
   %25 = load ptr, ptr %upvalues.i, align 8, !tbaa !27
   %idxprom89.i = zext nneg i32 %shr4.i to i64
-  %arrayidx90.i = getelementptr inbounds ptr, ptr %25, i64 %idxprom89.i
+  %arrayidx90.i = getelementptr inbounds nuw ptr, ptr %25, i64 %idxprom89.i
   %26 = load ptr, ptr %arrayidx90.i, align 8, !tbaa !24
-  %add.ptr.i13 = getelementptr inbounds i8, ptr %26, i64 24
+  %add.ptr.i13 = getelementptr inbounds nuw i8, ptr %26, i64 24
   br label %cond.end92.i
 
 cond.end92.i:                                     ; preds = %cond.true88.i, %sw.bb85.i
@@ -300,9 +300,9 @@ cond.end92.i:                                     ; preds = %cond.true88.i, %sw.
 sw.bb95.i:                                        ; preds = %sw.epilog.i, %sw.epilog.i
   %27 = load ptr, ptr %k.i, align 8, !tbaa !25
   %idxprom96.i = zext nneg i32 %shr6.i to i64
-  %arrayidx97.i = getelementptr inbounds %struct.lua_TValue, ptr %27, i64 %idxprom96.i
+  %arrayidx97.i = getelementptr inbounds nuw %struct.lua_TValue, ptr %27, i64 %idxprom96.i
   %28 = load ptr, ptr %arrayidx97.i, align 8, !tbaa !11
-  %add.ptr98.i = getelementptr inbounds i8, ptr %28, i64 24
+  %add.ptr98.i = getelementptr inbounds nuw i8, ptr %28, i64 24
   %call99.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, ptr noundef nonnull %add.ptr98.i)
   br label %sw.epilog148.i
 
@@ -366,7 +366,7 @@ sw.bb130.i:                                       ; preds = %sw.epilog.i, %sw.ep
 sw.bb134.i:                                       ; preds = %sw.epilog.i
   %35 = load ptr, ptr %p.i, align 8, !tbaa !28
   %idxprom135.i = zext nneg i32 %shr6.i to i64
-  %arrayidx136.i = getelementptr inbounds ptr, ptr %35, i64 %idxprom135.i
+  %arrayidx136.i = getelementptr inbounds nuw ptr, ptr %35, i64 %idxprom135.i
   %36 = load ptr, ptr %arrayidx136.i, align 8, !tbaa !24
   %call137.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef %36)
   br label %sw.epilog148.i
@@ -426,20 +426,20 @@ PrintConstants.exit:                              ; preds = %for.body.i17, %if.t
   br i1 %cmp19.i, label %for.body.lr.ph.i22, label %PrintLocals.exit
 
 for.body.lr.ph.i22:                               ; preds = %PrintConstants.exit
-  %locvars.i = getelementptr inbounds i8, ptr %f, i64 48
+  %locvars.i = getelementptr inbounds nuw i8, ptr %f, i64 48
   %wide.trip.count.i = zext nneg i32 %42 to i64
   br label %for.body.i23
 
 for.body.i23:                                     ; preds = %for.body.i23, %for.body.lr.ph.i22
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i22 ], [ %indvars.iv.next.i, %for.body.i23 ]
   %43 = load ptr, ptr %locvars.i, align 8, !tbaa !32
-  %arrayidx.i24 = getelementptr inbounds %struct.LocVar, ptr %43, i64 %indvars.iv.i
+  %arrayidx.i24 = getelementptr inbounds nuw %struct.LocVar, ptr %43, i64 %indvars.iv.i
   %44 = load ptr, ptr %arrayidx.i24, align 8, !tbaa !33
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %44, i64 24
-  %startpc.i = getelementptr inbounds i8, ptr %arrayidx.i24, i64 8
+  %add.ptr.i25 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %startpc.i = getelementptr inbounds nuw i8, ptr %arrayidx.i24, i64 8
   %45 = load i32, ptr %startpc.i, align 8, !tbaa !35
   %add.i26 = add nsw i32 %45, 1
-  %endpc.i = getelementptr inbounds i8, ptr %arrayidx.i24, i64 12
+  %endpc.i = getelementptr inbounds nuw i8, ptr %arrayidx.i24, i64 12
   %46 = load i32, ptr %endpc.i, align 4, !tbaa !36
   %add7.i = add nsw i32 %46, 1
   %47 = trunc i64 %indvars.iv.i to i32
@@ -449,10 +449,10 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   br i1 %exitcond.not.i27, label %PrintLocals.exit, label %for.body.i23, !llvm.loop !37
 
 PrintLocals.exit:                                 ; preds = %for.body.i23, %PrintConstants.exit
-  %sizeupvalues.i28 = getelementptr inbounds i8, ptr %f, i64 72
+  %sizeupvalues.i28 = getelementptr inbounds nuw i8, ptr %f, i64 72
   %48 = load i32, ptr %sizeupvalues.i28, align 8, !tbaa !26
   %call.i29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %48, ptr noundef nonnull %f)
-  %upvalues.i30 = getelementptr inbounds i8, ptr %f, i64 56
+  %upvalues.i30 = getelementptr inbounds nuw i8, ptr %f, i64 56
   %49 = load ptr, ptr %upvalues.i30, align 8, !tbaa !27
   %cmp.i31 = icmp ne ptr %49, null
   %cmp112.i = icmp sgt i32 %48, 0
@@ -466,9 +466,9 @@ for.body.preheader.i:                             ; preds = %PrintLocals.exit
 for.body.i34:                                     ; preds = %for.body.i34, %for.body.preheader.i
   %indvars.iv.i35 = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i38, %for.body.i34 ]
   %50 = load ptr, ptr %upvalues.i30, align 8, !tbaa !27
-  %arrayidx.i36 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv.i35
+  %arrayidx.i36 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i35
   %51 = load ptr, ptr %arrayidx.i36, align 8, !tbaa !24
-  %add.ptr.i37 = getelementptr inbounds i8, ptr %51, i64 24
+  %add.ptr.i37 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %52 = trunc i64 %indvars.iv.i35 to i32
   %call3.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %52, ptr noundef nonnull %add.ptr.i37)
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i35, 1
@@ -480,14 +480,14 @@ if.end:                                           ; preds = %for.body.i34, %Prin
   br i1 %cmp40, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %p = getelementptr inbounds i8, ptr %f, i64 32
+  %p = getelementptr inbounds nuw i8, ptr %f, i64 32
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %53 = load ptr, ptr %p, align 8, !tbaa !28
-  %arrayidx = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
   %54 = load ptr, ptr %arrayidx, align 8, !tbaa !24
   tail call void @luaU_print(ptr noundef %54, i32 noundef %full)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -506,7 +506,7 @@ define internal fastcc void @PrintConstant(ptr nocapture readonly %f.16.val, i32
 entry:
   %idxprom = sext i32 %i to i64
   %arrayidx = getelementptr inbounds %struct.lua_TValue, ptr %f.16.val, i64 %idxprom
-  %tt = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %tt = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %tt, align 8, !tbaa !40
   switch i32 %0, label %sw.default [
     i32 0, label %sw.bb
@@ -533,8 +533,8 @@ sw.bb3:                                           ; preds = %entry
 
 sw.bb6:                                           ; preds = %entry
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !11
-  %add.ptr.i = getelementptr inbounds i8, ptr %3, i64 24
-  %len.i = getelementptr inbounds i8, ptr %3, i64 16
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %len.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i64, ptr %len.i, align 8, !tbaa !11
   %5 = load ptr, ptr @stdout, align 8, !tbaa !24
   %call.i.i = tail call noundef i32 @putc(i32 noundef 34, ptr noundef %5)
@@ -598,7 +598,7 @@ sw.default.i:                                     ; preds = %for.body.i
   %call18.i = tail call ptr @__ctype_b_loc() #3
   %7 = load ptr, ptr %call18.i, align 8, !tbaa !24
   %idxprom.i = zext i8 %6 to i64
-  %arrayidx21.i = getelementptr inbounds i16, ptr %7, i64 %idxprom.i
+  %arrayidx21.i = getelementptr inbounds nuw i16, ptr %7, i64 %idxprom.i
   %8 = load i16, ptr %arrayidx21.i, align 2, !tbaa !42
   %9 = and i16 %8, 16384
   %tobool.not.i = icmp eq i16 %9, 0

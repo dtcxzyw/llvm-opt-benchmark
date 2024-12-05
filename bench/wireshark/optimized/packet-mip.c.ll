@@ -560,7 +560,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.378) #2
   %7 = load ptr, ptr %5, align 8
@@ -576,7 +576,7 @@ define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 9:                                                ; preds = %4
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @tvb_address_to_str(ptr noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 4) #2
   %14 = load ptr, ptr %11, align 8
@@ -611,7 +611,7 @@ define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 38:                                               ; preds = %4
   %39 = load ptr, ptr %5, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 408
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = tail call ptr @tvb_address_to_str(ptr noundef %41, ptr noundef %0, i32 noundef 2, i32 noundef 4) #2
   %43 = load ptr, ptr %40, align 8
@@ -672,7 +672,7 @@ define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 84:                                               ; preds = %4
   %85 = load ptr, ptr %5, align 8
-  %86 = getelementptr inbounds i8, ptr %1, i64 408
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %87 = load ptr, ptr %86, align 8
   %88 = tail call ptr @tvb_address_to_str(ptr noundef %87, ptr noundef %0, i32 noundef 2, i32 noundef 4) #2
   %89 = load ptr, ptr %86, align 8
@@ -707,7 +707,7 @@ define internal i32 @dissect_mip(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 113:                                              ; preds = %4
   %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds i8, ptr %1, i64 408
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %116 = load ptr, ptr %115, align 8
   %117 = tail call ptr @tvb_address_to_str(ptr noundef %116, ptr noundef %0, i32 noundef 2, i32 noundef 4) #2
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.383, ptr noundef %117) #2

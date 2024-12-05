@@ -296,9 +296,9 @@ _ZN4pbrt12StringPrintfIJRNS_8IntervalES2_S2_EEENSt7__cxx1112basic_stringIcSt11ch
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt10Quaternion8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %y = getelementptr inbounds i8, ptr %this, i64 4
-  %z = getelementptr inbounds i8, ptr %this, i64 8
-  %w = getelementptr inbounds i8, ptr %this, i64 12
+  %y = getelementptr inbounds nuw i8, ptr %this, i64 4
+  %z = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %w = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKfJS3_S3_S3_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %this, ptr noundef nonnull align 4 dereferenceable(4) %y, ptr noundef nonnull align 4 dereferenceable(4) %z, ptr noundef nonnull align 4 dereferenceable(4) %w)
           to label %_ZN4pbrt12StringPrintfIJRKfS2_S2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -317,26 +317,26 @@ _ZN4pbrt12StringPrintfIJRKfS2_S2_S2_EEENSt7__cxx1112basic_stringIcSt11char_trait
 define dso_local { <2 x float>, <2 x float> } @_ZN4pbrt5UnionERKNS_13DirectionConeES2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %b) local_unnamed_addr #1 {
 entry:
   %ref.tmp37 = alloca %"class.pbrt::Transform", align 4
-  %cosTheta.i = getelementptr inbounds i8, ptr %a, i64 12
+  %cosTheta.i = getelementptr inbounds nuw i8, ptr %a, i64 12
   %0 = load float, ptr %cosTheta.i, align 4
   %cmp.i = fcmp oeq float %0, 0x7FF0000000000000
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %b, align 4
-  %retval.sroa.8.0.b.sroa_idx = getelementptr inbounds i8, ptr %b, i64 8
+  %retval.sroa.8.0.b.sroa_idx = getelementptr inbounds nuw i8, ptr %b, i64 8
   %retval.sroa.8.0.copyload = load <2 x float>, ptr %retval.sroa.8.0.b.sroa_idx, align 4
   br label %return
 
 if.end:                                           ; preds = %entry
-  %cosTheta.i22 = getelementptr inbounds i8, ptr %b, i64 12
+  %cosTheta.i22 = getelementptr inbounds nuw i8, ptr %b, i64 12
   %1 = load float, ptr %cosTheta.i22, align 4
   %cmp.i23 = fcmp oeq float %1, 0x7FF0000000000000
   br i1 %cmp.i23, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
   %retval.sroa.0.0.copyload43 = load <2 x float>, ptr %a, align 4
-  %retval.sroa.8.0.a.sroa_idx = getelementptr inbounds i8, ptr %a, i64 8
+  %retval.sroa.8.0.a.sroa_idx = getelementptr inbounds nuw i8, ptr %a, i64 8
   %retval.sroa.8.0.copyload46 = load <2 x float>, ptr %retval.sroa.8.0.a.sroa_idx, align 4
   br label %return
 
@@ -353,10 +353,10 @@ if.end3:                                          ; preds = %if.end
   %retval.0.i.i27 = select i1 %cmp.i.i24, float -1.000000e+00, float %conv2.val.i.i26
   %call.i.i28 = tail call noundef float @acosf(float noundef %retval.0.i.i27) #12
   %agg.tmp.sroa.0.0.copyload = load <2 x float>, ptr %a, align 4
-  %agg.tmp.sroa.2.0.w.sroa_idx = getelementptr inbounds i8, ptr %a, i64 8
+  %agg.tmp.sroa.2.0.w.sroa_idx = getelementptr inbounds nuw i8, ptr %a, i64 8
   %agg.tmp.sroa.2.0.copyload = load float, ptr %agg.tmp.sroa.2.0.w.sroa_idx, align 4
   %agg.tmp7.sroa.0.0.copyload = load <2 x float>, ptr %b, align 4
-  %agg.tmp7.sroa.2.0.w8.sroa_idx = getelementptr inbounds i8, ptr %b, i64 8
+  %agg.tmp7.sroa.2.0.w8.sroa_idx = getelementptr inbounds nuw i8, ptr %b, i64 8
   %agg.tmp7.sroa.2.0.copyload = load float, ptr %agg.tmp7.sroa.2.0.w8.sroa_idx, align 4
   %3 = fmul <2 x float> %agg.tmp.sroa.0.0.copyload, %agg.tmp7.sroa.0.0.copyload
   %mul.i.i = extractelement <2 x float> %3, i64 0
@@ -530,14 +530,14 @@ entry:
   %mul = fmul float %v.sroa.0.0.vec.extract, %1
   %call5 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %2 = extractvalue { ptr, i64 } %call5, 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load float, ptr %arrayidx.i, align 4
   %v.sroa.0.4.vec.extract = extractelement <2 x float> %v.coerce0, i64 1
   %mul7 = fmul float %v.sroa.0.4.vec.extract, %3
   %add = fadd float %mul, %mul7
   %call10 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 0)
   %4 = extractvalue { ptr, i64 } %call10, 0
-  %arrayidx.i11 = getelementptr inbounds i8, ptr %4, i64 8
+  %arrayidx.i11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load float, ptr %arrayidx.i11, align 4
   %mul12 = fmul float %v.coerce1, %5
   %add13 = fadd float %add, %mul12
@@ -547,13 +547,13 @@ entry:
   %mul19 = fmul float %v.sroa.0.0.vec.extract, %7
   %call22 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %8 = extractvalue { ptr, i64 } %call22, 0
-  %arrayidx.i13 = getelementptr inbounds i8, ptr %8, i64 4
+  %arrayidx.i13 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %9 = load float, ptr %arrayidx.i13, align 4
   %mul25 = fmul float %v.sroa.0.4.vec.extract, %9
   %add26 = fadd float %mul19, %mul25
   %call29 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 1)
   %10 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i14 = getelementptr inbounds i8, ptr %10, i64 8
+  %arrayidx.i14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load float, ptr %arrayidx.i14, align 4
   %mul32 = fmul float %v.coerce1, %11
   %add33 = fadd float %add26, %mul32
@@ -563,13 +563,13 @@ entry:
   %mul39 = fmul float %v.sroa.0.0.vec.extract, %13
   %call42 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %14 = extractvalue { ptr, i64 } %call42, 0
-  %arrayidx.i16 = getelementptr inbounds i8, ptr %14, i64 4
+  %arrayidx.i16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %15 = load float, ptr %arrayidx.i16, align 4
   %mul45 = fmul float %v.sroa.0.4.vec.extract, %15
   %add46 = fadd float %mul39, %mul45
   %call49 = tail call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %this, i32 noundef 2)
   %16 = extractvalue { ptr, i64 } %call49, 0
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %16, i64 8
+  %arrayidx.i17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load float, ptr %arrayidx.i17, align 4
   %mul52 = fmul float %v.coerce1, %17
   %add53 = fadd float %add46, %mul52
@@ -583,7 +583,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4pbrt13DirectionCone8ToStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %cosTheta = getelementptr inbounds i8, ptr %this, i64 12
+  %cosTheta = getelementptr inbounds nuw i8, ptr %this, i64 12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #12
   invoke void @_ZN4pbrt6detail21stringPrintfRecursiveIRKNS_7Vector3IfEEJRKfEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcOT_DpOT0_(ptr noundef nonnull align 8 %agg.result, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(4) %cosTheta)
           to label %_ZN4pbrt12StringPrintfIJRKNS_7Vector3IfEERKfEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpOT_.exit unwind label %lpad.i
@@ -633,7 +633,7 @@ entry:
   %sub13 = fsub float %mul11, %mul12
   %call15 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %2 = extractvalue { ptr, i64 } %call15, 0
-  %arrayidx.i = getelementptr inbounds i8, ptr %2, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %sub13, ptr %arrayidx.i, align 4
   %mul19 = fmul float %div.i.i, %div3.i.i
   %mul21 = fmul float %sub10, %mul19
@@ -641,11 +641,11 @@ entry:
   %add24 = fadd float %mul23, %mul21
   %call26 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %3 = extractvalue { ptr, i64 } %call26, 0
-  %arrayidx.i59 = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx.i59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %add24, ptr %arrayidx.i59, align 4
   %call29 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 0)
   %4 = extractvalue { ptr, i64 } %call29, 0
-  %arrayidx.i60 = getelementptr inbounds i8, ptr %4, i64 12
+  %arrayidx.i60 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0.000000e+00, ptr %arrayidx.i60, align 4
   %add38 = fadd float %mul12, %mul11
   %call40 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
@@ -657,7 +657,7 @@ entry:
   %add50 = fadd float %mul44, %mul49
   %call52 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %6 = extractvalue { ptr, i64 } %call52, 0
-  %arrayidx.i62 = getelementptr inbounds i8, ptr %6, i64 4
+  %arrayidx.i62 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %add50, ptr %arrayidx.i62, align 4
   %mul56 = fmul float %div2.i.i, %div3.i.i
   %mul58 = fmul float %sub10, %mul56
@@ -665,11 +665,11 @@ entry:
   %sub61 = fsub float %mul58, %mul60
   %call63 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %7 = extractvalue { ptr, i64 } %call63, 0
-  %arrayidx.i63 = getelementptr inbounds i8, ptr %7, i64 8
+  %arrayidx.i63 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float %sub61, ptr %arrayidx.i63, align 4
   %call66 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 1)
   %8 = extractvalue { ptr, i64 } %call66, 0
-  %arrayidx.i64 = getelementptr inbounds i8, ptr %8, i64 12
+  %arrayidx.i64 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store float 0.000000e+00, ptr %arrayidx.i64, align 4
   %sub75 = fsub float %mul21, %mul23
   %call77 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
@@ -678,7 +678,7 @@ entry:
   %add86 = fadd float %mul60, %mul58
   %call88 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %10 = extractvalue { ptr, i64 } %call88, 0
-  %arrayidx.i66 = getelementptr inbounds i8, ptr %10, i64 4
+  %arrayidx.i66 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %add86, ptr %arrayidx.i66, align 4
   %mul92 = fmul float %div3.i.i, %div3.i.i
   %sub96 = fsub float 1.000000e+00, %mul92
@@ -686,11 +686,11 @@ entry:
   %add98 = fadd float %mul92, %mul97
   %call100 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %11 = extractvalue { ptr, i64 } %call100, 0
-  %arrayidx.i67 = getelementptr inbounds i8, ptr %11, i64 8
+  %arrayidx.i67 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store float %add98, ptr %arrayidx.i67, align 4
   %call103 = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef 2)
   %12 = extractvalue { ptr, i64 } %call103, 0
-  %arrayidx.i68 = getelementptr inbounds i8, ptr %12, i64 12
+  %arrayidx.i68 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store float 0.000000e+00, ptr %arrayidx.i68, align 4
   call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp105)
   br label %for.cond1.preheader.i
@@ -705,11 +705,11 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.c
   %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i = call { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %m, i32 noundef %14)
   %15 = extractvalue { ptr, i64 } %call.i, 0
-  %arrayidx.i.i = getelementptr inbounds float, ptr %15, i64 %indvars.iv11.i
+  %arrayidx.i.i = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv11.i
   %16 = load float, ptr %arrayidx.i.i, align 4
   %call6.i = call { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp105, i32 noundef %13)
   %17 = extractvalue { ptr, i64 } %call6.i, 0
-  %arrayidx.i7.i = getelementptr inbounds float, ptr %17, i64 %indvars.iv.i
+  %arrayidx.i7.i = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv.i
   store float %16, ptr %arrayidx.i7.i, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -722,7 +722,7 @@ for.inc9.i:                                       ; preds = %for.body3.i
 
 _ZN4pbrt9TransposeILi4EEENS_12SquareMatrixIXT_EEERKS2_.exit: ; preds = %for.inc9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, ptr noundef nonnull align 4 dereferenceable(64) %m, i64 64, i1 false)
-  %mInv3.i = getelementptr inbounds i8, ptr %agg.result, i64 64
+  %mInv3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %mInv3.i, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp105, i64 64, i1 false)
   ret void
 }
@@ -791,7 +791,7 @@ invoke.cont13:                                    ; preds = %if.then12
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %invoke.cont13
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont15 unwind label %lpad.i
 
@@ -986,7 +986,7 @@ invoke.cont13:                                    ; preds = %if.then12
           to label %.noexc unwind label %lpad14
 
 .noexc:                                           ; preds = %invoke.cont13
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont15 unwind label %lpad.i
 
@@ -1164,7 +1164,7 @@ if.then12:                                        ; preds = %if.end10
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then12
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %1 = load ptr, ptr %v, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %1)
           to label %invoke.cont15 unwind label %lpad14
@@ -1301,7 +1301,7 @@ if.then12:                                        ; preds = %if.end10
           to label %invoke.cont13 unwind label %lpad
 
 invoke.cont13:                                    ; preds = %if.then12
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %1 = load ptr, ptr %v, align 8
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef %1)
           to label %invoke.cont15 unwind label %lpad14
@@ -1473,7 +1473,7 @@ invoke.cont15:                                    ; preds = %if.then14
           to label %.noexc unwind label %lpad16
 
 .noexc:                                           ; preds = %invoke.cont15
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i)
           to label %invoke.cont17 unwind label %lpad.i
 
@@ -1635,7 +1635,7 @@ if.then22:                                        ; preds = %if.end20
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.then22
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont25 unwind label %lpad24
@@ -1834,7 +1834,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont23 unwind label %lpad22
@@ -2002,7 +2002,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load double, ptr %v, align 8
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, double noundef %3)
           to label %invoke.cont23 unwind label %lpad22
@@ -2199,7 +2199,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load double, ptr %v, align 8
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, double noundef %3)
           to label %invoke.cont23 unwind label %lpad22
@@ -2365,7 +2365,7 @@ if.then21:                                        ; preds = %if.end19
           to label %invoke.cont22 unwind label %lpad
 
 invoke.cont22:                                    ; preds = %if.then21
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont24 unwind label %lpad23
@@ -2604,7 +2604,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont23 unwind label %lpad22
@@ -2760,7 +2760,7 @@ if.then22:                                        ; preds = %if.end20
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.then22
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont25 unwind label %lpad24
@@ -2925,7 +2925,7 @@ if.then22:                                        ; preds = %if.end20
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.then22
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load double, ptr %v, align 8
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, double noundef %3)
           to label %invoke.cont25 unwind label %lpad24
@@ -3091,7 +3091,7 @@ if.then22:                                        ; preds = %if.end20
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.then22
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %4 = load i32, ptr %v, align 4
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
           to label %invoke.cont25 unwind label %lpad24
@@ -3294,7 +3294,7 @@ if.then24:                                        ; preds = %if.end22
           to label %invoke.cont25 unwind label %lpad
 
 invoke.cont25:                                    ; preds = %if.then24
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call28 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont27 unwind label %lpad26
@@ -3489,7 +3489,7 @@ if.then22:                                        ; preds = %if.end20
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %if.then22
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call26 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont25 unwind label %lpad24
@@ -3654,7 +3654,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont23 unwind label %lpad22
@@ -3819,7 +3819,7 @@ if.then20:                                        ; preds = %if.end18
           to label %invoke.cont21 unwind label %lpad
 
 invoke.cont21:                                    ; preds = %if.then20
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %3 = load float, ptr %v, align 4
   %call24 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEf(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, float noundef %3)
           to label %invoke.cont23 unwind label %lpad22
@@ -3961,9 +3961,9 @@ if.then12:                                        ; preds = %if.end10
 invoke.cont13:                                    ; preds = %if.then12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   %1 = load float, ptr %v, align 4, !noalias !11
-  %y.i.i = getelementptr inbounds i8, ptr %v, i64 4
+  %y.i.i = getelementptr inbounds nuw i8, ptr %v, i64 4
   %2 = load float, ptr %y.i.i, align 4, !noalias !11
-  %z.i.i = getelementptr inbounds i8, ptr %v, i64 8
+  %z.i.i = getelementptr inbounds nuw i8, ptr %v, i64 8
   %3 = load float, ptr %z.i.i, align 4, !noalias !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %x.addr.i.i.i), !noalias !11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %y.addr.i.i.i), !noalias !11
@@ -3986,7 +3986,7 @@ lpad.i.i.i.i:                                     ; preds = %invoke.cont13
   br label %common.resume.i
 
 _ZNK4pbrt6Tuple3INS_7Vector3EfE8ToStringB5cxx11Ev.exit.i: ; preds = %invoke.cont13
-  %add.ptr = getelementptr inbounds i8, ptr %ss, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %x.addr.i.i.i), !noalias !11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %y.addr.i.i.i), !noalias !11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %z.addr.i.i.i), !noalias !11

@@ -70,9 +70,9 @@ declare dso_local i32 @__dm_get_module_param(ptr noundef, i32 noundef, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
 define dso_local range(i32 0, 2) i32 @dm_request_based(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   %7 = zext i1 %6 to i32
@@ -103,7 +103,7 @@ declare dso_local void @blk_mq_quiesce_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_mq_kick_requeue_list(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 136
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   tail call void @blk_mq_delay_kick_requeue_list(ptr noundef %3, i64 noundef 0) #14
   ret void
@@ -126,11 +126,11 @@ define dso_local noundef i64 @dm_attr_rq_based_seq_io_merge_deadline_store(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @dm_mq_init_request_queue(ptr noundef initializes((416, 424)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 132
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 16), align 16
   %6 = tail call noalias noundef align 8 dereferenceable_or_null(168) ptr @kmalloc_node_trace(ptr noundef %5, i32 noundef 3520, i32 noundef %4, i64 noundef 168) #15
-  %7 = getelementptr inbounds i8, ptr %0, i64 416
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %6, ptr %7, align 8
   %8 = icmp eq ptr %6, null
   br i1 %8, label %54, label %9
@@ -139,42 +139,42 @@ define dso_local i32 @dm_mq_init_request_queue(ptr noundef initializes((416, 424
   store ptr @dm_mq_ops, ptr %6, align 8
   %10 = tail call i32 @__dm_get_module_param(ptr noundef nonnull @dm_mq_queue_depth, i32 noundef 2048, i32 noundef 10240) #14
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i32 %10, ptr %12, align 8
   %13 = load i32, ptr %3, align 4
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 76
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 76
   store i32 %13, ptr %15, align 4
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 84
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 84
   store i32 5, ptr %17, align 4
   %18 = tail call i32 @__dm_get_module_param(ptr noundef nonnull @dm_mq_nr_hw_queues, i32 noundef 1, i32 noundef 32) #14
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 60
   store i32 %18, ptr %20, align 4
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 88
   store ptr %0, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store i32 120, ptr %24, align 8
   %25 = tail call ptr @dm_table_get_immutable_target(ptr noundef %1) #14
   %26 = icmp eq ptr %25, null
   br i1 %26, label %39, label %27
 
 27:                                               ; preds = %9
-  %28 = getelementptr inbounds i8, ptr %25, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 52
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %39, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load i32, ptr %33, align 8
   %35 = add i32 %34, %29
   store i32 %35, ptr %33, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 412
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 412
   %37 = load i8, ptr %36, align 4
   %38 = or i8 %37, 1
   store i8 %38, ptr %36, align 4
@@ -188,7 +188,7 @@ define dso_local i32 @dm_mq_init_request_queue(ptr noundef initializes((416, 424
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %7, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @blk_mq_init_allocated_queue(ptr noundef %44, ptr noundef %46) #14
   %48 = icmp eq i32 %47, 0
@@ -234,7 +234,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @dm_mq_cleanup_mapped_device(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
@@ -263,9 +263,9 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr i8, ptr %5, i64 248
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %11 = load volatile i64, ptr %10, align 8
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
@@ -297,9 +297,9 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
 
 23:                                               ; preds = %20, %14
   %24 = phi ptr [ %21, %20 ], [ %9, %14 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %33, label %30
@@ -311,29 +311,29 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
 
 33:                                               ; preds = %30, %23
   call void @blk_mq_start_request(ptr noundef %5) #14
-  %34 = getelementptr inbounds i8, ptr %7, i64 456
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, %34
   br i1 %36, label %52, label %37, !prof !6
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %7, i64 424
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %39 = load volatile i64, ptr @jiffies, align 64
   %40 = getelementptr i8, ptr %5, i64 352
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %5, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %42 = load i32, ptr %41, align 4
   %43 = lshr i32 %42, 9
   %44 = getelementptr i8, ptr %5, i64 360
   store i32 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %5, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 1
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds i8, ptr %5, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr i8, ptr %5, i64 336
-  call void @dm_stats_account_io(ptr noundef %38, i64 noundef %48, i64 noundef %50, i32 noundef %43, i1 noundef zeroext false, i64 noundef 0, ptr noundef %51) #14
+  call void @dm_stats_account_io(ptr noundef nonnull %38, i64 noundef %48, i64 noundef %50, i32 noundef %43, i1 noundef zeroext false, i64 noundef 0, ptr noundef %51) #14
   br label %52
 
 52:                                               ; preds = %37, %33
@@ -349,7 +349,7 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   store i8 0, ptr %56, align 8
   %57 = getelementptr i8, ptr %5, i64 364
   store i32 0, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %7, i64 412
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 412
   %59 = load i8, ptr %58, align 4
   %60 = and i8 %59, 1
   %61 = icmp eq i8 %60, 0
@@ -365,7 +365,7 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   store ptr null, ptr %3, align 8
   %65 = load ptr, ptr %25, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr i8, ptr %5, i64 328
   %69 = call i32 %67(ptr noundef %24, ptr noundef %5, ptr noundef %68, ptr noundef nonnull %3) #14
@@ -380,33 +380,33 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
 70:                                               ; preds = %64
   %71 = load ptr, ptr %3, align 8
   %72 = load ptr, ptr %6, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 552
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 552
   %74 = load ptr, ptr %73, align 8
   %75 = call i32 @blk_rq_prep_clone(ptr noundef %71, ptr noundef %5, ptr noundef %74, i32 noundef 2080, ptr noundef nonnull @dm_rq_bio_constructor, ptr noundef %6) #14
   %76 = icmp eq i32 %75, 0
   br i1 %76, label %77, label %89
 
 77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %71, i64 232
+  %78 = getelementptr inbounds nuw i8, ptr %71, i64 232
   store ptr @end_clone_request, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %71, i64 240
+  %79 = getelementptr inbounds nuw i8, ptr %71, i64 240
   store ptr %6, ptr %79, align 8
   store ptr %71, ptr %54, align 8
   %80 = load ptr, ptr %3, align 8
   %81 = call ptr @dm_disk(ptr noundef %7) #14
   %82 = load i32, ptr %81, align 8
   %83 = shl i32 %82, 20
-  %84 = getelementptr inbounds i8, ptr %81, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %85 = load i32, ptr %84, align 4
   %86 = or i32 %83, %85
-  %87 = getelementptr inbounds i8, ptr %5, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %88 = load i64, ptr %87, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_block_rq_remap, i64 8), i32 2) #14
           to label %114 [label %94], !srcloc !9
 
 89:                                               ; preds = %70
   %90 = load ptr, ptr %25, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 72
   %92 = load ptr, ptr %91, align 8
   %93 = load ptr, ptr %3, align 8
   call void %92(ptr noundef %93, ptr noundef %68) #14
@@ -429,7 +429,7 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   br i1 %102, label %107, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %101, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = call i32 @__SCT__tp_func_block_rq_remap(ptr noundef %105, ptr noundef %80, i32 noundef %86, i64 noundef %88) #14
   br label %107
@@ -462,9 +462,9 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   call void @blk_rq_unprep_clone(ptr noundef %118) #14
   %119 = load ptr, ptr %3, align 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 112
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 112
   %124 = load ptr, ptr %123, align 8
   %125 = icmp eq ptr %124, null
   br i1 %125, label %127, label %126
@@ -477,9 +477,9 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
 127:                                              ; preds = %126, %117
   %128 = phi ptr [ %.pre, %126 ], [ %119, %117 ]
   %129 = load ptr, ptr %53, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 72
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 72
   %133 = load ptr, ptr %132, align 8
   call void %133(ptr noundef %128, ptr noundef %68) #14
   store ptr null, ptr %54, align 8
@@ -495,7 +495,7 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   br label %.thread7
 
 136:                                              ; preds = %64
-  %137 = getelementptr inbounds i8, ptr %5, i64 28
+  %137 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %138 = load i32, ptr %137, align 4
   %139 = or i32 %138, 1024
   store i32 %139, ptr %137, align 4
@@ -528,22 +528,22 @@ define internal noundef zeroext range(i8 0, 10) i8 @dm_mq_queue_rq(ptr nocapture
   br i1 %146, label %162, label %147, !prof !6
 
 147:                                              ; preds = %144
-  %148 = getelementptr inbounds i8, ptr %7, i64 424
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %149 = load volatile i64, ptr @jiffies, align 64
   %150 = getelementptr i8, ptr %5, i64 352
   %151 = load i64, ptr %150, align 8
   %152 = sub i64 %149, %151
   store i64 %152, ptr %150, align 8
-  %153 = getelementptr inbounds i8, ptr %5, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %154 = load i32, ptr %153, align 8
   %155 = and i32 %154, 1
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds i8, ptr %5, i64 48
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %158 = load i64, ptr %157, align 8
   %159 = getelementptr i8, ptr %5, i64 360
   %160 = load i32, ptr %159, align 8
   %161 = getelementptr i8, ptr %5, i64 336
-  call void @dm_stats_account_io(ptr noundef %148, i64 noundef %156, i64 noundef %158, i32 noundef %160, i1 noundef zeroext true, i64 noundef %152, ptr noundef %161) #14
+  call void @dm_stats_account_io(ptr noundef nonnull %148, i64 noundef %156, i64 noundef %158, i32 noundef %160, i1 noundef zeroext true, i64 noundef %152, ptr noundef %161) #14
   br label %162
 
 162:                                              ; preds = %147, %144
@@ -565,28 +565,28 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 5:                                                ; preds = %1
   %6 = getelementptr i8, ptr %0, i64 248
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 456
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 456
   %9 = load volatile ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %8
   br i1 %10, label %26, label %11, !prof !6
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 424
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %13 = load volatile i64, ptr @jiffies, align 64
   %14 = getelementptr i8, ptr %0, i64 352
   %15 = load i64, ptr %14, align 8
   %16 = sub i64 %13, %15
   store i64 %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr i8, ptr %0, i64 360
   %24 = load i32, ptr %23, align 8
   %25 = getelementptr i8, ptr %0, i64 336
-  tail call void @dm_stats_account_io(ptr noundef %12, i64 noundef %20, i64 noundef %22, i32 noundef %24, i1 noundef zeroext true, i64 noundef %16, ptr noundef %25) #14
+  tail call void @dm_stats_account_io(ptr noundef nonnull %12, i64 noundef %20, i64 noundef %22, i32 noundef %24, i1 noundef zeroext true, i64 noundef %16, ptr noundef %25) #14
   br label %26
 
 26:                                               ; preds = %11, %5
@@ -599,29 +599,29 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 29:                                               ; preds = %1
   %30 = getelementptr i8, ptr %0, i64 320
   %31 = load i8, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 240
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %51, label %37
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds i8, ptr %0, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 1024
   %41 = icmp eq i32 %40, 0
-  %42 = getelementptr inbounds i8, ptr %35, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
   %45 = load ptr, ptr %44, align 8
   %46 = icmp ne ptr %45, null
   %47 = select i1 %41, i1 %46, i1 false
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %37
-  %49 = getelementptr inbounds i8, ptr %33, i64 80
-  %50 = tail call i32 %45(ptr noundef nonnull %35, ptr noundef nonnull %3, i8 noundef zeroext %31, ptr noundef %49) #14
+  %49 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %50 = tail call i32 %45(ptr noundef nonnull %35, ptr noundef nonnull %3, i8 noundef zeroext %31, ptr noundef nonnull %49) #14
   br label %51
 
 51:                                               ; preds = %48, %37, %29
@@ -630,7 +630,7 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
   br i1 %53, label %54, label %75, !prof !7
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %3, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %56 = load i32, ptr %55, align 8
   %57 = and i32 %56, 255
   %58 = trunc i32 %56 to i8
@@ -645,7 +645,7 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 188
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 188
   %62 = load i32, ptr %61, align 4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %66
@@ -661,7 +661,7 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 
 68:                                               ; preds = %._crit_edge, %66
   %69 = phi ptr [ %.pre, %._crit_edge ], [ %60, %66 ]
-  %70 = getelementptr inbounds i8, ptr %69, i64 200
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 200
   %71 = load i32, ptr %70, align 8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %75
@@ -682,38 +682,38 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 76:                                               ; preds = %75
   %77 = load ptr, ptr %32, align 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %77, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %80 = load ptr, ptr %79, align 8
   tail call void @blk_rq_unprep_clone(ptr noundef nonnull %3) #14
-  %81 = getelementptr inbounds i8, ptr %77, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 72
   %86 = load ptr, ptr %85, align 8
   tail call void %86(ptr noundef nonnull %3, ptr noundef null) #14
-  %87 = getelementptr inbounds i8, ptr %78, i64 456
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 456
   %88 = load volatile ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, %87
   br i1 %89, label %105, label %90, !prof !6
 
 90:                                               ; preds = %76
-  %91 = getelementptr inbounds i8, ptr %78, i64 424
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 424
   %92 = load volatile i64, ptr @jiffies, align 64
   %93 = getelementptr i8, ptr %80, i64 352
   %94 = load i64, ptr %93, align 8
   %95 = sub i64 %92, %94
   store i64 %95, ptr %93, align 8
-  %96 = getelementptr inbounds i8, ptr %80, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %97 = load i32, ptr %96, align 8
   %98 = and i32 %97, 1
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds i8, ptr %80, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr i8, ptr %80, i64 360
   %103 = load i32, ptr %102, align 8
   %104 = getelementptr i8, ptr %80, i64 336
-  tail call void @dm_stats_account_io(ptr noundef %91, i64 noundef %99, i64 noundef %101, i32 noundef %103, i1 noundef zeroext true, i64 noundef %95, ptr noundef %104) #14
+  tail call void @dm_stats_account_io(ptr noundef nonnull %91, i64 noundef %99, i64 noundef %101, i32 noundef %103, i1 noundef zeroext true, i64 noundef %95, ptr noundef %104) #14
   br label %105
 
 105:                                              ; preds = %90, %76
@@ -741,11 +741,11 @@ define internal void @dm_softirq_done(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal noundef i32 @dm_mq_init_request(ptr nocapture noundef readonly %0, ptr noundef initializes((248, 256)) %1, i32 %2, i32 %3) #8 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %1, i64 248
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 412
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 412
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, 1
   %11 = icmp eq i8 %10, 0
@@ -794,45 +794,45 @@ declare dso_local void @blk_rq_unprep_clone(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @dm_requeue_original_request(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 456
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 456
   %7 = load volatile ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
   br i1 %8, label %24, label %9, !prof !6
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %3, i64 424
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 424
   %11 = load volatile i64, ptr @jiffies, align 64
   %12 = getelementptr i8, ptr %5, i64 352
   %13 = load i64, ptr %12, align 8
   %14 = sub i64 %11, %13
   store i64 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %20 = load i64, ptr %19, align 8
   %21 = getelementptr i8, ptr %5, i64 360
   %22 = load i32, ptr %21, align 8
   %23 = getelementptr i8, ptr %5, i64 336
-  tail call void @dm_stats_account_io(ptr noundef %10, i64 noundef %18, i64 noundef %20, i32 noundef %22, i1 noundef zeroext true, i64 noundef %14, ptr noundef %23) #14
+  tail call void @dm_stats_account_io(ptr noundef nonnull %10, i64 noundef %18, i64 noundef %20, i32 noundef %22, i1 noundef zeroext true, i64 noundef %14, ptr noundef %23) #14
   br label %24
 
 24:                                               ; preds = %9, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %36, label %28
 
 28:                                               ; preds = %24
   tail call void @blk_rq_unprep_clone(ptr noundef nonnull %26) #14
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %25, align 8
   tail call void %34(ptr noundef %35, ptr noundef null) #14
@@ -859,16 +859,16 @@ define internal noundef i32 @dm_rq_bio_constructor(ptr nocapture noundef writeon
   store ptr %1, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 -8
   store ptr %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr @end_clone_bio, ptr %6, align 8
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @end_clone_request(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 320
   store i8 %1, ptr %7, align 8
@@ -882,14 +882,14 @@ define internal void @end_clone_bio(ptr noundef %0) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = icmp eq ptr %10, null
   tail call void @bio_put(ptr noundef %0) #14
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %15, label %27
@@ -900,12 +900,12 @@ define internal void @end_clone_bio(ptr noundef %0) #0 align 16 {
 
 17:                                               ; preds = %15
   store i8 %9, ptr %12, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 116
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 116
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %22
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 116
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 116
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, %7
   store i32 %21, ptr %19, align 4
@@ -913,7 +913,7 @@ define internal void @end_clone_bio(ptr noundef %0) #0 align 16 {
 
 22:                                               ; preds = %18, %17
   %23 = phi i32 [ %21, %18 ], [ %.pre, %17 ]
-  %24 = getelementptr inbounds i8, ptr %4, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = tail call zeroext i1 @blk_update_request(ptr noundef %25, i8 noundef zeroext 0, i32 noundef %23) #14
   br label %27

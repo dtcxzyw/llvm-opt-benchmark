@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define range(i32 0, 2) i32 @compute_y_coords(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = tail call fastcc ptr @gv_calloc(i64 noundef %5, i64 noundef 8)
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %.lr.ph24.i, label %construct_b.exit.thread85
@@ -24,7 +24,7 @@ construct_b.exit.thread85:                        ; preds = %4
   br label %._crit_edge66
 
 .lr.ph24.i:                                       ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %.lr.ph.preheader, label %.lr.ph24.split.preheader.i
@@ -35,15 +35,15 @@ construct_b.exit.thread85:                        ; preds = %4
 
 .lr.ph24.split.i:                                 ; preds = %._crit_edge.i, %.lr.ph24.split.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph24.split.preheader.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %14 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
   %16 = icmp ugt i64 %15, 1
   br i1 %16, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph24.split.i
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %14, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %20 = load ptr, ptr %19, align 8
   br label %21
 
@@ -63,7 +63,7 @@ construct_b.exit.thread85:                        ; preds = %4
 
 ._crit_edge.i:                                    ; preds = %21, %.lr.ph24.split.i
   %.017.lcssa.i = phi double [ 0.000000e+00, %.lr.ph24.split.i ], [ %28, %21 ]
-  %30 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i
   store double %.017.lcssa.i, ptr %30, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -77,7 +77,7 @@ construct_b.exit.thread85:                        ; preds = %4
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05157 = phi i64 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
-  %31 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %.05157
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -92,8 +92,8 @@ construct_b.exit.thread85:                        ; preds = %4
 .lr.ph65:                                         ; preds = %._crit_edge, %._crit_edge61
   %indvars.iv75 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next76, %._crit_edge61 ]
   %.04963 = phi ptr [ %34, %._crit_edge ], [ %43, %._crit_edge61 ]
-  %35 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv75
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %35 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv75
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %.04963, ptr %36, align 8
   %37 = load i64, ptr %35, align 8
   %38 = sub i64 1, %37
@@ -129,8 +129,8 @@ construct_b.exit.thread85:                        ; preds = %4
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv80 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next81, %.lr.ph70 ]
   %.05068 = phi ptr [ %8, %.lr.ph70.preheader ], [ %49, %.lr.ph70 ]
-  %46 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %indvars.iv80
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %46 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv80
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %.05068, ptr %47, align 8
   %48 = load i64, ptr %46, align 8
   %49 = getelementptr inbounds float, ptr %.05068, i64 %48

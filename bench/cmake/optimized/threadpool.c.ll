@@ -37,7 +37,7 @@ define dso_local void @uv__threadpool_cleanup() local_unnamed_addr #0 {
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr @exit_message, align 16
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  store ptr %4, ptr getelementptr inbounds (i8, ptr @exit_message, i64 8), align 8
+  store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @exit_message, i64 8), align 8
   store ptr @exit_message, ptr %4, align 8
   store ptr @exit_message, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
   %5 = load i32, ptr @idle_threads, align 4
@@ -64,7 +64,7 @@ post.exit:                                        ; preds = %3, %6
 .lr.ph:                                           ; preds = %post.exit, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %post.exit ]
   %12 = load ptr, ptr @threads, align 8
-  %13 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
   %14 = tail call i32 @uv_thread_join(ptr noundef %13) #9
   %.not4 = icmp eq i32 %14, 0
   br i1 %.not4, label %8, label %15
@@ -107,12 +107,12 @@ declare void @uv_cond_destroy(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef initializes((0, 24)) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %6, align 8
   store ptr %3, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   %9 = icmp eq i32 %2, 2
   br i1 %9, label %10, label %15
@@ -120,7 +120,7 @@ define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef initializes((
 10:                                               ; preds = %5
   store ptr @slow_io_pending_wq, ptr %8, align 8
   %11 = load ptr, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %11, ptr %12, align 8
   store ptr %8, ptr %11, align 8
   store ptr %8, ptr getelementptr inbounds (i8, ptr @slow_io_pending_wq, i64 8), align 8
@@ -132,7 +132,7 @@ define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef initializes((
   %.0.i = phi ptr [ %8, %5 ], [ @run_slow_work_message, %10 ]
   store ptr @wq, ptr %.0.i, align 8
   %16 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store ptr %16, ptr %17, align 8
   store ptr %.0.i, ptr %16, align 8
   store ptr %.0.i, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
@@ -259,7 +259,7 @@ define internal void @init_once() #0 {
 .lr.ph.i:                                         ; preds = %.preheader14.i, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %.preheader14.i ]
   %33 = load ptr, ptr @threads, align 8
-  %34 = getelementptr inbounds i64, ptr %33, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw i64, ptr %33, i64 %indvars.iv.i
   %35 = call i32 @uv_thread_create(ptr noundef %34, ptr noundef nonnull @worker, ptr noundef nonnull %1) #9
   %.not11.i = icmp eq i32 %35, 0
   br i1 %.not11.i, label %28, label %36
@@ -294,18 +294,18 @@ define dso_local void @uv__work_done(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   store ptr %2, ptr %2, align 16
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %8, align 8
   br label %15
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 -48
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %11, ptr %12, align 8
   store ptr %2, ptr %11, align 8
   store ptr %5, ptr %2, align 16
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %10, align 8
   store ptr %4, ptr %14, align 8
@@ -321,11 +321,11 @@ define dso_local void @uv__work_done(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %15, %.lr.ph
   %17 = phi ptr [ %29, %.lr.ph ], [ %16, %15 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %18, ptr %20, align 8
   %21 = load ptr, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %21, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %17, i64 -24
   %24 = load ptr, ptr %23, align 8
@@ -358,30 +358,30 @@ define dso_local range(i32 -22, 1) i32 @uv_queue_work(ptr noundef %0, ptr nounde
   br i1 %5, label %22, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 7, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, 1
   store i32 %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store ptr %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 88
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr %0, ptr %15, align 8
   store ptr @uv__queue_work, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr @uv__queue_done, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 112
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   store ptr @wq, ptr %17, align 8
   %18 = load ptr, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store ptr %18, ptr %19, align 8
   store ptr %17, ptr %18, align 8
   store ptr %17, ptr getelementptr inbounds (i8, ptr @wq, i64 8), align 8
@@ -415,7 +415,7 @@ define internal void @uv__queue_work(ptr noundef %0) #0 {
 define internal void @uv__queue_done(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, -1
   store i32 %7, ptr %5, align 8
@@ -435,7 +435,7 @@ define internal void @uv__queue_done(ptr noundef %0, i32 noundef %1) #0 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %switch.tableidx = add i32 %3, -6
   %4 = icmp ult i32 %switch.tableidx, 5
@@ -443,20 +443,20 @@ define dso_local range(i32 -22, 1) i32 @uv_cancel(ptr noundef %0) local_unnamed_
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel, i64 0, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep17 = getelementptr inbounds [5 x i64], ptr @switch.table.uv_cancel.2, i64 0, i64 %6
+  %switch.gep17 = getelementptr inbounds nuw [5 x i64], ptr @switch.table.uv_cancel.2, i64 0, i64 %6
   %switch.load18 = load i64, ptr %switch.gep17, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %8 = getelementptr inbounds i8, ptr %0, i64 %switch.load18
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load18
   %.0 = load ptr, ptr %7, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %11) #9
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %12, %13
   br i1 %14, label %.critedge.i, label %15
@@ -467,34 +467,34 @@ switch.lookup:                                    ; preds = %1
   br i1 %.not.i, label %.critedge.i, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %8, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %19 = load ptr, ptr %18, align 8
   store ptr %13, ptr %19, align 8
   %20 = load ptr, ptr %18, align 8
   %21 = load ptr, ptr %12, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %20, ptr %22, align 8
   %23 = load ptr, ptr %9, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 136
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %24) #9
   tail call void @uv_mutex_unlock(ptr noundef nonnull @mutex) #9
   store ptr @uv__cancelled, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %.0, i64 136
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %25) #9
-  %26 = getelementptr inbounds i8, ptr %.0, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %.0, i64 120
   store ptr %26, ptr %12, align 8
-  %27 = getelementptr inbounds i8, ptr %.0, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %.0, i64 128
   %28 = load ptr, ptr %27, align 8
   store ptr %28, ptr %18, align 8
   store ptr %12, ptr %28, align 8
   store ptr %12, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %.0, i64 176
+  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 176
   %30 = tail call i32 @uv_async_send(ptr noundef nonnull %29) #9
   br label %uv__work_cancel.exit
 
 .critedge.i:                                      ; preds = %15, %switch.lookup
   %31 = load ptr, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %32) #9
   br label %uv__work_cancel.exit
 
@@ -591,12 +591,12 @@ define internal void @worker(ptr noundef %0) #0 {
 .critedge3.thread:                                ; preds = %8, %.critedge3..critedge3.thread_crit_edge
   %19 = phi ptr [ %.pre, %.critedge3..critedge3.thread_crit_edge ], [ @wq, %8 ]
   %20 = phi i1 [ %5, %.critedge3..critedge3.thread_crit_edge ], [ true, %8 ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %19, ptr %22, align 8
   %23 = load ptr, ptr %21, align 8
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %23, ptr %25, align 8
   store ptr %2, ptr %2, align 8
   store ptr %2, ptr %21, align 8
@@ -627,11 +627,11 @@ define internal void @worker(ptr noundef %0) #0 {
   %37 = add nuw nsw i32 %27, 1
   store i32 %37, ptr @slow_io_work_running, align 4
   %38 = load ptr, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %40 = load ptr, ptr %39, align 8
   store ptr %38, ptr %40, align 8
   %41 = load ptr, ptr %39, align 8
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %41, ptr %42, align 8
   store ptr %34, ptr %34, align 8
   store ptr %34, ptr %39, align 8
@@ -661,25 +661,25 @@ define internal void @worker(ptr noundef %0) #0 {
   tail call void %51(ptr noundef nonnull %50) #9
   %52 = getelementptr inbounds i8, ptr %.042, i64 -8
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   tail call void @uv_mutex_lock(ptr noundef nonnull %54) #9
   store ptr null, ptr %50, align 8
   %55 = load ptr, ptr %52, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 120
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 120
   store ptr %56, ptr %.042, align 8
-  %57 = getelementptr inbounds i8, ptr %55, i64 128
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 128
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %.042, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.042, i64 8
   store ptr %58, ptr %59, align 8
   store ptr %.042, ptr %58, align 8
   %60 = load ptr, ptr %52, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 128
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 128
   store ptr %.042, ptr %61, align 8
   %62 = load ptr, ptr %52, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 176
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 176
   %64 = tail call i32 @uv_async_send(ptr noundef nonnull %63) #9
   %65 = load ptr, ptr %52, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 136
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 136
   tail call void @uv_mutex_unlock(ptr noundef nonnull %66) #9
   tail call void @uv_mutex_lock(ptr noundef nonnull @mutex) #9
   br i1 %20, label %67, label %.backedge.backedge

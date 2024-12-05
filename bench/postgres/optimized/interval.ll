@@ -47,11 +47,11 @@ define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noun
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 20
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
-  %15 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %16 = zext nneg i32 %.0158201 to i64
   br label %17
 
@@ -587,23 +587,23 @@ AdjustFractDays.exit193:                          ; preds = %.thread197, %205, %
   %318 = load i32, ptr %4, align 8
   %319 = sub i32 0, %318
   store i32 %319, ptr %4, align 8
-  %320 = getelementptr inbounds i8, ptr %4, i64 4
+  %320 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %321 = load i32, ptr %320, align 4
   %322 = sub i32 0, %321
   store i32 %322, ptr %320, align 4
-  %323 = getelementptr inbounds i8, ptr %4, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %324 = load i32, ptr %323, align 8
   %325 = sub i32 0, %324
   store i32 %325, ptr %323, align 8
-  %326 = getelementptr inbounds i8, ptr %4, i64 12
+  %326 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %327 = load i32, ptr %326, align 4
   %328 = sub i32 0, %327
   store i32 %328, ptr %326, align 4
-  %329 = getelementptr inbounds i8, ptr %4, i64 16
+  %329 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %330 = load i32, ptr %329, align 8
   %331 = sub i32 0, %330
   store i32 %331, ptr %329, align 8
-  %332 = getelementptr inbounds i8, ptr %4, i64 20
+  %332 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %333 = load i32, ptr %332, align 4
   %334 = sub i32 0, %333
   store i32 %334, ptr %332, align 4
@@ -634,15 +634,15 @@ declare i32 @DecodeUnits(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define void @EncodeInterval(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %0, align 8
   switch i32 %2, label %193 [
@@ -1301,11 +1301,11 @@ define ptr @PGTYPESinterval_from_asc(ptr noundef %0, ptr noundef %1) local_unnam
   %11 = alloca [25 x i32], align 16
   %12 = alloca [153 x i8], align 16
   %13 = alloca ptr, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 20
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
-  %17 = getelementptr inbounds i8, ptr %7, i64 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 0, ptr %6, align 4
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
@@ -2111,7 +2111,7 @@ tm2interval.exit:                                 ; preds = %437
   %448 = mul i32 %438, 12
   %449 = add i32 %448, %440
   %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds i8, ptr %432, i64 8
+  %451 = getelementptr inbounds nuw i8, ptr %432, i64 8
   store i64 %450, ptr %451, align 8
   %452 = load i32, ptr %16, align 4
   %453 = sext i32 %452 to i64
@@ -2147,7 +2147,7 @@ define ptr @PGTYPESinterval_to_asc(ptr nocapture noundef readonly %0) local_unna
   %2 = alloca %struct.tm, align 8
   %3 = alloca [129 x i8], align 16
   %4 = load i64, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 0
   br i1 %.not.i, label %interval2tm.exit, label %7
@@ -2162,19 +2162,19 @@ define ptr @PGTYPESinterval_to_asc(ptr nocapture noundef readonly %0) local_unna
 interval2tm.exit:                                 ; preds = %1, %7
   %.sink27.i = phi i32 [ %9, %7 ], [ 0, %1 ]
   %.sink.i = phi i32 [ %11, %7 ], [ 0, %1 ]
-  %12 = getelementptr inbounds i8, ptr %2, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %.sink27.i, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %.sink.i, ptr %13, align 8
   %14 = sdiv i64 %4, 86400000000
   %15 = trunc nsw i64 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %15, ptr %16, align 4
   %.neg.i = mul nsw i64 %14, -86400000000
   %17 = add i64 %.neg.i, %4
   %18 = sdiv i64 %17, 3600000000
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %19, ptr %20, align 8
   %sext.i = shl i64 %18, 32
   %21 = ashr exact i64 %sext.i, 32
@@ -2182,7 +2182,7 @@ interval2tm.exit:                                 ; preds = %1, %7
   %22 = add i64 %.neg22.i, %17
   %23 = sdiv i64 %22, 60000000
   %24 = trunc i64 %23 to i32
-  %25 = getelementptr inbounds i8, ptr %2, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %24, ptr %25, align 4
   %sext23.i = shl i64 %23, 32
   %26 = ashr exact i64 %sext23.i, 32
@@ -2205,9 +2205,9 @@ declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
 define noundef i32 @PGTYPESinterval_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #8 {
   %3 = load i64, ptr %0, align 8
   store i64 %3, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %5, ptr %6, align 8
   ret i32 0
 }

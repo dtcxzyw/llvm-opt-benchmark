@@ -236,13 +236,13 @@ sub_0:                                            ; preds = %23
   br i1 %.not, label %sub_1, label %.tail.thread.thread
 
 sub_1:                                            ; preds = %sub_0
-  %29 = getelementptr inbounds i8, ptr %25, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %30 = load i8, ptr %29, align 1
   %.not256 = icmp eq i8 %30, 63
   br i1 %.not256, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %31 = getelementptr inbounds i8, ptr %25, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %.thread370
@@ -268,13 +268,13 @@ sub_1:                                            ; preds = %sub_0
   br i1 %40, label %46, label %sub_1143
 
 sub_1143:                                         ; preds = %.tail.thread, %.thread370
-  %41 = getelementptr inbounds i8, ptr %25, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 1
   %42 = load i8, ptr %41, align 1
   %.not258 = icmp eq i8 %42, 86
   br i1 %.not258, label %.tail141, label %.tail141.thread.preheader
 
 .tail141:                                         ; preds = %sub_1143
-  %43 = getelementptr inbounds i8, ptr %25, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, 0
   br i1 %45, label %46, label %.tail141.thread.preheader
@@ -896,7 +896,7 @@ CheckDataVersion.exit:                            ; preds = %270
   br i1 %297, label %298, label %320
 
 298:                                              ; preds = %294
-  %299 = getelementptr inbounds i8, ptr %290, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %300 = load i32, ptr %299, align 8
   %301 = icmp eq i32 %300, 1300
   br i1 %301, label %302, label %320
@@ -904,7 +904,7 @@ CheckDataVersion.exit:                            ; preds = %270
 302:                                              ; preds = %298
   %303 = load ptr, ptr @pg_comp_crc32c, align 8
   %304 = call i32 %303(i32 noundef -1, ptr noundef nonnull %290, i64 noundef 288) #15
-  %305 = getelementptr inbounds i8, ptr %290, i64 288
+  %305 = getelementptr inbounds nuw i8, ptr %290, i64 288
   %306 = load i32, ptr %305, align 8
   %307 = xor i32 %306, %304
   %308 = icmp eq i32 %307, -1
@@ -948,7 +948,7 @@ CheckDataVersion.exit:                            ; preds = %270
   %322 = call i32 @gettimeofday(ptr noundef nonnull %13, ptr noundef null) #15
   %323 = load i64, ptr %13, align 8
   %324 = shl i64 %323, 32
-  %325 = getelementptr inbounds i8, ptr %13, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %326 = load i64, ptr %325, align 8
   %327 = shl i64 %326, 12
   %328 = or i64 %327, %324
@@ -1051,7 +1051,7 @@ read_controlfile.exit:                            ; preds = %312, %321
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %IsPartialXLogFileName.exit.thread.i
   %357 = phi ptr [ %382, %IsPartialXLogFileName.exit.thread.i ], [ %355, %.preheader.i ]
-  %358 = getelementptr inbounds i8, ptr %357, i64 19
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 19
   %359 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %358) #16
   switch i64 %359, label %IsPartialXLogFileName.exit.thread.i [
     i64 24, label %IsXLogFileName.exit.i
@@ -1412,7 +1412,7 @@ FindEndOfXLOG.exit:                               ; preds = %385
 
 .lr.ph.i114:                                      ; preds = %.preheader.i112, %IsPartialXLogFileName.exit.thread.i115
   %537 = phi ptr [ %553, %IsPartialXLogFileName.exit.thread.i115 ], [ %535, %.preheader.i112 ]
-  %538 = getelementptr inbounds i8, ptr %537, i64 19
+  %538 = getelementptr inbounds nuw i8, ptr %537, i64 19
   %539 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %538) #16
   switch i64 %539, label %IsPartialXLogFileName.exit.thread.i115 [
     i64 24, label %IsXLogFileName.exit.i120
@@ -1492,7 +1492,7 @@ KillExistingXLOG.exit:                            ; preds = %556
 
 .lr.ph.i122:                                      ; preds = %.preheader.i121, %585
   %563 = phi ptr [ %586, %585 ], [ %561, %.preheader.i121 ]
-  %564 = getelementptr inbounds i8, ptr %563, i64 19
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 19
   %565 = call i64 @strspn(ptr noundef nonnull %564, ptr noundef nonnull @.str.123) #16
   %566 = icmp eq i64 %565, 24
   br i1 %566, label %567, label %585
@@ -1575,7 +1575,7 @@ KillExistingArchiveStatus.exit:                   ; preds = %589
 
 .lr.ph.i128:                                      ; preds = %.preheader.i126, %609
   %596 = phi ptr [ %610, %609 ], [ %594, %.preheader.i126 ]
-  %597 = getelementptr inbounds i8, ptr %596, i64 19
+  %597 = getelementptr inbounds nuw i8, ptr %596, i64 19
   %598 = call i64 @strspn(ptr noundef nonnull %597, ptr noundef nonnull @.str.123) #16
   %599 = icmp eq i64 %598, 40
   br i1 %599, label %600, label %609
@@ -1629,29 +1629,29 @@ KillExistingWALSummaries.exit:                    ; preds = %613
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4096 dereferenceable(8192) %3, i8 0, i64 8192, i1 false)
   store i16 -12012, ptr %3, align 4096
-  %616 = getelementptr inbounds i8, ptr %3, i64 2
+  %616 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 2, ptr %616, align 2
   %617 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
-  %618 = getelementptr inbounds i8, ptr %3, i64 4
+  %618 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %617, ptr %618, align 4
   %619 = load i64, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 40), align 8
   %620 = add i64 %619, -40
-  %621 = getelementptr inbounds i8, ptr %3, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %620, ptr %621, align 8
   %622 = load i64, ptr @ControlFile, align 8
-  %623 = getelementptr inbounds i8, ptr %3, i64 24
+  %623 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %622, ptr %623, align 8
   %624 = load i32, ptr @WalSegSz, align 4
-  %625 = getelementptr inbounds i8, ptr %3, i64 32
+  %625 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %624, ptr %625, align 32
-  %626 = getelementptr inbounds i8, ptr %3, i64 36
+  %626 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 8192, ptr %626, align 4
-  %627 = getelementptr inbounds i8, ptr %3, i64 40
+  %627 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 114, ptr %627, align 8
-  %628 = getelementptr inbounds i8, ptr %3, i64 64
-  %629 = getelementptr inbounds i8, ptr %3, i64 65
+  %628 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %629 = getelementptr inbounds nuw i8, ptr %3, i64 65
   store i8 -1, ptr %628, align 64
-  %630 = getelementptr inbounds i8, ptr %3, i64 66
+  %630 = getelementptr inbounds nuw i8, ptr %3, i64 66
   store i8 88, ptr %629, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(88) %630, ptr noundef nonnull align 8 dereferenceable(88) getelementptr inbounds (i8, ptr @ControlFile, i64 40), i64 88, i1 false)
   %631 = load ptr, ptr @pg_comp_crc32c, align 8
@@ -1659,7 +1659,7 @@ KillExistingWALSummaries.exit:                    ; preds = %613
   %633 = load ptr, ptr @pg_comp_crc32c, align 8
   %634 = call i32 %633(i32 noundef %632, ptr noundef nonnull %627, i64 noundef 20) #15
   %635 = xor i32 %634, -1
-  %636 = getelementptr inbounds i8, ptr %3, i64 60
+  %636 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %635, ptr %636, align 4
   %637 = load i32, ptr getelementptr inbounds (i8, ptr @ControlFile, i64 48), align 8
   %638 = load i64, ptr @newXlogSegNo, align 8

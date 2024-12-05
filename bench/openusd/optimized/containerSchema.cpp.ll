@@ -21,7 +21,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdContainerSchema8GetNamesE
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %9

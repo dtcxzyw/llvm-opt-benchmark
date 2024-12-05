@@ -16,31 +16,31 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl3_cleanup_key_block(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %key_block = getelementptr inbounds i8, ptr %0, i64 496
+  %key_block = getelementptr inbounds nuw i8, ptr %0, i64 496
   %1 = load ptr, ptr %key_block, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %key_block_length = getelementptr inbounds i8, ptr %0, i64 504
+  %key_block_length = getelementptr inbounds nuw i8, ptr %0, i64 504
   %2 = load i8, ptr %key_block_length, align 8
   %conv = zext i8 %2 to i64
   tail call void @OPENSSL_cleanse(ptr noundef nonnull %1, i64 noundef %conv) #5
   %3 = load ptr, ptr %s3, align 8
-  %key_block8 = getelementptr inbounds i8, ptr %3, i64 496
+  %key_block8 = getelementptr inbounds nuw i8, ptr %3, i64 496
   %4 = load ptr, ptr %key_block8, align 8
   tail call void @free(ptr noundef %4) #5
   %5 = load ptr, ptr %s3, align 8
-  %key_block11 = getelementptr inbounds i8, ptr %5, i64 496
+  %key_block11 = getelementptr inbounds nuw i8, ptr %5, i64 496
   store ptr null, ptr %key_block11, align 8
   %.pre = load ptr, ptr %s3, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %6 = phi ptr [ %.pre, %if.then ], [ %0, %entry ]
-  %key_block_length14 = getelementptr inbounds i8, ptr %6, i64 504
+  %key_block_length14 = getelementptr inbounds nuw i8, ptr %6, i64 504
   store i8 0, ptr %key_block_length14, align 8
   ret void
 }
@@ -53,26 +53,26 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ssl3_init_handshake_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3.i = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3.i = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
-  %handshake_buffer.i = getelementptr inbounds i8, ptr %0, i64 168
+  %handshake_buffer.i = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1 = load ptr, ptr %handshake_buffer.i, align 8
   tail call void @BUF_MEM_free(ptr noundef %1) #5
   %2 = load ptr, ptr %s3.i, align 8
-  %handshake_buffer2.i = getelementptr inbounds i8, ptr %2, i64 168
+  %handshake_buffer2.i = getelementptr inbounds nuw i8, ptr %2, i64 168
   store ptr null, ptr %handshake_buffer2.i, align 8
   %3 = load ptr, ptr %s3.i, align 8
-  %handshake_hash.i = getelementptr inbounds i8, ptr %3, i64 176
+  %handshake_hash.i = getelementptr inbounds nuw i8, ptr %3, i64 176
   %call.i = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %handshake_hash.i) #5
   %4 = load ptr, ptr %s3.i, align 8
-  %handshake_md5.i = getelementptr inbounds i8, ptr %4, i64 208
+  %handshake_md5.i = getelementptr inbounds nuw i8, ptr %4, i64 208
   %call2.i = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %handshake_md5.i) #5
   %call = tail call ptr @BUF_MEM_new() #5
   %5 = load ptr, ptr %s3.i, align 8
-  %handshake_buffer = getelementptr inbounds i8, ptr %5, i64 168
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %5, i64 168
   store ptr %call, ptr %handshake_buffer, align 8
   %6 = load ptr, ptr %s3.i, align 8
-  %handshake_buffer2 = getelementptr inbounds i8, ptr %6, i64 168
+  %handshake_buffer2 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %7 = load ptr, ptr %handshake_buffer2, align 8
   %cmp = icmp ne ptr %7, null
   %conv = zext i1 %cmp to i32
@@ -82,13 +82,13 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl3_free_handshake_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %handshake_buffer = getelementptr inbounds i8, ptr %0, i64 168
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1 = load ptr, ptr %handshake_buffer, align 8
   tail call void @BUF_MEM_free(ptr noundef %1) #5
   %2 = load ptr, ptr %s3, align 8
-  %handshake_buffer2 = getelementptr inbounds i8, ptr %2, i64 168
+  %handshake_buffer2 = getelementptr inbounds nuw i8, ptr %2, i64 168
   store ptr null, ptr %handshake_buffer2, align 8
   ret void
 }
@@ -96,12 +96,12 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden void @ssl3_free_handshake_hash(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %handshake_hash = getelementptr inbounds i8, ptr %0, i64 176
+  %handshake_hash = getelementptr inbounds nuw i8, ptr %0, i64 176
   %call = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %handshake_hash) #5
   %1 = load ptr, ptr %s3, align 8
-  %handshake_md5 = getelementptr inbounds i8, ptr %1, i64 208
+  %handshake_md5 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %call2 = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %handshake_md5) #5
   ret void
 }
@@ -111,26 +111,26 @@ declare ptr @BUF_MEM_new() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ssl3_init_handshake_hash(ptr noundef %ssl) local_unnamed_addr #0 {
 entry:
-  %s3.i = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3.i = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
-  %handshake_hash.i = getelementptr inbounds i8, ptr %0, i64 176
+  %handshake_hash.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %call.i = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %handshake_hash.i) #5
   %1 = load ptr, ptr %s3.i, align 8
-  %handshake_md5.i = getelementptr inbounds i8, ptr %1, i64 208
+  %handshake_md5.i = getelementptr inbounds nuw i8, ptr %1, i64 208
   %call2.i = tail call i32 @EVP_MD_CTX_cleanup(ptr noundef nonnull %handshake_md5.i) #5
   %call = tail call i32 @ssl_get_algorithm_prf(ptr noundef %ssl) #5
   %2 = load ptr, ptr %s3.i, align 8
-  %handshake_hash = getelementptr inbounds i8, ptr %2, i64 176
+  %handshake_hash = getelementptr inbounds nuw i8, ptr %2, i64 176
   %call1 = tail call ptr @ssl_get_handshake_digest(i32 noundef %call) #5
   %3 = load ptr, ptr %s3.i, align 8
-  %handshake_buffer = getelementptr inbounds i8, ptr %3, i64 168
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %3, i64 168
   %4 = load ptr, ptr %handshake_buffer, align 8
   %call.i7 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %handshake_hash, ptr noundef %call1, ptr noundef null) #5
   %tobool.not.i = icmp eq i32 %call.i7, 0
   br i1 %tobool.not.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %data.i = getelementptr inbounds i8, ptr %4, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %data.i, align 8
   %6 = load i64, ptr %4, align 8
   %call1.i = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %handshake_hash, ptr noundef %5, i64 noundef %6) #5
@@ -139,17 +139,17 @@ if.end:                                           ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.end
   %7 = load ptr, ptr %s3.i, align 8
-  %handshake_md5 = getelementptr inbounds i8, ptr %7, i64 208
+  %handshake_md5 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %call5 = tail call ptr @EVP_md5() #5
   %8 = load ptr, ptr %s3.i, align 8
-  %handshake_buffer7 = getelementptr inbounds i8, ptr %8, i64 168
+  %handshake_buffer7 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %9 = load ptr, ptr %handshake_buffer7, align 8
   %call.i8 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %handshake_md5, ptr noundef %call5, ptr noundef null) #5
   %tobool.not.i9 = icmp eq i32 %call.i8, 0
   br i1 %tobool.not.i9, label %return, label %init_digest_with_data.exit14
 
 init_digest_with_data.exit14:                     ; preds = %land.lhs.true
-  %data.i11 = getelementptr inbounds i8, ptr %9, i64 8
+  %data.i11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %10 = load ptr, ptr %data.i11, align 8
   %11 = load i64, ptr %9, align 8
   %call1.i12 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %handshake_md5, ptr noundef %10, i64 noundef %11) #5
@@ -173,9 +173,9 @@ declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @ssl3_update_handshake_hash(ptr nocapture noundef readonly %ssl, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
-  %handshake_buffer = getelementptr inbounds i8, ptr %0, i64 168
+  %handshake_buffer = getelementptr inbounds nuw i8, ptr %0, i64 168
   %1 = load ptr, ptr %handshake_buffer, align 8
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %if.end12, label %if.then
@@ -197,9 +197,9 @@ if.end:                                           ; preds = %if.then
 
 if.end8:                                          ; preds = %if.end
   %3 = load ptr, ptr %s3, align 8
-  %handshake_buffer10 = getelementptr inbounds i8, ptr %3, i64 168
+  %handshake_buffer10 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %4 = load ptr, ptr %handshake_buffer10, align 8
-  %data = getelementptr inbounds i8, ptr %4, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %data, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %5, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr11, ptr align 1 %in, i64 %in_len, i1 false)
@@ -208,27 +208,27 @@ if.end8:                                          ; preds = %if.end
 
 if.end12:                                         ; preds = %if.end8, %entry
   %6 = phi ptr [ %.pre, %if.end8 ], [ %0, %entry ]
-  %handshake_hash = getelementptr inbounds i8, ptr %6, i64 176
+  %handshake_hash = getelementptr inbounds nuw i8, ptr %6, i64 176
   %call14 = tail call ptr @EVP_MD_CTX_md(ptr noundef nonnull %handshake_hash) #5
   %cmp15.not = icmp eq ptr %call14, null
   br i1 %cmp15.not, label %if.end20, label %if.then16
 
 if.then16:                                        ; preds = %if.end12
   %7 = load ptr, ptr %s3, align 8
-  %handshake_hash18 = getelementptr inbounds i8, ptr %7, i64 176
+  %handshake_hash18 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %call19 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %handshake_hash18, ptr noundef %in, i64 noundef %in_len) #5
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then16, %if.end12
   %8 = load ptr, ptr %s3, align 8
-  %handshake_md5 = getelementptr inbounds i8, ptr %8, i64 208
+  %handshake_md5 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %call22 = tail call ptr @EVP_MD_CTX_md(ptr noundef nonnull %handshake_md5) #5
   %cmp23.not = icmp eq ptr %call22, null
   br i1 %cmp23.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.end20
   %9 = load ptr, ptr %s3, align 8
-  %handshake_md526 = getelementptr inbounds i8, ptr %9, i64 208
+  %handshake_md526 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %call27 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %handshake_md526, ptr noundef %in, i64 noundef %in_len) #5
   br label %return
 
@@ -335,7 +335,7 @@ if.else:                                          ; preds = %if.end26
   br label %if.end36
 
 if.end36:                                         ; preds = %if.else, %if.then31
-  %add.ptr = getelementptr inbounds i8, ptr %out.addr.021, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out.addr.021, i64 16
   %cmp = icmp ult i64 %add, %out_len
   br i1 %cmp, label %for.body, label %for.end39, !llvm.loop !7
 
@@ -396,23 +396,23 @@ entry:
   %md_buf = alloca [64 x i8], align 16
   %ctx = alloca %struct.env_md_ctx_st, align 8
   %cmp = icmp eq i32 %md_nid, 4
-  %s3 = getelementptr inbounds i8, ptr %ssl, i64 80
+  %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %handshake_md5 = getelementptr inbounds i8, ptr %0, i64 208
+  %handshake_md5 = getelementptr inbounds nuw i8, ptr %0, i64 208
   br label %if.end7
 
 if.else:                                          ; preds = %entry
-  %handshake_hash = getelementptr inbounds i8, ptr %0, i64 176
+  %handshake_hash = getelementptr inbounds nuw i8, ptr %0, i64 176
   %call = tail call i32 @EVP_MD_CTX_type(ptr noundef nonnull %handshake_hash) #5
   %cmp2 = icmp eq i32 %md_nid, %call
   br i1 %cmp2, label %if.then3, label %if.else6
 
 if.then3:                                         ; preds = %if.else
   %1 = load ptr, ptr %s3, align 8
-  %handshake_hash5 = getelementptr inbounds i8, ptr %1, i64 176
+  %handshake_hash5 = getelementptr inbounds nuw i8, ptr %1, i64 176
   br label %if.end7
 
 if.else6:                                         ; preds = %if.else
@@ -443,10 +443,10 @@ if.then14:                                        ; preds = %if.end11
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then14, %if.end11
-  %session = getelementptr inbounds i8, ptr %ssl, i64 184
+  %session = getelementptr inbounds nuw i8, ptr %ssl, i64 184
   %3 = load ptr, ptr %session, align 8
-  %master_key = getelementptr inbounds i8, ptr %3, i64 16
-  %master_key_length = getelementptr inbounds i8, ptr %3, i64 12
+  %master_key = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %master_key_length = getelementptr inbounds nuw i8, ptr %3, i64 12
   %4 = load i32, ptr %master_key_length, align 4
   %conv = sext i32 %4 to i64
   %call18 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %master_key, i64 noundef %conv) #5
@@ -464,8 +464,8 @@ if.then25:                                        ; preds = %if.end16
 
 if.end27:                                         ; preds = %if.end16
   %5 = load ptr, ptr %session, align 8
-  %master_key29 = getelementptr inbounds i8, ptr %5, i64 16
-  %master_key_length32 = getelementptr inbounds i8, ptr %5, i64 12
+  %master_key29 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %master_key_length32 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %6 = load i32, ptr %master_key_length32, align 4
   %conv33 = sext i32 %6 to i64
   %call34 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %ctx, ptr noundef nonnull %master_key29, i64 noundef %conv33) #5

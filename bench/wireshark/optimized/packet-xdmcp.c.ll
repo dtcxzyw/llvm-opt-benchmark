@@ -179,7 +179,7 @@ define internal i32 @dissect_xdmcp(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not, label %9, label %286
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.59) #3
   %12 = load ptr, ptr %10, align 8
@@ -379,7 +379,7 @@ xdmcp_add_authentication_names.exit:              ; preds = %.lr.ph.i, %55
   br i1 %.not262, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %1, i64 408
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %136
 
 136:                                              ; preds = %.lr.ph, %166

@@ -118,7 +118,7 @@ entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
   %call1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 439, ptr noundef nonnull @__func__.dbus_vmstate_finalize) #6
   tail call void @vmstate_unregister(ptr noundef %call1, ptr noundef nonnull @dbus_vmstate, ptr noundef %call.i) #6
-  %bus = getelementptr inbounds i8, ptr %call.i, i64 40
+  %bus = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   %0 = load ptr, ptr %bus, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %do.end, label %if.then
@@ -129,13 +129,13 @@ if.then:                                          ; preds = %entry
   br label %do.end
 
 do.end:                                           ; preds = %entry, %if.then
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %1 = load ptr, ptr %dbus_addr, align 8
   tail call void @g_free(ptr noundef %1) #6
-  %id_list = getelementptr inbounds i8, ptr %call.i, i64 56
+  %id_list = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %2 = load ptr, ptr %id_list, align 8
   tail call void @g_free(ptr noundef %2) #6
-  %data = getelementptr inbounds i8, ptr %call.i, i64 72
+  %data = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %3 = load ptr, ptr %data, align 8
   tail call void @g_free(ptr noundef %3) #6
   ret void
@@ -146,9 +146,9 @@ define internal void @dbus_vmstate_class_init(ptr noundef %oc, ptr nocapture rea
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.48, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #6
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.49, i32 noundef 18, ptr noundef nonnull @__func__.VMSTATE_IF_CLASS) #6
-  %complete = getelementptr inbounds i8, ptr %call.i, i64 112
+  %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @dbus_vmstate_complete, ptr %complete, align 8
-  %get_id = getelementptr inbounds i8, ptr %call.i4, i64 112
+  %get_id = getelementptr inbounds nuw i8, ptr %call.i4, i64 112
   store ptr @dbus_vmstate_get_id, ptr %get_id, align 8
   %call2 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.46, ptr noundef nonnull @get_dbus_addr, ptr noundef nonnull @set_dbus_addr) #6
   %call3 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.47, ptr noundef nonnull @get_id_list, ptr noundef nonnull @set_id_list) #6
@@ -197,7 +197,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, i32 noundef %version_id) #6
   br label %trace_dbus_vmstate_post_load.exit
@@ -214,15 +214,15 @@ trace_dbus_vmstate_post_load.exit:                ; preds = %entry, %land.lhs.tr
 
 cleanup.thread:                                   ; preds = %trace_dbus_vmstate_post_load.exit
   %6 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %6, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %message, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %7) #6
   br label %glib_autoptr_cleanup_GHashTable.exit
 
 if.end:                                           ; preds = %trace_dbus_vmstate_post_load.exit
-  %data = getelementptr inbounds i8, ptr %call.i, i64 72
+  %data = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %8 = load ptr, ptr %data, align 8
-  %data_size = getelementptr inbounds i8, ptr %call.i, i64 64
+  %data_size = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   %9 = load i32, ptr %data_size, align 8
   %conv = zext i32 %9 to i64
   %call2 = call ptr @g_memory_input_stream_new_from_data(ptr noundef %8, i64 noundef %conv, ptr noundef null) #6
@@ -241,7 +241,7 @@ while.cond.preheader:                             ; preds = %if.end
   br i1 %cmp.not62, label %if.then.i.i32, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %tv_usec.i.i30 = getelementptr inbounds i8, ptr %_now.i.i17, i64 8
+  %tv_usec.i.i30 = getelementptr inbounds nuw i8, ptr %_now.i.i17, i64 8
   br label %while.body
 
 while.cond:                                       ; preds = %if.end69
@@ -365,7 +365,7 @@ if.end59:                                         ; preds = %if.end50
 
 glib_autoptr_cleanup_GVariant.exit.thread.i:      ; preds = %if.end59
   %20 = load ptr, ptr %err.i, align 8
-  %message.i = getelementptr inbounds i8, ptr %20, i64 8
+  %message.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load ptr, ptr %message.i, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.dbus_load_state_proxy, ptr noundef %21) #6
   br label %glib_autoptr_cleanup_GVariant.exit3.i
@@ -404,7 +404,7 @@ error.loopexit:                                   ; preds = %while.body, %if.end
 
 error:                                            ; preds = %error.loopexit, %if.end
   %22 = phi ptr [ %.pre, %error.loopexit ], [ %10, %if.end ]
-  %message77 = getelementptr inbounds i8, ptr %22, i64 8
+  %message77 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %23 = load ptr, ptr %message77, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.dbus_vmstate_post_load, ptr noundef %23) #6
   br label %if.then.i.i32
@@ -476,7 +476,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.38, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5) #6
   br label %trace_dbus_vmstate_pre_save.exit
@@ -493,7 +493,7 @@ trace_dbus_vmstate_pre_save.exit:                 ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_dbus_vmstate_pre_save.exit
   %6 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %6, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %message, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %7) #6
   br label %cleanup
@@ -509,7 +509,7 @@ if.end:                                           ; preds = %trace_dbus_vmstate_
 
 if.then7:                                         ; preds = %if.end
   %8 = load ptr, ptr %err, align 8
-  %message8 = getelementptr inbounds i8, ptr %8, i64 8
+  %message8 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %message8, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %9) #6
   br label %cleanup
@@ -535,19 +535,19 @@ if.end14:                                         ; preds = %if.end9
 
 if.then19:                                        ; preds = %if.end14
   %10 = load ptr, ptr %err, align 8
-  %message20 = getelementptr inbounds i8, ptr %10, i64 8
+  %message20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %message20, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.37, ptr noundef nonnull @__func__.dbus_vmstate_pre_save, ptr noundef %11) #6
   br label %cleanup
 
 if.end21:                                         ; preds = %if.end14
-  %data = getelementptr inbounds i8, ptr %call.i, i64 72
+  %data = getelementptr inbounds nuw i8, ptr %call.i, i64 72
   %12 = load ptr, ptr %data, align 8
   call void @g_free(ptr noundef %12) #6
   %call23 = call ptr @g_type_check_instance_cast(ptr noundef %call2, i64 noundef %call10) #6
   %call24 = call i64 @g_memory_output_stream_get_size(ptr noundef %call23) #6
   %conv = trunc i64 %call24 to i32
-  %data_size = getelementptr inbounds i8, ptr %call.i, i64 64
+  %data_size = getelementptr inbounds nuw i8, ptr %call.i, i64 64
   store i32 %conv, ptr %data_size, align 8
   %call26 = call ptr @g_type_check_instance_cast(ptr noundef %call2, i64 noundef %call10) #6
   %call27 = call ptr @g_memory_output_stream_steal_data(ptr noundef %call26) #6
@@ -631,7 +631,7 @@ if.then.i.i:                                      ; preds = %for.body.i, %if.end
 get_id_list_set.exit:                             ; preds = %entry, %if.then.i.i
   %retval.06.i = phi ptr [ %call2.i, %if.then.i.i ], [ null, %entry ]
   %call1 = tail call ptr @g_hash_table_new_full(ptr noundef nonnull @g_str_hash, ptr noundef nonnull @g_str_equal, ptr noundef nonnull @g_free, ptr noundef nonnull @g_object_unref) #6
-  %bus = getelementptr inbounds i8, ptr %self, i64 40
+  %bus = getelementptr inbounds nuw i8, ptr %self, i64 40
   %4 = load ptr, ptr %bus, align 8
   %call2 = call ptr @qemu_dbus_get_queued_owners(ptr noundef %4, ptr noundef nonnull @.str.18, ptr noundef nonnull %error) #6
   %tobool.not = icmp eq ptr %call2, null
@@ -669,7 +669,7 @@ land.lhs.true:                                    ; preds = %for.body
   br i1 %cmp11.not, label %glib_autoptr_cleanup_GVariant.exit.thread, label %if.then12
 
 if.then12:                                        ; preds = %land.lhs.true
-  %message = getelementptr inbounds i8, ptr %10, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %message, align 8
   call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.dbus_get_proxies, ptr noundef %11) #6
   call void @g_clear_error(ptr noundef nonnull %err) #6
@@ -950,7 +950,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #6
   %call10.i.i = tail call i32 @qemu_get_thread_id() #6
   %4 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %5 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.44, i32 noundef %call10.i.i, i64 noundef %4, i64 noundef %5, ptr noundef %key) #6
   br label %trace_dbus_vmstate_saving.exit
@@ -967,7 +967,7 @@ trace_dbus_vmstate_saving.exit:                   ; preds = %entry, %land.lhs.tr
 
 if.then:                                          ; preds = %trace_dbus_vmstate_saving.exit
   %6 = load ptr, ptr %err, align 8
-  %message = getelementptr inbounds i8, ptr %6, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load ptr, ptr %message, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.41, ptr noundef nonnull @__func__.dbus_save_state_proxy, ptr noundef %7) #6
   br label %cleanup
@@ -1020,7 +1020,7 @@ lor.lhs.false17:                                  ; preds = %lor.lhs.false13
 
 if.then22:                                        ; preds = %lor.lhs.false17, %lor.lhs.false13, %lor.lhs.false, %if.end7
   %11 = load ptr, ptr %err, align 8
-  %message23 = getelementptr inbounds i8, ptr %11, i64 8
+  %message23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %12 = load ptr, ptr %message23, align 8
   call void (ptr, ...) @error_report(ptr noundef nonnull @.str.35, ptr noundef nonnull @__func__.dbus_save_state_proxy, ptr noundef %12) #6
   br label %cleanup
@@ -1092,7 +1092,7 @@ cleanup.thread:                                   ; preds = %entry
   br label %glib_autoptr_cleanup_GError.exit
 
 if.end:                                           ; preds = %entry
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %dbus_addr, align 8
   %tobool2.not = icmp eq ptr %0, null
   br i1 %tobool2.not, label %if.then3, label %if.end4
@@ -1103,14 +1103,14 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.end
   %call6 = call ptr @g_dbus_connection_new_for_address_sync(ptr noundef nonnull %0, i32 noundef 9, ptr noundef null, ptr noundef null, ptr noundef nonnull %err) #6
-  %bus = getelementptr inbounds i8, ptr %call.i, i64 40
+  %bus = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %call6, ptr %bus, align 8
   %1 = load ptr, ptr %err, align 8
   %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end4
-  %message = getelementptr inbounds i8, ptr %1, i64 8
+  %message = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %message, align 8
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.4, i32 noundef 425, ptr noundef nonnull @__func__.dbus_vmstate_complete, ptr noundef nonnull @.str.53, ptr noundef %2) #6
   br label %cleanup
@@ -1151,7 +1151,7 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @get_dbus_addr(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %dbus_addr, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #6
   ret ptr %call1
@@ -1161,7 +1161,7 @@ entry:
 define internal void @set_dbus_addr(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
-  %dbus_addr = getelementptr inbounds i8, ptr %call.i, i64 48
+  %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %0 = load ptr, ptr %dbus_addr, align 8
   tail call void @g_free(ptr noundef %0) #6
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #6
@@ -1173,7 +1173,7 @@ entry:
 define internal noalias ptr @get_id_list(ptr noundef %o, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
-  %id_list = getelementptr inbounds i8, ptr %call.i, i64 56
+  %id_list = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %id_list, align 8
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %0) #6
   ret ptr %call1
@@ -1183,7 +1183,7 @@ entry:
 define internal void @set_id_list(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, i32 noundef 27, ptr noundef nonnull @__func__.DBUS_VMSTATE) #6
-  %id_list = getelementptr inbounds i8, ptr %call.i, i64 56
+  %id_list = getelementptr inbounds nuw i8, ptr %call.i, i64 56
   %0 = load ptr, ptr %id_list, align 8
   tail call void @g_free(ptr noundef %0) #6
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %str) #6

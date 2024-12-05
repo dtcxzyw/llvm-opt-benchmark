@@ -54,11 +54,11 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 1, 5) i32 @ext4_inode_journal_mode(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 872
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 552
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 552
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %38, label %9
@@ -76,7 +76,7 @@ define dso_local noundef range(i32 1, 5) i32 @ext4_inode_journal_mode(ptr nounde
   br i1 %16, label %17, label %29
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %5, i64 120
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 3072
   %21 = icmp eq i32 %20, 1024
@@ -92,7 +92,7 @@ define dso_local noundef range(i32 1, 5) i32 @ext4_inode_journal_mode(ptr nounde
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %12, %17, %22
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 16384
   %33 = icmp eq i32 %32, 0
@@ -148,7 +148,7 @@ define dso_local ptr @__ext4_journal_start_sb(ptr noundef %0, ptr noundef %1, i3
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @__SCT__tp_func_ext4_journal_start_inode(ptr noundef %23, ptr noundef nonnull %0, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %3, i64 noundef %10) #10
   br label %25
@@ -187,7 +187,7 @@ define dso_local ptr @__ext4_journal_start_sb(ptr noundef %0, ptr noundef %1, i3
   br i1 %41, label %46, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @__SCT__tp_func_ext4_journal_start_sb(ptr noundef %44, ptr noundef %1, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %3, i64 noundef %10) #10
   br label %46
@@ -221,15 +221,15 @@ define dso_local ptr @__ext4_journal_start_sb(ptr noundef %0, ptr noundef %1, i3
   br label %85
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %1, i64 872
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 552
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 552
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %72, label %67
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %63, i64 168
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 168
   %69 = load i16, ptr %68, align 8
   %70 = and i16 %69, 32
   %71 = icmp eq i16 %70, 0
@@ -238,7 +238,7 @@ define dso_local ptr @__ext4_journal_start_sb(ptr noundef %0, ptr noundef %1, i3
 72:                                               ; preds = %67, %61
   %73 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !22
   %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds i8, ptr %74, i64 2104
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 2104
   %76 = load ptr, ptr %75, align 8
   %77 = icmp ugt ptr %76, inttoptr (i64 4095 to ptr)
   br i1 %77, label %78, label %79, !prof !23
@@ -273,16 +273,16 @@ declare ptr @llvm.returnaddress(i32 immarg) #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -30, 1) i32 @ext4_journal_check_start(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = tail call i32 @__SCT__might_resched() #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 560
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 560
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 2
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %9, label %33, !prof !15
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %10, align 16
   %12 = and i64 %11, 1
   %13 = icmp eq i64 %12, 0
@@ -295,7 +295,7 @@ define internal fastcc noundef range(i32 -30, 1) i32 @ext4_journal_check_start(p
   br label %33
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 568
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %17 = load i16, ptr %16, align 8
   %18 = icmp eq i16 %17, 4
   br i1 %18, label %19, label %20, !prof !23
@@ -309,7 +309,7 @@ define internal fastcc noundef range(i32 -30, 1) i32 @ext4_journal_check_start(p
 
 20:                                               ; preds = %19, %15
   %21 = phi ptr [ %.pre, %19 ], [ %4, %15 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 552
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 552
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %33, label %25
@@ -321,7 +321,7 @@ define internal fastcc noundef range(i32 -30, 1) i32 @ext4_journal_check_start(p
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %23, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = sub i32 0, %31
   tail call void (ptr, ptr, i32, i1, i32, i64, ptr, ...) @__ext4_error(ptr noundef %0, ptr noundef nonnull @__func__.ext4_journal_check_start, i32 noundef 84, i1 noundef zeroext true, i32 noundef %32, i64 noundef 0, ptr noundef nonnull @.str.6) #10
@@ -358,12 +358,12 @@ define dso_local i32 @__ext4_journal_stop(ptr noundef %0, i32 noundef %1, ptr no
   %11 = inttoptr i64 %10 to ptr
   %12 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !22
   %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds i8, ptr %13, i64 2104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 2104
   store ptr %11, ptr %14, align 8
   br label %33
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = load ptr, ptr %2, align 8
   %19 = icmp eq ptr %18, null
@@ -377,7 +377,7 @@ define dso_local i32 @__ext4_journal_stop(ptr noundef %0, i32 noundef %1, ptr no
 
 24:                                               ; preds = %15
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1360
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1360
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @jbd2_journal_stop(ptr noundef %2) #10
   %29 = icmp eq i32 %17, 0
@@ -408,7 +408,7 @@ define dso_local ptr @__ext4_journal_start_reserved(ptr noundef %0, i32 noundef 
 5:                                                ; preds = %3
   %6 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #11, !srcloc !22
   %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %7, i64 2104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 2104
   %9 = load ptr, ptr %8, align 8
   %10 = icmp ugt ptr %9, inttoptr (i64 4095 to ptr)
   br i1 %10, label %11, label %12, !prof !23
@@ -427,19 +427,19 @@ define dso_local ptr @__ext4_journal_start_reserved(ptr noundef %0, i32 noundef 
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1360
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1360
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 4
   %23 = icmp eq i32 %22, 0
   %24 = select i1 %23, ptr %17, ptr %0
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 1100
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 1100
   %31 = load i32, ptr %30, align 4
   %32 = add i32 %29, -1
   %33 = add i32 %32, %31
@@ -467,7 +467,7 @@ define dso_local ptr @__ext4_journal_start_reserved(ptr noundef %0, i32 noundef 
   br i1 %46, label %51, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @__SCT__tp_func_ext4_journal_start_reserved(ptr noundef %49, ptr noundef %19, i32 noundef %35, i64 noundef %37) #10
   br label %51
@@ -524,7 +524,7 @@ define dso_local i32 @__ext4_journal_ensure_credits(ptr noundef %0, i32 noundef 
   br i1 %5, label %41, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 8
   %10 = icmp eq i32 %9, 0
@@ -546,18 +546,18 @@ define dso_local i32 @__ext4_journal_ensure_credits(ptr noundef %0, i32 noundef 
   %20 = and i32 %8, 4
   %21 = icmp eq i32 %20, 0
   %22 = select i1 %21, ptr %15, ptr %12
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 1100
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 1100
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %26, -1
   %30 = add i32 %29, %28
   %31 = sdiv i32 %30, %28
   %32 = sub i32 %24, %31
   %33 = icmp slt i32 %32, %1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 20
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %34 = icmp slt i32 %.pre, %3
   %or.cond = select i1 %33, i1 true, i1 %34
@@ -593,7 +593,7 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !38
   %14 = call ptr @ext4_decode_error(ptr noundef null, i32 noundef %11, ptr noundef nonnull %7) #10
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %19
@@ -603,7 +603,7 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   br label %19
 
 19:                                               ; preds = %18, %13
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 8
   %23 = icmp eq i32 %22, 0
@@ -633,26 +633,26 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   br label %.thread
 
 37:                                               ; preds = %6
-  %38 = getelementptr inbounds i8, ptr %3, i64 200
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 48
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 872
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 160
-  %47 = getelementptr inbounds i8, ptr %45, i64 1808
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 160
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 1808
   %48 = load volatile i32, ptr %47, align 16
-  %49 = tail call i32 @errseq_check(ptr noundef %46, i32 noundef %48) #10
+  %49 = tail call i32 @errseq_check(ptr noundef nonnull %46, i32 noundef %48) #10
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %57, label %51
 
 51:                                               ; preds = %37
-  %52 = getelementptr inbounds i8, ptr %45, i64 1812
-  tail call void @_raw_spin_lock(ptr noundef %52) #10
-  %53 = tail call i32 @errseq_check_and_advance(ptr noundef %46, ptr noundef %47) #10
-  tail call void @_raw_spin_unlock(ptr noundef %52) #10
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 1812
+  tail call void @_raw_spin_lock(ptr noundef nonnull %52) #10
+  %53 = tail call i32 @errseq_check_and_advance(ptr noundef nonnull %46, ptr noundef nonnull %47) #10
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %52) #10
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %57, label %55
 
@@ -666,18 +666,18 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %3, i64 872
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 104
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 100
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 100
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 1024
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread, label %68
 
 68:                                               ; preds = %59
-  %69 = getelementptr inbounds i8, ptr %61, i64 1280
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 1280
   %70 = load ptr, ptr %69, align 64
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %.thread10, !prof !23
@@ -687,9 +687,9 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 3269, i32 2307, i64 12) #10, !srcloc !40
   tail call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #10, !srcloc !41
   %.pre = load ptr, ptr %60, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 104
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   %.pre5 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert6 = getelementptr inbounds i8, ptr %.pre5, i64 100
+  %.phi.trans.insert6 = getelementptr inbounds nuw i8, ptr %.pre5, i64 100
   %.pre7 = load i32, ptr %.phi.trans.insert6, align 4
   %.pre8 = and i32 %.pre7, 1024
   %73 = icmp eq i32 %.pre8, 0
@@ -697,7 +697,7 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
 
 .thread10:                                        ; preds = %68, %72
   %74 = phi ptr [ %.pre, %72 ], [ %61, %68 ]
-  %75 = getelementptr inbounds i8, ptr %74, i64 1280
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1280
   %76 = load ptr, ptr %75, align 64
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.thread, label %78
@@ -712,8 +712,8 @@ define dso_local i32 @__ext4_journal_get_write_access(ptr noundef %0, i32 nounde
   unreachable
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %74, i64 1544
-  tail call void @jbd2_journal_set_triggers(ptr noundef %4, ptr noundef %82) #10
+  %82 = getelementptr inbounds nuw i8, ptr %74, i64 1544
+  tail call void @jbd2_journal_set_triggers(ptr noundef %4, ptr noundef nonnull %82) #10
   br label %.thread
 
 .thread:                                          ; preds = %59, %81, %.thread10, %72, %57, %36
@@ -739,7 +739,7 @@ define internal fastcc void @ext4_journal_abort_handle(ptr noundef %0, i32 nound
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %14
@@ -749,7 +749,7 @@ define internal fastcc void @ext4_journal_abort_handle(ptr noundef %0, i32 nound
   br label %14
 
 14:                                               ; preds = %13, %9
-  %15 = getelementptr inbounds i8, ptr %2, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 8
   %18 = icmp eq i32 %17, 0
@@ -807,7 +807,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @__SCT__tp_func_ext4_forget(ptr noundef %22, ptr noundef %4, i32 noundef %3, i64 noundef %6) #10
   br label %24
@@ -839,11 +839,11 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %131
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %4, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 872
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 872
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 120
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 3072
   %44 = icmp eq i32 %43, 1024
@@ -854,7 +854,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %46, label %47, label %102
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %40, i64 552
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 552
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %73, label %51
@@ -881,7 +881,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %65, label %66, label %71
 
 66:                                               ; preds = %59, %54
-  %67 = getelementptr inbounds i8, ptr %4, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = and i32 %68, 16384
   %70 = icmp eq i32 %69, 0
@@ -911,7 +911,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %9, i8 0, i64 16, i1 false), !annotation !38
   %79 = call ptr @ext4_decode_error(ptr noundef null, i32 noundef %76, ptr noundef nonnull %9) #10
-  %80 = getelementptr inbounds i8, ptr %2, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %81 = load i32, ptr %80, align 8
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %84
@@ -921,7 +921,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %84
 
 84:                                               ; preds = %83, %78
-  %85 = getelementptr inbounds i8, ptr %2, i64 36
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 8
   %88 = icmp eq i32 %87, 0
@@ -959,7 +959,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !38
   %106 = call ptr @ext4_decode_error(ptr noundef null, i32 noundef %103, ptr noundef nonnull %8) #10
-  %107 = getelementptr inbounds i8, ptr %2, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %111
@@ -969,7 +969,7 @@ define dso_local i32 @__ext4_forget(ptr noundef %0, i32 noundef %1, ptr noundef 
   br label %111
 
 111:                                              ; preds = %110, %105
-  %112 = getelementptr inbounds i8, ptr %2, i64 36
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 8
   %115 = icmp eq i32 %114, 0
@@ -1030,7 +1030,7 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !38
   %13 = call ptr @ext4_decode_error(ptr noundef null, i32 noundef %10, ptr noundef nonnull %7) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %18
@@ -1040,7 +1040,7 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   br label %18
 
 18:                                               ; preds = %17, %12
-  %19 = getelementptr inbounds i8, ptr %2, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 8
   %22 = icmp eq i32 %21, 0
@@ -1074,18 +1074,18 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   br i1 %37, label %.thread, label %38
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %3, i64 872
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 872
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 104
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 104
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 100
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 100
   %44 = load i32, ptr %43, align 4
   %45 = and i32 %44, 1024
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %40, i64 1280
+  %48 = getelementptr inbounds nuw i8, ptr %40, i64 1280
   %49 = load ptr, ptr %48, align 64
   %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %.thread9, !prof !23
@@ -1095,9 +1095,9 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 3269, i32 2307, i64 12) #10, !srcloc !40
   tail call void asm sideeffect "460: nop\0A\09.pushsection .discard.instr_end\0A\09.long 460b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 460) #10, !srcloc !41
   %.pre = load ptr, ptr %39, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 104
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 104
   %.pre4 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert5 = getelementptr inbounds i8, ptr %.pre4, i64 100
+  %.phi.trans.insert5 = getelementptr inbounds nuw i8, ptr %.pre4, i64 100
   %.pre6 = load i32, ptr %.phi.trans.insert5, align 4
   %.pre7 = and i32 %.pre6, 1024
   %52 = icmp eq i32 %.pre7, 0
@@ -1105,7 +1105,7 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
 
 .thread9:                                         ; preds = %47, %51
   %53 = phi ptr [ %.pre, %51 ], [ %40, %47 ]
-  %54 = getelementptr inbounds i8, ptr %53, i64 1280
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1280
   %55 = load ptr, ptr %54, align 64
   %56 = icmp eq ptr %55, null
   br i1 %56, label %.thread, label %57
@@ -1120,8 +1120,8 @@ define dso_local i32 @__ext4_journal_get_create_access(ptr noundef %0, i32 nound
   unreachable
 
 60:                                               ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %53, i64 1544
-  tail call void @jbd2_journal_set_triggers(ptr noundef %4, ptr noundef %61) #10
+  %61 = getelementptr inbounds nuw i8, ptr %53, i64 1544
+  tail call void @jbd2_journal_set_triggers(ptr noundef %4, ptr noundef nonnull %61) #10
   br label %.thread
 
 .thread:                                          ; preds = %38, %60, %.thread9, %51, %36, %35, %6
@@ -1172,7 +1172,7 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
 
 25:                                               ; preds = %23
   %26 = tail call i32 @jbd2_journal_dirty_metadata(ptr noundef %2, ptr noundef %4) #10
-  %27 = getelementptr inbounds i8, ptr %2, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, 8
   %30 = icmp eq i32 %29, 0
@@ -1208,7 +1208,7 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
   %46 = and i32 %45, 255
   %47 = lshr i32 %44, 12
   %48 = and i32 %47, 65535
-  %49 = getelementptr inbounds i8, ptr %2, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %44, 4
   %52 = icmp eq i32 %51, 0
@@ -1221,11 +1221,11 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
 55:                                               ; preds = %53, %43
   %56 = phi ptr [ %54, %53 ], [ %2, %43 ]
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %2, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %59 = load i32, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = load i32, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %57, i64 1100
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 1100
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %61, -1
   %65 = add i32 %64, %63
@@ -1235,14 +1235,14 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
   br label %113
 
 69:                                               ; preds = %41
-  %70 = getelementptr inbounds i8, ptr %4, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %71 = load i64, ptr %70, align 8
   %72 = load i32, ptr %27, align 4
   %73 = lshr i32 %72, 4
   %74 = and i32 %73, 255
   %75 = lshr i32 %72, 12
   %76 = and i32 %75, 65535
-  %77 = getelementptr inbounds i8, ptr %2, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %78 = load i32, ptr %77, align 8
   %79 = and i32 %72, 4
   %80 = icmp eq i32 %79, 0
@@ -1255,11 +1255,11 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
 83:                                               ; preds = %81, %69
   %84 = phi ptr [ %82, %81 ], [ %2, %69 ]
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = load i32, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %2, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %85, i64 1100
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 1100
   %91 = load i32, ptr %90, align 4
   %92 = add i32 %89, -1
   %93 = add i32 %92, %91
@@ -1297,7 +1297,7 @@ define dso_local i32 @__ext4_handle_dirty_metadata(ptr noundef %0, i32 noundef %
   br i1 %109, label %110, label %113
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %4, i64 24
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %112 = load i64, ptr %111, align 8
   tail call void (ptr, ptr, i32, i64, i32, ptr, ...) @__ext4_error_inode(ptr noundef nonnull %3, ptr noundef %0, i32 noundef %1, i64 noundef %112, i32 noundef 5, ptr noundef nonnull @.str.4) #10
   br label %113

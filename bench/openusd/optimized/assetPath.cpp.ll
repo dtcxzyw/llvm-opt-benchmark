@@ -677,7 +677,7 @@ define linkonce_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7Vt
   %7 = load i8, ptr %4, align 1
   %8 = icmp eq i8 %7, 42
   %.idx.i.i.i.i = zext i1 %8 to i64
-  %9 = getelementptr inbounds i8, ptr %4, i64 %.idx.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(51) @_ZTSN32pxrInternal_v0_24__pxrReserved__12SdfAssetPathE, ptr noundef nonnull dereferenceable(1) %9) #16
   %11 = icmp eq i32 %10, 0
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValue12_ProxyHelperINS_12SdfAssetPathEvE9HoldsTypeERKS2_RKSt9type_info.exit
@@ -888,7 +888,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   br i1 %7, label %8, label %.preheader
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %5, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %9, ptr %0, align 8
   %10 = load i8, ptr %5, align 1
   %11 = zext i8 %10 to i32
@@ -925,7 +925,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
 29:                                               ; preds = %24, %39
   %indvars.iv = phi i64 [ 1, %24 ], [ %indvars.iv.next, %39 ]
   %.02533 = phi i32 [ %27, %24 ], [ %43, %39 ]
-  %30 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = icmp slt i8 %31, -64
   br i1 %32, label %39, label %33
@@ -951,7 +951,7 @@ define internal fastcc noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__L9_Read
   br i1 %.not, label %44, label %29, !llvm.loop !13
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %5, i64 %28
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 %28
   store ptr %45, ptr %0, align 8
   br label %49
 

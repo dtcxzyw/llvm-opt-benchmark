@@ -33,11 +33,11 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
   %7 = shl nsw i64 %6, 2
   %8 = add nsw i64 %7, 24
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #26
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %.val, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %5, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %12, align 8
   store i64 0, ptr %9, align 8
   %13 = icmp sgt i32 %.val, 0
@@ -46,7 +46,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
 .lr.ph:                                           ; preds = %2
   %14 = getelementptr i8, ptr %0, i64 8
   %.val35 = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %9, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %16 = zext nneg i32 %.val to i64
   %17 = shl nuw nsw i64 %16, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %.val35, i64 %17, i1 false)
@@ -55,7 +55,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
   %19 = phi i64 [ 0, %.lr.ph ], [ %25, %18 ]
-  %20 = getelementptr inbounds i32, ptr %.val35, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %.val35, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = srem i32 %21, 63
   %23 = zext nneg i32 %22 to i64
@@ -67,7 +67,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
 
 26:                                               ; preds = %18
   store i64 %25, ptr %9, align 8
-  %27 = getelementptr inbounds i8, ptr %9, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %.not = icmp eq i32 %.val, 1
   br i1 %.not, label %Vec_IntSelectSort.exit, label %.lr.ph27.preheader.i
 
@@ -86,7 +86,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.024.i = phi i32 [ %29, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %30 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv29.i
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv29.i
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %.024.i to i64
   %33 = getelementptr inbounds i32, ptr %27, i64 %32
@@ -100,7 +100,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %37 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv32.i
+  %37 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv32.i
   %38 = load i32, ptr %37, align 4
   %39 = sext i32 %spec.select.i to i64
   %40 = getelementptr inbounds i32, ptr %27, i64 %39
@@ -126,7 +126,7 @@ Vec_IntSelectSort.exit:                           ; preds = %2, %Vec_IntSelectSo
   %45 = getelementptr i8, ptr %1, i64 8
   %.val36 = load ptr, ptr %45, align 8
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds i8, ptr %9, i64 20
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 20
   br label %48
 
 48:                                               ; preds = %.lr.ph39, %48
@@ -153,29 +153,29 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @Pdr_SetCreateFrom(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, -1
   %6 = sext i32 %5 to i64
   %7 = shl nsw i64 %6, 2
   %8 = add nsw i64 %7, 24
   %9 = tail call noalias ptr @malloc(i64 noundef %8) #26
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, -1
-  %13 = getelementptr inbounds i8, ptr %9, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 %5, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 1, ptr %15, align 8
   store i64 0, ptr %9, align 8
   %16 = icmp sgt i32 %4, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 20
-  %18 = getelementptr inbounds i8, ptr %9, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %19 = sext i32 %11 to i64
   %20 = zext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -188,7 +188,7 @@ define noalias noundef ptr @Pdr_SetCreateFrom(ptr nocapture noundef readonly %0,
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds [0 x i32], ptr %17, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [0 x i32], ptr %17, i64 0, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4
   %26 = add nsw i32 %.023, 1
   %27 = sext i32 %.023 to i64
@@ -218,28 +218,28 @@ define noalias noundef ptr @Pdr_SetCreateFrom(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = sub i32 %6, %8
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 2
   %12 = add nsw i64 %11, 24
   %13 = tail call noalias ptr @malloc(i64 noundef %12) #26
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 %2, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %9, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 1, ptr %16, align 8
   store i64 0, ptr %13, align 8
   %17 = icmp sgt i32 %2, 0
   br i1 %17, label %.lr.ph, label %Vec_IntSelectSort.exit
 
 .lr.ph:                                           ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %13, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %19 = zext nneg i32 %2 to i64
   %20 = shl nuw nsw i64 %19, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %1, i64 %20, i1 false)
@@ -248,7 +248,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
 21:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %22 = phi i64 [ 0, %.lr.ph ], [ %28, %21 ]
-  %23 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = srem i32 %24, 63
@@ -263,7 +263,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
   %30 = zext nneg i32 %2 to i64
   %31 = shl nuw nsw i64 %30, 2
   %32 = add nuw nsw i64 %31, 20
-  %33 = getelementptr inbounds i8, ptr %13, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %.not = icmp eq i32 %2, 1
   br i1 %.not, label %Vec_IntSelectSort.exit, label %.lr.ph27.preheader.i
 
@@ -282,7 +282,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
   %.024.i = phi i32 [ %35, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %36 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv29.i
+  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv29.i
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %.024.i to i64
   %39 = getelementptr inbounds i32, ptr %33, i64 %38
@@ -296,7 +296,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %43 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv32.i
+  %43 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv32.i
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %spec.select.i to i64
   %46 = getelementptr inbounds i32, ptr %33, i64 %45
@@ -332,19 +332,19 @@ Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %3, 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @Pdr_SetDup(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
   %6 = add nsw i64 %5, 24
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #26
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %3, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 1, ptr %12, align 8
   %13 = load i64, ptr %0, align 8
   store i64 %13, ptr %7, align 8
@@ -352,8 +352,8 @@ define noalias noundef ptr @Pdr_SetDup(ptr nocapture noundef readonly %0) local_
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
-  %16 = getelementptr inbounds i8, ptr %7, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %17 = zext nneg i32 %3 to i64
   %18 = shl nuw nsw i64 %17, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %16, ptr nonnull align 4 %15, i64 %18, i1 false)
@@ -365,7 +365,7 @@ define noalias noundef ptr @Pdr_SetDup(ptr nocapture noundef readonly %0) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @Pdr_SetRef(ptr noundef returned %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -374,7 +374,7 @@ define noundef ptr @Pdr_SetRef(ptr noundef returned %0) local_unnamed_addr #6 {
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @Pdr_SetDeref(ptr noundef %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -410,21 +410,21 @@ define void @Pdr_SetPrint(ptr nocapture noundef %0, ptr nocapture noundef readon
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %4
   %.034.lcssa = phi i64 [ 0, %4 ], [ %10, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds i8, ptr %7, i64 %.034.lcssa
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.034.lcssa
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph48, label %._crit_edge49
 
 .lr.ph48:                                         ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %wide.trip.count56 = zext nneg i32 %13 to i64
   br label %16
 
 16:                                               ; preds = %.lr.ph48, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next, %26 ]
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [0 x i32], ptr %15, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %26, label %20
@@ -463,13 +463,13 @@ define void @Pdr_SetPrint(ptr nocapture noundef %0, ptr nocapture noundef readon
 30:                                               ; preds = %.lr.ph52, %39
   %indvars.iv57 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next58, %39 ]
   %.051 = phi i32 [ 0, %.lr.ph52 ], [ %.1, %39 ]
-  %31 = getelementptr inbounds i32, ptr %.val42, i64 %indvars.iv57
+  %31 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv57
   %32 = load i32, ptr %31, align 4
   %.not40 = icmp eq i32 %32, 0
   br i1 %.not40, label %39, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv57
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv57
   %35 = load i8, ptr %34, align 1
   %36 = add nsw i32 %.051, 1
   %37 = sext i32 %.051 to i64
@@ -509,18 +509,18 @@ define void @Pdr_SetPrint(ptr nocapture noundef %0, ptr nocapture noundef readon
 
 ; Function Attrs: nofree nounwind uwtable
 define void @ZPdr_SetPrint(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds [0 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [0 x i32], ptr %5, i64 0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -539,16 +539,16 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @ZPdr_SetIntersection(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %7, i32 %5)
   %8 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
   %9 = add i32 %spec.select, -1
   %or.cond.i = icmp ult i32 %9, 15
   %spec.store.select.i = select i1 %or.cond.i, i32 16, i32 %spec.select
-  %10 = getelementptr inbounds i8, ptr %8, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %10, align 4
   store i32 %spec.store.select.i, ptr %8, align 8
   %.not.i = icmp eq i32 %spec.store.select.i, 0
@@ -562,24 +562,24 @@ define noundef ptr @ZPdr_SetIntersection(ptr nocapture noundef readonly %0, ptr 
 
 Vec_IntAlloc.exit:                                ; preds = %3, %11
   %15 = phi ptr [ %14, %11 ], [ null, %3 ]
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %15, ptr %16, align 8
   %17 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %18, align 4
   store i32 16, ptr %17, align 8
   %19 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = icmp sgt i32 %5, 0
   br i1 %21, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %Vec_IntAlloc.exit
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
-  %23 = getelementptr inbounds i8, ptr %1, i64 20
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 4
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %27
 
 27:                                               ; preds = %.lr.ph, %100
@@ -611,7 +611,7 @@ Vec_IntAlloc.exit:                                ; preds = %3, %11
   br i1 %.not14.i, label %.loopexit, label %.lr.ph.i
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds i8, ptr %.015.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.015.i, i64 8
   %.0.i = load ptr, ptr %46, align 8
   %.not.i49 = icmp eq ptr %.0.i, null
   br i1 %.not.i49, label %.loopexit, label %.lr.ph.i, !llvm.loop !14
@@ -657,7 +657,7 @@ Vec_IntFree.exit:                                 ; preds = %Hash_IntExists.exit
   br i1 %.not14.i54, label %.loopexit73, label %.lr.ph.i55
 
 62:                                               ; preds = %.lr.ph.i55
-  %63 = getelementptr inbounds i8, ptr %.015.i56, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.015.i56, i64 8
   %.0.i57 = load ptr, ptr %63, align 8
   %.not.i58 = icmp eq ptr %.0.i57, null
   br i1 %.not.i58, label %.loopexit73, label %.lr.ph.i55, !llvm.loop !14
@@ -804,21 +804,21 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %4
   %.038.lcssa = phi i64 [ 0, %4 ], [ %10, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds i8, ptr %7, i64 %.038.lcssa
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.038.lcssa
   store i8 0, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph67, label %._crit_edge68
 
 .lr.ph67:                                         ; preds = %._crit_edge
-  %15 = getelementptr inbounds i8, ptr %1, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %wide.trip.count75 = zext nneg i32 %13 to i64
   br label %16
 
 16:                                               ; preds = %.lr.ph67, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %26 ]
-  %17 = getelementptr inbounds [0 x i32], ptr %15, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [0 x i32], ptr %15, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %26, label %20
@@ -857,13 +857,13 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 30:                                               ; preds = %.lr.ph71, %39
   %indvars.iv76 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next77, %39 ]
   %.170 = phi i32 [ 0, %.lr.ph71 ], [ %.2, %39 ]
-  %31 = getelementptr inbounds i32, ptr %.val47, i64 %indvars.iv76
+  %31 = getelementptr inbounds nuw i32, ptr %.val47, i64 %indvars.iv76
   %32 = load i32, ptr %31, align 4
   %.not45 = icmp eq i32 %32, 0
   br i1 %.not45, label %39, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv76
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv76
   %35 = load i8, ptr %34, align 1
   %36 = add nsw i32 %.170, 1
   %37 = sext i32 %.170 to i64
@@ -886,7 +886,7 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 42:                                               ; preds = %.critedge, %._crit_edge68
   %.0 = phi i32 [ %.1.lcssa, %.critedge ], [ 0, %._crit_edge68 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = add nsw i32 %44, %.0
   %46 = load i32, ptr %0, align 8
@@ -899,7 +899,7 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %.not.i.i, label %50, label %Vec_StrPushBuffer.exit
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
   %.not9.i.i = icmp eq ptr %52, null
   %53 = sext i32 %49 to i64
@@ -923,7 +923,7 @@ define void @Pdr_SetPrintStr(ptr nocapture noundef %0, ptr nocapture noundef rea
 
 Vec_StrPushBuffer.exit:                           ; preds = %42, %48, %58
   %60 = phi i32 [ %.pre.i, %58 ], [ %44, %48 ], [ %44, %42 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = sext i32 %60 to i64
   %64 = getelementptr inbounds i8, ptr %62, i64 %63
@@ -1127,9 +1127,9 @@ Vec_StrPush.exit63:                               ; preds = %.Vec_StrGrow.exit10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %4, %6
   br i1 %7, label %.loopexit, label %8
@@ -1161,7 +1161,7 @@ define range(i32 0, 2) i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, p
   br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %.lr.ph
-  %.020.ptr44 = getelementptr inbounds i8, ptr %0, i64 %.020.idx42
+  %.020.ptr44 = getelementptr inbounds nuw i8, ptr %0, i64 %.020.idx42
   %.0.ptr45 = getelementptr inbounds i8, ptr %1, i64 %.0.idx43
   %17 = load i32, ptr %.0.ptr45, align 4
   %18 = load i32, ptr %.020.ptr44, align 4
@@ -1189,7 +1189,7 @@ define range(i32 0, 2) i32 @Pdr_SetContains(ptr nocapture noundef readonly %0, p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not3840 = icmp slt i32 %4, 1
   br i1 %.not3840, label %.loopexit, label %.lr.ph.preheader
@@ -1198,7 +1198,7 @@ define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly
   %5 = zext nneg i32 %4 to i64
   %.idx = shl nuw nsw i64 %5, 2
   %.add22 = add nuw nsw i64 %.idx, 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %.idx28 = shl nsw i64 %8, 2
@@ -1212,7 +1212,7 @@ define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly
 
 9:                                                ; preds = %.lr.ph, %12
   %.0.idx39 = phi i64 [ %.0.idx.ph42, %.lr.ph ], [ %.0.add, %12 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.0.idx39
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx39
   %10 = load i32, ptr %.0.ptr, align 4
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %12, label %13
@@ -1227,7 +1227,7 @@ define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %13
-  %.017.ptr.le = getelementptr inbounds i8, ptr %0, i64 %.017.idx.ph41
+  %.017.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.017.idx.ph41
   %16 = load i32, ptr %.017.ptr.le, align 4
   %17 = icmp eq i32 %10, %16
   br i1 %17, label %18, label %19
@@ -1253,8 +1253,8 @@ define range(i32 0, 2) i32 @Pdr_SetContainsSimple(ptr nocapture noundef readonly
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -1270,7 +1270,7 @@ define range(i32 0, 2) i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32
   br i1 %8, label %14, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds [0 x i32], ptr %3, i64 0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [0 x i32], ptr %3, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = and i32 %11, 1
   %13 = icmp eq i32 %12, 0
@@ -1290,16 +1290,16 @@ define range(i32 0, 2) i32 @Pdr_SetIsInit(ptr nocapture noundef readonly %0, i32
 define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 20
-  %11 = getelementptr inbounds i8, ptr %4, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
   %wide.trip.count38 = zext nneg i32 %6 to i64
@@ -1311,9 +1311,9 @@ define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, p
   br i1 %exitcond.not, label %.critedge, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %15, %17
   br i1 %18, label %.loopexit, label %19
@@ -1335,7 +1335,7 @@ define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, p
 .critedge.thread:                                 ; preds = %21, %.critedge
   %.lcssa45 = phi i1 [ %7, %.critedge ], [ false, %21 ]
   %.0.lcssa43 = phi i32 [ %.0.lcssa, %.critedge ], [ %6, %21 ]
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = icmp slt i32 %6, %24
   br i1 %25, label %.loopexit, label %26
@@ -1346,7 +1346,7 @@ define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, p
   br i1 %.lcssa44, label %27, label %31
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load i32, ptr %28, align 8
   %30 = icmp eq i32 %.0.lcssa42, %29
   br i1 %30, label %.loopexit, label %31
@@ -1363,22 +1363,22 @@ define range(i32 -1, 2) i32 @Pdr_SetCompare(ptr nocapture noundef readonly %0, p
 define noalias noundef ptr @Pdr_OblStart(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #13 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #26
   store i32 %0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %10, align 8
   ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @Pdr_OblRef(ptr noundef returned %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -1387,7 +1387,7 @@ define noundef ptr @Pdr_OblRef(ptr noundef returned %0) local_unnamed_addr #6 {
 
 ; Function Attrs: nounwind uwtable
 define void @Pdr_OblDeref(ptr nocapture noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -1395,7 +1395,7 @@ define void @Pdr_OblDeref(ptr nocapture noundef %0) local_unnamed_addr #9 {
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
@@ -1405,9 +1405,9 @@ define void @Pdr_OblDeref(ptr nocapture noundef %0) local_unnamed_addr #9 {
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %14, -1
   store i32 %15, ptr %13, align 8
@@ -1430,7 +1430,7 @@ Pdr_SetDeref.exit:                                ; preds = %18, %10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @Pdr_QueueIsEmpty(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %5 = zext i1 %4 to i32
@@ -1439,24 +1439,24 @@ define range(i32 0, 2) i32 @Pdr_QueueIsEmpty(ptr nocapture noundef readonly %0) 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @Pdr_QueueHead(ptr nocapture noundef readonly %0) local_unnamed_addr #14 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @Pdr_QueuePop(ptr nocapture noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   tail call void @Pdr_OblDeref(ptr noundef nonnull %3)
-  %8 = getelementptr inbounds i8, ptr %0, i64 344
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %9, -1
   store i32 %10, ptr %8, align 8
@@ -1468,18 +1468,18 @@ define ptr @Pdr_QueuePop(ptr nocapture noundef %0) local_unnamed_addr #9 {
 
 ; Function Attrs: nounwind uwtable
 define void @Pdr_QueueClean(ptr nocapture noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 344
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %7 = phi ptr [ %3, %.lr.ph ], [ %12, %6 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   store ptr %9, ptr %2, align 8
   tail call void @Pdr_OblDeref(ptr noundef nonnull %7)
@@ -1497,30 +1497,30 @@ define void @Pdr_QueueClean(ptr nocapture noundef %0) local_unnamed_addr #9 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Pdr_QueuePush(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #15 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 300
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 344
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %7 = load i32, ptr %6, align 8
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 348
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %10 = load i32, ptr %9, align 4
   %11 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %10, i32 range(i32 -2147483647, -2147483648) %8)
   store i32 %11, ptr %9, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = add nsw i32 %13, 1
   store i32 %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %.preheader
 
 .preheader:                                       ; preds = %2
   %18 = load i32, ptr %1, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i32, ptr %16, align 8
   %21 = icmp sgt i32 %20, %18
   br i1 %21, label %._crit_edge, label %.lr.ph
@@ -1542,14 +1542,14 @@ define void @Pdr_QueuePush(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.0242831, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.0242831, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %19, align 4
   %32 = icmp sgt i32 %30, %31
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %.lr.ph, %28
-  %34 = getelementptr inbounds i8, ptr %.0242831, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0242831, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge, label %23, !llvm.loop !23
@@ -1558,7 +1558,7 @@ define void @Pdr_QueuePush(ptr nocapture noundef %0, ptr noundef %1) local_unnam
   %.024.lcssa = phi ptr [ %16, %.preheader ], [ null, %33 ], [ %.0242831, %28 ], [ %35, %23 ]
   %.0.lcssa = phi ptr [ %15, %.preheader ], [ %34, %33 ], [ %.02930, %28 ], [ %34, %23 ]
   store ptr %1, ptr %.0.lcssa, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %.024.lcssa, ptr %36, align 8
   br label %37
 
@@ -1568,7 +1568,7 @@ define void @Pdr_QueuePush(ptr nocapture noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define void @Pdr_QueuePrint(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %.05 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %.05, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
@@ -1576,10 +1576,10 @@ define void @Pdr_QueuePrint(ptr nocapture noundef readonly %0) local_unnamed_add
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.07 = phi ptr [ %.0, %.lr.ph ], [ %.05, %1 ]
   %3 = load i32, ptr %.07, align 8
-  %4 = getelementptr inbounds i8, ptr %.07, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.07, i64 4
   %5 = load i32, ptr %4, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr nonnull poison, i32 noundef %3, i32 noundef %5)
-  %6 = getelementptr inbounds i8, ptr %.07, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   %.0 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
@@ -1625,18 +1625,18 @@ define internal void @Abc_Print(i32 %0, ptr nocapture readnone %1, ...) unnamed_
 
 ; Function Attrs: nounwind uwtable
 define void @Pdr_QueueStop(ptr nocapture noundef %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %3, null
   br i1 %.not5, label %._crit_edge, label %Pdr_QueuePop.exit.lr.ph
 
 Pdr_QueuePop.exit.lr.ph:                          ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   br label %Pdr_QueuePop.exit
 
 Pdr_QueuePop.exit:                                ; preds = %Pdr_QueuePop.exit.lr.ph, %Pdr_QueuePop.exit
   %5 = phi ptr [ %3, %Pdr_QueuePop.exit.lr.ph ], [ %10, %Pdr_QueuePop.exit ]
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   tail call void @Pdr_OblDeref(ptr noundef nonnull %5)
@@ -1650,7 +1650,7 @@ Pdr_QueuePop.exit:                                ; preds = %Pdr_QueuePop.exit.l
 
 ._crit_edge:                                      ; preds = %Pdr_QueuePop.exit, %1
   store ptr null, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 344
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i32 0, ptr %11, align 8
   ret void
 }
@@ -1708,8 +1708,8 @@ Saig_ObjIsLo.exit:                                ; preds = %17
   %26 = sub nsw i32 %.val3.i, %.val4.i
   %27 = shl nsw i32 %26, 1
   %28 = add nsw i32 %27, %.tr128147
-  %29 = getelementptr inbounds i8, ptr %3, i64 20
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr %30, align 8
@@ -1774,7 +1774,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   br i1 %.not.i101, label %67, label %.thread116
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %49, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
   %71 = lshr i32 %70, 4
@@ -1796,7 +1796,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   br i1 %.not.i103, label %.thread, label %tailrecurse.backedge
 
 .thread:                                          ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %77, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = trunc i64 %82 to i32
   %84 = lshr i32 %83, 4
@@ -1818,7 +1818,7 @@ tailrecurse.backedge:                             ; preds = %55, %73, %93, %.thr
   br i1 %.not.i103120, label %93, label %.thread115
 
 93:                                               ; preds = %.thread116
-  %94 = getelementptr inbounds i8, ptr %89, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %95 = load i64, ptr %94, align 8
   %96 = trunc i64 %95 to i32
   %97 = lshr i32 %96, 4

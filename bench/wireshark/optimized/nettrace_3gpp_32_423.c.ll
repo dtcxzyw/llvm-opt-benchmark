@@ -124,12 +124,12 @@ define hidden range(i32 -1, 2) i32 @nettrace_3gpp_32_423_file_open(ptr nocapture
 
 34:                                               ; preds = %31
   %35 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
-  %36 = getelementptr inbounds i8, ptr %35, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %37 = ptrtoint ptr %33 to i64
   %38 = sub i64 %37, %22
   %39 = add i64 %38, %7
-  %40 = getelementptr inbounds i8, ptr %35, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %39, ptr %40, align 8
   %41 = call ptr @g_byte_array_sized_new(i32 noundef 2147483647) #11
   store ptr %41, ptr %35, align 8
@@ -137,21 +137,21 @@ define hidden range(i32 -1, 2) i32 @nettrace_3gpp_32_423_file_open(ptr nocapture
   %43 = sub i32 %9, %42
   %44 = call ptr @g_byte_array_append(ptr noundef %41, ptr noundef nonnull %33, i32 noundef %43) #11
   %45 = load i32, ptr @nettrace_3gpp_32_423_file_type_subtype, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %45, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 144
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 155, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 148
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %0, i64 112
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @nettrace_read, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 120
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @nettrace_seek_read, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr @nettrace_close, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 96
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %35, ptr %53, align 8
   br label %54
 
@@ -183,12 +183,12 @@ declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_un
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @nettrace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca [1024 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load ptr, ptr %10, align 8
   %14 = load i32, ptr %12, align 8
   %15 = zext i32 %14 to i64
@@ -251,7 +251,7 @@ read_until.exit.thread:                           ; preds = %22, %20
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %47, %44
   %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds i8, ptr %9, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %45, 4294967295
   %53 = add i64 %51, %52
@@ -300,9 +300,9 @@ read_until.exit.thread:                           ; preds = %22, %20
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @nettrace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [1024 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @file_seek(ptr noundef %11, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
   %13 = icmp eq i64 %12, -1
@@ -312,7 +312,7 @@ define internal range(i32 0, 2) i32 @nettrace_seek_read(ptr nocapture noundef re
   %15 = load ptr, ptr %9, align 8
   %16 = load ptr, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %15, align 8
   %19 = load i32, ptr %17, align 8
   %20 = zext i32 %19 to i64
@@ -369,7 +369,7 @@ read_until.exit.thread:                           ; preds = %27, %25
 
 ; Function Attrs: nounwind uwtable
 define internal void @nettrace_close(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 96
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
@@ -428,16 +428,16 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   %19 = getelementptr i8, ptr %3, i64 4
   store i32 0, ptr %1, align 8
   %20 = tail call ptr @wtap_block_create(i32 noundef 5) #11
-  %21 = getelementptr inbounds i8, ptr %1, i64 232
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 0, ptr %24, align 8
   store i32 0, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 20
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %25, align 4
   %26 = ptrtoint ptr %3 to i64
   %27 = add nsw i64 %4, -4
@@ -475,7 +475,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br label %274
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = tail call zeroext i1 @nstime_is_unset(ptr noundef nonnull %42) #11
   br i1 %43, label %68, label %44
 
@@ -493,7 +493,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br i1 %49, label %50, label %68
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = sdiv i32 %52, 1000000
   %54 = load i32, ptr %14, align 4
@@ -669,7 +669,7 @@ define internal fastcc range(i32 0, 2) i32 @nettrace_msg_to_packet(ptr noundef %
   br i1 %.not239, label %.thread285, label %147
 
 .thread285:                                       ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %11, i64 5
+  %146 = getelementptr inbounds nuw i8, ptr %11, i64 5
   store i8 0, ptr %146, align 1
   br label %175
 
@@ -715,7 +715,7 @@ thread-pre-split:                                 ; preds = %155, %151
 
 160:                                              ; preds = %159
   %161 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.17) #11
-  %162 = getelementptr inbounds i8, ptr %8, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %161, ptr %162, align 8
   %bcmp247 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %10, ptr noundef nonnull dereferenceable(12) @.str.18, i64 12)
   %163 = icmp eq i32 %bcmp247, 0
@@ -758,9 +758,9 @@ thread-pre-split:                                 ; preds = %155, %151
   %183 = ptrtoint ptr %182 to i64
   %184 = sub i64 %183, %180
   %185 = trunc i64 %184 to i32
-  %186 = getelementptr inbounds i8, ptr %2, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %187 = load i64, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %2, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %189 = load i64, ptr %188, align 8
   %190 = sub i64 %187, %189
   call void @ws_buffer_remove_start(ptr noundef %2, i64 noundef %190) #11
@@ -783,7 +783,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not251, label %200, label %197
 
 197:                                              ; preds = %194
-  %198 = getelementptr inbounds i8, ptr %8, i64 48
+  %198 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %199 = load ptr, ptr %198, align 8
   call void @wtap_buffer_append_epdu_string(ptr noundef nonnull %2, i16 noundef zeroext 33, ptr noundef %199) #11
   call void @g_free(ptr noundef %199) #11
@@ -796,7 +796,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not252, label %204, label %202
 
 202:                                              ; preds = %200
-  %203 = getelementptr inbounds i8, ptr %8, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %2, i16 noundef zeroext 20, ptr noundef nonnull %203, i16 noundef zeroext 4) #11
   %.pre276 = load i32, ptr %8, align 8
   br label %204
@@ -808,7 +808,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not253, label %209, label %207
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %8, i64 28
+  %208 = getelementptr inbounds nuw i8, ptr %8, i64 28
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %2, i16 noundef zeroext 21, ptr noundef nonnull %208, i16 noundef zeroext 4) #11
   %.pre277 = load i32, ptr %8, align 8
   br label %209
@@ -820,7 +820,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not254, label %214, label %212
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %8, i64 4
+  %213 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %2, i16 noundef zeroext 22, ptr noundef nonnull %213, i16 noundef zeroext 16) #11
   %.pre278 = load i32, ptr %8, align 8
   br label %214
@@ -832,7 +832,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not255, label %219, label %217
 
 217:                                              ; preds = %214
-  %218 = getelementptr inbounds i8, ptr %8, i64 28
+  %218 = getelementptr inbounds nuw i8, ptr %8, i64 28
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %2, i16 noundef zeroext 23, ptr noundef nonnull %218, i16 noundef zeroext 16) #11
   %.pre279 = load i32, ptr %8, align 8
   br label %219
@@ -856,7 +856,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not257, label %230, label %227
 
 227:                                              ; preds = %224
-  %228 = getelementptr inbounds i8, ptr %8, i64 24
+  %228 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %229 = load i32, ptr %228, align 8
   call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %2, i16 noundef zeroext 25, i32 noundef %229) #11
   %.pre281 = load i32, ptr %8, align 8
@@ -869,7 +869,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %.not258, label %236, label %233
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %8, i64 44
+  %234 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %235 = load i32, ptr %234, align 4
   call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %2, i16 noundef zeroext 26, i32 noundef %235) #11
   br label %236
@@ -933,13 +933,13 @@ thread-pre-split:                                 ; preds = %155, %151
   %265 = load i64, ptr %188, align 8
   %266 = sub i64 %264, %265
   %267 = trunc i64 %266 to i32
-  %268 = getelementptr inbounds i8, ptr %1, i64 64
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 %267, ptr %268, align 8
   %269 = load i64, ptr %186, align 8
   %270 = load i64, ptr %188, align 8
   %271 = sub i64 %269, %270
   %272 = trunc i64 %271 to i32
-  %273 = getelementptr inbounds i8, ptr %1, i64 68
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %272, ptr %273, align 4
   br label %274
 
@@ -1059,14 +1059,14 @@ define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 
 47:                                               ; preds = %45
   %48 = or i32 %46, 128
   store i32 %48, ptr %2, align 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 1 dereferenceable(16) %6, i64 16, i1 false)
   br label %65
 
 50:                                               ; preds = %45
   %51 = or i32 %46, 256
   store i32 %51, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %52, ptr noundef nonnull align 1 dereferenceable(16) %6, i64 16, i1 false)
   br label %65
 
@@ -1082,7 +1082,7 @@ define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 
 57:                                               ; preds = %55
   %58 = or i32 %56, 1
   store i32 %58, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %2, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %60 = load i32, ptr %7, align 4
   store i32 %60, ptr %59, align 4
   br label %65
@@ -1090,7 +1090,7 @@ define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 
 61:                                               ; preds = %55
   %62 = or i32 %56, 2
   store i32 %62, ptr %2, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 28
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %64 = load i32, ptr %7, align 4
   store i32 %64, ptr %63, align 4
   br label %65
@@ -1100,7 +1100,7 @@ define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 
   br i1 %.not50, label %87, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %2, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %68 = load i32, ptr %67, align 4
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %79
@@ -1133,14 +1133,14 @@ define internal fastcc void @nettrace_parse_address(ptr noundef nonnull %0, i32 
 81:                                               ; preds = %79
   %82 = or i32 %80, 4
   store i32 %82, ptr %2, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %.0, ptr %83, align 8
   br label %87
 
 84:                                               ; preds = %79
   %85 = or i32 %80, 8
   store i32 %85, ptr %2, align 8
-  %86 = getelementptr inbounds i8, ptr %2, i64 44
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 %.0, ptr %86, align 4
   br label %87
 

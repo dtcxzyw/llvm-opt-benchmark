@@ -218,7 +218,7 @@ errcode_for_dynamic_shared_memory.exit109.i:      ; preds = %81, %79
   br label %dsm_impl_posix.exit
 
 84:                                               ; preds = %70
-  %85 = getelementptr inbounds i8, ptr %14, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %86 = load i64, ptr %85, align 8
   br label %117
 
@@ -530,7 +530,7 @@ errcode_for_dynamic_shared_memory.exit118.i:      ; preds = %204, %202
   br label %dsm_impl_sysv.exit
 
 207:                                              ; preds = %195
-  %208 = getelementptr inbounds i8, ptr %11, i64 48
+  %208 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %209 = load i64, ptr %208, align 8
   br label %210
 
@@ -741,7 +741,7 @@ errcode_for_dynamic_shared_memory.exit135.i:      ; preds = %293, %291
   br label %.sink.split.i.sink.split
 
 296:                                              ; preds = %282
-  %297 = getelementptr inbounds i8, ptr %9, i64 48
+  %297 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %298 = load i64, ptr %297, align 8
   br label %.critedge.i
 

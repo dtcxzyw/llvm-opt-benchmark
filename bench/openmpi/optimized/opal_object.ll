@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @opal_class_initialize(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %2, %4
   br i1 %5, label %78, label %6
@@ -48,7 +48,7 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
   br i1 %16, label %.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %opal_atomic_lock.exit
-  %17 = getelementptr inbounds i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %17, align 4
   br label %18
 
@@ -57,19 +57,19 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
   %.03756 = phi i32 [ 0, %.lr.ph ], [ %.1, %18 ]
   %.03855 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %18 ]
   %.04454 = phi ptr [ %0, %.lr.ph ], [ %28, %18 ]
-  %20 = getelementptr inbounds i8, ptr %.04454, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.04454, i64 16
   %21 = load ptr, ptr %20, align 8
   %.not51 = icmp ne ptr %21, null
   %22 = zext i1 %.not51 to i32
   %spec.select = add nuw nsw i32 %.03855, %22
-  %23 = getelementptr inbounds i8, ptr %.04454, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.04454, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not52 = icmp ne ptr %24, null
   %25 = zext i1 %.not52 to i32
   %.1 = add nuw nsw i32 %.03756, %25
   %26 = add nuw nsw i32 %19, 1
   store i32 %26, ptr %17, align 4
-  %27 = getelementptr inbounds i8, ptr %.04454, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.04454, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %18, !llvm.loop !6
@@ -80,7 +80,7 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 3
   %33 = tail call noalias ptr @malloc(i64 noundef %32) #7
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %33, ptr %34, align 8
   %35 = icmp eq ptr %33, null
   br i1 %35, label %36, label %.lr.ph63.preheader
@@ -92,9 +92,9 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
 
 .lr.ph63.preheader:                               ; preds = %._crit_edge
   %37 = zext nneg i32 %spec.select to i64
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw ptr, ptr %33, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %39, ptr %40, align 8
   store ptr null, ptr %38, align 8
   br label %.lr.ph63
@@ -104,7 +104,7 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
   %.04060 = phi ptr [ %.141, %50 ], [ %39, %.lr.ph63.preheader ]
   %.04259 = phi ptr [ %.143, %50 ], [ %38, %.lr.ph63.preheader ]
   %.14558 = phi ptr [ %52, %50 ], [ %0, %.lr.ph63.preheader ]
-  %41 = getelementptr inbounds i8, ptr %.14558, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.14558, i64 16
   %42 = load ptr, ptr %41, align 8
   %.not49 = icmp eq ptr %42, null
   br i1 %.not49, label %45, label %43
@@ -116,19 +116,19 @@ opal_atomic_lock.exit:                            ; preds = %11, %6
 
 45:                                               ; preds = %43, %.lr.ph63
   %.143 = phi ptr [ %44, %43 ], [ %.04259, %.lr.ph63 ]
-  %46 = getelementptr inbounds i8, ptr %.14558, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.14558, i64 24
   %47 = load ptr, ptr %46, align 8
   %.not50 = icmp eq ptr %47, null
   br i1 %.not50, label %50, label %48
 
 48:                                               ; preds = %45
   store ptr %47, ptr %.04060, align 8
-  %49 = getelementptr inbounds i8, ptr %.04060, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.04060, i64 8
   br label %50
 
 50:                                               ; preds = %48, %45
   %.141 = phi ptr [ %49, %48 ], [ %.04060, %45 ]
-  %51 = getelementptr inbounds i8, ptr %.14558, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.14558, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = add nuw nsw i32 %.061, 1
   %54 = load i32, ptr %17, align 4
@@ -225,7 +225,7 @@ define noundef i32 @opal_class_finalize() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %.not6 = icmp eq ptr %8, null
   br i1 %.not6, label %10, label %9

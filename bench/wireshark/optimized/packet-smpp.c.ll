@@ -1321,7 +1321,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_smpp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 280
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 2
   br i1 %7, label %10, label %.preheader
@@ -1489,7 +1489,7 @@ define internal noundef i32 @smpp_stats_tree_per_packet(ptr noundef %0, ptr noca
   %13 = load i32, ptr @st_smpp_res, align 4
   %14 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef %12, i32 noundef %13, i32 noundef 0, i32 noundef 1) #9
   %15 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str.927, i32 noundef 0, i32 noundef 1, i32 noundef 1) #9
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = tail call ptr @rval_to_str(i32 noundef %17, ptr noundef nonnull @rvals_command_status, ptr noundef nonnull @.str.926) #9
   br label %23
@@ -1601,19 +1601,19 @@ define internal i32 @dissect_smpp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
 18:                                               ; preds = %14
   %19 = tail call ptr @export_pdu_create_common_tags(ptr noundef %1, ptr noundef nonnull @.str.425, i16 noundef zeroext 12) #9
   %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #9
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %20, ptr %21, align 8
   %22 = tail call i32 @tvb_reported_length(ptr noundef %0) #9
-  %23 = getelementptr inbounds i8, ptr %19, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 20
   store i32 %22, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %19, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %0, ptr %24, align 8
   %25 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %25, ptr noundef %1, ptr noundef %19) #9
   br label %26
 
 26:                                               ; preds = %18, %14
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.424) #9
   %29 = load ptr, ptr %27, align 8
@@ -1645,13 +1645,13 @@ define internal i32 @dissect_smpp_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %43
 
 43:                                               ; preds = %.critedge
-  %44 = getelementptr inbounds i8, ptr %42, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %45 = load ptr, ptr %44, align 8
   %.not5.i = icmp eq ptr %45, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %46
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %45, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, 2
   store i32 %49, ptr %47, align 4
@@ -1892,11 +1892,11 @@ smpp_handle_string.exit15.i:                      ; preds = %97, %smpp_handle_st
   br label %bind_receiver.exit
 
 bind_receiver.exit:                               ; preds = %114, %112, %60, %76, %77, %74, %75, %72, %73, %70, %71, %68, %69, %66, %67, %64, %65, %62, %63, %80, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %55
-  %129 = getelementptr inbounds i8, ptr %1, i64 408
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %130 = load ptr, ptr %129, align 8
   %131 = tail call noalias ptr @wmem_alloc0(ptr noundef %130, i64 noundef 8) #9
   store i32 %9, ptr %131, align 4
-  %132 = getelementptr inbounds i8, ptr %131, i64 4
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   store i32 %11, ptr %132, align 4
   %133 = load i32, ptr @smpp_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %133, ptr noundef nonnull %1, ptr noundef nonnull %131) #9
@@ -2164,7 +2164,7 @@ define internal fastcc void @submit_sm(ptr noundef %0, ptr noundef %1, ptr nound
   %9 = alloca %struct.nstime_t, align 8
   store ptr null, ptr %7, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
-  %10 = getelementptr inbounds i8, ptr %2, i64 408
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @proto_smpp, align 4
   %13 = tail call ptr @p_get_proto_data(ptr noundef %11, ptr noundef %2, i32 noundef %12, i32 noundef 0) #9
@@ -2303,7 +2303,7 @@ smpp_handle_string_return.exit66:                 ; preds = %smpp_handle_string_
   %87 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %86, ptr noundef %1, i32 noundef %85, i32 noundef 1, i32 noundef 0) #9
   %88 = add i32 %84, 2
   store i32 %88, ptr %6, align 4
-  %89 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   call void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %89)
   %90 = load i32, ptr @hf_smpp_sm_default_msg_id, align 4
   %91 = load i32, ptr %6, align 4
@@ -2352,7 +2352,7 @@ define internal fastcc void @replace_sm(ptr noundef %0, ptr noundef %1, ptr noun
   store i32 16, ptr %5, align 4
   store ptr null, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_smpp, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %2, i32 noundef %11, i32 noundef 0) #9
@@ -2454,7 +2454,7 @@ smpp_handle_string_return.exit:                   ; preds = %smpp_handle_string.
   %63 = add i32 %57, 3
   %64 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %62, ptr noundef %1, i32 noundef %61, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %7) #9
   %65 = load i32, ptr @smpp_decode_dcs_0_sms, align 4
-  %66 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 %65, ptr %66, align 4
   %67 = load i32, ptr %7, align 4
   %.not40 = icmp eq i32 %67, 0
@@ -2586,7 +2586,7 @@ define internal fastcc void @submit_multi(ptr noundef %0, ptr noundef %1, ptr no
   store i32 16, ptr %5, align 4
   store ptr null, ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds i8, ptr %2, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_smpp, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %2, i32 noundef %11, i32 noundef 0) #9
@@ -2763,7 +2763,7 @@ smpp_handle_dlist.exit:                           ; preds = %70, %smpp_handle_st
   %103 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %102, ptr noundef %1, i32 noundef %101, i32 noundef 1, i32 noundef 0) #9
   %104 = add i32 %100, 2
   store i32 %104, ptr %5, align 4
-  %105 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   call void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %105)
   %106 = load i32, ptr @hf_smpp_sm_default_msg_id, align 4
   %107 = load i32, ptr %5, align 4
@@ -2850,7 +2850,7 @@ define internal fastcc void @data_sm(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_smpp, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %2, i32 noundef %10, i32 noundef 0) #9
@@ -2938,7 +2938,7 @@ smpp_handle_string_return.exit35:                 ; preds = %smpp_handle_string_
   call void @proto_tree_add_bitmask_list(ptr noundef %0, ptr noundef %1, i32 noundef %56, i32 noundef 1, ptr noundef nonnull @regdel_fields, i32 noundef 0) #9
   %57 = add i32 %52, 2
   store i32 %57, ptr %6, align 4
-  %58 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   call void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %58)
   call fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %6, ptr noundef nonnull %7)
   %59 = load ptr, ptr %7, align 8
@@ -2962,7 +2962,7 @@ define internal fastcc void @broadcast_sm(ptr noundef %0, ptr noundef %1, ptr no
   store i32 16, ptr %5, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_smpp, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %2, i32 noundef %10, i32 noundef 0) #9
@@ -3077,7 +3077,7 @@ smpp_handle_string.exit:                          ; preds = %smpp_handle_string_
   %69 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %68, ptr noundef %1, i32 noundef %67, i32 noundef 1, i32 noundef 0) #9
   %70 = add i32 %67, 1
   store i32 %70, ptr %5, align 4
-  %71 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   call void @smpp_handle_dcs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %71)
   %72 = load i32, ptr @hf_smpp_sm_default_msg_id, align 4
   %73 = load i32, ptr %5, align 4
@@ -4222,7 +4222,7 @@ define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr
   br i1 %443, label %445, label %466
 
 445:                                              ; preds = %._crit_edge
-  %446 = getelementptr inbounds i8, ptr %2, i64 408
+  %446 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %447 = load ptr, ptr %446, align 8
   %448 = load i32, ptr @proto_smpp, align 4
   %449 = tail call ptr @p_get_proto_data(ptr noundef %447, ptr noundef %2, i32 noundef %448, i32 noundef 0) #9
@@ -4239,7 +4239,7 @@ define internal fastcc void @smpp_handle_tlv(ptr noundef %0, ptr noundef %1, ptr
 
 get_smpp_data.exit:                               ; preds = %445, %450
   %.0.i = phi ptr [ %449, %445 ], [ %452, %450 ]
-  %455 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %455 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %456 = load ptr, ptr %455, align 8
   %457 = icmp eq ptr %456, null
   br i1 %457, label %458, label %461
@@ -4252,10 +4252,10 @@ get_smpp_data.exit:                               ; preds = %445, %450
 
 461:                                              ; preds = %458, %get_smpp_data.exit
   %462 = phi ptr [ %460, %458 ], [ %456, %get_smpp_data.exit ]
-  %463 = getelementptr inbounds i8, ptr %462, i64 6
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 6
   store i16 %.1, ptr %463, align 2
   %464 = load ptr, ptr %455, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
   store i16 %.1442, ptr %465, align 2
   br label %466
 
@@ -4267,7 +4267,7 @@ get_smpp_data.exit:                               ; preds = %445, %450
   br i1 %or.cond10, label %469, label %.thread
 
 469:                                              ; preds = %466
-  %470 = getelementptr inbounds i8, ptr %2, i64 408
+  %470 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %471 = load ptr, ptr %470, align 8
   %472 = load i32, ptr @proto_smpp, align 4
   %473 = tail call ptr @p_get_proto_data(ptr noundef %471, ptr noundef %2, i32 noundef %472, i32 noundef 0) #9
@@ -4284,7 +4284,7 @@ get_smpp_data.exit:                               ; preds = %445, %450
 
 get_smpp_data.exit466:                            ; preds = %469, %474
   %.0.i465 = phi ptr [ %473, %469 ], [ %476, %474 ]
-  %479 = getelementptr inbounds i8, ptr %.0.i465, i64 8
+  %479 = getelementptr inbounds nuw i8, ptr %.0.i465, i64 8
   %480 = load ptr, ptr %479, align 8
   %481 = icmp eq ptr %480, null
   br i1 %481, label %482, label %485
@@ -4300,11 +4300,11 @@ get_smpp_data.exit466:                            ; preds = %469, %474
   store i16 %.1440, ptr %486, align 2
   %487 = zext i8 %.1438 to i16
   %488 = load ptr, ptr %479, align 8
-  %489 = getelementptr inbounds i8, ptr %488, i64 2
+  %489 = getelementptr inbounds nuw i8, ptr %488, i64 2
   store i16 %487, ptr %489, align 2
   %490 = zext i8 %.1436 to i16
   %491 = load ptr, ptr %479, align 8
-  %492 = getelementptr inbounds i8, ptr %491, i64 4
+  %492 = getelementptr inbounds nuw i8, ptr %491, i64 4
   store i16 %490, ptr %492, align 2
   br label %.thread
 
@@ -4341,7 +4341,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   br i1 %14, label %15, label %116
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %8, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
   %17 = getelementptr i8, ptr %10, i64 15
   %18 = load i8, ptr %17, align 1
@@ -4352,7 +4352,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %23 = load i8, ptr %22, align 1
   %24 = sext i8 %23 to i32
   %25 = add nsw i32 %21, %24
-  %26 = getelementptr inbounds i8, ptr %6, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %27 = icmp slt i32 %25, 566
   %spec.select.v.i = select i1 %27, i32 -428, i32 -528
   %spec.select.i = add nsw i32 %spec.select.v.i, %25
@@ -4364,7 +4364,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %32 = getelementptr i8, ptr %10, i64 3
   %33 = load i8, ptr %32, align 1
   %34 = sext i8 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %6, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %36 = add nsw i32 %34, -529
   %37 = add nsw i32 %36, %31
   store i32 %37, ptr %35, align 8
@@ -4377,7 +4377,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %44 = sext i8 %43 to i32
   %45 = add nsw i32 %44, -528
   %46 = add nsw i32 %45, %41
-  %47 = getelementptr inbounds i8, ptr %6, i64 12
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %46, ptr %47, align 4
   %48 = getelementptr i8, ptr %10, i64 6
   %49 = load i8, ptr %48, align 1
@@ -4388,7 +4388,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %54 = sext i8 %53 to i32
   %55 = add nsw i32 %54, -528
   %56 = add nsw i32 %55, %51
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %56, ptr %57, align 8
   %58 = getelementptr i8, ptr %10, i64 8
   %59 = load i8, ptr %58, align 1
@@ -4399,7 +4399,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %64 = sext i8 %63 to i32
   %65 = add nsw i32 %64, -528
   %66 = add nsw i32 %65, %61
-  %67 = getelementptr inbounds i8, ptr %6, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %66, ptr %67, align 4
   %68 = getelementptr i8, ptr %10, i64 10
   %69 = load i8, ptr %68, align 1
@@ -4411,7 +4411,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
   %75 = add nsw i32 %74, -528
   %76 = add nsw i32 %75, %71
   store i32 %76, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %6, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %77, align 8
   br i1 %19, label %102, label %78
 
@@ -4482,7 +4482,7 @@ define internal fastcc void @smpp_handle_time(ptr noundef %0, ptr noundef %1, pt
 
 116:                                              ; preds = %12
   store i64 0, ptr %8, align 8
-  %117 = getelementptr inbounds i8, ptr %8, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 0, ptr %117, align 8
   %118 = load i32, ptr %4, align 4
   %119 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_time_format_value(ptr noundef %0, i32 noundef %3, ptr noundef %1, i32 noundef %118, i32 noundef %13, ptr noundef nonnull %8, ptr noundef nonnull @.str.916, ptr noundef nonnull %10) #9
@@ -4519,7 +4519,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_smpp, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %2, i32 noundef %8, i32 noundef 0) #9
@@ -4536,7 +4536,7 @@ define internal fastcc void @smpp_handle_msg(ptr noundef %0, ptr noundef nonnull
 
 get_smpp_data.exit:                               ; preds = %5, %10
   %.0.i = phi ptr [ %9, %5 ], [ %12, %10 ]
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %16 = load i32, ptr %15, align 4
   %17 = tail call i32 @tvb_reported_length(ptr noundef nonnull %1) #9
   %18 = load i32, ptr %.0.i, align 8
@@ -4553,24 +4553,24 @@ get_smpp_data.exit:                               ; preds = %5, %10
 
 .thread:                                          ; preds = %get_smpp_data.exit, %19
   %.051 = phi i32 [ %22, %19 ], [ 0, %get_smpp_data.exit ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not40 = icmp eq ptr %24, null
   br i1 %.not40, label %49, label %25
 
 25:                                               ; preds = %.thread, %19
   %.049 = phi i32 [ %.051, %.thread ], [ %22, %19 ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 208
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 212
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %2, i64 216
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 236
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %2, i64 240
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #11
   %39 = trunc i64 %38 to i32
@@ -4578,7 +4578,7 @@ get_smpp_data.exit:                               ; preds = %5, %10
   store i32 7, ptr %26, align 8
   store i32 %40, ptr %28, align 4
   store ptr %3, ptr %30, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 224
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 224
   store ptr null, ptr %41, align 8
   %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #11
   %43 = trunc i64 %42 to i32
@@ -4586,7 +4586,7 @@ get_smpp_data.exit:                               ; preds = %5, %10
   store i32 7, ptr %32, align 8
   store i32 %44, ptr %34, align 4
   store ptr %4, ptr %36, align 8
-  %45 = getelementptr inbounds i8, ptr %2, i64 248
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 248
   store ptr null, ptr %45, align 8
   %46 = load ptr, ptr @gsm_sms_handle, align 8
   %47 = tail call ptr @proto_tree_get_parent_tree(ptr noundef %0) #9

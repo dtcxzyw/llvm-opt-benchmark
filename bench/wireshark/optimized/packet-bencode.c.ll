@@ -435,7 +435,7 @@ define internal fastcc range(i32 2, 0) i32 @dissect_bencoding_str(ptr noundef %0
 
 .sink.split:                                      ; preds = %23, %29
   %.str.30.sink = phi ptr [ @.str.31, %29 ], [ @.str.30, %23 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 408
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @tvb_format_text(ptr noundef %31, ptr noundef %0, i32 noundef %27, i32 noundef %.081) #2
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull %.str.30.sink, ptr noundef %32) #2

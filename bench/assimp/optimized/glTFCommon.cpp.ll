@@ -27,9 +27,9 @@ if.then2:                                         ; preds = %if.end
 
 if.end6:                                          ; preds = %if.then2, %if.end
   store ptr @.str.1, ptr %out, align 8
-  %charset = getelementptr inbounds i8, ptr %out, i64 8
+  %charset = getelementptr inbounds nuw i8, ptr %out, i64 8
   store ptr @.str.2, ptr %charset, align 8
-  %base64 = getelementptr inbounds i8, ptr %out, i64 16
+  %base64 = getelementptr inbounds nuw i8, ptr %out, i64 16
   store i8 0, ptr %base64, align 8
   %1 = load i8, ptr %const_uri, align 1
   %cmp9.not = icmp eq i8 %1, 16
@@ -37,11 +37,11 @@ if.end6:                                          ; preds = %if.then2, %if.end
 
 if.then10:                                        ; preds = %if.end6
   store i8 16, ptr %const_uri, align 1
-  %arrayidx12 = getelementptr inbounds i8, ptr %const_uri, i64 4
-  %arrayidx13 = getelementptr inbounds i8, ptr %const_uri, i64 3
-  %arrayidx14 = getelementptr inbounds i8, ptr %const_uri, i64 2
-  %arrayidx15 = getelementptr inbounds i8, ptr %const_uri, i64 1
-  %arrayidx16 = getelementptr inbounds i8, ptr %const_uri, i64 5
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %const_uri, i64 4
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %const_uri, i64 3
+  %arrayidx14 = getelementptr inbounds nuw i8, ptr %const_uri, i64 2
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %const_uri, i64 1
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %const_uri, i64 5
   store i32 0, ptr %arrayidx15, align 1
   %2 = load i8, ptr %arrayidx16, align 1
   switch i8 %2, label %if.then22 [
@@ -145,7 +145,7 @@ if.end82.sink.split:                              ; preds = %if.else76, %if.then
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end82.sink.split, %if.end6
-  %arrayidx83 = getelementptr inbounds i8, ptr %const_uri, i64 1
+  %arrayidx83 = getelementptr inbounds nuw i8, ptr %const_uri, i64 1
   %8 = load i8, ptr %arrayidx83, align 1
   %cmp85.not = icmp eq i8 %8, 0
   br i1 %cmp85.not, label %if.end91, label %if.then86
@@ -157,7 +157,7 @@ if.then86:                                        ; preds = %if.end82
   br label %if.end91
 
 if.end91:                                         ; preds = %if.then86, %if.end82
-  %arrayidx92 = getelementptr inbounds i8, ptr %const_uri, i64 2
+  %arrayidx92 = getelementptr inbounds nuw i8, ptr %const_uri, i64 2
   %9 = load i8, ptr %arrayidx92, align 1
   %cmp94.not = icmp eq i8 %9, 0
   br i1 %cmp94.not, label %if.end101, label %if.then95
@@ -169,7 +169,7 @@ if.then95:                                        ; preds = %if.end91
   br label %if.end101
 
 if.end101:                                        ; preds = %if.then95, %if.end91
-  %arrayidx102 = getelementptr inbounds i8, ptr %const_uri, i64 3
+  %arrayidx102 = getelementptr inbounds nuw i8, ptr %const_uri, i64 3
   %10 = load i8, ptr %arrayidx102, align 1
   %cmp104.not = icmp eq i8 %10, 0
   br i1 %cmp104.not, label %if.end107, label %if.then105
@@ -179,14 +179,14 @@ if.then105:                                       ; preds = %if.end101
   br label %if.end107
 
 if.end107:                                        ; preds = %if.then105, %if.end101
-  %arrayidx108 = getelementptr inbounds i8, ptr %const_uri, i64 4
+  %arrayidx108 = getelementptr inbounds nuw i8, ptr %const_uri, i64 4
   %11 = load i8, ptr %arrayidx108, align 1
   %idx.ext110 = sext i8 %11 to i64
   %add.ptr111 = getelementptr inbounds i8, ptr %const_uri, i64 %idx.ext110
-  %data = getelementptr inbounds i8, ptr %out, i64 24
+  %data = getelementptr inbounds nuw i8, ptr %out, i64 24
   store ptr %add.ptr111, ptr %data, align 8
   %gepdiff = sub nsw i64 %uriLen, %idx.ext110
-  %dataLength = getelementptr inbounds i8, ptr %out, i64 32
+  %dataLength = getelementptr inbounds nuw i8, ptr %out, i64 32
   store i64 %gepdiff, ptr %dataLength, align 8
   br label %return
 

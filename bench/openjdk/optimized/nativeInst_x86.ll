@@ -94,8 +94,8 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef nonnull ptr @_ZNK10NativeCall11destinationEv(ptr noundef nonnull readonly align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 5
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %2, i64 %5
@@ -106,8 +106,8 @@ define hidden noundef nonnull ptr @_ZNK10NativeCall11destinationEv(ptr noundef n
 define hidden void @_ZN10NativeCall5printEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @tty, align 8
   %3 = ptrtoint ptr %0 to i64
-  %4 = getelementptr inbounds i8, ptr %0, i64 5
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %4, i64 %7
@@ -135,7 +135,7 @@ define hidden void @_ZN10NativeCall6insertEPhS0_(ptr noundef %0, ptr noundef %1)
   %10 = trunc i64 %reass.sub to i32
   %11 = add i32 %10, -5
   store i8 -24, ptr %0, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 %11, ptr %12, align 4
   tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef nonnull %0, i32 noundef 5) #7
   ret void
@@ -162,9 +162,9 @@ define hidden void @_ZN10NativeCall15replace_mt_safeEPhS0_(ptr noundef %0, ptr n
 8:                                                ; preds = %2
   store i32 -18088213, ptr %0, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %0) #7
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i8, ptr %9, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %10, ptr %11, align 1
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %11) #7
   %12 = load i32, ptr %1, align 4
@@ -175,7 +175,7 @@ define hidden void @_ZN10NativeCall15replace_mt_safeEPhS0_(ptr noundef %0, ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef zeroext i1 @_ZN10NativeCall23is_displacement_alignedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 3
   %5 = icmp eq i64 %4, 0
@@ -184,7 +184,7 @@ define hidden noundef zeroext i1 @_ZN10NativeCall23is_displacement_alignedEv(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10NativeCall23set_destination_mt_safeEPh(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = ptrtoint ptr %3 to i64
   %5 = and i64 %4, 3
   %6 = icmp eq i64 %5, 0
@@ -197,7 +197,7 @@ define hidden void @_ZN10NativeCall23set_destination_mt_safeEPh(ptr noundef nonn
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 5
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %11 = ptrtoint ptr %1 to i64
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
@@ -230,7 +230,7 @@ define hidden void @_ZN17NativeMovConstReg6verifyEv(ptr noundef nonnull align 1 
   br i1 %6, label %7, label %switch.edge
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %10 [
     i8 8, label %switch.edge
@@ -245,7 +245,7 @@ switch.edge:                                      ; preds = %4, %1, %10, %7, %7,
   %.sink = phi i64 [ 2, %7 ], [ 2, %7 ], [ 2, %7 ], [ 2, %10 ], [ 1, %1 ], [ 1, %4 ]
   %.not4 = phi i1 [ true, %7 ], [ true, %7 ], [ true, %7 ], [ false, %10 ], [ false, %1 ], [ false, %4 ]
   %11 = phi i1 [ false, %7 ], [ false, %7 ], [ false, %7 ], [ false, %10 ], [ true, %1 ], [ %5, %4 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %13 = load i8, ptr %12, align 1
   %brmerge.not = and i1 %.not4, %11
   %14 = and i8 %13, -8
@@ -271,7 +271,7 @@ define hidden void @_ZN17NativeMovConstReg5printEv(ptr noundef nonnull align 1 d
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, -43
   %6 = select i1 %5, i64 3, i64 2
-  %7 = getelementptr inbounds i8, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
   %8 = load i64, ptr %7, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.14, i64 noundef %3, i64 noundef %8) #7
   ret void
@@ -298,7 +298,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
   br i1 %or.cond, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   br label %10
 
@@ -311,7 +311,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 12:                                               ; preds = %10
   %13 = or disjoint i32 %.040, 2
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 1
   br label %17
 
@@ -324,7 +324,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 19:                                               ; preds = %17
   %20 = add nuw nsw i32 %.141, 2
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1
   br label %24
 
@@ -337,7 +337,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %.242, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
   %30 = load i8, ptr %29, align 1
   br label %31
 
@@ -351,7 +351,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 33:                                               ; preds = %31
   %34 = add nuw nsw i32 %.343, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %37 = load i8, ptr %36, align 1
   br label %38
 
@@ -364,7 +364,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 40:                                               ; preds = %38
   %41 = add nuw nsw i32 %.444, 2
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = load i8, ptr %43, align 1
   br label %45
 
@@ -378,7 +378,7 @@ define hidden noundef range(i32 0, 12) i32 @_ZNK15NativeMovRegMem17instruction_s
 47:                                               ; preds = %45
   %48 = add nuw nsw i32 %.545, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
   %51 = load i8, ptr %50, align 1
   br label %52
 
@@ -416,7 +416,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
   br i1 %or.cond.i, label %5, label %8
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1
   br label %8
 
@@ -429,7 +429,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
 10:                                               ; preds = %8
   %11 = or disjoint i32 %.040.i, 2
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i8, ptr %13, align 1
   br label %15
 
@@ -442,7 +442,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
 17:                                               ; preds = %15
   %18 = add nuw nsw i32 %.141.i, 2
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %19
   %21 = load i8, ptr %20, align 1
   br label %22
 
@@ -455,7 +455,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
 24:                                               ; preds = %22
   %25 = add nuw nsw i32 %.242.i, 1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 %26
   %28 = load i8, ptr %27, align 1
   br label %29
 
@@ -469,7 +469,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
 31:                                               ; preds = %29
   %32 = add nuw nsw i32 %.343.i, 1
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %33
   %35 = load i8, ptr %34, align 1
   br label %36
 
@@ -482,7 +482,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
 38:                                               ; preds = %36
   %39 = add nuw nsw i32 %.444.i, 2
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
   %42 = load i8, ptr %41, align 1
   br label %43
 
@@ -496,7 +496,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit.thread8: ; preds = %1
 45:                                               ; preds = %43
   %46 = add nuw nsw i32 %.545.i, 1
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   %49 = load i8, ptr %48, align 1
   br label %_ZNK15NativeMovRegMem17instruction_startEv.exit
 
@@ -523,7 +523,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
   br i1 %or.cond.i, label %56, label %59
 
 56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %0, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %58 = load i8, ptr %57, align 1
   br label %59
 
@@ -536,7 +536,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
 61:                                               ; preds = %59
   %62 = or disjoint i32 %.040.i.i, 2
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
   %65 = load i8, ptr %64, align 1
   br label %66
 
@@ -549,7 +549,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
 68:                                               ; preds = %66
   %69 = add nuw nsw i32 %.141.i.i, 2
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %70
   %72 = load i8, ptr %71, align 1
   br label %73
 
@@ -562,7 +562,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
 75:                                               ; preds = %73
   %76 = add nuw nsw i32 %.242.i.i, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %0, i64 %77
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 %77
   %79 = load i8, ptr %78, align 1
   br label %80
 
@@ -576,7 +576,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
 82:                                               ; preds = %80
   %83 = add nuw nsw i32 %.343.i.i, 1
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %84
   %86 = load i8, ptr %85, align 1
   br label %87
 
@@ -589,7 +589,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
 89:                                               ; preds = %87
   %90 = add nuw nsw i32 %.444.i.i, 2
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 %91
   %93 = load i8, ptr %92, align 1
   br label %94
 
@@ -603,7 +603,7 @@ _ZNK15NativeMovRegMem17instruction_startEv.exit:  ; preds = %43, %45
 96:                                               ; preds = %94
   %97 = add nuw nsw i32 %.545.i.i, 1
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds i8, ptr %0, i64 %98
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 %98
   %100 = load i8, ptr %99, align 1
   br label %101
 
@@ -620,8 +620,8 @@ _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %_ZNK15NativeMo
   %105 = phi i32 [ %52, %101 ], [ %52, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 5, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ %52, %53 ], [ 6, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ %52, %54 ], [ 4, %1 ]
   %.047.i4 = phi i32 [ %spec.select.i, %101 ], [ %spec.select.i, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 3, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ %spec.select.i, %53 ], [ 4, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ %spec.select.i, %54 ], [ 2, %1 ]
   %.047.i.i = phi i64 [ %104, %101 ], [ 2, %_ZNK15NativeMovRegMem17instruction_startEv.exit ], [ 3, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread5 ], [ 3, %53 ], [ 4, %_ZNK15NativeMovRegMem17instruction_startEv.exit.thread8 ], [ 4, %54 ], [ 2, %1 ]
-  %106 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
-  %107 = getelementptr inbounds i8, ptr %106, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
   %108 = load i8, ptr %107, align 1
   %109 = and i8 %108, 7
   %110 = icmp eq i8 %109, 4
@@ -651,7 +651,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
   br i1 %or.cond.i.i, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   br label %10
 
@@ -664,7 +664,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 12:                                               ; preds = %10
   %13 = or disjoint i32 %.040.i.i, 2
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 1
   br label %17
 
@@ -677,7 +677,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 19:                                               ; preds = %17
   %20 = add nuw nsw i32 %.141.i.i, 2
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1
   br label %24
 
@@ -690,7 +690,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %.242.i.i, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
   %30 = load i8, ptr %29, align 1
   br label %31
 
@@ -704,7 +704,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 33:                                               ; preds = %31
   %34 = add nuw nsw i32 %.343.i.i, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %37 = load i8, ptr %36, align 1
   br label %38
 
@@ -717,7 +717,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 40:                                               ; preds = %38
   %41 = add nuw nsw i32 %.444.i.i, 2
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = load i8, ptr %43, align 1
   br label %45
 
@@ -731,7 +731,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 47:                                               ; preds = %45
   %48 = add nuw nsw i32 %.545.i.i, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
   %51 = load i8, ptr %50, align 1
   br label %52
 
@@ -746,7 +746,7 @@ define hidden void @_ZN15NativeMovRegMem6verifyEv(ptr nocapture noundef nonnull 
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %3, %4, %52
   %.047.i.i = phi i64 [ 3, %3 ], [ 4, %4 ], [ %55, %52 ], [ 2, %1 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
     i8 -120, label %60
@@ -798,7 +798,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
   br i1 %or.cond.i.i, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   br label %11
 
@@ -811,7 +811,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 13:                                               ; preds = %11
   %14 = or disjoint i32 %.040.i.i, 2
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = load i8, ptr %16, align 1
   br label %18
 
@@ -824,7 +824,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 20:                                               ; preds = %18
   %21 = add nuw nsw i32 %.141.i.i, 2
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %24 = load i8, ptr %23, align 1
   br label %25
 
@@ -837,7 +837,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 27:                                               ; preds = %25
   %28 = add nuw nsw i32 %.242.i.i, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
   %31 = load i8, ptr %30, align 1
   br label %32
 
@@ -851,7 +851,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 34:                                               ; preds = %32
   %35 = add nuw nsw i32 %.343.i.i, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
   %38 = load i8, ptr %37, align 1
   br label %39
 
@@ -864,7 +864,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 41:                                               ; preds = %39
   %42 = add nuw nsw i32 %.444.i.i, 2
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %45 = load i8, ptr %44, align 1
   br label %46
 
@@ -878,7 +878,7 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 48:                                               ; preds = %46
   %49 = add nuw nsw i32 %.545.i.i, 1
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
   br label %53
 
@@ -893,11 +893,11 @@ define hidden void @_ZN15NativeMovRegMem5printEv(ptr noundef nonnull align 1 der
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
   %.047.i.i = phi i64 [ 3, %4 ], [ 4, %5 ], [ %56, %53 ], [ 2, %1 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %58 = ptrtoint ptr %57 to i64
   %59 = tail call noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.16, i64 noundef %58, i32 noundef %62) #7
   ret void
@@ -924,7 +924,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
   br i1 %or.cond.i.i, label %7, label %10
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %9 = load i8, ptr %8, align 1
   br label %10
 
@@ -937,7 +937,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 12:                                               ; preds = %10
   %13 = or disjoint i32 %.040.i.i, 2
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds i8, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 1
   br label %17
 
@@ -950,7 +950,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 19:                                               ; preds = %17
   %20 = add nuw nsw i32 %.141.i.i, 2
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = load i8, ptr %22, align 1
   br label %24
 
@@ -963,7 +963,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 26:                                               ; preds = %24
   %27 = add nuw nsw i32 %.242.i.i, 1
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %28
   %30 = load i8, ptr %29, align 1
   br label %31
 
@@ -977,7 +977,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 33:                                               ; preds = %31
   %34 = add nuw nsw i32 %.343.i.i, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
   %37 = load i8, ptr %36, align 1
   br label %38
 
@@ -990,7 +990,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 40:                                               ; preds = %38
   %41 = add nuw nsw i32 %.444.i.i, 2
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %44 = load i8, ptr %43, align 1
   br label %45
 
@@ -1004,7 +1004,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 47:                                               ; preds = %45
   %48 = add nuw nsw i32 %.545.i.i, 1
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 %49
   %51 = load i8, ptr %50, align 1
   br label %52
 
@@ -1019,7 +1019,7 @@ define hidden void @_ZN17NativeLoadAddress6verifyEv(ptr nocapture noundef nonnul
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %3, %4, %52
   %.047.i.i = phi i64 [ 3, %3 ], [ 4, %4 ], [ %55, %52 ], [ 2, %1 ]
-  %56 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %57 = load i8, ptr %56, align 1
   switch i8 %57, label %58 [
     i8 -72, label %60
@@ -1058,7 +1058,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
   br i1 %or.cond.i.i, label %8, label %11
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %10 = load i8, ptr %9, align 1
   br label %11
 
@@ -1071,7 +1071,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 13:                                               ; preds = %11
   %14 = or disjoint i32 %.040.i.i, 2
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   %17 = load i8, ptr %16, align 1
   br label %18
 
@@ -1084,7 +1084,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 20:                                               ; preds = %18
   %21 = add nuw nsw i32 %.141.i.i, 2
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   %24 = load i8, ptr %23, align 1
   br label %25
 
@@ -1097,7 +1097,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 27:                                               ; preds = %25
   %28 = add nuw nsw i32 %.242.i.i, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
   %31 = load i8, ptr %30, align 1
   br label %32
 
@@ -1111,7 +1111,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 34:                                               ; preds = %32
   %35 = add nuw nsw i32 %.343.i.i, 1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %36
   %38 = load i8, ptr %37, align 1
   br label %39
 
@@ -1124,7 +1124,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 41:                                               ; preds = %39
   %42 = add nuw nsw i32 %.444.i.i, 2
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 %43
   %45 = load i8, ptr %44, align 1
   br label %46
 
@@ -1138,7 +1138,7 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 48:                                               ; preds = %46
   %49 = add nuw nsw i32 %.545.i.i, 1
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %0, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
   %52 = load i8, ptr %51, align 1
   br label %53
 
@@ -1153,11 +1153,11 @@ define hidden void @_ZN17NativeLoadAddress5printEv(ptr noundef nonnull align 1 d
 
 _ZNK15NativeMovRegMem19instruction_addressEv.exit: ; preds = %1, %4, %5, %53
   %.047.i.i = phi i64 [ 3, %4 ], [ 4, %5 ], [ %56, %53 ], [ 2, %1 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 %.047.i.i
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 %.047.i.i
   %58 = ptrtoint ptr %57 to i64
   %59 = tail call noundef i32 @_ZNK15NativeMovRegMem12patch_offsetEv(ptr noundef nonnull align 1 dereferenceable(1) %0)
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.18, i64 noundef %58, i32 noundef %62) #7
   ret void
@@ -1172,13 +1172,13 @@ define hidden void @_ZN10NativeJump6verifyEv(ptr nocapture noundef nonnull reado
 3:                                                ; preds = %1
   %4 = icmp eq i8 %2, -43
   %5 = select i1 %4, i64 11, i64 10
-  %6 = getelementptr inbounds i8, ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 65
   br i1 %8, label %.split.i, label %.split2.i
 
 .split.i:                                         ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %10 = load i8, ptr %9, align 1
   br label %.split2.i
 
@@ -1189,7 +1189,7 @@ define hidden void @_ZN10NativeJump6verifyEv(ptr nocapture noundef nonnull reado
   br i1 %11, label %_ZN17NativeInstruction11is_jump_regEv.exit, label %_ZN17NativeInstruction11is_jump_regEv.exit.thread
 
 _ZN17NativeInstruction11is_jump_regEv.exit:       ; preds = %.split2.i
-  %12 = getelementptr inbounds i8, ptr %6, i64 %.0.i
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %.0.i
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, -16
   %15 = icmp eq i8 %14, -32
@@ -1224,7 +1224,7 @@ define hidden void @_ZN10NativeJump6insertEPhS0_(ptr noundef %0, ptr noundef %1)
   %10 = trunc i64 %reass.sub to i32
   %11 = add i32 %10, -5
   store i8 -23, ptr %0, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 %11, ptr %12, align 4
   tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef nonnull %0, i32 noundef 5) #7
   ret void
@@ -1306,7 +1306,7 @@ define hidden void @_ZN17NativeGeneralJump20insert_unconditionalEPhS0_(ptr nound
   %10 = trunc i64 %reass.sub to i32
   %11 = add i32 %10, -5
   store i8 -23, ptr %0, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 %11, ptr %12, align 4
   tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef nonnull %0, i32 noundef 5) #7
   ret void
@@ -1316,9 +1316,9 @@ define hidden void @_ZN17NativeGeneralJump20insert_unconditionalEPhS0_(ptr nound
 define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   store i32 -18088213, ptr %0, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %0) #7
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 %4, ptr %5, align 1
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %5) #7
   %6 = load i32, ptr %1, align 4
@@ -1343,9 +1343,9 @@ define hidden noundef nonnull ptr @_ZNK17NativeGeneralJump16jump_destinationEv(p
 
 9:                                                ; preds = %1, %1
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = getelementptr inbounds i8, ptr %11, i64 %15
@@ -1353,8 +1353,8 @@ define hidden noundef nonnull ptr @_ZNK17NativeGeneralJump16jump_destinationEv(p
 
 17:                                               ; preds = %1
   %18 = zext nneg i32 %8 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %0, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = sext i8 %21 to i64
   %23 = getelementptr inbounds i8, ptr %19, i64 %22
@@ -1375,9 +1375,9 @@ define hidden void @_ZN17NativePostCallNop10make_deoptEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22NativeDeoptInstruction6insertEPhb(ptr noundef initializes((0, 3)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   store i8 15, ptr %0, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 -1, ptr %3, align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 0, ptr %4, align 1
   br i1 %1, label %5, label %6
 
@@ -1399,7 +1399,7 @@ define hidden noundef zeroext i1 @_ZN17NativePostCallNop5patchEii(ptr nocapture 
 4:                                                ; preds = %3
   %5 = shl nuw i32 %1, 24
   %6 = or disjoint i32 %5, %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %6, ptr %7, align 4
   br label %8
 

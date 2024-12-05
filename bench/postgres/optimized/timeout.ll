@@ -40,11 +40,11 @@ define dso_local void @InitializeTimeouts() local_unnamed_addr #0 {
   %2 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %indvars.iv
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %3, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store volatile i8 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 5
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store volatile i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %6, i8 0, i64 28, i1 false)
@@ -85,7 +85,7 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
 .lr.ph:                                           ; preds = %9, %53
   %.01419 = phi i64 [ %54, %53 ], [ %10, %9 ]
   %13 = load volatile ptr, ptr @active_timeouts, align 16
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i64, ptr %14, align 8
   %.not17 = icmp slt i64 %.01419, %15
   br i1 %.not17, label %.critedge, label %16
@@ -107,7 +107,7 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
 
 24:                                               ; preds = %16
   %25 = load volatile ptr, ptr @active_timeouts, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store volatile i8 0, ptr %26, align 4
   %27 = load volatile i32, ptr @num_active_timeouts, align 4
   %28 = icmp sgt i32 %27, 1
@@ -132,18 +132,18 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i, %24
   %36 = load volatile i32, ptr @num_active_timeouts, align 4
   %37 = add i32 %36, -1
   store volatile i32 %37, ptr @num_active_timeouts, align 4
-  %38 = getelementptr inbounds i8, ptr %17, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %17, i64 5
   store volatile i8 1, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %17, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void %40() #9
-  %41 = getelementptr inbounds i8, ptr %17, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %53
 
 44:                                               ; preds = %remove_timeout_index.exit
-  %45 = getelementptr inbounds i8, ptr %17, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = zext nneg i32 %42 to i64
   %48 = mul nuw nsw i64 %47, 1000
@@ -266,7 +266,7 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
 
 14:                                               ; preds = %13, %9, %7
   %15 = load volatile ptr, ptr @active_timeouts, align 16
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = icmp sgt i64 %0, %17
   br i1 %18, label %19, label %20
@@ -292,10 +292,10 @@ define internal fastcc void @schedule_alarm(i64 noundef %0) unnamed_addr #0 {
 25:                                               ; preds = %.sink.split, %20
   %26 = phi i32 [ %23, %20 ], [ 1, %.sink.split ]
   %27 = phi i64 [ %21, %20 ], [ 0, %.sink.split ]
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %27, ptr %28, align 8
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds i8, ptr %2, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %29, ptr %30, align 8
   store volatile i32 1, ptr @alarm_enabled, align 4
   %31 = load volatile i32, ptr @signal_pending, align 4
@@ -344,7 +344,7 @@ define dso_local void @enable_timeout_after(i32 noundef %0, i32 noundef %1) loca
 define internal fastcc void @enable_timeout(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = zext i32 %0 to i64
   %6 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load volatile i8, ptr %7, align 4
   %9 = trunc i8 %8 to i1
   br i1 %9, label %10, label %43
@@ -388,7 +388,7 @@ find_active_timeout.exit.thread:                  ; preds = %18, %10, %find_acti
   %27 = and i64 %indvars.iv.i, 4294967295
   %28 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store volatile i8 0, ptr %30, align 4
   %.010.i = add nuw nsw i32 %21, 1
   %31 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -430,7 +430,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i21, %26
   %46 = zext nneg i32 %.029 to i64
   %47 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %46
   %48 = load volatile ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8
   %51 = icmp slt i64 %2, %50
   br i1 %51, label %.loopexit, label %52
@@ -452,13 +452,13 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i21, %26
 
 .loopexit:                                        ; preds = %54, %.lr.ph, %57, %43
   %.0.lcssa = phi i32 [ 0, %43 ], [ %.029, %54 ], [ %.029, %.lr.ph ], [ %58, %57 ]
-  %61 = getelementptr inbounds i8, ptr %6, i64 5
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store volatile i8 0, ptr %61, align 1
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %1, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %6, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %2, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %6, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 %3, ptr %64, align 8
   %65 = load volatile i32, ptr @num_active_timeouts, align 4
   %66 = icmp sgt i32 %.0.lcssa, %65
@@ -540,7 +540,7 @@ define dso_local void @enable_timeouts(ptr nocapture noundef readonly %0, i32 no
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %5 = getelementptr %struct.EnableTimeoutParams, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %24 [
     i32 0, label %9
@@ -549,7 +549,7 @@ define dso_local void @enable_timeouts(ptr nocapture noundef readonly %0, i32 no
   ]
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = sext i32 %11 to i64
   %13 = mul nsw i64 %12, 1000
@@ -558,13 +558,13 @@ define dso_local void @enable_timeouts(ptr nocapture noundef readonly %0, i32 no
   br label %29
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %17 = load i64, ptr %16, align 8
   tail call fastcc void @enable_timeout(i32 noundef %6, i64 noundef %3, i64 noundef %17, i32 noundef 0)
   br label %29
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   %22 = mul nsw i64 %21, 1000
@@ -573,7 +573,7 @@ define dso_local void @enable_timeouts(ptr nocapture noundef readonly %0, i32 no
   br label %29
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds i8, ptr %5, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %26)
   %27 = load i32, ptr %25, align 4
@@ -598,7 +598,7 @@ define dso_local void @disable_timeout(i32 noundef %0, i1 noundef zeroext %1) lo
   store volatile i32 0, ptr @alarm_enabled, align 4
   %3 = zext i32 %0 to i64
   %4 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %3
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load volatile i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %41
@@ -642,7 +642,7 @@ find_active_timeout.exit.thread:                  ; preds = %16, %8, %find_activ
   %25 = and i64 %indvars.iv.i, 4294967295
   %26 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %25
   %27 = load volatile ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store volatile i8 0, ptr %28, align 4
   %.010.i = add nuw nsw i32 %19, 1
   %29 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -678,7 +678,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i4, %24
   br i1 %1, label %44, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds i8, ptr %4, i64 5
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 5
   store volatile i8 0, ptr %43, align 1
   br label %44
 
@@ -712,7 +712,7 @@ define dso_local void @disable_timeouts(ptr nocapture noundef readonly %0, i32 n
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load volatile i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %44
@@ -756,7 +756,7 @@ find_active_timeout.exit.thread:                  ; preds = %11, %find_active_ti
   %28 = and i64 %indvars.iv.i, 4294967295
   %29 = getelementptr [23 x ptr], ptr @active_timeouts, i64 0, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store volatile i8 0, ptr %31, align 4
   %.010.i = add nuw nsw i32 %22, 1
   %32 = load volatile i32, ptr @num_active_timeouts, align 4
@@ -789,13 +789,13 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i9, %27
   br label %44
 
 44:                                               ; preds = %remove_timeout_index.exit, %.lr.ph
-  %45 = getelementptr inbounds i8, ptr %4, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %46 = load i8, ptr %45, align 4
   %47 = trunc i8 %46 to i1
   br i1 %47, label %50, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr inbounds i8, ptr %7, i64 5
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 5
   store volatile i8 0, ptr %49, align 1
   br label %50
 
@@ -835,9 +835,9 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 .split:                                           ; preds = %1, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %1 ]
   %2 = getelementptr [23 x %struct.timeout_params], ptr @all_timeouts, i64 0, i64 %indvars.iv
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store volatile i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 5
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store volatile i8 0, ptr %4, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23

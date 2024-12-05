@@ -24,7 +24,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = zext nneg i32 %6 to i64
   %12 = getelementptr i8, ptr %10, i64 %11
@@ -33,7 +33,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br label %18
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 8
   store ptr %17, ptr %15, align 8
@@ -42,19 +42,19 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
 18:                                               ; preds = %14, %8
   %19 = phi ptr [ %12, %8 ], [ %16, %14 ]
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %93, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %22, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not61 = icmp eq ptr %25, null
   br i1 %.not61, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %28 = load ptr, ptr %27, align 8
   %.not62 = icmp eq ptr %28, null
   br i1 %.not62, label %31, label %29
@@ -134,7 +134,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %53, label %54, label %93
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %22, i64 26
+  %55 = getelementptr inbounds nuw i8, ptr %22, i64 26
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 15
   %58 = icmp eq i16 %57, 3
@@ -155,7 +155,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %.not65, label %93, label %66
 
 66:                                               ; preds = %64
-  %67 = getelementptr inbounds i8, ptr %65, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %68 = load ptr, ptr %67, align 8
   %.not66 = icmp eq ptr %68, null
   br i1 %.not66, label %93, label %69
@@ -167,7 +167,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %72, label %73, label %93
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %4, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %75 = load i16, ptr %74, align 4
   %76 = inttoptr i64 %20 to ptr
   store i16 %75, ptr %76, align 2
@@ -183,7 +183,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %.not63, label %93, label %81
 
 81:                                               ; preds = %79
-  %82 = getelementptr inbounds i8, ptr %80, i64 40
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %83 = load ptr, ptr %82, align 8
   %.not64 = icmp eq ptr %83, null
   br i1 %.not64, label %93, label %84
@@ -195,7 +195,7 @@ define internal fastcc i32 @file_vioctl(ptr noundef %0, i32 noundef %1, ptr noca
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %5, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = trunc i32 %90 to i16
   %92 = inttoptr i64 %20 to ptr

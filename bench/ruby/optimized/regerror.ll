@@ -362,7 +362,7 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 16
   %11 = zext nneg i32 %6 to i64
   %12 = getelementptr i8, ptr %10, i64 %11
@@ -371,7 +371,7 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   br label %18
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 8
   store ptr %17, ptr %15, align 8
@@ -381,18 +381,18 @@ define dso_local i32 @onig_error_code_to_str(ptr noundef %0, i64 noundef %1, ...
   %19 = phi ptr [ %12, %8 ], [ %16, %14 ]
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, 1
   br i1 %28, label %.preheader.i, label %94
 
 .preheader.i:                                     ; preds = %18
-  %29 = getelementptr inbounds i8, ptr %21, i64 32
-  %30 = getelementptr inbounds i8, ptr %21, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %31
 
 31:                                               ; preds = %89, %.preheader.i
@@ -650,9 +650,9 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
   br i1 %24, label %.lr.ph122, label %._crit_edge
 
 .lr.ph122:                                        ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
-  %26 = getelementptr inbounds i8, ptr %2, i64 20
-  %27 = getelementptr inbounds i8, ptr %2, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %invariant.gep = getelementptr i8, ptr %8, i64 -1
   %invariant.gep164 = getelementptr i8, ptr %8, i64 -1
   br label %28

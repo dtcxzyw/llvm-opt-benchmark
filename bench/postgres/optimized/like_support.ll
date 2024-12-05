@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @textlike_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call fastcc ptr @like_regex_support(ptr noundef %4, i32 noundef 0)
@@ -43,39 +43,39 @@ define internal fastcc ptr @like_regex_support(ptr noundef %0, i32 noundef range
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %20, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = tail call fastcc double @patternsel_common(ptr noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %1, i1 noundef zeroext false)
   br label %20
 
 20:                                               ; preds = %4, %8
   %.033 = phi double [ %19, %8 ], [ 5.000000e-03, %4 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %.033, ptr %21, align 8
   br label %is_funcclause.exit.thread
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %is_funcclause.exit.thread
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %is_funcclause.exit.thread, label %is_opclause.exit
@@ -88,35 +88,35 @@ is_opclause.exit:                                 ; preds = %25
   ]
 
 29:                                               ; preds = %is_opclause.exit
-  %30 = getelementptr inbounds i8, ptr %27, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr i8, ptr %31, i64 16
   %.val = load ptr, ptr %32, align 8
   %33 = load ptr, ptr %.val, align 8
   %34 = getelementptr i8, ptr %.val, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i32, ptr %40, align 8
   %42 = tail call fastcc ptr @match_pattern_prefix(ptr noundef %33, ptr noundef %35, i32 noundef %1, i32 noundef %37, i32 noundef %39, i32 noundef %41)
   br label %is_funcclause.exit.thread
 
 43:                                               ; preds = %is_opclause.exit
-  %44 = getelementptr inbounds i8, ptr %27, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 16
   %.val36 = load ptr, ptr %46, align 8
   %47 = load ptr, ptr %.val36, align 8
   %48 = getelementptr i8, ptr %.val36, i64 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %27, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i32, ptr %54, align 8
   %56 = tail call fastcc ptr @match_pattern_prefix(ptr noundef %47, ptr noundef %49, i32 noundef %1, i32 noundef %51, i32 noundef %53, i32 noundef %55)
   br label %is_funcclause.exit.thread
@@ -128,7 +128,7 @@ is_funcclause.exit.thread:                        ; preds = %is_opclause.exit, %
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @texticlike_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call fastcc ptr @like_regex_support(ptr noundef %4, i32 noundef 1)
@@ -138,7 +138,7 @@ define dso_local i64 @texticlike_support(ptr nocapture noundef readonly %0) loca
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @textregexeq_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call fastcc ptr @like_regex_support(ptr noundef %4, i32 noundef 2)
@@ -148,7 +148,7 @@ define dso_local i64 @textregexeq_support(ptr nocapture noundef readonly %0) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @texticregexeq_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call fastcc ptr @like_regex_support(ptr noundef %4, i32 noundef 3)
@@ -158,7 +158,7 @@ define dso_local i64 @texticregexeq_support(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @text_starts_with_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call fastcc ptr @like_regex_support(ptr noundef %4, i32 noundef 4)
@@ -168,7 +168,7 @@ define dso_local i64 @text_starts_with_support(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regexeqsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -177,7 +177,7 @@ define dso_local i64 @regexeqsel(ptr nocapture noundef readonly %0) local_unname
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = trunc i64 %10 to i32
   %14 = inttoptr i64 %8 to ptr
@@ -189,7 +189,7 @@ define dso_local i64 @regexeqsel(ptr nocapture noundef readonly %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @icregexeqsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -198,7 +198,7 @@ define dso_local i64 @icregexeqsel(ptr nocapture noundef readonly %0) local_unna
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = trunc i64 %10 to i32
   %14 = inttoptr i64 %8 to ptr
@@ -210,7 +210,7 @@ define dso_local i64 @icregexeqsel(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @likesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -219,7 +219,7 @@ define dso_local i64 @likesel(ptr nocapture noundef readonly %0) local_unnamed_a
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = trunc i64 %10 to i32
   %14 = inttoptr i64 %8 to ptr
@@ -231,7 +231,7 @@ define dso_local i64 @likesel(ptr nocapture noundef readonly %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @prefixsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -240,7 +240,7 @@ define dso_local i64 @prefixsel(ptr nocapture noundef readonly %0) local_unnamed
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = trunc i64 %10 to i32
   %14 = inttoptr i64 %8 to ptr
@@ -252,7 +252,7 @@ define dso_local i64 @prefixsel(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @iclikesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -261,7 +261,7 @@ define dso_local i64 @iclikesel(ptr nocapture noundef readonly %0) local_unnamed
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = trunc i64 %10 to i32
   %14 = inttoptr i64 %8 to ptr
@@ -273,7 +273,7 @@ define dso_local i64 @iclikesel(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @regexnesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -282,7 +282,7 @@ define dso_local i64 @regexnesel(ptr nocapture noundef readonly %0) local_unname
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @get_negator(i32 noundef %6) #11
   %.not.i = icmp eq i32 %13, 0
@@ -306,7 +306,7 @@ patternsel.exit:                                  ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @icregexnesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -315,7 +315,7 @@ define dso_local i64 @icregexnesel(ptr nocapture noundef readonly %0) local_unna
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @get_negator(i32 noundef %6) #11
   %.not.i = icmp eq i32 %13, 0
@@ -339,7 +339,7 @@ patternsel.exit:                                  ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nlikesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -348,7 +348,7 @@ define dso_local i64 @nlikesel(ptr nocapture noundef readonly %0) local_unnamed_
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @get_negator(i32 noundef %6) #11
   %.not.i = icmp eq i32 %13, 0
@@ -372,7 +372,7 @@ patternsel.exit:                                  ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @icnlikesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -381,7 +381,7 @@ define dso_local i64 @icnlikesel(ptr nocapture noundef readonly %0) local_unname
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr i8, ptr %0, i64 80
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @get_negator(i32 noundef %6) #11
   %.not.i = icmp eq i32 %13, 0
@@ -476,40 +476,40 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %18, %21
-  %26 = getelementptr inbounds i8, ptr %9, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %129, label %.sink.split
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %22, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %9, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %34 = load ptr, ptr %33, align 8
   %.not83 = icmp eq ptr %34, null
   br i1 %.not83, label %129, label %.sink.split
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %22, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %22, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, -9
   %or.cond.not = icmp eq i32 %40, 17
   br i1 %or.cond.not, label %44, label %41
 
 41:                                               ; preds = %35
-  %42 = getelementptr inbounds i8, ptr %9, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %43 = load ptr, ptr %42, align 8
   %.not82 = icmp eq ptr %43, null
   br i1 %.not82, label %129, label %.sink.split
 
 44:                                               ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %9, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %50 [
     i32 25, label %53
@@ -528,7 +528,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br label %53
 
 50:                                               ; preds = %44
-  %51 = getelementptr inbounds i8, ptr %9, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not81 = icmp eq ptr %52, null
   br i1 %.not81, label %129, label %.sink.split
@@ -538,19 +538,19 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   %.062 = phi i32 [ 1957, %49 ], [ 1058, %48 ], [ 255, %47 ], [ 664, %44 ]
   %.058 = phi i32 [ 1955, %49 ], [ 1054, %48 ], [ 254, %47 ], [ 98, %44 ]
   %.056 = phi i32 [ %46, %49 ], [ %46, %48 ], [ 25, %47 ], [ %46, %44 ]
-  %54 = getelementptr inbounds i8, ptr %9, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %55 = load ptr, ptr %54, align 8
   %.not75 = icmp eq ptr %55, null
   br i1 %.not75, label %66, label %56
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 22
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 22
   %60 = load i8, ptr %59, align 2
   %61 = zext i8 %60 to i64
   %62 = getelementptr i8, ptr %58, i64 %61
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load float, ptr %63, align 4
   %65 = fpext float %64 to double
   br label %66
@@ -563,7 +563,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %.not76, label %73, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %68, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load i32, ptr %70, align 4
   %.not77 = icmp eq i32 %71, %.056
   br i1 %.not77, label %73, label %72
@@ -577,7 +577,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %74, label %75, label %79
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %68, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %77 = load i64, ptr %76, align 8
   %78 = call double @var_eq_const(ptr noundef nonnull %9, i32 noundef %.058, i32 noundef %5, i64 noundef %77, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
   br label %113
@@ -664,7 +664,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   br i1 %.not76, label %125, label %121
 
 121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %68, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %123 = load i64, ptr %122, align 8
   %124 = inttoptr i64 %123 to ptr
   call void @pfree(ptr noundef %124) #11
@@ -679,7 +679,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
 .sink.split:                                      ; preds = %125, %50, %41, %32, %25
   %.sink = phi ptr [ %27, %25 ], [ %34, %32 ], [ %43, %41 ], [ %52, %50 ], [ %126, %125 ]
   %.0.ph = phi double [ %., %25 ], [ 0.000000e+00, %32 ], [ %., %41 ], [ %., %50 ], [ %.3, %125 ]
-  %127 = getelementptr inbounds i8, ptr %9, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %128 = load ptr, ptr %127, align 8
   call void %128(ptr noundef nonnull %.sink) #11
   br label %129
@@ -698,7 +698,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   br i1 %10, label %11, label %61
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %61, label %15
@@ -756,7 +756,7 @@ define internal fastcc ptr @match_pattern_prefix(ptr noundef %0, ptr nocapture n
   %.1 = phi i32 [ 1955, %27 ], [ 1054, %25 ], [ 98, %23 ], [ 98, %24 ], [ 98, %22 ], [ 254, %20 ]
   %.056 = phi i32 [ 17, %27 ], [ 1042, %25 ], [ 25, %23 ], [ 25, %24 ], [ 25, %22 ], [ 25, %20 ]
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4
   %.not73 = icmp eq i32 %31, %.056
   br i1 %.not73, label %33, label %32
@@ -853,21 +853,21 @@ define internal fastcc range(i32 0, 3) i32 @pattern_fixed_prefix(ptr nocapture n
   br label %36
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 33
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 33
   %26 = load i8, ptr %25, align 1
   %27 = trunc i8 %26 to i1
   %28 = tail call i64 @datumCopy(i64 noundef %24, i1 noundef zeroext %27, i32 noundef %22) #11
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   %32 = load i8, ptr %25, align 1
@@ -902,9 +902,9 @@ define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef no
   %8 = alloca %struct.FmgrInfo, align 8
   %9 = tail call i32 @get_opcode(i32 noundef %4) #11
   call void @fmgr_info(i32 noundef %9, ptr noundef nonnull %8) #11
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4, ptr noundef nonnull %8, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef %5, i64 noundef %11, i32 noundef %13) #11
   %15 = fcmp olt double %14, 0.000000e+00
@@ -918,9 +918,9 @@ define internal fastcc double @prefix_selectivity(ptr noundef %0, ptr noundef no
   br i1 %.not, label %27, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = call double @ineq_histogram_selectivity(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %3, ptr noundef nonnull %8, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %5, i64 noundef %21, i32 noundef %23) #11
   %25 = fadd double %14, %24
@@ -949,7 +949,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 @pg_database_encoding_max_length() #11
   %.fr166 = freeze i32 %8
@@ -995,7 +995,7 @@ define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noun
 .thread:                                          ; preds = %24, %22, %26
   %.06794 = phi i1 [ false, %26 ], [ true, %22 ], [ false, %24 ]
   %.06892 = phi ptr [ null, %26 ], [ null, %22 ], [ %25, %24 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
   %30 = tail call ptr @text_to_cstring(ptr noundef %29) #11
@@ -1004,7 +1004,7 @@ define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noun
   br label %66
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = inttoptr i64 %35 to ptr
   %37 = tail call ptr @pg_detoast_datum_packed(ptr noundef %36) #11
@@ -1014,7 +1014,7 @@ define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noun
   br i1 %40, label %41, label %50
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %37, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 1
   %45 = and i8 %43, -2
@@ -1049,7 +1049,7 @@ define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noun
   %64 = and i8 %63, 1
   %.not83 = icmp eq i8 %64, 0
   %.v = select i1 %.not83, i64 4, i64 1
-  %65 = getelementptr inbounds i8, ptr %37, i64 %.v
+  %65 = getelementptr inbounds nuw i8, ptr %37, i64 %.v
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr nonnull align 1 %65, i64 %61, i1 false)
   br label %66
 
@@ -1067,7 +1067,7 @@ define internal fastcc range(i32 0, 3) i32 @like_fixed_prefix(ptr nocapture noun
 
 .lr.ph:                                           ; preds = %66
   %.not25.i = icmp eq ptr %.06891, null
-  %71 = getelementptr inbounds i8, ptr %.06891, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.06891, i64 8
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -1154,7 +1154,7 @@ pattern_char_isalpha.exit.us.us:                  ; preds = %.pattern_char_isalp
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr %71, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 104
   %98 = load ptr, ptr %97, align 8
   %99 = zext i8 %92 to i64
   %100 = getelementptr i16, ptr %98, i64 %99
@@ -1238,7 +1238,7 @@ pattern_char_isalpha.exit.us.us143:               ; preds = %.critedge.i.us.us, 
 
 132:                                              ; preds = %130
   %133 = load ptr, ptr %71, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 104
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 104
   %135 = load ptr, ptr %134, align 8
   %136 = zext nneg i8 %128 to i64
   %137 = getelementptr i16, ptr %135, i64 %136
@@ -1327,7 +1327,7 @@ pattern_char_isalpha.exit.thread:                 ; preds = %163, %161, %.lr.ph.
 174:                                              ; preds = %pattern_char_isalpha.exit.thread
   %175 = add nsw i64 %170, 4
   %176 = tail call ptr @palloc(i64 noundef %175) #11
-  %177 = getelementptr inbounds i8, ptr %176, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %177, ptr nonnull readonly align 1 %69, i64 range(i64 -2147483648, 2147483648) %170, i1 false)
   %178 = trunc i64 %175 to i32
   %179 = shl i32 %178, 2
@@ -1427,7 +1427,7 @@ like_selectivity.exit:                            ; preds = %190, %197, %200, %.
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 17
   br i1 %9, label %10, label %14
@@ -1441,7 +1441,7 @@ define internal fastcc range(i32 0, 3) i32 @regex_fixed_prefix(ptr nocapture nou
   unreachable
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = tail call ptr @pg_detoast_datum_packed(ptr noundef %17) #11
@@ -1895,13 +1895,13 @@ declare double @ineq_histogram_selectivity(ptr noundef, ptr noundef, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 17
   br i1 %6, label %7, label %29
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = inttoptr i64 %9 to ptr
   %11 = tail call ptr @pg_detoast_datum_packed(ptr noundef %10) #11
@@ -1911,7 +1911,7 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %11, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 18
   %19 = select i1 %18, i32 16, i32 0
@@ -1938,7 +1938,7 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
 
 29:                                               ; preds = %3
   %30 = icmp eq i32 %5, 19
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %32 = load i64, ptr %31, align 8
   br i1 %30, label %33, label %36
 
@@ -1962,7 +1962,7 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
   br i1 %or.cond, label %44, label %47
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load i64, ptr %45, align 8
   br label %.thread
 
@@ -2015,7 +2015,7 @@ define internal fastcc ptr @make_greater_string(ptr nocapture noundef readonly %
   %72 = tail call ptr @palloc(i64 noundef %71) #11
   %73 = shl i32 %70, 2
   store i32 %73, ptr %72, align 4
-  %74 = getelementptr inbounds i8, ptr %72, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %sext = shl i64 %40, 32
   %75 = ashr exact i64 %sext, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %74, ptr align 1 %.192, i64 %75, i1 false)
@@ -2033,7 +2033,7 @@ select.unfold:                                    ; preds = %15, %22, %25
   %83 = and i8 %82, 1
   %.not108 = icmp eq i8 %83, 0
   %.v = select i1 %.not108, i64 4, i64 1
-  %84 = getelementptr inbounds i8, ptr %11, i64 %.v
+  %84 = getelementptr inbounds nuw i8, ptr %11, i64 %.v
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr nonnull align 1 %84, i64 %80, i1 false)
   %85 = load i64, ptr %8, align 8
   %86 = icmp sgt i32 %79, 0
@@ -2072,12 +2072,12 @@ select.unfold:                                    ; preds = %15, %22, %25
 
 97:                                               ; preds = %105, %.lr.ph.us
   %98 = tail call ptr @palloc(i64 noundef %94) #11
-  %99 = getelementptr inbounds i8, ptr %98, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %99, ptr readonly align 1 %81, i64 range(i64 -2147483648, 2147483648) %indvars.iv, i1 false)
   store i32 %96, ptr %98, align 4
   %100 = ptrtoint ptr %98 to i64
   %101 = tail call ptr @makeConst(i32 noundef 17, i32 noundef -1, i32 noundef 0, i32 noundef -1, i64 noundef %100, i1 noundef zeroext false, i1 noundef zeroext false) #11
-  %102 = getelementptr inbounds i8, ptr %101, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
   %103 = load i64, ptr %102, align 8
   %104 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %1, i32 noundef %2, i64 noundef %85, i64 noundef %103) #11
   %.not126.us.us = icmp eq i64 %104, 0
@@ -2106,7 +2106,7 @@ select.unfold:                                    ; preds = %15, %22, %25
 
 .lr.ph:                                           ; preds = %.lr.ph129.split, %122
   %118 = tail call fastcc ptr @string_to_const(ptr noundef %.192, i32 noundef %5)
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load i64, ptr %119, align 8
   %121 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %1, i32 noundef %2, i64 noundef %.095.ph, i64 noundef %120) #11
   %.not126 = icmp eq i64 %121, 0

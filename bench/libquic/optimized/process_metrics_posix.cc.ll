@@ -30,7 +30,7 @@ define dso_local noundef i64 @_ZN4base21TimeValToMicrosecondsERK7timeval(ptr noc
 entry:
   %0 = load i64, ptr %tv, align 8
   %mul = mul nsw i64 %0, 1000000
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %add = add nsw i64 %mul, %1
   ret i64 %add
@@ -80,7 +80,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %rlim_max = getelementptr inbounds i8, ptr %limits, i64 8
+  %rlim_max = getelementptr inbounds nuw i8, ptr %limits, i64 8
   %0 = load i64, ptr %rlim_max, align 8
   %cmp1.not = icmp ne i64 %0, 0
   %conv = zext i32 %max_descriptors to i64
@@ -101,7 +101,7 @@ if.then10:                                        ; preds = %if.then
 invoke.cont:                                      ; preds = %if.then10
   %call13 = call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp12, ptr noundef nonnull @.str.1, i32 noundef 71, i32 noundef 0, i32 noundef %call13)
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp12, i64 16
   %call16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.2)
           to label %if.end42.sink.split unwind label %lpad
 
@@ -117,7 +117,7 @@ if.else:                                          ; preds = %entry
 invoke.cont30:                                    ; preds = %if.else
   %call27 = call noundef i32 @_ZN7logging22GetLastSystemErrorCodeEv()
   call void @_ZN7logging15ErrnoLogMessageC1EPKciii(ptr noundef nonnull align 8 dereferenceable(416) %ref.tmp26, ptr noundef nonnull @.str.1, i32 noundef 74, i32 noundef 0, i32 noundef %call27)
-  %stream_.i.i4 = getelementptr inbounds i8, ptr %ref.tmp26, i64 16
+  %stream_.i.i4 = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 16
   %call33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i4, ptr noundef nonnull @.str.3)
           to label %if.end42.sink.split unwind label %lpad29
 

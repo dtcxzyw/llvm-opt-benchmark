@@ -22,26 +22,26 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp28, label %for.body.lr.ph, label %for.cond.preheader.if.then13_crit_edge
 
 for.cond.preheader.if.then13_crit_edge:           ; preds = %for.cond.preheader
-  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds i8, ptr %opt, i64 20
+  %rotate_to_strict14.phi.trans.insert = getelementptr inbounds nuw i8, ptr %opt, i64 20
   %.pre = load i32, ptr %rotate_to_strict14.phi.trans.insert, align 4
   br label %if.then13
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %rotate_to3 = getelementptr inbounds i8, ptr %opt, i64 8
+  %rotate_to3 = getelementptr inbounds nuw i8, ptr %opt, i64 8
   %1 = load ptr, ptr %rotate_to3, align 8
   %2 = load ptr, ptr @diff_queued_diff, align 8
-  %rotate_to_strict = getelementptr inbounds i8, ptr %opt, i64 20
+  %rotate_to_strict = getelementptr inbounds nuw i8, ptr %opt, i64 20
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv43 = phi i32 [ 0, %for.body.lr.ph ], [ %indvars.iv.next44, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
-  %two = getelementptr inbounds i8, ptr %3, i64 8
+  %two = getelementptr inbounds nuw i8, ptr %3, i64 8
   %4 = load ptr, ptr %two, align 8
-  %path = getelementptr inbounds i8, ptr %4, i64 40
+  %path = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load ptr, ptr %path, align 8
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %5) #8
   %tobool4.not = icmp eq i32 %call, 0
@@ -67,7 +67,7 @@ if.then13:                                        ; preds = %for.inc, %for.cond.
 
 if.then16:                                        ; preds = %if.then13
   %call17 = tail call fastcc ptr @_()
-  %rotate_to18 = getelementptr inbounds i8, ptr %opt, i64 8
+  %rotate_to18 = getelementptr inbounds nuw i8, ptr %opt, i64 8
   %8 = load ptr, ptr %rotate_to18, align 8
   tail call void (ptr, ...) @die(ptr noundef %call17, ptr noundef %8) #9
   unreachable
@@ -83,14 +83,14 @@ for.cond33.preheader:                             ; preds = %for.body26, %do.bod
   br i1 %cmp3432.not, label %for.end47, label %for.body35.lr.ph
 
 for.body35.lr.ph:                                 ; preds = %for.cond33.preheader
-  %skip_instead_of_rotate = getelementptr inbounds i8, ptr %opt, i64 16
+  %skip_instead_of_rotate = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %wide.trip.count46 = zext nneg i32 %indvars.iv43 to i64
   br label %for.body35
 
 for.body26:                                       ; preds = %do.body, %for.body26
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %for.body26 ], [ %indvars.iv, %do.body ]
   %10 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx29 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv37
+  %arrayidx29 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv37
   %11 = load ptr, ptr %arrayidx29, align 8
   call void @diff_q(ptr noundef nonnull %outq, ptr noundef %11) #10
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -104,7 +104,7 @@ for.body35:                                       ; preds = %for.body35.lr.ph, %
   %14 = load i32, ptr %skip_instead_of_rotate, align 8
   %tobool36.not = icmp eq i32 %14, 0
   %15 = load ptr, ptr @diff_queued_diff, align 8
-  %arrayidx43 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv40
+  %arrayidx43 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv40
   %16 = load ptr, ptr %arrayidx43, align 8
   br i1 %tobool36.not, label %if.else, label %if.then37
 

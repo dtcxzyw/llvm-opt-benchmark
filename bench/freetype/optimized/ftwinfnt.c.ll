@@ -15,9 +15,9 @@ define i32 @FT_Get_WinFNT_Header(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not26, label %.thread, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 240
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %8 = load ptr, ptr %7, align 8
   %magicptr = ptrtoint ptr %8 to i64
   switch i64 %magicptr, label %.fold.split [
@@ -26,10 +26,10 @@ define i32 @FT_Get_WinFNT_Header(ptr noundef %0, ptr noundef %1) local_unnamed_a
   ]
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 176
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %17, label %15
@@ -44,7 +44,7 @@ define i32 @FT_Get_WinFNT_Header(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %.0 = phi ptr [ %16, %15 ], [ null, %9 ]
   %.not28 = icmp eq ptr %.0, null
   %19 = select i1 %.not28, ptr inttoptr (i64 -2 to ptr), ptr %.0
-  %20 = getelementptr inbounds i8, ptr %18, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 96
   store ptr %19, ptr %20, align 8
   br label %.fold.split
 

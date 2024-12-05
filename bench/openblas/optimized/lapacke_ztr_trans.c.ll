@@ -97,11 +97,11 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %69 = phi i64 [ 0, %62 ], [ %77, %68 ]
   %70 = getelementptr { double, double }, ptr %66, i64 %69
   %71 = load double, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load double, ptr %72, align 8
   %74 = mul nsw i64 %69, %47
   %75 = getelementptr { double, double }, ptr %67, i64 %74
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store double %71, ptr %75, align 8
   store double %73, ptr %76, align 8
   %77 = add nuw nsw i64 %69, 1
@@ -124,11 +124,11 @@ define void @LAPACKE_ztr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %88 = phi i64 [ %81, %83 ], [ %96, %87 ]
   %89 = getelementptr { double, double }, ptr %85, i64 %88
   %90 = load double, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %89, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load double, ptr %91, align 8
   %93 = mul nsw i64 %88, %38
   %94 = getelementptr { double, double }, ptr %86, i64 %93
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   store double %90, ptr %94, align 8
   store double %92, ptr %95, align 8
   %96 = add nuw nsw i64 %88, 1

@@ -285,7 +285,7 @@ ompi_mpi_thread_level.exit:                       ; preds = %31, %33
   br i1 %or.cond5, label %56, label %60
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = tail call noalias ptr @opal_argv_join(ptr noundef nonnull %57, i32 noundef 32) #6
   %59 = tail call i32 @opal_setenv(ptr noundef nonnull @.str.9, ptr noundef %58, i1 noundef zeroext true, ptr noundef nonnull @environ) #6
   tail call void @free(ptr noundef %58) #6

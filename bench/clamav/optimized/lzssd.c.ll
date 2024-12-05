@@ -13,7 +13,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %or.cond147, label %117, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = add nuw nsw i32 %3, 4096
   %12 = zext nneg i32 %11 to i64
@@ -22,14 +22,14 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not, label %117, label %14
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %13, i64 4096
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4096
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %13, i8 32, i64 4096, i1 false)
   %16 = icmp eq i32 %4, 2
   %17 = select i1 %16, i32 4078, i32 4080
   %18 = icmp eq i32 %4, 1
   %19 = sext i1 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %.loopexit148
 
 .loopexit148:                                     ; preds = %.loopexit, %14
@@ -46,7 +46,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %13) #2
   %.not146 = icmp eq i32 %24, 0
@@ -55,7 +55,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 
 30:                                               ; preds = %22
   %31 = zext nneg i32 %24 to i64
-  %32 = getelementptr inbounds i8, ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 %31
   br label %33
 
 33:                                               ; preds = %.loopexit148, %30
@@ -64,7 +64,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %34 = load i8, ptr %.1, align 1
   %35 = zext i8 %34 to i32
   %36 = xor i32 %35, %19
-  %.2170 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.2170 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %37
 
 37:                                               ; preds = %33, %.loopexit
@@ -87,7 +87,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %43, label %44, label %48
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %13) #2
   %.not145 = icmp eq i32 %42, 0
@@ -96,7 +96,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 
 48:                                               ; preds = %40
   %49 = zext nneg i32 %42 to i64
-  %50 = getelementptr inbounds i8, ptr %15, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %15, i64 %49
   br label %51
 
 51:                                               ; preds = %39, %48
@@ -104,7 +104,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %.3 = phi ptr [ %15, %48 ], [ %.2174, %39 ]
   %52 = load i8, ptr %.3, align 1
   %53 = zext i32 %.1112172 to i64
-  %54 = getelementptr inbounds i8, ptr %13, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 %53
   store i8 %52, ptr %54, align 1
   %55 = load ptr, ptr %21, align 8
   %56 = tail call i32 %55(ptr noundef %2, ptr noundef nonnull %54, i32 noundef 1) #2
@@ -112,7 +112,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not144, label %60, label %57
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 64
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %59 = load ptr, ptr %58, align 8
   tail call void %59(ptr noundef nonnull %13) #2
   br label %117
@@ -132,7 +132,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %64
-  %69 = getelementptr inbounds i8, ptr %0, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %70 = load ptr, ptr %69, align 8
   tail call void %70(ptr noundef nonnull %13) #2
   %.not142 = icmp eq i32 %66, 0
@@ -141,13 +141,13 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 
 72:                                               ; preds = %64
   %73 = zext nneg i32 %66 to i64
-  %74 = getelementptr inbounds i8, ptr %15, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 %73
   br label %75
 
 75:                                               ; preds = %63, %72
   %.4119 = phi ptr [ %74, %72 ], [ %.2117171, %63 ]
   %.4 = phi ptr [ %15, %72 ], [ %.2174, %63 ]
-  %76 = getelementptr inbounds i8, ptr %.4, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %77 = load i8, ptr %.4, align 1
   %78 = zext i8 %77 to i32
   %.not138 = icmp ult ptr %76, %.4119
@@ -160,7 +160,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %82, label %83, label %87
 
 83:                                               ; preds = %79
-  %84 = getelementptr inbounds i8, ptr %0, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %85 = load ptr, ptr %84, align 8
   tail call void %85(ptr noundef nonnull %13) #2
   %.not141 = icmp eq i32 %81, 0
@@ -169,7 +169,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
 
 87:                                               ; preds = %79
   %88 = zext nneg i32 %81 to i64
-  %89 = getelementptr inbounds i8, ptr %15, i64 %88
+  %89 = getelementptr inbounds nuw i8, ptr %15, i64 %88
   br label %90
 
 90:                                               ; preds = %75, %87
@@ -189,10 +189,10 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %.0107169 = phi i32 [ %95, %90 ], [ %113, %109 ]
   %.2113168 = phi i32 [ %.1112172, %90 ], [ %111, %109 ]
   %99 = zext nneg i32 %.0107169 to i64
-  %100 = getelementptr inbounds i8, ptr %13, i64 %99
+  %100 = getelementptr inbounds nuw i8, ptr %13, i64 %99
   %101 = load i8, ptr %100, align 1
   %102 = zext i32 %.2113168 to i64
-  %103 = getelementptr inbounds i8, ptr %13, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %13, i64 %102
   store i8 %101, ptr %103, align 1
   %104 = load ptr, ptr %21, align 8
   %105 = tail call i32 %104(ptr noundef %2, ptr noundef nonnull %103, i32 noundef 1) #2
@@ -200,7 +200,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not140, label %109, label %106
 
 106:                                              ; preds = %97
-  %107 = getelementptr inbounds i8, ptr %0, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %108 = load ptr, ptr %107, align 8
   tail call void %108(ptr noundef nonnull %13) #2
   br label %117
@@ -219,7 +219,7 @@ define range(i32 0, 7) i32 @lzss_decompress(ptr noundef %0, ptr noundef %1, ptr 
   %.3114 = phi i32 [ %62, %60 ], [ %111, %109 ]
   %.3.pn = phi ptr [ %.3, %60 ], [ %.5, %109 ]
   %115 = shl i32 %.0110173, 1
-  %.2 = getelementptr inbounds i8, ptr %.3.pn, i64 1
+  %.2 = getelementptr inbounds nuw i8, ptr %.3.pn, i64 1
   %116 = and i32 %.0110173, 127
   %.not135 = icmp eq i32 %116, 0
   br i1 %.not135, label %.loopexit148, label %37

@@ -119,22 +119,22 @@ define dso_local void @InitializeLatchWaitSet() local_unnamed_addr #0 {
 
 6:                                                ; preds = %0
   %7 = load ptr, ptr @LatchWaitSet, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i8 1, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
   %14 = getelementptr %struct.WaitEvent, ptr %10, i64 %13
   %15 = add i32 %12, 1
   store i32 %15, ptr %11, align 8
   store i32 %12, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 -1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %14, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr null, ptr %18, align 8
   %19 = load i32, ptr @postmaster_alive_fds, align 4
   store i32 %19, ptr %16, align 8
@@ -165,16 +165,16 @@ define dso_local ptr @CreateWaitEventSet(ptr noundef %0, i32 noundef %1) local_u
   %12 = load ptr, ptr @TopMemoryContext, align 8
   %13 = tail call ptr @MemoryContextAllocZero(ptr noundef %12, i64 noundef %9) #14
   %14 = getelementptr i8, ptr %13, i64 56
-  %15 = getelementptr inbounds i8, ptr %13, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %14, ptr %15, align 8
   %16 = getelementptr i8, ptr %14, i64 %4
-  %17 = getelementptr inbounds i8, ptr %13, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %13, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr null, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %13, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 %1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 36
   store i8 0, ptr %20, align 4
   br i1 %.not, label %23, label %21
 
@@ -197,7 +197,7 @@ define dso_local ptr @CreateWaitEventSet(ptr noundef %0, i32 noundef %1) local_u
 
 28:                                               ; preds = %23
   %29 = tail call i32 @epoll_create1(i32 noundef 524288) #14
-  %30 = getelementptr inbounds i8, ptr %13, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %29, ptr %30, align 8
   %31 = icmp slt i32 %29, 0
   br i1 %31, label %32, label %35
@@ -220,7 +220,7 @@ define dso_local i32 @AddWaitEventToSet(ptr nocapture noundef %0, i32 noundef %1
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %8, align 4
   br label %9
 
@@ -230,7 +230,7 @@ define dso_local i32 @AddWaitEventToSet(ptr nocapture noundef %0, i32 noundef %1
   br i1 %.not, label %28, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr @MyProcPid, align 4
   %.not32 = icmp eq i32 %12, %13
@@ -244,7 +244,7 @@ define dso_local i32 @AddWaitEventToSet(ptr nocapture noundef %0, i32 noundef %1
   unreachable
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not33 = icmp eq ptr %19, null
   br i1 %.not33, label %23, label %20
@@ -295,20 +295,20 @@ define dso_local i32 @AddWaitEventToSet(ptr nocapture noundef %0, i32 noundef %1
   unreachable
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
   %45 = getelementptr %struct.WaitEvent, ptr %41, i64 %44
   %46 = add i32 %43, 1
   store i32 %46, ptr %42, align 8
   store i32 %43, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i32 %2, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %.0, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %45, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 16
   store ptr %4, ptr %49, align 8
   switch i32 %.0, label %55 [
     i32 1, label %50
@@ -316,10 +316,10 @@ define dso_local i32 @AddWaitEventToSet(ptr nocapture noundef %0, i32 noundef %1
   ]
 
 50:                                               ; preds = %39
-  %51 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %51, align 8
   %52 = load i32, ptr %45, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %52, ptr %53, align 8
   br label %.sink.split
 
@@ -353,7 +353,7 @@ define dso_local void @ShutdownLatchSupport() local_unnamed_addr #0 {
   br label %FreeWaitEventSet.exit
 
 FreeWaitEventSet.exit:                            ; preds = %2, %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @close(i32 noundef %7) #14
   tail call void @ReleaseExternalFD() #14
@@ -381,7 +381,7 @@ define dso_local void @FreeWaitEventSet(ptr noundef %0) local_unnamed_addr #0 {
   br label %5
 
 5:                                                ; preds = %3, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @close(i32 noundef %7) #14
   tail call void @ReleaseExternalFD() #14
@@ -392,12 +392,12 @@ define dso_local void @FreeWaitEventSet(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define dso_local void @InitLatch(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0) local_unnamed_addr #4 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = load i32, ptr @MyProcPid, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %3, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %5, align 4
   ret void
 }
@@ -405,18 +405,18 @@ define dso_local void @InitLatch(ptr nocapture noundef writeonly initializes((0,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @InitSharedLatch(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0) local_unnamed_addr #5 {
   store i32 0, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @OwnLatch(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
@@ -436,7 +436,7 @@ define dso_local void @OwnLatch(ptr nocapture noundef %0) local_unnamed_addr #0 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @DisownLatch(ptr nocapture noundef writeonly initializes((12, 16)) %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   ret void
 }
@@ -450,7 +450,7 @@ define dso_local i32 @WaitLatch(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
   %7 = load ptr, ptr @LatchWaitSet, align 8
   tail call void @ModifyWaitEvent(ptr noundef %7, i32 noundef 0, i32 noundef 1, ptr noundef %spec.select)
   %8 = load ptr, ptr @LatchWaitSet, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %10 = trunc i32 %1 to i8
   %11 = lshr i8 %10, 5
   %12 = and i8 %11, 1
@@ -460,7 +460,7 @@ define dso_local i32 @WaitLatch(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
   %14 = select i1 %.not7, i64 -1, i64 %2
   %15 = call i32 @WaitEventSetWait(ptr noundef %8, i64 noundef %14, ptr noundef nonnull %5, i32 noundef 1, i32 noundef %3)
   %16 = icmp eq i32 %15, 0
-  %17 = getelementptr inbounds i8, ptr %5, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %18 = load i32, ptr %17, align 4
   %.0 = select i1 %16, i32 8, i32 %18
   ret i32 %.0
@@ -468,11 +468,11 @@ define dso_local i32 @WaitLatch(ptr noundef %0, i32 noundef %1, i64 noundef %2, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
   %8 = getelementptr %struct.WaitEvent, ptr %6, i64 %7
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %2, %10
   br i1 %11, label %12, label %18
@@ -483,7 +483,7 @@ define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1,
   br i1 %.not, label %40, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %3
   br i1 %17, label %40, label %.thread
@@ -522,7 +522,7 @@ define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1,
   br i1 %.not23, label %37, label %30
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %3, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = load i32, ptr @MyProcPid, align 4
   %.not24 = icmp eq i32 %32, %33
@@ -536,7 +536,7 @@ define dso_local void @ModifyWaitEvent(ptr nocapture noundef %0, i32 noundef %1,
   unreachable
 
 37:                                               ; preds = %30, %29
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %38, align 8
   br label %40
 
@@ -561,7 +561,7 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   %11 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #14
   %12 = load i64, ptr %8, align 8
   %.neg = mul i64 %12, -1000000000
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i64, ptr %13, align 8
   %.neg60 = sub i64 %.neg, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
@@ -573,13 +573,13 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   %16 = load ptr, ptr @my_wait_event_info, align 8
   store volatile i32 %4, ptr %16, align 4
   store volatile i32 1, ptr @waiting, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %21 = icmp sgt i32 %3, 0
-  %22 = getelementptr inbounds i8, ptr %0, i64 36
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
 
 24:                                               ; preds = %15, %171
@@ -594,7 +594,7 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   br i1 %.not45, label %28, label %.thread53
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %25, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 1, ptr %29, align 4
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !5
   %.pr = load ptr, ptr %17, align 8
@@ -607,22 +607,22 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   br i1 %.not47, label %.thread, label %.thread53
 
 .thread53:                                        ; preds = %26, %30
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load i32, ptr %32, align 8
   store i32 %33, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = sext i32 %33 to i64
   %37 = getelementptr %struct.WaitEvent, ptr %35, i64 %36, i32 3
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %40, align 4
   %41 = load ptr, ptr %17, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %42, align 4
   br label %.loopexit
 
@@ -667,17 +667,17 @@ define dso_local range(i32 0, -1) i32 @WaitEventSetWait(ptr nocapture noundef re
   %.082.i = phi ptr [ %146, %.thread73.i ], [ %59, %58 ]
   %.05481.i = phi ptr [ %.1.i, %.thread73.i ], [ %2, %58 ]
   %.05580.i = phi i32 [ %.156.i, %.thread73.i ], [ 0, %58 ]
-  %64 = getelementptr inbounds i8, ptr %.082.i, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.082.i, i64 4
   %65 = load ptr, ptr %64, align 1
   %66 = load i32, ptr %65, align 8
   store i32 %66, ptr %.05481.i, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %.05481.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.05481.i, i64 16
   store ptr %68, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %.05481.i, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.05481.i, i64 4
   store i32 0, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %65, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %72 = load i32, ptr %71, align 4
   switch i32 %72, label %115 [
     i32 1, label %73
@@ -749,7 +749,7 @@ drain.exit.i:                                     ; preds = %92, %81
   br i1 %.not71.i, label %.thread73.i, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.05481.i, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.05481.i, i64 8
   store i32 -1, ptr %99, align 8
   store i32 1, ptr %70, align 4
   %100 = getelementptr i8, ptr %.05481.i, i64 24
@@ -776,7 +776,7 @@ drain.exit.i:                                     ; preds = %92, %81
   unreachable
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %.05481.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.05481.i, i64 8
   store i32 -1, ptr %112, align 8
   store i32 16, ptr %70, align 4
   %113 = getelementptr i8, ptr %.05481.i, i64 24
@@ -846,9 +846,9 @@ drain.exit.i:                                     ; preds = %92, %81
   br i1 %.not69.i, label %.thread73.i, label %140
 
 140:                                              ; preds = %139, %.thread75.i
-  %141 = getelementptr inbounds i8, ptr %65, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %142 = load i32, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %.05481.i, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.05481.i, i64 8
   store i32 %142, ptr %143, align 8
   %144 = getelementptr i8, ptr %.05481.i, i64 24
   %145 = add nsw i32 %.05580.i, 1
@@ -872,7 +872,7 @@ WaitEventSetWaitBlock.exit:                       ; preds = %.thread73.i, %49, %
   br i1 %.not48, label %155, label %153
 
 153:                                              ; preds = %WaitEventSetWaitBlock.exit
-  %154 = getelementptr inbounds i8, ptr %152, i64 4
+  %154 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 0, ptr %154, align 4
   br label %155
 
@@ -940,20 +940,20 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   br i1 %17, label %18, label %30
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %8, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
   %24 = getelementptr %struct.WaitEvent, ptr %20, i64 %23
   %25 = add i32 %22, 1
   store i32 %25, ptr %21, align 8
   store i32 %22, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 -1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 16, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr null, ptr %28, align 8
   %29 = load i32, ptr @postmaster_alive_fds, align 4
   store i32 %29, ptr %26, align 8
@@ -971,22 +971,22 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   br i1 %34, label %35, label %48
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %8, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 36
   store i8 1, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %8, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
   %42 = getelementptr %struct.WaitEvent, ptr %38, i64 %41
   %43 = add i32 %40, 1
   store i32 %43, ptr %39, align 8
   store i32 %40, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 -1, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i32 16, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %42, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr null, ptr %46, align 8
   %47 = load i32, ptr @postmaster_alive_fds, align 4
   store i32 %47, ptr %44, align 8
@@ -1004,7 +1004,7 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
 
 52:                                               ; preds = %50, %48
   %53 = call i32 @WaitEventSetWait(ptr noundef %8, i64 noundef %spec.select, ptr noundef nonnull %6, i32 noundef 1, i32 noundef %4)
-  %54 = getelementptr inbounds i8, ptr %6, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %56, null
@@ -1020,7 +1020,7 @@ FreeWaitEventSet.exit:                            ; preds = %52, %57
   %59 = icmp eq i32 %53, 0
   %60 = and i32 %55, 151
   %.020 = select i1 %59, i32 8, i32 %60
-  %61 = getelementptr inbounds i8, ptr %8, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %62 = load i32, ptr %61, align 8
   %63 = tail call i32 @close(i32 noundef %62) #14
   tail call void @ReleaseExternalFD() #14
@@ -1038,13 +1038,13 @@ define dso_local void @SetLatch(ptr nocapture noundef %0) local_unnamed_addr #0 
 3:                                                ; preds = %1
   store i32 1, ptr %0, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !10
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %.not6 = icmp eq i32 %5, 0
   br i1 %.not6, label %16, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %16, label %10
@@ -1090,7 +1090,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @FreeWaitEventSetAfterFork(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @close(i32 noundef %3) #14
   tail call void @ReleaseExternalFD() #14
@@ -1101,10 +1101,10 @@ define dso_local void @FreeWaitEventSetAfterFork(ptr noundef %0) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @WaitEventAdjustEpoll(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = alloca %struct.epoll_event, align 4
-  %5 = getelementptr inbounds i8, ptr %4, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %1, ptr %5, align 4
   store i32 24, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %condstore.split [
     i32 1, label %.sink.split
@@ -1130,9 +1130,9 @@ condstore.split:                                  ; preds = %3
   br label %15
 
 15:                                               ; preds = %.sink.split, %condstore.split
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = call i32 @epoll_ctl(i32 noundef %17, i32 noundef %2, i32 noundef %19, ptr noundef nonnull %4) #14
   %21 = icmp slt i32 %20, 0
@@ -1157,7 +1157,7 @@ define dso_local noundef zeroext i1 @WaitEventSetCanReportClosed() local_unnamed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @GetNumRegisteredWaitEvents(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -1169,7 +1169,7 @@ define internal void @ResOwnerReleaseWaitEventSet(i64 noundef %0) #0 {
 FreeWaitEventSet.exit:
   %1 = inttoptr i64 %0 to ptr
   store ptr null, ptr %1, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @close(i32 noundef %3) #14
   tail call void @ReleaseExternalFD() #14

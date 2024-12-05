@@ -56,65 +56,65 @@ declare void @_ZN15G1JFRTracerMarkD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13G1FullGCScopeC2EP19G1MonitoringSupportbbP14G1FullGCTracer(ptr noundef nonnull align 8 dereferenceable(464) initializes((8, 49), (56, 64)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 800
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 800
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8
   store ptr %14, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  %16 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %17 = load ptr, ptr %16, align 8
   store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
-  %19 = getelementptr inbounds i8, ptr %11, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %11, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %26, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 65
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 65
   tail call void @_ZN13JvmtiGCMarkerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #8
   tail call void @_ZN15VM_GC_Operation15notify_gc_beginEb(i1 noundef zeroext true) #8
-  %28 = getelementptr inbounds i8, ptr %0, i64 72
-  %29 = getelementptr inbounds i8, ptr %0, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %29, i8 0, i64 72, i1 false)
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV7GCTimer, i64 16), ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 80
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   tail call void @_ZN14TimePartitionsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %31) #8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10STWGCTimer, i64 16), ptr %28, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN17IsSTWGCActiveMarkC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %33) #8
-  %34 = getelementptr inbounds i8, ptr %0, i64 200
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %35 = load ptr, ptr %32, align 8
   tail call void @_ZN15G1JFRTracerMarkC2EP10STWGCTimerP8GCTracer(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull %28, ptr noundef %35) #8
   %36 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %37 = load ptr, ptr %34, align 8
   tail call void @_ZN13CollectedHeap16pre_full_gc_dumpEP7GCTimer(ptr noundef nonnull align 8 dereferenceable(104) %36, ptr noundef %37) #8
-  %38 = getelementptr inbounds i8, ptr %0, i64 216
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %39 = load ptr, ptr %25, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = zext i1 %2 to i8
   store i8 %41, ptr %38, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 224
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %40, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 232
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @_ZN23G1FullGCMonitoringScopeC1EP19G1MonitoringSupport(ptr noundef nonnull align 8 dereferenceable(88) %43, ptr noundef %1) #8
-  %44 = getelementptr inbounds i8, ptr %0, i64 320
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %45 = load ptr, ptr %25, align 8
   tail call void @_ZN17G1HeapPrinterMarkC1EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(136) %44, ptr noundef %45) #8
   br i1 %3, label %46, label %49
@@ -136,7 +136,7 @@ define hidden void @_ZN13G1FullGCScopeC2EP19G1MonitoringSupportbbP14G1FullGCTrac
 
 57:                                               ; preds = %49, %46
   %58 = phi double [ %48, %46 ], [ %56, %49 ]
-  %59 = getelementptr inbounds i8, ptr %0, i64 456
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %60 = fptoui double %58 to i64
   store i64 %60, ptr %59, align 8
   ret void
@@ -153,7 +153,7 @@ declare void @_ZN17G1HeapPrinterMarkC1EP15G1CollectedHeap(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN13G1FullGCScope22should_clear_soft_refsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 216
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -161,20 +161,20 @@ define hidden noundef zeroext i1 @_ZN13G1FullGCScope22should_clear_soft_refsEv(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @_ZN13G1FullGCScope5timerEv(ptr noundef nonnull readnone align 8 dereferenceable(464) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef ptr @_ZN13G1FullGCScope6tracerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 184
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZNK13G1FullGCScope27region_compaction_thresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 456
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }

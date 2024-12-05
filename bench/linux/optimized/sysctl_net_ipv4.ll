@@ -315,11 +315,11 @@ define internal i32 @proc_tcp_available_ulp(ptr nocapture readnone %0, i32 nound
   %6 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2048, ptr %7, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 1051840, i64 noundef 2048) #12
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %15, label %12
@@ -376,7 +376,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
 9:                                                ; preds = %21, %6
   %10 = phi i64 [ 0, %6 ], [ %22, %21 ]
   %11 = getelementptr %struct.ctl_table, ptr %4, i64 %10
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %17, label %15
@@ -387,7 +387,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
   br label %21
 
 17:                                               ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %11, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %19 = load i16, ptr %18, align 4
   %20 = and i16 %19, -147
   store i16 %20, ptr %18, align 4
@@ -401,7 +401,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
 .loopexit:                                        ; preds = %21, %1
   %24 = phi ptr [ @ipv4_net_table, %1 ], [ %4, %21 ]
   %25 = tail call ptr @register_net_sysctl_sz(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull %24, i64 noundef 115) #11
-  %26 = getelementptr inbounds i8, ptr %0, i64 920
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr %25, ptr %26, align 8
   %27 = icmp eq ptr %25, null
   br i1 %27, label %35, label %28
@@ -409,7 +409,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
 28:                                               ; preds = %.loopexit
   %29 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 104), align 8
   %30 = tail call noalias noundef align 8 dereferenceable_or_null(8192) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 8192) #12
-  %31 = getelementptr inbounds i8, ptr %0, i64 1336
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   store ptr %30, ptr %31, align 8
   %32 = icmp eq ptr %30, null
   br i1 %32, label %33, label %37
@@ -433,12 +433,12 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @ipv4_sysctl_exit_net(ptr nocapture noundef readonly %0) #3 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1336
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 920
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @unregister_net_sysctl_table(ptr noundef %5) #11
   tail call void @kfree(ptr noundef %7) #11
@@ -461,22 +461,22 @@ define internal i32 @ipv4_ping_group_range(ptr nocapture noundef readonly %0, i3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 32, i1 false)
   store ptr %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 16, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 20
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load i16, ptr %11, align 4
   store i16 %12, ptr %10, align 4
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  %14 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store ptr @ip_ping_group_range_min, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr @ip_ping_group_range_max, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 -8
   %19 = getelementptr i8, ptr %17, i64 4
@@ -514,7 +514,7 @@ define internal i32 @ipv4_ping_group_range(ptr nocapture noundef readonly %0, i3
   %37 = icmp eq i32 %29, -1
   %38 = select i1 %37, i32 %34, i32 %29
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %39, ptr %40, align 8
   %41 = call i32 @proc_doulongvec_minmax(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   %42 = icmp ne i32 %1, 0
@@ -567,27 +567,27 @@ define internal i32 @ipv4_ping_group_range(ptr nocapture noundef readonly %0, i3
 define internal i32 @ipv4_local_port_range(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca [2 x i32], align 8
   %7 = alloca %struct.ctl_table, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 32, i1 false)
   store ptr %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 20
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i16, ptr %13, align 4
   store i16 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store ptr @ip_local_port_range_min, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr @ip_local_port_range_max, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 1100
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 1100
   %20 = load volatile i32, ptr %19, align 4
   %21 = and i32 %20, 65535
   store i32 %21, ptr %6, align 8
@@ -606,7 +606,7 @@ define internal i32 @ipv4_local_port_range(ptr nocapture noundef readonly %0, i3
   br i1 %30, label %51, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %9, i64 1344
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 1344
   %33 = load volatile i32, ptr %32, align 64
   %34 = icmp slt i32 %29, %33
   br i1 %34, label %51, label %35
@@ -618,7 +618,7 @@ define internal i32 @ipv4_local_port_range(ptr nocapture noundef readonly %0, i3
   br i1 %38, label %39, label %48
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %9, i64 1104
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 1104
   %41 = load i8, ptr %40, align 4, !range !16, !noundef !17
   %42 = icmp eq i8 %41, 0
   br i1 %42, label %43, label %48
@@ -651,7 +651,7 @@ declare dso_local i32 @proc_do_large_bitmap(ptr noundef, i32 noundef, ptr nounde
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @ipv4_fwd_update_priority(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @proc_dou8vec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   %9 = icmp ne i32 %1, 0
@@ -672,16 +672,16 @@ define internal i32 @ipv4_fwd_update_priority(ptr noundef %0, i32 noundef %1, pt
 define internal i32 @proc_tcp_congestion_control(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca %struct.ctl_table, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -1240
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   store ptr %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 16, ptr %12, align 8
   call void @tcp_get_default_congestion_control(ptr noundef %10, ptr noundef nonnull %6) #11
   %13 = call i32 @proc_dostring(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
@@ -706,11 +706,11 @@ define internal i32 @proc_tcp_available_congestion_control(ptr nocapture readnon
   %6 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2048, ptr %7, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 1051840, i64 noundef 2048) #12
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %15, label %12
@@ -733,11 +733,11 @@ define internal i32 @proc_allowed_congestion_control(ptr nocapture readnone %0, 
   %6 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, i8 0, i64 64, i1 false)
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2048, ptr %7, align 8
   %8 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8
   %9 = tail call noalias align 8 dereferenceable_or_null(2048) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 1051840, i64 noundef 2048) #12
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %9, ptr %10, align 8
   %11 = icmp eq ptr %9, null
   br i1 %11, label %23, label %12
@@ -777,18 +777,18 @@ define internal i32 @proc_tcp_fastopen_key(ptr nocapture noundef readonly %0, i3
   %8 = alloca %struct.ctl_table, align 8
   %9 = alloca [8 x i32], align 16
   %10 = alloca [8 x i32], align 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 -1236
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 74, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #11
   %15 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 8), align 8
   %16 = tail call noalias align 8 dereferenceable_or_null(74) ptr @kmalloc_trace(ptr noundef %15, i32 noundef 3264, i64 noundef 74) #12
-  %17 = getelementptr inbounds i8, ptr %8, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %16, ptr %17, align 8
   %18 = icmp eq ptr %16, null
   br i1 %18, label %119, label %19
@@ -912,10 +912,10 @@ define internal i32 @proc_tcp_fastopen_key(ptr nocapture noundef readonly %0, i3
   %94 = phi ptr [ %91, %90 ], [ null, %86 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !8
-  %95 = getelementptr inbounds i8, ptr %7, i64 4
-  %96 = getelementptr inbounds i8, ptr %7, i64 8
-  %97 = getelementptr inbounds i8, ptr %7, i64 12
-  %98 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %93, ptr noundef nonnull @.str.135, ptr noundef nonnull %7, ptr noundef %95, ptr noundef %96, ptr noundef %97)
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %98 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef %93, ptr noundef nonnull @.str.135, ptr noundef nonnull %7, ptr noundef nonnull %95, ptr noundef nonnull %96, ptr noundef nonnull %97)
   %99 = icmp eq i32 %98, 4
   br i1 %99, label %100, label %114
 
@@ -928,21 +928,21 @@ define internal i32 @proc_tcp_fastopen_key(ptr nocapture noundef readonly %0, i3
 102:                                              ; preds = %100
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !8
-  %103 = getelementptr inbounds i8, ptr %6, i64 4
-  %104 = getelementptr inbounds i8, ptr %6, i64 8
-  %105 = getelementptr inbounds i8, ptr %6, i64 12
-  %106 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %94, ptr noundef nonnull @.str.135, ptr noundef nonnull %6, ptr noundef %103, ptr noundef %104, ptr noundef %105)
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %106 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %94, ptr noundef nonnull @.str.135, ptr noundef nonnull %6, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %105)
   %107 = icmp eq i32 %106, 4
   br i1 %107, label %108, label %115
 
 108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %10, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(16) %109, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %109, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #11
   br label %110
 
 110:                                              ; preds = %108, %100
-  %111 = getelementptr inbounds i8, ptr %10, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %112 = select i1 %101, ptr null, ptr %111
   %113 = call i32 @tcp_fastopen_reset_cipher(ptr noundef %13, ptr noundef null, ptr noundef nonnull %10, ptr noundef %112) #11
   br label %116
@@ -971,7 +971,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr nocapture noundef readonly %0, i3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @proc_tfo_blackhole_detect_timeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @proc_dointvec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   %9 = icmp ne i32 %1, 0
@@ -990,7 +990,7 @@ define internal i32 @proc_tfo_blackhole_detect_timeout(ptr noundef %0, i32 nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @proc_fib_multipath_hash_policy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @proc_dou8vec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   %9 = icmp ne i32 %1, 0
@@ -1009,7 +1009,7 @@ define internal i32 @proc_fib_multipath_hash_policy(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @proc_fib_multipath_hash_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @proc_douintvec_minmax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   %9 = icmp ne i32 %1, 0
@@ -1030,24 +1030,24 @@ define internal i32 @proc_fib_multipath_hash_fields(ptr noundef %0, i32 noundef 
 define internal i32 @ipv4_privileged_ports(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 32, i1 false)
   store ptr %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 20
-  %13 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = load i16, ptr %13, align 4
   store i16 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store ptr @ip_privileged_port_min, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr @ip_privileged_port_max, ptr %17, align 8
   %18 = load volatile i32, ptr %9, align 64
   store i32 %18, ptr %6, align 4
@@ -1080,14 +1080,14 @@ define internal i32 @ipv4_privileged_ports(ptr nocapture noundef readonly %0, i3
 define internal i32 @proc_tcp_ehash_entries(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -1212
   %11 = getelementptr i8, ptr %9, i64 -380
   %12 = load ptr, ptr %11, align 64
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 16
   %15 = add i32 %14, 1
   store i32 %15, ptr %6, align 4
@@ -1095,7 +1095,7 @@ define internal i32 @proc_tcp_ehash_entries(ptr nocapture noundef readonly %0, i
   br i1 %16, label %23, label %17
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %12, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %19 = load i8, ptr %18, align 8, !range !16, !noundef !17
   %20 = icmp eq i8 %19, 0
   br i1 %20, label %21, label %23
@@ -1107,9 +1107,9 @@ define internal i32 @proc_tcp_ehash_entries(ptr nocapture noundef readonly %0, i
 
 23:                                               ; preds = %21, %17, %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
-  %24 = getelementptr inbounds i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %7, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %25, align 8
   %26 = call i32 @proc_dointvec(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11
@@ -1121,14 +1121,14 @@ define internal i32 @proc_tcp_ehash_entries(ptr nocapture noundef readonly %0, i
 define internal i32 @proc_udp_hash_entries(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %9, i64 -1332
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #11
   %11 = getelementptr i8, ptr %9, i64 -436
   %12 = load ptr, ptr %11, align 64
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 1
   %16 = icmp ne ptr %10, @init_net
@@ -1138,9 +1138,9 @@ define internal i32 @proc_udp_hash_entries(ptr nocapture noundef readonly %0, i3
   %20 = select i1 %18, i32 %19, i32 %15
   store i32 %20, ptr %6, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 0, i64 64, i1 false)
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %6, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i32 4, ptr %22, align 8
   %23 = call i32 @proc_dointvec(ptr noundef nonnull %7, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #11

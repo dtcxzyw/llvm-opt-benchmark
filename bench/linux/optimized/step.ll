@@ -18,9 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i64 @convert_ip_to_linear(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4
   %8 = icmp eq i64 %7, 0
@@ -28,18 +28,18 @@ define dso_local i64 @convert_ip_to_linear(ptr nocapture noundef readonly %0, pt
 
 9:                                                ; preds = %2
   %10 = lshr i64 %6, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 1192
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1064
-  tail call void @mutex_lock(ptr noundef %13) #5
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1064
+  tail call void @mutex_lock(ptr noundef nonnull %13) #5
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 1048
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 1048
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %42, label %18, !prof !5
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
   %22 = icmp samesign ult i64 %10, %21
@@ -48,10 +48,10 @@ define dso_local i64 @convert_ip_to_linear(ptr nocapture noundef readonly %0, pt
 23:                                               ; preds = %18
   %24 = load ptr, ptr %16, align 8
   %25 = getelementptr %struct.desc_struct, ptr %24, i64 %10
-  %26 = getelementptr inbounds i8, ptr %25, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 2
   %27 = load i16, ptr %26, align 1
   %28 = zext i16 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %25, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %30 = load i32, ptr %29, align 1
   %31 = shl i32 %30, 16
   %32 = and i32 %31, 16711680
@@ -68,8 +68,8 @@ define dso_local i64 @convert_ip_to_linear(ptr nocapture noundef readonly %0, pt
 
 42:                                               ; preds = %23, %18, %9
   %43 = phi i64 [ %41, %23 ], [ -1, %18 ], [ -1, %9 ]
-  %44 = getelementptr inbounds i8, ptr %14, i64 1064
-  tail call void @mutex_unlock(ptr noundef %44) #5
+  %44 = getelementptr inbounds nuw i8, ptr %14, i64 1064
+  tail call void @mutex_unlock(ptr noundef nonnull %44) #5
   br label %45
 
 45:                                               ; preds = %42, %2
@@ -151,7 +151,7 @@ define dso_local void @user_enable_single_step(ptr noundef %0) local_unnamed_add
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = alloca [15 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 32
   %6 = ptrtoint ptr %5 to i64
   %7 = add i64 %6, 16384
@@ -170,8 +170,8 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
 
 16:                                               ; preds = %12, %2
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i32 16, ptr elementtype(i8) %0) #5, !srcloc !10
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %17, i32 64, ptr elementtype(i8) %17) #5, !srcloc !10
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %17, i32 64, ptr nonnull elementtype(i8) %17) #5, !srcloc !10
   %18 = getelementptr i8, ptr %8, i64 -24
   %19 = load i64, ptr %18, align 8
   %20 = or i64 %19, 256
@@ -188,18 +188,18 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
 
 27:                                               ; preds = %16
   %28 = lshr i64 %24, 3
-  %29 = getelementptr inbounds i8, ptr %0, i64 1192
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 1064
-  tail call void @mutex_lock(ptr noundef %31) #5
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1064
+  tail call void @mutex_lock(ptr noundef nonnull %31) #5
   %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1048
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1048
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %60, label %36, !prof !5
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %34, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load i32, ptr %37, align 8
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %28, %39
@@ -208,10 +208,10 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %34, align 8
   %43 = getelementptr %struct.desc_struct, ptr %42, i64 %28
-  %44 = getelementptr inbounds i8, ptr %43, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   %45 = load i16, ptr %44, align 1
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %43, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %48 = load i32, ptr %47, align 1
   %49 = shl i32 %48, 16
   %50 = and i32 %49, 16711680
@@ -228,8 +228,8 @@ define internal fastcc void @enable_step(ptr noundef %0, i1 noundef zeroext %1) 
 
 60:                                               ; preds = %41, %36, %27
   %61 = phi i64 [ %59, %41 ], [ -1, %36 ], [ -1, %27 ]
-  %62 = getelementptr inbounds i8, ptr %32, i64 1064
-  tail call void @mutex_unlock(ptr noundef %62) #5
+  %62 = getelementptr inbounds nuw i8, ptr %32, i64 1064
+  tail call void @mutex_unlock(ptr noundef nonnull %62) #5
   br label %63
 
 63:                                               ; preds = %60, %16
@@ -463,8 +463,8 @@ define dso_local void @user_disable_single_step(ptr noundef %0) local_unnamed_ad
 
 24:                                               ; preds = %23, %1
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %0, i32 -17, ptr elementtype(i8) %0) #5, !srcloc !11
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %25, i32 -65, ptr elementtype(i8) %25) #5, !srcloc !11
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %25, i32 -65, ptr nonnull elementtype(i8) %25) #5, !srcloc !11
   %26 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 24, ptr elementtype(i64) %0) #5, !srcloc !19
   %27 = icmp ult i8 %26, 2
   tail call void @llvm.assume(i1 %27)
@@ -472,7 +472,7 @@ define dso_local void @user_disable_single_step(ptr noundef %0) local_unnamed_ad
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 32
   %32 = ptrtoint ptr %31 to i64
   %33 = add i64 %32, 16384

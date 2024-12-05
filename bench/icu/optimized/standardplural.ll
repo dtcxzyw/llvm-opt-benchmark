@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef ptr @_ZN6icu_7514StandardPlural10getKeywordENS0_4FormE(i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %idxprom = zext i32 %p to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr @_ZN6icu_75L9gKeywordsE, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr @_ZN6icu_75L9gKeywordsE, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
   ret ptr %0
 }
@@ -36,7 +36,7 @@ entry:
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringEPKc(ptr nocapture noundef readonly %keyword) local_unnamed_addr #1 align 2 {
 entry:
-  %incdec.ptr = getelementptr inbounds i8, ptr %keyword, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %keyword, i64 1
   %0 = load i8, ptr %keyword, align 1
   switch i8 %0, label %sw.epilog [
     i8 102, label %sub_0
@@ -55,13 +55,13 @@ sub_0:                                            ; preds = %entry
   br i1 %.not30, label %sub_1, label %sw.epilog
 
 sub_1:                                            ; preds = %sub_0
-  %2 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %keyword, i64 2
   %3 = load i8, ptr %2, align 1
   %.not31 = icmp eq i8 %3, 119
   br i1 %.not31, label %sw.bb.tail, label %sw.epilog
 
 sw.bb.tail:                                       ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %keyword, i64 3
+  %4 = getelementptr inbounds nuw i8, ptr %keyword, i64 3
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %return, label %sw.epilog
@@ -82,13 +82,13 @@ sub_011:                                          ; preds = %sw.bb6
   br i1 %.not28, label %sub_112, label %sw.epilog
 
 sub_112:                                          ; preds = %sub_011
-  %8 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %keyword, i64 2
   %9 = load i8, ptr %8, align 1
   %.not29 = icmp eq i8 %9, 101
   br i1 %.not29, label %if.else.tail, label %sw.epilog
 
 if.else.tail:                                     ; preds = %sub_112
-  %10 = getelementptr inbounds i8, ptr %keyword, i64 3
+  %10 = getelementptr inbounds nuw i8, ptr %keyword, i64 3
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %return, label %sw.epilog
@@ -99,13 +99,13 @@ sub_015:                                          ; preds = %entry
   br i1 %.not26, label %sub_116, label %sw.epilog
 
 sub_116:                                          ; preds = %sub_015
-  %14 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %keyword, i64 2
   %15 = load i8, ptr %14, align 1
   %.not27 = icmp eq i8 %15, 111
   br i1 %.not27, label %sw.bb15.tail, label %sw.epilog
 
 sw.bb15.tail:                                     ; preds = %sub_116
-  %16 = getelementptr inbounds i8, ptr %keyword, i64 3
+  %16 = getelementptr inbounds nuw i8, ptr %keyword, i64 3
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %return, label %sw.epilog
@@ -123,13 +123,13 @@ sub_019:                                          ; preds = %entry
   ]
 
 sw.bb25.tail:                                     ; preds = %sub_019
-  %20 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %keyword, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %return, label %sw.epilog
 
 if.else29.tail:                                   ; preds = %sub_019
-  %23 = getelementptr inbounds i8, ptr %keyword, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %keyword, i64 2
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
   br i1 %25, label %return, label %sw.epilog
@@ -158,12 +158,12 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, 8) i32 @_ZN6icu_7514StandardPlural25indexOrNegativeFromStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64) %keyword) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %fUnion.i.i = getelementptr inbounds i8, ptr %keyword, i64 8
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %keyword, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %0, 0
   %1 = ashr i16 %0, 5
   %shr.i.i = sext i16 %1 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %keyword, i64 12
+  %fLength.i = getelementptr inbounds nuw i8, ptr %keyword, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   switch i32 %cond.i, label %sw.epilog [
@@ -177,8 +177,8 @@ entry:
 _ZNK6icu_7513UnicodeString6charAtEi.exit:         ; preds = %entry
   %3 = and i16 %0, 2
   %tobool.not.i.i.i = icmp eq i16 %3, 0
-  %fBuffer.i.i.i = getelementptr inbounds i8, ptr %keyword, i64 10
-  %fArray.i.i.i = getelementptr inbounds i8, ptr %keyword, i64 24
+  %fBuffer.i.i.i = getelementptr inbounds nuw i8, ptr %keyword, i64 10
+  %fArray.i.i.i = getelementptr inbounds nuw i8, ptr %keyword, i64 24
   %4 = load ptr, ptr %fArray.i.i.i, align 8
   %cond.i2.i.i = select i1 %tobool.not.i.i.i, ptr %4, ptr %fBuffer.i.i.i
   %5 = load i16, ptr %cond.i2.i.i, align 2

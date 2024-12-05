@@ -55,29 +55,29 @@ entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #4
   %call.i13 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 82, ptr noundef nonnull @__func__.PCIE_ROOT_PORT_CLASS) #4
-  %vendor_id = getelementptr inbounds i8, ptr %call.i12, i64 208
+  %vendor_id = getelementptr inbounds nuw i8, ptr %call.i12, i64 208
   store i16 -32634, ptr %vendor_id, align 8
-  %device_id = getelementptr inbounds i8, ptr %call.i12, i64 210
+  %device_id = getelementptr inbounds nuw i8, ptr %call.i12, i64 210
   store i16 13344, ptr %device_id, align 2
-  %revision = getelementptr inbounds i8, ptr %call.i12, i64 212
+  %revision = getelementptr inbounds nuw i8, ptr %call.i12, i64 212
   store i8 2, ptr %revision, align 4
-  %desc = getelementptr inbounds i8, ptr %call.i, i64 112
+  %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @.str.2, ptr %desc, align 8
-  %vmsd = getelementptr inbounds i8, ptr %call.i, i64 160
+  %vmsd = getelementptr inbounds nuw i8, ptr %call.i, i64 160
   store ptr @vmstate_ioh3420, ptr %vmsd, align 8
-  %aer_vector = getelementptr inbounds i8, ptr %call.i13, i64 264
+  %aer_vector = getelementptr inbounds nuw i8, ptr %call.i13, i64 264
   store ptr @ioh3420_aer_vector, ptr %aer_vector, align 8
-  %interrupts_init = getelementptr inbounds i8, ptr %call.i13, i64 272
+  %interrupts_init = getelementptr inbounds nuw i8, ptr %call.i13, i64 272
   store ptr @ioh3420_interrupts_init, ptr %interrupts_init, align 8
-  %interrupts_uninit = getelementptr inbounds i8, ptr %call.i13, i64 280
+  %interrupts_uninit = getelementptr inbounds nuw i8, ptr %call.i13, i64 280
   store ptr @ioh3420_interrupts_uninit, ptr %interrupts_uninit, align 8
-  %exp_offset = getelementptr inbounds i8, ptr %call.i13, i64 288
+  %exp_offset = getelementptr inbounds nuw i8, ptr %call.i13, i64 288
   store i32 144, ptr %exp_offset, align 8
-  %aer_offset = getelementptr inbounds i8, ptr %call.i13, i64 292
+  %aer_offset = getelementptr inbounds nuw i8, ptr %call.i13, i64 292
   store i32 256, ptr %aer_offset, align 4
-  %ssvid_offset = getelementptr inbounds i8, ptr %call.i13, i64 296
+  %ssvid_offset = getelementptr inbounds nuw i8, ptr %call.i13, i64 296
   store i32 64, ptr %ssvid_offset, align 8
-  %ssid = getelementptr inbounds i8, ptr %call.i13, i64 304
+  %ssid = getelementptr inbounds nuw i8, ptr %call.i13, i64 304
   store i32 0, ptr %ssid, align 8
   ret void
 }

@@ -25,7 +25,7 @@ entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %path, ptr noundef nonnull %st) #12
   %tobool.not = icmp eq i32 %call, 0
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp = icmp eq i32 %and, 16384
@@ -72,12 +72,12 @@ if.then3:                                         ; preds = %if.then
 if.end:                                           ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
   call void @strbuf_add(ptr noundef nonnull %remaining, ptr noundef nonnull %path, i64 noundef %call.i) #12
-  %buf.i = getelementptr inbounds i8, ptr %remaining, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %remaining, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %.val.i = load i8, ptr %1, align 1
-  %len2.i.i = getelementptr inbounds i8, ptr %resolved, i64 8
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %resolved, i64 8
   store i64 0, ptr %len2.i.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %resolved, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %resolved, i64 16
   %2 = load ptr, ptr %buf.i.i, align 8
   %cmp3.not.i.i = icmp eq ptr %2, @strbuf_slopbuf
   br i1 %cmp3.not.i.i, label %get_root_part.exit, label %if.then4.i.i
@@ -111,20 +111,20 @@ if.then10:                                        ; preds = %if.then7
   unreachable
 
 if.end13:                                         ; preds = %if.then5, %get_root_part.exit
-  %len14 = getelementptr inbounds i8, ptr %remaining, i64 8
+  %len14 = getelementptr inbounds nuw i8, ptr %remaining, i64 8
   %5 = load i64, ptr %len14, align 8
   %cmp.not124125 = icmp eq i64 %5, 0
   br i1 %cmp.not124125, label %while.end, label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %if.end13
-  %len2.i.i24 = getelementptr inbounds i8, ptr %next, i64 8
-  %buf.i.i25 = getelementptr inbounds i8, ptr %next, i64 16
+  %len2.i.i24 = getelementptr inbounds nuw i8, ptr %next, i64 8
+  %buf.i.i25 = getelementptr inbounds nuw i8, ptr %next, i64 16
   %and48 = and i32 %flags, 1
   %tobool49 = icmp eq i32 %and48, 0
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
-  %len2.i = getelementptr inbounds i8, ptr %symlink, i64 8
-  %buf.i41 = getelementptr inbounds i8, ptr %symlink, i64 16
-  %st_size = getelementptr inbounds i8, ptr %st, i64 48
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
+  %len2.i = getelementptr inbounds nuw i8, ptr %symlink, i64 8
+  %buf.i41 = getelementptr inbounds nuw i8, ptr %symlink, i64 16
+  %st_size = getelementptr inbounds nuw i8, ptr %st, i64 48
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end98
@@ -149,7 +149,7 @@ for.cond.i:                                       ; preds = %for.cond.i, %strbuf
   %start.0.i = phi ptr [ %7, %strbuf_setlen.exit.i ], [ %incdec.ptr.i, %for.cond.i ]
   %8 = load i8, ptr %start.0.i, align 1
   %cmp.i.not.i = icmp eq i8 %8, 47
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %start.0.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %start.0.i, i64 1
   br i1 %cmp.i.not.i, label %for.cond.i, label %for.cond1.i, !llvm.loop !5
 
 for.cond1.i:                                      ; preds = %for.cond.i, %for.inc8.i
@@ -161,7 +161,7 @@ for.cond1.i:                                      ; preds = %for.cond.i, %for.in
   ]
 
 for.inc8.i:                                       ; preds = %for.cond1.i
-  %incdec.ptr9.i = getelementptr inbounds i8, ptr %end.0.i, i64 1
+  %incdec.ptr9.i = getelementptr inbounds nuw i8, ptr %end.0.i, i64 1
   %.pr.i = load i8, ptr %incdec.ptr9.i, align 1
   br label %for.cond1.i, !llvm.loop !7
 
@@ -188,7 +188,7 @@ land.lhs.true:                                    ; preds = %get_next_component.
   br i1 %.not128, label %land.lhs.true.tail, label %if.end34
 
 land.lhs.true.tail:                               ; preds = %land.lhs.true
-  %14 = getelementptr inbounds i8, ptr %12, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %while.cond.backedge, label %if.end34
@@ -200,13 +200,13 @@ land.lhs.true27:                                  ; preds = %get_next_component.
   br i1 %.not, label %sub_1116, label %if.end34
 
 sub_1116:                                         ; preds = %land.lhs.true27
-  %19 = getelementptr inbounds i8, ptr %17, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %20 = load i8, ptr %19, align 1
   %.not127 = icmp eq i8 %20, 46
   br i1 %.not127, label %land.lhs.true27.tail, label %if.end34
 
 land.lhs.true27.tail:                             ; preds = %sub_1116
-  %21 = getelementptr inbounds i8, ptr %17, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %if.then31, label %if.end34
@@ -539,9 +539,9 @@ error_out:                                        ; preds = %if.then80, %if.then
   br i1 %tobool100.not, label %if.then101, label %if.end102
 
 if.then101:                                       ; preds = %error_out
-  %len2.i106 = getelementptr inbounds i8, ptr %resolved, i64 8
+  %len2.i106 = getelementptr inbounds nuw i8, ptr %resolved, i64 8
   store i64 0, ptr %len2.i106, align 8
-  %buf.i107 = getelementptr inbounds i8, ptr %resolved, i64 16
+  %buf.i107 = getelementptr inbounds nuw i8, ptr %resolved, i64 16
   %65 = load ptr, ptr %buf.i107, align 8
   %cmp3.not.i108 = icmp eq ptr %65, @strbuf_slopbuf
   br i1 %cmp3.not.i108, label %if.end102, label %if.then4.i109
@@ -594,8 +594,8 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @absolute_path(ptr noundef %path) local_unnamed_addr #2 {
 entry:
-  store i64 0, ptr getelementptr inbounds (i8, ptr @absolute_path.sb, i64 8), align 8
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @absolute_path.sb, i64 16), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @absolute_path.sb, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @absolute_path.sb, i64 16), align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
 
@@ -625,7 +625,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.then2:                                         ; preds = %entry
-  %len = getelementptr inbounds i8, ptr %sb, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %1 = load i64, ptr %len, align 8
   %call3 = tail call ptr @xgetcwd() #12
   %call4 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #12
@@ -645,7 +645,7 @@ land.lhs.true8:                                   ; preds = %land.lhs.true
 land.lhs.true11:                                  ; preds = %land.lhs.true8
   %2 = load i64, ptr %cwd_stat, align 8
   %tobool12 = icmp ne i64 %2, 0
-  %st_ino = getelementptr inbounds i8, ptr %cwd_stat, i64 8
+  %st_ino = getelementptr inbounds nuw i8, ptr %cwd_stat, i64 8
   %3 = load i64, ptr %st_ino, align 8
   %tobool13 = icmp ne i64 %3, 0
   %or.cond = select i1 %tobool12, i1 true, i1 %tobool13
@@ -657,7 +657,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true11
   %4 = load i64, ptr %pwd_stat, align 8
   %cmp = icmp eq i64 %4, %2
   %or.cond18 = select i1 %tobool16.not, i1 %cmp, i1 false
-  %st_ino21 = getelementptr inbounds i8, ptr %pwd_stat, i64 8
+  %st_ino21 = getelementptr inbounds nuw i8, ptr %pwd_stat, i64 8
   %5 = load i64, ptr %st_ino21, align 8
   %cmp23 = icmp eq i64 %5, %3
   %or.cond19 = select i1 %or.cond18, i1 %cmp23, i1 false
@@ -675,7 +675,7 @@ if.end25:                                         ; preds = %land.lhs.true14, %i
   br i1 %cmp27, label %land.lhs.true28, label %if.end33
 
 land.lhs.true28:                                  ; preds = %if.end25
-  %buf = getelementptr inbounds i8, ptr %sb, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %sb, i64 16
   %7 = load ptr, ptr %buf, align 8
   %8 = getelementptr i8, ptr %7, i64 %6
   %arrayidx = getelementptr i8, ptr %8, i64 -1
@@ -774,7 +774,7 @@ entry:
   br i1 %.not, label %entry.tail, label %if.end
 
 entry.tail:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %arg, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %arg, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.then, label %if.end
@@ -832,7 +832,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 define dso_local void @strbuf_add_real_path(ptr noundef %sb, ptr noundef %path) local_unnamed_addr #2 {
 entry:
   %resolved = alloca %struct.strbuf, align 8
-  %len = getelementptr inbounds i8, ptr %sb, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %sb, i64 8
   %0 = load i64, ptr %len, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then

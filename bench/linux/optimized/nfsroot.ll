@@ -139,12 +139,12 @@ define internal fastcc noundef range(i32 -1, 1) i32 @root_nfs_data() unnamed_add
 21:                                               ; preds = %17
   %22 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #15, !srcloc !6
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds i8, ptr %23, i64 1872
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1872
   %25 = load ptr, ptr %24, align 16
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 65
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @nfs_export_path, i64 noundef 1025, ptr noundef nonnull %3, ptr noundef %28) #11
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 65
+  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @nfs_export_path, i64 noundef 1025, ptr noundef nonnull %3, ptr noundef nonnull %28) #11
   %30 = icmp sgt i32 %29, 1024
   br i1 %30, label %34, label %31
 

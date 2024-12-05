@@ -36,7 +36,7 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr nocapture noundef %0, ptr no
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %7
 
 7:                                                ; preds = %16, %.lr.ph.i
@@ -49,20 +49,20 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr nocapture noundef %0, ptr no
   br i1 %11, label %DupPluginIntentsList.exit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 272
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 272
   store ptr null, ptr %13, align 8
   %.not17.i = icmp eq ptr %.0154.i, null
   br i1 %.not17.i, label %16, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %.0154.i, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %.0154.i, i64 272
   store ptr %10, ptr %15, align 8
   br label %16
 
 16:                                               ; preds = %14, %12
   %17 = icmp eq ptr %8, null
   %spec.select.i = select i1 %17, ptr %10, ptr %8
-  %18 = getelementptr inbounds i8, ptr %.05.i, i64 272
+  %18 = getelementptr inbounds nuw i8, ptr %.05.i, i64 272
   %.0.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %7, !llvm.loop !6
@@ -70,10 +70,10 @@ define hidden void @_cmsAllocIntentsPluginChunk(ptr nocapture noundef %0, ptr no
 ._crit_edge.i:                                    ; preds = %16, %4
   %.lcssa.i = phi ptr [ null, %4 ], [ %spec.select.i, %16 ]
   store ptr %.lcssa.i, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @_cmsSubAllocDup(ptr noundef %20, ptr noundef nonnull %3, i32 noundef 8) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %21, ptr %22, align 8
   br label %DupPluginIntentsList.exit
 
@@ -82,10 +82,10 @@ DupPluginIntentsList.exit:                        ; preds = %7, %._crit_edge.i
   br label %28
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @_cmsSubAllocDup(ptr noundef %25, ptr noundef nonnull @_cmsAllocIntentsPluginChunk.IntentsPluginChunkType, i32 noundef 8) #7
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %26, ptr %27, align 8
   br label %28
 
@@ -123,7 +123,7 @@ define internal ptr @DefaultICCintents(ptr noundef %0, i32 noundef %1, ptr nocap
 18:                                               ; preds = %14, %88
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %88 ]
   %.097130 = phi i32 [ %16, %14 ], [ %.196, %88 ]
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 @cmsGetDeviceClass(ptr noundef %20) #7
   %22 = icmp eq i32 %21, 1633842036
@@ -145,7 +145,7 @@ switch.early.test:                                ; preds = %18
   %27 = icmp ne i32 %.097130, 1281450528
   %28 = and i1 %26, %27
   %29 = freeze i1 %28
-  %30 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   br i1 %29, label %32, label %switch.early.test116
 
@@ -224,9 +224,9 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   br i1 %or.cond7, label %60, label %67
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %64 = load double, ptr %63, align 8
   %65 = trunc nuw i64 %indvars.iv to i32
   %66 = call fastcc i32 @ComputeConversion(i32 noundef %65, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %62, double noundef %64, ptr noundef %8, ptr noundef %9)
@@ -257,9 +257,9 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   br i1 %76, label %.thread122, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %79 = load i32, ptr %78, align 4
-  %80 = getelementptr inbounds double, ptr %5, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
   %81 = load double, ptr %80, align 8
   %82 = trunc nuw i64 %indvars.iv to i32
   %83 = call fastcc i32 @ComputeConversion(i32 noundef %82, ptr noundef nonnull %3, i32 noundef %40, i32 noundef %79, double noundef %81, ptr noundef %8, ptr noundef %9)
@@ -296,7 +296,7 @@ ColorSpaceIsCompatible.exit.thread:               ; preds = %48, %45, %42, %39, 
   ]
 
 92:                                               ; preds = %91, %91, %91
-  %93 = getelementptr inbounds i8, ptr %12, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = call i32 @cmsChannelsOfColorSpace(i32 noundef %.196) #7
   %96 = call ptr @_cmsStageClipNegatives(ptr noundef %94, i32 noundef %95) #7
@@ -338,13 +338,13 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
-  %10 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 0, ptr %14, align 4
   %.pr = load i32, ptr %10, align 4
   br label %15
@@ -357,14 +357,14 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
   ]
 
 17:                                               ; preds = %15, %15
-  %18 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @cmsGetEncodedICCversion(ptr noundef %19) #7
   %21 = icmp ugt i32 %20, 67108863
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   store i32 1, ptr %23, align 4
   br label %24
 
@@ -387,7 +387,7 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %.lr.ph.i
-  %30 = getelementptr inbounds i8, ptr %.018.i, i64 272
+  %30 = getelementptr inbounds nuw i8, ptr %.018.i, i64 272
   %.0.i = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.i, !llvm.loop !10
@@ -402,7 +402,7 @@ define hidden ptr @_cmsLinkProfiles(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %.preheader.i
-  %34 = getelementptr inbounds i8, ptr %.119.i, i64 272
+  %34 = getelementptr inbounds nuw i8, ptr %.119.i, i64 272
   %35 = load ptr, ptr %34, align 8
   %.not13.i = icmp eq ptr %35, null
   br i1 %.not13.i, label %SearchIntent.exit, label %.preheader.i, !llvm.loop !11
@@ -414,7 +414,7 @@ SearchIntent.exit:                                ; preds = %33
 
 .loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i
   %.012.i.ph = phi ptr [ %.119.i, %.preheader.i ], [ %.018.i, %.lr.ph.i ]
-  %37 = getelementptr inbounds i8, ptr %.012.i.ph, i64 264
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i.ph, i64 264
   %38 = load ptr, ptr %37, align 8
   %39 = tail call ptr %38(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #7
   br label %40
@@ -442,7 +442,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %.040.us.us = phi i32 [ %6, %.split.us.split.us ], [ 0, %.split.us ]
   %.02839.us.us = phi ptr [ %8, %.split.us.split.us ], [ @DefaultIntents, %.split.us ]
   %6 = add i32 %.040.us.us, 1
-  %7 = getelementptr inbounds i8, ptr %.02839.us.us, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %.02839.us.us, i64 272
   %8 = load ptr, ptr %7, align 8
   %.not.us.us = icmp eq ptr %8, null
   br i1 %.not.us.us, label %.preheader, label %.split.us.split.us, !llvm.loop !12
@@ -454,15 +454,15 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.split.us.split
-  %11 = getelementptr inbounds i8, ptr %.02839.us, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.02839.us, i64 4
   %12 = zext i32 %.040.us to i64
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %12
   store ptr %11, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %10, %.split.us.split
   %15 = add i32 %.040.us, 1
-  %16 = getelementptr inbounds i8, ptr %.02839.us, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %.02839.us, i64 272
   %17 = load ptr, ptr %16, align 8
   %.not.us = icmp eq ptr %17, null
   br i1 %.not.us, label %.preheader, label %.split.us.split, !llvm.loop !12
@@ -479,13 +479,13 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
 19:                                               ; preds = %.split.split.us
   %20 = load i32, ptr %.02839.us42, align 8
   %21 = zext i32 %.040.us41 to i64
-  %22 = getelementptr inbounds i32, ptr %2, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %21
   store i32 %20, ptr %22, align 4
   br label %23
 
 23:                                               ; preds = %19, %.split.split.us
   %24 = add i32 %.040.us41, 1
-  %25 = getelementptr inbounds i8, ptr %.02839.us42, i64 272
+  %25 = getelementptr inbounds nuw i8, ptr %.02839.us42, i64 272
   %26 = load ptr, ptr %25, align 8
   %.not.us43 = icmp eq ptr %26, null
   br i1 %.not.us43, label %.preheader, label %.split.split.us, !llvm.loop !12
@@ -506,7 +506,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %.12950.us.us = phi ptr [ %.129.us.us, %.lr.ph.split.us.split.us ], [ %.12947, %.lr.ph.split.us ]
   %.149.us.us = phi i32 [ %27, %.lr.ph.split.us.split.us ], [ %.us-phi, %.lr.ph.split.us ]
   %27 = add i32 %.149.us.us, 1
-  %28 = getelementptr inbounds i8, ptr %.12950.us.us, i64 272
+  %28 = getelementptr inbounds nuw i8, ptr %.12950.us.us, i64 272
   %.129.us.us = load ptr, ptr %28, align 8
   %.not34.us.us = icmp eq ptr %.129.us.us, null
   br i1 %.not34.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !13
@@ -518,15 +518,15 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   br i1 %29, label %30, label %34
 
 30:                                               ; preds = %.lr.ph.split.us.split
-  %31 = getelementptr inbounds i8, ptr %.12950.us, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.12950.us, i64 4
   %32 = zext i32 %.149.us to i64
-  %33 = getelementptr inbounds ptr, ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %32
   store ptr %31, ptr %33, align 8
   br label %34
 
 34:                                               ; preds = %30, %.lr.ph.split.us.split
   %35 = add i32 %.149.us, 1
-  %36 = getelementptr inbounds i8, ptr %.12950.us, i64 272
+  %36 = getelementptr inbounds nuw i8, ptr %.12950.us, i64 272
   %.129.us = load ptr, ptr %36, align 8
   %.not34.us = icmp eq ptr %.129.us, null
   br i1 %.not34.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !13
@@ -543,13 +543,13 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
 38:                                               ; preds = %.lr.ph.split.split.us
   %39 = load i32, ptr %.12950.us52, align 8
   %40 = zext i32 %.149.us53 to i64
-  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %2, i64 %40
   store i32 %39, ptr %41, align 4
   br label %42
 
 42:                                               ; preds = %38, %.lr.ph.split.split.us
   %43 = add i32 %.149.us53, 1
-  %44 = getelementptr inbounds i8, ptr %.12950.us52, i64 272
+  %44 = getelementptr inbounds nuw i8, ptr %.12950.us52, i64 272
   %.129.us54 = load ptr, ptr %44, align 8
   %.not34.us55 = icmp eq ptr %.129.us54, null
   br i1 %.not34.us55, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !13
@@ -563,16 +563,16 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
 46:                                               ; preds = %.split.split
   %47 = load i32, ptr %.02839, align 8
   %48 = zext i32 %.040 to i64
-  %49 = getelementptr inbounds i32, ptr %2, i64 %48
+  %49 = getelementptr inbounds nuw i32, ptr %2, i64 %48
   store i32 %47, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.02839, i64 4
-  %51 = getelementptr inbounds ptr, ptr %3, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %.02839, i64 4
+  %51 = getelementptr inbounds nuw ptr, ptr %3, i64 %48
   store ptr %50, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %46, %.split.split
   %53 = add i32 %.040, 1
-  %54 = getelementptr inbounds i8, ptr %.02839, i64 272
+  %54 = getelementptr inbounds nuw i8, ptr %.02839, i64 272
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq ptr %55, null
   br i1 %.not, label %.preheader, label %.split.split, !llvm.loop !12
@@ -586,16 +586,16 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
 57:                                               ; preds = %.lr.ph.split.split
   %58 = load i32, ptr %.12950, align 8
   %59 = zext i32 %.149 to i64
-  %60 = getelementptr inbounds i32, ptr %2, i64 %59
+  %60 = getelementptr inbounds nuw i32, ptr %2, i64 %59
   store i32 %58, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %.12950, i64 4
-  %62 = getelementptr inbounds ptr, ptr %3, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %.12950, i64 4
+  %62 = getelementptr inbounds nuw ptr, ptr %3, i64 %59
   store ptr %61, ptr %62, align 8
   br label %63
 
 63:                                               ; preds = %57, %.lr.ph.split.split
   %64 = add i32 %.149, 1
-  %65 = getelementptr inbounds i8, ptr %.12950, i64 272
+  %65 = getelementptr inbounds nuw i8, ptr %.12950, i64 272
   %.129 = load ptr, ptr %65, align 8
   %.not34 = icmp eq ptr %.129, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !13
@@ -625,20 +625,20 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterRenderingIntentPlugin(ptr noundef
   br i1 %7, label %20, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 255) #7
-  %14 = getelementptr inbounds i8, ptr %6, i64 259
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 259
   store i8 0, ptr %14, align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 264
   store ptr %16, ptr %17, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %6, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 272
   store ptr %18, ptr %19, align 8
   br label %.sink.split
 
@@ -694,7 +694,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
 23:                                               ; preds = %7
   %24 = add i32 %0, -1
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @_cmsReadMediaWhitePoint(ptr noundef nonnull %16, ptr noundef %27) #7
   %.not28 = icmp eq i32 %28, 0
@@ -708,7 +708,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
 
 32:                                               ; preds = %29
   %33 = zext i32 %0 to i64
-  %34 = getelementptr inbounds ptr, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @_cmsReadMediaWhitePoint(ptr noundef nonnull %17, ptr noundef %35) #7
   %.not30 = icmp eq i32 %36, 0
@@ -731,20 +731,20 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
   %42 = load double, ptr %16, align 8
   %43 = load double, ptr %17, align 8
   %44 = fdiv double %42, %43
-  %45 = getelementptr inbounds i8, ptr %16, i64 8
-  %46 = getelementptr inbounds i8, ptr %17, i64 8
-  %47 = getelementptr inbounds i8, ptr %16, i64 16
-  %48 = getelementptr inbounds i8, ptr %17, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %17, i64 16
   br i1 %41, label %49, label %58
 
 49:                                               ; preds = %40
   call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef %44, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
-  %50 = getelementptr inbounds i8, ptr %5, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %51 = load double, ptr %45, align 8
   %52 = load double, ptr %46, align 8
   %53 = fdiv double %51, %52
   call void @_cmsVEC3init(ptr noundef nonnull %50, double noundef 0.000000e+00, double noundef %53, double noundef 0.000000e+00) #7
-  %54 = getelementptr inbounds i8, ptr %5, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %55 = load double, ptr %47, align 8
   %56 = load double, ptr %48, align 8
   %57 = fdiv double %55, %56
@@ -753,12 +753,12 @@ define internal fastcc range(i32 0, 2) i32 @ComputeConversion(i32 noundef range(
 
 58:                                               ; preds = %40
   call void @_cmsVEC3init(ptr noundef nonnull %10, double noundef %44, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
-  %59 = getelementptr inbounds i8, ptr %10, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %60 = load double, ptr %45, align 8
   %61 = load double, ptr %46, align 8
   %62 = fdiv double %60, %61
   call void @_cmsVEC3init(ptr noundef nonnull %59, double noundef 0.000000e+00, double noundef %62, double noundef 0.000000e+00) #7
-  %63 = getelementptr inbounds i8, ptr %10, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %64 = load double, ptr %47, align 8
   %65 = load double, ptr %48, align 8
   %66 = fdiv double %64, %65
@@ -851,11 +851,11 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   %94 = add i32 %0, -1
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw ptr, ptr %1, i64 %95
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 @cmsDetectBlackPoint(ptr noundef nonnull %20, ptr noundef %97, i32 noundef %2, i32 noundef 0) #7
   %99 = zext i32 %0 to i64
-  %100 = getelementptr inbounds ptr, ptr %1, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr %1, i64 %99
   %101 = load ptr, ptr %100, align 8
   %102 = call i32 @cmsDetectDestinationBlackPoint(ptr noundef nonnull %21, ptr noundef %101, i32 noundef %2, i32 noundef 0) #7
   %103 = load double, ptr %20, align 8
@@ -864,17 +864,17 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   br i1 %105, label %118, label %106
 
 106:                                              ; preds = %93
-  %107 = getelementptr inbounds i8, ptr %20, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %108 = load double, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %21, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %110 = load double, ptr %109, align 8
   %111 = fcmp une double %108, %110
   br i1 %111, label %118, label %112
 
 112:                                              ; preds = %106
-  %113 = getelementptr inbounds i8, ptr %20, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %114 = load double, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %21, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %116 = load double, ptr %115, align 8
   %117 = fcmp une double %114, %116
   br i1 %117, label %118, label %.preheader
@@ -883,16 +883,16 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   %119 = call ptr @cmsD50_XYZ() #7
   %120 = load double, ptr %119, align 8
   %121 = fsub double %103, %120
-  %122 = getelementptr inbounds i8, ptr %20, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %123 = load double, ptr %122, align 8
   %124 = call ptr @cmsD50_XYZ() #7
-  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load double, ptr %125, align 8
   %127 = fsub double %123, %126
-  %128 = getelementptr inbounds i8, ptr %20, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %129 = load double, ptr %128, align 8
   %130 = call ptr @cmsD50_XYZ() #7
-  %131 = getelementptr inbounds i8, ptr %130, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load double, ptr %131, align 8
   %133 = fsub double %129, %132
   %134 = load double, ptr %21, align 8
@@ -900,17 +900,17 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   %136 = load double, ptr %135, align 8
   %137 = fsub double %134, %136
   %138 = fdiv double %137, %121
-  %139 = getelementptr inbounds i8, ptr %21, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %140 = load double, ptr %139, align 8
   %141 = call ptr @cmsD50_XYZ() #7
-  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
   %143 = load double, ptr %142, align 8
   %144 = fsub double %140, %143
   %145 = fdiv double %144, %127
-  %146 = getelementptr inbounds i8, ptr %21, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %147 = load double, ptr %146, align 8
   %148 = call ptr @cmsD50_XYZ() #7
-  %149 = getelementptr inbounds i8, ptr %148, i64 16
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load double, ptr %149, align 8
   %151 = fsub double %147, %150
   %152 = fdiv double %151, %133
@@ -923,7 +923,7 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   %159 = fmul double %158, %155
   %160 = fdiv double %159, %121
   %161 = call ptr @cmsD50_XYZ() #7
-  %162 = getelementptr inbounds i8, ptr %161, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load double, ptr %162, align 8
   %164 = fneg double %163
   %165 = load double, ptr %139, align 8
@@ -932,7 +932,7 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   %168 = fmul double %167, %164
   %169 = fdiv double %168, %127
   %170 = call ptr @cmsD50_XYZ() #7
-  %171 = getelementptr inbounds i8, ptr %170, i64 16
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load double, ptr %171, align 8
   %173 = fneg double %172
   %174 = load double, ptr %146, align 8
@@ -941,9 +941,9 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
   %177 = fmul double %176, %173
   %178 = fdiv double %177, %133
   call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef %138, double noundef 0.000000e+00, double noundef 0.000000e+00) #7
-  %179 = getelementptr inbounds i8, ptr %5, i64 24
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @_cmsVEC3init(ptr noundef nonnull %179, double noundef 0.000000e+00, double noundef %145, double noundef 0.000000e+00) #7
-  %180 = getelementptr inbounds i8, ptr %5, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @_cmsVEC3init(ptr noundef nonnull %180, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %152) #7
   call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef %160, double noundef %169, double noundef %178) #7
   br label %.preheader
@@ -953,7 +953,7 @@ ComputeAbsoluteIntent.exit:                       ; preds = %68, %71, %73
 
 181:                                              ; preds = %.preheader, %181
   %indvars.iv = phi i64 [ %indvars.iv.next, %181 ], [ 0, %.preheader ]
-  %182 = getelementptr inbounds [3 x double], ptr %6, i64 0, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw [3 x double], ptr %6, i64 0, i64 %indvars.iv
   %183 = load double, ptr %182, align 8
   %184 = fdiv double %183, 0x3FFFFFE000000000
   store double %184, ptr %182, align 8
@@ -995,9 +995,9 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0
 12:                                               ; preds = %12, %11
   %indvars.iv.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i, %12 ]
   %.01922.i = phi double [ 0.000000e+00, %11 ], [ %19, %12 ]
-  %13 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   %14 = load double, ptr %13, align 8
-  %15 = getelementptr inbounds double, ptr %9, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
   %16 = load double, ptr %15, align 8
   %17 = fsub double %14, %16
   %18 = call double @llvm.fabs.f64(double %17)
@@ -1009,7 +1009,7 @@ define internal fastcc range(i32 0, 2) i32 @AddConversion(ptr noundef nonnull %0
 .preheader.i:                                     ; preds = %12, %.preheader.i
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.preheader.i ], [ 0, %12 ]
   %.12024.i = phi double [ %23, %.preheader.i ], [ %19, %12 ]
-  %20 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i
+  %20 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv28.i
   %21 = load double, ptr %20, align 8
   %22 = call double @llvm.fabs.f64(double %21)
   %23 = fadd double %.12024.i, %22
@@ -1023,7 +1023,7 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
   br i1 %24, label %25, label %106
 
 25:                                               ; preds = %IsEmptyLayer.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @cmsStageAllocMatrix(ptr noundef %27, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %29 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %28) #7
@@ -1038,9 +1038,9 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
 31:                                               ; preds = %31, %30
   %indvars.iv.i51 = phi i64 [ 0, %30 ], [ %indvars.iv.next.i53, %31 ]
   %.01922.i52 = phi double [ 0.000000e+00, %30 ], [ %38, %31 ]
-  %32 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i51
+  %32 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i51
   %33 = load double, ptr %32, align 8
-  %34 = getelementptr inbounds double, ptr %8, i64 %indvars.iv.i51
+  %34 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i51
   %35 = load double, ptr %34, align 8
   %36 = fsub double %33, %35
   %37 = call double @llvm.fabs.f64(double %36)
@@ -1052,7 +1052,7 @@ IsEmptyLayer.exit:                                ; preds = %.preheader.i
 .preheader.i55:                                   ; preds = %31, %.preheader.i55
   %indvars.iv28.i56 = phi i64 [ %indvars.iv.next29.i58, %.preheader.i55 ], [ 0, %31 ]
   %.12024.i57 = phi double [ %42, %.preheader.i55 ], [ %38, %31 ]
-  %39 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i56
+  %39 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv28.i56
   %40 = load double, ptr %39, align 8
   %41 = call double @llvm.fabs.f64(double %40)
   %42 = fadd double %.12024.i57, %41
@@ -1066,7 +1066,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   br i1 %43, label %44, label %49
 
 44:                                               ; preds = %IsEmptyLayer.exit60
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr @cmsStageAllocMatrix(ptr noundef %46, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef nonnull %4) #7
   %48 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %47) #7
@@ -1074,7 +1074,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   br i1 %.not46, label %107, label %49
 
 49:                                               ; preds = %44, %IsEmptyLayer.exit60
-  %50 = getelementptr inbounds i8, ptr %0, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr @_cmsStageAllocXYZ2Lab(ptr noundef %51) #7
   %53 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %52) #7
@@ -1088,7 +1088,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
   ]
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @_cmsStageAllocLab2XYZ(ptr noundef %57) #7
   %59 = tail call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %58) #7
@@ -1103,9 +1103,9 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
 61:                                               ; preds = %61, %60
   %indvars.iv.i61 = phi i64 [ 0, %60 ], [ %indvars.iv.next.i63, %61 ]
   %.01922.i62 = phi double [ 0.000000e+00, %60 ], [ %68, %61 ]
-  %62 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i61
+  %62 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i61
   %63 = load double, ptr %62, align 8
-  %64 = getelementptr inbounds double, ptr %7, i64 %indvars.iv.i61
+  %64 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i61
   %65 = load double, ptr %64, align 8
   %66 = fsub double %63, %65
   %67 = call double @llvm.fabs.f64(double %66)
@@ -1117,7 +1117,7 @@ IsEmptyLayer.exit60:                              ; preds = %.preheader.i55
 .preheader.i65:                                   ; preds = %61, %.preheader.i65
   %indvars.iv28.i66 = phi i64 [ %indvars.iv.next29.i68, %.preheader.i65 ], [ 0, %61 ]
   %.12024.i67 = phi double [ %72, %.preheader.i65 ], [ %68, %61 ]
-  %69 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i66
+  %69 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv28.i66
   %70 = load double, ptr %69, align 8
   %71 = call double @llvm.fabs.f64(double %70)
   %72 = fadd double %.12024.i67, %71
@@ -1145,9 +1145,9 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
 79:                                               ; preds = %79, %78
   %indvars.iv.i71 = phi i64 [ 0, %78 ], [ %indvars.iv.next.i73, %79 ]
   %.01922.i72 = phi double [ 0.000000e+00, %78 ], [ %86, %79 ]
-  %80 = getelementptr inbounds double, ptr %3, i64 %indvars.iv.i71
+  %80 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i71
   %81 = load double, ptr %80, align 8
-  %82 = getelementptr inbounds double, ptr %6, i64 %indvars.iv.i71
+  %82 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i71
   %83 = load double, ptr %82, align 8
   %84 = fsub double %81, %83
   %85 = call double @llvm.fabs.f64(double %84)
@@ -1159,7 +1159,7 @@ IsEmptyLayer.exit70:                              ; preds = %.preheader.i65
 .preheader.i75:                                   ; preds = %79, %.preheader.i75
   %indvars.iv28.i76 = phi i64 [ %indvars.iv.next29.i78, %.preheader.i75 ], [ 0, %79 ]
   %.12024.i77 = phi double [ %90, %.preheader.i75 ], [ %86, %79 ]
-  %87 = getelementptr inbounds double, ptr %4, i64 %indvars.iv28.i76
+  %87 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv28.i76
   %88 = load double, ptr %87, align 8
   %89 = call double @llvm.fabs.f64(double %88)
   %90 = fadd double %.12024.i77, %89
@@ -1173,7 +1173,7 @@ IsEmptyLayer.exit80:                              ; preds = %.preheader.i75
   br i1 %91, label %92, label %106
 
 92:                                               ; preds = %IsEmptyLayer.exit80
-  %93 = getelementptr inbounds i8, ptr %0, i64 56
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %94 = load ptr, ptr %93, align 8
   %95 = call ptr @_cmsStageAllocLab2XYZ(ptr noundef %94) #7
   %96 = call i32 @cmsPipelineInsertStage(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %95) #7
@@ -1254,25 +1254,25 @@ define internal fastcc double @CHAD2Temp(ptr nocapture noundef nonnull readonly 
   %12 = load double, ptr %11, align 8
   store double %12, ptr %3, align 8
   %13 = call ptr @cmsD50_XYZ() #7
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %15, ptr %16, align 8
   %17 = call ptr @cmsD50_XYZ() #7
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %3, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %19, ptr %20, align 8
   call void @_cmsMAT3eval(ptr noundef nonnull %2, ptr noundef nonnull %8, ptr noundef nonnull %3) #7
   %21 = load double, ptr %2, align 8
   store double %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load double, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %23, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %26, ptr %27, align 8
   call void @cmsXYZ2xyY(ptr noundef nonnull %5, ptr noundef nonnull %4) #7
   %28 = call i32 @cmsTempFromWhitePoint(ptr noundef nonnull %6, ptr noundef nonnull %5) #7
@@ -1330,7 +1330,7 @@ define internal ptr @BlackPreservingKOnlyIntents(ptr noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %TranslateNonICCIntents.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %TranslateNonICCIntents.exit ]
-  %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %switch.tableidx = add i32 %12, -10
   %13 = icmp ult i32 %switch.tableidx, 6
@@ -1338,13 +1338,13 @@ define internal ptr @BlackPreservingKOnlyIntents(ptr noundef %0, i32 noundef %1,
 
 switch.lookup:                                    ; preds = %.lr.ph
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.BlackPreservingKPlaneIntents, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.BlackPreservingKPlaneIntents, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %TranslateNonICCIntents.exit
 
 TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %12, %.lr.ph ]
-  %15 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %.0.i, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1354,7 +1354,7 @@ TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.loo
   %.064.in = phi i32 [ %.064, %is_cmyk_devicelink.exit ], [ %1, %TranslateNonICCIntents.exit ]
   %.064 = add nsw i32 %.064.in, -1
   %.pn = zext i32 %.064 to i64
-  %.062.in = getelementptr inbounds ptr, ptr %3, i64 %.pn
+  %.062.in = getelementptr inbounds nuw ptr, ptr %3, i64 %.pn
   %.062 = load ptr, ptr %.062.in, align 8
   %16 = tail call i32 @cmsGetDeviceClass(ptr noundef %.062) #7
   %17 = icmp eq i32 %16, 1818848875
@@ -1398,7 +1398,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
   br i1 %36, label %71, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %8, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 0, ptr %38, align 8
   %39 = call ptr @DefaultICCintents(ptr noundef %0, i32 noundef %.064.in, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   store ptr %39, ptr %8, align 8
@@ -1407,7 +1407,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
 
 41:                                               ; preds = %37
   %42 = call ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef 4096, i32 noundef %.064.in, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #7
-  %43 = getelementptr inbounds i8, ptr %8, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %42, ptr %43, align 8
   %44 = icmp eq ptr %42, null
   br i1 %44, label %.loopexit, label %45
@@ -1444,9 +1444,9 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
 
 .lr.ph82:                                         ; preds = %.lr.ph82.preheader, %55
   %indvars.iv86 = phi i64 [ %54, %.lr.ph82.preheader ], [ %indvars.iv.next87, %55 ]
-  %56 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv86
+  %56 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv86
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %indvars.iv86
+  %58 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv86
   %59 = load i32, ptr %58, align 4
   %60 = call ptr @_cmsReadDevicelinkLUT(ptr noundef %57, i32 noundef %59) #7
   %61 = icmp eq ptr %60, null
@@ -1474,7 +1474,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader78, %18, 
   br label %.thread
 
 .thread:                                          ; preds = %37, %66, %.loopexit
-  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %68 = load ptr, ptr %67, align 8
   %.not75 = icmp eq ptr %68, null
   br i1 %.not75, label %70, label %69
@@ -1506,7 +1506,7 @@ define internal ptr @BlackPreservingKPlaneIntents(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %TranslateNonICCIntents.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %TranslateNonICCIntents.exit ]
-  %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %switch.tableidx = add i32 %12, -10
   %13 = icmp ult i32 %switch.tableidx, 6
@@ -1514,13 +1514,13 @@ define internal ptr @BlackPreservingKPlaneIntents(ptr noundef %0, i32 noundef %1
 
 switch.lookup:                                    ; preds = %.lr.ph
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.BlackPreservingKPlaneIntents, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.BlackPreservingKPlaneIntents, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %TranslateNonICCIntents.exit
 
 TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.lookup
   %.0.i = phi i32 [ %switch.load, %switch.lookup ], [ %12, %.lr.ph ]
-  %15 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv
   store i32 %.0.i, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1530,7 +1530,7 @@ TranslateNonICCIntents.exit:                      ; preds = %.lr.ph, %switch.loo
   %.072.in = phi i32 [ %.072, %is_cmyk_devicelink.exit ], [ %1, %TranslateNonICCIntents.exit ]
   %.072 = add nsw i32 %.072.in, -1
   %.pn = zext i32 %.072 to i64
-  %.070.in = getelementptr inbounds ptr, ptr %3, i64 %.pn
+  %.070.in = getelementptr inbounds nuw ptr, ptr %3, i64 %.pn
   %.070 = load ptr, ptr %.070.in, align 8
   %16 = tail call i32 @cmsGetDeviceClass(ptr noundef %.070) #7
   %17 = icmp eq i32 %16, 1818848875
@@ -1576,7 +1576,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
 37:                                               ; preds = %34
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   %38 = tail call ptr @_cmsReadInputLUT(ptr noundef %.070, i32 noundef 1) #7
-  %39 = getelementptr inbounds i8, ptr %8, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %38, ptr %39, align 8
   %40 = icmp eq ptr %38, null
   br i1 %40, label %.loopexit, label %41
@@ -1584,7 +1584,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
 41:                                               ; preds = %37
   %42 = tail call double @cmsDetectTAC(ptr noundef %.070) #7
   %43 = fdiv double %42, 1.000000e+02
-  %44 = getelementptr inbounds i8, ptr %8, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store double %43, ptr %44, align 8
   %45 = fcmp ugt double %43, 0.000000e+00
   br i1 %45, label %46, label %.loopexitthread-pre-split
@@ -1597,7 +1597,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
 
 49:                                               ; preds = %46
   %50 = call ptr @_cmsBuildKToneCurve(ptr noundef %0, i32 noundef 4096, i32 noundef %.072.in, ptr noundef nonnull %9, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) #7
-  %51 = getelementptr inbounds i8, ptr %8, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %50, ptr %51, align 8
   %52 = icmp eq ptr %50, null
   br i1 %52, label %.loopexitthread-pre-split, label %53
@@ -1605,21 +1605,21 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
 53:                                               ; preds = %49
   %54 = call ptr @cmsCreateLab4ProfileTHR(ptr noundef %0, ptr noundef null) #7
   %55 = call ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef %.070, i32 noundef 34, ptr noundef %54, i32 noundef 4849688, i32 noundef 1, i32 noundef 320) #7
-  %56 = getelementptr inbounds i8, ptr %8, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %55, ptr %56, align 8
   %57 = icmp eq ptr %55, null
   br i1 %57, label %.loopexitthread-pre-split, label %58
 
 58:                                               ; preds = %53
   %59 = call ptr @cmsCreateTransformTHR(ptr noundef %0, ptr noundef %.070, i32 noundef 4194340, ptr noundef %54, i32 noundef 4194332, i32 noundef 1, i32 noundef 320) #7
-  %60 = getelementptr inbounds i8, ptr %8, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %59, ptr %60, align 8
   %61 = icmp eq ptr %59, null
   br i1 %61, label %.loopexitthread-pre-split, label %62
 
 62:                                               ; preds = %58
   %63 = call i32 @cmsCloseProfile(ptr noundef %54) #7
-  %64 = getelementptr inbounds i8, ptr %8, i64 40
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store double 0.000000e+00, ptr %64, align 8
   %65 = call i32 @_cmsReasonableGridpointsByColorspace(i32 noundef 1129142603, i32 noundef %6) #7
   %66 = call ptr @cmsStageAllocCLut16bit(ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 4, ptr noundef null) #7
@@ -1642,9 +1642,9 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
 
 .lr.ph94:                                         ; preds = %80, %.lr.ph94.preheader
   %indvars.iv100 = phi i64 [ %73, %.lr.ph94.preheader ], [ %indvars.iv.next101, %80 ]
-  %74 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv100
+  %74 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv100
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds [256 x i32], ptr %9, i64 0, i64 %indvars.iv100
+  %76 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 0, i64 %indvars.iv100
   %77 = load i32, ptr %76, align 4
   %78 = call ptr @_cmsReadDevicelinkLUT(ptr noundef %75, i32 noundef %77) #7
   %79 = icmp eq ptr %78, null
@@ -1673,7 +1673,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   br label %.thread
 
 .thread:                                          ; preds = %46, %82, %.loopexit
-  %83 = getelementptr inbounds i8, ptr %8, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %84 = load ptr, ptr %83, align 8
   %.not85 = icmp eq ptr %84, null
   br i1 %.not85, label %86, label %85
@@ -1683,7 +1683,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   br label %86
 
 86:                                               ; preds = %85, %.thread
-  %87 = getelementptr inbounds i8, ptr %8, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %88 = load ptr, ptr %87, align 8
   %.not86 = icmp eq ptr %88, null
   br i1 %.not86, label %90, label %89
@@ -1693,7 +1693,7 @@ is_cmyk_devicelink.exit.thread:                   ; preds = %.preheader, %18, %i
   br label %90
 
 90:                                               ; preds = %89, %86
-  %91 = getelementptr inbounds i8, ptr %8, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %92 = load ptr, ptr %91, align 8
   %.not87 = icmp eq ptr %92, null
   br i1 %.not87, label %94, label %93
@@ -1731,37 +1731,37 @@ define internal noundef i32 @BlackPreservingGrayOnlySampler(ptr noundef %0, ptr 
   br i1 %5, label %6, label %23
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = icmp eq i16 %8, 0
   br i1 %9, label %10, label %23
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 0
   br i1 %13, label %14, label %23
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 0, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %1, i64 2
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 0, ptr %16, align 2
   store i16 0, ptr %1, align 2
-  %17 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %20 = load i16, ptr %19, align 2
   %21 = tail call zeroext i16 @cmsEvalToneCurve16(ptr noundef %18, i16 noundef zeroext %20) #7
-  %22 = getelementptr inbounds i8, ptr %1, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %21, ptr %22, align 2
   br label %29
 
 23:                                               ; preds = %10, %6, %3
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %24, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %28 = load ptr, ptr %27, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %28) #7
   br label %29
@@ -1793,45 +1793,45 @@ define internal noundef i32 @BlackPreservingSampler(ptr nocapture noundef readon
 
 9:                                                ; preds = %3, %9
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2
   %12 = uitofp i16 %11 to double
   %13 = fdiv double %12, 6.553500e+04
   %14 = fptrunc double %13 to float
-  %15 = getelementptr inbounds [4 x float], ptr %4, i64 0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x float], ptr %4, i64 0, i64 %indvars.iv
   store float %14, ptr %15, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %16, label %9, !llvm.loop !23
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %20 = load float, ptr %19, align 4
   %21 = tail call float @cmsEvalToneCurveFloat(ptr noundef %18, float noundef %20) #7
-  %22 = getelementptr inbounds i8, ptr %6, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store float %21, ptr %22, align 4
   %23 = load i16, ptr %0, align 2
   %24 = icmp eq i16 %23, 0
   br i1 %24, label %25, label %49
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %0, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %27 = load i16, ptr %26, align 2
   %28 = icmp eq i16 %27, 0
   br i1 %28, label %29, label %49
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %33, label %49
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %1, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 0, ptr %34, align 2
-  %35 = getelementptr inbounds i8, ptr %1, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 0, ptr %35, align 2
   store i16 0, ptr %1, align 2
   %36 = fpext float %21 to double
@@ -1854,7 +1854,7 @@ define internal noundef i32 @BlackPreservingSampler(ptr nocapture noundef readon
 
 _cmsQuickSaturateWord.exit:                       ; preds = %33, %40, %42
   %.0.i = phi i16 [ %47, %42 ], [ 0, %33 ], [ -1, %40 ]
-  %48 = getelementptr inbounds i8, ptr %1, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %.0.i, ptr %48, align 2
   br label %162
 
@@ -1865,7 +1865,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %33, %40, %42
 
 51:                                               ; preds = %49, %_cmsQuickSaturateWord.exit50
   %indvars.iv62 = phi i64 [ 0, %49 ], [ %indvars.iv.next63, %_cmsQuickSaturateWord.exit50 ]
-  %52 = getelementptr inbounds [4 x float], ptr %5, i64 0, i64 %indvars.iv62
+  %52 = getelementptr inbounds nuw [4 x float], ptr %5, i64 0, i64 %indvars.iv62
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   %55 = fmul double %54, 6.553500e+04
@@ -1887,14 +1887,14 @@ _cmsQuickSaturateWord.exit:                       ; preds = %33, %40, %42
 
 _cmsQuickSaturateWord.exit50:                     ; preds = %51, %58, %60
   %.0.i49 = phi i16 [ %65, %60 ], [ 0, %51 ], [ -1, %58 ]
-  %66 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv62
+  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv62
   store i16 %.0.i49, ptr %66, align 2
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
   br i1 %exitcond65.not, label %67, label %51, !llvm.loop !24
 
 67:                                               ; preds = %_cmsQuickSaturateWord.exit50
-  %68 = getelementptr inbounds i8, ptr %5, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %69 = load float, ptr %68, align 4
   %70 = fsub float %69, %21
   %71 = call float @llvm.fabs.f32(float %70)
@@ -1903,13 +1903,13 @@ _cmsQuickSaturateWord.exit50:                     ; preds = %51, %58, %60
   br i1 %73, label %162, label %74
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %2, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %76 = load ptr, ptr %75, align 8
   call void @cmsDoTransform(ptr noundef %76, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 1) #7
-  %77 = getelementptr inbounds i8, ptr %2, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %78 = load ptr, ptr %77, align 8
   call void @cmsDoTransform(ptr noundef %78, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef 1) #7
-  %79 = getelementptr inbounds i8, ptr %2, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %80 = load ptr, ptr %79, align 8
   %81 = call i32 @cmsPipelineEvalReverseFloat(ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %5, ptr noundef %80) #7
   %.not = icmp eq i32 %81, 0
@@ -1920,17 +1920,17 @@ _cmsQuickSaturateWord.exit50:                     ; preds = %51, %58, %60
   store float %83, ptr %68, align 4
   %84 = load float, ptr %5, align 16
   %85 = fpext float %84 to double
-  %86 = getelementptr inbounds i8, ptr %5, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %87 = load float, ptr %86, align 4
   %88 = fpext float %87 to double
   %89 = fadd double %85, %88
-  %90 = getelementptr inbounds i8, ptr %5, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %91 = load float, ptr %90, align 8
   %92 = fpext float %91 to double
   %93 = fadd double %89, %92
   %94 = fpext float %83 to double
   %95 = fadd double %93, %94
-  %96 = getelementptr inbounds i8, ptr %2, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %97 = load double, ptr %96, align 8
   %98 = fcmp ogt double %95, %97
   br i1 %98, label %99, label %105
@@ -1988,7 +1988,7 @@ _cmsQuickSaturateWord.exit52:                     ; preds = %105, %110, %112
 
 _cmsQuickSaturateWord.exit54:                     ; preds = %_cmsQuickSaturateWord.exit52, %122, %124
   %.0.i53 = phi i16 [ %129, %124 ], [ 0, %_cmsQuickSaturateWord.exit52 ], [ -1, %122 ]
-  %130 = getelementptr inbounds i8, ptr %1, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i16 %.0.i53, ptr %130, align 2
   %131 = fmul double %.044, %92
   %132 = fmul double %131, 6.553500e+04
@@ -2010,7 +2010,7 @@ _cmsQuickSaturateWord.exit54:                     ; preds = %_cmsQuickSaturateWo
 
 _cmsQuickSaturateWord.exit56:                     ; preds = %_cmsQuickSaturateWord.exit54, %135, %137
   %.0.i55 = phi i16 [ %142, %137 ], [ 0, %_cmsQuickSaturateWord.exit54 ], [ -1, %135 ]
-  %143 = getelementptr inbounds i8, ptr %1, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %.0.i55, ptr %143, align 2
   %144 = fmul double %94, 6.553500e+04
   %145 = fadd double %144, 5.000000e-01
@@ -2031,12 +2031,12 @@ _cmsQuickSaturateWord.exit56:                     ; preds = %_cmsQuickSaturateWo
 
 _cmsQuickSaturateWord.exit58:                     ; preds = %_cmsQuickSaturateWord.exit56, %147, %149
   %.0.i57 = phi i16 [ %154, %149 ], [ 0, %_cmsQuickSaturateWord.exit56 ], [ -1, %147 ]
-  %155 = getelementptr inbounds i8, ptr %1, i64 6
+  %155 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %.0.i57, ptr %155, align 2
   %156 = load ptr, ptr %75, align 8
   call void @cmsDoTransform(ptr noundef %156, ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef 1) #7
   %157 = call double @cmsDeltaE(ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %158 = getelementptr inbounds i8, ptr %2, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %159 = load double, ptr %158, align 8
   %160 = fcmp ogt double %157, %159
   br i1 %160, label %161, label %162

@@ -101,7 +101,7 @@ define hidden void @aom_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 noundef
   %91 = tail call i8 @llvm.sadd.sat.i8(i8 %88, i8 %51)
   %92 = xor i8 %91, -128
   store i8 %92, ptr %48, align 1
-  %93 = getelementptr inbounds i8, ptr %.028, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %94 = add nuw nsw i32 %.02627, 1
   %exitcond.not = icmp eq i32 %94, 4
   br i1 %exitcond.not, label %95, label %15, !llvm.loop !4
@@ -113,7 +113,7 @@ define hidden void @aom_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_horizontal_4_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_horizontal_4_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @aom_lpf_horizontal_4_c(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -133,7 +133,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %
   %8 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 -1
   %9 = load i8, ptr %8, align 1
   %10 = load i8, ptr %.022.lver.orig, align 1
-  %11 = getelementptr inbounds i8, ptr %.022.lver.orig, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.022.lver.orig, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = load i8, ptr %3, align 1
   %14 = load i8, ptr %2, align 1
@@ -219,7 +219,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %
   %79 = load i8, ptr %78, align 1
   %80 = getelementptr inbounds i8, ptr %.022, i64 -1
   %81 = load i8, ptr %80, align 1
-  %82 = getelementptr inbounds i8, ptr %.022, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.022, i64 1
   %83 = load i8, ptr %82, align 1
   %84 = load i8, ptr %3, align 1
   %85 = load i8, ptr %2, align 1
@@ -288,7 +288,7 @@ define hidden void @aom_lpf_vertical_4_c(ptr nocapture noundef %0, i32 noundef %
   %144 = tail call i8 @llvm.sadd.sat.i8(i8 %141, i8 %109)
   %145 = xor i8 %144, -128
   store i8 %145, ptr %78, align 1
-  %146 = getelementptr inbounds i8, ptr %.022, i64 %5
+  %146 = getelementptr inbounds nuw i8, ptr %.022, i64 %5
   %147 = add nuw nsw i32 %.02021, 1
   %exitcond.not = icmp eq i32 %147, 4
   br i1 %exitcond.not, label %.loopexit, label %77, !llvm.loop !6
@@ -388,7 +388,7 @@ define hidden void @aom_lpf_horizontal_6_c(ptr nocapture noundef %0, i32 noundef
   %78 = getelementptr inbounds i8, ptr %.045, i64 %18
   %79 = getelementptr inbounds i8, ptr %.045, i64 %19
   tail call fastcc void @filter6(i8 noundef signext %66, i8 noundef zeroext %76, i8 noundef signext %75, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79, ptr noundef nonnull %.045, ptr noundef nonnull %28, ptr noundef nonnull %30)
-  %80 = getelementptr inbounds i8, ptr %.045, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %81 = add nuw nsw i32 %.04344, 1
   %exitcond.not = icmp eq i32 %81, 4
   br i1 %exitcond.not, label %82, label %20, !llvm.loop !7
@@ -518,7 +518,7 @@ define internal fastcc void @filter6(i8 noundef signext %0, i8 noundef zeroext %
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_horizontal_6_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_horizontal_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @aom_lpf_horizontal_6_c(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -630,7 +630,7 @@ define hidden void @aom_lpf_horizontal_8_c(ptr nocapture noundef %0, i32 noundef
   %98 = getelementptr inbounds i8, ptr %.057, i64 %23
   %99 = getelementptr inbounds i8, ptr %.057, i64 %24
   tail call fastcc void @filter8(i8 noundef signext %79, i8 noundef zeroext %95, i8 noundef signext %94, ptr noundef nonnull %96, ptr noundef nonnull %97, ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %.057, ptr noundef nonnull %35, ptr noundef nonnull %37, ptr noundef nonnull %39)
-  %100 = getelementptr inbounds i8, ptr %.057, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   %101 = add nuw nsw i32 %.05556, 1
   %exitcond.not = icmp eq i32 %101, 4
   br i1 %exitcond.not, label %102, label %25, !llvm.loop !8
@@ -788,7 +788,7 @@ define internal fastcc void @filter8(i8 noundef signext %0, i8 noundef zeroext %
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_horizontal_8_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
   tail call void @aom_lpf_horizontal_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @aom_lpf_horizontal_8_c(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -808,9 +808,9 @@ define hidden void @aom_lpf_vertical_6_c(ptr nocapture noundef %0, i32 noundef %
   %12 = getelementptr inbounds i8, ptr %.035, i64 -1
   %13 = load i8, ptr %12, align 1
   %14 = load i8, ptr %.035, align 1
-  %15 = getelementptr inbounds i8, ptr %.035, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.035, i64 1
   %16 = load i8, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %.035, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.035, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = load i8, ptr %3, align 1
   %20 = load i8, ptr %2, align 1
@@ -894,11 +894,11 @@ define hidden void @aom_lpf_vertical_8_c(ptr nocapture noundef %0, i32 noundef %
   %14 = getelementptr inbounds i8, ptr %.043, i64 -1
   %15 = load i8, ptr %14, align 1
   %16 = load i8, ptr %.043, align 1
-  %17 = getelementptr inbounds i8, ptr %.043, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.043, i64 1
   %18 = load i8, ptr %17, align 1
-  %19 = getelementptr inbounds i8, ptr %.043, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.043, i64 2
   %20 = load i8, ptr %19, align 1
-  %21 = getelementptr inbounds i8, ptr %.043, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.043, i64 3
   %22 = load i8, ptr %21, align 1
   %23 = load i8, ptr %3, align 1
   %24 = load i8, ptr %2, align 1
@@ -1149,7 +1149,7 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, 
   %153 = getelementptr inbounds i8, ptr %.091, i64 %38
   %154 = getelementptr inbounds i8, ptr %.091, i64 %39
   tail call fastcc void @filter14(i8 noundef signext %106, i8 noundef zeroext %147, i8 noundef signext %121, i8 noundef signext %146, ptr noundef nonnull %148, ptr noundef nonnull %149, ptr noundef nonnull %150, ptr noundef nonnull %151, ptr noundef nonnull %152, ptr noundef nonnull %153, ptr noundef nonnull %154, ptr noundef nonnull %.091, ptr noundef nonnull %56, ptr noundef nonnull %58, ptr noundef nonnull %60, ptr noundef nonnull %62, ptr noundef nonnull %64, ptr noundef nonnull %66)
-  %155 = getelementptr inbounds i8, ptr %.091, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %.091, i64 1
   %156 = add nuw nsw i32 %.08990, 1
   %exitcond.not = icmp eq i32 %156, 4
   br i1 %exitcond.not, label %157, label %40, !llvm.loop !11
@@ -1161,7 +1161,7 @@ define internal fastcc void @mb_lpf_horizontal_edge_w(ptr nocapture noundef %0, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
   tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call fastcc void @mb_lpf_horizontal_edge_w(ptr noundef nonnull %9, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret void
 }
@@ -1195,17 +1195,17 @@ define internal fastcc void @mb_lpf_vertical_edge_w(ptr nocapture noundef %0, i3
   %20 = getelementptr inbounds i8, ptr %.064, i64 -1
   %21 = load i8, ptr %20, align 1
   %22 = load i8, ptr %.064, align 1
-  %23 = getelementptr inbounds i8, ptr %.064, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.064, i64 1
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds i8, ptr %.064, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.064, i64 2
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %.064, i64 3
+  %27 = getelementptr inbounds nuw i8, ptr %.064, i64 3
   %28 = load i8, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %.064, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.064, i64 4
   %30 = load i8, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %.064, i64 5
+  %31 = getelementptr inbounds nuw i8, ptr %.064, i64 5
   %32 = load i8, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %.064, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %.064, i64 6
   %34 = load i8, ptr %33, align 1
   %35 = load i8, ptr %3, align 1
   %36 = load i8, ptr %2, align 1
@@ -1372,7 +1372,7 @@ define hidden void @aom_highbd_lpf_horizontal_4_c(ptr nocapture noundef %0, i32 
   %55 = getelementptr inbounds i16, ptr %.030, i64 %15
   %56 = getelementptr inbounds i16, ptr %.030, i64 %16
   tail call fastcc void @highbd_filter4(i8 noundef signext %53, i8 noundef zeroext %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %.030, ptr noundef nonnull %23, i32 noundef %5)
-  %57 = getelementptr inbounds i8, ptr %.030, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   %58 = add nuw nsw i32 %.02829, 1
   %exitcond.not = icmp eq i32 %58, 4
   br i1 %exitcond.not, label %59, label %17, !llvm.loop !13
@@ -1630,13 +1630,13 @@ define hidden void @aom_highbd_lpf_horizontal_4_dual_c(ptr nocapture noundef %0,
   %58 = getelementptr inbounds i16, ptr %.030.i, i64 %18
   %59 = getelementptr inbounds i16, ptr %.030.i, i64 %19
   tail call fastcc void @highbd_filter4(i8 noundef signext %56, i8 noundef zeroext %57, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %.030.i, ptr noundef nonnull %26, i32 noundef %8)
-  %60 = getelementptr inbounds i8, ptr %.030.i, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.030.i, i64 2
   %61 = add nuw nsw i32 %.02829.i, 1
   %exitcond.not.i = icmp eq i32 %61, 4
   br i1 %exitcond.not.i, label %aom_highbd_lpf_horizontal_4_c.exit, label %20, !llvm.loop !13
 
 aom_highbd_lpf_horizontal_4_c.exit:               ; preds = %20
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %63
 
 63:                                               ; preds = %63, %aom_highbd_lpf_horizontal_4_c.exit
@@ -1684,7 +1684,7 @@ aom_highbd_lpf_horizontal_4_c.exit:               ; preds = %20
   %101 = getelementptr inbounds i16, ptr %.030.i11, i64 %18
   %102 = getelementptr inbounds i16, ptr %.030.i11, i64 %19
   tail call fastcc void @highbd_filter4(i8 noundef signext %99, i8 noundef zeroext %100, ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %.030.i11, ptr noundef nonnull %69, i32 noundef %8)
-  %103 = getelementptr inbounds i8, ptr %.030.i11, i64 2
+  %103 = getelementptr inbounds nuw i8, ptr %.030.i11, i64 2
   %104 = add nuw nsw i32 %.02829.i12, 1
   %exitcond.not.i15 = icmp eq i32 %104, 4
   br i1 %exitcond.not.i15, label %aom_highbd_lpf_horizontal_4_c.exit16, label %63, !llvm.loop !13
@@ -1707,7 +1707,7 @@ define hidden void @aom_highbd_lpf_vertical_4_c(ptr nocapture noundef %0, i32 no
   %12 = getelementptr inbounds i8, ptr %.024, i64 -2
   %13 = load i16, ptr %12, align 2
   %14 = load i16, ptr %.024, align 2
-  %15 = getelementptr inbounds i8, ptr %.024, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.024, i64 2
   %16 = load i16, ptr %15, align 2
   %17 = load i8, ptr %3, align 1
   %18 = load i8, ptr %2, align 1
@@ -1765,7 +1765,7 @@ define hidden void @aom_highbd_lpf_vertical_4_dual_c(ptr nocapture noundef %0, i
   %15 = getelementptr inbounds i8, ptr %.024.i, i64 -2
   %16 = load i16, ptr %15, align 2
   %17 = load i16, ptr %.024.i, align 2
-  %18 = getelementptr inbounds i8, ptr %.024.i, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.024.i, i64 2
   %19 = load i16, ptr %18, align 2
   %20 = load i8, ptr %3, align 1
   %21 = load i8, ptr %2, align 1
@@ -1819,7 +1819,7 @@ aom_highbd_lpf_vertical_4_c.exit:                 ; preds = %12
   %58 = getelementptr inbounds i8, ptr %.024.i12, i64 -2
   %59 = load i16, ptr %58, align 2
   %60 = load i16, ptr %.024.i12, align 2
-  %61 = getelementptr inbounds i8, ptr %.024.i12, i64 2
+  %61 = getelementptr inbounds nuw i8, ptr %.024.i12, i64 2
   %62 = load i16, ptr %61, align 2
   %63 = load i8, ptr %6, align 1
   %64 = load i8, ptr %5, align 1
@@ -1984,7 +1984,7 @@ define hidden void @aom_highbd_lpf_horizontal_8_c(ptr nocapture noundef %0, i32 
   %105 = getelementptr inbounds i16, ptr %.061, i64 %26
   %106 = getelementptr inbounds i16, ptr %.061, i64 %27
   tail call fastcc void @highbd_filter8(i8 noundef signext %86, i8 noundef zeroext %102, i8 noundef signext %101, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %106, ptr noundef nonnull %.061, ptr noundef nonnull %38, ptr noundef nonnull %40, ptr noundef nonnull %42, i32 noundef %5)
-  %107 = getelementptr inbounds i8, ptr %.061, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %108 = add nuw nsw i32 %.05860, 1
   %exitcond.not = icmp eq i32 %108, 4
   br i1 %exitcond.not, label %109, label %28, !llvm.loop !15
@@ -2226,7 +2226,7 @@ define hidden void @aom_highbd_lpf_horizontal_6_c(ptr nocapture noundef %0, i32 
   br label %highbd_filter6.exit
 
 highbd_filter6.exit:                              ; preds = %86, %123
-  %126 = getelementptr inbounds i8, ptr %.049, i64 2
+  %126 = getelementptr inbounds nuw i8, ptr %.049, i64 2
   %127 = add nuw nsw i32 %.04648, 1
   %exitcond.not = icmp eq i32 %127, 4
   br i1 %exitcond.not, label %128, label %23, !llvm.loop !16
@@ -2238,7 +2238,7 @@ highbd_filter6.exit:                              ; preds = %86, %123
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_horizontal_6_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call void @aom_highbd_lpf_horizontal_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @aom_highbd_lpf_horizontal_6_c(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
@@ -2246,7 +2246,7 @@ define hidden void @aom_highbd_lpf_horizontal_6_dual_c(ptr nocapture noundef %0,
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_horizontal_8_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call void @aom_highbd_lpf_horizontal_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @aom_highbd_lpf_horizontal_8_c(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
@@ -2269,9 +2269,9 @@ define hidden void @aom_highbd_lpf_vertical_6_c(ptr nocapture noundef %0, i32 no
   %15 = getelementptr inbounds i8, ptr %.039, i64 -2
   %16 = load i16, ptr %15, align 2
   %17 = load i16, ptr %.039, align 2
-  %18 = getelementptr inbounds i8, ptr %.039, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %.039, i64 2
   %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds i8, ptr %.039, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   %21 = load i16, ptr %20, align 2
   %22 = load i8, ptr %3, align 1
   %23 = load i8, ptr %2, align 1
@@ -2410,11 +2410,11 @@ define hidden void @aom_highbd_lpf_vertical_8_c(ptr nocapture noundef %0, i32 no
   %17 = getelementptr inbounds i8, ptr %.047, i64 -2
   %18 = load i16, ptr %17, align 2
   %19 = load i16, ptr %.047, align 2
-  %20 = getelementptr inbounds i8, ptr %.047, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.047, i64 2
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %.047, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.047, i64 4
   %23 = load i16, ptr %22, align 2
-  %24 = getelementptr inbounds i8, ptr %.047, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %.047, i64 6
   %25 = load i16, ptr %24, align 2
   %26 = load i8, ptr %3, align 1
   %27 = load i8, ptr %2, align 1
@@ -2695,7 +2695,7 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr nocapture nound
   %160 = getelementptr inbounds i16, ptr %.096, i64 %41
   %161 = getelementptr inbounds i16, ptr %.096, i64 %42
   tail call fastcc void @highbd_filter14(i8 noundef signext %101, i8 noundef zeroext %154, i8 noundef signext %116, i8 noundef signext %153, ptr noundef nonnull %155, ptr noundef nonnull %156, ptr noundef nonnull %157, ptr noundef nonnull %158, ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef nonnull %.096, ptr noundef nonnull %53, ptr noundef nonnull %55, ptr noundef nonnull %57, ptr noundef nonnull %123, ptr noundef nonnull %125, ptr noundef nonnull %127, i32 noundef %5)
-  %162 = getelementptr inbounds i8, ptr %.096, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %.096, i64 2
   %163 = add nuw nsw i32 %.08795, 1
   %exitcond.not = icmp eq i32 %163, 4
   br i1 %exitcond.not, label %164, label %43, !llvm.loop !19
@@ -2707,7 +2707,7 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr nocapture nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @aom_highbd_lpf_horizontal_14_dual_c(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, i32 noundef %8) local_unnamed_addr #0 {
   tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef nonnull %10, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
@@ -2738,11 +2738,11 @@ define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr nocapture noundef
   %17 = getelementptr inbounds i8, ptr %.069, i64 -2
   %18 = load i16, ptr %17, align 2
   %19 = load i16, ptr %.069, align 2
-  %20 = getelementptr inbounds i8, ptr %.069, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.069, i64 2
   %21 = load i16, ptr %20, align 2
-  %22 = getelementptr inbounds i8, ptr %.069, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.069, i64 4
   %23 = load i16, ptr %22, align 2
-  %24 = getelementptr inbounds i8, ptr %.069, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %.069, i64 6
   %25 = load i16, ptr %24, align 2
   %26 = load i8, ptr %3, align 1
   %27 = load i8, ptr %2, align 1
@@ -2821,11 +2821,11 @@ define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr nocapture noundef
   %87 = load i16, ptr %86, align 2
   %88 = getelementptr inbounds i8, ptr %.069, i64 -10
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %.069, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.069, i64 8
   %91 = load i16, ptr %90, align 2
-  %92 = getelementptr inbounds i8, ptr %.069, i64 10
+  %92 = getelementptr inbounds nuw i8, ptr %.069, i64 10
   %93 = load i16, ptr %92, align 2
-  %94 = getelementptr inbounds i8, ptr %.069, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %.069, i64 12
   %95 = load i16, ptr %94, align 2
   %96 = zext i16 %89 to i32
   %97 = sub nsw i32 %96, %42

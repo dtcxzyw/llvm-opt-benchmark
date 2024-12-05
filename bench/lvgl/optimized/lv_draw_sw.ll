@@ -261,7 +261,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %9 = and i32 %8, -16711936
   %10 = or disjoint i32 %7, %9
   store i32 %10, ptr %.04346, align 4, !tbaa !37
-  %11 = getelementptr inbounds i8, ptr %.04346, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.04346, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !37
   %13 = lshr i32 %12, 8
   %14 = and i32 %13, 16711935
@@ -269,7 +269,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %16 = and i32 %15, -16711936
   %17 = or disjoint i32 %14, %16
   store i32 %17, ptr %11, align 4, !tbaa !37
-  %18 = getelementptr inbounds i8, ptr %.04346, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.04346, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !37
   %20 = lshr i32 %19, 8
   %21 = and i32 %20, 16711935
@@ -277,7 +277,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %23 = and i32 %22, -16711936
   %24 = or disjoint i32 %21, %23
   store i32 %24, ptr %18, align 4, !tbaa !37
-  %25 = getelementptr inbounds i8, ptr %.04346, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %.04346, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !37
   %27 = lshr i32 %26, 8
   %28 = and i32 %27, 16711935
@@ -285,7 +285,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %30 = and i32 %29, -16711936
   %31 = or disjoint i32 %28, %30
   store i32 %31, ptr %25, align 4, !tbaa !37
-  %32 = getelementptr inbounds i8, ptr %.04346, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.04346, i64 16
   %33 = load i32, ptr %32, align 4, !tbaa !37
   %34 = lshr i32 %33, 8
   %35 = and i32 %34, 16711935
@@ -293,7 +293,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %37 = and i32 %36, -16711936
   %38 = or disjoint i32 %35, %37
   store i32 %38, ptr %32, align 4, !tbaa !37
-  %39 = getelementptr inbounds i8, ptr %.04346, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %.04346, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !37
   %41 = lshr i32 %40, 8
   %42 = and i32 %41, 16711935
@@ -301,7 +301,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %44 = and i32 %43, -16711936
   %45 = or disjoint i32 %42, %44
   store i32 %45, ptr %39, align 4, !tbaa !37
-  %46 = getelementptr inbounds i8, ptr %.04346, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %.04346, i64 24
   %47 = load i32, ptr %46, align 4, !tbaa !37
   %48 = lshr i32 %47, 8
   %49 = and i32 %48, 16711935
@@ -309,7 +309,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %51 = and i32 %50, -16711936
   %52 = or disjoint i32 %49, %51
   store i32 %52, ptr %46, align 4, !tbaa !37
-  %53 = getelementptr inbounds i8, ptr %.04346, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.04346, i64 28
   %54 = load i32, ptr %53, align 4, !tbaa !37
   %55 = lshr i32 %54, 8
   %56 = and i32 %55, 16711935
@@ -317,7 +317,7 @@ define void @lv_draw_sw_rgb565_swap(ptr nocapture noundef %0, i32 noundef %1) lo
   %58 = and i32 %57, -16711936
   %59 = or disjoint i32 %56, %58
   store i32 %59, ptr %53, align 4, !tbaa !37
-  %60 = getelementptr inbounds i8, ptr %.04346, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.04346, i64 32
   %61 = add nsw i32 %.047, -8
   %62 = icmp ugt i32 %61, 7
   br i1 %62, label %.lr.ph, label %.preheader, !llvm.loop !38

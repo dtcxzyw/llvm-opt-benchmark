@@ -45,7 +45,7 @@ for.body.preheader:                               ; preds = %if.end.thread, %if.
   %spec.store.select53 = phi i64 [ %spec.store.select47, %if.end.thread ], [ %spec.store.select, %if.end ]
   %cmp751 = phi i1 [ %cmp746, %if.end.thread ], [ %cmp7, %if.end ]
   %m.addr.049 = phi ptr [ %c, %if.end.thread ], [ %m, %if.end ]
-  %scevgep = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 1 %m.addr.049, i64 %spec.store.select53, i1 false)
   br label %for.end
 
@@ -61,7 +61,7 @@ for.end:                                          ; preds = %for.body.preheader,
   br i1 %cmp1040.not56, label %for.end27, label %for.body21.preheader
 
 for.body21.preheader:                             ; preds = %for.end
-  %scevgep44 = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep44 = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %c, ptr nonnull align 16 %scevgep44, i64 %spec.store.select54, i1 false)
   br label %for.end27
 
@@ -136,7 +136,7 @@ entry:
   br i1 %cmp240.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
-  %scevgep = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr nonnull align 1 %c, i64 %spec.store.select, i1 false)
   br label %for.end
 
@@ -176,7 +176,7 @@ if.end24:                                         ; preds = %lor.lhs.false
 
 for.end33:                                        ; preds = %if.end24, %if.end24.thread
   %c.addr.046 = phi ptr [ %m, %if.end24.thread ], [ %c, %if.end24 ]
-  %scevgep44 = getelementptr inbounds i8, ptr %block0, i64 32
+  %scevgep44 = getelementptr inbounds nuw i8, ptr %block0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %m, ptr nonnull align 16 %scevgep44, i64 %spec.store.select, i1 false)
   br i1 %cmp, label %if.then35, label %return.sink.split
 

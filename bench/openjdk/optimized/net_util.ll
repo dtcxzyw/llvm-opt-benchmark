@@ -49,7 +49,7 @@ define i32 @reuseport_available() local_unnamed_addr #0 {
 define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 %6(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 65538) #7
   %.not = icmp eq i32 %7, 0
@@ -58,7 +58,7 @@ define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture nounde
 8:                                                ; preds = %2
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr %12(ptr noundef nonnull %9, ptr noundef nonnull @.str) #7
   %14 = icmp eq ptr %13, null
@@ -67,7 +67,7 @@ define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture nounde
 15:                                               ; preds = %8
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 904
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 904
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr %19(ptr noundef nonnull %16, ptr noundef nonnull %13, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   %21 = icmp eq ptr %20, null
@@ -76,7 +76,7 @@ define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture nounde
 22:                                               ; preds = %15
   %23 = load ptr, ptr %3, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 1336
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1336
   %26 = load ptr, ptr %25, align 8
   %27 = call ptr %26(ptr noundef nonnull %23, ptr noundef nonnull @.str.3) #7
   %28 = icmp eq ptr %27, null
@@ -85,7 +85,7 @@ define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture nounde
 29:                                               ; preds = %22
   %30 = load ptr, ptr %3, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 936
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 936
   %33 = load ptr, ptr %32, align 8
   %34 = call zeroext i8 (ptr, ptr, ptr, ...) %33(ptr noundef nonnull %30, ptr noundef nonnull %13, ptr noundef nonnull %20, ptr noundef nonnull %27) #7
   %35 = call i32 (...) @IPv4_supported() #7
@@ -118,7 +118,7 @@ define void @initInetAddressIDs(ptr noundef %0) local_unnamed_addr #1 {
 2:                                                ; preds = %1
   tail call void @Java_java_net_InetAddress_init(ptr noundef %0, ptr noundef null) #7
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1824
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i8 %5(ptr noundef nonnull %0) #7
   %.not = icmp eq i8 %6, 0
@@ -127,7 +127,7 @@ define void @initInetAddressIDs(ptr noundef %0) local_unnamed_addr #1 {
 7:                                                ; preds = %2
   tail call void @Java_java_net_Inet4Address_init(ptr noundef nonnull %0, ptr noundef null) #7
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1824
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1824
   %10 = load ptr, ptr %9, align 8
   %11 = tail call zeroext i8 %10(ptr noundef nonnull %0) #7
   %.not9 = icmp eq i8 %11, 0
@@ -136,7 +136,7 @@ define void @initInetAddressIDs(ptr noundef %0) local_unnamed_addr #1 {
 12:                                               ; preds = %7
   tail call void @Java_java_net_Inet6Address_init(ptr noundef nonnull %0, ptr noundef null) #7
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1824
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1824
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i8 %15(ptr noundef nonnull %0) #7
   %.not10 = icmp eq i8 %16, 0
@@ -159,7 +159,7 @@ declare void @Java_java_net_Inet6Address_init(ptr noundef, ptr noundef) local_un
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeifname(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia6_holder6ID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -168,12 +168,12 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeifname(ptr noundef
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 832
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 832
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @ia6_scopeifnameID, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %14, ptr noundef %2) #7
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %18
@@ -186,7 +186,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeifname(ptr noundef
 ; Function Attrs: nounwind uwtable
 define hidden i32 @getInet6Address_scopeid(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @ia6_holder6ID, align 8
   %7 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #7
@@ -195,12 +195,12 @@ define hidden i32 @getInet6Address_scopeid(ptr noundef %0, ptr noundef %1) local
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 800
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 800
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @ia6_scopeidID, align 8
   %14 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %13) #7
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 184
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef nonnull %7) #7
   br label %18
@@ -213,7 +213,7 @@ define hidden i32 @getInet6Address_scopeid(ptr noundef %0, ptr noundef %1) local
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeid(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia6_holder6ID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -222,7 +222,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeid(ptr noundef %0,
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 872
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @ia6_scopeidID, align 8
   tail call void %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %14, i32 noundef %2) #7
@@ -231,7 +231,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeid(ptr noundef %0,
 
 16:                                               ; preds = %10
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 840
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 840
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @ia6_scopeidsetID, align 8
   tail call void %19(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %20, i8 noundef zeroext 1) #7
@@ -239,7 +239,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeid(ptr noundef %0,
 
 21:                                               ; preds = %16, %10
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 184
   %24 = load ptr, ptr %23, align 8
   tail call void %24(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %25
@@ -252,7 +252,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_scopeid(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @getInet6Address_ipaddress(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia6_holder6ID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -261,7 +261,7 @@ define hidden zeroext range(i8 0, 2) i8 @getInet6Address_ipaddress(ptr noundef %
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 760
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 760
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @ia6_ipaddressID, align 8
   %15 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %14) #7
@@ -270,15 +270,15 @@ define hidden zeroext range(i8 0, 2) i8 @getInet6Address_ipaddress(ptr noundef %
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1600
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1600
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 16, ptr noundef %2) #7
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 184
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull %0, ptr noundef nonnull %15) #7
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %27
@@ -291,7 +291,7 @@ define hidden zeroext range(i8 0, 2) i8 @getInet6Address_ipaddress(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @setInet6Address_ipaddress(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia6_holder6ID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -300,7 +300,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_ipaddress(ptr noundef %
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 760
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 760
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @ia6_ipaddressID, align 8
   %15 = tail call ptr %13(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %14) #7
@@ -309,7 +309,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_ipaddress(ptr noundef %
 
 17:                                               ; preds = %10
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1408
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1408
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, i32 noundef 16) #7
   %22 = icmp eq ptr %21, null
@@ -317,7 +317,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_ipaddress(ptr noundef %
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 832
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 832
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr @ia6_ipaddressID, align 8
   tail call void %26(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %27, ptr noundef nonnull %21) #7
@@ -326,15 +326,15 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_ipaddress(ptr noundef %
 28:                                               ; preds = %23, %10
   %.0 = phi ptr [ %21, %23 ], [ %15, %10 ]
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 1664
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1664
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef nonnull %0, ptr noundef nonnull %.0, i32 noundef 0, i32 noundef 16, ptr noundef %2) #7
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 184
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 184
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %0, ptr noundef nonnull %.0) #7
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 184
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 184
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %38
@@ -347,7 +347,7 @@ define hidden zeroext range(i8 0, 2) i8 @setInet6Address_ipaddress(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define hidden void @setInetAddress_addr(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia_holderID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -360,12 +360,12 @@ define hidden void @setInetAddress_addr(ptr noundef %0, ptr noundef %1, i32 noun
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 872
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 872
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @iac_addressID, align 8
   tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %15, i32 noundef %2) #7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %19
@@ -379,7 +379,7 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nounwind uwtable
 define hidden void @setInetAddress_family(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia_holderID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -392,12 +392,12 @@ define hidden void @setInetAddress_family(ptr noundef %0, ptr noundef %1, i32 no
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 872
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 872
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @iac_familyID, align 8
   tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %15, i32 noundef %2) #7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %19
@@ -409,7 +409,7 @@ define hidden void @setInetAddress_family(ptr noundef %0, ptr noundef %1, i32 no
 ; Function Attrs: nounwind uwtable
 define hidden void @setInetAddress_hostName(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 760
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @ia_holderID, align 8
   %8 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %7) #7
@@ -422,17 +422,17 @@ define hidden void @setInetAddress_hostName(ptr noundef %0, ptr noundef %1, ptr 
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 832
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 832
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @iac_hostNameID, align 8
   tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %15, ptr noundef %2) #7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 832
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 832
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @iac_origHostNameID, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %19, ptr noundef %2) #7
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 184
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull %0, ptr noundef nonnull %8) #7
   br label %23
@@ -444,7 +444,7 @@ define hidden void @setInetAddress_hostName(ptr noundef %0, ptr noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @getInetAddress_addr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @ia_holderID, align 8
   %7 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #7
@@ -457,12 +457,12 @@ define hidden i32 @getInetAddress_addr(ptr noundef %0, ptr noundef %1) local_unn
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 800
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @iac_addressID, align 8
   %15 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %14) #7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %7) #7
   br label %19
@@ -475,7 +475,7 @@ define hidden i32 @getInetAddress_addr(ptr noundef %0, ptr noundef %1) local_unn
 ; Function Attrs: nounwind uwtable
 define hidden i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 760
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 760
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr @ia_holderID, align 8
   %7 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %6) #7
@@ -488,12 +488,12 @@ define hidden i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) local_u
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 800
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 800
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @iac_familyID, align 8
   %15 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %14) #7
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 184
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 184
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull %0, ptr noundef nonnull %7) #7
   br label %19
@@ -510,11 +510,11 @@ define ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef %1, ptr nocapt
   br i1 %5, label %6, label %141
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = tail call i32 @NET_IsIPv4Mapped(ptr noundef nonnull %7) #7
   %.not52 = icmp eq i32 %8, 0
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 224
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %11 = load ptr, ptr %10, align 8
   br i1 %.not52, label %58, label %12
 
@@ -528,7 +528,7 @@ define ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef %1, ptr nocapt
 17:                                               ; preds = %12
   %18 = tail call i32 @NET_IPv4MappedToIPv4(ptr noundef nonnull %7) #7
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 760
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 760
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @ia_holderID, align 8
   %23 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %22) #7
@@ -541,19 +541,19 @@ define ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef %1, ptr nocapt
 
 26:                                               ; preds = %17
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 872
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 872
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @iac_addressID, align 8
   tail call void %29(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %30, i32 noundef %18) #7
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 184
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 184
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, ptr noundef nonnull %23) #7
   br label %setInetAddress_addr.exit
 
 setInetAddress_addr.exit:                         ; preds = %25, %26
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1824
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1824
   %36 = load ptr, ptr %35, align 8
   %37 = tail call zeroext i8 %36(ptr noundef nonnull %0) #7
   %.not54 = icmp eq i8 %37, 0
@@ -561,7 +561,7 @@ setInetAddress_addr.exit:                         ; preds = %25, %26
 
 38:                                               ; preds = %setInetAddress_addr.exit
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 760
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 760
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @ia_holderID, align 8
   %43 = tail call ptr %41(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %42) #7
@@ -574,19 +574,19 @@ setInetAddress_addr.exit:                         ; preds = %25, %26
 
 46:                                               ; preds = %38
   %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 872
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 872
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr @iac_familyID, align 8
   tail call void %49(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef %50, i32 noundef 1) #7
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 184
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull %0, ptr noundef nonnull %43) #7
   br label %setInetAddress_family.exit
 
 setInetAddress_family.exit:                       ; preds = %45, %46
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1824
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1824
   %56 = load ptr, ptr %55, align 8
   %57 = tail call zeroext i8 %56(ptr noundef nonnull %0) #7
   %.not55 = icmp eq i8 %57, 0
@@ -601,7 +601,7 @@ setInetAddress_family.exit:                       ; preds = %45, %46
 
 63:                                               ; preds = %58
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 760
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 760
   %66 = load ptr, ptr %65, align 8
   %67 = load ptr, ptr @ia6_holder6ID, align 8
   %68 = tail call ptr %66(ptr noundef nonnull %0, ptr noundef nonnull %61, ptr noundef %67) #7
@@ -610,7 +610,7 @@ setInetAddress_family.exit:                       ; preds = %45, %46
 
 70:                                               ; preds = %63
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 760
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 760
   %73 = load ptr, ptr %72, align 8
   %74 = load ptr, ptr @ia6_ipaddressID, align 8
   %75 = tail call ptr %73(ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef %74) #7
@@ -619,7 +619,7 @@ setInetAddress_family.exit:                       ; preds = %45, %46
 
 77:                                               ; preds = %70
   %78 = load ptr, ptr %0, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 1408
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1408
   %80 = load ptr, ptr %79, align 8
   %81 = tail call ptr %80(ptr noundef nonnull %0, i32 noundef 16) #7
   %82 = icmp eq ptr %81, null
@@ -627,7 +627,7 @@ setInetAddress_family.exit:                       ; preds = %45, %46
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 832
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 832
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr @ia6_ipaddressID, align 8
   tail call void %86(ptr noundef nonnull %0, ptr noundef nonnull %68, ptr noundef %87, ptr noundef nonnull %81) #7
@@ -636,19 +636,19 @@ setInetAddress_family.exit:                       ; preds = %45, %46
 88:                                               ; preds = %83, %70
   %.0.i = phi ptr [ %81, %83 ], [ %75, %70 ]
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 1664
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1664
   %91 = load ptr, ptr %90, align 8
   tail call void %91(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %7) #7
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 184
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 184
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull %0, ptr noundef nonnull %.0.i) #7
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 184
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 184
   %97 = load ptr, ptr %96, align 8
   tail call void %97(ptr noundef nonnull %0, ptr noundef nonnull %68) #7
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 760
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 760
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr @ia_holderID, align 8
   %102 = tail call ptr %100(ptr noundef nonnull %0, ptr noundef nonnull %61, ptr noundef %101) #7
@@ -661,29 +661,29 @@ setInetAddress_family.exit:                       ; preds = %45, %46
 
 105:                                              ; preds = %88
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 872
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 872
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr @iac_familyID, align 8
   tail call void %108(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef %109, i32 noundef 2) #7
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 184
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 184
   %112 = load ptr, ptr %111, align 8
   tail call void %112(ptr noundef nonnull %0, ptr noundef nonnull %102) #7
   br label %setInetAddress_family.exit56
 
 setInetAddress_family.exit56:                     ; preds = %104, %105
   %113 = load ptr, ptr %0, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 1824
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 1824
   %115 = load ptr, ptr %114, align 8
   %116 = tail call zeroext i8 %115(ptr noundef nonnull %0) #7
   %.not53 = icmp eq i8 %116, 0
   br i1 %.not53, label %117, label %setInet6Address_ipaddress.exit.thread
 
 117:                                              ; preds = %setInetAddress_family.exit56
-  %118 = getelementptr inbounds i8, ptr %1, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %119 = load i32, ptr %118, align 4
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 760
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 760
   %122 = load ptr, ptr %121, align 8
   %123 = load ptr, ptr @ia6_holder6ID, align 8
   %124 = tail call ptr %122(ptr noundef nonnull %0, ptr noundef nonnull %61, ptr noundef %123) #7
@@ -692,7 +692,7 @@ setInetAddress_family.exit56:                     ; preds = %104, %105
 
 126:                                              ; preds = %117
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 872
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 872
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr @ia6_scopeidID, align 8
   tail call void %129(ptr noundef nonnull %0, ptr noundef nonnull %124, ptr noundef %130, i32 noundef %119) #7
@@ -701,7 +701,7 @@ setInetAddress_family.exit56:                     ; preds = %104, %105
 
 132:                                              ; preds = %126
   %133 = load ptr, ptr %0, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 840
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 840
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr @ia6_scopeidsetID, align 8
   tail call void %135(ptr noundef nonnull %0, ptr noundef nonnull %124, ptr noundef %136, i8 noundef zeroext 1) #7
@@ -709,14 +709,14 @@ setInetAddress_family.exit56:                     ; preds = %104, %105
 
 137:                                              ; preds = %132, %126
   %138 = load ptr, ptr %0, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 184
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 184
   %140 = load ptr, ptr %139, align 8
   tail call void %140(ptr noundef nonnull %0, ptr noundef nonnull %124) #7
   br label %setInet6Address_scopeid.exit
 
 141:                                              ; preds = %3
   %142 = load ptr, ptr %0, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 224
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 224
   %144 = load ptr, ptr %143, align 8
   %145 = load ptr, ptr @ia4_class, align 8
   %146 = load ptr, ptr @ia4_ctrID, align 8
@@ -726,7 +726,7 @@ setInetAddress_family.exit56:                     ; preds = %104, %105
 
 149:                                              ; preds = %141
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 760
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 760
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr @ia_holderID, align 8
   %154 = tail call ptr %152(ptr noundef nonnull %0, ptr noundef nonnull %147, ptr noundef %153) #7
@@ -739,29 +739,29 @@ setInetAddress_family.exit56:                     ; preds = %104, %105
 
 157:                                              ; preds = %149
   %158 = load ptr, ptr %0, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 872
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 872
   %160 = load ptr, ptr %159, align 8
   %161 = load ptr, ptr @iac_familyID, align 8
   tail call void %160(ptr noundef nonnull %0, ptr noundef nonnull %154, ptr noundef %161, i32 noundef 1) #7
   %162 = load ptr, ptr %0, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 184
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 184
   %164 = load ptr, ptr %163, align 8
   tail call void %164(ptr noundef nonnull %0, ptr noundef nonnull %154) #7
   br label %setInetAddress_family.exit58
 
 setInetAddress_family.exit58:                     ; preds = %156, %157
   %165 = load ptr, ptr %0, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 1824
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 1824
   %167 = load ptr, ptr %166, align 8
   %168 = tail call zeroext i8 %167(ptr noundef nonnull %0) #7
   %.not = icmp eq i8 %168, 0
   br i1 %.not, label %169, label %setInet6Address_ipaddress.exit.thread
 
 169:                                              ; preds = %setInetAddress_family.exit58
-  %170 = getelementptr inbounds i8, ptr %1, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %171 = load i32, ptr %170, align 4
   %172 = load ptr, ptr %0, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 760
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 760
   %174 = load ptr, ptr %173, align 8
   %175 = load ptr, ptr @ia_holderID, align 8
   %176 = tail call ptr %174(ptr noundef nonnull %0, ptr noundef nonnull %147, ptr noundef %175) #7
@@ -775,19 +775,19 @@ setInetAddress_family.exit58:                     ; preds = %156, %157
 179:                                              ; preds = %169
   %180 = tail call i32 @ntohl(i32 noundef %171) #8
   %181 = load ptr, ptr %0, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 872
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 872
   %183 = load ptr, ptr %182, align 8
   %184 = load ptr, ptr @iac_addressID, align 8
   tail call void %183(ptr noundef nonnull %0, ptr noundef nonnull %176, ptr noundef %184, i32 noundef %180) #7
   %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 184
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 184
   %187 = load ptr, ptr %186, align 8
   tail call void %187(ptr noundef nonnull %0, ptr noundef nonnull %176) #7
   br label %setInetAddress_addr.exit59
 
 setInetAddress_addr.exit59:                       ; preds = %178, %179
   %188 = load ptr, ptr %0, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 1824
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 1824
   %190 = load ptr, ptr %189, align 8
   %191 = tail call zeroext i8 %190(ptr noundef nonnull %0) #7
   %.not51 = icmp eq i8 %191, 0
@@ -795,7 +795,7 @@ setInetAddress_addr.exit59:                       ; preds = %178, %179
 
 setInet6Address_scopeid.exit:                     ; preds = %setInetAddress_addr.exit59, %setInetAddress_family.exit, %117, %137
   %.1 = phi ptr [ %15, %setInetAddress_family.exit ], [ %61, %117 ], [ %61, %137 ], [ %147, %setInetAddress_addr.exit59 ]
-  %192 = getelementptr inbounds i8, ptr %1, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %193 = load i16, ptr %192, align 2
   %194 = tail call zeroext i16 @ntohs(i16 noundef zeroext %193) #8
   %storemerge = zext i16 %194 to i32
@@ -821,7 +821,7 @@ declare i32 @ntohl(i32 noundef) local_unnamed_addr #3
 define zeroext range(i8 0, 2) i8 @NET_SockaddrEqualsInetAddress(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca [16 x i8], align 16
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 760
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @ia_holderID, align 8
   %9 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %8) #7
@@ -834,12 +834,12 @@ define zeroext range(i8 0, 2) i8 @NET_SockaddrEqualsInetAddress(ptr noundef %0, 
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 800
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 800
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @iac_familyID, align 8
   %17 = tail call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %16) #7
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 184
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 184
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull %0, ptr noundef nonnull %9) #7
   %21 = icmp eq i32 %17, 1
@@ -848,7 +848,7 @@ define zeroext range(i8 0, 2) i8 @NET_SockaddrEqualsInetAddress(ptr noundef %0, 
 getInetAddress_family.exit:                       ; preds = %11, %12
   %.0.i = phi i1 [ false, %11 ], [ %21, %12 ]
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1824
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1824
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i8 %24(ptr noundef nonnull %0) #7
   %.not = icmp eq i8 %25, 0
@@ -860,7 +860,7 @@ getInetAddress_family.exit:                       ; preds = %11, %12
   br i1 %28, label %29, label %103
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = tail call i32 @NET_IsIPv4Mapped(ptr noundef nonnull %30) #7
   %.not32 = icmp eq i32 %31, 0
   br i1 %.not32, label %57, label %32
@@ -871,7 +871,7 @@ getInetAddress_family.exit:                       ; preds = %11, %12
 33:                                               ; preds = %32
   %34 = tail call i32 @NET_IPv4MappedToIPv4(ptr noundef nonnull %30) #7
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 760
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 760
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @ia_holderID, align 8
   %39 = tail call ptr %37(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %38) #7
@@ -884,12 +884,12 @@ getInetAddress_family.exit:                       ; preds = %11, %12
 
 42:                                               ; preds = %33
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 800
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 800
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr @iac_addressID, align 8
   %47 = tail call i32 %45(ptr noundef nonnull %0, ptr noundef nonnull %39, ptr noundef %46) #7
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 184
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 184
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef nonnull %0, ptr noundef nonnull %39) #7
   br label %getInetAddress_addr.exit
@@ -897,7 +897,7 @@ getInetAddress_family.exit:                       ; preds = %11, %12
 getInetAddress_addr.exit:                         ; preds = %41, %42
   %.0.i37 = phi i32 [ -1, %41 ], [ %47, %42 ]
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1824
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1824
   %53 = load ptr, ptr %52, align 8
   %54 = tail call zeroext i8 %53(ptr noundef nonnull %0) #7
   %.not35 = icmp eq i8 %54, 0
@@ -912,7 +912,7 @@ getInetAddress_addr.exit:                         ; preds = %41, %42
 
 58:                                               ; preds = %57
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 760
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 760
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr @ia6_holder6ID, align 8
   %63 = tail call ptr %61(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %62) #7
@@ -921,7 +921,7 @@ getInetAddress_addr.exit:                         ; preds = %41, %42
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 760
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 760
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr @ia6_ipaddressID, align 8
   %70 = tail call ptr %68(ptr noundef nonnull %0, ptr noundef nonnull %63, ptr noundef %69) #7
@@ -930,15 +930,15 @@ getInetAddress_addr.exit:                         ; preds = %41, %42
 
 72:                                               ; preds = %65
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1600
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1600
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull %0, ptr noundef nonnull %70, i32 noundef 0, i32 noundef 16, ptr noundef nonnull %4) #7
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 184
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 184
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull %0, ptr noundef nonnull %70) #7
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 184
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull %0, ptr noundef nonnull %63) #7
   br label %getInet6Address_ipaddress.exit
@@ -949,10 +949,10 @@ getInet6Address_ipaddress.exit:                   ; preds = %58, %65, %72
   br i1 %.not33, label %102, label %83
 
 83:                                               ; preds = %getInet6Address_ipaddress.exit
-  %84 = getelementptr inbounds i8, ptr %1, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %85 = load i32, ptr %84, align 4
   %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 760
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 760
   %88 = load ptr, ptr %87, align 8
   %89 = load ptr, ptr @ia6_holder6ID, align 8
   %90 = call ptr %88(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %89) #7
@@ -961,12 +961,12 @@ getInet6Address_ipaddress.exit:                   ; preds = %58, %65, %72
 
 92:                                               ; preds = %83
   %93 = load ptr, ptr %0, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 800
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 800
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr @ia6_scopeidID, align 8
   %97 = call i32 %95(ptr noundef nonnull %0, ptr noundef nonnull %90, ptr noundef %96) #7
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 184
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 184
   %100 = load ptr, ptr %99, align 8
   call void %100(ptr noundef nonnull %0, ptr noundef nonnull %90) #7
   br label %getInet6Address_scopeid.exit
@@ -983,10 +983,10 @@ getInet6Address_scopeid.exit:                     ; preds = %83, %92
   br i1 %.0.i, label %104, label %130
 
 104:                                              ; preds = %103
-  %105 = getelementptr inbounds i8, ptr %1, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = load ptr, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 760
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 760
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr @ia_holderID, align 8
   %111 = tail call ptr %109(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %110) #7
@@ -999,12 +999,12 @@ getInet6Address_scopeid.exit:                     ; preds = %83, %92
 
 114:                                              ; preds = %104
   %115 = load ptr, ptr %0, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 800
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 800
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr @iac_addressID, align 8
   %119 = tail call i32 %117(ptr noundef nonnull %0, ptr noundef nonnull %111, ptr noundef %118) #7
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 184
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 184
   %122 = load ptr, ptr %121, align 8
   tail call void %122(ptr noundef nonnull %0, ptr noundef nonnull %111) #7
   br label %getInetAddress_addr.exit41
@@ -1012,7 +1012,7 @@ getInet6Address_scopeid.exit:                     ; preds = %83, %92
 getInetAddress_addr.exit41:                       ; preds = %113, %114
   %.0.i40 = phi i32 [ -1, %113 ], [ %119, %114 ]
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 1824
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1824
   %125 = load ptr, ptr %124, align 8
   %126 = tail call zeroext i8 %125(ptr noundef nonnull %0) #7
   %.not31 = icmp eq i8 %126, 0
@@ -1033,7 +1033,7 @@ declare i32 @NET_IsEqual(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 65536) i32 @NET_GetPortFromSockaddr(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = tail call zeroext i16 @ntohs(i16 noundef zeroext %3) #8
   %.0 = zext i16 %4 to i32
@@ -1049,7 +1049,7 @@ define hidden zeroext i16 @in_cksum(ptr nocapture noundef readonly %0, i32 nound
   %.026 = phi ptr [ %4, %.lr.ph ], [ %0, %2 ]
   %.02225 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
   %.02324 = phi i32 [ %8, %.lr.ph ], [ %1, %2 ]
-  %4 = getelementptr inbounds i8, ptr %.026, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %.026, i64 2
   %5 = load i16, ptr %.026, align 2
   %6 = zext i16 %5 to i32
   %7 = add nuw nsw i32 %.02225, %6

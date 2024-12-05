@@ -28,13 +28,13 @@ define dso_local noundef range(i32 -1, 2) i32 @msdos_partition(ptr noundef %0) l
   %7 = alloca %struct.Sector, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %19, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %10, i64 172
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 172
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   %16 = lshr i32 %14, 9
@@ -78,7 +78,7 @@ define dso_local noundef range(i32 -1, 2) i32 @msdos_partition(ptr noundef %0) l
 .preheader34:                                     ; preds = %35, %.critedge
   %39 = phi i32 [ %43, %.critedge ], [ 1, %35 ]
   %40 = phi ptr [ %44, %.critedge ], [ %24, %35 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i8, ptr %41, align 1
   switch i8 %42, label %.critedge [
     i8 -126, label %switch.edge.thread
@@ -127,8 +127,8 @@ define dso_local noundef range(i32 -1, 2) i32 @msdos_partition(ptr noundef %0) l
 64:                                               ; preds = %60, %56, %52, %49
   %65 = phi i1 [ true, %56 ], [ true, %52 ], [ true, %49 ], [ %63, %60 ]
   %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 52
-  %68 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %67, ptr elementtype(i32) %67) #9, !srcloc !9
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 52
+  %68 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %67, ptr nonnull elementtype(i32) %67) #9, !srcloc !9
   %69 = icmp ult i8 %68, 2
   call void @llvm.assume(i1 %69)
   %70 = icmp eq i8 %68, 0
@@ -148,8 +148,8 @@ switch.edge:                                      ; preds = %71, %64
 
 72:                                               ; preds = %switch.edge
   %73 = load ptr, ptr %7, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 52
-  %75 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %74, ptr elementtype(i32) %74) #9, !srcloc !9
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 52
+  %75 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %74, ptr nonnull elementtype(i32) %74) #9, !srcloc !9
   %76 = icmp ult i8 %75, 2
   call void @llvm.assume(i1 %76)
   %77 = icmp eq i8 %75, 0
@@ -160,7 +160,7 @@ switch.edge:                                      ; preds = %71, %64
   br label %79
 
 79:                                               ; preds = %78, %72
-  %80 = getelementptr inbounds i8, ptr %0, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %81 = load ptr, ptr %80, align 8
   %82 = call i64 @strlcat(ptr noundef %81, ptr noundef nonnull @.str, i64 noundef 4096) #9
   br label %411
@@ -179,8 +179,8 @@ switch.edge:                                      ; preds = %71, %64
 
 91:                                               ; preds = %87, %83
   %92 = load ptr, ptr %7, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 52
-  %94 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %93, ptr elementtype(i32) %93) #9, !srcloc !9
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 52
+  %94 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %93, ptr nonnull elementtype(i32) %93) #9, !srcloc !9
   %95 = icmp ult i8 %94, 2
   call void @llvm.assume(i1 %95)
   %96 = icmp eq i8 %94, 0
@@ -204,19 +204,19 @@ switch.edge:                                      ; preds = %71, %64
   br i1 %102, label %103, label %124
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %21, i64 14
+  %104 = getelementptr inbounds nuw i8, ptr %21, i64 14
   %105 = load i16, ptr %104, align 2
   %106 = icmp eq i16 %105, 0
   br i1 %106, label %124, label %107
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %21, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
   br i1 %110, label %124, label %111
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds i8, ptr %21, i64 21
+  %112 = getelementptr inbounds nuw i8, ptr %21, i64 21
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %124 [
     i8 -1, label %114
@@ -231,12 +231,12 @@ switch.edge:                                      ; preds = %71, %64
   ]
 
 114:                                              ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111
-  %115 = getelementptr inbounds i8, ptr %0, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %116 = load ptr, ptr %115, align 8
   %117 = call i64 @strlcat(ptr noundef %116, ptr noundef nonnull @.str.1, i64 noundef 4096) #9
   %118 = load ptr, ptr %7, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 52
-  %120 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %119, ptr elementtype(i32) %119) #9, !srcloc !9
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 52
+  %120 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %119, ptr nonnull elementtype(i32) %119) #9, !srcloc !9
   %121 = icmp ult i8 %120, 2
   call void @llvm.assume(i1 %121)
   %122 = icmp eq i8 %120, 0
@@ -248,8 +248,8 @@ switch.edge:                                      ; preds = %71, %64
 
 124:                                              ; preds = %111, %107, %103, %101
   %125 = load ptr, ptr %7, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 52
-  %127 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %126, ptr elementtype(i32) %126) #9, !srcloc !9
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 52
+  %127 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %126, ptr nonnull elementtype(i32) %126) #9, !srcloc !9
   %128 = icmp ult i8 %127, 2
   call void @llvm.assume(i1 %128)
   %129 = icmp eq i8 %127, 0
@@ -268,15 +268,15 @@ switch.edge:                                      ; preds = %71, %64
 .preheader32:                                     ; preds = %131, %147
   %135 = phi ptr [ %149, %147 ], [ %24, %131 ]
   %136 = phi i32 [ %148, %147 ], [ 1, %131 ]
-  %137 = getelementptr inbounds i8, ptr %135, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 4
   %138 = load i8, ptr %137, align 1
   %139 = icmp eq i8 %138, -18
   br i1 %139, label %140, label %147
 
 140:                                              ; preds = %.preheader32
   %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 52
-  %143 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %142, ptr elementtype(i32) %142) #9, !srcloc !9
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 52
+  %143 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %142, ptr nonnull elementtype(i32) %142) #9, !srcloc !9
   %144 = icmp ult i8 %143, 2
   call void @llvm.assume(i1 %144)
   %145 = icmp eq i8 %143, 0
@@ -295,23 +295,23 @@ switch.edge:                                      ; preds = %71, %64
 151:                                              ; preds = %147
   %152 = getelementptr i8, ptr %21, i64 440
   %153 = load i32, ptr %152, align 4
-  %154 = getelementptr inbounds i8, ptr %0, i64 48
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 5, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 52
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %156 = call i64 @llvm.umax.i64(i64 %20, i64 2)
-  %157 = getelementptr inbounds i8, ptr %0, i64 40
-  %158 = getelementptr inbounds i8, ptr %0, i64 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 64
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %160
 
 160:                                              ; preds = %366, %151
   %161 = phi i64 [ 1, %151 ], [ %367, %366 ]
   %162 = phi ptr [ %24, %151 ], [ %368, %366 ]
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load i32, ptr %163, align 1
   %165 = zext i32 %164 to i64
   %166 = mul nuw nsw i64 %20, %165
-  %167 = getelementptr inbounds i8, ptr %162, i64 12
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %168 = load i32, ptr %167, align 1
   %169 = zext i32 %168 to i64
   %170 = mul nuw nsw i64 %20, %169
@@ -319,7 +319,7 @@ switch.edge:                                      ; preds = %71, %64
   br i1 %171, label %366, label %172
 
 172:                                              ; preds = %160
-  %173 = getelementptr inbounds i8, ptr %162, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %174 = load i8, ptr %173, align 1
   switch i8 %174, label %175 [
     i8 5, label %.critedge19
@@ -354,7 +354,7 @@ switch.edge:                                      ; preds = %71, %64
   %187 = getelementptr %struct.anon.5, ptr %186, i64 %161, i32 1
   store i64 %183, ptr %187, align 8
   %188 = trunc i64 %161 to i32
-  %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 44, ptr noundef nonnull @.str.6, ptr noundef %158, i32 noundef %188) #9
+  %189 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 44, ptr noundef nonnull @.str.6, ptr noundef nonnull %158, i32 noundef %188) #9
   %190 = load ptr, ptr %159, align 8
   %191 = call i64 @strlcat(ptr noundef %190, ptr noundef nonnull %5, i64 noundef 4096) #9
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %5) #9
@@ -366,13 +366,13 @@ switch.edge:                                      ; preds = %71, %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   store i64 0, ptr %4, align 8, !annotation !5
   %195 = load ptr, ptr %0, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 80
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 80
   %197 = load ptr, ptr %196, align 8
   %198 = icmp eq ptr %197, null
   br i1 %198, label %206, label %199
 
 199:                                              ; preds = %192
-  %200 = getelementptr inbounds i8, ptr %197, i64 172
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 172
   %201 = load i32, ptr %200, align 4
   %202 = icmp eq i32 %201, 0
   %203 = lshr i32 %201, 9
@@ -419,14 +419,14 @@ switch.edge:                                      ; preds = %71, %64
   %229 = phi i32 [ 0, %226 ], [ %290, %289 ]
   %230 = phi i32 [ %210, %226 ], [ %.ph, %289 ]
   %231 = phi ptr [ %227, %226 ], [ %291, %289 ]
-  %232 = getelementptr inbounds i8, ptr %231, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 12
   %233 = load i32, ptr %232, align 1
   %234 = zext i32 %233 to i64
   %235 = icmp eq i32 %233, 0
   br i1 %235, label %289, label %236
 
 236:                                              ; preds = %228
-  %237 = getelementptr inbounds i8, ptr %231, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %238 = load i8, ptr %237, align 1
   switch i8 %238, label %239 [
     i8 5, label %289
@@ -435,7 +435,7 @@ switch.edge:                                      ; preds = %71, %64
   ]
 
 239:                                              ; preds = %236
-  %240 = getelementptr inbounds i8, ptr %231, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %241 = load i32, ptr %240, align 1
   %242 = zext i32 %241 to i64
   %243 = mul nuw nsw i64 %207, %242
@@ -470,7 +470,7 @@ switch.edge:                                      ; preds = %71, %64
   %263 = load ptr, ptr %157, align 8
   %264 = getelementptr %struct.anon.5, ptr %263, i64 %261, i32 1
   store i64 %244, ptr %264, align 8
-  %265 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 44, ptr noundef nonnull @.str.6, ptr noundef %158, i32 noundef %256) #9
+  %265 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 44, ptr noundef nonnull @.str.6, ptr noundef nonnull %158, i32 noundef %256) #9
   %266 = load ptr, ptr %159, align 8
   %267 = call i64 @strlcat(ptr noundef %266, ptr noundef nonnull %3, i64 noundef 4096) #9
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %3) #9
@@ -483,7 +483,7 @@ switch.edge:                                      ; preds = %71, %64
   %271 = sext i32 %269 to i64
   %272 = getelementptr %struct.anon.5, ptr %270, i64 %271, i32 4
   %273 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %272, i64 noundef 37, ptr noundef nonnull @.str.7, i32 noundef %153, i32 noundef %269) #9
-  %274 = getelementptr inbounds i8, ptr %272, i64 37
+  %274 = getelementptr inbounds nuw i8, ptr %272, i64 37
   store i8 0, ptr %274, align 1
   %275 = load ptr, ptr %157, align 8
   %276 = getelementptr %struct.anon.5, ptr %275, i64 %271, i32 3
@@ -522,13 +522,13 @@ switch.edge:                                      ; preds = %71, %64
 295:                                              ; preds = %304, %293
   %296 = phi i32 [ 0, %293 ], [ %305, %304 ]
   %297 = phi ptr [ %294, %293 ], [ %306, %304 ]
-  %298 = getelementptr inbounds i8, ptr %297, i64 12
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 12
   %299 = load i32, ptr %298, align 1
   %300 = icmp eq i32 %299, 0
   br i1 %300, label %304, label %301
 
 301:                                              ; preds = %295
-  %302 = getelementptr inbounds i8, ptr %297, i64 4
+  %302 = getelementptr inbounds nuw i8, ptr %297, i64 4
   %303 = load i8, ptr %302, align 1
   switch i8 %303, label %304 [
     i8 5, label %.critedge27
@@ -547,7 +547,7 @@ switch.edge:                                      ; preds = %71, %64
   br i1 %308, label %.critedge21, label %309
 
 309:                                              ; preds = %.critedge27
-  %310 = getelementptr inbounds i8, ptr %297, i64 8
+  %310 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %311 = load i32, ptr %310, align 1
   %312 = zext i32 %311 to i64
   %313 = mul nuw nsw i64 %207, %312
@@ -555,8 +555,8 @@ switch.edge:                                      ; preds = %71, %64
   %315 = zext i32 %299 to i64
   %316 = mul nuw nsw i64 %207, %315
   %317 = load ptr, ptr %4, align 8
-  %318 = getelementptr inbounds i8, ptr %317, i64 52
-  %319 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %318, ptr elementtype(i32) %318) #9, !srcloc !9
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 52
+  %319 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %318, ptr nonnull elementtype(i32) %318) #9, !srcloc !9
   %320 = icmp ult i8 %319, 2
   call void @llvm.assume(i1 %320)
   %321 = icmp eq i8 %319, 0
@@ -573,8 +573,8 @@ switch.edge:                                      ; preds = %71, %64
 
 .critedge21:                                      ; preds = %219, %.critedge27, %223, %284, %304
   %326 = load ptr, ptr %4, align 8
-  %327 = getelementptr inbounds i8, ptr %326, i64 52
-  %328 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %327, ptr elementtype(i32) %327) #9, !srcloc !9
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 52
+  %328 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %327, ptr nonnull elementtype(i32) %327) #9, !srcloc !9
   %329 = icmp ult i8 %328, 2
   call void @llvm.assume(i1 %329)
   %330 = icmp eq i8 %328, 0
@@ -598,7 +598,7 @@ switch.edge:                                      ; preds = %71, %64
   %336 = getelementptr %struct.anon.5, ptr %335, i64 %161, i32 1
   store i64 %170, ptr %336, align 8
   %337 = trunc i64 %161 to i32
-  %338 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 44, ptr noundef nonnull @.str.6, ptr noundef %158, i32 noundef %337) #9
+  %338 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 44, ptr noundef nonnull @.str.6, ptr noundef nonnull %158, i32 noundef %337) #9
   %339 = load ptr, ptr %159, align 8
   %340 = call i64 @strlcat(ptr noundef %339, ptr noundef nonnull %2, i64 noundef 4096) #9
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %2) #9
@@ -609,7 +609,7 @@ switch.edge:                                      ; preds = %71, %64
   %342 = load ptr, ptr %157, align 8
   %343 = getelementptr %struct.anon.5, ptr %342, i64 %161, i32 4
   %344 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %343, i64 noundef 37, ptr noundef nonnull @.str.7, i32 noundef %153, i32 noundef %.pre-phi) #9
-  %345 = getelementptr inbounds i8, ptr %343, i64 37
+  %345 = getelementptr inbounds nuw i8, ptr %343, i64 37
   store i8 0, ptr %345, align 1
   %346 = load ptr, ptr %157, align 8
   %347 = getelementptr %struct.anon.5, ptr %346, i64 %161, i32 3
@@ -661,9 +661,9 @@ switch.edge:                                      ; preds = %71, %64
 373:                                              ; preds = %.loopexit, %370
   %374 = phi ptr [ %24, %370 ], [ %402, %.loopexit ]
   %375 = phi i32 [ 1, %370 ], [ %401, %.loopexit ]
-  %376 = getelementptr inbounds i8, ptr %374, i64 4
+  %376 = getelementptr inbounds nuw i8, ptr %374, i64 4
   %377 = load i8, ptr %376, align 1
-  %378 = getelementptr inbounds i8, ptr %374, i64 12
+  %378 = getelementptr inbounds nuw i8, ptr %374, i64 12
   %379 = load i32, ptr %378, align 1
   %380 = zext i32 %379 to i64
   %381 = icmp eq i32 %379, 0
@@ -686,14 +686,14 @@ switch.edge:                                      ; preds = %71, %64
   br i1 %390, label %391, label %.preheader, !llvm.loop !16
 
 391:                                              ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %388, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %393 = load ptr, ptr %392, align 8
   %394 = icmp eq ptr %393, null
   br i1 %394, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %382, %391
   %395 = phi ptr [ %393, %391 ], [ @parse_freebsd, %382 ]
-  %396 = getelementptr inbounds i8, ptr %374, i64 8
+  %396 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %397 = load i32, ptr %396, align 1
   %398 = zext i32 %397 to i64
   %399 = mul nuw nsw i64 %20, %398
@@ -709,8 +709,8 @@ switch.edge:                                      ; preds = %71, %64
 
 404:                                              ; preds = %.loopexit
   %405 = load ptr, ptr %7, align 8
-  %406 = getelementptr inbounds i8, ptr %405, i64 52
-  %407 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %406, ptr elementtype(i32) %406) #9, !srcloc !9
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 52
+  %407 = call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %406, ptr nonnull elementtype(i32) %406) #9, !srcloc !9
   %408 = icmp ult i8 %407, 2
   call void @llvm.assume(i1 %408)
   %409 = icmp eq i8 %407, 0

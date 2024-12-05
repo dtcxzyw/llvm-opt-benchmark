@@ -151,7 +151,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   %.0114 = phi i32 [ 0, %19 ], [ 1, %21 ], [ 0, %23 ], [ 1, %25 ], [ 2, %27 ], [ 3, %29 ], [ 0, %.thread ]
   %.0113.in = phi ptr [ @netxray_1_0_file_type_subtype, %19 ], [ @netxray_1_1_file_type_subtype, %21 ], [ @netxray_2_00x_file_type_subtype, %23 ], [ @netxray_2_00x_file_type_subtype, %25 ], [ @netxray_2_00x_file_type_subtype, %27 ], [ @netxray_2_00x_file_type_subtype, %29 ], [ @netxray_old_file_type_subtype, %.thread ]
   %.0113 = load i32, ptr %.0113.in, align 4
-  %37 = getelementptr inbounds i8, ptr %5, i64 41
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 41
   %38 = load i8, ptr %37, align 1
   switch i8 %38, label %48 [
     i8 0, label %39
@@ -159,14 +159,14 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   ]
 
 39:                                               ; preds = %.thread143
-  %40 = getelementptr inbounds i8, ptr %5, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %41 = load i8, ptr %40, align 4
   %42 = zext i8 %41 to i32
   %43 = add nuw nsw i32 %42, 1
   br label %51
 
 44:                                               ; preds = %.thread143
-  %45 = getelementptr inbounds i8, ptr %5, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i32
   br label %51
@@ -199,17 +199,17 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %247
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds i8, ptr %5, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %63 = load i32, ptr %62, align 4
   %64 = uitofp i32 %63 to double
-  %65 = getelementptr inbounds i8, ptr %5, i64 52
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %66 = load i32, ptr %65, align 4
   %67 = uitofp i32 %66 to double
   %68 = call double @llvm.fmuladd.f64(double %67, double 0x41F0000000000000, double %64)
   br i1 %11, label %71, label %69
 
 69:                                               ; preds = %61
-  %70 = getelementptr inbounds i8, ptr %0, i64 148
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %70, align 4
   br label %182
 
@@ -223,12 +223,12 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   ]
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 148
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %74, align 4
   br label %182
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %0, i64 148
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %76, align 4
   br label %182
 
@@ -246,7 +246,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br i1 %cond, label %81, label %161
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %5, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %83 = load i8, ptr %82, align 4
   switch i8 %83, label %158 [
     i8 0, label %84
@@ -257,7 +257,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   ]
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %5, i64 44
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %86 = load i8, ptr %85, align 4
   %87 = zext i8 %86 to i64
   %88 = icmp ugt i8 %86, 2
@@ -275,7 +275,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br i1 %93, label %94, label %98
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds i8, ptr %5, i64 72
+  %95 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %96 = load i32, ptr %95, align 4
   %97 = uitofp i32 %96 to double
   br label %175
@@ -286,7 +286,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %175
 
 101:                                              ; preds = %81
-  %102 = getelementptr inbounds i8, ptr %5, i64 44
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %103 = load i8, ptr %102, align 4
   %104 = icmp ugt i8 %103, 2
   br i1 %104, label %110, label %105
@@ -313,7 +313,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %175
 
 115:                                              ; preds = %81
-  %116 = getelementptr inbounds i8, ptr %5, i64 44
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %117 = load i8, ptr %116, align 4
   %118 = icmp ugt i8 %117, 2
   br i1 %118, label %124, label %119
@@ -340,7 +340,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %175
 
 129:                                              ; preds = %81
-  %130 = getelementptr inbounds i8, ptr %5, i64 44
+  %130 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %131 = load i8, ptr %130, align 4
   %132 = icmp ugt i8 %131, 2
   br i1 %132, label %139, label %133
@@ -368,7 +368,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %175
 
 144:                                              ; preds = %81
-  %145 = getelementptr inbounds i8, ptr %5, i64 44
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %146 = load i8, ptr %145, align 4
   %147 = icmp ugt i8 %146, 2
   br i1 %147, label %153, label %148
@@ -402,7 +402,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %247
 
 161:                                              ; preds = %80
-  %162 = getelementptr inbounds i8, ptr %5, i64 44
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %163 = load i8, ptr %162, align 4
   %164 = icmp ugt i8 %163, 2
   br i1 %164, label %165, label %171
@@ -410,7 +410,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 165:                                              ; preds = %161
   store i32 -4, ptr %1, align 4
   %166 = zext i8 %163 to i32
-  %167 = getelementptr inbounds i8, ptr %5, i64 80
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %168 = load i8, ptr %167, align 4
   %169 = zext i8 %168 to i32
   %170 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %166, i32 noundef %.0118, i32 noundef %169, ptr noundef nonnull %5) #7
@@ -427,7 +427,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   %.1117 = phi double [ %151, %157 ], [ %151, %156 ], [ %136, %143 ], [ %136, %142 ], [ %122, %128 ], [ %122, %127 ], [ %108, %114 ], [ %108, %113 ], [ %97, %94 ], [ %100, %98 ], [ %174, %171 ]
   %.1 = phi double [ 0.000000e+00, %157 ], [ %68, %156 ], [ 0.000000e+00, %143 ], [ %68, %142 ], [ 0.000000e+00, %128 ], [ %68, %127 ], [ 0.000000e+00, %114 ], [ %68, %113 ], [ %68, %94 ], [ %68, %98 ], [ %68, %171 ]
   %176 = fcmp ult double %.1117, 1.000000e+07
-  %177 = getelementptr inbounds i8, ptr %0, i64 148
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 148
   br i1 %176, label %179, label %178
 
 178:                                              ; preds = %175
@@ -455,7 +455,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br i1 %34, label %186, label %205
 
 186:                                              ; preds = %185
-  %187 = getelementptr inbounds i8, ptr %5, i64 80
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %188 = load i8, ptr %187, align 4
   switch i8 %188, label %199 [
     i8 3, label %205
@@ -470,7 +470,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   br label %205
 
 190:                                              ; preds = %186, %186
-  %191 = getelementptr inbounds i8, ptr %5, i64 88
+  %191 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %192 = load i8, ptr %191, align 4
   %193 = icmp ult i8 %192, 4
   br i1 %193, label %switch.lookup, label %194
@@ -501,7 +501,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 
 switch.lookup:                                    ; preds = %190
   %204 = zext nneg i8 %192 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.netxray_open, i64 0, i64 %204
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.netxray_open, i64 0, i64 %204
   %switch.load = load i32, ptr %switch.gep, align 4
   %switch.idx.cast = zext nneg i8 %192 to i32
   br label %205
@@ -509,30 +509,30 @@ switch.lookup:                                    ; preds = %190
 205:                                              ; preds = %switch.lookup, %185, %186, %198, %197, %189, %202
   %.0111 = phi i32 [ 40, %198 ], [ 36, %197 ], [ 27, %189 ], [ %203, %202 ], [ 19, %186 ], [ 1, %185 ], [ %switch.load, %switch.lookup ]
   %.0110 = phi i32 [ 0, %198 ], [ 0, %197 ], [ 0, %189 ], [ 0, %202 ], [ 0, %186 ], [ 0, %185 ], [ %switch.idx.cast, %switch.lookup ]
-  %206 = getelementptr inbounds i8, ptr %0, i64 20
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.0113, ptr %206, align 4
   %207 = call noalias dereferenceable_or_null(64) ptr @g_malloc_n(i64 noundef 1, i64 noundef 64) #8
-  %208 = getelementptr inbounds i8, ptr %0, i64 96
+  %208 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %207, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %0, i64 112
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @netxray_read, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %0, i64 120
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @netxray_seek_read, ptr %210, align 8
-  %211 = getelementptr inbounds i8, ptr %0, i64 144
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %.0111, ptr %211, align 8
-  %212 = getelementptr inbounds i8, ptr %0, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %5, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %214 = load i32, ptr %213, align 4
   %215 = zext i32 %214 to i64
   store i64 %215, ptr %207, align 8
-  %216 = getelementptr inbounds i8, ptr %207, i64 8
+  %216 = getelementptr inbounds nuw i8, ptr %207, i64 8
   store double %.0116, ptr %216, align 8
-  %217 = getelementptr inbounds i8, ptr %207, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store double %183, ptr %217, align 8
-  %218 = getelementptr inbounds i8, ptr %207, i64 48
+  %218 = getelementptr inbounds nuw i8, ptr %207, i64 48
   store i32 %.0115, ptr %218, align 8
-  %219 = getelementptr inbounds i8, ptr %207, i64 52
+  %219 = getelementptr inbounds nuw i8, ptr %207, i64 52
   store i32 0, ptr %219, align 4
   switch i32 %.0111, label %229 [
     i32 1, label %220
@@ -545,10 +545,10 @@ switch.lookup:                                    ; preds = %190
   br i1 %34, label %221, label %229
 
 221:                                              ; preds = %220
-  %222 = getelementptr inbounds i8, ptr %5, i64 73
+  %222 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %223 = load i8, ptr %222, align 1
   %224 = icmp eq i8 %223, 52
-  %225 = getelementptr inbounds i8, ptr %5, i64 74
+  %225 = getelementptr inbounds nuw i8, ptr %5, i64 74
   %226 = load i8, ptr %225, align 2
   %227 = icmp eq i8 %226, 18
   %or.cond12 = select i1 %224, i1 %227, i1 false
@@ -559,23 +559,23 @@ switch.lookup:                                    ; preds = %190
   br label %229
 
 229:                                              ; preds = %220, %228, %221, %205
-  %230 = getelementptr inbounds i8, ptr %207, i64 56
+  %230 = getelementptr inbounds nuw i8, ptr %207, i64 56
   store i32 %.0110, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %207, i64 24
+  %231 = getelementptr inbounds nuw i8, ptr %207, i64 24
   store i32 0, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %5, i64 12
+  %232 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %233 = load i32, ptr %232, align 4
-  %234 = getelementptr inbounds i8, ptr %207, i64 28
+  %234 = getelementptr inbounds nuw i8, ptr %207, i64 28
   store i32 %233, ptr %234, align 4
-  %235 = getelementptr inbounds i8, ptr %5, i64 20
+  %235 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %236 = load i32, ptr %235, align 4
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds i8, ptr %207, i64 32
+  %238 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store i64 %237, ptr %238, align 8
-  %239 = getelementptr inbounds i8, ptr %5, i64 24
+  %239 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %240 = load i32, ptr %239, align 4
   %241 = zext i32 %240 to i64
-  %242 = getelementptr inbounds i8, ptr %207, i64 40
+  %242 = getelementptr inbounds nuw i8, ptr %207, i64 40
   store i64 %241, ptr %242, align 8
   %243 = load ptr, ptr %0, align 8
   %244 = call i64 @file_seek(ptr noundef %243, i64 noundef %237, i32 noundef 0, ptr noundef %1) #7
@@ -603,11 +603,11 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
-  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %12
 
 12:                                               ; preds = %31, %6
@@ -657,7 +657,7 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
 
 35:                                               ; preds = %18
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @wtap_read_packet_bytes(ptr noundef %36, ptr noundef %2, i32 noundef %38, ptr noundef %3, ptr noundef %4) #7
   %.not = icmp eq i32 %39, 0
@@ -676,14 +676,14 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
   br i1 %45, label %46, label %netxray_guess_atm_type.exit
 
 46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %1, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 8
   %.not.i = icmp eq i32 %49, 0
   br i1 %.not.i, label %50, label %netxray_guess_atm_type.exit
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %1, i64 84
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %52 = load i8, ptr %51, align 4
   switch i8 %52, label %netxray_guess_atm_type.exit [
     i8 0, label %53
@@ -692,21 +692,21 @@ define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly
 
 53:                                               ; preds = %50
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %2, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %56 = load i64, ptr %55, align 8
   %57 = getelementptr i8, ptr %54, i64 %56
   tail call void @atm_guess_traffic_type(ptr noundef nonnull %1, ptr noundef %57) #7
   br label %netxray_guess_atm_type.exit
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %1, i64 85
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 85
   %60 = load i8, ptr %59, align 1
   %61 = icmp eq i8 %60, 3
   br i1 %61, label %62, label %netxray_guess_atm_type.exit
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %2, align 8
-  %64 = getelementptr inbounds i8, ptr %2, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %65 = load i64, ptr %64, align 8
   %66 = getelementptr i8, ptr %63, i64 %65
   tail call void @atm_guess_lane_type(ptr noundef nonnull %1, ptr noundef %66) #7
@@ -719,7 +719,7 @@ netxray_guess_atm_type.exit:                      ; preds = %29, %31, %22, %62, 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #7
   %10 = icmp eq i64 %9, -1
@@ -742,7 +742,7 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds i8, ptr %2, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @wtap_read_packet_bytes(ptr noundef %20, ptr noundef %3, i32 noundef %22, ptr noundef %4, ptr noundef %5) #7
   %.not = icmp eq i32 %23, 0
@@ -755,14 +755,14 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
   br i1 %26, label %27, label %netxray_guess_atm_type.exit
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %2, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 8
   %.not.i = icmp eq i32 %30, 0
   br i1 %.not.i, label %31, label %netxray_guess_atm_type.exit
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %2, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 84
   %33 = load i8, ptr %32, align 4
   switch i8 %33, label %netxray_guess_atm_type.exit [
     i8 0, label %34
@@ -771,21 +771,21 @@ define internal range(i32 0, 2) i32 @netxray_seek_read(ptr nocapture noundef rea
 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr i8, ptr %35, i64 %37
   tail call void @atm_guess_traffic_type(ptr noundef nonnull %2, ptr noundef %38) #7
   br label %netxray_guess_atm_type.exit
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %2, i64 85
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 85
   %41 = load i8, ptr %40, align 1
   %42 = icmp eq i8 %41, 3
   br i1 %42, label %43, label %netxray_guess_atm_type.exit
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %3, align 8
-  %45 = getelementptr inbounds i8, ptr %3, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = getelementptr i8, ptr %44, i64 %46
   tail call void @atm_guess_lane_type(ptr noundef nonnull %2, ptr noundef %47) #7
@@ -830,9 +830,9 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %union.netxrayrec_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = icmp ult i32 %10, 3
   %switch.idx.mult = mul nsw i32 %10, 12
@@ -850,18 +850,18 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   ]
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load i32, ptr %16, align 8
   %cond = icmp eq i32 %17, 1
   br i1 %cond, label %18, label %183
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %2, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %19, align 8
   br label %183
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %0, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load i32, ptr %21, align 8
   switch i32 %22, label %183 [
     i32 1, label %23
@@ -876,45 +876,45 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   ]
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %6, i64 14
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %25 = load i8, ptr %24, align 2
   %26 = icmp eq i8 %25, -1
-  %27 = getelementptr inbounds i8, ptr %6, i64 15
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, -1
   %or.cond = select i1 %26, i1 %29, i1 false
   br i1 %or.cond, label %30, label %35
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %8, i64 52
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %32 = load i32, ptr %31, align 4
   %.not139 = icmp eq i32 %32, 0
   br i1 %.not139, label %183, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %2, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 4, ptr %34, align 8
   br label %183
 
 35:                                               ; preds = %23
-  %36 = getelementptr inbounds i8, ptr %2, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 0, ptr %36, align 8
   br label %183
 
 37:                                               ; preds = %20
-  %38 = getelementptr inbounds i8, ptr %2, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %38, i8 0, i64 72, i1 false)
-  %39 = getelementptr inbounds i8, ptr %6, i64 14
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %40 = load i8, ptr %39, align 2
   %41 = icmp eq i8 %40, -1
-  %42 = getelementptr inbounds i8, ptr %6, i64 15
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, -1
   %or.cond9 = select i1 %41, i1 %44, i1 false
   br i1 %or.cond9, label %45, label %49
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %8, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %47 = load i32, ptr %46, align 4
   %.not137 = icmp eq i32 %47, 0
   br i1 %.not137, label %49, label %48
@@ -925,27 +925,27 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
 
 49:                                               ; preds = %37, %45, %48
   %.1 = phi i32 [ 0, %48 ], [ 4, %45 ], [ 0, %37 ]
-  %50 = getelementptr inbounds i8, ptr %2, i64 84
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %2, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 108
-  %53 = getelementptr inbounds i8, ptr %6, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %54 = load i8, ptr %53, align 4
   %55 = zext i8 %54 to i16
-  %56 = getelementptr inbounds i8, ptr %2, i64 110
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 110
   store i16 %55, ptr %56, align 2
-  %57 = getelementptr inbounds i8, ptr %6, i64 25
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i16
-  %60 = getelementptr inbounds i8, ptr %2, i64 116
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 116
   store i16 %59, ptr %60, align 4
   store i16 13, ptr %52, align 4
-  %61 = getelementptr inbounds i8, ptr %6, i64 26
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 26
   %62 = load i8, ptr %61, align 2
-  %63 = getelementptr inbounds i8, ptr %2, i64 118
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 118
   store i8 %62, ptr %63, align 2
-  %64 = getelementptr inbounds i8, ptr %6, i64 27
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %65 = load i8, ptr %64, align 1
   %.not138 = icmp eq i8 %65, -1
   br i1 %.not138, label %183, label %66
@@ -956,23 +956,23 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   %68 = mul nuw nsw i16 %67, 100
   %69 = udiv i16 %68, 127
   %70 = trunc nuw i16 %69 to i8
-  %71 = getelementptr inbounds i8, ptr %2, i64 119
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 119
   store i8 %70, ptr %71, align 1
   br label %183
 
 72:                                               ; preds = %20
-  %73 = getelementptr inbounds i8, ptr %6, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %74 = load i8, ptr %73, align 4
   %75 = and i8 %74, 1
   %76 = zext nneg i8 %75 to i32
-  %77 = getelementptr inbounds i8, ptr %2, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %6, i64 25
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %79 = load i8, ptr %78, align 1
   %80 = and i8 %79, 31
-  %81 = getelementptr inbounds i8, ptr %2, i64 84
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 %80, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %8, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %83 = load i32, ptr %82, align 8
   switch i32 %83, label %96 [
     i32 1, label %84
@@ -1009,10 +1009,10 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br label %96
 
 96:                                               ; preds = %.sink.split, %92, %86, %72
-  %97 = getelementptr inbounds i8, ptr %6, i64 14
+  %97 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %98 = load i8, ptr %97, align 2
   %99 = icmp eq i8 %98, -1
-  %100 = getelementptr inbounds i8, ptr %6, i64 15
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %101 = load i8, ptr %100, align 1
   %102 = icmp eq i8 %101, -1
   %or.cond14 = select i1 %99, i1 %102, i1 false
@@ -1020,16 +1020,16 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br label %183
 
 103:                                              ; preds = %20, %20
-  %104 = getelementptr inbounds i8, ptr %6, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %105 = load i8, ptr %104, align 4
   %106 = xor i8 %105, -1
   %107 = shl i8 %106, 7
-  %108 = getelementptr inbounds i8, ptr %2, i64 80
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i8 %107, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %6, i64 14
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 14
   %110 = load i8, ptr %109, align 2
   %111 = icmp eq i8 %110, -1
-  %112 = getelementptr inbounds i8, ptr %6, i64 15
+  %112 = getelementptr inbounds nuw i8, ptr %6, i64 15
   %113 = load i8, ptr %112, align 1
   %114 = icmp eq i8 %113, -1
   %or.cond19 = select i1 %111, i1 %114, i1 false
@@ -1037,24 +1037,24 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br label %183
 
 115:                                              ; preds = %20, %20, %20
-  %116 = getelementptr inbounds i8, ptr %6, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %117 = load i8, ptr %116, align 4
   %118 = and i8 %117, 1
   %119 = zext nneg i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %2, i64 80
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %119, ptr %120, align 8
   br label %183
 
 121:                                              ; preds = %20
-  %122 = getelementptr inbounds i8, ptr %2, i64 80
-  %123 = getelementptr inbounds i8, ptr %6, i64 12
-  %124 = getelementptr inbounds i8, ptr %6, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  %123 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %125 = load i8, ptr %124, align 4
   %126 = shl i8 %125, 3
   %127 = and i8 %126, 8
   %spec.store.select = zext nneg i8 %127 to i32
   store i32 %spec.store.select, ptr %122, align 8
-  %128 = getelementptr inbounds i8, ptr %6, i64 21
+  %128 = getelementptr inbounds nuw i8, ptr %6, i64 21
   %129 = load i8, ptr %128, align 1
   %130 = and i8 %129, 4
   %.not133 = icmp eq i8 %130, 0
@@ -1066,23 +1066,23 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   br label %133
 
 133:                                              ; preds = %131, %121
-  %134 = getelementptr inbounds i8, ptr %6, i64 23
+  %134 = getelementptr inbounds nuw i8, ptr %6, i64 23
   %135 = load i8, ptr %134, align 1
   %136 = zext i8 %135 to i16
-  %137 = getelementptr inbounds i8, ptr %2, i64 88
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i16 %136, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %6, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.val = load i16, ptr %138, align 4
-  %139 = getelementptr inbounds i8, ptr %2, i64 90
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 90
   store i16 %.val, ptr %139, align 2
-  %140 = getelementptr inbounds i8, ptr %6, i64 27
+  %140 = getelementptr inbounds nuw i8, ptr %6, i64 27
   %141 = load i8, ptr %140, align 1
   %142 = lshr i8 %141, 4
   %.lobit = and i8 %142, 1
   %143 = zext nneg i8 %.lobit to i16
-  %144 = getelementptr inbounds i8, ptr %2, i64 94
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 94
   store i16 %143, ptr %144, align 2
-  %145 = getelementptr inbounds i8, ptr %2, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store i16 0, ptr %145, align 8
   %146 = load i8, ptr %123, align 4
   %147 = lshr i8 %146, 4
@@ -1099,43 +1099,43 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
   ]
 
 149:                                              ; preds = %133
-  %150 = getelementptr inbounds i8, ptr %2, i64 84
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %2, i64 85
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %151, align 1
-  %152 = getelementptr inbounds i8, ptr %2, i64 86
+  %152 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %152, align 2
   br label %183
 
 153:                                              ; preds = %133
-  %154 = getelementptr inbounds i8, ptr %2, i64 84
+  %154 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %2, i64 85
+  %155 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %155, align 1
-  %156 = getelementptr inbounds i8, ptr %2, i64 86
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %156, align 2
   br label %183
 
 157:                                              ; preds = %133
-  %158 = getelementptr inbounds i8, ptr %2, i64 84
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %2, i64 85
+  %159 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %2, i64 86
+  %160 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %160, align 2
   br label %183
 
 161:                                              ; preds = %133
-  %162 = getelementptr inbounds i8, ptr %2, i64 84
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 0, ptr %162, align 4
-  %163 = getelementptr inbounds i8, ptr %2, i64 85
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %163, align 1
-  %164 = getelementptr inbounds i8, ptr %2, i64 86
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %164, align 2
   br label %183
 
 165:                                              ; preds = %133, %133, %133, %133
-  %166 = getelementptr inbounds i8, ptr %2, i64 84
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i8 4, ptr %166, align 4
   %167 = and i8 %146, 7
   switch i8 %167, label %default.unreachable148 [
@@ -1151,37 +1151,37 @@ define internal fastcc range(i32 -1, 5) i32 @netxray_process_rec_header(ptr noca
 
 168:                                              ; preds = %165, %165
   store i8 6, ptr %166, align 4
-  %169 = getelementptr inbounds i8, ptr %2, i64 85
+  %169 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %169, align 1
-  %170 = getelementptr inbounds i8, ptr %2, i64 86
+  %170 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %170, align 2
   br label %183
 
 171:                                              ; preds = %165
-  %172 = getelementptr inbounds i8, ptr %2, i64 85
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 4, ptr %172, align 1
-  %173 = getelementptr inbounds i8, ptr %2, i64 86
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %173, align 2
   br label %183
 
 174:                                              ; preds = %165, %165, %165
-  %175 = getelementptr inbounds i8, ptr %2, i64 85
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 3, ptr %175, align 1
-  %176 = getelementptr inbounds i8, ptr %2, i64 86
+  %176 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %176, align 2
   br label %183
 
 177:                                              ; preds = %165
-  %178 = getelementptr inbounds i8, ptr %2, i64 85
+  %178 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 0, ptr %178, align 1
-  %179 = getelementptr inbounds i8, ptr %2, i64 86
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %179, align 2
   br label %183
 
 180:                                              ; preds = %165
-  %181 = getelementptr inbounds i8, ptr %2, i64 85
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 85
   store i8 1, ptr %181, align 1
-  %182 = getelementptr inbounds i8, ptr %2, i64 86
+  %182 = getelementptr inbounds nuw i8, ptr %2, i64 86
   store i8 0, ptr %182, align 2
   br label %183
 
@@ -1192,16 +1192,16 @@ default.unreachable148:                           ; preds = %165, %133
   %.0 = phi i32 [ 0, %13 ], [ 0, %20 ], [ 0, %180 ], [ 0, %177 ], [ 0, %174 ], [ 0, %171 ], [ 0, %168 ], [ 0, %161 ], [ 0, %157 ], [ 0, %153 ], [ 0, %149 ], [ 0, %115 ], [ %.1, %66 ], [ %.1, %49 ], [ 0, %33 ], [ 0, %35 ], [ 0, %18 ], [ 0, %15 ], [ 4, %30 ], [ %spec.select, %96 ], [ %spec.select140, %103 ]
   store i32 0, ptr %2, align 8
   %184 = call ptr @wtap_block_create(i32 noundef 5) #7
-  %185 = getelementptr inbounds i8, ptr %2, i64 232
+  %185 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %184, ptr %185, align 8
   %186 = load i32, ptr %9, align 8
   %187 = icmp eq i32 %186, 0
-  %188 = getelementptr inbounds i8, ptr %2, i64 4
-  %189 = getelementptr inbounds i8, ptr %6, i64 4
-  %190 = getelementptr inbounds i8, ptr %8, i64 8
-  %191 = getelementptr inbounds i8, ptr %8, i64 16
-  %192 = getelementptr inbounds i8, ptr %2, i64 16
-  %193 = getelementptr inbounds i8, ptr %2, i64 24
+  %188 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %189 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br i1 %187, label %194, label %216
 
 194:                                              ; preds = %183
@@ -1225,11 +1225,11 @@ default.unreachable148:                           ; preds = %165, %133
   %210 = fmul double %209, 1.000000e+09
   %211 = fptosi double %210 to i32
   store i32 %211, ptr %193, align 8
-  %212 = getelementptr inbounds i8, ptr %6, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val142 = load i16, ptr %212, align 4
   %213 = zext i16 %.val142 to i32
   %214 = sub nsw i32 %213, %.0
-  %215 = getelementptr inbounds i8, ptr %2, i64 64
+  %215 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %214, ptr %215, align 8
   br label %.sink.split149
 
@@ -1254,13 +1254,13 @@ default.unreachable148:                           ; preds = %165, %133
   %232 = fmul double %231, 1.000000e+09
   %233 = fptosi double %232 to i32
   store i32 %233, ptr %193, align 8
-  %234 = getelementptr inbounds i8, ptr %6, i64 10
+  %234 = getelementptr inbounds nuw i8, ptr %6, i64 10
   %.val144 = load i16, ptr %234, align 2
   %235 = zext i16 %.val144 to i32
   %236 = sub nsw i32 %235, %.0
-  %237 = getelementptr inbounds i8, ptr %2, i64 64
+  %237 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %236, ptr %237, align 8
-  %238 = getelementptr inbounds i8, ptr %6, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val146 = load i16, ptr %238, align 4
   %239 = zext i16 %.val146 to i32
   %240 = sub nsw i32 %239, %.0
@@ -1268,7 +1268,7 @@ default.unreachable148:                           ; preds = %165, %133
 
 .sink.split149:                                   ; preds = %216, %194
   %.sink150 = phi i32 [ %214, %194 ], [ %240, %216 ]
-  %241 = getelementptr inbounds i8, ptr %2, i64 68
+  %241 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %.sink150, ptr %241, align 4
   br label %242
 
@@ -1314,26 +1314,26 @@ wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %3, %.preheader, %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_dump_open_1_1(ptr noundef initializes((64, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @netxray_dump_1_1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @netxray_dump_finish_1_1, ptr %5, align 8
   %6 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 128, i32 noundef 0, ptr noundef %1) #7
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 128
   store i64 %11, ptr %9, align 8
   %12 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc_n(i64 noundef 1, i64 noundef 12) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %12, ptr %13, align 8
   store i32 1, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %15, align 4
   br label %16
 
@@ -1345,7 +1345,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_open_1_1(ptr noundef initializ
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.netxrayrec_1_x_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %9, 0
@@ -1356,10 +1356,10 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
   br label %64
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
-  %15 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %16 = load i32, ptr %15, align 8
   %.not32 = icmp eq i32 %13, %16
   br i1 %.not32, label %18, label %17
@@ -1383,13 +1383,13 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
   br i1 %.not33, label %._crit_edge, label %24
 
 ._crit_edge:                                      ; preds = %22
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %8, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %31
 
 24:                                               ; preds = %22
   store i32 0, ptr %8, align 4
-  %25 = getelementptr inbounds i8, ptr %1, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load i64, ptr %25, align 8
   %or.cond = icmp ugt i64 %26, 4294967295
   br i1 %or.cond, label %27, label %28
@@ -1400,7 +1400,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
 
 28:                                               ; preds = %24
   %29 = trunc nuw i64 %26 to i32
-  %30 = getelementptr inbounds i8, ptr %8, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %29, ptr %30, align 4
   %.pre36 = load i32, ptr %14, align 8
   br label %31
@@ -1408,14 +1408,14 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
 31:                                               ; preds = %._crit_edge, %28
   %32 = phi i32 [ %19, %._crit_edge ], [ %.pre36, %28 ]
   %33 = phi i32 [ %.pre, %._crit_edge ], [ %29, %28 ]
-  %34 = getelementptr inbounds i8, ptr %6, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %34, i8 0, i64 16, i1 false)
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %36 = load i64, ptr %35, align 8
   %37 = zext i32 %33 to i64
   %38 = sub i64 %36, %37
   %39 = mul i64 %38, 1000000
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
   %43 = udiv i64 %42, 1000
@@ -1424,15 +1424,15 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
   store i32 %45, ptr %6, align 4
   %46 = lshr i64 %44, 32
   %47 = trunc nuw i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %6, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %47, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 68
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %50 = load i32, ptr %49, align 4
   %51 = trunc i32 %50 to i16
-  %52 = getelementptr inbounds i8, ptr %6, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %51, ptr %52, align 4
   %53 = trunc i32 %32 to i16
-  %54 = getelementptr inbounds i8, ptr %6, i64 10
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i16 %53, ptr %54, align 2
   %55 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 28, ptr noundef %3) #7
   %.not34 = icmp eq i32 %55, 0
@@ -1446,7 +1446,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
   br i1 %.not35, label %64, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %8, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
@@ -1460,7 +1460,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_1_1(ptr noundef %0, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca [124 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @wtap_dump_file_tell(ptr noundef %0, ptr noundef %1) #7
   %8 = icmp eq i64 %7, -1
@@ -1477,12 +1477,12 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr
   br i1 %.not, label %34, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = trunc i64 %7 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   br label %23
 
@@ -1507,28 +1507,28 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_1_1(ptr noundef %0, ptr
 wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %22, %27
   %.06.i = phi i8 [ %30, %27 ], [ -1, %22 ]
   store i64 13563786668617776, ptr %4, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %16, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 16
-  %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
+  %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 128, ptr %.sroa.52.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %19, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx, i8 0, i64 12, i1 false)
-  %.sroa.73.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.73.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 %.06.i, ptr %.sroa.73.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 41
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 41
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(83) %.sroa.8.0..sroa_idx, i8 0, i64 83, i1 false)
   %31 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 124, ptr noundef %1) #7
   %.not20 = icmp eq i32 %31, 0
   br i1 %.not20, label %34, label %32
 
 32:                                               ; preds = %wtap_encap_to_netxray_1_1_encap.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %7, ptr %33, align 8
   br label %34
 
@@ -1567,26 +1567,26 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %3, %.preheader, %1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_dump_open_2_0(ptr noundef initializes((64, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr @netxray_dump_2_0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @netxray_dump_finish_2_0, ptr %5, align 8
   %6 = tail call i64 @wtap_dump_file_seek(ptr noundef %0, i64 noundef 128, i32 noundef 0, ptr noundef %1) #7
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %16, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, 128
   store i64 %11, ptr %9, align 8
   %12 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc_n(i64 noundef 1, i64 noundef 12) #8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %12, ptr %13, align 8
   store i32 1, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %15, align 4
   br label %16
 
@@ -1598,9 +1598,9 @@ define internal range(i32 0, 2) i32 @netxray_dump_open_2_0(ptr noundef initializ
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
   %6 = alloca %struct.netxrayrec_2_x_hdr, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %11, 0
@@ -1611,9 +1611,9 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
   br label %112
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %17 = load i32, ptr %16, align 8
   %.not44 = icmp eq i32 %15, %17
   br i1 %.not44, label %19, label %18
@@ -1637,13 +1637,13 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
   br i1 %.not45, label %._crit_edge, label %25
 
 ._crit_edge:                                      ; preds = %23
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %32
 
 25:                                               ; preds = %23
   store i32 0, ptr %10, align 4
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i64, ptr %26, align 8
   %or.cond = icmp ugt i64 %27, 4294967295
   br i1 %or.cond, label %28, label %29
@@ -1654,7 +1654,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
 
 29:                                               ; preds = %25
   %30 = trunc nuw i64 %27 to i32
-  %31 = getelementptr inbounds i8, ptr %10, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %30, ptr %31, align 4
   %.pre54 = load i32, ptr %7, align 8
   %.pre55 = load i32, ptr %16, align 8
@@ -1664,14 +1664,14 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
   %33 = phi i32 [ %15, %._crit_edge ], [ %.pre55, %29 ]
   %34 = phi i32 [ %20, %._crit_edge ], [ %.pre54, %29 ]
   %35 = phi i32 [ %.pre, %._crit_edge ], [ %30, %29 ]
-  %36 = getelementptr inbounds i8, ptr %6, i64 12
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %36, i8 0, i64 28, i1 false)
-  %37 = getelementptr inbounds i8, ptr %1, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = load i64, ptr %37, align 8
   %39 = zext i32 %35 to i64
   %40 = sub i64 %38, %39
   %41 = mul i64 %40, 1000000
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
   %45 = udiv i64 %44, 1000
@@ -1680,15 +1680,15 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
   store i32 %47, ptr %6, align 4
   %48 = lshr i64 %46, 32
   %49 = trunc nuw i64 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %6, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 68
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %52 = load i32, ptr %51, align 4
   %53 = trunc i32 %52 to i16
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i16 %53, ptr %54, align 4
   %55 = trunc i32 %34 to i16
-  %56 = getelementptr inbounds i8, ptr %6, i64 10
+  %56 = getelementptr inbounds nuw i8, ptr %6, i64 10
   store i16 %55, ptr %56, align 2
   switch i32 %33, label %102 [
     i32 22, label %57
@@ -1698,55 +1698,55 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
   ]
 
 57:                                               ; preds = %32
-  %58 = getelementptr inbounds i8, ptr %1, i64 108
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %59 = load i16, ptr %58, align 4
   %60 = and i16 %59, 1
   %.not48 = icmp eq i16 %60, 0
   br i1 %.not48, label %65, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %1, i64 110
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 110
   %63 = load i16, ptr %62, align 2
   %64 = trunc i16 %63 to i8
   br label %65
 
 65:                                               ; preds = %57, %61
   %66 = phi i8 [ %64, %61 ], [ 0, %57 ]
-  %67 = getelementptr inbounds i8, ptr %6, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i8 %66, ptr %67, align 4
   %68 = and i16 %59, 4
   %.not49 = icmp eq i16 %68, 0
   br i1 %.not49, label %73, label %69
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %1, i64 116
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %71 = load i16, ptr %70, align 4
   %72 = trunc i16 %71 to i8
   br label %73
 
 73:                                               ; preds = %65, %69
   %74 = phi i8 [ %72, %69 ], [ 0, %65 ]
-  %75 = getelementptr inbounds i8, ptr %6, i64 25
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 25
   store i8 %74, ptr %75, align 1
   %76 = and i16 %59, 8
   %.not50 = icmp eq i16 %76, 0
   br i1 %.not50, label %80, label %77
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %1, i64 118
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 118
   %79 = load i8, ptr %78, align 2
   br label %80
 
 80:                                               ; preds = %73, %77
   %81 = phi i8 [ %79, %77 ], [ 0, %73 ]
-  %82 = getelementptr inbounds i8, ptr %6, i64 26
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 26
   store i8 %81, ptr %82, align 2
   %83 = and i16 %59, 16
   %.not51 = icmp eq i16 %83, 0
   br i1 %.not51, label %91, label %84
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %1, i64 119
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 119
   %86 = load i8, ptr %85, align 1
   %87 = zext i8 %86 to i16
   %88 = mul nuw nsw i16 %87, 127
@@ -1756,14 +1756,14 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
 
 91:                                               ; preds = %80, %84
   %92 = phi i8 [ %90, %84 ], [ -1, %80 ]
-  %93 = getelementptr inbounds i8, ptr %6, i64 27
+  %93 = getelementptr inbounds nuw i8, ptr %6, i64 27
   store i8 %92, ptr %93, align 1
   br label %102
 
 94:                                               ; preds = %32, %32
   %95 = load i32, ptr %8, align 8
   %.not47 = icmp ne i32 %95, 0
-  %96 = getelementptr inbounds i8, ptr %6, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %97 = zext i1 %.not47 to i8
   store i8 %97, ptr %96, align 4
   br label %102
@@ -1771,7 +1771,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
 98:                                               ; preds = %32
   %99 = load i8, ptr %8, align 8
   %.not46 = icmp sgt i8 %99, -1
-  %100 = getelementptr inbounds i8, ptr %6, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %101 = zext i1 %.not46 to i8
   store i8 %101, ptr %100, align 4
   br label %102
@@ -1789,7 +1789,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
   br i1 %.not53, label %112, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %10, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 4
@@ -1803,7 +1803,7 @@ define internal range(i32 0, 2) i32 @netxray_dump_2_0(ptr noundef %0, ptr nocapt
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca [124 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @wtap_dump_file_tell(ptr noundef %0, ptr noundef %1) #7
   %8 = icmp eq i64 %7, -1
@@ -1820,12 +1820,12 @@ define internal range(i32 0, 2) i32 @netxray_dump_finish_2_0(ptr noundef %0, ptr
   br i1 %.not, label %39, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %6, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load i32, ptr %17, align 4
   %19 = trunc i64 %7 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   br label %23
 
@@ -1871,32 +1871,32 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %22, %27
 35:                                               ; preds = %wtap_encap_to_netxray_2_0_encap.exit, %34, %33, %32, %31
   %.sroa.105.0 = phi i8 [ 0, %34 ], [ 7, %33 ], [ 6, %32 ], [ 4, %31 ], [ 3, %wtap_encap_to_netxray_2_0_encap.exit ]
   store i64 13845257350426672, ptr %4, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %16, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 %18, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 16
-  %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 20
+  %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 128, ptr %.sroa.52.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %19, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 28
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.7.0..sroa_idx, i8 0, i64 12, i1 false)
-  %.sroa.73.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.73.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i8 %.06.i, ptr %.sroa.73.0..sroa_idx, align 8
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 41
-  %.sroa.105.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 80
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 41
+  %.sroa.105.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(39) %.sroa.8.0..sroa_idx, i8 0, i64 39, i1 false)
   store i8 %.sroa.105.0, ptr %.sroa.105.0..sroa_idx, align 16
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 81
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.15.0..sroa_idx, i8 0, i64 43, i1 false)
   %36 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 124, ptr noundef %1) #7
   %.not23 = icmp eq i32 %36, 0
   br i1 %.not23, label %39, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %7, ptr %38, align 8
   br label %39
 

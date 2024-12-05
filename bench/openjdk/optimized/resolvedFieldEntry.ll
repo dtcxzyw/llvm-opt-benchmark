@@ -48,25 +48,25 @@ define hidden void @_ZNK18ResolvedFieldEntry8print_onEP12outputStream(ptr nounde
   br label %8
 
 8:                                                ; preds = %7, %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6, i32 noundef %10) #5
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i16, ptr %11, align 4
   %13 = zext i16 %12 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.7, i32 noundef %13) #5
-  %14 = getelementptr inbounds i8, ptr %0, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %16) #5
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i8, ptr %17, align 8
   %19 = icmp ult i8 %18, 10
   br i1 %19, label %switch.lookup, label %_Z12as_BasicType8TosState.exit
 
 switch.lookup:                                    ; preds = %8
   %20 = zext nneg i8 %18 to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @switch.table._ZNK18ResolvedFieldEntry8print_onEP12outputStream, i64 0, i64 %20
+  %switch.gep = getelementptr inbounds nuw [10 x i8], ptr @switch.table._ZNK18ResolvedFieldEntry8print_onEP12outputStream, i64 0, i64 %20
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %_Z12as_BasicType8TosState.exit
 
@@ -74,7 +74,7 @@ _Z12as_BasicType8TosState.exit:                   ; preds = %8, %switch.lookup
   %.0.i = phi i8 [ %switch.load, %switch.lookup ], [ 99, %8 ]
   %21 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %.0.i) #5
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.9, ptr noundef %21) #5
-  %22 = getelementptr inbounds i8, ptr %0, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %23 = load i8, ptr %22, align 1
   %24 = lshr i8 %23, 1
   %.lobit = and i8 %24, 1
@@ -84,18 +84,18 @@ _Z12as_BasicType8TosState.exit:                   ; preds = %8, %switch.lookup
   %27 = and i8 %26, 1
   %28 = zext nneg i8 %27 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, i32 noundef %28) #5
-  %29 = getelementptr inbounds i8, ptr %0, i64 18
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %30 = load volatile i8, ptr %29, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %31 = zext i8 %30 to i64
-  %32 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.12, ptr noundef %33) #5
-  %34 = getelementptr inbounds i8, ptr %0, i64 19
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %35 = load volatile i8, ptr %34, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !6
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13, ptr noundef %38) #5
   ret void
@@ -109,7 +109,7 @@ declare noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext) local_unnamed_ad
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN18ResolvedFieldEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 14), (16, 24)) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 14
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i16 %3, ptr %2, align 2

@@ -51,7 +51,7 @@ define internal noundef i32 @ibt_setup(ptr nocapture noundef readonly %0) #0 sec
 define dso_local void @exc_control_protection(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 section ".noinstr.text" align 16 {
   %3 = tail call i8 @irqentry_enter(ptr noundef %0) #6
   tail call void asm sideeffect "457: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 457b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 457) #6, !srcloc !5
-  %4 = getelementptr inbounds i8, ptr %0, i64 136
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 3
   %7 = icmp eq i64 %6, 0
@@ -99,7 +99,7 @@ define internal fastcc void @do_unexpected_cp(ptr nocapture noundef readonly %0,
 4:                                                ; preds = %2
   store i1 true, ptr @do_unexpected_cp.__already_done, align 1
   tail call void asm sideeffect "452: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 452b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 452) #6, !srcloc !9
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 3
   %8 = icmp eq i64 %7, 0
@@ -133,7 +133,7 @@ define internal fastcc void @do_kernel_cp_fault(ptr noundef %0, i64 noundef %1) 
 7:                                                ; preds = %5
   store i1 true, ptr @do_unexpected_cp.__already_done, align 1
   tail call void asm sideeffect "452: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 452b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 452) #6, !srcloc !9
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %9 = load i64, ptr %8, align 8
   %10 = and i64 %9, 3
   %11 = icmp eq i64 %10, 0
@@ -150,13 +150,13 @@ define internal fastcc void @do_kernel_cp_fault(ptr noundef %0, i64 noundef %1) 
   br label %32
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, ptrtoint (ptr @ibt_selftest_noendbr to i64)
   br i1 %20, label %21, label %23, !prof !14
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 0, ptr %22, align 8
   br label %32
 

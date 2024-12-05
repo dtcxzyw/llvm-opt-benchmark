@@ -39,21 +39,21 @@ define dso_local noundef ptr @virtio_gpu_fence_alloc(ptr noundef %0, i64 noundef
   br i1 %6, label %19, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 62072
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 62072
   %9 = zext i32 %2 to i64
   %10 = add i64 %1, %9
-  %11 = getelementptr inbounds i8, ptr %5, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store ptr %8, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 %2, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 62088
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 62088
   %14 = load i64, ptr %13, align 8
   %15 = icmp ne i64 %14, %1
-  %16 = getelementptr inbounds i8, ptr %5, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %17 = zext i1 %15 to i8
   store i8 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 62112
-  tail call void @dma_fence_init(ptr noundef nonnull %5, ptr noundef nonnull @virtio_gpu_fence_ops, ptr noundef %18, i64 noundef %10, i64 noundef 0) #10
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 62112
+  tail call void @dma_fence_init(ptr noundef nonnull %5, ptr noundef nonnull @virtio_gpu_fence_ops, ptr noundef nonnull %18, i64 noundef %10, i64 noundef 0) #10
   br label %19
 
 19:                                               ; preds = %7, %3
@@ -65,22 +65,22 @@ declare dso_local void @dma_fence_init(ptr noundef, ptr noundef, ptr noundef, i6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, ptr noundef initializes((40, 48), (72, 80)) %2) local_unnamed_addr #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 62112
-  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 62080
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 62112
+  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #10
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 62080
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 %8, ptr %10, align 8
   %11 = icmp eq ptr %2, null
   br i1 %11, label %22, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %2, i64 56
-  %14 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 1, ptr elementtype(i32) %13) #10, !srcloc !6
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %14 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 1, ptr nonnull elementtype(i32) %13) #10, !srcloc !6
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %20, label %16, !prof !7
 
@@ -92,20 +92,20 @@ define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture nound
 
 20:                                               ; preds = %16, %12
   %21 = phi i32 [ 2, %12 ], [ 1, %16 ]
-  tail call void @refcount_warn_saturate(ptr noundef %13, i32 noundef %21) #10
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %13, i32 noundef %21) #10
   br label %22
 
 22:                                               ; preds = %20, %16, %3
-  %23 = getelementptr inbounds i8, ptr %2, i64 104
-  %24 = getelementptr inbounds i8, ptr %0, i64 62096
-  %25 = getelementptr inbounds i8, ptr %0, i64 62104
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 62096
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 62104
   %26 = load ptr, ptr %25, align 8
   store ptr %23, ptr %25, align 8
   store ptr %24, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %2, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store ptr %26, ptr %27, align 8
   store volatile ptr %23, ptr %26, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %5) #10
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_dma_fence_emit, i64 8), i32 2) #10
           to label %48 [label %28], !srcloc !9
 
@@ -126,7 +126,7 @@ define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture nound
   br i1 %36, label %41, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 @__SCT__tp_func_dma_fence_emit(ptr noundef %39, ptr noundef %2) #10
   br label %41
@@ -146,14 +146,14 @@ define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture nound
   br label %48
 
 48:                                               ; preds = %45, %41, %28, %22
-  %49 = getelementptr inbounds i8, ptr %1, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = or i32 %50, 1
   store i32 %51, ptr %49, align 4
   %52 = load i64, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %2, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %55 = load i8, ptr %54, align 8, !range !17, !noundef !18
   %56 = icmp eq i8 %55, 0
   br i1 %56, label %63, label %57
@@ -161,10 +161,10 @@ define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture nound
 57:                                               ; preds = %48
   %58 = or i32 %50, 3
   store i32 %58, ptr %49, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %60 = load i32, ptr %59, align 8
   %61 = trunc i32 %60 to i8
-  %62 = getelementptr inbounds i8, ptr %1, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i8 %61, ptr %62, align 4
   br label %63
 
@@ -177,11 +177,11 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 62072
-  %4 = getelementptr inbounds i8, ptr %0, i64 62112
-  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #10
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 62072
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 62112
+  %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #10
   store volatile i64 %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 62096
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 62096
   %7 = load ptr, ptr %6, align 8
   br label %8
 
@@ -247,10 +247,10 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
   br label %51
 
 51:                                               ; preds = %49, %44
-  %52 = getelementptr inbounds i8, ptr %24, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %24, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %53, ptr %55, align 8
   store volatile ptr %54, ptr %53, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %24, align 8
@@ -295,10 +295,10 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
   br label %72
 
 72:                                               ; preds = %70, %.loopexit
-  %73 = getelementptr inbounds i8, ptr %9, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %9, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %74, ptr %76, align 8
   store volatile ptr %75, ptr %74, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %9, align 8
@@ -326,7 +326,7 @@ define dso_local void @virtio_gpu_fence_event_process(ptr noundef %0, i64 nounde
   br label %.thread9
 
 .thread9:                                         ; preds = %8, %82, %84, %85, %72
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %4, i64 noundef %5) #10
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %4, i64 noundef %5) #10
   ret void
 }
 
@@ -351,7 +351,7 @@ define internal noundef nonnull ptr @virtio_gpu_get_timeline_name(ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef zeroext i1 @virtio_gpu_fence_signaled(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %6, !prof !7
@@ -369,9 +369,9 @@ define internal noundef zeroext i1 @virtio_gpu_fence_signaled(ptr nocapture noun
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal void @virtio_gpu_fence_value_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #4 align 16 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i64, ptr %7, align 8
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef nonnull @.str.4, i64 noundef %6, i64 noundef %8) #10
   ret void
@@ -380,7 +380,7 @@ define internal void @virtio_gpu_fence_value_str(ptr nocapture noundef readonly 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal void @virtio_gpu_timeline_value_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #4 align 16 {
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i64, ptr %6, align 8
   %8 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef nonnull @.str.5, i64 noundef %7) #10

@@ -26,10 +26,10 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref, ptr noundef nonnull align 8 dereferenceable(24) @__const.notes_cache_match_validity.msg, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %c, i8 0, i64 64, i1 false)
   %call = tail call ptr @xstrdup(ptr noundef %validity) #6
-  %validity1 = getelementptr inbounds i8, ptr %c, i64 56
+  %validity1 = getelementptr inbounds nuw i8, ptr %c, i64 56
   store ptr %call, ptr %validity1, align 8
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %ref, ptr noundef nonnull @.str, ptr noundef %name) #6
-  %buf = getelementptr inbounds i8, ptr %ref, i64 16
+  %buf = getelementptr inbounds nuw i8, ptr %ref, i64 16
   %0 = load ptr, ptr %buf, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %pretty_ctx.i)
@@ -54,7 +54,7 @@ notes_cache_match_validity.exit:                  ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %pretty_ctx.i, i8 0, i64 184, i1 false)
   call void @repo_format_commit_message(ptr noundef %r, ptr noundef nonnull %call1.i, ptr noundef nonnull @.str.2, ptr noundef nonnull %msg.i, ptr noundef nonnull %pretty_ctx.i) #6
   call void @strbuf_trim(ptr noundef nonnull %msg.i) #6
-  %buf.i = getelementptr inbounds i8, ptr %msg.i, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %msg.i, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %call4.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull readonly dereferenceable(1) %validity) #7
   %call4.i.fr = freeze i32 %call4.i
@@ -101,13 +101,13 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %initialized = getelementptr inbounds i8, ptr %c, i64 48
+  %initialized = getelementptr inbounds nuw i8, ptr %c, i64 48
   %0 = load i32, ptr %initialized, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %return, label %lor.lhs.false2
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %update_ref = getelementptr inbounds i8, ptr %c, i64 32
+  %update_ref = getelementptr inbounds nuw i8, ptr %c, i64 32
   %1 = load ptr, ptr %update_ref, align 8
   %tobool4.not = icmp eq ptr %1, null
   br i1 %tobool4.not, label %return, label %lor.lhs.false5
@@ -118,7 +118,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false2
   br i1 %tobool8.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false5
-  %dirty = getelementptr inbounds i8, ptr %c, i64 52
+  %dirty = getelementptr inbounds nuw i8, ptr %c, i64 52
   %3 = load i32, ptr %dirty, align 4
   %tobool10.not = icmp eq i32 %3, 0
   br i1 %tobool10.not, label %return, label %if.end12
@@ -129,7 +129,7 @@ if.end12:                                         ; preds = %if.end
   br i1 %tobool14.not, label %if.end16, label %return
 
 if.end16:                                         ; preds = %if.end12
-  %validity = getelementptr inbounds i8, ptr %c, i64 56
+  %validity = getelementptr inbounds nuw i8, ptr %c, i64 56
   %4 = load ptr, ptr %validity, align 8
   %call18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %call19 = call i32 @commit_tree(ptr noundef %4, i64 noundef %call18, ptr noundef nonnull %tree_oid, ptr noundef null, ptr noundef nonnull %commit_oid, ptr noundef null, ptr noundef null) #6

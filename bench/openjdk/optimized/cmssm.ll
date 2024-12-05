@@ -55,7 +55,7 @@ define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr nocapture 
 6:                                                ; preds = %2
   %7 = load i32, ptr %4, align 8
   %8 = icmp eq i32 %7, 0
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %8, label %.sink.split, label %10
 
 10:                                               ; preds = %6
@@ -79,15 +79,15 @@ define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noun
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %5, -5.000000e+01
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load double, ptr %9, align 8
   call void @_cmsVEC3init(ptr noundef nonnull %4, double noundef %6, double noundef %8, double noundef %10) #8
   %11 = load double, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load double, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %4, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fmul double %13, %13
   %17 = call double @llvm.fmuladd.f64(double %11, double %11, double %16)
@@ -98,7 +98,7 @@ define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noun
   br i1 %19, label %.thread26, label %21
 
 .thread26:                                        ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %QuantizeToSector.exit
 
@@ -123,7 +123,7 @@ define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noun
 
 _cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %24, %21
   %.09.i.i = phi double [ 0.000000e+00, %21 ], [ %27, %24 ], [ %29, %.lr.ph.i.i ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %.09.i.i, ptr %31, align 8
   %32 = fmul double %15, %15
   %33 = call double @llvm.fmuladd.f64(double %13, double %13, double %32)
@@ -148,7 +148,7 @@ _cmsAtan2.exit.i:                                 ; preds = %.lr.ph.i.i, %24, %2
 
 ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cmsAtan2.exit.i, %36
   %.09.i23.i = phi double [ 0.000000e+00, %_cmsAtan2.exit.i ], [ %39, %36 ], [ %41, %.lr.ph.i24.i ]
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store double %.09.i23.i, ptr %43, align 8
   %.pr = load double, ptr %2, align 8
   %44 = fcmp olt double %.pr, 0.000000e+00
@@ -190,10 +190,10 @@ QuantizeToSector.exit:                            ; preds = %45, %.thread26
   br label %69
 
 64:                                               ; preds = %QuantizeToSector.exit
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = zext nneg i32 %.022 to i64
   %67 = zext nneg i32 %spec.select to i64
-  %68 = getelementptr inbounds [16 x [16 x %struct.cmsGDBPoint]], ptr %65, i64 0, i64 %66, i64 %67
+  %68 = getelementptr inbounds nuw [16 x [16 x %struct.cmsGDBPoint]], ptr %65, i64 0, i64 %66, i64 %67
   br label %69
 
 69:                                               ; preds = %64, %62, %48
@@ -218,7 +218,7 @@ define hidden range(i32 0, 2) i32 @cmsGDBCheckPoint(ptr noundef %0, ptr nocaptur
 
 9:                                                ; preds = %6
   %10 = load double, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load double, ptr %11, align 8
   %13 = fcmp ole double %10, %12
   %14 = zext i1 %13 to i32
@@ -274,7 +274,7 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
   %6 = alloca %struct.cmsLine, align 8
   %7 = alloca [25 x ptr], align 16
   %8 = alloca %struct.cmsLine, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = sext i32 %2 to i64
   %11 = sext i32 %1 to i64
   %12 = getelementptr inbounds [16 x [16 x %struct.cmsGDBPoint]], ptr %9, i64 0, i64 %10, i64 %11
@@ -285,17 +285,17 @@ define internal fastcc void @InterpolateMissingSector(ptr noundef %0, i32 nounde
 .preheader:                                       ; preds = %3, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %3 ]
   %.028.i = phi i32 [ %.1.i, %28 ], [ 0, %3 ]
-  %14 = getelementptr inbounds [24 x %struct._spiral], ptr @Spiral, i64 0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [24 x %struct._spiral], ptr @Spiral, i64 0, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, %1
-  %17 = getelementptr inbounds i8, ptr %14, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = add nsw i32 %18, %2
   %spec.select.i = and i32 %16, 15
   %.020.i = and i32 %19, 15
   %20 = zext nneg i32 %.020.i to i64
   %21 = zext nneg i32 %spec.select.i to i64
-  %22 = getelementptr inbounds [16 x [16 x %struct.cmsGDBPoint]], ptr %9, i64 0, i64 %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x [16 x %struct.cmsGDBPoint]], ptr %9, i64 0, i64 %20, i64 %21
   %23 = load i32, ptr %22, align 8
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %28, label %24
@@ -336,13 +336,13 @@ FindNearSectors.exit:                             ; preds = %28
   %48 = fmul double %44, 5.000000e+01
   call void @_cmsVEC3init(ptr noundef nonnull %5, double noundef 5.000000e+01, double noundef 0.000000e+00, double noundef 0.000000e+00) #8
   call void @_cmsVEC3init(ptr noundef nonnull %6, double noundef %48, double noundef %46, double noundef %47) #8
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %50 = load double, ptr %5, align 8
   %51 = fsub double %50, %48
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = load double, ptr %52, align 8
   %54 = fsub double %53, %46
-  %55 = getelementptr inbounds i8, ptr %5, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %56 = load double, ptr %55, align 8
   %57 = fsub double %56, %47
   call void @_cmsVEC3init(ptr noundef nonnull %49, double noundef %51, double noundef %54, double noundef %57) #8
@@ -350,11 +350,11 @@ FindNearSectors.exit:                             ; preds = %28
   br i1 %58, label %.lr.ph73, label %._crit_edge
 
 .lr.ph73:                                         ; preds = %FindNearSectors.exit
-  %59 = getelementptr inbounds i8, ptr %8, i64 24
-  %60 = getelementptr inbounds i8, ptr %6, i64 8
-  %61 = getelementptr inbounds i8, ptr %6, i64 32
-  %62 = getelementptr inbounds i8, ptr %6, i64 16
-  %63 = getelementptr inbounds i8, ptr %6, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %64 = fmul double %33, 1.800000e+02
   %65 = fmul double %64, 6.250000e-02
   %66 = add nsw i32 %2, 1
@@ -390,11 +390,11 @@ FindNearSectors.exit:                             ; preds = %28
   br i1 %78, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %77
-  %79 = getelementptr inbounds [25 x ptr], ptr %7, i64 0, i64 %indvars.iv85
+  %79 = getelementptr inbounds nuw [25 x ptr], ptr %7, i64 0, i64 %indvars.iv85
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 8
-  %82 = getelementptr inbounds i8, ptr %80, i64 16
-  %83 = getelementptr inbounds i8, ptr %80, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 24
   br label %84
 
 84:                                               ; preds = %.lr.ph, %ToSpherical.exit
@@ -423,10 +423,10 @@ FindNearSectors.exit:                             ; preds = %28
   %103 = fmul double %88, %102
   %104 = fmul double %92, %102
   %105 = fmul double %100, %101
-  %106 = getelementptr inbounds [25 x ptr], ptr %7, i64 0, i64 %indvars.iv81
+  %106 = getelementptr inbounds nuw [25 x ptr], ptr %7, i64 0, i64 %indvars.iv81
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
-  %109 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %110 = load double, ptr %109, align 8
   %111 = fmul double %110, 0x400921FB54442D18
   %112 = fdiv double %111, 1.800000e+02
@@ -435,7 +435,7 @@ FindNearSectors.exit:                             ; preds = %28
   %115 = fmul double %114, 0x400921FB54442D18
   %116 = fdiv double %115, 1.800000e+02
   %117 = call double @cos(double noundef %116) #8
-  %118 = getelementptr inbounds i8, ptr %107, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %119 = load double, ptr %118, align 8
   %120 = fmul double %119, 0x400921FB54442D18
   %121 = fdiv double %120, 1.800000e+02
@@ -607,11 +607,11 @@ ToSpherical.exit:                                 ; preds = %.lr.ph.i24.i, %_cms
   %.sroa.5.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.5.1.lcssa, %.loopexit ]
   %.sroa.4.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.4.1.lcssa, %.loopexit ]
   %.sroa.0.0.lcssa = phi double [ 0.000000e+00, %FindNearSectors.exit ], [ %.sroa.0.1.lcssa, %.loopexit ]
-  %212 = getelementptr inbounds i8, ptr %12, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %.sroa.0.0.lcssa, ptr %212, align 8
-  %.sroa.4.0..sroa_idx8 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.4.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %.sroa.4.0.lcssa, ptr %.sroa.4.0..sroa_idx8, align 8
-  %.sroa.5.0..sroa_idx10 = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.5.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double %.sroa.5.0.lcssa, ptr %.sroa.5.0..sroa_idx10, align 8
   store i32 2, ptr %12, align 8
   br label %213

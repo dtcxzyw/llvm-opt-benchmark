@@ -22,7 +22,7 @@ define void @Java_sun_java2d_xr_XRSurfaceData_initXRPicture(ptr noundef %0, ptr 
   br i1 %7, label %33, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %6, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %19
@@ -32,7 +32,7 @@ define void @Java_sun_java2d_xr_XRSurfaceData_initXRPicture(ptr noundef %0, ptr 
   %13 = load ptr, ptr @awt_display, align 8
   %14 = tail call ptr @XRenderFindStandardFormat(ptr noundef %13, i32 noundef %3) #2
   %15 = load ptr, ptr @awt_display, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %17 = load i64, ptr %16, align 8
   %18 = call i64 @XRenderCreatePicture(ptr noundef %15, i64 noundef %17, ptr noundef %14, i64 noundef 1, ptr noundef nonnull %5) #2
   store i64 %18, ptr %9, align 8
@@ -41,16 +41,16 @@ define void @Java_sun_java2d_xr_XRSurfaceData_initXRPicture(ptr noundef %0, ptr 
 19:                                               ; preds = %12, %8
   %20 = phi i64 [ %18, %12 ], [ %10, %8 ]
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 872
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 872
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr @pictID, align 8
   %25 = trunc i64 %20 to i32
   call void %23(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %24, i32 noundef %25) #2
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 872
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 872
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr @xidID, align 8
-  %30 = getelementptr inbounds i8, ptr %6, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %31 = load i64, ptr %30, align 8
   %32 = trunc i64 %31 to i32
   call void %28(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %29, i32 noundef %32) #2
@@ -67,7 +67,7 @@ declare i64 @XRenderCreatePicture(ptr noundef, i64 noundef, ptr noundef, i64 nou
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_xr_XRSurfaceData_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #2
   store ptr %6, ptr @pictID, align 8
@@ -76,7 +76,7 @@ define void @Java_sun_java2d_xr_XRSurfaceData_initIDs(ptr noundef %0, ptr nounde
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #2
   store ptr %12, ptr @xidID, align 8
@@ -118,7 +118,7 @@ define void @Java_sun_java2d_xr_XRSurfaceData_freeXSDOPicture(ptr noundef %0, pt
   br i1 %5, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %8 = load i64, ptr %7, align 8
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %11, label %9

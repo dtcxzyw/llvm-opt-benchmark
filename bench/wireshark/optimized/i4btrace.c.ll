@@ -34,23 +34,23 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   %10 = load i32, ptr %4, align 4
   %11 = add i32 %10, -32
   %or.cond = icmp ult i32 %11, 16353
-  %12 = getelementptr inbounds i8, ptr %4, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp ult i32 %13, 5
   %or.cond5.not104 = select i1 %or.cond, i1 %14, i1 false
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp ult i32 %16, 4
   %or.cond8.not102 = select i1 %or.cond5.not104, i1 %17, i1 false
-  %18 = getelementptr inbounds i8, ptr %4, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp slt i32 %19, 2
   %or.cond11.not100 = select i1 %or.cond8.not102, i1 %20, i1 false
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = icmp ult i32 %22, 2049
   %or.cond14.not98 = select i1 %or.cond11.not100, i1 %23, i1 false
-  %24 = getelementptr inbounds i8, ptr %4, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = icmp ult i32 %25, 1000000
   %or.cond17.not = select i1 %or.cond14.not98, i1 %26, i1 false
@@ -67,11 +67,11 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   store i32 %31, ptr %18, align 4
   %32 = call i32 @llvm.bswap.i32(i32 %22)
   store i32 %32, ptr %21, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %34 = load i32, ptr %33, align 4
   %35 = call i32 @llvm.bswap.i32(i32 %34)
   store i32 %35, ptr %33, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %37 = load i32, ptr %36, align 4
   %38 = call i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %36, align 4
@@ -105,8 +105,8 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
   br i1 %.not91118, label %74, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.thread
-  %51 = getelementptr inbounds i8, ptr %4, i64 20
-  %52 = getelementptr inbounds i8, ptr %4, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.preheader.split
 
 .preheader.split.us:                              ; preds = %46, %55
@@ -239,21 +239,21 @@ define hidden range(i32 -1, 2) i32 @i4btrace_open(ptr noundef %0, ptr noundef %1
 
 113:                                              ; preds = %.loopexit
   %114 = load i32, ptr @i4btrace_file_type_subtype, align 4
-  %115 = getelementptr inbounds i8, ptr %0, i64 20
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %114, ptr %115, align 4
   %116 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #5
-  %117 = getelementptr inbounds i8, ptr %0, i64 96
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %116, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %0, i64 112
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @i4btrace_read, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %0, i64 120
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @i4btrace_seek_read, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %120, align 8
   store i32 %.087119, ptr %116, align 4
-  %121 = getelementptr inbounds i8, ptr %0, i64 144
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 17, ptr %121, align 8
-  %122 = getelementptr inbounds i8, ptr %0, i64 148
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 6, ptr %122, align 4
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #4
   br label %.loopexit107
@@ -286,7 +286,7 @@ define internal i32 @i4btrace_read(ptr nocapture noundef readonly %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @i4btrace_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #4
   %10 = icmp eq i64 %9, -1
@@ -346,31 +346,31 @@ define internal fastcc i32 @i4b_read_rec(ptr nocapture readonly %.96.val, ptr no
 10:                                               ; preds = %8
   %11 = call i32 @llvm.bswap.i32(i32 %.pre)
   store i32 %11, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = call i32 @llvm.bswap.i32(i32 %13)
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = call i32 @llvm.bswap.i32(i32 %16)
   store i32 %17, ptr %15, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = call i32 @llvm.bswap.i32(i32 %19)
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %22 = load i32, ptr %21, align 4
   %23 = call i32 @llvm.bswap.i32(i32 %22)
   store i32 %23, ptr %21, align 4
-  %24 = getelementptr inbounds i8, ptr %6, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %25 = load i32, ptr %24, align 4
   %26 = call i32 @llvm.bswap.i32(i32 %25)
   store i32 %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %28 = load i32, ptr %27, align 4
   %29 = call i32 @llvm.bswap.i32(i32 %28)
   store i32 %29, ptr %27, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = call i32 @llvm.bswap.i32(i32 %31)
   store i32 %32, ptr %30, align 4
@@ -401,25 +401,25 @@ define internal fastcc i32 @i4b_read_rec(ptr nocapture readonly %.96.val, ptr no
 43:                                               ; preds = %38
   store i32 0, ptr %1, align 8
   %44 = call ptr @wtap_block_create(i32 noundef 5) #4
-  %45 = getelementptr inbounds i8, ptr %1, i64 232
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 232
   store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 64
-  %48 = getelementptr inbounds i8, ptr %1, i64 68
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 %39, ptr %48, align 4
   store i32 %39, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %6, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %54 = load i32, ptr %53, align 4
   %55 = mul i32 %54, 1000
-  %56 = getelementptr inbounds i8, ptr %1, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %6, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load i32, ptr %57, align 4
   switch i32 %58, label %70 [
     i32 0, label %59
@@ -429,37 +429,37 @@ define internal fastcc i32 @i4b_read_rec(ptr nocapture readonly %.96.val, ptr no
   ]
 
 59:                                               ; preds = %43
-  %60 = getelementptr inbounds i8, ptr %1, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 15, ptr %60, align 8
   br label %70
 
 61:                                               ; preds = %43
-  %62 = getelementptr inbounds i8, ptr %1, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 17, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %1, i64 84
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i8 0, ptr %63, align 4
   br label %70
 
 64:                                               ; preds = %43
-  %65 = getelementptr inbounds i8, ptr %1, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 17, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 84
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i8 1, ptr %66, align 4
   br label %70
 
 67:                                               ; preds = %43
-  %68 = getelementptr inbounds i8, ptr %1, i64 72
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 17, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 84
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 84
   store i8 2, ptr %69, align 4
   br label %70
 
 70:                                               ; preds = %67, %64, %61, %59, %43
-  %71 = getelementptr inbounds i8, ptr %6, i64 12
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
   %74 = zext i1 %73 to i32
-  %75 = getelementptr inbounds i8, ptr %1, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %74, ptr %75, align 8
   %76 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %39, ptr noundef %3, ptr noundef %4) #4
   br label %77

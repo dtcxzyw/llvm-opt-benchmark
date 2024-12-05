@@ -14,10 +14,10 @@ define dso_local i32 @lzma_simple_x86_encoder_init(ptr noundef %0, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -5, ptr %10, align 4
   br label %x86_coder_init.exit
 
@@ -33,10 +33,10 @@ define dso_local i32 @lzma_simple_x86_decoder_init(ptr noundef %0, ptr noundef %
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 -5, ptr %10, align 4
   br label %x86_coder_init.exit
 
@@ -48,7 +48,7 @@ declare i32 @lzma_simple_coder_init(ptr noundef, ptr noundef, ptr noundef, ptr n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i64 noundef %4) #2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = icmp ult i64 %4, 5
   br i1 %7, label %87, label %8
 
@@ -124,7 +124,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
   %38 = lshr i32 %.1, 1
   %39 = and i32 %38, 7
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds [8 x i8], ptr @x86_code.MASK_TO_ALLOWED_STATUS, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @x86_code.MASK_TO_ALLOWED_STATUS, i64 0, i64 %40
   %42 = load i8, ptr %41, align 1
   %43 = trunc i8 %42 to i1
   %44 = icmp ult i32 %.1, 32
@@ -156,7 +156,7 @@ define internal i64 @x86_code(ptr nocapture noundef %0, i32 noundef %1, i1 nound
 
 .lr.ph117:                                        ; preds = %45
   %64 = zext nneg i32 %38 to i64
-  %65 = getelementptr inbounds [8 x i32], ptr @x86_code.MASK_TO_BIT_NUMBER, i64 0, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i32], ptr @x86_code.MASK_TO_BIT_NUMBER, i64 0, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = shl i32 %66, 3
   %68 = sub i32 24, %67

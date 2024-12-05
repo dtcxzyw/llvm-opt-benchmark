@@ -210,12 +210,12 @@ call5.i.i.i.i.i.noexc.i:                          ; preds = %_ZNKSt6vectorIhSaIh
   br i1 %cmp.i.i.i.i.i24.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i, label %if.then.i.i.i.i.i.i.i25.i.i.i
 
 if.then.i.i.i.i.i.i.i25.i.i.i:                    ; preds = %call5.i.i.i.i.i.noexc.i
-  %incdec.ptr.i.i.i22.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i4.i, i64 1
+  %incdec.ptr.i.i.i22.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i4.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i.i, i8 0, i64 %sub.i.i.i23.i.i.i, i1 false)
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i, %call5.i.i.i.i.i.noexc.i
-  %add.ptr36.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i4.i, i64 %6
+  %add.ptr36.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i4.i, i64 %6
   br label %invoke.cont30.i
 
 invoke.cont30.i:                                  ; preds = %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i, %if.end28.i
@@ -275,14 +275,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i36.i: ; preds = %if.then.i17.i
           to label %call5.i.i.i.i.i.noexc55.i unwind label %lpad29.i
 
 call5.i.i.i.i.i.noexc55.i:                        ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i36.i
-  %add.ptr.i.i39.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i56.i, i64 %sub.ptr.sub.i.i9.i
+  %add.ptr.i.i39.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i56.i, i64 %sub.ptr.sub.i.i9.i
   store i8 0, ptr %add.ptr.i.i39.i, align 1
   %sub.i.i.i23.i.i40.i = add nsw i64 %sub.i18.i, -1
   %cmp.i.i.i.i.i24.i.i41.i = icmp eq i64 %sub.i.i.i23.i.i40.i, 0
   br i1 %cmp.i.i.i.i.i24.i.i41.i, label %try.cont.i.i44.i, label %if.then.i.i.i.i.i.i.i25.i.i42.i
 
 if.then.i.i.i.i.i.i.i25.i.i42.i:                  ; preds = %call5.i.i.i.i.i.noexc55.i
-  %incdec.ptr.i.i.i22.i.i43.i = getelementptr inbounds i8, ptr %add.ptr.i.i39.i, i64 1
+  %incdec.ptr.i.i.i22.i.i43.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i39.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i43.i, i8 0, i64 %sub.i.i.i23.i.i40.i, i1 false)
   br label %try.cont.i.i44.i
 
@@ -654,12 +654,12 @@ call5.i.i.i.i.i.noexc.i33:                        ; preds = %_ZNKSt6vectorIhSaIh
   br i1 %cmp.i.i.i.i.i24.i.i.i35, label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i38, label %if.then.i.i.i.i.i.i.i25.i.i.i36
 
 if.then.i.i.i.i.i.i.i25.i.i.i36:                  ; preds = %call5.i.i.i.i.i.noexc.i33
-  %incdec.ptr.i.i.i22.i.i.i37 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i, i64 1
+  %incdec.ptr.i.i.i22.i.i.i37 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i7.i, i64 1
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i22.i.i.i37, i8 0, i64 %sub.i.i.i23.i.i.i34, i1 false)
   br label %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i38
 
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit32.i.i.i38: ; preds = %if.then.i.i.i.i.i.i.i25.i.i.i36, %call5.i.i.i.i.i.noexc.i33
-  %add.ptr36.i.i.i39 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i7.i, i64 %43
+  %add.ptr36.i.i.i39 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i7.i, i64 %43
   %44 = ptrtoint ptr %add.ptr36.i.i.i39 to i64
   br label %invoke.cont47.i
 
@@ -1629,7 +1629,7 @@ entry:
   store ptr %call, ptr %pkey, align 8
   %cmp.i = icmp ne ptr %call, null
   %0 = load ptr, ptr %p, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %input, i64 %input_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %input, i64 %input_len
   %cmp.not = icmp eq ptr %0, %add.ptr
   %or.cond = select i1 %cmp.i, i1 %cmp.not, i1 false
   br i1 %or.cond, label %if.end, label %cleanup

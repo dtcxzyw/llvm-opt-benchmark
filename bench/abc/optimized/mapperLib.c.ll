@@ -34,24 +34,24 @@ define noundef ptr @Map_SuperLibCreate(ptr noundef %0, ptr noundef %1, ptr nound
 Abc_UtilStrsav.exit:                              ; preds = %6, %9
   %14 = phi ptr [ %12, %9 ], [ null, %6 ]
   store ptr %14, ptr %calloc, align 8
-  %15 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   store i32 %5, ptr %15, align 8
   %16 = tail call ptr @Extra_MmFixedStart(i32 noundef 256) #16
-  %17 = getelementptr inbounds i8, ptr %calloc, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %calloc, i64 160
   store ptr %16, ptr %17, align 8
   %18 = tail call ptr @Extra_MmFixedStart(i32 noundef 32) #16
-  %19 = getelementptr inbounds i8, ptr %calloc, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %calloc, i64 168
   store ptr %18, ptr %19, align 8
   %20 = tail call ptr (...) @Extra_MmFlexStart() #16
-  %21 = getelementptr inbounds i8, ptr %calloc, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %calloc, i64 176
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %calloc, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %calloc, i64 64
   tail call void @Map_MappingSetupTruthTables(ptr noundef nonnull %22) #16
   %23 = tail call ptr @Map_SuperTableCreate(ptr noundef nonnull %calloc) #16
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 48
   store ptr %23, ptr %24, align 8
   %25 = tail call ptr @Map_SuperTableCreate(ptr noundef nonnull %calloc) #16
-  %26 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   store ptr %25, ptr %26, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   %27 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %8) #16
@@ -61,7 +61,7 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %9
 29:                                               ; preds = %Abc_UtilStrsav.exit
   %30 = load i64, ptr %8, align 8
   %.neg86 = mul i64 %30, -1000000
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %32 = load i64, ptr %31, align 8
   %.neg = sdiv i64 %32, -1000
   %.neg87 = add i64 %.neg, %.neg86
@@ -127,9 +127,9 @@ Abc_Clock.exit:                                   ; preds = %Abc_UtilStrsav.exit
   br i1 %.not83, label %69, label %51
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   %55 = load i32, ptr %54, align 8
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %53, i32 noundef %55, ptr noundef %2)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
@@ -141,7 +141,7 @@ Abc_Clock.exit:                                   ; preds = %Abc_UtilStrsav.exit
 59:                                               ; preds = %51
   %60 = load i64, ptr %7, align 8
   %61 = mul nsw i64 %60, 1000000
-  %62 = getelementptr inbounds i8, ptr %7, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = sdiv i64 %63, 1000
   %65 = add nsw i64 %64, %61
@@ -157,86 +157,86 @@ Abc_Clock.exit85:                                 ; preds = %51, %59
   br label %69
 
 69:                                               ; preds = %Abc_Clock.exit85, %50
-  %70 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @Mio_LibraryReadInv(ptr noundef %71) #16
-  %73 = getelementptr inbounds i8, ptr %calloc, i64 120
+  %73 = getelementptr inbounds nuw i8, ptr %calloc, i64 120
   store ptr %72, ptr %73, align 8
   %74 = load ptr, ptr %70, align 8
   %75 = call float @Mio_LibraryReadDelayInvRise(ptr noundef %74) #16
-  %76 = getelementptr inbounds i8, ptr %calloc, i64 128
+  %76 = getelementptr inbounds nuw i8, ptr %calloc, i64 128
   store float %75, ptr %76, align 8
   %77 = load ptr, ptr %70, align 8
   %78 = call float @Mio_LibraryReadDelayInvFall(ptr noundef %77) #16
-  %79 = getelementptr inbounds i8, ptr %calloc, i64 132
+  %79 = getelementptr inbounds nuw i8, ptr %calloc, i64 132
   store float %78, ptr %79, align 4
   %80 = load float, ptr %76, align 8
   %81 = fcmp ogt float %80, %78
   %. = select i1 %81, float %80, float %78
-  %82 = getelementptr inbounds i8, ptr %calloc, i64 136
+  %82 = getelementptr inbounds nuw i8, ptr %calloc, i64 136
   store float %., ptr %82, align 8
   %83 = load ptr, ptr %70, align 8
   %84 = call float @Mio_LibraryReadAreaInv(ptr noundef %83) #16
-  %85 = getelementptr inbounds i8, ptr %calloc, i64 140
+  %85 = getelementptr inbounds nuw i8, ptr %calloc, i64 140
   store float %84, ptr %85, align 4
   %86 = load ptr, ptr %70, align 8
   %87 = call float @Mio_LibraryReadAreaBuf(ptr noundef %86) #16
-  %88 = getelementptr inbounds i8, ptr %calloc, i64 144
+  %88 = getelementptr inbounds nuw i8, ptr %calloc, i64 144
   store float %87, ptr %88, align 8
   %89 = load ptr, ptr %17, align 8
   %90 = call ptr @Extra_MmFixedEntryFetch(ptr noundef %89) #16
-  %91 = getelementptr inbounds i8, ptr %calloc, i64 152
+  %91 = getelementptr inbounds nuw i8, ptr %calloc, i64 152
   store ptr %90, ptr %91, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %90, i8 0, i64 256, i1 false)
   store i32 -1, ptr %90, align 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4
   %95 = and i32 %94, -225
   %96 = or disjoint i32 %95, 32
   store i32 %96, ptr %93, align 4
   %97 = load ptr, ptr %91, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = and i32 %99, -29
   %101 = or disjoint i32 %100, 4
   store i32 %101, ptr %98, align 4
   %102 = load ptr, ptr %91, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, -3841
   %106 = or disjoint i32 %105, 2560
   store i32 %106, ptr %103, align 4
-  %107 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   %108 = load ptr, ptr %107, align 8
   %109 = load ptr, ptr %108, align 8
   %110 = load ptr, ptr %91, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr %109, ptr %111, align 8
   %112 = load ptr, ptr %73, align 8
   %113 = load ptr, ptr %91, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 64
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 64
   store ptr %112, ptr %114, align 8
   %115 = load float, ptr %85, align 4
   %116 = load ptr, ptr %91, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 236
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 236
   store float %115, ptr %117, align 4
   %118 = load ptr, ptr %91, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 224
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %119, ptr noundef nonnull align 8 dereferenceable(12) %76, i64 12, i1 false)
   %120 = load ptr, ptr %91, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 80
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 80
   store float -9.999000e+03, ptr %121, align 8
   %122 = load float, ptr %76, align 8
   %123 = load ptr, ptr %91, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 84
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 84
   store float %122, ptr %124, align 4
   %125 = load float, ptr %79, align 4
   %126 = load ptr, ptr %91, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 152
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 152
   store float %125, ptr %127, align 8
   %128 = load ptr, ptr %91, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 156
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 156
   store float -9.999000e+03, ptr %129, align 4
   br label %130
 
@@ -267,7 +267,7 @@ define void @Map_SuperLibFree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %33, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -287,7 +287,7 @@ define void @Map_SuperLibFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %10, %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %15, label %14
@@ -297,7 +297,7 @@ define void @Map_SuperLibFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not27 = icmp eq ptr %17, null
   br i1 %.not27, label %19, label %18
@@ -307,16 +307,16 @@ define void @Map_SuperLibFree(ptr noundef %0) local_unnamed_addr #0 {
   br label %19
 
 19:                                               ; preds = %18, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %21 = load ptr, ptr %20, align 8
   tail call void @Extra_MmFixedStop(ptr noundef %21) #16
-  %22 = getelementptr inbounds i8, ptr %0, i64 168
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %23 = load ptr, ptr %22, align 8
   tail call void @Extra_MmFixedStop(ptr noundef %23) #16
-  %24 = getelementptr inbounds i8, ptr %0, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %25 = load ptr, ptr %24, align 8
   tail call void @Extra_MmFlexStop(ptr noundef %25) #16
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   %.not28 = icmp eq ptr %27, null
   br i1 %.not28, label %29, label %28
@@ -429,7 +429,7 @@ define range(i32 0, 2) i32 @Map_SuperLibDeriveFromGenlib(ptr noundef %0, i32 nou
   %8 = tail call ptr @Mio_LibraryReadName(ptr noundef nonnull %0) #16
   %9 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %8, ptr noundef nonnull @.str.5) #16
   %10 = tail call ptr @Map_SuperLibCreate(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %9, ptr noundef null, i32 noundef 1, i32 noundef 0)
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %Vec_StrFree.exit, label %13

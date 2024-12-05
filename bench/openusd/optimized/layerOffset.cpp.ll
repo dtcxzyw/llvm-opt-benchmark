@@ -269,7 +269,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14SdfLayerOffset10IsIdentityEv.exit.thread
 39:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfLayerOffset10IsIdentityEv.exit.thread4, %_ZNK32pxrInternal_v0_24__pxrReserved__14SdfLayerOffset10IsIdentityEv.exit.thread
   %.fca.0.load = load double, ptr %2, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %2, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.fca.1.load = load double, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.fca.1.load, 1
   ret { double, double } %.fca.1.insert
@@ -292,7 +292,7 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__14SdfLayerOffse
   call void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16) %3, double noundef %8, double noundef %11)
   %.fca.0.load = load double, ptr %3, align 8
   %.fca.0.insert = insertvalue { double, double } poison, double %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %3, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.fca.1.load = load double, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.fca.1.load, 1
   ret { double, double } %.fca.1.insert

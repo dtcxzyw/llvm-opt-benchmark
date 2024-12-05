@@ -98,9 +98,9 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 64:                                               ; preds = %64, %61
   %65 = phi i64 [ 1, %61 ], [ %68, %64 ]
-  %66 = getelementptr inbounds double, ptr %28, i64 %65
+  %66 = getelementptr inbounds nuw double, ptr %28, i64 %65
   store double 0.000000e+00, ptr %66, align 8, !tbaa !7
-  %67 = getelementptr inbounds double, ptr %29, i64 %65
+  %67 = getelementptr inbounds nuw double, ptr %29, i64 %65
   store double 0.000000e+00, ptr %67, align 8, !tbaa !7
   %68 = add nuw nsw i64 %65, 1
   %69 = icmp eq i64 %68, %63
@@ -129,7 +129,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 87:                                               ; preds = %.thread27, %80
   %88 = phi i64 [ 1, %80 ], [ %354, %.thread27 ]
-  %89 = getelementptr inbounds double, ptr %29, i64 %88
+  %89 = getelementptr inbounds nuw double, ptr %29, i64 %88
   %90 = mul nsw i64 %88, %84
   %91 = getelementptr double, ptr %78, i64 %90
   %92 = mul nsw i64 %88, %85
@@ -165,7 +165,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %114 = fcmp oge double %113, 0.000000e+00
   %115 = fneg double %113
   %116 = select i1 %114, double %113, double %115
-  %117 = getelementptr inbounds double, ptr %30, i64 %111
+  %117 = getelementptr inbounds nuw double, ptr %30, i64 %111
   store double %116, ptr %117, align 8, !tbaa !7
   %118 = add nuw nsw i64 %111, 1
   %119 = icmp eq i64 %118, %109
@@ -197,12 +197,12 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %134 = phi i64 [ 1, %131 ], [ %156, %133 ]
   %135 = phi i64 [ %132, %131 ], [ %155, %133 ]
   %136 = phi double [ 0.000000e+00, %131 ], [ %154, %133 ]
-  %137 = getelementptr inbounds double, ptr %19, i64 %135
+  %137 = getelementptr inbounds nuw double, ptr %19, i64 %135
   %138 = load double, ptr %137, align 8, !tbaa !7
   %139 = fcmp oge double %138, 0.000000e+00
   %140 = fneg double %138
   %141 = select i1 %139, double %138, double %140
-  %142 = getelementptr inbounds double, ptr %30, i64 %134
+  %142 = getelementptr inbounds nuw double, ptr %30, i64 %134
   %143 = load double, ptr %142, align 8, !tbaa !7
   %144 = call double @llvm.fmuladd.f64(double %141, double %129, double %143)
   store double %144, ptr %142, align 8, !tbaa !7
@@ -223,7 +223,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .loopexit29:                                      ; preds = %133, %.preheader
   %158 = phi double [ 0.000000e+00, %.preheader ], [ %154, %133 ]
-  %159 = getelementptr inbounds double, ptr %30, i64 %123
+  %159 = getelementptr inbounds nuw double, ptr %30, i64 %123
   %160 = load double, ptr %159, align 8, !tbaa !7
   %161 = trunc i64 %123 to i32
   %162 = add nuw nsw i32 %124, %161
@@ -256,7 +256,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %186 = fcmp oge double %185, 0.000000e+00
   %187 = fneg double %185
   %188 = select i1 %186, double %185, double %187
-  %189 = getelementptr inbounds double, ptr %30, i64 %174
+  %189 = getelementptr inbounds nuw double, ptr %30, i64 %174
   %190 = load double, ptr %189, align 8, !tbaa !7
   %191 = call double @llvm.fmuladd.f64(double %188, double %182, double %190)
   store double %191, ptr %189, align 8, !tbaa !7
@@ -323,7 +323,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 227:                                              ; preds = %227, %.loopexit32
   %228 = phi i64 [ 1, %.loopexit32 ], [ %245, %227 ]
   %229 = phi double [ 0.000000e+00, %.loopexit32 ], [ %244, %227 ]
-  %230 = getelementptr inbounds double, ptr %30, i64 %228
+  %230 = getelementptr inbounds nuw double, ptr %30, i64 %228
   %231 = load double, ptr %230, align 8, !tbaa !7
   %232 = fcmp ogt double %231, %76
   %233 = getelementptr double, ptr %230, i64 %.pre-phi
@@ -378,7 +378,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 267:                                              ; preds = %267, %263
   %268 = phi i64 [ 1, %263 ], [ %280, %267 ]
-  %269 = getelementptr inbounds double, ptr %30, i64 %268
+  %269 = getelementptr inbounds nuw double, ptr %30, i64 %268
   %270 = load double, ptr %269, align 8, !tbaa !7
   %271 = fcmp ogt double %270, %76
   %272 = getelementptr double, ptr %269, i64 %264
@@ -396,7 +396,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 .loopexit34:                                      ; preds = %267, %262
   store i32 0, ptr %17, align 4, !tbaa !3
-  %282 = getelementptr inbounds double, ptr %28, i64 %88
+  %282 = getelementptr inbounds nuw double, ptr %28, i64 %88
   br label %283
 
 283:                                              ; preds = %.loopexit30, %.loopexit34
@@ -437,7 +437,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 303:                                              ; preds = %303, %298
   %304 = phi i64 [ 1, %298 ], [ %310, %303 ]
-  %305 = getelementptr inbounds double, ptr %30, i64 %304
+  %305 = getelementptr inbounds nuw double, ptr %30, i64 %304
   %306 = load double, ptr %305, align 8, !tbaa !7
   %307 = getelementptr double, ptr %302, i64 %304
   %308 = load double, ptr %307, align 8, !tbaa !7
@@ -461,7 +461,7 @@ define void @dsprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 
 320:                                              ; preds = %320, %315
   %321 = phi i64 [ 1, %315 ], [ %327, %320 ]
-  %322 = getelementptr inbounds double, ptr %30, i64 %321
+  %322 = getelementptr inbounds nuw double, ptr %30, i64 %321
   %323 = load double, ptr %322, align 8, !tbaa !7
   %324 = getelementptr double, ptr %319, i64 %321
   %325 = load double, ptr %324, align 8, !tbaa !7

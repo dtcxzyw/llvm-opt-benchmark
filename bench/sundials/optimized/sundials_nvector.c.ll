@@ -16,10 +16,10 @@ define noalias noundef ptr @N_VNewEmpty(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %calloc = tail call dereferenceable_or_null(448) ptr @calloc(i64 1, i64 448)
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %calloc, ptr %5, align 8
   store ptr null, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %0, ptr %6, align 8
   br label %7
 
@@ -37,7 +37,7 @@ define void @N_VFreeEmpty(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -59,348 +59,348 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @N_VCopyOps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   store ptr %5, ptr %7, align 8
   %8 = load ptr, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %10, ptr %12, align 8
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %15, ptr %17, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %6, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %20, ptr %22, align 8
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %6, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store ptr %25, ptr %27, align 8
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %6, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   store ptr %30, ptr %32, align 8
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %35, ptr %37, align 8
   %38 = load ptr, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %6, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   store ptr %40, ptr %42, align 8
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 64
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 64
   store ptr %45, ptr %47, align 8
   %48 = load ptr, ptr %3, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 72
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 72
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %6, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 72
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   store ptr %50, ptr %52, align 8
   %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %6, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   store ptr %55, ptr %57, align 8
   %58 = load ptr, ptr %3, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 88
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %6, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 88
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 88
   store ptr %60, ptr %62, align 8
   %63 = load ptr, ptr %3, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %65 = load ptr, ptr %64, align 8
   %66 = load ptr, ptr %6, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 96
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
   store ptr %65, ptr %67, align 8
   %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 104
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 104
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %6, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 104
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 104
   store ptr %70, ptr %72, align 8
   %73 = load ptr, ptr %3, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %6, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 112
   store ptr %75, ptr %77, align 8
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 120
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 120
   %80 = load ptr, ptr %79, align 8
   %81 = load ptr, ptr %6, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 120
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 120
   store ptr %80, ptr %82, align 8
   %83 = load ptr, ptr %3, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 128
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 128
   %85 = load ptr, ptr %84, align 8
   %86 = load ptr, ptr %6, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 128
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 128
   store ptr %85, ptr %87, align 8
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 136
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 136
   %90 = load ptr, ptr %89, align 8
   %91 = load ptr, ptr %6, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 136
   store ptr %90, ptr %92, align 8
   %93 = load ptr, ptr %3, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 144
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 144
   %95 = load ptr, ptr %94, align 8
   %96 = load ptr, ptr %6, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 144
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 144
   store ptr %95, ptr %97, align 8
   %98 = load ptr, ptr %3, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 152
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 152
   %100 = load ptr, ptr %99, align 8
   %101 = load ptr, ptr %6, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 152
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 152
   store ptr %100, ptr %102, align 8
   %103 = load ptr, ptr %3, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 160
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 160
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 160
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 160
   store ptr %105, ptr %107, align 8
   %108 = load ptr, ptr %3, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 168
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 168
   %110 = load ptr, ptr %109, align 8
   %111 = load ptr, ptr %6, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 168
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 168
   store ptr %110, ptr %112, align 8
   %113 = load ptr, ptr %3, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 176
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 176
   %115 = load ptr, ptr %114, align 8
   %116 = load ptr, ptr %6, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 176
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 176
   store ptr %115, ptr %117, align 8
   %118 = load ptr, ptr %3, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 184
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 184
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %6, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 184
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 184
   store ptr %120, ptr %122, align 8
   %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 192
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 192
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %6, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 192
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 192
   store ptr %125, ptr %127, align 8
   %128 = load ptr, ptr %3, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 200
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 200
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %6, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 200
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 200
   store ptr %130, ptr %132, align 8
   %133 = load ptr, ptr %3, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 208
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 208
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %6, align 8
-  %137 = getelementptr inbounds i8, ptr %136, i64 208
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 208
   store ptr %135, ptr %137, align 8
   %138 = load ptr, ptr %3, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 216
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 216
   %140 = load ptr, ptr %139, align 8
   %141 = load ptr, ptr %6, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 216
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 216
   store ptr %140, ptr %142, align 8
   %143 = load ptr, ptr %3, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 224
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 224
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %6, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 224
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 224
   store ptr %145, ptr %147, align 8
   %148 = load ptr, ptr %3, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 232
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 232
   %150 = load ptr, ptr %149, align 8
   %151 = load ptr, ptr %6, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 232
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 232
   store ptr %150, ptr %152, align 8
   %153 = load ptr, ptr %3, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 240
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 240
   %155 = load ptr, ptr %154, align 8
   %156 = load ptr, ptr %6, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 240
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 240
   store ptr %155, ptr %157, align 8
   %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 248
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 248
   %160 = load ptr, ptr %159, align 8
   %161 = load ptr, ptr %6, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 248
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 248
   store ptr %160, ptr %162, align 8
   %163 = load ptr, ptr %3, align 8
-  %164 = getelementptr inbounds i8, ptr %163, i64 256
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 256
   %165 = load ptr, ptr %164, align 8
   %166 = load ptr, ptr %6, align 8
-  %167 = getelementptr inbounds i8, ptr %166, i64 256
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 256
   store ptr %165, ptr %167, align 8
   %168 = load ptr, ptr %3, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 264
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 264
   %170 = load ptr, ptr %169, align 8
   %171 = load ptr, ptr %6, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 264
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 264
   store ptr %170, ptr %172, align 8
   %173 = load ptr, ptr %3, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 272
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 272
   %175 = load ptr, ptr %174, align 8
   %176 = load ptr, ptr %6, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 272
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 272
   store ptr %175, ptr %177, align 8
   %178 = load ptr, ptr %3, align 8
-  %179 = getelementptr inbounds i8, ptr %178, i64 280
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 280
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %6, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 280
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 280
   store ptr %180, ptr %182, align 8
   %183 = load ptr, ptr %3, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 288
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 288
   %185 = load ptr, ptr %184, align 8
   %186 = load ptr, ptr %6, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 288
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 288
   store ptr %185, ptr %187, align 8
   %188 = load ptr, ptr %3, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 296
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 296
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %6, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 296
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 296
   store ptr %190, ptr %192, align 8
   %193 = load ptr, ptr %3, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 304
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 304
   %195 = load ptr, ptr %194, align 8
   %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 304
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 304
   store ptr %195, ptr %197, align 8
   %198 = load ptr, ptr %3, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 312
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 312
   %200 = load ptr, ptr %199, align 8
   %201 = load ptr, ptr %6, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 312
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 312
   store ptr %200, ptr %202, align 8
   %203 = load ptr, ptr %3, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 320
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 320
   %205 = load ptr, ptr %204, align 8
   %206 = load ptr, ptr %6, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 320
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 320
   store ptr %205, ptr %207, align 8
   %208 = load ptr, ptr %3, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 328
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 328
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %6, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 328
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 328
   store ptr %210, ptr %212, align 8
   %213 = load ptr, ptr %3, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 336
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 336
   %215 = load ptr, ptr %214, align 8
   %216 = load ptr, ptr %6, align 8
-  %217 = getelementptr inbounds i8, ptr %216, i64 336
+  %217 = getelementptr inbounds nuw i8, ptr %216, i64 336
   store ptr %215, ptr %217, align 8
   %218 = load ptr, ptr %3, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 344
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 344
   %220 = load ptr, ptr %219, align 8
   %221 = load ptr, ptr %6, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 344
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 344
   store ptr %220, ptr %222, align 8
   %223 = load ptr, ptr %3, align 8
-  %224 = getelementptr inbounds i8, ptr %223, i64 352
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 352
   %225 = load ptr, ptr %224, align 8
   %226 = load ptr, ptr %6, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 352
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 352
   store ptr %225, ptr %227, align 8
   %228 = load ptr, ptr %3, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 360
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 360
   %230 = load ptr, ptr %229, align 8
   %231 = load ptr, ptr %6, align 8
-  %232 = getelementptr inbounds i8, ptr %231, i64 360
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 360
   store ptr %230, ptr %232, align 8
   %233 = load ptr, ptr %3, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 368
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 368
   %235 = load ptr, ptr %234, align 8
   %236 = load ptr, ptr %6, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 368
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 368
   store ptr %235, ptr %237, align 8
   %238 = load ptr, ptr %3, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 376
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 376
   %240 = load ptr, ptr %239, align 8
   %241 = load ptr, ptr %6, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 376
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 376
   store ptr %240, ptr %242, align 8
   %243 = load ptr, ptr %3, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 384
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 384
   %245 = load ptr, ptr %244, align 8
   %246 = load ptr, ptr %6, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 384
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 384
   store ptr %245, ptr %247, align 8
   %248 = load ptr, ptr %3, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 392
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 392
   %250 = load ptr, ptr %249, align 8
   %251 = load ptr, ptr %6, align 8
-  %252 = getelementptr inbounds i8, ptr %251, i64 392
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 392
   store ptr %250, ptr %252, align 8
   %253 = load ptr, ptr %3, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 400
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 400
   %255 = load ptr, ptr %254, align 8
   %256 = load ptr, ptr %6, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 400
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 400
   store ptr %255, ptr %257, align 8
   %258 = load ptr, ptr %3, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 408
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 408
   %260 = load ptr, ptr %259, align 8
   %261 = load ptr, ptr %6, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 408
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 408
   store ptr %260, ptr %262, align 8
   %263 = load ptr, ptr %3, align 8
-  %264 = getelementptr inbounds i8, ptr %263, i64 416
+  %264 = getelementptr inbounds nuw i8, ptr %263, i64 416
   %265 = load ptr, ptr %264, align 8
   %266 = load ptr, ptr %6, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 416
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 416
   store ptr %265, ptr %267, align 8
   %268 = load ptr, ptr %3, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 424
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 424
   %270 = load ptr, ptr %269, align 8
   %271 = load ptr, ptr %6, align 8
-  %272 = getelementptr inbounds i8, ptr %271, i64 424
+  %272 = getelementptr inbounds nuw i8, ptr %271, i64 424
   store ptr %270, ptr %272, align 8
   %273 = load ptr, ptr %3, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 432
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 432
   %275 = load ptr, ptr %274, align 8
   %276 = load ptr, ptr %6, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 432
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 432
   store ptr %275, ptr %277, align 8
   %278 = load ptr, ptr %3, align 8
-  %279 = getelementptr inbounds i8, ptr %278, i64 440
+  %279 = getelementptr inbounds nuw i8, ptr %278, i64 440
   %280 = load ptr, ptr %279, align 8
   %281 = load ptr, ptr %6, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 440
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 440
   store ptr %280, ptr %282, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VGetVectorID(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef %0) #13
@@ -409,28 +409,28 @@ define i32 @N_VGetVectorID(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @N_VClone(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %9, align 8
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @N_VCloneEmpty(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %9, align 8
   ret ptr %6
 }
@@ -441,9 +441,9 @@ define void @N_VDestroy(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %2, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -479,9 +479,9 @@ define void @N_VDestroy(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret void
@@ -489,9 +489,9 @@ define void @N_VSpace(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unna
 
 ; Function Attrs: nounwind uwtable
 define ptr @N_VGetArrayPointer(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef %0) #13
   ret ptr %6
@@ -499,9 +499,9 @@ define ptr @N_VGetArrayPointer(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define ptr @N_VGetDeviceArrayPointer(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -517,9 +517,9 @@ define ptr @N_VGetDeviceArrayPointer(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VSetArrayPointer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef %1) #13
   ret void
@@ -527,9 +527,9 @@ define void @N_VSetArrayPointer(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VGetCommunicator(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6
@@ -545,9 +545,9 @@ define i32 @N_VGetCommunicator(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @N_VGetLength(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef %0) #13
   ret i64 %6
@@ -555,9 +555,9 @@ define i64 @N_VGetLength(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define i64 @N_VGetLocalLength(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 %5(ptr noundef %0) #13
   ret i64 %6
@@ -565,9 +565,9 @@ define i64 @N_VGetLocalLength(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VLinearSum(double noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   tail call void %9(double noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) #13
   ret void
@@ -575,9 +575,9 @@ define void @N_VLinearSum(double noundef %0, ptr noundef %1, double noundef %2, 
 
 ; Function Attrs: nounwind uwtable
 define void @N_VConst(double noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load ptr, ptr %5, align 8
   tail call void %6(double noundef %0, ptr noundef %1) #13
   ret void
@@ -585,9 +585,9 @@ define void @N_VConst(double noundef %0, ptr noundef %1) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VProd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret void
@@ -595,9 +595,9 @@ define void @N_VProd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define void @N_VDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret void
@@ -605,9 +605,9 @@ define void @N_VDiv(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unname
 
 ; Function Attrs: nounwind uwtable
 define void @N_VScale(double noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
   tail call void %7(double noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret void
@@ -615,9 +615,9 @@ define void @N_VScale(double noundef %0, ptr noundef %1, ptr noundef %2) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @N_VAbs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef %1) #13
   ret void
@@ -625,9 +625,9 @@ define void @N_VAbs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VInv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0, ptr noundef %1) #13
   ret void
@@ -635,9 +635,9 @@ define void @N_VInv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VAddConst(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef %0, double noundef %1, ptr noundef %2) #13
   ret void
@@ -645,9 +645,9 @@ define void @N_VAddConst(ptr noundef %0, double noundef %1, ptr noundef %2) loca
 
 ; Function Attrs: nounwind uwtable
 define double @N_VDotProd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -655,9 +655,9 @@ define double @N_VDotProd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 
 
 ; Function Attrs: nounwind uwtable
 define double @N_VMaxNorm(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 160
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double %5(ptr noundef %0) #13
   ret double %6
@@ -665,9 +665,9 @@ define double @N_VMaxNorm(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define double @N_VWrmsNorm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -675,9 +675,9 @@ define double @N_VWrmsNorm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define double @N_VWrmsNormMask(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %7 = load ptr, ptr %6, align 8
   %8 = tail call double %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret double %8
@@ -685,9 +685,9 @@ define double @N_VWrmsNormMask(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 ; Function Attrs: nounwind uwtable
 define double @N_VMin(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double %5(ptr noundef %0) #13
   ret double %6
@@ -695,9 +695,9 @@ define double @N_VMin(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define double @N_VWL2Norm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -705,9 +705,9 @@ define double @N_VWL2Norm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 
 
 ; Function Attrs: nounwind uwtable
 define double @N_VL1Norm(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double %5(ptr noundef %0) #13
   ret double %6
@@ -715,9 +715,9 @@ define double @N_VL1Norm(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define void @N_VCompare(double noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 208
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 208
   %7 = load ptr, ptr %6, align 8
   tail call void %7(double noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret void
@@ -725,9 +725,9 @@ define void @N_VCompare(double noundef %0, ptr noundef %1, ptr noundef %2) local
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VInvTest(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 216
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #13
   ret i32 %7
@@ -735,9 +735,9 @@ define i32 @N_VInvTest(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VConstrMask(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret i32 %8
@@ -745,9 +745,9 @@ define i32 @N_VConstrMask(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 
 ; Function Attrs: nounwind uwtable
 define double @N_VMinQuotient(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -755,9 +755,9 @@ define double @N_VMinQuotient(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 240
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -767,7 +767,7 @@ define i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.loopexit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = load double, ptr %1, align 8
   %15 = load ptr, ptr %2, align 8
@@ -782,11 +782,11 @@ define i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %21 = load double, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   tail call void %19(double noundef %21, ptr noundef %23, double noundef 1.000000e+00, ptr noundef nonnull %3, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -800,9 +800,9 @@ define i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 248
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 248
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.preheader, label %11
@@ -822,13 +822,13 @@ define i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %17 = load double, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   tail call void %15(double noundef %17, ptr noundef nonnull %2, double noundef 1.000000e+00, ptr noundef %19, ptr noundef %21) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -842,9 +842,9 @@ define i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VDotProdMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 256
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.preheader, label %10
@@ -864,12 +864,12 @@ define i32 @N_VDotProdMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = tail call double %14(ptr noundef nonnull %1, ptr noundef %16) #13
-  %18 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -883,9 +883,9 @@ define i32 @N_VDotProdMulti(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VLinearSumVectorArray(i32 noundef %0, double noundef %1, ptr noundef %2, double noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 264
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 264
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.preheader, label %13
@@ -905,15 +905,15 @@ define i32 @N_VLinearSumVectorArray(i32 noundef %0, double noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   tail call void %19(double noundef %1, ptr noundef %21, double noundef %3, ptr noundef %23, ptr noundef %25) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -928,9 +928,9 @@ define i32 @N_VLinearSumVectorArray(i32 noundef %0, double noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define i32 @N_VScaleVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 272
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.preheader, label %11
@@ -950,15 +950,15 @@ define i32 @N_VScaleVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 120
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 120
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds double, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   %19 = load double, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   tail call void %17(double noundef %19, ptr noundef %21, ptr noundef %23) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -973,9 +973,9 @@ define i32 @N_VScaleVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VConstVectorArray(i32 noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 280
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.preheader, label %10
@@ -995,11 +995,11 @@ define i32 @N_VConstVectorArray(i32 noundef %0, double noundef %1, ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   tail call void %16(double noundef %1, ptr noundef %18) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1014,9 +1014,9 @@ define i32 @N_VConstVectorArray(i32 noundef %0, double noundef %1, ptr noundef %
 ; Function Attrs: nounwind uwtable
 define i32 @N_VWrmsNormVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 288
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.preheader, label %11
@@ -1036,16 +1036,16 @@ define i32 @N_VWrmsNormVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = load ptr, ptr %1, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = tail call double %17(ptr noundef %19, ptr noundef %21) #13
-  %23 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %22, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1058,9 +1058,9 @@ define i32 @N_VWrmsNormVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VWrmsNormMaskVectorArray(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 296
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.preheader, label %11
@@ -1080,14 +1080,14 @@ define i32 @N_VWrmsNormMaskVectorArray(i32 noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 176
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 176
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = tail call double %15(ptr noundef %17, ptr noundef %19, ptr noundef nonnull %3) #13
-  %21 = getelementptr inbounds double, ptr %4, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
   store double %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1101,9 +1101,9 @@ define i32 @N_VWrmsNormMaskVectorArray(i32 noundef %0, ptr noundef %1, ptr nound
 ; Function Attrs: nounwind uwtable
 define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 {
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 304
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 304
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %14, label %12
@@ -1113,7 +1113,7 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
   br label %.loopexit
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %9, i64 248
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %16 = load ptr, ptr %15, align 8
   %.not62 = icmp eq ptr %16, null
   br i1 %.not62, label %.preheader64, label %37
@@ -1131,26 +1131,26 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us74
   %indvars.iv94 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next95, %._crit_edge.us74 ]
-  %19 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv94
+  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv94
   br label %20
 
 20:                                               ; preds = %.preheader.us, %20
   %indvars.iv89 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next90, %20 ]
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %2, i64 %indvars.iv89
+  %26 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv89
   %27 = load double, ptr %26, align 8
   %28 = load ptr, ptr %19, align 8
-  %29 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv89
+  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv89
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv94
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv94
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv89
+  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv89
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv94
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv94
   %36 = load ptr, ptr %35, align 8
   tail call void %25(double noundef %27, ptr noundef %28, double noundef 1.000000e+00, ptr noundef %32, ptr noundef %36) #13
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
@@ -1185,17 +1185,17 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 
 44:                                               ; preds = %.preheader65.us, %44
   %indvars.iv79 = phi i64 [ 0, %.preheader65.us ], [ %indvars.iv.next80, %44 ]
-  %45 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv79
+  %45 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv79
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv84
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv84
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %40, i64 %indvars.iv79
+  %49 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv79
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv79
+  %50 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv79
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv84
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv84
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds ptr, ptr %41, i64 %indvars.iv79
+  %54 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv79
   store ptr %53, ptr %54, align 8
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
@@ -1208,11 +1208,11 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 
 ._crit_edge.us:                                   ; preds = %44
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 248
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 248
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv84
+  %61 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv84
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %60(i32 noundef %1, ptr noundef %2, ptr noundef %62, ptr noundef nonnull %40, ptr noundef nonnull %41) #13
   %.not63.us = icmp eq i32 %63, 0
@@ -1226,11 +1226,11 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 .preheader65:                                     ; preds = %.preheader65.lr.ph, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %.preheader65.lr.ph ]
   %65 = load ptr, ptr %3, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 248
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 248
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
   %72 = tail call i32 %69(i32 noundef %1, ptr noundef %2, ptr noundef %71, ptr noundef %40, ptr noundef %41) #13
   %.not63 = icmp eq i32 %72, 0
@@ -1250,9 +1250,9 @@ define i32 @N_VScaleAddMultiVectorArray(i32 noundef %0, i32 noundef %1, ptr noun
 ; Function Attrs: nounwind uwtable
 define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 312
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %13, label %11
@@ -1262,7 +1262,7 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
   br label %.loopexit
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %8, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 240
   %15 = load ptr, ptr %14, align 8
   %.not58 = icmp eq ptr %15, null
   br i1 %.not58, label %.preheader, label %42
@@ -1283,15 +1283,15 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us70
   %indvars.iv95 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next96, %._crit_edge.us70 ]
   %18 = load ptr, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 120
   %22 = load ptr, ptr %21, align 8
   %23 = load double, ptr %2, align 8
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv95
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv95
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv95
+  %27 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv95
   %28 = load ptr, ptr %27, align 8
   tail call void %22(double noundef %23, ptr noundef %26, ptr noundef %28) #13
   br label %29
@@ -1299,15 +1299,15 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 29:                                               ; preds = %.lr.ph.us, %29
   %indvars.iv90 = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next91, %29 ]
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 88
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds double, ptr %2, i64 %indvars.iv90
+  %35 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv90
   %36 = load double, ptr %35, align 8
-  %37 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv90
+  %37 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv90
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv95
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv95
   %40 = load ptr, ptr %39, align 8
   %41 = load ptr, ptr %27, align 8
   tail call void %34(double noundef %36, ptr noundef %40, double noundef 1.000000e+00, ptr noundef %41, ptr noundef %41) #13
@@ -1342,11 +1342,11 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 
 48:                                               ; preds = %.preheader60.us, %48
   %indvars.iv75 = phi i64 [ 0, %.preheader60.us ], [ %indvars.iv.next76, %48 ]
-  %49 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv75
+  %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv75
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv80
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv80
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv75
+  %53 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv75
   store ptr %52, ptr %53, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next76, %wide.trip.count78
@@ -1359,11 +1359,11 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 
 ._crit_edge.us:                                   ; preds = %48
   %55 = load ptr, ptr %4, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 240
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 240
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv80
+  %60 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv80
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i32 %59(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %45, ptr noundef %61) #13
   %.not59.us = icmp eq i32 %62, 0
@@ -1377,11 +1377,11 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 .preheader60:                                     ; preds = %.preheader60.lr.ph, %63
   %indvars.iv = phi i64 [ %indvars.iv.next, %63 ], [ 0, %.preheader60.lr.ph ]
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 240
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 240
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = tail call i32 %68(i32 noundef %1, ptr noundef %2, ptr noundef %45, ptr noundef %70) #13
   %.not59 = icmp eq i32 %71, 0
@@ -1395,15 +1395,15 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 .lr.ph69.split:                                   ; preds = %.lr.ph69, %.lr.ph69.split
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.lr.ph69.split ], [ 0, %.lr.ph69 ]
   %72 = load ptr, ptr %4, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 120
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 120
   %76 = load ptr, ptr %75, align 8
   %77 = load double, ptr %2, align 8
   %78 = load ptr, ptr %3, align 8
-  %79 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv85
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv85
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv85
+  %81 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv85
   %82 = load ptr, ptr %81, align 8
   tail call void %76(double noundef %77, ptr noundef %80, ptr noundef %82) #13
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -1417,9 +1417,9 @@ define i32 @N_VLinearCombinationVectorArray(i32 noundef %0, i32 noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define double @N_VDotProdLocal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 320
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -1427,9 +1427,9 @@ define double @N_VDotProdLocal(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define double @N_VMaxNormLocal(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 328
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double %5(ptr noundef %0) #13
   ret double %6
@@ -1437,9 +1437,9 @@ define double @N_VMaxNormLocal(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define double @N_VMinLocal(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 336
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 336
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double %5(ptr noundef %0) #13
   ret double %6
@@ -1447,9 +1447,9 @@ define double @N_VMinLocal(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define double @N_VL1NormLocal(ptr noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 344
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 344
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double %5(ptr noundef %0) #13
   ret double %6
@@ -1457,9 +1457,9 @@ define double @N_VL1NormLocal(ptr noundef %0) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define double @N_VWSqrSumLocal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 376
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 376
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -1467,9 +1467,9 @@ define double @N_VWSqrSumLocal(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define double @N_VWSqrSumMaskLocal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 384
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %7 = load ptr, ptr %6, align 8
   %8 = tail call double %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret double %8
@@ -1477,9 +1477,9 @@ define double @N_VWSqrSumMaskLocal(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VInvTestLocal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 352
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #13
   ret i32 %7
@@ -1487,9 +1487,9 @@ define i32 @N_VInvTestLocal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VConstrMaskLocal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 360
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 360
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret i32 %8
@@ -1497,9 +1497,9 @@ define i32 @N_VConstrMaskLocal(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
 
 ; Function Attrs: nounwind uwtable
 define double @N_VMinQuotientLocal(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 368
   %6 = load ptr, ptr %5, align 8
   %7 = tail call double %6(ptr noundef %0, ptr noundef %1) #13
   ret double %7
@@ -1507,9 +1507,9 @@ define double @N_VMinQuotientLocal(ptr noundef %0, ptr noundef %1) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 392
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 392
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -1519,7 +1519,7 @@ define i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %1, ptr noundef %2,
   br label %.loopexit
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %13 = load ptr, ptr %12, align 8
   %.not19 = icmp ne ptr %13, null
   %14 = icmp sgt i32 %0, 0
@@ -1533,12 +1533,12 @@ define i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 320
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = tail call double %17(ptr noundef nonnull %1, ptr noundef %19) #13
-  %21 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   store double %20, ptr %21, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1551,9 +1551,9 @@ define i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VDotProdMultiAllReduce(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 400
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(i32 noundef %0, ptr noundef %1, ptr noundef %2) #13
   ret i32 %8
@@ -1561,9 +1561,9 @@ define i32 @N_VDotProdMultiAllReduce(i32 noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VBufSize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #13
   ret i32 %7
@@ -1571,9 +1571,9 @@ define i32 @N_VBufSize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VBufPack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 416
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 416
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #13
   ret i32 %7
@@ -1581,9 +1581,9 @@ define i32 @N_VBufPack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
 
 ; Function Attrs: nounwind uwtable
 define i32 @N_VBufUnpack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 424
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 424
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0, ptr noundef %1) #13
   ret i32 %7
@@ -1599,7 +1599,7 @@ define noalias noundef ptr @N_VNewVectorArray(i32 noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
   %6 = shl nsw i64 %5, 3
@@ -1608,20 +1608,20 @@ define noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) loc
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %1) #13
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %14, ptr %17, align 8
   %18 = tail call i32 @SUNContext_PeekLastError(ptr noundef %4) #13
   %19 = icmp slt i32 %18, 0
@@ -1638,15 +1638,15 @@ define noundef ptr @N_VCloneEmptyVectorArray(i32 noundef %0, ptr noundef %1) loc
 
 .lr.ph.i:                                         ; preds = %N_VDestroy.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %N_VDestroy.exit.i ]
-  %22 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %N_VDestroy.exit.i, label %25
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %31, label %30
@@ -1713,15 +1713,15 @@ define void @N_VDestroyVectorArray(ptr noundef %0, i32 noundef %1) local_unnamed
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %N_VDestroy.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %N_VDestroy.exit ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %N_VDestroy.exit, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %14, label %13
@@ -1767,7 +1767,7 @@ N_VDestroy.exit:                                  ; preds = %.lr.ph, %13, %18
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %0 to i64
   %6 = shl nsw i64 %5, 3
@@ -1776,20 +1776,20 @@ define noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_un
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %13(ptr noundef nonnull %1) #13
   %15 = load ptr, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   store ptr %14, ptr %17, align 8
   %18 = tail call i32 @SUNContext_PeekLastError(ptr noundef %4) #13
   %19 = icmp slt i32 %18, 0
@@ -1806,15 +1806,15 @@ define noundef ptr @N_VCloneVectorArray(i32 noundef %0, ptr noundef %1) local_un
 
 .lr.ph.i:                                         ; preds = %N_VDestroy.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %N_VDestroy.exit.i ]
-  %22 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %N_VDestroy.exit.i, label %25
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %31, label %30
@@ -1890,9 +1890,9 @@ define void @N_VPrint(ptr noundef %0) local_unnamed_addr #5 {
   br label %12
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 432
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 432
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -1923,9 +1923,9 @@ define void @N_VPrintFile(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 
   br label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 440
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 440
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %15

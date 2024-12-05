@@ -9,17 +9,17 @@ define void @ADIOI_Get_byte_offset(ptr nocapture noundef readonly %0, i64 nounde
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %9, ptr noundef nonnull %5) #2
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %11 = load i64, ptr %10, align 8
   %12 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load i64, ptr %14, align 8
   %16 = mul nsw i64 %11, %1
   %17 = add nsw i64 %15, %16
@@ -35,13 +35,13 @@ define void @ADIOI_Get_byte_offset(ptr nocapture noundef readonly %0, i64 nounde
   %25 = sdiv i64 %1, %24
   %26 = srem i64 %1, %24
   %27 = mul nsw i64 %26, %11
-  %28 = getelementptr inbounds i8, ptr %20, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %29 = load i64, ptr %28, align 8
   %30 = icmp sgt i64 %29, 0
   br i1 %30, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %18
-  %31 = getelementptr inbounds i8, ptr %20, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %32 = load ptr, ptr %31, align 8
   br label %34
 
@@ -53,16 +53,16 @@ define void @ADIOI_Get_byte_offset(ptr nocapture noundef readonly %0, i64 nounde
 34:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %.03340 = phi i64 [ 0, %.lr.ph ], [ %37, %33 ]
-  %35 = getelementptr inbounds i64, ptr %32, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8
   %37 = add nsw i64 %36, %.03340
   %38 = icmp sgt i64 %37, %27
   br i1 %38, label %39, label %33
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %20, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i64, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
   %43 = load i64, ptr %42, align 8
   %44 = sub i64 %27, %.03340
   %45 = add i64 %44, %43
@@ -72,7 +72,7 @@ define void @ADIOI_Get_byte_offset(ptr nocapture noundef readonly %0, i64 nounde
   %.034 = phi i64 [ %45, %39 ], [ 0, %18 ], [ 0, %33 ]
   %46 = load ptr, ptr %8, align 8
   %47 = call i32 @PMPI_Type_get_extent(ptr noundef %46, ptr noundef nonnull %6, ptr noundef nonnull %7) #2
-  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %49 = load i64, ptr %48, align 8
   %50 = load i64, ptr %7, align 8
   %51 = mul nsw i64 %50, %25

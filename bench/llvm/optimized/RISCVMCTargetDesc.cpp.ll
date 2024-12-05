@@ -1041,7 +1041,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 43
   %. = select i1 %12, i32 5492, i32 5493
@@ -1054,7 +1054,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 43
   %.97 = select i1 %20, i32 5494, i32 5495
@@ -1067,7 +1067,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 43
   %.98 = select i1 %28, i32 5496, i32 5497
@@ -1080,7 +1080,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 43
   %.99 = select i1 %36, i32 5498, i32 5499
@@ -1093,7 +1093,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 43
   %.100 = select i1 %44, i32 5500, i32 5501
@@ -1106,7 +1106,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load i32, ptr %50, align 8
   %52 = icmp eq i32 %51, 43
   %.101 = select i1 %52, i32 5502, i32 5503
@@ -1119,7 +1119,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 43
   %.102 = select i1 %60, i32 5504, i32 5505
@@ -1132,7 +1132,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 63:                                               ; preds = %61
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 43
   %.103 = select i1 %68, i32 5506, i32 5507
@@ -1145,7 +1145,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 56
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 43
   %.104 = select i1 %76, i32 5508, i32 5509
@@ -1158,7 +1158,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 79:                                               ; preds = %77
   %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   %83 = load i32, ptr %82, align 8
   %84 = icmp eq i32 %83, 43
   %.105 = select i1 %84, i32 5510, i32 5511
@@ -1171,7 +1171,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 56
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 56
   %91 = load i32, ptr %90, align 8
   %92 = icmp eq i32 %91, 43
   %.106 = select i1 %92, i32 5512, i32 5513
@@ -1184,7 +1184,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 95:                                               ; preds = %93
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %97 = load ptr, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 56
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 56
   %99 = load i32, ptr %98, align 8
   %100 = icmp eq i32 %99, 43
   %.107 = select i1 %100, i32 5514, i32 5515
@@ -1197,7 +1197,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 103:                                              ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 56
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 56
   %107 = load i32, ptr %106, align 8
   %108 = icmp eq i32 %107, 43
   %.108 = select i1 %108, i32 5516, i32 5517
@@ -1210,7 +1210,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 56
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 56
   %115 = load i32, ptr %114, align 8
   %116 = icmp eq i32 %115, 43
   %.109 = select i1 %116, i32 5518, i32 5519
@@ -1223,7 +1223,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 119:                                              ; preds = %117
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 56
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 43
   %.110 = select i1 %124, i32 5520, i32 5521
@@ -1236,7 +1236,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 127:                                              ; preds = %125
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 56
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 56
   %131 = load i32, ptr %130, align 8
   %132 = icmp eq i32 %131, 43
   %.111 = select i1 %132, i32 5522, i32 5523
@@ -1249,7 +1249,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 135:                                              ; preds = %133
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 56
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 56
   %139 = load i32, ptr %138, align 8
   %140 = icmp eq i32 %139, 43
   %.112 = select i1 %140, i32 5524, i32 5525
@@ -1262,7 +1262,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 143:                                              ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 56
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 56
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, 43
   %.113 = select i1 %148, i32 5526, i32 5527
@@ -1275,7 +1275,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 56
+  %154 = getelementptr inbounds nuw i8, ptr %153, i64 56
   %155 = load i32, ptr %154, align 8
   %156 = icmp eq i32 %155, 43
   %.114 = select i1 %156, i32 5528, i32 5529
@@ -1288,7 +1288,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 159:                                              ; preds = %157
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 56
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 56
   %163 = load i32, ptr %162, align 8
   %164 = icmp eq i32 %163, 43
   %.115 = select i1 %164, i32 5530, i32 5531
@@ -1301,7 +1301,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 167:                                              ; preds = %165
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 56
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 56
   %171 = load i32, ptr %170, align 8
   %172 = icmp eq i32 %171, 43
   %.116 = select i1 %172, i32 5532, i32 5533
@@ -1314,7 +1314,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 175:                                              ; preds = %173
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
   %179 = load i32, ptr %178, align 8
   %180 = icmp eq i32 %179, 43
   %.117 = select i1 %180, i32 5534, i32 5535
@@ -1327,7 +1327,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 183:                                              ; preds = %181
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %185 = load ptr, ptr %184, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 56
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 56
   %187 = load i32, ptr %186, align 8
   %188 = icmp eq i32 %187, 43
   %.118 = select i1 %188, i32 5536, i32 5537
@@ -1340,7 +1340,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 191:                                              ; preds = %189
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 56
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 56
   %195 = load i32, ptr %194, align 8
   %196 = icmp eq i32 %195, 43
   %.119 = select i1 %196, i32 5538, i32 5539
@@ -1353,7 +1353,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 199:                                              ; preds = %197
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 56
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 56
   %203 = load i32, ptr %202, align 8
   %204 = icmp eq i32 %203, 43
   %.120 = select i1 %204, i32 5540, i32 5541
@@ -1366,7 +1366,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 207:                                              ; preds = %205
   %208 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 56
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 56
   %211 = load i32, ptr %210, align 8
   %212 = icmp eq i32 %211, 43
   %.121 = select i1 %212, i32 5542, i32 5543
@@ -1379,7 +1379,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 215:                                              ; preds = %213
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 56
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 56
   %219 = load i32, ptr %218, align 8
   %220 = icmp eq i32 %219, 43
   %.122 = select i1 %220, i32 5544, i32 5545
@@ -1392,7 +1392,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %225 = load ptr, ptr %224, align 8
-  %226 = getelementptr inbounds i8, ptr %225, i64 56
+  %226 = getelementptr inbounds nuw i8, ptr %225, i64 56
   %227 = load i32, ptr %226, align 8
   %228 = icmp eq i32 %227, 43
   %.123 = select i1 %228, i32 5546, i32 5547
@@ -1405,7 +1405,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 231:                                              ; preds = %229
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 56
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 56
   %235 = load i32, ptr %234, align 8
   %236 = icmp eq i32 %235, 43
   %.124 = select i1 %236, i32 5548, i32 5549
@@ -1418,7 +1418,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 239:                                              ; preds = %237
   %240 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 56
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 56
   %243 = load i32, ptr %242, align 8
   %244 = icmp eq i32 %243, 43
   %.125 = select i1 %244, i32 5550, i32 5551
@@ -1431,7 +1431,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 247:                                              ; preds = %245
   %248 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 56
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 56
   %251 = load i32, ptr %250, align 8
   %252 = icmp eq i32 %251, 43
   %.126 = select i1 %252, i32 5552, i32 5553
@@ -1444,7 +1444,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 255:                                              ; preds = %253
   %256 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 56
+  %258 = getelementptr inbounds nuw i8, ptr %257, i64 56
   %259 = load i32, ptr %258, align 8
   %260 = icmp eq i32 %259, 43
   %.127 = select i1 %260, i32 5554, i32 5555
@@ -1457,7 +1457,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 263:                                              ; preds = %261
   %264 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 56
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 56
   %267 = load i32, ptr %266, align 8
   %268 = icmp eq i32 %267, 43
   %.128 = select i1 %268, i32 5556, i32 5557
@@ -1470,7 +1470,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 271:                                              ; preds = %269
   %272 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 56
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 56
   %275 = load i32, ptr %274, align 8
   %276 = icmp eq i32 %275, 43
   %.129 = select i1 %276, i32 5558, i32 5559
@@ -1483,7 +1483,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 279:                                              ; preds = %277
   %280 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %281 = load ptr, ptr %280, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 56
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 56
   %283 = load i32, ptr %282, align 8
   %284 = icmp eq i32 %283, 43
   %.130 = select i1 %284, i32 5560, i32 5561
@@ -1496,7 +1496,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 287:                                              ; preds = %285
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 56
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 56
   %291 = load i32, ptr %290, align 8
   %292 = icmp eq i32 %291, 43
   %.131 = select i1 %292, i32 5562, i32 5563
@@ -1509,7 +1509,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 295:                                              ; preds = %293
   %296 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %297, i64 56
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 56
   %299 = load i32, ptr %298, align 8
   %300 = icmp eq i32 %299, 43
   %.132 = select i1 %300, i32 5564, i32 5565
@@ -1522,7 +1522,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 303:                                              ; preds = %301
   %304 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %305 = load ptr, ptr %304, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 56
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 56
   %307 = load i32, ptr %306, align 8
   %308 = icmp eq i32 %307, 43
   %.133 = select i1 %308, i32 5566, i32 5567
@@ -1535,7 +1535,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 311:                                              ; preds = %309
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %313 = load ptr, ptr %312, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 56
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 56
   %315 = load i32, ptr %314, align 8
   %316 = icmp eq i32 %315, 43
   %.134 = select i1 %316, i32 5568, i32 5569
@@ -1548,7 +1548,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 319:                                              ; preds = %317
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 56
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 56
   %323 = load i32, ptr %322, align 8
   %324 = icmp eq i32 %323, 43
   %.135 = select i1 %324, i32 5570, i32 5571
@@ -1561,7 +1561,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 327:                                              ; preds = %325
   %328 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds i8, ptr %329, i64 56
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 56
   %331 = load i32, ptr %330, align 8
   %332 = icmp eq i32 %331, 43
   %.136 = select i1 %332, i32 5572, i32 5573
@@ -1574,7 +1574,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 335:                                              ; preds = %333
   %336 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 56
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 56
   %339 = load i32, ptr %338, align 8
   %340 = icmp eq i32 %339, 43
   %.137 = select i1 %340, i32 5574, i32 5575
@@ -1587,7 +1587,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 343:                                              ; preds = %341
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds i8, ptr %345, i64 56
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 56
   %347 = load i32, ptr %346, align 8
   %348 = icmp eq i32 %347, 43
   %.138 = select i1 %348, i32 5576, i32 5577
@@ -1600,7 +1600,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 351:                                              ; preds = %349
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 56
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %355 = load i32, ptr %354, align 8
   %356 = icmp eq i32 %355, 43
   %.139 = select i1 %356, i32 5578, i32 5579
@@ -1613,7 +1613,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 359:                                              ; preds = %357
   %360 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 56
+  %362 = getelementptr inbounds nuw i8, ptr %361, i64 56
   %363 = load i32, ptr %362, align 8
   %364 = icmp eq i32 %363, 43
   %.140 = select i1 %364, i32 5580, i32 5581
@@ -1626,7 +1626,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 367:                                              ; preds = %365
   %368 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %369 = load ptr, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 56
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 56
   %371 = load i32, ptr %370, align 8
   %372 = icmp eq i32 %371, 43
   %.141 = select i1 %372, i32 5582, i32 5583
@@ -1639,7 +1639,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 375:                                              ; preds = %373
   %376 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %377 = load ptr, ptr %376, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 56
+  %378 = getelementptr inbounds nuw i8, ptr %377, i64 56
   %379 = load i32, ptr %378, align 8
   %380 = icmp eq i32 %379, 43
   %.142 = select i1 %380, i32 5584, i32 5585
@@ -1652,7 +1652,7 @@ define dso_local noundef range(i32 0, 5588) i32 @_ZN4llvm8RISCV_MC28resolveVaria
 383:                                              ; preds = %381
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %385 = load ptr, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %385, i64 56
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 56
   %387 = load i32, ptr %386, align 8
   %388 = icmp eq i32 %387, 43
   %.143 = select i1 %388, i32 5586, i32 5587
@@ -1675,7 +1675,7 @@ declare noundef zeroext i1 @_ZNK4llvm15MCSubtargetInfo13checkFeaturesENS_9String
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm23RISCVGenMCSubtargetInfo9getHwModeENS_15MCSubtargetInfo10HwModeTypeE(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(288) %0) #19
   %.not = icmp eq i32 %6, 0
@@ -1720,7 +1720,7 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
   %.033.i.i = phi ptr [ %29, %.thread27.i.i ], [ @_ZN4llvm25RISCVVInversePseudosTableL25RISCVVInversePseudosTableE, %3 ]
   %.01132.i.i = phi i64 [ %28, %.thread27.i.i ], [ 11353, %3 ]
   %5 = lshr i64 %.01132.i.i, 1
-  %6 = getelementptr inbounds %"struct.llvm::RISCVVInversePseudosTable::PseudoInfo", ptr %.033.i.i, i64 %5
+  %6 = getelementptr inbounds nuw %"struct.llvm::RISCVVInversePseudosTable::PseudoInfo", ptr %.033.i.i, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
@@ -1742,7 +1742,7 @@ _ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i:
   br i1 %18, label %.thread27.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseInfoEjhhE4CompEclIPKNS3_10PseudoInfoEKZNS3_11getBaseInfoEjhhE7KeyTypeEEbT_RT0_.exit.i.i
 
 .thread.i.i:                                      ; preds = %13, %_ZSt7advanceIPKN4llvm25RISCVVInversePseudosTable10PseudoInfoElEvRT_T0_.exit.i.i
-  %19 = getelementptr inbounds i8, ptr %6, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %20 = xor i64 %5, -1
   %21 = add nsw i64 %.01132.i.i, %20
   br label %.thread27.i.i
@@ -1752,7 +1752,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm25RISCVVInversePseudosTable11getBaseI
   %23 = load i8, ptr %22, align 1
   %.fr = freeze i8 %23
   %24 = icmp ult i8 %.fr, %2
-  %25 = getelementptr inbounds i8, ptr %6, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %26 = xor i64 %5, -1
   %27 = add nsw i64 %.01132.i.i, %26
   %spec.select.i.i = select i1 %24, i64 %27, i64 %5
@@ -1799,14 +1799,14 @@ define dso_local void @LLVMInitializeRISCVTargetMC() local_unnamed_addr #2 {
   %1 = alloca [2 x ptr], align 8
   %2 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV32TargetEv() #19
   store ptr %2, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = tail call noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm19getTheRISCV64TargetEv() #19
   store ptr %4, ptr %3, align 8
   br label %5
 
 5:                                                ; preds = %0, %5
   %.0.idx20 = phi i64 [ 0, %0 ], [ %.0.add, %5 ]
-  %.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.0.idx20
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.0.idx20
   %6 = load ptr, ptr %.0.ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr @_ZL20createRISCVMCAsmInfoRKN4llvm14MCRegisterInfoERKNS_6TripleERKNS_15MCTargetOptionsE, ptr %7, align 8
@@ -1899,7 +1899,7 @@ define internal noundef nonnull ptr @_ZL27createRISCVMCObjectFileInfoRN4llvm9MCC
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noalias noundef nonnull ptr @_ZL22createRISCVMCInstrInfov() #2 {
   %1 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #20
-  %2 = getelementptr inbounds i8, ptr %1, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %2, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZN4llvm10RISCVDescsE, i64 441920), ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1919,7 +1919,7 @@ _ZN4llvmL23InitRISCVMCRegisterInfoEPNS_14MCRegisterInfoEjjjj.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #20
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %4, i8 0, i64 208, i1 false)
   store ptr @_ZN4llvm12RISCVRegDescE, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2022,16 +2022,16 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %5, %10, %_ZN4llvmeq
   %.sroa.4.0 = phi i64 [ 12, %10 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %2, %5 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %3, ptr %8, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %4, ptr %.sroa.2.0..sroa_idx, align 8
   %12 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #20
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr @_ZN4llvm14RISCVSubTypeKVE, ptr %6, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 35, ptr %.sroa.2.0..sroa_idx.i, align 8
   store ptr @_ZN4llvm14RISCVFeatureKVE, ptr %7, align 8
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 247, ptr %.sroa.28.0..sroa_idx.i, align 8
   tail call void @_ZN4llvm15MCSubtargetInfoC2ERKNS_6TripleENS_9StringRefES4_S4_NS_8ArrayRefINS_18SubtargetFeatureKVEEENS5_INS_18SubtargetSubTypeKVEEEPKNS_19MCWriteProcResEntryEPKNS_19MCWriteLatencyEntryEPKNS_18MCReadAdvanceEntryEPKNS_10InstrStageEPKjSN_(ptr noundef nonnull align 8 dereferenceable(288) %12, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %.sroa.013.0, i64 %.sroa.4.0, ptr %.sroa.013.0, i64 %.sroa.4.0, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1") align 8 %6, ptr noundef nonnull @_ZN4llvm22RISCVWriteProcResTableE, ptr noundef nonnull @_ZN4llvm22RISCVWriteLatencyTableE, ptr noundef nonnull @_ZN4llvm21RISCVReadAdvanceTableE, ptr noundef null, ptr noundef null, ptr noundef null) #19
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN4llvm23RISCVGenMCSubtargetInfoE, i64 16), ptr %12, align 8
@@ -2062,7 +2062,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_122createRISCVELFStreamerERKN4llvm6
 
 _ZNKSt14default_deleteIN4llvm13MCCodeEmitterEEclEPS1_.exit.i: ; preds = %5
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %13) #19
   br label %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit
@@ -2075,7 +2075,7 @@ _ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit: ; pre
 
 _ZNKSt14default_deleteIN4llvm14MCObjectWriterEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm13MCCodeEmitterESt14default_deleteIS1_EED2Ev.exit
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(104) %17) #19
   br label %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit
@@ -2088,7 +2088,7 @@ _ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit: ; pr
 
 _ZNKSt14default_deleteIN4llvm12MCAsmBackendEEclEPS1_.exit.i: ; preds = %_ZNSt10unique_ptrIN4llvm14MCObjectWriterESt14default_deleteIS1_EED2Ev.exit
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull align 8 dereferenceable(16) %21) #19
   br label %_ZNSt10unique_ptrIN4llvm12MCAsmBackendESt14default_deleteIS1_EED2Ev.exit
@@ -2120,7 +2120,7 @@ define internal noalias noundef nonnull ptr @_ZL24createRISCVInstrAnalysisPKN4ll
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 160) (i8, ptr @_ZTVN12_GLOBAL__N_120RISCVMCInstrAnalysisE, i64 16), ptr %2, align 8
-  %scevgep.i = getelementptr inbounds i8, ptr %2, i64 16
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %scevgep.i, i8 0, i64 256, i1 false)
   ret ptr %2
 }
@@ -2187,7 +2187,7 @@ _ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i: ; preds = %3, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %5, %3 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %7, %3 ]
   %9 = lshr i64 %.01116.i.i.i, 1
-  %10 = getelementptr inbounds %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %12
@@ -2217,7 +2217,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i: ; preds = %
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i, %17
   %.0.i.i.i.i.i.i.i = phi i1 [ %.inv.i.i.i.i.i.i.i, %17 ], [ %18, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds i8, ptr %10, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %20 = xor i64 %9, -1
   %21 = add nsw i64 %.01116.i.i.i, %20
   %.112.i.i.i = select i1 %.0.i.i.i.i.i.i.i, i64 %21, i64 %9
@@ -2268,7 +2268,7 @@ declare i64 @_ZNK4llvm15MCSubtargetInfo16getCacheLineSizeEj(ptr noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK4llvm15MCSubtargetInfo16getCacheLineSizeEv(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #2 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 %4(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef 0) #19
   %.sroa.0.0.extract.trunc = trunc i64 %5 to i32
@@ -2348,7 +2348,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
 22:                                               ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i
   %23 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #20
   store ptr %23, ptr %15, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 %18
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %24, ptr %25, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr align 1 %16, i64 %18, i1 false)
@@ -2377,7 +2377,7 @@ _ZNSt6vectorIcSaIcEEC2IPKcvEET_S5_RKS0_.exit:     ; preds = %_ZNSt12_Vector_base
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #19
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %38, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.21.0..sroa_idx, align 8
   ret void
 }
@@ -2485,8 +2485,8 @@ _ZNKSt6vectorIS_ItSaItEESaIS1_EE12_M_check_lenEmPKc.exit: ; preds = %20
   %35 = load ptr, ptr %34, align 8, !alias.scope !13, !noalias !10
   store ptr %35, ptr %33, align 8, !alias.scope !10, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0911.i.i.i, i8 0, i64 24, i1 false), !alias.scope !13, !noalias !10
-  %36 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 24
-  %37 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %36, %5
   br i1 %.not.i.i.i, label %_ZNSt6vectorIS_ItSaItEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !15
 
@@ -2505,7 +2505,7 @@ _ZNSt12_Vector_baseISt6vectorItSaItEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   store ptr %26, ptr %0, align 8
   %42 = getelementptr inbounds %"class.std::vector.19", ptr %27, i64 %1
   store ptr %42, ptr %4, align 8
-  %43 = getelementptr inbounds %"class.std::vector.19", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw %"class.std::vector.19", ptr %26, i64 %24
   store ptr %43, ptr %11, align 8
   br label %44
 
@@ -2545,21 +2545,21 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis10resetStateEv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11updateStateERKN4llvm6MCInstEm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %8, %3
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(272) %0) #19
   br label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEjSt8optionalIlE.exit14
@@ -2589,7 +2589,7 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11updateStateERKN4l
 29:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEjSt8optionalIlE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEjSt8optionalIlE.exit ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds %"class.llvm::MCOperand", ptr %30, i64 %indvars.iv, i32 1
+  %31 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %30, i64 %indvars.iv, i32 1
   %32 = load i32, ptr %31, align 8
   %33 = add i32 %32, -75
   %or.cond = icmp ult i32 %33, -31
@@ -2619,14 +2619,14 @@ _ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEjSt8optionalIlE.exit: ; pre
   br i1 %45, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis11setGPRStateEjSt8optionalIlE.exit14, label %46
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %42, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = shl i64 %48, 12
   %50 = add i64 %49, %2
   %51 = add i32 %44, -44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds [31 x i64], ptr %52, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [31 x i64], ptr %52, i64 0, i64 %53
   store i64 %50, ptr %54, align 8
   %55 = icmp ugt i32 %51, 30
   br i1 %55, label %56, label %_ZNSt6bitsetILm31EE3setEmb.exit.i13
@@ -2662,7 +2662,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   br i1 %.not, label %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val4 = load ptr, ptr %13, align 8
   switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit [
     i32 12783, label %14
@@ -2683,7 +2683,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isB
   br i1 %21, label %22, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, 44
   %26 = icmp ne i32 %24, 48
@@ -2733,7 +2733,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   br i1 %12, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit, label %13
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.val4 = load ptr, ptr %14, align 8
   switch i32 %5, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit [
     i32 12783, label %15
@@ -2754,7 +2754,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis21is
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis12isBranchImplERKN4llvm6MCInstE.exit
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.val4, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.val4, i64 24
   %25 = load i32, ptr %24, align 8
   %26 = icmp ne i32 %25, 44
   %27 = icmp ne i32 %25, 48
@@ -2803,7 +2803,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis16is
   br i1 %18, label %19, label %31
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp ne i32 %21, 44
   %23 = icmp ne i32 %21, 48
@@ -2886,7 +2886,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis8isR
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 44
   %23 = icmp eq i32 %21, 48
@@ -2943,28 +2943,28 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis12is
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis20mayAffectControlFlowERKNS_6MCInstERKNS_14MCRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(224) %2) unnamed_addr #2 comdat align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %7, label %35, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %12, label %35, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %22, label %35, label %23
@@ -3001,7 +3001,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis11isZer
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis20isDependencyBreakingERKNS_6MCInstERNS_5APIntEj(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3) unnamed_addr #2 comdat align 2 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3) #19
   ret i1 %8
@@ -3015,7 +3015,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm15MCInstrAnalysis25isOpt
 ; Function Attrs: mustprogress nounwind uwtable
 define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis14evaluateBranchERKN4llvm6MCInstEmmRm(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) unnamed_addr #2 align 2 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) #19
   br i1 %9, label %10, label %15
@@ -3025,7 +3025,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis14ev
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8
   %.0.in.v = select i1 %11, i64 24, i64 40
-  %.0.in = getelementptr inbounds i8, ptr %13, i64 %.0.in.v
+  %.0.in = getelementptr inbounds nuw i8, ptr %13, i64 %.0.in.v
   %.0 = load i64, ptr %.0.in, align 8
   %14 = add i64 %.0, %2
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split
@@ -3050,7 +3050,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis14ev
 23:                                               ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, %2
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split
@@ -3058,7 +3058,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis14ev
 29:                                               ; preds = %15
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 43
   br i1 %34, label %48, label %35
@@ -3083,13 +3083,13 @@ _ZNKSt6bitsetILm31EE4testEm.exit.i:               ; preds = %35
 
 44:                                               ; preds = %_ZNKSt6bitsetILm31EE4testEm.exit.i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = getelementptr inbounds [31 x i64], ptr %45, i64 0, i64 %37
+  %46 = getelementptr inbounds nuw [31 x i64], ptr %45, i64 0, i64 %37
   %47 = load i64, ptr %46, align 8
   br label %48
 
 48:                                               ; preds = %44, %29
   %.sroa.0.0.i.ph = phi i64 [ 0, %29 ], [ %47, %44 ]
-  %49 = getelementptr inbounds i8, ptr %31, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %50 = load i64, ptr %49, align 8
   %51 = add nsw i64 %50, %.sroa.0.0.i.ph
   br label %_ZNK12_GLOBAL__N_120RISCVMCInstrAnalysis11getGPRStateEj.exit.sink.split

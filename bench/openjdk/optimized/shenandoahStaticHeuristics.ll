@@ -74,7 +74,7 @@ define hidden void @_ZN26ShenandoahStaticHeuristicsC2EP19ShenandoahSpaceInfo(ptr
   br i1 %6, label %11, label %7
 
 7:                                                ; preds = %4
-  %8 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %8 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -96,7 +96,7 @@ define hidden void @_ZN26ShenandoahStaticHeuristicsC2EP19ShenandoahSpaceInfo(ptr
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %13
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not2 = icmp eq ptr %17, null
   br i1 %.not2, label %19, label %18
 
@@ -143,10 +143,10 @@ define hidden void @_ZN26ShenandoahStaticHeuristicsD0Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN26ShenandoahStaticHeuristics15should_start_gcEv(ptr noundef nonnull align 8 dereferenceable(193) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
   %8 = load ptr, ptr %2, align 8
@@ -155,7 +155,7 @@ define hidden noundef zeroext i1 @_ZN26ShenandoahStaticHeuristics15should_start_
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
   %12 = load ptr, ptr %2, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %12) #6
   %17 = sub i64 %7, %11
@@ -167,7 +167,7 @@ define hidden noundef zeroext i1 @_ZN26ShenandoahStaticHeuristics15should_start_
   br i1 %22, label %23, label %42
 
 23:                                               ; preds = %1
-  %24 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %24 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %44, label %25
 
@@ -249,13 +249,13 @@ define hidden void @_ZN26ShenandoahStaticHeuristics37choose_collection_set_from_
   %.010 = phi i64 [ %26, %25 ], [ 0, %5 ]
   %10 = getelementptr inbounds %"struct.ShenandoahHeuristics::RegionData", ptr %2, i64 %.010
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = ptrtoint ptr %13 to i64
-  %18 = getelementptr inbounds i8, ptr %11, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %19 = load volatile i64, ptr %18, align 8
   %20 = shl i64 %19, 3
   %21 = add i64 %20, %17

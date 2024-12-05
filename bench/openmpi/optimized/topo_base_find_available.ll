@@ -28,9 +28,9 @@ define range(i32 -1, 1) i32 @mca_topo_base_find_available(i1 noundef zeroext %0,
   br i1 %.not18, label %.split17, label %.split
 
 .split:                                           ; preds = %.lr.ph
-  %4 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %5 = load volatile ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %.01621, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %.01621, i64 40
   br label %.split17
 
 .split17:                                         ; preds = %.lr.ph, %.split
@@ -44,21 +44,21 @@ define range(i32 -1, 1) i32 @mca_topo_base_find_available(i1 noundef zeroext %0,
 9:                                                ; preds = %.split17
   %10 = load ptr, ptr %.sink.in, align 8
   tail call void @mca_base_component_repository_release(ptr noundef %10) #3
-  %11 = getelementptr inbounds i8, ptr %.01621, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.01621, i64 16
   %12 = load volatile ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %.01621, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.01621, i64 24
   %14 = load volatile ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store volatile ptr %12, ptr %15, align 8
   %16 = load volatile ptr, ptr %13, align 8
   %17 = load volatile ptr, ptr %11, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store volatile ptr %16, ptr %18, align 8
   %19 = load volatile i64, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 136), align 8
   %20 = add i64 %19, -1
   store volatile i64 %20, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 136), align 8
   %21 = load volatile ptr, ptr %13, align 8
-  %22 = getelementptr inbounds i8, ptr %.01621, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.01621, i64 8
   %23 = load i8, ptr @opal_uses_threads, align 1
   %24 = trunc i8 %23 to i1
   br i1 %24, label %25, label %28
@@ -82,7 +82,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %25, %28
 
 33:                                               ; preds = %opal_thread_add_fetch_32.exit
   %34 = load ptr, ptr %.01621, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %.not6.i = icmp eq ptr %37, null
@@ -92,7 +92,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %25, %28
   %38 = phi ptr [ %40, %.lr.ph.i ], [ %37, %33 ]
   %.07.i = phi ptr [ %39, %.lr.ph.i ], [ %36, %33 ]
   tail call void %38(ptr noundef nonnull %.01621) #3
-  %39 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %40 = load ptr, ptr %39, align 8
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %opal_obj_run_destructors.exit, label %.lr.ph.i, !llvm.loop !4
@@ -133,24 +133,24 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 
 6:                                                ; preds = %3
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 84
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %7, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #3
   br label %9
 
 9:                                                ; preds = %3, %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 2
   br i1 %16, label %17, label %26
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %26
@@ -172,9 +172,9 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 29:                                               ; preds = %26
   %30 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
   %31 = load i32, ptr %10, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 76
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %35 = load i32, ptr %34, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %30, ptr noundef nonnull @.str.2, i32 noundef %31, i32 noundef %33, i32 noundef %35) #3
   br label %49
@@ -184,12 +184,12 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 
 37:                                               ; preds = %36
   %38 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 84
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %38, ptr noundef nonnull @.str.3, ptr noundef nonnull %39) #3
   br label %40
 
 40:                                               ; preds = %36, %37
-  %41 = getelementptr inbounds i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %42 = load ptr, ptr %41, align 8
   %.not18 = icmp eq ptr %42, null
   br i1 %.not18, label %49, label %43
@@ -203,7 +203,7 @@ define internal fastcc i32 @init_query(ptr noundef %0, i1 noundef zeroext %1, i1
 
 46:                                               ; preds = %45
   %47 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_topo_base_framework, i64 76), align 4
-  %48 = getelementptr inbounds i8, ptr %0, i64 84
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %47, ptr noundef nonnull @.str.4, ptr noundef nonnull %48) #3
   br label %49
 

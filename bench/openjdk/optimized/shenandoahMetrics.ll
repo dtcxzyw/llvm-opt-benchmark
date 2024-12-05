@@ -69,22 +69,22 @@ define hidden void @_ZN25ShenandoahMetricsSnapshotC2Ev(ptr nocapture noundef non
 define hidden void @_ZN25ShenandoahMetricsSnapshot11snap_beforeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 16), (24, 32), (40, 48)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(2657) %2) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1656
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1656
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef double @_ZN17ShenandoahFreeSet22internal_fragmentationEv(ptr noundef nonnull align 8 dereferenceable(224) %10) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1656
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1656
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef double @_ZN17ShenandoahFreeSet22external_fragmentationEv(ptr noundef nonnull align 8 dereferenceable(224) %15) #6
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double %16, ptr %17, align 8
   ret void
 }
@@ -97,22 +97,22 @@ declare noundef double @_ZN17ShenandoahFreeSet22external_fragmentationEv(ptr nou
 define hidden void @_ZN25ShenandoahMetricsSnapshot10snap_afterEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 24), (32, 40), (48, 56)) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i64 %5(ptr noundef nonnull align 8 dereferenceable(2657) %2) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %6, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1656
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1656
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef double @_ZN17ShenandoahFreeSet22internal_fragmentationEv(ptr noundef nonnull align 8 dereferenceable(224) %10) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %11, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1656
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1656
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef double @_ZN17ShenandoahFreeSet22external_fragmentationEv(ptr noundef nonnull align 8 dereferenceable(224) %15) #6
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %16, ptr %17, align 8
   ret void
 }
@@ -120,22 +120,22 @@ define hidden void @_ZN25ShenandoahMetricsSnapshot10snap_afterEv(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN25ShenandoahMetricsSnapshot16is_good_progressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1656
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1656
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 160
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 %6, %8
   %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 120
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(2657) %2) #6
   %14 = udiv i64 %13, 100
   %15 = load i64, ptr @ShenandoahCriticalFreeThreshold, align 8
   %16 = mul i64 %14, %15
   %.not = icmp ult i64 %9, %16
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not70 = icmp eq ptr %17, null
   br i1 %.not70, label %36, label %18
 
@@ -198,14 +198,14 @@ _Z25proper_unit_for_byte_sizem.exit38:            ; preds = %.thread58, %_Z24byt
   br i1 %.not, label %86, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load i64, ptr %40, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %39, i64 %41)
   %42 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
   %.not31 = icmp ult i64 %spec.select, %42
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not71 = icmp eq ptr %43, null
   br i1 %.not71, label %62, label %44
 
@@ -268,13 +268,13 @@ _Z25proper_unit_for_byte_sizem.exit50:            ; preds = %.thread68, %_Z24byt
   br i1 %.not31, label %63, label %86
 
 63:                                               ; preds = %62
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %65 = load double, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %67 = load double, ptr %66, align 8
   %68 = fsub double %65, %67
   %69 = fcmp oge double %68, 1.000000e-02
-  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not72 = icmp eq ptr %70, null
   br i1 %.not72, label %74, label %71
 
@@ -288,13 +288,13 @@ _Z25proper_unit_for_byte_sizem.exit50:            ; preds = %.thread68, %_Z24byt
   br i1 %69, label %86, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load double, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %0, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = load double, ptr %78, align 8
   %80 = fsub double %77, %79
   %81 = fcmp oge double %80, 1.000000e-02
-  %82 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %82 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not73 = icmp eq ptr %82, null
   br i1 %.not73, label %86, label %83
 

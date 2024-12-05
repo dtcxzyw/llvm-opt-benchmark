@@ -10,64 +10,64 @@ define ptr @SUNLinSol_PCG(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
   %5 = icmp slt i32 %2, 1
   %spec.store.select = select i1 %5, i32 5, i32 %2
   %6 = tail call ptr @SUNLinSolNewEmpty(ptr noundef %3) #10
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   store ptr @SUNLinSolGetType_PCG, ptr %8, align 8
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @SUNLinSolGetID_PCG, ptr %10, align 8
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @SUNLinSolSetATimes_PCG, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr @SUNLinSolSetPreconditioner_PCG, ptr %14, align 8
   %15 = load ptr, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr @SUNLinSolSetScalingVectors_PCG, ptr %16, align 8
   %17 = load ptr, ptr %7, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr @SUNLinSolSetZeroGuess_PCG, ptr %18, align 8
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   store ptr @SUNLinSolInitialize_PCG, ptr %20, align 8
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   store ptr @SUNLinSolSetup_PCG, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr @SUNLinSolSolve_PCG, ptr %24, align 8
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   store ptr @SUNLinSolNumIters_PCG, ptr %26, align 8
   %27 = load ptr, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   store ptr @SUNLinSolResNorm_PCG, ptr %28, align 8
   %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   store ptr @SUNLinSolResid_PCG, ptr %30, align 8
   %31 = load ptr, ptr %7, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 88
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   store ptr @SUNLinSolLastFlag_PCG, ptr %32, align 8
   %33 = load ptr, ptr %7, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   store ptr @SUNLinSolSpace_PCG, ptr %34, align 8
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
   store ptr @SUNLinSolFree_PCG, ptr %36, align 8
   %37 = tail call noalias dereferenceable_or_null(112) ptr @malloc(i64 noundef 112) #11
   store ptr %37, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i32 0, ptr %38, align 8
   store i32 %spec.store.select, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 4
   store i32 %spec.store.select6, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %37, i64 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 80
-  %42 = getelementptr inbounds i8, ptr %37, i64 88
-  %43 = getelementptr inbounds i8, ptr %37, i64 96
-  %44 = getelementptr inbounds i8, ptr %37, i64 104
-  %45 = getelementptr inbounds i8, ptr %37, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 104
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %45, i8 0, i64 80, i1 false)
   %46 = tail call ptr @N_VClone(ptr noundef %0) #10
@@ -96,10 +96,10 @@ define noundef i32 @SUNLinSolGetID_PCG(ptr nocapture readnone %0) #2 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNLinSolSetATimes_PCG(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #3 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %2, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %1, ptr %7, align 8
   ret i32 0
 }
@@ -107,13 +107,13 @@ define noundef i32 @SUNLinSolSetATimes_PCG(ptr nocapture noundef readonly %0, pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNLinSolSetPreconditioner_PCG(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store ptr %1, ptr %10, align 8
   ret i32 0
 }
@@ -121,7 +121,7 @@ define noundef i32 @SUNLinSolSetPreconditioner_PCG(ptr nocapture noundef readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNLinSolSetScalingVectors_PCG(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2) #3 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %1, ptr %5, align 8
   ret i32 0
 }
@@ -129,7 +129,7 @@ define noundef i32 @SUNLinSolSetScalingVectors_PCG(ptr nocapture noundef readonl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNLinSolSetZeroGuess_PCG(ptr nocapture noundef readonly %0, i32 noundef %1) #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %1, ptr %4, align 8
   ret i32 0
 }
@@ -148,7 +148,7 @@ define noundef i32 @SUNLinSolInitialize_PCG(ptr nocapture noundef readonly %0) #
 
 6:                                                ; preds = %5, %1
   %7 = phi ptr [ %.pre, %5 ], [ %2, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %.off = add i32 %9, -1
   %switch = icmp ult i32 %.off, 3
@@ -165,13 +165,13 @@ define noundef i32 @SUNLinSolInitialize_PCG(ptr nocapture noundef readonly %0) #
 ; Function Attrs: nounwind uwtable
 define i32 @SUNLinSolSetup_PCG(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %17, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %5(ptr noundef %8) #10
   %.not13 = icmp eq i32 %9, 0
@@ -181,16 +181,16 @@ define i32 @SUNLinSolSetup_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 10:                                               ; preds = %6
   %11 = icmp slt i32 %9, 0
   %12 = select i1 %11, i32 -806, i32 804
-  %13 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   store i32 %12, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8
   br label %20
 
 17:                                               ; preds = %6, %2
   %18 = phi ptr [ %.pre, %6 ], [ %3, %2 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 0, ptr %19, align 8
   br label %20
 
@@ -203,29 +203,29 @@ define i32 @SUNLinSolSetup_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, double noundef %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %6, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %6, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %6, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %6, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %6, i64 8
-  %29 = getelementptr inbounds i8, ptr %6, i64 12
-  %30 = getelementptr inbounds i8, ptr %6, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %29, align 4
   %.not = icmp eq ptr %17, null
   %31 = load i32, ptr %28, align 4
@@ -425,10 +425,10 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 105:                                              ; preds = %102, %104, %._crit_edge, %91, %._crit_edge210, %54, %50, %35
   %.sink.sink = phi i32 [ %93, %91 ], [ %66, %._crit_edge210 ], [ %56, %54 ], [ 0, %50 ], [ %37, %35 ], [ 802, %104 ], [ 0, %102 ], [ 801, %._crit_edge ]
   %106 = load ptr, ptr %0, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store i32 %.sink.sink, ptr %107, align 8
   %108 = load ptr, ptr %0, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %.0 = load i32, ptr %109, align 8
   ret i32 %.0
 }
@@ -436,7 +436,7 @@ define i32 @SUNLinSolSolve_PCG(ptr nocapture noundef readonly %0, ptr nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @SUNLinSolNumIters_PCG(ptr nocapture noundef readonly %0) #5 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -444,7 +444,7 @@ define i32 @SUNLinSolNumIters_PCG(ptr nocapture noundef readonly %0) #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define double @SUNLinSolResNorm_PCG(ptr nocapture noundef readonly %0) #5 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load double, ptr %3, align 8
   ret double %4
 }
@@ -452,7 +452,7 @@ define double @SUNLinSolResNorm_PCG(ptr nocapture noundef readonly %0) #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @SUNLinSolResid_PCG(ptr nocapture noundef readonly %0) #5 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4 = load ptr, ptr %3, align 8
   ret ptr %4
 }
@@ -460,7 +460,7 @@ define ptr @SUNLinSolResid_PCG(ptr nocapture noundef readonly %0) #5 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i64 -2147483648, 2147483648) i64 @SUNLinSolLastFlag_PCG(ptr nocapture noundef readonly %0) #5 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
   ret i64 %5
@@ -471,7 +471,7 @@ define noundef i32 @SUNLinSolSpace_PCG(ptr nocapture noundef readonly %0, ptr no
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8
   call void @N_VSpace(ptr noundef %8, ptr noundef nonnull %5, ptr noundef nonnull %4) #10
   %9 = load i64, ptr %5, align 8
@@ -496,7 +496,7 @@ define noundef i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
   br i1 %.not, label %34, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not26 = icmp eq ptr %7, null
   br i1 %.not26, label %11, label %8
@@ -504,14 +504,14 @@ define noundef i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
 8:                                                ; preds = %5
   tail call void @N_VDestroy(ptr noundef nonnull %7) #10
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 80
   store ptr null, ptr %10, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %11
 
 11:                                               ; preds = %8, %5
   %12 = phi ptr [ %.pre, %8 ], [ %4, %5 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   %.not27 = icmp eq ptr %14, null
   br i1 %.not27, label %18, label %15
@@ -519,14 +519,14 @@ define noundef i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
 15:                                               ; preds = %11
   tail call void @N_VDestroy(ptr noundef nonnull %14) #10
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   store ptr null, ptr %17, align 8
   %.pre31 = load ptr, ptr %0, align 8
   br label %18
 
 18:                                               ; preds = %15, %11
   %19 = phi ptr [ %.pre31, %15 ], [ %12, %11 ]
-  %20 = getelementptr inbounds i8, ptr %19, i64 96
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = load ptr, ptr %20, align 8
   %.not28 = icmp eq ptr %21, null
   br i1 %.not28, label %25, label %22
@@ -534,14 +534,14 @@ define noundef i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
 22:                                               ; preds = %18
   tail call void @N_VDestroy(ptr noundef nonnull %21) #10
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store ptr null, ptr %24, align 8
   %.pre32 = load ptr, ptr %0, align 8
   br label %25
 
 25:                                               ; preds = %22, %18
   %26 = phi ptr [ %.pre32, %22 ], [ %19, %18 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load ptr, ptr %27, align 8
   %.not29 = icmp eq ptr %28, null
   br i1 %.not29, label %32, label %29
@@ -549,7 +549,7 @@ define noundef i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
 29:                                               ; preds = %25
   tail call void @N_VDestroy(ptr noundef nonnull %28) #10
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
   store ptr null, ptr %31, align 8
   %.pre33 = load ptr, ptr %0, align 8
   br label %32
@@ -561,7 +561,7 @@ define noundef i32 @SUNLinSolFree_PCG(ptr noundef %0) #0 {
   br label %34
 
 34:                                               ; preds = %32, %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %.not30 = icmp eq ptr %36, null
   br i1 %.not30, label %38, label %37
@@ -586,7 +586,7 @@ declare ptr @N_VClone(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @SUNLinSol_PCGSetPrecType(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %1, ptr %4, align 4
   ret i32 0
 }

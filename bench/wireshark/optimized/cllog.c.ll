@@ -79,20 +79,20 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [200 x i8], align 16
   %5 = tail call noalias dereferenceable_or_null(176) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 176) #9
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 13
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 13
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 18
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 18
   store i8 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %5, i64 40
-  %11 = getelementptr inbounds i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 84
-  %13 = getelementptr inbounds i8, ptr %5, i64 92
-  %14 = getelementptr inbounds i8, ptr %5, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %10, i8 0, i64 18, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %12, i8 0, i64 6, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %13, i8 0, i64 68, i1 false)
@@ -154,7 +154,7 @@ define hidden range(i32 -1, 2) i32 @cllog_open(ptr nocapture noundef %0, ptr nou
   br i1 %29, label %30, label %42
 
 30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not71 = icmp eq ptr %32, null
   br i1 %.not71, label %42, label %33
@@ -246,13 +246,13 @@ sub_0.i:                                          ; preds = %62, %59
   br i1 %.not.i, label %sub_1.i, label %.tail.thread.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %65 = getelementptr inbounds i8, ptr %.03035.i, i64 1
+  %65 = getelementptr inbounds nuw i8, ptr %.03035.i, i64 1
   %66 = load i8, ptr %65, align 1
   %.not37.i = icmp eq i8 %66, 68
   br i1 %.not37.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
-  %67 = getelementptr inbounds i8, ptr %.03035.i, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.03035.i, i64 2
   %68 = load i8, ptr %67, align 1
   %69 = icmp eq i8 %68, 0
   br i1 %69, label %70, label %.tail.thread.i
@@ -305,20 +305,20 @@ parseColumnHeaderFields.exit:                     ; preds = %79
   br label %94
 
 parseColumnHeaderFields.exit.thread:              ; preds = %.thread, %parseColumnHeaderFields.exit
-  %86 = getelementptr inbounds i8, ptr %0, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %5, ptr %86, align 8
   %87 = load i32, ptr @cllog_file_type_subtype, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %87, ptr %88, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 144
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 125, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr @cllog_read, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr @cllog_seek_read, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 148
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 148
   store i32 3, ptr %93, align 4
   br label %94
 
@@ -355,7 +355,7 @@ define internal range(i32 0, 2) i32 @cllog_read(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @cllog_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #10
   %10 = icmp eq i64 %9, -1
@@ -387,7 +387,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr nocapture no
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %8, align 4
   br label %21
 
@@ -397,7 +397,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr nocapture no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %13, align 4
   br label %21
 
@@ -407,7 +407,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_type(ptr nocapture no
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2, ptr %18, align 4
   br label %21
 
@@ -430,7 +430,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_hwrev(ptr nocapture n
   br i1 %7, label %checked_strcpy.exit.thread.i, label %checked_strcpy.exit.i
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
@@ -452,7 +452,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_fwrev(ptr nocapture n
   br i1 %7, label %checked_strcpy.exit.thread.i, label %checked_strcpy.exit.i
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 13
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 13
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
@@ -474,7 +474,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_id(ptr nocapture noun
   br i1 %7, label %checked_strcpy.exit.thread.i, label %checked_strcpy.exit.i
 
 checked_strcpy.exit.thread.i:                     ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 18
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %8, ptr readonly align 1 %1, i64 %6, i1 false)
   br label %parseString.exit
 
@@ -502,7 +502,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_sessionNo(ptr nocaptu
   br label %parseUnsigned.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load i32, ptr %5, align 4
   store i32 %11, ptr %10, align 4
   br label %parseUnsigned.exit
@@ -526,7 +526,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_splitNo(ptr nocapture
   br label %parseUnsigned.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %5, align 4
   store i32 %11, ptr %10, align 4
   br label %parseUnsigned.exit
@@ -540,11 +540,11 @@ parseUnsigned.exit:                               ; preds = %7, %9
 define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture noundef writeonly initializes((48, 58)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %11 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %5) #10
   %12 = load i32, ptr %7, align 8
   %13 = add i32 %12, -1
@@ -553,9 +553,9 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture no
   %15 = add i32 %14, -1900
   store i32 %15, ptr %6, align 4
   %16 = call i64 @mktime(ptr noundef nonnull %5) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %16, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i16 0, ptr %18, align 8
   %19 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %20 = add i64 %19, 1
@@ -563,7 +563,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture no
   br i1 %21, label %checked_strcpy.exit.thread, label %checked_strcpy.exit
 
 checked_strcpy.exit.thread:                       ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr readonly align 1 %1, i64 %20, i1 false)
   br label %24
 
@@ -579,7 +579,7 @@ checked_strcpy.exit:                              ; preds = %4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_valueSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 84
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
@@ -647,7 +647,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr nocapt
 
 14:                                               ; preds = %9
   %15 = trunc nuw nsw i32 %10 to i8
-  %16 = getelementptr inbounds i8, ptr %0, i64 85
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 85
   store i8 %15, ptr %16, align 1
   br label %17
 
@@ -658,7 +658,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_timeFormat(ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 86
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
@@ -703,7 +703,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_timeSeparatorMs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 87
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 87
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
@@ -748,7 +748,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_dateSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
@@ -793,7 +793,7 @@ parseSeparator.exit:                              ; preds = %21, %23
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseLogFileHeaderLine_timeAndDateSeparator(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 89
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #11
   %7 = icmp eq i64 %6, 3
   br i1 %7, label %8, label %23
@@ -850,7 +850,7 @@ define internal noundef zeroext i1 @parseLogFileHeaderLine_bitRate(ptr nocapture
   br label %parseUnsigned.exit
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 92
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %11 = load i32, ptr %5, align 4
   store i32 %11, ptr %10, align 4
   br label %parseUnsigned.exit
@@ -878,12 +878,12 @@ parseBoolean.exit:                                ; preds = %7
   br label %15
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 1, ptr %12, align 8
   br label %15
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %14, align 8
   br label %15
 
@@ -910,12 +910,12 @@ parseBoolean.exit:                                ; preds = %7
   br label %15
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 100
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 1, ptr %12, align 4
   br label %15
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 100
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %14, align 4
   br label %15
 
@@ -965,7 +965,7 @@ checked_strcpy.exit:                              ; preds = %5
 
 15:                                               ; preds = %5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr readonly align 1 %1, i64 %12, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %16) #11
   %18 = add i64 %17, 1
   %19 = icmp ult i64 %18, 25
@@ -984,11 +984,11 @@ checked_strcpy.exit19:                            ; preds = %15
   br i1 %.not.i, label %stripTimeStamp.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %0, i64 84
-  %24 = getelementptr inbounds i8, ptr %0, i64 86
-  %25 = getelementptr inbounds i8, ptr %0, i64 87
-  %26 = getelementptr inbounds i8, ptr %0, i64 88
-  %27 = getelementptr inbounds i8, ptr %0, i64 89
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 87
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %28 = load i8, ptr %23, align 4
   br label %29
 
@@ -1046,11 +1046,11 @@ stripTimeStamp.exit:                              ; preds = %stripTimeStamp.exit
   br i1 %.not.i20, label %stripTimeStamp.exit27, label %.lr.ph.i21
 
 .lr.ph.i21:                                       ; preds = %stripTimeStamp.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 84
-  %55 = getelementptr inbounds i8, ptr %0, i64 86
-  %56 = getelementptr inbounds i8, ptr %0, i64 87
-  %57 = getelementptr inbounds i8, ptr %0, i64 88
-  %58 = getelementptr inbounds i8, ptr %0, i64 89
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 86
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 87
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 89
   %59 = load i8, ptr %54, align 4
   br label %60
 
@@ -1108,14 +1108,14 @@ stripTimeStamp.exit27:                            ; preds = %stripTimeStamp.exit
   %84 = sub nsw i64 17, %.0.lcssa.i
   %85 = getelementptr [18 x i8], ptr %10, i64 0, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %85, ptr nonnull align 16 %8, i64 %.0.lcssa.i, i1 false)
-  %86 = getelementptr inbounds i8, ptr %10, i64 17
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 17
   store i8 0, ptr %86, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  %87 = getelementptr inbounds i8, ptr %6, i64 20
-  %88 = getelementptr inbounds i8, ptr %6, i64 16
-  %89 = getelementptr inbounds i8, ptr %6, i64 12
-  %90 = getelementptr inbounds i8, ptr %6, i64 8
-  %91 = getelementptr inbounds i8, ptr %6, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  %88 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %92 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.47, ptr noundef nonnull %87, ptr noundef nonnull %88, ptr noundef nonnull %89, ptr noundef nonnull %90, ptr noundef nonnull %91, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
   %93 = load i32, ptr %88, align 8
   %94 = add i32 %93, -1
@@ -1127,15 +1127,15 @@ stripTimeStamp.exit27:                            ; preds = %stripTimeStamp.exit
   store i64 %97, ptr %2, align 8
   %98 = load i32, ptr %7, align 4
   %99 = trunc i32 %98 to i16
-  %100 = getelementptr inbounds i8, ptr %2, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %99, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %0, i64 160
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %102 = load i64, ptr %101, align 8
   %103 = icmp eq i64 %102, 0
   br i1 %103, label %104, label %110
 
 104:                                              ; preds = %stripTimeStamp.exit27
-  %105 = getelementptr inbounds i8, ptr %0, i64 168
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %106 = load i16, ptr %105, align 8
   %107 = icmp eq i16 %106, 0
   br i1 %107, label %108, label %110
@@ -1165,7 +1165,7 @@ define internal noundef zeroext i1 @parseFieldLost(ptr nocapture readnone %0, pt
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %11, ptr %12, align 8
   br label %13
 
@@ -1184,22 +1184,22 @@ define internal noundef zeroext i1 @parseFieldMsgType(ptr nocapture readnone %0,
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %2, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %8, align 4
   br label %17
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 1, ptr %10, align 4
   br label %17
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %2, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 7, ptr %12, align 4
   br label %17
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %2, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 8, ptr %14, align 4
   br label %17
 
@@ -1228,7 +1228,7 @@ define internal noundef zeroext i1 @parseFieldID(ptr nocapture readnone %0, ptr 
 
 10:                                               ; preds = %5
   %11 = load i32, ptr %6, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %11, ptr %12, align 8
   br label %13
 
@@ -1251,7 +1251,7 @@ define internal noundef zeroext i1 @parseFieldLength(ptr nocapture readnone %0, 
 10:                                               ; preds = %5
   %11 = load i32, ptr %6, align 4
   %12 = trunc i32 %11 to i8
-  %13 = getelementptr inbounds i8, ptr %2, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 %12, ptr %13, align 4
   br label %14
 
@@ -1261,9 +1261,9 @@ define internal noundef zeroext i1 @parseFieldLength(ptr nocapture readnone %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal noundef zeroext i1 @parseFieldData(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((28, 29)) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 29
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 29
   br label %8
 
 8:                                                ; preds = %5, %22
@@ -1333,7 +1333,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [200 x i8], align 16
   %8 = alloca %struct.cCLLog_message_t, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %10 = load ptr, ptr %9, align 8
   %11 = call ptr @file_gets(ptr noundef nonnull %7, i32 noundef 200, ptr noundef %1) #10
   %12 = icmp eq ptr %11, null
@@ -1347,8 +1347,8 @@ define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noun
 
 16:                                               ; preds = %6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 40, i1 false)
-  %17 = getelementptr inbounds i8, ptr %10, i64 84
-  %18 = getelementptr inbounds i8, ptr %10, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 104
   br label %19
 
 19:                                               ; preds = %31, %16
@@ -1386,28 +1386,28 @@ define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noun
 34:                                               ; preds = %31
   store i32 0, ptr %2, align 8
   %35 = call ptr @wtap_block_create(i32 noundef 5) #10
-  %36 = getelementptr inbounds i8, ptr %2, i64 232
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 232
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 1, ptr %37, align 4
   %38 = load i64, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %41 = load i16, ptr %40, align 8
   %42 = zext i16 %41 to i32
   %43 = mul i32 %42, 1000000
-  %44 = getelementptr inbounds i8, ptr %2, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %43, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %8, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %46 = load i8, ptr %45, align 4
   %47 = zext i8 %46 to i32
   %48 = add nuw nsw i32 %47, 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i32 %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 68
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %48, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %8, i64 20
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %52 = load i32, ptr %51, align 4
   %53 = add i32 %52, -7
   %or.cond = icmp ult i32 %53, 2
@@ -1427,10 +1427,10 @@ define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noun
   %58 = zext i32 %57 to i64
   call void @ws_buffer_assure_space(ptr noundef %3, i64 noundef %58) #10
   %59 = load ptr, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %3, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %61 = load i64, ptr %60, align 8
   %62 = getelementptr i8, ptr %59, i64 %61
-  %63 = getelementptr inbounds i8, ptr %8, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %64 = load i32, ptr %63, align 8
   %65 = lshr i32 %64, 24
   %66 = trunc nuw i32 %65 to i8
@@ -1477,7 +1477,7 @@ define internal fastcc range(i32 0, 2) i32 @cllog_read_common(ptr nocapture noun
 
 89:                                               ; preds = %87, %84
   %90 = getelementptr i8, ptr %62, i64 8
-  %91 = getelementptr inbounds i8, ptr %8, i64 29
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 29
   %92 = load i8, ptr %45, align 4
   %93 = zext i8 %92 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %90, ptr nonnull align 1 %91, i64 %93, i1 false)

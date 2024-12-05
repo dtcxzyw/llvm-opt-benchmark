@@ -23,7 +23,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %0 = zext nneg i32 %s to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %0
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   br label %return

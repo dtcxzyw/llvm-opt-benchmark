@@ -10,13 +10,13 @@ define dso_local void @_ZN5clang15quoteMakeTargetEN4llvm9StringRefERNS0_15SmallV
   br i1 %.not27, label %._crit_edge, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = and i64 %1, 4294967295
   br label %7
 
 7:                                                ; preds = %.lr.ph29, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit21
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit21 ]
-  %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   switch i8 %9, label %44 [
     i8 32, label %10
@@ -34,7 +34,7 @@ define dso_local void @_ZN5clang15quoteMakeTargetEN4llvm9StringRefERNS0_15SmallV
 .lr.ph:                                           ; preds = %10, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
   %.025 = phi i32 [ %.0, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ], [ %.024, %10 ]
   %13 = zext nneg i32 %.025 to i64
-  %14 = getelementptr inbounds i8, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 92
   br i1 %16, label %17, label %.critedge

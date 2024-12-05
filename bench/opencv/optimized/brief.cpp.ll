@@ -120,12 +120,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv11xfeatures2d24BriefDescriptorExtractor6createEib(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19, !noalias !4
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %5, align 8, !noalias !4
-  %6 = getelementptr inbounds i8, ptr %4, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %4, align 8, !noalias !4
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   invoke void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC1Eib(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %1, i1 noundef zeroext %2)
           to label %_ZN2cv3PtrINS_11xfeatures2d28BriefDescriptorExtractorImplEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i.i, !noalias !4
 
@@ -137,7 +137,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDe
 
 _ZN2cv3PtrINS_11xfeatures2d28BriefDescriptorExtractorImplEED2Ev.exit: ; preds = %3
   store ptr %7, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %9, align 8
   ret void
 }
@@ -198,11 +198,11 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC2Eib(ptr n
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = zext i1 %3 to i8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %10, i64 -80
   %14 = load i64, ptr %13, align 8
@@ -210,7 +210,7 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC2Eib(ptr n
   store ptr %12, ptr %15, align 8
   %16 = load ptr, ptr %8, align 8
   store ptr %16, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr i8, ptr %16, i64 -80
   %20 = load i64, ptr %19, align 8
@@ -218,17 +218,17 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC2Eib(ptr n
   store ptr %18, ptr %21, align 8
   %22 = load ptr, ptr %1, align 8
   store ptr %22, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %22, i64 -80
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 %26
   store ptr %24, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %7, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %30, align 8
   switch i32 %2, label %33 [
     i32 16, label %41
@@ -286,7 +286,7 @@ define internal void @_ZN2cv11xfeatures2dL12pixelTests16ERKNS_11_InputArrayERKSt
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !12
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %11)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -304,7 +304,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !15
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %_ZNK2cv11_InputArray6getMatEi.exit802 unwind label %35
@@ -314,17 +314,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
           to label %_ZNK2cv11_InputArray6getMatEi.exit802 unwind label %35
 
 _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %20, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK2cv11_InputArray6getMatEi.exit802
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
-  %23 = getelementptr inbounds i8, ptr %6, i64 72
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %26
 
 26:                                               ; preds = %.lr.ph, %9005
@@ -348,7 +348,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %34, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %39 = load float, ptr %38, align 4
   %40 = fmul float %39, 0x3F91DF46A0000000
   %41 = fpext float %40 to double
@@ -374,7 +374,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %.sroa.0.13357 = phi <2 x float> [ %.sroa.0.4.vec.insert, %37 ], [ %.sroa.0.04125, %26 ]
   %.029.i = phi i32 [ %spec.store.select2.i, %37 ], [ -1, %26 ]
   %.0.i = phi i32 [ %spec.store.select3.i, %37 ], [ -2, %26 ]
-  %53 = getelementptr inbounds i8, ptr %34, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %54 = load float, ptr %53, align 4
   %55 = fpext float %54 to double
   %56 = fadd double %55, 5.000000e-01
@@ -1860,7 +1860,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %1163 = icmp slt i32 %1129, %1162
   %1164 = zext i1 %1163 to i8
   %1165 = add i8 %1097, %1164
-  %1166 = getelementptr inbounds i8, ptr %33, i64 1
+  %1166 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %1165, ptr %1166, align 1
   br i1 %3, label %1167, label %1174
 
@@ -2616,7 +2616,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %1726 = icmp slt i32 %1692, %1725
   %1727 = zext i1 %1726 to i8
   %1728 = add i8 %1659, %1727
-  %1729 = getelementptr inbounds i8, ptr %33, i64 2
+  %1729 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %1728, ptr %1729, align 1
   br i1 %3, label %1730, label %1737
 
@@ -3371,7 +3371,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %2288 = icmp slt i32 %2254, %2287
   %2289 = zext i1 %2288 to i8
   %2290 = add i8 %2221, %2289
-  %2291 = getelementptr inbounds i8, ptr %33, i64 3
+  %2291 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 %2290, ptr %2291, align 1
   br i1 %3, label %2292, label %2299
 
@@ -4127,7 +4127,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %2851 = icmp slt i32 %2817, %2850
   %2852 = zext i1 %2851 to i8
   %2853 = add i8 %2784, %2852
-  %2854 = getelementptr inbounds i8, ptr %33, i64 4
+  %2854 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i8 %2853, ptr %2854, align 1
   br i1 %3, label %2855, label %2862
 
@@ -4883,7 +4883,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %3414 = icmp slt i32 %3380, %3413
   %3415 = zext i1 %3414 to i8
   %3416 = add i8 %3347, %3415
-  %3417 = getelementptr inbounds i8, ptr %33, i64 5
+  %3417 = getelementptr inbounds nuw i8, ptr %33, i64 5
   store i8 %3416, ptr %3417, align 1
   br i1 %3, label %3418, label %3425
 
@@ -5637,7 +5637,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %3975 = icmp slt i32 %3941, %3974
   %3976 = zext i1 %3975 to i8
   %3977 = add i8 %3908, %3976
-  %3978 = getelementptr inbounds i8, ptr %33, i64 6
+  %3978 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i8 %3977, ptr %3978, align 1
   br i1 %3, label %3979, label %3986
 
@@ -6393,7 +6393,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %4538 = icmp slt i32 %4504, %4537
   %4539 = zext i1 %4538 to i8
   %4540 = add i8 %4471, %4539
-  %4541 = getelementptr inbounds i8, ptr %33, i64 7
+  %4541 = getelementptr inbounds nuw i8, ptr %33, i64 7
   store i8 %4540, ptr %4541, align 1
   br i1 %3, label %4542, label %4549
 
@@ -7148,7 +7148,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %5100 = icmp slt i32 %5066, %5099
   %5101 = zext i1 %5100 to i8
   %5102 = add i8 %5033, %5101
-  %5103 = getelementptr inbounds i8, ptr %33, i64 8
+  %5103 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 %5102, ptr %5103, align 1
   br i1 %3, label %5104, label %5111
 
@@ -7903,7 +7903,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %5662 = icmp slt i32 %5628, %5661
   %5663 = zext i1 %5662 to i8
   %5664 = add i8 %5595, %5663
-  %5665 = getelementptr inbounds i8, ptr %33, i64 9
+  %5665 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 %5664, ptr %5665, align 1
   br i1 %3, label %5666, label %5673
 
@@ -8657,7 +8657,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %6223 = icmp slt i32 %6190, %6222
   %6224 = zext i1 %6223 to i8
   %6225 = add i8 %6157, %6224
-  %6226 = getelementptr inbounds i8, ptr %33, i64 10
+  %6226 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i8 %6225, ptr %6226, align 1
   br i1 %3, label %6227, label %6234
 
@@ -9412,7 +9412,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %6785 = icmp slt i32 %6751, %6784
   %6786 = zext i1 %6785 to i8
   %6787 = add i8 %6718, %6786
-  %6788 = getelementptr inbounds i8, ptr %33, i64 11
+  %6788 = getelementptr inbounds nuw i8, ptr %33, i64 11
   store i8 %6787, ptr %6788, align 1
   br i1 %3, label %6789, label %6796
 
@@ -10168,7 +10168,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %7348 = icmp slt i32 %7314, %7347
   %7349 = zext i1 %7348 to i8
   %7350 = add i8 %7281, %7349
-  %7351 = getelementptr inbounds i8, ptr %33, i64 12
+  %7351 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i8 %7350, ptr %7351, align 1
   br i1 %3, label %7352, label %7359
 
@@ -10923,7 +10923,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %7910 = icmp slt i32 %7876, %7909
   %7911 = zext i1 %7910 to i8
   %7912 = add i8 %7843, %7911
-  %7913 = getelementptr inbounds i8, ptr %33, i64 13
+  %7913 = getelementptr inbounds nuw i8, ptr %33, i64 13
   store i8 %7912, ptr %7913, align 1
   br i1 %3, label %7914, label %7921
 
@@ -11677,7 +11677,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %8471 = icmp slt i32 %8437, %8470
   %8472 = zext i1 %8471 to i8
   %8473 = add i8 %8404, %8472
-  %8474 = getelementptr inbounds i8, ptr %33, i64 14
+  %8474 = getelementptr inbounds nuw i8, ptr %33, i64 14
   store i8 %8473, ptr %8474, align 1
   br i1 %3, label %8475, label %8481
 
@@ -12430,7 +12430,7 @@ _ZNK2cv11_InputArray6getMatEi.exit802:            ; preds = %18, %15
   %9031 = icmp slt i32 %8997, %9030
   %9032 = zext i1 %9031 to i8
   %9033 = add i8 %8964, %9032
-  %9034 = getelementptr inbounds i8, ptr %33, i64 15
+  %9034 = getelementptr inbounds nuw i8, ptr %33, i64 15
   store i8 %9033, ptr %9034, align 1
   %9035 = add nuw i64 %.07984126, 1
   %9036 = load ptr, ptr %19, align 8
@@ -12457,7 +12457,7 @@ define internal void @_ZN2cv11xfeatures2dL12pixelTests32ERKNS_11_InputArrayERKSt
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !20
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %11)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -12475,7 +12475,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !23
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %_ZNK2cv11_InputArray6getMatEi.exit1586 unwind label %35
@@ -12485,17 +12485,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
           to label %_ZNK2cv11_InputArray6getMatEi.exit1586 unwind label %35
 
 _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %20, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK2cv11_InputArray6getMatEi.exit1586
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
-  %23 = getelementptr inbounds i8, ptr %6, i64 72
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %26
 
 26:                                               ; preds = %.lr.ph, %17989
@@ -12519,7 +12519,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %34, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %39 = load float, ptr %38, align 4
   %40 = fmul float %39, 0x3F91DF46A0000000
   %41 = fpext float %40 to double
@@ -12545,7 +12545,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %.sroa.0.16701 = phi <2 x float> [ %.sroa.0.4.vec.insert, %37 ], [ %.sroa.0.08237, %26 ]
   %.029.i = phi i32 [ %spec.store.select2.i, %37 ], [ -1, %26 ]
   %.0.i = phi i32 [ %spec.store.select3.i, %37 ], [ -2, %26 ]
-  %53 = getelementptr inbounds i8, ptr %34, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %54 = load float, ptr %53, align 4
   %55 = fpext float %54 to double
   %56 = fadd double %55, 5.000000e-01
@@ -14031,7 +14031,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %1163 = icmp slt i32 %1129, %1162
   %1164 = zext i1 %1163 to i8
   %1165 = add i8 %1097, %1164
-  %1166 = getelementptr inbounds i8, ptr %33, i64 1
+  %1166 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %1165, ptr %1166, align 1
   br i1 %3, label %1167, label %1174
 
@@ -14787,7 +14787,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %1726 = icmp slt i32 %1692, %1725
   %1727 = zext i1 %1726 to i8
   %1728 = add i8 %1659, %1727
-  %1729 = getelementptr inbounds i8, ptr %33, i64 2
+  %1729 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %1728, ptr %1729, align 1
   br i1 %3, label %1730, label %1737
 
@@ -15542,7 +15542,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %2288 = icmp slt i32 %2254, %2287
   %2289 = zext i1 %2288 to i8
   %2290 = add i8 %2221, %2289
-  %2291 = getelementptr inbounds i8, ptr %33, i64 3
+  %2291 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 %2290, ptr %2291, align 1
   br i1 %3, label %2292, label %2299
 
@@ -16298,7 +16298,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %2851 = icmp slt i32 %2817, %2850
   %2852 = zext i1 %2851 to i8
   %2853 = add i8 %2784, %2852
-  %2854 = getelementptr inbounds i8, ptr %33, i64 4
+  %2854 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i8 %2853, ptr %2854, align 1
   br i1 %3, label %2855, label %2862
 
@@ -17054,7 +17054,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %3414 = icmp slt i32 %3380, %3413
   %3415 = zext i1 %3414 to i8
   %3416 = add i8 %3347, %3415
-  %3417 = getelementptr inbounds i8, ptr %33, i64 5
+  %3417 = getelementptr inbounds nuw i8, ptr %33, i64 5
   store i8 %3416, ptr %3417, align 1
   br i1 %3, label %3418, label %3425
 
@@ -17808,7 +17808,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %3975 = icmp slt i32 %3941, %3974
   %3976 = zext i1 %3975 to i8
   %3977 = add i8 %3908, %3976
-  %3978 = getelementptr inbounds i8, ptr %33, i64 6
+  %3978 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i8 %3977, ptr %3978, align 1
   br i1 %3, label %3979, label %3986
 
@@ -18564,7 +18564,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %4538 = icmp slt i32 %4504, %4537
   %4539 = zext i1 %4538 to i8
   %4540 = add i8 %4471, %4539
-  %4541 = getelementptr inbounds i8, ptr %33, i64 7
+  %4541 = getelementptr inbounds nuw i8, ptr %33, i64 7
   store i8 %4540, ptr %4541, align 1
   br i1 %3, label %4542, label %4549
 
@@ -19319,7 +19319,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %5100 = icmp slt i32 %5066, %5099
   %5101 = zext i1 %5100 to i8
   %5102 = add i8 %5033, %5101
-  %5103 = getelementptr inbounds i8, ptr %33, i64 8
+  %5103 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 %5102, ptr %5103, align 1
   br i1 %3, label %5104, label %5111
 
@@ -20074,7 +20074,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %5662 = icmp slt i32 %5628, %5661
   %5663 = zext i1 %5662 to i8
   %5664 = add i8 %5595, %5663
-  %5665 = getelementptr inbounds i8, ptr %33, i64 9
+  %5665 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 %5664, ptr %5665, align 1
   br i1 %3, label %5666, label %5673
 
@@ -20828,7 +20828,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %6223 = icmp slt i32 %6190, %6222
   %6224 = zext i1 %6223 to i8
   %6225 = add i8 %6157, %6224
-  %6226 = getelementptr inbounds i8, ptr %33, i64 10
+  %6226 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i8 %6225, ptr %6226, align 1
   br i1 %3, label %6227, label %6234
 
@@ -21583,7 +21583,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %6785 = icmp slt i32 %6751, %6784
   %6786 = zext i1 %6785 to i8
   %6787 = add i8 %6718, %6786
-  %6788 = getelementptr inbounds i8, ptr %33, i64 11
+  %6788 = getelementptr inbounds nuw i8, ptr %33, i64 11
   store i8 %6787, ptr %6788, align 1
   br i1 %3, label %6789, label %6796
 
@@ -22339,7 +22339,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %7348 = icmp slt i32 %7314, %7347
   %7349 = zext i1 %7348 to i8
   %7350 = add i8 %7281, %7349
-  %7351 = getelementptr inbounds i8, ptr %33, i64 12
+  %7351 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i8 %7350, ptr %7351, align 1
   br i1 %3, label %7352, label %7359
 
@@ -23094,7 +23094,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %7910 = icmp slt i32 %7876, %7909
   %7911 = zext i1 %7910 to i8
   %7912 = add i8 %7843, %7911
-  %7913 = getelementptr inbounds i8, ptr %33, i64 13
+  %7913 = getelementptr inbounds nuw i8, ptr %33, i64 13
   store i8 %7912, ptr %7913, align 1
   br i1 %3, label %7914, label %7921
 
@@ -23848,7 +23848,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %8471 = icmp slt i32 %8437, %8470
   %8472 = zext i1 %8471 to i8
   %8473 = add i8 %8404, %8472
-  %8474 = getelementptr inbounds i8, ptr %33, i64 14
+  %8474 = getelementptr inbounds nuw i8, ptr %33, i64 14
   store i8 %8473, ptr %8474, align 1
   br i1 %3, label %8475, label %8481
 
@@ -24601,7 +24601,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %9031 = icmp slt i32 %8997, %9030
   %9032 = zext i1 %9031 to i8
   %9033 = add i8 %8964, %9032
-  %9034 = getelementptr inbounds i8, ptr %33, i64 15
+  %9034 = getelementptr inbounds nuw i8, ptr %33, i64 15
   store i8 %9033, ptr %9034, align 1
   br i1 %3, label %9035, label %9042
 
@@ -25354,7 +25354,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %9591 = icmp slt i32 %9558, %9590
   %9592 = zext i1 %9591 to i8
   %9593 = add i8 %9525, %9592
-  %9594 = getelementptr inbounds i8, ptr %33, i64 16
+  %9594 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i8 %9593, ptr %9594, align 1
   br i1 %3, label %9595, label %9602
 
@@ -26110,7 +26110,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %10154 = icmp slt i32 %10120, %10153
   %10155 = zext i1 %10154 to i8
   %10156 = add i8 %10087, %10155
-  %10157 = getelementptr inbounds i8, ptr %33, i64 17
+  %10157 = getelementptr inbounds nuw i8, ptr %33, i64 17
   store i8 %10156, ptr %10157, align 1
   br i1 %3, label %10158, label %10165
 
@@ -26863,7 +26863,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %10714 = icmp slt i32 %10681, %10713
   %10715 = zext i1 %10714 to i8
   %10716 = add i8 %10648, %10715
-  %10717 = getelementptr inbounds i8, ptr %33, i64 18
+  %10717 = getelementptr inbounds nuw i8, ptr %33, i64 18
   store i8 %10716, ptr %10717, align 1
   br i1 %3, label %10718, label %10725
 
@@ -27617,7 +27617,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %11275 = icmp slt i32 %11241, %11274
   %11276 = zext i1 %11275 to i8
   %11277 = add i8 %11210, %11276
-  %11278 = getelementptr inbounds i8, ptr %33, i64 19
+  %11278 = getelementptr inbounds nuw i8, ptr %33, i64 19
   store i8 %11277, ptr %11278, align 1
   br i1 %3, label %11279, label %11286
 
@@ -28372,7 +28372,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %11837 = icmp slt i32 %11803, %11836
   %11838 = zext i1 %11837 to i8
   %11839 = add i8 %11771, %11838
-  %11840 = getelementptr inbounds i8, ptr %33, i64 20
+  %11840 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 %11839, ptr %11840, align 1
   br i1 %3, label %11841, label %11847
 
@@ -29127,7 +29127,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %12399 = icmp slt i32 %12365, %12398
   %12400 = zext i1 %12399 to i8
   %12401 = add i8 %12332, %12400
-  %12402 = getelementptr inbounds i8, ptr %33, i64 21
+  %12402 = getelementptr inbounds nuw i8, ptr %33, i64 21
   store i8 %12401, ptr %12402, align 1
   br i1 %3, label %12403, label %12410
 
@@ -29883,7 +29883,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %12962 = icmp slt i32 %12928, %12961
   %12963 = zext i1 %12962 to i8
   %12964 = add i8 %12895, %12963
-  %12965 = getelementptr inbounds i8, ptr %33, i64 22
+  %12965 = getelementptr inbounds nuw i8, ptr %33, i64 22
   store i8 %12964, ptr %12965, align 1
   br i1 %3, label %12966, label %12973
 
@@ -30638,7 +30638,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %13524 = icmp slt i32 %13490, %13523
   %13525 = zext i1 %13524 to i8
   %13526 = add i8 %13457, %13525
-  %13527 = getelementptr inbounds i8, ptr %33, i64 23
+  %13527 = getelementptr inbounds nuw i8, ptr %33, i64 23
   store i8 %13526, ptr %13527, align 1
   br i1 %3, label %13528, label %13535
 
@@ -31389,7 +31389,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %14082 = icmp slt i32 %14049, %14081
   %14083 = zext i1 %14082 to i8
   %14084 = add i8 %14016, %14083
-  %14085 = getelementptr inbounds i8, ptr %33, i64 24
+  %14085 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i8 %14084, ptr %14085, align 1
   br i1 %3, label %14086, label %14093
 
@@ -32144,7 +32144,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %14644 = icmp slt i32 %14610, %14643
   %14645 = zext i1 %14644 to i8
   %14646 = add i8 %14577, %14645
-  %14647 = getelementptr inbounds i8, ptr %33, i64 25
+  %14647 = getelementptr inbounds nuw i8, ptr %33, i64 25
   store i8 %14646, ptr %14647, align 1
   br i1 %3, label %14648, label %14655
 
@@ -32900,7 +32900,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %15207 = icmp slt i32 %15173, %15206
   %15208 = zext i1 %15207 to i8
   %15209 = add i8 %15140, %15208
-  %15210 = getelementptr inbounds i8, ptr %33, i64 26
+  %15210 = getelementptr inbounds nuw i8, ptr %33, i64 26
   store i8 %15209, ptr %15210, align 1
   br i1 %3, label %15211, label %15218
 
@@ -33655,7 +33655,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %15769 = icmp slt i32 %15735, %15768
   %15770 = zext i1 %15769 to i8
   %15771 = add i8 %15702, %15770
-  %15772 = getelementptr inbounds i8, ptr %33, i64 27
+  %15772 = getelementptr inbounds nuw i8, ptr %33, i64 27
   store i8 %15771, ptr %15772, align 1
   br i1 %3, label %15773, label %15779
 
@@ -34410,7 +34410,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %16331 = icmp slt i32 %16297, %16330
   %16332 = zext i1 %16331 to i8
   %16333 = add i8 %16264, %16332
-  %16334 = getelementptr inbounds i8, ptr %33, i64 28
+  %16334 = getelementptr inbounds nuw i8, ptr %33, i64 28
   store i8 %16333, ptr %16334, align 1
   br i1 %3, label %16335, label %16342
 
@@ -35164,7 +35164,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %16892 = icmp slt i32 %16858, %16891
   %16893 = zext i1 %16892 to i8
   %16894 = add i8 %16826, %16893
-  %16895 = getelementptr inbounds i8, ptr %33, i64 29
+  %16895 = getelementptr inbounds nuw i8, ptr %33, i64 29
   store i8 %16894, ptr %16895, align 1
   br i1 %3, label %16896, label %16903
 
@@ -35920,7 +35920,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %17455 = icmp slt i32 %17421, %17454
   %17456 = zext i1 %17455 to i8
   %17457 = add i8 %17388, %17456
-  %17458 = getelementptr inbounds i8, ptr %33, i64 30
+  %17458 = getelementptr inbounds nuw i8, ptr %33, i64 30
   store i8 %17457, ptr %17458, align 1
   br i1 %3, label %17459, label %17465
 
@@ -36673,7 +36673,7 @@ _ZNK2cv11_InputArray6getMatEi.exit1586:           ; preds = %18, %15
   %18015 = icmp slt i32 %17981, %18014
   %18016 = zext i1 %18015 to i8
   %18017 = add i8 %17948, %18016
-  %18018 = getelementptr inbounds i8, ptr %33, i64 31
+  %18018 = getelementptr inbounds nuw i8, ptr %33, i64 31
   store i8 %18017, ptr %18018, align 1
   %18019 = add nuw i64 %.015828238, 1
   %18020 = load ptr, ptr %19, align 8
@@ -36700,7 +36700,7 @@ define internal void @_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !noalias !27
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %11)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -36718,7 +36718,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %.noexc
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !30
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %17)
           to label %_ZNK2cv11_InputArray6getMatEi.exit3154 unwind label %35
@@ -36728,17 +36728,17 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
           to label %_ZNK2cv11_InputArray6getMatEi.exit3154 unwind label %35
 
 _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %20, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK2cv11_InputArray6getMatEi.exit3154
-  %22 = getelementptr inbounds i8, ptr %6, i64 16
-  %23 = getelementptr inbounds i8, ptr %6, i64 72
-  %24 = getelementptr inbounds i8, ptr %5, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %26
 
 26:                                               ; preds = %.lr.ph, %35968
@@ -36762,7 +36762,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   resume { ptr, i32 } %36
 
 37:                                               ; preds = %26
-  %38 = getelementptr inbounds i8, ptr %34, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %39 = load float, ptr %38, align 4
   %40 = fmul float %39, 0x3F91DF46A0000000
   %41 = fpext float %40 to double
@@ -36788,7 +36788,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %.sroa.0.113389 = phi <2 x float> [ %.sroa.0.4.vec.insert, %37 ], [ %.sroa.0.016461, %26 ]
   %.029.i = phi i32 [ %spec.store.select2.i, %37 ], [ -1, %26 ]
   %.0.i = phi i32 [ %spec.store.select3.i, %37 ], [ -2, %26 ]
-  %53 = getelementptr inbounds i8, ptr %34, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %54 = load float, ptr %53, align 4
   %55 = fpext float %54 to double
   %56 = fadd double %55, 5.000000e-01
@@ -38274,7 +38274,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %1163 = icmp slt i32 %1129, %1162
   %1164 = zext i1 %1163 to i8
   %1165 = add i8 %1097, %1164
-  %1166 = getelementptr inbounds i8, ptr %33, i64 1
+  %1166 = getelementptr inbounds nuw i8, ptr %33, i64 1
   store i8 %1165, ptr %1166, align 1
   br i1 %3, label %1167, label %1174
 
@@ -39030,7 +39030,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %1726 = icmp slt i32 %1692, %1725
   %1727 = zext i1 %1726 to i8
   %1728 = add i8 %1659, %1727
-  %1729 = getelementptr inbounds i8, ptr %33, i64 2
+  %1729 = getelementptr inbounds nuw i8, ptr %33, i64 2
   store i8 %1728, ptr %1729, align 1
   br i1 %3, label %1730, label %1737
 
@@ -39785,7 +39785,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %2288 = icmp slt i32 %2254, %2287
   %2289 = zext i1 %2288 to i8
   %2290 = add i8 %2221, %2289
-  %2291 = getelementptr inbounds i8, ptr %33, i64 3
+  %2291 = getelementptr inbounds nuw i8, ptr %33, i64 3
   store i8 %2290, ptr %2291, align 1
   br i1 %3, label %2292, label %2299
 
@@ -40541,7 +40541,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %2851 = icmp slt i32 %2817, %2850
   %2852 = zext i1 %2851 to i8
   %2853 = add i8 %2784, %2852
-  %2854 = getelementptr inbounds i8, ptr %33, i64 4
+  %2854 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i8 %2853, ptr %2854, align 1
   br i1 %3, label %2855, label %2862
 
@@ -41297,7 +41297,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %3414 = icmp slt i32 %3380, %3413
   %3415 = zext i1 %3414 to i8
   %3416 = add i8 %3347, %3415
-  %3417 = getelementptr inbounds i8, ptr %33, i64 5
+  %3417 = getelementptr inbounds nuw i8, ptr %33, i64 5
   store i8 %3416, ptr %3417, align 1
   br i1 %3, label %3418, label %3425
 
@@ -42051,7 +42051,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %3975 = icmp slt i32 %3941, %3974
   %3976 = zext i1 %3975 to i8
   %3977 = add i8 %3908, %3976
-  %3978 = getelementptr inbounds i8, ptr %33, i64 6
+  %3978 = getelementptr inbounds nuw i8, ptr %33, i64 6
   store i8 %3977, ptr %3978, align 1
   br i1 %3, label %3979, label %3986
 
@@ -42807,7 +42807,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %4538 = icmp slt i32 %4504, %4537
   %4539 = zext i1 %4538 to i8
   %4540 = add i8 %4471, %4539
-  %4541 = getelementptr inbounds i8, ptr %33, i64 7
+  %4541 = getelementptr inbounds nuw i8, ptr %33, i64 7
   store i8 %4540, ptr %4541, align 1
   br i1 %3, label %4542, label %4549
 
@@ -43562,7 +43562,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %5100 = icmp slt i32 %5066, %5099
   %5101 = zext i1 %5100 to i8
   %5102 = add i8 %5033, %5101
-  %5103 = getelementptr inbounds i8, ptr %33, i64 8
+  %5103 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i8 %5102, ptr %5103, align 1
   br i1 %3, label %5104, label %5111
 
@@ -44317,7 +44317,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %5662 = icmp slt i32 %5628, %5661
   %5663 = zext i1 %5662 to i8
   %5664 = add i8 %5595, %5663
-  %5665 = getelementptr inbounds i8, ptr %33, i64 9
+  %5665 = getelementptr inbounds nuw i8, ptr %33, i64 9
   store i8 %5664, ptr %5665, align 1
   br i1 %3, label %5666, label %5673
 
@@ -45071,7 +45071,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %6223 = icmp slt i32 %6190, %6222
   %6224 = zext i1 %6223 to i8
   %6225 = add i8 %6157, %6224
-  %6226 = getelementptr inbounds i8, ptr %33, i64 10
+  %6226 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i8 %6225, ptr %6226, align 1
   br i1 %3, label %6227, label %6234
 
@@ -45826,7 +45826,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %6785 = icmp slt i32 %6751, %6784
   %6786 = zext i1 %6785 to i8
   %6787 = add i8 %6718, %6786
-  %6788 = getelementptr inbounds i8, ptr %33, i64 11
+  %6788 = getelementptr inbounds nuw i8, ptr %33, i64 11
   store i8 %6787, ptr %6788, align 1
   br i1 %3, label %6789, label %6796
 
@@ -46582,7 +46582,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %7348 = icmp slt i32 %7314, %7347
   %7349 = zext i1 %7348 to i8
   %7350 = add i8 %7281, %7349
-  %7351 = getelementptr inbounds i8, ptr %33, i64 12
+  %7351 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i8 %7350, ptr %7351, align 1
   br i1 %3, label %7352, label %7359
 
@@ -47337,7 +47337,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %7910 = icmp slt i32 %7876, %7909
   %7911 = zext i1 %7910 to i8
   %7912 = add i8 %7843, %7911
-  %7913 = getelementptr inbounds i8, ptr %33, i64 13
+  %7913 = getelementptr inbounds nuw i8, ptr %33, i64 13
   store i8 %7912, ptr %7913, align 1
   br i1 %3, label %7914, label %7921
 
@@ -48091,7 +48091,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %8471 = icmp slt i32 %8437, %8470
   %8472 = zext i1 %8471 to i8
   %8473 = add i8 %8404, %8472
-  %8474 = getelementptr inbounds i8, ptr %33, i64 14
+  %8474 = getelementptr inbounds nuw i8, ptr %33, i64 14
   store i8 %8473, ptr %8474, align 1
   br i1 %3, label %8475, label %8481
 
@@ -48844,7 +48844,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %9031 = icmp slt i32 %8997, %9030
   %9032 = zext i1 %9031 to i8
   %9033 = add i8 %8964, %9032
-  %9034 = getelementptr inbounds i8, ptr %33, i64 15
+  %9034 = getelementptr inbounds nuw i8, ptr %33, i64 15
   store i8 %9033, ptr %9034, align 1
   br i1 %3, label %9035, label %9042
 
@@ -49597,7 +49597,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %9591 = icmp slt i32 %9558, %9590
   %9592 = zext i1 %9591 to i8
   %9593 = add i8 %9525, %9592
-  %9594 = getelementptr inbounds i8, ptr %33, i64 16
+  %9594 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i8 %9593, ptr %9594, align 1
   br i1 %3, label %9595, label %9602
 
@@ -50353,7 +50353,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %10154 = icmp slt i32 %10120, %10153
   %10155 = zext i1 %10154 to i8
   %10156 = add i8 %10087, %10155
-  %10157 = getelementptr inbounds i8, ptr %33, i64 17
+  %10157 = getelementptr inbounds nuw i8, ptr %33, i64 17
   store i8 %10156, ptr %10157, align 1
   br i1 %3, label %10158, label %10165
 
@@ -51106,7 +51106,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %10714 = icmp slt i32 %10681, %10713
   %10715 = zext i1 %10714 to i8
   %10716 = add i8 %10648, %10715
-  %10717 = getelementptr inbounds i8, ptr %33, i64 18
+  %10717 = getelementptr inbounds nuw i8, ptr %33, i64 18
   store i8 %10716, ptr %10717, align 1
   br i1 %3, label %10718, label %10725
 
@@ -51860,7 +51860,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %11275 = icmp slt i32 %11241, %11274
   %11276 = zext i1 %11275 to i8
   %11277 = add i8 %11210, %11276
-  %11278 = getelementptr inbounds i8, ptr %33, i64 19
+  %11278 = getelementptr inbounds nuw i8, ptr %33, i64 19
   store i8 %11277, ptr %11278, align 1
   br i1 %3, label %11279, label %11286
 
@@ -52615,7 +52615,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %11837 = icmp slt i32 %11803, %11836
   %11838 = zext i1 %11837 to i8
   %11839 = add i8 %11771, %11838
-  %11840 = getelementptr inbounds i8, ptr %33, i64 20
+  %11840 = getelementptr inbounds nuw i8, ptr %33, i64 20
   store i8 %11839, ptr %11840, align 1
   br i1 %3, label %11841, label %11847
 
@@ -53370,7 +53370,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %12399 = icmp slt i32 %12365, %12398
   %12400 = zext i1 %12399 to i8
   %12401 = add i8 %12332, %12400
-  %12402 = getelementptr inbounds i8, ptr %33, i64 21
+  %12402 = getelementptr inbounds nuw i8, ptr %33, i64 21
   store i8 %12401, ptr %12402, align 1
   br i1 %3, label %12403, label %12410
 
@@ -54126,7 +54126,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %12962 = icmp slt i32 %12928, %12961
   %12963 = zext i1 %12962 to i8
   %12964 = add i8 %12895, %12963
-  %12965 = getelementptr inbounds i8, ptr %33, i64 22
+  %12965 = getelementptr inbounds nuw i8, ptr %33, i64 22
   store i8 %12964, ptr %12965, align 1
   br i1 %3, label %12966, label %12973
 
@@ -54881,7 +54881,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %13524 = icmp slt i32 %13490, %13523
   %13525 = zext i1 %13524 to i8
   %13526 = add i8 %13457, %13525
-  %13527 = getelementptr inbounds i8, ptr %33, i64 23
+  %13527 = getelementptr inbounds nuw i8, ptr %33, i64 23
   store i8 %13526, ptr %13527, align 1
   br i1 %3, label %13528, label %13535
 
@@ -55632,7 +55632,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %14082 = icmp slt i32 %14049, %14081
   %14083 = zext i1 %14082 to i8
   %14084 = add i8 %14016, %14083
-  %14085 = getelementptr inbounds i8, ptr %33, i64 24
+  %14085 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i8 %14084, ptr %14085, align 1
   br i1 %3, label %14086, label %14093
 
@@ -56387,7 +56387,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %14644 = icmp slt i32 %14610, %14643
   %14645 = zext i1 %14644 to i8
   %14646 = add i8 %14577, %14645
-  %14647 = getelementptr inbounds i8, ptr %33, i64 25
+  %14647 = getelementptr inbounds nuw i8, ptr %33, i64 25
   store i8 %14646, ptr %14647, align 1
   br i1 %3, label %14648, label %14655
 
@@ -57143,7 +57143,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %15207 = icmp slt i32 %15173, %15206
   %15208 = zext i1 %15207 to i8
   %15209 = add i8 %15140, %15208
-  %15210 = getelementptr inbounds i8, ptr %33, i64 26
+  %15210 = getelementptr inbounds nuw i8, ptr %33, i64 26
   store i8 %15209, ptr %15210, align 1
   br i1 %3, label %15211, label %15218
 
@@ -57898,7 +57898,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %15769 = icmp slt i32 %15735, %15768
   %15770 = zext i1 %15769 to i8
   %15771 = add i8 %15702, %15770
-  %15772 = getelementptr inbounds i8, ptr %33, i64 27
+  %15772 = getelementptr inbounds nuw i8, ptr %33, i64 27
   store i8 %15771, ptr %15772, align 1
   br i1 %3, label %15773, label %15779
 
@@ -58653,7 +58653,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %16331 = icmp slt i32 %16297, %16330
   %16332 = zext i1 %16331 to i8
   %16333 = add i8 %16264, %16332
-  %16334 = getelementptr inbounds i8, ptr %33, i64 28
+  %16334 = getelementptr inbounds nuw i8, ptr %33, i64 28
   store i8 %16333, ptr %16334, align 1
   br i1 %3, label %16335, label %16342
 
@@ -59407,7 +59407,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %16892 = icmp slt i32 %16858, %16891
   %16893 = zext i1 %16892 to i8
   %16894 = add i8 %16826, %16893
-  %16895 = getelementptr inbounds i8, ptr %33, i64 29
+  %16895 = getelementptr inbounds nuw i8, ptr %33, i64 29
   store i8 %16894, ptr %16895, align 1
   br i1 %3, label %16896, label %16903
 
@@ -60163,7 +60163,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %17455 = icmp slt i32 %17421, %17454
   %17456 = zext i1 %17455 to i8
   %17457 = add i8 %17388, %17456
-  %17458 = getelementptr inbounds i8, ptr %33, i64 30
+  %17458 = getelementptr inbounds nuw i8, ptr %33, i64 30
   store i8 %17457, ptr %17458, align 1
   br i1 %3, label %17459, label %17465
 
@@ -60916,7 +60916,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %18015 = icmp slt i32 %17981, %18014
   %18016 = zext i1 %18015 to i8
   %18017 = add i8 %17948, %18016
-  %18018 = getelementptr inbounds i8, ptr %33, i64 31
+  %18018 = getelementptr inbounds nuw i8, ptr %33, i64 31
   store i8 %18017, ptr %18018, align 1
   br i1 %3, label %18019, label %18026
 
@@ -61669,7 +61669,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %18575 = icmp slt i32 %18542, %18574
   %18576 = zext i1 %18575 to i8
   %18577 = add i8 %18510, %18576
-  %18578 = getelementptr inbounds i8, ptr %33, i64 32
+  %18578 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 %18577, ptr %18578, align 1
   br i1 %3, label %18579, label %18585
 
@@ -62424,7 +62424,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %19137 = icmp slt i32 %19103, %19136
   %19138 = zext i1 %19137 to i8
   %19139 = add i8 %19070, %19138
-  %19140 = getelementptr inbounds i8, ptr %33, i64 33
+  %19140 = getelementptr inbounds nuw i8, ptr %33, i64 33
   store i8 %19139, ptr %19140, align 1
   br i1 %3, label %19141, label %19148
 
@@ -63180,7 +63180,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %19700 = icmp slt i32 %19666, %19699
   %19701 = zext i1 %19700 to i8
   %19702 = add i8 %19633, %19701
-  %19703 = getelementptr inbounds i8, ptr %33, i64 34
+  %19703 = getelementptr inbounds nuw i8, ptr %33, i64 34
   store i8 %19702, ptr %19703, align 1
   br i1 %3, label %19704, label %19711
 
@@ -63935,7 +63935,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %20262 = icmp slt i32 %20228, %20261
   %20263 = zext i1 %20262 to i8
   %20264 = add i8 %20195, %20263
-  %20265 = getelementptr inbounds i8, ptr %33, i64 35
+  %20265 = getelementptr inbounds nuw i8, ptr %33, i64 35
   store i8 %20264, ptr %20265, align 1
   br i1 %3, label %20266, label %20273
 
@@ -64690,7 +64690,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %20824 = icmp slt i32 %20790, %20823
   %20825 = zext i1 %20824 to i8
   %20826 = add i8 %20757, %20825
-  %20827 = getelementptr inbounds i8, ptr %33, i64 36
+  %20827 = getelementptr inbounds nuw i8, ptr %33, i64 36
   store i8 %20826, ptr %20827, align 1
   br i1 %3, label %20828, label %20835
 
@@ -65444,7 +65444,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %21385 = icmp slt i32 %21351, %21384
   %21386 = zext i1 %21385 to i8
   %21387 = add i8 %21318, %21386
-  %21388 = getelementptr inbounds i8, ptr %33, i64 37
+  %21388 = getelementptr inbounds nuw i8, ptr %33, i64 37
   store i8 %21387, ptr %21388, align 1
   br i1 %3, label %21389, label %21396
 
@@ -66200,7 +66200,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %21948 = icmp slt i32 %21914, %21947
   %21949 = zext i1 %21948 to i8
   %21950 = add i8 %21881, %21949
-  %21951 = getelementptr inbounds i8, ptr %33, i64 38
+  %21951 = getelementptr inbounds nuw i8, ptr %33, i64 38
   store i8 %21950, ptr %21951, align 1
   br i1 %3, label %21952, label %21959
 
@@ -66956,7 +66956,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %22511 = icmp slt i32 %22477, %22510
   %22512 = zext i1 %22511 to i8
   %22513 = add i8 %22444, %22512
-  %22514 = getelementptr inbounds i8, ptr %33, i64 39
+  %22514 = getelementptr inbounds nuw i8, ptr %33, i64 39
   store i8 %22513, ptr %22514, align 1
   br i1 %3, label %22515, label %22522
 
@@ -67712,7 +67712,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %23074 = icmp slt i32 %23040, %23073
   %23075 = zext i1 %23074 to i8
   %23076 = add i8 %23007, %23075
-  %23077 = getelementptr inbounds i8, ptr %33, i64 40
+  %23077 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i8 %23076, ptr %23077, align 1
   br i1 %3, label %23078, label %23085
 
@@ -68468,7 +68468,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %23637 = icmp slt i32 %23603, %23636
   %23638 = zext i1 %23637 to i8
   %23639 = add i8 %23570, %23638
-  %23640 = getelementptr inbounds i8, ptr %33, i64 41
+  %23640 = getelementptr inbounds nuw i8, ptr %33, i64 41
   store i8 %23639, ptr %23640, align 1
   br i1 %3, label %23641, label %23648
 
@@ -69224,7 +69224,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %24200 = icmp slt i32 %24166, %24199
   %24201 = zext i1 %24200 to i8
   %24202 = add i8 %24133, %24201
-  %24203 = getelementptr inbounds i8, ptr %33, i64 42
+  %24203 = getelementptr inbounds nuw i8, ptr %33, i64 42
   store i8 %24202, ptr %24203, align 1
   br i1 %3, label %24204, label %24211
 
@@ -69979,7 +69979,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %24762 = icmp slt i32 %24728, %24761
   %24763 = zext i1 %24762 to i8
   %24764 = add i8 %24696, %24763
-  %24765 = getelementptr inbounds i8, ptr %33, i64 43
+  %24765 = getelementptr inbounds nuw i8, ptr %33, i64 43
   store i8 %24764, ptr %24765, align 1
   br i1 %3, label %24766, label %24772
 
@@ -70732,7 +70732,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %25322 = icmp slt i32 %25288, %25321
   %25323 = zext i1 %25322 to i8
   %25324 = add i8 %25255, %25323
-  %25325 = getelementptr inbounds i8, ptr %33, i64 44
+  %25325 = getelementptr inbounds nuw i8, ptr %33, i64 44
   store i8 %25324, ptr %25325, align 1
   br i1 %3, label %25326, label %25333
 
@@ -71488,7 +71488,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %25885 = icmp slt i32 %25851, %25884
   %25886 = zext i1 %25885 to i8
   %25887 = add i8 %25818, %25886
-  %25888 = getelementptr inbounds i8, ptr %33, i64 45
+  %25888 = getelementptr inbounds nuw i8, ptr %33, i64 45
   store i8 %25887, ptr %25888, align 1
   br i1 %3, label %25889, label %25896
 
@@ -72244,7 +72244,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %26448 = icmp slt i32 %26414, %26447
   %26449 = zext i1 %26448 to i8
   %26450 = add i8 %26381, %26449
-  %26451 = getelementptr inbounds i8, ptr %33, i64 46
+  %26451 = getelementptr inbounds nuw i8, ptr %33, i64 46
   store i8 %26450, ptr %26451, align 1
   br i1 %3, label %26452, label %26459
 
@@ -73000,7 +73000,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %27011 = icmp slt i32 %26977, %27010
   %27012 = zext i1 %27011 to i8
   %27013 = add i8 %26944, %27012
-  %27014 = getelementptr inbounds i8, ptr %33, i64 47
+  %27014 = getelementptr inbounds nuw i8, ptr %33, i64 47
   store i8 %27013, ptr %27014, align 1
   br i1 %3, label %27015, label %27022
 
@@ -73756,7 +73756,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %27574 = icmp slt i32 %27540, %27573
   %27575 = zext i1 %27574 to i8
   %27576 = add i8 %27507, %27575
-  %27577 = getelementptr inbounds i8, ptr %33, i64 48
+  %27577 = getelementptr inbounds nuw i8, ptr %33, i64 48
   store i8 %27576, ptr %27577, align 1
   br i1 %3, label %27578, label %27585
 
@@ -74512,7 +74512,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %28137 = icmp slt i32 %28103, %28136
   %28138 = zext i1 %28137 to i8
   %28139 = add i8 %28070, %28138
-  %28140 = getelementptr inbounds i8, ptr %33, i64 49
+  %28140 = getelementptr inbounds nuw i8, ptr %33, i64 49
   store i8 %28139, ptr %28140, align 1
   br i1 %3, label %28141, label %28148
 
@@ -75266,7 +75266,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %28698 = icmp slt i32 %28664, %28697
   %28699 = zext i1 %28698 to i8
   %28700 = add i8 %28631, %28699
-  %28701 = getelementptr inbounds i8, ptr %33, i64 50
+  %28701 = getelementptr inbounds nuw i8, ptr %33, i64 50
   store i8 %28700, ptr %28701, align 1
   br i1 %3, label %28702, label %28709
 
@@ -76019,7 +76019,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %29258 = icmp slt i32 %29224, %29257
   %29259 = zext i1 %29258 to i8
   %29260 = add i8 %29192, %29259
-  %29261 = getelementptr inbounds i8, ptr %33, i64 51
+  %29261 = getelementptr inbounds nuw i8, ptr %33, i64 51
   store i8 %29260, ptr %29261, align 1
   br i1 %3, label %29262, label %29268
 
@@ -76772,7 +76772,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %29818 = icmp slt i32 %29784, %29817
   %29819 = zext i1 %29818 to i8
   %29820 = add i8 %29751, %29819
-  %29821 = getelementptr inbounds i8, ptr %33, i64 52
+  %29821 = getelementptr inbounds nuw i8, ptr %33, i64 52
   store i8 %29820, ptr %29821, align 1
   br i1 %3, label %29822, label %29829
 
@@ -77528,7 +77528,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %30381 = icmp slt i32 %30347, %30380
   %30382 = zext i1 %30381 to i8
   %30383 = add i8 %30314, %30382
-  %30384 = getelementptr inbounds i8, ptr %33, i64 53
+  %30384 = getelementptr inbounds nuw i8, ptr %33, i64 53
   store i8 %30383, ptr %30384, align 1
   br i1 %3, label %30385, label %30392
 
@@ -78281,7 +78281,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %30941 = icmp slt i32 %30907, %30940
   %30942 = zext i1 %30941 to i8
   %30943 = add i8 %30874, %30942
-  %30944 = getelementptr inbounds i8, ptr %33, i64 54
+  %30944 = getelementptr inbounds nuw i8, ptr %33, i64 54
   store i8 %30943, ptr %30944, align 1
   br i1 %3, label %30945, label %30952
 
@@ -79036,7 +79036,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %31503 = icmp slt i32 %31470, %31502
   %31504 = zext i1 %31503 to i8
   %31505 = add i8 %31437, %31504
-  %31506 = getelementptr inbounds i8, ptr %33, i64 55
+  %31506 = getelementptr inbounds nuw i8, ptr %33, i64 55
   store i8 %31505, ptr %31506, align 1
   br i1 %3, label %31507, label %31514
 
@@ -79791,7 +79791,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %32065 = icmp slt i32 %32031, %32064
   %32066 = zext i1 %32065 to i8
   %32067 = add i8 %31998, %32066
-  %32068 = getelementptr inbounds i8, ptr %33, i64 56
+  %32068 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store i8 %32067, ptr %32068, align 1
   br i1 %3, label %32069, label %32076
 
@@ -80545,7 +80545,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %32626 = icmp slt i32 %32592, %32625
   %32627 = zext i1 %32626 to i8
   %32628 = add i8 %32559, %32627
-  %32629 = getelementptr inbounds i8, ptr %33, i64 57
+  %32629 = getelementptr inbounds nuw i8, ptr %33, i64 57
   store i8 %32628, ptr %32629, align 1
   br i1 %3, label %32630, label %32637
 
@@ -81300,7 +81300,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %33188 = icmp slt i32 %33154, %33187
   %33189 = zext i1 %33188 to i8
   %33190 = add i8 %33121, %33189
-  %33191 = getelementptr inbounds i8, ptr %33, i64 58
+  %33191 = getelementptr inbounds nuw i8, ptr %33, i64 58
   store i8 %33190, ptr %33191, align 1
   br i1 %3, label %33192, label %33199
 
@@ -82055,7 +82055,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %33750 = icmp slt i32 %33716, %33749
   %33751 = zext i1 %33750 to i8
   %33752 = add i8 %33683, %33751
-  %33753 = getelementptr inbounds i8, ptr %33, i64 59
+  %33753 = getelementptr inbounds nuw i8, ptr %33, i64 59
   store i8 %33752, ptr %33753, align 1
   br i1 %3, label %33754, label %33761
 
@@ -82808,7 +82808,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %34310 = icmp slt i32 %34276, %34309
   %34311 = zext i1 %34310 to i8
   %34312 = add i8 %34243, %34311
-  %34313 = getelementptr inbounds i8, ptr %33, i64 60
+  %34313 = getelementptr inbounds nuw i8, ptr %33, i64 60
   store i8 %34312, ptr %34313, align 1
   br i1 %3, label %34314, label %34321
 
@@ -83560,7 +83560,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %34869 = icmp slt i32 %34835, %34868
   %34870 = zext i1 %34869 to i8
   %34871 = add i8 %34803, %34870
-  %34872 = getelementptr inbounds i8, ptr %33, i64 61
+  %34872 = getelementptr inbounds nuw i8, ptr %33, i64 61
   store i8 %34871, ptr %34872, align 1
   br i1 %3, label %34873, label %34880
 
@@ -84315,7 +84315,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %35431 = icmp slt i32 %35397, %35430
   %35432 = zext i1 %35431 to i8
   %35433 = add i8 %35364, %35432
-  %35434 = getelementptr inbounds i8, ptr %33, i64 62
+  %35434 = getelementptr inbounds nuw i8, ptr %33, i64 62
   store i8 %35433, ptr %35434, align 1
   br i1 %3, label %35435, label %35442
 
@@ -85071,7 +85071,7 @@ _ZNK2cv11_InputArray6getMatEi.exit3154:           ; preds = %18, %15
   %35994 = icmp slt i32 %35960, %35993
   %35995 = zext i1 %35994 to i8
   %35996 = add i8 %35927, %35995
-  %35997 = getelementptr inbounds i8, ptr %33, i64 63
+  %35997 = getelementptr inbounds nuw i8, ptr %33, i64 63
   store i8 %35996, ptr %35997, align 1
   %35998 = add nuw i64 %.0315016462, 1
   %35999 = load ptr, ptr %19, align 8
@@ -85107,11 +85107,11 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplC1Eib(ptr n
   tail call void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %6 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-80, 160) (i8, ptr @_ZTVN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 80), ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %6, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %9, align 8
   switch i32 %1, label %12 [
     i32 16, label %20
@@ -85170,7 +85170,7 @@ declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8
 define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImpl17setDescriptorSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
   switch i32 %1, label %8 [
     i32 16, label %16
@@ -85214,14 +85214,14 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImpl17setDescri
 
 16:                                               ; preds = %2, %7, %6
   %_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb.sink = phi ptr [ @_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb, %7 ], [ @_ZN2cv11xfeatures2dL12pixelTests32ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb, %6 ], [ @_ZN2cv11xfeatures2dL12pixelTests16ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb, %2 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb.sink, ptr %17, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK2cv11xfeatures2d28BriefDescriptorExtractorImpl14descriptorSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -85294,9 +85294,9 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImpl4readERKNS_
 
 23:                                               ; preds = %11, %14, %13
   %_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb.sink = phi ptr [ @_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb, %14 ], [ @_ZN2cv11xfeatures2dL12pixelTests32ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb, %13 ], [ @_ZN2cv11xfeatures2dL12pixelTests16ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb, %11 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %_ZN2cv11xfeatures2dL12pixelTests64ERKNS_11_InputArrayERKSt6vectorINS_8KeyPointESaIS5_EERKNS_12_OutputArrayEb.sink, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %12, ptr %25, align 8
   br label %26
 
@@ -85307,7 +85307,7 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImpl4readERKNS_
 
 28:                                               ; preds = %26
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %9, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.5)
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   call void @_ZN2cv4readERKNS_8FileNodeERii(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 0)
   %30 = load i32, ptr %3, align 4
@@ -85351,7 +85351,7 @@ define hidden void @_ZNK2cv11xfeatures2d28BriefDescriptorExtractorImpl5writeERNS
   %12 = alloca %"class.std::allocator", align 1
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %17, label %18, label %95
@@ -85393,7 +85393,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit:              ; preds = %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 56
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %0)
   %29 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -85432,17 +85432,17 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit7:             ; preds = %31
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10)
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8)
   %39 = load ptr, ptr %32, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(64) %32)
   br i1 %42, label %43, label %_ZN2cvlsIiEERNS_11FileStorageES2_RKT_.exit
 
 43:                                               ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit7
-  %44 = getelementptr inbounds i8, ptr %32, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 6
   br i1 %46, label %47, label %55
@@ -85476,7 +85476,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit7:             ; preds = %31
   br label %common.resume
 
 55:                                               ; preds = %43
-  %56 = getelementptr inbounds i8, ptr %32, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %57 = load i32, ptr %38, align 8
   call void @_ZN2cv5writeERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(32) %56, i32 noundef %57)
   %58 = load i32, ptr %44, align 8
@@ -85522,17 +85522,17 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit10:            ; preds = %61
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %68 = getelementptr inbounds i8, ptr %0, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 12
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %69 = load ptr, ptr %62, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = call noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(64) %62)
   br i1 %72, label %73, label %_ZN2cvlsIbEERNS_11FileStorageES2_RKT_.exit
 
 73:                                               ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit10
-  %74 = getelementptr inbounds i8, ptr %62, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, 6
   br i1 %76, label %77, label %85
@@ -85566,7 +85566,7 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit10:            ; preds = %61
   br label %common.resume
 
 85:                                               ; preds = %73
-  %86 = getelementptr inbounds i8, ptr %62, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %87 = load i8, ptr %68, align 4
   %88 = and i8 %87, 1
   %89 = zext nneg i8 %88 to i32
@@ -85627,7 +85627,7 @@ define hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImpl7computeERK
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %.noexc
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8, !noalias !34
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(96) %18)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %25
@@ -85645,8 +85645,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %16, %19
   br i1 %.not, label %31, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
-  %24 = getelementptr inbounds i8, ptr %7, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %24, align 8
   store i32 33619968, ptr %7, align 8
   store ptr %6, ptr %23, align 8
@@ -85669,15 +85669,15 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %16, %19
   br label %71
 
 31:                                               ; preds = %22, %21
-  %32 = getelementptr inbounds i8, ptr %8, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %33, align 4
   store i32 16842752, ptr %8, align 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %6, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %9, i64 8
-  %36 = getelementptr inbounds i8, ptr %9, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %36, align 8
   store i32 33619968, ptr %9, align 8
   store ptr %5, ptr %35, align 8
@@ -85693,7 +85693,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %16, %19
           to label %40 unwind label %27
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %2, align 8
   %44 = ptrtoint ptr %42 to i64
@@ -85701,35 +85701,35 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %16, %19
   %46 = sub i64 %44, %45
   %47 = sdiv exact i64 %46, 28
   %48 = trunc i64 %47 to i32
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 8
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %48, i32 noundef %50, i32 noundef 0, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %51 unwind label %27
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %10, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   store i32 -1056833530, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %10, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %11, ptr %53, align 8
   store i64 17179869185, ptr %52, align 8
   store i32 0, ptr %12, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
   invoke void @_ZNK2cv12_OutputArray5setToERKNS_11_InputArrayES3_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %55 unwind label %67
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %13, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 0, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %13, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i32 0, ptr %59, align 4
   store i32 16842752, ptr %13, align 8
-  %60 = getelementptr inbounds i8, ptr %13, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %5, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %62 = load i8, ptr %61, align 4
   %63 = trunc i8 %62 to i1
   invoke void %57(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %63)
@@ -85837,14 +85837,14 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 16)) #21
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 16)) #21
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 16)) #21
+  tail call void @_ZN2cv9Feature2DD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZTTN2cv11xfeatures2d28BriefDescriptorExtractorImplE, i64 16)) #21
   tail call void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
@@ -85852,7 +85852,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorIm
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv11xfeatures2d28BriefDescriptorExtractorImpl17getDescriptorSizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -85860,14 +85860,14 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv11xfeatures2d28BriefDescriptorExt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv11xfeatures2d28BriefDescriptorExtractorImpl17setUseOrientationEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #9 comdat align 2 {
   %3 = zext i1 %1 to i8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i8 %3, ptr %4, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK2cv11xfeatures2d28BriefDescriptorExtractorImpl17getUseOrientationEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #9 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -85913,7 +85913,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(24) %2) #21
@@ -85929,12 +85929,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11xfeatures2d28BriefDescriptorExtractorImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9

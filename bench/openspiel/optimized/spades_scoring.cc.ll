@@ -26,8 +26,8 @@ define i64 @_ZN10open_spiel6spades5ScoreESt5arrayIiLm4EES2_S1_IiLm2EE(i64 %0, i6
   store i32 %.sroa.2.0.extract.trunc, ptr %.sroa.2, align 4
   store i32 0, ptr %.sroa.037, align 8
   store i32 0, ptr %.sroa.3, align 4
-  %indvars.iv.sroa.gep30 = getelementptr inbounds i8, ptr %7, i64 4
-  %indvars.iv.sroa.gep33 = getelementptr inbounds i8, ptr %6, i64 4
+  %indvars.iv.sroa.gep30 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %indvars.iv.sroa.gep33 = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %10
 
 10:                                               ; preds = %5, %40
@@ -38,11 +38,11 @@ define i64 @_ZN10open_spiel6spades5ScoreESt5arrayIiLm4EES2_S1_IiLm2EE(i64 %0, i6
   %indvars.iv.sroa.phi34 = phi ptr [ %.sroa.037, %5 ], [ %.sroa.3, %40 ]
   %indvars.iv = phi i64 [ 2, %5 ], [ 3, %40 ]
   %12 = load i32, ptr %indvars.iv.sroa.phi31, align 4
-  %13 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = add nsw i32 %14, %12
   %16 = load i32, ptr %indvars.iv.sroa.phi29, align 4
-  %17 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = sub i32 %16, %15
   %20 = add i32 %19, %18

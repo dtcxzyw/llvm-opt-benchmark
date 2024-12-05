@@ -12363,7 +12363,7 @@ define internal i32 @dissect_lpp_DisplacementTimeStamp_r15(ptr noundef %0, i32 n
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -268435456, 268435456) i32 @dissect_lpp_AssistanceDataSIBelement_r15_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr @proto_lpp, align 4
   %9 = tail call ptr @p_get_proto_data(ptr noundef %7, ptr noundef %1, i32 noundef %8, i32 noundef 0) #10
@@ -14300,7 +14300,7 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_lpp(ptr noundef %0
   %5 = alloca %struct._asn1_ctx_t, align 8
   %6 = load i32, ptr @proto_lpp, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #10
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.6543, ptr noundef nonnull @.str.5814) #10
   %10 = load i32, ptr @ett_lpp, align 4
@@ -14337,7 +14337,7 @@ define internal i32 @dissect_lpp_T_gnss_id(ptr noundef %0, i32 noundef %1, ptr n
   %8 = load i32, ptr %6, align 4
   %9 = zext i32 %8 to i64
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %2, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %10, ptr %11, align 8
   ret i32 %7
 }
@@ -14428,7 +14428,7 @@ define internal i32 @dissect_lpp_T_notificationOfLeapSecond(ptr noundef %0, i32 
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -15479,9 +15479,9 @@ declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_CipheringKeyData_r15(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_lpp, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -15498,7 +15498,7 @@ define internal i32 @dissect_lpp_CipheringKeyData_r15(ptr noundef %0, i32 nounde
 
 lpp_get_private_data.exit:                        ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   store i32 1, ptr %17, align 4
   %18 = load i32, ptr @ett_lpp_CipheringKeyData_r15, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @CipheringKeyData_r15_sequence) #10
@@ -15507,9 +15507,9 @@ lpp_get_private_data.exit:                        ; preds = %5, %12
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_SegmentationInfo_r15(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr @proto_lpp, align 4
   %11 = tail call ptr @p_get_proto_data(ptr noundef %9, ptr noundef %7, i32 noundef %10, i32 noundef 0) #10
@@ -15526,7 +15526,7 @@ define internal i32 @dissect_lpp_SegmentationInfo_r15(ptr noundef %0, i32 nounde
 
 lpp_get_private_data.exit:                        ; preds = %5, %12
   %.0.i = phi ptr [ %11, %5 ], [ %14, %12 ]
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i32 1, ptr %17, align 4
   %18 = load i32, ptr @ett_lpp_SegmentationInfo_r15, align 4
   %19 = tail call i32 @dissect_per_sequence(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %18, ptr noundef nonnull @SegmentationInfo_r15_sequence) #10
@@ -15537,9 +15537,9 @@ lpp_get_private_data.exit:                        ; preds = %5, %12
 define internal i32 @dissect_lpp_T_assistanceDataElement_r15(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_lpp, align 4
   %12 = tail call ptr @p_get_proto_data(ptr noundef %10, ptr noundef %8, i32 noundef %11, i32 noundef 0) #10
@@ -15562,19 +15562,19 @@ lpp_get_private_data.exit:                        ; preds = %5, %13
   br i1 %.not, label %173, label %20
 
 20:                                               ; preds = %lpp_get_private_data.exit
-  %21 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %22 = load i32, ptr %21, align 4
   %.not104 = icmp eq i32 %22, 0
   br i1 %.not104, label %23, label %173
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %25 = load i32, ptr %24, align 4
   %.not105 = icmp eq i32 %25, 0
   br i1 %.not105, label %26, label %173
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr @ett_lpp_assistanceDataElement_r15, align 4
   %30 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29) #10
@@ -16482,7 +16482,7 @@ define internal i32 @dissect_lpp_T_dataID(ptr noundef %0, i32 noundef %1, ptr no
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -16662,7 +16662,7 @@ define internal i32 @dissect_lpp_T_smoothingIndicator_r15(ptr noundef %0, i32 no
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -16684,7 +16684,7 @@ define internal i32 @dissect_lpp_T_smoothingInterval_r15(ptr noundef %0, i32 nou
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -17191,19 +17191,19 @@ define internal i32 @dissect_lpp_INTEGER_M65536_65535(ptr noundef %0, i32 nounde
 define internal i32 @dissect_lpp_T_cnavMo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @dissect_per_constrained_integer_64b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef -4294967296, i64 noundef 4294967295, ptr noundef nonnull %6, i32 noundef 0) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -17226,19 +17226,19 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
 define internal i32 @dissect_lpp_T_cnavE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @dissect_per_constrained_integer_64b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef 0, i64 noundef 8589934591, ptr noundef nonnull %6, i32 noundef 0) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -17261,19 +17261,19 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
 define internal i32 @dissect_lpp_T_cnavOmega(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @dissect_per_constrained_integer_64b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef -4294967296, i64 noundef 4294967295, ptr noundef nonnull %6, i32 noundef 0) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -17296,19 +17296,19 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
 define internal i32 @dissect_lpp_T_cnavOMEGA0(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @dissect_per_constrained_integer_64b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef -4294967296, i64 noundef 4294967295, ptr noundef nonnull %6, i32 noundef 0) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -17331,19 +17331,19 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
 define internal i32 @dissect_lpp_T_cnavIo(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @dissect_per_constrained_integer_64b(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef -4294967296, i64 noundef 4294967295, ptr noundef nonnull %6, i32 noundef 0) #10
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %proto_item_set_hidden.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %12 = load ptr, ptr %11, align 8
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, 1
   store i32 %16, ptr %14, align 4
@@ -17383,7 +17383,7 @@ define internal i32 @dissect_lpp_T_gloP1(ptr noundef %0, i32 noundef %1, ptr nou
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -17437,7 +17437,7 @@ define internal i32 @dissect_lpp_T_svHealthExt_v1240(ptr noundef %0, i32 noundef
   br i1 %.not, label %20, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_lpp_svHealthExt_v1240, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -17566,7 +17566,7 @@ define internal i32 @dissect_lpp_GNSS_Almanac(ptr noundef %0, i32 noundef %1, pt
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_toa(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef nonnull %6, i32 noundef 0) #10
@@ -17581,7 +17581,7 @@ define internal i32 @dissect_lpp_T_toa(ptr noundef %0, i32 noundef %1, ptr nound
   %19 = select i1 %15, i32 %17, i32 %18
   %20 = load i32, ptr @hf_lpp_toa, align 4
   %21 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %1, i32 noundef %13, i32 noundef %16, ptr noundef nonnull @.str.5819, i32 noundef %19, i32 noundef %16) #10
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %21, ptr %22, align 8
   ret i32 %10
 }
@@ -17680,7 +17680,7 @@ define internal i32 @dissect_lpp_T_kepSV_StatusINAV(ptr noundef %0, i32 noundef 
   br i1 %.not, label %20, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_kepSV_StatusINAV, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -17706,7 +17706,7 @@ define internal i32 @dissect_lpp_T_kepSV_StatusFNAV(ptr noundef %0, i32 noundef 
   br i1 %.not, label %17, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_kepSV_StatusFNAV, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -17765,7 +17765,7 @@ define internal i32 @dissect_lpp_T_bdsSvHealth_r12(ptr noundef %0, i32 noundef %
   br i1 %.not, label %33, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @ett_lpp_bdsSvHealth_r12, align 4
   %13 = call ptr @proto_item_add_subtree(ptr noundef %11, i32 noundef %12) #10
@@ -17810,7 +17810,7 @@ declare ptr @proto_tree_add_boolean_bits_format_value(ptr noundef, i32 noundef, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_toa_ext_v1240(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 256, i32 noundef 1023, ptr noundef nonnull %6, i32 noundef 0) #10
@@ -17825,7 +17825,7 @@ define internal i32 @dissect_lpp_T_toa_ext_v1240(ptr noundef %0, i32 noundef %1,
   %19 = select i1 %15, i32 %17, i32 %18
   %20 = load i32, ptr @hf_lpp_toa_ext_v1240, align 4
   %21 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %1, i32 noundef %13, i32 noundef %16, ptr noundef nonnull @.str.5819, i32 noundef %19, i32 noundef %16) #10
-  %22 = getelementptr inbounds i8, ptr %2, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %21, ptr %22, align 8
   ret i32 %10
 }
@@ -17904,7 +17904,7 @@ define internal i32 @dissect_lpp_T_utcDN(ptr noundef %0, i32 noundef %1, ptr nou
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -17932,7 +17932,7 @@ define internal i32 @dissect_lpp_T_kp(ptr noundef %0, i32 noundef %1, ptr nounde
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -18742,7 +18742,7 @@ define internal i32 @dissect_lpp_PressureValidityArea_v1520(ptr noundef %0, i32 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_gN_pressure_v1520(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1024, i32 noundef 1023, ptr noundef null, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.5822) #10
   ret i32 %6
@@ -18751,7 +18751,7 @@ define internal i32 @dissect_lpp_T_gN_pressure_v1520(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_gE_pressure_v1520(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef -1024, i32 noundef 1023, ptr noundef null, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.5822) #10
   ret i32 %6
@@ -18809,7 +18809,7 @@ define internal i32 @dissect_lpp_T_transmitterLatitude_r14(ptr noundef %0, i32 n
   %9 = call i32 @tvb_get_bits32(ptr noundef %8, i32 noundef 0, i32 noundef 26, i32 noundef 0) #10
   %10 = load ptr, ptr %6, align 8
   %11 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %10, i32 noundef 0, i32 noundef 4, i32 noundef %9) #10
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %11, ptr %12, align 8
   ret i32 %7
 }
@@ -18823,7 +18823,7 @@ define internal i32 @dissect_lpp_T_transmitterLongitude_r14(ptr noundef %0, i32 
   %9 = call i32 @tvb_get_bits32(ptr noundef %8, i32 noundef 0, i32 noundef 27, i32 noundef 0) #10
   %10 = load ptr, ptr %6, align 8
   %11 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %10, i32 noundef 0, i32 noundef 4, i32 noundef %9) #10
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %11, ptr %12, align 8
   ret i32 %7
 }
@@ -18838,7 +18838,7 @@ define internal i32 @dissect_lpp_T_transmitterAltitude_r14(ptr noundef %0, i32 n
   %10 = zext i16 %9 to i32
   %11 = load ptr, ptr %6, align 8
   %12 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef %10) #10
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %12, ptr %13, align 8
   ret i32 %7
 }
@@ -19792,9 +19792,9 @@ define internal i32 @dissect_lpp_T_messageClassExtension(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_RequestCapabilities(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6544) #10
   %10 = load i32, ptr @ett_lpp_RequestCapabilities, align 4
@@ -19804,9 +19804,9 @@ define internal i32 @dissect_lpp_RequestCapabilities(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_ProvideCapabilities(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6545) #10
   %10 = load i32, ptr @ett_lpp_ProvideCapabilities, align 4
@@ -19816,9 +19816,9 @@ define internal i32 @dissect_lpp_ProvideCapabilities(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_RequestAssistanceData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6546) #10
   %10 = load i32, ptr @ett_lpp_RequestAssistanceData, align 4
@@ -19828,9 +19828,9 @@ define internal i32 @dissect_lpp_RequestAssistanceData(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_ProvideAssistanceData(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6550) #10
   %10 = load i32, ptr @ett_lpp_ProvideAssistanceData, align 4
@@ -19840,9 +19840,9 @@ define internal i32 @dissect_lpp_ProvideAssistanceData(ptr noundef %0, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_RequestLocationInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6551) #10
   %10 = load i32, ptr @ett_lpp_RequestLocationInformation, align 4
@@ -19852,9 +19852,9 @@ define internal i32 @dissect_lpp_RequestLocationInformation(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_ProvideLocationInformation(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6564) #10
   %10 = load i32, ptr @ett_lpp_ProvideLocationInformation, align 4
@@ -19864,9 +19864,9 @@ define internal i32 @dissect_lpp_ProvideLocationInformation(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_Abort(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6565) #10
   %10 = load i32, ptr @ett_lpp_Abort, align 4
@@ -19876,9 +19876,9 @@ define internal i32 @dissect_lpp_Abort(ptr noundef %0, i32 noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_Error(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_append_sep_str(ptr noundef %9, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.6566) #10
   %10 = load i32, ptr @ett_lpp_Error, align 4
@@ -20005,7 +20005,7 @@ define internal i32 @dissect_lpp_EPDU_Body(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %or.cond, label %14, label %18
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %2, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 @call_dissector(ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef %16, ptr noundef %3) #10
   br label %18
@@ -23016,7 +23016,7 @@ define internal i32 @dissect_lpp_ReqNavListInfo(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_gnss_WeekOrDay(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 4095, ptr noundef null, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.6547) #10
   ret i32 %6
@@ -23025,7 +23025,7 @@ define internal i32 @dissect_lpp_T_gnss_WeekOrDay(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_gnss_Toe(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 255, ptr noundef null, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.6548) #10
   ret i32 %6
@@ -23034,7 +23034,7 @@ define internal i32 @dissect_lpp_T_gnss_Toe(ptr noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_lpp_T_t_toeLimit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = tail call i32 @dissect_per_constrained_integer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef 0, i32 noundef 15, ptr noundef null, i32 noundef 0) #10
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.6549) #10
   ret i32 %6
@@ -23456,7 +23456,7 @@ define internal i32 @dissect_lpp_T_ssid_r13(ptr noundef %0, i32 noundef %1, ptr 
   %7 = call i32 @dissect_per_octet_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 1, i32 noundef 32, i32 noundef 0, ptr noundef nonnull %6) #10
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef -1, i32 noundef 0) #10
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }
@@ -24790,7 +24790,7 @@ define internal i32 @dissect_lpp_ReportingDuration(ptr noundef %0, i32 noundef %
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %12, ptr noundef nonnull @.str.6552) #10
   br label %13
@@ -24814,7 +24814,7 @@ define internal i32 @dissect_lpp_T_reportingInterval(ptr noundef %0, i32 noundef
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %2, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %8 to i64
   %14 = getelementptr [10 x ptr], ptr @__const.dissect_lpp_T_reportingInterval.interval, i64 0, i64 %13
@@ -25666,7 +25666,7 @@ define internal i32 @dissect_lpp_T_error_Resolution(ptr noundef %0, i32 noundef 
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -25688,7 +25688,7 @@ define internal i32 @dissect_lpp_T_error_Value(ptr noundef %0, i32 noundef %1, p
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -25710,7 +25710,7 @@ define internal i32 @dissect_lpp_T_error_NumSamples(ptr noundef %0, i32 noundef 
   %11 = zext i8 %10 to i32
   %12 = load ptr, ptr %6, align 8
   %13 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %12, i32 noundef 0, i32 noundef 1, i32 noundef %11) #10
-  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %13, ptr %14, align 8
   br label %15
 
@@ -25984,7 +25984,7 @@ define internal i32 @dissect_lpp_T_btAddr_r13(ptr noundef %0, i32 noundef %1, pt
   %7 = call i32 @dissect_per_bit_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef -1, i32 noundef 48, i32 noundef 48, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %6, ptr noundef null) #10
   %8 = load ptr, ptr %6, align 8
   %9 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %4, ptr noundef %8, i32 noundef 0, i32 noundef 6, i32 noundef 0) #10
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %9, ptr %10, align 8
   ret i32 %7
 }

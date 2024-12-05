@@ -418,9 +418,9 @@ read_bitstream_level.exit.thread.i:               ; preds = %read_bitstream_leve
 .lr.ph.i:                                         ; preds = %170, %245
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %245 ], [ 0, %170 ]
   %174 = call i32 @aom_rb_read_literal(ptr noundef nonnull %14, i32 noundef 12) #9
-  %175 = getelementptr inbounds [32 x i32], ptr %77, i64 0, i64 %indvars.iv.i
+  %175 = getelementptr inbounds nuw [32 x i32], ptr %77, i64 0, i64 %indvars.iv.i
   store i32 %174, ptr %175, align 4
-  %176 = getelementptr inbounds [32 x i8], ptr %78, i64 0, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 0, i64 %indvars.iv.i
   %177 = call i32 @aom_rb_read_literal(ptr noundef nonnull %14, i32 noundef 5) #9
   %.fr9.i195.i = freeze i32 %177
   %178 = trunc i32 %.fr9.i195.i to i8
@@ -452,7 +452,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
 
 191:                                              ; preds = %.thread.i, %187
   %.sink.i = phi i8 [ %190, %.thread.i ], [ 0, %187 ]
-  %192 = getelementptr inbounds [32 x i8], ptr %79, i64 0, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 0, i64 %indvars.iv.i
   store i8 %.sink.i, ptr %192, align 1
   %193 = load i8, ptr %74, align 8
   %.not166.i = icmp eq i8 %193, 0
@@ -460,7 +460,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
 
 194:                                              ; preds = %191
   %195 = call i32 @aom_rb_read_bit(ptr noundef nonnull %14) #9
-  %196 = getelementptr inbounds [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
+  %196 = getelementptr inbounds nuw [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
   store i32 %195, ptr %196, align 8
   %.not167.i = icmp eq i32 %195, 0
   br i1 %.not167.i, label %201, label %197
@@ -471,7 +471,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   br label %201
 
 199:                                              ; preds = %191
-  %200 = getelementptr inbounds [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
+  %200 = getelementptr inbounds nuw [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
   store i32 0, ptr %200, align 8
   br label %201
 
@@ -486,7 +486,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   br i1 %.not169.i, label %204, label %207
 
 204:                                              ; preds = %203
-  %205 = getelementptr inbounds [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
   %206 = load i32, ptr %205, align 8
   %.not170.i = icmp eq i32 %206, 0
   br i1 %.not170.i, label %.thread224.i, label %207
@@ -498,7 +498,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   %211 = load i8, ptr %192, align 1
   %212 = zext i8 %211 to i32
   %213 = call i64 @av1_max_level_bitrate(i8 noundef signext %208, i32 noundef %210, i32 noundef %212) #9
-  %214 = getelementptr inbounds [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
+  %214 = getelementptr inbounds nuw [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   store i64 %213, ptr %215, align 8
   %216 = icmp eq i64 %213, 0
@@ -541,7 +541,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
 
 229:                                              ; preds = %.thread224.i
   %230 = call i32 @aom_rb_read_bit(ptr noundef nonnull %14) #9
-  %231 = getelementptr inbounds [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
+  %231 = getelementptr inbounds nuw [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 36
   store i32 %230, ptr %232, align 4
   %.not175.i = icmp eq i32 %230, 0
@@ -565,7 +565,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   br label %245
 
 241:                                              ; preds = %.thread224.i
-  %242 = getelementptr inbounds [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
+  %242 = getelementptr inbounds nuw [33 x %struct.aom_dec_model_op_parameters], ptr %80, i64 0, i64 %indvars.iv.i
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 36
   store i32 0, ptr %243, align 4
   %244 = getelementptr inbounds nuw i8, ptr %242, i64 40
@@ -587,7 +587,7 @@ read_bitstream_level.exit200.i:                   ; preds = %.lr.ph.i
   %or.cond185.i = or i1 %250, %251
   %252 = zext nneg i32 %249 to i64
   %253 = select i1 %or.cond185.i, i64 0, i64 %252
-  %254 = getelementptr inbounds [32 x i32], ptr %77, i64 0, i64 %253
+  %254 = getelementptr inbounds nuw [32 x i32], ptr %77, i64 0, i64 %253
   %255 = load i32, ptr %254, align 4
   store i32 %255, ptr %40, align 4
   %256 = icmp eq i32 %255, 0
@@ -744,7 +744,7 @@ read_sequence_header_obu.exit:                    ; preds = %279, %287
 
 311:                                              ; preds = %.thread
   %312 = zext i32 %309 to i64
-  %313 = getelementptr inbounds i8, ptr %112, i64 %312
+  %313 = getelementptr inbounds nuw i8, ptr %112, i64 %312
   store ptr %313, ptr %3, align 8
   br label %read_frame_header_obu.exit
 
@@ -862,7 +862,7 @@ byte_alignment.exit.thread:                       ; preds = %.preheader301, %is_
   br label %read_and_decode_one_tile_list.exit.thread
 
 352:                                              ; preds = %348
-  %353 = getelementptr inbounds i8, ptr %112, i64 %.0124
+  %353 = getelementptr inbounds nuw i8, ptr %112, i64 %.0124
   %354 = getelementptr inbounds i8, ptr %112, i64 %349
   %355 = load i32, ptr %45, align 8
   %356 = load i32, ptr %48, align 4
@@ -960,7 +960,7 @@ read_one_tile_group_obu.exit.thread:              ; preds = %395
 
 397:                                              ; preds = %392
   %398 = zext nneg i32 %391 to i64
-  %399 = getelementptr inbounds i8, ptr %353, i64 %398
+  %399 = getelementptr inbounds nuw i8, ptr %353, i64 %398
   call void @av1_decode_tg_tiles_and_wrapup(ptr noundef %0, ptr noundef %399, ptr noundef %354, ptr noundef %3, i32 noundef %.028.i, i32 noundef %storemerge.i.i, i32 noundef range(i32 0, 2) %.0123.ph296) #9
   %400 = load ptr, ptr %3, align 8
   %401 = ptrtoint ptr %400 to i64
@@ -1082,7 +1082,7 @@ read_one_tile_group_obu.exit:                     ; preds = %367, %380, %383, %3
 453:                                              ; preds = %450
   %indvars.iv.next.i.i.i = add i64 %indvars.iv.i.i.i, -1
   %454 = and i64 %indvars.iv.next.i.i.i, 4294967295
-  %455 = getelementptr inbounds i8, ptr %428, i64 %454
+  %455 = getelementptr inbounds nuw i8, ptr %428, i64 %454
   %456 = load i8, ptr %455, align 1
   %457 = icmp eq i8 %456, 0
   br i1 %457, label %450, label %.critedge.split.loop.exit6.i.i.i, !llvm.loop !11
@@ -1397,7 +1397,7 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   br i1 %.not82.i, label %read_and_decode_one_tile_list.exit, label %.lr.ph.i186
 
 .lr.ph.i186:                                      ; preds = %alloc_tile_list_buffer.exit.i
-  %587 = getelementptr inbounds i8, ptr %112, i64 4
+  %587 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %588 = ptrtoint ptr %553 to i64
   br label %589
 
@@ -1448,7 +1448,7 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   %609 = call i32 @aom_rb_read_literal(ptr noundef nonnull %14, i32 noundef 16) #9
   %610 = add nsw i32 %609, 1
   store i32 %610, ptr %65, align 4
-  %611 = getelementptr inbounds i8, ptr %.06686.i, i64 5
+  %611 = getelementptr inbounds nuw i8, ptr %.06686.i, i64 5
   %612 = ptrtoint ptr %611 to i64
   %613 = sub i64 %588, %612
   %614 = zext i32 %610 to i64
@@ -1460,7 +1460,7 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   br label %read_and_decode_one_tile_list.exit.thread
 
 617:                                              ; preds = %608
-  %618 = getelementptr inbounds i8, ptr %611, i64 %614
+  %618 = getelementptr inbounds nuw i8, ptr %611, i64 %614
   call void @av1_decode_tg_tiles_and_wrapup(ptr noundef nonnull %0, ptr noundef nonnull %611, ptr noundef nonnull %618, ptr noundef %3, i32 noundef 0, i32 noundef %557, i32 noundef 0) #9
   %619 = load ptr, ptr %3, align 8
   %620 = ptrtoint ptr %619 to i64
@@ -1518,9 +1518,9 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
 
 .preheader.lr.ph.i.i.i:                           ; preds = %655
   %.in38.v.i.i.i = select i1 %.not.i76.i, i64 32, i64 36
-  %.in38.i.i.i = getelementptr inbounds i8, ptr %55, i64 %.in38.v.i.i.i
+  %.in38.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 %.in38.v.i.i.i
   %657 = load i32, ptr %.in38.i.i.i, align 4
-  %.in.i.i.i = getelementptr inbounds i8, ptr %632, i64 %.in38.v.i.i.i
+  %.in.i.i.i = getelementptr inbounds nuw i8, ptr %632, i64 %.in38.v.i.i.i
   %658 = load i32, ptr %.in.i.i.i, align 4
   %659 = icmp sgt i32 %642, 0
   %660 = sub nsw i32 %658, %642
@@ -1530,7 +1530,7 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   br i1 %659, label %.preheader.us.preheader.i.i.i, label %yv12_tile_copy.exit.i.i
 
 .preheader.us.preheader.i.i.i:                    ; preds = %.preheader.lr.ph.i.i.i
-  %664 = getelementptr inbounds [3 x ptr], ptr %637, i64 0, i64 %indvars.iv.i.i
+  %664 = getelementptr inbounds nuw [3 x ptr], ptr %637, i64 0, i64 %indvars.iv.i.i
   %665 = load ptr, ptr %664, align 8
   %666 = mul nsw i32 %658, %644
   %667 = sext i32 %666 to i64
@@ -1540,13 +1540,13 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   %671 = ptrtoint ptr %670 to i64
   %672 = shl i64 %671, 1
   %673 = inttoptr i64 %672 to ptr
-  %674 = getelementptr inbounds [3 x ptr], ptr %68, i64 0, i64 %indvars.iv.i.i
+  %674 = getelementptr inbounds nuw [3 x ptr], ptr %68, i64 0, i64 %indvars.iv.i.i
   %675 = load ptr, ptr %674, align 8
   %676 = mul nsw i32 %657, %649
   %677 = sext i32 %676 to i64
   %678 = getelementptr inbounds i8, ptr %675, i64 %677
   %679 = zext nneg i32 %650 to i64
-  %680 = getelementptr inbounds i8, ptr %678, i64 %679
+  %680 = getelementptr inbounds nuw i8, ptr %678, i64 %679
   br label %.preheader.us.i.i.i
 
 .preheader.us.i.i.i:                              ; preds = %._crit_edge.us.i.i.i, %.preheader.us.preheader.i.i.i
@@ -1559,10 +1559,10 @@ alloc_tile_list_buffer.exit.i:                    ; preds = %585, %581
   %.141.us.i.i.i = phi ptr [ %.046.us.i.i.i, %.preheader.us.i.i.i ], [ %685, %681 ]
   %.13440.us.i.i.i = phi ptr [ %.03345.us.i.i.i, %.preheader.us.i.i.i ], [ %682, %681 ]
   %.03539.us.i.i.i = phi i32 [ 0, %.preheader.us.i.i.i ], [ %686, %681 ]
-  %682 = getelementptr inbounds i8, ptr %.13440.us.i.i.i, i64 2
+  %682 = getelementptr inbounds nuw i8, ptr %.13440.us.i.i.i, i64 2
   %683 = load i16, ptr %.13440.us.i.i.i, align 2
   %684 = trunc i16 %683 to i8
-  %685 = getelementptr inbounds i8, ptr %.141.us.i.i.i, i64 1
+  %685 = getelementptr inbounds nuw i8, ptr %.141.us.i.i.i, i64 1
   store i8 %684, ptr %.141.us.i.i.i, align 1
   %686 = add nuw nsw i32 %.03539.us.i.i.i, 1
   %exitcond.not.i.i.i190 = icmp eq i32 %686, %642

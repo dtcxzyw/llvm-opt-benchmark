@@ -11,25 +11,25 @@ define hidden void @jFDislow(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.0162 = phi i32 [ 7, %1 ], [ %74, %2 ]
   %.0159161 = phi ptr [ %0, %1 ], [ %73, %2 ]
   %3 = load i32, ptr %.0159161, align 4
-  %4 = getelementptr inbounds i8, ptr %.0159161, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %.0159161, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, %3
   %7 = sub nsw i32 %3, %5
-  %8 = getelementptr inbounds i8, ptr %.0159161, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.0159161, i64 4
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %.0159161, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.0159161, i64 24
   %11 = load i32, ptr %10, align 4
   %12 = add nsw i32 %11, %9
   %13 = sub nsw i32 %9, %11
-  %14 = getelementptr inbounds i8, ptr %.0159161, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.0159161, i64 8
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %.0159161, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.0159161, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, %15
   %19 = sub nsw i32 %15, %17
-  %20 = getelementptr inbounds i8, ptr %.0159161, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %.0159161, i64 12
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %.0159161, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.0159161, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = add nsw i32 %23, %21
   %25 = sub nsw i32 %21, %23
@@ -88,7 +88,7 @@ define hidden void @jFDislow(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %71 = add i32 %70, %58
   %72 = ashr i32 %71, 11
   store i32 %72, ptr %8, align 4
-  %73 = getelementptr inbounds i8, ptr %.0159161, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %.0159161, i64 32
   %74 = add nsw i32 %.0162, -1
   %.not = icmp eq i32 %.0162, 0
   br i1 %.not, label %.preheader, label %2, !llvm.loop !6
@@ -97,25 +97,25 @@ define hidden void @jFDislow(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %.1164 = phi i32 [ %147, %.preheader ], [ 7, %2 ]
   %.1160163 = phi ptr [ %146, %.preheader ], [ %0, %2 ]
   %75 = load i32, ptr %.1160163, align 4
-  %76 = getelementptr inbounds i8, ptr %.1160163, i64 224
+  %76 = getelementptr inbounds nuw i8, ptr %.1160163, i64 224
   %77 = load i32, ptr %76, align 4
   %78 = add nsw i32 %77, %75
   %79 = sub nsw i32 %75, %77
-  %80 = getelementptr inbounds i8, ptr %.1160163, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.1160163, i64 32
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %.1160163, i64 192
+  %82 = getelementptr inbounds nuw i8, ptr %.1160163, i64 192
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, %81
   %85 = sub nsw i32 %81, %83
-  %86 = getelementptr inbounds i8, ptr %.1160163, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %.1160163, i64 64
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %.1160163, i64 160
+  %88 = getelementptr inbounds nuw i8, ptr %.1160163, i64 160
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, %87
   %91 = sub nsw i32 %87, %89
-  %92 = getelementptr inbounds i8, ptr %.1160163, i64 96
+  %92 = getelementptr inbounds nuw i8, ptr %.1160163, i64 96
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %.1160163, i64 128
+  %94 = getelementptr inbounds nuw i8, ptr %.1160163, i64 128
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %95, %93
   %97 = sub nsw i32 %93, %95
@@ -176,7 +176,7 @@ define hidden void @jFDislow(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %144 = add i32 %143, %131
   %145 = ashr i32 %144, 15
   store i32 %145, ptr %80, align 4
-  %146 = getelementptr inbounds i8, ptr %.1160163, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.1160163, i64 4
   %147 = add nsw i32 %.1164, -1
   %.not165 = icmp eq i32 %.1164, 0
   br i1 %.not165, label %148, label %.preheader, !llvm.loop !8

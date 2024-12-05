@@ -631,7 +631,7 @@ define internal i32 @dissect_mac_header_generic_decoder(ptr noundef %0, ptr noun
 79:                                               ; preds = %78
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.251) #4
   %80 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef %68) #4
-  %81 = getelementptr inbounds i8, ptr %1, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   tail call void @col_append_sep_str(ptr noundef %82, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.280) #4
   %83 = tail call i32 @tvb_reported_length(ptr noundef %80) #4
@@ -800,7 +800,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br i1 %.not466, label %197, label %186
 
 186:                                              ; preds = %185
-  %187 = getelementptr inbounds i8, ptr %1, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %188 = load ptr, ptr %187, align 8
   tail call void @col_append_sep_str(ptr noundef %188, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.252) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.253) #4
@@ -823,7 +823,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 198:                                              ; preds = %197
   %199 = tail call i32 @is_down_link(ptr noundef %1) #4
   %.not468 = icmp eq i32 %199, 0
-  %200 = getelementptr inbounds i8, ptr %1, i64 8
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %201 = load ptr, ptr %200, align 8
   br i1 %.not468, label %213, label %202
 
@@ -910,7 +910,7 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
   br i1 %.not462, label %289, label %256
 
 256:                                              ; preds = %255
-  %257 = getelementptr inbounds i8, ptr %1, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %258 = load ptr, ptr %257, align 8
   tail call void @col_append_sep_str(ptr noundef %258, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.265) #4
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %16, ptr noundef nonnull @.str.266) #4
@@ -996,21 +996,21 @@ extended_subheader_decoder.exit:                  ; preds = %181, %84, %87
 
 .lr.ph512:                                        ; preds = %298
   %300 = getelementptr i8, ptr %1, i64 8
-  %301 = getelementptr inbounds i8, ptr %1, i64 20
-  %302 = getelementptr inbounds i8, ptr %1, i64 208
-  %303 = getelementptr inbounds i8, ptr %1, i64 212
-  %304 = getelementptr inbounds i8, ptr %1, i64 216
-  %305 = getelementptr inbounds i8, ptr %1, i64 232
-  %306 = getelementptr inbounds i8, ptr %1, i64 236
-  %307 = getelementptr inbounds i8, ptr %1, i64 240
-  %308 = getelementptr inbounds i8, ptr %1, i64 112
-  %309 = getelementptr inbounds i8, ptr %1, i64 116
-  %310 = getelementptr inbounds i8, ptr %1, i64 120
-  %311 = getelementptr inbounds i8, ptr %1, i64 224
-  %312 = getelementptr inbounds i8, ptr %1, i64 136
-  %313 = getelementptr inbounds i8, ptr %1, i64 140
-  %314 = getelementptr inbounds i8, ptr %1, i64 144
-  %315 = getelementptr inbounds i8, ptr %1, i64 248
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 212
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 216
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 236
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %312 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 140
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %315 = getelementptr inbounds nuw i8, ptr %1, i64 248
   br label %316
 
 316:                                              ; preds = %.lr.ph512, %.thread
@@ -1309,9 +1309,9 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   br i1 %or.cond, label %475, label %.thread
 
 475:                                              ; preds = %468
-  %476 = getelementptr inbounds i8, ptr %456, i64 28
+  %476 = getelementptr inbounds nuw i8, ptr %456, i64 28
   %477 = load i32, ptr %476, align 4
-  %478 = getelementptr inbounds i8, ptr %456, i64 56
+  %478 = getelementptr inbounds nuw i8, ptr %456, i64 56
   %479 = load ptr, ptr %478, align 8
   %480 = tail call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %479) #4
   tail call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %480, ptr noundef nonnull @.str.271) #4

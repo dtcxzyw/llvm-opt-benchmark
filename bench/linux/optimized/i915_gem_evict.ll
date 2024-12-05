@@ -64,7 +64,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %19, label %24, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @__SCT__tp_func_i915_gem_evict(ptr noundef %22, ptr noundef %0, i64 noundef %2, i64 noundef %3, i32 noundef %7) #7
   br label %24
@@ -89,16 +89,16 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   %34 = and i32 %7, 8
   %35 = icmp eq i32 %34, 0
   %36 = select i1 %35, i32 %33, i32 1
-  %37 = getelementptr inbounds i8, ptr %0, i64 40
-  call void @drm_mm_scan_init_with_range(ptr noundef nonnull %9, ptr noundef %37, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %36) #7
-  %38 = getelementptr inbounds i8, ptr %0, i64 536
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  call void @drm_mm_scan_init_with_range(ptr noundef nonnull %9, ptr noundef nonnull %37, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %36) #7
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %39 = load i8, ptr %38, align 8
   %40 = and i8 %39, 1
   %41 = icmp eq i8 %40, 0
   br i1 %41, label %51, label %42
 
 42:                                               ; preds = %31
-  %43 = getelementptr inbounds i8, ptr %0, i64 1240
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %43
   br i1 %45, label %.loopexit48, label %.preheader47
@@ -112,16 +112,16 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %50, label %.loopexit48, label %.preheader47, !llvm.loop !16
 
 51:                                               ; preds = %31
-  %52 = getelementptr inbounds i8, ptr %0, i64 296
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %53 = load ptr, ptr %52, align 8
   %54 = call i64 @intel_gt_retire_requests_timeout(ptr noundef %53, i64 noundef 0, ptr noundef null) #7
   br label %.loopexit48
 
 .loopexit48:                                      ; preds = %.preheader47, %51, %42
-  %55 = getelementptr inbounds i8, ptr %10, i64 8
-  %56 = getelementptr inbounds i8, ptr %0, i64 504
-  %57 = getelementptr inbounds i8, ptr %0, i64 512
-  %58 = getelementptr inbounds i8, ptr %0, i64 1240
+  %55 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 512
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %59 = and i32 %7, 4
   %60 = icmp eq i32 %59, 0
   br label %61
@@ -163,9 +163,9 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
 80:                                               ; preds = %75, %71
   %81 = icmp eq ptr %69, null
   %82 = select i1 %81, ptr %67, ptr %69
-  %83 = getelementptr inbounds i8, ptr %65, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %68, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %68, i64 8
   store ptr %84, ptr %85, align 8
   store volatile ptr %68, ptr %84, align 8
   %86 = load ptr, ptr %57, align 8
@@ -189,7 +189,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
 94:                                               ; preds = %92
   %95 = getelementptr i8, ptr %65, i64 72
   %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store ptr %95, ptr %97, align 8
   store ptr %96, ptr %95, align 8
   %98 = getelementptr i8, ptr %65, i64 80
@@ -231,9 +231,9 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
 118:                                              ; preds = %113, %109
   %119 = icmp eq ptr %104, null
   %120 = select i1 %119, ptr %105, ptr %104
-  %121 = getelementptr inbounds i8, ptr %103, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %106, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store ptr %122, ptr %123, align 8
   store volatile ptr %106, ptr %122, align 8
   %124 = load ptr, ptr %57, align 8
@@ -257,7 +257,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
 132:                                              ; preds = %130
   %133 = getelementptr i8, ptr %103, i64 72
   %134 = load ptr, ptr %10, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %133, ptr %135, align 8
   store ptr %134, ptr %133, align 8
   %136 = getelementptr i8, ptr %103, i64 80
@@ -296,9 +296,9 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %152, label %.thread, label %153
 
 153:                                              ; preds = %148
-  %154 = getelementptr inbounds i8, ptr %150, i64 464
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 464
   %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 80
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 80
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
   br i1 %158, label %160, label %159
@@ -308,7 +308,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br label %160
 
 160:                                              ; preds = %159, %153
-  %161 = getelementptr inbounds i8, ptr %150, i64 248
+  %161 = getelementptr inbounds nuw i8, ptr %150, i64 248
   %162 = load ptr, ptr %161, align 8
   call void @ww_mutex_unlock(ptr noundef %162) #7
   %163 = load ptr, ptr %149, align 8
@@ -374,10 +374,10 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br label %.thread30
 
 192:                                              ; preds = %.preheader39
-  %193 = getelementptr inbounds i8, ptr %186, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = load ptr, ptr %186, align 8
-  %196 = getelementptr inbounds i8, ptr %195, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store ptr %194, ptr %196, align 8
   store volatile ptr %195, ptr %194, align 8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %186, align 8
@@ -389,9 +389,9 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %200, label %.thread30, label %201
 
 201:                                              ; preds = %192
-  %202 = getelementptr inbounds i8, ptr %198, i64 464
+  %202 = getelementptr inbounds nuw i8, ptr %198, i64 464
   %203 = load ptr, ptr %202, align 8
-  %204 = getelementptr inbounds i8, ptr %203, i64 80
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 80
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
   br i1 %206, label %208, label %207
@@ -401,7 +401,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br label %208
 
 208:                                              ; preds = %207, %201
-  %209 = getelementptr inbounds i8, ptr %198, i64 248
+  %209 = getelementptr inbounds nuw i8, ptr %198, i64 248
   %210 = load ptr, ptr %209, align 8
   call void @ww_mutex_unlock(ptr noundef %210) #7
   %211 = load ptr, ptr %197, align 8
@@ -467,9 +467,9 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br i1 %238, label %.thread33, label %239
 
 239:                                              ; preds = %233
-  %240 = getelementptr inbounds i8, ptr %236, i64 464
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 464
   %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 80
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 80
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %246, label %245
@@ -479,7 +479,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br label %246
 
 246:                                              ; preds = %245, %239
-  %247 = getelementptr inbounds i8, ptr %236, i64 248
+  %247 = getelementptr inbounds nuw i8, ptr %236, i64 248
   %248 = load ptr, ptr %247, align 8
   call void @ww_mutex_unlock(ptr noundef %248) #7
   %249 = load ptr, ptr %235, align 8
@@ -521,16 +521,16 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
 
 265:                                              ; preds = %263
   %266 = call i32 @__i915_vma_unbind(ptr noundef nonnull %260) #7
-  %267 = getelementptr inbounds i8, ptr %260, i64 184
+  %267 = getelementptr inbounds nuw i8, ptr %260, i64 184
   %268 = load ptr, ptr %267, align 8
   %269 = load volatile i32, ptr %268, align 4
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %.thread35, label %271
 
 271:                                              ; preds = %265
-  %272 = getelementptr inbounds i8, ptr %268, i64 464
+  %272 = getelementptr inbounds nuw i8, ptr %268, i64 464
   %273 = load ptr, ptr %272, align 8
-  %274 = getelementptr inbounds i8, ptr %273, i64 80
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 80
   %275 = load ptr, ptr %274, align 8
   %276 = icmp eq ptr %275, null
   br i1 %276, label %278, label %277
@@ -540,7 +540,7 @@ define dso_local i32 @i915_gem_evict_something(ptr noundef %0, ptr noundef %1, i
   br label %278
 
 278:                                              ; preds = %277, %271
-  %279 = getelementptr inbounds i8, ptr %268, i64 248
+  %279 = getelementptr inbounds nuw i8, ptr %268, i64 248
   %280 = load ptr, ptr %279, align 8
   call void @ww_mutex_unlock(ptr noundef %280) #7
   %281 = load ptr, ptr %267, align 8
@@ -595,7 +595,7 @@ declare dso_local ptr @drm_mm_scan_color_evict(ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef zeroext i1 @grab_vma(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %38, label %6
@@ -637,7 +637,7 @@ define internal fastcc noundef zeroext i1 @grab_vma(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 248
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 248
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @ww_mutex_trylock(ptr noundef %27, ptr noundef %1) #7
   %29 = icmp eq i32 %28, 0
@@ -663,8 +663,8 @@ define internal fastcc noundef zeroext i1 @grab_vma(ptr noundef %0, ptr noundef 
   br label %.thread5
 
 38:                                               ; preds = %22, %2
-  %39 = getelementptr inbounds i8, ptr %0, i64 268
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %39, i32 -1024, ptr elementtype(i32) %39) #7, !srcloc !34
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andl $1,$0", "=*m,ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %39, i32 -1024, ptr nonnull elementtype(i32) %39) #7, !srcloc !34
   br label %.thread5
 
 .thread5:                                         ; preds = %34, %36, %38, %37, %24
@@ -677,11 +677,11 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   %5 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
   store ptr %5, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds (i8, ptr @__tracepoint_i915_gem_evict_node, i64 8), i32 2) #7
@@ -704,7 +704,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call i32 @__SCT__tp_func_i915_gem_evict_node(ptr noundef %23, ptr noundef %0, ptr noundef %2, i32 noundef %3) #7
   br label %25
@@ -724,14 +724,14 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br label %32
 
 32:                                               ; preds = %29, %25, %12, %4
-  %33 = getelementptr inbounds i8, ptr %0, i64 536
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 1
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %46, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %0, i64 1240
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %38
   br i1 %40, label %.loopexit20, label %.preheader19
@@ -745,7 +745,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %45, label %.loopexit20, label %.preheader19, !llvm.loop !39
 
 46:                                               ; preds = %32
-  %47 = getelementptr inbounds i8, ptr %0, i64 296
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %48 = load ptr, ptr %47, align 8
   %49 = call i64 @intel_gt_retire_requests_timeout(ptr noundef %48, i64 noundef 0, ptr noundef null) #7
   br label %.loopexit20
@@ -757,7 +757,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %52, label %.thread13, label %53
 
 53:                                               ; preds = %.loopexit20
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8
   %.fr = freeze ptr %55
   %.not = icmp eq ptr %.fr, null
@@ -772,10 +772,10 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
 .thread13:                                        ; preds = %53, %.loopexit20
   %60 = phi i64 [ %11, %.loopexit20 ], [ %spec.select, %53 ]
   %61 = phi i64 [ %8, %.loopexit20 ], [ %spec.select17, %53 ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = add i64 %60, -1
-  %64 = call ptr @__drm_mm_interval_first(ptr noundef %62, i64 noundef %61, i64 noundef %63) #7
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
+  %64 = call ptr @__drm_mm_interval_first(ptr noundef nonnull %62, i64 noundef %61, i64 noundef %63) #7
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = icmp ult i64 %66, %60
   br i1 %67, label %68, label %.loopexit18
@@ -804,7 +804,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %81, label %98, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %72, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %84 = load i64, ptr %83, align 8
   %85 = add i64 %84, %71
   %86 = load i64, ptr %7, align 8
@@ -828,7 +828,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %97, label %110, label %98
 
 98:                                               ; preds = %95, %91, %79, %75
-  %99 = getelementptr inbounds i8, ptr %72, i64 268
+  %99 = getelementptr inbounds nuw i8, ptr %72, i64 268
   %100 = load volatile i32, ptr %99, align 4
   %101 = and i32 %100, 1023
   %102 = icmp eq i32 %101, 0
@@ -839,19 +839,19 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %104, label %105, label %.loopexit18
 
 105:                                              ; preds = %103
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %99, ptr elementtype(i32) %99) #7, !srcloc !27
-  %106 = getelementptr inbounds i8, ptr %72, i64 568
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %99, ptr nonnull elementtype(i32) %99) #7, !srcloc !27
+  %106 = getelementptr inbounds nuw i8, ptr %72, i64 568
   %107 = load ptr, ptr %5, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %106, ptr %108, align 8
   store ptr %107, ptr %106, align 8
-  %109 = getelementptr inbounds i8, ptr %72, i64 576
+  %109 = getelementptr inbounds nuw i8, ptr %72, i64 576
   store ptr %5, ptr %109, align 8
   store volatile ptr %106, ptr %5, align 8
   br label %110
 
 110:                                              ; preds = %105, %95, %88
-  %111 = getelementptr inbounds i8, ptr %72, i64 32
+  %111 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr i8, ptr %112, i64 -32
   %114 = getelementptr i8, ptr %112, i64 -24
@@ -878,7 +878,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %127, label %144, label %128
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %118, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %130 = load i64, ptr %129, align 8
   %131 = add i64 %130, %117
   %132 = load i64, ptr %7, align 8
@@ -902,14 +902,14 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %143, label %160, label %144
 
 144:                                              ; preds = %141, %137, %125, %121
-  %145 = getelementptr inbounds i8, ptr %118, i64 268
+  %145 = getelementptr inbounds nuw i8, ptr %118, i64 268
   %146 = load volatile i32, ptr %145, align 4
   %147 = and i32 %146, 1023
   %148 = icmp eq i32 %147, 0
   br i1 %148, label %149, label %.loopexit18
 
 149:                                              ; preds = %144
-  %150 = getelementptr inbounds i8, ptr %118, i64 272
+  %150 = getelementptr inbounds nuw i8, ptr %118, i64 272
   %151 = load volatile i32, ptr %150, align 4
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %153, label %.loopexit18
@@ -919,19 +919,19 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %154, label %155, label %.loopexit18
 
 155:                                              ; preds = %153
-  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %145, ptr elementtype(i32) %145) #7, !srcloc !27
-  %156 = getelementptr inbounds i8, ptr %118, i64 568
+  call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %145, ptr nonnull elementtype(i32) %145) #7, !srcloc !27
+  %156 = getelementptr inbounds nuw i8, ptr %118, i64 568
   %157 = load ptr, ptr %5, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store ptr %156, ptr %158, align 8
   store ptr %157, ptr %156, align 8
-  %159 = getelementptr inbounds i8, ptr %118, i64 576
+  %159 = getelementptr inbounds nuw i8, ptr %118, i64 576
   store ptr %5, ptr %159, align 8
   store volatile ptr %156, ptr %5, align 8
   br label %160
 
 160:                                              ; preds = %155, %141, %134
-  %161 = getelementptr inbounds i8, ptr %118, i64 32
+  %161 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr i8, ptr %162, i64 -32
   %164 = getelementptr i8, ptr %162, i64 -24
@@ -968,9 +968,9 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br i1 %183, label %.thread16, label %184
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %181, i64 464
+  %185 = getelementptr inbounds nuw i8, ptr %181, i64 464
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 80
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 80
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, null
   br i1 %189, label %191, label %190
@@ -980,7 +980,7 @@ define dso_local i32 @i915_gem_evict_for_node(ptr noundef %0, ptr noundef %1, pt
   br label %191
 
 191:                                              ; preds = %190, %184
-  %192 = getelementptr inbounds i8, ptr %181, i64 248
+  %192 = getelementptr inbounds nuw i8, ptr %181, i64 248
   %193 = load ptr, ptr %192, align 8
   call void @ww_mutex_unlock(ptr noundef %193) #7
   %194 = load ptr, ptr %180, align 8
@@ -1038,7 +1038,7 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @__SCT__tp_func_i915_gem_evict_vm(ptr noundef %17, ptr noundef %0) #7
   br label %19
@@ -1058,14 +1058,14 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   br label %26
 
 26:                                               ; preds = %23, %19, %6, %3
-  %27 = getelementptr inbounds i8, ptr %0, i64 536
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %28 = load i8, ptr %27, align 8
   %29 = and i8 %28, 1
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %.thread, label %31
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %0, i64 1240
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   br label %33
 
 33:                                               ; preds = %37, %31
@@ -1081,9 +1081,9 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %40, label %33, label %.loopexit35, !llvm.loop !26
 
 .thread:                                          ; preds = %33, %26
-  %41 = getelementptr inbounds i8, ptr %4, i64 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 504
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %44 = icmp eq ptr %1, null
   %45 = icmp eq ptr %2, null
   br label %46
@@ -1150,12 +1150,12 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
 
 76:                                               ; preds = %74
   %77 = load ptr, ptr %55, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 248
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 248
   %79 = load ptr, ptr %78, align 8
   br i1 %44, label %89, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %79, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %82 = load volatile ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, %1
   br i1 %83, label %84, label %89
@@ -1164,7 +1164,7 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, ptr elementtype(i32) %50) #7, !srcloc !27
   %85 = getelementptr i8, ptr %49, i64 72
   %86 = load ptr, ptr %5, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store ptr %85, ptr %87, align 8
   store ptr %86, ptr %85, align 8
   %88 = getelementptr i8, ptr %49, i64 80
@@ -1208,7 +1208,7 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %50, ptr elementtype(i32) %50) #7, !srcloc !27
   %103 = getelementptr i8, ptr %49, i64 72
   %104 = load ptr, ptr %4, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %103, ptr %105, align 8
   store ptr %104, ptr %103, align 8
   %106 = getelementptr i8, ptr %49, i64 80
@@ -1322,9 +1322,9 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   %156 = phi i32 [ %154, %150 ], [ %145, %.preheader30 ]
   %157 = getelementptr i8, ptr %146, i64 -384
   %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 464
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 464
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 80
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 80
   %162 = load ptr, ptr %161, align 8
   %163 = icmp eq ptr %162, null
   br i1 %163, label %165, label %164
@@ -1334,7 +1334,7 @@ define dso_local i32 @i915_gem_evict_vm(ptr noundef %0, ptr noundef %1, ptr noun
   br label %165
 
 165:                                              ; preds = %164, %155
-  %166 = getelementptr inbounds i8, ptr %158, i64 248
+  %166 = getelementptr inbounds nuw i8, ptr %158, i64 248
   %167 = load ptr, ptr %166, align 8
   call void @ww_mutex_unlock(ptr noundef %167) #7
   %168 = load ptr, ptr %157, align 8

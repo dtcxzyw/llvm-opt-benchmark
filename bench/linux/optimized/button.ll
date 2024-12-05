@@ -92,7 +92,7 @@ define dso_local range(i32 -19, 2) i32 @acpi_lid_open() #0 align 16 {
 4:                                                ; preds = %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #11
   store i64 0, ptr %1, align 8, !annotation !5
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = call i32 @acpi_evaluate_integer(ptr noundef %6, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %1) #11
   %8 = icmp eq i32 %7, 0
@@ -120,7 +120,7 @@ define internal i32 @acpi_button_driver_init() #1 section ".init.text" align 16 
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 336
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 336
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   br label %10
@@ -249,18 +249,18 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br i1 %11, label %130, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 608
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 608
   store ptr %10, ptr %13, align 8
   %14 = tail call ptr @input_allocate_device() #11
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
   br i1 %16, label %128, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 120
-  %19 = getelementptr inbounds i8, ptr %0, i64 168
-  %20 = getelementptr inbounds i8, ptr %0, i64 208
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %21 = tail call i32 @strcmp(ptr noundef %2, ptr noundef nonnull dereferenceable(8) @.str.9) #11
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %26, label %23
@@ -272,8 +272,8 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
 
 26:                                               ; preds = %23, %17
   store i32 1, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %19, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 13, i1 false) #11
-  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %20, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %19, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 13, i1 false) #11
+  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #11
   br label %44
 
 28:                                               ; preds = %23
@@ -288,8 +288,8 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
 
 34:                                               ; preds = %31, %28
   store i32 3, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %19, ptr noundef nonnull align 1 dereferenceable(13) @.str.17, i64 13, i1 false) #11
-  %35 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %20, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.18) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %19, ptr noundef nonnull align 1 dereferenceable(13) @.str.17, i64 13, i1 false) #11
+  %35 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.18) #11
   br label %44
 
 36:                                               ; preds = %31
@@ -299,9 +299,9 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
 
 39:                                               ; preds = %36
   store i32 5, ptr %10, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %19, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, i64 11, i1 false) #11
-  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %20, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.20) #11
-  %41 = getelementptr inbounds i8, ptr %14, i64 456
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %19, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, i64 11, i1 false) #11
+  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.20) #11
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 456
   store ptr @acpi_lid_input_open, ptr %41, align 8
   br label %44
 
@@ -342,8 +342,8 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br i1 %62, label %74, label %63
 
 63:                                               ; preds = %60
-  %64 = tail call ptr @proc_mkdir(ptr noundef %18, ptr noundef nonnull %61) #11
-  %65 = getelementptr inbounds i8, ptr %0, i64 520
+  %64 = tail call ptr @proc_mkdir(ptr noundef nonnull %18, ptr noundef nonnull %61) #11
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 520
   store ptr %64, ptr %65, align 8
   %66 = icmp eq ptr %64, null
   br i1 %66, label %72, label %67
@@ -355,7 +355,7 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr @acpi_lid_dir, align 8
-  tail call void @remove_proc_entry(ptr noundef %18, ptr noundef %71) #11
+  tail call void @remove_proc_entry(ptr noundef nonnull %18, ptr noundef %71) #11
   store ptr null, ptr %65, align 8
   br label %72
 
@@ -377,19 +377,19 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br label %128
 
 77:                                               ; preds = %44, %67
-  %78 = getelementptr inbounds i8, ptr %10, i64 16
-  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %78, i64 noundef 32, ptr noundef nonnull @.str.22, ptr noundef %2) #11
+  %78 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %78, i64 noundef 32, ptr noundef nonnull @.str.22, ptr noundef %2) #11
   store ptr %19, ptr %14, align 8
-  %80 = getelementptr inbounds i8, ptr %14, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %78, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %14, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i16 25, ptr %81, align 8
   %82 = load i32, ptr %10, align 8
   %83 = trunc i32 %82 to i16
-  %84 = getelementptr inbounds i8, ptr %14, i64 28
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 28
   store i16 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %0, i64 616
-  %86 = getelementptr inbounds i8, ptr %14, i64 608
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 608
   store ptr %85, ptr %86, align 8
   %87 = load i32, ptr %10, align 8
   switch i32 %87, label %91 [
@@ -412,14 +412,14 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br label %91
 
 91:                                               ; preds = %90, %89, %88, %77
-  %92 = getelementptr inbounds i8, ptr %14, i64 664
+  %92 = getelementptr inbounds nuw i8, ptr %14, i64 664
   store ptr %0, ptr %92, align 8
   %93 = tail call i32 @input_register_device(ptr noundef nonnull %14) #11
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %117
 
 95:                                               ; preds = %91
-  %96 = getelementptr inbounds i8, ptr %0, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %97 = load i32, ptr %96, align 4
   switch i32 %97, label %102 [
     i32 4, label %98
@@ -435,7 +435,7 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br label %106
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %0, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 @acpi_install_notify_handler(ptr noundef %104, i32 noundef 2, ptr noundef nonnull %.ph, ptr noundef %0) #11
   br label %106
@@ -459,9 +459,9 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br label %114
 
 114:                                              ; preds = %113, %110
-  tail call void @device_set_wakeup_capable(ptr noundef %85, i1 noundef zeroext true) #11
-  %115 = tail call i32 @device_wakeup_enable(ptr noundef %85) #11
-  %116 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef %19, ptr noundef %18) #12
+  tail call void @device_set_wakeup_capable(ptr noundef nonnull %85, i1 noundef zeroext true) #11
+  %115 = tail call i32 @device_wakeup_enable(ptr noundef nonnull %85) #11
+  %116 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.23, ptr noundef nonnull %19, ptr noundef nonnull %18) #12
   br label %130
 
 117:                                              ; preds = %109, %91
@@ -472,11 +472,11 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %117
-  %123 = getelementptr inbounds i8, ptr %0, i64 520
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %124 = load ptr, ptr %123, align 8
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.27, ptr noundef %124) #11
   %125 = load ptr, ptr @acpi_lid_dir, align 8
-  tail call void @remove_proc_entry(ptr noundef %18, ptr noundef %125) #11
+  tail call void @remove_proc_entry(ptr noundef nonnull %18, ptr noundef %125) #11
   store ptr null, ptr %123, align 8
   %126 = load ptr, ptr @acpi_button_dir, align 8
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.20, ptr noundef %126) #11
@@ -498,9 +498,9 @@ define internal i32 @acpi_button_add(ptr noundef %0) #0 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @acpi_button_remove(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 608
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %10 [
     i32 4, label %6
@@ -516,7 +516,7 @@ define internal void @acpi_button_remove(ptr noundef %0) #0 align 16 {
   br label %17
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %3, align 8
   %14 = icmp eq i32 %13, 5
@@ -532,12 +532,12 @@ define internal void @acpi_button_remove(ptr noundef %0) #0 align 16 {
   br i1 %20, label %21, label %28
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 520
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %23 = load ptr, ptr %22, align 8
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.27, ptr noundef %23) #11
-  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %25 = load ptr, ptr @acpi_lid_dir, align 8
-  tail call void @remove_proc_entry(ptr noundef %24, ptr noundef %25) #11
+  tail call void @remove_proc_entry(ptr noundef nonnull %24, ptr noundef %25) #11
   store ptr null, ptr %22, align 8
   %26 = load ptr, ptr @acpi_button_dir, align 8
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.20, ptr noundef %26) #11
@@ -548,7 +548,7 @@ define internal void @acpi_button_remove(ptr noundef %0) #0 align 16 {
   br label %28
 
 28:                                               ; preds = %21, %17
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @input_unregister_device(ptr noundef %30) #11
   tail call void @kfree(ptr noundef %3) #11
@@ -570,17 +570,17 @@ define internal void @acpi_button_notify(ptr nocapture readnone %0, i32 noundef 
   br i1 %4, label %5, label %33
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 616
-  tail call void @acpi_pm_wakeup_event(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %2, i64 608
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 616
+  tail call void @acpi_pm_wakeup_event(ptr noundef nonnull %6) #11
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i8, ptr %9, align 8, !range !9, !noundef !10
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %12, label %33
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 64
   %16 = load volatile i64, ptr %15, align 8
@@ -591,8 +591,8 @@ define internal void @acpi_button_notify(ptr nocapture readnone %0, i32 noundef 
   tail call void @input_event(ptr noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
   tail call void @input_event(ptr noundef %14, i32 noundef 1, i32 noundef %19, i32 noundef 0) #11
   tail call void @input_event(ptr noundef %14, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11
-  %20 = getelementptr inbounds i8, ptr %2, i64 208
-  %21 = getelementptr inbounds i8, ptr %2, i64 696
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 696
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %26
@@ -603,12 +603,12 @@ define internal void @acpi_button_notify(ptr nocapture readnone %0, i32 noundef 
 
 26:                                               ; preds = %24, %12
   %27 = phi ptr [ %25, %24 ], [ %22, %12 ]
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %29 = load i64, ptr %28, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr %28, align 8
   %31 = trunc i64 %30 to i32
-  %32 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef %20, ptr noundef %27, i8 noundef zeroext -128, i32 noundef %31) #11
+  %32 = tail call i32 @acpi_bus_generate_netlink_event(ptr noundef nonnull %20, ptr noundef %27, i8 noundef zeroext -128, i32 noundef %31) #11
   br label %33
 
 33:                                               ; preds = %26, %5, %3
@@ -622,9 +622,9 @@ define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1,
   br i1 %5, label %6, label %24
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 608
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 608
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 73
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 73
   %10 = load i8, ptr %9, align 1, !range !9, !noundef !10
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %24, label %12
@@ -632,7 +632,7 @@ define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1,
 12:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store i64 0, ptr %4, align 8, !annotation !5
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 @acpi_evaluate_integer(ptr noundef %14, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %4) #11
   %16 = icmp eq i32 %15, 0
@@ -646,8 +646,8 @@ define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1,
   br i1 %18, label %21, label %23
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %2, i64 616
-  call void @acpi_pm_wakeup_event(ptr noundef %22) #11
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 616
+  call void @acpi_pm_wakeup_event(ptr noundef nonnull %22) #11
   br label %23
 
 23:                                               ; preds = %21, %20
@@ -663,13 +663,13 @@ define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1,
 define internal noundef i32 @acpi_lid_input_open(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 664
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 608
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 608
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !5
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = call i32 @acpi_evaluate_integer(ptr noundef %9, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %3) #11
   %11 = icmp ne i32 %10, 0
@@ -678,10 +678,10 @@ define internal noundef i32 @acpi_lid_input_open(ptr nocapture noundef readonly 
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %14 = select i1 %11, i1 true, i1 %13
   %15 = zext i1 %14 to i32
-  %16 = getelementptr inbounds i8, ptr %7, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 %15, ptr %16, align 8
   %17 = call i64 @ktime_get() #11
-  %18 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %17, ptr %18, align 8
   %19 = load ptr, ptr %6, align 8
   %20 = load i64, ptr @lid_init_state, align 8
@@ -713,7 +713,7 @@ define internal noundef i32 @acpi_lid_input_open(ptr nocapture noundef readonly 
   br label %31
 
 31:                                               ; preds = %29, %21, %1
-  %32 = getelementptr inbounds i8, ptr %19, i64 73
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 73
   store i8 1, ptr %32, align 1
   ret i32 0
 }
@@ -765,15 +765,15 @@ define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 
 ._crit_edge:
   %1 = load i64, ptr @lid_init_state, align 8
   %2 = icmp ne i64 %1, 0
-  %3 = getelementptr inbounds i8, ptr %.608.val, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %.608.val, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp ne i32 %0, 0
   %6 = zext i1 %5 to i32
   %7 = icmp ne i32 %4, %6
   %narrow = or i1 %2, %7
   %8 = zext i1 %narrow to i8
-  %9 = getelementptr inbounds i8, ptr %.608.val, i64 64
-  %10 = getelementptr inbounds i8, ptr %.608.val, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %.608.val, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %.608.val, i64 56
   %11 = icmp ne i32 %0, 0
   %12 = xor i1 %11, true
   %13 = zext i1 %11 to i32
@@ -806,7 +806,7 @@ define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 
   br i1 %29, label %34, label %.thread
 
 .thread:                                          ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.608.val, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.608.val, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @input_event(ptr noundef %32, i32 noundef 5, i32 noundef 0, i32 noundef 0) #11
   %33 = load ptr, ptr %31, align 8
@@ -819,7 +819,7 @@ define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 
   br i1 %36, label %43, label %37
 
 37:                                               ; preds = %.thread, %34
-  %38 = getelementptr inbounds i8, ptr %.608.val, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.608.val, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i1 %12 to i32
   tail call void @input_event(ptr noundef %39, i32 noundef 5, i32 noundef 0, i32 noundef %40) #11
@@ -846,11 +846,11 @@ declare dso_local ptr @proc_create_single_data(ptr noundef, i16 noundef zeroext,
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @acpi_button_state_seq_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   store i64 0, ptr %3, align 8, !annotation !5
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @acpi_evaluate_integer(ptr noundef %7, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull %3) #11
   %9 = icmp eq i32 %8, 0
@@ -898,7 +898,7 @@ declare dso_local void @acpi_os_wait_events_complete() local_unnamed_addr #3
 define internal noundef i32 @acpi_button_suspend(ptr nocapture noundef readonly %0) #9 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i8 1, ptr %4, align 8
   ret i32 0
 }
@@ -909,7 +909,7 @@ define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %
   %3 = alloca i64, align 8
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i8 0, ptr %6, align 8
   %7 = load i32, ptr %5, align 8
   %8 = icmp eq i32 %7, 5
@@ -927,10 +927,10 @@ define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   %16 = select i1 %13, i1 true, i1 %15
   %17 = zext i1 %16 to i32
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i32 %17, ptr %18, align 8
   %19 = call i64 @ktime_get() #11
-  %20 = getelementptr inbounds i8, ptr %5, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i64 %19, ptr %20, align 8
   %21 = load ptr, ptr %4, align 8
   %22 = load i64, ptr @lid_init_state, align 8
@@ -962,7 +962,7 @@ define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %
   br label %33
 
 33:                                               ; preds = %31, %23, %9
-  %34 = getelementptr inbounds i8, ptr %21, i64 73
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 73
   store i8 1, ptr %34, align 1
   %.pr = load i32, ptr %5, align 8
   br label %35
@@ -973,7 +973,7 @@ define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load ptr, ptr %39, align 8
   call void @input_event(ptr noundef %40, i32 noundef 1, i32 noundef 143, i32 noundef 1) #11
   call void @input_event(ptr noundef %40, i32 noundef 0, i32 noundef 0, i32 noundef 0) #11

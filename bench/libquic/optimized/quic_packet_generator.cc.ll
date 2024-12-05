@@ -39,16 +39,16 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN3net19QuicPacketGeneratorC2EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %this, i64 noundef %connection_id, ptr noundef %framer, ptr noundef %random_generator, ptr noundef %buffer_allocator, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %delegate, ptr %this, align 8
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreatorC1EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, i64 noundef %connection_id, ptr noundef %framer, ptr noundef %random_generator, ptr noundef %buffer_allocator, ptr noundef %delegate)
-  %queued_control_frames_ = getelementptr inbounds i8, ptr %this, i64 320
-  %pending_ack_frame_ = getelementptr inbounds i8, ptr %this, i64 352
+  %queued_control_frames_ = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %pending_ack_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %queued_control_frames_, i8 0, i64 27, i1 false)
   invoke void @_ZN3net12QuicAckFrameC1Ev(ptr noundef nonnull align 8 dereferenceable(100) %pending_ack_frame_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %pending_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 456
+  %pending_stop_waiting_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 456
   invoke void @_ZN3net20QuicStopWaitingFrameC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pending_stop_waiting_frame_)
           to label %invoke.cont3 unwind label %lpad2
 
@@ -63,7 +63,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont
   %1 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %pending_ack_frame_) #15
+  tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %pending_ack_frame_) #16
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
@@ -73,11 +73,11 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %ehcleanup
-  tail call void @_ZdlPv(ptr noundef nonnull %2) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #17
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit:   ; preds = %ehcleanup, %if.then.i.i.i
-  tail call void @_ZN3net17QuicPacketCreatorD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_) #15
+  tail call void @_ZN3net17QuicPacketCreatorD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_) #16
   resume { ptr, i32 } %.pn
 }
 
@@ -98,33 +98,33 @@ declare void @_ZN3net17QuicPacketCreatorD1Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net19QuicPacketGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queued_control_frames_ = getelementptr inbounds i8, ptr %this, i64 320
+  %queued_control_frames_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   invoke void @_ZN3net9QuicUtils12DeleteFramesEPSt6vectorINS_9QuicFrameESaIS2_EE(ptr noundef nonnull %queued_control_frames_)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %pending_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 456
-  tail call void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pending_stop_waiting_frame_) #15
-  %pending_ack_frame_ = getelementptr inbounds i8, ptr %this, i64 352
-  tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %pending_ack_frame_) #15
+  %pending_stop_waiting_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 456
+  tail call void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %pending_stop_waiting_frame_) #16
+  %pending_ack_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 352
+  tail call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %pending_ack_frame_) #16
   %0 = load ptr, ptr %queued_control_frames_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EED2Ev.exit:   ; preds = %invoke.cont, %if.then.i.i.i
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
-  tail call void @_ZN3net17QuicPacketCreatorD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_) #15
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  tail call void @_ZN3net17QuicPacketCreatorD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_) #16
   ret void
 
 terminate.lpad:                                   ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #17
+  tail call void @__clang_call_terminate(ptr %2) #18
   unreachable
 }
 
@@ -132,8 +132,8 @@ declare void @_ZN3net9QuicUtils12DeleteFramesEPSt6vectorINS_9QuicFrameESaIS2_EE(
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #15
-  tail call void @_ZSt9terminatev() #17
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #16
+  tail call void @_ZSt9terminatev() #18
   unreachable
 }
 
@@ -150,8 +150,8 @@ define dso_local void @_ZN3net19QuicPacketGenerator16SetShouldSendAckEb(ptr noun
 entry:
   %ref.tmp6 = alloca %"class.logging::LogMessage", align 8
   %frombool = zext i1 %also_send_stop_waiting to i8
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
-  %has_ack.i = getelementptr inbounds i8, ptr %this, i64 227
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %has_ack.i = getelementptr inbounds nuw i8, ptr %this, i64 227
   %0 = load i8, ptr %has_ack.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %return, label %if.end
@@ -160,7 +160,7 @@ if.end:                                           ; preds = %entry
   br i1 %also_send_stop_waiting, label %land.lhs.true, label %if.end14
 
 land.lhs.true:                                    ; preds = %if.end
-  %has_stop_waiting.i = getelementptr inbounds i8, ptr %this, i64 228
+  %has_stop_waiting.i = getelementptr inbounds nuw i8, ptr %this, i64 228
   %1 = load i8, ptr %has_stop_waiting.i, align 4
   %tobool.i2 = trunc i8 %1 to i1
   br i1 %tobool.i2, label %if.then4, label %if.end14
@@ -171,27 +171,27 @@ if.then4:                                         ; preds = %land.lhs.true
 
 cond.false:                                       ; preds = %if.then4
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6, ptr noundef nonnull @.str, i32 noundef 42, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.1)
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %cond.false
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #16
   br label %return
 
 lpad:                                             ; preds = %cond.false
   %2 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp6) #16
   resume { ptr, i32 } %2
 
 if.end14:                                         ; preds = %land.lhs.true, %if.end
-  %should_send_ack_ = getelementptr inbounds i8, ptr %this, i64 345
+  %should_send_ack_ = getelementptr inbounds nuw i8, ptr %this, i64 345
   store i8 1, ptr %should_send_ack_, align 1
-  %should_send_stop_waiting_ = getelementptr inbounds i8, ptr %this, i64 346
+  %should_send_stop_waiting_ = getelementptr inbounds nuw i8, ptr %this, i64 346
   store i8 %frombool, ptr %should_send_stop_waiting_, align 2
-  %queued_control_frames_.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %queued_control_frames_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %if.end14
@@ -216,7 +216,7 @@ land.rhs.i:                                       ; preds = %_ZNK3net19QuicPacke
   %not..i.i = select i1 %tobool.i.i, i8 0, i8 %7
   %8 = load ptr, ptr %this, align 8
   %vtable.i.i = load ptr, ptr %8, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
   %9 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(8) %8, i8 noundef signext %not..i.i, i8 noundef signext 0)
   br i1 %call.i.i, label %while.body.i, label %lor.lhs.false.i
@@ -228,7 +228,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !5
 
 lor.lhs.false.i:                                  ; preds = %_ZNK3net19QuicPacketGenerator16HasPendingFramesEv.exit.i, %land.rhs.i
-  %batch_mode_.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %10 = load i8, ptr %batch_mode_.i.i, align 8
   %tobool.i5.i = trunc i8 %10 to i1
   br i1 %tobool.i5.i, label %return, label %if.then.i
@@ -253,10 +253,10 @@ declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator16SendQueuedFramesEb(ptr noundef nonnull align 8 dereferenceable(472) %this, i1 noundef zeroext %flush) local_unnamed_addr #0 align 2 {
 entry:
-  %should_send_ack_.i = getelementptr inbounds i8, ptr %this, i64 345
-  %should_send_stop_waiting_.i = getelementptr inbounds i8, ptr %this, i64 346
-  %queued_control_frames_.i = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %should_send_ack_.i = getelementptr inbounds nuw i8, ptr %this, i64 345
+  %should_send_stop_waiting_.i = getelementptr inbounds nuw i8, ptr %this, i64 346
+  %queued_control_frames_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   br i1 %flush, label %while.cond.us, label %while.cond
 
 while.cond.us:                                    ; preds = %entry, %land.rhs.us
@@ -301,7 +301,7 @@ land.rhs:                                         ; preds = %while.cond, %lor.lh
   %not..i = select i1 %tobool.i, i8 0, i8 %8
   %9 = load ptr, ptr %this, align 8
   %vtable.i = load ptr, ptr %9, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 32
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 32
   %10 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i8 noundef signext %not..i, i8 noundef signext 0)
   br i1 %call.i, label %while.body, label %lor.lhs.false
@@ -314,13 +314,13 @@ while.end:                                        ; preds = %_ZNK3net19QuicPacke
   br i1 %flush, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.rhs, %while.end
-  %batch_mode_.i = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %11 = load i8, ptr %batch_mode_.i, align 8
   %tobool.i5 = trunc i8 %11 to i1
   br i1 %tobool.i5, label %if.end, label %if.then
 
 if.then:                                          ; preds = %lor.lhs.false, %while.end
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator5FlushEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_)
   br label %if.end
 
@@ -331,10 +331,10 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator15AddControlFrameERKNS_9QuicFrameE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %frame) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %queued_control_frames_ = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 328
+  %queued_control_frames_ = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %0 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 336
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 336
   %1 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %0, %1
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -342,7 +342,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %frame, i64 16, i1 false)
   %2 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %2, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit
 
@@ -355,7 +355,7 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #18
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.8) #19
   unreachable
 
 _ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -365,50 +365,44 @@ _ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %i
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %4 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 576460752303423487)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 576460752303423487, i64 %4
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 4
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #19
-  br label %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #20
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %frame, i64 16, i1 false)
   %cmp.not5.i.i.i.i.i = icmp eq ptr %3, %0
   br i1 %cmp.not5.i.i.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i:                               ; preds = %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i, %for.body.i.i.i.i.i
-  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i ]
-  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %for.body.i.i.i.i.i
+  %__cur.07.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %__first.addr.06.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ], [ %3, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__cur.07.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.06.i.i.i.i.i, i64 16, i1 false), !alias.scope !7
-  %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
-  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i.i, i64 16
+  %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.06.i.i.i.i.i, i64 16
+  %incdec.ptr1.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %0
   br i1 %cmp.not.i.i.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i, label %for.body.i.i.i.i.i, !llvm.loop !11
 
-_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i
-  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %cond.i10.i.i, %_ZNSt12_Vector_baseIN3net9QuicFrameESaIS1_EE11_M_allocateEm.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
+_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i: ; preds = %for.body.i.i.i.i.i, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %__cur.0.lcssa.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i, %_ZNKSt6vectorIN3net9QuicFrameESaIS1_EE12_M_check_lenEmPKc.exit.i.i ], [ %incdec.ptr1.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i, i64 16
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, label %if.then.i20.i.i
 
 if.then.i20.i.i:                                  ; preds = %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i20.i.i, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit19.i.i
-  store ptr %cond.i10.i.i, ptr %queued_control_frames_, align 8
+  store ptr %call5.i.i.i.i.i, ptr %queued_control_frames_, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds %"struct.net::QuicFrame", ptr %cond.i10.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.net::QuicFrame", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit: ; preds = %if.then.i, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %should_send_ack_.i.i = getelementptr inbounds i8, ptr %this, i64 345
-  %should_send_stop_waiting_.i.i = getelementptr inbounds i8, ptr %this, i64 346
+  %should_send_ack_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 345
+  %should_send_stop_waiting_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 346
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %_ZNSt6vectorIN3net9QuicFrameESaIS1_EE9push_backERKS1_.exit
@@ -433,7 +427,7 @@ land.rhs.i:                                       ; preds = %_ZNK3net19QuicPacke
   %not..i.i = select i1 %tobool.i.i, i8 0, i8 %9
   %10 = load ptr, ptr %this, align 8
   %vtable.i.i = load ptr, ptr %10, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
   %11 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10, i8 noundef signext %not..i.i, i8 noundef signext 0)
   br i1 %call.i.i, label %while.body.i, label %lor.lhs.false.i
@@ -443,13 +437,13 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !5
 
 lor.lhs.false.i:                                  ; preds = %_ZNK3net19QuicPacketGenerator16HasPendingFramesEv.exit.i, %land.rhs.i
-  %batch_mode_.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %12 = load i8, ptr %batch_mode_.i.i, align 8
   %tobool.i5.i = trunc i8 %12 to i1
   br i1 %tobool.i5.i, label %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit, label %if.then.i1
 
 if.then.i1:                                       ; preds = %lor.lhs.false.i
-  %packet_creator_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator5FlushEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_.i)
   br label %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit
 
@@ -476,37 +470,37 @@ entry:
 
 cond.false:                                       ; preds = %entry
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5, ptr noundef nonnull @.str, i32 noundef 63, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp5, i64 8
   %call8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.2)
           to label %cleanup.done.thread unwind label %lpad
 
 cleanup.done.thread:                              ; preds = %cond.false
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5) #16
   br label %land.rhs
 
 cleanup.done:                                     ; preds = %entry
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %cleanup.done.thread, %cleanup.done
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call14 = call noundef zeroext i1 @_ZNK3net17QuicPacketCreator31HasPendingRetransmittableFramesEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_)
-  %should_send_ack_.i.i42 = getelementptr inbounds i8, ptr %this, i64 345
-  %should_send_stop_waiting_.i.i43 = getelementptr inbounds i8, ptr %this, i64 346
-  %queued_control_frames_.i.i44 = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i.i.i.i45 = getelementptr inbounds i8, ptr %this, i64 328
+  %should_send_ack_.i.i42 = getelementptr inbounds nuw i8, ptr %this, i64 345
+  %should_send_stop_waiting_.i.i43 = getelementptr inbounds nuw i8, ptr %this, i64 346
+  %queued_control_frames_.i.i44 = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i.i.i.i45 = getelementptr inbounds nuw i8, ptr %this, i64 328
   br i1 %call14, label %while.cond.us.i.preheader, label %while.cond.i.preheader
 
 while.cond.us.i.preheader:                        ; preds = %land.rhs
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp26.i, i64 8
-  %pending_stop_waiting_frame_.i = getelementptr inbounds i8, ptr %this, i64 456
-  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp26.i, i64 8
+  %pending_stop_waiting_frame_.i = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   br label %while.cond.us.i
 
 land.end:                                         ; preds = %cleanup.done
-  %should_send_ack_.i.i = getelementptr inbounds i8, ptr %this, i64 345
-  %should_send_stop_waiting_.i.i = getelementptr inbounds i8, ptr %this, i64 346
-  %queued_control_frames_.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %should_send_ack_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 345
+  %should_send_stop_waiting_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 346
+  %queued_control_frames_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   br label %while.cond.i.preheader
 
 while.cond.i.preheader:                           ; preds = %land.rhs, %land.end
@@ -538,7 +532,7 @@ if.then.i40:                                      ; preds = %while.cond.us.i
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp26.i)
   %5 = load ptr, ptr %this, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i = call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = extractvalue { i32, ptr } %call.i, 0
@@ -557,7 +551,7 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i.us.
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp26.i)
   %9 = load ptr, ptr %this, align 8
   %vtable10.i = load ptr, ptr %9, align 8
-  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 48
+  %vfn11.i = getelementptr inbounds nuw i8, ptr %vtable10.i, i64 48
   %10 = load ptr, ptr %vfn11.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %pending_stop_waiting_frame_.i)
   call void @_ZN3net9QuicFrameC1EPNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i, ptr noundef nonnull %pending_stop_waiting_frame_.i)
@@ -584,7 +578,7 @@ cond.false.i:                                     ; preds = %if.end22.i
           to label %invoke.cont28.i unwind label %lpad.i
 
 invoke.cont28.i:                                  ; preds = %cond.false.i
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26.i) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26.i) #16
   %.pre = load ptr, ptr %_M_finish.i.i.i.i45, align 8
   br label %cleanup.done.i
 
@@ -597,7 +591,7 @@ cleanup.done.i:                                   ; preds = %invoke.cont28.i, %i
 common.resume:                                    ; preds = %lpad, %lpad30, %lpad57, %lpad.i
   %ref.tmp5.sink = phi ptr [ %ref.tmp5, %lpad ], [ %ref.tmp28, %lpad30 ], [ %ref.tmp55, %lpad57 ], [ %ref.tmp26.i, %lpad.i ]
   %common.resume.op = phi { ptr, i32 } [ %23, %lpad ], [ %28, %lpad30 ], [ %29, %lpad57 ], [ %13, %lpad.i ]
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5.sink) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp5.sink) #16
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %cond.false.i
@@ -639,7 +633,7 @@ land.rhs.i:                                       ; preds = %_ZNK3net19QuicPacke
   %not..i.i = select i1 %tobool.i.i, i8 0, i8 %19
   %20 = load ptr, ptr %this, align 8
   %vtable.i.i = load ptr, ptr %20, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
   %21 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i8 noundef signext %not..i.i, i8 noundef signext 0)
   br i1 %call.i.i, label %while.body.i, label %lor.lhs.false.i
@@ -649,7 +643,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   br label %while.cond.i, !llvm.loop !5
 
 lor.lhs.false.i:                                  ; preds = %land.rhs.i, %_ZNK3net19QuicPacketGenerator16HasPendingFramesEv.exit.i
-  %batch_mode_.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %22 = load i8, ptr %batch_mode_.i.i, align 8
   %tobool.i5.i = trunc i8 %22 to i1
   br i1 %tobool.i5.i, label %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit, label %if.then.i
@@ -659,7 +653,7 @@ if.then.i:                                        ; preds = %_ZNK3net19QuicPacke
   %queued_control_frames_.i.i62 = phi ptr [ %queued_control_frames_.i.i58.ph, %lor.lhs.false.i ], [ %queued_control_frames_.i.i44, %_ZNK3net19QuicPacketGenerator16HasPendingFramesEv.exit.us.i ]
   %should_send_stop_waiting_.i.i56 = phi ptr [ %should_send_stop_waiting_.i.i52.ph, %lor.lhs.false.i ], [ %should_send_stop_waiting_.i.i43, %_ZNK3net19QuicPacketGenerator16HasPendingFramesEv.exit.us.i ]
   %should_send_ack_.i.i50 = phi ptr [ %should_send_ack_.i.i46.ph, %lor.lhs.false.i ], [ %should_send_ack_.i.i42, %_ZNK3net19QuicPacketGenerator16HasPendingFramesEv.exit.us.i ]
-  %packet_creator_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN3net17QuicPacketCreator5FlushEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_.i)
   br label %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit
 
@@ -668,7 +662,7 @@ _ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit: ; preds = %lor.lhs.false.
   %queued_control_frames_.i.i60 = phi ptr [ %queued_control_frames_.i.i58.ph, %lor.lhs.false.i ], [ %queued_control_frames_.i.i62, %if.then.i ]
   %should_send_stop_waiting_.i.i54 = phi ptr [ %should_send_stop_waiting_.i.i52.ph, %lor.lhs.false.i ], [ %should_send_stop_waiting_.i.i56, %if.then.i ]
   %should_send_ack_.i.i48 = phi ptr [ %should_send_ack_.i.i46.ph, %lor.lhs.false.i ], [ %should_send_ack_.i.i50, %if.then.i ]
-  %packet_creator_17 = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_17 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call18 = call noundef zeroext i1 @_ZN3net17QuicPacketCreator21HasRoomForStreamFrameEjm(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_17, i32 noundef %id, i64 noundef %offset)
   br i1 %call18, label %if.end, label %if.then
 
@@ -682,7 +676,7 @@ lpad:                                             ; preds = %cond.false
   br label %common.resume
 
 if.end:                                           ; preds = %if.then, %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit
-  %total_length = getelementptr inbounds i8, ptr %iov, i64 16
+  %total_length = getelementptr inbounds nuw i8, ptr %iov, i64 16
   %24 = load i64, ptr %total_length, align 8
   %cmp22 = icmp ne i64 %24, 0
   %or.cond.not = select i1 %fin, i1 true, i1 %cmp22
@@ -692,15 +686,15 @@ while.cond.preheader:                             ; preds = %if.end
   %cond = zext i1 %cmp to i8
   %25 = load ptr, ptr %this, align 8
   %vtable71 = load ptr, ptr %25, align 8
-  %vfn72 = getelementptr inbounds i8, ptr %vtable71, i64 32
+  %vfn72 = getelementptr inbounds nuw i8, ptr %vtable71, i64 32
   %26 = load ptr, ptr %vfn72, align 8
   %call4573 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(8) %25, i8 noundef signext 1, i8 noundef signext %cond)
   br i1 %call4573, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %while.cond.preheader
-  %27 = getelementptr inbounds i8, ptr %frame, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %cmp73.not = icmp eq ptr %listener, null
-  %batch_mode_.i = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   br label %while.body
 
 if.then23:                                        ; preds = %if.end
@@ -709,12 +703,12 @@ if.then23:                                        ; preds = %if.end
 
 cond.false26:                                     ; preds = %if.then23
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp28, ptr noundef nonnull @.str, i32 noundef 79, i32 noundef 2)
-  %stream_.i21 = getelementptr inbounds i8, ptr %ref.tmp28, i64 8
+  %stream_.i21 = getelementptr inbounds nuw i8, ptr %ref.tmp28, i64 8
   %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i21, ptr noundef nonnull @.str.3)
           to label %cleanup.action38 unwind label %lpad30
 
 cleanup.action38:                                 ; preds = %cond.false26
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp28) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp28) #16
   br label %cleanup.done39
 
 cleanup.done39:                                   ; preds = %if.then23, %cleanup.action38
@@ -739,7 +733,7 @@ if.then50:                                        ; preds = %while.body
 
 cond.false53:                                     ; preds = %if.then50
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp55, ptr noundef nonnull @.str, i32 noundef 91, i32 noundef 2)
-  %stream_.i22 = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
+  %stream_.i22 = getelementptr inbounds nuw i8, ptr %ref.tmp55, i64 8
   %call61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i22, ptr noundef nonnull @.str.4)
           to label %invoke.cont60 unwind label %lpad57
 
@@ -748,7 +742,7 @@ invoke.cont60:                                    ; preds = %cond.false53
           to label %cleanup.action67 unwind label %lpad57
 
 cleanup.action67:                                 ; preds = %invoke.cont60
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp55) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp55) #16
   br label %cleanup.done68
 
 cleanup.done68:                                   ; preds = %if.then50, %cleanup.action67
@@ -762,7 +756,7 @@ lpad57:                                           ; preds = %invoke.cont60, %con
 
 if.end72:                                         ; preds = %while.body
   %30 = load ptr, ptr %27, align 8
-  %data_length = getelementptr inbounds i8, ptr %30, i64 6
+  %data_length = getelementptr inbounds nuw i8, ptr %30, i64 6
   %31 = load i16, ptr %data_length, align 2
   %conv = zext i16 %31 to i64
   br i1 %cmp73.not, label %if.end77, label %if.then74
@@ -789,7 +783,7 @@ if.end92:                                         ; preds = %if.end88
   call void @_ZN3net17QuicPacketCreator5FlushEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_17)
   %33 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %33, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %34 = load ptr, ptr %vfn, align 8
   %call45 = call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(8) %33, i8 noundef signext 1, i8 noundef signext %cond)
   br i1 %call45, label %while.body, label %while.end, !llvm.loop !12
@@ -830,7 +824,7 @@ if.end96:                                         ; preds = %_ZN3net19QuicPacket
 return:                                           ; preds = %if.end96, %cleanup.done68, %cleanup.done39
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i8, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.fca.1.load, 1
   ret { i64, i8 } %.fca.1.insert
@@ -858,7 +852,7 @@ declare void @_ZN3net17QuicPacketCreator14AddAckListenerEPNS_24QuicAckListenerIn
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN3net19QuicPacketGenerator11InBatchModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %batch_mode_ = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load i8, ptr %batch_mode_, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -869,20 +863,20 @@ define dso_local { i64, i8 } @_ZN3net19QuicPacketGenerator19ConsumeDataFastPathE
 if.end:
   %retval = alloca %"struct.net::QuicConsumedData", align 8
   %bytes_consumed = alloca i64, align 8
-  %total_length = getelementptr inbounds i8, ptr %iov, i64 16
+  %total_length = getelementptr inbounds nuw i8, ptr %iov, i64 16
   %0 = load i64, ptr %total_length, align 8
   %cmp10.not = icmp eq i64 %0, 0
   br i1 %cmp10.not, label %while.end, label %land.rhs.lr.ph
 
 land.rhs.lr.ph:                                   ; preds = %if.end
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %total_bytes_consumed.011 = phi i64 [ 0, %land.rhs.lr.ph ], [ %add5, %while.body ]
   %1 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %2 = load ptr, ptr %vfn, align 8
   %call4 = call noundef zeroext i1 %2(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 1, i8 noundef signext 0)
   br i1 %call4, label %while.body, label %land.rhs.while.end.loopexit_crit_edge
@@ -909,7 +903,7 @@ while.end:                                        ; preds = %while.body, %land.r
   call void @_ZN3net16QuicConsumedDataC1Emb(ptr noundef nonnull align 8 dereferenceable(9) %retval, i64 noundef %total_bytes_consumed.0.lcssa, i1 noundef zeroext %6)
   %.fca.0.load = load i64, ptr %retval, align 8
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i8, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.fca.1.load, 1
   ret { i64, i8 } %.fca.1.insert
@@ -922,7 +916,7 @@ define dso_local void @_ZN3net19QuicPacketGenerator26GenerateMtuDiscoveryPacketE
 entry:
   %ref.tmp3 = alloca %"class.logging::LogMessage", align 8
   %frame = alloca %"struct.net::QuicFrame", align 8
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK3net17QuicPacketCreator21CanSetMaxPacketLengthEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_)
   br i1 %call, label %if.end, label %if.then
 
@@ -932,7 +926,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str, i32 noundef 156, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.5)
           to label %invoke.cont5 unwind label %lpad
 
@@ -941,17 +935,17 @@ invoke.cont5:                                     ; preds = %cond.false
           to label %cleanup.action unwind label %lpad
 
 cleanup.action:                                   ; preds = %invoke.cont5
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #16
   br label %return
 
 lpad:                                             ; preds = %invoke.cont5, %cond.false
   %0 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3) #16
   resume { ptr, i32 } %0
 
 if.end:                                           ; preds = %entry
-  %max_packet_length_.i.i = getelementptr inbounds i8, ptr %this, i64 104
+  %max_packet_length_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %1 = load i64, ptr %max_packet_length_.i.i, align 8
   call void @_ZN3net9QuicFrameC1ENS_21QuicMtuDiscoveryFrameE(ptr noundef nonnull align 8 dereferenceable(16) %frame)
   call void @_ZN3net17QuicPacketCreator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, i64 noundef %target_mtu)
@@ -977,7 +971,7 @@ declare noundef zeroext i1 @_ZNK3net17QuicPacketCreator21CanSetMaxPacketLengthEv
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net19QuicPacketGenerator25GetCurrentMaxPacketLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %max_packet_length_.i = getelementptr inbounds i8, ptr %this, i64 104
+  %max_packet_length_.i = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load i64, ptr %max_packet_length_.i, align 8
   ret i64 %0
 }
@@ -987,7 +981,7 @@ declare void @_ZN3net9QuicFrameC1ENS_21QuicMtuDiscoveryFrameE(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(472) %this, i64 noundef %length) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator18SetMaxPacketLengthEm(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, i64 noundef %length)
   ret void
 }
@@ -997,17 +991,17 @@ declare noundef zeroext i1 @_ZN3net17QuicPacketCreator19AddPaddedSavedFrameERKNS
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net19QuicPacketGenerator35CanSendWithNextPendingFrameAdditionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %should_send_ack_ = getelementptr inbounds i8, ptr %this, i64 345
+  %should_send_ack_ = getelementptr inbounds nuw i8, ptr %this, i64 345
   %0 = load i8, ptr %should_send_ack_, align 1
   %tobool = trunc i8 %0 to i1
-  %should_send_stop_waiting_ = getelementptr inbounds i8, ptr %this, i64 346
+  %should_send_stop_waiting_ = getelementptr inbounds nuw i8, ptr %this, i64 346
   %1 = load i8, ptr %should_send_stop_waiting_, align 2
   %2 = and i8 %1, 1
   %3 = xor i8 %2, 1
   %not. = select i1 %tobool, i8 0, i8 %3
   %4 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %4, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %5 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(8) %4, i8 noundef signext %not., i8 noundef signext 0)
   ret i1 %call
@@ -1016,21 +1010,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net19QuicPacketGenerator16HasPendingFramesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %should_send_ack_ = getelementptr inbounds i8, ptr %this, i64 345
+  %should_send_ack_ = getelementptr inbounds nuw i8, ptr %this, i64 345
   %0 = load i8, ptr %should_send_ack_, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %lor.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %should_send_stop_waiting_ = getelementptr inbounds i8, ptr %this, i64 346
+  %should_send_stop_waiting_ = getelementptr inbounds nuw i8, ptr %this, i64 346
   %1 = load i8, ptr %should_send_stop_waiting_, align 2
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false
-  %queued_control_frames_ = getelementptr inbounds i8, ptr %this, i64 320
+  %queued_control_frames_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %2 = load ptr, ptr %queued_control_frames_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %3 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp ne ptr %2, %3
   br label %lor.end
@@ -1046,21 +1040,21 @@ entry:
   %ref.tmp = alloca %"struct.net::QuicFrame", align 8
   %ref.tmp13 = alloca %"struct.net::QuicFrame", align 8
   %ref.tmp26 = alloca %"class.logging::LogMessage", align 8
-  %should_send_ack_ = getelementptr inbounds i8, ptr %this, i64 345
+  %should_send_ack_ = getelementptr inbounds nuw i8, ptr %this, i64 345
   %0 = load i8, ptr %should_send_ack_, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %this, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %2 = load ptr, ptr %vfn, align 8
   %call = tail call { i32, ptr } %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %3 = extractvalue { i32, ptr } %call, 0
   store i32 %3, ptr %ref.tmp, align 8
-  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = extractvalue { i32, ptr } %call, 1
   store ptr %5, ptr %4, align 8
   %call2 = call noundef zeroext i1 @_ZN3net17QuicPacketCreator13AddSavedFrameERKNS_9QuicFrameE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
@@ -1070,19 +1064,19 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %should_send_stop_waiting_ = getelementptr inbounds i8, ptr %this, i64 346
+  %should_send_stop_waiting_ = getelementptr inbounds nuw i8, ptr %this, i64 346
   %6 = load i8, ptr %should_send_stop_waiting_, align 2
   %tobool7 = trunc i8 %6 to i1
   br i1 %tobool7, label %if.then8, label %if.end22
 
 if.then8:                                         ; preds = %if.end
   %7 = load ptr, ptr %this, align 8
-  %pending_stop_waiting_frame_ = getelementptr inbounds i8, ptr %this, i64 456
+  %pending_stop_waiting_frame_ = getelementptr inbounds nuw i8, ptr %this, i64 456
   %vtable10 = load ptr, ptr %7, align 8
-  %vfn11 = getelementptr inbounds i8, ptr %vtable10, i64 48
+  %vfn11 = getelementptr inbounds nuw i8, ptr %vtable10, i64 48
   %8 = load ptr, ptr %vfn11, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %pending_stop_waiting_frame_)
-  %packet_creator_12 = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_12 = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN3net9QuicFrameC1EPNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13, ptr noundef nonnull %pending_stop_waiting_frame_)
   %call15 = call noundef zeroext i1 @_ZN3net17QuicPacketCreator13AddSavedFrameERKNS_9QuicFrameE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_12, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13)
   %lnot16 = xor i1 %call15, true
@@ -1095,26 +1089,26 @@ if.end22:                                         ; preds = %if.end
   br i1 %call23, label %land.lhs.true, label %cleanup.done
 
 land.lhs.true:                                    ; preds = %if.end22
-  %queued_control_frames_ = getelementptr inbounds i8, ptr %this, i64 320
+  %queued_control_frames_ = getelementptr inbounds nuw i8, ptr %this, i64 320
   %9 = load ptr, ptr %queued_control_frames_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.i.i = icmp eq ptr %9, %10
   br i1 %cmp.i.i, label %cond.false, label %cleanup.done
 
 cond.false:                                       ; preds = %land.lhs.true
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26, ptr noundef nonnull @.str, i32 noundef 252, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp26, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp26, i64 8
   %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.7)
           to label %invoke.cont28 unwind label %lpad
 
 invoke.cont28:                                    ; preds = %cond.false
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26) #16
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %land.lhs.true, %if.end22, %invoke.cont28
-  %packet_creator_34 = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_finish.i.i1 = getelementptr inbounds i8, ptr %this, i64 328
+  %packet_creator_34 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_finish.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 328
   %11 = load ptr, ptr %_M_finish.i.i1, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 -16
   %call37 = call noundef zeroext i1 @_ZN3net17QuicPacketCreator13AddSavedFrameERKNS_9QuicFrameE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_34, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i)
@@ -1123,7 +1117,7 @@ cleanup.done:                                     ; preds = %land.lhs.true, %if.
 lpad:                                             ; preds = %cond.false
   %12 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26) #16
   resume { ptr, i32 } %12
 
 if.end39:                                         ; preds = %cleanup.done
@@ -1140,7 +1134,7 @@ return:                                           ; preds = %cleanup.done, %if.e
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator20StartBatchOperationsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((344, 345)) %this) local_unnamed_addr #8 align 2 {
 entry:
-  %batch_mode_ = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i8 1, ptr %batch_mode_, align 8
   ret void
 }
@@ -1148,12 +1142,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) initializes((344, 345)) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %batch_mode_ = getelementptr inbounds i8, ptr %this, i64 344
+  %batch_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i8 0, ptr %batch_mode_, align 8
-  %should_send_ack_.i.i = getelementptr inbounds i8, ptr %this, i64 345
-  %should_send_stop_waiting_.i.i = getelementptr inbounds i8, ptr %this, i64 346
-  %queued_control_frames_.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %should_send_ack_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 345
+  %should_send_stop_waiting_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 346
+  %queued_control_frames_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.body.i, %entry
@@ -1178,7 +1172,7 @@ land.rhs.i:                                       ; preds = %_ZNK3net19QuicPacke
   %not..i.i = select i1 %tobool.i.i, i8 0, i8 %4
   %5 = load ptr, ptr %this, align 8
   %vtable.i.i = load ptr, ptr %5, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 32
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 32
   %6 = load ptr, ptr %vfn.i.i, align 8
   %call.i.i = tail call noundef zeroext i1 %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i8 noundef signext %not..i.i, i8 noundef signext 0)
   br i1 %call.i.i, label %while.body.i, label %lor.lhs.false.i
@@ -1193,7 +1187,7 @@ lor.lhs.false.i:                                  ; preds = %_ZNK3net19QuicPacke
   br i1 %tobool.i5.i, label %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %lor.lhs.false.i
-  %packet_creator_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator5FlushEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_.i)
   br label %_ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit
 
@@ -1207,14 +1201,14 @@ entry:
   %ref.tmp.i = alloca %"struct.net::QuicFrame", align 8
   %ref.tmp13.i = alloca %"struct.net::QuicFrame", align 8
   %ref.tmp26.i = alloca %"class.logging::LogMessage", align 8
-  %should_send_ack_.i.i = getelementptr inbounds i8, ptr %this, i64 345
-  %should_send_stop_waiting_.i.i = getelementptr inbounds i8, ptr %this, i64 346
-  %queued_control_frames_.i.i = getelementptr inbounds i8, ptr %this, i64 320
-  %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
-  %stream_.i.i = getelementptr inbounds i8, ptr %ref.tmp26.i, i64 8
-  %packet_creator_34.i = getelementptr inbounds i8, ptr %this, i64 8
-  %pending_stop_waiting_frame_.i = getelementptr inbounds i8, ptr %this, i64 456
-  %0 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
+  %should_send_ack_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 345
+  %should_send_stop_waiting_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 346
+  %queued_control_frames_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 320
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp26.i, i64 8
+  %packet_creator_34.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %pending_stop_waiting_frame_.i = getelementptr inbounds nuw i8, ptr %this, i64 456
+  %0 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   br label %while.cond.us.i
 
 while.cond.us.i:                                  ; preds = %_ZN3net19QuicPacketGenerator19AddNextPendingFrameEv.exit, %entry
@@ -1239,7 +1233,7 @@ if.then.i:                                        ; preds = %while.cond.us.i
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp26.i)
   %5 = load ptr, ptr %this, align 8
   %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 40
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 40
   %6 = load ptr, ptr %vfn.i, align 8
   %call.i = call { i32, ptr } %6(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %7 = extractvalue { i32, ptr } %call.i, 0
@@ -1258,7 +1252,7 @@ if.then8.i:                                       ; preds = %lor.lhs.false.i.us.
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %ref.tmp26.i)
   %9 = load ptr, ptr %this, align 8
   %vtable10.i = load ptr, ptr %9, align 8
-  %vfn11.i = getelementptr inbounds i8, ptr %vtable10.i, i64 48
+  %vfn11.i = getelementptr inbounds nuw i8, ptr %vtable10.i, i64 48
   %10 = load ptr, ptr %vfn11.i, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %pending_stop_waiting_frame_.i)
   call void @_ZN3net9QuicFrameC1EPNS_20QuicStopWaitingFrameE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13.i, ptr noundef nonnull %pending_stop_waiting_frame_.i)
@@ -1285,7 +1279,7 @@ cond.false.i:                                     ; preds = %if.end22.i
           to label %invoke.cont28.i unwind label %lpad.i
 
 invoke.cont28.i:                                  ; preds = %cond.false.i
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26.i) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26.i) #16
   %.pre = load ptr, ptr %_M_finish.i.i.i.i, align 8
   br label %cleanup.done.i
 
@@ -1298,7 +1292,7 @@ cleanup.done.i:                                   ; preds = %invoke.cont28.i, %i
 lpad.i:                                           ; preds = %cond.false.i
   %13 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26.i) #15
+  call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp26.i) #16
   resume { ptr, i32 } %13
 
 if.end39.i:                                       ; preds = %cleanup.done.i
@@ -1321,26 +1315,26 @@ _ZN3net19QuicPacketGenerator16SendQueuedFramesEb.exit: ; preds = %_ZNK3net19Quic
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net19QuicPacketGenerator15HasQueuedFramesEv(ptr noundef nonnull align 8 dereferenceable(472) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK3net17QuicPacketCreator16HasPendingFramesEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_)
   br i1 %call, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %should_send_ack_.i = getelementptr inbounds i8, ptr %this, i64 345
+  %should_send_ack_.i = getelementptr inbounds nuw i8, ptr %this, i64 345
   %0 = load i8, ptr %should_send_ack_.i, align 1
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %lor.end, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %lor.rhs
-  %should_send_stop_waiting_.i = getelementptr inbounds i8, ptr %this, i64 346
+  %should_send_stop_waiting_.i = getelementptr inbounds nuw i8, ptr %this, i64 346
   %1 = load i8, ptr %should_send_stop_waiting_.i, align 2
   %tobool2.i = trunc i8 %1 to i1
   br i1 %tobool2.i, label %lor.end, label %lor.rhs.i
 
 lor.rhs.i:                                        ; preds = %lor.lhs.false.i
-  %queued_control_frames_.i = getelementptr inbounds i8, ptr %this, i64 320
+  %queued_control_frames_.i = getelementptr inbounds nuw i8, ptr %this, i64 320
   %2 = load ptr, ptr %queued_control_frames_.i, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 328
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 328
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i = icmp ne ptr %2, %3
   br label %lor.end
@@ -1355,7 +1349,7 @@ declare noundef zeroext i1 @_ZNK3net17QuicPacketCreator16HasPendingFramesEv(ptr 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK3net19QuicPacketGenerator20IsPendingPacketEmptyEv(ptr noundef nonnull align 8 dereferenceable(472) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK3net17QuicPacketCreator16HasPendingFramesEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_)
   %lnot = xor i1 %call, true
   ret i1 %lnot
@@ -1368,7 +1362,7 @@ declare void @_ZN3net9QuicFrameC1EPNS_20QuicStopWaitingFrameE(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator18StopSendingVersionEv(ptr noundef nonnull align 8 dereferenceable(472) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator18StopSendingVersionEv(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_)
   ret void
 }
@@ -1378,7 +1372,7 @@ declare void @_ZN3net17QuicPacketCreator18StopSendingVersionEv(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 1 dereferenceable(32) %nonce) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, ptr noundef nonnull align 1 dereferenceable(32) %nonce)
   ret void
 }
@@ -1388,7 +1382,7 @@ declare void @_ZN3net17QuicPacketCreator23SetDiversificationNonceERKSt5arrayIcLm
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net19QuicPacketGenerator13packet_numberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %this) local_unnamed_addr #7 align 2 {
 entry:
-  %packet_number.i = getelementptr inbounds i8, ptr %this, i64 216
+  %packet_number.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load i64, ptr %packet_number.i, align 8
   ret i64 %0
 }
@@ -1398,7 +1392,7 @@ declare void @_ZN3net17QuicPacketCreator18SetMaxPacketLengthEm(ptr noundef nonnu
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN3net19QuicPacketGenerator33SerializeVersionNegotiationPacketERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZN3net17QuicPacketCreator33SerializeVersionNegotiationPacketERKSt6vectorINS_11QuicVersionESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, ptr noundef nonnull align 8 dereferenceable(24) %supported_versions)
   ret ptr %call
 }
@@ -1408,7 +1402,7 @@ declare noundef ptr @_ZN3net17QuicPacketCreator33SerializeVersionNegotiationPack
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator20ReserializeAllFramesERKNS_21PendingRetransmissionEPcm(ptr noundef nonnull align 8 dereferenceable(472) %this, ptr noundef nonnull align 8 dereferenceable(26) %retransmission, ptr noundef %buffer, i64 noundef %buffer_len) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator20ReserializeAllFramesERKNS_21PendingRetransmissionEPcm(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, ptr noundef nonnull align 8 dereferenceable(26) %retransmission, ptr noundef %buffer, i64 noundef %buffer_len)
   ret void
 }
@@ -1418,7 +1412,7 @@ declare void @_ZN3net17QuicPacketCreator20ReserializeAllFramesERKNS_21PendingRet
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator26UpdateSequenceNumberLengthEmm(ptr noundef nonnull align 8 dereferenceable(472) %this, i64 noundef %least_packet_awaited_by_peer, i64 noundef %max_packets_in_flight) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator24UpdatePacketNumberLengthEmm(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, i64 noundef %least_packet_awaited_by_peer, i64 noundef %max_packets_in_flight)
   ret void
 }
@@ -1430,7 +1424,7 @@ define dso_local void @_ZN3net19QuicPacketGenerator21SetConnectionIdLengthEj(ptr
 entry:
   %cmp = icmp eq i32 %length, 0
   %spec.select = select i1 %cmp, i32 0, i32 8
-  %0 = getelementptr inbounds i8, ptr %this, i64 120
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 %spec.select, ptr %0, align 8
   ret void
 }
@@ -1438,7 +1432,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator20set_encryption_levelENS_15EncryptionLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((225, 226)) %this, i8 noundef signext %level) local_unnamed_addr #8 align 2 {
 entry:
-  %encryption_level.i = getelementptr inbounds i8, ptr %this, i64 225
+  %encryption_level.i = getelementptr inbounds nuw i8, ptr %this, i64 225
   store i8 %level, ptr %encryption_level.i, align 1
   ret void
 }
@@ -1446,7 +1440,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(472) %this, i8 noundef signext %level, ptr noundef %encrypter) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, i8 noundef signext %level, ptr noundef %encrypter)
   ret void
 }
@@ -1456,7 +1450,7 @@ declare void @_ZN3net17QuicPacketCreator12SetEncrypterENS_15EncryptionLevelEPNS_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicPacketGenerator14SetCurrentPathEhmm(ptr noundef nonnull align 8 dereferenceable(472) %this, i8 noundef zeroext %path_id, i64 noundef %least_packet_awaited_by_peer, i64 noundef %max_packets_in_flight) local_unnamed_addr #0 align 2 {
 entry:
-  %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
+  %packet_creator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN3net17QuicPacketCreator14SetCurrentPathEhmm(ptr noundef nonnull align 8 dereferenceable(312) %packet_creator_, i8 noundef zeroext %path_id, i64 noundef %least_packet_awaited_by_peer, i64 noundef %max_packets_in_flight)
   ret void
 }
@@ -1481,11 +1475,14 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1501,12 +1498,13 @@ attributes #10 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #11 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn nounwind }
-attributes #18 = { noreturn }
-attributes #19 = { builtin allocsize(0) }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn nounwind }
+attributes #19 = { noreturn }
+attributes #20 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

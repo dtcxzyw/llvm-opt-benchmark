@@ -76,43 +76,43 @@ $_ZTV4JSON = comdat any
 define hidden void @_ZN4JSONC2EPKcbP12outputStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(54) initializes((0, 54)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV4JSON, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 52
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i8 %5, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 53
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 1, ptr %14, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 53
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 0, ptr %6, align 1
   tail call void (ptr, i32, ptr, ...) @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54) %0, i32 noundef 0, ptr noundef nonnull @.str)
   br label %11
 
 7:                                                ; preds = %1
   %8 = tail call noundef zeroext i1 @_ZN4JSON16parse_json_valueEv(ptr noundef nonnull align 8 dereferenceable(54) %0)
-  %9 = getelementptr inbounds i8, ptr %0, i64 53
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %10 = zext i1 %8 to i8
   store i8 %10, ptr %9, align 1
   br label %11
@@ -124,15 +124,15 @@ define hidden void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr nocapture noundef nonnull align 8 dereferenceable(54) initializes((53, 54)) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #1 align 2 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 53
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 53
   store i8 0, ptr %5, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %7 = load i8, ptr %6, align 4
   %8 = trunc i8 %7 to i1
   br i1 %8, label %52, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = icmp ult i32 %1, 4
   br i1 %11, label %switch.lookup, label %12
 
@@ -145,11 +145,11 @@ define hidden void @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr nocapture noundef no
 switch.lookup:                                    ; preds = %9
   %14 = load ptr, ptr %10, align 8
   %15 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 0, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 44
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, 1
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull @.str.54, ptr noundef nonnull %switch.load, i32 noundef %17, i32 noundef %20) #13
@@ -159,13 +159,13 @@ switch.lookup:                                    ; preds = %9
   %22 = load ptr, ptr %10, align 8
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %22) #13
   call void @llvm.va_end.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %18, align 8
   %26 = zext i32 %25 to i64
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds i8, ptr %24, i64 %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
@@ -198,7 +198,7 @@ switch.lookup:                                    ; preds = %9
   %44 = zext i8 %.015 to i32
   %45 = load ptr, ptr %10, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull @.str.59, i32 noundef %44) #13
-  %46 = getelementptr inbounds i8, ptr %.01214, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.01214, i64 1
   %47 = load i8, ptr %46, align 1
   %48 = icmp ugt i8 %47, 32
   br i1 %48, label %43, label %49, !llvm.loop !6
@@ -219,7 +219,7 @@ _ZL10strchrnul_PKci.exit:                         ; preds = %49, %36
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4JSON16parse_json_valueEv(ptr noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre.i = load ptr, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit.i
 
@@ -231,7 +231,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %_ZN4JSON4nextEv.exi
   br i1 %5, label %.lr.ph.i.preheader.i, label %13
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4JSON4nextEv.exit.i
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.07.i.i = load i8, ptr %6, align 1
   switch i8 %.07.i.i, label %20 [
     i8 47, label %7
@@ -261,7 +261,7 @@ _ZN4JSON4nextEv.exit.i:                           ; preds = %_ZN4JSON4nextEv.exi
   br i1 %.not.i.i, label %_ZN4JSON4nextEv.exit.i.backedge, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %19, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit.i.backedge
 
@@ -271,7 +271,7 @@ _ZN4JSON4nextEv.exit.i.backedge:                  ; preds = %18, %15
 
 20:                                               ; preds = %13, %.lr.ph.i.preheader.i
   %.0.i.ph = phi i32 [ 47, %.lr.ph.i.preheader.i ], [ %.09.i, %13 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %67
@@ -299,7 +299,7 @@ _ZN4JSON4nextEv.exit.i17:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %30, label %.lr.ph.i.preheader.i19, label %38
 
 .lr.ph.i.preheader.i19:                           ; preds = %_ZN4JSON4nextEv.exit.i17
-  %31 = getelementptr inbounds i8, ptr %28, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %.07.i.i20 = load i8, ptr %31, align 1
   switch i8 %.07.i.i20, label %_ZN4JSON13skip_to_tokenEv.exit21.thread [
     i8 47, label %32
@@ -329,7 +329,7 @@ _ZN4JSON4nextEv.exit.i17:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %.not.i.i16, label %_ZN4JSON4nextEv.exit.i17.backedge, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %41, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %44, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit.i17.backedge
 
@@ -362,7 +362,7 @@ _ZN4JSON4nextEv.exit.i27:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %50, label %.lr.ph.i.preheader.i29, label %58
 
 .lr.ph.i.preheader.i29:                           ; preds = %_ZN4JSON4nextEv.exit.i27
-  %51 = getelementptr inbounds i8, ptr %48, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 1
   %.07.i.i30 = load i8, ptr %51, align 1
   switch i8 %.07.i.i30, label %_ZN4JSON13skip_to_tokenEv.exit31.thread [
     i8 47, label %52
@@ -392,7 +392,7 @@ _ZN4JSON4nextEv.exit.i27:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %.not.i.i26, label %_ZN4JSON4nextEv.exit.i27.backedge, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %61, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 1
   store ptr %64, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit.i27.backedge
 
@@ -460,15 +460,15 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br i1 %77, label %100, label %78
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %2, align 8
   %.promoted.i.i = load ptr, ptr %79, align 8
   %81 = icmp ult ptr %.promoted.i.i, %80
   br i1 %81, label %.lr.ph.i.i, label %_ZN4JSON13skip_to_tokenEv.exit
 
 .lr.ph.i.i:                                       ; preds = %78
-  %82 = getelementptr inbounds i8, ptr %0, i64 48
-  %83 = getelementptr inbounds i8, ptr %0, i64 44
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i.i = load i32, ptr %82, align 8
   %.promoted3.i.i = load i32, ptr %83, align 4
   br label %84
@@ -482,7 +482,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br i1 %cond.i.i, label %95, label %89
 
 89:                                               ; preds = %84
-  %90 = getelementptr inbounds i8, ptr %87, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store ptr %90, ptr %79, align 8
   %91 = add i32 %86, 1
   store i32 %91, ptr %82, align 8
@@ -514,15 +514,15 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br i1 %106, label %129, label %107
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %0, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %109 = load ptr, ptr %2, align 8
   %.promoted.i.i33 = load ptr, ptr %108, align 8
   %110 = icmp ult ptr %.promoted.i.i33, %109
   br i1 %110, label %.lr.ph.i.i35, label %_ZN4JSON13skip_to_tokenEv.exit
 
 .lr.ph.i.i35:                                     ; preds = %107
-  %111 = getelementptr inbounds i8, ptr %0, i64 48
-  %112 = getelementptr inbounds i8, ptr %0, i64 44
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i.i36 = load i32, ptr %111, align 8
   %.promoted3.i.i37 = load i32, ptr %112, align 4
   br label %113
@@ -536,7 +536,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br i1 %cond.i.i38, label %124, label %118
 
 118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %116, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 1
   store ptr %119, ptr %108, align 8
   %120 = add i32 %115, 1
   store i32 %120, ptr %111, align 8
@@ -568,15 +568,15 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br i1 %135, label %158, label %136
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds i8, ptr %0, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = load ptr, ptr %2, align 8
   %.promoted.i.i40 = load ptr, ptr %137, align 8
   %139 = icmp ult ptr %.promoted.i.i40, %138
   br i1 %139, label %.lr.ph.i.i42, label %_ZN4JSON13skip_to_tokenEv.exit
 
 .lr.ph.i.i42:                                     ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %0, i64 48
-  %141 = getelementptr inbounds i8, ptr %0, i64 44
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i.i43 = load i32, ptr %140, align 8
   %.promoted3.i.i44 = load i32, ptr %141, align 4
   br label %142
@@ -590,7 +590,7 @@ _ZN4JSON13skip_to_tokenEv.exit31.thread:          ; preds = %.lr.ph.i.preheader.
   br i1 %cond.i.i45, label %153, label %147
 
 147:                                              ; preds = %142
-  %148 = getelementptr inbounds i8, ptr %145, i64 1
+  %148 = getelementptr inbounds nuw i8, ptr %145, i64 1
   store ptr %148, ptr %137, align 8
   %149 = add i32 %144, 1
   store i32 %149, ptr %140, align 8
@@ -632,7 +632,7 @@ _ZN4JSON13skip_to_tokenEv.exit:                   ; preds = %10, %153, %124, %95
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN4JSON5validEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 53
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -640,7 +640,7 @@ define hidden noundef zeroext i1 @_ZN4JSON5validEv(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON13skip_to_tokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit
 
@@ -652,7 +652,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON4nextEv.exi
   br i1 %5, label %.lr.ph.i.preheader, label %13
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4JSON4nextEv.exit
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.07.i = load i8, ptr %6, align 1
   switch i8 %.07.i, label %.thread [
     i8 47, label %7
@@ -686,7 +686,7 @@ _ZN4JSON4nextEv.exit.backedge:                    ; preds = %15, %18
   br label %_ZN4JSON4nextEv.exit, !llvm.loop !8
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %16, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %19, ptr %2, align 8
   br label %_ZN4JSON4nextEv.exit.backedge
 
@@ -697,16 +697,16 @@ _ZN4JSON4nextEv.exit.backedge:                    ; preds = %15, %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4JSON17parse_json_objectEv(ptr noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.promoted.i = load ptr, ptr %2, align 8
   %5 = icmp ult ptr %.promoted.i, %4
   br i1 %5, label %.lr.ph.i, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %6, align 8
   %.promoted3.i = load i32, ptr %7, align 4
   br label %8
@@ -720,7 +720,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_objectEv(ptr noundef nonn
   br i1 %cond.i, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %14, ptr %2, align 8
   %15 = add i32 %10, 1
   store i32 %15, ptr %6, align 8
@@ -756,9 +756,9 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %19, %1
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv.exit
-  %26 = getelementptr inbounds i8, ptr %4, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %26, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
@@ -768,8 +768,8 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   br i1 %32, label %.preheader, label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 .preheader:                                       ; preds = %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.pre = load ptr, ptr %3, align 8
   %.promoted.i7.pre = load ptr, ptr %2, align 8
   br label %35
@@ -794,7 +794,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   br i1 %cond.i12, label %49, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %41, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %44, ptr %2, align 8
   %45 = add i32 %40, 1
   store i32 %45, ptr %33, align 8
@@ -825,7 +825,7 @@ _ZN4JSON8mark_posEv.exit13:                       ; preds = %_ZN4JSON8mark_posEv
   br i1 %56, label %.lr.ph.i.preheader.i, label %64
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4JSON8mark_posEv.exit13
-  %57 = getelementptr inbounds i8, ptr %54, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %.07.i.i = load i8, ptr %57, align 1
   switch i8 %.07.i.i, label %.thread92 [
     i8 47, label %58
@@ -855,7 +855,7 @@ _ZN4JSON8mark_posEv.exit13:                       ; preds = %_ZN4JSON8mark_posEv
   br i1 %.not.i.i, label %_ZN4JSON8mark_posEv.exit13.backedge, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %70, ptr %3, align 8
   br label %_ZN4JSON8mark_posEv.exit13.backedge
 
@@ -880,7 +880,7 @@ _ZN4JSON13skip_to_tokenEv.exit:                   ; preds = %64
   br i1 %.not.i15, label %_ZN4JSON4nextEv.exit, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %73, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %76, ptr %3, align 8
   br label %_ZN4JSON4nextEv.exit
 
@@ -900,7 +900,7 @@ _ZN4JSON4nextEv.exit.i21:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %80, label %.lr.ph.i.preheader.i23, label %88
 
 .lr.ph.i.preheader.i23:                           ; preds = %_ZN4JSON4nextEv.exit.i21
-  %81 = getelementptr inbounds i8, ptr %.pre101107, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.pre101107, i64 1
   %.07.i.i24 = load i8, ptr %81, align 1
   switch i8 %.07.i.i24, label %_ZN4JSON13skip_to_tokenEv.exit25 [
     i8 47, label %82
@@ -932,7 +932,7 @@ _ZN4JSON4nextEv.exit.i21:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %.not.i.i20, label %_ZN4JSON4nextEv.exit.i21.backedge, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %.pre101, i64 1
+  %93 = getelementptr inbounds nuw i8, ptr %.pre101, i64 1
   store ptr %93, ptr %3, align 8
   br label %_ZN4JSON4nextEv.exit.i21.backedge
 
@@ -960,7 +960,7 @@ _ZN4JSON13skip_to_tokenEv.exit25:                 ; preds = %.lr.ph.i.preheader.
   br i1 %cond.i31, label %107, label %101
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %99, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 1
   store ptr %102, ptr %2, align 8
   %103 = add i32 %98, 1
   store i32 %103, ptr %33, align 8
@@ -997,7 +997,7 @@ _ZN4JSON8mark_posEv.exit32:                       ; preds = %107, %_ZN4JSON13ski
 
 _ZN4JSON4nextEv.exit.i47.sink.split:              ; preds = %_ZN4JSON8mark_posEv.exit32, %128
   %.pre103.sink = phi ptr [ %.pre103, %128 ], [ %94, %_ZN4JSON8mark_posEv.exit32 ]
-  %114 = getelementptr inbounds i8, ptr %.pre103.sink, i64 1
+  %114 = getelementptr inbounds nuw i8, ptr %.pre103.sink, i64 1
   store ptr %114, ptr %3, align 8
   br label %_ZN4JSON4nextEv.exit.i47
 
@@ -1009,7 +1009,7 @@ _ZN4JSON4nextEv.exit.i47:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %116, label %.lr.ph.i.preheader.i49, label %124
 
 .lr.ph.i.preheader.i49:                           ; preds = %_ZN4JSON4nextEv.exit.i47
-  %117 = getelementptr inbounds i8, ptr %.pre103111, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.pre103111, i64 1
   %.07.i.i50 = load i8, ptr %117, align 1
   switch i8 %.07.i.i50, label %_ZN4JSON13skip_to_tokenEv.exit51 [
     i8 47, label %118
@@ -1063,7 +1063,7 @@ _ZN4JSON13skip_to_tokenEv.exit51:                 ; preds = %.lr.ph.i.preheader.
   br i1 %cond.i57, label %142, label %136
 
 136:                                              ; preds = %131
-  %137 = getelementptr inbounds i8, ptr %134, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 1
   store ptr %137, ptr %2, align 8
   %138 = add i32 %133, 1
   store i32 %138, ptr %33, align 8
@@ -1099,7 +1099,7 @@ _ZN4JSON4nextEv.exit.i64:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %150, label %.lr.ph.i.preheader.i66, label %158
 
 .lr.ph.i.preheader.i66:                           ; preds = %_ZN4JSON4nextEv.exit.i64
-  %151 = getelementptr inbounds i8, ptr %.pre105115, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.pre105115, i64 1
   %.07.i.i67 = load i8, ptr %151, align 1
   switch i8 %.07.i.i67, label %_ZN4JSON13skip_to_tokenEv.exit68split [
     i8 47, label %152
@@ -1131,7 +1131,7 @@ _ZN4JSON4nextEv.exit.i64:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %.not.i.i63, label %_ZN4JSON4nextEv.exit.i64.backedge, label %162
 
 162:                                              ; preds = %160
-  %163 = getelementptr inbounds i8, ptr %.pre105, i64 1
+  %163 = getelementptr inbounds nuw i8, ptr %.pre105, i64 1
   store ptr %163, ptr %3, align 8
   br label %_ZN4JSON4nextEv.exit.i64.backedge
 
@@ -1166,7 +1166,7 @@ _ZN4JSON13skip_to_tokenEv.exit68:                 ; preds = %155, %_ZN4JSON13ski
   br i1 %cond.i74, label %179, label %173
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds i8, ptr %171, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %171, i64 1
   store ptr %174, ptr %2, align 8
   %175 = add i32 %170, 1
   store i32 %175, ptr %33, align 8
@@ -1204,7 +1204,7 @@ _ZN4JSON8mark_posEv.exit75:                       ; preds = %179, %_ZN4JSON13ski
 
 .lr.ph.i78:                                       ; preds = %_ZN4JSON8mark_posEv.exit75, %188
   %.020.i79 = phi i64 [ %189, %188 ], [ 0, %_ZN4JSON8mark_posEv.exit75 ]
-  %190 = getelementptr inbounds i8, ptr @.str.17, i64 %.020.i79
+  %190 = getelementptr inbounds nuw i8, ptr @.str.17, i64 %.020.i79
   %191 = load i8, ptr %190, align 1
   %192 = sext i8 %191 to i32
   %193 = icmp eq i32 %185, %192
@@ -1215,7 +1215,7 @@ _ZN4JSON8mark_posEv.exit75:                       ; preds = %179, %_ZN4JSON13ski
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit84: ; preds = %.lr.ph.i78
-  %194 = getelementptr inbounds i8, ptr %166, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %166, i64 1
   store ptr %194, ptr %3, align 8
   br i1 %.0.i65, label %_ZN4JSON4nextEv.exit, label %35, !llvm.loop !11
 
@@ -1235,16 +1235,16 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread: ; preds = %_ZN4JSON8mar
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN4JSON8mark_posEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.promoted = load ptr, ptr %2, align 8
   %5 = icmp ult ptr %.promoted, %4
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2 = load i32, ptr %6, align 8
   %.promoted3 = load i32, ptr %7, align 4
   br label %8
@@ -1258,7 +1258,7 @@ define hidden void @_ZN4JSON8mark_posEv(ptr nocapture noundef nonnull align 8 de
   br i1 %cond, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %14, ptr %2, align 8
   %15 = add i32 %10, 1
   store i32 %15, ptr %6, align 8
@@ -1284,16 +1284,16 @@ define hidden void @_ZN4JSON8mark_posEv(ptr nocapture noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4JSON16parse_json_arrayEv(ptr noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.promoted.i = load ptr, ptr %2, align 8
   %5 = icmp ult ptr %.promoted.i, %4
   br i1 %5, label %.lr.ph.i, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %6, align 8
   %.promoted3.i = load i32, ptr %7, align 4
   br label %8
@@ -1307,7 +1307,7 @@ define hidden noundef zeroext i1 @_ZN4JSON16parse_json_arrayEv(ptr noundef nonnu
   br i1 %cond.i, label %19, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %11, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %14, ptr %2, align 8
   %15 = add i32 %10, 1
   store i32 %15, ptr %6, align 8
@@ -1343,9 +1343,9 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %19, %1
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv.exit
-  %26 = getelementptr inbounds i8, ptr %4, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %26, ptr %3, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
@@ -1355,8 +1355,8 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   br i1 %32, label %.preheader, label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 .preheader:                                       ; preds = %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
-  %34 = getelementptr inbounds i8, ptr %0, i64 44
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.pre = load ptr, ptr %3, align 8
   %.promoted.i7.pre = load ptr, ptr %2, align 8
   br label %35
@@ -1381,7 +1381,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   br i1 %cond.i12, label %49, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %41, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %44, ptr %2, align 8
   %45 = add i32 %40, 1
   store i32 %45, ptr %33, align 8
@@ -1412,7 +1412,7 @@ _ZN4JSON8mark_posEv.exit13:                       ; preds = %_ZN4JSON8mark_posEv
   br i1 %56, label %.lr.ph.i.preheader.i, label %64
 
 .lr.ph.i.preheader.i:                             ; preds = %_ZN4JSON8mark_posEv.exit13
-  %57 = getelementptr inbounds i8, ptr %54, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %.07.i.i = load i8, ptr %57, align 1
   switch i8 %.07.i.i, label %.thread56 [
     i8 47, label %58
@@ -1442,7 +1442,7 @@ _ZN4JSON8mark_posEv.exit13:                       ; preds = %_ZN4JSON8mark_posEv
   br i1 %.not.i.i, label %_ZN4JSON8mark_posEv.exit13.backedge, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 1
   store ptr %70, ptr %3, align 8
   br label %_ZN4JSON8mark_posEv.exit13.backedge
 
@@ -1471,7 +1471,7 @@ _ZN4JSON13skip_to_tokenEv.exit..thread56_crit_edge: ; preds = %_ZN4JSON13skip_to
   br i1 %.not.i15, label %_ZN4JSON4nextEv.exit, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds i8, ptr %73, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 1
   store ptr %76, ptr %3, align 8
   br label %_ZN4JSON4nextEv.exit
 
@@ -1495,7 +1495,7 @@ _ZN4JSON13skip_to_tokenEv.exit..thread56_crit_edge: ; preds = %_ZN4JSON13skip_to
   br i1 %cond.i21, label %90, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %82, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 1
   store ptr %85, ptr %2, align 8
   %86 = add i32 %81, 1
   store i32 %86, ptr %33, align 8
@@ -1531,7 +1531,7 @@ _ZN4JSON4nextEv.exit.i28:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %98, label %.lr.ph.i.preheader.i30, label %106
 
 .lr.ph.i.preheader.i30:                           ; preds = %_ZN4JSON4nextEv.exit.i28
-  %99 = getelementptr inbounds i8, ptr %.pre6567, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.pre6567, i64 1
   %.07.i.i31 = load i8, ptr %99, align 1
   switch i8 %.07.i.i31, label %_ZN4JSON13skip_to_tokenEv.exit32split [
     i8 47, label %100
@@ -1563,7 +1563,7 @@ _ZN4JSON4nextEv.exit.i28:                         ; preds = %_ZN4JSON4nextEv.exi
   br i1 %.not.i.i27, label %_ZN4JSON4nextEv.exit.i28.backedge, label %110
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds i8, ptr %.pre65, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.pre65, i64 1
   store ptr %111, ptr %3, align 8
   br label %_ZN4JSON4nextEv.exit.i28.backedge
 
@@ -1598,7 +1598,7 @@ _ZN4JSON13skip_to_tokenEv.exit32:                 ; preds = %103, %_ZN4JSON13ski
   br i1 %cond.i38, label %127, label %121
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %119, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 1
   store ptr %122, ptr %2, align 8
   %123 = add i32 %118, 1
   store i32 %123, ptr %33, align 8
@@ -1636,7 +1636,7 @@ _ZN4JSON8mark_posEv.exit39:                       ; preds = %127, %_ZN4JSON13ski
 
 .lr.ph.i42:                                       ; preds = %_ZN4JSON8mark_posEv.exit39, %136
   %.020.i43 = phi i64 [ %137, %136 ], [ 0, %_ZN4JSON8mark_posEv.exit39 ]
-  %138 = getelementptr inbounds i8, ptr @.str.22, i64 %.020.i43
+  %138 = getelementptr inbounds nuw i8, ptr @.str.22, i64 %.020.i43
   %139 = load i8, ptr %138, align 1
   %140 = sext i8 %139 to i32
   %141 = icmp eq i32 %133, %140
@@ -1647,7 +1647,7 @@ _ZN4JSON8mark_posEv.exit39:                       ; preds = %127, %_ZN4JSON13ski
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit48: ; preds = %.lr.ph.i42
-  %142 = getelementptr inbounds i8, ptr %114, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %114, i64 1
   store ptr %142, ptr %3, align 8
   br i1 %.0.i29, label %_ZN4JSON4nextEv.exit, label %35, !llvm.loop !12
 
@@ -1668,16 +1668,16 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread: ; preds = %_ZN4JSON8mar
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4JSON17parse_json_stringEb(ptr noundef nonnull align 8 dereferenceable(54) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"union.JSON::JSON_VAL", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.promoted.i = load ptr, ptr %4, align 8
   %7 = icmp ult ptr %.promoted.i, %6
   br i1 %7, label %.lr.ph.i, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %8, align 8
   %.promoted3.i = load i32, ptr %9, align 4
   br label %10
@@ -1691,7 +1691,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_stringEb(ptr noundef nonn
   br i1 %cond.i, label %21, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %13, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %16, ptr %4, align 8
   %17 = add i32 %12, 1
   store i32 %17, ptr %8, align 8
@@ -1727,7 +1727,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %21, %2
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv.exit
-  %28 = getelementptr inbounds i8, ptr %6, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %28, ptr %5, align 8
   %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 34) #14
   %30 = icmp eq ptr %29, null
@@ -1742,7 +1742,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
   %33 = ptrtoint ptr %29 to i64
   %34 = ptrtoint ptr %28 to i64
   %35 = sub i64 %33, %34
-  %36 = getelementptr inbounds i8, ptr %3, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %35, ptr %36, align 8
   %37 = load i8, ptr %28, align 1
   %38 = icmp ne i8 %37, 0
@@ -1757,7 +1757,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %_ZN4JSON8mark_posEv
 _ZN4JSON4nextEv.exit.i9:                          ; preds = %32, %.lr.phthread-pre-split.i
   %41 = phi ptr [ %42, %.lr.phthread-pre-split.i ], [ %28, %32 ]
   %.07.i22 = phi i64 [ %43, %.lr.phthread-pre-split.i ], [ %35, %32 ]
-  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %42, ptr %5, align 8
   %43 = add i64 %.07.i22, -1
   %.not.i10 = icmp eq i64 %43, 0
@@ -1781,9 +1781,9 @@ _ZN4JSON4skipEm.exit.thread:                      ; preds = %.lr.phthread-pre-sp
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit.thread
 
 _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit19: ; preds = %_ZN4JSON4skipEm.exit
-  %46 = getelementptr inbounds i8, ptr %45, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 2
   store ptr %46, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %47, align 8
   %49 = load ptr, ptr %0, align 8
   %50 = load ptr, ptr %49, align 8
@@ -1807,16 +1807,16 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_numberEv(ptr noundef nonn
   %2 = alloca double, align 8
   %3 = alloca i32, align 4
   %4 = alloca %"union.JSON::JSON_VAL", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.promoted.i = load ptr, ptr %5, align 8
   %8 = icmp ult ptr %.promoted.i, %7
   br i1 %8, label %.lr.ph.i, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %9, align 8
   %.promoted3.i = load i32, ptr %10, align 4
   br label %11
@@ -1830,7 +1830,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_numberEv(ptr noundef nonn
   br i1 %cond.i, label %22, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %14, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 1
   store ptr %17, ptr %5, align 8
   %18 = add i32 %13, 1
   store i32 %18, ptr %9, align 8
@@ -1865,7 +1865,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %22, %1
   %34 = fptosi double %30 to i32
   %35 = sext i32 %34 to i64
   store i64 %35, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i32, ptr %36, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = load ptr, ptr %38, align 8
@@ -1874,7 +1874,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %22, %1
 
 41:                                               ; preds = %29
   store double %30, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %43 = load i32, ptr %42, align 8
   %44 = load ptr, ptr %0, align 8
   %45 = load ptr, ptr %44, align 8
@@ -1902,7 +1902,7 @@ _ZN4JSON4nextEv.exit.i.preheader:                 ; preds = %47
 _ZN4JSON4nextEv.exit.i:                           ; preds = %_ZN4JSON4nextEv.exit.i.preheader, %.lr.phthread-pre-split.i
   %55 = phi ptr [ %56, %.lr.phthread-pre-split.i ], [ %49, %_ZN4JSON4nextEv.exit.i.preheader ]
   %.07.i4 = phi i64 [ %57, %.lr.phthread-pre-split.i ], [ %54, %_ZN4JSON4nextEv.exit.i.preheader ]
-  %56 = getelementptr inbounds i8, ptr %55, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %56, ptr %6, align 8
   %57 = add i64 %.07.i4, -1
   %.not.i = icmp eq i64 %57, 0
@@ -1923,16 +1923,16 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_symbolEPKcNS_9JSON_TYPEE(
   br i1 %4, label %28, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.promoted.i = load ptr, ptr %6, align 8
   %9 = icmp ult ptr %.promoted.i, %8
   br i1 %9, label %.lr.ph.i, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i:                                         ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %10, align 8
   %.promoted3.i = load i32, ptr %11, align 4
   br label %12
@@ -1946,7 +1946,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_symbolEPKcNS_9JSON_TYPEE(
   br i1 %cond.i, label %23, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %18, ptr %6, align 8
   %19 = add i32 %14, 1
   store i32 %19, ptr %10, align 8
@@ -1967,7 +1967,7 @@ define hidden noundef zeroext i1 @_ZN4JSON17parse_json_symbolEPKcNS_9JSON_TYPEE(
   br i1 %27, label %12, label %_ZN4JSON8mark_posEv.exit, !llvm.loop !9
 
 28:                                               ; preds = %3
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 8
   %31 = load ptr, ptr %0, align 8
   %32 = load ptr, ptr %31, align 8
@@ -1982,7 +1982,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %23, %5, %28
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
@@ -2013,7 +2013,7 @@ define hidden noundef range(i32 -1, 128) i32 @_ZN4JSON10expect_anyEPKcS1_NS_10JS
   br i1 %19, label %_ZN4JSON4nextEv.exit, label %14
 
 _ZN4JSON4nextEv.exit:                             ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %7, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %20, ptr %6, align 8
   br label %23
 
@@ -2030,14 +2030,14 @@ _ZN4JSON4nextEv.exit:                             ; preds = %.lr.ph
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i8 @_ZN4JSON4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 0
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %6, ptr %2, align 8
   br label %7
 
@@ -2048,16 +2048,16 @@ define hidden noundef zeroext i8 @_ZN4JSON4nextEv(ptr nocapture noundef nonnull 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN4JSON14parse_json_keyEv(ptr noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"union.JSON::JSON_VAL", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.promoted.i = load ptr, ptr %3, align 8
   %6 = icmp ult ptr %.promoted.i, %5
   br i1 %6, label %.lr.ph.i, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %7, align 8
   %.promoted3.i = load i32, ptr %8, align 4
   br label %9
@@ -2071,7 +2071,7 @@ define hidden noundef zeroext i1 @_ZN4JSON14parse_json_keyEv(ptr noundef nonnull
   br i1 %cond.i, label %20, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %15, ptr %3, align 8
   %16 = add i32 %11, 1
   store i32 %16, ptr %7, align 8
@@ -2146,7 +2146,7 @@ _ZL7is_wordh.exit11:                              ; preds = %.lr.ph
   br label %62
 
 _ZN4JSON4nextEv.exit:                             ; preds = %.lr.ph, %_ZL7is_wordh.exit11
-  %49 = getelementptr inbounds i8, ptr %40, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 1
   store ptr %49, ptr %4, align 8
   %50 = load i8, ptr %49, align 1
   %51 = icmp ult i8 %50, 33
@@ -2160,9 +2160,9 @@ _ZL7is_wordh.exit._crit_edge:                     ; preds = %_ZN4JSON4nextEv.exi
   %53 = ptrtoint ptr %.lcssa to i64
   %54 = ptrtoint ptr %5 to i64
   %55 = sub i64 %53, %54
-  %56 = getelementptr inbounds i8, ptr %2, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %58 = load i32, ptr %57, align 8
   %59 = load ptr, ptr %0, align 8
   %60 = load ptr, ptr %59, align 8
@@ -2179,7 +2179,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN4JSON4skipEm(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 1
   %6 = icmp ne i8 %5, 0
@@ -2199,7 +2199,7 @@ _ZN4JSON4nextEv.exit.thread:                      ; preds = %.lr.phthread-pre-sp
 _ZN4JSON4nextEv.exit:                             ; preds = %2, %.lr.phthread-pre-split
   %10 = phi ptr [ %11, %.lr.phthread-pre-split ], [ %4, %2 ]
   %.0710 = phi i64 [ %12, %.lr.phthread-pre-split ], [ %1, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store ptr %11, ptr %3, align 8
   %12 = add i64 %.0710, -1
   %.not = icmp eq i64 %12, 0
@@ -2213,7 +2213,7 @@ _ZN4JSON4nextEv.exit:                             ; preds = %2, %.lr.phthread-pr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i8 @_ZN4JSON4peekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0) local_unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
   ret i8 %4
@@ -2232,7 +2232,7 @@ define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE
   br i1 %6, label %_ZN4JSON4skipEm.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %10
 
 8:                                                ; preds = %21
@@ -2271,7 +2271,7 @@ define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE
   br label %_ZN4JSON4skipEm.exit
 
 ._crit_edge:                                      ; preds = %8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i8, ptr %16, align 1
   %.not29 = icmp eq i8 %24, 0
   br i1 %.not29, label %_ZN4JSON4skipEm.exit, label %_ZN4JSON4nextEv.exit.i
@@ -2284,7 +2284,7 @@ define hidden noundef zeroext i1 @_ZN4JSON13expect_stringEPKcS1_NS_10JSON_ERRORE
 _ZN4JSON4nextEv.exit.i:                           ; preds = %._crit_edge, %.lr.phthread-pre-split.i
   %25 = phi ptr [ %26, %.lr.phthread-pre-split.i ], [ %16, %._crit_edge ]
   %.07.i25 = phi i64 [ %27, %.lr.phthread-pre-split.i ], [ %5, %._crit_edge ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   store ptr %26, ptr %23, align 8
   %27 = add i64 %.07.i25, -1
   %.not.i = icmp eq i64 %27, 0
@@ -2297,7 +2297,7 @@ _ZN4JSON4skipEm.exit:                             ; preds = %.lr.phthread-pre-sp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i8 @_ZN4JSON4peekEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.079 = load i8, ptr %4, align 1
   %5 = icmp ne i64 %1, 0
@@ -2309,7 +2309,7 @@ define hidden noundef zeroext i8 @_ZN4JSON4peekEm(ptr nocapture noundef nonnull 
   %.011 = phi ptr [ %9, %.lr.ph ], [ %4, %2 ]
   %.0810 = phi i64 [ %8, %.lr.ph ], [ %1, %2 ]
   %8 = add i64 %.0810, -1
-  %9 = getelementptr inbounds i8, ptr %.011, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %.07 = load i8, ptr %9, align 1
   %10 = icmp ne i64 %8, 0
   %11 = icmp ne i8 %.07, 0
@@ -2326,7 +2326,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i8 @_ZN4JSON17skip_line_commentEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %._crit_edge.i [
@@ -2343,7 +2343,7 @@ define hidden noundef zeroext i8 @_ZN4JSON17skip_line_commentEv(ptr nocapture no
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit
 
 _ZN4JSON4nextEv.exit.i:                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %6, ptr %2, align 8
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit
 
@@ -2364,7 +2364,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit: ; preds = %5, %_ZN4JSON4nextEv
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit10
 
 _ZN4JSON4nextEv.exit.i9:                          ; preds = %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %10, ptr %2, align 8
   br label %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit10
 
@@ -2378,7 +2378,7 @@ _ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit10: ; preds = %9, %_ZN4JSON4next
 
 _ZN4JSON4nextEv.exit.i11:                         ; preds = %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit10, %_ZN4JSON4nextEv.exit.i11
   %12 = phi ptr [ %13, %_ZN4JSON4nextEv.exit.i11 ], [ %.promoted.i, %_ZN4JSON10expect_anyEPKcS1_NS_10JSON_ERRORE.exit10 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store ptr %13, ptr %2, align 8
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %_ZN4JSON4nextEv.exit.i11 [
@@ -2393,7 +2393,7 @@ _ZN4JSON7skip_toEh.exit:                          ; preds = %_ZN4JSON4nextEv.exi
   br i1 %17, label %19, label %_ZN4JSON4nextEv.exit
 
 _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON7skip_toEh.exit
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store ptr %18, ptr %2, align 8
   %.pre = load i8, ptr %18, align 1
   br label %19
@@ -2405,14 +2405,14 @@ _ZN4JSON4nextEv.exit:                             ; preds = %_ZN4JSON7skip_toEh.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 -1, 256) i32 @_ZN4JSON18skip_block_commentEv(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 1
   %.not = icmp eq i8 %4, 47
   br i1 %.not, label %.lr.ph.i.preheader, label %6
 
 .lr.ph.i.preheader:                               ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %.07.i = load i8, ptr %5, align 1
   %.not9 = icmp eq i8 %.07.i, 42
   br i1 %.not9, label %.preheader, label %6
@@ -2439,7 +2439,7 @@ _ZL10strchrnul_PKci.exit:                         ; preds = %.preheader, %10
   br i1 %15, label %19, label %16
 
 16:                                               ; preds = %_ZL10strchrnul_PKci.exit
-  %17 = getelementptr inbounds i8, ptr %13, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %18 = load i8, ptr %17, align 1
   switch i8 %18, label %.preheader [
     i8 0, label %19
@@ -2447,14 +2447,14 @@ _ZL10strchrnul_PKci.exit:                         ; preds = %.preheader, %10
   ], !llvm.loop !17
 
 19:                                               ; preds = %16, %_ZL10strchrnul_PKci.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted.i = load ptr, ptr %20, align 8
   %21 = icmp ult ptr %.promoted.i, %3
   br i1 %21, label %.lr.ph.i10, label %_ZN4JSON8mark_posEv.exit
 
 .lr.ph.i10:                                       ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
-  %23 = getelementptr inbounds i8, ptr %0, i64 44
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %.promoted2.i = load i32, ptr %22, align 8
   %.promoted3.i = load i32, ptr %23, align 4
   br label %24
@@ -2468,7 +2468,7 @@ _ZL10strchrnul_PKci.exit:                         ; preds = %.preheader, %10
   br i1 %cond.i, label %35, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %27, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %30, ptr %20, align 8
   %31 = add i32 %26, 1
   store i32 %31, ptr %22, align 8
@@ -2510,7 +2510,7 @@ _ZN4JSON8mark_posEv.exit:                         ; preds = %35, %19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i8 @_ZN4JSON7skip_toEh(ptr nocapture noundef nonnull align 8 dereferenceable(54) %0, i8 noundef zeroext %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted = load ptr, ptr %3, align 8
   %4 = load i8, ptr %.promoted, align 1
   %5 = icmp eq i8 %4, 0
@@ -2524,7 +2524,7 @@ define hidden noundef zeroext i8 @_ZN4JSON7skip_toEh(ptr nocapture noundef nonnu
 
 _ZN4JSON4nextEv.exit:                             ; preds = %2, %_ZN4JSON4nextEv.exit
   %7 = phi ptr [ %8, %_ZN4JSON4nextEv.exit ], [ %.promoted, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   store ptr %8, ptr %3, align 8
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
@@ -2546,7 +2546,7 @@ define hidden noundef nonnull ptr @_ZN4JSON8strerrorENS_10JSON_ERRORE(ptr nocapt
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4JSON8strerrorENS_10JSON_ERRORE, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

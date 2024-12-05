@@ -41,10 +41,10 @@ define i64 @mbsnrtowcs(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2,
   br label %.loopexit
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.13144, i64 %11
+  %18 = getelementptr inbounds nuw i8, ptr %.13144, i64 %11
   %19 = sub i64 %.047, %11
   %.not37 = icmp eq ptr %.02845, null
-  %20 = getelementptr inbounds i8, ptr %.02845, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.02845, i64 4
   %spec.select39 = select i1 %.not37, ptr null, ptr %20
   %21 = add i64 %.13343, -1
   %22 = add nuw i64 %.146, 1

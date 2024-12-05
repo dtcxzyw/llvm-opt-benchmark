@@ -55,7 +55,7 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   %5 = alloca %struct.timeval, align 8
   store i8 0, ptr %4, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = icmp ugt i32 %7, 1
   br i1 %8, label %.thread122, label %9
@@ -69,7 +69,7 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   br i1 %10, label %.thread116, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   switch i8 %13, label %15 [
     i8 3, label %.thread112
@@ -85,7 +85,7 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   br label %.thread116
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %16, ptr noundef nonnull %4, i32 noundef 1) #6
   %.fr = freeze i1 %17
   br i1 %.fr, label %.thread116, label %.thread135
@@ -109,13 +109,13 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
 21:                                               ; preds = %.thread116
   %22 = load i64, ptr %5, align 8
   %23 = sitofp i64 %22 to double
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = sitofp i64 %25 to double
   %27 = fdiv double %26, 1.000000e+06
   %28 = fadd double %27, %23
   store double %28, ptr %1, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %29, align 8
   br label %53
 
@@ -129,17 +129,17 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   %34 = call ptr @timelib_get_time_zone_info(i64 noundef %32, ptr noundef %33) #6
   %35 = call ptr @_zend_new_array_0() #6
   store ptr %35, ptr %1, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %36, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.17, i64 noundef 3, i64 noundef %32) #6
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load i64, ptr %37, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, i64 noundef 4, i64 noundef %38) #6
   %39 = load i32, ptr %34, align 8
   %40 = sdiv i32 %39, -60
   %41 = sext i32 %40 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.19, i64 noundef 11, i64 noundef %41) #6
-  %42 = getelementptr inbounds i8, ptr %34, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.20, i64 noundef 7, i64 noundef %44) #6
@@ -147,14 +147,14 @@ define internal fastcc void @_php_gettimeofday(ptr noundef %0, ptr noundef %1, i
   br label %53
 
 45:                                               ; preds = %30
-  %46 = getelementptr inbounds i8, ptr %5, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = sitofp i64 %47 to double
   %49 = fdiv double %48, 1.000000e+06
   %50 = load i64, ptr %5, align 8
   %51 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.21, double noundef %49, i64 noundef %50) #6
   store ptr %51, ptr %1, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %52, align 8
   br label %53
 
@@ -173,7 +173,7 @@ define hidden void @zif_getrusage(ptr noundef %0, ptr noundef %1) local_unnamed_
   %3 = alloca %struct.rusage, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = icmp ugt i32 %6, 1
   br i1 %7, label %.thread167, label %8
@@ -183,8 +183,8 @@ define hidden void @zif_getrusage(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %9, label %.thread175, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 4
   br i1 %14, label %.thread157, label %16
@@ -224,61 +224,61 @@ define hidden void @zif_getrusage(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.thread175
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %24, align 8
   br label %61
 
 25:                                               ; preds = %.thread175
   %26 = call ptr @_zend_new_array_0() #6
   store ptr %26, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %29 = load i64, ptr %28, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str, i64 noundef 10, i64 noundef %29) #6
-  %30 = getelementptr inbounds i8, ptr %3, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %31 = load i64, ptr %30, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.1, i64 noundef 10, i64 noundef %31) #6
-  %32 = getelementptr inbounds i8, ptr %3, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %33 = load i64, ptr %32, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.2, i64 noundef 9, i64 noundef %33) #6
-  %34 = getelementptr inbounds i8, ptr %3, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %35 = load i64, ptr %34, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.3, i64 noundef 9, i64 noundef %35) #6
-  %36 = getelementptr inbounds i8, ptr %3, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %37 = load i64, ptr %36, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, i64 noundef 9, i64 noundef %37) #6
-  %38 = getelementptr inbounds i8, ptr %3, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %39 = load i64, ptr %38, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.5, i64 noundef 8, i64 noundef %39) #6
-  %40 = getelementptr inbounds i8, ptr %3, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %41 = load i64, ptr %40, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.6, i64 noundef 8, i64 noundef %41) #6
-  %42 = getelementptr inbounds i8, ptr %3, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %43 = load i64, ptr %42, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i64 noundef 9, i64 noundef %43) #6
-  %44 = getelementptr inbounds i8, ptr %3, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %45 = load i64, ptr %44, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 9, i64 noundef %45) #6
-  %46 = getelementptr inbounds i8, ptr %3, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %47 = load i64, ptr %46, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.9, i64 noundef 11, i64 noundef %47) #6
-  %48 = getelementptr inbounds i8, ptr %3, i64 128
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %49 = load i64, ptr %48, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i64 noundef 8, i64 noundef %49) #6
-  %50 = getelementptr inbounds i8, ptr %3, i64 136
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %51 = load i64, ptr %50, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i64 noundef 9, i64 noundef %51) #6
-  %52 = getelementptr inbounds i8, ptr %3, i64 80
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %53 = load i64, ptr %52, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.12, i64 noundef 8, i64 noundef %53) #6
-  %54 = getelementptr inbounds i8, ptr %3, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %55 = load i64, ptr %54, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.13, i64 noundef 16, i64 noundef %55) #6
   %56 = load i64, ptr %3, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.14, i64 noundef 15, i64 noundef %56) #6
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
-  %58 = getelementptr inbounds i8, ptr %3, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %59 = load i64, ptr %58, align 8
   call void @add_assoc_long_ex(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, i64 noundef 16, i64 noundef %59) #6
   %60 = load i64, ptr %57, align 8

@@ -331,7 +331,7 @@ define internal i32 @get_hdfsdata_message_len(ptr nocapture readnone %0, ptr nou
 define internal i32 @dissect_hdfsdata_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.68) #2
   %8 = load ptr, ptr %6, align 8

@@ -107,7 +107,7 @@ define void @dsytrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 56:                                               ; preds = %.loopexit30, %51
   %57 = phi i32 [ %139, %.loopexit30 ], [ %27, %51 ]
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds i32, ptr %16, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %16, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !3
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %62, label %79
@@ -301,7 +301,7 @@ define void @dsytrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %184 = phi i32 [ %27, %53 ], [ %317, %.loopexit ]
   %185 = phi i32 [ 1, %53 ], [ %316, %.loopexit ]
   %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds i32, ptr %16, i64 %186
+  %187 = getelementptr inbounds nuw i32, ptr %16, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !3
   %189 = icmp sgt i32 %188, 0
   br i1 %189, label %190, label %221
@@ -504,7 +504,7 @@ define void @dsytrs_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 319:                                              ; preds = %.preheader, %382
   %320 = phi i32 [ %384, %382 ], [ %317, %.preheader ]
   %321 = zext nneg i32 %320 to i64
-  %322 = getelementptr inbounds i32, ptr %16, i64 %321
+  %322 = getelementptr inbounds nuw i32, ptr %16, i64 %321
   %323 = load i32, ptr %322, align 4, !tbaa !3
   %324 = icmp sgt i32 %323, 0
   %325 = load i32, ptr %1, align 4, !tbaa !3

@@ -699,11 +699,11 @@ define internal noundef i32 @coverage_peek_result_i(i64 noundef %0, i64 noundef 
   br i1 %.not.i.i, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %RARRAY_AREF.exit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %15 = load ptr, ptr %14, align 8
   br label %RARRAY_AREF.exit
 
@@ -729,11 +729,11 @@ RARRAY_AREF.exit:                                 ; preds = %11, %13
   br i1 %.not.i.i24, label %29, label %27
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br label %RARRAY_AREF.exit26
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %24, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %31 = load ptr, ptr %30, align 8
   br label %RARRAY_AREF.exit26
 
@@ -765,17 +765,17 @@ RARRAY_AREF.exit26:                               ; preds = %27, %29
   br i1 %.not.i.i27, label %49, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   br label %RARRAY_AREF.exit29
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %44, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %51 = load ptr, ptr %50, align 8
   br label %RARRAY_AREF.exit29
 
 RARRAY_AREF.exit29:                               ; preds = %47, %49
   %.0.i.i28 = phi ptr [ %48, %47 ], [ %51, %49 ]
-  %52 = getelementptr inbounds i8, ptr %.0.i.i28, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i28, i64 8
   %53 = load i64, ptr %52, align 8
   %.pr.i = load i64, ptr @coverage_peek_result_i.rbimpl_id.40, align 8
   %.not4.i = icmp eq i64 %.pr.i, 0
@@ -798,11 +798,11 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %RARRAY_A
   br i1 %.not.i.i.i, label %61, label %59
 
 59:                                               ; preds = %rbimpl_intern_const.exit
-  %60 = getelementptr inbounds i8, ptr %56, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 16
   br label %RARRAY_AREF.exit.i
 
 61:                                               ; preds = %rbimpl_intern_const.exit
-  %62 = getelementptr inbounds i8, ptr %56, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %63 = load ptr, ptr %62, align 8
   br label %RARRAY_AREF.exit.i
 
@@ -811,7 +811,7 @@ RARRAY_AREF.exit.i:                               ; preds = %61, %59
   %64 = load i64, ptr %.0.i.i.i, align 8
   store i32 0, ptr %4, align 8
   %65 = tail call i64 @rb_hash_new() #9
-  %66 = getelementptr inbounds i8, ptr %4, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %65, ptr %66, align 8
   %67 = load i64, ptr %56, align 8
   %68 = and i64 %67, 8192
@@ -819,19 +819,19 @@ RARRAY_AREF.exit.i:                               ; preds = %61, %59
   br i1 %.not.i.i3.i, label %71, label %69
 
 69:                                               ; preds = %RARRAY_AREF.exit.i
-  %70 = getelementptr inbounds i8, ptr %56, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 16
   br label %branch_coverage.exit
 
 71:                                               ; preds = %RARRAY_AREF.exit.i
-  %72 = getelementptr inbounds i8, ptr %56, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %73 = load ptr, ptr %72, align 8
   br label %branch_coverage.exit
 
 branch_coverage.exit:                             ; preds = %69, %71
   %.0.i.i4.i = phi ptr [ %70, %69 ], [ %73, %71 ]
-  %74 = getelementptr inbounds i8, ptr %.0.i.i4.i, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i4.i, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %4, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %75, ptr %76, align 8
   %77 = ptrtoint ptr %4 to i64
   call void @rb_hash_foreach(i64 noundef %64, ptr noundef nonnull @branch_coverage_i, i64 noundef %77) #9
@@ -883,10 +883,10 @@ define internal noundef i32 @method_coverage_i(ptr noundef %0, ptr noundef %1, i
 
 .lr.ph:                                           ; preds = %4
   %8 = ptrtoint ptr %0 to i64
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = getelementptr inbounds i8, ptr %5, i64 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph, %.critedge
@@ -923,7 +923,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %22
   br i1 %.not85, label %26, label %.critedge
 
 26:                                               ; preds = %rbimpl_intern_const.exit
-  %27 = getelementptr inbounds i8, ptr %19, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 7
   %30 = icmp ne i64 %29, 0
@@ -958,9 +958,9 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %22
 
 48:                                               ; preds = %44
   %49 = call i64 @rb_hash_aref(i64 noundef %46, i64 noundef %24) #9
-  %50 = getelementptr inbounds i8, ptr %19, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = call i64 @rb_id2sym(i64 noundef %53) #9
   %55 = load i64, ptr @me2counter, align 8
@@ -1009,20 +1009,20 @@ define internal noundef i32 @branch_coverage_i(i64 %0, i64 noundef %1, i64 nound
   br i1 %.not.i.i, label %13, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
-  %11 = getelementptr inbounds i8, ptr %4, i64 40
-  %12 = getelementptr inbounds i8, ptr %4, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 48
   br label %RARRAY_AREF.exit32
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
-  %18 = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   br label %RARRAY_AREF.exit32
 
 RARRAY_AREF.exit32:                               ; preds = %7, %13
@@ -1037,10 +1037,10 @@ RARRAY_AREF.exit32:                               ; preds = %7, %13
   %23 = load i64, ptr %.in38, align 8
   %24 = load i64, ptr %.in, align 8
   %25 = inttoptr i64 %2 to ptr
-  %26 = getelementptr inbounds i8, ptr %.in39, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.in39, i64 40
   %27 = load i64, ptr %26, align 8
   %28 = tail call i64 @rb_hash_new() #9
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = load i32, ptr %25, align 8
   %32 = add nsw i32 %31, 1
@@ -1050,7 +1050,7 @@ RARRAY_AREF.exit32:                               ; preds = %7, %13
   %35 = or disjoint i64 %34, 1
   %36 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %22, i64 noundef %35, i64 noundef %21, i64 noundef %23, i64 noundef %20, i64 noundef %24) #9
   %37 = tail call i64 @rb_hash_aset(i64 noundef %30, i64 noundef %36, i64 noundef %28) #9
-  %38 = getelementptr inbounds i8, ptr %25, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 %28, ptr %38, align 8
   tail call void @rb_hash_foreach(i64 noundef %27, ptr noundef nonnull @branch_coverage_ii, i64 noundef %2) #9
   ret i32 0
@@ -1068,20 +1068,20 @@ define internal noundef i32 @branch_coverage_ii(i64 %0, i64 noundef %1, i64 noun
   br i1 %.not.i.i, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %RARRAY_AREF.exit29
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %5, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
-  %19 = getelementptr inbounds i8, ptr %16, i64 24
-  %20 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
   br label %RARRAY_AREF.exit29
 
 RARRAY_AREF.exit29:                               ; preds = %8, %14
@@ -1095,9 +1095,9 @@ RARRAY_AREF.exit29:                               ; preds = %8, %14
   %23 = load i64, ptr %.in39, align 8
   %24 = load i64, ptr %.in38, align 8
   %25 = load i64, ptr %.in, align 8
-  %26 = getelementptr inbounds i8, ptr %.in39, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %.in39, i64 40
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = load i32, ptr %4, align 8
   %31 = add nsw i32 %30, 1
@@ -1106,7 +1106,7 @@ RARRAY_AREF.exit29:                               ; preds = %8, %14
   %33 = shl nsw i64 %32, 1
   %34 = or disjoint i64 %33, 1
   %35 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %23, i64 noundef %34, i64 noundef %22, i64 noundef %24, i64 noundef %21, i64 noundef %25) #9
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
   %39 = load i64, ptr %38, align 8
@@ -1115,11 +1115,11 @@ RARRAY_AREF.exit29:                               ; preds = %8, %14
   br i1 %.not.i.i30, label %43, label %41
 
 41:                                               ; preds = %RARRAY_AREF.exit29
-  %42 = getelementptr inbounds i8, ptr %38, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
   br label %RARRAY_AREF.exit32
 
 43:                                               ; preds = %RARRAY_AREF.exit29
-  %44 = getelementptr inbounds i8, ptr %38, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %45 = load ptr, ptr %44, align 8
   br label %RARRAY_AREF.exit32
 

@@ -77,7 +77,7 @@ $_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayI
 define hidden void @_ZN16MutableNUMASpaceC2Em(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN12MutableSpaceC2Em(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) #11
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV16MutableNUMASpace, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 0, ptr %3, align 8
   %4 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 5) #11
   %5 = icmp eq ptr %4, null
@@ -86,23 +86,23 @@ define hidden void @_ZN16MutableNUMASpaceC2Em(ptr noundef nonnull align 8 derefe
 6:                                                ; preds = %2
   %7 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 0, i32 noundef 8, i8 noundef zeroext 5) #11
   store i32 0, ptr %4, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 11, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %6, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %12, align 8
   %13 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 76
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 76
   store i32 0, ptr %16, align 4
   %17 = load i8, ptr @UseLargePages, align 1
   %18 = trunc i8 %17 to i1
@@ -123,7 +123,7 @@ define hidden void @_ZN16MutableNUMASpaceC2Em(ptr noundef nonnull align 8 derefe
   %26 = tail call noundef i64 @_ZN2os20numa_get_leaf_groupsEPjm(ptr noundef %25, i64 noundef %23) #11
   %27 = load ptr, ptr %12, align 8
   %28 = trunc i64 %26 to i32
-  %29 = getelementptr inbounds i8, ptr %27, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i32 %30, %28
   br i1 %31, label %32, label %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE7reserveEi.exit
@@ -143,30 +143,30 @@ _ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS
   %35 = getelementptr inbounds i32, ptr %25, i64 %.016
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %34, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, i8 0, i64 32, i1 false)
   %39 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 5, i32 noundef 0) #11
   tail call void @_ZN12MutableSpaceC1Em(ptr noundef nonnull align 8 dereferenceable(56) %39, i64 noundef %1) #11
-  %40 = getelementptr inbounds i8, ptr %34, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %39, ptr %40, align 8
   %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 20, i8 noundef zeroext 5, i32 noundef 0) #11
   %42 = load i64, ptr @NUMAChunkResizeWeight, align 8
   %43 = trunc i64 %42 to i32
   store float 0.000000e+00, ptr %41, align 4
-  %44 = getelementptr inbounds i8, ptr %41, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i32 %43, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i8 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %41, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store float 0.000000e+00, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %34, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %41, ptr %48, align 8
   %49 = load i32, ptr %33, align 8
-  %50 = getelementptr inbounds i8, ptr %33, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %49, %51
   br i1 %52, label %53, label %_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE6appendERKS2_.exit
@@ -189,7 +189,7 @@ _ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS
   %61 = phi i32 [ %.pre.i, %53 ], [ %49, %.lr.ph ]
   %62 = add nsw i32 %61, 1
   store i32 %62, ptr %33, align 8
-  %63 = getelementptr inbounds i8, ptr %33, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = sext i32 %61 to i64
   %66 = getelementptr inbounds ptr, ptr %64, i64 %65
@@ -221,7 +221,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MutableNUMASpaceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV16MutableNUMASpace, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -231,28 +231,28 @@ define hidden void @_ZN16MutableNUMASpaceD2Ev(ptr nocapture noundef nonnull alig
   %6 = phi i32 [ %27, %26 ], [ %4, %1 ]
   %7 = phi ptr [ %28, %26 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %1 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %26, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(56) %15) #11
   br label %21
 
 21:                                               ; preds = %17, %13
-  %22 = getelementptr inbounds i8, ptr %11, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN16MutableNUMASpace9LGRPSpaceD2Ev.exit, label %25
@@ -277,7 +277,7 @@ _ZN16MutableNUMASpace9LGRPSpaceD2Ev.exit:         ; preds = %21, %25
 
 ._crit_edge:                                      ; preds = %26, %1
   %.lcssa = phi ptr [ %3, %1 ], [ %28, %26 ]
-  %31 = getelementptr inbounds i8, ptr %.lcssa, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 1
   %.not.i = icmp eq i64 %33, 0
@@ -305,26 +305,26 @@ define hidden void @_ZN16MutableNUMASpaceD0Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MutableNUMASpace18ensure_parsabilityEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph24, label %._crit_edge
 
 .lr.ph24:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %7
 
 7:                                                ; preds = %.lr.ph24, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %.loopexit ]
   %8 = phi ptr [ %3, %.lr.ph24 ], [ %37, %.loopexit ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %16 = load volatile ptr, ptr %15, align 8
   %17 = load volatile ptr, ptr %6, align 8
   %18 = icmp ult ptr %16, %17
@@ -332,7 +332,7 @@ define hidden void @_ZN16MutableNUMASpace18ensure_parsabilityEv(ptr noundef nonn
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(56) %14) #11
   %.not = icmp eq i64 %23, 0
@@ -340,7 +340,7 @@ define hidden void @_ZN16MutableNUMASpace18ensure_parsabilityEv(ptr noundef nonn
 
 24:                                               ; preds = %19
   %25 = load volatile ptr, ptr %15, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %27 = load ptr, ptr %26, align 8
   %28 = load volatile ptr, ptr %15, align 8
   %29 = ptrtoint ptr %27 to i64
@@ -380,7 +380,7 @@ declare void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK16MutableNUMASpace13used_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -390,14 +390,14 @@ define hidden noundef i64 @_ZNK16MutableNUMASpace13used_in_wordsEv(ptr nocapture
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = phi ptr [ %18, %.lr.ph ], [ %3, %1 ]
   %.056 = phi i64 [ %17, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %12) #11
   %17 = add i64 %16, %.056
@@ -415,7 +415,7 @@ define hidden noundef i64 @_ZNK16MutableNUMASpace13used_in_wordsEv(ptr nocapture
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZNK16MutableNUMASpace13free_in_wordsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -425,14 +425,14 @@ define hidden noundef i64 @_ZNK16MutableNUMASpace13free_in_wordsEv(ptr nocapture
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %6 = phi ptr [ %18, %.lr.ph ], [ %3, %1 ]
   %.056 = phi i64 [ %17, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(56) %12) #11
   %17 = add i64 %16, %.056
@@ -450,7 +450,7 @@ define hidden noundef i64 @_ZNK16MutableNUMASpace13free_in_wordsEv(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK16MutableNUMASpace16lgrp_space_indexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -464,7 +464,7 @@ define hidden noundef i32 @_ZNK16MutableNUMASpace16lgrp_space_indexEi(ptr nocapt
 
 7:                                                ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds ptr, ptr %.val1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %.val1, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.val6.i = load i32, ptr %9, align 8
   %10 = icmp eq i32 %.val6.i, %1
@@ -496,10 +496,10 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace13tlab_capacit
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 840
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br i1 %8, label %11, label %25
 
@@ -509,9 +509,9 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace13tlab_capacit
   br i1 %13, label %14, label %_ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %16 to i64
   %20 = ptrtoint ptr %18 to i64
@@ -534,7 +534,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace13tlab_capacit
 
 28:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %29 = getelementptr inbounds ptr, ptr %.val1.i, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw ptr, ptr %.val1.i, i64 %indvars.iv.i.i
   %30 = load ptr, ptr %29, align 8
   %.val6.i.i = load i32, ptr %30, align 8
   %31 = icmp eq i32 %.val6.i.i, %7
@@ -550,11 +550,11 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %28
   %33 = ashr exact i64 %sext, 29
   %34 = getelementptr inbounds i8, ptr %.val1.i, i64 %33
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = ptrtoint ptr %39 to i64
   %43 = ptrtoint ptr %41 to i64
@@ -582,10 +582,10 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace9tlab_usedEP6T
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 840
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br i1 %8, label %11, label %24
 
@@ -596,7 +596,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace9tlab_usedEP6T
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %19 = shl i64 %18, 3
@@ -619,7 +619,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace9tlab_usedEP6T
 
 27:                                               ; preds = %31, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %28 = getelementptr inbounds ptr, ptr %.val1.i, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %.val1.i, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8
   %.val6.i.i = load i32, ptr %29, align 8
   %30 = icmp eq i32 %.val6.i.i, %7
@@ -635,10 +635,10 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %27
   %32 = ashr exact i64 %sext, 29
   %33 = getelementptr inbounds i8, ptr %.val1.i, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 80
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 80
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(56) %36) #11
   %41 = shl i64 %40, 3
@@ -661,10 +661,10 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace21unsafe_max_t
   unreachable
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 840
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 840
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, -1
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   br i1 %8, label %11, label %24
 
@@ -675,7 +675,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace21unsafe_max_t
 
 14:                                               ; preds = %11
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 %17(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %19 = shl i64 %18, 3
@@ -698,7 +698,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZNK16MutableNUMASpace21unsafe_max_t
 
 27:                                               ; preds = %31, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %28 = getelementptr inbounds ptr, ptr %.val1.i, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %.val1.i, i64 %indvars.iv.i.i
   %29 = load ptr, ptr %28, align 8
   %.val6.i.i = load i32, ptr %29, align 8
   %30 = icmp eq i32 %.val6.i.i, %7
@@ -714,10 +714,10 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit:  ; preds = %27
   %32 = ashr exact i64 %sext, 29
   %33 = getelementptr inbounds i8, ptr %.val1.i, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(56) %36) #11
   %41 = shl i64 %40, 3
@@ -730,7 +730,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %31, %24, %11,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MutableNUMASpace11bias_regionE9MemRegionj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i64, ptr %5, align 8
   %7 = ptrtoint ptr %1 to i64
   %8 = add i64 %7, -1
@@ -773,24 +773,24 @@ define hidden void @_ZN16MutableNUMASpace6updateEv(ptr noundef nonnull align 8 d
   br i1 %3, label %4, label %22
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %6, %8
   br i1 %9, label %10, label %22
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %12 to i64
   %17 = sub i64 %15, %16
   %18 = lshr i64 %17, 3
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   tail call void %21(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %12, i64 %18, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef null) #11
   br label %22
@@ -806,7 +806,7 @@ define hidden void @_ZN16MutableNUMASpace21accumulate_statisticsEv(ptr nocapture
   br i1 %3, label %.preheader, label %43
 
 .preheader:                                       ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
@@ -815,21 +815,21 @@ define hidden void @_ZN16MutableNUMASpace21accumulate_statisticsEv(ptr nocapture
 .lr.ph:                                           ; preds = %.preheader, %_ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit ], [ 0, %.preheader ]
   %8 = phi ptr [ %36, %_ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit ], [ %5, %.preheader ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load ptr, ptr %16, align 8
   br i1 %15, label %18, label %27
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %17, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %17, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %20 to i64
   %24 = ptrtoint ptr %22 to i64
@@ -840,7 +840,7 @@ define hidden void @_ZN16MutableNUMASpace21accumulate_statisticsEv(ptr nocapture
 
 27:                                               ; preds = %.lr.ph
   %28 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i64 %30(ptr noundef nonnull align 8 dereferenceable(56) %17) #11
   %32 = shl i64 %31, 3
@@ -848,7 +848,7 @@ define hidden void @_ZN16MutableNUMASpace21accumulate_statisticsEv(ptr nocapture
 
 _ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit:    ; preds = %18, %27
   %.0.i = phi i64 [ %26, %18 ], [ %32, %27 ]
-  %33 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = uitofp i64 %.0.i to float
   tail call void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 dereferenceable(20) %34, float noundef %35) #11
@@ -860,7 +860,7 @@ _ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit:    ; preds = %18, %27
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace9LGRPSpace6sampleEv.exit, %.preheader
-  %40 = getelementptr inbounds i8, ptr %0, i64 76
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4
@@ -876,23 +876,23 @@ define hidden noundef i64 @_ZN16MutableNUMASpace18current_chunk_sizeEi(ptr nocap
   br i1 %3, label %4, label %6
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %1 to i64
   %12 = getelementptr ptr, ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   br label %18
 
 18:                                               ; preds = %6, %4
@@ -905,18 +905,18 @@ define hidden noundef i64 @_ZN16MutableNUMASpace18current_chunk_sizeEi(ptr nocap
   br i1 %22, label %31, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %1 to i64
   %27 = getelementptr inbounds ptr, ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
 
 31:                                               ; preds = %18, %23
   %.pn = phi ptr [ %30, %23 ], [ %0, %18 ]
-  %.09.in = getelementptr inbounds i8, ptr %.pn, i64 48
+  %.09.in = getelementptr inbounds nuw i8, ptr %.pn, i64 48
   %.09 = load ptr, ptr %.09.in, align 8
   %32 = icmp ugt ptr %.09, %.0
   %33 = ptrtoint ptr %.09 to i64
@@ -928,14 +928,14 @@ define hidden noundef i64 @_ZN16MutableNUMASpace18current_chunk_sizeEi(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN16MutableNUMASpace18default_chunk_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = udiv i64 %3, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8
   %11 = mul i64 %10, %8
   ret i64 %11
@@ -943,10 +943,10 @@ define hidden noundef i64 @_ZN16MutableNUMASpace18default_chunk_sizeEv(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i64 @_ZN16MutableNUMASpace19adaptive_chunk_sizeEim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = icmp sgt i32 %1, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   br i1 %6, label %.lr.ph, label %.._crit_edge_crit_edge
 
@@ -955,9 +955,9 @@ define hidden noundef i64 @_ZN16MutableNUMASpace19adaptive_chunk_sizeEim(ptr noc
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i64, ptr %11, align 8
   %13 = sub i64 0, %12
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -977,9 +977,9 @@ define hidden noundef i64 @_ZN16MutableNUMASpace19adaptive_chunk_sizeEim(ptr noc
   %21 = getelementptr ptr, ptr %20, i64 %indvars.iv
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   br label %27
 
 27:                                               ; preds = %17, %19
@@ -990,15 +990,15 @@ define hidden noundef i64 @_ZN16MutableNUMASpace19adaptive_chunk_sizeEim(ptr noc
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %.pn.i = phi ptr [ %34, %29 ], [ %0, %27 ]
-  %.09.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 48
+  %.09.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 48
   %.09.i = load ptr, ptr %.09.in.i, align 8
   %35 = icmp ugt ptr %.09.i, %.0.i
   %36 = ptrtoint ptr %.09.i to i64
@@ -1023,7 +1023,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   br i1 %47, label %.lr.ph103, label %._crit_edge104._crit_edge
 
 .lr.ph103:                                        ; preds = %._crit_edge
-  %48 = getelementptr inbounds i8, ptr %8, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = sext i32 %1 to i64
   %wide.trip.count111 = sext i32 %42 to i64
@@ -1034,7 +1034,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   %.042100 = phi float [ 0.000000e+00, %.lr.ph103 ], [ %57, %51 ]
   %52 = getelementptr inbounds ptr, ptr %49, i64 %indvars.iv108
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   %56 = load float, ptr %55, align 4
   %57 = fadd float %.042100, %56
@@ -1047,24 +1047,24 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   br i1 %58, label %59, label %._crit_edge104._crit_edge
 
 ._crit_edge104._crit_edge:                        ; preds = %._crit_edge, %._crit_edge104
-  %.phi.trans.insert114 = getelementptr inbounds i8, ptr %0, i64 64
+  %.phi.trans.insert114 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre115 = load i64, ptr %.phi.trans.insert114, align 8
   br label %75
 
 59:                                               ; preds = %._crit_edge104
-  %60 = getelementptr inbounds i8, ptr %8, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %61 = load ptr, ptr %60, align 8
   %62 = sext i32 %1 to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = load float, ptr %66, align 4
   %68 = fdiv float %67, %57
   %69 = uitofp i64 %46 to float
   %70 = fmul float %68, %69
   %71 = fptoui float %70 to i64
-  %72 = getelementptr inbounds i8, ptr %0, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %73 = load i64, ptr %72, align 8
   %74 = mul i64 %73, %71
   br label %75
@@ -1083,19 +1083,19 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   br i1 %81, label %82, label %84
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %0, i64 32
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %94
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds i8, ptr %8, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = sext i32 %1 to i64
   %88 = getelementptr ptr, ptr %86, i64 %87
   %89 = getelementptr i8, ptr %88, i64 -8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   br label %94
 
 94:                                               ; preds = %84, %82
@@ -1106,18 +1106,18 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %27, %29
   br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %8, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = sext i32 %1 to i64
   %101 = getelementptr inbounds ptr, ptr %99, i64 %100
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit61
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit61: ; preds = %94, %97
   %.pn.i55 = phi ptr [ %104, %97 ], [ %0, %94 ]
-  %.09.in.i56 = getelementptr inbounds i8, ptr %.pn.i55, i64 48
+  %.09.in.i56 = getelementptr inbounds nuw i8, ptr %.pn.i55, i64 48
   %.09.i57 = load ptr, ptr %.09.in.i56, align 8
   %105 = icmp ugt ptr %.09.i57, %.0.i54
   %106 = ptrtoint ptr %.09.i57 to i64
@@ -1136,19 +1136,19 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit61: ; preds = %94, %97
   br i1 %81, label %114, label %116
 
 114:                                              ; preds = %113
-  %115 = getelementptr inbounds i8, ptr %0, i64 32
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %126
 
 116:                                              ; preds = %113
-  %117 = getelementptr inbounds i8, ptr %8, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = sext i32 %1 to i64
   %120 = getelementptr ptr, ptr %118, i64 %119
   %121 = getelementptr i8, ptr %120, i64 -8
   %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 48
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 48
   br label %126
 
 126:                                              ; preds = %116, %114
@@ -1157,18 +1157,18 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit61: ; preds = %94, %97
   br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70, label %127
 
 127:                                              ; preds = %126
-  %128 = getelementptr inbounds i8, ptr %8, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = sext i32 %1 to i64
   %131 = getelementptr inbounds ptr, ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit70
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit70: ; preds = %126, %127
   %.pn.i64 = phi ptr [ %134, %127 ], [ %0, %126 ]
-  %.09.in.i65 = getelementptr inbounds i8, ptr %.pn.i64, i64 48
+  %.09.in.i65 = getelementptr inbounds nuw i8, ptr %.pn.i64, i64 48
   %.09.i66 = load ptr, ptr %.09.in.i65, align 8
   %135 = icmp ugt ptr %.09.i66, %.0.i63
   %136 = ptrtoint ptr %.09.i66 to i64
@@ -1183,19 +1183,19 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit70: ; preds = %126, %127
   br i1 %81, label %142, label %144
 
 142:                                              ; preds = %141
-  %143 = getelementptr inbounds i8, ptr %0, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %154
 
 144:                                              ; preds = %141
-  %145 = getelementptr inbounds i8, ptr %8, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %146 = load ptr, ptr %145, align 8
   %147 = sext i32 %1 to i64
   %148 = getelementptr ptr, ptr %146, i64 %147
   %149 = getelementptr i8, ptr %148, i64 -8
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 48
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 48
   br label %154
 
 154:                                              ; preds = %144, %142
@@ -1204,18 +1204,18 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit70: ; preds = %126, %127
   br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79, label %155
 
 155:                                              ; preds = %154
-  %156 = getelementptr inbounds i8, ptr %8, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %157 = load ptr, ptr %156, align 8
   %158 = sext i32 %1 to i64
   %159 = getelementptr inbounds ptr, ptr %157, i64 %158
   %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit79
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit79: ; preds = %154, %155
   %.pn.i73 = phi ptr [ %162, %155 ], [ %0, %154 ]
-  %.09.in.i74 = getelementptr inbounds i8, ptr %.pn.i73, i64 48
+  %.09.in.i74 = getelementptr inbounds nuw i8, ptr %.pn.i73, i64 48
   %.09.i75 = load ptr, ptr %.09.in.i74, align 8
   %163 = icmp ugt ptr %.09.i75, %.0.i72
   %164 = ptrtoint ptr %.09.i75 to i64
@@ -1234,19 +1234,19 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit79: ; preds = %154, %155
   br i1 %81, label %171, label %173
 
 171:                                              ; preds = %170
-  %172 = getelementptr inbounds i8, ptr %0, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %183
 
 173:                                              ; preds = %170
-  %174 = getelementptr inbounds i8, ptr %8, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = sext i32 %1 to i64
   %177 = getelementptr ptr, ptr %175, i64 %176
   %178 = getelementptr i8, ptr %177, i64 -8
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 48
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
   br label %183
 
 183:                                              ; preds = %173, %171
@@ -1255,18 +1255,18 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit79: ; preds = %154, %155
   br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88, label %184
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %8, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %186 = load ptr, ptr %185, align 8
   %187 = sext i32 %1 to i64
   %188 = getelementptr inbounds ptr, ptr %186, i64 %187
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit88
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit88: ; preds = %183, %184
   %.pn.i82 = phi ptr [ %191, %184 ], [ %0, %183 ]
-  %.09.in.i83 = getelementptr inbounds i8, ptr %.pn.i82, i64 48
+  %.09.in.i83 = getelementptr inbounds nuw i8, ptr %.pn.i82, i64 48
   %.09.i84 = load ptr, ptr %.09.in.i83, align 8
   %192 = icmp ugt ptr %.09.i84, %.0.i81
   %193 = ptrtoint ptr %.09.i84 to i64
@@ -1280,19 +1280,19 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit88: ; preds = %183, %184
   br i1 %81, label %199, label %201
 
 199:                                              ; preds = %198
-  %200 = getelementptr inbounds i8, ptr %0, i64 32
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %211
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %8, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = sext i32 %1 to i64
   %205 = getelementptr ptr, ptr %203, i64 %204
   %206 = getelementptr i8, ptr %205, i64 -8
   %207 = load ptr, ptr %206, align 8
-  %208 = getelementptr inbounds i8, ptr %207, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 48
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 48
   br label %211
 
 211:                                              ; preds = %201, %199
@@ -1301,18 +1301,18 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit88: ; preds = %183, %184
   br i1 %96, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97, label %212
 
 212:                                              ; preds = %211
-  %213 = getelementptr inbounds i8, ptr %8, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = sext i32 %1 to i64
   %216 = getelementptr inbounds ptr, ptr %214, i64 %215
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %219 = load ptr, ptr %218, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit97
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit97: ; preds = %211, %212
   %.pn.i91 = phi ptr [ %219, %212 ], [ %0, %211 ]
-  %.09.in.i92 = getelementptr inbounds i8, ptr %.pn.i91, i64 48
+  %.09.in.i92 = getelementptr inbounds nuw i8, ptr %.pn.i91, i64 48
   %.09.i93 = load ptr, ptr %.09.in.i92, align 8
   %220 = icmp ugt ptr %.09.i93, %.0.i90
   %221 = ptrtoint ptr %.09.i93 to i64
@@ -1343,9 +1343,9 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   br i1 %11, label %12, label %36
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8
   %.not = icmp ult i64 %14, %16
   br i1 %.not, label %36, label %17
@@ -1388,7 +1388,7 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   %39 = sub i64 %37, %38
   %40 = lshr i64 %39, 3
   store ptr %1, ptr %5, align 8
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %40, ptr %.sroa.228.0..sroa_idx, align 8
   br label %42
 
@@ -1410,9 +1410,9 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   br i1 %48, label %49, label %69
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = load i64, ptr %52, align 8
   %.not18 = icmp ult i64 %51, %53
   br i1 %.not18, label %69, label %54
@@ -1452,7 +1452,7 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
   %73 = sub i64 %71, %72
   %74 = lshr i64 %73, 3
   store ptr %70, ptr %6, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %74, ptr %.sroa.2.0..sroa_idx, align 8
   br label %76
 
@@ -1468,28 +1468,28 @@ define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr
 define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) unnamed_addr #0 align 2 {
   %8 = alloca %class.MemRegion, align 8
   %9 = alloca %class.MemRegion, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = ptrtoint ptr %11 to i64
   %16 = sub i64 %14, %15
   %17 = lshr i64 %16, 3
   store ptr %11, ptr %8, align 8
-  %18 = getelementptr inbounds i8, ptr %8, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %17, ptr %18, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store ptr %1, ptr %10, align 8
   %19 = getelementptr inbounds ptr, ptr %1, i64 %2
   store ptr %19, ptr %12, align 8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(96) %0, i1 noundef zeroext false) #11
-  %23 = getelementptr inbounds i8, ptr %0, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   store i64 %26, ptr %23, align 8
   %27 = load ptr, ptr %10, align 8
@@ -1503,7 +1503,7 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
   %35 = and i64 %34, %31
   %36 = sub i64 %35, %32
   %37 = udiv i64 %36, %26
-  %38 = getelementptr inbounds i8, ptr %0, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
   %41 = sext i32 %40 to i64
@@ -1514,7 +1514,7 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
   br i1 %or.cond166, label %45, label %61
 
 45:                                               ; preds = %7
-  %46 = getelementptr inbounds i8, ptr %0, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %50
@@ -1567,7 +1567,7 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
   unreachable
 
 67:                                               ; preds = %61
-  %68 = getelementptr inbounds i8, ptr %0, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %.065, ptr %68, align 8
   %69 = ptrtoint ptr %62 to i64
   %70 = ptrtoint ptr %63 to i64
@@ -1580,8 +1580,8 @@ define hidden void @_ZN16MutableNUMASpace10initializeE9MemRegionbbbP13WorkerThre
 74:                                               ; preds = %67
   %75 = lshr i64 %71, 3
   %76 = icmp eq ptr %11, %63
-  %77 = getelementptr inbounds ptr, ptr %11, i64 %17
-  %78 = getelementptr inbounds ptr, ptr %63, i64 %75
+  %77 = getelementptr inbounds nuw ptr, ptr %11, i64 %17
+  %78 = getelementptr inbounds nuw ptr, ptr %63, i64 %75
   %79 = icmp eq ptr %77, %78
   %or.cond169 = select i1 %76, i1 %79, i1 false
   br i1 %or.cond169, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77, label %_ZNK9MemRegion6equalsES_.exit.thread154
@@ -1590,7 +1590,7 @@ _ZNK9MemRegion6equalsES_.exit.thread154:          ; preds = %74
   %80 = sub i64 %.064.in, %.0.in
   %81 = lshr i64 %80, 3
   store ptr %.0, ptr %9, align 8
-  %.sroa.2138.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
+  %.sroa.2138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %81, ptr %.sroa.2138.0..sroa_idx, align 8
   %82 = call { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr %11, i64 %17) #11
   %83 = extractvalue { ptr, i64 } %82, 0
@@ -1719,7 +1719,7 @@ _ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit: ; preds = %119, %
   %151 = add i64 %150, %86
   %152 = sub i64 0, %86
   %153 = and i64 %151, %152
-  %154 = getelementptr inbounds ptr, ptr %.sroa.0139.2, i64 %.sroa.7.2
+  %154 = getelementptr inbounds nuw ptr, ptr %.sroa.0139.2, i64 %.sroa.7.2
   %155 = ptrtoint ptr %154 to i64
   %156 = and i64 %152, %155
   %157 = icmp ugt i64 %156, %153
@@ -1727,7 +1727,7 @@ _ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit: ; preds = %119, %
 
 158:                                              ; preds = %_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit
   %159 = load ptr, ptr %38, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %161, align 8
   %163 = load i32, ptr %162, align 8
@@ -1752,7 +1752,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit: ; preds = %_ZN16MutableNUMA
   %172 = add i64 %171, -1
   %173 = add i64 %172, %170
   %174 = and i64 %173, %.pre-phi202
-  %175 = getelementptr inbounds ptr, ptr %.sroa.0145.2, i64 %.sroa.7146.2
+  %175 = getelementptr inbounds nuw ptr, ptr %.sroa.0145.2, i64 %.sroa.7146.2
   %176 = ptrtoint ptr %175 to i64
   %177 = and i64 %.pre-phi202, %176
   %178 = icmp ugt i64 %177, %174
@@ -1760,7 +1760,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit: ; preds = %_ZN16MutableNUMA
   br i1 %178, label %179, label %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit77
 
 179:                                              ; preds = %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit
-  %180 = getelementptr inbounds i8, ptr %.pre186.pre192, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.pre186.pre192, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = load i32, ptr %.pre186.pre192, align 4
   %183 = sext i32 %182 to i64
@@ -1806,12 +1806,12 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit: ; preds = %196
   br i1 %205, label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit85, label %.lr.ph
 
 _ZN16MutableNUMASpace18current_chunk_sizeEi.exit.thread: ; preds = %196
-  %206 = getelementptr inbounds i8, ptr %.pre186, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.pre186, i64 8
   %207 = load ptr, ptr %206, align 8
   %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8
-  %.09.in.i156 = getelementptr inbounds i8, ptr %210, i64 48
+  %.09.in.i156 = getelementptr inbounds nuw i8, ptr %210, i64 48
   %.09.i157 = load ptr, ptr %.09.in.i156, align 8
   %211 = icmp ugt ptr %.09.i157, %.0.i
   %212 = ptrtoint ptr %.09.i157 to i64
@@ -1827,9 +1827,9 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit.thread: ; preds = %196
   %220 = getelementptr ptr, ptr %207, i64 %219
   %221 = getelementptr i8, ptr %220, i64 -8
   %222 = load ptr, ptr %221, align 8
-  %223 = getelementptr inbounds i8, ptr %222, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 48
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 48
   %.0.i78.pre = load ptr, ptr %225, align 8
   br label %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit85
 
@@ -1852,23 +1852,23 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
 
 .lr.ph:                                           ; preds = %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit, %233
   %.not204 = phi i1 [ %.not, %233 ], [ true, %_ZN16MutableNUMASpace18current_chunk_sizeEi.exit ]
-  %.sroa.2124.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 76
-  %236 = getelementptr inbounds i8, ptr %0, i64 72
+  %.sroa.2124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %236 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %237
 
 237:                                              ; preds = %.lr.ph, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115 ]
   %238 = phi ptr [ %.pre186, %.lr.ph ], [ %446, %_ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115 ]
-  %239 = getelementptr inbounds i8, ptr %238, i64 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds ptr, ptr %240, i64 %indvars.iv
+  %241 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %242, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %244, i64 32
   %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %244, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %244, i64 48
   %248 = load ptr, ptr %247, align 8
   %249 = ptrtoint ptr %248 to i64
   %250 = ptrtoint ptr %246 to i64
@@ -1944,7 +1944,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
 
 293:                                              ; preds = %291
   %294 = lshr i64 %.067161, 3
-  %295 = getelementptr inbounds ptr, ptr %.0, i64 %294
+  %295 = getelementptr inbounds nuw ptr, ptr %.0, i64 %294
   %296 = ptrtoint ptr %295 to i64
   %297 = ptrtoint ptr %292 to i64
   %298 = sub i64 %296, %297
@@ -1962,9 +1962,9 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   %306 = getelementptr ptr, ptr %305, i64 %indvars.iv
   %307 = getelementptr i8, ptr %306, i64 -8
   %308 = load ptr, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %308, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %310, i64 48
+  %311 = getelementptr inbounds nuw i8, ptr %310, i64 48
   %312 = load ptr, ptr %311, align 8
   br label %325
 
@@ -1973,9 +1973,9 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   %314 = getelementptr ptr, ptr %313, i64 %indvars.iv
   %315 = getelementptr i8, ptr %314, i64 -8
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 8
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 48
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 48
   %320 = load ptr, ptr %319, align 8
   %321 = load ptr, ptr %12, align 8
   %322 = ptrtoint ptr %321 to i64
@@ -1996,8 +1996,8 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit85: ; preds = %218, %_ZN16Mutabl
   %331 = sub i64 %329, %330
   %332 = lshr i64 %331, 3
   %.not.i90 = icmp ule ptr %327, %.sink205
-  %333 = getelementptr inbounds ptr, ptr %327, i64 %332
-  %334 = getelementptr inbounds ptr, ptr %.sink205, i64 %326
+  %333 = getelementptr inbounds nuw ptr, ptr %327, i64 %332
+  %334 = getelementptr inbounds nuw ptr, ptr %.sink205, i64 %326
   %335 = icmp uge ptr %333, %334
   %336 = select i1 %.not.i90, i1 %335, i1 false
   br i1 %336, label %339, label %337
@@ -2136,7 +2136,7 @@ _ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_.exit111: ; preds = %376
   %410 = add i64 %409, %407
   %411 = sub i64 0, %407
   %412 = and i64 %410, %411
-  %413 = getelementptr inbounds ptr, ptr %.sroa.0139.3, i64 %.sroa.7.3
+  %413 = getelementptr inbounds nuw ptr, ptr %.sroa.0139.3, i64 %.sroa.7.3
   %414 = ptrtoint ptr %413 to i64
   %415 = and i64 %411, %414
   %416 = icmp ugt i64 %415, %412
@@ -2165,7 +2165,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit113: ; preds = %_ZN16MutableN
   %427 = add i64 %426, -1
   %428 = add i64 %427, %425
   %429 = and i64 %428, %.pre-phi200
-  %430 = getelementptr inbounds ptr, ptr %.sroa.0145.3, i64 %.sroa.7146.3
+  %430 = getelementptr inbounds nuw ptr, ptr %.sroa.0145.3, i64 %.sroa.7146.3
   %431 = ptrtoint ptr %430 to i64
   %432 = and i64 %.pre-phi200, %431
   %433 = icmp ugt i64 %432, %429
@@ -2189,7 +2189,7 @@ _ZN16MutableNUMASpace11bias_regionE9MemRegionj.exit115: ; preds = %_ZN16MutableN
   %.sroa.0.0.copyload = load ptr, ptr %9, align 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2124.0..sroa_idx, align 8
   %442 = load ptr, ptr %244, align 8
-  %443 = getelementptr inbounds i8, ptr %442, i64 24
+  %443 = getelementptr inbounds nuw i8, ptr %442, i64 24
   %444 = load ptr, ptr %443, align 8
   call void %444(ptr noundef nonnull align 8 dereferenceable(56) %244, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null) #11
   %445 = load i32, ptr %235, align 4
@@ -2211,7 +2211,7 @@ declare { ptr, i64 } @_ZNK9MemRegion12intersectionES_(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -2229,18 +2229,18 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
   %10 = phi i32 [ %7, %.lr.ph ], [ %45, %42 ]
   %11 = phi ptr [ %8, %.lr.ph ], [ %44, %42 ]
   %.038 = phi ptr [ %.0.ph43, %.lr.ph ], [ %43, %42 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load volatile ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not.i = icmp ule ptr %21, %.038
-  %22 = getelementptr inbounds i8, ptr %17, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %23 = load ptr, ptr %22, align 8
   %24 = icmp ult ptr %.038, %23
   %25 = select i1 %.not.i, i1 %24, i1 false
@@ -2278,14 +2278,14 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
 
 48:                                               ; preds = %30, %26
   %49 = load ptr, ptr %17, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef %.038) #11
   br label %.outer
 
 52:                                               ; preds = %9
   %53 = load ptr, ptr %17, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8
   br i1 %.027.ph42, label %56, label %57
 
@@ -2308,18 +2308,18 @@ define hidden void @_ZN16MutableNUMASpace7set_topEPP12HeapWordImpl(ptr noundef n
 
 .outer._crit_edge:                                ; preds = %.outer, %42, %2
   %.0.lcssa = phi ptr [ %1, %2 ], [ %43, %42 ], [ %.038, %.outer ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %.0.lcssa, ptr %62, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MutableNUMASpace5clearEb(ptr noundef nonnull align 8 dereferenceable(96) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   %9 = icmp sgt i32 %8, 0
@@ -2328,14 +2328,14 @@ define hidden void @_ZN16MutableNUMASpace5clearEb(ptr noundef nonnull align 8 de
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %10 = phi ptr [ %20, %.lr.ph ], [ %7, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull align 8 dereferenceable(56) %16, i1 noundef zeroext false) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2353,10 +2353,10 @@ define hidden void @_ZN16MutableNUMASpace5clearEb(ptr noundef nonnull align 8 de
 define hidden noundef ptr @_ZN16MutableNUMASpace12cas_allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 840
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 840
   %6 = tail call noundef i32 @_ZN2os17numa_get_group_idEv() #11
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8
   %.val.i = load i32, ptr %8, align 8
   %9 = getelementptr i8, ptr %8, i64 8
@@ -2370,7 +2370,7 @@ define hidden noundef ptr @_ZN16MutableNUMASpace12cas_allocateEm(ptr noundef non
 
 11:                                               ; preds = %15, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %15 ]
-  %12 = getelementptr inbounds ptr, ptr %.val1.i, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw ptr, ptr %.val1.i, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %.val6.i.i = load i32, ptr %13, align 8
   %14 = icmp eq i32 %.val6.i.i, %6
@@ -2390,7 +2390,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %18, align 4
   %20 = srem i32 %17, %19
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %18, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %21
 
@@ -2400,17 +2400,17 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   %23 = sext i32 %.030 to i64
   %24 = getelementptr inbounds ptr, ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(56) %27, i64 noundef %1) #11
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %60, label %32
 
 32:                                               ; preds = %21
-  %33 = getelementptr inbounds i8, ptr %27, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds ptr, ptr %31, i64 %1
   %36 = ptrtoint ptr %34 to i64
@@ -2439,7 +2439,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
 
 51:                                               ; preds = %32
   %52 = getelementptr inbounds ptr, ptr %31, i64 %1
-  %53 = getelementptr inbounds i8, ptr %0, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %54
 
 54:                                               ; preds = %57, %51
@@ -2453,7 +2453,7 @@ _ZNK16MutableNUMASpace16lgrp_space_indexEi.exit.thread: ; preds = %15, %2
   br i1 %59, label %.loopexit, label %54, !llvm.loop !21
 
 60:                                               ; preds = %21, %47
-  %61 = getelementptr inbounds i8, ptr %25, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i8 1, ptr %61, align 8
   br label %.loopexit
 
@@ -2472,7 +2472,7 @@ declare noundef zeroext i1 @_ZN12MutableSpace14cas_deallocateEPP12HeapWordImplm(
 define hidden void @_ZNK16MutableNUMASpace14print_short_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZNK12MutableSpace14print_short_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #11
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.13) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
@@ -2481,21 +2481,21 @@ define hidden void @_ZNK16MutableNUMASpace14print_short_onEP12outputStream(ptr n
 .lr.ph:                                           ; preds = %2, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %2 ]
   %7 = phi ptr [ %31, %29 ], [ %4, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.14, i32 noundef %12) #11
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull %1) #11
   %23 = load ptr, ptr %3, align 8
@@ -2533,29 +2533,29 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %3 = alloca [128 x ptr], align 16
   %4 = alloca [128 x i32], align 16
   tail call void @_ZNK12MutableSpace8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph23, label %._crit_edge24
 
 .lr.ph23:                                         ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %10
 
 10:                                               ; preds = %.lr.ph23, %104
   %indvars.iv28 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next29, %104 ]
   %11 = phi ptr [ %6, %.lr.ph23 ], [ %105, %104 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv28
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv28
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.17, i32 noundef %16) #11
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 136
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 136
   %21 = load ptr, ptr %20, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(56) %18, ptr noundef nonnull %1) #11
   %22 = load i8, ptr @NUMAStats, align 1
@@ -2571,25 +2571,25 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
 .lr.ph:                                           ; preds = %.preheader, %_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit ], [ 0, %.preheader ]
   %27 = phi ptr [ %88, %_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit ], [ %24, %.preheader ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = load i64, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %4)
-  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
-  %34 = getelementptr inbounds i8, ptr %31, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
   %39 = add i64 %32, -1
   %40 = add i64 %39, %38
   %41 = sub i64 0, %32
   %42 = and i64 %40, %41
-  %43 = getelementptr inbounds i8, ptr %35, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %44 = load ptr, ptr %43, align 8
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, %41
@@ -2599,8 +2599,8 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
 
 .preheader25.lr.ph.i:                             ; preds = %.lr.ph
   %49 = inttoptr i64 %42 to ptr
-  %50 = getelementptr inbounds i8, ptr %31, i64 40
-  %51 = getelementptr inbounds i8, ptr %31, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %31, i64 56
   br label %.preheader25.i
 
 .preheader25.i:                                   ; preds = %.loopexit.i, %.preheader25.lr.ph.i
@@ -2613,7 +2613,7 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %.01927.i = phi i64 [ 0, %.preheader25.i ], [ %54, %53 ]
   %.126.i = phi ptr [ %.02031.i, %.preheader25.i ], [ %56, %53 ]
   %54 = add nuw nsw i64 %.01927.i, 1
-  %55 = getelementptr inbounds [128 x ptr], ptr %3, i64 0, i64 %.01927.i
+  %55 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %.01927.i
   store ptr %.126.i, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %.126.i, i64 %52
   %57 = icmp samesign ult i64 %.01927.i, 127
@@ -2639,7 +2639,7 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
   %66 = phi i64 [ %.promoted29.i, %.preheader.i ], [ %81, %79 ]
   %.028.i = phi i64 [ 0, %.preheader.i ], [ %83, %79 ]
   %67 = phi i64 [ %.promoted.i, %.preheader.i ], [ %82, %79 ]
-  %68 = getelementptr inbounds [128 x i32], ptr %4, i64 0, i64 %.028.i
+  %68 = getelementptr inbounds nuw [128 x i32], ptr %4, i64 0, i64 %.028.i
   %69 = load i32, ptr %68, align 4
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %73
@@ -2676,9 +2676,9 @@ define hidden void @_ZNK16MutableNUMASpace8print_onEP12outputStream(ptr noundef 
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
   %.pre.i = load ptr, ptr %34, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
   %.pre33.i = load ptr, ptr %.phi.trans.insert.i, align 8
-  %.phi.trans.insert34.i = getelementptr inbounds i8, ptr %.pre.i, i64 48
+  %.phi.trans.insert34.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 48
   %.pre35.i = load ptr, ptr %.phi.trans.insert34.i, align 8
   %.pre36.i = ptrtoint ptr %.pre33.i to i64
   %.pre37.i = ptrtoint ptr %.pre35.i to i64
@@ -2690,7 +2690,7 @@ _ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit: ; preds = %.lr.ph
   %84 = add i64 %42, %.pre-phi38.i
   %85 = add i64 %46, %.pre-phi.i
   %86 = sub i64 %84, %85
-  %87 = getelementptr inbounds i8, ptr %31, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store i64 %86, ptr %87, align 8
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %4)
@@ -2702,16 +2702,16 @@ _ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit: ; preds = %.lr.ph
   br i1 %91, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit, %.preheader
-  %92 = getelementptr inbounds i8, ptr %15, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %93 = load i64, ptr %92, align 8
   %94 = lshr i64 %93, 10
-  %95 = getelementptr inbounds i8, ptr %15, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %96 = load i64, ptr %95, align 8
   %97 = lshr i64 %96, 10
-  %98 = getelementptr inbounds i8, ptr %15, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %99 = load i64, ptr %98, align 8
   %100 = lshr i64 %99, 10
-  %101 = getelementptr inbounds i8, ptr %15, i64 56
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %102 = load i64, ptr %101, align 8
   %103 = lshr i64 %102, 10
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.18, i64 noundef %94, i64 noundef %97, i64 noundef %100, i64 noundef %103) #11
@@ -2735,18 +2735,18 @@ declare void @_ZNK12MutableSpace8print_onEP12outputStream(ptr noundef nonnull al
 define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((32, 64)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [128 x ptr], align 16
   %4 = alloca [128 x i32], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = add i64 %1, -1
   %12 = add i64 %11, %10
   %13 = sub i64 0, %1
   %14 = and i64 %12, %13
-  %15 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, %13
@@ -2756,8 +2756,8 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
 
 .preheader25.lr.ph:                               ; preds = %2
   %21 = inttoptr i64 %14 to ptr
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.preheader25
 
 .preheader25:                                     ; preds = %.preheader25.lr.ph, %.loopexit
@@ -2770,7 +2770,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %.01927 = phi i64 [ 0, %.preheader25 ], [ %26, %25 ]
   %.126 = phi ptr [ %.02031, %.preheader25 ], [ %28, %25 ]
   %26 = add nuw nsw i64 %.01927, 1
-  %27 = getelementptr inbounds [128 x ptr], ptr %3, i64 0, i64 %.01927
+  %27 = getelementptr inbounds nuw [128 x ptr], ptr %3, i64 0, i64 %.01927
   store ptr %.126, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %.126, i64 %24
   %29 = icmp samesign ult i64 %.01927, 127
@@ -2796,7 +2796,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %38 = phi i64 [ %.promoted29, %.preheader ], [ %53, %51 ]
   %.028 = phi i64 [ 0, %.preheader ], [ %55, %51 ]
   %39 = phi i64 [ %.promoted, %.preheader ], [ %54, %51 ]
-  %40 = getelementptr inbounds [128 x i32], ptr %4, i64 0, i64 %.028
+  %40 = getelementptr inbounds nuw [128 x i32], ptr %4, i64 0, i64 %.028
   %41 = load i32, ptr %40, align 4
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %43, label %45
@@ -2833,9 +2833,9 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
 
 ._crit_edge.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %6, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %.pre33 = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert34 = getelementptr inbounds i8, ptr %.pre, i64 48
+  %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre35 = load ptr, ptr %.phi.trans.insert34, align 8
   %.pre36 = ptrtoint ptr %.pre33 to i64
   %.pre37 = ptrtoint ptr %.pre35 to i64
@@ -2847,7 +2847,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
   %56 = add i64 %18, %.pre-phi
   %57 = sub i64 %14, %56
   %58 = add i64 %57, %.pre-phi38
-  %59 = getelementptr inbounds i8, ptr %0, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %58, ptr %59, align 8
   ret void
 }
@@ -2855,7 +2855,7 @@ define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16MutableNUMASpace6verifyEv(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
   tail call void @_ZN12MutableSpace6verifyEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -2979,9 +2979,9 @@ declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -3013,7 +3013,7 @@ _ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE8allocateEv.exit: ; preds = %
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -3032,9 +3032,9 @@ _ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE8allocateEv.exit: ; preds = %
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3044,14 +3044,14 @@ _ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE8allocateEv.exit: ; preds = %
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !28
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIPN16MutableNUMASpace9LGRPSpaceEE10deallocateEPS2_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -3085,21 +3085,21 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMASpace9LGRPSpaceE13GrowableArrayIS2_EE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, %3
   br i1 %5, label %32, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   store i32 %4, ptr %2, align 4
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %10, label %.loopexit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %14, label %16
@@ -3131,8 +3131,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMA
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3145,7 +3145,7 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIPN16MutableNUMA
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %.loopexit
   %.01827 = phi ptr [ null, %.loopexit ], [ %.0.i, %.lr.ph ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 1
   %.not.i22 = icmp eq i64 %30, 0

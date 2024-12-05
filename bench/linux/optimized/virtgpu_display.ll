@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @virtio_gpu_modeset_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 61840
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 61840
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %68, label %5
@@ -80,33 +80,33 @@ define dso_local i32 @virtio_gpu_modeset_init(ptr noundef %0) local_unnamed_addr
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 1417
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 1417
   store i8 1, ptr %11, align 1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 800
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 800
   store ptr @virtio_gpu_mode_funcs, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 784
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 784
   store i32 32, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 788
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 788
   store i32 32, ptr %17, align 4
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 792
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 792
   store i32 8192, ptr %19, align 8
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 796
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 796
   store i32 8192, ptr %21, align 4
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1419
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1419
   store i8 1, ptr %23, align 1
   %24 = load i32, ptr %2, align 8
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %9
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 62137
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 62137
   br label %29
 
 29:                                               ; preds = %63, %26
@@ -114,19 +114,19 @@ define dso_local i32 @virtio_gpu_modeset_init(ptr noundef %0) local_unnamed_addr
   %31 = load ptr, ptr %0, align 8
   %32 = sext i32 %30 to i64
   %33 = getelementptr %struct.virtio_gpu_output, ptr %27, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 1656
-  %35 = getelementptr inbounds i8, ptr %33, i64 3632
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1656
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 3632
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %30, ptr %33, align 8
   %37 = icmp eq i32 %30, 0
   br i1 %37, label %38, label %42
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %33, i64 3776
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 3776
   store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %33, i64 3768
+  %40 = getelementptr inbounds nuw i8, ptr %33, i64 3768
   store i32 1024, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %33, i64 3772
+  %41 = getelementptr inbounds nuw i8, ptr %33, i64 3772
   store i32 768, ptr %41, align 4
   br label %42
 
@@ -141,29 +141,29 @@ define dso_local i32 @virtio_gpu_modeset_init(ptr noundef %0) local_unnamed_addr
   br i1 %47, label %63, label %48
 
 48:                                               ; preds = %45
-  %49 = tail call i32 (ptr, ptr, ptr, ptr, ptr, ptr, ...) @drm_crtc_init_with_planes(ptr noundef %31, ptr noundef %36, ptr noundef %43, ptr noundef %46, ptr noundef nonnull @virtio_gpu_crtc_funcs, ptr noundef null) #6
-  %50 = getelementptr inbounds i8, ptr %33, i64 440
+  %49 = tail call i32 (ptr, ptr, ptr, ptr, ptr, ptr, ...) @drm_crtc_init_with_planes(ptr noundef %31, ptr noundef nonnull %36, ptr noundef %43, ptr noundef %46, ptr noundef nonnull @virtio_gpu_crtc_funcs, ptr noundef null) #6
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 440
   store ptr @virtio_gpu_crtc_helper_funcs, ptr %50, align 8
-  %51 = tail call i32 @drm_connector_init(ptr noundef %31, ptr noundef %34, ptr noundef nonnull @virtio_gpu_connector_funcs, i32 noundef 15) #6
-  %52 = getelementptr inbounds i8, ptr %33, i64 3200
+  %51 = tail call i32 @drm_connector_init(ptr noundef %31, ptr noundef nonnull %34, ptr noundef nonnull @virtio_gpu_connector_funcs, i32 noundef 15) #6
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 3200
   store ptr @virtio_gpu_conn_helper_funcs, ptr %52, align 8
   %53 = load i8, ptr %28, align 1, !range !5, !noundef !6
   %54 = icmp eq i8 %53, 0
   br i1 %54, label %56, label %55
 
 55:                                               ; preds = %48
-  tail call void @drm_connector_attach_edid_property(ptr noundef %34) #6
+  tail call void @drm_connector_attach_edid_property(ptr noundef nonnull %34) #6
   br label %56
 
 56:                                               ; preds = %55, %48
-  %57 = tail call i32 @drm_simple_encoder_init(ptr noundef %31, ptr noundef %35, i32 noundef 5) #6
-  %58 = getelementptr inbounds i8, ptr %33, i64 3744
+  %57 = tail call i32 @drm_simple_encoder_init(ptr noundef %31, ptr noundef nonnull %35, i32 noundef 5) #6
+  %58 = getelementptr inbounds nuw i8, ptr %33, i64 3744
   store ptr @virtio_gpu_enc_helper_funcs, ptr %58, align 8
   %59 = shl nuw i32 1, %30
-  %60 = getelementptr inbounds i8, ptr %33, i64 3704
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 3704
   store i32 %59, ptr %60, align 8
-  %61 = tail call i32 @drm_connector_attach_encoder(ptr noundef %34, ptr noundef %35) #6
-  %62 = tail call i32 @drm_connector_register(ptr noundef %34) #6
+  %61 = tail call i32 @drm_connector_attach_encoder(ptr noundef nonnull %34, ptr noundef nonnull %35) #6
+  %62 = tail call i32 @drm_connector_register(ptr noundef nonnull %34) #6
   br label %63
 
 63:                                               ; preds = %56, %45, %42
@@ -190,7 +190,7 @@ declare dso_local void @drm_mode_config_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_gpu_modeset_fini(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 61840
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 61840
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %.loopexit, label %.preheader
@@ -220,7 +220,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef ptr @virtio_gpu_user_framebuffer_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %.thread [
     i32 875713112, label %6
@@ -228,7 +228,7 @@ define internal noundef ptr @virtio_gpu_user_framebuffer_create(ptr noundef %0, 
   ]
 
 6:                                                ; preds = %3, %3
-  %7 = getelementptr inbounds i8, ptr %2, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = tail call ptr @drm_gem_object_lookup(ptr noundef %1, i32 noundef %8) #6
   %10 = icmp eq ptr %9, null
@@ -258,7 +258,7 @@ define internal noundef ptr @virtio_gpu_user_framebuffer_create(ptr noundef %0, 
   br label %33
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %13, i64 160
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 160
   store ptr %9, ptr %23, align 8
   tail call void @drm_helper_mode_fill_fb_struct(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %2) #6
   %24 = tail call i32 @drm_framebuffer_init(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull @virtio_gpu_fb_funcs) #6
@@ -369,14 +369,14 @@ declare dso_local void @drm_atomic_helper_crtc_destroy_state(ptr noundef, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtio_gpu_crtc_mode_set_nofb(ptr nocapture noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 -8
   %6 = load i32, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 164
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %8 = load i16, ptr %7, align 4
   %9 = zext i16 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 174
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 174
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   tail call void @virtio_gpu_cmd_set_scanout(ptr noundef %4, i32 noundef %6, i32 noundef 0, i32 noundef %9, i32 noundef %12, i32 noundef 0, i32 noundef 0) #6
@@ -391,14 +391,14 @@ define internal noundef i32 @virtio_gpu_crtc_atomic_check(ptr nocapture readnone
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @virtio_gpu_crtc_atomic_flush(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 144
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
   %8 = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7, i32 3
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 10
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %11 = load i8, ptr %10, align 2
   %12 = and i8 %11, 14
   %13 = icmp eq i8 %12, 0
@@ -421,7 +421,7 @@ define internal void @virtio_gpu_crtc_atomic_enable(ptr nocapture readnone %0, p
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtio_gpu_crtc_atomic_disable(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %0, i64 -8
   %7 = load i32, ptr %6, align 8
@@ -505,7 +505,7 @@ define internal i32 @virtio_gpu_conn_get_modes(ptr noundef %0) #0 align 16 {
   br i1 %21, label %27, label %22
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %20, i64 62
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 62
   %24 = load i8, ptr %23, align 2
   %25 = or i8 %24, 8
   store i8 %25, ptr %23, align 2
@@ -524,20 +524,20 @@ define internal noundef range(i32 -2, 1) i32 @virtio_gpu_conn_mode_valid(ptr noc
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 2116
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 62
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %8 = load i8, ptr %7, align 2
   %9 = and i8 %8, 8
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %30, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i16, ptr %12, align 4
   %14 = icmp eq i16 %13, 1024
   br i1 %14, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %1, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %17 = load i16, ptr %16, align 2
   %18 = icmp eq i16 %17, 768
   br i1 %18, label %30, label %19
@@ -548,7 +548,7 @@ define internal noundef range(i32 -2, 1) i32 @virtio_gpu_conn_mode_valid(ptr noc
   %22 = add nsw i32 %4, -16
   %23 = icmp sgt i32 %22, %20
   %24 = select i1 %21, i1 true, i1 %23
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 14
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 14
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   %.pre1 = zext i16 %.pre to i32
   br i1 %24, label %._crit_edge, label %25

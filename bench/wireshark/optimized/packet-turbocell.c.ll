@@ -120,7 +120,7 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %7 = and i8 %6, 15
   %.not = icmp eq i8 %7, 0
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %switch.selectcmp = icmp eq i8 %6, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.53, ptr @.str.54
@@ -189,10 +189,10 @@ define internal i32 @dissect_turbocell(ptr noundef %0, ptr noundef %1, ptr nound
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %49, ptr noundef %0, i32 noundef 20, i32 noundef 30, i32 noundef 0) #3
   %51 = load i32, ptr @ett_network, align 4
   %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #3
-  %53 = getelementptr inbounds i8, ptr %1, i64 408
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %54 = load ptr, ptr %53, align 8
   %55 = call ptr @tvb_get_stringz_enc(ptr noundef %54, ptr noundef %0, i32 noundef 20, ptr noundef nonnull %5, i32 noundef 0) #3
-  %56 = getelementptr inbounds i8, ptr %1, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %53, align 8
   %59 = load i32, ptr %5, align 4

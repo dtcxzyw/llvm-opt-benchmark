@@ -83,7 +83,7 @@ define dso_local ptr @ruby_signal_name(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %6, %1
   %.06.i = phi ptr [ @siglist, %1 ], [ %7, %6 ]
-  %3 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %signo2signm.exit, label %6
@@ -233,7 +233,7 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   %36 = getelementptr i8, ptr %35, i64 48
   %.val.i = load ptr, ptr %36, align 8
   %37 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %.val.i, %39
   br i1 %40, label %.lr.ph, label %.lr.ph.split.us.preheader
@@ -245,11 +245,11 @@ rb_num2int_inline.exit:                           ; preds = %22, %24
   %44 = icmp ne i32 %42, -1
   %or.cond = and i1 %43, %44
   %45 = ptrtoint ptr %3 to i64
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
-  %49 = getelementptr inbounds i8, ptr %4, i64 32
-  %50 = getelementptr inbounds i8, ptr %4, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %51 = zext nneg i32 %.039.fr to i64
   %52 = getelementptr [65 x i32], ptr @signal_buff, i64 0, i64 %51
   br i1 %or.cond, label %.lr.ph.split, label %.lr.ph.split.us.preheader
@@ -447,7 +447,7 @@ signal_ignored.exit:                              ; preds = %94
 
 ._crit_edge.thread122:                            ; preds = %.thread117, %._crit_edge
   %110 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load ptr, ptr %111, align 8
   call void @rb_threadptr_check_signal(ptr noundef %112) #16
   br label %.loopexit
@@ -517,7 +517,7 @@ RB_SYMBOL_P.exit.thread94:                        ; preds = %RB_SYMBOL_P.exit
   %29 = load i64, ptr %28, align 8, !noalias !12
   %30 = and i64 %29, 8192
   %.not.i = icmp eq i64 %30, 0
-  %31 = getelementptr inbounds i8, ptr %28, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
   br i1 %.not.i, label %rbimpl_rstring_getmem.exit, label %32
 
 32:                                               ; preds = %27
@@ -526,7 +526,7 @@ RB_SYMBOL_P.exit.thread94:                        ; preds = %RB_SYMBOL_P.exit
 
 rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   %.sroa.3.0 = phi ptr [ %.sroa.3.0.copyload, %32 ], [ %31, %27 ]
-  %.sroa.1.0.in = getelementptr inbounds i8, ptr %28, i64 16
+  %.sroa.1.0.in = getelementptr inbounds nuw i8, ptr %28, i64 16
   %.sroa.1.0 = load i64, ptr %.sroa.1.0.in, align 8
   %33 = tail call ptr @memchr(ptr noundef %.sroa.3.0, i32 noundef 0, i64 noundef %.sroa.1.0) #23
   %.not = icmp eq ptr %33, null
@@ -611,7 +611,7 @@ rbimpl_rstring_getmem.exit:                       ; preds = %27, %32
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %.07896, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.07896, i64 8
   %71 = load i32, ptr %70, align 4
   %72 = sub i32 0, %71
   %73 = select i1 %.not93, i32 %71, i32 %72
@@ -707,10 +707,10 @@ define hidden ptr @rb_register_sigaltstack(ptr noundef %0) local_unnamed_addr #1
   %3 = alloca %struct.stack_t, align 8
   %4 = load i32, ptr @rb_sigaltstack_size_value, align 4
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %5, ptr %6, align 8
   store ptr %0, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %7, align 8
   %8 = call i32 @sigaltstack(ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %9 = load ptr, ptr %2, align 8
@@ -730,12 +730,12 @@ define hidden ptr @ruby_posix_signal(i32 noundef %0, ptr noundef %1) local_unnam
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = call i32 @sigemptyset(ptr noundef nonnull %7) #16
   %switch.i = icmp ult ptr %1, inttoptr (i64 2 to ptr)
   %spec.select.i = select i1 %switch.i, i32 0, i32 4
   store ptr %1, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 136
   store i32 %spec.select.i, ptr %9, align 8
   switch i32 %0, label %12 [
     i32 11, label %10
@@ -750,15 +750,15 @@ define hidden ptr @ruby_posix_signal(i32 noundef %0, ptr noundef %1) local_unnam
 12:                                               ; preds = %10, %2
   store volatile i64 1296236546, ptr %5, align 16
   %13 = ptrtoint ptr %4 to i64
-  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile i64 %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store volatile i64 152, ptr %15, align 16
-  %16 = getelementptr inbounds i8, ptr %5, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store volatile i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store volatile i64 0, ptr %17, align 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store volatile i64 0, ptr %18, align 8
   %19 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %5, i64 0) #16, !srcloc !16
   store volatile i64 %19, ptr %6, align 8
@@ -820,7 +820,7 @@ define hidden range(i32 0, 65) i32 @rb_get_next_signal() local_unnamed_addr #8 {
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden void @rb_vm_trap_exit(ptr nocapture noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 656
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %4
@@ -841,7 +841,7 @@ define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1,
   %5 = alloca %struct.rb_vm_tag, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %9 = load i32, ptr %8, align 4
   store volatile i32 %9, ptr %3, align 4
   %10 = and i64 %0, 7
@@ -852,12 +852,12 @@ define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1,
   %12 = or i32 %9, 8
   store i32 %12, ptr %8, align 4
   store ptr %7, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 0, ptr %13, align 8
   store i64 36, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %15, ptr %16, align 8
   %17 = getelementptr i8, ptr %7, i64 48
   %.0.1.val = load ptr, ptr %17, align 8
@@ -865,10 +865,10 @@ define internal fastcc range(i32 0, 2) i32 @signal_exec(i64 noundef range(i64 1,
   br i1 %.not.i.i, label %rb_ec_ractor_ptr.exit.i, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %.0.1.val, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 32
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 88
-  %22 = getelementptr inbounds i8, ptr %.0.1.val, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %.0.1.val, i64 24
   %23 = load ptr, ptr %22, align 8
   br label %rb_ec_ractor_ptr.exit.i
 
@@ -881,19 +881,19 @@ rb_ec_ractor_ptr.exit.i:                          ; preds = %18, %11
   br i1 %.not.i, label %25, label %rb_ec_vm_lock_rec.exit
 
 25:                                               ; preds = %rb_ec_ractor_ptr.exit.i
-  %26 = getelementptr inbounds i8, ptr %.0.i2.i, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i2.i, i64 96
   %27 = load i32, ptr %26, align 8
   br label %rb_ec_vm_lock_rec.exit
 
 rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.exit.i, %25
   %.0.i = phi i32 [ %27, %25 ], [ 0, %rb_ec_ractor_ptr.exit.i ]
-  %28 = getelementptr inbounds i8, ptr %5, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store i32 %.0.i, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %5, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %30 = tail call ptr @llvm.frameaddress.p0(i32 0)
   store ptr %30, ptr %29, align 8
   %31 = tail call ptr @llvm.stacksave.p0()
-  %32 = getelementptr inbounds i8, ptr %5, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %31, ptr %32, align 8
   %33 = call i32 @llvm.eh.sjlj.setjmp(ptr nonnull %29)
   %.not = icmp eq i32 %33, 0
@@ -901,12 +901,12 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
 
 34:                                               ; preds = %rb_ec_vm_lock_rec.exit
   %.0..0..0..0.2 = load volatile ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %.0..0..0..0.2, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.2, i64 24
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load i32, ptr %37, align 8
   store i32 0, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %36, i64 68
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 68
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr i8, ptr %.0..0..0..0.2, i64 48
   %.val.i.i = load ptr, ptr %41, align 8
@@ -914,10 +914,10 @@ rb_ec_vm_lock_rec.exit:                           ; preds = %rb_ec_ractor_ptr.ex
   br i1 %.not.i.i.i.i, label %rb_ec_ractor_ptr.exit.i.i.i, label %42
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %.val.i.i, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 32
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 88
-  %46 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
+  %46 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %47 = load ptr, ptr %46, align 8
   br label %rb_ec_ractor_ptr.exit.i.i.i
 
@@ -930,7 +930,7 @@ rb_ec_ractor_ptr.exit.i.i.i:                      ; preds = %42, %34
   br i1 %.not.i.i.i, label %49, label %rb_ec_vm_lock_rec.exit.i.i
 
 49:                                               ; preds = %rb_ec_ractor_ptr.exit.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.0.i2.i.i.i, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i2.i.i.i, i64 96
   %51 = load i32, ptr %50, align 8
   br label %rb_ec_vm_lock_rec.exit.i.i
 
@@ -955,7 +955,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %49, %rb_ec_ractor_p
   store ptr %58, ptr %14, align 8
   %59 = load ptr, ptr %6, align 8
   %.0..0..0..0.722 = load volatile i32, ptr %3, align 4
-  %60 = getelementptr inbounds i8, ptr %59, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 36
   store i32 %.0..0..0..0.722, ptr %60, align 4
   br label %72
 
@@ -964,18 +964,18 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %49, %rb_ec_ractor_p
   %62 = icmp ne i32 %38, 0
   call void @llvm.assume(i1 %62)
   %63 = load ptr, ptr %16, align 8
-  %64 = getelementptr inbounds i8, ptr %.0..0..0.4, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %.0..0..0.4, i64 24
   store ptr %63, ptr %64, align 8
   %65 = load ptr, ptr %6, align 8
   %.0..0..0..0.7 = load volatile i32, ptr %3, align 4
-  %66 = getelementptr inbounds i8, ptr %65, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 36
   store i32 %.0..0..0..0.7, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %65, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 64
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 64
   store i32 %38, ptr %69, align 8
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   call void @llvm.eh.sjlj.longjmp(ptr nonnull %71)
   unreachable
 
@@ -987,7 +987,7 @@ rb_ec_vm_lock_rec.exit.i.i:                       ; preds = %49, %rb_ec_ractor_p
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden range(i32 0, 2) i32 @rb_signal_exec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 656
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 656
   %5 = sext i32 %1 to i64
   %6 = getelementptr [65 x i64], ptr %4, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
@@ -1049,22 +1049,22 @@ define dso_local void @ruby_sig_finalize() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = call i32 @sigemptyset(ptr noundef nonnull %9) #16
   store ptr inttoptr (i64 1 to ptr), ptr %5, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 136
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 136
   store i32 0, ptr %11, align 8
   store volatile i64 1296236546, ptr %7, align 16
   %12 = ptrtoint ptr %6 to i64
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile i64 %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store volatile i64 152, ptr %14, align 16
-  %15 = getelementptr inbounds i8, ptr %7, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store volatile i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store volatile i64 0, ptr %16, align 16
-  %17 = getelementptr inbounds i8, ptr %7, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store volatile i64 0, ptr %17, align 8
   %18 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %7, i64 0) #16, !srcloc !16
   store volatile i64 %18, ptr %8, align 8
@@ -1093,22 +1093,22 @@ ruby_signal.exit:                                 ; preds = %0, %21
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = call i32 @sigemptyset(ptr noundef nonnull %25) #16
   store ptr null, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 136
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 0, ptr %27, align 8
   store volatile i64 1296236546, ptr %3, align 16
   %28 = ptrtoint ptr %2 to i64
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store volatile i64 %28, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store volatile i64 152, ptr %30, align 16
-  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store volatile i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store volatile i64 0, ptr %32, align 16
-  %33 = getelementptr inbounds i8, ptr %3, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store volatile i64 0, ptr %33, align 8
   %34 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %3, i64 0) #16, !srcloc !16
   store volatile i64 %34, ptr %4, align 8
@@ -1257,24 +1257,24 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  %49 = getelementptr inbounds i8, ptr %12, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %50 = call i32 @sigemptyset(ptr noundef nonnull %49) #16
   %switch.i.i = icmp ult ptr @sigbus, inttoptr (i64 2 to ptr)
   store ptr @sigbus, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %12, i64 136
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %52 = select i1 %switch.i.i, i32 134217728, i32 134217732
   store i32 %52, ptr %51, align 8
   store volatile i64 1296236546, ptr %14, align 16
   %53 = ptrtoint ptr %13 to i64
-  %54 = getelementptr inbounds i8, ptr %14, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store volatile i64 %53, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %14, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store volatile i64 152, ptr %55, align 16
-  %56 = getelementptr inbounds i8, ptr %14, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store volatile i64 0, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %14, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 32
   store volatile i64 0, ptr %57, align 16
-  %58 = getelementptr inbounds i8, ptr %14, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store volatile i64 0, ptr %58, align 8
   %59 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %14, i64 0) #16, !srcloc !16
   store volatile i64 %59, ptr %15, align 8
@@ -1306,24 +1306,24 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %67 = getelementptr inbounds i8, ptr %8, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %68 = call i32 @sigemptyset(ptr noundef nonnull %67) #16
   %switch.i.i30 = icmp ult ptr @sigill, inttoptr (i64 2 to ptr)
   %spec.select.i.i31 = select i1 %switch.i.i30, i32 0, i32 4
   store ptr @sigill, ptr %8, align 8
-  %69 = getelementptr inbounds i8, ptr %8, i64 136
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i32 %spec.select.i.i31, ptr %69, align 8
   store volatile i64 1296236546, ptr %10, align 16
   %70 = ptrtoint ptr %9 to i64
-  %71 = getelementptr inbounds i8, ptr %10, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store volatile i64 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %10, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store volatile i64 152, ptr %72, align 16
-  %73 = getelementptr inbounds i8, ptr %10, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile i64 0, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %10, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store volatile i64 0, ptr %74, align 16
-  %75 = getelementptr inbounds i8, ptr %10, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store volatile i64 0, ptr %75, align 8
   %76 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !16
   store volatile i64 %76, ptr %11, align 8
@@ -1379,40 +1379,40 @@ define hidden void @Init_signal() local_unnamed_addr #1 {
 rb_allocate_sigaltstack.exit:                     ; preds = %90
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  %95 = getelementptr inbounds i8, ptr %6, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %92, ptr %95, align 8
   store ptr %93, ptr %6, align 8
-  %96 = getelementptr inbounds i8, ptr %6, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %96, align 8
   %97 = call i32 @sigaltstack(ptr noundef nonnull %6, ptr noundef nonnull %7) #16
   %98 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %99 = load ptr, ptr @ruby_current_vm_ptr, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 472
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 472
   store ptr %98, ptr %100, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %101 = getelementptr inbounds i8, ptr %2, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %102 = call i32 @sigemptyset(ptr noundef nonnull %101) #16
   %switch.i.i39 = icmp ult ptr @sigsegv, inttoptr (i64 2 to ptr)
   store ptr @sigsegv, ptr %2, align 8
-  %103 = getelementptr inbounds i8, ptr %2, i64 136
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %104 = select i1 %switch.i.i39, i32 134217728, i32 134217732
   store i32 %104, ptr %103, align 8
   store volatile i64 1296236546, ptr %4, align 16
   %105 = ptrtoint ptr %3 to i64
-  %106 = getelementptr inbounds i8, ptr %4, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store volatile i64 %105, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %4, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store volatile i64 152, ptr %107, align 16
-  %108 = getelementptr inbounds i8, ptr %4, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store volatile i64 0, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %4, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store volatile i64 0, ptr %109, align 16
-  %110 = getelementptr inbounds i8, ptr %4, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store volatile i64 0, ptr %110, align 8
   %111 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %4, i64 0) #16, !srcloc !16
   store volatile i64 %111, ptr %5, align 8
@@ -1536,7 +1536,7 @@ reserved_signal_p.exit.preheader:                 ; preds = %trap_signm.exit, %t
 
 reserved_signal_p.exit:                           ; preds = %reserved_signal_p.exit.preheader, %24
   %.06.i = phi ptr [ %25, %24 ], [ @siglist, %reserved_signal_p.exit.preheader ]
-  %21 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %.0.i
   br i1 %23, label %signo2signm.exit, label %24
@@ -1616,7 +1616,7 @@ RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i,
   %59 = load i64, ptr %58, align 8, !noalias !18
   %60 = and i64 %59, 8192
   %.not.i.i = icmp eq i64 %60, 0
-  %61 = getelementptr inbounds i8, ptr %58, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 24
   br i1 %.not.i.i, label %rbimpl_rstring_getmem.exit.i, label %62
 
 62:                                               ; preds = %.thread.i
@@ -1625,7 +1625,7 @@ RB_SYMBOL_P.exit.thread.i:                        ; preds = %RB_SYMBOL_P.exit.i,
 
 rbimpl_rstring_getmem.exit.i:                     ; preds = %62, %.thread.i
   %.sroa.3.0.i = phi ptr [ %.sroa.3.0.copyload.i, %62 ], [ %61, %.thread.i ]
-  %.sroa.1.0.in.i = getelementptr inbounds i8, ptr %58, i64 16
+  %.sroa.1.0.in.i = getelementptr inbounds nuw i8, ptr %58, i64 16
   %.sroa.1.0.i = load i64, ptr %.sroa.1.0.in.i, align 8
   switch i64 %.sroa.1.0.i, label %trap_handler.exit [
     i64 0, label %thread-pre-split.thread.sink.split.i
@@ -1727,12 +1727,12 @@ rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_r
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %96 = getelementptr inbounds i8, ptr %4, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %97 = call i32 @sigemptyset(ptr noundef nonnull %96) #16
   %switch.i.i = icmp ult ptr %.0, inttoptr (i64 2 to ptr)
   %spec.select.i.i = select i1 %switch.i.i, i32 0, i32 4
   store ptr %.0, ptr %4, align 8
-  %98 = getelementptr inbounds i8, ptr %4, i64 136
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 %spec.select.i.i, ptr %98, align 8
   switch i32 %.0.i, label %101 [
     i32 11, label %99
@@ -1747,15 +1747,15 @@ rb_ractor_main_p.exit.thread:                     ; preds = %86, %81, %91, %rb_r
 101:                                              ; preds = %99, %95
   store volatile i64 1296236546, ptr %6, align 16
   %102 = ptrtoint ptr %5 to i64
-  %103 = getelementptr inbounds i8, ptr %6, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %6, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store volatile i64 152, ptr %104, align 16
-  %105 = getelementptr inbounds i8, ptr %6, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile i64 0, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %6, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store volatile i64 0, ptr %106, align 16
-  %107 = getelementptr inbounds i8, ptr %6, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store volatile i64 0, ptr %107, align 8
   %108 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !16
   store volatile i64 %108, ptr %7, align 8
@@ -1787,7 +1787,7 @@ ruby_signal.exit.i:                               ; preds = %101
 
 116:                                              ; preds = %ruby_signal.exit.i, %rb_ractor_main_p.exit.thread
   %.0.i20 = phi ptr [ %.010.i.i, %ruby_signal.exit.i ], [ inttoptr (i64 -1 to ptr), %rb_ractor_main_p.exit.thread ]
-  %117 = getelementptr inbounds i8, ptr %93, i64 656
+  %117 = getelementptr inbounds nuw i8, ptr %93, i64 656
   %118 = sext i32 %.0.i to i64
   %119 = getelementptr [65 x i64], ptr %117, i64 0, i64 %118
   %120 = load i64, ptr %119, align 8
@@ -1841,7 +1841,7 @@ define internal i64 @sig_list(i64 %0) #1 {
 3:                                                ; preds = %1, %3
   %.05 = phi ptr [ @siglist, %1 ], [ %11, %3 ]
   %4 = tail call i64 @rb_fstring_cstr(ptr noundef %.05) #16
-  %5 = getelementptr inbounds i8, ptr %.05, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.05, i64 8
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 1
@@ -1876,7 +1876,7 @@ rb_num2int_inline.exit:                           ; preds = %4, %6
 
 9:                                                ; preds = %13, %rb_num2int_inline.exit
   %.06.i = phi ptr [ @siglist, %rb_num2int_inline.exit ], [ %14, %13 ]
-  %10 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, %8
   br i1 %12, label %signo2signm.exit, label %13
@@ -1953,7 +1953,7 @@ rb_num2int_inline.exit:                           ; preds = %15, %17
 
 .preheader:                                       ; preds = %22, %29
   %.06.i.i = phi ptr [ %30, %29 ], [ @siglist, %22 ]
-  %26 = getelementptr inbounds i8, ptr %.06.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.06.i.i, i64 8
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, %19
   br i1 %28, label %signo2signm.exit.i, label %29
@@ -2040,7 +2040,7 @@ rb_check_arity.exit:                              ; preds = %3
 
 8:                                                ; preds = %rb_check_arity.exit, %6
   %9 = phi i64 [ %7, %6 ], [ 4, %rb_check_arity.exit ]
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %9, ptr %10, align 8
   %11 = call i64 @rb_call_super(i32 noundef 2, ptr noundef nonnull %4) #16
   ret i64 %11
@@ -2060,12 +2060,12 @@ define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = call i32 @sigemptyset(ptr noundef nonnull %12) #16
   %switch.i = icmp ult ptr %1, inttoptr (i64 2 to ptr)
   %spec.select.i = select i1 %switch.i, i32 0, i32 4
   store ptr %1, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 136
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 136
   store i32 %spec.select.i, ptr %14, align 8
   switch i32 %0, label %17 [
     i32 11, label %15
@@ -2080,15 +2080,15 @@ define internal fastcc range(i32 -1, 1) i32 @install_sighandler_core(i32 noundef
 17:                                               ; preds = %15, %3
   store volatile i64 1296236546, ptr %10, align 16
   %18 = ptrtoint ptr %9 to i64
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store volatile i64 %18, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store volatile i64 152, ptr %20, align 16
-  %21 = getelementptr inbounds i8, ptr %10, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store volatile i64 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store volatile i64 0, ptr %22, align 16
-  %23 = getelementptr inbounds i8, ptr %10, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store volatile i64 0, ptr %23, align 8
   %24 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %10, i64 0) #16, !srcloc !16
   store volatile i64 %24, ptr %11, align 8
@@ -2130,12 +2130,12 @@ ruby_signal.exit.thread:                          ; preds = %17
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %35 = call i32 @sigemptyset(ptr noundef nonnull %34) #16
   %switch.i16 = icmp ult ptr %.010.i, inttoptr (i64 2 to ptr)
   %spec.select.i17 = select i1 %switch.i16, i32 0, i32 4
   store ptr %.010.i, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 136
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 %spec.select.i17, ptr %36, align 8
   switch i32 %0, label %39 [
     i32 11, label %37
@@ -2150,15 +2150,15 @@ ruby_signal.exit.thread:                          ; preds = %17
 39:                                               ; preds = %37, %33
   store volatile i64 1296236546, ptr %6, align 16
   %40 = ptrtoint ptr %5 to i64
-  %41 = getelementptr inbounds i8, ptr %6, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store volatile i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store volatile i64 152, ptr %42, align 16
-  %43 = getelementptr inbounds i8, ptr %6, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store volatile i64 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store volatile i64 0, ptr %44, align 16
-  %45 = getelementptr inbounds i8, ptr %6, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store volatile i64 0, ptr %45, align 8
   %46 = call i64 asm sideeffect "rolq $$3,  %rdi ; rolq $$13, %rdi\0A\09rolq $$61, %rdi ; rolq $$51, %rdi\0A\09xchgq %rbx,%rbx", "={dx},{ax},0,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %6, i64 0) #16, !srcloc !16
   store volatile i64 %46, ptr %7, align 8
@@ -2194,7 +2194,7 @@ declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #9
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal void @sigbus(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.39, i64 noundef 3, i32 noundef %0)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = getelementptr i8, ptr %2, i64 120
@@ -2211,7 +2211,7 @@ define internal void @sigbus(i32 noundef %0, ptr nocapture noundef readonly %1, 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal void @sigill(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.41, i64 noundef 3, i32 noundef %0)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = getelementptr i8, ptr %2, i64 120
@@ -2228,7 +2228,7 @@ define internal void @sigill(i32 noundef %0, ptr nocapture noundef readonly %1, 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
 define internal void @sigsegv(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #10 {
   tail call fastcc void @check_reserved_signal_(ptr noundef nonnull @.str.43, i64 noundef 4, i32 noundef %0)
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = getelementptr i8, ptr %2, i64 120
@@ -2378,7 +2378,7 @@ define internal fastcc i64 @rb_signo2signm(i32 noundef %0) unnamed_addr #1 {
 
 2:                                                ; preds = %6, %1
   %.06.i = phi ptr [ @siglist, %1 ], [ %7, %6 ]
-  %3 = getelementptr inbounds i8, ptr %.06.i, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, %0
   br i1 %5, label %signo2signm.exit, label %6
@@ -2443,20 +2443,20 @@ define internal fastcc void @check_reserved_signal_(ptr noundef %0, i64 noundef 
   %8 = inttoptr i64 %6 to ptr
   %9 = tail call ptr @ruby_posix_signal(i32 noundef %2, ptr noundef null)
   store ptr %0, ptr %4, align 16
-  %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.26.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %1, ptr %.sroa.26.0..sroa_idx, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @check_reserved_signal_.msg1, ptr %10, align 16
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 13, ptr %.sroa.24.0..sroa_idx, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #23
   store ptr %8, ptr %11, align 16
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 40
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %12, ptr %.sroa.22.0..sroa_idx, align 8
-  %13 = getelementptr inbounds i8, ptr %4, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr @check_reserved_signal_.msg2, ptr %13, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 56
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i64 9, ptr %.sroa.2.0..sroa_idx, align 8
   %14 = call i64 @writev(i32 noundef 2, ptr noundef nonnull %4, i32 noundef 4) #16
   call fastcc void @ruby_abort() #27
@@ -2487,9 +2487,9 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
 10:                                               ; preds = %8, %2
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %.promoted = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %.promoted, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.promoted, i64 16
   %15 = ptrtoint ptr %14 to i64
   %16 = lshr i64 %15, 12
   %.not271 = icmp samesign ugt i64 %16, %6
@@ -2498,7 +2498,7 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
 .lr.ph:                                           ; preds = %10, %22
   %.02 = phi i32 [ %20, %22 ], [ 28, %10 ]
   %17 = phi ptr [ %19, %22 ], [ %.promoted, %10 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load ptr, ptr %18, align 8
   %.not28 = icmp eq ptr %19, null
   %20 = add nsw i32 %.02, -1
@@ -2508,7 +2508,7 @@ define internal fastcc void @check_stack_overflow(i32 noundef %0, i64 noundef %1
 
 22:                                               ; preds = %.lr.ph
   store ptr %19, ptr %13, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %24 = ptrtoint ptr %23 to i64
   %25 = lshr i64 %24, 12
   %.not27 = icmp samesign ugt i64 %25, %6

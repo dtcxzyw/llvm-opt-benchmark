@@ -86,20 +86,20 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC2ERKNS_21AcceptorConfigurationE(ptr nocapture noundef nonnull align 8 dereferenceable(50) initializes((0, 50)) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE9_M_invokeERKSt9_Any_data, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFbvEN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EE10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i64 16), ptr %this, align 8
-  %accConfig_ = getelementptr inbounds i8, ptr %this, i64 40
+  %accConfig_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %accConfig, ptr %accConfig_, align 8
-  %alwaysUseHTTP2_ = getelementptr inbounds i8, ptr %this, i64 48
+  %alwaysUseHTTP2_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %alwaysUseHTTP2_, align 8
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 49
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   store i8 0, ptr %hasValue.i.i, align 1
-  %plaintextProtocol = getelementptr inbounds i8, ptr %accConfig, i64 632
+  %plaintextProtocol = getelementptr inbounds nuw i8, ptr %accConfig, i64 632
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %plaintextProtocol) #14
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) @_ZN8proxygen5http224kProtocolCleartextStringB5cxx11E) #14
   %cmp.i = icmp eq i64 %call.i, %call1.i
@@ -144,7 +144,7 @@ entry:
   br i1 %isTLS, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %hasValue.i.i = getelementptr inbounds i8, ptr %this, i64 49
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   %0 = load i8, ptr %hasValue.i.i, align 1
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %if.then, label %if.else
@@ -165,7 +165,7 @@ lpad.i:                                           ; preds = %if.then
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i, label %if.then.i.i, label %_ZNKSt8functionIFbvEEclEv.exit.i
@@ -178,15 +178,15 @@ if.then.i.i:                                      ; preds = %_ZSt11make_uniqueIN
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit.i:                 ; preds = %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_invoker.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load ptr, ptr %_M_invoker.i.i, align 8
   %call2.i.i10 = invoke noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit15
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i
   %frombool.i = zext i1 %call2.i.i10 to i8
-  %strictValidation_.i = getelementptr inbounds i8, ptr %call.i, i64 1060
+  %strictValidation_.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1060
   store i8 %frombool.i, ptr %strictValidation_.i, align 4
   br label %return
 
@@ -194,7 +194,7 @@ _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit15: ; 
   %4 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i13 = load ptr, ptr %call.i, align 8
-  %vfn.i.i14 = getelementptr inbounds i8, ptr %vtable.i.i13, i64 8
+  %vfn.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i13, i64 8
   %5 = load ptr, ptr %vfn.i.i14, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(1062) %call.i) #14
   br label %common.resume
@@ -208,8 +208,8 @@ lor.lhs.false:                                    ; preds = %if.else
   br i1 %call6, label %if.then7, label %if.else19
 
 if.then7:                                         ; preds = %lor.lhs.false, %if.else
-  %accConfig_ = getelementptr inbounds i8, ptr %this, i64 40
-  %_M_manager.i.i.i16 = getelementptr inbounds i8, ptr %this, i64 24
+  %accConfig_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %_M_manager.i.i.i16 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %6 = load ptr, ptr %_M_manager.i.i.i16, align 8
   %tobool.not.i.i.i17 = icmp eq ptr %6, null
   br i1 %tobool.not.i.i.i17, label %if.then.i.i21, label %_ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit22
@@ -220,9 +220,9 @@ if.then.i.i21:                                    ; preds = %if.then7
 
 _ZN8proxygen16HTTPCodecFactory19useStrictValidationEv.exit22: ; preds = %if.then7
   %7 = load ptr, ptr %accConfig_, align 8
-  %forceHTTP1_0_to_1_1 = getelementptr inbounds i8, ptr %7, i64 688
-  %useStrictValidationFn_.i19 = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_invoker.i.i20 = getelementptr inbounds i8, ptr %this, i64 32
+  %forceHTTP1_0_to_1_1 = getelementptr inbounds nuw i8, ptr %7, i64 688
+  %useStrictValidationFn_.i19 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_invoker.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %8 = load ptr, ptr %_M_invoker.i.i20, align 8
   %call2.i.i = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i19)
   %call.i23 = tail call noalias noundef nonnull dereferenceable(432) ptr @_Znwm(i64 noundef 432) #15, !noalias !7
@@ -242,11 +242,11 @@ _ZSt11make_uniqueIN8proxygen11HTTP1xCodecEJRNS0_18TransportDirectionERKbbEENSt8_
 
 if.then12:                                        ; preds = %_ZSt11make_uniqueIN8proxygen11HTTP1xCodecEJRNS0_18TransportDirectionERKbbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %11 = load ptr, ptr %accConfig_, align 8
-  %allowedPlaintextUpgradeProtocols = getelementptr inbounds i8, ptr %11, i64 664
-  %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
+  %allowedPlaintextUpgradeProtocols = getelementptr inbounds nuw i8, ptr %11, i64 664
+  %_M_prev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
   store ptr %agg.tmp, ptr %_M_prev.i.i.i.i.i, align 8
   store ptr %agg.tmp, ptr %agg.tmp, align 8
-  %_M_size.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
+  %_M_size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
   store i64 0, ptr %_M_size.i.i.i.i.i, align 8
   %12 = load ptr, ptr %allowedPlaintextUpgradeProtocols, align 8
   %cmp.i.not3.i.i = icmp eq ptr %12, %allowedPlaintextUpgradeProtocols
@@ -258,8 +258,8 @@ for.body.i.i:                                     ; preds = %if.then12, %_ZNSt7_
           to label %call5.i.i.i.i.i.i.i.noexc.i unwind label %lpad9.i
 
 call5.i.i.i.i.i.i.i.noexc.i:                      ; preds = %for.body.i.i
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.04.i.i, i64 16
-  %_M_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i4.i, i64 16
+  %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.04.i.i, i64 16
+  %_M_storage.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i4.i, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i)
           to label %_ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit.i.i unwind label %_ZNSt15__allocated_ptrISaISt10_List_nodeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev.exit9.i.i.i.i.i
 
@@ -300,7 +300,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 while.body.i.i.i:                                 ; preds = %invoke.cont18, %while.body.i.i.i
   %__cur.05.i.i.i = phi ptr [ %18, %while.body.i.i.i ], [ %17, %invoke.cont18 ]
   %18 = load ptr, ptr %__cur.05.i.i.i, align 8
-  %_M_storage.i.i.i.i25 = getelementptr inbounds i8, ptr %__cur.05.i.i.i, i64 16
+  %_M_storage.i.i.i.i25 = getelementptr inbounds nuw i8, ptr %__cur.05.i.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i.i25) #14
   call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i.i) #16
   %cmp.not.i.i.i = icmp eq ptr %18, %agg.tmp
@@ -315,7 +315,7 @@ lpad17:                                           ; preds = %invoke.cont16
 _ZNSt10unique_ptrIN8proxygen11HTTP1xCodecESt14default_deleteIS1_EED2Ev.exit33: ; preds = %lpad9.body.i, %lpad17
   %.pn = phi { ptr, i32 } [ %19, %lpad17 ], [ %eh.lpad-body.i, %lpad9.body.i ]
   %vtable.i.i31 = load ptr, ptr %call.i23, align 8
-  %vfn.i.i32 = getelementptr inbounds i8, ptr %vtable.i.i31, i64 8
+  %vfn.i.i32 = getelementptr inbounds nuw i8, ptr %vtable.i.i31, i64 8
   %20 = load ptr, ptr %vfn.i.i32, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(428) %call.i23) #14
   br label %common.resume
@@ -386,7 +386,7 @@ lpad.i58:                                         ; preds = %if.then25
   br label %common.resume
 
 _ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit59: ; preds = %if.then25
-  %_M_manager.i.i.i60 = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i60 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %25 = load ptr, ptr %_M_manager.i.i.i60, align 8
   %tobool.not.i.i.i61 = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i61, label %if.then.i.i66, label %_ZNKSt8functionIFbvEEclEv.exit.i62
@@ -399,15 +399,15 @@ if.then.i.i66:                                    ; preds = %_ZSt11make_uniqueIN
   unreachable
 
 _ZNKSt8functionIFbvEEclEv.exit.i62:               ; preds = %_ZSt11make_uniqueIN8proxygen10HTTP2CodecEJRNS0_18TransportDirectionEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit59
-  %useStrictValidationFn_.i63 = getelementptr inbounds i8, ptr %this, i64 8
-  %_M_invoker.i.i64 = getelementptr inbounds i8, ptr %this, i64 32
+  %useStrictValidationFn_.i63 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %_M_invoker.i.i64 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %26 = load ptr, ptr %_M_invoker.i.i64, align 8
   %call2.i.i6568 = invoke noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i63)
           to label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit76 unwind label %_ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit81
 
 _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit76: ; preds = %_ZNKSt8functionIFbvEEclEv.exit.i62
   %frombool.i70 = zext i1 %call2.i.i6568 to i8
-  %strictValidation_.i71 = getelementptr inbounds i8, ptr %call.i57, i64 1060
+  %strictValidation_.i71 = getelementptr inbounds nuw i8, ptr %call.i57, i64 1060
   store i8 %frombool.i70, ptr %strictValidation_.i71, align 4
   br label %return
 
@@ -415,7 +415,7 @@ _ZNSt10unique_ptrIN8proxygen10HTTP2CodecESt14default_deleteIS1_EED2Ev.exit81: ; 
   %27 = landingpad { ptr, i32 }
           cleanup
   %vtable.i.i79 = load ptr, ptr %call.i57, align 8
-  %vfn.i.i80 = getelementptr inbounds i8, ptr %vtable.i.i79, i64 8
+  %vfn.i.i80 = getelementptr inbounds nuw i8, ptr %vtable.i.i79, i64 8
   %28 = load ptr, ptr %vfn.i.i80, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(1062) %call.i57) #14
   br label %common.resume
@@ -480,7 +480,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %while.body.i.i
   %__cur.05.i.i = phi ptr [ %1, %while.body.i.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__cur.05.i.i, i64 16
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.05.i.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i.i) #16
   %cmp.not.i.i = icmp eq ptr %1, %this
@@ -507,13 +507,13 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i, label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %entry
-  %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %useStrictValidationFn_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i, i32 noundef 3)
           to label %_ZN8proxygen16HTTPCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i
 
@@ -532,13 +532,13 @@ _ZN8proxygen16HTTPCodecFactoryD2Ev.exit:          ; preds = %entry, %if.then.i.i
 define linkonce_odr void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i.i.i, label %_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %useStrictValidationFn_.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %useStrictValidationFn_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_.i.i, i32 noundef 3)
           to label %_ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit unwind label %terminate.lpad.i.i.i.i
 
@@ -558,13 +558,13 @@ _ZN8proxygen30HTTPDefaultSessionCodecFactoryD2Ev.exit: ; preds = %entry, %if.the
 define linkonce_odr void @_ZN8proxygen16HTTPCodecFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i64 16), ptr %this, align 8
-  %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNSt8functionIFbvEED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %useStrictValidationFn_ = getelementptr inbounds i8, ptr %this, i64 8
+  %useStrictValidationFn_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call.i.i = invoke noundef zeroext i1 %0(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, i32 noundef 3)
           to label %_ZNSt8functionIFbvEED2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -645,7 +645,7 @@ entry:
 while.body.i:                                     ; preds = %entry, %while.body.i
   %__cur.05.i = phi ptr [ %1, %while.body.i ], [ %0, %entry ]
   %1 = load ptr, ptr %__cur.05.i, align 8
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__cur.05.i, i64 16
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__cur.05.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %__cur.05.i) #16
   %cmp.not.i = icmp eq ptr %1, %this

@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_file(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -66,7 +66,7 @@ define dso_local i64 @pg_read_file(ptr nocapture noundef %0) local_unnamed_addr 
   unreachable
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 30
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %14 = load i16, ptr %13, align 2
   %15 = icmp sgt i16 %14, 2
   br i1 %15, label %16, label %.thread
@@ -107,7 +107,7 @@ define dso_local i64 @pg_read_file(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %.not.i, label %40, label %33
 
 33:                                               ; preds = %.thread
-  %34 = getelementptr inbounds i8, ptr %32, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %32, align 4
   %36 = lshr i32 %35, 2
   %37 = add nsw i32 %36, -4
@@ -116,7 +116,7 @@ define dso_local i64 @pg_read_file(ptr nocapture noundef %0) local_unnamed_addr 
   br label %42
 
 40:                                               ; preds = %.thread
-  %41 = getelementptr inbounds i8, ptr %0, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %41, align 4
   br label %42
 
@@ -194,7 +194,7 @@ define internal fastcc noundef ptr @convert_and_check_filename(ptr noundef %0) u
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_file_off_len(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -207,7 +207,7 @@ define dso_local i64 @pg_read_file_off_len(ptr nocapture noundef %0) local_unnam
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %12, align 4
   br label %15
 
@@ -241,7 +241,7 @@ define internal fastcc ptr @pg_read_file_common(ptr noundef %0, i64 noundef %1, 
   br i1 %.not.i, label %read_text_file.exit, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %16 = load i32, ptr %13, align 4
   %17 = lshr i32 %16, 2
   %18 = add nsw i32 %17, -4
@@ -254,7 +254,7 @@ read_text_file.exit:                              ; preds = %11, %14
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_file_off_len_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -270,7 +270,7 @@ define dso_local i64 @pg_read_file_off_len_missing(ptr nocapture noundef %0) loc
   br i1 %.not, label %14, label %16
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %15, align 4
   br label %18
 
@@ -285,7 +285,7 @@ define dso_local i64 @pg_read_file_off_len_missing(ptr nocapture noundef %0) loc
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_file_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -295,12 +295,12 @@ define dso_local i64 @pg_read_file_all(ptr nocapture noundef %0) local_unnamed_a
   br i1 %.not.i.i, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %9, align 4
   br label %17
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %7, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %7, align 4
   %13 = lshr i32 %12, 2
   %14 = add nsw i32 %13, -4
@@ -315,7 +315,7 @@ define dso_local i64 @pg_read_file_all(ptr nocapture noundef %0) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_file_all_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -328,12 +328,12 @@ define dso_local i64 @pg_read_file_all_missing(ptr nocapture noundef %0) local_u
   br i1 %.not.i.i, label %11, label %13
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %12, align 4
   br label %20
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %10, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %15 = load i32, ptr %10, align 4
   %16 = lshr i32 %15, 2
   %17 = add nsw i32 %16, -4
@@ -348,7 +348,7 @@ define dso_local i64 @pg_read_file_all_missing(ptr nocapture noundef %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_binary_file_off_len(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -374,7 +374,7 @@ pg_read_binary_file_common.exit:                  ; preds = %1
   br i1 %.not, label %17, label %19
 
 17:                                               ; preds = %pg_read_binary_file_common.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %18, align 4
   br label %21
 
@@ -389,7 +389,7 @@ pg_read_binary_file_common.exit:                  ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_binary_file_off_len_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -418,7 +418,7 @@ pg_read_binary_file_common.exit:                  ; preds = %1
   br i1 %.not, label %20, label %22
 
 20:                                               ; preds = %pg_read_binary_file_common.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %21, align 4
   br label %24
 
@@ -433,7 +433,7 @@ pg_read_binary_file_common.exit:                  ; preds = %1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_binary_file_all(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -443,7 +443,7 @@ define dso_local i64 @pg_read_binary_file_all(ptr nocapture noundef %0) local_un
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %9, align 4
   br label %12
 
@@ -458,7 +458,7 @@ define dso_local i64 @pg_read_binary_file_all(ptr nocapture noundef %0) local_un
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_read_binary_file_all_missing(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call ptr @pg_detoast_datum_packed(ptr noundef %4) #8
@@ -471,7 +471,7 @@ define dso_local i64 @pg_read_binary_file_all_missing(ptr nocapture noundef %0) 
   br i1 %.not, label %11, label %13
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %12, align 4
   br label %15
 
@@ -489,11 +489,11 @@ define dso_local i64 @pg_stat_file(ptr nocapture noundef %0) local_unnamed_addr 
   %2 = alloca %struct.stat, align 8
   %3 = alloca [6 x i64], align 16
   %4 = alloca [6 x i8], align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = inttoptr i64 %6 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 30
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %10 = load i16, ptr %9, align 2
   %11 = icmp eq i16 %10, 2
   br i1 %11, label %12, label %16
@@ -521,7 +521,7 @@ define dso_local i64 @pg_stat_file(ptr nocapture noundef %0) local_unnamed_addr 
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 28
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %26, align 4
   br label %58
 
@@ -543,32 +543,32 @@ define dso_local i64 @pg_stat_file(ptr nocapture noundef %0) local_unnamed_addr 
   tail call void @TupleDescInitEntry(ptr noundef %32, i16 noundef signext 6, ptr noundef nonnull @.str.11, i32 noundef 16, i32 noundef -1, i32 noundef 0) #8
   %33 = tail call ptr @BlessTupleDesc(ptr noundef %32) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, i8 0, i64 6, i1 false)
-  %34 = getelementptr inbounds i8, ptr %2, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %35 = load i64, ptr %34, align 8
   store i64 %35, ptr %3, align 16
-  %36 = getelementptr inbounds i8, ptr %2, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %37 = load i64, ptr %36, align 8
   %38 = tail call i64 @time_t_to_timestamptz(i64 noundef %37) #8
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %41 = load i64, ptr %40, align 8
   %42 = tail call i64 @time_t_to_timestamptz(i64 noundef %41) #8
-  %43 = getelementptr inbounds i8, ptr %3, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %42, ptr %43, align 16
-  %44 = getelementptr inbounds i8, ptr %2, i64 104
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %45 = load i64, ptr %44, align 8
   %46 = tail call i64 @time_t_to_timestamptz(i64 noundef %45) #8
-  %47 = getelementptr inbounds i8, ptr %3, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i8 1, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %2, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %50 = load i32, ptr %49, align 8
   %51 = and i32 %50, 61440
   %52 = icmp eq i32 %51, 16384
   %53 = zext i1 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %3, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %53, ptr %54, align 8
   %55 = call ptr @heap_form_tuple(ptr noundef %32, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
   call void @pfree(ptr noundef %17) #8
@@ -615,14 +615,14 @@ define dso_local i64 @pg_stat_file_1arg(ptr nocapture noundef %0) local_unnamed_
 define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x i64], align 8
   %3 = alloca [1 x i8], align 1
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = inttoptr i64 %7 to ptr
   %9 = tail call ptr @pg_detoast_datum_packed(ptr noundef %8) #8
   %10 = tail call fastcc ptr @convert_and_check_filename(ptr noundef %9)
-  %11 = getelementptr inbounds i8, ptr %0, i64 30
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %12 = load i16, ptr %11, align 2
   %13 = icmp eq i16 %12, 3
   br i1 %13, label %14, label %30
@@ -673,13 +673,13 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not2227, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %5, i64 40
-  %39 = getelementptr inbounds i8, ptr %5, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br i1 %.021, label %.backedge.us, label %sub_0
 
 .backedge.us:                                     ; preds = %.lr.ph, %.backedge.us
   %40 = phi ptr [ %46, %.backedge.us ], [ %37, %.lr.ph ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 19
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 19
   %42 = call ptr @cstring_to_text(ptr noundef nonnull %41) #8
   %43 = ptrtoint ptr %42 to i64
   store i64 %43, ptr %2, align 8
@@ -693,25 +693,25 @@ define dso_local noundef i64 @pg_ls_dir(ptr noundef %0) local_unnamed_addr #0 {
 
 sub_0:                                            ; preds = %.lr.ph, %.backedge
   %47 = phi ptr [ %58, %.backedge ], [ %37, %.lr.ph ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 19
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 19
   %49 = load i8, ptr %48, align 1
   %.not28 = icmp eq i8 %49, 46
   br i1 %.not28, label %.tail, label %.tail23.thread
 
 .tail:                                            ; preds = %sub_0
-  %50 = getelementptr inbounds i8, ptr %47, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %51 = load i8, ptr %50, align 1
   %52 = icmp eq i8 %51, 0
   br i1 %52, label %.backedge, label %sub_125
 
 sub_125:                                          ; preds = %.tail
-  %53 = getelementptr inbounds i8, ptr %47, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %54 = load i8, ptr %53, align 1
   %.not30 = icmp eq i8 %54, 46
   br i1 %.not30, label %.tail23, label %.tail23.thread
 
 .tail23:                                          ; preds = %sub_125
-  %55 = getelementptr inbounds i8, ptr %47, i64 21
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 21
   %56 = load i8, ptr %55, align 1
   %57 = icmp eq i8 %56, 0
   br i1 %57, label %.backedge, label %.tail23.thread
@@ -770,7 +770,7 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   %5 = alloca [3 x i8], align 1
   %6 = alloca [2048 x i8], align 16
   %7 = alloca %struct.stat, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #8
   %10 = tail call ptr @AllocateDir(ptr noundef %1) #8
@@ -790,18 +790,18 @@ define internal fastcc void @pg_ls_dir_files(ptr noundef %0, ptr noundef %1, i1 
   br i1 %.not1416, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %7, i64 24
-  %18 = getelementptr inbounds i8, ptr %7, i64 48
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = getelementptr inbounds i8, ptr %9, i64 40
-  %23 = getelementptr inbounds i8, ptr %9, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 48
   br label %24
 
 24:                                               ; preds = %.lr.ph, %.backedge
   %25 = phi ptr [ %16, %.lr.ph ], [ %53, %.backedge ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 19
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 19
   %27 = load i8, ptr %26, align 1
   %28 = icmp eq i8 %27, 46
   br i1 %28, label %.backedge, label %29
@@ -895,7 +895,7 @@ define internal fastcc void @pg_ls_tmpdir(ptr noundef %0, i32 noundef %1) unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_tmpdir_1arg(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
   tail call fastcc void @pg_ls_tmpdir(ptr noundef %0, i32 noundef %4)
@@ -923,7 +923,7 @@ define dso_local noundef i64 @pg_ls_logicalmapdir(ptr noundef %0) local_unnamed_
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @pg_ls_replslotdir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
   %6 = tail call ptr @pg_detoast_datum_packed(ptr noundef %5) #8
@@ -1022,13 +1022,13 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
 35:                                               ; preds = %33
   %36 = add nuw nsw i64 %2, 4
   %37 = tail call ptr @palloc(i64 noundef %36) #8
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = tail call i64 @fread(ptr noundef nonnull %38, i64 noundef 1, i64 noundef %2, ptr noundef nonnull %13)
   br label %76
 
 40:                                               ; preds = %33
   call void @initStringInfo(ptr noundef nonnull %5) #8
-  %41 = getelementptr inbounds i8, ptr %5, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %42 = load i32, ptr %41, align 8
   %43 = add i32 %42, 4
   store i32 %43, ptr %41, align 8
@@ -1037,7 +1037,7 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   br i1 %.not3137, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %5, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %46
 
 46:                                               ; preds = %.lr.ph, %60

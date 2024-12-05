@@ -30,9 +30,9 @@ define hidden void @_ZN3ue222ComponentBackReferenceC2Ej(ptr noundef nonnull alig
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %this, align 8
-  %name = getelementptr inbounds i8, ptr %this, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #9
-  %ref_id = getelementptr inbounds i8, ptr %this, i64 48
+  %ref_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %id, ptr %ref_id, align 8
   ret void
 }
@@ -47,12 +47,12 @@ define hidden void @_ZN3ue222ComponentBackReferenceC2ERKNSt7__cxx1112basic_strin
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %this, align 8
-  %name = getelementptr inbounds i8, ptr %this, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %s)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %ref_id = getelementptr inbounds i8, ptr %this, i64 48
+  %ref_id = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 0, ptr %ref_id, align 8
   ret void
 
@@ -74,17 +74,17 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define hidden noundef nonnull ptr @_ZNK3ue222ComponentBackReference5cloneEv(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #10
-  %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %pos_begin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %pos_begin2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_begin2.i.i, align 8
   store i32 %0, ptr %pos_begin.i.i, align 8
-  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %pos_end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %pos_end3.i.i, align 4
   store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %call, align 8
-  %name.i = getelementptr inbounds i8, ptr %call, i64 16
-  %name2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %name.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %name2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name.i, ptr noundef nonnull align 8 dereferenceable(32) %name2.i)
           to label %invoke.cont unwind label %lpad.i
 
@@ -96,8 +96,8 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %2
 
 invoke.cont:                                      ; preds = %entry
-  %ref_id.i = getelementptr inbounds i8, ptr %call, i64 48
-  %ref_id3.i = getelementptr inbounds i8, ptr %this, i64 48
+  %ref_id.i = getelementptr inbounds nuw i8, ptr %call, i64 48
+  %ref_id3.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %3 = load i32, ptr %ref_id3.i, align 8
   store i32 %3, ptr %ref_id.i, align 8
   ret ptr %call
@@ -148,7 +148,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222ComponentBackReferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #8 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %this, align 8
-  %name = getelementptr inbounds i8, ptr %this, i64 16
+  %name = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #9
   tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #9
   ret void
@@ -158,7 +158,7 @@ entry:
 define linkonce_odr hidden void @_ZN3ue222ComponentBackReferenceD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #8 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue222ComponentBackReferenceE, i64 16), ptr %this, align 8
-  %name.i = getelementptr inbounds i8, ptr %this, i64 16
+  %name.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name.i) #9
   tail call void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
@@ -169,11 +169,11 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZN3ue222ComponentBackReference6acceptERNS_16ComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 160
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 160
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   ret ptr %call
@@ -183,15 +183,15 @@ entry:
 define linkonce_odr hidden void @_ZNK3ue222ComponentBackReference6acceptERNS_21ConstComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(52) %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 160
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 160
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(52) %this)
   %vtable4 = load ptr, ptr %v, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 272
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 272
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(52) %this)
   ret void

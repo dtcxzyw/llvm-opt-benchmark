@@ -10,9 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden i32 @internal_exr_apply_pxr24(ptr noundef %encode) local_unnamed_addr #0 {
 entry:
   %compbufsz.i = alloca i64, align 8
-  %scratch_buffer_1 = getelementptr inbounds i8, ptr %encode, i64 184
-  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %encode, i64 192
-  %packed_bytes = getelementptr inbounds i8, ptr %encode, i64 104
+  %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %encode, i64 184
+  %scratch_alloc_size_1 = getelementptr inbounds nuw i8, ptr %encode, i64 192
+  %packed_bytes = getelementptr inbounds nuw i8, ptr %encode, i64 104
   %0 = load i64, ptr %packed_bytes, align 8
   %call = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %0) #5
   %cmp.not = icmp eq i32 %call, 0
@@ -20,8 +20,8 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %compbufsz.i)
-  %packed_buffer.i = getelementptr inbounds i8, ptr %encode, i64 96
-  %height.i = getelementptr inbounds i8, ptr %encode, i64 36
+  %packed_buffer.i = getelementptr inbounds nuw i8, ptr %encode, i64 96
+  %height.i = getelementptr inbounds nuw i8, ptr %encode, i64 36
   %1 = load i32, ptr %height.i, align 4
   %cmp130.i = icmp sgt i32 %1, 0
   %.pre143.i = load ptr, ptr %scratch_buffer_1, align 8
@@ -29,8 +29,8 @@ if.end:                                           ; preds = %entry
 
 for.body.lr.ph.i:                                 ; preds = %if.end
   %2 = load ptr, ptr %packed_buffer.i, align 8
-  %start_y.i = getelementptr inbounds i8, ptr %encode, i64 32
-  %channel_count.i = getelementptr inbounds i8, ptr %encode, i64 8
+  %start_y.i = getelementptr inbounds nuw i8, ptr %encode, i64 32
+  %channel_count.i = getelementptr inbounds nuw i8, ptr %encode, i64 8
   %.pre.i = load i16, ptr %channel_count.i, align 8
   br label %for.body.i
 
@@ -52,17 +52,17 @@ for.body5.i:                                      ; preds = %for.body.i, %for.in
   %nOut.1126.i = phi i64 [ %nOut.2.i, %for.inc140.i ], [ %nOut.0133.i, %for.body.i ]
   %lastIn.1125.i = phi ptr [ %lastIn.2.i, %for.inc140.i ], [ %lastIn.0132.i, %for.body.i ]
   %6 = load ptr, ptr %encode, align 8
-  %add.ptr.i = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %6, i64 %indvars.iv.i
-  %width.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %add.ptr.i = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %6, i64 %indvars.iv.i
+  %width.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 12
   %7 = load i32, ptr %width.i, align 4
   %conv6.i = sext i32 %7 to i64
-  %height7.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %height7.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %8 = load i32, ptr %height7.i, align 8
   %cmp8.i = icmp eq i32 %8, 0
   br i1 %cmp8.i, label %for.inc140.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body5.i
-  %y_samples.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
+  %y_samples.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 20
   %9 = load i32, ptr %y_samples.i, align 4
   %cmp10.i = icmp sgt i32 %9, 1
   br i1 %cmp10.i, label %land.lhs.true.i, label %if.end.i
@@ -73,7 +73,7 @@ land.lhs.true.i:                                  ; preds = %lor.lhs.false.i
   br i1 %cmp13.not.i, label %if.end.i, label %for.inc140.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %lor.lhs.false.i
-  %data_type.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 26
+  %data_type.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 26
   %10 = load i16, ptr %data_type.i, align 2
   switch i16 %10, label %apply_pxr24_impl.exit [
     i16 0, label %sw.bb.i
@@ -107,21 +107,21 @@ for.body37.i:                                     ; preds = %if.end20.i, %for.bo
   %ptr.sroa.9.0115.i = phi ptr [ %incdec.ptr51.i, %for.body37.i ], [ %add.ptr30.i, %if.end20.i ]
   %din.0.val.i = load i32, ptr %din.0120.i, align 1
   %sub.i = sub i32 %din.0.val.i, %prevPixel.0119.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %din.0120.i, i64 4
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %din.0120.i, i64 4
   %shr.i = lshr i32 %sub.i, 24
   %conv38.i = trunc nuw i32 %shr.i to i8
-  %incdec.ptr40.i = getelementptr inbounds i8, ptr %ptr.sroa.0.0118.i, i64 1
+  %incdec.ptr40.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.0.0118.i, i64 1
   store i8 %conv38.i, ptr %ptr.sroa.0.0118.i, align 1
   %shr41.i = lshr i32 %sub.i, 16
   %conv42.i = trunc i32 %shr41.i to i8
-  %incdec.ptr44.i = getelementptr inbounds i8, ptr %ptr.sroa.3.0117.i, i64 1
+  %incdec.ptr44.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.3.0117.i, i64 1
   store i8 %conv42.i, ptr %ptr.sroa.3.0117.i, align 1
   %shr45.i = lshr i32 %sub.i, 8
   %conv46.i = trunc i32 %shr45.i to i8
-  %incdec.ptr48.i = getelementptr inbounds i8, ptr %ptr.sroa.6.0116.i, i64 1
+  %incdec.ptr48.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.6.0116.i, i64 1
   store i8 %conv46.i, ptr %ptr.sroa.6.0116.i, align 1
   %conv49.i = trunc i32 %sub.i to i8
-  %incdec.ptr51.i = getelementptr inbounds i8, ptr %ptr.sroa.9.0115.i, i64 1
+  %incdec.ptr51.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.9.0115.i, i64 1
   store i8 %conv49.i, ptr %ptr.sroa.9.0115.i, align 1
   %inc.i = add nuw nsw i32 %x.0121.i, 1
   %exitcond139.not.i = icmp eq i32 %inc.i, %7
@@ -150,13 +150,13 @@ for.body75.i:                                     ; preds = %if.end62.i, %for.bo
   %din55.0.val.i = load i16, ptr %din55.0112.i, align 1
   %conv78.i = zext i16 %din55.0.val.i to i32
   %sub80.i = sub nsw i32 %conv78.i, %prevPixel54.0111.i
-  %incdec.ptr81.i = getelementptr inbounds i8, ptr %din55.0112.i, i64 2
+  %incdec.ptr81.i = getelementptr inbounds nuw i8, ptr %din55.0112.i, i64 2
   %shr82.i = lshr i32 %sub80.i, 8
   %conv83.i = trunc i32 %shr82.i to i8
-  %incdec.ptr85.i = getelementptr inbounds i8, ptr %ptr53.sroa.0.0110.i, i64 1
+  %incdec.ptr85.i = getelementptr inbounds nuw i8, ptr %ptr53.sroa.0.0110.i, i64 1
   store i8 %conv83.i, ptr %ptr53.sroa.0.0110.i, align 1
   %conv86.i = trunc i32 %sub80.i to i8
-  %incdec.ptr88.i = getelementptr inbounds i8, ptr %ptr53.sroa.3.0109.i, i64 1
+  %incdec.ptr88.i = getelementptr inbounds nuw i8, ptr %ptr53.sroa.3.0109.i, i64 1
   store i8 %conv86.i, ptr %ptr53.sroa.3.0109.i, align 1
   %inc90.i = add nuw nsw i32 %x71.0113.i, 1
   %exitcond138.not.i = icmp eq i32 %inc90.i, %7
@@ -221,17 +221,17 @@ float_to_float24.exit.i:                          ; preds = %if.else8.i.i, %if.t
   %shr19.i.i = and i32 %and.i.i, 8388608
   %or20.i.i = or i32 %i.0.i.i, %shr19.i.i
   %sub124.i = sub nsw i32 %or20.i.i, %prevPixel94.0105.i
-  %incdec.ptr125.i = getelementptr inbounds i8, ptr %din95.0106.i, i64 4
+  %incdec.ptr125.i = getelementptr inbounds nuw i8, ptr %din95.0106.i, i64 4
   %shr126.i = lshr i32 %sub124.i, 16
   %conv127.i = trunc i32 %shr126.i to i8
-  %incdec.ptr129.i = getelementptr inbounds i8, ptr %ptr93.sroa.0.0104.i, i64 1
+  %incdec.ptr129.i = getelementptr inbounds nuw i8, ptr %ptr93.sroa.0.0104.i, i64 1
   store i8 %conv127.i, ptr %ptr93.sroa.0.0104.i, align 1
   %shr130.i = lshr i32 %sub124.i, 8
   %conv131.i = trunc i32 %shr130.i to i8
-  %incdec.ptr133.i = getelementptr inbounds i8, ptr %ptr93.sroa.3.0103.i, i64 1
+  %incdec.ptr133.i = getelementptr inbounds nuw i8, ptr %ptr93.sroa.3.0103.i, i64 1
   store i8 %conv131.i, ptr %ptr93.sroa.3.0103.i, align 1
   %conv134.i = trunc i32 %sub124.i to i8
-  %incdec.ptr136.i = getelementptr inbounds i8, ptr %ptr93.sroa.6.0102.i, i64 1
+  %incdec.ptr136.i = getelementptr inbounds nuw i8, ptr %ptr93.sroa.6.0102.i, i64 1
   store i8 %conv134.i, ptr %ptr93.sroa.6.0102.i, align 1
   %inc138.i = add nuw nsw i32 %x116.0107.i, 1
   %exitcond.not.i = icmp eq i32 %inc138.i, %7
@@ -268,11 +268,11 @@ for.end145.loopexit.i:                            ; preds = %for.inc143.i
 for.end145.i:                                     ; preds = %for.end145.loopexit.i, %if.end
   %20 = phi ptr [ %.pre143.i, %if.end ], [ %.pre142.i, %for.end145.loopexit.i ]
   %nOut.0.lcssa.i = phi i64 [ 0, %if.end ], [ %nOut.1.lcssa.i, %for.end145.loopexit.i ]
-  %context.i = getelementptr inbounds i8, ptr %encode, i64 16
+  %context.i = getelementptr inbounds nuw i8, ptr %encode, i64 16
   %21 = load ptr, ptr %context.i, align 8
-  %compressed_buffer.i = getelementptr inbounds i8, ptr %encode, i64 160
+  %compressed_buffer.i = getelementptr inbounds nuw i8, ptr %encode, i64 160
   %22 = load ptr, ptr %compressed_buffer.i, align 8
-  %compressed_alloc_size.i = getelementptr inbounds i8, ptr %encode, i64 176
+  %compressed_alloc_size.i = getelementptr inbounds nuw i8, ptr %encode, i64 176
   %23 = load i64, ptr %compressed_alloc_size.i, align 8
   %call147.i = call i32 @exr_compress_buffer(ptr noundef %21, i32 noundef -1, ptr noundef %20, i64 noundef %nOut.0.lcssa.i, ptr noundef %22, i64 noundef %23, ptr noundef nonnull %compbufsz.i) #5
   %cmp148.i = icmp eq i32 %call147.i, 0
@@ -293,7 +293,7 @@ if.then153.i:                                     ; preds = %if.then150.i
 
 if.end158.i:                                      ; preds = %if.then153.i, %if.then150.i
   %29 = phi i64 [ %28, %if.then153.i ], [ %24, %if.then150.i ]
-  %compressed_bytes.i = getelementptr inbounds i8, ptr %encode, i64 168
+  %compressed_bytes.i = getelementptr inbounds nuw i8, ptr %encode, i64 168
   store i64 %29, ptr %compressed_bytes.i, align 8
   br label %apply_pxr24_impl.exit
 
@@ -313,8 +313,8 @@ declare i32 @internal_encode_alloc_buffer(ptr noundef, i32 noundef, ptr noundef,
 define hidden i32 @internal_exr_undo_pxr24(ptr noundef %decode, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr nocapture noundef writeonly %uncompressed_data, i64 noundef %uncompressed_size) local_unnamed_addr #0 {
 entry:
   %outSize.i = alloca i64, align 8
-  %scratch_buffer_1 = getelementptr inbounds i8, ptr %decode, i64 160
-  %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %decode, i64 168
+  %scratch_buffer_1 = getelementptr inbounds nuw i8, ptr %decode, i64 160
+  %scratch_alloc_size_1 = getelementptr inbounds nuw i8, ptr %decode, i64 168
   %call = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %uncompressed_size) #5
   %cmp.not = icmp eq i32 %call, 0
   br i1 %cmp.not, label %if.end, label %return
@@ -327,21 +327,21 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %undo_pxr24_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %context.i = getelementptr inbounds i8, ptr %decode, i64 16
+  %context.i = getelementptr inbounds nuw i8, ptr %decode, i64 16
   %2 = load ptr, ptr %context.i, align 8
   %call.i = call i32 @exr_uncompress_buffer(ptr noundef %2, ptr noundef %compressed_data, i64 noundef %comp_buf_size, ptr noundef %0, i64 noundef %uncompressed_size, ptr noundef nonnull %outSize.i) #5
   %cmp1.not.i = icmp eq i32 %call.i, 0
   br i1 %cmp1.not.i, label %for.cond.preheader.i, label %undo_pxr24_impl.exit
 
 for.cond.preheader.i:                             ; preds = %if.end.i
-  %height.i = getelementptr inbounds i8, ptr %decode, i64 36
+  %height.i = getelementptr inbounds nuw i8, ptr %decode, i64 36
   %3 = load i32, ptr %height.i, align 4
   %cmp4112.i = icmp sgt i32 %3, 0
   br i1 %cmp4112.i, label %for.body.lr.ph.i, label %undo_pxr24_impl.exit
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %start_y.i = getelementptr inbounds i8, ptr %decode, i64 32
-  %channel_count.i = getelementptr inbounds i8, ptr %decode, i64 8
+  %start_y.i = getelementptr inbounds nuw i8, ptr %decode, i64 32
+  %channel_count.i = getelementptr inbounds nuw i8, ptr %decode, i64 8
   %.pre.i = load i16, ptr %channel_count.i, align 8
   br label %for.body.i
 
@@ -367,21 +367,21 @@ for.body9.i:                                      ; preds = %for.body.i, %for.in
   %nDec.1105.i = phi i64 [ %nDec.2.i, %for.inc152.i ], [ %nDec.0115.i, %for.body.i ]
   %lastIn.1104.i = phi ptr [ %lastIn.2.i, %for.inc152.i ], [ %lastIn.0114.i, %for.body.i ]
   %9 = load ptr, ptr %decode, align 8
-  %add.ptr.i = getelementptr inbounds %struct.exr_coding_channel_info_t, ptr %9, i64 %indvars.iv.i
-  %width.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 12
+  %add.ptr.i = getelementptr inbounds nuw %struct.exr_coding_channel_info_t, ptr %9, i64 %indvars.iv.i
+  %width.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 12
   %10 = load i32, ptr %width.i, align 4
   %conv10.i = sext i32 %10 to i64
-  %bytes_per_element.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 25
+  %bytes_per_element.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 25
   %11 = load i8, ptr %bytes_per_element.i, align 1
   %conv11.i = sext i8 %11 to i64
   %mul.i = mul nsw i64 %conv11.i, %conv10.i
-  %height12.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
+  %height12.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %12 = load i32, ptr %height12.i, align 8
   %cmp13.i = icmp eq i32 %12, 0
   br i1 %cmp13.i, label %for.inc152.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body9.i
-  %y_samples.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 20
+  %y_samples.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 20
   %13 = load i32, ptr %y_samples.i, align 4
   %cmp15.i = icmp sgt i32 %13, 1
   br i1 %cmp15.i, label %land.lhs.true.i, label %if.end21.i
@@ -397,7 +397,7 @@ if.end21.i:                                       ; preds = %land.lhs.true.i, %l
   br i1 %cmp23.i, label %undo_pxr24_impl.exit, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.end21.i
-  %data_type.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 26
+  %data_type.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 26
   %14 = load i16, ptr %data_type.i, align 2
   switch i16 %14, label %undo_pxr24_impl.exit [
     i16 0, label %sw.bb.i
@@ -427,27 +427,27 @@ for.body47.i:                                     ; preds = %for.cond44.preheade
   %ptr.sroa.3.096.i = phi ptr [ %incdec.ptr51.i, %for.body47.i ], [ %add.ptr29.i, %for.cond44.preheader.i ]
   %ptr.sroa.6.095.i = phi ptr [ %incdec.ptr55.i, %for.body47.i ], [ %add.ptr32.i, %for.cond44.preheader.i ]
   %ptr.sroa.9.094.i = phi ptr [ %incdec.ptr60.i, %for.body47.i ], [ %add.ptr35.i, %for.cond44.preheader.i ]
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %ptr.sroa.0.097.i, i64 1
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.0.097.i, i64 1
   %16 = load i8, ptr %ptr.sroa.0.097.i, align 1
   %conv49.i = zext i8 %16 to i32
   %shl.i = shl nuw i32 %conv49.i, 24
-  %incdec.ptr51.i = getelementptr inbounds i8, ptr %ptr.sroa.3.096.i, i64 1
+  %incdec.ptr51.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.3.096.i, i64 1
   %17 = load i8, ptr %ptr.sroa.3.096.i, align 1
   %conv52.i = zext i8 %17 to i32
   %shl53.i = shl nuw nsw i32 %conv52.i, 16
   %or.i = or disjoint i32 %shl53.i, %shl.i
-  %incdec.ptr55.i = getelementptr inbounds i8, ptr %ptr.sroa.6.095.i, i64 1
+  %incdec.ptr55.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.6.095.i, i64 1
   %18 = load i8, ptr %ptr.sroa.6.095.i, align 1
   %conv56.i = zext i8 %18 to i32
   %shl57.i = shl nuw nsw i32 %conv56.i, 8
   %or58.i = or disjoint i32 %or.i, %shl57.i
-  %incdec.ptr60.i = getelementptr inbounds i8, ptr %ptr.sroa.9.094.i, i64 1
+  %incdec.ptr60.i = getelementptr inbounds nuw i8, ptr %ptr.sroa.9.094.i, i64 1
   %19 = load i8, ptr %ptr.sroa.9.094.i, align 1
   %conv61.i = zext i8 %19 to i32
   %or62.i = or disjoint i32 %or58.i, %conv61.i
   %add63.i = add i32 %or62.i, %pixel.098.i
   store i32 %add63.i, ptr %dout.099.i, align 1
-  %incdec.ptr64.i = getelementptr inbounds i8, ptr %dout.099.i, i64 4
+  %incdec.ptr64.i = getelementptr inbounds nuw i8, ptr %dout.099.i, i64 4
   %inc.i = add nuw nsw i32 %x.0100.i, 1
   %exitcond122.not.i = icmp eq i32 %inc.i, %10
   br i1 %exitcond122.not.i, label %sw.epilog.i, label %for.body47.i, !llvm.loop !10
@@ -470,17 +470,17 @@ for.body85.i:                                     ; preds = %for.cond82.preheade
   %pixel68.090.i = phi i16 [ %add95.i, %for.body85.i ], [ 0, %for.cond82.preheader.i ]
   %ptr67.sroa.0.089.i = phi ptr [ %incdec.ptr88.i, %for.body85.i ], [ %lastIn.1104.i, %for.cond82.preheader.i ]
   %ptr67.sroa.3.088.i = phi ptr [ %incdec.ptr92.i, %for.body85.i ], [ %add.ptr72.i, %for.cond82.preheader.i ]
-  %incdec.ptr88.i = getelementptr inbounds i8, ptr %ptr67.sroa.0.089.i, i64 1
+  %incdec.ptr88.i = getelementptr inbounds nuw i8, ptr %ptr67.sroa.0.089.i, i64 1
   %21 = load i8, ptr %ptr67.sroa.0.089.i, align 1
   %conv89.i = zext i8 %21 to i16
   %shl90.i = shl nuw i16 %conv89.i, 8
-  %incdec.ptr92.i = getelementptr inbounds i8, ptr %ptr67.sroa.3.088.i, i64 1
+  %incdec.ptr92.i = getelementptr inbounds nuw i8, ptr %ptr67.sroa.3.088.i, i64 1
   %22 = load i8, ptr %ptr67.sroa.3.088.i, align 1
   %conv93.i = zext i8 %22 to i16
   %or94.i = or disjoint i16 %shl90.i, %conv93.i
   %add95.i = add i16 %or94.i, %pixel68.090.i
   store i16 %add95.i, ptr %dout69.091.i, align 1
-  %incdec.ptr97.i = getelementptr inbounds i8, ptr %dout69.091.i, i64 2
+  %incdec.ptr97.i = getelementptr inbounds nuw i8, ptr %dout69.091.i, i64 2
   %inc99.i = add nuw nsw i32 %x81.092.i, 1
   %exitcond121.not.i = icmp eq i32 %inc99.i, %10
   br i1 %exitcond121.not.i, label %sw.epilog.i, label %for.body85.i, !llvm.loop !11
@@ -507,23 +507,23 @@ for.body126.i:                                    ; preds = %for.cond123.prehead
   %ptr103.sroa.0.083.i = phi ptr [ %incdec.ptr129.i, %for.body126.i ], [ %lastIn.1104.i, %for.cond123.preheader.i ]
   %ptr103.sroa.3.082.i = phi ptr [ %incdec.ptr133.i, %for.body126.i ], [ %add.ptr108.i, %for.cond123.preheader.i ]
   %ptr103.sroa.6.081.i = phi ptr [ %incdec.ptr138.i, %for.body126.i ], [ %add.ptr111.i, %for.cond123.preheader.i ]
-  %incdec.ptr129.i = getelementptr inbounds i8, ptr %ptr103.sroa.0.083.i, i64 1
+  %incdec.ptr129.i = getelementptr inbounds nuw i8, ptr %ptr103.sroa.0.083.i, i64 1
   %24 = load i8, ptr %ptr103.sroa.0.083.i, align 1
   %conv130.i = zext i8 %24 to i32
   %shl131.i = shl nuw i32 %conv130.i, 24
-  %incdec.ptr133.i = getelementptr inbounds i8, ptr %ptr103.sroa.3.082.i, i64 1
+  %incdec.ptr133.i = getelementptr inbounds nuw i8, ptr %ptr103.sroa.3.082.i, i64 1
   %25 = load i8, ptr %ptr103.sroa.3.082.i, align 1
   %conv134.i = zext i8 %25 to i32
   %shl135.i = shl nuw nsw i32 %conv134.i, 16
   %or136.i = or disjoint i32 %shl135.i, %shl131.i
-  %incdec.ptr138.i = getelementptr inbounds i8, ptr %ptr103.sroa.6.081.i, i64 1
+  %incdec.ptr138.i = getelementptr inbounds nuw i8, ptr %ptr103.sroa.6.081.i, i64 1
   %26 = load i8, ptr %ptr103.sroa.6.081.i, align 1
   %conv139.i = zext i8 %26 to i32
   %shl140.i = shl nuw nsw i32 %conv139.i, 8
   %or141.i = or disjoint i32 %or136.i, %shl140.i
   %add142.i = add i32 %or141.i, %pixel104.084.i
   store i32 %add142.i, ptr %dout105.085.i, align 1
-  %incdec.ptr143.i = getelementptr inbounds i8, ptr %dout105.085.i, i64 4
+  %incdec.ptr143.i = getelementptr inbounds nuw i8, ptr %dout105.085.i, i64 4
   %inc145.i = add nuw nsw i32 %x122.086.i, 1
   %exitcond.not.i = icmp eq i32 %inc145.i, %10
   br i1 %exitcond.not.i, label %sw.epilog.i, label %for.body126.i, !llvm.loop !12

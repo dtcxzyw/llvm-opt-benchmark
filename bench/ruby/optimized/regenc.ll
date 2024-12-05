@@ -102,16 +102,16 @@ define hidden i32 @onigenc_mbclen_approximate(ptr noundef %0, ptr noundef %1, pt
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @onigenc_get_right_adjust_char_head(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %0) #11
   %8 = icmp ult ptr %7, %2
   br i1 %8, label %9, label %42
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %11, %13
   br i1 %14, label %15, label %17
@@ -167,7 +167,7 @@ onigenc_mbclen.exit:                              ; preds = %36, %31, %21, %15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr %7(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %0) #11
   %9 = icmp ult ptr %8, %2
@@ -182,9 +182,9 @@ define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef %
   br label %12
 
 12:                                               ; preds = %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %14, %16
   br i1 %17, label %18, label %20
@@ -251,7 +251,7 @@ define dso_local ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %1,
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %2, i64 -1
   %9 = tail call ptr %7(ptr noundef %1, ptr noundef %8, ptr noundef %3, ptr noundef %0) #11
@@ -268,7 +268,7 @@ define dso_local ptr @onigenc_step_back(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not14, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %7
 
 7:                                                ; preds = %.lr.ph, %11
@@ -403,8 +403,8 @@ onigenc_mbclen.exit:                              ; preds = %17, %10, %19
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_strlen_null(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
 5:                                                ; preds = %onigenc_mbclen.exit, %2
@@ -474,8 +474,8 @@ onigenc_mbclen.exit:                              ; preds = %26, %22, %28
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @onigenc_str_bytelen_null(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
 5:                                                ; preds = %onigenc_mbclen.exit, %2
@@ -547,7 +547,7 @@ onigenc_mbclen.exit:                              ; preds = %26, %22, %28
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @onigenc_get_left_adjust_char_head(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %0) #11
   ret ptr %7
@@ -566,7 +566,7 @@ define dso_local i32 @onigenc_ascii_apply_all_case_fold(i32 noundef %0, ptr noca
 7:                                                ; preds = %4, %6
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %6 ]
   %8 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   store i32 %10, ptr %5, align 4
   %11 = load i32, ptr %8, align 8
@@ -600,12 +600,12 @@ define dso_local range(i32 0, 2) i32 @onigenc_ascii_get_case_fold_codes_by_str(i
 .sink.split:                                      ; preds = %8, %5
   %.sink17 = phi i32 [ 32, %5 ], [ -32, %8 ]
   store i32 1, ptr %3, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %10, align 4
   %11 = load i8, ptr %1, align 1
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %.sink17, %12
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %13, ptr %14, align 4
   br label %15
 
@@ -630,7 +630,7 @@ define dso_local i32 @onigenc_apply_all_case_fold_with_map(i32 noundef %0, ptr n
 11:                                               ; preds = %10, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %10 ]
   %12 = getelementptr [26 x %struct.OnigPairCaseFoldCodes], ptr @OnigAsciiLowerMap, i64 0, i64 %indvars.iv.i
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   store i32 %14, ptr %8, align 4
   %15 = load i32, ptr %12, align 8
@@ -666,7 +666,7 @@ onigenc_ascii_apply_all_case_fold.exit:           ; preds = %10
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr %struct.OnigPairCaseFoldCodes, ptr %1, i64 %indvars.iv
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   store i32 %23, ptr %9, align 4
   %24 = load i32, ptr %21, align 4
@@ -707,12 +707,12 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 10:                                               ; preds = %7
   store i32 1, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %11, align 4
   %12 = load i8, ptr %4, align 1
   %13 = zext i8 %12 to i32
   %14 = add nuw nsw i32 %13, 32
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %14, ptr %15, align 4
   %16 = load i8, ptr %4, align 1
   %17 = icmp eq i8 %16, 83
@@ -746,12 +746,12 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 29:                                               ; preds = %27
   store i32 1, ptr %6, align 4
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %30, align 4
   %31 = load i8, ptr %4, align 1
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %32, -32
-  %34 = getelementptr inbounds i8, ptr %6, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %33, ptr %34, align 4
   %35 = load i8, ptr %4, align 1
   %36 = icmp eq i8 %35, 115
@@ -795,9 +795,9 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 51:                                               ; preds = %46
   store i32 1, ptr %6, align 4
-  %52 = getelementptr inbounds i8, ptr %6, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 2, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %6, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 115, ptr %53, align 4
   %54 = getelementptr i8, ptr %6, i64 12
   store i32 115, ptr %54, align 4
@@ -839,21 +839,21 @@ define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_ma
 
 71:                                               ; preds = %67
   store i32 1, ptr %6, align 4
-  %72 = getelementptr inbounds i8, ptr %6, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %68, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %74 = load i32, ptr %73, align 4
   br label %.loopexit.sink.split
 
 75:                                               ; preds = %67
-  %76 = getelementptr inbounds i8, ptr %68, i64 4
+  %76 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, %50
   br i1 %78, label %79, label %66
 
 79:                                               ; preds = %75
   store i32 1, ptr %6, align 4
-  %80 = getelementptr inbounds i8, ptr %6, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 1, ptr %80, align 4
   %81 = load i32, ptr %68, align 4
   br label %.loopexit.sink.split
@@ -980,9 +980,9 @@ define dso_local range(i32 0, 2) i32 @onigenc_ascii_is_code_ctype(i32 noundef %0
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %5, %7
   br i1 %8, label %9, label %13
@@ -1080,9 +1080,9 @@ define dso_local i32 @onigenc_mbn_mbc_case_fold(ptr noundef %0, i32 noundef %1, 
   br label %56
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %21, label %23
@@ -1204,9 +1204,9 @@ define dso_local i32 @onigenc_mb2_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %10 = trunc i32 %1 to i8
   %11 = getelementptr i8, ptr %.0, i64 1
   store i8 %10, ptr %.0, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %13, %15
   br i1 %16, label %17, label %19
@@ -1305,9 +1305,9 @@ define dso_local i32 @onigenc_mb4_code_to_mbc(ptr noundef %0, i32 noundef %1, pt
   %19 = trunc i32 %1 to i8
   %20 = getelementptr i8, ptr %.2, i64 1
   store i8 %19, ptr %.2, align 1
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %22, %24
   br i1 %25, label %26, label %28
@@ -1406,9 +1406,9 @@ onigenc_mbclen.exit.i:                            ; preds = %18, %16, %9
 
 onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit.i, %3
   %.08.lcssa.i = phi i32 [ 0, %3 ], [ %24, %onigenc_mbclen.exit.i ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 32
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = add nsw i32 %.08.lcssa.i, -1
   %30 = zext i32 %29 to i64
   br label %31
@@ -1426,7 +1426,7 @@ onigenc_strlen.exit:                              ; preds = %onigenc_mbclen.exit
   br i1 %36, label %.lr.ph.i15, label %onigenc_with_ascii_strnicmp.exit.thread
 
 .lr.ph.i15:                                       ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %.01325, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.01325, i64 2
   %scevgep32 = getelementptr i8, ptr %indvars.iv, i64 %30
   br label %38
 
@@ -1505,7 +1505,7 @@ onigenc_mbclen.exit.i16:                          ; preds = %74, %72, %65, %56
   br i1 %exitcond.not, label %onigenc_with_ascii_strnicmp.exit.thread, label %38, !llvm.loop !18
 
 onigenc_with_ascii_strnicmp.exit.thread:          ; preds = %35, %onigenc_with_ascii_strnicmp.exit, %onigenc_mbclen.exit.i16
-  %81 = getelementptr inbounds i8, ptr %.01325, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.01325, i64 8
   %82 = load i32, ptr %81, align 4
   br label %.loopexit
 
@@ -1526,9 +1526,9 @@ define dso_local range(i32 -2147483647, 256) i32 @onigenc_with_ascii_strnicmp(pt
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = ptrtoint ptr %2 to i64
   br label %11
 
@@ -1636,7 +1636,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef %0, 
   ]
 
 13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(i32 noundef %1, ptr noundef %0) #11
   %17 = icmp sgt i32 %16, 1
@@ -1670,7 +1670,7 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef %0, 
   ]
 
 13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(i32 noundef %1, ptr noundef %0) #11
   %17 = icmp sgt i32 %16, 1
@@ -1688,9 +1688,9 @@ define dso_local i32 @onigenc_with_ascii_strncmp(ptr noundef %0, ptr noundef %1,
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = ptrtoint ptr %2 to i64
   br label %11
 
@@ -1771,8 +1771,8 @@ define dso_local i32 @onigenc_ascii_only_case_map(ptr nocapture noundef %0, ptr 
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %5, i64 32
-  %13 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 48
   br label %14
 
 14:                                               ; preds = %.lr.ph, %37

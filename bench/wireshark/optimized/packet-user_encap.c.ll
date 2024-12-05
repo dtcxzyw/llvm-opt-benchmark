@@ -134,7 +134,7 @@ define internal void @user_encap_encap_set_cb(ptr nocapture noundef writeonly in
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #3
   store i32 45, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not15 = icmp eq ptr %9, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
@@ -149,7 +149,7 @@ define internal void @user_encap_encap_set_cb(ptr nocapture noundef writeonly in
   %11 = add i32 %.01621, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -172,7 +172,7 @@ define internal void @user_encap_encap_set_cb(ptr nocapture noundef writeonly in
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_encap_encap_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not14 = icmp eq ptr %7, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -188,7 +188,7 @@ define internal void @user_encap_encap_tostr_cb(ptr nocapture noundef readonly %
   %11 = add i32 %.01519, 1
   %12 = zext i32 %11 to i64
   %13 = getelementptr %struct._value_string, ptr %3, i64 %12
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !7
@@ -227,7 +227,7 @@ define internal void @user_encap_payload_proto_set_cb(ptr nocapture noundef init
 6:                                                ; preds = %5
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @g_strchug(ptr noundef %8) #3
   %11 = tail call ptr @g_strchomp(ptr noundef %10) #3
@@ -237,20 +237,20 @@ define internal void @user_encap_payload_proto_set_cb(ptr nocapture noundef init
 
 14:                                               ; preds = %5
   %15 = tail call ptr @find_dissector(ptr noundef nonnull @.str.48) #3
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %14, %6
   %.sink = phi ptr [ %15, %14 ], [ %13, %6 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sink, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_encap_payload_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -279,7 +279,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @user_encap_header_size_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #3
   tail call void @g_free(ptr noundef %7) #3
   ret void
@@ -287,7 +287,7 @@ define internal void @user_encap_header_size_set_cb(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_encap_header_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef %7) #3
   store ptr %8, ptr %1, align 8
@@ -305,7 +305,7 @@ define internal void @user_encap_header_proto_set_cb(ptr nocapture noundef initi
 6:                                                ; preds = %5
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @g_strchug(ptr noundef %8) #3
   %11 = tail call ptr @g_strchomp(ptr noundef %10) #3
@@ -315,20 +315,20 @@ define internal void @user_encap_header_proto_set_cb(ptr nocapture noundef initi
 
 14:                                               ; preds = %5
   %15 = tail call ptr @find_dissector(ptr noundef nonnull @.str.48) #3
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %14, %6
   %.sink = phi ptr [ %15, %14 ], [ %13, %6 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.sink, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_encap_header_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -355,7 +355,7 @@ define internal void @user_encap_header_proto_tostr_cb(ptr nocapture noundef rea
 define internal void @user_encap_trailer_size_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 60
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #3
   tail call void @g_free(ptr noundef %7) #3
   ret void
@@ -363,7 +363,7 @@ define internal void @user_encap_trailer_size_set_cb(ptr noundef %0, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_encap_trailer_size_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 60
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef %7) #3
   store ptr %8, ptr %1, align 8
@@ -381,7 +381,7 @@ define internal void @user_encap_trailer_proto_set_cb(ptr nocapture noundef init
 6:                                                ; preds = %5
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #3
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %8, ptr %9, align 8
   %10 = tail call ptr @g_strchug(ptr noundef %8) #3
   %11 = tail call ptr @g_strchomp(ptr noundef %10) #3
@@ -391,20 +391,20 @@ define internal void @user_encap_trailer_proto_set_cb(ptr nocapture noundef init
 
 14:                                               ; preds = %5
   %15 = tail call ptr @find_dissector(ptr noundef nonnull @.str.48) #3
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %14, %6
   %.sink = phi ptr [ %15, %14 ], [ %13, %6 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %.sink, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_encap_trailer_proto_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -441,53 +441,53 @@ declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, 
 define internal noundef ptr @user_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 64)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @g_strdup(ptr noundef %6) #3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noalias ptr @g_strdup(ptr noundef %13) #3
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @g_strdup(ptr noundef %20) #3
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %30, ptr %31, align 4
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_free_cb(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #3
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #3
   ret void
@@ -505,7 +505,7 @@ define internal i32 @dissect_user(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph:                                           ; preds = %4
   %6 = load ptr, ptr @encaps, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 292
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %8 = load i32, ptr %7, align 4
   %wide.trip.count = zext i32 %5 to i64
   br label %15
@@ -518,7 +518,7 @@ define internal i32 @dissect_user(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .thread:                                          ; preds = %9, %4
   %10 = load i32, ptr @proto_user_encap, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
-  %12 = getelementptr inbounds i8, ptr %1, i64 292
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 47
   br i1 %14, label %select.unfold, label %22
@@ -536,7 +536,7 @@ define internal i32 @dissect_user(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %select.unfold
 
 22:                                               ; preds = %.thread
-  %23 = getelementptr inbounds i8, ptr %1, i64 408
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %24 = load ptr, ptr %23, align 8
   %25 = add i32 %13, 102
   %26 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %24, ptr noundef nonnull @.str.50, i32 noundef %25) #3
@@ -548,17 +548,17 @@ define internal i32 @dissect_user(ptr noundef %0, ptr noundef %1, ptr noundef %2
 select.unfold:                                    ; preds = %19, %.thread
   %.ph = phi ptr [ %21, %19 ], [ %11, %.thread ]
   %.1.ph = phi ptr [ %16, %19 ], [ @user2_encap, %.thread ]
-  %29 = getelementptr inbounds i8, ptr %.1.ph, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %43
 
 32:                                               ; preds = %select.unfold
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %.1.ph, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %1, i64 292
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 102
   %40 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %34, ptr noundef nonnull @.str.52, ptr noundef %36, i32 noundef %39) #3
@@ -568,18 +568,18 @@ select.unfold:                                    ; preds = %19, %.thread
   br label %132
 
 43:                                               ; preds = %select.unfold
-  %44 = getelementptr inbounds i8, ptr %1, i64 292
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 102
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.ph, ptr noundef nonnull @.str.53, i32 noundef %46) #3
-  %47 = getelementptr inbounds i8, ptr %.1.ph, i64 56
+  %47 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 56
   %48 = load i32, ptr %47, align 8
   %.not102 = icmp eq i32 %48, 0
   br i1 %.not102, label %72, label %49
 
 49:                                               ; preds = %43
   %50 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 0, i32 noundef %48) #3
-  %51 = getelementptr inbounds i8, ptr %.1.ph, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr @exported_pdu_tap, align 4
   %54 = tail call i32 @have_tap_listener(i32 noundef %53) #3
@@ -589,19 +589,19 @@ select.unfold:                                    ; preds = %19, %.thread
 55:                                               ; preds = %49
   %56 = tail call ptr @export_pdu_create_tags(ptr noundef nonnull %1, ptr noundef %52, i16 noundef zeroext 12, ptr noundef nonnull @export_pdu.user_encap_exp_pdu_items) #3
   %57 = tail call i32 @tvb_captured_length(ptr noundef %50) #3
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 %57, ptr %58, align 8
   %59 = tail call i32 @tvb_reported_length(ptr noundef %50) #3
-  %60 = getelementptr inbounds i8, ptr %56, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i32 %59, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %56, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %50, ptr %61, align 8
   %62 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %62, ptr noundef nonnull %1, ptr noundef %56) #3
   br label %export_pdu.exit
 
 export_pdu.exit:                                  ; preds = %49, %55
-  %63 = getelementptr inbounds i8, ptr %.1.ph, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 32
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @call_dissector(ptr noundef %64, ptr noundef %50, ptr noundef nonnull %1, ptr noundef %2) #3
   %66 = load ptr, ptr %51, align 8
@@ -622,7 +622,7 @@ export_pdu.exit:                                  ; preds = %49, %55
 72:                                               ; preds = %export_pdu.exit, %70, %67, %43
   %73 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %74 = load i32, ptr %47, align 8
-  %75 = getelementptr inbounds i8, ptr %.1.ph, i64 60
+  %75 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 60
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %74, %76
   %78 = sub i32 %73, %77
@@ -632,7 +632,7 @@ export_pdu.exit:                                  ; preds = %49, %55
   %82 = add i32 %80, %81
   %83 = sub i32 %79, %82
   %84 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %80, i32 noundef %78, i32 noundef %83) #3
-  %85 = getelementptr inbounds i8, ptr %.1.ph, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 8
   %86 = load ptr, ptr %85, align 8
   %87 = load i32, ptr @exported_pdu_tap, align 4
   %88 = tail call i32 @have_tap_listener(i32 noundef %87) #3
@@ -642,12 +642,12 @@ export_pdu.exit:                                  ; preds = %49, %55
 89:                                               ; preds = %72
   %90 = tail call ptr @export_pdu_create_tags(ptr noundef nonnull %1, ptr noundef %86, i16 noundef zeroext 12, ptr noundef nonnull @export_pdu.user_encap_exp_pdu_items) #3
   %91 = tail call i32 @tvb_captured_length(ptr noundef %84) #3
-  %92 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   store i32 %91, ptr %92, align 8
   %93 = tail call i32 @tvb_reported_length(ptr noundef %84) #3
-  %94 = getelementptr inbounds i8, ptr %90, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 20
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %90, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store ptr %84, ptr %95, align 8
   %96 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %96, ptr noundef nonnull %1, ptr noundef %90) #3
@@ -680,7 +680,7 @@ export_pdu.exit111:                               ; preds = %72, %89
   %108 = load i32, ptr %47, align 8
   %109 = add i32 %108, %78
   %110 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %109, i32 noundef %106) #3
-  %111 = getelementptr inbounds i8, ptr %.1.ph, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 40
   %112 = load ptr, ptr %111, align 8
   %113 = load i32, ptr @exported_pdu_tap, align 4
   %114 = tail call i32 @have_tap_listener(i32 noundef %113) #3
@@ -690,19 +690,19 @@ export_pdu.exit111:                               ; preds = %72, %89
 115:                                              ; preds = %107
   %116 = tail call ptr @export_pdu_create_tags(ptr noundef nonnull %1, ptr noundef %112, i16 noundef zeroext 12, ptr noundef nonnull @export_pdu.user_encap_exp_pdu_items) #3
   %117 = tail call i32 @tvb_captured_length(ptr noundef %110) #3
-  %118 = getelementptr inbounds i8, ptr %116, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
   store i32 %117, ptr %118, align 8
   %119 = tail call i32 @tvb_reported_length(ptr noundef %110) #3
-  %120 = getelementptr inbounds i8, ptr %116, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %116, i64 20
   store i32 %119, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %116, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store ptr %110, ptr %121, align 8
   %122 = load i32, ptr @exported_pdu_tap, align 4
   tail call void @tap_queue_packet(i32 noundef %122, ptr noundef nonnull %1, ptr noundef %116) #3
   br label %export_pdu.exit113
 
 export_pdu.exit113:                               ; preds = %107, %115
-  %123 = getelementptr inbounds i8, ptr %.1.ph, i64 48
+  %123 = getelementptr inbounds nuw i8, ptr %.1.ph, i64 48
   %124 = load ptr, ptr %123, align 8
   %125 = tail call i32 @call_dissector(ptr noundef %124, ptr noundef %110, ptr noundef nonnull %1, ptr noundef %2) #3
   %126 = load ptr, ptr %111, align 8

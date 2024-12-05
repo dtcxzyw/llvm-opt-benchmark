@@ -76,7 +76,7 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
   br label %27
 
 27:                                               ; preds = %26, %17
-  %invariant.gep = getelementptr inbounds i8, ptr %3, i64 1
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %3, i64 1
   br label %28
 
 28:                                               ; preds = %60, %27
@@ -113,7 +113,7 @@ pg_TZDIR.exit:                                    ; preds = %2, %4
 
 42:                                               ; preds = %.backedge.i, %.lr.ph.i
   %43 = phi ptr [ %40, %.lr.ph.i ], [ %53, %.backedge.i ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 19
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 19
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 46
   br i1 %46, label %.backedge.i, label %47
@@ -206,9 +206,9 @@ define dso_local ptr @pg_tzset(ptr nocapture noundef readonly %0) local_unnamed_
 
 10:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i64 256, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i64 23952, ptr %12, align 8
   %13 = call ptr @hash_create(ptr noundef nonnull @.str.11, i64 noundef 4, ptr noundef nonnull %2, i32 noundef 24) #10
   store ptr %13, ptr @timezone_cache, align 8
@@ -247,7 +247,7 @@ define dso_local ptr @pg_tzset(ptr nocapture noundef readonly %0) local_unnamed_
   br i1 %.not16, label %26, label %24
 
 24:                                               ; preds = %._crit_edge
-  %25 = getelementptr inbounds i8, ptr %23, i64 256
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 256
   br label %46
 
 26:                                               ; preds = %._crit_edge
@@ -287,9 +287,9 @@ define dso_local ptr @pg_tzset(ptr nocapture noundef readonly %0) local_unnamed_
 40:                                               ; preds = %.sink.split, %32
   %41 = load ptr, ptr @timezone_cache, align 8
   %42 = call ptr @hash_search(ptr noundef %41, ptr noundef nonnull %4, i32 noundef 1, ptr noundef null) #10
-  %43 = getelementptr inbounds i8, ptr %42, i64 256
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 256
   %44 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %5) #10
-  %45 = getelementptr inbounds i8, ptr %42, i64 512
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 512
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(23440) %45, ptr noundef nonnull align 8 dereferenceable(23440) %3, i64 23440, i1 false)
   br label %46
 
@@ -386,12 +386,12 @@ pg_TZDIR.exit:                                    ; preds = %0, %2
   %9 = trunc i64 %8 to i32
   %10 = add i32 %9, 1
   store i32 %10, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store ptr %7, ptr %12, align 8
   %13 = tail call ptr @AllocateDir(ptr noundef %7) #10
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %13, ptr %14, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %15, label %19
@@ -420,14 +420,14 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @pg_tzenumerate_end(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, -1
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
@@ -459,16 +459,16 @@ declare void @pfree(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [2048 x i8], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
-  %9 = getelementptr inbounds i8, ptr %0, i64 424
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 424
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
@@ -508,7 +508,7 @@ define dso_local ptr @pg_tzenumerate_next(ptr noundef %0) local_unnamed_addr #0 
   br i1 %31, label %10, label %.loopexit, !llvm.loop !9
 
 32:                                               ; preds = %10
-  %33 = getelementptr inbounds i8, ptr %17, i64 19
+  %33 = getelementptr inbounds nuw i8, ptr %17, i64 19
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 46
   br i1 %35, label %.backedgethread-pre-split, label %36

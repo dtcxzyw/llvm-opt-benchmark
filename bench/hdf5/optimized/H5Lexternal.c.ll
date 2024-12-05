@@ -118,10 +118,10 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
   br label %191
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %2, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %29 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #7
   %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %32 = load i64, ptr @H5P_CLS_LINK_ACCESS_ID_g, align 8
   %33 = tail call ptr @H5P_object_verify(i64 noundef %4, i64 noundef %32) #6
   %34 = icmp eq ptr %33, null
@@ -274,7 +274,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @H5L__extern_traverse(pt
 125:                                              ; preds = %118
   %126 = load ptr, ptr %10, align 8
   %127 = load i64, ptr %11, align 8
-  %128 = getelementptr inbounds i8, ptr %10, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = call i32 %126(ptr noundef %100, ptr noundef nonnull %.264, ptr noundef nonnull %28, ptr noundef nonnull %31, ptr noundef nonnull %9, i64 noundef %127, ptr noundef %129) #6
   %131 = icmp slt i32 %130, 0

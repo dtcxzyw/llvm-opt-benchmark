@@ -82,7 +82,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @local_open_nofollow(ptr nocapture noundef readonly %fs_ctx, ptr noundef %path, i32 noundef %flags, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
-  %private = getelementptr inbounds i8, ptr %fs_ctx, i64 48
+  %private = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %1 = load i32, ptr %0, align 4
   %2 = load i8, ptr %path, align 1
@@ -208,7 +208,7 @@ if.then.i:                                        ; preds = %if.end7
   br label %close_if_special_file.exit.thread
 
 if.end.i:                                         ; preds = %if.end7
-  %st_mode.i = getelementptr inbounds i8, ptr %stbuf.i, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %stbuf.i, i64 24
   %4 = load i32, ptr %st_mode.i, align 8
   %5 = trunc i32 %4 to i16
   %trunc.i = and i16 %5, -4096
@@ -268,7 +268,7 @@ define internal range(i32 -1, 1) i32 @local_parse_opts(ptr noundef %opts, ptr no
 entry:
   %_auto_errp_prop = alloca %struct.ErrorPropagator, align 8
   store ptr null, ptr %_auto_errp_prop, align 8
-  %errp1 = getelementptr inbounds i8, ptr %_auto_errp_prop, i64 8
+  %errp1 = getelementptr inbounds nuw i8, ptr %_auto_errp_prop, i64 8
   store ptr %errp, ptr %errp1, align 8
   %tobool = icmp eq ptr %errp, null
   %cmp = icmp eq ptr %errp, @error_fatal
@@ -317,7 +317,7 @@ if.else31:                                        ; preds = %if.else25
 
 if.end35:                                         ; preds = %if.else25, %if.else19, %if.else, %lor.lhs.false13, %if.end7
   %.sink49 = phi i32 [ 4, %if.end7 ], [ 8, %lor.lhs.false13 ], [ 8, %if.else ], [ 16, %if.else19 ], [ 32, %if.else25 ]
-  %export_flags17 = getelementptr inbounds i8, ptr %fse, i64 16
+  %export_flags17 = getelementptr inbounds nuw i8, ptr %fse, i64 16
   %0 = load i32, ptr %export_flags17, align 8
   %or18 = or i32 %0, %.sink49
   store i32 %or18, ptr %export_flags17, align 8
@@ -330,7 +330,7 @@ if.then37:                                        ; preds = %if.end35
   br i1 %tobool39.not, label %if.then40, label %if.else44
 
 if.then40:                                        ; preds = %if.then37
-  %export_flags41 = getelementptr inbounds i8, ptr %fse, i64 16
+  %export_flags41 = getelementptr inbounds nuw i8, ptr %fse, i64 16
   %and = and i32 %or18, -1537
   %or43 = or disjoint i32 %and, 512
   store i32 %or43, ptr %export_flags41, align 8
@@ -342,7 +342,7 @@ if.else44:                                        ; preds = %if.then37
   br i1 %tobool46.not, label %if.then47, label %if.else52
 
 if.then47:                                        ; preds = %if.else44
-  %export_flags48 = getelementptr inbounds i8, ptr %fse, i64 16
+  %export_flags48 = getelementptr inbounds nuw i8, ptr %fse, i64 16
   %and49 = and i32 %or18, -1537
   %or51 = or disjoint i32 %and49, 1024
   store i32 %or51, ptr %export_flags48, align 8
@@ -354,7 +354,7 @@ if.else52:                                        ; preds = %if.else44
   br i1 %tobool54.not, label %if.then55, label %if.else60
 
 if.then55:                                        ; preds = %if.else52
-  %export_flags56 = getelementptr inbounds i8, ptr %fse, i64 16
+  %export_flags56 = getelementptr inbounds nuw i8, ptr %fse, i64 16
   %and59 = and i32 %or18, -1537
   store i32 %and59, ptr %export_flags56, align 8
   br label %if.end64
@@ -373,7 +373,7 @@ if.then66:                                        ; preds = %if.end64
   br label %cleanup
 
 if.end67:                                         ; preds = %if.end64
-  %fst = getelementptr inbounds i8, ptr %fse, i64 32
+  %fst = getelementptr inbounds nuw i8, ptr %fse, i64 32
   %call68 = call i32 @fsdev_throttle_parse_opts(ptr noundef %opts, ptr noundef nonnull %fst, ptr noundef nonnull %spec.select) #15
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %if.end71, label %if.then70
@@ -383,7 +383,7 @@ if.then70:                                        ; preds = %if.end67
   br label %cleanup
 
 if.end71:                                         ; preds = %if.end67
-  %export_flags72 = getelementptr inbounds i8, ptr %fse, i64 16
+  %export_flags72 = getelementptr inbounds nuw i8, ptr %fse, i64 16
   %1 = load i32, ptr %export_flags72, align 8
   %2 = and i32 %1, 40
   %or.cond47 = icmp eq i32 %2, 0
@@ -393,12 +393,12 @@ if.then79:                                        ; preds = %if.end71
   %call80 = call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.23, i64 noundef 384) #15
   %3 = trunc i64 %call80 to i32
   %conv = and i32 %3, 511
-  %fmode = getelementptr inbounds i8, ptr %fse, i64 616
+  %fmode = getelementptr inbounds nuw i8, ptr %fse, i64 616
   store i32 %conv, ptr %fmode, align 8
   %call82 = call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.24, i64 noundef 448) #15
   %4 = trunc i64 %call82 to i32
   %conv84 = and i32 %4, 511
-  %dmode = getelementptr inbounds i8, ptr %fse, i64 620
+  %dmode = getelementptr inbounds nuw i8, ptr %fse, i64 620
   store i32 %conv84, ptr %dmode, align 4
   br label %if.end94
 
@@ -422,7 +422,7 @@ if.then92:                                        ; preds = %if.end89
 
 if.end94:                                         ; preds = %if.end89, %if.then79
   %call95 = call noalias ptr @g_strdup(ptr noundef nonnull %call3) #15
-  %path96 = getelementptr inbounds i8, ptr %fse, i64 8
+  %path96 = getelementptr inbounds nuw i8, ptr %fse, i64 8
   store ptr %call95, ptr %path96, align 8
   br label %cleanup
 
@@ -439,7 +439,7 @@ define internal range(i32 -1, 1) i32 @local_init(ptr nocapture noundef %ctx, ptr
 entry:
   %stbuf.i = alloca %struct.statfs, align 8
   %call = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #18
-  %fs_root = getelementptr inbounds i8, ptr %ctx, i64 8
+  %fs_root = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %fs_root, align 8
   %call1 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 65536) #15
   store i32 %call1, ptr %call, align 4
@@ -469,7 +469,7 @@ if.end.i:                                         ; preds = %if.end
   ]
 
 sw.bb.i:                                          ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %exops.i = getelementptr inbounds i8, ptr %ctx, i64 32
+  %exops.i = getelementptr inbounds nuw i8, ptr %ctx, i64 32
   store ptr @local_ioc_getversion, ptr %exops.i, align 8
   br label %if.end10
 
@@ -485,7 +485,7 @@ if.then7:                                         ; preds = %if.end
 
 if.end10:                                         ; preds = %sw.bb.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %stbuf.i)
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %7 = load i32, ptr %export_flags, align 8
   %and = and i32 %7, 4
   %tobool.not = icmp eq i32 %and, 0
@@ -508,14 +508,14 @@ if.else23:                                        ; preds = %if.else17
 
 if.end32.sink.split:                              ; preds = %if.else23, %if.else17, %if.else, %if.end10
   %mapped_xattr_ops.sink = phi ptr [ @passthrough_xattr_ops, %if.end10 ], [ @mapped_xattr_ops, %if.else ], [ @none_xattr_ops, %if.else17 ], [ @passthrough_xattr_ops, %if.else23 ]
-  %xops16 = getelementptr inbounds i8, ptr %ctx, i64 24
+  %xops16 = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   store ptr %mapped_xattr_ops.sink, ptr %xops16, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.sink.split, %if.else23
   %or = or i32 %7, 2
   store i32 %or, ptr %export_flags, align 8
-  %private = getelementptr inbounds i8, ptr %ctx, i64 48
+  %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   store ptr %call, ptr %private, align 8
   br label %return
 
@@ -531,7 +531,7 @@ return:                                           ; preds = %err, %if.end32
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @local_cleanup(ptr nocapture noundef readonly %ctx) #0 {
 entry:
-  %private = getelementptr inbounds i8, ptr %ctx, i64 48
+  %private = getelementptr inbounds nuw i8, ptr %ctx, i64 48
   %0 = load ptr, ptr %private, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -554,7 +554,7 @@ entry:
   %tmp_gid = alloca i32, align 4
   %tmp_mode = alloca i32, align 4
   %tmp_dev = alloca i64, align 8
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
@@ -569,7 +569,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.end6, label %err_out
 
 if.end6:                                          ; preds = %if.end
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %2 = load i32, ptr %export_flags, align 8
   %and = and i32 %2, 8
   %tobool7.not = icmp eq i32 %and, 0
@@ -582,7 +582,7 @@ if.then8:                                         ; preds = %if.end6
 
 if.then11:                                        ; preds = %if.then8
   %3 = load i32, ptr %tmp_uid, align 4
-  %st_uid = getelementptr inbounds i8, ptr %stbuf, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %stbuf, i64 28
   store i32 %3, ptr %st_uid, align 4
   br label %if.end13
 
@@ -593,7 +593,7 @@ if.end13:                                         ; preds = %if.then11, %if.then
 
 if.then16:                                        ; preds = %if.end13
   %4 = load i32, ptr %tmp_gid, align 4
-  %st_gid = getelementptr inbounds i8, ptr %stbuf, i64 32
+  %st_gid = getelementptr inbounds nuw i8, ptr %stbuf, i64 32
   store i32 %4, ptr %st_gid, align 8
   br label %if.end18
 
@@ -604,7 +604,7 @@ if.end18:                                         ; preds = %if.then16, %if.end1
 
 if.then21:                                        ; preds = %if.end18
   %5 = load i32, ptr %tmp_mode, align 4
-  %st_mode = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   store i32 %5, ptr %st_mode, align 8
   br label %if.end23
 
@@ -615,7 +615,7 @@ if.end23:                                         ; preds = %if.then21, %if.end1
 
 if.then26:                                        ; preds = %if.end23
   %6 = load i64, ptr %tmp_dev, align 8
-  %st_rdev = getelementptr inbounds i8, ptr %stbuf, i64 40
+  %st_rdev = getelementptr inbounds nuw i8, ptr %stbuf, i64 40
   store i64 %6, ptr %st_rdev, align 8
   br label %err_out
 
@@ -631,7 +631,7 @@ if.then32:                                        ; preds = %if.else
   br i1 %.not.i, label %entry.tail.i, label %if.then.i
 
 entry.tail.i:                                     ; preds = %if.then32
-  %8 = getelementptr inbounds i8, ptr %call2, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %call2, i64 1
   %9 = load i8, ptr %8, align 1
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %if.else.i, label %if.then.i
@@ -686,12 +686,12 @@ if.end8.i:                                        ; preds = %if.end5.i, %if.end1
   br i1 %tobool11.not30.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end8.i
-  %add.ptr40.i = getelementptr inbounds i8, ptr %buf.i, i64 12
-  %st_rdev.i = getelementptr inbounds i8, ptr %stbuf, i64 40
-  %st_mode.i = getelementptr inbounds i8, ptr %stbuf, i64 24
-  %add.ptr24.i = getelementptr inbounds i8, ptr %buf.i, i64 11
-  %st_gid.i = getelementptr inbounds i8, ptr %stbuf, i64 32
-  %st_uid.i = getelementptr inbounds i8, ptr %stbuf, i64 28
+  %add.ptr40.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 12
+  %st_rdev.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 40
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
+  %add.ptr24.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 11
+  %st_gid.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 32
+  %st_uid.i = getelementptr inbounds nuw i8, ptr %stbuf, i64 28
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end45.i, %while.body.lr.ph.i
@@ -766,14 +766,14 @@ out:                                              ; preds = %entry, %err_out
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @local_readlink(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %fs_path, ptr noundef %buf, i64 noundef %bufsz) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %1 = and i32 %0, 40
   %or.cond = icmp eq i32 %1, 0
   br i1 %or.cond, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %2 = load ptr, ptr %data, align 8
   %call = tail call i32 @local_open_nofollow(ptr noundef nonnull %fs_ctx, ptr noundef %2, i32 noundef 0, i32 noundef 0)
   %cmp = icmp eq i32 %call, -1
@@ -802,7 +802,7 @@ if.else:                                          ; preds = %entry
   br i1 %or.cond17, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  %data17 = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data17 = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %6 = load ptr, ptr %data17, align 8
   %call18 = tail call noalias ptr @g_path_get_dirname(ptr noundef %6) #15
   %7 = load ptr, ptr %data17, align 8
@@ -833,7 +833,7 @@ return:                                           ; preds = %do.end, %out, %if.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_chmod(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef readonly %credp) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
@@ -843,7 +843,7 @@ entry:
   br i1 %cmp, label %out, label %if.end
 
 if.end:                                           ; preds = %entry
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %2 = load i32, ptr %export_flags, align 8
   %and = and i32 %2, 8
   %tobool.not = icmp eq i32 %and, 0
@@ -868,7 +868,7 @@ if.else11:                                        ; preds = %if.else
   br i1 %or.cond, label %if.end22, label %if.then18
 
 if.then18:                                        ; preds = %if.else11
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %4 = load i32, ptr %fc_mode, align 8
   %call19 = tail call fastcc i32 @fchmodat_nofollow(i32 noundef %call.i, ptr noundef %call2, i32 noundef %4)
   br label %if.end22
@@ -891,7 +891,7 @@ out:                                              ; preds = %entry, %if.end22
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_chown(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef readonly %credp) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
@@ -906,20 +906,20 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %land.lhs.true, label %lor.lhs.false
 
 land.lhs.true:                                    ; preds = %if.end
-  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %3 = load i32, ptr %fc_gid, align 4
   %cmp5 = icmp eq i32 %3, -1
   br i1 %cmp5, label %if.then10, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %land.lhs.true, %if.end
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %4 = load i32, ptr %export_flags, align 8
   %5 = and i32 %4, 20
   %or.cond = icmp eq i32 %5, 0
   br i1 %or.cond, label %if.else, label %lor.lhs.false.if.then10_crit_edge
 
 lor.lhs.false.if.then10_crit_edge:                ; preds = %lor.lhs.false
-  %fc_gid12.phi.trans.insert = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid12.phi.trans.insert = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %.pre = load i32, ptr %fc_gid12.phi.trans.insert, align 4
   br label %if.then10
 
@@ -964,7 +964,7 @@ out:                                              ; preds = %entry, %if.end27
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_mknod(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef readonly %credp) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -986,7 +986,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
   br label %return
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
-  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i32 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i32, -1
@@ -999,7 +999,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %if.else26, label %if.then11
 
 if.then11:                                        ; preds = %if.end4
-  %fmode = getelementptr inbounds i8, ptr %fs_ctx, i64 56
+  %fmode = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 56
   %4 = load i32, ptr %fmode, align 8
   %or = or i32 %4, 32768
   %call12 = tail call i32 @qemu_mknodat(i32 noundef %call.i32, ptr noundef %name, i32 noundef %or, i64 noundef 0) #15
@@ -1031,9 +1031,9 @@ if.else26:                                        ; preds = %if.end4
   br i1 %or.cond31, label %out, label %if.then34
 
 if.then34:                                        ; preds = %if.else26
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %7 = load i32, ptr %fc_mode, align 8
-  %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
+  %fc_rdev = getelementptr inbounds nuw i8, ptr %credp, i64 16
   %8 = load i64, ptr %fc_rdev, align 8
   %call35 = tail call i32 @qemu_mknodat(i32 noundef %call.i32, ptr noundef %name, i32 noundef %7, i64 noundef %8) #15
   %cmp36 = icmp eq i32 %call35, -1
@@ -1041,7 +1041,7 @@ if.then34:                                        ; preds = %if.else26
 
 if.end38:                                         ; preds = %if.then34
   %9 = load i32, ptr %credp, align 8
-  %fc_gid.i = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid.i = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %10 = load i32, ptr %fc_gid.i, align 4
   %call.i33 = tail call i32 @fchownat(i32 noundef range(i32 0, -1) %call.i32, ptr noundef %name, i32 noundef %9, i32 noundef %10, i32 noundef 256) #15
   %cmp.i = icmp slt i32 %call.i33, 0
@@ -1083,7 +1083,7 @@ return:                                           ; preds = %if.end, %out, %if.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_utimensat(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %fs_path, ptr noundef %buf) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
@@ -1123,7 +1123,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4, label %err_out, label %if.end6
 
 if.end6:                                          ; preds = %if.end
-  %st_mode = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp7 = icmp eq i32 %and, 16384
@@ -1151,7 +1151,7 @@ out:                                              ; preds = %entry, %err_out
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_symlink(ptr nocapture noundef readonly %fs_ctx, ptr noundef %oldpath, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef %credp) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -1173,7 +1173,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
   br label %return
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
-  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i38 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i38, -1
@@ -1186,7 +1186,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %if.else35, label %if.then11
 
 if.then11:                                        ; preds = %if.end4
-  %fmode = getelementptr inbounds i8, ptr %fs_ctx, i64 56
+  %fmode = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 56
   %4 = load i32, ptr %fmode, align 8
   %call12 = tail call fastcc i32 @openat_file(i32 noundef %call.i38, ptr noundef %name, i32 noundef 194, i32 noundef %4)
   %cmp13 = icmp eq i32 %call12, -1
@@ -1215,7 +1215,7 @@ do.end:                                           ; preds = %land.rhs, %do.body
   br i1 %cmp21.not, label %if.end23, label %err_end
 
 if.end23:                                         ; preds = %do.end
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %7 = load i32, ptr %fc_mode, align 8
   %or = or i32 %7, 40960
   store i32 %or, ptr %fc_mode, align 8
@@ -1249,7 +1249,7 @@ if.then43:                                        ; preds = %if.else35
 
 if.end47:                                         ; preds = %if.then43
   %10 = load i32, ptr %credp, align 8
-  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %11 = load i32, ptr %fc_gid, align 4
   %call48 = tail call i32 @fchownat(i32 noundef %call.i38, ptr noundef %name, i32 noundef %10, i32 noundef %11, i32 noundef 256) #15
   %cmp49 = icmp eq i32 %call48, -1
@@ -1288,12 +1288,12 @@ return:                                           ; preds = %if.end, %out, %if.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_link(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %oldpath, ptr nocapture noundef readonly %dirpath, ptr noundef %name) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %oldpath, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %oldpath, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call noalias ptr @g_path_get_dirname(ptr noundef %0) #15
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call noalias ptr @g_path_get_basename(ptr noundef %1) #15
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %2 = load i32, ptr %export_flags, align 8
   %and = and i32 %2, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -1320,7 +1320,7 @@ if.end:                                           ; preds = %local_is_mapped_fil
   br i1 %cmp, label %out, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %data8 = getelementptr inbounds i8, ptr %dirpath, i64 8
+  %data8 = getelementptr inbounds nuw i8, ptr %dirpath, i64 8
   %3 = load ptr, ptr %data8, align 8
   %call.i30 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %3, i32 noundef 65536, i32 noundef 0)
   %cmp10 = icmp eq i32 %call.i30, -1
@@ -1433,7 +1433,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 1) i32 @local_opendir(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly %fs) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %ctx, ptr noundef %0, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i, -1
@@ -1460,7 +1460,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_open(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %fs_path, i32 noundef %flags, ptr nocapture noundef writeonly %fs) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @local_open_nofollow(ptr noundef %ctx, ptr noundef %0, i32 noundef %flags, i32 noundef 0)
   %cmp = icmp eq i32 %call, -1
@@ -1477,7 +1477,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @local_open2(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, i32 noundef %flags, ptr nocapture noundef %credp, ptr nocapture noundef writeonly %fs) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -1500,7 +1500,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
   %or = or i32 %flags, 131072
-  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i38 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i38, -1
@@ -1513,14 +1513,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %if.else28, label %if.then11
 
 if.then11:                                        ; preds = %if.end4
-  %fmode = getelementptr inbounds i8, ptr %fs_ctx, i64 56
+  %fmode = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 56
   %4 = load i32, ptr %fmode, align 8
   %call12 = tail call fastcc i32 @openat_file(i32 noundef %call.i38, ptr noundef %name, i32 noundef %or, i32 noundef %4)
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %out, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %5 = load i32, ptr %fc_mode, align 8
   %or16 = or i32 %5, 32768
   store i32 %or16, ptr %fc_mode, align 8
@@ -1548,7 +1548,7 @@ if.else28:                                        ; preds = %if.end4
   br i1 %or.cond37, label %if.end47, label %if.then36
 
 if.then36:                                        ; preds = %if.else28
-  %fc_mode37 = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode37 = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %8 = load i32, ptr %fc_mode37, align 8
   %call38 = tail call fastcc i32 @openat_file(i32 noundef %call.i38, ptr noundef %name, i32 noundef %or, i32 noundef %8)
   %cmp39 = icmp eq i32 %call38, -1
@@ -1556,7 +1556,7 @@ if.then36:                                        ; preds = %if.else28
 
 if.end41:                                         ; preds = %if.then36
   %9 = load i32, ptr %credp, align 8
-  %fc_gid.i = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid.i = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %10 = load i32, ptr %fc_gid.i, align 4
   %call.i39 = tail call i32 @fchownat(i32 noundef range(i32 0, -1) %call.i38, ptr noundef %name, i32 noundef %9, i32 noundef %10, i32 noundef 256) #15
   %cmp.i = icmp slt i32 %call.i39, 0
@@ -1630,7 +1630,7 @@ entry:
   br i1 %tobool.not11, label %return, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %again.backedge
@@ -1646,7 +1646,7 @@ if.else:                                          ; preds = %if.end
   br i1 %tobool6.not, label %return, label %if.then7
 
 if.then7:                                         ; preds = %if.else
-  %d_name = getelementptr inbounds i8, ptr %call12, i64 19
+  %d_name = getelementptr inbounds nuw i8, ptr %call12, i64 19
   %call.i = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %d_name, ptr noundef nonnull dereferenceable(17) @.str.35) #16
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %again.backedge, label %lor.rhs.i
@@ -1663,7 +1663,7 @@ again.backedge:                                   ; preds = %lor.rhs.i, %if.then
   br i1 %tobool.not, label %return, label %if.end
 
 return.sink.split:                                ; preds = %lor.rhs.i, %if.end
-  %d_type = getelementptr inbounds i8, ptr %call12, i64 18
+  %d_type = getelementptr inbounds nuw i8, ptr %call12, i64 18
   store i8 0, ptr %d_type, align 2
   br label %return
 
@@ -1697,7 +1697,7 @@ entry:
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %1 = load i32, ptr %export_flags, align 8
   %and = and i32 %1, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -1715,7 +1715,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_mkdir(ptr nocapture noundef readonly %fs_ctx, ptr nocapture noundef readonly %dir_path, ptr noundef %name, ptr nocapture noundef %credp) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -1737,7 +1737,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
   br label %return
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
-  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i33 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %fs_ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i33, -1
@@ -1750,14 +1750,14 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %if.else27, label %if.then11
 
 if.then11:                                        ; preds = %if.end4
-  %dmode = getelementptr inbounds i8, ptr %fs_ctx, i64 60
+  %dmode = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 60
   %4 = load i32, ptr %dmode, align 4
   %call12 = tail call i32 @mkdirat(i32 noundef %call.i33, ptr noundef %name, i32 noundef %4) #15
   %cmp13 = icmp eq i32 %call12, -1
   br i1 %cmp13, label %out, label %if.end15
 
 if.end15:                                         ; preds = %if.then11
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %5 = load i32, ptr %fc_mode, align 8
   %or = or i32 %5, 16384
   store i32 %or, ptr %fc_mode, align 8
@@ -1785,7 +1785,7 @@ if.else27:                                        ; preds = %if.end4
   br i1 %or.cond32, label %out, label %if.then35
 
 if.then35:                                        ; preds = %if.else27
-  %fc_mode36 = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode36 = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %8 = load i32, ptr %fc_mode36, align 8
   %call37 = tail call i32 @mkdirat(i32 noundef %call.i33, ptr noundef %name, i32 noundef %8) #15
   %cmp38 = icmp eq i32 %call37, -1
@@ -1793,7 +1793,7 @@ if.then35:                                        ; preds = %if.else27
 
 if.end40:                                         ; preds = %if.then35
   %9 = load i32, ptr %credp, align 8
-  %fc_gid.i = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid.i = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %10 = load i32, ptr %fc_gid.i, align 4
   %call.i34 = tail call i32 @fchownat(i32 noundef range(i32 0, -1) %call.i33, ptr noundef %name, i32 noundef %9, i32 noundef %10, i32 noundef 256) #15
   %cmp.i = icmp slt i32 %call.i34, 0
@@ -1858,7 +1858,7 @@ if.end:                                           ; preds = %if.else, %if.then
   br i1 %tobool.not, label %if.end3, label %return
 
 if.end3:                                          ; preds = %if.end
-  %export_flags = getelementptr inbounds i8, ptr %fs_ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %fs_ctx, i64 16
   %2 = load i32, ptr %export_flags, align 8
   %and = and i32 %2, 8
   %tobool4.not = icmp eq i32 %and, 0
@@ -1871,7 +1871,7 @@ if.then5:                                         ; preds = %if.end3
 
 if.then8:                                         ; preds = %if.then5
   %3 = load i32, ptr %tmp_uid, align 4
-  %st_uid = getelementptr inbounds i8, ptr %stbuf, i64 28
+  %st_uid = getelementptr inbounds nuw i8, ptr %stbuf, i64 28
   store i32 %3, ptr %st_uid, align 4
   br label %if.end10
 
@@ -1882,7 +1882,7 @@ if.end10:                                         ; preds = %if.then8, %if.then5
 
 if.then13:                                        ; preds = %if.end10
   %4 = load i32, ptr %tmp_gid, align 4
-  %st_gid = getelementptr inbounds i8, ptr %stbuf, i64 32
+  %st_gid = getelementptr inbounds nuw i8, ptr %stbuf, i64 32
   store i32 %4, ptr %st_gid, align 8
   br label %if.end15
 
@@ -1893,7 +1893,7 @@ if.end15:                                         ; preds = %if.then13, %if.end1
 
 if.then18:                                        ; preds = %if.end15
   %5 = load i32, ptr %tmp_mode, align 4
-  %st_mode = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   store i32 %5, ptr %st_mode, align 8
   br label %if.end20
 
@@ -1904,7 +1904,7 @@ if.end20:                                         ; preds = %if.then18, %if.end1
 
 if.then23:                                        ; preds = %if.end20
   %6 = load i64, ptr %tmp_dev, align 8
-  %st_rdev = getelementptr inbounds i8, ptr %stbuf, i64 40
+  %st_rdev = getelementptr inbounds nuw i8, ptr %stbuf, i64 40
   store i64 %6, ptr %st_rdev, align 8
   br label %return
 
@@ -1931,14 +1931,14 @@ entry:
   %call = tail call noalias ptr @g_path_get_basename(ptr noundef %oldpath) #15
   %call1 = tail call noalias ptr @g_path_get_basename(ptr noundef %newpath) #15
   %call.i = tail call noalias ptr @g_path_get_dirname(ptr noundef %oldpath) #15
-  %data.i = getelementptr inbounds i8, ptr %olddir, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %olddir, i64 8
   store ptr %call.i, ptr %data.i, align 8
   %call2.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #16
   %0 = trunc i64 %call2.i to i16
   %conv.i = add i16 %0, 1
   store i16 %conv.i, ptr %olddir, align 8
   %call.i5 = tail call noalias ptr @g_path_get_dirname(ptr noundef %newpath) #15
-  %data.i6 = getelementptr inbounds i8, ptr %newdir, i64 8
+  %data.i6 = getelementptr inbounds nuw i8, ptr %newdir, i64 8
   store ptr %call.i5, ptr %data.i6, align 8
   %call2.i7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i5) #16
   %1 = trunc i64 %call2.i7 to i16
@@ -1955,7 +1955,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_truncate(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %fs_path, i64 noundef %size) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @local_open_nofollow(ptr noundef %ctx, ptr noundef %0, i32 noundef 1, i32 noundef 0)
   %cmp = icmp eq i32 %call, -1
@@ -2010,7 +2010,7 @@ return:                                           ; preds = %if.else3, %if.then1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_statfs(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %fs_path, ptr noundef %stbuf) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @local_open_nofollow(ptr noundef %s, ptr noundef %0, i32 noundef 0, i32 noundef 0)
   %cmp = icmp eq i32 %call, -1
@@ -2032,7 +2032,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @local_lgetxattr(ptr noundef %ctx, ptr nocapture noundef readonly %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i64 @v9fs_get_xattr(ptr noundef %ctx, ptr noundef %0, ptr noundef %name, ptr noundef %value, i64 noundef %size) #15
   ret i64 %call
@@ -2041,7 +2041,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @local_llistxattr(ptr noundef %ctx, ptr nocapture noundef readonly %fs_path, ptr noundef %value, i64 noundef %size) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i64 @v9fs_list_xattr(ptr noundef %ctx, ptr noundef %0, ptr noundef %value, i64 noundef %size) #15
   ret i64 %call
@@ -2050,7 +2050,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_lsetxattr(ptr noundef %ctx, ptr nocapture noundef readonly %fs_path, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @v9fs_set_xattr(ptr noundef %ctx, ptr noundef %0, ptr noundef %name, ptr noundef %value, i64 noundef %size, i32 noundef %flags) #15
   ret i32 %call
@@ -2059,7 +2059,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_lremovexattr(ptr noundef %ctx, ptr nocapture noundef readonly %fs_path, ptr noundef %name) #0 {
 entry:
-  %data = getelementptr inbounds i8, ptr %fs_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
   %call = tail call i32 @v9fs_remove_xattr(ptr noundef %ctx, ptr noundef %0, ptr noundef %name) #15
   ret i32 %call
@@ -2068,7 +2068,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -1, 1) i32 @local_name_to_path(ptr nocapture noundef readonly %ctx, ptr noundef %dir_path, ptr noundef %name, ptr noundef %target) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -2099,7 +2099,7 @@ sub_0:                                            ; preds = %if.end
   br i1 %.not, label %if.then3.tail, label %if.else17
 
 if.then3.tail:                                    ; preds = %sub_0
-  %2 = getelementptr inbounds i8, ptr %name, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %name, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %if.then6, label %sub_122
@@ -2109,26 +2109,26 @@ if.then6:                                         ; preds = %if.then3.tail
   br label %return
 
 sub_122:                                          ; preds = %if.then3.tail
-  %5 = getelementptr inbounds i8, ptr %name, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %name, i64 1
   %6 = load i8, ptr %5, align 1
   %.not38 = icmp eq i8 %6, 46
   br i1 %.not38, label %if.else.tail, label %if.else17
 
 if.else.tail:                                     ; preds = %sub_122
-  %7 = getelementptr inbounds i8, ptr %name, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %name, i64 2
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %if.then9, label %if.else17
 
 if.then9:                                         ; preds = %if.else.tail
-  %data = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   %10 = load ptr, ptr %data, align 8
   %11 = load i8, ptr %10, align 1
   %.not39 = icmp eq i8 %11, 46
   br i1 %.not39, label %if.then9.tail, label %if.else13
 
 if.then9.tail:                                    ; preds = %if.then9
-  %12 = getelementptr inbounds i8, ptr %10, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %if.then12, label %if.else13
@@ -2153,7 +2153,7 @@ if.else21:                                        ; preds = %if.else17
   unreachable
 
 if.end22:                                         ; preds = %if.else17
-  %data23 = getelementptr inbounds i8, ptr %dir_path, i64 8
+  %data23 = getelementptr inbounds nuw i8, ptr %dir_path, i64 8
   %15 = load ptr, ptr %data23, align 8
   tail call void (ptr, ptr, ...) @v9fs_path_sprintf(ptr noundef %target, ptr noundef nonnull @.str.53, ptr noundef %15, ptr noundef nonnull %name) #15
   br label %return
@@ -2165,25 +2165,25 @@ sub_027:                                          ; preds = %if.end
   ]
 
 if.else26.tail:                                   ; preds = %sub_027
-  %16 = getelementptr inbounds i8, ptr %name, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %name, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %if.then34, label %if.else35
 
 lor.lhs.false.tail:                               ; preds = %sub_027
-  %19 = getelementptr inbounds i8, ptr %name, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %name, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   br i1 %21, label %if.then34, label %sub_134
 
 sub_134:                                          ; preds = %lor.lhs.false.tail
-  %22 = getelementptr inbounds i8, ptr %name, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %name, i64 1
   %23 = load i8, ptr %22, align 1
   %.not43 = icmp eq i8 %23, 46
   br i1 %.not43, label %lor.lhs.false31.tail, label %if.else35
 
 lor.lhs.false31.tail:                             ; preds = %sub_134
-  %24 = getelementptr inbounds i8, ptr %name, i64 2
+  %24 = getelementptr inbounds nuw i8, ptr %name, i64 2
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %if.then34, label %if.else35
@@ -2213,7 +2213,7 @@ return:                                           ; preds = %if.end22, %if.else1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_renameat(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %olddir, ptr noundef %old_name, ptr nocapture noundef readonly %newdir, ptr noundef %new_name) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -2245,14 +2245,14 @@ if.then:                                          ; preds = %lor.lhs.false, %lan
   br label %return
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit35, %entry
-  %data = getelementptr inbounds i8, ptr %olddir, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %olddir, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i36 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i36, -1
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %data6 = getelementptr inbounds i8, ptr %newdir, i64 8
+  %data6 = getelementptr inbounds nuw i8, ptr %newdir, i64 8
   %2 = load ptr, ptr %data6, align 8
   %call.i37 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %2, i32 noundef 65536, i32 noundef 0)
   %cmp8 = icmp eq i32 %call.i37, -1
@@ -2347,7 +2347,7 @@ return:                                           ; preds = %if.end, %out, %if.t
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @local_unlinkat(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %dir, ptr noundef %name, i32 noundef %flags) #0 {
 entry:
-  %export_flags = getelementptr inbounds i8, ptr %ctx, i64 16
+  %export_flags = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load i32, ptr %export_flags, align 8
   %and = and i32 %0, 32
   %tobool.not = icmp eq i32 %and, 0
@@ -2369,7 +2369,7 @@ if.then:                                          ; preds = %land.lhs.true, %loc
   br label %return
 
 if.end:                                           ; preds = %local_is_mapped_file_metadata.exit, %entry
-  %data = getelementptr inbounds i8, ptr %dir, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %dir, i64 8
   %1 = load ptr, ptr %data, align 8
   %call.i7 = tail call i32 @local_open_nofollow(ptr noundef nonnull readonly %ctx, ptr noundef %1, i32 noundef 65536, i32 noundef 0)
   %cmp = icmp eq i32 %call.i7, -1
@@ -2452,7 +2452,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry, %entry
-  %data.i = getelementptr inbounds i8, ptr %path, i64 8
+  %data.i = getelementptr inbounds nuw i8, ptr %path, i64 8
   %1 = load ptr, ptr %data.i, align 8
   %call.i = tail call i32 @local_open_nofollow(ptr noundef readonly %ctx, ptr noundef %1, i32 noundef 0, i32 noundef 0)
   %cmp4 = icmp slt i32 %call.i, 0
@@ -2519,7 +2519,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.then, %entry
-  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %1 = load i32, ptr %fc_gid, align 4
   %cmp5.not = icmp eq i32 %1, -1
   br i1 %cmp5.not, label %if.end13, label %if.then6
@@ -2531,7 +2531,7 @@ if.then6:                                         ; preds = %if.end4
   br i1 %tobool10.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %if.then6, %if.end4
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %2 = load i32, ptr %fc_mode, align 8
   %cmp14.not = icmp eq i32 %2, -1
   br i1 %cmp14.not, label %if.end22, label %if.then15
@@ -2543,7 +2543,7 @@ if.then15:                                        ; preds = %if.end13
   br i1 %tobool19.not, label %if.end22, label %return
 
 if.end22:                                         ; preds = %if.then15, %if.end13
-  %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
+  %fc_rdev = getelementptr inbounds nuw i8, ptr %credp, i64 16
   %3 = load i64, ptr %fc_rdev, align 8
   %cmp23.not = icmp eq i64 %3, -1
   br i1 %cmp23.not, label %if.end31, label %if.then24
@@ -2571,7 +2571,7 @@ entry:
   br i1 %.not, label %entry.tail, label %if.else7
 
 entry.tail:                                       ; preds = %entry
-  %1 = getelementptr inbounds i8, ptr %name, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %name, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.then, label %if.else7
@@ -2647,8 +2647,8 @@ if.end26:                                         ; preds = %if.end12.i43, %if.e
   br i1 %tobool29.not117, label %update_map_file, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end26
-  %add.ptr58 = getelementptr inbounds i8, ptr %buf, i64 12
-  %add.ptr42 = getelementptr inbounds i8, ptr %buf, i64 11
+  %add.ptr58 = getelementptr inbounds nuw i8, ptr %buf, i64 12
+  %add.ptr42 = getelementptr inbounds nuw i8, ptr %buf, i64 11
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end63
@@ -2789,15 +2789,15 @@ if.end87:                                         ; preds = %if.end82
   %8 = load i32, ptr %credp, align 8
   %cmp88.not = icmp eq i32 %8, -1
   %spec.select = select i1 %cmp88.not, i32 %uid.079114, i32 %8
-  %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
+  %fc_gid = getelementptr inbounds nuw i8, ptr %credp, i64 4
   %9 = load i32, ptr %fc_gid, align 4
   %cmp92.not = icmp eq i32 %9, -1
   %gid.3 = select i1 %cmp92.not, i32 %gid.081113, i32 %9
-  %fc_mode = getelementptr inbounds i8, ptr %credp, i64 8
+  %fc_mode = getelementptr inbounds nuw i8, ptr %credp, i64 8
   %10 = load i32, ptr %fc_mode, align 8
   %cmp96.not = icmp eq i32 %10, -1
   %mode.3 = select i1 %cmp96.not, i32 %mode.083112, i32 %10
-  %fc_rdev = getelementptr inbounds i8, ptr %credp, i64 16
+  %fc_rdev = getelementptr inbounds nuw i8, ptr %credp, i64 16
   %11 = load i64, ptr %fc_rdev, align 8
   %cmp100.not = icmp eq i64 %11, -1
   %conv = trunc i64 %11 to i32
@@ -2851,7 +2851,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %st_mode = getelementptr inbounds i8, ptr %stbuf, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %stbuf, i64 24
   %0 = load i32, ptr %st_mode, align 8
   %and = and i32 %0, 61440
   %cmp = icmp eq i32 %and, 40960

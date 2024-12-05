@@ -371,7 +371,7 @@ define internal i32 @dissect_rsvd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %18 = load i32, ptr %3, align 4
   store ptr %2, ptr @top_tree, align 8
   %19 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.163) #5
   %22 = load ptr, ptr %20, align 8
@@ -470,9 +470,9 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %51, %52
   %77 = call ptr @wmem_file_scope() #5
   %78 = call noalias ptr @wmem_tree_new(ptr noundef %77) #5
   %79 = load ptr, ptr @rsvd_conv_data, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %78, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 24
   store ptr %68, ptr %81, align 8
   %82 = load i32, ptr @proto_rsvd, align 4
   call void @conversation_add_proto_data(ptr noundef nonnull %68, i32 noundef %82, ptr noundef %79) #5
@@ -481,16 +481,16 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %51, %52
 
 83:                                               ; preds = %71, %67
   %84 = phi ptr [ %.pre.i, %71 ], [ %70, %67 ]
-  %85 = getelementptr inbounds i8, ptr %84, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr null, ptr %85, align 8
   %86 = load ptr, ptr %84, align 8
   %87 = call ptr @wmem_map_lookup(ptr noundef %86, ptr noundef nonnull %13) #5
   %88 = load ptr, ptr @rsvd_conv_data, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %87, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %1, i64 80
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 50
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 50
   %93 = load i16, ptr %92, align 2
   %94 = and i16 %93, 8
   %.not177.i = icmp eq i16 %94, 0
@@ -508,62 +508,62 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %51, %52
   %101 = call ptr @wmem_file_scope() #5
   %102 = call noalias ptr @wmem_alloc0(ptr noundef %101, i64 noundef 16) #5
   %103 = load ptr, ptr @rsvd_conv_data, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %102, ptr %104, align 8
   %105 = call ptr @wmem_file_scope() #5
   %106 = call noalias ptr @wmem_alloc0(ptr noundef %105, i64 noundef 72) #5
   %107 = load ptr, ptr @rsvd_conv_data, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %106, ptr %110, align 8
   %111 = load ptr, ptr %108, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store i16 -1, ptr %114, align 8
   %115 = load ptr, ptr %108, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 10
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 10
   store i16 -1, ptr %118, align 2
   %119 = load ptr, ptr %108, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 32
-  %123 = getelementptr inbounds i8, ptr %1, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull align 8 dereferenceable(16) %123, i64 16, i1 false)
   %124 = load ptr, ptr %107, align 8
   %125 = load ptr, ptr %108, align 8
   %126 = call ptr @wmem_map_insert(ptr noundef %124, ptr noundef nonnull %99, ptr noundef %125) #5
   %.pre = load ptr, ptr @rsvd_conv_data, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre146 = load ptr, ptr %.phi.trans.insert, align 8
   br label %127
 
 127:                                              ; preds = %97, %95
   %128 = phi ptr [ %.pre146, %97 ], [ %87, %95 ]
   %129 = phi ptr [ %.pre, %97 ], [ %88, %95 ]
-  %130 = getelementptr inbounds i8, ptr %1, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds i8, ptr %129, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 16
   br i1 %.not, label %137, label %133
 
 133:                                              ; preds = %127
   store i32 %131, ptr %128, align 8
   %134 = load ptr, ptr %132, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
   store i32 %131, ptr %136, align 8
   br label %143
 
 137:                                              ; preds = %127
-  %138 = getelementptr inbounds i8, ptr %128, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store i32 %131, ptr %138, align 4
   %139 = load ptr, ptr %132, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
   store i32 %131, ptr %142, align 4
   br label %143
 
@@ -626,22 +626,22 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %51, %52
 
 187:                                              ; preds = %184, %180
   %188 = load ptr, ptr @rsvd_conv_data, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 16
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %190 = load ptr, ptr %189, align 8
   %.not184.i = icmp eq ptr %190, null
   br i1 %.not184.i, label %213, label %191
 
 191:                                              ; preds = %187
-  %192 = getelementptr inbounds i8, ptr %190, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %193 = load ptr, ptr %192, align 8
   %.not185.i = icmp eq ptr %193, null
   br i1 %.not185.i, label %213, label %194
 
 194:                                              ; preds = %191
   %195 = load ptr, ptr @top_tree, align 8
-  %196 = getelementptr inbounds i8, ptr %188, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %197 = load ptr, ptr %196, align 8
-  %198 = getelementptr inbounds i8, ptr %1, i64 20
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %199 = load i32, ptr %198, align 4
   %200 = call ptr @wmem_tree_lookup32_le(ptr noundef %197, i32 noundef %199) #5
   %.not.i.i = icmp eq ptr %200, null
@@ -652,11 +652,11 @@ dissect_RSVD_GET_INITIAL_INFO.exit:               ; preds = %51, %52
   %203 = call noalias ptr @wmem_alloc(ptr noundef %202, i64 noundef 16) #5
   store i8 -1, ptr %203, align 8
   %204 = load ptr, ptr @rsvd_conv_data, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 24
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %203, i64 8
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store ptr %206, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %204, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = load i32, ptr %198, align 4
   call void @wmem_tree_insert32(ptr noundef %209, i32 noundef %210, ptr noundef nonnull %203) #5
@@ -729,22 +729,22 @@ get_itl_nexus.exit.i:                             ; preds = %201, %194
 253:                                              ; preds = %251, %215
   %.2.i = phi i32 [ %252, %251 ], [ %245, %215 ]
   %254 = load ptr, ptr @rsvd_conv_data, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   %.not181.i = icmp eq ptr %256, null
   br i1 %.not181.i, label %dissect_RSVD_TUNNEL_SCSI.exit, label %257
 
 257:                                              ; preds = %253
-  %258 = getelementptr inbounds i8, ptr %256, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %259 = load ptr, ptr %258, align 8
   %.not182.i = icmp eq ptr %259, null
   br i1 %.not182.i, label %dissect_RSVD_TUNNEL_SCSI.exit, label %260
 
 260:                                              ; preds = %257
   %261 = load ptr, ptr @top_tree, align 8
-  %262 = getelementptr inbounds i8, ptr %254, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %263 = load ptr, ptr %262, align 8
-  %264 = getelementptr inbounds i8, ptr %1, i64 20
+  %264 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %265 = load i32, ptr %264, align 4
   %266 = call ptr @wmem_tree_lookup32_le(ptr noundef %263, i32 noundef %265) #5
   %.not.i186.i = icmp eq ptr %266, null
@@ -755,11 +755,11 @@ get_itl_nexus.exit.i:                             ; preds = %201, %194
   %269 = call noalias ptr @wmem_alloc(ptr noundef %268, i64 noundef 16) #5
   store i8 -1, ptr %269, align 8
   %270 = load ptr, ptr @rsvd_conv_data, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 24
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %269, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %269, i64 8
   store ptr %272, ptr %273, align 8
-  %274 = getelementptr inbounds i8, ptr %270, i64 8
+  %274 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %275 = load ptr, ptr %274, align 8
   %276 = load i32, ptr %264, align 4
   call void @wmem_tree_insert32(ptr noundef %275, i32 noundef %276, ptr noundef nonnull %269) #5
@@ -1179,37 +1179,37 @@ define internal fastcc void @dissect_scsi_payload_databuffer(ptr noundef %0, ptr
   %.0 = tail call i32 @llvm.smin.i32(i32 %7, i32 %3)
   %8 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %2, i32 noundef %spec.select, i32 noundef %.0) #5
   %9 = load ptr, ptr @rsvd_conv_data, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %44, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not25 = icmp eq ptr %14, null
   br i1 %.not25, label %44, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 14
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 14
   store i16 3, ptr %16, align 2
   %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store i32 %3, ptr %20, align 8
   %21 = load ptr, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store i32 %3, ptr %24, align 4
   %25 = load ptr, ptr @top_tree, align 8
   %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %9, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = tail call ptr @wmem_tree_lookup32_le(ptr noundef %30, i32 noundef %32) #5
   %.not.i = icmp eq ptr %33, null
@@ -1220,11 +1220,11 @@ define internal fastcc void @dissect_scsi_payload_databuffer(ptr noundef %0, ptr
   %36 = tail call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 16) #5
   store i8 -1, ptr %36, align 8
   %37 = load ptr, ptr @rsvd_conv_data, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = load i32, ptr %31, align 4
   tail call void @wmem_tree_insert32(ptr noundef %42, i32 noundef %43, ptr noundef nonnull %36) #5

@@ -36,8 +36,8 @@ define dso_local range(i32 -2147483648, 1) i32 @virtio_gpu_resource_id_get(ptr n
   br label %14
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 62024
-  %10 = tail call i32 @ida_alloc_range(ptr noundef %9, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 62024
+  %10 = tail call i32 @ida_alloc_range(ptr noundef nonnull %9, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #6
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %16
 
@@ -57,24 +57,24 @@ define dso_local range(i32 -2147483648, 1) i32 @virtio_gpu_resource_id_get(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @virtio_gpu_cleanup_object(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr @virtio_gpu_virglrenderer_workaround, align 4
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 62024
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 62024
   %12 = add i32 %10, -1
-  tail call void @ida_free(ptr noundef %11, i32 noundef %12) #6
+  tail call void @ida_free(ptr noundef nonnull %11, i32 noundef %12) #6
   br label %13
 
 13:                                               ; preds = %8, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, @virtio_gpu_shmem_funcs
   br i1 %16, label %17, label %18
@@ -88,21 +88,21 @@ define dso_local void @virtio_gpu_cleanup_object(ptr noundef %0) local_unnamed_a
   br i1 %19, label %20, label %29
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %5, i64 62532
-  tail call void @_raw_spin_lock(ptr noundef %21) #6
-  %22 = getelementptr inbounds i8, ptr %0, i64 616
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 62532
+  tail call void @_raw_spin_lock(ptr noundef nonnull %21) #6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %23 = load volatile i64, ptr %22, align 8
   %24 = and i64 %23, 1
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %28, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 456
-  tail call void @drm_mm_remove_node(ptr noundef %27) #6
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  tail call void @drm_mm_remove_node(ptr noundef nonnull %27) #6
   br label %28
 
 28:                                               ; preds = %26, %20
-  tail call void @_raw_spin_unlock(ptr noundef %21) #6
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %21) #6
   tail call void @drm_gem_free_mmap_offset(ptr noundef %0) #6
   tail call void @drm_gem_object_release(ptr noundef %0) #6
   tail call void @kfree(ptr noundef %0) #6
@@ -114,7 +114,7 @@ define dso_local void @virtio_gpu_cleanup_object(ptr noundef %0) local_unnamed_a
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
 define dso_local zeroext i1 @virtio_gpu_is_shmem(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 320
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @virtio_gpu_shmem_funcs
   ret i1 %4
@@ -146,7 +146,7 @@ define dso_local noundef ptr @virtio_gpu_create_object(ptr nocapture noundef rea
   br i1 %5, label %8, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %4, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 320
   store ptr @virtio_gpu_shmem_funcs, ptr %7, align 8
   br label %8
 
@@ -173,7 +173,7 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
   br label %141
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %9, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %16 = load i32, ptr @virtio_gpu_virglrenderer_workaround, align 4
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %21, label %18
@@ -184,8 +184,8 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
   br label %27
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 62024
-  %23 = tail call i32 @ida_alloc_range(ptr noundef %22, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #6
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 62024
+  %23 = tail call i32 @ida_alloc_range(ptr noundef nonnull %22, i32 noundef 0, i32 noundef -1, i32 noundef 3264) #6
   %24 = icmp sgt i32 %23, -1
   br i1 %24, label %25, label %.thread
 
@@ -196,13 +196,13 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
 27:                                               ; preds = %25, %18
   %28 = phi i32 [ %20, %18 ], [ %26, %25 ]
   store i32 %28, ptr %15, align 4
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
-  %31 = getelementptr inbounds i8, ptr %9, i64 412
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 412
   store i8 %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 784
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 784
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 8589934592
   %37 = icmp eq i64 %36, 0
@@ -211,8 +211,8 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
   br i1 %39, label %97, label %40
 
 40:                                               ; preds = %27
-  %41 = getelementptr inbounds i8, ptr %38, i64 12
-  %42 = getelementptr inbounds i8, ptr %38, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %43 = select i1 %37, ptr %41, ptr %42
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
@@ -240,12 +240,12 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
 55:                                               ; preds = %55, %53
   %56 = phi i32 [ %66, %55 ], [ 0, %53 ]
   %57 = phi ptr [ %67, %55 ], [ %54, %53 ]
-  %58 = getelementptr inbounds i8, ptr %57, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = sext i32 %56 to i64
   %61 = getelementptr %struct.virtio_gpu_mem_entry, ptr %47, i64 %60
   store i64 %59, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %57, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %63 = load i32, ptr %62, align 8
   %64 = getelementptr %struct.virtio_gpu_mem_entry, ptr %47, i64 %60, i32 1
   store i32 %63, ptr %64, align 8
@@ -274,14 +274,14 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
   %80 = load i64, ptr @vmemmap_base, align 8
   %81 = sub i64 %79, %80
   %82 = shl i64 %81, 6
-  %83 = getelementptr inbounds i8, ptr %77, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
   %86 = add i64 %82, %85
   %87 = sext i32 %76 to i64
   %88 = getelementptr %struct.virtio_gpu_mem_entry, ptr %47, i64 %87
   store i64 %86, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %77, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %90 = load i32, ptr %89, align 4
   %91 = getelementptr %struct.virtio_gpu_mem_entry, ptr %47, i64 %87, i32 1
   store i32 %90, ptr %91, align 8
@@ -318,19 +318,19 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
 
 110:                                              ; preds = %107, %.thread11
   %111 = phi ptr [ %105, %107 ], [ null, %.thread11 ]
-  %112 = getelementptr inbounds i8, ptr %1, i64 10
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %113 = load i8, ptr %112, align 2, !range !6, !noundef !7
   %114 = icmp eq i8 %113, 0
   br i1 %114, label %122, label %115
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds i8, ptr %1, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %117 = load i32, ptr %116, align 8
   %118 = icmp eq i32 %117, 1
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %115
-  %120 = getelementptr inbounds i8, ptr %9, i64 415
+  %120 = getelementptr inbounds nuw i8, ptr %9, i64 415
   store i8 1, ptr %120, align 1
   br label %121
 
@@ -339,7 +339,7 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
   br label %128
 
 122:                                              ; preds = %110
-  %123 = getelementptr inbounds i8, ptr %1, i64 9
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %124 = load i8, ptr %123, align 1, !range !6, !noundef !7
   %125 = icmp eq i8 %124, 0
   br i1 %125, label %127, label %126
@@ -375,9 +375,9 @@ define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, p
 
 136:                                              ; preds = %132
   %137 = load i32, ptr %15, align 8
-  %138 = getelementptr inbounds i8, ptr %0, i64 62024
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 62024
   %139 = add i32 %137, -1
-  tail call void @ida_free(ptr noundef %138, i32 noundef %139) #6
+  tail call void @ida_free(ptr noundef nonnull %138, i32 noundef %139) #6
   br label %.thread
 
 .thread:                                          ; preds = %21, %136, %132
@@ -434,15 +434,15 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 sect
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @virtio_gpu_free_object(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 413
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 413
   %3 = load i8, ptr %2, align 1, !range !6, !noundef !7
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load ptr, ptr %8, align 8
   tail call void @virtio_gpu_cmd_unref_resource(ptr noundef %9, ptr noundef %0) #6
   tail call void @virtio_gpu_notify(ptr noundef %9) #6

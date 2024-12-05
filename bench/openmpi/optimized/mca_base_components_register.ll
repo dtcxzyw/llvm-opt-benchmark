@@ -25,46 +25,46 @@ define i32 @mca_base_framework_components_register(ptr noundef %0, i32 noundef %
   br i1 %.not9, label %7, label %register_components.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 76
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %9 = load i32, ptr %8, align 4
   %10 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %9) #3
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %9, ptr noundef nonnull @.str, ptr noundef %13) #3
   br label %14
 
 14:                                               ; preds = %11, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 96
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load volatile ptr, ptr %16, align 8
-  %.046.in53.i = getelementptr inbounds i8, ptr %17, i64 16
+  %.046.in53.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.04654.i = load volatile ptr, ptr %.046.in53.i, align 8
   %.not55.i = icmp eq ptr %17, %15
   br i1 %.not55.i, label %register_components.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %19
 
 19:                                               ; preds = %87, %.lr.ph.i
   %.04658.i = phi ptr [ %.04654.i, %.lr.ph.i ], [ %.046.i, %87 ]
   %.046.in57.i = phi ptr [ %.046.in53.i, %.lr.ph.i ], [ %.046.in.i, %87 ]
   %.04756.i = phi ptr [ %17, %.lr.ph.i ], [ %.04658.i, %87 ]
-  %20 = getelementptr inbounds i8, ptr %.04756.i, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %.04756.i, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = tail call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %9) #3
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %21, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %9, ptr noundef nonnull @.str.1, ptr noundef nonnull %24) #3
   br label %25
 
 25:                                               ; preds = %23, %19
-  %26 = getelementptr inbounds i8, ptr %21, i64 184
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 184
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %33
@@ -74,7 +74,7 @@ define i32 @mca_base_framework_components_register(ptr noundef %0, i32 noundef %
   br i1 %30, label %31, label %.thread.i
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %21, i64 84
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %9, ptr noundef nonnull @.str.2, ptr noundef nonnull %32) #3
   br label %.thread.i
 
@@ -86,8 +86,8 @@ define i32 @mca_base_framework_components_register(ptr noundef %0, i32 noundef %
   ]
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %21, i64 40
-  %37 = getelementptr inbounds i8, ptr %21, i64 84
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %21, i64 84
   %38 = tail call zeroext i1 @mca_base_show_load_errors(ptr noundef nonnull %36, ptr noundef nonnull %37) #3
   br i1 %38, label %39, label %42
 
@@ -109,19 +109,19 @@ define i32 @mca_base_framework_components_register(ptr noundef %0, i32 noundef %
 
 45:                                               ; preds = %44, %42, %33
   %46 = load volatile ptr, ptr %.046.in57.i, align 8
-  %47 = getelementptr inbounds i8, ptr %.04756.i, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.04756.i, i64 24
   %48 = load volatile ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store volatile ptr %46, ptr %49, align 8
   %50 = load volatile ptr, ptr %47, align 8
   %51 = load volatile ptr, ptr %.046.in57.i, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store volatile ptr %50, ptr %52, align 8
   %53 = load volatile i64, ptr %18, align 8
   %54 = add i64 %53, -1
   store volatile i64 %54, ptr %18, align 8
   %55 = load volatile ptr, ptr %47, align 8
-  %56 = getelementptr inbounds i8, ptr %.04756.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.04756.i, i64 8
   %57 = load i8, ptr @opal_uses_threads, align 1
   %58 = trunc i8 %57 to i1
   br i1 %58, label %59, label %62
@@ -145,7 +145,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %62, %59
 
 67:                                               ; preds = %opal_thread_add_fetch_32.exit.i
   %68 = load ptr, ptr %.04756.i, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
   %.not6.i.i = icmp eq ptr %71, null
@@ -155,7 +155,7 @@ opal_thread_add_fetch_32.exit.i:                  ; preds = %62, %59
   %72 = phi ptr [ %74, %.lr.ph.i.i ], [ %71, %67 ]
   %.07.i.i = phi ptr [ %73, %.lr.ph.i.i ], [ %70, %67 ]
   tail call void %72(ptr noundef nonnull %.04756.i) #3
-  %73 = getelementptr inbounds i8, ptr %.07.i.i, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i, label %opal_obj_run_destructors.exit.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -174,21 +174,21 @@ opal_obj_run_destructors.exit.i:                  ; preds = %.lr.ph.i.i, %67
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %21, i64 84
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 84
   tail call void (i32, ptr, ...) @opal_output(i32 noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull %79) #3
   br label %80
 
 80:                                               ; preds = %78, %76, %.thread.i
-  %81 = getelementptr inbounds i8, ptr %21, i64 148
+  %81 = getelementptr inbounds nuw i8, ptr %21, i64 148
   %82 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull %21, ptr noundef nonnull @.str.6, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 3, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %81) #3
-  %83 = getelementptr inbounds i8, ptr %21, i64 152
+  %83 = getelementptr inbounds nuw i8, ptr %21, i64 152
   %84 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull %21, ptr noundef nonnull @.str.7, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 3, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %83) #3
-  %85 = getelementptr inbounds i8, ptr %21, i64 156
+  %85 = getelementptr inbounds nuw i8, ptr %21, i64 156
   %86 = tail call i32 @mca_base_component_var_register(ptr noundef nonnull %21, ptr noundef nonnull @.str.8, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0, i32 noundef 3, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %85) #3
   br label %87
 
 87:                                               ; preds = %80, %opal_obj_run_destructors.exit.i, %opal_thread_add_fetch_32.exit.i
-  %.046.in.i = getelementptr inbounds i8, ptr %.04658.i, i64 16
+  %.046.in.i = getelementptr inbounds nuw i8, ptr %.04658.i, i64 16
   %.046.i = load volatile ptr, ptr %.046.in.i, align 8
   %.not.i = icmp eq ptr %.04658.i, %15
   br i1 %.not.i, label %register_components.exit, label %19, !llvm.loop !6

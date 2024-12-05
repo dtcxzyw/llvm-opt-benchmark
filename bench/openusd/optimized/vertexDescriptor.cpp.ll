@@ -66,7 +66,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr16VertexDescriptor8Finalize
   %.01624 = phi i32 [ %23, %20 ], [ 0, %6 ]
   %.01723 = phi i1 [ %22, %20 ], [ true, %6 ]
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, -65536
   %or.cond = icmp ult i32 %16, -65533

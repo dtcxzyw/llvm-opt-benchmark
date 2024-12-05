@@ -66,7 +66,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   br label %.loopexit
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %0, ptr %18, align 8
   %19 = tail call ptr @add_thread_info(ptr noundef nonnull %9, i32 noundef %0) #16
   store ptr @process_ops, ptr %9, align 8
@@ -87,7 +87,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   br i1 %.not.i23.i, label %fgets_no_cr.exit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %25 = getelementptr inbounds i8, ptr %6, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 40
   br label %28
 
 26:                                               ; preds = %17
@@ -118,7 +118,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %34
   %.033.i.i = phi ptr [ %36, %.preheader.i.i ], [ %5, %34 ]
   %35 = load i8, ptr %.033.i.i, align 1
-  %36 = getelementptr inbounds i8, ptr %.033.i.i, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.033.i.i, i64 1
   switch i8 %35, label %.lr.ph49.i.i [
     i8 32, label %.preheader.i.i
     i8 0, label %.backedge.i
@@ -134,7 +134,7 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge.loopexit.i.i ], [ 0, %.preheader.i.i ]
   %.13447.i.i = phi ptr [ %45, %.critedge.loopexit.i.i ], [ %.033.i.i, %.preheader.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %40 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
   store ptr %.13447.i.i, ptr %40, align 8
   br label %41
 
@@ -147,12 +147,12 @@ define noundef ptr @Pgrab(i32 noundef %0, ptr noundef %1, i64 noundef %2) local_
   ]
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   br label %41, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
   %.346.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %.2.i.i, %41 ]
-  %45 = getelementptr inbounds i8, ptr %.346.i.i, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.346.i.i, i64 1
   store i8 0, ptr %.346.i.i, align 1
   %46 = load i8, ptr %45, align 1
   %cond43.i.i = icmp eq i8 %46, 32
@@ -205,7 +205,7 @@ split_n_str.exit.i:                               ; preds = %.critedge.loopexit.
   br i1 %67, label %.backedge.i, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds i8, ptr %66, i64 4424
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 4424
   %70 = load i32, ptr %69, align 8
   %71 = call i32 @close(i32 noundef %70) #16
   store i32 -1, ptr %69, align 8
@@ -229,7 +229,7 @@ read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.ex
 
 .lr.ph:                                           ; preds = %read_lib_info.exit, %.backedge
   %77 = phi ptr [ %89, %.backedge ], [ %76, %read_lib_info.exit ]
-  %78 = getelementptr inbounds i8, ptr %77, i64 19
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 19
   %79 = load i8, ptr %78, align 1
   %80 = icmp eq i8 %79, 46
   br i1 %80, label %.backedge, label %81
@@ -256,14 +256,14 @@ read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.ex
 
 ._crit_edge:                                      ; preds = %.backedge, %read_lib_info.exit
   %90 = call i32 @closedir(ptr noundef %75)
-  %91 = getelementptr inbounds i8, ptr %9, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %92 = load ptr, ptr %91, align 8
   %.not4760 = icmp eq ptr %92, null
   br i1 %.not4760, label %.loopexit, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %._crit_edge, %101
   %.03961 = phi ptr [ %94, %101 ], [ %92, %._crit_edge ]
-  %93 = getelementptr inbounds i8, ptr %.03961, i64 224
+  %93 = getelementptr inbounds nuw i8, ptr %.03961, i64 224
   %94 = load ptr, ptr %93, align 8
   %95 = load i32, ptr %18, align 8
   %96 = load i32, ptr %.03961, align 8
@@ -473,7 +473,7 @@ define internal fastcc range(i32 0, 2) i32 @process_doesnt_exist(i32 noundef %0)
   br i1 %10, label %11, label %.preheader, !llvm.loop !13
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %3, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %13 = tail call ptr @__ctype_b_loc() #18
   %14 = load ptr, ptr %13, align 8
   br label %15
@@ -482,11 +482,11 @@ define internal fastcc range(i32 0, 2) i32 @process_doesnt_exist(i32 noundef %0)
   %.0 = phi ptr [ %12, %11 ], [ %21, %15 ]
   %16 = load i8, ptr %.0, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw i16, ptr %14, i64 %17
   %19 = load i16, ptr %18, align 2
   %20 = and i16 %19, 8192
   %.not18 = icmp eq i16 %20, 0
-  %21 = getelementptr inbounds i8, ptr %.0, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %.not18, label %22, label %15, !llvm.loop !14
 
 22:                                               ; preds = %15
@@ -532,7 +532,7 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal void @process_cleanup(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.04.i = load ptr, ptr %2, align 8
   %.not5.i = icmp eq ptr %.04.i, null
   br i1 %.not5.i, label %detach_all_pids.exit, label %.lr.ph.i
@@ -553,7 +553,7 @@ define internal void @process_cleanup(ptr nocapture noundef readonly %0) #0 {
   br label %ptrace_detach.exit.i
 
 ptrace_detach.exit.i:                             ; preds = %7, %4, %.lr.ph.i
-  %8 = getelementptr inbounds i8, ptr %.06.i, i64 224
+  %8 = getelementptr inbounds nuw i8, ptr %.06.i, i64 224
   %.0.i = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %detach_all_pids.exit, label %.lr.ph.i, !llvm.loop !15
@@ -573,7 +573,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
 8:                                                ; preds = %4
   %9 = tail call ptr @__errno_location() #18
   store i32 0, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = tail call i64 (i32, ...) @ptrace(i32 noundef 2, i32 noundef %11, i64 noundef %7, i32 noundef 0) #16
   store i64 %12, ptr %5, align 8
@@ -612,7 +612,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
 .lr.ph79:                                         ; preds = %.loopexit62
   %26 = lshr i64 %25, 3
   %27 = tail call ptr @__errno_location() #18
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %29
 
 29:                                               ; preds = %.lr.ph79, %33
@@ -628,7 +628,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
 
 33:                                               ; preds = %29
   store i64 %31, ptr %.24877, align 8
-  %34 = getelementptr inbounds i8, ptr %.24877, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.24877, i64 8
   %35 = add i64 %.378, 8
   %36 = add nuw nsw i64 %.05076, 1
   %exitcond.not = icmp eq i64 %36, %26
@@ -643,7 +643,7 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
 37:                                               ; preds = %._crit_edge
   %38 = tail call ptr @__errno_location() #18
   store i32 0, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = tail call i64 (i32, ...) @ptrace(i32 noundef 2, i32 noundef %40, i64 noundef %.3.lcssa, i32 noundef 0) #16
   store i64 %41, ptr %5, align 8
@@ -655,9 +655,9 @@ define internal range(i32 0, 2) i32 @process_read_data(ptr nocapture noundef rea
   %.085 = phi ptr [ %43, %.lr.ph86 ], [ %5, %37 ]
   %.484 = phi i64 [ %46, %.lr.ph86 ], [ %.3.lcssa, %37 ]
   %.34983 = phi ptr [ %45, %.lr.ph86 ], [ %.248.lcssa, %37 ]
-  %43 = getelementptr inbounds i8, ptr %.085, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.085, i64 1
   %44 = load i8, ptr %.085, align 1
-  %45 = getelementptr inbounds i8, ptr %.34983, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.34983, i64 1
   store i8 %44, ptr %.34983, align 1
   %46 = add i64 %.484, 1
   %.not59 = icmp eq i64 %46, %6
@@ -681,7 +681,7 @@ define internal noundef i32 @process_write_data(ptr nocapture readnone %0, i64 %
 define internal range(i32 0, 2) i32 @process_get_lwp_regs(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.iovec, align 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 216, ptr %5, align 8
   %6 = call i64 (i32, ...) @ptrace(i32 noundef 16900, i32 noundef %1, i32 noundef 1, ptr noundef nonnull %4) #16
   %7 = icmp slt i64 %6, 0

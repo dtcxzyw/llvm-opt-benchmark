@@ -67,9 +67,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv782 = phi i64 [ 1, %.lr.ph671.preheader ], [ %indvars.iv.next783, %.loopexit ]
   %30 = shl nuw nsw i64 %indvar, 3
   %scevgep = getelementptr i8, ptr %7, i64 %30
-  %31 = getelementptr inbounds double, ptr %10, i64 %indvars.iv782
+  %31 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv782
   %32 = load double, ptr %31, align 8
-  %33 = getelementptr inbounds double, ptr %11, i64 %indvars.iv782
+  %33 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv782
   %34 = load double, ptr %33, align 8
   %35 = fadd double %32, -1.000000e+00
   %36 = tail call noundef double @llvm.fabs.f64(double %35)
@@ -156,9 +156,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %68 = sub i64 %66, %67
   %scevgep850 = getelementptr i8, ptr %7, i64 %68
   %indvars.iv.next775 = add nsw i64 %indvars.iv774, -1
-  %69 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next775
+  %69 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next775
   %70 = load double, ptr %69, align 8
-  %71 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next775
+  %71 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next775
   %72 = load double, ptr %71, align 8
   %73 = fadd double %70, -1.000000e+00
   %74 = tail call noundef double @llvm.fabs.f64(double %73)
@@ -310,9 +310,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 131:                                              ; preds = %.lr.ph648, %.loopexit575
   %indvars.iv756 = phi i64 [ %130, %.lr.ph648 ], [ %indvars.iv.next757, %.loopexit575 ]
   %indvars.iv.next757 = add nsw i64 %indvars.iv756, -1
-  %132 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next757
+  %132 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next757
   %133 = load double, ptr %132, align 8
-  %134 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next757
+  %134 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next757
   %135 = load double, ptr %134, align 8
   %136 = fadd double %133, -1.000000e+00
   %137 = tail call noundef double @llvm.fabs.f64(double %136)
@@ -378,9 +378,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph643:                                        ; preds = %.lr.ph643.preheader, %.loopexit577
   %indvars.iv746 = phi i64 [ 1, %.lr.ph643.preheader ], [ %indvars.iv.next747, %.loopexit577 ]
-  %160 = getelementptr inbounds double, ptr %10, i64 %indvars.iv746
+  %160 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv746
   %161 = load double, ptr %160, align 8
-  %162 = getelementptr inbounds double, ptr %11, i64 %indvars.iv746
+  %162 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv746
   %163 = load double, ptr %162, align 8
   %164 = fadd double %161, -1.000000e+00
   %165 = tail call noundef double @llvm.fabs.f64(double %164)
@@ -444,9 +444,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph636:                                        ; preds = %.lr.ph636.preheader, %.loopexit579
   %indvars.iv738 = phi i64 [ %192, %.lr.ph636.preheader ], [ %indvars.iv.next739, %.loopexit579 ]
   %indvars.iv.next739 = add nsw i64 %indvars.iv738, -1
-  %193 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next739
+  %193 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next739
   %194 = load double, ptr %193, align 8
-  %195 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next739
+  %195 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next739
   %196 = load double, ptr %195, align 8
   %197 = fadd double %194, -1.000000e+00
   %198 = tail call noundef double @llvm.fabs.f64(double %197)
@@ -530,9 +530,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph630:                                        ; preds = %.lr.ph630.preheader, %.loopexit581
   %indvars.iv728 = phi i64 [ 1, %.lr.ph630.preheader ], [ %indvars.iv.next729, %.loopexit581 ]
-  %231 = getelementptr inbounds double, ptr %10, i64 %indvars.iv728
+  %231 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv728
   %232 = load double, ptr %231, align 8
-  %233 = getelementptr inbounds double, ptr %11, i64 %indvars.iv728
+  %233 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv728
   %234 = load double, ptr %233, align 8
   %235 = fadd double %232, -1.000000e+00
   %236 = tail call noundef double @llvm.fabs.f64(double %235)
@@ -592,9 +592,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph623:                                        ; preds = %.lr.ph623.preheader, %.loopexit583
   %indvars.iv720 = phi i64 [ %257, %.lr.ph623.preheader ], [ %indvars.iv.next721, %.loopexit583 ]
   %indvars.iv.next721 = add nsw i64 %indvars.iv720, -1
-  %259 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next721
+  %259 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next721
   %260 = load double, ptr %259, align 8
-  %261 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next721
+  %261 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next721
   %262 = load double, ptr %261, align 8
   %263 = fadd double %260, -1.000000e+00
   %264 = tail call noundef double @llvm.fabs.f64(double %263)
@@ -725,9 +725,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph609:                                        ; preds = %.lr.ph609.preheader, %.loopexit587
   %indvars.iv702 = phi i64 [ %316, %.lr.ph609.preheader ], [ %indvars.iv.next703, %.loopexit587 ]
   %indvars.iv.next703 = add nsw i64 %indvars.iv702, -1
-  %317 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next703
+  %317 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next703
   %318 = load double, ptr %317, align 8
-  %319 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next703
+  %319 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next703
   %320 = load double, ptr %319, align 8
   %321 = fadd double %318, -1.000000e+00
   %322 = tail call noundef double @llvm.fabs.f64(double %321)
@@ -793,9 +793,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph604:                                        ; preds = %.lr.ph604.preheader, %.loopexit589
   %indvars.iv692 = phi i64 [ 1, %.lr.ph604.preheader ], [ %indvars.iv.next693, %.loopexit589 ]
-  %346 = getelementptr inbounds double, ptr %10, i64 %indvars.iv692
+  %346 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv692
   %347 = load double, ptr %346, align 8
-  %348 = getelementptr inbounds double, ptr %11, i64 %indvars.iv692
+  %348 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv692
   %349 = load double, ptr %348, align 8
   %350 = fadd double %347, -1.000000e+00
   %351 = tail call noundef double @llvm.fabs.f64(double %350)
@@ -861,9 +861,9 @@ define void @dlasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph597:                                        ; preds = %.lr.ph597.preheader, %.loopexit591
   %indvars.iv684 = phi i64 [ %380, %.lr.ph597.preheader ], [ %indvars.iv.next685, %.loopexit591 ]
   %indvars.iv.next685 = add nsw i64 %indvars.iv684, -1
-  %382 = getelementptr inbounds double, ptr %10, i64 %indvars.iv.next685
+  %382 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next685
   %383 = load double, ptr %382, align 8
-  %384 = getelementptr inbounds double, ptr %11, i64 %indvars.iv.next685
+  %384 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next685
   %385 = load double, ptr %384, align 8
   %386 = fadd double %383, -1.000000e+00
   %387 = tail call noundef double @llvm.fabs.f64(double %386)

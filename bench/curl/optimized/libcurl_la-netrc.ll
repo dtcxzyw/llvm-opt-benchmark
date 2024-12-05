@@ -38,7 +38,7 @@ if.else:                                          ; preds = %if.then
   %0 = load ptr, ptr %pw_res, align 8
   %tobool6 = icmp eq ptr %0, null
   %or.cond.not19 = select i1 %tobool5, i1 true, i1 %tobool6
-  %pw_dir = getelementptr inbounds i8, ptr %pw, i64 32
+  %pw_dir = getelementptr inbounds nuw i8, ptr %pw, i64 32
   %1 = load ptr, ptr %pw_dir, align 8
   %tobool9.not = icmp eq ptr %1, null
   %or.cond18 = select i1 %or.cond.not19, i1 true, i1 %tobool9.not
@@ -162,7 +162,7 @@ while.cond24:                                     ; preds = %while.cond21, %whil
   ]
 
 while.body31:                                     ; preds = %while.cond24, %while.cond24
-  %incdec.ptr = getelementptr inbounds i8, ptr %tok.1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %tok.1, i64 1
   br label %while.cond24, !llvm.loop !4
 
 while.cond45:                                     ; preds = %while.cond24, %while.body63
@@ -179,12 +179,12 @@ lor.rhs53:                                        ; preds = %while.cond45
   br i1 %spec.select, label %while.body63, label %if.end100
 
 while.body63:                                     ; preds = %lor.rhs53
-  %incdec.ptr64 = getelementptr inbounds i8, ptr %tok_end.0, i64 1
+  %incdec.ptr64 = getelementptr inbounds nuw i8, ptr %tok_end.0, i64 1
   %.pr = load i8, ptr %incdec.ptr64, align 1
   br label %while.cond45, !llvm.loop !6
 
 if.else66:                                        ; preds = %while.cond24
-  %incdec.ptr67 = getelementptr inbounds i8, ptr %tok.1, i64 1
+  %incdec.ptr67 = getelementptr inbounds nuw i8, ptr %tok.1, i64 1
   %8 = load i8, ptr %incdec.ptr67, align 1
   %tobool69.not.not174186 = icmp eq i8 %8, 0
   br i1 %tobool69.not.not174186, label %while.end93.thread, label %while.body70.lr.ph
@@ -231,7 +231,7 @@ if.else76:                                        ; preds = %while.body70
   ]
 
 if.then80:                                        ; preds = %if.else76
-  %incdec.ptr81 = getelementptr inbounds i8, ptr %tok_end.2175, i64 1
+  %incdec.ptr81 = getelementptr inbounds nuw i8, ptr %tok_end.2175, i64 1
   %11 = load i8, ptr %incdec.ptr81, align 1
   %tobool69.not.not = icmp eq i8 %11, 0
   br i1 %tobool69.not.not, label %while.end93.thread, label %while.body70, !llvm.loop !7
@@ -239,15 +239,15 @@ if.then80:                                        ; preds = %if.else76
 if.end90:                                         ; preds = %if.else76, %if.then72, %sw.bb, %sw.bb74, %sw.bb75
   %escape.1 = phi i8 [ 0, %if.then72 ], [ 0, %sw.bb75 ], [ 0, %sw.bb74 ], [ 0, %sw.bb ], [ %escape.0176, %if.else76 ]
   %s.0 = phi i8 [ %10, %if.then72 ], [ 9, %sw.bb75 ], [ 13, %sw.bb74 ], [ 10, %sw.bb ], [ %10, %if.else76 ]
-  %incdec.ptr91 = getelementptr inbounds i8, ptr %store.0.ph189, i64 1
+  %incdec.ptr91 = getelementptr inbounds nuw i8, ptr %store.0.ph189, i64 1
   store i8 %s.0, ptr %store.0.ph189, align 1
-  %incdec.ptr92 = getelementptr inbounds i8, ptr %tok_end.2175, i64 1
+  %incdec.ptr92 = getelementptr inbounds nuw i8, ptr %tok_end.2175, i64 1
   %12 = load i8, ptr %incdec.ptr92, align 1
   %tobool69.not.not174 = icmp eq i8 %12, 0
   br i1 %tobool69.not.not174, label %while.end93.thread, label %while.body70.lr.ph, !llvm.loop !7
 
 while.end93:                                      ; preds = %if.else76
-  %incdec.ptr87 = getelementptr inbounds i8, ptr %tok_end.2175, i64 1
+  %incdec.ptr87 = getelementptr inbounds nuw i8, ptr %tok_end.2175, i64 1
   br label %if.end100
 
 if.end100:                                        ; preds = %lor.rhs53, %while.cond45, %while.cond45, %while.end93
@@ -408,7 +408,7 @@ sw.epilog197:                                     ; preds = %if.else188, %sw.bb1
   %state_our_login.2 = phi i32 [ %state_our_login.1, %sw.bb111 ], [ %state_our_login.1, %if.else115 ], [ %state_our_login.1, %if.else119 ], [ %state_our_login.1, %sw.bb126 ], [ %state_our_login.1, %sw.bb131 ], [ %state_our_login.1, %if.end153 ], [ %state_our_login.1, %lor.lhs.false147 ], [ %lnot.ext, %if.then141 ], [ %state_our_login.1, %lor.lhs.false168 ], [ 0, %if.then162 ], [ %state_our_login.1, %if.end174 ], [ %state_our_login.1, %if.else180 ], [ %state_our_login.1, %if.else184 ], [ %spec.select80, %if.else188 ]
   %login.3 = phi ptr [ %login.1, %sw.bb111 ], [ %login.1, %if.else115 ], [ %login.1, %if.else119 ], [ %login.1, %sw.bb126 ], [ %login.1, %sw.bb131 ], [ %call154, %if.end153 ], [ %login.1, %lor.lhs.false147 ], [ %login.1, %if.then141 ], [ %login.1, %lor.lhs.false168 ], [ %login.1, %if.then162 ], [ %login.1, %if.end174 ], [ %login.1, %if.else180 ], [ %login.1, %if.else184 ], [ %login.1, %if.else188 ]
   %retcode.4 = phi i32 [ %retcode.2, %sw.bb111 ], [ %retcode.2, %if.else115 ], [ %spec.select76, %if.else119 ], [ %retcode.2, %sw.bb126 ], [ %retcode.2., %sw.bb131 ], [ %retcode.2, %if.end153 ], [ %retcode.2, %lor.lhs.false147 ], [ %retcode.2, %if.then141 ], [ %retcode.2, %lor.lhs.false168 ], [ %retcode.2, %if.then162 ], [ %retcode.2, %if.end174 ], [ %retcode.2, %if.else180 ], [ %retcode.2, %if.else184 ], [ %retcode.2, %if.else188 ]
-  %incdec.ptr198 = getelementptr inbounds i8, ptr %tok_end.1, i64 1
+  %incdec.ptr198 = getelementptr inbounds nuw i8, ptr %tok_end.1, i64 1
   br label %while.cond21, !llvm.loop !8
 
 out.split:                                        ; preds = %while.cond, %land.lhs.true106

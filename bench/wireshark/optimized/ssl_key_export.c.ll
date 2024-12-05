@@ -23,7 +23,7 @@ define hidden i32 @ssl_session_key_count() local_unnamed_addr #0 {
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %3, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %6 = load ptr, ptr %5, align 8
   %.not20 = icmp eq ptr %6, null
   br i1 %.not20, label %.loopexit, label %7
@@ -35,12 +35,12 @@ define hidden i32 @ssl_session_key_count() local_unnamed_addr #0 {
   br i1 %.not2128, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 40
-  %11 = getelementptr inbounds i8, ptr %3, i64 48
-  %12 = getelementptr inbounds i8, ptr %3, i64 56
-  %13 = getelementptr inbounds i8, ptr %3, i64 64
-  %14 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 72
   br label %15
 
 15:                                               ; preds = %.lr.ph, %15
@@ -116,7 +116,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
   %9 = sext i32 %8 to i64
   %10 = mul nsw i64 %9, 177
   %11 = tail call ptr @g_string_sized_new(i64 noundef %10) #3
-  %12 = getelementptr inbounds i8, ptr %4, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %13 = load ptr, ptr %12, align 8
   call void @g_hash_table_iter_init(ptr noundef nonnull %2, ptr noundef %13) #3
   %14 = call i32 @g_hash_table_iter_next(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef null) #3
@@ -124,12 +124,12 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
   br i1 %.not3239, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = getelementptr inbounds i8, ptr %4, i64 40
-  %17 = getelementptr inbounds i8, ptr %4, i64 48
-  %18 = getelementptr inbounds i8, ptr %4, i64 56
-  %19 = getelementptr inbounds i8, ptr %4, i64 72
-  %20 = getelementptr inbounds i8, ptr %4, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %57
@@ -210,7 +210,7 @@ define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local
   br i1 %.not32, label %._crit_edge, label %21, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %57, %7
-  %59 = getelementptr inbounds i8, ptr %11, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %60 = load i64, ptr %59, align 8
   store i64 %60, ptr %0, align 8
   %61 = call ptr @g_string_free(ptr noundef %11, i32 noundef 0) #3
@@ -230,7 +230,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tls_export_client_randoms_func(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %3) #3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -249,10 +249,10 @@ define internal fastcc void @tls_export_client_randoms_func(ptr nocapture nounde
   br i1 %14, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
-  %18 = getelementptr inbounds i8, ptr %2, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp ult i64 %17, %19
   br i1 %20, label %21, label %27
@@ -273,7 +273,7 @@ define internal fastcc void @tls_export_client_randoms_func(ptr nocapture nounde
   br label %g_string_append_c_inline.exit
 
 g_string_append_c_inline.exit:                    ; preds = %21, %27
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load i32, ptr %29, align 8
   %.not23 = icmp eq i32 %30, 0
   br i1 %.not23, label %._crit_edge22, label %.lr.ph21
@@ -328,15 +328,15 @@ define hidden void @tls_export_dsb(ptr nocapture noundef initializes((36, 40)) %
   store i32 1414288203, ptr %5, align 8
   %6 = load i64, ptr %2, align 8
   %7 = tail call ptr @g_memdup2(ptr noundef %3, i64 noundef %6) #4
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %7, ptr %8, align 8
   %9 = trunc i64 %6 to i32
-  %10 = getelementptr inbounds i8, ptr %5, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load ptr, ptr %11, align 8
   tail call void @wtap_file_add_decryption_secrets(ptr noundef %12, ptr noundef %4) #3
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 1, ptr %13, align 4
   ret void
 }

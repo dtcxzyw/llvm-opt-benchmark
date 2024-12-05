@@ -142,7 +142,7 @@ define dso_local void @generic_rebuild_map() local_unnamed_addr #1 align 16 {
   %18 = phi i32 [ %48, %.thread.i ], [ %16, %15 ]
   %19 = phi i64 [ %49, %.thread.i ], [ 0, %15 ]
   %20 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %19
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 2048
   %24 = icmp eq i32 %23, 0
@@ -156,7 +156,7 @@ define dso_local void @generic_rebuild_map() local_unnamed_addr #1 align 16 {
 
 29:                                               ; preds = %25
   %30 = load i32, ptr @phys_hi_rsvd, align 4
-  %31 = getelementptr inbounds i8, ptr %20, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, %30
   %34 = sub i32 0, %33
@@ -165,7 +165,7 @@ define dso_local void @generic_rebuild_map() local_unnamed_addr #1 align 16 {
   %37 = and i32 %22, -4096
   %38 = zext i32 %37 to i64
   %39 = sub i64 %36, %38
-  %40 = getelementptr inbounds i8, ptr %20, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
   %43 = shl nuw i64 %42, 32
@@ -279,7 +279,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
   %55 = phi i32 [ %85, %.thread.i ], [ %53, %51 ]
   %56 = phi i64 [ %86, %.thread.i ], [ 0, %51 ]
   %57 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %56
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 2048
   %61 = icmp eq i32 %60, 0
@@ -293,7 +293,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
 
 66:                                               ; preds = %62
   %67 = load i32, ptr @phys_hi_rsvd, align 4
-  %68 = getelementptr inbounds i8, ptr %57, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = or i32 %69, %67
   %71 = sub i32 0, %70
@@ -302,7 +302,7 @@ define dso_local void @mtrr_build_map() local_unnamed_addr #2 section ".init.tex
   %74 = and i32 %59, -4096
   %75 = zext i32 %74 to i64
   %76 = sub i64 %73, %75
-  %77 = getelementptr inbounds i8, ptr %57, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %78 = load i32, ptr %77, align 4
   %79 = zext i32 %78 to i64
   %80 = shl nuw i64 %79, 32
@@ -350,10 +350,10 @@ map_add_var.exit:                                 ; preds = %map_add_var.exit.lo
   %107 = load ptr, ptr @cache_map, align 8
   %108 = getelementptr %struct.cache_map, ptr %107, i64 %106
   %109 = load i64, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %108, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %111 = load i64, ptr %110, align 8
   %112 = add i64 %111, -1
-  %113 = getelementptr inbounds i8, ptr %108, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 24
   %114 = load i16, ptr %113, align 8
   %115 = and i16 %114, 255
   %116 = zext nneg i16 %115 to i32
@@ -394,7 +394,7 @@ define internal fastcc void @add_map_entry(i64 noundef %0, i64 noundef %1, i8 no
   %16 = load ptr, ptr @cache_map, align 8
   %17 = sext i32 %15 to i64
   %18 = getelementptr %struct.cache_map, ptr %16, i64 %17
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp ult i64 %14, %20
   br i1 %21, label %22, label %74
@@ -411,7 +411,7 @@ define internal fastcc void @add_map_entry(i64 noundef %0, i64 noundef %1, i8 no
   br label %74
 
 29:                                               ; preds = %22
-  %30 = getelementptr inbounds i8, ptr %18, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %31 = load i16, ptr %30, align 8
   %32 = trunc i16 %31 to i8
   %33 = icmp eq i8 %32, 0
@@ -616,7 +616,7 @@ define dso_local zeroext i8 @mtrr_type_lookup(i64 noundef %0, i64 noundef %1, pt
   %19 = phi i8 [ -1, %14 ], [ %85, %83 ]
   %20 = phi i64 [ %0, %14 ], [ %84, %83 ]
   %21 = getelementptr %struct.cache_map, ptr %15, i64 %18
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %20, %23
   br i1 %24, label %25, label %83
@@ -781,11 +781,11 @@ define dso_local void @fill_mtrr_var_range(i32 noundef %0, i32 noundef %1, i32 n
   %6 = zext i32 %0 to i64
   %7 = getelementptr %struct.mtrr_var_range, ptr @mtrr_state, i64 %6
   store i32 %1, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %2, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %3, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %4, ptr %10, align 4
   ret void
 }
@@ -987,7 +987,7 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
   store i32 %25, ptr %14, align 4
   %26 = lshr i64 %22, 32
   %27 = trunc nuw i64 %26 to i32
-  %28 = getelementptr inbounds i8, ptr %14, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %27, ptr %28, align 4
   %29 = add i32 %16, 513
   %30 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 %29) #17, !srcloc !22
@@ -1004,11 +1004,11 @@ define dso_local zeroext i1 @get_mtrr_state() local_unnamed_addr #2 section ".in
 
 36:                                               ; preds = %35, %24
   %37 = trunc i64 %31 to i32
-  %38 = getelementptr inbounds i8, ptr %14, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 %37, ptr %38, align 4
   %39 = lshr i64 %34, 32
   %40 = trunc nuw i64 %39 to i32
-  %41 = getelementptr inbounds i8, ptr %14, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 %40, ptr %41, align 4
   %42 = add nuw nsw i64 %13, 1
   %43 = load i32, ptr @num_var_ranges, align 4
@@ -1146,18 +1146,18 @@ define internal fastcc void @print_mtrr_state() unnamed_addr #2 section ".init.t
 .preheader:                                       ; preds = %22, %54
   %33 = phi i64 [ %55, %54 ], [ 0, %22 ]
   %34 = getelementptr [256 x %struct.mtrr_var_range], ptr @mtrr_state, i64 0, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 2048
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %51, label %39
 
 39:                                               ; preds = %.preheader
-  %40 = getelementptr inbounds i8, ptr %34, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = load i32, ptr %34, align 4
   %43 = lshr i32 %42, 12
-  %44 = getelementptr inbounds i8, ptr %34, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %36, 12
   %47 = and i32 %42, 255
@@ -1288,7 +1288,7 @@ define dso_local noundef i32 @generic_get_free_region(i64 %0, i64 %1, i32 nounde
 .preheader:                                       ; preds = %.preheader.preheader, %19
   %13 = phi i32 [ %20, %19 ], [ 0, %.preheader.preheader ]
   %14 = load ptr, ptr @mtrr_if, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   call void %16(i32 noundef %13, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6) #17
   %17 = load i64, ptr %5, align 8
@@ -1414,14 +1414,14 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   br i1 %20, label %21, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %15
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %31
 
 21:                                               ; preds = %15
   %22 = lshr i64 %13, 32
   %23 = trunc nuw i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr @phys_hi_rsvd, align 4
   %27 = xor i32 %26, -1
@@ -1469,7 +1469,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   br label %53
 
 53:                                               ; preds = %52, %44
-  %54 = getelementptr inbounds i8, ptr %5, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %55 = load i32, ptr %54, align 4
   %56 = and i32 %55, -2048
   %57 = zext i32 %56 to i64
@@ -1478,14 +1478,14 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   br i1 %59, label %60, label %._crit_edge12
 
 ._crit_edge12:                                    ; preds = %53
-  %.phi.trans.insert13 = getelementptr inbounds i8, ptr %5, i64 12
+  %.phi.trans.insert13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %.pre14 = load i32, ptr %.phi.trans.insert13, align 4
   br label %70
 
 60:                                               ; preds = %53
   %61 = lshr i64 %51, 32
   %62 = trunc nuw i64 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %5, i64 12
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = load i32, ptr @phys_hi_rsvd, align 4
   %66 = xor i32 %65, -1
@@ -1599,7 +1599,7 @@ define dso_local void @mtrr_generic_set_state() local_unnamed_addr #1 align 16 {
   %127 = phi ptr [ %137, %133 ], [ %147, %177 ]
   %128 = add nuw nsw i64 %134, 1
   %129 = getelementptr [4 x %struct.fixed_range_block], ptr @fixed_range_blocks, i64 0, i64 %128
-  %130 = getelementptr inbounds i8, ptr %129, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = icmp eq i64 %128, 3
   br i1 %132, label %181, label %133, !llvm.loop !35
@@ -1882,18 +1882,18 @@ define internal void @generic_set_mtrr(i32 noundef %0, i64 noundef %1, i64 nound
   %28 = xor i32 %27, -1
   %29 = trunc i64 %26 to i32
   %30 = and i32 %28, %29
-  %31 = getelementptr inbounds i8, ptr %7, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %30, ptr %31, align 4
   %32 = sub i64 0, %2
   %33 = trunc i64 %32 to i32
   %34 = shl i32 %33, 12
   %35 = or disjoint i32 %34, 2048
-  %36 = getelementptr inbounds i8, ptr %7, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %35, ptr %36, align 4
   %37 = lshr i64 %32, 20
   %38 = trunc i64 %37 to i32
   %39 = and i32 %28, %38
-  %40 = getelementptr inbounds i8, ptr %7, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %39, ptr %40, align 4
   %41 = shl i32 %0, 1
   %42 = add i32 %41, 512
@@ -2113,7 +2113,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @add_map_entry_at(i64 noundef
   %28 = load ptr, ptr @cache_map, align 8
   %29 = sext i32 %3 to i64
   %30 = getelementptr %struct.cache_map, ptr %28, i64 %29
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i16, ptr %31, align 8
   %33 = and i16 %32, 256
   %34 = icmp eq i16 %33, 0

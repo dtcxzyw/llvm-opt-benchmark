@@ -94,9 +94,9 @@ if.end:                                           ; preds = %entry
 
 if.then5:                                         ; preds = %if.end
   store i32 %readfd0, ptr %pfd, align 16
-  %events = getelementptr inbounds i8, ptr %pfd, i64 4
+  %events = getelementptr inbounds nuw i8, ptr %pfd, i64 4
   store i16 195, ptr %events, align 4
-  %revents = getelementptr inbounds i8, ptr %pfd, i64 6
+  %revents = getelementptr inbounds nuw i8, ptr %pfd, i64 6
   store i16 0, ptr %revents, align 2
   br label %if.end10
 
@@ -107,11 +107,11 @@ if.end10:                                         ; preds = %if.then5, %if.end
 
 if.then12:                                        ; preds = %if.end10
   %idxprom13 = zext nneg i32 %num.0 to i64
-  %arrayidx14 = getelementptr inbounds [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom13
+  %arrayidx14 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom13
   store i32 %readfd1, ptr %arrayidx14, align 8
-  %events18 = getelementptr inbounds i8, ptr %arrayidx14, i64 4
+  %events18 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 4
   store i16 195, ptr %events18, align 4
-  %revents21 = getelementptr inbounds i8, ptr %arrayidx14, i64 6
+  %revents21 = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 6
   store i16 0, ptr %revents21, align 2
   %inc22 = add nuw nsw i32 %num.0, 1
   br label %if.end23
@@ -123,11 +123,11 @@ if.end23:                                         ; preds = %if.then12, %if.end1
 
 if.then25:                                        ; preds = %if.end23
   %idxprom26 = zext nneg i32 %num.1 to i64
-  %arrayidx27 = getelementptr inbounds [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom26
   store i32 %writefd, ptr %arrayidx27, align 8
-  %events31 = getelementptr inbounds i8, ptr %arrayidx27, i64 4
+  %events31 = getelementptr inbounds nuw i8, ptr %arrayidx27, i64 4
   store i16 262, ptr %events31, align 4
-  %revents34 = getelementptr inbounds i8, ptr %arrayidx27, i64 6
+  %revents34 = getelementptr inbounds nuw i8, ptr %arrayidx27, i64 6
   store i16 0, ptr %revents34, align 2
   %inc35 = add nuw nsw i32 %num.1, 1
   br label %if.end36
@@ -142,7 +142,7 @@ if.end40:                                         ; preds = %if.end36
   br i1 %cmp4.not, label %if.end58, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
-  %revents45 = getelementptr inbounds i8, ptr %pfd, i64 6
+  %revents45 = getelementptr inbounds nuw i8, ptr %pfd, i64 6
   %4 = load i16, ptr %revents45, align 2
   %5 = and i16 %4, 89
   %tobool.not = icmp ne i16 %5, 0
@@ -160,7 +160,7 @@ if.end58:                                         ; preds = %if.then42, %if.end4
 
 if.then61:                                        ; preds = %if.end58
   %idxprom62 = zext nneg i32 %num.3 to i64
-  %revents64 = getelementptr inbounds [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom62, i32 2
+  %revents64 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom62, i32 2
   %7 = load i16, ptr %revents64, align 2
   %8 = and i16 %7, 89
   %tobool67.not = icmp eq i16 %8, 0
@@ -180,7 +180,7 @@ if.end81:                                         ; preds = %if.then61, %if.end5
 
 if.then84:                                        ; preds = %if.end81
   %idxprom85 = zext nneg i32 %num.4 to i64
-  %revents87 = getelementptr inbounds [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom85, i32 2
+  %revents87 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %pfd, i64 0, i64 %idxprom85, i32 2
   %10 = load i16, ptr %revents87, align 2
   %11 = and i16 %10, 260
   %tobool90.not = icmp eq i16 %11, 0
@@ -216,7 +216,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds %struct.pollfd, ptr %ufds, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.pollfd, ptr %ufds, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %cmp1.not = icmp eq i32 %0, -1
   br i1 %cmp1.not, label %for.cond, label %if.end6
@@ -290,13 +290,13 @@ land.lhs.true:                                    ; preds = %if.then22
 
 for.body34:                                       ; preds = %for.body34.preheader, %for.inc67
   %indvars.iv31 = phi i64 [ 0, %for.body34.preheader ], [ %indvars.iv.next32, %for.inc67 ]
-  %arrayidx36 = getelementptr inbounds %struct.pollfd, ptr %ufds, i64 %indvars.iv31
+  %arrayidx36 = getelementptr inbounds nuw %struct.pollfd, ptr %ufds, i64 %indvars.iv31
   %5 = load i32, ptr %arrayidx36, align 4
   %cmp38 = icmp eq i32 %5, -1
   br i1 %cmp38, label %for.inc67, label %if.end41
 
 if.end41:                                         ; preds = %for.body34
-  %revents = getelementptr inbounds i8, ptr %arrayidx36, i64 6
+  %revents = getelementptr inbounds nuw i8, ptr %arrayidx36, i64 6
   %6 = load i16, ptr %revents, align 2
   %7 = and i16 %6, 24
   %.not = icmp eq i16 %7, 0

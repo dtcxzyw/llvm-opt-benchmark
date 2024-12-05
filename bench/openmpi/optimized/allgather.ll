@@ -56,19 +56,19 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %.not186, label %28, label %ompi_datatype_copy_content_same_ddt.exit
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds i8, ptr %9, i64 44
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %30 = load i32, ptr %29, align 4
   %31 = sub nsw i32 %5, %30
-  %32 = getelementptr inbounds i8, ptr %9, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, 0
   br i1 %34, label %35, label %57
 
 35:                                               ; preds = %28
-  %36 = getelementptr inbounds i8, ptr %9, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, 0
-  %39 = getelementptr inbounds i8, ptr %9, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %40 = load i32, ptr %39, align 4
   br i1 %38, label %41, label %50
 
@@ -93,14 +93,14 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %56, label %ompi_datatype_copy_content_same_ddt.exit, label %57
 
 57:                                               ; preds = %41, %50, %28
-  %58 = getelementptr inbounds i8, ptr %9, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %9, i64 8
-  %62 = getelementptr inbounds i8, ptr %10, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %63
 
 63:                                               ; preds = %.lr.ph, %124
@@ -115,7 +115,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.0158198 = phi i32 [ %4, %.lr.ph ], [ %.1159, %124 ]
   %.0166197 = phi i32 [ 1, %.lr.ph ], [ %126, %124 ]
   %64 = load ptr, ptr %61, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   %67 = icmp sgt i32 %66, %4
   %68 = add nsw i32 %.0158198, %.0166197
@@ -185,7 +185,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %108 = load i32, ptr %85, align 4
   %109 = zext nneg i32 %.0167 to i64
-  %110 = getelementptr inbounds [4 x ptr], ptr %10, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %109
   %111 = call i32 %107(ptr noundef %.0154201, i64 noundef %.0155200, ptr noundef %3, i32 noundef %108, i32 noundef -99, i32 noundef 4, ptr noundef %7, ptr noundef nonnull %110) #4
   %112 = icmp slt i32 %111, 0
   br i1 %112, label %ompi_datatype_copy_content_same_ddt.exit, label %113
@@ -198,7 +198,7 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   %116 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_pml, i64 88), align 8
   %117 = load i32, ptr %85, align 4
   %118 = zext nneg i32 %114 to i64
-  %119 = getelementptr inbounds [4 x ptr], ptr %10, i64 0, i64 %118
+  %119 = getelementptr inbounds nuw [4 x ptr], ptr %10, i64 0, i64 %118
   %120 = call i32 %116(ptr noundef %.sroa.42.1, i64 noundef %.sroa.63.1, ptr noundef %3, i32 noundef %117, i32 noundef -99, i32 noundef 4, ptr noundef %7, ptr noundef nonnull %119) #4
   %121 = icmp slt i32 %120, 0
   br i1 %121, label %ompi_datatype_copy_content_same_ddt.exit, label %122
@@ -231,10 +231,10 @@ define i32 @ompi_comm_allgather_pml(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %136, label %137, label %156
 
 137:                                              ; preds = %._crit_edge
-  %138 = getelementptr inbounds i8, ptr %9, i64 52
+  %138 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %139 = load i32, ptr %138, align 4
   %140 = icmp eq i32 %139, 1
-  %141 = getelementptr inbounds i8, ptr %9, i64 20
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %142 = load i32, ptr %141, align 4
   %143 = mul nsw i32 %5, %2
   %144 = sext i32 %143 to i64

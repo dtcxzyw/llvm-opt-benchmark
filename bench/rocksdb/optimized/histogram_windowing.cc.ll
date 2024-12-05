@@ -32,20 +32,20 @@ $_ZNK7rocksdb22HistogramWindowingImpl3numEv = comdat any
 define void @_ZN7rocksdb22HistogramWindowingImplC2Ev(ptr noundef nonnull align 8 dereferenceable(1032) initializes((0, 64)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %clock_, i8 0, i64 56, i1 false)
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %stats_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   store ptr null, ptr %window_stats_, align 8
-  %num_windows_ = getelementptr inbounds i8, ptr %this, i64 1008
+  %num_windows_ = getelementptr inbounds nuw i8, ptr %this, i64 1008
   store i64 5, ptr %num_windows_, align 8
-  %micros_per_window_ = getelementptr inbounds i8, ptr %this, i64 1016
+  %micros_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1016
   store i64 60000000, ptr %micros_per_window_, align 8
-  %min_num_per_window_ = getelementptr inbounds i8, ptr %this, i64 1024
+  %min_num_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
   store i64 0, ptr %min_num_per_window_, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv()
           to label %invoke.cont3 unwind label %lpad2
@@ -53,8 +53,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %call, align 8
   store ptr %0, ptr %clock_, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, %2
@@ -65,7 +65,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont3
   br i1 %cmp3.not.i.i.i, label %if.end.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -90,7 +90,7 @@ if.end.i.i.i:                                     ; preds = %if.endthread-pre-sp
   br i1 %cmp6.not.i.i.i, label %if.end9.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_use_count.i5.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i5.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i5.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -98,10 +98,10 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i
   store i32 0, ptr %_M_use_count.i5.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %if.end8.sink.split.i.i.i.i
@@ -127,10 +127,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -152,7 +152,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %if.end9.i.i.i
@@ -176,7 +176,7 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %invoke.cont3
 
 invoke.cont8:                                     ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit
   store i64 %17, ptr %call9, align 16
-  %.ptr = getelementptr inbounds i8, ptr %call9, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %isempty = icmp eq i64 %17, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -186,13 +186,13 @@ new.ctorloop:                                     ; preds = %invoke.cont8
 
 arrayctor.loop:                                   ; preds = %invoke.cont11, %new.ctorloop
   %arrayctor.cur.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur.add, %invoke.cont11 ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call9, i64 %arrayctor.cur.idx
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 %arrayctor.cur.idx
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %arrayctor.cur.ptr.ptr)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %arrayctor.loop
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 920
-  %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call9, i64 %arrayctor.cur.add
+  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 %arrayctor.cur.add
   %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -209,7 +209,7 @@ _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit: ; preds = %arrayctor.cont, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %28 = load ptr, ptr %vfn, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(1032) %this)
           to label %invoke.cont13 unwind label %lpad2
@@ -275,13 +275,13 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_refcount.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_refcount.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
   br i1 %cmp.not.i.i, label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %_M_use_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 8
+  %_M_use_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load atomic i64, ptr %_M_use_count.i.i.i acquire, align 8
   %cmp.i.i.i = icmp eq i64 %1, 4294967297
   %2 = trunc i64 %1 to i32
@@ -289,10 +289,10 @@ if.then.i.i:                                      ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then.i.i
   store i32 0, ptr %_M_use_count.i.i.i, align 8
-  %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i, align 4
   %vtable.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 16
   %3 = load ptr, ptr %vfn.i.i.i, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %if.end8.sink.split.i.i.i
@@ -318,10 +318,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %if.else.i.
 
 if.then7.i.i.i:                                   ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   %vtable.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 16
   %6 = load ptr, ptr %vfn.i.i.i.i.i, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %_M_weak_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i = icmp eq i8 %7, 0
   br i1 %tobool.i.i.not.i.i.i.i.i, label %if.else.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i
@@ -343,7 +343,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %if.els
 
 if.end8.sink.split.i.i.i:                         ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %if.then.i.i.i
   %vtable2.i.i.i.i.i = load ptr, ptr %0, align 8
-  %vfn3.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i, i64 24
   %10 = load ptr, ptr %vfn3.i.i.i.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(16) %0) #11
   br label %_ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
@@ -356,20 +356,20 @@ _ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 define void @_ZN7rocksdb22HistogramWindowingImplC2Emmm(ptr noundef nonnull align 8 dereferenceable(1032) initializes((0, 64)) %this, i64 noundef %num_windows, i64 noundef %micros_per_window, i64 noundef %min_num_per_window) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %clock_, i8 0, i64 56, i1 false)
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %stats_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   store ptr null, ptr %window_stats_, align 8
-  %num_windows_ = getelementptr inbounds i8, ptr %this, i64 1008
+  %num_windows_ = getelementptr inbounds nuw i8, ptr %this, i64 1008
   store i64 %num_windows, ptr %num_windows_, align 8
-  %micros_per_window_ = getelementptr inbounds i8, ptr %this, i64 1016
+  %micros_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1016
   store i64 %micros_per_window, ptr %micros_per_window_, align 8
-  %min_num_per_window_ = getelementptr inbounds i8, ptr %this, i64 1024
+  %min_num_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
   store i64 %min_num_per_window, ptr %min_num_per_window_, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN7rocksdb11SystemClock7DefaultEv()
           to label %invoke.cont3 unwind label %lpad2
@@ -377,8 +377,8 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   %0 = load ptr, ptr %call, align 8
   store ptr %0, ptr %clock_, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_refcount3.i.i = getelementptr inbounds i8, ptr %call, i64 8
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %_M_refcount3.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %1 = load ptr, ptr %_M_refcount3.i.i, align 8
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %1, %2
@@ -389,7 +389,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont3
   br i1 %cmp3.not.i.i.i, label %if.end.i.i.i, label %if.then4.i.i.i
 
 if.then4.i.i.i:                                   ; preds = %if.then.i.i.i
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.not.i.i.i.i = icmp eq i8 %3, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else.i.i.i.i.i, label %if.then.i.i.i.i.i
@@ -414,7 +414,7 @@ if.end.i.i.i:                                     ; preds = %if.endthread-pre-sp
   br i1 %cmp6.not.i.i.i, label %if.end9.i.i.i, label %if.then7.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
-  %_M_use_count.i5.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %_M_use_count.i5.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %7 = load atomic i64, ptr %_M_use_count.i5.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %7, 4294967297
   %8 = trunc i64 %7 to i32
@@ -422,10 +422,10 @@ if.then7.i.i.i:                                   ; preds = %if.end.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then7.i.i.i
   store i32 0, ptr %_M_use_count.i5.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %9 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %if.end8.sink.split.i.i.i.i
@@ -451,10 +451,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %12 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %13, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -476,7 +476,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %6, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %16 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #11
   br label %if.end9.i.i.i
@@ -500,7 +500,7 @@ _ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit: ; preds = %invoke.cont3
 
 invoke.cont8:                                     ; preds = %_ZNSt10shared_ptrIN7rocksdb11SystemClockEEaSERKS2_.exit
   store i64 %17, ptr %call9, align 16
-  %.ptr = getelementptr inbounds i8, ptr %call9, i64 8
+  %.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 8
   %isempty = icmp eq i64 %17, 0
   br i1 %isempty, label %arrayctor.cont, label %new.ctorloop
 
@@ -510,13 +510,13 @@ new.ctorloop:                                     ; preds = %invoke.cont8
 
 arrayctor.loop:                                   ; preds = %invoke.cont11, %new.ctorloop
   %arrayctor.cur.idx = phi i64 [ 8, %new.ctorloop ], [ %arrayctor.cur.add, %invoke.cont11 ]
-  %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call9, i64 %arrayctor.cur.idx
+  %arrayctor.cur.ptr.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 %arrayctor.cur.idx
   invoke void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 dereferenceable(920) %arrayctor.cur.ptr.ptr)
           to label %invoke.cont11 unwind label %lpad10
 
 invoke.cont11:                                    ; preds = %arrayctor.loop
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 920
-  %arrayctor.next.ptr = getelementptr inbounds i8, ptr %call9, i64 %arrayctor.cur.add
+  %arrayctor.next.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 %arrayctor.cur.add
   %arrayctor.done = icmp eq ptr %arrayctor.next.ptr, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
@@ -533,7 +533,7 @@ _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EE5resetIPS1_vEEvT_.exit: ; preds = %arrayctor.cont, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i.i
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %28 = load ptr, ptr %vfn, align 8
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(1032) %this)
           to label %invoke.cont13 unwind label %lpad2
@@ -582,7 +582,7 @@ ehcleanup15:                                      ; preds = %_ZNSt10unique_ptrIA
 define void @_ZN7rocksdb22HistogramWindowingImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1032) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22HistogramWindowingImplE, i64 16), ptr %this, align 8
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   %0 = load ptr, ptr %window_stats_, align 8
   %cmp.not.i = icmp eq ptr %0, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
@@ -594,13 +594,13 @@ _ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is
 
 _ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIA_N7rocksdb13HistogramStatEEclIS1_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS2_EE5valueEvE4typeEPS6_.exit.i
   store ptr null, ptr %window_stats_, align 8
-  %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %2, null
   br i1 %cmp.not.i.i.i, label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIA_N7rocksdb13HistogramStatESt14default_deleteIS2_EED2Ev.exit
-  %_M_use_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %_M_use_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load atomic i64, ptr %_M_use_count.i.i.i.i acquire, align 8
   %cmp.i.i.i.i = icmp eq i64 %3, 4294967297
   %4 = trunc i64 %3 to i32
@@ -608,10 +608,10 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIA
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   store i32 0, ptr %_M_use_count.i.i.i.i, align 8
-  %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i, align 4
   %vtable.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
+  %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i.i.i, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
   br label %if.end8.sink.split.i.i.i.i
@@ -637,10 +637,10 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %if.else.
 
 if.then7.i.i.i.i:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
   %vtable.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i, i64 16
+  %vfn.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i.i, i64 16
   %8 = load ptr, ptr %vfn.i.i.i.i.i.i, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
-  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 12
+  %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i8, ptr @__libc_single_threaded, align 1
   %tobool.i.i.not.i.i.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -662,7 +662,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %if.e
 
 if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.then.i.i.i.i
   %vtable2.i.i.i.i.i.i = load ptr, ptr %2, align 8
-  %vfn3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i, i64 24
+  %vfn3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable2.i.i.i.i.i.i, i64 24
   %12 = load ptr, ptr %vfn3.i.i.i.i.i.i, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(16) %2) #11
   br label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev.exit
@@ -685,7 +685,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22HistogramWindowingImpl5ClearEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -695,18 +695,18 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   invoke void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 dereferenceable(920) %stats_)
           to label %for.cond.preheader unwind label %lpad.loopexit.split-lp
 
 for.cond.preheader:                               ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %num_windows_ = getelementptr inbounds i8, ptr %this, i64 1008
+  %num_windows_ = getelementptr inbounds nuw i8, ptr %this, i64 1008
   %0 = load i64, ptr %num_windows_, align 8
   %cmp14.not = icmp eq i64 %0, 0
   br i1 %cmp14.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -738,18 +738,18 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader
-  %current_window_ = getelementptr inbounds i8, ptr %this, i64 992
+  %current_window_ = getelementptr inbounds nuw i8, ptr %this, i64 992
   store atomic i64 0, ptr %current_window_ monotonic, align 8
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %4 = load ptr, ptr %vfn, align 8
   %call6 = invoke noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %invoke.cont5 unwind label %lpad.loopexit.split-lp
 
 invoke.cont5:                                     ; preds = %for.end
-  %last_swap_time_ = getelementptr inbounds i8, ptr %this, i64 1000
+  %last_swap_time_ = getelementptr inbounds nuw i8, ptr %this, i64 1000
   store atomic i64 %call6, ptr %last_swap_time_ monotonic, align 8
   %call1.i.i.i10 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   ret void
@@ -760,7 +760,7 @@ declare void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK7rocksdb22HistogramWindowingImpl5EmptyEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call = tail call noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr noundef nonnull align 8 dereferenceable(920) %stats_)
   ret i1 %call
 }
@@ -770,28 +770,28 @@ declare noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr noundef nonn
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22HistogramWindowingImpl3AddEm(ptr noundef nonnull align 8 dereferenceable(1032) %this, i64 noundef %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %clock_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %clock_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %clock_.i, align 8
   %vtable.i = load ptr, ptr %0, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 152
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 152
   %1 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %current_window_.i.i = getelementptr inbounds i8, ptr %this, i64 992
+  %current_window_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 992
   %2 = load atomic i64, ptr %current_window_.i.i monotonic, align 8
-  %last_swap_time_.i.i = getelementptr inbounds i8, ptr %this, i64 1000
+  %last_swap_time_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1000
   %3 = load atomic i64, ptr %last_swap_time_.i.i monotonic, align 8
   %sub.i = sub i64 %call2.i, %3
-  %micros_per_window_.i = getelementptr inbounds i8, ptr %this, i64 1016
+  %micros_per_window_.i = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %4 = load i64, ptr %micros_per_window_.i, align 8
   %cmp.i = icmp ugt i64 %sub.i, %4
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit
 
 land.lhs.true.i:                                  ; preds = %entry
-  %window_stats_.i = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_.i = getelementptr inbounds nuw i8, ptr %this, i64 984
   %5 = load ptr, ptr %window_stats_.i, align 8
   %num_.i.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %5, i64 %2, i32 2
   %6 = load atomic i64, ptr %num_.i.i monotonic, align 8
-  %min_num_per_window_.i = getelementptr inbounds i8, ptr %this, i64 1024
+  %min_num_per_window_.i = getelementptr inbounds nuw i8, ptr %this, i64 1024
   %7 = load i64, ptr %min_num_per_window_.i, align 8
   %cmp7.not.i = icmp ult i64 %6, %7
   br i1 %cmp7.not.i, label %_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit, label %if.then.i
@@ -801,9 +801,9 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit
 
 _ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit: ; preds = %entry, %land.lhs.true.i, %if.then.i
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 dereferenceable(920) %stats_, i64 noundef %value)
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   %8 = load atomic i64, ptr %current_window_.i.i monotonic, align 8
   %9 = load ptr, ptr %window_stats_, align 8
   %arrayidx.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %9, i64 %8
@@ -814,28 +814,28 @@ _ZN7rocksdb22HistogramWindowingImpl9TimerTickEv.exit: ; preds = %entry, %land.lh
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22HistogramWindowingImpl9TimerTickEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   %call2 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %current_window_.i = getelementptr inbounds i8, ptr %this, i64 992
+  %current_window_.i = getelementptr inbounds nuw i8, ptr %this, i64 992
   %2 = load atomic i64, ptr %current_window_.i monotonic, align 8
-  %last_swap_time_.i = getelementptr inbounds i8, ptr %this, i64 1000
+  %last_swap_time_.i = getelementptr inbounds nuw i8, ptr %this, i64 1000
   %3 = load atomic i64, ptr %last_swap_time_.i monotonic, align 8
   %sub = sub i64 %call2, %3
-  %micros_per_window_ = getelementptr inbounds i8, ptr %this, i64 1016
+  %micros_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %4 = load i64, ptr %micros_per_window_, align 8
   %cmp = icmp ugt i64 %sub, %4
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   %5 = load ptr, ptr %window_stats_, align 8
   %num_.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %5, i64 %2, i32 2
   %6 = load atomic i64, ptr %num_.i monotonic, align 8
-  %min_num_per_window_ = getelementptr inbounds i8, ptr %this, i64 1024
+  %min_num_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1024
   %7 = load i64, ptr %min_num_per_window_, align 8
   %cmp7.not = icmp ult i64 %6, %7
   br i1 %cmp7.not, label %if.end, label %if.then
@@ -854,11 +854,11 @@ declare void @_ZN7rocksdb13HistogramStat3AddEm(ptr noundef nonnull align 8 deref
 define void @_ZN7rocksdb22HistogramWindowingImpl5MergeERKNS_9HistogramE(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef nonnull align 8 dereferenceable(8) %other) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(1032) %this)
   %vtable2 = load ptr, ptr %other, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 56
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 56
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %other)
   %call5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(1) %call4) #15
@@ -879,7 +879,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22HistogramWindowingImpl5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef nonnull align 8 dereferenceable(1032) %other) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %if.then.i.i
@@ -889,23 +889,23 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
-  %stats_2 = getelementptr inbounds i8, ptr %other, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %stats_2 = getelementptr inbounds nuw i8, ptr %other, i64 64
   invoke void @_ZN7rocksdb13HistogramStat5MergeERKS0_(ptr noundef nonnull align 8 dereferenceable(920) %stats_, ptr noundef nonnull align 8 dereferenceable(920) %stats_2)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
 invoke.cont:                                      ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
-  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 976
+  %num_buckets_ = getelementptr inbounds nuw i8, ptr %this, i64 976
   %0 = load i64, ptr %num_buckets_, align 8
-  %num_buckets_5 = getelementptr inbounds i8, ptr %other, i64 976
+  %num_buckets_5 = getelementptr inbounds nuw i8, ptr %other, i64 976
   %1 = load i64, ptr %num_buckets_5, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %lor.lhs.false, label %cleanup
 
 lor.lhs.false:                                    ; preds = %invoke.cont
-  %micros_per_window_ = getelementptr inbounds i8, ptr %this, i64 1016
+  %micros_per_window_ = getelementptr inbounds nuw i8, ptr %this, i64 1016
   %2 = load i64, ptr %micros_per_window_, align 8
-  %micros_per_window_6 = getelementptr inbounds i8, ptr %other, i64 1016
+  %micros_per_window_6 = getelementptr inbounds nuw i8, ptr %other, i64 1016
   %3 = load i64, ptr %micros_per_window_6, align 8
   %cmp7.not = icmp eq i64 %2, %3
   br i1 %cmp7.not, label %if.end, label %cleanup
@@ -926,12 +926,12 @@ lpad:                                             ; preds = %lpad.loopexit.split
   resume { ptr, i32 } %lpad.phi
 
 if.end:                                           ; preds = %lor.lhs.false
-  %current_window_.i = getelementptr inbounds i8, ptr %this, i64 992
+  %current_window_.i = getelementptr inbounds nuw i8, ptr %this, i64 992
   %4 = load atomic i64, ptr %current_window_.i monotonic, align 8
-  %current_window_.i12 = getelementptr inbounds i8, ptr %other, i64 992
+  %current_window_.i12 = getelementptr inbounds nuw i8, ptr %other, i64 992
   %5 = load atomic i64, ptr %current_window_.i12 monotonic, align 8
-  %num_windows_ = getelementptr inbounds i8, ptr %this, i64 1008
-  %num_windows_11 = getelementptr inbounds i8, ptr %other, i64 1008
+  %num_windows_ = getelementptr inbounds nuw i8, ptr %this, i64 1008
+  %num_windows_11 = getelementptr inbounds nuw i8, ptr %other, i64 1008
   %6 = load i64, ptr %num_windows_11, align 8
   %7 = load i64, ptr %num_windows_, align 8
   %8 = tail call i64 @llvm.umin.i64(i64 %6, i64 %7)
@@ -939,8 +939,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp1418.not, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
-  %window_stats_26 = getelementptr inbounds i8, ptr %other, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
+  %window_stats_26 = getelementptr inbounds nuw i8, ptr %other, i64 984
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -981,7 +981,7 @@ declare void @_ZN7rocksdb13HistogramStat5MergeERKS0_(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7rocksdb22HistogramWindowingImpl8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(920) %stats_)
   ret void
 }
@@ -992,7 +992,7 @@ declare void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr sret(%"class.std
 define noundef double @_ZNK7rocksdb22HistogramWindowingImpl6MedianEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 96
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 96
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef double %0(ptr noundef nonnull align 8 dereferenceable(1032) %this, double noundef 5.000000e+01)
   ret double %call
@@ -1001,8 +1001,8 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK7rocksdb22HistogramWindowingImpl10PercentileEd(ptr noundef nonnull align 8 dereferenceable(1032) %this, double noundef %p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
-  %num_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
@@ -1028,7 +1028,7 @@ declare noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK7rocksdb22HistogramWindowingImpl7AverageEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call = tail call noundef double @_ZNK7rocksdb13HistogramStat7AverageEv(ptr noundef nonnull align 8 dereferenceable(920) %stats_)
   ret double %call
 }
@@ -1038,7 +1038,7 @@ declare noundef double @_ZNK7rocksdb13HistogramStat7AverageEv(ptr noundef nonnul
 ; Function Attrs: mustprogress uwtable
 define noundef double @_ZNK7rocksdb22HistogramWindowingImpl17StandardDeviationEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %call = tail call noundef double @_ZNK7rocksdb13HistogramStat17StandardDeviationEv(ptr noundef nonnull align 8 dereferenceable(920) %stats_)
   ret double %call
 }
@@ -1048,7 +1048,7 @@ declare noundef double @_ZNK7rocksdb13HistogramStat17StandardDeviationEv(ptr nou
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK7rocksdb22HistogramWindowingImpl4DataEPNS_13HistogramDataE(ptr noundef nonnull align 8 dereferenceable(1032) %this, ptr noundef %data) unnamed_addr #0 align 2 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef nonnull align 8 dereferenceable(920) %stats_, ptr noundef %data)
   ret void
 }
@@ -1058,43 +1058,43 @@ declare void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7rocksdb22HistogramWindowingImpl17SwapHistoryBucketEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
+  %mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call1.i.i = tail call noundef i32 @pthread_mutex_trylock(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #11
   %tobool.not.i = icmp eq i32 %call1.i.i, 0
   br i1 %tobool.not.i, label %if.then, label %if.end76
 
 if.then:                                          ; preds = %entry
-  %clock_ = getelementptr inbounds i8, ptr %this, i64 8
+  %clock_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %clock_, align 8
   %vtable = load ptr, ptr %0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 152
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 152
   %1 = load ptr, ptr %vfn, align 8
   %call3 = tail call noundef i64 %1(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %last_swap_time_ = getelementptr inbounds i8, ptr %this, i64 1000
+  %last_swap_time_ = getelementptr inbounds nuw i8, ptr %this, i64 1000
   store atomic i64 %call3, ptr %last_swap_time_ monotonic, align 8
-  %current_window_.i = getelementptr inbounds i8, ptr %this, i64 992
+  %current_window_.i = getelementptr inbounds nuw i8, ptr %this, i64 992
   %2 = load atomic i64, ptr %current_window_.i monotonic, align 8
-  %num_windows_ = getelementptr inbounds i8, ptr %this, i64 1008
+  %num_windows_ = getelementptr inbounds nuw i8, ptr %this, i64 1008
   %3 = load i64, ptr %num_windows_, align 8
   %sub = add i64 %3, -1
   %cmp = icmp eq i64 %2, %sub
   %add = add i64 %2, 1
   %cond = select i1 %cmp, i64 0, i64 %add
-  %window_stats_ = getelementptr inbounds i8, ptr %this, i64 984
+  %window_stats_ = getelementptr inbounds nuw i8, ptr %this, i64 984
   %4 = load ptr, ptr %window_stats_, align 8
   %arrayidx.i = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %4, i64 %cond
   %call6 = tail call noundef zeroext i1 @_ZNK7rocksdb13HistogramStat5EmptyEv(ptr noundef nonnull align 8 dereferenceable(920) %arrayidx.i)
   br i1 %call6, label %if.end74, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %if.then
-  %num_buckets_ = getelementptr inbounds i8, ptr %this, i64 976
+  %num_buckets_ = getelementptr inbounds nuw i8, ptr %this, i64 976
   %5 = load i64, ptr %num_buckets_, align 8
   %cmp860.not = icmp eq i64 %5, 0
   br i1 %cmp860.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %buckets_.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 40
-  %buckets_ = getelementptr inbounds i8, ptr %this, i64 104
+  %buckets_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
+  %buckets_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -1109,7 +1109,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
-  %stats_.le = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_.le = getelementptr inbounds nuw i8, ptr %this, i64 64
   %9 = load atomic i64, ptr %stats_.le monotonic, align 8
   %10 = load atomic i64, ptr %arrayidx.i monotonic, align 8
   %cmp15 = icmp eq i64 %9, %10
@@ -1132,7 +1132,7 @@ for.body21:                                       ; preds = %for.body21.lr.ph, %
   br i1 %cmp23.not, label %for.inc32, label %if.then24
 
 if.then24:                                        ; preds = %for.body21
-  %arrayidx.i55 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %12, i64 %conv65
+  %arrayidx.i55 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %12, i64 %conv65
   %13 = load atomic i64, ptr %arrayidx.i55 monotonic, align 8
   %spec.select = tail call i64 @llvm.umin.i64(i64 %13, i64 %new_min.063)
   br label %for.inc32
@@ -1150,9 +1150,9 @@ for.end34:                                        ; preds = %for.inc32, %for.con
   br label %if.end36
 
 if.end36:                                         ; preds = %for.end34, %for.end
-  %max_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %max_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %14 = load atomic i64, ptr %max_.i monotonic, align 8
-  %max_.i56 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %max_.i56 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %15 = load atomic i64, ptr %max_.i56 monotonic, align 8
   %cmp40 = icmp eq i64 %14, %15
   br i1 %cmp40, label %for.cond43.preheader, label %if.end64
@@ -1174,7 +1174,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   br i1 %cmp49.not, label %for.inc60, label %if.then50
 
 if.then50:                                        ; preds = %for.body47
-  %max_.i58 = getelementptr inbounds %"struct.rocksdb::HistogramStat", ptr %17, i64 %conv4469, i32 1
+  %max_.i58 = getelementptr inbounds nuw %"struct.rocksdb::HistogramStat", ptr %17, i64 %conv4469, i32 1
   %18 = load atomic i64, ptr %max_.i58 monotonic, align 8
   %spec.select53 = tail call i64 @llvm.umax.i64(i64 %18, i64 %new_max.067)
   br label %for.inc60
@@ -1192,17 +1192,17 @@ for.end62:                                        ; preds = %for.inc60, %for.con
   br label %if.end64
 
 if.end64:                                         ; preds = %for.end62, %if.end36
-  %num_.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %num_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %19 = load atomic i64, ptr %num_.i monotonic, align 8
-  %num_ = getelementptr inbounds i8, ptr %this, i64 80
+  %num_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %20 = atomicrmw sub ptr %num_, i64 %19 monotonic, align 8
-  %sum_.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %sum_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %21 = load atomic i64, ptr %sum_.i monotonic, align 8
-  %sum_ = getelementptr inbounds i8, ptr %this, i64 88
+  %sum_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %22 = atomicrmw sub ptr %sum_, i64 %21 monotonic, align 8
-  %sum_squares_.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %sum_squares_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   %23 = load atomic i64, ptr %sum_squares_.i monotonic, align 8
-  %sum_squares_ = getelementptr inbounds i8, ptr %this, i64 96
+  %sum_squares_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %24 = atomicrmw sub ptr %sum_squares_, i64 %23 monotonic, align 8
   tail call void @_ZN7rocksdb13HistogramStat5ClearEv(ptr noundef nonnull align 8 dereferenceable(920) %arrayidx.i)
   br label %if.end74
@@ -1225,7 +1225,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb22HistogramWindowingImpl3minEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stats_ = getelementptr inbounds i8, ptr %this, i64 64
+  %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load atomic i64, ptr %stats_ monotonic, align 8
   ret i64 %0
 }
@@ -1233,7 +1233,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb22HistogramWindowingImpl3maxEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %max_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %max_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load atomic i64, ptr %max_.i monotonic, align 8
   ret i64 %0
 }
@@ -1241,7 +1241,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i64 @_ZNK7rocksdb22HistogramWindowingImpl3numEv(ptr noundef nonnull align 8 dereferenceable(1032) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %num_.i = getelementptr inbounds i8, ptr %this, i64 80
+  %num_.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load atomic i64, ptr %num_.i monotonic, align 8
   ret i64 %0
 }

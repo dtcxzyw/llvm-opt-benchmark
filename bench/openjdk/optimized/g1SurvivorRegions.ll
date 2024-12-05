@@ -18,20 +18,20 @@ define hidden void @_ZN17G1SurvivorRegionsC2Ev(ptr noundef nonnull align 8 deref
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 8, i32 noundef 8, i8 noundef zeroext 5) #8
   store i32 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 8, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %5, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 11, ptr %8, align 8
   br label %9
 
 9:                                                ; preds = %4, %1
   store ptr %2, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN16G1RegionsOnNodesC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #8
   ret void
 }
@@ -45,7 +45,7 @@ declare void @_ZN16G1RegionsOnNodesC1Ev(ptr noundef nonnull align 8 dereferencea
 define hidden noundef i32 @_ZN17G1SurvivorRegions3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE6appendERKS1_.exit
@@ -68,12 +68,12 @@ _ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE6appendERKS1
   %16 = phi i32 [ %.pre.i, %8 ], [ %4, %2 ]
   %17 = add nsw i32 %16, 1
   store i32 %17, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %16 to i64
   %21 = getelementptr inbounds ptr, ptr %19, i64 %20
   store ptr %1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = tail call noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %1) #8
   ret i32 %23
 }
@@ -89,7 +89,7 @@ define hidden noundef i32 @_ZNK17G1SurvivorRegions6lengthEv(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZNK17G1SurvivorRegions15regions_on_nodeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef i32 @_ZNK16G1RegionsOnNodes5countEj(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1) #8
   ret i32 %4
 }
@@ -104,13 +104,13 @@ define hidden void @_ZN17G1SurvivorRegions15convert_to_edenEv(ptr noundef nonnul
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN12G1HeapRegion15set_eden_pre_gcEv(ptr noundef nonnull align 8 dereferenceable(136) %8) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -123,9 +123,9 @@ define hidden void @_ZN17G1SurvivorRegions15convert_to_edenEv(ptr noundef nonnul
 ._crit_edge:                                      ; preds = %5, %1
   %.lcssa = phi ptr [ %2, %1 ], [ %9, %5 ]
   store i32 0, ptr %.lcssa, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #8
   ret void
 }
@@ -136,9 +136,9 @@ declare void @_ZN12G1HeapRegion15set_eden_pre_gcEv(ptr noundef nonnull align 8 d
 define hidden void @_ZN17G1SurvivorRegions5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   ret void
 }
@@ -147,7 +147,7 @@ declare void @_ZN16G1RegionsOnNodes5clearEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN17G1SurvivorRegions14add_used_bytesEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = add i64 %4, %1
   store volatile i64 %5, ptr %3, align 8
@@ -158,9 +158,9 @@ declare noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -192,7 +192,7 @@ _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -211,9 +211,9 @@ _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -223,14 +223,14 @@ _ZN13GrowableArrayIP12G1HeapRegionE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !8
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP12G1HeapRegionE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

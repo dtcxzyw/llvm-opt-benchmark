@@ -881,7 +881,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_isi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.195) #2
   %7 = load ptr, ptr %5, align 8
@@ -991,7 +991,7 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
   %13 = load i32, ptr @hf_isi_sms_subblock_count, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.526) #2
   br label %70
@@ -1002,14 +1002,14 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
   %21 = load i32, ptr @hf_isi_sms_subblock_count, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %21, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.527) #2
   br label %70
 
 26:                                               ; preds = %4
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.528) #2
   br label %70
@@ -1020,7 +1020,7 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
   %33 = load i32, ptr @hf_isi_sms_routing_mode, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %33, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   switch i8 %35, label %40 [
     i8 0, label %38
@@ -1041,7 +1041,7 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
 
 41:                                               ; preds = %4
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void @col_set_str(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.532) #2
   br label %70
@@ -1052,7 +1052,7 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
   %48 = load i32, ptr @hf_isi_sms_route, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %48, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   switch i8 %50, label %55 [
     i8 2, label %53
@@ -1075,7 +1075,7 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
   %57 = load i32, ptr @hf_isi_sms_common_message_id, align 4
   %58 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %57, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %59 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   switch i8 %59, label %66 [
     i8 1, label %62
@@ -1105,7 +1105,7 @@ define internal i32 @dissect_isi_sms(ptr noundef %0, ptr nocapture noundef reado
   br label %70
 
 67:                                               ; preds = %4
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %69 = load ptr, ptr %68, align 8
   tail call void @col_set_str(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.541) #2
   br label %70
@@ -1142,7 +1142,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   %15 = load i32, ptr @hf_isi_ss_service_code, align 4
   %16 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %15, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   switch i8 %17, label %22 [
     i8 5, label %20
@@ -1168,7 +1168,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   %27 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %cond3 = icmp eq i8 %28, 5
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   br i1 %cond3, label %31, label %32
 
@@ -1182,7 +1182,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
 
 33:                                               ; preds = %4
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void @col_set_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.547) #2
   br label %102
@@ -1199,20 +1199,20 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
 43:                                               ; preds = %37
   %44 = load i32, ptr @hf_isi_ss_subblock, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %44, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load ptr, ptr %46, align 8
   tail call void @col_set_str(ptr noundef %47, i32 noundef 25, ptr noundef nonnull @.str.548) #2
   br label %102
 
 48:                                               ; preds = %37
-  %49 = getelementptr inbounds i8, ptr %1, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %50 = load ptr, ptr %49, align 8
   tail call void @col_set_str(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.549) #2
   br label %102
 
 51:                                               ; preds = %4
   %52 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @col_set_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.550) #2
   br label %102
@@ -1224,7 +1224,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %58, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
   %60 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %cond1 = icmp eq i8 %60, 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %62 = load ptr, ptr %61, align 8
   br i1 %cond1, label %63, label %64
 
@@ -1242,7 +1242,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   %68 = load i32, ptr @hf_isi_ss_subblock_count, align 4
   %69 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %68, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load ptr, ptr %71, align 8
   switch i8 %70, label %77 [
     i8 0, label %73
@@ -1278,7 +1278,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   %82 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %81, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %cond = icmp eq i8 %83, 5
-  %84 = getelementptr inbounds i8, ptr %1, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %85 = load ptr, ptr %84, align 8
   br i1 %cond, label %86, label %87
 
@@ -1294,7 +1294,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   %89 = load i32, ptr @hf_isi_ss_common_message_id, align 4
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %89, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %91 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %92 = getelementptr inbounds i8, ptr %1, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %93 = load ptr, ptr %92, align 8
   switch i8 %91, label %98 [
     i8 1, label %94
@@ -1324,7 +1324,7 @@ define internal i32 @dissect_isi_ss(ptr noundef %0, ptr nocapture noundef readon
   br label %102
 
 99:                                               ; preds = %4
-  %100 = getelementptr inbounds i8, ptr %1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %101 = load ptr, ptr %100, align 8
   tail call void @col_set_str(ptr noundef %101, i32 noundef 25, ptr noundef nonnull @.str.541) #2
   br label %102
@@ -1370,7 +1370,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
 16:                                               ; preds = %12
   %17 = load i32, ptr @hf_isi_sim_auth_pin, align 4
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %17, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0) #2
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.559) #2
   br label %114
@@ -1378,19 +1378,19 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
 21:                                               ; preds = %12
   %22 = load i32, ptr @hf_isi_sim_auth_pin, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %22, ptr noundef %0, i32 noundef 3, i32 noundef -1, i32 noundef 0) #2
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.560) #2
   br label %114
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 25, ptr noundef nonnull @.str.561) #2
   br label %114
 
 29:                                               ; preds = %12
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %31 = load ptr, ptr %30, align 8
   tail call void @col_set_str(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.562) #2
   br label %114
@@ -1400,7 +1400,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %33, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %35 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %.not = icmp eq i8 %35, 0
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load ptr, ptr %36, align 8
   br i1 %.not, label %39, label %38
 
@@ -1416,7 +1416,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   %41 = load i32, ptr @hf_isi_sim_auth_pw_type, align 4
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %41, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %45 = load ptr, ptr %44, align 8
   switch i8 %43, label %52 [
     i8 2, label %46
@@ -1440,13 +1440,13 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   br label %114
 
 53:                                               ; preds = %4
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8
   tail call void @col_set_str(ptr noundef %55, i32 noundef 25, ptr noundef nonnull @.str.568) #2
   br label %114
 
 56:                                               ; preds = %4
-  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %58 = load ptr, ptr %57, align 8
   tail call void @col_set_str(ptr noundef %58, i32 noundef 25, ptr noundef nonnull @.str.569) #2
   br label %114
@@ -1455,7 +1455,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   %60 = load i32, ptr @hf_isi_sim_auth_pw_type, align 4
   %61 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %60, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8
   switch i8 %62, label %73 [
     i8 2, label %65
@@ -1481,13 +1481,13 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   br label %114
 
 74:                                               ; preds = %4
-  %75 = getelementptr inbounds i8, ptr %1, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %76 = load ptr, ptr %75, align 8
   tail call void @col_set_str(ptr noundef %76, i32 noundef 25, ptr noundef nonnull @.str.573) #2
   br label %114
 
 77:                                               ; preds = %4
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   tail call void @col_set_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.574) #2
   br label %114
@@ -1498,7 +1498,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   %83 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %84 = load i32, ptr @hf_isi_sim_auth_pw_type, align 4
   %85 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %84, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %86 = getelementptr inbounds i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load ptr, ptr %86, align 8
   switch i8 %83, label %96 [
     i8 1, label %88
@@ -1540,7 +1540,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   br label %114
 
 97:                                               ; preds = %4
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %99 = load ptr, ptr %98, align 8
   tail call void @col_set_str(ptr noundef %99, i32 noundef 25, ptr noundef nonnull @.str.582) #2
   br label %114
@@ -1549,7 +1549,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   %101 = load i32, ptr @hf_isi_sim_auth_status_rsp, align 4
   %102 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %101, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %103 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %104 = getelementptr inbounds i8, ptr %1, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %105 = load ptr, ptr %104, align 8
   switch i8 %103, label %110 [
     i8 2, label %106
@@ -1579,7 +1579,7 @@ define internal i32 @dissect_isi_sim_auth(ptr noundef %0, ptr nocapture noundef 
   br label %114
 
 111:                                              ; preds = %4
-  %112 = getelementptr inbounds i8, ptr %1, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %113 = load ptr, ptr %112, align 8
   tail call void @col_set_str(ptr noundef %113, i32 noundef 25, ptr noundef nonnull @.str.588) #2
   br label %114
@@ -1620,7 +1620,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %13, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %cond4 = icmp eq i8 %15, 47
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   br i1 %cond4, label %18, label %19
 
@@ -1643,13 +1643,13 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
 
 26:                                               ; preds = %20
   %27 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.591) #2
   br label %151
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.592) #2
   br label %151
@@ -1658,7 +1658,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %34 = load i32, ptr @hf_isi_sim_service_type, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %34, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   tail call void @col_set_str(ptr noundef %38, i32 noundef 25, ptr noundef nonnull @.str.593) #2
   br label %151
@@ -1669,7 +1669,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %42 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %43 = load i32, ptr @hf_isi_sim_imsi_length, align 4
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %43, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #2
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   tail call void @col_set_str(ptr noundef %46, i32 noundef 25, ptr noundef nonnull @.str.594) #2
   br label %151
@@ -1678,7 +1678,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %48 = load i32, ptr @hf_isi_sim_service_type, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %48, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %50 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   tail call void @col_set_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.595) #2
   br label %151
@@ -1693,13 +1693,13 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %56, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %58 = load i32, ptr @hf_isi_sim_secondary_cause, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %58, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8
   tail call void @col_set_str(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.596) #2
   br label %151
 
 62:                                               ; preds = %53
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %64 = load ptr, ptr %63, align 8
   tail call void @col_set_str(ptr noundef %64, i32 noundef 25, ptr noundef nonnull @.str.597) #2
   br label %151
@@ -1709,7 +1709,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %67 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %66, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %68 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %cond1 = icmp eq i8 %68, 102
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8
   br i1 %cond1, label %71, label %72
 
@@ -1731,13 +1731,13 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
 77:                                               ; preds = %73
   %78 = load i32, ptr @hf_isi_sim_cause, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %78, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %80 = getelementptr inbounds i8, ptr %1, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %81 = load ptr, ptr %80, align 8
   tail call void @col_set_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.600) #2
   br label %151
 
 82:                                               ; preds = %73
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call void @col_set_str(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.601) #2
   br label %151
@@ -1746,7 +1746,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %86 = load i32, ptr @hf_isi_sim_service_type, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %86, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %88 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %89 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %90 = load ptr, ptr %89, align 8
   tail call void @col_set_str(ptr noundef %90, i32 noundef 25, ptr noundef nonnull @.str.602) #2
   br label %151
@@ -1755,7 +1755,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %92 = load i32, ptr @hf_isi_sim_service_type, align 4
   %93 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %92, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %94 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load ptr, ptr %95, align 8
   tail call void @col_set_str(ptr noundef %96, i32 noundef 25, ptr noundef nonnull @.str.603) #2
   br label %151
@@ -1788,7 +1788,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %122 = load i32, ptr @hf_isi_sim_pb_tag, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %122, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0) #2
   %124 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = load ptr, ptr %125, align 8
   tail call void @col_set_str(ptr noundef %126, i32 noundef 25, ptr noundef nonnull @.str.604) #2
   br label %151
@@ -1797,14 +1797,14 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %128 = load i32, ptr @hf_isi_sim_service_type, align 4
   %129 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %128, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %130 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %131 = getelementptr inbounds i8, ptr %1, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %132 = load ptr, ptr %131, align 8
   tail call void @col_set_str(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.605) #2
   br label %151
 
 133:                                              ; preds = %4
   %134 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %135 = getelementptr inbounds i8, ptr %1, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %136 = load ptr, ptr %135, align 8
   tail call void @col_set_str(ptr noundef %136, i32 noundef 25, ptr noundef nonnull @.str.606) #2
   br label %151
@@ -1815,7 +1815,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   %140 = load i32, ptr @hf_isi_sim_secondary_cause, align 4
   %141 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %140, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %142 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %143 = getelementptr inbounds i8, ptr %1, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %144 = load ptr, ptr %143, align 8
   switch i8 %142, label %147 [
     i8 0, label %145
@@ -1835,7 +1835,7 @@ define internal i32 @dissect_isi_sim(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %151
 
 148:                                              ; preds = %4
-  %149 = getelementptr inbounds i8, ptr %1, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %150 = load ptr, ptr %149, align 8
   tail call void @col_set_str(ptr noundef %150, i32 noundef 25, ptr noundef nonnull @.str.541) #2
   br label %151
@@ -1854,7 +1854,7 @@ define internal i32 @dissect_isi_network(ptr noundef %0, ptr noundef %1, ptr nou
   %9 = load i32, ptr @hf_isi_network_cmd, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #2
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   switch i8 %11, label %91 [
     i8 7, label %dissect_isi_network_status.exit.sink.split
@@ -2025,7 +2025,7 @@ define internal i32 @dissect_isi_gss(ptr noundef %0, ptr nocapture noundef reado
   ]
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   tail call void @col_set_str(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.618) #2
   br label %55
@@ -2033,20 +2033,20 @@ define internal i32 @dissect_isi_gss(ptr noundef %0, ptr nocapture noundef reado
 19:                                               ; preds = %12
   %20 = load i32, ptr @hf_isi_gss_subblock_count, align 4
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %20, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.619) #2
   br label %55
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.544) #2
   br label %55
 
 27:                                               ; preds = %4
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void @col_set_str(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.620) #2
   br label %55
@@ -2058,7 +2058,7 @@ define internal i32 @dissect_isi_gss(ptr noundef %0, ptr nocapture noundef reado
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %34, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
   %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
   %cond = icmp eq i8 %36, -100
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %38 = load ptr, ptr %37, align 8
   br i1 %cond, label %39, label %40
 
@@ -2074,7 +2074,7 @@ define internal i32 @dissect_isi_gss(ptr noundef %0, ptr nocapture noundef reado
   %42 = load i32, ptr @hf_isi_gss_common_message_id, align 4
   %43 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %42, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #2
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #2
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   switch i8 %44, label %51 [
     i8 1, label %47
@@ -2104,7 +2104,7 @@ define internal i32 @dissect_isi_gss(ptr noundef %0, ptr nocapture noundef reado
   br label %55
 
 52:                                               ; preds = %4
-  %53 = getelementptr inbounds i8, ptr %1, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8
   tail call void @col_set_str(ptr noundef %54, i32 noundef 25, ptr noundef nonnull @.str.541) #2
   br label %55
@@ -2142,7 +2142,7 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr nocapture noundef reado
 13:                                               ; preds = %4
   %14 = load i32, ptr @hf_isi_gps_status, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %14, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef 0) #2
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #2
   %19 = zext i8 %18 to i32
@@ -2151,25 +2151,25 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr nocapture noundef reado
   br label %dissect_isi_gps_data.exit
 
 21:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.624, i32 noundef %12) #2
   br label %dissect_isi_gps_data.exit
 
 24:                                               ; preds = %4
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @col_set_str(ptr noundef %26, i32 noundef 25, ptr noundef nonnull @.str.625) #2
   br label %dissect_isi_gps_data.exit
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8
   tail call void @col_set_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.626) #2
   br label %dissect_isi_gps_data.exit
 
 30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   tail call void @col_set_str(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.627) #2
   %33 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
@@ -2400,7 +2400,7 @@ define internal i32 @dissect_isi_gps(ptr noundef %0, ptr nocapture noundef reado
   br i1 %exitcond6.not.i, label %dissect_isi_gps_data.exit, label %.lr.ph4.i, !llvm.loop !8
 
 219:                                              ; preds = %4
-  %220 = getelementptr inbounds i8, ptr %1, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %221 = load ptr, ptr %220, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %221, i32 noundef 25, ptr noundef nonnull @.str.628, i32 noundef %12) #2
   br label %dissect_isi_gps_data.exit

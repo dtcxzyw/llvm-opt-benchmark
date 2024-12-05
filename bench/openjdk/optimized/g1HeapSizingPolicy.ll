@@ -47,11 +47,11 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 define hidden noundef ptr @_ZN18G1HeapSizingPolicy6createEPK15G1CollectedHeapPK11G1Analytics(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #7
   store ptr %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 10, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   ret ptr %3
 }
@@ -59,18 +59,18 @@ define hidden noundef ptr @_ZN18G1HeapSizingPolicy6createEPK15G1CollectedHeapPK1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN18G1HeapSizingPolicyC2EPK15G1CollectedHeapPK11G1Analytics(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 10, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN18G1HeapSizingPolicy22clear_ratio_check_dataEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((20, 36)) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
@@ -79,12 +79,12 @@ define hidden void @_ZN18G1HeapSizingPolicy22clear_ratio_check_dataEv(ptr nocapt
 define hidden noundef double @_ZN18G1HeapSizingPolicy15scale_with_heapEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(1488) %3) #7
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 120
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(1488) %8) #7
   %13 = lshr i64 %12, 1
@@ -94,13 +94,13 @@ define hidden noundef double @_ZN18G1HeapSizingPolicy15scale_with_heapEd(ptr noc
 14:                                               ; preds = %2
   %15 = load ptr, ptr %0, align 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef i64 %18(ptr noundef nonnull align 8 dereferenceable(1488) %15) #7
   %20 = uitofp i64 %19 to double
   %21 = load ptr, ptr %0, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 120
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 120
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(1488) %21) #7
   %26 = lshr i64 %25, 1
@@ -118,11 +118,11 @@ define hidden noundef double @_ZN18G1HeapSizingPolicy15scale_with_heapEd(ptr noc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @_ZN18G1HeapSizingPolicy33young_collection_expansion_amountEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 2032
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 2032
   %5 = load double, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 2040
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 2040
   %7 = load double, ptr %6, align 8
   %8 = load i32, ptr @GCTimeRatio, align 4
   %9 = uitofp i32 %8 to double
@@ -130,12 +130,12 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy33young_collection_expansion_a
   %11 = fdiv double 1.000000e+00, %10
   %12 = load ptr, ptr %0, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef i64 %15(ptr noundef nonnull align 8 dereferenceable(1488) %12) #7
   %17 = load ptr, ptr %0, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 120
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(1488) %17) #7
   %22 = lshr i64 %21, 1
@@ -145,13 +145,13 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy33young_collection_expansion_a
 23:                                               ; preds = %1
   %24 = load ptr, ptr %0, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 88
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(1488) %24) #7
   %29 = uitofp i64 %28 to double
   %30 = load ptr, ptr %0, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 120
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(1488) %30) #7
   %35 = lshr i64 %34, 1
@@ -166,19 +166,19 @@ _ZN18G1HeapSizingPolicy15scale_with_heapEd.exit:  ; preds = %1, %23
   %.0.i = phi double [ %40, %23 ], [ %11, %1 ]
   %41 = load ptr, ptr %0, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 88
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 88
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef i64 %44(ptr noundef nonnull align 8 dereferenceable(1488) %41) #7
   %46 = load ptr, ptr %0, align 8
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 120
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 120
   %49 = load ptr, ptr %48, align 8
   %50 = tail call noundef i64 %49(ptr noundef nonnull align 8 dereferenceable(1488) %46) #7
   %51 = icmp eq i64 %45, %50
   br i1 %51, label %52, label %60
 
 52:                                               ; preds = %_ZN18G1HeapSizingPolicy15scale_with_heapEd.exit
-  %53 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %53 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i58 = icmp eq ptr %53, null
   br i1 %.not.i58, label %_ZL13log_expansionddddbm.exit, label %54
 
@@ -191,7 +191,7 @@ _ZN18G1HeapSizingPolicy15scale_with_heapEd.exit:  ; preds = %1, %23
   br label %_ZL13log_expansionddddbm.exit
 
 _ZL13log_expansionddddbm.exit:                    ; preds = %52, %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %59, i8 0, i64 16, i1 false)
   br label %_ZL13log_expansionddddbm.exit60
 
@@ -200,38 +200,38 @@ _ZL13log_expansionddddbm.exit:                    ; preds = %52, %54
   br i1 %61, label %62, label %69
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %64 = load i32, ptr %63, align 4
   %65 = add i32 %64, 1
   store i32 %65, ptr %63, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load double, ptr %66, align 8
   %68 = fadd double %7, %67
   store double %68, ptr %66, align 8
   br label %69
 
 69:                                               ; preds = %62, %60
-  %70 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %70 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not61 = icmp eq ptr %70, null
   br i1 %.not61, label %78, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load i32, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %77 = load i32, ptr %76, align 4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str, i32 noundef %73, i32 noundef %75, i32 noundef %77)
   br label %78
 
 78:                                               ; preds = %69, %71
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %80, %82
-  %84 = getelementptr inbounds i8, ptr %0, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 4
   %87 = fcmp ogt double %5, %.0.i
@@ -243,12 +243,12 @@ _ZL13log_expansionddddbm.exit:                    ; preds = %52, %54
   %89 = load i64, ptr @_ZN12G1HeapRegion10GrainBytesE, align 8
   %90 = load ptr, ptr %0, align 8
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 120
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 120
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef i64 %93(ptr noundef nonnull align 8 dereferenceable(1488) %90) #7
   %95 = load ptr, ptr %0, align 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 88
   %98 = load ptr, ptr %97, align 8
   %99 = tail call noundef i64 %98(ptr noundef nonnull align 8 dereferenceable(1488) %95) #7
   %100 = sub i64 %94, %99
@@ -269,7 +269,7 @@ _ZL13log_expansionddddbm.exit:                    ; preds = %52, %54
   %111 = udiv i64 %110, 100
   %112 = fmul double %11, 1.500000e+00
   %113 = fmul double %11, 2.000000e+00
-  %114 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %115 = load double, ptr %114, align 8
   %116 = load i32, ptr %84, align 4
   %117 = uitofp i32 %116 to double
@@ -325,7 +325,7 @@ _ZL13log_expansionddddbm.exit:                    ; preds = %52, %54
 
 143:                                              ; preds = %.sink.split, %139, %140
   %.1 = phi i64 [ 0, %140 ], [ 0, %139 ], [ %.1.ph, %.sink.split ]
-  %144 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i59 = icmp eq ptr %144, null
   br i1 %.not.i59, label %_ZL13log_expansionddddbm.exit60, label %145
 
@@ -355,13 +355,13 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1
 define hidden noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amountERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(1488) %3) #7
   %8 = load ptr, ptr %0, align 8
   %9 = tail call noundef i64 @_ZNK15G1CollectedHeap33unused_committed_regions_in_bytesEv(ptr noundef nonnull align 8 dereferenceable(1488) %8) #7
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 984
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 984
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   %14 = load i64, ptr @_ZN12G1HeapRegion10GrainBytesE, align 8
@@ -395,13 +395,13 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amoun
 
 41:                                               ; preds = %2
   %42 = sub nuw i64 %37, %7
-  %43 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not28 = icmp eq ptr %43, null
   br i1 %.not28, label %61, label %44
 
 44:                                               ; preds = %41
   %45 = load ptr, ptr %10, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 96
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(1488) %10) #7
   %49 = load i64, ptr @MinHeapFreeRatio, align 8
@@ -414,13 +414,13 @@ define hidden noundef i64 @_ZN18G1HeapSizingPolicy29full_collection_resize_amoun
 
 52:                                               ; preds = %50
   %53 = sub nuw i64 %7, %39
-  %54 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %54 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %61, label %55
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %10, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 96
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 96
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef i64 %58(ptr noundef nonnull align 8 dereferenceable(1488) %10) #7
   %60 = load i64, ptr @MaxHeapFreeRatio, align 8

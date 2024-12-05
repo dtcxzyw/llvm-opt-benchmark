@@ -674,11 +674,11 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %idxprom = and i64 %call1, 2147483647
-  %arrayidx = getelementptr inbounds [4096 x i8], ptr %buf, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4096 x i8], ptr %buf, i64 0, i64 %idxprom
   store i8 0, ptr %arrayidx, align 1
   %sub = add i64 %call1, 4294967295
   %idxprom8 = and i64 %sub, 4294967295
-  %arrayidx9 = getelementptr inbounds [4096 x i8], ptr %buf, i64 0, i64 %idxprom8
+  %arrayidx9 = getelementptr inbounds nuw [4096 x i8], ptr %buf, i64 0, i64 %idxprom8
   %0 = load i8, ptr %arrayidx9, align 1
   %cmp11 = icmp eq i8 %0, 10
   br i1 %cmp11, label %if.then13, label %if.end17
@@ -694,7 +694,7 @@ if.end17:                                         ; preds = %if.then13, %if.end6
 
 while.cond:                                       ; preds = %if.end17, %while.cond
   %call19.pn = phi ptr [ %p.0, %while.cond ], [ %call19, %if.end17 ]
-  %p.0 = getelementptr inbounds i8, ptr %call19.pn, i64 1
+  %p.0 = getelementptr inbounds nuw i8, ptr %call19.pn, i64 1
   %1 = load i8, ptr %p.0, align 1
   switch i8 %1, label %if.end30 [
     i8 32, label %while.cond
@@ -714,7 +714,7 @@ while.body39.preheader:                           ; preds = %while.cond36.prehea
   br label %while.body39
 
 while.cond36:                                     ; preds = %while.body39
-  %incdec.ptr43 = getelementptr inbounds i8, ptr %call40, i64 1
+  %incdec.ptr43 = getelementptr inbounds nuw i8, ptr %call40, i64 1
   %dec = add nsw i32 %dec23, -1
   %tobool38.not = icmp eq i32 %dec23, 0
   br i1 %tobool38.not, label %while.end45, label %while.body39, !llvm.loop !5

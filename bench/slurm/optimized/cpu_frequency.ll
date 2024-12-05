@@ -171,7 +171,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   %5 = alloca %struct.stat, align 8
   %6 = alloca [100 x i8], align 16
   tail call void @slurm_xfree(ptr noundef nonnull @slurmd_spooldir) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 4360
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4360
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #11
   store ptr %9, ptr @slurmd_spooldir, align 8
@@ -193,7 +193,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br label %.loopexit49
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = and i32 %19, 61440
   %21 = icmp eq i32 %20, 16384
@@ -204,7 +204,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   br label %.loopexit49
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %0, i64 4232
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4232
   %26 = load i16, ptr %25, align 8
   store i16 %26, ptr @cpu_freq_count, align 2
   %27 = load ptr, ptr @cpufreq, align 8
@@ -223,31 +223,31 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %28, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %33 = load ptr, ptr @cpufreq, align 8
-  %34 = getelementptr inbounds %struct.cpu_freq_data, ptr %33, i64 %indvars.iv, i32 4
+  %34 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %33, i64 %indvars.iv, i32 4
   store i8 0, ptr %34, align 4
   %35 = load ptr, ptr @cpufreq, align 8
-  %36 = getelementptr inbounds %struct.cpu_freq_data, ptr %35, i64 %indvars.iv, i32 5
+  %36 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %35, i64 %indvars.iv, i32 5
   store i8 0, ptr %36, align 4
   %37 = load ptr, ptr @cpufreq, align 8
-  %38 = getelementptr inbounds %struct.cpu_freq_data, ptr %37, i64 %indvars.iv, i32 6
+  %38 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %37, i64 %indvars.iv, i32 6
   store i32 -2, ptr %38, align 4
   %39 = load ptr, ptr @cpufreq, align 8
-  %40 = getelementptr inbounds %struct.cpu_freq_data, ptr %39, i64 %indvars.iv, i32 7
+  %40 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %39, i64 %indvars.iv, i32 7
   store i32 -2, ptr %40, align 4
   %41 = load ptr, ptr @cpufreq, align 8
-  %42 = getelementptr inbounds %struct.cpu_freq_data, ptr %41, i64 %indvars.iv, i32 8
+  %42 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %41, i64 %indvars.iv, i32 8
   store i32 -2, ptr %42, align 4
   %43 = load ptr, ptr @cpufreq, align 8
-  %44 = getelementptr inbounds %struct.cpu_freq_data, ptr %43, i64 %indvars.iv, i32 9
+  %44 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %43, i64 %indvars.iv, i32 9
   store i32 -2, ptr %44, align 4
   %45 = load ptr, ptr @cpufreq, align 8
-  %46 = getelementptr inbounds %struct.cpu_freq_data, ptr %45, i64 %indvars.iv, i32 10
+  %46 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %45, i64 %indvars.iv, i32 10
   store i32 -2, ptr %46, align 4
   %47 = load ptr, ptr @cpufreq, align 8
-  %48 = getelementptr inbounds %struct.cpu_freq_data, ptr %47, i64 %indvars.iv, i32 11
+  %48 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %47, i64 %indvars.iv, i32 11
   store i32 -2, ptr %48, align 4
   %49 = load ptr, ptr @cpufreq, align 8
-  %50 = getelementptr inbounds %struct.cpu_freq_data, ptr %49, i64 %indvars.iv, i32 2
+  %50 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %49, i64 %indvars.iv, i32 2
   store i8 0, ptr %50, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i16, ptr @cpu_freq_count, align 2
@@ -295,7 +295,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr @cpufreq, align 8
-  %74 = getelementptr inbounds %struct.cpu_freq_data, ptr %73, i64 %indvars.iv68
+  %74 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %73, i64 %indvars.iv68
   %75 = load i8, ptr %74, align 4
   %76 = or i8 %75, 1
   store i8 %76, ptr %74, align 4
@@ -324,7 +324,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr @cpufreq, align 8
-  %89 = getelementptr inbounds %struct.cpu_freq_data, ptr %88, i64 %indvars.iv68
+  %89 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %88, i64 %indvars.iv68
   %90 = load i8, ptr %89, align 4
   %91 = or i8 %90, 2
   store i8 %91, ptr %89, align 4
@@ -353,7 +353,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 102:                                              ; preds = %100
   %103 = load ptr, ptr @cpufreq, align 8
-  %104 = getelementptr inbounds %struct.cpu_freq_data, ptr %103, i64 %indvars.iv68
+  %104 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %103, i64 %indvars.iv68
   %105 = load i8, ptr %104, align 4
   %106 = or i8 %105, 4
   store i8 %106, ptr %104, align 4
@@ -382,7 +382,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr @cpufreq, align 8
-  %119 = getelementptr inbounds %struct.cpu_freq_data, ptr %118, i64 %indvars.iv68
+  %119 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %118, i64 %indvars.iv68
   %120 = load i8, ptr %119, align 4
   %121 = or i8 %120, 8
   store i8 %121, ptr %119, align 4
@@ -411,7 +411,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 132:                                              ; preds = %130
   %133 = load ptr, ptr @cpufreq, align 8
-  %134 = getelementptr inbounds %struct.cpu_freq_data, ptr %133, i64 %indvars.iv68
+  %134 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %133, i64 %indvars.iv68
   %135 = load i8, ptr %134, align 4
   %136 = or i8 %135, 16
   store i8 %136, ptr %134, align 4
@@ -440,7 +440,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 147:                                              ; preds = %145
   %148 = load ptr, ptr @cpufreq, align 8
-  %149 = getelementptr inbounds %struct.cpu_freq_data, ptr %148, i64 %indvars.iv68
+  %149 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %148, i64 %indvars.iv68
   %150 = load i8, ptr %149, align 4
   %151 = or i8 %150, 32
   store i8 %151, ptr %149, align 4
@@ -492,7 +492,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   %176 = mul i32 %173, %175
   %177 = add i32 %176, %166
   %178 = load ptr, ptr @cpufreq, align 8
-  %179 = getelementptr inbounds %struct.cpu_freq_data, ptr %178, i64 %indvars.iv68, i32 3, i64 %indvars.iv.i.i
+  %179 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %178, i64 %indvars.iv68, i32 3, i64 %indvars.iv.i.i
   store i32 %177, ptr %179, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 63
@@ -500,10 +500,10 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 180:                                              ; preds = %174
   %181 = load ptr, ptr @cpufreq, align 8
-  %182 = getelementptr inbounds %struct.cpu_freq_data, ptr %181, i64 %indvars.iv68, i32 3, i64 63
+  %182 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %181, i64 %indvars.iv68, i32 3, i64 63
   store i32 %169, ptr %182, align 4
   %183 = load ptr, ptr @cpufreq, align 8
-  %184 = getelementptr inbounds %struct.cpu_freq_data, ptr %183, i64 %indvars.iv68, i32 1
+  %184 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %183, i64 %indvars.iv68, i32 1
   store i8 64, ptr %184, align 1
   br label %_cpu_freq_cpu_avail.exit
 
@@ -523,7 +523,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 
 .lr.ph.i:                                         ; preds = %.preheader29.i, %199
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %199 ], [ 0, %.preheader29.i ]
-  %188 = getelementptr inbounds %struct.cpu_freq_data, ptr %.pre58.i, i64 %indvars.iv68, i32 3, i64 %indvars.iv.i
+  %188 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %.pre58.i, i64 %indvars.iv68, i32 3, i64 %indvars.iv.i
   %189 = load i32, ptr %188, align 4
   %190 = icmp ult i32 %.pre56.i, %189
   br i1 %190, label %.preheader.i, label %199
@@ -566,7 +566,7 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
   %201 = phi i32 [ %.pre56.i, %.preheader.i ], [ %.pre56.i, %.preheader29.i ], [ %.pre.i, %.loopexit.loopexit.i ], [ %.pre56.i, %199 ]
   %.02533.i = phi i32 [ %191, %.preheader.i ], [ 0, %.preheader29.i ], [ %191, %.loopexit.loopexit.i ], [ %185, %199 ]
   %202 = zext nneg i32 %.02533.i to i64
-  %203 = getelementptr inbounds %struct.cpu_freq_data, ptr %200, i64 %indvars.iv68, i32 3, i64 %202
+  %203 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %200, i64 %indvars.iv68, i32 3, i64 %202
   store i32 %201, ptr %203, align 4
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next50.i, 63
@@ -575,14 +575,14 @@ define void @cpu_freq_init(ptr nocapture noundef readonly %0) local_unnamed_addr
 204:                                              ; preds = %.preheader31.i
   %205 = trunc i64 %indvars.iv49.i to i8
   %206 = load ptr, ptr @cpufreq, align 8
-  %207 = getelementptr inbounds %struct.cpu_freq_data, ptr %206, i64 %indvars.iv68, i32 1
+  %207 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %206, i64 %indvars.iv68, i32 1
   store i8 %205, ptr %207, align 1
   %208 = call i32 @fclose(ptr noundef nonnull %163)
   br label %_cpu_freq_cpu_avail.exit
 
 209:                                              ; preds = %.loopexit.i
   %210 = load ptr, ptr @cpufreq, align 8
-  %211 = getelementptr inbounds %struct.cpu_freq_data, ptr %210, i64 %indvars.iv68, i32 1
+  %211 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %210, i64 %indvars.iv68, i32 1
   store i8 63, ptr %211, align 1
   %212 = call i32 @fclose(ptr noundef nonnull %163)
   %213 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.98) #11
@@ -607,7 +607,7 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %180, %204, %209
 
 .preheader:                                       ; preds = %215
   %218 = load ptr, ptr @cpufreq, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 1
   %220 = load i8, ptr %219, align 1
   %.not61 = icmp eq i8 %220, 0
   br i1 %.not61, label %.loopexit, label %.lr.ph55
@@ -620,8 +620,8 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %180, %204, %209
 
 223:                                              ; preds = %.lr.ph55
   %224 = load ptr, ptr @cpufreq, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 4
-  %226 = getelementptr inbounds [64 x i32], ptr %225, i64 0, i64 %indvars.iv65
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 4
+  %226 = getelementptr inbounds nuw [64 x i32], ptr %225, i64 0, i64 %indvars.iv65
   %227 = load i32, ptr %226, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.19, i32 noundef %227) #11
   br label %228
@@ -629,7 +629,7 @@ _cpu_freq_cpu_avail.exit:                         ; preds = %180, %204, %209
 228:                                              ; preds = %.lr.ph55, %223
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %229 = load ptr, ptr @cpufreq, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 1
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 1
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
   %233 = icmp samesign ult i64 %indvars.iv.next66, %232
@@ -704,7 +704,7 @@ define void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi = phi i64 [ %15, %.lr.ph.split.us ], [ %22, %21 ]
   %.us-phi67 = phi i32 [ %16, %.lr.ph.split.us ], [ %23, %21 ]
   %6 = and i64 %.us-phi, 2147483647
-  %7 = getelementptr inbounds i8, ptr %.037.ph76, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %.037.ph76, i64 %6
   %8 = sub nsw i32 %.0.ph78, %.us-phi67
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %.outer52._crit_edge
@@ -800,7 +800,7 @@ define void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi83 = phi i64 [ %30, %.lr.ph80.split.us ], [ %37, %36 ]
   %.us-phi84 = phi i32 [ %31, %.lr.ph80.split.us ], [ %38, %36 ]
   %46 = and i64 %.us-phi83, 2147483647
-  %47 = getelementptr inbounds i8, ptr %.038.ph96, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %.038.ph96, i64 %46
   %48 = sub nsw i32 %.039.ph94, %.us-phi84
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %50, label %.loopexit
@@ -833,7 +833,7 @@ define void @cpu_freq_send_info(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi101 = phi i64 [ %69, %.lr.ph98.split.us ], [ %76, %75 ]
   %.us-phi102 = phi i32 [ %70, %.lr.ph98.split.us ], [ %77, %75 ]
   %60 = and i64 %.us-phi101, 2147483647
-  %61 = getelementptr inbounds i8, ptr %.035.ph114, i64 %60
+  %61 = getelementptr inbounds nuw i8, ptr %.035.ph114, i64 %60
   %62 = sub nsw i32 %.036.ph112, %.us-phi102
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %64, label %.loopexit
@@ -994,7 +994,7 @@ define void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 {
   %.us-phi67 = phi i64 [ %4, %.lr.ph91.preheader.preheader ], [ %4, %.lr.ph107.preheader ], [ %20, %.lr.ph91.preheader ], [ %12, %.lr.ph107 ]
   %.us-phi68 = phi i32 [ %5, %.lr.ph91.preheader.preheader ], [ %5, %.lr.ph107.preheader ], [ %21, %.lr.ph91.preheader ], [ %13, %.lr.ph107 ]
   %32 = and i64 %.us-phi67, 2147483647
-  %33 = getelementptr inbounds i8, ptr %.035.ph109, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.035.ph109, i64 %32
   %34 = sub nsw i32 %.0.ph111, %.us-phi68
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %36, label %.outer44._crit_edge
@@ -1115,7 +1115,7 @@ define void @cpu_freq_recv_info(i32 noundef %0) local_unnamed_addr #0 {
   %.lcssa236 = phi i32 [ %55, %.critedge.us.preheader ], [ %64, %.critedge.us ]
   %.lcssa = phi i64 [ %56, %.critedge.us.preheader ], [ %63, %.critedge.us ]
   %86 = and i64 %.lcssa, 2147483647
-  %87 = getelementptr inbounds i8, ptr %.033.ph136274, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %.033.ph136274, i64 %86
   %88 = sub nsw i32 %.034.ph135275, %.lcssa236
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %90, label %.outer._crit_edge
@@ -1184,7 +1184,7 @@ define void @cpu_freq_cpuset_validate(ptr nocapture noundef %0) local_unnamed_ad
 
 .thread:                                          ; preds = %9
   store i32 1, ptr @set_batch_freq, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load i32, ptr %12, align 8
   br label %switch.early.test
 
@@ -1194,7 +1194,7 @@ define void @cpu_freq_cpuset_validate(ptr nocapture noundef %0) local_unnamed_ad
 
 15:                                               ; preds = %14, %1
   %16 = phi i32 [ 0, %14 ], [ %7, %1 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, -5
   %20 = icmp eq i32 %16, 0
@@ -1205,14 +1205,14 @@ define void @cpu_freq_cpuset_validate(ptr nocapture noundef %0) local_unnamed_ad
 switch.early.test:                                ; preds = %.thread, %15
   %22 = phi i32 [ %13, %.thread ], [ %18, %15 ]
   %23 = phi ptr [ %12, %.thread ], [ %17, %15 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 112
   switch i32 %22, label %25 [
     i32 -4, label %143
     i32 -6, label %143
   ]
 
 25:                                               ; preds = %switch.early.test
-  %26 = getelementptr inbounds i8, ptr %0, i64 312
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %27 = load i32, ptr %26, align 8
   call void @slurm_sprint_cpu_bind_type(ptr noundef nonnull %6, i32 noundef %27) #11
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
@@ -1226,11 +1226,11 @@ switch.early.test:                                ; preds = %.thread, %15
   br i1 %32, label %33, label %40
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 348
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 352
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 356
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %39 = load i32, ptr %38, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.cpu_freq_cpuset_validate, i32 noundef %35, i32 noundef %35, i32 noundef %37, i32 noundef %37, i32 noundef %39) #11
   br label %40
@@ -1249,11 +1249,11 @@ switch.early.test:                                ; preds = %.thread, %15
 46:                                               ; preds = %43
   %47 = load i32, ptr %24, align 8
   %48 = load i32, ptr %23, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 144
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 264
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %54 = load i16, ptr %53, align 8
   %55 = zext i16 %54 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, i32 noundef %47, i32 noundef %48, i32 noundef %50, i32 noundef %52, i32 noundef %55) #11
@@ -1272,7 +1272,7 @@ switch.early.test:                                ; preds = %.thread, %15
 
 62:                                               ; preds = %59
   %63 = load i32, ptr %26, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 320
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %65 = load ptr, ptr %64, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.32, i32 noundef %63, ptr noundef %65) #11
   br label %66
@@ -1283,7 +1283,7 @@ switch.early.test:                                ; preds = %.thread, %15
   br i1 %.not44, label %143, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %0, i64 320
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %76
@@ -1498,7 +1498,7 @@ define internal fastcc void @_cpu_freq_setup_data(ptr nocapture noundef %0, i32 
   %4 = alloca [100 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct.stat, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 356
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -2
   br i1 %9, label %10, label %12
@@ -1640,13 +1640,13 @@ _cpu_freq_get_cur_gov.exit.i:                     ; preds = %55, %49, %44
   br label %_cpu_freq_current_state.exit
 
 _cpu_freq_current_state.exit:                     ; preds = %75, %12
-  %78 = getelementptr inbounds i8, ptr %0, i64 348
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %79 = load i32, ptr %78, align 4
   %80 = icmp eq i32 %79, -2
   br i1 %80, label %81, label %.thread61
 
 81:                                               ; preds = %_cpu_freq_current_state.exit
-  %82 = getelementptr inbounds i8, ptr %0, i64 352
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %83 = load i32, ptr %82, align 8
   %.not = icmp eq i32 %83, -2
   %.pr = load i32, ptr %7, align 4
@@ -1683,12 +1683,12 @@ _cpu_freq_current_state.exit:                     ; preds = %75, %12
   br i1 %.not15.i, label %_cpu_freq_govspec_string.exit, label %97
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds i8, ptr %94, i64 284
+  %98 = getelementptr inbounds nuw i8, ptr %94, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %98, ptr noundef nonnull align 1 dereferenceable(10) @.str.15, i64 10, i1 false) #11
   br label %_cpu_freq_govspec_string.exit
 
 _cpu_freq_govspec_string.exit:                    ; preds = %92, %97
-  %99 = getelementptr inbounds i8, ptr %0, i64 352
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, -2
   br i1 %101, label %_cpu_freq_current_state.exit.thread, label %102
@@ -1707,7 +1707,7 @@ _cpu_freq_govspec_string.exit:                    ; preds = %92, %97
   br label %_cpu_freq_current_state.exit.thread
 
 110:                                              ; preds = %.thread61
-  %111 = getelementptr inbounds i8, ptr %0, i64 352
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %112 = load i32, ptr %111, align 8
   %.not50 = icmp eq i32 %112, -2
   br i1 %.not50, label %thread-pre-split57, label %113
@@ -1754,7 +1754,7 @@ thread-pre-split57:                               ; preds = %113, %110, %89
   br i1 %.not19.i, label %_cpu_freq_govspec_string.exit54, label %130
 
 130:                                              ; preds = %125
-  %131 = getelementptr inbounds i8, ptr %127, i64 284
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %131, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false) #11
   br label %_cpu_freq_govspec_string.exit54
 
@@ -1767,7 +1767,7 @@ thread-pre-split57:                               ; preds = %113, %110, %89
   br i1 %.not18.i, label %_cpu_freq_govspec_string.exit54, label %137
 
 137:                                              ; preds = %132
-  %138 = getelementptr inbounds i8, ptr %134, i64 284
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %138, ptr noundef nonnull align 1 dereferenceable(9) @.str.9, i64 9, i1 false) #11
   br label %_cpu_freq_govspec_string.exit54
 
@@ -1780,7 +1780,7 @@ thread-pre-split57:                               ; preds = %113, %110, %89
   br i1 %.not17.i, label %_cpu_freq_govspec_string.exit54, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds i8, ptr %141, i64 284
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %145, ptr noundef nonnull align 1 dereferenceable(12) @.str.11, i64 12, i1 false) #11
   br label %_cpu_freq_govspec_string.exit54
 
@@ -1793,7 +1793,7 @@ thread-pre-split57:                               ; preds = %113, %110, %89
   br i1 %.not16.i, label %_cpu_freq_govspec_string.exit54, label %151
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds i8, ptr %148, i64 284
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %152, ptr noundef nonnull align 1 dereferenceable(10) @.str.13, i64 10, i1 false) #11
   br label %_cpu_freq_govspec_string.exit54
 
@@ -1806,7 +1806,7 @@ thread-pre-split57:                               ; preds = %113, %110, %89
   br i1 %.not15.i53, label %_cpu_freq_govspec_string.exit54, label %158
 
 158:                                              ; preds = %153
-  %159 = getelementptr inbounds i8, ptr %155, i64 284
+  %159 = getelementptr inbounds nuw i8, ptr %155, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %159, ptr noundef nonnull align 1 dereferenceable(10) @.str.15, i64 10, i1 false) #11
   br label %_cpu_freq_govspec_string.exit54
 
@@ -1819,26 +1819,26 @@ thread-pre-split57:                               ; preds = %113, %110, %89
   br i1 %.not.i, label %_cpu_freq_govspec_string.exit54, label %165
 
 165:                                              ; preds = %160
-  %166 = getelementptr inbounds i8, ptr %162, i64 284
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 284
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %166, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 10, i1 false) #11
   br label %_cpu_freq_govspec_string.exit54
 
 _cpu_freq_govspec_string.exit54:                  ; preds = %165, %160, %158, %153, %151, %146, %144, %139, %137, %132, %130, %125, %124, %.thread59, %thread-pre-split57, %85
   %167 = load ptr, ptr @cpufreq, align 8
   %168 = getelementptr inbounds %struct.cpu_freq_data, ptr %167, i64 %14
-  %169 = getelementptr inbounds i8, ptr %168, i64 312
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 312
   %170 = load i32, ptr %169, align 4
   %.not52 = icmp eq i32 %170, -2
   br i1 %.not52, label %_cpu_freq_current_state.exit.thread, label %171
 
 171:                                              ; preds = %_cpu_freq_govspec_string.exit54
-  %172 = getelementptr inbounds i8, ptr %168, i64 316
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 316
   %173 = load i32, ptr %172, align 4
   %174 = icmp ult i32 %170, %173
   br i1 %174, label %175, label %177
 
 175:                                              ; preds = %171
-  %176 = getelementptr inbounds i8, ptr %168, i64 320
+  %176 = getelementptr inbounds nuw i8, ptr %168, i64 320
   store i32 %170, ptr %176, align 4
   %.pre = load ptr, ptr @cpufreq, align 8
   %.phi.trans.insert67 = getelementptr inbounds %struct.cpu_freq_data, ptr %.pre, i64 %14, i32 7
@@ -1849,13 +1849,13 @@ _cpu_freq_govspec_string.exit54:                  ; preds = %165, %160, %158, %1
   %178 = phi i32 [ %.pre68, %175 ], [ %170, %171 ]
   %179 = phi ptr [ %.pre, %175 ], [ %167, %171 ]
   %180 = getelementptr inbounds %struct.cpu_freq_data, ptr %179, i64 %14
-  %181 = getelementptr inbounds i8, ptr %180, i64 324
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 324
   %182 = load i32, ptr %181, align 4
   %183 = icmp ugt i32 %178, %182
   br i1 %183, label %184, label %_cpu_freq_current_state.exit.thread
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds i8, ptr %180, i64 328
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 328
   store i32 %178, ptr %185, align 4
   br label %_cpu_freq_current_state.exit.thread
 
@@ -1876,26 +1876,26 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 .lr.ph:                                           ; preds = %1, %146
   %indvars.iv = phi i64 [ %indvars.iv.next, %146 ], [ 0, %1 ]
   %7 = load ptr, ptr @cpufreq, align 8
-  %8 = getelementptr inbounds %struct.cpu_freq_data, ptr %7, i64 %indvars.iv
-  %9 = getelementptr inbounds i8, ptr %8, i64 312
+  %8 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 312
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, -2
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %8, i64 320
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 320
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -2
   br i1 %15, label %16, label %24
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 328
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -2
   br i1 %19, label %20, label %24
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %8, i64 284
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 284
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %146, label %24
@@ -1913,14 +1913,14 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %29, label %30, label %40
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds %struct.cpu_freq_data, ptr %.pre87, i64 %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %31, i64 316
+  %31 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %.pre87, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 316
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 308
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 308
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %31, i64 324
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 324
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %31, i64 260
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 260
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.44, i32 noundef %39, i32 noundef %33, i32 noundef %35, i32 noundef %37, ptr noundef nonnull %38) #11
   %.pre = load ptr, ptr @cpufreq, align 8
@@ -1928,14 +1928,14 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 40:                                               ; preds = %24, %27, %30
   %41 = phi ptr [ %7, %24 ], [ %.pre87, %27 ], [ %.pre, %30 ]
-  %42 = getelementptr inbounds %struct.cpu_freq_data, ptr %41, i64 %indvars.iv
-  %43 = getelementptr inbounds i8, ptr %42, i64 328
+  %42 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 328
   %44 = load i32, ptr %43, align 4
   %.not74 = icmp eq i32 %44, -2
   br i1 %.not74, label %68, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %42, i64 308
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 308
   %47 = load i32, ptr %46, align 4
   %48 = icmp ugt i32 %47, %44
   %49 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1953,14 +1953,14 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr @cpufreq, align 8
-  %58 = getelementptr inbounds %struct.cpu_freq_data, ptr %57, i64 %indvars.iv
-  %59 = getelementptr inbounds i8, ptr %58, i64 284
+  %58 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %57, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 284
   %60 = load i8, ptr %59, align 4
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %62, label %._crit_edge93
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %58, i64 260
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 260
   %64 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %63)
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %146, label %._crit_edge93
@@ -1976,14 +1976,14 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 68:                                               ; preds = %._crit_edge, %40
   %69 = phi ptr [ %.pre88, %._crit_edge ], [ %41, %40 ]
-  %70 = getelementptr inbounds %struct.cpu_freq_data, ptr %69, i64 %indvars.iv
-  %71 = getelementptr inbounds i8, ptr %70, i64 320
+  %70 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %69, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 320
   %72 = load i32, ptr %71, align 4
   %.not75 = icmp eq i32 %72, -2
   br i1 %.not75, label %96, label %73
 
 73:                                               ; preds = %68
-  %74 = getelementptr inbounds i8, ptr %70, i64 308
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 308
   %75 = load i32, ptr %74, align 4
   %76 = icmp ult i32 %75, %72
   %77 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2001,14 +2001,14 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr @cpufreq, align 8
-  %86 = getelementptr inbounds %struct.cpu_freq_data, ptr %85, i64 %indvars.iv
-  %87 = getelementptr inbounds i8, ptr %86, i64 284
+  %86 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %85, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 284
   %88 = load i8, ptr %87, align 4
   %89 = icmp eq i8 %88, 0
   br i1 %89, label %90, label %._crit_edge94
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds i8, ptr %86, i64 260
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 260
   %92 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %77, ptr noundef nonnull %91)
   %93 = icmp eq i32 %92, -1
   br i1 %93, label %146, label %._crit_edge94
@@ -2024,14 +2024,14 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 96:                                               ; preds = %._crit_edge89, %68
   %97 = phi ptr [ %.pre90, %._crit_edge89 ], [ %69, %68 ]
-  %98 = getelementptr inbounds %struct.cpu_freq_data, ptr %97, i64 %indvars.iv
-  %99 = getelementptr inbounds i8, ptr %98, i64 312
+  %98 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %97, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 312
   %100 = load i32, ptr %99, align 4
   %.not76 = icmp eq i32 %100, -2
   br i1 %.not76, label %112, label %101
 
 101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %98, i64 260
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 260
   %103 = call i32 @xstrcmp(ptr noundef nonnull %102, ptr noundef nonnull @.str.15) #11
   %.not77 = icmp eq i32 %103, 0
   %.pre96 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2044,7 +2044,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 ._crit_edge95:                                    ; preds = %101, %104
   %107 = load ptr, ptr @cpufreq, align 8
-  %108 = getelementptr inbounds %struct.cpu_freq_data, ptr %107, i64 %indvars.iv, i32 7
+  %108 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %107, i64 %indvars.iv, i32 7
   %109 = load i32, ptr %108, align 4
   %110 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %.pre96, i32 noundef %109, ptr noundef nonnull @.str.45)
   %111 = icmp eq i32 %110, -1
@@ -2056,7 +2056,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 112:                                              ; preds = %._crit_edge91, %96
   %113 = phi ptr [ %.pre92, %._crit_edge91 ], [ %97, %96 ]
-  %114 = getelementptr inbounds %struct.cpu_freq_data, ptr %113, i64 %indvars.iv, i32 5
+  %114 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %113, i64 %indvars.iv, i32 5
   %115 = load i8, ptr %114, align 4
   %.not78 = icmp eq i8 %115, 0
   br i1 %.not78, label %120, label %116
@@ -2075,16 +2075,16 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 123:                                              ; preds = %120
   %124 = load ptr, ptr @cpufreq, align 8
-  %125 = getelementptr inbounds %struct.cpu_freq_data, ptr %124, i64 %indvars.iv
-  %126 = getelementptr inbounds i8, ptr %125, i64 320
+  %125 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %124, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 320
   %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds i8, ptr %125, i64 328
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 328
   %129 = load i32, ptr %128, align 4
-  %130 = getelementptr inbounds i8, ptr %125, i64 312
+  %130 = getelementptr inbounds nuw i8, ptr %125, i64 312
   %131 = load i32, ptr %130, align 4
   %132 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %2, i32 noundef 100, i32 noundef -2, i32 noundef %127, i32 noundef %129, i32 noundef %131)
   %133 = load ptr, ptr @cpufreq, align 8
-  %134 = getelementptr inbounds %struct.cpu_freq_data, ptr %133, i64 %indvars.iv, i32 5
+  %134 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %133, i64 %indvars.iv, i32 5
   %135 = load i8, ptr %134, align 4
   %.not80 = icmp eq i8 %135, 0
   %136 = call i32 @get_log_level() #11
@@ -2096,7 +2096,7 @@ define void @cpu_freq_set(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 139:                                              ; preds = %138
   %140 = load ptr, ptr @cpufreq, align 8
-  %141 = getelementptr inbounds %struct.cpu_freq_data, ptr %140, i64 %indvars.iv, i32 5
+  %141 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %140, i64 %indvars.iv, i32 5
   %142 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.48, i32 noundef %142, ptr noundef nonnull %2, ptr noundef nonnull %141) #11
   br label %146
@@ -2134,7 +2134,7 @@ define void @cpu_freq_cgroup_validate(ptr nocapture noundef %0, ptr noundef %1) 
 
 .thread:                                          ; preds = %5
   store i32 1, ptr @set_batch_freq, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load i32, ptr %8, align 8
   br label %switch.early.test
 
@@ -2144,7 +2144,7 @@ define void @cpu_freq_cgroup_validate(ptr nocapture noundef %0, ptr noundef %1) 
 
 11:                                               ; preds = %10, %2
   %12 = phi i32 [ 0, %10 ], [ %3, %2 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, -5
   %16 = icmp eq i32 %12, 0
@@ -2155,7 +2155,7 @@ define void @cpu_freq_cgroup_validate(ptr nocapture noundef %0, ptr noundef %1) 
 switch.early.test:                                ; preds = %.thread, %11
   %18 = phi i32 [ %9, %.thread ], [ %14, %11 ]
   %19 = phi ptr [ %8, %.thread ], [ %13, %11 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 112
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   switch i32 %18, label %21 [
     i32 -4, label %150
     i32 -6, label %150
@@ -2173,11 +2173,11 @@ switch.early.test:                                ; preds = %.thread, %11
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 348
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 348
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 352
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %31 = load i32, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 356
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 356
   %33 = load i32, ptr %32, align 4
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.cpu_freq_cgroup_validate, i32 noundef %29, i32 noundef %29, i32 noundef %31, i32 noundef %31, i32 noundef %33) #11
   br label %34
@@ -2196,11 +2196,11 @@ switch.early.test:                                ; preds = %.thread, %11
 40:                                               ; preds = %37
   %41 = load i32, ptr %20, align 8
   %42 = load i32, ptr %19, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %44 = load i32, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 240
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %46 = load i32, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 264
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %48 = load i16, ptr %47, align 8
   %49 = zext i16 %48 to i32
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.31, i32 noundef %41, i32 noundef %42, i32 noundef %44, i32 noundef %46, i32 noundef %49) #11
@@ -2218,9 +2218,9 @@ switch.early.test:                                ; preds = %.thread, %11
   br i1 %55, label %56, label %61
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %0, i64 312
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %58 = load i32, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 320
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %60 = load ptr, ptr %59, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.32, i32 noundef %58, ptr noundef %60) #11
   br label %61
@@ -2237,7 +2237,7 @@ switch.early.test:                                ; preds = %.thread, %11
   br i1 %66, label %67, label %70
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %0, i64 744
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %69 = load ptr, ptr %68, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.39, ptr noundef %69, ptr noundef %1) #11
   br label %70
@@ -2263,7 +2263,7 @@ switch.early.test:                                ; preds = %.thread, %11
   ]
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %.0, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.pre.i = load i8, ptr %76, align 1
   br label %77
 
@@ -2287,7 +2287,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %87 = mul i16 %.04516.i, 10
   %88 = add nsw i16 %86, -48
   %89 = add i16 %88, %87
-  %90 = getelementptr inbounds i8, ptr %.117.i, i64 1
+  %90 = getelementptr inbounds nuw i8, ptr %.117.i, i64 1
   %91 = load i8, ptr %90, align 1
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds i16, ptr %80, i64 %92
@@ -2311,7 +2311,7 @@ switch.early.test:                                ; preds = %.thread, %11
 .preheader1.i:                                    ; preds = %98
   %100 = tail call ptr @__ctype_b_loc() #13
   %101 = load ptr, ptr %100, align 8
-  %.32.i = getelementptr inbounds i8, ptr %.0, i64 1
+  %.32.i = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %102 = load i8, ptr %.32.i, align 1
   %103 = sext i8 %102 to i64
   %104 = getelementptr inbounds i16, ptr %101, i64 %103
@@ -2323,7 +2323,7 @@ switch.early.test:                                ; preds = %.thread, %11
 .preheader.i:                                     ; preds = %98
   %107 = tail call ptr @__ctype_b_loc() #13
   %108 = load ptr, ptr %107, align 8
-  %.27.i = getelementptr inbounds i8, ptr %.0, i64 1
+  %.27.i = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %109 = load i8, ptr %.27.i, align 1
   %110 = sext i8 %109 to i64
   %111 = getelementptr inbounds i16, ptr %108, i64 %110
@@ -2340,7 +2340,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %116 = mul i16 %.1469.i, 10
   %117 = add nsw i16 %115, -48
   %118 = add i16 %117, %116
-  %.2.i = getelementptr inbounds i8, ptr %.210.i, i64 1
+  %.2.i = getelementptr inbounds nuw i8, ptr %.210.i, i64 1
   %119 = load i8, ptr %.2.i, align 1
   %120 = sext i8 %119 to i64
   %121 = getelementptr inbounds i16, ptr %108, i64 %120
@@ -2357,7 +2357,7 @@ switch.early.test:                                ; preds = %.thread, %11
   %126 = mul i16 %.2474.i, 10
   %127 = add nsw i16 %125, -48
   %128 = add i16 %127, %126
-  %.3.i = getelementptr inbounds i8, ptr %.35.i, i64 1
+  %.3.i = getelementptr inbounds nuw i8, ptr %.35.i, i64 1
   %129 = load i8, ptr %.3.i, align 1
   %130 = sext i8 %129 to i64
   %131 = getelementptr inbounds i16, ptr %101, i64 %130
@@ -2434,7 +2434,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 4:                                                ; preds = %2
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct.cpu_freq_data, ptr %3, i64 %5
-  %7 = getelementptr inbounds i8, ptr %6, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %8 = load i8, ptr %7, align 1
   %.not56 = icmp eq i8 %8, 0
   br i1 %.not56, label %.loopexit, label %9
@@ -2452,7 +2452,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   ]
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %13 = load i32, ptr %12, align 4
   br label %.loopexit
 
@@ -2461,7 +2461,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %18 = load i32, ptr %17, align 4
   br label %.loopexit
 
@@ -2469,9 +2469,9 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   %20 = zext i8 %8 to i64
   %21 = add nuw nsw i64 %20, 4294967295
   %22 = lshr i64 %21, 1
-  %23 = getelementptr inbounds i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %24 = and i64 %22, 2147483647
-  %25 = getelementptr inbounds [64 x i32], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [64 x i32], ptr %23, i64 0, i64 %24
   %26 = load i32, ptr %25, align 4
   br label %.loopexit
 
@@ -2480,30 +2480,30 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %6, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %31 = load i32, ptr %30, align 4
   br label %.loopexit
 
 32:                                               ; preds = %27
   %33 = zext i8 %8 to i64
   %34 = add nuw nsw i64 %33, 4294967294
-  %35 = getelementptr inbounds i8, ptr %6, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %36 = and i64 %34, 4294967295
-  %37 = getelementptr inbounds [64 x i32], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [64 x i32], ptr %35, i64 0, i64 %36
   %38 = load i32, ptr %37, align 4
   br label %.loopexit
 
 39:                                               ; preds = %10
   %40 = zext i8 %8 to i64
   %41 = add nuw nsw i64 %40, 4294967295
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %43 = and i64 %41, 4294967295
-  %44 = getelementptr inbounds [64 x i32], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [64 x i32], ptr %42, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4
   br label %.loopexit
 
 46:                                               ; preds = %9
-  %47 = getelementptr inbounds i8, ptr %6, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %48 = load i32, ptr %47, align 4
   %49 = icmp ult i32 %0, %48
   br i1 %49, label %50, label %55
@@ -2519,7 +2519,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   %56 = zext i8 %8 to i64
   %57 = add nuw nsw i64 %56, 4294967295
   %58 = and i64 %57, 4294967295
-  %59 = getelementptr inbounds [64 x i32], ptr %47, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [64 x i32], ptr %47, i64 0, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = icmp ult i32 %60, %0
   br i1 %61, label %62, label %.preheader
@@ -2532,8 +2532,8 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
   %63 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.42, i32 noundef %0, i32 noundef %60) #11
   %64 = load ptr, ptr @cpufreq, align 8
   %65 = getelementptr inbounds %struct.cpu_freq_data, ptr %64, i64 %5
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
-  %67 = getelementptr inbounds i8, ptr %65, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 1
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
   %70 = add nsw i64 %69, -1
@@ -2553,7 +2553,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 
 77:                                               ; preds = %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %78 = getelementptr inbounds [64 x i32], ptr %47, i64 0, i64 %indvars.iv.next
+  %78 = getelementptr inbounds nuw [64 x i32], ptr %47, i64 0, i64 %indvars.iv.next
   %79 = load i32, ptr %78, align 4
   %80 = icmp ult i32 %0, %79
   br i1 %80, label %81, label %73, !llvm.loop !26
@@ -2585,7 +2585,7 @@ define i32 @_cpu_freq_freqspec_num(i32 noundef %0, i32 noundef %1) local_unnamed
 define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_gov(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 65535) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.104, i32 noundef %1) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load i32, ptr %6, align 8
   %8 = tail call fastcc i32 @_set_cpu_owner_lock(i32 noundef %1, i32 noundef %7)
   %9 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.108)
@@ -2620,7 +2620,7 @@ define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_gov(ptr nocapture nou
 define internal fastcc range(i32 -1, 1) i32 @_cpu_freq_set_scaling_freq(ptr nocapture noundef readonly %0, i32 noundef range(i32 -2147483648, 65535) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.99, i32 noundef %1, ptr noundef %3) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load i32, ptr %7, align 8
   %9 = tail call fastcc i32 @_set_cpu_owner_lock(i32 noundef %1, i32 noundef %8)
   %10 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.108)
@@ -2700,7 +2700,7 @@ define range(i32 0, 2) i32 @cpu_freq_debug(ptr noundef %0, ptr noundef %1, ptr n
 
 17:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %10, ptr noundef nonnull align 1 dereferenceable(14) @.str.87, i64 14, i1 false) #11
-  %18 = getelementptr inbounds i8, ptr %10, i64 13
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 13
   call void @cpu_freq_to_string(ptr noundef nonnull %18, i32 noundef 19, i32 noundef %5)
   br label %29
 
@@ -2739,7 +2739,7 @@ define range(i32 0, 2) i32 @cpu_freq_debug(ptr noundef %0, ptr noundef %1, ptr n
 
 31:                                               ; preds = %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(14) %11, ptr noundef nonnull align 1 dereferenceable(14) @.str.90, i64 14, i1 false) #11
-  %32 = getelementptr inbounds i8, ptr %11, i64 13
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 13
   call void @cpu_freq_to_string(ptr noundef nonnull %32, i32 noundef 19, i32 noundef %6)
   br label %43
 
@@ -2774,7 +2774,7 @@ define range(i32 0, 2) i32 @cpu_freq_debug(ptr noundef %0, ptr noundef %1, ptr n
 
 .thread:                                          ; preds = %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %9, ptr noundef nonnull align 1 dereferenceable(10) @.str.93, i64 10, i1 false) #11
-  %44 = getelementptr inbounds i8, ptr %9, i64 9
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 9
   call void @cpu_freq_to_string(ptr noundef nonnull %44, i32 noundef 55, i32 noundef %4)
   br label %54
 
@@ -2847,32 +2847,32 @@ define void @cpu_freq_reset(ptr nocapture noundef readonly %0) local_unnamed_add
   br i1 %or.cond, label %.lr.ph77, label %.loopexit
 
 .lr.ph77:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %10
 
 10:                                               ; preds = %.lr.ph77, %189
   %indvars.iv = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next, %189 ]
   %11 = load ptr, ptr @cpufreq, align 8
-  %12 = getelementptr inbounds %struct.cpu_freq_data, ptr %11, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 312
+  %12 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 312
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, -2
   br i1 %15, label %16, label %28
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %12, i64 320
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 320
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -2
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %12, i64 328
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 328
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, -2
   br i1 %23, label %24, label %28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %12, i64 284
+  %25 = getelementptr inbounds nuw i8, ptr %12, i64 284
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %189, label %28
@@ -2986,7 +2986,7 @@ _fd_lock_retry.exit.i:                            ; preds = %57, %54
   %.us-phi55.i = phi i64 [ %82, %.lr.ph79.preheader.i.preheader ], [ %82, %.lr.ph95.i.preheader ], [ %100, %.lr.ph79.preheader.i ], [ %91, %.lr.ph95.i ]
   %.us-phi56.i = phi i32 [ %83, %.lr.ph79.preheader.i.preheader ], [ %83, %.lr.ph95.i.preheader ], [ %101, %.lr.ph79.preheader.i ], [ %92, %.lr.ph95.i ]
   %72 = and i64 %.us-phi55.i, 2147483647
-  %73 = getelementptr inbounds i8, ptr %.032.ph99.i, i64 %72
+  %73 = getelementptr inbounds nuw i8, ptr %.032.ph99.i, i64 %72
   %74 = sub nsw i32 %.033.ph97.i, %.us-phi56.i
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %.outer._crit_edge.i
@@ -3113,7 +3113,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %121 = load ptr, ptr @cpufreq, align 8
-  %122 = getelementptr inbounds %struct.cpu_freq_data, ptr %121, i64 %indvars.iv, i32 7
+  %122 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %121, i64 %indvars.iv, i32 7
   %123 = load i32, ptr %122, align 4
   %.not = icmp eq i32 %123, -2
   br i1 %.not, label %136, label %124
@@ -3125,7 +3125,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr @cpufreq, align 8
-  %129 = getelementptr inbounds %struct.cpu_freq_data, ptr %128, i64 %indvars.iv, i32 6
+  %129 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %128, i64 %indvars.iv, i32 6
   %130 = load i32, ptr %129, align 4
   %131 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %130, ptr noundef nonnull @.str.45)
   %132 = icmp eq i32 %131, -1
@@ -3133,21 +3133,21 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr @cpufreq, align 8
-  %135 = getelementptr inbounds %struct.cpu_freq_data, ptr %134, i64 %indvars.iv, i32 5
+  %135 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %134, i64 %indvars.iv, i32 5
   store i8 117, ptr %135, align 4
   %.pre = load ptr, ptr @cpufreq, align 8
   br label %136
 
 136:                                              ; preds = %133, %120
   %137 = phi ptr [ %.pre, %133 ], [ %121, %120 ]
-  %138 = getelementptr inbounds %struct.cpu_freq_data, ptr %137, i64 %indvars.iv
-  %139 = getelementptr inbounds i8, ptr %138, i64 328
+  %138 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %137, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 328
   %140 = load i32, ptr %139, align 4
   %.not40 = icmp eq i32 %140, -2
   br i1 %.not40, label %146, label %141
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %138, i64 324
+  %142 = getelementptr inbounds nuw i8, ptr %138, i64 324
   %143 = load i32, ptr %142, align 4
   %144 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %143, ptr noundef nonnull @.str.46)
   %145 = icmp eq i32 %144, -1
@@ -3159,14 +3159,14 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
 
 146:                                              ; preds = %._crit_edge, %136
   %147 = phi ptr [ %.pre100, %._crit_edge ], [ %137, %136 ]
-  %148 = getelementptr inbounds %struct.cpu_freq_data, ptr %147, i64 %indvars.iv
-  %149 = getelementptr inbounds i8, ptr %148, i64 320
+  %148 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %147, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 320
   %150 = load i32, ptr %149, align 4
   %.not41 = icmp eq i32 %150, -2
   br i1 %.not41, label %156, label %151
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds i8, ptr %148, i64 316
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 316
   %153 = load i32, ptr %152, align 4
   %154 = call fastcc i32 @_cpu_freq_set_scaling_freq(ptr noundef %0, i32 noundef %40, i32 noundef %153, ptr noundef nonnull @.str.47)
   %155 = icmp eq i32 %154, -1
@@ -3178,14 +3178,14 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
 
 156:                                              ; preds = %._crit_edge101, %146
   %157 = phi ptr [ %.pre102, %._crit_edge101 ], [ %147, %146 ]
-  %158 = getelementptr inbounds %struct.cpu_freq_data, ptr %157, i64 %indvars.iv
-  %159 = getelementptr inbounds i8, ptr %158, i64 284
+  %158 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %157, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 284
   %160 = load i8, ptr %159, align 4
   %.not42 = icmp eq i8 %160, 0
   br i1 %.not42, label %165, label %161
 
 161:                                              ; preds = %156
-  %162 = getelementptr inbounds i8, ptr %158, i64 260
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 260
   %163 = call fastcc i32 @_cpu_freq_set_gov(ptr noundef %0, i32 noundef %40, ptr noundef nonnull %162)
   %164 = icmp eq i32 %163, -1
   br i1 %164, label %189, label %165
@@ -3198,16 +3198,16 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr @cpufreq, align 8
-  %170 = getelementptr inbounds %struct.cpu_freq_data, ptr %169, i64 %indvars.iv
-  %171 = getelementptr inbounds i8, ptr %170, i64 316
+  %170 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %169, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 316
   %172 = load i32, ptr %171, align 4
-  %173 = getelementptr inbounds i8, ptr %170, i64 324
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 324
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds i8, ptr %170, i64 308
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 308
   %176 = load i32, ptr %175, align 4
   %177 = call i32 @cpu_freq_debug(ptr noundef null, ptr noundef null, ptr noundef nonnull %4, i32 noundef 100, i32 noundef -2, i32 noundef %172, i32 noundef %174, i32 noundef %176)
   %178 = load ptr, ptr @cpufreq, align 8
-  %179 = getelementptr inbounds %struct.cpu_freq_data, ptr %178, i64 %indvars.iv, i32 5
+  %179 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %178, i64 %indvars.iv, i32 5
   %180 = load i8, ptr %179, align 4
   %.not44 = icmp eq i8 %180, 0
   %181 = call i32 @get_log_level() #11
@@ -3219,7 +3219,7 @@ _test_cpu_owner_lock.exit.thread:                 ; preds = %36, %60, %116, %109
 
 184:                                              ; preds = %183
   %185 = load ptr, ptr @cpufreq, align 8
-  %186 = getelementptr inbounds %struct.cpu_freq_data, ptr %185, i64 %indvars.iv, i32 4
+  %186 = getelementptr inbounds nuw %struct.cpu_freq_data, ptr %185, i64 %indvars.iv, i32 4
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.50, i32 noundef %40, ptr noundef nonnull %4, ptr noundef nonnull %186) #11
   br label %189
 
@@ -3705,7 +3705,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
   br i1 %.not80, label %40, label %29
 
 .thread:                                          ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %13, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %17 = tail call ptr @xstrdup(ptr noundef nonnull %16) #11
   store ptr %17, ptr %7, align 8
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 45) #12
@@ -3718,7 +3718,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
   %22 = sub i64 %21, %19
   %23 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %22) #11
   store ptr %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %25 = ptrtoint ptr %13 to i64
   %26 = xor i64 %21, -1
   %27 = add i64 %26, %25
@@ -3732,7 +3732,7 @@ define range(i32 -1, 1) i32 @cpu_freq_verify_cmdline(ptr noundef %0, ptr noundef
   %32 = sub i64 %30, %31
   %33 = tail call ptr @xstrndup(ptr noundef nonnull %0, i64 noundef %32) #11
   store ptr %33, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %35 = tail call ptr @xstrdup(ptr noundef nonnull %34) #11
   store ptr %35, ptr %6, align 8
   br label %42
@@ -4133,7 +4133,7 @@ _fd_lock_retry.exit:                              ; preds = %25, %28
   %.us-phi = phi i64 [ %34, %.lr.ph.split.us ], [ %41, %40 ]
   %.us-phi31 = phi i32 [ %35, %.lr.ph.split.us ], [ %42, %40 ]
   %47 = and i64 %.us-phi, 2147483647
-  %48 = getelementptr inbounds i8, ptr %.018.ph42, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %.018.ph42, i64 %47
   %49 = sub nsw i32 %.019.ph40, %.us-phi31
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %.loopexit

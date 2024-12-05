@@ -216,64 +216,64 @@ define void @_ZN6Gluco210SimpSolverC2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca %"class.Gluco2::vec.0", align 8
   tail call void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco210SimpSolverE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 1420
-  %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 48), align 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL8opt_grow, i64 48), align 8
   store i32 %4, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 1424
-  %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14opt_clause_lim, i64 48), align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1424
+  %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL14opt_clause_lim, i64 48), align 8
   store i32 %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1428
-  %8 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1428
+  %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
   store i32 %8, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 1432
-  %10 = load double, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1432
+  %10 = load double, ptr getelementptr inbounds nuw (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8
   store double %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 1440
-  %12 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
   %13 = and i8 %12, 1
   store i8 %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 1441
-  %15 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL14opt_use_rcheck, i64 40), align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1441
+  %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL14opt_use_rcheck, i64 40), align 8
   %16 = and i8 %15, 1
   store i8 %16, ptr %14, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 1442
-  %18 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL12opt_use_elim, i64 40), align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1442
+  %18 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12opt_use_elim, i64 40), align 8
   %19 = and i8 %18, 1
   store i8 %19, ptr %17, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 1444
-  %21 = getelementptr inbounds i8, ptr %0, i64 1460
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1444
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1460
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   store i32 1, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 1464
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   store i8 1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 1472
-  %24 = getelementptr inbounds i8, ptr %0, i64 1488
-  %25 = getelementptr inbounds i8, ptr %0, i64 1504
-  %26 = getelementptr inbounds i8, ptr %0, i64 864
-  %27 = getelementptr inbounds i8, ptr %0, i64 1552
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1488
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %28 = ptrtoint ptr %26 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %23, i8 0, i64 80, i1 false)
   store i64 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 1560
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  %30 = getelementptr inbounds i8, ptr %0, i64 1576
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   %31 = ptrtoint ptr %29 to i64
   store i64 %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 1584
-  %33 = getelementptr inbounds i8, ptr %0, i64 1616
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1584
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
   invoke void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %33, i32 noundef 1)
           to label %34 unwind label %55
 
 34:                                               ; preds = %1
-  %35 = getelementptr inbounds i8, ptr %0, i64 1632
-  %36 = getelementptr inbounds i8, ptr %0, i64 1640
-  %37 = getelementptr inbounds i8, ptr %0, i64 1656
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1640
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %35, i8 0, i64 48, i1 false)
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 2, ptr %40, align 4
   %malloc = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
   store ptr %malloc, ptr %2, align 8
@@ -297,17 +297,17 @@ define void @_ZN6Gluco210SimpSolverC2Ev(ptr noundef nonnull align 8 dereferencea
 _ZN6Gluco23vecINS_3LitEEC2EiRKS1_.exit:           ; preds = %34, %42
   store i32 -2, ptr %malloc, align 4
   store i32 1, ptr %39, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 884
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 884
   store i8 1, ptr %48, align 4
   %49 = invoke noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false)
           to label %50 unwind label %59
 
 50:                                               ; preds = %_ZN6Gluco23vecINS_3LitEEC2EiRKS1_.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 1680
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store i32 %49, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 824
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i8 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 1416
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   store i32 0, ptr %53, align 8
   %54 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %54, null
@@ -342,7 +342,7 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %50, %.preheader.i.i
   store i32 0, ptr %39, align 8
   call void @free(ptr noundef nonnull %61) #24
   store ptr null, ptr %2, align 8
-  %62 = getelementptr inbounds i8, ptr %2, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 0, ptr %62, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit12
 
@@ -353,11 +353,11 @@ _ZN6Gluco23vecINS_3LitEED2Ev.exit12:              ; preds = %.preheader.i.i11, %
   br i1 %.not.i.i13, label %_ZN6Gluco23vecIcED2Ev.exit, label %.preheader.i.i14
 
 .preheader.i.i14:                                 ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit12
-  %64 = getelementptr inbounds i8, ptr %0, i64 1664
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store i32 0, ptr %64, align 8
   call void @free(ptr noundef nonnull %63) #24
   store ptr null, ptr %37, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 1668
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   store i32 0, ptr %65, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit
 
@@ -367,11 +367,11 @@ _ZN6Gluco23vecIcED2Ev.exit:                       ; preds = %_ZN6Gluco23vecINS_3
   br i1 %.not.i.i15, label %_ZN6Gluco23vecIcED2Ev.exit17, label %.preheader.i.i16
 
 .preheader.i.i16:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit
-  %67 = getelementptr inbounds i8, ptr %0, i64 1648
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   store i32 0, ptr %67, align 8
   call void @free(ptr noundef nonnull %66) #24
   store ptr null, ptr %36, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 1652
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   store i32 0, ptr %68, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit17
 
@@ -381,11 +381,11 @@ _ZN6Gluco23vecIcED2Ev.exit17:                     ; preds = %_ZN6Gluco23vecIcED2
   br i1 %.not.i.i.i, label %_ZN6Gluco25QueueIjED2Ev.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit17
-  %70 = getelementptr inbounds i8, ptr %0, i64 1624
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   store i32 0, ptr %70, align 8
   call void @free(ptr noundef nonnull %69) #24
   store ptr null, ptr %33, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 1628
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   store i32 0, ptr %71, align 4
   br label %_ZN6Gluco25QueueIjED2Ev.exit
 
@@ -397,11 +397,11 @@ _ZN6Gluco25QueueIjED2Ev.exit:                     ; preds = %.preheader.i.i.i, %
   br i1 %.not.i.i18, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i19
 
 .preheader.i.i19:                                 ; preds = %_ZN6Gluco25QueueIjED2Ev.exit
-  %73 = getelementptr inbounds i8, ptr %0, i64 1568
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i32 0, ptr %73, align 8
   call void @free(ptr noundef nonnull %72) #24
   store ptr null, ptr %29, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 1572
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   store i32 0, ptr %74, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
@@ -412,11 +412,11 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %_ZN6Gluco25QueueIjE
   br i1 %.not.i.i20, label %_ZN6Gluco23vecIcED2Ev.exit22, label %.preheader.i.i21
 
 .preheader.i.i21:                                 ; preds = %_ZN6Gluco23vecIiED2Ev.exit
-  %76 = getelementptr inbounds i8, ptr %0, i64 1496
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   store i32 0, ptr %76, align 8
   call void @free(ptr noundef nonnull %75) #24
   store ptr null, ptr %24, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 1500
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   store i32 0, ptr %77, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit22
 
@@ -426,11 +426,11 @@ _ZN6Gluco23vecIcED2Ev.exit22:                     ; preds = %_ZN6Gluco23vecIiED2
   br i1 %.not.i.i23, label %_ZN6Gluco23vecIjED2Ev.exit, label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit22
-  %79 = getelementptr inbounds i8, ptr %0, i64 1480
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store i32 0, ptr %79, align 8
   call void @free(ptr noundef nonnull %78) #24
   store ptr null, ptr %23, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 1484
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   store i32 0, ptr %80, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit
 
@@ -445,18 +445,18 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 1
   %7 = zext i1 %2 to i8
   %8 = or i8 %6, %7
   %.not = icmp eq i8 %8, 0
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = zext nneg i8 %8 to i32
   %12 = add i32 %10, 3
   %13 = add i32 %12, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = add i32 %13, %15
   tail call void @_ZN6Gluco215RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %16)
@@ -474,7 +474,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3L
 _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   %22 = load ptr, ptr %0, align 8
   %23 = zext i32 %17 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %25 = load i96, ptr %24, align 4
   %26 = select i1 %2, i96 4, i96 0
   %27 = and i96 %25, -32
@@ -494,14 +494,14 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   br i1 %38, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZN6Gluco215RegionAllocatorIjE5allocEi.exit
-  %39 = getelementptr inbounds i8, ptr %24, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 12
   br label %40
 
 40:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %41 = load ptr, ptr %1, align 8
-  %42 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %41, i64 %indvars.iv.i
-  %43 = getelementptr inbounds [0 x %union.anon], ptr %39, i64 0, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %41, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [0 x %union.anon], ptr %39, i64 0, i64 %indvars.iv.i
   %44 = load i32, ptr %42, align 4
   store i32 %44, ptr %43, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -517,10 +517,10 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   br i1 %2, label %49, label %54
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds i8, ptr %24, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %51 = trunc nuw i96 %33 to i64
   %52 = lshr exact i64 %51, 32
-  %53 = getelementptr inbounds [0 x %union.anon], ptr %50, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [0 x %union.anon], ptr %50, i64 0, i64 %52
   store float 0.000000e+00, ptr %53, align 4
   br label %_ZN6Gluco26ClauseC2INS_3vecINS_3LitEEEEERKT_bb.exit
 
@@ -531,7 +531,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   br i1 %57, label %.lr.ph.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %24, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %59 = trunc nuw i96 %55 to i64
   %wide.trip.count.i.i = and i64 %59, 2147483647
   br label %60
@@ -539,7 +539,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
 60:                                               ; preds = %60, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %60 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %65, %60 ]
-  %61 = getelementptr inbounds [0 x %union.anon], ptr %58, i64 0, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [0 x %union.anon], ptr %58, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %61, align 4
   %62 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %63 = and i32 %62, 31
@@ -551,10 +551,10 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
 
 _ZN6Gluco26Clause15calcAbstractionEv.exit.i:      ; preds = %60, %54
   %.0.lcssa.i.i = phi i32 [ 0, %54 ], [ %65, %60 ]
-  %66 = getelementptr inbounds i8, ptr %24, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %67 = trunc nuw i96 %33 to i64
   %68 = lshr exact i64 %67, 32
-  %69 = getelementptr inbounds [0 x %union.anon], ptr %66, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [0 x %union.anon], ptr %66, i64 0, i64 %68
   store i32 %.0.lcssa.i.i, ptr %69, align 4
   br label %_ZN6Gluco26ClauseC2INS_3vecINS_3LitEEEEERKT_bb.exit
 
@@ -564,32 +564,32 @@ _ZN6Gluco26ClauseC2INS_3vecINS_3LitEEEEERKT_bb.exit: ; preds = %._crit_edge.i, %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %3) #24
   store ptr null, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %5, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %1, %.preheader.i.i
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i.i1 = icmp eq ptr %7, null
   br i1 %.not.i.i1, label %_ZN6Gluco23vecIiED2Ev.exit3, label %.preheader.i.i2
 
 .preheader.i.i2:                                  ; preds = %_ZN6Gluco23vecIiED2Ev.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %8, align 8
   tail call void @free(ptr noundef nonnull %7) #24
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %9, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit3
 
@@ -599,32 +599,32 @@ _ZN6Gluco23vecIiED2Ev.exit3:                      ; preds = %_ZN6Gluco23vecIiED2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %3) #24
   store ptr null, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %5, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %1, %.preheader.i.i
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not.i.i1 = icmp eq ptr %7, null
   br i1 %.not.i.i1, label %_ZN6Gluco23vecIcED2Ev.exit, label %.preheader.i.i2
 
 .preheader.i.i2:                                  ; preds = %_ZN6Gluco23vecIiED2Ev.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
   tail call void @free(ptr noundef nonnull %7) #24
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %9, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit
 
@@ -634,7 +634,7 @@ _ZN6Gluco23vecIcED2Ev.exit:                       ; preds = %_ZN6Gluco23vecIiED2
   br i1 %.not.i.i3, label %_ZN6Gluco23vecINS0_IjEEED2Ev.exit, label %.preheader.i.i4
 
 .preheader.i.i4:                                  ; preds = %_ZN6Gluco23vecIcED2Ev.exit
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph.i.i, label %._crit_edge.i.i
@@ -643,17 +643,17 @@ _ZN6Gluco23vecIcED2Ev.exit:                       ; preds = %_ZN6Gluco23vecIiED2
   %14 = phi i32 [ %20, %_ZN6Gluco23vecIjED2Ev.exit.i.i ], [ %12, %.preheader.i.i4 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6Gluco23vecIjED2Ev.exit.i.i ], [ 0, %.preheader.i.i4 ]
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %15, i64 %indvars.iv.i.i
+  %16 = getelementptr inbounds nuw %"class.Gluco2::vec.5", ptr %15, i64 %indvars.iv.i.i
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i.i.i, label %_ZN6Gluco23vecIjED2Ev.exit.i.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %18, align 8
   tail call void @free(ptr noundef nonnull %17) #24
   store ptr null, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 0, ptr %19, align 4
   %.pre.i.i = load i32, ptr %11, align 8
   br label %_ZN6Gluco23vecIjED2Ev.exit.i.i
@@ -674,7 +674,7 @@ _ZN6Gluco23vecIjED2Ev.exit.i.i:                   ; preds = %.preheader.i.i.i.i,
   store i32 0, ptr %11, align 8
   tail call void @free(ptr noundef %23) #24
   store ptr null, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %24, align 4
   br label %_ZN6Gluco23vecINS0_IjEEED2Ev.exit
 
@@ -688,124 +688,124 @@ declare void @_ZN6Gluco26SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6Gluco210SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1684) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco210SimpSolverE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 1656
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN6Gluco23vecIcED2Ev.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 1664
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store i32 0, ptr %4, align 8
   tail call void @free(ptr noundef nonnull %3) #24
   store ptr null, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 1668
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   store i32 0, ptr %5, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit
 
 _ZN6Gluco23vecIcED2Ev.exit:                       ; preds = %1, %.preheader.i.i
-  %6 = getelementptr inbounds i8, ptr %0, i64 1640
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   %7 = load ptr, ptr %6, align 8
   %.not.i.i1 = icmp eq ptr %7, null
   br i1 %.not.i.i1, label %_ZN6Gluco23vecIcED2Ev.exit3, label %.preheader.i.i2
 
 .preheader.i.i2:                                  ; preds = %_ZN6Gluco23vecIcED2Ev.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 1648
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   store i32 0, ptr %8, align 8
   tail call void @free(ptr noundef nonnull %7) #24
   store ptr null, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1652
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   store i32 0, ptr %9, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit3
 
 _ZN6Gluco23vecIcED2Ev.exit3:                      ; preds = %_ZN6Gluco23vecIcED2Ev.exit, %.preheader.i.i2
-  %10 = getelementptr inbounds i8, ptr %0, i64 1616
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZN6Gluco25QueueIjED2Ev.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit3
-  %12 = getelementptr inbounds i8, ptr %0, i64 1624
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   store i32 0, ptr %12, align 8
   tail call void @free(ptr noundef nonnull %11) #24
   store ptr null, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1628
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   store i32 0, ptr %13, align 4
   br label %_ZN6Gluco25QueueIjED2Ev.exit
 
 _ZN6Gluco25QueueIjED2Ev.exit:                     ; preds = %_ZN6Gluco23vecIcED2Ev.exit3, %.preheader.i.i.i
-  %14 = getelementptr inbounds i8, ptr %0, i64 1600
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %15 = load ptr, ptr %14, align 8
   %.not.i.i.i4 = icmp eq ptr %15, null
   br i1 %.not.i.i.i4, label %_ZN6Gluco23vecIiED2Ev.exit.i, label %.preheader.i.i.i5
 
 .preheader.i.i.i5:                                ; preds = %_ZN6Gluco25QueueIjED2Ev.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 1608
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   store i32 0, ptr %16, align 8
   tail call void @free(ptr noundef nonnull %15) #24
   store ptr null, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 1612
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1612
   store i32 0, ptr %17, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit.i
 
 _ZN6Gluco23vecIiED2Ev.exit.i:                     ; preds = %.preheader.i.i.i5, %_ZN6Gluco25QueueIjED2Ev.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 1584
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   %19 = load ptr, ptr %18, align 8
   %.not.i.i1.i = icmp eq ptr %19, null
   br i1 %.not.i.i1.i, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEED2Ev.exit, label %.preheader.i.i2.i
 
 .preheader.i.i2.i:                                ; preds = %_ZN6Gluco23vecIiED2Ev.exit.i
-  %20 = getelementptr inbounds i8, ptr %0, i64 1592
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   store i32 0, ptr %20, align 8
   tail call void @free(ptr noundef nonnull %19) #24
   store ptr null, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 1596
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1596
   store i32 0, ptr %21, align 4
   br label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEED2Ev.exit
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEED2Ev.exit: ; preds = %_ZN6Gluco23vecIiED2Ev.exit.i, %.preheader.i.i2.i
-  %22 = getelementptr inbounds i8, ptr %0, i64 1560
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %23 = load ptr, ptr %22, align 8
   %.not.i.i6 = icmp eq ptr %23, null
   br i1 %.not.i.i6, label %_ZN6Gluco23vecIiED2Ev.exit, label %.preheader.i.i7
 
 .preheader.i.i7:                                  ; preds = %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEED2Ev.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 1568
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i32 0, ptr %24, align 8
   tail call void @free(ptr noundef nonnull %23) #24
   store ptr null, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 1572
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   store i32 0, ptr %25, align 4
   br label %_ZN6Gluco23vecIiED2Ev.exit
 
 _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEED2Ev.exit, %.preheader.i.i7
-  %26 = getelementptr inbounds i8, ptr %0, i64 1504
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   tail call void @_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26) #24
-  %27 = getelementptr inbounds i8, ptr %0, i64 1488
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %28 = load ptr, ptr %27, align 8
   %.not.i.i8 = icmp eq ptr %28, null
   br i1 %.not.i.i8, label %_ZN6Gluco23vecIcED2Ev.exit10, label %.preheader.i.i9
 
 .preheader.i.i9:                                  ; preds = %_ZN6Gluco23vecIiED2Ev.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 1496
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   store i32 0, ptr %29, align 8
   tail call void @free(ptr noundef nonnull %28) #24
   store ptr null, ptr %27, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1500
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   store i32 0, ptr %30, align 4
   br label %_ZN6Gluco23vecIcED2Ev.exit10
 
 _ZN6Gluco23vecIcED2Ev.exit10:                     ; preds = %_ZN6Gluco23vecIiED2Ev.exit, %.preheader.i.i9
-  %31 = getelementptr inbounds i8, ptr %0, i64 1472
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %32 = load ptr, ptr %31, align 8
   %.not.i.i11 = icmp eq ptr %32, null
   br i1 %.not.i.i11, label %_ZN6Gluco23vecIjED2Ev.exit, label %.preheader.i.i12
 
 .preheader.i.i12:                                 ; preds = %_ZN6Gluco23vecIcED2Ev.exit10
-  %33 = getelementptr inbounds i8, ptr %0, i64 1480
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store i32 0, ptr %33, align 8
   tail call void @free(ptr noundef nonnull %32) #24
   store ptr null, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 1484
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1484
   store i32 0, ptr %34, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit
 
@@ -828,10 +828,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define noundef i32 @_ZN6Gluco210SimpSolver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = alloca i8, align 1
   %5 = tail call noundef i32 @_ZN6Gluco26Solver6newVarEbb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i1 noundef zeroext %1, i1 noundef zeroext %2)
-  %6 = getelementptr inbounds i8, ptr %0, i64 1640
-  %7 = getelementptr inbounds i8, ptr %0, i64 1648
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1640
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1652
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i
@@ -883,10 +883,10 @@ _ZN6Gluco23vecIcE4pushERKc.exit:                  ; preds = %._ZN6Gluco23vecIcE4
   %34 = sext i32 %31 to i64
   %35 = getelementptr inbounds i8, ptr %32, i64 %34
   store i8 0, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 1656
-  %37 = getelementptr inbounds i8, ptr %0, i64 1664
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %38 = load i32, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 1668
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 1668
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %38, %40
   br i1 %41, label %42, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i2
@@ -938,16 +938,16 @@ _ZN6Gluco23vecIcE4pushERKc.exit4:                 ; preds = %._ZN6Gluco23vecIcE4
   %64 = sext i32 %61 to i64
   %65 = getelementptr inbounds i8, ptr %62, i64 %64
   store i8 0, ptr %65, align 1
-  %66 = getelementptr inbounds i8, ptr %0, i64 1464
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %67 = load i8, ptr %66, align 8
   %68 = trunc i8 %67 to i1
   br i1 %68, label %69, label %163
 
 69:                                               ; preds = %_ZN6Gluco23vecIcE4pushERKc.exit4
-  %70 = getelementptr inbounds i8, ptr %0, i64 1560
-  %71 = getelementptr inbounds i8, ptr %0, i64 1568
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1560
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   %72 = load i32, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 1572
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %74 = load i32, ptr %73, align 4
   %75 = icmp eq i32 %72, %74
   br i1 %75, label %76, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
@@ -1053,18 +1053,18 @@ _ZN6Gluco23vecIiE4pushERKi.exit8:                 ; preds = %._ZN6Gluco23vecIiE4
   %127 = sext i32 %124 to i64
   %128 = getelementptr inbounds i32, ptr %125, i64 %127
   store i32 0, ptr %128, align 4
-  %129 = getelementptr inbounds i8, ptr %0, i64 1504
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %130 = add nsw i32 %5, 1
   tail call void @_ZN6Gluco23vecINS0_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(56) %129, i32 noundef %130)
-  %131 = getelementptr inbounds i8, ptr %0, i64 1520
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   store i8 0, ptr %4, align 1
   call void @_ZN6Gluco23vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %131, i32 noundef %130, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %132 = getelementptr inbounds i8, ptr %0, i64 1488
-  %133 = getelementptr inbounds i8, ptr %0, i64 1496
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1488
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %134 = load i32, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %0, i64 1500
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   %136 = load i32, ptr %135, align 4
   %137 = icmp eq i32 %134, %136
   br i1 %137, label %138, label %._ZN6Gluco23vecIcE8capacityEi.exit_crit_edge.i9
@@ -1116,7 +1116,7 @@ _ZN6Gluco23vecIcE4pushERKc.exit11:                ; preds = %._ZN6Gluco23vecIcE4
   %160 = sext i32 %157 to i64
   %161 = getelementptr inbounds i8, ptr %158, i64 %160
   store i8 0, ptr %161, align 1
-  %162 = getelementptr inbounds i8, ptr %0, i64 1576
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1576
   call void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %162, i32 noundef %5)
   br label %163
 
@@ -1129,18 +1129,18 @@ declare noundef i32 @_ZN6Gluco26Solver6newVarEbb(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = add nsw i32 %1, 1
   store i32 -1, ptr %3, align 4
   call void @_ZN6Gluco23vecIiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i32, ptr %9, i64 %10
   store i32 %8, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %8, %13
   br i1 %14, label %15, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
@@ -1272,7 +1272,7 @@ _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %51, %_Z
 
 ; Function Attrs: mustprogress uwtable
 define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1464
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %5 = load i8, ptr %4, align 8
   %6 = and i8 %5, 1
   %.not14 = icmp ne i8 %6, 0
@@ -1280,14 +1280,14 @@ define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefere
   br i1 %.not.not, label %.preheader48, label %.thread40
 
 .preheader48:                                     ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 768
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader48
-  %10 = getelementptr inbounds i8, ptr %0, i64 760
-  %11 = getelementptr inbounds i8, ptr %0, i64 1640
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 760
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   br label %12
 
 12:                                               ; preds = %.lr.ph, %48
@@ -1297,7 +1297,7 @@ define i8 @_ZN6Gluco210SimpSolver6solve_Ebb(ptr noundef nonnull align 8 derefere
   %.sroa.9.157 = phi i32 [ 0, %.lr.ph ], [ %.sroa.9.2, %48 ]
   %.sroa.15.056 = phi i32 [ 0, %.lr.ph ], [ %.sroa.15.1, %48 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %14, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %15, align 4
   %16 = ashr i32 %.sroa.03.0.copyload, 1
   %17 = load ptr, ptr %11, align 8
@@ -1398,7 +1398,7 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %44, %.preheader.i.i
           to label %60 unwind label %44
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %57 = load i32, ptr %56, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %59, label %_ZN6Gluco210SimpSolver11extendModelEv.exit
@@ -1412,22 +1412,22 @@ _ZN6Gluco23vecIiED2Ev.exit:                       ; preds = %44, %.preheader.i.i
   br i1 %61, label %62, label %_ZN6Gluco210SimpSolver11extendModelEv.exit
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %0, i64 1472
-  %64 = getelementptr inbounds i8, ptr %0, i64 1480
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %65 = load i32, ptr %64, align 8
   %66 = icmp sgt i32 %65, 1
   br i1 %66, label %.lr.ph27.i, label %_ZN6Gluco210SimpSolver11extendModelEv.exit
 
 .lr.ph27.i:                                       ; preds = %62
   %67 = add nsw i32 %65, -1
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %69
 
 69:                                               ; preds = %.loopexit.i, %.lr.ph27.i
   %.025.i = phi i32 [ %67, %.lr.ph27.i ], [ %99, %.loopexit.i ]
   %70 = load ptr, ptr %63, align 8
   %71 = zext nneg i32 %.025.i to i64
-  %72 = getelementptr inbounds i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
   %73 = load i32, ptr %72, align 4
   %.121.i = add nsw i32 %.025.i, -1
   %74 = icmp sgt i32 %73, 1
@@ -1497,19 +1497,19 @@ _ZN6Gluco210SimpSolver11extendModelEv.exit:       ; preds = %.loopexit.i, %55, %
   br i1 %or.cond, label %.lr.ph62, label %.loopexit
 
 .lr.ph62:                                         ; preds = %_ZN6Gluco210SimpSolver11extendModelEv.exit
-  %102 = getelementptr inbounds i8, ptr %0, i64 1640
-  %103 = getelementptr inbounds i8, ptr %0, i64 1576
-  %104 = getelementptr inbounds i8, ptr %0, i64 1608
-  %105 = getelementptr inbounds i8, ptr %0, i64 1600
-  %106 = getelementptr inbounds i8, ptr %0, i64 1664
-  %107 = getelementptr inbounds i8, ptr %0, i64 1656
-  %108 = getelementptr inbounds i8, ptr %0, i64 632
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1640
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1576
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 1608
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %wide.trip.count = zext nneg i32 %.sroa.9.04476 to i64
   br label %109
 
 109:                                              ; preds = %.lr.ph62, %_ZN6Gluco210SimpSolver9setFrozenEib.exit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next69, %_ZN6Gluco210SimpSolver9setFrozenEib.exit ]
-  %110 = getelementptr inbounds i32, ptr %.sroa.026.14675, i64 %indvars.iv68
+  %110 = getelementptr inbounds nuw i32, ptr %.sroa.026.14675, i64 %indvars.iv68
   %111 = load i32, ptr %110, align 4
   %112 = load ptr, ptr %102, align 8
   %113 = sext i32 %111 to i64
@@ -1590,13 +1590,13 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver9eliminateEb(ptr noundef nonnul
   br i1 %3, label %4, label %222
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1464
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %222
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 608
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %10, 4800001
   br i1 %11, label %.lr.ph49, label %12
@@ -1606,27 +1606,27 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver9eliminateEb(ptr noundef nonnul
   br label %.critedge
 
 .lr.ph49:                                         ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 1676
-  %14 = getelementptr inbounds i8, ptr %0, i64 1672
-  %15 = getelementptr inbounds i8, ptr %0, i64 688
-  %16 = getelementptr inbounds i8, ptr %0, i64 1592
-  %17 = getelementptr inbounds i8, ptr %0, i64 1636
-  %18 = getelementptr inbounds i8, ptr %0, i64 1632
-  %19 = getelementptr inbounds i8, ptr %0, i64 1624
-  %20 = getelementptr inbounds i8, ptr %0, i64 1144
-  %21 = getelementptr inbounds i8, ptr %0, i64 1576
-  %22 = getelementptr inbounds i8, ptr %0, i64 1584
-  %23 = getelementptr inbounds i8, ptr %0, i64 1600
-  %24 = getelementptr inbounds i8, ptr %0, i64 1664
-  %25 = getelementptr inbounds i8, ptr %0, i64 1656
-  %26 = getelementptr inbounds i8, ptr %0, i64 632
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
-  %28 = getelementptr inbounds i8, ptr %0, i64 1440
-  %29 = getelementptr inbounds i8, ptr %0, i64 1640
-  %30 = getelementptr inbounds i8, ptr %0, i64 1442
-  %31 = getelementptr inbounds i8, ptr %0, i64 1432
-  %32 = getelementptr inbounds i8, ptr %0, i64 880
-  %33 = getelementptr inbounds i8, ptr %0, i64 872
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1676
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1592
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1636
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1576
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 1584
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1440
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1640
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1442
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1432
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 880
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 872
   br label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE9removeMinEv.exit._crit_edge
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE9removeMinEv.exit._crit_edge: ; preds = %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE9removeMinEv.exit._crit_edge.backedge, %.lr.ph49
@@ -1666,7 +1666,7 @@ _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE9removeMinEv.exit._crit_edge: ; preds = 
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %0, i64 452
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 452
   store i8 0, ptr %56, align 4
   br label %.critedge
 
@@ -1690,7 +1690,7 @@ _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE9removeMinEv.exit._crit_edge.backedge: ;
 .lr.ph.i:                                         ; preds = %62, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %62 ]
   %64 = load ptr, ptr %22, align 8
-  %65 = getelementptr inbounds i32, ptr %64, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 4
   %67 = load ptr, ptr %23, align 8
   %68 = sext i32 %66 to i64
@@ -1793,7 +1793,7 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread: ; preds = %95, %_ZNK6Gluco2
   br i1 %119, label %122, label %120
 
 120:                                              ; preds = %115
-  %121 = getelementptr inbounds i8, ptr %0, i64 452
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 452
   store i8 0, ptr %121, align 4
   br label %.critedge
 
@@ -1830,7 +1830,7 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread: ; preds = %95, %_ZNK6Gluco2
   br i1 %139, label %.critedge6, label %140
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds i8, ptr %0, i64 452
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 452
   store i8 0, ptr %141, align 4
   br label %.critedge
 
@@ -1846,7 +1846,7 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread: ; preds = %95, %_ZNK6Gluco2
 
 149:                                              ; preds = %.critedge6
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 24
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8
   tail call void %152(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   br label %.critedge4
@@ -1861,52 +1861,52 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread: ; preds = %95, %_ZNK6Gluco2
   br i1 %1, label %156, label %191
 
 156:                                              ; preds = %.critedge
-  %157 = getelementptr inbounds i8, ptr %0, i64 1488
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1488
   %158 = load ptr, ptr %157, align 8
   %.not.i26 = icmp eq ptr %158, null
   br i1 %.not.i26, label %_ZN6Gluco23vecIcE5clearEb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %156
-  %159 = getelementptr inbounds i8, ptr %0, i64 1496
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   store i32 0, ptr %159, align 8
   tail call void @free(ptr noundef nonnull %158) #24
   store ptr null, ptr %157, align 8
-  %160 = getelementptr inbounds i8, ptr %0, i64 1500
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 1500
   store i32 0, ptr %160, align 4
   br label %_ZN6Gluco23vecIcE5clearEb.exit
 
 _ZN6Gluco23vecIcE5clearEb.exit:                   ; preds = %156, %.preheader.i
-  %161 = getelementptr inbounds i8, ptr %0, i64 1504
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   tail call void @_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5clearEb(ptr noundef nonnull align 8 dereferenceable(56) %161, i1 noundef zeroext true)
-  %162 = getelementptr inbounds i8, ptr %0, i64 1560
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %163 = load ptr, ptr %162, align 8
   %.not.i27 = icmp eq ptr %163, null
   br i1 %.not.i27, label %_ZN6Gluco23vecIiE5clearEb.exit, label %.preheader.i28
 
 .preheader.i28:                                   ; preds = %_ZN6Gluco23vecIcE5clearEb.exit
-  %164 = getelementptr inbounds i8, ptr %0, i64 1568
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i32 0, ptr %164, align 8
   tail call void @free(ptr noundef nonnull %163) #24
   store ptr null, ptr %162, align 8
-  %165 = getelementptr inbounds i8, ptr %0, i64 1572
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   store i32 0, ptr %165, align 4
   br label %_ZN6Gluco23vecIiE5clearEb.exit
 
 _ZN6Gluco23vecIiE5clearEb.exit:                   ; preds = %_ZN6Gluco23vecIcE5clearEb.exit, %.preheader.i28
-  %166 = getelementptr inbounds i8, ptr %0, i64 1584
-  %167 = getelementptr inbounds i8, ptr %0, i64 1592
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 1584
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %168 = load i32, ptr %167, align 8
   %169 = icmp sgt i32 %168, 0
   br i1 %169, label %.lr.ph.i32, label %._crit_edge.i29
 
 .lr.ph.i32:                                       ; preds = %_ZN6Gluco23vecIiE5clearEb.exit
-  %170 = getelementptr inbounds i8, ptr %0, i64 1600
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   br label %171
 
 171:                                              ; preds = %171, %.lr.ph.i32
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i34, %171 ]
   %172 = load ptr, ptr %166, align 8
-  %173 = getelementptr inbounds i32, ptr %172, i64 %indvars.iv.i33
+  %173 = getelementptr inbounds nuw i32, ptr %172, i64 %indvars.iv.i33
   %174 = load i32, ptr %173, align 4
   %175 = load ptr, ptr %170, align 8
   %176 = sext i32 %174 to i64
@@ -1927,47 +1927,47 @@ _ZN6Gluco23vecIiE5clearEb.exit:                   ; preds = %_ZN6Gluco23vecIcE5c
   store i32 0, ptr %167, align 8
   tail call void @free(ptr noundef nonnull %181) #24
   store ptr null, ptr %166, align 8
-  %182 = getelementptr inbounds i8, ptr %0, i64 1596
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 1596
   store i32 0, ptr %182, align 4
   br label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35
 
 _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35: ; preds = %._crit_edge.i29, %.preheader.i.i31
-  %183 = getelementptr inbounds i8, ptr %0, i64 1616
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %184 = load ptr, ptr %183, align 8
   %.not.i.i36 = icmp eq ptr %184, null
   br i1 %.not.i.i36, label %_ZN6Gluco25QueueIjE5clearEb.exit, label %.preheader.i.i37
 
 .preheader.i.i37:                                 ; preds = %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35
-  %185 = getelementptr inbounds i8, ptr %0, i64 1624
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   store i32 0, ptr %185, align 8
   tail call void @free(ptr noundef nonnull %184) #24
   store ptr null, ptr %183, align 8
-  %186 = getelementptr inbounds i8, ptr %0, i64 1628
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   store i32 0, ptr %186, align 4
   br label %_ZN6Gluco25QueueIjE5clearEb.exit
 
 _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE5clearEb.exit35, %.preheader.i.i37
   tail call void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %183, i32 noundef 1)
-  %187 = getelementptr inbounds i8, ptr %0, i64 1636
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   store i32 0, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %0, i64 1632
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   store i32 0, ptr %188, align 8
   store i8 0, ptr %5, align 8
-  %189 = getelementptr inbounds i8, ptr %0, i64 824
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i8 1, ptr %189, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 884
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 884
   store i8 0, ptr %190, align 4
   tail call void @_ZN6Gluco26Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   br label %_ZN6Gluco26Solver12checkGarbageEv.exit.sink.split
 
 191:                                              ; preds = %.critedge
   tail call void @_ZN6Gluco210SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 dereferenceable(1684) %0)
-  %192 = getelementptr inbounds i8, ptr %0, i64 248
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %193 = load double, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %0, i64 880
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %195 = load i32, ptr %194, align 8
   %196 = uitofp i32 %195 to double
-  %197 = getelementptr inbounds i8, ptr %0, i64 872
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %198 = load i32, ptr %197, align 8
   %199 = uitofp i32 %198 to double
   %200 = fmul double %193, %199
@@ -1976,19 +1976,19 @@ _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %_ZN6Gluco24HeapINS_
 
 _ZN6Gluco26Solver12checkGarbageEv.exit.sink.split: ; preds = %191, %_ZN6Gluco25QueueIjE5clearEb.exit
   %202 = load ptr, ptr %0, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load ptr, ptr %203, align 8
   tail call void %204(ptr noundef nonnull align 8 dereferenceable(1416) %0)
   br label %_ZN6Gluco26Solver12checkGarbageEv.exit
 
 _ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %_ZN6Gluco26Solver12checkGarbageEv.exit.sink.split, %191
-  %205 = getelementptr inbounds i8, ptr %0, i64 128
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %206 = load i32, ptr %205, align 8
   %207 = icmp sgt i32 %206, 0
   br i1 %207, label %208, label %218
 
 208:                                              ; preds = %_ZN6Gluco26Solver12checkGarbageEv.exit
-  %209 = getelementptr inbounds i8, ptr %0, i64 1480
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %210 = load i32, ptr %209, align 8
   %211 = icmp sgt i32 %210, 0
   br i1 %211, label %212, label %218
@@ -2002,7 +2002,7 @@ _ZN6Gluco26Solver12checkGarbageEv.exit:           ; preds = %_ZN6Gluco26Solver12
   br label %218
 
 218:                                              ; preds = %212, %208, %_ZN6Gluco26Solver12checkGarbageEv.exit
-  %219 = getelementptr inbounds i8, ptr %0, i64 452
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %220 = load i8, ptr %219, align 4
   %221 = trunc i8 %220 to i1
   br label %222
@@ -2019,22 +2019,22 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6Gluco210SimpSolver11extendModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1684) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1472
-  %3 = getelementptr inbounds i8, ptr %0, i64 1480
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %.lr.ph27, label %._crit_edge28
 
 .lr.ph27:                                         ; preds = %1
   %6 = add nsw i32 %4, -1
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %8
 
 8:                                                ; preds = %.lr.ph27, %.loopexit
   %.025 = phi i32 [ %6, %.lr.ph27 ], [ %38, %.loopexit ]
   %9 = load ptr, ptr %2, align 8
   %10 = zext nneg i32 %.025 to i64
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
   %.121 = add nsw i32 %.025, -1
   %13 = icmp sgt i32 %12, 1
@@ -2101,10 +2101,10 @@ define void @_ZN6Gluco210SimpSolver11extendModelEv(ptr nocapture noundef nonnull
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver10addClause_ERNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1684) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 600
-  %4 = getelementptr inbounds i8, ptr %0, i64 608
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 1441
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1441
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %11
@@ -2118,32 +2118,32 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver10addClause_ERNS_3vecINS_3LitEE
   br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 1416
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %16, label %40
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 264
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
   br i1 %19, label %.preheader, label %40
 
 .preheader:                                       ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %0, i64 256
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %24
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %23, align 8
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %26, i64 %indvars.iv
   %.sroa.017.0.copyload = load i32, ptr %27, align 4
   %28 = ashr i32 %.sroa.017.0.copyload, 1
   %29 = add nsw i32 %28, 1
@@ -2159,13 +2159,13 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver10addClause_ERNS_3vecINS_3LitEE
   br i1 %36, label %24, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24, %.preheader
-  %37 = getelementptr inbounds i8, ptr %0, i64 256
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %38)
   br label %40
 
 40:                                               ; preds = %._crit_edge, %16, %13
-  %41 = getelementptr inbounds i8, ptr %0, i64 1464
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %42 = load i8, ptr %41, align 8
   %43 = trunc i8 %42 to i1
   br i1 %43, label %44, label %.loopexit
@@ -2182,11 +2182,11 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver10addClause_ERNS_3vecINS_3LitEE
   %51 = getelementptr i32, ptr %49, i64 %50
   %52 = getelementptr i8, ptr %51, i64 -4
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 864
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %55 = load ptr, ptr %54, align 8
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds i32, ptr %55, i64 %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 1616
+  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   tail call void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %58, i32 noundef %53)
   %59 = load i96, ptr %57, align 4
   %60 = lshr i96 %59, 32
@@ -2195,27 +2195,27 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver10addClause_ERNS_3vecINS_3LitEE
   br i1 %62, label %.lr.ph43, label %.loopexit
 
 .lr.ph43:                                         ; preds = %48
-  %63 = getelementptr inbounds i8, ptr %0, i64 1504
-  %64 = getelementptr inbounds i8, ptr %57, i64 12
-  %65 = getelementptr inbounds i8, ptr %0, i64 1560
-  %66 = getelementptr inbounds i8, ptr %0, i64 1488
-  %67 = getelementptr inbounds i8, ptr %0, i64 1676
-  %68 = getelementptr inbounds i8, ptr %0, i64 1576
-  %69 = getelementptr inbounds i8, ptr %0, i64 1608
-  %70 = getelementptr inbounds i8, ptr %0, i64 1600
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %64 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1560
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1488
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1676
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1576
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1608
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   br label %71
 
 71:                                               ; preds = %.lr.ph43, %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
   %indvars.iv45 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next46, %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread ]
-  %72 = getelementptr inbounds [0 x %union.anon], ptr %64, i64 0, i64 %indvars.iv45
+  %72 = getelementptr inbounds nuw [0 x %union.anon], ptr %64, i64 0, i64 %indvars.iv45
   %.sroa.0.0.copyload.i = load i32, ptr %72, align 4
   %73 = ashr i32 %.sroa.0.0.copyload.i, 1
   %74 = load ptr, ptr %63, align 8
   %75 = sext i32 %73 to i64
   %76 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %74, i64 %75
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %76, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %78, %80
   br i1 %81, label %82, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
@@ -2317,12 +2317,12 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %_ZN6G
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver7impliedERKNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1684) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 712
-  %4 = getelementptr inbounds i8, ptr %0, i64 688
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 720
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 724
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %7, %9
   br i1 %10, label %11, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
@@ -2375,20 +2375,20 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %34 = sext i32 %31 to i64
   %35 = getelementptr inbounds i32, ptr %32, i64 %34
   store i32 %5, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 632
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 632
   br label %40
 
 40:                                               ; preds = %.lr.ph, %56
   %41 = phi i32 [ %37, %.lr.ph ], [ %57, %56 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %42 = load ptr, ptr %1, align 8
-  %43 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %42, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %43, align 4
   %44 = ashr i32 %.sroa.03.0.copyload, 1
   %45 = load ptr, ptr %39, align 8
@@ -2437,7 +2437,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Gluco2::vec.5", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = add nsw i32 %5, 1
   store i32 %6, ptr %4, align 4
@@ -2446,7 +2446,7 @@ define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align
   %9 = getelementptr inbounds i32, ptr %7, i64 %8
   store i32 %1, ptr %9, align 4
   %10 = load i32, ptr %4, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %10, %12
   br i1 %13, label %14, label %15
@@ -2457,7 +2457,7 @@ define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align
 
 15:                                               ; preds = %14, %2
   %16 = phi i32 [ 0, %14 ], [ %10, %2 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %16
   br i1 %19, label %20, label %56
@@ -2496,7 +2496,7 @@ define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align
   %34 = load i32, ptr %33, align 4
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv23
+  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv23
   store i32 %34, ptr %36, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %37 = load i32, ptr %11, align 8
@@ -2508,11 +2508,11 @@ define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph22 ], [ %.011.lcssa, %.preheader ]
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.lr.ph22 ], [ 0, %.preheader ]
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i32, ptr %40, i64 %indvars.iv28
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv28
   %42 = load i32, ptr %41, align 4
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %43 = load ptr, ptr %3, align 8
-  %44 = getelementptr inbounds i32, ptr %43, i64 %indvars.iv30
+  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv30
   store i32 %42, ptr %44, align 4
   %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %45 = load i32, ptr %4, align 4
@@ -2540,12 +2540,12 @@ define linkonce_odr void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align
 _ZN6Gluco23vecIjED2Ev.exit:                       ; preds = %._crit_edge, %.preheader.i.i
   %50 = load ptr, ptr %3, align 8
   store ptr %50, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %52 = load i32, ptr %51, align 8
   store i32 %52, ptr %11, align 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %54, ptr %55, align 4
   br label %56
 
@@ -2555,11 +2555,11 @@ _ZN6Gluco23vecIjED2Ev.exit:                       ; preds = %._crit_edge, %.preh
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Gluco210SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 864
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 1464
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.preheader, label %.loopexit
@@ -2572,24 +2572,24 @@ define void @_ZN6Gluco210SimpSolver12removeClauseEj(ptr noundef nonnull align 8 
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 1560
-  %15 = getelementptr inbounds i8, ptr %6, i64 12
-  %16 = getelementptr inbounds i8, ptr %0, i64 1576
-  %17 = getelementptr inbounds i8, ptr %0, i64 1608
-  %18 = getelementptr inbounds i8, ptr %0, i64 1600
-  %19 = getelementptr inbounds i8, ptr %0, i64 1640
-  %20 = getelementptr inbounds i8, ptr %0, i64 1664
-  %21 = getelementptr inbounds i8, ptr %0, i64 1656
-  %22 = getelementptr inbounds i8, ptr %0, i64 632
-  %23 = getelementptr inbounds i8, ptr %0, i64 1520
-  %24 = getelementptr inbounds i8, ptr %0, i64 1536
-  %25 = getelementptr inbounds i8, ptr %0, i64 1544
-  %26 = getelementptr inbounds i8, ptr %0, i64 1548
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1560
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1576
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1608
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1600
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1640
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1520
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1536
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1544
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1548
   br label %27
 
 27:                                               ; preds = %.lr.ph, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6smudgeERKi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6smudgeERKi.exit ]
-  %28 = getelementptr inbounds [0 x %union.anon], ptr %15, i64 0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [0 x %union.anon], ptr %15, i64 0, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i32, ptr %28, align 4
   %29 = load ptr, ptr %14, align 8
   %30 = sext i32 %.sroa.0.0.copyload.i to i64
@@ -2732,13 +2732,13 @@ declare void @_ZN6Gluco26Solver12removeClauseEj(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1, i32 %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 1616
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   tail call void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %1)
-  %9 = getelementptr inbounds i8, ptr %0, i64 264
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %.preheader, label %35
@@ -2751,8 +2751,8 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %7, i64 12
-  %17 = getelementptr inbounds i8, ptr %0, i64 256
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %extract100 = lshr i96 %12, 32
   %extract.t101 = trunc i96 %extract100 to i32
   br label %18
@@ -2760,7 +2760,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
 18:                                               ; preds = %.lr.ph, %29
   %.off3299 = phi i32 [ %extract.t101, %.lr.ph ], [ %.off32, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
-  %19 = getelementptr inbounds [0 x %union.anon], ptr %16, i64 0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [0 x %union.anon], ptr %16, i64 0, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %.not74 = icmp eq i32 %20, %2
   br i1 %.not74, label %29, label %21
@@ -2787,7 +2787,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
   br i1 %31, label %18, label %._crit_edge, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %29, %.preheader
-  %32 = getelementptr inbounds i8, ptr %0, i64 256
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 2, i64 1, ptr %33)
   br label %35
@@ -2801,7 +2801,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
 
 40:                                               ; preds = %35
   tail call void @_ZN6Gluco210SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1)
-  %41 = getelementptr inbounds i8, ptr %7, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %42 = load i96, ptr %7, align 4
   %43 = lshr i96 %42, 32
   %44 = trunc i96 %43 to i32
@@ -2815,7 +2815,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %49 ]
-  %47 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i.i
   %48 = load i32, ptr %47, align 4
   %.not.i.i = icmp eq i32 %48, %2
   br i1 %.not.i.i, label %.critedge.loopexit.i.i, label %49
@@ -2846,8 +2846,8 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
 55:                                               ; preds = %55, %.lr.ph14.i.i
   %indvars.iv18.i.i = phi i64 [ %54, %.lr.ph14.i.i ], [ %indvars.iv.next19.i.i, %55 ]
   %indvars.iv.next19.i.i = add nuw nsw i64 %indvars.iv18.i.i, 1
-  %56 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.next19.i.i
-  %57 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv18.i.i
+  %56 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.next19.i.i
+  %57 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv18.i.i
   %58 = load i32, ptr %56, align 4
   store i32 %58, ptr %57, align 4
   %59 = trunc nuw i64 %indvars.iv.next19.i.i to i32
@@ -2863,9 +2863,9 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver16strengthenClauseEjNS_3LitE(pt
 63:                                               ; preds = %._crit_edge.i.i
   %64 = trunc nuw i96 %43 to i64
   %65 = and i64 %64, 4294967295
-  %66 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %65
   %67 = zext i32 %61 to i64
-  %68 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %67
   %69 = load i32, ptr %66, align 4
   store i32 %69, ptr %68, align 4
   br label %_ZN6Gluco2L6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i
@@ -2889,7 +2889,7 @@ _ZN6Gluco2L6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i: ; preds = %63, %._crit
 78:                                               ; preds = %78, %.lr.ph.i3.i
   %indvars.iv.i5.i = phi i64 [ 0, %.lr.ph.i3.i ], [ %indvars.iv.next.i6.i, %78 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i3.i ], [ %83, %78 ]
-  %79 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i5.i
+  %79 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i5.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %79, align 4
   %80 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %81 = and i32 %80, 31
@@ -2903,7 +2903,7 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
   %.0.lcssa.i2.i = phi i32 [ 0, %_ZN6Gluco2L6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i ], [ %83, %78 ]
   %84 = trunc nuw i96 %71 to i64
   %85 = lshr exact i64 %84, 32
-  %86 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %85
+  %86 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %85
   store i32 %.0.lcssa.i2.i, ptr %86, align 4
   br label %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit
 
@@ -2913,7 +2913,7 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
   br i1 %89, label %90, label %114
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %0, i64 256
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %92 = load ptr, ptr %91, align 8
   %93 = tail call i64 @fwrite(ptr nonnull @.str.23, i64 2, i64 1, ptr %92)
   %94 = load i96, ptr %7, align 4
@@ -2923,13 +2923,13 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
   br i1 %97, label %.lr.ph84, label %._crit_edge85
 
 .lr.ph84:                                         ; preds = %90
-  %98 = getelementptr inbounds i8, ptr %7, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %99
 
 99:                                               ; preds = %.lr.ph84, %99
   %indvars.iv92 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next93, %99 ]
   %100 = load ptr, ptr %91, align 8
-  %101 = getelementptr inbounds [0 x %union.anon], ptr %98, i64 0, i64 %indvars.iv92
+  %101 = getelementptr inbounds nuw [0 x %union.anon], ptr %98, i64 0, i64 %indvars.iv92
   %.sroa.06.0.copyload = load i32, ptr %101, align 4
   %102 = ashr i32 %.sroa.06.0.copyload, 1
   %103 = add nsw i32 %102, 1
@@ -2952,7 +2952,7 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
 
 114:                                              ; preds = %._crit_edge85, %87
   tail call void @_ZN6Gluco26Solver12detachClauseEjb(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, i1 noundef zeroext true)
-  %115 = getelementptr inbounds i8, ptr %7, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %116 = load i96, ptr %7, align 4
   %117 = lshr i96 %116, 32
   %118 = trunc i96 %117 to i32
@@ -2966,7 +2966,7 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
 
 .lr.ph.i.i56:                                     ; preds = %123, %.lr.ph.preheader.i.i54
   %indvars.iv.i.i57 = phi i64 [ 0, %.lr.ph.preheader.i.i54 ], [ %indvars.iv.next.i.i59, %123 ]
-  %121 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv.i.i57
+  %121 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv.i.i57
   %122 = load i32, ptr %121, align 4
   %.not.i.i58 = icmp eq i32 %122, %2
   br i1 %.not.i.i58, label %.critedge.loopexit.i.i62, label %123
@@ -2997,8 +2997,8 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
 129:                                              ; preds = %129, %.lr.ph14.i.i51
   %indvars.iv18.i.i52 = phi i64 [ %128, %.lr.ph14.i.i51 ], [ %indvars.iv.next19.i.i53, %129 ]
   %indvars.iv.next19.i.i53 = add nuw nsw i64 %indvars.iv18.i.i52, 1
-  %130 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv.next19.i.i53
-  %131 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv18.i.i52
+  %130 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv.next19.i.i53
+  %131 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv18.i.i52
   %132 = load i32, ptr %130, align 4
   store i32 %132, ptr %131, align 4
   %133 = trunc nuw i64 %indvars.iv.next19.i.i53 to i32
@@ -3014,9 +3014,9 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit:      ; preds = %78, %_ZN6Gluco2L6re
 137:                                              ; preds = %._crit_edge.i.i40
   %138 = trunc nuw i96 %117 to i64
   %139 = and i64 %138, 4294967295
-  %140 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %139
   %141 = zext i32 %135 to i64
-  %142 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %141
   %143 = load i32, ptr %140, align 4
   store i32 %143, ptr %142, align 4
   br label %_ZN6Gluco2L6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i42
@@ -3040,7 +3040,7 @@ _ZN6Gluco2L6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i42: ; preds = %137, %._c
 152:                                              ; preds = %152, %.lr.ph.i3.i44
   %indvars.iv.i5.i46 = phi i64 [ 0, %.lr.ph.i3.i44 ], [ %indvars.iv.next.i6.i49, %152 ]
   %.07.i.i47 = phi i32 [ 0, %.lr.ph.i3.i44 ], [ %157, %152 ]
-  %153 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv.i5.i46
+  %153 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %indvars.iv.i5.i46
   %.sroa.0.0.copyload.i.i48 = load i32, ptr %153, align 4
   %154 = lshr i32 %.sroa.0.0.copyload.i.i48, 1
   %155 = and i32 %154, 31
@@ -3054,15 +3054,15 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit63:    ; preds = %152, %_ZN6Gluco2L6r
   %.0.lcssa.i2.i43 = phi i32 [ 0, %_ZN6Gluco2L6removeINS_6ClauseENS_3LitEEEvRT_RKT0_.exit.i42 ], [ %157, %152 ]
   %158 = trunc nuw i96 %145 to i64
   %159 = lshr exact i64 %158, 32
-  %160 = getelementptr inbounds [0 x %union.anon], ptr %115, i64 0, i64 %159
+  %160 = getelementptr inbounds nuw [0 x %union.anon], ptr %115, i64 0, i64 %159
   store i32 %.0.lcssa.i2.i43, ptr %160, align 4
   tail call void @_ZN6Gluco26Solver12attachClauseEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1)
-  %161 = getelementptr inbounds i8, ptr %0, i64 1504
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %162 = ashr i32 %2, 1
   %163 = load ptr, ptr %161, align 8
   %164 = sext i32 %162 to i64
   %165 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %163, i64 %164
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i32, ptr %166, align 8
   %168 = icmp sgt i32 %167, 0
   br i1 %168, label %.lr.ph.i, label %.critedge.i
@@ -3074,7 +3074,7 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit63:    ; preds = %152, %_ZN6Gluco2L6r
 
 170:                                              ; preds = %173, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %173 ]
-  %171 = getelementptr inbounds i32, ptr %169, i64 %indvars.iv.i
+  %171 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv.i
   %172 = load i32, ptr %171, align 4
   %.not.i = icmp eq i32 %172, %1
   br i1 %.not.i, label %.critedge.loopexit.i, label %173
@@ -3106,9 +3106,9 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit63:    ; preds = %152, %_ZN6Gluco2L6r
   %indvars.iv10.i = phi i64 [ %178, %.lr.ph6.preheader.i ], [ %indvars.iv.next11.i, %.lr.ph6.i ]
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %179 = load ptr, ptr %165, align 8
-  %180 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv.next11.i
+  %180 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv.next11.i
   %181 = load i32, ptr %180, align 4
-  %182 = getelementptr inbounds i32, ptr %179, i64 %indvars.iv10.i
+  %182 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv10.i
   store i32 %181, ptr %182, align 4
   %183 = load i32, ptr %166, align 8
   %184 = add nsw i32 %183, -1
@@ -3119,21 +3119,21 @@ _ZN6Gluco26Clause10strengthenENS_3LitE.exit63:    ; preds = %152, %_ZN6Gluco2L6r
 _ZN6Gluco2L6removeINS_3vecIjEEjEEvRT_RKT0_.exit:  ; preds = %.lr.ph6.i, %.critedge.thread.i, %.critedge.i
   %.lcssa.i = phi i32 [ %176, %.critedge.i ], [ %174, %.critedge.thread.i ], [ %184, %.lr.ph6.i ]
   store i32 %.lcssa.i, ptr %166, align 8
-  %187 = getelementptr inbounds i8, ptr %0, i64 1560
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 1560
   %188 = load ptr, ptr %187, align 8
   %189 = sext i32 %2 to i64
   %190 = getelementptr inbounds i32, ptr %188, i64 %189
   %191 = load i32, ptr %190, align 4
   %192 = add nsw i32 %191, -1
   store i32 %192, ptr %190, align 4
-  %193 = getelementptr inbounds i8, ptr %0, i64 1576
-  %194 = getelementptr inbounds i8, ptr %0, i64 1608
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 1576
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %195 = load i32, ptr %194, align 8
   %196 = icmp slt i32 %162, %195
   br i1 %196, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i
 
 _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; preds = %_ZN6Gluco2L6removeINS_3vecIjEEjEEvRT_RKT0_.exit
-  %197 = getelementptr inbounds i8, ptr %0, i64 1600
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds i32, ptr %198, i64 %164
   %200 = load i32, ptr %199, align 4
@@ -3141,7 +3141,7 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i: ; preds = %_ZN6Gluco2
   br i1 %201, label %.critedge.i66, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i
 
 _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i: ; preds = %_ZN6Gluco2L6removeINS_3vecIjEEjEEvRT_RKT0_.exit, %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.i
-  %202 = getelementptr inbounds i8, ptr %0, i64 1640
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds i8, ptr %203, i64 %164
   %205 = load i8, ptr %204, align 1
@@ -3149,13 +3149,13 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i: ; preds = %_ZN
   br i1 %.not.i64, label %206, label %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit
 
 206:                                              ; preds = %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread.i
-  %207 = getelementptr inbounds i8, ptr %0, i64 1664
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %208 = load i32, ptr %207, align 8
   %209 = icmp sgt i32 %208, 0
   br i1 %209, label %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit.i, label %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread.i
 
 _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.i:   ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %0, i64 1656
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %211 = load ptr, ptr %210, align 8
   %212 = getelementptr inbounds i8, ptr %211, i64 %164
   %213 = load i8, ptr %212, align 1
@@ -3163,7 +3163,7 @@ _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.i:   ; preds = %206
   br i1 %.not8.i, label %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread.i, label %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit
 
 _ZNK6Gluco210SimpSolver12isEliminatedEi.exit.thread.i: ; preds = %_ZNK6Gluco210SimpSolver12isEliminatedEi.exit.i, %206
-  %214 = getelementptr inbounds i8, ptr %0, i64 632
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %215 = load ptr, ptr %214, align 8
   %216 = getelementptr inbounds %"class.Gluco2::lbool", ptr %215, i64 %164
   %.sroa.0.0.copyload.i.i65 = load i8, ptr %216, align 1
@@ -3183,9 +3183,9 @@ _ZN6Gluco210SimpSolver14updateElimHeapEi.exit:    ; preds = %.critedge.i66, %_ZN
   br i1 %221, label %222, label %237
 
 222:                                              ; preds = %_ZN6Gluco210SimpSolver14updateElimHeapEi.exit
-  %223 = getelementptr inbounds i8, ptr %7, i64 12
+  %223 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %.sroa.0.0.copyload = load i32, ptr %223, align 4
-  %224 = getelementptr inbounds i8, ptr %0, i64 632
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %225 = ashr i32 %.sroa.0.0.copyload, 1
   %226 = load ptr, ptr %224, align 8
   %227 = sext i32 %225 to i64
@@ -3224,7 +3224,7 @@ declare noundef i32 @_ZN6Gluco26Solver9propagateEv(ptr noundef nonnull align 8 d
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRNS_3vecINS_3LitEEE(ptr nocapture noundef nonnull align 8 dereferenceable(1684) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #2 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 1444
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1444
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4
@@ -3233,7 +3233,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRNS_3ve
   br i1 %.not.i, label %_ZN6Gluco23vecINS_3LitEE5clearEb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 0, ptr %10, align 8
   br label %_ZN6Gluco23vecINS_3LitEE5clearEb.exit
 
@@ -3257,10 +3257,10 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %5, %.preheader.i
   br i1 %24, label %.preheader, label %.lr.ph68
 
 .lr.ph68:                                         ; preds = %_ZN6Gluco23vecINS_3LitEE5clearEb.exit
-  %25 = getelementptr inbounds i8, ptr %21, i64 12
-  %26 = getelementptr inbounds i8, ptr %19, i64 12
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %extract90 = lshr i96 %20, 32
   %extract.t91 = trunc i96 %extract90 to i32
   br label %33
@@ -3277,15 +3277,15 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %5, %.preheader.i
   br i1 %29, label %.lr.ph70, label %.loopexit
 
 .lr.ph70:                                         ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %19, i64 12
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12
   br label %77
 
 33:                                               ; preds = %.lr.ph68, %75
   %.off3289 = phi i32 [ %extract.t91, %.lr.ph68 ], [ %.off32, %75 ]
   %indvars.iv75 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next76, %75 ]
-  %34 = getelementptr inbounds [0 x %union.anon], ptr %25, i64 0, i64 %indvars.iv75
+  %34 = getelementptr inbounds nuw [0 x %union.anon], ptr %25, i64 0, i64 %indvars.iv75
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 4
   %35 = ashr i32 %.sroa.0.0.copyload.i, 1
   %.not46 = icmp eq i32 %35, %3
@@ -3310,7 +3310,7 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %5, %.preheader.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %41 ]
-  %42 = getelementptr inbounds [0 x %union.anon], ptr %26, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [0 x %union.anon], ptr %26, i64 0, i64 %indvars.iv
   %.sroa.0.0.copyload.i47 = load i32, ptr %42, align 4
   %43 = ashr i32 %.sroa.0.0.copyload.i47, 1
   %44 = icmp eq i32 %43, %35
@@ -3390,7 +3390,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
 77:                                               ; preds = %.lr.ph70, %108
   %.off32102 = phi i32 [ %.off3294, %.lr.ph70 ], [ %.off3297, %108 ]
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next79, %108 ]
-  %78 = getelementptr inbounds [0 x %union.anon], ptr %30, i64 0, i64 %indvars.iv78
+  %78 = getelementptr inbounds nuw [0 x %union.anon], ptr %30, i64 0, i64 %indvars.iv78
   %.sroa.0.0.copyload.i52 = load i32, ptr %78, align 4
   %79 = ashr i32 %.sroa.0.0.copyload.i52, 1
   %.not = icmp eq i32 %79, %3
@@ -3469,7 +3469,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit56:       ; preds = %._ZN6Gluco23vecINS_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr nocapture noundef nonnull align 8 dereferenceable(1684) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #8 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 1444
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1444
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4
@@ -3483,8 +3483,8 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr 
   %16 = select i1 %15, i96 %12, i96 %9
   %17 = select i1 %15, ptr %2, ptr %1
   %18 = select i1 %15, ptr %1, ptr %2
-  %19 = getelementptr inbounds i8, ptr %17, i64 12
-  %20 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %21 = lshr i96 %16, 32
   %22 = trunc i96 %21 to i32
   %23 = add nsw i32 %22, -1
@@ -3504,7 +3504,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr 
   %.off3254 = phi i32 [ %extract.t56, %.lr.ph40.preheader ], [ %.off32, %44 ]
   %28 = phi i32 [ %23, %.lr.ph40.preheader ], [ %45, %44 ]
   %indvars.iv47 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next48, %44 ]
-  %29 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %20, i64 %indvars.iv47
+  %29 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %20, i64 %indvars.iv47
   %.sroa.07.0.copyload = load i32, ptr %29, align 4
   %30 = ashr i32 %.sroa.07.0.copyload, 1
   %.not = icmp eq i32 %30, %3
@@ -3529,7 +3529,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %37 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %19, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %19, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %37, align 4
   %38 = ashr i32 %.sroa.03.0.copyload, 1
   %39 = icmp eq i32 %38, %30
@@ -3563,16 +3563,16 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Gluco210SimpSolver20gatherTouchedClausesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1684) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1676
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %209, label %.preheader42
 
 .preheader42:                                     ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1616
-  %6 = getelementptr inbounds i8, ptr %0, i64 1636
-  %7 = getelementptr inbounds i8, ptr %0, i64 1632
-  %8 = getelementptr inbounds i8, ptr %0, i64 1624
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1616
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1636
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %9 = load i32, ptr %6, align 4
   %10 = load i32, ptr %7, align 8
   %.not.i48 = icmp slt i32 %9, %10
@@ -3584,25 +3584,25 @@ define void @_ZN6Gluco210SimpSolver20gatherTouchedClausesEv(ptr nocapture nounde
   br i1 %15, label %.lr.ph, label %.preheader41
 
 .lr.ph:                                           ; preds = %.preheader42
-  %16 = getelementptr inbounds i8, ptr %0, i64 864
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br label %29
 
 .preheader41:                                     ; preds = %47, %.preheader42
   %17 = phi i32 [ %12, %.preheader42 ], [ %48, %47 ]
   %18 = phi i32 [ %10, %.preheader42 ], [ %49, %47 ]
   %19 = phi i32 [ %9, %.preheader42 ], [ %50, %47 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 1488
-  %21 = getelementptr inbounds i8, ptr %0, i64 1496
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1488
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph54, label %.preheader
 
 .lr.ph54:                                         ; preds = %.preheader41
-  %24 = getelementptr inbounds i8, ptr %0, i64 1504
-  %25 = getelementptr inbounds i8, ptr %0, i64 1520
-  %26 = getelementptr inbounds i8, ptr %0, i64 1552
-  %27 = getelementptr inbounds i8, ptr %0, i64 864
-  %28 = getelementptr inbounds i8, ptr %0, i64 1628
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 1520
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1552
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1628
   br label %64
 
 29:                                               ; preds = %.lr.ph, %47
@@ -3618,7 +3618,7 @@ define void @_ZN6Gluco210SimpSolver20gatherTouchedClausesEv(ptr nocapture nounde
   %38 = load i32, ptr %37, align 4
   %39 = load ptr, ptr %16, align 8
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
   %42 = load i96, ptr %41, align 4
   %43 = and i96 %42, 3
   %44 = icmp eq i96 %43, 0
@@ -3662,29 +3662,29 @@ define void @_ZN6Gluco210SimpSolver20gatherTouchedClausesEv(ptr nocapture nounde
   br i1 %62, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %.preheader
-  %63 = getelementptr inbounds i8, ptr %0, i64 864
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br label %182
 
 64:                                               ; preds = %.lr.ph54, %178
   %65 = phi i32 [ %22, %.lr.ph54 ], [ %179, %178 ]
   %indvars.iv61 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next62, %178 ]
   %66 = load ptr, ptr %20, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 %indvars.iv61
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv61
   %68 = load i8, ptr %67, align 1
   %.not = icmp eq i8 %68, 0
   br i1 %.not, label %178, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %25, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %indvars.iv61
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %indvars.iv61
   %72 = load i8, ptr %71, align 1
   %.not.i11 = icmp eq i8 %72, 0
   br i1 %.not.i11, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit, label %73
 
 73:                                               ; preds = %69
   %74 = load ptr, ptr %24, align 8
-  %75 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %74, i64 %indvars.iv61
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %75 = getelementptr inbounds nuw %"class.Gluco2::vec.5", ptr %74, i64 %indvars.iv61
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph.i.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
@@ -3694,12 +3694,12 @@ define void @_ZN6Gluco210SimpSolver20gatherTouchedClausesEv(ptr nocapture nounde
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %94 ], [ 0, %73 ]
   %.017.i.i = phi i32 [ %.1.i.i, %94 ], [ 0, %73 ]
   %80 = load ptr, ptr %75, align 8
-  %81 = getelementptr inbounds i32, ptr %80, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i.i
   %82 = load ptr, ptr %26, align 8
   %83 = load i32, ptr %81, align 4
   %84 = load ptr, ptr %82, align 8
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
   %87 = load i96, ptr %86, align 4
   %88 = and i96 %87, 3
   %89 = icmp eq i96 %88, 1
@@ -3733,14 +3733,14 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.
   %100 = add i32 %.neg.i.i, %.lcssa.i.i
   store i32 %100, ptr %76, align 8
   %101 = load ptr, ptr %25, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 %indvars.iv61
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %indvars.iv61
   store i8 0, ptr %102, align 1
   br label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 
 _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit: ; preds = %69, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
   %103 = load ptr, ptr %24, align 8
-  %104 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %103, i64 %indvars.iv61
-  %105 = getelementptr inbounds i8, ptr %104, i64 8
+  %104 = getelementptr inbounds nuw %"class.Gluco2::vec.5", ptr %103, i64 %indvars.iv61
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load i32, ptr %105, align 8
   %107 = icmp sgt i32 %106, 0
   br i1 %107, label %.lr.ph52, label %._crit_edge
@@ -3749,11 +3749,11 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %108 = phi i32 [ %173, %172 ], [ %106, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %172 ], [ 0, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ]
   %109 = load ptr, ptr %104, align 8
-  %110 = getelementptr inbounds i32, ptr %109, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   %112 = load ptr, ptr %27, align 8
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds i32, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw i32, ptr %112, i64 %113
   %115 = load i96, ptr %114, align 4
   %116 = and i96 %115, 3
   %117 = icmp eq i96 %116, 0
@@ -3848,7 +3848,7 @@ _ZN6Gluco23vecIjE6growToEi.exit:                  ; preds = %.lr.ph.preheader.i1
   %156 = getelementptr inbounds i32, ptr %.pre68.pre, i64 %indvars.iv.i
   %157 = load i32, ptr %156, align 4
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %158 = getelementptr inbounds i32, ptr %.sroa.0.6, i64 %indvars.iv23.i
+  %158 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %indvars.iv23.i
   store i32 %157, ptr %158, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %159 = icmp slt i64 %indvars.iv.next.i, %152
@@ -3857,10 +3857,10 @@ _ZN6Gluco23vecIjE6growToEi.exit:                  ; preds = %.lr.ph.preheader.i1
 .lr.ph22.i:                                       ; preds = %.lr.ph22.i.preheader, %.lr.ph22.i
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph22.i ], [ %.011.lcssa.i, %.lr.ph22.i.preheader ]
   %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %.lr.ph22.i ], [ 0, %.lr.ph22.i.preheader ]
-  %160 = getelementptr inbounds i32, ptr %.pre68.pre, i64 %indvars.iv28.i
+  %160 = getelementptr inbounds nuw i32, ptr %.pre68.pre, i64 %indvars.iv28.i
   %161 = load i32, ptr %160, align 4
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
-  %162 = getelementptr inbounds i32, ptr %.sroa.0.6, i64 %indvars.iv30.i
+  %162 = getelementptr inbounds nuw i32, ptr %.sroa.0.6, i64 %indvars.iv30.i
   store i32 %161, ptr %162, align 4
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next29.i, %155
@@ -3890,11 +3890,11 @@ _ZN6Gluco23vecIjED2Ev.exit.i:                     ; preds = %.preheader.i.i.i, %
 
 _ZN6Gluco25QueueIjE6insertEj.exit:                ; preds = %128, %_ZN6Gluco23vecIjED2Ev.exit.i
   %163 = load ptr, ptr %104, align 8
-  %164 = getelementptr inbounds i32, ptr %163, i64 %indvars.iv
+  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv
   %165 = load i32, ptr %164, align 4
   %166 = load ptr, ptr %27, align 8
   %167 = zext i32 %165 to i64
-  %168 = getelementptr inbounds i32, ptr %166, i64 %167
+  %168 = getelementptr inbounds nuw i32, ptr %166, i64 %167
   %169 = load i96, ptr %168, align 4
   %170 = and i96 %169, -4
   %171 = or disjoint i96 %170, 2
@@ -3911,7 +3911,7 @@ _ZN6Gluco25QueueIjE6insertEj.exit:                ; preds = %128, %_ZN6Gluco23ve
 
 ._crit_edge:                                      ; preds = %172, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %176 = load ptr, ptr %20, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 %indvars.iv61
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 %indvars.iv61
   store i8 0, ptr %177, align 1
   %.pre70 = load i32, ptr %21, align 8
   br label %178
@@ -3936,7 +3936,7 @@ _ZN6Gluco25QueueIjE6insertEj.exit:                ; preds = %128, %_ZN6Gluco23ve
   %191 = load i32, ptr %190, align 4
   %192 = load ptr, ptr %63, align 8
   %193 = zext i32 %191 to i64
-  %194 = getelementptr inbounds i32, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw i32, ptr %192, i64 %193
   %195 = load i96, ptr %194, align 4
   %196 = and i96 %195, 3
   %197 = icmp eq i96 %196, 2
@@ -3976,21 +3976,21 @@ declare void @_ZN6Gluco26Solver16uncheckedEnqueueENS_3LitEj(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver24backwardSubsumptionCheckEb(ptr noundef nonnull align 8 dereferenceable(1684) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1616
-  %4 = getelementptr inbounds i8, ptr %0, i64 1636
-  %5 = getelementptr inbounds i8, ptr %0, i64 1632
-  %6 = getelementptr inbounds i8, ptr %0, i64 1624
-  %7 = getelementptr inbounds i8, ptr %0, i64 1672
-  %8 = getelementptr inbounds i8, ptr %0, i64 688
-  %9 = getelementptr inbounds i8, ptr %0, i64 1144
-  %10 = getelementptr inbounds i8, ptr %0, i64 680
-  %11 = getelementptr inbounds i8, ptr %0, i64 864
-  %12 = getelementptr inbounds i8, ptr %0, i64 1680
-  %13 = getelementptr inbounds i8, ptr %0, i64 128
-  %14 = getelementptr inbounds i8, ptr %0, i64 1504
-  %15 = getelementptr inbounds i8, ptr %0, i64 1520
-  %16 = getelementptr inbounds i8, ptr %0, i64 1552
-  %17 = getelementptr inbounds i8, ptr %0, i64 1428
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1616
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1636
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1672
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 688
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1680
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1520
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1552
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1428
   br label %.outer
 
 .outer:                                           ; preds = %._crit_edge119, %2
@@ -4060,13 +4060,13 @@ _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %32, %.preheader.i.i
   %46 = load i32, ptr %12, align 8
   %47 = load ptr, ptr %11, align 8
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 %.sroa.036.0.copyload, ptr %50, align 4
   %51 = load i32, ptr %12, align 8
   %52 = load ptr, ptr %11, align 8
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
   %55 = load i96, ptr %54, align 4
   %56 = lshr i96 %55, 32
   %57 = trunc i96 %56 to i32
@@ -4074,7 +4074,7 @@ _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %32, %.preheader.i.i
   br i1 %58, label %.lr.ph.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit
 
 .lr.ph.i:                                         ; preds = %41
-  %59 = getelementptr inbounds i8, ptr %54, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %60 = trunc nuw i96 %56 to i64
   %wide.trip.count.i = and i64 %60, 2147483647
   br label %61
@@ -4082,7 +4082,7 @@ _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %32, %.preheader.i.i
 61:                                               ; preds = %61, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
   %.07.i = phi i32 [ 0, %.lr.ph.i ], [ %66, %61 ]
-  %62 = getelementptr inbounds [0 x %union.anon], ptr %59, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [0 x %union.anon], ptr %59, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %62, align 4
   %63 = lshr i32 %.sroa.0.0.copyload.i, 1
   %64 = and i32 %63, 31
@@ -4094,10 +4094,10 @@ _ZN6Gluco25QueueIjE5clearEb.exit:                 ; preds = %32, %.preheader.i.i
 
 _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %61, %41
   %.0.lcssa.i = phi i32 [ 0, %41 ], [ %66, %61 ]
-  %67 = getelementptr inbounds i8, ptr %54, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %54, i64 12
   %68 = trunc i96 %55 to i64
   %69 = lshr i64 %68, 32
-  %70 = getelementptr inbounds [0 x %union.anon], ptr %67, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [0 x %union.anon], ptr %67, i64 0, i64 %69
   store i32 %.0.lcssa.i, ptr %70, align 4
   %71 = load i32, ptr %12, align 8
   tail call void @_ZN6Gluco25QueueIjE6insertEj(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %71)
@@ -4118,14 +4118,14 @@ _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %61, %41
   store i32 %spec.store.select.i, ptr %5, align 8
   %81 = load ptr, ptr %11, align 8
   %82 = zext i32 %78 to i64
-  %83 = getelementptr inbounds i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
   %84 = load i96, ptr %83, align 4
   %85 = and i96 %84, 3
   %.not = icmp eq i96 %85, 0
   br i1 %.not, label %86, label %18, !llvm.loop !37
 
 86:                                               ; preds = %72
-  %87 = getelementptr inbounds i32, ptr %81, i64 %82
+  %87 = getelementptr inbounds nuw i32, ptr %81, i64 %82
   %88 = load i32, ptr %13, align 8
   %89 = icmp sgt i32 %88, 1
   %or.cond = select i1 %1, i1 %89, i1 false
@@ -4156,7 +4156,7 @@ _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %61, %41
 100:                                              ; preds = %94, %90, %86
   %.off32 = phi i32 [ %extract.t, %94 ], [ %extract.t141, %90 ], [ %extract.t143, %86 ]
   %.1 = phi i32 [ %91, %94 ], [ %91, %90 ], [ %.046.ph, %86 ]
-  %101 = getelementptr inbounds i8, ptr %87, i64 12
+  %101 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %.sroa.026.0.copyload = load i32, ptr %101, align 4
   %102 = ashr i32 %.sroa.026.0.copyload, 1
   %103 = icmp sgt i32 %.off32, 1
@@ -4170,7 +4170,7 @@ _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %61, %41
 104:                                              ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %104 ]
   %.077113 = phi i32 [ %102, %.lr.ph ], [ %spec.select84, %104 ]
-  %105 = getelementptr inbounds [0 x %union.anon], ptr %101, i64 0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [0 x %union.anon], ptr %101, i64 0, i64 %indvars.iv
   %.sroa.021.0.copyload = load i32, ptr %105, align 4
   %106 = ashr i32 %.sroa.021.0.copyload, 1
   %107 = sext i32 %106 to i64
@@ -4196,7 +4196,7 @@ _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %61, %41
 
 118:                                              ; preds = %._crit_edge
   %119 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %.pre139.pre, i64 %115
-  %120 = getelementptr inbounds i8, ptr %119, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 8
   %122 = icmp sgt i32 %121, 0
   br i1 %122, label %.lr.ph.i.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
@@ -4206,12 +4206,12 @@ _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %61, %41
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %138 ], [ 0, %118 ]
   %.017.i.i = phi i32 [ %.1.i.i, %138 ], [ 0, %118 ]
   %124 = load ptr, ptr %119, align 8
-  %125 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv.i.i
+  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i.i
   %126 = load ptr, ptr %16, align 8
   %127 = load i32, ptr %125, align 4
   %128 = load ptr, ptr %126, align 8
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds i32, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw i32, ptr %128, i64 %129
   %131 = load i96, ptr %130, align 4
   %132 = and i96 %131, 3
   %133 = icmp eq i96 %132, 1
@@ -4254,7 +4254,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %147 = phi ptr [ %.pre139.pre, %._crit_edge ], [ %.pre138, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i ]
   %148 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %147, i64 %115
   %149 = load ptr, ptr %148, align 8
-  %150 = getelementptr inbounds i8, ptr %148, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %151 = load i32, ptr %150, align 8
   %152 = icmp sgt i32 %151, 0
   br i1 %152, label %.lr.ph118, label %._crit_edge119
@@ -4274,7 +4274,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %158 = load i32, ptr %157, align 4
   %159 = load ptr, ptr %11, align 8
   %160 = zext i32 %158 to i64
-  %161 = getelementptr inbounds i32, ptr %159, i64 %160
+  %161 = getelementptr inbounds nuw i32, ptr %159, i64 %160
   %162 = load i96, ptr %161, align 4
   %163 = and i96 %162, 3
   %.not57 = icmp ne i96 %163, 0
@@ -4300,12 +4300,12 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 174:                                              ; preds = %170
   %175 = trunc nuw i96 %171 to i64
   %176 = and i64 %175, 4294967295
-  %177 = getelementptr inbounds [0 x %union.anon], ptr %101, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [0 x %union.anon], ptr %101, i64 0, i64 %176
   %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds i8, ptr %161, i64 12
+  %179 = getelementptr inbounds nuw i8, ptr %161, i64 12
   %180 = trunc nuw i96 %167 to i64
   %181 = and i64 %180, 4294967295
-  %182 = getelementptr inbounds [0 x %union.anon], ptr %179, i64 0, i64 %181
+  %182 = getelementptr inbounds nuw [0 x %union.anon], ptr %179, i64 0, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = xor i32 %183, -1
   %185 = and i32 %178, %184
@@ -4320,14 +4320,14 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %.split.us.i ], [ 0, %.preheader30.i ]
   %.sroa.0.034.i = phi i32 [ %.us-phi.i, %.split.us.i ], [ -2, %.preheader30.i ]
   %.sroa.0.034.fr.i = freeze i32 %.sroa.0.034.i
-  %186 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %101, i64 %indvars.iv47.i
+  %186 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %101, i64 %indvars.iv47.i
   %187 = load i32, ptr %186, align 4
   %188 = icmp eq i32 %.sroa.0.034.fr.i, -2
   br i1 %188, label %.lr.ph.split.i, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.preheader.i, %191
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i67, %191 ], [ 0, %.preheader.i ]
-  %189 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %179, i64 %indvars.iv.i66
+  %189 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %179, i64 %indvars.iv.i66
   %.sroa.03.0.copyload.us.i = load i32, ptr %189, align 4
   %190 = icmp eq i32 %187, %.sroa.03.0.copyload.us.i
   br i1 %190, label %.split.us.i, label %191
@@ -4344,7 +4344,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 
 .lr.ph.split.i:                                   ; preds = %.preheader.i, %192
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %192 ], [ 0, %.preheader.i ]
-  %193 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %179, i64 %indvars.iv42.i
+  %193 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %179, i64 %indvars.iv42.i
   %.sroa.03.0.copyload.i = load i32, ptr %193, align 4
   %194 = icmp eq i32 %187, %.sroa.03.0.copyload.i
   br i1 %194, label %.split.us.i, label %195
@@ -4405,10 +4405,10 @@ _ZNK6Gluco26Clause8subsumesERKS0_.exit.thread81:  ; preds = %_ZNK6Gluco26Clause8
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver5asymmEij(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i96, ptr %7, align 4
   %9 = and i96 %8, 3
   %.not = icmp eq i96 %9, 0
@@ -4419,12 +4419,12 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver5asymmEij(ptr noundef nonnull a
   br i1 %11, label %74, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 712
-  %14 = getelementptr inbounds i8, ptr %0, i64 688
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %15 = load i32, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 720
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %17 = load i32, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 724
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %17, %19
   br i1 %20, label %21, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
@@ -4484,8 +4484,8 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   br i1 %49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6Gluco23vecIiE4pushERKi.exit
-  %50 = getelementptr inbounds i8, ptr %7, i64 12
-  %51 = getelementptr inbounds i8, ptr %0, i64 632
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %extract37 = lshr i96 %46, 32
   %extract.t38 = trunc i96 %extract37 to i32
   br label %52
@@ -4494,7 +4494,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   %.off3236 = phi i32 [ %extract.t38, %.lr.ph ], [ %.off32, %.critedge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %.sroa.010.029 = phi i32 [ -2, %.lr.ph ], [ %.sroa.010.1, %.critedge ]
-  %53 = getelementptr inbounds [0 x %union.anon], ptr %50, i64 0, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [0 x %union.anon], ptr %50, i64 0, i64 %indvars.iv
   %.sroa.04.0.copyload = load i32, ptr %53, align 4
   %54 = ashr i32 %.sroa.04.0.copyload, 1
   %.not25 = icmp eq i32 %54, %1
@@ -4535,7 +4535,7 @@ _ZN6Gluco23vecIiE4pushERKi.exit:                  ; preds = %._ZN6Gluco23vecIiE4
   br i1 %.not24, label %73, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = getelementptr inbounds i8, ptr %0, i64 1448
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %70 = load i32, ptr %69, align 8
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %69, align 8
@@ -4554,8 +4554,8 @@ declare noundef zeroext i1 @_ZNK6Gluco26Solver9satisfiedERKNS_6ClauseE(ptr nound
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver8asymmVarEi(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1504
-  %4 = getelementptr inbounds i8, ptr %0, i64 1520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
@@ -4566,13 +4566,13 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver8asymmVarEi(ptr noundef nonnull
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %10, i64 %6
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 1552
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   br label %16
 
 16:                                               ; preds = %32, %.lr.ph.i.i
@@ -4580,12 +4580,12 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver8asymmVarEi(ptr noundef nonnull
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
   %.017.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %32 ]
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   %20 = load ptr, ptr %15, align 8
   %21 = load i32, ptr %19, align 4
   %22 = load ptr, ptr %20, align 8
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %25 = load i96, ptr %24, align 4
   %26 = and i96 %25, 3
   %27 = icmp eq i96 %26, 1
@@ -4626,7 +4626,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.
 _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit: ; preds = %2, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %41, i64 %6
-  %43 = getelementptr inbounds i8, ptr %0, i64 632
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds %"class.Gluco2::lbool", ptr %44, i64 %6
   %.sroa.0.0.copyload.i = load i8, ptr %45, align 1
@@ -4635,7 +4635,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   br i1 %.not.i8, label %.critedge, label %47
 
 47:                                               ; preds = %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
-  %48 = getelementptr inbounds i8, ptr %42, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %49 = load i32, ptr %48, align 8
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %.critedge, label %.preheader
@@ -4654,7 +4654,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 .lr.ph:                                           ; preds = %.preheader, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.preheader ]
   %56 = load ptr, ptr %42, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = tail call noundef zeroext i1 @_ZN6Gluco210SimpSolver5asymmEij(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1, i32 noundef %58)
   br i1 %59, label %52, label %.critedge
@@ -4670,8 +4670,8 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver12eliminateVarEi(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1504
-  %4 = getelementptr inbounds i8, ptr %0, i64 1520
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds i8, ptr %5, i64 %6
@@ -4682,13 +4682,13 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver12eliminateVarEi(ptr noundef no
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %10, i64 %6
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 1552
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   br label %16
 
 16:                                               ; preds = %32, %.lr.ph.i.i
@@ -4696,12 +4696,12 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver12eliminateVarEi(ptr noundef no
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
   %.017.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %32 ]
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i.i
   %20 = load ptr, ptr %15, align 8
   %21 = load i32, ptr %19, align 4
   %22 = load ptr, ptr %20, align 8
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
   %25 = load i96, ptr %24, align 4
   %26 = and i96 %25, 3
   %27 = icmp eq i96 %26, 1
@@ -4742,13 +4742,13 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.
 _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit: ; preds = %2, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
   %41 = load ptr, ptr %3, align 8
   %42 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %41, i64 %6
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %.lr.ph, label %._crit_edge234
 
 .lr.ph:                                           ; preds = %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
-  %46 = getelementptr inbounds i8, ptr %0, i64 864
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %47 = shl nsw i32 %1, 1
   br label %109
 
@@ -4758,12 +4758,12 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 
 .preheader189.lr.ph:                              ; preds = %.preheader191
   %49 = icmp sgt i32 %spec.select, 0
-  %50 = getelementptr inbounds i8, ptr %0, i64 864
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 1444
-  %53 = getelementptr inbounds i8, ptr %0, i64 1420
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1444
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 1424
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %56 = load i32, ptr %55, align 8
   %.not49 = icmp ne i32 %56, -1
   br i1 %49, label %.preheader189.us.preheader, label %._crit_edge234
@@ -4778,7 +4778,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %.pre288 = phi i32 [ %.pre288.pre, %.preheader189.us.preheader ], [ %67, %._crit_edge.us ]
   %indvars.iv260 = phi i64 [ 0, %.preheader189.us.preheader ], [ %indvars.iv.next261, %._crit_edge.us ]
   %.044232.us = phi i32 [ 0, %.preheader189.us.preheader ], [ %.246.us, %._crit_edge.us ]
-  %57 = getelementptr inbounds i32, ptr %.sroa.0114.3, i64 %indvars.iv260
+  %57 = getelementptr inbounds nuw i32, ptr %.sroa.0114.3, i64 %indvars.iv260
   br label %58
 
 58:                                               ; preds = %.preheader189.us, %_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us
@@ -4787,11 +4787,11 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %.145228.us = phi i32 [ %.044232.us, %.preheader189.us ], [ %.246.us, %_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us ]
   %60 = load i32, ptr %57, align 4
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %51, i64 %61
-  %63 = getelementptr inbounds i32, ptr %.sroa.092.3, i64 %indvars.iv256
+  %62 = getelementptr inbounds nuw i32, ptr %51, i64 %61
+  %63 = getelementptr inbounds nuw i32, ptr %.sroa.092.3, i64 %indvars.iv256
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %51, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %51, i64 %65
   %67 = add nsw i32 %59, 1
   store i32 %67, ptr %52, align 4
   %68 = load i96, ptr %62, align 4
@@ -4805,8 +4805,8 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %76 = select i1 %74, ptr %66, ptr %62
   %77 = select i1 %74, i96 %68, i96 %71
   %78 = select i1 %74, ptr %62, ptr %66
-  %79 = getelementptr inbounds i8, ptr %76, i64 12
-  %80 = getelementptr inbounds i8, ptr %78, i64 12
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 12
   %81 = lshr i96 %75, 32
   %82 = trunc i96 %81 to i32
   %83 = add nsw i32 %82, -1
@@ -4819,7 +4819,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
   %.0146.us = phi i32 [ %.1147.us, %98 ], [ %83, %.lr.ph40.i.preheader.us ]
   %87 = phi i32 [ %99, %98 ], [ %83, %.lr.ph40.i.preheader.us ]
   %indvars.iv47.i.us = phi i64 [ %indvars.iv.next48.i.us, %98 ], [ 0, %.lr.ph40.i.preheader.us ]
-  %88 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %80, i64 %indvars.iv47.i.us
+  %88 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %80, i64 %indvars.iv47.i.us
   %.sroa.07.0.copyload.i.us = load i32, ptr %88, align 4
   %89 = ashr i32 %.sroa.07.0.copyload.i.us, 1
   %.not.i56.us = icmp eq i32 %89, %1
@@ -4830,7 +4830,7 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
 
 .lr.ph.i61.us:                                    ; preds = %.preheader.i.us, %93
   %indvars.iv.i62.us = phi i64 [ %indvars.iv.next.i63.us, %93 ], [ 0, %.preheader.i.us ]
-  %90 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %79, i64 %indvars.iv.i62.us
+  %90 = getelementptr inbounds nuw %"struct.Gluco2::Lit", ptr %79, i64 %indvars.iv.i62.us
   %.sroa.03.0.copyload.i.us = load i32, ptr %90, align 4
   %91 = ashr i32 %.sroa.03.0.copyload.i.us, 1
   %92 = icmp eq i32 %91, %89
@@ -4899,12 +4899,12 @@ _ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %95, %102
   %.sroa.9.0216 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %.sroa.17.0214 = phi i32 [ 0, %.lr.ph ], [ %.sroa.17.1, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %110 = load ptr, ptr %42, align 8
-  %111 = getelementptr inbounds i32, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
   %112 = load i32, ptr %111, align 4
   %113 = load ptr, ptr %46, align 8
   %114 = zext i32 %112 to i64
-  %115 = getelementptr inbounds i32, ptr %113, i64 %114
-  %116 = getelementptr inbounds i8, ptr %115, i64 12
+  %115 = getelementptr inbounds nuw i32, ptr %113, i64 %114
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %117 = load i96, ptr %115, align 4
   %118 = lshr i96 %117, 32
   %119 = trunc i96 %118 to i32
@@ -4923,7 +4923,7 @@ _ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRi.exit.us: ; preds = %95, %102
 
 .lr.ph.i:                                         ; preds = %122, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %122 ]
-  %123 = getelementptr inbounds [0 x %union.anon], ptr %116, i64 0, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [0 x %union.anon], ptr %116, i64 0, i64 %indvars.iv.i
   %124 = load i32, ptr %123, align 4
   %.not.i51 = icmp eq i32 %124, %47
   br i1 %.not.i51, label %_ZN6Gluco2L4findINS_6ClauseENS_3LitEEEbRT_RKT0_.exit, label %122
@@ -5066,11 +5066,11 @@ _ZN6Gluco23vecIjED2Ev.exit55:                     ; preds = %_ZN6Gluco23vecIjED2
   %.sroa.11.0.lcssa299 = phi i32 [ %spec.select178, %.preheader191 ], [ %spec.select178, %.preheader189.lr.ph ], [ 0, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select178, %._crit_edge.us ]
   %.sroa.092.0.lcssa296 = phi ptr [ %.sroa.092.3, %.preheader191 ], [ %.sroa.092.3, %.preheader189.lr.ph ], [ null, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %.sroa.092.3, %._crit_edge.us ]
   %.sroa.9.0.lcssa295 = phi i32 [ %spec.select, %.preheader191 ], [ %spec.select, %.preheader189.lr.ph ], [ 0, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit ], [ %spec.select, %._crit_edge.us ]
-  %157 = getelementptr inbounds i8, ptr %0, i64 1656
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %158 = load ptr, ptr %157, align 8
   %159 = getelementptr inbounds i8, ptr %158, i64 %6
   store i8 1, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %0, i64 664
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds i8, ptr %161, i64 %6
   %163 = load i8, ptr %162, align 1
@@ -5078,7 +5078,7 @@ _ZN6Gluco23vecIjED2Ev.exit55:                     ; preds = %_ZN6Gluco23vecIjED2
   br i1 %.not.i65, label %167, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge234
-  %164 = getelementptr inbounds i8, ptr %0, i64 400
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %165 = load i64, ptr %164, align 8
   %166 = add nsw i64 %165, -1
   store i64 %166, ptr %164, align 8
@@ -5086,20 +5086,20 @@ _ZN6Gluco23vecIjED2Ev.exit55:                     ; preds = %_ZN6Gluco23vecIjED2
 
 167:                                              ; preds = %.sink.split.i, %._crit_edge234
   store i8 0, ptr %162, align 1
-  %168 = getelementptr inbounds i8, ptr %0, i64 88
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %169 = load i32, ptr %168, align 8
   %.not.i.i66 = icmp eq i32 %169, 0
   br i1 %.not.i.i66, label %170, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit
 
 170:                                              ; preds = %167
-  %171 = getelementptr inbounds i8, ptr %0, i64 776
-  %172 = getelementptr inbounds i8, ptr %0, i64 808
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %173 = load i32, ptr %172, align 8
   %174 = icmp slt i32 %1, %173
   br i1 %174, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %170
-  %175 = getelementptr inbounds i8, ptr %0, i64 800
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds i32, ptr %176, i64 %6
   %178 = load i32, ptr %177, align 4
@@ -5118,7 +5118,7 @@ _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i: ; preds = %_
           to label %_ZN6Gluco26Solver14setDecisionVarEibb.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %167, %183
-  %184 = getelementptr inbounds i8, ptr %0, i64 1452
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 1452
   %185 = load i32, ptr %184, align 4
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr %184, align 4
@@ -5129,8 +5129,8 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   br i1 %156, label %.lr.ph236, label %._crit_edge
 
 .lr.ph236:                                        ; preds = %.preheader184
-  %188 = getelementptr inbounds i8, ptr %0, i64 864
-  %189 = getelementptr inbounds i8, ptr %0, i64 1472
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %wide.trip.count268 = zext nneg i32 %.sroa.11.0.lcssa299 to i64
   br label %202
 
@@ -5139,18 +5139,18 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   br i1 %190, label %.lr.ph238, label %._crit_edge239
 
 .lr.ph238:                                        ; preds = %.preheader183
-  %191 = getelementptr inbounds i8, ptr %0, i64 864
-  %192 = getelementptr inbounds i8, ptr %0, i64 1472
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %wide.trip.count273 = zext nneg i32 %.sroa.9.0.lcssa295 to i64
   br label %193
 
 193:                                              ; preds = %.lr.ph238, %199
   %indvars.iv270 = phi i64 [ 0, %.lr.ph238 ], [ %indvars.iv.next271, %199 ]
-  %194 = getelementptr inbounds i32, ptr %.sroa.092.0.lcssa296, i64 %indvars.iv270
+  %194 = getelementptr inbounds nuw i32, ptr %.sroa.092.0.lcssa296, i64 %indvars.iv270
   %195 = load i32, ptr %194, align 4
   %196 = load ptr, ptr %191, align 8
   %197 = zext i32 %195 to i64
-  %198 = getelementptr inbounds i32, ptr %196, i64 %197
+  %198 = getelementptr inbounds nuw i32, ptr %196, i64 %197
   invoke fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEEiRNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(16) %192, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %198)
           to label %199 unwind label %.thread.loopexit.split-lp
 
@@ -5160,18 +5160,18 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   br i1 %exitcond274.not, label %._crit_edge239, label %193, !llvm.loop !48
 
 ._crit_edge239:                                   ; preds = %199, %.preheader183
-  %200 = getelementptr inbounds i8, ptr %0, i64 1472
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %201 = shl nsw i32 %1, 1
   invoke fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEENS_3LitE(ptr noundef nonnull align 8 dereferenceable(16) %200, i32 %201)
           to label %212 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 202:                                              ; preds = %.lr.ph236, %208
   %indvars.iv265 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next266, %208 ]
-  %203 = getelementptr inbounds i32, ptr %.sroa.0114.0.lcssa300, i64 %indvars.iv265
+  %203 = getelementptr inbounds nuw i32, ptr %.sroa.0114.0.lcssa300, i64 %indvars.iv265
   %204 = load i32, ptr %203, align 4
   %205 = load ptr, ptr %188, align 8
   %206 = zext i32 %204 to i64
-  %207 = getelementptr inbounds i32, ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw i32, ptr %205, i64 %206
   invoke fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEEiRNS_6ClauseE(ptr noundef nonnull align 8 dereferenceable(16) %189, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(12) %207)
           to label %208 unwind label %.loopexit.split-lp.loopexit
 
@@ -5181,7 +5181,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   br i1 %exitcond269.not, label %._crit_edge, label %202, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %208, %.preheader184
-  %209 = getelementptr inbounds i8, ptr %0, i64 1472
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 1472
   %210 = shl nsw i32 %1, 1
   %211 = or disjoint i32 %210, 1
   invoke fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEENS_3LitE(ptr noundef nonnull align 8 dereferenceable(16) %209, i32 %211)
@@ -5189,16 +5189,16 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
 
 212:                                              ; preds = %._crit_edge, %._crit_edge239
   %.sroa.11.0.lcssa299.sink = phi i32 [ %.sroa.9.0.lcssa295, %._crit_edge239 ], [ %.sroa.11.0.lcssa299, %._crit_edge ]
-  %213 = getelementptr inbounds i8, ptr %0, i64 1456
+  %213 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %214 = load i32, ptr %213, align 8
   %215 = add nsw i32 %214, %.sroa.11.0.lcssa299.sink
   store i32 %215, ptr %213, align 8
-  %216 = getelementptr inbounds i8, ptr %0, i64 1080
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   br i1 %156, label %.preheader179.lr.ph, label %.preheader
 
 .preheader179.lr.ph:                              ; preds = %212
   %217 = icmp sgt i32 %.sroa.9.0.lcssa295, 0
-  %218 = getelementptr inbounds i8, ptr %0, i64 864
+  %218 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br i1 %217, label %.preheader179.us.preheader, label %.preheader
 
 .preheader179.us.preheader:                       ; preds = %.preheader179.lr.ph
@@ -5208,7 +5208,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
 
 .preheader179.us:                                 ; preds = %.preheader179.us.preheader, %._crit_edge242.us
   %indvars.iv280 = phi i64 [ 0, %.preheader179.us.preheader ], [ %indvars.iv.next281, %._crit_edge242.us ]
-  %219 = getelementptr inbounds i32, ptr %.sroa.0114.0.lcssa300, i64 %indvars.iv280
+  %219 = getelementptr inbounds nuw i32, ptr %.sroa.0114.0.lcssa300, i64 %indvars.iv280
   br label %220
 
 220:                                              ; preds = %.preheader179.us, %234
@@ -5216,11 +5216,11 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   %221 = load i32, ptr %219, align 4
   %222 = load ptr, ptr %218, align 8
   %223 = zext i32 %221 to i64
-  %224 = getelementptr inbounds i32, ptr %222, i64 %223
-  %225 = getelementptr inbounds i32, ptr %.sroa.092.0.lcssa296, i64 %indvars.iv275
+  %224 = getelementptr inbounds nuw i32, ptr %222, i64 %223
+  %225 = getelementptr inbounds nuw i32, ptr %.sroa.092.0.lcssa296, i64 %indvars.iv275
   %226 = load i32, ptr %225, align 4
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds i32, ptr %222, i64 %227
+  %228 = getelementptr inbounds nuw i32, ptr %222, i64 %227
   %229 = invoke noundef zeroext i1 @_ZN6Gluco210SimpSolver5mergeERKNS_6ClauseES3_iRNS_3vecINS_3LitEEE(ptr noundef nonnull align 8 dereferenceable(1684) %0, ptr noundef nonnull align 4 dereferenceable(12) %224, ptr noundef nonnull align 4 dereferenceable(12) %228, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %216)
           to label %230 unwind label %.thread.loopexit.split.us
 
@@ -5257,7 +5257,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
 .lr.ph245:                                        ; preds = %.preheader, %240
   %indvars.iv285 = phi i64 [ %indvars.iv.next286, %240 ], [ 0, %.preheader ]
   %237 = load ptr, ptr %42, align 8
-  %238 = getelementptr inbounds i32, ptr %237, i64 %indvars.iv285
+  %238 = getelementptr inbounds nuw i32, ptr %237, i64 %indvars.iv285
   %239 = load i32, ptr %238, align 4
   invoke void @_ZN6Gluco210SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %239)
           to label %240 unwind label %.loopexit
@@ -5277,21 +5277,21 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   br i1 %.not.i68, label %249, label %.preheader.i69
 
 .preheader.i69:                                   ; preds = %._crit_edge246
-  %247 = getelementptr inbounds i8, ptr %245, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 8
   store i32 0, ptr %247, align 8
   tail call void @free(ptr noundef nonnull %246) #24
   store ptr null, ptr %245, align 8
-  %248 = getelementptr inbounds i8, ptr %245, i64 12
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 12
   store i32 0, ptr %248, align 4
   br label %249
 
 249:                                              ; preds = %.preheader.i69, %._crit_edge246
-  %250 = getelementptr inbounds i8, ptr %0, i64 488
+  %250 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %251 = shl nsw i32 %1, 1
   %252 = load ptr, ptr %250, align 8
   %253 = sext i32 %251 to i64
   %254 = getelementptr inbounds %"class.Gluco2::vec.12", ptr %252, i64 %253
-  %255 = getelementptr inbounds i8, ptr %254, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load i32, ptr %255, align 8
   %257 = icmp eq i32 %256, 0
   br i1 %257, label %258, label %261
@@ -5305,7 +5305,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   store i32 0, ptr %255, align 8
   tail call void @free(ptr noundef nonnull %259) #24
   store ptr null, ptr %254, align 8
-  %260 = getelementptr inbounds i8, ptr %254, i64 12
+  %260 = getelementptr inbounds nuw i8, ptr %254, i64 12
   store i32 0, ptr %260, align 4
   %.pre289 = load ptr, ptr %250, align 8
   br label %261
@@ -5315,7 +5315,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   %263 = or disjoint i32 %251, 1
   %264 = sext i32 %263 to i64
   %265 = getelementptr inbounds %"class.Gluco2::vec.12", ptr %262, i64 %264
-  %266 = getelementptr inbounds i8, ptr %265, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   %267 = load i32, ptr %266, align 8
   %268 = icmp eq i32 %267, 0
   br i1 %268, label %269, label %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77
@@ -5329,7 +5329,7 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %_ZNK6Gluco24HeapINS
   store i32 0, ptr %266, align 8
   tail call void @free(ptr noundef nonnull %270) #24
   store ptr null, ptr %265, align 8
-  %271 = getelementptr inbounds i8, ptr %265, i64 12
+  %271 = getelementptr inbounds nuw i8, ptr %265, i64 12
   store i32 0, ptr %271, align 4
   br label %_ZN6Gluco23vecINS_6Solver7WatcherEE5clearEb.exit77
 
@@ -5367,7 +5367,7 @@ _ZN6Gluco23vecIjED2Ev.exit83:                     ; preds = %_ZN6Gluco23vecIjED2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEEiRNS_6ClauseE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = load i96, ptr %2, align 4
   %7 = lshr i96 %6, 32
@@ -5376,14 +5376,14 @@ define internal fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEEiRNS_6ClauseE(ptr
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZN6Gluco23vecIjE4pushERKj.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Gluco23vecIjE4pushERKj.exit ]
   %.031 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %_ZN6Gluco23vecIjE4pushERKj.exit ]
-  %13 = getelementptr inbounds [0 x %union.anon], ptr %10, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [0 x %union.anon], ptr %10, i64 0, i64 %indvars.iv
   %.sroa.01.0.copyload = load i32, ptr %13, align 4
   %14 = load i32, ptr %4, align 8
   %15 = load i32, ptr %11, align 4
@@ -5469,7 +5469,7 @@ _ZN6Gluco23vecIjE4pushERKj.exit:                  ; preds = %._ZN6Gluco23vecIjE4
   store i32 %52, ptr %56, align 4
   %57 = load i96, ptr %2, align 4
   %58 = load i32, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %58, %60
   br i1 %61, label %62, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i24
@@ -5529,9 +5529,9 @@ _ZN6Gluco23vecIjE4pushERKj.exit26:                ; preds = %._ZN6Gluco23vecIjE4
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZL12mkElimClauseRN6Gluco23vecIjEENS_3LitE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 %1) unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %4, %6
   br i1 %7, label %8, label %._ZN6Gluco23vecIjE8capacityEi.exit_crit_edge.i
@@ -5642,18 +5642,18 @@ _ZN6Gluco23vecIjE4pushERKj.exit5:                 ; preds = %._ZN6Gluco23vecIjE4
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN6Gluco210SimpSolver10substituteEiNS_3LitE(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %1, i32 %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 452
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %.loopexit31
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1656
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i8, ptr %9, i64 %10
   store i8 1, ptr %11, align 1
-  %12 = getelementptr inbounds i8, ptr %0, i64 664
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %13, i64 %10
   %15 = load i8, ptr %14, align 1
@@ -5661,7 +5661,7 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver10substituteEiNS_3LitE(ptr noun
   br i1 %.not.i, label %19, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 400
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %17 = load i64, ptr %16, align 8
   %18 = add nsw i64 %17, -1
   store i64 %18, ptr %16, align 8
@@ -5669,20 +5669,20 @@ define noundef zeroext i1 @_ZN6Gluco210SimpSolver10substituteEiNS_3LitE(ptr noun
 
 19:                                               ; preds = %.sink.split.i, %7
   store i8 0, ptr %14, align 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load i32, ptr %20, align 8
   %.not.i.i = icmp eq i32 %21, 0
   br i1 %.not.i.i, label %22, label %_ZN6Gluco26Solver14setDecisionVarEibb.exit
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %0, i64 776
-  %24 = getelementptr inbounds i8, ptr %0, i64 808
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 776
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %1, %25
   br i1 %26, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, label %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i
 
 _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i: ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %0, i64 800
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i32, ptr %28, i64 %10
   %30 = load i32, ptr %29, align 4
@@ -5701,8 +5701,8 @@ _ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i: ; preds = %_
   br label %_ZN6Gluco26Solver14setDecisionVarEibb.exit
 
 _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %19, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.i.i, %_ZNK6Gluco24HeapINS_6Solver10VarOrderLtEE6inHeapEi.exit.thread.i.i, %35
-  %36 = getelementptr inbounds i8, ptr %0, i64 1504
-  %37 = getelementptr inbounds i8, ptr %0, i64 1520
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1520
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %38, i64 %10
   %40 = load i8, ptr %39, align 1
@@ -5712,13 +5712,13 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %19, %_ZNK6Gluco24He
 41:                                               ; preds = %_ZN6Gluco26Solver14setDecisionVarEibb.exit
   %42 = load ptr, ptr %36, align 8
   %43 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %42, i64 %10
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph.i.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %41
-  %47 = getelementptr inbounds i8, ptr %0, i64 1552
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   br label %48
 
 48:                                               ; preds = %64, %.lr.ph.i.i
@@ -5726,12 +5726,12 @@ _ZN6Gluco26Solver14setDecisionVarEibb.exit:       ; preds = %19, %_ZNK6Gluco24He
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %64 ]
   %.017.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %64 ]
   %50 = load ptr, ptr %43, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.i.i
   %52 = load ptr, ptr %47, align 8
   %53 = load i32, ptr %51, align 4
   %54 = load ptr, ptr %52, align 8
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = load i96, ptr %56, align 4
   %58 = and i96 %57, 3
   %59 = icmp eq i96 %58, 1
@@ -5772,26 +5772,26 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.
 _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit: ; preds = %_ZN6Gluco26Solver14setDecisionVarEibb.exit, %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
   %73 = load ptr, ptr %36, align 8
   %74 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %73, i64 %10
-  %75 = getelementptr inbounds i8, ptr %0, i64 1080
-  %76 = getelementptr inbounds i8, ptr %74, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1080
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load i32, ptr %76, align 8
   %78 = icmp sgt i32 %77, 0
   br i1 %78, label %.lr.ph34, label %.loopexit31
 
 .lr.ph34:                                         ; preds = %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE6lookupERKi.exit
-  %79 = getelementptr inbounds i8, ptr %0, i64 864
-  %80 = getelementptr inbounds i8, ptr %0, i64 1088
-  %81 = getelementptr inbounds i8, ptr %0, i64 1092
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1092
   br label %82
 
 82:                                               ; preds = %.lr.ph34, %134
   %indvars.iv36 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next37, %134 ]
   %83 = load ptr, ptr %74, align 8
-  %84 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv36
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv36
   %85 = load i32, ptr %84, align 4
   %86 = load ptr, ptr %79, align 8
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
   %89 = load ptr, ptr %75, align 8
   %.not.i25 = icmp eq ptr %89, null
   br i1 %.not.i25, label %_ZN6Gluco23vecINS_3LitEE5clearEb.exit, label %.preheader.i
@@ -5808,12 +5808,12 @@ _ZN6Gluco23vecINS_3LitEE5clearEb.exit:            ; preds = %82, %.preheader.i
   br i1 %93, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6Gluco23vecINS_3LitEE5clearEb.exit
-  %94 = getelementptr inbounds i8, ptr %88, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %88, i64 12
   br label %95
 
 95:                                               ; preds = %.lr.ph, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit ]
-  %96 = getelementptr inbounds [0 x %union.anon], ptr %94, i64 0, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [0 x %union.anon], ptr %94, i64 0, i64 %indvars.iv
   %.sroa.03.0.copyload = load i32, ptr %96, align 4
   %97 = ashr i32 %.sroa.03.0.copyload, 1
   %98 = icmp eq i32 %97, %1
@@ -5890,7 +5890,7 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit:         ; preds = %._ZN6Gluco23vecINS_
 
 134:                                              ; preds = %._crit_edge
   %135 = load ptr, ptr %74, align 8
-  %136 = getelementptr inbounds i32, ptr %135, i64 %indvars.iv36
+  %136 = getelementptr inbounds nuw i32, ptr %135, i64 %indvars.iv36
   %137 = load i32, ptr %136, align 4
   tail call void @_ZN6Gluco210SimpSolver12removeClauseEj(ptr noundef nonnull align 8 dereferenceable(1684) %0, i32 noundef %137)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
@@ -5916,7 +5916,7 @@ define linkonce_odr void @_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13Claus
   br i1 %.not.i, label %_ZN6Gluco23vecINS0_IjEEE5clearEb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
@@ -5925,17 +5925,17 @@ define linkonce_odr void @_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13Claus
   %8 = phi i32 [ %14, %_ZN6Gluco23vecIjED2Ev.exit.i ], [ %6, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN6Gluco23vecIjED2Ev.exit.i ], [ 0, %.preheader.i ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw %"class.Gluco2::vec.5", ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %_ZN6Gluco23vecIjED2Ev.exit.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds i8, ptr %10, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %12, align 8
   tail call void @free(ptr noundef nonnull %11) #24
   store ptr null, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 0, ptr %13, align 4
   %.pre.i = load i32, ptr %5, align 8
   br label %_ZN6Gluco23vecIjED2Ev.exit.i
@@ -5956,42 +5956,42 @@ _ZN6Gluco23vecIjED2Ev.exit.i:                     ; preds = %.preheader.i.i.i, %
   store i32 0, ptr %5, align 8
   tail call void @free(ptr noundef %17) #24
   store ptr null, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %18, align 4
   br label %_ZN6Gluco23vecINS0_IjEEE5clearEb.exit
 
 _ZN6Gluco23vecINS0_IjEEE5clearEb.exit:            ; preds = %3, %._crit_edge.i
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not.i4 = icmp eq ptr %20, null
   br i1 %.not.i4, label %_ZN6Gluco23vecIcE5clearEb.exit, label %.preheader.i5
 
 .preheader.i5:                                    ; preds = %_ZN6Gluco23vecINS0_IjEEE5clearEb.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %21, align 8
   tail call void @free(ptr noundef nonnull %20) #24
   store ptr null, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %22, align 4
   br label %_ZN6Gluco23vecIcE5clearEb.exit
 
 _ZN6Gluco23vecIcE5clearEb.exit:                   ; preds = %_ZN6Gluco23vecINS0_IjEEE5clearEb.exit, %.preheader.i5
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %.not.i6 = icmp eq ptr %24, null
   br i1 %.not.i6, label %_ZN6Gluco23vecIiE5clearEb.exit, label %.preheader.i7
 
 .preheader.i7:                                    ; preds = %_ZN6Gluco23vecIcE5clearEb.exit
-  %25 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %25, align 8
   tail call void @free(ptr noundef nonnull %24) #24
   store ptr null, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %26, align 4
   br label %_ZN6Gluco23vecIiE5clearEb.exit
 
 27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph.i9, label %_ZN6Gluco23vecINS0_IjEEE6shrinkEi.exit
@@ -6009,11 +6009,11 @@ _ZN6Gluco23vecIcE5clearEb.exit:                   ; preds = %_ZN6Gluco23vecINS0_
   br i1 %.not.i.i.i10, label %_ZN6Gluco23vecIjED2Ev.exit.i12, label %.preheader.i.i.i11
 
 .preheader.i.i.i11:                               ; preds = %.lr.ph.i9
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i32 0, ptr %37, align 8
   tail call void @free(ptr noundef nonnull %36) #24
   store ptr null, ptr %35, align 8
-  %38 = getelementptr inbounds i8, ptr %35, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
   store i32 0, ptr %38, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit.i12
 
@@ -6023,9 +6023,9 @@ _ZN6Gluco23vecIjED2Ev.exit.i12:                   ; preds = %.preheader.i.i.i11,
   br i1 %exitcond.not.i, label %_ZN6Gluco23vecINS0_IjEEE6shrinkEi.exit, label %.lr.ph.i9, !llvm.loop !56
 
 _ZN6Gluco23vecINS0_IjEEE6shrinkEi.exit:           ; preds = %_ZN6Gluco23vecIjED2Ev.exit.i12, %27
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %41, align 8
   br label %_ZN6Gluco23vecIiE5clearEb.exit
 
@@ -6037,23 +6037,23 @@ declare void @_ZN6Gluco26Solver16rebuildOrderHeapEv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN6Gluco210SimpSolver14cleanUpClausesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1684) %0) local_unnamed_addr #7 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1504
-  %3 = getelementptr inbounds i8, ptr %0, i64 1544
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE8cleanAllEv.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1536
-  %7 = getelementptr inbounds i8, ptr %0, i64 1520
-  %8 = getelementptr inbounds i8, ptr %0, i64 1552
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1536
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1520
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   br label %9
 
 9:                                                ; preds = %50, %.lr.ph.i
   %10 = phi i32 [ %4, %.lr.ph.i ], [ %51, %50 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4
   %14 = load ptr, ptr %7, align 8
   %15 = sext i32 %13 to i64
@@ -6065,7 +6065,7 @@ define void @_ZN6Gluco210SimpSolver14cleanUpClausesEv(ptr nocapture noundef nonn
 18:                                               ; preds = %9
   %19 = load ptr, ptr %2, align 8
   %20 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %19, i64 %15
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.i.i, label %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.i
@@ -6075,12 +6075,12 @@ define void @_ZN6Gluco210SimpSolver14cleanUpClausesEv(ptr nocapture noundef nonn
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %39 ], [ 0, %18 ]
   %.017.i.i = phi i32 [ %.1.i.i, %39 ], [ 0, %18 ]
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %8, align 8
   %28 = load i32, ptr %26, align 4
   %29 = load ptr, ptr %27, align 8
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i96, ptr %31, align 4
   %33 = and i96 %32, 3
   %34 = icmp eq i96 %33, 1
@@ -6130,14 +6130,14 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE5cleanERKi.exit.
 
 _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE8cleanAllEv.exit: ; preds = %50, %1
   store i32 0, ptr %3, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 608
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %55 = load i32, ptr %54, align 8
   %56 = icmp sgt i32 %55, 0
   br i1 %56, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE8cleanAllEv.exit
-  %57 = getelementptr inbounds i8, ptr %0, i64 600
-  %58 = getelementptr inbounds i8, ptr %0, i64 864
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br label %59
 
 59:                                               ; preds = %.lr.ph, %74
@@ -6145,11 +6145,11 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE8cleanAllEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
   %.011 = phi i32 [ 0, %.lr.ph ], [ %.1, %74 ]
   %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds i32, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = load ptr, ptr %58, align 8
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
   %67 = load i96, ptr %66, align 4
   %68 = and i96 %67, 3
   %69 = icmp eq i96 %68, 0
@@ -6187,29 +6187,29 @@ _ZN6Gluco28OccListsIiNS_3vecIjEENS_10SimpSolver13ClauseDeletedEE8cleanAllEv.exit
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Gluco210SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonnull align 8 dereferenceable(1684) %0, ptr noundef nonnull align 8 dereferenceable(21) %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 1464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %.preheader18, label %229
 
 .preheader18:                                     ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 736
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph24, label %.preheader
 
 .lr.ph24:                                         ; preds = %.preheader18
-  %9 = getelementptr inbounds i8, ptr %0, i64 1504
-  %10 = getelementptr inbounds i8, ptr %0, i64 864
-  %11 = getelementptr inbounds i8, ptr %1, i64 20
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   br label %26
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader18
-  %14 = getelementptr inbounds i8, ptr %0, i64 1636
-  %15 = getelementptr inbounds i8, ptr %0, i64 1632
-  %16 = getelementptr inbounds i8, ptr %0, i64 1624
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1636
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1632
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %17 = load i32, ptr %14, align 4
   %18 = load i32, ptr %15, align 8
   %.not.i925 = icmp slt i32 %17, %18
@@ -6221,16 +6221,16 @@ define void @_ZN6Gluco210SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef 
   br i1 %23, label %.lr.ph28, label %._crit_edge29
 
 .lr.ph28:                                         ; preds = %.preheader
-  %24 = getelementptr inbounds i8, ptr %0, i64 1616
-  %25 = getelementptr inbounds i8, ptr %0, i64 864
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1616
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 864
   br label %211
 
 26:                                               ; preds = %.lr.ph24, %._crit_edge
   %27 = phi i32 [ %7, %.lr.ph24 ], [ %208, %._crit_edge ]
   %indvars.iv34 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next35, %._crit_edge ]
   %28 = load ptr, ptr %9, align 8
-  %29 = getelementptr inbounds %"class.Gluco2::vec.5", ptr %28, i64 %indvars.iv34
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %29 = getelementptr inbounds nuw %"class.Gluco2::vec.5", ptr %28, i64 %indvars.iv34
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
@@ -6238,18 +6238,18 @@ define void @_ZN6Gluco210SimpSolver8relocAllERNS_15ClauseAllocatorE(ptr noundef 
 .lr.ph:                                           ; preds = %26, %_ZN6Gluco215ClauseAllocator5relocERjRS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6Gluco215ClauseAllocator5relocERjRS0_.exit ], [ 0, %26 ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = load ptr, ptr %10, align 8
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
   %39 = load i96, ptr %38, align 4
   %40 = and i96 %39, 16
   %.not.i = icmp eq i96 %40, 0
   br i1 %.not.i, label %44, label %41
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %38, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %43 = load i32, ptr %42, align 4
   store i32 %43, ptr %34, align 4
   br label %_ZN6Gluco215ClauseAllocator5relocERjRS0_.exit
@@ -6335,7 +6335,7 @@ _ZN6Gluco215RegionAllocatorIjE8capacityEj.exit:   ; preds = %44, %_ZN6Gluco2L8xr
 _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionAllocatorIjE8capacityEj.exit
   %85 = load ptr, ptr %1, align 8
   %86 = zext i32 %81 to i64
-  %87 = getelementptr inbounds i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
   %88 = load i96, ptr %87, align 4
   %89 = and i96 %88, -32
   %90 = select i1 %.not.i10, i96 0, i96 8
@@ -6355,15 +6355,15 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionA
   br i1 %101, label %.lr.ph.i.i11, label %._crit_edge.i.i
 
 .lr.ph.i.i11:                                     ; preds = %_ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i
-  %102 = getelementptr inbounds i8, ptr %38, i64 12
-  %103 = getelementptr inbounds i8, ptr %87, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %38, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %87, i64 12
   br label %104
 
 104:                                              ; preds = %104, %.lr.ph.i.i11
   %indvars.iv.i.i12 = phi i64 [ 0, %.lr.ph.i.i11 ], [ %indvars.iv.next.i.i13, %104 ]
-  %105 = getelementptr inbounds [0 x %union.anon], ptr %102, i64 0, i64 %indvars.iv.i.i12
+  %105 = getelementptr inbounds nuw [0 x %union.anon], ptr %102, i64 0, i64 %indvars.iv.i.i12
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %105, align 4
-  %106 = getelementptr inbounds [0 x %union.anon], ptr %103, i64 0, i64 %indvars.iv.i.i12
+  %106 = getelementptr inbounds nuw [0 x %union.anon], ptr %103, i64 0, i64 %indvars.iv.i.i12
   store i32 %.sroa.0.0.copyload.i.i.i, ptr %106, align 4
   %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i12, 1
   %107 = load i96, ptr %38, align 4
@@ -6379,10 +6379,10 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionA
   br i1 %.not, label %117, label %112
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %87, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %114 = trunc i96 %93 to i64
   %115 = lshr i64 %114, 32
-  %116 = getelementptr inbounds [0 x %union.anon], ptr %113, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [0 x %union.anon], ptr %113, i64 0, i64 %115
   store float 0.000000e+00, ptr %116, align 4
   br label %_ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit
 
@@ -6393,7 +6393,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionA
   br i1 %120, label %.lr.ph.i.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %87, i64 12
+  %121 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %122 = trunc nuw i96 %118 to i64
   %wide.trip.count.i.i.i = and i64 %122, 2147483647
   br label %123
@@ -6401,7 +6401,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionA
 123:                                              ; preds = %123, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %123 ]
   %.07.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %128, %123 ]
-  %124 = getelementptr inbounds [0 x %union.anon], ptr %121, i64 0, i64 %indvars.iv.i.i.i
+  %124 = getelementptr inbounds nuw [0 x %union.anon], ptr %121, i64 0, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i10.i.i = load i32, ptr %124, align 4
   %125 = lshr i32 %.sroa.0.0.copyload.i10.i.i, 1
   %126 = and i32 %125, 31
@@ -6413,10 +6413,10 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit.i:    ; preds = %_ZN6Gluco215RegionA
 
 _ZN6Gluco26Clause15calcAbstractionEv.exit.i.i:    ; preds = %123, %117
   %.0.lcssa.i.i.i = phi i32 [ 0, %117 ], [ %128, %123 ]
-  %129 = getelementptr inbounds i8, ptr %87, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %130 = trunc i96 %93 to i64
   %131 = lshr i64 %130, 32
-  %132 = getelementptr inbounds [0 x %union.anon], ptr %129, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [0 x %union.anon], ptr %129, i64 0, i64 %131
   store i32 %.0.lcssa.i.i.i, ptr %132, align 4
   br label %_ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit
 
@@ -6425,12 +6425,12 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
   %133 = load i96, ptr %38, align 4
   %134 = or i96 %133, 16
   store i96 %134, ptr %38, align 4
-  %135 = getelementptr inbounds i8, ptr %38, i64 12
+  %135 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 %81, ptr %135, align 4
   %136 = load i32, ptr %34, align 4
   %137 = load ptr, ptr %1, align 8
   %138 = zext i32 %136 to i64
-  %139 = getelementptr inbounds i32, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw i32, ptr %137, i64 %138
   %140 = load i96, ptr %139, align 4
   %141 = and i96 %133, 3
   %142 = and i96 %140, -4
@@ -6439,7 +6439,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
   %144 = load i32, ptr %34, align 4
   %145 = load ptr, ptr %1, align 8
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds i32, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw i32, ptr %145, i64 %146
   %148 = load i96, ptr %147, align 4
   %149 = and i96 %148, 4
   %.not32.i = icmp eq i96 %149, 0
@@ -6449,17 +6449,17 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
   %151 = load i96, ptr %38, align 4
   %152 = trunc i96 %151 to i64
   %153 = lshr i64 %152, 32
-  %154 = getelementptr inbounds [0 x %union.anon], ptr %135, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [0 x %union.anon], ptr %135, i64 0, i64 %153
   %155 = load float, ptr %154, align 4
-  %156 = getelementptr inbounds i8, ptr %147, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %147, i64 12
   %157 = trunc i96 %148 to i64
   %158 = lshr i64 %157, 32
-  %159 = getelementptr inbounds [0 x %union.anon], ptr %156, i64 0, i64 %158
+  %159 = getelementptr inbounds nuw [0 x %union.anon], ptr %156, i64 0, i64 %158
   store float %155, ptr %159, align 4
   %160 = load i32, ptr %34, align 4
   %161 = load ptr, ptr %1, align 8
   %162 = zext i32 %160 to i64
-  %163 = getelementptr inbounds i32, ptr %161, i64 %162
+  %163 = getelementptr inbounds nuw i32, ptr %161, i64 %162
   %164 = load i96, ptr %38, align 4
   %165 = load i96, ptr %163, align 4
   %166 = and i96 %164, 2147483616
@@ -6469,7 +6469,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
   %169 = load i32, ptr %34, align 4
   %170 = load ptr, ptr %1, align 8
   %171 = zext i32 %169 to i64
-  %172 = getelementptr inbounds i32, ptr %170, i64 %171
+  %172 = getelementptr inbounds nuw i32, ptr %170, i64 %171
   %173 = load i96, ptr %38, align 4
   %174 = and i96 %173, -18446744073709551616
   %175 = load i96, ptr %172, align 4
@@ -6479,7 +6479,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
   %178 = load i32, ptr %34, align 4
   %179 = load ptr, ptr %1, align 8
   %180 = zext i32 %178 to i64
-  %181 = getelementptr inbounds i32, ptr %179, i64 %180
+  %181 = getelementptr inbounds nuw i32, ptr %179, i64 %180
   %182 = load i96, ptr %38, align 4
   %183 = and i96 %182, 2147483648
   %184 = load i96, ptr %181, align 4
@@ -6500,7 +6500,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
   br i1 %192, label %.lr.ph.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %189
-  %193 = getelementptr inbounds i8, ptr %147, i64 12
+  %193 = getelementptr inbounds nuw i8, ptr %147, i64 12
   %194 = trunc nuw i96 %190 to i64
   %wide.trip.count.i.i = and i64 %194, 2147483647
   br label %195
@@ -6508,7 +6508,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
 195:                                              ; preds = %195, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %195 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %200, %195 ]
-  %196 = getelementptr inbounds [0 x %union.anon], ptr %193, i64 0, i64 %indvars.iv.i.i
+  %196 = getelementptr inbounds nuw [0 x %union.anon], ptr %193, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %196, align 4
   %197 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %198 = and i32 %197, 31
@@ -6520,10 +6520,10 @@ _ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b.exit: ; preds = %._crit_ed
 
 _ZN6Gluco26Clause15calcAbstractionEv.exit.i:      ; preds = %195, %189
   %.0.lcssa.i.i = phi i32 [ 0, %189 ], [ %200, %195 ]
-  %201 = getelementptr inbounds i8, ptr %147, i64 12
+  %201 = getelementptr inbounds nuw i8, ptr %147, i64 12
   %202 = trunc i96 %148 to i64
   %203 = lshr i64 %202, 32
-  %204 = getelementptr inbounds [0 x %union.anon], ptr %201, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [0 x %union.anon], ptr %201, i64 0, i64 %203
   store i32 %.0.lcssa.i.i, ptr %204, align 4
   br label %_ZN6Gluco215ClauseAllocator5relocERjRS0_.exit
 
@@ -6567,8 +6567,8 @@ _ZN6Gluco215ClauseAllocator5relocERjRS0_.exit:    ; preds = %41, %150, %187, %_Z
   br i1 %226, label %211, label %._crit_edge29, !llvm.loop !63
 
 ._crit_edge29:                                    ; preds = %211, %.preheader
-  %227 = getelementptr inbounds i8, ptr %0, i64 864
-  %228 = getelementptr inbounds i8, ptr %0, i64 1680
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   tail call void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef nonnull align 8 dereferenceable(21) %227, ptr noundef nonnull align 4 dereferenceable(4) %228, ptr noundef nonnull align 8 dereferenceable(21) %1)
   br label %229
 
@@ -6581,14 +6581,14 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   %4 = load i32, ptr %1, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = zext i32 %4 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
   %8 = load i96, ptr %7, align 4
   %9 = and i96 %8, 16
   %.not = icmp eq i96 %9, 0
   br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %12 = load i32, ptr %11, align 4
   store i32 %12, ptr %1, align 4
   br label %89
@@ -6601,12 +6601,12 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   %17 = load i96, ptr %7, align 4
   %18 = or i96 %17, 16
   store i96 %18, ptr %7, align 4
-  %19 = getelementptr inbounds i8, ptr %7, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i32 %16, ptr %19, align 4
   %20 = load i32, ptr %1, align 4
   %21 = load ptr, ptr %2, align 8
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
   %24 = load i96, ptr %23, align 4
   %25 = and i96 %17, 3
   %26 = and i96 %24, -4
@@ -6615,7 +6615,7 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   %28 = load i32, ptr %1, align 4
   %29 = load ptr, ptr %2, align 8
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
   %32 = load i96, ptr %31, align 4
   %33 = and i96 %32, 4
   %.not32 = icmp eq i96 %33, 0
@@ -6625,17 +6625,17 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   %35 = load i96, ptr %7, align 4
   %36 = trunc i96 %35 to i64
   %37 = lshr i64 %36, 32
-  %38 = getelementptr inbounds [0 x %union.anon], ptr %19, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [0 x %union.anon], ptr %19, i64 0, i64 %37
   %39 = load float, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %31, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %41 = trunc i96 %32 to i64
   %42 = lshr i64 %41, 32
-  %43 = getelementptr inbounds [0 x %union.anon], ptr %40, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [0 x %union.anon], ptr %40, i64 0, i64 %42
   store float %39, ptr %43, align 4
   %44 = load i32, ptr %1, align 4
   %45 = load ptr, ptr %2, align 8
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
   %48 = load i96, ptr %7, align 4
   %49 = load i96, ptr %47, align 4
   %50 = and i96 %48, 2147483616
@@ -6645,7 +6645,7 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   %53 = load i32, ptr %1, align 4
   %54 = load ptr, ptr %2, align 8
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
   %57 = load i96, ptr %7, align 4
   %58 = and i96 %57, -18446744073709551616
   %59 = load i96, ptr %56, align 4
@@ -6655,7 +6655,7 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   %62 = load i32, ptr %1, align 4
   %63 = load ptr, ptr %2, align 8
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
   %66 = load i96, ptr %7, align 4
   %67 = and i96 %66, 2147483648
   %68 = load i96, ptr %65, align 4
@@ -6676,7 +6676,7 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
   br i1 %76, label %.lr.ph.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit
 
 .lr.ph.i:                                         ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %31, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %78 = trunc nuw i96 %74 to i64
   %wide.trip.count.i = and i64 %78, 2147483647
   br label %79
@@ -6684,7 +6684,7 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
 79:                                               ; preds = %79, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %79 ]
   %.07.i = phi i32 [ 0, %.lr.ph.i ], [ %84, %79 ]
-  %80 = getelementptr inbounds [0 x %union.anon], ptr %77, i64 0, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [0 x %union.anon], ptr %77, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i = load i32, ptr %80, align 4
   %81 = lshr i32 %.sroa.0.0.copyload.i, 1
   %82 = and i32 %81, 31
@@ -6696,10 +6696,10 @@ define linkonce_odr void @_ZN6Gluco215ClauseAllocator5relocERjRS0_(ptr noundef n
 
 _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %79, %73
   %.0.lcssa.i = phi i32 [ 0, %73 ], [ %84, %79 ]
-  %85 = getelementptr inbounds i8, ptr %31, i64 12
+  %85 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %86 = trunc i96 %32 to i64
   %87 = lshr i64 %86, 32
-  %88 = getelementptr inbounds [0 x %union.anon], ptr %85, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [0 x %union.anon], ptr %85, i64 0, i64 %87
   store i32 %.0.lcssa.i, ptr %88, align 4
   br label %89
 
@@ -6710,18 +6710,18 @@ _ZN6Gluco26Clause15calcAbstractionEv.exit:        ; preds = %79, %73
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6Gluco210SimpSolver14garbageCollectEv(ptr noundef nonnull align 8 dereferenceable(1684) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Gluco2::ClauseAllocator", align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 864
-  %4 = getelementptr inbounds i8, ptr %0, i64 872
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 880
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %7 = load i32, ptr %6, align 8
   %8 = sub i32 %5, %7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %2, i8 0, i64 20, i1 false)
   call void @_ZN6Gluco215RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(21) %2, i32 noundef %8)
-  %9 = getelementptr inbounds i8, ptr %2, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i8 0, ptr %9, align 4
   call void @_ZN6Gluco210SimpSolver14cleanUpClausesEv(ptr noundef nonnull align 8 dereferenceable(1684) %0)
-  %10 = getelementptr inbounds i8, ptr %0, i64 884
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 884
   %11 = load i8, ptr %10, align 4
   %12 = and i8 %11, 1
   store i8 %12, ptr %9, align 4
@@ -6733,7 +6733,7 @@ define void @_ZN6Gluco210SimpSolver14garbageCollectEv(ptr noundef nonnull align 
           to label %14 unwind label %25
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 1
   br i1 %17, label %18, label %29
@@ -6741,7 +6741,7 @@ define void @_ZN6Gluco210SimpSolver14garbageCollectEv(ptr noundef nonnull align 
 18:                                               ; preds = %14
   %19 = load i32, ptr %4, align 8
   %20 = shl i32 %19, 2
-  %21 = getelementptr inbounds i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = shl i32 %22, 2
   %24 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %20, i32 noundef %23)
@@ -6776,14 +6776,14 @@ _ZN6Gluco215ClauseAllocatorD2Ev.exit:             ; preds = %25, %28
 _ZN6Gluco215ClauseAllocatorD2Ev.exit4:            ; preds = %29, %33
   %34 = load ptr, ptr %2, align 8
   store ptr %34, ptr %3, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load i32, ptr %35, align 8
   store i32 %36, ptr %4, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 876
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 876
   store i32 %38, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %41 = load i32, ptr %40, align 8
   store i32 %41, ptr %6, align 8
   ret void
@@ -6795,35 +6795,35 @@ declare void @_ZN6Gluco26Solver8relocAllERNS_15ClauseAllocatorE(ptr noundef nonn
 define void @_ZN6Gluco210SimpSolver5resetEv(ptr noundef nonnull align 8 dereferenceable(1684) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Gluco2::vec.0", align 8
   tail call void @_ZN6Gluco26Solver5resetEv(ptr noundef nonnull align 8 dereferenceable(1416) %0)
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 48), align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 1420
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL8opt_grow, i64 48), align 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   store i32 %3, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 1676
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1672
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 1452
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1452
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 1448
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 1616
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %10 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %12, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 1624
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   store i32 0, ptr %11, align 8
   br label %12
 
 12:                                               ; preds = %1, %.preheader.i.i
   tail call void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 1)
-  %13 = getelementptr inbounds i8, ptr %0, i64 1636
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1636
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 1632
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 2, ptr %16, align 4
   %malloc = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
   store ptr %malloc, ptr %2, align 8
@@ -6844,19 +6844,19 @@ define void @_ZN6Gluco210SimpSolver5resetEv(ptr noundef nonnull align 8 derefere
 _ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit:      ; preds = %12, %18
   store i32 -2, ptr %malloc, align 4
   store i32 1, ptr %15, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 864
-  %25 = getelementptr inbounds i8, ptr %0, i64 884
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 884
   store i8 1, ptr %25, align 4
   %26 = invoke noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext false)
           to label %27 unwind label %66
 
 27:                                               ; preds = %_ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 1680
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1680
   store i32 %26, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 824
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i8 0, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 1504
-  %31 = getelementptr inbounds i8, ptr %0, i64 1512
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1504
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1512
   %32 = load i32, ptr %31, align 8
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph.i9.i, label %.loopexit
@@ -6874,11 +6874,11 @@ _ZN6Gluco23vecINS_3LitEE6growToEiRKS1_.exit:      ; preds = %12, %18
   br i1 %.not.i.i.i10.i, label %_ZN6Gluco23vecIjED2Ev.exit.i12.i, label %.preheader.i.i.i11.i
 
 .preheader.i.i.i11.i:                             ; preds = %.lr.ph.i9.i
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 0, ptr %40, align 8
   call void @free(ptr noundef nonnull %39) #24
   store ptr null, ptr %38, align 8
-  %41 = getelementptr inbounds i8, ptr %38, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 0, ptr %41, align 4
   br label %_ZN6Gluco23vecIjED2Ev.exit.i12.i
 
@@ -6888,34 +6888,34 @@ _ZN6Gluco23vecIjED2Ev.exit.i12.i:                 ; preds = %.preheader.i.i.i11.
   br i1 %exitcond.not.i.i, label %.loopexit, label %.lr.ph.i9.i, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZN6Gluco23vecIjED2Ev.exit.i12.i, %27
-  %43 = getelementptr inbounds i8, ptr %0, i64 1528
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 1544
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1544
   store i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 1496
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 1568
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 1568
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 1664
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   store i32 0, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %0, i64 1648
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 1480
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 1584
-  %51 = getelementptr inbounds i8, ptr %0, i64 1592
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1584
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1592
   %52 = load i32, ptr %51, align 8
   %53 = icmp sgt i32 %52, 0
   br i1 %53, label %.lr.ph.i, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE6clear_Eb.exit
 
 .lr.ph.i:                                         ; preds = %.loopexit
-  %54 = getelementptr inbounds i8, ptr %0, i64 1600
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1600
   br label %55
 
 55:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
   %56 = load ptr, ptr %50, align 8
-  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 4
   %59 = load ptr, ptr %54, align 8
   %60 = sext i32 %58 to i64
@@ -6962,13 +6962,13 @@ declare void @_ZN6Gluco26Solver5resetEv(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco26OptionE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %4, ptr %9, align 8
   %10 = load atomic i8, ptr @_ZGVZN6Gluco26Option13getOptionListEvE7options acquire, align 8
   %11 = icmp eq i8 %10, 0
@@ -6986,8 +6986,8 @@ define linkonce_odr void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull a
   br label %_ZN6Gluco26Option13getOptionListEv.exit
 
 _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
-  %16 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8
-  %17 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 12), align 4
+  %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8
+  %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 12), align 4
   %18 = icmp eq i32 %16, %17
   br i1 %18, label %19, label %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i
 
@@ -7007,7 +7007,7 @@ _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
 26:                                               ; preds = %19
   %27 = load ptr, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, align 8
   %28 = add nsw i32 %23, %16
-  store i32 %28, ptr getelementptr inbounds (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 12), align 4
+  store i32 %28, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 12), align 4
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
   %31 = tail call ptr @realloc(ptr noundef %27, i64 noundef %30) #27
@@ -7016,7 +7016,7 @@ _ZN6Gluco26Option13getOptionListEv.exit:          ; preds = %5, %12, %14
   br i1 %32, label %33, label %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge
 
 ._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge: ; preds = %26
-  %.pre = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8
+  %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8
   br label %_ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit
 
 33:                                               ; preds = %26
@@ -7035,7 +7035,7 @@ _ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit:     ; preds = %._ZN6Gluco23vecIPNS
   %39 = phi i32 [ %16, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %.pre, %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
   %40 = phi ptr [ %.pre.i, %._ZN6Gluco23vecIPNS_6OptionEE8capacityEi.exit_crit_edge.i ], [ %31, %._ZN6Gluco23vecIPNS_6OptionEE4pushERKS2_.exit_crit_edge ]
   %41 = add nsw i32 %39, 1
-  store i32 %41, ptr getelementptr inbounds (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8
+  store i32 %41, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6Gluco26Option13getOptionListEvE7options, i64 8), align 8
   %42 = sext i32 %39 to i64
   %43 = getelementptr inbounds ptr, ptr %40, i64 %42
   store ptr %0, ptr %43, align 8
@@ -7056,12 +7056,12 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco210BoolOption5parseEPKc(ptr nou
   br i1 %.not11.i, label %3, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 3:                                                ; preds = %.lr.ph.i
-  %4 = getelementptr inbounds i8, ptr %1, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %.lr.ph.i4
 
 5:                                                ; preds = %.lr.ph.i4
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i5, 1
-  %6 = getelementptr inbounds i8, ptr @.str.32, i64 %indvars.iv.next.i8
+  %6 = getelementptr inbounds nuw i8, ptr @.str.32, i64 %indvars.iv.next.i8
   %7 = load i8, ptr %6, align 1
   %exitcond = icmp eq i64 %indvars.iv.next.i8, 3
   br i1 %exitcond, label %._crit_edge.i10, label %.lr.ph.i4, !llvm.loop !66
@@ -7069,18 +7069,18 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco210BoolOption5parseEPKc(ptr nou
 .lr.ph.i4:                                        ; preds = %5, %3
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i8, %5 ], [ 0, %3 ]
   %8 = phi i8 [ %7, %5 ], [ 110, %3 ]
-  %9 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv.i5
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i5
   %10 = load i8, ptr %9, align 1
   %.not11.i6.not.not.not.not.not = icmp ne i8 %10, %8
   br i1 %.not11.i6.not.not.not.not.not, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit11, label %5
 
 ._crit_edge.i10:                                  ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit11
 
 _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit11:            ; preds = %.lr.ph.i4, %._crit_edge.i10
   %.1 = phi ptr [ %11, %._crit_edge.i10 ], [ %4, %.lr.ph.i4 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1, ptr noundef nonnull dereferenceable(1) %13) #28
   %15 = icmp eq i32 %14, 0
@@ -7088,7 +7088,7 @@ _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit11:            ; preds = %.lr.ph.i4, %._crit_
 
 16:                                               ; preds = %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit11
   %17 = zext i1 %.not11.i6.not.not.not.not.not to i8
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %17, ptr %18, align 8
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
@@ -7100,7 +7100,7 @@ _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit:              ; preds = %.lr.ph.i, %_ZN6Gluc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull align 8 dereferenceable(41) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.33, ptr noundef %5, ptr noundef %5) #29
   %7 = load ptr, ptr %4, align 8
@@ -7126,7 +7126,7 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
   %17 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 32, ptr %17)
   %18 = load ptr, ptr @stderr, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i8, ptr %19, align 8
   %21 = trunc i8 %20 to i1
   %22 = select i1 %21, ptr @.str.36, ptr @.str.37
@@ -7135,7 +7135,7 @@ define linkonce_odr void @_ZN6Gluco210BoolOption4helpEb(ptr noundef nonnull alig
 
 24:                                               ; preds = %._crit_edge
   %25 = load ptr, ptr @stderr, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.38, ptr noundef %27) #29
   %29 = load ptr, ptr @stderr, align 8
@@ -7169,11 +7169,11 @@ define linkonce_odr void @_ZN6Gluco23vecIPNS_6OptionEED2Ev(ptr noundef nonnull a
   br i1 %.not.i, label %_ZN6Gluco23vecIPNS_6OptionEE5clearEb.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   tail call void @free(ptr noundef nonnull %2) #24
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
   br label %_ZN6Gluco23vecIPNS_6OptionEE5clearEb.exit
 
@@ -7222,8 +7222,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
   br i1 %.not11.i, label %4, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %.not15.i = icmp eq i8 %8, 0
@@ -7231,7 +7231,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
 
 9:                                                ; preds = %.lr.ph.i7
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i8, 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next.i11
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next.i11
   %11 = load i8, ptr %10, align 1
   %.not.i12 = icmp eq i8 %11, 0
   br i1 %.not.i12, label %.loopexit, label %.lr.ph.i7, !llvm.loop !66
@@ -7239,20 +7239,20 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
 .lr.ph.i7:                                        ; preds = %4, %9
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i11, %9 ], [ 0, %4 ]
   %12 = phi i8 [ %11, %9 ], [ %8, %4 ]
-  %13 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.i8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i8
   %14 = load i8, ptr %13, align 1
   %.not11.i9 = icmp eq i8 %14, %12
   br i1 %.not11.i9, label %9, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 .loopexit:                                        ; preds = %9, %4
   %.lcssa.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i11, %9 ]
-  %15 = getelementptr inbounds i8, ptr %5, i64 %.lcssa.i
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.lcssa.i
   %16 = load i8, ptr %15, align 1
   %.not11.i18 = icmp eq i8 %16, 61
   br i1 %.not11.i18, label %17, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 17:                                               ; preds = %.loopexit
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %19 = call i64 @strtol(ptr noundef nonnull %18, ptr noundef nonnull %2, i32 noundef 10) #24
   %20 = trunc i64 %19 to i32
   %21 = load ptr, ptr %2, align 8
@@ -7260,7 +7260,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
   br i1 %22, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, %20
   br i1 %26, label %27, label %31
@@ -7273,7 +7273,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
   unreachable
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load i32, ptr %32, align 8
   %34 = icmp sgt i32 %33, %20
   br i1 %34, label %35, label %39
@@ -7286,7 +7286,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco29IntOption5parseEPKc(ptr nound
   unreachable
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %20, ptr %40, align 8
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
@@ -7298,12 +7298,12 @@ _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit:              ; preds = %.lr.ph.i7, %.lr.ph.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco29IntOption4helpEb(ptr noundef nonnull align 8 dereferenceable(52) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.44, ptr noundef %5, ptr noundef %7) #29
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -2147483648
   %12 = load ptr, ptr @stderr, align 8
@@ -7320,7 +7320,7 @@ define linkonce_odr void @_ZN6Gluco29IntOption4helpEb(ptr noundef nonnull align 
 17:                                               ; preds = %15, %13
   %18 = load ptr, ptr @stderr, align 8
   %19 = tail call i64 @fwrite(ptr nonnull @.str.47, i64 4, i64 1, ptr %18) #32
-  %20 = getelementptr inbounds i8, ptr %0, i64 44
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 2147483647
   %23 = load ptr, ptr @stderr, align 8
@@ -7336,14 +7336,14 @@ define linkonce_odr void @_ZN6Gluco29IntOption4helpEb(ptr noundef nonnull align 
 
 28:                                               ; preds = %26, %24
   %29 = load ptr, ptr @stderr, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.49, i32 noundef %31) #29
   br i1 %1, label %33, label %39
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr @stderr, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.38, ptr noundef %36) #29
   %38 = load ptr, ptr @stderr, align 8
@@ -7375,8 +7375,8 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
   br i1 %.not11.i, label %4, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 4:                                                ; preds = %.lr.ph.i
-  %5 = getelementptr inbounds i8, ptr %1, i64 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i8, ptr %7, align 1
   %.not15.i = icmp eq i8 %8, 0
@@ -7384,7 +7384,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
 
 9:                                                ; preds = %.lr.ph.i14
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i15, 1
-  %10 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv.next.i18
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.next.i18
   %11 = load i8, ptr %10, align 1
   %.not.i19 = icmp eq i8 %11, 0
   br i1 %.not.i19, label %.loopexit, label %.lr.ph.i14, !llvm.loop !66
@@ -7392,34 +7392,34 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
 .lr.ph.i14:                                       ; preds = %4, %9
   %indvars.iv.i15 = phi i64 [ %indvars.iv.next.i18, %9 ], [ 0, %4 ]
   %12 = phi i8 [ %11, %9 ], [ %8, %4 ]
-  %13 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.i15
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i15
   %14 = load i8, ptr %13, align 1
   %.not11.i16 = icmp eq i8 %14, %12
   br i1 %.not11.i16, label %9, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 .loopexit:                                        ; preds = %9, %4
   %.lcssa.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i18, %9 ]
-  %15 = getelementptr inbounds i8, ptr %5, i64 %.lcssa.i
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 %.lcssa.i
   %16 = load i8, ptr %15, align 1
   %.not11.i25 = icmp eq i8 %16, 61
   br i1 %.not11.i25, label %17, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
 17:                                               ; preds = %.loopexit
-  %18 = getelementptr inbounds i8, ptr %15, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %19 = call double @strtod(ptr noundef nonnull %18, ptr noundef nonnull %2) #24
   %20 = load ptr, ptr %2, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %25 = load double, ptr %24, align 8
   %26 = fcmp ult double %19, %25
   br i1 %26, label %36, label %27
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 57
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   %31 = fcmp oeq double %19, %25
@@ -7439,7 +7439,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
   br i1 %38, label %48, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
   %43 = fcmp oeq double %19, %37
@@ -7454,7 +7454,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6Gluco212DoubleOption5parseEPKc(ptr n
   unreachable
 
 48:                                               ; preds = %39, %36
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %19, ptr %49, align 8
   br label %_ZN6Gluco2L5matchIPKcEEbRT_S2_.exit
 
@@ -7466,30 +7466,30 @@ _ZN6Gluco2L5matchIPKcEEbRT_S2_.exit:              ; preds = %.lr.ph.i14, %.lr.ph
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Gluco212DoubleOption4helpEb(ptr noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) unnamed_addr #0 comdat align 2 {
   %3 = load ptr, ptr @stderr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   %12 = select i1 %11, i32 91, i32 40
   %13 = load double, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = load double, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 57
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %17 = load i8, ptr %16, align 1
   %18 = trunc i8 %17 to i1
   %19 = select i1 %18, i32 93, i32 41
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load double, ptr %20, align 8
   %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.51, ptr noundef %5, ptr noundef %7, i32 noundef %12, double noundef %13, double noundef %15, i32 noundef %19, double noundef %21) #29
   br i1 %1, label %23, label %29
 
 23:                                               ; preds = %2
   %24 = load ptr, ptr @stderr, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.38, ptr noundef %26) #29
   %28 = load ptr, ptr @stderr, align 8
@@ -7505,13 +7505,13 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE6updateEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %1, %4
   br i1 %5, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit, label %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread
 
 _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit: ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %1 to i64
   %9 = getelementptr inbounds i32, ptr %7, i64 %8
@@ -7524,10 +7524,10 @@ _ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit.thread: ; preds = %2, %_
   br label %63
 
 12:                                               ; preds = %_ZNK6Gluco24HeapINS_10SimpSolver6ElimLtEE6inHeapEi.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr inbounds i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4
   %.not21.i = icmp eq i32 %10, 0
   br i1 %.not21.i, label %_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit, label %.lr.ph.i
@@ -7608,12 +7608,12 @@ _ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE11percolateUpEi.exit: ; preds = %22, %12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE13percolateDownEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i32, ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = shl nsw i32 %1, 1
   %10 = or disjoint i32 %9, 1
   %11 = load i32, ptr %8, align 8
@@ -7625,7 +7625,7 @@ define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE13percolateDow
   %14 = sext i32 %13 to i64
   %15 = or disjoint i32 %13, 1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %18
 
 18:                                               ; preds = %.lr.ph, %76
@@ -7743,7 +7743,7 @@ define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE13percolateDow
   %.0.lcssa = phi i32 [ %.0.lcssa.ph, %._crit_edge.loopexit ], [ %1, %2 ]
   %90 = getelementptr inbounds i32, ptr %89, i64 %.pre-phi39
   store i32 %7, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %0, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = sext i32 %7 to i64
   %94 = getelementptr inbounds i32, ptr %92, i64 %93
@@ -7754,18 +7754,18 @@ define linkonce_odr void @_ZN6Gluco24HeapINS_10SimpSolver6ElimLtEE13percolateDow
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco24HeapINS_6Solver10VarOrderLtEE6insertEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = add nsw i32 %1, 1
   store i32 -1, ptr %3, align 4
   call void @_ZN6Gluco23vecIiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %4, align 8
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds i32, ptr %9, i64 %10
   store i32 %8, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %8, %13
   br i1 %14, label %15, label %._ZN6Gluco23vecIiE8capacityEi.exit_crit_edge.i
@@ -7877,13 +7877,13 @@ _ZN6Gluco24HeapINS_6Solver10VarOrderLtEE11percolateUpEi.exit: ; preds = %.lr.ph.
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco23vecIiE6growToEiRKi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %5, %1
   br i1 %.not, label %6, label %37
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp slt i32 %8, %1
   br i1 %.not.i, label %9, label %_ZN6Gluco23vecIiE8capacityEi.exit
@@ -7952,7 +7952,7 @@ _ZN6Gluco23vecIiE8capacityEi.exit:                ; preds = %6, %19, %26
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEEjRKT_b(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i1 noundef zeroext %2) local_unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 1
   %7 = zext i1 %2 to i8
@@ -7964,7 +7964,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEE
   %12 = zext nneg i8 %8 to i32
   %13 = add i32 %11, 3
   %14 = add i32 %13, %12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = add i32 %14, %16
   tail call void @_ZN6Gluco215RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %17)
@@ -7982,7 +7982,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco215ClauseAllocator5allocINS_6ClauseEEE
 _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   %23 = load ptr, ptr %0, align 8
   %24 = zext i32 %18 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   %26 = load i96, ptr %25, align 4
   %27 = select i1 %2, i96 4, i96 0
   %28 = and i96 %26, -32
@@ -8003,15 +8003,15 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   br i1 %40, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %_ZN6Gluco215RegionAllocatorIjE5allocEi.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 12
-  %42 = getelementptr inbounds i8, ptr %25, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 12
   br label %43
 
 43:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
-  %44 = getelementptr inbounds [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [0 x %union.anon], ptr %41, i64 0, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %44, align 4
-  %45 = getelementptr inbounds [0 x %union.anon], ptr %42, i64 0, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [0 x %union.anon], ptr %42, i64 0, i64 %indvars.iv.i
   store i32 %.sroa.0.0.copyload.i.i, ptr %45, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = load i96, ptr %1, align 4
@@ -8027,10 +8027,10 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   br i1 %2, label %51, label %56
 
 51:                                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %25, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %53 = trunc i96 %32 to i64
   %54 = lshr i64 %53, 32
-  %55 = getelementptr inbounds [0 x %union.anon], ptr %52, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [0 x %union.anon], ptr %52, i64 0, i64 %54
   store float 0.000000e+00, ptr %55, align 4
   br label %_ZN6Gluco26ClauseC2IS0_EERKT_bb.exit
 
@@ -8041,7 +8041,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
   br i1 %59, label %.lr.ph.i.i, label %_ZN6Gluco26Clause15calcAbstractionEv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %25, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %61 = trunc nuw i96 %57 to i64
   %wide.trip.count.i.i = and i64 %61, 2147483647
   br label %62
@@ -8049,7 +8049,7 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
 62:                                               ; preds = %62, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %62 ]
   %.07.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %67, %62 ]
-  %63 = getelementptr inbounds [0 x %union.anon], ptr %60, i64 0, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw [0 x %union.anon], ptr %60, i64 0, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i10.i = load i32, ptr %63, align 4
   %64 = lshr i32 %.sroa.0.0.copyload.i10.i, 1
   %65 = and i32 %64, 31
@@ -8061,10 +8061,10 @@ _ZN6Gluco215RegionAllocatorIjE5allocEi.exit:      ; preds = %3
 
 _ZN6Gluco26Clause15calcAbstractionEv.exit.i:      ; preds = %62, %56
   %.0.lcssa.i.i = phi i32 [ 0, %56 ], [ %67, %62 ]
-  %68 = getelementptr inbounds i8, ptr %25, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %69 = trunc i96 %32 to i64
   %70 = lshr i64 %69, 32
-  %71 = getelementptr inbounds [0 x %union.anon], ptr %68, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [0 x %union.anon], ptr %68, i64 0, i64 %70
   store i32 %.0.lcssa.i.i, ptr %71, align 4
   br label %_ZN6Gluco26ClauseC2IS0_EERKT_bb.exit
 
@@ -8074,7 +8074,7 @@ _ZN6Gluco26ClauseC2IS0_EERKT_bb.exit:             ; preds = %._crit_edge.i, %51,
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco215RegionAllocatorIjE8capacityEj(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp ult i32 %4, %1
   br i1 %.not, label %.preheader, label %28
@@ -8129,13 +8129,13 @@ _ZN6Gluco2L8xreallocEPvm.exit:                    ; preds = %16, %22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco23vecIjE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %36
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp slt i32 %7, %1
   br i1 %.not.i, label %8, label %_ZN6Gluco23vecIjE8capacityEi.exit
@@ -8203,13 +8203,13 @@ _ZN6Gluco23vecIjE8capacityEi.exit:                ; preds = %5, %18, %25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco23vecINS0_IjEEE6growToEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp slt i32 %4, %1
   br i1 %.not, label %5, label %36
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %.not.i = icmp slt i32 %7, %1
   br i1 %.not.i, label %8, label %_ZN6Gluco23vecINS0_IjEEE8capacityEi.exit
@@ -8277,13 +8277,13 @@ _ZN6Gluco23vecINS0_IjEEE8capacityEi.exit:         ; preds = %5, %18, %25
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6Gluco23vecIcE6growToEiRKc(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #2 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %5, %1
   br i1 %.not, label %6, label %36
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %.not.i = icmp slt i32 %8, %1
   br i1 %.not.i, label %9, label %_ZN6Gluco23vecIcE8capacityEi.exit
@@ -8353,32 +8353,32 @@ _ZN6Gluco23vecIcE8capacityEi.exit:                ; preds = %6, %19, %25
 define internal void @_GLOBAL__sub_I_SimpSolver2.cpp() #17 section ".text.startup" {
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_use_asymm, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco210BoolOptionE, i64 16), ptr @_ZL13opt_use_asymm, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL13opt_use_asymm, i64 40), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_use_rcheck, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco210BoolOptionE, i64 16), ptr @_ZL14opt_use_rcheck, align 8
-  store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL14opt_use_rcheck, i64 40), align 8
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL14opt_use_rcheck, i64 40), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL12opt_use_elim, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco210BoolOptionE, i64 16), ptr @_ZL12opt_use_elim, align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @_ZL12opt_use_elim, i64 40), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @_ZL12opt_use_elim, i64 40), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL8opt_grow, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.40)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco29IntOptionE, i64 16), ptr @_ZL8opt_grow, align 8
-  store i64 9223372034707292160, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZL8opt_grow, i64 48), align 8
+  store i64 9223372034707292160, ptr getelementptr inbounds nuw (i8, ptr @_ZL8opt_grow, i64 40), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZL8opt_grow, i64 48), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_clause_lim, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.40)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco29IntOptionE, i64 16), ptr @_ZL14opt_clause_lim, align 8
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @_ZL14opt_clause_lim, i64 40), align 8
-  store i32 20, ptr getelementptr inbounds (i8, ptr @_ZL14opt_clause_lim, i64 48), align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @_ZL14opt_clause_lim, i64 40), align 8
+  store i32 20, ptr getelementptr inbounds nuw (i8, ptr @_ZL14opt_clause_lim, i64 48), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_subsumption_lim, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.40)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco29IntOptionE, i64 16), ptr @_ZL19opt_subsumption_lim, align 8
-  store i64 9223372036854775807, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 40), align 8
-  store i32 1000, ptr getelementptr inbounds (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
+  store i64 9223372036854775807, ptr getelementptr inbounds nuw (i8, ptr @_ZL19opt_subsumption_lim, i64 40), align 8
+  store i32 1000, ptr getelementptr inbounds nuw (i8, ptr @_ZL19opt_subsumption_lim, i64 48), align 8
   tail call void @_ZN6Gluco26OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL21opt_simp_garbage_frac, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.50)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco212DoubleOptionE, i64 16), ptr @_ZL21opt_simp_garbage_frac, align 8
-  store double 0.000000e+00, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
+  store double 0.000000e+00, ptr getelementptr inbounds nuw (i8, ptr @_ZL21opt_simp_garbage_frac, i64 40), align 8
   store double 0x7FF0000000000000, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 48), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 56), align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 57), align 1
-  store double 5.000000e-01, ptr getelementptr inbounds (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8
+  store double 5.000000e-01, ptr getelementptr inbounds nuw (i8, ptr @_ZL21opt_simp_garbage_frac, i64 64), align 8
   ret void
 }
 

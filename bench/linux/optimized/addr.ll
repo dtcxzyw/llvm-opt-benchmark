@@ -29,15 +29,15 @@ define dso_local range(i64 -2147483648, 2147483659) i64 @rpc_ntop(ptr noundef %0
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.1, ptr noundef %7) #10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #10
   %9 = sext i32 %8 to i64
   br label %60
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %4, i8 0, i64 12, i1 false), !annotation !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
@@ -78,7 +78,7 @@ define dso_local range(i64 -2147483648, 2147483659) i64 @rpc_ntop(ptr noundef %0
   br label %rpc_ntop6_noscopeid.exit
 
 36:                                               ; preds = %27
-  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %32, ptr noundef nonnull @.str.6, ptr noundef %11) #10
+  %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %32, ptr noundef nonnull @.str.6, ptr noundef nonnull %11) #10
   br label %rpc_ntop6_noscopeid.exit
 
 rpc_ntop6_noscopeid.exit:                         ; preds = %17, %24, %33, %36
@@ -88,13 +88,13 @@ rpc_ntop6_noscopeid.exit:                         ; preds = %17, %24, %33, %36
   br i1 %40, label %58, label %41, !prof !6
 
 41:                                               ; preds = %rpc_ntop6_noscopeid.exit
-  %42 = tail call i32 @__ipv6_addr_type(ptr noundef %11) #10
+  %42 = tail call i32 @__ipv6_addr_type(ptr noundef nonnull %11) #10
   %43 = and i32 %42, 32
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %58, label %45
 
 45:                                               ; preds = %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %58, label %49
@@ -155,10 +155,10 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
   br i1 %22, label %63, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(28) %3, i8 0, i64 28, i1 false)
   %25 = trunc nuw nsw i64 %2 to i32
-  %26 = call i32 @in6_pton(ptr noundef %1, i32 noundef %25, ptr noundef %24, i32 noundef 37, ptr noundef nonnull %8) #10
+  %26 = call i32 @in6_pton(ptr noundef %1, i32 noundef %25, ptr noundef nonnull %24, i32 noundef 37, ptr noundef nonnull %8) #10
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %63, label %28
 
@@ -178,7 +178,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
   br i1 %34, label %35, label %61
 
 35:                                               ; preds = %32
-  %36 = call i32 @__ipv6_addr_type(ptr noundef %24) #10
+  %36 = call i32 @__ipv6_addr_type(ptr noundef nonnull %24) #10
   %37 = and i32 %36, 32
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %61, label %39
@@ -201,9 +201,9 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
   br i1 %49, label %55, label %50
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %48, i64 216
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 216
   %52 = load i32, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %48, i64 1280
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 1280
   %54 = load ptr, ptr %53, align 8
   call void asm sideeffect "decl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %54, ptr elementtype(i32) %54) #10, !srcloc !11
   br label %58
@@ -219,7 +219,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
 
 58:                                               ; preds = %._crit_edge, %50
   %59 = phi i32 [ %.pre, %._crit_edge ], [ %52, %50 ]
-  %60 = getelementptr inbounds i8, ptr %3, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %59, ptr %60, align 4
   br label %62
 
@@ -246,10 +246,10 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_pton(ptr noundef %0, ptr noun
   br i1 %67, label %74, label %68
 
 68:                                               ; preds = %.loopexit
-  %69 = getelementptr inbounds i8, ptr %3, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %70 = trunc nuw nsw i64 %2 to i32
-  %71 = tail call i32 @in4_pton(ptr noundef %1, i32 noundef %70, ptr noundef %69, i32 noundef 0, ptr noundef null) #10
+  %71 = tail call i32 @in4_pton(ptr noundef %1, i32 noundef %70, ptr noundef nonnull %69, i32 noundef 0, ptr noundef null) #10
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %74, label %73
 
@@ -283,13 +283,13 @@ define dso_local noalias ptr @rpc_sockaddr2uaddr(ptr noundef %0, i32 noundef %1)
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
-  %8 = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 57, ptr noundef nonnull @.str.1, ptr noundef %7) #10
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 57, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #10
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %49, label %.thread
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
@@ -324,7 +324,7 @@ define dso_local noalias ptr @rpc_sockaddr2uaddr(ptr noundef %0, i32 noundef %1)
   br label %33
 
 31:                                               ; preds = %23
-  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 57, ptr noundef nonnull @.str.6, ptr noundef %11) #10
+  %32 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 57, ptr noundef nonnull @.str.6, ptr noundef nonnull %11) #10
   br label %33
 
 33:                                               ; preds = %31, %28
@@ -333,7 +333,7 @@ define dso_local noalias ptr @rpc_sockaddr2uaddr(ptr noundef %0, i32 noundef %1)
   br i1 %35, label %49, label %.thread
 
 .thread:                                          ; preds = %22, %17, %33, %6
-  %36 = getelementptr inbounds i8, ptr %0, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %37 = load i16, ptr %36, align 2
   %38 = tail call i16 @llvm.bswap.i16(i16 %37)
   %39 = zext i16 %38 to i32
@@ -440,7 +440,7 @@ define dso_local noundef range(i64 0, 29) i64 @rpc_uaddr2sockaddr(ptr noundef %0
 38:                                               ; preds = %37, %35
   %39 = phi i64 [ 28, %37 ], [ 16, %35 ]
   %40 = call i16 @llvm.bswap.i16(i16 %31)
-  %41 = getelementptr inbounds i8, ptr %3, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %40, ptr %41, align 2
   br label %42
 

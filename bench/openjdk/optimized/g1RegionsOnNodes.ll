@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1RegionsOnNodesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN6G1NUMA5_instE, align 8
   store ptr %3, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
@@ -28,7 +28,7 @@ define hidden void @_ZN16G1RegionsOnNodesC2Ev(ptr nocapture noundef nonnull alig
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i32, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i
   store volatile i32 0, ptr %11, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %12 = load ptr, ptr %2, align 8
@@ -47,7 +47,7 @@ declare noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1RegionsOnNodes5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
   %.not = icmp eq i32 %4, 0
@@ -56,7 +56,7 @@ define hidden void @_ZN16G1RegionsOnNodes5clearEv(ptr nocapture noundef nonnull 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   store volatile i32 0, ptr %6, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %2, align 8
@@ -80,9 +80,9 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 @_ZNK6G1NUMA16num_active_nodesEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #3
   %8 = icmp ult i32 %4, %7
@@ -91,7 +91,7 @@ define hidden noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr nocaptu
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
   %13 = load volatile i32, ptr %12, align 4
   %14 = add i32 %13, 1
   store volatile i32 %14, ptr %12, align 4
@@ -106,7 +106,7 @@ define hidden noundef i32 @_ZN16G1RegionsOnNodes3addEP12G1HeapRegion(ptr nocaptu
 define hidden noundef i32 @_ZNK16G1RegionsOnNodes5countEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds i32, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw i32, ptr %3, i64 %4
   %6 = load volatile i32, ptr %5, align 4
   ret i32 %6
 }

@@ -30,7 +30,7 @@ define range(i32 -2, 1) i32 @KINDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1)
   br label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -41,12 +41,12 @@ define range(i32 -2, 1) i32 @KINDlsSetDenseJacFn(ptr noundef %0, ptr noundef %1)
 
 10:                                               ; preds = %5
   %.not = icmp eq ptr %1, null
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
   store i32 0, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr %1, ptr %13, align 8
   br label %15
 
@@ -71,7 +71,7 @@ define range(i32 -2, 1) i32 @KINDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) 
   br label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -82,12 +82,12 @@ define range(i32 -2, 1) i32 @KINDlsSetBandJacFn(ptr noundef %0, ptr noundef %1) 
 
 10:                                               ; preds = %5
   %.not = icmp eq ptr %1, null
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
   store i32 0, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %1, ptr %13, align 8
   br label %15
 
@@ -110,7 +110,7 @@ define range(i32 -2, 1) i32 @KINDlsGetWorkSpace(ptr noundef %0, ptr nocapture no
   br label %33
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 496
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
@@ -127,7 +127,7 @@ define range(i32 -2, 1) i32 @KINDlsGetWorkSpace(ptr noundef %0, ptr nocapture no
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = mul nsw i64 %15, %15
   store i64 %16, ptr %1, align 8
@@ -136,13 +136,13 @@ define range(i32 -2, 1) i32 @KINDlsGetWorkSpace(ptr noundef %0, ptr nocapture no
   br label %33
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %8, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %8, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %8, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = shl nsw i64 %26, 1
   %28 = add i64 %22, 2
@@ -169,7 +169,7 @@ define range(i32 -2, 1) i32 @KINDlsGetNumJacEvals(ptr noundef %0, ptr nocapture 
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -179,7 +179,7 @@ define range(i32 -2, 1) i32 @KINDlsGetNumJacEvals(ptr noundef %0, ptr nocapture 
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -199,7 +199,7 @@ define range(i32 -2, 1) i32 @KINDlsGetNumFuncEvals(ptr noundef %0, ptr nocapture
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -209,7 +209,7 @@ define range(i32 -2, 1) i32 @KINDlsGetNumFuncEvals(ptr noundef %0, ptr nocapture
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -229,7 +229,7 @@ define range(i32 -2, 1) i32 @KINDlsGetLastFlag(ptr noundef %0, ptr nocapture nou
   br label %13
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
@@ -239,7 +239,7 @@ define range(i32 -2, 1) i32 @KINDlsGetLastFlag(ptr noundef %0, ptr nocapture nou
   br label %13
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %7, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %12 = load i64, ptr %11, align 8
   store i64 %12, ptr %1, align 8
   br label %13
@@ -293,33 +293,33 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @kinDlsDenseDQJac(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %8 = getelementptr inbounds i8, ptr %4, i64 496
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 496
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @N_VGetArrayPointer(ptr noundef %6) #6
   %11 = tail call ptr @N_VGetArrayPointer(ptr noundef %1) #6
-  %12 = getelementptr inbounds i8, ptr %4, i64 296
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 296
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @N_VGetArrayPointer(ptr noundef %13) #6
   %15 = icmp sgt i64 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %3, i64 72
-  %17 = getelementptr inbounds i8, ptr %4, i64 136
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
-  %20 = getelementptr inbounds i8, ptr %9, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 104
   br label %21
 
 21:                                               ; preds = %.lr.ph, %48
   %.04448 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
   %22 = load ptr, ptr %16, align 8
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %.04448
+  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.04448
   %24 = load ptr, ptr %23, align 8
   tail call void @N_VSetArrayPointer(ptr noundef %24, ptr noundef %6) #6
-  %25 = getelementptr inbounds double, ptr %11, i64 %.04448
+  %25 = getelementptr inbounds nuw double, ptr %11, i64 %.04448
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %14, i64 %.04448
+  %27 = getelementptr inbounds nuw double, ptr %14, i64 %.04448
   %28 = load double, ptr %27, align 8
   %29 = fdiv double 1.000000e+00, %28
   %30 = fcmp oge double %26, 0.000000e+00
@@ -374,12 +374,12 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
-  %10 = getelementptr inbounds i8, ptr %6, i64 496
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 496
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @N_VGetArrayPointer(ptr noundef %4) #6
   %13 = tail call ptr @N_VGetArrayPointer(ptr noundef %7) #6
   %14 = tail call ptr @N_VGetArrayPointer(ptr noundef %3) #6
-  %15 = getelementptr inbounds i8, ptr %6, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @N_VGetArrayPointer(ptr noundef %16) #6
   %18 = tail call ptr @N_VGetArrayPointer(ptr noundef %8) #6
@@ -391,11 +391,11 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
   br i1 %.not106, label %._crit_edge110, label %.lr.ph109
 
 .lr.ph109:                                        ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %6, i64 136
-  %23 = getelementptr inbounds i8, ptr %6, i64 8
-  %24 = getelementptr inbounds i8, ptr %6, i64 16
-  %25 = getelementptr inbounds i8, ptr %5, i64 72
-  %26 = getelementptr inbounds i8, ptr %5, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 136
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %27 = add nsw i64 %0, -1
   br label %.lr.ph.preheader
 
@@ -490,9 +490,9 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
 
 .lr.ph101:                                        ; preds = %78, %.lr.ph101
   %.08999 = phi i64 [ %93, %.lr.ph101 ], [ %83, %78 ]
-  %85 = getelementptr inbounds double, ptr %13, i64 %.08999
+  %85 = getelementptr inbounds nuw double, ptr %13, i64 %.08999
   %86 = load double, ptr %85, align 8
-  %87 = getelementptr inbounds double, ptr %12, i64 %.08999
+  %87 = getelementptr inbounds nuw double, ptr %12, i64 %.08999
   %88 = load double, ptr %87, align 8
   %89 = fsub double %86, %88
   %90 = fmul double %81, %89
@@ -514,7 +514,7 @@ define range(i32 -1, 1) i32 @kinDlsBandDQJac(i64 noundef %0, i64 noundef %1, i64
   br i1 %exitcond.not, label %._crit_edge110, label %.lr.ph.preheader, !llvm.loop !9
 
 ._crit_edge110:                                   ; preds = %._crit_edge105, %9
-  %97 = getelementptr inbounds i8, ptr %11, i64 104
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %98 = load i64, ptr %97, align 8
   %99 = add nsw i64 %98, %21
   store i64 %99, ptr %97, align 8

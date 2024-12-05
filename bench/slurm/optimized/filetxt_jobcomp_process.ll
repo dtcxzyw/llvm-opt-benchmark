@@ -53,8 +53,8 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br i1 %.not93, label %_open_log_file.exit._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_open_log_file.exit.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 136
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %11
 
 10:                                               ; preds = %1
@@ -87,9 +87,9 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br i1 %.not67, label %.loopexit, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %strchr, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %strchr, i64 1
   store i8 0, ptr %strchr, align 1
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %18, ptr %19, align 8
   %strchr68 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 32)
   %20 = load ptr, ptr %16, align 8
@@ -125,7 +125,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br i1 %.not73, label %.loopexit, label %.loopexit.sink.split
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %strchr68, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %strchr68, i64 1
   store i8 0, ptr %strchr68, align 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 10
@@ -163,7 +163,7 @@ _open_log_file.exit.preheader:                    ; preds = %1
   br i1 %.not77, label %50, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %45, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i32, ptr %47, align 4
   %.not78 = icmp eq i32 %48, %.154
   br i1 %.not78, label %49, label %44, !llvm.loop !8
@@ -226,30 +226,30 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not135.i, label %293, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %67, i64 248
-  %71 = getelementptr inbounds i8, ptr %67, i64 240
-  %72 = getelementptr inbounds i8, ptr %67, i64 232
-  %73 = getelementptr inbounds i8, ptr %67, i64 224
-  %74 = getelementptr inbounds i8, ptr %67, i64 216
-  %75 = getelementptr inbounds i8, ptr %67, i64 208
-  %76 = getelementptr inbounds i8, ptr %67, i64 200
-  %77 = getelementptr inbounds i8, ptr %67, i64 192
-  %78 = getelementptr inbounds i8, ptr %67, i64 184
-  %79 = getelementptr inbounds i8, ptr %67, i64 176
-  %80 = getelementptr inbounds i8, ptr %67, i64 168
-  %81 = getelementptr inbounds i8, ptr %67, i64 104
-  %82 = getelementptr inbounds i8, ptr %67, i64 96
-  %83 = getelementptr inbounds i8, ptr %67, i64 76
-  %84 = getelementptr inbounds i8, ptr %67, i64 72
-  %85 = getelementptr inbounds i8, ptr %67, i64 80
-  %86 = getelementptr inbounds i8, ptr %67, i64 88
-  %87 = getelementptr inbounds i8, ptr %67, i64 56
-  %88 = getelementptr inbounds i8, ptr %67, i64 64
-  %89 = getelementptr inbounds i8, ptr %67, i64 40
-  %90 = getelementptr inbounds i8, ptr %67, i64 48
-  %91 = getelementptr inbounds i8, ptr %67, i64 24
-  %92 = getelementptr inbounds i8, ptr %67, i64 16
-  %93 = getelementptr inbounds i8, ptr %67, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 248
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 240
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 232
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 224
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 216
+  %75 = getelementptr inbounds nuw i8, ptr %67, i64 208
+  %76 = getelementptr inbounds nuw i8, ptr %67, i64 200
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 192
+  %78 = getelementptr inbounds nuw i8, ptr %67, i64 184
+  %79 = getelementptr inbounds nuw i8, ptr %67, i64 176
+  %80 = getelementptr inbounds nuw i8, ptr %67, i64 168
+  %81 = getelementptr inbounds nuw i8, ptr %67, i64 104
+  %82 = getelementptr inbounds nuw i8, ptr %67, i64 96
+  %83 = getelementptr inbounds nuw i8, ptr %67, i64 76
+  %84 = getelementptr inbounds nuw i8, ptr %67, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 88
+  %87 = getelementptr inbounds nuw i8, ptr %67, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %67, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %67, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %67, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %67, i64 8
   br label %94
 
 94:                                               ; preds = %286, %.lr.ph.i
@@ -262,7 +262,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not107.i, label %98, label %102
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds i8, ptr %95, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %100 = load ptr, ptr %99, align 8
   %101 = call i32 @atoi(ptr nocapture noundef %100) #10
   store i32 %101, ptr %67, align 8
@@ -275,7 +275,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not108.i, label %105, label %109
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %95, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %107 = load ptr, ptr %106, align 8
   %108 = call ptr @xstrdup(ptr noundef %107) #7
   store ptr %108, ptr %93, align 8
@@ -288,7 +288,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not109.i, label %112, label %117
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %95, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %114 = load ptr, ptr %113, align 8
   %115 = call ptr @xstrdup(ptr noundef %114) #7
   store ptr %115, ptr %92, align 8
@@ -302,7 +302,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not110.i, label %120, label %125
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %95, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %122 = load ptr, ptr %121, align 8
   %123 = call ptr @xstrdup(ptr noundef %122) #7
   store ptr %123, ptr %91, align 8
@@ -316,7 +316,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not111.i, label %128, label %140
 
 128:                                              ; preds = %125
-  %129 = getelementptr inbounds i8, ptr %95, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %130 = load ptr, ptr %129, align 8
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %130, i32 40)
   %.not112.i = icmp eq ptr %strchr.i, null
@@ -330,7 +330,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br label %286
 
 135:                                              ; preds = %128
-  %136 = getelementptr inbounds i8, ptr %strchr.i, i64 1
+  %136 = getelementptr inbounds nuw i8, ptr %strchr.i, i64 1
   %137 = call i32 @atoi(ptr nocapture noundef nonnull %136) #10
   store i32 %137, ptr %89, align 8
   %138 = load ptr, ptr %129, align 8
@@ -345,7 +345,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not113.i, label %143, label %155
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %95, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %145 = load ptr, ptr %144, align 8
   %strchr114.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %145, i32 40)
   %.not115.i = icmp eq ptr %strchr114.i, null
@@ -359,7 +359,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br label %286
 
 150:                                              ; preds = %143
-  %151 = getelementptr inbounds i8, ptr %strchr114.i, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %strchr114.i, i64 1
   %152 = call i32 @atoi(ptr nocapture noundef nonnull %151) #10
   store i32 %152, ptr %87, align 8
   %153 = load ptr, ptr %144, align 8
@@ -374,7 +374,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not116.i, label %158, label %162
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %95, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = call ptr @xstrdup(ptr noundef %160) #7
   store ptr %161, ptr %86, align 8
@@ -387,7 +387,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not117.i, label %165, label %169
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds i8, ptr %95, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = call ptr @xstrdup(ptr noundef %167) #7
   store ptr %168, ptr %85, align 8
@@ -400,7 +400,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not118.i, label %172, label %176
 
 172:                                              ; preds = %169
-  %173 = getelementptr inbounds i8, ptr %95, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %174 = load ptr, ptr %173, align 8
   %175 = call i32 @atoi(ptr nocapture noundef %174) #10
   store i32 %175, ptr %84, align 8
@@ -413,7 +413,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not119.i, label %179, label %183
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %95, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = call i32 @atoi(ptr nocapture noundef %181) #10
   store i32 %182, ptr %83, align 4
@@ -426,7 +426,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not120.i, label %186, label %190
 
 186:                                              ; preds = %183
-  %187 = getelementptr inbounds i8, ptr %95, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %188 = load ptr, ptr %187, align 8
   %189 = call ptr @xstrdup(ptr noundef %188) #7
   store ptr %189, ptr %82, align 8
@@ -439,7 +439,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not121.i, label %193, label %197
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i8, ptr %95, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = call ptr @xstrdup(ptr noundef %195) #7
   store ptr %196, ptr %81, align 8
@@ -452,7 +452,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not122.i, label %200, label %204
 
 200:                                              ; preds = %197
-  %201 = getelementptr inbounds i8, ptr %95, i64 8
+  %201 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %202 = load ptr, ptr %201, align 8
   %203 = call ptr @xstrdup(ptr noundef %202) #7
   store ptr %203, ptr %80, align 8
@@ -465,7 +465,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not123.i, label %207, label %211
 
 207:                                              ; preds = %204
-  %208 = getelementptr inbounds i8, ptr %95, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %209 = load ptr, ptr %208, align 8
   %210 = call ptr @xstrdup(ptr noundef %209) #7
   store ptr %210, ptr %79, align 8
@@ -478,7 +478,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not124.i, label %214, label %218
 
 214:                                              ; preds = %211
-  %215 = getelementptr inbounds i8, ptr %95, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %216 = load ptr, ptr %215, align 8
   %217 = call ptr @xstrdup(ptr noundef %216) #7
   store ptr %217, ptr %78, align 8
@@ -491,7 +491,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not125.i, label %221, label %225
 
 221:                                              ; preds = %218
-  %222 = getelementptr inbounds i8, ptr %95, i64 8
+  %222 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %223 = load ptr, ptr %222, align 8
   %224 = call ptr @xstrdup(ptr noundef %223) #7
   store ptr %224, ptr %78, align 8
@@ -504,7 +504,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not126.i, label %228, label %232
 
 228:                                              ; preds = %225
-  %229 = getelementptr inbounds i8, ptr %95, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = call ptr @xstrdup(ptr noundef %230) #7
   store ptr %231, ptr %77, align 8
@@ -517,7 +517,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not127.i, label %235, label %239
 
 235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %95, i64 8
+  %236 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %237 = load ptr, ptr %236, align 8
   %238 = call ptr @xstrdup(ptr noundef %237) #7
   store ptr %238, ptr %76, align 8
@@ -530,7 +530,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not128.i, label %242, label %246
 
 242:                                              ; preds = %239
-  %243 = getelementptr inbounds i8, ptr %95, i64 8
+  %243 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %244 = load ptr, ptr %243, align 8
   %245 = call ptr @xstrdup(ptr noundef %244) #7
   store ptr %245, ptr %75, align 8
@@ -543,7 +543,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not129.i, label %249, label %253
 
 249:                                              ; preds = %246
-  %250 = getelementptr inbounds i8, ptr %95, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %251 = load ptr, ptr %250, align 8
   %252 = call ptr @xstrdup(ptr noundef %251) #7
   store ptr %252, ptr %74, align 8
@@ -556,7 +556,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not130.i, label %256, label %260
 
 256:                                              ; preds = %253
-  %257 = getelementptr inbounds i8, ptr %95, i64 8
+  %257 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %258 = load ptr, ptr %257, align 8
   %259 = call ptr @xstrdup(ptr noundef %258) #7
   store ptr %259, ptr %73, align 8
@@ -569,7 +569,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not131.i, label %263, label %267
 
 263:                                              ; preds = %260
-  %264 = getelementptr inbounds i8, ptr %95, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %265 = load ptr, ptr %264, align 8
   %266 = call ptr @xstrdup(ptr noundef %265) #7
   store ptr %266, ptr %72, align 8
@@ -582,7 +582,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not132.i, label %270, label %274
 
 270:                                              ; preds = %267
-  %271 = getelementptr inbounds i8, ptr %95, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = call ptr @xstrdup(ptr noundef %272) #7
   store ptr %273, ptr %71, align 8
@@ -595,7 +595,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not133.i, label %277, label %281
 
 277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %95, i64 8
+  %278 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %279 = load ptr, ptr %278, align 8
   %280 = call ptr @xstrdup(ptr noundef %279) #7
   store ptr %280, ptr %70, align 8
@@ -603,7 +603,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 
 281:                                              ; preds = %274
   %282 = load ptr, ptr %95, align 8
-  %283 = getelementptr inbounds i8, ptr %95, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %284 = load ptr, ptr %283, align 8
   %285 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.32, ptr noundef %282, ptr noundef %284) #7
   br label %286
@@ -627,7 +627,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
 
 293:                                              ; preds = %66, %._crit_edge.i
   %.sink.i = phi i64 [ 0, %66 ], [ %spec.select.i, %._crit_edge.i ]
-  %294 = getelementptr inbounds i8, ptr %67, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store i64 %.sink.i, ptr %294, align 8
   call void @list_iterator_destroy(ptr noundef %68) #7
   call void @list_append(ptr noundef %3, ptr noundef nonnull %67) #7

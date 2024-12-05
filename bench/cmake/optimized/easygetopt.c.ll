@@ -24,27 +24,27 @@ define dso_local noundef ptr @curl_easy_option_by_name(ptr noundef %0) local_unn
   br i1 %.not15.us.i, label %4, label %lookup.exit
 
 4:                                                ; preds = %.preheader.split.us.i
-  %5 = getelementptr inbounds i8, ptr %.0.us.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not16.us.i = icmp eq ptr %6, null
   br i1 %.not16.us.i, label %lookup.exit, label %.preheader.split.us.i, !llvm.loop !5
 
 .preheader.split.i:                               ; preds = %1, %14
   %.0.i = phi ptr [ %15, %14 ], [ @Curl_easyopts, %1 ]
-  %7 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 325
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %.preheader.split.i
-  %11 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %lookup.exit, label %14
 
 14:                                               ; preds = %10, %.preheader.split.i
-  %15 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not16.i = icmp eq ptr %16, null
   br i1 %.not16.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !5
@@ -61,20 +61,20 @@ define dso_local noundef ptr @curl_easy_option_by_id(i32 noundef %0) local_unnam
 
 .preheader.split.i:                               ; preds = %1, %9
   %.0.i = phi ptr [ %10, %9 ], [ @Curl_easyopts, %1 ]
-  %2 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, %0
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %.preheader.split.i
-  %6 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 1
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %lookup.exit, label %9
 
 9:                                                ; preds = %5, %.preheader.split.i
-  %10 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not16.i = icmp eq ptr %11, null
   br i1 %.not16.i, label %lookup.exit, label %.preheader.split.i, !llvm.loop !5
@@ -95,7 +95,7 @@ define dso_local noundef ptr @curl_easy_option_next(ptr noundef readonly %0) loc
   br i1 %.not8, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not9 = icmp eq ptr %6, null
   br i1 %.not9, label %7, label %.critedge

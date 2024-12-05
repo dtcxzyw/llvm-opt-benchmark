@@ -548,7 +548,7 @@ define void @ssterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph437:                                        ; preds = %.lr.ph437.preheader, %273
   %indvars.iv484 = phi i64 [ 1, %.lr.ph437.preheader ], [ %indvars.iv.next485, %273 ]
-  %266 = getelementptr inbounds float, ptr %16, i64 %indvars.iv484
+  %266 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv484
   %267 = load float, ptr %266, align 4
   %268 = call noundef float @llvm.fabs.f32(float %267)
   %269 = fcmp ogt float %268, 0x3810000000000000

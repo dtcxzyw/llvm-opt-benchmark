@@ -54,7 +54,7 @@ define dso_local i64 @datumGetSize(i64 noundef %0, i1 noundef zeroext %1, i32 no
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %12, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, 1
   %25 = and i8 %23, -2
@@ -143,7 +143,7 @@ define dso_local i64 @datumCopy(i64 noundef %0, i1 noundef zeroext %1, i32 nound
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %7, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = and i8 %12, -2
   %14 = icmp eq i8 %13, 2
@@ -228,7 +228,7 @@ define dso_local i64 @datumTransfer(i64 noundef %0, i1 noundef zeroext %1, i32 n
   br i1 %8, label %9, label %16
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %6, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %13, label %16
@@ -316,12 +316,12 @@ define dso_local zeroext i1 @datum_image_eq(i64 noundef %0, i64 noundef %1, i1 n
   %24 = and i8 %23, 1
   %.not46 = icmp eq i8 %24, 0
   %.v = select i1 %.not46, i64 4, i64 1
-  %25 = getelementptr inbounds i8, ptr %20, i64 %.v
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 %.v
   %26 = load i8, ptr %22, align 1
   %27 = and i8 %26, 1
   %.not47 = icmp eq i8 %27, 0
   %.v48 = select i1 %.not47, i64 4, i64 1
-  %28 = getelementptr inbounds i8, ptr %22, i64 %.v48
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 %.v48
   %29 = add i64 %16, -4
   %bcmp49 = tail call i32 @bcmp(ptr nonnull %25, ptr nonnull %28, i64 %29)
   %30 = icmp eq i32 %bcmp49, 0
@@ -405,7 +405,7 @@ define dso_local i32 @datum_image_hash(i64 noundef %0, i1 noundef zeroext %1, i3
   %18 = and i8 %17, 1
   %.not = icmp eq i8 %18, 0
   %.v = select i1 %.not, i64 4, i64 1
-  %19 = getelementptr inbounds i8, ptr %16, i64 %.v
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %.v
   %20 = trunc i64 %14 to i32
   %21 = add i32 %20, -4
   %22 = tail call i32 @hash_bytes(ptr noundef nonnull %19, i32 noundef %21) #9
@@ -460,7 +460,7 @@ define dso_local i64 @datumEstimateSpace(i64 noundef %0, i1 noundef zeroext %1, 
   br i1 %10, label %11, label %20
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %8, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, -2
   %15 = icmp eq i8 %14, 2
@@ -499,7 +499,7 @@ define dso_local void @datumSerialize(i64 noundef %0, i1 noundef zeroext %1, i1 
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %9, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, -2
   %16 = icmp eq i8 %15, 2

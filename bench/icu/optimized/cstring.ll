@@ -61,7 +61,7 @@ do.body:                                          ; preds = %entry, %do.body
   %2 = or disjoint i8 %0, 32
   %spec.select.i = select i1 %or.cond.i, i8 %2, i8 %0
   store i8 %spec.select.i, ptr %str.addr.0, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.0, i64 1
   %tobool1.not = icmp eq i8 %spec.select.i, 0
   br i1 %tobool1.not, label %if.end, label %do.body, !llvm.loop !4
 
@@ -83,7 +83,7 @@ do.body:                                          ; preds = %entry, %do.body
   %narrow.i = add nsw i8 %0, -32
   %spec.select.i = select i1 %or.cond.i, i8 %narrow.i, i8 %0
   store i8 %spec.select.i, ptr %str.addr.0, align 1
-  %incdec.ptr = getelementptr inbounds i8, ptr %str.addr.0, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.addr.0, i64 1
   %tobool1.not = icmp eq i8 %spec.select.i, 0
   br i1 %tobool1.not, label %if.end, label %do.body, !llvm.loop !6
 
@@ -108,7 +108,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %length.0 = phi i64 [ 1, %if.then ], [ 0, %entry ]
   %uval.0 = phi i32 [ %sub, %if.then ], [ %v, %entry ]
-  %arrayidx3 = getelementptr inbounds i8, ptr %tbuf, i64 29
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %tbuf, i64 29
   store i8 0, ptr %arrayidx3, align 1
   br label %do.body
 
@@ -132,7 +132,7 @@ do.body:                                          ; preds = %do.body, %if.end
 do.end:                                           ; preds = %do.body
   %arrayidx12.le = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   %0 = trunc nsw i64 %indvars.iv to i32
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %length.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %length.0
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %arrayidx12.le) #11
   %1 = trunc nuw nsw i64 %length.0 to i32
   %2 = sub i32 %1, %0
@@ -160,7 +160,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %if.then, %entry
   %length.0 = phi i64 [ 1, %if.then ], [ 0, %entry ]
   %uval.0 = phi i64 [ %sub, %if.then ], [ %v, %entry ]
-  %arrayidx3 = getelementptr inbounds i8, ptr %tbuf, i64 29
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %tbuf, i64 29
   store i8 0, ptr %arrayidx3, align 1
   %conv = zext i32 %radix to i64
   br label %do.body
@@ -186,7 +186,7 @@ do.body:                                          ; preds = %do.body, %if.end
 do.end:                                           ; preds = %do.body
   %arrayidx13.le = getelementptr inbounds [30 x i8], ptr %tbuf, i64 0, i64 %indvars.iv.next
   %0 = trunc nsw i64 %indvars.iv to i32
-  %add.ptr = getelementptr inbounds i8, ptr %buffer, i64 %length.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %length.0
   %call = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %add.ptr, ptr noundef nonnull dereferenceable(1) %arrayidx13.le) #11
   %1 = trunc nuw nsw i64 %length.0 to i32
   %2 = sub i32 %1, %0
@@ -257,8 +257,8 @@ if.else17:                                        ; preds = %if.else13
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.else17
-  %incdec.ptr = getelementptr inbounds i8, ptr %str1.addr.016, i64 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %str2.addr.015, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str1.addr.016, i64 1
+  %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %str2.addr.015, i64 1
   %8 = load i8, ptr %incdec.ptr, align 1
   %9 = load i8, ptr %incdec.ptr25, align 1
   %cmp7 = icmp eq i8 %8, 0
@@ -323,8 +323,8 @@ if.else17:                                        ; preds = %if.else13
   br i1 %cmp21.not, label %if.end24, label %return
 
 if.end24:                                         ; preds = %if.else17
-  %incdec.ptr = getelementptr inbounds i8, ptr %str1.addr.016, i64 1
-  %incdec.ptr25 = getelementptr inbounds i8, ptr %str2.addr.015, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %str1.addr.016, i64 1
+  %incdec.ptr25 = getelementptr inbounds nuw i8, ptr %str2.addr.015, i64 1
   %tobool.not = icmp eq i32 %dec17, 0
   br i1 %tobool.not, label %return, label %for.body, !llvm.loop !10
 
@@ -386,7 +386,7 @@ if.else:                                          ; preds = %entry
 do.body:                                          ; preds = %if.else
   %conv3 = zext nneg i32 %n to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %src, i64 %conv3, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %call1, i64 %conv3
+  %arrayidx = getelementptr inbounds nuw i8, ptr %call1, i64 %conv3
   store i8 0, ptr %arrayidx, align 1
   br label %if.end4
 

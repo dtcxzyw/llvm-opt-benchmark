@@ -415,11 +415,11 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 define dso_local void @_ZN7logging15LoggingSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this) unnamed_addr #5 align 2 {
 entry:
   store i32 2, ptr %this, align 8
-  %log_file = getelementptr inbounds i8, ptr %this, i64 8
+  %log_file = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %log_file, align 8
-  %lock_log = getelementptr inbounds i8, ptr %this, i64 16
+  %lock_log = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %lock_log, align 8
-  %delete_old = getelementptr inbounds i8, ptr %this, i64 20
+  %delete_old = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 1, ptr %delete_old, align 4
   ret void
 }
@@ -447,11 +447,11 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 
 cond.false:                                       ; preds = %if.then
   store i32 3, ptr %ref.tmp3, align 8
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_.i)
-  %file_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 392
+  %file_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 392
   store ptr @.str.3, ptr %file_.i, align 8
-  %line_.i = getelementptr inbounds i8, ptr %ref.tmp3, i64 400
+  %line_.i = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 400
   store i32 364, ptr %line_.i, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp3, ptr noundef nonnull @.str.3, i32 noundef 364)
           to label %invoke.cont.i unwind label %lpad.i
@@ -545,12 +545,12 @@ if.end:                                           ; preds = %invoke.cont21, %lor
   br i1 %cmp, label %return, label %if.end27
 
 if.end27:                                         ; preds = %if.end
-  %log_file = getelementptr inbounds i8, ptr %settings, i64 8
+  %log_file = getelementptr inbounds nuw i8, ptr %settings, i64 8
   %.b1.i = load i1, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock11initializedE, align 1
   br i1 %.b1.i, label %_ZN7logging12_GLOBAL__N_111LoggingLock4InitENS_15LogLockingStateEPKc.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end27
-  %lock_log = getelementptr inbounds i8, ptr %settings, i64 16
+  %lock_log = getelementptr inbounds nuw i8, ptr %settings, i64 16
   %7 = load i32, ptr %lock_log, align 8
   store i32 %7, ptr @_ZN7logging12_GLOBAL__N_111LoggingLock13lock_log_fileE, align 4
   %cmp.not.i = icmp eq i32 %7, 0
@@ -626,7 +626,7 @@ if.end34:                                         ; preds = %invoke.cont32, %inv
           to label %invoke.cont36 unwind label %lpad28
 
 invoke.cont36:                                    ; preds = %if.end34
-  %delete_old = getelementptr inbounds i8, ptr %settings, i64 20
+  %delete_old = getelementptr inbounds nuw i8, ptr %settings, i64 20
   %16 = load i32, ptr %delete_old, align 4
   %cmp38 = icmp eq i32 %16, 0
   br i1 %cmp38, label %if.then39, label %if.end41
@@ -934,11 +934,11 @@ entry:
 define dso_local void @_ZN7logging10LogMessageC2EPKcii(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %severity, ptr %this, align 8
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_)
-  %file_ = getelementptr inbounds i8, ptr %this, i64 392
+  %file_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %file, ptr %file_, align 8
-  %line_ = getelementptr inbounds i8, ptr %this, i64 400
+  %line_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i32 %line, ptr %line_, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line)
           to label %invoke.cont unwind label %lpad
@@ -974,7 +974,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %stream_, i8 noundef signext 91)
   %0 = load i8, ptr @_ZN7logging12_GLOBAL__N_116g_log_process_idE, align 1
   %tobool = trunc nuw i8 %0 to i1
@@ -1009,21 +1009,21 @@ if.then17:                                        ; preds = %if.end15
   %call19 = call ptr @localtime_r(ptr noundef nonnull %t, ptr noundef nonnull %local_time) #21
   %call23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St8_SetfillIS3_E(ptr noundef nonnull align 8 dereferenceable(8) %stream_, i8 48)
   %call28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call23, i32 2)
-  %tm_mon = getelementptr inbounds i8, ptr %local_time, i64 16
+  %tm_mon = getelementptr inbounds nuw i8, ptr %local_time, i64 16
   %3 = load i32, ptr %tm_mon, align 8
   %add29 = add nsw i32 %3, 1
   %call30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call28, i32 noundef %add29)
   %call35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call30, i32 2)
-  %tm_mday = getelementptr inbounds i8, ptr %local_time, i64 12
+  %tm_mday = getelementptr inbounds nuw i8, ptr %local_time, i64 12
   %4 = load i32, ptr %tm_mday, align 4
   %call36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call35, i32 noundef %4)
   %call37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %call36, i8 noundef signext 47)
   %call42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call37, i32 2)
-  %tm_hour = getelementptr inbounds i8, ptr %local_time, i64 8
+  %tm_hour = getelementptr inbounds nuw i8, ptr %local_time, i64 8
   %5 = load i32, ptr %tm_hour, align 8
   %call43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call42, i32 noundef %5)
   %call48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call43, i32 2)
-  %tm_min = getelementptr inbounds i8, ptr %local_time, i64 4
+  %tm_min = getelementptr inbounds nuw i8, ptr %local_time, i64 4
   %6 = load i32, ptr %tm_min, align 4
   %call49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call48, i32 noundef %6)
   %call54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %call49, i32 2)
@@ -1042,7 +1042,7 @@ if.then59:                                        ; preds = %if.end57
   %call.i6 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %ts.i) #21
   %9 = load i64, ptr %ts.i, align 8
   %mul.i = mul nsw i64 %9, 1000000
-  %tv_nsec.i = getelementptr inbounds i8, ptr %ts.i, i64 8
+  %tv_nsec.i = getelementptr inbounds nuw i8, ptr %ts.i, i64 8
   %10 = load i64, ptr %tv_nsec.i, align 8
   %div.i = sdiv i64 %10, 1000
   %add.i = add nsw i64 %div.i, %mul.i
@@ -1062,7 +1062,7 @@ if.then66:                                        ; preds = %if.end64
 
 if.then.i:                                        ; preds = %if.then66
   %idxprom.i = zext nneg i32 %11 to i64
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 0, i64 %idxprom.i
   %12 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit
 
@@ -1086,7 +1086,7 @@ if.end75:                                         ; preds = %if.else, %_ZN7loggi
   %call81 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call80, ptr noundef nonnull @.str.12)
   call void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(112) %stream_)
   %call84 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #21
-  %message_start_ = getelementptr inbounds i8, ptr %this, i64 384
+  %message_start_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   store i64 %call84, ptr %message_start_, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #21
   ret void
@@ -1096,11 +1096,11 @@ if.end75:                                         ; preds = %if.else, %_ZN7loggi
 define dso_local void @_ZN7logging10LogMessageC2EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, ptr noundef %condition) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 3, ptr %this, align 8
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_)
-  %file_ = getelementptr inbounds i8, ptr %this, i64 392
+  %file_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %file, ptr %file_, align 8
-  %line_ = getelementptr inbounds i8, ptr %this, i64 400
+  %line_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i32 %line, ptr %line_, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line)
           to label %invoke.cont unwind label %lpad
@@ -1131,11 +1131,11 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 define dso_local void @_ZN7logging10LogMessageC2EPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 3, ptr %this, align 8
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_)
-  %file_ = getelementptr inbounds i8, ptr %this, i64 392
+  %file_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %file, ptr %file_, align 8
-  %line_ = getelementptr inbounds i8, ptr %this, i64 400
+  %line_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i32 %line, ptr %line_, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line)
           to label %invoke.cont unwind label %lpad
@@ -1166,11 +1166,11 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 define dso_local void @_ZN7logging10LogMessageC2EPKciiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, ptr noundef %result) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %severity, ptr %this, align 8
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_)
-  %file_ = getelementptr inbounds i8, ptr %this, i64 392
+  %file_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   store ptr %file, ptr %file_, align 8
-  %line_ = getelementptr inbounds i8, ptr %this, i64 400
+  %line_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   store i32 %line, ptr %line_, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr noundef %file, i32 noundef %line)
           to label %invoke.cont unwind label %lpad
@@ -1218,7 +1218,7 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %if.then
-  %stream_ = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %stream_, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %invoke.cont3 unwind label %terminate.lpad
 
@@ -1231,7 +1231,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont6, %invoke.cont, %entry
-  %stream_7 = getelementptr inbounds i8, ptr %this, i64 8
+  %stream_7 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %stream_7, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
           to label %invoke.cont8 unwind label %terminate.lpad
 
@@ -1246,11 +1246,11 @@ invoke.cont11:                                    ; preds = %invoke.cont8
 
 land.lhs.true12:                                  ; preds = %invoke.cont11
   %2 = load i32, ptr %this, align 8
-  %file_ = getelementptr inbounds i8, ptr %this, i64 392
+  %file_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %3 = load ptr, ptr %file_, align 8
-  %line_ = getelementptr inbounds i8, ptr %this, i64 400
+  %line_ = getelementptr inbounds nuw i8, ptr %this, i64 400
   %4 = load i32, ptr %line_, align 8
-  %message_start_ = getelementptr inbounds i8, ptr %this, i64 384
+  %message_start_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   %5 = load i64, ptr %message_start_, align 8
   %call15 = invoke noundef zeroext i1 %1(i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %str_newline)
           to label %invoke.cont14 unwind label %terminate.lpad
@@ -1486,13 +1486,13 @@ declare void @_ZN4base13safe_strerrorB5cxx11Ei(ptr sret(%"class.std::__cxx11::ba
 define dso_local void @_ZN7logging15ErrnoLogMessageC2EPKciii(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 4), (8, 12)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, i32 noundef %err) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %err, ptr %this, align 8
-  %log_message_ = getelementptr inbounds i8, ptr %this, i64 8
+  %log_message_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %severity, ptr %log_message_, align 8
-  %stream_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_.i)
-  %file_.i = getelementptr inbounds i8, ptr %this, i64 400
+  %file_.i = getelementptr inbounds nuw i8, ptr %this, i64 400
   store ptr %file, ptr %file_.i, align 8
-  %line_.i = getelementptr inbounds i8, ptr %this, i64 408
+  %line_.i = getelementptr inbounds nuw i8, ptr %this, i64 408
   store i32 %line, ptr %line_.i, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %log_message_, ptr noundef %file, i32 noundef %line)
           to label %_ZN7logging10LogMessageC2EPKcii.exit unwind label %lpad.i
@@ -1511,7 +1511,7 @@ _ZN7logging10LogMessageC2EPKcii.exit:             ; preds = %entry
 define dso_local void @_ZN7logging15ErrnoLogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %stream_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i.i, ptr noundef nonnull @.str.13)
           to label %invoke.cont2 unwind label %terminate.lpad
 
@@ -1526,7 +1526,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 
 invoke.cont5:                                     ; preds = %invoke.cont4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
-  %log_message_ = getelementptr inbounds i8, ptr %this, i64 8
+  %log_message_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   call void @_ZN7logging10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(404) %log_message_) #21
   ret void
 
@@ -1682,11 +1682,11 @@ define dso_local void @_ZN7logging18LogErrorNotReachedEPKci(ptr noundef %file, i
 entry:
   %ref.tmp = alloca %"class.logging::LogMessage", align 8
   store i32 2, ptr %ref.tmp, align 8
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %stream_.i)
-  %file_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 392
+  %file_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 392
   store ptr %file, ptr %file_.i, align 8
-  %line_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 400
+  %line_.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 400
   store i32 %line, ptr %line_.i, align 8
   invoke void @_ZN7logging10LogMessage4InitEPKci(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp, ptr noundef %file, i32 noundef %line)
           to label %_ZN7logging10LogMessageC2EPKcii.exit unwind label %lpad.i

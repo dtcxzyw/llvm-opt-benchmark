@@ -26,7 +26,7 @@ define hidden noundef ptr @mbedtls_md_info_from_psa(i32 noundef %0) local_unname
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.mbedtls_md_info_from_psa, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.mbedtls_md_info_from_psa, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -50,37 +50,37 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_hash_abort(ptr noundef %0) loc
   ]
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_md5_free(ptr noundef nonnull %4) #4
   br label %17
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_ripemd160_free(ptr noundef nonnull %6) #4
   br label %17
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha1_free(ptr noundef nonnull %8) #4
   br label %17
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha256_free(ptr noundef nonnull %10) #4
   br label %17
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha256_free(ptr noundef nonnull %12) #4
   br label %17
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha512_free(ptr noundef nonnull %14) #4
   br label %17
 
 15:                                               ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha512_free(ptr noundef nonnull %16) #4
   br label %17
 
@@ -121,43 +121,43 @@ define hidden i32 @mbedtls_psa_hash_setup(ptr noundef %0, i32 noundef %1) local_
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_md5_init(ptr noundef nonnull %6) #4
   %7 = tail call i32 @mbedtls_md5_starts(ptr noundef nonnull %6) #4
   br label %30
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_ripemd160_init(ptr noundef nonnull %9) #4
   %10 = tail call i32 @mbedtls_ripemd160_starts(ptr noundef nonnull %9) #4
   br label %30
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha1_init(ptr noundef nonnull %12) #4
   %13 = tail call i32 @mbedtls_sha1_starts(ptr noundef nonnull %12) #4
   br label %30
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha256_init(ptr noundef nonnull %15) #4
   %16 = tail call i32 @mbedtls_sha256_starts(ptr noundef nonnull %15, i32 noundef 1) #4
   br label %30
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha256_init(ptr noundef nonnull %18) #4
   %19 = tail call i32 @mbedtls_sha256_starts(ptr noundef nonnull %18, i32 noundef 0) #4
   br label %30
 
 20:                                               ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha512_init(ptr noundef nonnull %21) #4
   %22 = tail call i32 @mbedtls_sha512_starts(ptr noundef nonnull %21, i32 noundef 1) #4
   br label %30
 
 23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha512_init(ptr noundef nonnull %24) #4
   %25 = tail call i32 @mbedtls_sha512_starts(ptr noundef nonnull %24, i32 noundef 0) #4
   br label %30
@@ -227,44 +227,44 @@ define hidden range(i32 -137, 1) i32 @mbedtls_psa_hash_clone(ptr noundef %0, ptr
   ]
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_md5_clone(ptr noundef nonnull %5, ptr noundef nonnull %6) #4
   br label %26
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_ripemd160_clone(ptr noundef nonnull %8, ptr noundef nonnull %9) #4
   br label %26
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha1_clone(ptr noundef nonnull %11, ptr noundef nonnull %12) #4
   br label %26
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha256_clone(ptr noundef nonnull %14, ptr noundef nonnull %15) #4
   br label %26
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha256_clone(ptr noundef nonnull %17, ptr noundef nonnull %18) #4
   br label %26
 
 19:                                               ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha512_clone(ptr noundef nonnull %20, ptr noundef nonnull %21) #4
   br label %26
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @mbedtls_sha512_clone(ptr noundef nonnull %23, ptr noundef nonnull %24) #4
   br label %26
 
@@ -305,37 +305,37 @@ define hidden i32 @mbedtls_psa_hash_update(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = tail call i32 @mbedtls_md5_update(ptr noundef nonnull %6, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i32 @mbedtls_ripemd160_update(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = tail call i32 @mbedtls_sha1_update(ptr noundef nonnull %12, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = tail call i32 @mbedtls_sha256_update(ptr noundef nonnull %15, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
 17:                                               ; preds = %3
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = tail call i32 @mbedtls_sha256_update(ptr noundef nonnull %18, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = tail call i32 @mbedtls_sha512_update(ptr noundef nonnull %21, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = tail call i32 @mbedtls_sha512_update(ptr noundef nonnull %24, ptr noundef %1, i64 noundef %2) #4
   br label %26
 
@@ -381,7 +381,7 @@ switch.hole_check:                                ; preds = %4
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x i64], ptr @switch.table.mbedtls_psa_hash_finish, i64 0, i64 %11
+  %switch.gep = getelementptr inbounds nuw [16 x i64], ptr @switch.table.mbedtls_psa_hash_finish, i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %12
 
@@ -412,37 +412,37 @@ switch.lookup:                                    ; preds = %switch.hole_check
   ]
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = tail call i32 @mbedtls_md5_finish(ptr noundef nonnull %20, ptr noundef %1) #4
   br label %40
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = tail call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %23, ptr noundef %1) #4
   br label %40
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = tail call i32 @mbedtls_sha1_finish(ptr noundef nonnull %26, ptr noundef %1) #4
   br label %40
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = tail call i32 @mbedtls_sha256_finish(ptr noundef nonnull %29, ptr noundef %1) #4
   br label %40
 
 31:                                               ; preds = %17
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %33 = tail call i32 @mbedtls_sha256_finish(ptr noundef nonnull %32, ptr noundef %1) #4
   br label %40
 
 34:                                               ; preds = %17
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = tail call i32 @mbedtls_sha512_finish(ptr noundef nonnull %35, ptr noundef %1) #4
   br label %40
 
 37:                                               ; preds = %17
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = tail call i32 @mbedtls_sha512_finish(ptr noundef nonnull %38, ptr noundef %1) #4
   br label %40
 

@@ -945,14 +945,14 @@ define internal noundef ptr @import_star(ptr noundef %tstate, ptr noundef %from)
 entry:
   %all.i = alloca ptr, align 8
   %dict.i = alloca ptr, align 8
-  %current_frame = getelementptr inbounds i8, ptr %tstate, i64 64
+  %current_frame = getelementptr inbounds nuw i8, ptr %tstate, i64 64
   %0 = load ptr, ptr %current_frame, align 8
   %call = tail call i32 @_PyFrame_FastToLocalsWithError(ptr noundef %0) #4
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %f_locals = getelementptr inbounds i8, ptr %0, i64 40
+  %f_locals = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load ptr, ptr %f_locals, align 8
   %cmp1 = icmp eq ptr %1, null
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -1087,7 +1087,7 @@ if.end31.i:                                       ; preds = %if.then26.i
   br i1 %tobool34.not.i, label %if.then35.i, label %if.else38.i
 
 if.then35.i:                                      ; preds = %if.end31.i
-  %tp_name.i = getelementptr inbounds i8, ptr %call27.val.i, i64 24
+  %tp_name.i = getelementptr inbounds nuw i8, ptr %call27.val.i, i64 24
   %24 = load ptr, ptr %tp_name.i, align 8
   %call37.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %23, ptr noundef nonnull @.str.21, ptr noundef %24) #4
   br label %if.end45.i
@@ -1096,7 +1096,7 @@ if.else38.i:                                      ; preds = %if.end31.i
   %cond.i = select i1 %cmp1.not.not.i, ptr @.str.23, ptr @.str.24
   %cond41.i = select i1 %cmp1.not.not.i, ptr @.str.25, ptr @.str.26
   %call15.val46.i = load ptr, ptr %17, align 8
-  %tp_name43.i = getelementptr inbounds i8, ptr %call15.val46.i, i64 24
+  %tp_name43.i = getelementptr inbounds nuw i8, ptr %call15.val46.i, i64 24
   %25 = load ptr, ptr %tp_name43.i, align 8
   %call44.i = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %tstate, ptr noundef %23, ptr noundef nonnull @.str.22, ptr noundef nonnull %cond.i, ptr noundef nonnull %call27.i, ptr noundef nonnull %cond41.i, ptr noundef %25) #4
   br label %if.end45.i
@@ -1137,7 +1137,7 @@ if.end46.i:                                       ; preds = %if.end22.i
   br i1 %cmp1.not.not.i, label %if.then48.i, label %if.end54.i
 
 if.then48.i:                                      ; preds = %if.end46.i
-  %state.i.i = getelementptr inbounds i8, ptr %call1563.i, i64 32
+  %state.i.i = getelementptr inbounds nuw i8, ptr %call1563.i, i64 32
   %bf.load.i.i = load i32, ptr %state.i.i, align 8
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 2
   %bf.clear.i.i = and i32 %bf.lshr.i.i, 7
@@ -1340,13 +1340,13 @@ return:                                           ; preds = %51, %import_all_fro
 ; Function Attrs: nounwind uwtable
 define internal ptr @stopiteration_error(ptr nocapture noundef readonly %tstate, ptr noundef %exc) #0 {
 entry:
-  %current_frame = getelementptr inbounds i8, ptr %tstate, i64 64
+  %current_frame = getelementptr inbounds nuw i8, ptr %tstate, i64 64
   %0 = load ptr, ptr %current_frame, align 8
   %1 = load ptr, ptr @PyExc_StopIteration, align 8
   %call = tail call i32 @PyErr_GivenExceptionMatches(ptr noundef %exc, ptr noundef %1) #4
   %tobool.not = icmp eq i32 %call, 0
   %.val22 = load ptr, ptr %0, align 8
-  %co_flags12 = getelementptr inbounds i8, ptr %.val22, i64 48
+  %co_flags12 = getelementptr inbounds nuw i8, ptr %.val22, i64 48
   %2 = load i32, ptr %co_flags12, align 8
   %and13 = and i32 %2, 512
   %tobool14.not = icmp eq i32 %and13, 0
@@ -1464,7 +1464,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @list_to_tuple(ptr nocapture readnone %unused, ptr nocapture noundef readonly %v) #0 {
 entry:
-  %ob_item = getelementptr inbounds i8, ptr %v, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %v, i64 24
   %0 = load ptr, ptr %ob_item, align 8
   %1 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %1, align 8

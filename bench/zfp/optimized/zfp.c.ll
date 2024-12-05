@@ -31,7 +31,7 @@ define range(i64 0, 9) i64 @zfp_type_size(i32 noundef %0) local_unnamed_addr #0 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %4
 
@@ -48,7 +48,7 @@ define noalias noundef ptr @zfp_field_alloc() local_unnamed_addr #1 {
 
 2:                                                ; preds = %0
   store i32 0, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   br label %4
 
@@ -66,12 +66,12 @@ define noalias noundef ptr @zfp_field_1d(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %.not.i, label %zfp_field_alloc.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, i8 0, i64 56, i1 false)
   store i32 %1, ptr %4, align 8
   store i64 %2, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %0, ptr %8, align 8
   br label %zfp_field_alloc.exit.thread
 
@@ -86,14 +86,14 @@ define noalias noundef ptr @zfp_field_2d(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %.not.i, label %zfp_field_alloc.exit.thread, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false)
   store i32 %1, ptr %5, align 8
   store i64 %2, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %0, ptr %10, align 8
   br label %zfp_field_alloc.exit.thread
 
@@ -108,16 +108,16 @@ define noalias noundef ptr @zfp_field_3d(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %.not.i, label %zfp_field_alloc.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, i8 0, i64 40, i1 false)
   store i32 %1, ptr %6, align 8
   store i64 %2, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store ptr %0, ptr %12, align 8
   br label %zfp_field_alloc.exit.thread
 
@@ -132,18 +132,18 @@ define noalias noundef ptr @zfp_field_4d(ptr noundef %0, i32 noundef %1, i64 nou
   br i1 %.not.i, label %zfp_field_alloc.exit.thread, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %10, i8 0, i64 32, i1 false)
   store i32 %1, ptr %7, align 8
   store i64 %2, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i64 %5, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store ptr %0, ptr %14, align 8
   br label %zfp_field_alloc.exit.thread
 
@@ -162,56 +162,56 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @zfp_field_pointer(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @zfp_field_begin(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %56, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i64, ptr %5, align 8
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %.not58.i = icmp eq i64 %8, 0
   br i1 %.not58.i, label %9, label %._crit_edge
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9, %4
   %12 = phi i64 [ %11, %9 ], [ %8, %4 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %13, align 8
   %.not59.i = icmp eq i64 %14, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = mul i64 %18, %16
   %20 = select i1 %.not59.i, i64 %19, i64 %14
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load i64, ptr %21, align 8
   %.not60.i = icmp eq i64 %22, 0
   br i1 %.not60.i, label %23, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge
-  %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert3.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre4.i = load i64, ptr %.phi.trans.insert3.i, align 8
   br label %field_index_span.exit
 
 23:                                               ; preds = %._crit_edge
   %24 = mul i64 %18, %16
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = mul i64 %24, %26
   br label %field_index_span.exit
@@ -228,7 +228,7 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %23
   %.not63.i = icmp eq i64 %28, 0
   %34 = add i64 %28, -1
   %35 = mul nsw i64 %34, %20
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i64, ptr %36, align 8
   %.not64.i = icmp eq i64 %37, 0
   %38 = add i64 %37, -1
@@ -251,7 +251,7 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %23
 
 switch.lookup:                                    ; preds = %field_index_span.exit
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %53
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %zfp_type_size.exit
 
@@ -281,7 +281,7 @@ define range(i32 0, 65) i32 @zfp_field_precision(ptr nocapture noundef readonly 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.zfp_stream_maximum_size, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.zfp_stream_maximum_size, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %zfp_type_size.exit
 
@@ -292,25 +292,25 @@ zfp_type_size.exit:                               ; preds = %1, %switch.lookup
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 5) i32 @zfp_field_dimensionality(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %14, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not4 = icmp eq i64 %6, 0
   br i1 %.not4, label %14, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.not5 = icmp eq i64 %9, 0
   br i1 %.not5, label %14, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %.not6 = icmp eq i64 %12, 0
   %13 = select i1 %.not6, i32 3, i32 4
@@ -327,45 +327,45 @@ define i64 @zfp_field_size(ptr nocapture noundef readonly %0, ptr noundef writeo
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %.not4.i = icmp eq i64 %8, 0
   br i1 %.not4.i, label %zfp_field_dimensionality.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %.not5.i = icmp eq i64 %11, 0
   br i1 %.not5.i, label %zfp_field_dimensionality.exit.thread24, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %.not6.i = icmp eq i64 %14, 0
   br i1 %.not6.i, label %zfp_field_dimensionality.exit.thread23, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %14, ptr %16, align 8
   %.pre = load i64, ptr %10, align 8
   br label %zfp_field_dimensionality.exit.thread23
 
 zfp_field_dimensionality.exit.thread23:           ; preds = %12, %15
   %17 = phi i64 [ %11, %12 ], [ %.pre, %15 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %17, ptr %18, align 8
   %.pre25 = load i64, ptr %7, align 8
   br label %zfp_field_dimensionality.exit.thread24
 
 zfp_field_dimensionality.exit.thread24:           ; preds = %9, %zfp_field_dimensionality.exit.thread23
   %19 = phi i64 [ %8, %9 ], [ %.pre25, %zfp_field_dimensionality.exit.thread23 ]
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %19, ptr %20, align 8
   %.pre26 = load i64, ptr %4, align 8
   br label %zfp_field_dimensionality.exit
@@ -376,16 +376,16 @@ zfp_field_dimensionality.exit:                    ; preds = %6, %zfp_field_dimen
   br label %zfp_field_dimensionality.exit.thread
 
 zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimensionality.exit, %2
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %23, i64 1)
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = tail call i64 @llvm.umax.i64(i64 %25, i64 1)
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load i64, ptr %27, align 8
   %29 = tail call i64 @llvm.umax.i64(i64 %28, i64 1)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   %33 = mul i64 %26, %spec.select
@@ -396,39 +396,39 @@ zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @zfp_field_size_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %.not58.i = icmp eq i64 %5, 0
   br i1 %.not58.i, label %6, label %._crit_edge
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %1
   %9 = phi i64 [ %8, %6 ], [ %5, %1 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8
   %.not60.i = icmp eq i64 %17, 0
   br i1 %.not60.i, label %18, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge
-  %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert3.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre4.i = load i64, ptr %.phi.trans.insert3.i, align 8
   br label %field_index_span.exit
 
 18:                                               ; preds = %._crit_edge
   %19 = mul i64 %15, %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = mul i64 %19, %21
   br label %field_index_span.exit
@@ -436,7 +436,7 @@ define i64 @zfp_field_size_bytes(ptr nocapture noundef readonly %0) local_unname
 field_index_span.exit:                            ; preds = %._crit_edge.i, %18
   %23 = phi i64 [ %21, %18 ], [ %.pre4.i, %._crit_edge.i ]
   %24 = phi i64 [ %22, %18 ], [ %17, %._crit_edge.i ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = load i32, ptr %0, align 8
   %switch.tableidx = add i32 %27, -1
@@ -445,7 +445,7 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %18
 
 switch.lookup:                                    ; preds = %field_index_span.exit
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %29
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table.zfp_field_size_bytes, i64 0, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %zfp_type_size.exit
 
@@ -493,19 +493,19 @@ zfp_type_size.exit:                               ; preds = %field_index_span.ex
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @zfp_field_blocks(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 3
   %5 = lshr i64 %4, 2
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = add i64 %7, 3
   %9 = lshr i64 %8, 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %11, 3
   %13 = lshr i64 %12, 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load i64, ptr %14, align 8
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit.thread15, label %16
@@ -550,42 +550,42 @@ define range(i32 0, 2) i32 @zfp_field_stride(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not.i = icmp eq i64 %5, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %.not4.i = icmp eq i64 %8, 0
   br i1 %.not4.i, label %zfp_field_dimensionality.exit, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %.not5.i = icmp eq i64 %11, 0
   br i1 %.not5.i, label %zfp_field_dimensionality.exit.thread37, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i64, ptr %13, align 8
   %.not6.i = icmp eq i64 %14, 0
   br i1 %.not6.i, label %zfp_field_dimensionality.exit.thread36, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8
   %.not28 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %5
   %19 = mul i64 %18, %11
   %20 = select i1 %.not28, i64 %19, i64 %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %20, ptr %21, align 8
   br label %zfp_field_dimensionality.exit.thread36
 
 zfp_field_dimensionality.exit.thread36:           ; preds = %12, %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i64, ptr %22, align 8
   %.not29 = icmp eq i64 %23, 0
   br i1 %.not29, label %24, label %28
@@ -598,12 +598,12 @@ zfp_field_dimensionality.exit.thread36:           ; preds = %12, %15
 
 28:                                               ; preds = %zfp_field_dimensionality.exit.thread36, %24
   %29 = phi i64 [ %27, %24 ], [ %23, %zfp_field_dimensionality.exit.thread36 ]
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %29, ptr %30, align 8
   br label %zfp_field_dimensionality.exit.thread37
 
 zfp_field_dimensionality.exit.thread37:           ; preds = %9, %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i64, ptr %31, align 8
   %.not30 = icmp eq i64 %32, 0
   br i1 %.not30, label %33, label %35
@@ -614,37 +614,37 @@ zfp_field_dimensionality.exit.thread37:           ; preds = %9, %28
 
 35:                                               ; preds = %zfp_field_dimensionality.exit.thread37, %33
   %36 = phi i64 [ %34, %33 ], [ %32, %zfp_field_dimensionality.exit.thread37 ]
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %36, ptr %37, align 8
   br label %zfp_field_dimensionality.exit
 
 zfp_field_dimensionality.exit:                    ; preds = %6, %35
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i64, ptr %38, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %39, i64 1)
   store i64 %spec.select, ptr %1, align 8
   br label %zfp_field_dimensionality.exit.thread
 
 zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimensionality.exit, %2
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load i64, ptr %40, align 8
   %.not32 = icmp eq i64 %41, 0
   br i1 %.not32, label %42, label %53
 
 42:                                               ; preds = %zfp_field_dimensionality.exit.thread
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i64, ptr %43, align 8
   %.not33 = icmp eq i64 %44, 0
   br i1 %.not33, label %45, label %53
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %0, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i64, ptr %46, align 8
   %.not34 = icmp eq i64 %47, 0
   br i1 %.not34, label %48, label %53
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load i64, ptr %49, align 8
   %51 = icmp ne i64 %50, 0
   %52 = zext i1 %51 to i32
@@ -657,39 +657,39 @@ zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimen
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @zfp_field_is_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %.not58.i = icmp eq i64 %5, 0
   br i1 %.not58.i, label %6, label %._crit_edge
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %1
   %9 = phi i64 [ %8, %6 ], [ %5, %1 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i64, ptr %16, align 8
   %.not60.i = icmp eq i64 %17, 0
   br i1 %.not60.i, label %18, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge
-  %.phi.trans.insert3.i = getelementptr inbounds i8, ptr %0, i64 24
+  %.phi.trans.insert3.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre4.i = load i64, ptr %.phi.trans.insert3.i, align 8
   br label %field_index_span.exit
 
 18:                                               ; preds = %._crit_edge
   %19 = mul i64 %15, %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = mul i64 %19, %21
   br label %field_index_span.exit
@@ -713,7 +713,7 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %18
   %33 = add i64 %23, -1
   %34 = mul nsw i64 %33, %26
   %35 = select i1 %.not63.i, i64 0, i64 %34
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i64, ptr %36, align 8
   %.not64.i = icmp eq i64 %37, 0
   %38 = add i64 %37, -1
@@ -749,25 +749,25 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i64 -1, 4503621102206956) i64 @zfp_field_metadata(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit62, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %.not4.i = icmp eq i64 %6, 0
   br i1 %.not4.i, label %14, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.not5.i = icmp eq i64 %9, 0
   br i1 %.not5.i, label %16, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
   %.not6.i = icmp eq i64 %12, 0
   %13 = add i64 %3, -1
@@ -833,13 +833,13 @@ zfp_field_dimensionality.exit:                    ; preds = %10
 
 40:                                               ; preds = %30, %22, %17
   %.0.ph.ph = phi i64 [ %39, %30 ], [ %28, %22 ], [ %20, %17 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i64, ptr %41, align 8
   %.not5.i60 = icmp eq i64 %42, 0
   br i1 %.not5.i60, label %zfp_field_dimensionality.exit62, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %45 = load i64, ptr %44, align 8
   %.not6.i61 = icmp eq i64 %45, 0
   %46 = select i1 %.not6.i61, i64 8, i64 12
@@ -863,7 +863,7 @@ zfp_field_dimensionality.exit62:                  ; preds = %14, %1, %40, %43
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_pointer(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -885,92 +885,92 @@ define range(i32 0, 5) i32 @zfp_field_set_type(ptr nocapture noundef writeonly %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_size_1d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_size_2d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_size_3d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_size_4d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_stride_1d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_stride_2d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_stride_3d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %8, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_field_set_stride_4d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %4, ptr %9, align 8
   ret void
 }
@@ -988,7 +988,7 @@ define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeon
   %7 = lshr i64 %1, 2
   %8 = and i64 %7, 3
   %9 = lshr i64 %1, 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   switch i64 %8, label %default.unreachable47 [
     i64 0, label %11
     i64 1, label %15
@@ -1000,7 +1000,7 @@ define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeon
   %12 = and i64 %9, 4294967295
   %13 = add nuw nsw i64 %12, 1
   store i64 %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   br label %47
 
@@ -1010,9 +1010,9 @@ define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeon
   store i64 %17, ptr %10, align 8
   %18 = lshr i64 %1, 28
   %19 = add nuw nsw i64 %18, 1
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   br label %47
 
@@ -1023,13 +1023,13 @@ define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeon
   %25 = lshr i64 %1, 20
   %26 = and i64 %25, 65535
   %27 = add nuw nsw i64 %26, 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %27, ptr %28, align 8
   %29 = lshr i64 %1, 36
   %30 = add nuw nsw i64 %29, 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 0, ptr %32, align 8
   br label %47
 
@@ -1040,16 +1040,16 @@ define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeon
   %36 = lshr i64 %1, 16
   %37 = and i64 %36, 4095
   %38 = add nuw nsw i64 %37, 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %38, ptr %39, align 8
   %40 = lshr i64 %1, 28
   %41 = and i64 %40, 4095
   %42 = add nuw nsw i64 %41, 1
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %42, ptr %43, align 8
   %44 = lshr i64 %1, 40
   %45 = add nuw nsw i64 %44, 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %45, ptr %46, align 8
   br label %47
 
@@ -1057,7 +1057,7 @@ default.unreachable47:                            ; preds = %3
   unreachable
 
 47:                                               ; preds = %33, %22, %15, %11
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %48, i8 0, i64 32, i1 false)
   br label %49
 
@@ -1078,7 +1078,7 @@ define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable write
   %.not = icmp eq i32 %2, 0
   %4 = fneg double %1
   %5 = select i1 %.not, double %1, double %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %5, ptr %6, align 8
   ret void
 }
@@ -1086,7 +1086,7 @@ define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable write
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 3, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
@@ -1094,7 +1094,7 @@ define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_config_accuracy(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 16)) %0, double noundef %1) local_unnamed_addr #7 {
   store i32 4, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
   ret void
 }
@@ -1108,13 +1108,13 @@ define void @zfp_config_reversible(ptr dead_on_unwind noalias nocapture writable
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_config_expert(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %4, ptr %9, align 4
   ret void
 }
@@ -1126,18 +1126,18 @@ define noalias noundef ptr @zfp_stream_open(ptr noundef %0) local_unnamed_addr #
   br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %0, ptr %4, align 8
   store i32 1, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 16658, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 64, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 -1074, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %9, align 8
   br label %10
 
@@ -1147,7 +1147,7 @@ define noalias noundef ptr @zfp_stream_open(ptr noundef %0) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @zfp_stream_close(ptr nocapture noundef %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -1163,7 +1163,7 @@ define void @zfp_stream_close(ptr nocapture noundef %0) local_unnamed_addr #8 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @zfp_stream_bit_stream(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -1171,13 +1171,13 @@ define ptr @zfp_stream_bit_stream(ptr nocapture noundef readonly %0) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %2, %4
   br i1 %5, label %36, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
   %or.cond = icmp ult i32 %9, 64
@@ -1192,7 +1192,7 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
   br i1 %or.cond33, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1074
   br i1 %17, label %36, label %18
@@ -1207,7 +1207,7 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
   br i1 %or.cond42, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1074
   br i1 %26, label %36, label %27
@@ -1219,7 +1219,7 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
   br i1 %or.cond43, label %30, label %36
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, -1074
   %brmerge.not = select i1 %33, i1 %22, i1 false
@@ -1239,13 +1239,13 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define double @zfp_stream_rate(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %3, %5
   br i1 %6, label %zfp_stream_compression_mode.exit.thread, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = add i32 %9, -1
   %or.cond.i = icmp ult i32 %10, 64
@@ -1260,7 +1260,7 @@ define double @zfp_stream_rate(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %or.cond33.i, label %15, label %19
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, -1074
   br i1 %18, label %zfp_stream_compression_mode.exit.thread, label %19
@@ -1275,7 +1275,7 @@ define double @zfp_stream_rate(ptr nocapture noundef readonly %0, i32 noundef %1
   br i1 %or.cond42.i, label %24, label %zfp_stream_compression_mode.exit.thread
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds i8, ptr %0, i64 12
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, -1074
   br i1 %27, label %zfp_stream_compression_mode.exit, label %zfp_stream_compression_mode.exit.thread
@@ -1296,13 +1296,13 @@ zfp_stream_compression_mode.exit.thread:          ; preds = %19, %24, %15, %2, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %2, %4
   br i1 %5, label %zfp_stream_compression_mode.exit.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
   %or.cond.i = icmp ult i32 %9, 64
@@ -1317,7 +1317,7 @@ define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly
   br i1 %or.cond33.i, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1074
   br i1 %17, label %zfp_stream_compression_mode.exit.thread, label %18
@@ -1332,7 +1332,7 @@ define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly
   br i1 %or.cond42.i, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1074
   br i1 %26, label %zfp_stream_compression_mode.exit.thread, label %27
@@ -1344,7 +1344,7 @@ define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly
   br i1 %or.cond43.i, label %30, label %zfp_stream_compression_mode.exit.thread
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %.not = icmp eq i32 %32, -1074
   %spec.select = select i1 %.not, i32 %8, i32 0
@@ -1358,13 +1358,13 @@ zfp_stream_compression_mode.exit.thread:          ; preds = %30, %27, %23, %14, 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %2, %4
   br i1 %5, label %zfp_stream_compression_mode.exit.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
   %or.cond.i = icmp ult i32 %9, 64
@@ -1379,7 +1379,7 @@ define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unna
   br i1 %or.cond33.i, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1074
   br i1 %17, label %zfp_stream_compression_mode.exit.thread, label %18
@@ -1394,7 +1394,7 @@ define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unna
   br i1 %or.cond42.i, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1074
   br i1 %26, label %zfp_stream_compression_mode.exit.thread, label %27
@@ -1406,7 +1406,7 @@ define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unna
   br i1 %or.cond43.i, label %30, label %zfp_stream_compression_mode.exit.thread
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, -1074
   %or.cond = select i1 %33, i1 %22, i1 false
@@ -1427,13 +1427,13 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %2, %4
   br i1 %5, label %zfp_stream_compression_mode.exit.thread.thread, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, -1
   %or.cond.i = icmp ult i32 %9, 64
@@ -1448,7 +1448,7 @@ define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_add
   br i1 %or.cond33.i, label %14, label %18
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, -1074
   br i1 %17, label %zfp_stream_compression_mode.exit.thread.thread.thread, label %18
@@ -1463,7 +1463,7 @@ define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_add
   br i1 %or.cond42.i, label %23, label %27
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1074
   br i1 %26, label %36, label %27
@@ -1475,7 +1475,7 @@ define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_add
   br i1 %or.cond43.i, label %30, label %zfp_stream_compression_mode.exit.thread
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %0, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %32 = load i32, ptr %31, align 4
   %33 = icmp ne i32 %32, -1074
   %brmerge.not.i = select i1 %33, i1 %22, i1 false
@@ -1537,7 +1537,7 @@ zfp_stream_compression_mode.exit.thread.thread.thread: ; preds = %zfp_stream_com
   %58 = zext nneg i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 15
   %60 = select i1 %brmerge61, i64 %.mux62, i64 %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i32, ptr %61, align 8
   %63 = icmp eq i32 %62, 0
   %64 = add i32 %62, -128
@@ -1546,7 +1546,7 @@ zfp_stream_compression_mode.exit.thread.thread.thread: ; preds = %zfp_stream_com
   %65 = add i32 %62, 4194303
   %66 = zext i32 %65 to i64
   %67 = select i1 %brmerge64, i64 %.mux65, i64 %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 12
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %69 = load i32, ptr %68, align 4
   %70 = icmp slt i32 %69, -16495
   %71 = add i32 %69, -16272
@@ -1584,7 +1584,7 @@ define void @zfp_stream_params(ptr nocapture noundef readonly %0, ptr noundef wr
   br i1 %.not15, label %12, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   store i32 %11, ptr %2, align 4
   br label %12
@@ -1594,7 +1594,7 @@ define void @zfp_stream_params(ptr nocapture noundef readonly %0, ptr noundef wr
   br i1 %.not16, label %16, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %3, align 4
   br label %16
@@ -1604,7 +1604,7 @@ define void @zfp_stream_params(ptr nocapture noundef readonly %0, ptr noundef wr
   br i1 %.not17, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %4, align 4
   br label %20
@@ -1615,7 +1615,7 @@ define void @zfp_stream_params(ptr nocapture noundef readonly %0, ptr noundef wr
 
 ; Function Attrs: nounwind uwtable
 define i64 @zfp_stream_compressed_size(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @stream_size(ptr noundef %3) #19
   ret i64 %4
@@ -1628,10 +1628,10 @@ define range(i64 0, 2305843009213693952) i64 @zfp_stream_maximum_size(ptr nocapt
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, -1075
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.not.i = icmp eq i64 %6, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   br i1 %.not.i, label %zfp_field_dimensionality.exit, label %7
 
@@ -1640,13 +1640,13 @@ define range(i64 0, 2305843009213693952) i64 @zfp_stream_maximum_size(ptr nocapt
   br i1 %.not4.i, label %zfp_field_dimensionality.exit, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
   %.not5.i = icmp eq i64 %10, 0
   br i1 %.not5.i, label %zfp_field_dimensionality.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i64, ptr %12, align 8
   %.not6.i = icmp eq i64 %13, 0
   %14 = select i1 %.not6.i, i32 3, i32 4
@@ -1659,11 +1659,11 @@ zfp_field_dimensionality.exit:                    ; preds = %2, %7, %8, %11
   %18 = lshr i64 %17, 2
   %19 = add i64 %15, 3
   %20 = lshr i64 %19, 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, 3
   %24 = lshr i64 %23, 2
-  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %26 = load i64, ptr %25, align 8
   br i1 %.not.i, label %zfp_field_blocks.exit, label %27
 
@@ -1732,7 +1732,7 @@ zfp_field_precision.exit:                         ; preds = %49, %45, %43, %47
   %.0.i.i = phi i32 [ 32, %43 ], [ 32, %47 ], [ 64, %49 ], [ 64, %45 ]
   %.in45 = shl nsw i32 -1, %40
   %51 = xor i32 %.in45, -1
-  %.in = getelementptr inbounds i8, ptr %0, i64 8
+  %.in = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load i32, ptr %.in, align 8
   %53 = icmp ult i32 %52, %.0.i.i
   br i1 %53, label %zfp_field_precision.exit41, label %switch.lookup
@@ -1749,7 +1749,7 @@ zfp_field_precision.exit41:                       ; preds = %switch.lookup, %zfp
   %56 = shl nuw nsw i32 %55, %40
   %57 = add nuw nsw i32 %.044, %51
   %58 = add nuw nsw i32 %57, %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %60 = load i32, ptr %59, align 4
   %. = tail call i32 @llvm.umin.i32(i32 %58, i32 %60)
   %61 = load i32, ptr %0, align 8
@@ -1771,7 +1771,7 @@ zfp_field_precision.exit41:                       ; preds = %switch.lookup, %zfp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_stream_set_bit_stream(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #7 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
 }
@@ -1779,11 +1779,11 @@ define void @zfp_stream_set_bit_stream(ptr nocapture noundef writeonly initializ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16658, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 64, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1075, ptr %4, align 4
   ret void
 }
@@ -1826,11 +1826,11 @@ define double @zfp_stream_set_rate(ptr nocapture noundef writeonly initializes((
 24:                                               ; preds = %17, %16
   %.1 = phi i32 [ %23, %17 ], [ %.0, %16 ]
   store i32 %.1, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.1, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 64, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1074, ptr %27, align 4
   %28 = uitofp i32 %.1 to double
   %29 = fdiv double %28, %8
@@ -1846,14 +1846,14 @@ declare double @llvm.floor.f64(double) #13
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16658, ptr %3, align 4
   %.not = icmp eq i32 %1, 0
   %4 = tail call i32 @llvm.umin.i32(i32 %1, i32 64)
   %5 = select i1 %.not, i32 64, i32 %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1074, ptr %7, align 4
   ret i32 %5
 }
@@ -1870,22 +1870,22 @@ define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly initializ
   %7 = load i32, ptr %3, align 4
   %8 = add nsw i32 %7, -1
   store i32 1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16658, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 64, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %8, ptr %11, align 4
   %12 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %8) #19
   br label %16
 
 .critedge:                                        ; preds = %2
   store i32 1, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16658, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 64, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 -1074, ptr %15, align 4
   br label %16
 
@@ -1960,11 +1960,11 @@ define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly 
 
 41:                                               ; preds = %35
   store i32 %.023, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.022, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %36, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %37, ptr %44, align 4
   %45 = icmp eq i32 %.023, 1
   %46 = icmp eq i32 %.022, 16658
@@ -2017,11 +2017,11 @@ define range(i32 0, 2) i32 @zfp_stream_set_params(ptr nocapture noundef writeonl
 
 9:                                                ; preds = %5
   store i32 %1, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %4, ptr %12, align 4
   br label %13
 
@@ -2032,7 +2032,7 @@ define range(i32 0, 2) i32 @zfp_stream_set_params(ptr nocapture noundef writeonl
 
 ; Function Attrs: nounwind uwtable
 define i64 @zfp_stream_flush(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @stream_flush(ptr noundef %3) #19
   ret i64 %4
@@ -2042,7 +2042,7 @@ declare i64 @stream_flush(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define i64 @zfp_stream_align(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @stream_align(ptr noundef %3) #19
   ret i64 %4
@@ -2052,7 +2052,7 @@ declare i64 @stream_align(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @zfp_stream_rewind(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @stream_rewind(ptr noundef %3) #19
   ret void
@@ -2062,20 +2062,20 @@ declare void @stream_rewind(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @zfp_stream_execution(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @zfp_stream_omp_threads(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   br label %9
@@ -2087,15 +2087,15 @@ define i32 @zfp_stream_omp_threads(ptr nocapture noundef readonly %0) local_unna
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define i32 @zfp_stream_omp_chunk_size(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   br label %10
 
@@ -2112,13 +2112,13 @@ define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i
   ]
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not20 = icmp eq i32 %5, 0
   br i1 %.not20, label %20, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %.not21 = icmp eq ptr %8, null
   br i1 %.not21, label %20, label %9
@@ -2129,13 +2129,13 @@ define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i
   br label %20
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, 1
   br i1 %.not, label %20, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %17, label %16
@@ -2147,13 +2147,13 @@ define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i
 17:                                               ; preds = %16, %13
   %18 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %19, align 4
   store ptr %18, ptr %14, align 8
   br label %20
 
 20:                                               ; preds = %10, %17, %3, %6, %9
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %21, align 8
   br label %22
 
@@ -2164,10 +2164,10 @@ define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not.i, label %._crit_edge, label %5
 
@@ -2182,7 +2182,7 @@ define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr nocapture nou
 7:                                                ; preds = %6, %5
   %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
   store ptr %8, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
@@ -2196,10 +2196,10 @@ define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr nocapture nou
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 1
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br i1 %.not.i, label %._crit_edge, label %5
 
@@ -2214,7 +2214,7 @@ define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr nocapture 
 7:                                                ; preds = %6, %5
   %8 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #23
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %8, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %9, align 4
   store ptr %8, ptr %.phi.trans.insert, align 8
   br label %._crit_edge
@@ -2222,7 +2222,7 @@ define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr nocapture 
 ._crit_edge:                                      ; preds = %2, %7
   %10 = phi ptr [ %8, %7 ], [ %.pre, %2 ]
   store i32 1, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %1, ptr %11, align 4
   ret i32 1
 }
@@ -2238,11 +2238,11 @@ define void @zfp_promote_int8_to_int32(ptr nocapture noundef writeonly %0, ptr n
   %.036 = phi ptr [ %0, %3 ], [ %12, %6 ]
   %.045 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.07, -1
-  %8 = getelementptr inbounds i8, ptr %.045, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %9 = load i8, ptr %.045, align 1
   %10 = sext i8 %9 to i32
   %11 = shl nsw i32 %10, 23
-  %12 = getelementptr inbounds i8, ptr %.036, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.036, i64 4
   store i32 %11, ptr %.036, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %6
@@ -2262,12 +2262,12 @@ define void @zfp_promote_uint8_to_int32(ptr nocapture noundef writeonly %0, ptr 
   %.036 = phi ptr [ %0, %3 ], [ %13, %6 ]
   %.045 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.07, -1
-  %8 = getelementptr inbounds i8, ptr %.045, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %9 = load i8, ptr %.045, align 1
   %10 = zext i8 %9 to i32
   %11 = shl nuw nsw i32 %10, 23
   %12 = add nsw i32 %11, -1073741824
-  %13 = getelementptr inbounds i8, ptr %.036, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.036, i64 4
   store i32 %12, ptr %.036, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %6
@@ -2287,11 +2287,11 @@ define void @zfp_promote_int16_to_int32(ptr nocapture noundef writeonly %0, ptr 
   %.036 = phi ptr [ %0, %3 ], [ %12, %6 ]
   %.045 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.07, -1
-  %8 = getelementptr inbounds i8, ptr %.045, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   %9 = load i16, ptr %.045, align 2
   %10 = sext i16 %9 to i32
   %11 = shl nsw i32 %10, 15
-  %12 = getelementptr inbounds i8, ptr %.036, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.036, i64 4
   store i32 %11, ptr %.036, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %13, label %6
@@ -2311,12 +2311,12 @@ define void @zfp_promote_uint16_to_int32(ptr nocapture noundef writeonly %0, ptr
   %.036 = phi ptr [ %0, %3 ], [ %13, %6 ]
   %.045 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.07, -1
-  %8 = getelementptr inbounds i8, ptr %.045, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   %9 = load i16, ptr %.045, align 2
   %10 = zext i16 %9 to i32
   %11 = shl nuw nsw i32 %10, 15
   %12 = add nsw i32 %11, -1073741824
-  %13 = getelementptr inbounds i8, ptr %.036, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.036, i64 4
   store i32 %12, ptr %.036, align 4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %14, label %6
@@ -2336,13 +2336,13 @@ define void @zfp_demote_int32_to_int8(ptr nocapture noundef writeonly %0, ptr no
   %.0710 = phi i32 [ %5, %3 ], [ %7, %6 ]
   %.089 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.0710, -1
-  %8 = getelementptr inbounds i8, ptr %.089, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.089, i64 4
   %9 = load i32, ptr %.089, align 4
   %10 = ashr i32 %9, 23
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -128)
   %13 = trunc nsw i32 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %.011, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   store i8 %13, ptr %.011, align 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %6
@@ -2362,14 +2362,14 @@ define void @zfp_demote_int32_to_uint8(ptr nocapture noundef writeonly %0, ptr n
   %.0710 = phi i32 [ %5, %3 ], [ %7, %6 ]
   %.089 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.0710, -1
-  %8 = getelementptr inbounds i8, ptr %.089, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.089, i64 4
   %9 = load i32, ptr %.089, align 4
   %10 = ashr i32 %9, 23
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 127)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -128)
   %13 = trunc nsw i32 %12 to i8
   %14 = xor i8 %13, -128
-  %15 = getelementptr inbounds i8, ptr %.011, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   store i8 %14, ptr %.011, align 1
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %16, label %6
@@ -2389,13 +2389,13 @@ define void @zfp_demote_int32_to_int16(ptr nocapture noundef writeonly %0, ptr n
   %.0710 = phi i32 [ %5, %3 ], [ %7, %6 ]
   %.089 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.0710, -1
-  %8 = getelementptr inbounds i8, ptr %.089, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.089, i64 4
   %9 = load i32, ptr %.089, align 4
   %10 = ashr i32 %9, 15
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 32767)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -32768)
   %13 = trunc nsw i32 %12 to i16
-  %14 = getelementptr inbounds i8, ptr %.011, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.011, i64 2
   store i16 %13, ptr %.011, align 2
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %15, label %6
@@ -2415,14 +2415,14 @@ define void @zfp_demote_int32_to_uint16(ptr nocapture noundef writeonly %0, ptr 
   %.0710 = phi i32 [ %5, %3 ], [ %7, %6 ]
   %.089 = phi ptr [ %1, %3 ], [ %8, %6 ]
   %7 = add i32 %.0710, -1
-  %8 = getelementptr inbounds i8, ptr %.089, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.089, i64 4
   %9 = load i32, ptr %.089, align 4
   %10 = ashr i32 %9, 15
   %11 = tail call i32 @llvm.smin.i32(i32 %10, i32 32767)
   %12 = tail call i32 @llvm.smax.i32(i32 %11, i32 -32768)
   %13 = trunc nsw i32 %12 to i16
   %14 = xor i16 %13, -32768
-  %15 = getelementptr inbounds i8, ptr %.011, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.011, i64 2
   store i16 %14, ptr %.011, align 2
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %16, label %6
@@ -2433,27 +2433,27 @@ define void @zfp_demote_int32_to_uint16(ptr nocapture noundef writeonly %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define i64 @zfp_compress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8
   %.not32.i = icmp eq i64 %6, 0
   br i1 %.not32.i, label %7, label %zfp_field_stride.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i64, ptr %8, align 8
   %.not33.i = icmp eq i64 %9, 0
   br i1 %.not33.i, label %10, label %zfp_field_stride.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load i64, ptr %11, align 8
   %.not34.i = icmp eq i64 %12, 0
   br i1 %.not34.i, label %13, label %zfp_field_stride.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = icmp ne i64 %15, 0
   %17 = zext i1 %16 to i64
@@ -2461,25 +2461,25 @@ define i64 @zfp_compress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 
 
 zfp_field_stride.exit:                            ; preds = %2, %7, %10, %13
   %18 = phi i64 [ 1, %10 ], [ 1, %7 ], [ 1, %2 ], [ %17, %13 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit, label %21
 
 21:                                               ; preds = %zfp_field_stride.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8
   %.not4.i = icmp eq i64 %23, 0
   br i1 %.not4.i, label %zfp_field_dimensionality.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   %.not5.i = icmp eq i64 %26, 0
   br i1 %.not5.i, label %zfp_field_dimensionality.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8
   %.not6.i = icmp eq i64 %29, 0
   %30 = select i1 %.not6.i, i64 2, i64 3
@@ -2495,14 +2495,14 @@ zfp_field_dimensionality.exit:                    ; preds = %zfp_field_stride.ex
 33:                                               ; preds = %zfp_field_dimensionality.exit
   %34 = zext i32 %4 to i64
   %35 = zext nneg i32 %.off to i64
-  %36 = getelementptr inbounds [3 x [2 x [4 x [4 x ptr]]]], ptr @__const.zfp_compress.ftable, i64 0, i64 %34, i64 %18, i64 %31, i64 %35
+  %36 = getelementptr inbounds nuw [3 x [2 x [4 x [4 x ptr]]]], ptr @__const.zfp_compress.ftable, i64 0, i64 %34, i64 %18, i64 %31, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %44, label %38
 
 38:                                               ; preds = %33
   tail call void %37(ptr noundef nonnull %0, ptr noundef nonnull %1) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @stream_flush(ptr noundef %40) #19
   %42 = load ptr, ptr %39, align 8
@@ -2516,9 +2516,9 @@ zfp_field_dimensionality.exit:                    ; preds = %zfp_field_stride.ex
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -2529,7 +2529,7 @@ define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef rea
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_encode_block_int32_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 16
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -2550,9 +2550,9 @@ define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -2563,7 +2563,7 @@ define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef rea
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_encode_block_int64_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 32
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -2584,9 +2584,9 @@ define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -2597,7 +2597,7 @@ define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef rea
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_encode_block_float_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 16
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -2618,9 +2618,9 @@ define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -2631,7 +2631,7 @@ define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef re
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_encode_block_double_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 32
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -2652,16 +2652,16 @@ define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -2731,16 +2731,16 @@ define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -2810,16 +2810,16 @@ define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -2889,16 +2889,16 @@ define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -2968,22 +2968,22 @@ define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -3112,22 +3112,22 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -3256,22 +3256,22 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -3400,22 +3400,22 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -3544,29 +3544,29 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -3775,29 +3775,29 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -4006,29 +4006,29 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -4237,29 +4237,29 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -4468,11 +4468,11 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -4505,11 +4505,11 @@ define internal void @compress_strided_int32_1(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -4542,11 +4542,11 @@ define internal void @compress_strided_int64_1(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -4579,11 +4579,11 @@ define internal void @compress_strided_float_1(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @compress_strided_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -4624,19 +4624,19 @@ define internal void @compress_omp_int32_1(ptr noundef %0, ptr nocapture noundef
   %8 = alloca ptr, align 8
   %9 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 0
@@ -4660,9 +4660,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %26 = phi i64 [ %21, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
   %.0.i8 = phi i32 [ %19, %thread_count_omp.exit.thread ], [ %22, %thread_count_omp.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.not.i4 = icmp eq i32 %30, 0
   br i1 %.not.i4, label %zfp_stream_omp_chunk_size.exit.thread.i, label %31
@@ -4717,19 +4717,19 @@ define internal void @compress_omp_int64_1(ptr noundef %0, ptr nocapture noundef
   %8 = alloca ptr, align 8
   %9 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 0
@@ -4753,9 +4753,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %26 = phi i64 [ %21, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
   %.0.i8 = phi i32 [ %19, %thread_count_omp.exit.thread ], [ %22, %thread_count_omp.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.not.i4 = icmp eq i32 %30, 0
   br i1 %.not.i4, label %zfp_stream_omp_chunk_size.exit.thread.i, label %31
@@ -4810,19 +4810,19 @@ define internal void @compress_omp_float_1(ptr noundef %0, ptr nocapture noundef
   %8 = alloca ptr, align 8
   %9 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 0
@@ -4846,9 +4846,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %26 = phi i64 [ %21, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
   %.0.i8 = phi i32 [ %19, %thread_count_omp.exit.thread ], [ %22, %thread_count_omp.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.not.i4 = icmp eq i32 %30, 0
   br i1 %.not.i4, label %zfp_stream_omp_chunk_size.exit.thread.i, label %31
@@ -4903,19 +4903,19 @@ define internal void @compress_omp_double_1(ptr noundef %0, ptr nocapture nounde
   %8 = alloca ptr, align 8
   %9 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %4, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i64, ptr %12, align 8
   store i64 %13, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr %18, align 4
   %.not.i = icmp eq i32 %19, 0
@@ -4939,9 +4939,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %26 = phi i64 [ %21, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
   %.0.i8 = phi i32 [ %19, %thread_count_omp.exit.thread ], [ %22, %thread_count_omp.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4
   %.not.i4 = icmp eq i32 %30, 0
   br i1 %.not.i4, label %zfp_stream_omp_chunk_size.exit.thread.i, label %31
@@ -5000,31 +5000,31 @@ define internal void @compress_strided_omp_int32_2(ptr noundef %0, ptr nocapture
   %12 = alloca ptr, align 8
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   store i64 %spec.select, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load i64, ptr %22, align 8
   %.not11 = icmp eq i64 %23, 0
   %24 = select i1 %.not11, i64 %17, i64 %23
   store i64 %24, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %30, 0
@@ -5049,9 +5049,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %33, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %.not.i13 = icmp eq i32 %42, 0
   br i1 %.not.i13, label %zfp_stream_omp_chunk_size.exit.thread.i, label %43
@@ -5106,31 +5106,31 @@ define internal void @compress_strided_omp_int64_2(ptr noundef %0, ptr nocapture
   %12 = alloca ptr, align 8
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   store i64 %spec.select, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load i64, ptr %22, align 8
   %.not11 = icmp eq i64 %23, 0
   %24 = select i1 %.not11, i64 %17, i64 %23
   store i64 %24, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %30, 0
@@ -5155,9 +5155,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %33, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %.not.i13 = icmp eq i32 %42, 0
   br i1 %.not.i13, label %zfp_stream_omp_chunk_size.exit.thread.i, label %43
@@ -5212,31 +5212,31 @@ define internal void @compress_strided_omp_float_2(ptr noundef %0, ptr nocapture
   %12 = alloca ptr, align 8
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   store i64 %spec.select, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load i64, ptr %22, align 8
   %.not11 = icmp eq i64 %23, 0
   %24 = select i1 %.not11, i64 %17, i64 %23
   store i64 %24, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %30, 0
@@ -5261,9 +5261,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %33, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %.not.i13 = icmp eq i32 %42, 0
   br i1 %.not.i13, label %zfp_stream_omp_chunk_size.exit.thread.i, label %43
@@ -5318,31 +5318,31 @@ define internal void @compress_strided_omp_double_2(ptr noundef %0, ptr nocaptur
   %12 = alloca ptr, align 8
   %13 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i64, ptr %18, align 8
   store i64 %19, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %21 = load i64, ptr %20, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %21, i64 1)
   store i64 %spec.select, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %23 = load i64, ptr %22, align 8
   %.not11 = icmp eq i64 %23, 0
   %24 = select i1 %.not11, i64 %17, i64 %23
   store i64 %24, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp eq i32 %30, 0
@@ -5367,9 +5367,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %33, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4
   %.not.i13 = icmp eq i32 %42, 0
   br i1 %.not.i13, label %zfp_stream_omp_chunk_size.exit.thread.i, label %43
@@ -5427,40 +5427,40 @@ define internal void @compress_strided_omp_int32_3(ptr noundef %0, ptr nocapture
   %15 = alloca ptr, align 8
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   store i64 %spec.select, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i64, ptr %27, align 8
   %.not15 = icmp eq i64 %28, 0
   %29 = select i1 %.not15, i64 %20, i64 %28
   store i64 %29, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i64, ptr %30, align 8
   %.not16 = icmp eq i64 %31, 0
   %32 = mul i64 %22, %20
   %33 = select i1 %.not16, i64 %32, i64 %31
   store i64 %33, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %39, 0
@@ -5489,9 +5489,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %42, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %.not.i18 = icmp eq i32 %54, 0
   br i1 %.not.i18, label %zfp_stream_omp_chunk_size.exit.thread.i, label %55
@@ -5549,40 +5549,40 @@ define internal void @compress_strided_omp_int64_3(ptr noundef %0, ptr nocapture
   %15 = alloca ptr, align 8
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   store i64 %spec.select, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i64, ptr %27, align 8
   %.not15 = icmp eq i64 %28, 0
   %29 = select i1 %.not15, i64 %20, i64 %28
   store i64 %29, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i64, ptr %30, align 8
   %.not16 = icmp eq i64 %31, 0
   %32 = mul i64 %22, %20
   %33 = select i1 %.not16, i64 %32, i64 %31
   store i64 %33, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %39, 0
@@ -5611,9 +5611,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %42, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %.not.i18 = icmp eq i32 %54, 0
   br i1 %.not.i18, label %zfp_stream_omp_chunk_size.exit.thread.i, label %55
@@ -5671,40 +5671,40 @@ define internal void @compress_strided_omp_float_3(ptr noundef %0, ptr nocapture
   %15 = alloca ptr, align 8
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   store i64 %spec.select, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i64, ptr %27, align 8
   %.not15 = icmp eq i64 %28, 0
   %29 = select i1 %.not15, i64 %20, i64 %28
   store i64 %29, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i64, ptr %30, align 8
   %.not16 = icmp eq i64 %31, 0
   %32 = mul i64 %22, %20
   %33 = select i1 %.not16, i64 %32, i64 %31
   store i64 %33, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %39, 0
@@ -5733,9 +5733,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %42, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %.not.i18 = icmp eq i32 %54, 0
   br i1 %.not.i18, label %zfp_stream_omp_chunk_size.exit.thread.i, label %55
@@ -5793,40 +5793,40 @@ define internal void @compress_strided_omp_double_3(ptr noundef %0, ptr nocaptur
   %15 = alloca ptr, align 8
   %16 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   store i64 %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   store i64 %22, ptr %6, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %7, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %26 = load i64, ptr %25, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %26, i64 1)
   store i64 %spec.select, ptr %8, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %28 = load i64, ptr %27, align 8
   %.not15 = icmp eq i64 %28, 0
   %29 = select i1 %.not15, i64 %20, i64 %28
   store i64 %29, ptr %9, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %31 = load i64, ptr %30, align 8
   %.not16 = icmp eq i64 %31, 0
   %32 = mul i64 %22, %20
   %33 = select i1 %.not16, i64 %32, i64 %31
   store i64 %33, ptr %10, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %.not.i = icmp eq i32 %39, 0
@@ -5855,9 +5855,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %42, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %51 = getelementptr inbounds i8, ptr %0, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4
   %.not.i18 = icmp eq i32 %54, 0
   br i1 %.not.i18, label %zfp_stream_omp_chunk_size.exit.thread.i, label %55
@@ -5918,49 +5918,49 @@ define internal void @compress_strided_omp_int32_4(ptr noundef %0, ptr nocapture
   %18 = alloca ptr, align 8
   %19 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load i64, ptr %30, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   store i64 %spec.select, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8
   %.not19 = icmp eq i64 %33, 0
   %34 = select i1 %.not19, i64 %23, i64 %33
   store i64 %34, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load i64, ptr %35, align 8
   %.not20 = icmp eq i64 %36, 0
   %37 = mul i64 %25, %23
   %38 = select i1 %.not20, i64 %37, i64 %36
   store i64 %38, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i64, ptr %39, align 8
   %.not21 = icmp eq i64 %40, 0
   %41 = mul i64 %27, %37
   %spec.select24 = select i1 %.not21, i64 %41, i64 %40
   store i64 %spec.select24, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   %.not.i = icmp eq i32 %47, 0
@@ -5993,9 +5993,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %50, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %.not.i23 = icmp eq i32 %65, 0
   br i1 %.not.i23, label %zfp_stream_omp_chunk_size.exit.thread.i, label %66
@@ -6056,49 +6056,49 @@ define internal void @compress_strided_omp_int64_4(ptr noundef %0, ptr nocapture
   %18 = alloca ptr, align 8
   %19 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load i64, ptr %30, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   store i64 %spec.select, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8
   %.not19 = icmp eq i64 %33, 0
   %34 = select i1 %.not19, i64 %23, i64 %33
   store i64 %34, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load i64, ptr %35, align 8
   %.not20 = icmp eq i64 %36, 0
   %37 = mul i64 %25, %23
   %38 = select i1 %.not20, i64 %37, i64 %36
   store i64 %38, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i64, ptr %39, align 8
   %.not21 = icmp eq i64 %40, 0
   %41 = mul i64 %27, %37
   %spec.select24 = select i1 %.not21, i64 %41, i64 %40
   store i64 %spec.select24, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   %.not.i = icmp eq i32 %47, 0
@@ -6131,9 +6131,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %50, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %.not.i23 = icmp eq i32 %65, 0
   br i1 %.not.i23, label %zfp_stream_omp_chunk_size.exit.thread.i, label %66
@@ -6194,49 +6194,49 @@ define internal void @compress_strided_omp_float_4(ptr noundef %0, ptr nocapture
   %18 = alloca ptr, align 8
   %19 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load i64, ptr %30, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   store i64 %spec.select, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8
   %.not19 = icmp eq i64 %33, 0
   %34 = select i1 %.not19, i64 %23, i64 %33
   store i64 %34, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load i64, ptr %35, align 8
   %.not20 = icmp eq i64 %36, 0
   %37 = mul i64 %25, %23
   %38 = select i1 %.not20, i64 %37, i64 %36
   store i64 %38, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i64, ptr %39, align 8
   %.not21 = icmp eq i64 %40, 0
   %41 = mul i64 %27, %37
   %spec.select24 = select i1 %.not21, i64 %41, i64 %40
   store i64 %spec.select24, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   %.not.i = icmp eq i32 %47, 0
@@ -6269,9 +6269,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %50, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %.not.i23 = icmp eq i32 %65, 0
   br i1 %.not.i23, label %zfp_stream_omp_chunk_size.exit.thread.i, label %66
@@ -6332,49 +6332,49 @@ define internal void @compress_strided_omp_double_4(ptr noundef %0, ptr nocaptur
   %18 = alloca ptr, align 8
   %19 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load i64, ptr %24, align 8
   store i64 %25, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   store i64 %27, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %31 = load i64, ptr %30, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %31, i64 1)
   store i64 %spec.select, ptr %9, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %33 = load i64, ptr %32, align 8
   %.not19 = icmp eq i64 %33, 0
   %34 = select i1 %.not19, i64 %23, i64 %33
   store i64 %34, ptr %10, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = load i64, ptr %35, align 8
   %.not20 = icmp eq i64 %36, 0
   %37 = mul i64 %25, %23
   %38 = select i1 %.not20, i64 %37, i64 %36
   store i64 %38, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %40 = load i64, ptr %39, align 8
   %.not21 = icmp eq i64 %40, 0
   %41 = mul i64 %27, %37
   %spec.select24 = select i1 %.not21, i64 %41, i64 %40
   store i64 %spec.select24, ptr %12, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %zfp_stream_omp_threads.exit.i, label %zfp_stream_omp_threads.exit.thread.i
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   %.not.i = icmp eq i32 %47, 0
@@ -6407,9 +6407,9 @@ thread_count_omp.exit:                            ; preds = %zfp_stream_omp_thre
   br i1 %50, label %zfp_stream_omp_chunk_size.exit.i, label %zfp_stream_omp_chunk_size.exit.thread.i
 
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4
   %.not.i23 = icmp eq i32 %65, 0
   br i1 %.not.i23, label %zfp_stream_omp_chunk_size.exit.thread.i, label %66
@@ -6461,23 +6461,23 @@ define internal void @compress_strided_omp_int32_1(ptr noundef %0, ptr nocapture
   %9 = alloca ptr, align 8
   %10 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   store i64 %spec.select, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %.not.i = icmp eq i32 %22, 0
@@ -6501,9 +6501,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %29 = phi i64 [ %24, %thread_count_omp.exit.thread ], [ %28, %thread_count_omp.exit ]
   %.0.i11 = phi i32 [ %22, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not.i7 = icmp eq i32 %33, 0
   br i1 %.not.i7, label %zfp_stream_omp_chunk_size.exit.thread.i, label %34
@@ -6559,23 +6559,23 @@ define internal void @compress_strided_omp_int64_1(ptr noundef %0, ptr nocapture
   %9 = alloca ptr, align 8
   %10 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   store i64 %spec.select, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %.not.i = icmp eq i32 %22, 0
@@ -6599,9 +6599,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %29 = phi i64 [ %24, %thread_count_omp.exit.thread ], [ %28, %thread_count_omp.exit ]
   %.0.i11 = phi i32 [ %22, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not.i7 = icmp eq i32 %33, 0
   br i1 %.not.i7, label %zfp_stream_omp_chunk_size.exit.thread.i, label %34
@@ -6657,23 +6657,23 @@ define internal void @compress_strided_omp_float_1(ptr noundef %0, ptr nocapture
   %9 = alloca ptr, align 8
   %10 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   store i64 %spec.select, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %.not.i = icmp eq i32 %22, 0
@@ -6697,9 +6697,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %29 = phi i64 [ %24, %thread_count_omp.exit.thread ], [ %28, %thread_count_omp.exit ]
   %.0.i11 = phi i32 [ %22, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not.i7 = icmp eq i32 %33, 0
   br i1 %.not.i7, label %zfp_stream_omp_chunk_size.exit.thread.i, label %34
@@ -6755,23 +6755,23 @@ define internal void @compress_strided_omp_double_1(ptr noundef %0, ptr nocaptur
   %9 = alloca ptr, align 8
   %10 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
   store ptr %0, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load i64, ptr %13, align 8
   store i64 %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i64, ptr %15, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %16, i64 1)
   store i64 %spec.select, ptr %6, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 1
   br i1 %19, label %zfp_stream_omp_threads.exit.i, label %thread_count_omp.exit
 
 zfp_stream_omp_threads.exit.i:                    ; preds = %2
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 4
   %.not.i = icmp eq i32 %22, 0
@@ -6795,9 +6795,9 @@ thread_count_omp.exit:                            ; preds = %2, %zfp_stream_omp_
 zfp_stream_omp_chunk_size.exit.i:                 ; preds = %thread_count_omp.exit.thread, %thread_count_omp.exit
   %29 = phi i64 [ %24, %thread_count_omp.exit.thread ], [ %28, %thread_count_omp.exit ]
   %.0.i11 = phi i32 [ %22, %thread_count_omp.exit.thread ], [ %25, %thread_count_omp.exit ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4
   %.not.i7 = icmp eq i32 %33, 0
   br i1 %.not.i7, label %zfp_stream_omp_chunk_size.exit.thread.i, label %34
@@ -6925,43 +6925,43 @@ define internal fastcc noalias noundef ptr @compress_init_par(ptr nocapture noun
   %8 = add i64 %7, -4
   %9 = udiv i64 %8, %2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i64, ptr %10, align 8
   %.not.i = icmp eq i64 %11, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit.thread, label %12
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8
   %.not4.i = icmp eq i64 %14, 0
   br i1 %.not4.i, label %24, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %.not5.i = icmp eq i64 %17, 0
   br i1 %.not5.i, label %26, label %18
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i64, ptr %19, align 8
   %.not6.i = icmp eq i64 %20, 0
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 4, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br i1 %.not6.i, label %29, label %zfp_field_dimensionality.exit
 
 24:                                               ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %9, ptr %25, align 8
   br label %31
 
 26:                                               ; preds = %15
-  %27 = getelementptr inbounds i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 4, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %9, ptr %28, align 8
   br label %31
 
@@ -6971,14 +6971,14 @@ define internal fastcc noalias noundef ptr @compress_init_par(ptr nocapture noun
 
 zfp_field_dimensionality.exit:                    ; preds = %18
   store i64 4, ptr %23, align 8
-  %30 = getelementptr inbounds i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %9, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %zfp_field_dimensionality.exit, %29, %26, %24
   %32 = call i64 @zfp_stream_maximum_size(ptr noundef %0, ptr noundef nonnull %5)
   %33 = load i32, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %35 = load i32, ptr %34, align 4
   %.not = icmp eq i32 %33, %35
   br i1 %.not, label %36, label %46
@@ -6991,7 +6991,7 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   br i1 %.not49, label %40, label %46
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 @stream_wtell(ptr noundef %42) #19
   %44 = urem i64 %43, %38
@@ -7006,7 +7006,7 @@ zfp_field_dimensionality.exit:                    ; preds = %18
   br i1 %.not50, label %zfp_field_dimensionality.exit.thread, label %.preheader61
 
 .preheader61:                                     ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %umax70 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   br i1 %47, label %.preheader61.split.us, label %.preheader61.split
 
@@ -7105,7 +7105,7 @@ define internal void @compress_omp_int32_1.omp_outlined(ptr noalias nocapture no
   br i1 %.not32, label %._crit_edge, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = sext i32 %22 to i64
   br label %27
 
@@ -7291,7 +7291,7 @@ define internal void @compress_omp_int64_1.omp_outlined(ptr noalias nocapture no
   br i1 %.not32, label %._crit_edge, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = sext i32 %22 to i64
   br label %27
 
@@ -7383,7 +7383,7 @@ define internal void @compress_omp_float_1.omp_outlined(ptr noalias nocapture no
   br i1 %.not32, label %._crit_edge, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = sext i32 %22 to i64
   br label %27
 
@@ -7475,7 +7475,7 @@ define internal void @compress_omp_double_1.omp_outlined(ptr noalias nocapture n
   br i1 %.not32, label %._crit_edge, label %.lr.ph34
 
 .lr.ph34:                                         ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %24 = sext i32 %22 to i64
   br label %27
 
@@ -7567,7 +7567,7 @@ define internal void @compress_strided_omp_int32_2.omp_outlined(ptr noalias noca
   br i1 %.not45, label %._crit_edge, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %28 = sext i32 %26 to i64
   br label %31
 
@@ -7674,7 +7674,7 @@ define internal void @compress_strided_omp_int64_2.omp_outlined(ptr noalias noca
   br i1 %.not45, label %._crit_edge, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %28 = sext i32 %26 to i64
   br label %31
 
@@ -7781,7 +7781,7 @@ define internal void @compress_strided_omp_float_2.omp_outlined(ptr noalias noca
   br i1 %.not45, label %._crit_edge, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %28 = sext i32 %26 to i64
   br label %31
 
@@ -7888,7 +7888,7 @@ define internal void @compress_strided_omp_double_2.omp_outlined(ptr noalias noc
   br i1 %.not45, label %._crit_edge, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %17, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %28 = sext i32 %26 to i64
   br label %31
 
@@ -7995,7 +7995,7 @@ define internal void @compress_strided_omp_int32_3.omp_outlined(ptr noalias noca
   br i1 %.not55, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %31 = sext i32 %29 to i64
   br label %34
 
@@ -8124,7 +8124,7 @@ define internal void @compress_strided_omp_int64_3.omp_outlined(ptr noalias noca
   br i1 %.not55, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %31 = sext i32 %29 to i64
   br label %34
 
@@ -8253,7 +8253,7 @@ define internal void @compress_strided_omp_float_3.omp_outlined(ptr noalias noca
   br i1 %.not55, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %31 = sext i32 %29 to i64
   br label %34
 
@@ -8382,7 +8382,7 @@ define internal void @compress_strided_omp_double_3.omp_outlined(ptr noalias noc
   br i1 %.not55, label %._crit_edge, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %20, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %31 = sext i32 %29 to i64
   br label %34
 
@@ -8511,7 +8511,7 @@ define internal void @compress_strided_omp_int32_4.omp_outlined(ptr noalias noca
   br i1 %.not65, label %._crit_edge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   br label %37
 
@@ -8656,7 +8656,7 @@ define internal void @compress_strided_omp_int64_4.omp_outlined(ptr noalias noca
   br i1 %.not65, label %._crit_edge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   br label %37
 
@@ -8801,7 +8801,7 @@ define internal void @compress_strided_omp_float_4.omp_outlined(ptr noalias noca
   br i1 %.not65, label %._crit_edge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   br label %37
 
@@ -8946,7 +8946,7 @@ define internal void @compress_strided_omp_double_4.omp_outlined(ptr noalias noc
   br i1 %.not65, label %._crit_edge, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %23, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = sext i32 %32 to i64
   br label %37
 
@@ -9091,7 +9091,7 @@ define internal void @compress_strided_omp_int32_1.omp_outlined(ptr noalias noca
   br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = sext i32 %23 to i64
   br label %28
 
@@ -9185,7 +9185,7 @@ define internal void @compress_strided_omp_int64_1.omp_outlined(ptr noalias noca
   br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = sext i32 %23 to i64
   br label %28
 
@@ -9279,7 +9279,7 @@ define internal void @compress_strided_omp_float_1.omp_outlined(ptr noalias noca
   br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = sext i32 %23 to i64
   br label %28
 
@@ -9373,7 +9373,7 @@ define internal void @compress_strided_omp_double_1.omp_outlined(ptr noalias noc
   br i1 %.not33, label %._crit_edge, label %.lr.ph35
 
 .lr.ph35:                                         ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = sext i32 %23 to i64
   br label %28
 
@@ -9441,27 +9441,27 @@ define internal void @compress_strided_omp_double_1.omp_outlined(ptr noalias noc
 
 ; Function Attrs: nounwind uwtable
 define i64 @zfp_decompress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #11 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i64, ptr %5, align 8
   %.not32.i = icmp eq i64 %6, 0
   br i1 %.not32.i, label %7, label %zfp_field_stride.exit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i64, ptr %8, align 8
   %.not33.i = icmp eq i64 %9, 0
   br i1 %.not33.i, label %10, label %zfp_field_stride.exit
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %12 = load i64, ptr %11, align 8
   %.not34.i = icmp eq i64 %12, 0
   br i1 %.not34.i, label %13, label %zfp_field_stride.exit
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load i64, ptr %14, align 8
   %16 = icmp ne i64 %15, 0
   %17 = zext i1 %16 to i64
@@ -9469,25 +9469,25 @@ define i64 @zfp_decompress(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
 
 zfp_field_stride.exit:                            ; preds = %2, %7, %10, %13
   %18 = phi i64 [ 1, %10 ], [ 1, %7 ], [ 1, %2 ], [ %17, %13 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i64, ptr %19, align 8
   %.not.i = icmp eq i64 %20, 0
   br i1 %.not.i, label %zfp_field_dimensionality.exit, label %21
 
 21:                                               ; preds = %zfp_field_stride.exit
-  %22 = getelementptr inbounds i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8
   %.not4.i = icmp eq i64 %23, 0
   br i1 %.not4.i, label %zfp_field_dimensionality.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %26 = load i64, ptr %25, align 8
   %.not5.i = icmp eq i64 %26, 0
   br i1 %.not5.i, label %zfp_field_dimensionality.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i64, ptr %28, align 8
   %.not6.i = icmp eq i64 %29, 0
   %30 = select i1 %.not6.i, i64 2, i64 3
@@ -9503,14 +9503,14 @@ zfp_field_dimensionality.exit:                    ; preds = %zfp_field_stride.ex
 33:                                               ; preds = %zfp_field_dimensionality.exit
   %34 = zext i32 %4 to i64
   %35 = zext nneg i32 %.off to i64
-  %36 = getelementptr inbounds [3 x [2 x [4 x [4 x ptr]]]], ptr @__const.zfp_decompress.ftable, i64 0, i64 %34, i64 %18, i64 %31, i64 %35
+  %36 = getelementptr inbounds nuw [3 x [2 x [4 x [4 x ptr]]]], ptr @__const.zfp_decompress.ftable, i64 0, i64 %34, i64 %18, i64 %31, i64 %35
   %37 = load ptr, ptr %36, align 8
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %44, label %38
 
 38:                                               ; preds = %33
   tail call void %37(ptr noundef nonnull %0, ptr noundef nonnull %1) #19
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @stream_align(ptr noundef %40) #19
   %42 = load ptr, ptr %39, align 8
@@ -9524,9 +9524,9 @@ zfp_field_dimensionality.exit:                    ; preds = %zfp_field_stride.ex
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -9537,7 +9537,7 @@ define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef r
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_decode_block_int32_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 16
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -9558,9 +9558,9 @@ define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -9571,7 +9571,7 @@ define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef r
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_decode_block_int64_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 32
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -9592,9 +9592,9 @@ define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -9605,7 +9605,7 @@ define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef r
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_decode_block_float_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 16
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -9626,9 +9626,9 @@ define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = and i64 %6, 4294967292
   %.not = icmp eq i64 %7, 0
@@ -9639,7 +9639,7 @@ define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef 
   %.01416 = phi ptr [ %10, %.lr.ph ], [ %4, %2 ]
   %8 = tail call i64 @zfp_decode_block_double_1(ptr noundef %0, ptr noundef %.01416) #19
   %9 = add nuw nsw i64 %.017, 4
-  %10 = getelementptr inbounds i8, ptr %.01416, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.01416, i64 32
   %11 = icmp samesign ult i64 %9, %7
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -9660,16 +9660,16 @@ define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -9739,16 +9739,16 @@ define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -9818,16 +9818,16 @@ define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -9897,16 +9897,16 @@ define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %10 = load i64, ptr %9, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
   %.not43 = icmp eq i64 %12, 0
   %13 = select i1 %.not43, i64 %6, i64 %12
@@ -9976,22 +9976,22 @@ define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -10120,22 +10120,22 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -10264,22 +10264,22 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -10408,22 +10408,22 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %12 = load i64, ptr %11, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %12, i64 1)
-  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %14 = load i64, ptr %13, align 8
   %.not64 = icmp eq i64 %14, 0
   %15 = select i1 %.not64, i64 %6, i64 %14
-  %16 = getelementptr inbounds i8, ptr %1, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %17 = load i64, ptr %16, align 8
   %.not65 = icmp eq i64 %17, 0
   %18 = mul i64 %8, %6
@@ -10552,29 +10552,29 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -10783,29 +10783,29 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -11014,29 +11014,29 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -11245,29 +11245,29 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load i64, ptr %13, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %14, i64 1)
-  %15 = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %16 = load i64, ptr %15, align 8
   %.not86 = icmp eq i64 %16, 0
   %17 = select i1 %.not86, i64 %6, i64 %16
-  %18 = getelementptr inbounds i8, ptr %1, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %19 = load i64, ptr %18, align 8
   %.not87 = icmp eq i64 %19, 0
   %20 = mul i64 %8, %6
   %21 = select i1 %.not87, i64 %20, i64 %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load i64, ptr %22, align 8
   %.not88 = icmp eq i64 %23, 0
   %24 = mul i64 %20, %10
@@ -11476,11 +11476,11 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -11513,11 +11513,11 @@ define internal void @decompress_strided_int32_1(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -11550,11 +11550,11 @@ define internal void @decompress_strided_int64_1(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -11587,11 +11587,11 @@ define internal void @decompress_strided_float_1(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @decompress_strided_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load i64, ptr %7, align 8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   %.not = icmp eq i64 %6, 0
@@ -11712,7 +11712,7 @@ define range(i64 0, 149) i64 @zfp_write_header(ptr nocapture noundef readonly %0
   br i1 %.not25, label %20, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @stream_write_bits(ptr noundef %12, i64 noundef 122, i64 noundef 8) #19
   %14 = load ptr, ptr %11, align 8
@@ -11728,7 +11728,7 @@ define range(i64 0, 149) i64 @zfp_write_header(ptr nocapture noundef readonly %0
   br i1 %.not, label %26, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i64 @stream_write_bits(ptr noundef %23, i64 noundef %.023, i64 noundef 52) #19
   %25 = add nuw nsw i64 %.022, 52
@@ -11743,7 +11743,7 @@ define range(i64 0, 149) i64 @zfp_write_header(ptr nocapture noundef readonly %0
 28:                                               ; preds = %26
   %29 = tail call i64 @zfp_stream_mode(ptr noundef %0)
   %30 = icmp ugt i64 %29, 4094
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = select i1 %30, i64 64, i64 12
   %34 = tail call i64 @stream_write_bits(ptr noundef %32, i64 noundef %29, i64 noundef %33) #19
@@ -11764,7 +11764,7 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @stream_read_bits(ptr noundef %7, i64 noundef 8) #19
   %.not27 = icmp eq i64 %8, 122
@@ -11795,7 +11795,7 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   br i1 %.not31, label %71, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @stream_read_bits(ptr noundef %22, i64 noundef 52) #19
   %.not.i = icmp ult i64 %23, 4503599627370496
@@ -11809,7 +11809,7 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   %28 = lshr i64 %23, 2
   %29 = and i64 %28, 3
   %30 = lshr i64 %23, 4
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   switch i64 %29, label %default.unreachable [
     i64 0, label %32
     i64 1, label %36
@@ -11821,7 +11821,7 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   %33 = and i64 %30, 4294967295
   %34 = add nuw nsw i64 %33, 1
   store i64 %34, ptr %31, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   br label %68
 
@@ -11831,9 +11831,9 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   store i64 %38, ptr %31, align 8
   %39 = lshr i64 %23, 28
   %40 = add nuw nsw i64 %39, 1
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   br label %68
 
@@ -11844,13 +11844,13 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   %46 = lshr i64 %23, 20
   %47 = and i64 %46, 65535
   %48 = add nuw nsw i64 %47, 1
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %48, ptr %49, align 8
   %50 = lshr i64 %23, 36
   %51 = add nuw nsw i64 %50, 1
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 0, ptr %53, align 8
   br label %68
 
@@ -11861,16 +11861,16 @@ define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr noca
   %57 = lshr i64 %23, 16
   %58 = and i64 %57, 4095
   %59 = add nuw nsw i64 %58, 1
-  %60 = getelementptr inbounds i8, ptr %1, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 %59, ptr %60, align 8
   %61 = lshr i64 %23, 28
   %62 = and i64 %61, 4095
   %63 = add nuw nsw i64 %62, 1
-  %64 = getelementptr inbounds i8, ptr %1, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %63, ptr %64, align 8
   %65 = lshr i64 %23, 40
   %66 = add nuw nsw i64 %65, 1
-  %67 = getelementptr inbounds i8, ptr %1, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %66, ptr %67, align 8
   br label %68
 
@@ -11878,7 +11878,7 @@ default.unreachable:                              ; preds = %24
   unreachable
 
 68:                                               ; preds = %54, %43, %36, %32
-  %69 = getelementptr inbounds i8, ptr %1, i64 40
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   %70 = add nuw nsw i64 %.024, 52
   br label %71
@@ -11890,7 +11890,7 @@ default.unreachable:                              ; preds = %24
   br i1 %.not33, label %zfp_stream_set_mode.exit, label %73
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = tail call i64 @stream_read_bits(ptr noundef %75, i64 noundef 12) #19
   %77 = add nuw nsw i64 %.1, 12
@@ -11967,11 +11967,11 @@ default.unreachable:                              ; preds = %24
 
 122:                                              ; preds = %116
   store i32 %.023.i, ptr %0, align 8
-  %123 = getelementptr inbounds i8, ptr %0, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.022.i, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %117, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %0, i64 12
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %118, ptr %125, align 4
   br label %zfp_stream_set_mode.exit
 

@@ -11,7 +11,7 @@ define range(i32 0, 3) i32 @is_tar(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %3, label %51, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 148
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %6 = tail call ptr @__ctype_b_loc() #3
   %7 = load ptr, ptr %6, align 8
   br label %8
@@ -21,7 +21,7 @@ define range(i32 0, 3) i32 @is_tar(ptr nocapture noundef readonly %0, i32 nounde
   %.013.i = phi ptr [ %5, %4 ], [ %16, %15 ]
   %9 = load i8, ptr %.013.i, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not.i = icmp eq i16 %13, 0
@@ -32,7 +32,7 @@ define range(i32 0, 3) i32 @is_tar(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %14, label %.lr.ph.i, label %from_oct.exit
 
 15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %.013.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.013.i, i64 1
   %17 = add nsw i32 %.014.i, -1
   %18 = icmp ult i32 %.014.i, 2
   br i1 %18, label %from_oct.exit, label %8
@@ -48,7 +48,7 @@ define range(i32 0, 3) i32 @is_tar(ptr nocapture noundef readonly %0, i32 nounde
 
 21:                                               ; preds = %.lr.ph.i
   %22 = shl i32 %.030.i, 3
-  %23 = getelementptr inbounds i8, ptr %.129.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.129.i, i64 1
   %narrow.i = add nsw i8 %19, -48
   %24 = zext nneg i8 %narrow.i to i32
   %25 = or disjoint i32 %22, %24
@@ -62,7 +62,7 @@ define range(i32 0, 3) i32 @is_tar(ptr nocapture noundef readonly %0, i32 nounde
 
 28:                                               ; preds = %.critedge.i
   %29 = zext i8 %19 to i64
-  %30 = getelementptr inbounds i16, ptr %7, i64 %29
+  %30 = getelementptr inbounds nuw i16, ptr %7, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8192
   %.not20.i = icmp eq i16 %32, 0
@@ -78,7 +78,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %.01628 = phi i32 [ 0, %from_oct.exit ], [ %38, %33 ]
   %.01727 = phi i32 [ 512, %from_oct.exit ], [ %34, %33 ]
   %34 = add nsw i32 %.01727, -1
-  %35 = getelementptr inbounds i8, ptr %.029, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.029, i64 1
   %36 = load i8, ptr %.029, align 1
   %37 = zext i8 %36 to i32
   %38 = add nuw nsw i32 %.01628, %37
@@ -89,7 +89,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 8, %33 ]
   %.131 = phi i32 [ %43, %.preheader ], [ %38, %33 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %40 = getelementptr inbounds [8 x i8], ptr %5, i64 0, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 0, i64 %indvars.iv.next
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
   %43 = sub nsw i32 %.131, %42
@@ -102,7 +102,7 @@ from_oct.exit:                                    ; preds = %15, %21, %.preheade
   br i1 %.not, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %0, i64 257
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 257
   %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(8) @.str) #4
   %50 = icmp eq i32 %49, 0
   %. = select i1 %50, i32 2, i32 1

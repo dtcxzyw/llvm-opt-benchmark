@@ -69,7 +69,7 @@ define hidden range(i32 0, 3) i32 @fileset_filename_match_pattern(ptr noundef %0
   br label %.loopexit
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.070, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.070, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not58 = icmp eq ptr %30, null
   br i1 %.not58, label %.loopexit, label %.lr.ph, !llvm.loop !4
@@ -216,15 +216,15 @@ define hidden void @fileset_update_file(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %17, ptr %18, align 8
   br label %19
 
@@ -265,7 +265,7 @@ define hidden void @fileset_update_dlg(ptr noundef %0) local_unnamed_addr #0 {
   %.08 = phi ptr [ %6, %.lr.ph ], [ %3, %1 ]
   %4 = load ptr, ptr %.08, align 8
   tail call void @fileset_dlg_add_file(ptr noundef %4, ptr noundef %0) #9
-  %5 = getelementptr inbounds i8, ptr %.08, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
@@ -296,10 +296,10 @@ define hidden void @fileset_add_dir(ptr noundef %0, ptr noundef %1) local_unname
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noalias ptr @g_strdup(ptr noundef %10) #9
   store ptr %11, ptr @set.1, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 1
-  %15 = getelementptr inbounds i8, ptr %9, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp ult i64 %14, %16
   br i1 %17, label %18, label %24
@@ -426,7 +426,7 @@ fileset_is_file_in_set.exit:                      ; preds = %35, %38, %43
   %.08.i = phi ptr [ %70, %.lr.ph.i ], [ %67, %62 ]
   %68 = load ptr, ptr %.08.i, align 8
   call void @fileset_dlg_add_file(ptr noundef %68, ptr noundef %1) #9
-  %69 = getelementptr inbounds i8, ptr %.08.i, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
   %70 = load ptr, ptr %69, align 8
   %.not.i = icmp eq ptr %70, null
   br i1 %.not.i, label %fileset_update_dlg.exit, label %.lr.ph.i, !llvm.loop !6
@@ -464,19 +464,19 @@ define internal fastcc void @fileset_add_file(ptr noundef %0, ptr noundef %1, i3
   %12 = tail call noalias ptr @g_strdup(ptr noundef %5) #9
   store ptr %12, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %11, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %11, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %11, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i64 %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 %2, ptr %22, align 8
   %23 = load ptr, ptr @set.0, align 8
   %24 = tail call ptr @g_list_append(ptr noundef %23, ptr noundef nonnull %11) #9
@@ -503,9 +503,9 @@ declare ptr @g_list_sort(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal i32 @fileset_sort_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %6) #10
   ret i32 %7
@@ -527,10 +527,10 @@ define hidden ptr @fileset_get_next() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %8
   %.0710.i = phi ptr [ %7, %8 ], [ %2, %0 ]
   %3 = load ptr, ptr %.0710.i, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.not8.i = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %.0710.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not8.i, label %8, label %fileset_get_current.exit
@@ -560,19 +560,19 @@ define hidden ptr @fileset_get_previous() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %6
   %.0710.i = phi ptr [ %8, %6 ], [ %2, %0 ]
   %3 = load ptr, ptr %.0710.i, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
   %.not8.i = icmp eq i32 %5, 0
   br i1 %.not8.i, label %6, label %fileset_get_current.exit
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = getelementptr inbounds i8, ptr %.0710.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 8
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %fileset_get_current.exit.thread, label %.lr.ph.i, !llvm.loop !8
 
 fileset_get_current.exit:                         ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds i8, ptr %.0710.i, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %fileset_get_current.exit.thread, label %12
@@ -620,7 +620,7 @@ define internal void @fileset_entry_delete(ptr noundef %0, ptr nocapture readnon
   %3 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %3) #9
   store ptr null, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #9
   store ptr null, ptr %4, align 8

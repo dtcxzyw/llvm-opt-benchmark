@@ -132,7 +132,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   %11 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.) #2
   %12 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.168) #2
   %.0116.ph = zext i16 %12 to i32
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @col_set_str(ptr noundef %14, i32 noundef 34, ptr noundef nonnull @.str.32) #2
   %15 = load ptr, ptr %13, align 8
@@ -154,7 +154,7 @@ define internal i32 @dissect_ipmi_session(ptr noundef %0, ptr noundef %1, ptr no
   %.171 = select i1 %25, i32 10, i32 26
   %26 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.170) #2
   %.0116 = zext i8 %26 to i32
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void @col_set_str(ptr noundef %28, i32 noundef 34, ptr noundef nonnull @.str.54) #2
   %29 = load ptr, ptr %27, align 8

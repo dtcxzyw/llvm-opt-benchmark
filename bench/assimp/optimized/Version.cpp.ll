@@ -80,42 +80,42 @@ entry:
 define void @_ZN7aiSceneC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1168) initializes((0, 4), (8, 20), (24, 36), (40, 52), (56, 68), (72, 84), (88, 100), (104, 125), (1148, 1168)) %this) unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %this, align 8
-  %mRootNode = getelementptr inbounds i8, ptr %this, i64 8
+  %mRootNode = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %mRootNode, align 8
-  %mNumMeshes = getelementptr inbounds i8, ptr %this, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %mNumMeshes, align 8
-  %mMeshes = getelementptr inbounds i8, ptr %this, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %mMeshes, align 8
-  %mNumMaterials = getelementptr inbounds i8, ptr %this, i64 32
+  %mNumMaterials = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %mNumMaterials, align 8
-  %mMaterials = getelementptr inbounds i8, ptr %this, i64 40
+  %mMaterials = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr null, ptr %mMaterials, align 8
-  %mNumAnimations = getelementptr inbounds i8, ptr %this, i64 48
+  %mNumAnimations = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 0, ptr %mNumAnimations, align 8
-  %mAnimations = getelementptr inbounds i8, ptr %this, i64 56
+  %mAnimations = getelementptr inbounds nuw i8, ptr %this, i64 56
   store ptr null, ptr %mAnimations, align 8
-  %mNumTextures = getelementptr inbounds i8, ptr %this, i64 64
+  %mNumTextures = getelementptr inbounds nuw i8, ptr %this, i64 64
   store i32 0, ptr %mNumTextures, align 8
-  %mTextures = getelementptr inbounds i8, ptr %this, i64 72
+  %mTextures = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr null, ptr %mTextures, align 8
-  %mNumLights = getelementptr inbounds i8, ptr %this, i64 80
+  %mNumLights = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i32 0, ptr %mNumLights, align 8
-  %mLights = getelementptr inbounds i8, ptr %this, i64 88
+  %mLights = getelementptr inbounds nuw i8, ptr %this, i64 88
   store ptr null, ptr %mLights, align 8
-  %mNumCameras = getelementptr inbounds i8, ptr %this, i64 96
+  %mNumCameras = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 0, ptr %mNumCameras, align 8
-  %mCameras = getelementptr inbounds i8, ptr %this, i64 104
-  %mNumSkeletons = getelementptr inbounds i8, ptr %this, i64 1148
+  %mCameras = getelementptr inbounds nuw i8, ptr %this, i64 104
+  %mNumSkeletons = getelementptr inbounds nuw i8, ptr %this, i64 1148
   store i32 0, ptr %mNumSkeletons, align 4
-  %mSkeletons = getelementptr inbounds i8, ptr %this, i64 1152
+  %mSkeletons = getelementptr inbounds nuw i8, ptr %this, i64 1152
   store ptr null, ptr %mSkeletons, align 8
-  %mPrivate = getelementptr inbounds i8, ptr %this, i64 1160
+  %mPrivate = getelementptr inbounds nuw i8, ptr %this, i64 1160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %mCameras, i8 0, i64 21, i1 false)
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   store ptr null, ptr %call, align 8
-  %mPPStepsApplied.i = getelementptr inbounds i8, ptr %call, i64 8
+  %mPPStepsApplied.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %mPPStepsApplied.i, align 8
-  %mIsCopy.i = getelementptr inbounds i8, ptr %call, i64 12
+  %mIsCopy.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i8 0, ptr %mIsCopy.i, align 4
   store ptr %call, ptr %mPrivate, align 8
   ret void
@@ -127,7 +127,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7aiSceneD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %mRootNode = getelementptr inbounds i8, ptr %this, i64 8
+  %mRootNode = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mRootNode, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -138,13 +138,13 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %mNumMeshes = getelementptr inbounds i8, ptr %this, i64 16
+  %mNumMeshes = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %mNumMeshes, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %delete.end
-  %mMeshes = getelementptr inbounds i8, ptr %this, i64 24
+  %mMeshes = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load ptr, ptr %mMeshes, align 8
   %tobool2.not.not = icmp eq ptr %2, null
   br i1 %tobool2.not.not, label %if.end, label %for.body
@@ -153,7 +153,7 @@ for.body:                                         ; preds = %land.lhs.true, %for
   %3 = phi i32 [ %6, %for.inc ], [ %1, %land.lhs.true ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.lhs.true ]
   %4 = load ptr, ptr %mMeshes, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx, align 8
   %isnull5 = icmp eq ptr %5, null
   br i1 %isnull5, label %for.inc, label %delete.notnull6
@@ -172,7 +172,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %cmp, label %for.body, label %if.end, !llvm.loop !4
 
 if.end:                                           ; preds = %for.inc, %land.lhs.true, %delete.end
-  %mMeshes8 = getelementptr inbounds i8, ptr %this, i64 24
+  %mMeshes8 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %8 = load ptr, ptr %mMeshes8, align 8
   %isnull9 = icmp eq ptr %8, null
   br i1 %isnull9, label %delete.end11, label %delete.notnull10
@@ -182,13 +182,13 @@ delete.notnull10:                                 ; preds = %if.end
   br label %delete.end11
 
 delete.end11:                                     ; preds = %delete.notnull10, %if.end
-  %mNumMaterials = getelementptr inbounds i8, ptr %this, i64 32
+  %mNumMaterials = getelementptr inbounds nuw i8, ptr %this, i64 32
   %9 = load i32, ptr %mNumMaterials, align 8
   %tobool12.not = icmp eq i32 %9, 0
   br i1 %tobool12.not, label %if.end30, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %delete.end11
-  %mMaterials = getelementptr inbounds i8, ptr %this, i64 40
+  %mMaterials = getelementptr inbounds nuw i8, ptr %this, i64 40
   %10 = load ptr, ptr %mMaterials, align 8
   %tobool14.not.not = icmp eq ptr %10, null
   br i1 %tobool14.not.not, label %if.end30, label %for.body20
@@ -197,7 +197,7 @@ for.body20:                                       ; preds = %land.lhs.true13, %f
   %11 = phi i32 [ %14, %for.inc27 ], [ %9, %land.lhs.true13 ]
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %for.inc27 ], [ 0, %land.lhs.true13 ]
   %12 = load ptr, ptr %mMaterials, align 8
-  %arrayidx23 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv47
+  %arrayidx23 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv47
   %13 = load ptr, ptr %arrayidx23, align 8
   %isnull24 = icmp eq ptr %13, null
   br i1 %isnull24, label %for.inc27, label %delete.notnull25
@@ -216,7 +216,7 @@ for.inc27:                                        ; preds = %for.body20, %delete
   br i1 %cmp19, label %for.body20, label %if.end30, !llvm.loop !6
 
 if.end30:                                         ; preds = %for.inc27, %land.lhs.true13, %delete.end11
-  %mMaterials31 = getelementptr inbounds i8, ptr %this, i64 40
+  %mMaterials31 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %16 = load ptr, ptr %mMaterials31, align 8
   %isnull32 = icmp eq ptr %16, null
   br i1 %isnull32, label %delete.end34, label %delete.notnull33
@@ -226,13 +226,13 @@ delete.notnull33:                                 ; preds = %if.end30
   br label %delete.end34
 
 delete.end34:                                     ; preds = %delete.notnull33, %if.end30
-  %mNumAnimations = getelementptr inbounds i8, ptr %this, i64 48
+  %mNumAnimations = getelementptr inbounds nuw i8, ptr %this, i64 48
   %17 = load i32, ptr %mNumAnimations, align 8
   %tobool35.not = icmp eq i32 %17, 0
   br i1 %tobool35.not, label %if.end53, label %land.lhs.true36
 
 land.lhs.true36:                                  ; preds = %delete.end34
-  %mAnimations = getelementptr inbounds i8, ptr %this, i64 56
+  %mAnimations = getelementptr inbounds nuw i8, ptr %this, i64 56
   %18 = load ptr, ptr %mAnimations, align 8
   %tobool37.not.not = icmp eq ptr %18, null
   br i1 %tobool37.not.not, label %if.end53, label %for.body43
@@ -241,7 +241,7 @@ for.body43:                                       ; preds = %land.lhs.true36, %f
   %19 = phi i32 [ %22, %for.inc50 ], [ %17, %land.lhs.true36 ]
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %for.inc50 ], [ 0, %land.lhs.true36 ]
   %20 = load ptr, ptr %mAnimations, align 8
-  %arrayidx46 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv50
+  %arrayidx46 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv50
   %21 = load ptr, ptr %arrayidx46, align 8
   %isnull47 = icmp eq ptr %21, null
   br i1 %isnull47, label %for.inc50, label %delete.notnull48
@@ -260,7 +260,7 @@ for.inc50:                                        ; preds = %for.body43, %delete
   br i1 %cmp42, label %for.body43, label %if.end53, !llvm.loop !7
 
 if.end53:                                         ; preds = %for.inc50, %land.lhs.true36, %delete.end34
-  %mAnimations54 = getelementptr inbounds i8, ptr %this, i64 56
+  %mAnimations54 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %24 = load ptr, ptr %mAnimations54, align 8
   %isnull55 = icmp eq ptr %24, null
   br i1 %isnull55, label %delete.end57, label %delete.notnull56
@@ -270,13 +270,13 @@ delete.notnull56:                                 ; preds = %if.end53
   br label %delete.end57
 
 delete.end57:                                     ; preds = %delete.notnull56, %if.end53
-  %mNumTextures = getelementptr inbounds i8, ptr %this, i64 64
+  %mNumTextures = getelementptr inbounds nuw i8, ptr %this, i64 64
   %25 = load i32, ptr %mNumTextures, align 8
   %tobool58.not = icmp eq i32 %25, 0
   br i1 %tobool58.not, label %if.end76, label %land.lhs.true59
 
 land.lhs.true59:                                  ; preds = %delete.end57
-  %mTextures = getelementptr inbounds i8, ptr %this, i64 72
+  %mTextures = getelementptr inbounds nuw i8, ptr %this, i64 72
   %26 = load ptr, ptr %mTextures, align 8
   %tobool60.not.not = icmp eq ptr %26, null
   br i1 %tobool60.not.not, label %if.end76, label %for.body66
@@ -285,13 +285,13 @@ for.body66:                                       ; preds = %land.lhs.true59, %f
   %27 = phi i32 [ %31, %for.inc73 ], [ %25, %land.lhs.true59 ]
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %for.inc73 ], [ 0, %land.lhs.true59 ]
   %28 = load ptr, ptr %mTextures, align 8
-  %arrayidx69 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv53
+  %arrayidx69 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv53
   %29 = load ptr, ptr %arrayidx69, align 8
   %isnull70 = icmp eq ptr %29, null
   br i1 %isnull70, label %for.inc73, label %delete.notnull71
 
 delete.notnull71:                                 ; preds = %for.body66
-  %pcData.i = getelementptr inbounds i8, ptr %29, i64 24
+  %pcData.i = getelementptr inbounds nuw i8, ptr %29, i64 24
   %30 = load ptr, ptr %pcData.i, align 8
   %isnull.i = icmp eq ptr %30, null
   br i1 %isnull.i, label %_ZN9aiTextureD2Ev.exit, label %delete.notnull.i
@@ -313,7 +313,7 @@ for.inc73:                                        ; preds = %for.body66, %_ZN9ai
   br i1 %cmp65, label %for.body66, label %if.end76, !llvm.loop !8
 
 if.end76:                                         ; preds = %for.inc73, %land.lhs.true59, %delete.end57
-  %mTextures77 = getelementptr inbounds i8, ptr %this, i64 72
+  %mTextures77 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %33 = load ptr, ptr %mTextures77, align 8
   %isnull78 = icmp eq ptr %33, null
   br i1 %isnull78, label %delete.end80, label %delete.notnull79
@@ -323,13 +323,13 @@ delete.notnull79:                                 ; preds = %if.end76
   br label %delete.end80
 
 delete.end80:                                     ; preds = %delete.notnull79, %if.end76
-  %mNumLights = getelementptr inbounds i8, ptr %this, i64 80
+  %mNumLights = getelementptr inbounds nuw i8, ptr %this, i64 80
   %34 = load i32, ptr %mNumLights, align 8
   %tobool81.not = icmp eq i32 %34, 0
   br i1 %tobool81.not, label %if.end99, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %delete.end80
-  %mLights = getelementptr inbounds i8, ptr %this, i64 88
+  %mLights = getelementptr inbounds nuw i8, ptr %this, i64 88
   %35 = load ptr, ptr %mLights, align 8
   %tobool83.not.not = icmp eq ptr %35, null
   br i1 %tobool83.not.not, label %if.end99, label %for.body89
@@ -338,7 +338,7 @@ for.body89:                                       ; preds = %land.lhs.true82, %f
   %36 = phi i32 [ %39, %for.inc96 ], [ %34, %land.lhs.true82 ]
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %for.inc96 ], [ 0, %land.lhs.true82 ]
   %37 = load ptr, ptr %mLights, align 8
-  %arrayidx92 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv56
+  %arrayidx92 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv56
   %38 = load ptr, ptr %arrayidx92, align 8
   %isnull93 = icmp eq ptr %38, null
   br i1 %isnull93, label %for.inc96, label %delete.notnull94
@@ -356,7 +356,7 @@ for.inc96:                                        ; preds = %for.body89, %delete
   br i1 %cmp88, label %for.body89, label %if.end99, !llvm.loop !9
 
 if.end99:                                         ; preds = %for.inc96, %land.lhs.true82, %delete.end80
-  %mLights100 = getelementptr inbounds i8, ptr %this, i64 88
+  %mLights100 = getelementptr inbounds nuw i8, ptr %this, i64 88
   %41 = load ptr, ptr %mLights100, align 8
   %isnull101 = icmp eq ptr %41, null
   br i1 %isnull101, label %delete.end103, label %delete.notnull102
@@ -366,13 +366,13 @@ delete.notnull102:                                ; preds = %if.end99
   br label %delete.end103
 
 delete.end103:                                    ; preds = %delete.notnull102, %if.end99
-  %mNumCameras = getelementptr inbounds i8, ptr %this, i64 96
+  %mNumCameras = getelementptr inbounds nuw i8, ptr %this, i64 96
   %42 = load i32, ptr %mNumCameras, align 8
   %tobool104.not = icmp eq i32 %42, 0
   br i1 %tobool104.not, label %if.end122, label %land.lhs.true105
 
 land.lhs.true105:                                 ; preds = %delete.end103
-  %mCameras = getelementptr inbounds i8, ptr %this, i64 104
+  %mCameras = getelementptr inbounds nuw i8, ptr %this, i64 104
   %43 = load ptr, ptr %mCameras, align 8
   %tobool106.not.not = icmp eq ptr %43, null
   br i1 %tobool106.not.not, label %if.end122, label %for.body112
@@ -381,7 +381,7 @@ for.body112:                                      ; preds = %land.lhs.true105, %
   %44 = phi i32 [ %47, %for.inc119 ], [ %42, %land.lhs.true105 ]
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %for.inc119 ], [ 0, %land.lhs.true105 ]
   %45 = load ptr, ptr %mCameras, align 8
-  %arrayidx115 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv59
+  %arrayidx115 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv59
   %46 = load ptr, ptr %arrayidx115, align 8
   %isnull116 = icmp eq ptr %46, null
   br i1 %isnull116, label %for.inc119, label %delete.notnull117
@@ -399,7 +399,7 @@ for.inc119:                                       ; preds = %for.body112, %delet
   br i1 %cmp111, label %for.body112, label %if.end122, !llvm.loop !10
 
 if.end122:                                        ; preds = %for.inc119, %land.lhs.true105, %delete.end103
-  %mCameras123 = getelementptr inbounds i8, ptr %this, i64 104
+  %mCameras123 = getelementptr inbounds nuw i8, ptr %this, i64 104
   %49 = load ptr, ptr %mCameras123, align 8
   %isnull124 = icmp eq ptr %49, null
   br i1 %isnull124, label %delete.end126, label %delete.notnull125
@@ -409,7 +409,7 @@ delete.notnull125:                                ; preds = %if.end122
   br label %delete.end126
 
 delete.end126:                                    ; preds = %delete.notnull125, %if.end122
-  %mMetaData = getelementptr inbounds i8, ptr %this, i64 112
+  %mMetaData = getelementptr inbounds nuw i8, ptr %this, i64 112
   %50 = load ptr, ptr %mMetaData, align 8
   %isnull.i27 = icmp eq ptr %50, null
   br i1 %isnull.i27, label %_ZN10aiMetadata7DeallocEPS_.exit, label %delete.notnull.i28
@@ -420,7 +420,7 @@ delete.notnull.i28:                               ; preds = %delete.end126
   br label %_ZN10aiMetadata7DeallocEPS_.exit
 
 _ZN10aiMetadata7DeallocEPS_.exit:                 ; preds = %delete.end126, %delete.notnull.i28
-  %mSkeletons = getelementptr inbounds i8, ptr %this, i64 1152
+  %mSkeletons = getelementptr inbounds nuw i8, ptr %this, i64 1152
   %51 = load ptr, ptr %mSkeletons, align 8
   %isnull127 = icmp eq ptr %51, null
   br i1 %isnull127, label %delete.end129, label %delete.notnull128
@@ -430,7 +430,7 @@ delete.notnull128:                                ; preds = %_ZN10aiMetadata7Dea
   br label %delete.end129
 
 delete.end129:                                    ; preds = %delete.notnull128, %_ZN10aiMetadata7DeallocEPS_.exit
-  %mPrivate = getelementptr inbounds i8, ptr %this, i64 1160
+  %mPrivate = getelementptr inbounds nuw i8, ptr %this, i64 1160
   %52 = load ptr, ptr %mPrivate, align 8
   %isnull130 = icmp eq ptr %52, null
   br i1 %isnull130, label %delete.end132, label %delete.notnull131
@@ -454,7 +454,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %bones = alloca %"class.std::unordered_set", align 8
-  %mVertices = getelementptr inbounds i8, ptr %this, i64 16
+  %mVertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %mVertices, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -464,7 +464,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %mNormals = getelementptr inbounds i8, ptr %this, i64 24
+  %mNormals = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %mNormals, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -474,7 +474,7 @@ delete.notnull3:                                  ; preds = %delete.end
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  %mTangents = getelementptr inbounds i8, ptr %this, i64 32
+  %mTangents = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %mTangents, align 8
   %isnull5 = icmp eq ptr %2, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -484,7 +484,7 @@ delete.notnull6:                                  ; preds = %delete.end4
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
-  %mBitangents = getelementptr inbounds i8, ptr %this, i64 40
+  %mBitangents = getelementptr inbounds nuw i8, ptr %this, i64 40
   %3 = load ptr, ptr %mBitangents, align 8
   %isnull8 = icmp eq ptr %3, null
   br i1 %isnull8, label %delete.end10, label %delete.notnull9
@@ -494,12 +494,12 @@ delete.notnull9:                                  ; preds = %delete.end7
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull9, %delete.end7
-  %mTextureCoords = getelementptr inbounds i8, ptr %this, i64 112
+  %mTextureCoords = getelementptr inbounds nuw i8, ptr %this, i64 112
   br label %for.body
 
 for.body:                                         ; preds = %delete.end10, %for.inc
   %indvars.iv = phi i64 [ 0, %delete.end10 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %isnull11 = icmp eq ptr %4, null
   br i1 %isnull11, label %for.inc, label %delete.notnull12
@@ -514,7 +514,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
 for.end:                                          ; preds = %for.inc
-  %mTextureCoordsNames = getelementptr inbounds i8, ptr %this, i64 1312
+  %mTextureCoordsNames = getelementptr inbounds nuw i8, ptr %this, i64 1312
   %5 = load ptr, ptr %mTextureCoordsNames, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end, label %for.body17
@@ -522,7 +522,7 @@ for.end:                                          ; preds = %for.inc
 for.body17:                                       ; preds = %for.end, %for.inc24
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %for.inc24 ], [ 0, %for.end ]
   %6 = load ptr, ptr %mTextureCoordsNames, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv40
+  %arrayidx20 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv40
   %7 = load ptr, ptr %arrayidx20, align 8
   %isnull21 = icmp eq ptr %7, null
   br i1 %isnull21, label %for.inc24, label %delete.notnull22
@@ -546,12 +546,12 @@ delete.notnull29:                                 ; preds = %for.end26
   br label %if.end
 
 if.end:                                           ; preds = %for.end26, %delete.notnull29, %for.end
-  %mColors = getelementptr inbounds i8, ptr %this, i64 48
+  %mColors = getelementptr inbounds nuw i8, ptr %this, i64 48
   br label %for.body34
 
 for.body34:                                       ; preds = %if.end, %for.inc40
   %indvars.iv44 = phi i64 [ 0, %if.end ], [ %indvars.iv.next45, %for.inc40 ]
-  %arrayidx36 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv44
+  %arrayidx36 = getelementptr inbounds nuw [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv44
   %9 = load ptr, ptr %arrayidx36, align 8
   %isnull37 = icmp eq ptr %9, null
   br i1 %isnull37, label %for.inc40, label %delete.notnull38
@@ -566,27 +566,27 @@ for.inc40:                                        ; preds = %for.body34, %delete
   br i1 %exitcond47.not, label %for.end42, label %for.body34, !llvm.loop !13
 
 for.end42:                                        ; preds = %for.inc40
-  %mNumBones = getelementptr inbounds i8, ptr %this, i64 216
+  %mNumBones = getelementptr inbounds nuw i8, ptr %this, i64 216
   %10 = load i32, ptr %mNumBones, align 8
   %tobool43.not = icmp eq i32 %10, 0
   br i1 %tobool43.not, label %if.end82, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.end42
-  %mBones = getelementptr inbounds i8, ptr %this, i64 224
+  %mBones = getelementptr inbounds nuw i8, ptr %this, i64 224
   %11 = load ptr, ptr %mBones, align 8
   %tobool44.not = icmp eq ptr %11, null
   br i1 %tobool44.not, label %if.end82, label %for.body50.preheader
 
 for.body50.preheader:                             ; preds = %land.lhs.true
-  %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %bones, i64 48
+  %_M_single_bucket.i.i = getelementptr inbounds nuw i8, ptr %bones, i64 48
   store ptr %_M_single_bucket.i.i, ptr %bones, align 8
-  %_M_bucket_count.i.i = getelementptr inbounds i8, ptr %bones, i64 8
+  %_M_bucket_count.i.i = getelementptr inbounds nuw i8, ptr %bones, i64 8
   store i64 1, ptr %_M_bucket_count.i.i, align 8
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %bones, i64 16
-  %_M_rehash_policy.i.i = getelementptr inbounds i8, ptr %bones, i64 32
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %bones, i64 16
+  %_M_rehash_policy.i.i = getelementptr inbounds nuw i8, ptr %bones, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %_M_rehash_policy.i.i, align 8
-  %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %bones, i64 40
+  %_M_next_resize.i.i.i = getelementptr inbounds nuw i8, ptr %bones, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   br label %for.body50
 
@@ -594,7 +594,7 @@ for.body50:                                       ; preds = %for.body50.preheade
   %12 = phi i32 [ %10, %for.body50.preheader ], [ %15, %for.inc60 ]
   %indvars.iv48 = phi i64 [ 0, %for.body50.preheader ], [ %indvars.iv.next49, %for.inc60 ]
   %13 = load ptr, ptr %mBones, align 8
-  %arrayidx53 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv48
+  %arrayidx53 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv48
   %14 = load ptr, ptr %arrayidx53, align 8
   %tobool54.not = icmp eq ptr %14, null
   br i1 %tobool54.not, label %for.inc60, label %if.then55
@@ -624,13 +624,13 @@ for.end62:                                        ; preds = %for.inc60
 
 for.body70:                                       ; preds = %for.end62, %for.inc75
   %__begin3.sroa.0.036 = phi ptr [ %19, %for.inc75 ], [ %.pre54, %for.end62 ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %__begin3.sroa.0.036, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.036, i64 8
   %17 = load ptr, ptr %add.ptr.i, align 8
   %isnull72 = icmp eq ptr %17, null
   br i1 %isnull72, label %for.inc75, label %delete.notnull73
 
 delete.notnull73:                                 ; preds = %for.body70
-  %mWeights.i = getelementptr inbounds i8, ptr %17, i64 1048
+  %mWeights.i = getelementptr inbounds nuw i8, ptr %17, i64 1048
   %18 = load ptr, ptr %mWeights.i, align 8
   %isnull.i = icmp eq ptr %18, null
   br i1 %isnull.i, label %_ZN6aiBoneD2Ev.exit, label %delete.notnull.i
@@ -684,13 +684,13 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end.i.i.i.i, %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %land.lhs.true, %for.end42
-  %mNumAnimMeshes = getelementptr inbounds i8, ptr %this, i64 1264
+  %mNumAnimMeshes = getelementptr inbounds nuw i8, ptr %this, i64 1264
   %26 = load i32, ptr %mNumAnimMeshes, align 8
   %tobool83.not = icmp eq i32 %26, 0
   br i1 %tobool83.not, label %if.end105, label %land.lhs.true84
 
 land.lhs.true84:                                  ; preds = %if.end82
-  %mAnimMeshes = getelementptr inbounds i8, ptr %this, i64 1272
+  %mAnimMeshes = getelementptr inbounds nuw i8, ptr %this, i64 1272
   %27 = load ptr, ptr %mAnimMeshes, align 8
   %tobool85.not = icmp eq ptr %27, null
   br i1 %tobool85.not, label %if.end105, label %for.body91
@@ -699,7 +699,7 @@ for.body91:                                       ; preds = %land.lhs.true84, %f
   %28 = phi i32 [ %31, %for.inc98 ], [ %26, %land.lhs.true84 ]
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %for.inc98 ], [ 0, %land.lhs.true84 ]
   %29 = load ptr, ptr %mAnimMeshes, align 8
-  %arrayidx94 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv51
+  %arrayidx94 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv51
   %30 = load ptr, ptr %arrayidx94, align 8
   %isnull95 = icmp eq ptr %30, null
   br i1 %isnull95, label %for.inc98, label %delete.notnull96
@@ -727,7 +727,7 @@ delete.notnull103:                                ; preds = %for.end100
   br label %if.end105
 
 if.end105:                                        ; preds = %for.end100, %delete.notnull103, %land.lhs.true84, %if.end82
-  %mFaces = getelementptr inbounds i8, ptr %this, i64 208
+  %mFaces = getelementptr inbounds nuw i8, ptr %this, i64 208
   %33 = load ptr, ptr %mFaces, align 8
   %isnull106 = icmp eq ptr %33, null
   br i1 %isnull106, label %delete.end110, label %delete.notnull107
@@ -782,13 +782,13 @@ declare void @_ZN10aiMaterialD1Ev(ptr noundef nonnull align 8 dereferenceable(16
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN11aiAnimationD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %mNumChannels = getelementptr inbounds i8, ptr %this, i64 1048
+  %mNumChannels = getelementptr inbounds nuw i8, ptr %this, i64 1048
   %0 = load i32, ptr %mNumChannels, align 8
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %mChannels = getelementptr inbounds i8, ptr %this, i64 1056
+  %mChannels = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %1 = load ptr, ptr %mChannels, align 8
   %tobool2.not = icmp eq ptr %1, null
   br i1 %tobool2.not, label %if.end, label %for.body
@@ -797,13 +797,13 @@ for.body:                                         ; preds = %land.lhs.true, %for
   %2 = phi i32 [ %8, %for.inc ], [ %0, %land.lhs.true ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.lhs.true ]
   %3 = load ptr, ptr %mChannels, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %for.inc, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  %mPositionKeys.i = getelementptr inbounds i8, ptr %4, i64 1032
+  %mPositionKeys.i = getelementptr inbounds nuw i8, ptr %4, i64 1032
   %5 = load ptr, ptr %mPositionKeys.i, align 8
   %isnull.i = icmp eq ptr %5, null
   br i1 %isnull.i, label %delete.end.i, label %delete.notnull.i
@@ -813,7 +813,7 @@ delete.notnull.i:                                 ; preds = %delete.notnull
   br label %delete.end.i
 
 delete.end.i:                                     ; preds = %delete.notnull.i, %delete.notnull
-  %mRotationKeys.i = getelementptr inbounds i8, ptr %4, i64 1048
+  %mRotationKeys.i = getelementptr inbounds nuw i8, ptr %4, i64 1048
   %6 = load ptr, ptr %mRotationKeys.i, align 8
   %isnull2.i = icmp eq ptr %6, null
   br i1 %isnull2.i, label %delete.end4.i, label %delete.notnull3.i
@@ -823,7 +823,7 @@ delete.notnull3.i:                                ; preds = %delete.end.i
   br label %delete.end4.i
 
 delete.end4.i:                                    ; preds = %delete.notnull3.i, %delete.end.i
-  %mScalingKeys.i = getelementptr inbounds i8, ptr %4, i64 1064
+  %mScalingKeys.i = getelementptr inbounds nuw i8, ptr %4, i64 1064
   %7 = load ptr, ptr %mScalingKeys.i, align 8
   %isnull5.i = icmp eq ptr %7, null
   br i1 %isnull5.i, label %_ZN10aiNodeAnimD2Ev.exit, label %delete.notnull6.i
@@ -854,13 +854,13 @@ delete.notnull7:                                  ; preds = %for.end
   br label %if.end
 
 if.end:                                           ; preds = %for.end, %delete.notnull7, %land.lhs.true, %entry
-  %mNumMeshChannels = getelementptr inbounds i8, ptr %this, i64 1064
+  %mNumMeshChannels = getelementptr inbounds nuw i8, ptr %this, i64 1064
   %10 = load i32, ptr %mNumMeshChannels, align 8
   %tobool9.not = icmp eq i32 %10, 0
   br i1 %tobool9.not, label %if.end31, label %land.lhs.true10
 
 land.lhs.true10:                                  ; preds = %if.end
-  %mMeshChannels = getelementptr inbounds i8, ptr %this, i64 1072
+  %mMeshChannels = getelementptr inbounds nuw i8, ptr %this, i64 1072
   %11 = load ptr, ptr %mMeshChannels, align 8
   %tobool11.not = icmp eq ptr %11, null
   br i1 %tobool11.not, label %if.end31, label %for.body17
@@ -869,13 +869,13 @@ for.body17:                                       ; preds = %land.lhs.true10, %f
   %12 = phi i32 [ %16, %for.inc24 ], [ %10, %land.lhs.true10 ]
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %for.inc24 ], [ 0, %land.lhs.true10 ]
   %13 = load ptr, ptr %mMeshChannels, align 8
-  %arrayidx20 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv26
+  %arrayidx20 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv26
   %14 = load ptr, ptr %arrayidx20, align 8
   %isnull21 = icmp eq ptr %14, null
   br i1 %isnull21, label %for.inc24, label %delete.notnull22
 
 delete.notnull22:                                 ; preds = %for.body17
-  %mKeys.i = getelementptr inbounds i8, ptr %14, i64 1032
+  %mKeys.i = getelementptr inbounds nuw i8, ptr %14, i64 1032
   %15 = load ptr, ptr %mKeys.i, align 8
   %isnull.i12 = icmp eq ptr %15, null
   br i1 %isnull.i12, label %_ZN10aiMeshAnimD2Ev.exit, label %delete.notnull.i13
@@ -906,13 +906,13 @@ delete.notnull29:                                 ; preds = %for.end26
   br label %if.end31
 
 if.end31:                                         ; preds = %for.end26, %delete.notnull29, %land.lhs.true10, %if.end
-  %mNumMorphMeshChannels = getelementptr inbounds i8, ptr %this, i64 1080
+  %mNumMorphMeshChannels = getelementptr inbounds nuw i8, ptr %this, i64 1080
   %18 = load i32, ptr %mNumMorphMeshChannels, align 8
   %tobool32.not = icmp eq i32 %18, 0
   br i1 %tobool32.not, label %if.end54, label %land.lhs.true33
 
 land.lhs.true33:                                  ; preds = %if.end31
-  %mMorphMeshChannels = getelementptr inbounds i8, ptr %this, i64 1088
+  %mMorphMeshChannels = getelementptr inbounds nuw i8, ptr %this, i64 1088
   %19 = load ptr, ptr %mMorphMeshChannels, align 8
   %tobool34.not = icmp eq ptr %19, null
   br i1 %tobool34.not, label %if.end54, label %for.body40
@@ -921,13 +921,13 @@ for.body40:                                       ; preds = %land.lhs.true33, %f
   %20 = phi i32 [ %30, %for.inc47 ], [ %18, %land.lhs.true33 ]
   %indvars.iv29 = phi i64 [ %indvars.iv.next30, %for.inc47 ], [ 0, %land.lhs.true33 ]
   %21 = load ptr, ptr %mMorphMeshChannels, align 8
-  %arrayidx43 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv29
+  %arrayidx43 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv29
   %22 = load ptr, ptr %arrayidx43, align 8
   %isnull44 = icmp eq ptr %22, null
   br i1 %isnull44, label %for.inc47, label %delete.notnull45
 
 delete.notnull45:                                 ; preds = %for.body40
-  %mKeys.i15 = getelementptr inbounds i8, ptr %22, i64 1032
+  %mKeys.i15 = getelementptr inbounds nuw i8, ptr %22, i64 1032
   %23 = load ptr, ptr %mKeys.i15, align 8
   %isnull.i16 = icmp eq ptr %23, null
   br i1 %isnull.i16, label %_ZN15aiMeshMorphAnimD2Ev.exit, label %delete.notnull.i17
@@ -1022,7 +1022,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(1200) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %mVertices = getelementptr inbounds i8, ptr %this, i64 1032
+  %mVertices = getelementptr inbounds nuw i8, ptr %this, i64 1032
   %0 = load ptr, ptr %mVertices, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1032,7 +1032,7 @@ delete.notnull:                                   ; preds = %entry
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %entry
-  %mNormals = getelementptr inbounds i8, ptr %this, i64 1040
+  %mNormals = getelementptr inbounds nuw i8, ptr %this, i64 1040
   %1 = load ptr, ptr %mNormals, align 8
   %isnull2 = icmp eq ptr %1, null
   br i1 %isnull2, label %delete.end4, label %delete.notnull3
@@ -1042,7 +1042,7 @@ delete.notnull3:                                  ; preds = %delete.end
   br label %delete.end4
 
 delete.end4:                                      ; preds = %delete.notnull3, %delete.end
-  %mTangents = getelementptr inbounds i8, ptr %this, i64 1048
+  %mTangents = getelementptr inbounds nuw i8, ptr %this, i64 1048
   %2 = load ptr, ptr %mTangents, align 8
   %isnull5 = icmp eq ptr %2, null
   br i1 %isnull5, label %delete.end7, label %delete.notnull6
@@ -1052,7 +1052,7 @@ delete.notnull6:                                  ; preds = %delete.end4
   br label %delete.end7
 
 delete.end7:                                      ; preds = %delete.notnull6, %delete.end4
-  %mBitangents = getelementptr inbounds i8, ptr %this, i64 1056
+  %mBitangents = getelementptr inbounds nuw i8, ptr %this, i64 1056
   %3 = load ptr, ptr %mBitangents, align 8
   %isnull8 = icmp eq ptr %3, null
   br i1 %isnull8, label %delete.end10, label %delete.notnull9
@@ -1062,16 +1062,16 @@ delete.notnull9:                                  ; preds = %delete.end7
   br label %delete.end10
 
 delete.end10:                                     ; preds = %delete.notnull9, %delete.end7
-  %mTextureCoords = getelementptr inbounds i8, ptr %this, i64 1128
+  %mTextureCoords = getelementptr inbounds nuw i8, ptr %this, i64 1128
   br label %for.body
 
 for.cond15.preheader:                             ; preds = %for.inc
-  %mColors = getelementptr inbounds i8, ptr %this, i64 1064
+  %mColors = getelementptr inbounds nuw i8, ptr %this, i64 1064
   br label %for.body17
 
 for.body:                                         ; preds = %delete.end10, %for.inc
   %indvars.iv = phi i64 [ 0, %delete.end10 ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr %mTextureCoords, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx, align 8
   %isnull11 = icmp eq ptr %4, null
   br i1 %isnull11, label %for.inc, label %delete.notnull12
@@ -1087,7 +1087,7 @@ for.inc:                                          ; preds = %for.body, %delete.n
 
 for.body17:                                       ; preds = %for.cond15.preheader, %for.inc23
   %indvars.iv13 = phi i64 [ 0, %for.cond15.preheader ], [ %indvars.iv.next14, %for.inc23 ]
-  %arrayidx19 = getelementptr inbounds [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv13
+  %arrayidx19 = getelementptr inbounds nuw [8 x ptr], ptr %mColors, i64 0, i64 %indvars.iv13
   %5 = load ptr, ptr %arrayidx19, align 8
   %isnull20 = icmp eq ptr %5, null
   br i1 %isnull20, label %for.inc23, label %delete.notnull21
@@ -1108,7 +1108,7 @@ for.end25:                                        ; preds = %for.inc23
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE16_M_insert_uniqueIRKS2_SI_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb0EEEEEEEESt4pairINS4_14_Node_iteratorIS2_Lb1ELb0EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(8) %__k, ptr noundef nonnull align 8 dereferenceable(8) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_element_count.i = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %_M_element_count.i, align 8
   %cmp.not.not = icmp eq i64 %0, 0
   br i1 %cmp.not.not, label %if.then, label %if.end13.thread
@@ -1116,7 +1116,7 @@ entry:
 if.end13.thread:                                  ; preds = %entry
   %1 = load ptr, ptr %__k, align 8
   %2 = ptrtoint ptr %1 to i64
-  %_M_bucket_count.i22 = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i22 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %_M_bucket_count.i22, align 8
   %rem.i.i.i23 = urem i64 %2, %3
   %4 = load ptr, ptr %this, align 8
@@ -1126,7 +1126,7 @@ if.end13.thread:                                  ; preds = %entry
   br i1 %tobool.not.i.i, label %if.end25, label %if.end.i.i
 
 if.then:                                          ; preds = %entry
-  %_M_before_begin.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %6 = load ptr, ptr %__k, align 8
   br label %for.cond
 
@@ -1137,21 +1137,21 @@ for.cond:                                         ; preds = %for.body, %if.then
   br i1 %cmp.i.not, label %if.end13, label %for.body
 
 for.body:                                         ; preds = %for.cond
-  %add.ptr = getelementptr inbounds i8, ptr %__it.sroa.0.0, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %__it.sroa.0.0, i64 8
   %7 = load ptr, ptr %add.ptr, align 8
   %cmp.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i, label %return, label %for.cond, !llvm.loop !22
 
 if.end13:                                         ; preds = %for.cond
   %8 = ptrtoint ptr %6 to i64
-  %_M_bucket_count.i = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %8, %9
   br label %if.end25
 
 if.end.i.i:                                       ; preds = %if.end13.thread
   %10 = load ptr, ptr %5, align 8
-  %add.ptr8.i.i = getelementptr inbounds i8, ptr %10, i64 8
+  %add.ptr8.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %11 = load ptr, ptr %add.ptr8.i.i, align 8
   %cmp.i.i.i9.i.i = icmp eq ptr %1, %11
   br i1 %cmp.i.i.i9.i.i, label %return, label %if.end3.i.i
@@ -1167,7 +1167,7 @@ if.end3.i.i:                                      ; preds = %if.end.i.i, %for.co
   br i1 %tobool5.not.i.i, label %if.end25, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
-  %add.ptr7.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %add.ptr7.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load ptr, ptr %add.ptr7.i.i, align 8
   %14 = ptrtoint ptr %13 to i64
   %rem.i.i.i.i.i = urem i64 %14, %3
@@ -1180,7 +1180,7 @@ if.end25:                                         ; preds = %if.end3.i.i, %lor.l
   %16 = phi ptr [ %6, %if.end13 ], [ %1, %if.end13.thread ], [ %1, %lor.lhs.false.i.i ], [ %1, %if.end3.i.i ]
   %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #12
   store ptr null, ptr %call5.i.i.i.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i, i64 8
   store ptr %16, ptr %add.ptr.i.i.i, align 8
   %call28 = invoke ptr @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i24, i64 noundef %15, ptr noundef nonnull %call5.i.i.i.i.i, i64 noundef 1)
           to label %return unwind label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit17
@@ -1202,12 +1202,12 @@ return:                                           ; preds = %for.cond.i.i, %for.
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %__bkt, i64 noundef %__code, ptr noundef %__node, i64 noundef %__n_elt) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_rehash_policy = getelementptr inbounds i8, ptr %this, i64 32
-  %_M_next_resize.i = getelementptr inbounds i8, ptr %this, i64 40
+  %_M_rehash_policy = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %_M_next_resize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %_M_next_resize.i, align 8
-  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %_M_bucket_count, align 8
-  %_M_element_count = getelementptr inbounds i8, ptr %this, i64 24
+  %_M_element_count = getelementptr inbounds nuw i8, ptr %this, i64 24
   %2 = load i64, ptr %_M_element_count, align 8
   %call3 = tail call { i8, i64 } @_ZNKSt8__detail20_Prime_rehash_policy14_M_need_rehashEmmm(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy, i64 noundef %1, i64 noundef %2, i64 noundef %__n_elt)
   %3 = extractvalue { i8, i64 } %call3, 0
@@ -1270,7 +1270,7 @@ if.then.i:                                        ; preds = %if.end
   br label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS4_10_Hash_nodeIS2_Lb0EEE.exit
 
 if.else.i:                                        ; preds = %if.end
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %17 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr %17, ptr %__node, align 8
   store ptr %__node, ptr %_M_before_begin.i, align 8
@@ -1280,7 +1280,7 @@ if.else.i:                                        ; preds = %if.end
 
 if.then14.i:                                      ; preds = %if.else.i
   %19 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %18, i64 8
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %_M_bucket_count, align 8
   %21 = load ptr, ptr %add.ptr.i, align 8
   %22 = ptrtoint ptr %21 to i64
@@ -1321,7 +1321,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %_M_single_bucket.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr null, ptr %_M_single_bucket.i, align 8
   br label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
 
@@ -1349,7 +1349,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK6aiBoneLb0EEEEE19_M_alloca
 
 _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit: ; preds = %if.then.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK6aiBoneLb0EEEEE19_M_allocate_bucketsEm.exit.i
   %retval.0.i = phi ptr [ %_M_single_bucket.i, %if.then.i ], [ %call5.i.i4.i.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeIPK6aiBoneLb0EEEEE19_M_allocate_bucketsEm.exit.i ]
-  %_M_before_begin.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_before_begin.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_before_begin.i, align 8
   store ptr null, ptr %_M_before_begin.i, align 8
   %tobool.not20 = icmp eq ptr %0, null
@@ -1359,7 +1359,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIP
   %__p.022 = phi ptr [ %1, %if.end22 ], [ %0, %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %__bbegin_bkt.021 = phi i64 [ %__bbegin_bkt.1, %if.end22 ], [ 0, %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit ]
   %1 = load ptr, ptr %__p.022, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %__p.022, i64 8
+  %add.ptr = getelementptr inbounds nuw i8, ptr %__p.022, i64 8
   %2 = load ptr, ptr %add.ptr, align 8
   %3 = ptrtoint ptr %2 to i64
   %rem.i.i = urem i64 %3, %__bkt_count
@@ -1396,7 +1396,7 @@ if.end22:                                         ; preds = %if.then, %if.then15
 
 while.end:                                        ; preds = %if.end22, %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE19_M_allocate_bucketsEm.exit
   %9 = load ptr, ptr %this, align 8
-  %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %_M_single_bucket.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %cmp.i.i.i = icmp eq ptr %9, %_M_single_bucket.i.i.i
   br i1 %cmp.i.i.i, label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit, label %if.end.i.i
 
@@ -1405,7 +1405,7 @@ if.end.i.i:                                       ; preds = %while.end
   br label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit
 
 _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_deallocate_bucketsEv.exit: ; preds = %while.end, %if.end.i.i
-  %_M_bucket_count = getelementptr inbounds i8, ptr %this, i64 8
+  %_M_bucket_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %__bkt_count, ptr %_M_bucket_count, align 8
   store ptr %retval.0.i, ptr %this, align 8
   ret void
@@ -1417,7 +1417,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10aiMetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %mKeys = getelementptr inbounds i8, ptr %this, i64 8
+  %mKeys = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mKeys, align 8
   %isnull = icmp eq ptr %0, null
   br i1 %isnull, label %delete.end, label %delete.notnull
@@ -1428,7 +1428,7 @@ delete.notnull:                                   ; preds = %entry
 
 delete.end:                                       ; preds = %delete.notnull, %entry
   store ptr null, ptr %mKeys, align 8
-  %mValues = getelementptr inbounds i8, ptr %this, i64 16
+  %mValues = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %mValues, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end, label %for.cond.preheader
@@ -1441,8 +1441,8 @@ for.cond.preheader:                               ; preds = %delete.end
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %for.cond.preheader ]
   %3 = load ptr, ptr %mValues, align 8
-  %arrayidx = getelementptr inbounds %struct.aiMetadataEntry, ptr %3, i64 %indvars.iv
-  %mData = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %3, i64 %indvars.iv
+  %mData = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %4 = load ptr, ptr %mData, align 8
   %5 = load i32, ptr %arrayidx, align 8
   switch i32 %5, label %for.inc [

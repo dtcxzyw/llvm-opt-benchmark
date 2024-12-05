@@ -124,7 +124,7 @@ initJvmlLauncherData.exit:                        ; preds = %31, %35, %38, %40, 
   br i1 %.not10, label %129, label %47
 
 47:                                               ; preds = %initJvmlLauncherData.exit
-  %48 = getelementptr inbounds i8, ptr %3, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = call i64 @write(i32 noundef %49, ptr noundef nonnull %5, i64 noundef 4) #9
   %51 = icmp eq i64 %50, -1
@@ -176,7 +176,7 @@ initJvmlLauncherData.exit:                        ; preds = %31, %35, %38, %40, 
 
 78:                                               ; preds = %76
   store ptr null, ptr %6, align 8
-  %79 = getelementptr inbounds i8, ptr %3, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, -1
   br i1 %81, label %82, label %closePipeEnd.exit12
@@ -281,7 +281,7 @@ closePipeEnd.exit13:                              ; preds = %121, %124
   br label %closePipeEnd.exit14
 
 closePipeEnd.exit14:                              ; preds = %129, %133
-  %135 = getelementptr inbounds i8, ptr %3, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, -1
   br i1 %137, label %138, label %closePipeEnd.exit15
@@ -333,25 +333,25 @@ define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr no
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 %5
   store ptr %7, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 %5
   store ptr %10, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 %5
   store ptr %13, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 %5
   store ptr %16, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i32, ptr %17, align 8
   %.not28 = icmp eq i32 %18, 0
   br i1 %.not28, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %2
-  %19 = getelementptr inbounds i8, ptr %1, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %20 = load i32, ptr %19, align 4
   %.not2730 = icmp eq i32 %20, 0
   br i1 %.not2730, label %._crit_edge, label %.lr.ph32
@@ -359,7 +359,7 @@ define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr no
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 %5
   store ptr %24, ptr %22, align 8
@@ -372,12 +372,12 @@ define internal fastcc void @initJvmlLauncherDataPointers(ptr noundef %0, ptr no
 .lr.ph32:                                         ; preds = %.preheader, %.lr.ph32
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %.lr.ph32 ], [ 0, %.preheader ]
   %27 = load ptr, ptr %11, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv34
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv34
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 %5
   store ptr %30, ptr %28, align 8
   %31 = load ptr, ptr %14, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv34
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv34
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds i8, ptr %33, i64 %5
   store ptr %34, ptr %32, align 8

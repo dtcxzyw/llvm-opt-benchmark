@@ -11,7 +11,7 @@ define noundef i64 @strlen(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = phi ptr [ %0, %1 ], [ %4, %2 ]
   %3 = load i8, ptr %.0, align 1
   %.not = icmp eq i8 %3, 0
-  %4 = getelementptr inbounds i8, ptr %.0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br i1 %.not, label %5, label %2, !llvm.loop !6
 
 5:                                                ; preds = %2

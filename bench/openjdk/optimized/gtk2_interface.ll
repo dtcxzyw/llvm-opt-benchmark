@@ -2329,7 +2329,7 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 
 .critedge:                                        ; preds = %dl_symbol.exit367, %524, %.thread, %526
   %549 = load ptr, ptr %0, align 8
-  %550 = getelementptr inbounds i8, ptr %549, i64 1824
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 1824
   %551 = load ptr, ptr %550, align 8
   %552 = call zeroext i8 %551(ptr noundef nonnull %0) #18
   %.not82 = icmp eq i8 %552, 0
@@ -2337,20 +2337,20 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 
 553:                                              ; preds = %.critedge
   %554 = load ptr, ptr %0, align 8
-  %555 = getelementptr inbounds i8, ptr %554, i64 136
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 136
   %556 = load ptr, ptr %555, align 8
   call void %556(ptr noundef nonnull %0) #18
   br label %557
 
 557:                                              ; preds = %553, %.critedge
   %558 = load ptr, ptr %0, align 8
-  %559 = getelementptr inbounds i8, ptr %558, i64 1128
+  %559 = getelementptr inbounds nuw i8, ptr %558, i64 1128
   %560 = load ptr, ptr %559, align 8
   %561 = load ptr, ptr @tkClass, align 8
   %562 = load ptr, ptr @awtLockMID, align 8
   call void (ptr, ptr, ptr, ...) %560(ptr noundef nonnull %0, ptr noundef %561, ptr noundef %562) #18
   %563 = load ptr, ptr %0, align 8
-  %564 = getelementptr inbounds i8, ptr %563, i64 1824
+  %564 = getelementptr inbounds nuw i8, ptr %563, i64 1824
   %565 = load ptr, ptr %564, align 8
   %566 = call zeroext i8 %565(ptr noundef nonnull %0) #18
   %.not83 = icmp eq i8 %566, 0
@@ -2358,7 +2358,7 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 
 567:                                              ; preds = %557
   %568 = load ptr, ptr %0, align 8
-  %569 = getelementptr inbounds i8, ptr %568, i64 136
+  %569 = getelementptr inbounds nuw i8, ptr %568, i64 136
   %570 = load ptr, ptr %569, align 8
   call void %570(ptr noundef nonnull %0) #18
   br label %571
@@ -2404,7 +2404,7 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
   %593 = call ptr @XSetIOErrorHandler(ptr noundef %573) #18
   call void (...) @awt_output_flush() #18
   %594 = load ptr, ptr %0, align 8
-  %595 = getelementptr inbounds i8, ptr %594, i64 120
+  %595 = getelementptr inbounds nuw i8, ptr %594, i64 120
   %596 = load ptr, ptr %595, align 8
   %597 = call ptr %596(ptr noundef nonnull %0) #18
   %.not86 = icmp eq ptr %597, null
@@ -2412,20 +2412,20 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 
 598:                                              ; preds = %589
   %599 = load ptr, ptr %0, align 8
-  %600 = getelementptr inbounds i8, ptr %599, i64 136
+  %600 = getelementptr inbounds nuw i8, ptr %599, i64 136
   %601 = load ptr, ptr %600, align 8
   call void %601(ptr noundef nonnull %0) #18
   br label %602
 
 602:                                              ; preds = %598, %589
   %603 = load ptr, ptr %0, align 8
-  %604 = getelementptr inbounds i8, ptr %603, i64 1128
+  %604 = getelementptr inbounds nuw i8, ptr %603, i64 1128
   %605 = load ptr, ptr %604, align 8
   %606 = load ptr, ptr @tkClass, align 8
   %607 = load ptr, ptr @awtUnlockMID, align 8
   call void (ptr, ptr, ptr, ...) %605(ptr noundef nonnull %0, ptr noundef %606, ptr noundef %607) #18
   %608 = load ptr, ptr %0, align 8
-  %609 = getelementptr inbounds i8, ptr %608, i64 1824
+  %609 = getelementptr inbounds nuw i8, ptr %608, i64 1824
   %610 = load ptr, ptr %609, align 8
   %611 = call zeroext i8 %610(ptr noundef nonnull %0) #18
   %.not87 = icmp eq i8 %611, 0
@@ -2433,7 +2433,7 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 
 612:                                              ; preds = %602
   %613 = load ptr, ptr %0, align 8
-  %614 = getelementptr inbounds i8, ptr %613, i64 136
+  %614 = getelementptr inbounds nuw i8, ptr %613, i64 136
   %615 = load ptr, ptr %614, align 8
   call void %615(ptr noundef nonnull %0) #18
   br label %616
@@ -2443,7 +2443,7 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 
 617:                                              ; preds = %616
   %618 = load ptr, ptr %0, align 8
-  %619 = getelementptr inbounds i8, ptr %618, i64 104
+  %619 = getelementptr inbounds nuw i8, ptr %618, i64 104
   %620 = load ptr, ptr %619, align 8
   %621 = call i32 %620(ptr noundef nonnull %0, ptr noundef nonnull %597) #18
   br label %622
@@ -2456,171 +2456,171 @@ dl_symbol.exit367:                                ; preds = %dl_symbol.exit365
 623:                                              ; preds = %622
   %624 = call noalias dereferenceable_or_null(840) ptr @malloc(i64 noundef 840) #22
   store i32 2, ptr %624, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 8
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 8
   store ptr @gtk2_show_uri_load, ptr %625, align 8
-  %626 = getelementptr inbounds i8, ptr %624, i64 16
+  %626 = getelementptr inbounds nuw i8, ptr %624, i64 16
   store ptr @gtk2_unload, ptr %626, align 8
-  %627 = getelementptr inbounds i8, ptr %624, i64 24
+  %627 = getelementptr inbounds nuw i8, ptr %624, i64 24
   store ptr @flush_gtk_event_loop, ptr %627, align 8
   %628 = load ptr, ptr @fp_gtk_check_version, align 8
-  %629 = getelementptr inbounds i8, ptr %624, i64 32
+  %629 = getelementptr inbounds nuw i8, ptr %624, i64 32
   store ptr %628, ptr %629, align 8
-  %630 = getelementptr inbounds i8, ptr %624, i64 40
+  %630 = getelementptr inbounds nuw i8, ptr %624, i64 40
   store ptr @gtk2_get_setting, ptr %630, align 8
-  %631 = getelementptr inbounds i8, ptr %624, i64 48
+  %631 = getelementptr inbounds nuw i8, ptr %624, i64 48
   store ptr @gtk2_paint_arrow, ptr %631, align 8
-  %632 = getelementptr inbounds i8, ptr %624, i64 56
+  %632 = getelementptr inbounds nuw i8, ptr %624, i64 56
   store ptr @gtk2_paint_box, ptr %632, align 8
-  %633 = getelementptr inbounds i8, ptr %624, i64 64
+  %633 = getelementptr inbounds nuw i8, ptr %624, i64 64
   store ptr @gtk2_paint_box_gap, ptr %633, align 8
-  %634 = getelementptr inbounds i8, ptr %624, i64 72
+  %634 = getelementptr inbounds nuw i8, ptr %624, i64 72
   store ptr @gtk2_paint_expander, ptr %634, align 8
-  %635 = getelementptr inbounds i8, ptr %624, i64 80
+  %635 = getelementptr inbounds nuw i8, ptr %624, i64 80
   store ptr @gtk2_paint_extension, ptr %635, align 8
-  %636 = getelementptr inbounds i8, ptr %624, i64 88
+  %636 = getelementptr inbounds nuw i8, ptr %624, i64 88
   store ptr @gtk2_paint_flat_box, ptr %636, align 8
-  %637 = getelementptr inbounds i8, ptr %624, i64 96
+  %637 = getelementptr inbounds nuw i8, ptr %624, i64 96
   store ptr @gtk2_paint_focus, ptr %637, align 8
-  %638 = getelementptr inbounds i8, ptr %624, i64 104
+  %638 = getelementptr inbounds nuw i8, ptr %624, i64 104
   store ptr @gtk2_paint_handle, ptr %638, align 8
-  %639 = getelementptr inbounds i8, ptr %624, i64 112
+  %639 = getelementptr inbounds nuw i8, ptr %624, i64 112
   store ptr @gtk2_paint_hline, ptr %639, align 8
-  %640 = getelementptr inbounds i8, ptr %624, i64 120
+  %640 = getelementptr inbounds nuw i8, ptr %624, i64 120
   store ptr @gtk2_paint_vline, ptr %640, align 8
-  %641 = getelementptr inbounds i8, ptr %624, i64 128
+  %641 = getelementptr inbounds nuw i8, ptr %624, i64 128
   store ptr @gtk2_paint_option, ptr %641, align 8
-  %642 = getelementptr inbounds i8, ptr %624, i64 136
+  %642 = getelementptr inbounds nuw i8, ptr %624, i64 136
   store ptr @gtk2_paint_shadow, ptr %642, align 8
-  %643 = getelementptr inbounds i8, ptr %624, i64 144
+  %643 = getelementptr inbounds nuw i8, ptr %624, i64 144
   store ptr @gtk2_paint_slider, ptr %643, align 8
-  %644 = getelementptr inbounds i8, ptr %624, i64 152
+  %644 = getelementptr inbounds nuw i8, ptr %624, i64 152
   store ptr @gtk_paint_background, ptr %644, align 8
-  %645 = getelementptr inbounds i8, ptr %624, i64 160
+  %645 = getelementptr inbounds nuw i8, ptr %624, i64 160
   store ptr @gtk2_paint_check, ptr %645, align 8
-  %646 = getelementptr inbounds i8, ptr %624, i64 168
+  %646 = getelementptr inbounds nuw i8, ptr %624, i64 168
   store ptr @gtk2_set_range_value, ptr %646, align 8
-  %647 = getelementptr inbounds i8, ptr %624, i64 176
+  %647 = getelementptr inbounds nuw i8, ptr %624, i64 176
   store ptr @gtk2_init_painting, ptr %647, align 8
-  %648 = getelementptr inbounds i8, ptr %624, i64 184
+  %648 = getelementptr inbounds nuw i8, ptr %624, i64 184
   store ptr @gtk2_copy_image, ptr %648, align 8
-  %649 = getelementptr inbounds i8, ptr %624, i64 192
+  %649 = getelementptr inbounds nuw i8, ptr %624, i64 192
   store ptr @gtk2_get_xthickness, ptr %649, align 8
-  %650 = getelementptr inbounds i8, ptr %624, i64 200
+  %650 = getelementptr inbounds nuw i8, ptr %624, i64 200
   store ptr @gtk2_get_ythickness, ptr %650, align 8
-  %651 = getelementptr inbounds i8, ptr %624, i64 208
+  %651 = getelementptr inbounds nuw i8, ptr %624, i64 208
   store ptr @gtk2_get_color_for_state, ptr %651, align 8
-  %652 = getelementptr inbounds i8, ptr %624, i64 216
+  %652 = getelementptr inbounds nuw i8, ptr %624, i64 216
   store ptr @gtk2_get_class_value, ptr %652, align 8
-  %653 = getelementptr inbounds i8, ptr %624, i64 224
+  %653 = getelementptr inbounds nuw i8, ptr %624, i64 224
   store ptr @gtk2_get_pango_font_name, ptr %653, align 8
-  %654 = getelementptr inbounds i8, ptr %624, i64 232
+  %654 = getelementptr inbounds nuw i8, ptr %624, i64 232
   store ptr @gtk2_get_icon_data, ptr %654, align 8
-  %655 = getelementptr inbounds i8, ptr %624, i64 240
+  %655 = getelementptr inbounds nuw i8, ptr %624, i64 240
   store ptr @gtk2_get_file_icon_data, ptr %655, align 8
   %656 = load ptr, ptr @fp_gdk_threads_enter, align 8
-  %657 = getelementptr inbounds i8, ptr %624, i64 248
+  %657 = getelementptr inbounds nuw i8, ptr %624, i64 248
   store ptr %656, ptr %657, align 8
   %658 = load ptr, ptr @fp_gdk_threads_leave, align 8
-  %659 = getelementptr inbounds i8, ptr %624, i64 256
+  %659 = getelementptr inbounds nuw i8, ptr %624, i64 256
   store ptr %658, ptr %659, align 8
   %660 = load ptr, ptr @fp_gtk_show_uri, align 8
-  %661 = getelementptr inbounds i8, ptr %624, i64 264
+  %661 = getelementptr inbounds nuw i8, ptr %624, i64 264
   store ptr %660, ptr %661, align 8
-  %662 = getelementptr inbounds i8, ptr %624, i64 272
+  %662 = getelementptr inbounds nuw i8, ptr %624, i64 272
   store ptr @gtk2_get_drawable_data, ptr %662, align 8
   %663 = load ptr, ptr @fp_g_free, align 8
-  %664 = getelementptr inbounds i8, ptr %624, i64 280
+  %664 = getelementptr inbounds nuw i8, ptr %624, i64 280
   store ptr %663, ptr %664, align 8
   %665 = load ptr, ptr @fp_gtk_file_chooser_get_filename, align 8
-  %666 = getelementptr inbounds i8, ptr %624, i64 288
+  %666 = getelementptr inbounds nuw i8, ptr %624, i64 288
   store ptr %665, ptr %666, align 8
   %667 = load ptr, ptr @fp_gtk_widget_hide, align 8
-  %668 = getelementptr inbounds i8, ptr %624, i64 296
+  %668 = getelementptr inbounds nuw i8, ptr %624, i64 296
   store ptr %667, ptr %668, align 8
   %669 = load ptr, ptr @fp_gtk_main_quit, align 8
-  %670 = getelementptr inbounds i8, ptr %624, i64 304
+  %670 = getelementptr inbounds nuw i8, ptr %624, i64 304
   store ptr %669, ptr %670, align 8
   %671 = load ptr, ptr @fp_gtk_file_chooser_dialog_new, align 8
-  %672 = getelementptr inbounds i8, ptr %624, i64 312
+  %672 = getelementptr inbounds nuw i8, ptr %624, i64 312
   store ptr %671, ptr %672, align 8
   %673 = load ptr, ptr @fp_gtk_file_chooser_set_current_folder, align 8
-  %674 = getelementptr inbounds i8, ptr %624, i64 320
+  %674 = getelementptr inbounds nuw i8, ptr %624, i64 320
   store ptr %673, ptr %674, align 8
   %675 = load ptr, ptr @fp_gtk_file_chooser_set_filename, align 8
-  %676 = getelementptr inbounds i8, ptr %624, i64 328
+  %676 = getelementptr inbounds nuw i8, ptr %624, i64 328
   store ptr %675, ptr %676, align 8
   %677 = load ptr, ptr @fp_gtk_file_chooser_set_current_name, align 8
-  %678 = getelementptr inbounds i8, ptr %624, i64 336
+  %678 = getelementptr inbounds nuw i8, ptr %624, i64 336
   store ptr %677, ptr %678, align 8
   %679 = load ptr, ptr @fp_gtk_file_filter_add_custom, align 8
-  %680 = getelementptr inbounds i8, ptr %624, i64 344
+  %680 = getelementptr inbounds nuw i8, ptr %624, i64 344
   store ptr %679, ptr %680, align 8
   %681 = load ptr, ptr @fp_gtk_file_chooser_set_filter, align 8
-  %682 = getelementptr inbounds i8, ptr %624, i64 352
+  %682 = getelementptr inbounds nuw i8, ptr %624, i64 352
   store ptr %681, ptr %682, align 8
   %683 = load ptr, ptr @fp_gtk_file_chooser_get_type, align 8
-  %684 = getelementptr inbounds i8, ptr %624, i64 360
+  %684 = getelementptr inbounds nuw i8, ptr %624, i64 360
   store ptr %683, ptr %684, align 8
   %685 = load ptr, ptr @fp_gtk_file_filter_new, align 8
-  %686 = getelementptr inbounds i8, ptr %624, i64 368
+  %686 = getelementptr inbounds nuw i8, ptr %624, i64 368
   store ptr %685, ptr %686, align 8
   %687 = load ptr, ptr @fp_gtk_file_chooser_set_do_overwrite_confirmation, align 8
-  %688 = getelementptr inbounds i8, ptr %624, i64 376
+  %688 = getelementptr inbounds nuw i8, ptr %624, i64 376
   store ptr %687, ptr %688, align 8
   %689 = load ptr, ptr @fp_gtk_file_chooser_set_select_multiple, align 8
-  %690 = getelementptr inbounds i8, ptr %624, i64 384
+  %690 = getelementptr inbounds nuw i8, ptr %624, i64 384
   store ptr %689, ptr %690, align 8
   %691 = load ptr, ptr @fp_gtk_file_chooser_get_current_folder, align 8
-  %692 = getelementptr inbounds i8, ptr %624, i64 392
+  %692 = getelementptr inbounds nuw i8, ptr %624, i64 392
   store ptr %691, ptr %692, align 8
   %693 = load ptr, ptr @fp_gtk_file_chooser_get_filenames, align 8
-  %694 = getelementptr inbounds i8, ptr %624, i64 400
+  %694 = getelementptr inbounds nuw i8, ptr %624, i64 400
   store ptr %693, ptr %694, align 8
   %695 = load ptr, ptr @fp_gtk_g_slist_length, align 8
-  %696 = getelementptr inbounds i8, ptr %624, i64 408
+  %696 = getelementptr inbounds nuw i8, ptr %624, i64 408
   store ptr %695, ptr %696, align 8
   %697 = load ptr, ptr @fp_g_signal_connect_data, align 8
-  %698 = getelementptr inbounds i8, ptr %624, i64 416
+  %698 = getelementptr inbounds nuw i8, ptr %624, i64 416
   store ptr %697, ptr %698, align 8
   %699 = load ptr, ptr @fp_gtk_widget_show, align 8
-  %700 = getelementptr inbounds i8, ptr %624, i64 424
+  %700 = getelementptr inbounds nuw i8, ptr %624, i64 424
   store ptr %699, ptr %700, align 8
   %701 = load ptr, ptr @fp_gtk_main, align 8
-  %702 = getelementptr inbounds i8, ptr %624, i64 432
+  %702 = getelementptr inbounds nuw i8, ptr %624, i64 432
   store ptr %701, ptr %702, align 8
-  %703 = getelementptr inbounds i8, ptr %624, i64 440
+  %703 = getelementptr inbounds nuw i8, ptr %624, i64 440
   store ptr null, ptr %703, align 8
   %704 = load ptr, ptr @fp_g_path_get_dirname, align 8
-  %705 = getelementptr inbounds i8, ptr %624, i64 448
+  %705 = getelementptr inbounds nuw i8, ptr %624, i64 448
   store ptr %704, ptr %705, align 8
   %706 = load ptr, ptr @fp_gdk_x11_drawable_get_xid, align 8
-  %707 = getelementptr inbounds i8, ptr %624, i64 456
+  %707 = getelementptr inbounds nuw i8, ptr %624, i64 456
   store ptr %706, ptr %707, align 8
   %708 = load ptr, ptr @fp_gtk_widget_destroy, align 8
-  %709 = getelementptr inbounds i8, ptr %624, i64 464
+  %709 = getelementptr inbounds nuw i8, ptr %624, i64 464
   store ptr %708, ptr %709, align 8
   %710 = load ptr, ptr @fp_gtk_window_present, align 8
-  %711 = getelementptr inbounds i8, ptr %624, i64 472
+  %711 = getelementptr inbounds nuw i8, ptr %624, i64 472
   store ptr %710, ptr %711, align 8
   %712 = load ptr, ptr @fp_gtk_window_move, align 8
-  %713 = getelementptr inbounds i8, ptr %624, i64 480
+  %713 = getelementptr inbounds nuw i8, ptr %624, i64 480
   store ptr %712, ptr %713, align 8
   %714 = load ptr, ptr @fp_gtk_window_resize, align 8
-  %715 = getelementptr inbounds i8, ptr %624, i64 488
+  %715 = getelementptr inbounds nuw i8, ptr %624, i64 488
   store ptr %714, ptr %715, align 8
-  %716 = getelementptr inbounds i8, ptr %624, i64 496
+  %716 = getelementptr inbounds nuw i8, ptr %624, i64 496
   store ptr @gtk2_get_window, ptr %716, align 8
   %717 = load ptr, ptr @fp_g_object_unref, align 8
-  %718 = getelementptr inbounds i8, ptr %624, i64 504
+  %718 = getelementptr inbounds nuw i8, ptr %624, i64 504
   store ptr %717, ptr %718, align 8
   %719 = load ptr, ptr @fp_g_list_append, align 8
-  %720 = getelementptr inbounds i8, ptr %624, i64 512
+  %720 = getelementptr inbounds nuw i8, ptr %624, i64 512
   store ptr %719, ptr %720, align 8
   %721 = load ptr, ptr @fp_g_list_free, align 8
-  %722 = getelementptr inbounds i8, ptr %624, i64 520
+  %722 = getelementptr inbounds nuw i8, ptr %624, i64 520
   store ptr %721, ptr %722, align 8
   %723 = load ptr, ptr @fp_g_list_free_full, align 8
-  %724 = getelementptr inbounds i8, ptr %624, i64 528
+  %724 = getelementptr inbounds nuw i8, ptr %624, i64 528
   store ptr %723, ptr %724, align 8
   br label %725
 
@@ -2807,13 +2807,13 @@ gtk2_get_arrow.exit:                              ; preds = %11, %14
   tail call void %40(ptr noundef %storemerge, ptr noundef nonnull @gtk2_paint_arrow.size) #18
   %41 = load i32, ptr @gtk2_paint_arrow.size, align 4
   %42 = load ptr, ptr @gtk2_widget, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 104
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %44 = load i16, ptr %43, align 8
   %45 = zext i16 %44 to i32
   %46 = shl nuw nsw i32 %45, 1
   %47 = sub nsw i32 %41, %46
   %48 = load i32, ptr getelementptr inbounds (i8, ptr @gtk2_paint_arrow.size, i64 4), align 4
-  %49 = getelementptr inbounds i8, ptr %42, i64 106
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 106
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = shl nuw nsw i32 %51, 1
@@ -2848,13 +2848,13 @@ gtk2_get_arrow.exit:                              ; preds = %11, %14
   %68 = sdiv i32 %67, 2
   %69 = add nsw i32 %68, %.040
   %70 = load ptr, ptr @fp_gtk_paint_arrow, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %72 = load ptr, ptr %71, align 8
   %73 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %70(ptr noundef %72, ptr noundef %73, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %61, ptr noundef %3, i32 noundef %8, i32 noundef %9, i32 noundef %66, i32 noundef %69, i32 noundef %63, i32 noundef %62) #18
   %74 = load ptr, ptr @fp_gtk_paint_arrow, align 8
   %75 = load ptr, ptr @gtk2_widget, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
   %77 = load ptr, ptr %76, align 8
   %78 = load ptr, ptr @gtk2_black_pixmap, align 8
   %79 = load i32, ptr @gtk2_paint_arrow.w, align 4
@@ -3384,7 +3384,7 @@ define internal fastcc ptr @gtk2_get_widget(i32 noundef %0) unnamed_addr #0 {
 
 245:                                              ; preds = %242, %239
   %246 = phi ptr [ %244, %242 ], [ %240, %239 ]
-  %247 = getelementptr inbounds i8, ptr %246, i64 108
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 108
   %248 = load i8, ptr %247, align 4
   %249 = or i8 %248, 1
   store i8 %249, ptr %247, align 4
@@ -3470,7 +3470,7 @@ gtk2_get_widget.exit:                             ; preds = %262, %265, %268
 283:                                              ; preds = %279
   %284 = load ptr, ptr @fp_gtk_widget_set_parent, align 8
   tail call void %284(ptr noundef nonnull %.052, ptr noundef %282) #18
-  %285 = getelementptr inbounds i8, ptr %282, i64 112
+  %285 = getelementptr inbounds nuw i8, ptr %282, i64 112
   store ptr %.052, ptr %285, align 8
   br label %288
 
@@ -3512,22 +3512,22 @@ gtk2_get_widget.exit:                             ; preds = %262, %265, %268
 define hidden void @gtk2_paint_box_gap(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) #0 {
   %12 = alloca %struct.GdkRectangle, align 4
   store i32 %4, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %5, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %6, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %7, ptr %15, align 4
   %16 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %16, ptr @gtk2_widget, align 8
   %17 = load ptr, ptr @fp_gtk_paint_box_gap, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @gtk2_white_pixmap, align 8
   call void %17(ptr noundef %19, ptr noundef %20, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %16, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) #18
   %21 = load ptr, ptr @fp_gtk_paint_box_gap, align 8
   %22 = load ptr, ptr @gtk2_widget, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr @gtk2_black_pixmap, align 8
   call void %21(ptr noundef %24, ptr noundef %25, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %22, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) #18
@@ -3563,10 +3563,10 @@ dl_symbol.exit:                                   ; preds = %5
 
 13:                                               ; preds = %dl_symbol.exit
   %14 = load ptr, ptr @gtk, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 264
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 264
   store ptr %11, ptr %15, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18(ptr noundef nonnull %0, ptr noundef nonnull @.str.164) #18
   %20 = icmp eq ptr %19, null
@@ -3574,7 +3574,7 @@ dl_symbol.exit:                                   ; preds = %5
 
 21:                                               ; preds = %13
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, ptr noundef nonnull @.str.165) #18
   %26 = icmp eq ptr %25, null
@@ -3582,7 +3582,7 @@ dl_symbol.exit:                                   ; preds = %5
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 1152
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1152
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull @.str.166, ptr noundef nonnull @.str.167) #18
   %32 = icmp eq ptr %31, null
@@ -3590,11 +3590,11 @@ dl_symbol.exit:                                   ; preds = %5
 
 33:                                               ; preds = %27
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1160
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1160
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %0, ptr noundef nonnull %25, ptr noundef nonnull %31) #18
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef nonnull @.str.168) #18
   %42 = icmp eq ptr %41, null
@@ -3602,7 +3602,7 @@ dl_symbol.exit:                                   ; preds = %5
 
 43:                                               ; preds = %33
   %44 = load ptr, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 264
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr %46(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull @.str.169, ptr noundef nonnull @.str.170) #18
   %48 = icmp eq ptr %47, null
@@ -3610,7 +3610,7 @@ dl_symbol.exit:                                   ; preds = %5
 
 49:                                               ; preds = %43
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 264
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 264
   %52 = load ptr, ptr %51, align 8
   %53 = tail call ptr %52(ptr noundef nonnull %0, ptr noundef nonnull %41, ptr noundef nonnull @.str.171, ptr noundef nonnull @.str.172) #18
   %54 = icmp eq ptr %53, null
@@ -3618,15 +3618,15 @@ dl_symbol.exit:                                   ; preds = %5
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 488
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 488
   %58 = load ptr, ptr %57, align 8
   tail call void (ptr, ptr, ptr, ...) %58(ptr noundef nonnull %0, ptr noundef %37, ptr noundef nonnull %53) #18
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 1152
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1152
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.173, ptr noundef nonnull @.str.174) #18
   %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 1824
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1824
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i8 %65(ptr noundef nonnull %0) #18
   %.not.i5 = icmp eq i8 %66, 0
@@ -3634,17 +3634,17 @@ dl_symbol.exit:                                   ; preds = %5
   br i1 %.not.i5, label %68, label %76
 
 68:                                               ; preds = %55
-  %69 = getelementptr inbounds i8, ptr %67, i64 1160
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 1160
   %70 = load ptr, ptr %69, align 8
   %71 = tail call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %62) #18
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 296
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 296
   %74 = load ptr, ptr %73, align 8
   %75 = tail call zeroext i8 (ptr, ptr, ptr, ...) %74(ptr noundef nonnull %0, ptr noundef %37, ptr noundef nonnull %47, ptr noundef %71) #18
   br label %79
 
 76:                                               ; preds = %55
-  %77 = getelementptr inbounds i8, ptr %67, i64 136
+  %77 = getelementptr inbounds nuw i8, ptr %67, i64 136
   %78 = load ptr, ptr %77, align 8
   tail call void %78(ptr noundef nonnull %0) #18
   br label %79
@@ -3687,7 +3687,7 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
 
 91:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %92 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv.next.i
+  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.next.i
   %93 = load ptr, ptr %92, align 8
   %.not102.i = icmp eq ptr %93, null
   br i1 %.not102.i, label %update_supported_actions.exit, label %.lr.ph.i, !llvm.loop !8
@@ -3701,11 +3701,11 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
 
 97:                                               ; preds = %.lr.ph.i
   %98 = load ptr, ptr %0, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 1152
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 1152
   %100 = load ptr, ptr %99, align 8
   %101 = tail call ptr %100(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.178, ptr noundef nonnull @.str.174) #18
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 1824
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1824
   %104 = load ptr, ptr %103, align 8
   %105 = tail call zeroext i8 %104(ptr noundef nonnull %0) #18
   %.not103.i = icmp eq i8 %105, 0
@@ -3713,28 +3713,28 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
   br i1 %.not103.i, label %107, label %115
 
 107:                                              ; preds = %97
-  %108 = getelementptr inbounds i8, ptr %106, i64 1160
+  %108 = getelementptr inbounds nuw i8, ptr %106, i64 1160
   %109 = load ptr, ptr %108, align 8
   %110 = tail call ptr %109(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %101) #18
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 296
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 296
   %113 = load ptr, ptr %112, align 8
   %114 = tail call zeroext i8 (ptr, ptr, ptr, ...) %113(ptr noundef nonnull %0, ptr noundef %37, ptr noundef nonnull %47, ptr noundef %110) #18
   br label %118
 
 115:                                              ; preds = %97
-  %116 = getelementptr inbounds i8, ptr %106, i64 136
+  %116 = getelementptr inbounds nuw i8, ptr %106, i64 136
   %117 = load ptr, ptr %116, align 8
   tail call void %117(ptr noundef nonnull %0) #18
   br label %118
 
 118:                                              ; preds = %115, %107
   %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 1152
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 1152
   %121 = load ptr, ptr %120, align 8
   %122 = tail call ptr %121(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull @.str.179, ptr noundef nonnull @.str.174) #18
   %123 = load ptr, ptr %0, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 1824
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 1824
   %125 = load ptr, ptr %124, align 8
   %126 = tail call zeroext i8 %125(ptr noundef nonnull %0) #18
   %.not104.i = icmp eq i8 %126, 0
@@ -3742,17 +3742,17 @@ dl_symbol.exit106.i:                              ; preds = %dl_symbol.exit.i
   br i1 %.not104.i, label %128, label %136
 
 128:                                              ; preds = %118
-  %129 = getelementptr inbounds i8, ptr %127, i64 1160
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 1160
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr %130(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef %122) #18
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 296
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 296
   %134 = load ptr, ptr %133, align 8
   %135 = tail call zeroext i8 (ptr, ptr, ptr, ...) %134(ptr noundef nonnull %0, ptr noundef %37, ptr noundef nonnull %47, ptr noundef %131) #18
   br label %update_supported_actions.exit
 
 136:                                              ; preds = %118
-  %137 = getelementptr inbounds i8, ptr %127, i64 136
+  %137 = getelementptr inbounds nuw i8, ptr %127, i64 136
   %138 = load ptr, ptr %137, align 8
   tail call void %138(ptr noundef nonnull %0) #18
   br label %update_supported_actions.exit
@@ -3785,7 +3785,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %12 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %12(ptr noundef %10, ptr noundef nonnull @.str.180, ptr noundef nonnull %8, ptr noundef null) #18
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1336
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1336
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %8, align 8
   %17 = call ptr %15(ptr noundef nonnull %0, ptr noundef %16) #18
@@ -3801,7 +3801,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   %21 = load ptr, ptr @fp_g_object_get, align 8
   call void (ptr, ptr, ...) %21(ptr noundef %10, ptr noundef nonnull @.str.181, ptr noundef nonnull %7, ptr noundef null) #18
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1336
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1336
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %7, align 8
   %26 = call ptr %24(ptr noundef nonnull %0, ptr noundef %25) #18
@@ -3821,7 +3821,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i8 %32, ptr %5, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef nonnull %0, ptr noundef nonnull @.str.184) #18
   %37 = icmp eq ptr %36, null
@@ -3834,7 +3834,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
 
 41:                                               ; preds = %38
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 264
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 264
   %44 = load ptr, ptr %43, align 8
   %45 = call ptr %44(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.185) #18
   store ptr %45, ptr @create_Boolean.cid, align 8
@@ -3844,7 +3844,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
 47:                                               ; preds = %41, %38
   %48 = phi ptr [ %45, %41 ], [ %39, %38 ]
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 240
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 240
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr %51(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull %48, ptr noundef nonnull %5) #18
   br label %.sink.split.i.i.i
@@ -3852,7 +3852,7 @@ define internal ptr @gtk2_get_setting(ptr noundef %0, i32 noundef %1) #0 {
 .sink.split.i.i.i:                                ; preds = %47, %41
   %.0.ph.i.i.i = phi ptr [ %52, %47 ], [ null, %41 ]
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 184
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 184
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull %0, ptr noundef nonnull %36) #18
   br label %get_boolean_property.exit
@@ -3872,7 +3872,7 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %58, ptr %3, align 8
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 48
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load ptr, ptr %60, align 8
   %62 = call ptr %61(ptr noundef nonnull %0, ptr noundef nonnull @.str.187) #18
   %63 = icmp eq ptr %62, null
@@ -3885,7 +3885,7 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %0, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 264
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 264
   %70 = load ptr, ptr %69, align 8
   %71 = call ptr %70(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.188) #18
   store ptr %71, ptr @create_Integer.cid, align 8
@@ -3895,7 +3895,7 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
 73:                                               ; preds = %67, %64
   %74 = phi ptr [ %71, %67 ], [ %65, %64 ]
   %75 = load ptr, ptr %0, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 240
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 240
   %77 = load ptr, ptr %76, align 8
   %78 = call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %62, ptr noundef nonnull %74, ptr noundef nonnull %3) #18
   br label %.sink.split.i.i.i9
@@ -3903,7 +3903,7 @@ get_boolean_property.exit:                        ; preds = %29, %.sink.split.i.
 .sink.split.i.i.i9:                               ; preds = %73, %67
   %.0.ph.i.i.i10 = phi ptr [ %78, %73 ], [ null, %67 ]
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 184
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 184
   %81 = load ptr, ptr %80, align 8
   call void %81(ptr noundef nonnull %0, ptr noundef nonnull %62) #18
   br label %get_integer_property.exit
@@ -3924,14 +3924,14 @@ define internal void @gtk2_paint_box(i32 noundef %0, i32 noundef %1, i32 noundef
   %11 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %11, ptr @gtk2_widget, align 8
   %12 = trunc i32 %1 to i8
-  %13 = getelementptr inbounds i8, ptr %11, i64 34
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 34
   store i8 %12, ptr %13, align 2
   %14 = icmp eq i32 %0, 20
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %10
   %16 = icmp eq i32 %9, 2
-  %17 = getelementptr inbounds i8, ptr %11, i64 108
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %18 = zext i1 %16 to i8
   %19 = load i8, ptr %17, align 4
   %20 = and i8 %19, -2
@@ -3943,7 +3943,7 @@ define internal void @gtk2_paint_box(i32 noundef %0, i32 noundef %1, i32 noundef
   %.0 = phi i32 [ 1, %15 ], [ %9, %10 ]
   %23 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
   tail call void %23(ptr noundef nonnull %11, i32 noundef %.0) #18
-  %24 = getelementptr inbounds i8, ptr %11, i64 88
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %25 = load ptr, ptr %24, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %gtk2_set_direction.exit, label %26
@@ -3971,7 +3971,7 @@ gtk2_set_direction.exit._crit_edge:               ; preds = %gtk2_set_direction.
   %29 = and i32 %8, 1024
   %.not = icmp eq i32 %29, 0
   %30 = load ptr, ptr @gtk2_widget, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   br i1 %.not, label %35, label %33
 
@@ -3987,7 +3987,7 @@ gtk2_set_direction.exit._crit_edge:               ; preds = %gtk2_set_direction.
 
 init_toggle_widget.exit:                          ; preds = %gtk2_set_direction.exit
   %37 = load ptr, ptr @gtk2_widget, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 144
   %.lobit.i = lshr i32 %8, 9
   %39 = trunc i32 %.lobit.i to i8
   %40 = load i8, ptr %38, align 8
@@ -3995,7 +3995,7 @@ init_toggle_widget.exit:                          ; preds = %gtk2_set_direction.
   %42 = and i8 %40, -2
   %43 = or disjoint i8 %42, %41
   store i8 %43, ptr %38, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, -4097
   %47 = shl i32 %8, 4
@@ -4011,77 +4011,77 @@ init_toggle_widget.exit:                          ; preds = %gtk2_set_direction.
   %.not18.i = icmp eq i32 %50, 0
   %spec.select = select i1 %.not18.i, i8 %41, i8 4
   %.sink23.i = select i1 %or.cond22.i, i8 %spec.select, i8 2
-  %51 = getelementptr inbounds i8, ptr %37, i64 34
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 34
   store i8 %.sink23.i, ptr %51, align 2
   br label %78
 
 52:                                               ; preds = %gtk2_set_direction.exit
   %53 = load ptr, ptr @gtk2_widget, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   store i32 %4, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %53, i64 68
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 68
   store i32 %5, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %53, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 72
   store i32 %6, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %53, i64 76
+  %57 = getelementptr inbounds nuw i8, ptr %53, i64 76
   store i32 %7, ptr %57, align 4
   br label %78
 
 58:                                               ; preds = %gtk2_set_direction.exit
   %59 = add nsw i32 %6, %4
   %60 = load ptr, ptr @gtk2_widget, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 64
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 64
   store i32 %59, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 68
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 68
   store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %60, i64 72
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 72
   store i32 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %60, i64 76
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 76
   store i32 %7, ptr %64, align 4
   br label %78
 
 65:                                               ; preds = %gtk2_set_direction.exit
   %66 = load ptr, ptr @gtk2_widget, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   store i32 %4, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %66, i64 68
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 68
   store i32 %5, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %66, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 72
   store i32 %6, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %66, i64 76
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 76
   store i32 %7, ptr %70, align 4
   br label %78
 
 71:                                               ; preds = %gtk2_set_direction.exit
   %72 = load ptr, ptr @gtk2_widget, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 64
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store i32 %4, ptr %73, align 8
   %74 = add nsw i32 %7, %5
-  %75 = getelementptr inbounds i8, ptr %72, i64 68
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 68
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %72, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 72
   store i32 %6, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %72, i64 76
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 76
   store i32 0, ptr %77, align 4
   br label %78
 
 78:                                               ; preds = %gtk2_set_direction.exit._crit_edge, %33, %35, %71, %65, %58, %52, %init_toggle_widget.exit
   %79 = phi ptr [ %.pre, %gtk2_set_direction.exit._crit_edge ], [ %30, %33 ], [ %30, %35 ], [ %72, %71 ], [ %66, %65 ], [ %60, %58 ], [ %53, %52 ], [ %37, %init_toggle_widget.exit ]
   %80 = load ptr, ptr @fp_gtk_paint_box, align 8
-  %81 = getelementptr inbounds i8, ptr %79, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 48
   %82 = load ptr, ptr %81, align 8
   %83 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %80(ptr noundef %82, ptr noundef %83, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %79, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
   %84 = load ptr, ptr @fp_gtk_paint_box, align 8
   %85 = load ptr, ptr @gtk2_widget, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %87 = load ptr, ptr %86, align 8
   %88 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %84(ptr noundef %87, ptr noundef %88, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %85, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
   %89 = load ptr, ptr @gtk2_widget, align 8
   %90 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
   tail call void %90(ptr noundef %89, i32 noundef 1) #18
-  %91 = getelementptr inbounds i8, ptr %89, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 88
   %92 = load ptr, ptr %91, align 8
   %.not.i38 = icmp eq ptr %92, null
   br i1 %.not.i38, label %gtk2_set_direction.exit39, label %93
@@ -4100,7 +4100,7 @@ define internal void @gtk2_paint_expander(i32 noundef %0, i32 noundef %1, ptr no
   %9 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %9, ptr @gtk2_widget, align 8
   %10 = load ptr, ptr @fp_gtk_paint_expander, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @gtk2_white_pixmap, align 8
   %14 = sdiv i32 %5, 2
@@ -4110,7 +4110,7 @@ define internal void @gtk2_paint_expander(i32 noundef %0, i32 noundef %1, ptr no
   tail call void %10(ptr noundef %12, ptr noundef %13, i32 noundef %1, ptr noundef null, ptr noundef %9, ptr noundef %2, i32 noundef %15, i32 noundef %17, i32 noundef %7) #18
   %18 = load ptr, ptr @fp_gtk_paint_expander, align 8
   %19 = load ptr, ptr @gtk2_widget, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %18(ptr noundef %21, ptr noundef %22, i32 noundef %1, ptr noundef null, ptr noundef %19, ptr noundef %2, i32 noundef %15, i32 noundef %17, i32 noundef %7) #18
@@ -4122,13 +4122,13 @@ define internal void @gtk2_paint_extension(i32 noundef %0, i32 noundef %1, i32 n
   %10 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %10, ptr @gtk2_widget, align 8
   %11 = load ptr, ptr @fp_gtk_paint_extension, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %11(ptr noundef %13, ptr noundef %14, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %10, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #18
   %15 = load ptr, ptr @fp_gtk_paint_extension, align 8
   %16 = load ptr, ptr @gtk2_widget, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %15(ptr noundef %18, ptr noundef %19, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %16, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #18
@@ -4140,20 +4140,20 @@ define internal void @gtk2_paint_flat_box(i32 noundef %0, i32 noundef %1, i32 no
   %10 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %10, ptr @gtk2_widget, align 8
   %.not = icmp eq i32 %8, 0
-  %11 = getelementptr inbounds i8, ptr %10, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, -4097
   %masksel = select i1 %.not, i32 0, i32 4096
   %.sink = or disjoint i32 %13, %masksel
   store i32 %.sink, ptr %11, align 8
   %14 = load ptr, ptr @fp_gtk_paint_flat_box, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %14(ptr noundef %16, ptr noundef %17, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull %10, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
   %18 = load ptr, ptr @fp_gtk_paint_flat_box, align 8
   %19 = load ptr, ptr @gtk2_widget, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %18(ptr noundef %21, ptr noundef %22, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %19, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
@@ -4165,13 +4165,13 @@ define internal void @gtk2_paint_focus(i32 noundef %0, i32 noundef %1, ptr nound
   %8 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %8, ptr @gtk2_widget, align 8
   %9 = load ptr, ptr @fp_gtk_paint_focus, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %9(ptr noundef %11, ptr noundef %12, i32 noundef %1, ptr noundef null, ptr noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
   %13 = load ptr, ptr @fp_gtk_paint_focus, align 8
   %14 = load ptr, ptr @gtk2_widget, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %13(ptr noundef %16, ptr noundef %17, i32 noundef %1, ptr noundef null, ptr noundef %14, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
@@ -4183,13 +4183,13 @@ define internal void @gtk2_paint_handle(i32 noundef %0, i32 noundef %1, i32 noun
   %10 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %10, ptr @gtk2_widget, align 8
   %11 = load ptr, ptr @fp_gtk_paint_handle, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %11(ptr noundef %13, ptr noundef %14, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %10, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #18
   %15 = load ptr, ptr @fp_gtk_paint_handle, align 8
   %16 = load ptr, ptr @gtk2_widget, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %15(ptr noundef %18, ptr noundef %19, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %16, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #18
@@ -4201,14 +4201,14 @@ define internal void @gtk2_paint_hline(i32 noundef %0, i32 noundef %1, ptr nound
   %8 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %8, ptr @gtk2_widget, align 8
   %9 = load ptr, ptr @fp_gtk_paint_hline, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @gtk2_white_pixmap, align 8
   %13 = add nsw i32 %5, %3
   tail call void %9(ptr noundef %11, ptr noundef %12, i32 noundef %1, ptr noundef null, ptr noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef %13, i32 noundef %4) #18
   %14 = load ptr, ptr @fp_gtk_paint_hline, align 8
   %15 = load ptr, ptr @gtk2_widget, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %14(ptr noundef %17, ptr noundef %18, i32 noundef %1, ptr noundef null, ptr noundef %15, ptr noundef %2, i32 noundef %3, i32 noundef %13, i32 noundef %4) #18
@@ -4220,14 +4220,14 @@ define internal void @gtk2_paint_vline(i32 noundef %0, i32 noundef %1, ptr nound
   %8 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %8, ptr @gtk2_widget, align 8
   %9 = load ptr, ptr @fp_gtk_paint_vline, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @gtk2_white_pixmap, align 8
   %13 = add nsw i32 %6, %4
   tail call void %9(ptr noundef %11, ptr noundef %12, i32 noundef %1, ptr noundef null, ptr noundef %8, ptr noundef %2, i32 noundef %4, i32 noundef %13, i32 noundef %3) #18
   %14 = load ptr, ptr @fp_gtk_paint_vline, align 8
   %15 = load ptr, ptr @gtk2_widget, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %14(ptr noundef %17, ptr noundef %18, i32 noundef %1, ptr noundef null, ptr noundef %15, ptr noundef %2, i32 noundef %4, i32 noundef %13, i32 noundef %3) #18
@@ -4251,7 +4251,7 @@ define internal void @gtk2_paint_option(i32 noundef %0, i32 noundef %1, ptr noun
   br label %init_toggle_widget.exit
 
 9:                                                ; preds = %7, %7, %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %.lobit.i = lshr i32 %1, 9
   %11 = trunc i32 %.lobit.i to i8
   %12 = load i8, ptr %10, align 8
@@ -4273,7 +4273,7 @@ init_toggle_widget.exit:                          ; preds = %.init_toggle_widget
   %19 = and i32 %1, 2
   %spec.select.i = select i1 %.not4.i, i32 %19, i32 1
   %.0.i = select i1 %.not.i.not, i32 %spec.select.i, i32 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -4097
   %23 = shl i32 %1, 4
@@ -4287,16 +4287,16 @@ init_toggle_widget.exit:                          ; preds = %.init_toggle_widget
   %or.cond22.i.not21 = or i1 %or.cond.i, %or.cond21.i
   %.mux = select i1 %.not.i.not, i8 %.pre-phi25, i8 4
   %.sink23.i = select i1 %or.cond22.i.not21, i8 2, i8 %.mux
-  %26 = getelementptr inbounds i8, ptr %8, i64 34
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 34
   store i8 %.sink23.i, ptr %26, align 2
   %27 = load ptr, ptr @fp_gtk_paint_option, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %27(ptr noundef %29, ptr noundef %30, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
   %31 = load ptr, ptr @fp_gtk_paint_option, align 8
   %32 = load ptr, ptr @gtk2_widget, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %31(ptr noundef %34, ptr noundef %35, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef %32, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
@@ -4308,11 +4308,11 @@ define internal void @gtk2_paint_shadow(i32 noundef %0, i32 noundef %1, i32 noun
   %11 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %11, ptr @gtk2_widget, align 8
   %12 = trunc i32 %1 to i8
-  %13 = getelementptr inbounds i8, ptr %11, i64 34
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 34
   store i8 %12, ptr %13, align 2
   %14 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
   tail call void %14(ptr noundef %11, i32 noundef %9) #18
-  %15 = getelementptr inbounds i8, ptr %11, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %15, align 8
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %gtk2_set_direction.exit, label %17
@@ -4339,7 +4339,7 @@ gtk2_set_direction.exit._crit_edge:               ; preds = %gtk2_set_direction.
   %20 = and i32 %8, 256
   %.not = icmp eq i32 %20, 0
   %21 = load ptr, ptr @gtk2_widget, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load i32, ptr %22, align 8
   br i1 %.not, label %26, label %24
 
@@ -4356,20 +4356,20 @@ gtk2_set_direction.exit._crit_edge:               ; preds = %gtk2_set_direction.
 28:                                               ; preds = %gtk2_set_direction.exit._crit_edge, %24, %26
   %29 = phi ptr [ %.pre, %gtk2_set_direction.exit._crit_edge ], [ %21, %24 ], [ %21, %26 ]
   %30 = load ptr, ptr @fp_gtk_paint_shadow, align 8
-  %31 = getelementptr inbounds i8, ptr %29, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %30(ptr noundef %32, ptr noundef %33, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %29, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
   %34 = load ptr, ptr @fp_gtk_paint_shadow, align 8
   %35 = load ptr, ptr @gtk2_widget, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %34(ptr noundef %37, ptr noundef %38, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %35, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #18
   %39 = load ptr, ptr @gtk2_widget, align 8
   %40 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
   tail call void %40(ptr noundef %39, i32 noundef 1) #18
-  %41 = getelementptr inbounds i8, ptr %39, i64 88
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 88
   %42 = load ptr, ptr %41, align 8
   %.not.i18 = icmp eq ptr %42, null
   br i1 %.not.i18, label %gtk2_set_direction.exit19, label %43
@@ -4388,13 +4388,13 @@ define internal void @gtk2_paint_slider(i32 noundef %0, i32 noundef %1, i32 noun
   %11 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %11, ptr @gtk2_widget, align 8
   %12 = load ptr, ptr @fp_gtk_paint_slider, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %12(ptr noundef %14, ptr noundef %15, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %11, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #18
   %16 = load ptr, ptr @fp_gtk_paint_slider, align 8
   %17 = load ptr, ptr @gtk2_widget, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %16(ptr noundef %19, ptr noundef %20, i32 noundef %1, i32 noundef %2, ptr noundef null, ptr noundef %17, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) #18
@@ -4406,13 +4406,13 @@ define internal void @gtk_paint_background(i32 noundef %0, i32 noundef %1, i32 n
   %7 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %0)
   store ptr %7, ptr @gtk2_widget, align 8
   %8 = load ptr, ptr @fp_gtk_style_apply_default_background, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %8(ptr noundef %10, ptr noundef %11, i32 noundef 1, i32 noundef %1, ptr noundef null, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #18
   %12 = load ptr, ptr @fp_gtk_style_apply_default_background, align 8
   %13 = load ptr, ptr @gtk2_widget, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %12(ptr noundef %15, ptr noundef %16, i32 noundef 1, i32 noundef %1, ptr noundef null, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #18
@@ -4436,7 +4436,7 @@ define internal void @gtk2_paint_check(i32 noundef %0, i32 noundef %1, ptr nound
   br label %init_toggle_widget.exit
 
 9:                                                ; preds = %7, %7, %7
-  %10 = getelementptr inbounds i8, ptr %8, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %.lobit.i = lshr i32 %1, 9
   %11 = trunc i32 %.lobit.i to i8
   %12 = load i8, ptr %10, align 8
@@ -4458,7 +4458,7 @@ init_toggle_widget.exit:                          ; preds = %.init_toggle_widget
   %19 = and i32 %1, 2
   %spec.select.i = select i1 %.not4.i, i32 %19, i32 1
   %.0.i = select i1 %.not.i.not, i32 %spec.select.i, i32 4
-  %20 = getelementptr inbounds i8, ptr %8, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load i32, ptr %20, align 8
   %22 = and i32 %21, -4097
   %23 = shl i32 %1, 4
@@ -4472,16 +4472,16 @@ init_toggle_widget.exit:                          ; preds = %.init_toggle_widget
   %or.cond22.i.not21 = or i1 %or.cond.i, %or.cond21.i
   %.mux = select i1 %.not.i.not, i8 %.pre-phi25, i8 4
   %.sink23.i = select i1 %or.cond22.i.not21, i8 2, i8 %.mux
-  %26 = getelementptr inbounds i8, ptr %8, i64 34
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 34
   store i8 %.sink23.i, ptr %26, align 2
   %27 = load ptr, ptr @fp_gtk_paint_check, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr @gtk2_white_pixmap, align 8
   tail call void %27(ptr noundef %29, ptr noundef %30, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef nonnull %8, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
   %31 = load ptr, ptr @fp_gtk_paint_check, align 8
   %32 = load ptr, ptr @gtk2_widget, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr @gtk2_black_pixmap, align 8
   tail call void %31(ptr noundef %34, ptr noundef %35, i32 noundef %.0.i, i32 noundef %spec.store.select.i, ptr noundef null, ptr noundef %32, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #18
@@ -4494,13 +4494,13 @@ define internal void @gtk2_set_range_value(i32 noundef %0, double noundef %1, do
   store ptr %6, ptr @gtk2_widget, align 8
   %7 = load ptr, ptr @fp_gtk_range_get_adjustment, align 8
   %8 = tail call ptr %7(ptr noundef %6) #18
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store double %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store double %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store double %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 72
   store double %4, ptr %12, align 8
   ret void
 }
@@ -4550,7 +4550,7 @@ init_containers.exit:                             ; preds = %3, %6
 28:                                               ; preds = %21
   %29 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @convertionBuffer, i64 noundef 128, ptr noundef nonnull @.str.189, i32 noundef %1, i32 noundef %2) #18
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull @.str.190) #18
   %.not.i = icmp eq ptr %33, null
@@ -4558,14 +4558,14 @@ init_containers.exit:                             ; preds = %3, %6
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 112
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 112
   %37 = load ptr, ptr %36, align 8
   %38 = tail call i32 %37(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef nonnull @convertionBuffer) #18
   br label %throw_exception.exit
 
 throw_exception.exit:                             ; preds = %28, %34
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 184
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 184
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %0, ptr noundef %33) #18
   %42 = load ptr, ptr @fp_gdk_threads_leave, align 8
@@ -4594,13 +4594,13 @@ throw_exception.exit:                             ; preds = %28, %34
 53:                                               ; preds = %45, %43
   %54 = load ptr, ptr @fp_gdk_pixmap_new, align 8
   %55 = load ptr, ptr @gtk2_window, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 80
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr %54(ptr noundef %57, i32 noundef %1, i32 noundef %2, i32 noundef -1) #18
   store ptr %58, ptr @gtk2_white_pixmap, align 8
   %59 = load ptr, ptr @fp_gdk_pixmap_new, align 8
   %60 = load ptr, ptr @gtk2_window, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr %59(ptr noundef %62, i32 noundef %1, i32 noundef %2, i32 noundef -1) #18
   store ptr %63, ptr @gtk2_black_pixmap, align 8
@@ -4687,7 +4687,7 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
   %.15683.us = phi ptr [ %.05593.us, %.preheader.us ], [ %.257.us, %52 ]
   %.15982.us = phi ptr [ %.05892.us, %.preheader.us ], [ %.260.us, %52 ]
   %29 = load i8, ptr %.15982.us, align 1
-  %30 = getelementptr inbounds i8, ptr %.15683.us, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.15683.us, i64 1
   %31 = load i8, ptr %.15683.us, align 1
   %32 = zext i8 %31 to i32
   %33 = xor i8 %29, -1
@@ -4699,7 +4699,7 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
   ]
 
 36:                                               ; preds = %28
-  %37 = getelementptr inbounds i8, ptr %.15683.us, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.15683.us, i64 2
   %38 = load i8, ptr %30, align 1
   %39 = zext i8 %38 to i32
   %40 = load i8, ptr %37, align 1
@@ -4712,7 +4712,7 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
   %.rhs.trunc.us = trunc nuw nsw i32 %35 to i16
   %44 = udiv i16 %.lhs.trunc.us, %.rhs.trunc.us
   %.zext.us = zext i16 %44 to i32
-  %45 = getelementptr inbounds i8, ptr %.15683.us, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %.15683.us, i64 2
   %46 = load i8, ptr %30, align 1
   %47 = zext i8 %46 to i16
   %.lhs.trunc75.us = mul nuw i16 %47, 255
@@ -4731,23 +4731,23 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
   %.053.us = phi i32 [ %.zext.us, %42 ], [ %32, %36 ], [ %35, %28 ]
   %.352.us = phi i32 [ 0, %42 ], [ %.25184.us, %36 ], [ %35, %28 ]
   %.3.us = phi i32 [ 0, %42 ], [ %.285.us, %36 ], [ %.285.us, %28 ]
-  %.257.us = getelementptr inbounds i8, ptr %.15683.us, i64 4
-  %.260.us = getelementptr inbounds i8, ptr %.15982.us, i64 4
+  %.257.us = getelementptr inbounds nuw i8, ptr %.15683.us, i64 4
+  %.260.us = getelementptr inbounds nuw i8, ptr %.15982.us, i64 4
   %53 = shl i32 %35, 24
   %54 = shl nuw i32 %.053.us, 16
   %55 = shl nuw nsw i32 %.054.us, 8
   %56 = or disjoint i32 %.061.us, %53
   %57 = or i32 %56, %55
   %58 = or i32 %57, %54
-  %59 = getelementptr inbounds i8, ptr %.187.us, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %.187.us, i64 4
   store i32 %58, ptr %.187.us, align 4
   %60 = add nuw nsw i32 %.04686.us, 1
   %exitcond.not = icmp eq i32 %60, %1
   br i1 %exitcond.not, label %._crit_edge.us, label %28, !llvm.loop !9
 
 ._crit_edge.us:                                   ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %.260.us, i64 %27
-  %62 = getelementptr inbounds i8, ptr %.257.us, i64 %27
+  %61 = getelementptr inbounds nuw i8, ptr %.260.us, i64 %27
+  %62 = getelementptr inbounds nuw i8, ptr %.257.us, i64 %27
   %63 = add nuw nsw i32 %.04596.us, 1
   %exitcond103.not = icmp eq i32 %63, %2
   br i1 %exitcond103.not, label %._crit_edge98.loopexit, label %.preheader.us, !llvm.loop !10
@@ -4791,9 +4791,9 @@ define internal i32 @gtk2_get_xthickness(ptr nocapture readnone %0, i32 noundef 
 init_containers.exit:                             ; preds = %2, %5
   %16 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %1)
   store ptr %16, ptr @gtk2_widget, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 536
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 536
   %20 = load i32, ptr %19, align 8
   ret i32 %20
 }
@@ -4825,9 +4825,9 @@ define internal i32 @gtk2_get_ythickness(ptr nocapture readnone %0, i32 noundef 
 init_containers.exit:                             ; preds = %2, %5
   %16 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %1)
   store ptr %16, ptr @gtk2_widget, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 540
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 540
   %20 = load i32, ptr %19, align 4
   ret i32 %20
 }
@@ -4859,7 +4859,7 @@ define internal range(i32 0, 16777216) i32 @gtk2_get_color_for_state(ptr nocaptu
 init_containers.exit:                             ; preds = %4, %7
   %18 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %1)
   store ptr %18, ptr @gtk2_widget, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8
   switch i32 %3, label %69 [
     i32 0, label %21
@@ -4875,68 +4875,68 @@ init_containers.exit:                             ; preds = %4, %7
   ]
 
 21:                                               ; preds = %init_containers.exit
-  %22 = getelementptr inbounds i8, ptr %20, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds [5 x %struct.GdkColor], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %22, i64 0, i64 %23
   br label %53
 
 25:                                               ; preds = %init_containers.exit
-  %26 = getelementptr inbounds i8, ptr %20, i64 84
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 84
   %27 = zext i32 %2 to i64
-  %28 = getelementptr inbounds [5 x %struct.GdkColor], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %26, i64 0, i64 %27
   br label %53
 
 29:                                               ; preds = %init_containers.exit
-  %30 = getelementptr inbounds i8, ptr %20, i64 324
+  %30 = getelementptr inbounds nuw i8, ptr %20, i64 324
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds [5 x %struct.GdkColor], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %30, i64 0, i64 %31
   br label %53
 
 33:                                               ; preds = %init_containers.exit
-  %34 = getelementptr inbounds i8, ptr %20, i64 384
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 384
   %35 = zext i32 %2 to i64
-  %36 = getelementptr inbounds [5 x %struct.GdkColor], ptr %34, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %34, i64 0, i64 %35
   br label %53
 
 37:                                               ; preds = %init_containers.exit
-  %38 = getelementptr inbounds i8, ptr %20, i64 144
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %39 = zext i32 %2 to i64
-  %40 = getelementptr inbounds [5 x %struct.GdkColor], ptr %38, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %38, i64 0, i64 %39
   br label %53
 
 41:                                               ; preds = %init_containers.exit
-  %42 = getelementptr inbounds i8, ptr %20, i64 204
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 204
   %43 = zext i32 %2 to i64
-  %44 = getelementptr inbounds [5 x %struct.GdkColor], ptr %42, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %42, i64 0, i64 %43
   br label %53
 
 45:                                               ; preds = %init_containers.exit
-  %46 = getelementptr inbounds i8, ptr %20, i64 264
+  %46 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %47 = zext i32 %2 to i64
-  %48 = getelementptr inbounds [5 x %struct.GdkColor], ptr %46, i64 0, i64 %47
+  %48 = getelementptr inbounds nuw [5 x %struct.GdkColor], ptr %46, i64 0, i64 %47
   br label %53
 
 49:                                               ; preds = %init_containers.exit, %init_containers.exit
-  %50 = getelementptr inbounds i8, ptr %20, i64 504
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 504
   br label %53
 
 51:                                               ; preds = %init_containers.exit
-  %52 = getelementptr inbounds i8, ptr %20, i64 516
+  %52 = getelementptr inbounds nuw i8, ptr %20, i64 516
   br label %53
 
 53:                                               ; preds = %51, %49, %45, %41, %37, %33, %29, %25, %21
   %.022.ph = phi ptr [ %24, %21 ], [ %28, %25 ], [ %32, %29 ], [ %36, %33 ], [ %40, %37 ], [ %44, %41 ], [ %48, %45 ], [ %50, %49 ], [ %52, %51 ]
-  %54 = getelementptr inbounds i8, ptr %.022.ph, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.022.ph, i64 4
   %55 = load i16, ptr %54, align 4
   %56 = lshr i16 %55, 8
   %57 = zext nneg i16 %56 to i32
   %58 = shl nuw nsw i32 %57, 16
-  %59 = getelementptr inbounds i8, ptr %.022.ph, i64 6
+  %59 = getelementptr inbounds nuw i8, ptr %.022.ph, i64 6
   %60 = load i16, ptr %59, align 2
   %61 = and i16 %60, -256
   %62 = zext i16 %61 to i32
   %63 = or disjoint i32 %58, %62
-  %64 = getelementptr inbounds i8, ptr %.022.ph, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.022.ph, i64 8
   %65 = load i16, ptr %64, align 4
   %66 = lshr i16 %65, 8
   %67 = zext nneg i16 %66 to i32
@@ -4989,7 +4989,7 @@ init_containers.exit:                             ; preds = %3, %11
 
 26:                                               ; preds = %init_containers.exit
   %27 = load ptr, ptr @fp_g_value_init, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %29 = load i64, ptr %28, align 8
   %30 = call ptr %27(ptr noundef nonnull %8, i64 noundef %29) #18
   %31 = load ptr, ptr @fp_gtk_widget_style_get_property, align 8
@@ -5008,7 +5008,7 @@ init_containers.exit:                             ; preds = %3, %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store i8 %39, ptr %7, align 8
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr %42(ptr noundef nonnull %0, ptr noundef nonnull @.str.184) #18
   %44 = icmp eq ptr %43, null
@@ -5021,7 +5021,7 @@ init_containers.exit:                             ; preds = %3, %11
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 264
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 264
   %51 = load ptr, ptr %50, align 8
   %52 = call ptr %51(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.185) #18
   store ptr %52, ptr @create_Boolean.cid, align 8
@@ -5031,7 +5031,7 @@ init_containers.exit:                             ; preds = %3, %11
 54:                                               ; preds = %48, %45
   %55 = phi ptr [ %52, %48 ], [ %46, %45 ]
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 240
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 240
   %58 = load ptr, ptr %57, align 8
   %59 = call ptr %58(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef nonnull %55, ptr noundef nonnull %7) #18
   br label %.sink.split.i.i
@@ -5039,7 +5039,7 @@ init_containers.exit:                             ; preds = %3, %11
 .sink.split.i.i:                                  ; preds = %54, %48
   %.0.ph.i.i = phi ptr [ %59, %54 ], [ null, %48 ]
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 184
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 184
   %62 = load ptr, ptr %61, align 8
   call void %62(ptr noundef nonnull %0, ptr noundef nonnull %43) #18
   br label %create_Boolean.exit
@@ -5063,7 +5063,7 @@ create_Boolean.exit:                              ; preds = %36, %.sink.split.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i16 %70, ptr %6, align 8
   %71 = load ptr, ptr %0, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load ptr, ptr %72, align 8
   %74 = call ptr %73(ptr noundef nonnull %0, ptr noundef nonnull @.str.191) #18
   %75 = icmp eq ptr %74, null
@@ -5076,7 +5076,7 @@ create_Boolean.exit:                              ; preds = %36, %.sink.split.i.
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %0, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 264
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 264
   %82 = load ptr, ptr %81, align 8
   %83 = call ptr %82(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.192) #18
   store ptr %83, ptr @create_Character.cid, align 8
@@ -5086,7 +5086,7 @@ create_Boolean.exit:                              ; preds = %36, %.sink.split.i.
 85:                                               ; preds = %79, %76
   %86 = phi ptr [ %83, %79 ], [ %77, %76 ]
   %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 240
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 240
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull %74, ptr noundef nonnull %86, ptr noundef nonnull %6) #18
   br label %.sink.split.i.i70
@@ -5094,7 +5094,7 @@ create_Boolean.exit:                              ; preds = %36, %.sink.split.i.
 .sink.split.i.i70:                                ; preds = %85, %79
   %.0.ph.i.i71 = phi ptr [ %90, %85 ], [ null, %79 ]
   %91 = load ptr, ptr %0, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 184
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 184
   %93 = load ptr, ptr %92, align 8
   call void %93(ptr noundef nonnull %0, ptr noundef nonnull %74) #18
   br label %create_Character.exit
@@ -5118,7 +5118,7 @@ create_Character.exit:                            ; preds = %67, %.sink.split.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i16 %101, ptr %5, align 8
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 48
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %104 = load ptr, ptr %103, align 8
   %105 = call ptr %104(ptr noundef nonnull %0, ptr noundef nonnull @.str.191) #18
   %106 = icmp eq ptr %105, null
@@ -5131,7 +5131,7 @@ create_Character.exit:                            ; preds = %67, %.sink.split.i.
 
 110:                                              ; preds = %107
   %111 = load ptr, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 264
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 264
   %113 = load ptr, ptr %112, align 8
   %114 = call ptr %113(ptr noundef nonnull %0, ptr noundef nonnull %105, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.192) #18
   store ptr %114, ptr @create_Character.cid, align 8
@@ -5141,7 +5141,7 @@ create_Character.exit:                            ; preds = %67, %.sink.split.i.
 116:                                              ; preds = %110, %107
   %117 = phi ptr [ %114, %110 ], [ %108, %107 ]
   %118 = load ptr, ptr %0, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 240
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 240
   %120 = load ptr, ptr %119, align 8
   %121 = call ptr %120(ptr noundef nonnull %0, ptr noundef nonnull %105, ptr noundef nonnull %117, ptr noundef nonnull %5) #18
   br label %.sink.split.i.i73
@@ -5149,7 +5149,7 @@ create_Character.exit:                            ; preds = %67, %.sink.split.i.
 .sink.split.i.i73:                                ; preds = %116, %110
   %.0.ph.i.i74 = phi ptr [ %121, %116 ], [ null, %110 ]
   %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 184
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 184
   %124 = load ptr, ptr %123, align 8
   call void %124(ptr noundef nonnull %0, ptr noundef nonnull %105) #18
   br label %create_Character.exit76
@@ -5172,7 +5172,7 @@ create_Character.exit76:                          ; preds = %98, %.sink.split.i.
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 %131, ptr %4, align 8
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 48
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 48
   %134 = load ptr, ptr %133, align 8
   %135 = call ptr %134(ptr noundef nonnull %0, ptr noundef nonnull @.str.187) #18
   %136 = icmp eq ptr %135, null
@@ -5185,7 +5185,7 @@ create_Character.exit76:                          ; preds = %98, %.sink.split.i.
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %0, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 264
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 264
   %143 = load ptr, ptr %142, align 8
   %144 = call ptr %143(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.188) #18
   store ptr %144, ptr @create_Integer.cid, align 8
@@ -5195,7 +5195,7 @@ create_Character.exit76:                          ; preds = %98, %.sink.split.i.
 146:                                              ; preds = %140, %137
   %147 = phi ptr [ %144, %140 ], [ %138, %137 ]
   %148 = load ptr, ptr %0, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 240
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 240
   %150 = load ptr, ptr %149, align 8
   %151 = call ptr %150(ptr noundef nonnull %0, ptr noundef nonnull %135, ptr noundef nonnull %147, ptr noundef nonnull %4) #18
   br label %.sink.split.i.i77
@@ -5203,7 +5203,7 @@ create_Character.exit76:                          ; preds = %98, %.sink.split.i.
 .sink.split.i.i77:                                ; preds = %146, %140
   %.0.ph.i.i78 = phi ptr [ %151, %146 ], [ null, %140 ]
   %152 = load ptr, ptr %0, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 184
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 184
   %154 = load ptr, ptr %153, align 8
   call void %154(ptr noundef nonnull %0, ptr noundef nonnull %135) #18
   br label %create_Integer.exit
@@ -5341,7 +5341,7 @@ create_Integer.exit:                              ; preds = %129, %.sink.split.i
   %232 = load ptr, ptr @fp_g_value_get_string, align 8
   %233 = call ptr %232(ptr noundef nonnull %8) #18
   %234 = load ptr, ptr %0, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 1336
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1336
   %236 = load ptr, ptr %235, align 8
   %237 = call ptr %236(ptr noundef nonnull %0, ptr noundef %233) #18
   br label %249
@@ -5397,13 +5397,13 @@ define internal ptr @gtk2_get_pango_font_name(ptr noundef %0, i32 noundef %1) #0
 init_containers.exit:                             ; preds = %2, %5
   %16 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %1)
   store ptr %16, ptr @gtk2_widget, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %30, label %19
 
 19:                                               ; preds = %init_containers.exit
-  %20 = getelementptr inbounds i8, ptr %18, i64 528
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %21 = load ptr, ptr %20, align 8
   %.not10 = icmp eq ptr %21, null
   br i1 %.not10, label %30, label %22
@@ -5412,7 +5412,7 @@ init_containers.exit:                             ; preds = %2, %5
   %23 = load ptr, ptr @fp_pango_font_description_to_string, align 8
   %24 = tail call ptr %23(ptr noundef nonnull %21) #18
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1336
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1336
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr %27(ptr noundef nonnull %0, ptr noundef %24) #18
   %29 = load ptr, ptr @fp_g_free, align 8
@@ -5453,7 +5453,7 @@ gtk2_get_stock_icon.exit:                         ; preds = %8, %11
   %23 = select i1 %22, i32 25, i32 %1
   %24 = tail call fastcc ptr @gtk2_get_widget(i32 noundef %23)
   store ptr %24, ptr @gtk2_widget, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 34
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 34
   store i8 0, ptr %25, align 2
   %26 = load ptr, ptr @fp_gtk_widget_set_direction, align 8
   tail call void %26(ptr noundef %24, i32 noundef %4) #18
@@ -5515,7 +5515,7 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
   %36 = load ptr, ptr @fp_gdk_pixbuf_get_pixels, align 8
   %37 = tail call ptr %36(ptr noundef nonnull %13) #18
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1776
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1776
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr %40(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null) #18
   %.not52 = icmp eq ptr %41, null
@@ -5549,17 +5549,17 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
 52:                                               ; preds = %.preheader.us, %52
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %52 ]
   %53 = mul nuw nsw i64 %indvars.iv, %45
-  %54 = getelementptr inbounds i8, ptr %47, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 %53
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = add i32 %51, %55
   %57 = load i8, ptr %54, align 1
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 16
-  %60 = getelementptr inbounds i8, ptr %54, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 1
   %61 = load i8, ptr %60, align 1
   %62 = zext i8 %61 to i32
   %63 = shl nuw nsw i32 %62, 8
-  %64 = getelementptr inbounds i8, ptr %54, i64 2
+  %64 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = or disjoint i32 %59, %63
@@ -5579,7 +5579,7 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
 
 ._crit_edge56:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %.preheader53
   %72 = load ptr, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 1784
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 1784
   %74 = load ptr, ptr %73, align 8
   tail call void %74(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %41, i32 noundef 0) #18
   br label %75
@@ -5595,7 +5595,7 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal ptr @gtk2_get_window(ptr nocapture noundef readonly %0) #12 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -5622,7 +5622,7 @@ define internal fastcc ptr @create_Integer(ptr noundef %0, i32 noundef %1) unnam
   %3 = alloca %union.jvalue, align 8
   store i32 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.187) #18
   %8 = icmp eq ptr %7, null
@@ -5635,7 +5635,7 @@ define internal fastcc ptr @create_Integer(ptr noundef %0, i32 noundef %1) unnam
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.188) #18
   store ptr %16, ptr @create_Integer.cid, align 8
@@ -5645,7 +5645,7 @@ define internal fastcc ptr @create_Integer(ptr noundef %0, i32 noundef %1) unnam
 18:                                               ; preds = %12, %9
   %19 = phi ptr [ %16, %12 ], [ %10, %9 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull %3) #18
   br label %.sink.split.i
@@ -5653,7 +5653,7 @@ define internal fastcc ptr @create_Integer(ptr noundef %0, i32 noundef %1) unnam
 .sink.split.i:                                    ; preds = %18, %12
   %.0.ph.i = phi ptr [ %23, %18 ], [ null, %12 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull %0, ptr noundef nonnull %7) #18
   br label %create_Object.exit
@@ -5671,7 +5671,7 @@ define internal fastcc ptr @create_Long(ptr noundef %0, i64 noundef %1) unnamed_
   %3 = alloca %union.jvalue, align 8
   store i64 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.193) #18
   %8 = icmp eq ptr %7, null
@@ -5684,7 +5684,7 @@ define internal fastcc ptr @create_Long(ptr noundef %0, i64 noundef %1) unnamed_
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.194) #18
   store ptr %16, ptr @create_Long.cid, align 8
@@ -5694,7 +5694,7 @@ define internal fastcc ptr @create_Long(ptr noundef %0, i64 noundef %1) unnamed_
 18:                                               ; preds = %12, %9
   %19 = phi ptr [ %16, %12 ], [ %10, %9 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull %3) #18
   br label %.sink.split.i
@@ -5702,7 +5702,7 @@ define internal fastcc ptr @create_Long(ptr noundef %0, i64 noundef %1) unnamed_
 .sink.split.i:                                    ; preds = %18, %12
   %.0.ph.i = phi ptr [ %23, %18 ], [ null, %12 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull %0, ptr noundef nonnull %7) #18
   br label %create_Object.exit
@@ -5717,7 +5717,7 @@ define internal fastcc ptr @create_Float(ptr noundef %0, float noundef %1) unnam
   %3 = alloca %union.jvalue, align 8
   store float %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.195) #18
   %8 = icmp eq ptr %7, null
@@ -5730,7 +5730,7 @@ define internal fastcc ptr @create_Float(ptr noundef %0, float noundef %1) unnam
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.196) #18
   store ptr %16, ptr @create_Float.cid, align 8
@@ -5740,7 +5740,7 @@ define internal fastcc ptr @create_Float(ptr noundef %0, float noundef %1) unnam
 18:                                               ; preds = %12, %9
   %19 = phi ptr [ %16, %12 ], [ %10, %9 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull %3) #18
   br label %.sink.split.i
@@ -5748,7 +5748,7 @@ define internal fastcc ptr @create_Float(ptr noundef %0, float noundef %1) unnam
 .sink.split.i:                                    ; preds = %18, %12
   %.0.ph.i = phi ptr [ %23, %18 ], [ null, %12 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull %0, ptr noundef nonnull %7) #18
   br label %create_Object.exit
@@ -5763,7 +5763,7 @@ define internal fastcc ptr @create_Double(ptr noundef %0, double noundef %1) unn
   %3 = alloca %union.jvalue, align 8
   store double %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, ptr noundef nonnull @.str.197) #18
   %8 = icmp eq ptr %7, null
@@ -5776,7 +5776,7 @@ define internal fastcc ptr @create_Double(ptr noundef %0, double noundef %1) unn
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 264
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.198) #18
   store ptr %16, ptr @create_Double.cid, align 8
@@ -5786,7 +5786,7 @@ define internal fastcc ptr @create_Double(ptr noundef %0, double noundef %1) unn
 18:                                               ; preds = %12, %9
   %19 = phi ptr [ %16, %12 ], [ %10, %9 ]
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 240
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 240
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr %22(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %19, ptr noundef nonnull %3) #18
   br label %.sink.split.i
@@ -5794,7 +5794,7 @@ define internal fastcc ptr @create_Double(ptr noundef %0, double noundef %1) unn
 .sink.split.i:                                    ; preds = %18, %12
   %.0.ph.i = phi ptr [ %23, %18 ], [ null, %12 ]
   %24 = load ptr, ptr %0, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 184
   %26 = load ptr, ptr %25, align 8
   call void %26(ptr noundef nonnull %0, ptr noundef nonnull %7) #18
   br label %create_Object.exit
@@ -5807,22 +5807,22 @@ create_Object.exit:                               ; preds = %2, %.sink.split.i
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca [4 x %union.jvalue], align 16
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
   store i32 %5, ptr %3, align 16
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %9, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %1, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %12, ptr %13, align 8
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr %16(ptr noundef nonnull %0, ptr noundef nonnull @.str.199) #18
   %18 = icmp eq ptr %17, null
@@ -5835,7 +5835,7 @@ define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef 
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 264
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.200) #18
   store ptr %26, ptr @create_Insets.cid, align 8
@@ -5845,7 +5845,7 @@ define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef 
 28:                                               ; preds = %22, %19
   %29 = phi ptr [ %26, %22 ], [ %20, %19 ]
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 240
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 240
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr %32(ptr noundef nonnull %0, ptr noundef nonnull %17, ptr noundef nonnull %29, ptr noundef nonnull %3) #18
   br label %.sink.split.i
@@ -5853,7 +5853,7 @@ define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef 
 .sink.split.i:                                    ; preds = %28, %22
   %.0.ph.i = phi ptr [ %33, %28 ], [ null, %22 ]
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 184
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
   %36 = load ptr, ptr %35, align 8
   call void %36(ptr noundef nonnull %0, ptr noundef nonnull %17) #18
   br label %create_Object.exit
@@ -5888,12 +5888,12 @@ define internal fastcc zeroext range(i8 0, 2) i8 @gtk2_get_pixbuf_data(ptr nound
   %19 = load ptr, ptr @fp_gdk_pixbuf_get_has_alpha, align 8
   %20 = tail call i32 %19(ptr noundef nonnull %1) #18
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1408
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1408
   %23 = load ptr, ptr %22, align 8
   %24 = mul nsw i32 %14, %10
   %25 = tail call ptr %23(ptr noundef nonnull %0, i32 noundef %24) #18
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1824
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1824
   %28 = load ptr, ptr %27, align 8
   %29 = tail call zeroext i8 %28(ptr noundef nonnull %0) #18
   %.not36 = icmp eq i8 %29, 0
@@ -5901,13 +5901,13 @@ define internal fastcc zeroext range(i8 0, 2) i8 @gtk2_get_pixbuf_data(ptr nound
 
 30:                                               ; preds = %8
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 1664
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1664
   %33 = load ptr, ptr %32, align 8
   tail call void %33(ptr noundef nonnull %0, ptr noundef %25, i32 noundef 0, i32 noundef %24, ptr noundef nonnull %7) #18
   %34 = load ptr, ptr @fp_g_object_unref, align 8
   tail call void %34(ptr noundef nonnull %1) #18
   %35 = load ptr, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 488
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 488
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, ptr, ptr, ...) %37(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %2, ptr noundef %25, i32 noundef %12, i32 noundef %14, i32 noundef %10, i32 noundef %16, i32 noundef %18, i32 noundef %20) #18
   br label %38

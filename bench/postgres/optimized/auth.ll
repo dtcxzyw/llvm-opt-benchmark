@@ -167,9 +167,9 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   br label %41
 
 41:                                               ; preds = %1, %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 368
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 448
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 448
   %45 = load i32, ptr %44, align 8
   %.not66 = icmp eq i32 %45, 0
   br i1 %.not66, label %60, label %46
@@ -187,7 +187,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   unreachable
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 440
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %54 = load i8, ptr %53, align 8
   %55 = trunc i8 %54 to i1
   br i1 %55, label %._crit_edge, label %56
@@ -206,7 +206,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
 
 60:                                               ; preds = %._crit_edge, %41
   %61 = phi ptr [ %.pre, %._crit_edge ], [ %43, %41 ]
-  %62 = getelementptr inbounds i8, ptr %61, i64 328
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 328
   %63 = load i32, ptr %62, align 8
   switch i32 %63, label %CheckPWChallengeAuth.exit.thread [
     i32 0, label %64
@@ -222,8 +222,8 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   ]
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %0, i64 152
-  %66 = getelementptr inbounds i8, ptr %0, i64 280
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %67 = load i32, ptr %66, align 8
   %68 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %65, i32 noundef %67, ptr noundef nonnull %37, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #16
   %69 = load i8, ptr @am_walsender, align 1
@@ -239,7 +239,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   %75 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
   call void @llvm.assume(i1 %75)
   %76 = call i32 @errcode(i32 noundef 514) #16
-  %77 = getelementptr inbounds i8, ptr %0, i64 336
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %78 = load ptr, ptr %77, align 8
   %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %37, ptr noundef %78, ptr noundef nonnull @.str.3) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 465, ptr noundef nonnull @__func__.ClientAuthentication) #16
@@ -249,17 +249,17 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   %81 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
   call void @llvm.assume(i1 %81)
   %82 = call i32 @errcode(i32 noundef 514) #16
-  %83 = getelementptr inbounds i8, ptr %0, i64 336
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %0, i64 328
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %86 = load ptr, ptr %85, align 8
   %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %37, ptr noundef %84, ptr noundef %86, ptr noundef nonnull @.str.3) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 473, ptr noundef nonnull @__func__.ClientAuthentication) #16
   unreachable
 
 88:                                               ; preds = %60
-  %89 = getelementptr inbounds i8, ptr %0, i64 152
-  %90 = getelementptr inbounds i8, ptr %0, i64 280
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %91 = load i32, ptr %90, align 8
   %92 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %89, i32 noundef %91, ptr noundef nonnull %38, i32 noundef 1025, ptr noundef null, i32 noundef 0, i32 noundef 1) #16
   %93 = load i8, ptr @am_walsender, align 1
@@ -275,13 +275,13 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   %99 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
   call void @llvm.assume(i1 %99)
   %100 = call i32 @errcode(i32 noundef 514) #16
-  %101 = getelementptr inbounds i8, ptr %0, i64 336
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %102 = load ptr, ptr %101, align 8
   %103 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %38, ptr noundef %102, ptr noundef nonnull @.str.3) #16
-  %104 = getelementptr inbounds i8, ptr %0, i64 296
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %105 = load ptr, ptr %104, align 8
   %.not67 = icmp eq ptr %105, null
-  %106 = getelementptr inbounds i8, ptr %0, i64 304
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %107 = load i32, ptr %106, align 8
   br i1 %.not67, label %120, label %108
 
@@ -306,7 +306,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   br label %127
 
 115:                                              ; preds = %108
-  %116 = getelementptr inbounds i8, ptr %0, i64 308
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %117 = load i32, ptr %116, align 4
   %118 = call ptr @gai_strerror(i32 noundef %117) #16
   %119 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.10, ptr noundef nonnull %105, ptr noundef %118) #16
@@ -317,7 +317,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   br i1 %121, label %122, label %127
 
 122:                                              ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %0, i64 308
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %124 = load i32, ptr %123, align 4
   %125 = call ptr @gai_strerror(i32 noundef %124) #16
   %126 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.11, ptr noundef %125) #16
@@ -331,15 +331,15 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   %129 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
   call void @llvm.assume(i1 %129)
   %130 = call i32 @errcode(i32 noundef 514) #16
-  %131 = getelementptr inbounds i8, ptr %0, i64 336
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 328
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %134 = load ptr, ptr %133, align 8
   %135 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %38, ptr noundef %132, ptr noundef %134, ptr noundef nonnull @.str.3) #16
-  %136 = getelementptr inbounds i8, ptr %0, i64 296
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %137 = load ptr, ptr %136, align 8
   %.not68 = icmp eq ptr %137, null
-  %138 = getelementptr inbounds i8, ptr %0, i64 304
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %139 = load i32, ptr %138, align 8
   br i1 %.not68, label %152, label %140
 
@@ -364,7 +364,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   br label %159
 
 147:                                              ; preds = %140
-  %148 = getelementptr inbounds i8, ptr %0, i64 308
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %149 = load i32, ptr %148, align 4
   %150 = call ptr @gai_strerror(i32 noundef %149) #16
   %151 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.10, ptr noundef nonnull %137, ptr noundef %150) #16
@@ -375,7 +375,7 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   br i1 %153, label %154, label %159
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %0, i64 308
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %156 = load i32, ptr %155, align 4
   %157 = call ptr @gai_strerror(i32 noundef %156) #16
   %158 = call i32 (ptr, ...) @errdetail_log(ptr noundef nonnull @.str.11, ptr noundef %157) #16
@@ -450,9 +450,9 @@ define dso_local void @ClientAuthentication(ptr noundef %0) local_unnamed_addr #
   %191 = load ptr, ptr %178, align 8
   call fastcc void @set_authn_id(ptr noundef nonnull readonly %0, ptr noundef %191)
   %192 = load ptr, ptr %42, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 336
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 336
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %0, i64 336
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %196 = load ptr, ptr %195, align 8
   %197 = load ptr, ptr @MyClientConnectionInfo, align 8
   %198 = call i32 @check_usermap(ptr noundef %194, ptr noundef %196, ptr noundef %197, i1 noundef zeroext false) #16
@@ -478,31 +478,31 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
-  %200 = getelementptr inbounds i8, ptr %0, i64 152
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %21, ptr noundef nonnull readonly align 8 dereferenceable(136) %200, i64 136, i1 false)
-  %201 = getelementptr inbounds i8, ptr %0, i64 16
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull readonly align 8 dereferenceable(136) %201, i64 136, i1 false)
   store ptr null, ptr %31, align 8
   store ptr null, ptr %32, align 8
-  %202 = getelementptr inbounds i8, ptr %21, i64 128
+  %202 = getelementptr inbounds nuw i8, ptr %21, i64 128
   %203 = load i32, ptr %202, align 8
   %204 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %21, i32 noundef %203, ptr noundef nonnull %24, i32 noundef 1025, ptr noundef nonnull %25, i32 noundef 32, i32 noundef 3) #16
-  %205 = getelementptr inbounds i8, ptr %22, i64 128
+  %205 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %206 = load i32, ptr %205, align 8
   %207 = call i32 @pg_getnameinfo_all(ptr noundef nonnull %22, i32 noundef %206, ptr noundef nonnull %26, i32 noundef 1025, ptr noundef nonnull %27, i32 noundef 32, i32 noundef 3) #16
   %208 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %28, i64 noundef 32, ptr noundef nonnull @.str.38, i32 noundef 113) #16
   store i32 4, ptr %33, align 8
   %209 = load i16, ptr %21, align 8
   %210 = zext i16 %209 to i32
-  %211 = getelementptr inbounds i8, ptr %33, i64 4
+  %211 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 %210, ptr %211, align 4
-  %212 = getelementptr inbounds i8, ptr %33, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 1, ptr %212, align 8
-  %213 = getelementptr inbounds i8, ptr %33, i64 12
+  %213 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 0, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %33, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 0, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %33, i64 24
+  %215 = getelementptr inbounds nuw i8, ptr %33, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %215, i8 0, i64 24, i1 false)
   %216 = call i32 @pg_getaddrinfo_all(ptr noundef nonnull %24, ptr noundef nonnull %28, ptr noundef nonnull %33, ptr noundef nonnull %31) #16
   %217 = icmp eq i32 %216, 0
@@ -529,11 +529,11 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
 
 227:                                              ; preds = %220
   %228 = load ptr, ptr %31, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
   %230 = load i32, ptr %229, align 4
-  %231 = getelementptr inbounds i8, ptr %228, i64 8
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %232 = load i32, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %228, i64 12
+  %233 = getelementptr inbounds nuw i8, ptr %228, i64 12
   %234 = load i32, ptr %233, align 4
   %235 = call i32 @socket(i32 noundef %230, i32 noundef %232, i32 noundef %234) #16
   %236 = icmp eq i32 %235, -1
@@ -551,9 +551,9 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
 
 242:                                              ; preds = %227
   %243 = load ptr, ptr %32, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 24
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
   %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %243, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %247 = load i32, ptr %246, align 8
   %248 = call i32 @bind(i32 noundef %235, ptr %245, i32 noundef %247) #16
   %.not.i72 = icmp eq i32 %248, 0
@@ -570,9 +570,9 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
 
 254:                                              ; preds = %242
   %255 = load ptr, ptr %31, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 24
   %257 = load ptr, ptr %256, align 8
-  %258 = getelementptr inbounds i8, ptr %255, i64 16
+  %258 = getelementptr inbounds nuw i8, ptr %255, i64 16
   %259 = load i32, ptr %258, align 8
   %260 = call i32 @connect(i32 noundef %235, ptr %257, i32 noundef %259) #16
   %.not35.i = icmp eq i32 %260, 0
@@ -711,9 +711,9 @@ auth_peer.exit:                                   ; preds = %168, %169, %172, %1
 314:                                              ; preds = %313
   call fastcc void @set_authn_id(ptr noundef readonly %0, ptr noundef nonnull %23)
   %315 = load ptr, ptr %42, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 336
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 336
   %317 = load ptr, ptr %316, align 8
-  %318 = getelementptr inbounds i8, ptr %0, i64 336
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %319 = load ptr, ptr %318, align 8
   %320 = call i32 @check_usermap(ptr noundef %317, ptr noundef %319, ptr noundef nonnull %23, i1 noundef zeroext false) #16
   br label %ident_inet.exit
@@ -736,7 +736,7 @@ ident_inet.exit:                                  ; preds = %313, %314
   br label %CheckPWChallengeAuth.exit
 
 321:                                              ; preds = %60, %60
-  %322 = getelementptr inbounds i8, ptr %0, i64 336
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %323 = load ptr, ptr %322, align 8
   %324 = call ptr @get_role_password(ptr noundef %323, ptr noundef nonnull %36) #16
   %.not.i73 = icmp eq ptr %324, null
@@ -753,7 +753,7 @@ ident_inet.exit:                                  ; preds = %313, %314
 329:                                              ; preds = %327, %325
   %.0.i74 = phi i32 [ %328, %327 ], [ %326, %325 ]
   %330 = load ptr, ptr %42, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 328
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 328
   %332 = load i32, ptr %331, align 8
   %333 = icmp eq i32 %332, 5
   %334 = icmp eq i32 %.0.i74, 1
@@ -789,7 +789,7 @@ ident_inet.exit:                                  ; preds = %313, %314
   call void @enlargeStringInfo(ptr noundef nonnull %19, i32 noundef 4) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %345 = load ptr, ptr %19, align 8, !alias.scope !8
-  %346 = getelementptr inbounds i8, ptr %19, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %347 = load i32, ptr %346, align 8, !alias.scope !8
   %348 = sext i32 %347 to i64
   %349 = getelementptr i8, ptr %345, i64 %348
@@ -799,7 +799,7 @@ ident_inet.exit:                                  ; preds = %313, %314
   call void @pq_sendbytes(ptr noundef nonnull %19, ptr noundef nonnull %20, i32 noundef 4) #16
   call void @pq_endmessage(ptr noundef nonnull %19) #16
   %351 = load ptr, ptr @PqCommMethods, align 8
-  %352 = getelementptr inbounds i8, ptr %351, i64 8
+  %352 = getelementptr inbounds nuw i8, ptr %351, i64 8
   %353 = load ptr, ptr %352, align 8
   %354 = call i32 %353() #16
   %355 = load volatile i32, ptr @InterruptPending, align 4
@@ -870,7 +870,7 @@ CheckMD5Auth.exit.i:                              ; preds = %363, %sendAuthReque
   call void @enlargeStringInfo(ptr noundef nonnull %18, i32 noundef 4) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %376 = load ptr, ptr %18, align 8, !alias.scope !11
-  %377 = getelementptr inbounds i8, ptr %18, i64 8
+  %377 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %378 = load i32, ptr %377, align 8, !alias.scope !11
   %379 = sext i32 %378 to i64
   %380 = getelementptr i8, ptr %376, i64 %379
@@ -879,7 +879,7 @@ CheckMD5Auth.exit.i:                              ; preds = %363, %sendAuthReque
   store i32 %381, ptr %377, align 8, !alias.scope !11
   call void @pq_endmessage(ptr noundef nonnull %18) #16
   %382 = load ptr, ptr @PqCommMethods, align 8
-  %383 = getelementptr inbounds i8, ptr %382, i64 8
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %384 = load ptr, ptr %383, align 8
   %385 = call i32 %384() #16
   %386 = load volatile i32, ptr @InterruptPending, align 4
@@ -897,7 +897,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
   br i1 %389, label %CheckPWChallengeAuth.exit.thread, label %390
 
 390:                                              ; preds = %sendAuthRequest.exit.i
-  %391 = getelementptr inbounds i8, ptr %0, i64 336
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %392 = load ptr, ptr %391, align 8
   %393 = call ptr @get_role_password(ptr noundef %392, ptr noundef nonnull %36) #16
   %.not.i76 = icmp eq ptr %393, null
@@ -921,7 +921,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
   br label %CheckPWChallengeAuth.exit
 
 400:                                              ; preds = %60
-  %401 = getelementptr inbounds i8, ptr %61, i64 472
+  %401 = getelementptr inbounds nuw i8, ptr %61, i64 472
   %402 = load ptr, ptr %401, align 8
   %403 = icmp eq ptr %402, null
   br i1 %403, label %404, label %408
@@ -936,7 +936,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
   br label %CheckPWChallengeAuth.exit.thread
 
 408:                                              ; preds = %400
-  %409 = getelementptr inbounds i8, ptr %61, i64 488
+  %409 = getelementptr inbounds nuw i8, ptr %61, i64 488
   %410 = load ptr, ptr %409, align 8
   %411 = icmp eq ptr %410, null
   br i1 %411, label %412, label %416
@@ -965,7 +965,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
   call void @enlargeStringInfo(ptr noundef nonnull %17, i32 noundef 4) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %420 = load ptr, ptr %17, align 8, !alias.scope !14
-  %421 = getelementptr inbounds i8, ptr %17, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %422 = load i32, ptr %421, align 8, !alias.scope !14
   %423 = sext i32 %422 to i64
   %424 = getelementptr i8, ptr %420, i64 %423
@@ -974,7 +974,7 @@ sendAuthRequest.exit.i:                           ; preds = %387, %375
   store i32 %425, ptr %421, align 8, !alias.scope !14
   call void @pq_endmessage(ptr noundef nonnull %17) #16
   %426 = load ptr, ptr @PqCommMethods, align 8
-  %427 = getelementptr inbounds i8, ptr %426, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
   %428 = load ptr, ptr %427, align 8
   %429 = call i32 %428() #16
   %430 = load volatile i32, ptr @InterruptPending, align 4
@@ -1011,65 +1011,65 @@ sendAuthRequest.exit.i80:                         ; preds = %431, %419
 
 442:                                              ; preds = %434
   %443 = load ptr, ptr %42, align 8
-  %444 = getelementptr inbounds i8, ptr %443, i64 488
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 488
   %445 = load ptr, ptr %444, align 8
   %.not.i56.i = icmp eq ptr %445, null
   br i1 %.not.i56.i, label %list_head.exit.i, label %446
 
 446:                                              ; preds = %442
-  %447 = getelementptr inbounds i8, ptr %445, i64 16
+  %447 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %448 = load ptr, ptr %447, align 8
   br label %list_head.exit.i
 
 list_head.exit.i:                                 ; preds = %446, %442
   %449 = phi ptr [ %448, %446 ], [ null, %442 ]
-  %450 = getelementptr inbounds i8, ptr %443, i64 520
+  %450 = getelementptr inbounds nuw i8, ptr %443, i64 520
   %451 = load ptr, ptr %450, align 8
   %.not.i57.i = icmp eq ptr %451, null
   br i1 %.not.i57.i, label %list_head.exit58.i, label %452
 
 452:                                              ; preds = %list_head.exit.i
-  %453 = getelementptr inbounds i8, ptr %451, i64 16
+  %453 = getelementptr inbounds nuw i8, ptr %451, i64 16
   %454 = load ptr, ptr %453, align 8
   br label %list_head.exit58.i
 
 list_head.exit58.i:                               ; preds = %452, %list_head.exit.i
   %455 = phi ptr [ %454, %452 ], [ null, %list_head.exit.i ]
-  %456 = getelementptr inbounds i8, ptr %443, i64 504
+  %456 = getelementptr inbounds nuw i8, ptr %443, i64 504
   %457 = load ptr, ptr %456, align 8
   %.not.i59.i = icmp eq ptr %457, null
   br i1 %.not.i59.i, label %list_head.exit60.i, label %458
 
 458:                                              ; preds = %list_head.exit58.i
-  %459 = getelementptr inbounds i8, ptr %457, i64 16
+  %459 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %460 = load ptr, ptr %459, align 8
   br label %list_head.exit60.i
 
 list_head.exit60.i:                               ; preds = %458, %list_head.exit58.i
   %461 = phi ptr [ %460, %458 ], [ null, %list_head.exit58.i ]
-  %462 = getelementptr inbounds i8, ptr %443, i64 472
+  %462 = getelementptr inbounds nuw i8, ptr %443, i64 472
   %463 = load ptr, ptr %462, align 8
   %.not.i81 = icmp eq ptr %463, null
   br i1 %.not.i81, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %list_head.exit60.i
-  %464 = getelementptr inbounds i8, ptr %463, i64 4
-  %465 = getelementptr inbounds i8, ptr %463, i64 16
-  %466 = getelementptr inbounds i8, ptr %0, i64 336
-  %467 = getelementptr inbounds i8, ptr %8, i64 8
-  %468 = getelementptr inbounds i8, ptr %8, i64 4
-  %469 = getelementptr inbounds i8, ptr %3, i64 2
-  %470 = getelementptr inbounds i8, ptr %3, i64 4
-  %471 = getelementptr inbounds i8, ptr %3, i64 1
-  %472 = getelementptr inbounds i8, ptr %6, i64 8
-  %473 = getelementptr inbounds i8, ptr %12, i64 8
-  %474 = getelementptr inbounds i8, ptr %15, i64 8
-  %475 = getelementptr inbounds i8, ptr %14, i64 8
-  %476 = getelementptr inbounds i8, ptr %7, i64 2
-  %477 = getelementptr inbounds i8, ptr %4, i64 2
-  %478 = getelementptr inbounds i8, ptr %4, i64 1
-  %479 = getelementptr inbounds i8, ptr %4, i64 20
-  %480 = getelementptr inbounds i8, ptr %4, i64 4
+  %464 = getelementptr inbounds nuw i8, ptr %463, i64 4
+  %465 = getelementptr inbounds nuw i8, ptr %463, i64 16
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %467 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %469 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  %470 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %471 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %472 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %474 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %475 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %477 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %478 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %479 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %480 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %481 = load i32, ptr %464, align 4
   %482 = icmp sgt i32 %481, 0
   br i1 %482, label %.lr.ph, label %._crit_edge.i
@@ -1191,9 +1191,9 @@ list_head.exit60.i:                               ; preds = %458, %list_head.exi
   %530 = zext nneg i16 %523 to i64
   %531 = getelementptr i8, ptr %3, i64 %530
   store i8 6, ptr %531, align 1
-  %532 = getelementptr inbounds i8, ptr %531, i64 1
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 1
   store i8 6, ptr %532, align 1
-  %533 = getelementptr inbounds i8, ptr %531, i64 2
+  %533 = getelementptr inbounds nuw i8, ptr %531, i64 2
   store i32 134217728, ptr %533, align 1
   %534 = load i16, ptr %469, align 2
   %535 = add i16 %534, 6
@@ -1224,9 +1224,9 @@ radius_add_attribute.exit.i.i:                    ; preds = %529, %527, %525
   store i8 1, ptr %548, align 1
   %549 = trunc i64 %536 to i8
   %550 = add i8 %549, 2
-  %551 = getelementptr inbounds i8, ptr %548, i64 1
+  %551 = getelementptr inbounds nuw i8, ptr %548, i64 1
   store i8 %550, ptr %551, align 1
-  %552 = getelementptr inbounds i8, ptr %548, i64 2
+  %552 = getelementptr inbounds nuw i8, ptr %548, i64 2
   %sext.i.i = shl i64 %536, 32
   %553 = ashr exact i64 %sext.i.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %552, ptr readonly align 1 %495, i64 %553, i1 false)
@@ -1260,9 +1260,9 @@ radius_add_attribute.exit168.i.i:                 ; preds = %546, %544, %542
   store i8 32, ptr %569, align 1
   %570 = trunc i64 %557 to i8
   %571 = add i8 %570, 2
-  %572 = getelementptr inbounds i8, ptr %569, i64 1
+  %572 = getelementptr inbounds nuw i8, ptr %569, i64 1
   store i8 %571, ptr %572, align 1
-  %573 = getelementptr inbounds i8, ptr %569, i64 2
+  %573 = getelementptr inbounds nuw i8, ptr %569, i64 2
   %sext171.i.i = shl i64 %557, 32
   %574 = ashr exact i64 %sext171.i.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %573, ptr nonnull readonly align 1 %spec.store.select6.i.i, i64 %574, i1 false)
@@ -1372,9 +1372,9 @@ radius_add_attribute.exit169.i.i:                 ; preds = %567, %565, %563
   store i8 2, ptr %623, align 1
   %624 = trunc i32 %581 to i8
   %625 = or disjoint i8 %624, 2
-  %626 = getelementptr inbounds i8, ptr %623, i64 1
+  %626 = getelementptr inbounds nuw i8, ptr %623, i64 1
   store i8 %625, ptr %626, align 1
-  %627 = getelementptr inbounds i8, ptr %623, i64 2
+  %627 = getelementptr inbounds nuw i8, ptr %623, i64 2
   %628 = sext i32 %581 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %627, ptr nonnull readonly align 16 %5, i64 %628, i1 false)
   %629 = zext i8 %625 to i16
@@ -1388,7 +1388,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
   %633 = call i16 @llvm.bswap.i16(i16 %632)
   store i16 %633, ptr %469, align 2
   %634 = load ptr, ptr %9, align 8
-  %635 = getelementptr inbounds i8, ptr %634, i64 4
+  %635 = getelementptr inbounds nuw i8, ptr %634, i64 4
   %636 = load i32, ptr %635, align 4
   %637 = call i32 @socket(i32 noundef %636, i32 noundef 2, i32 noundef 0) #16
   %638 = icmp eq i32 %637, -1
@@ -1412,7 +1412,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
 646:                                              ; preds = %radius_add_attribute.exit170.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %6, i8 0, i64 28, i1 false)
   %647 = load ptr, ptr %9, align 8
-  %648 = getelementptr inbounds i8, ptr %647, i64 4
+  %648 = getelementptr inbounds nuw i8, ptr %647, i64 4
   %649 = load i32, ptr %648, align 4
   %650 = trunc i32 %649 to i16
   store i16 %650, ptr %6, align 4
@@ -1444,9 +1444,9 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
 662:                                              ; preds = %646
   %663 = zext i16 %632 to i64
   %664 = load ptr, ptr %9, align 8
-  %665 = getelementptr inbounds i8, ptr %664, i64 24
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 24
   %666 = load ptr, ptr %665, align 8
-  %667 = getelementptr inbounds i8, ptr %664, i64 16
+  %667 = getelementptr inbounds nuw i8, ptr %664, i64 16
   %668 = load i32, ptr %667, align 8
   %669 = call i64 @sendto(i32 noundef %637, ptr noundef nonnull %3, i64 noundef %663, i32 noundef 0, ptr %666, i32 noundef %668) #16
   %670 = icmp slt i64 %669, 0
@@ -1793,7 +1793,7 @@ radius_add_attribute.exit170.i.i:                 ; preds = %621, %619, %617
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %827 = load ptr, ptr %42, align 8
-  %828 = getelementptr inbounds i8, ptr %827, i64 488
+  %828 = getelementptr inbounds nuw i8, ptr %827, i64 488
   %829 = load ptr, ptr %828, align 8
   %.not.i62.i = icmp eq ptr %829, null
   br i1 %.not.i62.i, label %list_length.exit.thread.i, label %list_length.exit.i
@@ -1816,7 +1816,7 @@ list_length.exit.i:                               ; preds = %826
 
 list_length.exit.thread.i:                        ; preds = %833, %list_length.exit.i, %826
   %.144.i = phi ptr [ %..i63.i, %833 ], [ %.04378.i96, %list_length.exit.i ], [ %.04378.i96, %826 ]
-  %839 = getelementptr inbounds i8, ptr %827, i64 520
+  %839 = getelementptr inbounds nuw i8, ptr %827, i64 520
   %840 = load ptr, ptr %839, align 8
   %.not.i64.i = icmp eq ptr %840, null
   br i1 %.not.i64.i, label %list_length.exit65.thread.i, label %list_length.exit65.i
@@ -1839,7 +1839,7 @@ list_length.exit65.i:                             ; preds = %list_length.exit.th
 
 list_length.exit65.thread.i:                      ; preds = %844, %list_length.exit65.i, %list_length.exit.thread.i
   %.142.i = phi ptr [ %..i66.i, %844 ], [ %.04179.i95, %list_length.exit65.i ], [ %.04179.i95, %list_length.exit.thread.i ]
-  %850 = getelementptr inbounds i8, ptr %827, i64 504
+  %850 = getelementptr inbounds nuw i8, ptr %827, i64 504
   %851 = load ptr, ptr %850, align 8
   %.not.i67.i = icmp eq ptr %851, null
   br i1 %.not.i67.i, label %list_length.exit68.thread.i, label %list_length.exit68.i
@@ -1888,15 +1888,15 @@ CheckPWChallengeAuth.exit:                        ; preds = %60, %60, %821, %398
   br i1 %870, label %871, label %CheckPWChallengeAuth.exit.thread
 
 871:                                              ; preds = %869
-  %872 = getelementptr inbounds i8, ptr %0, i64 336
+  %872 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %873 = load ptr, ptr %872, align 8
   %874 = load ptr, ptr %42, align 8
-  %875 = getelementptr inbounds i8, ptr %874, i64 328
+  %875 = getelementptr inbounds nuw i8, ptr %874, i64 328
   %876 = load i32, ptr %875, align 8
   %877 = call ptr @hba_authname(i32 noundef %876) #16
   %878 = load ptr, ptr %42, align 8
   %879 = load ptr, ptr %878, align 8
-  %880 = getelementptr inbounds i8, ptr %878, i64 8
+  %880 = getelementptr inbounds nuw i8, ptr %878, i64 8
   %881 = load i32, ptr %880, align 8
   %882 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef %873, ptr noundef %877, ptr noundef %879, i32 noundef %881) #16
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 661, ptr noundef nonnull @__func__.ClientAuthentication) #16
@@ -1931,7 +1931,7 @@ CheckPWChallengeAuth.exit.thread:                 ; preds = %sendAuthRequest.exi
   call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #16
   call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %891 = load ptr, ptr %2, align 8, !alias.scope !19
-  %892 = getelementptr inbounds i8, ptr %2, i64 8
+  %892 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %893 = load i32, ptr %892, align 8, !alias.scope !19
   %894 = sext i32 %893 to i64
   %895 = getelementptr i8, ptr %891, i64 %894
@@ -1962,17 +1962,17 @@ sendAuthRequest.exit:                             ; preds = %890, %898
 
 903:                                              ; preds = %899
   %904 = load ptr, ptr %42, align 8
-  %905 = getelementptr inbounds i8, ptr %904, i64 328
+  %905 = getelementptr inbounds nuw i8, ptr %904, i64 328
   %906 = load i32, ptr %905, align 8
   %907 = icmp ult i32 %906, 15
   br i1 %907, label %switch.lookup, label %910
 
 switch.lookup:                                    ; preds = %903
   %908 = zext nneg i32 %906 to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.ClientAuthentication, i64 0, i64 %908
+  %switch.gep = getelementptr inbounds nuw [15 x ptr], ptr @switch.table.ClientAuthentication, i64 0, i64 %908
   %switch.load = load ptr, ptr %switch.gep, align 8
   %909 = zext nneg i32 %906 to i64
-  %switch.gep106 = getelementptr inbounds [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %909
+  %switch.gep106 = getelementptr inbounds nuw [15 x i32], ptr @switch.table.ClientAuthentication.3, i64 0, i64 %909
   %switch.load107 = load i32, ptr %switch.gep106, align 4
   br label %910
 
@@ -1980,9 +1980,9 @@ switch.lookup:                                    ; preds = %903
   %.014.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.26, %903 ]
   %.0.i84 = phi i32 [ %switch.load107, %switch.lookup ], [ 514, %903 ]
   %911 = load ptr, ptr %904, align 8
-  %912 = getelementptr inbounds i8, ptr %904, i64 8
+  %912 = getelementptr inbounds nuw i8, ptr %904, i64 8
   %913 = load i32, ptr %912, align 8
-  %914 = getelementptr inbounds i8, ptr %904, i64 16
+  %914 = getelementptr inbounds nuw i8, ptr %904, i64 16
   %915 = load ptr, ptr %914, align 8
   %916 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.27, ptr noundef %911, i32 noundef %913, ptr noundef %915) #16
   %.not.i85 = icmp eq ptr %900, null
@@ -1997,7 +1997,7 @@ switch.lookup:                                    ; preds = %903
   %920 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #17
   call void @llvm.assume(i1 %920)
   %921 = call i32 @errcode(i32 noundef %.0.i84) #16
-  %922 = getelementptr inbounds i8, ptr %0, i64 336
+  %922 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %923 = load ptr, ptr %922, align 8
   %924 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.014.i, ptr noundef %923) #16
   %.not16.i = icmp eq ptr %.013.i, null
@@ -2055,7 +2055,7 @@ define dso_local void @sendAuthRequest(ptr nocapture noundef readnone %0, i32 no
   call void @llvm.experimental.noalias.scope.decl(metadata !22)
   %9 = call i32 @llvm.bswap.i32(i32 %1)
   %10 = load ptr, ptr %5, align 8, !alias.scope !22
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i32, ptr %11, align 8, !alias.scope !22
   %13 = sext i32 %12 to i64
   %14 = getelementptr i8, ptr %10, i64 %13
@@ -2078,7 +2078,7 @@ define dso_local void @sendAuthRequest(ptr nocapture noundef readnone %0, i32 no
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr @PqCommMethods, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %22() #16
   br label %24
@@ -2147,7 +2147,7 @@ define internal fastcc ptr @recv_password_packet() unnamed_addr #0 {
 11:                                               ; preds = %7
   %12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #19
   %13 = add i64 %12, 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %.not5 = icmp eq i64 %13, %16
@@ -2216,9 +2216,9 @@ define internal fastcc void @set_authn_id(ptr nocapture noundef readonly %0, ptr
   %10 = load ptr, ptr @TopMemoryContext, align 8
   %11 = tail call ptr @MemoryContextStrdup(ptr noundef %10, ptr noundef %1) #16
   store ptr %11, ptr @MyClientConnectionInfo, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 368
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 328
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 328
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %16 = load i8, ptr @Log_connections, align 1
@@ -2235,7 +2235,7 @@ define internal fastcc void @set_authn_id(ptr nocapture noundef readonly %0, ptr
   %23 = tail call ptr @hba_authname(i32 noundef %22) #16
   %24 = load ptr, ptr %12, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i32, ptr %26, align 8
   %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.36, ptr noundef %21, ptr noundef %23, ptr noundef %25, i32 noundef %27) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 374, ptr noundef nonnull @__func__.set_authn_id) #16

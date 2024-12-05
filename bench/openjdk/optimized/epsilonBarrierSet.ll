@@ -31,7 +31,7 @@ define hidden void @_ZN17EpsilonBarrierSetC2Ev(ptr noundef nonnull align 8 deref
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV12BarrierSetC2, i64 16), ptr %5, align 8
   store i64 4, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 2, ptr %6, align 8
   call void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(12) %2) #5
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV17EpsilonBarrierSet, i64 16), ptr %0, align 8
@@ -42,7 +42,7 @@ declare void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierS
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN17EpsilonBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((40, 56)) %1) unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
 }

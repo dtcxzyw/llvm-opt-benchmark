@@ -92,9 +92,9 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
 
 23:                                               ; preds = %22
   store i32 %0, ptr %5, align 16
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 195, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store i16 0, ptr %25, align 2
   br label %26
 
@@ -105,11 +105,11 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
 
 27:                                               ; preds = %26
   %28 = zext nneg i32 %.048 to i64
-  %29 = getelementptr inbounds [3 x %struct.pollfd], ptr %5, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %28
   store i32 %1, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i16 195, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %29, i64 6
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 6
   store i16 0, ptr %31, align 2
   %32 = add nuw nsw i32 %.048, 1
   br label %33
@@ -121,11 +121,11 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
 
 34:                                               ; preds = %33
   %35 = zext nneg i32 %.149 to i64
-  %36 = getelementptr inbounds [3 x %struct.pollfd], ptr %5, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %35
   store i32 %2, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i16 262, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %36, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 6
   store i16 0, ptr %38, align 2
   %39 = add nuw nsw i32 %.149, 1
   br label %40
@@ -140,7 +140,7 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
   br i1 %.not, label %50, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %5, i64 6
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 89
   %.not60 = icmp ne i16 %47, 0
@@ -158,7 +158,7 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
 
 51:                                               ; preds = %50
   %52 = zext nneg i32 %.351 to i64
-  %53 = getelementptr inbounds [3 x %struct.pollfd], ptr %5, i64 0, i64 %52, i32 2
+  %53 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %52, i32 2
   %54 = load i16, ptr %53, align 2
   %55 = and i16 %54, 89
   %.not62 = icmp eq i16 %55, 0
@@ -178,7 +178,7 @@ define dso_local range(i32 -2147483648, 16) i32 @Curl_socket_check(i32 noundef %
 
 61:                                               ; preds = %60
   %62 = zext nneg i32 %.452 to i64
-  %63 = getelementptr inbounds [3 x %struct.pollfd], ptr %5, i64 0, i64 %62, i32 2
+  %63 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %62, i32 2
   %64 = load i16, ptr %63, align 2
   %65 = and i16 %64, 260
   %.not64 = icmp eq i16 %65, 0
@@ -213,7 +213,7 @@ define dso_local i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not38 = icmp eq i32 %7, -1
   br i1 %.not38, label %5, label %21
@@ -287,13 +287,13 @@ define dso_local i32 @Curl_poll(ptr noundef %0, i32 noundef %1, i64 noundef %2) 
 
 .preheader:                                       ; preds = %.preheader.preheader, %46
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %46 ]
-  %36 = getelementptr inbounds %struct.pollfd, ptr %0, i64 %indvars.iv46
+  %36 = getelementptr inbounds nuw %struct.pollfd, ptr %0, i64 %indvars.iv46
   %37 = load i32, ptr %36, align 4
   %38 = icmp eq i32 %37, -1
   br i1 %38, label %46, label %condstore.split
 
 condstore.split:                                  ; preds = %.preheader
-  %39 = getelementptr inbounds i8, ptr %36, i64 6
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 6
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 24
   %.not51 = icmp eq i16 %41, 0

@@ -29,14 +29,14 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   br i1 %13, label %73, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(36) %15, i8 0, i64 32, i1 false)
   %16 = load i32, ptr %0, align 4
   store i32 %16, ptr %5, align 4
-  %17 = getelementptr inbounds i8, ptr %5, i64 10
-  %18 = call ptr @strncpy(ptr noundef %17, ptr noundef %1, i64 noundef 6) #7
-  %19 = getelementptr inbounds i8, ptr %5, i64 16
-  %20 = call ptr @strncpy(ptr noundef %19, ptr noundef %2, i64 noundef 8) #7
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 10
+  %18 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %17, ptr noundef %1, i64 noundef 6) #7
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %20 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %19, ptr noundef %2, i64 noundef 8) #7
   %21 = call i32 @acpi_ut_acquire_mutex(i32 noundef 2) #7
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @acpi_gbl_root_table_list, i64 8), align 8
   %23 = icmp eq i32 %22, 0
@@ -51,13 +51,13 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   %25 = phi ptr [ %66, %64 ], [ %.pre, %.preheader.preheader ]
   %26 = phi i64 [ %67, %64 ], [ 0, %.preheader.preheader ]
   %27 = getelementptr %struct.acpi_table_desc, ptr %25, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
-  %29 = call i32 @bcmp(ptr noundef dereferenceable(4) %28, ptr noundef nonnull dereferenceable(4) %5, i64 4)
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
+  %29 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %28, ptr noundef nonnull dereferenceable(4) %5, i64 4)
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %64
 
 31:                                               ; preds = %.preheader
-  %32 = getelementptr inbounds i8, ptr %27, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %._crit_edge
@@ -92,8 +92,8 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   br i1 %50, label %55, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %44, i64 10
-  %53 = call i32 @bcmp(ptr noundef dereferenceable(6) %52, ptr noundef dereferenceable(6) %17, i64 6)
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 10
+  %53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %52, ptr noundef nonnull dereferenceable(6) %17, i64 6)
   %54 = icmp eq i32 %53, 0
   br i1 %54, label %55, label %64
 
@@ -103,8 +103,8 @@ define dso_local i32 @acpi_tb_find_table(ptr noundef %0, ptr nocapture noundef r
   br i1 %57, label %62, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %44, i64 16
-  %60 = call i32 @bcmp(ptr noundef dereferenceable(8) %59, ptr noundef dereferenceable(8) %19, i64 8)
+  %59 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %60 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %59, ptr noundef nonnull dereferenceable(8) %19, i64 8)
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %64
 

@@ -51,12 +51,12 @@ define dso_local void @InitSync() local_unnamed_addr #0 {
   %8 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %7, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #9
   store ptr %8, ptr @pendingOpsCxt, align 8
   tail call void @MemoryContextAllowInCriticalSection(ptr noundef %8, i1 noundef zeroext true) #9
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 24, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 32, ptr %10, align 8
   %11 = load ptr, ptr @pendingOpsCxt, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %11, ptr %12, align 8
   %13 = call ptr @hash_create(ptr noundef nonnull @.str.1, i64 noundef 100, ptr noundef nonnull %1, i32 noundef 1064) #9
   store ptr %13, ptr @pendingOps, align 8
@@ -92,8 +92,8 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   br i1 %.not, label %.thread28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
-  %3 = getelementptr inbounds i8, ptr %2, i64 4
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph38, label %.thread28
@@ -104,13 +104,13 @@ define dso_local void @SyncPostCheckpoint() local_unnamed_addr #0 {
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 26
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 26
   %11 = load i8, ptr %10, align 2
   %12 = trunc i8 %11 to i1
   br i1 %12, label %37, label %13
 
 13:                                               ; preds = %.lr.ph38
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load i16, ptr %14, align 8
   %16 = load i16, ptr @checkpoint_cycle_ctr, align 2
   %17 = icmp eq i16 %15, %16
@@ -264,7 +264,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %13 = phi ptr [ %16, %.lr.ph ], [ %12, %10 ]
   %14 = load i16, ptr @sync_cycle_ctr, align 2
-  %15 = getelementptr inbounds i8, ptr %13, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i16 %14, ptr %15, align 8
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #9
   %.not38 = icmp eq ptr %16, null
@@ -277,8 +277,8 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   store i1 true, ptr @ProcessSyncRequests.sync_in_progress, align 1
   %19 = load ptr, ptr @pendingOps, align 8
   call void @hash_seq_init(ptr noundef nonnull %3, ptr noundef %19) #9
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %.outer
 
 .outer:                                           ; preds = %.loopexit, %.loopexit42
@@ -294,7 +294,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
   br i1 %.not39, label %99, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i16, ptr %25, align 8
   %27 = load i16, ptr @sync_cycle_ctr, align 2
   %28 = icmp eq i16 %26, %27
@@ -316,7 +316,7 @@ define dso_local void @ProcessSyncRequests() local_unnamed_addr #0 {
 
 36:                                               ; preds = %35, %32
   %.2 = phi i32 [ 10, %35 ], [ %33, %32 ]
-  %37 = getelementptr inbounds i8, ptr %23, i64 26
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 26
   %38 = load i8, ptr %37, align 2
   %39 = trunc i8 %38 to i1
   br i1 %39, label %.loopexit, label %.lr.ph52.preheader
@@ -479,7 +479,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   br i1 %.not39, label %.thread, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %7, i64 26
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 26
   store i8 1, ptr %9, align 2
   br label %.thread
 
@@ -505,7 +505,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %13, i64 26
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 26
   store i8 1, ptr %23, align 2
   br label %24
 
@@ -516,12 +516,12 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
 
 ._crit_edge:                                      ; preds = %24, %10
   %26 = load ptr, ptr @pendingUnlinks, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.not37 = icmp eq ptr %26, null
   br i1 %.not37, label %.thread, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %._crit_edge
-  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %29 = load i32, ptr %27, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %.lr.ph48, label %.thread
@@ -544,7 +544,7 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   br i1 %41, label %42, label %44
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %33, i64 26
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 26
   store i8 1, ptr %43, align 2
   br label %44
 
@@ -562,9 +562,9 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   %51 = tail call ptr @palloc(i64 noundef 32) #9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %52 = load i16, ptr @checkpoint_cycle_ctr, align 2
-  %53 = getelementptr inbounds i8, ptr %51, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store i16 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %51, i64 26
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 26
   store i8 0, ptr %54, align 2
   %55 = load ptr, ptr @pendingUnlinks, align 8
   %56 = tail call ptr @lappend(ptr noundef %55, ptr noundef %51) #9
@@ -583,16 +583,16 @@ define dso_local void @RememberSyncRequest(ptr noundef %0, i32 noundef %1) local
   br i1 %63, label %64, label %68
 
 64:                                               ; preds = %57
-  %65 = getelementptr inbounds i8, ptr %61, i64 26
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 26
   %66 = load i8, ptr %65, align 2
   %67 = trunc i8 %66 to i1
   br i1 %67, label %68, label %72
 
 68:                                               ; preds = %64, %57
   %69 = load i16, ptr @sync_cycle_ctr, align 2
-  %70 = getelementptr inbounds i8, ptr %61, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
   store i16 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %61, i64 26
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 26
   store i8 0, ptr %71, align 2
   br label %72
 

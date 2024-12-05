@@ -90,13 +90,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define internal void @cf_h2_proxy_destroy(ptr nocapture noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %19, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %7, null
@@ -107,19 +107,19 @@ define internal void @cf_h2_proxy_destroy(ptr nocapture noundef %0, ptr nocaptur
   br label %cf_h2_proxy_ctx_free.exit
 
 cf_h2_proxy_ctx_free.exit:                        ; preds = %5, %8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @Curl_bufq_free(ptr noundef nonnull %9) #7
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   tail call void @Curl_bufq_free(ptr noundef nonnull %10) #7
-  %11 = getelementptr inbounds i8, ptr %4, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %12 = load ptr, ptr %11, align 8
   tail call void @Curl_http_resp_free(ptr noundef %12) #7
-  %13 = getelementptr inbounds i8, ptr %4, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @Curl_bufq_free(ptr noundef nonnull %13) #7
-  %14 = getelementptr inbounds i8, ptr %4, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 216
   tail call void @Curl_bufq_free(ptr noundef nonnull %14) #7
   %15 = load ptr, ptr @Curl_cfree, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %17 = load ptr, ptr %16, align 8
   tail call void %15(ptr noundef %17) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %4, i8 0, i64 328, i1 false)
@@ -145,10 +145,10 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   %12 = alloca i8, align 1
   %13 = alloca ptr, align 8
   %14 = alloca [3 x %struct.nghttp2_settings_entry], align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 144
-  %18 = getelementptr inbounds i8, ptr %0, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %19 = load i8, ptr %18, align 4
   %20 = and i8 %19, 1
   %.not = icmp eq i8 %20, 0
@@ -159,9 +159,9 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   br label %334
 
 22:                                               ; preds = %4
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 1
   %.not36 = icmp eq i8 %27, 0
@@ -180,7 +180,7 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
 33:                                               ; preds = %30, %22
   store i8 0, ptr %3, align 1
   %34 = load ptr, ptr %15, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %35, align 8
   store ptr %1, ptr %35, align 8
   %36 = load ptr, ptr %16, align 8
@@ -192,22 +192,22 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   %38 = load ptr, ptr %15, align 8
   store ptr null, ptr %13, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 144
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %39, i8 0, i64 168, i1 false)
-  %40 = getelementptr inbounds i8, ptr %38, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   tail call void @Curl_bufq_init(ptr noundef nonnull %40, i64 noundef 16384, i64 noundef 640) #7
-  %41 = getelementptr inbounds i8, ptr %38, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 80
   tail call void @Curl_bufq_init(ptr noundef nonnull %41, i64 noundef 16384, i64 noundef 1) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
-  %42 = getelementptr inbounds i8, ptr %38, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 304
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %38, i64 288
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 288
   store i32 -1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 152
   tail call void @Curl_bufq_init2(ptr noundef nonnull %44, i64 noundef 16384, i64 noundef 640, i32 noundef 1) #7
-  %45 = getelementptr inbounds i8, ptr %38, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 216
   tail call void @Curl_bufq_init(ptr noundef nonnull %45, i64 noundef 16384, i64 noundef 8) #7
   %46 = call i32 @Curl_http_proxy_get_destination(ptr noundef nonnull %0, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #7
   %.not.i.i = icmp eq i32 %46, 0
@@ -221,7 +221,7 @@ define internal i32 @cf_h2_proxy_connect(ptr noundef %0, ptr noundef %1, i1 noun
   %52 = select i1 %49, ptr @.str.10, ptr @.str.9
   %53 = load i32, ptr %11, align 4
   %54 = call ptr (ptr, ...) @curl_maprintf(ptr noundef nonnull @.str.7, ptr noundef nonnull %50, ptr noundef %51, ptr noundef nonnull %52, i32 noundef %53) #7
-  %55 = getelementptr inbounds i8, ptr %38, i64 280
+  %55 = getelementptr inbounds nuw i8, ptr %38, i64 280
   store ptr %54, ptr %55, align 8
   %.not10.i.i = icmp eq ptr %54, null
   br i1 %.not10.i.i, label %tunnel_stream_init.exit.thread.i, label %56
@@ -287,18 +287,18 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
 
 75:                                               ; preds = %proxy_h2_client_new.exit.i
   store i32 3, ptr %14, align 16
-  %76 = getelementptr inbounds i8, ptr %1, i64 192
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %77 = load ptr, ptr %76, align 8
   %78 = call i32 @Curl_multi_max_concurrent_streams(ptr noundef %77) #7
-  %79 = getelementptr inbounds i8, ptr %14, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %78, ptr %79, align 4
-  %80 = getelementptr inbounds i8, ptr %14, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 4, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %14, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 10485760, ptr %81, align 4
-  %82 = getelementptr inbounds i8, ptr %14, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 2, ptr %82, align 16
-  %83 = getelementptr inbounds i8, ptr %14, i64 20
+  %83 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %83, align 4
   %84 = load ptr, ptr %38, align 8
   %85 = call i32 @nghttp2_submit_settings(ptr noundef %84, i8 noundef zeroext 0, ptr noundef nonnull %14, i64 noundef 3) #7
@@ -337,7 +337,7 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
   br i1 %.not40.i, label %cf_h2_proxy_ctx_init.exit, label %97
 
 97:                                               ; preds = %96
-  %98 = getelementptr inbounds i8, ptr %1, i64 2642
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %99 = load i64, ptr %98, align 2
   %100 = and i64 %99, 268435456
   %.not.i = icmp eq i64 %100, 0
@@ -345,7 +345,7 @@ proxy_h2_client_new.exit.i:                       ; preds = %59
 
 101:                                              ; preds = %97
   %102 = load ptr, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 12
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i32, ptr %103, align 4
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %106, label %cf_h2_proxy_ctx_init.exit
@@ -370,20 +370,20 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %101, %106
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %15, align 8
-  %113 = getelementptr inbounds i8, ptr %16, i64 304
+  %113 = getelementptr inbounds nuw i8, ptr %16, i64 304
   %.not.i40 = icmp eq ptr %1, null
-  %114 = getelementptr inbounds i8, ptr %1, i64 2642
-  %115 = getelementptr inbounds i8, ptr %16, i64 280
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 2642
+  %115 = getelementptr inbounds nuw i8, ptr %16, i64 280
   %116 = icmp ne ptr %1, null
-  %117 = getelementptr inbounds i8, ptr %16, i64 288
-  %118 = getelementptr inbounds i8, ptr %7, i64 8
-  %119 = getelementptr inbounds i8, ptr %16, i64 308
-  %120 = getelementptr inbounds i8, ptr %1, i64 403
-  %121 = getelementptr inbounds i8, ptr %1, i64 360
-  %122 = getelementptr inbounds i8, ptr %16, i64 152
-  %123 = getelementptr inbounds i8, ptr %16, i64 216
-  %124 = getelementptr inbounds i8, ptr %1, i64 3544
-  %125 = getelementptr inbounds i8, ptr %1, i64 4824
+  %117 = getelementptr inbounds nuw i8, ptr %16, i64 288
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %16, i64 308
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 403
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %122 = getelementptr inbounds nuw i8, ptr %16, i64 152
+  %123 = getelementptr inbounds nuw i8, ptr %16, i64 216
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 3544
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 4824
   %.pre.i = load i32, ptr %113, align 8
   br label %.backedge.i
 
@@ -409,7 +409,7 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %101, %106
 
 131:                                              ; preds = %128
   %132 = load ptr, ptr %0, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %134 = load i32, ptr %133, align 4
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %136, label %138
@@ -438,7 +438,7 @@ cf_h2_proxy_ctx_init.exit:                        ; preds = %96, %97, %101, %106
 
 145:                                              ; preds = %142
   %146 = load ptr, ptr %8, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 32
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load ptr, ptr %147, align 8
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.35, ptr noundef %148) #7
   br label %149
@@ -495,7 +495,7 @@ proxy_h2_submit.exit.i.i:                         ; preds = %159, %155, %153, %1
 
 166:                                              ; preds = %163
   %167 = load ptr, ptr %0, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 12
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %169 = load i32, ptr %168, align 4
   %170 = icmp sgt i32 %169, 0
   br i1 %170, label %171, label %173
@@ -541,7 +541,7 @@ submit_CONNECT.exit.i:                            ; preds = %176
 
 184:                                              ; preds = %181
   %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 12
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 12
   %187 = load i32, ptr %186, align 4
   %188 = icmp sgt i32 %187, 0
   br i1 %188, label %189, label %191
@@ -595,7 +595,7 @@ h2_tunnel_go_state.exit.i:                        ; preds = %191, %177, %.backed
 
 204:                                              ; preds = %201
   %205 = load ptr, ptr %0, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 12
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 12
   %207 = load i32, ptr %206, align 4
   %208 = icmp sgt i32 %207, 0
   br i1 %208, label %209, label %211
@@ -643,7 +643,7 @@ h2_tunnel_go_state.exit.i:                        ; preds = %191, %177, %.backed
 
 225:                                              ; preds = %222
   %226 = load ptr, ptr %0, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 12
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 12
   %228 = load i32, ptr %227, align 4
   %229 = icmp sgt i32 %228, 0
   br i1 %229, label %230, label %232
@@ -695,7 +695,7 @@ h2_tunnel_go_state.exit62.i:                      ; preds = %232, %217, %.backed
 
 245:                                              ; preds = %.thread107.i
   %246 = load ptr, ptr %0, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 12
+  %247 = getelementptr inbounds nuw i8, ptr %246, i64 12
   %248 = load i32, ptr %247, align 4
   %249 = icmp sgt i32 %248, 0
   br i1 %249, label %250, label %.thread78.i.i.i
@@ -735,7 +735,7 @@ h2_tunnel_go_state.exit62.i:                      ; preds = %232, %217, %.backed
 
 260:                                              ; preds = %259, %258
   %.str.59.sink.i.i = phi ptr [ @.str.59, %259 ], [ @.str.58, %258 ]
-  %261 = getelementptr inbounds i8, ptr %233, i64 16
+  %261 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %262 = call ptr @Curl_dynhds_cget(ptr noundef nonnull %261, ptr noundef nonnull %.str.59.sink.i.i) #7
   %.not.i63.i = icmp eq ptr %262, null
   br i1 %.not.i63.i, label %inspect_response.exit.thread76.i, label %263
@@ -751,13 +751,13 @@ h2_tunnel_go_state.exit62.i:                      ; preds = %232, %217, %.backed
 
 267:                                              ; preds = %264
   %268 = load ptr, ptr %0, align 8
-  %269 = getelementptr inbounds i8, ptr %268, i64 12
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 12
   %270 = load i32, ptr %269, align 4
   %271 = icmp sgt i32 %270, 0
   br i1 %271, label %272, label %275
 
 272:                                              ; preds = %267
-  %273 = getelementptr inbounds i8, ptr %262, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %274 = load ptr, ptr %273, align 8
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.60, ptr noundef %274) #7
   br label %275
@@ -766,7 +766,7 @@ h2_tunnel_go_state.exit62.i:                      ; preds = %232, %217, %.backed
   %276 = load ptr, ptr %17, align 8
   %277 = load i32, ptr %276, align 8
   %278 = icmp eq i32 %277, 407
-  %279 = getelementptr inbounds i8, ptr %262, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %280 = load ptr, ptr %279, align 8
   %281 = call i32 @Curl_http_input_auth(ptr noundef %1, i1 noundef zeroext %278, ptr noundef %280) #7
   %.not39.i.i = icmp eq i32 %281, 0
@@ -801,7 +801,7 @@ h2_tunnel_go_state.exit62.i:                      ; preds = %232, %217, %.backed
 
 293:                                              ; preds = %290
   %294 = load ptr, ptr %0, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 12
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 12
   %296 = load i32, ptr %295, align 4
   %297 = icmp sgt i32 %296, 0
   br i1 %297, label %298, label %300
@@ -839,7 +839,7 @@ inspect_response.exit.i:                          ; preds = %h2_tunnel_go_state.
   br i1 %.not55.i, label %inspect_response.exit.thread80.i, label %inspect_response.exit.thread76.i
 
 inspect_response.exit.thread80.i:                 ; preds = %240, %214, %inspect_response.exit.i
-  %305 = getelementptr inbounds i8, ptr %112, i64 308
+  %305 = getelementptr inbounds nuw i8, ptr %112, i64 308
   %306 = load i8, ptr %305, align 4
   %307 = and i8 %306, 2
   %.not56.i = icmp eq i8 %307, 0
@@ -870,7 +870,7 @@ inspect_response.exit.thread76.i:                 ; preds = %282, %275, %260, %2
 
 314:                                              ; preds = %311
   %315 = load ptr, ptr %0, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 12
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 12
   %317 = load i32, ptr %316, align 4
   %318 = icmp sgt i32 %317, 0
   br i1 %318, label %319, label %321
@@ -907,7 +907,7 @@ H2_CONNECT.exit.thread:                           ; preds = %196, %.backedge.i, 
   %331 = or disjoint i8 %330, %328
   store i8 %331, ptr %18, align 4
   %332 = load ptr, ptr %15, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 8
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   store ptr %.sroa.0.0.copyload, ptr %333, align 8
   br label %334
 
@@ -918,13 +918,13 @@ H2_CONNECT.exit.thread:                           ; preds = %196, %.backedge.i, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @cf_h2_proxy_close(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %20, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %6, align 8
   store ptr %1, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
@@ -936,37 +936,37 @@ define internal void @cf_h2_proxy_close(ptr nocapture noundef readonly %0, ptr n
   br label %cf_h2_proxy_ctx_clear.exit
 
 cf_h2_proxy_ctx_clear.exit:                       ; preds = %5, %8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @Curl_bufq_free(ptr noundef nonnull %9) #7
-  %10 = getelementptr inbounds i8, ptr %4, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 80
   tail call void @Curl_bufq_free(ptr noundef nonnull %10) #7
-  %11 = getelementptr inbounds i8, ptr %4, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %12 = load ptr, ptr %11, align 8
   tail call void @Curl_http_resp_free(ptr noundef %12) #7
-  %13 = getelementptr inbounds i8, ptr %4, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 152
   tail call void @Curl_bufq_free(ptr noundef nonnull %13) #7
-  %14 = getelementptr inbounds i8, ptr %4, i64 216
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 216
   tail call void @Curl_bufq_free(ptr noundef nonnull %14) #7
   %15 = load ptr, ptr @Curl_cfree, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 280
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 280
   %17 = load ptr, ptr %16, align 8
   tail call void %15(ptr noundef %17) #7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %4, i8 0, i64 328, i1 false)
   store ptr %1, ptr %6, align 8
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %.sroa.0.0.copyload, ptr %19, align 8
   br label %20
 
 20:                                               ; preds = %cf_h2_proxy_ctx_clear.exit, %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not13 = icmp eq ptr %22, null
   br i1 %.not13, label %27, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef nonnull %22, ptr noundef %1) #7
   br label %27
@@ -981,7 +981,7 @@ declare void @Curl_cf_http_proxy_get_host(ptr noundef, ptr noundef, ptr noundef,
 define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @Curl_conn_cf_get_socket(ptr noundef %0, ptr noundef %1) #7
   call void @Curl_pollset_check(ptr noundef %1, ptr noundef %2, i32 noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
@@ -1001,13 +1001,13 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %10, %13
   %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %18, align 8
   store ptr %1, ptr %18, align 8
   %19 = load ptr, ptr %7, align 8
   %20 = call i32 @nghttp2_session_get_remote_window_size(ptr noundef %19) #7
   %.not23 = icmp eq i32 %20, 0
-  %21 = getelementptr inbounds i8, ptr %7, i64 288
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %24, label %.critedge
@@ -1057,7 +1057,7 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
   %46 = trunc i8 %43 to i1
   call void @Curl_pollset_set(ptr noundef %1, ptr noundef %2, i32 noundef %8, i1 noundef zeroext %46, i1 noundef zeroext %44) #7
   %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %.sroa.0.0.copyload, ptr %48, align 8
   br label %49
 
@@ -1067,36 +1067,36 @@ define internal void @cf_h2_proxy_adjust_pollset(ptr noundef %0, ptr noundef %1,
 
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @cf_h2_proxy_data_pending(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.critedge, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #7
   br i1 %7, label %8, label %22
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %4, i64 304
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %.critedge
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %4, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %14 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %13) #7
   br i1 %14, label %.critedge, label %22
 
 .critedge:                                        ; preds = %2, %12, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not13 = icmp eq ptr %16, null
   br i1 %.not13, label %22, label %17
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load ptr, ptr %19, align 8
   %21 = tail call zeroext i1 %20(ptr noundef nonnull %16, ptr noundef %1) #7
   br label %22
@@ -1108,10 +1108,10 @@ define internal zeroext i1 @cf_h2_proxy_data_pending(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 144
-  %9 = getelementptr inbounds i8, ptr %7, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %10, 3
   br i1 %.not, label %12, label %11
@@ -1121,17 +1121,17 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %148
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %7, i64 308
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 308
   %15 = load i8, ptr %14, align 4
   %16 = and i8 %15, 2
   %.not123 = icmp eq i8 %16, 0
   br i1 %.not123, label %17, label %.sink.split
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %7, i64 296
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %19 = load i64, ptr %18, align 8
   %.not124 = icmp eq i64 %19, 0
   br i1 %.not124, label %24, label %20
@@ -1150,7 +1150,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %30
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %7, i64 216
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %26 = tail call i64 @Curl_bufq_write(ptr noundef nonnull %25, ptr noundef %2, i64 noundef %3, ptr noundef %4) #7
   %27 = icmp slt i64 %26, 0
   br i1 %27, label %28, label %30
@@ -1162,13 +1162,13 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 30:                                               ; preds = %28, %23, %24
   %.1 = phi i64 [ %19, %23 ], [ %26, %24 ], [ 0, %28 ]
-  %31 = getelementptr inbounds i8, ptr %7, i64 216
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %32 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %31) #7
   br i1 %32, label %39, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %7, align 8
-  %35 = getelementptr inbounds i8, ptr %7, i64 288
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %36 = load i32, ptr %35, align 8
   %37 = tail call i32 @nghttp2_session_resume_data(ptr noundef %34, i32 noundef %36) #7
   %38 = tail call i32 @nghttp2_is_fatal(i32 noundef %37) #7
@@ -1193,7 +1193,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 .critedge:                                        ; preds = %41, %43
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %7, i64 288
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %47 = load i32, ptr %46, align 8
   %48 = tail call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %45, i32 noundef %47) #7
   %49 = sext i32 %48 to i64
@@ -1203,7 +1203,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond9, label %52, label %63
 
 52:                                               ; preds = %.critedge
-  %53 = getelementptr inbounds i8, ptr %1, i64 2642
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %54 = load i64, ptr %53, align 2
   %55 = and i64 %54, 268435456
   %.not136 = icmp eq i64 %55, 0
@@ -1211,7 +1211,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 56:                                               ; preds = %52
   %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 12
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %61, label %.thread
@@ -1230,7 +1230,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %51, label %64, label %77
 
 64:                                               ; preds = %.thread, %63
-  %65 = getelementptr inbounds i8, ptr %1, i64 2642
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %66 = load i64, ptr %65, align 2
   %67 = and i64 %66, 268435456
   %.not137 = icmp eq i64 %67, 0
@@ -1238,7 +1238,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 68:                                               ; preds = %64
   %69 = load ptr, ptr %0, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %73, label %77
@@ -1270,7 +1270,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not132, label %.sink.split, label %84
 
 84:                                               ; preds = %83
-  %85 = getelementptr inbounds i8, ptr %1, i64 2642
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %86 = load i64, ptr %85, align 2
   %87 = and i64 %86, 268435456
   %.not135 = icmp eq i64 %87, 0
@@ -1278,7 +1278,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %91 = load i32, ptr %90, align 4
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %93, label %.sink.split
@@ -1294,7 +1294,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 94:                                               ; preds = %.sink.split, %78, %28
   %.0111 = phi i64 [ %.1, %78 ], [ %26, %28 ], [ -1, %.sink.split ]
-  %95 = getelementptr inbounds i8, ptr %7, i64 152
+  %95 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %96 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %95) #7
   br i1 %96, label %drain_tunnel.exit, label %97
 
@@ -1314,7 +1314,7 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %or.cond24.i, label %105, label %108
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %7, i64 296
+  %106 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %107 = load i64, ptr %106, align 8
   %.not21.i = icmp eq i64 %107, 0
   %spec.select.i = select i1 %.not21.i, i8 1, i8 3
@@ -1322,14 +1322,14 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 108:                                              ; preds = %105, %102
   %.0.i = phi i8 [ 1, %102 ], [ %spec.select.i, %105 ]
-  %109 = getelementptr inbounds i8, ptr %1, i64 4939
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 4939
   %110 = load i8, ptr %109, align 1
   %111 = zext nneg i8 %.0.i to i32
   %.not22.i = icmp eq i8 %110, %.0.i
   br i1 %.not22.i, label %drain_tunnel.exit.thread, label %112
 
 112:                                              ; preds = %108
-  %113 = getelementptr inbounds i8, ptr %1, i64 2642
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %114 = load i64, ptr %113, align 2
   %115 = and i64 %114, 268435456
   %.not138 = icmp eq i64 %115, 0
@@ -1337,13 +1337,13 @@ define internal i64 @cf_h2_proxy_send(ptr noundef %0, ptr noundef %1, ptr nounde
 
 116:                                              ; preds = %112
   %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 12
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 12
   %119 = load i32, ptr %118, align 4
   %120 = icmp sgt i32 %119, 0
   br i1 %120, label %121, label %124
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds i8, ptr %7, i64 288
+  %122 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %123 = load i32, ptr %122, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %123, i32 noundef %111) #7
   br label %124
@@ -1358,7 +1358,7 @@ drain_tunnel.exit:                                ; preds = %94, %99
   br i1 %.not133, label %145, label %drain_tunnel.exit.thread
 
 drain_tunnel.exit.thread:                         ; preds = %108, %124, %drain_tunnel.exit
-  %125 = getelementptr inbounds i8, ptr %1, i64 2642
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %126 = load i64, ptr %125, align 2
   %127 = and i64 %126, 268435456
   %.not139 = icmp eq i64 %127, 0
@@ -1366,29 +1366,29 @@ drain_tunnel.exit.thread:                         ; preds = %108, %124, %drain_t
 
 128:                                              ; preds = %drain_tunnel.exit.thread
   %129 = load ptr, ptr %0, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 12
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 12
   %131 = load i32, ptr %130, align 4
   %132 = icmp sgt i32 %131, 0
   br i1 %132, label %133, label %145
 
 133:                                              ; preds = %128
-  %134 = getelementptr inbounds i8, ptr %7, i64 288
+  %134 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %135 = load i32, ptr %134, align 8
   %136 = load i32, ptr %4, align 4
   %137 = load ptr, ptr %7, align 8
   %138 = tail call i32 @nghttp2_session_get_stream_remote_window_size(ptr noundef %137, i32 noundef %135) #7
   %139 = load ptr, ptr %7, align 8
   %140 = tail call i32 @nghttp2_session_get_remote_window_size(ptr noundef %139) #7
-  %141 = getelementptr inbounds i8, ptr %7, i64 216
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 216
   %142 = tail call i64 @Curl_bufq_len(ptr noundef nonnull %141) #7
-  %143 = getelementptr inbounds i8, ptr %7, i64 80
+  %143 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %144 = tail call i64 @Curl_bufq_len(ptr noundef nonnull %143) #7
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.65, i32 noundef %135, i64 noundef %3, i64 noundef %.0111, i32 noundef %136, i32 noundef %138, i32 noundef %140, i64 noundef %142, i64 noundef %144) #7
   br label %145
 
 145:                                              ; preds = %133, %128, %drain_tunnel.exit.thread, %drain_tunnel.exit
   %146 = load ptr, ptr %6, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   store ptr %.sroa.0.0.copyload, ptr %147, align 8
   br label %148
 
@@ -1399,9 +1399,9 @@ drain_tunnel.exit.thread:                         ; preds = %108, %124, %drain_t
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef initializes((0, 4)) %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 3
   br i1 %.not, label %11, label %10
@@ -1411,10 +1411,10 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %204
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8
   store ptr %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %14 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %13) #7
   br i1 %14, label %15, label %17
 
@@ -1427,7 +1427,7 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
 17:                                               ; preds = %15, %11
   %18 = load ptr, ptr %6, align 8
   store i32 81, ptr %4, align 4
-  %19 = getelementptr inbounds i8, ptr %18, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 152
   %20 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %19) #7
   br i1 %20, label %24, label %21
 
@@ -1437,7 +1437,7 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %23, label %h2_handle_tunnel_close.exit.sink.split.i, label %h2_handle_tunnel_close.exit.i
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %18, i64 308
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 308
   %26 = load i8, ptr %25, align 4
   %27 = and i8 %26, 2
   %.not.i = icmp eq i8 %27, 0
@@ -1445,7 +1445,7 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %6, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 292
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 292
   %31 = load i32, ptr %30, align 4
   switch i32 %31, label %48 [
     i32 7, label %32
@@ -1457,7 +1457,7 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not41.i.i, label %45, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %1, i64 2642
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %35 = load i64, ptr %34, align 2
   %36 = and i64 %35, 268435456
   %.not42.i.i = icmp eq i64 %36, 0
@@ -1465,25 +1465,25 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = load i32, ptr %39, align 4
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %29, i64 288
+  %43 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %44 = load i32, ptr %43, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.70, i32 noundef %44) #7
   br label %45
 
 45:                                               ; preds = %42, %37, %33, %32
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %47 = load ptr, ptr %46, align 8
   tail call void @Curl_conncontrol(ptr noundef %47, i32 noundef 1) #7
   br label %h2_handle_tunnel_close.exit.sink.split.i
 
 48:                                               ; preds = %28
-  %49 = getelementptr inbounds i8, ptr %29, i64 288
+  %49 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %50 = load i32, ptr %49, align 8
   %51 = tail call ptr @nghttp2_http2_strerror(i32 noundef %31) #7
   %52 = load i32, ptr %30, align 4
@@ -1491,14 +1491,14 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %h2_handle_tunnel_close.exit.sink.split.i
 
 53:                                               ; preds = %28
-  %54 = getelementptr inbounds i8, ptr %29, i64 308
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 308
   %55 = load i8, ptr %54, align 4
   %56 = and i8 %55, 4
   %.not39.i.i = icmp eq i8 %56, 0
   br i1 %.not39.i.i, label %60, label %57
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %29, i64 288
+  %58 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %59 = load i32, ptr %58, align 8
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %1, ptr noundef nonnull @.str.72, i32 noundef %59) #7
   br label %h2_handle_tunnel_close.exit.sink.split.i
@@ -1509,7 +1509,7 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not40.i.i, label %tunnel_recv.exit.thread, label %61
 
 61:                                               ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %1, i64 2642
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %63 = load i64, ptr %62, align 2
   %64 = and i64 %63, 268435456
   %.not.i.i = icmp eq i64 %64, 0
@@ -1517,13 +1517,13 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, 0
   br i1 %69, label %70, label %h2_handle_tunnel_close.exit.thread.i
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %29, i64 288
+  %71 = getelementptr inbounds nuw i8, ptr %29, i64 288
   %72 = load i32, ptr %71, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.73, i32 noundef %72, i64 noundef 0, i32 noundef 0) #7
   br label %h2_handle_tunnel_close.exit.thread.i
@@ -1534,14 +1534,14 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not37.i, label %75, label %h2_handle_tunnel_close.exit.sink.split.i
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %18, i64 320
+  %76 = getelementptr inbounds nuw i8, ptr %18, i64 320
   %77 = load i8, ptr %76, align 8
   %78 = and i8 %77, 1
   %.not38.i = icmp eq i8 %78, 0
   br i1 %.not38.i, label %82, label %79
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %18, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %81 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %80) #7
   br i1 %81, label %h2_handle_tunnel_close.exit.sink.split.i, label %._crit_edge.i
 
@@ -1556,9 +1556,9 @@ define internal i64 @cf_h2_proxy_recv(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not39.i, label %h2_handle_tunnel_close.exit.i, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %18, i64 316
+  %86 = getelementptr inbounds nuw i8, ptr %18, i64 316
   %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds i8, ptr %18, i64 288
+  %88 = getelementptr inbounds nuw i8, ptr %18, i64 288
   %89 = load i32, ptr %88, align 8
   %90 = icmp slt i32 %87, %89
   br i1 %90, label %h2_handle_tunnel_close.exit.sink.split.i, label %h2_handle_tunnel_close.exit.i
@@ -1575,7 +1575,7 @@ h2_handle_tunnel_close.exit.i:                    ; preds = %h2_handle_tunnel_cl
 
 h2_handle_tunnel_close.exit.thread.i:             ; preds = %h2_handle_tunnel_close.exit.i, %70, %65, %61
   %.144.i = phi i64 [ %.1.i, %h2_handle_tunnel_close.exit.i ], [ 0, %70 ], [ 0, %65 ], [ 0, %61 ]
-  %91 = getelementptr inbounds i8, ptr %1, i64 2642
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %92 = load i64, ptr %91, align 2
   %93 = and i64 %92, 268435456
   %.not49.i = icmp eq i64 %93, 0
@@ -1583,13 +1583,13 @@ h2_handle_tunnel_close.exit.thread.i:             ; preds = %h2_handle_tunnel_cl
 
 94:                                               ; preds = %h2_handle_tunnel_close.exit.thread.i
   %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 12
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %99, label %tunnel_recv.exit
 
 99:                                               ; preds = %94
-  %100 = getelementptr inbounds i8, ptr %18, i64 288
+  %100 = getelementptr inbounds nuw i8, ptr %18, i64 288
   %101 = load i32, ptr %100, align 8
   %102 = load i32, ptr %4, align 4
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.69, i32 noundef %101, i64 noundef %3, i64 noundef %.144.i, i32 noundef %102) #7
@@ -1611,13 +1611,13 @@ tunnel_recv.exit.thread89:                        ; preds = %h2_handle_tunnel_cl
 
 108:                                              ; preds = %105
   %109 = load ptr, ptr %0, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 12
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 12
   %111 = load i32, ptr %110, align 4
   %112 = icmp sgt i32 %111, 0
   br i1 %112, label %113, label %.thread
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %7, i64 288
+  %114 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %115 = load i32, ptr %114, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.66, i32 noundef %115, i64 noundef %.144.i) #7
   br label %.thread
@@ -1625,7 +1625,7 @@ tunnel_recv.exit.thread89:                        ; preds = %h2_handle_tunnel_cl
 .thread:                                          ; preds = %tunnel_recv.exit.thread89, %105, %108, %113
   %.145.i9194 = phi i64 [ %.144.i, %105 ], [ %.144.i, %108 ], [ %.144.i, %113 ], [ %.1.i, %tunnel_recv.exit.thread89 ]
   %116 = load ptr, ptr %7, align 8
-  %117 = getelementptr inbounds i8, ptr %7, i64 288
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %118 = load i32, ptr %117, align 8
   %119 = tail call i32 @nghttp2_session_consume(ptr noundef %116, i32 noundef %118, i64 noundef %.145.i9194) #7
   br label %tunnel_recv.exit.thread
@@ -1643,7 +1643,7 @@ tunnel_recv.exit.thread:                          ; preds = %60, %tunnel_recv.ex
   br i1 %.not78, label %134, label %122
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %1, i64 2642
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %124 = load i64, ptr %123, align 2
   %125 = and i64 %124, 268435456
   %.not97 = icmp eq i64 %125, 0
@@ -1651,26 +1651,26 @@ tunnel_recv.exit.thread:                          ; preds = %60, %tunnel_recv.ex
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %0, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %129 = load i32, ptr %128, align 4
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %134
 
 131:                                              ; preds = %126
-  %132 = getelementptr inbounds i8, ptr %7, i64 288
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %133 = load i32, ptr %132, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.67, i32 noundef %133) #7
   br label %134
 
 134:                                              ; preds = %121, %122, %126, %131
-  %135 = getelementptr inbounds i8, ptr %7, i64 308
+  %135 = getelementptr inbounds nuw i8, ptr %7, i64 308
   %136 = load i8, ptr %135, align 4
   %137 = and i8 %136, 6
   %or.cond24.i = icmp eq i8 %137, 0
   br i1 %or.cond24.i, label %138, label %141
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %7, i64 296
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %140 = load i64, ptr %139, align 8
   %.not21.i = icmp eq i64 %140, 0
   %spec.select.i = select i1 %.not21.i, i8 1, i8 3
@@ -1678,14 +1678,14 @@ tunnel_recv.exit.thread:                          ; preds = %60, %tunnel_recv.ex
 
 141:                                              ; preds = %138, %134
   %.0.i = phi i8 [ 1, %134 ], [ %spec.select.i, %138 ]
-  %142 = getelementptr inbounds i8, ptr %1, i64 4939
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 4939
   %143 = load i8, ptr %142, align 1
   %144 = zext nneg i8 %.0.i to i32
   %.not22.i = icmp eq i8 %143, %.0.i
   br i1 %.not22.i, label %drain_tunnel.exit, label %145
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %1, i64 2642
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %147 = load i64, ptr %146, align 2
   %148 = and i64 %147, 268435456
   %.not98 = icmp eq i64 %148, 0
@@ -1693,13 +1693,13 @@ tunnel_recv.exit.thread:                          ; preds = %60, %tunnel_recv.ex
 
 149:                                              ; preds = %145
   %150 = load ptr, ptr %0, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 12
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 12
   %152 = load i32, ptr %151, align 4
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %154, label %157
 
 154:                                              ; preds = %149
-  %155 = getelementptr inbounds i8, ptr %7, i64 288
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %156 = load i32, ptr %155, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %156, i32 noundef %144) #7
   br label %157
@@ -1728,14 +1728,14 @@ drain_tunnel.exit:                                ; preds = %157, %141, %tunnel_
   br i1 %164, label %165, label %drain_tunnel.exit86
 
 165:                                              ; preds = %162, %160
-  %166 = getelementptr inbounds i8, ptr %7, i64 308
+  %166 = getelementptr inbounds nuw i8, ptr %7, i64 308
   %167 = load i8, ptr %166, align 4
   %168 = and i8 %167, 6
   %or.cond24.i80 = icmp eq i8 %168, 0
   br i1 %or.cond24.i80, label %169, label %172
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds i8, ptr %7, i64 296
+  %170 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %171 = load i64, ptr %170, align 8
   %.not21.i84 = icmp eq i64 %171, 0
   %spec.select.i85 = select i1 %.not21.i84, i8 1, i8 3
@@ -1743,14 +1743,14 @@ drain_tunnel.exit:                                ; preds = %157, %141, %tunnel_
 
 172:                                              ; preds = %169, %165
   %.0.i81 = phi i8 [ 1, %165 ], [ %spec.select.i85, %169 ]
-  %173 = getelementptr inbounds i8, ptr %1, i64 4939
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 4939
   %174 = load i8, ptr %173, align 1
   %175 = zext nneg i8 %.0.i81 to i32
   %.not22.i82 = icmp eq i8 %174, %.0.i81
   br i1 %.not22.i82, label %drain_tunnel.exit86.thread, label %176
 
 176:                                              ; preds = %172
-  %177 = getelementptr inbounds i8, ptr %1, i64 2642
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %178 = load i64, ptr %177, align 2
   %179 = and i64 %178, 268435456
   %.not99 = icmp eq i64 %179, 0
@@ -1758,13 +1758,13 @@ drain_tunnel.exit:                                ; preds = %157, %141, %tunnel_
 
 180:                                              ; preds = %176
   %181 = load ptr, ptr %0, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 12
   %183 = load i32, ptr %182, align 4
   %184 = icmp sgt i32 %183, 0
   br i1 %184, label %185, label %188
 
 185:                                              ; preds = %180
-  %186 = getelementptr inbounds i8, ptr %7, i64 288
+  %186 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %187 = load i32, ptr %186, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %187, i32 noundef %175) #7
   br label %188
@@ -1779,7 +1779,7 @@ drain_tunnel.exit86:                              ; preds = %drain_tunnel.exit, 
   br i1 %.not79, label %201, label %drain_tunnel.exit86.thread
 
 drain_tunnel.exit86.thread:                       ; preds = %172, %188, %drain_tunnel.exit86
-  %189 = getelementptr inbounds i8, ptr %1, i64 2642
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %190 = load i64, ptr %189, align 2
   %191 = and i64 %190, 268435456
   %.not100 = icmp eq i64 %191, 0
@@ -1787,13 +1787,13 @@ drain_tunnel.exit86.thread:                       ; preds = %172, %188, %drain_t
 
 192:                                              ; preds = %drain_tunnel.exit86.thread
   %193 = load ptr, ptr %0, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 12
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 12
   %195 = load i32, ptr %194, align 4
   %196 = icmp sgt i32 %195, 0
   br i1 %196, label %197, label %201
 
 197:                                              ; preds = %192
-  %198 = getelementptr inbounds i8, ptr %7, i64 288
+  %198 = getelementptr inbounds nuw i8, ptr %7, i64 288
   %199 = load i32, ptr %198, align 8
   %200 = load i32, ptr %4, align 4
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.68, i32 noundef %199, i64 noundef %3, i64 noundef %.068, i32 noundef %200) #7
@@ -1801,7 +1801,7 @@ drain_tunnel.exit86.thread:                       ; preds = %172, %188, %drain_t
 
 201:                                              ; preds = %197, %192, %drain_tunnel.exit86.thread, %drain_tunnel.exit86
   %202 = load ptr, ptr %6, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   store ptr %.sroa.0.0.copyload, ptr %203, align 8
   br label %204
 
@@ -1815,9 +1815,9 @@ declare i32 @Curl_cf_def_cntrl(ptr noundef, ptr noundef, i32 noundef, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
   store ptr %1, ptr %7, align 8
   %8 = load ptr, ptr %6, align 8
@@ -1828,14 +1828,14 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %10 = load ptr, ptr %5, align 8
   store i8 0, ptr %2, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %proxy_h2_connisalive.exit, label %13
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
   %16 = load ptr, ptr %15, align 8
   %17 = tail call zeroext i1 %16(ptr noundef nonnull %12, ptr noundef %1, ptr noundef nonnull %2) #7
   br i1 %17, label %18, label %proxy_h2_connisalive.exit
@@ -1847,7 +1847,7 @@ define internal zeroext i1 @cf_h2_proxy_is_alive(ptr noundef %0, ptr noundef %1,
 
 21:                                               ; preds = %18
   store i8 0, ptr %2, align 1
-  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = call i64 @Curl_bufq_slurp(ptr noundef nonnull %22, ptr noundef nonnull @proxy_nw_in_reader, ptr noundef nonnull %0, ptr noundef nonnull %4) #7
   %.not18.i = icmp eq i64 %23, -1
   br i1 %.not18.i, label %33, label %24
@@ -1886,7 +1886,7 @@ proxy_h2_connisalive.exit:                        ; preds = %9, %13, %18, %24, %
   br i1 %.not23, label %51, label %38
 
 38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %1, i64 2642
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %40 = load i64, ptr %39, align 2
   %41 = and i64 %40, 268435456
   %.not = icmp eq i64 %41, 0
@@ -1894,7 +1894,7 @@ proxy_h2_connisalive.exit:                        ; preds = %9, %13, %18, %24, %
 
 42:                                               ; preds = %38
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %47, label %51
@@ -1908,7 +1908,7 @@ proxy_h2_connisalive.exit:                        ; preds = %9, %13, %18, %24, %
 
 51:                                               ; preds = %47, %42, %38, %35
   %52 = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %.sroa.0.0.copyload, ptr %53, align 8
   ret i1 %36
 }
@@ -1937,7 +1937,7 @@ define dso_local i32 @Curl_cf_h2_proxy_insert_after(ptr noundef %0, ptr nocaptur
   br label %cf_h2_proxy_ctx_free.exit
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %11, align 8
   %12 = load ptr, ptr %5, align 8
   %.not.i.i = icmp eq ptr %12, null
@@ -1948,19 +1948,19 @@ define dso_local i32 @Curl_cf_h2_proxy_insert_after(ptr noundef %0, ptr nocaptur
   br label %cf_h2_proxy_ctx_clear.exit.i
 
 cf_h2_proxy_ctx_clear.exit.i:                     ; preds = %13, %10
-  %14 = getelementptr inbounds i8, ptr %5, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @Curl_bufq_free(ptr noundef nonnull %14) #7
-  %15 = getelementptr inbounds i8, ptr %5, i64 80
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 80
   call void @Curl_bufq_free(ptr noundef nonnull %15) #7
-  %16 = getelementptr inbounds i8, ptr %5, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %17 = load ptr, ptr %16, align 8
   call void @Curl_http_resp_free(ptr noundef %17) #7
-  %18 = getelementptr inbounds i8, ptr %5, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 152
   call void @Curl_bufq_free(ptr noundef nonnull %18) #7
-  %19 = getelementptr inbounds i8, ptr %5, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 216
   call void @Curl_bufq_free(ptr noundef nonnull %19) #7
   %20 = load ptr, ptr @Curl_cfree, align 8
-  %21 = getelementptr inbounds i8, ptr %5, i64 280
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %22 = load ptr, ptr %21, align 8
   call void %20(ptr noundef %22) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %5, i8 0, i64 328, i1 false)
@@ -1999,12 +1999,12 @@ declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -902, -9223372036854775808) i64 @on_session_send(ptr nocapture readnone %0, ptr noundef %1, i64 noundef %2, i32 %3, ptr noundef %4) #0 {
   %6 = alloca i32, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   store i32 0, ptr %6, align 4
-  %11 = getelementptr inbounds i8, ptr %8, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %12 = call i64 @Curl_bufq_write_pass(ptr noundef nonnull %11, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @proxy_h2_nw_out_writer, ptr noundef %4, ptr noundef nonnull %6) #7
   %13 = icmp slt i64 %12, 0
   br i1 %13, label %14, label %18
@@ -2033,17 +2033,17 @@ declare void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %33, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %8, i64 2642
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 2642
   %13 = load i64, ptr %12, align 2
   %14 = and i64 %13, 268435456
   %.not77 = icmp eq i64 %14, 0
@@ -2051,7 +2051,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %33
@@ -2068,7 +2068,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %33
@@ -2083,7 +2083,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br i1 %.not65, label %34, label %70
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i8, ptr %35, align 4
   switch i8 %36, label %drain_tunnel.exit [
     i8 4, label %37
@@ -2091,21 +2091,21 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   ]
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %8, i64 300
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 300
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 42
   %41 = icmp eq i32 %40, 2
   br i1 %41, label %42, label %drain_tunnel.exit
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %6, i64 308
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 308
   %44 = load i8, ptr %43, align 4
   %45 = and i8 %44, 6
   %or.cond24.i = icmp eq i8 %45, 0
   br i1 %or.cond24.i, label %46, label %49
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %6, i64 296
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %48 = load i64, ptr %47, align 8
   %.not21.i = icmp eq i64 %48, 0
   %spec.select.i = select i1 %.not21.i, i8 1, i8 3
@@ -2113,14 +2113,14 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 49:                                               ; preds = %46, %42
   %.0.i = phi i8 [ 1, %42 ], [ %spec.select.i, %46 ]
-  %50 = getelementptr inbounds i8, ptr %8, i64 4939
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 4939
   %51 = load i8, ptr %50, align 1
   %52 = zext nneg i8 %.0.i to i32
   %.not22.i = icmp eq i8 %51, %.0.i
   br i1 %.not22.i, label %drain_tunnel.exit, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds i8, ptr %8, i64 2642
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 2642
   %55 = load i64, ptr %54, align 2
   %56 = and i64 %55, 268435456
   %.not81 = icmp eq i64 %56, 0
@@ -2128,13 +2128,13 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %2, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
   %60 = load i32, ptr %59, align 4
   %61 = icmp sgt i32 %60, 0
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %57
-  %63 = getelementptr inbounds i8, ptr %6, i64 288
+  %63 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %64 = load i32, ptr %63, align 8
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %8, ptr noundef nonnull %2, ptr noundef nonnull @.str.27, i32 noundef %64, i32 noundef %52) #7
   br label %65
@@ -2145,15 +2145,15 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br label %drain_tunnel.exit
 
 66:                                               ; preds = %34
-  %67 = getelementptr inbounds i8, ptr %6, i64 320
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 320
   %68 = load i8, ptr %67, align 8
   %69 = or i8 %68, 2
   store i8 %69, ptr %67, align 8
   br label %drain_tunnel.exit
 
 70:                                               ; preds = %33
-  %71 = getelementptr inbounds i8, ptr %6, i64 144
-  %72 = getelementptr inbounds i8, ptr %6, i64 288
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %73 = load i32, ptr %72, align 8
   %.not66 = icmp eq i32 %10, %73
   br i1 %.not66, label %85, label %74
@@ -2162,7 +2162,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br i1 %.not, label %drain_tunnel.exit, label %75
 
 75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %8, i64 2642
+  %76 = getelementptr inbounds nuw i8, ptr %8, i64 2642
   %77 = load i64, ptr %76, align 2
   %78 = and i64 %77, 268435456
   %.not78 = icmp eq i64 %78, 0
@@ -2170,7 +2170,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %2, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 12
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = load i32, ptr %81, align 4
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %84, label %drain_tunnel.exit
@@ -2180,7 +2180,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br label %drain_tunnel.exit
 
 85:                                               ; preds = %70
-  %86 = getelementptr inbounds i8, ptr %1, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %87 = load i8, ptr %86, align 4
   switch i8 %87, label %drain_tunnel.exit [
     i8 1, label %88
@@ -2196,7 +2196,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br i1 %.not, label %102, label %91
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %8, i64 2642
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 2642
   %93 = load i64, ptr %92, align 2
   %94 = and i64 %93, 268435456
   %.not80 = icmp eq i64 %94, 0
@@ -2204,7 +2204,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %2, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 12
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %100, label %102
@@ -2215,7 +2215,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br label %102
 
 102:                                              ; preds = %90, %91, %95, %100
-  %103 = getelementptr inbounds i8, ptr %6, i64 308
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 308
   %104 = load i8, ptr %103, align 4
   %105 = and i8 %104, 1
   %.not68 = icmp eq i8 %105, 0
@@ -2234,21 +2234,21 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
   br label %drain_tunnel.exit
 
 111:                                              ; preds = %85
-  %112 = getelementptr inbounds i8, ptr %8, i64 300
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 300
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 42
   %115 = icmp eq i32 %114, 2
   br i1 %115, label %116, label %drain_tunnel.exit
 
 116:                                              ; preds = %111
-  %117 = getelementptr inbounds i8, ptr %6, i64 308
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 308
   %118 = load i8, ptr %117, align 4
   %119 = and i8 %118, 6
   %or.cond24.i70 = icmp eq i8 %119, 0
   br i1 %or.cond24.i70, label %120, label %123
 
 120:                                              ; preds = %116
-  %121 = getelementptr inbounds i8, ptr %6, i64 296
+  %121 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %122 = load i64, ptr %121, align 8
   %.not21.i74 = icmp eq i64 %122, 0
   %spec.select.i75 = select i1 %.not21.i74, i8 1, i8 3
@@ -2256,14 +2256,14 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 123:                                              ; preds = %120, %116
   %.0.i71 = phi i8 [ 1, %116 ], [ %spec.select.i75, %120 ]
-  %124 = getelementptr inbounds i8, ptr %8, i64 4939
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 4939
   %125 = load i8, ptr %124, align 1
   %126 = zext nneg i8 %.0.i71 to i32
   %.not22.i72 = icmp eq i8 %125, %.0.i71
   br i1 %.not22.i72, label %drain_tunnel.exit, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %8, i64 2642
+  %128 = getelementptr inbounds nuw i8, ptr %8, i64 2642
   %129 = load i64, ptr %128, align 2
   %130 = and i64 %129, 268435456
   %.not79 = icmp eq i64 %130, 0
@@ -2271,7 +2271,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_frame_recv(ptr nocapture rea
 
 131:                                              ; preds = %127
   %132 = load ptr, ptr %2, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 12
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %134 = load i32, ptr %133, align 4
   %135 = icmp sgt i32 %134, 0
   br i1 %135, label %136, label %137
@@ -2299,15 +2299,15 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
   br i1 %.not24, label %.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %9, i64 2642
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 2642
   %12 = load i64, ptr %11, align 2
   %13 = and i64 %12, 268435456
   %.not25 = icmp eq i64 %13, 0
@@ -2315,7 +2315,7 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %2, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %.thread
@@ -2332,13 +2332,13 @@ define internal noundef i32 @proxy_h2_on_frame_send(ptr nocapture readnone %0, p
 
 25:                                               ; preds = %19
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i32, ptr %31, align 8
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %9, ptr noundef nonnull %2, ptr noundef nonnull @.str.28, i32 noundef %32, ptr noundef nonnull %4) #7
   br label %.thread
@@ -2352,15 +2352,15 @@ declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noun
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -902, 1) i32 @tunnel_recv_callback(ptr nocapture readnone %0, i8 zeroext %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 288
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 288
   %11 = load i32, ptr %10, align 8
   %.not = icmp eq i32 %2, %11
   br i1 %.not, label %12, label %17
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %9, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %14 = call i64 @Curl_bufq_write(ptr noundef nonnull %13, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %7) #7
   %15 = icmp sgt i64 %14, -1
   %16 = load i32, ptr %7, align 4
@@ -2378,11 +2378,11 @@ declare void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 288
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 288
   %10 = load i32, ptr %9, align 8
   %.not = icmp eq i32 %1, %10
   br i1 %.not, label %11, label %28
@@ -2392,7 +2392,7 @@ define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0,
   br i1 %.not21, label %23, label %12
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds i8, ptr %8, i64 2642
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 2642
   %14 = load i64, ptr %13, align 2
   %15 = and i64 %14, 268435456
   %.not22 = icmp eq i64 %15, 0
@@ -2400,7 +2400,7 @@ define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0,
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %3, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %21, label %23
@@ -2411,11 +2411,11 @@ define internal noundef i32 @proxy_h2_on_stream_close(ptr nocapture readnone %0,
   br label %23
 
 23:                                               ; preds = %11, %12, %16, %21
-  %24 = getelementptr inbounds i8, ptr %6, i64 308
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 308
   %25 = load i8, ptr %24, align 4
   %26 = or i8 %25, 2
   store i8 %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %6, i64 292
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 292
   store i32 %2, ptr %27, align 4
   br label %28
 
@@ -2429,14 +2429,14 @@ declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr 
 define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i8 zeroext %6, ptr noundef %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 144
-  %18 = getelementptr inbounds i8, ptr %12, i64 288
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %19 = load i32, ptr %18, align 8
   %.not = icmp eq i32 %16, %19
   br i1 %.not, label %33, label %20
@@ -2446,7 +2446,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
   br i1 %.not75, label %83, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %14, i64 2642
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 2642
   %23 = load i64, ptr %22, align 2
   %24 = and i64 %23, 268435456
   %.not76 = icmp eq i64 %24, 0
@@ -2454,7 +2454,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %30, label %83
@@ -2466,13 +2466,13 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
   br label %83
 
 33:                                               ; preds = %8
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %35 = load i8, ptr %34, align 4
   %36 = icmp eq i8 %35, 5
   br i1 %36, label %83, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %12, i64 308
+  %38 = getelementptr inbounds nuw i8, ptr %12, i64 308
   %39 = load i8, ptr %38, align 4
   %40 = and i8 %39, 1
   %.not68 = icmp eq i8 %40, 0
@@ -2501,14 +2501,14 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
 50:                                               ; preds = %47
   %51 = load ptr, ptr %17, align 8
   %52 = load ptr, ptr %10, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 128
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 128
   store ptr %51, ptr %53, align 8
   store ptr %52, ptr %17, align 8
   %.not74 = icmp eq ptr %14, null
   br i1 %.not74, label %83, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %14, i64 2642
+  %55 = getelementptr inbounds nuw i8, ptr %14, i64 2642
   %56 = load i64, ptr %55, align 2
   %57 = and i64 %56, 268435456
   %.not78 = icmp eq i64 %57, 0
@@ -2516,7 +2516,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 12
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
   %61 = load i32, ptr %60, align 4
   %62 = icmp sgt i32 %61, 0
   br i1 %62, label %63, label %83
@@ -2532,7 +2532,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
   br i1 %.not69, label %83, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %66, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %69 = tail call i32 @Curl_dynhds_add(ptr noundef nonnull %68, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #7
   %.not70 = icmp eq i32 %69, 0
   br i1 %.not70, label %70, label %83
@@ -2542,7 +2542,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
   br i1 %.not71, label %83, label %71
 
 71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %14, i64 2642
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 2642
   %73 = load i64, ptr %72, align 2
   %74 = and i64 %73, 268435456
   %.not77 = icmp eq i64 %74, 0
@@ -2550,7 +2550,7 @@ define internal range(i32 -902, 1) i32 @proxy_h2_on_header(ptr nocapture readnon
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %7, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %80, label %83
@@ -2592,18 +2592,18 @@ define internal i64 @proxy_h2_nw_out_writer(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not, label %24, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @Curl_conn_cf_send(ptr noundef %11, ptr noundef %9, ptr noundef %1, i64 noundef %2, ptr noundef %3) #7
   %.not21 = icmp eq ptr %9, null
   br i1 %.not21, label %24, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %9, i64 2642
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 2642
   %15 = load i64, ptr %14, align 2
   %16 = and i64 %15, 268435456
   %.not22 = icmp eq i64 %16, 0
@@ -2611,7 +2611,7 @@ define internal i64 @proxy_h2_nw_out_writer(ptr noundef %0, ptr noundef %1, i64 
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %24
@@ -2631,7 +2631,7 @@ declare i64 @Curl_conn_cf_send(ptr noundef, ptr noundef, ptr noundef, i64 nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   switch i8 %5, label %85 [
     i8 0, label %6
@@ -2648,11 +2648,11 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 6:                                                ; preds = %2
   %7 = load i64, ptr %0, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 1
   %12 = zext nneg i8 %11 to i32
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = trunc i64 %14 to i32
   %16 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.16, i32 noundef %8, i32 noundef %12, i32 noundef %15) #7
@@ -2661,7 +2661,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 17:                                               ; preds = %2
   %18 = load i64, ptr %0, align 8
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %0, i64 13
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i32
   %23 = lshr i32 %22, 2
@@ -2673,7 +2673,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 26:                                               ; preds = %2
   %27 = load i64, ptr %0, align 8
   %28 = trunc i64 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 13
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
   %32 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.18, i32 noundef %28, i32 noundef %31) #7
@@ -2682,16 +2682,16 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 33:                                               ; preds = %2
   %34 = load i64, ptr %0, align 8
   %35 = trunc i64 %34 to i32
-  %36 = getelementptr inbounds i8, ptr %0, i64 13
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.19, i32 noundef %35, i32 noundef %38, i32 noundef %40) #7
   br label %93
 
 42:                                               ; preds = %2
-  %43 = getelementptr inbounds i8, ptr %0, i64 13
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %44 = load i8, ptr %43, align 1
   %45 = and i8 %44, 1
   %.not56 = icmp eq i8 %45, 0
@@ -2710,7 +2710,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 52:                                               ; preds = %2
   %53 = load i64, ptr %0, align 8
   %54 = trunc i64 %53 to i32
-  %55 = getelementptr inbounds i8, ptr %0, i64 13
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %56 = load i8, ptr %55, align 1
   %57 = lshr i8 %56, 2
   %.lobit = and i8 %57, 1
@@ -2721,7 +2721,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 60:                                               ; preds = %2
   %61 = load i64, ptr %0, align 8
   %62 = trunc i64 %61 to i32
-  %63 = getelementptr inbounds i8, ptr %0, i64 13
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %64 = load i8, ptr %63, align 1
   %65 = and i8 %64, 1
   %66 = zext nneg i8 %65 to i32
@@ -2729,30 +2729,30 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
   br label %93
 
 68:                                               ; preds = %2
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i64, ptr %69, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %70, i64 127)
   %.not = icmp eq i64 %70, 0
   br i1 %.not, label %74, label %71
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %73 = load ptr, ptr %72, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %73, i64 %., i1 false)
   br label %74
 
 74:                                               ; preds = %71, %68
-  %75 = getelementptr inbounds [128 x i8], ptr %3, i64 0, i64 %.
+  %75 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 0, i64 %.
   store i8 0, ptr %75, align 1
-  %76 = getelementptr inbounds i8, ptr %0, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i32, ptr %78, align 8
   %80 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.24, i32 noundef %77, ptr noundef nonnull %3, i32 noundef %79) #7
   br label %93
 
 81:                                               ; preds = %2
-  %82 = getelementptr inbounds i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %83 = load i32, ptr %82, align 8
   %84 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.25, i32 noundef %83) #7
   br label %93
@@ -2761,7 +2761,7 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
   %86 = zext i8 %5 to i32
   %87 = load i64, ptr %0, align 8
   %88 = trunc i64 %87 to i32
-  %89 = getelementptr inbounds i8, ptr %0, i64 13
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %90 = load i8, ptr %89, align 1
   %91 = zext i8 %90 to i32
   %92 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef 255, ptr noundef nonnull @.str.26, i32 noundef %86, i32 noundef %88, i32 noundef %91) #7
@@ -2774,14 +2774,14 @@ define internal fastcc i32 @proxy_h2_fr_print(ptr nocapture noundef readonly %0,
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @drain_tunnel(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 164
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 6
   %or.cond24 = icmp eq i8 %6, 0
   br i1 %or.cond24, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %2, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %9 = load i64, ptr %8, align 8
   %.not21 = icmp eq i64 %9, 0
   %spec.select = select i1 %.not21, i8 1, i8 3
@@ -2789,14 +2789,14 @@ define internal fastcc void @drain_tunnel(ptr noundef %0, ptr noundef %1, ptr no
 
 10:                                               ; preds = %7, %3
   %.0 = phi i8 [ 1, %3 ], [ %spec.select, %7 ]
-  %11 = getelementptr inbounds i8, ptr %1, i64 4939
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4939
   %12 = load i8, ptr %11, align 1
   %13 = zext nneg i8 %.0 to i32
   %.not22 = icmp eq i8 %12, %.0
   br i1 %.not22, label %29, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %1, i64 2642
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %16 = load i64, ptr %15, align 2
   %17 = and i64 %16, 268435456
   %18 = icmp ne i64 %17, 0
@@ -2806,13 +2806,13 @@ define internal fastcc void @drain_tunnel(ptr noundef %0, ptr noundef %1, ptr no
 
 20:                                               ; preds = %14
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %25, label %28
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %2, i64 144
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %27 = load i32, ptr %26, align 8
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str.27, i32 noundef %27, i32 noundef %13) #7
   br label %28
@@ -2853,10 +2853,10 @@ declare void @nghttp2_option_del(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   store i32 0, ptr %3, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %6) #7
   br i1 %7, label %25, label %8
 
@@ -2865,7 +2865,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br i1 %.not, label %20, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 2642
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %11 = load i64, ptr %10, align 2
   %12 = and i64 %11, 268435456
   %.not47 = icmp eq i64 %12, 0
@@ -2873,7 +2873,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %18, label %20
@@ -2893,11 +2893,11 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br label %86
 
 25:                                               ; preds = %20, %2
-  %26 = getelementptr inbounds i8, ptr %5, i64 320
-  %27 = getelementptr inbounds i8, ptr %5, i64 308
-  %28 = getelementptr inbounds i8, ptr %5, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 320
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 308
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 152
   %.not43 = icmp eq ptr %1, null
-  %29 = getelementptr inbounds i8, ptr %1, i64 2642
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   br i1 %.not43, label %.split.us, label %.split.split
 
 .split.us:                                        ; preds = %25, %44
@@ -2963,7 +2963,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
 
 59:                                               ; preds = %55
   %60 = load ptr, ptr %0, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load i32, ptr %61, align 4
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %64, label %67
@@ -3018,7 +3018,7 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
   br i1 %82, label %83, label %86
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load ptr, ptr %84, align 8
   call void @Curl_conncontrol(ptr noundef %85, i32 noundef 1) #7
   br label %86
@@ -3031,9 +3031,9 @@ define internal fastcc i32 @proxy_h2_progress_ingress(ptr noundef %0, ptr nounde
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -5
   store i8 %8, ptr %6, align 8
@@ -3068,7 +3068,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
   br i1 %.not24, label %73, label %20
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %1, i64 2642
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %22 = load i64, ptr %21, align 2
   %23 = and i64 %22, 268435456
   %24 = icmp ne i64 %23, 0
@@ -3078,7 +3078,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %73
@@ -3091,7 +3091,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 33:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   %34 = load ptr, ptr %4, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 80
   %36 = tail call zeroext i1 @Curl_bufq_is_empty(ptr noundef nonnull %35) #7
   br i1 %36, label %proxy_h2_nw_out_flush.exit, label %37
 
@@ -3110,7 +3110,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
   br i1 %.not26.i, label %55, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %1, i64 2642
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %46 = load i64, ptr %45, align 2
   %47 = and i64 %46, 268435456
   %.not28.i = icmp eq i64 %47, 0
@@ -3118,7 +3118,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 
 48:                                               ; preds = %44
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %55
@@ -3131,7 +3131,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 
 55:                                               ; preds = %53, %48, %44, %43
   %.pre.i = phi i32 [ 81, %43 ], [ 81, %44 ], [ 81, %48 ], [ %.pre.pre.i, %53 ]
-  %56 = getelementptr inbounds i8, ptr %34, i64 320
+  %56 = getelementptr inbounds nuw i8, ptr %34, i64 320
   %57 = load i8, ptr %56, align 8
   %58 = or i8 %57, 4
   store i8 %58, ptr %56, align 8
@@ -3142,7 +3142,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
   br i1 %.not.i, label %70, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %1, i64 2642
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   %62 = load i64, ptr %61, align 2
   %63 = and i64 %62, 268435456
   %.not27.i = icmp eq i64 %63, 0
@@ -3150,7 +3150,7 @@ define internal fastcc i32 @proxy_h2_progress_egress(ptr noundef %0, ptr noundef
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %67 = load i32, ptr %66, align 4
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %70
@@ -3185,9 +3185,9 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -3202,7 +3202,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
   br i1 %.not30, label %46, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %18, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %21 = call i64 @Curl_bufq_read(ptr noundef nonnull %20, ptr noundef %2, i64 noundef %3, ptr noundef nonnull %8) #7
   %22 = icmp slt i64 %21, 0
   br i1 %22, label %23, label %25
@@ -3214,7 +3214,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
   br label %46
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %18, i64 164
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 164
   %27 = load i8, ptr %26, align 4
   %28 = and i8 %27, 2
   %.not31 = icmp eq i8 %28, 0
@@ -3233,7 +3233,7 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
   br i1 %.not32, label %46, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %16, i64 2642
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 2642
   %35 = load i64, ptr %34, align 2
   %36 = and i64 %35, 268435456
   %37 = icmp ne i64 %36, 0
@@ -3242,13 +3242,13 @@ define internal range(i64 -902, -9223372036854775808) i64 @tunnel_send_callback(
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %18, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %45 = load i32, ptr %44, align 8
   call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %16, ptr noundef nonnull %6, ptr noundef nonnull @.str.39, i32 noundef %45, i64 noundef %21) #7
   br label %46
@@ -3286,15 +3286,15 @@ declare i64 @Curl_bufq_len(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = call zeroext i1 @Curl_bufq_peek(ptr noundef nonnull %8, ptr noundef nonnull %4, ptr noundef nonnull %5) #7
   br i1 %9, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
   %.not = icmp eq ptr %1, null
-  %10 = getelementptr inbounds i8, ptr %1, i64 2642
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2642
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %18
@@ -3326,7 +3326,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
 
 26:                                               ; preds = %.lr.ph.split.split.split
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
   br i1 %30, label %31, label %33
@@ -3361,7 +3361,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
 
 41:                                               ; preds = %.split45.us
   %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %.loopexit
@@ -3375,7 +3375,7 @@ define internal fastcc range(i32 -1, 1) i32 @proxy_h2_process_pending_input(ptr 
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %0, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %55
@@ -3404,18 +3404,18 @@ define internal i64 @proxy_nw_in_reader(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %.not, label %24, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @Curl_conn_cf_recv(ptr noundef %11, ptr noundef %9, ptr noundef %1, i64 noundef %2, ptr noundef %3) #7
   %.not21 = icmp eq ptr %9, null
   br i1 %.not21, label %24, label %13
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %9, i64 2642
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 2642
   %15 = load i64, ptr %14, align 2
   %16 = and i64 %15, 268435456
   %.not22 = icmp eq i64 %16, 0
@@ -3423,7 +3423,7 @@ define internal i64 @proxy_nw_in_reader(ptr noundef %0, ptr noundef %1, i64 noun
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %22, label %24

@@ -30,17 +30,17 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_acpi_tb_unlo
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @acpi_tb_init_table_descriptor(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 24, i1 false)
   store i64 %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 26
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 %2, ptr %9, align 2
   %10 = load i32, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %10, ptr %11, align 4
   %12 = and i8 %2, 3
   switch i8 %12, label %15 [
@@ -49,7 +49,7 @@ define dso_local void @acpi_tb_init_table_descriptor(ptr nocapture noundef write
   ]
 
 13:                                               ; preds = %4, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %14, align 8
   br label %15
 
@@ -62,7 +62,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 0, 5) i32 @acpi_tb_acquire_table(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 26
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %6 = load i8, ptr %5, align 2
   %7 = and i8 %6, 3
   switch i8 %7, label %default.unreachable1 [
@@ -74,14 +74,14 @@ define dso_local noundef range(i32 0, 5) i32 @acpi_tb_acquire_table(ptr nocaptur
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = tail call ptr @acpi_os_map_memory(i64 noundef %9, i64 noundef %12) #8
   br label %17
 
 14:                                               ; preds = %4, %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   br label %17
 
@@ -95,7 +95,7 @@ default.unreachable1:                             ; preds = %4
 
 20:                                               ; preds = %17
   store ptr %18, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i32, ptr %21, align 8
   store i32 %22, ptr %2, align 4
   %23 = load i8, ptr %5, align 2
@@ -158,17 +158,17 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr 
   br i1 %11, label %.thread4, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, i8 0, i64 24, i1 false)
   store i64 %1, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = load i32, ptr %14, align 1
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 26
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 %2, ptr %17, align 2
   %18 = load i32, ptr %3, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %18, ptr %19, align 4
   switch i8 %5, label %.thread4 [
     i8 2, label %20
@@ -176,23 +176,23 @@ define dso_local noundef range(i32 0, 4098) i32 @acpi_tb_acquire_temp_table(ptr 
   ]
 
 20:                                               ; preds = %12, %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %21, align 8
   br label %.thread4
 
 22:                                               ; preds = %7, %6
   %.ph = phi ptr [ %8, %7 ], [ %3, %6 ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 24, i1 false)
   store i64 %1, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %.ph, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.ph, i64 4
   %25 = load i32, ptr %24, align 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 26
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 26
   store i8 %2, ptr %27, align 2
   %28 = load i32, ptr %.ph, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %28, ptr %29, align 4
   br i1 %.not, label %30, label %.thread4
 
@@ -210,20 +210,20 @@ default.unreachable5:                             ; preds = %4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_release_temp_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, 3
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %3, i64 noundef %13) #8
@@ -246,20 +246,20 @@ define dso_local void @acpi_tb_release_temp_table(ptr nocapture noundef %0) loca
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_tb_invalidate_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %19, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, 3
   %9 = icmp eq i8 %8, 1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   %13 = zext i32 %12 to i64
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %3, i64 noundef %13) #8
@@ -282,20 +282,20 @@ define dso_local void @acpi_tb_invalidate_table(ptr nocapture noundef %0) local_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 5) i32 @acpi_tb_validate_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 26
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, 3
   %switch = icmp eq i8 %8, 1
   br i1 %switch, label %9, label %.thread
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %0, align 8
   %12 = load i32, ptr %10, align 8
   %13 = zext i32 %12 to i64
@@ -314,7 +314,7 @@ define dso_local range(i32 0, 5) i32 @acpi_tb_validate_table(ptr nocapture nound
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i32 0, 5) i32 @acpi_tb_validate_temp_table(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
   %5 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
@@ -323,7 +323,7 @@ define dso_local range(i32 0, 5) i32 @acpi_tb_validate_temp_table(ptr nocapture 
   br i1 %7, label %9, label %.thread
 
 .thread:                                          ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 36, ptr %8, align 8
   br label %11
 
@@ -332,14 +332,14 @@ define dso_local range(i32 0, 5) i32 @acpi_tb_validate_temp_table(ptr nocapture 
   br i1 %10, label %11, label %.thread2
 
 11:                                               ; preds = %.thread, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 26
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %13 = load i8, ptr %12, align 2
   %14 = and i8 %13, 3
   %switch = icmp eq i8 %14, 1
   br i1 %switch, label %15, label %.thread2
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %0, align 8
   %18 = load i32, ptr %16, align 8
   %19 = zext i32 %18 to i64
@@ -358,7 +358,7 @@ define dso_local range(i32 0, 5) i32 @acpi_tb_validate_temp_table(ptr nocapture 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
   %7 = load i8, ptr @acpi_gbl_enable_table_validation, align 1
@@ -367,7 +367,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   br i1 %9, label %11, label %.thread
 
 .thread:                                          ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 36, ptr %10, align 8
   br label %13
 
@@ -376,7 +376,7 @@ define dso_local i32 @acpi_tb_verify_temp_table(ptr noundef %0, ptr noundef %1, 
   br i1 %12, label %13, label %24
 
 13:                                               ; preds = %.thread, %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 26
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %15 = load i8, ptr %14, align 2
   %16 = and i8 %15, 3
   %switch = icmp eq i8 %16, 1
@@ -386,7 +386,7 @@ default.unreachable26:                            ; preds = %60
   unreachable
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %0, align 8
   %20 = load i32, ptr %18, align 8
   %21 = zext i32 %20 to i64
@@ -404,7 +404,7 @@ default.unreachable26:                            ; preds = %60
   br i1 %26, label %33, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load i32, ptr %28, align 4
   %30 = load i32, ptr %1, align 4
   %31 = icmp eq i32 %29, %30
@@ -420,22 +420,22 @@ default.unreachable26:                            ; preds = %60
   br i1 %35, label %.thread13, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load i32, ptr %37, align 8
   %39 = tail call i32 @acpi_ut_verify_checksum(ptr noundef nonnull %25, i32 noundef %38) #8
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %50, label %41
 
 41:                                               ; preds = %36
-  %42 = getelementptr inbounds i8, ptr %0, i64 20
-  %43 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef %42) #8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %43 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef nonnull %42) #8
   %44 = icmp eq i8 %43, 0
   %45 = select i1 %44, ptr @.str.2, ptr %42
   %46 = load i64, ptr %0, align 8
   %47 = lshr i64 %46, 32
   %48 = trunc nuw i64 %47 to i32
   %49 = trunc i64 %46 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 528, i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef %45, i32 noundef %48, i32 noundef %49) #8
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 528, i32 noundef 4, ptr noundef nonnull @.str.1, ptr noundef nonnull %45, i32 noundef %48, i32 noundef %49) #8
   br label %118
 
 50:                                               ; preds = %36
@@ -456,7 +456,7 @@ default.unreachable26:                            ; preds = %60
 
 60:                                               ; preds = %.preheader
   %61 = getelementptr %struct.acpi_table_desc, ptr %55, i64 %54
-  %62 = getelementptr inbounds i8, ptr %61, i64 26
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 26
   %63 = and i8 %57, 3
   switch i8 %63, label %default.unreachable26 [
     i8 1, label %64
@@ -467,14 +467,14 @@ default.unreachable26:                            ; preds = %60
 
 64:                                               ; preds = %60
   %65 = load i64, ptr %61, align 8
-  %66 = getelementptr inbounds i8, ptr %61, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %67 = load i32, ptr %66, align 8
   %68 = zext i32 %67 to i64
   %69 = tail call ptr @acpi_os_map_memory(i64 noundef %65, i64 noundef %68) #8
   br label %73
 
 70:                                               ; preds = %60, %60
-  %71 = getelementptr inbounds i8, ptr %61, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -484,7 +484,7 @@ default.unreachable26:                            ; preds = %60
   br i1 %75, label %.thread17, label %76
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %61, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = load i8, ptr %62, align 2
   %80 = and i8 %79, 3
@@ -533,19 +533,19 @@ default.unreachable26:                            ; preds = %60
   br label %118
 
 106:                                              ; preds = %94
-  %107 = getelementptr inbounds i8, ptr %0, i64 20
-  %108 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef %107) #8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %108 = tail call zeroext i8 @acpi_ut_valid_nameseg(ptr noundef nonnull %107) #8
   %109 = icmp eq i8 %108, 0
   %110 = select i1 %109, ptr @.str.2, ptr %107
   %111 = load i64, ptr %0, align 8
   %112 = lshr i64 %111, 32
   %113 = trunc nuw i64 %112 to i32
   %114 = trunc i64 %111 to i32
-  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef %110, i32 noundef %113, i32 noundef %114) #8
+  tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 548, i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull %110, i32 noundef %113, i32 noundef %114) #8
   br label %118
 
 .thread19:                                        ; preds = %.thread17, %50
-  %115 = getelementptr inbounds i8, ptr %0, i64 26
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %116 = load i8, ptr %115, align 2
   %117 = or i8 %116, 4
   store i8 %117, ptr %115, align 2
@@ -558,14 +558,14 @@ default.unreachable26:                            ; preds = %60
   br i1 %121, label %.thread13, label %122
 
 122:                                              ; preds = %118
-  %123 = getelementptr inbounds i8, ptr %0, i64 26
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %124 = load i8, ptr %123, align 2
   %125 = and i8 %124, 3
   %126 = icmp eq i8 %125, 1
   br i1 %126, label %127, label %131
 
 127:                                              ; preds = %122
-  %128 = getelementptr inbounds i8, ptr %0, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = load i32, ptr %128, align 8
   %130 = zext i32 %129 to i64
   tail call void @acpi_os_unmap_memory(ptr noundef nonnull %120, i64 noundef %130) #8

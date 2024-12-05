@@ -84,29 +84,29 @@ module asm ".previous\09\09\09\09\09"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal void @cubictcp_init(ptr nocapture noundef initializes((1264, 1304), (1307, 1308)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1264
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(40) %2, i8 0, i64 40, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 1307
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %2, i8 0, i64 40, i1 false)
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1307
   store i8 0, ptr %3, align 1
   %4 = load i32, ptr @hystart, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %16, label %.thread
 
 .thread:                                          ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1608
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 1316
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1316
   store i32 %8, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 1308
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   store i32 %8, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1660
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 1312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 1320
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i32 -1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 1306
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   store i8 0, ptr %15, align 2
   br label %20
 
@@ -116,7 +116,7 @@ define internal void @cubictcp_init(ptr nocapture noundef initializes((1264, 130
   br i1 %.not, label %20, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 1504
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   store i32 %17, ptr %19, align 32
   br label %20
 
@@ -132,10 +132,10 @@ define internal void @cubictcp_cwnd_event(ptr nocapture noundef %0, i32 noundef 
 4:                                                ; preds = %2
   %5 = load volatile i64, ptr @jiffies, align 64
   %6 = trunc i64 %5 to i32
-  %7 = getelementptr inbounds i8, ptr %0, i64 1580
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %8 = load i32, ptr %7, align 4
   %9 = sub i32 %6, %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 1292
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %11 = load i32, ptr %10, align 4
   %12 = icmp ne i32 %11, 0
   %13 = icmp sgt i32 %9, 0
@@ -156,14 +156,14 @@ define internal void @cubictcp_cwnd_event(ptr nocapture noundef %0, i32 noundef 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 1264
-  %5 = getelementptr inbounds i8, ptr %0, i64 1439
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1439
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 32
   %8 = icmp eq i8 %7, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 1420
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1504
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %12 = load i32, ptr %11, align 32
   br i1 %8, label %13, label %._crit_edge
 
@@ -172,14 +172,14 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   br i1 %14, label %15, label %181
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 1748
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1748
   %17 = load i32, ptr %16, align 4
   %18 = shl i32 %17, 1
   %19 = icmp ult i32 %10, %18
   br i1 %19, label %._crit_edge, label %181
 
 ._crit_edge:                                      ; preds = %3, %15
-  %20 = getelementptr inbounds i8, ptr %0, i64 1420
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %21 = icmp ult i32 %10, %12
   br i1 %21, label %22, label %25
 
@@ -195,11 +195,11 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 25:                                               ; preds = %._crit_edge15, %._crit_edge
   %26 = phi i32 [ %.pre16, %._crit_edge15 ], [ %10, %._crit_edge ]
   %27 = phi i32 [ %23, %._crit_edge15 ], [ %2, %._crit_edge ]
-  %28 = getelementptr inbounds i8, ptr %0, i64 1296
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, %27
   store i32 %30, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 1272
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, %26
   br i1 %33, label %34, label %41
@@ -207,7 +207,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 34:                                               ; preds = %25
   %35 = load volatile i64, ptr @jiffies, align 64
   %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %0, i64 1276
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1276
   %38 = load i32, ptr %37, align 4
   %39 = sub i32 %36, %38
   %40 = icmp slt i32 %39, 32
@@ -218,7 +218,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   br label %179
 
 41:                                               ; preds = %34, %25
-  %42 = getelementptr inbounds i8, ptr %0, i64 1292
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %54, label %45
@@ -226,7 +226,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 45:                                               ; preds = %41
   %46 = load volatile i64, ptr @jiffies, align 64
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %0, i64 1276
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1276
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %47
   br i1 %50, label %154, label %51
@@ -242,23 +242,23 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   store i32 %26, ptr %31, align 4
   %55 = load volatile i64, ptr @jiffies, align 64
   %56 = trunc i64 %55 to i32
-  %57 = getelementptr inbounds i8, ptr %0, i64 1276
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1276
   store i32 %56, ptr %57, align 4
   %58 = load volatile i64, ptr @jiffies, align 64
   %59 = trunc i64 %58 to i32
   store i32 %59, ptr %42, align 4
   store i32 %27, ptr %28, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 1300
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   store i32 %26, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 1268
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %62 = load i32, ptr %61, align 4
   %63 = icmp ugt i32 %62, %26
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %54
-  %65 = getelementptr inbounds i8, ptr %0, i64 1284
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   store i32 0, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 1280
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   store i32 %26, ptr %66, align 4
   br label %110
 
@@ -309,9 +309,9 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 
 106:                                              ; preds = %82, %75
   %107 = phi i32 [ %81, %75 ], [ %105, %82 ]
-  %108 = getelementptr inbounds i8, ptr %0, i64 1284
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   store i32 %107, ptr %108, align 4
-  %109 = getelementptr inbounds i8, ptr %0, i64 1280
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   store i32 %62, ptr %109, align 4
   br label %110
 
@@ -321,13 +321,13 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   %113 = trunc i64 %112 to i32
   %114 = sub i32 %113, %111
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i8, ptr %0, i64 1288
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %117 = load i32, ptr %116, align 4
   %118 = tail call i64 @__usecs_to_jiffies(i32 noundef %117) #8
   %119 = add i64 %118, %115
   %120 = shl i64 %119, 10
   %121 = udiv i64 %120, 1000
-  %122 = getelementptr inbounds i8, ptr %0, i64 1284
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1284
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %123 to i64
   %125 = icmp samesign ult i64 %121, %124
@@ -341,7 +341,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   %133 = mul i64 %132, %128
   %134 = lshr i64 %133, 40
   %135 = trunc nuw nsw i64 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %0, i64 1280
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %137 = load i32, ptr %136, align 4
   %138 = sub nsw i32 0, %135
   %139 = select i1 %125, i32 %138, i32 %135
@@ -360,7 +360,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
 
 147:                                              ; preds = %145, %142
   %148 = phi i32 [ %146, %145 ], [ %144, %142 ]
-  %149 = getelementptr inbounds i8, ptr %0, i64 1268
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, 0
   %152 = tail call i32 @llvm.umin.i32(i32 %148, i32 20)
@@ -383,7 +383,7 @@ define internal void @cubictcp_cong_avoid(ptr noundef %0, i32 %1, i32 noundef %2
   %160 = lshr i32 %159, 3
   %161 = load i32, ptr %28, align 4
   %162 = icmp ugt i32 %161, %160
-  %163 = getelementptr inbounds i8, ptr %0, i64 1300
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 1300
   %164 = load i32, ptr %163, align 4
   br i1 %162, label %.preheader, label %._crit_edge17
 
@@ -435,11 +435,11 @@ declare dso_local void @tcp_cong_avoid_ai(ptr noundef, i32 noundef, i32 noundef)
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
 define internal range(i32 2, 4194304) i32 @cubictcp_recalc_ssthresh(ptr nocapture noundef initializes((1292, 1296)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1292
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 1420
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 1268
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1268
   %6 = load i32, ptr %5, align 4
   %7 = icmp ult i32 %4, %6
   %8 = load i32, ptr @fast_convergence, align 4
@@ -463,24 +463,24 @@ define internal void @cubictcp_state(ptr nocapture noundef %0, i8 noundef zeroex
   br i1 %3, label %4, label %17
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 1264
-  tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 1307
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1264
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false)
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1307
   store i8 0, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 1608
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 1316
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1316
   store i32 %9, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 1308
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   store i32 %9, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 1660
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 1312
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   store i32 %13, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 1320
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i32 -1, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 1306
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   store i8 0, ptr %16, align 2
   br label %17
 
@@ -490,13 +490,13 @@ define internal void @cubictcp_state(ptr nocapture noundef %0, i8 noundef zeroex
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %143, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1292
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1292
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %15, label %10
@@ -510,7 +510,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 
 15:                                               ; preds = %10, %6
   %16 = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
-  %17 = getelementptr inbounds i8, ptr %0, i64 1288
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %18 = load i32, ptr %17, align 4
   %19 = add i32 %18, -1
   %20 = icmp ult i32 %19, %16
@@ -522,15 +522,15 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 
 22:                                               ; preds = %21, %15
   %23 = phi i32 [ %16, %21 ], [ %18, %15 ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 1307
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1307
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %143
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %0, i64 1420
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1420
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 1504
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %31 = load i32, ptr %30, align 32
   %32 = icmp uge i32 %29, %31
   %33 = load i32, ptr @hystart, align 4
@@ -542,28 +542,28 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   br i1 %38, label %143, label %39
 
 39:                                               ; preds = %27
-  %40 = getelementptr inbounds i8, ptr %0, i64 1312
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %0, i64 1664
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %43 = load i32, ptr %42, align 64
   %44 = sub i32 %41, %43
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %46, label %56
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds i8, ptr %0, i64 1608
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %48 = load i64, ptr %47, align 8
   %49 = trunc i64 %48 to i32
-  %50 = getelementptr inbounds i8, ptr %0, i64 1316
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 1316
   store i32 %49, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %0, i64 1308
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   store i32 %49, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %0, i64 1660
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %40, align 4
-  %54 = getelementptr inbounds i8, ptr %0, i64 1320
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   store i32 -1, ptr %54, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 1306
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   store i8 0, ptr %55, align 2
   br label %56
 
@@ -574,10 +574,10 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   br i1 %59, label %106, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 1608
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1608
   %62 = load i64, ptr %61, align 8
   %63 = trunc i64 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %0, i64 1316
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1316
   %65 = load i32, ptr %64, align 4
   %66 = sub i32 %63, %65
   %67 = load i32, ptr @hystart_ack_delta_us, align 4
@@ -586,13 +586,13 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 
 69:                                               ; preds = %60
   store i32 %63, ptr %64, align 4
-  %70 = getelementptr inbounds i8, ptr %0, i64 456
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %71 = load volatile i64, ptr %70, align 8
   %72 = icmp eq i64 %71, 0
   br i1 %72, label %81, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %0, i64 500
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 500
   %75 = load i32, ptr %74, align 4
   %76 = zext i32 %75 to i64
   %77 = mul nuw nsw i64 %76, 4000000
@@ -604,12 +604,12 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 81:                                               ; preds = %73, %69
   %82 = phi i32 [ %80, %73 ], [ 0, %69 ]
   %83 = add nuw i32 %82, %23
-  %84 = getelementptr inbounds i8, ptr %0, i64 396
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %85 = load i32, ptr %84, align 4
   %86 = icmp eq i32 %85, 0
   %87 = zext i1 %86 to i32
   %88 = lshr i32 %83, %87
-  %89 = getelementptr inbounds i8, ptr %0, i64 1308
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1308
   %90 = load i32, ptr %89, align 4
   %91 = sub i32 %63, %90
   %92 = icmp ugt i32 %91, %88
@@ -617,16 +617,16 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 
 93:                                               ; preds = %81
   store i8 1, ptr %24, align 1
-  %94 = getelementptr inbounds i8, ptr %0, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 432
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 432
   %97 = load ptr, ptr %96, align 8
   %98 = getelementptr i8, ptr %97, i64 792
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %98, ptr elementtype(i64) %98) #8, !srcloc !9
   %99 = load i32, ptr %28, align 4
   %100 = zext i32 %99 to i64
   %101 = load ptr, ptr %94, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 432
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 432
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr i8, ptr %103, i64 800
   tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %104, i64 %100, ptr elementtype(i64) %104) #8, !srcloc !10
@@ -642,7 +642,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
   br i1 %109, label %143, label %110
 
 110:                                              ; preds = %106
-  %111 = getelementptr inbounds i8, ptr %0, i64 1320
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %112 = load i32, ptr %111, align 4
   %113 = icmp ugt i32 %112, %16
   br i1 %113, label %114, label %115
@@ -653,7 +653,7 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 
 115:                                              ; preds = %114, %110
   %116 = phi i32 [ %16, %114 ], [ %112, %110 ]
-  %117 = getelementptr inbounds i8, ptr %0, i64 1306
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 1306
   %118 = load i8, ptr %117, align 2
   %119 = icmp ult i8 %118, 8
   br i1 %119, label %120, label %122
@@ -675,16 +675,16 @@ define internal void @cubictcp_acked(ptr noundef %0, ptr nocapture noundef reado
 
 130:                                              ; preds = %122
   store i8 1, ptr %24, align 1
-  %131 = getelementptr inbounds i8, ptr %0, i64 48
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 432
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 432
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr i8, ptr %134, i64 808
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %135, ptr elementtype(i64) %135) #8, !srcloc !11
   %136 = load i32, ptr %28, align 4
   %137 = zext i32 %136 to i64
   %138 = load ptr, ptr %131, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 432
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 432
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr i8, ptr %140, i64 816
   tail call void asm sideeffect "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %141, i64 %137, ptr elementtype(i64) %141) #8, !srcloc !12

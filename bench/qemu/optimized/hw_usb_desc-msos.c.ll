@@ -21,7 +21,7 @@ sw.bb:                                            ; preds = %entry
   store i8 0, ptr %add.ptr.i, align 1
   %reserved_1.i = getelementptr i8, ptr %call, i64 17
   store i8 1, ptr %reserved_1.i, align 1
-  %msos.i = getelementptr inbounds i8, ptr %desc, i64 48
+  %msos.i = getelementptr inbounds nuw i8, ptr %desc, i64 48
   %0 = load ptr, ptr %msos.i, align 8
   %1 = load ptr, ptr %0, align 8
   %tobool.not.i = icmp eq ptr %1, null
@@ -37,9 +37,9 @@ usb_desc_msos_compat.exit:                        ; preds = %sw.bb, %if.then.i
   br label %sw.epilog.sink.split
 
 sw.bb2:                                           ; preds = %entry
-  %msos.i8 = getelementptr inbounds i8, ptr %desc, i64 48
+  %msos.i8 = getelementptr inbounds nuw i8, ptr %desc, i64 48
   %2 = load ptr, ptr %msos.i8, align 8
-  %Label.i = getelementptr inbounds i8, ptr %2, i64 8
+  %Label.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load ptr, ptr %Label.i, align 8
   %tobool.not.i9 = icmp eq ptr %3, null
   br i1 %tobool.not.i9, label %if.end.i, label %if.then.i10
@@ -121,7 +121,7 @@ usb_desc_msos_prop_str.exit.i:                    ; preds = %for.body.i.i, %usb_
 if.end.i:                                         ; preds = %usb_desc_msos_prop_str.exit.i, %sw.bb2
   %length.0.i = phi i32 [ %add.i, %usb_desc_msos_prop_str.exit.i ], [ 10, %sw.bb2 ]
   %count.0.i = phi i8 [ 1, %usb_desc_msos_prop_str.exit.i ], [ 0, %sw.bb2 ]
-  %SelectiveSuspendEnabled.i = getelementptr inbounds i8, ptr %2, i64 16
+  %SelectiveSuspendEnabled.i = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load i8, ptr %SelectiveSuspendEnabled.i, align 8
   %tobool4.i = trunc i8 %13 to i1
   br i1 %tobool4.i, label %if.then5.i, label %usb_desc_msos_prop.exit
@@ -129,13 +129,13 @@ if.end.i:                                         ; preds = %usb_desc_msos_prop_
 if.then5.i:                                       ; preds = %if.end.i
   %idx.ext6.i = sext i32 %length.0.i to i64
   %add.ptr7.i = getelementptr i8, ptr %call, i64 %idx.ext6.i
-  %dwPropertyDataType.i19.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 4
+  %dwPropertyDataType.i19.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 4
   store i32 4, ptr %dwPropertyDataType.i19.i, align 1
-  %dwPropertyNameLength_lo.i.i20.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 8
+  %dwPropertyNameLength_lo.i.i20.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 8
   store i8 48, ptr %dwPropertyNameLength_lo.i.i20.i, align 1
-  %dwPropertyNameLength_hi.i.i21.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 9
+  %dwPropertyNameLength_hi.i.i21.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 9
   store i8 0, ptr %dwPropertyNameLength_hi.i.i21.i, align 1
-  %bPropertyName.i.i22.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 10
+  %bPropertyName.i.i22.i = getelementptr inbounds nuw i8, ptr %add.ptr7.i, i64 10
   br label %for.body.i.i23.i
 
 for.body.i.i23.i:                                 ; preds = %for.body.i.i23.i, %if.then5.i
@@ -179,7 +179,7 @@ usb_desc_msos_prop.exit:                          ; preds = %if.end.i, %usb_desc
   %length.1.i = phi i32 [ %add9.i, %usb_desc_msos_prop_dword.exit.i ], [ %length.0.i, %if.end.i ]
   %count.1.i = phi i8 [ %inc10.i, %usb_desc_msos_prop_dword.exit.i ], [ %count.0.i, %if.end.i ]
   store i32 %length.1.i, ptr %call, align 1
-  %bcdVersion_lo.i12 = getelementptr inbounds i8, ptr %call, i64 4
+  %bcdVersion_lo.i12 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i8 0, ptr %bcdVersion_lo.i12, align 1
   br label %sw.epilog.sink.split
 
@@ -195,15 +195,15 @@ sw.epilog.sink.split:                             ; preds = %usb_desc_msos_compa
   %.sink16 = phi i64 [ 9, %usb_desc_msos_prop.exit ], [ 8, %usb_desc_msos_compat.exit ]
   %.sink = phi i8 [ 0, %usb_desc_msos_prop.exit ], [ 1, %usb_desc_msos_compat.exit ]
   %length.0.ph = phi i32 [ %length.1.i, %usb_desc_msos_prop.exit ], [ 40, %usb_desc_msos_compat.exit ]
-  %bcdVersion_hi.i13 = getelementptr inbounds i8, ptr %call, i64 %.sink23
+  %bcdVersion_hi.i13 = getelementptr inbounds nuw i8, ptr %call, i64 %.sink23
   store i8 %.sink22, ptr %bcdVersion_hi.i13, align 1
-  %wIndex_lo.i14 = getelementptr inbounds i8, ptr %call, i64 %.sink21
+  %wIndex_lo.i14 = getelementptr inbounds nuw i8, ptr %call, i64 %.sink21
   store i8 %.sink20, ptr %wIndex_lo.i14, align 1
-  %wIndex_hi.i15 = getelementptr inbounds i8, ptr %call, i64 %.sink19
+  %wIndex_hi.i15 = getelementptr inbounds nuw i8, ptr %call, i64 %.sink19
   store i8 %.sink18, ptr %wIndex_hi.i15, align 1
-  %wCount_lo.i = getelementptr inbounds i8, ptr %call, i64 %.sink17
+  %wCount_lo.i = getelementptr inbounds nuw i8, ptr %call, i64 %.sink17
   store i8 %count.1.i.sink, ptr %wCount_lo.i, align 1
-  %wCount_hi.i = getelementptr inbounds i8, ptr %call, i64 %.sink16
+  %wCount_hi.i = getelementptr inbounds nuw i8, ptr %call, i64 %.sink16
   store i8 %.sink, ptr %wCount_hi.i, align 1
   br label %sw.epilog
 
@@ -216,7 +216,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
   %conv6 = sext i32 %spec.select to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %call, i64 %conv6, i1 false)
   tail call void @g_free(ptr noundef %call) #7
-  %actual_length = getelementptr inbounds i8, ptr %p, i64 88
+  %actual_length = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 %spec.select, ptr %actual_length, align 8
   ret i32 0
 }

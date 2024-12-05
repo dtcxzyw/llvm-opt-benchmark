@@ -601,13 +601,13 @@ declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ncp_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 5
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %8 = load i8, ptr %7, align 1
   %9 = zext i8 %8 to i32
   %10 = shl nuw nsw i32 %9, 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 3
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i32
   %14 = or disjoint i32 %10, %13
@@ -615,14 +615,14 @@ define internal noundef i32 @ncp_conversation_packet(ptr noundef initializes((24
   br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %1, i64 208
-  %17 = getelementptr inbounds i8, ptr %1, i64 232
-  %18 = getelementptr inbounds i8, ptr %1, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %1, i64 40
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @add_conversation_table_data(ptr noundef nonnull %0, ptr noundef nonnull %16, ptr noundef nonnull %17, i32 noundef %14, i32 noundef %14, i32 noundef 1, i32 noundef %21, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull @ncp_ct_dissector_info, i32 noundef 6) #6
   br label %24
 
@@ -632,17 +632,17 @@ define internal noundef i32 @ncp_conversation_packet(ptr noundef initializes((24
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @ncp_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 208
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, i32 noundef 1, i32 noundef %11, ptr noundef nonnull @ncp_endpoint_dissector_info, i32 noundef 6) #6
-  %12 = getelementptr inbounds i8, ptr %1, i64 232
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4
   tail call void @add_endpoint_table_data(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @ncp_endpoint_dissector_info, i32 noundef 6) #6
   ret i32 1
@@ -661,24 +661,24 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   br i1 %8, label %421, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %11, ptr noundef nonnull @ncp_group_vals, ptr noundef nonnull @.str.316) #6
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %3, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   tail call void @init_srt_table_row(ptr noundef %15, i32 noundef %18, ptr noundef %12) #6
   tail call void @wmem_free(ptr noundef null, ptr noundef %12) #6
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %3, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @add_srt_table_data(ptr noundef %15, i32 noundef %21, ptr noundef nonnull %22, ptr noundef %1) #6
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %27, label %.thread
@@ -690,7 +690,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %23, align 8
   %33 = zext i8 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %23, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %35 = load ptr, ptr %34, align 8
   tail call void @init_srt_table_row(ptr noundef %31, i32 noundef %33, ptr noundef %35) #6
   %36 = load ptr, ptr %3, align 8
@@ -698,7 +698,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %38 = zext i8 %37 to i32
   tail call void @add_srt_table_data(ptr noundef %31, i32 noundef %38, ptr noundef nonnull %22, ptr noundef %1) #6
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1
   %.pre256 = load i8, ptr %.phi.trans.insert, align 1
   %.not255 = icmp eq i8 %.pre256, 0
   br i1 %.not255, label %378, label %.thread
@@ -716,11 +716,11 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr i8, ptr %45, i64 40
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %39, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void @init_srt_table_row(ptr noundef %47, i32 noundef %43, ptr noundef %49) #6
   %50 = load ptr, ptr %3, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   tail call void @add_srt_table_data(ptr noundef %47, i32 noundef %53, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -739,14 +739,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %60, i64 48
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %56, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
-  %66 = getelementptr inbounds i8, ptr %56, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %67 = load ptr, ptr %66, align 8
   tail call void @init_srt_table_row(ptr noundef %62, i32 noundef %65, ptr noundef %67) #6
   %68 = load ptr, ptr %3, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i32
   tail call void @add_srt_table_data(ptr noundef %62, i32 noundef %71, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -765,14 +765,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %78 = load ptr, ptr %77, align 8
   %79 = getelementptr i8, ptr %78, i64 56
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %74, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
-  %84 = getelementptr inbounds i8, ptr %74, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %85 = load ptr, ptr %84, align 8
   tail call void @init_srt_table_row(ptr noundef %80, i32 noundef %83, ptr noundef %85) #6
   %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = zext i8 %88 to i32
   tail call void @add_srt_table_data(ptr noundef %80, i32 noundef %89, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -791,14 +791,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %96 = load ptr, ptr %95, align 8
   %97 = getelementptr i8, ptr %96, i64 64
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %92, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 1
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
-  %102 = getelementptr inbounds i8, ptr %92, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %103 = load ptr, ptr %102, align 8
   tail call void @init_srt_table_row(ptr noundef %98, i32 noundef %101, ptr noundef %103) #6
   %104 = load ptr, ptr %3, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 1
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i32
   tail call void @add_srt_table_data(ptr noundef %98, i32 noundef %107, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -817,14 +817,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 72
   %116 = load ptr, ptr %115, align 8
-  %117 = getelementptr inbounds i8, ptr %110, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 1
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %110, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %121 = load ptr, ptr %120, align 8
   tail call void @init_srt_table_row(ptr noundef %116, i32 noundef %119, ptr noundef %121) #6
   %122 = load ptr, ptr %3, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   %124 = load i8, ptr %123, align 1
   %125 = zext i8 %124 to i32
   tail call void @add_srt_table_data(ptr noundef %116, i32 noundef %125, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -843,14 +843,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr i8, ptr %132, i64 80
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %128, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %128, i64 1
   %136 = load i8, ptr %135, align 1
   %137 = zext i8 %136 to i32
-  %138 = getelementptr inbounds i8, ptr %128, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %139 = load ptr, ptr %138, align 8
   tail call void @init_srt_table_row(ptr noundef %134, i32 noundef %137, ptr noundef %139) #6
   %140 = load ptr, ptr %3, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 1
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 1
   %142 = load i8, ptr %141, align 1
   %143 = zext i8 %142 to i32
   tail call void @add_srt_table_data(ptr noundef %134, i32 noundef %143, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -869,14 +869,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr i8, ptr %150, i64 88
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds i8, ptr %146, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %146, i64 1
   %154 = load i8, ptr %153, align 1
   %155 = zext i8 %154 to i32
-  %156 = getelementptr inbounds i8, ptr %146, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %157 = load ptr, ptr %156, align 8
   tail call void @init_srt_table_row(ptr noundef %152, i32 noundef %155, ptr noundef %157) #6
   %158 = load ptr, ptr %3, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 1
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 1
   %160 = load i8, ptr %159, align 1
   %161 = zext i8 %160 to i32
   tail call void @add_srt_table_data(ptr noundef %152, i32 noundef %161, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -895,14 +895,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr i8, ptr %168, i64 96
   %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %164, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %164, i64 1
   %172 = load i8, ptr %171, align 1
   %173 = zext i8 %172 to i32
-  %174 = getelementptr inbounds i8, ptr %164, i64 8
+  %174 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %175 = load ptr, ptr %174, align 8
   tail call void @init_srt_table_row(ptr noundef %170, i32 noundef %173, ptr noundef %175) #6
   %176 = load ptr, ptr %3, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 1
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   tail call void @add_srt_table_data(ptr noundef %170, i32 noundef %179, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -921,14 +921,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %186 = load ptr, ptr %185, align 8
   %187 = getelementptr i8, ptr %186, i64 104
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %182, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %182, i64 1
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i32
-  %192 = getelementptr inbounds i8, ptr %182, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %193 = load ptr, ptr %192, align 8
   tail call void @init_srt_table_row(ptr noundef %188, i32 noundef %191, ptr noundef %193) #6
   %194 = load ptr, ptr %3, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1
   %196 = load i8, ptr %195, align 1
   %197 = zext i8 %196 to i32
   tail call void @add_srt_table_data(ptr noundef %188, i32 noundef %197, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -947,14 +947,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %204 = load ptr, ptr %203, align 8
   %205 = getelementptr i8, ptr %204, i64 112
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %200, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr %200, i64 1
   %208 = load i8, ptr %207, align 1
   %209 = zext i8 %208 to i32
-  %210 = getelementptr inbounds i8, ptr %200, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %211 = load ptr, ptr %210, align 8
   tail call void @init_srt_table_row(ptr noundef %206, i32 noundef %209, ptr noundef %211) #6
   %212 = load ptr, ptr %3, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 1
   %214 = load i8, ptr %213, align 1
   %215 = zext i8 %214 to i32
   tail call void @add_srt_table_data(ptr noundef %206, i32 noundef %215, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -973,14 +973,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr i8, ptr %222, i64 120
   %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %218, i64 1
+  %225 = getelementptr inbounds nuw i8, ptr %218, i64 1
   %226 = load i8, ptr %225, align 1
   %227 = zext i8 %226 to i32
-  %228 = getelementptr inbounds i8, ptr %218, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %229 = load ptr, ptr %228, align 8
   tail call void @init_srt_table_row(ptr noundef %224, i32 noundef %227, ptr noundef %229) #6
   %230 = load ptr, ptr %3, align 8
-  %231 = getelementptr inbounds i8, ptr %230, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 1
   %232 = load i8, ptr %231, align 1
   %233 = zext i8 %232 to i32
   tail call void @add_srt_table_data(ptr noundef %224, i32 noundef %233, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -999,14 +999,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %240 = load ptr, ptr %239, align 8
   %241 = getelementptr i8, ptr %240, i64 128
   %242 = load ptr, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %236, i64 1
+  %243 = getelementptr inbounds nuw i8, ptr %236, i64 1
   %244 = load i8, ptr %243, align 1
   %245 = zext i8 %244 to i32
-  %246 = getelementptr inbounds i8, ptr %236, i64 8
+  %246 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %247 = load ptr, ptr %246, align 8
   tail call void @init_srt_table_row(ptr noundef %242, i32 noundef %245, ptr noundef %247) #6
   %248 = load ptr, ptr %3, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 1
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 1
   %250 = load i8, ptr %249, align 1
   %251 = zext i8 %250 to i32
   tail call void @add_srt_table_data(ptr noundef %242, i32 noundef %251, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1025,14 +1025,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %258 = load ptr, ptr %257, align 8
   %259 = getelementptr i8, ptr %258, i64 136
   %260 = load ptr, ptr %259, align 8
-  %261 = getelementptr inbounds i8, ptr %254, i64 1
+  %261 = getelementptr inbounds nuw i8, ptr %254, i64 1
   %262 = load i8, ptr %261, align 1
   %263 = zext i8 %262 to i32
-  %264 = getelementptr inbounds i8, ptr %254, i64 8
+  %264 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %265 = load ptr, ptr %264, align 8
   tail call void @init_srt_table_row(ptr noundef %260, i32 noundef %263, ptr noundef %265) #6
   %266 = load ptr, ptr %3, align 8
-  %267 = getelementptr inbounds i8, ptr %266, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 1
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i32
   tail call void @add_srt_table_data(ptr noundef %260, i32 noundef %269, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1051,14 +1051,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %276 = load ptr, ptr %275, align 8
   %277 = getelementptr i8, ptr %276, i64 144
   %278 = load ptr, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %272, i64 1
+  %279 = getelementptr inbounds nuw i8, ptr %272, i64 1
   %280 = load i8, ptr %279, align 1
   %281 = zext i8 %280 to i32
-  %282 = getelementptr inbounds i8, ptr %272, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %272, i64 8
   %283 = load ptr, ptr %282, align 8
   tail call void @init_srt_table_row(ptr noundef %278, i32 noundef %281, ptr noundef %283) #6
   %284 = load ptr, ptr %3, align 8
-  %285 = getelementptr inbounds i8, ptr %284, i64 1
+  %285 = getelementptr inbounds nuw i8, ptr %284, i64 1
   %286 = load i8, ptr %285, align 1
   %287 = zext i8 %286 to i32
   tail call void @add_srt_table_data(ptr noundef %278, i32 noundef %287, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1077,14 +1077,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr i8, ptr %294, i64 152
   %296 = load ptr, ptr %295, align 8
-  %297 = getelementptr inbounds i8, ptr %290, i64 1
+  %297 = getelementptr inbounds nuw i8, ptr %290, i64 1
   %298 = load i8, ptr %297, align 1
   %299 = zext i8 %298 to i32
-  %300 = getelementptr inbounds i8, ptr %290, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %290, i64 8
   %301 = load ptr, ptr %300, align 8
   tail call void @init_srt_table_row(ptr noundef %296, i32 noundef %299, ptr noundef %301) #6
   %302 = load ptr, ptr %3, align 8
-  %303 = getelementptr inbounds i8, ptr %302, i64 1
+  %303 = getelementptr inbounds nuw i8, ptr %302, i64 1
   %304 = load i8, ptr %303, align 1
   %305 = zext i8 %304 to i32
   tail call void @add_srt_table_data(ptr noundef %296, i32 noundef %305, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1103,14 +1103,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr i8, ptr %312, i64 160
   %314 = load ptr, ptr %313, align 8
-  %315 = getelementptr inbounds i8, ptr %308, i64 1
+  %315 = getelementptr inbounds nuw i8, ptr %308, i64 1
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i32
-  %318 = getelementptr inbounds i8, ptr %308, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %308, i64 8
   %319 = load ptr, ptr %318, align 8
   tail call void @init_srt_table_row(ptr noundef %314, i32 noundef %317, ptr noundef %319) #6
   %320 = load ptr, ptr %3, align 8
-  %321 = getelementptr inbounds i8, ptr %320, i64 1
+  %321 = getelementptr inbounds nuw i8, ptr %320, i64 1
   %322 = load i8, ptr %321, align 1
   %323 = zext i8 %322 to i32
   tail call void @add_srt_table_data(ptr noundef %314, i32 noundef %323, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1129,14 +1129,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr i8, ptr %330, i64 168
   %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds i8, ptr %326, i64 1
+  %333 = getelementptr inbounds nuw i8, ptr %326, i64 1
   %334 = load i8, ptr %333, align 1
   %335 = zext i8 %334 to i32
-  %336 = getelementptr inbounds i8, ptr %326, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %337 = load ptr, ptr %336, align 8
   tail call void @init_srt_table_row(ptr noundef %332, i32 noundef %335, ptr noundef %337) #6
   %338 = load ptr, ptr %3, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 1
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 1
   %340 = load i8, ptr %339, align 1
   %341 = zext i8 %340 to i32
   tail call void @add_srt_table_data(ptr noundef %332, i32 noundef %341, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1155,14 +1155,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %348 = load ptr, ptr %347, align 8
   %349 = getelementptr i8, ptr %348, i64 176
   %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %344, i64 1
+  %351 = getelementptr inbounds nuw i8, ptr %344, i64 1
   %352 = load i8, ptr %351, align 1
   %353 = zext i8 %352 to i32
-  %354 = getelementptr inbounds i8, ptr %344, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %355 = load ptr, ptr %354, align 8
   tail call void @init_srt_table_row(ptr noundef %350, i32 noundef %353, ptr noundef %355) #6
   %356 = load ptr, ptr %3, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 1
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 1
   %358 = load i8, ptr %357, align 1
   %359 = zext i8 %358 to i32
   tail call void @add_srt_table_data(ptr noundef %350, i32 noundef %359, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1181,14 +1181,14 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr i8, ptr %366, i64 184
   %368 = load ptr, ptr %367, align 8
-  %369 = getelementptr inbounds i8, ptr %362, i64 1
+  %369 = getelementptr inbounds nuw i8, ptr %362, i64 1
   %370 = load i8, ptr %369, align 1
   %371 = zext i8 %370 to i32
-  %372 = getelementptr inbounds i8, ptr %362, i64 8
+  %372 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %373 = load ptr, ptr %372, align 8
   tail call void @init_srt_table_row(ptr noundef %368, i32 noundef %371, ptr noundef %373) #6
   %374 = load ptr, ptr %3, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 1
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 1
   %376 = load i8, ptr %375, align 1
   %377 = zext i8 %376 to i32
   tail call void @add_srt_table_data(ptr noundef %368, i32 noundef %377, ptr noundef nonnull %22, ptr noundef %1) #6
@@ -1202,7 +1202,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   br i1 %381, label %382, label %395
 
 382:                                              ; preds = %378
-  %383 = getelementptr inbounds i8, ptr %3, i64 52
+  %383 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %384 = load i8, ptr %383, align 4
   %385 = zext i8 %384 to i32
   %386 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %385, ptr noundef nonnull @ncp_nds_verb_vals, ptr noundef nonnull @.str.316) #6
@@ -1227,7 +1227,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   br i1 %397, label %398, label %408
 
 398:                                              ; preds = %395
-  %399 = getelementptr inbounds i8, ptr %3, i64 44
+  %399 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %400 = load i32, ptr %399, align 4
   %401 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %400, ptr noundef nonnull @sss_verb_enum, ptr noundef nonnull @.str.316) #6
   %402 = load ptr, ptr %0, align 8
@@ -1249,7 +1249,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
   br i1 %410, label %411, label %421
 
 411:                                              ; preds = %408
-  %412 = getelementptr inbounds i8, ptr %3, i64 44
+  %412 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %413 = load i32, ptr %412, align 4
   %414 = tail call ptr @val_to_str_wmem(ptr noundef null, i32 noundef %413, ptr noundef nonnull @nmas_subverb_enum, ptr noundef nonnull @.str.316) #6
   %415 = load ptr, ptr %0, align 8
@@ -1320,7 +1320,7 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %6 = alloca %struct.mncp_rhash_key, align 8
   %7 = alloca %struct.mncp_rhash_key, align 8
   %8 = alloca %struct.mncp_rhash_key, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.251) #6
   %11 = load ptr, ptr %9, align 8
@@ -1416,19 +1416,19 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %70 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 3), align 1
   %71 = zext i8 %70 to i32
   %72 = or disjoint i32 %69, %71
-  %73 = getelementptr inbounds i8, ptr %1, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %74 = load i32, ptr %73, align 4
-  %75 = getelementptr inbounds i8, ptr %1, i64 208
-  %76 = getelementptr inbounds i8, ptr %1, i64 232
-  %77 = getelementptr inbounds i8, ptr %1, i64 284
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %78 = load i32, ptr %77, align 4
-  %79 = getelementptr inbounds i8, ptr %1, i64 288
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %80 = load i32, ptr %79, align 8
   %81 = tail call ptr @find_conversation(i32 noundef %74, ptr noundef nonnull %75, ptr noundef nonnull %76, i32 noundef 6, i32 noundef %78, i32 noundef %80, i32 noundef 0) #6
   %82 = icmp eq i32 %.sroa.0207.0, 1951294288
-  %83 = getelementptr inbounds i8, ptr %1, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 50
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 50
   %86 = load i16, ptr %85, align 2
   %87 = and i16 %86, 8
   %.not436 = icmp eq i16 %87, 0
@@ -1445,9 +1445,9 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %91 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %81, ptr %8, align 8
-  %92 = getelementptr inbounds i8, ptr %8, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %72, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %8, i64 12
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 %91, ptr %93, align 4
   %94 = load ptr, ptr @mncp_rhash, align 8
   %95 = call ptr @g_hash_table_lookup(ptr noundef %94, ptr noundef nonnull %8) #6
@@ -1473,9 +1473,9 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %106 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %81, ptr %7, align 8
-  %107 = getelementptr inbounds i8, ptr %7, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %72, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %7, i64 12
+  %108 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %106, ptr %108, align 4
   %109 = load ptr, ptr @mncp_rhash, align 8
   %110 = call ptr @g_hash_table_lookup(ptr noundef %109, ptr noundef nonnull %7) #6
@@ -1509,9 +1509,9 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %124 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %81, ptr %6, align 8
-  %125 = getelementptr inbounds i8, ptr %6, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %72, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %6, i64 12
+  %126 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 %124, ptr %126, align 4
   %127 = load ptr, ptr @mncp_rhash, align 8
   %128 = call ptr @g_hash_table_lookup(ptr noundef %127, ptr noundef nonnull %6) #6
@@ -1537,9 +1537,9 @@ define internal fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, 
   %139 = load i8, ptr getelementptr inbounds (i8, ptr @header, i64 4), align 2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %81, ptr %5, align 8
-  %140 = getelementptr inbounds i8, ptr %5, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %72, ptr %140, align 8
-  %141 = getelementptr inbounds i8, ptr %5, i64 12
+  %141 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 %139, ptr %141, align 4
   %142 = load ptr, ptr @mncp_rhash, align 8
   %143 = call ptr @g_hash_table_lookup(ptr noundef %142, ptr noundef nonnull %5) #6
@@ -1979,9 +1979,9 @@ define internal fastcc void @mncp_hash_insert(ptr noundef nonnull %0, i32 nounde
   %5 = tail call ptr @wmem_file_scope() #6
   %6 = tail call noalias ptr @wmem_alloc(ptr noundef %5, i64 noundef 16) #6
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i8 %2, ptr %8, align 4
   %9 = tail call ptr @wmem_file_scope() #6
   %10 = tail call noalias ptr @wmem_alloc(ptr noundef %9, i64 noundef 4) #6
@@ -1996,7 +1996,7 @@ define internal fastcc void @mncp_hash_insert(ptr noundef nonnull %0, i32 nounde
 16:                                               ; preds = %4
   %17 = zext i8 %2 to i32
   %18 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef null, ptr noundef nonnull @ei_ncp_new_server_session, ptr noundef nonnull @.str.302, i32 noundef %1, i32 noundef %17) #6
-  %19 = getelementptr inbounds i8, ptr %3, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %20 = load i32, ptr %19, align 4
   store i32 %20, ptr %10, align 4
   br label %21
@@ -2092,10 +2092,10 @@ define internal i32 @mncp_hash(ptr nocapture noundef readonly %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i8, ptr %8, align 4
   %10 = zext i8 %9 to i32
   %11 = add i32 %7, %10
@@ -2110,17 +2110,17 @@ define internal range(i32 0, 2) i32 @mncp_equal(ptr nocapture noundef readonly %
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i8, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %16 = load i8, ptr %15, align 4
   %17 = icmp eq i8 %14, %16
   br i1 %17, label %19, label %18

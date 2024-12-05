@@ -566,7 +566,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dect_mitel_eth(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.364) #3
   %8 = load ptr, ptr %6, align 8
@@ -827,7 +827,7 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
   ]
 
 171:                                              ; preds = %170
-  %172 = getelementptr inbounds i8, ptr %1, i64 348
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 0, ptr %172, align 4
   %173 = or disjoint i32 %.0144, 3
   %174 = load i32, ptr @hf_dect_mitel_eth_mac_page_req_flags, align 4
@@ -868,7 +868,7 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
   br label %.loopexit
 
 186:                                              ; preds = %170
-  %187 = getelementptr inbounds i8, ptr %1, i64 348
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 0, ptr %187, align 4
   %188 = tail call fastcc i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   br label %.loopexit
@@ -878,7 +878,7 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
   br label %.loopexit
 
 190:                                              ; preds = %170
-  %191 = getelementptr inbounds i8, ptr %1, i64 348
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 1, ptr %191, align 4
   %192 = tail call fastcc i32 @dissect_dect_mitel_eth_mcei_field(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %12, i32 noundef %34)
   %193 = load i32, ptr @hf_dect_mitel_eth_subfield, align 4
@@ -890,7 +890,7 @@ dissect_dect_mitel_eth_rfpc.exit:                 ; preds = %156, %.thread
 
 196:                                              ; preds = %170, %195
   %.sink = phi i32 [ 1, %195 ], [ 0, %170 ]
-  %197 = getelementptr inbounds i8, ptr %1, i64 348
+  %197 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %.sink, ptr %197, align 4
   %198 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %34) #3
   %199 = zext i8 %198 to i32
@@ -965,7 +965,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_enc_key_req(ptr noundef 
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -984,7 +984,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_enc_eks_ind(ptr noundef 
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1014,7 +1014,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_ind(ptr n
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1030,7 +1030,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_in_progress_res(ptr n
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1049,7 +1049,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr nounde
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1062,12 +1062,12 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_ho_failed_ind(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, ptr noundef initializes((348, 352)) %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 348
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %7 = zext i8 %6 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %7) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %7) #3
   %10 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1084,12 +1084,12 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_con_ind(ptr noundef %0, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_dect_mitel_eth_mac_info_ind(ptr noundef %0, ptr noundef initializes((348, 352)) %1, ptr noundef %2, i32 noundef range(i32 1, 7) %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 348
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 1, ptr %5, align 4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %7 = zext i8 %6 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %7) #3
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %7) #3
   %10 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1110,7 +1110,7 @@ define internal fastcc range(i32 2, 8) i32 @dissect_dect_mitel_eth_mcei_field(pt
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4
@@ -1124,7 +1124,7 @@ define internal fastcc void @dissect_dect_mitel_eth_mac_dis_ind(ptr noundef %0, 
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef range(i32 1, 7) %3) #3
   %6 = zext i8 %5 to i32
   tail call void @conversation_set_elements_by_id(ptr noundef %1, i32 noundef 0, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %6) #3
   %9 = load i32, ptr @hf_dect_mitel_eth_mcei, align 4

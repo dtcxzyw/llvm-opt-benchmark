@@ -147,7 +147,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.09.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %28, %.lr.ph.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i64
   %26 = mul nuw i64 %.09.i.i, 10
@@ -165,7 +165,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %19
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %19 ], [ %32, %._crit_edge.loopexit.i.i ]
   %33 = zext nneg i32 %20 to i64
-  %34 = getelementptr inbounds [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %33
   %35 = load double, ptr %34, align 8
   %36 = fdiv double %.0.lcssa.i.i, %35
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -186,7 +186,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
   %indvars.iv.i34.i = phi i64 [ 0, %.lr.ph.preheader.i32.i ], [ %indvars.iv.next.i36.i, %.lr.ph.i33.i ]
   %.09.i35.i = phi i64 [ 0, %.lr.ph.preheader.i32.i ], [ %46, %.lr.ph.i33.i ]
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i34.i, 1
-  %41 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i34.i
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i34.i
   %42 = load i8, ptr %41, align 1
   %43 = sext i8 %42 to i64
   %44 = mul nuw i64 %.09.i35.i, 10
@@ -204,7 +204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit38.i: ; preds = %._crit_edge.loopexit.i37.i, %38
   %.0.lcssa.i31.i = phi double [ 0.000000e+00, %38 ], [ %50, %._crit_edge.loopexit.i37.i ]
   %51 = zext nneg i32 %2 to i64
-  %52 = getelementptr inbounds [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %51
   %53 = load double, ptr %52, align 8
   %54 = fmul double %.0.lcssa.i31.i, %53
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -231,7 +231,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
   %indvars.iv.i43.i = phi i64 [ 0, %.lr.ph.preheader.i41.i ], [ %indvars.iv.next.i45.i, %.lr.ph.i42.i ]
   %.09.i44.i = phi i64 [ 0, %.lr.ph.preheader.i41.i ], [ %69, %.lr.ph.i42.i ]
   %indvars.iv.next.i45.i = add nuw nsw i64 %indvars.iv.i43.i, 1
-  %64 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i43.i
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i43.i
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i64
   %67 = mul nuw i64 %.09.i44.i, 10
@@ -277,7 +277,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
   %.09.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %90, %.lr.ph.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %85 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i.i
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i.i
   %86 = load i8, ptr %85, align 1
   %87 = sext i8 %86 to i64
   %88 = mul nuw i64 %.09.i.i.i, 10
@@ -373,10 +373,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
 
 switch.lookup:                                    ; preds = %119
   %123 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %123
+  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 0, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
   %124 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep86 = getelementptr inbounds [7 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %124
+  %switch.gep86 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 0, i64 %124
   %switch.load87 = load i64, ptr %switch.gep86, align 8
   %125 = lshr i64 %.1.lcssa.i.i, 32
   %126 = and i64 %.1.lcssa.i.i, 4294967295
@@ -622,13 +622,13 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_convers
 
 .lr.ph.i.i:                                       ; preds = %13, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %13 ]
-  %7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %8 = load i8, ptr %7, align 1
   %.not.i.i = icmp eq i8 %8, 48
   br i1 %.not.i.i, label %13, label %9
 
 9:                                                ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %11 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %12 = sub nsw i32 %1, %11
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
@@ -656,7 +656,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosE
 
 19:                                               ; preds = %15
   %20 = add nsw i64 %indvars.iv.i22.i, -1
-  %21 = getelementptr inbounds i8, ptr %.sroa.07.0.i.i, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 %20
   %22 = load i8, ptr %21, align 1
   %.not.i26.i = icmp eq i8 %22, 48
   br i1 %.not.i26.i, label %15, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
@@ -669,7 +669,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosE
 
 .preheader.i.preheader:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %5, ptr noundef nonnull align 1 dereferenceable(779) %.sroa.07.0.i.i, i64 779, i1 false)
-  %26 = getelementptr inbounds i8, ptr %5, i64 779
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 779
   store i8 49, ptr %26, align 1
   %27 = add nsw i32 %16, -780
   %28 = add nsw i32 %27, %24
@@ -773,13 +773,13 @@ define noundef float @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversi
 
 .lr.ph.i.i:                                       ; preds = %12, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %6 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %7 = load i8, ptr %6, align 1
   %.not.i.i = icmp eq i8 %7, 48
   br i1 %.not.i.i, label %12, label %8
 
 8:                                                ; preds = %.lr.ph.i.i
-  %9 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i.i
   %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %11 = sub nsw i32 %1, %10
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL16TrimLeadingZerosENS0_6VectorIKcEE.exit.i
@@ -807,7 +807,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosE
 
 18:                                               ; preds = %14
   %19 = add nsw i64 %indvars.iv.i22.i, -1
-  %20 = getelementptr inbounds i8, ptr %.sroa.07.0.i.i, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not.i26.i = icmp eq i8 %21, 48
   br i1 %.not.i26.i, label %14, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i, !llvm.loop !11
@@ -820,7 +820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosE
 
 .preheader.i.preheader:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion17TrimTrailingZerosENS0_6VectorIKcEE.exit.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(779) %4, ptr noundef nonnull align 1 dereferenceable(779) %.sroa.07.0.i.i, i64 779, i1 false)
-  %25 = getelementptr inbounds i8, ptr %4, i64 779
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 779
   store i8 49, ptr %25, align 1
   %26 = add nsw i32 %15, -780
   %27 = add nsw i32 %26, %23

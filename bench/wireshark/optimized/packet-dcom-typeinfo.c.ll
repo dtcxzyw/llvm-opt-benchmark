@@ -448,7 +448,7 @@ define internal i32 @dissect_ITypeInfo_GetNames_resp(ptr noundef %0, i32 noundef
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
   %28 = phi i32 [ 0, %6 ], [ %.pre, %._crit_edge.loopexit ]
   %.060.lcssa = phi i32 [ %20, %6 ], [ %.1, %._crit_edge.loopexit ]
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.192, i32 noundef %28) #4
   %31 = sub i32 %.060.lcssa, %10
@@ -569,7 +569,7 @@ declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef,
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_typeinfo_TYPEDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -683,7 +683,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 65536) i32 @dissect_typeinfo_ELEMDESC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -741,7 +741,7 @@ define internal i32 @dissect_typeinfo_PARAMDESCEX_through_pointer(ptr noundef %0
   %7 = alloca i32, align 4
   %8 = load i32, ptr @hf_typeinfo_paramdescex, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -792,7 +792,7 @@ declare i32 @dissect_ndr_pointer(ptr noundef, i32 noundef, ptr noundef, ptr noun
 define internal i32 @dissect_bstr_through_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [1000 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1000) %7, i8 0, i64 1000, i1 false)
-  %8 = getelementptr inbounds i8, ptr %4, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %9 = load i32, ptr %8, align 8
   %10 = call i32 @dissect_dcom_BSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7, i32 noundef 1000) #4
   ret i32 %10
@@ -800,7 +800,7 @@ define internal i32 @dissect_bstr_through_pointer(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_dword_through_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %8 = load i32, ptr %7, align 8
   %9 = tail call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #4
   ret i32 %9

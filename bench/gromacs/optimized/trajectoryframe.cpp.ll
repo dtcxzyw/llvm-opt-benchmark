@@ -103,114 +103,114 @@ define void @_Z10comp_frameP8_IO_FILEP10t_trxframeS2_bff(ptr noundef %0, ptr nou
   %7 = load i32, ptr %1, align 8
   %8 = load i32, ptr %2, align 8
   tail call void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef %0, ptr noundef nonnull @.str.1, i32 noundef -1, i32 noundef %7, i32 noundef %8)
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i32, ptr %11, align 8
   tail call void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef -1, i32 noundef %10, i32 noundef %12)
-  %13 = getelementptr inbounds i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
   %19 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef -1, i1 noundef zeroext %15, i1 noundef zeroext %18)
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %6
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   tail call void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef -1, i32 noundef %23, i32 noundef %26)
   br label %27
 
 27:                                               ; preds = %20, %6
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = trunc i64 %29 to i32
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   tail call void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef -1, i32 noundef %30, i32 noundef %33)
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i8, ptr %34, align 8
   %36 = trunc i8 %35 to i1
-  %37 = getelementptr inbounds i8, ptr %2, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   %40 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef -1, i1 noundef zeroext %36, i1 noundef zeroext %39)
   br i1 %40, label %41, label %46
 
 41:                                               ; preds = %27
-  %42 = getelementptr inbounds i8, ptr %1, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %43 = load float, ptr %42, align 4
-  %44 = getelementptr inbounds i8, ptr %2, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %45 = load float, ptr %44, align 4
   tail call void @_Z8cmp_realP8_IO_FILEPKciffff(ptr noundef %0, ptr noundef nonnull @.str.6, i32 noundef -1, float noundef %43, float noundef %45, float noundef %4, float noundef %5)
   br label %46
 
 46:                                               ; preds = %41, %27
-  %47 = getelementptr inbounds i8, ptr %1, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %48 = load i8, ptr %47, align 8
   %49 = trunc i8 %48 to i1
-  %50 = getelementptr inbounds i8, ptr %2, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   %53 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.7, i32 noundef -1, i1 noundef zeroext %49, i1 noundef zeroext %52)
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds i8, ptr %1, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %56 = load float, ptr %55, align 4
-  %57 = getelementptr inbounds i8, ptr %2, i64 36
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %58 = load float, ptr %57, align 4
   tail call void @_Z8cmp_realP8_IO_FILEPKciffff(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef -1, float noundef %56, float noundef %58, float noundef %4, float noundef %5)
   br label %59
 
 59:                                               ; preds = %54, %46
-  %60 = getelementptr inbounds i8, ptr %1, i64 44
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %61 = load i8, ptr %60, align 4
   %62 = trunc i8 %61 to i1
-  %63 = getelementptr inbounds i8, ptr %2, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %64 = load i8, ptr %63, align 4
   %65 = trunc i8 %64 to i1
   %66 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef -1, i1 noundef zeroext %62, i1 noundef zeroext %65)
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %59
-  %68 = getelementptr inbounds i8, ptr %1, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %2, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %71 = load ptr, ptr %70, align 8
   tail call void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr noundef %69, ptr noundef %71, float noundef %4, float noundef %5)
   br label %72
 
 72:                                               ; preds = %67, %59
-  %73 = getelementptr inbounds i8, ptr %1, i64 56
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %74 = load i8, ptr %73, align 8
   %75 = trunc i8 %74 to i1
-  %76 = getelementptr inbounds i8, ptr %2, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %77 = load i8, ptr %76, align 8
   %78 = trunc i8 %77 to i1
   %79 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef -1, i1 noundef zeroext %75, i1 noundef zeroext %78)
   br i1 %79, label %80, label %85
 
 80:                                               ; preds = %72
-  %81 = getelementptr inbounds i8, ptr %1, i64 60
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %82 = load float, ptr %81, align 4
-  %83 = getelementptr inbounds i8, ptr %2, i64 60
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 60
   %84 = load float, ptr %83, align 4
   tail call void @_Z8cmp_realP8_IO_FILEPKciffff(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef -1, float noundef %82, float noundef %84, float noundef %4, float noundef %5)
   br label %85
 
 85:                                               ; preds = %80, %72
-  %86 = getelementptr inbounds i8, ptr %1, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %87 = load i8, ptr %86, align 8
   %88 = trunc i8 %87 to i1
-  %89 = getelementptr inbounds i8, ptr %2, i64 64
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %90 = load i8, ptr %89, align 8
   %91 = trunc i8 %90 to i1
   %92 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef -1, i1 noundef zeroext %88, i1 noundef zeroext %91)
@@ -220,18 +220,18 @@ define void @_Z10comp_frameP8_IO_FILEP10t_trxframeS2_bff(ptr noundef %0, ptr nou
   %94 = load i32, ptr %11, align 4
   %95 = load i32, ptr %9, align 4
   %96 = tail call i32 @llvm.smin.i32(i32 %94, i32 %95)
-  %97 = getelementptr inbounds i8, ptr %1, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %2, i64 72
+  %99 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %100 = load ptr, ptr %99, align 8
   tail call void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %96, ptr noundef %98, ptr noundef %100, i1 noundef zeroext %3, float noundef %4, float noundef %5)
   br label %101
 
 101:                                              ; preds = %93, %85
-  %102 = getelementptr inbounds i8, ptr %1, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %103 = load i8, ptr %102, align 8
   %104 = trunc i8 %103 to i1
-  %105 = getelementptr inbounds i8, ptr %2, i64 80
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %106 = load i8, ptr %105, align 8
   %107 = trunc i8 %106 to i1
   %108 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef -1, i1 noundef zeroext %104, i1 noundef zeroext %107)
@@ -241,18 +241,18 @@ define void @_Z10comp_frameP8_IO_FILEP10t_trxframeS2_bff(ptr noundef %0, ptr nou
   %110 = load i32, ptr %11, align 4
   %111 = load i32, ptr %9, align 4
   %112 = tail call i32 @llvm.smin.i32(i32 %110, i32 %111)
-  %113 = getelementptr inbounds i8, ptr %1, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 88
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %116 = load ptr, ptr %115, align 8
   tail call void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %112, ptr noundef %114, ptr noundef %116, i1 noundef zeroext %3, float noundef %4, float noundef %5)
   br label %117
 
 117:                                              ; preds = %109, %101
-  %118 = getelementptr inbounds i8, ptr %1, i64 96
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %119 = load i8, ptr %118, align 8
   %120 = trunc i8 %119 to i1
-  %121 = getelementptr inbounds i8, ptr %2, i64 96
+  %121 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %122 = load i8, ptr %121, align 8
   %123 = trunc i8 %122 to i1
   %124 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef -1, i1 noundef zeroext %120, i1 noundef zeroext %123)
@@ -262,26 +262,26 @@ define void @_Z10comp_frameP8_IO_FILEP10t_trxframeS2_bff(ptr noundef %0, ptr nou
   %126 = load i32, ptr %11, align 4
   %127 = load i32, ptr %9, align 4
   %128 = tail call i32 @llvm.smin.i32(i32 %126, i32 %127)
-  %129 = getelementptr inbounds i8, ptr %1, i64 104
+  %129 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %2, i64 104
+  %131 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %132 = load ptr, ptr %131, align 8
   tail call void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef %0, ptr noundef nonnull @.str.17, i32 noundef %128, ptr noundef %130, ptr noundef %132, i1 noundef zeroext %3, float noundef %4, float noundef %5)
   br label %133
 
 133:                                              ; preds = %125, %117
-  %134 = getelementptr inbounds i8, ptr %1, i64 112
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %135 = load i8, ptr %134, align 8
   %136 = trunc i8 %135 to i1
-  %137 = getelementptr inbounds i8, ptr %2, i64 112
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %138 = load i8, ptr %137, align 8
   %139 = trunc i8 %138 to i1
   %140 = tail call noundef zeroext i1 @_Z8cmp_boolP8_IO_FILEPKcibb(ptr noundef %0, ptr noundef nonnull @.str.18, i32 noundef -1, i1 noundef zeroext %136, i1 noundef zeroext %139)
   br i1 %140, label %141, label %144
 
 141:                                              ; preds = %133
-  %142 = getelementptr inbounds i8, ptr %1, i64 116
-  %143 = getelementptr inbounds i8, ptr %2, i64 116
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 116
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 116
   tail call void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef %0, ptr noundef nonnull @.str.19, i32 noundef 3, ptr noundef nonnull %142, ptr noundef nonnull %143, i1 noundef zeroext false, float noundef %4, float noundef %5)
   br label %144
 
@@ -301,7 +301,7 @@ declare void @_Z9cmp_rvecsP8_IO_FILEPKciPA3_KfS5_bff(ptr noundef, ptr noundef, i
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z10done_frameP10t_trxframe(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -313,13 +313,13 @@ define void @_Z10done_frameP10t_trxframe(ptr nocapture noundef readonly %0) loca
   br label %6
 
 6:                                                ; preds = %4, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.21, i32 noundef 100, ptr noundef %8)
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.21, i32 noundef 101, ptr noundef %10)
-  %11 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load ptr, ptr %11, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.21, i32 noundef 102, ptr noundef %12)
   ret void
@@ -338,9 +338,9 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef non
   %7 = alloca %"class.gmx::ExceptionInitializer", align 8
   %8 = alloca %"class.gmx::ExceptionInfo", align 8
   store ptr %1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %9, i8 0, i64 36, i1 false)
-  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
   br i1 %12, label %23, label %13
@@ -357,11 +357,11 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef non
 16:                                               ; preds = %15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx15TrajectoryFrameC2ERK10t_trxframe, ptr %17, align 8
-  %.sroa.240.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr @.str.21, ptr %.sroa.240.0..sroa_idx, align 8
-  %.sroa.341.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.341.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 112, ptr %.sroa.341.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %14, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %18 unwind label %21
@@ -391,7 +391,7 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef non
   br i1 %.019, label %.sink.split, label %48
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i8, ptr %24, align 8
   %26 = trunc i8 %25 to i1
   br i1 %26, label %37, label %27
@@ -408,11 +408,11 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef non
 30:                                               ; preds = %29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx8APIErrorE, i64 16), ptr %6, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %8, align 8
-  %31 = getelementptr inbounds i8, ptr %8, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @__PRETTY_FUNCTION__._ZN3gmx15TrajectoryFrameC2ERK10t_trxframe, ptr %31, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @.str.21, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i32 116, ptr %.sroa.3.0..sroa_idx, align 8
   invoke void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3std10is_base_ofINS_16GromacsExceptionET_EE5valueES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE(ptr dead_on_unwind writable sret(%"class.gmx::APIError") align 8 %28, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %32 unwind label %35
@@ -442,25 +442,25 @@ define void @_ZN3gmx15TrajectoryFrameC2ERK10t_trxframe(ptr nocapture noundef non
   br i1 %.018, label %.sink.split, label %48
 
 37:                                               ; preds = %23
-  %38 = getelementptr inbounds i8, ptr %1, i64 112
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %.preheader56, label %.loopexit
 
 .preheader56:                                     ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %1, i64 116
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 116
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader56, %47
   %indvars.iv61 = phi i64 [ 0, %.preheader56 ], [ %indvars.iv.next62, %47 ]
-  %42 = getelementptr inbounds [3 x %"struct.std::array.0"], ptr %9, i64 0, i64 %indvars.iv61
+  %42 = getelementptr inbounds nuw [3 x %"struct.std::array.0"], ptr %9, i64 0, i64 %indvars.iv61
   br label %43
 
 43:                                               ; preds = %.preheader, %43
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %43 ]
-  %44 = getelementptr inbounds [3 x [3 x float]], ptr %41, i64 0, i64 %indvars.iv61, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [3 x [3 x float]], ptr %41, i64 0, i64 %indvars.iv61, i64 %indvars.iv
   %45 = load float, ptr %44, align 4
-  %46 = getelementptr inbounds [3 x float], ptr %42, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [3 x float], ptr %42, i64 0, i64 %indvars.iv
   store float %45, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -501,8 +501,8 @@ define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, i64 16), ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %6, ptr %4, align 8
   store ptr @_ZTIN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE, ptr %5, align 8
@@ -516,7 +516,7 @@ define linkonce_odr void @_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds = %9
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   call void %13(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
   br label %_ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit
@@ -530,7 +530,7 @@ _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i: ; preds
 
 _ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i4.i: ; preds = %14
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   call void %19(ptr noundef nonnull align 8 dereferenceable(8) %16) #18
   br label %_ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.exit5.i
@@ -541,12 +541,12 @@ _ZNSt10unique_ptrIN3gmx8internal14IExceptionInfoESt14default_deleteIS2_EED2Ev.ex
 _ZN3gmx16GromacsException7setInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEEvRKNS_13ExceptionInfoIT_T0_EE.exit: ; preds = %9, %_ZNKSt14default_deleteIN3gmx8internal14IExceptionInfoEEclEPS2_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   store ptr %22, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %25 = load ptr, ptr %24, align 8
   store ptr null, ptr %24, align 8
   store ptr %25, ptr %23, align 8
@@ -591,7 +591,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerC2EPKc(ptr noundef nonnul
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %10
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #18
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   ret void
 
@@ -611,13 +611,13 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx16GromacsExceptionE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i.i.i, label %_ZN3gmx16GromacsExceptionD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load atomic i64, ptr %5 acquire, align 8
   %7 = icmp eq i64 %6, 4294967297
   %8 = trunc i64 %6 to i32
@@ -625,10 +625,10 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
 
 9:                                                ; preds = %4
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %10, align 4
   %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i
@@ -654,10 +654,10 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
 
 22:                                               ; preds = %20
   %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
-  %26 = getelementptr inbounds i8, ptr %3, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i8, ptr @__libc_single_threaded, align 1
   %.not.i.i.i.i.i.i.i = icmp eq i8 %27, 0
   br i1 %.not.i.i.i.i.i.i.i, label %31, label %28
@@ -679,7 +679,7 @@ define linkonce_odr void @_ZN3gmx8APIErrorD2Ev(ptr noundef nonnull align 8 deref
 
 _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i: ; preds = %33, %9
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %3) #18
   br label %_ZN3gmx16GromacsExceptionD2Ev.exit
@@ -700,9 +700,9 @@ define linkonce_odr void @_ZN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not4.i.i.i.i = icmp eq ptr %3, %5
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
@@ -718,7 +718,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
   br label %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !8
 
@@ -895,10 +895,10 @@ declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK3gmx15TrajectoryFrame9frameNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load float, ptr %4, align 4
   %6 = fpext float %5 to double
-  %7 = getelementptr inbounds i8, ptr %3, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.28, double noundef %6, i64 noundef %8)
   ret void
@@ -909,7 +909,7 @@ declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZNK3gmx15TrajectoryFrame4stepEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -917,7 +917,7 @@ define noundef i64 @_ZNK3gmx15TrajectoryFrame4stepEv(ptr nocapture noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef double @_ZNK3gmx15TrajectoryFrame4timeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %4 = load float, ptr %3, align 4
   %5 = fpext float %4 to double
   ret double %5
@@ -926,7 +926,7 @@ define noundef double @_ZNK3gmx15TrajectoryFrame4timeEv(ptr nocapture noundef no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i32 @_ZNK3gmx15TrajectoryFrame3pbcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 156
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %4 = load i32, ptr %3, align 4
   ret i32 %4
 }
@@ -934,15 +934,15 @@ define noundef i32 @_ZNK3gmx15TrajectoryFrame3pbcEv(ptr nocapture noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1xEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %.not.i = icmp eq ptr %8, null
@@ -965,15 +965,15 @@ define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1xEv(ptr nocapture noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1vEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %.not.i = icmp eq ptr %8, null
@@ -996,15 +996,15 @@ define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1vEv(ptr nocapture noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1fEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %17
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 104
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
   %.not.i = icmp eq ptr %8, null
@@ -1027,7 +1027,7 @@ define { ptr, ptr } @_ZNK3gmx15TrajectoryFrame1fEv(ptr nocapture noundef nonnull
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK3gmx15TrajectoryFrame6hasBoxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0) local_unnamed_addr #13 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   ret i1 %5
@@ -1035,7 +1035,7 @@ define noundef zeroext i1 @_ZNK3gmx15TrajectoryFrame6hasBoxEv(ptr nocapture noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 4 dereferenceable(36) ptr @_ZNK3gmx15TrajectoryFrame3boxEv(ptr noundef nonnull readnone align 8 dereferenceable(44) %0) local_unnamed_addr #14 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
 

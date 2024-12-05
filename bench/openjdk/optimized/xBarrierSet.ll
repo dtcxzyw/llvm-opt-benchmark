@@ -60,15 +60,15 @@ define hidden void @_ZN11XBarrierSetC2Ev(ptr noundef nonnull align 8 dereference
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTV13XBarrierSetC2, i64 16), ptr %5, align 8
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i8 noundef zeroext 5, i32 noundef 0) #5
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 1, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV18XBarrierSetNMethod, i64 16), ptr %6, align 8
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 5, i32 noundef 0) #5
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV21XBarrierSetStackChunk, i64 16), ptr %9, align 8
   store i64 32, ptr %2, align 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 5, ptr %10, align 8
   call void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(12) %2) #5
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV11XBarrierSet, i64 16), ptr %0, align 8
@@ -80,7 +80,7 @@ declare void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierS
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN11XBarrierSet9assemblerEv() local_unnamed_addr #2 align 2 {
   %1 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
-  %2 = getelementptr inbounds i8, ptr %1, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -95,11 +95,11 @@ _Z17is_reference_type9BasicTypeb.exit:
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11XBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @_ZN22XMarkThreadLocalStacksC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %4) #5
-  %5 = getelementptr inbounds i8, ptr %1, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 184
   store ptr null, ptr %5, align 8
   ret void
 }
@@ -112,10 +112,10 @@ define hidden void @_ZN11XBarrierSet17on_thread_destroyEP6Thread(ptr nocapture n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11XBarrierSet16on_thread_attachEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr @XAddressBadMask, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %3, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(888) %1) #5
   br i1 %8, label %9, label %11

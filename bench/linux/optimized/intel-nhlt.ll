@@ -75,7 +75,7 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   br i1 %3, label %.loopexit3, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 1
   %7 = icmp ult i32 %6, 37
   br i1 %7, label %8, label %9
@@ -85,13 +85,13 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   br label %.loopexit3
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %.loopexit3, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 37
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 37
   br label %15
 
 15:                                               ; preds = %64, %13
@@ -100,14 +100,14 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   %18 = phi i16 [ %67, %64 ], [ 0, %13 ]
   %19 = phi i32 [ %66, %64 ], [ 0, %13 ]
   %20 = phi ptr [ %71, %64 ], [ %14, %13 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %24, label %64
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %20, i64 19
-  %26 = getelementptr inbounds i8, ptr %20, i64 23
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 19
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 23
   %27 = load i32, ptr %25, align 1
   %28 = zext i32 %27 to i64
   %29 = getelementptr i8, ptr %26, i64 %28
@@ -116,18 +116,18 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   br i1 %31, label %.loopexit, label %32
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds i8, ptr %29, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
   br label %34
 
 34:                                               ; preds = %34, %32
   %35 = phi ptr [ %33, %32 ], [ %45, %34 ]
   %36 = phi i8 [ 0, %32 ], [ %46, %34 ]
   %37 = phi i16 [ %18, %32 ], [ %40, %34 ]
-  %38 = getelementptr inbounds i8, ptr %35, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %39 = load i16, ptr %38, align 1
   %40 = tail call i16 @llvm.umax.i16(i16 %39, i16 %37)
-  %41 = getelementptr inbounds i8, ptr %35, i64 40
-  %42 = getelementptr inbounds i8, ptr %35, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 44
   %43 = load i32, ptr %41, align 1
   %44 = zext i32 %43 to i64
   %45 = getelementptr i8, ptr %42, i64 %44
@@ -137,7 +137,7 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
 
 .loopexit:                                        ; preds = %34, %24
   %48 = phi i16 [ %18, %24 ], [ %40, %34 ]
-  %49 = getelementptr inbounds i8, ptr %20, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 1
   br i1 %51, label %54, label %52
@@ -147,7 +147,7 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   br label %64
 
 54:                                               ; preds = %.loopexit
-  %55 = getelementptr inbounds i8, ptr %20, i64 25
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 25
   %56 = load i8, ptr %55, align 1
   switch i8 %56, label %62 [
     i8 10, label %64
@@ -162,7 +162,7 @@ define dso_local range(i32 0, 65536) i32 @intel_nhlt_get_dmic_geo(ptr noundef %0
   br label %64
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %20, i64 26
+  %59 = getelementptr inbounds nuw i8, ptr %20, i64 26
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
   br label %64
@@ -195,20 +195,20 @@ define dso_local noundef zeroext i1 @intel_nhlt_has_endpoint_type(ptr noundef re
   br i1 %3, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp eq i8 %6, 0
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 37
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 37
   br label %11
 
 11:                                               ; preds = %17, %9
   %12 = phi i32 [ %21, %17 ], [ 0, %9 ]
   %13 = phi ptr [ %20, %17 ], [ %10, %9 ]
-  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, %1
   br i1 %16, label %.loopexit, label %17
@@ -235,33 +235,33 @@ define dso_local i32 @intel_nhlt_ssp_endpoint_mask(ptr noundef readonly %0, i8 n
   br i1 %6, label %7, label %.loopexit
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp eq i8 %9, 0
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 37
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 37
   br label %14
 
 14:                                               ; preds = %32, %12
   %15 = phi i32 [ %37, %32 ], [ 0, %12 ]
   %16 = phi i32 [ %33, %32 ], [ 0, %12 ]
   %17 = phi ptr [ %36, %32 ], [ %13, %12 ]
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %19, 3
   br i1 %20, label %21, label %32
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %17, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %23 = load i8, ptr %22, align 1
   %24 = icmp eq i8 %23, %1
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %17, i64 18
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 18
   %27 = load i8, ptr %26, align 1
   %28 = zext nneg i8 %27 to i64
   %29 = shl nuw i64 1, %28
@@ -289,41 +289,41 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   br i1 %3, label %.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = icmp eq i8 %6, 0
   br i1 %8, label %.loopexit4, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 37
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 37
   br label %11
 
 11:                                               ; preds = %.loopexit, %9
   %12 = phi i32 [ %68, %.loopexit ], [ 0, %9 ]
   %13 = phi i32 [ %64, %.loopexit ], [ 0, %9 ]
   %14 = phi ptr [ %67, %.loopexit ], [ %10, %9 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 3
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 4
   br i1 %21, label %22, label %.loopexit
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %14, i64 18
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 18
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = icmp eq i32 %1, %25
   br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %14, i64 19
-  %29 = getelementptr inbounds i8, ptr %14, i64 23
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 19
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 23
   %30 = load i32, ptr %28, align 1
   %31 = zext i32 %30 to i64
   %32 = getelementptr i8, ptr %29, i64 %31
@@ -333,7 +333,7 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %27
-  %37 = getelementptr inbounds i8, ptr %32, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 1
   br label %47
 
 38:                                               ; preds = %60
@@ -351,13 +351,13 @@ define dso_local range(i32 -22, 4) i32 @intel_nhlt_ssp_mclk_mask(ptr noundef rea
   %48 = phi i32 [ %45, %38 ], [ 0, %36 ]
   %49 = phi i32 [ %42, %38 ], [ %13, %36 ]
   %50 = phi ptr [ %44, %38 ], [ %37, %36 ]
-  %51 = getelementptr inbounds i8, ptr %50, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load i32, ptr %51, align 1
   %53 = icmp ult i32 %52, 8
   br i1 %53, label %.thread, label %54
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %50, i64 44
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %56 = getelementptr i8, ptr %50, i64 48
   %57 = load i32, ptr %56, align 4
   switch i32 %57, label %59 [
@@ -418,36 +418,36 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr nocapture readnone %0, pt
 
 20:                                               ; preds = %16, %12
   %21 = phi i1 [ false, %12 ], [ %19, %16 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = icmp eq i8 %23, 0
   br i1 %25, label %.loopexit, label %26
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %1, i64 37
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %28 = zext i8 %6 to i16
   %29 = zext i8 %4 to i16
   %30 = zext i8 %5 to i16
   br label %31
 
 31:                                               ; preds = %.thread, %26
-  %32 = phi i32 [ 0, %26 ], [ %95, %.thread ]
-  %33 = phi ptr [ %27, %26 ], [ %94, %.thread ]
-  %34 = getelementptr inbounds i8, ptr %33, i64 18
+  %32 = phi i32 [ 0, %26 ], [ %94, %.thread ]
+  %33 = phi ptr [ %27, %26 ], [ %93, %.thread ]
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 18
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = icmp eq i32 %2, %36
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %31
-  %39 = getelementptr inbounds i8, ptr %33, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, %3
   br i1 %41, label %42, label %.thread
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %33, i64 17
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 17
   %44 = load i8, ptr %43, align 1
   %45 = icmp eq i8 %44, %8
   br i1 %45, label %46, label %.thread
@@ -456,14 +456,14 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr nocapture readnone %0, pt
   br i1 %13, label %51, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %33, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, %9
   br i1 %50, label %51, label %.thread
 
 51:                                               ; preds = %47, %46
-  %52 = getelementptr inbounds i8, ptr %33, i64 19
-  %53 = getelementptr inbounds i8, ptr %33, i64 23
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 19
+  %53 = getelementptr inbounds nuw i8, ptr %33, i64 23
   %54 = load i32, ptr %52, align 1
   %55 = zext i32 %54 to i64
   %56 = getelementptr i8, ptr %53, i64 %55
@@ -473,23 +473,23 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr nocapture readnone %0, pt
   br i1 %59, label %.thread, label %60
 
 60:                                               ; preds = %51
-  %61 = getelementptr inbounds i8, ptr %56, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 1
   br label %62
 
 62:                                               ; preds = %81, %60
   %63 = phi i32 [ 0, %60 ], [ %87, %81 ]
   %64 = phi ptr [ %61, %60 ], [ %86, %81 ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 14
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 14
   %66 = load i16, ptr %65, align 1
-  %67 = getelementptr inbounds i8, ptr %64, i64 18
+  %67 = getelementptr inbounds nuw i8, ptr %64, i64 18
   %68 = load i16, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %64, i64 2
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 2
   %70 = load i16, ptr %69, align 1
   %71 = icmp eq i16 %70, %28
   br i1 %71, label %72, label %81
 
 72:                                               ; preds = %62
-  %73 = getelementptr inbounds i8, ptr %64, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %74 = load i32, ptr %73, align 1
   %75 = icmp eq i32 %74, %7
   br i1 %75, label %76, label %81
@@ -502,8 +502,8 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr nocapture readnone %0, pt
   br i1 %80, label %89, label %81
 
 81:                                               ; preds = %76, %72, %62
-  %82 = getelementptr inbounds i8, ptr %64, i64 40
-  %83 = getelementptr inbounds i8, ptr %64, i64 44
+  %82 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %64, i64 44
   %84 = load i32, ptr %82, align 1
   %85 = zext i32 %84 to i64
   %86 = getelementptr i8, ptr %83, i64 %85
@@ -512,21 +512,20 @@ define dso_local ptr @intel_nhlt_get_endpoint_blob(ptr nocapture readnone %0, pt
   br i1 %88, label %.thread, label %62, !llvm.loop !15
 
 89:                                               ; preds = %76
-  %90 = getelementptr inbounds i8, ptr %64, i64 40
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread, label %.loopexit
+  %90 = getelementptr inbounds nuw i8, ptr %64, i64 40
+  br label %.loopexit
 
-.thread:                                          ; preds = %81, %51, %89, %47, %42, %38, %31
-  %92 = load i32, ptr %33, align 1
-  %93 = zext i32 %92 to i64
-  %94 = getelementptr i8, ptr %33, i64 %93
-  %95 = add nuw nsw i32 %32, 1
-  %96 = icmp eq i32 %95, %24
-  br i1 %96, label %.loopexit, label %31, !llvm.loop !16
+.thread:                                          ; preds = %81, %51, %47, %42, %38, %31
+  %91 = load i32, ptr %33, align 1
+  %92 = zext i32 %91 to i64
+  %93 = getelementptr i8, ptr %33, i64 %92
+  %94 = add nuw nsw i32 %32, 1
+  %95 = icmp eq i32 %94, %24
+  br i1 %95, label %.loopexit, label %31, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.thread, %89, %20, %10
-  %97 = phi ptr [ null, %10 ], [ null, %20 ], [ %90, %89 ], [ null, %.thread ]
-  ret ptr %97
+  %96 = phi ptr [ null, %10 ], [ null, %20 ], [ %90, %89 ], [ null, %.thread ]
+  ret ptr %96
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

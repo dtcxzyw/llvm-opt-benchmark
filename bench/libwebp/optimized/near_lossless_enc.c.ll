@@ -5,11 +5,11 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load i32, ptr %8, align 8
   %10 = mul nsw i32 %5, 3
   %11 = sext i32 %10 to i64
@@ -32,7 +32,7 @@ define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr nocapture noundef re
   br i1 %19, label %.lr.ph48, label %.sink.split
 
 .lr.ph48:                                         ; preds = %.preheader
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = sext i32 %5 to i64
   %22 = shl nsw i64 %21, 2
   %wide.trip.count = zext nneg i32 %7 to i64
@@ -53,7 +53,7 @@ define hidden range(i32 0, 2) i32 @VP8ApplyNearLossless(ptr nocapture noundef re
   br i1 %exitcond.not, label %.sink.split, label %23, !llvm.loop !4
 
 31:                                               ; preds = %15
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load ptr, ptr %32, align 8
   tail call fastcc void @NearLossless(i32 noundef %5, i32 noundef %7, ptr noundef %33, i32 noundef %9, i32 noundef %13, ptr noundef %12, ptr noundef %2)
   %.144 = add nsw i32 %.neg.i, 4
@@ -133,7 +133,7 @@ define internal fastcc void @NearLossless(i32 noundef %0, i32 noundef range(i32 
 
 29:                                               ; preds = %.lr.ph.us, %IsSmooth.exit.us
   %indvars.iv = phi i64 [ 1, %.lr.ph.us ], [ %indvars.iv.next, %IsSmooth.exit.us ]
-  %30 = getelementptr inbounds i32, ptr %.05774.us, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %.05774.us, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr i8, ptr %30, i64 -4
   %33 = load i32, ptr %32, align 4
@@ -181,7 +181,7 @@ IsNear.exit.i.us:                                 ; preds = %41
   br i1 %exitcond.not.i26.i.us, label %IsNear.exit27.i.us, label %45, !llvm.loop !7
 
 IsNear.exit27.i.us:                               ; preds = %52
-  %54 = getelementptr inbounds i32, ptr %.05873.us, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i32, ptr %.05873.us, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   br label %56
 
@@ -204,7 +204,7 @@ IsNear.exit27.i.us:                               ; preds = %52
   br i1 %exitcond.not.i33.i.us, label %IsNear.exit34.i.us, label %56, !llvm.loop !7
 
 IsNear.exit34.i.us:                               ; preds = %63
-  %65 = getelementptr inbounds i32, ptr %.05675.us, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw i32, ptr %.05675.us, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   br label %67
 
@@ -271,7 +271,7 @@ IsNear.exit34.i.us:                               ; preds = %63
 
 IsSmooth.exit.us:                                 ; preds = %113, %.loopexit.us
   %.sink = phi i32 [ %112, %.loopexit.us ], [ %31, %113 ]
-  %115 = getelementptr inbounds i32, ptr %.05971.us, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw i32, ptr %.05971.us, i64 %indvars.iv
   store i32 %.sink, ptr %115, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -284,7 +284,7 @@ IsSmooth.exit.us:                                 ; preds = %113, %.loopexit.us
 ..loopexit68_crit_edge.us:                        ; preds = %IsSmooth.exit.us, %116
   %117 = add nuw nsw i32 %.06070.us, 1
   %118 = getelementptr inbounds i32, ptr %.076.us, i64 %13
-  %119 = getelementptr inbounds i32, ptr %.05971.us, i64 %9
+  %119 = getelementptr inbounds nuw i32, ptr %.05971.us, i64 %9
   %exitcond85.not = icmp eq i32 %117, %1
   br i1 %exitcond85.not, label %.split78.us, label %.split.us, !llvm.loop !9
 

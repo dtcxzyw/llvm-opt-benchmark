@@ -39,9 +39,9 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable10initializeEv() local_unn
   br i1 %4, label %5, label %31
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @_ZN15MallocSiteTable13allocation_atERK15NativeCallStackmPj8MEMFLAGS, ptr %6, align 16
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @_ZN15MallocSiteTable13lookup_or_addERK15NativeCallStackPj8MEMFLAGS, ptr %7, align 8
   store ptr @_ZN15MallocSiteTable9new_entryERK15NativeCallStack8MEMFLAGS, ptr %2, align 16
   %8 = load atomic i8, ptr @_ZGVZN15MallocSiteTable10initializeEvE5stack acquire, align 8
@@ -72,17 +72,17 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable10initializeEv() local_unn
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15MallocSiteTable10initializeEvE5stack, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15MallocSiteTable10initializeEvE5entry, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN15MallocSiteTable10initializeEvE5stack, i64 32, i1 false)
-  store i8 12, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 32), align 8
-  store volatile i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 40), align 8
-  store volatile i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 48), align 8
-  store volatile i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 56), align 8
-  store volatile i64 0, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 64), align 8
+  store i8 12, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 32), align 8
+  store volatile i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 40), align 8
+  store volatile i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 48), align 8
+  store volatile i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 56), align 8
+  store volatile i64 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 64), align 8
   br label %19
 
 19:                                               ; preds = %19, %18
   %indvars.iv.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i, %19 ]
   %.056.i.i = phi i64 [ 0, %18 ], [ %23, %19 ]
-  %20 = getelementptr inbounds [4 x ptr], ptr %1, i64 0, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [4 x ptr], ptr %1, i64 0, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = add i64 %.056.i.i, %22
@@ -92,8 +92,8 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable10initializeEv() local_unn
 
 _ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit: ; preds = %19
   %24 = trunc i64 %23 to i32
-  store i32 %24, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 72), align 8
-  store volatile ptr null, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 80), align 8
+  store i32 %24, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 72), align 8
+  store volatile ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 80), align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN15MallocSiteTable10initializeEvE5entry) #14
   br label %25
@@ -101,11 +101,11 @@ _ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit: ; preds = %19
 25:                                               ; preds = %_ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit, %16, %13
   store ptr @_ZZN15MallocSiteTable10initializeEvE5stack, ptr @_ZN15MallocSiteTable28_hash_entry_allocation_stackE, align 8
   store ptr @_ZZN15MallocSiteTable10initializeEvE5entry, ptr @_ZN15MallocSiteTable27_hash_entry_allocation_siteE, align 8
-  %26 = load i32, ptr getelementptr inbounds (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 72), align 8
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15MallocSiteTable10initializeEvE5entry, i64 72), align 8
   %27 = urem i32 %26, 4099
   %28 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
   %29 = zext nneg i32 %27 to i64
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
   store ptr @_ZZN15MallocSiteTable10initializeEvE5entry, ptr %30, align 8
   br label %31
 
@@ -123,14 +123,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN15MallocSiteTable13allocation_
   br i1 %6, label %7, label %_ZN10MallocSite8allocateEm.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %9 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull align 8 dereferenceable(32) %8) #14, !srcloc !9
   %.not.i.i = icmp eq i64 %1, 0
   br i1 %.not.i.i, label %_ZN10MallocSite8allocateEm.exit, label %10
 
 10:                                               ; preds = %7
   %11 = add i64 %9, 1
-  %12 = getelementptr inbounds i8, ptr %5, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %1, ptr nonnull %12) #14, !srcloc !9
   %14 = add i64 %13, %1
   tail call void @_ZN13MemoryCounter11update_peakEmm(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %14, i64 noundef %11) #14
@@ -149,7 +149,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable13lookup_or_addERK15NativeCallSta
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
   %.056.i = phi i64 [ 0, %3 ], [ %10, %6 ]
-  %7 = getelementptr inbounds [4 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x ptr], ptr %0, i64 0, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = add i64 %.056.i, %9
@@ -163,7 +163,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   store i32 0, ptr %1, align 4
   %13 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %.lr.ph.preheader
@@ -174,22 +174,22 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 %2, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %20, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store volatile i64 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 48
   store volatile i64 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 56
   store volatile i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %20, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 64
   store volatile i64 0, ptr %25, align 8
   br label %26
 
 26:                                               ; preds = %26, %18
   %indvars.iv.i.i.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i.i.i, %26 ]
   %.056.i.i.i = phi i64 [ 0, %18 ], [ %30, %26 ]
-  %27 = getelementptr inbounds [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv.i.i.i
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = add i64 %.056.i.i.i, %29
@@ -198,14 +198,14 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   br i1 %exitcond.not.i.i.i, label %31, label %26, !llvm.loop !7
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %20, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %20, i64 72
   %33 = trunc i64 %30 to i32
   store i32 %33, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %20, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store volatile ptr null, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   %35 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %14
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %14
   %37 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %20, ptr null, ptr %36) #14, !srcloc !10
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
@@ -217,7 +217,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
 41:                                               ; preds = %31
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %20) #14
   %.pre = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %14
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %14
   %.pre68 = load ptr, ptr %.phi.trans.insert, align 8
   %.not = icmp eq ptr %.pre68, null
   br i1 %.not, label %.loopexit, label %.lr.ph.preheader
@@ -229,13 +229,13 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %83
   %.04360 = phi i32 [ %85, %83 ], [ 0, %.lr.ph.preheader ]
   %.04459 = phi ptr [ %84, %83 ], [ %.04459.ph, %.lr.ph.preheader ]
-  %42 = getelementptr inbounds i8, ptr %.04459, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %.04459, i64 72
   %43 = load i32, ptr %42, align 8
   %44 = icmp eq i32 %43, %11
   br i1 %44, label %45, label %54
 
 45:                                               ; preds = %.lr.ph
-  %46 = getelementptr inbounds i8, ptr %.04459, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %.04459, i64 32
   %47 = load i8, ptr %46, align 8
   %48 = icmp eq i8 %47, %2
   br i1 %48, label %49, label %54
@@ -251,7 +251,7 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   br label %.loopexit.sink.split
 
 54:                                               ; preds = %45, %49, %.lr.ph
-  %55 = getelementptr inbounds i8, ptr %.04459, i64 80
+  %55 = getelementptr inbounds nuw i8, ptr %.04459, i64 80
   %56 = load volatile ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   %58 = icmp samesign ult i32 %.04360, 65533
@@ -264,22 +264,22 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull readonly align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %62 = getelementptr inbounds i8, ptr %61, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   store i8 %2, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store volatile i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 48
   store volatile i64 0, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 56
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 56
   store volatile i64 0, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %61, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 64
   store volatile i64 0, ptr %66, align 8
   br label %67
 
 67:                                               ; preds = %67, %59
   %indvars.iv.i.i.i47 = phi i64 [ 0, %59 ], [ %indvars.iv.next.i.i.i49, %67 ]
   %.056.i.i.i48 = phi i64 [ 0, %59 ], [ %71, %67 ]
-  %68 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i47
+  %68 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i.i.i47
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = add i64 %.056.i.i.i48, %70
@@ -288,10 +288,10 @@ _ZNK15NativeCallStack14calculate_hashEv.exit:     ; preds = %6
   br i1 %exitcond.not.i.i.i50, label %72, label %67, !llvm.loop !7
 
 72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %61, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %74 = trunc i64 %71 to i32
   store i32 %74, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %61, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 80
   store volatile ptr null, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %76 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %61, ptr null, ptr nonnull %55) #14, !srcloc !10
@@ -334,22 +334,22 @@ define hidden noundef ptr @_ZN15MallocSiteTable9new_entryERK15NativeCallStack8ME
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
-  %6 = getelementptr inbounds i8, ptr %5, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 %1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store volatile i64 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 48
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store volatile i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store volatile i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store volatile i64 0, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %11, %2
   %indvars.iv.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i, %11 ]
   %.056.i.i = phi i64 [ 0, %2 ], [ %15, %11 ]
-  %12 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = add i64 %.056.i.i, %14
@@ -358,10 +358,10 @@ define hidden noundef ptr @_ZN15MallocSiteTable9new_entryERK15NativeCallStack8ME
   br i1 %exitcond.not.i.i, label %_ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit, label %11, !llvm.loop !7
 
 _ZN24MallocSiteHashtableEntryC2E15NativeCallStack8MEMFLAGS.exit: ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %5, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %17 = trunc i64 %15 to i32
   store i32 %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store volatile ptr null, ptr %18, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret ptr %5
@@ -385,7 +385,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable4walkEP16MallocSiteWalker(
 2:                                                ; preds = %1, %._crit_edge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %._crit_edge ]
   %3 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -398,7 +398,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable4walkEP16MallocSiteWalker(
   br i1 %8, label %9, label %.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds i8, ptr %.0712, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %.0712, i64 80
   %11 = load volatile ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
@@ -415,7 +415,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable4walkEP16MallocSiteWalker(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24MallocSiteHashtableEntry13atomic_insertEPS_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1, ptr null, ptr nonnull %3) #14, !srcloc !10
   %5 = icmp eq ptr %4, null
   ret i1 %5
@@ -426,7 +426,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable11malloc_siteEj(i32 noundef %0) l
   %2 = lshr i32 %0, 16
   %3 = zext nneg i32 %2 to i64
   %4 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %3
   %6 = load ptr, ptr %5, align 8
   %7 = and i32 %0, 65535
   %8 = zext nneg i32 %7 to i64
@@ -439,7 +439,7 @@ define hidden noundef ptr @_ZN15MallocSiteTable11malloc_siteEj(i32 noundef %0) l
   %.010 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %.089 = phi ptr [ %14, %.lr.ph ], [ %6, %1 ]
   %12 = add nuw nsw i64 %.010, 1
-  %13 = getelementptr inbounds i8, ptr %.089, i64 80
+  %13 = getelementptr inbounds nuw i8, ptr %.089, i64 80
   %14 = load volatile ptr, ptr %13, align 8
   %15 = icmp samesign ult i64 %12, %8
   %16 = icmp ne ptr %14, null
@@ -460,7 +460,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable16walk_malloc_siteEP16Mall
 2:                                                ; preds = %._crit_edge.i, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %3 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %4 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %.not11.i = icmp eq ptr %5, null
   br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
@@ -473,7 +473,7 @@ define hidden noundef zeroext i1 @_ZN15MallocSiteTable16walk_malloc_siteEP16Mall
   br i1 %8, label %9, label %_ZN15MallocSiteTable4walkEP16MallocSiteWalker.exit
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds i8, ptr %.0712.i, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %.0712.i, i64 80
   %11 = load volatile ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !12
@@ -502,7 +502,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %.03952 = phi i32 [ 0, %1 ], [ %spec.select, %._crit_edge ]
   %.04151 = phi i32 [ 0, %1 ], [ %.142.lcssa, %._crit_edge ]
   %5 = load ptr, ptr @_ZN15MallocSiteTable6_tableE, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   %9 = zext i1 %8 to i32
@@ -516,7 +516,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %.14245 = phi i32 [ %spec.select43, %.lr.ph ], [ %.04151, %4 ]
   %10 = add nsw i32 %.148, 1
   %11 = add nuw nsw i32 %.03746, 1
-  %12 = getelementptr inbounds i8, ptr %.03647, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %.03647, i64 48
   %13 = load volatile i64, ptr %12, align 8
   %14 = icmp eq i64 %13, 0
   %15 = zext i1 %14 to i32
@@ -527,7 +527,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
-  %21 = getelementptr inbounds i8, ptr %.03647, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %.03647, i64 80
   %22 = load volatile ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -538,7 +538,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   %.1.lcssa = phi i32 [ %.03554, %4 ], [ %10, %.lr.ph ]
   %23 = tail call noundef i32 @llvm.smin.i32(i32 %.037.lcssa, i32 65535)
   %24 = trunc nuw i32 %23 to i16
-  %25 = getelementptr inbounds [4099 x i16], ptr %3, i64 0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4099 x i16], ptr %3, i64 0, i64 %indvars.iv
   store i16 %24, ptr %25, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4099
@@ -557,11 +557,11 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   call void @qsort(ptr noundef nonnull %3, i64 noundef 4099, i64 noundef 2, ptr noundef nonnull @_ZL12qsort_helperPKvS0_) #14
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.6) #14
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.7, i32 noundef %spec.select) #14
-  %32 = getelementptr inbounds i8, ptr %3, i64 8196
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 8196
   %33 = load i16, ptr %32, align 4
   %34 = zext i16 %33 to i32
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.8, i32 noundef %34) #14
-  %35 = getelementptr inbounds i8, ptr %3, i64 4098
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 4098
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.9, i32 noundef %37) #14
@@ -571,7 +571,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
 
 38:                                               ; preds = %26, %38
   %indvars.iv58 = phi i64 [ 0, %26 ], [ %indvars.iv.next59, %38 ]
-  %39 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv58
+  %39 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv58
   %40 = load i32, ptr %39, align 4
   %41 = trunc nuw nsw i64 %indvars.iv58 to i32
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.11, i32 noundef %41, i32 noundef %40) #14

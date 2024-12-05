@@ -16,19 +16,19 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   %3 = alloca %struct.intel_sseu, align 4
   %4 = alloca %struct.intel_sseu, align 4
   store i32 %1, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 208
-  %6 = tail call i32 @mutex_lock_interruptible(ptr noundef %5) #5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %6 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull %5) #5
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %8, label %124
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 408
-  %10 = call i32 @bcmp(ptr noundef dereferenceable(4) %9, ptr noundef nonnull dereferenceable(4) %4, i64 4)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %10 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %9, ptr noundef nonnull dereferenceable(4) %4, i64 4)
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %122, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 204
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %14 = load volatile i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %.thread20, label %.lr.ph, !prof !5
@@ -36,7 +36,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 .lr.ph:                                           ; preds = %12, %22
   %16 = phi i32 [ %23, %22 ], [ %14, %12 ]
   %17 = add i32 %16, 1
-  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 %17, ptr elementtype(i32) %13, i32 %16) #5, !srcloc !6
+  %18 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 %17, ptr nonnull elementtype(i32) %13, i32 %16) #5, !srcloc !6
   %19 = extractvalue { i8, i32 } %18, 0
   %20 = icmp ult i8 %19, 2
   tail call void @llvm.assume(i1 %20)
@@ -49,9 +49,9 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   br i1 %24, label %.thread20, label %.lr.ph, !prof !8, !llvm.loop !9
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 352
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 352
   %29 = tail call i32 @__SCT__might_resched() #5
   %30 = load volatile i32, ptr %28, align 4
   %31 = icmp eq i32 %30, 0
@@ -60,7 +60,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 .lr.ph23:                                         ; preds = %25, %38
   %32 = phi i32 [ %39, %38 ], [ %30, %25 ]
   %33 = add i32 %32, 1
-  %34 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 %33, ptr elementtype(i32) %28, i32 %32) #5, !srcloc !6
+  %34 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 %33, ptr nonnull elementtype(i32) %28, i32 %32) #5, !srcloc !6
   %35 = extractvalue { i8, i32 } %34, 0
   %36 = icmp ult i8 %35, 2
   tail call void @llvm.assume(i1 %36)
@@ -73,11 +73,11 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   br i1 %40, label %._crit_edge, label %.lr.ph23, !prof !8, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %38, %25
-  %41 = tail call i32 @__intel_wakeref_get_first(ptr noundef %28) #5
+  %41 = tail call i32 @__intel_wakeref_get_first(ptr noundef nonnull %28) #5
   br label %.loopexit22
 
 .loopexit22:                                      ; preds = %.lr.ph23, %._crit_edge
-  %42 = getelementptr inbounds i8, ptr %27, i64 176
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 176
   %43 = load ptr, ptr %42, align 8
   %44 = tail call ptr @i915_request_create(ptr noundef %43) #5
   %45 = tail call i32 @__SCT__might_resched() #5
@@ -88,7 +88,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 .lr.ph25:                                         ; preds = %.loopexit22, %54
   %48 = phi i32 [ %55, %54 ], [ %46, %.loopexit22 ]
   %49 = add i32 %48, -1
-  %50 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %28, i32 %49, ptr elementtype(i32) %28, i32 %48) #5, !srcloc !6
+  %50 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %28, i32 %49, ptr nonnull elementtype(i32) %28, i32 %48) #5, !srcloc !6
   %51 = extractvalue { i8, i32 } %50, 0
   %52 = icmp ult i8 %51, 2
   tail call void @llvm.assume(i1 %52)
@@ -101,7 +101,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   br i1 %56, label %._crit_edge26, label %.lr.ph25, !prof !8, !llvm.loop !9
 
 ._crit_edge26:                                    ; preds = %54, %.loopexit22
-  tail call void @__intel_wakeref_put_last(ptr noundef %28, i64 noundef 0) #5
+  tail call void @__intel_wakeref_put_last(ptr noundef nonnull %28, i64 noundef 0) #5
   br label %.loopexit21
 
 .loopexit21:                                      ; preds = %.lr.ph25, %._crit_edge26
@@ -131,11 +131,11 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   br label %92
 
 70:                                               ; preds = %64
-  %71 = getelementptr inbounds i8, ptr %0, i64 88
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i64, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %72, i64 248
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 248
   %76 = load i32, ptr %75, align 8
   %77 = trunc i64 %74 to i32
   %78 = add i32 %76, %77
@@ -150,9 +150,9 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   %85 = trunc nuw nsw i64 %84 to i32
   %86 = getelementptr i8, ptr %65, i64 12
   store i32 %85, ptr %83, align 4
-  %87 = getelementptr inbounds i8, ptr %44, i64 80
+  %87 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = call i32 @intel_sseu_make_rpcs(ptr noundef %90, ptr noundef nonnull %3) #5
   store i32 %91, ptr %86, align 4
@@ -170,9 +170,9 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 
 96:                                               ; preds = %94, %58
   %97 = phi i32 [ %60, %58 ], [ %95, %94 ]
-  %98 = getelementptr inbounds i8, ptr %0, i64 400
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 88
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 88
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %.preheader
@@ -189,7 +189,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 .lr.ph28:                                         ; preds = %.preheader, %112
   %106 = phi i32 [ %113, %112 ], [ %104, %.preheader ]
   %107 = add i32 %106, -1
-  %108 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 %107, ptr elementtype(i32) %13, i32 %106) #5, !srcloc !6
+  %108 = call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 %107, ptr nonnull elementtype(i32) %13, i32 %106) #5, !srcloc !6
   %109 = extractvalue { i8, i32 } %108, 0
   %110 = icmp ult i8 %109, 2
   call void @llvm.assume(i1 %110)
@@ -202,13 +202,13 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
   br i1 %114, label %._crit_edge29, label %.lr.ph28, !prof !8, !llvm.loop !9
 
 ._crit_edge29:                                    ; preds = %112, %.preheader
-  %115 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %13, i32 2, i32 1, ptr elementtype(i32) %13) #5, !srcloc !12
+  %115 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %13, i32 2, i32 1, ptr nonnull elementtype(i32) %13) #5, !srcloc !12
   %116 = icmp eq i32 %115, 1
   br i1 %116, label %117, label %.preheader, !llvm.loop !13
 
 117:                                              ; preds = %._crit_edge29
   %118 = load ptr, ptr %98, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 88
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 88
   %120 = load ptr, ptr %119, align 8
   call void %120(ptr noundef %0) #5
   br label %.loopexit
@@ -223,7 +223,7 @@ define dso_local i32 @intel_context_reconfigure_sseu(ptr noundef %0, i32 %1) loc
 
 122:                                              ; preds = %.thread20, %.loopexit, %8
   %123 = phi i32 [ %97, %.loopexit ], [ 0, %.thread20 ], [ 0, %8 ]
-  call void @mutex_unlock(ptr noundef %5) #5
+  call void @mutex_unlock(ptr noundef nonnull %5) #5
   br label %124
 
 124:                                              ; preds = %122, %2

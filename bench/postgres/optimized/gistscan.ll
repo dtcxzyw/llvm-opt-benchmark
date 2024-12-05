@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @gistbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @RelationGetIndexScan(ptr noundef %0, i32 noundef %1, i32 noundef %2) #6
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @initGISTstate(ptr noundef %6) #6
   %8 = load ptr, ptr %7, align 8
@@ -26,21 +26,21 @@ define dso_local ptr @gistbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = tail call ptr @palloc0(i64 noundef 24664) #6
   store ptr %7, ptr %10, align 8
   %11 = tail call ptr @createTempGistContext() #6
-  %12 = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 4
   %20 = tail call ptr @palloc(i64 noundef %19) #6
-  %21 = getelementptr inbounds i8, ptr %10, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 1, ptr %22, align 8
   %23 = load i32, ptr %16, align 4
   %24 = icmp sgt i32 %23, 0
@@ -50,12 +50,12 @@ define dso_local ptr @gistbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
   %26 = zext nneg i32 %23 to i64
   %27 = shl nuw nsw i64 %26, 3
   %28 = tail call ptr @palloc0(i64 noundef %27) #6
-  %29 = getelementptr inbounds i8, ptr %4, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr %16, align 4
   %31 = sext i32 %30 to i64
   %32 = tail call ptr @palloc(i64 noundef %31) #6
-  %33 = getelementptr inbounds i8, ptr %4, i64 128
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %32, ptr %33, align 8
   %34 = load i32, ptr %16, align 4
   %35 = sext i32 %34 to i64
@@ -63,15 +63,15 @@ define dso_local ptr @gistbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
   br label %36
 
 36:                                               ; preds = %25, %3
-  %37 = getelementptr inbounds i8, ptr %10, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 48
   store ptr null, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %10, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %10, i64 60
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 60
   store i32 -1, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %10, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 0, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %10, ptr %41, align 8
   store ptr %9, ptr @CurrentMemoryContext, align 8
   ret ptr %4
@@ -92,15 +92,15 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %20, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %14, align 8
@@ -117,32 +117,32 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %20
 
 20:                                               ; preds = %5, %17, %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %72
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %27, label %72
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 116
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 116
   %33 = load i16, ptr %32, align 4
   %34 = sext i16 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %29, i64 320
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 320
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 10
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 10
   %38 = load i16, ptr %37, align 2
   %39 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %34) #6
   %40 = load ptr, ptr %7, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store ptr %39, ptr %41, align 8
   %.not118126 = icmp slt i16 %38, 1
   br i1 %.not118126, label %.preheader, label %.lr.ph.preheader
@@ -167,11 +167,11 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %45 = load ptr, ptr %7, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = trunc i64 %indvars.iv to i16
   %49 = load ptr, ptr %28, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 360
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 360
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr i32, ptr %51, i64 %indvars.iv
   %53 = getelementptr i8, ptr %52, i64 -4
@@ -184,10 +184,10 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 .lr.ph130:                                        ; preds = %.lr.ph130.preheader, %.lr.ph130
   %indvars.iv149 = phi i64 [ %43, %.lr.ph130.preheader ], [ %indvars.iv.next150, %.lr.ph130 ]
   %55 = load ptr, ptr %7, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load ptr, ptr %56, align 8
   %58 = trunc i64 %indvars.iv149 to i16
-  %59 = getelementptr inbounds i8, ptr %55, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = mul i64 %indvars.iv149, 104
   %62 = getelementptr i8, ptr %60, i64 -12
@@ -200,31 +200,31 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 
 ._crit_edge:                                      ; preds = %.lr.ph130, %.preheader
   %65 = load ptr, ptr %7, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %25, align 8
   %68 = load ptr, ptr %7, align 8
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %69, ptr noundef nonnull @.str.1, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #6
-  %71 = getelementptr inbounds i8, ptr %7, i64 24656
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 24656
   store ptr %70, ptr %71, align 8
   br label %72
 
 72:                                               ; preds = %._crit_edge, %24, %20
-  %73 = getelementptr inbounds i8, ptr %7, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %74, ptr @CurrentMemoryContext, align 8
   %76 = tail call ptr @pairingheap_allocate(ptr noundef nonnull @pairingheap_GISTSearchItem_cmp, ptr noundef nonnull %0) #6
   store ptr %76, ptr %8, align 8
   store ptr %75, ptr @CurrentMemoryContext, align 8
-  %77 = getelementptr inbounds i8, ptr %7, i64 33
+  %77 = getelementptr inbounds nuw i8, ptr %7, i64 33
   store i8 1, ptr %77, align 1
   %.not120 = icmp eq ptr %1, null
   br i1 %.not120, label %130, label %78
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %80 = load i32, ptr %79, align 8
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %130
@@ -241,7 +241,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %88, label %.lr.ph133, label %.loopexit125
 
 .lr.ph133:                                        ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %0, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %90
 
 90:                                               ; preds = %.lr.ph133, %90
@@ -260,12 +260,12 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 .loopexit125:                                     ; preds = %90, %83, %82
   %98 = phi i32 [ %80, %82 ], [ %87, %83 ], [ %95, %90 ]
   %.0111 = phi ptr [ null, %82 ], [ %86, %83 ], [ %86, %90 ]
-  %99 = getelementptr inbounds i8, ptr %0, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load ptr, ptr %99, align 8
   %101 = sext i32 %98 to i64
   %102 = mul nsw i64 %101, 72
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %100, ptr nonnull align 8 %1, i64 %102, i1 false)
-  %103 = getelementptr inbounds i8, ptr %7, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 1, ptr %103, align 8
   %104 = load i32, ptr %79, align 8
   %105 = icmp sgt i32 %104, 0
@@ -275,10 +275,10 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %125 ], [ 0, %.loopexit125 ]
   %106 = load ptr, ptr %99, align 8
   %107 = getelementptr %struct.ScanKeyData, ptr %106, i64 %indvars.iv157
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load ptr, ptr %7, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 40
-  %111 = getelementptr inbounds i8, ptr %107, i64 4
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %112 = load i16, ptr %111, align 4
   %113 = sext i16 %112 to i64
   %114 = add nsw i64 %113, -1
@@ -290,7 +290,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 117:                                              ; preds = %.lr.ph136
   %118 = getelementptr ptr, ptr %.0111, i64 %indvars.iv157
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %107, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %107, i64 40
   store ptr %119, ptr %120, align 8
   br label %121
 
@@ -323,7 +323,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %.not121, label %203, label %131
 
 131:                                              ; preds = %130
-  %132 = getelementptr inbounds i8, ptr %0, i64 28
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %133 = load i32, ptr %132, align 4
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %135, label %203
@@ -340,7 +340,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br i1 %141, label %.lr.ph140, label %.loopexit
 
 .lr.ph140:                                        ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %0, i64 40
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %143
 
 143:                                              ; preds = %.lr.ph140, %143
@@ -359,7 +359,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 .loopexit:                                        ; preds = %143, %136, %135
   %151 = phi i32 [ %133, %135 ], [ %140, %136 ], [ %148, %143 ]
   %.0108 = phi ptr [ null, %135 ], [ %139, %136 ], [ %139, %143 ]
-  %152 = getelementptr inbounds i8, ptr %0, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %153 = load ptr, ptr %152, align 8
   %154 = sext i32 %151 to i64
   %155 = mul nsw i64 %154, 72
@@ -368,7 +368,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %157 = sext i32 %156 to i64
   %158 = shl nsw i64 %157, 2
   %159 = tail call ptr @palloc(i64 noundef %158) #6
-  %160 = getelementptr inbounds i8, ptr %7, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %159, ptr %160, align 8
   %161 = load i32, ptr %132, align 4
   %162 = icmp sgt i32 %161, 0
@@ -379,35 +379,35 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   %163 = load ptr, ptr %152, align 8
   %164 = getelementptr %struct.ScanKeyData, ptr %163, i64 %indvars.iv163
   %165 = load ptr, ptr %7, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 10792
-  %167 = getelementptr inbounds i8, ptr %164, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 10792
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %168 = load i16, ptr %167, align 4
   %169 = sext i16 %168 to i64
   %170 = add nsw i64 %169, -1
   %171 = getelementptr [32 x %struct.FmgrInfo], ptr %166, i64 0, i64 %170
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load i32, ptr %172, align 8
   %.not122 = icmp eq i32 %173, 0
   br i1 %.not122, label %174, label %185
 
 174:                                              ; preds = %.lr.ph144
-  %175 = getelementptr inbounds i8, ptr %164, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %176 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   tail call void @llvm.assume(i1 %176)
   %177 = load i16, ptr %175, align 4
   %178 = sext i16 %177 to i32
-  %179 = getelementptr inbounds i8, ptr %0, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %180 = load ptr, ptr %179, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 56
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 56
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   %184 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.2, i32 noundef 8, i32 noundef %178, ptr noundef nonnull %183) #6
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 313, ptr noundef nonnull @__func__.gistrescan) #6
   unreachable
 
 185:                                              ; preds = %.lr.ph144
-  %186 = getelementptr inbounds i8, ptr %164, i64 16
-  %187 = getelementptr inbounds i8, ptr %164, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %188 = load i32, ptr %187, align 8
   %189 = tail call i32 @get_func_rettype(i32 noundef %188) #6
   %190 = load ptr, ptr %160, align 8
@@ -421,7 +421,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 194:                                              ; preds = %185
   %195 = getelementptr ptr, ptr %.0108, i64 %indvars.iv163
   %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %164, i64 40
+  %197 = getelementptr inbounds nuw i8, ptr %164, i64 40
   store ptr %196, ptr %197, align 8
   br label %198
 
@@ -440,7 +440,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
   br label %203
 
 203:                                              ; preds = %._crit_edge145, %202, %131, %130
-  %204 = getelementptr inbounds i8, ptr %0, i64 80
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %204, align 8
   ret void
 }
@@ -457,14 +457,14 @@ declare ptr @pairingheap_allocate(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
-  %8 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = getelementptr i8, ptr %1, i64 64
   br label %10
 
@@ -472,7 +472,7 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   %11 = phi i32 [ %5, %.lr.ph ], [ %32, %31 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %12 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %7, i64 0, i64 %indvars.iv
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i8, ptr %13, align 8
   %15 = trunc i8 %14 to i1
   br i1 %15, label %16, label %20
@@ -486,7 +486,7 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
 
 20:                                               ; preds = %10
   %21 = getelementptr [0 x %struct.IndexOrderByDistance], ptr %8, i64 0, i64 %indvars.iv
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   br i1 %24, label %.loopexit, label %25
@@ -514,10 +514,10 @@ define internal i32 @pairingheap_GISTSearchItem_cmp(ptr nocapture noundef readon
   br i1 %34, label %10, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %31, %3
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, -1
-  %38 = getelementptr inbounds i8, ptr %1, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %39 = load i32, ptr %38, align 8
   %40 = icmp eq i32 %39, -1
   br i1 %37, label %41, label %42
@@ -554,7 +554,7 @@ declare i32 @get_func_rettype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistendscan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @freeGISTstate(ptr noundef %4) #6

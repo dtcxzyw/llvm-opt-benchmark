@@ -12,13 +12,13 @@ define i64 @group_argvstr(ptr noundef readonly %0, ptr nocapture noundef writeon
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 16
   %.not32 = icmp eq ptr %6, null
   br i1 %.not32, label %10, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 856
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 856
   %9 = load ptr, ptr %8, align 8
   %.not33 = icmp eq ptr %9, null
   br i1 %.not33, label %10, label %11
@@ -28,25 +28,25 @@ define i64 @group_argvstr(ptr noundef readonly %0, ptr nocapture noundef writeon
   br label %42
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load i16, ptr %12, align 16
   %14 = and i16 %13, 3
   %15 = icmp eq i16 %14, 1
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 1016
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %2, ptr noundef nonnull @.str, ptr noundef %18, ptr noundef %20) #3
   %22 = sext i32 %21 to i64
   br label %.loopexit
 
 23:                                               ; preds = %11
-  %24 = getelementptr inbounds i8, ptr %9, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %25 = load ptr, ptr %24, align 8
-  %.034 = getelementptr inbounds i8, ptr %25, i64 8
+  %.034 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = load ptr, ptr %.034, align 8
   %27 = icmp ne ptr %26, null
   %28 = icmp ne i64 %2, 0
@@ -62,7 +62,7 @@ define i64 @group_argvstr(ptr noundef readonly %0, ptr nocapture noundef writeon
   %33 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %31, i64 noundef %32, ptr noundef nonnull @.str.1, ptr noundef nonnull %30) #3
   %34 = sext i32 %33 to i64
   %35 = add i64 %.135, %34
-  %.0 = getelementptr inbounds i8, ptr %.036, i64 8
+  %.0 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %36 = load ptr, ptr %.0, align 8
   %37 = icmp ne ptr %36, null
   %38 = icmp ult i64 %35, %2

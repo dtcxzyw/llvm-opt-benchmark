@@ -78,14 +78,14 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = add nsw i32 %0, -1
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = call i32 @ExUtilInitCommandLineArguments(i32 noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %11) #7
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %325, label %17
 
 17:                                               ; preds = %2
   %18 = load i32, ptr %11, align 8
-  %19 = getelementptr inbounds i8, ptr %11, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %20 = load ptr, ptr %19, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   %21 = call i32 @WebPAnimEncoderOptionsInitInternal(ptr noundef nonnull %7, i32 noundef 265) #7
@@ -107,12 +107,12 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
   br i1 %26, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %8, i64 104
-  %28 = getelementptr inbounds i8, ptr %8, i64 92
-  %29 = getelementptr inbounds i8, ptr %7, i64 20
-  %30 = getelementptr inbounds i8, ptr %7, i64 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 16
-  %32 = getelementptr inbounds i8, ptr %7, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 92
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 12
   br label %.outer
 
 33:                                               ; preds = %24, %22, %17
@@ -140,13 +140,13 @@ sub_0:                                            ; preds = %36, %.outer
   br i1 %.not414, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %44 = getelementptr inbounds i8, ptr %.lcssa580, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 1
   %45 = load i8, ptr %44, align 1
   %.not415 = icmp eq i8 %45, 111
   br i1 %.not415, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %46 = getelementptr inbounds i8, ptr %.lcssa580, i64 2
+  %46 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 2
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 0
   br i1 %48, label %49, label %.tail.thread
@@ -277,25 +277,25 @@ sub_0304:                                         ; preds = %104
   br i1 %.not414, label %sub_1305, label %.tail308.thread
 
 sub_1305:                                         ; preds = %sub_0304
-  %107 = getelementptr inbounds i8, ptr %.lcssa580, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 1
   %108 = load i8, ptr %107, align 1
   %.not417 = icmp eq i8 %108, 118
   br i1 %.not417, label %.tail303, label %sub_1310
 
 .tail303:                                         ; preds = %sub_1305
-  %109 = getelementptr inbounds i8, ptr %.lcssa580, i64 2
+  %109 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 2
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 0
   br i1 %111, label %140, label %sub_1310
 
 sub_1310:                                         ; preds = %.tail303, %sub_1305
-  %112 = getelementptr inbounds i8, ptr %.lcssa580, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 1
   %113 = load i8, ptr %112, align 1
   %.not419 = icmp eq i8 %113, 104
   br i1 %.not419, label %.tail308, label %.tail308.thread
 
 .tail308:                                         ; preds = %sub_1310
-  %114 = getelementptr inbounds i8, ptr %.lcssa580, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.lcssa580, i64 2
   %115 = load i8, ptr %114, align 1
   %116 = icmp eq i8 %115, 0
   br i1 %116, label %118, label %.tail308.thread
@@ -403,11 +403,11 @@ sub_1310:                                         ; preds = %.tail303, %sub_1305
   br i1 %.not556.not, label %._crit_edge409, label %.lr.ph408
 
 .lr.ph408:                                        ; preds = %._crit_edge.thread487
-  %158 = getelementptr inbounds i8, ptr %9, i64 8
-  %159 = getelementptr inbounds i8, ptr %9, i64 12
-  %160 = getelementptr inbounds i8, ptr %8, i64 8
-  %161 = getelementptr inbounds i8, ptr %8, i64 4
-  %162 = getelementptr inbounds i8, ptr %7, i64 20
+  %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %7, i64 20
   br label %163
 
 163:                                              ; preds = %.lr.ph408, %272
@@ -464,13 +464,13 @@ sub_0314:                                         ; preds = %176
   br i1 %.not420, label %sub_1315, label %.tail323.thread
 
 sub_1315:                                         ; preds = %sub_0314
-  %182 = getelementptr inbounds i8, ptr %166, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %183 = load i8, ptr %182, align 1
   %.not421 = icmp eq i8 %183, 113
   br i1 %.not421, label %.tail313, label %sub_1320
 
 .tail313:                                         ; preds = %sub_1315
-  %184 = getelementptr inbounds i8, ptr %166, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %166, i64 2
   %185 = load i8, ptr %184, align 1
   %186 = icmp eq i8 %185, 0
   br i1 %186, label %187, label %sub_1320
@@ -489,13 +489,13 @@ sub_1315:                                         ; preds = %sub_0314
   br label %226
 
 sub_1320:                                         ; preds = %187, %.tail313, %sub_1315
-  %195 = getelementptr inbounds i8, ptr %166, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %196 = load i8, ptr %195, align 1
   %.not423 = icmp eq i8 %196, 109
   br i1 %.not423, label %.tail318, label %sub_1325
 
 .tail318:                                         ; preds = %sub_1320
-  %197 = getelementptr inbounds i8, ptr %166, i64 2
+  %197 = getelementptr inbounds nuw i8, ptr %166, i64 2
   %198 = load i8, ptr %197, align 1
   %199 = icmp eq i8 %198, 0
   br i1 %199, label %200, label %sub_1325
@@ -514,13 +514,13 @@ sub_1320:                                         ; preds = %187, %.tail313, %su
   br label %226
 
 sub_1325:                                         ; preds = %200, %.tail318, %sub_1320
-  %208 = getelementptr inbounds i8, ptr %166, i64 1
+  %208 = getelementptr inbounds nuw i8, ptr %166, i64 1
   %209 = load i8, ptr %208, align 1
   %.not425 = icmp eq i8 %209, 100
   br i1 %.not425, label %.tail323, label %.tail323.thread
 
 .tail323:                                         ; preds = %sub_1325
-  %210 = getelementptr inbounds i8, ptr %166, i64 2
+  %210 = getelementptr inbounds nuw i8, ptr %166, i64 2
   %211 = load i8, ptr %210, align 1
   %212 = icmp eq i8 %211, 0
   br i1 %212, label %213, label %.tail323.thread
@@ -732,7 +732,7 @@ ReadImage.exit:                                   ; preds = %232
   br i1 %293, label %294, label %.thread22.i
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds i8, ptr %4, i64 4
+  %295 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %.0179, ptr %295, align 4
   %296 = call i32 @WebPMuxSetAnimationParams(ptr noundef nonnull %283, ptr noundef nonnull %4) #7
   %297 = icmp eq i32 %296, 1
@@ -773,7 +773,7 @@ SetLoopCount.exit:                                ; preds = %282, %.thread26.i, 
 
 307:                                              ; preds = %306
   %308 = load ptr, ptr %10, align 8
-  %309 = getelementptr inbounds i8, ptr %10, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %310 = load i64, ptr %309, align 8
   %311 = call i32 @ImgIoUtilWriteFile(ptr noundef nonnull %.0198, ptr noundef %308, i64 noundef %310) #7
   %.not259 = icmp eq i32 %311, 0
@@ -791,7 +791,7 @@ SetLoopCount.exit:                                ; preds = %282, %.thread26.i, 
 
 318:                                              ; preds = %312, %315
   %319 = load ptr, ptr @stderr, align 8
-  %320 = getelementptr inbounds i8, ptr %10, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %321 = load i64, ptr %320, align 8
   %322 = trunc i64 %321 to i32
   %323 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %319, ptr noundef nonnull @.str.32, i32 noundef %.0188, i32 noundef %322) #10

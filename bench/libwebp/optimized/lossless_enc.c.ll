@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %2, align 4
   ret void
@@ -43,16 +43,16 @@ define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly initializ
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 20)) %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 -1, ptr %4, align 4
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %9
 
@@ -60,7 +60,7 @@ define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, 
   %10 = phi i32 [ 0, %.lr.ph ], [ %37, %36 ]
   %11 = phi float [ 0.000000e+00, %.lr.ph ], [ %38, %36 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %12 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %36, label %14
@@ -80,7 +80,7 @@ define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, 
 
 22:                                               ; preds = %14
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %23
   %25 = load float, ptr %24, align 4
   br label %VP8LFastSLog2.exit
 
@@ -121,7 +121,7 @@ VP8LFastSLog2.exit:                               ; preds = %22, %26
   %40 = phi i32 [ %.pre28, %._crit_edge ], [ 0, %3 ]
   %41 = phi float [ %38, %._crit_edge ], [ 0.000000e+00, %3 ]
   %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %42
   %44 = load float, ptr %43, align 4
   br label %VP8LFastSLog2.exit24
 
@@ -150,7 +150,7 @@ define hidden void @VP8LSubtractGreenFromBlueAndRed_C(ptr nocapture noundef %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 8
   %7 = sub i32 %5, %6
@@ -176,14 +176,14 @@ define hidden void @VP8LTransformColor_C(ptr nocapture noundef readonly %0, ptr 
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 2
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = lshr i32 %9, 16
   %11 = load i8, ptr %0, align 1
@@ -244,7 +244,7 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readon
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds i32, ptr %.0912.us, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %.0912.us, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 16
   %16 = shl i32 %14, 16
@@ -254,7 +254,7 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr nocapture noundef readon
   %20 = sub nsw i32 %15, %19
   %21 = and i32 %20, 255
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %5, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %5, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   store i32 %25, ptr %23, align 4
@@ -297,7 +297,7 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr nocapture noundef reado
 
 14:                                               ; preds = %.preheader.us, %14
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds i32, ptr %.01016.us, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %.01016.us, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = shl i32 %16, 16
   %18 = ashr i32 %17, 24
@@ -311,7 +311,7 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr nocapture noundef reado
   %26 = sub i32 %16, %25
   %27 = and i32 %26, 255
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i32, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw i32, ptr %6, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, 1
   store i32 %31, ptr %29, align 4
@@ -359,7 +359,7 @@ define hidden void @VP8LBundleColorMap_C(ptr nocapture noundef readonly %0, i32 
   %12 = and i32 %11, %9
   %13 = icmp eq i32 %12, 0
   %spec.select = select i1 %13, i32 -16777216, i32 %.02429
-  %14 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv34
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv34
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i32
   %17 = shl nsw i32 %12, %8
@@ -368,7 +368,7 @@ define hidden void @VP8LBundleColorMap_C(ptr nocapture noundef readonly %0, i32 
   %20 = or i32 %19, %spec.select
   %21 = lshr i32 %11, %2
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %22
   store i32 %20, ptr %23, align 4
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
@@ -376,12 +376,12 @@ define hidden void @VP8LBundleColorMap_C(ptr nocapture noundef readonly %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 8
   %28 = or disjoint i32 %27, -16777216
-  %29 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %28, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -393,20 +393,20 @@ define hidden void @VP8LBundleColorMap_C(ptr nocapture noundef readonly %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 3240
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   %7 = shl nuw i32 1, %5
   %8 = add nuw nsw i32 %7, 280
   %9 = select i1 %6, i32 %8, i32 280
   %.not = icmp eq ptr %1, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 3264
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3264
   %11 = load i8, ptr %10, align 8
   %.not110 = icmp eq i8 %11, 0
   br i1 %.not, label %116, label %12
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 3264
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 3264
   %14 = load i8, ptr %13, align 8
   %.not121 = icmp eq i8 %14, 0
   br i1 %.not110, label %25, label %15
@@ -447,36 +447,36 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %34
 
 34:                                               ; preds = %27, %31, %17, %21
-  %35 = getelementptr inbounds i8, ptr %0, i64 3265
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 3265
   %36 = load i8, ptr %35, align 1
   %.not123 = icmp eq i8 %36, 0
-  %37 = getelementptr inbounds i8, ptr %1, i64 3265
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 3265
   %38 = load i8, ptr %37, align 1
   %.not124 = icmp eq i8 %38, 0
   br i1 %.not123, label %47, label %39
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not124, label %45, label %41
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @VP8LAddVector, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void %42(ptr noundef nonnull %40, ptr noundef nonnull %43, ptr noundef nonnull %44, i32 noundef 256) #11
   br label %52
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %46, ptr noundef nonnull align 8 dereferenceable(1024) %40, i64 1024, i1 false)
   br label %52
 
 47:                                               ; preds = %34
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %.not124, label %51, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %1, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %48, ptr noundef nonnull align 8 dereferenceable(1024) %50, i64 1024, i1 false)
   br label %52
 
@@ -485,36 +485,36 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %52
 
 52:                                               ; preds = %49, %51, %41, %45
-  %53 = getelementptr inbounds i8, ptr %0, i64 3266
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 3266
   %54 = load i8, ptr %53, align 2
   %.not126 = icmp eq i8 %54, 0
-  %55 = getelementptr inbounds i8, ptr %1, i64 3266
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 3266
   %56 = load i8, ptr %55, align 2
   %.not127 = icmp eq i8 %56, 0
   br i1 %.not126, label %65, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %0, i64 1032
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %.not127, label %63, label %59
 
 59:                                               ; preds = %57
   %60 = load ptr, ptr @VP8LAddVector, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 1032
-  %62 = getelementptr inbounds i8, ptr %2, i64 1032
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 1032
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   tail call void %60(ptr noundef nonnull %58, ptr noundef nonnull %61, ptr noundef nonnull %62, i32 noundef 256) #11
   br label %70
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %2, i64 1032
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %64, ptr noundef nonnull align 8 dereferenceable(1024) %58, i64 1024, i1 false)
   br label %70
 
 65:                                               ; preds = %52
-  %66 = getelementptr inbounds i8, ptr %2, i64 1032
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   br i1 %.not127, label %69, label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %1, i64 1032
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %66, ptr noundef nonnull align 8 dereferenceable(1024) %68, i64 1024, i1 false)
   br label %70
 
@@ -523,36 +523,36 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %70
 
 70:                                               ; preds = %67, %69, %59, %63
-  %71 = getelementptr inbounds i8, ptr %0, i64 3267
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 3267
   %72 = load i8, ptr %71, align 1
   %.not129 = icmp eq i8 %72, 0
-  %73 = getelementptr inbounds i8, ptr %1, i64 3267
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 3267
   %74 = load i8, ptr %73, align 1
   %.not130 = icmp eq i8 %74, 0
   br i1 %.not129, label %83, label %75
 
 75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %0, i64 2056
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   br i1 %.not130, label %81, label %77
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr @VP8LAddVector, align 8
-  %79 = getelementptr inbounds i8, ptr %1, i64 2056
-  %80 = getelementptr inbounds i8, ptr %2, i64 2056
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 2056
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 2056
   tail call void %78(ptr noundef nonnull %76, ptr noundef nonnull %79, ptr noundef nonnull %80, i32 noundef 256) #11
   br label %88
 
 81:                                               ; preds = %75
-  %82 = getelementptr inbounds i8, ptr %2, i64 2056
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 2056
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %82, ptr noundef nonnull align 8 dereferenceable(1024) %76, i64 1024, i1 false)
   br label %88
 
 83:                                               ; preds = %70
-  %84 = getelementptr inbounds i8, ptr %2, i64 2056
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 2056
   br i1 %.not130, label %87, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %1, i64 2056
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 2056
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %84, ptr noundef nonnull align 8 dereferenceable(1024) %86, i64 1024, i1 false)
   br label %88
 
@@ -561,36 +561,36 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %88
 
 88:                                               ; preds = %85, %87, %77, %81
-  %89 = getelementptr inbounds i8, ptr %0, i64 3268
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 3268
   %90 = load i8, ptr %89, align 4
   %.not132 = icmp eq i8 %90, 0
-  %91 = getelementptr inbounds i8, ptr %1, i64 3268
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 3268
   %92 = load i8, ptr %91, align 4
   %.not133 = icmp eq i8 %92, 0
   br i1 %.not132, label %101, label %93
 
 93:                                               ; preds = %88
-  %94 = getelementptr inbounds i8, ptr %0, i64 3080
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   br i1 %.not133, label %99, label %95
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr @VP8LAddVector, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 3080
-  %98 = getelementptr inbounds i8, ptr %2, i64 3080
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 3080
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 3080
   tail call void %96(ptr noundef nonnull %94, ptr noundef nonnull %97, ptr noundef nonnull %98, i32 noundef 40) #11
   br label %106
 
 99:                                               ; preds = %93
-  %100 = getelementptr inbounds i8, ptr %2, i64 3080
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 3080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %100, ptr noundef nonnull align 8 dereferenceable(160) %94, i64 160, i1 false)
   br label %106
 
 101:                                              ; preds = %88
-  %102 = getelementptr inbounds i8, ptr %2, i64 3080
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 3080
   br i1 %.not133, label %105, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %1, i64 3080
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 3080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %102, ptr noundef nonnull align 8 dereferenceable(160) %104, i64 160, i1 false)
   br label %106
 
@@ -599,18 +599,18 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %106
 
 106:                                              ; preds = %99, %95, %105, %103
-  %107 = getelementptr inbounds i8, ptr %1, i64 3264
-  %108 = getelementptr inbounds i8, ptr %2, i64 3264
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 3264
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 3264
   br label %109
 
 109:                                              ; preds = %106, %109
   %indvars.iv = phi i64 [ 0, %106 ], [ %indvars.iv.next, %109 ]
-  %110 = getelementptr inbounds [5 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv
   %111 = load i8, ptr %110, align 1
-  %112 = getelementptr inbounds [5 x i8], ptr %107, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [5 x i8], ptr %107, i64 0, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1
   %114 = or i8 %113, %111
-  %115 = getelementptr inbounds [5 x i8], ptr %108, i64 0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [5 x i8], ptr %108, i64 0, i64 %indvars.iv
   store i8 %114, ptr %115, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
@@ -620,7 +620,7 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not110, label %128, label %117
 
 117:                                              ; preds = %116
-  %118 = getelementptr inbounds i8, ptr %2, i64 3264
+  %118 = getelementptr inbounds nuw i8, ptr %2, i64 3264
   %119 = load i8, ptr %118, align 8
   %.not111 = icmp eq i8 %119, 0
   %120 = load ptr, ptr %0, align 8
@@ -640,110 +640,110 @@ define hidden void @VP8LHistogramAdd(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %128
 
 128:                                              ; preds = %121, %124, %116
-  %129 = getelementptr inbounds i8, ptr %0, i64 3265
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 3265
   %130 = load i8, ptr %129, align 1
   %.not112 = icmp eq i8 %130, 0
   br i1 %.not112, label %140, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %2, i64 3265
+  %132 = getelementptr inbounds nuw i8, ptr %2, i64 3265
   %133 = load i8, ptr %132, align 1
   %.not113 = icmp eq i8 %133, 0
-  %134 = getelementptr inbounds i8, ptr %0, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %.not113, label %138, label %135
 
 135:                                              ; preds = %131
   %136 = load ptr, ptr @VP8LAddVectorEq, align 8
-  %137 = getelementptr inbounds i8, ptr %2, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void %136(ptr noundef nonnull %134, ptr noundef nonnull %137, i32 noundef 256) #11
   br label %140
 
 138:                                              ; preds = %131
-  %139 = getelementptr inbounds i8, ptr %2, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %139, ptr noundef nonnull align 8 dereferenceable(1024) %134, i64 1024, i1 false)
   br label %140
 
 140:                                              ; preds = %135, %138, %128
-  %141 = getelementptr inbounds i8, ptr %0, i64 3266
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 3266
   %142 = load i8, ptr %141, align 2
   %.not114 = icmp eq i8 %142, 0
   br i1 %.not114, label %152, label %143
 
 143:                                              ; preds = %140
-  %144 = getelementptr inbounds i8, ptr %2, i64 3266
+  %144 = getelementptr inbounds nuw i8, ptr %2, i64 3266
   %145 = load i8, ptr %144, align 2
   %.not115 = icmp eq i8 %145, 0
-  %146 = getelementptr inbounds i8, ptr %0, i64 1032
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   br i1 %.not115, label %150, label %147
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr @VP8LAddVectorEq, align 8
-  %149 = getelementptr inbounds i8, ptr %2, i64 1032
+  %149 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   tail call void %148(ptr noundef nonnull %146, ptr noundef nonnull %149, i32 noundef 256) #11
   br label %152
 
 150:                                              ; preds = %143
-  %151 = getelementptr inbounds i8, ptr %2, i64 1032
+  %151 = getelementptr inbounds nuw i8, ptr %2, i64 1032
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %151, ptr noundef nonnull align 8 dereferenceable(1024) %146, i64 1024, i1 false)
   br label %152
 
 152:                                              ; preds = %147, %150, %140
-  %153 = getelementptr inbounds i8, ptr %0, i64 3267
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 3267
   %154 = load i8, ptr %153, align 1
   %.not116 = icmp eq i8 %154, 0
   br i1 %.not116, label %164, label %155
 
 155:                                              ; preds = %152
-  %156 = getelementptr inbounds i8, ptr %2, i64 3267
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 3267
   %157 = load i8, ptr %156, align 1
   %.not117 = icmp eq i8 %157, 0
-  %158 = getelementptr inbounds i8, ptr %0, i64 2056
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 2056
   br i1 %.not117, label %162, label %159
 
 159:                                              ; preds = %155
   %160 = load ptr, ptr @VP8LAddVectorEq, align 8
-  %161 = getelementptr inbounds i8, ptr %2, i64 2056
+  %161 = getelementptr inbounds nuw i8, ptr %2, i64 2056
   tail call void %160(ptr noundef nonnull %158, ptr noundef nonnull %161, i32 noundef 256) #11
   br label %164
 
 162:                                              ; preds = %155
-  %163 = getelementptr inbounds i8, ptr %2, i64 2056
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 2056
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %163, ptr noundef nonnull align 8 dereferenceable(1024) %158, i64 1024, i1 false)
   br label %164
 
 164:                                              ; preds = %159, %162, %152
-  %165 = getelementptr inbounds i8, ptr %0, i64 3268
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 3268
   %166 = load i8, ptr %165, align 4
   %.not118 = icmp eq i8 %166, 0
   br i1 %.not118, label %176, label %167
 
 167:                                              ; preds = %164
-  %168 = getelementptr inbounds i8, ptr %2, i64 3268
+  %168 = getelementptr inbounds nuw i8, ptr %2, i64 3268
   %169 = load i8, ptr %168, align 4
   %.not119 = icmp eq i8 %169, 0
-  %170 = getelementptr inbounds i8, ptr %0, i64 3080
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 3080
   br i1 %.not119, label %174, label %171
 
 171:                                              ; preds = %167
   %172 = load ptr, ptr @VP8LAddVectorEq, align 8
-  %173 = getelementptr inbounds i8, ptr %2, i64 3080
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 3080
   tail call void %172(ptr noundef nonnull %170, ptr noundef nonnull %173, i32 noundef 40) #11
   br label %176
 
 174:                                              ; preds = %167
-  %175 = getelementptr inbounds i8, ptr %2, i64 3080
+  %175 = getelementptr inbounds nuw i8, ptr %2, i64 3080
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %175, ptr noundef nonnull align 8 dereferenceable(160) %170, i64 160, i1 false)
   br label %176
 
 176:                                              ; preds = %164, %174, %171
-  %177 = getelementptr inbounds i8, ptr %2, i64 3264
+  %177 = getelementptr inbounds nuw i8, ptr %2, i64 3264
   br label %178
 
 178:                                              ; preds = %176, %178
   %indvars.iv140 = phi i64 [ 0, %176 ], [ %indvars.iv.next141, %178 ]
-  %179 = getelementptr inbounds [5 x i8], ptr %10, i64 0, i64 %indvars.iv140
+  %179 = getelementptr inbounds nuw [5 x i8], ptr %10, i64 0, i64 %indvars.iv140
   %180 = load i8, ptr %179, align 1
-  %181 = getelementptr inbounds [5 x i8], ptr %177, i64 0, i64 %indvars.iv140
+  %181 = getelementptr inbounds nuw [5 x i8], ptr %177, i64 0, i64 %indvars.iv140
   %182 = load i8, ptr %181, align 1
   %183 = or i8 %182, %180
   store i8 %183, ptr %181, align 1
@@ -870,7 +870,7 @@ define internal float @FastLog2Slow_C(i32 noundef %0) #7 {
   %5 = sub nsw i32 24, %4
   %6 = lshr i32 %0, %5
   %7 = zext nneg i32 %6 to i64
-  %8 = getelementptr inbounds [256 x float], ptr @kLog2Table, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [256 x float], ptr @kLog2Table, i64 0, i64 %7
   %9 = load float, ptr %8, align 4
   %10 = sitofp i32 %5 to float
   %11 = fadd float %9, %10
@@ -919,7 +919,7 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
   %10 = mul nuw nsw i32 %9, 23
   %11 = lshr i32 %10, 4
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr inbounds [256 x float], ptr @kLog2Table, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [256 x float], ptr @kLog2Table, i64 0, i64 %12
   %14 = load float, ptr %13, align 4
   %15 = sitofp i32 %5 to float
   %16 = fadd float %14, %15
@@ -942,9 +942,9 @@ define internal float @FastSLog2Slow_C(i32 noundef %0) #7 {
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef %1) #8 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, %4
   %8 = icmp sgt i32 %1, 7
@@ -959,11 +959,11 @@ define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.013 = phi i32 [ %7, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %.idx = shl nsw i64 %indvars.iv, 3
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.idx
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %.idx = shl nuw nsw i64 %indvars.iv, 3
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %10, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = add i32 %14, %12
   %16 = trunc nuw nsw i64 %indvars.iv to i32
@@ -980,15 +980,15 @@ define internal i32 @ExtraCost_C(ptr nocapture noundef readonly %0, i32 noundef 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @ExtraCostCombined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #8 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %8, %10
-  %12 = getelementptr inbounds i8, ptr %1, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i32, ptr %12, align 4
   %14 = add i32 %11, %13
   %15 = icmp sgt i32 %2, 7
@@ -1005,14 +1005,14 @@ define internal i32 @ExtraCostCombined_C(ptr nocapture noundef readonly %0, ptr 
   %.01920 = phi i32 [ %14, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %17 = shl nuw nsw i64 %indvars.iv, 1
   %18 = add nuw nsw i64 %17, 2
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i32, ptr %1, i64 %18
+  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %18
   %22 = load i32, ptr %21, align 4
   %23 = add nuw nsw i64 %17, 3
-  %24 = getelementptr inbounds i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %1, i64 %23
+  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %23
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %22, %20
   %29 = add i32 %28, %25
@@ -1038,10 +1038,10 @@ define internal float @CombinedShannonEntropy_C(ptr nocapture noundef readonly %
   %.02741 = phi float [ 0.000000e+00, %2 ], [ %.1, %45 ]
   %.02840 = phi i32 [ 0, %2 ], [ %.129, %45 ]
   %.03039 = phi i32 [ 0, %2 ], [ %.131, %45 ]
-  %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   br i1 %.not, label %32, label %8
 
@@ -1053,7 +1053,7 @@ define internal float @CombinedShannonEntropy_C(ptr nocapture noundef readonly %
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %13
   %15 = load float, ptr %14, align 4
   br label %VP8LFastSLog2.exit
 
@@ -1071,7 +1071,7 @@ VP8LFastSLog2.exit:                               ; preds = %12, %16
 
 23:                                               ; preds = %VP8LFastSLog2.exit
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %24
   %26 = load float, ptr %25, align 4
   br label %VP8LFastSLog2.exit35
 
@@ -1096,7 +1096,7 @@ VP8LFastSLog2.exit35:                             ; preds = %23, %27
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %7 to i64
-  %38 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %37
   %39 = load float, ptr %38, align 4
   br label %VP8LFastSLog2.exit36
 
@@ -1124,7 +1124,7 @@ VP8LFastSLog2.exit36:                             ; preds = %36, %40
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %.131 to i64
-  %50 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %49
   %51 = load float, ptr %50, align 4
   br label %VP8LFastSLog2.exit37
 
@@ -1140,7 +1140,7 @@ VP8LFastSLog2.exit37:                             ; preds = %48, %52
 
 57:                                               ; preds = %VP8LFastSLog2.exit37
   %58 = zext nneg i32 %.129 to i64
-  %59 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %58
   %60 = load float, ptr %59, align 4
   br label %VP8LFastSLog2.exit38
 
@@ -1160,17 +1160,17 @@ VP8LFastSLog2.exit38:                             ; preds = %57, %61
 define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 20)) %2, ptr nocapture noundef initializes((0, 24)) %3) #1 {
   %5 = load i32, ptr %0, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  %6 = getelementptr inbounds i8, ptr %2, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 -1, ptr %6, align 4
   %7 = icmp sgt i32 %1, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
-  %9 = getelementptr inbounds i8, ptr %2, i64 8
-  %10 = getelementptr inbounds i8, ptr %2, i64 12
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %12
 
@@ -1178,7 +1178,7 @@ define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.03640 = phi i32 [ %5, %.lr.ph ], [ %.1, %51 ]
   %.03739 = phi i32 [ 0, %.lr.ph ], [ %.138, %51 ]
-  %13 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, %.03640
   br i1 %.not, label %51, label %15
@@ -1203,7 +1203,7 @@ define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i
 
 25:                                               ; preds = %18
   %26 = zext nneg i32 %.03640 to i64
-  %27 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %26
   %28 = load float, ptr %27, align 4
   br label %VP8LFastSLog2.exit.i
 
@@ -1232,12 +1232,12 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %15, %VP8LFastSLog2.
   %41 = zext i1 %40 to i32
   %42 = icmp ne i32 %.03640, 0
   %43 = zext i1 %42 to i64
-  %44 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add nsw i32 %45, %41
   store i32 %46, ptr %44, align 4
   %47 = zext i1 %40 to i64
-  %48 = getelementptr inbounds [2 x [2 x i32]], ptr %11, i64 0, i64 %43, i64 %47
+  %48 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %11, i64 0, i64 %43, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = add nsw i32 %49, %17
   store i32 %50, ptr %48, align 4
@@ -1260,11 +1260,11 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %15, %VP8LFastSLog2.
 
 53:                                               ; preds = %._crit_edge
   %54 = mul i32 %52, %.036.lcssa
-  %55 = getelementptr inbounds i8, ptr %2, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, %54
   store i32 %57, ptr %55, align 4
-  %58 = getelementptr inbounds i8, ptr %2, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %59 = load i32, ptr %58, align 4
   %60 = add nsw i32 %59, %52
   store i32 %60, ptr %58, align 4
@@ -1274,7 +1274,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %15, %VP8LFastSLog2.
 
 62:                                               ; preds = %53
   %63 = zext nneg i32 %.036.lcssa to i64
-  %64 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %63
   %65 = load float, ptr %64, align 4
   br label %VP8LFastSLog2.exit.i19
 
@@ -1290,7 +1290,7 @@ VP8LFastSLog2.exit.i19:                           ; preds = %66, %62
   %72 = fneg float %69
   %73 = tail call float @llvm.fmuladd.f32(float %72, float %70, float %71)
   store float %73, ptr %2, align 4
-  %74 = getelementptr inbounds i8, ptr %2, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = icmp ult i32 %75, %.036.lcssa
   br i1 %76, label %77, label %GetEntropyUnrefinedHelper.exit21
@@ -1304,24 +1304,24 @@ GetEntropyUnrefinedHelper.exit21:                 ; preds = %._crit_edge, %VP8LF
   %79 = zext i1 %78 to i32
   %80 = icmp ne i32 %.036.lcssa, 0
   %81 = zext i1 %80 to i64
-  %82 = getelementptr inbounds [2 x i32], ptr %3, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i32], ptr %3, i64 0, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = add nsw i32 %83, %79
   store i32 %84, ptr %82, align 4
-  %85 = getelementptr inbounds i8, ptr %3, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %86 = zext i1 %78 to i64
-  %87 = getelementptr inbounds [2 x [2 x i32]], ptr %85, i64 0, i64 %81, i64 %86
+  %87 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %85, i64 0, i64 %81, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = add nsw i32 %88, %52
   store i32 %89, ptr %87, align 4
-  %90 = getelementptr inbounds i8, ptr %2, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %91 = load i32, ptr %90, align 4
   %92 = icmp ult i32 %91, 256
   br i1 %92, label %93, label %97
 
 93:                                               ; preds = %GetEntropyUnrefinedHelper.exit21
   %94 = zext nneg i32 %91 to i64
-  %95 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %94
   %96 = load float, ptr %95, align 4
   br label %VP8LFastSLog2.exit
 
@@ -1344,17 +1344,17 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readon
   %7 = load i32, ptr %1, align 4
   %8 = add i32 %7, %6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store i32 -1, ptr %9, align 4
   %10 = icmp sgt i32 %2, 1
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 12
-  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %15
 
@@ -1362,9 +1362,9 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readon
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.03943 = phi i32 [ %8, %.lr.ph ], [ %.1, %57 ]
   %.04042 = phi i32 [ 0, %.lr.ph ], [ %.141, %57 ]
-  %16 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, %17
   %.not = icmp eq i32 %20, %.03943
@@ -1390,7 +1390,7 @@ define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readon
 
 31:                                               ; preds = %24
   %32 = zext nneg i32 %.03943 to i64
-  %33 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %32
+  %33 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %32
   %34 = load float, ptr %33, align 4
   br label %VP8LFastSLog2.exit.i
 
@@ -1419,12 +1419,12 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %21, %VP8LFastSLog2.
   %47 = zext i1 %46 to i32
   %48 = icmp ne i32 %.03943, 0
   %49 = zext i1 %48 to i64
-  %50 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add nsw i32 %51, %47
   store i32 %52, ptr %50, align 4
   %53 = zext i1 %46 to i64
-  %54 = getelementptr inbounds [2 x [2 x i32]], ptr %14, i64 0, i64 %49, i64 %53
+  %54 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %14, i64 0, i64 %49, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = add nsw i32 %55, %23
   store i32 %56, ptr %54, align 4
@@ -1447,11 +1447,11 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %21, %VP8LFastSLog2.
 
 59:                                               ; preds = %._crit_edge
   %60 = mul i32 %58, %.039.lcssa
-  %61 = getelementptr inbounds i8, ptr %3, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, %60
   store i32 %63, ptr %61, align 4
-  %64 = getelementptr inbounds i8, ptr %3, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load i32, ptr %64, align 4
   %66 = add nsw i32 %65, %58
   store i32 %66, ptr %64, align 4
@@ -1461,7 +1461,7 @@ GetEntropyUnrefinedHelper.exit:                   ; preds = %21, %VP8LFastSLog2.
 
 68:                                               ; preds = %59
   %69 = zext nneg i32 %.039.lcssa to i64
-  %70 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %69
   %71 = load float, ptr %70, align 4
   br label %VP8LFastSLog2.exit.i22
 
@@ -1477,7 +1477,7 @@ VP8LFastSLog2.exit.i22:                           ; preds = %72, %68
   %78 = fneg float %75
   %79 = tail call float @llvm.fmuladd.f32(float %78, float %76, float %77)
   store float %79, ptr %3, align 4
-  %80 = getelementptr inbounds i8, ptr %3, i64 12
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %81 = load i32, ptr %80, align 4
   %82 = icmp ult i32 %81, %.039.lcssa
   br i1 %82, label %83, label %GetEntropyUnrefinedHelper.exit24
@@ -1491,24 +1491,24 @@ GetEntropyUnrefinedHelper.exit24:                 ; preds = %._crit_edge, %VP8LF
   %85 = zext i1 %84 to i32
   %86 = icmp ne i32 %.039.lcssa, 0
   %87 = zext i1 %86 to i64
-  %88 = getelementptr inbounds [2 x i32], ptr %4, i64 0, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i32], ptr %4, i64 0, i64 %87
   %89 = load i32, ptr %88, align 4
   %90 = add nsw i32 %89, %85
   store i32 %90, ptr %88, align 4
-  %91 = getelementptr inbounds i8, ptr %4, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = zext i1 %84 to i64
-  %93 = getelementptr inbounds [2 x [2 x i32]], ptr %91, i64 0, i64 %87, i64 %92
+  %93 = getelementptr inbounds nuw [2 x [2 x i32]], ptr %91, i64 0, i64 %87, i64 %92
   %94 = load i32, ptr %93, align 4
   %95 = add nsw i32 %94, %58
   store i32 %95, ptr %93, align 4
-  %96 = getelementptr inbounds i8, ptr %3, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = icmp ult i32 %97, 256
   br i1 %98, label %99, label %103
 
 99:                                               ; preds = %GetEntropyUnrefinedHelper.exit24
   %100 = zext nneg i32 %97 to i64
-  %101 = getelementptr inbounds [256 x float], ptr @kSLog2Table, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [256 x float], ptr @kSLog2Table, i64 0, i64 %100
   %102 = load float, ptr %101, align 4
   br label %VP8LFastSLog2.exit
 
@@ -1536,12 +1536,12 @@ define internal void @AddVector_C(ptr nocapture noundef readonly %0, ptr nocaptu
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, %7
-  %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %10, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1562,9 +1562,9 @@ define internal void @AddVectorEq_C(ptr nocapture noundef readonly %0, ptr nocap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = add i32 %8, %6
   store i32 %9, ptr %7, align 4
@@ -1587,9 +1587,9 @@ define internal i32 @VectorMismatch_C(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %6, %8
   br i1 %9, label %10, label %.critedge.loopexit.split.loop.exit11
@@ -1619,13 +1619,13 @@ define internal void @PredictorSub0_C(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -16711936
   %9 = add i32 %8, 16777216
   %10 = and i32 %7, 16711935
   %11 = or disjoint i32 %9, %10
-  %12 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %11, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1646,7 +1646,7 @@ define internal void @PredictorSub1_C(ptr nocapture noundef readonly %0, ptr noc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4
@@ -1659,7 +1659,7 @@ define internal void @PredictorSub1_C(ptr nocapture noundef readonly %0, ptr noc
   %16 = and i32 %12, -16711936
   %17 = and i32 %15, 16711935
   %18 = or disjoint i32 %16, %17
-  %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1682,7 +1682,7 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor2_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1694,7 +1694,7 @@ define internal void @PredictorSub2_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1717,7 +1717,7 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor3_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1729,7 +1729,7 @@ define internal void @PredictorSub3_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1752,7 +1752,7 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor4_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1764,7 +1764,7 @@ define internal void @PredictorSub4_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1787,7 +1787,7 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor5_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1799,7 +1799,7 @@ define internal void @PredictorSub5_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1822,7 +1822,7 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor6_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1834,7 +1834,7 @@ define internal void @PredictorSub6_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1857,7 +1857,7 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor7_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1869,7 +1869,7 @@ define internal void @PredictorSub7_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1892,7 +1892,7 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor8_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1904,7 +1904,7 @@ define internal void @PredictorSub8_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1927,7 +1927,7 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor9_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1939,7 +1939,7 @@ define internal void @PredictorSub9_C(ptr noundef %0, ptr noundef %1, i32 nounde
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1962,7 +1962,7 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor10_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -1974,7 +1974,7 @@ define internal void @PredictorSub10_C(ptr noundef %0, ptr noundef %1, i32 nound
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1997,7 +1997,7 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor11_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -2009,7 +2009,7 @@ define internal void @PredictorSub11_C(ptr noundef %0, ptr noundef %1, i32 nound
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2032,7 +2032,7 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor12_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -2044,7 +2044,7 @@ define internal void @PredictorSub12_C(ptr noundef %0, ptr noundef %1, i32 nound
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2067,7 +2067,7 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %6 = getelementptr i32, ptr %0, i64 %indvars.iv
   %7 = getelementptr i8, ptr %6, i64 -4
-  %8 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %9 = tail call i32 @VP8LPredictor13_C(ptr noundef %7, ptr noundef %8) #11
   %10 = load i32, ptr %6, align 4
   %11 = or i32 %10, 16711680
@@ -2079,7 +2079,7 @@ define internal void @PredictorSub13_C(ptr noundef %0, ptr noundef %1, i32 nound
   %17 = and i32 %13, -16711936
   %18 = and i32 %16, 16711935
   %19 = or disjoint i32 %17, %18
-  %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %19, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

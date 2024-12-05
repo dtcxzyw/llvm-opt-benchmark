@@ -4602,10 +4602,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit139.thread: ; preds =
 
 621:                                              ; preds = %620
   %622 = load ptr, ptr %36, align 8
-  %623 = getelementptr inbounds i8, ptr %622, i64 72
+  %623 = getelementptr inbounds nuw i8, ptr %622, i64 72
   store ptr %623, ptr %36, align 8
   %624 = load ptr, ptr %221, align 8
-  %625 = getelementptr inbounds i8, ptr %624, i64 72
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 72
   store ptr %625, ptr %221, align 8
   %626 = load ptr, ptr %0, align 8
   %627 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %626)
@@ -4902,7 +4902,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %34, %40
           to label %55 unwind label %.loopexit.split-lp
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %24, i64 72
+  %56 = getelementptr inbounds nuw i8, ptr %24, i64 72
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %56, %58
@@ -4915,7 +4915,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %34, %40
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %60
-  %62 = getelementptr inbounds i8, ptr %.sroa.06.0.copyload, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.copyload, i64 72
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %62, %64
@@ -5206,7 +5206,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit41: ; preds = %110, %115
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit55: ; preds = %182, %187
   store ptr null, ptr %52, align 8
-  %195 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 72
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 72
   br label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit55, %234
@@ -5241,7 +5241,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit55: ; preds = %182, %187
 
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit58: ; preds = %196, %201
   store ptr null, ptr %51, align 8
-  %209 = getelementptr inbounds i8, ptr %.sroa.07.0, i64 72
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 72
   %210 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline12GetKeyFramesEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %211 unwind label %.loopexit
 

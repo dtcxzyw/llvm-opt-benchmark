@@ -25,7 +25,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %call.i = tail call ptr @OPENSSL_sk_new_null() #7
-  %params = getelementptr inbounds i8, ptr %call, i64 16
+  %params = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call.i, ptr %params, align 8
   %cmp3 = icmp eq ptr %call.i, null
   br i1 %cmp3, label %if.then4, label %if.end5
@@ -50,7 +50,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %0 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
   %cmp4.i = icmp sgt i32 %call.i.i, 0
@@ -93,19 +93,19 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   store ptr %key, ptr %call.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %type, ptr %type2.i, align 8
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %size, ptr %size3.i, align 8
   %call4.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %size) #7
-  %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %alloc_blocks.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
-  %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %secure5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %secure5.i, align 4
   %0 = load i64, ptr %bld, align 8
   %add11.i = add i64 %0, %call4.i
   store i64 %add11.i, ptr %bld, align 8
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %1 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
@@ -122,7 +122,7 @@ if.then:                                          ; preds = %entry, %if.then16.i
   br label %return
 
 if.end5:                                          ; preds = %if.end.i
-  %num6 = getelementptr inbounds i8, ptr %call.i, i64 48
+  %num6 = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %num6, ptr noundef nonnull align 1 dereferenceable(1) %num, i64 %size, i1 false)
   br label %return
 
@@ -248,19 +248,19 @@ if.end.split:                                     ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end.split
   store ptr %key, ptr %call.i.i, align 8
-  %type2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %type2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 2, ptr %type2.i.i, align 8
-  %size3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i64 0, ptr %size3.i.i, align 8
   %call4.i.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef 0) #7
-  %alloc_blocks.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %alloc_blocks.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store i64 %call4.i.i, ptr %alloc_blocks.i.i, align 8
-  %secure5.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %secure5.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %secure5.i.i, align 4
   %0 = load i64, ptr %bld, align 8
   %add11.i.i = add i64 %0, %call4.i.i
   store i64 %add11.i.i, ptr %bld, align 8
-  %params.i.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %1 = load ptr, ptr %params.i.i, align 8
   %call.i.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i.i) #7
   %cmp14.i.i = icmp slt i32 %call.i.i.i, 1
@@ -271,7 +271,7 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
   br label %return
 
 if.end37.i:                                       ; preds = %if.end.i.i
-  %bn38.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %bn38.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store ptr null, ptr %bn38.i, align 8
   br label %return
 
@@ -348,22 +348,22 @@ if.end31:                                         ; preds = %if.end21, %entry
 
 if.end.i:                                         ; preds = %if.end31
   store ptr %key, ptr %call.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 %type, ptr %type2.i, align 8
   %sext = shl i64 %sz.addr.0, 32
   %conv.i = ashr exact i64 %sext, 32
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %conv.i, ptr %size3.i, align 8
   %call4.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %sz.addr.0) #7
-  %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %alloc_blocks.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
-  %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %secure5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 %secure.0, ptr %secure5.i, align 4
   %cmp6.not.i = icmp eq i32 %secure.0, 0
   br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %secure_blocks.i = getelementptr inbounds i8, ptr %bld, i64 8
+  %secure_blocks.i = getelementptr inbounds nuw i8, ptr %bld, i64 8
   %0 = load i64, ptr %secure_blocks.i, align 8
   %add.i = add i64 %0, %call4.i
   store i64 %add.i, ptr %secure_blocks.i, align 8
@@ -376,7 +376,7 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %if.then8.i
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %2 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
@@ -387,7 +387,7 @@ if.then16.i:                                      ; preds = %if.end12.i
   br label %return
 
 if.end37:                                         ; preds = %if.end12.i
-  %bn38 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %bn38 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr %bn, ptr %bn38, align 8
   br label %return
 
@@ -411,21 +411,21 @@ entry.split:                                      ; preds = %entry
 
 if.end.i.i:                                       ; preds = %entry.split
   store ptr %key, ptr %call.i.i, align 8
-  %type2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %type2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 2, ptr %type2.i.i, align 8
   %sext.i = shl i64 %sz, 32
   %conv.i.i = ashr exact i64 %sext.i, 32
-  %size3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %size3.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   store i64 %conv.i.i, ptr %size3.i.i, align 8
   %call4.i.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %sz) #7
-  %alloc_blocks.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %alloc_blocks.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   store i64 %call4.i.i, ptr %alloc_blocks.i.i, align 8
-  %secure5.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %secure5.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   store i32 0, ptr %secure5.i.i, align 4
   %0 = load i64, ptr %bld, align 8
   %add11.i.i = add i64 %0, %call4.i.i
   store i64 %add11.i.i, ptr %bld, align 8
-  %params.i.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %1 = load ptr, ptr %params.i.i, align 8
   %call.i.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i.i) #7
   %cmp14.i.i = icmp slt i32 %call.i.i.i, 1
@@ -436,7 +436,7 @@ if.then16.i.i:                                    ; preds = %if.end.i.i
   br label %return
 
 if.end37.i:                                       ; preds = %if.end.i.i
-  %bn38.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %bn38.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   store ptr null, ptr %bn38.i, align 8
   br label %return
 
@@ -492,20 +492,20 @@ if.end3:                                          ; preds = %if.end
 if.end.i:                                         ; preds = %if.end3
   %add = add nuw nsw i64 %bsize.addr.0, 1
   store ptr %key, ptr %call.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 4, ptr %type2.i, align 8
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %bsize.addr.0, ptr %size3.i, align 8
   %call4.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %add) #7
-  %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %alloc_blocks.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
-  %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %secure5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 %call4, ptr %secure5.i, align 4
   %cmp6.not.i = icmp eq i32 %call4, 0
   br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %secure_blocks.i = getelementptr inbounds i8, ptr %bld, i64 8
+  %secure_blocks.i = getelementptr inbounds nuw i8, ptr %bld, i64 8
   %0 = load i64, ptr %secure_blocks.i, align 8
   %add.i = add i64 %0, %call4.i
   store i64 %add.i, ptr %secure_blocks.i, align 8
@@ -518,7 +518,7 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %if.then8.i
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %2 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
@@ -529,7 +529,7 @@ if.then16.i:                                      ; preds = %if.end12.i
   br label %return
 
 if.end9:                                          ; preds = %if.end12.i
-  %string = getelementptr inbounds i8, ptr %call.i, i64 40
+  %string = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %buf, ptr %string, align 8
   br label %return
 
@@ -577,19 +577,19 @@ if.end3:                                          ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end3
   store ptr %key, ptr %call.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 6, ptr %type2.i, align 8
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %bsize.addr.0, ptr %size3.i, align 8
   %call4.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef 8) #7
-  %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %alloc_blocks.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
-  %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %secure5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %secure5.i, align 4
   %0 = load i64, ptr %bld, align 8
   %add11.i = add i64 %0, %call4.i
   store i64 %add11.i, ptr %bld, align 8
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %1 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
@@ -600,7 +600,7 @@ if.then16.i:                                      ; preds = %if.end.i
   br label %return
 
 if.end8:                                          ; preds = %if.end.i
-  %string = getelementptr inbounds i8, ptr %call.i, i64 40
+  %string = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %buf, ptr %string, align 8
   br label %return
 
@@ -629,20 +629,20 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   store ptr %key, ptr %call.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 5, ptr %type2.i, align 8
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %bsize, ptr %size3.i, align 8
   %call4.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef %bsize) #7
-  %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %alloc_blocks.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
-  %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %secure5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 %call, ptr %secure5.i, align 4
   %cmp6.not.i = icmp eq i32 %call, 0
   br i1 %cmp6.not.i, label %if.else.i, label %if.then8.i
 
 if.then8.i:                                       ; preds = %if.end.i
-  %secure_blocks.i = getelementptr inbounds i8, ptr %bld, i64 8
+  %secure_blocks.i = getelementptr inbounds nuw i8, ptr %bld, i64 8
   %0 = load i64, ptr %secure_blocks.i, align 8
   %add.i = add i64 %0, %call4.i
   store i64 %add.i, ptr %secure_blocks.i, align 8
@@ -655,7 +655,7 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %if.then8.i
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %2 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %2, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
@@ -666,7 +666,7 @@ if.then16.i:                                      ; preds = %if.end12.i
   br label %return
 
 if.end5:                                          ; preds = %if.end12.i
-  %string = getelementptr inbounds i8, ptr %call.i, i64 40
+  %string = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %buf, ptr %string, align 8
   br label %return
 
@@ -694,19 +694,19 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   store ptr %key, ptr %call.i, align 8
-  %type2.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %type2.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 7, ptr %type2.i, align 8
-  %size3.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %size3.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i64 %bsize, ptr %size3.i, align 8
   %call4.i = tail call i64 @ossl_param_bytes_to_blocks(i64 noundef 8) #7
-  %alloc_blocks.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %alloc_blocks.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 %call4.i, ptr %alloc_blocks.i, align 8
-  %secure5.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %secure5.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   store i32 0, ptr %secure5.i, align 4
   %0 = load i64, ptr %bld, align 8
   %add11.i = add i64 %0, %call4.i
   store i64 %add11.i, ptr %bld, align 8
-  %params.i = getelementptr inbounds i8, ptr %bld, i64 16
+  %params.i = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %1 = load ptr, ptr %params.i, align 8
   %call.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef nonnull %call.i) #7
   %cmp14.i = icmp slt i32 %call.i.i, 1
@@ -717,7 +717,7 @@ if.then16.i:                                      ; preds = %if.end.i
   br label %return
 
 if.end4:                                          ; preds = %if.end.i
-  %string = getelementptr inbounds i8, ptr %call.i, i64 40
+  %string = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store ptr %buf, ptr %string, align 8
   br label %return
 
@@ -730,7 +730,7 @@ return:                                           ; preds = %if.then16.i, %if.en
 define ptr @OSSL_PARAM_BLD_to_param(ptr nocapture noundef %bld) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.ossl_param_st, align 8
-  %params1 = getelementptr inbounds i8, ptr %bld, i64 16
+  %params1 = getelementptr inbounds nuw i8, ptr %bld, i64 16
   %0 = load ptr, ptr %params1, align 8
   %call.i = tail call i32 @OPENSSL_sk_num(ptr noundef %0) #7
   %add = add nsw i32 %call.i, 1
@@ -740,7 +740,7 @@ entry:
   %1 = load i64, ptr %bld, align 8
   %add3 = add i64 %1, %call2
   %mul4 = shl i64 %add3, 3
-  %secure_blocks = getelementptr inbounds i8, ptr %bld, i64 8
+  %secure_blocks = getelementptr inbounds nuw i8, ptr %bld, i64 8
   %2 = load i64, ptr %secure_blocks, align 8
   %mul5 = shl i64 %2, 3
   %cmp.not = icmp eq i64 %mul5, 0
@@ -787,31 +787,31 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   %call.i57.i = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %5) #7
   %6 = load ptr, ptr %call.i57.i, align 8
-  %arrayidx.i = getelementptr inbounds %struct.ossl_param_st, ptr %call12, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw %struct.ossl_param_st, ptr %call12, i64 %indvars.iv.i
   store ptr %6, ptr %arrayidx.i, align 8
-  %type.i = getelementptr inbounds i8, ptr %call.i57.i, i64 8
+  %type.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 8
   %7 = load i32, ptr %type.i, align 8
-  %data_type.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %data_type.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store i32 %7, ptr %data_type.i, align 8
-  %size.i = getelementptr inbounds i8, ptr %call.i57.i, i64 16
+  %size.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 16
   %8 = load i64, ptr %size.i, align 8
-  %data_size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
+  %data_size.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   store i64 %8, ptr %data_size.i, align 8
-  %return_size.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
+  %return_size.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   store i64 -1, ptr %return_size.i, align 8
-  %secure10.i = getelementptr inbounds i8, ptr %call.i57.i, i64 12
+  %secure10.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 12
   %9 = load i32, ptr %secure10.i, align 4
   %tobool.not.i = icmp eq i32 %9, 0
-  %alloc_blocks11.i = getelementptr inbounds i8, ptr %call.i57.i, i64 24
+  %alloc_blocks11.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 24
   %10 = load i64, ptr %alloc_blocks11.i, align 8
   %secure.addr.1.idx.i = select i1 %tobool.not.i, i64 0, i64 %10
   %secure.addr.1.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %secure.addr.060.i, i64 %secure.addr.1.idx.i
   %blk.addr.1.idx.i = select i1 %tobool.not.i, i64 %10, i64 0
   %blk.addr.1.i = getelementptr inbounds %union.OSSL_PARAM_ALIGNED_BLOCK, ptr %blk.addr.061.i, i64 %blk.addr.1.idx.i
   %p.0.i = select i1 %tobool.not.i, ptr %blk.addr.061.i, ptr %secure.addr.060.i
-  %data.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %data.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   store ptr %p.0.i, ptr %data.i, align 8
-  %bn.i = getelementptr inbounds i8, ptr %call.i57.i, i64 32
+  %bn.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 32
   %11 = load ptr, ptr %bn.i, align 8
   %cmp15.not.i = icmp eq ptr %11, null
   %12 = load i32, ptr %type.i, align 8
@@ -840,13 +840,13 @@ if.else29.i:                                      ; preds = %for.body.i
   ]
 
 if.then36.i:                                      ; preds = %if.else29.i, %if.else29.i
-  %string.i = getelementptr inbounds i8, ptr %call.i57.i, i64 40
+  %string.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 40
   %14 = load ptr, ptr %string.i, align 8
   store ptr %14, ptr %p.0.i, align 8
   br label %for.inc.i
 
 if.then45.i:                                      ; preds = %if.else29.i, %if.else29.i
-  %string46.i = getelementptr inbounds i8, ptr %call.i57.i, i64 40
+  %string46.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 40
   %15 = load ptr, ptr %string46.i, align 8
   %cmp47.not.i = icmp eq ptr %15, null
   %16 = load i64, ptr %size.i, align 8
@@ -885,7 +885,7 @@ if.else68.i:                                      ; preds = %if.else62.i
   br i1 %cmp70.not.i, label %for.inc.i, label %if.then72.i
 
 if.then72.i:                                      ; preds = %if.else68.i
-  %num73.i = getelementptr inbounds i8, ptr %call.i57.i, i64 48
+  %num73.i = getelementptr inbounds nuw i8, ptr %call.i57.i, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %p.0.i, ptr nonnull align 8 %num73.i, i64 %19, i1 false)
   br label %for.inc.i
 
@@ -896,7 +896,7 @@ for.inc.i:                                        ; preds = %if.then72.i, %if.el
 
 param_bld_convert.exit:                           ; preds = %for.inc.i, %if.end16
   %i.0.lcssa.i = phi i64 [ 0, %if.end16 ], [ %wide.trip.count.i, %for.inc.i ]
-  %arrayidx81.i = getelementptr inbounds %struct.ossl_param_st, ptr %call12, i64 %i.0.lcssa.i
+  %arrayidx81.i = getelementptr inbounds nuw %struct.ossl_param_st, ptr %call12, i64 %i.0.lcssa.i
   call void @OSSL_PARAM_construct_end(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp.i) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx81.i, ptr noundef nonnull align 8 dereferenceable(40) %tmp.i, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)

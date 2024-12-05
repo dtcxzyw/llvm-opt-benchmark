@@ -110,7 +110,7 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %15, label %20, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %20, label %21
@@ -120,7 +120,7 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
   br label %44
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %14, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %23 = load i64, ptr %22, align 8
   %.not = icmp eq i64 %23, 0
   br i1 %.not, label %34, label %24
@@ -149,7 +149,7 @@ define dso_local ptr @gets_fromFile(ptr nocapture noundef %0) local_unnamed_addr
 
 37:                                               ; preds = %._crit_edge
   %38 = load ptr, ptr @gets_fromFile.buffer, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8
   %.not8 = icmp eq i64 %40, 0
   br i1 %.not8, label %44, label %41

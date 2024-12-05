@@ -145,12 +145,12 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %copy_times.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then
-  %st_atim.i = getelementptr inbounds i8, ptr %st.i, i64 72
+  %st_atim.i = getelementptr inbounds nuw i8, ptr %st.i, i64 72
   %0 = load i64, ptr %st_atim.i, align 8
   store i64 %0, ptr %times.i, align 8
-  %st_mtim.i = getelementptr inbounds i8, ptr %st.i, i64 88
+  %st_mtim.i = getelementptr inbounds nuw i8, ptr %st.i, i64 88
   %1 = load i64, ptr %st_mtim.i, align 8
-  %modtime.i = getelementptr inbounds i8, ptr %times.i, i64 8
+  %modtime.i = getelementptr inbounds nuw i8, ptr %times.i, i64 8
   store i64 %1, ptr %modtime.i, align 8
   %call2.i = call i32 @utime(ptr noundef readonly %dst, ptr noundef nonnull %times.i) #5
   %call2.lobit.i = ashr i32 %call2.i, 31

@@ -86,7 +86,7 @@ _ZN4llvm8Function4argsEv.exit.i:                  ; preds = %16, %_ZN4llvm8Funct
   br label %29
 
 29:                                               ; preds = %28, %24
-  %30 = getelementptr inbounds i8, ptr %.042.i, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %.042.i, i64 40
   %.not.i = icmp eq ptr %30, %21
   br i1 %.not.i, label %._crit_edge.i, label %24
 

@@ -34,26 +34,26 @@ define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEP
   %12 = alloca %class.QColor, align 4
   %13 = load i32, ptr %2, align 4
   store i32 %13, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %12, i64 4
-  %15 = getelementptr inbounds i8, ptr %2, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %14, ptr noundef nonnull align 4 dereferenceable(10) %15, i64 10, i1 false)
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %12, double %3, double %4, i32 noundef %9, i32 noundef %10)
   store ptr getelementptr inbounds (i8, ptr @_ZTV8EqHandle, i64 16), ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV8EqHandle, i64 168), ptr %16, align 8
-  %scevgep = getelementptr inbounds i8, ptr %0, i64 80
+  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %scevgep, i8 0, i64 48, i1 false)
   %spec.select.i = or i32 %10, 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %spec.select.i, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %5, ptr %18, align 8
   %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %25 = load i32, ptr %24, align 4
   %26 = add i32 %23, 1
   %27 = sub i32 %26, %25
@@ -61,33 +61,33 @@ define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEP
   %29 = fadd float %28, -1.000000e+01
   %30 = fadd float %29, -1.000000e+01
   %31 = fpext float %30 to double
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 136
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %6, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %7, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 144
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %8, ptr %35, align 8
   %36 = sub nsw i32 0, %spec.select.i
   %37 = sdiv i32 %spec.select.i, -2
   %38 = sitofp i32 %37 to double
   %39 = sitofp i32 %36 to double
   store double %38, ptr %scevgep, align 8
-  %.sroa.218.0..ptr14.sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
+  %.sroa.218.0..ptr14.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %39, ptr %.sroa.218.0..ptr14.sroa_idx, align 8
   %40 = sdiv i32 %spec.select.i, 2
   %41 = sitofp i32 %40 to double
-  %42 = getelementptr inbounds i8, ptr %0, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store double %41, ptr %42, align 8
-  %.sroa.216.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
+  %.sroa.216.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %39, ptr %.sroa.216.0..sroa_idx, align 8
   %43 = sitofp i32 %spec.select.i to float
   %44 = fmul float %43, 0xBFFDEB8520000000
   %45 = fpext float %44 to double
-  %46 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double 0.000000e+00, ptr %46, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store double %45, ptr %.sroa.2.0..sroa_idx, align 8
   ret void
 }
@@ -138,7 +138,7 @@ define void @_ZN8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
   %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QLine, align 4
   %7 = alloca %class.QBrush, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN8QPainter6setPenERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(14) %8)
   call void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(14) %8, i32 noundef 1)
   invoke void @_ZN8QPainter8setBrushERK6QBrush(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %7)
@@ -146,37 +146,37 @@ define void @_ZN8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(
 
 9:                                                ; preds = %4
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #14
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8
   %12 = sub nsw i32 0, %11
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load double, ptr %13, align 8
   %15 = fneg double %14
   %16 = fptosi double %15 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %17 = getelementptr inbounds i8, ptr %6, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %12, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %6, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %16, ptr %19, align 4
   call void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %6, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @_ZN8QPainter11drawPolygonEPK7QPointFiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %20, i32 noundef 3, i32 noundef 0)
   %21 = load i32, ptr %10, align 8
   %22 = sub nsw i32 0, %21
   %23 = sdiv i32 %21, -2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store i32 %23, ptr %5, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %22, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %26 = add i32 %21, -1
   %27 = add i32 %26, %23
   store i32 %27, ptr %25, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 -1, ptr %28, align 4
   call void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %5, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -213,20 +213,20 @@ declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #8 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = sdiv i32 %4, -2
   %6 = sitofp i32 %5 to double
-  %7 = getelementptr inbounds i8, ptr %1, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %8 = load double, ptr %7, align 8
   %9 = fneg double %8
   %10 = sitofp i32 %4 to double
   store double %6, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %9, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %8, ptr %13, align 8
   ret void
 }
@@ -234,20 +234,20 @@ define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @_ZThn16_NK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !noalias !5
   %5 = sdiv i32 %4, -2
   %6 = sitofp i32 %5 to double
-  %7 = getelementptr inbounds i8, ptr %1, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load double, ptr %7, align 8, !noalias !5
   %9 = fneg double %8
   %10 = sitofp i32 %4 to double
   store double %6, ptr %0, align 8, !alias.scope !5
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %9, ptr %11, align 8, !alias.scope !5
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %10, ptr %12, align 8, !alias.scope !5
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %8, ptr %13, align 8, !alias.scope !5
   ret void
 }
@@ -257,7 +257,7 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   %3 = alloca %class.QPointF, align 8
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QCursor, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN7QCursorC1EN2Qt11CursorShapeE(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 17)
   invoke void @_ZN13QGraphicsItem9setCursorERK7QCursor(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %7 unwind label %18
@@ -274,7 +274,7 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   br i1 %14, label %138, label %15
 
 15:                                               ; preds = %7
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = load i32, ptr %16, align 8
   switch i32 %17, label %138 [
     i32 1, label %20
@@ -289,10 +289,10 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   resume { ptr, i32 } %19
 
 20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %0, i64 136
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %24)
   %26 = extractvalue { double, double } %25, 0
   %27 = fcmp ogt double %9, %26
@@ -300,9 +300,9 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
 
 28:                                               ; preds = %20
   %29 = load ptr, ptr %21, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %32)
   %34 = extractvalue { double, double } %33, 0
   %35 = fcmp olt double %9, %34
@@ -311,24 +311,24 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
 36:                                               ; preds = %28
   %37 = load ptr, ptr %21, align 8
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
   %41 = extractvalue { double, double } %40, 0
   %42 = fsub double %9, %41
   %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %46)
   %48 = extractvalue { double, double } %47, 0
   %49 = load ptr, ptr %21, align 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %51)
   %53 = extractvalue { double, double } %52, 0
   %54 = fsub double %48, %53
   %55 = fdiv double %42, %54
-  %56 = getelementptr inbounds i8, ptr %0, i64 128
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %57 = load ptr, ptr %56, align 8
   store double %55, ptr %57, align 8
   call void @_ZN8EqHandle13moveMidHandleEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
@@ -336,18 +336,18 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
 
 58:                                               ; preds = %15
   %59 = call noundef double @_ZN8EqHandle17positionToQualityEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %9)
-  %60 = getelementptr inbounds i8, ptr %0, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef double @_ZNK14QDoubleSpinBox7minimumEv(ptr noundef nonnull align 8 dereferenceable(48) %61)
   %63 = fcmp olt double %59, %62
   br i1 %63, label %138, label %64
 
 64:                                               ; preds = %58
-  %65 = getelementptr inbounds i8, ptr %0, i64 136
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %69)
   %71 = extractvalue { double, double } %70, 0
   %72 = fcmp olt double %9, %71
@@ -355,15 +355,15 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
 
 73:                                               ; preds = %64
   %74 = load ptr, ptr %65, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 144
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 144
   %78 = load ptr, ptr %77, align 8
   call void @_ZN14QDoubleSpinBox10setMinimumEd(ptr noundef nonnull align 8 dereferenceable(48) %78, double noundef %59)
   %79 = load ptr, ptr %65, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 144
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 144
   %83 = load ptr, ptr %82, align 8
   call void @_ZN14QDoubleSpinBox10setMinimumEd(ptr noundef nonnull align 8 dereferenceable(48) %83, double noundef %59)
   %84 = load ptr, ptr %60, align 8
@@ -371,9 +371,9 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   call void @_ZN8EqHandle24positionChangedToSpinBoxEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %59)
   %86 = load ptr, ptr %60, align 8
   %87 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %86, i1 noundef zeroext false) #14
-  %88 = getelementptr inbounds i8, ptr %0, i64 56
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load float, ptr %90, align 8
   %92 = fpext float %91 to double
   %93 = fcmp ult double %59, %92
@@ -385,7 +385,7 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   %96 = extractvalue { double, double } %95, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store double %9, ptr %4, align 8
-  %97 = getelementptr inbounds i8, ptr %4, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %96, ptr %97, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -397,17 +397,17 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
 
 99:                                               ; preds = %15
   %100 = call noundef double @_ZN8EqHandle17positionToQualityEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %9)
-  %101 = getelementptr inbounds i8, ptr %0, i64 144
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %102 = load ptr, ptr %101, align 8
   %103 = call noundef double @_ZNK14QDoubleSpinBox7maximumEv(ptr noundef nonnull align 8 dereferenceable(48) %102)
   %104 = fcmp ogt double %100, %103
   br i1 %104, label %138, label %105
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds i8, ptr %0, i64 136
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %110 = call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %109)
   %111 = extractvalue { double, double } %110, 0
   %112 = fcmp ogt double %9, %111
@@ -416,13 +416,13 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
 113:                                              ; preds = %105
   %114 = load ptr, ptr %106, align 8
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 144
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 144
   %117 = load ptr, ptr %116, align 8
   call void @_ZN14QDoubleSpinBox10setMaximumEd(ptr noundef nonnull align 8 dereferenceable(48) %117, double noundef %100)
   %118 = load ptr, ptr %106, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 144
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 144
   %122 = load ptr, ptr %121, align 8
   call void @_ZN14QDoubleSpinBox10setMaximumEd(ptr noundef nonnull align 8 dereferenceable(48) %122, double noundef %100)
   %123 = load ptr, ptr %101, align 8
@@ -430,9 +430,9 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   call void @_ZN8EqHandle24positionChangedToSpinBoxEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %100)
   %125 = load ptr, ptr %101, align 8
   %126 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %125, i1 noundef zeroext false) #14
-  %127 = getelementptr inbounds i8, ptr %0, i64 56
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 12
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
   %130 = load float, ptr %129, align 4
   %131 = fpext float %130 to double
   %132 = fcmp ugt double %100, %131
@@ -444,7 +444,7 @@ define void @_ZN8EqHandle14mouseMoveEventEP24QGraphicsSceneMouseEvent(ptr nounde
   %135 = extractvalue { double, double } %134, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store double %9, ptr %3, align 8
-  %136 = getelementptr inbounds i8, ptr %3, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %135, ptr %136, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -479,39 +479,39 @@ declare double @llvm.fabs.f64(double) #10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8EqHandle13moveMidHandleEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.QPointF, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 136
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
   %8 = extractvalue { double, double } %7, 0
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load ptr, ptr %9, align 8
   %11 = load double, ptr %10, align 8
   %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %15)
   %17 = extractvalue { double, double } %16, 0
   %18 = load ptr, ptr %3, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
   %22 = extractvalue { double, double } %21, 0
   %23 = fsub double %17, %22
   %24 = tail call double @llvm.fmuladd.f64(double %11, double %23, double %8)
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %25)
   %27 = extractvalue { double, double } %26, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store double %24, ptr %2, align 8
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store double %27, ptr %28, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %29 = call noundef double @_ZN8EqHandle17positionToQualityEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %24)
-  %30 = getelementptr inbounds i8, ptr %0, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %31 = load ptr, ptr %30, align 8
   %32 = call noundef zeroext i1 @_ZN7QObject12blockSignalsEb(ptr noundef nonnull align 8 dereferenceable(16) %31, i1 noundef zeroext true) #14
   call void @_ZN8EqHandle24positionChangedToSpinBoxEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %29)
@@ -524,24 +524,24 @@ declare void @_ZN8EqHandle15positionChangedEv(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef double @_ZN8EqHandle17positionToQualityEd(ptr noundef nonnull align 8 dereferenceable(152) %0, double noundef %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 20
-  %9 = getelementptr inbounds i8, ptr %7, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr %8, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 136
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
   %19 = load ptr, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load float, ptr %20, align 4
   %22 = fpext float %21 to double
   %23 = fcmp ogt double %18, %22
@@ -549,9 +549,9 @@ define linkonce_odr noundef double @_ZN8EqHandle17positionToQualityEd(ptr nounde
 
 24:                                               ; preds = %2
   %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 144
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 144
   %29 = load ptr, ptr %28, align 8
   %30 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
   %31 = fptrunc double %30 to float
@@ -561,11 +561,11 @@ define linkonce_odr noundef double @_ZN8EqHandle17positionToQualityEd(ptr nounde
   %33 = phi float [ %31, %24 ], [ %21, %2 ]
   %34 = load ptr, ptr %12, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 144
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %37)
   %39 = load ptr, ptr %3, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load float, ptr %40, align 8
   %42 = fpext float %41 to double
   %43 = fcmp olt double %38, %42
@@ -574,7 +574,7 @@ define linkonce_odr noundef double @_ZN8EqHandle17positionToQualityEd(ptr nounde
 44:                                               ; preds = %32
   %45 = load ptr, ptr %12, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 144
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 144
   %48 = load ptr, ptr %47, align 8
   %49 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %48)
   %50 = fptrunc double %49 to float
@@ -633,16 +633,16 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QPointF, align 8
   %6 = alloca %class.QPointF, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 136
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %12)
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %17 = load float, ptr %16, align 4
   %18 = fpext float %17 to double
   %19 = fcmp ogt double %13, %18
@@ -650,9 +650,9 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 
 20:                                               ; preds = %2
   %21 = load ptr, ptr %7, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 144
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 144
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %25)
   %27 = fptrunc double %26 to float
@@ -662,11 +662,11 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %29 = phi float [ %27, %20 ], [ %17, %2 ]
   %30 = load ptr, ptr %7, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 144
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %33)
   %35 = load ptr, ptr %14, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load float, ptr %36, align 8
   %38 = fpext float %37 to double
   %39 = fcmp olt double %34, %38
@@ -675,7 +675,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 40:                                               ; preds = %28
   %41 = load ptr, ptr %7, align 8
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 144
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef double @_ZNK14QDoubleSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %44)
   %46 = fptrunc double %45 to float
@@ -683,7 +683,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 
 47:                                               ; preds = %28, %40
   %48 = phi float [ %46, %40 ], [ %37, %28 ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 64
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load i32, ptr %49, align 8
   switch i32 %50, label %.critedge [
     i32 1, label %51
@@ -699,10 +699,10 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %56 = fpext float %55 to double
   %57 = load ptr, ptr %14, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 20
-  %62 = getelementptr inbounds i8, ptr %60, i64 28
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %61, align 4
   %65 = add i32 %63, 1
@@ -714,7 +714,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %71 = tail call noundef double @llvm.fmuladd.f64(double %56, double %70, double 1.000000e+01)
   %72 = load ptr, ptr %7, align 8
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %75 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %74)
   %76 = extractvalue { double, double } %75, 0
   %77 = fcmp ogt double %71, %76
@@ -722,9 +722,9 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 
 78:                                               ; preds = %51
   %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %82)
   %84 = extractvalue { double, double } %83, 0
   %85 = fcmp olt double %71, %84
@@ -733,24 +733,24 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 86:                                               ; preds = %78
   %87 = load ptr, ptr %7, align 8
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %89)
   %91 = extractvalue { double, double } %90, 0
   %92 = fsub double %71, %91
   %93 = load ptr, ptr %7, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %96)
   %98 = extractvalue { double, double } %97, 0
   %99 = load ptr, ptr %7, align 8
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %101)
   %103 = extractvalue { double, double } %102, 0
   %104 = fsub double %98, %103
   %105 = fdiv double %92, %104
-  %106 = getelementptr inbounds i8, ptr %0, i64 128
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %107 = load ptr, ptr %106, align 8
   store double %105, ptr %107, align 8
   tail call void @_ZN8EqHandle13moveMidHandleEv(ptr noundef nonnull align 8 dereferenceable(152) %0)
@@ -760,19 +760,19 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 108:                                              ; preds = %47
   %109 = fptrunc double %1 to float
   %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load float, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %110, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %114 = load float, ptr %113, align 4
   %115 = fsub float %109, %112
   %116 = fsub float %114, %112
   %117 = fdiv float %115, %116
   %118 = fpext float %117 to double
   %119 = load ptr, ptr %110, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 40
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 40
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 20
-  %123 = getelementptr inbounds i8, ptr %121, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 20
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 28
   %124 = load i32, ptr %123, align 4
   %125 = load i32, ptr %122, align 4
   %126 = add i32 %124, 1
@@ -783,9 +783,9 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %131 = fpext float %130 to double
   %132 = tail call noundef double @llvm.fmuladd.f64(double %118, double %131, double 1.000000e+01)
   %133 = load ptr, ptr %7, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 16
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %136)
   %138 = extractvalue { double, double } %137, 0
   %139 = fcmp olt double %132, %138
@@ -793,19 +793,19 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 
 140:                                              ; preds = %108
   %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 16
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 144
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 144
   %145 = load ptr, ptr %144, align 8
   tail call void @_ZN14QDoubleSpinBox10setMinimumEd(ptr noundef nonnull align 8 dereferenceable(48) %145, double noundef %1)
   %146 = load ptr, ptr %7, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 144
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 144
   %150 = load ptr, ptr %149, align 8
   tail call void @_ZN14QDoubleSpinBox10setMinimumEd(ptr noundef nonnull align 8 dereferenceable(48) %150, double noundef %1)
   %151 = fcmp oge double %132, 1.000000e+01
-  %152 = getelementptr inbounds i8, ptr %0, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %152)
   %154 = extractvalue { double, double } %153, 1
   br i1 %151, label %155, label %157
@@ -813,7 +813,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 155:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store double %132, ptr %6, align 8
-  %156 = getelementptr inbounds i8, ptr %6, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store double %154, ptr %156, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
@@ -822,7 +822,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 157:                                              ; preds = %140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store double 1.000000e+01, ptr %5, align 8
-  %158 = getelementptr inbounds i8, ptr %5, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store double %154, ptr %158, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %152, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -836,19 +836,19 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 160:                                              ; preds = %47
   %161 = fptrunc double %1 to float
   %162 = load ptr, ptr %14, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
   %164 = load float, ptr %163, align 8
-  %165 = getelementptr inbounds i8, ptr %162, i64 12
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %166 = load float, ptr %165, align 4
   %167 = fsub float %161, %164
   %168 = fsub float %166, %164
   %169 = fdiv float %167, %168
   %170 = fpext float %169 to double
   %171 = load ptr, ptr %162, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 40
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds i8, ptr %173, i64 20
-  %175 = getelementptr inbounds i8, ptr %173, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 20
+  %175 = getelementptr inbounds nuw i8, ptr %173, i64 28
   %176 = load i32, ptr %175, align 4
   %177 = load i32, ptr %174, align 4
   %178 = add i32 %176, 1
@@ -860,7 +860,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %184 = tail call noundef double @llvm.fmuladd.f64(double %170, double %183, double 1.000000e+01)
   %185 = load ptr, ptr %7, align 8
   %186 = load ptr, ptr %185, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %187)
   %189 = extractvalue { double, double } %188, 0
   %190 = fcmp ogt double %184, %189
@@ -869,21 +869,21 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 191:                                              ; preds = %160
   %192 = load ptr, ptr %7, align 8
   %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 144
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 144
   %195 = load ptr, ptr %194, align 8
   tail call void @_ZN14QDoubleSpinBox10setMaximumEd(ptr noundef nonnull align 8 dereferenceable(48) %195, double noundef %1)
   %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load ptr, ptr %197, align 8
-  %199 = getelementptr inbounds i8, ptr %198, i64 144
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 144
   %200 = load ptr, ptr %199, align 8
   tail call void @_ZN14QDoubleSpinBox10setMaximumEd(ptr noundef nonnull align 8 dereferenceable(48) %200, double noundef %1)
   %201 = load ptr, ptr %14, align 8
   %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 40
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 40
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 20
-  %206 = getelementptr inbounds i8, ptr %204, i64 28
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 20
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 28
   %207 = load i32, ptr %206, align 4
   %208 = load i32, ptr %205, align 4
   %209 = add i32 %207, 1
@@ -892,7 +892,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
   %212 = fadd float %211, -1.000000e+01
   %213 = fpext float %212 to double
   %214 = fcmp ole double %184, %213
-  %215 = getelementptr inbounds i8, ptr %0, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %216 = tail call { double, double } @_ZNK13QGraphicsItem3posEv(ptr noundef nonnull align 8 dereferenceable(16) %215)
   %217 = extractvalue { double, double } %216, 1
   br i1 %214, label %218, label %220
@@ -900,7 +900,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 218:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store double %184, ptr %4, align 8
-  %219 = getelementptr inbounds i8, ptr %4, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %217, ptr %219, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -909,7 +909,7 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 220:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store double %213, ptr %3, align 8
-  %221 = getelementptr inbounds i8, ptr %3, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %217, ptr %221, align 8
   call void @_ZN13QGraphicsItem6setPosERK7QPointF(ptr noundef nonnull align 8 dereferenceable(16) %215, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)

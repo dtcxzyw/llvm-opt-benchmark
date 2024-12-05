@@ -36,7 +36,7 @@ define hidden void @cbTrackingObjectFree(ptr noundef readnone %0, i64 noundef %1
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 17
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %6 = load i8, ptr %5, align 1
   %.not1 = icmp eq i8 %6, 0
   %7 = load ptr, ptr @trackingEnv, align 8
@@ -68,7 +68,7 @@ define hidden void @cbTrackingClassPrepare(ptr noundef readnone %0, ptr nocaptur
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %5, i64 17
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 17
   %8 = load i8, ptr %7, align 1
   %.not3 = icmp eq i8 %8, 0
   %9 = load ptr, ptr @trackingEnv, align 8
@@ -101,13 +101,13 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %is_wrong_phase.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 17
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 17
   %9 = load i8, ptr %8, align 1
   %.not3.i = icmp eq i8 %9, 0
   br i1 %.not3.i, label %is_wrong_phase.exit.thread, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load volatile i8, ptr %11, align 8
   %.not4.i = icmp eq i8 %12, 0
   br i1 %.not4.i, label %13, label %is_wrong_phase.exit.thread
@@ -125,13 +125,13 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
 
 17:                                               ; preds = %1, %14
   %18 = load ptr, ptr @gdata, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 17
   %20 = load i8, ptr %19, align 1
   %.not24 = icmp eq i8 %20, 0
   br i1 %.not24, label %58, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %18, i64 528
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 528
   %23 = load i32, ptr %22, align 8
   %24 = and i32 %23, 4
   %.not25 = icmp eq i32 %24, 0
@@ -145,7 +145,7 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
 26:                                               ; preds = %21, %25
   %27 = load ptr, ptr @trackingEnv, align 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 840
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 840
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef nonnull %27, ptr noundef %0, ptr noundef nonnull %3) #5
   switch i32 %31, label %41 [
@@ -159,13 +159,13 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i33, label %is_wrong_phase.exit.thread, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %33, i64 17
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 17
   %36 = load i8, ptr %35, align 1
   %.not3.i34 = icmp eq i8 %36, 0
   br i1 %.not3.i34, label %is_wrong_phase.exit.thread, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %39 = load volatile i8, ptr %38, align 8
   %.not4.i35 = icmp eq i8 %39, 0
   br i1 %.not4.i35, label %40, label %is_wrong_phase.exit.thread
@@ -193,7 +193,7 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not30, label %56, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.pre, i64 17
+  %49 = getelementptr inbounds nuw i8, ptr %.pre, i64 17
   %50 = load i8, ptr %49, align 1
   %.not31 = icmp eq i8 %50, 0
   br i1 %.not31, label %56, label %51
@@ -215,7 +215,7 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
 
 58:                                               ; preds = %44, %17
   %59 = phi ptr [ %.pre, %44 ], [ %18, %17 ]
-  %60 = getelementptr inbounds i8, ptr %59, i64 528
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 528
   %61 = load i32, ptr %60, align 8
   %62 = and i32 %61, 4
   %.not29 = icmp eq i32 %62, 0
@@ -229,7 +229,7 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
 64:                                               ; preds = %58, %63
   %65 = load ptr, ptr @trackingEnv, align 8
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 848
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 848
   %68 = load ptr, ptr %67, align 8
   %69 = load ptr, ptr %2, align 8
   %70 = ptrtoint ptr %69 to i64
@@ -245,13 +245,13 @@ define internal fastcc void @addPreparedClass(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i38, label %is_wrong_phase.exit.thread, label %74
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %73, i64 17
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 17
   %76 = load i8, ptr %75, align 1
   %.not3.i39 = icmp eq i8 %76, 0
   br i1 %.not3.i39, label %is_wrong_phase.exit.thread, label %77
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %73, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %79 = load volatile i8, ptr %78, align 8
   %.not4.i40 = icmp eq i8 %79, 0
   br i1 %.not4.i40, label %80, label %is_wrong_phase.exit.thread
@@ -294,11 +294,11 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 11:                                               ; preds = %8, %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 312, ptr nonnull %3)
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 0, ptr %12, align 8
   store i64 4294967296, ptr %2, align 8
   %13 = load ptr, ptr @gdata, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 528
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 528
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 4
   %.not.i = icmp eq i32 %16, 0
@@ -312,7 +312,7 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 18:                                               ; preds = %17, %11
   %19 = load ptr, ptr @trackingEnv, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 1128
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 1128
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 %22(ptr noundef nonnull %19, ptr noundef nonnull %2) #5
   %.not5.i = icmp eq i32 %23, 0
@@ -320,12 +320,12 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 
 24:                                               ; preds = %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %3, i8 0, i64 312, i1 false)
-  %25 = getelementptr inbounds i8, ptr %3, i64 264
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 264
   store ptr @cbTrackingObjectFree, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr @cbTrackingClassPrepare, ptr %26, align 8
   %27 = load ptr, ptr @gdata, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 528
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 528
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 4
   %.not6.i = icmp eq i32 %30, 0
@@ -339,7 +339,7 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 32:                                               ; preds = %31, %24
   %33 = load ptr, ptr @trackingEnv, align 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 968
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 968
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 %36(ptr noundef nonnull %33, ptr noundef nonnull %3, i32 noundef 312) #5
   %.not7.i = icmp eq i32 %37, 0
@@ -347,7 +347,7 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr @gdata, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 528
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 528
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 4
   %.not8.i = icmp eq i32 %42, 0
@@ -361,7 +361,7 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 44:                                               ; preds = %43, %38
   %45 = load ptr, ptr @trackingEnv, align 8
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 (ptr, i32, i32, ptr, ...) %48(ptr noundef nonnull %45, i32 noundef 1, i32 noundef 83, ptr noundef null) #5
   %.not9.i = icmp eq i32 %49, 0
@@ -369,7 +369,7 @@ define hidden void @classTrack_initialize(ptr nocapture noundef readnone %0) loc
 
 50:                                               ; preds = %44
   %51 = load ptr, ptr @gdata, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 528
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 528
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 4
   %.not10.i = icmp eq i32 %54, 0
@@ -388,7 +388,7 @@ setupEvents.exit.thread:                          ; preds = %18, %32, %44
 setupEvents.exit:                                 ; preds = %50, %55
   %56 = load ptr, ptr @trackingEnv, align 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = call i32 (ptr, i32, i32, ptr, ...) %59(ptr noundef nonnull %56, i32 noundef 1, i32 noundef 56, ptr noundef null) #5
   %.not11.i.not = icmp eq i32 %60, 0
@@ -416,7 +416,7 @@ setupEvents.exit:                                 ; preds = %50, %55
 .lr.ph:                                           ; preds = %.preheader, %75
   %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ 0, %.preheader ]
   %69 = load ptr, ptr %5, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 @classStatus(ptr noundef %71) #5
   %73 = and i32 %72, 18

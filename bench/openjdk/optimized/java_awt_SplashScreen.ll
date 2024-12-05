@@ -23,10 +23,10 @@ define void @Java_java_awt_SplashScreen__1update(ptr noundef %0, ptr nocapture n
 11:                                               ; preds = %9
   tail call void @SplashLock(ptr noundef nonnull %10) #6
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1368
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1368
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef %3) #6
-  %16 = getelementptr inbounds i8, ptr %10, i64 10472
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 10472
   %17 = load ptr, ptr %16, align 8
   %.not35 = icmp eq ptr %17, null
   br i1 %.not35, label %19, label %18
@@ -53,12 +53,12 @@ define void @Java_java_awt_SplashScreen__1update(ptr noundef %0, ptr nocapture n
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1624
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1624
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull %0, ptr noundef %3, i32 noundef 0, i32 noundef %15, ptr noundef nonnull %24) #6
-  %29 = getelementptr inbounds i8, ptr %10, i64 10528
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 10528
   tail call void @initFormat(ptr noundef nonnull %29, i32 noundef 16711680, i32 noundef 65280, i32 noundef 255, i32 noundef -16777216) #6
-  %30 = getelementptr inbounds i8, ptr %10, i64 10480
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 10480
   %31 = shl i32 %8, 2
   %32 = load ptr, ptr %16, align 8
   tail call void @initRect(ptr noundef nonnull %30, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef 1, i32 noundef %31, ptr noundef %32, ptr noundef nonnull %29) #6
@@ -96,7 +96,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1isVisible(ptr noc
 
 4:                                                ; preds = %3
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 11668
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 11668
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
   %9 = zext i1 %8 to i8
@@ -121,7 +121,7 @@ define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str) #6
   store ptr %11, ptr @Java_java_awt_SplashScreen__1getBounds.clazz, align 8
@@ -130,7 +130,7 @@ define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #6
   store ptr %16, ptr @Java_java_awt_SplashScreen__1getBounds.clazz, align 8
@@ -146,7 +146,7 @@ define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 264
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #6
   store ptr %26, ptr @Java_java_awt_SplashScreen__1getBounds.mid, align 8
@@ -163,19 +163,19 @@ define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture
 
 32:                                               ; preds = %27
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 224
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 224
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 10636
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 10636
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %4, i64 10640
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 10640
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 10440
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 10440
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 10444
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 10444
   %43 = load i32, ptr %42, align 4
   %44 = tail call ptr (ptr, ptr, ptr, ...) %35(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %28, i32 noundef %37, i32 noundef %39, i32 noundef %41, i32 noundef %43) #6
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 120
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr %47(ptr noundef nonnull %0) #6
   %.not34 = icmp eq ptr %48, null
@@ -183,11 +183,11 @@ define ptr @Java_java_awt_SplashScreen__1getBounds(ptr noundef %0, ptr nocapture
 
 49:                                               ; preds = %32
   %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 128
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 128
   %52 = load ptr, ptr %51, align 8
   tail call void %52(ptr noundef nonnull %0) #6
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 136
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 136
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull %0) #6
   br label %.thread36
@@ -236,16 +236,16 @@ define ptr @Java_java_awt_SplashScreen__1getImageFileName(ptr noundef %0, ptr no
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 11672
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 11672
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1304
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1304
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 11680
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 11680
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %13) #6
   br label %15
@@ -262,16 +262,16 @@ define ptr @Java_java_awt_SplashScreen__1getImageJarName(ptr noundef %0, ptr noc
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %4, i64 11688
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 11688
   %7 = load ptr, ptr %6, align 8
   %.not9 = icmp eq ptr %7, null
   br i1 %.not9, label %15, label %8
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 1304
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1304
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 11696
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 11696
   %13 = load i32, ptr %12, align 8
   %14 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %13) #6
   br label %15
@@ -288,7 +288,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1setImageData(ptr 
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 1472
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1472
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null) #6
   %10 = icmp eq ptr %9, null
@@ -296,12 +296,12 @@ define zeroext range(i8 0, 2) i8 @Java_java_awt_SplashScreen__1setImageData(ptr 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1368
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1368
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef %3) #6
   %16 = tail call i32 @SplashLoadMemory(ptr noundef nonnull %9, i32 noundef %15) #6
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 1536
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1536
   %19 = load ptr, ptr %18, align 8
   tail call void %19(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %9, i32 noundef 2) #6
   %.not17 = icmp ne i32 %16, 0
@@ -322,7 +322,7 @@ define float @Java_java_awt_SplashScreen__1getScaleFactor(ptr nocapture noundef 
 
 4:                                                ; preds = %3
   %5 = inttoptr i64 %2 to ptr
-  %6 = getelementptr inbounds i8, ptr %5, i64 11700
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 11700
   %7 = load float, ptr %6, align 4
   br label %8
 

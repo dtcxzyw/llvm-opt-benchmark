@@ -104,7 +104,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.35) #2
   %7 = load ptr, ptr %5, align 8
@@ -148,13 +148,13 @@ define internal i32 @dissect_igrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %28 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4) #2
   %29 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6) #2
   %30 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #2
-  %31 = getelementptr inbounds i8, ptr %1, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, 2
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %20
-  %35 = getelementptr inbounds i8, ptr %1, i64 168
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %36, align 1
   br label %38
@@ -276,21 +276,21 @@ define internal fastcc void @dissect_vektor_igrp(ptr nocapture noundef readonly 
   %.28 = select i1 %.not, i8 %9, i8 %8
   %.29 = select i1 %.not, i8 0, i8 %9
   store i8 %., ptr %5, align 4
-  %10 = getelementptr inbounds i8, ptr %5, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 %.27, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %.28, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %5, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %.29, ptr %12, align 1
   store i32 2, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 4, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %6, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr null, ptr %15, align 8
   %16 = load i32, ptr @ett_igrp_net, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @address_to_str(ptr noundef %18, ptr noundef nonnull %6) #2
   %20 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef 14, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef %19) #2

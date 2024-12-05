@@ -57,9 +57,9 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %8 = load ptr, ptr %1, align 8
   %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 47) #10
   %.not = icmp eq ptr %9, null
-  %10 = getelementptr inbounds i8, ptr %9, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.082 = select i1 %.not, ptr %8, ptr %10
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = tail call i32 @hwloc_get_api_version() #11
   %.mask.i = and i32 %12, -65536
   %.not.i = icmp eq i32 %.mask.i, 196608
@@ -91,7 +91,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br i1 %22, label %.lr.ph185, label %.critedge
 
 .lr.ph:                                           ; preds = %33
-  %23 = getelementptr inbounds i8, ptr %.081123184, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.081123184, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 45
@@ -131,13 +131,13 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   unreachable
 
 sub_1:                                            ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %27, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %40 = load i8, ptr %39, align 1
   %.not134 = icmp eq i8 %40, 104
   br i1 %.not134, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %41 = getelementptr inbounds i8, ptr %27, i64 2
+  %41 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 0
   br i1 %43, label %45, label %.tail.thread
@@ -162,7 +162,7 @@ sub_1:                                            ; preds = %35
   unreachable
 
 .lr.ph..critedge_crit_edge:                       ; preds = %.lr.ph
-  %51 = getelementptr inbounds i8, ptr %.081123184, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.081123184, i64 8
   %52 = load ptr, ptr %51, align 8
   br label %.critedge
 
@@ -181,13 +181,13 @@ sub_1:                                            ; preds = %35
   unreachable
 
 55:                                               ; preds = %.critedge
-  %56 = getelementptr inbounds i8, ptr %.081123.lcssa, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.081123.lcssa, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not90 = icmp eq i32 %.080.in124.lcssa, 3
   br i1 %.not90, label %61, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %.081123.lcssa, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.081123.lcssa, i64 16
   %60 = load ptr, ptr %59, align 8
   br label %61
 
@@ -252,7 +252,7 @@ sub_1:                                            ; preds = %35
 98:                                               ; preds = %97
   %99 = call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.lcssa170, i32 noundef 47) #10
   %.not92 = icmp eq ptr %99, null
-  %100 = getelementptr inbounds i8, ptr %99, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1
   %spec.select105 = select i1 %.not92, ptr %.lcssa170, ptr %100
   br label %101
 
@@ -290,7 +290,7 @@ sub_1:                                            ; preds = %35
   %115 = icmp eq i32 %114, 1
   %116 = zext i1 %115 to i32
   %spec.select = add i32 %.074129, %116
-  %117 = getelementptr inbounds i8, ptr %.083130, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.083130, i64 8
   %.083 = load ptr, ptr %117, align 8
   %.not93 = icmp eq ptr %.083, null
   br i1 %.not93, label %._crit_edge, label %.lr.ph131, !llvm.loop !7

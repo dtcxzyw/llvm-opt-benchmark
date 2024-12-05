@@ -132,9 +132,9 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %96 = shl nuw i32 %75, 1
   %97 = or disjoint i32 %96, 1
   %98 = zext nneg i32 %91 to i64
-  %99 = getelementptr inbounds i32, ptr %61, i64 %98
+  %99 = getelementptr inbounds nuw i32, ptr %61, i64 %98
   %100 = zext nneg i32 %92 to i64
-  %101 = getelementptr inbounds i32, ptr %61, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %61, i64 %100
   call void @dlasdt_(ptr noundef nonnull %2, ptr noundef nonnull %27, ptr noundef nonnull %31, ptr noundef %22, ptr noundef nonnull %99, ptr noundef nonnull %101, ptr noundef nonnull %1) #3
   %102 = load i32, ptr %31, align 4, !tbaa !3
   %103 = add nsw i32 %102, 1
@@ -377,7 +377,7 @@ define void @dlasda_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %261 = sext i32 %97 to i64
   %262 = getelementptr inbounds double, ptr %60, i64 %261
   %263 = zext nneg i32 %94 to i64
-  %264 = getelementptr inbounds i32, ptr %61, i64 %263
+  %264 = getelementptr inbounds nuw i32, ptr %61, i64 %263
   %265 = sext i32 %53 to i64
   %266 = sext i32 %41 to i64
   br label %267

@@ -17,7 +17,7 @@ define i32 @Java_sun_net_PortConfig_getLower0(ptr nocapture noundef readnone %0,
   br i1 %.not.i, label %getPortRange.exit.thread, label %getPortRange.exit
 
 getPortRange.exit:                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %5) #3
   %7 = call i32 @fclose(ptr noundef nonnull %4)
   %.fr = freeze i32 %6
@@ -41,7 +41,7 @@ define i32 @Java_sun_net_PortConfig_getUpper0(ptr nocapture noundef readnone %0,
   br i1 %.not.i, label %getPortRange.exit.thread, label %getPortRange.exit
 
 getPortRange.exit:                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %5) #3
   %7 = call i32 @fclose(ptr noundef nonnull %4)
   %.fr = freeze i32 %6

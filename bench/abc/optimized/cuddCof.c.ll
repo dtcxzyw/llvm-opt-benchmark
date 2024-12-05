@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_Cofactor(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = xor i64 %6, 1
@@ -17,20 +17,20 @@ define ptr @Cudd_Cofactor(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   br i1 %9, label %15, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %2, %12
   br i1 %13, label %15, label %.preheader
 
 .preheader:                                       ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %0, i64 448
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %20
 
 15:                                               ; preds = %10, %3
-  %16 = getelementptr inbounds i8, ptr %0, i64 616
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i64 @fwrite(ptr nonnull @.str, i64 37, i64 1, ptr %17)
-  %19 = getelementptr inbounds i8, ptr %0, i64 624
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 4, ptr %19, align 8
   br label %.loopexit
 
@@ -56,7 +56,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %8, label %119, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %2, %11
   br i1 %12, label %119, label %13
@@ -75,26 +75,26 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %119
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %0, i64 312
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %6, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = ptrtoint ptr %2 to i64
   %29 = and i64 %28, -2
   %30 = inttoptr i64 %29 to ptr
   %31 = load i32, ptr %30, align 8
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %23, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %23, i64 %32
   %34 = load i32, ptr %33, align 4
   %.not107 = icmp ugt i32 %27, %34
   br i1 %.not107, label %40, label %35
 
 35:                                               ; preds = %21
-  %36 = getelementptr inbounds i8, ptr %6, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %39 = load ptr, ptr %38, align 8
   br label %40
 
@@ -105,9 +105,9 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %.not108, label %74, label %41
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %30, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %30, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %45 = load ptr, ptr %44, align 8
   %.not109 = icmp eq ptr %2, %30
   %46 = ptrtoint ptr %43 to i64
@@ -125,7 +125,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br i1 %55, label %60, label %56
 
 56:                                               ; preds = %41
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %.094.ph, %58
   br i1 %59, label %60, label %62
@@ -145,10 +145,10 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   br label %72
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %0, i64 608
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %69 = load ptr, ptr %68, align 8
   %70 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 37, i64 1, ptr %69)
-  %71 = getelementptr inbounds i8, ptr %0, i64 624
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 4, ptr %71, align 8
   br label %119
 
@@ -166,7 +166,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %78 = ptrtoint ptr %75 to i64
   %79 = and i64 %78, -2
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = add i32 %82, 1
   store i32 %83, ptr %81, align 4
@@ -182,7 +182,7 @@ define ptr @cuddCofactorRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
   %88 = ptrtoint ptr %84 to i64
   %89 = and i64 %88, -2
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i8, ptr %90, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = add i32 %92, 1
   store i32 %93, ptr %91, align 4
@@ -251,10 +251,10 @@ define void @cuddGetBranches(ptr noundef %0, ptr nocapture noundef initializes((
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %2, align 8
   %11 = and i64 %4, 1
@@ -280,7 +280,7 @@ define void @cuddGetBranches(ptr noundef %0, ptr nocapture noundef initializes((
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @cuddCheckCube(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -301,9 +301,9 @@ define range(i32 0, 2) i32 @cuddCheckCube(ptr nocapture noundef readonly %0, ptr
   br i1 %14, label %._crit_edge, label %cuddGetBranches.exit
 
 cuddGetBranches.exit:                             ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %12, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = and i64 %10, 1
   %.not.i = icmp eq i64 %19, 0

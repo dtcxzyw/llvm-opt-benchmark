@@ -266,9 +266,9 @@ define hidden void @_ZN10CppVtables13dumptime_initEP14ArchiveBuilder(ptr nocaptu
 
 8:                                                ; preds = %8, %1
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %8 ], [ 1, %1 ]
-  %9 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV16CppVtableTesterAI6MethodE, i64 16), i64 %indvars.iv.i.i
+  %9 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV16CppVtableTesterAI6MethodE, i64 16), i64 %indvars.iv.i.i
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV16CppVtableTesterBI6MethodE, i64 16), i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV16CppVtableTesterBI6MethodE, i64 16), i64 %indvars.iv.i.i
   %12 = load i64, ptr %11, align 8
   %.not.i.i = icmp eq i64 %10, %12
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -276,7 +276,7 @@ define hidden void @_ZN10CppVtables13dumptime_initEP14ArchiveBuilder(ptr nocaptu
 
 13:                                               ; preds = %8
   %14 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %15 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %15 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not12.i.i = icmp eq ptr %15, null
   br i1 %.not12.i.i, label %_ZN15CppVtableClonerI6MethodE17get_vtable_lengthEPKc.exit.i, label %16
 
@@ -286,14 +286,14 @@ define hidden void @_ZN10CppVtables13dumptime_initEP14ArchiveBuilder(ptr nocaptu
 
 _ZN15CppVtableClonerI6MethodE17get_vtable_lengthEPKc.exit.i: ; preds = %16, %13
   %17 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 272
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 272
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %19 = ashr exact i64 %sext.i, 32
   %20 = ashr exact i64 %sext.i, 29
   %21 = add nsw i64 %20, 8
   %22 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %18, i64 noundef %21) #10
   store i64 %19, ptr %22, align 8
-  %23 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6.i = icmp eq ptr %23, null
   br i1 %.not.i6.i, label %_ZN15CppVtableClonerI6MethodE23allocate_and_initializeEPKc.exit, label %24
 
@@ -302,7 +302,7 @@ _ZN15CppVtableClonerI6MethodE17get_vtable_lengthEPKc.exit.i: ; preds = %16, %13
   br label %_ZN15CppVtableClonerI6MethodE23allocate_and_initializeEPKc.exit
 
 _ZN15CppVtableClonerI6MethodE23allocate_and_initializeEPKc.exit: ; preds = %_ZN15CppVtableClonerI6MethodE17get_vtable_lengthEPKc.exit.i, %24
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV6Method, i64 16), i64 %20, i1 false)
   store ptr %22, ptr getelementptr inbounds (i8, ptr @_ZL6_index, i64 48), align 16
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6_index, i64 48)) #10
@@ -312,16 +312,16 @@ _ZN15CppVtableClonerI6MethodE23allocate_and_initializeEPKc.exit: ; preds = %_ZN1
   %27 = tail call noundef ptr @_ZN15CppVtableClonerI14TypeArrayKlassE23allocate_and_initializeEPKc(ptr noundef nonnull @.str.11)
   store ptr %27, ptr getelementptr inbounds (i8, ptr @_ZL6_index, i64 64), align 16
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZL6_index, i64 64)) #10
-  %28 = getelementptr inbounds i8, ptr %0, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 280
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %31 = load ptr, ptr %30, align 8
   %32 = ptrtoint ptr %29 to i64
   %33 = ptrtoint ptr %31 to i64
   %34 = sub i64 %32, %33
   %35 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %36 = trunc i64 %34 to i32
-  %37 = getelementptr inbounds i8, ptr %35, i64 1012
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 1012
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i32 %38, %36
   store i32 %39, ptr %37, align 4
@@ -344,16 +344,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI12ConstantPoolE23al
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV16CppVtableTesterBI12ConstantPoolE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV16CppVtableTesterBI12ConstantPoolE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !8
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI12ConstantPoolE17get_vtable_lengthEPKc.exit, label %12
 
@@ -366,7 +366,7 @@ _ZN15CppVtableClonerI12ConstantPoolE17get_vtable_lengthEPKc.exit: ; preds = %10,
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -377,7 +377,7 @@ _ZN15CppVtableClonerI12ConstantPoolE17get_vtable_lengthEPKc.exit: ; preds = %10,
   call void @_ZN12ConstantPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(68) %2) #10
   %20 = load i64, ptr %19, align 8
   %.val.i = load ptr, ptr %2, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -387,7 +387,7 @@ _ZN15CppVtableClonerI12ConstantPoolE17get_vtable_lengthEPKc.exit: ; preds = %10,
   br label %_ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI12ConstantPoolE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val.i, i64 %25, i1 false)
@@ -411,16 +411,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI13InstanceKlassE23a
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI13InstanceKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI13InstanceKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !9
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI13InstanceKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -433,7 +433,7 @@ _ZN15CppVtableClonerI13InstanceKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -444,7 +444,7 @@ _ZN15CppVtableClonerI13InstanceKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   call void @_ZN13InstanceKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %2) #10
   %20 = load i64, ptr %19, align 8
   %.val.i = load ptr, ptr %2, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -454,7 +454,7 @@ _ZN15CppVtableClonerI13InstanceKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   br label %_ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI13InstanceKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val.i, i64 %25, i1 false)
@@ -478,16 +478,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI24InstanceClassLoad
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI24InstanceClassLoaderKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI24InstanceClassLoaderKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !10
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -500,7 +500,7 @@ _ZN15CppVtableClonerI24InstanceClassLoaderKlassE17get_vtable_lengthEPKc.exit: ; 
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -511,7 +511,7 @@ _ZN15CppVtableClonerI24InstanceClassLoaderKlassE17get_vtable_lengthEPKc.exit: ; 
   call void @_ZN24InstanceClassLoaderKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %2) #10
   %20 = load i64, ptr %19, align 8
   %.val.i = load ptr, ptr %2, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -521,7 +521,7 @@ _ZN15CppVtableClonerI24InstanceClassLoaderKlassE17get_vtable_lengthEPKc.exit: ; 
   br label %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val.i, i64 %25, i1 false)
@@ -545,16 +545,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI19InstanceMirrorKla
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI19InstanceMirrorKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI19InstanceMirrorKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !11
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI19InstanceMirrorKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -567,7 +567,7 @@ _ZN15CppVtableClonerI19InstanceMirrorKlassE17get_vtable_lengthEPKc.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -578,7 +578,7 @@ _ZN15CppVtableClonerI19InstanceMirrorKlassE17get_vtable_lengthEPKc.exit: ; preds
   call void @_ZN19InstanceMirrorKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %2) #10
   %20 = load i64, ptr %19, align 8
   %.val.i = load ptr, ptr %2, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -588,7 +588,7 @@ _ZN15CppVtableClonerI19InstanceMirrorKlassE17get_vtable_lengthEPKc.exit: ; preds
   br label %_ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI19InstanceMirrorKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val.i, i64 %25, i1 false)
@@ -612,16 +612,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI16InstanceRefKlassE
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI16InstanceRefKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI16InstanceRefKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !12
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI16InstanceRefKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -634,7 +634,7 @@ _ZN15CppVtableClonerI16InstanceRefKlassE17get_vtable_lengthEPKc.exit: ; preds = 
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -645,7 +645,7 @@ _ZN15CppVtableClonerI16InstanceRefKlassE17get_vtable_lengthEPKc.exit: ; preds = 
   call void @_ZN16InstanceRefKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %2) #10
   %20 = load i64, ptr %19, align 8
   %.val.i = load ptr, ptr %2, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -655,7 +655,7 @@ _ZN15CppVtableClonerI16InstanceRefKlassE17get_vtable_lengthEPKc.exit: ; preds = 
   br label %_ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI16InstanceRefKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val.i, i64 %25, i1 false)
@@ -679,16 +679,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI23InstanceStackChun
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI23InstanceStackChunkKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV16CppVtableTesterBI23InstanceStackChunkKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !13
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI23InstanceStackChunkKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -701,7 +701,7 @@ _ZN15CppVtableClonerI23InstanceStackChunkKlassE17get_vtable_lengthEPKc.exit: ; p
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -712,7 +712,7 @@ _ZN15CppVtableClonerI23InstanceStackChunkKlassE17get_vtable_lengthEPKc.exit: ; p
   call void @_ZN23InstanceStackChunkKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %2) #10
   %20 = load i64, ptr %19, align 8
   %.val.i = load ptr, ptr %2, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -722,7 +722,7 @@ _ZN15CppVtableClonerI23InstanceStackChunkKlassE17get_vtable_lengthEPKc.exit: ; p
   br label %_ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI23InstanceStackChunkKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.val.i, i64 %25, i1 false)
@@ -746,16 +746,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI13ObjArrayKlassE23a
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterBI13ObjArrayKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterBI13ObjArrayKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !14
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI13ObjArrayKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -768,7 +768,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 232, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -779,7 +779,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %2) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), ptr %2, align 8
   %20 = load i64, ptr %19, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -789,7 +789,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %10
   br label %_ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI13ObjArrayKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), i64 %25, i1 false)
@@ -813,16 +813,16 @@ define linkonce_odr hidden noundef ptr @_ZN15CppVtableClonerI14TypeArrayKlassE23
 
 5:                                                ; preds = %5, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %5 ], [ 1, %1 ]
-  %6 = getelementptr inbounds i64, ptr %.val7.i, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw i64, ptr %.val7.i, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i64, ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterBI14TypeArrayKlassE, i64 16), i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw i64, ptr getelementptr inbounds inrange(-16, 344) (i8, ptr @_ZTV16CppVtableTesterBI14TypeArrayKlassE, i64 16), i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8
   %.not.i = icmp eq i64 %7, %9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br i1 %.not.i, label %5, label %10, !llvm.loop !15
 
 10:                                               ; preds = %5
-  %11 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %11 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not8.i = icmp eq ptr %11, null
   br i1 %.not8.i, label %_ZN15CppVtableClonerI14TypeArrayKlassE17get_vtable_lengthEPKc.exit, label %12
 
@@ -835,7 +835,7 @@ _ZN15CppVtableClonerI14TypeArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %4)
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 272
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %sext = shl i64 %indvars.iv.i, 32
   %16 = ashr exact i64 %sext, 32
   %17 = ashr exact i64 %sext, 29
@@ -846,7 +846,7 @@ _ZN15CppVtableClonerI14TypeArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %1
   call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %2) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %2, align 8
   %20 = load i64, ptr %19, align 8
-  %21 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %21 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %21, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI14TypeArrayKlassE10initializeEPKcP13CppVtableInfo.exit, label %22
 
@@ -856,7 +856,7 @@ _ZN15CppVtableClonerI14TypeArrayKlassE17get_vtable_lengthEPKc.exit: ; preds = %1
   br label %_ZN15CppVtableClonerI14TypeArrayKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI14TypeArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI14TypeArrayKlassE17get_vtable_lengthEPKc.exit, %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %sext.i = shl i64 %20, 32
   %25 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), i64 %25, i1 false)
@@ -881,9 +881,9 @@ define hidden void @_ZN10CppVtables9serializeEP16SerializeClosure(ptr noundef %0
 
 13:                                               ; preds = %1
   %14 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr @_ZN10CppVtables24_vtables_serialized_baseE, align 8
   br label %.preheader
@@ -893,9 +893,9 @@ define hidden void @_ZN10CppVtables9serializeEP16SerializeClosure(ptr noundef %0
 
 19:                                               ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds [9 x ptr], ptr @_ZL6_index, i64 0, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [9 x ptr], ptr @_ZL6_index, i64 0, i64 %indvars.iv
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void %23(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %20) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -914,7 +914,7 @@ define hidden void @_ZN10CppVtables9serializeEP16SerializeClosure(ptr noundef %0
   call void @_ZN12ConstantPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(68) %9) #10
   %30 = load i64, ptr %29, align 8
   %.val.i = load ptr, ptr %9, align 8
-  %31 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %31 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %_ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit, label %32
 
@@ -924,7 +924,7 @@ define hidden void @_ZN10CppVtables9serializeEP16SerializeClosure(ptr noundef %0
   br label %_ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit: ; preds = %28, %32
-  %34 = getelementptr inbounds i8, ptr %29, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %sext.i = shl i64 %30, 32
   %35 = ashr exact i64 %sext.i, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr align 8 %.val.i, i64 %35, i1 false)
@@ -934,7 +934,7 @@ _ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit: ; pre
   call void @_ZN13InstanceKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %8) #10
   %37 = load i64, ptr %36, align 8
   %.val.i5 = load ptr, ptr %8, align 8
-  %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i6 = icmp eq ptr %38, null
   br i1 %.not.i6, label %_ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit, label %39
 
@@ -944,7 +944,7 @@ _ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit: ; pre
   br label %_ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI12ConstantPoolE10initializeEPKcP13CppVtableInfo.exit, %39
-  %41 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %sext.i7 = shl i64 %37, 32
   %42 = ashr exact i64 %sext.i7, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %41, ptr align 8 %.val.i5, i64 %42, i1 false)
@@ -954,7 +954,7 @@ _ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit: ; pr
   call void @_ZN24InstanceClassLoaderKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %7) #10
   %44 = load i64, ptr %43, align 8
   %.val.i8 = load ptr, ptr %7, align 8
-  %45 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %45 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i9 = icmp eq ptr %45, null
   br i1 %.not.i9, label %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit, label %46
 
@@ -964,7 +964,7 @@ _ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit: ; pr
   br label %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI13InstanceKlassE10initializeEPKcP13CppVtableInfo.exit, %46
-  %48 = getelementptr inbounds i8, ptr %43, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %sext.i10 = shl i64 %44, 32
   %49 = ashr exact i64 %sext.i10, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr align 8 %.val.i8, i64 %49, i1 false)
@@ -974,7 +974,7 @@ _ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo
   call void @_ZN19InstanceMirrorKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %6) #10
   %51 = load i64, ptr %50, align 8
   %.val.i11 = load ptr, ptr %6, align 8
-  %52 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %52 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i12 = icmp eq ptr %52, null
   br i1 %.not.i12, label %_ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit, label %53
 
@@ -984,7 +984,7 @@ _ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo
   br label %_ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI24InstanceClassLoaderKlassE10initializeEPKcP13CppVtableInfo.exit, %53
-  %55 = getelementptr inbounds i8, ptr %50, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %sext.i13 = shl i64 %51, 32
   %56 = ashr exact i64 %sext.i13, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %55, ptr align 8 %.val.i11, i64 %56, i1 false)
@@ -994,7 +994,7 @@ _ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit
   call void @_ZN16InstanceRefKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %5) #10
   %58 = load i64, ptr %57, align 8
   %.val.i14 = load ptr, ptr %5, align 8
-  %59 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %59 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i15 = icmp eq ptr %59, null
   br i1 %.not.i15, label %_ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit, label %60
 
@@ -1004,7 +1004,7 @@ _ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit
   br label %_ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI19InstanceMirrorKlassE10initializeEPKcP13CppVtableInfo.exit, %60
-  %62 = getelementptr inbounds i8, ptr %57, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %sext.i16 = shl i64 %58, 32
   %63 = ashr exact i64 %sext.i16, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %62, ptr align 8 %.val.i14, i64 %63, i1 false)
@@ -1014,7 +1014,7 @@ _ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit: ;
   call void @_ZN23InstanceStackChunkKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464) %4) #10
   %65 = load i64, ptr %64, align 8
   %.val.i17 = load ptr, ptr %4, align 8
-  %66 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %66 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i18 = icmp eq ptr %66, null
   br i1 %.not.i18, label %_ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit, label %67
 
@@ -1024,14 +1024,14 @@ _ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit: ;
   br label %_ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI16InstanceRefKlassE10initializeEPKcP13CppVtableInfo.exit, %67
-  %69 = getelementptr inbounds i8, ptr %64, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %sext.i19 = shl i64 %65, 32
   %70 = ashr exact i64 %sext.i19, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %69, ptr align 8 %.val.i17, i64 %70, i1 false)
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %4)
   %71 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6_index, i64 48), align 16
   %72 = load i64, ptr %71, align 8
-  %73 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %73 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i20 = icmp eq ptr %73, null
   br i1 %.not.i20, label %_ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit, label %74
 
@@ -1041,7 +1041,7 @@ _ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.
   br label %_ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI23InstanceStackChunkKlassE10initializeEPKcP13CppVtableInfo.exit, %74
-  %76 = getelementptr inbounds i8, ptr %71, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %sext.i21 = shl i64 %72, 32
   %77 = ashr exact i64 %sext.i21, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %76, ptr nonnull align 8 getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV6Method, i64 16), i64 %77, i1 false)
@@ -1050,7 +1050,7 @@ _ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_
   call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %3) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), ptr %3, align 8
   %79 = load i64, ptr %78, align 8
-  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %80 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i22 = icmp eq ptr %80, null
   br i1 %.not.i22, label %_ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit, label %81
 
@@ -1060,7 +1060,7 @@ _ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_
   br label %_ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI6MethodE10initializeEPKcP13CppVtableInfo.exit, %81
-  %83 = getelementptr inbounds i8, ptr %78, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %sext.i23 = shl i64 %79, 32
   %84 = ashr exact i64 %sext.i23, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %83, ptr nonnull align 8 getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV13ObjArrayKlass, i64 16), i64 %84, i1 false)
@@ -1070,7 +1070,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; pr
   call void @_ZN10ArrayKlassC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %2) #10
   store ptr getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), ptr %2, align 8
   %86 = load i64, ptr %85, align 8
-  %87 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %87 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not.i24 = icmp eq ptr %87, null
   br i1 %.not.i24, label %_ZN15CppVtableClonerI14TypeArrayKlassE10initializeEPKcP13CppVtableInfo.exit, label %88
 
@@ -1080,7 +1080,7 @@ _ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; pr
   br label %_ZN15CppVtableClonerI14TypeArrayKlassE10initializeEPKcP13CppVtableInfo.exit
 
 _ZN15CppVtableClonerI14TypeArrayKlassE10initializeEPKcP13CppVtableInfo.exit: ; preds = %_ZN15CppVtableClonerI13ObjArrayKlassE10initializeEPKcP13CppVtableInfo.exit, %88
-  %90 = getelementptr inbounds i8, ptr %85, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %sext.i25 = shl i64 %86, 32
   %91 = ashr exact i64 %sext.i25, 29
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 getelementptr inbounds inrange(-16, 336) (i8, ptr @_ZTV14TypeArrayKlass, i64 16), i64 %91, i1 false)
@@ -1176,7 +1176,7 @@ define hidden noundef ptr @_ZN10CppVtables19get_archived_vtableEN12MetaspaceObj4
 
 15:                                               ; preds = %.preheader, %19
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %19 ]
-  %16 = getelementptr inbounds [9 x ptr], ptr @_ZL16_orig_cpp_vtptrs, i64 0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [9 x ptr], ptr @_ZL16_orig_cpp_vtptrs, i64 0, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %.val, %17
   br i1 %18, label %23, label %19
@@ -1195,9 +1195,9 @@ define hidden noundef ptr @_ZN10CppVtables19get_archived_vtableEN12MetaspaceObj4
 
 23:                                               ; preds = %15
   %24 = and i64 %indvars.iv, 4294967295
-  %25 = getelementptr inbounds [9 x ptr], ptr @_ZL6_index, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [9 x ptr], ptr @_ZL6_index, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   br label %28
 
 28:                                               ; preds = %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %12, %23
@@ -1217,9 +1217,9 @@ define hidden void @_ZN10CppVtables21zero_archived_vtablesEv() local_unnamed_add
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds [9 x ptr], ptr @_ZL6_index, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [9 x ptr], ptr @_ZL6_index, i64 0, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %3, align 8
   %sext.i = shl i64 %5, 32
   %6 = ashr exact i64 %sext.i, 29
@@ -1236,7 +1236,7 @@ define hidden void @_ZN10CppVtables21zero_archived_vtablesEv() local_unnamed_add
 define hidden noundef zeroext i1 @_ZN10CppVtables22is_valid_shared_methodEPK6Method(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 2 {
   %.val = load ptr, ptr %0, align 8
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL6_index, i64 48), align 16
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = icmp eq ptr %.val, %3
   ret i1 %4
 }
@@ -1331,7 +1331,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8Metadata17is_methodCountersE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK12ConstantPool4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 9
   ret i32 %4
@@ -1391,13 +1391,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK8Metadata15is_constantPoolEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK13InstanceKlass4sizeEv(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 160
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 292
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 164
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %3, 58
   %11 = add nsw i32 %10, %5
@@ -1429,7 +1429,7 @@ declare noundef ptr @_ZN13InstanceKlass24compute_secondary_supersEiP5ArrayIPS_E(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13InstanceKlass10java_superEv(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 120
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -1440,7 +1440,7 @@ declare noundef ptr @_ZNK13InstanceKlass6moduleEv(ptr noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13InstanceKlass7packageEv(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -1473,7 +1473,7 @@ declare void @_ZN13InstanceKlass18remove_java_mirrorEv(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZNK13InstanceKlass8oop_sizeEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = ashr i32 %4, 3
   %6 = sext i32 %5 to i64
@@ -1567,7 +1567,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Method9is_methodEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK6Method4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %2, align 8
   %3 = and i32 %.sroa.0.0.copyload.i.i.i, 256
   %.not.i = icmp eq i32 %3, 0
@@ -1593,7 +1593,7 @@ declare void @_ZNK6Method14print_value_onEP12outputStream(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK6Method8on_stackEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 32768
   %5 = icmp ne i32 %4, 0
@@ -1669,10 +1669,10 @@ declare noundef ptr @_ZN10ArrayKlass19array_klass_or_nullEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK13ObjArrayKlass17protection_domainEv(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 224
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 232
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(196) %3) #10
   ret ptr %7

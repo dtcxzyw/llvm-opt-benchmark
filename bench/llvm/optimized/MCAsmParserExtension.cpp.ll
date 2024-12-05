@@ -68,13 +68,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef nonnull align 8 dereferenceable(144) ptr %20(ptr noundef nonnull align 8 dereferenceable(34) %17) #6
   %22 = tail call ptr @_ZNK4llvm10MCAsmLexer6getLocEv(ptr noundef nonnull align 8 dereferenceable(144) %21) #6
   %23 = load ptr, ptr %16, align 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 192
   %26 = load ptr, ptr %25, align 8
   %27 = call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(34) %23, ptr noundef nonnull align 8 dereferenceable(16) %5) #6
   br i1 %27, label %28, label %33
@@ -92,7 +92,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
 33:                                               ; preds = %4
   %34 = load ptr, ptr %16, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef nonnull align 8 dereferenceable(144) ptr %37(ptr noundef nonnull align 8 dereferenceable(34) %34) #6
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -114,19 +114,19 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
 47:                                               ; preds = %33
   %48 = load ptr, ptr %16, align 8
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 184
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 184
   %51 = load ptr, ptr %50, align 8
   %52 = call noundef nonnull align 8 dereferenceable(40) ptr %51(ptr noundef nonnull align 8 dereferenceable(34) %48) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %53 = load ptr, ptr %16, align 8
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = call noundef nonnull align 8 dereferenceable(144) ptr %56(ptr noundef nonnull align 8 dereferenceable(34) %53) #6
   %58 = call ptr @_ZNK4llvm10MCAsmLexer6getLocEv(ptr noundef nonnull align 8 dereferenceable(144) %57) #6
   %59 = load ptr, ptr %16, align 8
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 192
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 192
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(34) %59, ptr noundef nonnull align 8 dereferenceable(16) %8) #6
   br i1 %63, label %64, label %69
@@ -144,7 +144,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
 69:                                               ; preds = %47
   %70 = load ptr, ptr %16, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = call noundef nonnull align 8 dereferenceable(144) ptr %73(ptr noundef nonnull align 8 dereferenceable(34) %70) #6
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
@@ -166,7 +166,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
 83:                                               ; preds = %69
   %84 = load ptr, ptr %16, align 8
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 184
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 184
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef nonnull align 8 dereferenceable(40) ptr %87(ptr noundef nonnull align 8 dereferenceable(34) %84) #6
   %89 = load ptr, ptr %16, align 8
@@ -181,7 +181,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
 93:                                               ; preds = %83
   %94 = load ptr, ptr %16, align 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 40
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = call noundef nonnull align 8 dereferenceable(144) ptr %97(ptr noundef nonnull align 8 dereferenceable(34) %94) #6
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -203,7 +203,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
 107:                                              ; preds = %93
   %108 = load ptr, ptr %16, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 48
   %111 = load ptr, ptr %110, align 8
   %112 = call noundef nonnull align 8 dereferenceable(2432) ptr %111(ptr noundef nonnull align 8 dereferenceable(34) %108) #6
   %113 = getelementptr inbounds nuw i8, ptr %14, i64 32
@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
   %119 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %112, ptr noundef nonnull align 8 dereferenceable(34) %14) #6
   %120 = load ptr, ptr %16, align 8
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 48
   %123 = load ptr, ptr %122, align 8
   %124 = call noundef nonnull align 8 dereferenceable(2432) ptr %123(ptr noundef nonnull align 8 dereferenceable(34) %120) #6
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -235,24 +235,24 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension23ParseDirect
   %131 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %124, ptr noundef nonnull align 8 dereferenceable(34) %15) #6
   %132 = load ptr, ptr %16, align 8
   %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 56
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 56
   %135 = load ptr, ptr %134, align 8
   %136 = call noundef nonnull align 8 dereferenceable(288) ptr %135(ptr noundef nonnull align 8 dereferenceable(34) %132) #6
   %137 = load ptr, ptr %16, align 8
   %138 = load ptr, ptr %137, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
   %141 = call noundef nonnull align 8 dereferenceable(2432) ptr %140(ptr noundef nonnull align 8 dereferenceable(34) %137) #6
   %142 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %119, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %141, ptr %22) #6
   %143 = load ptr, ptr %16, align 8
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 48
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
   %146 = load ptr, ptr %145, align 8
   %147 = call noundef nonnull align 8 dereferenceable(2432) ptr %146(ptr noundef nonnull align 8 dereferenceable(34) %143) #6
   %148 = call noundef ptr @_ZN4llvm15MCSymbolRefExpr6createEPKNS_8MCSymbolENS0_11VariantKindERNS_9MCContextENS_5SMLocE(ptr noundef %131, i16 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(2432) %147, ptr %58) #6
   %149 = load i64, ptr %11, align 8
   %150 = load ptr, ptr %136, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 1168
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 1168
   %152 = load ptr, ptr %151, align 8
   call void %152(ptr noundef nonnull align 8 dereferenceable(288) %136, ptr noundef %142, ptr noundef %148, i64 noundef %149) #6
   br label %153

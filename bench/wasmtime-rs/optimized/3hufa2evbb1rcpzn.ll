@@ -45,9 +45,9 @@ define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h54795
 
 26:                                               ; preds = %22
   store i64 %2, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %20, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %16, ptr %.sroa.312.0..sroa_idx, align 8
   br label %28
 
@@ -76,17 +76,17 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h52d61b15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i64, ptr %16, align 8, !noundef !3
   %18 = add i64 %17, 1
   call void @"_ZN4core4iter8adapters7step_by15StepBy$LT$I$GT$3new17hd176c4b3ae1703a9E"(ptr nonnull sret({ { i64, i64 }, i64, i8, [7 x i8] }) align 8 %14, i64 0, i64 %18, i64 16)
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 8
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %.not5.i = icmp eq i64 %.sroa.3.0.copyload.i, 0
   br i1 %.not5.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8
   %.sroa.01.0.copyload.i = load i64, ptr %14, align 8
   %19 = add i64 %.sroa.5.0.copyload.i, 1
@@ -124,9 +124,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
-  %33 = getelementptr inbounds i8, ptr %15, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %4, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %15, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %3, ptr %34, align 8
   store ptr %0, ptr %15, align 8
   %35 = load i64, ptr %16, align 8, !noundef !3
@@ -135,7 +135,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
   br i1 %.not40.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.exit
-  %37 = getelementptr inbounds i8, ptr %2, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 40
   br label %38
 
 38:                                               ; preds = %.lr.ph, %137
@@ -165,7 +165,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
           to label %141 unwind label %139
 
 ._crit_edge.loopexit:                             ; preds = %137
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %138, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %138, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8
   %.pre51 = add i64 %.pre, 1
   %41 = lshr i64 %.pre51, 3
@@ -178,9 +178,9 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
   %44 = phi ptr [ %138, %._crit_edge.loopexit ], [ %0, %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.exit ]
   %45 = icmp ult i64 %43, 8
   %.0 = select i1 %45, i64 %43, i64 %.pre-phi
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %47 = load i64, ptr %46, align 8, !noundef !3
-  %48 = getelementptr inbounds i8, ptr %44, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = sub i64 %.0, %47
   store i64 %49, ptr %48, align 8
   ret void
@@ -207,7 +207,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
 60:                                               ; preds = %57
   %61 = load ptr, ptr %15, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !noundef !3
   %.sroa.0.010.i = and i64 %63, %59
   %64 = load ptr, ptr %61, align 8, !nonnull !3, !noundef !3
@@ -386,7 +386,7 @@ define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot
   %5 = alloca <2 x i64>, align 16
   %6 = alloca <2 x i64>, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !noundef !3
   %.sroa.0.010.i = and i64 %8, %1
   %9 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
@@ -495,9 +495,9 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
   %19 = alloca i16, align 2
   %20 = lshr i64 %1, 57
   %21 = trunc nuw nsw i64 %20 to i8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8, !noundef !3
-  %24 = getelementptr inbounds i8, ptr %3, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   br label %25
 
 25:                                               ; preds = %60, %4

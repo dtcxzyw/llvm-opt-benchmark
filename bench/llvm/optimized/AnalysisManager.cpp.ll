@@ -106,65 +106,64 @@ define dso_local void @_ZN5clang4ento15AnalysisManagerC2ERNS_10ASTContextERNS_12
   %55 = ptrtoint ptr %53 to i64
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
-  %58 = ashr exact i64 %57, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq ptr %53, %54
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i, label %59
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i, label %58
 
-59:                                               ; preds = %9
-  %60 = icmp ugt i64 %58, 1152921504606846975
-  br i1 %60, label %61, label %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i
+58:                                               ; preds = %9
+  %59 = icmp ugt i64 %57, 9223372036854775800
+  br i1 %59, label %60, label %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #11
   unreachable
 
-_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %59
-  %62 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #12
+_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %58
+  %61 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #12
   br label %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i
 
 _ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i, %9
-  %63 = phi ptr [ %62, %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %9 ]
-  store ptr %63, ptr %51, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds ptr, ptr %63, i64 %58
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store ptr %65, ptr %66, align 8
-  %67 = load ptr, ptr %3, align 8
-  %68 = load ptr, ptr %52, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = ptrtoint ptr %67 to i64
-  %71 = sub i64 %69, %70
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %68, %67
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit, label %72
+  %62 = phi ptr [ %61, %_ZNSt16allocator_traitsISaIPN5clang4ento22PathDiagnosticConsumerEEE8allocateERS4_m.exit.i.i.i.i ], [ null, %9 ]
+  store ptr %62, ptr %51, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store ptr %62, ptr %63, align 8
+  %64 = getelementptr inbounds i8, ptr %62, i64 %57
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store ptr %64, ptr %65, align 8
+  %66 = load ptr, ptr %3, align 8
+  %67 = load ptr, ptr %52, align 8
+  %68 = ptrtoint ptr %67 to i64
+  %69 = ptrtoint ptr %66 to i64
+  %70 = sub i64 %68, %69
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %67, %66
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit, label %71
 
-72:                                               ; preds = %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %63, ptr align 8 %67, i64 %71, i1 false)
+71:                                               ; preds = %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %62, ptr align 8 %66, i64 %70, i1 false)
   br label %_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit
 
-_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i, %72
-  %73 = getelementptr inbounds i8, ptr %63, i64 %71
-  store ptr %73, ptr %64, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store ptr %4, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store ptr %5, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %6, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store ptr %7, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %78, i8 -1, i64 24, i1 false)
-  %79 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 2251799813685247, ptr %79, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 119
-  store i8 1, ptr %80, align 1
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 230
-  %82 = load i8, ptr %81, align 2
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 115
-  %84 = and i8 %82, 1
-  store i8 %84, ptr %83, align 1
+_ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit: ; preds = %_ZNSt12_Vector_baseIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2EmRKS4_.exit.i, %71
+  %72 = getelementptr inbounds i8, ptr %62, i64 %70
+  store ptr %72, ptr %63, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store ptr %4, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store ptr %5, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr %6, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store ptr %7, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %77, i8 -1, i64 24, i1 false)
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 2251799813685247, ptr %78, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 119
+  store i8 1, ptr %79, align 1
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 230
+  %81 = load i8, ptr %80, align 2
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 115
+  %83 = and i8 %81, 1
+  store i8 %83, ptr %82, align 1
   ret void
 }
 
@@ -176,11 +175,11 @@ define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull a
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang4ento15AnalysisManagerE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, i64 noundef 4) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %6 = getelementptr inbounds i8, ptr %2, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 0) #10
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -198,7 +197,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull a
   %.sroa.04.08.i = phi ptr [ %14, %.lr.ph.i ], [ %10, %1 ]
   %13 = load ptr, ptr %.sroa.04.08.i, align 8
   call void @_ZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %2) #10
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.08.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i, i64 8
   %.not.i = icmp eq ptr %14, %12
   br i1 %.not.i, label %_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit, label %.lr.ph.i
 
@@ -218,13 +217,13 @@ _ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv.exit: ; preds = %.lr.ph.i, %
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   call void %22(ptr noundef nonnull align 8 dereferenceable(32) %17) #10
   br label %23
 
 23:                                               ; preds = %.lr.ph, %19
-  %24 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %24, %16
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -256,11 +255,11 @@ _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EED2Ev.exit: ; preds = 
 define dso_local void @_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.clang::ento::PathDiagnosticConsumer::FilesMade", align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %4 = getelementptr inbounds i8, ptr %2, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 16, i1 false)
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %4, i64 noundef 4) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %6 = getelementptr inbounds i8, ptr %2, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 0) #10
   store i64 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -278,7 +277,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManager16FlushDiagnosticsEv(ptr n
   %.sroa.04.08 = phi ptr [ %14, %.lr.ph ], [ %10, %1 ]
   %13 = load ptr, ptr %.sroa.04.08, align 8
   call void @_ZN5clang4ento22PathDiagnosticConsumer16FlushDiagnosticsEPNS1_9FilesMadeE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %2) #10
-  %14 = getelementptr inbounds i8, ptr %.sroa.04.08, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.04.08, i64 8
   %.not = icmp eq ptr %14, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -303,7 +302,7 @@ define linkonce_odr hidden void @_ZN5clang26AnalysisDeclContextManagerD2Ev(ptr n
 
 _ZNKSt14default_deleteIN5clang12CodeInjectorEEclEPS1_.exit.i: ; preds = %1
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %9) #10
   br label %_ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit
@@ -320,7 +319,7 @@ _ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit: ; pre
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZNSt10unique_ptrIN5clang12CodeInjectorESt14default_deleteIS1_EED2Ev.exit
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds %"struct.llvm::detail::DenseMapPair.572", ptr %.pre1.i, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.572", ptr %.pre1.i, i64 %17
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.preheader.i.i
@@ -348,7 +347,7 @@ _ZNSt10unique_ptrIN5clang19AnalysisDeclContextESt14default_deleteIS1_EED2Ev.exit
   br label %23
 
 23:                                               ; preds = %_ZNSt10unique_ptrIN5clang19AnalysisDeclContextESt14default_deleteIS1_EED2Ev.exit.i.i, %.lr.ph.i.i, %.lr.ph.i.i
-  %24 = getelementptr inbounds i8, ptr %.011.i.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
   %.not.i.i = icmp eq ptr %24, %18
   br i1 %.not.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclESt10unique_ptrINS2_19AnalysisDeclContextESt14default_deleteIS7_EENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_SA_EEEES5_SA_SC_SF_E10destroyAllEv.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -406,7 +405,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(23096) ptr @_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(696) ptr @_ZN5clang4ento15AnalysisManager16getSourceManagerEv(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(23096) ptr %4(ptr noundef nonnull align 8 dereferenceable(256) %0) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2104

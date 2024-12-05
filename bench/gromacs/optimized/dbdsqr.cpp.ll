@@ -180,8 +180,8 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %98 = getelementptr inbounds double, ptr %38, i64 %indvars.iv
-  %99 = getelementptr inbounds double, ptr %39, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
   call void @dlartg_(ptr noundef nonnull %98, ptr noundef nonnull %99, ptr noundef nonnull %24, ptr noundef nonnull %25, ptr noundef nonnull %23)
   %100 = load double, ptr %23, align 8
   store double %100, ptr %98, align 8
@@ -195,7 +195,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %106 = load double, ptr %102, align 8
   %107 = fmul double %105, %106
   store double %107, ptr %102, align 8
-  %108 = getelementptr inbounds double, ptr %49, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv
   store double %105, ptr %108, align 8
   %gep1393 = getelementptr double, ptr %invariant.gep1392, i64 %indvars.iv
   store double %101, ptr %gep1393, align 8
@@ -244,7 +244,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 .lr.ph961:                                        ; preds = %.lr.ph961.preheader, %.lr.ph961
   %indvars.iv1237 = phi i64 [ 1, %.lr.ph961.preheader ], [ %indvars.iv.next1238, %.lr.ph961 ]
   %.0824959 = phi double [ 0.000000e+00, %.lr.ph961.preheader ], [ %129, %.lr.ph961 ]
-  %125 = getelementptr inbounds double, ptr %38, i64 %indvars.iv1237
+  %125 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv1237
   %126 = load double, ptr %125, align 8
   %127 = call noundef double @llvm.fabs.f64(double %126)
   %128 = fcmp ogt double %.0824959, %127
@@ -274,7 +274,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %indvars.iv1245 = phi i64 [ 2, %.lr.ph976.preheader ], [ %indvars.iv.next1246, %.lr.ph976 ]
   %.1974 = phi double [ %132, %.lr.ph976.preheader ], [ %145, %.lr.ph976 ]
   %.0847972 = phi double [ %132, %.lr.ph976.preheader ], [ %143, %.lr.ph976 ]
-  %136 = getelementptr inbounds double, ptr %38, i64 %indvars.iv1245
+  %136 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv1245
   %137 = load double, ptr %136, align 8
   %138 = call noundef double @llvm.fabs.f64(double %137)
   %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv1245
@@ -315,7 +315,7 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %invariant.gep1066 = getelementptr i8, ptr %6, i64 -24
   %159 = or disjoint i32 %95, 1
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds double, ptr %49, i64 %160
+  %161 = getelementptr inbounds nuw double, ptr %49, i64 %160
   %162 = sext i32 %96 to i64
   %gep1093 = getelementptr double, ptr %13, i64 %162
   %invariant.gep1073 = getelementptr i8, ptr %6, i64 -16
@@ -345,11 +345,11 @@ define void @dbdsqr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.0834.ph1122 = phi i32 [ 0, %.lr.ph1051.lr.ph.lr.ph ], [ %.08341050, %.outer.backedge ]
   %.0842.ph1121 = phi i32 [ %151, %.lr.ph1051.lr.ph.lr.ph ], [ %.0842.ph.be, %.outer.backedge ]
   %165 = zext nneg i32 %.0842.ph1121 to i64
-  %166 = getelementptr inbounds double, ptr %38, i64 %165
+  %166 = getelementptr inbounds nuw double, ptr %38, i64 %165
   %167 = add nsw i32 %.0842.ph1121, -1
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr inbounds double, ptr %39, i64 %168
-  %170 = getelementptr inbounds double, ptr %38, i64 %168
+  %169 = getelementptr inbounds nuw double, ptr %39, i64 %168
+  %170 = getelementptr inbounds nuw double, ptr %38, i64 %168
   %171 = zext nneg i32 %.0842.ph1121 to i64
   %172 = zext nneg i32 %167 to i64
   %wide.trip.count1253 = zext nneg i32 %.0842.ph1121 to i64
@@ -1301,7 +1301,7 @@ thread-pre-split896:                              ; preds = %315, %318
 .lr.ph1133:                                       ; preds = %.lr.ph1133.preheader, %664
   %655 = phi i32 [ %653, %.lr.ph1133.preheader ], [ %665, %664 ]
   %indvars.iv1279 = phi i64 [ 1, %.lr.ph1133.preheader ], [ %indvars.iv.next1280, %664 ]
-  %656 = getelementptr inbounds double, ptr %38, i64 %indvars.iv1279
+  %656 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv1279
   %657 = load double, ptr %656, align 8
   %658 = fcmp olt double %657, 0.000000e+00
   br i1 %658, label %659, label %664
@@ -1359,7 +1359,7 @@ thread-pre-split896:                              ; preds = %315, %318
   %indvars.iv1282 = phi i64 [ 2, %.lr.ph1140.preheader ], [ %indvars.iv.next1283, %.lr.ph1140 ]
   %.18281138 = phi double [ %671, %.lr.ph1140.preheader ], [ %.2829, %.lr.ph1140 ]
   %.08311137 = phi i32 [ 1, %.lr.ph1140.preheader ], [ %.1832, %.lr.ph1140 ]
-  %676 = getelementptr inbounds double, ptr %38, i64 %indvars.iv1282
+  %676 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv1282
   %677 = load double, ptr %676, align 8
   %678 = fcmp ugt double %677, %.18281138
   %679 = trunc nuw nsw i64 %indvars.iv1282 to i32
@@ -1380,7 +1380,7 @@ thread-pre-split896:                              ; preds = %315, %318
   %682 = getelementptr inbounds double, ptr %38, i64 %681
   %683 = load double, ptr %682, align 8
   %684 = zext nneg i32 %.0831.lcssa to i64
-  %685 = getelementptr inbounds double, ptr %38, i64 %684
+  %685 = getelementptr inbounds nuw double, ptr %38, i64 %684
   store double %683, ptr %685, align 8
   %686 = load i32, ptr %1, align 4
   %687 = add i32 %673, %686
@@ -1458,7 +1458,7 @@ thread-pre-split896:                              ; preds = %315, %318
 .lr.ph1129:                                       ; preds = %.lr.ph1129.preheader, %733
   %727 = phi i32 [ 0, %.lr.ph1129.preheader ], [ %734, %733 ]
   %indvars.iv1274 = phi i64 [ 1, %.lr.ph1129.preheader ], [ %indvars.iv.next1275, %733 ]
-  %728 = getelementptr inbounds double, ptr %39, i64 %indvars.iv1274
+  %728 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv1274
   %729 = load double, ptr %728, align 8
   %730 = fcmp une double %729, 0.000000e+00
   br i1 %730, label %731, label %733

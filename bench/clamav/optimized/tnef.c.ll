@@ -32,9 +32,9 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr nocapture noundef read
   %3 = alloca [8192 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca [8192 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load i64, ptr %8, align 8
   %10 = icmp slt i64 %9, 6
   br i1 %10, label %11, label %12
@@ -44,7 +44,7 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr nocapture noundef read
   br label %fmap_readn.exit
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %7, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %7, i64 noundef 0, i64 noundef 4, i32 noundef 0) #7
   %.not26.i = icmp eq ptr %15, null
@@ -57,7 +57,7 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr nocapture noundef read
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 88
   %21 = load i64, ptr %20, align 8
   %or.cond = icmp ult i64 %21, 5
   br i1 %or.cond, label %fmap_readn.exit, label %22
@@ -65,7 +65,7 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr nocapture noundef read
 22:                                               ; preds = %18
   %23 = add i64 %21, -4
   %spec.select.i48 = tail call i64 @llvm.umin.i64(i64 %23, i64 2)
-  %24 = getelementptr inbounds i8, ptr %19, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(ptr noundef nonnull %19, i64 noundef 4, i64 noundef %spec.select.i48, i32 noundef 0) #7
   %.not26.i49 = icmp ne ptr %26, null
@@ -76,7 +76,7 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr nocapture noundef read
 .preheader:                                       ; preds = %22
   %27 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %28 = getelementptr inbounds i8, ptr %27, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load i64, ptr %28, align 8
   %or.cond44.not.i231 = icmp ugt i64 %29, 6
   br i1 %or.cond44.not.i231, label %.lr.ph, label %.loopexit
@@ -86,7 +86,7 @@ define range(i32 0, 27) i32 @cli_tnef(ptr noundef %0, ptr nocapture noundef read
   %31 = phi ptr [ %160, %159 ], [ %27, %.preheader ]
   %.0104233 = phi i64 [ %.1105, %159 ], [ 6, %.preheader ]
   %.0108232 = phi ptr [ %.1109, %159 ], [ null, %.preheader ]
-  %32 = getelementptr inbounds i8, ptr %31, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %33 = load ptr, ptr %32, align 8
   %34 = call ptr %33(ptr noundef nonnull %31, i64 noundef %.0104233, i64 noundef 1, i32 noundef 0) #7
   %.not26.i.i = icmp eq ptr %34, null
@@ -266,7 +266,7 @@ tnef_message.exit.thread:                         ; preds = %77
 
 89:                                               ; preds = %83
   %90 = zext nneg i32 %.0..0..0..0..0.36.i to i64
-  %91 = getelementptr inbounds i8, ptr %82, i64 88
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 88
   %92 = load i64, ptr %91, align 8
   %or.cond.not.i = icmp ult i64 %63, %92
   br i1 %or.cond.not.i, label %93, label %fmap_readn.exit.thread.i
@@ -274,7 +274,7 @@ tnef_message.exit.thread:                         ; preds = %77
 93:                                               ; preds = %89
   %94 = sub nuw i64 %92, %63
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 range(i64 1, 4294967296) %90, i64 %94)
-  %95 = getelementptr inbounds i8, ptr %82, i64 104
+  %95 = getelementptr inbounds nuw i8, ptr %82, i64 104
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr %96(ptr noundef nonnull %82, i64 noundef %63, i64 noundef %spec.select.i.i, i32 noundef 0) #7
   %.not26.i.i58 = icmp eq ptr %97, null
@@ -291,7 +291,7 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i59
   br label %.loopexit178
 
 99:                                               ; preds = %fmap_readn.exit.i59
-  %100 = getelementptr inbounds i8, ptr %86, i64 %90
+  %100 = getelementptr inbounds nuw i8, ptr %86, i64 %90
   store i8 0, ptr %100, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, ptr noundef nonnull %86) #7
   %101 = icmp eq ptr %.0108232, null
@@ -323,8 +323,8 @@ fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i59
 
 .lr.ph.i:                                         ; preds = %107, %109
   %.3111 = phi ptr [ %110, %109 ], [ %.0108232, %107 ]
-  %112 = getelementptr inbounds i8, ptr %82, i64 88
-  %113 = getelementptr inbounds i8, ptr %82, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %82, i64 88
+  %113 = getelementptr inbounds nuw i8, ptr %82, i64 104
   br label %114
 
 114:                                              ; preds = %fmap_readn.exit76.i, %.lr.ph.i
@@ -393,7 +393,7 @@ tnef_attachment.exit:                             ; preds = %128
   br i1 %.not42, label %.thread170, label %135
 
 135:                                              ; preds = %132
-  %136 = getelementptr inbounds i8, ptr %1, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %137 = load ptr, ptr %136, align 8
   %138 = call ptr @cli_gentemp(ptr noundef %137) #7
   %.not43 = icmp eq ptr %138, null
@@ -411,7 +411,7 @@ tnef_attachment.exit:                             ; preds = %128
 143:                                              ; preds = %fmap_readn.exit64, %142
   %.3107 = phi i64 [ 0, %142 ], [ %155, %fmap_readn.exit64 ]
   %144 = load ptr, ptr %6, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 88
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 88
   %146 = load i64, ptr %145, align 8
   %.not.i60 = icmp eq i64 %.3107, %146
   br i1 %.not.i60, label %fmap_readn.exit64, label %147
@@ -423,7 +423,7 @@ tnef_attachment.exit:                             ; preds = %128
 149:                                              ; preds = %147
   %150 = sub nuw i64 %146, %.3107
   %spec.select.i61 = call i64 @llvm.umin.i64(i64 %150, i64 8192)
-  %151 = getelementptr inbounds i8, ptr %144, i64 104
+  %151 = getelementptr inbounds nuw i8, ptr %144, i64 104
   %152 = load ptr, ptr %151, align 8
   %153 = call ptr %152(ptr noundef nonnull %144, i64 noundef %.3107, i64 noundef %spec.select.i61, i32 noundef 0) #7
   %.not26.i62 = icmp eq ptr %153, null
@@ -452,7 +452,7 @@ fmap_readn.exit64:                                ; preds = %154, %143
   %.1105 = phi i64 [ %63, %62 ], [ %131, %tnef_attachment.exit ], [ %79, %tnef_message.exit.thread ]
   %160 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %161 = getelementptr inbounds i8, ptr %160, i64 88
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 88
   %162 = load i64, ptr %161, align 8
   %or.cond44.not.i = icmp ult i64 %.1105, %162
   br i1 %or.cond44.not.i, label %.lr.ph, label %.loopexit

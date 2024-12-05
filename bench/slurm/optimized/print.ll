@@ -61,12 +61,12 @@ define dso_local noundef i32 @print_jobs_array(ptr noundef %0, ptr noundef %1) l
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %14 = load i8, ptr %13, align 4
   %15 = trunc i8 %14 to i1
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %10(ptr noundef null, i32 noundef %12, i1 noundef zeroext %15, ptr noundef %17) #8
   %.not9.i = icmp eq i32 %18, 0
@@ -93,12 +93,12 @@ print_job_from_format.exit:                       ; preds = %9, %19, %2
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds i8, ptr %25, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %25, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %31 = load i8, ptr %30, align 4
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds i8, ptr %25, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %27(ptr noundef nonnull inttoptr (i64 -1 to ptr), i32 noundef %29, i1 noundef zeroext %32, ptr noundef %34) #8
   %.not9.i7 = icmp eq i32 %35, 0
@@ -134,12 +134,12 @@ define dso_local range(i32 -1, 1) i32 @print_job_from_format(ptr noundef %0, ptr
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %11 = load i8, ptr %10, align 4
   %12 = trunc i8 %11 to i1
-  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %7(ptr noundef %0, i32 noundef %9, i1 noundef zeroext %12, ptr noundef %14) #8
   %.not9 = icmp eq i32 %15, 0
@@ -161,32 +161,32 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local double @get_priority_from_factors(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load double, ptr %2, align 8
   %4 = fcmp ogt double %3, 0.000000e+00
   br i1 %4, label %46, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fadd double %9, %11
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load double, ptr %13, align 8
   %15 = fadd double %12, %14
-  %16 = getelementptr inbounds i8, ptr %7, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %17 = load double, ptr %16, align 8
   %18 = fadd double %15, %17
-  %19 = getelementptr inbounds i8, ptr %7, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %20 = load double, ptr %19, align 8
   %21 = fadd double %18, %20
-  %22 = getelementptr inbounds i8, ptr %7, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %23 = load double, ptr %22, align 8
   %24 = fadd double %21, %23
-  %25 = getelementptr inbounds i8, ptr %7, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %26 = load i32, ptr %25, align 8
   %27 = zext i32 %26 to i64
   %28 = add nsw i64 %27, -2147483648
@@ -197,13 +197,13 @@ define dso_local double @get_priority_from_factors(ptr nocapture noundef readonl
   %33 = add nsw i64 %32, -2147483648
   %34 = sitofp i64 %33 to double
   %35 = fsub double %30, %34
-  %36 = getelementptr inbounds i8, ptr %7, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %37 = load i32, ptr %36, align 8
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %38 = getelementptr inbounds i8, ptr %7, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %39 = load ptr, ptr %38, align 8
   %wide.trip.count = zext i32 %37 to i64
   br label %40
@@ -211,7 +211,7 @@ define dso_local double @get_priority_from_factors(ptr nocapture noundef readonl
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.026 = phi double [ %35, %.lr.ph ], [ %.1, %40 ]
-  %41 = getelementptr inbounds double, ptr %39, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
   %42 = load double, ptr %41, align 8
   %43 = fcmp une double %42, 0.000000e+00
   %44 = fadd double %.026, %42
@@ -245,11 +245,11 @@ define dso_local noundef i32 @job_format_add_function(ptr noundef %0, i32 nounde
   %6 = zext i1 %2 to i8
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 189, ptr noundef nonnull @__func__.job_format_add_function) #8
   store ptr %4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i8 %6, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %3, ptr %10, align 8
   tail call void @list_append(ptr noundef %0, ptr noundef nonnull %7) #8
   ret i32 0
@@ -296,9 +296,9 @@ define internal fastcc void @_print_str(ptr noundef %0, i32 noundef %1, i1 nound
 
 5:                                                ; preds = %3
   store i8 37, ptr %4, align 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 115, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 0, ptr %7, align 2
   %8 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %0)
   %9 = icmp slt i32 %8, 0
@@ -352,7 +352,7 @@ define dso_local noundef i32 @_print_job_job_id(ptr noundef %0, i32 noundef %1, 
   br label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.7, i32 noundef %10) #8
   call fastcc void @_print_str(ptr noundef nonnull %5, i32 noundef %1, i1 noundef zeroext %2)
@@ -411,7 +411,7 @@ define dso_local noundef i32 @_print_age_priority_normalized(ptr noundef %0, i32
   br label %30
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -429,9 +429,9 @@ define dso_local noundef i32 @_print_age_priority_normalized(ptr noundef %0, i32
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load double, ptr %24, align 8
   %26 = uitofp i32 %20 to double
   %27 = fdiv double %25, %26
@@ -482,7 +482,7 @@ define dso_local noundef i32 @_print_age_priority_weighted(ptr noundef %0, i32 n
   br label %25
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -495,9 +495,9 @@ define dso_local noundef i32 @_print_age_priority_weighted(ptr noundef %0, i32 n
   br label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
@@ -542,7 +542,7 @@ define dso_local noundef i32 @_print_assoc_priority_normalized(ptr noundef %0, i
   br label %30
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -560,9 +560,9 @@ define dso_local noundef i32 @_print_assoc_priority_normalized(ptr noundef %0, i
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load double, ptr %24, align 8
   %26 = uitofp i32 %20 to double
   %27 = fdiv double %25, %26
@@ -613,7 +613,7 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
   br label %25
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -626,9 +626,9 @@ define dso_local noundef i32 @_print_assoc_priority_weighted(ptr noundef %0, i32
   br label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
@@ -654,7 +654,7 @@ define dso_local noundef i32 @_print_cluster_name(ptr noundef readonly %0, i32 n
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -697,7 +697,7 @@ define dso_local noundef i32 @_print_fs_priority_normalized(ptr noundef %0, i32 
   br label %30
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -715,9 +715,9 @@ define dso_local noundef i32 @_print_fs_priority_normalized(ptr noundef %0, i32 
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load double, ptr %24, align 8
   %26 = uitofp i32 %20 to double
   %27 = fdiv double %25, %26
@@ -768,7 +768,7 @@ define dso_local noundef i32 @_print_fs_priority_weighted(ptr noundef %0, i32 no
   br label %25
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -781,9 +781,9 @@ define dso_local noundef i32 @_print_fs_priority_weighted(ptr noundef %0, i32 no
   br label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
@@ -821,7 +821,7 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
   br label %57
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fcmp ogt double %10, 0.000000e+00
   br i1 %11, label %12, label %14
@@ -832,26 +832,26 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
   br label %57
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fadd double %18, %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %23 = load double, ptr %22, align 8
   %24 = fadd double %21, %23
-  %25 = getelementptr inbounds i8, ptr %16, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %26 = load double, ptr %25, align 8
   %27 = fadd double %24, %26
-  %28 = getelementptr inbounds i8, ptr %16, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %29 = load double, ptr %28, align 8
   %30 = fadd double %27, %29
-  %31 = getelementptr inbounds i8, ptr %16, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %32 = load double, ptr %31, align 8
   %33 = fadd double %30, %32
-  %34 = getelementptr inbounds i8, ptr %16, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = add nsw i64 %36, -2147483648
@@ -862,13 +862,13 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
   %42 = add nsw i64 %41, -2147483648
   %43 = sitofp i64 %42 to double
   %44 = fsub double %39, %43
-  %45 = getelementptr inbounds i8, ptr %16, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %46 = load i32, ptr %45, align 8
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %get_priority_from_factors.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
-  %47 = getelementptr inbounds i8, ptr %16, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %48 = load ptr, ptr %47, align 8
   %wide.trip.count.i = zext i32 %46 to i64
   br label %49
@@ -876,7 +876,7 @@ define dso_local noundef i32 @_print_job_priority_normalized(ptr noundef %0, i32
 49:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %.026.i = phi double [ %44, %.lr.ph.i ], [ %.1.i, %49 ]
-  %50 = getelementptr inbounds double, ptr %48, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv.i
   %51 = load double, ptr %50, align 8
   %52 = fcmp une double %51, 0.000000e+00
   %53 = fadd double %.026.i, %51
@@ -927,32 +927,32 @@ define dso_local noundef i32 @_print_job_priority_weighted(ptr noundef %0, i32 n
   br label %55
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fcmp ogt double %10, 0.000000e+00
   br i1 %11, label %get_priority_from_factors.exit, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load double, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %18 = load double, ptr %17, align 8
   %19 = fadd double %16, %18
-  %20 = getelementptr inbounds i8, ptr %14, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %21 = load double, ptr %20, align 8
   %22 = fadd double %19, %21
-  %23 = getelementptr inbounds i8, ptr %14, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %24 = load double, ptr %23, align 8
   %25 = fadd double %22, %24
-  %26 = getelementptr inbounds i8, ptr %14, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %27 = load double, ptr %26, align 8
   %28 = fadd double %25, %27
-  %29 = getelementptr inbounds i8, ptr %14, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %30 = load double, ptr %29, align 8
   %31 = fadd double %28, %30
-  %32 = getelementptr inbounds i8, ptr %14, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %33 = load i32, ptr %32, align 8
   %34 = zext i32 %33 to i64
   %35 = add nsw i64 %34, -2147483648
@@ -963,13 +963,13 @@ define dso_local noundef i32 @_print_job_priority_weighted(ptr noundef %0, i32 n
   %40 = add nsw i64 %39, -2147483648
   %41 = sitofp i64 %40 to double
   %42 = fsub double %37, %41
-  %43 = getelementptr inbounds i8, ptr %14, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %44 = load i32, ptr %43, align 8
   %.not.i = icmp eq i32 %44, 0
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
-  %45 = getelementptr inbounds i8, ptr %14, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %46 = load ptr, ptr %45, align 8
   %wide.trip.count.i = zext i32 %44 to i64
   br label %47
@@ -977,7 +977,7 @@ define dso_local noundef i32 @_print_job_priority_weighted(ptr noundef %0, i32 n
 47:                                               ; preds = %47, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
   %.026.i = phi double [ %42, %.lr.ph.i ], [ %.1.i, %47 ]
-  %48 = getelementptr inbounds double, ptr %46, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv.i
   %49 = load double, ptr %48, align 8
   %50 = fcmp une double %49, 0.000000e+00
   %51 = fadd double %.026.i, %49
@@ -1036,7 +1036,7 @@ define dso_local noundef i32 @_print_js_priority_normalized(ptr noundef %0, i32 
   br label %30
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -1054,9 +1054,9 @@ define dso_local noundef i32 @_print_js_priority_normalized(ptr noundef %0, i32 
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load double, ptr %24, align 8
   %26 = uitofp i32 %20 to double
   %27 = fdiv double %25, %26
@@ -1107,7 +1107,7 @@ define dso_local noundef i32 @_print_js_priority_weighted(ptr noundef %0, i32 no
   br label %25
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -1120,9 +1120,9 @@ define dso_local noundef i32 @_print_js_priority_weighted(ptr noundef %0, i32 no
   br label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
@@ -1167,7 +1167,7 @@ define dso_local noundef i32 @_print_part_priority_normalized(ptr noundef %0, i3
   br label %30
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -1185,9 +1185,9 @@ define dso_local noundef i32 @_print_part_priority_normalized(ptr noundef %0, i3
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load double, ptr %24, align 8
   %26 = uitofp i32 %20 to double
   %27 = fdiv double %25, %26
@@ -1238,7 +1238,7 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
   br label %25
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -1251,9 +1251,9 @@ define dso_local noundef i32 @_print_part_priority_weighted(ptr noundef %0, i32 
   br label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
@@ -1285,7 +1285,7 @@ define dso_local noundef i32 @_print_partition(ptr noundef %0, i32 noundef %1, i
   br label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -1315,7 +1315,7 @@ define dso_local noundef i32 @_print_qos_name(ptr noundef %0, i32 noundef %1, i1
   br label %9
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   br label %9
 
@@ -1358,7 +1358,7 @@ define dso_local noundef i32 @_print_qos_priority_normalized(ptr noundef %0, i32
   br label %30
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -1376,9 +1376,9 @@ define dso_local noundef i32 @_print_qos_priority_normalized(ptr noundef %0, i32
   br i1 %.not, label %28, label %21
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load double, ptr %24, align 8
   %26 = uitofp i32 %20 to double
   %27 = fdiv double %25, %26
@@ -1429,7 +1429,7 @@ define dso_local noundef i32 @_print_qos_priority_weighted(ptr noundef %0, i32 n
   br label %25
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load double, ptr %14, align 8
   %16 = fcmp ogt double %15, 0.000000e+00
   br i1 %16, label %17, label %19
@@ -1442,9 +1442,9 @@ define dso_local noundef i32 @_print_qos_priority_weighted(ptr noundef %0, i32 n
   br label %25
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %23 = load double, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.29, double noundef %23) #8
@@ -1487,7 +1487,7 @@ define dso_local noundef i32 @_print_site_priority(ptr noundef %0, i32 noundef %
   br label %26
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fcmp ogt double %13, 0.000000e+00
   br i1 %14, label %15, label %17
@@ -1500,9 +1500,9 @@ define dso_local noundef i32 @_print_site_priority(ptr noundef %0, i32 noundef %
   br label %26
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i32, ptr %20, align 8
   %22 = zext i32 %21 to i64
   %23 = add nsw i64 %22, -2147483648
@@ -1544,7 +1544,7 @@ define dso_local noundef i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1
   br label %23
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fcmp ogt double %11, 0.000000e+00
   br i1 %12, label %13, label %15
@@ -1557,7 +1557,7 @@ define dso_local noundef i32 @_print_job_nice(ptr noundef %0, i32 noundef %1, i1
   br label %23
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
@@ -1593,7 +1593,7 @@ define dso_local noundef i32 @_print_job_user_name(ptr noundef %0, i32 noundef %
   br label %10
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   %9 = tail call ptr @uid_to_string_cached(i32 noundef %8) #8
   br label %10
@@ -1632,7 +1632,7 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
   br label %46
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8
   %11 = fcmp ogt double %10, 0.000000e+00
   br i1 %11, label %12, label %13
@@ -1642,26 +1642,26 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
   br label %46
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #8
   store ptr %16, ptr %5, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 72
   %18 = load i32, ptr %17, align 8
   %.not28 = icmp eq i32 %18, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %15, i64 64
-  %20 = getelementptr inbounds i8, ptr %15, i64 80
-  %21 = getelementptr inbounds i8, ptr %15, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 88
   br label %22
 
 22:                                               ; preds = %.lr.ph, %41
   %23 = phi i32 [ %18, %.lr.ph ], [ %42, %41 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   %26 = load double, ptr %25, align 8
   %27 = fcmp une double %26, 0.000000e+00
   br i1 %27, label %28, label %41
@@ -1675,17 +1675,17 @@ define dso_local noundef i32 @_print_tres_normalized(ptr noundef %0, i32 noundef
 31:                                               ; preds = %28
   call void @_xstrcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %.pre = load ptr, ptr %19, align 8
-  %.phi.trans.insert = getelementptr inbounds double, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre, i64 %indvars.iv
   %.pre30 = load double, ptr %.phi.trans.insert, align 8
   br label %32
 
 32:                                               ; preds = %31, %28
   %33 = phi double [ %.pre30, %31 ], [ %26, %28 ]
   %34 = load ptr, ptr %20, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds double, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
   %39 = load double, ptr %38, align 8
   %40 = fdiv double %33, %39
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.24, ptr noundef %36, double noundef %40) #8
@@ -1748,7 +1748,7 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
   br label %42
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load double, ptr %10, align 8
   %12 = fcmp ogt double %11, 0.000000e+00
   br i1 %12, label %13, label %14
@@ -1758,25 +1758,25 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
   br label %42
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @xstrdup(ptr noundef nonnull @.str.3) #8
   store ptr %17, ptr %5, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %19 = load i32, ptr %18, align 8
   %.not26 = icmp eq i32 %19, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %16, i64 64
-  %21 = getelementptr inbounds i8, ptr %16, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 80
   br label %22
 
 22:                                               ; preds = %.lr.ph, %37
   %23 = phi i32 [ %19, %.lr.ph ], [ %38, %37 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
   %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
   %26 = load double, ptr %25, align 8
   %27 = fcmp une double %26, 0.000000e+00
   br i1 %27, label %28, label %37
@@ -1790,14 +1790,14 @@ define dso_local noundef i32 @_print_tres_weighted(ptr noundef %0, i32 noundef %
 31:                                               ; preds = %28
   call void @_xstrcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.23) #8
   %.pre = load ptr, ptr %20, align 8
-  %.phi.trans.insert = getelementptr inbounds double, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %.pre, i64 %indvars.iv
   %.pre28 = load double, ptr %.phi.trans.insert, align 8
   br label %32
 
 32:                                               ; preds = %31, %28
   %33 = phi double [ %.pre28, %31 ], [ %26, %28 ]
   %34 = load ptr, ptr %21, align 8
-  %35 = getelementptr inbounds ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.25, ptr noundef %36, double noundef %33) #8
   %.pre29 = load i32, ptr %18, align 8

@@ -62,7 +62,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef %1) local_
   br i1 %.not, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %9, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %sub_0
 
 12:                                               ; preds = %7
@@ -77,13 +77,13 @@ sub_0:                                            ; preds = %12, %10
   br i1 %.not138, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %15 = getelementptr inbounds i8, ptr %storemerge, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %storemerge, i64 1
   %16 = load i8, ptr %15, align 1
   %.not139 = icmp eq i8 %16, 110
   br i1 %.not139, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %17 = getelementptr inbounds i8, ptr %storemerge, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %storemerge, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 118
   br i1 %19, label %23, label %.tail.thread
@@ -112,7 +112,7 @@ sub_1:                                            ; preds = %sub_0
   %.in = phi i32 [ %.4, %120 ], [ %0, %23 ]
   %.066126 = phi ptr [ %.268, %120 ], [ %1, %23 ]
   %31 = add nsw i32 %.in, -1
-  %32 = getelementptr inbounds i8, ptr %.066126, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.066126, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %33, align 1
   switch i8 %34, label %115 [
@@ -130,7 +130,7 @@ sub_1:                                            ; preds = %sub_0
 .backedge:                                        ; preds = %.backedge.backedge, %.outer
   %_ZL7inverse.1 = phi i32 [ %_ZL7inverse.3, %.outer ], [ %_ZL7inverse.4, %.backedge.backedge ]
   %.063 = phi ptr [ %.063.ph, %.outer ], [ %.063.be, %.backedge.backedge ]
-  %35 = getelementptr inbounds i8, ptr %.063, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.063, i64 1
   %36 = load i8, ptr %35, align 1
   switch i8 %36, label %104 [
     i8 0, label %37
@@ -164,7 +164,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.backedge.backedge
 
 46:                                               ; preds = %.backedge
-  %47 = getelementptr inbounds i8, ptr %.063, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %.063, i64 2
   %48 = load i8, ptr %47, align 1
   %.not98 = icmp eq i8 %48, 0
   br i1 %.not98, label %51, label %49
@@ -179,7 +179,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.backedge.backedge
 
 52:                                               ; preds = %.backedge, %.backedge
-  %53 = getelementptr inbounds i8, ptr %.063, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %.063, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = sext i8 %54 to i32
   %isdigittmp = add nsw i32 %55, -48
@@ -215,7 +215,7 @@ sub_1:                                            ; preds = %sub_0
 .outer.backedge:                                  ; preds = %60, %63, %67
   %_ZL5oform.sink = phi ptr [ @_ZL6osform, %67 ], [ @_ZL5oform, %63 ], [ @_ZL5oform, %60 ]
   %.1.ph.be = phi i32 [ %68, %67 ], [ %.3, %63 ], [ %61, %60 ]
-  %65 = getelementptr inbounds i8, ptr %.167.ph, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.167.ph, i64 8
   %66 = load ptr, ptr %65, align 8
   store ptr %66, ptr %_ZL5oform.sink, align 8
   br label %.outer, !llvm.loop !5
@@ -226,7 +226,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %69, label %63, label %.outer.backedge
 
 70:                                               ; preds = %.backedge
-  %71 = getelementptr inbounds i8, ptr %.063, i64 2
+  %71 = getelementptr inbounds nuw i8, ptr %.063, i64 2
   %72 = load i8, ptr %71, align 1
   switch i8 %72, label %101 [
     i8 0, label %73
@@ -243,14 +243,14 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph137:                                        ; preds = %73, %.lr.ph137
   %76 = phi ptr [ %85, %.lr.ph137 ], [ %75, %73 ]
   %.060136 = phi ptr [ %84, %.lr.ph137 ], [ %74, %73 ]
-  %77 = getelementptr inbounds i8, ptr %.060136, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.060136, i64 8
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %.060136, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.060136, i64 16
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %.060136, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %.060136, i64 24
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %76, ptr noundef %78, ptr noundef %80, ptr noundef %82)
-  %84 = getelementptr inbounds i8, ptr %.060136, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %.060136, i64 32
   %85 = load ptr, ptr %84, align 8
   %.not96 = icmp eq ptr %85, null
   br i1 %.not96, label %.loopexit, label %.lr.ph137, !llvm.loop !7
@@ -268,22 +268,22 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph134:                                        ; preds = %.lr.ph130.split, %98
   %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph130.split ]
   %89 = phi ptr [ %100, %98 ], [ %88, %.lr.ph130.split ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
   %.not95 = icmp eq ptr %91, null
   br i1 %.not95, label %98, label %92
 
 92:                                               ; preds = %.lr.ph134
-  %93 = getelementptr inbounds i8, ptr %89, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %94 = load double, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %89, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %91, double noundef %94, ptr noundef %96)
   br label %98
 
 98:                                               ; preds = %.lr.ph134, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.next
+  %99 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.next
   %100 = load ptr, ptr %99, align 8
   %.not94 = icmp eq ptr %100, null
   br i1 %.not94, label %.critedge, label %.lr.ph134
@@ -316,7 +316,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %108, label %109, label %114
 
 109:                                              ; preds = %106
-  %110 = getelementptr inbounds i8, ptr %33, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %33, i64 1
   %111 = add nsw i32 %107, 1
   store i32 %111, ptr @_ZL5pargc, align 4
   %112 = sext i32 %107 to i64
@@ -784,7 +784,7 @@ _ZL7processP8_IO_FILE.exit:                       ; preds = %.backedge.i, %167
   br label %360
 
 360:                                              ; preds = %_ZL7processP8_IO_FILE.exit, %166
-  %361 = getelementptr inbounds i8, ptr %.062128, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %.062128, i64 8
   %362 = load i32, ptr @_ZZ4mainE5eargc, align 4
   %363 = add nsw i32 %362, -1
   store i32 %363, ptr @_ZZ4mainE5eargc, align 4

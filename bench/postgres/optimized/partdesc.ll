@@ -31,13 +31,13 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   %6 = alloca i8, align 1
   %7 = alloca [1 x %struct.ScanKeyData], align 16
   %8 = alloca i8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 152
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = trunc i8 %13 to i1
   %brmerge.demorgan = and i1 %1, %14
@@ -55,7 +55,7 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   br i1 %1, label %17, label %29
 
 17:                                               ; preds = %.critedge
-  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = load ptr, ptr %18, align 8
   %.not12 = icmp eq ptr %19, null
   br i1 %.not12, label %29, label %20
@@ -66,7 +66,7 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
 
 22:                                               ; preds = %20
   %23 = tail call ptr @GetActiveSnapshot() #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 184
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %25 = load i32, ptr %24, align 8
   %26 = tail call zeroext i1 @XidInMVCCSnapshot(i32 noundef %25, ptr noundef %23) #6
   br i1 %26, label %29, label %27
@@ -85,14 +85,14 @@ define dso_local ptr @RelationGetPartitionDesc(ptr noundef %0, i1 noundef zeroex
   %30 = tail call ptr @RelationGetPartitionKey(ptr noundef nonnull %0) #6
   store i8 0, ptr %3, align 1
   store i32 0, ptr %4, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = load i32, ptr %31, align 8
   %33 = call ptr @find_inheritance_children_extended(i32 noundef %32, i1 noundef zeroext %1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %._crit_edge.thread.i, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph.i, label %._crit_edge.thread.i
@@ -106,7 +106,7 @@ list_length.exit.i:                               ; preds = %29
   %42 = call ptr @palloc(i64 noundef %41) #6
   %.pre29 = load i32, ptr %34, align 4
   %43 = icmp sgt i32 %.pre29, 0
-  %44 = getelementptr inbounds i8, ptr %33, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %33, i64 16
   br i1 %43, label %.lr.ph, label %._crit_edge.i.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %143
@@ -142,11 +142,11 @@ list_length.exit.i:                               ; preds = %29
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %48) #6
   %60 = call ptr @systable_beginscan(ptr noundef %59, i32 noundef 2662, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #6
   %61 = call ptr @systable_getnext(ptr noundef %60) #6
-  %62 = getelementptr inbounds i8, ptr %59, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 18
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 18
   %67 = load i16, ptr %66, align 2
   %68 = and i16 %67, 2047
   %69 = icmp samesign ult i16 %68, 33
@@ -158,7 +158,7 @@ list_length.exit.i:                               ; preds = %29
 
 72:                                               ; preds = %.thread126.i
   store i8 0, ptr %8, align 1
-  %73 = getelementptr inbounds i8, ptr %65, i64 20
+  %73 = getelementptr inbounds nuw i8, ptr %65, i64 20
   %74 = load i16, ptr %73, align 4
   %75 = and i16 %74, 1
   %.not.i.i.i = icmp eq i16 %75, 0
@@ -171,7 +171,7 @@ list_length.exit.i:                               ; preds = %29
   br i1 %79, label %80, label %110
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %65, i64 22
+  %81 = getelementptr inbounds nuw i8, ptr %65, i64 22
   %82 = load i8, ptr %81, align 2
   %83 = zext i8 %82 to i64
   %84 = getelementptr i8, ptr %65, i64 %83
@@ -282,7 +282,7 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   unreachable
 
 133:                                              ; preds = %.thread130.i
-  %134 = getelementptr inbounds i8, ptr %.2133.i, i64 5
+  %134 = getelementptr inbounds nuw i8, ptr %.2133.i, i64 5
   %135 = load i8, ptr %134, align 1
   %136 = trunc i8 %135 to i1
   br i1 %136, label %137, label %143
@@ -328,15 +328,15 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   %.0.i = phi ptr [ %153, %._crit_edge.i.thread ], [ null, %29 ], [ null, %list_length.exit.i ]
   %156 = load ptr, ptr @CurTransactionContext, align 8
   %157 = call ptr @AllocSetContextCreateInternal(ptr noundef %156, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #6
-  %158 = getelementptr inbounds i8, ptr %0, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 4
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 4
   %161 = call ptr @MemoryContextStrdup(ptr noundef %157, ptr noundef nonnull %160) #6
   call void @MemoryContextSetIdentifier(ptr noundef %157, ptr noundef %161) #6
   %162 = call ptr @MemoryContextAllocZero(ptr noundef %157, i64 noundef 48) #6
   store i32 %155, ptr %162, align 8
   %163 = load i8, ptr %3, align 1
-  %164 = getelementptr inbounds i8, ptr %162, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %165 = and i8 %163, 1
   store i8 %165, ptr %164, align 4
   br i1 %154, label %166, label %193
@@ -345,21 +345,21 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   %167 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %157, ptr @CurrentMemoryContext, align 8
   %168 = call ptr @partition_bounds_copy(ptr noundef %.0.i, ptr noundef %30) #6
-  %169 = getelementptr inbounds i8, ptr %162, i64 24
+  %169 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store ptr %168, ptr %169, align 8
-  %170 = getelementptr inbounds i8, ptr %162, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %162, i64 32
   store i32 -1, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %162, i64 36
+  %171 = getelementptr inbounds nuw i8, ptr %162, i64 36
   store i32 -1, ptr %171, align 4
-  %172 = getelementptr inbounds i8, ptr %162, i64 40
+  %172 = getelementptr inbounds nuw i8, ptr %162, i64 40
   store i32 0, ptr %172, align 8
   %173 = zext i32 %155 to i64
   %174 = shl nuw nsw i64 %173, 2
   %175 = call ptr @palloc(i64 noundef %174) #6
-  %176 = getelementptr inbounds i8, ptr %162, i64 8
+  %176 = getelementptr inbounds nuw i8, ptr %162, i64 8
   store ptr %175, ptr %176, align 8
   %177 = call ptr @palloc(i64 noundef %173) #6
-  %178 = getelementptr inbounds i8, ptr %162, i64 16
+  %178 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store ptr %177, ptr %178, align 8
   %179 = icmp sgt i32 %155, 0
   br i1 %179, label %.lr.ph144.i, label %._crit_edge145.i
@@ -409,7 +409,7 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   br i1 %.not.i, label %211, label %202
 
 202:                                              ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %0, i64 176
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %204 = load ptr, ptr %203, align 8
   %.not120.i = icmp eq ptr %204, null
   br i1 %.not120.i, label %206, label %205
@@ -420,10 +420,10 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
 
 206:                                              ; preds = %205, %202
   store ptr %157, ptr %203, align 8
-  %207 = getelementptr inbounds i8, ptr %0, i64 168
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store ptr %162, ptr %207, align 8
   %208 = load i32, ptr %4, align 4
-  %209 = getelementptr inbounds i8, ptr %0, i64 184
+  %209 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store i32 %208, ptr %209, align 8
   br label %RelationBuildPartitionDesc.exit
 
@@ -433,7 +433,7 @@ heap_getattr.exit.i:                              ; preds = %116, %115, %110, %1
   br label %211
 
 211:                                              ; preds = %.critedge.i, %199
-  %212 = getelementptr inbounds i8, ptr %0, i64 160
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %213 = load ptr, ptr %212, align 8
   %.not119.i = icmp eq ptr %213, null
   br i1 %.not119.i, label %215, label %214
@@ -475,16 +475,16 @@ define dso_local noundef ptr @CreatePartitionDirectory(ptr noundef %0, i1 nounde
   store ptr %0, ptr @CurrentMemoryContext, align 8
   %6 = tail call ptr @palloc(i64 noundef 24) #6
   store ptr %0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 4, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 24, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %0, ptr %9, align 8
   %10 = call ptr @hash_create(ptr noundef nonnull @.str, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 1064) #6
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i8 %4, ptr %12, align 8
   store ptr %5, ptr @CurrentMemoryContext, align 8
   ret ptr %6
@@ -498,10 +498,10 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 define dso_local ptr @PartitionDirectoryLookup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %3, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = call ptr @hash_search(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1, ptr noundef nonnull %4) #6
   %10 = load i8, ptr %4, align 1
@@ -509,19 +509,19 @@ define dso_local ptr @PartitionDirectoryLookup(ptr nocapture noundef readonly %0
   br i1 %11, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %9, i64 16
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %19
 
 12:                                               ; preds = %2
   call void @RelationIncrementReferenceCount(ptr noundef nonnull %1) #6
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   %17 = call ptr @RelationGetPartitionDesc(ptr noundef nonnull %1, i1 noundef zeroext %16)
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %17, ptr %18, align 8
   br label %19
 
@@ -537,7 +537,7 @@ declare void @RelationIncrementReferenceCount(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local void @DestroyPartitionDirectory(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   call void @hash_seq_init(ptr noundef nonnull %2, ptr noundef %4) #6
   %5 = call ptr @hash_seq_search(ptr noundef nonnull %2) #6
@@ -546,7 +546,7 @@ define dso_local void @DestroyPartitionDirectory(ptr nocapture noundef readonly 
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %6 = phi ptr [ %9, %.lr.ph ], [ %5, %1 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   call void @RelationDecrementReferenceCount(ptr noundef %8) #6
   %9 = call ptr @hash_seq_search(ptr noundef nonnull %2) #6
@@ -569,19 +569,19 @@ define dso_local i32 @get_default_oid_from_partdesc(ptr noundef readonly %0) loc
   br i1 %.not, label %14, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
   br i1 %.not8, label %14, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 52
   %7 = load i32, ptr %6, align 4
   %.not9 = icmp eq i32 %7, -1
   br i1 %.not9, label %14, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %7 to i64
   %12 = getelementptr i32, ptr %10, i64 %11

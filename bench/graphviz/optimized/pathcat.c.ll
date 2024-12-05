@@ -10,8 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @pathcat(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 31
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %agxbputc.exit
 
 agxbputc.exit:                                    ; preds = %agxbputc.exit.backedge, %4
@@ -23,7 +23,7 @@ agxbputc.exit:                                    ; preds = %agxbputc.exit.backe
   ]
 
 9:                                                ; preds = %agxbputc.exit
-  %10 = getelementptr inbounds i8, ptr %.0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.val.i.i = load i8, ptr %5, align 1
   %.not.i.i = icmp eq i8 %.val.i.i, -1
   br i1 %.not.i.i, label %12, label %agxblen.exit.i
@@ -55,7 +55,7 @@ agxbsizeof.exit.i:                                ; preds = %12, %agxblen.exit.i
 
 17:                                               ; preds = %16
   %18 = zext i8 %.val.i15.i to i64
-  %19 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %18
   store i8 %8, ptr %19, align 1
   %20 = load i8, ptr %5, align 1
   %21 = add i8 %20, 1
@@ -113,7 +113,7 @@ agxbsizeof.exit.i32:                              ; preds = %30, %agxblen.exit.i
 
 34:                                               ; preds = %33
   %35 = zext i8 %.val.i15.i37 to i64
-  %36 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %35
   store i8 47, ptr %36, align 1
   %37 = load i8, ptr %5, align 1
   %38 = add i8 %37, 1
@@ -172,7 +172,7 @@ agxblen.exit.i.i:                                 ; preds = %50, %agxbsizeof.exi
 
 57:                                               ; preds = %56
   %58 = zext i8 %.val.i25.i.i to i64
-  %59 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %58
+  %59 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %59, ptr nonnull readonly align 1 %2, i64 %46, i1 false)
   %60 = trunc i64 %46 to i8
   %61 = load i8, ptr %5, align 1
@@ -226,7 +226,7 @@ agxbsizeof.exit.i43:                              ; preds = %71, %agxblen.exit.i
 
 76:                                               ; preds = %75
   %77 = zext i8 %.val.i15.i48 to i64
-  %78 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %77
   store i8 47, ptr %78, align 1
   %79 = load i8, ptr %5, align 1
   %80 = add i8 %79, 1
@@ -287,7 +287,7 @@ agxblen.exit.i.i54:                               ; preds = %92, %agxbsizeof.exi
 
 99:                                               ; preds = %98
   %100 = zext i8 %.val.i25.i.i57 to i64
-  %101 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %100
+  %101 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %101, ptr nonnull readonly align 1 %.017.ph, i64 %88, i1 false)
   %102 = trunc i64 %88 to i8
   %103 = load i8, ptr %5, align 1
@@ -308,7 +308,7 @@ agxblen.exit.i.i54:                               ; preds = %92, %agxbsizeof.exi
 agxbputc.exit50:                                  ; preds = %105, %99, %select.unfold, %agxbput.exit
   %111 = load i8, ptr %.0, align 1
   %.not27 = icmp eq i8 %111, 0
-  %112 = getelementptr inbounds i8, ptr %.0, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %spec.select = select i1 %.not27, ptr null, ptr %112
   ret ptr %spec.select
 }
@@ -321,7 +321,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef %0, i64 noundef rang
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -374,7 +374,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -382,7 +382,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void

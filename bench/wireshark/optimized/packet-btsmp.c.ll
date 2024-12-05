@@ -205,7 +205,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 360
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @wmem_list_tail(ptr noundef %6) #2
   %8 = tail call ptr @wmem_list_frame_prev(ptr noundef %7) #2
@@ -220,7 +220,7 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 14:                                               ; preds = %4
   %15 = load i32, ptr %3, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %17 = load i32, ptr %16, align 4
   br label %18
 
@@ -232,10 +232,10 @@ define internal i32 @dissect_btsmp(ptr noundef %0, ptr noundef %1, ptr noundef %
   %21 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef %20, i32 noundef 0) #2
   %22 = load i32, ptr @ett_btsmp, align 4
   %23 = tail call ptr @proto_item_add_subtree(ptr noundef %21, i32 noundef %22) #2
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   tail call void @col_set_str(ptr noundef %25, i32 noundef 34, ptr noundef nonnull @.str.108) #2
-  %26 = getelementptr inbounds i8, ptr %1, i64 348
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr %24, align 8
   %switch.selectcmp = icmp eq i32 %27, 1
@@ -423,7 +423,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 2, 5) i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.116) #2
   %7 = load i32, ptr @hf_btsmp_authreq, align 4
@@ -481,7 +481,7 @@ define internal fastcc range(i32 2, 5) i32 @dissect_btsmp_auth_req(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
   %.str.123..str.122 = select i1 %.not, ptr @.str.123, ptr @.str.122
   tail call void @col_append_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull %.str.123..str.122) #2
@@ -497,7 +497,7 @@ define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 n
   br i1 %.not27, label %17, label %14
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load ptr, ptr %15, align 8
   tail call void @col_append_str(ptr noundef %16, i32 noundef 25, ptr noundef nonnull @.str.124) #2
   br label %17
@@ -509,7 +509,7 @@ define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 n
   br i1 %.not28, label %23, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = select i1 %.not27, ptr @.str.117, ptr @.str.118
   tail call void @col_append_sep_str(ptr noundef %21, i32 noundef 25, ptr noundef nonnull %22, ptr noundef nonnull @.str.125) #2
@@ -522,7 +522,7 @@ define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 n
   br i1 %.not30, label %29, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not31 = icmp eq i32 %.1, 0
   %28 = select i1 %.not31, ptr @.str.117, ptr @.str.118
@@ -536,7 +536,7 @@ define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 n
   br i1 %.not32, label %35, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not33 = icmp eq i32 %.2, 0
   %34 = select i1 %.not33, ptr @.str.117, ptr @.str.118
@@ -549,7 +549,7 @@ define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 n
   br i1 %.not34, label %40, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not35 = icmp eq i32 %.3, 0
   %39 = select i1 %.not35, ptr @.str.117, ptr @.str.118
@@ -561,7 +561,7 @@ define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 n
   br i1 %.not36, label %41, label %44
 
 41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   tail call void @col_append_str(ptr noundef %43, i32 noundef 25, ptr noundef nonnull @.str.128) #2
   br label %44

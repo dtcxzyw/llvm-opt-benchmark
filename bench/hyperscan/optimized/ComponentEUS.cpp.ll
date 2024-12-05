@@ -34,14 +34,14 @@ define hidden void @_ZN3ue212ComponentEUSC2EjRKNS_9ParseModeE(ptr noundef nonnul
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212ComponentEUSE, i64 16), ptr %this, align 8
-  %loc = getelementptr inbounds i8, ptr %this, i64 16
+  %loc = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %loc_in, ptr %loc, align 8
-  %utf8 = getelementptr inbounds i8, ptr %this, i64 20
-  %utf82 = getelementptr inbounds i8, ptr %mode, i64 5
+  %utf8 = getelementptr inbounds nuw i8, ptr %this, i64 20
+  %utf82 = getelementptr inbounds nuw i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf82, align 1
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %utf8, align 4
-  %position = getelementptr inbounds i8, ptr %this, i64 24
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i32, ptr @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE, align 4
   store i32 %1, ptr %position, align 8
   ret void
@@ -74,26 +74,26 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 define hidden noalias noundef nonnull ptr @_ZNK3ue212ComponentEUS5cloneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #9
-  %pos_begin.i.i = getelementptr inbounds i8, ptr %call, i64 8
-  %pos_begin2.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %pos_begin.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
+  %pos_begin2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %pos_begin2.i.i, align 8
   store i32 %0, ptr %pos_begin.i.i, align 8
-  %pos_end.i.i = getelementptr inbounds i8, ptr %call, i64 12
-  %pos_end3.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %pos_end.i.i = getelementptr inbounds nuw i8, ptr %call, i64 12
+  %pos_end3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %1 = load i32, ptr %pos_end3.i.i, align 4
   store i32 %1, ptr %pos_end.i.i, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212ComponentEUSE, i64 16), ptr %call, align 8
-  %loc.i = getelementptr inbounds i8, ptr %call, i64 16
-  %loc2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %loc.i = getelementptr inbounds nuw i8, ptr %call, i64 16
+  %loc2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i32, ptr %loc2.i, align 8
   store i32 %2, ptr %loc.i, align 8
-  %utf8.i = getelementptr inbounds i8, ptr %call, i64 20
-  %utf83.i = getelementptr inbounds i8, ptr %this, i64 20
+  %utf8.i = getelementptr inbounds nuw i8, ptr %call, i64 20
+  %utf83.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %3 = load i8, ptr %utf83.i, align 4
   %frombool.i = and i8 %3, 1
   store i8 %frombool.i, ptr %utf8.i, align 4
-  %position.i = getelementptr inbounds i8, ptr %call, i64 24
-  %position4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %position.i = getelementptr inbounds nuw i8, ptr %call, i64 24
+  %position4.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %4 = load i32, ptr %position4.i, align 8
   store i32 %4, ptr %position.i, align 8
   ret ptr %call
@@ -107,14 +107,14 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue212ComponentEUS5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %position = getelementptr inbounds i8, ptr %this, i64 24
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %position, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #9
   store ptr %call5.i.i.i.i2.i.i1, ptr %agg.result, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext, ptr %call5.i.i.i.i2.i.i1, align 4
@@ -125,14 +125,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue212ComponentEUS4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %position = getelementptr inbounds i8, ptr %this, i64 24
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %position, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #9
   store ptr %call5.i.i.i.i2.i.i1, ptr %agg.result, align 8
-  %_M_finish.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i1, i64 8
-  %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1, i64 8
+  %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   %ref.tmp.sroa.0.0.insert.ext = zext i32 %0 to i64
   store i64 %ref.tmp.sroa.0.0.insert.ext, ptr %call5.i.i.i.i2.i.i1, align 4
@@ -145,26 +145,26 @@ define hidden void @_ZN3ue212ComponentEUS13notePositionsERNS_18GlushkovBuildStat
 entry:
   %ref.tmp = alloca %"class.ue2::CharReach", align 8
   %vtable = load ptr, ptr %bs, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %bs)
   %vtable2 = load ptr, ptr %call, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 16
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 16
   %1 = load ptr, ptr %vfn3, align 8
   %call4 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 1)
-  %position = getelementptr inbounds i8, ptr %this, i64 24
+  %position = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i32 %call4, ptr %position, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i8 -1, i64 32, i1 false), !alias.scope !5
   %vtable6 = load ptr, ptr %call, align 8
-  %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 72
+  %vfn7 = getelementptr inbounds nuw i8, ptr %vtable6, i64 72
   %2 = load ptr, ptr %vfn7, align 8
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %call4, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
   %3 = load i32, ptr %position, align 8
   %vtable9 = load ptr, ptr %call, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 64
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 64
   %4 = load ptr, ptr %vfn10, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %3, i32 noundef 0)
-  %utf8 = getelementptr inbounds i8, ptr %this, i64 20
+  %utf8 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %5 = load i8, ptr %utf8, align 4
   %tobool = trunc i8 %5 to i1
   br i1 %tobool, label %if.then, label %if.end
@@ -172,7 +172,7 @@ entry:
 if.then:                                          ; preds = %entry
   %6 = load i32, ptr %position, align 8
   %vtable13 = load ptr, ptr %call, align 8
-  %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 104
+  %vfn14 = getelementptr inbounds nuw i8, ptr %vtable13, i64 104
   %7 = load ptr, ptr %vfn14, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %6, i32 noundef %6)
   br label %if.end
@@ -185,11 +185,11 @@ if.end:                                           ; preds = %if.then, %entry
 define linkonce_odr hidden noundef ptr @_ZN3ue212ComponentEUS6acceptERNS_16ComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 200
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 200
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull %this)
   ret ptr %call
@@ -199,15 +199,15 @@ entry:
 define linkonce_odr hidden void @_ZNK3ue212ComponentEUS6acceptERNS_21ConstComponentVisitorE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(8) %v) unnamed_addr #0 comdat align 2 {
 entry:
   %vtable = load ptr, ptr %v, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 88
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 88
   %0 = load ptr, ptr %vfn, align 8
   tail call void %0(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(28) %this)
   %vtable2 = load ptr, ptr %v, align 8
-  %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 200
+  %vfn3 = getelementptr inbounds nuw i8, ptr %vtable2, i64 200
   %1 = load ptr, ptr %vfn3, align 8
   tail call void %1(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(28) %this)
   %vtable4 = load ptr, ptr %v, align 8
-  %vfn5 = getelementptr inbounds i8, ptr %vtable4, i64 312
+  %vfn5 = getelementptr inbounds nuw i8, ptr %vtable4, i64 312
   %2 = load ptr, ptr %vfn5, align 8
   tail call void %2(ptr noundef nonnull align 8 dereferenceable(8) %v, ptr noundef nonnull align 8 dereferenceable(28) %this)
   ret void

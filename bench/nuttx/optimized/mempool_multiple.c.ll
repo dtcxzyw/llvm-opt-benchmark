@@ -26,7 +26,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %.0110126 = phi i64 [ %.1111, %.lr.ph ], [ %13, %12 ]
-  %14 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %15 = load i64, ptr %14, align 8
   %.1111 = tail call i64 @llvm.umin.i64(i64 %.0110126, i64 %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -40,22 +40,22 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %17, label %82, label %18
 
 18:                                               ; preds = %._crit_edge
-  %19 = getelementptr inbounds i8, ptr %16, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 48
   store ptr %4, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %8, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 144
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store i64 %7, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %3, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store ptr %5, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %16, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %6, ptr %24, align 8
   %25 = tail call i64 %4(ptr noundef %6, ptr noundef nonnull %16) #6
-  %26 = getelementptr inbounds i8, ptr %16, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store i64 %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %16, i64 128
+  %27 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %28 = mul nuw nsw i64 %2, 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   %29 = tail call fastcc ptr @mempool_multiple_alloc_chunk(ptr noundef nonnull %16, i64 noundef 8, i64 noundef %28)
@@ -64,31 +64,31 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 
 31:                                               ; preds = %18
   store ptr %29, ptr %16, align 8
-  %32 = getelementptr inbounds i8, ptr %16, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i64 %2, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 %.0110.lcssa, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %16, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %16, i64 72
   store i64 0, ptr %34, align 8
   br i1 %.not138, label %._crit_edge132, label %.lr.ph131
 
 .lr.ph131:                                        ; preds = %31, %56
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %56 ], [ 0, %31 ]
-  %35 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv142
+  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv142
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds %struct.mempool_s, ptr %29, i64 %indvars.iv142
+  %37 = getelementptr inbounds nuw %struct.mempool_s, ptr %29, i64 %indvars.iv142
   store i64 %36, ptr %37, align 8
   %38 = load i64, ptr %33, align 8
   %39 = sub i64 %8, %38
-  %40 = getelementptr inbounds i8, ptr %37, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %37, i64 8
-  %42 = getelementptr inbounds i8, ptr %37, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store ptr %16, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store ptr @mempool_multiple_alloc_callback, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 56
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 56
   store ptr @mempool_multiple_free_callback, ptr %44, align 8
   %45 = tail call i32 @mempool_init(ptr noundef nonnull %37, ptr noundef %0) #6
   %46 = icmp slt i32 %45, 0
@@ -100,7 +100,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %.not122, label %56, label %48
 
 48:                                               ; preds = %47
-  %49 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv.next143
+  %49 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.next143
   %50 = load i64, ptr %49, align 8
   %51 = load i64, ptr %35, align 8
   %52 = sub i64 %50, %51
@@ -127,20 +127,20 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 
 ._crit_edge132:                                   ; preds = %._crit_edge132.loopexit, %31
   %.1.lcssa = phi i32 [ 0, %31 ], [ %57, %._crit_edge132.loopexit ]
-  %58 = getelementptr inbounds i8, ptr %16, i64 152
+  %58 = getelementptr inbounds nuw i8, ptr %16, i64 152
   store i64 0, ptr %58, align 8
   %59 = udiv i64 %9, 24
   %60 = trunc i64 %59 to i32
   %61 = tail call i32 @fls(i32 noundef %60) #6
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr %16, i64 160
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 160
   store i64 %62, ptr %63, align 8
   %64 = lshr i64 %9, 3
-  %65 = getelementptr inbounds i8, ptr %16, i64 168
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 168
   store i64 %64, ptr %65, align 8
   %66 = and i64 %9, -8
   %67 = tail call fastcc ptr @mempool_multiple_alloc_chunk(ptr noundef nonnull %16, i64 noundef 8, i64 noundef %66)
-  %68 = getelementptr inbounds i8, ptr %16, i64 176
+  %68 = getelementptr inbounds nuw i8, ptr %16, i64 176
   store ptr %67, ptr %68, align 8
   %69 = icmp eq ptr %67, null
   br i1 %69, label %.loopexit, label %70
@@ -149,7 +149,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
   %71 = load i64, ptr %65, align 8
   %72 = shl i64 %71, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %67, i8 0, i64 %72, i1 false)
-  %73 = getelementptr inbounds i8, ptr %16, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %74 = tail call i32 @nxrmutex_init(ptr noundef nonnull %73) #6
   br label %82
 
@@ -169,7 +169,7 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 .lr.ph136:                                        ; preds = %.lr.ph136.preheader, %.lr.ph136
   %indvars.iv146 = phi i64 [ %77, %.lr.ph136.preheader ], [ %indvars.iv.next147, %.lr.ph136 ]
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
-  %78 = getelementptr inbounds %struct.mempool_s, ptr %29, i64 %indvars.iv.next147
+  %78 = getelementptr inbounds nuw %struct.mempool_s, ptr %29, i64 %indvars.iv.next147
   %79 = tail call i32 @mempool_deinit(ptr noundef nonnull %78) #6
   %80 = icmp samesign ugt i64 %indvars.iv146, 1
   br i1 %80, label %.lr.ph136, label %._crit_edge137, !llvm.loop !9
@@ -189,35 +189,35 @@ define ptr @mempool_multiple_init(ptr noundef %0, ptr nocapture noundef readonly
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 144
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8
   %8 = icmp ult i64 %5, %7
   br i1 %8, label %9, label %23
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr %11(ptr noundef %13, i64 noundef %1, i64 noundef %2) #6
   %.not57 = icmp eq ptr %14, null
   br i1 %.not57, label %74, label %15
 
 15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %12, align 8
   %19 = tail call i64 %17(ptr noundef %18, ptr noundef nonnull %14) #6
-  %20 = getelementptr inbounds i8, ptr %0, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
   br label %74
 
 23:                                               ; preds = %3
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %55
@@ -225,9 +225,9 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
 27:                                               ; preds = %._crit_edge, %23
   %28 = phi i64 [ %.pre58, %._crit_edge ], [ %5, %23 ]
   %29 = phi i64 [ %.pre, %._crit_edge ], [ %7, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = add i64 %28, 40
   %35 = tail call ptr %31(ptr noundef %33, i64 noundef %29, i64 noundef %34) #6
@@ -235,23 +235,23 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
   br i1 %36, label %74, label %37
 
 37:                                               ; preds = %27
-  %38 = getelementptr inbounds i8, ptr %0, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %32, align 8
   %41 = tail call i64 %39(ptr noundef %40, ptr noundef nonnull %35) #6
-  %42 = getelementptr inbounds i8, ptr %0, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %41
   store i64 %44, ptr %42, align 8
   %45 = load i64, ptr %4, align 8
   %46 = getelementptr inbounds i8, ptr %35, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %46, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %35, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %35, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %46, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 32
   store i64 0, ptr %50, align 8
   %51 = load ptr, ptr %24, align 8
   store ptr %51, ptr %46, align 8
@@ -259,7 +259,7 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
   br i1 %.not, label %52, label %54
 
 52:                                               ; preds = %37
-  %53 = getelementptr inbounds i8, ptr %0, i64 136
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %46, ptr %53, align 8
   br label %54
 
@@ -269,14 +269,14 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
 
 55:                                               ; preds = %54, %23
   %.052 = phi ptr [ %46, %54 ], [ %25, %23 ]
-  %56 = getelementptr inbounds i8, ptr %.052, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = add i64 %1, -1
   %60 = add i64 %59, %58
   %61 = sub i64 0, %1
   %62 = and i64 %60, %61
-  %63 = getelementptr inbounds i8, ptr %.052, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.052, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %65, %62
@@ -290,7 +290,7 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
 
 68:                                               ; preds = %55
   %69 = inttoptr i64 %62 to ptr
-  %70 = getelementptr inbounds i8, ptr %.052, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %.052, i64 32
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 1
   store i64 %72, ptr %70, align 8
@@ -305,13 +305,13 @@ define internal fastcc ptr @mempool_multiple_alloc_chunk(ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @mempool_multiple_alloc_callback(ptr noundef %0, i64 noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %5) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %1
   %12 = tail call fastcc ptr @mempool_multiple_alloc_chunk(ptr noundef %4, i64 noundef %8, i64 noundef %11)
@@ -323,14 +323,14 @@ define internal ptr @mempool_multiple_alloc_callback(ptr noundef %0, i64 noundef
   br label %55
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %4, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 152
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 160
   %20 = load i64, ptr %19, align 8
   %21 = lshr i64 %18, %20
   %22 = shl i64 %21, %20
   %23 = sub i64 %18, %22
-  %24 = getelementptr inbounds i8, ptr %4, i64 176
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 176
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds ptr, ptr %25, i64 %21
   %27 = load ptr, ptr %26, align 8
@@ -383,9 +383,9 @@ define internal ptr @mempool_multiple_alloc_callback(ptr noundef %0, i64 noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @mempool_multiple_free_callback(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = sub i64 0, %6
   %8 = getelementptr inbounds i8, ptr %1, i64 %7
@@ -406,45 +406,45 @@ declare i32 @mempool_deinit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp ult i64 %4, %6
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void %10(ptr noundef %12, ptr noundef %1) #6
   br label %52
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %14) #6
-  %16 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %.03745 = load ptr, ptr %16, align 8
   %.not46 = icmp eq ptr %.03745, null
   br i1 %.not46, label %.loopexit43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13, %50
   %.03747 = phi ptr [ %.037, %50 ], [ %.03745, %13 ]
-  %17 = getelementptr inbounds i8, ptr %.03747, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.03747, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not40 = icmp ult ptr %1, %18
   br i1 %.not40, label %50, label %19
 
 19:                                               ; preds = %.lr.ph
-  %20 = getelementptr inbounds i8, ptr %.03747, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.03747, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp ult ptr %1, %21
   br i1 %22, label %23, label %50
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.03747, i64 8
-  %25 = getelementptr inbounds i8, ptr %.03747, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.03747, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.03747, i64 32
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8
@@ -463,7 +463,7 @@ define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr nou
 33:                                               ; preds = %31
   %34 = load ptr, ptr %.03747, align 8
   store ptr %34, ptr %16, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 136
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %.03747, %36
   br i1 %37, label %38, label %.loopexit
@@ -489,9 +489,9 @@ define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr nou
   br i1 %.not42, label %.loopexit, label %.preheader, !llvm.loop !10
 
 .loopexit:                                        ; preds = %43, %29, %33, %38
-  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %24, align 8
   tail call void %46(ptr noundef %48, ptr noundef %49) #6
@@ -516,9 +516,9 @@ define ptr @mempool_multiple_alloc(ptr noundef readonly %0, i64 noundef %1) loca
   br i1 %3, label %mempool_multiple_find.exit.thread, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %.preheader.i, label %10
@@ -551,7 +551,7 @@ define ptr @mempool_multiple_alloc(ptr noundef readonly %0, i64 noundef %1) loca
   %.02837.i = phi i64 [ %6, %.lr.ph.i ], [ %.129.i, %20 ]
   %21 = add i64 %.02837.i, %.038.i
   %22 = lshr i64 %21, 1
-  %23 = getelementptr inbounds %struct.mempool_s, ptr %9, i64 %22
+  %23 = getelementptr inbounds nuw %struct.mempool_s, ptr %9, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = icmp ugt i64 %24, %1
   %26 = add nuw i64 %22, 1
@@ -589,7 +589,7 @@ mempool_multiple_find.exit.thread15:              ; preds = %10, %mempool_multip
   br i1 %.not, label %38, label %mempool_multiple_find.exit.thread
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i8, ptr %.010, i64 184
+  %39 = getelementptr inbounds nuw i8, ptr %.010, i64 184
   %40 = icmp ult ptr %39, %35
   br i1 %40, label %36, label %mempool_multiple_find.exit.thread, !llvm.loop !13
 
@@ -610,9 +610,9 @@ define ptr @mempool_multiple_realloc(ptr noundef readonly %0, ptr noundef %1, i6
   br i1 %5, label %mempool_multiple_alloc.exit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load i64, ptr %10, align 8
   %.not.i.i = icmp eq i64 %11, 0
   br i1 %.not.i.i, label %.preheader.i.i, label %13
@@ -645,7 +645,7 @@ define ptr @mempool_multiple_realloc(ptr noundef readonly %0, ptr noundef %1, i6
   %.02837.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %.129.i.i, %23 ]
   %24 = add i64 %.02837.i.i, %.038.i.i
   %25 = lshr i64 %24, 1
-  %26 = getelementptr inbounds %struct.mempool_s, ptr %12, i64 %25
+  %26 = getelementptr inbounds nuw %struct.mempool_s, ptr %12, i64 %25
   %27 = load i64, ptr %26, align 8
   %28 = icmp ugt i64 %27, %2
   %29 = add nuw i64 %25, 1
@@ -683,7 +683,7 @@ mempool_multiple_find.exit.thread15.i:            ; preds = %mempool_multiple_fi
   br i1 %.not.i, label %41, label %mempool_multiple_alloc.exit
 
 41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.010.i, i64 184
+  %42 = getelementptr inbounds nuw i8, ptr %.010.i, i64 184
   %43 = icmp ult ptr %42, %38
   br i1 %43, label %39, label %mempool_multiple_alloc.exit, !llvm.loop !13
 
@@ -692,22 +692,22 @@ mempool_multiple_find.exit.thread15.i:            ; preds = %mempool_multiple_fi
 
 45:                                               ; preds = %44
   %46 = ptrtoint ptr %1 to i64
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = sub i64 0, %48
   %50 = and i64 %49, %46
   %51 = inttoptr i64 %50 to ptr
   %52 = load i64, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 152
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %54 = load i64, ptr %53, align 8
   %.not.i26 = icmp ult i64 %52, %54
   br i1 %.not.i26, label %55, label %mempool_multiple_alloc.exit
 
 55:                                               ; preds = %45
-  %56 = getelementptr inbounds i8, ptr %0, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %57 = load i64, ptr %56, align 8
   %58 = lshr i64 %52, %57
-  %59 = getelementptr inbounds i8, ptr %0, i64 176
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds ptr, ptr %60, i64 %58
   %62 = load ptr, ptr %61, align 8
@@ -718,22 +718,22 @@ mempool_multiple_find.exit.thread15.i:            ; preds = %mempool_multiple_fi
   %65 = shl i64 %58, %57
   %66 = sub i64 %52, %65
   %67 = getelementptr inbounds %struct.mpool_dict_s, ptr %62, i64 %66
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %.not31.i = icmp eq ptr %69, %51
   br i1 %.not31.i, label %70, label %mempool_multiple_alloc.exit
 
 70:                                               ; preds = %64
   %71 = sub i64 %46, %50
-  %72 = getelementptr inbounds i8, ptr %67, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %73 = load i64, ptr %72, align 8
   %.not32.i = icmp ult i64 %71, %73
   br i1 %.not32.i, label %mempool_multiple_get_dict.exit, label %mempool_multiple_alloc.exit
 
 mempool_multiple_get_dict.exit:                   ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %0, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %77 = load i64, ptr %76, align 8
   %.not.i.i28 = icmp eq i64 %77, 0
   br i1 %.not.i.i28, label %.preheader.i.i37, label %79
@@ -766,7 +766,7 @@ mempool_multiple_get_dict.exit:                   ; preds = %70
   %.02837.i.i41 = phi i64 [ %75, %.lr.ph.i.i39 ], [ %.129.i.i42, %89 ]
   %90 = add i64 %.02837.i.i41, %.038.i.i40
   %91 = lshr i64 %90, 1
-  %92 = getelementptr inbounds %struct.mempool_s, ptr %78, i64 %91
+  %92 = getelementptr inbounds nuw %struct.mempool_s, ptr %78, i64 %91
   %93 = load i64, ptr %92, align 8
   %94 = icmp ugt i64 %93, %2
   %95 = add nuw i64 %91, 1
@@ -804,7 +804,7 @@ mempool_multiple_find.exit.thread15.i30:          ; preds = %mempool_multiple_fi
   br i1 %.not.i33, label %107, label %mempool_multiple_alloc.exit46
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %.010.i32, i64 184
+  %108 = getelementptr inbounds nuw i8, ptr %.010.i32, i64 184
   %109 = icmp ult ptr %108, %104
   br i1 %109, label %105, label %mempool_multiple_alloc.exit, !llvm.loop !13
 
@@ -835,20 +835,20 @@ mempool_multiple_alloc.exit46:                    ; preds = %105
   %126 = shl i64 %120, %119
   %127 = sub i64 %116, %126
   %128 = getelementptr inbounds %struct.mpool_dict_s, ptr %123, i64 %127
-  %129 = getelementptr inbounds i8, ptr %128, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8
   %.not31.i.i = icmp eq ptr %130, %115
   br i1 %.not31.i.i, label %131, label %mempool_multiple_alloc.exit
 
 131:                                              ; preds = %125
   %132 = sub i64 %46, %114
-  %133 = getelementptr inbounds i8, ptr %128, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %134 = load i64, ptr %133, align 8
   %.not32.i.i = icmp ult i64 %132, %134
   br i1 %.not32.i.i, label %mempool_multiple_get_dict.exit.i, label %mempool_multiple_alloc.exit
 
 mempool_multiple_get_dict.exit.i:                 ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %0, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load i64, ptr %135, align 8
   %137 = getelementptr inbounds i8, ptr %130, i64 %136
   %138 = ptrtoint ptr %137 to i64
@@ -878,22 +878,22 @@ define range(i32 -22, 1) i32 @mempool_multiple_free(ptr noundef readonly %0, ptr
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 0, %8
   %10 = and i64 %9, %6
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load i64, ptr %13, align 8
   %.not.i = icmp ult i64 %12, %14
   br i1 %.not.i, label %15, label %mempool_multiple_get_dict.exit.thread
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %17 = load i64, ptr %16, align 8
   %18 = lshr i64 %12, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %18
   %22 = load ptr, ptr %21, align 8
@@ -904,20 +904,20 @@ define range(i32 -22, 1) i32 @mempool_multiple_free(ptr noundef readonly %0, ptr
   %25 = shl i64 %18, %17
   %26 = sub i64 %12, %25
   %27 = getelementptr inbounds %struct.mpool_dict_s, ptr %22, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not31.i = icmp eq ptr %29, %11
   br i1 %.not31.i, label %30, label %mempool_multiple_get_dict.exit.thread
 
 30:                                               ; preds = %24
   %31 = sub i64 %6, %10
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = load i64, ptr %32, align 8
   %.not32.i = icmp ult i64 %31, %33
   br i1 %.not32.i, label %mempool_multiple_get_dict.exit, label %mempool_multiple_get_dict.exit.thread
 
 mempool_multiple_get_dict.exit:                   ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %29, i64 %35
   %37 = ptrtoint ptr %36 to i64
@@ -946,22 +946,22 @@ define i64 @mempool_multiple_alloc_size(ptr noundef readonly %0, ptr noundef %1)
 
 5:                                                ; preds = %2
   %6 = ptrtoint ptr %1 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub i64 0, %8
   %10 = and i64 %9, %6
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 152
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = load i64, ptr %13, align 8
   %.not.i = icmp ult i64 %12, %14
   br i1 %.not.i, label %15, label %mempool_multiple_get_dict.exit.thread
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %0, i64 160
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %17 = load i64, ptr %16, align 8
   %18 = lshr i64 %12, %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds ptr, ptr %20, i64 %18
   %22 = load ptr, ptr %21, align 8
@@ -972,14 +972,14 @@ define i64 @mempool_multiple_alloc_size(ptr noundef readonly %0, ptr noundef %1)
   %25 = shl i64 %18, %17
   %26 = sub i64 %12, %25
   %27 = getelementptr inbounds %struct.mpool_dict_s, ptr %22, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not31.i = icmp eq ptr %29, %11
   br i1 %.not31.i, label %30, label %mempool_multiple_get_dict.exit.thread
 
 30:                                               ; preds = %24
   %31 = sub i64 %6, %10
-  %32 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = load i64, ptr %32, align 8
   %.not32.i = icmp ult i64 %31, %33
   br i1 %.not32.i, label %mempool_multiple_get_dict.exit, label %mempool_multiple_get_dict.exit.thread
@@ -1001,9 +1001,9 @@ define ptr @mempool_multiple_memalign(ptr noundef readonly %0, i64 noundef %1, i
   br i1 %5, label %mempool_multiple_find.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load i64, ptr %9, align 8
   %.not.i = icmp eq i64 %10, 0
   br i1 %.not.i, label %.preheader.i, label %12
@@ -1036,7 +1036,7 @@ define ptr @mempool_multiple_memalign(ptr noundef readonly %0, i64 noundef %1, i
   %.02837.i = phi i64 [ %8, %.lr.ph.i ], [ %.129.i, %22 ]
   %23 = add i64 %.02837.i, %.038.i
   %24 = lshr i64 %23, 1
-  %25 = getelementptr inbounds %struct.mempool_s, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw %struct.mempool_s, ptr %11, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = icmp ugt i64 %26, %4
   %28 = add nuw i64 %24, 1
@@ -1083,7 +1083,7 @@ mempool_multiple_find.exit.thread18:              ; preds = %12, %mempool_multip
   br label %mempool_multiple_find.exit.thread
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %.013, i64 184
+  %48 = getelementptr inbounds nuw i8, ptr %.013, i64 184
   %49 = icmp ult ptr %48, %37
   br i1 %49, label %38, label %mempool_multiple_find.exit.thread, !llvm.loop !14
 
@@ -1094,7 +1094,7 @@ mempool_multiple_find.exit.thread:                ; preds = %47, %._crit_edge.i,
 
 ; Function Attrs: nounwind uwtable
 define void @mempool_multiple_foreach(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1116,32 +1116,32 @@ define void @mempool_multiple_foreach(ptr nocapture noundef readonly %0, ptr noc
 ; Function Attrs: nounwind uwtable
 define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.mallinfo) align 4 initializes((0, 28)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mempoolinfo_s, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds i8, ptr %1, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = tail call i32 @nxrmutex_lock(ptr noundef nonnull %5) #6
-  %7 = getelementptr inbounds i8, ptr %1, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   store i32 %9, ptr %0, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %11 = load i64, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8
   %.not = icmp ult i64 %11, %13
   br i1 %.not, label %26, label %14
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %1, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %19, %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %25 = trunc i64 %23 to i32
   store i32 %25, ptr %24, align 4
   br label %26
@@ -1149,20 +1149,20 @@ define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writ
 26:                                               ; preds = %14, %2
   %.promoted = phi i32 [ %25, %14 ], [ 0, %2 ]
   %27 = tail call i32 @nxrmutex_unlock(ptr noundef nonnull %5) #6
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8
   %.not21 = icmp eq i64 %29, 0
   br i1 %.not21, label %64, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
-  %32 = getelementptr inbounds i8, ptr %3, i64 32
-  %33 = getelementptr inbounds i8, ptr %0, i64 20
-  %34 = getelementptr inbounds i8, ptr %0, i64 4
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %38
 
 38:                                               ; preds = %.lr.ph, %38
@@ -1205,7 +1205,7 @@ define void @mempool_multiple_mallinfo(ptr dead_on_unwind noalias nocapture writ
 64:                                               ; preds = %._crit_edge, %26
   %65 = phi i32 [ %52, %._crit_edge ], [ %.promoted, %26 ]
   %66 = load i64, ptr %7, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = trunc i64 %66 to i32
   %69 = sub i32 %68, %65
   store i32 %69, ptr %67, align 4
@@ -1220,7 +1220,7 @@ declare i32 @mempool_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define i64 @mempool_multiple_info_task(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1230,7 +1230,7 @@ define i64 @mempool_multiple_info_task(ptr nocapture noundef readonly %0, ptr no
   %.sroa.06.013 = phi i32 [ %8, %.lr.ph ], [ 0, %2 ]
   %.sroa.4.012 = phi i32 [ %9, %.lr.ph ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds %struct.mempool_s, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %struct.mempool_s, ptr %5, i64 %indvars.iv
   %7 = tail call i64 @mempool_info_task(ptr noundef %6, ptr noundef %1) #6
   %.sroa.01.0.extract.trunc = trunc i64 %7 to i32
   %.sroa.2.0.extract.shift = lshr i64 %7, 32
@@ -1258,7 +1258,7 @@ declare i64 @mempool_info_task(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @mempool_multiple_memdump(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -1281,14 +1281,14 @@ declare void @mempool_memdump(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @mempool_multiple_deinit(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not25 = icmp eq i64 %3, 0
   br i1 %.not25, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 176
-  %5 = getelementptr inbounds i8, ptr %0, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i64, ptr %5, align 8
   %.not26 = icmp eq i64 %6, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph23
@@ -1323,9 +1323,9 @@ define void @mempool_multiple_deinit(ptr noundef %0) local_unnamed_addr #0 {
   tail call fastcc void @mempool_multiple_free_chunk(ptr noundef nonnull %0, ptr noundef %20)
   %21 = load ptr, ptr %0, align 8
   tail call fastcc void @mempool_multiple_free_chunk(ptr noundef nonnull %0, ptr noundef %21)
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = tail call i32 @nxrmutex_destroy(ptr noundef nonnull %22) #6
-  %24 = getelementptr inbounds i8, ptr %0, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0, ptr noundef nonnull %0) #6
   ret void

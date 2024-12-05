@@ -632,22 +632,22 @@ define internal i32 @dissect_tpm20(ptr noundef %0, ptr noundef %1, ptr noundef %
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca %struct.num_handles, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   tail call void @col_set_str(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.443) #5
   %24 = load ptr, ptr %22, align 8
   tail call void @col_clear(ptr noundef %24, i32 noundef 25) #5
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 284
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %27 = load i32, ptr %26, align 4
   %28 = trunc i32 %27 to i16
-  %29 = getelementptr inbounds i8, ptr %1, i64 288
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %30 = load i32, ptr %29, align 8
   %31 = trunc i32 %30 to i16
   tail call void @col_append_ports(ptr noundef %25, i32 noundef 25, i32 noundef 0, i16 noundef zeroext %28, i16 noundef zeroext %31) #5
   %32 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   %33 = load ptr, ptr @cmd_tree, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = tail call ptr @wmem_tree_lookup32(ptr noundef %33, i32 noundef %35) #5
   %37 = icmp eq ptr %36, null
@@ -657,11 +657,11 @@ define internal i32 @dissect_tpm20(ptr noundef %0, ptr noundef %1, ptr noundef %
   %39 = tail call ptr @wmem_file_scope() #5
   %40 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef 16) #5
   store i32 -1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %40, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 -1, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %40, i64 12
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 0, ptr %43, align 4
   %44 = load ptr, ptr @cmd_tree, align 8
   %45 = load i32, ptr %34, align 4
@@ -714,13 +714,13 @@ define internal i32 @dissect_tpm20(ptr noundef %0, ptr noundef %1, ptr noundef %
   unreachable
 
 77:                                               ; preds = %57
-  %78 = getelementptr inbounds i8, ptr %75, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store i32 %58, ptr %78, align 4
   store i32 %58, ptr %21, align 8
-  %79 = getelementptr inbounds i8, ptr %21, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i8 0, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %21, i64 8
-  %81 = getelementptr inbounds i8, ptr %21, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %21, i64 40
   br label %82
 
 82:                                               ; preds = %.loopexit.i.i, %77
@@ -737,9 +737,9 @@ define internal i32 @dissect_tpm20(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %89, label %90, label %.loopexit.i.i
 
 90:                                               ; preds = %82
-  %91 = getelementptr inbounds i8, ptr %87, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %92 = load i8, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %87, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %94 = load i8, ptr %93, align 16
   store i8 %94, ptr %79, align 8
   %.not.i.i = icmp eq i8 %92, 0
@@ -770,7 +770,7 @@ define internal i32 @dissect_tpm20(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %exitcond.not.i.i, label %get_num_hndl.exit.i, label %82, !llvm.loop !4
 
 get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
-  %101 = getelementptr inbounds i8, ptr %21, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i8 %100, ptr %101, align 4
   %.not47.i = icmp eq i8 %100, 0
   br i1 %.not47.i, label %.loopexit.i, label %102
@@ -886,7 +886,7 @@ get_num_hndl.exit.i:                              ; preds = %.loopexit.i.i
 dissect_auth_command.exit.i:                      ; preds = %159, %._crit_edge.i.i, %128
   %.4.i = phi i32 [ %125, %128 ], [ %154, %159 ], [ %154, %._crit_edge.i.i ]
   %.0.lcssa6.i.i = phi i32 [ 0, %128 ], [ %157, %159 ], [ %157, %._crit_edge.i.i ]
-  %161 = getelementptr inbounds i8, ptr %120, i64 12
+  %161 = getelementptr inbounds nuw i8, ptr %120, i64 12
   store i32 %.0.lcssa6.i.i, ptr %161, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %20)
   br label %165
@@ -1093,14 +1093,14 @@ dissect_tpm20_tpm_command.exit:                   ; preds = %165, %166, %169, %d
   unreachable
 
 281:                                              ; preds = %276
-  %282 = getelementptr inbounds i8, ptr %279, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %283 = load i32, ptr %282, align 4
   store i32 %283, ptr %8, align 8
-  %284 = getelementptr inbounds i8, ptr %8, i64 4
-  %285 = getelementptr inbounds i8, ptr %8, i64 32
+  %284 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %285 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 0, ptr %285, align 8
-  %286 = getelementptr inbounds i8, ptr %8, i64 8
-  %287 = getelementptr inbounds i8, ptr %8, i64 40
+  %286 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %8, i64 40
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %281
@@ -1118,9 +1118,9 @@ dissect_tpm20_tpm_command.exit:                   ; preds = %165, %166, %169, %d
   br i1 %295, label %296, label %.loopexit.i.i41
 
 296:                                              ; preds = %.backedge.i
-  %297 = getelementptr inbounds i8, ptr %293, i64 4
+  %297 = getelementptr inbounds nuw i8, ptr %293, i64 4
   %298 = load i8, ptr %297, align 4
-  %299 = getelementptr inbounds i8, ptr %293, i64 32
+  %299 = getelementptr inbounds nuw i8, ptr %293, i64 32
   %300 = load i8, ptr %299, align 16
   store i8 %300, ptr %285, align 8
   %.not.i.i52 = icmp eq i8 %298, 0
@@ -1238,7 +1238,7 @@ get_num_hndl.exit.thread.i:                       ; preds = %.loopexit.i.thread.
   br i1 %.not7.i.i.i, label %344, label %get_command_entry.exit.preheader.i.i
 
 get_command_entry.exit.preheader.i.i:             ; preds = %339
-  %342 = getelementptr inbounds i8, ptr %341, i64 12
+  %342 = getelementptr inbounds nuw i8, ptr %341, i64 12
   %343 = load i32, ptr %342, align 4
   %.not.i67.i = icmp eq i32 %343, 0
   br i1 %.not.i67.i, label %dissect_tpm20_tpm_response.exit, label %get_command_entry.exit.preheader2.i.i
@@ -1310,7 +1310,7 @@ dissect_tpm20_tpm_response.exit:                  ; preds = %get_command_entry.e
   unreachable
 
 378:                                              ; preds = %372
-  %379 = getelementptr inbounds i8, ptr %376, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %376, i64 4
   %380 = load i32, ptr %379, align 4
   switch i32 %380, label %384 [
     i32 -1, label %381
@@ -1443,7 +1443,7 @@ define internal fastcc void @dissect_response(ptr noundef %0, i32 %.20.val, ptr 
   unreachable
 
 get_command_entry.exit:                           ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %108 [
     i32 302, label %22

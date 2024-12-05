@@ -34,7 +34,7 @@ define void @"_ZN112_$LT$logos_codegen..leaf..Callback$u20$as$u20$core..convert.
 
 "_ZN5alloc5boxed12Box$LT$T$GT$3new17heeac89dad39edf8cE.exit": ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %9, align 8
   store i64 -9223372036854775807, ptr %0, align 8
   ret void
@@ -63,14 +63,14 @@ define hidden i32 @_ZN13logos_codegen4leaf8Callback4span17h5b024c4801b0fb97E(ptr
   br label %19
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load i32, ptr %14, align 8
   br label %19
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   br label %19
 
@@ -81,37 +81,37 @@ define hidden i32 @_ZN13logos_codegen4leaf8Callback4span17h5b024c4801b0fb97E(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 8), (32, 40), (64, 84)) %0, ptr align 8 %1, i32 %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %6, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -9223372036854775805, ptr %7, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN13logos_codegen4leaf4Leaf8new_skip17h8b12259d6eff5f2aE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 8), (32, 44), (64, 84)) %0, i32 %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 0, ptr %5, align 8
   store i64 -9223372036854775807, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 -9223372036854775806, ptr %6, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %.sroa.24.0..sroa_idx, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN13logos_codegen4leaf4Leaf8callback17h5b8bdc242d8f9725E(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr align 8 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   invoke void @"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$logos_codegen..leaf..Callback$GT$$GT$17h09cb59c003ba9d3eE"(ptr nonnull align 8 %4)
           to label %7 unwind label %5
 
@@ -166,7 +166,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 88)) %0, ptr nocapture align 8 initializes((72, 80)) %1, i64 %2) unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret void
@@ -174,9 +174,9 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(pt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define range(i8 -1, 2) i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos_codegen..graph..Disambiguate$GT$3cmp17hf7332b0b5d8bbf93E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i64, ptr %5, align 8
   %7 = tail call i8 @llvm.ucmp.i8.i64(i64 %4, i64 %6)
   ret i8 %7
@@ -192,23 +192,23 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
   %8 = alloca [8 x i8], align 8
   store ptr %0, ptr %8, align 8
   store ptr %8, ptr %6, align 8
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h5cfe351e61291627E", ptr %.sroa.24.0..sroa_idx, align 8
   store ptr @anon.bef61f983d4a6c39990a3ef2792f4b31.1, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr null, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %12, align 8
   %13 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %7)
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %8, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = icmp eq i64 %17, -9223372036854775805
   br i1 %18, label %24, label %19
@@ -234,16 +234,16 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
 26:                                               ; preds = %19
   store ptr %16, ptr %5, align 8
   store ptr %5, ptr %3, align 8
-  %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8060ba6b309d212aE", ptr %.sroa.28.0..sroa_idx, align 8
   store ptr @anon.bef61f983d4a6c39990a3ef2792f4b31.5, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 2, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %3, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %4, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %30, align 8
   %31 = call zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17h61966806c14c8fbcE(ptr align 8 %1, ptr nonnull align 8 %4)
   br label %24
@@ -259,7 +259,7 @@ define zeroext i1 @"_ZN62_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..De
 
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN64_$LT$logos_codegen..leaf..Leaf$u20$as$u20$core..fmt..Display$GT$3fmt17ha117e80b5be25287E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8

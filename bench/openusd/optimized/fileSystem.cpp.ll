@@ -177,7 +177,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12ArchNormPathERKNSt7__cxx1112
   br i1 %11, label %12, label %.critedge.loopexit.i.i
 
 12:                                               ; preds = %.lr.ph.i.i
-  %13 = getelementptr inbounds i8, ptr %.sroa.04.013.i.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.013.i.i, i64 1
   %.not10.i.i = icmp eq ptr %13, %6
   br i1 %.not10.i.i, label %.critedge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !4
 
@@ -204,7 +204,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12ArchNormPathERKNSt7__cxx1112
   br i1 %.not.i.i, label %.loopexit112.i, label %16
 
 16:                                               ; preds = %.lr.ph18.i.i
-  %17 = getelementptr inbounds i8, ptr %.sroa.8.017.i.i, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.8.017.i.i, i64 1
   %.not11.i.i = icmp eq ptr %17, %6
   br i1 %.not11.i.i, label %.loopexit112.i, label %.lr.ph18.i.i, !llvm.loop !6
 
@@ -243,7 +243,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12ArchNormPathERKNSt7__cxx1112
   br i1 %33, label %34, label %38
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds i8, ptr %.sroa.097.0120.i, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.097.0120.i, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 46
   br i1 %37, label %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_9TokenTypeESt4pairIT_SF_E.exit.i, label %38
@@ -294,7 +294,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12ArchNormPathERKNSt7__cxx1112
           to label %48 unwind label %.loopexit108.i
 
 48:                                               ; preds = %.lr.ph.i
-  %49 = getelementptr inbounds i8, ptr %.sroa.097.1117.i, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.097.1117.i, i64 1
   %50 = add i64 %.1118.i, 1
   store i8 %46, ptr %47, align 1
   %.not107.i = icmp eq ptr %49, %.sroa.11.0121.i
@@ -443,7 +443,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17
   br i1 %106, label %107, label %.critedge.loopexit.i65.i
 
 107:                                              ; preds = %.lr.ph.i63.i
-  %108 = getelementptr inbounds i8, ptr %.sroa.04.013.i64.i, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.04.013.i64.i, i64 1
   %.not10.i81.i = icmp eq ptr %108, %102
   br i1 %.not10.i81.i, label %.critedge.loopexit.i65.i, label %.lr.ph.i63.i, !llvm.loop !4
 
@@ -470,7 +470,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_GetTokenTypeIN9__gnu_cxx17
   br i1 %.not.i76.i, label %.loopexit.i, label %111
 
 111:                                              ; preds = %.lr.ph18.i74.i
-  %112 = getelementptr inbounds i8, ptr %.sroa.8.017.i75.i, i64 1
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.8.017.i75.i, i64 1
   %.not11.i77.i = icmp eq ptr %112, %102
   br i1 %.not11.i77.i, label %.loopexit.i, label %.lr.ph18.i74.i, !llvm.loop !6
 
@@ -1179,7 +1179,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit: ; pred
 
 13:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit
   store i64 -1, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %14, align 8
   br label %33
 
@@ -1189,7 +1189,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit: ; pred
   %18 = icmp eq ptr %17, inttoptr (i64 -1 to ptr)
   %19 = select i1 %18, ptr null, ptr %17
   store i64 %11, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   %21 = icmp ne ptr %19, null
   %22 = icmp eq ptr %2, null
@@ -1265,7 +1265,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit: ; pred
 
 13:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit
   store i64 -1, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %14, align 8
   br label %33
 
@@ -1275,7 +1275,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17ArchGetFileLengthEP8_IO_FILE.exit: ; pred
   %18 = icmp eq ptr %17, inttoptr (i64 -1 to ptr)
   %19 = select i1 %18, ptr null, ptr %17
   store i64 %11, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %19, ptr %20, align 8
   %21 = icmp ne ptr %19, null
   %22 = icmp eq ptr %2, null
@@ -1346,7 +1346,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.
 
 .thread11.i:                                      ; preds = %8, %7
   store i64 -1, ptr %0, align 8, !alias.scope !17
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %12, align 8, !alias.scope !17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSB_.exit
 
@@ -1391,7 +1391,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_FcloserclEP8_IO_FILE.exit.
 
 .thread11.i:                                      ; preds = %8, %7
   store i64 -1, ptr %0, align 8, !alias.scope !20
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %12, align 8, !alias.scope !20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSA_.exit
 
@@ -1435,7 +1435,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13ArchMemAdviseEPKvmNS_13ArchM
   %17 = sub i64 %13, %15
   %18 = add i64 %17, %1
   %19 = zext i32 %2 to i64
-  %20 = getelementptr inbounds [4 x i32], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 0, i64 %19
   %21 = load i32, ptr %20, align 4
   %22 = tail call i32 @posix_madvise(ptr noundef %16, i64 noundef %18, i32 noundef %21) #23
   %.not12 = icmp eq i32 %22, 0
@@ -1521,7 +1521,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__9ArchPReadEP8_IO_FILEPv
   %18 = add nuw nsw i64 %.0, %.033
   %19 = sub nsw i64 %.034, %.033
   %20 = add nsw i64 %.033, %.037
-  %21 = getelementptr inbounds i8, ptr %.039, i64 %.033
+  %21 = getelementptr inbounds nuw i8, ptr %.039, i64 %.033
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %12, %17, %.critedge
@@ -1713,7 +1713,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmN
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = tail call i32 @fileno(ptr noundef %0) #23
   %7 = zext i32 %3 to i64
-  %8 = getelementptr inbounds [4 x i32], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i32], ptr @__const._ZN32pxrInternal_v0_24__pxrReserved__14ArchFileAdviseEP8_IO_FILElmNS_14ArchFileAdviceE.adviceMap, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 @posix_fadvise(i32 noundef %6, i64 noundef %1, i64 noundef %2, i32 noundef %9) #23
   %.not = icmp eq i32 %10, 0

@@ -188,7 +188,7 @@ sub_0:                                            ; preds = %entry
   ]
 
 if.else.tail:                                     ; preds = %sub_0
-  %5 = getelementptr inbounds i8, ptr %0, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = icmp eq i8 %6, 99
   br i1 %7, label %if.then13, label %if.end79
@@ -225,13 +225,13 @@ if.end25:                                         ; preds = %if.end18
   br i1 %tobool28.not, label %err, label %if.end79
 
 sub_141:                                          ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   %.not44 = icmp eq i8 %12, 115
   br i1 %.not44, label %if.else31.tail, label %if.end79
 
 if.else31.tail:                                   ; preds = %sub_141
-  %13 = getelementptr inbounds i8, ptr %0, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 97
   br i1 %15, label %if.then35, label %if.end79
@@ -370,13 +370,13 @@ entry:
   br i1 %cmp, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data_type = getelementptr inbounds i8, ptr %call, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call, i64 8
   %0 = load i32, ptr %data_type, align 8
   %cmp1.not = icmp eq i32 %0, 4
   br i1 %cmp1.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %data = getelementptr inbounds i8, ptr %call, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %call2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(8) @.str.48) #5
   %cmp3 = icmp eq i32 %call2, 0
@@ -388,13 +388,13 @@ if.then4:                                         ; preds = %if.end
   br i1 %cmp6, label %return, label %lor.lhs.false7
 
 lor.lhs.false7:                                   ; preds = %if.then4
-  %data_type8 = getelementptr inbounds i8, ptr %call5, i64 8
+  %data_type8 = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %2 = load i32, ptr %data_type8, align 8
   %cmp9.not = icmp eq i32 %2, 4
   br i1 %cmp9.not, label %if.end11, label %return
 
 if.end11:                                         ; preds = %lor.lhs.false7
-  %data12 = getelementptr inbounds i8, ptr %call5, i64 16
+  %data12 = getelementptr inbounds nuw i8, ptr %call5, i64 16
   %3 = load ptr, ptr %data12, align 8
   %4 = load ptr, ptr %arg, align 8
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #5

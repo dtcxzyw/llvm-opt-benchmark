@@ -41,15 +41,15 @@ define dso_local i32 @add_unseen_recent_objects_to_traversal(ptr noundef %revs, 
 entry:
   %data = alloca %struct.recent_data, align 8
   store ptr %revs, ptr %data, align 8
-  %timestamp2 = getelementptr inbounds i8, ptr %data, i64 8
+  %timestamp2 = getelementptr inbounds nuw i8, ptr %data, i64 8
   store i64 %timestamp, ptr %timestamp2, align 8
-  %cb3 = getelementptr inbounds i8, ptr %data, i64 16
+  %cb3 = getelementptr inbounds nuw i8, ptr %data, i64 16
   store ptr %cb, ptr %cb3, align 8
-  %ignore_in_core_kept_packs4 = getelementptr inbounds i8, ptr %data, i64 24
+  %ignore_in_core_kept_packs4 = getelementptr inbounds nuw i8, ptr %data, i64 24
   store i32 %ignore_in_core_kept_packs, ptr %ignore_in_core_kept_packs4, align 8
-  %extra_recent_oids = getelementptr inbounds i8, ptr %data, i64 32
+  %extra_recent_oids = getelementptr inbounds nuw i8, ptr %data, i64 32
   call void @oidset_init(ptr noundef nonnull %extra_recent_oids, i64 noundef 0) #8
-  %extra_recent_oids_loaded = getelementptr inbounds i8, ptr %data, i64 72
+  %extra_recent_oids_loaded = getelementptr inbounds nuw i8, ptr %data, i64 72
   store i32 0, ptr %extra_recent_oids_loaded, align 8
   %call = call i32 @for_each_loose_object(ptr noundef nonnull @add_recent_loose, ptr noundef nonnull %data, i32 noundef 1) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -114,7 +114,7 @@ if.end11:                                         ; preds = %if.then7
   br label %return
 
 if.end15:                                         ; preds = %if.end5
-  %st_mtim = getelementptr inbounds i8, ptr %st, i64 88
+  %st_mtim = getelementptr inbounds nuw i8, ptr %st, i64 88
   %4 = load i64, ptr %st_mtim, align 8
   tail call fastcc void @add_recent_object(ptr noundef %oid, ptr noundef null, i64 noundef 0, i64 noundef %4, ptr noundef nonnull %data)
   br label %return
@@ -129,7 +129,7 @@ declare i32 @for_each_packed_object(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @add_recent_packed(ptr noundef %oid, ptr noundef %p, i32 noundef %pos, ptr noundef %data) #0 {
 entry:
-  %mtime1 = getelementptr inbounds i8, ptr %p, i64 136
+  %mtime1 = getelementptr inbounds nuw i8, ptr %p, i64 136
   %0 = load i64, ptr %mtime1, align 8
   %1 = getelementptr i8, ptr %data, i64 24
   %data.val = load i32, ptr %1, align 8
@@ -154,7 +154,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool4.not, label %if.end6, label %return
 
 if.end6:                                          ; preds = %land.lhs.true, %if.end
-  %is_cruft = getelementptr inbounds i8, ptr %p, i64 152
+  %is_cruft = getelementptr inbounds nuw i8, ptr %p, i64 152
   %bf.load7 = load i8, ptr %is_cruft, align 8
   %tobool9.not = icmp sgt i8 %bf.load7, -1
   br i1 %tobool9.not, label %if.end16, label %if.then10
@@ -191,7 +191,7 @@ define dso_local void @mark_reachable_objects(ptr noundef %revs, i32 noundef %ma
 entry:
   %data.i = alloca %struct.recent_data, align 8
   %cp = alloca %struct.connectivity_progress, align 8
-  %tag_objects = getelementptr inbounds i8, ptr %revs, i64 280
+  %tag_objects = getelementptr inbounds nuw i8, ptr %revs, i64 280
   %bf.load = load i64, ptr %tag_objects, align 8
   %bf.set6 = or i64 %bf.load, 57344
   store i64 %bf.set6, ptr %tag_objects, align 8
@@ -208,7 +208,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   store ptr %progress, ptr %cp, align 8
-  %count = getelementptr inbounds i8, ptr %cp, i64 8
+  %count = getelementptr inbounds nuw i8, ptr %cp, i64 8
   store i64 0, ptr %count, align 8
   %call10 = tail call ptr @prepare_bitmap_walk(ptr noundef nonnull %revs, i32 noundef 0) #8
   %tobool11.not = icmp eq ptr %call10, null
@@ -242,15 +242,15 @@ if.then19:                                        ; preds = %if.end17
   store i64 %bf.set22, ptr %tag_objects, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %data.i)
   store ptr %revs, ptr %data.i, align 8
-  %timestamp2.i = getelementptr inbounds i8, ptr %data.i, i64 8
+  %timestamp2.i = getelementptr inbounds nuw i8, ptr %data.i, i64 8
   store i64 %mark_recent, ptr %timestamp2.i, align 8
-  %cb3.i = getelementptr inbounds i8, ptr %data.i, i64 16
+  %cb3.i = getelementptr inbounds nuw i8, ptr %data.i, i64 16
   store ptr null, ptr %cb3.i, align 8
-  %ignore_in_core_kept_packs4.i = getelementptr inbounds i8, ptr %data.i, i64 24
+  %ignore_in_core_kept_packs4.i = getelementptr inbounds nuw i8, ptr %data.i, i64 24
   store i32 0, ptr %ignore_in_core_kept_packs4.i, align 8
-  %extra_recent_oids.i = getelementptr inbounds i8, ptr %data.i, i64 32
+  %extra_recent_oids.i = getelementptr inbounds nuw i8, ptr %data.i, i64 32
   call void @oidset_init(ptr noundef nonnull %extra_recent_oids.i, i64 noundef 0) #8
-  %extra_recent_oids_loaded.i = getelementptr inbounds i8, ptr %data.i, i64 72
+  %extra_recent_oids_loaded.i = getelementptr inbounds nuw i8, ptr %data.i, i64 72
   store i32 0, ptr %extra_recent_oids_loaded.i, align 8
   %call.i = call i32 @for_each_loose_object(ptr noundef nonnull @add_recent_loose, ptr noundef nonnull %data.i, i32 noundef 1) #8
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -356,7 +356,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal void @mark_commit(ptr nocapture readnone %c, ptr nocapture noundef %data) #0 {
 entry:
-  %count.i.i = getelementptr inbounds i8, ptr %data, i64 8
+  %count.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %count.i.i, align 8
   %inc.i.i = add i64 %0, 1
   store i64 %inc.i.i, ptr %count.i.i, align 8
@@ -376,7 +376,7 @@ mark_object.exit:                                 ; preds = %entry, %if.then.i.i
 ; Function Attrs: nounwind uwtable
 define internal void @mark_object(ptr nocapture readnone %obj, ptr nocapture readnone %name, ptr nocapture noundef %data) #0 {
 entry:
-  %count.i = getelementptr inbounds i8, ptr %data, i64 8
+  %count.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %count.i, align 8
   %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr %count.i, align 8
@@ -415,13 +415,13 @@ entry:
   %oid.i.i.i = alloca %struct.object_id, align 4
   %rest.i.i.i = alloca ptr, align 8
   %programs.i.i = alloca ptr, align 8
-  %timestamp.i = getelementptr inbounds i8, ptr %data, i64 8
+  %timestamp.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %timestamp.i, align 8
   %cmp.i = icmp ugt i64 %mtime, %0
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %extra_recent_oids_loaded.i = getelementptr inbounds i8, ptr %data, i64 72
+  %extra_recent_oids_loaded.i = getelementptr inbounds nuw i8, ptr %data, i64 72
   %1 = load i32, ptr %extra_recent_oids_loaded.i, align 8
   %tobool.not.i = icmp eq i32 %1, 0
   br i1 %tobool.not.i, label %if.then1.i, label %obj_is_recent.exit
@@ -435,22 +435,22 @@ if.then1.i:                                       ; preds = %if.end.i
 
 for.cond.preheader.i.i:                           ; preds = %if.then1.i
   %2 = load ptr, ptr %programs.i.i, align 8
-  %nr6.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %nr6.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %3 = load i64, ptr %nr6.i.i, align 8
   %cmp7.not.i.i = icmp eq i64 %3, 0
   br i1 %cmp7.not.i.i, label %load_gc_recent_objects.exit.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %for.cond.preheader.i.i
-  %extra_recent_oids.i.i = getelementptr inbounds i8, ptr %data, i64 32
-  %use_shell.i.i.i = getelementptr inbounds i8, ptr %cmd.i.i.i, i64 104
-  %out1.i.i.i = getelementptr inbounds i8, ptr %cmd.i.i.i, i64 84
-  %buf7.i.i.i = getelementptr inbounds i8, ptr %buf.i.i.i, i64 16
+  %extra_recent_oids.i.i = getelementptr inbounds nuw i8, ptr %data, i64 32
+  %use_shell.i.i.i = getelementptr inbounds nuw i8, ptr %cmd.i.i.i, i64 104
+  %out1.i.i.i = getelementptr inbounds nuw i8, ptr %cmd.i.i.i, i64 84
+  %buf7.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i.i, i64 16
   br label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %run_one_gc_recent_objects_hook.exit.i.i
   %inc.i.i = add nuw i64 %i.08.i.i, 1
   %4 = load ptr, ptr %programs.i.i, align 8
-  %nr.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %nr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load i64, ptr %nr.i.i, align 8
   %cmp.i.i = icmp ult i64 %inc.i.i, %5
   br i1 %cmp.i.i, label %for.body.i.i, label %load_gc_recent_objects.exit.i, !llvm.loop !5
@@ -544,7 +544,7 @@ load_gc_recent_objects.exit.i:                    ; preds = %for.cond.i.i, %for.
   br label %obj_is_recent.exit
 
 obj_is_recent.exit:                               ; preds = %if.end.i, %load_gc_recent_objects.exit.i
-  %extra_recent_oids.i = getelementptr inbounds i8, ptr %data, i64 32
+  %extra_recent_oids.i = getelementptr inbounds nuw i8, ptr %data, i64 32
   %call.i = call i32 @oidset_contains(ptr noundef nonnull %extra_recent_oids.i, ptr noundef %oid) #8
   %tobool.not = icmp eq i32 %call.i, 0
   br i1 %tobool.not, label %if.end19, label %if.end
@@ -601,7 +601,7 @@ if.then13:                                        ; preds = %sw.epilog
 if.end15:                                         ; preds = %sw.epilog
   %18 = load ptr, ptr %data, align 8
   call void @add_pending_object(ptr noundef %18, ptr noundef nonnull %obj.0, ptr noundef nonnull @.str.6) #8
-  %cb = getelementptr inbounds i8, ptr %data, i64 16
+  %cb = getelementptr inbounds nuw i8, ptr %data, i64 16
   %19 = load ptr, ptr %cb, align 8
   %tobool16.not = icmp eq ptr %19, null
   br i1 %tobool16.not, label %if.end19, label %if.then17

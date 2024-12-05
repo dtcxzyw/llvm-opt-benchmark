@@ -29,14 +29,14 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %70
 
 6:                                                ; preds = %1
   store i32 1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 76
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %8 = load i32, ptr %7, align 4
   %.not260 = icmp eq i32 %8, 0
   br i1 %.not260, label %9, label %10
@@ -46,7 +46,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %10
 
 10:                                               ; preds = %9, %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not261 = icmp eq ptr %12, null
   br i1 %.not261, label %13, label %15
@@ -58,7 +58,7 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 
 15:                                               ; preds = %13, %10
   %16 = phi ptr [ %14, %13 ], [ %12, %10 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not262 = icmp eq ptr %18, null
   br i1 %.not262, label %19, label %21
@@ -69,13 +69,13 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
   br label %21
 
 21:                                               ; preds = %19, %15
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not263 = icmp eq ptr %23, null
   br i1 %.not263, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -94,14 +94,14 @@ define hidden range(i32 0, 20) i32 @busmaster_lex(ptr noundef %0) local_unnamed_
 
 32:                                               ; preds = %29
   store i64 0, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %34, align 8
   br label %busmaster_ensure_buffer_stack.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, -1
   %.not27.i = icmp ult i64 %26, %38
@@ -131,7 +131,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %47 = phi ptr [ %16, %32 ], [ %16, %35 ], [ %.pre, %44 ]
   %48 = tail call ptr @busmaster__create_buffer(ptr noundef %47, i32 noundef 16384, ptr noundef nonnull %0)
   %49 = load ptr, ptr %22, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load i64, ptr %50, align 8
   %52 = getelementptr ptr, ptr %49, i64 %51
   store ptr %48, ptr %52, align 8
@@ -146,38 +146,38 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %55 = phi i64 [ %.pre610, %busmaster_ensure_buffer_stack.exit ], [ %26, %24 ]
   %56 = phi ptr [ %.pre609, %busmaster_ensure_buffer_stack.exit ], [ %23, %24 ]
   %57 = getelementptr ptr, ptr %56, i64 %55
-  %58 = getelementptr inbounds i8, ptr %54, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 28
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %0, i64 52
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %59, ptr %60, align 4
   %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %63, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 128
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %63, ptr %65, align 8
   %66 = load ptr, ptr %57, align 8
   %67 = load ptr, ptr %66, align 8
   store ptr %67, ptr %11, align 8
   %68 = load i8, ptr %63, align 1
-  %69 = getelementptr inbounds i8, ptr %0, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %68, ptr %69, align 8
   br label %70
 
 70:                                               ; preds = %53, %1
-  %71 = getelementptr inbounds i8, ptr %0, i64 64
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
-  %73 = getelementptr inbounds i8, ptr %0, i64 76
-  %74 = getelementptr inbounds i8, ptr %0, i64 104
-  %75 = getelementptr inbounds i8, ptr %0, i64 112
-  %76 = getelementptr inbounds i8, ptr %0, i64 128
-  %77 = getelementptr inbounds i8, ptr %0, i64 56
-  %78 = getelementptr inbounds i8, ptr %0, i64 40
-  %79 = getelementptr inbounds i8, ptr %0, i64 24
-  %80 = getelementptr inbounds i8, ptr %0, i64 52
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
-  %82 = getelementptr inbounds i8, ptr %0, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %83
 
 83:                                               ; preds = %.backedge856, %70
@@ -357,7 +357,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %142 = load i32, ptr %77, align 8
   %143 = sext i32 %142 to i64
   %144 = load ptr, ptr %0, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load i64, ptr %145, align 8
   %147 = add i64 %146, %143
   store i64 %147, ptr %145, align 8
@@ -367,7 +367,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %149 = load i32, ptr %77, align 8
   %150 = sext i32 %149 to i64
   %151 = load ptr, ptr %0, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load i64, ptr %152, align 8
   %154 = add i64 %153, %150
   store i64 %154, ptr %152, align 8
@@ -377,7 +377,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %156 = load i32, ptr %77, align 8
   %157 = sext i32 %156 to i64
   %158 = load ptr, ptr %0, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load i64, ptr %159, align 8
   %161 = add i64 %160, %157
   store i64 %161, ptr %159, align 8
@@ -388,7 +388,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %163 = load i32, ptr %77, align 8
   %164 = sext i32 %163 to i64
   %165 = load ptr, ptr %0, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i64, ptr %166, align 8
   %168 = add i64 %167, %164
   store i64 %168, ptr %166, align 8
@@ -399,7 +399,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %170 = load i32, ptr %77, align 8
   %171 = sext i32 %170 to i64
   %172 = load ptr, ptr %0, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load i64, ptr %173, align 8
   %175 = add i64 %174, %171
   store i64 %175, ptr %173, align 8
@@ -410,7 +410,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %177 = load i32, ptr %77, align 8
   %178 = sext i32 %177 to i64
   %179 = load ptr, ptr %0, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, %178
   store i64 %182, ptr %180, align 8
@@ -421,7 +421,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %184 = load i32, ptr %77, align 8
   %185 = sext i32 %184 to i64
   %186 = load ptr, ptr %0, align 8
-  %187 = getelementptr inbounds i8, ptr %186, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %188 = load i64, ptr %187, align 8
   %189 = add i64 %188, %185
   store i64 %189, ptr %187, align 8
@@ -431,12 +431,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %191 = load i32, ptr %77, align 8
   %192 = sext i32 %191 to i64
   %193 = load ptr, ptr %0, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, %192
   store i64 %196, ptr %194, align 8
   %197 = load ptr, ptr %0, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 40
+  %198 = getelementptr inbounds nuw i8, ptr %197, i64 40
   store i64 1, ptr %198, align 8
   br label %.loopexit
 
@@ -444,12 +444,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %200 = load i32, ptr %77, align 8
   %201 = sext i32 %200 to i64
   %202 = load ptr, ptr %0, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load i64, ptr %203, align 8
   %205 = add i64 %204, %201
   store i64 %205, ptr %203, align 8
   %206 = load ptr, ptr %0, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 40
   store i64 3, ptr %207, align 8
   br label %.loopexit
 
@@ -457,12 +457,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %209 = load i32, ptr %77, align 8
   %210 = sext i32 %209 to i64
   %211 = load ptr, ptr %0, align 8
-  %212 = getelementptr inbounds i8, ptr %211, i64 8
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %213 = load i64, ptr %212, align 8
   %214 = add i64 %213, %210
   store i64 %214, ptr %212, align 8
   %215 = load ptr, ptr %0, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 40
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 40
   store i64 2, ptr %216, align 8
   br label %.loopexit
 
@@ -470,7 +470,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %218 = load i32, ptr %77, align 8
   %219 = sext i32 %218 to i64
   %220 = load ptr, ptr %0, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = load i64, ptr %221, align 8
   %223 = add i64 %222, %219
   store i64 %223, ptr %221, align 8
@@ -481,7 +481,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %225 = load i32, ptr %77, align 8
   %226 = sext i32 %225 to i64
   %227 = load ptr, ptr %0, align 8
-  %228 = getelementptr inbounds i8, ptr %227, i64 8
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load i64, ptr %228, align 8
   %230 = add i64 %229, %226
   store i64 %230, ptr %228, align 8
@@ -492,12 +492,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %232 = load i32, ptr %77, align 8
   %233 = sext i32 %232 to i64
   %234 = load ptr, ptr %0, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %236 = load i64, ptr %235, align 8
   %237 = add i64 %236, %233
   store i64 %237, ptr %235, align 8
   %238 = load ptr, ptr %0, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 40
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 40
   store i64 2, ptr %239, align 8
   br label %.loopexit
 
@@ -505,12 +505,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %241 = load i32, ptr %77, align 8
   %242 = sext i32 %241 to i64
   %243 = load ptr, ptr %0, align 8
-  %244 = getelementptr inbounds i8, ptr %243, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %245 = load i64, ptr %244, align 8
   %246 = add i64 %245, %242
   store i64 %246, ptr %244, align 8
   %247 = load ptr, ptr %0, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 40
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 40
   store i64 1, ptr %248, align 8
   br label %.loopexit
 
@@ -518,12 +518,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %250 = load i32, ptr %77, align 8
   %251 = sext i32 %250 to i64
   %252 = load ptr, ptr %0, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load i64, ptr %253, align 8
   %255 = add i64 %254, %251
   store i64 %255, ptr %253, align 8
   %256 = load ptr, ptr %0, align 8
-  %257 = getelementptr inbounds i8, ptr %256, i64 40
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 40
   store i64 1, ptr %257, align 8
   br label %.loopexit
 
@@ -531,12 +531,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %259 = load i32, ptr %77, align 8
   %260 = sext i32 %259 to i64
   %261 = load ptr, ptr %0, align 8
-  %262 = getelementptr inbounds i8, ptr %261, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
   %263 = load i64, ptr %262, align 8
   %264 = add i64 %263, %260
   store i64 %264, ptr %262, align 8
   %265 = load ptr, ptr %0, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 40
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 40
   store i64 2, ptr %266, align 8
   br label %.loopexit
 
@@ -544,12 +544,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %268 = load i32, ptr %77, align 8
   %269 = sext i32 %268 to i64
   %270 = load ptr, ptr %0, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
   %272 = load i64, ptr %271, align 8
   %273 = add i64 %272, %269
   store i64 %273, ptr %271, align 8
   %274 = load ptr, ptr %0, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 40
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 40
   store i64 3, ptr %275, align 8
   br label %.loopexit
 
@@ -557,7 +557,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %277 = load i32, ptr %77, align 8
   %278 = sext i32 %277 to i64
   %279 = load ptr, ptr %0, align 8
-  %280 = getelementptr inbounds i8, ptr %279, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load i64, ptr %280, align 8
   %282 = add i64 %281, %278
   store i64 %282, ptr %280, align 8
@@ -567,7 +567,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %284 = load i32, ptr %77, align 8
   %285 = sext i32 %284 to i64
   %286 = load ptr, ptr %0, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 8
+  %287 = getelementptr inbounds nuw i8, ptr %286, i64 8
   %288 = load i64, ptr %287, align 8
   %289 = add i64 %288, %285
   store i64 %289, ptr %287, align 8
@@ -577,7 +577,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %291 = load i32, ptr %77, align 8
   %292 = sext i32 %291 to i64
   %293 = load ptr, ptr %0, align 8
-  %294 = getelementptr inbounds i8, ptr %293, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %295 = load i64, ptr %294, align 8
   %296 = add i64 %295, %292
   store i64 %296, ptr %294, align 8
@@ -588,7 +588,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %298 = load i32, ptr %77, align 8
   %299 = sext i32 %298 to i64
   %300 = load ptr, ptr %0, align 8
-  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %302 = load i64, ptr %301, align 8
   %303 = add i64 %302, %299
   store i64 %303, ptr %301, align 8
@@ -599,7 +599,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %305 = load i32, ptr %77, align 8
   %306 = sext i32 %305 to i64
   %307 = load ptr, ptr %0, align 8
-  %308 = getelementptr inbounds i8, ptr %307, i64 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load i64, ptr %308, align 8
   %310 = add i64 %309, %306
   store i64 %310, ptr %308, align 8
@@ -609,7 +609,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %312 = load i32, ptr %77, align 8
   %313 = sext i32 %312 to i64
   %314 = load ptr, ptr %0, align 8
-  %315 = getelementptr inbounds i8, ptr %314, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %316 = load i64, ptr %315, align 8
   %317 = add i64 %316, %313
   store i64 %317, ptr %315, align 8
@@ -620,7 +620,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %319 = load i32, ptr %77, align 8
   %320 = sext i32 %319 to i64
   %321 = load ptr, ptr %0, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 8
+  %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %323 = load i64, ptr %322, align 8
   %324 = add i64 %323, %320
   store i64 %324, ptr %322, align 8
@@ -630,7 +630,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %326 = load i32, ptr %77, align 8
   %327 = sext i32 %326 to i64
   %328 = load ptr, ptr %0, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = load i64, ptr %329, align 8
   %331 = add i64 %330, %327
   store i64 %331, ptr %329, align 8
@@ -640,7 +640,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %333 = load i32, ptr %77, align 8
   %334 = sext i32 %333 to i64
   %335 = load ptr, ptr %0, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 8
   %337 = load i64, ptr %336, align 8
   %338 = add i64 %337, %334
   store i64 %338, ptr %336, align 8
@@ -651,7 +651,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %340 = load i32, ptr %77, align 8
   %341 = sext i32 %340 to i64
   %342 = load ptr, ptr %0, align 8
-  %343 = getelementptr inbounds i8, ptr %342, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %342, i64 8
   %344 = load i64, ptr %343, align 8
   %345 = add i64 %344, %341
   store i64 %345, ptr %343, align 8
@@ -662,7 +662,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %347 = load i32, ptr %77, align 8
   %348 = sext i32 %347 to i64
   %349 = load ptr, ptr %0, align 8
-  %350 = getelementptr inbounds i8, ptr %349, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
   %351 = load i64, ptr %350, align 8
   %352 = add i64 %351, %348
   store i64 %352, ptr %350, align 8
@@ -672,7 +672,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %354 = load i32, ptr %77, align 8
   %355 = sext i32 %354 to i64
   %356 = load ptr, ptr %0, align 8
-  %357 = getelementptr inbounds i8, ptr %356, i64 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %358 = load i64, ptr %357, align 8
   %359 = add i64 %358, %355
   store i64 %359, ptr %357, align 8
@@ -685,14 +685,14 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %361 = load i32, ptr %77, align 8
   %362 = sext i32 %361 to i64
   %363 = load ptr, ptr %0, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 8
   %365 = load i64, ptr %364, align 8
   %366 = add i64 %365, %362
   store i64 %366, ptr %364, align 8
   %367 = load ptr, ptr %76, align 8
   %368 = tail call i64 @strtoul(ptr nocapture noundef %367, ptr noundef null, i32 noundef 10) #23
   %369 = load ptr, ptr %0, align 8
-  %370 = getelementptr inbounds i8, ptr %369, i64 40
+  %370 = getelementptr inbounds nuw i8, ptr %369, i64 40
   store i64 %368, ptr %370, align 8
   br label %.loopexit
 
@@ -700,7 +700,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %372 = load i32, ptr %77, align 8
   %373 = sext i32 %372 to i64
   %374 = load ptr, ptr %0, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 8
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 8
   %376 = load i64, ptr %375, align 8
   %377 = add i64 %376, %373
   store i64 %377, ptr %375, align 8
@@ -710,7 +710,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %379 = load i32, ptr %77, align 8
   %380 = sext i32 %379 to i64
   %381 = load ptr, ptr %0, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 8
+  %382 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %383 = load i64, ptr %382, align 8
   %384 = add i64 %383, %380
   store i64 %384, ptr %382, align 8
@@ -720,14 +720,14 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %386 = load i32, ptr %77, align 8
   %387 = sext i32 %386 to i64
   %388 = load ptr, ptr %0, align 8
-  %389 = getelementptr inbounds i8, ptr %388, i64 8
+  %389 = getelementptr inbounds nuw i8, ptr %388, i64 8
   %390 = load i64, ptr %389, align 8
   %391 = add i64 %390, %387
   store i64 %391, ptr %389, align 8
   %392 = load ptr, ptr %76, align 8
   %393 = call i64 @strtoul(ptr noundef %392, ptr noundef nonnull %2, i32 noundef 10) #23
   %394 = load ptr, ptr %0, align 8
-  %395 = getelementptr inbounds i8, ptr %394, i64 40
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 40
   store i64 %393, ptr %395, align 8
   %396 = load ptr, ptr %2, align 8
   %397 = load i8, ptr %396, align 1
@@ -743,7 +743,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %402 = getelementptr i8, ptr %396, i64 1
   %403 = call i64 @strtoul(ptr noundef %402, ptr noundef nonnull %2, i32 noundef 10) #23
   %404 = load ptr, ptr %0, align 8
-  %405 = getelementptr inbounds i8, ptr %404, i64 48
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 48
   store i64 %403, ptr %405, align 8
   %406 = load ptr, ptr %2, align 8
   %407 = load i8, ptr %406, align 1
@@ -756,7 +756,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %410 = getelementptr i8, ptr %406, i64 1
   %411 = call i64 @strtoul(ptr noundef %410, ptr noundef nonnull %2, i32 noundef 10) #23
   %412 = load ptr, ptr %0, align 8
-  %413 = getelementptr inbounds i8, ptr %412, i64 56
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 56
   store i64 %411, ptr %413, align 8
   %414 = load ptr, ptr %2, align 8
   %415 = load i8, ptr %414, align 1
@@ -769,7 +769,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %418 = getelementptr i8, ptr %414, i64 1
   %419 = call i64 @strtoul(ptr noundef %418, ptr noundef nonnull %2, i32 noundef 10) #23
   %420 = load ptr, ptr %0, align 8
-  %421 = getelementptr inbounds i8, ptr %420, i64 64
+  %421 = getelementptr inbounds nuw i8, ptr %420, i64 64
   store i64 %419, ptr %421, align 8
   %422 = load ptr, ptr %2, align 8
   %423 = load i8, ptr %422, align 1
@@ -783,12 +783,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %426 = load i32, ptr %77, align 8
   %427 = sext i32 %426 to i64
   %428 = load ptr, ptr %0, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %430 = load i64, ptr %429, align 8
   %431 = add i64 %430, %427
   store i64 %431, ptr %429, align 8
   %432 = load ptr, ptr %0, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 100
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 100
   %434 = load i32, ptr %433, align 4
   switch i32 %434, label %.loopexit [
     i32 1, label %436
@@ -803,7 +803,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %437 = load ptr, ptr %76, align 8
   %438 = call i64 @strtoul(ptr noundef %437, ptr noundef nonnull %3, i32 noundef %.sink740) #23
   %439 = load ptr, ptr %0, align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 40
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 40
   store i64 %438, ptr %440, align 8
   %441 = load ptr, ptr %3, align 8
   %442 = load i8, ptr %441, align 1
@@ -820,7 +820,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %447 = load i32, ptr %77, align 8
   %448 = sext i32 %447 to i64
   %449 = load ptr, ptr %0, align 8
-  %450 = getelementptr inbounds i8, ptr %449, i64 8
+  %450 = getelementptr inbounds nuw i8, ptr %449, i64 8
   %451 = load i64, ptr %450, align 8
   %452 = add i64 %451, %448
   store i64 %452, ptr %450, align 8
@@ -830,12 +830,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %454 = load i32, ptr %77, align 8
   %455 = sext i32 %454 to i64
   %456 = load ptr, ptr %0, align 8
-  %457 = getelementptr inbounds i8, ptr %456, i64 8
+  %457 = getelementptr inbounds nuw i8, ptr %456, i64 8
   %458 = load i64, ptr %457, align 8
   %459 = add i64 %458, %455
   store i64 %459, ptr %457, align 8
   %460 = load ptr, ptr %0, align 8
-  %461 = getelementptr inbounds i8, ptr %460, i64 40
+  %461 = getelementptr inbounds nuw i8, ptr %460, i64 40
   store i64 0, ptr %461, align 8
   br label %.loopexit
 
@@ -843,12 +843,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %463 = load i32, ptr %77, align 8
   %464 = sext i32 %463 to i64
   %465 = load ptr, ptr %0, align 8
-  %466 = getelementptr inbounds i8, ptr %465, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
   %467 = load i64, ptr %466, align 8
   %468 = add i64 %467, %464
   store i64 %468, ptr %466, align 8
   %469 = load ptr, ptr %0, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 40
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 40
   store i64 2, ptr %470, align 8
   br label %.loopexit
 
@@ -856,12 +856,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %472 = load i32, ptr %77, align 8
   %473 = sext i32 %472 to i64
   %474 = load ptr, ptr %0, align 8
-  %475 = getelementptr inbounds i8, ptr %474, i64 8
+  %475 = getelementptr inbounds nuw i8, ptr %474, i64 8
   %476 = load i64, ptr %475, align 8
   %477 = add i64 %476, %473
   store i64 %477, ptr %475, align 8
   %478 = load ptr, ptr %0, align 8
-  %479 = getelementptr inbounds i8, ptr %478, i64 40
+  %479 = getelementptr inbounds nuw i8, ptr %478, i64 40
   store i64 1, ptr %479, align 8
   br label %.loopexit
 
@@ -869,12 +869,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %481 = load i32, ptr %77, align 8
   %482 = sext i32 %481 to i64
   %483 = load ptr, ptr %0, align 8
-  %484 = getelementptr inbounds i8, ptr %483, i64 8
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
   %485 = load i64, ptr %484, align 8
   %486 = add i64 %485, %482
   store i64 %486, ptr %484, align 8
   %487 = load ptr, ptr %0, align 8
-  %488 = getelementptr inbounds i8, ptr %487, i64 40
+  %488 = getelementptr inbounds nuw i8, ptr %487, i64 40
   store i64 3, ptr %488, align 8
   br label %.loopexit
 
@@ -882,12 +882,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %490 = load i32, ptr %77, align 8
   %491 = sext i32 %490 to i64
   %492 = load ptr, ptr %0, align 8
-  %493 = getelementptr inbounds i8, ptr %492, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
   %494 = load i64, ptr %493, align 8
   %495 = add i64 %494, %491
   store i64 %495, ptr %493, align 8
   %496 = load ptr, ptr %0, align 8
-  %497 = getelementptr inbounds i8, ptr %496, i64 40
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 40
   store i64 4, ptr %497, align 8
   br label %.loopexit
 
@@ -895,12 +895,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %499 = load i32, ptr %77, align 8
   %500 = sext i32 %499 to i64
   %501 = load ptr, ptr %0, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 8
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %503 = load i64, ptr %502, align 8
   %504 = add i64 %503, %500
   store i64 %504, ptr %502, align 8
   %505 = load ptr, ptr %0, align 8
-  %506 = getelementptr inbounds i8, ptr %505, i64 40
+  %506 = getelementptr inbounds nuw i8, ptr %505, i64 40
   store i64 5, ptr %506, align 8
   br label %.loopexit
 
@@ -908,12 +908,12 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %508 = load i32, ptr %77, align 8
   %509 = sext i32 %508 to i64
   %510 = load ptr, ptr %0, align 8
-  %511 = getelementptr inbounds i8, ptr %510, i64 8
+  %511 = getelementptr inbounds nuw i8, ptr %510, i64 8
   %512 = load i64, ptr %511, align 8
   %513 = add i64 %512, %509
   store i64 %513, ptr %511, align 8
   %514 = load ptr, ptr %0, align 8
-  %515 = getelementptr inbounds i8, ptr %514, i64 40
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 40
   store i64 6, ptr %515, align 8
   br label %.loopexit
 
@@ -921,7 +921,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %517 = load i32, ptr %77, align 8
   %518 = sext i32 %517 to i64
   %519 = load ptr, ptr %0, align 8
-  %520 = getelementptr inbounds i8, ptr %519, i64 8
+  %520 = getelementptr inbounds nuw i8, ptr %519, i64 8
   %521 = load i64, ptr %520, align 8
   %522 = add i64 %521, %518
   store i64 %522, ptr %520, align 8
@@ -931,7 +931,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %524 = load i32, ptr %77, align 8
   %525 = sext i32 %524 to i64
   %526 = load ptr, ptr %0, align 8
-  %527 = getelementptr inbounds i8, ptr %526, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 8
   %528 = load i64, ptr %527, align 8
   %529 = add i64 %528, %525
   store i64 %529, ptr %527, align 8
@@ -941,7 +941,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %531 = load i32, ptr %77, align 8
   %532 = sext i32 %531 to i64
   %533 = load ptr, ptr %0, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 8
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
   %535 = load i64, ptr %534, align 8
   %536 = add i64 %535, %532
   store i64 %536, ptr %534, align 8
@@ -956,13 +956,13 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %541 = load i64, ptr %79, align 8
   %542 = getelementptr ptr, ptr %540, i64 %541
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 56
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 56
   %545 = load i32, ptr %544, align 8
   %546 = icmp eq i32 %545, 0
   br i1 %546, label %547, label %557
 
 547:                                              ; preds = %537
-  %548 = getelementptr inbounds i8, ptr %543, i64 28
+  %548 = getelementptr inbounds nuw i8, ptr %543, i64 28
   %549 = load i32, ptr %548, align 4
   store i32 %549, ptr %80, align 4
   %550 = load ptr, ptr %81, align 8
@@ -972,7 +972,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %553 = load i64, ptr %79, align 8
   %554 = getelementptr ptr, ptr %552, i64 %553
   %555 = load ptr, ptr %554, align 8
-  %556 = getelementptr inbounds i8, ptr %555, i64 56
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 56
   store i32 1, ptr %556, align 8
   %.pre613 = load ptr, ptr %78, align 8
   %.pre614 = load i64, ptr %79, align 8
@@ -985,7 +985,7 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %32, %35, %44
   %559 = phi i64 [ %.pre614, %547 ], [ %541, %537 ]
   %560 = phi ptr [ %.pre613, %547 ], [ %540, %537 ]
   %561 = load ptr, ptr %71, align 8
-  %562 = getelementptr inbounds i8, ptr %558, i64 8
+  %562 = getelementptr inbounds nuw i8, ptr %558, i64 8
   %563 = load ptr, ptr %562, align 8
   %564 = load i32, ptr %80, align 4
   %565 = sext i32 %564 to i64
@@ -1147,7 +1147,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   unreachable
 
 653:                                              ; preds = %646
-  %654 = getelementptr inbounds i8, ptr %558, i64 52
+  %654 = getelementptr inbounds nuw i8, ptr %558, i64 52
   %655 = load i32, ptr %654, align 4
   %656 = icmp eq i32 %655, 0
   %657 = ptrtoint ptr %561 to i64
@@ -1189,7 +1189,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   %671 = phi ptr [ %.pre130.i, %._crit_edge.loopexit.i ], [ %558, %662 ]
   %672 = phi i64 [ %.pre129.i, %._crit_edge.loopexit.i ], [ %559, %662 ]
   %673 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %560, %662 ]
-  %674 = getelementptr inbounds i8, ptr %671, i64 56
+  %674 = getelementptr inbounds nuw i8, ptr %671, i64 56
   %675 = load i32, ptr %674, align 8
   %676 = icmp eq i32 %675, 2
   br i1 %676, label %677, label %679
@@ -1201,7 +1201,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
 
 679:                                              ; preds = %._crit_edge.i283
   %680 = xor i32 %665, -1
-  %.pn.in120.i = getelementptr inbounds i8, ptr %671, i64 24
+  %.pn.in120.i = getelementptr inbounds nuw i8, ptr %671, i64 24
   %.pn121.i = load i32, ptr %.pn.in120.i, align 8
   %.0100122.i = add i32 %.pn121.i, %680
   %681 = icmp slt i32 %.0100122.i, 1
@@ -1215,12 +1215,12 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   %682 = phi i32 [ %.pn121.i, %.lr.ph124.preheader.i ], [ %.pn.i, %703 ]
   %683 = phi ptr [ %.pre131.i, %.lr.ph124.preheader.i ], [ %705, %703 ]
   %684 = phi ptr [ %671, %.lr.ph124.preheader.i ], [ %709, %703 ]
-  %685 = getelementptr inbounds i8, ptr %684, i64 8
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 8
   %686 = load ptr, ptr %685, align 8
   %687 = ptrtoint ptr %683 to i64
   %688 = ptrtoint ptr %686 to i64
   %689 = sub i64 %687, %688
-  %690 = getelementptr inbounds i8, ptr %684, i64 32
+  %690 = getelementptr inbounds nuw i8, ptr %684, i64 32
   %691 = load i32, ptr %690, align 8
   %.not.i284 = icmp eq i32 %691, 0
   br i1 %.not.i284, label %.thread.i, label %692
@@ -1230,7 +1230,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   br label %.loopexit.i
 
 692:                                              ; preds = %.lr.ph124.i
-  %693 = getelementptr inbounds i8, ptr %684, i64 24
+  %693 = getelementptr inbounds nuw i8, ptr %684, i64 24
   %694 = shl i32 %682, 1
   %695 = icmp slt i32 %694, 1
   br i1 %695, label %696, label %699
@@ -1263,7 +1263,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   %707 = load i64, ptr %79, align 8
   %708 = getelementptr ptr, ptr %706, i64 %707
   %709 = load ptr, ptr %708, align 8
-  %.pn.in.i = getelementptr inbounds i8, ptr %709, i64 24
+  %.pn.in.i = getelementptr inbounds nuw i8, ptr %709, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
   %.0100.i = add i32 %.pn.i, %680
   %710 = icmp slt i32 %.0100.i, 1
@@ -1273,7 +1273,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
   %711 = phi ptr [ %671, %679 ], [ %709, %703 ]
   %.0100.lcssa.i = phi i32 [ %.0100122.i, %679 ], [ %.0100.i, %703 ]
   %712 = tail call i32 @llvm.umin.i32(i32 %.0100.lcssa.i, i32 8192)
-  %713 = getelementptr inbounds i8, ptr %711, i64 8
+  %713 = getelementptr inbounds nuw i8, ptr %711, i64 8
   %714 = load ptr, ptr %713, align 8
   %sext.i = shl i64 %664, 32
   %715 = ashr exact i64 %sext.i, 32
@@ -1286,9 +1286,9 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i280, %621
 
 721:                                              ; preds = %._crit_edge125.i
   %722 = load ptr, ptr %717, align 8
-  %723 = getelementptr inbounds i8, ptr %717, i64 32
+  %723 = getelementptr inbounds nuw i8, ptr %717, i64 32
   %724 = tail call i32 @file_error(ptr noundef %722, ptr noundef nonnull %723) #23
-  %725 = getelementptr inbounds i8, ptr %717, i64 24
+  %725 = getelementptr inbounds nuw i8, ptr %717, i64 24
   store i32 %724, ptr %725, align 8
   br label %busmaster_yyinput.exit.i
 
@@ -1304,7 +1304,7 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
   %.sink140.in.i = phi ptr [ %728, %busmaster_yyinput.exit.i ], [ %678, %677 ]
   %.0.i.sink.i = phi i32 [ %.0.i.i, %busmaster_yyinput.exit.i ], [ 0, %677 ]
   %.sink140.i = load ptr, ptr %.sink140.in.i, align 8
-  %730 = getelementptr inbounds i8, ptr %.sink140.i, i64 28
+  %730 = getelementptr inbounds nuw i8, ptr %.sink140.i, i64 28
   store i32 %.0.i.sink.i, ptr %730, align 4
   %731 = load i32, ptr %80, align 4
   %732 = icmp eq i32 %731, 0
@@ -1324,7 +1324,7 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
   %739 = load i64, ptr %79, align 8
   %740 = getelementptr ptr, ptr %738, i64 %739
   %741 = load ptr, ptr %740, align 8
-  %742 = getelementptr inbounds i8, ptr %741, i64 56
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 56
   store i32 2, ptr %742, align 8
   br label %743
 
@@ -1336,7 +1336,7 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
   %747 = load i64, ptr %79, align 8
   %748 = getelementptr ptr, ptr %746, i64 %747
   %749 = load ptr, ptr %748, align 8
-  %750 = getelementptr inbounds i8, ptr %749, i64 24
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 24
   %751 = load i32, ptr %750, align 8
   %752 = icmp sgt i32 %745, %751
   br i1 %752, label %753, label %yy_get_next_buffer.exit
@@ -1344,7 +1344,7 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
 753:                                              ; preds = %743
   %754 = ashr i32 %744, 1
   %755 = add i32 %745, %754
-  %756 = getelementptr inbounds i8, ptr %749, i64 8
+  %756 = getelementptr inbounds nuw i8, ptr %749, i64 8
   %757 = load ptr, ptr %756, align 8
   %758 = sext i32 %755 to i64
   %759 = tail call ptr @realloc(ptr noundef %757, i64 noundef %758) #22
@@ -1352,13 +1352,13 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
   %761 = load i64, ptr %79, align 8
   %762 = getelementptr ptr, ptr %760, i64 %761
   %763 = load ptr, ptr %762, align 8
-  %764 = getelementptr inbounds i8, ptr %763, i64 8
+  %764 = getelementptr inbounds nuw i8, ptr %763, i64 8
   store ptr %759, ptr %764, align 8
   %765 = load ptr, ptr %78, align 8
   %766 = load i64, ptr %79, align 8
   %767 = getelementptr ptr, ptr %765, i64 %766
   %768 = load ptr, ptr %767, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 8
+  %769 = getelementptr inbounds nuw i8, ptr %768, i64 8
   %770 = load ptr, ptr %769, align 8
   %.not110.i = icmp eq ptr %770, null
   br i1 %.not110.i, label %771, label %772
@@ -1369,7 +1369,7 @@ busmaster_yyinput.exit.i:                         ; preds = %721, %._crit_edge12
 
 772:                                              ; preds = %753
   %773 = add i32 %755, -2
-  %774 = getelementptr inbounds i8, ptr %768, i64 24
+  %774 = getelementptr inbounds nuw i8, ptr %768, i64 24
   store i32 %773, ptr %774, align 8
   %.pre132.i = load i32, ptr %80, align 4
   %.pre133.i = load ptr, ptr %78, align 8
@@ -1384,7 +1384,7 @@ yy_get_next_buffer.exit:                          ; preds = %743, %772
   store i32 %.pre-phi.i, ptr %80, align 4
   %777 = getelementptr ptr, ptr %776, i64 %775
   %778 = load ptr, ptr %777, align 8
-  %779 = getelementptr inbounds i8, ptr %778, i64 8
+  %779 = getelementptr inbounds nuw i8, ptr %778, i64 8
   %780 = load ptr, ptr %779, align 8
   %781 = sext i32 %.pre-phi.i to i64
   %782 = getelementptr i8, ptr %780, i64 %781
@@ -1393,7 +1393,7 @@ yy_get_next_buffer.exit:                          ; preds = %743, %772
   %784 = load i64, ptr %79, align 8
   %785 = getelementptr ptr, ptr %783, i64 %784
   %786 = load ptr, ptr %785, align 8
-  %787 = getelementptr inbounds i8, ptr %786, i64 8
+  %787 = getelementptr inbounds nuw i8, ptr %786, i64 8
   %788 = load ptr, ptr %787, align 8
   %789 = load i32, ptr %80, align 4
   %790 = add i32 %789, 1
@@ -1404,7 +1404,7 @@ yy_get_next_buffer.exit:                          ; preds = %743, %772
   %794 = load i64, ptr %79, align 8
   %795 = getelementptr ptr, ptr %793, i64 %794
   %796 = load ptr, ptr %795, align 8
-  %797 = getelementptr inbounds i8, ptr %796, i64 8
+  %797 = getelementptr inbounds nuw i8, ptr %796, i64 8
   %798 = load ptr, ptr %797, align 8
   store ptr %798, ptr %76, align 8
   switch i32 %.0101.i, label %default.unreachable622 [
@@ -1416,7 +1416,7 @@ yy_get_next_buffer.exit:                          ; preds = %743, %772
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread318_crit_edge: ; preds = %yy_get_next_buffer.exit
   %799 = getelementptr ptr, ptr %793, i64 %794
   %.pre617 = load ptr, ptr %799, align 8
-  %.phi.trans.insert618 = getelementptr inbounds i8, ptr %.pre617, i64 8
+  %.phi.trans.insert618 = getelementptr inbounds nuw i8, ptr %.pre617, i64 8
   %.pre619 = load ptr, ptr %.phi.trans.insert618, align 8
   %.pre620 = load i32, ptr %80, align 4
   %.pre621 = sext i32 %.pre620 to i64
@@ -1635,12 +1635,12 @@ define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef 
   unreachable
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %1, ptr %7, align 8
   %8 = add i32 %1, 2
   %9 = sext i32 %8 to i64
   %10 = tail call noalias ptr @malloc(i64 noundef %9) #20
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %12, label %13
@@ -1650,28 +1650,28 @@ define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef 
   unreachable
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 1, ptr %14, align 8
   %15 = tail call ptr @__errno_location() #24
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 0, ptr %17, align 4
   store i8 0, ptr %10, align 1
   %18 = getelementptr i8, ptr %10, i64 1
   store i8 0, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = load ptr, ptr %22, align 8
   %.not15.i.i = icmp eq ptr %23, null
   br i1 %.not15.i.i, label %busmaster__flush_buffer.exit.i, label %24
 
 24:                                               ; preds = %13
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
   %27 = getelementptr ptr, ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
@@ -1679,37 +1679,37 @@ define hidden nonnull ptr @busmaster__create_buffer(ptr noundef %0, i32 noundef 
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %28, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %2, i64 52
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 52
   store i32 %32, ptr %33, align 4
   %34 = load ptr, ptr %27, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %2, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 128
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %27, align 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %2, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %40, ptr %41, align 8
   %42 = load i8, ptr %36, align 1
-  %43 = getelementptr inbounds i8, ptr %2, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store i8 %42, ptr %43, align 8
   br label %45
 
 busmaster__flush_buffer.exit.i:                   ; preds = %13
   store ptr %0, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %44, align 4
   br label %.thread.i
 
 45:                                               ; preds = %30, %24
   store ptr %0, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 52
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %2, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr ptr, ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
@@ -1717,14 +1717,14 @@ busmaster__flush_buffer.exit.i:                   ; preds = %13
   br i1 %.not14.i, label %busmaster__init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %busmaster__flush_buffer.exit.i, %45
-  %51 = getelementptr inbounds i8, ptr %4, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 1, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %52, align 8
   br label %busmaster__init_buffer.exit
 
 busmaster__init_buffer.exit:                      ; preds = %45, %.thread.i
-  %53 = getelementptr inbounds i8, ptr %4, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 0, ptr %53, align 4
   store i32 %16, ptr %15, align 4
   ret ptr %4
@@ -1743,13 +1743,13 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 
 ; Function Attrs: nounwind uwtable
 define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -1768,14 +1768,14 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
 
 13:                                               ; preds = %10
   store i64 0, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %15, align 8
   br label %28
 
 16:                                               ; preds = %5
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, -1
   %.not27.i = icmp ult i64 %7, %19
@@ -1801,11 +1801,11 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br label %28
 
 28:                                               ; preds = %25, %16, %13
-  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @busmaster__create_buffer(ptr noundef %30, i32 noundef 16384, ptr noundef nonnull %1)
   %32 = load ptr, ptr %3, align 8
-  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr ptr, ptr %32, i64 %34
   store ptr %31, ptr %35, align 8
@@ -1820,7 +1820,7 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
 
 .thread:                                          ; preds = %5, %28
   %38 = phi ptr [ %.pre, %28 ], [ %4, %5 ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %40 = load i64, ptr %39, align 8
   %41 = getelementptr ptr, ptr %38, i64 %40
   %42 = load ptr, ptr %41, align 8
@@ -1830,20 +1830,20 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %.not.i.i, label %busmaster__flush_buffer.exit.i, label %45
 
 45:                                               ; preds = %.thread
-  %46 = getelementptr inbounds i8, ptr %42, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %48 = load ptr, ptr %47, align 8
   store i8 0, ptr %48, align 1
   %49 = load ptr, ptr %47, align 8
   %50 = getelementptr i8, ptr %49, i64 1
   store i8 0, ptr %50, align 1
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds i8, ptr %42, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 16
   store ptr %51, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %42, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 1, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %42, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %42, i64 56
   store i32 0, ptr %54, align 8
   %55 = load ptr, ptr %3, align 8
   %.not15.i.i = icmp eq ptr %55, null
@@ -1857,23 +1857,23 @@ define hidden void @busmaster_restart(ptr noundef %0, ptr nocapture noundef %1) 
   br i1 %60, label %61, label %busmaster__flush_buffer.exit.i
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %59, i64 28
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 28
   %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds i8, ptr %1, i64 52
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %63, ptr %64, align 4
   %65 = load ptr, ptr %58, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %67, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 128
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %67, ptr %69, align 8
   %70 = load ptr, ptr %58, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %71, ptr %72, align 8
   %73 = load i8, ptr %67, align 1
-  %74 = getelementptr inbounds i8, ptr %1, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %73, ptr %74, align 8
   br label %busmaster__flush_buffer.exit.i
 
@@ -1882,14 +1882,14 @@ busmaster__flush_buffer.exit.i:                   ; preds = %.thread19, %61, %56
   %76 = phi ptr [ %36, %.thread19 ], [ %43, %61 ], [ %43, %56 ], [ %43, %45 ], [ %43, %.thread ]
   %77 = phi ptr [ null, %.thread19 ], [ %42, %61 ], [ %42, %56 ], [ %42, %45 ], [ null, %.thread ]
   store ptr %0, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 52
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 52
   store i32 1, ptr %78, align 4
   %79 = load ptr, ptr %3, align 8
   %.not.i18 = icmp eq ptr %79, null
   br i1 %.not.i18, label %.thread.i, label %80
 
 80:                                               ; preds = %busmaster__flush_buffer.exit.i
-  %81 = getelementptr inbounds i8, ptr %1, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %82 = load i64, ptr %81, align 8
   %83 = getelementptr ptr, ptr %79, i64 %82
   %84 = load ptr, ptr %83, align 8
@@ -1897,45 +1897,45 @@ busmaster__flush_buffer.exit.i:                   ; preds = %.thread19, %61, %56
   br i1 %.not14.i, label %busmaster__init_buffer.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %80, %busmaster__flush_buffer.exit.i
-  %85 = getelementptr inbounds i8, ptr %77, i64 44
+  %85 = getelementptr inbounds nuw i8, ptr %77, i64 44
   store i32 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %77, i64 48
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 48
   store i32 0, ptr %86, align 8
   br label %busmaster__init_buffer.exit
 
 busmaster__init_buffer.exit:                      ; preds = %80, %.thread.i
-  %87 = getelementptr inbounds i8, ptr %77, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %77, i64 36
   store i32 0, ptr %87, align 4
   store i32 %75, ptr %76, align 4
   %88 = load ptr, ptr %3, align 8
-  %89 = getelementptr inbounds i8, ptr %1, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %90 = load i64, ptr %89, align 8
   %91 = getelementptr ptr, ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 28
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 28
   %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 52
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %91, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %1, i64 64
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %98, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %1, i64 128
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %98, ptr %100, align 8
   %101 = load ptr, ptr %91, align 8
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %102, ptr %103, align 8
   %104 = load i8, ptr %98, align 1
-  %105 = getelementptr inbounds i8, ptr %1, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %104, ptr %105, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %5, label %11
@@ -1952,16 +1952,16 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
 
 8:                                                ; preds = %5
   store i64 0, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %10, align 8
   br label %.thread
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, -1
   %.not27.i = icmp ult i64 %13, %16
@@ -1988,7 +1988,7 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
 
 .thread:                                          ; preds = %22, %11, %8
   %25 = phi ptr [ %6, %8 ], [ %4, %11 ], [ %20, %22 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr ptr, ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
@@ -2000,9 +2000,9 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
   br i1 %.not25, label %50, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -2010,22 +2010,22 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
   %39 = load i64, ptr %26, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %3, align 8
   %46 = load i64, ptr %26, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pre = load ptr, ptr %3, align 8
   br label %50
 
 50:                                               ; preds = %32, %31
   %51 = phi ptr [ %.pre, %32 ], [ %25, %31 ]
-  %52 = getelementptr inbounds i8, ptr %1, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %53 = load i64, ptr %52, align 8
   %54 = getelementptr ptr, ptr %51, i64 %53
   store ptr %0, ptr %54, align 8
@@ -2033,25 +2033,25 @@ define hidden void @busmaster__switch_to_buffer(ptr noundef %0, ptr nocapture no
   %56 = load i64, ptr %52, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -2068,13 +2068,13 @@ define hidden void @busmaster__delete_buffer(ptr noundef %0, ptr nocapture nound
   br i1 %.not, label %19, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr ptr, ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
@@ -2086,13 +2086,13 @@ define hidden void @busmaster__delete_buffer(ptr noundef %0, ptr nocapture nound
   br label %.thread
 
 .thread:                                          ; preds = %3, %12, %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   %.not13 = icmp eq i32 %14, 0
   br i1 %.not13, label %18, label %15
 
 15:                                               ; preds = %.thread
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @free(ptr noundef %17) #23
   br label %18
@@ -2114,28 +2114,28 @@ define hidden void @busmaster__flush_buffer(ptr noundef %0, ptr nocapture nounde
   br i1 %.not, label %.thread, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store i8 0, ptr %6, align 1
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr i8, ptr %7, i64 1
   store i8 0, ptr %8, align 1
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %.thread, label %15
 
 15:                                               ; preds = %3
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
   %18 = getelementptr ptr, ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
@@ -2143,23 +2143,23 @@ define hidden void @busmaster__flush_buffer(ptr noundef %0, ptr nocapture nounde
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 28
   %23 = load i32, ptr %22, align 4
-  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %23, ptr %24, align 4
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %1, i64 128
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %27, ptr %29, align 8
   %30 = load ptr, ptr %18, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %31, ptr %32, align 8
   %33 = load i8, ptr %27, align 1
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %33, ptr %34, align 8
   br label %.thread
 
@@ -2173,7 +2173,7 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr nocapture no
   br i1 %3, label %73, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %13
@@ -2190,16 +2190,16 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr nocapture no
 
 10:                                               ; preds = %7
   store i64 0, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %12, align 8
   br label %busmaster_ensure_buffer_stack.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, -1
   %.not27.i = icmp ult i64 %15, %18
@@ -2228,16 +2228,16 @@ define hidden void @busmaster_push_buffer_state(ptr noundef %0, ptr nocapture no
 busmaster_ensure_buffer_stack.exit:               ; preds = %10, %13, %24
   %27 = phi i64 [ 0, %10 ], [ %15, %13 ], [ %.pre, %24 ]
   %28 = phi ptr [ %8, %10 ], [ %6, %13 ], [ %22, %24 ]
-  %29 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = getelementptr ptr, ptr %28, i64 %27
   %31 = load ptr, ptr %30, align 8
   %.not25 = icmp eq ptr %31, null
   br i1 %.not25, label %.thread, label %32
 
 32:                                               ; preds = %busmaster_ensure_buffer_stack.exit
-  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %34 = load i8, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %36 = load ptr, ptr %35, align 8
   store i8 %34, ptr %36, align 1
   %37 = load ptr, ptr %35, align 8
@@ -2245,15 +2245,15 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %10, %13, %24
   %39 = load i64, ptr %29, align 8
   %40 = getelementptr ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr %37, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 52
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %5, align 8
   %46 = load i64, ptr %29, align 8
   %47 = getelementptr ptr, ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   store i32 %44, ptr %49, align 4
   %.pr.pre = load ptr, ptr %5, align 8
   %.pre30 = load i64, ptr %29, align 8
@@ -2276,25 +2276,25 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %10, %13, %24
   %56 = load i64, ptr %29, align 8
   %57 = getelementptr ptr, ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %1, i64 52
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 %60, ptr %61, align 4
   %62 = load ptr, ptr %57, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 64
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %64, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 128
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr %64, ptr %66, align 8
   %67 = load ptr, ptr %57, align 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %68, ptr %69, align 8
   %70 = load i8, ptr %64, align 1
-  %71 = getelementptr inbounds i8, ptr %1, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i8 %70, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 1, ptr %72, align 8
   br label %73
 
@@ -2304,13 +2304,13 @@ busmaster_ensure_buffer_stack.exit:               ; preds = %10, %13, %24
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @busmaster_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #5 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %41, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2319,13 +2319,13 @@ define hidden void @busmaster_pop_buffer_state(ptr nocapture noundef %0) local_u
 
 .thread.i:                                        ; preds = %4
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i32, ptr %9, align 8
   %.not13.i = icmp eq i32 %10, 0
   br i1 %.not13.i, label %busmaster__delete_buffer.exit, label %11
 
 11:                                               ; preds = %.thread.i
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @free(ptr noundef %13) #23
   br label %busmaster__delete_buffer.exit
@@ -2358,25 +2358,25 @@ busmaster__delete_buffer.exit:                    ; preds = %.thread.i, %11
   br i1 %.not23, label %41, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %28, ptr %29, align 4
   %30 = load ptr, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 128
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %32, ptr %34, align 8
   %35 = load ptr, ptr %24, align 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %36, ptr %37, align 8
   %38 = load i8, ptr %32, align 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 80
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 1, ptr %40, align 8
   br label %41
 
@@ -2392,13 +2392,13 @@ define hidden ptr @busmaster_get_extra(ptr nocapture noundef readonly %0) local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @busmaster_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2406,7 +2406,7 @@ define hidden i32 @busmaster_get_lineno(ptr nocapture noundef readonly %0) local
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %11 = load i32, ptr %10, align 4
   br label %12
 
@@ -2417,13 +2417,13 @@ define hidden i32 @busmaster_get_lineno(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden i32 @busmaster_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr ptr, ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -2431,7 +2431,7 @@ define hidden i32 @busmaster_get_column(ptr nocapture noundef readonly %0) local
   br i1 %.not8, label %12, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %11 = load i32, ptr %10, align 8
   br label %12
 
@@ -2442,28 +2442,28 @@ define hidden i32 @busmaster_get_column(ptr nocapture noundef readonly %0) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @busmaster_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @busmaster_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @busmaster_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @busmaster_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 128
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -2476,13 +2476,13 @@ define hidden void @busmaster_set_extra(ptr noundef %0, ptr nocapture noundef wr
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @busmaster_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -2494,20 +2494,20 @@ define hidden void @busmaster_set_lineno(i32 noundef %0, ptr nocapture noundef r
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 44
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 %0, ptr %12, align 4
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
 define hidden void @busmaster_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr ptr, ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
@@ -2519,35 +2519,35 @@ define hidden void @busmaster_set_column(i32 noundef %0, ptr nocapture noundef r
   unreachable
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %0, ptr %12, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @busmaster_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @busmaster_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @busmaster_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 124
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @busmaster_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #10 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 124
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
@@ -2612,19 +2612,19 @@ define hidden range(i32 0, 2) i32 @busmaster_lex_init_extra(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef i32 @busmaster_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not22 = icmp eq ptr %4, null
   br i1 %.not22, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 52
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
-  %7 = getelementptr inbounds i8, ptr %0, i64 128
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
   %12 = getelementptr ptr, ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
@@ -2635,13 +2635,13 @@ define hidden noundef i32 @busmaster_lex_destroy(ptr nocapture noundef %0) local
   %15 = phi ptr [ %59, %busmaster_pop_buffer_state.exit ], [ %13, %.lr.ph ]
   %16 = phi ptr [ %58, %busmaster_pop_buffer_state.exit ], [ %12, %.lr.ph ]
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %18 = load i32, ptr %17, align 8
   %.not13.i = icmp eq i32 %18, 0
   br i1 %.not13.i, label %busmaster__delete_buffer.exit, label %19
 
 19:                                               ; preds = %.thread.i
-  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @free(ptr noundef %21) #23
   br label %busmaster__delete_buffer.exit
@@ -2665,13 +2665,13 @@ busmaster__delete_buffer.exit:                    ; preds = %.thread.i, %19
 
 .thread.i.i:                                      ; preds = %26
   store ptr null, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i32, ptr %30, align 8
   %.not13.i.i = icmp eq i32 %31, 0
   br i1 %.not13.i.i, label %busmaster__delete_buffer.exit.i, label %32
 
 32:                                               ; preds = %.thread.i.i
-  %33 = getelementptr inbounds i8, ptr %29, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void @free(ptr noundef %34) #23
   br label %busmaster__delete_buffer.exit.i
@@ -2704,11 +2704,11 @@ busmaster__delete_buffer.exit.i:                  ; preds = %32, %.thread.i.i
   br i1 %.not23.i, label %busmaster_pop_buffer_state.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %5, align 4
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %6, align 8
   store ptr %52, ptr %7, align 8
@@ -2732,7 +2732,7 @@ busmaster_pop_buffer_state.exit:                  ; preds = %26, %44, %47
   %.lcssa = phi ptr [ null, %1 ], [ %4, %.lr.ph ], [ null, %41 ], [ null, %busmaster__delete_buffer.exit ], [ %56, %busmaster_pop_buffer_state.exit ]
   tail call void @free(ptr noundef %.lcssa) #23
   store ptr null, ptr %3, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %62 = load ptr, ptr %61, align 8
   tail call void @free(ptr noundef %62) #23
   tail call void @free(ptr noundef nonnull %0) #23

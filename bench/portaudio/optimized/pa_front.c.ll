@@ -102,7 +102,7 @@ define i32 @Pa_Initialize() local_unnamed_addr #3 {
 
 6:                                                ; preds = %6, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %6 ], [ 0, %5 ]
-  %7 = getelementptr inbounds [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i.i
+  %7 = getelementptr inbounds nuw [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i.i
   %8 = load ptr, ptr %7, align 8
   %.not.i.i = icmp eq ptr %8, null
   %indvars.iv.next.i.i = add nuw i64 %indvars.iv.i.i, 1
@@ -137,7 +137,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   %14 = sext i32 %12 to i64
   %15 = getelementptr inbounds ptr, ptr %13, i64 %14
   store ptr null, ptr %15, align 8
-  %16 = getelementptr inbounds [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [0 x ptr], ptr @paHostApiInitializers, i64 0, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef nonnull %15, i32 noundef %12) #12
   %.not30.i = icmp eq i32 %18, 0
@@ -239,7 +239,7 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
   store i32 %57, ptr @hostApisCount_, align 4
   %58 = load ptr, ptr @hostApis_, align 8
   %59 = zext nneg i32 %57 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load ptr, ptr %62, align 8
@@ -362,7 +362,7 @@ CloseOpenStreams.exit:                            ; preds = %Pa_CloseStream.exit
   store i32 %29, ptr @hostApisCount_, align 4
   %30 = load ptr, ptr @hostApis_, align 8
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
@@ -558,7 +558,7 @@ define range(i32 -2147483648, 2147483647) i32 @Pa_HostApiTypeIdToHostApiIndex(i3
 
 6:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %10 = load i32, ptr %9, align 4
@@ -602,7 +602,7 @@ define range(i32 -10000, 1) i32 @PaUtil_GetHostApiRepresentation(ptr nocapture n
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
@@ -686,7 +686,7 @@ define ptr @Pa_GetHostApiInfo(i32 noundef %0) local_unnamed_addr #9 {
 6:                                                ; preds = %3
   %7 = load ptr, ptr @hostApis_, align 8
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %12
@@ -716,7 +716,7 @@ define i32 @Pa_HostApiDeviceIndexToDeviceIndex(i32 noundef %0, i32 noundef %1) l
 9:                                                ; preds = %7
   %10 = load ptr, ptr @hostApis_, align 8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
@@ -760,7 +760,7 @@ define i32 @Pa_GetDefaultInputDevice() local_unnamed_addr #9 {
 Pa_GetDefaultHostApi.exit:                        ; preds = %2
   %6 = load ptr, ptr @hostApis_, align 8
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %11 = load i32, ptr %10, align 4
@@ -788,7 +788,7 @@ define i32 @Pa_GetDefaultOutputDevice() local_unnamed_addr #9 {
 Pa_GetDefaultHostApi.exit:                        ; preds = %2
   %6 = load ptr, ptr @hostApis_, align 8
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8
@@ -820,7 +820,7 @@ define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
 7:                                                ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
   %.01321.i = phi i32 [ %0, %.lr.ph.i ], [ %13, %12 ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
@@ -835,7 +835,7 @@ define ptr @Pa_GetDeviceInfo(i32 noundef %0) local_unnamed_addr #5 {
 
 FindHostApi.exit:                                 ; preds = %7
   %14 = and i64 %indvars.iv.i, 4294967295
-  %15 = getelementptr inbounds ptr, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
@@ -980,7 +980,7 @@ define internal fastcc range(i32 -9998, 1) i32 @ValidateOpenStreamParameters(ptr
 
 26:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %27 = getelementptr inbounds ptr, ptr %.pre157, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw ptr, ptr %.pre157, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4
@@ -1031,7 +1031,7 @@ Pa_HostApiTypeIdToHostApiIndex.exit.thread:       ; preds = %32, %.Pa_HostApiTyp
 46:                                               ; preds = %51, %.lr.ph.i100
   %indvars.iv.i102 = phi i64 [ 0, %.lr.ph.i100 ], [ %indvars.iv.next.i103, %51 ]
   %.01321.i = phi i32 [ %15, %.lr.ph.i100 ], [ %52, %51 ]
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv.i102
+  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i102
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8
@@ -1048,7 +1048,7 @@ FindHostApi.exit:                                 ; preds = %46
   %53 = trunc nuw nsw i64 %indvars.iv.i102 to i32
   store i32 %.01321.i, ptr %7, align 4
   %54 = and i64 %indvars.iv.i102, 4294967295
-  %55 = getelementptr inbounds ptr, ptr %45, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %45, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %6, align 8
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1126,7 +1126,7 @@ SampleFormatIsValid.exit:                         ; preds = %60, %60, %60, %60, 
 
 84:                                               ; preds = %90, %.lr.ph.i108
   %indvars.iv.i110 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i111, %90 ]
-  %85 = getelementptr inbounds ptr, ptr %.pre159, i64 %indvars.iv.i110
+  %85 = getelementptr inbounds nuw ptr, ptr %.pre159, i64 %indvars.iv.i110
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
   %88 = load i32, ptr %87, align 4
@@ -1177,7 +1177,7 @@ Pa_HostApiTypeIdToHostApiIndex.exit114.thread:    ; preds = %90, %.Pa_HostApiTyp
 104:                                              ; preds = %109, %.lr.ph.i119
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.i119 ], [ %indvars.iv.next.i124, %109 ]
   %.01321.i122 = phi i32 [ %73, %.lr.ph.i119 ], [ %110, %109 ]
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %indvars.iv.i121
+  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.i121
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load i32, ptr %107, align 8
@@ -1194,7 +1194,7 @@ FindHostApi.exit126:                              ; preds = %104
   %111 = trunc nuw nsw i64 %indvars.iv.i121 to i32
   store i32 %.01321.i122, ptr %8, align 4
   %112 = and i64 %indvars.iv.i121, 4294967295
-  %113 = getelementptr inbounds ptr, ptr %103, i64 %112
+  %113 = getelementptr inbounds nuw ptr, ptr %103, i64 %112
   %114 = load ptr, ptr %113, align 8
   store ptr %114, ptr %6, align 8
   %115 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1380,7 +1380,7 @@ define i32 @Pa_OpenDefaultStream(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 Pa_GetDefaultInputDevice.exit:                    ; preds = %14
   %18 = load ptr, ptr @hostApis_, align 8
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i32, ptr %22, align 4
@@ -1412,7 +1412,7 @@ Pa_GetDefaultInputDevice.exit:                    ; preds = %14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i42, 1
   %exitcond.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   tail call void @llvm.assume(i1 %exitcond.not.i.i)
-  %34 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.next.i.i
+  %34 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.next.i.i
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
@@ -1426,7 +1426,7 @@ FindHostApi.exit.i.loopexit:                      ; preds = %.lr.ph
 FindHostApi.exit.i:                               ; preds = %FindHostApi.exit.i.loopexit, %.preheader.i.i
   %indvars.iv.i.i.lcssa = phi i64 [ 0, %.preheader.i.i ], [ %38, %FindHostApi.exit.i.loopexit ]
   %.01321.i.i.lcssa = phi i32 [ %23, %.preheader.i.i ], [ %33, %FindHostApi.exit.i.loopexit ]
-  %39 = getelementptr inbounds ptr, ptr %18, i64 %indvars.iv.i.i.lcssa
+  %39 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.i.lcssa
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
   %42 = load ptr, ptr %41, align 8
@@ -1462,7 +1462,7 @@ FindHostApi.exit.i:                               ; preds = %FindHostApi.exit.i.
 Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
   %58 = load ptr, ptr @hostApis_, align 8
   %59 = zext nneg i32 %55 to i64
-  %60 = getelementptr inbounds ptr, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i32, ptr %62, align 8
@@ -1494,7 +1494,7 @@ Pa_GetDefaultOutputDevice.exit:                   ; preds = %54
   %indvars.iv.next.i.i35 = add nuw nsw i64 %indvars.iv.i.i3246, 1
   %exitcond.not.i.i36 = icmp ne i64 %indvars.iv.next.i.i35, %wide.trip.count.i.i31
   tail call void @llvm.assume(i1 %exitcond.not.i.i36)
-  %74 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.next.i.i35
+  %74 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.next.i.i35
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i32, ptr %76, align 8
@@ -1508,7 +1508,7 @@ FindHostApi.exit.i37.loopexit:                    ; preds = %.lr.ph48
 FindHostApi.exit.i37:                             ; preds = %FindHostApi.exit.i37.loopexit, %.preheader.i.i28
   %indvars.iv.i.i32.lcssa = phi i64 [ 0, %.preheader.i.i28 ], [ %78, %FindHostApi.exit.i37.loopexit ]
   %.01321.i.i33.lcssa = phi i32 [ %63, %.preheader.i.i28 ], [ %73, %FindHostApi.exit.i37.loopexit ]
-  %79 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i.i32.lcssa
+  %79 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i.i32.lcssa
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load ptr, ptr %81, align 8

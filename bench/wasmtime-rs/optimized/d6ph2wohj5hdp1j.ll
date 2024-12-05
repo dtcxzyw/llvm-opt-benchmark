@@ -17,13 +17,13 @@ define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writ
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = alloca { ptr, i64 }, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
   store ptr %1, ptr %7, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %9, ptr %10, align 8
   %11 = load i64, ptr %3, align 8, !range !4, !noundef !3
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
   invoke void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nonnull sret({ i64, [1 x i64] }) align 8 %6, ptr align 4 %2, ptr nonnull align 8 %1, i64 %11, i64 %13)
           to label %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h8e437b5a26392326E.exit" unwind label %15
@@ -44,7 +44,7 @@ define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writ
   br i1 %18, label %24, label %19
 
 19:                                               ; preds = %"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h8e437b5a26392326E.exit"
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !3, !noundef !3
   %22 = sub nuw i64 %17, %9
   %23 = getelementptr inbounds i8, ptr %21, i64 %9
@@ -68,7 +68,7 @@ define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writ
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %7, align 8, !nonnull !3, !align !5, !noundef !3
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
   store i64 %32, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false)
@@ -84,15 +84,15 @@ define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writ
   ret void
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.345ff4310605931766bb7faad853d7ab.1, ptr %37, align 8
   store i64 1, ptr %0, align 8
   br label %35
 
 38:                                               ; preds = %33
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.2.0.copyload, ptr %39, align 8
   store i64 1, ptr %0, align 8
   br label %35
@@ -121,11 +121,11 @@ define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa
   br i1 %7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %12
 
 ._crit_edge:                                      ; preds = %26, %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !3
   %11 = invoke { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf826d194586515ddE"(i64 0, i64 %10, ptr nonnull align 1 %5, i64 32, ptr nonnull align 8 @anon.345ff4310605931766bb7faad853d7ab.4)
           to label %16 unwind label %.loopexit.split-lp
@@ -157,7 +157,7 @@ define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa
           to label %19 unwind label %.loopexit.split-lp
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %20, align 8
   br label %21
 
@@ -171,7 +171,7 @@ define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %24, ptr %25, align 8
   br label %21
 
@@ -183,7 +183,7 @@ define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa
   br i1 %28, label %._crit_edge, label %12
 
 29:                                               ; preds = %14
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h458c62b95238965fE"(ptr nonnull align 8 %30) #9
           to label %31 unwind label %32
 
@@ -204,7 +204,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   %8 = alloca { { ptr, i64 }, i64, i64 }, align 8
   %9 = alloca { i64, [1 x i64] }, align 8
   %10 = alloca { i64, [1 x i64] }, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !3
   %13 = load i64, ptr %2, align 8, !noundef !3
   %14 = icmp eq i64 %3, 0
@@ -242,17 +242,17 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %24, %41, %27
-  %33 = getelementptr inbounds i8, ptr %9, i64 8
-  %34 = getelementptr inbounds i8, ptr %8, i64 8
-  %35 = getelementptr inbounds i8, ptr %8, i64 16
-  %36 = getelementptr inbounds i8, ptr %8, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %.outer
 
 37:                                               ; preds = %27
   call void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa2E(ptr nonnull sret({ i64, [1 x i64] }) align 8 %10, ptr align 4 %1, ptr nonnull align 8 %2)
   %38 = load i64, ptr %10, align 8, !range !4, !noundef !3
   %39 = icmp eq i64 %38, 0
-  %40 = getelementptr inbounds i8, ptr %10, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br i1 %39, label %41, label %44
 
 41:                                               ; preds = %37
@@ -262,7 +262,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
 
 44:                                               ; preds = %37
   %45 = load ptr, ptr %40, align 8, !nonnull !3
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8
   store i64 1, ptr %0, align 8
   br label %128
@@ -304,14 +304,14 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
 
 63:                                               ; preds = %57
   %64 = load ptr, ptr %33, align 8, !nonnull !3
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %65, align 8
   store i64 1, ptr %0, align 8
   br label %128
 
 66:                                               ; preds = %60
   %67 = sub i64 %.pre, %12
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %67, ptr %68, align 8
   store i64 0, ptr %0, align 8
   br label %128
@@ -352,7 +352,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   %91 = shl nuw nsw i64 %90, 32
   %92 = or disjoint i64 %91, 3
   %93 = inttoptr i64 %92 to ptr
-  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %93, ptr %94, align 8
   store i64 1, ptr %0, align 8
   br label %128
@@ -374,7 +374,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
 
 104:                                              ; preds = %._crit_edge
   %105 = sub i64 %102, %12
-  %106 = getelementptr inbounds i8, ptr %0, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %105, ptr %106, align 8
   store i64 0, ptr %0, align 8
   br label %128
@@ -420,7 +420,7 @@ define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture w
   br i1 %103, label %125, label %123
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %122, ptr %124, align 8
   store i64 1, ptr %0, align 8
   br label %128
@@ -479,7 +479,7 @@ define { i64, i64 } @"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h8e437b5a26392326E"(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 4 %1, ptr nocapture readonly align 8 %2, ptr align 8 %3) unnamed_addr #2 {
   %5 = load i64, ptr %2, align 8, !range !4, !noundef !3
-  %6 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   tail call void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr sret({ i64, [1 x i64] }) align 8 %0, ptr align 4 %1, ptr align 8 %3, i64 %5, i64 %7)
   ret void

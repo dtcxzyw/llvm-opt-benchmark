@@ -57,17 +57,17 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   %14 = load float, ptr %13, align 4
-  %15 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv
   store float %14, ptr %15, align 4
-  %16 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv, i32 1
+  %16 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv, i32 1
   store float 0.000000e+00, ptr %16, align 4
-  %17 = getelementptr inbounds float, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv
   store float %18, ptr %19, align 4
-  %20 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv, i32 1
+  %20 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv, i32 1
   store float 0.000000e+00, ptr %20, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -75,13 +75,13 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv66 = phi i64 [ %12, %.lr.ph56.preheader ], [ %indvars.iv.next67, %.lr.ph56 ]
-  %21 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv66
+  %21 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv66
   store float 0.000000e+00, ptr %21, align 4
-  %22 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv66, i32 1
+  %22 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv66, i32 1
   store float 0.000000e+00, ptr %22, align 4
-  %23 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv66
+  %23 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv66
   store float 0.000000e+00, ptr %23, align 4
-  %24 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv66, i32 1
+  %24 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv66, i32 1
   store float 0.000000e+00, ptr %24, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
@@ -104,13 +104,13 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 29:                                               ; preds = %.lr.ph59, %29
   %indvars.iv71 = phi i64 [ 0, %.lr.ph59 ], [ %indvars.iv.next72, %29 ]
-  %30 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv71
-  %31 = getelementptr inbounds %struct.t_complex, ptr %9, i64 %indvars.iv71
+  %30 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv71
+  %31 = getelementptr inbounds nuw %struct.t_complex, ptr %9, i64 %indvars.iv71
   %.val = load float, ptr %31, align 4
   %32 = getelementptr i8, ptr %31, i64 4
   %.val37 = load float, ptr %32, align 4
   %33 = load float, ptr %30, align 4
-  %34 = getelementptr inbounds i8, ptr %30, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %35 = load float, ptr %34, align 4
   %36 = fmul float %.val37, %35
   %37 = tail call float @llvm.fmuladd.f32(float %33, float %.val, float %36)
@@ -131,9 +131,9 @@ define internal fastcc void @_ZL14cross_corr_lowiPKfS0_PfP7gmx_fft(i32 noundef %
 
 .lr.ph63:                                         ; preds = %._crit_edge60, %.lr.ph63
   %indvars.iv76 = phi i64 [ 0, %._crit_edge60 ], [ %indvars.iv.next77, %.lr.ph63 ]
-  %43 = getelementptr inbounds %struct.t_complex, ptr %8, i64 %indvars.iv76
+  %43 = getelementptr inbounds nuw %struct.t_complex, ptr %8, i64 %indvars.iv76
   %44 = load float, ptr %43, align 4
-  %45 = getelementptr inbounds float, ptr %3, i64 %indvars.iv76
+  %45 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv76
   store float %44, ptr %45, align 4
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79

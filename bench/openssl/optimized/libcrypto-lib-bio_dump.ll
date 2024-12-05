@@ -53,7 +53,7 @@ for.body14.lr.ph:                                 ; preds = %if.end116, %for.bod
   %4 = mul nuw nsw i64 %indvars.iv78, %3
   %5 = trunc nsw i64 %4 to i32
   %call = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %buf, i64 noundef 289, ptr noundef nonnull @.str, i32 noundef %indent.addr.0, ptr noundef nonnull @.str.1, i32 noundef %5) #6
-  %add.ptr29 = getelementptr inbounds i8, ptr %v, i64 %4
+  %add.ptr29 = getelementptr inbounds nuw i8, ptr %v, i64 %4
   br label %for.body14
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc
@@ -75,7 +75,7 @@ if.then23:                                        ; preds = %if.then18
   br label %if.end42
 
 if.else26:                                        ; preds = %if.then18
-  %add.ptr31 = getelementptr inbounds i8, ptr %add.ptr29, i64 %indvars.iv
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %add.ptr29, i64 %indvars.iv
   %7 = load i8, ptr %add.ptr31, align 1
   %add.ptr36 = getelementptr inbounds i8, ptr %buf, i64 %conv
   %conv37 = zext i8 %7 to i32
@@ -112,7 +112,7 @@ if.end56:                                         ; preds = %if.then50, %for.end
   br i1 %cmp63.not62, label %if.end66.lr.ph, label %for.end98
 
 if.end66.lr.ph:                                   ; preds = %if.end56
-  %add.ptr74 = getelementptr inbounds i8, ptr %v, i64 %4
+  %add.ptr74 = getelementptr inbounds nuw i8, ptr %v, i64 %4
   br label %if.end66
 
 if.end66:                                         ; preds = %if.end66.lr.ph, %for.inc96
@@ -124,7 +124,7 @@ if.end66:                                         ; preds = %if.end66.lr.ph, %fo
 
 if.then71:                                        ; preds = %if.end66
   %conv67 = sext i32 %n.365 to i64
-  %add.ptr76 = getelementptr inbounds i8, ptr %add.ptr74, i64 %indvars.iv74
+  %add.ptr76 = getelementptr inbounds nuw i8, ptr %add.ptr74, i64 %indvars.iv74
   %9 = load i8, ptr %add.ptr76, align 1
   %10 = add i8 %9, -32
   %or.cond = icmp ult i8 %10, 95
@@ -257,7 +257,7 @@ if.then3:                                         ; preds = %for.body
   br label %if.end4
 
 if.end4:                                          ; preds = %if.then3, %for.body
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.6, i32 noundef %conv) #6
@@ -285,7 +285,7 @@ if.then13:                                        ; preds = %for.end
 
 if.end15:                                         ; preds = %for.cond.preheader, %if.then13, %for.end
   %idxprom17 = zext nneg i32 %sub to i64
-  %arrayidx18 = getelementptr inbounds i8, ptr %data, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %data, i64 %idxprom17
   %1 = load i8, ptr %arrayidx18, align 1
   %conv19 = zext i8 %1 to i32
   %call20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.8, i32 noundef %conv19) #6

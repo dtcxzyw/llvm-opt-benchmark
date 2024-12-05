@@ -517,7 +517,7 @@ lpad.i:                                           ; preds = %entry
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_SA_.exit: ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp)
           to label %invoke.cont unwind label %lpad.i1
 
@@ -537,7 +537,7 @@ invoke.cont:                                      ; preds = %_ZStplIcSt11char_tr
 define linkonce_odr hidden void @_ZN4cvc58internal15OptionExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #15
   ret void
@@ -582,7 +582,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15CegisSampleModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15CegisSampleModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -724,7 +724,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15CegqiBvIneqModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15CegqiBvIneqModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -866,7 +866,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18PreSkolemQuantModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18PreSkolemQuantModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -1008,7 +1008,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_11FmfMbqiModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_11FmfMbqiModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -1150,7 +1150,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_9IevalModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_9IevalModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -1292,7 +1292,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12InstWhenModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12InstWhenModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call8
@@ -1444,7 +1444,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_16IteLiftQuantModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_16IteLiftQuantModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -1586,7 +1586,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_16LiteralMatchModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_16LiteralMatchModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call6
@@ -1733,7 +1733,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15MacrosQuantModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15MacrosQuantModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -1875,7 +1875,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18MiniscopeQuantModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18MiniscopeQuantModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call8
@@ -2027,7 +2027,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18PreSkolemQuantModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18PreSkolemQuantModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -2169,7 +2169,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15PrenexQuantModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15PrenexQuantModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -2451,7 +2451,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15QuantDSplitModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15QuantDSplitModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -2593,7 +2593,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12QuantRepModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12QuantRepModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -2735,7 +2735,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_13SygusEnumModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_13SygusEnumModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call8
@@ -2887,7 +2887,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_19SygusEvalUnfoldModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_19SygusEvalUnfoldModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call6
@@ -3034,7 +3034,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18SygusFilterSolModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18SygusFilterSolModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -3176,7 +3176,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20SygusGrammarConsModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20SygusGrammarConsModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call6
@@ -3323,7 +3323,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_13SygusInstModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_13SygusInstModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -3465,7 +3465,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_14SygusInstScopeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_14SygusInstScopeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -3607,7 +3607,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20SygusInstTermSelModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20SygusInstTermSelModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -3749,7 +3749,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_17SygusInvTemplModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_17SygusInvTemplModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -3891,7 +3891,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20SygusSolutionOutModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20SygusSolutionOutModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -4033,7 +4033,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_17SygusQueryGenModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_17SygusQueryGenModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -4175,7 +4175,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_23SygusQueryDumpFilesModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_23SygusQueryDumpFilesModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -4317,7 +4317,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18CegqiSingleInvModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_18CegqiSingleInvModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -4459,7 +4459,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_23CegqiSingleInvRconsModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_23CegqiSingleInvRconsModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call6
@@ -4606,7 +4606,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15SygusUnifPiModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_15SygusUnifPiModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call6
@@ -4893,7 +4893,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20TriggerActiveSelModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_20TriggerActiveSelModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -5035,7 +5035,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_14TriggerSelModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_14TriggerSelModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call8
@@ -5187,7 +5187,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [6 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_11UserPatModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_11UserPatModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call10
@@ -5344,7 +5344,7 @@ lpad:                                             ; preds = %invoke.cont, %sw.de
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %mode to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12UserPoolModeE, i64 0, i64 %2
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN4cvc58internal7optionslsERSoNS1_12UserPoolModeE, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
   ret ptr %call4
@@ -5462,7 +5462,7 @@ unreachable:                                      ; preds = %invoke.cont21
 define linkonce_odr hidden void @_ZN4cvc58internal15OptionExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal9ExceptionE, i64 16), ptr %this, align 8
-  %d_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_msg.i.i) #15
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -5472,7 +5472,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK4cvc58internal9Exception4whatEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  %d_msg = getelementptr inbounds i8, ptr %this, i64 8
+  %d_msg = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %d_msg) #15
   ret ptr %call
 }

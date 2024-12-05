@@ -17,7 +17,7 @@ entry:
 
 for.body.i:                                       ; preds = %ucln_cleanupOne_75.exit.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %ucln_cleanupOne_75.exit.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %indvars.iv.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %indvars.iv.i
   %0 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %ucln_cleanupOne_75.exit.i, label %if.then.i.i
@@ -34,7 +34,7 @@ ucln_cleanupOne_75.exit.i:                        ; preds = %if.then.i.i, %for.b
 
 for.body5.i:                                      ; preds = %ucln_cleanupOne_75.exit.i, %for.inc10.i
   %indvars.iv12.i = phi i64 [ %indvars.iv.next13.i, %for.inc10.i ], [ 0, %ucln_cleanupOne_75.exit.i ]
-  %arrayidx.i = getelementptr inbounds [29 x ptr], ptr @_ZL23gCommonCleanupFunctions, i64 0, i64 %indvars.iv12.i
+  %arrayidx.i = getelementptr inbounds nuw [29 x ptr], ptr @_ZL23gCommonCleanupFunctions, i64 0, i64 %indvars.iv12.i
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %for.inc10.i, label %if.then.i
@@ -66,7 +66,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %ucln_cleanupOne_75.exit
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %ucln_cleanupOne_75.exit ]
-  %arrayidx.i = getelementptr inbounds [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %ucln_cleanupOne_75.exit, label %if.then.i
@@ -83,7 +83,7 @@ ucln_cleanupOne_75.exit:                          ; preds = %for.body, %if.then.
 
 for.body5:                                        ; preds = %ucln_cleanupOne_75.exit, %for.inc10
   %indvars.iv12 = phi i64 [ %indvars.iv.next13, %for.inc10 ], [ 0, %ucln_cleanupOne_75.exit ]
-  %arrayidx = getelementptr inbounds [29 x ptr], ptr @_ZL23gCommonCleanupFunctions, i64 0, i64 %indvars.iv12
+  %arrayidx = getelementptr inbounds nuw [29 x ptr], ptr @_ZL23gCommonCleanupFunctions, i64 0, i64 %indvars.iv12
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc10, label %if.then
@@ -141,7 +141,7 @@ if.else:                                          ; preds = %entry
 if.then3:                                         ; preds = %if.else
   tail call void @umtx_lock_75(ptr noundef null)
   %idxprom4 = zext nneg i32 %type to i64
-  %arrayidx5 = getelementptr inbounds [29 x ptr], ptr @_ZL23gCommonCleanupFunctions, i64 0, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [29 x ptr], ptr @_ZL23gCommonCleanupFunctions, i64 0, i64 %idxprom4
   store ptr %func, ptr %arrayidx5, align 8
   invoke void @umtx_unlock_75(ptr noundef null)
           to label %if.end6 unwind label %terminate.lpad.i
@@ -165,7 +165,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %type to i64
-  %arrayidx = getelementptr inbounds [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x ptr], ptr @_ZL20gLibCleanupFunctions, i64 0, i64 %idxprom
   store ptr %func, ptr %arrayidx, align 8
   br label %if.end
 

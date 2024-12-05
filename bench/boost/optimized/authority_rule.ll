@@ -121,7 +121,7 @@ define void @_ZNK5boost4urls22implementation_defined16authority_rule_t5parseERPK
   %14 = alloca %"class.boost::system::error_code", align 8
   %15 = alloca %"class.boost::urls::authority_view", align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %7) #9
-  %scevgep.i = getelementptr inbounds i8, ptr %7, i64 8
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 164
   store i32 0, ptr %16, align 4, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 168
@@ -144,7 +144,7 @@ define void @_ZNK5boost4urls22implementation_defined16authority_rule_t5parseERPK
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #9, !noalias !23
   call void @_ZNK5boost4urls6detail15userinfo_rule_t5parseERPKcS4_(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::result.59") align 8 %6, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) #9, !noalias !23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !23
-  %.sroa.9.8..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %6, i64 56
+  %.sroa.9.8..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   %.sroa.9.8.copyload.i.i.i = load i32, ptr %.sroa.9.8..sroa_idx.i.i.i, align 8, !noalias !23
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9, !noalias !23
   %22 = icmp eq i32 %.sroa.9.8.copyload.i.i.i, 1
@@ -159,7 +159,7 @@ define void @_ZNK5boost4urls22implementation_defined16authority_rule_t5parseERPK
   br i1 %26, label %_ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i.i.i, label %31
 
 _ZNKR5boost6system6resultINS_4core17basic_string_viewIcEENS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %23
-  %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
+  %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.54.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.54.0..sroa_idx.i.i.i.i.i.i.i.i.i, align 8, !tbaa !37, !noalias !26
   %27 = and i64 %.sroa.54.0.copyload.i.i.i.i.i.i.i.i.i, 1
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %27, 0
@@ -229,7 +229,7 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i: ; pred
   %44 = load i32, ptr %10, align 8, !tbaa !59
   %.sroa.gep25 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.03.0.copyload = load ptr, ptr %.sroa.gep25, align 8, !tbaa !15
-  %.sroa.gep24 = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.gep24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.24.0.copyload = load i64, ptr %.sroa.gep24, align 8, !tbaa !37
   invoke void @_ZN5boost4urls15pct_string_viewC1ENS_4core17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %.sroa.03.0.copyload, i64 %.sroa.24.0.copyload)
           to label %47 unwind label %67
@@ -277,7 +277,7 @@ _ZNKR5boost6system6resultIvNS0_10error_codeEE5errorEv.exit.i.i.i.i.i.i.i: ; pred
 60:                                               ; preds = %57
   %.sroa.gep21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %.sroa.gep21, align 8, !tbaa !15
-  %.sroa.gep = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.gep, align 8, !tbaa !37
   %.sroa.gep23 = getelementptr inbounds nuw i8, ptr %13, i64 26
   %61 = load i16, ptr %.sroa.gep23, align 2, !tbaa !70

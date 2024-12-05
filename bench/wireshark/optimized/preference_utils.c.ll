@@ -190,7 +190,7 @@ define hidden range(i32 0, 2) i32 @prefs_store_ext_multiple(ptr noundef %0, ptr 
 
 12:                                               ; preds = %10, %.preheader
   %.1 = phi i32 [ %.02030, %.preheader ], [ %spec.select, %10 ]
-  %13 = getelementptr inbounds i8, ptr %.02129, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.02129, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %15, label %.preheader, !llvm.loop !4
@@ -223,19 +223,19 @@ define hidden noundef i32 @column_prefs_add_custom(i32 noundef %0, ptr noundef %
   %5 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %1) #6
   store ptr %6, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %0, ptr %7, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %2) #6
-  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 29
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 29
   store i8 1, ptr %11, align 1
   %12 = load ptr, ptr @prefs, align 8
   %13 = tail call i32 @g_list_length(ptr noundef %12) #6
   %.not = icmp eq ptr %2, null
-  %14 = getelementptr inbounds i8, ptr %5, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   br i1 %.not, label %34, label %15
 
 15:                                               ; preds = %4
@@ -254,7 +254,7 @@ define hidden noundef i32 @column_prefs_add_custom(i32 noundef %0, ptr noundef %
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 25
   br i1 %26, label %27, label %31
@@ -314,19 +314,19 @@ define hidden range(i32 -2147483648, 2147483647) i32 @column_prefs_has_custom(pt
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %12, label %21
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %8, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %18) #9
   %20 = icmp eq i32 %19, 0
@@ -373,7 +373,7 @@ define hidden range(i32 0, 2) i32 @column_prefs_custom_resolve(ptr noundef %0) l
   br i1 %.not43, label %18, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i32, ptr %11, align 8
   switch i32 %12, label %13 [
     i32 37, label %._crit_edge
@@ -386,7 +386,7 @@ define hidden range(i32 0, 2) i32 @column_prefs_custom_resolve(ptr noundef %0) l
   ]
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not44 = icmp eq ptr %15, null
   br i1 %.not44, label %18, label %16
@@ -436,7 +436,7 @@ define hidden void @column_prefs_remove_link(ptr noundef %0) local_unnamed_addr 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %5) #6
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #6
   tail call void @g_free(ptr noundef nonnull %3) #6
@@ -469,7 +469,7 @@ define hidden void @column_prefs_remove_nth(i32 noundef %0) local_unnamed_addr #
 6:                                                ; preds = %4
   %7 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %7) #6
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #6
   tail call void @g_free(ptr noundef nonnull %5) #6

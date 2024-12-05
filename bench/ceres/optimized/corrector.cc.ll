@@ -78,7 +78,7 @@ _ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   unreachable
 
 _ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %3, %_ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
-  %25 = getelementptr inbounds i8, ptr %2, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %26 = load double, ptr %25, align 8
   %27 = call double @sqrt(double noundef %26) #9
   store double %27, ptr %0, align 8
@@ -86,13 +86,13 @@ _ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br i1 %28, label %33, label %29
 
 29:                                               ; preds = %_ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
-  %30 = getelementptr inbounds i8, ptr %2, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = load double, ptr %30, align 8
   %32 = fcmp ugt double %31, 0.000000e+00
   br i1 %32, label %35, label %33
 
 33:                                               ; preds = %29, %_ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %27, ptr %34, align 8
   br label %56
 
@@ -130,14 +130,14 @@ _ZN6google12Check_GEImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %51 = load double, ptr %0, align 8
   %52 = fsub double 1.000000e+00, %50
   %53 = fdiv double %51, %52
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %53, ptr %54, align 8
   %55 = fdiv double %50, %1
   br label %56
 
 56:                                               ; preds = %42, %33
   %.sink = phi double [ %55, %42 ], [ 0.000000e+00, %33 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %.sink, ptr %57, align 8
   ret void
 }
@@ -201,7 +201,7 @@ _ZN6google17MakeCheckOpStringIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN5ceres8internal9Corrector16CorrectResidualsEiPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load double, ptr %4, align 8, !noalias !4
   %7 = ptrtoint ptr %2 to i64
@@ -226,7 +226,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %21, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %18 = getelementptr inbounds double, ptr %2, i64 %.05.i.i.i.i.i.i.i
+  %18 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i.i.i.i.i.i.i
   %19 = load double, ptr %18, align 8
   %20 = fmul double %6, %19
   store double %20, ptr %18, align 8
@@ -273,7 +273,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideIL
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load double, ptr %6, align 8
   %8 = fcmp oeq double %7, 0.000000e+00
   br i1 %8, label %28, label %.preheader36
@@ -291,17 +291,17 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
 
 .lr.ph.us.preheader:                              ; preds = %._crit_edge.us, %.preheader35.us.preheader
   %indvars.iv58 = phi i64 [ 0, %.preheader35.us.preheader ], [ %indvars.iv.next59, %._crit_edge.us ]
-  %invariant.gep = getelementptr inbounds double, ptr %4, i64 %indvars.iv58
+  %invariant.gep = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv58
   br label %.lr.ph.us
 
 12:                                               ; preds = %.preheader.us, %12
   %indvars.iv53 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next54, %12 ]
   %13 = load double, ptr %0, align 8
   %14 = mul nuw nsw i64 %indvars.iv53, %11
-  %gep65 = getelementptr inbounds double, ptr %invariant.gep64, i64 %14
+  %gep65 = getelementptr inbounds nuw double, ptr %invariant.gep64, i64 %14
   %15 = load double, ptr %gep65, align 8
   %16 = load double, ptr %6, align 8
-  %17 = getelementptr inbounds double, ptr %3, i64 %indvars.iv53
+  %17 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv53
   %18 = load double, ptr %17, align 8
   %19 = fneg double %18
   %20 = fmul double %16, %19
@@ -316,9 +316,9 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next, %.lr.ph.us ]
   %.03138.us = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %27, %.lr.ph.us ]
   %23 = mul nuw nsw i64 %indvars.iv, %11
-  %gep = getelementptr inbounds double, ptr %invariant.gep, i64 %23
+  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %23
   %24 = load double, ptr %gep, align 8
-  %25 = getelementptr inbounds double, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv
   %26 = load double, ptr %25, align 8
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %26, double %.03138.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -326,7 +326,7 @@ define hidden void @_ZN5ceres8internal9Corrector15CorrectJacobianEiiPdS2_(ptr no
   br i1 %exitcond.not, label %.preheader.us, label %.lr.ph.us, !llvm.loop !11
 
 .preheader.us:                                    ; preds = %.lr.ph.us
-  %invariant.gep64 = getelementptr inbounds double, ptr %4, i64 %indvars.iv58
+  %invariant.gep64 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv58
   br label %12
 
 ._crit_edge.us:                                   ; preds = %12
@@ -360,7 +360,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i = phi i64 [ %46, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %_ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i ]
-  %43 = getelementptr inbounds double, ptr %4, i64 %.05.i.i.i.i.i.i.i
+  %43 = getelementptr inbounds nuw double, ptr %4, i64 %.05.i.i.i.i.i.i.i
   %44 = load double, ptr %43, align 8
   %45 = fmul double %31, %44
   store double %45, ptr %43, align 8

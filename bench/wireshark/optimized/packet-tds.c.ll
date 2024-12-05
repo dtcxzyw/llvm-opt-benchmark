@@ -2359,7 +2359,7 @@ define internal range(i32 0, 2) i32 @dissect_tds_tcp_heur(ptr noundef %0, ptr no
 
 41:                                               ; preds = %16
   %42 = load ptr, ptr @tds_tcp_ports, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 284
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %44 = load i32, ptr %43, align 4
   %45 = tail call i32 @value_is_in_range(ptr noundef %42, i32 noundef %44) #11
   %.not.i = icmp eq i32 %45, 0
@@ -2367,7 +2367,7 @@ define internal range(i32 0, 2) i32 @dissect_tds_tcp_heur(ptr noundef %0, ptr no
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr @tds_tcp_ports, align 8
-  %48 = getelementptr inbounds i8, ptr %1, i64 288
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %49 = load i32, ptr %48, align 8
   %50 = tail call i32 @value_is_in_range(ptr noundef %47, i32 noundef %49) #11
   %.not25.i = icmp eq i32 %50, 0
@@ -2399,7 +2399,7 @@ declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_tds_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.1108) #11
   %7 = load ptr, ptr %5, align 8
@@ -2557,22 +2557,22 @@ detect_tls.exit:                                  ; preds = %43
 54:                                               ; preds = %50
   %55 = tail call ptr @wmem_file_scope() #11
   %56 = tail call noalias ptr @wmem_alloc(ptr noundef %55, i64 noundef 48) #11
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 65535, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 12
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 12
   store i32 65535, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %56, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i32 65535, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %56, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i32 0, ptr %60, align 8
   store ptr null, ptr %56, align 8
   %61 = load i32, ptr @tds_little_endian, align 4
   %.not.i193 = icmp ne i32 %61, 0
   %spec.select.i = zext i1 %.not.i193 to i32
   %spec.select12.i = select i1 %.not.i193, i32 3, i32 2
-  %62 = getelementptr inbounds i8, ptr %56, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i32 %spec.select.i, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %56, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %56, i64 20
   store i32 %spec.select12.i, ptr %63, align 4
   %64 = load i32, ptr @tds_protocol_type, align 4
   switch i32 %64, label %65 [
@@ -2583,16 +2583,16 @@ detect_tls.exit:                                  ; preds = %43
 65:                                               ; preds = %54
   store i32 1, ptr %62, align 8
   store i32 3, ptr %63, align 4
-  %66 = getelementptr inbounds i8, ptr %56, i64 28
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i32 120, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %56, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %56, i64 32
   store i32 9, ptr %67, align 8
   br label %fill_tds_info_defaults.exit
 
 fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   %.sink14.i = phi i64 [ 36, %65 ], [ 28, %54 ], [ 28, %54 ]
   %.sink.i = phi i32 [ 17, %65 ], [ 6, %54 ], [ 6, %54 ]
-  %68 = getelementptr inbounds i8, ptr %56, i64 %.sink14.i
+  %68 = getelementptr inbounds nuw i8, ptr %56, i64 %.sink14.i
   store i32 %.sink.i, ptr %68, align 4
   %69 = load i32, ptr @proto_tds, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %51, i32 noundef %69, ptr noundef nonnull %56) #11
@@ -2621,7 +2621,7 @@ fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   %89 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %88, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #11
   %90 = load i32, ptr @hf_tds_window, align 4
   %91 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %90, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0) #11
-  %92 = getelementptr inbounds i8, ptr %1, i64 272
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %93 = load i32, ptr %92, align 8
   %94 = load i32, ptr @tds_defragment, align 4
   %.not184 = icmp eq i32 %94, 0
@@ -2655,7 +2655,7 @@ fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   %104 = zext i16 %84 to i32
   %105 = icmp eq i16 %84, 0
   %or.cond32 = select i1 %or.cond29, i1 %105, i1 false
-  %106 = getelementptr inbounds i8, ptr %.0, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   br i1 %or.cond32, label %.thread, label %107
 
 .thread:                                          ; preds = %99
@@ -2672,7 +2672,7 @@ fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   br i1 %101, label %110, label %113
 
 110:                                              ; preds = %.thread, %109
-  %111 = getelementptr inbounds i8, ptr %1, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load ptr, ptr %111, align 8
   tail call void @col_append_str(ptr noundef %112, i32 noundef 25, ptr noundef nonnull @.str.1312) #11
   br label %113
@@ -2694,7 +2694,7 @@ fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   br i1 %101, label %122, label %125
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds i8, ptr %1, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %124 = load ptr, ptr %123, align 8
   tail call void @col_append_str(ptr noundef %124, i32 noundef 25, ptr noundef nonnull @.str.1312) #11
   br label %125
@@ -3197,27 +3197,27 @@ dissect_tds45_login_name.exit192.i:               ; preds = %376, %375
   %379 = tail call ptr @proto_tree_add_subtree(ptr noundef %337, ptr noundef nonnull %.0181, i32 noundef 124, i32 noundef 9, i32 noundef %378, ptr noundef null, ptr noundef nonnull @.str.1354) #11
   %380 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 124) #11
   %381 = zext i8 %380 to i32
-  %382 = getelementptr inbounds i8, ptr %.0, i64 20
+  %382 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   store i32 %381, ptr %382, align 4
   %383 = load i32, ptr @hf_tdslogin_option_int2, align 4
   %384 = tail call ptr @proto_tree_add_uint(ptr noundef %379, i32 noundef %383, ptr noundef nonnull %.0181, i32 noundef 124, i32 noundef 1, i32 noundef %381) #11
   %385 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 125) #11
   %386 = zext i8 %385 to i32
-  %387 = getelementptr inbounds i8, ptr %.0, i64 24
+  %387 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store i32 %386, ptr %387, align 8
   %388 = load i32, ptr @hf_tdslogin_option_int4, align 4
   %389 = load i32, ptr %382, align 4
   %390 = tail call ptr @proto_tree_add_uint(ptr noundef %379, i32 noundef %388, ptr noundef nonnull %.0181, i32 noundef 125, i32 noundef 1, i32 noundef %389) #11
   %391 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 126) #11
   %392 = zext i8 %391 to i32
-  %393 = getelementptr inbounds i8, ptr %.0, i64 28
+  %393 = getelementptr inbounds nuw i8, ptr %.0, i64 28
   store i32 %392, ptr %393, align 4
   %394 = load i32, ptr @hf_tdslogin_option_char, align 4
   %395 = tail call ptr @proto_tree_add_uint(ptr noundef %379, i32 noundef %394, ptr noundef nonnull %.0181, i32 noundef 126, i32 noundef 1, i32 noundef %392) #11
   %396 = load i32, ptr @hf_tdslogin_option_float, align 4
   %397 = tail call ptr @proto_tree_add_item(ptr noundef %379, i32 noundef %396, ptr noundef nonnull %.0181, i32 noundef 127, i32 noundef 1, i32 noundef 0) #11
   %398 = load i32, ptr @hf_tdslogin_option_date8, align 4
-  %399 = getelementptr inbounds i8, ptr %.0, i64 32
+  %399 = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %400 = tail call ptr @proto_tree_add_item_ret_uint(ptr noundef %379, i32 noundef %398, ptr noundef nonnull %.0181, i32 noundef 128, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %399) #11
   %401 = load i32, ptr @hf_tdslogin_option_usedb, align 4
   %402 = tail call ptr @proto_tree_add_item(ptr noundef %379, i32 noundef %401, ptr noundef nonnull %.0181, i32 noundef 129, i32 noundef 1, i32 noundef 0) #11
@@ -3434,7 +3434,7 @@ dissect_tds45_login_name.exit206.i:               ; preds = %506, %505
   %514 = load i32, ptr @hf_tdslogin_option2_flt4, align 4
   %515 = call ptr @proto_tree_add_item(ptr noundef %511, i32 noundef %514, ptr noundef nonnull %.0181, i32 noundef 478, i32 noundef 1, i32 noundef 0) #11
   %516 = load i32, ptr @hf_tdslogin_option2_date4, align 4
-  %517 = getelementptr inbounds i8, ptr %.0, i64 36
+  %517 = getelementptr inbounds nuw i8, ptr %.0, i64 36
   %518 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %511, i32 noundef %516, ptr noundef nonnull %.0181, i32 noundef 479, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %517) #11
   %519 = load i32, ptr @hf_tdslogin_language, align 4
   %520 = load i32, ptr @hf_tdslogin_language_length, align 4
@@ -3545,7 +3545,7 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   %577 = load i32, ptr @hf_tds7login_total_size, align 4
   %578 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %577, ptr noundef nonnull %.0181, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %30) #11
   %579 = load i32, ptr @hf_tds7login_version, align 4
-  %580 = getelementptr inbounds i8, ptr %30, i64 4
+  %580 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %581 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %579, ptr noundef nonnull %.0181, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %580) #11
   %582 = load i32, ptr %580, align 4
   %583 = getelementptr i8, ptr %1, i64 80
@@ -3554,46 +3554,46 @@ dissect_tds45_login.exit:                         ; preds = %dissect_tds45_login
   %.val.val.i198 = load i16, ptr %584, align 2
   call fastcc void @set_tds_version(i16 %.val.val.i198, ptr noundef nonnull %.0, i32 noundef %582)
   %585 = load i32, ptr @hf_tds7login_packet_size, align 4
-  %586 = getelementptr inbounds i8, ptr %30, i64 8
+  %586 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %587 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %585, ptr noundef nonnull %.0181, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %586) #11
   %588 = load i32, ptr @hf_tds7login_client_version, align 4
-  %589 = getelementptr inbounds i8, ptr %30, i64 12
+  %589 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %590 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %588, ptr noundef nonnull %.0181, i32 noundef 12, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %589) #11
   %591 = load i32, ptr @hf_tds7login_client_pid, align 4
-  %592 = getelementptr inbounds i8, ptr %30, i64 16
+  %592 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %593 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %591, ptr noundef nonnull %.0181, i32 noundef 16, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %592) #11
   %594 = load i32, ptr @hf_tds7login_connection_id, align 4
-  %595 = getelementptr inbounds i8, ptr %30, i64 20
+  %595 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %596 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %594, ptr noundef nonnull %.0181, i32 noundef 20, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %595) #11
   %597 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 24) #11
-  %598 = getelementptr inbounds i8, ptr %30, i64 24
+  %598 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i8 %597, ptr %598, align 4
   %599 = load i32, ptr @hf_tds7login_option_flags1, align 4
   %600 = zext i8 %597 to i32
   %601 = call ptr @proto_tree_add_uint(ptr noundef %576, i32 noundef %599, ptr noundef nonnull %.0181, i32 noundef 24, i32 noundef 1, i32 noundef %600) #11
   %602 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 25) #11
-  %603 = getelementptr inbounds i8, ptr %30, i64 25
+  %603 = getelementptr inbounds nuw i8, ptr %30, i64 25
   store i8 %602, ptr %603, align 1
   %604 = load i32, ptr @hf_tds7login_option_flags2, align 4
   %605 = zext i8 %602 to i32
   %606 = call ptr @proto_tree_add_uint(ptr noundef %576, i32 noundef %604, ptr noundef nonnull %.0181, i32 noundef 25, i32 noundef 1, i32 noundef %605) #11
   %607 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 26) #11
-  %608 = getelementptr inbounds i8, ptr %30, i64 26
+  %608 = getelementptr inbounds nuw i8, ptr %30, i64 26
   store i8 %607, ptr %608, align 2
   %609 = load i32, ptr @hf_tds7login_sql_type_flags, align 4
   %610 = zext i8 %607 to i32
   %611 = call ptr @proto_tree_add_uint(ptr noundef %576, i32 noundef %609, ptr noundef nonnull %.0181, i32 noundef 26, i32 noundef 1, i32 noundef %610) #11
   %612 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %.0181, i32 noundef 27) #11
-  %613 = getelementptr inbounds i8, ptr %30, i64 27
+  %613 = getelementptr inbounds nuw i8, ptr %30, i64 27
   store i8 %612, ptr %613, align 1
   %614 = load i32, ptr @hf_tds7login_reserved_flags, align 4
   %615 = zext i8 %612 to i32
   %616 = call ptr @proto_tree_add_uint(ptr noundef %576, i32 noundef %614, ptr noundef nonnull %.0181, i32 noundef 27, i32 noundef 1, i32 noundef %615) #11
   %617 = load i32, ptr @hf_tds7login_time_zone, align 4
-  %618 = getelementptr inbounds i8, ptr %30, i64 28
+  %618 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %619 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %617, ptr noundef nonnull %.0181, i32 noundef 28, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %618) #11
   %620 = load i32, ptr @hf_tds7login_collation, align 4
-  %621 = getelementptr inbounds i8, ptr %30, i64 32
+  %621 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %622 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %576, i32 noundef %620, ptr noundef nonnull %.0181, i32 noundef 32, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %621) #11
   %623 = load i32, ptr @ett_tds7_hdr, align 4
   %624 = call ptr @proto_tree_add_subtree(ptr noundef %574, ptr noundef nonnull %.0181, i32 noundef 36, i32 noundef 50, i32 noundef %623, ptr noundef null, ptr noundef nonnull @.str.1371) #11
@@ -3747,7 +3747,7 @@ dissect_tds7_login.exit:                          ; preds = %680, %684
   br i1 %691, label %692, label %696
 
 692:                                              ; preds = %685
-  %693 = getelementptr inbounds i8, ptr %.0, i64 8
+  %693 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %694 = load i32, ptr %693, align 8
   %695 = icmp slt i32 %694, 28673
   br i1 %695, label %707, label %698
@@ -3799,9 +3799,9 @@ dissect_tds_query_packet.exit:                    ; preds = %698, %700, %704, %7
 .lr.ph.i207:                                      ; preds = %710
   %715 = getelementptr i8, ptr %.0, i64 24
   %716 = getelementptr i8, ptr %.0, i64 20
-  %717 = getelementptr inbounds i8, ptr %28, i64 8
+  %717 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %718 = getelementptr i8, ptr %.0, i64 28
-  %719 = getelementptr inbounds i8, ptr %1, i64 80
+  %719 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %720
 
 720:                                              ; preds = %1107, %.lr.ph.i207
@@ -3960,7 +3960,7 @@ tds_get_fixed_token_size_sybase.exit.i:           ; preds = %tds_get_variable_to
   br i1 %or.cond.i.i.i, label %792, label %tds5_check_cursor_name.exit.i.i
 
 792:                                              ; preds = %783
-  %793 = getelementptr inbounds i8, ptr %770, i64 24
+  %793 = getelementptr inbounds nuw i8, ptr %770, i64 24
   %794 = load i32, ptr %793, align 8
   %795 = and i32 %794, 1
   %.not.i.i.i = icmp eq i32 %795, 0
@@ -3984,7 +3984,7 @@ tds_get_fixed_token_size_sybase.exit.i:           ; preds = %tds_get_variable_to
   br i1 %or.cond.i.i, label %805, label %tds5_check_cursor_name.exit.i.i
 
 805:                                              ; preds = %802
-  %806 = getelementptr inbounds i8, ptr %770, i64 24
+  %806 = getelementptr inbounds nuw i8, ptr %770, i64 24
   %807 = load i32, ptr %806, align 8
   %808 = and i32 %807, 1
   %.not.i.i213 = icmp eq i32 %808, 0
@@ -4000,7 +4000,7 @@ tds5_check_cursor_name.exit.i.i:                  ; preds = %809, %805, %802, %7
   %811 = load i32, ptr @hf_tds_curclose_option_deallocate, align 4
   %812 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %811, ptr noundef nonnull %.0181, i32 noundef %.0.i79.i, i32 noundef 1, i32 noundef 0) #11
   %813 = load ptr, ptr %719, align 8
-  %814 = getelementptr inbounds i8, ptr %813, i64 50
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 50
   %815 = load i16, ptr %814, align 2
   %816 = and i16 %815, 8
   %817 = icmp ne i16 %816, 0
@@ -4018,7 +4018,7 @@ tds5_check_cursor_name.exit.i.i:                  ; preds = %809, %805, %802, %7
   %823 = call noalias ptr @wmem_alloc0(ptr noundef %822, i64 noundef 16) #11
   %824 = call ptr @wmem_file_scope() #11
   %825 = call noalias ptr @wmem_tree_new(ptr noundef %824) #11
-  %826 = getelementptr inbounds i8, ptr %823, i64 8
+  %826 = getelementptr inbounds nuw i8, ptr %823, i64 8
   store ptr %825, ptr %826, align 8
   store ptr %823, ptr %.0, align 8
   br label %tds_cursor_info_init.exit.i.i
@@ -4030,7 +4030,7 @@ tds_cursor_info_init.exit.i.i:                    ; preds = %821, %819
   br i1 %.not45.i.i, label %dissect_tds5_curclose_token.exit.i, label %829
 
 829:                                              ; preds = %tds_cursor_info_init.exit.i.i
-  %830 = getelementptr inbounds i8, ptr %827, i64 8
+  %830 = getelementptr inbounds nuw i8, ptr %827, i64 8
   %831 = load ptr, ptr %830, align 8
   %832 = call ptr @wmem_tree_lookup32(ptr noundef %831, i32 noundef %828) #11
   %.not46.i.i = icmp eq ptr %832, null
@@ -4120,7 +4120,7 @@ dissect_tds5_curclose_token.exit.i:               ; preds = %833, %829, %tds_cur
 875:                                              ; preds = %870, %837
   %.055.i.i = phi i32 [ %874, %870 ], [ %868, %837 ]
   %876 = load ptr, ptr %719, align 8
-  %877 = getelementptr inbounds i8, ptr %876, i64 50
+  %877 = getelementptr inbounds nuw i8, ptr %876, i64 50
   %878 = load i16, ptr %877, align 2
   %879 = and i16 %878, 8
   %.not59.i.i = icmp eq i16 %879, 0
@@ -4136,7 +4136,7 @@ dissect_tds5_curclose_token.exit.i:               ; preds = %833, %829, %tds_cur
   %884 = call noalias ptr @wmem_alloc0(ptr noundef %883, i64 noundef 16) #11
   %885 = call ptr @wmem_file_scope() #11
   %886 = call noalias ptr @wmem_tree_new(ptr noundef %885) #11
-  %887 = getelementptr inbounds i8, ptr %884, i64 8
+  %887 = getelementptr inbounds nuw i8, ptr %884, i64 8
   store ptr %886, ptr %887, align 8
   store ptr %884, ptr %.0, align 8
   br label %tds_cursor_info_init.exit.i87.i
@@ -4154,7 +4154,7 @@ tds_cursor_info_init.exit.i87.i:                  ; preds = %882, %880
   br label %903
 
 893:                                              ; preds = %tds_cursor_info_init.exit.i87.i
-  %894 = getelementptr inbounds i8, ptr %889, i64 24
+  %894 = getelementptr inbounds nuw i8, ptr %889, i64 24
   %895 = load i32, ptr %894, align 8
   %896 = and i32 %895, 8
   %.not61.i.i = icmp eq i32 %896, 0
@@ -4165,7 +4165,7 @@ tds_cursor_info_init.exit.i87.i:                  ; preds = %882, %880
   %899 = load ptr, ptr %889, align 8
   call void @wmem_free(ptr noundef %898, ptr noundef %899) #11
   %900 = call ptr @wmem_file_scope() #11
-  %901 = getelementptr inbounds i8, ptr %889, i64 16
+  %901 = getelementptr inbounds nuw i8, ptr %889, i64 16
   %902 = load ptr, ptr %901, align 8
   call void @wmem_free(ptr noundef %900, ptr noundef %902) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %889, i8 0, i64 32, i1 false)
@@ -4177,7 +4177,7 @@ tds_cursor_info_init.exit.i87.i:                  ; preds = %882, %880
   %905 = load ptr, ptr %20, align 8
   %906 = call noalias ptr @wmem_strdup(ptr noundef %904, ptr noundef %905) #11
   store ptr %906, ptr %.0.i88.i, align 8
-  %907 = getelementptr inbounds i8, ptr %.0.i88.i, i64 24
+  %907 = getelementptr inbounds nuw i8, ptr %.0.i88.i, i64 24
   %908 = load i32, ptr %907, align 8
   %909 = or i32 %908, 1
   store i32 %909, ptr %907, align 8
@@ -4252,7 +4252,7 @@ dissect_tds5_curdeclare_token.exit.i:             ; preds = %.critedge.i.i, %910
   br i1 %or.cond.i.i100.i, label %941, label %tds5_check_cursor_name.exit.i101.i
 
 941:                                              ; preds = %934
-  %942 = getelementptr inbounds i8, ptr %921, i64 24
+  %942 = getelementptr inbounds nuw i8, ptr %921, i64 24
   %943 = load i32, ptr %942, align 8
   %944 = and i32 %943, 1
   %.not.i.i102.i = icmp eq i32 %944, 0
@@ -4281,7 +4281,7 @@ tds5_check_cursor_name.exit.i101.i:               ; preds = %948, %945, %941, %9
   br i1 %or.cond.i90.i, label %956, label %962
 
 956:                                              ; preds = %953
-  %957 = getelementptr inbounds i8, ptr %921, i64 24
+  %957 = getelementptr inbounds nuw i8, ptr %921, i64 24
   %958 = load i32, ptr %957, align 8
   %959 = and i32 %958, 1
   %.not.i95.i = icmp eq i32 %959, 0
@@ -4313,7 +4313,7 @@ tds5_check_cursor_name.exit.i101.i:               ; preds = %948, %945, %941, %9
 974:                                              ; preds = %968, %962
   %.1.i.i = phi i32 [ %973, %968 ], [ %965, %962 ]
   %975 = load ptr, ptr %719, align 8
-  %976 = getelementptr inbounds i8, ptr %975, i64 50
+  %976 = getelementptr inbounds nuw i8, ptr %975, i64 50
   %977 = load i16, ptr %976, align 2
   %978 = and i16 %977, 8
   %979 = icmp ne i16 %978, 0
@@ -4331,7 +4331,7 @@ tds5_check_cursor_name.exit.i101.i:               ; preds = %948, %945, %941, %9
   %985 = call noalias ptr @wmem_alloc0(ptr noundef %984, i64 noundef 16) #11
   %986 = call ptr @wmem_file_scope() #11
   %987 = call noalias ptr @wmem_tree_new(ptr noundef %986) #11
-  %988 = getelementptr inbounds i8, ptr %985, i64 8
+  %988 = getelementptr inbounds nuw i8, ptr %985, i64 8
   store ptr %987, ptr %988, align 8
   store ptr %985, ptr %.0, align 8
   br label %989
@@ -4343,7 +4343,7 @@ tds5_check_cursor_name.exit.i101.i:               ; preds = %948, %945, %941, %9
   br i1 %.not59.i93.i, label %dissect_tds5_curfetch_token.exit.i, label %991
 
 991:                                              ; preds = %989
-  %992 = getelementptr inbounds i8, ptr %.052.i.i, i64 8
+  %992 = getelementptr inbounds nuw i8, ptr %.052.i.i, i64 8
   %993 = load ptr, ptr %992, align 8
   %994 = call ptr @wmem_tree_lookup32(ptr noundef %993, i32 noundef %990) #11
   %.not60.i94.i = icmp eq ptr %994, null
@@ -4353,7 +4353,7 @@ tds5_check_cursor_name.exit.i101.i:               ; preds = %948, %945, %941, %9
   %996 = call ptr @wmem_file_scope() #11
   %997 = load i32, ptr @proto_tds, align 4
   call void @p_add_proto_data(ptr noundef %996, ptr noundef nonnull %1, i32 noundef %997, i32 noundef 0, ptr noundef nonnull %994) #11
-  %998 = getelementptr inbounds i8, ptr %994, i64 24
+  %998 = getelementptr inbounds nuw i8, ptr %994, i64 24
   %999 = load i32, ptr %998, align 8
   %1000 = or i32 %999, 16
   store i32 %1000, ptr %998, align 8
@@ -4418,7 +4418,7 @@ dissect_tds5_curfetch_token.exit.i:               ; preds = %995, %991, %989, %9
   br i1 %or.cond.i.i114.i, label %1032, label %dissect_tds5_curopen_token.exit.i
 
 1032:                                             ; preds = %1023
-  %1033 = getelementptr inbounds i8, ptr %1010, i64 24
+  %1033 = getelementptr inbounds nuw i8, ptr %1010, i64 24
   %1034 = load i32, ptr %1033, align 8
   %1035 = and i32 %1034, 1
   %.not.i.i115.i = icmp eq i32 %1035, 0
@@ -4442,7 +4442,7 @@ dissect_tds5_curfetch_token.exit.i:               ; preds = %995, %991, %989, %9
   br i1 %or.cond.i105.i, label %1045, label %dissect_tds5_curopen_token.exit.i
 
 1045:                                             ; preds = %1042
-  %1046 = getelementptr inbounds i8, ptr %1010, i64 24
+  %1046 = getelementptr inbounds nuw i8, ptr %1010, i64 24
   %1047 = load i32, ptr %1046, align 8
   %1048 = and i32 %1047, 1
   %.not.i109.i = icmp eq i32 %1048, 0
@@ -4546,9 +4546,9 @@ dissect_tds5_dbrpc_token.exit.i:                  ; preds = %1068, %._crit_edge.
   %1094 = load i32, ptr @hf_tds_params_field, align 4
   %1095 = getelementptr [256 x ptr], ptr %717, i64 0, i64 %indvars.iv.i.i
   %1096 = load ptr, ptr %1095, align 8
-  %1097 = getelementptr inbounds i8, ptr %1096, i64 16
+  %1097 = getelementptr inbounds nuw i8, ptr %1096, i64 16
   %1098 = load i8, ptr %1097, align 8
-  %1099 = getelementptr inbounds i8, ptr %1096, i64 18
+  %1099 = getelementptr inbounds nuw i8, ptr %1096, i64 18
   %1100 = load i8, ptr %1099, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %1101 = load ptr, ptr %1096, align 8
@@ -4761,9 +4761,9 @@ dissect_tds_prelogin_response.exit:               ; preds = %48, %.lr.ph, %58, %
   br i1 %70, label %.lr.ph337, label %.thread306
 
 .lr.ph337:                                        ; preds = %dissect_tds_prelogin_response.exit
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %72 = getelementptr i8, ptr %3, i64 24
-  %73 = getelementptr inbounds i8, ptr %43, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %74 = getelementptr i8, ptr %3, i64 20
   %75 = getelementptr i8, ptr %3, i64 28
   br label %76
@@ -5203,7 +5203,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
   %260 = icmp eq i32 %.val125.i, 0
   %261 = select i1 %260, i32 0, i32 -2147483648
   %262 = call i32 @tvb_get_guint32(ptr noundef nonnull %0, i32 noundef %.0115130.i, i32 noundef %261) #11
-  %263 = getelementptr inbounds i8, ptr %259, i64 12
+  %263 = getelementptr inbounds nuw i8, ptr %259, i64 12
   store i32 %262, ptr %263, align 4
   %264 = load i32, ptr @hf_tds_colfmt_utype, align 4
   %.val124.i = load i32, ptr %72, align 8
@@ -5212,7 +5212,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
   %267 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %264, ptr noundef nonnull %0, i32 noundef %.0115130.i, i32 noundef 4, i32 noundef %266) #11
   %268 = add i32 %.0115130.i, 4
   %269 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %268) #11
-  %270 = getelementptr inbounds i8, ptr %259, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %259, i64 16
   store i8 %269, ptr %270, align 8
   %271 = load i32, ptr @hf_tds_colfmt_ctype, align 4
   %272 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %271, ptr noundef nonnull %0, i32 noundef %268, i32 noundef 1, i32 noundef 0) #11
@@ -5245,7 +5245,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
   %.val123.i = load i32, ptr %72, align 8
   %280 = icmp eq i32 %.val123.i, 0
   %281 = select i1 %280, i32 0, i32 -2147483648
-  %282 = getelementptr inbounds i8, ptr %259, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %283 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %248, i32 noundef %279, ptr noundef nonnull %0, i32 noundef %273, i32 noundef 4, i32 noundef %281, ptr noundef nonnull %282) #11
   %284 = add i32 %.0115130.i, 9
   %285 = load i32, ptr @hf_tds_colfmt_text_tablename, align 4
@@ -5266,7 +5266,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
 292:                                              ; preds = %258
   %293 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %273) #11
   %294 = zext i8 %293 to i32
-  %295 = getelementptr inbounds i8, ptr %259, i64 8
+  %295 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i32 %294, ptr %295, align 8
   %296 = load i32, ptr @hf_tds_colfmt_csize, align 4
   %297 = call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %296, ptr noundef nonnull %0, i32 noundef %273, i32 noundef 1, i32 noundef 0) #11
@@ -5276,7 +5276,7 @@ dissect_tds_col_name_token.exit:                  ; preds = %204, %._crit_edge.i
 299:                                              ; preds = %258, %258, %258, %258, %258, %258, %258, %258, %258, %258, %258, %258
   %300 = zext nneg i8 %277 to i32
   %301 = call fastcc i32 @get_size_by_coltype(i32 noundef %300)
-  %302 = getelementptr inbounds i8, ptr %259, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %259, i64 8
   store i32 %301, ptr %302, align 8
   br label %303
 
@@ -5423,9 +5423,9 @@ dissect_tds_control_token.exit:                   ; preds = %317, %._crit_edge.i
   %372 = load i32, ptr @hf_tds_params_field, align 4
   %373 = getelementptr [256 x ptr], ptr %73, i64 0, i64 %indvars.iv.i234
   %374 = load ptr, ptr %373, align 8
-  %375 = getelementptr inbounds i8, ptr %374, i64 16
+  %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
   %376 = load i8, ptr %375, align 8
-  %377 = getelementptr inbounds i8, ptr %374, i64 18
+  %377 = getelementptr inbounds nuw i8, ptr %374, i64 18
   %378 = load i8, ptr %377, align 2
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i234, 1
   %379 = load ptr, ptr %374, align 8
@@ -5558,7 +5558,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   %443 = icmp eq i32 %.val170.i, 0
   %444 = select i1 %443, i32 0, i32 -2147483648
   %445 = call i32 @tvb_get_guint32(ptr noundef nonnull %0, i32 noundef %442, i32 noundef %444) #11
-  %446 = getelementptr inbounds i8, ptr %428, i64 12
+  %446 = getelementptr inbounds nuw i8, ptr %428, i64 12
   store i32 %445, ptr %446, align 4
   %447 = load i32, ptr @hf_tds_rowfmt_utype, align 4
   %.val169.i = load i32, ptr %72, align 8
@@ -5567,7 +5567,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   %450 = call ptr @proto_tree_add_item(ptr noundef %421, i32 noundef %447, ptr noundef nonnull %0, i32 noundef %442, i32 noundef 4, i32 noundef %449) #11
   %451 = add i32 %439, 5
   %452 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %451) #11
-  %453 = getelementptr inbounds i8, ptr %428, i64 16
+  %453 = getelementptr inbounds nuw i8, ptr %428, i64 16
   store i8 %452, ptr %453, align 8
   %454 = load i32, ptr @hf_tds_rowfmt_ctype, align 4
   %455 = call ptr @proto_tree_add_item(ptr noundef %421, i32 noundef %454, ptr noundef nonnull %0, i32 noundef %451, i32 noundef 1, i32 noundef 0) #11
@@ -5603,7 +5603,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   %.val168.i = load i32, ptr %72, align 8
   %464 = icmp eq i32 %.val168.i, 0
   %465 = select i1 %464, i32 0, i32 -2147483648
-  %466 = getelementptr inbounds i8, ptr %428, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %467 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %421, i32 noundef %463, ptr noundef nonnull %0, i32 noundef %456, i32 noundef 4, i32 noundef %465, ptr noundef nonnull %466) #11
   %468 = add i32 %439, 10
   %469 = load i32, ptr @hf_tds_rowfmt_text_tablename, align 4
@@ -5626,7 +5626,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   %.val167.i = load i32, ptr %72, align 8
   %478 = icmp eq i32 %.val167.i, 0
   %479 = select i1 %478, i32 0, i32 -2147483648
-  %480 = getelementptr inbounds i8, ptr %428, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %481 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %421, i32 noundef %477, ptr noundef nonnull %0, i32 noundef %456, i32 noundef 4, i32 noundef %479, ptr noundef nonnull %480) #11
   %482 = add i32 %439, 10
   br label %494
@@ -5634,7 +5634,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
 483:                                              ; preds = %437
   %484 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %456) #11
   %485 = zext i8 %484 to i32
-  %486 = getelementptr inbounds i8, ptr %428, i64 8
+  %486 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store i32 %485, ptr %486, align 8
   %487 = load i32, ptr @hf_tds_rowfmt_csize, align 4
   %488 = call ptr @proto_tree_add_item(ptr noundef %421, i32 noundef %487, ptr noundef nonnull %0, i32 noundef %456, i32 noundef 1, i32 noundef 0) #11
@@ -5644,7 +5644,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
 490:                                              ; preds = %437, %437, %437, %437, %437, %437, %437, %437, %437, %437, %437, %437
   %491 = zext nneg i8 %461 to i32
   %492 = call fastcc i32 @get_size_by_coltype(i32 noundef %491)
-  %493 = getelementptr inbounds i8, ptr %428, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store i32 %492, ptr %493, align 8
   br label %494
 
@@ -5666,11 +5666,11 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   %501 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %421, i32 noundef %499, ptr noundef nonnull %0, i32 noundef %500, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %34) #11
   %502 = load i32, ptr %33, align 4
   %503 = trunc i32 %502 to i8
-  %504 = getelementptr inbounds i8, ptr %428, i64 17
+  %504 = getelementptr inbounds nuw i8, ptr %428, i64 17
   store i8 %503, ptr %504, align 1
   %505 = load i32, ptr %34, align 4
   %506 = trunc i32 %505 to i8
-  %507 = getelementptr inbounds i8, ptr %428, i64 18
+  %507 = getelementptr inbounds nuw i8, ptr %428, i64 18
   store i8 %506, ptr %507, align 2
   %508 = add i32 %.1.i248, 2
   br label %509
@@ -5695,7 +5695,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   br i1 %.not.i239, label %553, label %517
 
 517:                                              ; preds = %._crit_edge.i238
-  %518 = getelementptr inbounds i8, ptr %403, i64 24
+  %518 = getelementptr inbounds nuw i8, ptr %403, i64 24
   %519 = load i32, ptr %518, align 8
   %520 = and i32 %519, 4
   %.not163.i = icmp eq i32 %520, 0
@@ -5709,7 +5709,7 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   br i1 %.not28.i.i, label %copy_nl_data.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %521
-  %524 = getelementptr inbounds i8, ptr %523, i64 8
+  %524 = getelementptr inbounds nuw i8, ptr %523, i64 8
   %525 = zext i32 %.0159.lcssa.i to i64
   br label %526
 
@@ -5730,32 +5730,32 @@ dissect_tds5_params_token.exit:                   ; preds = %367, %._crit_edge.l
   br label %534
 
 534:                                              ; preds = %532, %526
-  %535 = getelementptr inbounds i8, ptr %528, i64 8
+  %535 = getelementptr inbounds nuw i8, ptr %528, i64 8
   %536 = load i32, ptr %535, align 8
-  %537 = getelementptr inbounds i8, ptr %529, i64 8
+  %537 = getelementptr inbounds nuw i8, ptr %529, i64 8
   store i32 %536, ptr %537, align 8
-  %538 = getelementptr inbounds i8, ptr %528, i64 12
+  %538 = getelementptr inbounds nuw i8, ptr %528, i64 12
   %539 = load i32, ptr %538, align 4
-  %540 = getelementptr inbounds i8, ptr %529, i64 12
+  %540 = getelementptr inbounds nuw i8, ptr %529, i64 12
   store i32 %539, ptr %540, align 4
-  %541 = getelementptr inbounds i8, ptr %528, i64 16
+  %541 = getelementptr inbounds nuw i8, ptr %528, i64 16
   %542 = load i8, ptr %541, align 8
-  %543 = getelementptr inbounds i8, ptr %529, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %529, i64 16
   store i8 %542, ptr %543, align 8
-  %544 = getelementptr inbounds i8, ptr %528, i64 17
+  %544 = getelementptr inbounds nuw i8, ptr %528, i64 17
   %545 = load i8, ptr %544, align 1
-  %546 = getelementptr inbounds i8, ptr %529, i64 17
+  %546 = getelementptr inbounds nuw i8, ptr %529, i64 17
   store i8 %545, ptr %546, align 1
-  %547 = getelementptr inbounds i8, ptr %528, i64 18
+  %547 = getelementptr inbounds nuw i8, ptr %528, i64 18
   %548 = load i8, ptr %547, align 2
-  %549 = getelementptr inbounds i8, ptr %529, i64 18
+  %549 = getelementptr inbounds nuw i8, ptr %529, i64 18
   store i8 %548, ptr %549, align 2
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond350.not = icmp eq i64 %indvars.iv.next.i.i, %525
   br i1 %exitcond350.not, label %copy_nl_data.exit.i, label %526, !llvm.loop !17
 
 copy_nl_data.exit.i:                              ; preds = %534, %521
-  %550 = getelementptr inbounds i8, ptr %403, i64 16
+  %550 = getelementptr inbounds nuw i8, ptr %403, i64 16
   store ptr %523, ptr %550, align 8
   %551 = load i32, ptr %518, align 8
   %552 = or i32 %551, 4
@@ -5976,7 +5976,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   %654 = icmp eq i32 %.val177.i, 0
   %655 = select i1 %654, i32 0, i32 -2147483648
   %656 = call i32 @tvb_get_guint32(ptr noundef nonnull %0, i32 noundef %653, i32 noundef %655) #11
-  %657 = getelementptr inbounds i8, ptr %584, i64 12
+  %657 = getelementptr inbounds nuw i8, ptr %584, i64 12
   store i32 %656, ptr %657, align 4
   %658 = load i32, ptr @hf_tds_rowfmt2_utype, align 4
   %.val176.i = load i32, ptr %72, align 8
@@ -5989,7 +5989,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   %665 = add i32 %609, 9
   %666 = load i32, ptr %13, align 4
   %667 = trunc i32 %666 to i8
-  %668 = getelementptr inbounds i8, ptr %584, i64 16
+  %668 = getelementptr inbounds nuw i8, ptr %584, i64 16
   store i8 %667, ptr %668, align 8
   switch i32 %666, label %690 [
     i32 127, label %697
@@ -6016,7 +6016,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   %.val175.i = load i32, ptr %72, align 8
   %671 = icmp eq i32 %.val175.i, 0
   %672 = select i1 %671, i32 0, i32 -2147483648
-  %673 = getelementptr inbounds i8, ptr %584, i64 8
+  %673 = getelementptr inbounds nuw i8, ptr %584, i64 8
   %674 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %577, i32 noundef %670, ptr noundef nonnull %0, i32 noundef %665, i32 noundef 4, i32 noundef %672, ptr noundef nonnull %673) #11
   %675 = add i32 %609, 13
   %676 = load i32, ptr @hf_tds_rowfmt2_text_tablename, align 4
@@ -6039,7 +6039,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   %.val174.i = load i32, ptr %72, align 8
   %685 = icmp eq i32 %.val174.i, 0
   %686 = select i1 %685, i32 0, i32 -2147483648
-  %687 = getelementptr inbounds i8, ptr %584, i64 8
+  %687 = getelementptr inbounds nuw i8, ptr %584, i64 8
   %688 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %577, i32 noundef %684, ptr noundef nonnull %0, i32 noundef %665, i32 noundef 4, i32 noundef %686, ptr noundef nonnull %687) #11
   %689 = add i32 %609, 13
   br label %700
@@ -6047,7 +6047,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
 690:                                              ; preds = %648
   %691 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %665) #11
   %692 = zext i8 %691 to i32
-  %693 = getelementptr inbounds i8, ptr %584, i64 8
+  %693 = getelementptr inbounds nuw i8, ptr %584, i64 8
   store i32 %692, ptr %693, align 8
   %694 = load i32, ptr @hf_tds_rowfmt2_csize, align 4
   %695 = call ptr @proto_tree_add_item(ptr noundef %577, i32 noundef %694, ptr noundef nonnull %0, i32 noundef %665, i32 noundef 1, i32 noundef 0) #11
@@ -6056,7 +6056,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
 
 697:                                              ; preds = %648, %648, %648, %648, %648, %648, %648, %648, %648, %648, %648, %648
   %698 = call fastcc i32 @get_size_by_coltype(i32 noundef %666)
-  %699 = getelementptr inbounds i8, ptr %584, i64 8
+  %699 = getelementptr inbounds nuw i8, ptr %584, i64 8
   store i32 %698, ptr %699, align 8
   br label %700
 
@@ -6099,7 +6099,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   br i1 %.not.i253, label %753, label %717
 
 717:                                              ; preds = %._crit_edge.i252
-  %718 = getelementptr inbounds i8, ptr %559, i64 24
+  %718 = getelementptr inbounds nuw i8, ptr %559, i64 24
   %719 = load i32, ptr %718, align 8
   %720 = and i32 %719, 4
   %.not170.i = icmp eq i32 %720, 0
@@ -6113,7 +6113,7 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   br i1 %.not28.i.i254, label %copy_nl_data.exit.i259, label %.lr.ph.i.i255
 
 .lr.ph.i.i255:                                    ; preds = %721
-  %724 = getelementptr inbounds i8, ptr %723, i64 8
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 8
   %725 = zext i32 %.0166.lcssa.i to i64
   br label %726
 
@@ -6134,32 +6134,32 @@ dissect_tds_rowfmt_token.exit:                    ; preds = %417, %553
   br label %734
 
 734:                                              ; preds = %732, %726
-  %735 = getelementptr inbounds i8, ptr %728, i64 8
+  %735 = getelementptr inbounds nuw i8, ptr %728, i64 8
   %736 = load i32, ptr %735, align 8
-  %737 = getelementptr inbounds i8, ptr %729, i64 8
+  %737 = getelementptr inbounds nuw i8, ptr %729, i64 8
   store i32 %736, ptr %737, align 8
-  %738 = getelementptr inbounds i8, ptr %728, i64 12
+  %738 = getelementptr inbounds nuw i8, ptr %728, i64 12
   %739 = load i32, ptr %738, align 4
-  %740 = getelementptr inbounds i8, ptr %729, i64 12
+  %740 = getelementptr inbounds nuw i8, ptr %729, i64 12
   store i32 %739, ptr %740, align 4
-  %741 = getelementptr inbounds i8, ptr %728, i64 16
+  %741 = getelementptr inbounds nuw i8, ptr %728, i64 16
   %742 = load i8, ptr %741, align 8
-  %743 = getelementptr inbounds i8, ptr %729, i64 16
+  %743 = getelementptr inbounds nuw i8, ptr %729, i64 16
   store i8 %742, ptr %743, align 8
-  %744 = getelementptr inbounds i8, ptr %728, i64 17
+  %744 = getelementptr inbounds nuw i8, ptr %728, i64 17
   %745 = load i8, ptr %744, align 1
-  %746 = getelementptr inbounds i8, ptr %729, i64 17
+  %746 = getelementptr inbounds nuw i8, ptr %729, i64 17
   store i8 %745, ptr %746, align 1
-  %747 = getelementptr inbounds i8, ptr %728, i64 18
+  %747 = getelementptr inbounds nuw i8, ptr %728, i64 18
   %748 = load i8, ptr %747, align 2
-  %749 = getelementptr inbounds i8, ptr %729, i64 18
+  %749 = getelementptr inbounds nuw i8, ptr %729, i64 18
   store i8 %748, ptr %749, align 2
   %indvars.iv.next.i.i258 = add nuw nsw i64 %indvars.iv.i.i256, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.i258, %725
   br i1 %exitcond.not, label %copy_nl_data.exit.i259, label %726, !llvm.loop !17
 
 copy_nl_data.exit.i259:                           ; preds = %734, %721
-  %750 = getelementptr inbounds i8, ptr %559, i64 16
+  %750 = getelementptr inbounds nuw i8, ptr %559, i64 16
   store ptr %723, ptr %750, align 8
   %751 = load i32, ptr %718, align 8
   %752 = or i32 %751, 4
@@ -6373,13 +6373,13 @@ dissect_tds7_colmetadata_token.exit.thread:       ; preds = %781
   %815 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %814, ptr noundef nonnull %0, i32 noundef %.0602661.i, i32 noundef 2, i32 noundef -2147483648) #11
   %816 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %.0602661.i, i32 noundef %784) #11
   %817 = zext i16 %816 to i32
-  %818 = getelementptr inbounds i8, ptr %805, i64 12
+  %818 = getelementptr inbounds nuw i8, ptr %805, i64 12
   store i32 %817, ptr %818, align 4
   br label %823
 
 819:                                              ; preds = %811, %808
   %820 = load i32, ptr @hf_tds_colmetadata_usertype32, align 4
-  %821 = getelementptr inbounds i8, ptr %805, i64 12
+  %821 = getelementptr inbounds nuw i8, ptr %805, i64 12
   %822 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %797, i32 noundef %820, ptr noundef nonnull %0, i32 noundef %.0602661.i, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %821) #11
   br label %823
 
@@ -6524,7 +6524,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %895 = call ptr @val_to_str(i32 noundef %894, ptr noundef nonnull @tds_data_type_names, ptr noundef nonnull @.str.1320) #11
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %893, ptr noundef nonnull @.str.1319, ptr noundef %895) #11
   %896 = load ptr, ptr %799, align 8
-  %897 = getelementptr inbounds i8, ptr %896, i64 16
+  %897 = getelementptr inbounds nuw i8, ptr %896, i64 16
   store i8 %891, ptr %897, align 8
   %898 = add i32 %824, 3
   switch i8 %891, label %.loopexit.i [
@@ -6574,7 +6574,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
 
 899:                                              ; preds = %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i, %.thread650.thread.i
   %900 = call fastcc i32 @get_size_by_coltype(i32 noundef %894)
-  %901 = getelementptr inbounds i8, ptr %896, i64 8
+  %901 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %900, ptr %901, align 8
   br label %.loopexit.i
 
@@ -6616,7 +6616,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %905 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %904, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 1, i32 noundef -2147483648) #11
   %906 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %898) #11
   %907 = zext i8 %906 to i32
-  %908 = getelementptr inbounds i8, ptr %896, i64 8
+  %908 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %907, ptr %908, align 8
   %909 = add i32 %824, 4
   br label %.loopexit.i
@@ -6626,19 +6626,19 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %912 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %911, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 1, i32 noundef -2147483648) #11
   %913 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %898) #11
   %914 = zext i8 %913 to i32
-  %915 = getelementptr inbounds i8, ptr %896, i64 8
+  %915 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %914, ptr %915, align 8
   %916 = add i32 %824, 4
   %917 = load i32, ptr @hf_tds_colmetadata_precision, align 4
   %918 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %917, ptr noundef nonnull %0, i32 noundef %916, i32 noundef 1, i32 noundef -2147483648) #11
   %919 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %916) #11
-  %920 = getelementptr inbounds i8, ptr %896, i64 17
+  %920 = getelementptr inbounds nuw i8, ptr %896, i64 17
   store i8 %919, ptr %920, align 1
   %921 = add i32 %824, 5
   %922 = load i32, ptr @hf_tds_colmetadata_scale, align 4
   %923 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %922, ptr noundef nonnull %0, i32 noundef %921, i32 noundef 1, i32 noundef -2147483648) #11
   %924 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %921) #11
-  %925 = getelementptr inbounds i8, ptr %896, i64 18
+  %925 = getelementptr inbounds nuw i8, ptr %896, i64 18
   store i8 %924, ptr %925, align 2
   %926 = add i32 %824, 6
   br label %.loopexit.i
@@ -6647,7 +6647,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
   %928 = load i32, ptr @hf_tds_colmetadata_scale, align 4
   %929 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %928, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 1, i32 noundef -2147483648) #11
   %930 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %898) #11
-  %931 = getelementptr inbounds i8, ptr %896, i64 18
+  %931 = getelementptr inbounds nuw i8, ptr %896, i64 18
   store i8 %930, ptr %931, align 2
   %932 = add i32 %824, 4
   br label %.loopexit.i
@@ -6655,7 +6655,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
 933:                                              ; preds = %902
   %934 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %898, i32 noundef %784) #11
   %935 = zext i16 %934 to i32
-  %936 = getelementptr inbounds i8, ptr %896, i64 8
+  %936 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %935, ptr %936, align 8
   %937 = load i32, ptr @hf_tds_colmetadata_large2_type_size, align 4
   %938 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %937, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 2, i32 noundef -2147483648) #11
@@ -6665,7 +6665,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
 940:                                              ; preds = %902
   %941 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %898, i32 noundef %784) #11
   %942 = zext i16 %941 to i32
-  %943 = getelementptr inbounds i8, ptr %896, i64 8
+  %943 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %942, ptr %943, align 8
   %944 = load i32, ptr @hf_tds_colmetadata_large2_type_size, align 4
   %945 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %944, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 2, i32 noundef -2147483648) #11
@@ -6684,7 +6684,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
 956:                                              ; preds = %902
   %957 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %898, i32 noundef %784) #11
   %958 = zext i16 %957 to i32
-  %959 = getelementptr inbounds i8, ptr %896, i64 8
+  %959 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %958, ptr %959, align 8
   %960 = load i32, ptr @hf_tds_colmetadata_large2_type_size, align 4
   %961 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %960, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 2, i32 noundef -2147483648) #11
@@ -6694,7 +6694,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
 963:                                              ; preds = %902, %902, %902
   %964 = call zeroext i16 @tvb_get_guint16(ptr noundef nonnull %0, i32 noundef %898, i32 noundef %784) #11
   %965 = zext i16 %964 to i32
-  %966 = getelementptr inbounds i8, ptr %896, i64 8
+  %966 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %965, ptr %966, align 8
   %967 = load i32, ptr @hf_tds_colmetadata_large2_type_size, align 4
   %968 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %967, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 2, i32 noundef -2147483648) #11
@@ -6909,7 +6909,7 @@ thread-pre-split690.i:                            ; preds = %.thread647.i
 
 1110:                                             ; preds = %902, %902
   %1111 = call i32 @tvb_get_guint32(ptr noundef nonnull %0, i32 noundef %898, i32 noundef %784) #11
-  %1112 = getelementptr inbounds i8, ptr %896, i64 8
+  %1112 = getelementptr inbounds nuw i8, ptr %896, i64 8
   store i32 %1111, ptr %1112, align 8
   %1113 = load i32, ptr @hf_tds_colmetadata_large4_type_size, align 4
   %1114 = call ptr @proto_tree_add_item(ptr noundef %797, i32 noundef %1113, ptr noundef nonnull %0, i32 noundef %898, i32 noundef 4, i32 noundef -2147483648) #11
@@ -7126,7 +7126,7 @@ dissect_tds_featureextack_token.exit:             ; preds = %.lr.ph.i284, %1215,
 1247:                                             ; preds = %1237
   %1248 = getelementptr [256 x ptr], ptr %73, i64 0, i64 %indvars.iv.i287
   %1249 = load ptr, ptr %1248, align 8
-  %1250 = getelementptr inbounds i8, ptr %1249, i64 16
+  %1250 = getelementptr inbounds nuw i8, ptr %1249, i64 16
   %1251 = load i8, ptr %1250, align 8
   switch i8 %1251, label %dissect_tds_type_info_minimal.exit.i [
     i8 -89, label %1252
@@ -7137,7 +7137,7 @@ dissect_tds_featureextack_token.exit:             ; preds = %.lr.ph.i284, %1215,
   ]
 
 1252:                                             ; preds = %1247, %1247, %1247
-  %1253 = getelementptr inbounds i8, ptr %1249, i64 8
+  %1253 = getelementptr inbounds nuw i8, ptr %1249, i64 8
   %1254 = load i32, ptr %1253, align 8
   %1255 = icmp eq i32 %1254, 65535
   br i1 %1255, label %.sink.split.i.i, label %dissect_tds_type_info_minimal.exit.i
@@ -7148,7 +7148,7 @@ dissect_tds_featureextack_token.exit:             ; preds = %.lr.ph.i284, %1215,
 dissect_tds_type_info_minimal.exit.i:             ; preds = %.sink.split.i.i, %1252, %1247
   %.027.i = phi i32 [ 0, %1247 ], [ 1, %.sink.split.i.i ], [ 0, %1252 ]
   %1256 = load i32, ptr @hf_tds_row_field, align 4
-  %1257 = getelementptr inbounds i8, ptr %1249, i64 18
+  %1257 = getelementptr inbounds nuw i8, ptr %1249, i64 18
   %1258 = load i8, ptr %1257, align 2
   %1259 = add nuw nsw i64 %indvars.iv.i287, 1
   %1260 = load ptr, ptr %1249, align 8
@@ -7424,13 +7424,13 @@ detect_tls.exit:                                  ; preds = %17
   br i1 %.not.i78, label %28, label %set_tds_version.exit
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %3, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 28672, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 20
   store i32 3, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %3, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 28
   store i32 120, ptr %32, align 4
   br label %set_tds_version.exit
 
@@ -7443,12 +7443,12 @@ set_tds_version.exit:                             ; preds = %24, %28
 
 .lr.ph:                                           ; preds = %set_tds_version.exit
   %.not36.i = icmp eq i32 %4, 0
-  %37 = getelementptr inbounds i8, ptr %3, i64 16
-  %38 = getelementptr inbounds i8, ptr %3, i64 12
-  %39 = getelementptr inbounds i8, ptr %3, i64 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 24
-  %41 = getelementptr inbounds i8, ptr %3, i64 20
-  %42 = getelementptr inbounds i8, ptr %3, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 28
   br label %43
 
 43:                                               ; preds = %.lr.ph, %set_tds_version_from_prog_version.exit
@@ -7792,13 +7792,13 @@ define internal fastcc void @dissect_tds_type_varbyte(ptr noundef nonnull %0, pt
   br i1 %.not.i, label %proto_item_set_generated.exit, label %41
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %40, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %43 = load ptr, ptr %42, align 8
   %.not5.i = icmp eq ptr %43, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = or i32 %46, 2
   store i32 %47, ptr %45, align 4
@@ -8419,7 +8419,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %363 = mul nuw nsw i64 %362, 86400
   %364 = add nsw i64 %363, -62135596800
   store i64 %364, ptr %16, align 8
-  %365 = getelementptr inbounds i8, ptr %16, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 0, ptr %365, align 8
   %366 = load i32, ptr @hf_tds_type_varbyte_data_absdatetime, align 4
   %367 = load i32, ptr %1, align 4
@@ -8495,7 +8495,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %399 = fsub double %.0563.lcssa, %398
   %400 = fptoui double %399 to i32
   %401 = mul i32 %400, 1000000000
-  %402 = getelementptr inbounds i8, ptr %17, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i32 %401, ptr %402, align 8
   %403 = load i32, ptr @hf_tds_type_varbyte_data_reltime, align 4
   %404 = load i32, ptr %1, align 4
@@ -8628,7 +8628,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %475 = fsub double %.0556.lcssa, %474
   %476 = fptoui double %475 to i32
   %477 = mul i32 %476, 1000000000
-  %478 = getelementptr inbounds i8, ptr %18, i64 8
+  %478 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i32 %477, ptr %478, align 8
   %479 = load i32, ptr @hf_tds_type_varbyte_data_absdatetime, align 4
   %480 = load i32, ptr %1, align 4
@@ -8730,7 +8730,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   %537 = fsub double %.0551.lcssa, %536
   %538 = fptoui double %537 to i32
   %539 = mul i32 %538, 1000000000
-  %540 = getelementptr inbounds i8, ptr %19, i64 8
+  %540 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %539, ptr %540, align 8
   %541 = load i32, ptr @hf_tds_type_varbyte_data_absdatetime, align 4
   %542 = load i32, ptr %1, align 4
@@ -8774,7 +8774,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   ]
 
 566:                                              ; preds = %564
-  %567 = getelementptr inbounds i8, ptr %5, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %568 = load i32, ptr %567, align 8
   %569 = icmp eq i32 %568, 20480
   br i1 %569, label %570, label %609
@@ -8963,7 +8963,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   br i1 %670, label %671, label %675
 
 671:                                              ; preds = %668
-  %672 = getelementptr inbounds i8, ptr %5, i64 8
+  %672 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %673 = load i32, ptr %672, align 8
   %674 = icmp slt i32 %673, 28673
   br i1 %674, label %677, label %689
@@ -9084,7 +9084,7 @@ proto_item_set_generated.exit:                    ; preds = %44, %41, %37, %35, 
   br i1 %738, label %739, label %743
 
 739:                                              ; preds = %733
-  %740 = getelementptr inbounds i8, ptr %5, i64 8
+  %740 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %741 = load i32, ptr %740, align 8
   %742 = icmp slt i32 %741, 28673
   br i1 %742, label %745, label %751
@@ -9212,9 +9212,9 @@ declare ptr @proto_tree_add_item_ret_int(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @handle_tds_sql_smalldatetime(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %8 = load i32, ptr %7, align 4
   switch i32 %8, label %27 [
     i32 17, label %9
@@ -9257,7 +9257,7 @@ define internal fastcc void @handle_tds_sql_smalldatetime(ptr noundef nonnull %0
   %30 = add nsw i64 %28, -2208988800
   %31 = add nsw i64 %30, %29
   store i64 %31, ptr %5, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %32, align 8
   %33 = load i32, ptr @hf_tds_type_varbyte_data_absdatetime, align 4
   %34 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %33, ptr noundef nonnull %0, i32 noundef %1, i32 noundef 8, ptr noundef nonnull %5) #11
@@ -9280,9 +9280,9 @@ define internal fastcc void @handle_tds_sql_smallmoney(ptr noundef nonnull %0, i
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @handle_tds_sql_datetime(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
   %5 = alloca %struct.nstime_t, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %29 [
     i32 9, label %9
@@ -9329,7 +9329,7 @@ define internal fastcc void @handle_tds_sql_datetime(ptr noundef nonnull %0, i32
   %34 = urem i32 %.0.shrunk, 300
   %.lhs.trunc26 = mul nuw i32 %34, 10000000
   %35 = udiv i32 %.lhs.trunc26, 3
-  %36 = getelementptr inbounds i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %35, ptr %36, align 8
   %37 = load i32, ptr @hf_tds_type_varbyte_data_absdatetime, align 4
   %38 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %37, ptr noundef nonnull %0, i32 noundef %1, i32 noundef 8, ptr noundef nonnull %5) #11
@@ -9552,7 +9552,7 @@ define internal fastcc noundef i32 @dissect_tds5_curinfo_token(ptr noundef nonnu
   br i1 %or.cond.i, label %38, label %tds5_check_cursor_name.exit
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds i8, ptr %13, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 1
   %.not.i = icmp eq i32 %41, 0
@@ -9576,7 +9576,7 @@ define internal fastcc noundef i32 @dissect_tds5_curinfo_token(ptr noundef nonnu
   br i1 %or.cond, label %51, label %tds5_check_cursor_name.exit
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %13, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = and i32 %53, 1
   %.not = icmp eq i32 %54, 0
@@ -9616,9 +9616,9 @@ tds5_check_cursor_name.exit:                      ; preds = %45, %42, %38, %28, 
 
 76:                                               ; preds = %70, %tds5_check_cursor_name.exit
   %.1 = phi i32 [ %75, %70 ], [ %65, %tds5_check_cursor_name.exit ]
-  %77 = getelementptr inbounds i8, ptr %1, i64 80
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 50
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 50
   %80 = load i16, ptr %79, align 2
   %81 = and i16 %80, 8
   %82 = icmp ne i16 %81, 0
@@ -9639,7 +9639,7 @@ tds5_check_cursor_name.exit:                      ; preds = %45, %42, %38, %28, 
   %90 = call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef 16) #11
   %91 = call ptr @wmem_file_scope() #11
   %92 = call noalias ptr @wmem_tree_new(ptr noundef %91) #11
-  %93 = getelementptr inbounds i8, ptr %90, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %92, ptr %93, align 8
   store ptr %90, ptr %4, align 8
   br label %94
@@ -9666,18 +9666,18 @@ tds5_check_cursor_name.exit:                      ; preds = %45, %42, %38, %28, 
   br i1 %.not89, label %125, label %103
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %.076, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.076, i64 24
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 2
   %.not90 = icmp eq i32 %106, 0
-  %107 = getelementptr inbounds i8, ptr %.076, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.076, i64 8
   br i1 %.not90, label %108, label %114
 
 108:                                              ; preds = %103
   store i32 %102, ptr %107, align 8
   %109 = or disjoint i32 %105, 2
   store i32 %109, ptr %104, align 8
-  %110 = getelementptr inbounds i8, ptr %.077, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %111 = load ptr, ptr %110, align 8
   call void @wmem_tree_insert32(ptr noundef %111, i32 noundef %102, ptr noundef nonnull %.076) #11
   %112 = load i32, ptr %104, align 8
@@ -9691,7 +9691,7 @@ tds5_check_cursor_name.exit:                      ; preds = %45, %42, %38, %28, 
   br i1 %.not91, label %125, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %.077, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.077, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = call ptr @wmem_tree_lookup32(ptr noundef %118, i32 noundef %102) #11
   %.not92 = icmp eq ptr %119, %.076
@@ -9733,7 +9733,7 @@ define internal fastcc noundef i32 @dissect_tds_done_token(ptr noundef nonnull %
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 28929
   br i1 %22, label %25, label %31
@@ -9782,7 +9782,7 @@ define internal fastcc noundef i32 @dissect_tds_doneproc_token(ptr noundef nonnu
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 28929
   br i1 %22, label %25, label %31
@@ -9831,7 +9831,7 @@ define internal fastcc noundef i32 @dissect_tds_doneinproc_token(ptr noundef non
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %20, align 8
   %22 = icmp slt i32 %21, 28929
   br i1 %22, label %25, label %31
@@ -10164,7 +10164,7 @@ define internal fastcc i32 @dissect_tds_error_token(ptr noundef nonnull %0, i32 
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = icmp slt i32 %72, 28929
   br i1 %73, label %76, label %81
@@ -10312,7 +10312,7 @@ define internal fastcc i32 @dissect_tds_info_token(ptr noundef nonnull %0, i32 n
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %3, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = icmp slt i32 %72, 28929
   br i1 %73, label %76, label %81
@@ -10401,7 +10401,7 @@ define internal fastcc noundef i32 @dissect_tds_order_token(ptr noundef nonnull 
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 28673
   br i1 %17, label %20, label %28
@@ -10476,7 +10476,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr i8, ptr %3, i64 28
   br label %28
 
@@ -10525,7 +10525,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   %48 = select i1 %47, i32 0, i32 -2147483648
   %49 = call i32 @tvb_get_guint32(ptr noundef nonnull %1, i32 noundef %46, i32 noundef %48) #11
   %50 = load ptr, ptr %31, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 %49, ptr %51, align 4
   %52 = load i32, ptr @hf_tds_paramfmt_utype, align 4
   %.val107 = load i32, ptr %12, align 8
@@ -10535,13 +10535,13 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   %56 = add i32 %41, 5
   %57 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %56) #11
   %58 = load ptr, ptr %31, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i8 %57, ptr %59, align 8
   %60 = load i32, ptr @hf_tds_paramfmt_ctype, align 4
   %61 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %60, ptr noundef nonnull %1, i32 noundef %56, i32 noundef 1, i32 noundef 0) #11
   %62 = add i32 %41, 6
   %63 = load ptr, ptr %31, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load i8, ptr %64, align 8
   switch i8 %65, label %73 [
     i8 31, label %81
@@ -10565,7 +10565,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   %.val106 = load i32, ptr %12, align 8
   %68 = icmp eq i32 %.val106, 0
   %69 = select i1 %68, i32 0, i32 -2147483648
-  %70 = getelementptr inbounds i8, ptr %63, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %71 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %67, ptr noundef nonnull %1, i32 noundef %62, i32 noundef 4, i32 noundef %69, ptr noundef nonnull %70) #11
   %72 = add i32 %41, 10
   br label %85
@@ -10574,7 +10574,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
   %74 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %62) #11
   %75 = zext i8 %74 to i32
   %76 = load ptr, ptr %31, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store i32 %75, ptr %77, align 8
   %78 = load i32, ptr @hf_tds_paramfmt_csize, align 4
   %79 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %78, ptr noundef nonnull %1, i32 noundef %62, i32 noundef 1, i32 noundef 0) #11
@@ -10584,7 +10584,7 @@ define internal fastcc i32 @dissect_tds_paramfmt_token(ptr noundef %0, ptr nound
 81:                                               ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
   %82 = zext nneg i8 %65 to i32
   %83 = call fastcc i32 @get_size_by_coltype(i32 noundef %82)
-  %84 = getelementptr inbounds i8, ptr %63, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %83, ptr %84, align 8
   br label %85
 
@@ -10641,7 +10641,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %27 = getelementptr i8, ptr %3, i64 28
   br label %28
 
@@ -10693,7 +10693,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   %50 = select i1 %49, i32 0, i32 -2147483648
   %51 = call i32 @tvb_get_guint32(ptr noundef nonnull %1, i32 noundef %48, i32 noundef %50) #11
   %52 = load ptr, ptr %31, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 %51, ptr %53, align 4
   %54 = load i32, ptr @hf_tds_paramfmt2_utype, align 4
   %.val108 = load i32, ptr %12, align 8
@@ -10703,13 +10703,13 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   %58 = add i32 %41, 8
   %59 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %58) #11
   %60 = load ptr, ptr %31, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store i8 %59, ptr %61, align 8
   %62 = load i32, ptr @hf_tds_paramfmt2_ctype, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %1, i32 noundef %58, i32 noundef 1, i32 noundef 0) #11
   %64 = add i32 %41, 9
   %65 = load ptr, ptr %31, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i8, ptr %66, align 8
   switch i8 %67, label %75 [
     i8 31, label %83
@@ -10733,7 +10733,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   %.val107 = load i32, ptr %12, align 8
   %70 = icmp eq i32 %.val107, 0
   %71 = select i1 %70, i32 0, i32 -2147483648
-  %72 = getelementptr inbounds i8, ptr %65, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %73 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %0, i32 noundef %69, ptr noundef nonnull %1, i32 noundef %64, i32 noundef 4, i32 noundef %71, ptr noundef nonnull %72) #11
   %74 = add i32 %41, 13
   br label %87
@@ -10742,7 +10742,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
   %76 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %1, i32 noundef %64) #11
   %77 = zext i8 %76 to i32
   %78 = load ptr, ptr %31, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store i32 %77, ptr %79, align 8
   %80 = load i32, ptr @hf_tds_paramfmt2_csize, align 4
   %81 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %80, ptr noundef nonnull %1, i32 noundef %64, i32 noundef 1, i32 noundef 0) #11
@@ -10752,7 +10752,7 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
 83:                                               ; preds = %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36, %36
   %84 = zext nneg i8 %67 to i32
   %85 = call fastcc i32 @get_size_by_coltype(i32 noundef %84)
-  %86 = getelementptr inbounds i8, ptr %65, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i32 %85, ptr %86, align 8
   br label %87
 
@@ -10786,9 +10786,9 @@ define internal fastcc i32 @dissect_tds_paramfmt2_token(ptr noundef %0, ptr noun
 define internal fastcc i32 @dissect_tds_row_token(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 %3, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 50
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 50
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 8
   %.not = icmp eq i16 %12, 0
@@ -10818,14 +10818,14 @@ define internal fastcc i32 @dissect_tds_row_token(ptr noundef nonnull %0, ptr no
   br i1 %.not35, label %31, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 4
   %.not36 = icmp eq i32 %27, 0
   br i1 %.not36, label %31, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %23, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %30 = load ptr, ptr %29, align 8
   br label %31
 
@@ -10836,14 +10836,14 @@ define internal fastcc i32 @dissect_tds_row_token(ptr noundef nonnull %0, ptr no
   br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %.0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   br label %34
 
 34:                                               ; preds = %.lr.ph, %dissect_tds_type_info_minimal.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %dissect_tds_type_info_minimal.exit ]
   %35 = getelementptr [256 x ptr], ptr %33, i64 0, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i8, ptr %37, align 8
   switch i8 %38, label %dissect_tds_type_info_minimal.exit [
     i8 -89, label %39
@@ -10854,7 +10854,7 @@ define internal fastcc i32 @dissect_tds_row_token(ptr noundef nonnull %0, ptr no
   ]
 
 39:                                               ; preds = %34, %34, %34
-  %40 = getelementptr inbounds i8, ptr %36, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, 65535
   br i1 %42, label %.sink.split.i, label %dissect_tds_type_info_minimal.exit
@@ -10865,7 +10865,7 @@ define internal fastcc i32 @dissect_tds_row_token(ptr noundef nonnull %0, ptr no
 dissect_tds_type_info_minimal.exit:               ; preds = %34, %39, %.sink.split.i
   %.037 = phi i32 [ 0, %34 ], [ 1, %.sink.split.i ], [ 0, %39 ]
   %43 = load i32, ptr @hf_tds_row_field, align 4
-  %44 = getelementptr inbounds i8, ptr %36, i64 18
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 18
   %45 = load i8, ptr %44, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load ptr, ptr %36, align 8
@@ -10969,88 +10969,88 @@ define internal fastcc void @set_tds_version(i16 %.80.val.50.val, ptr nocapture 
   ]
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 16384, ptr %6, align 8
   br label %43
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 16384, ptr %8, align 8
   br label %43
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 20480, ptr %10, align 8
   br label %43
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 28672, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 120, ptr %15, align 4
   br label %43
 
 16:                                               ; preds = %4, %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 28928, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 120, ptr %20, align 4
   br label %43
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 29184, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 120, ptr %25, align 4
   br label %43
 
 26:                                               ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 29450, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 120, ptr %30, align 4
   br label %43
 
 31:                                               ; preds = %4
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 29451, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 120, ptr %35, align 4
   br label %43
 
 36:                                               ; preds = %4
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 29696, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 3, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 120, ptr %40, align 4
   br label %43
 
 41:                                               ; preds = %4
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 29696, ptr %42, align 8
   br label %43
 

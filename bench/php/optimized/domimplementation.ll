@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @zim_DOMImplementation_hasFeature(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4) #5
   %8 = icmp eq i32 %7, -1
@@ -60,7 +60,7 @@ define hidden void @zim_DOMImplementation_hasFeature(ptr nocapture noundef reado
   %14 = load ptr, ptr %4, align 8
   %15 = call zeroext i1 @dom_has_feature(ptr noundef %13, ptr noundef %14) #5
   %16 = select i1 %15, i32 3, i32 2
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %16, ptr %17, align 8
   br label %18
 
@@ -89,7 +89,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %10, ptr noundef nonnull @.str.1, ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %5) #5
   %12 = icmp eq i32 %11, -1
@@ -129,7 +129,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
 
 29:                                               ; preds = %22
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4) #5
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %30, align 8
   br label %55
 
@@ -144,7 +144,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
   br label %47
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %32, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not27 = icmp eq ptr %37, null
   br i1 %.not27, label %44, label %38
@@ -160,7 +160,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
   call void @xmlFreeURI(ptr noundef nonnull %32) #5
   %42 = load ptr, ptr @xmlFree, align 8
   call void %42(ptr noundef %39) #5
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %43, align 8
   br label %55
 
@@ -184,7 +184,7 @@ define hidden void @zim_DOMImplementation_createDocumentType(ptr nocapture nound
 
 51:                                               ; preds = %47
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.5) #5
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %52, align 8
   br label %55
 
@@ -233,7 +233,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   store ptr null, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 44
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %11 = load i32, ptr %10, align 4
   %12 = load ptr, ptr @dom_documenttype_class_entry, align 8
   %13 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %11, ptr noundef nonnull @.str.6, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef %12) #5
@@ -259,11 +259,11 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %21, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %30) #5
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %32 = icmp ne ptr %31, null
@@ -272,7 +272,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 33:                                               ; preds = %20
   %34 = load ptr, ptr %23, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 10
   br i1 %37, label %38, label %41
@@ -285,7 +285,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br label %117
 
 41:                                               ; preds = %33
-  %42 = getelementptr inbounds i8, ptr %34, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 64
   %43 = load ptr, ptr %42, align 8
   %.not56 = icmp eq ptr %43, null
   br i1 %.not56, label %47, label %44
@@ -384,15 +384,15 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br i1 %.not62, label %87, label %81
 
 81:                                               ; preds = %80
-  %82 = getelementptr inbounds i8, ptr %72, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 80
   store ptr %.043, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %.043, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %.043, i64 40
   store ptr %72, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.043, i64 64
+  %84 = getelementptr inbounds nuw i8, ptr %.043, i64 64
   store ptr %72, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %72, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store ptr %.043, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %72, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %72, i64 32
   store ptr %.043, ptr %86, align 8
   br label %87
 
@@ -410,13 +410,13 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br i1 %.not62, label %97, label %92
 
 92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %72, i64 80
+  %93 = getelementptr inbounds nuw i8, ptr %72, i64 80
   store ptr null, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %.043, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %.043, i64 40
   store ptr null, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.043, i64 64
+  %95 = getelementptr inbounds nuw i8, ptr %.043, i64 64
   store ptr null, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %72, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %72, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
   br label %97
 
@@ -432,7 +432,7 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
   br label %117
 
 102:                                              ; preds = %89
-  %103 = getelementptr inbounds i8, ptr %90, i64 96
+  %103 = getelementptr inbounds nuw i8, ptr %90, i64 96
   store ptr %.0447278, ptr %103, align 8
   %104 = call ptr @xmlDocSetRootElement(ptr noundef nonnull %72, ptr noundef nonnull %90) #5
   %105 = load ptr, ptr @xmlFree, align 8
@@ -447,11 +447,11 @@ define hidden void @zim_DOMImplementation_createDocument(ptr nocapture noundef r
 
 109:                                              ; preds = %107
   %110 = load ptr, ptr %72, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %.0, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store ptr %114, ptr %115, align 8
   %116 = call i32 @php_libxml_increment_doc_ref(ptr noundef nonnull %.0, ptr noundef nonnull %72) #5
   br label %117
@@ -482,7 +482,7 @@ define hidden void @zim_DOMImplementation_getFeature(ptr nocapture noundef reado
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.9, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4) #5
   %10 = icmp eq i32 %9, -1

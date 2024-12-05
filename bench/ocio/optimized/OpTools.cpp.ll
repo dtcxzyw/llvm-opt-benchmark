@@ -51,22 +51,22 @@ for.body:                                         ; preds = %invoke.cont, %for.b
   %values.051 = phi ptr [ %add.ptr, %for.body ], [ %in, %invoke.cont ]
   %2 = load float, ptr %values.051, align 4
   %mul1 = shl nsw i64 %idx.052, 2
-  %add.ptr.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %mul1
+  %add.ptr.i = getelementptr inbounds nuw float, ptr %call5.i.i.i.i2.i.i25, i64 %mul1
   store float %2, ptr %add.ptr.i, align 4
-  %arrayidx2 = getelementptr inbounds i8, ptr %values.051, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %values.051, i64 4
   %3 = load float, ptr %arrayidx2, align 4
   %add4 = or disjoint i64 %mul1, 1
-  %add.ptr.i26 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add4
+  %add.ptr.i26 = getelementptr inbounds nuw float, ptr %call5.i.i.i.i2.i.i25, i64 %add4
   store float %3, ptr %add.ptr.i26, align 4
-  %arrayidx6 = getelementptr inbounds i8, ptr %values.051, i64 8
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %values.051, i64 8
   %4 = load float, ptr %arrayidx6, align 4
   %add8 = or disjoint i64 %mul1, 2
-  %add.ptr.i27 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add8
+  %add.ptr.i27 = getelementptr inbounds nuw float, ptr %call5.i.i.i.i2.i.i25, i64 %add8
   store float %4, ptr %add.ptr.i27, align 4
   %add11 = or disjoint i64 %mul1, 3
-  %add.ptr.i28 = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i25, i64 %add11
+  %add.ptr.i28 = getelementptr inbounds nuw float, ptr %call5.i.i.i.i2.i.i25, i64 %add11
   store float 1.000000e+00, ptr %add.ptr.i28, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %values.051, i64 12
+  %add.ptr = getelementptr inbounds nuw i8, ptr %values.051, i64 12
   %inc = add nuw nsw i64 %idx.052, 1
   %exitcond.not = icmp eq i64 %inc, %numPixels
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -82,7 +82,7 @@ invoke.cont14:                                    ; preds = %for.end
           to label %invoke.cont15 unwind label %lpad13.loopexit.split-lp
 
 invoke.cont15:                                    ; preds = %invoke.cont14
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %ops, i64 8
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %ops, i64 8
   %5 = load ptr, ptr %_M_finish.i.i, align 8
   %6 = load ptr, ptr %ops, align 8
   %cmp1953.not = icmp eq ptr %5, %6
@@ -105,7 +105,7 @@ for.body20:                                       ; preds = %for.body20.preheade
   %add.ptr.i.i = getelementptr inbounds %"class.std::shared_ptr.18", ptr %7, i64 %i.054
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   %vtable = load ptr, ptr %8, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 128
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull %tmp.sroa.0.062, ptr noundef nonnull %tmp.sroa.0.062, i64 noundef %numPixels)
           to label %for.inc27 unwind label %lpad13.loopexit
@@ -138,20 +138,20 @@ for.body33:                                       ; preds = %for.cond31.preheade
   %idx30.057 = phi i64 [ %inc48, %for.body33 ], [ 0, %for.cond31.preheader ]
   %result.056 = phi ptr [ %add.ptr46, %for.body33 ], [ %out, %for.cond31.preheader ]
   %mul34 = shl nsw i64 %idx30.057, 2
-  %add.ptr.i31 = getelementptr inbounds float, ptr %tmp.sroa.0.062, i64 %mul34
+  %add.ptr.i31 = getelementptr inbounds nuw float, ptr %tmp.sroa.0.062, i64 %mul34
   %10 = load float, ptr %add.ptr.i31, align 4
   store float %10, ptr %result.056, align 4
   %add39 = or disjoint i64 %mul34, 1
-  %add.ptr.i32 = getelementptr inbounds float, ptr %tmp.sroa.0.062, i64 %add39
+  %add.ptr.i32 = getelementptr inbounds nuw float, ptr %tmp.sroa.0.062, i64 %add39
   %11 = load float, ptr %add.ptr.i32, align 4
-  %arrayidx41 = getelementptr inbounds i8, ptr %result.056, i64 4
+  %arrayidx41 = getelementptr inbounds nuw i8, ptr %result.056, i64 4
   store float %11, ptr %arrayidx41, align 4
   %add43 = or disjoint i64 %mul34, 2
-  %add.ptr.i33 = getelementptr inbounds float, ptr %tmp.sroa.0.062, i64 %add43
+  %add.ptr.i33 = getelementptr inbounds nuw float, ptr %tmp.sroa.0.062, i64 %add43
   %12 = load float, ptr %add.ptr.i33, align 4
-  %arrayidx45 = getelementptr inbounds i8, ptr %result.056, i64 8
+  %arrayidx45 = getelementptr inbounds nuw i8, ptr %result.056, i64 8
   store float %12, ptr %arrayidx45, align 4
-  %add.ptr46 = getelementptr inbounds i8, ptr %result.056, i64 12
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %result.056, i64 12
   %inc48 = add nuw nsw i64 %idx30.057, 1
   %exitcond59.not = icmp eq i64 %inc48, %numPixels
   br i1 %exitcond59.not, label %if.then.i.i.i35, label %for.body33, !llvm.loop !7

@@ -157,7 +157,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   %13 = alloca %struct.bdf_options_t_, align 4
   %14 = alloca %struct.FT_CharMapRec_, align 8
   %15 = alloca %struct.FT_CharMapRec_, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 184
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @FT_Stream_Seek(ptr noundef %0, i64 noundef 0) #18
   store i32 %18, ptr %12, align 4
@@ -166,11 +166,11 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 19:                                               ; preds = %5
   store i32 1, ptr %13, align 4
-  %20 = getelementptr inbounds i8, ptr %13, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 4
   store i32 1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %13, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %13, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store i32 8, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 0, ptr %11, align 4
@@ -180,23 +180,23 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not.i, label %25, label %168
 
 25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %23, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %13, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %23, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i16 32767, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %23, i64 112
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 112
   store i64 %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %23, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 104
   store ptr %17, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %23, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %32, i8 0, i64 24, i1 false)
-  %33 = getelementptr inbounds i8, ptr %23, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store ptr %17, ptr %33, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %35 = load ptr, ptr %34, align 8
   store i32 0, ptr %10, align 4
   %36 = call ptr @ft_mem_qalloc(ptr noundef %35, i64 noundef 1024, ptr noundef nonnull %10) #18
@@ -382,21 +382,21 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   br i1 %.not70.i, label %94, label %176
 
 94:                                               ; preds = %bdf_readstream_.exit.i
-  %95 = getelementptr inbounds i8, ptr %23, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %96 = load ptr, ptr %95, align 8
   %.not71.i = icmp eq ptr %96, null
   br i1 %.not71.i, label %161, label %97
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %96, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %99 = load i32, ptr %98, align 8
   %.not72.i = icmp eq i32 %99, 8
   br i1 %.not72.i, label %104, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds i8, ptr %96, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %102 = load i16, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %96, i64 52
+  %103 = getelementptr inbounds nuw i8, ptr %96, i64 52
   store i16 %102, ptr %103, align 4
   %.pre.i = load ptr, ptr %95, align 8
   br label %104
@@ -409,9 +409,9 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   br i1 %.not73.i, label %161, label %108
 
 108:                                              ; preds = %104
-  %109 = getelementptr inbounds i8, ptr %105, i64 112
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 112
   %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %105, i64 88
+  %111 = getelementptr inbounds nuw i8, ptr %105, i64 88
   %112 = load i64, ptr %111, align 8
   %.not74.i = icmp eq i64 %112, 0
   %.not75.i = icmp eq i64 %110, 0
@@ -419,13 +419,13 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   br i1 %or.cond84.i, label %161, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %23, i64 28
+  %114 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %115 = load i16, ptr %114, align 4
   %116 = sext i16 %115 to i32
   %117 = load i16, ptr %27, align 8
   %118 = sext i16 %117 to i32
   %119 = sub nsw i32 %116, %118
-  %120 = getelementptr inbounds i8, ptr %105, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %121 = load i16, ptr %120, align 8
   %122 = zext i16 %121 to i32
   %.not76.i = icmp eq i32 %119, %122
@@ -441,7 +441,7 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
 125:                                              ; preds = %123, %113
   %126 = phi i16 [ %.pre159.i, %123 ], [ %117, %113 ]
   %127 = phi ptr [ %.pre158.i, %123 ], [ %105, %113 ]
-  %128 = getelementptr inbounds i8, ptr %127, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %129 = load i16, ptr %128, align 4
   %.not77.i = icmp eq i16 %129, %126
   br i1 %.not77.i, label %131, label %130
@@ -453,9 +453,9 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
 
 131:                                              ; preds = %130, %125
   %132 = phi ptr [ %.pre160.i, %130 ], [ %127, %125 ]
-  %133 = getelementptr inbounds i8, ptr %132, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = load i16, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %23, i64 30
+  %135 = getelementptr inbounds nuw i8, ptr %23, i64 30
   %136 = load i16, ptr %135, align 2
   %.not78.i = icmp eq i16 %134, %136
   br i1 %.not78.i, label %138, label %137
@@ -467,9 +467,9 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
 
 138:                                              ; preds = %137, %131
   %139 = phi ptr [ %.pre161.i, %137 ], [ %132, %131 ]
-  %140 = getelementptr inbounds i8, ptr %139, i64 18
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 18
   %141 = load i16, ptr %140, align 2
-  %142 = getelementptr inbounds i8, ptr %23, i64 32
+  %142 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %143 = load i16, ptr %142, align 8
   %.not79.i = icmp eq i16 %141, %143
   br i1 %.not79.i, label %149, label %144
@@ -479,7 +479,7 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %145 = load i16, ptr %142, align 8
   %146 = sub i16 0, %145
   %147 = load ptr, ptr %95, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 14
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 14
   store i16 %146, ptr %148, align 2
   %.pre162.i = load i16, ptr %142, align 8
   %.pre163.i = load ptr, ptr %95, align 8
@@ -492,7 +492,7 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
   %153 = sext i16 %152 to i32
   %154 = sext i16 %151 to i32
   %155 = add nsw i32 %153, %154
-  %156 = getelementptr inbounds i8, ptr %150, i64 10
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 10
   %157 = load i16, ptr %156, align 2
   %158 = zext i16 %157 to i32
   %.not80.i = icmp eq i32 %155, %158
@@ -531,20 +531,20 @@ bdf_readstream_.exit.i:                           ; preds = %88, %67, %bdf_reads
 
 .thread.i:                                        ; preds = %165, %167, %176, %168
   %.0 = phi ptr [ null, %176 ], [ null, %168 ], [ null, %167 ], [ %166, %165 ]
-  %169 = getelementptr inbounds i8, ptr %23, i64 96
+  %169 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %170 = load ptr, ptr %169, align 8
   %.not.i85.i = icmp eq ptr %170, null
   br i1 %.not.i85.i, label %bdf_list_done_.exit.i, label %171
 
 171:                                              ; preds = %.thread.i
-  %172 = getelementptr inbounds i8, ptr %23, i64 72
+  %172 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %173 = load ptr, ptr %172, align 8
   call void @ft_mem_free(ptr noundef nonnull %170, ptr noundef %173) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %172, i8 0, i64 32, i1 false)
   br label %bdf_list_done_.exit.i
 
 bdf_list_done_.exit.i:                            ; preds = %171, %.thread.i
-  %174 = getelementptr inbounds i8, ptr %23, i64 40
+  %174 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %175 = load ptr, ptr %174, align 8
   call void @ft_mem_free(ptr noundef %17, ptr noundef %175) #18
   store ptr null, ptr %174, align 8
@@ -553,7 +553,7 @@ bdf_list_done_.exit.i:                            ; preds = %171, %.thread.i
   br label %bdf_load_font.exit
 
 176:                                              ; preds = %.sink.split.i, %bdf_readstream_.exit.i
-  %177 = getelementptr inbounds i8, ptr %23, i64 56
+  %177 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %178 = load ptr, ptr %177, align 8
   call fastcc void @bdf_free_font(ptr noundef %178)
   %179 = load ptr, ptr %177, align 8
@@ -575,7 +575,7 @@ bdf_load_font.exit:                               ; preds = %168, %bdf_list_done
   br i1 %.not191, label %184, label %595
 
 184:                                              ; preds = %183
-  %185 = getelementptr inbounds i8, ptr %1, i64 264
+  %185 = getelementptr inbounds nuw i8, ptr %1, i64 264
   store ptr %.1257, ptr %185, align 8
   %186 = icmp slt i32 %2, 1
   %187 = and i32 %2, 65535
@@ -589,9 +589,9 @@ bdf_load_font.exit:                               ; preds = %168, %bdf_list_done
 
 189:                                              ; preds = %184
   store i64 1, ptr %1, align 8
-  %190 = getelementptr inbounds i8, ptr %1, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %1, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %192 = load i64, ptr %191, align 8
   %193 = or i64 %192, 18
   store i64 %193, ptr %191, align 8
@@ -599,20 +599,20 @@ bdf_load_font.exit:                               ; preds = %168, %bdf_list_done
   br i1 %194, label %bdf_get_font_property.exit233.thread, label %195
 
 195:                                              ; preds = %189
-  %196 = getelementptr inbounds i8, ptr %.1257, i64 128
+  %196 = getelementptr inbounds nuw i8, ptr %.1257, i64 128
   %197 = load i64, ptr %196, align 8
   %198 = icmp eq i64 %197, 0
   br i1 %198, label %bdf_get_font_property.exit233.thread, label %199
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds i8, ptr %.1257, i64 168
+  %200 = getelementptr inbounds nuw i8, ptr %.1257, i64 168
   %201 = load ptr, ptr %200, align 8
   %202 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.3, ptr noundef %201) #18
   %.not.i230 = icmp eq ptr %202, null
   br i1 %.not.i230, label %.thread, label %bdf_get_font_property.exit
 
 bdf_get_font_property.exit:                       ; preds = %199
-  %203 = getelementptr inbounds i8, ptr %.1257, i64 144
+  %203 = getelementptr inbounds nuw i8, ptr %.1257, i64 144
   %204 = load ptr, ptr %203, align 8
   %205 = load i64, ptr %202, align 8
   %206 = getelementptr inbounds %struct.bdf_property_t_, ptr %204, i64 %205
@@ -620,13 +620,13 @@ bdf_get_font_property.exit:                       ; preds = %199
   br i1 %.not193, label %.thread, label %207
 
 207:                                              ; preds = %bdf_get_font_property.exit
-  %208 = getelementptr inbounds i8, ptr %206, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %209 = load i32, ptr %208, align 8
   %210 = icmp eq i32 %209, 1
   br i1 %210, label %211, label %.thread
 
 211:                                              ; preds = %207
-  %212 = getelementptr inbounds i8, ptr %206, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %213 = load ptr, ptr %212, align 8
   %.not194 = icmp eq ptr %213, null
   br i1 %.not194, label %.thread, label %214
@@ -652,14 +652,14 @@ bdf_get_font_property.exit:                       ; preds = %199
   br i1 %219, label %bdf_get_font_property.exit233.thread, label %220
 
 220:                                              ; preds = %.thread
-  %221 = getelementptr inbounds i8, ptr %.1257, i64 168
+  %221 = getelementptr inbounds nuw i8, ptr %.1257, i64 168
   %222 = load ptr, ptr %221, align 8
   %223 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.4, ptr noundef %222) #18
   %.not.i231 = icmp eq ptr %223, null
   br i1 %.not.i231, label %bdf_get_font_property.exit233.thread, label %bdf_get_font_property.exit233
 
 bdf_get_font_property.exit233:                    ; preds = %220
-  %224 = getelementptr inbounds i8, ptr %.1257, i64 144
+  %224 = getelementptr inbounds nuw i8, ptr %.1257, i64 144
   %225 = load ptr, ptr %224, align 8
   %.not195 = icmp eq ptr %225, null
   br i1 %.not195, label %bdf_get_font_property.exit233.thread, label %226
@@ -673,14 +673,14 @@ bdf_get_font_property.exit233:                    ; preds = %220
 
 230:                                              ; preds = %226
   %231 = call ptr @ft_mem_strdup(ptr noundef %17, ptr noundef nonnull %229, ptr noundef nonnull %12) #18
-  %232 = getelementptr inbounds i8, ptr %1, i64 40
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %231, ptr %232, align 8
   %233 = load i32, ptr %12, align 4
   %.not197 = icmp eq i32 %233, 0
   br i1 %.not197, label %235, label %595
 
 bdf_get_font_property.exit233.thread:             ; preds = %195, %189, %220, %.thread, %226, %bdf_get_font_property.exit233
-  %234 = getelementptr inbounds i8, ptr %1, i64 40
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr null, ptr %234, align 8
   br label %235
 
@@ -692,26 +692,26 @@ bdf_get_font_property.exit233.thread:             ; preds = %195, %189, %220, %.
   %236 = load ptr, ptr %16, align 8
   %237 = load ptr, ptr %185, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  %238 = getelementptr inbounds i8, ptr %1, i64 24
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 0, ptr %238, align 8
   %239 = icmp eq ptr %237, null
   br i1 %239, label %bdf_get_font_property.exit119.thread.i.preheader, label %240
 
 240:                                              ; preds = %235
-  %241 = getelementptr inbounds i8, ptr %237, i64 128
+  %241 = getelementptr inbounds nuw i8, ptr %237, i64 128
   %242 = load i64, ptr %241, align 8
   %243 = icmp eq i64 %242, 0
   br i1 %243, label %bdf_get_font_property.exit119.thread.i.preheader, label %244
 
 244:                                              ; preds = %240
-  %245 = getelementptr inbounds i8, ptr %237, i64 168
+  %245 = getelementptr inbounds nuw i8, ptr %237, i64 168
   %246 = load ptr, ptr %245, align 8
   %247 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.81, ptr noundef %246) #18
   %.not.i.i234 = icmp eq ptr %247, null
   br i1 %.not.i.i234, label %.thread.i236, label %bdf_get_font_property.exit.i
 
 bdf_get_font_property.exit.i:                     ; preds = %244
-  %248 = getelementptr inbounds i8, ptr %237, i64 144
+  %248 = getelementptr inbounds nuw i8, ptr %237, i64 144
   %249 = load ptr, ptr %248, align 8
   %250 = load i64, ptr %247, align 8
   %251 = getelementptr inbounds %struct.bdf_property_t_, ptr %249, i64 %250
@@ -719,13 +719,13 @@ bdf_get_font_property.exit.i:                     ; preds = %244
   br i1 %.not.i235, label %.thread.i236, label %252
 
 252:                                              ; preds = %bdf_get_font_property.exit.i
-  %253 = getelementptr inbounds i8, ptr %251, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %254 = load i32, ptr %253, align 8
   %255 = icmp eq i32 %254, 1
   br i1 %255, label %256, label %.thread.i236
 
 256:                                              ; preds = %252
-  %257 = getelementptr inbounds i8, ptr %251, i64 16
+  %257 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %258 = load ptr, ptr %257, align 8
   %.not98.i = icmp eq ptr %258, null
   br i1 %.not98.i, label %.thread.i236, label %259
@@ -748,7 +748,7 @@ bdf_get_font_property.exit.i:                     ; preds = %244
   %266 = and i8 %265, -33
   %267 = icmp eq i8 %266, 79
   %268 = select i1 %267, ptr @.str.112, ptr @.str.113
-  %269 = getelementptr inbounds i8, ptr %7, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %268, ptr %269, align 16
   br label %.thread.i236
 
@@ -764,7 +764,7 @@ bdf_get_font_property.exit.i:                     ; preds = %244
   br i1 %.not.i111.i, label %.thread127.i, label %bdf_get_font_property.exit113.i
 
 bdf_get_font_property.exit113.i:                  ; preds = %271
-  %274 = getelementptr inbounds i8, ptr %237, i64 144
+  %274 = getelementptr inbounds nuw i8, ptr %237, i64 144
   %275 = load ptr, ptr %274, align 8
   %276 = load i64, ptr %273, align 8
   %277 = getelementptr inbounds %struct.bdf_property_t_, ptr %275, i64 %276
@@ -772,13 +772,13 @@ bdf_get_font_property.exit113.i:                  ; preds = %271
   br i1 %.not99.i, label %.thread127.i, label %278
 
 278:                                              ; preds = %bdf_get_font_property.exit113.i
-  %279 = getelementptr inbounds i8, ptr %277, i64 8
+  %279 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %280 = load i32, ptr %279, align 8
   %281 = icmp eq i32 %280, 1
   br i1 %281, label %282, label %.thread127.i
 
 282:                                              ; preds = %278
-  %283 = getelementptr inbounds i8, ptr %277, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %284 = load ptr, ptr %283, align 8
   %.not100.i = icmp eq ptr %284, null
   br i1 %.not100.i, label %.thread127.i, label %285
@@ -794,7 +794,7 @@ bdf_get_font_property.exit113.i:                  ; preds = %271
   %288 = load i64, ptr %238, align 8
   %289 = or i64 %288, 2
   store i64 %289, ptr %238, align 8
-  %290 = getelementptr inbounds i8, ptr %7, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.114, ptr %290, align 8
   br label %.thread127.i
 
@@ -810,7 +810,7 @@ bdf_get_font_property.exit113.i:                  ; preds = %271
   br i1 %.not.i114.i, label %.thread133.i, label %bdf_get_font_property.exit116.i
 
 bdf_get_font_property.exit116.i:                  ; preds = %292
-  %295 = getelementptr inbounds i8, ptr %237, i64 144
+  %295 = getelementptr inbounds nuw i8, ptr %237, i64 144
   %296 = load ptr, ptr %295, align 8
   %297 = load i64, ptr %294, align 8
   %298 = getelementptr inbounds %struct.bdf_property_t_, ptr %296, i64 %297
@@ -818,13 +818,13 @@ bdf_get_font_property.exit116.i:                  ; preds = %292
   br i1 %.not101.i, label %.thread133.i, label %299
 
 299:                                              ; preds = %bdf_get_font_property.exit116.i
-  %300 = getelementptr inbounds i8, ptr %298, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 8
   %301 = load i32, ptr %300, align 8
   %302 = icmp eq i32 %301, 1
   br i1 %302, label %303, label %.thread133.i
 
 303:                                              ; preds = %299
-  %304 = getelementptr inbounds i8, ptr %298, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %298, i64 16
   %305 = load ptr, ptr %304, align 8
   %.not102.i = icmp eq ptr %305, null
   br i1 %.not102.i, label %.thread133.i, label %306
@@ -838,7 +838,7 @@ bdf_get_font_property.exit116.i:                  ; preds = %292
   ]
 
 308:                                              ; preds = %306
-  %309 = getelementptr inbounds i8, ptr %7, i64 24
+  %309 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %305, ptr %309, align 8
   br label %.thread133.i
 
@@ -854,7 +854,7 @@ bdf_get_font_property.exit116.i:                  ; preds = %292
   br i1 %.not.i117.i, label %bdf_get_font_property.exit119.thread.i.preheader, label %bdf_get_font_property.exit119.i
 
 bdf_get_font_property.exit119.i:                  ; preds = %311
-  %314 = getelementptr inbounds i8, ptr %237, i64 144
+  %314 = getelementptr inbounds nuw i8, ptr %237, i64 144
   %315 = load ptr, ptr %314, align 8
   %316 = load i64, ptr %313, align 8
   %317 = getelementptr inbounds %struct.bdf_property_t_, ptr %315, i64 %316
@@ -862,13 +862,13 @@ bdf_get_font_property.exit119.i:                  ; preds = %311
   br i1 %.not104.i, label %bdf_get_font_property.exit119.thread.i.preheader, label %318
 
 318:                                              ; preds = %bdf_get_font_property.exit119.i
-  %319 = getelementptr inbounds i8, ptr %317, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %317, i64 8
   %320 = load i32, ptr %319, align 8
   %321 = icmp eq i32 %320, 1
   br i1 %321, label %322, label %bdf_get_font_property.exit119.thread.i.preheader
 
 322:                                              ; preds = %318
-  %323 = getelementptr inbounds i8, ptr %317, i64 16
+  %323 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %324 = load ptr, ptr %323, align 8
   %.not105.i = icmp eq ptr %324, null
   br i1 %.not105.i, label %bdf_get_font_property.exit119.thread.i.preheader, label %325
@@ -891,9 +891,9 @@ bdf_get_font_property.exit119.thread.i.preheader: ; preds = %327, %325, %325, %3
 bdf_get_font_property.exit119.thread.i:           ; preds = %bdf_get_font_property.exit119.thread.i.preheader, %335
   %.077139.i = phi i64 [ %.178.i, %335 ], [ 0, %bdf_get_font_property.exit119.thread.i.preheader ]
   %.080138.i = phi i64 [ %336, %335 ], [ 0, %bdf_get_font_property.exit119.thread.i.preheader ]
-  %328 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %.080138.i
+  %328 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.080138.i
   store i64 0, ptr %328, align 8
-  %329 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %.080138.i
+  %329 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %.080138.i
   %330 = load ptr, ptr %329, align 8
   %.not110.i = icmp eq ptr %330, null
   br i1 %.not110.i, label %335, label %331
@@ -923,7 +923,7 @@ bdf_get_font_property.exit119.thread.i:           ; preds = %bdf_get_font_proper
 340:                                              ; preds = %339, %337
   %.279.i = phi i64 [ 8, %339 ], [ %.178.i, %337 ]
   %341 = call ptr @ft_mem_qalloc(ptr noundef %236, i64 noundef %.279.i, ptr noundef nonnull %6) #18
-  %342 = getelementptr inbounds i8, ptr %1, i64 48
+  %342 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %341, ptr %342, align 8
   %343 = load i32, ptr %6, align 4
   %.not107.i = icmp eq i32 %343, 0
@@ -938,9 +938,9 @@ bdf_interpret_style.exit.thread:                  ; preds = %340
 .preheader.i:                                     ; preds = %340, %361
   %.076142.i = phi ptr [ %.1.i, %361 ], [ %341, %340 ]
   %.181141.i = phi i64 [ %362, %361 ], [ 0, %340 ]
-  %344 = getelementptr inbounds [4 x ptr], ptr %7, i64 0, i64 %.181141.i
+  %344 = getelementptr inbounds nuw [4 x ptr], ptr %7, i64 0, i64 %.181141.i
   %345 = load ptr, ptr %344, align 8
-  %346 = getelementptr inbounds [4 x i64], ptr %8, i64 0, i64 %.181141.i
+  %346 = getelementptr inbounds nuw [4 x i64], ptr %8, i64 0, i64 %.181141.i
   %347 = load i64, ptr %346, align 8
   %.not108.i = icmp eq ptr %345, null
   br i1 %.not108.i, label %361, label %348
@@ -951,7 +951,7 @@ bdf_interpret_style.exit.thread:                  ; preds = %340
   br i1 %.not109.i, label %352, label %350
 
 350:                                              ; preds = %348
-  %351 = getelementptr inbounds i8, ptr %.076142.i, i64 1
+  %351 = getelementptr inbounds nuw i8, ptr %.076142.i, i64 1
   store i8 32, ptr %.076142.i, align 1
   br label %352
 
@@ -1004,22 +1004,22 @@ bdf_interpret_style.exit:                         ; preds = %361
   br i1 %.not198, label %364, label %595
 
 364:                                              ; preds = %bdf_interpret_style.exit
-  %365 = getelementptr inbounds i8, ptr %.1257, i64 80
+  %365 = getelementptr inbounds nuw i8, ptr %.1257, i64 80
   %366 = load i64, ptr %365, align 8
   %367 = add i64 %366, 1
-  %368 = getelementptr inbounds i8, ptr %1, i64 32
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i64 %367, ptr %368, align 8
-  %369 = getelementptr inbounds i8, ptr %1, i64 56
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 1, ptr %369, align 8
   %370 = call ptr @ft_mem_alloc(ptr noundef %17, i64 noundef 32, ptr noundef nonnull %12) #18
-  %371 = getelementptr inbounds i8, ptr %1, i64 64
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %370, ptr %371, align 8
   %372 = load i32, ptr %12, align 4
   %.not199 = icmp eq i32 %372, 0
   br i1 %.not199, label %373, label %595
 
 373:                                              ; preds = %364
-  %374 = getelementptr inbounds i8, ptr %.1257, i64 64
+  %374 = getelementptr inbounds nuw i8, ptr %.1257, i64 64
   %375 = load i64, ptr %374, align 8
   %376 = add i64 %375, -32768
   %or.cond225 = icmp ult i64 %376, -65535
@@ -1033,7 +1033,7 @@ bdf_interpret_style.exit:                         ; preds = %361
 
 380:                                              ; preds = %373, %377
   %381 = phi i64 [ %375, %373 ], [ %379, %377 ]
-  %382 = getelementptr inbounds i8, ptr %.1257, i64 72
+  %382 = getelementptr inbounds nuw i8, ptr %.1257, i64 72
   %383 = load i64, ptr %382, align 8
   %384 = add i64 %383, -32768
   %or.cond226 = icmp ult i64 %384, -65535
@@ -1055,7 +1055,7 @@ bdf_interpret_style.exit:                         ; preds = %361
   br i1 %.not200, label %402, label %393
 
 393:                                              ; preds = %388
-  %394 = getelementptr inbounds i8, ptr %392, i64 16
+  %394 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %395 = load i64, ptr %394, align 8
   %396 = add i64 %395, -327666
   %or.cond227 = icmp ult i64 %396, -655331
@@ -1080,14 +1080,14 @@ bdf_interpret_style.exit:                         ; preds = %361
 
 409:                                              ; preds = %393, %397, %402
   %.sink = phi i16 [ %401, %397 ], [ %408, %402 ], [ 32767, %393 ]
-  %410 = getelementptr inbounds i8, ptr %370, i64 2
+  %410 = getelementptr inbounds nuw i8, ptr %370, i64 2
   store i16 %.sink, ptr %410, align 2
   %411 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1257, ptr noundef nonnull @.str.6)
   %.not201 = icmp eq ptr %411, null
   br i1 %.not201, label %419, label %412
 
 412:                                              ; preds = %409
-  %413 = getelementptr inbounds i8, ptr %411, i64 16
+  %413 = getelementptr inbounds nuw i8, ptr %411, i64 16
   %414 = load i64, ptr %413, align 8
   %415 = add i64 %414, -328899
   %or.cond228 = icmp ult i64 %415, -657797
@@ -1099,7 +1099,7 @@ bdf_interpret_style.exit:                         ; preds = %361
   br label %431
 
 419:                                              ; preds = %409
-  %420 = getelementptr inbounds i8, ptr %.1257, i64 24
+  %420 = getelementptr inbounds nuw i8, ptr %.1257, i64 24
   %421 = load i64, ptr %420, align 8
   %.not202 = icmp eq i64 %421, 0
   br i1 %.not202, label %425, label %422
@@ -1111,7 +1111,7 @@ bdf_interpret_style.exit:                         ; preds = %361
   br label %431
 
 425:                                              ; preds = %419
-  %426 = getelementptr inbounds i8, ptr %370, i64 2
+  %426 = getelementptr inbounds nuw i8, ptr %370, i64 2
   %427 = load i16, ptr %426, align 2
   %428 = sext i16 %427 to i32
   %429 = shl nsw i32 %428, 6
@@ -1120,14 +1120,14 @@ bdf_interpret_style.exit:                         ; preds = %361
 
 431:                                              ; preds = %422, %412, %425, %416
   %.sink409 = phi i64 [ %430, %425 ], [ %418, %416 ], [ 32767, %412 ], [ %spec.select, %422 ]
-  %432 = getelementptr inbounds i8, ptr %370, i64 8
+  %432 = getelementptr inbounds nuw i8, ptr %370, i64 8
   store i64 %.sink409, ptr %432, align 8
   %433 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1257, ptr noundef nonnull @.str.7)
   %.not203 = icmp eq ptr %433, null
   br i1 %.not203, label %442, label %.sink.split
 
 .sink.split:                                      ; preds = %431
-  %434 = getelementptr inbounds i8, ptr %433, i64 16
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 16
   %435 = load i64, ptr %434, align 8
   %436 = add i64 %435, -32768
   %or.cond229 = icmp ult i64 %436, -65535
@@ -1136,15 +1136,15 @@ bdf_interpret_style.exit:                         ; preds = %361
   %439 = shl nuw nsw i32 %438, 6
   %440 = zext nneg i32 %439 to i64
   %.sink411 = select i1 %or.cond229, i64 2097088, i64 %440
-  %441 = getelementptr inbounds i8, ptr %370, i64 24
+  %441 = getelementptr inbounds nuw i8, ptr %370, i64 24
   store i64 %.sink411, ptr %441, align 8
   br label %442
 
 442:                                              ; preds = %.sink.split, %431
   %443 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1257, ptr noundef nonnull @.str.8)
   %.not205 = icmp eq ptr %443, null
-  %444 = getelementptr inbounds i8, ptr %443, i64 16
-  %445 = getelementptr inbounds i8, ptr %.1257, i64 32
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 16
+  %445 = getelementptr inbounds nuw i8, ptr %.1257, i64 32
   %.0158.in = select i1 %.not205, ptr %445, ptr %444
   %.0158 = load i64, ptr %.0158.in, align 8
   %.not206 = icmp eq i64 %.0158, 0
@@ -1165,8 +1165,8 @@ bdf_interpret_style.exit:                         ; preds = %361
   %.0157 = phi i16 [ %451, %448 ], [ 0, %442 ], [ 32767, %446 ]
   %453 = call fastcc ptr @bdf_get_font_property(ptr noundef nonnull %.1257, ptr noundef nonnull @.str.9)
   %.not208 = icmp eq ptr %453, null
-  %454 = getelementptr inbounds i8, ptr %453, i64 16
-  %455 = getelementptr inbounds i8, ptr %.1257, i64 40
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 16
+  %455 = getelementptr inbounds nuw i8, ptr %.1257, i64 40
   %.1.in = select i1 %.not208, ptr %455, ptr %454
   %.1 = load i64, ptr %.1.in, align 8
   %.not209 = icmp eq i64 %.1, 0
@@ -1181,37 +1181,37 @@ bdf_interpret_style.exit:                         ; preds = %361
   %459 = trunc i64 %.1 to i32
   %460 = call i32 @llvm.abs.i32(i32 %459, i1 true)
   %461 = trunc nuw i32 %460 to i16
-  %462 = getelementptr inbounds i8, ptr %370, i64 24
+  %462 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %463 = load i64, ptr %462, align 8
   %464 = icmp eq i64 %463, 0
   br i1 %464, label %475, label %483
 
 .thread358:                                       ; preds = %452
-  %465 = getelementptr inbounds i8, ptr %370, i64 24
+  %465 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %466 = load i64, ptr %465, align 8
   %467 = icmp eq i64 %466, 0
   br i1 %467, label %.thread361, label %.thread274
 
 .thread361:                                       ; preds = %.thread358
-  %468 = getelementptr inbounds i8, ptr %370, i64 8
+  %468 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %469 = load i64, ptr %468, align 8
   store i64 %469, ptr %465, align 8
   br label %.thread274
 
 .thread266:                                       ; preds = %456
-  %470 = getelementptr inbounds i8, ptr %370, i64 24
+  %470 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %471 = load i64, ptr %470, align 8
   %472 = icmp eq i64 %471, 0
   br i1 %472, label %.thread270, label %483
 
 .thread270:                                       ; preds = %.thread266
-  %473 = getelementptr inbounds i8, ptr %370, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %474 = load i64, ptr %473, align 8
   store i64 %474, ptr %470, align 8
   br label %478
 
 475:                                              ; preds = %458
-  %476 = getelementptr inbounds i8, ptr %370, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %477 = load i64, ptr %476, align 8
   store i64 %477, ptr %462, align 8
   %.not211 = icmp eq i32 %459, 0
@@ -1242,27 +1242,27 @@ bdf_interpret_style.exit:                         ; preds = %361
 
 .thread274:                                       ; preds = %483, %475, %.thread361, %.thread358, %487
   %.sink413 = phi i64 [ %490, %487 ], [ %484, %483 ], [ %477, %475 ], [ %469, %.thread361 ], [ %466, %.thread358 ]
-  %491 = getelementptr inbounds i8, ptr %370, i64 16
+  %491 = getelementptr inbounds nuw i8, ptr %370, i64 16
   store i64 %.sink413, ptr %491, align 8
-  %492 = getelementptr inbounds i8, ptr %.1257, i64 96
+  %492 = getelementptr inbounds nuw i8, ptr %.1257, i64 96
   %493 = load ptr, ptr %492, align 8
   %494 = load i64, ptr %365, align 8
   %495 = call ptr @ft_mem_qrealloc(ptr noundef %17, i64 noundef 16, i64 noundef 0, i64 noundef %494, ptr noundef null, ptr noundef nonnull %12) #18
-  %496 = getelementptr inbounds i8, ptr %1, i64 272
+  %496 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store ptr %495, ptr %496, align 8
   %497 = load i32, ptr %12, align 4
   %.not212 = icmp eq i32 %497, 0
   br i1 %.not212, label %498, label %595
 
 498:                                              ; preds = %.thread274
-  %499 = getelementptr inbounds i8, ptr %1, i64 280
+  %499 = getelementptr inbounds nuw i8, ptr %1, i64 280
   store i32 0, ptr %499, align 8
   %500 = load i64, ptr %365, align 8
   %.not324 = icmp eq i64 %500, 0
   br i1 %.not324, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %498
-  %501 = getelementptr inbounds i8, ptr %.1257, i64 56
+  %501 = getelementptr inbounds nuw i8, ptr %.1257, i64 56
   br label %502
 
 502:                                              ; preds = %.lr.ph, %516
@@ -1303,32 +1303,32 @@ bdf_interpret_style.exit:                         ; preds = %361
   br i1 %or.cond8, label %524, label %582
 
 524:                                              ; preds = %._crit_edge
-  %525 = getelementptr inbounds i8, ptr %520, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %520, i64 8
   %526 = load i32, ptr %525, align 8
   %527 = icmp eq i32 %526, 1
   br i1 %527, label %528, label %582
 
 528:                                              ; preds = %524
-  %529 = getelementptr inbounds i8, ptr %521, i64 8
+  %529 = getelementptr inbounds nuw i8, ptr %521, i64 8
   %530 = load i32, ptr %529, align 8
   %531 = icmp eq i32 %530, 1
   br i1 %531, label %532, label %582
 
 532:                                              ; preds = %528
-  %533 = getelementptr inbounds i8, ptr %520, i64 16
+  %533 = getelementptr inbounds nuw i8, ptr %520, i64 16
   %534 = load ptr, ptr %533, align 8
   %.not213 = icmp eq ptr %534, null
   br i1 %.not213, label %582, label %535
 
 535:                                              ; preds = %532
-  %536 = getelementptr inbounds i8, ptr %521, i64 16
+  %536 = getelementptr inbounds nuw i8, ptr %521, i64 16
   %537 = load ptr, ptr %536, align 8
   %.not214 = icmp eq ptr %537, null
   br i1 %.not214, label %582, label %538
 
 538:                                              ; preds = %535
   %539 = call ptr @ft_mem_strdup(ptr noundef %17, ptr noundef nonnull %537, ptr noundef nonnull %12) #18
-  %540 = getelementptr inbounds i8, ptr %1, i64 248
+  %540 = getelementptr inbounds nuw i8, ptr %1, i64 248
   store ptr %539, ptr %540, align 8
   %541 = load i32, ptr %12, align 4
   %.not216 = icmp eq i32 %541, 0
@@ -1337,7 +1337,7 @@ bdf_interpret_style.exit:                         ; preds = %361
 542:                                              ; preds = %538
   %543 = load ptr, ptr %533, align 8
   %544 = call ptr @ft_mem_strdup(ptr noundef %17, ptr noundef %543, ptr noundef nonnull %12) #18
-  %545 = getelementptr inbounds i8, ptr %1, i64 256
+  %545 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store ptr %544, ptr %545, align 8
   %546 = load i32, ptr %12, align 4
   %.not217 = icmp eq i32 %546, 0
@@ -1351,7 +1351,7 @@ bdf_interpret_style.exit:                         ; preds = %361
   ]
 
 549:                                              ; preds = %547, %547
-  %550 = getelementptr inbounds i8, ptr %544, i64 1
+  %550 = getelementptr inbounds nuw i8, ptr %544, i64 1
   %551 = load i8, ptr %550, align 1
   switch i8 %551, label %.thread278 [
     i8 115, label %552
@@ -1359,7 +1359,7 @@ bdf_interpret_style.exit:                         ; preds = %361
   ]
 
 552:                                              ; preds = %549, %549
-  %553 = getelementptr inbounds i8, ptr %544, i64 2
+  %553 = getelementptr inbounds nuw i8, ptr %544, i64 2
   %554 = load i8, ptr %553, align 1
   switch i8 %554, label %.thread278 [
     i8 111, label %555
@@ -1367,7 +1367,7 @@ bdf_interpret_style.exit:                         ; preds = %361
   ]
 
 555:                                              ; preds = %552, %552
-  %556 = getelementptr inbounds i8, ptr %544, i64 3
+  %556 = getelementptr inbounds nuw i8, ptr %544, i64 3
   %557 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %556, ptr noundef nonnull dereferenceable(6) @.str.12) #19
   %.not218 = icmp eq i32 %557, 0
   br i1 %.not218, label %.thread281, label %558
@@ -1384,7 +1384,7 @@ sub_0:                                            ; preds = %558
   br i1 %.not325, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %562 = getelementptr inbounds i8, ptr %560, i64 1
+  %562 = getelementptr inbounds nuw i8, ptr %560, i64 1
   %563 = load i8, ptr %562, align 1
   %564 = icmp eq i8 %563, 0
   br i1 %564, label %.thread281, label %.tail.thread
@@ -1396,15 +1396,15 @@ sub_0:                                            ; preds = %558
 
 .thread278:                                       ; preds = %.tail.thread, %547, %549, %552
   store ptr %1, ptr %14, align 8
-  %566 = getelementptr inbounds i8, ptr %14, i64 8
+  %566 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %566, align 8
   br label %580
 
 .thread281:                                       ; preds = %.tail, %555
   store ptr %1, ptr %14, align 8
-  %567 = getelementptr inbounds i8, ptr %14, i64 8
-  %568 = getelementptr inbounds i8, ptr %14, i64 12
-  %569 = getelementptr inbounds i8, ptr %14, i64 14
+  %567 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %568 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %569 = getelementptr inbounds nuw i8, ptr %14, i64 14
   store i64 0, ptr %567, align 8
   br label %576
 
@@ -1413,9 +1413,9 @@ sub_0:                                            ; preds = %558
   %572 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %571, ptr noundef nonnull dereferenceable(4) @.str.16) #19
   %.not222.not = icmp eq i32 %572, 0
   store ptr %1, ptr %14, align 8
-  %573 = getelementptr inbounds i8, ptr %14, i64 8
-  %574 = getelementptr inbounds i8, ptr %14, i64 12
-  %575 = getelementptr inbounds i8, ptr %14, i64 14
+  %573 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %574 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  %575 = getelementptr inbounds nuw i8, ptr %14, i64 14
   store i64 0, ptr %573, align 8
   br i1 %.not222.not, label %576, label %580
 
@@ -1434,23 +1434,23 @@ sub_0:                                            ; preds = %558
 
 582:                                              ; preds = %524, %528, %532, %535, %._crit_edge
   store ptr %1, ptr %15, align 8
-  %583 = getelementptr inbounds i8, ptr %15, i64 8
+  %583 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 1094995778, ptr %583, align 8
-  %584 = getelementptr inbounds i8, ptr %15, i64 12
+  %584 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store i16 7, ptr %584, align 4
-  %585 = getelementptr inbounds i8, ptr %15, i64 14
+  %585 = getelementptr inbounds nuw i8, ptr %15, i64 14
   store i16 0, ptr %585, align 2
   %586 = call i32 @FT_CMap_New(ptr noundef nonnull @bdf_cmap_class, ptr noundef null, ptr noundef nonnull %15, ptr noundef null) #18
-  %587 = getelementptr inbounds i8, ptr %1, i64 72
+  %587 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %588 = load i32, ptr %587, align 8
   %.not215 = icmp eq i32 %588, 0
   br i1 %.not215, label %595, label %589
 
 589:                                              ; preds = %582
-  %590 = getelementptr inbounds i8, ptr %1, i64 80
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %591 = load ptr, ptr %590, align 8
   %592 = load ptr, ptr %591, align 8
-  %593 = getelementptr inbounds i8, ptr %1, i64 168
+  %593 = getelementptr inbounds nuw i8, ptr %1, i64 168
   store ptr %592, ptr %593, align 8
   br label %595
 
@@ -1469,32 +1469,32 @@ define internal void @BDF_Face_Done(ptr noundef %0) #0 {
   br i1 %.not, label %20, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 184
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 264
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %6 = load ptr, ptr %5, align 8
   tail call fastcc void @bdf_free_font(ptr noundef %6)
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %8) #18
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 248
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %10 = load ptr, ptr %9, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %10) #18
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 256
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %12 = load ptr, ptr %11, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %12) #18
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %14) #18
   store ptr null, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %16) #18
   store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   tail call void @ft_mem_free(ptr noundef %4, ptr noundef %18) #18
   store ptr null, ptr %17, align 8
@@ -1510,12 +1510,12 @@ define internal void @BDF_Face_Done(ptr noundef %0) #0 {
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #0 {
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
-  %7 = getelementptr inbounds i8, ptr %5, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 264
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = load i16, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = trunc i64 %12 to i32
   %.not43 = icmp ult i32 %2, %13
@@ -1526,7 +1526,7 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptur
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %5, i64 280
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 280
   %18 = load i32, ptr %17, align 8
   br label %21
 
@@ -1536,31 +1536,31 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptur
 
 21:                                               ; preds = %19, %16
   %.0 = phi i32 [ %18, %16 ], [ %20, %19 ]
-  %22 = getelementptr inbounds i8, ptr %8, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %23 = load ptr, ptr %22, align 8
   %24 = zext i32 %.0 to i64
-  %25 = getelementptr inbounds %struct.bdf_glyph_t_, ptr %23, i64 %24
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 18
+  %25 = getelementptr inbounds nuw %struct.bdf_glyph_t_, ptr %23, i64 %24
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 18
   %.sroa.1.0.copyload = load i16, ptr %.sroa.1.0..sroa_idx, align 2
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 20
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 20
   %.sroa.2.0.copyload = load i16, ptr %.sroa.2.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 22
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 22
   %.sroa.3.0.copyload = load i16, ptr %.sroa.3.0..sroa_idx, align 2
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 24
   %.sroa.4.0.copyload = load i16, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.62.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 28
+  %.sroa.62.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 28
   %.sroa.62.0.copyload = load i16, ptr %.sroa.62.0..sroa_idx, align 4
-  %.sroa.84.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 32
+  %.sroa.84.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.sroa.84.0.copyload = load ptr, ptr %.sroa.84.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 40
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 40
   %.sroa.9.0.copyload = load i64, ptr %.sroa.9.0..sroa_idx, align 8
   %26 = zext i16 %.sroa.3.0.copyload to i32
   store i32 %26, ptr %6, align 8
   %27 = zext i16 %.sroa.2.0.copyload to i32
-  %28 = getelementptr inbounds i8, ptr %0, i64 156
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 %27, ptr %28, align 4
   %29 = trunc i64 %.sroa.9.0.copyload to i32
-  %30 = getelementptr inbounds i8, ptr %0, i64 160
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %29, ptr %30, align 8
   tail call void @ft_glyphslot_set_bitmap(ptr noundef %0, ptr noundef %.sroa.84.0.copyload) #18
   switch i16 %10, label %40 [
@@ -1571,48 +1571,48 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptur
   ]
 
 31:                                               ; preds = %21
-  %32 = getelementptr inbounds i8, ptr %0, i64 178
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 1, ptr %32, align 2
   br label %40
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds i8, ptr %0, i64 178
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 3, ptr %34, align 2
   br label %40
 
 35:                                               ; preds = %21
-  %36 = getelementptr inbounds i8, ptr %0, i64 178
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 4, ptr %36, align 2
   br label %40
 
 37:                                               ; preds = %21
-  %38 = getelementptr inbounds i8, ptr %0, i64 178
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 178
   store i8 2, ptr %38, align 2
-  %39 = getelementptr inbounds i8, ptr %0, i64 176
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i16 256, ptr %39, align 8
   br label %40
 
 40:                                               ; preds = %37, %35, %33, %31, %21
-  %41 = getelementptr inbounds i8, ptr %0, i64 144
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 1651078259, ptr %41, align 8
   %42 = sext i16 %.sroa.4.0.copyload to i32
-  %43 = getelementptr inbounds i8, ptr %0, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store i32 %42, ptr %43, align 8
   %44 = sext i16 %.sroa.62.0.copyload to i32
-  %45 = getelementptr inbounds i8, ptr %0, i64 196
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 196
   store i32 %44, ptr %45, align 4
   %46 = zext i16 %.sroa.1.0.copyload to i64
   %47 = shl nuw nsw i64 %46, 6
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
-  %49 = getelementptr inbounds i8, ptr %0, i64 80
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %47, ptr %49, align 8
   %50 = shl nsw i32 %42, 6
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %0, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %51, ptr %52, align 8
   %53 = shl nsw i32 %44, 6
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %0, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %54, ptr %55, align 8
   %56 = load i32, ptr %28, align 4
   %57 = shl i32 %56, 6
@@ -1621,10 +1621,10 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptur
   %59 = load i32, ptr %6, align 8
   %60 = shl i32 %59, 6
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %0, i64 56
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %61, ptr %62, align 8
   %63 = load ptr, ptr %7, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 10
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 10
   %65 = load i16, ptr %64, align 2
   %66 = zext i16 %65 to i64
   %67 = shl nuw nsw i64 %66, 6
@@ -1639,14 +1639,14 @@ define internal range(i32 0, 7) i32 @BDF_Glyph_Load(ptr noundef %0, ptr nocaptur
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 264
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %9, 0
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8
   br i1 %.not, label %17, label %12
 
@@ -1668,7 +1668,7 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0,
   ]
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %5, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = add nsw i64 %24, 32
   %26 = ashr i64 %25, 6
@@ -1676,9 +1676,9 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0,
   br i1 %27, label %35, label %.thread
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %7, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %7, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %32 = load i64, ptr %31, align 8
   %33 = add nsw i64 %32, %30
   %34 = icmp eq i64 %20, %33
@@ -1686,21 +1686,21 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0,
 
 35:                                               ; preds = %22, %28
   tail call void @FT_Select_Metrics(ptr noundef nonnull %3, i64 noundef 0) #18
-  %36 = getelementptr inbounds i8, ptr %7, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %37 = load i64, ptr %36, align 8
   %38 = shl nsw i64 %37, 6
-  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %7, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %41 = load i64, ptr %40, align 8
   %.neg.i = mul i64 %41, -64
-  %42 = getelementptr inbounds i8, ptr %0, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.neg.i, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %7, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %44 = load i16, ptr %43, align 8
   %45 = zext i16 %44 to i64
   %46 = shl nuw nsw i64 %45, 6
-  %47 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %46, ptr %47, align 8
   br label %.thread
 
@@ -1712,24 +1712,24 @@ define internal range(i32 0, 24) i32 @BDF_Size_Request(ptr nocapture noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @BDF_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
   tail call void @FT_Select_Metrics(ptr noundef %3, i64 noundef %1) #18
-  %6 = getelementptr inbounds i8, ptr %5, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i64, ptr %6, align 8
   %8 = shl nsw i64 %7, 6
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %11 = load i64, ptr %10, align 8
   %.neg = mul i64 %11, -64
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %.neg, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i16, ptr %13, align 8
   %15 = zext i16 %14 to i64
   %16 = shl nuw nsw i64 %15, 6
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %16, ptr %17, align 8
   ret i32 0
 }
@@ -1738,10 +1738,10 @@ declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @bdf_get_charset_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 248
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 256
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %7 = load ptr, ptr %6, align 8
   store ptr %7, ptr %2, align 8
   ret i32 0
@@ -1749,13 +1749,13 @@ define internal noundef i32 @bdf_get_charset_id(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 7) i32 @bdf_get_bdf_property(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %bdf_get_font_property.exit.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %5, i64 128
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   %11 = icmp eq ptr %1, null
@@ -1768,14 +1768,14 @@ define internal range(i32 0, 7) i32 @bdf_get_bdf_property(ptr nocapture noundef 
   br i1 %14, label %bdf_get_font_property.exit.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %5, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %17 = load ptr, ptr %16, align 8
   %18 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %1, ptr noundef %17) #18
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %bdf_get_font_property.exit.thread, label %bdf_get_font_property.exit
 
 bdf_get_font_property.exit:                       ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %5, i64 144
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %20 = load ptr, ptr %19, align 8
   %21 = load i64, ptr %18, align 8
   %22 = getelementptr inbounds %struct.bdf_property_t_, ptr %20, i64 %21
@@ -1783,7 +1783,7 @@ bdf_get_font_property.exit:                       ; preds = %15
   br i1 %.not, label %bdf_get_font_property.exit.thread, label %23
 
 23:                                               ; preds = %bdf_get_font_property.exit
-  %24 = getelementptr inbounds i8, ptr %22, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8
   switch i32 %25, label %bdf_get_font_property.exit.thread [
     i32 1, label %26
@@ -1793,27 +1793,27 @@ bdf_get_font_property.exit:                       ; preds = %15
 
 26:                                               ; preds = %23
   store i32 1, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %28, ptr %29, align 8
   br label %bdf_get_font_property.exit.thread
 
 30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %22, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 2, ptr %2, align 8
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %33, ptr %34, align 8
   br label %bdf_get_font_property.exit.thread
 
 35:                                               ; preds = %23
-  %36 = getelementptr inbounds i8, ptr %22, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i32 3, ptr %2, align 8
   %37 = load i64, ptr %36, align 8
   %38 = trunc i64 %37 to i32
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %38, ptr %39, align 8
   br label %bdf_get_font_property.exit.thread
 
@@ -1828,7 +1828,7 @@ define internal fastcc ptr @bdf_get_font_property(ptr noundef readonly %0, ptr n
   br i1 %3, label %21, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 128
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   %8 = icmp eq ptr %1, null
@@ -1841,14 +1841,14 @@ define internal fastcc ptr @bdf_get_font_property(ptr noundef readonly %0, ptr n
   br i1 %11, label %21, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 168
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %1, ptr noundef %14) #18
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 144
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %15, align 8
   %20 = getelementptr inbounds %struct.bdf_property_t_, ptr %18, i64 %19
@@ -1883,13 +1883,13 @@ define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, pt
   %8 = alloca i32, align 4
   %9 = alloca [128 x i8], align 16
   store i32 0, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %11, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -1900,7 +1900,7 @@ define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, pt
   br i1 %.not181, label %17, label %.critedge
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %.critedge [
     i8 32, label %switch.edge
@@ -1911,9 +1911,9 @@ define internal i32 @bdf_parse_start_(ptr noundef %0, i64 noundef %1, i64 %2, pt
   ]
 
 switch.edge:                                      ; preds = %17, %17, %17, %17, %17
-  %20 = getelementptr inbounds i8, ptr %4, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %.not214 = icmp eq i32 %23, 0
   %brmerge = or i1 %.not, %.not214
@@ -1924,14 +1924,14 @@ switch.edge:                                      ; preds = %17, %17, %17, %17, 
   %.0.v = select i1 %.not216, i64 -7, i64 -8
   %.0 = add i64 %.0.v, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %25 = getelementptr inbounds i8, ptr %11, i64 184
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 184
   %26 = load ptr, ptr %25, align 8
   store i32 0, ptr %6, align 4
-  %27 = getelementptr inbounds i8, ptr %11, i64 160
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 160
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %.0, 1
   %30 = add i64 %28, %29
-  %31 = getelementptr inbounds i8, ptr %11, i64 152
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 152
   %32 = load ptr, ptr %31, align 8
   %33 = call ptr @ft_mem_qrealloc(ptr noundef %26, i64 noundef 1, i64 noundef %28, i64 noundef %30, ptr noundef %32, ptr noundef nonnull %6) #18
   store ptr %33, ptr %31, align 8
@@ -1940,7 +1940,7 @@ switch.edge:                                      ; preds = %17, %17, %17, %17, 
   br i1 %.not.i, label %35, label %bdf_add_comment_.exit
 
 35:                                               ; preds = %24
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0169 = select i1 %.not216, ptr %18, ptr %36
   %37 = load i64, ptr %27, align 8
   %38 = getelementptr inbounds i8, ptr %33, i64 %37
@@ -1965,14 +1965,14 @@ bdf_add_comment_.exit:                            ; preds = %24, %35
   br i1 %.not183, label %45, label %83
 
 45:                                               ; preds = %.critedge
-  %46 = getelementptr inbounds i8, ptr %4, i64 104
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %47 = load ptr, ptr %46, align 8
   %48 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(10) @.str.18, i64 noundef 9) #19
   %.not184 = icmp eq i32 %48, 0
   br i1 %.not184, label %49, label %.loopexit
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 9
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %51 = load i8, ptr %50, align 1
   switch i8 %51, label %.loopexit [
     i8 32, label %switch.edge217
@@ -1993,9 +1993,9 @@ switch.edge217:                                   ; preds = %49, %49, %49, %49, 
 54:                                               ; preds = %switch.edge217
   store ptr %52, ptr %10, align 8
   %55 = load ptr, ptr %46, align 8
-  %56 = getelementptr inbounds i8, ptr %52, i64 184
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 184
   store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %52, i64 208
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 208
   %58 = call i32 @ft_hash_str_init(ptr noundef nonnull %57, ptr noundef %47) #18
   store i32 %58, ptr %8, align 4
   %.not186 = icmp eq i32 %58, 0
@@ -2012,14 +2012,14 @@ switch.edge217:                                   ; preds = %49, %49, %49, %49, 
 
 61:                                               ; preds = %.preheader
   %62 = add nuw nsw i64 %.0167242, 1
-  %63 = getelementptr inbounds i8, ptr %.0166243, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %.0166243, i64 24
   %exitcond.not = icmp eq i64 %62, 83
   br i1 %exitcond.not, label %64, label %.preheader, !llvm.loop !10
 
 64:                                               ; preds = %61
   %65 = call ptr @ft_mem_qalloc(ptr noundef %47, i64 noundef 40, ptr noundef nonnull %8) #18
   %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 168
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 168
   store ptr %65, ptr %67, align 8
   %68 = load i32, ptr %8, align 4
   %.not187 = icmp eq i32 %68, 0
@@ -2027,22 +2027,22 @@ switch.edge217:                                   ; preds = %49, %49, %49, %49, 
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 168
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 168
   %72 = load ptr, ptr %71, align 8
   %73 = call i32 @ft_hash_str_init(ptr noundef %72, ptr noundef %47) #18
   %.not188 = icmp eq i32 %73, 0
   br i1 %.not188, label %74, label %.loopexit
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds i8, ptr %4, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 12
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %78 = load i32, ptr %77, align 4
   %79 = load ptr, ptr %10, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i32 %78, ptr %80, align 8
   %81 = load ptr, ptr %10, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 56
   store i64 -1, ptr %82, align 8
   br label %.loopexit
 
@@ -2052,7 +2052,7 @@ switch.edge217:                                   ; preds = %49, %49, %49, %49, 
   br i1 %.not190, label %85, label %.critedge222
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %0, i64 15
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %87 = load i8, ptr %86, align 1
   switch i8 %87, label %.critedge222 [
     i8 32, label %switch.edge220
@@ -2068,7 +2068,7 @@ switch.edge220:                                   ; preds = %85, %85, %85, %85, 
   br i1 %.not211, label %.loopexit, label %89
 
 89:                                               ; preds = %switch.edge220
-  %90 = getelementptr inbounds i8, ptr %4, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %91 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %90, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %91, ptr %8, align 4
   %.not212 = icmp eq i32 %91, 0
@@ -2076,7 +2076,7 @@ switch.edge220:                                   ; preds = %85, %85, %85, %85, 
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8
   %96 = icmp eq ptr %95, null
   br i1 %96, label %bdf_atoul_.exit.thread, label %97
@@ -2089,7 +2089,7 @@ switch.edge220:                                   ; preds = %85, %85, %85, %85, 
 .preheader.i:                                     ; preds = %97
   %100 = lshr i8 %98, 3
   %101 = zext nneg i8 %100 to i64
-  %102 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %101
+  %102 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
   %105 = and i8 %98, 7
@@ -2108,9 +2108,9 @@ switch.edge220:                                   ; preds = %85, %85, %85, %85, 
 
 bdf_atoul_.exit.thread239:                        ; preds = %.lr.ph.i
   %111 = load ptr, ptr %10, align 8
-  %112 = getelementptr inbounds i8, ptr %111, i64 128
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 128
   store i64 -1, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %4, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 -1, ptr %113, align 8
   br label %142
 
@@ -2121,11 +2121,11 @@ bdf_atoul_.exit.thread239:                        ; preds = %.lr.ph.i
   %118 = load i8, ptr %117, align 1
   %119 = zext i8 %118 to i64
   %120 = add i64 %115, %119
-  %121 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %121 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %122 = load i8, ptr %121, align 1
   %123 = lshr i8 %122, 3
   %124 = zext nneg i8 %123 to i64
-  %125 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %124
   %126 = load i8, ptr %125, align 1
   %127 = zext i8 %126 to i32
   %128 = and i8 %122, 7
@@ -2137,19 +2137,19 @@ bdf_atoul_.exit.thread239:                        ; preds = %.lr.ph.i
 
 bdf_atoul_.exit.thread:                           ; preds = %97, %92, %.preheader.i
   %132 = load ptr, ptr %10, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 128
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 128
   store i64 0, ptr %133, align 8
-  %134 = getelementptr inbounds i8, ptr %4, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %134, align 8
   br label %145
 
 bdf_atoul_.exit:                                  ; preds = %114
   %135 = load ptr, ptr %10, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 128
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 128
   store i64 %120, ptr %136, align 8
-  %137 = getelementptr inbounds i8, ptr %4, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %120, ptr %137, align 8
-  %138 = getelementptr inbounds i8, ptr %4, i64 112
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %139 = load i64, ptr %138, align 8
   %140 = lshr i64 %139, 2
   %141 = icmp ugt i64 %120, %140
@@ -2157,7 +2157,7 @@ bdf_atoul_.exit:                                  ; preds = %114
 
 142:                                              ; preds = %bdf_atoul_.exit.thread239, %bdf_atoul_.exit
   %143 = load ptr, ptr %10, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 128
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 128
   store i64 0, ptr %144, align 8
   br label %.loopexit
 
@@ -2165,7 +2165,7 @@ bdf_atoul_.exit:                                  ; preds = %114
   %.010.i238 = phi i64 [ 0, %bdf_atoul_.exit.thread ], [ %120, %bdf_atoul_.exit ]
   %146 = call ptr @ft_mem_realloc(ptr noundef %.0168, i64 noundef 24, i64 noundef 0, i64 noundef %.010.i238, ptr noundef null, ptr noundef nonnull %8) #18
   %147 = load ptr, ptr %10, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 144
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 144
   store ptr %146, ptr %148, align 8
   %149 = load i32, ptr %8, align 4
   %.not213 = icmp eq i32 %149, 0
@@ -2173,7 +2173,7 @@ bdf_atoul_.exit:                                  ; preds = %114
 
 150:                                              ; preds = %145
   %151 = load ptr, ptr %10, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 128
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 128
   store i64 0, ptr %152, align 8
   br label %.loopexit
 
@@ -2190,7 +2190,7 @@ bdf_atoul_.exit:                                  ; preds = %114
   br i1 %.not192, label %157, label %.critedge225
 
 157:                                              ; preds = %.critedge222
-  %158 = getelementptr inbounds i8, ptr %0, i64 15
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %159 = load i8, ptr %158, align 1
   switch i8 %159, label %.critedge225 [
     i8 32, label %switch.edge223
@@ -2206,53 +2206,53 @@ switch.edge223:                                   ; preds = %157, %157, %157, %1
   br i1 %.not209, label %.loopexit, label %161
 
 161:                                              ; preds = %switch.edge223
-  %162 = getelementptr inbounds i8, ptr %4, i64 72
+  %162 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %163 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %162, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   %.not210 = icmp eq i32 %163, 0
   br i1 %.not210, label %164, label %.loopexit
 
 164:                                              ; preds = %161
   %165 = load ptr, ptr %162, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
   %168 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %167)
   %169 = load ptr, ptr %10, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 8
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i16 %168, ptr %170, align 8
   %171 = load ptr, ptr %162, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %173 = load ptr, ptr %172, align 8
   %174 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %173)
   %175 = load ptr, ptr %10, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 10
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 10
   store i16 %174, ptr %176, align 2
   %177 = load ptr, ptr %162, align 8
-  %178 = getelementptr inbounds i8, ptr %177, i64 24
+  %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %179 = load ptr, ptr %178, align 8
   %180 = tail call fastcc signext i16 @bdf_atos_(ptr noundef %179)
   %181 = load ptr, ptr %10, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 12
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store i16 %180, ptr %182, align 4
   %183 = load ptr, ptr %162, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 32
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 32
   %185 = load ptr, ptr %184, align 8
   %186 = tail call fastcc signext i16 @bdf_atos_(ptr noundef %185)
   %187 = load ptr, ptr %10, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 14
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 14
   store i16 %186, ptr %188, align 2
   %189 = load ptr, ptr %10, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 10
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 10
   %191 = load i16, ptr %190, align 2
-  %192 = getelementptr inbounds i8, ptr %189, i64 14
+  %192 = getelementptr inbounds nuw i8, ptr %189, i64 14
   %193 = load i16, ptr %192, align 2
   %194 = add i16 %193, %191
-  %195 = getelementptr inbounds i8, ptr %189, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store i16 %194, ptr %195, align 8
   %196 = load ptr, ptr %10, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 14
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 14
   %198 = load i16, ptr %197, align 2
   %199 = sub i16 0, %198
-  %200 = getelementptr inbounds i8, ptr %196, i64 18
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 18
   store i16 %199, ptr %200, align 2
   %201 = load i64, ptr %4, align 8
   %202 = or i64 %201, 8
@@ -2265,7 +2265,7 @@ switch.edge223:                                   ; preds = %157, %157, %157, %1
   br i1 %.not194, label %204, label %.critedge228
 
 204:                                              ; preds = %.critedge225
-  %205 = getelementptr inbounds i8, ptr %0, i64 4
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %206 = load i8, ptr %205, align 1
   switch i8 %206, label %.critedge228 [
     i8 32, label %switch.edge226
@@ -2276,14 +2276,14 @@ switch.edge223:                                   ; preds = %157, %157, %157, %1
   ]
 
 switch.edge226:                                   ; preds = %204, %204, %204, %204, %204
-  %207 = getelementptr inbounds i8, ptr %4, i64 72
+  %207 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %208 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %207, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %208, ptr %8, align 4
   %.not205 = icmp eq i32 %208, 0
   br i1 %.not205, label %209, label %.loopexit
 
 209:                                              ; preds = %switch.edge226
-  %210 = getelementptr inbounds i8, ptr %4, i64 88
+  %210 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %211 = load i64, ptr %210, align 8
   switch i64 %211, label %.lr.ph.i236 [
     i64 0, label %bdf_list_shift_.exit
@@ -2335,7 +2335,7 @@ bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
 
 231:                                              ; preds = %222
   %232 = load ptr, ptr %10, align 8
-  %233 = getelementptr inbounds i8, ptr %4, i64 64
+  %233 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %234 = load ptr, ptr %233, align 8
   %235 = call fastcc i32 @bdf_set_default_spacing_(ptr noundef %232, ptr noundef %234)
   %.not208 = icmp eq i32 %235, 0
@@ -2353,7 +2353,7 @@ bdf_list_shift_.exit:                             ; preds = %209, %.sink.split.i
   br i1 %.not196, label %240, label %.critedge231
 
 240:                                              ; preds = %.critedge228
-  %241 = getelementptr inbounds i8, ptr %0, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %242 = load i8, ptr %241, align 1
   switch i8 %242, label %.critedge231 [
     i8 32, label %switch.edge229
@@ -2369,41 +2369,41 @@ switch.edge229:                                   ; preds = %240, %240, %240, %2
   br i1 %.not203, label %.loopexit, label %244
 
 244:                                              ; preds = %switch.edge229
-  %245 = getelementptr inbounds i8, ptr %4, i64 72
+  %245 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %246 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %245, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   %.not204 = icmp eq i32 %246, 0
   br i1 %.not204, label %247, label %.loopexit
 
 247:                                              ; preds = %244
   %248 = load ptr, ptr %245, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 8
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load ptr, ptr %249, align 8
   %251 = tail call fastcc i64 @bdf_atoul_(ptr noundef %250)
   %252 = load ptr, ptr %10, align 8
-  %253 = getelementptr inbounds i8, ptr %252, i64 24
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 24
   store i64 %251, ptr %253, align 8
   %254 = load ptr, ptr %245, align 8
-  %255 = getelementptr inbounds i8, ptr %254, i64 16
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %256 = load ptr, ptr %255, align 8
   %257 = tail call fastcc i64 @bdf_atoul_(ptr noundef %256)
   %258 = load ptr, ptr %10, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 32
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 32
   store i64 %257, ptr %259, align 8
   %260 = load ptr, ptr %245, align 8
-  %261 = getelementptr inbounds i8, ptr %260, i64 24
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 24
   %262 = load ptr, ptr %261, align 8
   %263 = tail call fastcc i64 @bdf_atoul_(ptr noundef %262)
   %264 = load ptr, ptr %10, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 40
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 40
   store i64 %263, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %4, i64 88
+  %266 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %267 = load i64, ptr %266, align 8
   %268 = icmp eq i64 %267, 5
   br i1 %268, label %269, label %289
 
 269:                                              ; preds = %247
   %270 = load ptr, ptr %245, align 8
-  %271 = getelementptr inbounds i8, ptr %270, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %272 = load ptr, ptr %271, align 8
   %273 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %272)
   %274 = icmp ugt i16 %273, 4
@@ -2411,7 +2411,7 @@ switch.edge229:                                   ; preds = %240, %240, %240, %2
 
 275:                                              ; preds = %269
   %276 = load ptr, ptr %10, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 176
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 176
   store i16 8, ptr %277, align 8
   br label %292
 
@@ -2421,14 +2421,14 @@ switch.edge229:                                   ; preds = %240, %240, %240, %2
 
 280:                                              ; preds = %278
   %281 = load ptr, ptr %10, align 8
-  %282 = getelementptr inbounds i8, ptr %281, i64 176
+  %282 = getelementptr inbounds nuw i8, ptr %281, i64 176
   store i16 4, ptr %282, align 8
   br label %292
 
 283:                                              ; preds = %278
   %284 = icmp eq i16 %273, 2
   %285 = load ptr, ptr %10, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 176
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 176
   br i1 %284, label %287, label %288
 
 287:                                              ; preds = %283
@@ -2441,7 +2441,7 @@ switch.edge229:                                   ; preds = %240, %240, %240, %2
 
 289:                                              ; preds = %247
   %290 = load ptr, ptr %10, align 8
-  %291 = getelementptr inbounds i8, ptr %290, i64 176
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 176
   store i16 1, ptr %291, align 8
   br label %292
 
@@ -2457,7 +2457,7 @@ switch.edge229:                                   ; preds = %240, %240, %240, %2
   br i1 %.not198, label %296, label %.loopexit
 
 296:                                              ; preds = %.critedge231
-  %297 = getelementptr inbounds i8, ptr %0, i64 5
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %298 = load i8, ptr %297, align 1
   switch i8 %298, label %.loopexit [
     i8 32, label %switch.edge232
@@ -2473,13 +2473,13 @@ switch.edge232:                                   ; preds = %296, %296, %296, %2
   br i1 %.not200, label %.loopexit, label %300
 
 300:                                              ; preds = %switch.edge232
-  %301 = getelementptr inbounds i8, ptr %11, i64 16
+  %301 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %302 = load i16, ptr %301, align 8
   %303 = sext i16 %302 to i64
-  %304 = getelementptr inbounds i8, ptr %11, i64 64
+  %304 = getelementptr inbounds nuw i8, ptr %11, i64 64
   store i64 %303, ptr %304, align 8
   %305 = load ptr, ptr %10, align 8
-  %306 = getelementptr inbounds i8, ptr %305, i64 16
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %307 = load i16, ptr %306, align 8
   %308 = sext i16 %307 to i32
   %309 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %308) #18
@@ -2491,13 +2491,13 @@ switch.edge232:                                   ; preds = %296, %296, %296, %2
 
 312:                                              ; preds = %300
   %313 = load ptr, ptr %10, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 18
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 18
   %315 = load i16, ptr %314, align 2
   %316 = sext i16 %315 to i64
-  %317 = getelementptr inbounds i8, ptr %313, i64 72
+  %317 = getelementptr inbounds nuw i8, ptr %313, i64 72
   store i64 %316, ptr %317, align 8
   %318 = load ptr, ptr %10, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 18
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 18
   %320 = load i16, ptr %319, align 2
   %321 = sext i16 %320 to i32
   %322 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %321) #18
@@ -2523,12 +2523,12 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   br i1 %2, label %70, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 184
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %6) #18
   store ptr null, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -2541,17 +2541,17 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   br label %11
 
 11:                                               ; preds = %3, %9
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %13 = load ptr, ptr %12, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %13) #18
   store ptr null, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %15 = load i64, ptr %14, align 8
   %.not88 = icmp eq i64 %15, 0
   br i1 %.not88, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %17
 
 17:                                               ; preds = %.lr.ph, %29
@@ -2559,13 +2559,13 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %.06872 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
   %19 = load ptr, ptr %16, align 8
   %20 = getelementptr inbounds %struct.bdf_property_t_, ptr %19, i64 %.06872
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 1
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds i8, ptr %20, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %26 = load ptr, ptr %25, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %26) #18
   %27 = load ptr, ptr %16, align 8
@@ -2581,12 +2581,12 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   br i1 %32, label %17, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %29, %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 144
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %34 = load ptr, ptr %33, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %34) #18
   store ptr null, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 96
-  %36 = getelementptr inbounds i8, ptr %0, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %37 = load i64, ptr %36, align 8
   %.not89 = icmp eq i64 %37, 0
   br i1 %.not89, label %._crit_edge77, label %.lr.ph76.preheader
@@ -2601,19 +2601,19 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %39 = load ptr, ptr %.06774, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %39) #18
   store ptr null, ptr %.06774, align 8
-  %40 = getelementptr inbounds i8, ptr %.06774, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.06774, i64 32
   %41 = load ptr, ptr %40, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %41) #18
   store ptr null, ptr %40, align 8
   %42 = add nuw i64 %.16973, 1
-  %43 = getelementptr inbounds i8, ptr %.06774, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %.06774, i64 56
   %44 = load i64, ptr %36, align 8
   %45 = icmp ult i64 %42, %44
   br i1 %45, label %.lr.ph76, label %._crit_edge77, !llvm.loop !14
 
 ._crit_edge77:                                    ; preds = %.lr.ph76, %._crit_edge
-  %46 = getelementptr inbounds i8, ptr %0, i64 120
-  %47 = getelementptr inbounds i8, ptr %0, i64 112
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %48 = load i64, ptr %47, align 8
   %.not90 = icmp eq i64 %48, 0
   br i1 %.not90, label %._crit_edge82, label %.lr.ph81.preheader
@@ -2628,12 +2628,12 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %50 = load ptr, ptr %.179, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %50) #18
   store ptr null, ptr %.179, align 8
-  %51 = getelementptr inbounds i8, ptr %.179, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.179, i64 32
   %52 = load ptr, ptr %51, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %52) #18
   store ptr null, ptr %51, align 8
   %53 = add nuw i64 %.278, 1
-  %54 = getelementptr inbounds i8, ptr %.179, i64 56
+  %54 = getelementptr inbounds nuw i8, ptr %.179, i64 56
   %55 = load i64, ptr %47, align 8
   %56 = icmp ult i64 %53, %55
   br i1 %56, label %.lr.ph81, label %._crit_edge82, !llvm.loop !15
@@ -2645,11 +2645,11 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   %58 = load ptr, ptr %46, align 8
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %58) #18
   store ptr null, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 208
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
   tail call void @ft_hash_str_free(ptr noundef nonnull %59, ptr noundef %5) #18
-  %60 = getelementptr inbounds i8, ptr %0, i64 192
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %0, i64 200
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %63 = load i64, ptr %62, align 8
   %.not91 = icmp eq i64 %63, 0
   br i1 %.not91, label %._crit_edge87, label %.lr.ph86
@@ -2661,7 +2661,7 @@ define internal fastcc void @bdf_free_font(ptr noundef %0) unnamed_addr #0 {
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %64) #18
   store ptr null, ptr %.084, align 8
   %65 = add nuw i64 %.383, 1
-  %66 = getelementptr inbounds i8, ptr %.084, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %.084, i64 24
   %67 = load i64, ptr %62, align 8
   %68 = icmp ult i64 %65, %67
   br i1 %68, label %.lr.ph86, label %._crit_edge87.loopexit, !llvm.loop !16
@@ -2702,9 +2702,9 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [32 x i8], align 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %21, label %11
@@ -2713,16 +2713,16 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   %12 = load ptr, ptr %0, align 8
   store ptr @empty, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @empty, ptr %14, align 8
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr @empty, ptr %16, align 8
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr @empty, ptr %18, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr @empty, ptr %20, align 8
   br label %21
 
@@ -2758,12 +2758,12 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   ]
 
 ._crit_edge:                                      ; preds = %32
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i8, ptr %.075, i64 1
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.075, i64 1
   %.pr.pre.pre = load i8, ptr %.phi.trans.insert.phi.trans.insert, align 1
   br label %38
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %.075, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.075, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 0
   br i1 %37, label %46, label %38
@@ -2774,7 +2774,7 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   %40 = shl nuw i8 1, %39
   %41 = lshr i8 %33, 3
   %42 = zext nneg i8 %41 to i64
-  %43 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = or i8 %44, %40
   store i8 %45, ptr %43, align 1
@@ -2783,7 +2783,7 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
 46:                                               ; preds = %34, %38
   %.pr = phi i8 [ %.pr.pre, %38 ], [ 0, %34 ]
   %.178 = phi i32 [ %.077, %38 ], [ 1, %34 ]
-  %47 = getelementptr inbounds i8, ptr %.075, i64 1
+  %47 = getelementptr inbounds nuw i8, ptr %.075, i64 1
   br label %32, !llvm.loop !17
 
 .critedge:                                        ; preds = %32
@@ -2792,7 +2792,7 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   br i1 %49, label %.lr.ph122, label %.critedge2
 
 .lr.ph122:                                        ; preds = %.critedge
-  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not98 = icmp eq i32 %.077, 0
   br label %.preheader113.preheader
 
@@ -2806,7 +2806,7 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   %52 = phi i8 [ %.pr105, %62 ], [ %51, %.preheader113.preheader ]
   %53 = lshr i8 %52, 3
   %54 = zext nneg i8 %53 to i64
-  %55 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %54
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = and i8 %52, 7
@@ -2817,7 +2817,7 @@ define internal fastcc i32 @bdf_list_split_(ptr nocapture noundef initializes((1
   br i1 %.not96, label %62, label %.critedge4
 
 62:                                               ; preds = %.preheader113
-  %63 = getelementptr inbounds i8, ptr %.171115, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.171115, i64 1
   %.pr105 = load i8, ptr %63, align 1
   %.not95 = icmp eq i8 %.pr105, 0
   br i1 %.not95, label %.critedge4, label %.preheader113, !llvm.loop !18
@@ -2888,7 +2888,7 @@ bdf_list_ensure_.exit:                            ; preds = %67, %68
   %.272117 = phi ptr [ %99, %98 ], [ %.171.lcssa, %.preheader ]
   %89 = lshr i8 %88, 3
   %90 = zext nneg i8 %89 to i64
-  %91 = getelementptr inbounds [32 x i8], ptr %7, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = and i8 %88, 7
@@ -2900,7 +2900,7 @@ bdf_list_ensure_.exit:                            ; preds = %67, %68
 
 98:                                               ; preds = %.lr.ph
   store i8 0, ptr %.272117, align 1
-  %99 = getelementptr inbounds i8, ptr %.272117, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.272117, i64 1
   %100 = load i8, ptr %99, align 1
   %.not100 = icmp eq i8 %100, 0
   br i1 %.not100, label %.critedge6, label %.lr.ph, !llvm.loop !19
@@ -2909,7 +2909,7 @@ bdf_list_ensure_.exit:                            ; preds = %67, %68
   br i1 %.not99, label %.critedge6.thread110, label %.critedge6.thread
 
 .critedge6.thread:                                ; preds = %101
-  %102 = getelementptr inbounds i8, ptr %.171.lcssa, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.171.lcssa, i64 1
   store i8 0, ptr %.171.lcssa, align 1
   %.pre126 = load i8, ptr %102, align 1
   br label %105
@@ -2956,7 +2956,7 @@ bdf_list_ensure_.exit:                            ; preds = %67, %68
   br i1 %119, label %bdf_list_ensure_.exit104, label %120
 
 120:                                              ; preds = %118
-  %121 = getelementptr inbounds i8, ptr %0, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %122 = load ptr, ptr %121, align 8
   %123 = lshr i64 %114, 1
   %124 = add i64 %114, 5
@@ -3026,7 +3026,7 @@ define internal fastcc i64 @bdf_atoul_(ptr noundef readonly %0) unnamed_addr #6 
 .preheader:                                       ; preds = %3
   %6 = lshr i8 %4, 3
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = and i8 %4, 7
@@ -3050,11 +3050,11 @@ define internal fastcc i64 @bdf_atoul_(ptr noundef readonly %0) unnamed_addr #6 
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i64
   %23 = add i64 %18, %22
-  %24 = getelementptr inbounds i8, ptr %.0913, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0913, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = lshr i8 %25, 3
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = and i8 %25, 7
@@ -3079,7 +3079,7 @@ define internal i32 @bdf_parse_properties_(ptr noundef %0, i64 noundef %1, i64 %
   br i1 %.not, label %8, label %.critedge
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 13
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %10 = load i8, ptr %9, align 1
   switch i8 %10, label %.critedge [
     i8 32, label %switch.edge
@@ -3090,39 +3090,39 @@ define internal i32 @bdf_parse_properties_(ptr noundef %0, i64 noundef %1, i64 %
   ]
 
 switch.edge:                                      ; preds = %8, %8, %8, %8, %8
-  %11 = getelementptr inbounds i8, ptr %4, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %bdf_get_font_property.exit.thread, label %14
 
 14:                                               ; preds = %switch.edge
-  %15 = getelementptr inbounds i8, ptr %12, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %bdf_get_font_property.exit.thread, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %12, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.26, ptr noundef %20) #18
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %bdf_get_font_property.exit.thread, label %bdf_get_font_property.exit
 
 bdf_get_font_property.exit:                       ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %12, i64 144
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %bdf_get_font_property.exit.thread, label %37
 
 bdf_get_font_property.exit.thread:                ; preds = %18, %switch.edge, %14, %bdf_get_font_property.exit
   %25 = load ptr, ptr %11, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i16, ptr %26, align 8
   %28 = sext i16 %27 to i64
-  %29 = getelementptr inbounds i8, ptr %25, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 64
   store i64 %28, ptr %29, align 8
   %30 = load ptr, ptr %11, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i16, ptr %31, align 8
   %33 = sext i16 %32 to i32
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %33) #18
@@ -3137,33 +3137,33 @@ bdf_get_font_property.exit.thread:                ; preds = %18, %switch.edge, %
   br i1 %39, label %bdf_get_font_property.exit80.thread, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %38, i64 128
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 128
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %bdf_get_font_property.exit80.thread, label %44
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %38, i64 168
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 168
   %46 = load ptr, ptr %45, align 8
   %47 = call ptr @ft_hash_str_lookup(ptr noundef nonnull @.str.27, ptr noundef %46) #18
   %.not.i78 = icmp eq ptr %47, null
   br i1 %.not.i78, label %bdf_get_font_property.exit80.thread, label %bdf_get_font_property.exit80
 
 bdf_get_font_property.exit80:                     ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %38, i64 144
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 144
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %bdf_get_font_property.exit80.thread, label %63
 
 bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_get_font_property.exit80
   %51 = load ptr, ptr %11, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 18
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 18
   %53 = load i16, ptr %52, align 2
   %54 = sext i16 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %51, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 72
   store i64 %54, ptr %55, align 8
   %56 = load ptr, ptr %11, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 18
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 18
   %58 = load i16, ptr %57, align 2
   %59 = sext i16 %58 to i32
   %60 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.25, i32 noundef %59) #18
@@ -3185,7 +3185,7 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   br i1 %.not63, label %67, label %.critedge74
 
 67:                                               ; preds = %.critedge
-  %68 = getelementptr inbounds i8, ptr %0, i64 21
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %69 = load i8, ptr %68, align 1
   switch i8 %69, label %.critedge74 [
     i8 32, label %switch.edge72
@@ -3201,7 +3201,7 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   br i1 %.not65, label %71, label %.critedge77
 
 71:                                               ; preds = %.critedge74
-  %72 = getelementptr inbounds i8, ptr %0, i64 7
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %73 = load i8, ptr %72, align 1
   switch i8 %73, label %.critedge77 [
     i8 0, label %76
@@ -3212,19 +3212,19 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   ]
 
 74:                                               ; preds = %71, %71, %71, %71
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %72, align 1
   br label %76
 
 76:                                               ; preds = %71, %74
   %.0 = phi ptr [ %75, %74 ], [ %72, %71 ]
-  %77 = getelementptr inbounds i8, ptr %4, i64 56
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %78 = load ptr, ptr %77, align 8
   %79 = tail call fastcc i32 @bdf_add_property_(ptr noundef %78, ptr noundef nonnull %0, ptr noundef nonnull %.0)
   br label %switch.edge72
 
 .critedge77:                                      ; preds = %71, %.critedge74
-  %80 = getelementptr inbounds i8, ptr %4, i64 56
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %81 = load ptr, ptr %80, align 8
   br label %82
 
@@ -3238,7 +3238,7 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   ]
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.038.i, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.038.i, i64 1
   br label %82, !llvm.loop !21
 
 .critedge.i:                                      ; preds = %82, %82, %82
@@ -3252,7 +3252,7 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   br i1 %89, label %bdf_get_property.exit.thread.i, label %90
 
 90:                                               ; preds = %87
-  %91 = getelementptr inbounds i8, ptr %81, i64 208
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 208
   %92 = tail call ptr @ft_hash_str_lookup(ptr noundef nonnull %0, ptr noundef nonnull %91) #18
   %93 = icmp eq ptr %92, null
   br i1 %93, label %bdf_get_property.exit.thread.i, label %94
@@ -3263,11 +3263,11 @@ bdf_get_font_property.exit80.thread:              ; preds = %44, %37, %40, %bdf_
   br i1 %96, label %bdf_get_property.exit.i, label %bdf_get_property.exit.thread54.i
 
 bdf_get_property.exit.thread54.i:                 ; preds = %94
-  %97 = getelementptr inbounds %struct.bdf_property_t_, ptr @bdf_properties_, i64 %95
+  %97 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr @bdf_properties_, i64 %95
   br label %102
 
 bdf_get_property.exit.i:                          ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %81, i64 192
+  %98 = getelementptr inbounds nuw i8, ptr %81, i64 192
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr %struct.bdf_property_t_, ptr %99, i64 %95
   %101 = getelementptr i8, ptr %100, i64 -1992
@@ -3276,7 +3276,7 @@ bdf_get_property.exit.i:                          ; preds = %94
 
 102:                                              ; preds = %bdf_get_property.exit.i, %bdf_get_property.exit.thread54.i
   %.0.i57.i = phi ptr [ %97, %bdf_get_property.exit.thread54.i ], [ %101, %bdf_get_property.exit.i ]
-  %103 = getelementptr inbounds i8, ptr %.0.i57.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i57.i, i64 8
   %104 = load i32, ptr %103, align 8
   %.not51.i = icmp eq i32 %104, 1
   br i1 %.not51.i, label %bdf_get_property.exit.thread.i, label %120
@@ -3292,7 +3292,7 @@ bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_propert
 
 .critedge2.i:                                     ; preds = %bdf_get_property.exit.thread.i, %.critedge2.i.backedge
   %.140.i = phi ptr [ %107, %.critedge2.i.backedge ], [ %.038.i, %bdf_get_property.exit.thread.i ]
-  %107 = getelementptr inbounds i8, ptr %.140.i, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.140.i, i64 1
   %108 = load i8, ptr %107, align 1
   switch i8 %108, label %.loopexit58.i [
     i8 32, label %.critedge2.i.backedge
@@ -3307,7 +3307,7 @@ bdf_get_property.exit.thread..loopexit58_crit_edge.i: ; preds = %bdf_get_propert
   %.039.i = phi ptr [ %.038.i, %bdf_get_property.exit.thread..loopexit58_crit_edge.i ], [ %107, %.critedge2.i ]
   %110 = icmp eq i8 %109, 34
   %spec.select.idx.i = zext i1 %110 to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %.039.i, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %.039.i, i64 %spec.select.idx.i
   %111 = icmp ult ptr %spec.select.i, %105
   br i1 %111, label %.critedge4.i, label %thread-pre-split.i
 
@@ -3345,7 +3345,7 @@ thread-pre-split.i:                               ; preds = %.loopexit58.i
 
 120:                                              ; preds = %102
   store i8 %83, ptr %.038.i, align 1
-  %121 = getelementptr inbounds i8, ptr %4, i64 72
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %122 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %121, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   %.not68 = icmp eq i32 %122, 0
   br i1 %.not68, label %123, label %switch.edge72
@@ -3353,7 +3353,7 @@ thread-pre-split.i:                               ; preds = %.loopexit58.i
 123:                                              ; preds = %120
   %124 = load ptr, ptr %121, align 8
   %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %4, i64 88
+  %126 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %127 = load i64, ptr %126, align 8
   switch i64 %127, label %.lr.ph.i [
     i64 0, label %bdf_list_join_.exit
@@ -3404,7 +3404,7 @@ bdf_list_shift_.exit:                             ; preds = %.lr.ph.i
   %145 = phi i8 [ %149, %.lr.ph.i82 ], [ %144, %.lr.ph37.i ]
   %.033.i = phi ptr [ %146, %.lr.ph.i82 ], [ %143, %.lr.ph37.i ]
   %.132.i = phi i64 [ %147, %.lr.ph.i82 ], [ %.02535.i, %.lr.ph37.i ]
-  %146 = getelementptr inbounds i8, ptr %.033.i, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %.033.i, i64 1
   %147 = add i64 %.132.i, 1
   %148 = getelementptr inbounds i8, ptr %139, i64 %.132.i
   store i8 %145, ptr %148, align 1
@@ -3469,7 +3469,7 @@ define internal fastcc zeroext i16 @bdf_atous_(ptr noundef readonly %0) unnamed_
 .preheader:                                       ; preds = %3
   %6 = lshr i8 %4, 3
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %7
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = and i8 %4, 7
@@ -3493,11 +3493,11 @@ define internal fastcc zeroext i16 @bdf_atous_(ptr noundef readonly %0) unnamed_
   %21 = load i8, ptr %20, align 1
   %22 = zext i8 %21 to i16
   %23 = add i16 %18, %22
-  %24 = getelementptr inbounds i8, ptr %.0914, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.0914, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = lshr i8 %25, 3
   %27 = zext nneg i8 %26 to i64
-  %28 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %27
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = and i8 %25, 7
@@ -3525,11 +3525,11 @@ define internal fastcc signext i16 @bdf_atos_(ptr noundef readonly %0) unnamed_a
 6:                                                ; preds = %3
   %.not21 = icmp eq i8 %4, 45
   %spec.select.idx = zext i1 %.not21 to i64
-  %spec.select = getelementptr inbounds i8, ptr %0, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   %7 = load i8, ptr %spec.select, align 1
   %8 = lshr i8 %7, 3
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = and i8 %7, 7
@@ -3553,11 +3553,11 @@ define internal fastcc signext i16 @bdf_atos_(ptr noundef readonly %0) unnamed_a
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i16
   %25 = add i16 %20, %24
-  %26 = getelementptr inbounds i8, ptr %.11523, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.11523, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = lshr i8 %27, 3
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = and i8 %27, 7
@@ -3585,7 +3585,7 @@ define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocaptur
   br i1 %3, label %32, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %32, label %.lr.ph37.preheader
@@ -3610,7 +3610,7 @@ define internal fastcc ptr @bdf_list_join_(ptr noundef readonly %0, ptr nocaptur
   %15 = phi i8 [ %19, %.lr.ph ], [ %14, %.lr.ph37 ]
   %.033 = phi ptr [ %16, %.lr.ph ], [ %13, %.lr.ph37 ]
   %.132 = phi i64 [ %17, %.lr.ph ], [ %.02535, %.lr.ph37 ]
-  %16 = getelementptr inbounds i8, ptr %.033, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   %17 = add i64 %.132, 1
   %18 = getelementptr inbounds i8, ptr %9, i64 %.132
   store i8 %15, ptr %18, align 1
@@ -3680,14 +3680,14 @@ define internal fastcc i32 @bdf_set_default_spacing_(ptr noundef %0, ptr nocaptu
   br i1 %11, label %bdf_list_done_.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 184
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load ptr, ptr %13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %17, ptr %18, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #19
   %20 = add i64 %19, 1
@@ -3698,7 +3698,7 @@ define internal fastcc i32 @bdf_set_default_spacing_(ptr noundef %0, ptr nocaptu
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %7, i64 %20, i1 false)
   %23 = call fastcc i32 @bdf_list_split_(ptr noundef nonnull %4, ptr noundef nonnull @.str.102, ptr noundef nonnull %3, i64 noundef %20)
   %24 = icmp eq i32 %23, 0
-  %25 = getelementptr inbounds i8, ptr %4, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 15
   %or.cond = select i1 %24, i1 %27, i1 false
@@ -3706,7 +3706,7 @@ define internal fastcc i32 @bdf_set_default_spacing_(ptr noundef %0, ptr nocaptu
 
 28:                                               ; preds = %22
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
   %32 = load i8, ptr %31, align 1
   switch i8 %32, label %35 [
@@ -3751,21 +3751,21 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %7 = load ptr, ptr %6, align 8
   store i32 0, ptr %5, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef %9) #18
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %99, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 144
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %13 = load ptr, ptr %12, align 8
   %14 = load i64, ptr %10, align 8
   %15 = getelementptr inbounds %struct.bdf_property_t_, ptr %13, i64 %14
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   switch i32 %17, label %.critedge151 [
     i32 1, label %18
@@ -3774,7 +3774,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   ]
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void @ft_mem_free(ptr noundef %7, ptr noundef %20) #18
   store ptr null, ptr %19, align 8
@@ -3803,11 +3803,11 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
 30:                                               ; preds = %27
   %.not20.i = icmp eq i8 %28, 45
   %spec.select.idx.i = zext i1 %.not20.i to i64
-  %spec.select.i = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx.i
   %31 = load i8, ptr %spec.select.i, align 1
   %32 = lshr i8 %31, 3
   %33 = zext nneg i8 %32 to i64
-  %34 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = and i8 %31, 7
@@ -3831,11 +3831,11 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i64
   %49 = add nsw i64 %44, %48
-  %50 = getelementptr inbounds i8, ptr %.11522.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.11522.i, i64 1
   %51 = load i8, ptr %50, align 1
   %52 = lshr i8 %51, 3
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i32
   %57 = and i8 %51, 7
@@ -3853,7 +3853,7 @@ define internal fastcc i32 @bdf_add_property_(ptr noundef %0, ptr noundef %1, pt
 
 bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_edge.i
   %.016.i = phi i64 [ %62, %._crit_edge.i ], [ 0, %27 ], [ 0, %25 ]
-  %63 = getelementptr inbounds i8, ptr %15, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %.016.i, ptr %63, align 8
   br label %.critedge151
 
@@ -3869,7 +3869,7 @@ bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_ed
 .preheader.i:                                     ; preds = %66
   %69 = lshr i8 %67, 3
   %70 = zext nneg i8 %69 to i64
-  %71 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1
   %73 = zext i8 %72 to i32
   %74 = and i8 %67, 7
@@ -3893,11 +3893,11 @@ bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_ed
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i64
   %86 = add i64 %81, %85
-  %87 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %88 = load i8, ptr %87, align 1
   %89 = lshr i8 %88, 3
   %90 = zext nneg i8 %89 to i64
-  %91 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i32
   %94 = and i8 %88, 7
@@ -3909,12 +3909,12 @@ bdf_atol_.exit:                                   ; preds = %25, %27, %._crit_ed
 
 bdf_atoul_.exit:                                  ; preds = %.lr.ph.i152, %80, %64, %66, %.preheader.i
   %.010.i = phi i64 [ 0, %66 ], [ 0, %64 ], [ 0, %.preheader.i ], [ %86, %80 ], [ -1, %.lr.ph.i152 ]
-  %98 = getelementptr inbounds i8, ptr %15, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 %.010.i, ptr %98, align 8
   br label %.critedge151
 
 99:                                               ; preds = %3
-  %100 = getelementptr inbounds i8, ptr %0, i64 208
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %101 = tail call ptr @ft_hash_str_lookup(ptr noundef %1, ptr noundef nonnull %100) #18
   %.not121 = icmp eq ptr %101, null
   br i1 %.not121, label %102, label %130
@@ -3928,10 +3928,10 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i152, %80, %
   br i1 %.not.i154, label %105, label %128
 
 105:                                              ; preds = %102
-  %106 = getelementptr inbounds i8, ptr %0, i64 200
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %107 = load i64, ptr %106, align 8
   %108 = add i64 %107, 1
-  %109 = getelementptr inbounds i8, ptr %0, i64 192
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %110 = load ptr, ptr %109, align 8
   %111 = call ptr @ft_mem_qrealloc(ptr noundef %103, i64 noundef 24, i64 noundef %107, i64 noundef %108, ptr noundef %110, ptr noundef nonnull %4) #18
   store ptr %111, ptr %109, align 8
@@ -3949,11 +3949,11 @@ bdf_atoul_.exit:                                  ; preds = %.lr.ph.i152, %80, %
   br i1 %.not23.i, label %118, label %bdf_create_property.exit.thread
 
 118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %115, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i32 1, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %115, i64 12
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 12
   store i32 0, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %115, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store ptr null, ptr %121, align 8
   %122 = load i64, ptr %106, align 8
   %123 = add i64 %122, 83
@@ -3981,16 +3981,16 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
 
 130:                                              ; preds = %128, %99
   %.0 = phi ptr [ %101, %99 ], [ %129, %128 ]
-  %131 = getelementptr inbounds i8, ptr %0, i64 136
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %132 = load i64, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 128
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %134 = load i64, ptr %133, align 8
   %135 = icmp eq i64 %132, %134
   br i1 %135, label %136, label %145
 
 136:                                              ; preds = %130
   %137 = add i64 %132, 1
-  %138 = getelementptr inbounds i8, ptr %0, i64 144
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %139 = load ptr, ptr %138, align 8
   %140 = call ptr @ft_mem_qrealloc(ptr noundef %7, i64 noundef 24, i64 noundef %132, i64 noundef %137, ptr noundef %139, ptr noundef nonnull %5) #18
   store ptr %140, ptr %138, align 8
@@ -4010,31 +4010,31 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   br i1 %147, label %148, label %153
 
 148:                                              ; preds = %145
-  %149 = getelementptr inbounds i8, ptr %0, i64 192
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr %struct.bdf_property_t_, ptr %150, i64 %146
   %152 = getelementptr i8, ptr %151, i64 -1992
   br label %155
 
 153:                                              ; preds = %145
-  %154 = getelementptr inbounds %struct.bdf_property_t_, ptr @bdf_properties_, i64 %146
+  %154 = getelementptr inbounds nuw %struct.bdf_property_t_, ptr @bdf_properties_, i64 %146
   br label %155
 
 155:                                              ; preds = %153, %148
   %.0107 = phi ptr [ %152, %148 ], [ %154, %153 ]
-  %156 = getelementptr inbounds i8, ptr %0, i64 144
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %157 = load ptr, ptr %156, align 8
   %158 = load i64, ptr %131, align 8
   %159 = getelementptr inbounds %struct.bdf_property_t_, ptr %157, i64 %158
   %160 = load ptr, ptr %.0107, align 8
   store ptr %160, ptr %159, align 8
-  %161 = getelementptr inbounds i8, ptr %.0107, i64 8
+  %161 = getelementptr inbounds nuw i8, ptr %.0107, i64 8
   %162 = load i32, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %159, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store i32 %162, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %.0107, i64 12
+  %164 = getelementptr inbounds nuw i8, ptr %.0107, i64 12
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds i8, ptr %159, i64 12
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 12
   store i32 %165, ptr %166, align 4
   %167 = load i32, ptr %161, align 8
   switch i32 %167, label %248 [
@@ -4044,7 +4044,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   ]
 
 168:                                              ; preds = %155
-  %169 = getelementptr inbounds i8, ptr %159, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store ptr null, ptr %169, align 8
   %.not124 = icmp eq ptr %2, null
   br i1 %.not124, label %248, label %170
@@ -4073,11 +4073,11 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
 180:                                              ; preds = %177
   %.not20.i155 = icmp eq i8 %178, 45
   %spec.select.idx.i156 = zext i1 %.not20.i155 to i64
-  %spec.select.i157 = getelementptr inbounds i8, ptr %2, i64 %spec.select.idx.i156
+  %spec.select.i157 = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx.i156
   %181 = load i8, ptr %spec.select.i157, align 1
   %182 = lshr i8 %181, 3
   %183 = zext nneg i8 %182 to i64
-  %184 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %183
+  %184 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %183
   %185 = load i8, ptr %184, align 1
   %186 = zext i8 %185 to i32
   %187 = and i8 %181, 7
@@ -4101,11 +4101,11 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %197 = load i8, ptr %196, align 1
   %198 = zext i8 %197 to i64
   %199 = add nsw i64 %194, %198
-  %200 = getelementptr inbounds i8, ptr %.11522.i161, i64 1
+  %200 = getelementptr inbounds nuw i8, ptr %.11522.i161, i64 1
   %201 = load i8, ptr %200, align 1
   %202 = lshr i8 %201, 3
   %203 = zext nneg i8 %202 to i64
-  %204 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %203
+  %204 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %203
   %205 = load i8, ptr %204, align 1
   %206 = zext i8 %205 to i32
   %207 = and i8 %201, 7
@@ -4133,7 +4133,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
 .preheader.i167:                                  ; preds = %215
   %218 = lshr i8 %216, 3
   %219 = zext nneg i8 %218 to i64
-  %220 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %219
+  %220 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %219
   %221 = load i8, ptr %220, align 1
   %222 = zext i8 %221 to i32
   %223 = and i8 %216, 7
@@ -4157,11 +4157,11 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   %233 = load i8, ptr %232, align 1
   %234 = zext i8 %233 to i64
   %235 = add i64 %230, %234
-  %236 = getelementptr inbounds i8, ptr %.0913.i171, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %.0913.i171, i64 1
   %237 = load i8, ptr %236, align 1
   %238 = lshr i8 %237, 3
   %239 = zext nneg i8 %238 to i64
-  %240 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %239
+  %240 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %239
   %241 = load i8, ptr %240, align 1
   %242 = zext i8 %241 to i32
   %243 = and i8 %237, 7
@@ -4173,7 +4173,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
 
 .sink.split:                                      ; preds = %229, %.lr.ph.i169, %.preheader.i167, %215, %213, %._crit_edge.i162, %177, %175
   %.010.i172.sink = phi i64 [ %212, %._crit_edge.i162 ], [ 0, %177 ], [ 0, %175 ], [ 0, %215 ], [ 0, %213 ], [ 0, %.preheader.i167 ], [ %235, %229 ], [ -1, %.lr.ph.i169 ]
-  %247 = getelementptr inbounds i8, ptr %159, i64 16
+  %247 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store i64 %.010.i172.sink, ptr %247, align 8
   br label %248
 
@@ -4183,7 +4183,7 @@ bdf_create_property.exit.thread:                  ; preds = %118, %113, %105
   br i1 %.not127, label %250, label %.critedge
 
 250:                                              ; preds = %248
-  %251 = getelementptr inbounds i8, ptr %1, i64 7
+  %251 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %252 = load i8, ptr %251, align 1
   switch i8 %252, label %.critedge [
     i8 32, label %switch.edge
@@ -4211,7 +4211,7 @@ switch.edge:                                      ; preds = %250, %250, %250, %2
   br i1 %.not129, label %260, label %.critedge142
 
 260:                                              ; preds = %switch.edge
-  %261 = getelementptr inbounds i8, ptr %1, i64 12
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %262 = load i8, ptr %261, align 1
   switch i8 %262, label %.critedge142 [
     i8 32, label %switch.edge140
@@ -4222,9 +4222,9 @@ switch.edge:                                      ; preds = %250, %250, %250, %2
   ]
 
 switch.edge140:                                   ; preds = %260, %260, %260, %260, %260
-  %263 = getelementptr inbounds i8, ptr %159, i64 16
+  %263 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %264 = load i64, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %0, i64 56
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %264, ptr %265, align 8
   br label %.critedge151
 
@@ -4234,7 +4234,7 @@ switch.edge140:                                   ; preds = %260, %260, %260, %2
   br i1 %.not131, label %267, label %.critedge145
 
 267:                                              ; preds = %.critedge142
-  %268 = getelementptr inbounds i8, ptr %1, i64 11
+  %268 = getelementptr inbounds nuw i8, ptr %1, i64 11
   %269 = load i8, ptr %268, align 1
   switch i8 %269, label %.critedge145 [
     i8 32, label %switch.edge143
@@ -4245,9 +4245,9 @@ switch.edge140:                                   ; preds = %260, %260, %260, %2
   ]
 
 switch.edge143:                                   ; preds = %267, %267, %267, %267, %267
-  %270 = getelementptr inbounds i8, ptr %159, i64 16
+  %270 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %271 = load i64, ptr %270, align 8
-  %272 = getelementptr inbounds i8, ptr %0, i64 64
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %271, ptr %272, align 8
   br label %.critedge151
 
@@ -4257,7 +4257,7 @@ switch.edge143:                                   ; preds = %267, %267, %267, %2
   br i1 %.not133, label %274, label %.critedge148
 
 274:                                              ; preds = %.critedge145
-  %275 = getelementptr inbounds i8, ptr %1, i64 12
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %276 = load i8, ptr %275, align 1
   switch i8 %276, label %.critedge148 [
     i8 32, label %switch.edge146
@@ -4268,9 +4268,9 @@ switch.edge143:                                   ; preds = %267, %267, %267, %2
   ]
 
 switch.edge146:                                   ; preds = %274, %274, %274, %274, %274
-  %277 = getelementptr inbounds i8, ptr %159, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %278 = load i64, ptr %277, align 8
-  %279 = getelementptr inbounds i8, ptr %0, i64 72
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %278, ptr %279, align 8
   br label %.critedge151
 
@@ -4280,7 +4280,7 @@ switch.edge146:                                   ; preds = %274, %274, %274, %2
   br i1 %.not135, label %281, label %.critedge151
 
 281:                                              ; preds = %.critedge148
-  %282 = getelementptr inbounds i8, ptr %1, i64 7
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %283 = load i8, ptr %282, align 1
   switch i8 %283, label %.critedge151 [
     i8 32, label %switch.edge149
@@ -4291,7 +4291,7 @@ switch.edge146:                                   ; preds = %274, %274, %274, %2
   ]
 
 switch.edge149:                                   ; preds = %281, %281, %281, %281, %281
-  %284 = getelementptr inbounds i8, ptr %159, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %285 = load ptr, ptr %284, align 8
   %.not137 = icmp eq ptr %285, null
   br i1 %.not137, label %286, label %287
@@ -4312,17 +4312,17 @@ switch.edge149:                                   ; preds = %281, %281, %281, %2
   ]
 
 289:                                              ; preds = %287, %287
-  %290 = getelementptr inbounds i8, ptr %0, i64 48
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 8, ptr %290, align 8
   br label %.critedge151
 
 291:                                              ; preds = %287, %287
-  %292 = getelementptr inbounds i8, ptr %0, i64 48
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 16, ptr %292, align 8
   br label %.critedge151
 
 293:                                              ; preds = %287, %287
-  %294 = getelementptr inbounds i8, ptr %0, i64 48
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 32, ptr %294, align 8
   br label %.critedge151
 
@@ -4337,16 +4337,16 @@ define internal i32 @bdf_parse_glyphs_(ptr noundef %0, i64 noundef %1, i64 %2, p
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 184
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(8) @.str.17, i64 noundef 7) #19
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %14, label %.critedge
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %0, i64 7
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %16 = load i8, ptr %15, align 1
   switch i8 %16, label %.critedge [
     i8 32, label %switch.edge
@@ -4357,9 +4357,9 @@ define internal i32 @bdf_parse_glyphs_(ptr noundef %0, i64 noundef %1, i64 %2, p
   ]
 
 switch.edge:                                      ; preds = %14, %14, %14, %14, %14
-  %17 = getelementptr inbounds i8, ptr %4, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4
   %.not397 = icmp eq i32 %20, 0
   br i1 %.not397, label %thread-pre-split, label %21
@@ -4370,11 +4370,11 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
   %.0 = add i64 %.0.v, %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   store i32 0, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %10, i64 160
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %.0, 1
   %25 = add i64 %23, %24
-  %26 = getelementptr inbounds i8, ptr %10, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @ft_mem_qrealloc(ptr noundef %12, i64 noundef 1, i64 noundef %23, i64 noundef %25, ptr noundef %27, ptr noundef nonnull %6) #18
   store ptr %28, ptr %26, align 8
@@ -4383,7 +4383,7 @@ switch.edge:                                      ; preds = %14, %14, %14, %14, 
   br i1 %.not.i, label %30, label %bdf_add_comment_.exit
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.0309 = select i1 %.not398, ptr %15, ptr %31
   %32 = load i64, ptr %22, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 %32
@@ -4414,7 +4414,7 @@ bdf_add_comment_.exit:                            ; preds = %21, %30
   br i1 %.not344, label %42, label %.thread438.sink.split
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 5
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %44 = load i8, ptr %43, align 1
   switch i8 %44, label %.thread438.sink.split [
     i8 32, label %switch.edge401
@@ -4425,7 +4425,7 @@ bdf_add_comment_.exit:                            ; preds = %21, %30
   ]
 
 switch.edge401:                                   ; preds = %42, %42, %42, %42, %42
-  %45 = getelementptr inbounds i8, ptr %4, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %46 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %45, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %46, ptr %8, align 4
   %.not345 = icmp eq i32 %46, 0
@@ -4433,7 +4433,7 @@ switch.edge401:                                   ; preds = %42, %42, %42, %42, 
 
 47:                                               ; preds = %switch.edge401
   %48 = load ptr, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread, label %52
@@ -4446,7 +4446,7 @@ switch.edge401:                                   ; preds = %42, %42, %42, %42, 
 .preheader.i:                                     ; preds = %52
   %55 = lshr i8 %53, 3
   %56 = zext nneg i8 %55 to i64
-  %57 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %56
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32
   %60 = and i8 %53, 7
@@ -4464,10 +4464,10 @@ switch.edge401:                                   ; preds = %42, %42, %42, %42, 
   br i1 %65, label %71, label %bdf_atoul_.exit.thread435
 
 bdf_atoul_.exit.thread435:                        ; preds = %.lr.ph.i
-  %66 = getelementptr inbounds i8, ptr %10, i64 80
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i64 -1, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %4, i64 8
-  %68 = getelementptr inbounds i8, ptr %4, i64 112
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %69 = load i64, ptr %68, align 8
   %70 = udiv i64 %69, 20
   br label %97
@@ -4479,11 +4479,11 @@ bdf_atoul_.exit.thread435:                        ; preds = %.lr.ph.i
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i64
   %77 = add i64 %72, %76
-  %78 = getelementptr inbounds i8, ptr %.0913.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 1
   %79 = load i8, ptr %78, align 1
   %80 = lshr i8 %79, 3
   %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %81
   %83 = load i8, ptr %82, align 1
   %84 = zext i8 %83 to i32
   %85 = and i8 %79, 7
@@ -4494,18 +4494,18 @@ bdf_atoul_.exit.thread435:                        ; preds = %.lr.ph.i
   br i1 %.not.i432, label %bdf_atoul_.exit, label %.lr.ph.i, !llvm.loop !11
 
 .thread:                                          ; preds = %.preheader.i, %47, %52
-  %89 = getelementptr inbounds i8, ptr %10, i64 80
+  %89 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i64 0, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %4, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %90, align 8
   br label %106
 
 bdf_atoul_.exit:                                  ; preds = %71
-  %91 = getelementptr inbounds i8, ptr %10, i64 80
+  %91 = getelementptr inbounds nuw i8, ptr %10, i64 80
   store i64 %77, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %4, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %77, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %4, i64 112
+  %93 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %94 = load i64, ptr %93, align 8
   %95 = udiv i64 %94, 20
   %96 = icmp ugt i64 %77, %95
@@ -4542,7 +4542,7 @@ bdf_atoul_.exit:                                  ; preds = %71
 113:                                              ; preds = %109
   %114 = load i64, ptr %111, align 8
   %115 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 56, i64 noundef 0, i64 noundef %114, ptr noundef null, ptr noundef nonnull %8) #18
-  %116 = getelementptr inbounds i8, ptr %10, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %10, i64 96
   store ptr %115, ptr %116, align 8
   %117 = load i32, ptr %8, align 4
   %.not346 = icmp eq i32 %117, 0
@@ -4560,7 +4560,7 @@ bdf_atoul_.exit:                                  ; preds = %71
   br i1 %.not347, label %123, label %.critedge406
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %0, i64 7
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %125 = load i8, ptr %124, align 1
   switch i8 %125, label %.critedge406 [
     i8 32, label %switch.edge404
@@ -4576,9 +4576,9 @@ switch.edge404:                                   ; preds = %123, %123, %123, %1
   br i1 %.not396, label %127, label %.thread438.sink.split
 
 127:                                              ; preds = %switch.edge404
-  %128 = getelementptr inbounds i8, ptr %10, i64 96
+  %128 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %10, i64 88
+  %130 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %131 = load i64, ptr %130, align 8
   tail call void @qsort(ptr noundef %129, i64 noundef %131, i64 noundef 56, ptr noundef nonnull @by_encoding) #18
   %132 = load i64, ptr %4, align 8
@@ -4593,7 +4593,7 @@ switch.edge404:                                   ; preds = %123, %123, %123, %1
   br i1 %.not349, label %135, label %.critedge409
 
 135:                                              ; preds = %.critedge406
-  %136 = getelementptr inbounds i8, ptr %0, i64 7
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %137 = load i8, ptr %136, align 1
   switch i8 %137, label %.critedge409 [
     i8 32, label %switch.edge407
@@ -4604,7 +4604,7 @@ switch.edge404:                                   ; preds = %123, %123, %123, %1
   ]
 
 switch.edge407:                                   ; preds = %135, %135, %135, %135, %135
-  %138 = getelementptr inbounds i8, ptr %4, i64 48
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i64 0, ptr %138, align 8
   %139 = and i64 %38, 4294963263
   store i64 %139, ptr %4, align 8
@@ -4616,15 +4616,15 @@ switch.edge407:                                   ; preds = %135, %135, %135, %1
   br i1 %.not351, label %151, label %141
 
 141:                                              ; preds = %.critedge409
-  %142 = getelementptr inbounds i8, ptr %4, i64 48
+  %142 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %143 = load i64, ptr %142, align 8
   %144 = icmp eq i64 %143, -1
   br i1 %144, label %145, label %151
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %4, i64 64
+  %146 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %147, i64 4
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 4
   %149 = load i32, ptr %148, align 4
   %150 = icmp eq i32 %149, 0
   br i1 %150, label %thread-pre-split, label %151
@@ -4635,7 +4635,7 @@ switch.edge407:                                   ; preds = %135, %135, %135, %1
   br i1 %.not352, label %153, label %.critedge412
 
 153:                                              ; preds = %151
-  %154 = getelementptr inbounds i8, ptr %0, i64 9
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %155 = load i8, ptr %154, align 1
   switch i8 %155, label %.critedge412 [
     i8 32, label %switch.edge410
@@ -4651,18 +4651,18 @@ switch.edge410:                                   ; preds = %153, %153, %153, %1
   br i1 %.not392, label %157, label %.thread438.sink.split
 
 157:                                              ; preds = %switch.edge410
-  %158 = getelementptr inbounds i8, ptr %4, i64 40
+  %158 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %159 = load ptr, ptr %158, align 8
   tail call void @ft_mem_free(ptr noundef %12, ptr noundef %159) #18
   store ptr null, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %4, i64 72
+  %160 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %161 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %160, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %161, ptr %8, align 4
   %.not393 = icmp eq i32 %161, 0
   br i1 %.not393, label %162, label %.thread438
 
 162:                                              ; preds = %157
-  %163 = getelementptr inbounds i8, ptr %4, i64 88
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %164 = load i64, ptr %163, align 8
   switch i64 %164, label %.lr.ph.i433 [
     i64 0, label %bdf_list_shift_.exit
@@ -4718,7 +4718,7 @@ bdf_list_shift_.exit:                             ; preds = %162, %.sink.split.i
   br i1 %.not354, label %184, label %.critedge415
 
 184:                                              ; preds = %.critedge412
-  %185 = getelementptr inbounds i8, ptr %0, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %186 = load i8, ptr %185, align 1
   switch i8 %186, label %.critedge415 [
     i8 32, label %switch.edge413
@@ -4732,7 +4732,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   br i1 %.not351, label %.thread438.sink.split, label %187
 
 187:                                              ; preds = %switch.edge413
-  %188 = getelementptr inbounds i8, ptr %4, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %189 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %188, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %189, ptr %8, align 4
   %.not388 = icmp eq i32 %189, 0
@@ -4740,23 +4740,23 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
 
 190:                                              ; preds = %187
   %191 = load ptr, ptr %188, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %193 = load ptr, ptr %192, align 8
   %194 = tail call fastcc i64 @bdf_atol_(ptr noundef %193)
-  %195 = getelementptr inbounds i8, ptr %4, i64 48
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %spec.select = tail call i64 @llvm.smax.i64(i64 %194, i64 -1)
   store i64 %spec.select, ptr %195, align 8
   %196 = icmp slt i64 %194, 0
   br i1 %196, label %197, label %205
 
 197:                                              ; preds = %190
-  %198 = getelementptr inbounds i8, ptr %4, i64 88
+  %198 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %199 = load i64, ptr %198, align 8
   %200 = icmp ugt i64 %199, 2
   br i1 %200, label %201, label %205
 
 201:                                              ; preds = %197
-  %202 = getelementptr inbounds i8, ptr %191, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %191, i64 16
   %203 = load ptr, ptr %202, align 8
   %204 = tail call fastcc i64 @bdf_atol_(ptr noundef %203)
   store i64 %204, ptr %195, align 8
@@ -4777,21 +4777,21 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   br i1 %209, label %210, label %234
 
 210:                                              ; preds = %208
-  %211 = getelementptr inbounds i8, ptr %10, i64 88
+  %211 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %212 = load i64, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %10, i64 80
+  %213 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %214 = load i64, ptr %213, align 8
   %215 = icmp eq i64 %212, %214
   br i1 %215, label %216, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %210
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %10, i64 96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %225
 
 216:                                              ; preds = %210
   %217 = add i64 %212, 64
-  %218 = getelementptr inbounds i8, ptr %10, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %219 = load ptr, ptr %218, align 8
   %220 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 56, i64 noundef %212, i64 noundef %217, ptr noundef %219, ptr noundef nonnull %8) #18
   store ptr %220, ptr %218, align 8
@@ -4812,39 +4812,39 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   %228 = add i64 %226, 1
   store i64 %228, ptr %211, align 8
   %229 = getelementptr inbounds %struct.bdf_glyph_t_, ptr %227, i64 %226
-  %230 = getelementptr inbounds i8, ptr %4, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %231 = load ptr, ptr %230, align 8
   store ptr %231, ptr %229, align 8
   %232 = load i64, ptr %195, align 8
-  %233 = getelementptr inbounds i8, ptr %229, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i64 %232, ptr %233, align 8
   store ptr null, ptr %230, align 8
   br label %266
 
 234:                                              ; preds = %.thread437, %208
-  %235 = getelementptr inbounds i8, ptr %4, i64 64
+  %235 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %236 = load ptr, ptr %235, align 8
-  %237 = getelementptr inbounds i8, ptr %236, i64 4
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %238 = load i32, ptr %237, align 4
   %.not389 = icmp eq i32 %238, 0
   br i1 %.not389, label %263, label %239
 
 239:                                              ; preds = %234
-  %240 = getelementptr inbounds i8, ptr %10, i64 112
+  %240 = getelementptr inbounds nuw i8, ptr %10, i64 112
   %241 = load i64, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %10, i64 104
+  %242 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %243 = load i64, ptr %242, align 8
   %244 = icmp eq i64 %241, %243
   br i1 %244, label %245, label %._crit_edge456
 
 ._crit_edge456:                                   ; preds = %239
-  %.phi.trans.insert457 = getelementptr inbounds i8, ptr %10, i64 120
+  %.phi.trans.insert457 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %.pre458 = load ptr, ptr %.phi.trans.insert457, align 8
   br label %254
 
 245:                                              ; preds = %239
   %246 = add i64 %241, 4
-  %247 = getelementptr inbounds i8, ptr %10, i64 120
+  %247 = getelementptr inbounds nuw i8, ptr %10, i64 120
   %248 = load ptr, ptr %247, align 8
   %249 = call ptr @ft_mem_realloc(ptr noundef %12, i64 noundef 56, i64 noundef %241, i64 noundef %246, ptr noundef %248, ptr noundef nonnull %8) #18
   store ptr %249, ptr %247, align 8
@@ -4863,19 +4863,19 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   %255 = phi i64 [ %241, %._crit_edge456 ], [ %.pre459, %251 ]
   %256 = phi ptr [ %.pre458, %._crit_edge456 ], [ %249, %251 ]
   %257 = getelementptr inbounds %struct.bdf_glyph_t_, ptr %256, i64 %255
-  %258 = getelementptr inbounds i8, ptr %4, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %259 = load ptr, ptr %258, align 8
   store ptr %259, ptr %257, align 8
   %260 = load i64, ptr %240, align 8
   %261 = add i64 %260, 1
   store i64 %261, ptr %240, align 8
-  %262 = getelementptr inbounds i8, ptr %257, i64 8
+  %262 = getelementptr inbounds nuw i8, ptr %257, i64 8
   store i64 %260, ptr %262, align 8
   store ptr null, ptr %258, align 8
   br label %266
 
 263:                                              ; preds = %234
-  %264 = getelementptr inbounds i8, ptr %4, i64 40
+  %264 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %265 = load ptr, ptr %264, align 8
   tail call void @ft_mem_free(ptr noundef %12, ptr noundef %265) #18
   store ptr null, ptr %264, align 8
@@ -4894,14 +4894,14 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   br i1 %.not356, label %.thread438.sink.split, label %271
 
 271:                                              ; preds = %.critedge415
-  %272 = getelementptr inbounds i8, ptr %4, i64 48
+  %272 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %273 = load i64, ptr %272, align 8
   %274 = icmp eq i64 %273, -1
   %.472 = select i1 %274, i64 120, i64 96
   %.473 = select i1 %274, i64 112, i64 88
-  %275 = getelementptr inbounds i8, ptr %10, i64 %.472
+  %275 = getelementptr inbounds nuw i8, ptr %10, i64 %.472
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %10, i64 %.473
+  %277 = getelementptr inbounds nuw i8, ptr %10, i64 %.473
   %278 = load i64, ptr %277, align 8
   %279 = getelementptr %struct.bdf_glyph_t_, ptr %276, i64 %278
   %280 = and i64 %38, 2048
@@ -4909,7 +4909,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   br i1 %.not357, label %364, label %281
 
 281:                                              ; preds = %271
-  %282 = getelementptr inbounds i8, ptr %4, i64 16
+  %282 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %283 = load i64, ptr %282, align 8
   %284 = getelementptr i8, ptr %279, i64 -36
   %285 = getelementptr i8, ptr %279, i64 -34
@@ -4946,7 +4946,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   %301 = load i8, ptr %300, align 1
   %302 = lshr i8 %301, 3
   %303 = zext nneg i8 %302 to i64
-  %304 = getelementptr inbounds [32 x i8], ptr @hdigits, i64 0, i64 %303
+  %304 = getelementptr inbounds nuw [32 x i8], ptr @hdigits, i64 0, i64 %303
   %305 = load i8, ptr %304, align 1
   %306 = zext i8 %305 to i32
   %307 = and i8 %301, 7
@@ -4972,7 +4972,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   br i1 %or.cond417, label %323, label %321
 
 321:                                              ; preds = %311
-  %322 = getelementptr inbounds i8, ptr %.0310446, i64 1
+  %322 = getelementptr inbounds nuw i8, ptr %.0310446, i64 1
   store i8 0, ptr %322, align 1
   br label %323
 
@@ -5002,12 +5002,12 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
 330:                                              ; preds = %.critedge419
   %331 = zext i16 %329 to i64
   %332 = load ptr, ptr %9, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 176
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 176
   %334 = load i16, ptr %333, align 8
   %335 = zext i16 %334 to i64
   %336 = mul nuw nsw i64 %335, %331
   %337 = and i64 %336, 7
-  %338 = getelementptr inbounds [8 x i8], ptr @nibble_mask, i64 0, i64 %337
+  %338 = getelementptr inbounds nuw [8 x i8], ptr @nibble_mask, i64 0, i64 %337
   %339 = load i8, ptr %338, align 1
   %340 = load i8, ptr %.0310441, align 1
   %341 = and i8 %340, %339
@@ -5023,7 +5023,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   %346 = load i8, ptr %345, align 1
   %347 = lshr i8 %346, 3
   %348 = zext nneg i8 %347 to i64
-  %349 = getelementptr inbounds [32 x i8], ptr @hdigits, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw [32 x i8], ptr @hdigits, i64 0, i64 %348
   %350 = load i8, ptr %349, align 1
   %351 = zext i8 %350 to i32
   %352 = and i8 %346, 7
@@ -5056,7 +5056,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   br i1 %.not358, label %366, label %.critedge422
 
 366:                                              ; preds = %364
-  %367 = getelementptr inbounds i8, ptr %0, i64 6
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %368 = load i8, ptr %367, align 1
   switch i8 %368, label %.critedge422 [
     i8 32, label %switch.edge420
@@ -5067,7 +5067,7 @@ switch.edge413:                                   ; preds = %184, %184, %184, %1
   ]
 
 switch.edge420:                                   ; preds = %366, %366, %366, %366, %366
-  %369 = getelementptr inbounds i8, ptr %4, i64 72
+  %369 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %370 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %369, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %370, ptr %8, align 4
   %.not378 = icmp eq i32 %370, 0
@@ -5075,7 +5075,7 @@ switch.edge420:                                   ; preds = %366, %366, %366, %3
 
 371:                                              ; preds = %switch.edge420
   %372 = load ptr, ptr %369, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 8
+  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %374 = load ptr, ptr %373, align 8
   %375 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %374)
   %376 = getelementptr i8, ptr %279, i64 -40
@@ -5091,7 +5091,7 @@ switch.edge420:                                   ; preds = %366, %366, %366, %3
   br i1 %.not360, label %380, label %sub_0
 
 380:                                              ; preds = %.critedge422
-  %381 = getelementptr inbounds i8, ptr %0, i64 6
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %382 = load i8, ptr %381, align 1
   switch i8 %382, label %sub_0 [
     i8 32, label %switch.edge423
@@ -5102,7 +5102,7 @@ switch.edge420:                                   ; preds = %366, %366, %366, %3
   ]
 
 switch.edge423:                                   ; preds = %380, %380, %380, %380, %380
-  %383 = getelementptr inbounds i8, ptr %4, i64 72
+  %383 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %384 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %383, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %384, ptr %8, align 4
   %.not376 = icmp eq i32 %384, 0
@@ -5110,7 +5110,7 @@ switch.edge423:                                   ; preds = %380, %380, %380, %3
 
 385:                                              ; preds = %switch.edge423
   %386 = load ptr, ptr %383, align 8
-  %387 = getelementptr inbounds i8, ptr %386, i64 8
+  %387 = getelementptr inbounds nuw i8, ptr %386, i64 8
   %388 = load ptr, ptr %387, align 8
   %389 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %388)
   %390 = getelementptr i8, ptr %279, i64 -38
@@ -5122,9 +5122,9 @@ switch.edge423:                                   ; preds = %380, %380, %380, %3
 
 393:                                              ; preds = %385
   %394 = zext i16 %389 to i64
-  %395 = getelementptr inbounds i8, ptr %10, i64 24
+  %395 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %396 = load i64, ptr %395, align 8
-  %397 = getelementptr inbounds i8, ptr %10, i64 32
+  %397 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %398 = load i64, ptr %397, align 8
   %399 = mul i64 %398, %396
   %400 = tail call i64 @FT_MulDiv(i64 noundef %394, i64 noundef 72000, i64 noundef %399) #18
@@ -5146,19 +5146,19 @@ sub_0:                                            ; preds = %.critedge422, %380
   br i1 %.not449, label %sub_1, label %.critedge428
 
 sub_1:                                            ; preds = %sub_0
-  %407 = getelementptr inbounds i8, ptr %0, i64 1
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %408 = load i8, ptr %407, align 1
   %.not450 = icmp eq i8 %408, 66
   br i1 %.not450, label %.critedge425.tail, label %.critedge428
 
 .critedge425.tail:                                ; preds = %sub_1
-  %409 = getelementptr inbounds i8, ptr %0, i64 2
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %410 = load i8, ptr %409, align 1
   %411 = icmp eq i8 %410, 88
   br i1 %411, label %412, label %.critedge428
 
 412:                                              ; preds = %.critedge425.tail
-  %413 = getelementptr inbounds i8, ptr %0, i64 3
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %414 = load i8, ptr %413, align 1
   switch i8 %414, label %.critedge428 [
     i8 32, label %switch.edge426
@@ -5169,7 +5169,7 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 switch.edge426:                                   ; preds = %412, %412, %412, %412, %412
-  %415 = getelementptr inbounds i8, ptr %4, i64 72
+  %415 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %416 = tail call fastcc i32 @bdf_list_split_(ptr noundef nonnull %415, ptr noundef nonnull @.str.20, ptr noundef nonnull %0, i64 noundef %1)
   store i32 %416, ptr %8, align 4
   %.not368 = icmp eq i32 %416, 0
@@ -5177,25 +5177,25 @@ switch.edge426:                                   ; preds = %412, %412, %412, %4
 
 417:                                              ; preds = %switch.edge426
   %418 = load ptr, ptr %415, align 8
-  %419 = getelementptr inbounds i8, ptr %418, i64 8
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load ptr, ptr %419, align 8
   %421 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %420)
   %422 = getelementptr i8, ptr %279, i64 -36
   store i16 %421, ptr %422, align 4
   %423 = load ptr, ptr %415, align 8
-  %424 = getelementptr inbounds i8, ptr %423, i64 16
+  %424 = getelementptr inbounds nuw i8, ptr %423, i64 16
   %425 = load ptr, ptr %424, align 8
   %426 = tail call fastcc zeroext i16 @bdf_atous_(ptr noundef %425)
   %427 = getelementptr i8, ptr %279, i64 -34
   store i16 %426, ptr %427, align 2
   %428 = load ptr, ptr %415, align 8
-  %429 = getelementptr inbounds i8, ptr %428, i64 24
+  %429 = getelementptr inbounds nuw i8, ptr %428, i64 24
   %430 = load ptr, ptr %429, align 8
   %431 = tail call fastcc signext i16 @bdf_atos_(ptr noundef %430)
   %432 = getelementptr i8, ptr %279, i64 -32
   store i16 %431, ptr %432, align 4
   %433 = load ptr, ptr %415, align 8
-  %434 = getelementptr inbounds i8, ptr %433, i64 32
+  %434 = getelementptr inbounds nuw i8, ptr %433, i64 32
   %435 = load ptr, ptr %434, align 8
   %436 = tail call fastcc signext i16 @bdf_atos_(ptr noundef %435)
   %437 = getelementptr i8, ptr %279, i64 -30
@@ -5206,31 +5206,31 @@ switch.edge426:                                   ; preds = %412, %412, %412, %4
   %440 = sub i16 0, %436
   %441 = getelementptr i8, ptr %279, i64 -26
   store i16 %440, ptr %441, align 2
-  %442 = getelementptr inbounds i8, ptr %4, i64 30
+  %442 = getelementptr inbounds nuw i8, ptr %4, i64 30
   %443 = load i16, ptr %442, align 2
   %. = tail call i16 @llvm.smax.i16(i16 %438, i16 %443)
   store i16 %., ptr %442, align 2
   %444 = load i16, ptr %441, align 2
-  %445 = getelementptr inbounds i8, ptr %4, i64 32
+  %445 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %446 = load i16, ptr %445, align 8
   %.in369 = tail call i16 @llvm.smax.i16(i16 %444, i16 %446)
   store i16 %.in369, ptr %445, align 8
   %447 = load i16, ptr %422, align 4
   %448 = load i16, ptr %432, align 4
   %449 = add i16 %448, %447
-  %450 = getelementptr inbounds i8, ptr %4, i64 34
+  %450 = getelementptr inbounds nuw i8, ptr %4, i64 34
   store i16 %449, ptr %450, align 2
-  %451 = getelementptr inbounds i8, ptr %4, i64 28
+  %451 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %452 = load i16, ptr %451, align 4
   %.in370 = tail call i16 @llvm.smax.i16(i16 %449, i16 %452)
   store i16 %.in370, ptr %451, align 4
   %453 = load i16, ptr %432, align 4
-  %454 = getelementptr inbounds i8, ptr %4, i64 24
+  %454 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %455 = load i16, ptr %454, align 8
   %.in371 = tail call i16 @llvm.smin.i16(i16 %453, i16 %455)
   store i16 %.in371, ptr %454, align 8
   %456 = load i16, ptr %432, align 4
-  %457 = getelementptr inbounds i8, ptr %4, i64 26
+  %457 = getelementptr inbounds nuw i8, ptr %4, i64 26
   %458 = load i16, ptr %457, align 2
   %.in372 = tail call i16 @llvm.smax.i16(i16 %456, i16 %458)
   store i16 %.in372, ptr %457, align 2
@@ -5246,7 +5246,7 @@ switch.edge426:                                   ; preds = %412, %412, %412, %4
   br label %464
 
 464:                                              ; preds = %461, %417
-  %465 = getelementptr inbounds i8, ptr %4, i64 64
+  %465 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %466 = load ptr, ptr %465, align 8
   %467 = load i32, ptr %466, align 4
   %.not374 = icmp eq i32 %467, 0
@@ -5256,9 +5256,9 @@ switch.edge426:                                   ; preds = %412, %412, %412, %4
   %469 = getelementptr i8, ptr %279, i64 -38
   %470 = load i16, ptr %469, align 2
   %471 = zext i16 %470 to i64
-  %472 = getelementptr inbounds i8, ptr %10, i64 24
+  %472 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %473 = load i64, ptr %472, align 8
-  %474 = getelementptr inbounds i8, ptr %10, i64 32
+  %474 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %475 = load i64, ptr %474, align 8
   %476 = mul i64 %475, %473
   %477 = tail call i64 @FT_MulDiv(i64 noundef %471, i64 noundef 72000, i64 noundef %476) #18
@@ -5287,7 +5287,7 @@ switch.edge426:                                   ; preds = %412, %412, %412, %4
   br i1 %.not364, label %488, label %.thread438.sink.split
 
 488:                                              ; preds = %.critedge428
-  %489 = getelementptr inbounds i8, ptr %0, i64 6
+  %489 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %490 = load i8, ptr %489, align 1
   switch i8 %490, label %.thread438.sink.split [
     i8 32, label %switch.edge429
@@ -5306,7 +5306,7 @@ switch.edge429:                                   ; preds = %488, %488, %488, %4
   %493 = getelementptr i8, ptr %279, i64 -36
   %494 = load i16, ptr %493, align 4
   %495 = zext i16 %494 to i64
-  %496 = getelementptr inbounds i8, ptr %10, i64 176
+  %496 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %497 = load i16, ptr %496, align 8
   %498 = zext i16 %497 to i64
   %499 = mul nuw nsw i64 %498, %495
@@ -5335,7 +5335,7 @@ switch.edge429:                                   ; preds = %488, %488, %488, %4
   br i1 %.not367, label %515, label %.thread438
 
 515:                                              ; preds = %509
-  %516 = getelementptr inbounds i8, ptr %4, i64 16
+  %516 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %516, align 8
   %517 = load i64, ptr %4, align 8
   %518 = or i64 %517, 2048
@@ -5364,7 +5364,7 @@ thread-pre-split:                                 ; preds = %118, %127, %switch.
   br i1 %.not400, label %527, label %524
 
 524:                                              ; preds = %.thread438
-  %525 = getelementptr inbounds i8, ptr %4, i64 40
+  %525 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %526 = load ptr, ptr %525, align 8
   call void @ft_mem_free(ptr noundef %12, ptr noundef %526) #18
   store ptr null, ptr %525, align 8
@@ -5395,11 +5395,11 @@ define internal fastcc i64 @bdf_atol_(ptr noundef readonly %0) unnamed_addr #6 {
 6:                                                ; preds = %3
   %.not20 = icmp eq i8 %4, 45
   %spec.select.idx = zext i1 %.not20 to i64
-  %spec.select = getelementptr inbounds i8, ptr %0, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select.idx
   %7 = load i8, ptr %spec.select, align 1
   %8 = lshr i8 %7, 3
   %9 = zext nneg i8 %8 to i64
-  %10 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i32
   %13 = and i8 %7, 7
@@ -5423,11 +5423,11 @@ define internal fastcc i64 @bdf_atol_(ptr noundef readonly %0) unnamed_addr #6 {
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i64
   %25 = add nsw i64 %20, %24
-  %26 = getelementptr inbounds i8, ptr %.11522, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.11522, i64 1
   %27 = load i8, ptr %26, align 1
   %28 = lshr i8 %27, 3
   %29 = zext nneg i8 %28 to i64
-  %30 = getelementptr inbounds [32 x i8], ptr @ddigits, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr @ddigits, i64 0, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = and i8 %27, 7
@@ -5453,9 +5453,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 -1, 2) i32 @by_encoding(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %.0 = tail call i32 @llvm.ucmp.i32.i64(i64 %4, i64 %6)
   ret i32 %.0
@@ -5471,31 +5471,31 @@ declare void @ft_hash_str_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal noundef i32 @bdf_cmap_init(ptr nocapture noundef initializes((24, 40)) %0, ptr nocapture readnone %1) #12 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 264
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 264
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 272
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %10, ptr %11, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @bdf_cmap_done(ptr nocapture noundef writeonly initializes((24, 40)) %0) #13 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #14 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not37 = icmp eq i64 %6, 0
   br i1 %.not37, label %.loopexit, label %.lr.ph
@@ -5515,7 +5515,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr nocapture nound
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i16, ptr %14, align 8
   %16 = add i16 %15, 1
   %17 = zext i16 %16 to i32
@@ -5544,12 +5544,12 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr nocapture nound
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #15 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %6 = add i32 %5, 1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %.not55 = icmp eq i64 %9, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph.preheader
@@ -5568,7 +5568,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr nocapture nounde
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %11, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %16 = load i16, ptr %15, align 8
   %17 = add i16 %16, 1
   br label %.thread
@@ -5598,7 +5598,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr nocapture nounde
   %29 = getelementptr inbounds %struct.BDF_encoding_el_, ptr %4, i64 %.040.lcssa
   %30 = load i64, ptr %29, align 8
   %.fr = freeze i64 %30
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i16, ptr %31, align 8
   %33 = add i16 %32, 1
   %34 = icmp ugt i64 %.fr, 4294967295

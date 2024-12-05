@@ -51,14 +51,14 @@ define internal void @tts_virtual_release(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_virtual_clear(ptr nocapture noundef initializes((6, 8), (48, 54)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   tail call void @pfree(ptr noundef %7) #13
   store ptr null, ptr %6, align 8
@@ -68,15 +68,15 @@ define internal void @tts_virtual_clear(ptr nocapture noundef initializes((6, 8)
 
 10:                                               ; preds = %5, %1
   %11 = phi i16 [ %9, %5 ], [ %3, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
   %13 = or i16 %11, 2
   store i16 %13, ptr %2, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %16, align 2
   ret void
 }
@@ -102,9 +102,9 @@ define internal noundef i64 @tts_virtual_getsysattr(ptr nocapture readnone %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i16, ptr %4, align 4
   %6 = and i16 %5, 4
   %.not = icmp eq i16 %6, 0
@@ -116,9 +116,9 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %12
 
 12:                                               ; preds = %.lr.ph, %100
@@ -126,7 +126,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %100 ]
   %.0127 = phi i64 [ 0, %.lr.ph ], [ %.1, %100 ]
   %14 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %9, i64 0, i64 %indvars.iv
-  %15 = getelementptr inbounds i8, ptr %14, i64 86
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 86
   %16 = load i8, ptr %15, align 2
   %17 = trunc i8 %16 to i1
   br i1 %17, label %100, label %18
@@ -142,7 +142,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   %24 = load ptr, ptr %11, align 8
   %25 = getelementptr i64, ptr %24, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %28 = load i16, ptr %27, align 4
   %29 = icmp eq i16 %28, -1
   br i1 %29, label %30, label %56
@@ -154,14 +154,14 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %33, label %34, label %56
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = and i8 %36, -2
   %38 = icmp eq i8 %37, 2
   br i1 %38, label %39, label %56
 
 39:                                               ; preds = %34
-  %40 = getelementptr inbounds i8, ptr %14, i64 87
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 87
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %48 [
     i8 105, label %42
@@ -193,7 +193,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br label %100
 
 56:                                               ; preds = %34, %30, %23
-  %57 = getelementptr inbounds i8, ptr %14, i64 87
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 87
   %58 = load i8, ptr %57, align 1
   switch i8 %58, label %65 [
     i8 105, label %59
@@ -235,7 +235,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %77, label %78, label %84
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %74, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 1
   %80 = load i8, ptr %79, align 1
   %.off = add i8 %80, -1
   %switch = icmp ult i8 %.off, 3
@@ -289,10 +289,10 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %104, label %.loopexit, label %105
 
 105:                                              ; preds = %._crit_edge
-  %106 = getelementptr inbounds i8, ptr %0, i64 40
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %107 = load ptr, ptr %106, align 8
   %108 = tail call ptr @MemoryContextAlloc(ptr noundef %107, i64 noundef %.1) #13
-  %109 = getelementptr inbounds i8, ptr %0, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %108, ptr %109, align 8
   %110 = load i16, ptr %4, align 4
   %111 = or i16 %110, 4
@@ -302,16 +302,16 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %113, label %.lr.ph131, label %.loopexit
 
 .lr.ph131:                                        ; preds = %105
-  %114 = getelementptr inbounds i8, ptr %3, i64 24
-  %115 = getelementptr inbounds i8, ptr %0, i64 32
-  %116 = getelementptr inbounds i8, ptr %0, i64 24
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %117
 
 117:                                              ; preds = %.lr.ph131, %213
   %indvars.iv133 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next134, %213 ]
   %.0109129 = phi ptr [ %108, %.lr.ph131 ], [ %.1110, %213 ]
   %118 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %114, i64 0, i64 %indvars.iv133
-  %119 = getelementptr inbounds i8, ptr %118, i64 86
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 86
   %120 = load i8, ptr %119, align 2
   %121 = trunc i8 %120 to i1
   br i1 %121, label %213, label %122
@@ -327,7 +327,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   %128 = load ptr, ptr %116, align 8
   %129 = getelementptr i64, ptr %128, i64 %indvars.iv133
   %130 = load i64, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %118, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %118, i64 72
   %132 = load i16, ptr %131, align 4
   %133 = icmp eq i16 %132, -1
   br i1 %133, label %134, label %164
@@ -339,7 +339,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %137, label %138, label %164
 
 138:                                              ; preds = %134
-  %139 = getelementptr inbounds i8, ptr %135, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %140 = load i8, ptr %139, align 1
   %141 = and i8 %140, -2
   %142 = icmp eq i8 %141, 2
@@ -347,7 +347,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 
 143:                                              ; preds = %138
   %144 = tail call ptr @DatumGetEOHP(i64 noundef %130) #13
-  %145 = getelementptr inbounds i8, ptr %118, i64 87
+  %145 = getelementptr inbounds nuw i8, ptr %118, i64 87
   %146 = load i8, ptr %145, align 1
   %147 = ptrtoint ptr %.0109129 to i64
   switch i8 %146, label %154 [
@@ -383,7 +383,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br label %213
 
 164:                                              ; preds = %138, %134, %127
-  %165 = getelementptr inbounds i8, ptr %118, i64 87
+  %165 = getelementptr inbounds nuw i8, ptr %118, i64 87
   %166 = load i8, ptr %165, align 1
   %167 = ptrtoint ptr %.0109129 to i64
   switch i8 %166, label %174 [
@@ -428,7 +428,7 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
   br i1 %187, label %188, label %194
 
 188:                                              ; preds = %185
-  %189 = getelementptr inbounds i8, ptr %184, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 1
   %190 = load i8, ptr %189, align 1
   %.off124 = add i8 %190, -1
   %switch125 = icmp ult i8 %.off124, 3
@@ -488,16 +488,16 @@ define internal void @tts_virtual_materialize(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_virtual_copyslot(ptr nocapture noundef initializes((6, 8), (48, 54)) %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %tts_virtual_clear.exit, label %8
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   tail call void @pfree(ptr noundef %10) #13
   store ptr null, ptr %9, align 8
@@ -507,19 +507,19 @@ define internal void @tts_virtual_copyslot(ptr nocapture noundef initializes((6,
 
 tts_virtual_clear.exit:                           ; preds = %2, %8
   %13 = phi i16 [ %12, %8 ], [ %6, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 6
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %14, align 2
   %15 = or i16 %13, 2
   store i16 %15, ptr %5, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 50
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %0, i64 52
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %18, align 2
   %19 = load ptr, ptr %3, align 8
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i32
   %24 = icmp sgt i32 %20, %23
@@ -535,10 +535,10 @@ slot_getallattrs.exit:                            ; preds = %tts_virtual_clear.e
   br i1 %27, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit
-  %28 = getelementptr inbounds i8, ptr %1, i64 24
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
-  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
@@ -575,11 +575,11 @@ slot_getallattrs.exit:                            ; preds = %tts_virtual_clear.e
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_virtual_copy_heap_tuple(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @heap_form_tuple(ptr noundef %3, ptr noundef %5, ptr noundef %7) #13
   ret ptr %8
@@ -587,11 +587,11 @@ define internal ptr @tts_virtual_copy_heap_tuple(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_virtual_copy_minimal_tuple(ptr nocapture noundef readonly %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @heap_form_minimal_tuple(ptr noundef %3, ptr noundef %5, ptr noundef %7) #13
   ret ptr %8
@@ -609,14 +609,14 @@ define internal void @tts_heap_release(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_heap_clear(ptr nocapture noundef initializes((6, 8), (48, 54), (72, 76)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   tail call void @heap_freetuple(ptr noundef %7) #13
   %8 = load i16, ptr %2, align 4
@@ -625,28 +625,28 @@ define internal void @tts_heap_clear(ptr nocapture noundef initializes((6, 8), (
 
 10:                                               ; preds = %5, %1
   %11 = phi i16 [ %9, %5 ], [ %3, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
   %13 = or i16 %11, 2
   store i16 %13, ptr %2, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_heap_getsomeattrs(ptr nocapture noundef %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %6, align 8
   tail call fastcc void @slot_deform_heap_tuple(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
@@ -655,7 +655,7 @@ define internal void @tts_heap_getsomeattrs(ptr nocapture noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @tts_heap_getsysattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %10
@@ -669,7 +669,7 @@ define internal i64 @tts_heap_getsysattr(ptr nocapture noundef readonly %0, i32 
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @heap_getsysattr(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %12, ptr noundef %2) #13
   ret i64 %13
@@ -677,32 +677,32 @@ define internal i64 @tts_heap_getsysattr(ptr nocapture noundef readonly %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_heap_materialize(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %5, label %26
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %.not14 = icmp eq ptr %12, null
   br i1 %.not14, label %13, label %21
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   br label %23
@@ -726,17 +726,17 @@ define internal void @tts_heap_materialize(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_heap_copyslot(ptr nocapture noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef %1) #13
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, @TTSOpsHeapTuple
   br i1 %.not.i, label %16, label %13
@@ -749,14 +749,14 @@ define internal void @tts_heap_copyslot(ptr nocapture noundef %0, ptr noundef %1
   unreachable
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 4
   %.not.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i, label %ExecStoreHeapTuple.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %22 = load ptr, ptr %21, align 8
   tail call void @heap_freetuple(ptr noundef %22) #13
   %23 = load i16, ptr %17, align 4
@@ -764,59 +764,59 @@ define internal void @tts_heap_copyslot(ptr nocapture noundef %0, ptr noundef %1
 
 ExecStoreHeapTuple.exit:                          ; preds = %16, %20
   %24 = phi i16 [ %23, %20 ], [ %18, %16 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 6
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %26, align 2
-  %27 = getelementptr inbounds i8, ptr %0, i64 50
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 52
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %28, align 2
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
-  %30 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i16 0, ptr %25, align 2
   store ptr %10, ptr %30, align 8
   store i32 0, ptr %29, align 8
   %31 = and i16 %24, -7
   store i16 %31, ptr %17, align 4
-  %32 = getelementptr inbounds i8, ptr %10, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %26, ptr noundef nonnull align 4 dereferenceable(6) %32, i64 6, i1 false)
   %33 = or disjoint i16 %31, 4
   store i16 %33, ptr %17, align 4
-  %34 = getelementptr inbounds i8, ptr %10, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %35, ptr %36, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_heap_get_heap_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_heap_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_heap_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -833,32 +833,32 @@ tts_heap_materialize.exit:                        ; preds = %8, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_heap_copy_heap_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_heap_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_heap_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -876,32 +876,32 @@ tts_heap_materialize.exit:                        ; preds = %8, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_heap_copy_minimal_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_heap_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_heap_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -919,8 +919,8 @@ tts_heap_materialize.exit:                        ; preds = %8, %4, %1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @tts_minimal_init(ptr noundef %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 80
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %3, align 8
   ret void
 }
@@ -932,14 +932,14 @@ define internal void @tts_minimal_release(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_minimal_clear(ptr nocapture noundef initializes((6, 8), (48, 54), (104, 108)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   tail call void @heap_free_minimal_tuple(ptr noundef %7) #13
   %8 = load i16, ptr %2, align 4
@@ -948,28 +948,28 @@ define internal void @tts_minimal_clear(ptr nocapture noundef initializes((6, 8)
 
 10:                                               ; preds = %5, %1
   %11 = phi i16 [ %9, %5 ], [ %3, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
   %13 = or i16 %11, 2
   store i16 %13, ptr %2, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %14, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 50
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %15, align 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %16, align 2
-  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr null, ptr %18, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_minimal_getsomeattrs(ptr nocapture noundef %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %6, align 8
   tail call fastcc void @slot_deform_heap_tuple(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
@@ -988,32 +988,32 @@ define internal noundef i64 @tts_minimal_getsysattr(ptr nocapture readnone %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_minimal_materialize(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %5, label %31
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %9, align 2
-  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8
   %.not18 = icmp eq ptr %12, null
   br i1 %.not18, label %13, label %21
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_minimal_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   br label %23
@@ -1030,10 +1030,10 @@ define internal void @tts_minimal_materialize(ptr nocapture noundef %0) #1 {
   store i16 %25, ptr %2, align 4
   %26 = load i32, ptr %storemerge, align 4
   %27 = add i32 %26, 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %27, ptr %28, align 8
   %29 = getelementptr i8, ptr %storemerge, i64 -8
-  %30 = getelementptr inbounds i8, ptr %0, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %29, ptr %30, align 8
   store ptr %8, ptr @CurrentMemoryContext, align 8
   br label %31
@@ -1044,17 +1044,17 @@ define internal void @tts_minimal_materialize(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_minimal_copyslot(ptr nocapture noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr %9(ptr noundef %1) #13
   store ptr %5, ptr @CurrentMemoryContext, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not.i = icmp eq ptr %12, @TTSOpsMinimalTuple
   br i1 %.not.i, label %16, label %13
@@ -1067,14 +1067,14 @@ define internal void @tts_minimal_copyslot(ptr nocapture noundef %0, ptr noundef
   unreachable
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 4
   %.not.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i, label %ExecStoreMinimalTuple.exit, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load ptr, ptr %21, align 8
   tail call void @heap_free_minimal_tuple(ptr noundef %22) #13
   %23 = load i16, ptr %17, align 4
@@ -1083,15 +1083,15 @@ define internal void @tts_minimal_copyslot(ptr nocapture noundef %0, ptr noundef
 
 ExecStoreMinimalTuple.exit:                       ; preds = %16, %20
   %25 = phi i16 [ %24, %20 ], [ %18, %16 ]
-  %26 = getelementptr inbounds i8, ptr %0, i64 6
-  %27 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %27, align 2
-  %28 = getelementptr inbounds i8, ptr %0, i64 50
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %28, align 2
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %29, align 2
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
-  %31 = getelementptr inbounds i8, ptr %0, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %32 = and i16 %25, -3
   store i16 %32, ptr %17, align 4
   store i16 0, ptr %26, align 2
@@ -1099,10 +1099,10 @@ ExecStoreMinimalTuple.exit:                       ; preds = %16, %20
   store ptr %10, ptr %31, align 8
   %33 = load i32, ptr %10, align 4
   %34 = add i32 %33, 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %34, ptr %35, align 8
   %36 = getelementptr i8, ptr %10, i64 -8
-  %37 = getelementptr inbounds i8, ptr %0, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %36, ptr %37, align 8
   %38 = or i16 %32, 4
   store i16 %38, ptr %17, align 4
@@ -1111,32 +1111,32 @@ ExecStoreMinimalTuple.exit:                       ; preds = %16, %20
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_minimal_get_minimal_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_minimal_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_minimal_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_minimal_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -1145,10 +1145,10 @@ define internal ptr @tts_minimal_get_minimal_tuple(ptr nocapture noundef %0) #1 
   store i16 %22, ptr %5, align 4
   %23 = load i32, ptr %20, align 4
   %24 = add i32 %23, 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %20, i64 -8
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %26, ptr %27, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
   br label %tts_minimal_materialize.exit
@@ -1160,32 +1160,32 @@ tts_minimal_materialize.exit:                     ; preds = %8, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_minimal_copy_heap_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_minimal_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_minimal_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_minimal_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -1194,10 +1194,10 @@ define internal ptr @tts_minimal_copy_heap_tuple(ptr nocapture noundef %0) #1 {
   store i16 %22, ptr %5, align 4
   %23 = load i32, ptr %20, align 4
   %24 = add i32 %23, 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %20, i64 -8
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %26, ptr %27, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
   br label %tts_minimal_materialize.exit
@@ -1210,32 +1210,32 @@ tts_minimal_materialize.exit:                     ; preds = %8, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_minimal_copy_minimal_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_minimal_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_minimal_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 6
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %12, align 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_minimal_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -1244,10 +1244,10 @@ define internal ptr @tts_minimal_copy_minimal_tuple(ptr nocapture noundef %0) #1
   store i16 %22, ptr %5, align 4
   %23 = load i32, ptr %20, align 4
   %24 = add i32 %23, 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %24, ptr %25, align 8
   %26 = getelementptr i8, ptr %20, i64 -8
-  %27 = getelementptr inbounds i8, ptr %0, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %26, ptr %27, align 8
   store ptr %11, ptr @CurrentMemoryContext, align 8
   br label %tts_minimal_materialize.exit
@@ -1270,14 +1270,14 @@ define internal void @tts_buffer_heap_release(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_buffer_heap_clear(ptr nocapture noundef initializes((6, 8), (48, 54), (72, 76)) %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   tail call void @heap_freetuple(ptr noundef %7) #13
   %8 = load i16, ptr %2, align 4
@@ -1287,7 +1287,7 @@ define internal void @tts_buffer_heap_clear(ptr nocapture noundef initializes((6
 
 10:                                               ; preds = %5, %1
   %11 = phi i16 [ %9, %5 ], [ %3, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %13 = load i32, ptr %12, align 8
   %.not12 = icmp eq i32 %13, 0
   br i1 %.not12, label %15, label %14
@@ -1299,19 +1299,19 @@ define internal void @tts_buffer_heap_clear(ptr nocapture noundef initializes((6
 
 15:                                               ; preds = %14, %10
   %16 = phi i16 [ %.pre, %14 ], [ %11, %10 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %17, align 2
   %18 = or i16 %16, 2
   store i16 %18, ptr %2, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 -1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %0, i64 50
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 -1, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i16 0, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %0, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %23, align 8
   store i32 0, ptr %12, align 8
   ret void
@@ -1319,9 +1319,9 @@ define internal void @tts_buffer_heap_clear(ptr nocapture noundef initializes((6
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_buffer_heap_getsomeattrs(ptr nocapture noundef %0, i32 noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = getelementptr i8, ptr %4, i64 16
   %.val = load ptr, ptr %6, align 8
   tail call fastcc void @slot_deform_heap_tuple(ptr noundef %0, ptr %.val, ptr noundef nonnull %5, i32 noundef %1)
@@ -1330,7 +1330,7 @@ define internal void @tts_buffer_heap_getsomeattrs(ptr nocapture noundef %0, i32
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @tts_buffer_heap_getsysattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %10
@@ -1344,7 +1344,7 @@ define internal i64 @tts_buffer_heap_getsysattr(ptr nocapture noundef readonly %
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @heap_getsysattr(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %12, ptr noundef %2) #13
   ret i64 %13
@@ -1352,32 +1352,32 @@ define internal i64 @tts_buffer_heap_getsysattr(ptr nocapture noundef readonly %
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_buffer_heap_materialize(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %5, label %30
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %7, ptr @CurrentMemoryContext, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %10, align 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %13, label %21
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %11, align 8
@@ -1386,7 +1386,7 @@ define internal void @tts_buffer_heap_materialize(ptr nocapture noundef %0) #1 {
 21:                                               ; preds = %5
   %22 = tail call ptr @heap_copytuple(ptr noundef nonnull %12) #13
   store ptr %22, ptr %11, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %24 = load i32, ptr %23, align 8
   %.not18 = icmp eq i32 %24, 0
   br i1 %.not18, label %26, label %25
@@ -1412,43 +1412,43 @@ define internal void @tts_buffer_heap_materialize(ptr nocapture noundef %0) #1 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @tts_buffer_heap_copyslot(ptr noundef %0, ptr noundef %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %7, label %14
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 4
   %.not20 = icmp eq i16 %10, 0
   br i1 %.not20, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not21 = icmp eq ptr %13, null
   br i1 %.not21, label %14, label %30
 
 14:                                               ; preds = %11, %7, %2
-  %15 = getelementptr inbounds i8, ptr %4, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef nonnull %0) #13
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, -3
   store i16 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %21, ptr @CurrentMemoryContext, align 8
   %23 = load ptr, ptr %5, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr %25(ptr noundef nonnull %1) #13
-  %27 = getelementptr inbounds i8, ptr %0, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %26, ptr %27, align 8
   %28 = load i16, ptr %17, align 4
   %29 = or i16 %28, 4
@@ -1457,16 +1457,16 @@ define internal void @tts_buffer_heap_copyslot(ptr noundef %0, ptr noundef %1) #
   br label %58
 
 30:                                               ; preds = %11
-  %31 = getelementptr inbounds i8, ptr %1, i64 104
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = and i16 %34, 4
   %.not.i = icmp eq i16 %35, 0
   br i1 %.not.i, label %41, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8
   tail call void @heap_freetuple(ptr noundef %38) #13
   %39 = load i16, ptr %33, align 4
@@ -1477,16 +1477,16 @@ define internal void @tts_buffer_heap_copyslot(ptr noundef %0, ptr noundef %1) #
   %42 = phi i16 [ %40, %36 ], [ %34, %30 ]
   %43 = and i16 %42, -3
   store i16 %43, ptr %33, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 6
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %44, align 2
-  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %13, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 48
-  %48 = getelementptr inbounds i8, ptr %13, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %13, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %47, ptr noundef nonnull align 4 dereferenceable(6) %48, i64 6, i1 false)
-  %49 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %50 = load i32, ptr %49, align 8
   %.not23.i = icmp eq i32 %50, %32
   br i1 %.not23.i, label %tts_buffer_heap_store_tuple.exit, label %51
@@ -1509,7 +1509,7 @@ define internal void @tts_buffer_heap_copyslot(ptr noundef %0, ptr noundef %1) #
   br label %tts_buffer_heap_store_tuple.exit
 
 tts_buffer_heap_store_tuple.exit:                 ; preds = %41, %53, %55
-  %56 = getelementptr inbounds i8, ptr %0, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %57 = load ptr, ptr %45, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
   store ptr %56, ptr %45, align 8
@@ -1521,32 +1521,32 @@ tts_buffer_heap_store_tuple.exit:                 ; preds = %41, %53, %55
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_buffer_heap_get_heap_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_buffer_heap_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_buffer_heap_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -1563,32 +1563,32 @@ tts_buffer_heap_materialize.exit:                 ; preds = %8, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_buffer_heap_copy_heap_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_buffer_heap_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_buffer_heap_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -1606,32 +1606,32 @@ tts_buffer_heap_materialize.exit:                 ; preds = %8, %4, %1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @tts_buffer_heap_copy_minimal_tuple(ptr nocapture noundef %0) #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %tts_buffer_heap_materialize.exit
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i16, ptr %5, align 4
   %7 = and i16 %6, 4
   %.not.i = icmp eq i16 %7, 0
   br i1 %.not.i, label %8, label %tts_buffer_heap_materialize.exit
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %10, ptr @CurrentMemoryContext, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 0, ptr %13, align 2
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @heap_form_tuple(ptr noundef %15, ptr noundef %17, ptr noundef %19) #13
   store ptr %20, ptr %2, align 8
@@ -1669,19 +1669,19 @@ define dso_local noundef ptr @MakeTupleTableSlot(ptr noundef %0, ptr noundef %1)
   %spec.select.v = phi i16 [ 18, %4 ], [ 2, %2 ]
   %.0 = phi i64 [ %13, %4 ], [ %3, %2 ]
   %15 = tail call ptr @palloc0(i64 noundef %.0) #13
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %16, align 8
   store i32 427, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i16, ptr %17, align 4
   %spec.select = or i16 %18, %spec.select.v
   store i16 %spec.select, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %0, ptr %19, align 8
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 6
   store i16 0, ptr %22, align 2
   br i1 %.not, label %37, label %23
 
@@ -1689,15 +1689,15 @@ define dso_local noundef ptr @MakeTupleTableSlot(ptr noundef %0, ptr noundef %1)
   %24 = add i64 %3, 7
   %25 = and i64 %24, -8
   %26 = getelementptr i8, ptr %15, i64 %25
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %26, ptr %27, align 8
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
   %31 = getelementptr i8, ptr %26, i64 %30
-  %32 = getelementptr inbounds i8, ptr %15, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %36, label %37
@@ -1709,7 +1709,7 @@ define dso_local noundef ptr @MakeTupleTableSlot(ptr noundef %0, ptr noundef %1)
 
 37:                                               ; preds = %36, %23, %14
   %38 = phi ptr [ %.pre, %36 ], [ %1, %23 ], [ %1, %14 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %15) #13
   ret ptr %15
@@ -1741,19 +1741,19 @@ define dso_local noundef ptr @ExecAllocTableSlot(ptr nocapture noundef %0, ptr n
   %spec.select.v.i = phi i16 [ 18, %5 ], [ 2, %3 ]
   %.0.i = phi i64 [ %14, %5 ], [ %4, %3 ]
   %16 = tail call ptr @palloc0(i64 noundef %.0.i) #13
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8
   store i32 427, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load i16, ptr %18, align 4
   %spec.select.i = or i16 %19, %spec.select.v.i
   store i16 %spec.select.i, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %1, ptr %20, align 8
   %21 = load ptr, ptr @CurrentMemoryContext, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store i16 0, ptr %23, align 2
   br i1 %.not.i, label %MakeTupleTableSlot.exit, label %24
 
@@ -1761,15 +1761,15 @@ define dso_local noundef ptr @ExecAllocTableSlot(ptr nocapture noundef %0, ptr n
   %25 = add i64 %4, 7
   %26 = and i64 %25, -8
   %27 = getelementptr i8, ptr %16, i64 %26
-  %28 = getelementptr inbounds i8, ptr %16, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %27, ptr %28, align 8
   %29 = load i32, ptr %1, align 8
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
   %32 = getelementptr i8, ptr %27, i64 %31
-  %33 = getelementptr inbounds i8, ptr %16, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %MakeTupleTableSlot.exit
@@ -1781,7 +1781,7 @@ define dso_local noundef ptr @ExecAllocTableSlot(ptr nocapture noundef %0, ptr n
 
 MakeTupleTableSlot.exit:                          ; preds = %15, %24, %37
   %38 = phi ptr [ %.pre.i, %37 ], [ %2, %24 ], [ %2, %15 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void %40(ptr noundef nonnull %16) #13
   %41 = load ptr, ptr %0, align 8
@@ -1794,12 +1794,12 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %1, label %.lr.ph.split.us.split, label %.lr.ph.split.split
@@ -1812,22 +1812,22 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr %union.ListCell, ptr %7, i64 %indvars.iv42
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %9) #13
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %9) #13
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not26.us = icmp eq ptr %18, null
   br i1 %.not26.us, label %25, label %19
 
 19:                                               ; preds = %.lr.ph39
-  %20 = getelementptr inbounds i8, ptr %18, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, -1
   br i1 %22, label %23, label %24
@@ -1841,14 +1841,14 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   br label %25
 
 25:                                               ; preds = %24, %.lr.ph39
-  %26 = getelementptr inbounds i8, ptr %9, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %27 = load i16, ptr %26, align 4
   %28 = and i16 %27, 16
   %.not27.us = icmp eq i16 %28, 0
   br i1 %.not27.us, label %29, label %37
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %9, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %31 = load ptr, ptr %30, align 8
   %.not28.us = icmp eq ptr %31, null
   br i1 %.not28.us, label %33, label %32
@@ -1858,7 +1858,7 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   br label %33
 
 33:                                               ; preds = %32, %29
-  %34 = getelementptr inbounds i8, ptr %9, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not29.us = icmp eq ptr %35, null
   br i1 %.not29.us, label %37, label %36
@@ -1883,22 +1883,22 @@ define dso_local void @ExecResetTupleTable(ptr noundef %0, i1 noundef zeroext %1
   %41 = load ptr, ptr %4, align 8
   %42 = getelementptr %union.ListCell, ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef %43) #13
   %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
   tail call void %50(ptr noundef %43) #13
-  %51 = getelementptr inbounds i8, ptr %43, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not26 = icmp eq ptr %52, null
   br i1 %.not26, label %59, label %53
 
 53:                                               ; preds = %.lr.ph37
-  %54 = getelementptr inbounds i8, ptr %52, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %57, label %58
@@ -1957,19 +1957,19 @@ define dso_local noundef ptr @MakeSingleTupleTableSlot(ptr noundef %0, ptr nound
   %spec.select.v.i = phi i16 [ 18, %4 ], [ 2, %2 ]
   %.0.i = phi i64 [ %13, %4 ], [ %3, %2 ]
   %15 = tail call ptr @palloc0(i64 noundef %.0.i) #13
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %16, align 8
   store i32 427, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i16, ptr %17, align 4
   %spec.select.i = or i16 %18, %spec.select.v.i
   store i16 %spec.select.i, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %0, ptr %19, align 8
   %20 = load ptr, ptr @CurrentMemoryContext, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 6
   store i16 0, ptr %22, align 2
   br i1 %.not.i, label %MakeTupleTableSlot.exit, label %23
 
@@ -1977,15 +1977,15 @@ define dso_local noundef ptr @MakeSingleTupleTableSlot(ptr noundef %0, ptr nound
   %24 = add i64 %3, 7
   %25 = and i64 %24, -8
   %26 = getelementptr i8, ptr %15, i64 %25
-  %27 = getelementptr inbounds i8, ptr %15, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr %26, ptr %27, align 8
   %28 = load i32, ptr %0, align 8
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 3
   %31 = getelementptr i8, ptr %26, i64 %30
-  %32 = getelementptr inbounds i8, ptr %15, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store ptr %31, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %34, -1
   br i1 %35, label %36, label %MakeTupleTableSlot.exit
@@ -1997,7 +1997,7 @@ define dso_local noundef ptr @MakeSingleTupleTableSlot(ptr noundef %0, ptr nound
 
 MakeTupleTableSlot.exit:                          ; preds = %14, %23, %36
   %37 = phi ptr [ %.pre.i, %36 ], [ %1, %23 ], [ %1, %14 ]
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull %15) #13
   ret ptr %15
@@ -2005,22 +2005,22 @@ MakeTupleTableSlot.exit:                          ; preds = %14, %23, %36
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecDropSingleTupleTableSlot(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0) #13
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef %0) #13
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %16, label %11
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %10, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, -1
   br i1 %14, label %15, label %16
@@ -2030,14 +2030,14 @@ define dso_local void @ExecDropSingleTupleTableSlot(ptr noundef %0) local_unname
   br label %16
 
 16:                                               ; preds = %15, %11, %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 16
   %.not14 = icmp eq i16 %19, 0
   br i1 %.not14, label %20, label %28
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not15 = icmp eq ptr %22, null
   br i1 %.not15, label %24, label %23
@@ -2047,7 +2047,7 @@ define dso_local void @ExecDropSingleTupleTableSlot(ptr noundef %0) local_unname
   br label %24
 
 24:                                               ; preds = %23, %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not16 = icmp eq ptr %26, null
   br i1 %.not16, label %28, label %27
@@ -2063,18 +2063,18 @@ define dso_local void @ExecDropSingleTupleTableSlot(ptr noundef %0) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecSetSlotDescriptor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef %0) #13
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %14, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %8, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %11 = load i32, ptr %10, align 4
   %12 = icmp sgt i32 %11, -1
   br i1 %12, label %13, label %14
@@ -2084,7 +2084,7 @@ define dso_local void @ExecSetSlotDescriptor(ptr noundef %0, ptr noundef %1) loc
   br label %14
 
 14:                                               ; preds = %13, %9, %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %.not20 = icmp eq ptr %16, null
   br i1 %.not20, label %18, label %17
@@ -2094,7 +2094,7 @@ define dso_local void @ExecSetSlotDescriptor(ptr noundef %0, ptr noundef %1) loc
   br label %18
 
 18:                                               ; preds = %17, %14
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %.not21 = icmp eq ptr %20, null
   br i1 %.not21, label %22, label %21
@@ -2105,7 +2105,7 @@ define dso_local void @ExecSetSlotDescriptor(ptr noundef %0, ptr noundef %1) loc
 
 22:                                               ; preds = %21, %18
   store ptr %1, ptr %7, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = icmp sgt i32 %24, -1
   br i1 %25, label %26, label %27
@@ -2115,7 +2115,7 @@ define dso_local void @ExecSetSlotDescriptor(ptr noundef %0, ptr noundef %1) loc
   br label %27
 
 27:                                               ; preds = %22, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %1, align 8
   %31 = sext i32 %30 to i64
@@ -2134,7 +2134,7 @@ declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecStoreHeapTuple(ptr noundef %0, ptr noundef returned %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsHeapTuple
   br i1 %.not, label %9, label %6
@@ -2147,14 +2147,14 @@ define dso_local noundef ptr @ExecStoreHeapTuple(ptr noundef %0, ptr noundef ret
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 4
   %.not.i.i = icmp eq i16 %12, 0
   br i1 %.not.i.i, label %tts_heap_clear.exit.i, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   tail call void @heap_freetuple(ptr noundef %15) #13
   %16 = load i16, ptr %10, align 4
@@ -2162,21 +2162,21 @@ define dso_local noundef ptr @ExecStoreHeapTuple(ptr noundef %0, ptr noundef ret
 
 tts_heap_clear.exit.i:                            ; preds = %13, %9
   %17 = phi i16 [ %16, %13 ], [ %11, %9 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 6
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i16 -1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 50
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 50
   store i16 -1, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i16 0, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 72
-  %23 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i16 0, ptr %18, align 2
   store ptr %0, ptr %23, align 8
   store i32 0, ptr %22, align 8
   %24 = and i16 %17, -7
   store i16 %24, ptr %10, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %19, ptr noundef nonnull align 4 dereferenceable(6) %25, i64 6, i1 false)
   br i1 %2, label %26, label %tts_heap_store_tuple.exit
 
@@ -2186,9 +2186,9 @@ tts_heap_clear.exit.i:                            ; preds = %13, %9
   br label %tts_heap_store_tuple.exit
 
 tts_heap_store_tuple.exit:                        ; preds = %tts_heap_clear.exit.i, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %1, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %29, ptr %30, align 8
   ret ptr %1
 }
@@ -2202,7 +2202,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecStoreBufferHeapTuple(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsBufferHeapTuple
   br i1 %.not, label %9, label %6
@@ -2215,14 +2215,14 @@ define dso_local noundef ptr @ExecStoreBufferHeapTuple(ptr noundef %0, ptr nound
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 4
   %.not.i = icmp eq i16 %12, 0
   br i1 %.not.i, label %18, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   tail call void @heap_freetuple(ptr noundef %15) #13
   %16 = load i16, ptr %10, align 4
@@ -2233,16 +2233,16 @@ define dso_local noundef ptr @ExecStoreBufferHeapTuple(ptr noundef %0, ptr nound
   %19 = phi i16 [ %17, %13 ], [ %11, %9 ]
   %20 = and i16 %19, -3
   store i16 %20, ptr %10, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 0, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %24, ptr noundef nonnull align 4 dereferenceable(6) %25, i64 6, i1 false)
-  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %27 = load i32, ptr %26, align 8
   %.not23.i = icmp eq i32 %27, %2
   br i1 %.not23.i, label %tts_buffer_heap_store_tuple.exit, label %28
@@ -2265,16 +2265,16 @@ define dso_local noundef ptr @ExecStoreBufferHeapTuple(ptr noundef %0, ptr nound
   br label %tts_buffer_heap_store_tuple.exit
 
 tts_buffer_heap_store_tuple.exit:                 ; preds = %18, %30, %32
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %34, ptr %35, align 8
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr noundef returned %1, i32 noundef %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsBufferHeapTuple
   br i1 %.not, label %9, label %6
@@ -2287,14 +2287,14 @@ define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 4
   %.not.i = icmp eq i16 %12, 0
   br i1 %.not.i, label %18, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %15 = load ptr, ptr %14, align 8
   tail call void @heap_freetuple(ptr noundef %15) #13
   %16 = load i16, ptr %10, align 4
@@ -2305,16 +2305,16 @@ define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr
   %19 = phi i16 [ %17, %13 ], [ %11, %9 ]
   %20 = and i16 %19, -3
   store i16 %20, ptr %10, align 4
-  %21 = getelementptr inbounds i8, ptr %1, i64 6
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 0, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr %0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %1, i64 48
-  %25 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %24, ptr noundef nonnull align 4 dereferenceable(6) %25, i64 6, i1 false)
-  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %27 = load i32, ptr %26, align 8
   %.not23.i = icmp eq i32 %27, %2
   br i1 %.not23.i, label %31, label %28
@@ -2340,16 +2340,16 @@ define dso_local noundef ptr @ExecStorePinnedBufferHeapTuple(ptr noundef %0, ptr
   br label %tts_buffer_heap_store_tuple.exit
 
 tts_buffer_heap_store_tuple.exit:                 ; preds = %31, %32, %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %34, ptr %35, align 8
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecStoreMinimalTuple(ptr noundef %0, ptr noundef returned %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, @TTSOpsMinimalTuple
   br i1 %.not, label %9, label %6
@@ -2362,14 +2362,14 @@ define dso_local noundef ptr @ExecStoreMinimalTuple(ptr noundef %0, ptr noundef 
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 4
   %.not.i.i = icmp eq i16 %12, 0
   br i1 %.not.i.i, label %tts_minimal_clear.exit.i, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8
   tail call void @heap_free_minimal_tuple(ptr noundef %15) #13
   %16 = load i16, ptr %10, align 4
@@ -2378,15 +2378,15 @@ define dso_local noundef ptr @ExecStoreMinimalTuple(ptr noundef %0, ptr noundef 
 
 tts_minimal_clear.exit.i:                         ; preds = %13, %9
   %18 = phi i16 [ %17, %13 ], [ %11, %9 ]
-  %19 = getelementptr inbounds i8, ptr %1, i64 6
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i16 -1, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 50
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 50
   store i16 -1, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i16 0, ptr %22, align 2
-  %23 = getelementptr inbounds i8, ptr %1, i64 104
-  %24 = getelementptr inbounds i8, ptr %1, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = and i16 %18, -3
   store i16 %25, ptr %10, align 4
   store i16 0, ptr %19, align 2
@@ -2394,10 +2394,10 @@ tts_minimal_clear.exit.i:                         ; preds = %13, %9
   store ptr %0, ptr %24, align 8
   %26 = load i32, ptr %0, align 4
   %27 = add i32 %26, 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %27, ptr %28, align 8
   %29 = getelementptr i8, ptr %0, i64 -8
-  %30 = getelementptr inbounds i8, ptr %1, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %29, ptr %30, align 8
   br i1 %2, label %31, label %tts_minimal_store_tuple.exit
 
@@ -2412,20 +2412,20 @@ tts_minimal_store_tuple.exit:                     ; preds = %tts_minimal_clear.e
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForceStoreHeapTuple(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, @TTSOpsHeapTuple
   br i1 %6, label %7, label %29
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = and i16 %9, 4
   %.not.i.i.i = icmp eq i16 %10, 0
   br i1 %.not.i.i.i, label %tts_heap_clear.exit.i.i, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load ptr, ptr %12, align 8
   tail call void @heap_freetuple(ptr noundef %13) #13
   %14 = load i16, ptr %8, align 4
@@ -2433,21 +2433,21 @@ define dso_local void @ExecForceStoreHeapTuple(ptr noundef %0, ptr noundef %1, i
 
 tts_heap_clear.exit.i.i:                          ; preds = %11, %7
   %15 = phi i16 [ %14, %11 ], [ %9, %7 ]
-  %16 = getelementptr inbounds i8, ptr %1, i64 6
-  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i16 -1, ptr %17, align 2
-  %18 = getelementptr inbounds i8, ptr %1, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 50
   store i16 -1, ptr %18, align 2
-  %19 = getelementptr inbounds i8, ptr %1, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i16 0, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i16 0, ptr %16, align 2
   store ptr %0, ptr %21, align 8
   store i32 0, ptr %20, align 8
   %22 = and i16 %15, -7
   store i16 %22, ptr %8, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %17, ptr noundef nonnull align 4 dereferenceable(6) %23, i64 6, i1 false)
   br i1 %2, label %24, label %ExecStoreHeapTuple.exit
 
@@ -2457,9 +2457,9 @@ tts_heap_clear.exit.i.i:                          ; preds = %11, %7
   br label %ExecStoreHeapTuple.exit
 
 ExecStoreHeapTuple.exit:                          ; preds = %tts_heap_clear.exit.i.i, %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 %27, ptr %28, align 8
   br label %80
 
@@ -2468,14 +2468,14 @@ ExecStoreHeapTuple.exit:                          ; preds = %tts_heap_clear.exit
   br i1 %30, label %31, label %60
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %1, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = and i16 %33, 4
   %.not.i = icmp eq i16 %34, 0
   br i1 %.not.i, label %40, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %1, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %37 = load ptr, ptr %36, align 8
   tail call void @heap_freetuple(ptr noundef %37) #13
   %38 = load i16, ptr %32, align 4
@@ -2485,7 +2485,7 @@ ExecStoreHeapTuple.exit:                          ; preds = %tts_heap_clear.exit
 
 40:                                               ; preds = %35, %31
   %41 = phi i16 [ %39, %35 ], [ %33, %31 ]
-  %42 = getelementptr inbounds i8, ptr %1, i64 104
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %43 = load i32, ptr %42, align 8
   %.not12.i = icmp eq i32 %43, 0
   br i1 %.not12.i, label %tts_buffer_heap_clear.exit, label %44
@@ -2497,22 +2497,22 @@ ExecStoreHeapTuple.exit:                          ; preds = %tts_heap_clear.exit
 
 tts_buffer_heap_clear.exit:                       ; preds = %40, %44
   %45 = phi i16 [ %.pre.i, %44 ], [ %41, %40 ]
-  %46 = getelementptr inbounds i8, ptr %1, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 0, ptr %46, align 2
-  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i16 -1, ptr %47, align 2
-  %48 = getelementptr inbounds i8, ptr %1, i64 50
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 50
   store i16 -1, ptr %48, align 2
-  %49 = getelementptr inbounds i8, ptr %1, i64 52
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i16 0, ptr %49, align 2
-  %50 = getelementptr inbounds i8, ptr %1, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 72
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 0, ptr %51, align 8
   store i32 0, ptr %42, align 8
   %52 = and i16 %45, -3
   store i16 %52, ptr %32, align 4
-  %53 = getelementptr inbounds i8, ptr %1, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %54, ptr @CurrentMemoryContext, align 8
@@ -2529,30 +2529,30 @@ tts_buffer_heap_clear.exit:                       ; preds = %40, %44
   br label %80
 
 60:                                               ; preds = %29
-  %61 = getelementptr inbounds i8, ptr %5, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %62 = load ptr, ptr %61, align 8
   tail call void %62(ptr noundef nonnull %1) #13
-  %63 = getelementptr inbounds i8, ptr %1, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %1, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %68 = load ptr, ptr %67, align 8
   tail call void @heap_deform_tuple(ptr noundef %0, ptr noundef %64, ptr noundef %66, ptr noundef %68) #13
-  %69 = getelementptr inbounds i8, ptr %1, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %70 = load i16, ptr %69, align 4
   %71 = and i16 %70, -3
   store i16 %71, ptr %69, align 4
   %72 = load ptr, ptr %63, align 8
   %73 = load i32, ptr %72, align 8
   %74 = trunc i32 %73 to i16
-  %75 = getelementptr inbounds i8, ptr %1, i64 6
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %74, ptr %75, align 2
   br i1 %2, label %76, label %80
 
 76:                                               ; preds = %60
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 48
   %79 = load ptr, ptr %78, align 8
   tail call void %79(ptr noundef nonnull %1) #13
   tail call void @pfree(ptr noundef %0) #13
@@ -2568,15 +2568,15 @@ declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef ptr @ExecStoreVirtualTuple(ptr noundef returned initializes((6, 8)) %0) local_unnamed_addr #6 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, -3
   store i16 %4, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
   %8 = trunc i32 %7 to i16
-  %9 = getelementptr inbounds i8, ptr %0, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %8, ptr %9, align 2
   ret ptr %0
 }
@@ -2584,20 +2584,20 @@ define dso_local noundef ptr @ExecStoreVirtualTuple(ptr noundef returned initial
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecForceStoreMinimalTuple(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.HeapTupleData, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, @TTSOpsMinimalTuple
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i16, ptr %9, align 4
   %11 = and i16 %10, 4
   %.not.i.i = icmp eq i16 %11, 0
   br i1 %.not.i.i, label %tts_minimal_clear.exit.i, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %1, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %14 = load ptr, ptr %13, align 8
   tail call void @heap_free_minimal_tuple(ptr noundef %14) #13
   %15 = load i16, ptr %9, align 4
@@ -2606,15 +2606,15 @@ define dso_local void @ExecForceStoreMinimalTuple(ptr noundef %0, ptr noundef %1
 
 tts_minimal_clear.exit.i:                         ; preds = %12, %8
   %17 = phi i16 [ %16, %12 ], [ %10, %8 ]
-  %18 = getelementptr inbounds i8, ptr %1, i64 6
-  %19 = getelementptr inbounds i8, ptr %1, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 6
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i16 -1, ptr %19, align 2
-  %20 = getelementptr inbounds i8, ptr %1, i64 50
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 50
   store i16 -1, ptr %20, align 2
-  %21 = getelementptr inbounds i8, ptr %1, i64 52
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i16 0, ptr %21, align 2
-  %22 = getelementptr inbounds i8, ptr %1, i64 104
-  %23 = getelementptr inbounds i8, ptr %1, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %24 = and i16 %17, -3
   store i16 %24, ptr %9, align 4
   store i16 0, ptr %18, align 2
@@ -2622,10 +2622,10 @@ tts_minimal_clear.exit.i:                         ; preds = %12, %8
   store ptr %0, ptr %23, align 8
   %25 = load i32, ptr %0, align 4
   %26 = add i32 %25, 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store i32 %26, ptr %27, align 8
   %28 = getelementptr i8, ptr %0, i64 -8
-  %29 = getelementptr inbounds i8, ptr %1, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 96
   store ptr %28, ptr %29, align 8
   br i1 %2, label %30, label %tts_minimal_store_tuple.exit
 
@@ -2635,36 +2635,36 @@ tts_minimal_clear.exit.i:                         ; preds = %12, %8
   br label %tts_minimal_store_tuple.exit
 
 32:                                               ; preds = %3
-  %33 = getelementptr inbounds i8, ptr %6, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %34 = load ptr, ptr %33, align 8
   tail call void %34(ptr noundef nonnull %1) #13
   %35 = load i32, ptr %0, align 4
   %36 = add i32 %35, 8
   store i32 %36, ptr %4, align 8
   %37 = getelementptr i8, ptr %0, i64 -8
-  %38 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load ptr, ptr %43, align 8
   call void @heap_deform_tuple(ptr noundef nonnull %4, ptr noundef %40, ptr noundef %42, ptr noundef %44) #13
-  %45 = getelementptr inbounds i8, ptr %1, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %46 = load i16, ptr %45, align 4
   %47 = and i16 %46, -3
   store i16 %47, ptr %45, align 4
   %48 = load ptr, ptr %39, align 8
   %49 = load i32, ptr %48, align 8
   %50 = trunc i32 %49 to i16
-  %51 = getelementptr inbounds i8, ptr %1, i64 6
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %50, ptr %51, align 2
   br i1 %2, label %52, label %tts_minimal_store_tuple.exit
 
 52:                                               ; preds = %32
   %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull %1) #13
   call void @pfree(ptr noundef nonnull %0) #13
@@ -2676,14 +2676,14 @@ tts_minimal_store_tuple.exit:                     ; preds = %30, %tts_minimal_cl
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @ExecStoreAllNullTuple(ptr noundef returned %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %0) #13
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
@@ -2716,20 +2716,20 @@ define dso_local noundef ptr @ExecStoreAllNullTuple(ptr noundef returned %0) loc
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph.preheader, %17, %26
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %8, align 8
   %30 = load i32, ptr %29, align 8
   %31 = sext i32 %30 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %28, i8 1, i64 %31, i1 false)
-  %32 = getelementptr inbounds i8, ptr %0, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i16, ptr %32, align 4
   %34 = and i16 %33, -3
   store i16 %34, ptr %32, align 4
   %35 = load ptr, ptr %8, align 8
   %36 = load i32, ptr %35, align 8
   %37 = trunc i32 %36 to i16
-  %38 = getelementptr inbounds i8, ptr %0, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 6
   store i16 %37, ptr %38, align 2
   ret ptr %0
 }
@@ -2740,38 +2740,38 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecStoreHeapTupleDatum(i64 noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.HeapTupleData, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 0, ptr %4, align 8
   %5 = inttoptr i64 %0 to ptr
   %6 = tail call ptr @pg_detoast_datum(ptr noundef %5) #13
   %7 = load i32, ptr %6, align 4
   %8 = lshr i32 %7, 2
   store i32 %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %9, ptr noundef nonnull align 4 dereferenceable(6) %10, i64 6, i1 false)
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %6, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef %1) #13
-  %16 = getelementptr inbounds i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %21 = load ptr, ptr %20, align 8
   call void @heap_deform_tuple(ptr noundef nonnull %3, ptr noundef %17, ptr noundef %19, ptr noundef %21) #13
-  %22 = getelementptr inbounds i8, ptr %1, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, -3
   store i16 %24, ptr %22, align 4
   %25 = load ptr, ptr %16, align 8
   %26 = load i32, ptr %25, align 8
   %27 = trunc i32 %26 to i16
-  %28 = getelementptr inbounds i8, ptr %1, i64 6
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %27, ptr %28, align 2
   ret void
 }
@@ -2786,17 +2786,17 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
   br i1 %1, label %4, label %9
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef %0) #13
   br label %9
 
 9:                                                ; preds = %4, %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   %.not13 = icmp eq ptr %2, null
@@ -2812,7 +2812,7 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
 
 17:                                               ; preds = %16, %15
   %18 = phi ptr [ %.pre15, %16 ], [ %11, %15 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
   br label %23
 
@@ -2822,7 +2822,7 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
 22:                                               ; preds = %21
   store i8 0, ptr %2, align 1
   %.pre = load ptr, ptr %10, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 64
   %.pre14 = load ptr, ptr %.phi.trans.insert, align 8
   br label %23
 
@@ -2834,9 +2834,9 @@ define dso_local ptr @ExecFetchSlotHeapTuple(ptr noundef %0, i1 noundef zeroext 
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %.not11 = icmp eq ptr %1, null
@@ -2848,7 +2848,7 @@ define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writ
 8:                                                ; preds = %7
   store i8 0, ptr %1, align 1
   %.pre = load ptr, ptr %3, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 72
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 72
   %.pre13 = load ptr, ptr %.phi.trans.insert, align 8
   br label %15
 
@@ -2862,7 +2862,7 @@ define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writ
 
 11:                                               ; preds = %10, %9
   %12 = phi ptr [ %.pre14, %10 ], [ %4, %9 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   br label %15
 
@@ -2874,22 +2874,22 @@ define dso_local ptr @ExecFetchSlotMinimalTuple(ptr noundef %0, ptr noundef writ
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @ExecFetchSlotHeapTupleDatum(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %ExecFetchSlotHeapTuple.exit
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %9 = load ptr, ptr %8, align 8
   br label %ExecFetchSlotHeapTuple.exit
 
 ExecFetchSlotHeapTuple.exit:                      ; preds = %1, %7
   %.sink.i = phi ptr [ %9, %7 ], [ %5, %1 ]
   %10 = tail call ptr %.sink.i(ptr noundef nonnull %0) #13
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @heap_copy_tuple_as_datum(ptr noundef %10, ptr noundef %12) #13
   br i1 %6, label %14, label %15
@@ -2906,12 +2906,12 @@ declare i64 @heap_copy_tuple_as_datum(ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecInitResultTypeTL(ptr nocapture noundef initializes((112, 120)) %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call fastcc ptr @ExecTypeFromTLInternal(ptr noundef %5, i1 noundef zeroext false)
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %6, ptr %7, align 8
   ret void
 }
@@ -2924,9 +2924,9 @@ define dso_local ptr @ExecTypeFromTL(ptr noundef %0) local_unnamed_addr #1 {
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecInitResultSlot(ptr nocapture noundef initializes((120, 128), (184, 192), (195, 196), (199, 200)) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 112
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %1, align 8
   %.not.i.i = icmp eq ptr %6, null
@@ -2948,19 +2948,19 @@ define dso_local void @ExecInitResultSlot(ptr nocapture noundef initializes((120
   %spec.select.v.i.i = phi i16 [ 18, %8 ], [ 2, %2 ]
   %.0.i.i = phi i64 [ %17, %8 ], [ %7, %2 ]
   %19 = tail call ptr @palloc0(i64 noundef %.0.i.i) #13
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %1, ptr %20, align 8
   store i32 427, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i16, ptr %21, align 4
   %spec.select.i.i = or i16 %22, %spec.select.v.i.i
   store i16 %spec.select.i.i, ptr %21, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %6, ptr %23, align 8
   %24 = load ptr, ptr @CurrentMemoryContext, align 8
-  %25 = getelementptr inbounds i8, ptr %19, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 40
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %19, i64 6
+  %26 = getelementptr inbounds nuw i8, ptr %19, i64 6
   store i16 0, ptr %26, align 2
   br i1 %.not.i.i, label %ExecAllocTableSlot.exit, label %27
 
@@ -2968,15 +2968,15 @@ define dso_local void @ExecInitResultSlot(ptr nocapture noundef initializes((120
   %28 = add i64 %7, 7
   %29 = and i64 %28, -8
   %30 = getelementptr i8, ptr %19, i64 %29
-  %31 = getelementptr inbounds i8, ptr %19, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %30, ptr %31, align 8
   %32 = load i32, ptr %6, align 8
   %33 = sext i32 %32 to i64
   %34 = shl nsw i64 %33, 3
   %35 = getelementptr i8, ptr %30, i64 %34
-  %36 = getelementptr inbounds i8, ptr %19, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %19, i64 32
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 12
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %38 = load i32, ptr %37, align 4
   %39 = icmp sgt i32 %38, -1
   br i1 %39, label %40, label %ExecAllocTableSlot.exit
@@ -2988,35 +2988,35 @@ define dso_local void @ExecInitResultSlot(ptr nocapture noundef initializes((120
 
 ExecAllocTableSlot.exit:                          ; preds = %18, %27, %40
   %41 = phi ptr [ %.pre.i.i, %40 ], [ %1, %27 ], [ %1, %18 ]
-  %42 = getelementptr inbounds i8, ptr %4, i64 168
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef nonnull %19) #13
   %45 = load ptr, ptr %42, align 8
   %46 = tail call ptr @lappend(ptr noundef %45, ptr noundef nonnull %19) #13
   store ptr %46, ptr %42, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 120
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %19, ptr %47, align 8
   %48 = load ptr, ptr %5, align 8
   %49 = icmp ne ptr %48, null
-  %50 = getelementptr inbounds i8, ptr %0, i64 195
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 195
   %51 = zext i1 %49 to i8
   store i8 %51, ptr %50, align 1
-  %52 = getelementptr inbounds i8, ptr %0, i64 184
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 184
   store ptr %1, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 199
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 199
   store i8 1, ptr %53, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecInitResultTupleSlotTL(ptr nocapture noundef initializes((112, 128), (184, 192), (195, 196), (199, 200)) %0, ptr noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call fastcc ptr @ExecTypeFromTLInternal(ptr noundef %6, i1 noundef zeroext false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %7, ptr %8, align 8
   tail call void @ExecInitResultSlot(ptr noundef %0, ptr noundef %1)
   ret void
@@ -3044,19 +3044,19 @@ define dso_local void @ExecInitScanTupleSlot(ptr nocapture noundef %0, ptr nocap
   %spec.select.v.i.i = phi i16 [ 18, %6 ], [ 2, %4 ]
   %.0.i.i = phi i64 [ %15, %6 ], [ %5, %4 ]
   %17 = tail call ptr @palloc0(i64 noundef %.0.i.i) #13
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %3, ptr %18, align 8
   store i32 427, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i16, ptr %19, align 4
   %spec.select.i.i = or i16 %20, %spec.select.v.i.i
   store i16 %spec.select.i.i, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %2, ptr %21, align 8
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i16 0, ptr %24, align 2
   br i1 %.not.i.i, label %ExecAllocTableSlot.exit, label %25
 
@@ -3064,15 +3064,15 @@ define dso_local void @ExecInitScanTupleSlot(ptr nocapture noundef %0, ptr nocap
   %26 = add i64 %5, 7
   %27 = and i64 %26, -8
   %28 = getelementptr i8, ptr %17, i64 %27
-  %29 = getelementptr inbounds i8, ptr %17, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr %2, align 8
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 3
   %33 = getelementptr i8, ptr %28, i64 %32
-  %34 = getelementptr inbounds i8, ptr %17, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %2, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %38, label %ExecAllocTableSlot.exit
@@ -3084,24 +3084,24 @@ define dso_local void @ExecInitScanTupleSlot(ptr nocapture noundef %0, ptr nocap
 
 ExecAllocTableSlot.exit:                          ; preds = %16, %25, %38
   %39 = phi ptr [ %.pre.i.i, %38 ], [ %3, %25 ], [ %3, %16 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 168
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull %17) #13
   %43 = load ptr, ptr %40, align 8
   %44 = tail call ptr @lappend(ptr noundef %43, ptr noundef nonnull %17) #13
   store ptr %44, ptr %40, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 216
   store ptr %17, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 152
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %2, ptr %46, align 8
   %47 = icmp ne ptr %2, null
-  %48 = getelementptr inbounds i8, ptr %1, i64 192
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %49 = zext i1 %47 to i8
   store i8 %49, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 160
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr %3, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 196
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 196
   store i8 1, ptr %51, align 4
   ret void
 }
@@ -3128,19 +3128,19 @@ define dso_local noundef ptr @ExecInitExtraTupleSlot(ptr nocapture noundef %0, p
   %spec.select.v.i.i = phi i16 [ 18, %5 ], [ 2, %3 ]
   %.0.i.i = phi i64 [ %14, %5 ], [ %4, %3 ]
   %16 = tail call ptr @palloc0(i64 noundef %.0.i.i) #13
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8
   store i32 427, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load i16, ptr %18, align 4
   %spec.select.i.i = or i16 %19, %spec.select.v.i.i
   store i16 %spec.select.i.i, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %1, ptr %20, align 8
   %21 = load ptr, ptr @CurrentMemoryContext, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store i16 0, ptr %23, align 2
   br i1 %.not.i.i, label %ExecAllocTableSlot.exit, label %24
 
@@ -3148,15 +3148,15 @@ define dso_local noundef ptr @ExecInitExtraTupleSlot(ptr nocapture noundef %0, p
   %25 = add i64 %4, 7
   %26 = and i64 %25, -8
   %27 = getelementptr i8, ptr %16, i64 %26
-  %28 = getelementptr inbounds i8, ptr %16, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %27, ptr %28, align 8
   %29 = load i32, ptr %1, align 8
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
   %32 = getelementptr i8, ptr %27, i64 %31
-  %33 = getelementptr inbounds i8, ptr %16, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %ExecAllocTableSlot.exit
@@ -3168,8 +3168,8 @@ define dso_local noundef ptr @ExecInitExtraTupleSlot(ptr nocapture noundef %0, p
 
 ExecAllocTableSlot.exit:                          ; preds = %15, %24, %37
   %38 = phi ptr [ %.pre.i.i, %37 ], [ %2, %24 ], [ %2, %15 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 168
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %16) #13
   %42 = load ptr, ptr %39, align 8
@@ -3200,19 +3200,19 @@ define dso_local noundef ptr @ExecInitNullTupleSlot(ptr nocapture noundef %0, pt
   %spec.select.v.i.i.i = phi i16 [ 18, %5 ], [ 2, %3 ]
   %.0.i.i.i = phi i64 [ %14, %5 ], [ %4, %3 ]
   %16 = tail call ptr @palloc0(i64 noundef %.0.i.i.i) #13
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8
   store i32 427, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load i16, ptr %18, align 4
   %spec.select.i.i.i = or i16 %19, %spec.select.v.i.i.i
   store i16 %spec.select.i.i.i, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %1, ptr %20, align 8
   %21 = load ptr, ptr @CurrentMemoryContext, align 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 6
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store i16 0, ptr %23, align 2
   br i1 %.not.i.i.i, label %ExecInitExtraTupleSlot.exit, label %24
 
@@ -3220,15 +3220,15 @@ define dso_local noundef ptr @ExecInitNullTupleSlot(ptr nocapture noundef %0, pt
   %25 = add i64 %4, 7
   %26 = and i64 %25, -8
   %27 = getelementptr i8, ptr %16, i64 %26
-  %28 = getelementptr inbounds i8, ptr %16, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store ptr %27, ptr %28, align 8
   %29 = load i32, ptr %1, align 8
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
   %32 = getelementptr i8, ptr %27, i64 %31
-  %33 = getelementptr inbounds i8, ptr %16, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = icmp sgt i32 %35, -1
   br i1 %36, label %37, label %ExecInitExtraTupleSlot.exit
@@ -3240,18 +3240,18 @@ define dso_local noundef ptr @ExecInitNullTupleSlot(ptr nocapture noundef %0, pt
 
 ExecInitExtraTupleSlot.exit:                      ; preds = %15, %24, %37
   %38 = phi ptr [ %.pre.i.i.i, %37 ], [ %2, %24 ], [ %2, %15 ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 168
-  %40 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %16) #13
   %42 = load ptr, ptr %39, align 8
   %43 = tail call ptr @lappend(ptr noundef %42, ptr noundef nonnull %16) #13
   store ptr %43, ptr %39, align 8
   %44 = load ptr, ptr %17, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %16) #13
-  %47 = getelementptr inbounds i8, ptr %16, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = load ptr, ptr %20, align 8
   %50 = load i32, ptr %49, align 8
@@ -3285,7 +3285,7 @@ ExecStoreAllNullTuple.exit.sink.split:            ; preds = %ExecInitExtraTupleS
   br label %ExecStoreAllNullTuple.exit
 
 ExecStoreAllNullTuple.exit:                       ; preds = %ExecStoreAllNullTuple.exit.sink.split, %57
-  %66 = getelementptr inbounds i8, ptr %16, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = load ptr, ptr %20, align 8
   %69 = load i32, ptr %68, align 8
@@ -3303,15 +3303,15 @@ ExecStoreAllNullTuple.exit:                       ; preds = %ExecStoreAllNullTup
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @slot_getmissingattrs(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #9 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.thread, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not24 = icmp eq ptr %10, null
   br i1 %.not24, label %.thread, label %.preheader
@@ -3321,14 +3321,14 @@ define dso_local void @slot_getmissingattrs(ptr nocapture noundef readonly %0, i
   br i1 %11, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = sext i32 %1 to i64
   %wide.trip.count = sext i32 %2 to i64
   br label %25
 
 .thread:                                          ; preds = %3, %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
   %18 = getelementptr i64, ptr %16, i64 %17
@@ -3336,7 +3336,7 @@ define dso_local void @slot_getmissingattrs(ptr nocapture noundef readonly %0, i
   %20 = sext i32 %19 to i64
   %21 = shl nsw i64 %20, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %18, i8 0, i64 %21, i1 false)
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr i8, ptr %23, i64 %17
   tail call void @llvm.memset.p0.i64(ptr align 1 %24, i8 1, i64 %20, i1 false)
@@ -3345,7 +3345,7 @@ define dso_local void @slot_getmissingattrs(ptr nocapture noundef readonly %0, i
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %26 = getelementptr %struct.AttrMissing, ptr %10, i64 %indvars.iv
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8
   %29 = load ptr, ptr %12, align 8
   %30 = getelementptr i64, ptr %29, i64 %indvars.iv
@@ -3366,7 +3366,7 @@ define dso_local void @slot_getmissingattrs(ptr nocapture noundef readonly %0, i
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %1, %5
@@ -3380,12 +3380,12 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
   unreachable
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull %0, i32 noundef %1) #13
-  %15 = getelementptr inbounds i8, ptr %0, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %16 = load i16, ptr %15, align 2
   %17 = sext i16 %16 to i32
   %18 = icmp sgt i32 %1, %17
@@ -3393,26 +3393,26 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, null
   br i1 %.not.i, label %.thread.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not24.i = icmp eq ptr %25, null
   br i1 %.not24.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = sext i16 %16 to i64
   %wide.trip.count.i = sext i32 %1 to i64
   br label %39
 
 .thread.i:                                        ; preds = %23, %19
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   %31 = sext i16 %16 to i64
   %32 = getelementptr i64, ptr %30, i64 %31
@@ -3420,7 +3420,7 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %32, i8 0, i64 %35, i1 false)
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 %31
   tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 1, i64 %34, i1 false)
@@ -3429,7 +3429,7 @@ define dso_local void @slot_getsomeattrs_int(ptr noundef %0, i32 noundef %1) loc
 39:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
   %40 = getelementptr %struct.AttrMissing, ptr %25, i64 %indvars.iv.i
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = load ptr, ptr %26, align 8
   %44 = getelementptr i64, ptr %43, i64 %indvars.iv.i
@@ -3455,7 +3455,7 @@ slot_getmissingattrs.exit:                        ; preds = %39, %.thread.i
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %1, label %4, label %.thread
 
@@ -3470,7 +3470,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split
 
 .lr.ph.split.us.split:                            ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %3, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph37, label %._crit_edge
@@ -3482,15 +3482,15 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %13 = load ptr, ptr %9, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv39
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 42
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 42
   %17 = load i8, ptr %16, align 2
   %18 = trunc i8 %17 to i1
   br i1 %18, label %30, label %19
 
 19:                                               ; preds = %.lr.ph37
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @exprType(ptr noundef %23) #13
   %25 = load ptr, ptr %22, align 8
@@ -3512,7 +3512,7 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   br i1 %33, label %.lr.ph37, label %._crit_edge
 
 .lr.ph.split.split:                               ; preds = %.thread
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %3, align 4
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph34, label %._crit_edge
@@ -3523,9 +3523,9 @@ define internal fastcc ptr @ExecTypeFromTLInternal(ptr noundef %0, i1 noundef ze
   %37 = load ptr, ptr %34, align 8
   %38 = getelementptr %union.ListCell, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @exprType(ptr noundef %43) #13
   %45 = load ptr, ptr %42, align 8
@@ -3562,11 +3562,11 @@ list_length.exit.thread:                          ; preds = %1
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @CreateTemplateTupleDesc(i32 noundef %4) #13
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %6, align 4
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph25, label %._crit_edge
@@ -3608,13 +3608,13 @@ declare i32 @exprCollation(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %3, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph26, label %.thread
@@ -3625,7 +3625,7 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr %union.ListCell, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %0, align 8
   %15 = sext i32 %14 to i64
@@ -3640,13 +3640,13 @@ define dso_local void @ExecTypeSetColNames(ptr noundef %0, ptr noundef readonly 
   br i1 %19, label %26, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %17, i64 95
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 95
   %22 = load i8, ptr %21, align 1
   %23 = trunc i8 %22 to i1
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %17, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 4
   tail call void @namestrcpy(ptr noundef nonnull %25, ptr noundef nonnull %13) #13
   %.pre = load i32, ptr %3, align 4
   br label %26
@@ -3665,13 +3665,13 @@ declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @BlessTupleDesc(ptr noundef returned %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2249
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %9, label %10
@@ -3691,13 +3691,13 @@ define dso_local ptr @TupleDescGetAttInMetadata(ptr noundef %0) local_unnamed_ad
   %2 = alloca i32, align 4
   %3 = load i32, ptr %0, align 8
   %4 = tail call ptr @palloc(i64 noundef 32) #13
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 2249
   br i1 %7, label %8, label %BlessTupleDesc.exit
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %12, label %BlessTupleDesc.exit
@@ -3718,27 +3718,27 @@ BlessTupleDesc.exit:                              ; preds = %1, %8, %12
   br i1 %19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %BlessTupleDesc.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %21
 
 21:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %22 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %20, i64 0, i64 %indvars.iv
-  %23 = getelementptr inbounds i8, ptr %22, i64 95
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 95
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %35, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %22, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %28 = load i32, ptr %27, align 4
   %29 = getelementptr i32, ptr %17, i64 %indvars.iv
   call void @getTypeInputInfo(i32 noundef %28, ptr noundef nonnull %2, ptr noundef %29) #13
   %30 = load i32, ptr %2, align 4
   %31 = getelementptr %struct.FmgrInfo, ptr %15, i64 %indvars.iv
   call void @fmgr_info(i32 noundef %30, ptr noundef %31) #13
-  %32 = getelementptr inbounds i8, ptr %22, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr i32, ptr %18, i64 %indvars.iv
   store i32 %33, ptr %34, align 4
@@ -3750,11 +3750,11 @@ BlessTupleDesc.exit:                              ; preds = %1, %8, %12
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %35, %BlessTupleDesc.exit
-  %36 = getelementptr inbounds i8, ptr %4, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %17, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %18, ptr %38, align 8
   ret ptr %4
 }
@@ -3778,9 +3778,9 @@ define dso_local ptr @BuildTupleFromCStrings(ptr nocapture noundef readonly %0, 
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr i8, ptr %3, i64 119
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %14
 
@@ -3844,7 +3844,7 @@ declare ptr @heap_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @HeapTupleHeaderGetDatum(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   %4 = and i16 %3, 4
   %.not = icmp eq i16 %4, 0
@@ -3855,15 +3855,15 @@ define dso_local i64 @HeapTupleHeaderGetDatum(ptr noundef %0) local_unnamed_addr
   br label %20
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %9, i32 noundef %11) #13
   %13 = load i32, ptr %0, align 4
   %14 = lshr i32 %13, 2
   %15 = tail call i64 @toast_flatten_tuple_to_datum(ptr noundef nonnull %0, i32 noundef %14, ptr noundef %12) #13
-  %16 = getelementptr inbounds i8, ptr %12, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, -1
   br i1 %18, label %19, label %20
@@ -3904,19 +3904,19 @@ define dso_local ptr @begin_tup_output_tupdesc(ptr noundef %0, ptr noundef %1, p
   %spec.select.v.i.i = phi i16 [ 18, %6 ], [ 2, %3 ]
   %.0.i.i = phi i64 [ %15, %6 ], [ %5, %3 ]
   %17 = tail call ptr @palloc0(i64 noundef %.0.i.i) #13
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %2, ptr %18, align 8
   store i32 427, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i16, ptr %19, align 4
   %spec.select.i.i = or i16 %20, %spec.select.v.i.i
   store i16 %spec.select.i.i, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %1, ptr %21, align 8
   %22 = load ptr, ptr @CurrentMemoryContext, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 6
   store i16 0, ptr %24, align 2
   br i1 %.not.i.i, label %MakeSingleTupleTableSlot.exit, label %25
 
@@ -3924,15 +3924,15 @@ define dso_local ptr @begin_tup_output_tupdesc(ptr noundef %0, ptr noundef %1, p
   %26 = add i64 %5, 7
   %27 = and i64 %26, -8
   %28 = getelementptr i8, ptr %17, i64 %27
-  %29 = getelementptr inbounds i8, ptr %17, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %28, ptr %29, align 8
   %30 = load i32, ptr %1, align 8
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 3
   %33 = getelementptr i8, ptr %28, i64 %32
-  %34 = getelementptr inbounds i8, ptr %17, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 12
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %36 = load i32, ptr %35, align 4
   %37 = icmp sgt i32 %36, -1
   br i1 %37, label %38, label %MakeSingleTupleTableSlot.exit
@@ -3944,13 +3944,13 @@ define dso_local ptr @begin_tup_output_tupdesc(ptr noundef %0, ptr noundef %1, p
 
 MakeSingleTupleTableSlot.exit:                    ; preds = %16, %25, %38
   %39 = phi ptr [ %.pre.i.i, %38 ], [ %2, %25 ], [ %2, %16 ]
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull %17) #13
   store ptr %17, ptr %4, align 8
-  %42 = getelementptr inbounds i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8
   tail call void %44(ptr noundef %0, i32 noundef 1, ptr noundef %1) #13
   ret ptr %4
@@ -3959,37 +3959,37 @@ MakeSingleTupleTableSlot.exit:                    ; preds = %16, %25, %38
 ; Function Attrs: nounwind uwtable
 define dso_local void @do_tup_output(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef %4) #13
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %7 to i64
   %15 = shl nsw i64 %14, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %1, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %4, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr align 1 %2, i64 %14, i1 false)
-  %18 = getelementptr inbounds i8, ptr %4, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %19 = load i16, ptr %18, align 4
   %20 = and i16 %19, -3
   store i16 %20, ptr %18, align 4
   %21 = load ptr, ptr %5, align 8
   %22 = load i32, ptr %21, align 8
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds i8, ptr %4, i64 6
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i16 %23, ptr %24, align 2
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call zeroext i1 %27(ptr noundef %4, ptr noundef nonnull %26) #13
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   tail call void %31(ptr noundef %4) #13
   ret void
@@ -4005,7 +4005,7 @@ define dso_local void @do_text_output_multiline(ptr nocapture noundef readonly %
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %5
 
 5:                                                ; preds = %.lr.ph, %16
@@ -4036,36 +4036,36 @@ define dso_local void @do_text_output_multiline(ptr nocapture noundef readonly %
   %18 = ptrtoint ptr %17 to i64
   store i64 %18, ptr %.sroa.016, align 8
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %19, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef %19) #13
-  %27 = getelementptr inbounds i8, ptr %19, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = sext i32 %22 to i64
   %30 = shl nsw i64 %29, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %28, ptr nonnull readonly align 8 %.sroa.016, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %19, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %32 = load ptr, ptr %31, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull readonly align 1 %.sroa.0, i64 %29, i1 false)
-  %33 = getelementptr inbounds i8, ptr %19, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %34 = load i16, ptr %33, align 4
   %35 = and i16 %34, -3
   store i16 %35, ptr %33, align 4
   %36 = load ptr, ptr %20, align 8
   %37 = load i32, ptr %36, align 8
   %38 = trunc i32 %37 to i16
-  %39 = getelementptr inbounds i8, ptr %19, i64 6
+  %39 = getelementptr inbounds nuw i8, ptr %19, i64 6
   store i16 %38, ptr %39, align 2
   %40 = load ptr, ptr %4, align 8
   %41 = load ptr, ptr %40, align 8
   %42 = tail call zeroext i1 %41(ptr noundef %19, ptr noundef nonnull %40) #13
   %43 = load ptr, ptr %23, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load ptr, ptr %44, align 8
   tail call void %45(ptr noundef %19) #13
   tail call void @pfree(ptr noundef %17) #13
@@ -4087,28 +4087,28 @@ declare ptr @cstring_to_text_with_len(ptr noundef, i32 noundef) local_unnamed_ad
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @end_tup_output(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef %3) #13
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef %6) #13
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr noundef %6) #13
-  %14 = getelementptr inbounds i8, ptr %6, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %21, label %16
 
 16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %15, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %18, -1
   br i1 %19, label %20, label %21
@@ -4118,14 +4118,14 @@ define dso_local void @end_tup_output(ptr noundef %0) local_unnamed_addr #1 {
   br label %21
 
 21:                                               ; preds = %20, %16, %1
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %23 = load i16, ptr %22, align 4
   %24 = and i16 %23, 16
   %.not14.i = icmp eq i16 %24, 0
   br i1 %.not14.i, label %25, label %ExecDropSingleTupleTableSlot.exit
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %6, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %27 = load ptr, ptr %26, align 8
   %.not15.i = icmp eq ptr %27, null
   br i1 %.not15.i, label %29, label %28
@@ -4135,7 +4135,7 @@ define dso_local void @end_tup_output(ptr noundef %0) local_unnamed_addr #1 {
   br label %29
 
 29:                                               ; preds = %28, %25
-  %30 = getelementptr inbounds i8, ptr %6, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %31 = load ptr, ptr %30, align 8
   %.not16.i = icmp eq ptr %31, null
   br i1 %.not16.i, label %ExecDropSingleTupleTableSlot.exit, label %32
@@ -4166,23 +4166,23 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, ptr %.16.val, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %.16.val, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %.16.val, i64 20
   %11 = load i16, ptr %10, align 4
   %12 = and i16 %11, 1
   %.not = icmp eq i16 %12, 0
-  %13 = getelementptr inbounds i8, ptr %.16.val, i64 23
-  %14 = getelementptr inbounds i8, ptr %.16.val, i64 18
+  %13 = getelementptr inbounds nuw i8, ptr %.16.val, i64 23
+  %14 = getelementptr inbounds nuw i8, ptr %.16.val, i64 18
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 2047
   %17 = zext nneg i16 %16 to i32
   %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %17)
-  %18 = getelementptr inbounds i8, ptr %0, i64 6
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %19 = load i16, ptr %18, align 2
   %20 = sext i16 %19 to i32
   %21 = icmp eq i16 %19, 0
@@ -4190,7 +4190,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
 
 22:                                               ; preds = %3
   %23 = load i32, ptr %1, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = trunc i16 %25 to i8
   %27 = lshr i8 %26, 3
@@ -4199,7 +4199,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
 28:                                               ; preds = %3, %22
   %.0101 = phi i32 [ %23, %22 ], [ 0, %3 ]
   %.0 = phi i8 [ %27, %22 ], [ 0, %3 ]
-  %29 = getelementptr inbounds i8, ptr %.16.val, i64 22
+  %29 = getelementptr inbounds nuw i8, ptr %.16.val, i64 22
   %30 = load i8, ptr %29, align 2
   %31 = zext i8 %30 to i64
   %32 = getelementptr i8, ptr %.16.val, i64 %31
@@ -4207,7 +4207,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = sext i16 %19 to i64
   %wide.trip.count = sext i32 %. to i64
   br label %36
@@ -4246,13 +4246,13 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %51
-  %55 = getelementptr inbounds i8, ptr %37, i64 76
+  %55 = getelementptr inbounds nuw i8, ptr %37, i64 76
   %56 = load i32, ptr %55, align 4
   %57 = icmp sgt i32 %56, -1
   br i1 %57, label %106, label %.thread
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %37, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %60 = load i16, ptr %59, align 4
   %61 = icmp eq i16 %60, -1
   br i1 %61, label %._crit_edge13, label %90
@@ -4262,14 +4262,14 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br label %75
 
 .thread:                                          ; preds = %54
-  %62 = getelementptr inbounds i8, ptr %37, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %37, i64 72
   %63 = load i16, ptr %62, align 4
   %64 = icmp eq i16 %63, -1
   br i1 %64, label %65, label %90
 
 65:                                               ; preds = %.thread
   %66 = zext i32 %.11026 to i64
-  %67 = getelementptr inbounds i8, ptr %37, i64 87
+  %67 = getelementptr inbounds nuw i8, ptr %37, i64 87
   %68 = load i8, ptr %67, align 1
   switch i8 %68, label %70 [
     i8 105, label %71
@@ -4303,7 +4303,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %.not115, label %78, label %106
 
 78:                                               ; preds = %75
-  %79 = getelementptr inbounds i8, ptr %37, i64 87
+  %79 = getelementptr inbounds nuw i8, ptr %37, i64 87
   %80 = load i8, ptr %79, align 1
   switch i8 %80, label %87 [
     i8 105, label %81
@@ -4327,7 +4327,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br label %106
 
 90:                                               ; preds = %.thread, %58
-  %91 = getelementptr inbounds i8, ptr %37, i64 87
+  %91 = getelementptr inbounds nuw i8, ptr %37, i64 87
   %92 = load i8, ptr %91, align 1
   switch i8 %92, label %99 [
     i8 105, label %93
@@ -4355,7 +4355,7 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   br i1 %53, label %106, label %104
 
 104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %37, i64 76
+  %105 = getelementptr inbounds nuw i8, ptr %37, i64 76
   store i32 %103, ptr %105, align 4
   br label %106
 
@@ -4364,10 +4364,10 @@ define internal fastcc void @slot_deform_heap_tuple(ptr nocapture noundef %0, pt
   %.3 = phi i8 [ %.19, %.thread2 ], [ %.19, %102 ], [ %.19, %104 ], [ %.19, %54 ], [ 1, %81 ], [ 1, %84 ], [ 1, %87 ], [ 1, %75 ], [ 1, %78 ]
   %107 = zext i32 %.3104 to i64
   %108 = getelementptr i8, ptr %32, i64 %107
-  %109 = getelementptr inbounds i8, ptr %37, i64 86
+  %109 = getelementptr inbounds nuw i8, ptr %37, i64 86
   %110 = load i8, ptr %109, align 2
   %111 = trunc i8 %110 to i1
-  %112 = getelementptr inbounds i8, ptr %37, i64 72
+  %112 = getelementptr inbounds nuw i8, ptr %37, i64 72
   br i1 %111, label %113, label %130
 
 113:                                              ; preds = %106
@@ -4435,7 +4435,7 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   br i1 %144, label %145, label %154
 
 145:                                              ; preds = %141
-  %146 = getelementptr inbounds i8, ptr %108, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %108, i64 1
   %147 = load i8, ptr %146, align 1
   %148 = icmp eq i8 %147, 1
   %149 = and i8 %147, -2
@@ -4501,7 +4501,7 @@ fetch_att.exit:                                   ; preds = %115, %118, %121, %1
   store i16 %.0100.lcssa, ptr %18, align 2
   store i32 %.1102.lcssa, ptr %1, align 4
   %177 = trunc i8 %.1.lcssa to i1
-  %178 = getelementptr inbounds i8, ptr %0, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %179 = load i16, ptr %178, align 4
   %180 = and i16 %179, -9
   %masksel = select i1 %177, i16 8, i16 0

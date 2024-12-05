@@ -26,7 +26,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str) #5
   br label %return
@@ -36,7 +36,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %if.then5, label %if.end7
 
 if.then5:                                         ; preds = %if.end3
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %call6 = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %nent) #5
   br label %return
@@ -46,7 +46,7 @@ if.end7:                                          ; preds = %if.end3
   br i1 %cmp8, label %if.then10, label %if.end13
 
 if.then10:                                        ; preds = %if.end7
-  %print_error11 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error11 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error11, align 8
   %call12 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %nent) #5
   br label %return
@@ -57,23 +57,23 @@ if.end13:                                         ; preds = %if.end7
   br i1 %cmp14.not, label %return, label %if.then16
 
 if.then16:                                        ; preds = %if.end13
-  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %3 = load ptr, ptr %alloc_fn, align 8
   %call17 = tail call ptr %3(i64 noundef %mul) #5
-  %strings = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %sv, i64 8
   store ptr %call17, ptr %strings, align 8
   %cmp19 = icmp eq ptr %call17, null
   br i1 %cmp19, label %if.then21, label %for.body.preheader
 
 if.then21:                                        ; preds = %if.then16
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %4 = load ptr, ptr %standard_error, align 8
   %call22 = tail call i32 %4(ptr noundef nonnull %ctxt, i32 noundef 1) #5
   br label %return
 
 for.body.preheader:                               ; preds = %if.then16
   store i32 %nent, ptr %sv, align 8
-  %alloc_size = getelementptr inbounds i8, ptr %sv, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %sv, i64 4
   store i32 %nent, ptr %alloc_size, align 4
   %wide.trip.count = zext nneg i32 %nent to i64
   br label %for.body
@@ -81,7 +81,7 @@ for.body.preheader:                               ; preds = %if.then16
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %5 = load ptr, ptr %strings, align 8
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %5, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %5, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -109,13 +109,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %alloc_size = getelementptr inbounds i8, ptr %sv, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %sv, i64 4
   %0 = load i32, ptr %alloc_size, align 4
   %cmp = icmp sgt i32 %0, 0
   br i1 %cmp, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.then2
-  %strings = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %1 = load ptr, ptr %strings, align 8
   %2 = load i32, ptr %sv, align 8
   %cmp411 = icmp sgt i32 %2, 0
@@ -123,7 +123,7 @@ if.then3:                                         ; preds = %if.then2
 
 for.body:                                         ; preds = %if.then3, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.then3 ]
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %1, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %1, i64 %indvars.iv
   %call = tail call i32 @exr_attr_string_destroy(ptr noundef nonnull %ctxt, ptr noundef %add.ptr) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %3 = load i32, ptr %sv, align 8
@@ -136,7 +136,7 @@ for.end:                                          ; preds = %for.body, %if.then3
   br i1 %tobool5.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %for.end
-  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %5 = load ptr, ptr %free_fn, align 8
   tail call void %5(ptr noundef nonnull %1) #5
   br label %if.end8
@@ -170,7 +170,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %report_error.i = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %1 = load ptr, ptr %report_error.i, align 8
   %call.i = tail call i32 %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str) #5
   br label %exr_attr_string_vector_init.exit
@@ -180,7 +180,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %cmp.i, label %if.then5.i, label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error.i, align 8
   %call6.i = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.1, i32 noundef %0) #5
   br label %exr_attr_string_vector_init.exit
@@ -190,7 +190,7 @@ if.end7.i:                                        ; preds = %if.end3.i
   br i1 %cmp8.i, label %if.then10.i, label %if.end13.i
 
 if.then10.i:                                      ; preds = %if.end7.i
-  %print_error11.i = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error11.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %3 = load ptr, ptr %print_error11.i, align 8
   %call12.i = tail call i32 (ptr, i32, ptr, ...) %3(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.2, i32 noundef %0) #5
   br label %exr_attr_string_vector_init.exit
@@ -201,23 +201,23 @@ if.end13.i:                                       ; preds = %if.end7.i
   br i1 %cmp14.not.i, label %land.rhs.lr.ph, label %if.then16.i
 
 if.then16.i:                                      ; preds = %if.end13.i
-  %alloc_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %4 = load ptr, ptr %alloc_fn.i, align 8
   %call17.i = tail call ptr %4(i64 noundef %mul.i) #5
-  %strings.i = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings.i = getelementptr inbounds nuw i8, ptr %sv, i64 8
   store ptr %call17.i, ptr %strings.i, align 8
   %cmp19.i = icmp eq ptr %call17.i, null
   br i1 %cmp19.i, label %if.then21.i, label %for.body.preheader.i
 
 if.then21.i:                                      ; preds = %if.then16.i
-  %standard_error.i = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %5 = load ptr, ptr %standard_error.i, align 8
   %call22.i = tail call i32 %5(ptr noundef nonnull %ctxt, i32 noundef 1) #5
   br label %exr_attr_string_vector_init.exit
 
 for.body.preheader.i:                             ; preds = %if.then16.i
   store i32 %0, ptr %sv, align 8
-  %alloc_size.i = getelementptr inbounds i8, ptr %sv, i64 4
+  %alloc_size.i = getelementptr inbounds nuw i8, ptr %sv, i64 4
   store i32 %0, ptr %alloc_size.i, align 4
   %wide.trip.count.i = zext nneg i32 %0 to i64
   br label %for.body.i
@@ -225,7 +225,7 @@ for.body.preheader.i:                             ; preds = %if.then16.i
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
   %6 = load ptr, ptr %strings.i, align 8
-  %add.ptr.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %6, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %6, i64 %indvars.iv.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, i8 0, i64 16, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -237,8 +237,8 @@ exr_attr_string_vector_init.exit:                 ; preds = %if.then2.i, %if.the
   br i1 %cond29, label %land.rhs.lr.ph, label %if.then9
 
 land.rhs.lr.ph:                                   ; preds = %for.body.i, %if.end13.i, %exr_attr_string_vector_init.exit
-  %strings = getelementptr inbounds i8, ptr %sv, i64 8
-  %strings3 = getelementptr inbounds i8, ptr %src, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %sv, i64 8
+  %strings3 = getelementptr inbounds nuw i8, ptr %src, i64 8
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body
@@ -250,10 +250,10 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %fo
 
 for.body:                                         ; preds = %land.rhs
   %9 = load ptr, ptr %strings, align 8
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %9, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %9, i64 %indvars.iv
   %10 = load ptr, ptr %strings3, align 8
-  %arrayidx = getelementptr inbounds %struct.exr_attr_string_t, ptr %10, i64 %indvars.iv
-  %str = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %10, i64 %indvars.iv
+  %str = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %11 = load ptr, ptr %str, align 8
   %12 = load i32, ptr %arrayidx, align 8
   %call7 = tail call i32 @exr_attr_string_set_with_length(ptr noundef nonnull %ctxt, ptr noundef %add.ptr, ptr noundef %11, i32 noundef %12) #5
@@ -267,13 +267,13 @@ if.then9:                                         ; preds = %for.body, %exr_attr
   br i1 %tobool1.not.i17, label %return, label %if.then2.i18
 
 if.then2.i18:                                     ; preds = %if.then9
-  %alloc_size.i19 = getelementptr inbounds i8, ptr %sv, i64 4
+  %alloc_size.i19 = getelementptr inbounds nuw i8, ptr %sv, i64 4
   %13 = load i32, ptr %alloc_size.i19, align 4
   %cmp.i20 = icmp sgt i32 %13, 0
   br i1 %cmp.i20, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.then2.i18
-  %strings.i22 = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings.i22 = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %14 = load ptr, ptr %strings.i22, align 8
   %15 = load i32, ptr %sv, align 8
   %cmp411.i = icmp sgt i32 %15, 0
@@ -281,7 +281,7 @@ if.then3.i:                                       ; preds = %if.then2.i18
 
 for.body.i23:                                     ; preds = %if.then3.i, %for.body.i23
   %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i27, %for.body.i23 ], [ 0, %if.then3.i ]
-  %add.ptr.i25 = getelementptr inbounds %struct.exr_attr_string_t, ptr %14, i64 %indvars.iv.i24
+  %add.ptr.i25 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %14, i64 %indvars.iv.i24
   %call.i26 = tail call i32 @exr_attr_string_destroy(ptr noundef nonnull %ctxt, ptr noundef %add.ptr.i25) #5
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i24, 1
   %16 = load i32, ptr %sv, align 8
@@ -294,7 +294,7 @@ for.end.i:                                        ; preds = %for.body.i23, %if.t
   br i1 %tobool5.not.i, label %if.end8.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %for.end.i
-  %free_fn.i = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %18 = load ptr, ptr %free_fn.i, align 8
   tail call void %18(ptr noundef nonnull %14) #5
   br label %if.end8.i
@@ -328,21 +328,21 @@ if.then2:                                         ; preds = %if.end
   br i1 %or.cond, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.then2
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %0 = load ptr, ptr %print_error, align 8
   %call = tail call i32 (ptr, i32, ptr, ...) %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.3, i32 noundef %idx, i32 noundef %.pre) #5
   br label %return
 
 if.end6:                                          ; preds = %if.then2
-  %strings = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %1 = load ptr, ptr %strings, align 8
   %idx.ext = zext nneg i32 %idx to i64
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %1, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %1, i64 %idx.ext
   %call7 = tail call i32 @exr_attr_string_init(ptr noundef nonnull %ctxt, ptr noundef %add.ptr, i32 noundef %len) #5
   br label %return
 
 if.end8:                                          ; preds = %if.end
-  %print_error9 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error9 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %2 = load ptr, ptr %print_error9, align 8
   %call10 = tail call i32 (ptr, i32, ptr, ...) %2(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.4, i32 noundef %idx) #5
   br label %return
@@ -365,7 +365,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str) #5
   br label %return
@@ -378,7 +378,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %or.cond, label %if.end9, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %print_error = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error, align 8
   %tobool7.not = icmp eq ptr %s, null
   %cond = select i1 %tobool7.not, ptr @.str.6, ptr %s
@@ -386,10 +386,10 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end9:                                          ; preds = %if.end3
-  %strings = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %2 = load ptr, ptr %strings, align 8
   %idx.ext = zext nneg i32 %idx to i64
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %2, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %2, i64 %idx.ext
   %call10 = tail call i32 @exr_attr_string_set_with_length(ptr noundef nonnull %ctxt, ptr noundef %add.ptr, ptr noundef %s, i32 noundef %len) #5
   br label %return
 
@@ -413,7 +413,7 @@ if.end.i:                                         ; preds = %entry.split
   br i1 %tobool1.not.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %report_error.i = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error.i, align 8
   %call.i = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str) #5
   br label %if.end
@@ -426,16 +426,16 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %or.cond.i, label %if.end9.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %if.end3.i
-  %print_error.i = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error.i = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %1 = load ptr, ptr %print_error.i, align 8
   %call8.i = tail call i32 (ptr, i32, ptr, ...) %1(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef %idx, i32 noundef %.pre.i, ptr noundef nonnull @.str.6, i32 noundef 0) #5
   br label %if.end
 
 if.end9.i:                                        ; preds = %if.end3.i
-  %strings.i = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings.i = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %2 = load ptr, ptr %strings.i, align 8
   %idx.ext.i = zext nneg i32 %idx to i64
-  %add.ptr.i = getelementptr inbounds %struct.exr_attr_string_t, ptr %2, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %2, i64 %idx.ext.i
   %call10.i = tail call i32 @exr_attr_string_set_with_length(ptr noundef nonnull %ctxt, ptr noundef %add.ptr.i, ptr noundef null, i32 noundef 0) #5
   br label %if.end
 
@@ -450,7 +450,7 @@ if.end.i6:                                        ; preds = %if.then.split
   br i1 %tobool1.not.i7, label %if.then2.i22, label %if.end3.i8
 
 if.then2.i22:                                     ; preds = %if.end.i6
-  %report_error.i23 = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error.i23 = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %3 = load ptr, ptr %report_error.i23, align 8
   %call.i24 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str) #5
   br label %if.end
@@ -463,16 +463,16 @@ if.end3.i8:                                       ; preds = %if.end.i6
   br i1 %or.cond.i12, label %if.end9.i17, label %if.then5.i13
 
 if.then5.i13:                                     ; preds = %if.end3.i8
-  %print_error.i14 = getelementptr inbounds i8, ptr %ctxt, i64 72
+  %print_error.i14 = getelementptr inbounds nuw i8, ptr %ctxt, i64 72
   %4 = load ptr, ptr %print_error.i14, align 8
   %call8.i15 = tail call i32 (ptr, i32, ptr, ...) %4(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str.5, i32 noundef %idx, i32 noundef %.pre.i10, ptr noundef nonnull %s, i32 noundef %conv) #5
   br label %if.end
 
 if.end9.i17:                                      ; preds = %if.end3.i8
-  %strings.i18 = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings.i18 = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %5 = load ptr, ptr %strings.i18, align 8
   %idx.ext.i19 = zext nneg i32 %idx to i64
-  %add.ptr.i20 = getelementptr inbounds %struct.exr_attr_string_t, ptr %5, i64 %idx.ext.i19
+  %add.ptr.i20 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %5, i64 %idx.ext.i19
   %call10.i21 = tail call i32 @exr_attr_string_set_with_length(ptr noundef nonnull %ctxt, ptr noundef %add.ptr.i20, ptr noundef nonnull %s, i32 noundef %conv) #5
   br label %if.end
 
@@ -495,7 +495,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %report_error = getelementptr inbounds i8, ptr %ctxt, i64 64
+  %report_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 64
   %0 = load ptr, ptr %report_error, align 8
   %call = tail call i32 %0(ptr noundef nonnull %ctxt, i32 noundef 3, ptr noundef nonnull @.str) #5
   br label %return
@@ -503,7 +503,7 @@ if.then2:                                         ; preds = %if.end
 if.end3:                                          ; preds = %if.end
   %1 = load i32, ptr %sv, align 8
   %add = add nsw i32 %1, 1
-  %alloc_size = getelementptr inbounds i8, ptr %sv, i64 4
+  %alloc_size = getelementptr inbounds nuw i8, ptr %sv, i64 4
   %2 = load i32, ptr %alloc_size, align 4
   %cmp.not = icmp slt i32 %1, %2
   br i1 %cmp.not, label %if.else, label %if.then4
@@ -513,7 +513,7 @@ if.then4:                                         ; preds = %if.end3
   br i1 %cmp7, label %if.then8, label %if.end10
 
 if.then8:                                         ; preds = %if.then4
-  %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %3 = load ptr, ptr %standard_error, align 8
   %call9 = tail call i32 %3(ptr noundef nonnull %ctxt, i32 noundef 1) #5
   br label %return
@@ -525,7 +525,7 @@ if.end10:                                         ; preds = %if.then4
   %spec.select = select i1 %cmp11.not, i32 %mul, i32 %add13
   %conv = sext i32 %spec.select to i64
   %mul15 = shl nsw i64 %conv, 4
-  %alloc_fn = getelementptr inbounds i8, ptr %ctxt, i64 88
+  %alloc_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 88
   %4 = load ptr, ptr %alloc_fn, align 8
   %call16 = tail call ptr %4(i64 noundef %mul15) #5
   %cmp17 = icmp eq ptr %call16, null
@@ -537,20 +537,20 @@ for.cond.preheader:                               ; preds = %if.end10
   br i1 %cmp2435, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %strings = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings = getelementptr inbounds nuw i8, ptr %sv, i64 8
   br label %for.body
 
 if.then19:                                        ; preds = %if.end10
-  %standard_error20 = getelementptr inbounds i8, ptr %ctxt, i64 56
+  %standard_error20 = getelementptr inbounds nuw i8, ptr %ctxt, i64 56
   %6 = load ptr, ptr %standard_error20, align 8
   %call21 = tail call i32 %6(ptr noundef nonnull %ctxt, i32 noundef 1) #5
   br label %return
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %add.ptr = getelementptr inbounds %struct.exr_attr_string_t, ptr %call16, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %call16, i64 %indvars.iv
   %7 = load ptr, ptr %strings, align 8
-  %arrayidx = getelementptr inbounds %struct.exr_attr_string_t, ptr %7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %7, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %sv, align 8
@@ -565,9 +565,9 @@ for.end:                                          ; preds = %for.body, %for.cond
   br i1 %cmp27, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %for.end
-  %free_fn = getelementptr inbounds i8, ptr %ctxt, i64 96
+  %free_fn = getelementptr inbounds nuw i8, ptr %ctxt, i64 96
   %11 = load ptr, ptr %free_fn, align 8
-  %strings30 = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings30 = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %12 = load ptr, ptr %strings30, align 8
   tail call void %11(ptr noundef %12) #5
   %.pre.pre = load i32, ptr %sv, align 8
@@ -575,13 +575,13 @@ if.then29:                                        ; preds = %for.end
 
 if.end31:                                         ; preds = %if.then29, %for.end
   %.pre = phi i32 [ %.pre.pre, %if.then29 ], [ %.pre39, %for.end ]
-  %strings32 = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings32 = getelementptr inbounds nuw i8, ptr %sv, i64 8
   store ptr %call16, ptr %strings32, align 8
   store i32 %spec.select, ptr %alloc_size, align 4
   br label %if.end35
 
 if.else:                                          ; preds = %if.end3
-  %strings34 = getelementptr inbounds i8, ptr %sv, i64 8
+  %strings34 = getelementptr inbounds nuw i8, ptr %sv, i64 8
   %13 = load ptr, ptr %strings34, align 8
   br label %if.end35
 

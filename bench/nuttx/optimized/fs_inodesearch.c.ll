@@ -16,7 +16,7 @@ define range(i32 -22, 1) i32 @inode_search(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %.preheader.i, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call ptr @getenv(ptr noundef nonnull @.str.2)
   %7 = icmp eq ptr %6, null
   %spec.store.select.i = select i1 %7, ptr @.str.3, ptr %6
@@ -42,7 +42,7 @@ define range(i32 -22, 1) i32 @inode_search(ptr noundef %0) local_unnamed_addr #0
   %.02857.i = phi ptr [ %.1.i, %_inode_compare.exit.thread40.i ], [ null, %.preheader.i ]
   %.02956.i = phi ptr [ %.130.i, %_inode_compare.exit.thread40.i ], [ null, %.preheader.i ]
   %.03355.i = phi ptr [ %.235.i, %_inode_compare.exit.thread40.i ], [ %13, %.preheader.i ]
-  %14 = getelementptr inbounds i8, ptr %.03158.i, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %.03158.i, i64 56
   %15 = load i8, ptr %14, align 1
   %.not2125.i.i = icmp eq i8 %15, 0
   br i1 %.not2125.i.i, label %_inode_compare.exit.i, label %.lr.ph.i.i
@@ -66,8 +66,8 @@ define range(i32 -22, 1) i32 @inode_search(ptr noundef %0) local_unnamed_addr #0
   br i1 %21, label %_inode_compare.exit.thread.i, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.01426.i.i, i64 1
-  %24 = getelementptr inbounds i8, ptr %.027.i.i, i64 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01426.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 1
   %25 = load i8, ptr %24, align 1
   %.not21.i.i = icmp eq i8 %25, 0
   br i1 %.not21.i.i, label %_inode_compare.exit.i, label %.lr.ph.i.i
@@ -95,7 +95,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i.bac
   br label %.critedge.i.i
 
 28:                                               ; preds = %tailrecurse.i.i
-  %29 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   br label %tailrecurse.i.i.backedge
 
 tailrecurse.i.i.backedge:                         ; preds = %28, %33
@@ -112,18 +112,18 @@ tailrecurse.i.i.backedge:                         ; preds = %28, %33
   ]
 
 31:                                               ; preds = %.critedge.i.i
-  %32 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %.pre.i.i = load i8, ptr %32, align 1
   br label %.critedge.i.i, !llvm.loop !8
 
 33:                                               ; preds = %.critedge.i.i
-  %34 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 47
   br i1 %36, label %tailrecurse.i.i.backedge, label %inode_nextname.exit.thread.i
 
 inode_nextname.exit.thread.i:                     ; preds = %33, %.critedge.i.i
-  %37 = getelementptr inbounds i8, ptr %.03158.i, i64 26
+  %37 = getelementptr inbounds nuw i8, ptr %.03158.i, i64 26
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 15
   %40 = icmp eq i16 %39, 3
@@ -134,7 +134,7 @@ _inode_compare.exit.thread40.i:                   ; preds = %18, %inode_nextname
   %.235.i = phi ptr [ %.03355.i, %_inode_compare.exit.i ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ %.03355.i, %18 ]
   %.130.i = phi ptr [ %.03158.i, %_inode_compare.exit.i ], [ null, %inode_nextname.exit.thread.i ], [ %.03158.i, %18 ]
   %.1.i = phi ptr [ %.02857.i, %_inode_compare.exit.i ], [ %.03158.i, %inode_nextname.exit.thread.i ], [ %.02857.i, %18 ]
-  %41 = getelementptr inbounds i8, ptr %.03158.i, i64 %.sink.i
+  %41 = getelementptr inbounds nuw i8, ptr %.03158.i, i64 %.sink.i
   %.031.i = load ptr, ptr %41, align 8
   %.not37.i = icmp eq ptr %.031.i, null
   br i1 %.not37.i, label %_inode_compare.exit.thread.i, label %.preheader.i.i, !llvm.loop !9
@@ -147,13 +147,13 @@ _inode_compare.exit.thread.i:                     ; preds = %_inode_compare.exit
   %.027.i = phi ptr [ null, %.preheader.i ], [ %.1.i.i, %.critedge.i.i ], [ null, %.lr.ph.i.i ], [ null, %.lr.ph.i.i ], [ null, %20 ], [ %.1.i.i, %inode_nextname.exit.thread.i ], [ null, %_inode_compare.exit.thread40.i ]
   %.026.i = phi i32 [ -2, %.preheader.i ], [ 0, %.critedge.i.i ], [ -2, %.lr.ph.i.i ], [ -2, %.lr.ph.i.i ], [ -2, %20 ], [ 0, %inode_nextname.exit.thread.i ], [ -2, %_inode_compare.exit.thread40.i ]
   store ptr %.134.i, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.132.i, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.02951.i, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.02849.i, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.027.i, ptr %45, align 8
   br label %_inode_search.exit
 
@@ -180,7 +180,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %.critedge
 
 3:                                                ; preds = %tailrecurse
-  %4 = getelementptr inbounds i8, ptr %.0, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %3, %8
@@ -196,12 +196,12 @@ tailrecurse.backedge:                             ; preds = %3, %8
   ]
 
 6:                                                ; preds = %.critedge
-  %7 = getelementptr inbounds i8, ptr %.1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %.pre = load i8, ptr %7, align 1
   br label %.critedge, !llvm.loop !8
 
 8:                                                ; preds = %.critedge
-  %9 = getelementptr inbounds i8, ptr %.1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = icmp eq i8 %10, 47
   br i1 %11, label %tailrecurse.backedge, label %.loopexit

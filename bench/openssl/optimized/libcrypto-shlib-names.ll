@@ -53,7 +53,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %return, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %pkey_type = getelementptr inbounds i8, ptr %md, i64 4
+  %pkey_type = getelementptr inbounds nuw i8, ptr %md, i64 4
   %2 = load i32, ptr %pkey_type, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -280,7 +280,7 @@ define void @EVP_CIPHER_do_all(ptr noundef %fn, ptr noundef %arg) local_unnamed_
 entry:
   %dc = alloca %struct.doall_cipher, align 8
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
-  %fn1 = getelementptr inbounds i8, ptr %dc, i64 8
+  %fn1 = getelementptr inbounds nuw i8, ptr %dc, i64 8
   store ptr %fn, ptr %fn1, align 8
   store ptr %arg, ptr %dc, align 8
   call void @OBJ_NAME_do_all(i32 noundef 2, ptr noundef nonnull @do_all_cipher_fn, ptr noundef nonnull %dc) #3
@@ -292,26 +292,26 @@ declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal void @do_all_cipher_fn(ptr nocapture noundef readonly %nm, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %alias = getelementptr inbounds i8, ptr %nm, i64 4
+  %alias = getelementptr inbounds nuw i8, ptr %nm, i64 4
   %0 = load i32, ptr %alias, align 4
   %tobool.not = icmp eq i32 %0, 0
-  %fn2 = getelementptr inbounds i8, ptr %arg, i64 8
+  %fn2 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %1 = load ptr, ptr %fn2, align 8
   %2 = load ptr, ptr %arg, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %nm, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %nm, i64 8
   %3 = load ptr, ptr %name, align 8
-  %data = getelementptr inbounds i8, ptr %nm, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %nm, i64 16
   %4 = load ptr, ptr %data, align 8
   tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4, ptr noundef %2) #3
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %data3 = getelementptr inbounds i8, ptr %nm, i64 16
+  %data3 = getelementptr inbounds nuw i8, ptr %nm, i64 16
   %5 = load ptr, ptr %data3, align 8
-  %name4 = getelementptr inbounds i8, ptr %nm, i64 8
+  %name4 = getelementptr inbounds nuw i8, ptr %nm, i64 8
   %6 = load ptr, ptr %name4, align 8
   tail call void %1(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %2) #3
   br label %if.end
@@ -325,7 +325,7 @@ define void @EVP_CIPHER_do_all_sorted(ptr noundef %fn, ptr noundef %arg) local_u
 entry:
   %dc = alloca %struct.doall_cipher, align 8
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 4, ptr noundef null) #3
-  %fn1 = getelementptr inbounds i8, ptr %dc, i64 8
+  %fn1 = getelementptr inbounds nuw i8, ptr %dc, i64 8
   store ptr %fn, ptr %fn1, align 8
   store ptr %arg, ptr %dc, align 8
   call void @OBJ_NAME_do_all_sorted(i32 noundef 2, ptr noundef nonnull @do_all_cipher_fn, ptr noundef nonnull %dc) #3
@@ -339,7 +339,7 @@ define void @EVP_MD_do_all(ptr noundef %fn, ptr noundef %arg) local_unnamed_addr
 entry:
   %dc = alloca %struct.doall_md, align 8
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
-  %fn1 = getelementptr inbounds i8, ptr %dc, i64 8
+  %fn1 = getelementptr inbounds nuw i8, ptr %dc, i64 8
   store ptr %fn, ptr %fn1, align 8
   store ptr %arg, ptr %dc, align 8
   call void @OBJ_NAME_do_all(i32 noundef 1, ptr noundef nonnull @do_all_md_fn, ptr noundef nonnull %dc) #3
@@ -349,26 +349,26 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @do_all_md_fn(ptr nocapture noundef readonly %nm, ptr nocapture noundef readonly %arg) #0 {
 entry:
-  %alias = getelementptr inbounds i8, ptr %nm, i64 4
+  %alias = getelementptr inbounds nuw i8, ptr %nm, i64 4
   %0 = load i32, ptr %alias, align 4
   %tobool.not = icmp eq i32 %0, 0
-  %fn2 = getelementptr inbounds i8, ptr %arg, i64 8
+  %fn2 = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %1 = load ptr, ptr %fn2, align 8
   %2 = load ptr, ptr %arg, align 8
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %name = getelementptr inbounds i8, ptr %nm, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %nm, i64 8
   %3 = load ptr, ptr %name, align 8
-  %data = getelementptr inbounds i8, ptr %nm, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %nm, i64 16
   %4 = load ptr, ptr %data, align 8
   tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4, ptr noundef %2) #3
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %data3 = getelementptr inbounds i8, ptr %nm, i64 16
+  %data3 = getelementptr inbounds nuw i8, ptr %nm, i64 16
   %5 = load ptr, ptr %data3, align 8
-  %name4 = getelementptr inbounds i8, ptr %nm, i64 8
+  %name4 = getelementptr inbounds nuw i8, ptr %nm, i64 8
   %6 = load ptr, ptr %name4, align 8
   tail call void %1(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %2) #3
   br label %if.end
@@ -382,7 +382,7 @@ define void @EVP_MD_do_all_sorted(ptr noundef %fn, ptr noundef %arg) local_unnam
 entry:
   %dc = alloca %struct.doall_md, align 8
   %call = tail call i32 @OPENSSL_init_crypto(i64 noundef 8, ptr noundef null) #3
-  %fn1 = getelementptr inbounds i8, ptr %dc, i64 8
+  %fn1 = getelementptr inbounds nuw i8, ptr %dc, i64 8
   store ptr %fn, ptr %fn1, align 8
   store ptr %arg, ptr %dc, align 8
   call void @OBJ_NAME_do_all_sorted(i32 noundef 1, ptr noundef nonnull @do_all_md_fn, ptr noundef nonnull %dc) #3

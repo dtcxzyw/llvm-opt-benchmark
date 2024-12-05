@@ -131,13 +131,13 @@ define hidden void @gssapi_init_oid(ptr noundef %0, i32 noundef %1, i32 noundef 
   %8 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #12
   %9 = tail call ptr @find_protocol_by_id(i32 noundef %1) #11
   store ptr %9, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %3, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %4, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %5, ptr %13, align 8
   %14 = load ptr, ptr @gssapi_oids, align 8
   %15 = tail call i32 @g_hash_table_insert(ptr noundef %14, ptr noundef %7, ptr noundef nonnull %8) #11
@@ -336,15 +336,15 @@ define hidden ptr @wrap_dissect_gssapi_payload(ptr noundef %0, ptr noundef %1, p
   %spec.select15 = select i1 %.not, ptr null, ptr %0
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   store i16 2, ptr %7, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 2
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.4.0..sroa_idx, i8 0, i64 14, i1 false)
-  %.sroa.418.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %spec.select15, ptr %.sroa.418.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %1, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %spec.select, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 40
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx, i8 0, i64 16, i1 false)
   %12 = call fastcc i32 @dissect_gssapi_work(ptr noundef nonnull %3, ptr noundef %4, ptr noundef null, i32 noundef 0, ptr noundef %7)
   %.sroa.7.0.copyload26 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
@@ -417,7 +417,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   store volatile ptr null, ptr %17, align 8
   store volatile i32 0, ptr %10, align 4
   call void @asn1_ctx_init(ptr noundef nonnull %18, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #11
-  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 0, ptr %24, align 8
   %25 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #11
   %26 = load i32, ptr @proto_gssapi, align 4
@@ -434,12 +434,12 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %.0..0..0..0.155 = load volatile ptr, ptr %9, align 8
   store ptr null, ptr %.0..0..0..0.155, align 8
   %.0..0..0..0.156 = load volatile ptr, ptr %9, align 8
-  %31 = getelementptr inbounds i8, ptr %.0..0..0..0.156, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.156, i64 16
   store i32 0, ptr %31, align 8
   %32 = call ptr @wmem_file_scope() #11
   %33 = call noalias ptr @wmem_tree_new(ptr noundef %32) #11
   %.0..0..0..0.157 = load volatile ptr, ptr %9, align 8
-  %34 = getelementptr inbounds i8, ptr %.0..0..0..0.157, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.157, i64 8
   store ptr %33, ptr %34, align 8
   %35 = load i32, ptr @proto_gssapi, align 4
   %.0..0..0..0.158 = load volatile ptr, ptr %9, align 8
@@ -457,10 +457,10 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   store volatile ptr %40, ptr %7, align 8
   store volatile i32 0, ptr %20, align 4
   call void @except_setup_try(ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull @dissect_gssapi_work.catch_spec, i64 noundef 1) #11
-  %41 = getelementptr inbounds i8, ptr %22, i64 48
+  %41 = getelementptr inbounds nuw i8, ptr %22, i64 48
   %42 = call i32 @_setjmp(ptr noundef nonnull %41) #14
   %.not274 = icmp eq i32 %42, 0
-  %43 = getelementptr inbounds i8, ptr %22, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sink = select i1 %.not274, ptr null, ptr %43
   store volatile ptr %.sink, ptr %19, align 8
   %.0..0..0..0.12 = load volatile i32, ptr %20, align 4
@@ -489,9 +489,9 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 52:                                               ; preds = %50
   store volatile ptr %0, ptr %17, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 50
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 50
   %56 = load i16, ptr %55, align 2
   %57 = and i16 %56, 8
   %.not276 = icmp eq i16 %57, 0
@@ -500,7 +500,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 58:                                               ; preds = %52
   %.0..0..0..0.159 = load volatile ptr, ptr %9, align 8
-  %59 = getelementptr inbounds i8, ptr %.0..0..0..0.159, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.159, i64 16
   %60 = load i32, ptr %59, align 8
   %61 = icmp ne i32 %60, 0
   %62 = icmp ne i32 %.pre316, 0
@@ -509,10 +509,10 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 63:                                               ; preds = %58
   %.0..0..0..0.160 = load volatile ptr, ptr %9, align 8
-  %64 = getelementptr inbounds i8, ptr %.0..0..0..0.160, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.160, i64 8
   %65 = load ptr, ptr %64, align 8
   %.0..0..0..0.161 = load volatile ptr, ptr %9, align 8
-  %66 = getelementptr inbounds i8, ptr %.0..0..0..0.161, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.161, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = call ptr @wmem_tree_lookup32(ptr noundef %65, i32 noundef %67) #11
   %.not277 = icmp eq ptr %68, null
@@ -520,20 +520,20 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 69:                                               ; preds = %63
   %.0..0..0..0.162 = load volatile ptr, ptr %9, align 8
-  %70 = getelementptr inbounds i8, ptr %.0..0..0..0.162, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.162, i64 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %1, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %73 = load i32, ptr %72, align 4
   call void @wmem_tree_insert32(ptr noundef %71, i32 noundef %73, ptr noundef nonnull %68) #11
   %74 = load i32, ptr %68, align 4
   %.0..0..0..0.163 = load volatile ptr, ptr %9, align 8
-  %75 = getelementptr inbounds i8, ptr %.0..0..0..0.163, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.163, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = call i32 @tvb_captured_length(ptr noundef %0) #11
   %78 = call ptr @fragment_add(ptr noundef nonnull @gssapi_reassembly_table, ptr noundef %0, i32 noundef 0, ptr noundef nonnull %1, i32 noundef %74, ptr noundef null, i32 noundef %76, i32 noundef %77, i32 noundef 1) #11
   %79 = call i32 @tvb_captured_length(ptr noundef %0) #11
   %.0..0..0..0.164 = load volatile ptr, ptr %9, align 8
-  %80 = getelementptr inbounds i8, ptr %.0..0..0..0.164, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.164, i64 24
   %81 = load i32, ptr %80, align 8
   %82 = add i32 %81, %79
   store i32 %82, ptr %80, align 8
@@ -542,19 +542,19 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 83:                                               ; preds = %69
   %.0..0..0..0.165 = load volatile ptr, ptr %9, align 8
-  %84 = getelementptr inbounds i8, ptr %.0..0..0..0.165, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.165, i64 16
   store i32 0, ptr %84, align 8
   %85 = load i32, ptr %72, align 4
-  %86 = getelementptr inbounds i8, ptr %68, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %78, i64 56
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %88 = load ptr, ptr %87, align 8
   %89 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %88) #11
   store volatile ptr %89, ptr %17, align 8
   %.0..0..0..0.29 = load volatile ptr, ptr %17, align 8
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %.0..0..0..0.29, ptr noundef nonnull @.str.53) #11
   %.pre = load ptr, ptr %53, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 50
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 50
   %.pre314 = load i16, ptr %.phi.trans.insert, align 2
   %.pre315 = load i32, ptr @gssapi_reassembly, align 4
   %.pre317 = and i16 %.pre314, 8
@@ -570,9 +570,9 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 94:                                               ; preds = %91
   %.0..0..0..0.166 = load volatile ptr, ptr %9, align 8
-  %95 = getelementptr inbounds i8, ptr %.0..0..0..0.166, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.166, i64 8
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %1, i64 20
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %98 = load i32, ptr %97, align 4
   %99 = call ptr @wmem_tree_lookup32(ptr noundef %96, i32 noundef %98) #11
   %.not279 = icmp eq ptr %99, null
@@ -585,7 +585,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   br i1 %.not280, label %.thread318, label %103
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %102, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 48
   %105 = load i32, ptr %104, align 8
   %106 = and i32 %105, 1
   %.not281 = icmp eq i32 %106, 0
@@ -593,13 +593,13 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 107:                                              ; preds = %103
   %108 = load i32, ptr %97, align 4
-  %109 = getelementptr inbounds i8, ptr %99, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %108, %110
   br i1 %111, label %112, label %117
 
 112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %102, i64 56
+  %113 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %114 = load ptr, ptr %113, align 8
   %115 = call ptr @tvb_new_chain(ptr noundef %0, ptr noundef %114) #11
   store volatile ptr %115, ptr %17, align 8
@@ -615,13 +615,13 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %120
 
 120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %119, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %122 = load ptr, ptr %121, align 8
   %.not5.i = icmp eq ptr %122, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %123
 
 123:                                              ; preds = %120
-  %124 = getelementptr inbounds i8, ptr %122, i64 28
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 28
   %125 = load i32, ptr %124, align 4
   %126 = or i32 %125, 2
   store i32 %126, ptr %124, align 4
@@ -717,7 +717,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   br label %proto_item_set_generated.exit
 
 167:                                              ; preds = %162
-  %168 = getelementptr inbounds i8, ptr %4, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %169 = load ptr, ptr %168, align 8
   %.not290 = icmp eq ptr %169, null
   br i1 %.not290, label %proto_item_set_generated.exit, label %170
@@ -726,7 +726,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   %171 = load ptr, ptr @ntlmssp_data_only_handle, align 8
   %172 = call ptr @tvb_new_subset_remaining(ptr noundef nonnull %169, i32 noundef 0) #11
   %.0..0..0..0.181 = load volatile ptr, ptr %7, align 8
-  %173 = getelementptr inbounds i8, ptr %4, i64 40
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %174 = call i32 @call_dissector_with_data(ptr noundef %171, ptr noundef %172, ptr noundef nonnull %1, ptr noundef %.0..0..0..0.181, ptr noundef nonnull %173) #11
   store volatile i32 %174, ptr %8, align 4
   store i32 1, ptr %24, align 8
@@ -768,7 +768,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
 
 192:                                              ; preds = %188
   %193 = load ptr, ptr %53, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 50
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 50
   %195 = load i16, ptr %194, align 2
   %196 = and i16 %195, 8
   %.not283 = icmp eq i16 %196, 0
@@ -815,7 +815,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   br i1 %.not286, label %227, label %213
 
 213:                                              ; preds = %.thread302
-  %214 = getelementptr inbounds i8, ptr %.0305, i64 24
+  %214 = getelementptr inbounds nuw i8, ptr %.0305, i64 24
   %215 = load ptr, ptr %214, align 8
   %.not288 = icmp eq ptr %215, null
   br i1 %.not288, label %223, label %216
@@ -850,7 +850,7 @@ define internal fastcc i32 @dissect_gssapi_work(ptr noundef %0, ptr noundef %1, 
   br label %proto_item_set_generated.exit
 
 227:                                              ; preds = %.thread302
-  %228 = getelementptr inbounds i8, ptr %.0305, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %.0305, i64 16
   %229 = load ptr, ptr %228, align 8
   %.not287 = icmp eq ptr %229, null
   br i1 %.not287, label %237, label %230
@@ -900,7 +900,7 @@ gssapi_lookup_oid_str.exit:                       ; preds = %241
   %245 = load ptr, ptr @gssapi_oids, align 8
   %246 = call ptr @g_hash_table_lookup(ptr noundef %245, ptr noundef nonnull %244) #11
   %247 = load ptr, ptr %53, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 50
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 50
   %249 = load i16, ptr %248, align 2
   %250 = and i16 %249, 8
   %251 = icmp eq i16 %250, 0
@@ -929,13 +929,13 @@ gssapi_lookup_oid_str.exit:                       ; preds = %241
 263:                                              ; preds = %257
   %264 = call ptr @wmem_file_scope() #11
   %265 = call noalias ptr @wmem_alloc(ptr noundef %264, i64 noundef 8) #11
-  %266 = getelementptr inbounds i8, ptr %1, i64 20
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %267 = load i32, ptr %266, align 4
   store i32 %267, ptr %265, align 4
-  %268 = getelementptr inbounds i8, ptr %265, i64 4
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
   store i32 0, ptr %268, align 4
   %.0..0..0..0.170 = load volatile ptr, ptr %9, align 8
-  %269 = getelementptr inbounds i8, ptr %.0..0..0..0.170, i64 8
+  %269 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.170, i64 8
   %270 = load ptr, ptr %269, align 8
   call void @wmem_tree_insert32(ptr noundef %270, i32 noundef %267, ptr noundef nonnull %265) #11
   %.0..0..0..0.60 = load volatile ptr, ptr %17, align 8
@@ -948,16 +948,16 @@ gssapi_lookup_oid_str.exit:                       ; preds = %241
   %276 = add i32 %275, %.0..0..0..0.96
   call void @fragment_set_tot_len(ptr noundef nonnull @gssapi_reassembly_table, ptr noundef nonnull %1, i32 noundef %274, ptr noundef null, i32 noundef %276) #11
   %.0..0..0..0.171 = load volatile ptr, ptr %9, align 8
-  %277 = getelementptr inbounds i8, ptr %.0..0..0..0.171, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.171, i64 16
   store i32 1, ptr %277, align 8
   %278 = load i32, ptr %266, align 4
   %.0..0..0..0.172 = load volatile ptr, ptr %9, align 8
-  %279 = getelementptr inbounds i8, ptr %.0..0..0..0.172, i64 20
+  %279 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.172, i64 20
   store i32 %278, ptr %279, align 4
   %.0..0..0..0.62 = load volatile ptr, ptr %17, align 8
   %280 = call i32 @tvb_captured_length(ptr noundef %.0..0..0..0.62) #11
   %.0..0..0..0.173 = load volatile ptr, ptr %9, align 8
-  %281 = getelementptr inbounds i8, ptr %.0..0..0..0.173, i64 24
+  %281 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.173, i64 24
   store i32 %280, ptr %281, align 8
   br label %proto_item_set_generated.exit
 
@@ -997,7 +997,7 @@ gssapi_lookup_oid_str.exit:                       ; preds = %241
   br i1 %.not293, label %308, label %293
 
 293:                                              ; preds = %292
-  %294 = getelementptr inbounds i8, ptr %246, i64 24
+  %294 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %295 = load ptr, ptr %294, align 8
   %.not295 = icmp eq ptr %295, null
   br i1 %.not295, label %304, label %296
@@ -1035,7 +1035,7 @@ gssapi_lookup_oid_str.exit:                       ; preds = %241
   br label %proto_item_set_generated.exit
 
 308:                                              ; preds = %292
-  %309 = getelementptr inbounds i8, ptr %246, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %310 = load ptr, ptr %309, align 8
   %.not294 = icmp eq ptr %310, null
   br i1 %.not294, label %319, label %311
@@ -1084,28 +1084,28 @@ proto_item_set_generated.exit:                    ; preds = %123, %120, %117, %1
 
 325:                                              ; preds = %324
   %.0..0..0..0.21 = load volatile ptr, ptr %19, align 8
-  %326 = getelementptr inbounds i8, ptr %.0..0..0..0.21, i64 8
+  %326 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.21, i64 8
   %327 = load volatile i64, ptr %326, align 8
   %328 = icmp eq i64 %327, 3
   br i1 %328, label %341, label %329
 
 329:                                              ; preds = %325
   %.0..0..0..0.22 = load volatile ptr, ptr %19, align 8
-  %330 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 8
+  %330 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.22, i64 8
   %331 = load volatile i64, ptr %330, align 8
   %332 = icmp eq i64 %331, 2
   br i1 %332, label %341, label %333
 
 333:                                              ; preds = %329
   %.0..0..0..0.23 = load volatile ptr, ptr %19, align 8
-  %334 = getelementptr inbounds i8, ptr %.0..0..0..0.23, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.23, i64 8
   %335 = load volatile i64, ptr %334, align 8
   %336 = icmp eq i64 %335, 7
   br i1 %336, label %341, label %337
 
 337:                                              ; preds = %333
   %.0..0..0..0.24 = load volatile ptr, ptr %19, align 8
-  %338 = getelementptr inbounds i8, ptr %.0..0..0..0.24, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.24, i64 8
   %339 = load volatile i64, ptr %338, align 8
   %340 = icmp eq i64 %339, 9
   br i1 %340, label %341, label %347
@@ -1116,10 +1116,10 @@ proto_item_set_generated.exit:                    ; preds = %123, %120, %117, %1
   store volatile i32 %342, ptr %20, align 4
   %.0..0..0..0.73 = load volatile ptr, ptr %17, align 8
   %.0..0..0..0.25 = load volatile ptr, ptr %19, align 8
-  %343 = getelementptr inbounds i8, ptr %.0..0..0..0.25, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 8
   %344 = load volatile i64, ptr %343, align 8
   %.0..0..0..0.26 = load volatile ptr, ptr %19, align 8
-  %345 = getelementptr inbounds i8, ptr %.0..0..0..0.26, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.26, i64 16
   %346 = load volatile ptr, ptr %345, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.73, ptr noundef %1, ptr noundef %2, i64 noundef %344, ptr noundef %346) #11
   br label %347
@@ -1141,7 +1141,7 @@ proto_item_set_generated.exit:                    ; preds = %123, %120, %117, %1
   unreachable
 
 351:                                              ; preds = %349, %347
-  %352 = getelementptr inbounds i8, ptr %22, i64 40
+  %352 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %353 = load volatile ptr, ptr %352, align 8
   call void @except_free(ptr noundef %353) #11
   %354 = call ptr @except_pop() #11

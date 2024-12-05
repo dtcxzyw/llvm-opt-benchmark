@@ -70,7 +70,7 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_setC2ERKS2_(ptr nocapture nou
   store ptr %5, ptr %6, align 8, !tbaa !6
   store ptr %5, ptr %5, align 8, !tbaa !10
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %scevgep.i = getelementptr inbounds i8, ptr %3, i64 96
+  %scevgep.i = getelementptr inbounds nuw i8, ptr %3, i64 96
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -115,7 +115,7 @@ _ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEm
   br i1 %.not.i.i.i.i.i, label %27, label %24
 
 24:                                               ; preds = %_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEmPKv.exit.i
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = atomicrmw add ptr %25, i32 1 acq_rel, align 4
   %.pre.i = load i32, ptr %18, align 4, !tbaa !22
   br label %27
@@ -191,14 +191,14 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_setD2Ev(ptr nocapture noundef
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = atomicrmw add ptr %16, i32 -1 acq_rel, align 4
   %18 = icmp eq i32 %17, 1
   br i1 %18, label %19, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %14, align 8, !tbaa !3
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %14) #13
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
@@ -361,7 +361,7 @@ _ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEm
   br i1 %.not.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeC2ERKNS1_14attribute_nameERKNS1_9attributeE.exit, label %33
 
 33:                                               ; preds = %_ZN5boost3log11v2_mt_posix14pool_allocatorINS1_13attribute_set4nodeEE8allocateEmPKv.exit
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = atomicrmw add ptr %34, i32 1 acq_rel, align 4
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeC2ERKNS1_14attribute_nameERKNS1_9attributeE.exit
 
@@ -507,14 +507,14 @@ _ZN5boost3log11v2_mt_posix13attribute_set14implementation14find_in_bucketENS1_14
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i, label %43
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = atomicrmw add ptr %44, i32 -1 acq_rel, align 4, !noalias !46
   %46 = icmp eq i32 %45, 1
   br i1 %46, label %47, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 47:                                               ; preds = %43
   %48 = load ptr, ptr %42, align 8, !tbaa !3, !noalias !46
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !noalias !46
   tail call void %50(ptr noundef nonnull align 8 dereferenceable(12) %42) #13, !noalias !46
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
@@ -595,14 +595,14 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEE(pt
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i, label %33
 
 33:                                               ; preds = %23
-  %34 = getelementptr inbounds i8, ptr %32, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = atomicrmw add ptr %34, i32 -1 acq_rel, align 4, !noalias !51
   %36 = icmp eq i32 %35, 1
   br i1 %36, label %37, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %32, align 8, !tbaa !3, !noalias !51
-  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !noalias !51
   tail call void %40(ptr noundef nonnull align 8 dereferenceable(12) %32) #13, !noalias !51
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
@@ -688,14 +688,14 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5eraseENS2_4iterILb0EEES4_
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i, label %35
 
 35:                                               ; preds = %26
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = atomicrmw add ptr %36, i32 -1 acq_rel, align 4, !noalias !56
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %39, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %34, align 8, !tbaa !3, !noalias !56
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8, !noalias !56
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(12) %34) #13, !noalias !56
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i.i
@@ -749,14 +749,14 @@ define void @_ZN5boost3log11v2_mt_posix13attribute_set5clearEv(ptr nocapture nou
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = atomicrmw add ptr %14, i32 -1 acq_rel, align 4
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %12, align 8, !tbaa !3
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(12) %12) #13
   br label %_ZN5boost3log11v2_mt_posix13attribute_set4nodeD2Ev.exit.i.i.i

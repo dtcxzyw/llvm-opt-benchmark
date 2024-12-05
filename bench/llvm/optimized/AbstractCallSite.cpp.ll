@@ -77,7 +77,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %21, %25
 
 .lr.ph:                                           ; preds = %_ZNK4llvm6MDNode8operandsEv.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %35
 
 35:                                               ; preds = %.lr.ph, %81
@@ -152,7 +152,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit: ; preds = 
   br label %81
 
 81:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZN4llvm23SmallVectorTemplateBaseIPKNS_3UseELb1EE9push_backES3_.exit
-  %82 = getelementptr inbounds i8, ptr %.033, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %.not22 = icmp eq ptr %82, %32
   br i1 %.not22, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %35
 
@@ -182,7 +182,7 @@ _ZN4llvm8dyn_castINS_8CallBaseENS_4UserEEEDcPT0_.exit: ; preds = %2, %7, %7, %7,
   %.0.i.i = phi ptr [ null, %2 ], [ null, %8 ], [ %4, %7 ], [ %4, %7 ], [ %4, %7 ]
   store ptr %.0.i.i, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i64 noundef 0) #3
   %11 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %11, null
@@ -325,7 +325,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %65, %69
   br label %80
 
 78:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %79 = getelementptr inbounds i8, ptr %.04792, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.04792, i64 8
   %.not56 = icmp eq ptr %79, %76
   br i1 %.not56, label %.loopexit.sink.split, label %80
 
@@ -429,7 +429,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %118, %122
 
 _ZNK4llvm6MDNode10getOperandEj.exit70:            ; preds = %131, %134
   %.sroa.0.0.i.i69 = phi ptr [ %138, %134 ], [ %132, %131 ]
-  %139 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i69, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i69, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 128
   %142 = load ptr, ptr %141, align 8
@@ -527,7 +527,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit75:        ; preds = %174, %177
 _ZNK4llvm6MDNode10getOperandEj.exit78:            ; preds = %183, %187
   %.sroa.0.0.i.i77 = phi ptr [ %191, %187 ], [ %185, %183 ]
   %192 = and i64 %181, 4294967295
-  %193 = getelementptr inbounds %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i77, i64 %192
+  %193 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i77, i64 %192
   %194 = load ptr, ptr %193, align 8
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 128
   %196 = load ptr, ptr %195, align 8

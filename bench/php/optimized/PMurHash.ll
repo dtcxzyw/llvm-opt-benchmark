@@ -27,7 +27,7 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   %.17895 = phi ptr [ %2, %.preheader ], [ %14, %30 ]
   %.18294 = phi i32 [ %6, %.preheader ], [ %.283, %30 ]
   %13 = add nsw i32 %.in, -1
-  %14 = getelementptr inbounds i8, ptr %.17895, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.17895, i64 1
   %15 = load i8, ptr %.17895, align 1
   %16 = zext i8 %15 to i32
   %17 = tail call i32 @llvm.fshl.i32(i32 %16, i32 %.18294, i32 24)
@@ -83,7 +83,7 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   %43 = tail call i32 @llvm.fshl.i32(i32 %42, i32 %42, i32 13)
   %44 = mul i32 %43, 5
   %45 = add i32 %44, -430675100
-  %46 = getelementptr inbounds i8, ptr %.27999, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.27999, i64 4
   %47 = icmp ult ptr %46, %34
   br i1 %47, label %.lr.ph, label %._crit_edge
 
@@ -101,7 +101,7 @@ define hidden void @PMurHash32_Process(ptr nocapture noundef %0, ptr nocapture n
   %.380104 = phi ptr [ %50, %66 ], [ %.279.lcssa, %._crit_edge ]
   %.384103 = phi i32 [ %.485, %66 ], [ %.081, %._crit_edge ]
   %49 = add nsw i32 %.in113, -1
-  %50 = getelementptr inbounds i8, ptr %.380104, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.380104, i64 1
   %51 = load i8, ptr %.380104, align 1
   %52 = zext i8 %51 to i32
   %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %.384103, i32 24)

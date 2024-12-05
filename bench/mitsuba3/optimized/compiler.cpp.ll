@@ -55,15 +55,15 @@ $_ZTIN6asmjit9_abi_1_1019GlobalConstPoolPassE = comdat any
 define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) #15
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_1012BaseCompilerE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr null, ptr %2, align 8, !tbaa !6
-  %3 = getelementptr inbounds i8, ptr %0, i64 424
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   tail call void @_ZN6asmjit9_abi_1_104Zone5_initEmmPKNS0_7Support9TemporaryE(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 4040, i64 noundef 1, ptr noundef null) #15
-  %4 = getelementptr inbounds i8, ptr %0, i64 456
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   store i8 3, ptr %5, align 8, !tbaa !40
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %6, align 4, !tbaa !41
   ret void
 }
@@ -74,7 +74,7 @@ declare void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_1012BaseCompilerE, i64 16), ptr %0, align 8, !tbaa !3
-  %2 = getelementptr inbounds i8, ptr %0, i64 424
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef 1) #15
   tail call void @_ZN6asmjit9_abi_1_1011BaseBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) #15
   ret void
@@ -99,7 +99,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !42
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   %8 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %7, i64 noundef 592, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
@@ -107,23 +107,23 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   br i1 %9, label %21, label %10, !prof !43
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %8, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store i8 3, ptr %11, align 8, !tbaa !44
-  %12 = getelementptr inbounds i8, ptr %0, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %13 = load i8, ptr %12, align 8, !tbaa !45
   %14 = or i8 %13, 80
-  %15 = getelementptr inbounds i8, ptr %8, i64 17
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 17
   store i8 %14, ptr %15, align 1, !tbaa !44
-  %16 = getelementptr inbounds i8, ptr %8, i64 18
-  %17 = getelementptr inbounds i8, ptr %8, i64 469
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 18
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 469
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(546) %16, i8 0, i64 546, i1 false)
   store i8 -1, ptr %17, align 1, !tbaa !46
-  %18 = getelementptr inbounds i8, ptr %8, i64 470
+  %18 = getelementptr inbounds nuw i8, ptr %8, i64 470
   store i8 -1, ptr %18, align 2, !tbaa !52
-  %19 = getelementptr inbounds i8, ptr %8, i64 496
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 496
   store i32 -1, ptr %19, align 4, !tbaa !53
-  %20 = getelementptr inbounds i8, ptr %8, i64 568
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 568
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
   store i8 16, ptr %11, align 8, !tbaa !44
   br label %24
@@ -134,13 +134,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   br i1 %23, label %24, label %83
 
 24:                                               ; preds = %21, %10
-  %25 = getelementptr inbounds i8, ptr %8, i64 568
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 568
   %26 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newLabelNodeEPPNS0_9LabelNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull %25)
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %83
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %8, i64 576
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 576
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %30 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %7, i64 noundef 48, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
@@ -148,15 +148,15 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   br i1 %31, label %39, label %32, !prof !43
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   store i8 10, ptr %33, align 8, !tbaa !44
-  %34 = getelementptr inbounds i8, ptr %0, i64 408
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %35 = load i8, ptr %34, align 8, !tbaa !45
   %36 = or i8 %35, 20
-  %37 = getelementptr inbounds i8, ptr %30, i64 17
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 17
   store i8 %36, ptr %37, align 1, !tbaa !44
-  %38 = getelementptr inbounds i8, ptr %30, i64 18
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(30) %38, i8 0, i64 30, i1 false)
   store i8 1, ptr %38, align 2, !tbaa !44
   store ptr %30, ptr %29, align 8, !tbaa !42
@@ -169,8 +169,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   br i1 %41, label %42, label %83
 
 42:                                               ; preds = %39, %32
-  %43 = getelementptr inbounds i8, ptr %8, i64 52
-  %44 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %45 = call noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13FuncSignatureERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(412) %43, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 dereferenceable(8) %44) #15
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %49, label %47, !prof !54
@@ -181,7 +181,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
 
 49:                                               ; preds = %42
   %50 = call noundef i32 @_ZNK6asmjit9_abi_1_1011Environment14stackAlignmentEv(ptr noundef nonnull align 1 dereferenceable(8) %44) #15
-  %51 = getelementptr inbounds i8, ptr %8, i64 57
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 57
   %52 = load i8, ptr %51, align 1, !tbaa !55
   %53 = zext i8 %52 to i32
   %54 = icmp ugt i32 %50, %53
@@ -193,7 +193,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   br label %57
 
 57:                                               ; preds = %55, %49
-  %58 = getelementptr inbounds i8, ptr %8, i64 464
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 464
   %59 = call noundef i32 @_ZN6asmjit9_abi_1_109FuncFrame4initERKNS0_10FuncDetailE(ptr noundef nonnull align 4 dereferenceable(100) %58, ptr noundef nonnull align 4 dereferenceable(412) %43) #15
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %63, label %61, !prof !54
@@ -203,9 +203,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPP
   br label %83
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %8, i64 584
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 584
   store ptr null, ptr %64, align 8, !tbaa !61
-  %65 = getelementptr inbounds i8, ptr %8, i64 168
+  %65 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %66 = load i8, ptr %65, align 4, !tbaa !67
   %67 = icmp eq i8 %66, 0
   br i1 %67, label %79, label %68
@@ -271,8 +271,8 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder17registerLabelNodeEPNS0_9
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11addFuncNodeEPPNS0_8FuncNodeERKNS0_13FuncSignatureE(ptr noundef nonnull align 8 dereferenceable(504) initializes((84, 96)) %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 84
-  %5 = getelementptr inbounds i8, ptr %0, i64 96
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !68, !noalias !69
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false), !noalias !69
   %7 = tail call noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newFuncNodeEPPNS0_8FuncNodeERKNS0_13FuncSignatureE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -285,24 +285,24 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11addFuncNodeEPP
 
 11:                                               ; preds = %9
   %12 = load ptr, ptr %1, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %13 = getelementptr inbounds i8, ptr %0, i64 176
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #17
   %15 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %6, i64 noundef %14, i1 noundef zeroext true) #15
-  %16 = getelementptr inbounds i8, ptr %12, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %15, ptr %16, align 8, !tbaa !73
   br label %17
 
 17:                                               ; preds = %11, %9
   %18 = load ptr, ptr %1, align 8, !tbaa !42
-  %19 = getelementptr inbounds i8, ptr %0, i64 416
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %18, ptr %19, align 8, !tbaa !6
   %20 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull %18) #15
-  %21 = getelementptr inbounds i8, ptr %0, i64 384
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %22 = load ptr, ptr %21, align 8, !tbaa !74
-  %23 = getelementptr inbounds i8, ptr %18, i64 568
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 568
   %24 = load ptr, ptr %23, align 8, !tbaa !75
   %25 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %24) #15
-  %26 = getelementptr inbounds i8, ptr %18, i64 576
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 576
   %27 = load ptr, ptr %26, align 8, !tbaa !76
   %28 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %27) #15
   store ptr %22, ptr %21, align 8, !tbaa !74
@@ -317,15 +317,15 @@ declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1012BaseCompiler7addFuncEPNS0_8FuncNodeE(ptr noundef nonnull align 8 dereferenceable(504) initializes((416, 424)) %0, ptr noundef nonnull returned %1) local_unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr %1, ptr %3, align 8, !tbaa !6
   %4 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef nonnull %1) #15
-  %5 = getelementptr inbounds i8, ptr %0, i64 384
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %6 = load ptr, ptr %5, align 8, !tbaa !74
-  %7 = getelementptr inbounds i8, ptr %1, i64 568
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %8 = load ptr, ptr %7, align 8, !tbaa !75
   %9 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %8) #15
-  %10 = getelementptr inbounds i8, ptr %1, i64 576
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %11 = load ptr, ptr %10, align 8, !tbaa !76
   %12 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %11) #15
   store ptr %6, ptr %5, align 8, !tbaa !74
@@ -340,7 +340,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
   %8 = load i32, ptr %2, align 4
   %9 = icmp ne i32 %8, 0
   %10 = zext i1 %9 to i8
-  %11 = getelementptr inbounds i8, ptr %0, i64 240
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %12 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %11, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
@@ -348,23 +348,23 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
   br i1 %13, label %25, label %14, !prof !43
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %12, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
   store i8 1, ptr %15, align 8, !tbaa !44
-  %16 = getelementptr inbounds i8, ptr %0, i64 408
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %17 = load i8, ptr %16, align 8, !tbaa !45
   %18 = or i8 %17, 41
-  %19 = getelementptr inbounds i8, ptr %12, i64 17
+  %19 = getelementptr inbounds nuw i8, ptr %12, i64 17
   store i8 %18, ptr %19, align 1, !tbaa !44
-  %20 = getelementptr inbounds i8, ptr %12, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %20, i8 0, i64 28, i1 false)
-  %21 = getelementptr inbounds i8, ptr %12, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store i32 -2147483648, ptr %21, align 4, !tbaa !78
-  %22 = getelementptr inbounds i8, ptr %12, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 52
   store i32 0, ptr %22, align 4, !tbaa !80
-  %23 = getelementptr inbounds i8, ptr %12, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i64 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %12, i64 19
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 19
   store i8 4, ptr %24, align 1, !tbaa !44
   store i8 17, ptr %15, align 8, !tbaa !44
   br label %30
@@ -383,11 +383,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
   %32 = icmp ne ptr %12, null
   call void @llvm.assume(i1 %32)
   %33 = select i1 %7, i8 %10, i8 2
-  %34 = getelementptr inbounds i8, ptr %12, i64 18
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 18
   store i8 %33, ptr %34, align 2, !tbaa !44
-  %35 = getelementptr inbounds i8, ptr %12, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %36 = getelementptr inbounds i8, ptr %12, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   %37 = icmp ugt i8 %31, 2
   br i1 %37, label %38, label %45
@@ -414,8 +414,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNodeEPPNS0_11FuncRetNodeERKNS0_8Operand_ES7_(ptr noundef nonnull align 8 dereferenceable(504) initializes((84, 96)) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 84
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8, !tbaa !68, !noalias !81
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !noalias !81
   %9 = load i32, ptr %3, align 4, !tbaa !77
@@ -423,7 +423,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
   %11 = load i32, ptr %2, align 4
   %12 = icmp ne i32 %11, 0
   %13 = zext i1 %12 to i8
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %15 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %14, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
@@ -431,23 +431,23 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
   br i1 %16, label %28, label %17, !prof !43
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i8 1, ptr %18, align 8, !tbaa !44
-  %19 = getelementptr inbounds i8, ptr %0, i64 408
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %20 = load i8, ptr %19, align 8, !tbaa !45
   %21 = or i8 %20, 41
-  %22 = getelementptr inbounds i8, ptr %15, i64 17
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 17
   store i8 %21, ptr %22, align 1, !tbaa !44
-  %23 = getelementptr inbounds i8, ptr %15, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %23, i8 0, i64 28, i1 false)
-  %24 = getelementptr inbounds i8, ptr %15, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 -2147483648, ptr %24, align 4, !tbaa !78
-  %25 = getelementptr inbounds i8, ptr %15, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 0, ptr %25, align 4, !tbaa !80
-  %26 = getelementptr inbounds i8, ptr %15, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i64 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %15, i64 19
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 19
   store i8 4, ptr %27, align 1, !tbaa !44
   store i8 17, ptr %18, align 8, !tbaa !44
   br label %33
@@ -466,11 +466,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
   %35 = icmp ne ptr %15, null
   call void @llvm.assume(i1 %35)
   %36 = select i1 %10, i8 %13, i8 2
-  %37 = getelementptr inbounds i8, ptr %15, i64 18
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 18
   store i8 %36, ptr %37, align 2, !tbaa !44
-  %38 = getelementptr inbounds i8, ptr %15, i64 64
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %15, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %15, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   %40 = icmp ugt i8 %34, 2
   br i1 %40, label %41, label %48
@@ -491,10 +491,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %0, i64 176
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
   %53 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %8, i64 noundef %52, i1 noundef zeroext true) #15
-  %54 = getelementptr inbounds i8, ptr %15, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %53, ptr %54, align 8, !tbaa !73
   %55 = load ptr, ptr %1, align 8, !tbaa !42
   br label %56
@@ -514,9 +514,9 @@ declare noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(p
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7endFuncEv(ptr noundef nonnull align 8 dereferenceable(504) initializes((84, 104)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 416
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %0, i64 84
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %8, !prof !43
@@ -526,13 +526,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7endFuncEv(ptr n
   br label %22
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 488
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %10 = load ptr, ptr %9, align 8, !tbaa !42
   %11 = icmp eq ptr %10, null
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %3, i64 576
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 576
   %14 = load ptr, ptr %13, align 8, !tbaa !76
   %15 = load ptr, ptr %14, align 8, !tbaa !44
   %16 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %15) #15
@@ -542,7 +542,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7endFuncEv(ptr n
 
 18:                                               ; preds = %12, %8
   store ptr null, ptr %2, align 8, !tbaa !6
-  %19 = getelementptr inbounds i8, ptr %3, i64 576
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 576
   %20 = load ptr, ptr %19, align 8, !tbaa !76
   %21 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %20) #15
   br label %22
@@ -559,7 +559,7 @@ declare noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8BaseNodeE
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeEPPNS0_10InvokeNodeEjRKNS0_8Operand_ERKNS0_13FuncSignatureE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %9 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 616, ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
@@ -567,34 +567,34 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
   br i1 %10, label %27, label %11, !prof !43
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i8 1, ptr %12, align 8, !tbaa !44
-  %13 = getelementptr inbounds i8, ptr %0, i64 408
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %14 = load i8, ptr %13, align 8, !tbaa !45
   %15 = or i8 %14, 41
-  %16 = getelementptr inbounds i8, ptr %9, i64 17
-  %17 = getelementptr inbounds i8, ptr %9, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 17
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %17, i8 0, i64 28, i1 false)
-  %18 = getelementptr inbounds i8, ptr %9, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %2, ptr %18, align 4, !tbaa !78
-  %19 = getelementptr inbounds i8, ptr %9, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 0, ptr %19, align 4, !tbaa !80
-  %20 = getelementptr inbounds i8, ptr %9, i64 56
-  %21 = getelementptr inbounds i8, ptr %9, i64 19
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 19
   store i8 4, ptr %21, align 1, !tbaa !44
-  %22 = getelementptr inbounds i8, ptr %9, i64 128
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(412) %22, i8 0, i64 412, i1 false)
-  %23 = getelementptr inbounds i8, ptr %9, i64 608
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 608
   store ptr null, ptr %23, align 8, !tbaa !84
   store i8 18, ptr %12, align 8, !tbaa !44
-  %24 = getelementptr inbounds i8, ptr %9, i64 540
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 540
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %24, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %20, i8 0, i64 72, i1 false)
   store i8 %15, ptr %16, align 1, !tbaa !88
-  %25 = getelementptr inbounds i8, ptr %9, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 18
   store i8 1, ptr %25, align 2, !tbaa !44
-  %26 = getelementptr inbounds i8, ptr %9, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   br label %33
 
@@ -622,8 +622,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
   br label %41
 
 41:                                               ; preds = %33, %30
-  %42 = getelementptr inbounds i8, ptr %9, i64 128
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = call noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13FuncSignatureERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(412) %42, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(8) %43) #15
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %48, label %46, !prof !54
@@ -633,7 +633,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
   br label %62
 
 48:                                               ; preds = %41
-  %49 = getelementptr inbounds i8, ptr %4, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !89
   %51 = icmp eq i8 %50, 0
   br i1 %51, label %61, label %52
@@ -644,7 +644,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   %55 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef %54, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  %56 = getelementptr inbounds i8, ptr %9, i64 608
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 608
   store ptr %55, ptr %56, align 8, !tbaa !84
   %57 = icmp eq ptr %55, null
   br i1 %57, label %58, label %60
@@ -668,13 +668,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeE
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13addInvokeNodeEPPNS0_10InvokeNodeEjRKNS0_8Operand_ERKNS0_13FuncSignatureE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %7 = load i32, ptr %6, align 4, !tbaa !92, !noalias !93
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4, !tbaa !96, !noalias !93
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8, !tbaa.struct !97, !noalias !93
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !68, !noalias !93
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !noalias !93
   %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13newInvokeNodeEPPNS0_10InvokeNodeEjRKNS0_8Operand_ERKNS0_13FuncSignatureE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -684,23 +684,23 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13addInvokeNodeE
 16:                                               ; preds = %5
   %17 = or i32 %9, %7
   %18 = load ptr, ptr %1, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %19 = getelementptr inbounds i8, ptr %18, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 52
   store i32 %17, ptr %19, align 4, !tbaa !80
-  %20 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %21 = trunc i64 %11 to i32
   %22 = lshr i64 %11, 32
   %23 = trunc nuw i64 %22 to i32
   store i32 %21, ptr %20, align 4, !tbaa !98
-  %24 = getelementptr inbounds i8, ptr %18, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 60
   store i32 %23, ptr %24, align 4, !tbaa !99
   %25 = icmp eq ptr %13, null
   br i1 %25, label %32, label %26
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %0, i64 176
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #17
   %29 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull %13, i64 noundef %28, i1 noundef zeroext true) #15
-  %30 = getelementptr inbounds i8, ptr %18, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %29, ptr %30, align 8, !tbaa !73
   %31 = load ptr, ptr %1, align 8, !tbaa !42
   br label %32
@@ -718,8 +718,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler13addInvokeNodeE
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPNS0_7VirtRegENS0_6TypeIdENS0_16OperandSignatureEPKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i8 noundef zeroext %2, i32 %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
   %6 = alloca [64 x i8], align 16
   store ptr null, ptr %1, align 8, !tbaa !42
-  %7 = getelementptr inbounds i8, ptr %0, i64 456
-  %8 = getelementptr inbounds i8, ptr %0, i64 464
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %9 = load i32, ptr %8, align 8, !tbaa !100
   %10 = icmp ugt i32 %9, -258
   br i1 %10, label %11, label %13, !prof !43
@@ -729,13 +729,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   br label %86
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 468
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 468
   %15 = load i32, ptr %14, align 4, !tbaa !101
   %16 = icmp eq i32 %15, %9
   br i1 %16, label %17, label %23
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 240
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %19 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %18, i32 noundef 8, i32 noundef 1) #15
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %23, label %21, !prof !102
@@ -745,7 +745,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   br label %86
 
 23:                                               ; preds = %17, %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 424
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %25 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone11allocZeroedEmm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef 48, i64 noundef 8) #15
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29, !prof !43
@@ -756,24 +756,24 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
 
 29:                                               ; preds = %23
   %30 = zext i8 %2 to i64
-  %31 = getelementptr inbounds %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !44
   %33 = zext i8 %32 to i32
   %34 = tail call noundef i32 @llvm.umin.i32(i32 %33, i32 64)
   %35 = add nuw i32 %9, 256
   store i32 %3, ptr %25, align 8, !tbaa !98
-  %36 = getelementptr inbounds i8, ptr %25, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i32 %35, ptr %36, align 4, !tbaa !103
-  %37 = getelementptr inbounds i8, ptr %25, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i32 %33, ptr %37, align 8, !tbaa !106
-  %38 = getelementptr inbounds i8, ptr %25, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %39 = trunc nuw nsw i32 %34 to i8
   store i8 %39, ptr %38, align 4, !tbaa !107
-  %40 = getelementptr inbounds i8, ptr %25, i64 13
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 13
   store i8 %2, ptr %40, align 1, !tbaa !108
-  %41 = getelementptr inbounds i8, ptr %25, i64 14
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 14
   store i8 1, ptr %41, align 2, !tbaa !109
-  %42 = getelementptr inbounds i8, ptr %25, i64 15
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %42, i8 0, i64 33, i1 false)
   %43 = icmp eq ptr %4, null
   br i1 %43, label %62, label %44
@@ -784,26 +784,26 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   br i1 %46, label %62, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %25, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #17
   %50 = icmp ugt i64 %49, 11
   br i1 %50, label %54, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %25, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 28
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %52, ptr nonnull align 1 %4, i64 %49, i1 false)
-  %53 = getelementptr inbounds [12 x i8], ptr %52, i64 0, i64 %49
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %52, i64 0, i64 %49
   store i8 0, ptr %53, align 1, !tbaa !44
   br label %60
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %0, i64 176
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %56 = tail call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull %4, i64 noundef %49, i1 noundef zeroext true) #15
   %57 = icmp eq ptr %56, null
   br i1 %57, label %78, label %58, !prof !43
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %25, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %56, ptr %59, align 8, !tbaa !44
   br label %60
 
@@ -815,26 +815,26 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
 62:                                               ; preds = %44, %29
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #15
   %63 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %9) #15
-  %64 = getelementptr inbounds i8, ptr %25, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %65 = zext i32 %63 to i64
   %66 = icmp ugt i32 %63, 11
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %25, i64 28
+  %68 = getelementptr inbounds nuw i8, ptr %25, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %68, ptr nonnull align 16 %6, i64 %65, i1 false)
-  %69 = getelementptr inbounds [12 x i8], ptr %68, i64 0, i64 %65
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 0, i64 %65
   store i8 0, ptr %69, align 1, !tbaa !44
   br label %76
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i8, ptr %0, i64 176
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %72 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull %6, i64 noundef %65, i1 noundef zeroext true) #15
   %73 = icmp eq ptr %72, null
   br i1 %73, label %77, label %74, !prof !43
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %25, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %72, ptr %75, align 8, !tbaa !44
   br label %76
 
@@ -850,7 +850,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10newVirtRegEPPN
   %79 = load ptr, ptr %7, align 8, !tbaa !110
   %80 = load i32, ptr %8, align 8, !tbaa !100
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
   %83 = ptrtoint ptr %25 to i64
   store i64 %83, ptr %82, align 8
   %84 = load i32, ptr %8, align 8, !tbaa !100
@@ -875,7 +875,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   store i8 %2, ptr %5, align 1, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load i8, ptr %8, align 8, !tbaa !112
   %10 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %9, i8 noundef zeroext %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %11 = icmp eq i32 %10, 0
@@ -895,15 +895,15 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i32, ptr %21, align 4, !tbaa !103
   %23 = load i32, ptr %6, align 4, !tbaa !98
   store i32 %23, ptr %1, align 4, !tbaa !98
-  %24 = getelementptr inbounds i8, ptr %1, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %22, ptr %24, align 4, !tbaa !113
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %25, align 4, !tbaa !98
-  %26 = getelementptr inbounds i8, ptr %1, i64 12
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %26, align 4, !tbaa !98
   br label %27
 
@@ -931,10 +931,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %9) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 16, i1 false)
   store i8 32, ptr %9, align 8, !tbaa !44
-  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 263, ptr %10, align 8, !tbaa !44
-  %11 = getelementptr inbounds i8, ptr %9, i64 32
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %11, ptr %12, align 8, !tbaa !44
   store i8 0, ptr %11, align 8, !tbaa !44
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -946,7 +946,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
   store i8 %2, ptr %5, align 1, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 72
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %17 = load i8, ptr %16, align 8, !tbaa !112
   %18 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %17, i8 noundef zeroext %2, ptr noundef nonnull %5, ptr noundef nonnull %6) #15
   %19 = icmp eq i32 %18, 0
@@ -958,7 +958,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
 
 22:                                               ; preds = %4
   %23 = icmp ugt i8 %14, 30
-  %24 = getelementptr inbounds i8, ptr %9, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 1
   %25 = select i1 %23, ptr %15, ptr %24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %26 = load i8, ptr %5, align 1, !tbaa !111
@@ -972,15 +972,15 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
 
 31:                                               ; preds = %29
   %32 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %33 = getelementptr inbounds i8, ptr %32, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !103
   %35 = load i32, ptr %6, align 4, !tbaa !98
   store i32 %35, ptr %1, align 4, !tbaa !98
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %34, ptr %36, align 4, !tbaa !113
-  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %37, align 4, !tbaa !98
-  %38 = getelementptr inbounds i8, ptr %1, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %38, align 4, !tbaa !98
   br label %39
 
@@ -1016,25 +1016,25 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #15
-  %8 = getelementptr inbounds i8, ptr %2, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !113
   %10 = add i32 %9, -256
-  %11 = getelementptr inbounds i8, ptr %0, i64 464
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %12 = load i32, ptr %11, align 8, !tbaa !100
   %13 = icmp ult i32 %10, %12
   br i1 %13, label %14, label %66
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 456
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %16 = zext i32 %10 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !110
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !42
-  %20 = getelementptr inbounds i8, ptr %19, i64 13
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 13
   %21 = load i8, ptr %20, align 1, !tbaa !108
   store i8 %21, ptr %6, align 1, !tbaa !111
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::TypeUtils::TypeData", ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i32 1, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !44
   %25 = zext i8 %24 to i32
   %26 = load i32, ptr %2, align 4, !tbaa !77
@@ -1093,7 +1093,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   br i1 %54, label %switch.hole_check, label %64
 
 55:                                               ; preds = %49
-  %56 = getelementptr inbounds [256 x i8], ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i64 %22
+  %56 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6asmjit9_abi_1_109TypeUtils9_typeDataE, i64 0, i64 %22
   %57 = load i8, ptr %56, align 1, !tbaa !111
   %58 = trunc nuw i32 %27 to i8
   switch i8 %58, label %64 [
@@ -1120,15 +1120,15 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7B
   br label %100
 
 66:                                               ; preds = %4
-  %67 = getelementptr inbounds i8, ptr %0, i64 72
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = load i8, ptr %67, align 8, !tbaa !112
   %69 = zext i8 %68 to i64
   %70 = load i32, ptr %2, align 4, !tbaa !77
   %71 = lshr i32 %70, 3
-  %72 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %69, i32 10
+  %72 = getelementptr inbounds nuw [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %69, i32 10
   %73 = and i32 %71, 31
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds [32 x i8], ptr %72, i64 0, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 0, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !111
   br label %.sink.split
 
@@ -1151,7 +1151,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 78:                                               ; preds = %.sink.split, %61, %14
   %79 = phi i8 [ %21, %14 ], [ %62, %61 ], [ %.sink, %.sink.split ]
-  %80 = getelementptr inbounds i8, ptr %0, i64 72
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %81 = load i8, ptr %80, align 8, !tbaa !112
   %82 = call noundef i32 @_ZN6asmjit9_abi_1_109ArchUtils20typeIdToRegSignatureENS0_4ArchENS0_6TypeIdEPS3_PNS0_16OperandSignatureE(i8 noundef zeroext %81, i8 noundef zeroext %79, ptr noundef nonnull %6, ptr noundef nonnull %5) #15
   %83 = icmp eq i32 %82, 0
@@ -1171,15 +1171,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 91:                                               ; preds = %86
   %92 = load ptr, ptr %7, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %93 = getelementptr inbounds i8, ptr %92, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %94 = load i32, ptr %93, align 4, !tbaa !103
   %95 = load i32, ptr %5, align 4, !tbaa !98
   store i32 %95, ptr %1, align 4, !tbaa !98
-  %96 = getelementptr inbounds i8, ptr %1, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %94, ptr %96, align 4, !tbaa !113
-  %97 = getelementptr inbounds i8, ptr %1, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %97, align 4, !tbaa !98
-  %98 = getelementptr inbounds i8, ptr %1, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %98, align 4, !tbaa !98
   br label %99
 
@@ -1202,10 +1202,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %6) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store i8 32, ptr %6, align 8, !tbaa !44
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 263, ptr %7, align 8, !tbaa !44
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
-  %9 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %8, ptr %9, align 8, !tbaa !44
   store i8 0, ptr %8, align 8, !tbaa !44
   call void @llvm.va_start.p0(ptr nonnull %5)
@@ -1214,7 +1214,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
   %11 = load i8, ptr %6, align 8, !tbaa !44
   %12 = icmp ugt i8 %11, 30
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %15 = select i1 %12, ptr %13, ptr %14
   %16 = invoke noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler7_newRegEPNS0_7BaseRegERKS2_PKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef %15)
           to label %17 unwind label %19
@@ -1237,9 +1237,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler10_newRegFmtEPNS
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newStackEPNS0_7BaseMemEjjPKc(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
   %6 = alloca ptr, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store <4 x i32> <i32 2, i32 0, i32 0, i32 0>, ptr %1, align 4, !tbaa !98
   %10 = icmp eq i32 %2, 0
   br i1 %10, label %11, label %13
@@ -1267,20 +1267,20 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newStackEPNS0_
 22:                                               ; preds = %19
   %23 = tail call i32 @llvm.umin.i32(i32 %14, i32 64)
   %24 = load ptr, ptr %6, align 8, !tbaa !42, !nonnull !72, !noundef !72
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i32 %2, ptr %25, align 8, !tbaa !106
-  %26 = getelementptr inbounds i8, ptr %24, i64 15
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 15
   %27 = load i8, ptr %26, align 1
   %28 = or i8 %27, 2
   store i8 %28, ptr %26, align 1
   %29 = trunc nuw nsw i32 %23 to i8
-  %30 = getelementptr inbounds i8, ptr %24, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i8 %29, ptr %30, align 4, !tbaa !107
-  %31 = getelementptr inbounds i8, ptr %0, i64 80
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %32 = load i32, ptr %31, align 8, !tbaa !77
   %33 = and i32 %32, 248
   %34 = or disjoint i32 %33, 8194
-  %35 = getelementptr inbounds i8, ptr %24, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !103
   store i32 %34, ptr %1, align 4
   store i32 %36, ptr %7, align 4
@@ -1300,7 +1300,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newStackEPNS0_
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEjjj(ptr noundef nonnull align 8 dereferenceable(504) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = add i32 %1, -256
-  %6 = getelementptr inbounds i8, ptr %0, i64 464
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %7 = load i32, ptr %6, align 8, !tbaa !100
   %8 = icmp ult i32 %5, %7
   br i1 %8, label %9, label %44
@@ -1317,16 +1317,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEj
 
 15:                                               ; preds = %9
   %16 = tail call i32 @llvm.umin.i32(i32 %3, i32 64)
-  %17 = getelementptr inbounds i8, ptr %0, i64 456
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %18 = zext i32 %5 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !110
-  %20 = getelementptr inbounds ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !42
   %22 = icmp eq i32 %2, 0
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i32 %2, ptr %24, align 8, !tbaa !106
   br label %25
 
@@ -1335,30 +1335,30 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEj
 
 26:                                               ; preds = %25
   %27 = trunc nuw nsw i32 %16 to i8
-  %28 = getelementptr inbounds i8, ptr %21, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i8 %27, ptr %28, align 4, !tbaa !107
   br label %29
 
 29:                                               ; preds = %26, %25
-  %30 = getelementptr inbounds i8, ptr %21, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !116
   %32 = icmp eq ptr %31, null
   br i1 %32, label %44, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %31, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !117
   %36 = icmp eq ptr %35, null
   br i1 %36, label %44, label %37
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %21, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !106
-  %40 = getelementptr inbounds i8, ptr %35, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 %39, ptr %40, align 4, !tbaa !126
-  %41 = getelementptr inbounds i8, ptr %21, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %42 = load i8, ptr %41, align 4, !tbaa !107
-  %43 = getelementptr inbounds i8, ptr %35, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 1
   store i8 %42, ptr %43, align 1, !tbaa !128
   br label %44
 
@@ -1370,9 +1370,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler12setStackSizeEj
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_7BaseMemENS0_14ConstPoolScopeEPKvm(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 {
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store <4 x i32> <i32 2, i32 0, i32 0, i32 0>, ptr %1, align 4, !tbaa !98
   %10 = icmp ugt i32 %2, 1
   br i1 %10, label %11, label %13
@@ -1382,9 +1382,9 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_
   br label %41
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 488
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %15 = zext nneg i32 %2 to i64
-  %16 = getelementptr inbounds [2 x ptr], ptr %14, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [2 x ptr], ptr %14, i64 0, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %24
@@ -1401,7 +1401,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_
 24:                                               ; preds = %22, %13
   %25 = phi ptr [ %23, %22 ], [ %17, %13 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
-  %26 = getelementptr inbounds i8, ptr %25, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = call noundef i32 @_ZN6asmjit9_abi_1_109ConstPool3addEPKvmRm(ptr noundef nonnull align 8 dereferenceable(264) %26, ptr noundef %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %6) #15
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %31, label %29, !prof !54
@@ -1414,7 +1414,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler9_newConstEPNS0_
   %32 = trunc i64 %4 to i32
   %33 = shl i32 %32, 24
   %34 = or disjoint i32 %33, 10
-  %35 = getelementptr inbounds i8, ptr %25, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %36 = load i32, ptr %35, align 8, !tbaa !129
   %37 = load i64, ptr %6, align 8, !tbaa !130
   %38 = trunc i64 %37 to i32
@@ -1441,17 +1441,17 @@ define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompiler6renameERKNS0_7BaseRegE
   %4 = alloca [64 x i8], align 16
   %5 = alloca [128 x i8], align 16
   %6 = alloca [1 x %struct.__va_list_tag], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !113
   %9 = icmp ugt i32 %8, 255
   br i1 %9, label %10, label %59
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 456
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %12 = add i32 %8, -256
   %13 = zext i32 %12 to i64
   %14 = load ptr, ptr %11, align 8, !tbaa !110
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   %17 = icmp eq ptr %16, null
   br i1 %17, label %59, label %18
@@ -1471,26 +1471,26 @@ define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompiler6renameERKNS0_7BaseRegE
   call void @llvm.va_start.p0(ptr nonnull %6)
   %24 = call i32 @vsnprintf(ptr noundef nonnull %5, i64 noundef 128, ptr noundef nonnull %2, ptr noundef nonnull %6) #15
   call void @llvm.va_end.p0(ptr nonnull %6)
-  %25 = getelementptr inbounds i8, ptr %16, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #17
   %27 = icmp ugt i64 %26, 11
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %16, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %29, ptr nonnull align 16 %5, i64 %26, i1 false)
-  %30 = getelementptr inbounds [12 x i8], ptr %29, i64 0, i64 %26
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 0, i64 %26
   store i8 0, ptr %30, align 1, !tbaa !44
   br label %37
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 176
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %33 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull %5, i64 noundef %26, i1 noundef zeroext true) #15
   %34 = icmp eq ptr %33, null
   br i1 %34, label %39, label %35, !prof !43
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %16, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %33, ptr %36, align 8, !tbaa !44
   br label %37
 
@@ -1505,31 +1505,31 @@ define dso_local void @_ZN6asmjit9_abi_1_1012BaseCompiler6renameERKNS0_7BaseRegE
   br label %59
 
 40:                                               ; preds = %20, %18
-  %41 = getelementptr inbounds i8, ptr %16, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !103
   %43 = add i32 %42, -256
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
   %44 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str, i32 noundef %43) #15
-  %45 = getelementptr inbounds i8, ptr %16, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %46 = zext i32 %44 to i64
   %47 = icmp ugt i32 %44, 11
   br i1 %47, label %51, label %48
 
 48:                                               ; preds = %40
-  %49 = getelementptr inbounds i8, ptr %16, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 28
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %49, ptr nonnull align 16 %4, i64 %46, i1 false)
-  %50 = getelementptr inbounds [12 x i8], ptr %49, i64 0, i64 %46
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 0, i64 %46
   store i8 0, ptr %50, align 1, !tbaa !44
   br label %57
 
 51:                                               ; preds = %40
-  %52 = getelementptr inbounds i8, ptr %0, i64 176
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %53 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull %4, i64 noundef %46, i1 noundef zeroext true) #15
   %54 = icmp eq ptr %53, null
   br i1 %54, label %58, label %55, !prof !43
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %16, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store ptr %53, ptr %56, align 8, !tbaa !44
   br label %57
 
@@ -1551,7 +1551,7 @@ declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newJumpNodeEPPNS0_8JumpNodeEjNS0_11InstOptionsERKNS0_8Operand_EPNS0_14JumpAnnotationE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %7 = alloca i64, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 240
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   %9 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %8, i64 noundef 136, ptr noundef nonnull align 8 dereferenceable(8) %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
@@ -1564,30 +1564,30 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newJumpNodeEPP
   br label %28
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store i8 1, ptr %14, align 8, !tbaa !44
-  %15 = getelementptr inbounds i8, ptr %0, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %16 = load i8, ptr %15, align 8, !tbaa !45
   %17 = or i8 %16, 41
-  %18 = getelementptr inbounds i8, ptr %9, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 17
   store i8 %17, ptr %18, align 1, !tbaa !44
-  %19 = getelementptr inbounds i8, ptr %9, i64 18
-  %20 = getelementptr inbounds i8, ptr %9, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 18
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %20, i8 0, i64 28, i1 false)
-  %21 = getelementptr inbounds i8, ptr %9, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store i32 %2, ptr %21, align 4, !tbaa !78
-  %22 = getelementptr inbounds i8, ptr %9, i64 52
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %3, ptr %22, align 4, !tbaa !80
-  %23 = getelementptr inbounds i8, ptr %9, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i64 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %9, i64 19
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 19
   store i8 4, ptr %24, align 1, !tbaa !44
   store i8 1, ptr %19, align 2, !tbaa !44
-  %25 = getelementptr inbounds i8, ptr %9, i64 128
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 128
   store ptr %5, ptr %25, align 8, !tbaa !131
   store i8 15, ptr %14, align 8, !tbaa !44
-  %26 = getelementptr inbounds i8, ptr %9, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
   %27 = getelementptr i8, ptr %9, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %27, i8 0, i64 48, i1 false)
@@ -1601,16 +1601,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler11newJumpNodeEPP
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJumpEjRKNS0_8Operand_EPNS0_14JumpAnnotationE(ptr noundef nonnull align 8 dereferenceable(504) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 84
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %7 = load i32, ptr %6, align 4, !tbaa !92, !noalias !133
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i32, ptr %8, align 4, !tbaa !96, !noalias !133
-  %10 = getelementptr inbounds i8, ptr %0, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load i64, ptr %10, align 8, !tbaa.struct !97, !noalias !133
-  %12 = getelementptr inbounds i8, ptr %0, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %13 = load ptr, ptr %12, align 8, !tbaa !68, !noalias !133
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %6, i8 0, i64 20, i1 false), !noalias !133
-  %14 = getelementptr inbounds i8, ptr %0, i64 240
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %15 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %14, i64 noundef 136, ptr noundef nonnull align 8 dereferenceable(8) %5) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
@@ -1619,30 +1619,30 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJ
 
 17:                                               ; preds = %4
   %18 = or i32 %9, %7
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i8 1, ptr %19, align 8, !tbaa !44
-  %20 = getelementptr inbounds i8, ptr %0, i64 408
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %21 = load i8, ptr %20, align 8, !tbaa !45
   %22 = or i8 %21, 41
-  %23 = getelementptr inbounds i8, ptr %15, i64 17
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 17
   store i8 %22, ptr %23, align 1, !tbaa !44
-  %24 = getelementptr inbounds i8, ptr %15, i64 18
-  %25 = getelementptr inbounds i8, ptr %15, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 18
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %25, i8 0, i64 28, i1 false)
-  %26 = getelementptr inbounds i8, ptr %15, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 48
   store i32 %1, ptr %26, align 4, !tbaa !78
-  %27 = getelementptr inbounds i8, ptr %15, i64 52
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 52
   store i32 %18, ptr %27, align 4, !tbaa !80
-  %28 = getelementptr inbounds i8, ptr %15, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i64 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %15, i64 19
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 19
   store i8 4, ptr %29, align 1, !tbaa !44
   store i8 1, ptr %24, align 2, !tbaa !44
-  %30 = getelementptr inbounds i8, ptr %15, i64 128
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 128
   store ptr %3, ptr %30, align 8, !tbaa !131
   store i8 15, ptr %19, align 8, !tbaa !44
-  %31 = getelementptr inbounds i8, ptr %15, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   %32 = getelementptr i8, ptr %15, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %32, i8 0, i64 48, i1 false)
@@ -1654,21 +1654,21 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJ
   br i1 %35, label %36, label %50
 
 36:                                               ; preds = %33, %17
-  %37 = getelementptr inbounds i8, ptr %15, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %38 = trunc i64 %11 to i32
   %39 = lshr i64 %11, 32
   %40 = trunc nuw i64 %39 to i32
   store i32 %38, ptr %37, align 4, !tbaa !98
-  %41 = getelementptr inbounds i8, ptr %15, i64 60
+  %41 = getelementptr inbounds nuw i8, ptr %15, i64 60
   store i32 %40, ptr %41, align 4, !tbaa !99
   %42 = icmp eq ptr %13, null
   br i1 %42, label %48, label %43
 
 43:                                               ; preds = %36
-  %44 = getelementptr inbounds i8, ptr %0, i64 176
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #17
   %46 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull %13, i64 noundef %45, i1 noundef zeroext true) #15
-  %47 = getelementptr inbounds i8, ptr %15, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store ptr %46, ptr %47, align 8, !tbaa !73
   br label %48
 
@@ -1684,8 +1684,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler17emitAnnotatedJ
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN6asmjit9_abi_1_1012BaseCompiler17newJumpAnnotationEv(ptr noundef nonnull align 8 dereferenceable(504) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca i64, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 472
-  %4 = getelementptr inbounds i8, ptr %0, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %4, i32 noundef 8, i32 noundef 1) #15
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %9, label %7
@@ -1695,7 +1695,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1012BaseCompiler17newJumpAnnotat
   br label %26
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 480
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %11 = load i32, ptr %10, align 8, !tbaa !100
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #15
   %12 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator6_allocEmRm(ptr noundef nonnull align 8 dereferenceable(96) %4, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(8) %2) #15
@@ -1709,14 +1709,14 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1012BaseCompiler17newJumpAnnotat
 
 16:                                               ; preds = %9
   store ptr %0, ptr %12, align 8, !tbaa !136
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %11, ptr %17, align 8, !tbaa !139
-  %18 = getelementptr inbounds i8, ptr %12, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %19 = load ptr, ptr %3, align 8, !tbaa !110
   %20 = load i32, ptr %10, align 8, !tbaa !100
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
   %23 = ptrtoint ptr %12 to i64
   store i64 %23, ptr %22, align 8
   %24 = load i32, ptr %10, align 8, !tbaa !100
@@ -1740,19 +1740,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
   %7 = zext i8 %6 to i64
   %8 = and i8 %6, 1
   %9 = xor i8 %8, 7
-  %10 = getelementptr inbounds [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %7, i32 9
+  %10 = getelementptr inbounds nuw [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], ptr @_ZN6asmjit9_abi_1_1011_archTraitsE, i64 0, i64 %7, i32 9
   %11 = zext nneg i8 %9 to i64
-  %12 = getelementptr inbounds [32 x %"struct.asmjit::_abi_1_10::OperandSignature"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [32 x %"struct.asmjit::_abi_1_10::OperandSignature"], ptr %10, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !98
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %13, ptr %14, align 8, !tbaa !98
-  %15 = getelementptr inbounds i8, ptr %0, i64 144
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %16 = load ptr, ptr %15, align 8, !tbaa !140
   %17 = ptrtoint ptr %16 to i64
   %18 = add i64 %17, 7
   %19 = and i64 %18, -8
   %20 = inttoptr i64 %19 to ptr
-  %21 = getelementptr inbounds i8, ptr %0, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %22 = load ptr, ptr %21, align 8, !tbaa !141
   %23 = icmp ule ptr %22, %20
   %24 = ptrtoint ptr %22 to i64
@@ -1766,7 +1766,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
   br label %32
 
 30:                                               ; preds = %5
-  %31 = getelementptr inbounds i8, ptr %20, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %31, ptr %15, align 8, !tbaa !140
   br label %32
 
@@ -1787,7 +1787,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onAttachEPNS0_1
 
 39:                                               ; preds = %36
   %40 = load ptr, ptr %0, align 8, !tbaa !3
-  %41 = getelementptr inbounds i8, ptr %40, i64 136
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull %1) #15
   br label %44
@@ -1802,12 +1802,12 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder8onAttachEPNS0_10CodeHolde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(504) initializes((416, 424), (456, 472), (488, 504)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 416
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
   store ptr null, ptr %3, align 8, !tbaa !6
-  %4 = getelementptr inbounds i8, ptr %0, i64 488
-  %5 = getelementptr inbounds i8, ptr %0, i64 456
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 424
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 0) #15
   %7 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %1) #15
@@ -1832,15 +1832,15 @@ declare void @_ZN6asmjit9_abi_1_104PassC2EPKc(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !142
-  %6 = getelementptr inbounds i8, ptr %5, i64 392
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 392
   %7 = load ptr, ptr %6, align 8, !tbaa !144
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = load i8, ptr %10, align 8, !tbaa !44
   %12 = icmp eq i8 %11, 16
   br label %13
@@ -1851,10 +1851,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_
   br i1 %14, label %16, label %.preheader
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 576
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 576
   %18 = load ptr, ptr %17, align 8, !tbaa !76
   %19 = load ptr, ptr %0, align 8, !tbaa !3
-  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %15)
   %23 = icmp eq i32 %22, 0
@@ -1866,13 +1866,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_108FuncPass3runEPNS0_4ZoneEPNS0_
 
 24:                                               ; preds = %.preheader, %29
   %25 = phi ptr [ %27, %29 ], [ %.ph, %.preheader ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !44
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds i8, ptr %27, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %31 = load i8, ptr %30, align 8, !tbaa !44
   %32 = icmp eq i8 %31, 16
   br i1 %32, label %33, label %24, !llvm.loop !145
@@ -1975,15 +1975,15 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1019GlobalConstPoolPassD0Ev(p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_1019GlobalConstPoolPass3runEPNS0_4ZoneEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !142
-  %6 = getelementptr inbounds i8, ptr %5, i64 496
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = icmp eq ptr %7, null
   br i1 %8, label %13, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 400
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 400
   %11 = load ptr, ptr %10, align 8, !tbaa !148
   %12 = tail call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder8addAfterEPNS0_8BaseNodeES3_(ptr noundef nonnull align 8 dereferenceable(410) %5, ptr noundef nonnull %7, ptr noundef %11) #15
   store ptr null, ptr %6, align 8, !tbaa !42

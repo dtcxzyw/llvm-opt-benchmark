@@ -59,7 +59,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12PSROIPooling7forwardERK
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %12 = load i32, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 220
   %15 = load i32, ptr %14, align 4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -98,16 +98,16 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12PSROIPooling7forwardERK
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %42 = load float, ptr %41, align 8
   %43 = fmul fast float %40, %42
-  %44 = getelementptr inbounds i8, ptr %38, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %45 = load float, ptr %44, align 4
   %46 = tail call fast float @llvm.round.f32(float %45)
   %47 = fmul fast float %46, %42
-  %48 = getelementptr inbounds i8, ptr %38, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %49 = load float, ptr %48, align 4
   %50 = fadd fast float %49, 1.000000e+00
   %51 = tail call fast float @llvm.round.f32(float %50)
   %52 = fmul fast float %51, %42
-  %53 = getelementptr inbounds i8, ptr %38, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %54 = load float, ptr %53, align 4
   %55 = fadd fast float %54, 1.000000e+00
   %56 = tail call fast float @llvm.round.f32(float %55)
@@ -277,7 +277,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn12PSROIPooling7forwardERK
   %153 = sitofp i32 %143 to float
   %154 = fdiv fast float %.0121.lcssa, %153
   %155 = select fast i1 %141, float 0.000000e+00, float %154
-  %156 = getelementptr inbounds float, ptr %.0126253, i64 %indvars.iv297
+  %156 = getelementptr inbounds nuw float, ptr %.0126253, i64 %indvars.iv297
   store float %155, ptr %156, align 4
   %157 = load i32, ptr %16, align 8
   %158 = sext i32 %157 to i64

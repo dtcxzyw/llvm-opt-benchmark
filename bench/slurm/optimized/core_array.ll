@@ -40,7 +40,7 @@ define void @clear_core_array(ptr noundef readonly %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %8
   %4 = phi i32 [ %9, %8 ], [ %2, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %1 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7
@@ -80,14 +80,14 @@ define ptr @copy_core_array(ptr noundef readonly %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %2, %15
   %9 = phi i32 [ %16, %15 ], [ %7, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %2 ]
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %.not12 = icmp eq ptr %11, null
   br i1 %.not12, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call ptr @bit_copy(ptr noundef nonnull %11) #2
-  %14 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   store ptr %13, ptr %14, align 8
   %.pre = load i32, ptr @node_record_count, align 4
   br label %15
@@ -118,7 +118,7 @@ define i32 @count_core_array_set(ptr noundef readonly %0) local_unnamed_addr #0 
   %4 = phi i32 [ %11, %10 ], [ %2, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
   %.01015 = phi i32 [ %.1, %10 ], [ 0, %1 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not14 = icmp eq ptr %6, null
   br i1 %.not14, label %10, label %7
@@ -155,7 +155,7 @@ define void @core_array_not(ptr noundef readonly %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %8
   %4 = phi i32 [ %9, %8 ], [ %2, %1 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 0, %1 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %8, label %7
@@ -186,13 +186,13 @@ define void @core_array_and(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 
 .lr.ph:                                           ; preds = %2, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %2 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.thread, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not32 = icmp eq ptr %9, null
   br i1 %.not32, label %24, label %10
@@ -260,13 +260,13 @@ define void @core_array_and_not(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 .lr.ph:                                           ; preds = %2, %25
   %5 = phi i32 [ %26, %25 ], [ %3, %2 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %2 ]
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %25, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not26 = icmp eq ptr %10, null
   br i1 %.not26, label %25, label %11
@@ -320,10 +320,10 @@ define void @core_array_or(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 .lr.ph:                                           ; preds = %2, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %2 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not34 = icmp eq ptr %.pre, null
   br i1 %.not, label %22, label %7
@@ -394,7 +394,7 @@ define void @free_core_array(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.preheader ]
-  %6 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %.not6 = icmp eq ptr %7, null
   br i1 %.not6, label %9, label %8
@@ -473,7 +473,7 @@ define void @core_array_log(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 .lr.ph:                                           ; preds = %21, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %21 ]
   %.01320 = phi ptr [ %.1, %33 ], [ @.str.3, %21 ]
-  %24 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %.not19 = icmp eq ptr %25, null
   br i1 %.not19, label %33, label %26
@@ -544,7 +544,7 @@ define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 
 
 .lr.ph25:                                         ; preds = %2, %.loopexit
   %indvars.iv28 = phi i64 [ %indvars.iv.next29, %.loopexit ], [ 0, %2 ]
-  %9 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv28
+  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv28
   %10 = load ptr, ptr %9, align 8
   %.not20 = icmp eq ptr %10, null
   br i1 %.not20, label %.loopexit, label %11
@@ -553,9 +553,9 @@ define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 
   %12 = trunc nuw nsw i64 %indvars.iv28 to i32
   %13 = tail call i32 @cr_get_coremap_offset(i32 noundef %12) #2
   %14 = load ptr, ptr @node_record_table_ptr, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv28
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv28
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 496
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 496
   %18 = load i16, ptr %17, align 8
   %.not26 = icmp eq i16 %18, 0
   br i1 %.not26, label %.loopexit, label %.lr.ph.preheader
@@ -579,9 +579,9 @@ define ptr @core_array_to_bitmap(ptr noundef readonly %0) local_unnamed_addr #0 
 24:                                               ; preds = %.lr.ph, %22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load ptr, ptr @node_record_table_ptr, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv28
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv28
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 496
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 496
   %29 = load i16, ptr %28, align 8
   %30 = zext i16 %29 to i64
   %31 = icmp samesign ult i64 %indvars.iv.next, %30
@@ -681,7 +681,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %35 = sext i32 %.2 to i64
   %36 = getelementptr inbounds ptr, ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 496
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 496
   %39 = load i16, ptr %38, align 8
   %40 = zext i16 %39 to i64
   %41 = call ptr @bit_alloc(i64 noundef %40) #2
@@ -691,7 +691,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %44 = load ptr, ptr @node_record_table_ptr, align 8
   %45 = getelementptr inbounds ptr, ptr %44, i64 %35
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 496
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 496
   %48 = load i16, ptr %47, align 8
   %.not51 = icmp eq i16 %48, 0
   br i1 %.not51, label %._crit_edge, label %.lr.ph45.preheader
@@ -717,7 +717,7 @@ define ptr @core_bitmap_to_array(ptr noundef %0) local_unnamed_addr #0 {
   %55 = load ptr, ptr @node_record_table_ptr, align 8
   %56 = getelementptr inbounds ptr, ptr %55, i64 %35
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 496
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 496
   %59 = load i16, ptr %58, align 8
   %60 = zext i16 %59 to i64
   %61 = icmp samesign ult i64 %indvars.iv.next, %60

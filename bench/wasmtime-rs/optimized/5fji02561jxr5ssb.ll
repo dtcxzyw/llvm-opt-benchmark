@@ -227,13 +227,13 @@ define noundef range(i16 0, -32768) i16 @"_ZN4core3ops8function5impls80_$LT$impl
 define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17ha422e494d9404148E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds i8, ptr %3, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %5, ptr align 8 %1)
-  %6 = getelementptr inbounds i8, ptr %3, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 72
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %6, ptr align 8 %1)
-  %7 = getelementptr inbounds i8, ptr %3, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 96
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %7, ptr align 8 %1)
   ret void
 }
@@ -243,13 +243,13 @@ define void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$R
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !4, !noundef !3
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %5, ptr align 8 %1)
-  %6 = getelementptr inbounds i8, ptr %4, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 48
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %6, ptr align 8 %1)
-  %7 = getelementptr inbounds i8, ptr %4, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 72
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %7, ptr align 8 %1)
-  %8 = getelementptr inbounds i8, ptr %4, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 96
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %8, ptr align 8 %1)
   ret void
 }
@@ -303,16 +303,16 @@ define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new1
 
 13:                                               ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  %.sroa.0.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 24
+  %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %.sroa.5.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5, i64 7
+  %.sroa.5.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(120) %.sroa.5.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(120) %4, i64 120, i1 false)
   store i64 0, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
-  %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 64
+  %.sroa.32.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i8 9, ptr %.sroa.32.0..sroa_idx, align 8
-  %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 65
+  %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %.sroa.43.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(127) %.sroa.5, i64 127, i1 false)
   %15 = call ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17hdfc8b92bdd1c406bE"(ptr nonnull align 8 %8)
   %16 = icmp ne ptr %15, null
@@ -363,16 +363,16 @@ define hidden nonnull ptr @_ZN22cranelift_codegen_meta4cdsl7typevar7TypeVar3new1
 
 12:                                               ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
-  %.sroa.0.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 24
+  %.sroa.0.24..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.24..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %.sroa.5.64..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5, i64 7
+  %.sroa.5.64..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(120) %.sroa.5.64..sroa_idx, ptr noundef nonnull align 8 dereferenceable(120) %2, i64 120, i1 false)
   store i64 0, ptr %7, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false)
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 64
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i8 9, ptr %.sroa.33.0..sroa_idx, align 8
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 65
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(127) %.sroa.44.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(127) %.sroa.5, i64 127, i1 false)
   %14 = call ptr @"_ZN5alloc2rc11Rc$LT$T$GT$3new17hdfc8b92bdd1c406bE"(ptr nonnull align 8 %7)
   %15 = icmp ne ptr %14, null
@@ -435,7 +435,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder4int
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder6floats17h88854b1cfc76a5c9E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i48 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %1, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %5 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %4, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %5, label %7, label %6
 
@@ -451,7 +451,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder6flo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder6floats17hc5dff2e520bdd50fE(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i16 %2, i16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds i8, ptr %1, i64 6
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %6 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %5, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %6, label %8, label %7
 
@@ -468,7 +468,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder6flo
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder4refs17h1a405481b1879eefE(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i16 %2, i16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds i8, ptr %1, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %6 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %5, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %6, label %8, label %7
 
@@ -485,7 +485,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder4ref
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder4refs17h600744eae320500dE(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i48 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %1, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %4, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %5, label %7, label %6
 
@@ -501,7 +501,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder4ref
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder10simd_lanes17h51968d2484c1078aE(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i16 %2, i16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds i8, ptr %1, i64 18
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %6 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %5, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %6, label %8, label %7
 
@@ -518,7 +518,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder10si
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder10simd_lanes17heb02fd29f81739fbE(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i48 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %1, i64 18
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %5 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %4, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %5, label %7, label %6
 
@@ -534,7 +534,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder10si
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder18dynamic_simd_lanes17h37ac18f130d68c80E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i16 %2, i16 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds i8, ptr %1, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %5, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %6, label %8, label %7
 
@@ -551,7 +551,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder18dy
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder18dynamic_simd_lanes17h987f78f11c698ff1E(ptr nocapture writeonly sret({ { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, { i16, [2 x i16] }, i8, [1 x i8] }) align 2 %0, ptr align 2 %1, i48 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds i8, ptr %1, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = tail call zeroext i1 @"_ZN88_$LT$cranelift_codegen_meta..cdsl..typevar..Interval$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2c2d85edc3e40a84E"(ptr nonnull align 2 %4, ptr nonnull align 2 @anon.36683c81e2b47f563579b47738102c94.4)
   br i1 %5, label %7, label %6
 
@@ -568,13 +568,13 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7typevar14TypeSetBuilder18dy
 ; Function Attrs: inlinehint nonlazybind uwtable
 define void @"_ZN83_$LT$cranelift_codegen_meta..cdsl..typevar..TypeSet$u20$as$u20$core..hash..Hash$GT$4hash17h01b34f4ba06191afE"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr align 8 %0, ptr align 8 %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %3, ptr align 8 %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %4, ptr align 8 %1)
-  %5 = getelementptr inbounds i8, ptr %0, i64 72
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %5, ptr align 8 %1)
-  %6 = getelementptr inbounds i8, ptr %0, i64 96
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @"_ZN94_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..hash..Hash$GT$4hash17hef4e6a47a0bdaab9E"(ptr nonnull align 8 %6, ptr align 8 %1)
   ret void
 }

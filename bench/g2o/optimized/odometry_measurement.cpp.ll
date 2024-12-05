@@ -31,7 +31,7 @@ define void @_ZN3g2o19VelocityMeasurementC2Ev(ptr nocapture noundef nonnull writ
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3g2o19VelocityMeasurementC2Eddd(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %3, ptr %6, align 16
@@ -47,9 +47,9 @@ define void @_ZN3g2o17MotionMeasurementC2Ev(ptr nocapture noundef nonnull writeo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3g2o17MotionMeasurementC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %3, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %4, ptr %8, align 8
@@ -66,7 +66,7 @@ define void @_ZN3g2o17MotionMeasurementC2ERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1E
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3g2o11OdomConvert17convertToVelocityERKNS_17MotionMeasurementE(ptr dead_on_unwind noalias writable sret(%"class.g2o::VelocityMeasurement") align 16 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = fcmp ogt double %5, 0x3E7AD7F29ABCAF48
@@ -74,7 +74,7 @@ define void @_ZN3g2o11OdomConvert17convertToVelocityERKNS_17MotionMeasurementE(p
 
 7:                                                ; preds = %2
   %8 = load double, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8
   %11 = tail call double @hypot(double noundef %8, double noundef %10) #8
   %12 = load double, ptr %3, align 8
@@ -106,7 +106,7 @@ define void @_ZN3g2o11OdomConvert17convertToVelocityERKNS_17MotionMeasurementE(p
 
 33:                                               ; preds = %28
   %34 = load double, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load double, ptr %35, align 8
   %37 = tail call double @hypot(double noundef %34, double noundef %36) #8
   %38 = load double, ptr %29, align 8
@@ -139,7 +139,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #3
 define void @_ZN3g2o11OdomConvert15convertToMotionERKNS_19VelocityMeasurementEd(ptr dead_on_unwind noalias writable sret(%"class.g2o::MotionMeasurement") align 8 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Eigen::Matrix", align 16
   %.sroa.0 = alloca <2 x double>, align 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
   %7 = load double, ptr %1, align 16
   %8 = fsub double %6, %7
@@ -157,10 +157,10 @@ define void @_ZN3g2o11OdomConvert15convertToMotionERKNS_19VelocityMeasurementEd(
   %18 = load double, ptr %17, align 16
   %19 = fmul double %16, %18
   store double 0.000000e+00, ptr %4, align 16
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %15, ptr %20, align 8
   store double -1.000000e+00, ptr %.sroa.0, align 16, !alias.scope !4
-  %.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 8
+  %.sroa.0.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 8
   store ptr %4, ptr %.sroa.0.8..sroa_idx, align 8, !alias.scope !4
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.16. = load <2 x double>, ptr %.sroa.0, align 16
   %bc.i.i.i.i.i.i = bitcast <2 x double> %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.16. to <2 x i64>

@@ -91,7 +91,7 @@ entry:
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue218UnsupportedVisitorE, i64 16), ptr %vis, align 8
   %vtable = load ptr, ptr %root, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(16) %root, ptr noundef nonnull align 8 dereferenceable(8) %vis)
           to label %invoke.cont unwind label %lpad
@@ -385,7 +385,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %loc = getelementptr inbounds i8, ptr %c, i64 16
+  %loc = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %loc, align 8
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call, i32 noundef %0)
           to label %invoke.cont2 unwind label %lpad
@@ -449,7 +449,7 @@ define linkonce_odr hidden void @_ZN3ue218UnsupportedVisitor3preERKNS_15Componen
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
-  %type = getelementptr inbounds i8, ptr %c, i64 16
+  %type = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %type, align 8
   %cmp = icmp eq i32 %0, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -506,20 +506,20 @@ define linkonce_odr hidden void @_ZN3ue218UnsupportedVisitor3preERKNS_21Componen
 entry:
   %str = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  %ucp = getelementptr inbounds i8, ptr %c, i64 25
+  %ucp = getelementptr inbounds nuw i8, ptr %c, i64 25
   %0 = load i8, ptr %ucp, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %prefilter = getelementptr inbounds i8, ptr %c, i64 26
+  %prefilter = getelementptr inbounds nuw i8, ptr %c, i64 26
   %1 = load i8, ptr %prefilter, align 2
   %tobool2 = trunc i8 %1 to i1
   br i1 %tobool2, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %str)
-  %negated = getelementptr inbounds i8, ptr %c, i64 24
+  %negated = getelementptr inbounds nuw i8, ptr %c, i64 24
   %2 = load i8, ptr %negated, align 8
   %tobool3 = trunc i8 %2 to i1
   %.str.9..str.8 = select i1 %tobool3, ptr @.str.9, ptr @.str.8
@@ -531,7 +531,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %loc = getelementptr inbounds i8, ptr %c, i64 16
+  %loc = getelementptr inbounds nuw i8, ptr %c, i64 16
   %3 = load i32, ptr %loc, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call5, i32 noundef %3)
           to label %invoke.cont6 unwind label %lpad

@@ -56,11 +56,11 @@ define dso_local ptr @anon_inode_getfile(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %10, i64 48
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %15, i64 216
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 216
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %15, i64 200
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 200
   store ptr %2, ptr %21, align 8
   br label %26
 
@@ -92,22 +92,22 @@ define internal fastcc ptr @__anon_inode_getfile(ptr noundef %0, ptr noundef %1,
 
 11:                                               ; preds = %5, %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
-  %12 = getelementptr inbounds i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i64 0, ptr %6, align 8
   %13 = tail call i64 @strlen(ptr noundef %0) #6
   %14 = trunc i64 %13 to i32
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %0, ptr %15, align 8
   %16 = load ptr, ptr @anon_inode_mnt, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @alloc_anon_inode(ptr noundef %18) #6
   %20 = icmp ugt ptr %19, inttoptr (i64 -4096 to ptr)
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %11
-  %22 = getelementptr inbounds i8, ptr %19, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, -513
   store i32 %24, ptr %22, align 4
@@ -135,11 +135,11 @@ define internal fastcc ptr @__anon_inode_getfile(ptr noundef %0, ptr noundef %1,
   br i1 %37, label %43, label %38
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds i8, ptr %31, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %36, i64 216
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 216
   store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %36, i64 200
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 200
   store ptr %2, ptr %42, align 8
   br label %47
 
@@ -210,11 +210,11 @@ define dso_local i32 @anon_inode_getfd(ptr noundef %0, ptr noundef %1, ptr nound
   br label %32
 
 27:                                               ; preds = %15
-  %28 = getelementptr inbounds i8, ptr %13, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %18, i64 216
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 216
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %18, i64 200
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 200
   store ptr %2, ptr %31, align 8
   tail call void @fd_install(i32 noundef %5, ptr noundef %18) #6
   br label %32
@@ -263,7 +263,7 @@ define internal noundef i32 @anon_inode_init() #1 section ".init.text" align 16 
   unreachable
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @alloc_anon_inode(ptr noundef %7) #6
   store ptr %8, ptr @anon_inode_inode, align 8
@@ -331,7 +331,7 @@ define internal noundef range(i32 -12, 1) i32 @anon_inodefs_init_fs_context(ptr 
   br i1 %3, label %6, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr @anon_inodefs_dentry_operations, ptr %5, align 8
   br label %6
 
@@ -348,7 +348,7 @@ declare dso_local ptr @init_pseudo(ptr noundef, i64 noundef) local_unnamed_addr 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @anon_inodefs_dname(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr (ptr, i32, ptr, ...) @dynamic_dname(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @.str.3, ptr noundef %5) #6
   ret ptr %6

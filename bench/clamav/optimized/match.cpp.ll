@@ -167,7 +167,7 @@ tailrecurse.outer:                                ; preds = %3, %.loopexit127
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %tailrecurse.outer
   %.039 = phi ptr [ %.039.ph, %tailrecurse.outer ], [ %5, %tailrecurse.backedge ]
-  %5 = getelementptr inbounds i8, ptr %.039, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %.039, i64 4
   %6 = load i32, ptr %.039, align 4
   switch i32 %6, label %51 [
     i32 0, label %7
@@ -191,13 +191,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.039, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.039, i64 8
   %15 = load i32, ptr %14, align 4
   %16 = icmp eq i32 %15, 42
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %.039, i64 12
+  %18 = getelementptr inbounds nuw i8, ptr %.039, i64 12
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %.thread
@@ -216,7 +216,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %23, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br label %.loopexit
@@ -236,7 +236,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %46
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %32, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %38 = tail call ptr @wcschr(ptr noundef nonnull %37, i32 noundef signext 46) #4
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %.preheader
@@ -264,7 +264,7 @@ _ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %41, %43
   br i1 %.not46.not.not, label %48, label %.loopexit
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds i8, ptr %.2, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %.2, i64 4
   %50 = tail call fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef nonnull %5, ptr noundef nonnull %.2, i1 noundef zeroext %2)
   br i1 %50, label %.loopexit, label %46, !llvm.loop !4
 
@@ -287,7 +287,7 @@ tailrecurse.backedge:                             ; preds = %54, %54, %54
   br label %tailrecurse
 
 .loopexit127:                                     ; preds = %51, %9
-  %55 = getelementptr inbounds i8, ptr %.040.ph, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.040.ph, i64 4
   br label %tailrecurse.outer, !llvm.loop !6
 
 .loopexit:                                        ; preds = %52, %54, %9, %46, %48, %25, %27, %17, %11, %_ZL10mwcsicompcPKwS0_b.exit, %7

@@ -11,7 +11,7 @@ define dso_local i32 @acpi_ex_do_concatenate(ptr noundef %0, ptr noundef %1, ptr
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 9
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %7 = load i8, ptr %6, align 1
   %8 = add i8 %7, -1
   %9 = icmp ult i8 %8, 3
@@ -27,7 +27,7 @@ define dso_local i32 @acpi_ex_do_concatenate(ptr noundef %0, ptr noundef %1, ptr
   br i1 %16, label %.thread12, label %17
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   store i16 91, ptr %19, align 1
   %20 = load ptr, ptr %18, align 8
@@ -41,7 +41,7 @@ define dso_local i32 @acpi_ex_do_concatenate(ptr noundef %0, ptr noundef %1, ptr
 25:                                               ; preds = %17, %4
   %26 = phi ptr [ %15, %17 ], [ %0, %4 ]
   %27 = phi i8 [ 2, %17 ], [ %7, %4 ]
-  %28 = getelementptr inbounds i8, ptr %1, i64 9
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %29 = load i8, ptr %28, align 1
   %30 = add i8 %29, -1
   %31 = icmp ult i8 %30, 3
@@ -57,7 +57,7 @@ define dso_local i32 @acpi_ex_do_concatenate(ptr noundef %0, ptr noundef %1, ptr
   br i1 %38, label %.thread9, label %39
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds i8, ptr %37, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %41 = load ptr, ptr %40, align 8
   store i16 91, ptr %41, align 1
   %42 = load ptr, ptr %40, align 8
@@ -125,24 +125,24 @@ default.unreachable:                              ; preds = %47
   br i1 %71, label %.thread9, label %72
 
 72:                                               ; preds = %66
-  %73 = getelementptr inbounds i8, ptr %70, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %76 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %77 = zext i8 %76 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr align 8 %75, i64 %77, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %74, ptr nonnull align 8 %75, i64 %77, i1 false)
   %78 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
   %79 = zext i8 %78 to i64
   %80 = getelementptr i8, ptr %74, i64 %79
-  %81 = getelementptr inbounds i8, ptr %65, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 8 %81, i64 %79, i1 false)
+  %81 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr nonnull align 8 %81, i64 %79, i1 false)
   br label %125
 
 82:                                               ; preds = %64
-  %83 = getelementptr inbounds i8, ptr %26, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %84 = load i32, ptr %83, align 8
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %65, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %87 = load i32, ptr %86, align 8
   %88 = zext i32 %87 to i64
   %89 = add nuw nsw i64 %88, %85
@@ -151,21 +151,21 @@ default.unreachable:                              ; preds = %47
   br i1 %91, label %.thread9, label %92
 
 92:                                               ; preds = %82
-  %93 = getelementptr inbounds i8, ptr %90, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %26, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = call ptr @strcpy(ptr noundef %94, ptr noundef %96) #6
-  %98 = getelementptr inbounds i8, ptr %65, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = call ptr @strcat(ptr noundef %94, ptr noundef %99) #6
   br label %125
 
 101:                                              ; preds = %64
-  %102 = getelementptr inbounds i8, ptr %0, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %103 = load i32, ptr %102, align 8
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds i8, ptr %65, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %106 = load i32, ptr %105, align 8
   %107 = zext i32 %106 to i64
   %108 = add nuw nsw i64 %107, %104
@@ -174,9 +174,9 @@ default.unreachable:                              ; preds = %47
   br i1 %110, label %.thread9, label %111
 
 111:                                              ; preds = %101
-  %112 = getelementptr inbounds i8, ptr %109, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %115 = load ptr, ptr %114, align 8
   %116 = load i32, ptr %102, align 8
   %117 = zext i32 %116 to i64
@@ -184,7 +184,7 @@ default.unreachable:                              ; preds = %47
   %118 = load i32, ptr %102, align 8
   %119 = zext i32 %118 to i64
   %120 = getelementptr i8, ptr %113, i64 %119
-  %121 = getelementptr inbounds i8, ptr %65, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %122 = load ptr, ptr %121, align 8
   %123 = load i32, ptr %105, align 8
   %124 = zext i32 %123 to i64
@@ -268,7 +268,7 @@ define dso_local i32 @acpi_ex_concat_template(ptr noundef %0, ptr noundef %1, pt
 8:                                                ; preds = %4
   %9 = load ptr, ptr %5, align 8
   %10 = ptrtoint ptr %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %10, %13
@@ -279,7 +279,7 @@ define dso_local i32 @acpi_ex_concat_template(ptr noundef %0, ptr noundef %1, pt
 17:                                               ; preds = %8
   %18 = load ptr, ptr %5, align 8
   %19 = ptrtoint ptr %18 to i64
-  %20 = getelementptr inbounds i8, ptr %1, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = sub i64 %19, %22
@@ -290,7 +290,7 @@ define dso_local i32 @acpi_ex_concat_template(ptr noundef %0, ptr noundef %1, pt
   br i1 %27, label %36, label %28
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds i8, ptr %26, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %11, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %30, ptr align 1 %31, i64 %14, i1 false)

@@ -55,7 +55,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
   br label %114
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 1
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.thread54, label %23
@@ -66,7 +66,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
   br label %.thread
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 65
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 4
   %.not = icmp eq i8 %26, 0
@@ -91,7 +91,7 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
   store i32 0, ptr %11, align 4
   store i32 0, ptr %12, align 4
   store ptr %33, ptr %14, align 16
-  %34 = getelementptr inbounds i8, ptr %14, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr null, ptr %34, align 8
   %35 = call ptr @fts_open(ptr noundef nonnull %14, i32 noundef 84, ptr noundef null) #9
   %.not.i = icmp eq ptr %35, null
@@ -120,19 +120,19 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
   br label %.thread
 
 .lr.ph.i:                                         ; preds = %.split13.i
-  %38 = getelementptr inbounds i8, ptr %0, i64 37
-  %39 = getelementptr inbounds i8, ptr %13, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 48
   br label %40
 
 40:                                               ; preds = %.split.i, %.lr.ph.i
   %phi.call26.i = phi ptr [ %36, %.lr.ph.i ], [ %57, %.split.i ]
-  %41 = getelementptr inbounds i8, ptr %phi.call26.i, i64 98
+  %41 = getelementptr inbounds nuw i8, ptr %phi.call26.i, i64 98
   %42 = load i16, ptr %41, align 2
   %.not18.i = icmp eq i16 %42, 1
   br i1 %.not18.i, label %.split.i, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %phi.call26.i, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %phi.call26.i, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = call i32 @stat(ptr noundef %45, ptr noundef nonnull %13) #9
   %47 = load i64, ptr %38, align 1
@@ -184,14 +184,14 @@ define dso_local noalias noundef ptr @onas_scan_worker(ptr noundef %0) local_unn
 
 65:                                               ; preds = %60
   %66 = call i32 @stat(ptr noundef nonnull %63, ptr noundef nonnull %6) #9
-  %67 = getelementptr inbounds i8, ptr %0, i64 37
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %68 = load i64, ptr %67, align 1
   %.not.i46 = icmp eq i64 %68, 0
   br i1 %.not.i46, label %76, label %69
 
 69:                                               ; preds = %65
   %.not14.i = icmp ne i32 %66, 0
-  %70 = getelementptr inbounds i8, ptr %6, i64 48
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %71 = load i64, ptr %70, align 8
   %72 = icmp ugt i64 %71, %68
   %or.cond.i47 = select i1 %.not14.i, i1 true, i1 %72
@@ -234,14 +234,14 @@ onas_scan_thread_handle_file.exit:                ; preds = %60, %76
 
 83:                                               ; preds = %79
   %84 = call i32 @stat(ptr noundef nonnull %81, ptr noundef nonnull %2) #9
-  %85 = getelementptr inbounds i8, ptr %0, i64 37
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %86 = load i64, ptr %85, align 1
   %.not.i48 = icmp eq i64 %86, 0
   br i1 %.not.i48, label %94, label %87
 
 87:                                               ; preds = %83
   %.not14.i49 = icmp ne i32 %84, 0
-  %88 = getelementptr inbounds i8, ptr %2, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %89 = load i64, ptr %88, align 8
   %90 = icmp ugt i64 %89, %86
   %or.cond.i50 = select i1 %.not14.i49, i1 true, i1 %90
@@ -265,13 +265,13 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   br label %.thread
 
 95:                                               ; preds = %77
-  %96 = getelementptr inbounds i8, ptr %0, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %97 = load ptr, ptr %96, align 1
   %.not39 = icmp eq ptr %97, null
   br i1 %.not39, label %.thread, label %98
 
 98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load i32, ptr %99, align 8
   %101 = icmp sgt i32 %100, -1
   br i1 %101, label %102, label %.thread
@@ -290,7 +290,7 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   br label %.thread
 
 .thread:                                          ; preds = %104, %.thread56, %.thread55, %.thread54, %102, %onas_scan_thread_handle_file.exit52, %98, %95, %onas_scan_thread_handle_file.exit, %58
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 1
   %.not44 = icmp eq ptr %107, null
   br i1 %.not44, label %109, label %108
@@ -301,7 +301,7 @@ onas_scan_thread_handle_file.exit52:              ; preds = %79, %94
   br label %109
 
 109:                                              ; preds = %108, %.thread
-  %110 = getelementptr inbounds i8, ptr %0, i64 28
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %111 = load ptr, ptr %110, align 1
   %.not45 = icmp eq ptr %111, null
   br i1 %.not45, label %113, label %112
@@ -342,95 +342,95 @@ define dso_local range(i32 0, 3) i32 @onas_map_context_info_to_event_data(ptr no
   br label %76
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 59
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 59
   %12 = load i32, ptr %11, align 1
-  %13 = getelementptr inbounds i8, ptr %6, i64 45
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 45
   store i32 %12, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 71
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 71
   %15 = load i32, ptr %14, align 1
   %16 = sext i32 %15 to i64
   %17 = load ptr, ptr %1, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 57
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 57
   store i64 %16, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %20 = load i32, ptr %19, align 1
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %1, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 49
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 49
   store i64 %21, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 1
   %26 = load ptr, ptr %1, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 %25, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 43
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 43
   %29 = load i64, ptr %28, align 1
   %30 = load ptr, ptr %1, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 37
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 37
   store i64 %29, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %0, i64 41
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %33 = load i8, ptr %32, align 1
   %34 = load ptr, ptr %1, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 36
   store i8 %33, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i8, ptr %36, align 1
   %.not = icmp eq i8 %37, 0
   br i1 %.not, label %43, label %38
 
 38:                                               ; preds = %10
   %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 65
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 65
   %41 = load i8, ptr %40, align 1
   %42 = or i8 %41, 32
   store i8 %42, ptr %40, align 1
   br label %43
 
 43:                                               ; preds = %38, %10
-  %44 = getelementptr inbounds i8, ptr %0, i64 42
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %45 = load i8, ptr %44, align 1
   %.not31 = icmp eq i8 %45, 0
   br i1 %.not31, label %51, label %46
 
 46:                                               ; preds = %43
   %47 = load ptr, ptr %1, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 65
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 65
   %49 = load i8, ptr %48, align 1
   %50 = or i8 %49, 64
   store i8 %50, ptr %48, align 1
   br label %51
 
 51:                                               ; preds = %46, %43
-  %52 = getelementptr inbounds i8, ptr %0, i64 63
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 63
   %53 = load i32, ptr %52, align 1
   %.not32 = icmp eq i32 %53, 0
   br i1 %.not32, label %69, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 65
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 65
   %57 = load i8, ptr %56, align 1
   %58 = or i8 %57, -128
   store i8 %58, ptr %56, align 1
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 1
   %61 = tail call ptr @optget(ptr noundef %60, ptr noundef nonnull @.str.7) #9
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %1, align 8
   store ptr %63, ptr %64, align 1
-  %65 = getelementptr inbounds i8, ptr %0, i64 75
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %66 = load i64, ptr %65, align 1
   %67 = load ptr, ptr %1, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i64 %66, ptr %68, align 1
   br label %76
 
 69:                                               ; preds = %51
-  %70 = getelementptr inbounds i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %71 = load ptr, ptr %70, align 1
   %72 = tail call ptr @optget(ptr noundef %71, ptr noundef nonnull @.str.8) #9
-  %73 = getelementptr inbounds i8, ptr %72, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = load ptr, ptr %1, align 8
   store ptr %74, ptr %75, align 1
@@ -458,7 +458,7 @@ define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef non
   br label %.thread72
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 65
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %14 = load i8, ptr %13, align 1
   %15 = and i8 %14, 8
   %.not = icmp eq i8 %15, 0
@@ -470,12 +470,12 @@ define internal fastcc void @onas_scan_thread_scanfile(ptr nocapture noundef non
   br i1 %.not52, label %.thread72, label %onas_scan_safe.exit.i
 
 .thread:                                          ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load ptr, ptr %18, align 1
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   store i32 %21, ptr %8, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 1, ptr %22, align 4
   %23 = and i8 %14, 16
   %.not5258 = icmp eq i8 %23, 0
@@ -488,13 +488,13 @@ onas_scan_safe.exit.i:                            ; preds = %.thread, %16
   %24 = and i8 %14, 32
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @onas_scan_lock) #9
   %26 = load ptr, ptr %0, align 1
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load i64, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 45
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %30 = load i32, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %0, i64 49
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %32 = load i64, ptr %31, align 1
-  %33 = getelementptr inbounds i8, ptr %0, i64 57
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 57
   %34 = load i64, ptr %33, align 1
   %35 = tail call i32 @onas_client_scan(ptr noundef %26, i64 noundef %28, i32 noundef %30, i64 noundef %32, ptr noundef nonnull %1, i32 noundef %.0.i.i, i64 noundef %34, ptr noundef nonnull byval(%struct.stat) align 8 %7, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %36 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @onas_scan_lock) #9
@@ -533,8 +533,8 @@ onas_scan_safe.exit.i:                            ; preds = %.thread, %16
   br i1 %.not2530.i, label %onas_scan.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %0, i64 28
-  %51 = getelementptr inbounds i8, ptr %0, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %52
 
 52:                                               ; preds = %68, %.lr.ph.i
@@ -546,7 +546,7 @@ onas_scan_safe.exit.i:                            ; preds = %.thread, %16
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %50, align 1
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i32, ptr %57, align 8
   br label %onas_scan_safe.exit29.i
 
@@ -616,21 +616,21 @@ onas_scan.exit:                                   ; preds = %46
   br i1 %.not56, label %90, label %88
 
 88:                                               ; preds = %81, %86
-  %89 = getelementptr inbounds i8, ptr %8, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2, ptr %89, align 4
   br label %90
 
 90:                                               ; preds = %.thread, %88, %86
-  %91 = getelementptr inbounds i8, ptr %0, i64 28
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %92 = load ptr, ptr %91, align 1
-  %93 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %94, 196608
   %.not57 = icmp eq i64 %95, 0
   br i1 %.not57, label %109, label %96
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds i8, ptr %0, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %98 = load i32, ptr %97, align 1
   %99 = call i64 @write(i32 noundef %98, ptr noundef nonnull %8, i64 noundef 8) #9
   %100 = and i64 %99, 4294967295
@@ -650,7 +650,7 @@ onas_scan.exit:                                   ; preds = %46
 
 109:                                              ; preds = %102, %90, %107, %96
   %110 = load ptr, ptr %91, align 1
-  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = load i32, ptr %111, align 8
   %113 = tail call i32 @close(i32 noundef %112) #9
   %114 = icmp eq i32 %113, -1
@@ -658,7 +658,7 @@ onas_scan.exit:                                   ; preds = %46
 
 115:                                              ; preds = %109
   %116 = load ptr, ptr %91, align 1
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
   %118 = load i32, ptr %117, align 8
   %119 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.14, i32 noundef %118) #9
   %120 = tail call ptr @__errno_location() #10

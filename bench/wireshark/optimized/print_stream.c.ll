@@ -47,7 +47,7 @@ define i32 @print_preamble(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 ; Function Attrs: nounwind uwtable
 define i32 @print_line(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #12
   ret i32 %7
@@ -56,7 +56,7 @@ define i32 @print_line(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unn
 ; Function Attrs: nounwind uwtable
 define i32 @print_line_color(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %11, label %9
@@ -66,7 +66,7 @@ define i32 @print_line_color(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   br label %15
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #12
   br label %15
@@ -79,7 +79,7 @@ define i32 @print_line_color(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
 ; Function Attrs: nounwind uwtable
 define i32 @print_bookmark(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %9, label %7
@@ -96,7 +96,7 @@ define i32 @print_bookmark(ptr noundef %0, ptr noundef %1, ptr noundef %2) local
 ; Function Attrs: nounwind uwtable
 define i32 @new_page(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -113,7 +113,7 @@ define i32 @new_page(ptr noundef %0) local_unnamed_addr #0 {
 ; Function Attrs: nounwind uwtable
 define i32 @print_finale(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -138,7 +138,7 @@ define i32 @destroy_print_stream(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %6 = load ptr, ptr %5, align 8
   %.not8 = icmp eq ptr %6, null
   br i1 %.not8, label %9, label %7
@@ -184,11 +184,11 @@ define internal fastcc noalias noundef ptr @print_stream_text_alloc(i32 noundef 
   %3 = alloca ptr, align 8
   %4 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #13
   store i32 %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %5, align 8
   %6 = tail call i32 @fileno(ptr noundef %1) #12
   %7 = tail call i32 @isatty(i32 noundef %6) #12
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %7, ptr %8, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %.thread, label %9
@@ -198,7 +198,7 @@ define internal fastcc noalias noundef ptr @print_stream_text_alloc(i32 noundef 
   %.not21 = icmp eq i32 %10, 0
   %11 = load ptr, ptr %3, align 8
   %spec.select = select i1 %.not21, ptr %11, ptr null
-  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %spec.select, ptr %12, align 8
   %13 = call ptr @getenv(ptr noundef nonnull @.str.1) #12
   %.not22 = icmp eq ptr %13, null
@@ -218,17 +218,17 @@ define internal fastcc noalias noundef ptr @print_stream_text_alloc(i32 noundef 
   br label %22
 
 .thread:                                          ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %14, %17, %20, %.thread
   %.sink = phi i32 [ 0, %20 ], [ 0, %.thread ], [ 1, %17 ], [ 1, %14 ]
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %.sink, ptr %23, align 8
   %24 = call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
   store ptr @print_text_ops, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %4, ptr %25, align 8
   ret ptr %24
 }
@@ -260,11 +260,11 @@ open_print_dest.exit:                             ; preds = %3, %5
 8:                                                ; preds = %open_print_dest.exit
   %9 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i32 %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.0.i, ptr %10, align 8
   %11 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
   store ptr @print_ps_ops, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %12, align 8
   br label %13
 
@@ -277,11 +277,11 @@ open_print_dest.exit:                             ; preds = %3, %5
 define noalias noundef ptr @print_stream_ps_stdio_new(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #13
   store i32 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
   %4 = tail call noalias noundef dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #15
   store ptr @print_ps_ops, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   ret ptr %4
 }
@@ -320,9 +320,9 @@ define internal range(i32 0, 2) i32 @print_line_text(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @print_line_color_text(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %10
@@ -347,13 +347,13 @@ define internal range(i32 0, 2) i32 @print_line_color_text(ptr nocapture noundef
   br i1 %15, label %19, label %54
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds i8, ptr %7, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load i32, ptr %20, align 8
   %cond = icmp eq i32 %21, 1
   br i1 %cond, label %22, label %54
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %7, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %38, label %25
@@ -362,11 +362,11 @@ define internal range(i32 0, 2) i32 @print_line_color_text(ptr nocapture noundef
   %26 = load i16, ptr %3, align 2
   %27 = lshr i16 %26, 8
   %28 = zext nneg i16 %27 to i32
-  %29 = getelementptr inbounds i8, ptr %3, i64 2
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %30 = load i16, ptr %29, align 2
   %31 = lshr i16 %30, 8
   %32 = zext nneg i16 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %34 = load i16, ptr %33, align 2
   %35 = lshr i16 %34, 8
   %36 = zext nneg i16 %35 to i32
@@ -381,11 +381,11 @@ define internal range(i32 0, 2) i32 @print_line_color_text(ptr nocapture noundef
   %40 = load i16, ptr %4, align 2
   %41 = lshr i16 %40, 8
   %42 = zext nneg i16 %41 to i32
-  %43 = getelementptr inbounds i8, ptr %4, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %44 = load i16, ptr %43, align 2
   %45 = lshr i16 %44, 8
   %46 = zext nneg i16 %45 to i32
-  %47 = getelementptr inbounds i8, ptr %4, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %48 = load i16, ptr %47, align 2
   %49 = lshr i16 %48, 8
   %50 = zext nneg i16 %49 to i32
@@ -402,7 +402,7 @@ set_color_24bit_escape.exit:                      ; preds = %38, %39
   %55 = shl i32 %1, 2
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %55, i32 160)
   %56 = zext nneg i32 %spec.store.select to i64
-  %57 = getelementptr inbounds i8, ptr %7, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = tail call i64 @fwrite(ptr noundef nonnull @print_line_color_text.spaces, i64 noundef 1, i64 noundef %56, ptr noundef %58)
   %60 = icmp eq i64 %59, %56
@@ -414,7 +414,7 @@ set_color_24bit_escape.exit:                      ; preds = %38, %39
   br i1 %.not38, label %73, label %63
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds i8, ptr %7, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not39 = icmp eq ptr %65, null
   br i1 %.not39, label %73, label %66
@@ -443,7 +443,7 @@ set_color_24bit_escape.exit:                      ; preds = %38, %39
   br i1 %15, label %77, label %86
 
 77:                                               ; preds = %76
-  %78 = getelementptr inbounds i8, ptr %7, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %79 = load i32, ptr %78, align 8
   switch i32 %79, label %89 [
     i32 0, label %80
@@ -481,9 +481,9 @@ set_color_24bit_escape.exit:                      ; preds = %38, %39
 
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 0, 2) i32 @new_page_text(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %fputc = tail call i32 @fputc(i32 12, ptr %5)
   %6 = load ptr, ptr %4, align 8
@@ -495,15 +495,15 @@ define internal range(i32 0, 2) i32 @new_page_text(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @destroy_text(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load i32, ptr %4, align 8
   %cond = icmp eq i32 %5, 1
   br i1 %cond, label %6, label %12
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 4, i64 1, ptr %8)
   %10 = load ptr, ptr %7, align 8
@@ -512,7 +512,7 @@ define internal range(i32 0, 2) i32 @destroy_text(ptr noundef %0) #0 {
 
 12:                                               ; preds = %1, %6
   %13 = load i32, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not.i = icmp eq i32 %13, 0
   br i1 %.not.i, label %18, label %16
@@ -568,9 +568,9 @@ declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @print_preamble_ps(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @print_ps_preamble(ptr noundef %8) #12
   %9 = load ptr, ptr %7, align 8
@@ -633,7 +633,7 @@ ps_clean_string.exit:                             ; preds = %21, %25, %12
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 0, 2) i32 @print_line_ps(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) #8 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %8, label %.preheader.i
@@ -679,7 +679,7 @@ define internal range(i32 0, 2) i32 @print_line_ps(ptr nocapture noundef readonl
   br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
 
 ps_clean_string.exit:                             ; preds = %17, %21, %8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.16, i32 noundef %1, ptr noundef nonnull %4) #12
   %28 = load ptr, ptr %25, align 8
@@ -692,7 +692,7 @@ ps_clean_string.exit:                             ; preds = %17, %21, %8
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) #8 {
   %4 = alloca [256 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %2, null
   br i1 %7, label %8, label %.preheader.i
@@ -738,7 +738,7 @@ define internal range(i32 0, 2) i32 @print_bookmark_ps(ptr nocapture noundef rea
   br i1 %24, label %.preheader.i, label %ps_clean_string.exit, !llvm.loop !4
 
 ps_clean_string.exit:                             ; preds = %17, %21, %8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull @.str.17, ptr noundef %1, ptr noundef nonnull %4) #12
   %28 = load ptr, ptr %25, align 8
@@ -756,9 +756,9 @@ ps_clean_string.exit:                             ; preds = %17, %21, %8
 
 ; Function Attrs: nofree nounwind uwtable
 define internal range(i32 0, 2) i32 @new_page_ps(ptr nocapture noundef readonly %0) #8 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 9, i64 1, ptr %5)
   %7 = load ptr, ptr %4, align 8
@@ -770,9 +770,9 @@ define internal range(i32 0, 2) i32 @new_page_ps(ptr nocapture noundef readonly 
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @print_finale_ps(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @print_ps_finale(ptr noundef %5) #12
   %6 = load ptr, ptr %4, align 8
@@ -784,10 +784,10 @@ define internal range(i32 0, 2) i32 @print_finale_ps(ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @destroy_ps(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %9, label %7

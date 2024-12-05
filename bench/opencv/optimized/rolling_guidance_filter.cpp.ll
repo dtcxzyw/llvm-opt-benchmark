@@ -88,7 +88,7 @@ define void @_ZN2cv8ximgproc21rollingGuidanceFilterERKNS_11_InputArrayERKNS_12_O
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !noalias !4
   call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef nonnull align 8 dereferenceable(96) %38)
   br label %_ZNK2cv11_InputArray6getMatEi.exit
@@ -106,7 +106,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %36, %39
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %.noexc
-  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !7
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %11, ptr noundef nonnull align 8 dereferenceable(96) %44)
           to label %46 unwind label %60
@@ -116,18 +116,18 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %36, %39
           to label %46 unwind label %60
 
 46:                                               ; preds = %42, %45
-  %47 = getelementptr inbounds i8, ptr %11, i64 64
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %48, align 4
   %.sroa.2.0.insert.ext.i = zext i32 %51 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %50 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %52 = getelementptr inbounds i8, ptr %10, i64 64
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = load i32, ptr %53, align 4
   %57 = icmp eq i32 %50, %55
@@ -233,7 +233,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %36, %39
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %.noexc60
-  %95 = getelementptr inbounds i8, ptr %1, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load ptr, ptr %95, align 8, !noalias !10
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %96)
           to label %_ZNK2cv11_InputArray6getMatEi.exit63 unwind label %62
@@ -243,9 +243,9 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %36, %39
           to label %_ZNK2cv11_InputArray6getMatEi.exit63 unwind label %62
 
 _ZNK2cv11_InputArray6getMatEi.exit63:             ; preds = %94, %97
-  %98 = getelementptr inbounds i8, ptr %11, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %10, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %99, %101
   br i1 %102, label %103, label %111
@@ -276,7 +276,7 @@ _ZNK2cv11_InputArray6getMatEi.exit63:             ; preds = %94, %97
 
 111:                                              ; preds = %106, %_ZNK2cv11_InputArray6getMatEi.exit63
   %112 = phi ptr [ %.pre, %106 ], [ %99, %_ZNK2cv11_InputArray6getMatEi.exit63 ]
-  %113 = getelementptr inbounds i8, ptr %16, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %114 = load ptr, ptr %113, align 8
   %115 = icmp eq ptr %114, %112
   br i1 %115, label %116, label %122
@@ -309,14 +309,14 @@ _ZNK2cv11_InputArray6getMatEi.exit63:             ; preds = %94, %97
   br i1 %or.cond, label %.preheader, label %142
 
 .preheader:                                       ; preds = %122
-  %128 = getelementptr inbounds i8, ptr %19, i64 16
-  %129 = getelementptr inbounds i8, ptr %19, i64 20
-  %130 = getelementptr inbounds i8, ptr %19, i64 8
-  %131 = getelementptr inbounds i8, ptr %20, i64 16
-  %132 = getelementptr inbounds i8, ptr %20, i64 20
-  %133 = getelementptr inbounds i8, ptr %20, i64 8
-  %134 = getelementptr inbounds i8, ptr %21, i64 8
-  %135 = getelementptr inbounds i8, ptr %21, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %130 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %21, i64 16
   br label %136
 
 136:                                              ; preds = %.preheader, %137

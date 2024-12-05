@@ -93,7 +93,7 @@ define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = tail call i32 @atoi(ptr nocapture noundef nonnull %5) #11
   store i32 %6, ptr @cred_expire, align 4
   %7 = icmp slt i32 %6, 5
@@ -133,7 +133,7 @@ define range(i32 -1, 1) i32 @cred_g_init() local_unnamed_addr #0 {
   br i1 %.not14, label %21, label %23
 
 21:                                               ; preds = %19, %16
-  %22 = getelementptr inbounds i8, ptr %17, i64 5
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 5
   br label %23
 
 23:                                               ; preds = %21, %19
@@ -269,16 +269,16 @@ define i32 @cred_expiration() local_unnamed_addr #6 {
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.identity_t, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 64, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   store i32 %10, ptr %8, align 4
-  %11 = getelementptr inbounds i8, ptr %4, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i8 1, ptr %11, align 8
   %12 = icmp eq i32 %7, 99
   br i1 %12, label %13, label %16
@@ -298,13 +298,13 @@ define ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef
   br label %51
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 188
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %25 = load i32, ptr %24, align 4
   %.not52 = icmp eq i32 %25, 0
   br i1 %.not52, label %._crit_edge, label %.lr.ph.preheader
@@ -316,7 +316,7 @@ define ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %.03349 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %29 ]
-  %26 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = add i32 %27, %.03349
   %.not41 = icmp ult i32 %28, %25
@@ -339,9 +339,9 @@ define ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i16 noundef
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit, %21
   %.034 = phi i16 [ 0, %21 ], [ 1, %.preheader ], [ %32, %._crit_edge.loopexit ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %.034, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   %.not42 = icmp eq ptr %35, null
   br i1 %.not42, label %36, label %43
@@ -418,7 +418,7 @@ define void @slurm_cred_free_args(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %46, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not4 = icmp eq ptr %5, null
   br i1 %.not4, label %7, label %6
@@ -429,7 +429,7 @@ define void @slurm_cred_free_args(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %6, %3
   store ptr null, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not5 = icmp eq ptr %9, null
   br i1 %.not5, label %11, label %10
@@ -440,7 +440,7 @@ define void @slurm_cred_free_args(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %10, %7
   store ptr null, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 288
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %13 = load ptr, ptr %12, align 8
   %.not6 = icmp eq ptr %13, null
   br i1 %.not6, label %15, label %14
@@ -451,13 +451,13 @@ define void @slurm_cred_free_args(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %14, %11
   store ptr null, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %16) #10
-  %17 = getelementptr inbounds i8, ptr %0, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @slurm_xfree(ptr noundef nonnull %17) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 80
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @slurm_xfree(ptr noundef nonnull %18) #10
-  %19 = getelementptr inbounds i8, ptr %0, i64 208
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %20 = load ptr, ptr %19, align 8
   %.not7 = icmp eq ptr %20, null
   br i1 %.not7, label %22, label %21
@@ -468,7 +468,7 @@ define void @slurm_cred_free_args(ptr noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %21, %15
   store ptr null, ptr %19, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 328
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %24 = load ptr, ptr %23, align 8
   %.not8 = icmp eq ptr %24, null
   br i1 %.not8, label %26, label %25
@@ -479,43 +479,43 @@ define void @slurm_cred_free_args(ptr noundef %0) local_unnamed_addr #0 {
 
 26:                                               ; preds = %25, %22
   store ptr null, ptr %23, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 296
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 296
   tail call void @slurm_xfree(ptr noundef nonnull %27) #10
-  %28 = getelementptr inbounds i8, ptr %0, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @slurm_xfree(ptr noundef nonnull %28) #10
-  %29 = getelementptr inbounds i8, ptr %0, i64 96
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @slurm_xfree(ptr noundef nonnull %29) #10
-  %30 = getelementptr inbounds i8, ptr %0, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @slurm_xfree(ptr noundef nonnull %30) #10
-  %31 = getelementptr inbounds i8, ptr %0, i64 112
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 112
   tail call void @slurm_xfree(ptr noundef nonnull %31) #10
-  %32 = getelementptr inbounds i8, ptr %0, i64 160
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @slurm_xfree(ptr noundef nonnull %32) #10
-  %33 = getelementptr inbounds i8, ptr %0, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @slurm_xfree(ptr noundef nonnull %33) #10
-  %34 = getelementptr inbounds i8, ptr %0, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @slurm_xfree(ptr noundef nonnull %34) #10
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @slurm_xfree(ptr noundef nonnull %35) #10
-  %36 = getelementptr inbounds i8, ptr %0, i64 168
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @slurm_xfree(ptr noundef nonnull %36) #10
-  %37 = getelementptr inbounds i8, ptr %0, i64 176
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @slurm_xfree(ptr noundef nonnull %37) #10
-  %38 = getelementptr inbounds i8, ptr %0, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @slurm_xfree(ptr noundef nonnull %38) #10
-  %39 = getelementptr inbounds i8, ptr %0, i64 216
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @slurm_xfree(ptr noundef nonnull %39) #10
-  %40 = getelementptr inbounds i8, ptr %0, i64 224
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @slurm_xfree(ptr noundef nonnull %40) #10
-  %41 = getelementptr inbounds i8, ptr %0, i64 256
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @slurm_xfree(ptr noundef nonnull %41) #10
-  %42 = getelementptr inbounds i8, ptr %0, i64 264
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @slurm_xfree(ptr noundef nonnull %42) #10
-  %43 = getelementptr inbounds i8, ptr %0, i64 272
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 272
   tail call void @slurm_xfree(ptr noundef nonnull %43) #10
-  %44 = getelementptr inbounds i8, ptr %0, i64 304
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 304
   tail call void @slurm_xfree(ptr noundef nonnull %44) #10
-  %45 = getelementptr inbounds i8, ptr %0, i64 312
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @slurm_xfree(ptr noundef nonnull %45) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %46
@@ -530,7 +530,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_cred_unlock_args(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -550,7 +550,7 @@ declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_get_args(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -562,7 +562,7 @@ define ptr @slurm_cred_get_args(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -572,7 +572,7 @@ declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -584,7 +584,7 @@ define ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
   %.not22 = icmp eq ptr %9, null
   br i1 %.not22, label %10, label %14
@@ -609,22 +609,22 @@ define ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   ]
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %9, i64 208
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %17 = load ptr, ptr %16, align 8
   br label %29
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %9, i64 96
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %20 = load ptr, ptr %19, align 8
   br label %29
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %9, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %23 = load ptr, ptr %22, align 8
   br label %29
 
 24:                                               ; preds = %14
-  %25 = getelementptr inbounds i8, ptr %9, i64 328
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 328
   %26 = load ptr, ptr %25, align 8
   br label %29
 
@@ -652,7 +652,7 @@ define ptr @slurm_cred_get(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_verify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @time(ptr noundef null) #10
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %3) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -664,13 +664,13 @@ define ptr @slurm_cred_verify(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %21
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i64, ptr %12, align 8
   %14 = load i32, ptr @cred_expire, align 4
   %15 = sext i32 %14 to i64
@@ -679,7 +679,7 @@ define ptr @slurm_cred_verify(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %17, label %21, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load ptr, ptr %19, align 8
   br label %27
 
@@ -718,7 +718,7 @@ define void @slurm_cred_destroy(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %25, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %5) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -730,10 +730,10 @@ define void @slurm_cred_destroy(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   tail call void @slurm_cred_free_args(ptr noundef %11)
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8
   %.not10 = icmp eq ptr %13, null
   br i1 %.not10, label %15, label %14
@@ -744,7 +744,7 @@ define void @slurm_cred_destroy(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %14, %9
   store ptr null, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @slurm_xfree(ptr noundef nonnull %16) #10
   store i32 -723724, ptr %0, align 8
   %17 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %5) #10
@@ -786,7 +786,7 @@ declare i32 @pthread_rwlock_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_get_signature(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %2) #10
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -798,7 +798,7 @@ define ptr @slurm_cred_get_signature(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 96
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @xstrdup(ptr noundef %8) #10
   %10 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %2) #10
@@ -817,15 +817,15 @@ define ptr @slurm_cred_get_signature(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, -5
   br i1 %10, label %.thread50, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %7, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @nodelist_find(ptr noundef %13, ptr noundef %1) #10
   %15 = icmp sgt i32 %14, -1
@@ -837,9 +837,9 @@ define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %
   br label %25
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %7, i64 176
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 184
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 184
   %22 = load i32, ptr %21, align 8
   %23 = tail call i32 @slurm_get_rep_count_inx(ptr noundef %20, i32 noundef %22, i32 noundef %14) #10
   %24 = icmp slt i32 %23, 0
@@ -851,10 +851,10 @@ define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %
 
 .thread50:                                        ; preds = %5, %18
   %.03853 = phi i32 [ %23, %18 ], [ 0, %5 ]
-  %27 = getelementptr inbounds i8, ptr %7, i64 168
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %.03853 to i64
-  %30 = getelementptr inbounds i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %3, align 8
   br label %32
@@ -880,13 +880,13 @@ define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %
   br label %78
 
 41:                                               ; preds = %32
-  %42 = getelementptr inbounds i8, ptr %7, i64 304
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %43 = load ptr, ptr %42, align 8
   %.not44 = icmp eq ptr %43, null
   br i1 %.not44, label %thread-pre-split, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %7, i64 296
+  %45 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %46 = load ptr, ptr %45, align 8
   %47 = tail call i32 @nodelist_find(ptr noundef %46, ptr noundef %1) #10
   %48 = icmp sgt i32 %47, -1
@@ -898,9 +898,9 @@ define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %
   br label %58
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %7, i64 312
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 312
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 320
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %55 = load i32, ptr %54, align 8
   %56 = tail call i32 @slurm_get_rep_count_inx(ptr noundef %53, i32 noundef %55, i32 noundef %47) #10
   %57 = icmp slt i32 %56, 0
@@ -913,7 +913,7 @@ define void @slurm_cred_get_mem(ptr nocapture noundef readonly %0, ptr noundef %
 60:                                               ; preds = %51
   %61 = load ptr, ptr %42, align 8
   %62 = zext nneg i32 %56 to i64
-  %63 = getelementptr inbounds i64, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8
   store i64 %64, ptr %4, align 8
   br label %65
@@ -967,9 +967,9 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
   %9 = alloca [1024 x i8], align 16
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 152
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 152
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @hostlist_create(ptr noundef %15) #10
   %.not = icmp eq ptr %16, null
@@ -986,7 +986,7 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %22, label %26, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %13, i64 188
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 188
   %25 = load i32, ptr %24, align 4
   %.not80 = icmp ult i32 %21, %25
   br i1 %.not80, label %31, label %26
@@ -1001,10 +1001,10 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
 
 31:                                               ; preds = %23
   %32 = add nuw nsw i32 %21, 1
-  %33 = getelementptr inbounds i8, ptr %13, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %13, i64 48
-  %36 = getelementptr inbounds i8, ptr %13, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %37 = load ptr, ptr %35, align 8
   %38 = load ptr, ptr %36, align 8
   br label %39
@@ -1014,13 +1014,13 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
   %.07394 = phi i32 [ 0, %31 ], [ %55, %50 ]
   %.07593 = phi i32 [ %32, %31 ], [ %54, %50 ]
   %40 = zext i32 %.07394 to i64
-  %41 = getelementptr inbounds i32, ptr %34, i64 %40
+  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = icmp ugt i32 %.07593, %42
-  %44 = getelementptr inbounds i16, ptr %37, i64 %40
+  %44 = getelementptr inbounds nuw i16, ptr %37, i64 %40
   %45 = load i16, ptr %44, align 2
   %46 = zext i16 %45 to i32
-  %47 = getelementptr inbounds i16, ptr %38, i64 %40
+  %47 = getelementptr inbounds nuw i16, ptr %38, i64 %40
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   br i1 %43, label %50, label %56
@@ -1055,8 +1055,8 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %66, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.loopexit
-  %67 = getelementptr inbounds i8, ptr %13, i64 120
-  %68 = getelementptr inbounds i8, ptr %13, i64 288
+  %67 = getelementptr inbounds nuw i8, ptr %13, i64 120
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 288
   %69 = zext i32 %.1 to i64
   br label %70
 
@@ -1126,7 +1126,7 @@ define void @format_core_allocs(ptr nocapture noundef readonly %0, ptr noundef %
   br label %93
 
 93:                                               ; preds = %92, %90
-  %94 = getelementptr inbounds i8, ptr %9, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %9, i64 1
   br label %_core_format.exit
 
 _core_format.exit:                                ; preds = %87, %93
@@ -1150,7 +1150,7 @@ _core_format.exit:                                ; preds = %87, %93
   br label %101
 
 101:                                              ; preds = %100, %98
-  %102 = getelementptr inbounds i8, ptr %8, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_core_format.exit90
 
 _core_format.exit90:                              ; preds = %_core_format.exit, %101
@@ -1197,7 +1197,7 @@ declare void @bit_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @get_cred_gres(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %7, null
@@ -1219,19 +1219,19 @@ define void @get_cred_gres(ptr nocapture noundef readonly %0, ptr noundef %1, pt
 
 12:                                               ; preds = %11, %9
   store ptr null, ptr %3, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 208
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 208
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %6, i64 328
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %44, label %20
 
 20:                                               ; preds = %16, %12
-  %21 = getelementptr inbounds i8, ptr %6, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @hostlist_create(ptr noundef %22) #10
   %.not30 = icmp eq ptr %23, null
@@ -1249,7 +1249,7 @@ define void @get_cred_gres(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   br i1 %29, label %33, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %6, i64 188
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 188
   %32 = load i32, ptr %31, align 4
   %.not31 = icmp ult i32 %28, %32
   br i1 %.not31, label %38, label %33
@@ -1265,7 +1265,7 @@ define void @get_cred_gres(ptr nocapture noundef readonly %0, ptr noundef %1, pt
   %39 = load ptr, ptr %13, align 8
   %40 = tail call ptr @gres_job_state_extract(ptr noundef %39, i32 noundef %28) #10
   store ptr %40, ptr %2, align 8
-  %41 = getelementptr inbounds i8, ptr %6, i64 328
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 328
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @gres_step_state_extract(ptr noundef %42, i32 noundef %28) #10
   store ptr %43, ptr %3, align 8
@@ -1281,7 +1281,7 @@ declare ptr @gres_step_state_extract(ptr noundef, i32 noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define void @slurm_cred_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @pthread_rwlock_rdlock(ptr noundef nonnull %4) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -1293,7 +1293,7 @@ define void @slurm_cred_pack(ptr noundef %0, ptr noundef %1, i16 noundef zeroext
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   tail call void @packbuf(ptr noundef %10, ptr noundef %1) #10
   %11 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #10
@@ -1322,7 +1322,7 @@ define ptr @slurm_cred_unpack(ptr noundef %0, i16 noundef zeroext %1) local_unna
 ; Function Attrs: nounwind uwtable
 define ptr @slurm_cred_alloc(i1 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.11, i32 noundef 641, ptr noundef nonnull @__func__.slurm_cred_alloc) #10
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = tail call i32 @pthread_rwlock_init(ptr noundef nonnull %3, ptr noundef null) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -1338,17 +1338,17 @@ define ptr @slurm_cred_alloc(i1 noundef zeroext %0) local_unnamed_addr #0 {
 
 8:                                                ; preds = %7
   %9 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.11, i32 noundef 647, ptr noundef nonnull @__func__.slurm_cred_alloc) #10
-  %10 = getelementptr inbounds i8, ptr %2, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %9, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 12
   store i32 99, ptr %11, align 4
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 99, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %8, %7
-  %15 = getelementptr inbounds i8, ptr %2, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i8 0, ptr %15, align 8
   store i32 723723, ptr %2, align 8
   ret ptr %2
@@ -1362,14 +1362,14 @@ declare i32 @pthread_rwlock_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define ptr @create_sbcast_cred(ptr noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %struct.identity_t, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 64, i1 false)
   store i32 %1, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %5, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i8 1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %11, label %17
@@ -1432,7 +1432,7 @@ define void @delete_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %14, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not3 = icmp eq ptr %5, null
   br i1 %.not3, label %7, label %6
@@ -1443,9 +1443,9 @@ define void @delete_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %6, %3
   store ptr null, ptr %4, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @slurm_xfree(ptr noundef nonnull %8) #10
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8
   %.not4 = icmp eq ptr %10, null
   br i1 %.not4, label %12, label %11
@@ -1456,7 +1456,7 @@ define void @delete_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
 
 12:                                               ; preds = %11, %7
   store ptr null, ptr %9, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @slurm_xfree(ptr noundef nonnull %13) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %14
@@ -1467,7 +1467,7 @@ define void @delete_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @pack_sbcast_cred(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %7, label %6
@@ -1477,7 +1477,7 @@ define void @pack_sbcast_cred(ptr nocapture noundef readonly %0, ptr noundef %1,
   br label %15
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %.not9 = icmp eq ptr %9, null
   br i1 %.not9, label %14, label %10
@@ -1508,13 +1508,13 @@ define ptr @unpack_sbcast_cred(ptr noundef %0, ptr noundef readonly %1, i16 noun
   br i1 %.not, label %12, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 22
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 4
   %.not7 = icmp eq i16 %11, 0
@@ -1534,7 +1534,7 @@ define void @print_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %4, label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.36, i32 noundef %6) #10
   br label %7
@@ -1545,7 +1545,7 @@ define void @print_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %9, label %10, label %13
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.37, i32 noundef %12) #10
   br label %13
@@ -1556,7 +1556,7 @@ define void @print_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.38, ptr noundef %18) #10
   br label %19
@@ -1577,7 +1577,7 @@ define void @print_sbcast_cred(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %26, label %27, label %30
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = tail call ptr @slurm_ctime2(ptr noundef nonnull %28) #10
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.40, ptr noundef %29) #10
   br label %30

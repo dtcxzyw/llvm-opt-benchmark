@@ -28,14 +28,14 @@ define void @softfloat_addM(i8 noundef zeroext %0, ptr nocapture noundef readonl
   %15 = zext i1 %14 to i8
   %.1 = select i1 %.not, i8 %.01619, i8 %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4
   %20 = zext nneg i8 %.1 to i32
   %21 = add i32 %17, %20
   %22 = add i32 %21, %19
-  %23 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next
   store i32 %22, ptr %23, align 4
   %24 = icmp eq i64 %indvars.iv.next, %11
   br i1 %24, label %._crit_edge, label %.lr.ph

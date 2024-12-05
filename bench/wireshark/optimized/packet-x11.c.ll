@@ -24642,12 +24642,12 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_x11(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.10533) #10
-  %7 = getelementptr inbounds i8, ptr %1, i64 292
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 284
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %12, label %13
@@ -24750,25 +24750,25 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %1, i64 328
-  %43 = getelementptr inbounds i8, ptr %1, i64 20
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
-  %45 = getelementptr inbounds i8, ptr %27, i64 48
-  %46 = getelementptr inbounds i8, ptr %27, i64 16
-  %47 = getelementptr inbounds i8, ptr %27, i64 40
-  %48 = getelementptr inbounds i8, ptr %23, i64 48
-  %49 = getelementptr inbounds i8, ptr %23, i64 16
-  %50 = getelementptr inbounds i8, ptr %23, i64 40
-  %51 = getelementptr inbounds i8, ptr %19, i64 48
-  %52 = getelementptr inbounds i8, ptr %19, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %46 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %53 = icmp eq ptr %2, null
-  %54 = getelementptr inbounds i8, ptr %19, i64 40
-  %55 = getelementptr inbounds i8, ptr %31, i64 48
-  %56 = getelementptr inbounds i8, ptr %31, i64 16
-  %57 = getelementptr inbounds i8, ptr %31, i64 40
-  %58 = getelementptr inbounds i8, ptr %15, i64 48
-  %59 = getelementptr inbounds i8, ptr %15, i64 16
-  %60 = getelementptr inbounds i8, ptr %15, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %15, i64 40
   br label %61
 
 61:                                               ; preds = %.lr.ph, %645
@@ -24786,7 +24786,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
 
 68:                                               ; preds = %64
   %.0..0..0..0.184 = load volatile i32, ptr %6, align 4
-  %69 = getelementptr inbounds i8, ptr %1, i64 332
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.184, ptr %69, align 4
   br label %.loopexit.sink.split
 
@@ -24794,7 +24794,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   %.0..0..0..0.137 = load volatile ptr, ptr %9, align 8
   %71 = load ptr, ptr %.0..0..0..0.137, align 8
   %.0..0..0..0.138 = load volatile ptr, ptr %9, align 8
-  %72 = getelementptr inbounds i8, ptr %.0..0..0..0.138, i64 10320
+  %72 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.138, i64 10320
   %73 = load i32, ptr %72, align 8
   %74 = sext i32 %73 to i64
   %75 = inttoptr i64 %74 to ptr
@@ -24804,7 +24804,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
 
 78:                                               ; preds = %70
   %.0..0..0..0.139 = load volatile ptr, ptr %9, align 8
-  %79 = getelementptr inbounds i8, ptr %.0..0..0..0.139, i64 10328
+  %79 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.139, i64 10328
   %80 = load i32, ptr %79, align 8
   %81 = load i32, ptr %43, align 4
   %82 = icmp eq i32 %80, %81
@@ -24833,7 +24833,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
 
 94:                                               ; preds = %92
   %.0..0..0..0.186 = load volatile i32, ptr %6, align 4
-  %95 = getelementptr inbounds i8, ptr %1, i64 332
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.186, ptr %95, align 4
   %.0..0..0..0.158 = load volatile i32, ptr %7, align 4
   %96 = sub i32 %.0..0..0..0.158, %62
@@ -24908,7 +24908,7 @@ define internal fastcc void @dissect_x11_replies(ptr noundef %0, ptr noundef %1,
   %118 = load i32, ptr @ett_x11, align 4
   %119 = call ptr @proto_item_add_subtree(ptr noundef %117, i32 noundef %118) #10
   %120 = load i32, ptr %43, align 4
-  %121 = getelementptr inbounds i8, ptr %.0..0..0..0.140, i64 10328
+  %121 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.140, i64 10328
   store i32 %120, ptr %121, align 8
   %122 = load i32, ptr @hf_x11_success, align 4
   %123 = call fastcc i32 @field8(ptr noundef %.0..0..0..0.147, ptr noundef nonnull %5, ptr noundef %119, i32 noundef %122, i32 noundef %.0..0..0..0.129)
@@ -25215,28 +25215,28 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
 
 323:                                              ; preds = %322
   %.0..0..0..0.89 = load volatile ptr, ptr %12, align 8
-  %324 = getelementptr inbounds i8, ptr %.0..0..0..0.89, i64 8
+  %324 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.89, i64 8
   %325 = load volatile i64, ptr %324, align 8
   %326 = icmp eq i64 %325, 3
   br i1 %326, label %339, label %327
 
 327:                                              ; preds = %323
   %.0..0..0..0.90 = load volatile ptr, ptr %12, align 8
-  %328 = getelementptr inbounds i8, ptr %.0..0..0..0.90, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.90, i64 8
   %329 = load volatile i64, ptr %328, align 8
   %330 = icmp eq i64 %329, 2
   br i1 %330, label %339, label %331
 
 331:                                              ; preds = %327
   %.0..0..0..0.91 = load volatile ptr, ptr %12, align 8
-  %332 = getelementptr inbounds i8, ptr %.0..0..0..0.91, i64 8
+  %332 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.91, i64 8
   %333 = load volatile i64, ptr %332, align 8
   %334 = icmp eq i64 %333, 7
   br i1 %334, label %339, label %335
 
 335:                                              ; preds = %331
   %.0..0..0..0.92 = load volatile ptr, ptr %12, align 8
-  %336 = getelementptr inbounds i8, ptr %.0..0..0..0.92, i64 8
+  %336 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.92, i64 8
   %337 = load volatile i64, ptr %336, align 8
   %338 = icmp eq i64 %337, 9
   br i1 %338, label %339, label %345
@@ -25247,10 +25247,10 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
   store volatile i32 %340, ptr %13, align 4
   %.0..0..0..0.148 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.93 = load volatile ptr, ptr %12, align 8
-  %341 = getelementptr inbounds i8, ptr %.0..0..0..0.93, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.93, i64 8
   %342 = load volatile i64, ptr %341, align 8
   %.0..0..0..0.94 = load volatile ptr, ptr %12, align 8
-  %343 = getelementptr inbounds i8, ptr %.0..0..0..0.94, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.94, i64 16
   %344 = load volatile ptr, ptr %343, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.148, ptr noundef %1, ptr noundef %2, i64 noundef %342, ptr noundef %344) #10
   br label %345
@@ -25300,7 +25300,7 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
 
 359:                                              ; preds = %357
   %.0..0..0..0.189 = load volatile i32, ptr %6, align 4
-  %360 = getelementptr inbounds i8, ptr %1, i64 332
+  %360 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.189, ptr %360, align 4
   %.0..0..0..0.163 = load volatile i32, ptr %7, align 4
   %361 = sub i32 %.0..0..0..0.163, %62
@@ -25379,7 +25379,7 @@ dissect_x11_initial_reply.exit:                   ; preds = %listOfScreen.exit.i
   %388 = call zeroext i8 @tvb_get_guint8(ptr noundef %.0..0..0..0.149, i32 noundef %387) #10
   %389 = load ptr, ptr %44, align 8
   %390 = zext i8 %388 to i32
-  %391 = getelementptr inbounds i8, ptr %.0..0..0..0.141, i64 4128
+  %391 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.141, i64 4128
   %392 = call ptr @val_to_str(i32 noundef %390, ptr noundef nonnull %391, ptr noundef nonnull @.str.14664) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %389, i32 noundef 25, ptr noundef nonnull @.str.14663, ptr noundef %.0..0..0..0.100, ptr noundef %392) #10
   %393 = load i32, ptr @hf_x11_errorcode, align 4
@@ -25455,28 +25455,28 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 426:                                              ; preds = %425
   %.0..0..0..0.72 = load volatile ptr, ptr %16, align 8
-  %427 = getelementptr inbounds i8, ptr %.0..0..0..0.72, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.72, i64 8
   %428 = load volatile i64, ptr %427, align 8
   %429 = icmp eq i64 %428, 3
   br i1 %429, label %442, label %430
 
 430:                                              ; preds = %426
   %.0..0..0..0.73 = load volatile ptr, ptr %16, align 8
-  %431 = getelementptr inbounds i8, ptr %.0..0..0..0.73, i64 8
+  %431 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.73, i64 8
   %432 = load volatile i64, ptr %431, align 8
   %433 = icmp eq i64 %432, 2
   br i1 %433, label %442, label %434
 
 434:                                              ; preds = %430
   %.0..0..0..0.74 = load volatile ptr, ptr %16, align 8
-  %435 = getelementptr inbounds i8, ptr %.0..0..0..0.74, i64 8
+  %435 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.74, i64 8
   %436 = load volatile i64, ptr %435, align 8
   %437 = icmp eq i64 %436, 7
   br i1 %437, label %442, label %438
 
 438:                                              ; preds = %434
   %.0..0..0..0.75 = load volatile ptr, ptr %16, align 8
-  %439 = getelementptr inbounds i8, ptr %.0..0..0..0.75, i64 8
+  %439 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.75, i64 8
   %440 = load volatile i64, ptr %439, align 8
   %441 = icmp eq i64 %440, 9
   br i1 %441, label %442, label %448
@@ -25487,10 +25487,10 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
   store volatile i32 %443, ptr %17, align 4
   %.0..0..0..0.150 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.76 = load volatile ptr, ptr %16, align 8
-  %444 = getelementptr inbounds i8, ptr %.0..0..0..0.76, i64 8
+  %444 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.76, i64 8
   %445 = load volatile i64, ptr %444, align 8
   %.0..0..0..0.77 = load volatile ptr, ptr %16, align 8
-  %446 = getelementptr inbounds i8, ptr %.0..0..0..0.77, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.77, i64 16
   %447 = load volatile ptr, ptr %446, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.150, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %445, ptr noundef %447) #10
   br label %448
@@ -25545,7 +25545,7 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 467:                                              ; preds = %465
   %.0..0..0..0.192 = load volatile i32, ptr %6, align 4
-  %468 = getelementptr inbounds i8, ptr %1, i64 332
+  %468 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.192, ptr %468, align 4
   %.0..0..0..0.168 = load volatile i32, ptr %7, align 4
   %469 = sub i32 %.0..0..0..0.168, %62
@@ -25627,28 +25627,28 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 492:                                              ; preds = %491
   %.0..0..0..0.54 = load volatile ptr, ptr %20, align 8
-  %493 = getelementptr inbounds i8, ptr %.0..0..0..0.54, i64 8
+  %493 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.54, i64 8
   %494 = load volatile i64, ptr %493, align 8
   %495 = icmp eq i64 %494, 3
   br i1 %495, label %508, label %496
 
 496:                                              ; preds = %492
   %.0..0..0..0.55 = load volatile ptr, ptr %20, align 8
-  %497 = getelementptr inbounds i8, ptr %.0..0..0..0.55, i64 8
+  %497 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.55, i64 8
   %498 = load volatile i64, ptr %497, align 8
   %499 = icmp eq i64 %498, 2
   br i1 %499, label %508, label %500
 
 500:                                              ; preds = %496
   %.0..0..0..0.56 = load volatile ptr, ptr %20, align 8
-  %501 = getelementptr inbounds i8, ptr %.0..0..0..0.56, i64 8
+  %501 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.56, i64 8
   %502 = load volatile i64, ptr %501, align 8
   %503 = icmp eq i64 %502, 7
   br i1 %503, label %508, label %504
 
 504:                                              ; preds = %500
   %.0..0..0..0.57 = load volatile ptr, ptr %20, align 8
-  %505 = getelementptr inbounds i8, ptr %.0..0..0..0.57, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.57, i64 8
   %506 = load volatile i64, ptr %505, align 8
   %507 = icmp eq i64 %506, 9
   br i1 %507, label %508, label %514
@@ -25659,10 +25659,10 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
   store volatile i32 %509, ptr %21, align 4
   %.0..0..0..0.152 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.58 = load volatile ptr, ptr %20, align 8
-  %510 = getelementptr inbounds i8, ptr %.0..0..0..0.58, i64 8
+  %510 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.58, i64 8
   %511 = load volatile i64, ptr %510, align 8
   %.0..0..0..0.59 = load volatile ptr, ptr %20, align 8
-  %512 = getelementptr inbounds i8, ptr %.0..0..0..0.59, i64 16
+  %512 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.59, i64 16
   %513 = load volatile ptr, ptr %512, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.152, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %511, ptr noundef %513) #10
   br label %514
@@ -25717,7 +25717,7 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 533:                                              ; preds = %531
   %.0..0..0..0.195 = load volatile i32, ptr %6, align 4
-  %534 = getelementptr inbounds i8, ptr %1, i64 332
+  %534 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.195, ptr %534, align 4
   %.0..0..0..0.173 = load volatile i32, ptr %7, align 4
   %535 = sub i32 %.0..0..0..0.173, %62
@@ -25799,28 +25799,28 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 558:                                              ; preds = %557
   %.0..0..0..0.37 = load volatile ptr, ptr %24, align 8
-  %559 = getelementptr inbounds i8, ptr %.0..0..0..0.37, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.37, i64 8
   %560 = load volatile i64, ptr %559, align 8
   %561 = icmp eq i64 %560, 3
   br i1 %561, label %574, label %562
 
 562:                                              ; preds = %558
   %.0..0..0..0.38 = load volatile ptr, ptr %24, align 8
-  %563 = getelementptr inbounds i8, ptr %.0..0..0..0.38, i64 8
+  %563 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.38, i64 8
   %564 = load volatile i64, ptr %563, align 8
   %565 = icmp eq i64 %564, 2
   br i1 %565, label %574, label %566
 
 566:                                              ; preds = %562
   %.0..0..0..0.39 = load volatile ptr, ptr %24, align 8
-  %567 = getelementptr inbounds i8, ptr %.0..0..0..0.39, i64 8
+  %567 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.39, i64 8
   %568 = load volatile i64, ptr %567, align 8
   %569 = icmp eq i64 %568, 7
   br i1 %569, label %574, label %570
 
 570:                                              ; preds = %566
   %.0..0..0..0.40 = load volatile ptr, ptr %24, align 8
-  %571 = getelementptr inbounds i8, ptr %.0..0..0..0.40, i64 8
+  %571 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.40, i64 8
   %572 = load volatile i64, ptr %571, align 8
   %573 = icmp eq i64 %572, 9
   br i1 %573, label %574, label %580
@@ -25831,10 +25831,10 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
   store volatile i32 %575, ptr %25, align 4
   %.0..0..0..0.154 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.41 = load volatile ptr, ptr %24, align 8
-  %576 = getelementptr inbounds i8, ptr %.0..0..0..0.41, i64 8
+  %576 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.41, i64 8
   %577 = load volatile i64, ptr %576, align 8
   %.0..0..0..0.42 = load volatile ptr, ptr %24, align 8
-  %578 = getelementptr inbounds i8, ptr %.0..0..0..0.42, i64 16
+  %578 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.42, i64 16
   %579 = load volatile ptr, ptr %578, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.154, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %577, ptr noundef %579) #10
   br label %580
@@ -25875,7 +25875,7 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 592:                                              ; preds = %590
   %.0..0..0..0.197 = load volatile i32, ptr %6, align 4
-  %593 = getelementptr inbounds i8, ptr %1, i64 332
+  %593 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.197, ptr %593, align 4
   %.0..0..0..0.178 = load volatile i32, ptr %7, align 4
   %594 = sub i32 %.0..0..0..0.178, %62
@@ -25957,28 +25957,28 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 617:                                              ; preds = %616
   %.0..0..0..0.20 = load volatile ptr, ptr %28, align 8
-  %618 = getelementptr inbounds i8, ptr %.0..0..0..0.20, i64 8
+  %618 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 8
   %619 = load volatile i64, ptr %618, align 8
   %620 = icmp eq i64 %619, 3
   br i1 %620, label %633, label %621
 
 621:                                              ; preds = %617
   %.0..0..0..0.21 = load volatile ptr, ptr %28, align 8
-  %622 = getelementptr inbounds i8, ptr %.0..0..0..0.21, i64 8
+  %622 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.21, i64 8
   %623 = load volatile i64, ptr %622, align 8
   %624 = icmp eq i64 %623, 2
   br i1 %624, label %633, label %625
 
 625:                                              ; preds = %621
   %.0..0..0..0.22 = load volatile ptr, ptr %28, align 8
-  %626 = getelementptr inbounds i8, ptr %.0..0..0..0.22, i64 8
+  %626 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.22, i64 8
   %627 = load volatile i64, ptr %626, align 8
   %628 = icmp eq i64 %627, 7
   br i1 %628, label %633, label %629
 
 629:                                              ; preds = %625
   %.0..0..0..0.23 = load volatile ptr, ptr %28, align 8
-  %630 = getelementptr inbounds i8, ptr %.0..0..0..0.23, i64 8
+  %630 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.23, i64 8
   %631 = load volatile i64, ptr %630, align 8
   %632 = icmp eq i64 %631, 9
   br i1 %632, label %633, label %639
@@ -25989,10 +25989,10 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
   store volatile i32 %634, ptr %29, align 4
   %.0..0..0..0.156 = load volatile ptr, ptr %8, align 8
   %.0..0..0..0.24 = load volatile ptr, ptr %28, align 8
-  %635 = getelementptr inbounds i8, ptr %.0..0..0..0.24, i64 8
+  %635 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.24, i64 8
   %636 = load volatile i64, ptr %635, align 8
   %.0..0..0..0.25 = load volatile ptr, ptr %28, align 8
-  %637 = getelementptr inbounds i8, ptr %.0..0..0..0.25, i64 16
+  %637 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.25, i64 16
   %638 = load volatile ptr, ptr %637, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.156, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %636, ptr noundef %638) #10
   br label %639
@@ -26033,7 +26033,7 @@ dissect_x11_error.exit:                           ; preds = %380, %412, %420
 
 .loopexit.sink.split:                             ; preds = %68, %94, %359, %467, %533, %592
   %.sink333 = phi i32 [ %594, %592 ], [ %535, %533 ], [ %469, %467 ], [ %361, %359 ], [ %96, %94 ], [ 268435455, %68 ]
-  %650 = getelementptr inbounds i8, ptr %1, i64 336
+  %650 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %.sink333, ptr %650, align 8
   br label %.loopexit
 
@@ -26064,12 +26064,12 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
   br i1 %18, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %1, i64 328
-  %20 = getelementptr inbounds i8, ptr %1, i64 20
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
-  %22 = getelementptr inbounds i8, ptr %16, i64 48
-  %23 = getelementptr inbounds i8, ptr %16, i64 16
-  %24 = getelementptr inbounds i8, ptr %16, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 40
   br label %25
 
 25:                                               ; preds = %.lr.ph, %227
@@ -26087,9 +26087,9 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 32:                                               ; preds = %28
   %.0..0..0..0.75 = load volatile i32, ptr %5, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 332
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.75, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %1, i64 336
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %34, align 8
   br label %.loopexit
 
@@ -26144,7 +26144,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 58:                                               ; preds = %52
   %.0..0..0..0.30 = load volatile ptr, ptr %10, align 8
-  %59 = getelementptr inbounds i8, ptr %.0..0..0..0.30, i64 10324
+  %59 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.30, i64 10324
   %60 = load i32, ptr %59, align 4
   %61 = load i32, ptr %20, align 4
   %62 = icmp eq i32 %60, %61
@@ -26154,7 +26154,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
   %.0..0..0..0.31 = load volatile ptr, ptr %10, align 8
   %64 = load ptr, ptr %.0..0..0..0.31, align 8
   %.0..0..0..0.32 = load volatile ptr, ptr %10, align 8
-  %65 = getelementptr inbounds i8, ptr %.0..0..0..0.32, i64 10320
+  %65 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.32, i64 10320
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
   %68 = inttoptr i64 %67 to ptr
@@ -26181,7 +26181,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 76:                                               ; preds = %74, %72, %58
   store volatile i32 1, ptr %8, align 4
   %.0..0..0..0.33 = load volatile ptr, ptr %10, align 8
-  %77 = getelementptr inbounds i8, ptr %.0..0..0..0.33, i64 10332
+  %77 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.33, i64 10332
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, -1
   br i1 %79, label %.sink.split, label %82
@@ -26189,7 +26189,7 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 .sink.split:                                      ; preds = %76
   %80 = icmp eq i8 %44, 66
   %.0..0..0..0.34 = load volatile ptr, ptr %10, align 8
-  %81 = getelementptr inbounds i8, ptr %.0..0..0..0.34, i64 10332
+  %81 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.34, i64 10332
   %. = select i1 %80, i32 0, i32 -2147483648
   store i32 %., ptr %81, align 4
   store volatile i32 %., ptr %6, align 4
@@ -26209,9 +26209,9 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 88:                                               ; preds = %84
   %.0..0..0..0.79 = load volatile i32, ptr %5, align 4
-  %89 = getelementptr inbounds i8, ptr %1, i64 332
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.79, ptr %89, align 4
-  %90 = getelementptr inbounds i8, ptr %1, i64 336
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 268435455, ptr %90, align 8
   br label %.loopexit
 
@@ -26276,11 +26276,11 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 120:                                              ; preds = %118
   %.0..0..0..0.83 = load volatile i32, ptr %5, align 4
-  %121 = getelementptr inbounds i8, ptr %1, i64 332
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 %.0..0..0..0.83, ptr %121, align 4
   %.0..0..0..0.55 = load volatile i32, ptr %7, align 4
   %122 = sub i32 %.0..0..0..0.55, %26
-  %123 = getelementptr inbounds i8, ptr %1, i64 336
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 %122, ptr %123, align 8
   br label %.loopexit
 
@@ -26424,9 +26424,9 @@ define internal fastcc void @dissect_x11_requests(ptr noundef %0, ptr noundef %1
 
 dissect_x11_initial_conn.exit:                    ; preds = %185, %189
   %192 = load i32, ptr %20, align 4
-  %193 = getelementptr inbounds i8, ptr %.0..0..0..0.36, i64 10324
+  %193 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.36, i64 10324
   store i32 %192, ptr %193, align 4
-  %194 = getelementptr inbounds i8, ptr %.0..0..0..0.36, i64 10320
+  %194 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.36, i64 10320
   store i32 0, ptr %194, align 8
   %195 = load ptr, ptr %.0..0..0..0.36, align 8
   %196 = call ptr @wmem_map_insert(ptr noundef %195, ptr noundef null, ptr noundef nonnull inttoptr (i64 -1 to ptr)) #10
@@ -26452,28 +26452,28 @@ dissect_x11_initial_conn.exit:                    ; preds = %185, %189
 
 201:                                              ; preds = %200
   %.0..0..0..0.15 = load volatile ptr, ptr %13, align 8
-  %202 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 8
+  %202 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 8
   %203 = load volatile i64, ptr %202, align 8
   %204 = icmp eq i64 %203, 3
   br i1 %204, label %217, label %205
 
 205:                                              ; preds = %201
   %.0..0..0..0.16 = load volatile ptr, ptr %13, align 8
-  %206 = getelementptr inbounds i8, ptr %.0..0..0..0.16, i64 8
+  %206 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.16, i64 8
   %207 = load volatile i64, ptr %206, align 8
   %208 = icmp eq i64 %207, 2
   br i1 %208, label %217, label %209
 
 209:                                              ; preds = %205
   %.0..0..0..0.17 = load volatile ptr, ptr %13, align 8
-  %210 = getelementptr inbounds i8, ptr %.0..0..0..0.17, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.17, i64 8
   %211 = load volatile i64, ptr %210, align 8
   %212 = icmp eq i64 %211, 7
   br i1 %212, label %217, label %213
 
 213:                                              ; preds = %209
   %.0..0..0..0.18 = load volatile ptr, ptr %13, align 8
-  %214 = getelementptr inbounds i8, ptr %.0..0..0..0.18, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.18, i64 8
   %215 = load volatile i64, ptr %214, align 8
   %216 = icmp eq i64 %215, 9
   br i1 %216, label %217, label %223
@@ -26483,10 +26483,10 @@ dissect_x11_initial_conn.exit:                    ; preds = %185, %189
   %218 = or i32 %.0..0..0..0.11, 1
   store volatile i32 %218, ptr %14, align 4
   %.0..0..0..0.19 = load volatile ptr, ptr %13, align 8
-  %219 = getelementptr inbounds i8, ptr %.0..0..0..0.19, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.19, i64 8
   %220 = load volatile i64, ptr %219, align 8
   %.0..0..0..0.20 = load volatile ptr, ptr %13, align 8
-  %221 = getelementptr inbounds i8, ptr %.0..0..0..0.20, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.20, i64 16
   %222 = load volatile ptr, ptr %221, align 8
   call void @show_exception(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %220, ptr noundef %222) #10
   br label %223
@@ -26536,7 +26536,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
   %2 = tail call ptr @wmem_file_scope() #10
   %3 = tail call noalias ptr @wmem_alloc(ptr noundef %2, i64 noundef 12472) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12472) %3, i8 0, i64 12472, i1 false)
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %7
 
 .preheader56:                                     ; preds = %7
@@ -26556,26 +26556,26 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
   %11 = load i32, ptr %9, align 16
   %12 = getelementptr [257 x %struct._value_string], ptr %4, i64 0, i64 %10
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %8, ptr %13, align 8
   %14 = add i32 %.057, 1
   %15 = sext i32 %14 to i64
   %16 = getelementptr [122 x %struct._value_string], ptr @opcode_vals, i64 0, i64 %15
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %.not, label %.preheader56, label %7, !llvm.loop !11
 
 .preheader55:                                     ; preds = %20, %.preheader56
-  %19 = getelementptr inbounds i8, ptr %3, i64 4128
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 4128
   br label %24
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv67 = phi i64 [ %6, %.lr.ph ], [ %indvars.iv.next68, %20 ]
   %21 = getelementptr [257 x %struct._value_string], ptr %4, i64 0, i64 %indvars.iv67
   store i32 0, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr null, ptr %22, align 8
   %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
   %23 = and i64 %indvars.iv.next68, 4294967295
@@ -26589,24 +26589,24 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
   %27 = load i32, ptr %26, align 16
   %28 = getelementptr [257 x %struct._value_string], ptr %19, i64 0, i64 %indvars.iv70
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %25, ptr %29, align 8
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %30 = getelementptr [19 x %struct._value_string], ptr @errorcode_vals, i64 0, i64 %indvars.iv.next71
-  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %exitcond73 = icmp eq i64 %indvars.iv.next71, 18
   br i1 %exitcond73, label %.lr.ph61, label %24, !llvm.loop !13
 
 .preheader53:                                     ; preds = %.lr.ph61
-  %33 = getelementptr inbounds i8, ptr %3, i64 8240
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 8240
   br label %36
 
 .lr.ph61:                                         ; preds = %24, %.lr.ph61
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %.lr.ph61 ], [ 18, %24 ]
   %34 = getelementptr [257 x %struct._value_string], ptr %19, i64 0, i64 %indvars.iv74
   store i32 0, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr null, ptr %35, align 8
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next75, 257
@@ -26619,11 +26619,11 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
   %39 = load i32, ptr %38, align 16
   %40 = getelementptr [129 x %struct._value_string], ptr %33, i64 0, i64 %indvars.iv78
   store i32 %39, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %37, ptr %41, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %42 = getelementptr [35 x %struct._value_string], ptr @eventcode_vals, i64 0, i64 %indvars.iv.next79
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %exitcond81 = icmp eq i64 %indvars.iv.next79, 34
   br i1 %exitcond81, label %.lr.ph64, label %36, !llvm.loop !15
@@ -26632,7 +26632,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.lr.ph64 ], [ 34, %36 ]
   %45 = getelementptr [129 x %struct._value_string], ptr %33, i64 0, i64 %indvars.iv82
   store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr null, ptr %46, align 8
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond85.not = icmp eq i64 %indvars.iv.next83, 129
@@ -26641,21 +26641,21 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
 ._crit_edge:                                      ; preds = %.lr.ph64
   %47 = tail call ptr @wmem_file_scope() #10
   %48 = tail call noalias ptr @wmem_map_new(ptr noundef %47, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  %49 = getelementptr inbounds i8, ptr %3, i64 10304
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 10304
   store ptr %48, ptr %49, align 8
   %50 = tail call ptr @wmem_file_scope() #10
   %51 = tail call noalias ptr @wmem_map_new(ptr noundef %50, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  %52 = getelementptr inbounds i8, ptr %3, i64 10312
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 10312
   store ptr %51, ptr %52, align 8
   %53 = tail call ptr @wmem_file_scope() #10
   %54 = tail call noalias ptr @wmem_map_new(ptr noundef %53, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
   store ptr %54, ptr %3, align 8
   %55 = tail call ptr @wmem_file_scope() #10
   %56 = tail call noalias ptr @wmem_map_new(ptr noundef %55, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #10
-  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %56, ptr %57, align 8
   %58 = tail call ptr @wmem_map_insert(ptr noundef %54, ptr noundef null, ptr noundef nonnull inttoptr (i64 -3 to ptr)) #10
-  %59 = getelementptr inbounds i8, ptr %3, i64 10332
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 10332
   store i32 -1, ptr %59, align 4
   %60 = load i32, ptr @proto_x11, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %0, i32 noundef %60, ptr noundef nonnull %3) #10
@@ -26664,7 +26664,7 @@ define internal fastcc noundef ptr @x11_stateinit(ptr noundef nonnull %0) unname
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, -2147483647) i32 @guess_byte_ordering(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 10332
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 10332
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %6 [
     i32 0, label %29
@@ -26672,9 +26672,9 @@ define internal fastcc range(i32 0, -2147483647) i32 @guess_byte_ordering(ptr no
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 284
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 292
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 292
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   br i1 %11, label %29, label %12
@@ -26769,26 +26769,26 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %17 = tail call ptr @wmem_map_lookup(ptr noundef %14, ptr noundef %16) #10
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
-  %20 = getelementptr inbounds i8, ptr %4, i64 10324
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 10324
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %29
 
 23:                                               ; preds = %6
-  %24 = getelementptr inbounds i8, ptr %4, i64 10336
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 10336
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %4, i64 10320
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 10320
   store i32 %13, ptr %28, align 8
   store i32 1, ptr %24, align 8
   br label %29
 
 29:                                               ; preds = %27, %23, %6
   %30 = icmp eq i32 %19, 0
-  %31 = getelementptr inbounds i8, ptr %1, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8
   br i1 %30, label %33, label %34
 
@@ -26799,7 +26799,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 
 34:                                               ; preds = %29
   %35 = and i32 %19, 255
-  %36 = getelementptr inbounds i8, ptr %4, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %37 = tail call ptr @val_to_str(i32 noundef %35, ptr noundef nonnull %36, ptr noundef nonnull @.str.14669) #10
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.14663, ptr noundef %3, ptr noundef %37) #10
   %38 = icmp sgt i32 %19, 255
@@ -26823,7 +26823,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br i1 %.not, label %.thread, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %4, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = tail call ptr @wmem_map_lookup(ptr noundef %48, ptr noundef %16) #10
   %.not1070 = icmp eq ptr %49, null
@@ -26836,7 +26836,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %54 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 11) #10
   store i32 %52, ptr %49, align 8
   %55 = load ptr, ptr @error_table, align 8
-  %56 = getelementptr inbounds i8, ptr %49, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = tail call ptr @wmem_map_lookup(ptr noundef %55, ptr noundef %57) #10
   %.not87.i = icmp eq ptr %58, null
@@ -26844,7 +26844,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 
 .lr.ph.i:                                         ; preds = %50
   %59 = zext i8 %54 to i32
-  %60 = getelementptr inbounds i8, ptr %4, i64 4128
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 4128
   br label %61
 
 61:                                               ; preds = %.loopexit76.i, %.lr.ph.i
@@ -26864,13 +26864,13 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 .preheader75.i:                                   ; preds = %61, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %61 ]
   %66 = getelementptr [257 x %struct._value_string], ptr %60, i64 0, i64 %indvars.iv.i
-  %67 = getelementptr inbounds i8, ptr %66, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %70, label %73
 
 70:                                               ; preds = %.preheader75.i
-  %71 = getelementptr inbounds i8, ptr %66, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store i32 %.06788.i, ptr %66, align 8
   %72 = load ptr, ptr %.06689.i, align 8
   store ptr %72, ptr %71, align 8
@@ -26882,7 +26882,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br i1 %75, label %76, label %65
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %66, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %66, i64 8
   store ptr %62, ptr %77, align 8
   br label %.loopexit76.i
 
@@ -26900,8 +26900,8 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br i1 %.not7094.i, label %.critedge2.i, label %.lr.ph97.i
 
 .lr.ph97.i:                                       ; preds = %.critedge.i
-  %83 = getelementptr inbounds i8, ptr %4, i64 8240
-  %84 = getelementptr inbounds i8, ptr %4, i64 10304
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 8240
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 10304
   %85 = zext i8 %53 to i64
   br label %86
 
@@ -26922,13 +26922,13 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
 .preheader73.i:                                   ; preds = %86, %90
   %indvars.iv108.i = phi i64 [ %indvars.iv.next109.i, %90 ], [ 0, %86 ]
   %91 = getelementptr [129 x %struct._value_string], ptr %83, i64 0, i64 %indvars.iv108.i
-  %92 = getelementptr inbounds i8, ptr %91, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %95, label %99
 
 95:                                               ; preds = %.preheader73.i
-  %96 = getelementptr inbounds i8, ptr %91, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %97 = trunc nuw nsw i64 %indvars.iv112.i to i32
   store i32 %97, ptr %91, align 8
   %98 = load ptr, ptr %.06595.i, align 8
@@ -26942,14 +26942,14 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br i1 %102, label %103, label %90
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %91, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr %87, ptr %104, align 8
   br label %.loopexit74.i
 
 .loopexit74.i:                                    ; preds = %90, %103, %95
   %105 = load ptr, ptr %84, align 8
   %106 = inttoptr i64 %indvars.iv112.i to ptr
-  %107 = getelementptr inbounds i8, ptr %.06595.i, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %.06595.i, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = tail call ptr @wmem_map_insert(ptr noundef %105, ptr noundef %106, ptr noundef %108) #10
   %indvars.iv.next113.i = add nuw nsw i64 %indvars.iv112.i, 1
@@ -26965,13 +26965,13 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   br i1 %.not71.i, label %register_extension.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge2.i
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %115 = load ptr, ptr %114, align 8
   %.not7299.i = icmp eq ptr %115, null
   br i1 %.not7299.i, label %register_extension.exit, label %.lr.ph101.i
 
 .lr.ph101.i:                                      ; preds = %.preheader.i
-  %116 = getelementptr inbounds i8, ptr %4, i64 10312
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 10312
   br label %117
 
 117:                                              ; preds = %117, %.lr.ph101.i
@@ -26989,7 +26989,7 @@ define internal fastcc void @dissect_x11_reply(ptr noundef %0, ptr noundef %1, p
   %128 = add i32 %.2100.i, 1
   %129 = sext i32 %128 to i64
   %130 = getelementptr %struct.x11_reply_info, ptr %113, i64 %129
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not72.i = icmp eq ptr %132, null
   br i1 %.not72.i, label %register_extension.exit, label %117, !llvm.loop !21
@@ -27053,7 +27053,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %144 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %143, i32 noundef %5) #10
   %145 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %146 = zext i16 %144 to i32
-  %147 = getelementptr inbounds i8, ptr %4, i64 16
+  %147 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %148 = tail call ptr @val_to_str(i32 noundef 3, ptr noundef nonnull %147, ptr noundef nonnull @.str.14669) #10
   %149 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %145, ptr noundef %0, i32 noundef %143, i32 noundef 2, i32 noundef %146, ptr noundef nonnull @.str.14672, i32 noundef %146, ptr noundef %148) #10
   %150 = add i32 %141, 3
@@ -27078,7 +27078,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %165 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %164, i32 noundef %5) #10
   %166 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %167 = zext i16 %165 to i32
-  %168 = getelementptr inbounds i8, ptr %4, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %169 = tail call ptr @val_to_str(i32 noundef 14, ptr noundef nonnull %168, ptr noundef nonnull @.str.14669) #10
   %170 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %166, ptr noundef %0, i32 noundef %164, i32 noundef 2, i32 noundef %167, ptr noundef nonnull @.str.14672, i32 noundef %167, ptr noundef %169) #10
   %171 = add i32 %164, 2
@@ -27114,7 +27114,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %197 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %196, i32 noundef %5) #10
   %198 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %199 = zext i16 %197 to i32
-  %200 = getelementptr inbounds i8, ptr %4, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %201 = tail call ptr @val_to_str(i32 noundef 15, ptr noundef nonnull %200, ptr noundef nonnull @.str.14669) #10
   %202 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %198, ptr noundef %0, i32 noundef %196, i32 noundef 2, i32 noundef %199, ptr noundef nonnull @.str.14672, i32 noundef %199, ptr noundef %201) #10
   %203 = add i32 %194, 3
@@ -27140,7 +27140,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %219 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %218, i32 noundef %5) #10
   %220 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %221 = zext i16 %219 to i32
-  %222 = getelementptr inbounds i8, ptr %4, i64 16
+  %222 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %223 = tail call ptr @val_to_str(i32 noundef 16, ptr noundef nonnull %222, ptr noundef nonnull @.str.14669) #10
   %224 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %220, ptr noundef %0, i32 noundef %218, i32 noundef 2, i32 noundef %221, ptr noundef nonnull @.str.14672, i32 noundef %221, ptr noundef %223) #10
   %225 = add i32 %216, 3
@@ -27166,7 +27166,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %240 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %239, i32 noundef %5) #10
   %241 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %242 = zext i16 %240 to i32
-  %243 = getelementptr inbounds i8, ptr %4, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %244 = tail call ptr @val_to_str(i32 noundef 17, ptr noundef nonnull %243, ptr noundef nonnull @.str.14669) #10
   %245 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %241, ptr noundef %0, i32 noundef %239, i32 noundef 2, i32 noundef %242, ptr noundef nonnull @.str.14672, i32 noundef %242, ptr noundef %244) #10
   %246 = add i32 %237, 3
@@ -27191,7 +27191,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %261 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %260, i32 noundef %5) #10
   %262 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %263 = zext i16 %261 to i32
-  %264 = getelementptr inbounds i8, ptr %4, i64 16
+  %264 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %265 = tail call ptr @val_to_str(i32 noundef 20, ptr noundef nonnull %264, ptr noundef nonnull @.str.14669) #10
   %266 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %262, ptr noundef %0, i32 noundef %260, i32 noundef 2, i32 noundef %263, ptr noundef nonnull @.str.14672, i32 noundef %263, ptr noundef %265) #10
   %267 = add i32 %260, 2
@@ -27221,7 +27221,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %286 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %285, i32 noundef %5) #10
   %287 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %288 = zext i16 %286 to i32
-  %289 = getelementptr inbounds i8, ptr %4, i64 16
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %290 = tail call ptr @val_to_str(i32 noundef 21, ptr noundef nonnull %289, ptr noundef nonnull @.str.14669) #10
   %291 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %287, ptr noundef %0, i32 noundef %285, i32 noundef 2, i32 noundef %288, ptr noundef nonnull @.str.14672, i32 noundef %288, ptr noundef %290) #10
   %292 = add i32 %283, 3
@@ -27249,7 +27249,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %309 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %308, i32 noundef %5) #10
   %310 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %311 = zext i16 %309 to i32
-  %312 = getelementptr inbounds i8, ptr %4, i64 16
+  %312 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %313 = tail call ptr @val_to_str(i32 noundef 23, ptr noundef nonnull %312, ptr noundef nonnull @.str.14669) #10
   %314 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %310, ptr noundef %0, i32 noundef %308, i32 noundef 2, i32 noundef %311, ptr noundef nonnull @.str.14672, i32 noundef %311, ptr noundef %313) #10
   %315 = add i32 %306, 3
@@ -27274,7 +27274,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %330 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %329, i32 noundef %5) #10
   %331 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %332 = zext i16 %330 to i32
-  %333 = getelementptr inbounds i8, ptr %4, i64 16
+  %333 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %334 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull %333, ptr noundef nonnull @.str.14669) #10
   %335 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %331, ptr noundef %0, i32 noundef %329, i32 noundef 2, i32 noundef %332, ptr noundef nonnull @.str.14672, i32 noundef %332, ptr noundef %334) #10
   %336 = add i32 %329, 2
@@ -27297,7 +27297,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %349 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %348, i32 noundef %5) #10
   %350 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %351 = zext i16 %349 to i32
-  %352 = getelementptr inbounds i8, ptr %4, i64 16
+  %352 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %353 = tail call ptr @val_to_str(i32 noundef 38, ptr noundef nonnull %352, ptr noundef nonnull @.str.14669) #10
   %354 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %350, ptr noundef %0, i32 noundef %348, i32 noundef 2, i32 noundef %351, ptr noundef nonnull @.str.14672, i32 noundef %351, ptr noundef %353) #10
   %355 = add i32 %348, 2
@@ -27334,7 +27334,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %381 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %380, i32 noundef %5) #10
   %382 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %383 = zext i16 %381 to i32
-  %384 = getelementptr inbounds i8, ptr %4, i64 16
+  %384 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %385 = tail call ptr @val_to_str(i32 noundef 39, ptr noundef nonnull %384, ptr noundef nonnull @.str.14669) #10
   %386 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %382, ptr noundef %0, i32 noundef %380, i32 noundef 2, i32 noundef %383, ptr noundef nonnull @.str.14672, i32 noundef %383, ptr noundef %385) #10
   %387 = add i32 %378, 3
@@ -27359,7 +27359,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %402 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %401, i32 noundef %5) #10
   %403 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %404 = zext i16 %402 to i32
-  %405 = getelementptr inbounds i8, ptr %4, i64 16
+  %405 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %406 = tail call ptr @val_to_str(i32 noundef 40, ptr noundef nonnull %405, ptr noundef nonnull @.str.14669) #10
   %407 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %403, ptr noundef %0, i32 noundef %401, i32 noundef 2, i32 noundef %404, ptr noundef nonnull @.str.14672, i32 noundef %404, ptr noundef %406) #10
   %408 = add i32 %401, 2
@@ -27388,7 +27388,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %427 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %426, i32 noundef %5) #10
   %428 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %429 = zext i16 %427 to i32
-  %430 = getelementptr inbounds i8, ptr %4, i64 16
+  %430 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %431 = tail call ptr @val_to_str(i32 noundef 43, ptr noundef nonnull %430, ptr noundef nonnull @.str.14669) #10
   %432 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %428, ptr noundef %0, i32 noundef %426, i32 noundef 2, i32 noundef %429, ptr noundef nonnull @.str.14672, i32 noundef %429, ptr noundef %431) #10
   %433 = add i32 %426, 2
@@ -27414,7 +27414,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %449 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %448, i32 noundef %5) #10
   %450 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %451 = zext i16 %449 to i32
-  %452 = getelementptr inbounds i8, ptr %4, i64 16
+  %452 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %453 = tail call ptr @val_to_str(i32 noundef 44, ptr noundef nonnull %452, ptr noundef nonnull @.str.14669) #10
   %454 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %450, ptr noundef %0, i32 noundef %448, i32 noundef 2, i32 noundef %451, ptr noundef nonnull @.str.14672, i32 noundef %451, ptr noundef %453) #10
   %455 = add i32 %446, 3
@@ -27438,7 +27438,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %469 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %468, i32 noundef %5) #10
   %470 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %471 = zext i16 %469 to i32
-  %472 = getelementptr inbounds i8, ptr %4, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %473 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull %472, ptr noundef nonnull @.str.14669) #10
   %474 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %470, ptr noundef %0, i32 noundef %468, i32 noundef 2, i32 noundef %471, ptr noundef nonnull @.str.14672, i32 noundef %471, ptr noundef %473) #10
   %475 = add i32 %466, 3
@@ -27464,7 +27464,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %491 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %490, i32 noundef %5) #10
   %492 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %493 = zext i16 %491 to i32
-  %494 = getelementptr inbounds i8, ptr %4, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %495 = tail call ptr @val_to_str(i32 noundef 84, ptr noundef nonnull %494, ptr noundef nonnull @.str.14669) #10
   %496 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %492, ptr noundef %0, i32 noundef %490, i32 noundef 2, i32 noundef %493, ptr noundef nonnull @.str.14672, i32 noundef %493, ptr noundef %495) #10
   %497 = add i32 %488, 3
@@ -27501,7 +27501,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %523 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %522, i32 noundef %5) #10
   %524 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %525 = zext i16 %523 to i32
-  %526 = getelementptr inbounds i8, ptr %4, i64 16
+  %526 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %527 = tail call ptr @val_to_str(i32 noundef 91, ptr noundef nonnull %526, ptr noundef nonnull @.str.14669) #10
   %528 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %524, ptr noundef %0, i32 noundef %522, i32 noundef 2, i32 noundef %525, ptr noundef nonnull @.str.14672, i32 noundef %525, ptr noundef %527) #10
   %529 = add i32 %520, 3
@@ -27527,7 +27527,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %545 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %544, i32 noundef %5) #10
   %546 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %547 = zext i16 %545 to i32
-  %548 = getelementptr inbounds i8, ptr %4, i64 16
+  %548 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %549 = tail call ptr @val_to_str(i32 noundef 92, ptr noundef nonnull %548, ptr noundef nonnull @.str.14669) #10
   %550 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %546, ptr noundef %0, i32 noundef %544, i32 noundef 2, i32 noundef %547, ptr noundef nonnull @.str.14672, i32 noundef %547, ptr noundef %549) #10
   %551 = add i32 %542, 3
@@ -27563,7 +27563,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %577 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %576, i32 noundef %5) #10
   %578 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %579 = zext i16 %577 to i32
-  %580 = getelementptr inbounds i8, ptr %4, i64 16
+  %580 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %581 = tail call ptr @val_to_str(i32 noundef 97, ptr noundef nonnull %580, ptr noundef nonnull @.str.14669) #10
   %582 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %578, ptr noundef %0, i32 noundef %576, i32 noundef 2, i32 noundef %579, ptr noundef nonnull @.str.14672, i32 noundef %579, ptr noundef %581) #10
   %583 = add i32 %574, 3
@@ -27591,7 +27591,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %601 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %600, i32 noundef %5) #10
   %602 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %603 = zext i16 %601 to i32
-  %604 = getelementptr inbounds i8, ptr %4, i64 16
+  %604 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %605 = tail call ptr @val_to_str(i32 noundef 98, ptr noundef nonnull %604, ptr noundef nonnull @.str.14669) #10
   %606 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %602, ptr noundef %0, i32 noundef %600, i32 noundef 2, i32 noundef %603, ptr noundef nonnull @.str.14672, i32 noundef %603, ptr noundef %605) #10
   %607 = add i32 %598, 3
@@ -27623,7 +27623,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %629 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %628, i32 noundef %5) #10
   %630 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %631 = zext i16 %629 to i32
-  %632 = getelementptr inbounds i8, ptr %4, i64 16
+  %632 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %633 = tail call ptr @val_to_str(i32 noundef 99, ptr noundef nonnull %632, ptr noundef nonnull @.str.14669) #10
   %634 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %630, ptr noundef %0, i32 noundef %628, i32 noundef 2, i32 noundef %631, ptr noundef nonnull @.str.14672, i32 noundef %631, ptr noundef %633) #10
   %635 = add i32 %626, 3
@@ -27640,21 +27640,21 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   br label %820
 
 644:                                              ; preds = %136
-  %645 = getelementptr inbounds i8, ptr %4, i64 12468
+  %645 = getelementptr inbounds nuw i8, ptr %4, i64 12468
   %646 = load i32, ptr %645, align 4
-  %647 = getelementptr inbounds i8, ptr %4, i64 12396
+  %647 = getelementptr inbounds nuw i8, ptr %4, i64 12396
   store i32 %646, ptr %647, align 4
   %648 = load i32, ptr @hf_x11_reply, align 4
   %649 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %648, i32 noundef %5)
   %650 = load i32, ptr @hf_x11_keysyms_per_keycode, align 4
   %651 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %650, i32 noundef %5)
-  %652 = getelementptr inbounds i8, ptr %4, i64 12392
+  %652 = getelementptr inbounds nuw i8, ptr %4, i64 12392
   store i32 %651, ptr %652, align 8
   %653 = load i32, ptr %7, align 4
   %654 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %653, i32 noundef %5) #10
   %655 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %656 = zext i16 %654 to i32
-  %657 = getelementptr inbounds i8, ptr %4, i64 16
+  %657 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %658 = tail call ptr @val_to_str(i32 noundef 101, ptr noundef nonnull %657, ptr noundef nonnull @.str.14669) #10
   %659 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %655, ptr noundef %0, i32 noundef %653, i32 noundef 2, i32 noundef %656, ptr noundef nonnull @.str.14672, i32 noundef %656, ptr noundef %658) #10
   %660 = add i32 %653, 2
@@ -27668,7 +27668,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   store i32 %666, ptr %7, align 4
   %667 = load i32, ptr @hf_x11_keysyms, align 4
   %668 = load i32, ptr @hf_x11_keysyms_item, align 4
-  %669 = getelementptr inbounds i8, ptr %4, i64 10344
+  %669 = getelementptr inbounds nuw i8, ptr %4, i64 10344
   %670 = load i32, ptr %645, align 4
   %671 = load i32, ptr %652, align 8
   %.not1071 = icmp eq i32 %671, 0
@@ -27693,7 +27693,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %683 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %682, i32 noundef %5) #10
   %684 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %685 = zext i16 %683 to i32
-  %686 = getelementptr inbounds i8, ptr %4, i64 16
+  %686 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %687 = tail call ptr @val_to_str(i32 noundef 103, ptr noundef nonnull %686, ptr noundef nonnull @.str.14669) #10
   %688 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %684, ptr noundef %0, i32 noundef %682, i32 noundef 2, i32 noundef %685, ptr noundef nonnull @.str.14672, i32 noundef %685, ptr noundef %687) #10
   %689 = add i32 %680, 3
@@ -27719,7 +27719,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %705 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %704, i32 noundef %5) #10
   %706 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %707 = zext i16 %705 to i32
-  %708 = getelementptr inbounds i8, ptr %4, i64 16
+  %708 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %709 = tail call ptr @val_to_str(i32 noundef 106, ptr noundef nonnull %708, ptr noundef nonnull @.str.14669) #10
   %710 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %706, ptr noundef %0, i32 noundef %704, i32 noundef 2, i32 noundef %707, ptr noundef nonnull @.str.14672, i32 noundef %707, ptr noundef %709) #10
   %711 = add i32 %702, 3
@@ -27749,7 +27749,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %731 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %730, i32 noundef %5) #10
   %732 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %733 = zext i16 %731 to i32
-  %734 = getelementptr inbounds i8, ptr %4, i64 16
+  %734 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %735 = tail call ptr @val_to_str(i32 noundef 108, ptr noundef nonnull %734, ptr noundef nonnull @.str.14669) #10
   %736 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %732, ptr noundef %0, i32 noundef %730, i32 noundef 2, i32 noundef %733, ptr noundef nonnull @.str.14672, i32 noundef %733, ptr noundef %735) #10
   %737 = add i32 %728, 3
@@ -27781,7 +27781,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %759 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %758, i32 noundef %5) #10
   %760 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %761 = zext i16 %759 to i32
-  %762 = getelementptr inbounds i8, ptr %4, i64 16
+  %762 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %763 = tail call ptr @val_to_str(i32 noundef %19, ptr noundef nonnull %762, ptr noundef nonnull @.str.14669) #10
   %764 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %760, ptr noundef %0, i32 noundef %758, i32 noundef 2, i32 noundef %761, ptr noundef nonnull @.str.14672, i32 noundef %761, ptr noundef %763) #10
   %765 = add i32 %756, 3
@@ -27802,13 +27802,13 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %776 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %775, i32 noundef %5)
   %777 = load i32, ptr @hf_x11_keycodes_per_modifier, align 4
   %778 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %11, i32 noundef %777, i32 noundef %5)
-  %779 = getelementptr inbounds i8, ptr %4, i64 12464
+  %779 = getelementptr inbounds nuw i8, ptr %4, i64 12464
   store i32 %778, ptr %779, align 8
   %780 = load i32, ptr %7, align 4
   %781 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %780, i32 noundef %5) #10
   %782 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %783 = zext i16 %781 to i32
-  %784 = getelementptr inbounds i8, ptr %4, i64 16
+  %784 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %785 = tail call ptr @val_to_str(i32 noundef 119, ptr noundef nonnull %784, ptr noundef nonnull @.str.14669) #10
   %786 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %782, ptr noundef %0, i32 noundef %780, i32 noundef 2, i32 noundef %783, ptr noundef nonnull @.str.14672, i32 noundef %783, ptr noundef %785) #10
   %787 = add i32 %780, 2
@@ -27821,7 +27821,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %793 = add i32 %791, 24
   store i32 %793, ptr %7, align 4
   %794 = load i32, ptr @hf_x11_keycodes, align 4
-  %795 = getelementptr inbounds i8, ptr %4, i64 12400
+  %795 = getelementptr inbounds nuw i8, ptr %4, i64 12400
   %796 = load i32, ptr %779, align 8
   call fastcc void @listOfKeycode(ptr noundef %0, ptr noundef %7, ptr noundef %11, i32 noundef %794, ptr noundef nonnull %795, i32 noundef %796)
   br label %820
@@ -27836,7 +27836,7 @@ register_extension.exit:                          ; preds = %117, %.critedge2.i,
   %804 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %803, i32 noundef %5) #10
   %805 = load i32, ptr @hf_x11_reply_sequencenumber, align 4
   %806 = zext i16 %804 to i32
-  %807 = getelementptr inbounds i8, ptr %4, i64 16
+  %807 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %808 = tail call ptr @val_to_str(i32 noundef 0, ptr noundef nonnull %807, ptr noundef nonnull @.str.14669) #10
   %809 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %805, ptr noundef %0, i32 noundef %803, i32 noundef 2, i32 noundef %806, ptr noundef nonnull @.str.14672, i32 noundef %806, ptr noundef %808) #10
   %810 = add i32 %801, 3
@@ -27882,10 +27882,10 @@ define internal fastcc void @dissect_x11_event(ptr noundef %0, ptr nocapture nou
   %12 = zext i8 %11 to i32
   %.not = icmp sgt i8 %11, -1
   %13 = select i1 %.not, ptr @.str.14689, ptr @.str.14688
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = and i32 %12, 127
-  %17 = getelementptr inbounds i8, ptr %4, i64 8240
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8240
   %18 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull @.str.14691) #10
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.14690, ptr noundef %3, ptr noundef nonnull %13, ptr noundef %18) #10
   %19 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull @.str.14691) #10
@@ -28626,7 +28626,7 @@ define internal fastcc range(i32 0, 256) i32 @field8(ptr noundef %0, ptr nocaptu
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %6) #10
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @proto_registrar_get_nth(i32 noundef %3) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread, label %12
@@ -28638,7 +28638,7 @@ define internal fastcc range(i32 0, 256) i32 @field8(ptr noundef %0, ptr nocaptu
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   %19 = select i1 %18, ptr @.str.14657, ptr @.str.14658
@@ -28664,7 +28664,7 @@ define internal fastcc range(i32 0, 65536) i32 @field16(ptr noundef %0, ptr noca
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %8 = zext i16 %7 to i32
   %9 = tail call ptr @proto_registrar_get_nth(i32 noundef %3) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread, label %12
@@ -28676,7 +28676,7 @@ define internal fastcc range(i32 0, 65536) i32 @field16(ptr noundef %0, ptr noca
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %9, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   %19 = select i1 %18, ptr @.str.14657, ptr @.str.14658
@@ -28702,7 +28702,7 @@ define internal fastcc i32 @field32(ptr noundef %0, ptr nocapture noundef %1, pt
   %7 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef %6, i32 noundef %4) #10
   %8 = tail call ptr @proto_registrar_get_nth(i32 noundef %3) #10
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.thread, label %12
@@ -28714,7 +28714,7 @@ define internal fastcc i32 @field32(ptr noundef %0, ptr nocapture noundef %1, pt
 
 14:                                               ; preds = %12
   %15 = load i32, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %8, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 1
   %19 = select i1 %18, ptr @.str.14657, ptr @.str.14659
@@ -28723,7 +28723,7 @@ define internal fastcc i32 @field32(ptr noundef %0, ptr nocapture noundef %1, pt
 
 .thread:                                          ; preds = %5, %12
   %21 = load i32, ptr %1, align 4
-  %22 = getelementptr inbounds i8, ptr %8, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 1
   %25 = select i1 %24, ptr @.str.14660, ptr @.str.14661
@@ -28771,7 +28771,7 @@ define internal fastcc void @atom(ptr noundef %0, ptr nocapture noundef nonnull 
 
 14:                                               ; preds = %13
   %15 = tail call ptr @proto_registrar_get_nth(i32 noundef %3) #10
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %.not25 = icmp eq ptr %17, null
   br i1 %.not25, label %20, label %18
@@ -28883,7 +28883,7 @@ define internal fastcc void @setOfKeyButMask(ptr noundef %0, ptr nocapture nound
   %47 = tail call ptr @proto_tree_add_boolean(ptr noundef %19, i32 noundef %46, ptr noundef %0, i32 noundef %8, i32 noundef 2, i64 noundef %21) #10
   %48 = load i32, ptr @hf_x11_keybut_mask_erroneous_bits, align 4
   %49 = tail call ptr @proto_registrar_get_nth(i32 noundef %48) #10
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, %21
   %.not95 = icmp eq i64 %52, 0
@@ -28897,7 +28897,7 @@ define internal fastcc void @setOfKeyButMask(ptr noundef %0, ptr nocapture nound
 .critedge:                                        ; preds = %14
   %56 = load i32, ptr @hf_x11_modifiers_mask_erroneous_bits, align 4
   %57 = tail call ptr @proto_registrar_get_nth(i32 noundef %56) #10
-  %58 = getelementptr inbounds i8, ptr %57, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, %21
   %.not94 = icmp eq i64 %60, 0
@@ -29180,7 +29180,7 @@ define internal fastcc void @listOfKeycode(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tryExtensionReply(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 10312
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 10312
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %0 to i64
   %11 = inttoptr i64 %10 to ptr
@@ -29206,7 +29206,7 @@ define internal fastcc void @tryExtensionReply(i32 noundef %0, ptr noundef %1, p
   %24 = load i32, ptr %3, align 4
   %25 = zext i16 %22 to i32
   %26 = and i32 %0, 255
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = tail call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull %27, ptr noundef nonnull @.str.14669) #10
   %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %4, i32 noundef %23, ptr noundef %1, i32 noundef %24, i32 noundef 2, i32 noundef %25, ptr noundef nonnull @.str.14672, i32 noundef %25, ptr noundef %28) #10
   %30 = load i32, ptr %3, align 4
@@ -29256,7 +29256,7 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %14 = load i32, ptr @hf_x11_eventcode, align 4
   %15 = zext i8 %1 to i32
   %16 = and i32 %15, 127
-  %17 = getelementptr inbounds i8, ptr %4, i64 8240
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8240
   %18 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef nonnull %17, ptr noundef nonnull @.str.14691) #10
   %19 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %3, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %15, ptr noundef nonnull @.str.14693, i32 noundef %15, ptr noundef %2, ptr noundef %18) #10
   store i32 1, ptr %13, align 4
@@ -29303,13 +29303,13 @@ define internal fastcc void @decode_x11_event(ptr noundef %0, i8 noundef zeroext
   %23 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 28, i32 noundef %5) #10
   %24 = zext i16 %23 to i32
   %25 = load i32, ptr @hf_x11_keycode, align 4
-  %26 = getelementptr inbounds i8, ptr %4, i64 10344
-  %27 = getelementptr inbounds i8, ptr %4, i64 12396
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 10344
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 12396
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %4, i64 12392
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 12392
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %4, i64 12400
-  %32 = getelementptr inbounds i8, ptr %4, i64 12464
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 12400
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 12464
   %33 = load i32, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
@@ -30290,7 +30290,7 @@ timestamp.exit899:                                ; preds = %298, %302
 
 651:                                              ; preds = %650
   %652 = tail call ptr @proto_registrar_get_nth(i32 noundef %642) #10
-  %653 = getelementptr inbounds i8, ptr %652, i64 24
+  %653 = getelementptr inbounds nuw i8, ptr %652, i64 24
   %654 = load ptr, ptr %653, align 8
   %.not25.i = icmp eq ptr %654, null
   br i1 %.not25.i, label %atom.exit, label %655
@@ -30380,7 +30380,7 @@ timestamp.exit905:                                ; preds = %684, %688
 
 702:                                              ; preds = %701
   %703 = tail call ptr @proto_registrar_get_nth(i32 noundef %693) #10
-  %704 = getelementptr inbounds i8, ptr %703, i64 24
+  %704 = getelementptr inbounds nuw i8, ptr %703, i64 24
   %705 = load ptr, ptr %704, align 8
   %.not25.i911 = icmp eq ptr %705, null
   br i1 %.not25.i911, label %atom.exit912, label %706
@@ -30451,7 +30451,7 @@ timestamp.exit914:                                ; preds = %723, %727
 
 743:                                              ; preds = %742
   %744 = tail call ptr @proto_registrar_get_nth(i32 noundef %734) #10
-  %745 = getelementptr inbounds i8, ptr %744, i64 24
+  %745 = getelementptr inbounds nuw i8, ptr %744, i64 24
   %746 = load ptr, ptr %745, align 8
   %.not25.i920 = icmp eq ptr %746, null
   br i1 %.not25.i920, label %atom.exit921, label %747
@@ -30487,7 +30487,7 @@ atom.exit921:                                     ; preds = %738, %742, %743, %7
 
 761:                                              ; preds = %760
   %762 = tail call ptr @proto_registrar_get_nth(i32 noundef %753) #10
-  %763 = getelementptr inbounds i8, ptr %762, i64 24
+  %763 = getelementptr inbounds nuw i8, ptr %762, i64 24
   %764 = load ptr, ptr %763, align 8
   %.not25.i927 = icmp eq ptr %764, null
   br i1 %.not25.i927, label %atom.exit928, label %765
@@ -30522,7 +30522,7 @@ atom.exit928:                                     ; preds = %756, %760, %761, %7
 
 779:                                              ; preds = %778
   %780 = tail call ptr @proto_registrar_get_nth(i32 noundef %771) #10
-  %781 = getelementptr inbounds i8, ptr %780, i64 24
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 24
   %782 = load ptr, ptr %781, align 8
   %.not25.i934 = icmp eq ptr %782, null
   br i1 %.not25.i934, label %atom.exit935, label %783
@@ -30591,7 +30591,7 @@ timestamp.exit937:                                ; preds = %800, %804
 
 818:                                              ; preds = %817
   %819 = tail call ptr @proto_registrar_get_nth(i32 noundef %809) #10
-  %820 = getelementptr inbounds i8, ptr %819, i64 24
+  %820 = getelementptr inbounds nuw i8, ptr %819, i64 24
   %821 = load ptr, ptr %820, align 8
   %.not25.i943 = icmp eq ptr %821, null
   br i1 %.not25.i943, label %atom.exit944, label %822
@@ -30627,7 +30627,7 @@ atom.exit944:                                     ; preds = %813, %817, %818, %8
 
 836:                                              ; preds = %835
   %837 = tail call ptr @proto_registrar_get_nth(i32 noundef %828) #10
-  %838 = getelementptr inbounds i8, ptr %837, i64 24
+  %838 = getelementptr inbounds nuw i8, ptr %837, i64 24
   %839 = load ptr, ptr %838, align 8
   %.not25.i950 = icmp eq ptr %839, null
   br i1 %.not25.i950, label %atom.exit951, label %840
@@ -30662,7 +30662,7 @@ atom.exit951:                                     ; preds = %831, %835, %836, %8
 
 854:                                              ; preds = %853
   %855 = tail call ptr @proto_registrar_get_nth(i32 noundef %846) #10
-  %856 = getelementptr inbounds i8, ptr %855, i64 24
+  %856 = getelementptr inbounds nuw i8, ptr %855, i64 24
   %857 = load ptr, ptr %856, align 8
   %.not25.i957 = icmp eq ptr %857, null
   br i1 %.not25.i957, label %atom.exit958, label %858
@@ -30737,7 +30737,7 @@ atom.exit958:                                     ; preds = %849, %853, %854, %8
 
 904:                                              ; preds = %903
   %905 = tail call ptr @proto_registrar_get_nth(i32 noundef %895) #10
-  %906 = getelementptr inbounds i8, ptr %905, i64 24
+  %906 = getelementptr inbounds nuw i8, ptr %905, i64 24
   %907 = load ptr, ptr %906, align 8
   %.not25.i964 = icmp eq ptr %907, null
   br i1 %.not25.i964, label %atom.exit965, label %908
@@ -30783,7 +30783,7 @@ atom.exit965:                                     ; preds = %899, %903, %904, %9
   %933 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
   %934 = zext i8 %933 to i32
   store i32 2, ptr %13, align 4
-  %935 = getelementptr inbounds i8, ptr %4, i64 16
+  %935 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %936 = tail call ptr @try_val_to_str(i32 noundef %934, ptr noundef nonnull %935) #10
   %.not.i966 = icmp eq ptr %936, null
   %937 = load i32, ptr @hf_x11_extension, align 4
@@ -30817,7 +30817,7 @@ atom.exit965:                                     ; preds = %899, %903, %904, %9
 
 954:                                              ; preds = %951
   %955 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %950, i32 noundef %5) #10
-  %956 = getelementptr inbounds i8, ptr %953, i64 8
+  %956 = getelementptr inbounds nuw i8, ptr %953, i64 8
   %957 = load ptr, ptr %956, align 8
   %.not5254.i = icmp eq ptr %957, null
   br i1 %.not5254.i, label %.loopexit.i, label %.lr.ph.i.preheader
@@ -30832,7 +30832,7 @@ atom.exit965:                                     ; preds = %899, %903, %904, %9
   %960 = add i32 %.055.i993, 1
   %961 = sext i32 %960 to i64
   %962 = getelementptr %struct.x11_generic_event_info, ptr %953, i64 %961
-  %963 = getelementptr inbounds i8, ptr %962, i64 8
+  %963 = getelementptr inbounds nuw i8, ptr %962, i64 8
   %964 = load ptr, ptr %963, align 8
   %.not52.i = icmp eq ptr %964, null
   br i1 %.not52.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !38
@@ -31325,16 +31325,16 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %18 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %17, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #10
   %19 = load i32, ptr @ett_x11, align 4
   %20 = tail call ptr @proto_item_add_subtree(ptr noundef %18, i32 noundef %19) #10
-  %21 = getelementptr inbounds i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 50
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 50
   %24 = load i16, ptr %23, align 2
   %25 = and i16 %24, 8
   %.not = icmp eq i16 %25, 0
   br i1 %.not, label %26, label %30
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %4, i64 10320
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 10320
   %28 = load i32, ptr %27, align 8
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 8
@@ -31346,9 +31346,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %33 = load i32, ptr @hf_x11_opcode, align 4
   %34 = tail call ptr @proto_tree_add_uint(ptr noundef %20, i32 noundef %33, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %32) #10
   store i32 1, ptr %7, align 4
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %38 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull %37, ptr noundef nonnull @.str.14669) #10
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %36, i32 noundef 25, ptr noundef nonnull @.str.14663, ptr noundef %3, ptr noundef %38) #10
   %39 = tail call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull %37, ptr noundef nonnull @.str.14669) #10
@@ -31412,13 +31412,13 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 47:                                               ; preds = %40, %46
   %indvars.iv = phi i64 [ 0, %40 ], [ %indvars.iv.next, %46 ]
   %48 = getelementptr [257 x %struct._value_string], ptr %37, i64 0, i64 %indvars.iv
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %54
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %48, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %45, ptr %53, align 8
   store i32 -1, ptr %48, align 8
   br label %.loopexit.sink.split
@@ -31429,9 +31429,9 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   br i1 %56, label %.loopexit.sink.split, label %46
 
 .loopexit.sink.split:                             ; preds = %54, %52
-  %57 = getelementptr inbounds i8, ptr %4, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %4, i64 10320
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 10320
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
   %62 = inttoptr i64 %61 to ptr
@@ -31440,7 +31440,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
 
 .loopexit:                                        ; preds = %46, %.loopexit.sink.split, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds i8, ptr %4, i64 10320
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 10320
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
   %68 = inttoptr i64 %67 to ptr
@@ -31457,7 +31457,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %75 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
   %76 = zext i8 %75 to i32
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds i8, ptr %4, i64 10320
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 10320
   %79 = load i32, ptr %78, align 8
   %80 = sext i32 %79 to i64
   %81 = inttoptr i64 %80 to ptr
@@ -32042,7 +32042,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %382 = select i1 %.not2821, ptr @.str.14689, ptr @.str.14688
   %383 = load i32, ptr @ett_x11_event, align 4
   %384 = and i32 %381, 127
-  %385 = getelementptr inbounds i8, ptr %4, i64 8240
+  %385 = getelementptr inbounds nuw i8, ptr %4, i64 8240
   %386 = tail call ptr @val_to_str(i32 noundef %384, ptr noundef nonnull %385, ptr noundef nonnull @.str.14691) #10
   %387 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %379, i32 noundef 0, i32 noundef -1, i32 noundef %383, ptr noundef null, ptr noundef nonnull @.str.14705, i32 noundef %381, ptr noundef %386) #10
   tail call fastcc void @decode_x11_event(ptr noundef %379, i8 noundef zeroext %380, ptr noundef nonnull %382, ptr noundef %387, ptr noundef %4, i32 noundef %5)
@@ -33370,7 +33370,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   store i32 %1381, ptr %7, align 4
   %1382 = load i32, ptr @hf_x11_keysyms, align 4
   %1383 = load i32, ptr @hf_x11_keysyms_item, align 4
-  %1384 = getelementptr inbounds i8, ptr %4, i64 10344
+  %1384 = getelementptr inbounds nuw i8, ptr %4, i64 10344
   call fastcc void @listOfKeysyms(ptr noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %20, i32 noundef %1382, i32 noundef %1383, ptr noundef nonnull %1384, i32 noundef %1375, i32 noundef %1372, i32 noundef %1377, i32 noundef %5)
   br label %1627
 
@@ -33381,7 +33381,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1388 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1389 = load i32, ptr @hf_x11_first_keycode, align 4
   %1390 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1389, i32 noundef %5)
-  %1391 = getelementptr inbounds i8, ptr %4, i64 12468
+  %1391 = getelementptr inbounds nuw i8, ptr %4, i64 12468
   store i32 %1390, ptr %1391, align 4
   %1392 = load i32, ptr @hf_x11_count, align 4
   %1393 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1392, i32 noundef %5)
@@ -33715,7 +33715,7 @@ define internal fastcc void @dissect_x11_request(ptr noundef %0, ptr noundef %1,
   %1614 = call fastcc i32 @field8(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %1613, i32 noundef %5)
   %1615 = call fastcc i32 @requestLength(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %20, i32 noundef %5)
   %1616 = load i32, ptr @hf_x11_keycodes, align 4
-  %1617 = getelementptr inbounds i8, ptr %4, i64 12400
+  %1617 = getelementptr inbounds nuw i8, ptr %4, i64 12400
   call fastcc void @listOfKeycode(ptr noundef %0, ptr noundef %7, ptr noundef %20, i32 noundef %1616, ptr noundef nonnull %1617, i32 noundef %1614)
   br label %1627
 
@@ -35397,7 +35397,7 @@ define internal fastcc void @colorFlags(ptr noundef %0, ptr nocapture noundef no
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tryExtension(i32 noundef range(i32 0, 256) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #1 {
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %9 = tail call ptr @try_val_to_str(i32 noundef %0, ptr noundef nonnull %8) #10
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %14, label %10
@@ -35472,7 +35472,7 @@ define internal void @dispatch_bigreq(ptr noundef %0, ptr nocapture noundef read
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @bigreq_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -35481,7 +35481,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @bigreqEnable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14729) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -35543,7 +35543,7 @@ define internal void @dispatch_composite(ptr noundef %0, ptr nocapture noundef r
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @composite_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -35674,7 +35674,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @compositeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -35718,7 +35718,7 @@ define internal void @compositeQueryVersion_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @compositeGetOverlayWindow_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14733) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -35783,7 +35783,7 @@ define internal void @dispatch_damage(ptr noundef %0, ptr nocapture noundef read
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @damage_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -35874,7 +35874,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @damageQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -35944,7 +35944,7 @@ define internal void @dispatch_dbe(ptr noundef %0, ptr nocapture noundef readonl
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dbe_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -36090,7 +36090,7 @@ dbeSwapBuffers.exit:                              ; preds = %.lr.ph.i.i58, %.lr.
 
 ; Function Attrs: nounwind uwtable
 define internal void @dbeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36134,7 +36134,7 @@ define internal void @dbeQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dbeGetVisualInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14741) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36238,7 +36238,7 @@ struct_dbe_VisualInfos.exit:                      ; preds = %struct_dbe_VisualIn
 
 ; Function Attrs: nounwind uwtable
 define internal void @dbeGetBackBufferAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14743) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36308,7 +36308,7 @@ define internal void @dispatch_dpms(ptr noundef %0, ptr nocapture noundef readon
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dpms_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -36374,7 +36374,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @dpmsGetVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36413,7 +36413,7 @@ define internal void @dpmsGetVersion_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @dpmsCapable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14748) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36452,7 +36452,7 @@ define internal void @dpmsCapable_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @dpmsGetTimeouts_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14750) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36501,7 +36501,7 @@ define internal void @dpmsGetTimeouts_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dpmsInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14752) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36572,7 +36572,7 @@ requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   %23 = shl i32 %22, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dri2_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
@@ -36908,7 +36908,7 @@ define internal void @dri2InvalidateBuffers(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2QueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -36947,7 +36947,7 @@ define internal void @dri2QueryVersion_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2Connect_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14757) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37016,7 +37016,7 @@ define internal void @dri2Connect_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2Authenticate_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14759) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37050,7 +37050,7 @@ define internal void @dri2Authenticate_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2GetBuffers_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14761) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37102,7 +37102,7 @@ define internal void @dri2GetBuffers_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2CopyRegion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14763) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37131,7 +37131,7 @@ define internal void @dri2CopyRegion_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2GetBuffersWithFormat_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14765) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37183,7 +37183,7 @@ define internal void @dri2GetBuffersWithFormat_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2SwapBuffers_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14767) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37222,7 +37222,7 @@ define internal void @dri2SwapBuffers_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2GetMSC_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14769) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37281,7 +37281,7 @@ define internal void @dri2GetMSC_Reply(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2WaitMSC_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14771) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37340,7 +37340,7 @@ define internal void @dri2WaitMSC_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2WaitSBC_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14773) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37399,7 +37399,7 @@ define internal void @dri2WaitSBC_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri2GetParam_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14775) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37511,7 +37511,7 @@ define internal void @dispatch_dri3(ptr noundef %0, ptr nocapture noundef readon
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @dri3_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -37779,7 +37779,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri3QueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37818,7 +37818,7 @@ define internal void @dri3QueryVersion_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri3Open_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14779) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37852,7 +37852,7 @@ define internal void @dri3Open_Reply(ptr noundef %0, ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri3BufferFromPixmap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14781) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37916,7 +37916,7 @@ define internal void @dri3BufferFromPixmap_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri3FDFromFence_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14783) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -37950,7 +37950,7 @@ define internal void @dri3FDFromFence_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri3GetSupportedModifiers_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14785) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -38046,7 +38046,7 @@ listOfCard64.exit58:                              ; preds = %.lr.ph.i55, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @dri3BuffersFromPixmap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14787) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -38185,7 +38185,7 @@ define internal void @dispatch_ge(ptr noundef %0, ptr nocapture noundef readonly
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @ge_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -38212,7 +38212,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @geQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -38285,7 +38285,7 @@ requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   %23 = shl i32 %22, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @glx_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
@@ -50166,7 +50166,7 @@ define internal void @glxBufferSwapComplete(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxMakeCurrent_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14807) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50205,7 +50205,7 @@ define internal void @glxMakeCurrent_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxIsDirect_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14809) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50244,7 +50244,7 @@ define internal void @glxIsDirect_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50288,7 +50288,7 @@ define internal void @glxQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetVisualConfigs_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14812) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50359,7 +50359,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxVendorPrivateWithReply_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14814) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50407,7 +50407,7 @@ define internal void @glxVendorPrivateWithReply_Reply(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxQueryExtensionsString_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14816) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50451,7 +50451,7 @@ define internal void @glxQueryExtensionsString_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxQueryServerString_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14818) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50503,7 +50503,7 @@ define internal void @glxQueryServerString_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetFBConfigs_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14820) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50574,7 +50574,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxQueryContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14822) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50641,7 +50641,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxMakeContextCurrent_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14824) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50680,7 +50680,7 @@ define internal void @glxMakeContextCurrent_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetDrawableAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14826) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50747,7 +50747,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGenLists_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14828) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50781,7 +50781,7 @@ define internal void @glxGenLists_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxRenderMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14830) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50857,7 +50857,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxFinish_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14832) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50886,7 +50886,7 @@ define internal void @glxFinish_Reply(ptr noundef %0, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxReadPixels_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14834) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50929,7 +50929,7 @@ define internal void @glxReadPixels_Reply(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetBooleanv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14836) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -50986,7 +50986,7 @@ define internal void @glxGetBooleanv_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetClipPlane_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14838) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51049,7 +51049,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetDoublev_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14840) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51125,7 +51125,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetError_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14842) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51159,7 +51159,7 @@ define internal void @glxGetError_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetFloatv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14844) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51235,7 +51235,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetIntegerv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14846) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51311,7 +51311,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetLightfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14848) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51387,7 +51387,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetLightiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14850) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51463,7 +51463,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMapdv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14852) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51539,7 +51539,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMapfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14854) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51615,7 +51615,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMapiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14856) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51691,7 +51691,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMaterialfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14858) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51767,7 +51767,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMaterialiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14860) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51843,7 +51843,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetPixelMapfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14862) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51919,7 +51919,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetPixelMapuiv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14864) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -51995,7 +51995,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetPixelMapusv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14866) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52071,7 +52071,7 @@ listOfCard16.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetPolygonStipple_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14868) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52114,7 +52114,7 @@ define internal void @glxGetPolygonStipple_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetString_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14870) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52166,7 +52166,7 @@ define internal void @glxGetString_Reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexEnvfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14872) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52242,7 +52242,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexEnviv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14874) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52318,7 +52318,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexGendv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14876) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52394,7 +52394,7 @@ listOfDouble.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexGenfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14878) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52470,7 +52470,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexGeniv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14880) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52546,7 +52546,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexImage_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14882) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52609,7 +52609,7 @@ define internal void @glxGetTexImage_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14884) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52685,7 +52685,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14886) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52761,7 +52761,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexLevelParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14888) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52837,7 +52837,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetTexLevelParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14890) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52913,7 +52913,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxIsEnabled_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14892) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52947,7 +52947,7 @@ define internal void @glxIsEnabled_Reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxIsList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14894) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -52981,7 +52981,7 @@ define internal void @glxIsList_Reply(ptr noundef %0, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxAreTexturesResident_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14896) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53029,7 +53029,7 @@ define internal void @glxAreTexturesResident_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGenTextures_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14898) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53090,7 +53090,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxIsTexture_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14900) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53124,7 +53124,7 @@ define internal void @glxIsTexture_Reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetColorTable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14902) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53177,7 +53177,7 @@ define internal void @glxGetColorTable_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetColorTableParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14904) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53253,7 +53253,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetColorTableParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14906) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53329,7 +53329,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetConvolutionFilter_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14908) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53387,7 +53387,7 @@ define internal void @glxGetConvolutionFilter_Reply(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetConvolutionParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14910) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53463,7 +53463,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetConvolutionParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14912) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53539,7 +53539,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetSeparableFilter_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14914) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53597,7 +53597,7 @@ define internal void @glxGetSeparableFilter_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetHistogram_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14916) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53650,7 +53650,7 @@ define internal void @glxGetHistogram_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetHistogramParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14918) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53726,7 +53726,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetHistogramParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14920) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53802,7 +53802,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMinmax_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14922) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53845,7 +53845,7 @@ define internal void @glxGetMinmax_Reply(ptr noundef %0, ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMinmaxParameterfv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14924) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53921,7 +53921,7 @@ listOfFloat.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetMinmaxParameteriv_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14926) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -53997,7 +53997,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetCompressedTexImageARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14928) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54050,7 +54050,7 @@ define internal void @glxGetCompressedTexImageARB_Reply(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGenQueriesARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14930) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54111,7 +54111,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxIsQueryARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14932) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54145,7 +54145,7 @@ define internal void @glxIsQueryARB_Reply(ptr noundef %0, ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetQueryivARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14934) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54221,7 +54221,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetQueryObjectivARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14936) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54297,7 +54297,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @glxGetQueryObjectuivARB_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14938) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54401,7 +54401,7 @@ define internal void @dispatch_present(ptr noundef %0, ptr nocapture noundef rea
 requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @present_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
@@ -54847,7 +54847,7 @@ define internal fastcc void @struct_xproto_RECTANGLE(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @presentQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54886,7 +54886,7 @@ define internal void @presentQueryVersion_Reply(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @presentQueryCapabilities_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14945) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -54949,7 +54949,7 @@ requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   %23 = shl i32 %22, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @randr_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
@@ -56647,7 +56647,7 @@ define internal void @randrNotify(ptr noundef %0, ptr nocapture noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -56691,7 +56691,7 @@ define internal void @randrQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14954) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -56740,7 +56740,7 @@ define internal void @randrSetScreenConfig_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetScreenInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14956) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -56912,7 +56912,7 @@ struct_randr_RefreshRates.exit:                   ; preds = %listOfCard16.exit.i
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetScreenSizeRange_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14958) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -56966,7 +56966,7 @@ define internal void @randrGetScreenSizeRange_Reply(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetScreenResources_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14960) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57098,7 +57098,7 @@ listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetOutputInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14962) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57261,7 +57261,7 @@ listOfCard32.exit120:                             ; preds = %.lr.ph.i117, %listO
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrListOutputProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14964) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57328,7 +57328,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrQueryOutputProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14966) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57404,7 +57404,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetOutputProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14968) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57464,7 +57464,7 @@ define internal void @randrGetOutputProperty_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrCreateMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14970) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57503,7 +57503,7 @@ define internal void @randrCreateMode_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetCrtcInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14972) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57635,7 +57635,7 @@ listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrSetCrtcConfig_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14974) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57671,7 +57671,7 @@ define internal void @randrSetCrtcConfig_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetCrtcGammaSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14976) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57710,7 +57710,7 @@ define internal void @randrGetCrtcGammaSize_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetCrtcGamma_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14978) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57819,7 +57819,7 @@ listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetScreenResourcesCurrent_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14980) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -57951,7 +57951,7 @@ listOfCard32.exit94:                              ; preds = %.lr.ph.i91, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14982) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58125,7 +58125,7 @@ listOfInt32.exit119:                              ; preds = %.lr.ph.i116, %106
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetPanning_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14984) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58216,7 +58216,7 @@ define internal void @randrGetPanning_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrSetPanning_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14986) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58247,7 +58247,7 @@ define internal void @randrSetPanning_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetOutputPrimary_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14988) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58281,7 +58281,7 @@ define internal void @randrGetOutputPrimary_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetProviders_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14990) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58353,7 +58353,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetProviderInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14992) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58526,7 +58526,7 @@ listOfCard32.exit114:                             ; preds = %.lr.ph.i111, %listO
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrListProviderProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14994) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58593,7 +58593,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrQueryProviderProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14996) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58669,7 +58669,7 @@ listOfInt32.exit:                                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetProviderProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14998) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58731,7 +58731,7 @@ define internal void @randrGetProviderProperty_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrGetMonitors_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15000) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58783,7 +58783,7 @@ define internal void @randrGetMonitors_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @randrCreateLease_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15002) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -58843,7 +58843,7 @@ define internal void @dispatch_record(ptr noundef %0, ptr nocapture noundef read
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @record_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -59226,7 +59226,7 @@ define internal fastcc void @struct_record_ExtRange(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @recordQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -59265,7 +59265,7 @@ define internal void @recordQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @recordGetContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15007) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -59349,7 +59349,7 @@ struct_record_ClientInfo.exit:                    ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @recordEnableContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15009) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -59451,7 +59451,7 @@ requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   %23 = shl i32 %22, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @render_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
@@ -61118,7 +61118,7 @@ define internal fastcc void @struct_render_COLOR(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @renderQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61162,7 +61162,7 @@ define internal void @renderQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @renderQueryPictFormats_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15017) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61463,7 +61463,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i81, %struct
 
 ; Function Attrs: nounwind uwtable
 define internal void @renderQueryPictIndexValues_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15019) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61545,7 +61545,7 @@ struct_render_INDEXVALUE.exit:                    ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @renderQueryFilters_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15021) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61687,7 +61687,7 @@ define internal void @dispatch_res(ptr noundef %0, ptr nocapture noundef readonl
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @res_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -61825,7 +61825,7 @@ define internal fastcc void @struct_res_ClientIdSpec(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @resQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61864,7 +61864,7 @@ define internal void @resQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @resQueryClients_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15025) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61931,7 +61931,7 @@ struct_res_Client.exit:                           ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @resQueryClientResources_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15027) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -61998,7 +61998,7 @@ struct_res_Type.exit:                             ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @resQueryClientPixmapBytes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15029) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -62037,7 +62037,7 @@ define internal void @resQueryClientPixmapBytes_Reply(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal void @resQueryClientIds_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15031) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -62134,7 +62134,7 @@ struct_res_ClientIdValue.exit:                    ; preds = %listOfCard32.exit.i
 
 ; Function Attrs: nounwind uwtable
 define internal void @resQueryResourceBytes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15033) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -62285,7 +62285,7 @@ define internal void @dispatch_screensaver(ptr noundef %0, ptr nocapture noundef
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @screensaver_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -62602,7 +62602,7 @@ screensaverSetAttributes.exit:                    ; preds = %197, %195, %206, %2
 
 ; Function Attrs: nounwind uwtable
 define internal void @screensaverQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -62646,7 +62646,7 @@ define internal void @screensaverQueryVersion_Reply(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @screensaverQueryInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15037) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -62731,7 +62731,7 @@ define internal void @dispatch_shape(ptr noundef %0, ptr nocapture noundef reado
 requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @shape_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
@@ -62932,7 +62932,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @shapeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -62971,7 +62971,7 @@ define internal void @shapeQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @shapeQueryExtents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15041) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -63055,7 +63055,7 @@ define internal void @shapeQueryExtents_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @shapeInputSelected_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15043) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -63084,7 +63084,7 @@ define internal void @shapeInputSelected_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @shapeGetRectangles_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15045) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -63149,7 +63149,7 @@ define internal void @dispatch_shm(ptr noundef %0, ptr nocapture noundef readonl
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @shm_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -63414,7 +63414,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @shmQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -63473,7 +63473,7 @@ define internal void @shmQueryVersion_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @shmGetImage_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15050) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -63512,7 +63512,7 @@ define internal void @shmGetImage_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @shmCreateSegment_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15052) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -63575,7 +63575,7 @@ requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   %23 = shl i32 %22, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @sync_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
@@ -64147,7 +64147,7 @@ define internal void @syncAlarmNotify(ptr noundef %0, ptr nocapture noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @syncInitialize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15058) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64191,7 +64191,7 @@ define internal void @syncInitialize_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @syncListSystemCounters_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15060) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64305,7 +64305,7 @@ struct_sync_SYSTEMCOUNTER.exit:                   ; preds = %86, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @syncQueryCounter_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15062) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64349,7 +64349,7 @@ define internal void @syncQueryCounter_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15064) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64408,7 +64408,7 @@ define internal void @syncQueryAlarm_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @syncGetPriority_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15066) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64442,7 +64442,7 @@ define internal void @syncGetPriority_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @syncQueryFence_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15068) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64507,7 +64507,7 @@ define internal void @dispatch_xc_misc(ptr noundef %0, ptr nocapture noundef rea
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xc_misc_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -64547,7 +64547,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xc_miscGetVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64586,7 +64586,7 @@ define internal void @xc_miscGetVersion_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @xc_miscGetXIDRange_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15072) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64625,7 +64625,7 @@ define internal void @xc_miscGetXIDRange_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xc_miscGetXIDList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15074) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64717,7 +64717,7 @@ define internal void @dispatch_xevie(ptr noundef %0, ptr nocapture noundef reado
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xevie_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -64793,7 +64793,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xevieQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64837,7 +64837,7 @@ define internal void @xevieQueryVersion_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @xevieStart_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15078) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64871,7 +64871,7 @@ define internal void @xevieStart_Reply(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @xevieEnd_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15080) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64905,7 +64905,7 @@ define internal void @xevieEnd_Reply(ptr noundef %0, ptr nocapture noundef reado
 
 ; Function Attrs: nounwind uwtable
 define internal void @xevieSend_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15082) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64939,7 +64939,7 @@ define internal void @xevieSend_Reply(ptr noundef %0, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @xevieSelectInput_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15084) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -64999,7 +64999,7 @@ define internal void @dispatch_xf86dri(ptr noundef %0, ptr nocapture noundef rea
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xf86dri_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -65131,7 +65131,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65175,7 +65175,7 @@ define internal void @xf86driQueryVersion_Reply(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driQueryDirectRenderingCapable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15088) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65209,7 +65209,7 @@ define internal void @xf86driQueryDirectRenderingCapable_Reply(ptr noundef %0, p
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driOpenConnection_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15090) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65266,7 +65266,7 @@ define internal void @xf86driOpenConnection_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driGetClientDriverName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15092) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65328,7 +65328,7 @@ define internal void @xf86driGetClientDriverName_Reply(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15094) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65362,7 +65362,7 @@ define internal void @xf86driCreateContext_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driCreateDrawable_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15096) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65396,7 +65396,7 @@ define internal void @xf86driCreateDrawable_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driGetDrawableInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15098) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65481,7 +65481,7 @@ define internal void @xf86driGetDrawableInfo_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15100) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65567,7 +65567,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86driAuthConnection_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15102) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -65672,7 +65672,7 @@ define internal void @dispatch_xf86vidmode(ptr noundef %0, ptr nocapture noundef
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xf86vidmode_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -66466,7 +66466,7 @@ xf86vidmodeSetGammaRamp.exit:                     ; preds = %.lr.ph.i43.i, %xf86
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -66505,7 +66505,7 @@ define internal void @xf86vidmodeQueryVersion_Reply(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetModeLine_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15113) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -66613,7 +66613,7 @@ define internal void @xf86vidmodeGetModeLine_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetMonitor_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15115) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -66746,7 +66746,7 @@ listOfCard32.exit86:                              ; preds = %.lr.ph.i83, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetAllModeLines_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15117) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -66874,7 +66874,7 @@ struct_xf86vidmode_ModeInfo.exit:                 ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeValidateModeLine_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15119) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -66913,7 +66913,7 @@ define internal void @xf86vidmodeValidateModeLine_Reply(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetViewPort_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15121) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -66957,7 +66957,7 @@ define internal void @xf86vidmodeGetViewPort_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetDotClocks_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15123) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -67039,7 +67039,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetGamma_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15125) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -67088,7 +67088,7 @@ define internal void @xf86vidmodeGetGamma_Reply(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetGammaRamp_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15127) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -67199,7 +67199,7 @@ listOfCard16.exit62:                              ; preds = %.lr.ph.i59, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetGammaRampSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15129) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -67238,7 +67238,7 @@ define internal void @xf86vidmodeGetGammaRampSize_Reply(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @xf86vidmodeGetPermissions_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15131) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -67307,7 +67307,7 @@ requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   %23 = shl i32 %22, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xfixes_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %26) #10
@@ -67979,7 +67979,7 @@ define internal void @xfixesCursorNotify(ptr noundef %0, ptr nocapture noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68023,7 +68023,7 @@ define internal void @xfixesQueryVersion_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesGetCursorImage_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15137) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68124,7 +68124,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesFetchRegion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15139) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68164,7 +68164,7 @@ define internal void @xfixesFetchRegion_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesGetCursorName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15141) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68215,7 +68215,7 @@ define internal void @xfixesGetCursorName_Reply(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesGetCursorImageAndName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15143) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68331,7 +68331,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xfixesGetClientDisconnectMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15145) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68397,7 +68397,7 @@ define internal void @dispatch_xinerama(ptr noundef %0, ptr nocapture noundef re
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xinerama_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -68456,7 +68456,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xineramaQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68495,7 +68495,7 @@ define internal void @xineramaQueryVersion_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xineramaGetState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15149) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68529,7 +68529,7 @@ define internal void @xineramaGetState_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xineramaGetScreenCount_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15151) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68563,7 +68563,7 @@ define internal void @xineramaGetScreenCount_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @xineramaGetScreenSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15153) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68612,7 +68612,7 @@ define internal void @xineramaGetScreenSize_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xineramaIsActive_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15155) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68646,7 +68646,7 @@ define internal void @xineramaIsActive_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xineramaQueryScreens_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15157) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -68749,7 +68749,7 @@ define internal void @dispatch_xinput(ptr noundef %0, ptr nocapture noundef read
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xinput_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -73548,7 +73548,7 @@ define internal fastcc void @struct_xinput_GroupInfo(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetExtensionVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15188) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -73597,7 +73597,7 @@ define internal void @xinputGetExtensionVersion_Reply(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputListInputDevices_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15190) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -73696,7 +73696,7 @@ struct_xinput_DeviceInfo.exit:                    ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputOpenDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15192) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -73778,7 +73778,7 @@ struct_xinput_InputClassInfo.exit:                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15194) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -73815,7 +73815,7 @@ define internal void @xinputSetDeviceMode_Reply(ptr noundef %0, ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetSelectedExtensionEvents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15196) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -73913,7 +73913,7 @@ listOfCard32.exit59:                              ; preds = %.lr.ph.i56, %listOf
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceDontPropagateList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15198) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -73980,7 +73980,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceMotionEvents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15200) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74100,7 +74100,7 @@ struct_xinput_DeviceTimeCoord.exit:               ; preds = %listOfInt32.exit.lo
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15202) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74137,7 +74137,7 @@ define internal void @xinputChangeKeyboardDevice_Reply(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15204) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74174,7 +74174,7 @@ define internal void @xinputChangePointerDevice_Reply(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15206) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74211,7 +74211,7 @@ define internal void @xinputGrabDevice_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15208) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74256,7 +74256,7 @@ define internal void @xinputGetDeviceFocus_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15210) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74474,7 +74474,7 @@ struct_xinput_FeedbackState.exit:                 ; preds = %listOfCard32.exit.i
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceKeyMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15212) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74540,7 +74540,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceModifierMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15214) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74589,7 +74589,7 @@ define internal void @xinputGetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15216) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74626,7 +74626,7 @@ define internal void @xinputSetDeviceModifierMapping_Reply(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceButtonMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15218) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74690,7 +74690,7 @@ define internal void @xinputGetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15220) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74727,7 +74727,7 @@ define internal void @xinputSetDeviceButtonMapping_Reply(ptr noundef %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15222) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74862,7 +74862,7 @@ struct_xinput_InputState.exit:                    ; preds = %listOfInt32.exit.i,
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15224) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -74899,7 +74899,7 @@ define internal void @xinputSetDeviceValuators_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceControl_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15226) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75134,7 +75134,7 @@ struct_xinput_DeviceState.exit:                   ; preds = %.lr.ph.i149.i, %5, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15228) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75171,7 +75171,7 @@ define internal void @xinputChangeDeviceControl_Reply(ptr noundef %0, ptr nocapt
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputListDeviceProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15230) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75238,7 +75238,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputGetDeviceProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15232) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75397,7 +75397,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i92, %88, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIQueryPointer_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15234) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75502,7 +75502,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15236) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75549,7 +75549,7 @@ define internal void @xinputXIGetClientPointer_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15238) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75593,7 +75593,7 @@ define internal void @xinputXIQueryVersion_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIQueryDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15240) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75718,7 +75718,7 @@ struct_xinput_XIDeviceInfo.exit:                  ; preds = %96, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIGetFocus_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15242) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75757,7 +75757,7 @@ define internal void @xinputXIGetFocus_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15244) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75794,7 +75794,7 @@ define internal void @xinputXIGrabDevice_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIPassiveGrabDevice_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15246) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75861,7 +75861,7 @@ struct_xinput_GrabModifierInfo.exit:              ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIListProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15248) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -75928,7 +75928,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIGetProperty_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15250) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -76082,7 +76082,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i86, %84, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xinputXIGetSelectedEvents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15252) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -76151,7 +76151,7 @@ define internal void @dispatch_xkb(ptr noundef %0, ptr nocapture noundef readonl
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xkb_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -80224,7 +80224,7 @@ define internal void @xkbExtensionDeviceNotify(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbUseExtension_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15267) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -80268,7 +80268,7 @@ define internal void @xkbUseExtension_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15149) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -80382,7 +80382,7 @@ define internal void @xkbGetState_Reply(ptr noundef %0, ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetControls_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15270) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -80563,7 +80563,7 @@ define internal void @xkbGetControls_Reply(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetMap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15272) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -80902,7 +80902,7 @@ define internal void @xkbGetMap_Reply(ptr noundef %0, ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15274) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -80971,7 +80971,7 @@ define internal void @xkbGetCompatMap_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetIndicatorState_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15276) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -81010,7 +81010,7 @@ define internal void @xkbGetIndicatorState_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15278) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -81065,7 +81065,7 @@ define internal void @xkbGetIndicatorMap_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetNamedIndicator_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15280) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -81177,7 +81177,7 @@ define internal void @xkbGetNamedIndicator_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetNames_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15282) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -81652,7 +81652,7 @@ listOfCard32.exit264:                             ; preds = %.lr.ph.i261, %261, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbPerClientFlags_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15284) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -81710,7 +81710,7 @@ define internal void @xkbPerClientFlags_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbListComponents_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15286) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -81803,7 +81803,7 @@ define internal void @xkbListComponents_Reply(ptr noundef %0, ptr nocapture noun
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetKbdByName_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15288) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -82928,7 +82928,7 @@ listOfCard32.exit815:                             ; preds = %.lr.ph.i812, %634, 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15100) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -83063,7 +83063,7 @@ define internal void @xkbGetDeviceInfo_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xkbSetDebuggingFlags_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15292) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -83339,7 +83339,7 @@ define internal void @dispatch_xprint(ptr noundef %0, ptr nocapture noundef read
 requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xprint_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
@@ -83756,7 +83756,7 @@ define internal void @xprintAttributNotify(ptr noundef %0, ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15298) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -83795,7 +83795,7 @@ define internal void @xprintPrintQueryVersion_Reply(ptr noundef %0, ptr nocaptur
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetPrinterList_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15300) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -83923,7 +83923,7 @@ struct_xprint_PRINTER.exit:                       ; preds = %92, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15302) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -83957,7 +83957,7 @@ define internal void @xprintPrintGetContext_Reply(ptr noundef %0, ptr nocapture 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetScreenOfContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15304) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -83991,7 +83991,7 @@ define internal void @xprintPrintGetScreenOfContext_Reply(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetDocumentData_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15306) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84048,7 +84048,7 @@ define internal void @xprintPrintGetDocumentData_Reply(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintInputSelected_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15308) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84087,7 +84087,7 @@ define internal void @xprintPrintInputSelected_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15310) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84134,7 +84134,7 @@ define internal void @xprintPrintGetAttributes_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetOneAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15312) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84181,7 +84181,7 @@ define internal void @xprintPrintGetOneAttributes_Reply(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetPageDimensions_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15314) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84240,7 +84240,7 @@ define internal void @xprintPrintGetPageDimensions_Reply(ptr noundef %0, ptr noc
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintQueryScreens_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15316) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84306,7 +84306,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintSetImageResolution_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15318) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84340,7 +84340,7 @@ define internal void @xprintPrintSetImageResolution_Reply(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xprintPrintGetImageResolution_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15320) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84400,7 +84400,7 @@ define internal void @dispatch_xselinux(ptr noundef %0, ptr nocapture noundef re
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xselinux_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -84609,7 +84609,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84648,7 +84648,7 @@ define internal void @xselinuxQueryVersion_Reply(ptr noundef %0, ptr nocapture n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetDeviceCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15324) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84695,7 +84695,7 @@ define internal void @xselinuxGetDeviceCreateContext_Reply(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetDeviceContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15326) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84742,7 +84742,7 @@ define internal void @xselinuxGetDeviceContext_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetWindowCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15328) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84789,7 +84789,7 @@ define internal void @xselinuxGetWindowCreateContext_Reply(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetWindowContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15330) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84836,7 +84836,7 @@ define internal void @xselinuxGetWindowContext_Reply(ptr noundef %0, ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetPropertyCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15332) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84883,7 +84883,7 @@ define internal void @xselinuxGetPropertyCreateContext_Reply(ptr noundef %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetPropertyUseContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15334) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84930,7 +84930,7 @@ define internal void @xselinuxGetPropertyUseContext_Reply(ptr noundef %0, ptr no
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetPropertyContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15336) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -84977,7 +84977,7 @@ define internal void @xselinuxGetPropertyContext_Reply(ptr noundef %0, ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetPropertyDataContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15338) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85024,7 +85024,7 @@ define internal void @xselinuxGetPropertyDataContext_Reply(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxListProperties_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15340) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85066,7 +85066,7 @@ define internal void @xselinuxListProperties_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetSelectionCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15342) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85113,7 +85113,7 @@ define internal void @xselinuxGetSelectionCreateContext_Reply(ptr noundef %0, pt
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetSelectionUseContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15344) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85160,7 +85160,7 @@ define internal void @xselinuxGetSelectionUseContext_Reply(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetSelectionContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15346) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85207,7 +85207,7 @@ define internal void @xselinuxGetSelectionContext_Reply(ptr noundef %0, ptr noca
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetSelectionDataContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15348) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85254,7 +85254,7 @@ define internal void @xselinuxGetSelectionDataContext_Reply(ptr noundef %0, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxListSelections_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15350) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85296,7 +85296,7 @@ define internal void @xselinuxListSelections_Reply(ptr noundef %0, ptr nocapture
 
 ; Function Attrs: nounwind uwtable
 define internal void @xselinuxGetClientContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15352) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85470,7 +85470,7 @@ define internal void @dispatch_xtest(ptr noundef %0, ptr nocapture noundef reado
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xtest_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -85584,7 +85584,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xtestGetVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14746) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85618,7 +85618,7 @@ define internal void @xtestGetVersion_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @xtestCompareCursor_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15356) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -85675,7 +85675,7 @@ define internal void @dispatch_xv(ptr noundef %0, ptr nocapture noundef readonly
 requestLength.exit:                               ; preds = %5, %16
   %22 = phi i32 [ %.pre.i, %16 ], [ %14, %5 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xv_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %25) #10
@@ -86360,7 +86360,7 @@ define internal void @xvPortNotify(ptr noundef %0, ptr nocapture noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvQueryExtension_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15363) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86399,7 +86399,7 @@ define internal void @xvQueryExtension_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvQueryAdaptors_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15365) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86561,7 +86561,7 @@ struct_xv_AdaptorInfo.exit:                       ; preds = %struct_xv_Format.ex
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvQueryEncodings_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15367) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86691,7 +86691,7 @@ struct_xv_EncodingInfo.exit:                      ; preds = %98, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvGrabPort_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15369) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86717,7 +86717,7 @@ define internal void @xvGrabPort_Reply(ptr noundef %0, ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvQueryBestSize_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15371) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86756,7 +86756,7 @@ define internal void @xvQueryBestSize_Reply(ptr noundef %0, ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvGetPortAttribute_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15373) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86790,7 +86790,7 @@ define internal void @xvGetPortAttribute_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvQueryPortAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15375) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86903,7 +86903,7 @@ struct_xv_AttributeInfo.exit:                     ; preds = %83, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvListImageFormats_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15377) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -86945,7 +86945,7 @@ define internal void @xvListImageFormats_Reply(ptr noundef %0, ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvQueryImageAttributes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15379) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -87224,7 +87224,7 @@ define internal void @dispatch_xvmc(ptr noundef %0, ptr nocapture noundef readon
 
 requestLength.exit:                               ; preds = %5, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @xvmc_extension_minor, ptr noundef nonnull @.str.14669) #10
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.14728, ptr noundef %24) #10
@@ -87356,7 +87356,7 @@ requestLength.exit:                               ; preds = %5, %16
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvmcQueryVersion_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.14731) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -87395,7 +87395,7 @@ define internal void @xvmcQueryVersion_Reply(ptr noundef %0, ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvmcListSurfaceTypes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15383) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -87497,7 +87497,7 @@ struct_xvmc_SurfaceInfo.exit:                     ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvmcCreateContext_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15094) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -87573,7 +87573,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvmcCreateSurface_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15386) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -87634,7 +87634,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvmcCreateSubpicture_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15388) #10
   %8 = load i32, ptr @hf_x11_reply, align 4
@@ -87720,7 +87720,7 @@ listOfCard32.exit:                                ; preds = %.lr.ph.i, %5
 
 ; Function Attrs: nounwind uwtable
 define internal void @xvmcListSubpictureTypes_Reply(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.15390) #10
   %8 = load i32, ptr @hf_x11_reply, align 4

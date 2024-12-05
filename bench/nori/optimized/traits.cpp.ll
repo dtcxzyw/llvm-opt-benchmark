@@ -44,7 +44,7 @@ define hidden noundef range(i64 1, 9) i64 @_ZN7nanogui9type_sizeENS_12VariableTy
 
 switch.lookup:                                    ; preds = %1
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x i64], ptr @switch.table._ZN7nanogui9type_sizeENS_12VariableTypeE, i64 0, i64 %8
+  %switch.gep = getelementptr inbounds nuw [12 x i64], ptr @switch.table._ZN7nanogui9type_sizeENS_12VariableTypeE, i64 0, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -71,7 +71,7 @@ define hidden noundef nonnull ptr @_ZN7nanogui9type_nameENS_12VariableTypeE(i32 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table._ZN7nanogui9type_nameENS_12VariableTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [12 x ptr], ptr @switch.table._ZN7nanogui9type_nameENS_12VariableTypeE, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

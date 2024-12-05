@@ -66,22 +66,22 @@ $_ZTVN7glslang16TIntermTraverserE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang18RemoveAllTreeNodesEP11TIntermNode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %"struct.glslang::TRemoveTraverser", align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 9
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 0, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %2, i64 10
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 1, ptr %5, align 2
-  %6 = getelementptr inbounds i8, ptr %2, i64 11
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 11
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %6, i8 0, i64 9, i1 false)
   %8 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #3
   store ptr %8, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang16TRemoveTraverserE, i64 16), ptr %2, align 8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %2) #3
   ret void
@@ -106,7 +106,7 @@ define linkonce_odr void @_ZN7glslang16TRemoveTraverser11visitSymbolEPNS_13TInte
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(264) %1) #3
   br label %8
@@ -122,7 +122,7 @@ define linkonce_odr void @_ZN7glslang16TRemoveTraverser18visitConstantUnionEPNS_
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 224
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
   %7 = load ptr, ptr %6, align 8
   tail call void %7(ptr noundef nonnull align 8 dereferenceable(201) %1) #3
   br label %8
@@ -138,7 +138,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser11visitBina
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(208) %2) #3
   br label %9
@@ -154,7 +154,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser10visitUnar
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(248) %2) #3
   br label %9
@@ -170,7 +170,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser14visitSele
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(211) %2) #3
   br label %9
@@ -186,7 +186,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser14visitAggr
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(364) %2) #3
   br label %9
@@ -202,7 +202,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser9visitLoopE
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(84) %2) #3
   br label %9
@@ -218,7 +218,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser11visitBran
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(48) %2) #3
   br label %9
@@ -234,7 +234,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang16TRemoveTraverser11visitSwit
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 224
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(50) %2) #3
   br label %9

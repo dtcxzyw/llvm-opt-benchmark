@@ -24,20 +24,20 @@ declare void @freeinit(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @gvbisect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @getfree(ptr noundef nonnull @efl) #4
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %3, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %1, ptr %5, align 8
   tail call void @ref(ptr noundef %0) #4
   tail call void @ref(ptr noundef %1) #4
-  %6 = getelementptr inbounds i8, ptr %3, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = load double, ptr %1, align 8
   %8 = load double, ptr %0, align 8
   %9 = fsub double %7, %8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load double, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load double, ptr %12, align 8
   %14 = fsub double %11, %13
   %15 = tail call double @llvm.fabs.f64(double %9)
@@ -47,7 +47,7 @@ define ptr @gvbisect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %19 = fmul double %14, %14
   %20 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %19)
   %21 = tail call double @llvm.fmuladd.f64(double %20, double 5.000000e-01, double %18)
-  %22 = getelementptr inbounds i8, ptr %3, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %23 = fcmp ogt double %15, %16
   %24 = fdiv double %14, %9
   %25 = fdiv double %9, %14
@@ -55,12 +55,12 @@ define ptr @gvbisect(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sink = select i1 %23, double %24, double 1.000000e+00
   %.pn = select i1 %23, double %9, double %14
   store double %.sink39, ptr %3, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %.sink, ptr %26, align 8
   %storemerge = fdiv double %21, %.pn
   store double %storemerge, ptr %22, align 8
   %27 = load i32, ptr @nedges, align 4
-  %28 = getelementptr inbounds i8, ptr %3, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %27, ptr %28, align 8
   %29 = add nsw i32 %27, 1
   store i32 %29, ptr @nedges, align 4
@@ -84,20 +84,20 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %3, label %4, label %85
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
   %7 = fcmp ult double %6, 0.000000e+00
   %.0114147.in.v = select i1 %7, i64 24, i64 32
-  %.0114147.in = getelementptr inbounds i8, ptr %0, i64 %.0114147.in.v
+  %.0114147.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0114147.in.v
   %.0113146.in.v = select i1 %7, i64 32, i64 24
-  %.0113146.in = getelementptr inbounds i8, ptr %0, i64 %.0113146.in.v
+  %.0113146.in = getelementptr inbounds nuw i8, ptr %0, i64 %.0113146.in.v
   %.0113146 = load ptr, ptr %.0113146.in, align 8
   %.0114147 = load ptr, ptr %.0114147.in, align 8
   %.not137 = icmp eq ptr %.0114147, null
   br i1 %.not137, label %23, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %.0114147, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.0114147, i64 8
   %10 = load double, ptr %9, align 8
   %11 = load double, ptr @pymax, align 8
   %12 = fcmp ogt double %10, %11
@@ -113,7 +113,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %29
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fneg double %6
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %14, double %20)
@@ -121,7 +121,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 23:                                               ; preds = %4
   %24 = load double, ptr @pymin, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = load double, ptr %25, align 8
   %27 = fneg double %6
   %28 = tail call double @llvm.fmuladd.f64(double %27, double %24, double %26)
@@ -135,7 +135,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %.not138, label %45, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.0113146, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0113146, i64 8
   %33 = load double, ptr %32, align 8
   %34 = fcmp olt double %33, %30
   br i1 %34, label %172, label %35
@@ -150,7 +150,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br label %51
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load double, ptr %41, align 8
   %43 = fneg double %6
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %36, double %42)
@@ -158,7 +158,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 45:                                               ; preds = %29
   %46 = load double, ptr @pymax, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load double, ptr %47, align 8
   %49 = fneg double %6
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %46, double %48)
@@ -184,7 +184,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %53, label %60, label %65
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %62 = load double, ptr %61, align 8
   %63 = fsub double %62, %52
   %64 = fdiv double %63, %6
@@ -197,7 +197,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %66, label %67, label %72
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %69 = load double, ptr %68, align 8
   %70 = fsub double %69, %56
   %71 = fdiv double %70, %6
@@ -209,7 +209,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %54, label %73, label %78
 
 73:                                               ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load double, ptr %74, align 8
   %76 = fsub double %75, %52
   %77 = fdiv double %76, %6
@@ -222,15 +222,15 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %79, label %80, label %165
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load double, ptr %81, align 8
   %83 = fsub double %82, %56
   %84 = fdiv double %83, %6
   br label %165
 
 85:                                               ; preds = %1
-  %86 = getelementptr inbounds i8, ptr %0, i64 24
-  %87 = getelementptr inbounds i8, ptr %0, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.0113 = load ptr, ptr %87, align 8
   %.0114 = load ptr, ptr %86, align 8
   %.not = icmp eq ptr %.0114, null
@@ -248,12 +248,12 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %94, label %98, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %.0114, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
   %97 = load double, ptr %96, align 8
   br label %109
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %0, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %100 = load double, ptr %99, align 8
   %101 = fneg double %2
   %102 = tail call double @llvm.fmuladd.f64(double %101, double %93, double %100)
@@ -261,7 +261,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 103:                                              ; preds = %85
   %104 = load double, ptr @pxmin, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %106 = load double, ptr %105, align 8
   %107 = fneg double %2
   %108 = tail call double @llvm.fmuladd.f64(double %107, double %104, double %106)
@@ -285,12 +285,12 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %116, label %120, label %117
 
 117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %.0113, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.0113, i64 8
   %119 = load double, ptr %118, align 8
   br label %131
 
 120:                                              ; preds = %114
-  %121 = getelementptr inbounds i8, ptr %0, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %122 = load double, ptr %121, align 8
   %123 = fneg double %2
   %124 = tail call double @llvm.fmuladd.f64(double %123, double %115, double %122)
@@ -298,7 +298,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 125:                                              ; preds = %109
   %126 = load double, ptr @pxmax, align 8
-  %127 = getelementptr inbounds i8, ptr %0, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %128 = load double, ptr %127, align 8
   %129 = fneg double %2
   %130 = tail call double @llvm.fmuladd.f64(double %129, double %126, double %128)
@@ -324,7 +324,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %133, label %140, label %145
 
 140:                                              ; preds = %139
-  %141 = getelementptr inbounds i8, ptr %0, i64 16
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load double, ptr %141, align 8
   %143 = fsub double %142, %132
   %144 = fdiv double %143, %2
@@ -337,7 +337,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %146, label %147, label %152
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds i8, ptr %0, i64 16
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %149 = load double, ptr %148, align 8
   %150 = fsub double %149, %136
   %151 = fdiv double %150, %2
@@ -349,7 +349,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %134, label %153, label %158
 
 153:                                              ; preds = %152
-  %154 = getelementptr inbounds i8, ptr %0, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %155 = load double, ptr %154, align 8
   %156 = fsub double %155, %132
   %157 = fdiv double %156, %2
@@ -362,7 +362,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   br i1 %159, label %160, label %165
 
 160:                                              ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %0, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %162 = load double, ptr %161, align 8
   %163 = fsub double %162, %136
   %164 = fdiv double %163, %2
@@ -373,12 +373,12 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
   %.2103 = phi double [ %56, %80 ], [ %.1102, %78 ], [ %164, %160 ], [ %.4105, %158 ]
   %.399 = phi double [ %.298, %80 ], [ %.298, %78 ], [ %.6, %160 ], [ %.6, %158 ]
   %.2 = phi double [ %84, %80 ], [ %.1, %78 ], [ %136, %160 ], [ %.4, %158 ]
-  %166 = getelementptr inbounds i8, ptr %0, i64 40
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %167 = load ptr, ptr %166, align 8
   tail call void @addVertex(ptr noundef %167, double noundef %.3109, double noundef %.399) #4
   %168 = load ptr, ptr %166, align 8
   tail call void @addVertex(ptr noundef %168, double noundef %.2103, double noundef %.2) #4
-  %169 = getelementptr inbounds i8, ptr %0, i64 48
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = load ptr, ptr %169, align 8
   tail call void @addVertex(ptr noundef %170, double noundef %.3109, double noundef %.399) #4
   %171 = load ptr, ptr %169, align 8
@@ -391,7 +391,7 @@ define void @clip_line(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 
 ; Function Attrs: nounwind uwtable
 define void @endpoint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
   store ptr %2, ptr %6, align 8
@@ -405,10 +405,10 @@ define void @endpoint(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unna
 
 12:                                               ; preds = %3
   tail call void @clip_line(ptr noundef nonnull %0)
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8
   tail call void @deref(ptr noundef %14) #4
-  %15 = getelementptr inbounds i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8
   tail call void @deref(ptr noundef %16) #4
   tail call void @makefree(ptr noundef nonnull %0, ptr noundef nonnull @efl) #4

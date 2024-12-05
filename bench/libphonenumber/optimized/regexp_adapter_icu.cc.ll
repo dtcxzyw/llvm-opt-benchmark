@@ -125,7 +125,7 @@ $_ZTIN4i18n12phonenumbers9IcuRegExpE = comdat any
 define dso_local noundef nonnull ptr @_ZNK4i18n12phonenumbers16ICURegExpFactory11CreateInputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !5
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !5
   %7 = trunc i64 %6 to i32
@@ -133,7 +133,7 @@ define dso_local noundef nonnull ptr @_ZNK4i18n12phonenumbers16ICURegExpFactory1
           to label %8 unwind label %10
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i32 0, ptr %9, align 8
   ret ptr %3
 
@@ -177,7 +177,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers9IcuRegExpC2ERKNSt7__c
   %7 = alloca %"class.icu_70::UnicodeString", align 8
   %8 = alloca %"class.i18n::phonenumbers::LoggerHandler", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i64 16), ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
   store i32 0, ptr %6, align 4
   %10 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !8
@@ -210,7 +210,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexPatternEE5resetEPS2_.exit: ; preds = %14, %
 20:                                               ; preds = %_ZN5boost10scoped_ptrIN6icu_7012RegexPatternEE5resetEPS2_.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !11)
   %21 = load ptr, ptr @_ZN4i18n12phonenumbers6Logger5impl_E, align 8, !noalias !11
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !noalias !11
   %24 = icmp slt i32 %23, 2
   br i1 %24, label %.thread14, label %25
@@ -222,7 +222,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexPatternEE5resetEPS2_.exit: ; preds = %14, %
 
 25:                                               ; preds = %20
   %26 = load ptr, ptr %21, align 8, !noalias !11
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !11
   invoke void %28(ptr noundef nonnull align 8 dereferenceable(12) %21)
           to label %29 unwind label %47
@@ -235,7 +235,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexPatternEE5resetEPS2_.exit: ; preds = %14, %
 
 .noexc6:                                          ; preds = %29
   %30 = load ptr, ptr %21, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load ptr, ptr %31, align 8
   invoke void %32(ptr noundef nonnull align 8 dereferenceable(12) %21, ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %35 unwind label %33
@@ -260,7 +260,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexPatternEE5resetEPS2_.exit: ; preds = %14, %
 
 .noexc8:                                          ; preds = %36
   %37 = load ptr, ptr %.pr, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load ptr, ptr %38, align 8
   invoke void %39(ptr noundef nonnull align 8 dereferenceable(12) %.pr, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %40 unwind label %41
@@ -332,7 +332,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers16ICURegExpFactoryD0Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers14IcuRegExpInputD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
   ret void
 }
@@ -340,7 +340,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers14IcuRegExpInputD2Ev(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers14IcuRegExpInputD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #13
   ret void
@@ -349,8 +349,8 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers14IcuRegExpInputD0Ev(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK4i18n12phonenumbers14IcuRegExpInput8ToStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_70::UnicodeString", align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i32, ptr %5, align 8
   call void @_ZNK6icu_7013UnicodeString13tempSubStringEii(ptr dead_on_unwind nonnull writable sret(%"class.icu_70::UnicodeString") align 8 %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %6, i32 noundef 2147483647)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #12
@@ -388,16 +388,16 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6icu_7013UnicodeString12toUTF8StringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERT_S9_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_70::StringByteSink", align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i16, ptr %4, align 8
   %6 = icmp slt i16 %5, 0
   %7 = ashr i16 %5, 5
   %8 = sext i16 %7 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = select i1 %6, i32 %10, i32 %8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %3, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %12, align 8
   %13 = icmp sgt i32 %11, 0
   br i1 %13, label %14, label %_ZN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPS6_i.exit
@@ -471,7 +471,7 @@ define linkonce_odr dso_local void @_ZN6icu_7014StringByteSinkINSt7__cxx1112basi
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6AppendEPKci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %1, i64 noundef %6)
@@ -518,7 +518,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers13LoggerHandlerD2Ev(pt
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc1
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   invoke void %11(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %12 unwind label %14
@@ -561,7 +561,7 @@ _ZN5boost14checked_deleteIN6icu_7012RegexPatternEEEvPT_.exit: ; preds = %1, %4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers9IcuRegExpD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN5boost10scoped_ptrIN6icu_7012RegexPatternEED2Ev.exit, label %5
@@ -578,7 +578,7 @@ _ZN5boost10scoped_ptrIN6icu_7012RegexPatternEED2Ev.exit: ; preds = %1, %5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers9IcuRegExpD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN4i18n12phonenumbers9IcuRegExpD2Ev.exit, label %5
@@ -600,17 +600,17 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %12 = alloca [6 x ptr], align 16
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.icu_70::UnicodeString", align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %_ZN5boost10scoped_ptrIN6icu_7012RegexMatcherEED2Ev.exit, label %17
 
 17:                                               ; preds = %9
   store i32 0, ptr %10, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = call noundef ptr @_ZNK6icu_7012RegexPattern7matcherERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %16, ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 4 dereferenceable(4) %10)
   store ptr %19, ptr %11, align 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
   br i1 %2, label %23, label %25
@@ -643,22 +643,22 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
 
 31:                                               ; preds = %27
   store ptr %3, ptr %12, align 16
-  %32 = getelementptr inbounds i8, ptr %12, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %4, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %12, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %5, ptr %33, align 16
-  %34 = getelementptr inbounds i8, ptr %12, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store ptr %6, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %12, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %7, ptr %35, align 16
-  %36 = getelementptr inbounds i8, ptr %12, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store ptr %8, ptr %36, align 8
   br label %37
 
 37:                                               ; preds = %31, %52
   %38 = phi ptr [ %19, %31 ], [ %53, %52 ]
   %.02335 = phi i64 [ 0, %31 ], [ %54, %52 ]
-  %39 = getelementptr inbounds [6 x ptr], ptr %12, i64 0, i64 %.02335
+  %39 = getelementptr inbounds nuw [6 x ptr], ptr %12, i64 0, i64 %.02335
   %40 = load ptr, ptr %39, align 8
   %.not30 = icmp eq ptr %40, null
   br i1 %.not30, label %52, label %41
@@ -707,7 +707,7 @@ _ZN4i18n12phonenumbers12_GLOBAL__N_125UnicodeStringToUtf8StringB5cxx11ERKN6icu_7
           to label %57 unwind label %.loopexit.split-lp
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %1, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 72
   store i32 %56, ptr %58, align 8
   %59 = load i32, ptr %10, align 4
   %60 = icmp slt i32 %59, 1
@@ -741,19 +741,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %7 = alloca %"class.boost::scoped_ptr.1", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.icu_70::UnicodeString", align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %53, label %12
 
 12:                                               ; preds = %4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !16
   %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !16
   %16 = trunc i64 %15 to i32
   call void @_ZN6icu_7013UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind nonnull writable sret(%"class.icu_70::UnicodeString") align 8 %13, ptr %14, i32 %16)
-  %17 = getelementptr inbounds i8, ptr %5, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %17, align 8
   store i32 0, ptr %6, align 4
   %18 = load ptr, ptr %10, align 8
@@ -869,19 +869,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
   %9 = alloca %"class.icu_70::UnicodeString", align 8
   %10 = alloca %"class.icu_70::UnicodeString", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %66, label %14
 
 14:                                               ; preds = %4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i64 16), ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !19
   %17 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #12, !noalias !19
   %18 = trunc i64 %17 to i32
   call void @_ZN6icu_7013UnicodeString8fromUTF8ENS_11StringPieceE(ptr dead_on_unwind nonnull writable sret(%"class.icu_70::UnicodeString") align 8 %15, ptr %16, i32 %18)
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store i32 0, ptr %19, align 8
   store i32 0, ptr %6, align 4
   %20 = load ptr, ptr %12, align 8
@@ -901,7 +901,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers9IcuReg
 
 27:                                               ; preds = %22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %8, align 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i16 2, ptr %28, align 8
   %29 = invoke noundef signext i8 @_ZN6icu_7012RegexMatcher4findEv(ptr noundef nonnull align 8 dereferenceable(336) %21)
           to label %30 unwind label %.loopexit.split-lp

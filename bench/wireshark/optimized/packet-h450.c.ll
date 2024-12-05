@@ -1497,13 +1497,13 @@ define internal range(i32 -268435456, 268435456) i32 @dissect_h450_H4501Suppleme
   br i1 %.not.i.i, label %dissect_h450_H4501SupplementaryService.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %8, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %11 = load ptr, ptr %10, align 8
   %.not5.i.i = icmp eq ptr %11, null
   br i1 %.not5.i.i, label %dissect_h450_H4501SupplementaryService.exit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = or i32 %14, 1
   store i32 %15, ptr %13, align 4
@@ -1542,19 +1542,19 @@ define internal i32 @dissect_h450_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not45 = icmp eq i32 %11, 1
   br i1 %.not45, label %12, label %get_op.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not46 = icmp eq i32 %14, 0
   br i1 %.not46, label %15, label %get_op.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -1578,13 +1578,13 @@ get_op.exit:                                      ; preds = %20
   br i1 %.not.i50, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %get_op.exit
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not5.i = icmp eq ptr %29, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -1596,10 +1596,10 @@ proto_item_set_hidden.exit:                       ; preds = %get_op.exit, %27, %
   br i1 %.not48, label %45, label %35
 
 35:                                               ; preds = %proto_item_set_hidden.exit
-  %36 = getelementptr inbounds i8, ptr %7, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.726, ptr noundef nonnull %34) #3
-  %38 = getelementptr inbounds i8, ptr %7, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %41, label %45
@@ -1612,7 +1612,7 @@ proto_item_set_hidden.exit:                       ; preds = %get_op.exit, %27, %
   br label %45
 
 45:                                               ; preds = %35, %41, %proto_item_set_hidden.exit
-  %46 = getelementptr inbounds i8, ptr %22, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not49 = icmp eq ptr %47, null
   br i1 %.not49, label %53, label %48
@@ -1656,19 +1656,19 @@ define internal i32 @dissect_h450_res(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not45 = icmp eq i32 %11, 2
   br i1 %.not45, label %12, label %get_op.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not46 = icmp eq i32 %14, 0
   br i1 %.not46, label %15, label %get_op.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -1692,13 +1692,13 @@ get_op.exit:                                      ; preds = %20
   br i1 %.not.i50, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %get_op.exit
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not5.i = icmp eq ptr %29, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -1710,10 +1710,10 @@ proto_item_set_hidden.exit:                       ; preds = %get_op.exit, %27, %
   br i1 %.not48, label %45, label %35
 
 35:                                               ; preds = %proto_item_set_hidden.exit
-  %36 = getelementptr inbounds i8, ptr %7, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.726, ptr noundef nonnull %34) #3
-  %38 = getelementptr inbounds i8, ptr %7, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %41, label %45
@@ -1726,7 +1726,7 @@ proto_item_set_hidden.exit:                       ; preds = %get_op.exit, %27, %
   br label %45
 
 45:                                               ; preds = %35, %41, %proto_item_set_hidden.exit
-  %46 = getelementptr inbounds i8, ptr %22, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %47 = load ptr, ptr %46, align 8
   %.not49 = icmp eq ptr %47, null
   br i1 %.not49, label %53, label %48
@@ -1770,19 +1770,19 @@ define internal i32 @dissect_h450_err(ptr noundef %0, ptr noundef %1, ptr nounde
   unreachable
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %7, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %11 = load i32, ptr %10, align 8
   %.not45 = icmp eq i32 %11, 3
   br i1 %.not45, label %12, label %get_err.exit.thread
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %7, i64 84
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 84
   %14 = load i32, ptr %13, align 4
   %.not46 = icmp eq i32 %14, 0
   br i1 %.not46, label %15, label %get_err.exit.thread
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %7, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %17 = load i32, ptr %16, align 8
   br label %20
 
@@ -1806,13 +1806,13 @@ get_err.exit:                                     ; preds = %20
   br i1 %.not.i50, label %proto_item_set_hidden.exit, label %27
 
 27:                                               ; preds = %get_err.exit
-  %28 = getelementptr inbounds i8, ptr %26, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %29 = load ptr, ptr %28, align 8
   %.not5.i = icmp eq ptr %29, null
   br i1 %.not5.i, label %proto_item_set_hidden.exit, label %30
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %29, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, 1
   store i32 %33, ptr %31, align 4
@@ -1824,10 +1824,10 @@ proto_item_set_hidden.exit:                       ; preds = %get_err.exit, %27, 
   br i1 %.not48, label %45, label %35
 
 35:                                               ; preds = %proto_item_set_hidden.exit
-  %36 = getelementptr inbounds i8, ptr %7, i64 104
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %37 = load ptr, ptr %36, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.726, ptr noundef nonnull %34) #3
-  %38 = getelementptr inbounds i8, ptr %7, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %41, label %45
@@ -1840,7 +1840,7 @@ proto_item_set_hidden.exit:                       ; preds = %get_err.exit, %27, 
   br label %45
 
 45:                                               ; preds = %35, %41, %proto_item_set_hidden.exit
-  %46 = getelementptr inbounds i8, ptr %22, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not49 = icmp eq ptr %47, null
   br i1 %.not49, label %53, label %48
@@ -1967,7 +1967,7 @@ declare i32 @dissect_per_constrained_sequence_of(ptr noundef, i32 noundef, ptr n
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_h450_T_rosApdus_item(ptr noundef %0, i32 noundef %1, ptr noundef initializes((200, 208)) %2, ptr noundef %3, i32 noundef %4) #0 {
   store i32 1, ptr getelementptr inbounds (i8, ptr @h450_rose_ctx, i64 56), align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 200
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr @h450_rose_ctx, ptr %6, align 8
   %7 = tail call i32 @dissect_h450_ros_ROS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #3
   ret i32 %7

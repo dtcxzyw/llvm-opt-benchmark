@@ -28,16 +28,16 @@ $_ZN16G1MonotonicArena10deallocateEPv = comdat any
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN16G1MonotonicArena7SegmentC2EjjPS0_8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store volatile ptr %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store volatile i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %4, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 128
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %10, ptr %11, align 8
   ret void
 }
@@ -50,16 +50,16 @@ define hidden noundef ptr @_ZN16G1MonotonicArena7Segment14create_segmentEjjPS0_8
   %8 = add nuw i64 %7, 128
   %9 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %8, i8 noundef zeroext %3, i32 noundef 0) #8
   store i32 %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store volatile ptr %2, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store volatile i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %9, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i8 %3, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %9, i64 128
-  %15 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %14, ptr %15, align 8
   ret ptr %9
 }
@@ -88,7 +88,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = load volatile ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -99,18 +99,18 @@ define hidden void @_ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7Segment
   br i1 %.not.i.i, label %_ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_ptrERS1_EEE7prependES3_S3_.exit, label %8, !llvm.loop !7
 
 _ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_ptrERS1_EEE7prependES3_S3_.exit: ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull %10) #8, !srcloc !9
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %4, ptr nonnull %12) #8, !srcloc !9
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1MonotonicArena15SegmentFreeList8print_onEP12outputStreamPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load volatile i64, ptr %6, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %2, i64 noundef %5, i64 noundef %7) #8
   ret void
@@ -122,7 +122,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 define hidden noundef ptr @_ZN16G1MonotonicArena15SegmentFreeList7get_allERmS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 424
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 424
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 1
   %9 = icmp eq i64 %8, 0
@@ -137,10 +137,10 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %3, %10
   %.0.i.i = phi i64 [ %12, %10 ], [ %7, %3 ]
   %13 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i.i, ptr nonnull %6) #8, !srcloc !10
   %14 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull align 8 dereferenceable(8) %0) #8, !srcloc !11
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load volatile i64, ptr %15, align 8
   store i64 %16, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load volatile i64, ptr %17, align 8
   store i64 %18, ptr %2, align 8
   %.not = icmp eq ptr %14, null
@@ -182,7 +182,7 @@ define hidden void @_ZN16G1MonotonicArena15SegmentFreeList8free_allEv(ptr nounde
   br i1 %.not14.i, label %_ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_ptrERS1_EEE3popEv.exit, label %.backedge.i.backedge
 
 .thread.i:                                        ; preds = %.backedge.i
-  %6 = getelementptr inbounds i8, ptr %.011.i, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
   %7 = load volatile ptr, ptr %6, align 8
   %8 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %7, ptr nonnull %.011.i, ptr nonnull align 8 dereferenceable(8) %0) #8, !srcloc !6
   %.not1417.i = icmp eq ptr %8, %.011.i
@@ -193,10 +193,10 @@ define hidden void @_ZN16G1MonotonicArena15SegmentFreeList8free_allEv(ptr nounde
   br label %.backedge.i, !llvm.loop !13
 
 _ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_ptrERS1_EEE3popEv.exit.thread: ; preds = %.thread.i
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store volatile ptr null, ptr %9, align 8
   %10 = load i32, ptr %8, align 8
-  %11 = getelementptr inbounds i8, ptr %8, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %10 to i64
   %14 = zext i32 %12 to i64
@@ -217,10 +217,10 @@ _ZN16G1MonotonicArena7Segment14delete_segmentEPS0_.exit: ; preds = %_ZN13LockFre
   br label %2, !llvm.loop !14
 
 _ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_ptrERS1_EEE3popEv.exit: ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = sub i64 0, %.0
   %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %23, ptr nonnull %22) #8, !srcloc !9
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %26 = sub i64 0, %.06
   %27 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %26, ptr nonnull %25) #8, !srcloc !9
   ret void
@@ -228,24 +228,24 @@ _ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 10, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store volatile ptr null, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile i64 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store volatile i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 68
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store volatile i32 0, ptr %12, align 4
   ret void
 }
@@ -253,23 +253,23 @@ define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFre
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1MonotonicArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN16G1MonotonicArena8drop_allEv.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load volatile i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load volatile i64, ptr %11, align 8
   %13 = load volatile ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %15
 
 15:                                               ; preds = %15, %4
@@ -281,46 +281,46 @@ define hidden void @_ZN16G1MonotonicArenaD2Ev(ptr noundef nonnull align 8 derefe
 
 _ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm.exit.i: ; preds = %15
   %17 = zext i32 %10 to i64
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, ptr nonnull %18) #8, !srcloc !9
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %20) #8, !srcloc !9
   br label %_ZN16G1MonotonicArena8drop_allEv.exit
 
 _ZN16G1MonotonicArena8drop_allEv.exit:            ; preds = %1, %_ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm.exit.i
   store volatile ptr null, ptr %2, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile i64 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store volatile i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store volatile i32 0, ptr %26, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %22, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load volatile i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load volatile i64, ptr %11, align 8
   %13 = load volatile ptr, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %8, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %15
 
 15:                                               ; preds = %15, %4
@@ -332,39 +332,39 @@ define hidden void @_ZN16G1MonotonicArena8drop_allEv(ptr noundef nonnull align 8
 
 _ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm.exit: ; preds = %15
   %17 = zext i32 %10 to i64
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %17, ptr nonnull %18) #8, !srcloc !9
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %21 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %12, ptr nonnull %20) #8, !srcloc !9
   br label %22
 
 22:                                               ; preds = %_ZN16G1MonotonicArena15SegmentFreeList8bulk_addERNS_7SegmentES2_mm.exit, %1
   store volatile ptr null, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile i32 0, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store volatile i64 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store volatile i32 0, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store volatile i32 0, ptr %27, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZNK16G1MonotonicArena9slot_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef nonnull ptr @_ZN16G1MonotonicArena8allocateEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   %4 = icmp eq ptr %3, null
@@ -377,9 +377,9 @@ define hidden noundef nonnull ptr @_ZN16G1MonotonicArena8allocateEv(ptr noundef 
 
 6:                                                ; preds = %.sink.split, %1
   %.1 = phi ptr [ %3, %1 ], [ %5, %.sink.split ]
-  %7 = getelementptr inbounds i8, ptr %.1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %8 = load volatile i32, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %.1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp ult i32 %8, %10
   br i1 %.not.i, label %11, label %.sink.split, !llvm.loop !15
@@ -391,7 +391,7 @@ define hidden noundef nonnull ptr @_ZN16G1MonotonicArena8allocateEv(ptr noundef 
   br i1 %.not5.i, label %_ZN16G1MonotonicArena7Segment13allocate_slotEv.exit, label %.sink.split, !llvm.loop !15
 
 _ZN16G1MonotonicArena7Segment13allocate_slotEv.exit: ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %.1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.1, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %.sink.split, label %16, !llvm.loop !15
@@ -402,11 +402,11 @@ _ZN16G1MonotonicArena7Segment13allocate_slotEv.exit: ; preds = %11
   %19 = zext i32 %17 to i64
   %20 = mul nuw i64 %19, %18
   %21 = getelementptr inbounds i8, ptr %15, i64 %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 68
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %23 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %22) #8, !srcloc !16
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = ptrtoint ptr %21 to i64
   %29 = add i32 %27, -1
@@ -419,7 +419,7 @@ _ZN16G1MonotonicArena7Segment13allocate_slotEv.exit: ; preds = %11
   %34 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %34, align 1
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str.4, i32 noundef 207, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef %28, i32 noundef %37) #9
   unreachable
@@ -430,11 +430,11 @@ _ZN16G1MonotonicArena7Segment13allocate_slotEv.exit: ; preds = %11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN16G1MonotonicArena11new_segmentEPNS_7SegmentE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 424
   %8 = load volatile i64, ptr %7, align 8
   %9 = and i64 %8, 1
   %10 = icmp eq i64 %9, 0
@@ -462,7 +462,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %11, %2
   br i1 %.not14.i.i, label %21, label %.backedge.i.i.backedge
 
 .thread.i.i:                                      ; preds = %.backedge.i.i
-  %18 = getelementptr inbounds i8, ptr %.011.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %19 = load volatile ptr, ptr %18, align 8
   %20 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %19, ptr nonnull %.011.i.i, ptr nonnull align 8 dereferenceable(24) %4) #8, !srcloc !6
   %.not1417.i.i = icmp eq ptr %20, %.011.i.i
@@ -479,21 +479,21 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %11, %2
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %1, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i32, ptr %23, align 4
   br label %25
 
 25:                                               ; preds = %21, %22
   %26 = phi i32 [ %24, %22 ], [ 0, %21 ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i32 %30(ptr noundef nonnull align 8 dereferenceable(28) %28, i32 noundef %26) #8
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %32, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = zext i32 %34 to i64
   %38 = zext i32 %31 to i64
@@ -501,27 +501,27 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %11, %2
   %40 = add nuw i64 %39, 128
   %41 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %40, i8 noundef zeroext %36, i32 noundef 0) #8
   store i32 %34, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i32 %31, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %41, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store volatile ptr %1, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store volatile i32 0, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 20
   store i8 %36, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 128
-  %47 = getelementptr inbounds i8, ptr %41, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 128
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store ptr %46, ptr %47, align 8
   br label %69
 
 48:                                               ; preds = %.thread.i.i
-  %49 = getelementptr inbounds i8, ptr %20, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile ptr null, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %51 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 -1, ptr nonnull %50) #8, !srcloc !9
-  %52 = getelementptr inbounds i8, ptr %4, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %53 = load i32, ptr %20, align 8
-  %54 = getelementptr inbounds i8, ptr %20, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %55 = load i32, ptr %54, align 4
   %56 = zext i32 %53 to i64
   %57 = zext i32 %55 to i64
@@ -530,10 +530,10 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %11, %2
   %60 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %59, ptr nonnull %52) #8, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !12
   store volatile i64 %8, ptr %7, align 8
-  %61 = getelementptr inbounds i8, ptr %20, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store volatile i32 0, ptr %61, align 8
   store volatile ptr %1, ptr %49, align 8
-  %62 = getelementptr inbounds i8, ptr %20, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = load i32, ptr %20, align 8
   %65 = load i32, ptr %54, align 4
@@ -545,7 +545,7 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %11, %2
 
 69:                                               ; preds = %48, %25
   %.020 = phi ptr [ %41, %25 ], [ %20, %48 ]
-  %70 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.020, ptr %1, ptr nonnull %70) #8, !srcloc !6
   %.not24 = icmp eq ptr %71, %1
   br i1 %.not24, label %76, label %72
@@ -568,23 +568,23 @@ _ZN16G1MonotonicArena7Segment14delete_segmentEPS0_.exit: ; preds = %72, %75
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %0, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %.020, ptr %79, align 8
   br label %80
 
 80:                                               ; preds = %78, %76
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %81) #8, !srcloc !16
-  %83 = getelementptr inbounds i8, ptr %0, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = load i32, ptr %.020, align 8
-  %85 = getelementptr inbounds i8, ptr %.020, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   %86 = load i32, ptr %85, align 4
   %87 = zext i32 %84 to i64
   %88 = zext i32 %86 to i64
   %89 = mul nuw i64 %88, %87
   %90 = add nuw i64 %89, 128
   %91 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %90, ptr nonnull %83) #8, !srcloc !9
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %93 = load i32, ptr %85, align 4
   %94 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %93, ptr nonnull %92) #8, !srcloc !16
   br label %95
@@ -599,7 +599,7 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load volatile i32, ptr %2, align 8
   ret i32 %3
 }

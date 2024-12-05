@@ -9,7 +9,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %1, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, -1
   %11 = icmp ne ptr %3, null
@@ -19,20 +19,20 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
   br i1 %or.cond3, label %13, label %.loopexit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8
   store i32 %0, ptr %3, align 4
   %.not77 = icmp eq ptr %5, null
-  %invariant.gep = getelementptr inbounds i8, ptr %15, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %15, i64 4
   br label %18
 
 18:                                               ; preds = %13, %67
   %.06184 = phi i32 [ 0, %13 ], [ %.2, %67 ]
   %.06283 = phi i32 [ %2, %13 ], [ %.163, %67 ]
   %19 = zext nneg i32 %.06184 to i64
-  %20 = getelementptr inbounds i32, ptr %3, i64 %19
+  %20 = getelementptr inbounds nuw i32, ptr %3, i64 %19
   %21 = load i32, ptr %20, align 4
   %.pre = sext i32 %21 to i64
   br i1 %.not77, label %._crit_edge88, label %22
@@ -57,7 +57,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
 
 32:                                               ; preds = %29
   %33 = zext nneg i32 %25 to i64
-  %34 = getelementptr inbounds i32, ptr %15, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %15, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp slt i32 %35, 0
   %37 = sub nsw i32 -2, %35
@@ -66,7 +66,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
 
 38:                                               ; preds = %32, %29
   %39 = phi i32 [ 0, %29 ], [ %spec.select, %32 ]
-  %40 = getelementptr inbounds i32, ptr %4, i64 %19
+  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %19
   store i32 %39, ptr %40, align 4
   br label %41
 
@@ -76,7 +76,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
 
 43:                                               ; preds = %41
   %44 = zext nneg i32 %25 to i64
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %44
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %44
   %45 = load i32, ptr %gep, align 4
   %46 = icmp slt i32 %45, 0
   %47 = sub nsw i32 -2, %45
@@ -85,7 +85,7 @@ define i32 @cs_dfs(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr 
 
 48:                                               ; preds = %43, %41
   %49 = phi i32 [ 0, %41 ], [ %spec.select79, %43 ]
-  %50 = getelementptr inbounds i32, ptr %4, i64 %19
+  %50 = getelementptr inbounds nuw i32, ptr %4, i64 %19
   %51 = load i32, ptr %50, align 4
   %52 = icmp slt i32 %51, %49
   br i1 %52, label %.lr.ph.preheader, label %._crit_edge

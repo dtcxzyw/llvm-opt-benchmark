@@ -68,7 +68,7 @@ define i32 @mca_vprotocol_pessimist_isend(ptr noundef %0, i64 noundef %1, ptr no
   %12 = add i64 %11, 1
   store i64 %12, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 208), align 16
   %13 = load ptr, ptr %7, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   %17 = ptrtoint ptr %13 to i64
@@ -77,7 +77,7 @@ define i32 @mca_vprotocol_pessimist_isend(ptr noundef %0, i64 noundef %1, ptr no
   %.v = select i1 %16, i64 %18, i64 %19
   %20 = add i64 %.v, %17
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i64 %11, ptr %22, align 8
   %23 = load ptr, ptr %7, align 8
   tail call fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr noundef %23)
@@ -101,16 +101,16 @@ define internal fastcc void @vprotocol_pessimist_event_flush() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %7, %193
   %.0128 = phi ptr [ %194, %193 ], [ %8, %7 ]
-  %9 = getelementptr inbounds i8, ptr %.0128, i64 72
-  %10 = getelementptr inbounds i8, ptr %.0128, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %.0128, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %.0128, i64 80
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.0128, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.0128, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %opal_free_list_return.exit, label %19
@@ -141,7 +141,7 @@ define internal fastcc void @vprotocol_pessimist_event_flush() unnamed_addr #0 {
   br i1 %or.cond.i, label %ompi_comm_invalid.exit.thread, label %ompi_comm_invalid.exit
 
 ompi_comm_invalid.exit:                           ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %29, i64 224
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 224
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 48
   %or.cond7.i.not = icmp eq i32 %34, 0
@@ -154,9 +154,9 @@ ompi_comm_invalid.exit.thread:                    ; preds = %28, %ompi_comm_inva
   br i1 %.not42, label %70, label %36
 
 36:                                               ; preds = %ompi_comm_invalid.exit.thread
-  %37 = getelementptr inbounds i8, ptr %.pre140, i64 296
+  %37 = getelementptr inbounds nuw i8, ptr %.pre140, i64 296
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %.pre140, i64 304
+  %39 = getelementptr inbounds nuw i8, ptr %.pre140, i64 304
   %40 = load i32, ptr %39, align 8
   %41 = icmp sgt i32 %35, -1
   br i1 %41, label %ompi_errcode_get_mpi_code.exit, label %.preheader.i
@@ -195,7 +195,7 @@ ompi_comm_invalid.exit.thread:                    ; preds = %28, %ompi_comm_inva
 54:                                               ; preds = %52, %.lr.ph.i
   %55 = phi i8 [ %48, %.lr.ph.i ], [ %.pre.i.i, %52 ]
   %56 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8
   %59 = trunc i8 %55 to i1
   br i1 %59, label %60, label %opal_pointer_array_get_item.exit.i
@@ -207,13 +207,13 @@ ompi_comm_invalid.exit.thread:                    ; preds = %28, %ompi_comm_inva
 
 opal_pointer_array_get_item.exit.i:               ; preds = %60, %54
   %62 = phi i8 [ %55, %54 ], [ %.pre.i, %60 ]
-  %63 = getelementptr inbounds i8, ptr %58, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %64 = load i32, ptr %63, align 8
   %65 = icmp eq i32 %64, %35
   br i1 %65, label %66, label %44
 
 66:                                               ; preds = %opal_pointer_array_get_item.exit.i
-  %67 = getelementptr inbounds i8, ptr %58, i64 20
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 20
   %68 = load i32, ptr %67, align 4
   br label %ompi_errcode_get_mpi_code.exit
 
@@ -238,9 +238,9 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %44, %36, %.preheade
 
 80:                                               ; preds = %70
   %81 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 296
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 296
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 304
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 304
   %85 = load i32, ptr %84, align 8
   %86 = icmp sgt i32 %79, -1
   br i1 %86, label %ompi_errcode_get_mpi_code.exit58, label %.preheader.i47
@@ -279,7 +279,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %44, %36, %.preheade
 99:                                               ; preds = %97, %.lr.ph.i51
   %100 = phi i8 [ %93, %.lr.ph.i51 ], [ %.pre.i.i57, %97 ]
   %101 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %102 = getelementptr inbounds ptr, ptr %101, i64 %indvars.iv.i52
+  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i52
   %103 = load ptr, ptr %102, align 8
   %104 = trunc i8 %100 to i1
   br i1 %104, label %105, label %opal_pointer_array_get_item.exit.i54
@@ -291,13 +291,13 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %44, %36, %.preheade
 
 opal_pointer_array_get_item.exit.i54:             ; preds = %105, %99
   %107 = phi i8 [ %100, %99 ], [ %.pre.i56, %105 ]
-  %108 = getelementptr inbounds i8, ptr %103, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %103, i64 16
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, %79
   br i1 %110, label %111, label %89
 
 111:                                              ; preds = %opal_pointer_array_get_item.exit.i54
-  %112 = getelementptr inbounds i8, ptr %103, i64 20
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 20
   %113 = load i32, ptr %112, align 4
   br label %ompi_errcode_get_mpi_code.exit58
 
@@ -315,9 +315,9 @@ ompi_errcode_get_mpi_code.exit58:                 ; preds = %89, %80, %.preheade
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 296
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 296
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %119, i64 304
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 304
   %123 = load i32, ptr %122, align 8
   %124 = icmp sgt i32 %117, -1
   br i1 %124, label %ompi_errcode_get_mpi_code.exit70, label %.preheader.i59
@@ -356,7 +356,7 @@ ompi_errcode_get_mpi_code.exit58:                 ; preds = %89, %80, %.preheade
 137:                                              ; preds = %135, %.lr.ph.i63
   %138 = phi i8 [ %131, %.lr.ph.i63 ], [ %.pre.i.i69, %135 ]
   %139 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %indvars.iv.i64
+  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv.i64
   %141 = load ptr, ptr %140, align 8
   %142 = trunc i8 %138 to i1
   br i1 %142, label %143, label %opal_pointer_array_get_item.exit.i66
@@ -368,13 +368,13 @@ ompi_errcode_get_mpi_code.exit58:                 ; preds = %89, %80, %.preheade
 
 opal_pointer_array_get_item.exit.i66:             ; preds = %143, %137
   %145 = phi i8 [ %138, %137 ], [ %.pre.i68, %143 ]
-  %146 = getelementptr inbounds i8, ptr %141, i64 16
+  %146 = getelementptr inbounds nuw i8, ptr %141, i64 16
   %147 = load i32, ptr %146, align 8
   %148 = icmp eq i32 %147, %117
   br i1 %148, label %149, label %127
 
 149:                                              ; preds = %opal_pointer_array_get_item.exit.i66
-  %150 = getelementptr inbounds i8, ptr %141, i64 20
+  %150 = getelementptr inbounds nuw i8, ptr %141, i64 20
   %151 = load i32, ptr %150, align 4
   br label %ompi_errcode_get_mpi_code.exit70
 
@@ -384,15 +384,15 @@ ompi_errcode_get_mpi_code.exit70:                 ; preds = %127, %118, %.prehea
   br label %153
 
 153:                                              ; preds = %115, %ompi_errcode_get_mpi_code.exit70, %20
-  %154 = getelementptr inbounds i8, ptr %.0128, i64 16
+  %154 = getelementptr inbounds nuw i8, ptr %.0128, i64 16
   %155 = load volatile ptr, ptr %154, align 8
-  %156 = getelementptr inbounds i8, ptr %.0128, i64 24
+  %156 = getelementptr inbounds nuw i8, ptr %.0128, i64 24
   %157 = load volatile ptr, ptr %156, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store volatile ptr %155, ptr %158, align 8
   %159 = load volatile ptr, ptr %156, align 8
   %160 = load volatile ptr, ptr %154, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 24
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store volatile ptr %159, ptr %161, align 8
   %162 = load volatile i64, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 272), align 16
   %163 = add i64 %162, -1
@@ -436,7 +436,7 @@ opal_lifo_push_atomic.exit.i.i:                   ; preds = %opal_atomic_compare
   br i1 %.not.i.i.i, label %opal_free_list_return.exit, label %opal_free_list_return_mt.exit.sink.split.i
 
 180:                                              ; preds = %153
-  %181 = getelementptr inbounds i8, ptr %.0128, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %.0128, i64 32
   store i32 0, ptr %181, align 8
   %182 = ptrtoint ptr %.0128 to i64
   store volatile i64 %182, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 344), align 8
@@ -464,7 +464,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
   br i1 %.not45, label %193, label %190
 
 190:                                              ; preds = %opal_free_list_return.exit
-  %191 = getelementptr inbounds i8, ptr %.1, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %192 = load volatile ptr, ptr %191, align 8
   br label %193
 
@@ -486,7 +486,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
   br i1 %or.cond.i71, label %ompi_comm_invalid.exit75.thread, label %ompi_comm_invalid.exit75
 
 ompi_comm_invalid.exit75:                         ; preds = %196
-  %200 = getelementptr inbounds i8, ptr %197, i64 224
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 224
   %201 = load i32, ptr %200, align 8
   %202 = and i32 %201, 48
   %or.cond7.i72.not = icmp eq i32 %202, 0
@@ -499,9 +499,9 @@ ompi_comm_invalid.exit75.thread:                  ; preds = %196, %ompi_comm_inv
   br i1 %.not37, label %238, label %204
 
 204:                                              ; preds = %ompi_comm_invalid.exit75.thread
-  %205 = getelementptr inbounds i8, ptr %.pre142, i64 296
+  %205 = getelementptr inbounds nuw i8, ptr %.pre142, i64 296
   %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %.pre142, i64 304
+  %207 = getelementptr inbounds nuw i8, ptr %.pre142, i64 304
   %208 = load i32, ptr %207, align 8
   %209 = icmp sgt i32 %203, -1
   br i1 %209, label %ompi_errcode_get_mpi_code.exit87, label %.preheader.i76
@@ -540,7 +540,7 @@ ompi_comm_invalid.exit75.thread:                  ; preds = %196, %ompi_comm_inv
 222:                                              ; preds = %220, %.lr.ph.i80
   %223 = phi i8 [ %216, %.lr.ph.i80 ], [ %.pre.i.i86, %220 ]
   %224 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %225 = getelementptr inbounds ptr, ptr %224, i64 %indvars.iv.i81
+  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %indvars.iv.i81
   %226 = load ptr, ptr %225, align 8
   %227 = trunc i8 %223 to i1
   br i1 %227, label %228, label %opal_pointer_array_get_item.exit.i83
@@ -552,13 +552,13 @@ ompi_comm_invalid.exit75.thread:                  ; preds = %196, %ompi_comm_inv
 
 opal_pointer_array_get_item.exit.i83:             ; preds = %228, %222
   %230 = phi i8 [ %223, %222 ], [ %.pre.i85, %228 ]
-  %231 = getelementptr inbounds i8, ptr %226, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %232 = load i32, ptr %231, align 8
   %233 = icmp eq i32 %232, %203
   br i1 %233, label %234, label %212
 
 234:                                              ; preds = %opal_pointer_array_get_item.exit.i83
-  %235 = getelementptr inbounds i8, ptr %226, i64 20
+  %235 = getelementptr inbounds nuw i8, ptr %226, i64 20
   %236 = load i32, ptr %235, align 4
   br label %ompi_errcode_get_mpi_code.exit87
 
@@ -583,9 +583,9 @@ ompi_errcode_get_mpi_code.exit87:                 ; preds = %212, %204, %.prehea
 
 248:                                              ; preds = %238
   %249 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 296
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 296
   %251 = load ptr, ptr %250, align 8
-  %252 = getelementptr inbounds i8, ptr %249, i64 304
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 304
   %253 = load i32, ptr %252, align 8
   %254 = icmp sgt i32 %247, -1
   br i1 %254, label %ompi_errcode_get_mpi_code.exit99, label %.preheader.i88
@@ -624,7 +624,7 @@ ompi_errcode_get_mpi_code.exit87:                 ; preds = %212, %204, %.prehea
 267:                                              ; preds = %265, %.lr.ph.i92
   %268 = phi i8 [ %261, %.lr.ph.i92 ], [ %.pre.i.i98, %265 ]
   %269 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %270 = getelementptr inbounds ptr, ptr %269, i64 %indvars.iv.i93
+  %270 = getelementptr inbounds nuw ptr, ptr %269, i64 %indvars.iv.i93
   %271 = load ptr, ptr %270, align 8
   %272 = trunc i8 %268 to i1
   br i1 %272, label %273, label %opal_pointer_array_get_item.exit.i95
@@ -636,13 +636,13 @@ ompi_errcode_get_mpi_code.exit87:                 ; preds = %212, %204, %.prehea
 
 opal_pointer_array_get_item.exit.i95:             ; preds = %273, %267
   %275 = phi i8 [ %268, %267 ], [ %.pre.i97, %273 ]
-  %276 = getelementptr inbounds i8, ptr %271, i64 16
+  %276 = getelementptr inbounds nuw i8, ptr %271, i64 16
   %277 = load i32, ptr %276, align 8
   %278 = icmp eq i32 %277, %247
   br i1 %278, label %279, label %257
 
 279:                                              ; preds = %opal_pointer_array_get_item.exit.i95
-  %280 = getelementptr inbounds i8, ptr %271, i64 20
+  %280 = getelementptr inbounds nuw i8, ptr %271, i64 20
   %281 = load i32, ptr %280, align 4
   br label %ompi_errcode_get_mpi_code.exit99
 
@@ -660,9 +660,9 @@ ompi_errcode_get_mpi_code.exit99:                 ; preds = %257, %248, %.prehea
 
 286:                                              ; preds = %283
   %287 = load ptr, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 280), align 8
-  %288 = getelementptr inbounds i8, ptr %287, i64 296
+  %288 = getelementptr inbounds nuw i8, ptr %287, i64 296
   %289 = load ptr, ptr %288, align 8
-  %290 = getelementptr inbounds i8, ptr %287, i64 304
+  %290 = getelementptr inbounds nuw i8, ptr %287, i64 304
   %291 = load i32, ptr %290, align 8
   %292 = icmp sgt i32 %285, -1
   br i1 %292, label %ompi_errcode_get_mpi_code.exit111, label %.preheader.i100
@@ -701,7 +701,7 @@ ompi_errcode_get_mpi_code.exit99:                 ; preds = %257, %248, %.prehea
 305:                                              ; preds = %303, %.lr.ph.i104
   %306 = phi i8 [ %299, %.lr.ph.i104 ], [ %.pre.i.i110, %303 ]
   %307 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_errcodes_intern, i64 112), align 8
-  %308 = getelementptr inbounds ptr, ptr %307, i64 %indvars.iv.i105
+  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %indvars.iv.i105
   %309 = load ptr, ptr %308, align 8
   %310 = trunc i8 %306 to i1
   br i1 %310, label %311, label %opal_pointer_array_get_item.exit.i107
@@ -713,13 +713,13 @@ ompi_errcode_get_mpi_code.exit99:                 ; preds = %257, %248, %.prehea
 
 opal_pointer_array_get_item.exit.i107:            ; preds = %311, %305
   %313 = phi i8 [ %306, %305 ], [ %.pre.i109, %311 ]
-  %314 = getelementptr inbounds i8, ptr %309, i64 16
+  %314 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %315 = load i32, ptr %314, align 8
   %316 = icmp eq i32 %315, %285
   br i1 %316, label %317, label %295
 
 317:                                              ; preds = %opal_pointer_array_get_item.exit.i107
-  %318 = getelementptr inbounds i8, ptr %309, i64 20
+  %318 = getelementptr inbounds nuw i8, ptr %309, i64 20
   %319 = load i32, ptr %318, align 4
   br label %ompi_errcode_get_mpi_code.exit111
 
@@ -744,7 +744,7 @@ define internal fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr nou
   %9 = add i64 %8, %7
   %10 = inttoptr i64 %9 to ptr
   %11 = load i64, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 712), align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 520
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, 40
   %15 = icmp ult i64 %11, %14
@@ -756,7 +756,7 @@ define internal fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr nou
 
 17:                                               ; preds = %16, %1
   %18 = load i64, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 704), align 16
-  %19 = getelementptr inbounds i8, ptr %10, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i64 %18, ptr %19, align 8
   %20 = load i64, ptr %12, align 8
   %21 = add i64 %20, 40
@@ -771,27 +771,27 @@ define internal fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr nou
   %27 = inttoptr i64 %26 to ptr
   %28 = load i64, ptr %12, align 8
   store i64 %28, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 488
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %27, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 492
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 492
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %27, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %27, i64 16
-  %36 = getelementptr inbounds i8, ptr %0, i64 176
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %37, i64 168
   %.val = load i64, ptr %38, align 8
   %39 = getelementptr i8, ptr %37, i64 176
   %.val24 = load i64, ptr %39, align 8
   store i64 %.val, ptr %35, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 24
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 %.val24, ptr %.sroa.2.0..sroa_idx, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 504
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %41 = load i64, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %27, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %41, ptr %42, align 8
   %43 = load i64, ptr %19, align 8
   %44 = add i64 %43, 40
@@ -808,41 +808,41 @@ define internal fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr nou
 46:                                               ; preds = %17
   store i64 0, ptr %4, align 8
   store i32 1, ptr %5, align 4
-  %47 = getelementptr inbounds i8, ptr %6, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %45, ptr %47, align 8
   store i64 %45, ptr %3, align 8
   %48 = load i64, ptr getelementptr inbounds (i8, ptr @mca_pml_v, i64 16), align 8
   %49 = add i64 %48, %7
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %50, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load i64, ptr %51, align 8
   %53 = inttoptr i64 %52 to ptr
   store ptr %53, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 192
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %55 = call i32 @opal_convertor_clone(ptr noundef nonnull %54, ptr noundef nonnull %2, i32 noundef 0) #6
-  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %57 = load i64, ptr %56, align 8
   %.not.i.i.not.i = icmp eq i64 %57, 0
   br i1 %.not.i.i.not.i, label %58, label %63
 
 58:                                               ; preds = %46
-  %59 = getelementptr inbounds i8, ptr %2, i64 20
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, 134217728
   store i32 %61, ptr %59, align 4
-  %62 = getelementptr inbounds i8, ptr %2, i64 120
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 120
   store i64 0, ptr %62, align 8
   store i64 0, ptr %4, align 8
   br label %opal_convertor_clone_with_position.exit.i
 
 63:                                               ; preds = %46
-  %64 = getelementptr inbounds i8, ptr %2, i64 120
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %65 = load i64, ptr %64, align 8
   %66 = icmp eq i64 %65, 0
   br i1 %66, label %opal_convertor_clone_with_position.exit.i, label %67
 
 67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %2, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, -134217729
   store i32 %70, ptr %68, align 4
@@ -885,7 +885,7 @@ define i32 @mca_vprotocol_pessimist_send(ptr noundef %0, i64 noundef %1, ptr nou
   %12 = add i64 %11, 1
   store i64 %12, ptr getelementptr inbounds (i8, ptr @mca_vprotocol_pessimist, i64 208), align 16
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 168
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 168
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   %17 = ptrtoint ptr %13 to i64
@@ -894,7 +894,7 @@ define i32 @mca_vprotocol_pessimist_send(ptr noundef %0, i64 noundef %1, ptr nou
   %.v = select i1 %16, i64 %18, i64 %19
   %20 = add i64 %.v, %17
   %21 = inttoptr i64 %20 to ptr
-  %22 = getelementptr inbounds i8, ptr %21, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
   store i64 %11, ptr %22, align 8
   call fastcc void @vprotocol_pessimist_sender_based_copy_start(ptr noundef %13)
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @ompi_request_functions, i64 32), align 8

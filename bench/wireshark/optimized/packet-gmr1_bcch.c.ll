@@ -552,7 +552,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca %struct.csnStream_t, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_append_str(ptr noundef %7, i32 noundef 25, ptr noundef nonnull @.str.229) #5
   %8 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef 0, i32 noundef 5) #5
@@ -566,13 +566,13 @@ define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr nound
   %15 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %16 = shl i32 %15, 3
   call void @csnStreamInit(ptr noundef nonnull %5, i32 noundef 0, i32 noundef %16, ptr noundef %1) #5
-  %17 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %18 = load ptr, ptr %17, align 8
   br i1 %.not, label %29, label %19
 
 19:                                               ; preds = %4
   %20 = call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 62) #5
-  %21 = getelementptr inbounds i8, ptr %20, i64 37
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 37
   store i8 24, ptr %21, align 1
   %22 = load i32, ptr @ett_gmr1_bcch, align 4
   %23 = call signext i16 @csnStreamDissector(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @CSNDESCR_SystemInformation1_t, ptr noundef %0, ptr noundef %20, i32 noundef %22) #5
@@ -586,7 +586,7 @@ define internal i32 @dissect_gmr1_bcch(ptr noundef %0, ptr noundef %1, ptr nound
 
 29:                                               ; preds = %4
   %30 = call noalias ptr @wmem_alloc(ptr noundef %18, i64 noundef 22) #5
-  %31 = getelementptr inbounds i8, ptr %30, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 3
   store i8 6, ptr %31, align 1
   %32 = load i32, ptr @ett_gmr1_bcch, align 4
   %33 = call signext i16 @csnStreamDissector(ptr noundef %14, ptr noundef nonnull %5, ptr noundef nonnull @CSNDESCR_SystemInformation2_t, ptr noundef %0, ptr noundef %30, i32 noundef %32) #5
@@ -632,7 +632,7 @@ define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0
   br i1 %8, label %83, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %10
 
 10:                                               ; preds = %.preheader, %10
@@ -656,37 +656,37 @@ define internal signext range(i16 -1, 1) i16 @Seg3A_LAI_Dissector(ptr noundef %0
   %21 = lshr i32 %18, 4
   %22 = mul nuw nsw i32 %21, 10
   %23 = add nuw nsw i32 %20, %22
-  %24 = getelementptr inbounds i8, ptr %6, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = and i8 %25, 15
   %27 = zext nneg i8 %26 to i32
   %28 = add nuw nsw i32 %23, %27
   %29 = trunc nuw nsw i32 %28 to i16
   store i16 %29, ptr %3, align 2
-  %30 = getelementptr inbounds i8, ptr %6, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i16
   %33 = and i16 %32, 15
   %34 = mul nuw nsw i16 %33, 10
   %35 = lshr i16 %32, 4
   %36 = add nuw nsw i16 %34, %35
-  %37 = getelementptr inbounds i8, ptr %3, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 2
   store i16 %36, ptr %37, align 2
-  %38 = getelementptr inbounds i8, ptr %6, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 3
   %39 = load i8, ptr %38, align 1
   %40 = zext i8 %39 to i16
   %41 = shl nuw i16 %40, 8
-  %42 = getelementptr inbounds i8, ptr %6, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i16
   %45 = or disjoint i16 %41, %44
-  %46 = getelementptr inbounds i8, ptr %3, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i16 %45, ptr %46, align 2
   %47 = lshr i8 %39, 2
-  %48 = getelementptr inbounds i8, ptr %3, i64 6
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 6
   store i8 %47, ptr %48, align 2
   %49 = and i16 %45, 1023
-  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %49, ptr %50, align 2
   %51 = load i32, ptr @hf_seg3a_lai_mcc, align 4
   %52 = load i32, ptr %9, align 4

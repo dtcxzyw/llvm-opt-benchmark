@@ -52,47 +52,47 @@ define dso_local void @_ZN16V3ScoreboardBase8selfTestEv() #3 {
   %2 = alloca %class.ScoreboardTestElem, align 8
   %3 = alloca %class.ScoreboardTestElem, align 8
   store i64 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 10, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 10, ptr %7, align 8
   %8 = load i32, ptr @_ZZN18ScoreboardTestElemC1EjE8s_serial, align 4
   %9 = add i32 %8, 1
   %10 = zext i32 %9 to i64
   store i64 %10, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 20, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 24
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 20, ptr %13, align 8
   %14 = add i32 %8, 2
   %15 = zext i32 %14 to i64
   store i64 %15, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 30, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 24
-  %18 = getelementptr inbounds i8, ptr %3, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 30, ptr %18, align 8
   %19 = add i32 %8, 3
   store i32 %19, ptr @_ZZN18ScoreboardTestElemC1EjE8s_serial, align 4
   %20 = zext i32 %19 to i64
   store i64 %20, ptr %17, align 8
   store ptr null, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 16
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %1, ptr %22, align 8
   store ptr %1, ptr %2, align 8
   store ptr %2, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %2, i64 16
-  %24 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %24, align 8
   store ptr %2, ptr %3, align 8
   store ptr %3, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %4, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %3, ptr %26, align 8
   store ptr null, ptr %4, align 8
   br label %.lr.ph.i
@@ -101,19 +101,19 @@ define dso_local void @_ZN16V3ScoreboardBase8selfTestEv() #3 {
   %27 = phi ptr [ %.013.i, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i ], [ null, %.lr.ph.i.preheader ]
   %.013.i = phi ptr [ %28, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i ], [ %3, %.lr.ph.i.preheader ]
   %28 = load ptr, ptr %.013.i, align 8
-  %29 = getelementptr inbounds i8, ptr %.013.i, i64 16
-  %30 = getelementptr inbounds i8, ptr %.013.i, i64 40
-  %31 = getelementptr inbounds i8, ptr %.013.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.013.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.013.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   store i64 0, ptr %31, align 8
   %32 = load i32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %.013.i, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.013.i, i64 32
   store i32 %32, ptr %33, align 8
   store ptr %27, ptr %.013.i, align 8
   %.not.i.i9 = icmp eq ptr %27, null
   br i1 %.not.i.i9, label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i, label %34
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = getelementptr inbounds i8, ptr %27, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %.013.i, ptr %35, align 8
   br label %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i
 
@@ -156,7 +156,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit.thread: ; preds = %_Z
   store ptr null, ptr %0, align 8
   %48 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %.013.i)
   store ptr %48, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %0, ptr %49, align 8
   br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit14
 
@@ -198,7 +198,7 @@ _ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit14.thread: ; preds = %_Z
   %62 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %54)
   %63 = load ptr, ptr %2, align 8
   store ptr %63, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %62, ptr %64, align 8
   br label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split
 
@@ -211,7 +211,7 @@ _ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split: ; preds 
 _ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split: ; preds = %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split, %58
   %.sink64 = phi ptr [ %54, %58 ], [ %.sink, %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i.sink.split.sink.split ]
   %66 = load ptr, ptr %23, align 8
-  %67 = getelementptr inbounds i8, ptr %.sink64, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.sink64, i64 16
   store ptr %66, ptr %67, align 8
   br label %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
 
@@ -222,7 +222,7 @@ _ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i: ; preds = %_ZN11PairingHeapI3K
   br i1 %.not.i5.i, label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i, label %69
 
 69:                                               ; preds = %_ZN11PairingHeapI3KeyE6removeEPNS1_4NodeE.exit.i
-  %70 = getelementptr inbounds i8, ptr %68, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %2, ptr %70, align 8
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i
 
@@ -282,7 +282,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %
   %88 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
   store ptr %88, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store ptr %87, ptr %89, align 8
   %90 = load ptr, ptr %21, align 8
   store ptr %87, ptr %90, align 8
@@ -291,7 +291,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE10addUnknownEPS0_.exit.i: ; preds = %
 _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit.sink.split: ; preds = %83, %81, %85, %86
   %.sink68 = phi ptr [ %87, %86 ], [ %80, %85 ], [ %80, %81 ], [ %78, %83 ]
   %91 = load ptr, ptr %21, align 8
-  %92 = getelementptr inbounds i8, ptr %.sink68, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.sink68, i64 16
   store ptr %91, ptr %92, align 8
   br label %_ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit
 
@@ -322,7 +322,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE6removeEPS0_.exit: ; preds = %_ZN12V3
   store ptr null, ptr %0, align 8
   %103 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %99)
   store ptr %103, ptr %0, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 16
   store ptr %0, ptr %104, align 8
   br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit25
 
@@ -348,15 +348,15 @@ _ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30: ; preds = %108, %_ZN11Pairin
   %110 = phi ptr [ %.013.i28, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30 ], [ %.pr56, %108 ]
   %.013.i28 = phi ptr [ %111, %_ZN11PairingHeapI3KeyE6insertEPNS1_4NodeE.exit.i30 ], [ %109, %108 ]
   %111 = load ptr, ptr %.013.i28, align 8
-  %112 = getelementptr inbounds i8, ptr %.013.i28, i64 16
-  %113 = getelementptr inbounds i8, ptr %.013.i28, i64 40
-  %114 = getelementptr inbounds i8, ptr %.013.i28, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.013.i28, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.013.i28, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %.013.i28, i64 8
   store i64 0, ptr %114, align 8
   %115 = load i32, ptr %113, align 8
-  %116 = getelementptr inbounds i8, ptr %.013.i28, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %.013.i28, i64 32
   store i32 %115, ptr %116, align 8
   store ptr %110, ptr %.013.i28, align 8
-  %117 = getelementptr inbounds i8, ptr %110, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %110, i64 16
   store ptr %.013.i28, ptr %117, align 8
   store ptr %.013.i28, ptr %0, align 8
   store ptr %0, ptr %112, align 8
@@ -373,7 +373,7 @@ _ZN12V3ScoreboardI18ScoreboardTestElem3KeyE7rescoreEv.exit32.thread: ; preds = %
   store ptr null, ptr %0, align 8
   %121 = call noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4NodeE(ptr noundef nonnull %118)
   store ptr %121, ptr %0, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   store ptr %0, ptr %122, align 8
   br label %_ZNK12V3ScoreboardI18ScoreboardTestElem3KeyE4bestEv.exit37
 
@@ -415,7 +415,7 @@ define linkonce_odr dso_local noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4N
 
 3:                                                ; preds = %.preheaderthread-pre-split
   store ptr %.0, ptr %6, align 8
-  %4 = getelementptr inbounds i8, ptr %.0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   store ptr %6, ptr %4, align 8
   br label %.loopexit138
 
@@ -426,11 +426,11 @@ define linkonce_odr dso_local noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4N
   store ptr null, ptr %.0117142158, align 8
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
-  %8 = getelementptr inbounds i8, ptr %.0117142158, i64 24
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.0117142158, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %10 = load i32, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %.0117142158, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.0117142158, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ugt i32 %10, %12
   br i1 %13, label %_ZNK3KeyltERKS_.exit.thread, label %14
@@ -446,14 +446,14 @@ _ZNK3KeyltERKS_.exit:                             ; preds = %14
   br i1 %18, label %_ZNK3KeyltERKS_.exit.thread, label %_ZNK3KeyltERKS_.exit.thread136
 
 _ZNK3KeyltERKS_.exit.thread:                      ; preds = %.preheader.preheader, %_ZNK3KeyltERKS_.exit
-  %19 = getelementptr inbounds i8, ptr %.0117142158, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.0117142158, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %5, align 8
   %.not128 = icmp eq ptr %20, null
   br i1 %.not128, label %23, label %21
 
 21:                                               ; preds = %_ZNK3KeyltERKS_.exit.thread
-  %22 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %5, ptr %22, align 8
   br label %23
 
@@ -462,14 +462,14 @@ _ZNK3KeyltERKS_.exit.thread:                      ; preds = %.preheader.preheade
   br label %29
 
 _ZNK3KeyltERKS_.exit.thread136:                   ; preds = %14, %_ZNK3KeyltERKS_.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %.0117142158, align 8
   %.not127 = icmp eq ptr %25, null
   br i1 %.not127, label %28, label %26
 
 26:                                               ; preds = %_ZNK3KeyltERKS_.exit.thread136
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store ptr %.0117142158, ptr %27, align 8
   br label %28
 
@@ -481,14 +481,14 @@ _ZNK3KeyltERKS_.exit.thread136:                   ; preds = %14, %_ZNK3KeyltERKS
   %.0117142.sink = phi ptr [ %.0117142158, %28 ], [ %5, %23 ]
   %.sink = phi ptr [ %24, %28 ], [ %19, %23 ]
   %.0 = phi ptr [ %5, %28 ], [ %.0117142158, %23 ]
-  %30 = getelementptr inbounds i8, ptr %.0117142.sink, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.0117142.sink, i64 16
   store ptr %.sink, ptr %30, align 8
   store ptr %.0118141159, ptr %.0, align 8
   %.not129 = icmp eq ptr %.0118141159, null
   br i1 %.not129, label %33, label %31
 
 31:                                               ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %.0118141159, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.0118141159, i64 16
   store ptr %.0, ptr %32, align 8
   br label %33
 
@@ -508,11 +508,11 @@ _ZNK3KeyltERKS_.exit.thread136:                   ; preds = %14, %_ZNK3KeyltERKS
   store ptr null, ptr %.2144, align 8
   %35 = load ptr, ptr %34, align 8
   store ptr null, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 24
-  %37 = getelementptr inbounds i8, ptr %.2144, i64 24
-  %38 = getelementptr inbounds i8, ptr %34, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %.2144, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %39 = load i32, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %.2144, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.2144, i64 32
   %41 = load i32, ptr %40, align 8
   %42 = icmp ugt i32 %39, %41
   br i1 %42, label %_ZNK3KeyltERKS_.exit135.thread, label %43
@@ -528,14 +528,14 @@ _ZNK3KeyltERKS_.exit135:                          ; preds = %43
   br i1 %47, label %_ZNK3KeyltERKS_.exit135.thread, label %_ZNK3KeyltERKS_.exit135.thread137
 
 _ZNK3KeyltERKS_.exit135.thread:                   ; preds = %.lr.ph, %_ZNK3KeyltERKS_.exit135
-  %48 = getelementptr inbounds i8, ptr %.2144, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.2144, i64 8
   %49 = load ptr, ptr %48, align 8
   store ptr %49, ptr %34, align 8
   %.not133 = icmp eq ptr %49, null
   br i1 %.not133, label %52, label %50
 
 50:                                               ; preds = %_ZNK3KeyltERKS_.exit135.thread
-  %51 = getelementptr inbounds i8, ptr %49, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %34, ptr %51, align 8
   br label %52
 
@@ -544,14 +544,14 @@ _ZNK3KeyltERKS_.exit135.thread:                   ; preds = %.lr.ph, %_ZNK3Keylt
   br label %58
 
 _ZNK3KeyltERKS_.exit135.thread137:                ; preds = %43, %_ZNK3KeyltERKS_.exit135
-  %53 = getelementptr inbounds i8, ptr %34, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %.2144, align 8
   %.not132 = icmp eq ptr %54, null
   br i1 %.not132, label %57, label %55
 
 55:                                               ; preds = %_ZNK3KeyltERKS_.exit135.thread137
-  %56 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %.2144, ptr %56, align 8
   br label %57
 
@@ -563,14 +563,14 @@ _ZNK3KeyltERKS_.exit135.thread137:                ; preds = %43, %_ZNK3KeyltERKS
   %.2144.sink = phi ptr [ %.2144, %57 ], [ %34, %52 ]
   %.sink154 = phi ptr [ %53, %57 ], [ %48, %52 ]
   %.0115 = phi ptr [ %34, %57 ], [ %.2144, %52 ]
-  %59 = getelementptr inbounds i8, ptr %.2144.sink, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.2144.sink, i64 16
   store ptr %.sink154, ptr %59, align 8
   store ptr %35, ptr %.0115, align 8
   %.not134 = icmp eq ptr %35, null
   br i1 %.not134, label %.loopexit, label %60
 
 60:                                               ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %35, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %.0115, ptr %61, align 8
   %.pre = load ptr, ptr %.0115, align 8
   %.not131 = icmp eq ptr %.pre, null

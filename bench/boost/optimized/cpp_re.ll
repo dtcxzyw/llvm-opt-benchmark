@@ -14,13 +14,13 @@ define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !3
   %8 = icmp eq i8 %7, 63
   br i1 %8, label %9, label %15
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %11 = icmp ult ptr %10, %1
   br i1 %11, label %12, label %15
 

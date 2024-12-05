@@ -148,7 +148,7 @@ define dso_local noundef zeroext i1 @RestoreArchivedFile(ptr noundef %0, ptr nou
   br i1 %64, label %65, label %75
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %8, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %67 = load i64, ptr %66, align 8
   %.not50 = icmp eq i64 %67, %3
   br i1 %.not50, label %75, label %68

@@ -33,13 +33,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN12G1MMUTrackerC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1052) initializes((0, 1052)) %0, double noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
-  %scevgep = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %0, i64 1044
+  %scevgep = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1028) %scevgep, i8 0, i64 1028, i1 false)
   store i32 1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1048
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   store i32 0, ptr %6, align 8
   ret void
 }
@@ -48,14 +48,14 @@ define hidden void @_ZN12G1MMUTrackerC2Edd(ptr nocapture noundef nonnull writeon
 define hidden void @_ZN12G1MMUTracker22remove_expired_entriesEd(ptr nocapture noundef nonnull align 8 dereferenceable(1052) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fsub double %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1048
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %.promoted = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.promoted, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 1044
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1044
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted4 = load i32, ptr %7, align 4
   br label %9
 
@@ -100,16 +100,16 @@ declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr nound
 define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1052) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load double, ptr %0, align 8
   %4 = fsub double %1, %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 1048
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 1044
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   %9 = load i32, ptr %8, align 4
   %invariant.op = add i32 %9, 64
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 11:                                               ; preds = %.lr.ph, %27
@@ -119,7 +119,7 @@ define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr nocaptu
   %12 = srem i32 %.reass, 64
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %10, i64 0, i64 %13
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load double, ptr %15, align 8
   %17 = fcmp ogt double %16, %4
   br i1 %17, label %18, label %27
@@ -154,14 +154,14 @@ define hidden noundef double @_ZN12G1MMUTracker17calculate_gc_timeEd(ptr nocaptu
 define hidden void @_ZN12G1MMUTracker9add_pauseEdd(ptr nocapture noundef nonnull align 8 dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load double, ptr %0, align 8
   %5 = fsub double %2, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 1048
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %.promoted.i = load i32, ptr %6, align 8
   %7 = icmp sgt i32 %.promoted.i, 0
   br i1 %7, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 1044
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1044
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.promoted4.i = load i32, ptr %8, align 4
   br label %10
 
@@ -200,7 +200,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit: ; preds = %10
   br i1 %25, label %26, label %_ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread
 
 26:                                               ; preds = %_ZN12G1MMUTracker22remove_expired_entriesEd.exit
-  %27 = getelementptr inbounds i8, ptr %0, i64 1040
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %28, 65
   %30 = srem i32 %29, 64
@@ -212,7 +212,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit: ; preds = %10
 
 _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_edge.i, %_ZN12G1MMUTracker22remove_expired_entriesEd.exit
   %33 = phi i32 [ %.pr, %_ZN12G1MMUTracker22remove_expired_entriesEd.exit ], [ 0, %._crit_edge.i ], [ 0, %17 ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 1040
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %35 = load i32, ptr %34, align 8
   %36 = add nsw i32 %35, 65
   %37 = srem i32 %36, 64
@@ -223,11 +223,11 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_
 
 39:                                               ; preds = %_ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread, %26
   %40 = phi i32 [ %37, %_ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread ], [ %30, %26 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = sext i32 %40 to i64
   %43 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %41, i64 0, i64 %42
   store double %1, ptr %43, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %43, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store double %2, ptr %.sroa.2.0..sroa_idx, align 8
   %44 = load double, ptr %0, align 8
   %45 = fsub double %2, %44
@@ -236,7 +236,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_
   br i1 %47, label %.lr.ph.i10, label %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
 
 .lr.ph.i10:                                       ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %0, i64 1044
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 1044
   %49 = load i32, ptr %48, align 4
   %invariant.op.i = add i32 %49, 64
   br label %50
@@ -248,7 +248,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_
   %51 = srem i32 %.reass.i, 64
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %41, i64 0, i64 %52
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load double, ptr %54, align 8
   %56 = fcmp ogt double %55, %45
   br i1 %56, label %57, label %66
@@ -276,7 +276,7 @@ _ZN12G1MMUTracker22remove_expired_entriesEd.exit.thread: ; preds = %17, %._crit_
 
 _ZN12G1MMUTracker17calculate_gc_timeEd.exit:      ; preds = %66, %39
   %.0.lcssa.i = phi double [ 0.000000e+00, %39 ], [ %.1.i, %66 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load double, ptr %68, align 8
   tail call void @_ZN11G1MMUTracer10report_mmuEddd(double noundef %44, double noundef %.0.lcssa.i, double noundef %69) #9
   %70 = load double, ptr %68, align 8
@@ -284,7 +284,7 @@ _ZN12G1MMUTracker17calculate_gc_timeEd.exit:      ; preds = %66, %39
   br i1 %71, label %72, label %79
 
 72:                                               ; preds = %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
-  %73 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %73 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not11 = icmp eq ptr %73, null
   br i1 %.not11, label %86, label %74
 
@@ -297,7 +297,7 @@ _ZN12G1MMUTracker17calculate_gc_timeEd.exit:      ; preds = %66, %39
   br label %86
 
 79:                                               ; preds = %_ZN12G1MMUTracker17calculate_gc_timeEd.exit
-  %80 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %80 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_88ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %80, null
   br i1 %.not, label %86, label %81
 
@@ -335,24 +335,24 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_88ELS1_0ELS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1052) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fcmp olt double %2, %5
   %7 = select i1 %6, double %2, double %5
   %8 = fadd double %1, %7
   %9 = load double, ptr %0, align 8
   %10 = fsub double %8, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 1048
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
   %14 = fsub double %5, %7
-  %15 = getelementptr inbounds i8, ptr %0, i64 1040
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %16 = load i32, ptr %15, align 8
   %invariant.op = add i32 %16, 64
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %34
@@ -362,7 +362,7 @@ define hidden noundef double @_ZNK12G1MMUTracker8when_secEdd(ptr nocapture nound
   %19 = srem i32 %.reass, 64
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds [64 x %class.G1MMUTrackerElem], ptr %17, i64 0, i64 %20
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load double, ptr %22, align 8
   %24 = fcmp ugt double %23, %10
   br i1 %24, label %25, label %.loopexit

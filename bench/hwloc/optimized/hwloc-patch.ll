@@ -55,7 +55,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #12
   %.not = icmp eq ptr %7, null
-  %8 = getelementptr inbounds i8, ptr %7, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %.054 = select i1 %.not, ptr %6, ptr %8
   %9 = tail call i32 @hwloc_get_api_version() #13
   %.mask.i = and i32 %9, -65536
@@ -83,7 +83,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
   br i1 %.not6091, label %.critedge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %16
-  %.05395138 = getelementptr inbounds i8, ptr %1, i64 8
+  %.05395138 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %.05395138, align 8
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 45
@@ -91,7 +91,7 @@ hwloc_utils_check_api_version.exit:               ; preds = %2
 
 .lr.ph:                                           ; preds = %31
   %20 = xor i64 %.05592140, 1
-  %.05395 = getelementptr inbounds i8, ptr %.05395141, i64 8
+  %.05395 = getelementptr inbounds nuw i8, ptr %.05395141, i64 8
   %21 = load ptr, ptr %.05395, align 8
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 45
@@ -102,13 +102,13 @@ sub_1:                                            ; preds = %.lr.ph.preheader, %
   %.05395141 = phi ptr [ %.05395, %.lr.ph ], [ %.05395138, %.lr.ph.preheader ]
   %.05592140 = phi i64 [ %20, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %.05296139 = phi i32 [ %.052, %.lr.ph ], [ %.05290, %.lr.ph.preheader ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1
   %.not98 = icmp eq i8 %26, 82
   br i1 %.not98, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %27 = getelementptr inbounds i8, ptr %24, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = icmp eq i8 %28, 0
   br i1 %29, label %31, label %.tail.thread
@@ -134,13 +134,13 @@ sub_1:                                            ; preds = %.lr.ph.preheader, %
   unreachable
 
 sub_174:                                          ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %24, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %37 = load i8, ptr %36, align 1
   %.not100 = icmp eq i8 %37, 104
   br i1 %.not100, label %.tail72, label %.tail72.thread
 
 .tail72:                                          ; preds = %sub_174
-  %38 = getelementptr inbounds i8, ptr %24, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %42, label %.tail72.thread
@@ -179,13 +179,13 @@ sub_174:                                          ; preds = %32
   unreachable
 
 50:                                               ; preds = %.critedge
-  %51 = getelementptr inbounds i8, ptr %.pn93.lcssa, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.pn93.lcssa, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not61 = icmp eq i32 %.052.in94.lcssa, 3
   br i1 %.not61, label %56, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %.pn93.lcssa, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.pn93.lcssa, i64 24
   %55 = load ptr, ptr %54, align 8
   br label %56
 
@@ -196,7 +196,7 @@ sub_174:                                          ; preds = %32
   br i1 %.not44.i, label %.tail.i, label %.tail.thread.i
 
 .tail.i:                                          ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %52, i64 1
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %59 = load i8, ptr %58, align 1
   %60 = icmp eq i8 %59, 0
   br i1 %60, label %62, label %.tail.thread.i

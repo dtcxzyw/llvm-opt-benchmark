@@ -9,13 +9,13 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br i1 %.not, label %66, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, -1
   br i1 %7, label %8, label %66
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = tail call ptr @cs_calloc(i32 noundef 1, i64 noundef 64) #3
   %.not56 = icmp eq ptr %11, null
@@ -23,7 +23,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 12:                                               ; preds = %8
   %13 = tail call ptr @cs_amd(i32 noundef %0, ptr noundef nonnull %1) #3
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %13, ptr %14, align 8
   %.not57 = icmp ne i32 %0, 0
   %.not58 = icmp eq ptr %13, null
@@ -48,12 +48,12 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 21:                                               ; preds = %18, %19
   %22 = phi ptr [ %20, %19 ], [ %1, %18 ]
   %23 = tail call ptr @cs_etree(ptr noundef %22, i32 noundef 1) #3
-  %24 = getelementptr inbounds i8, ptr %11, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %23, ptr %24, align 8
   %25 = tail call ptr @cs_post(ptr noundef %23, i32 noundef %10) #3
   %26 = load ptr, ptr %24, align 8
   %27 = tail call ptr @cs_counts(ptr noundef %22, ptr noundef %26, ptr noundef %25, i32 noundef 1) #3
-  %28 = getelementptr inbounds i8, ptr %11, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %27, ptr %28, align 8
   %29 = tail call ptr @cs_free(ptr noundef %25) #3
   %.not60 = icmp eq ptr %22, null
@@ -75,7 +75,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br i1 %.not67, label %.critedge, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds i8, ptr %11, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store double 0.000000e+00, ptr %37, align 8
   %38 = icmp sgt i32 %10, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
@@ -88,7 +88,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %40 = phi double [ 0.000000e+00, %.lr.ph ], [ %44, %39 ]
-  %41 = getelementptr inbounds i32, ptr %.pre, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4
   %43 = sitofp i32 %42 to double
   %44 = fadd double %40, %43
@@ -103,7 +103,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %36
   %46 = phi i1 [ %45, %._crit_edge.loopexit ], [ false, %36 ]
-  %47 = getelementptr inbounds i8, ptr %11, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %48 = load double, ptr %47, align 8
   %49 = fcmp ult double %48, 0.000000e+00
   br i1 %49, label %.critedge, label %50
@@ -120,7 +120,7 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   br label %63
 
 .thread64:                                        ; preds = %17
-  %53 = getelementptr inbounds i8, ptr %1, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %54 = load ptr, ptr %53, align 8
   %55 = sext i32 %10 to i64
   %56 = getelementptr inbounds i32, ptr %54, i64 %55
@@ -128,9 +128,9 @@ define ptr @cs_sqr(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed
   %58 = shl nsw i32 %57, 2
   %59 = add nsw i32 %58, %10
   %60 = sitofp i32 %59 to double
-  %61 = getelementptr inbounds i8, ptr %11, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store double %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %11, i64 48
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 48
   store double %60, ptr %62, align 8
   br label %66
 
@@ -164,21 +164,21 @@ declare ptr @cs_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull initializes((0, 8), (32, 40)) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = add nsw i32 %6, %4
   %14 = tail call ptr @cs_malloc(i32 noundef %13, i64 noundef 4) #3
   store ptr %14, ptr %1, align 8
   %15 = tail call ptr @cs_malloc(i32 noundef %6, i64 noundef 4) #3
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %15, ptr %16, align 8
   %17 = mul nsw i32 %4, 3
   %18 = add nsw i32 %6, %17
@@ -244,9 +244,9 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
 .lr.ph162:                                        ; preds = %.lr.ph162.preheader, %.loopexit
   %indvars.iv178 = phi i64 [ %41, %.lr.ph162.preheader ], [ %indvars.iv.next179, %.loopexit ]
   %indvars.iv.next179 = add nsw i64 %indvars.iv178, -1
-  %44 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv.next179
+  %44 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next179
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv178
+  %46 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv178
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %45, %47
   br i1 %48, label %.lr.ph158.preheader, label %.loopexit
@@ -272,9 +272,9 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
 .lr.ph165:                                        ; preds = %.lr.ph165.preheader, %75
   %indvars.iv181 = phi i64 [ %43, %.lr.ph165.preheader ], [ %indvars.iv.next182, %75 ]
   %indvars.iv.next182 = add nsw i64 %indvars.iv181, -1
-  %58 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv.next182
+  %58 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next182
   store i32 -1, ptr %58, align 4
-  %59 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv.next182
+  %59 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next182
   %60 = load i32, ptr %59, align 4
   %61 = icmp eq i32 %60, -1
   br i1 %61, label %75, label %62
@@ -302,7 +302,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
   %.pre-phi = phi i32 [ %.pre194, %._crit_edge193 ], [ %70, %68 ]
   %72 = getelementptr inbounds i32, ptr %25, i64 %63
   %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds i32, ptr %19, i64 %indvars.iv.next182
+  %74 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next182
   store i32 %73, ptr %74, align 4
   store i32 %.pre-phi, ptr %72, align 4
   br label %75
@@ -312,9 +312,9 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
   br i1 %76, label %.lr.ph165, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %75, %.preheader145
-  %77 = getelementptr inbounds i8, ptr %1, i64 48
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store double 0.000000e+00, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %1, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %6, ptr %78, align 8
   br i1 %31, label %.lr.ph168.preheader, label %.preheader
 
@@ -332,7 +332,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %119
   %indvars.iv184 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next185, %119 ]
-  %79 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv184
+  %79 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv184
   %80 = load i32, ptr %79, align 4
   %81 = load double, ptr %77, align 8
   %82 = fadd double %81, 1.000000e+00
@@ -352,7 +352,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
   %89 = getelementptr inbounds i32, ptr %14, i64 %88
   %90 = trunc nuw nsw i64 %indvars.iv184 to i32
   store i32 %90, ptr %89, align 4
-  %91 = getelementptr inbounds i32, ptr %30, i64 %indvars.iv184
+  %91 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv184
   %92 = load i32, ptr %91, align 4
   %93 = add nsw i32 %92, -1
   store i32 %93, ptr %91, align 4
@@ -364,7 +364,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
   %97 = load double, ptr %77, align 8
   %98 = fadd double %97, %96
   store double %98, ptr %77, align 8
-  %99 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv184
+  %99 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv184
   %100 = load i32, ptr %99, align 4
   %.not = icmp eq i32 %100, -1
   br i1 %.not, label %119, label %101
@@ -374,7 +374,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
   %103 = getelementptr inbounds i32, ptr %30, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = icmp eq i32 %104, 0
-  %106 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv184
+  %106 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv184
   %107 = load i32, ptr %106, align 4
   br i1 %105, label %108, label %._crit_edge192
 
@@ -406,7 +406,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonn
 .lr.ph171:                                        ; preds = %.lr.ph171.preheader, %125
   %indvars.iv187 = phi i64 [ 0, %.lr.ph171.preheader ], [ %indvars.iv.next188, %125 ]
   %.5169 = phi i32 [ %.4.lcssa, %.lr.ph171.preheader ], [ %.6, %125 ]
-  %120 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv187
+  %120 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv187
   %121 = load i32, ptr %120, align 4
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %123, label %125

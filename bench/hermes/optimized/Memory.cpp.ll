@@ -17,7 +17,7 @@ entry:
   %Result = alloca %"class.llvh::sys::MemoryBlock", align 8
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #7
   store i32 0, ptr %EC, align 8
-  %ref.tmp.sroa.224.0.EC.sroa_idx = getelementptr inbounds i8, ptr %EC, i64 8
+  %ref.tmp.sroa.224.0.EC.sroa_idx = getelementptr inbounds nuw i8, ptr %EC, i64 8
   store ptr %call.i, ptr %ref.tmp.sroa.224.0.EC.sroa_idx, align 8
   %cmp = icmp eq i64 %NumBytes, 0
   br i1 %cmp, label %return, label %if.end
@@ -55,7 +55,7 @@ init.end:                                         ; preds = %init, %init.check, 
 cond.end:                                         ; preds = %init.end
   %6 = load ptr, ptr %NearBlock, align 8
   %7 = ptrtoint ptr %6 to i64
-  %Size.i = getelementptr inbounds i8, ptr %NearBlock, i64 8
+  %Size.i = getelementptr inbounds nuw i8, ptr %NearBlock, i64 8
   %8 = load i64, ptr %Size.i, align 8
   %add5 = add i64 %8, %7
   %tobool6.not = icmp eq i64 %add5, 0
@@ -104,7 +104,7 @@ if.end23:                                         ; preds = %if.end12.thread, %i
   store ptr %call1335, ptr %Result, align 8
   %13 = load i64, ptr @_ZZN4llvh3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_codeE8PageSize, align 8
   %mul24 = mul i64 %13, %div
-  %Size = getelementptr inbounds i8, ptr %Result, i64 8
+  %Size = getelementptr inbounds nuw i8, ptr %Result, i64 8
   store i64 %mul24, ptr %Size, align 8
   %and = and i32 %PFlags, 67108864
   %tobool25.not = icmp eq i32 %and, 0
@@ -174,7 +174,7 @@ init.end:                                         ; preds = %init, %init.check, 
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %init.end
-  %Size = getelementptr inbounds i8, ptr %M, i64 8
+  %Size = getelementptr inbounds nuw i8, ptr %M, i64 8
   %3 = load i64, ptr %Size, align 8
   %cmp1 = icmp eq i64 %3, 0
   br i1 %cmp1, label %if.then, label %if.end
@@ -200,7 +200,7 @@ if.end5:                                          ; preds = %if.end
   %7 = load i64, ptr @_ZZN4llvh3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEjE8PageSize, align 8
   %idx.neg = sub nsw i64 0, %7
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %idx.neg
-  %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   %8 = ptrtoint ptr %add.ptr8 to i64
   %add.i = add i64 %7, -1
   %sub.i = add i64 %add.i, %8
@@ -252,7 +252,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %Size = getelementptr inbounds i8, ptr %M, i64 8
+  %Size = getelementptr inbounds nuw i8, ptr %M, i64 8
   %1 = load i64, ptr %Size, align 8
   %cmp1 = icmp eq i64 %1, 0
   br i1 %cmp1, label %if.then, label %if.end

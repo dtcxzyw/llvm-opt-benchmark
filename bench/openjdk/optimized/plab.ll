@@ -150,18 +150,18 @@ declare noundef i64 @_ZN22ThreadLocalAllocBuffer8min_sizeEv() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4PLABC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((32, 96)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4PLAB22flush_and_retire_statsEP9PLABStats(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 64
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult ptr %4, %6
   br i1 %7, label %8, label %_ZN4PLAB15retire_internalEv.exit
@@ -169,11 +169,11 @@ define hidden void @_ZN4PLAB22flush_and_retire_statsEP9PLABStats(ptr nocapture n
 8:                                                ; preds = %2
   %9 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 144
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef %4, ptr noundef nonnull %6, i1 noundef zeroext true) #8
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %13, ptr %14, align 8
   %15 = load ptr, ptr %3, align 8
   %16 = ptrtoint ptr %13 to i64
@@ -181,25 +181,25 @@ define hidden void @_ZN4PLAB22flush_and_retire_statsEP9PLABStats(ptr nocapture n
   %18 = sub i64 %16, %17
   %19 = lshr i64 %18, 3
   store ptr %13, ptr %3, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %13, ptr %20, align 8
   br label %_ZN4PLAB15retire_internalEv.exit
 
 _ZN4PLAB15retire_internalEv.exit:                 ; preds = %2, %8
   %.0.i = phi i64 [ %19, %8 ], [ 0, %2 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %22, ptr nonnull %23) #8, !srcloc !6
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %26, ptr nonnull %27) #8, !srcloc !6
-  %29 = getelementptr inbounds i8, ptr %0, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %30, ptr nonnull %31) #8, !srcloc !6
-  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %34 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.0.i, ptr nonnull %33) #8, !srcloc !6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   ret void
@@ -207,9 +207,9 @@ _ZN4PLAB15retire_internalEv.exit:                 ; preds = %2, %8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_internalEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %3, %5
   br i1 %6, label %7, label %20
@@ -217,11 +217,11 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_in
 7:                                                ; preds = %1
   %8 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef %3, ptr noundef nonnull %5, i1 noundef zeroext true) #8
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %2, align 8
   %15 = ptrtoint ptr %12 to i64
@@ -229,7 +229,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_in
   %17 = sub i64 %15, %16
   %18 = lshr i64 %17, 3
   store ptr %12, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %12, ptr %19, align 8
   br label %20
 
@@ -240,9 +240,9 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_in
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4PLAB6retireEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ult ptr %3, %5
   br i1 %6, label %7, label %_ZN4PLAB15retire_internalEv.exit
@@ -250,11 +250,11 @@ define hidden void @_ZN4PLAB6retireEv(ptr nocapture noundef nonnull align 8 dere
 7:                                                ; preds = %1
   %8 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef %3, ptr noundef nonnull %5, i1 noundef zeroext true) #8
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %12, ptr %13, align 8
   %14 = load ptr, ptr %2, align 8
   %15 = ptrtoint ptr %12 to i64
@@ -262,13 +262,13 @@ define hidden void @_ZN4PLAB6retireEv(ptr nocapture noundef nonnull align 8 dere
   %17 = sub i64 %15, %16
   %18 = lshr i64 %17, 3
   store ptr %12, ptr %2, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %12, ptr %19, align 8
   br label %_ZN4PLAB15retire_internalEv.exit
 
 _ZN4PLAB15retire_internalEv.exit:                 ; preds = %1, %7
   %.0.i = phi i64 [ %18, %7 ], [ 0, %1 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %.0.i
   store i64 %22, ptr %20, align 8
@@ -280,10 +280,10 @@ define hidden void @_ZN4PLAB14add_undo_wasteEPP12HeapWordImplm(ptr nocapture nou
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = getelementptr inbounds ptr, ptr %1, i64 %2
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
   %8 = load ptr, ptr %7, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef %1, ptr noundef %5, i1 noundef zeroext true) #8
-  %9 = getelementptr inbounds i8, ptr %0, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, %2
   store i64 %11, ptr %9, align 8
@@ -292,24 +292,24 @@ define hidden void @_ZN4PLAB14add_undo_wasteEPP12HeapWordImplm(ptr nocapture nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4PLAB20undo_last_allocationEPP12HeapWordImplm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((48, 56)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4PLAB15undo_allocationEPP12HeapWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp ule ptr %5, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ult ptr %1, %7
   %9 = select i1 %.not.i, i1 %8, i1 false
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %11, align 8
   br label %21
 
@@ -317,10 +317,10 @@ define hidden void @_ZN4PLAB15undo_allocationEPP12HeapWordImplm(ptr nocapture no
   %13 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %14 = getelementptr inbounds ptr, ptr %1, i64 %2
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %17 = load ptr, ptr %16, align 8
   tail call void %17(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef %1, ptr noundef %14, i1 noundef zeroext true) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %2
   store i64 %20, ptr %18, align 8

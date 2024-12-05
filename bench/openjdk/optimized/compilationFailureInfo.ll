@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef i32 @_ZN22CompilationFailureInfo23current_compile_id_or_0Ev() local_unnamed_addr #0 align 2 {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %2 = load ptr, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 1808
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 1808
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -37,15 +37,15 @@ declare noundef i32 @_ZN5ciEnv10compile_idEv(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22CompilationFailureInfoC2EPKc(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN15NativeCallStackC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2) #3
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #3
   store ptr %4, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = tail call noundef double @_ZN2os11elapsedTimeEv() #3
   store double %6, ptr %5, align 8
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1808
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1808
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %_ZN22CompilationFailureInfo23current_compile_id_or_0Ev.exit, label %11
@@ -56,7 +56,7 @@ define hidden void @_ZN22CompilationFailureInfoC2EPKc(ptr noundef nonnull align 
 
 _ZN22CompilationFailureInfo23current_compile_id_or_0Ev.exit: ; preds = %2, %11
   %13 = phi i32 [ %12, %11 ], [ 0, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %13, ptr %14, align 8
   ret void
 }
@@ -69,7 +69,7 @@ declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN22CompilationFailureInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN2os4freeEPv(ptr noundef %3) #3
   ret void
@@ -80,13 +80,13 @@ declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK22CompilationFailureInfo8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str) #3
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load double, ptr %3, align 8
   tail call void @_ZN2os18print_elapsed_timeEP12outputStreamd(ptr noundef nonnull %1, double noundef %4) #3
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i32 noundef %6) #3
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, ptr noundef %8) #3
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.6) #3
@@ -114,20 +114,20 @@ define hidden noundef zeroext i1 @_ZN22CompilationFailureInfo33print_pending_com
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef zeroext i1 %8(ptr noundef nonnull align 8 dereferenceable(888) %3) #3
   br i1 %9, label %10, label %.thread32
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1808
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1808
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread32, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %13, i64 112
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.thread32, label %19
@@ -138,7 +138,7 @@ define hidden noundef zeroext i1 @_ZN22CompilationFailureInfo33print_pending_com
   br i1 %21, label %.thread32, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load i8, ptr %23, align 8
   switch i8 %24, label %.thread32 [
     i8 1, label %25
@@ -146,23 +146,23 @@ define hidden noundef zeroext i1 @_ZN22CompilationFailureInfo33print_pending_com
   ]
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %13, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %.thread32, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %27, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 120
   br label %.thread
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %13, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 128
   %32 = load ptr, ptr %31, align 8
   %.not28 = icmp eq ptr %32, null
   br i1 %.not28, label %.thread32, label %33
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %32, i64 384
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 384
   br label %.thread
 
 .thread:                                          ; preds = %28, %33
@@ -175,13 +175,13 @@ define hidden noundef zeroext i1 @_ZN22CompilationFailureInfo33print_pending_com
   %36 = ptrtoint ptr %3 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.7, i64 noundef %36) #3
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str) #3
-  %37 = getelementptr inbounds i8, ptr %.1, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %38 = load double, ptr %37, align 8
   tail call void @_ZN2os18print_elapsed_timeEP12outputStreamd(ptr noundef nonnull %0, double noundef %38) #3
-  %39 = getelementptr inbounds i8, ptr %.1, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %40 = load i32, ptr %39, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i32 noundef %40) #3
-  %41 = getelementptr inbounds i8, ptr %.1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.5, ptr noundef %42) #3
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.6) #3

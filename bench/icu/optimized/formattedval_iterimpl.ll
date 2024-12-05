@@ -70,11 +70,11 @@ $_ZTIN6icu_757UMemoryE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ev) align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -82,11 +82,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2Ei10UErrorCode(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %newCapacity, i32 noundef %status) unnamed_addr #1 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EEC5Ei10UErrorCode) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease.i, align 4
   %cmp.i = icmp slt i32 %status, 1
   %cmp = icmp sgt i32 %newCapacity, 40
@@ -147,7 +147,7 @@ if.then3:                                         ; preds = %if.then
   br i1 %cmp4, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.then3
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %0)
   %length.addr.1 = tail call i32 @llvm.smin.i32(i32 %spec.select, i32 %newCapacity)
@@ -157,7 +157,7 @@ if.then5:                                         ; preds = %if.then3
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then5, %if.then3
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -169,7 +169,7 @@ if.then.i:                                        ; preds = %if.end14
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.end14, %if.then.i
   store ptr %call, ptr %this, align 8
-  %capacity16 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %newCapacity, ptr %capacity16, align 8
   store i8 1, ptr %needToRelease.i, align 4
   br label %return
@@ -182,7 +182,7 @@ return:                                           ; preds = %entry, %if.then, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EED2Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #0 comdat($_ZN6icu_7515MaybeStackArrayIcLi40EED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -206,7 +206,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -237,21 +237,21 @@ define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EEC2EOS1_(ptr noundef non
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
-  %capacity3 = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %capacity3 = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity3, align 8
   store i32 %1, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
-  %needToRelease4 = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %needToRelease4 = getelementptr inbounds nuw i8, ptr %src, i64 12
   %2 = load i8, ptr %needToRelease4, align 4
   store i8 %2, ptr %needToRelease, align 4
   %3 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %3, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %stackArray6 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray6 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray6, ptr %this, align 8
   %4 = load i32, ptr %capacity3, align 8
   %conv = sext i32 %4 to i64
@@ -274,11 +274,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %stackArray = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %needToRelease, align 4
   ret void
 }
@@ -286,7 +286,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef nonnull align 8 dereferenceable(53) ptr @_ZN6icu_7515MaybeStackArrayIcLi40EEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(53) %this, ptr noundef nonnull align 8 dereferenceable(53) %src) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -297,20 +297,20 @@ if.then.i:                                        ; preds = %entry
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry, %if.then.i
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %2 = load i32, ptr %capacity, align 8
-  %capacity2 = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity2 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %2, ptr %capacity2, align 8
-  %needToRelease = getelementptr inbounds i8, ptr %src, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %src, i64 12
   %3 = load i8, ptr %needToRelease, align 4
   store i8 %3, ptr %needToRelease.i, align 4
   %4 = load ptr, ptr %src, align 8
-  %stackArray = getelementptr inbounds i8, ptr %src, i64 13
+  %stackArray = getelementptr inbounds nuw i8, ptr %src, i64 13
   %cmp = icmp eq ptr %4, %stackArray
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %invoke.cont
-  %stackArray4 = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray4 = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray4, ptr %this, align 8
   %5 = load i32, ptr %capacity, align 8
   %conv = sext i32 %5 to i64
@@ -338,7 +338,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr noundef i32 @_ZNK6icu_7515MaybeStackArrayIcLi40EE11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %capacity, align 8
   ret i32 %0
 }
@@ -354,7 +354,7 @@ entry:
 define weak_odr noundef ptr @_ZNK6icu_7515MaybeStackArrayIcLi40EE13getArrayLimitEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %capacity, align 8
   %idx.ext = sext i32 %1 to i64
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
@@ -386,7 +386,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %_ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit, label %if.then.i
@@ -398,7 +398,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN6icu_7515MaybeStackArrayIcLi40EE12releaseArrayEv.exit: ; preds = %if.then, %if.then.i
   store ptr %otherArray, ptr %this, align 8
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %otherCapacity, ptr %capacity, align 8
   store i8 0, ptr %needToRelease.i, align 4
   br label %if.end
@@ -413,7 +413,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define weak_odr noundef ptr @_ZN6icu_7515MaybeStackArrayIcLi40EE13orphanOrCloneEiRi(ptr noundef nonnull align 8 dereferenceable(53) %this, i32 noundef %length, ptr noundef nonnull align 4 dereferenceable(4) %resultCapacity) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %needToRelease = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease, align 4
   %tobool.not = icmp eq i8 %0, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -427,7 +427,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp, label %return, label %if.else3
 
 if.else3:                                         ; preds = %if.else
-  %capacity = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i32, ptr %capacity, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %length, i32 %2)
   %conv = sext i32 %spec.select to i64
@@ -444,9 +444,9 @@ if.end14:                                         ; preds = %do.body, %if.then
   %length.addr.0 = phi i32 [ %length, %if.then ], [ %spec.select, %do.body ]
   %p.0 = phi ptr [ %1, %if.then ], [ %call, %do.body ]
   store i32 %length.addr.0, ptr %resultCapacity, align 4
-  %stackArray.i = getelementptr inbounds i8, ptr %this, i64 13
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 13
   store ptr %stackArray.i, ptr %this, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 40, ptr %capacity.i, align 8
   store i8 0, ptr %needToRelease, align 4
   br label %return
@@ -464,7 +464,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %do.end
 
 if.end:                                           ; preds = %entry
-  %capacity = getelementptr inbounds i8, ptr %src, i64 8
+  %capacity = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load i32, ptr %capacity, align 8
   %cmp.i3 = icmp sgt i32 %1, 0
   br i1 %cmp.i3, label %if.then.i, label %if.then3
@@ -476,7 +476,7 @@ if.then.i:                                        ; preds = %if.end
   br i1 %cmp2.not.i, label %if.then3, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.then.i
-  %needToRelease.i.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i8, ptr %needToRelease.i.i, align 4
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %do.body, label %if.then.i.i
@@ -492,7 +492,7 @@ if.then3:                                         ; preds = %if.then.i, %if.end
 
 do.body:                                          ; preds = %if.then.i.i, %if.then3.i
   store ptr %call.i, ptr %this, align 8
-  %capacity16.i = getelementptr inbounds i8, ptr %this, i64 8
+  %capacity16.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %1, ptr %capacity16.i, align 8
   store i8 1, ptr %needToRelease.i.i, align 4
   %4 = load ptr, ptr %src, align 8
@@ -509,11 +509,11 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 define void @_ZN6icu_7539FormattedValueFieldPositionIteratorImplC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 18)) %this, i32 noundef %initialFieldCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7539FormattedValueFieldPositionIteratorImplE, i64 16), ptr %this, align 8
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
-  %fFields = getelementptr inbounds i8, ptr %this, i64 72
+  %fFields = getelementptr inbounds nuw i8, ptr %this, i64 72
   %mul = shl nsw i32 %initialFieldCapacity, 2
   invoke void @_ZN6icu_759UVector32C1EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %fFields, i32 noundef %mul, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont3 unwind label %lpad2
@@ -541,9 +541,9 @@ declare void @_ZN6icu_7514FormattedValueD2Ev(ptr noundef nonnull align 8 derefer
 define void @_ZN6icu_7539FormattedValueFieldPositionIteratorImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7539FormattedValueFieldPositionIteratorImplE, i64 16), ptr %this, align 8
-  %fFields = getelementptr inbounds i8, ptr %this, i64 72
+  %fFields = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fFields) #9
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString) #9
   tail call void @_ZN6icu_7514FormattedValueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #9
   ret void
@@ -566,7 +566,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_7539FormattedValueFieldPositionIteratorImpl8toStringER10UErrorCode(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %fString)
   ret void
 }
@@ -577,7 +577,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 define void @_ZNK6icu_7539FormattedValueFieldPositionIteratorImpl12toTempStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i16, ptr %fUnion.i, align 8
   %2 = and i16 %1, 17
   %tobool.not.i = icmp eq i16 %2, 0
@@ -589,11 +589,11 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 18
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 18
   br label %invoke.cont
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fArray.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %fArray.i, align 8
   br label %invoke.cont
 
@@ -603,7 +603,7 @@ invoke.cont:                                      ; preds = %if.else9.i, %if.the
   %cmp.i.i = icmp slt i16 %1, 0
   %5 = ashr i16 %1, 5
   %shr.i.i = sext i16 %5 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %6 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   invoke void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, i8 noundef signext 1, ptr noundef nonnull %agg.tmp, i32 noundef %cond.i)
@@ -627,7 +627,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6icu_7539FormattedValueFieldPositionIteratorImpl8appendToERNS_10AppendableER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %appendable, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i16, ptr %fUnion.i, align 8
   %2 = and i16 %1, 17
   %tobool.not.i = icmp eq i16 %2, 0
@@ -639,11 +639,11 @@ if.else.i:                                        ; preds = %entry
   br i1 %tobool6.not.i, label %if.else9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.else.i
-  %fBuffer.i = getelementptr inbounds i8, ptr %this, i64 18
+  %fBuffer.i = getelementptr inbounds nuw i8, ptr %this, i64 18
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %fArray.i = getelementptr inbounds i8, ptr %this, i64 32
+  %fArray.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %4 = load ptr, ptr %fArray.i, align 8
   br label %_ZNK6icu_7513UnicodeString9getBufferEv.exit
 
@@ -652,11 +652,11 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
   %cmp.i.i = icmp slt i16 %1, 0
   %5 = ashr i16 %1, 5
   %shr.i.i = sext i16 %5 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %6 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %6, i32 %shr.i.i
   %vtable = load ptr, ptr %appendable, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %7 = load ptr, ptr %vfn, align 8
   %call4 = tail call noundef signext i8 %7(ptr noundef nonnull align 8 dereferenceable(8) %appendable, ptr noundef %retval.0.i, i32 noundef %cond.i)
   ret ptr %appendable
@@ -665,7 +665,7 @@ _ZNK6icu_7513UnicodeString9getBufferEv.exit:      ; preds = %entry, %if.then7.i,
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7539FormattedValueFieldPositionIteratorImpl12nextPositionERNS_24ConstrainedFieldPositionER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(25) %cfpos, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
-  %count.i = getelementptr inbounds i8, ptr %this, i64 80
+  %count.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %1 = load i32, ptr %count.i, align 8
   %div = sdiv i32 %1, 4
   %2 = load i64, ptr %cfpos, align 8
@@ -674,7 +674,7 @@ entry:
   br i1 %cmp52, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
-  %elements.i = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -689,7 +689,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 cond.true.i:                                      ; preds = %for.body
   %4 = load ptr, ptr %elements.i, align 8
   %idxprom.i = zext nneg i32 %mul to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %4, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %4, i64 %idxprom.i
   %5 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
@@ -703,7 +703,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit:         ; preds = %for.body, %cond.tru
 cond.true.i23:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit
   %6 = load ptr, ptr %elements.i, align 8
   %idxprom.i25 = zext nneg i32 %add to i64
-  %arrayidx.i26 = getelementptr inbounds i32, ptr %6, i64 %idxprom.i25
+  %arrayidx.i26 = getelementptr inbounds nuw i32, ptr %6, i64 %idxprom.i25
   %7 = load i32, ptr %arrayidx.i26, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit27
 
@@ -723,7 +723,7 @@ if.then:                                          ; preds = %_ZNK6icu_759UVector
 cond.true.i33:                                    ; preds = %if.then
   %9 = load ptr, ptr %elements.i, align 8
   %idxprom.i35 = zext nneg i32 %add11 to i64
-  %arrayidx.i36 = getelementptr inbounds i32, ptr %9, i64 %idxprom.i35
+  %arrayidx.i36 = getelementptr inbounds nuw i32, ptr %9, i64 %idxprom.i35
   %10 = load i32, ptr %arrayidx.i36, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit37
 
@@ -737,7 +737,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit37:       ; preds = %if.then, %cond.true
 cond.true.i43:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit37
   %11 = load ptr, ptr %elements.i, align 8
   %idxprom.i45 = zext nneg i32 %add15 to i64
-  %arrayidx.i46 = getelementptr inbounds i32, ptr %11, i64 %idxprom.i45
+  %arrayidx.i46 = getelementptr inbounds nuw i32, ptr %11, i64 %idxprom.i45
   %12 = load i32, ptr %arrayidx.i46, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit47
 
@@ -771,7 +771,7 @@ declare void @_ZN6icu_7524ConstrainedFieldPosition24setInt64IterationContextEl(p
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7539FormattedValueFieldPositionIteratorImpl10getHandlerER10UErrorCode(ptr noalias nonnull sret(%"class.icu_75::FieldPositionIteratorHandler") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fFields = getelementptr inbounds i8, ptr %this, i64 72
+  %fFields = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @_ZN6icu_7528FieldPositionIteratorHandlerC1EPNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull %fFields, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
@@ -786,13 +786,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end6
 
 if.end:                                           ; preds = %entry
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %string, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %string, i64 8
   %1 = load i16, ptr %fUnion.i.i.i, align 8
   %cmp.i.i.i = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
   %shr.i.i.i = sext i16 %2 to i32
-  %fLength.i.i = getelementptr inbounds i8, ptr %string, i64 12
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %string, i64 12
   %3 = load i32, ptr %fLength.i.i, align 4
   %cond.i.i = select i1 %cmp.i.i.i, i32 %3, i32 %shr.i.i.i
   %call2.i = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %fString, ptr noundef nonnull align 8 dereferenceable(64) %string, i32 noundef 0, i32 noundef %cond.i.i)
@@ -813,15 +813,15 @@ declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7539FormattedValueFieldPositionIteratorImpl15addOverlapSpansE14UFieldCategoryaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %spanCategory, i8 noundef signext %firstIndex, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
-  %fFields = getelementptr inbounds i8, ptr %this, i64 72
-  %count.i = getelementptr inbounds i8, ptr %this, i64 80
+  %fFields = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %count.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %count.i, align 8
   %cmp201 = icmp sgt i32 %0, 3
   br i1 %cmp201, label %for.body.lr.ph, label %if.end47
 
 for.body.lr.ph:                                   ; preds = %entry
   %div231 = lshr i32 %0, 2
-  %elements.i = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %1 = zext nneg i32 %div231 to i64
   %wide.trip.count223 = zext nneg i32 %div231 to i64
   br label %for.body
@@ -842,7 +842,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 cond.true.i:                                      ; preds = %for.body
   %6 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i = getelementptr inbounds i32, ptr %6, i64 %3
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %6, i64 %3
   %7 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit
 
@@ -869,7 +869,7 @@ for.body7:                                        ; preds = %for.body7.lr.ph, %f
   br i1 %cmp5.i28, label %cond.true.i31, label %_ZNK6icu_759UVector3210elementAtiEi.exit35
 
 cond.true.i31:                                    ; preds = %for.body7
-  %arrayidx.i34 = getelementptr inbounds i32, ptr %8, i64 %10
+  %arrayidx.i34 = getelementptr inbounds nuw i32, ptr %8, i64 %10
   %11 = load i32, ptr %arrayidx.i34, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit35
 
@@ -885,7 +885,7 @@ if.end:                                           ; preds = %_ZNK6icu_759UVector
   br i1 %cmp5.i38, label %cond.true.i41, label %_ZNK6icu_759UVector3210elementAtiEi.exit45
 
 cond.true.i41:                                    ; preds = %if.end
-  %arrayidx.i44 = getelementptr inbounds i32, ptr %8, i64 %13
+  %arrayidx.i44 = getelementptr inbounds nuw i32, ptr %8, i64 %13
   %14 = load i32, ptr %arrayidx.i44, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit45
 
@@ -900,7 +900,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit45:       ; preds = %if.end, %cond.true.
 
 cond.true.i51:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit45
   %18 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i54 = getelementptr inbounds i32, ptr %18, i64 %15
+  %arrayidx.i54 = getelementptr inbounds nuw i32, ptr %18, i64 %15
   %19 = load i32, ptr %arrayidx.i54, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit55
 
@@ -915,7 +915,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit55:       ; preds = %_ZNK6icu_759UVector
 cond.true.i61:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit55
   %21 = load ptr, ptr %elements.i, align 8
   %idxprom.i63 = zext nneg i32 %add25 to i64
-  %arrayidx.i64 = getelementptr inbounds i32, ptr %21, i64 %idxprom.i63
+  %arrayidx.i64 = getelementptr inbounds nuw i32, ptr %21, i64 %idxprom.i63
   %22 = load i32, ptr %arrayidx.i64, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit65
 
@@ -930,7 +930,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit65:       ; preds = %_ZNK6icu_759UVector
 cond.true.i71:                                    ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit65
   %24 = load ptr, ptr %elements.i, align 8
   %idxprom.i73 = zext nneg i32 %add30 to i64
-  %arrayidx.i74 = getelementptr inbounds i32, ptr %24, i64 %idxprom.i73
+  %arrayidx.i74 = getelementptr inbounds nuw i32, ptr %24, i64 %idxprom.i73
   %25 = load i32, ptr %arrayidx.i74, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit75
 
@@ -955,7 +955,7 @@ for.end35:                                        ; preds = %for.inc33
 if.then37:                                        ; preds = %for.end35
   %26 = load i32, ptr %count.i, align 8
   %cmp.i.i = icmp slt i32 %26, -1
-  %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 84
+  %capacity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 84
   %27 = load i32, ptr %capacity.i.i, align 4
   %cmp2.not.i.i = icmp sle i32 %27, %26
   %or.cond.i.i = select i1 %cmp.i.i, i1 true, i1 %cmp2.not.i.i
@@ -970,7 +970,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i: ; preds = %if.then37
 
 if.then.i:                                        ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i, %if.then37
   %28 = phi i32 [ %26, %if.then37 ], [ %.pre, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i ]
-  %elements.i77 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i77 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %29 = load ptr, ptr %elements.i77, align 8
   %idxprom.i78 = sext i32 %28 to i64
   %arrayidx.i79 = getelementptr inbounds i32, ptr %29, i64 %idxprom.i78
@@ -998,7 +998,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90: ; preds = %_ZN6icu
 
 if.then.i85:                                      ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit
   %33 = phi i32 [ %31, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit ], [ %.pre225, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i90 ]
-  %elements.i86 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i86 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %34 = load ptr, ptr %elements.i86, align 8
   %idxprom.i87 = sext i32 %33 to i64
   %arrayidx.i88 = getelementptr inbounds i32, ptr %34, i64 %idxprom.i87
@@ -1025,7 +1025,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107: ; preds = %_ZN6ic
 
 if.then.i102:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96
   %38 = phi i32 [ %36, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit96 ], [ %.pre226, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i107 ]
-  %elements.i103 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i103 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %39 = load ptr, ptr %elements.i103, align 8
   %idxprom.i104 = sext i32 %38 to i64
   %arrayidx.i105 = getelementptr inbounds i32, ptr %39, i64 %idxprom.i104
@@ -1052,7 +1052,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124: ; preds = %_ZN6ic
 
 if.then.i119:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113
   %43 = phi i32 [ %41, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit113 ], [ %.pre227, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i124 ]
-  %elements.i120 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i120 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %44 = load ptr, ptr %elements.i120, align 8
   %idxprom.i121 = sext i32 %43 to i64
   %arrayidx.i122 = getelementptr inbounds i32, ptr %44, i64 %idxprom.i121
@@ -1079,7 +1079,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141: ; preds = %_ZN6ic
 
 if.then.i136:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130
   %48 = phi i32 [ %46, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit130 ], [ %.pre228, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i141 ]
-  %elements.i137 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i137 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %49 = load ptr, ptr %elements.i137, align 8
   %idxprom.i138 = sext i32 %48 to i64
   %arrayidx.i139 = getelementptr inbounds i32, ptr %49, i64 %idxprom.i138
@@ -1107,7 +1107,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158: ; preds = %_ZN6ic
 
 if.then.i153:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147
   %53 = phi i32 [ %51, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit147 ], [ %.pre229, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i158 ]
-  %elements.i154 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i154 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %54 = load ptr, ptr %elements.i154, align 8
   %idxprom.i155 = sext i32 %53 to i64
   %arrayidx.i156 = getelementptr inbounds i32, ptr %54, i64 %idxprom.i155
@@ -1134,7 +1134,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175: ; preds = %_ZN6ic
 
 if.then.i170:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164
   %58 = phi i32 [ %56, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit164 ], [ %.pre230, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.i175 ]
-  %elements.i171 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i171 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %59 = load ptr, ptr %elements.i171, align 8
   %idxprom.i172 = sext i32 %58 to i64
   %arrayidx.i173 = getelementptr inbounds i32, ptr %59, i64 %idxprom.i172
@@ -1164,7 +1164,7 @@ _ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196:
 
 if.then.i187:                                     ; preds = %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181
   %63 = phi i32 [ %.pre.i197, %_ZN6icu_759UVector3214ensureCapacityEiR10UErrorCode.exit.if.then_crit_edge.i196 ], [ %61, %_ZN6icu_759UVector3210addElementEiR10UErrorCode.exit181 ]
-  %elements.i188 = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i188 = getelementptr inbounds nuw i8, ptr %this, i64 96
   %64 = load ptr, ptr %elements.i188, align 8
   %idxprom.i189 = sext i32 %63 to i64
   %arrayidx.i190 = getelementptr inbounds i32, ptr %64, i64 %idxprom.i189
@@ -1185,11 +1185,11 @@ declare i32 @uprv_max_75(i32 noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7539FormattedValueFieldPositionIteratorImpl4sortEv(ptr noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %fFields = getelementptr inbounds i8, ptr %this, i64 72
-  %count.i = getelementptr inbounds i8, ptr %this, i64 80
+  %fFields = getelementptr inbounds nuw i8, ptr %this, i64 72
+  %count.i = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %count.i, align 8
   %cmp107 = icmp sgt i32 %0, 7
-  %elements.i = getelementptr inbounds i8, ptr %this, i64 96
+  %elements.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   br i1 %cmp107, label %while.body.us.preheader, label %while.end
 
 while.body.us.preheader:                          ; preds = %entry
@@ -1209,7 +1209,7 @@ for.body.us:                                      ; preds = %for.inc.us, %while.
 
 cond.true.i.us:                                   ; preds = %for.body.us
   %4 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i.us = getelementptr inbounds i32, ptr %4, i64 %1
+  %arrayidx.i.us = getelementptr inbounds nuw i32, ptr %4, i64 %1
   %5 = load i32, ptr %arrayidx.i.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit.us
 
@@ -1221,7 +1221,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit.us:      ; preds = %cond.true.i.us, %fo
 
 cond.true.i40.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit.us
   %7 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i43.us = getelementptr inbounds i32, ptr %7, i64 %6
+  %arrayidx.i43.us = getelementptr inbounds nuw i32, ptr %7, i64 %6
   %8 = load i32, ptr %arrayidx.i43.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit44.us
 
@@ -1233,7 +1233,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit44.us:    ; preds = %cond.true.i40.us, %
 
 cond.true.i50.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit44.us
   %10 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i53.us = getelementptr inbounds i32, ptr %10, i64 %9
+  %arrayidx.i53.us = getelementptr inbounds nuw i32, ptr %10, i64 %9
   %11 = load i32, ptr %arrayidx.i53.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit54.us
 
@@ -1245,7 +1245,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit54.us:    ; preds = %cond.true.i50.us, %
 
 cond.true.i60.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit54.us
   %13 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i63.us = getelementptr inbounds i32, ptr %13, i64 %12
+  %arrayidx.i63.us = getelementptr inbounds nuw i32, ptr %13, i64 %12
   %14 = load i32, ptr %arrayidx.i63.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit64.us
 
@@ -1257,7 +1257,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit64.us:    ; preds = %cond.true.i60.us, %
 
 cond.true.i70.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit64.us
   %16 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i73.us = getelementptr inbounds i32, ptr %16, i64 %15
+  %arrayidx.i73.us = getelementptr inbounds nuw i32, ptr %16, i64 %15
   %17 = load i32, ptr %arrayidx.i73.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit74.us
 
@@ -1269,7 +1269,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit74.us:    ; preds = %cond.true.i70.us, %
 
 cond.true.i80.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit74.us
   %19 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i83.us = getelementptr inbounds i32, ptr %19, i64 %18
+  %arrayidx.i83.us = getelementptr inbounds nuw i32, ptr %19, i64 %18
   %20 = load i32, ptr %arrayidx.i83.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit84.us
 
@@ -1281,7 +1281,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit84.us:    ; preds = %cond.true.i80.us, %
 
 cond.true.i90.us:                                 ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit84.us
   %22 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i93.us = getelementptr inbounds i32, ptr %22, i64 %21
+  %arrayidx.i93.us = getelementptr inbounds nuw i32, ptr %22, i64 %21
   %23 = load i32, ptr %arrayidx.i93.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
 
@@ -1293,7 +1293,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit94.us:    ; preds = %cond.true.i90.us, %
 
 cond.true.i100.us:                                ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit94.us
   %25 = load ptr, ptr %elements.i, align 8
-  %arrayidx.i103.us = getelementptr inbounds i32, ptr %25, i64 %24
+  %arrayidx.i103.us = getelementptr inbounds nuw i32, ptr %25, i64 %24
   %26 = load i32, ptr %arrayidx.i103.us, align 4
   br label %_ZNK6icu_759UVector3210elementAtiEi.exit104.us
 

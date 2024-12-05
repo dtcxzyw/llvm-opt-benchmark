@@ -356,7 +356,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_req_decoder(ptr noundef %0, ptr no
   br i1 %.not, label %.loopexit263, label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph267, %.loopexit
@@ -595,7 +595,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
   br i1 %.not, label %.loopexit673, label %.lr.ph692
 
 .lr.ph692:                                        ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %12
 
 12:                                               ; preds = %.lr.ph692, %.loopexit
@@ -802,7 +802,7 @@ define internal i32 @dissect_mac_mgmt_msg_rep_rsp_decoder(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %137
   %139 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_mac_mgmt_msg_rep_rsp_decoder, i64 0, i64 %139
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_mac_mgmt_msg_rep_rsp_decoder, i64 0, i64 %139
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %140
 

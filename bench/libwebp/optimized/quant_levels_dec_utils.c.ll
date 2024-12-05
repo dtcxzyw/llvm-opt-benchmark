@@ -51,7 +51,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %33 = or disjoint i32 %22, 1
   %34 = mul nuw nsw i32 %33, %1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %31, i64 %35
   %37 = sub nsw i64 0, %27
   %38 = getelementptr inbounds i16, ptr %36, i64 %37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %38, i8 0, i64 %28, i1 false)
@@ -78,7 +78,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %.promoted.us49.i.i = phi i32 [ %.promoted.us50.i.i, %.preheader.us.i.i ], [ %.promoted.us48.i.i, %41 ]
   %42 = phi i32 [ %.promoted44.us54.i.i, %.preheader.us.i.i ], [ %50, %41 ]
   %43 = phi i32 [ %.promoted.us50.i.i, %.preheader.us.i.i ], [ %48, %41 ]
-  %44 = getelementptr inbounds i8, ptr %.03745.us.i.i, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw i8, ptr %.03745.us.i.i, i64 %indvars.iv.i.i
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = icmp sgt i32 %43, %46
@@ -90,7 +90,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %.promoted44.us52.i.i = select i1 %49, i32 %46, i32 %.promoted44.us53.i.i
   %50 = tail call i32 @llvm.smax.i32(i32 %42, i32 %46)
   %51 = zext i8 %45 to i64
-  %52 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %51
   store i8 1, ptr %52, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %27
@@ -103,7 +103,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   br i1 %exitcond59.not.i.i, label %._crit_edge47.i.i, label %.preheader.us.i.i, !llvm.loop !6
 
 ._crit_edge47.i.i:                                ; preds = %._crit_edge.us.i.i
-  %55 = getelementptr inbounds i8, ptr %31, i64 %26
+  %55 = getelementptr inbounds nuw i8, ptr %31, i64 %26
   %56 = sub nsw i32 %.promoted44.us52.i.i, %.promoted.us48.i.i
   br label %57
 
@@ -112,7 +112,7 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   %58 = phi i32 [ %56, %._crit_edge47.i.i ], [ %68, %67 ]
   %indvars.iv60.i.i = phi i64 [ 0, %._crit_edge47.i.i ], [ %indvars.iv.next61.i.i, %67 ]
   %.03855.i.i = phi i32 [ -1, %._crit_edge47.i.i ], [ %.139.i.i, %67 ]
-  %59 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %indvars.iv60.i.i
+  %59 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %indvars.iv60.i.i
   %60 = load i8, ptr %59, align 1
   %.not.i.i = icmp eq i8 %60, 0
   br i1 %.not.i.i, label %67, label %61
@@ -137,9 +137,9 @@ define hidden range(i32 0, 2) i32 @WebPDequantizeLevels(ptr noundef %0, i32 noun
   br i1 %exitcond63.not.i.i, label %CountLevels.exit.i, label %57, !llvm.loop !7
 
 CountLevels.exit.i:                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %55, i64 %28
+  %69 = getelementptr inbounds nuw i8, ptr %55, i64 %28
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6)
-  %70 = getelementptr inbounds i8, ptr %69, i64 2046
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 2046
   %71 = shl i32 %68, 2
   %72 = mul i32 %68, 12
   %73 = ashr exact i32 %72, 2
@@ -168,7 +168,7 @@ CountLevels.exit.i:                               ; preds = %67
   %86 = phi i32 [ %84, %81 ], [ 0, %79 ], [ %78, %77 ]
   %87 = lshr i32 %86, 2
   %88 = trunc i32 %87 to i16
-  %89 = getelementptr inbounds i16, ptr %70, i64 %indvars.iv.i52.i
+  %89 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv.i52.i
   store i16 %88, ptr %89, align 2
   %90 = sub i16 0, %88
   %91 = sub nsw i64 0, %indvars.iv.i52.i
@@ -213,17 +213,17 @@ CountLevels.exit.i:                               ; preds = %67
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.038.i = phi i16 [ 0, %.lr.ph.preheader.i ], [ %108, %.lr.ph.i ]
-  %105 = getelementptr inbounds i8, ptr %.sroa.17.095, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.17.095, i64 %indvars.iv.i
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i16
   %108 = add i16 %.038.i, %107
-  %109 = getelementptr inbounds i16, ptr %.sroa.43.098, i64 %indvars.iv.i
+  %109 = getelementptr inbounds nuw i16, ptr %.sroa.43.098, i64 %indvars.iv.i
   %110 = load i16, ptr %109, align 2
   %111 = add i16 %108, %110
-  %112 = getelementptr inbounds i16, ptr %.sroa.34.097, i64 %indvars.iv.i
+  %112 = getelementptr inbounds nuw i16, ptr %.sroa.34.097, i64 %indvars.iv.i
   %113 = load i16, ptr %112, align 2
   %114 = sub i16 %111, %113
-  %115 = getelementptr inbounds i16, ptr %36, i64 %indvars.iv.i
+  %115 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i
   store i16 %114, ptr %115, align 2
   store i16 %111, ptr %112, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -231,7 +231,7 @@ CountLevels.exit.i:                               ; preds = %67
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %116 = getelementptr inbounds i16, ptr %.sroa.34.097, i64 %27
+  %116 = getelementptr inbounds nuw i16, ptr %.sroa.34.097, i64 %27
   %117 = icmp eq ptr %116, %36
   %spec.select86 = select i1 %117, ptr %31, ptr %116
   %118 = icmp sgt i32 %.sroa.11.094, -1
@@ -257,7 +257,7 @@ CountLevels.exit.i:                               ; preds = %67
   %126 = mul i32 %94, %125
   %127 = lshr i32 %126, 16
   %128 = trunc nuw i32 %127 to i16
-  %129 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.i33
+  %129 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i33
   store i16 %128, ptr %129, align 2
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, %wide.trip.count.i31
@@ -290,7 +290,7 @@ CountLevels.exit.i:                               ; preds = %67
   %141 = mul i32 %94, %140
   %142 = lshr i32 %141, 16
   %143 = trunc nuw i32 %142 to i16
-  %144 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv65.i
+  %144 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv65.i
   store i16 %143, ptr %144, align 2
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %145 = icmp slt i64 %indvars.iv.next66.i, %103
@@ -316,7 +316,7 @@ CountLevels.exit.i:                               ; preds = %67
   %162 = mul i32 %94, %161
   %163 = lshr i32 %162, 16
   %164 = trunc nuw i32 %163 to i16
-  %165 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv68.i
+  %165 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv68.i
   store i16 %164, ptr %165, align 2
   %indvars.iv.next69.i = add nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %27
@@ -327,7 +327,7 @@ HFilter.exit.preheader:                           ; preds = %146, %.preheader.i
 
 HFilter.exit:                                     ; preds = %HFilter.exit.preheader, %185
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %185 ], [ 0, %HFilter.exit.preheader ]
-  %166 = getelementptr inbounds i8, ptr %.sroa.21.096, i64 %indvars.iv.i40
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.21.096, i64 %indvars.iv.i40
   %167 = load i8, ptr %166, align 1
   %168 = zext i8 %167 to i32
   %169 = icmp sgt i32 %.sroa.55.2, %168
@@ -336,7 +336,7 @@ HFilter.exit:                                     ; preds = %HFilter.exit.prehea
   br i1 %or.cond89, label %171, label %185
 
 171:                                              ; preds = %HFilter.exit
-  %172 = getelementptr inbounds i16, ptr %55, i64 %indvars.iv.i40
+  %172 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv.i40
   %173 = load i16, ptr %172, align 2
   %174 = zext i16 %173 to i32
   %175 = shl nuw nsw i32 %168, 2

@@ -27,14 +27,14 @@ define hidden range(i32 -5, 1) i32 @dbgsysExec(ptr nocapture noundef readonly %0
   %6 = phi i8 [ %2, %.lr.ph.i ], [ %13, %11 ]
   %.06.i = phi ptr [ %0, %.lr.ph.i ], [ %12, %11 ]
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds i16, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %7
   %9 = load i16, ptr %8, align 2
   %10 = and i16 %9, 8192
   %.not4.i = icmp eq i16 %10, 0
   br i1 %.not4.i, label %skipWhitespace.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds i8, ptr %.06.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.06.i, i64 1
   %13 = load i8, ptr %12, align 1
   %.not.i = icmp eq i8 %13, 0
   br i1 %.not.i, label %skipWhitespace.exit, label %5, !llvm.loop !6
@@ -69,14 +69,14 @@ skipWhitespace.exit:                              ; preds = %5, %11, %1
   %26 = phi i8 [ %24, %.lr.ph.i43 ], [ %33, %31 ]
   %.06.i44 = phi ptr [ %.03475, %.lr.ph.i43 ], [ %32, %31 ]
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %23, i64 %27
+  %28 = getelementptr inbounds nuw i16, ptr %23, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = and i16 %29, 8192
   %.not4.i45 = icmp eq i16 %30, 0
   br i1 %.not4.i45, label %31, label %.lr.ph.i49
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %.06.i44, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i44, i64 1
   %33 = load i8, ptr %32, align 1
   %.not.i47 = icmp eq i8 %33, 0
   br i1 %.not.i47, label %skipNonWhitespace.exit.thread, label %25, !llvm.loop !8
@@ -93,14 +93,14 @@ skipNonWhitespace.exit.thread:                    ; preds = %31
   %37 = phi i8 [ %26, %.lr.ph.i49 ], [ %44, %42 ]
   %.06.i50 = phi ptr [ %.06.i44, %.lr.ph.i49 ], [ %43, %42 ]
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %23, i64 %38
+  %39 = getelementptr inbounds nuw i16, ptr %23, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 8192
   %.not4.i51 = icmp eq i16 %41, 0
   br i1 %.not4.i51, label %.lr.ph.i43, label %42, !llvm.loop !9
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %.06.i50, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.06.i50, i64 1
   %44 = load i8, ptr %43, align 1
   %.not.i52 = icmp eq i8 %44, 0
   br i1 %.not.i52, label %.loopexit, label %36, !llvm.loop !6
@@ -141,21 +141,21 @@ skipNonWhitespace.exit.thread:                    ; preds = %31
   %55 = phi i8 [ %51, %.lr.ph.i56 ], [ %62, %60 ]
   %.06.i57 = phi ptr [ %.178, %.lr.ph.i56 ], [ %61, %60 ]
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw i16, ptr %53, i64 %56
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 8192
   %.not4.i58 = icmp eq i16 %59, 0
   br i1 %.not4.i58, label %skipWhitespace.exit61, label %60
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %.06.i57, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.06.i57, i64 1
   %62 = load i8, ptr %61, align 1
   %.not.i59 = icmp eq i8 %62, 0
   br i1 %.not.i59, label %skipWhitespace.exit61, label %54, !llvm.loop !6
 
 skipWhitespace.exit61:                            ; preds = %54, %60, %.lr.ph
   %.0.lcssa.i60 = phi ptr [ %.178, %.lr.ph ], [ %.06.i57, %54 ], [ %61, %60 ]
-  %63 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
   store ptr %.0.lcssa.i60, ptr %63, align 8
   %64 = load i8, ptr %.0.lcssa.i60, align 1
   %.not5.i62 = icmp eq i8 %64, 0
@@ -170,21 +170,21 @@ skipWhitespace.exit61:                            ; preds = %54, %60, %.lr.ph
   %68 = phi i8 [ %64, %.lr.ph.i63 ], [ %75, %73 ]
   %.06.i64 = phi ptr [ %.0.lcssa.i60, %.lr.ph.i63 ], [ %74, %73 ]
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds i16, ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw i16, ptr %66, i64 %69
   %71 = load i16, ptr %70, align 2
   %72 = and i16 %71, 8192
   %.not4.i65 = icmp eq i16 %72, 0
   br i1 %.not4.i65, label %73, label %skipNonWhitespace.exit68
 
 73:                                               ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %.06.i64, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.06.i64, i64 1
   %75 = load i8, ptr %74, align 1
   %.not.i67 = icmp eq i8 %75, 0
   br i1 %.not.i67, label %skipNonWhitespace.exit68, label %67, !llvm.loop !8
 
 skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhitespace.exit61
   %.0.lcssa.i66 = phi ptr [ %.0.lcssa.i60, %skipWhitespace.exit61 ], [ %.06.i64, %67 ], [ %74, %73 ]
-  %76 = getelementptr inbounds i8, ptr %.0.lcssa.i66, i64 1
+  %76 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i66, i64 1
   store i8 0, ptr %.0.lcssa.i66, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -196,7 +196,7 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
 
 ._crit_edge:                                      ; preds = %.preheader, %._crit_edge.loopexit
   %.035.lcssa = phi i64 [ %77, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %78 = getelementptr inbounds ptr, ptr %47, i64 %.035.lcssa
+  %78 = getelementptr inbounds nuw ptr, ptr %47, i64 %.035.lcssa
   store ptr null, ptr %78, align 8
   %79 = tail call i32 @fork() #11
   %80 = icmp eq i32 %79, 0
@@ -221,7 +221,7 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
 
 89:                                               ; preds = %81
   %90 = load ptr, ptr @gdata, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 528
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 528
   %92 = load i32, ptr %91, align 8
   %93 = and i32 %92, 128
   %.not14.i.i = icmp eq i32 %93, 0
@@ -236,7 +236,7 @@ skipNonWhitespace.exit68:                         ; preds = %67, %73, %skipWhite
 96:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i
   %97 = phi ptr [ %87, %.lr.ph.i.i ], [ %111, %.backedge.i.i ]
   %98 = load ptr, ptr %88, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 19
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 19
   %100 = load i8, ptr %99, align 1
   %101 = sext i8 %100 to i64
   %102 = getelementptr inbounds i16, ptr %98, i64 %101
@@ -270,7 +270,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
   tail call void (ptr, ...) @error_message(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.6, i32 noundef %114) #11
   %115 = tail call i64 @sysconf(i32 noundef 4) #11
   %116 = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
-  %117 = getelementptr inbounds i8, ptr %116, i64 17
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 17
   %118 = load i8, ptr %117, align 1
   %119 = icmp eq i8 %118, 0
   %120 = icmp ne i64 %115, -1
@@ -280,7 +280,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
 121:                                              ; preds = %113
   tail call void @jdiAssertionFailed(ptr noundef nonnull @.str, i32 noundef 128, ptr noundef nonnull @.str.2) #11
   %.pr.pre.i = load ptr, ptr @gdata, align 8, !nonnull !12, !noundef !12
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pr.pre.i, i64 17
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 17
   %.pre = load i8, ptr %.phi.trans.insert, align 1
   br label %.thread23.i
 
@@ -299,7 +299,7 @@ closeDescriptors.exit.i:                          ; preds = %.backedge.i.i, %.pr
 
 .thread.i:                                        ; preds = %125, %.thread23.i
   %126 = phi ptr [ %.pr26.i, %.thread23.i ], [ %.pre.i, %125 ]
-  %127 = getelementptr inbounds i8, ptr %126, i64 528
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 528
   %128 = load i32, ptr %127, align 8
   %129 = and i32 %128, 128
   %.not17.i = icmp eq i32 %129, 0

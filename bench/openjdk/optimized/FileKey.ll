@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_nio_ch_FileKey_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 752
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 752
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #4
   store ptr %6, ptr @key_st_dev, align 8
@@ -25,7 +25,7 @@ define void @Java_sun_nio_ch_FileKey_initIDs(ptr noundef %0, ptr noundef %1) loc
 
 8:                                                ; preds = %2
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 752
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 752
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1) #4
   store ptr %12, ptr @key_st_ino, align 8
@@ -62,16 +62,16 @@ define void @Java_sun_nio_ch_FileKey_init(ptr noundef %0, ptr noundef %1, ptr no
 
 14:                                               ; preds = %.critedge
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 880
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 880
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr @key_st_dev, align 8
   %19 = load i64, ptr %4, align 8
   tail call void %17(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %18, i64 noundef %19) #4
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 880
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 880
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @key_st_ino, align 8
-  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8
   tail call void %22(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %23, i64 noundef %25) #4
   br label %26

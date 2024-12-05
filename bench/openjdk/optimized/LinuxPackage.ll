@@ -29,7 +29,7 @@ define hidden ptr @getJvmLauncherLibPath() local_unnamed_addr #0 {
   br i1 %4, label %getModulePath.exit.thread, label %5
 
 5:                                                ; preds = %0
-  %6 = getelementptr inbounds [4096 x i8], ptr %1, i64 0, i64 %3
+  %6 = getelementptr inbounds nuw [4096 x i8], ptr %1, i64 0, i64 %3
   store i8 0, ptr %6, align 1
   %7 = call noalias ptr @strdup(ptr noundef nonnull %1) #14
   %.not.i = icmp eq ptr %7, null
@@ -57,7 +57,7 @@ createPackageDesc.exit.thread.i:                  ; preds = %11
   br label %24
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 0, ptr %17, align 8
   store ptr null, ptr %12, align 8
   %18 = tail call fastcc i32 @popenCommand(ptr noundef nonnull @.str.5, ptr noundef nonnull %7, ptr noundef nonnull @initRpmPackage, ptr noundef %12)
@@ -269,7 +269,7 @@ define internal fastcc noundef i32 @popenCommand(ptr nocapture noundef readonly 
   %.2 = phi ptr [ %50, %46 ], [ %.050, %36 ]
   %.149 = phi i64 [ %40, %46 ], [ %.048.ph, %36 ]
   %53 = trunc i32 %28 to i8
-  %54 = getelementptr inbounds i8, ptr %.2, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %53, ptr %.2, align 1
   br label %.outer
 
@@ -366,7 +366,7 @@ define internal noundef i32 @initRpmPackage(ptr nocapture noundef %0, ptr nocapt
   %9 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %9) #14
   store ptr %3, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %10, align 8
   br label %initPackageDesc.exit
 
@@ -400,7 +400,7 @@ define internal noundef i32 @initDebPackage(ptr nocapture noundef %0, ptr nounde
   %12 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %12) #14
   store ptr %6, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %13, align 8
   br label %initPackageDesc.exit
 

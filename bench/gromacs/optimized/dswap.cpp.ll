@@ -42,21 +42,21 @@ define void @dswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
   %indvars.iv92 = phi i64 [ 0, %.lr.ph83.preheader ], [ %indvars.iv.next93, %.lr.ph83 ]
-  %19 = getelementptr inbounds double, ptr %1, i64 %indvars.iv92
+  %19 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv92
   %20 = load double, ptr %19, align 8
   %21 = add nuw nsw i64 %indvars.iv92, 1
-  %22 = getelementptr inbounds double, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw double, ptr %1, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = add nuw nsw i64 %indvars.iv92, 2
-  %25 = getelementptr inbounds double, ptr %1, i64 %24
+  %25 = getelementptr inbounds nuw double, ptr %1, i64 %24
   %26 = load double, ptr %25, align 8
-  %27 = getelementptr inbounds double, ptr %3, i64 %indvars.iv92
+  %27 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv92
   %28 = load double, ptr %27, align 8
   store double %28, ptr %19, align 8
-  %29 = getelementptr inbounds double, ptr %3, i64 %21
+  %29 = getelementptr inbounds nuw double, ptr %3, i64 %21
   %30 = load double, ptr %29, align 8
   store double %30, ptr %22, align 8
-  %31 = getelementptr inbounds double, ptr %3, i64 %24
+  %31 = getelementptr inbounds nuw double, ptr %3, i64 %24
   %32 = load double, ptr %31, align 8
   store double %32, ptr %25, align 8
   store double %20, ptr %27, align 8
@@ -68,9 +68,9 @@ define void @dswap_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1,
 
 .lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
   %indvars.iv95 = phi i64 [ %18, %.lr.ph85.preheader ], [ %indvars.iv.next96, %.lr.ph85 ]
-  %34 = getelementptr inbounds double, ptr %1, i64 %indvars.iv95
+  %34 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv95
   %35 = load double, ptr %34, align 8
-  %36 = getelementptr inbounds double, ptr %3, i64 %indvars.iv95
+  %36 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv95
   %37 = load double, ptr %36, align 8
   store double %37, ptr %34, align 8
   store double %35, ptr %36, align 8

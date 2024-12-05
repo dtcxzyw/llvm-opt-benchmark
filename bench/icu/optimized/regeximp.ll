@@ -12,9 +12,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_7524CaseFoldingUTextIteratorC2ER5UText(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(144) %text) unnamed_addr #0 align 2 {
 entry:
   store ptr %text, ptr %this, align 8
-  %fFoldChars = getelementptr inbounds i8, ptr %this, i64 8
+  %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %fFoldChars, align 8
-  %fFoldLength = getelementptr inbounds i8, ptr %this, i64 16
+  %fFoldLength = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %fFoldLength, align 8
   ret void
 }
@@ -28,29 +28,29 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7524CaseFoldingUTextIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %fFoldChars = getelementptr inbounds i8, ptr %this, i64 8
+  %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fFoldChars, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %entry.do.body_crit_edge
 
 entry.do.body_crit_edge:                          ; preds = %entry
-  %fFoldIndex36.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 20
+  %fFoldIndex36.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 20
   %.pre11 = load i32, ptr %fFoldIndex36.phi.trans.insert, align 4
-  %fFoldLength44.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
+  %fFoldLength44.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre12 = load i32, ptr %fFoldLength44.phi.trans.insert, align 8
   br label %do.body
 
 if.then:                                          ; preds = %entry
   %1 = load ptr, ptr %this, align 8
-  %chunkOffset = getelementptr inbounds i8, ptr %1, i64 40
+  %chunkOffset = getelementptr inbounds nuw i8, ptr %1, i64 40
   %2 = load i32, ptr %chunkOffset, align 8
-  %chunkLength = getelementptr inbounds i8, ptr %1, i64 44
+  %chunkLength = getelementptr inbounds nuw i8, ptr %1, i64 44
   %3 = load i32, ptr %chunkLength, align 4
   %cmp3 = icmp slt i32 %2, %3
   br i1 %cmp3, label %land.lhs.true, label %cond.end
 
 land.lhs.true:                                    ; preds = %if.then
-  %chunkContents = getelementptr inbounds i8, ptr %1, i64 48
+  %chunkContents = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %chunkContents, align 8
   %idxprom = sext i32 %2 to i64
   %arrayidx = getelementptr inbounds i16, ptr %4, i64 %idxprom
@@ -73,7 +73,7 @@ cond.end:                                         ; preds = %if.then, %land.lhs.
 if.end:                                           ; preds = %cond.end.thread, %cond.end
   %cond10 = phi i32 [ %conv14, %cond.end.thread ], [ %call, %cond.end ]
   %call19 = tail call i32 @ucase_toFullFolding_75(i32 noundef %cond10, ptr noundef nonnull %fFoldChars, i32 noundef 0)
-  %fFoldLength = getelementptr inbounds i8, ptr %this, i64 16
+  %fFoldLength = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %call19, ptr %fFoldLength, align 8
   %or.cond = icmp ugt i32 %call19, 30
   br i1 %or.cond, label %if.then24, label %if.end33
@@ -95,7 +95,7 @@ do.body:                                          ; preds = %entry.do.body_crit_
   %7 = phi i32 [ %.pre12, %entry.do.body_crit_edge ], [ %call19, %if.end33 ]
   %8 = phi i32 [ %.pre11, %entry.do.body_crit_edge ], [ 0, %if.end33 ]
   %9 = phi ptr [ %0, %entry.do.body_crit_edge ], [ %.pre, %if.end33 ]
-  %fFoldIndex36 = getelementptr inbounds i8, ptr %this, i64 20
+  %fFoldIndex36 = getelementptr inbounds nuw i8, ptr %this, i64 20
   %inc37 = add nsw i32 %8, 1
   store i32 %inc37, ptr %fFoldIndex36, align 4
   %idxprom38 = sext i32 %8 to i64
@@ -148,7 +148,7 @@ declare i32 @ucase_toFullFolding_75(i32 noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUTextIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %fFoldChars = getelementptr inbounds i8, ptr %this, i64 8
+  %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fFoldChars, align 8
   %cmp = icmp ne ptr %0, null
   %conv = zext i1 %cmp to i8
@@ -159,13 +159,13 @@ entry:
 define void @_ZN6icu_7524CaseFoldingUCharIteratorC2EPKDsll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr noundef %chars, i64 noundef %start, i64 noundef %limit) unnamed_addr #0 align 2 {
 entry:
   store ptr %chars, ptr %this, align 8
-  %fIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i64 %start, ptr %fIndex, align 8
-  %fLimit = getelementptr inbounds i8, ptr %this, i64 16
+  %fLimit = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 %limit, ptr %fLimit, align 8
-  %fFoldChars = getelementptr inbounds i8, ptr %this, i64 24
+  %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr null, ptr %fFoldChars, align 8
-  %fFoldLength = getelementptr inbounds i8, ptr %this, i64 32
+  %fFoldLength = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 0, ptr %fFoldLength, align 8
   ret void
 }
@@ -179,22 +179,22 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 -1, -2147483648) i32 @_ZN6icu_7524CaseFoldingUCharIterator4nextEv(ptr noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 {
 entry:
-  %fFoldChars = getelementptr inbounds i8, ptr %this, i64 24
+  %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fFoldChars, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.then, label %entry.do.body38_crit_edge
 
 entry.do.body38_crit_edge:                        ; preds = %entry
-  %fFoldIndex40.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 36
+  %fFoldIndex40.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 36
   %.pre9 = load i32, ptr %fFoldIndex40.phi.trans.insert, align 4
-  %fFoldLength49.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 32
+  %fFoldLength49.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 32
   %.pre10 = load i32, ptr %fFoldLength49.phi.trans.insert, align 8
   br label %do.body38
 
 if.then:                                          ; preds = %entry
-  %fIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %fIndex, align 8
-  %fLimit = getelementptr inbounds i8, ptr %this, i64 16
+  %fLimit = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i64, ptr %fLimit, align 8
   %cmp2.not = icmp slt i64 %1, %2
   br i1 %cmp2.not, label %do.body, label %return
@@ -231,7 +231,7 @@ if.then16:                                        ; preds = %land.lhs.true
 do.end:                                           ; preds = %do.body, %if.then16, %land.lhs.true
   %originalC.0 = phi i32 [ %sub, %if.then16 ], [ %conv, %land.lhs.true ], [ %conv, %do.body ]
   %call = tail call i32 @ucase_toFullFolding_75(i32 noundef %originalC.0, ptr noundef nonnull %fFoldChars, i32 noundef 0)
-  %fFoldLength = getelementptr inbounds i8, ptr %this, i64 32
+  %fFoldLength = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %call, ptr %fFoldLength, align 8
   %or.cond7 = icmp ugt i32 %call, 30
   br i1 %or.cond7, label %if.then27, label %if.end36
@@ -253,7 +253,7 @@ do.body38:                                        ; preds = %entry.do.body38_cri
   %6 = phi i32 [ %.pre10, %entry.do.body38_crit_edge ], [ %call, %if.end36 ]
   %7 = phi i32 [ %.pre9, %entry.do.body38_crit_edge ], [ 0, %if.end36 ]
   %8 = phi ptr [ %0, %entry.do.body38_crit_edge ], [ %.pre, %if.end36 ]
-  %fFoldIndex40 = getelementptr inbounds i8, ptr %this, i64 36
+  %fFoldIndex40 = getelementptr inbounds nuw i8, ptr %this, i64 36
   %inc41 = add nsw i32 %7, 1
   store i32 %inc41, ptr %fFoldIndex40, align 4
   %idxprom = sext i32 %7 to i64
@@ -302,7 +302,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUCharIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %fFoldChars = getelementptr inbounds i8, ptr %this, i64 24
+  %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fFoldChars, align 8
   %cmp = icmp ne ptr %0, null
   %conv = zext i1 %cmp to i8
@@ -312,7 +312,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN6icu_7524CaseFoldingUCharIterator8getIndexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
-  %fIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %fIndex, align 8
   ret i64 %0
 }

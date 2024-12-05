@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @plugrack_create(ptr noundef %0) #0 {
   %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 123, ptr noundef nonnull @__func__.plugrack_create) #10
   %3 = tail call ptr @xstrdup(ptr noundef %0) #10
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %3, ptr %4, align 8
   %5 = tail call ptr @list_create(ptr noundef nonnull @plugrack_entry_destructor) #10
   store ptr %5, ptr %2, align 8
@@ -83,7 +83,7 @@ define range(i32 -1, 1) i32 @plugrack_destroy(ptr noundef %0) #0 {
   br i1 %.not7, label %19, label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %12, label %6, !llvm.loop !6
@@ -94,7 +94,7 @@ define range(i32 -1, 1) i32 @plugrack_destroy(ptr noundef %0) #0 {
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.plugrack_destroy, ptr noundef %17) #10
   br label %18
@@ -115,7 +115,7 @@ define range(i32 -1, 1) i32 @plugrack_destroy(ptr noundef %0) #0 {
 
 22:                                               ; preds = %21, %19
   store ptr null, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %23) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %24
@@ -143,7 +143,7 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %6 ]
   %.015 = phi ptr [ %.116, %21 ], [ %7, %6 ]
   %.0 = phi i32 [ %.3, %21 ], [ 0, %6 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1
   switch i8 %11, label %21 [
     i8 0, label %12
@@ -163,8 +163,8 @@ define range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noun
   %17 = icmp eq i32 %16, -1
   %spec.select21 = select i1 %17, i32 -1, i32 %.0
   %18 = load ptr, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 %indvars.iv
-  %20 = getelementptr inbounds i8, ptr %19, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 1
   br label %21
 
 21:                                               ; preds = %8, %15
@@ -203,13 +203,13 @@ define ptr @plugrack_use_by_type(ptr noundef readonly %0, ptr noundef %1) #0 {
   br i1 %.not23, label %13, label %8, !llvm.loop !8
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %9, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %.thread
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %9, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @plugin_load_from_file(ptr noundef nonnull %14, ptr noundef %19) #10
   %.not24 = icmp eq i32 %20, 0
@@ -227,7 +227,7 @@ define ptr @plugrack_use_by_type(ptr noundef readonly %0, ptr noundef %1) #0 {
   br i1 %.not25, label %34, label %.thread
 
 .thread:                                          ; preds = %13, %25
-  %26 = getelementptr inbounds i8, ptr %9, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %27 = load i32, ptr %26, align 8
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %26, align 8
@@ -236,7 +236,7 @@ define ptr @plugrack_use_by_type(ptr noundef readonly %0, ptr noundef %1) #0 {
   br i1 %30, label %31, label %34
 
 31:                                               ; preds = %.thread
-  %32 = getelementptr inbounds i8, ptr %9, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %33 = load ptr, ptr %32, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.plugrack_use_by_type, ptr noundef %33, ptr noundef nonnull %1) #10
   br label %34
@@ -270,9 +270,9 @@ define internal void @plugrack_entry_destructor(ptr noundef %0) #0 {
 
 4:                                                ; preds = %1
   tail call void @slurm_xfree(ptr noundef nonnull %0) #10
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %5) #10
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %9, label %8
@@ -332,7 +332,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   store i8 47, ptr %21, align 1
-  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = tail call ptr @opendir(ptr noundef %1)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %.preheader
@@ -343,8 +343,8 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   br i1 %26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %4, i64 24
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %31
 
 29:                                               ; preds = %12
@@ -353,7 +353,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
 
 31:                                               ; preds = %.lr.ph, %.backedge
   %32 = phi ptr [ %25, %.lr.ph ], [ %45, %.backedge ]
-  %33 = getelementptr inbounds i8, ptr %32, i64 19
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 19
   %34 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %33) #10
   %35 = call i32 @xstrncmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.24, i64 noundef 1) #10
   %36 = icmp eq i32 %35, 0
@@ -384,31 +384,31 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
 .lr.ph.i:                                         ; preds = %47, %.lr.ph.i._crit_edge
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i._crit_edge ], [ 0, %47 ]
   %49 = phi i8 [ %65, %.lr.ph.i._crit_edge ], [ %48, %47 ]
-  %50 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv.i
   %51 = icmp eq i8 %49, 46
   br i1 %51, label %52, label %.lr.ph.i._crit_edge
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %50, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 115
   br i1 %55, label %56, label %.lr.ph.i._crit_edge
 
 56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %50, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %58 = load i8, ptr %57, align 1
   %59 = icmp eq i8 %58, 111
   br i1 %59, label %60, label %.lr.ph.i._crit_edge
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %50, i64 3
+  %61 = getelementptr inbounds nuw i8, ptr %50, i64 3
   %62 = load i8, ptr %61, align 1
   %63 = icmp eq i8 %62, 0
   br i1 %63, label %66, label %.lr.ph.i._crit_edge
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %60, %56, %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.next.i
+  %64 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv.next.i
   %65 = load i8, ptr %64, align 1
   %.not.not.i = icmp eq i8 %65, 0
   br i1 %.not.not.i, label %.backedge, label %.lr.ph.i, !llvm.loop !9
@@ -422,7 +422,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   %69 = call i32 @xstrncmp(ptr noundef nonnull %33, ptr noundef nonnull @.str.25, i64 noundef 3) #10
   %70 = icmp eq i32 %69, 0
   %spec.select.idx.i = select i1 %70, i64 3, i64 0
-  %spec.select.i = getelementptr inbounds i8, ptr %33, i64 %spec.select.idx.i
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %33, i64 %spec.select.idx.i
   %71 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #11
   %72 = call i32 @xstrncmp(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %67, i64 noundef %71) #10
   %.not.i = icmp eq i32 %72, 0
@@ -455,11 +455,11 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   %85 = call ptr @xstrdup(ptr noundef nonnull %5) #10
   store ptr %85, ptr %84, align 8
   %86 = call ptr @xstrdup(ptr noundef nonnull %82) #10
-  %87 = getelementptr inbounds i8, ptr %84, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %84, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr null, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %84, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i32 0, ptr %89, align 8
   %90 = load ptr, ptr %0, align 8
   call void @list_append(ptr noundef %90, ptr noundef nonnull %84) #10
@@ -494,7 +494,7 @@ declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @_foreach_release_plugin(ptr nocapture noundef %0, ptr noundef %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %23, label %6
@@ -506,7 +506,7 @@ define internal noundef i32 @_foreach_release_plugin(ptr nocapture noundef %0, p
   br i1 %.not, label %9, label %23
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, -1
   store i32 %12, ptr %10, align 8
@@ -554,7 +554,7 @@ define noundef i32 @plugrack_print_mpi_plugins(ptr nocapture noundef readonly %0
   br i1 %.not2425, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 63
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 63
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
@@ -564,14 +564,14 @@ define noundef i32 @plugrack_print_mpi_plugins(ptr nocapture noundef readonly %0
 
 9:                                                ; preds = %.lr.ph, %27
   %10 = phi ptr [ %8, %.lr.ph ], [ %29, %27 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.7) #11
   %.not21 = icmp eq ptr %13, null
   br i1 %.not21, label %25, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %13, i64 5
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 5
   %16 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.8, ptr noundef nonnull %15) #10
   %17 = icmp ugt i32 %16, 63
   br i1 %17, label %18, label %19
@@ -643,7 +643,7 @@ declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 define void @plugrack_foreach(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.plugrack_foreach_args_t, align 8
   store ptr %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %2, ptr %5, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = call i32 @list_for_each(ptr noundef %6, ptr noundef nonnull @_foreach_plugin, ptr noundef nonnull %4) #10
@@ -654,11 +654,11 @@ define void @plugrack_foreach(ptr nocapture noundef readonly %0, ptr noundef %1,
 define internal noundef i32 @_foreach_plugin(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void %3(ptr noundef %4, ptr noundef %6, ptr noundef %8, ptr noundef %10) #10
   ret i32 0
@@ -682,11 +682,11 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   store i32 1038080693, ptr %16, align 8
   %17 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 123, ptr noundef nonnull @__func__.plugrack_create) #10
   %18 = tail call ptr @xstrdup(ptr noundef %1) #10
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %18, ptr %19, align 8
   %20 = tail call ptr @list_create(ptr noundef nonnull @plugrack_entry_destructor) #10
   store ptr %20, ptr %17, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store ptr %17, ptr %21, align 8
   %22 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 760), align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
@@ -703,7 +703,7 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %23 ]
   %.015.i = phi ptr [ %.116.i, %38 ], [ %24, %23 ]
   %.0.i = phi i32 [ %.3.i, %38 ], [ 0, %23 ]
-  %27 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv.i
   %28 = load i8, ptr %27, align 1
   switch i8 %28, label %38 [
     i8 0, label %29
@@ -722,8 +722,8 @@ define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr nound
   %34 = icmp eq i32 %33, -1
   %spec.select21.i = select i1 %34, i32 -1, i32 %.0.i
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 %indvars.iv.i
-  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   br label %38
 
 38:                                               ; preds = %32, %25
@@ -759,11 +759,11 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not80, label %47, label %53
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.172, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.172, i64 40
   %49 = load ptr, ptr %48, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %3, ptr %8, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr null, ptr %50, align 8
   %51 = load ptr, ptr %49, align 8
   %52 = call i32 @list_for_each(ptr noundef %51, ptr noundef nonnull @_foreach_plugin, ptr noundef nonnull %8) #10
@@ -775,11 +775,11 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %.not81, label %54, label %60
 
 54:                                               ; preds = %53
-  %55 = getelementptr inbounds i8, ptr %.172, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %.172, i64 40
   %56 = load ptr, ptr %55, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @_plugrack_foreach, ptr %7, align 8
-  %57 = getelementptr inbounds i8, ptr %7, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.172, ptr %57, align 8
   %58 = load ptr, ptr %56, align 8
   %59 = call i32 @list_for_each(ptr noundef %58, ptr noundef nonnull @_foreach_plugin, ptr noundef nonnull %7) #10
@@ -832,15 +832,15 @@ plugrack_read_dir.exit:                           ; preds = %29
   br label %76
 
 76:                                               ; preds = %._crit_edge, %66, %63, %54
-  %77 = getelementptr inbounds i8, ptr %.172, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %.172, i64 32
   %78 = load i64, ptr %77, align 8
   %.not114 = icmp eq i64 %78, 0
   br i1 %.not114, label %.loopexit, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %76
-  %79 = getelementptr inbounds i8, ptr %.172, i64 16
-  %80 = getelementptr inbounds i8, ptr %.172, i64 40
-  %81 = getelementptr inbounds i8, ptr %.172, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.172, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.172, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %.172, i64 24
   %.pre = load ptr, ptr %79, align 8
   br label %82
 
@@ -891,7 +891,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   %110 = phi i64 [ %.pre119, %100 ], [ 0, %76 ], [ %106, %105 ]
   %111 = phi i1 [ true, %100 ], [ false, %76 ], [ false, %105 ]
   %.2 = phi i32 [ 8002, %100 ], [ 0, %76 ], [ 0, %105 ]
-  %112 = getelementptr inbounds i8, ptr %.172, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %.172, i64 8
   %113 = call ptr @slurm_xrecalloc(ptr noundef nonnull %112, i64 noundef %110, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 595, ptr noundef nonnull @__func__.load_plugins) #10
   %114 = load i64, ptr %77, align 8
   %115 = icmp eq i64 %114, 0
@@ -899,7 +899,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   br i1 %or.cond, label %145, label %.lr.ph113
 
 .lr.ph113:                                        ; preds = %.loopexit
-  %116 = getelementptr inbounds i8, ptr %.172, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %.172, i64 16
   %117 = add i64 %5, 1
   %118 = trunc i64 %5 to i32
   br label %119
@@ -969,13 +969,13 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @_plugrack_foreach(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph.i
@@ -987,7 +987,7 @@ define internal void @_plugrack_foreach(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %9 ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @xstrcasecmp(ptr noundef %0, ptr noundef %14) #10
   %.not.i = icmp eq i32 %15, 0
@@ -999,9 +999,9 @@ _plugin_loaded.exit:                              ; preds = %.lr.ph.i
   br i1 %17, label %18, label %42
 
 18:                                               ; preds = %_plugin_loaded.exit
-  %19 = getelementptr inbounds i8, ptr %3, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.28, ptr noundef nonnull @__func__._plugrack_foreach, ptr noundef %22, ptr noundef %0) #10
   br label %42
@@ -1013,9 +1013,9 @@ _plugin_loaded.exit:                              ; preds = %.lr.ph.i
 .loopexit:                                        ; preds = %.loopexit.loopexit, %4
   %24 = phi i64 [ %23, %.loopexit.loopexit ], [ 1, %4 ]
   store i64 %24, ptr %5, align 8
-  %25 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %26 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %25, i64 noundef %24, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 501, ptr noundef nonnull @__func__._plugrack_foreach) #10
-  %27 = getelementptr inbounds i8, ptr %3, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %28 = load i64, ptr %5, align 8
   %29 = tail call ptr @slurm_xrecalloc(ptr noundef nonnull %27, i64 noundef %28, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 502, ptr noundef nonnull @__func__._plugrack_foreach) #10
   %30 = tail call ptr @xstrdup(ptr noundef %0) #10
@@ -1030,9 +1030,9 @@ _plugin_loaded.exit:                              ; preds = %.lr.ph.i
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %.loopexit
-  %38 = getelementptr inbounds i8, ptr %3, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__._plugrack_foreach, ptr noundef %41, ptr noundef %0, ptr noundef %1) #10
   br label %42
@@ -1064,19 +1064,19 @@ define void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %41, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not11 = icmp eq ptr %5, null
   br i1 %.not11, label %21, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8
   %.not21 = icmp eq i64 %7, 0
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
@@ -1102,14 +1102,14 @@ define void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 21:                                               ; preds = %._crit_edge, %3
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %23 = load i64, ptr %22, align 8
   %.not22 = icmp eq i64 %23, 0
   br i1 %.not22, label %._crit_edge19, label %.lr.ph18
 
 .lr.ph18:                                         ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %.lr.ph18, %34
@@ -1140,11 +1140,11 @@ define void @unload_plugins(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %37, label %26, label %._crit_edge19, !llvm.loop !16
 
 ._crit_edge19:                                    ; preds = %34, %21
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %38) #10
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %39) #10
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @slurm_xfree(ptr noundef nonnull %40) #10
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %41

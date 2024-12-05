@@ -110,7 +110,7 @@ define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 
   %.141 = phi i32 [ %.04087, %34 ], [ %45, %44 ]
   %.139 = phi i32 [ %35, %34 ], [ %.03888, %44 ]
   %47 = add nuw nsw i32 %.04286, 1
-  %48 = getelementptr inbounds i8, ptr %.089, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %.089, i64 4
   %exitcond.not = icmp eq i32 %47, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -144,7 +144,7 @@ define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 
 
 58:                                               ; preds = %.lr.ph99, %57
   %59 = add nuw nsw i32 %.14398, 1
-  %60 = getelementptr inbounds i8, ptr %.04597, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.04597, i64 4
   %exitcond103.not = icmp eq i32 %59, %1
   br i1 %exitcond103.not, label %.loopexit, label %.lr.ph99, !llvm.loop !6
 
@@ -185,7 +185,7 @@ define i32 @PMPI_Dims_create(i32 noundef %0, i32 noundef %1, ptr noundef %2) #0 
   %.03034.i = phi i32 [ %80, %.lr.ph.i ], [ %.141, %63 ]
   %80 = lshr exact i32 %.03034.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %81 = getelementptr inbounds i32, ptr %73, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i
   store i32 2, ptr %81, align 4
   %82 = and i32 %.03034.i, 2
   %83 = icmp eq i32 %82, 0
@@ -269,7 +269,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
 
 .lr.ph65.us.i:                                    ; preds = %._crit_edge.us.i, %.lr.ph65.us.preheader.i
   %indvars.iv.i57 = phi i64 [ %107, %.lr.ph65.us.preheader.i ], [ %indvars.iv.next.i58, %._crit_edge.us.i ]
-  %108 = getelementptr inbounds i32, ptr %.075, i64 %indvars.iv.i57
+  %108 = getelementptr inbounds nuw i32, ptr %.075, i64 %indvars.iv.i57
   %109 = load i32, ptr %108, align 4
   %.pre.i = load i32, ptr %104, align 4
   br label %110
@@ -279,7 +279,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
   %.064.us.i = phi ptr [ %104, %.lr.ph65.us.i ], [ %spec.select.us.i, %110 ]
   %.pn63.us.i = phi ptr [ %104, %.lr.ph65.us.i ], [ %.146.us.i, %110 ]
   %.15062.us.i = phi i32 [ 1, %.lr.ph65.us.i ], [ %115, %110 ]
-  %.146.us.i = getelementptr inbounds i8, ptr %.pn63.us.i, i64 4
+  %.146.us.i = getelementptr inbounds nuw i8, ptr %.pn63.us.i, i64 4
   %112 = load i32, ptr %.146.us.i, align 4
   %113 = icmp slt i32 %112, %111
   %114 = tail call i32 @llvm.smin.i32(i32 %112, i32 %111)
@@ -305,7 +305,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
   %.04960.i = phi i32 [ %119, %.lr.ph.i54 ], [ 0, %101 ]
   store i32 1, ptr %.04561.i, align 4
   %119 = add nuw nsw i32 %.04960.i, 1
-  %120 = getelementptr inbounds i8, ptr %.04561.i, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %.04561.i, i64 4
   %exitcond.not.i = icmp eq i32 %119, %.139
   br i1 %exitcond.not.i, label %.preheader59.i, label %.lr.ph.i54, !llvm.loop !12
 
@@ -328,7 +328,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
 123:                                              ; preds = %123, %.lr.ph68.split.i
   %indvars.iv78.i = phi i64 [ %107, %.lr.ph68.split.i ], [ %indvars.iv.next79.i, %123 ]
   %124 = phi i32 [ %.promoted.i, %.lr.ph68.split.i ], [ %127, %123 ]
-  %125 = getelementptr inbounds i32, ptr %.075, i64 %indvars.iv78.i
+  %125 = getelementptr inbounds nuw i32, ptr %.075, i64 %indvars.iv78.i
   %126 = load i32, ptr %125, align 4
   %127 = mul nsw i32 %126, %124
   %indvars.iv.next79.i = add nsw i64 %indvars.iv78.i, -1
@@ -343,7 +343,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
   %.273.i = phi ptr [ %129, %.loopexit.i ], [ %104, %.lr.ph74.preheader.i ]
   %.25172.i = phi i32 [ %128, %.loopexit.i ], [ 0, %.lr.ph74.preheader.i ]
   %128 = add nuw nsw i32 %.25172.i, 1
-  %129 = getelementptr inbounds i8, ptr %.273.i, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %.273.i, i64 4
   %130 = icmp slt i32 %128, %.139
   br i1 %130, label %.lr.ph71.preheader.i, label %.loopexit.i
 
@@ -367,7 +367,7 @@ getfactors.exit:                                  ; preds = %._crit_edge45.i, %9
 135:                                              ; preds = %134, %.lr.ph71.i
   %136 = phi i32 [ %131, %.lr.ph71.i ], [ %132, %134 ]
   %137 = add nuw nsw i32 %.15369.i, 1
-  %138 = getelementptr inbounds i8, ptr %.24770.i, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.24770.i, i64 4
   %exitcond81.not.i = icmp eq i32 %137, %.139
   br i1 %exitcond81.not.i, label %.loopexit.i, label %.lr.ph71.i, !llvm.loop !14
 
@@ -386,7 +386,7 @@ assignnodes.exit:                                 ; preds = %101, %getfactors.ex
   br i1 %141, label %142, label %145
 
 142:                                              ; preds = %.lr.ph95
-  %143 = getelementptr inbounds i8, ptr %.193, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %.193, i64 4
   %144 = load i32, ptr %.193, align 4
   store i32 %144, ptr %.14691, align 4
   br label %145
@@ -394,7 +394,7 @@ assignnodes.exit:                                 ; preds = %101, %getfactors.ex
 145:                                              ; preds = %.lr.ph95, %142
   %.2 = phi ptr [ %143, %142 ], [ %.193, %.lr.ph95 ]
   %146 = add nuw nsw i32 %.24492, 1
-  %147 = getelementptr inbounds i8, ptr %.14691, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %.14691, i64 4
   %exitcond102.not = icmp eq i32 %146, %1
   br i1 %exitcond102.not, label %._crit_edge96, label %.lr.ph95, !llvm.loop !15
 

@@ -17,38 +17,38 @@ define dso_local void @riscv_pmu_generate_fdt_node(ptr noundef %fdt, i32 noundef
 entry:
   %fdt_event_ctr_map = alloca [15 x i32], align 16
   store i32 16777216, ptr %fdt_event_ctr_map, align 16
-  %arrayidx2 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 4
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 4
   store i32 16777216, ptr %arrayidx2, align 4
   %or = or i32 %cmask, 1
   %0 = tail call noundef i32 @llvm.bswap.i32(i32 %or)
-  %arrayidx4 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 8
+  %arrayidx4 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 8
   store i32 %0, ptr %arrayidx4, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 12
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 12
   store i32 33554432, ptr %arrayidx6, align 4
-  %arrayidx8 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 16
+  %arrayidx8 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 16
   store i32 33554432, ptr %arrayidx8, align 16
   %or9 = or i32 %cmask, 4
   %1 = tail call noundef i32 @llvm.bswap.i32(i32 %or9)
-  %arrayidx11 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 20
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 20
   store i32 %1, ptr %arrayidx11, align 4
-  %arrayidx13 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 24
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 24
   store i32 419430656, ptr %arrayidx13, align 8
-  %arrayidx15 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 28
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 28
   store i32 419430656, ptr %arrayidx15, align 4
   %2 = tail call noundef i32 @llvm.bswap.i32(i32 %cmask)
-  %arrayidx17 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 32
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 32
   store i32 %2, ptr %arrayidx17, align 16
-  %arrayidx19 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 36
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 36
   store i32 452985088, ptr %arrayidx19, align 4
-  %arrayidx21 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 40
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 40
   store i32 452985088, ptr %arrayidx21, align 8
-  %arrayidx23 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 44
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 44
   store i32 %2, ptr %arrayidx23, align 4
-  %arrayidx25 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 48
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 48
   store i32 553648384, ptr %arrayidx25, align 16
-  %arrayidx27 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 52
+  %arrayidx27 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 52
   store i32 553648384, ptr %arrayidx27, align 4
-  %arrayidx29 = getelementptr inbounds i8, ptr %fdt_event_ctr_map, i64 56
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %fdt_event_ctr_map, i64 56
   store i32 %2, ptr %arrayidx29, align 8
   %call30 = call i32 @qemu_fdt_setprop(ptr noundef %fdt, ptr noundef %pmu_name, ptr noundef nonnull @.str, ptr noundef nonnull %fdt_event_ctr_map, i32 noundef 60) #6
   ret void
@@ -62,14 +62,14 @@ declare i32 @qemu_fdt_setprop(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 -1, 1) i32 @riscv_pmu_incr_ctr(ptr noundef %cpu, i32 noundef %event_idx) local_unnamed_addr #0 {
 entry:
-  %env1 = getelementptr inbounds i8, ptr %cpu, i64 10176
-  %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 19108
+  %env1 = getelementptr inbounds nuw i8, ptr %cpu, i64 10176
+  %pmu_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 19108
   %0 = load i32, ptr %pmu_mask, align 4
   %tobool.not = icmp eq i32 %0, 0
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
+  %pmu_event_ctr_map = getelementptr inbounds nuw i8, ptr %cpu, i64 19184
   %1 = load ptr, ptr %pmu_event_ctr_map, align 16
   %conv = zext i32 %event_idx to i64
   %2 = inttoptr i64 %conv to ptr
@@ -85,7 +85,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond.i.i, label %return, label %riscv_pmu_counter_valid.exit.i
 
 riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end4
-  %pmu_avail_ctrs.i.i = getelementptr inbounds i8, ptr %cpu, i64 19176
+  %pmu_avail_ctrs.i.i = getelementptr inbounds nuw i8, ptr %cpu, i64 19176
   %5 = load i32, ptr %pmu_avail_ctrs.i.i, align 8
   %conv.i.i = zext i32 %5 to i64
   %sh_prom.i.i = and i64 %3, 4294967295
@@ -95,7 +95,7 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %if.end4
   br i1 %tobool.not.i.not.i, label %return, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
-  %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
+  %mcountinhibit.i = getelementptr inbounds nuw i8, ptr %cpu, i64 15912
   %6 = load i64, ptr %mcountinhibit.i, align 8
   %7 = and i64 %6, %shl.i.i
   %tobool.not.i = icmp eq i64 %7, 0
@@ -105,12 +105,12 @@ if.end15:                                         ; preds = %land.lhs.true.i
   %8 = getelementptr i8, ptr %cpu, i64 15184
   %env1.val = load i32, ptr %8, align 16
   %cmp = icmp eq i32 %env1.val, 1
-  %pmu_ctrs.i = getelementptr inbounds i8, ptr %cpu, i64 15920
+  %pmu_ctrs.i = getelementptr inbounds nuw i8, ptr %cpu, i64 15920
   %arrayidx.i = getelementptr [32 x %struct.PMUCTRState], ptr %pmu_ctrs.i, i64 0, i64 %sh_prom.i.i
-  %virt_enabled.i = getelementptr inbounds i8, ptr %cpu, i64 15232
+  %virt_enabled.i = getelementptr inbounds nuw i8, ptr %cpu, i64 15232
   %9 = load i8, ptr %virt_enabled.i, align 16
   %tobool.i = trunc i8 %9 to i1
-  %priv.i = getelementptr inbounds i8, ptr %cpu, i64 15224
+  %priv.i = getelementptr inbounds nuw i8, ptr %cpu, i64 15224
   %10 = load i64, ptr %priv.i, align 8
   %cmp.i = icmp eq i64 %10, 3
   br i1 %cmp, label %if.then18, label %if.else
@@ -119,7 +119,7 @@ if.then18:                                        ; preds = %if.end15
   br i1 %cmp.i, label %land.lhs.true.i16, label %lor.lhs.false.i
 
 land.lhs.true.i16:                                ; preds = %if.then18
-  %mhpmeventh_val.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx3.i = getelementptr [32 x i64], ptr %mhpmeventh_val.i, i64 0, i64 %sh_prom.i.i
   %11 = load i64, ptr %arrayidx3.i, align 8
   %and.i = and i64 %11, 1073741824
@@ -133,7 +133,7 @@ lor.lhs.false.i:                                  ; preds = %if.then18
   br i1 %brmerge.i, label %lor.lhs.false15.i, label %land.lhs.true9.i
 
 land.lhs.true9.i:                                 ; preds = %lor.lhs.false.i
-  %mhpmeventh_val10.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val10.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx12.i = getelementptr [32 x i64], ptr %mhpmeventh_val10.i, i64 0, i64 %sh_prom.i.i
   %12 = load i64, ptr %arrayidx12.i, align 8
   %and13.i = and i64 %12, 134217728
@@ -146,7 +146,7 @@ lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
   br i1 %brmerge33.i, label %lor.lhs.false26.i, label %land.lhs.true20.i
 
 land.lhs.true20.i:                                ; preds = %lor.lhs.false15.i
-  %mhpmeventh_val21.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val21.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx23.i = getelementptr [32 x i64], ptr %mhpmeventh_val21.i, i64 0, i64 %sh_prom.i.i
   %13 = load i64, ptr %arrayidx23.i, align 8
   %and24.i = and i64 %13, 67108864
@@ -160,7 +160,7 @@ lor.lhs.false26.i:                                ; preds = %lor.lhs.false15.i, 
   br i1 %brmerge34.i, label %lor.lhs.false37.i, label %land.lhs.true31.i
 
 land.lhs.true31.i:                                ; preds = %lor.lhs.false26.i
-  %mhpmeventh_val32.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val32.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx34.i = getelementptr [32 x i64], ptr %mhpmeventh_val32.i, i64 0, i64 %sh_prom.i.i
   %14 = load i64, ptr %arrayidx34.i, align 8
   %and35.i = and i64 %14, 536870912
@@ -173,7 +173,7 @@ lor.lhs.false37.i:                                ; preds = %land.lhs.true31.i, 
   br i1 %brmerge35.i, label %if.end.i, label %land.lhs.true42.i
 
 land.lhs.true42.i:                                ; preds = %lor.lhs.false37.i
-  %mhpmeventh_val43.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val43.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx45.i = getelementptr [32 x i64], ptr %mhpmeventh_val43.i, i64 0, i64 %sh_prom.i.i
   %15 = load i64, ptr %arrayidx45.i, align 8
   %and46.i = and i64 %15, 268435456
@@ -186,13 +186,13 @@ if.end.i:                                         ; preds = %land.lhs.true42.i, 
   br i1 %cmp48.i, label %if.then49.i, label %if.else66.i
 
 if.then49.i:                                      ; preds = %if.end.i
-  %mhpmcounterh_val.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %mhpmcounterh_val.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %17 = load i64, ptr %mhpmcounterh_val.i, align 8
   %cmp50.i = icmp eq i64 %17, 4294967295
   br i1 %cmp50.i, label %if.then51.i, label %if.else.i15
 
 if.then51.i:                                      ; preds = %if.then49.i
-  %mhpmeventh_val54.i = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val54.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx56.i = getelementptr [32 x i64], ptr %mhpmeventh_val54.i, i64 0, i64 %sh_prom.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i, i8 0, i64 16, i1 false)
   %18 = load i64, ptr %arrayidx56.i, align 8
@@ -220,7 +220,7 @@ if.else:                                          ; preds = %if.end15
   br i1 %cmp.i, label %land.lhs.true.i56, label %lor.lhs.false.i25
 
 land.lhs.true.i56:                                ; preds = %if.else
-  %mhpmevent_val.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx3.i57 = getelementptr [32 x i64], ptr %mhpmevent_val.i, i64 0, i64 %sh_prom.i.i
   %19 = load i64, ptr %arrayidx3.i57, align 8
   %and.i58 = and i64 %19, 4611686018427387904
@@ -234,7 +234,7 @@ lor.lhs.false.i25:                                ; preds = %if.else
   br i1 %brmerge.i28, label %lor.lhs.false15.i50, label %land.lhs.true9.i29
 
 land.lhs.true9.i29:                               ; preds = %lor.lhs.false.i25
-  %mhpmevent_val10.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val10.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx12.i30 = getelementptr [32 x i64], ptr %mhpmevent_val10.i, i64 0, i64 %sh_prom.i.i
   %20 = load i64, ptr %arrayidx12.i30, align 8
   %and13.i31 = and i64 %20, 576460752303423488
@@ -247,7 +247,7 @@ lor.lhs.false15.i50:                              ; preds = %lor.lhs.false.i25
   br i1 %brmerge28.i, label %lor.lhs.false26.i33, label %land.lhs.true20.i52
 
 land.lhs.true20.i52:                              ; preds = %lor.lhs.false15.i50
-  %mhpmevent_val21.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val21.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx23.i53 = getelementptr [32 x i64], ptr %mhpmevent_val21.i, i64 0, i64 %sh_prom.i.i
   %21 = load i64, ptr %arrayidx23.i53, align 8
   %and24.i54 = and i64 %21, 288230376151711744
@@ -261,7 +261,7 @@ lor.lhs.false26.i33:                              ; preds = %lor.lhs.false15.i50
   br i1 %brmerge29.i, label %lor.lhs.false37.i38, label %land.lhs.true31.i34
 
 land.lhs.true31.i34:                              ; preds = %lor.lhs.false26.i33
-  %mhpmevent_val32.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val32.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx34.i35 = getelementptr [32 x i64], ptr %mhpmevent_val32.i, i64 0, i64 %sh_prom.i.i
   %22 = load i64, ptr %arrayidx34.i35, align 8
   %and35.i36 = and i64 %22, 2305843009213693952
@@ -274,7 +274,7 @@ lor.lhs.false37.i38:                              ; preds = %land.lhs.true31.i34
   br i1 %brmerge30.i, label %if.end.i43, label %land.lhs.true42.i39
 
 land.lhs.true42.i39:                              ; preds = %lor.lhs.false37.i38
-  %mhpmevent_val43.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val43.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx45.i40 = getelementptr [32 x i64], ptr %mhpmevent_val43.i, i64 0, i64 %sh_prom.i.i
   %23 = load i64, ptr %arrayidx45.i40, align 8
   %and46.i41 = and i64 %23, 1152921504606846976
@@ -288,7 +288,7 @@ if.end.i43:                                       ; preds = %land.lhs.true42.i39
 
 if.then49.i47:                                    ; preds = %if.end.i43
   store i64 0, ptr %arrayidx.i, align 8
-  %mhpmevent_val51.i = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val51.i = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx53.i = getelementptr [32 x i64], ptr %mhpmevent_val51.i, i64 0, i64 %sh_prom.i.i
   %25 = load i64, ptr %arrayidx53.i, align 8
   %tobool55.not.i = icmp sgt i64 %25, -1
@@ -450,8 +450,8 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @pmu_timer_trigger_irq(ptr noundef %cpu, i32 noundef range(i32 1, 3) %evt_idx) unnamed_addr #0 {
 entry:
-  %env1 = getelementptr inbounds i8, ptr %cpu, i64 10176
-  %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
+  %env1 = getelementptr inbounds nuw i8, ptr %cpu, i64 10176
+  %pmu_event_ctr_map = getelementptr inbounds nuw i8, ptr %cpu, i64 19184
   %0 = load ptr, ptr %pmu_event_ctr_map, align 16
   %conv = zext nneg i32 %evt_idx to i64
   %1 = inttoptr i64 %conv to ptr
@@ -463,7 +463,7 @@ entry:
   br i1 %or.cond.i.i, label %if.end31, label %riscv_pmu_counter_valid.exit.i
 
 riscv_pmu_counter_valid.exit.i:                   ; preds = %entry
-  %pmu_avail_ctrs.i.i = getelementptr inbounds i8, ptr %cpu, i64 19176
+  %pmu_avail_ctrs.i.i = getelementptr inbounds nuw i8, ptr %cpu, i64 19176
   %4 = load i32, ptr %pmu_avail_ctrs.i.i, align 8
   %conv.i.i = zext i32 %4 to i64
   %sh_prom.i.i = and i64 %2, 4294967295
@@ -473,7 +473,7 @@ riscv_pmu_counter_valid.exit.i:                   ; preds = %entry
   br i1 %tobool.not.i.not.i, label %if.end31, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %riscv_pmu_counter_valid.exit.i
-  %mcountinhibit.i = getelementptr inbounds i8, ptr %cpu, i64 15912
+  %mcountinhibit.i = getelementptr inbounds nuw i8, ptr %cpu, i64 15912
   %5 = load i64, ptr %mcountinhibit.i, align 8
   %6 = and i64 %5, %shl.i.i
   %tobool.not.i = icmp eq i64 %6, 0
@@ -483,9 +483,9 @@ if.end6:                                          ; preds = %land.lhs.true.i
   %7 = getelementptr i8, ptr %cpu, i64 15184
   %env1.val = load i32, ptr %7, align 16
   %cmp8 = icmp eq i32 %env1.val, 1
-  %mhpmeventh_val = getelementptr inbounds i8, ptr %cpu, i64 17712
+  %mhpmeventh_val = getelementptr inbounds nuw i8, ptr %cpu, i64 17712
   %arrayidx = getelementptr [32 x i64], ptr %mhpmeventh_val, i64 0, i64 %sh_prom.i.i
-  %mhpmevent_val11 = getelementptr inbounds i8, ptr %cpu, i64 17456
+  %mhpmevent_val11 = getelementptr inbounds nuw i8, ptr %cpu, i64 17456
   %arrayidx13 = getelementptr [32 x i64], ptr %mhpmevent_val11, i64 0, i64 %sh_prom.i.i
   %of_bit_mask.0 = select i1 %cmp8, i64 2147483648, i64 -9223372036854775808
   %mhpmevent_val.0 = select i1 %cmp8, ptr %arrayidx, ptr %arrayidx13
@@ -500,7 +500,7 @@ if.then19:                                        ; preds = %if.end6
   %call20 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #6
   %10 = load i64, ptr %irq_overflow_left, align 8
   %add = add i64 %10, %call20
-  %pmu_timer = getelementptr inbounds i8, ptr %cpu, i64 19168
+  %pmu_timer = getelementptr inbounds nuw i8, ptr %cpu, i64 19168
   %11 = load ptr, ptr %pmu_timer, align 16
   tail call void @timer_mod_anticipate_ns(ptr noundef %11, i64 noundef %add) #6
   store i64 0, ptr %irq_overflow_left, align 8
@@ -629,7 +629,7 @@ declare void @timer_mod_anticipate_ns(ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @riscv_pmu_init(ptr nocapture noundef %cpu, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %pmu_mask = getelementptr inbounds i8, ptr %cpu, i64 19108
+  %pmu_mask = getelementptr inbounds nuw i8, ptr %cpu, i64 19108
   %0 = load i32, ptr %pmu_mask, align 4
   %and = and i32 %0, 7
   %tobool.not = icmp eq i32 %and, 0
@@ -641,7 +641,7 @@ if.then:                                          ; preds = %entry
 
 if.end4:                                          ; preds = %entry
   %call5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
+  %pmu_event_ctr_map = getelementptr inbounds nuw i8, ptr %cpu, i64 19184
   store ptr %call5, ptr %pmu_event_ctr_map, align 16
   %tobool7.not = icmp eq ptr %call5, null
   br i1 %tobool7.not, label %if.then8, label %if.end9
@@ -652,7 +652,7 @@ if.then8:                                         ; preds = %if.end4
 
 if.end9:                                          ; preds = %if.end4
   %1 = load i32, ptr %pmu_mask, align 4
-  %pmu_avail_ctrs = getelementptr inbounds i8, ptr %cpu, i64 19176
+  %pmu_avail_ctrs = getelementptr inbounds nuw i8, ptr %cpu, i64 19176
   store i32 %1, ptr %pmu_avail_ctrs, align 8
   br label %return
 

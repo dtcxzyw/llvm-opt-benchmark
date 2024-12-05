@@ -102,7 +102,7 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %19
-  %32 = getelementptr inbounds i8, ptr %.pre, i64 5
+  %32 = getelementptr inbounds nuw i8, ptr %.pre, i64 5
   store ptr %32, ptr %4, align 8
   br label %33
 
@@ -166,14 +166,14 @@ define range(i32 -1, 1) i32 @prep_g_init(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %64, label %.lr.ph35, label %._crit_edge
 
 .lr.ph35:                                         ; preds = %.preheader
-  %65 = getelementptr inbounds [5 x i8], ptr @prep_is_required, i64 0, i64 %indvars.iv43
+  %65 = getelementptr inbounds nuw [5 x i8], ptr @prep_is_required, i64 0, i64 %indvars.iv43
   %66 = trunc nuw nsw i64 %indvars.iv43 to i32
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph35
   %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %.lr.ph35 ]
   %68 = load ptr, ptr @ops, align 8
-  %69 = getelementptr inbounds %struct.prep_ops_t, ptr %68, i64 %indvars.iv, i32 5
+  %69 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %68, i64 %indvars.iv, i32 5
   %70 = load ptr, ptr %69, align 8
   call void %70(i32 noundef %66, ptr noundef nonnull %65) #8
   %71 = load i8, ptr %65, align 1
@@ -274,7 +274,7 @@ define i32 @prep_g_fini() local_unnamed_addr #0 {
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.020 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
@@ -348,7 +348,7 @@ define i32 @prep_g_prolog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds %struct.prep_ops_t, ptr %13, i64 %indvars.iv, i32 1
+  %14 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %13, i64 %indvars.iv, i32 1
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -414,7 +414,7 @@ define i32 @prep_g_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds %struct.prep_ops_t, ptr %13, i64 %indvars.iv, i32 2
+  %14 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %13, i64 %indvars.iv, i32 2
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, ptr noundef %1) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -462,7 +462,7 @@ define void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 704
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 704
   br label %14
 
 12:                                               ; preds = %1
@@ -475,7 +475,7 @@ define void @prep_g_prolog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   store i8 0, ptr %6, align 1
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.prep_ops_t, ptr %15, i64 %indvars.iv, i32 3
+  %16 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %15, i64 %indvars.iv, i32 3
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %6) #8
   %19 = load i8, ptr %6, align 1
@@ -533,7 +533,7 @@ define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %0, i64 700
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 700
   br label %14
 
 12:                                               ; preds = %1
@@ -546,7 +546,7 @@ define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   store i8 0, ptr %6, align 1
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.prep_ops_t, ptr %15, i64 %indvars.iv, i32 4
+  %16 = getelementptr inbounds nuw %struct.prep_ops_t, ptr %15, i64 %indvars.iv, i32 4
   %17 = load ptr, ptr %16, align 8
   %18 = call i32 %17(ptr noundef %0, ptr noundef nonnull %6) #8
   %19 = load i8, ptr %6, align 1
@@ -569,13 +569,13 @@ define void @prep_g_epilog_slurmctld(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %29, label %14, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %24, %.preheader
-  %30 = getelementptr inbounds i8, ptr %0, i64 700
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 700
   %31 = load i32, ptr %30, align 4
   %.not14 = icmp eq i32 %31, 0
   br i1 %.not14, label %34, label %32
 
 32:                                               ; preds = %._crit_edge
-  %33 = getelementptr inbounds i8, ptr %0, i64 248
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i8 1, ptr %33, align 8
   br label %34
 
@@ -610,7 +610,7 @@ define zeroext i1 @prep_g_required(i32 noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds [5 x i8], ptr @prep_is_required, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [5 x i8], ptr @prep_is_required, i64 0, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull @g_context_lock) #8
   %.not7 = icmp eq i32 %9, 0

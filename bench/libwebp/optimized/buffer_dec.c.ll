@@ -13,8 +13,8 @@ define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef %0) local_unnamed_
 3:                                                ; preds = %1
   %4 = load i32, ptr %0, align 8
   %5 = icmp ugt i32 %4, 10
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = load ptr, ptr %6, align 8
   br i1 %5, label %19, label %10
@@ -22,7 +22,7 @@ define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef %0) local_unnamed_
 10:                                               ; preds = %3
   %11 = add nsw i32 %8, -1
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i32, ptr %13, align 8
   %15 = sext i32 %14 to i64
   %16 = mul nsw i64 %12, %15
@@ -35,7 +35,7 @@ define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef %0) local_unnamed_
 19:                                               ; preds = %3
   %20 = sext i32 %8 to i64
   %21 = add nsw i64 %20, -1
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
   %25 = mul nsw i64 %21, %24
@@ -44,33 +44,33 @@ define hidden range(i32 0, 3) i32 @WebPFlipBuffer(ptr noundef %0) local_unnamed_
   %27 = sub nsw i32 0, %23
   store i32 %27, ptr %22, align 8
   %28 = ashr i64 %21, 1
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = mul nsw i64 %28, %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %34, i64 %32
   store ptr %35, ptr %33, align 8
   %36 = sub nsw i32 0, %30
   store i32 %36, ptr %29, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = mul nsw i64 %28, %39
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %42, i64 %40
   store ptr %43, ptr %41, align 8
   %44 = sub nsw i32 0, %38
   store i32 %44, ptr %37, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
   %.not33 = icmp eq ptr %46, null
   br i1 %.not33, label %54, label %47
 
 47:                                               ; preds = %19
-  %48 = getelementptr inbounds i8, ptr %0, i64 60
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %21, %50
@@ -101,20 +101,20 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   br i1 %.not, label %38, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i32, ptr %12, align 4
   %.not47 = icmp eq i32 %13, 0
   br i1 %.not47, label %26, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %2, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 12
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, -2
-  %22 = getelementptr inbounds i8, ptr %2, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i32, ptr %22, align 4
   %24 = and i32 %23, -2
   %25 = tail call i32 @WebPCheckCropDimensions(i32 noundef %0, i32 noundef %1, i32 noundef %21, i32 noundef %24, i32 noundef %16, i32 noundef %18) #8
@@ -124,16 +124,16 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
 26:                                               ; preds = %14, %11
   %.138 = phi i32 [ %1, %11 ], [ %18, %14 ]
   %.1 = phi i32 [ %0, %11 ], [ %16, %14 ]
-  %27 = getelementptr inbounds i8, ptr %2, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %28 = load i32, ptr %27, align 4
   %.not49 = icmp eq i32 %28, 0
   br i1 %.not49, label %38, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %2, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %5, align 4
-  %32 = getelementptr inbounds i8, ptr %2, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %6, align 4
   %34 = call i32 @WebPRescalerGetScaledDimensions(i32 noundef %.1, i32 noundef %.138, ptr noundef nonnull %5, ptr noundef nonnull %6) #8
@@ -148,9 +148,9 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
 38:                                               ; preds = %26, %35, %10
   %.037 = phi i32 [ %37, %35 ], [ %.138, %26 ], [ %1, %10 ]
   %.036 = phi i32 [ %36, %35 ], [ %.1, %26 ], [ %0, %10 ]
-  %39 = getelementptr inbounds i8, ptr %3, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %.036, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %3, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.037, ptr %40, align 8
   %41 = load i32, ptr %3, align 8
   %42 = icmp slt i32 %.036, 1
@@ -161,13 +161,13 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   br i1 %or.cond80.i, label %WebPFlipBuffer.exit, label %45
 
 45:                                               ; preds = %38
-  %46 = getelementptr inbounds i8, ptr %3, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %47 = load i32, ptr %46, align 4
   %48 = icmp slt i32 %47, 1
   br i1 %48, label %49, label %AllocateBuffer.exit
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %3, i64 112
+  %50 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %AllocateBuffer.exit
@@ -175,7 +175,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
 53:                                               ; preds = %49
   %54 = zext nneg i32 %.036 to i64
   %55 = zext nneg i32 %41 to i64
-  %56 = getelementptr inbounds [13 x i8], ptr @kModeBpp, i64 0, i64 %55
+  %56 = getelementptr inbounds nuw [13 x i8], ptr @kModeBpp, i64 0, i64 %55
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i64
   %59 = mul nuw nsw i64 %58, %54
@@ -219,49 +219,49 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
 
 84:                                               ; preds = %78
   store ptr %82, ptr %50, align 8
-  %85 = getelementptr inbounds i8, ptr %3, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %82, ptr %85, align 8
   br i1 %67, label %86, label %104
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds i8, ptr %3, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %63, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %3, i64 64
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store i64 %66, ptr %88, align 8
-  %89 = getelementptr inbounds i8, ptr %82, i64 %66
-  %90 = getelementptr inbounds i8, ptr %3, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %82, i64 %66
+  %90 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %3, i64 52
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 52
   store i32 %.070.i, ptr %91, align 4
-  %92 = getelementptr inbounds i8, ptr %3, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %.072.i, ptr %92, align 8
   %93 = getelementptr inbounds i8, ptr %89, i64 %.072.i
-  %94 = getelementptr inbounds i8, ptr %3, i64 32
+  %94 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %3, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i32 %.070.i, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %3, i64 80
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 %.072.i, ptr %96, align 8
   %97 = icmp eq i32 %41, 12
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %86
-  %99 = getelementptr inbounds i8, ptr %89, i64 %79
-  %100 = getelementptr inbounds i8, ptr %3, i64 40
+  %99 = getelementptr inbounds nuw i8, ptr %89, i64 %79
+  %100 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %99, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %98, %86
-  %102 = getelementptr inbounds i8, ptr %3, i64 88
+  %102 = getelementptr inbounds nuw i8, ptr %3, i64 88
   store i64 %.073.i, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %3, i64 60
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 60
   store i32 %.071.i, ptr %103, align 4
   br label %AllocateBuffer.exit
 
 104:                                              ; preds = %84
-  %105 = getelementptr inbounds i8, ptr %3, i64 24
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %63, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %3, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 %66, ptr %106, align 8
   br label %AllocateBuffer.exit
 
@@ -272,7 +272,7 @@ AllocateBuffer.exit:                              ; preds = %45, %49, %101, %104
   br i1 %brmerge, label %WebPFlipBuffer.exit, label %108
 
 108:                                              ; preds = %AllocateBuffer.exit
-  %109 = getelementptr inbounds i8, ptr %2, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %110 = load i32, ptr %109, align 4
   %.not52 = icmp eq i32 %110, 0
   br i1 %.not52, label %WebPFlipBuffer.exit, label %111
@@ -280,7 +280,7 @@ AllocateBuffer.exit:                              ; preds = %45, %49, %101, %104
 111:                                              ; preds = %108
   %112 = load i32, ptr %3, align 8
   %113 = icmp ugt i32 %112, 10
-  %114 = getelementptr inbounds i8, ptr %3, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %115 = load i32, ptr %40, align 8
   %116 = load ptr, ptr %114, align 8
   br i1 %113, label %126, label %117
@@ -288,7 +288,7 @@ AllocateBuffer.exit:                              ; preds = %45, %49, %101, %104
 117:                                              ; preds = %111
   %118 = add nsw i32 %115, -1
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i8, ptr %3, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %121 = load i32, ptr %120, align 8
   %122 = sext i32 %121 to i64
   %123 = mul nsw i64 %122, %119
@@ -301,7 +301,7 @@ AllocateBuffer.exit:                              ; preds = %45, %49, %101, %104
 126:                                              ; preds = %111
   %127 = sext i32 %115 to i64
   %128 = add nsw i64 %127, -1
-  %129 = getelementptr inbounds i8, ptr %3, i64 48
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %130 = load i32, ptr %129, align 8
   %131 = sext i32 %130 to i64
   %132 = mul nsw i64 %128, %131
@@ -310,33 +310,33 @@ AllocateBuffer.exit:                              ; preds = %45, %49, %101, %104
   %134 = sub nsw i32 0, %130
   store i32 %134, ptr %129, align 8
   %135 = ashr i64 %128, 1
-  %136 = getelementptr inbounds i8, ptr %3, i64 52
+  %136 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %137 = load i32, ptr %136, align 4
   %138 = sext i32 %137 to i64
   %139 = mul nsw i64 %135, %138
-  %140 = getelementptr inbounds i8, ptr %3, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds i8, ptr %141, i64 %139
   store ptr %142, ptr %140, align 8
   %143 = sub nsw i32 0, %137
   store i32 %143, ptr %136, align 4
-  %144 = getelementptr inbounds i8, ptr %3, i64 56
+  %144 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %145 = load i32, ptr %144, align 8
   %146 = sext i32 %145 to i64
   %147 = mul nsw i64 %135, %146
-  %148 = getelementptr inbounds i8, ptr %3, i64 32
+  %148 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %149 = load ptr, ptr %148, align 8
   %150 = getelementptr inbounds i8, ptr %149, i64 %147
   store ptr %150, ptr %148, align 8
   %151 = sub nsw i32 0, %145
   store i32 %151, ptr %144, align 8
-  %152 = getelementptr inbounds i8, ptr %3, i64 40
+  %152 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %153 = load ptr, ptr %152, align 8
   %.not33.i = icmp eq ptr %153, null
   br i1 %.not33.i, label %WebPFlipBuffer.exit, label %154
 
 154:                                              ; preds = %126
-  %155 = getelementptr inbounds i8, ptr %3, i64 60
+  %155 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
   %158 = mul nsw i64 %128, %157
@@ -381,19 +381,19 @@ define void @WebPFreeDecBuffer(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not, label %11, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %9
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 112
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %7, align 8
   tail call void @WebPSafeFree(ptr noundef %8) #8
   br label %9
 
 9:                                                ; preds = %6, %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %10, align 8
   br label %11
 
@@ -412,15 +412,15 @@ define hidden void @WebPCopyDecBuffer(ptr noundef readonly %0, ptr noundef write
 
 5:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 120, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %11, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store ptr null, ptr %10, align 8
   br label %11
 
@@ -440,13 +440,13 @@ define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) 
 
 5:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(120) %0, i64 120, i1 false)
-  %6 = getelementptr inbounds i8, ptr %0, i64 112
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 1, ptr %9, align 4
   store ptr null, ptr %6, align 8
   br label %10
@@ -457,13 +457,13 @@ define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) 
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %4, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %7, ptr %8, align 8
   %9 = tail call fastcc i32 @CheckDecBuffer(ptr noundef %1)
   %.not = icmp eq i32 %9, 0
@@ -472,20 +472,20 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
 10:                                               ; preds = %2
   %11 = load i32, ptr %0, align 8
   %12 = icmp ugt i32 %11, 10
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %13, align 8
   %16 = load ptr, ptr %14, align 8
   %17 = load i32, ptr %3, align 4
   br i1 %12, label %28, label %18
 
 18:                                               ; preds = %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i32, ptr %21, align 8
   %23 = zext nneg i32 %11 to i64
-  %24 = getelementptr inbounds [13 x i8], ptr @kModeBpp, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [13 x i8], ptr @kModeBpp, i64 0, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = mul nsw i32 %17, %26
@@ -493,18 +493,18 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
   br label %73
 
 28:                                               ; preds = %10
-  %29 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %32 = load i32, ptr %31, align 8
   tail call void @WebPCopyPlane(ptr noundef %15, i32 noundef %30, ptr noundef %16, i32 noundef %32, i32 noundef %17, i32 noundef %7) #8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 52
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %1, i64 52
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %40 = load i32, ptr %39, align 4
   %41 = load i32, ptr %3, align 4
   %42 = add nsw i32 %41, 1
@@ -513,13 +513,13 @@ define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef
   %45 = add nsw i32 %44, 1
   %46 = sdiv i32 %45, 2
   tail call void @WebPCopyPlane(ptr noundef %34, i32 noundef %36, ptr noundef %38, i32 noundef %40, i32 noundef %43, i32 noundef %46) #8
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %0, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %1, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %1, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %54 = load i32, ptr %53, align 8
   %55 = load i32, ptr %3, align 4
   %56 = add nsw i32 %55, 1
@@ -543,13 +543,13 @@ WebPIsAlphaMode.exit:                             ; preds = %28
   br i1 %narrow.i.i, label %73, label %WebPIsAlphaMode.exit.thread
 
 WebPIsAlphaMode.exit.thread:                      ; preds = %28, %28, %28, %28, %28, %WebPIsAlphaMode.exit
-  %63 = getelementptr inbounds i8, ptr %0, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 60
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %1, i64 40
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds i8, ptr %1, i64 60
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %70 = load i32, ptr %69, align 4
   %71 = load i32, ptr %3, align 4
   %72 = load i32, ptr %6, align 8
@@ -564,16 +564,16 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %28, %28, %28, %28, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef readonly %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp ugt i32 %2, 12
   br i1 %7, label %.thread, label %8
 
 8:                                                ; preds = %1
   %9 = icmp samesign ugt i32 %2, 10
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %9, label %11, label %86
 
 11:                                               ; preds = %8
@@ -581,13 +581,13 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   %13 = sdiv i32 %12, 2
   %14 = add nsw i32 %6, 1
   %15 = sdiv i32 %14, 2
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
-  %19 = getelementptr inbounds i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
   %21 = tail call i32 @llvm.abs.i32(i32 %20, i1 true)
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
   %25 = zext nneg i32 %18 to i64
@@ -605,14 +605,14 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   %37 = zext nneg i32 %24 to i64
   %38 = mul nsw i64 %37, %33
   %39 = add nsw i64 %38, %35
-  %40 = getelementptr inbounds i8, ptr %0, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load i64, ptr %40, align 8
   %42 = icmp ule i64 %30, %41
-  %43 = getelementptr inbounds i8, ptr %0, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %44 = load i64, ptr %43, align 8
   %45 = icmp ule i64 %36, %44
   %46 = and i1 %42, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 80
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load i64, ptr %47, align 8
   %49 = icmp ule i64 %39, %48
   %50 = and i1 %46, %49
@@ -625,11 +625,11 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   %57 = load ptr, ptr %10, align 8
   %58 = icmp ne ptr %57, null
   %59 = and i1 %58, %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = load ptr, ptr %60, align 8
   %62 = icmp ne ptr %61, null
   %63 = and i1 %62, %59
-  %64 = getelementptr inbounds i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %65 = load ptr, ptr %64, align 8
   %66 = icmp ne ptr %65, null
   %67 = and i1 %66, %63
@@ -638,18 +638,18 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   br i1 %68, label %69, label %111
 
 69:                                               ; preds = %11
-  %70 = getelementptr inbounds i8, ptr %0, i64 60
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %71 = load i32, ptr %70, align 4
   %72 = tail call i32 @llvm.abs.i32(i32 %71, i1 true)
   %73 = zext nneg i32 %72 to i64
   %74 = mul nsw i64 %73, %27
   %75 = add nsw i64 %74, %29
   %76 = icmp sge i32 %72, %4
-  %77 = getelementptr inbounds i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %78 = load i64, ptr %77, align 8
   %79 = icmp ule i64 %75, %78
   %80 = and i1 %76, %79
-  %81 = getelementptr inbounds i8, ptr %0, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %82 = load ptr, ptr %81, align 8
   %83 = icmp ne ptr %82, null
   %84 = and i1 %83, %80
@@ -658,7 +658,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   br i1 %85, label %112, label %.thread
 
 86:                                               ; preds = %8
-  %87 = getelementptr inbounds i8, ptr %0, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = tail call i32 @llvm.abs.i32(i32 %88, i1 true)
   %90 = zext nneg i32 %89 to i64
@@ -667,12 +667,12 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
   %93 = mul nsw i64 %90, %92
   %94 = sext i32 %4 to i64
   %95 = zext nneg i32 %2 to i64
-  %96 = getelementptr inbounds [13 x i8], ptr @kModeBpp, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [13 x i8], ptr @kModeBpp, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
   %99 = mul nsw i64 %98, %94
   %100 = add nsw i64 %93, %99
-  %101 = getelementptr inbounds i8, ptr %0, i64 32
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %102 = load i64, ptr %101, align 8
   %103 = icmp ule i64 %100, %102
   %104 = zext i8 %97 to i32
@@ -700,7 +700,7 @@ declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1
   br i1 %5, label %6, label %15
@@ -714,7 +714,7 @@ define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr nocapture noundef rea
   br i1 %or.cond, label %10, label %15
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = icmp ne i32 %12, 0
   %14 = zext i1 %13 to i32

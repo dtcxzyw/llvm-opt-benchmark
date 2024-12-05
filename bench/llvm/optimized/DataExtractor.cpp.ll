@@ -114,9 +114,9 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %19
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmmEEE, i64 16), ptr %12, align 8, !alias.scope !7, !noalias !4
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %13, ptr %27, align 8, !alias.scope !7, !noalias !4
-  %28 = getelementptr inbounds i8, ptr %12, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 %1, ptr %28, align 8, !alias.scope !7, !noalias !4
-  %29 = getelementptr inbounds i8, ptr %12, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %16, ptr %29, align 8, !alias.scope !7, !noalias !4
   %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(40) %12) #15, !noalias !4
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #15, !noalias !4
@@ -157,7 +157,7 @@ _ZN4llvm5ErrorD2Ev.exit9:                         ; preds = %19
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmmEEE, i64 16), ptr %8, align 8, !alias.scope !19, !noalias !16
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %16, ptr %40, align 8, !alias.scope !19, !noalias !16
-  %41 = getelementptr inbounds i8, ptr %8, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %1, ptr %41, align 8, !alias.scope !19, !noalias !16
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #15, !noalias !16
   call void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #15, !noalias !16
@@ -228,7 +228,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor5getU8EPmPhj(ptr nocapture
   br i1 %12, label %13, label %_ZNK4llvm13DataExtractor5getUsIhEEPT_PmS3_jPNS_5ErrorE.exit
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %2, i64 %6
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %6
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
 
@@ -252,7 +252,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %13, %_ZNK4llvm13Dat
 _ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.us.i: ; preds = %19, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
   %.0.i.us.i = phi i8 [ %23, %19 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i8 %.0.i.us.i, ptr %.02026.us.i, align 1
-  %24 = getelementptr inbounds i8, ptr %.02026.us.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 1
   %.not.us.i = icmp eq ptr %24, %14
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !28
 
@@ -280,7 +280,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %4
   br i1 %9, label %10, label %_ZNK4llvm13DataExtractor5getUsIhEEPT_PmS3_jPNS_5ErrorE.exit
 
 10:                                               ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i
-  %11 = getelementptr inbounds i8, ptr %2, i64 %8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 %8
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i
 
@@ -307,7 +307,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i:        ; preds = %_ZL7isErrorPN4llvm5
 _ZNK4llvm13DataExtractor4getUIhEET_PmPNS_5ErrorE.exit.i: ; preds = %15, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i
   %.0.i.i = phi i8 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i.i ], [ %18, %15 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.i ]
   store i8 %.0.i.i, ptr %.02026.i, align 1
-  %21 = getelementptr inbounds i8, ptr %.02026.i, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.02026.i, i64 1
   %.not.i = icmp eq ptr %21, %11
   br i1 %.not.i, label %._crit_edge.loopexit27.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i.i, !llvm.loop !28
 
@@ -374,7 +374,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU16EPmPtj(ptr nocaptur
   br i1 %13, label %14, label %_ZNK4llvm13DataExtractor5getUsItEEPT_PmS3_jPNS_5ErrorE.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i16, ptr %2, i64 %6
+  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %6
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -408,7 +408,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %_ZNK4llvm13DataExtr
 _ZNK4llvm13DataExtractor4getUItEET_PmPNS_5ErrorE.exit.us.i: ; preds = %22, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
   %.0.i.us.i = phi i16 [ %spec.select.i.us.i, %22 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i16 %.0.i.us.i, ptr %.02026.us.i, align 2
-  %28 = getelementptr inbounds i8, ptr %.02026.us.i, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 2
   %29 = add i64 %.02125.us.i, 2
   %.not.us.i = icmp eq ptr %28, %15
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !30
@@ -442,9 +442,9 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 %5
   %.sroa.08.0.copyload.i = load i8, ptr %9, align 1
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 1
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 1
   %.sroa.5.0.copyload.i = load i8, ptr %.sroa.5.0..sroa_idx.i, align 1
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 2
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 2
   %.sroa.6.0.copyload.i = load i8, ptr %.sroa.6.0..sroa_idx.i, align 1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i8, ptr %10, align 8
@@ -519,7 +519,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU32EPmPjj(ptr nocaptur
   br i1 %13, label %14, label %_ZNK4llvm13DataExtractor5getUsIjEEPT_PmS3_jPNS_5ErrorE.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i32, ptr %2, i64 %6
+  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %6
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -553,7 +553,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %_ZNK4llvm13DataExtr
 _ZNK4llvm13DataExtractor4getUIjEET_PmPNS_5ErrorE.exit.us.i: ; preds = %22, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
   %.0.i.us.i = phi i32 [ %spec.select.i.us.i, %22 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i32 %.0.i.us.i, ptr %.02026.us.i, align 4
-  %29 = getelementptr inbounds i8, ptr %.02026.us.i, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 4
   %30 = add i64 %.02125.us.i, 4
   %.not.us.i = icmp eq ptr %29, %15
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !31
@@ -617,7 +617,7 @@ define dso_local noundef ptr @_ZNK4llvm13DataExtractor6getU64EPmS1_j(ptr nocaptu
   br i1 %13, label %14, label %_ZNK4llvm13DataExtractor5getUsImEEPT_PmS3_jPNS_5ErrorE.exit
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i64, ptr %2, i64 %6
+  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %6
   %.not24.i = icmp eq i32 %3, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -651,7 +651,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i:     ; preds = %_ZNK4llvm13DataExtr
 _ZNK4llvm13DataExtractor4getUImEET_PmPNS_5ErrorE.exit.us.i: ; preds = %22, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i
   %.0.i.us.i = phi i64 [ %spec.select.i.us.i, %22 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i ]
   store i64 %.0.i.us.i, ptr %.02026.us.i, align 8
-  %29 = getelementptr inbounds i8, ptr %.02026.us.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.02026.us.i, i64 8
   %30 = add i64 %.02125.us.i, 8
   %.not.us.i = icmp eq ptr %29, %15
   br i1 %.not.us.i, label %._crit_edge.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i.us.i, !llvm.loop !32
@@ -1088,7 +1088,7 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca %"class.llvm::format_object.33", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i
@@ -1131,7 +1131,7 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
   %24 = shl i64 %18, %23
   %25 = add i64 %24, %.027.i.i
   %26 = add i32 %.026.i.i, 7
-  %27 = getelementptr inbounds i8, ptr %.0.i.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %28 = icmp slt i8 %16, 0
   br i1 %28, label %13, label %44, !llvm.loop !45
 
@@ -1163,7 +1163,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %29
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmPKcEEE, i64 16), ptr %7, align 8, !alias.scope !49, !noalias !46
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.07.ph.i, ptr %37, align 8, !alias.scope !49, !noalias !46
-  %38 = getelementptr inbounds i8, ptr %7, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %39 = load i64, ptr %1, align 8, !noalias !52
   store i64 %39, ptr %38, align 8, !alias.scope !49, !noalias !46
   %40 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #15, !noalias !46
@@ -1204,7 +1204,7 @@ define dso_local noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca %"class.llvm::format_object.33", align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, label %_ZL7isErrorPN4llvm5ErrorE.exit.i
@@ -1258,7 +1258,7 @@ switch.early.test.i.i:                            ; preds = %20
   %26 = shl i64 %18, %25
   %27 = or i64 %26, %.044.i.i
   %28 = add i32 %.043.i.i, 7
-  %29 = getelementptr inbounds i8, ptr %.042.i.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.042.i.i, i64 1
   %30 = icmp slt i8 %16, 0
   br i1 %30, label %13, label %46, !llvm.loop !59
 
@@ -1290,7 +1290,7 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %31
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmPKcEEE, i64 16), ptr %7, align 8, !alias.scope !63, !noalias !60
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.07.ph.i, ptr %39, align 8, !alias.scope !63, !noalias !60
-  %40 = getelementptr inbounds i8, ptr %7, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %41 = load i64, ptr %1, align 8, !noalias !66
   store i64 %41, ptr %40, align 8, !alias.scope !63, !noalias !60
   %42 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #15, !noalias !60
@@ -1378,9 +1378,9 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJmmmEE7snprintE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %7, align 8
   %13 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i64 noundef %9, i64 noundef %11, i64 noundef %12) #15
@@ -1407,7 +1407,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJmmEE7snprintEP
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %7, align 8
   %11 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i64 noundef %9, i64 noundef %10) #15
@@ -1437,7 +1437,7 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm13format_objectIJmPKcEE7snprint
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8
   %10 = load ptr, ptr %7, align 8
   %11 = tail call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %1, i64 noundef %4, ptr noundef %6, i64 noundef %9, ptr noundef %10) #15

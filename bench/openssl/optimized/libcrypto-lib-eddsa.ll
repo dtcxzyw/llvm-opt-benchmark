@@ -73,9 +73,9 @@ if.end:                                           ; preds = %entry
   %0 = load i8, ptr %secret_scalar_ser, align 16
   %1 = and i8 %0, -4
   store i8 %1, ptr %secret_scalar_ser, align 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %secret_scalar_ser, i64 56
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %secret_scalar_ser, i64 56
   store i8 0, ptr %arrayidx2.i, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %secret_scalar_ser, i64 55
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %secret_scalar_ser, i64 55
   %2 = load i8, ptr %arrayidx3.i, align 1
   %3 = or i8 %2, -128
   store i8 %3, ptr %arrayidx3.i, align 1
@@ -143,9 +143,9 @@ if.end3:                                          ; preds = %if.end
   %0 = load i8, ptr %expanded, align 16
   %1 = and i8 %0, -4
   store i8 %1, ptr %expanded, align 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %expanded, i64 56
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %expanded, i64 56
   store i8 0, ptr %arrayidx2.i, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %expanded, i64 55
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %expanded, i64 55
   %2 = load i8, ptr %arrayidx3.i, align 1
   %3 = or i8 %2, -128
   store i8 %3, ptr %arrayidx3.i, align 1
@@ -155,7 +155,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool8.not, label %if.then15, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end3
-  %add.ptr = getelementptr inbounds i8, ptr %expanded, i64 57
+  %add.ptr = getelementptr inbounds nuw i8, ptr %expanded, i64 57
   %call10 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call, ptr noundef nonnull %add.ptr, i64 noundef 57) #4
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then15, label %lor.lhs.false12
@@ -216,7 +216,7 @@ if.end55:                                         ; preds = %lor.lhs.false50
   call void @ossl_curve448_scalar_add(ptr noundef nonnull %challenge_scalar, ptr noundef nonnull %challenge_scalar, ptr noundef nonnull %nonce_scalar) #4
   call void @OPENSSL_cleanse(ptr noundef %signature, i64 noundef 114) #4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(57) %signature, ptr noundef nonnull align 16 dereferenceable(57) %nonce_point, i64 57, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %signature, i64 57
+  %arrayidx = getelementptr inbounds nuw i8, ptr %signature, i64 57
   call void @ossl_curve448_scalar_encode(ptr noundef nonnull %arrayidx, ptr noundef nonnull %challenge_scalar) #4
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %secret_scalar) #4
   call void @ossl_curve448_scalar_destroy(ptr noundef nonnull %nonce_scalar) #4
@@ -252,7 +252,7 @@ if.end:                                           ; preds = %entry
   %conv8 = zext i1 %cmp1 to i8
   store i8 %conv8, ptr %dom, align 1
   %conv9 = trunc nuw i64 %context_len to i8
-  %arrayidx10 = getelementptr inbounds i8, ptr %dom, i64 1
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %dom, i64 1
   store i8 %conv9, ptr %arrayidx10, align 1
   %call = tail call ptr @EVP_MD_fetch(ptr noundef %ctx, ptr noundef nonnull @.str, ptr noundef %propq) #4
   %cmp11 = icmp eq ptr %call, null
@@ -319,7 +319,7 @@ entry:
   %challenge_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %response_scalar = alloca [1 x %struct.curve448_scalar_s], align 16
   %challenge = alloca [114 x i8], align 16
-  %invariant.gep = getelementptr inbounds i8, ptr %signature, i64 57
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %signature, i64 57
   br label %for.body
 
 for.cond:                                         ; preds = %if.end
@@ -330,9 +330,9 @@ for.cond:                                         ; preds = %if.end
 for.body:                                         ; preds = %entry, %for.cond
   %i.023 = phi i32 [ 56, %entry ], [ %dec, %for.cond ]
   %0 = zext nneg i32 %i.023 to i64
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %0
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %0
   %1 = load i8, ptr %gep, align 1
-  %arrayidx2 = getelementptr inbounds [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %0
+  %arrayidx2 = getelementptr inbounds nuw [57 x i8], ptr @ossl_c448_ed448_verify.order, i64 0, i64 %0
   %2 = load i8, ptr %arrayidx2, align 1
   %cmp4 = icmp ugt i8 %1, %2
   br i1 %cmp4, label %return, label %if.end

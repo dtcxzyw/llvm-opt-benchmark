@@ -114,7 +114,7 @@ define dso_local void @_ZN4llvm13getGCStrategyENS_9StringRefE(ptr dead_on_unwind
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 8
   %19 = load ptr, ptr %18, align 8
   %.sroa.0.0.copyload.i7 = load ptr, ptr %19, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %.not.i = icmp eq i64 %.sroa.2.0.copyload.i, %2
   br i1 %.not.i, label %20, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15

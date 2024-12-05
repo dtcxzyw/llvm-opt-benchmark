@@ -123,7 +123,7 @@ define hidden void @_ZN22MonitorDeflationThread10initializeEv() local_unnamed_ad
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #6
   %2 = load ptr, ptr %1, align 8
   %3 = call ptr @_ZN10JavaThread27create_system_thread_objectEPKcPS_(ptr noundef nonnull @.str, ptr noundef %2) #6
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -159,13 +159,13 @@ define hidden void @_ZN22MonitorDeflationThread30monitor_deflation_thread_entryE
   br i1 %9, label %16, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 928
-  %11 = getelementptr inbounds i8, ptr %0, i64 1092
-  %12 = getelementptr inbounds i8, ptr %0, i64 1096
-  %13 = getelementptr inbounds i8, ptr %0, i64 1384
-  %14 = getelementptr inbounds i8, ptr %3, i64 56
-  %15 = getelementptr inbounds i8, ptr %3, i64 144
-  %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %3, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 928
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1092
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1384
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 144
+  %.sroa.21.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 152
   br label %17
 
 16:                                               ; preds = %2
@@ -240,7 +240,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %._crit_edge, %23
 
 _ZN25ThreadBlockInVMPreprocessIFvP10JavaThreadEED2Ev.exit: ; preds = %_ZN13MonitorLockerD2Ev.exit, %32, %33, %36
   %37 = call noundef i64 @_ZN18ObjectSynchronizer21deflate_idle_monitorsEv() #6
-  %38 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %38 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE90ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.backedge, label %39
 
@@ -486,13 +486,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread13can_call_javaEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK10JavaThread21is_active_Java_threadEv(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 888
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 1128
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   %7 = load volatile i32, ptr %6, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %8 = add i32 %7, -57007
@@ -581,7 +581,7 @@ declare void @_ZN17LogStreamImplBase10LineBufferC1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17LogStreamImplBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17LogStreamImplBase, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %2) #6
   ret void
 }

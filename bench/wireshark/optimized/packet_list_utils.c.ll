@@ -11,7 +11,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %0 to i64
   %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
@@ -34,7 +34,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   br label %.loopexit
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %7, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @g_slist_length(ptr noundef %12) #2
   %.not62 = icmp eq i32 %13, 0
@@ -47,7 +47,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   %15 = getelementptr %struct.col_item_t, ptr %14, i64 %6, i32 5
   %16 = load ptr, ptr %15, align 8
   %17 = tail call ptr @g_slist_nth_data(ptr noundef %16, i32 noundef %.04760) #2
-  %18 = getelementptr inbounds i8, ptr %17, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.loopexit, label %21
@@ -58,7 +58,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   br i1 %.not57, label %38, label %23
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %22, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %29, label %27
@@ -69,7 +69,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   br i1 %.not58, label %29, label %38
 
 29:                                               ; preds = %27, %23
-  %30 = getelementptr inbounds i8, ptr %22, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %31 = load i32, ptr %30, align 8
   switch i32 %31, label %32 [
     i32 2, label %36
@@ -80,7 +80,7 @@ define hidden range(i32 0, 2) i32 @right_justify_column(i32 noundef %0, ptr noun
   ]
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %22, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 20
   %34 = load i32, ptr %33, align 4
   %trunc = trunc i32 %34 to i8
   switch i8 %trunc, label %38 [
@@ -147,7 +147,7 @@ define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef re
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 320
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %0 to i64
   %7 = getelementptr %struct.col_item_t, ptr %5, i64 %6
@@ -156,7 +156,7 @@ define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef re
   br i1 %cond, label %9, label %.loopexit
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_slist_length(ptr noundef %11) #2
   %.not97 = icmp eq i32 %12, 0
@@ -168,14 +168,14 @@ define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef re
   %14 = getelementptr %struct.col_item_t, ptr %13, i64 %6, i32 5
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @g_slist_nth_data(ptr noundef %15, i32 noundef %.04046) #2
-  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %29, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = tail call ptr @proto_registrar_get_nth(i32 noundef %18) #2
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 8
   switch i32 %23, label %24 [
     i32 37, label %.loopexit
@@ -188,7 +188,7 @@ define hidden range(i32 0, 2) i32 @resolve_column(i32 noundef %0, ptr noundef re
   ]
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %21, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %26 = load ptr, ptr %25, align 8
   %.not45 = icmp eq ptr %26, null
   br i1 %.not45, label %29, label %27

@@ -114,7 +114,7 @@ extcap_loaded_interfaces.exit:                    ; preds = %2
   br label %16
 
 16:                                               ; preds = %15, %13
-  %17 = getelementptr inbounds i8, ptr %.036, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.036, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not30 = icmp eq ptr %18, null
   br i1 %.not30, label %.critedge, label %.lr.ph, !llvm.loop !5
@@ -126,7 +126,7 @@ extcap_loaded_interfaces.exit:                    ; preds = %2
 19:                                               ; preds = %extcap_loaded_interfaces.exit.thread, %.critedge, %7, %extcap_loaded_interfaces.exit
   %20 = phi ptr [ %4, %extcap_loaded_interfaces.exit.thread ], [ %6, %.critedge ], [ %6, %7 ], [ %6, %extcap_loaded_interfaces.exit ]
   tail call void @g_ptr_array_sort(ptr noundef %20, ptr noundef nonnull @compare_tools) #11
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %.not40 = icmp eq i32 %22, 0
   br i1 %.not40, label %._crit_edge, label %.lr.ph39
@@ -137,9 +137,9 @@ extcap_loaded_interfaces.exit:                    ; preds = %2
   %24 = getelementptr ptr, ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %25, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %30 = load ptr, ptr %29, align 8
   tail call void %0(ptr noundef %26, ptr noundef %28, ptr noundef nonnull @.str, ptr noundef %30, ptr noundef %1) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -194,7 +194,7 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
   %17 = load ptr, ptr %.02948.i, align 8
   %18 = load ptr, ptr %17, align 8
   tail call void @iface_toolbar_remove(ptr noundef %18) #11
-  %19 = getelementptr inbounds i8, ptr %.02948.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.02948.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not35.i = icmp eq ptr %20, null
   br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
@@ -240,9 +240,9 @@ define internal fastcc void @extcap_ensure_all_interfaces_loaded() unnamed_addr 
   %35 = load i32, ptr %4, align 4
   %36 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, i32 noundef %34, i32 noundef %35) #11
   store ptr @.str.14, ptr %5, align 16
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %5, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr null, ptr %38, align 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
   %39 = call ptr @get_extcap_pers_dir() #11
@@ -264,11 +264,11 @@ extcap_run_all.exit.thread.i:                     ; preds = %33
   %48 = call noalias ptr @g_malloc0_n(i64 noundef %47, i64 noundef 32) #12
   %49 = call ptr @g_thread_pool_new(ptr noundef nonnull @extcap_thread_callback, ptr noundef nonnull %2, i32 noundef %43, i32 noundef 0, ptr noundef null) #11
   store ptr %49, ptr %2, align 8
-  %50 = getelementptr inbounds i8, ptr %2, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %2, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 16
   call void @g_cond_init(ptr noundef nonnull %51) #11
-  %52 = getelementptr inbounds i8, ptr %2, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 32
   call void @g_mutex_init(ptr noundef nonnull %52) #11
   br label %53
 
@@ -279,14 +279,14 @@ extcap_run_all.exit.thread.i:                     ; preds = %33
   %55 = load ptr, ptr %.0282.i.i, align 8
   store ptr %55, ptr %54, align 8
   %56 = call ptr @g_strdupv(ptr noundef nonnull %5) #11
-  %57 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %56, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %54, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr @extcap_list_interfaces_cb, ptr %58, align 8
   %59 = sext i32 %.0291.i.i to i64
   %60 = shl nsw i64 %59, 5
   %61 = getelementptr i8, ptr %48, i64 %60
-  %62 = getelementptr inbounds i8, ptr %54, i64 24
+  %62 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %.0282.i.i, align 8
   store ptr %63, ptr %61, align 8
@@ -297,7 +297,7 @@ extcap_run_all.exit.thread.i:                     ; preds = %33
   call void @g_mutex_unlock(ptr noundef nonnull %52) #11
   %66 = load ptr, ptr %2, align 8
   %67 = call i32 @g_thread_pool_push(ptr noundef %66, ptr noundef nonnull %54, ptr noundef null) #11
-  %68 = getelementptr inbounds i8, ptr %.0282.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0282.i.i, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = add i32 %.0291.i.i, 1
   %.not31.i.i = icmp eq ptr %69, null
@@ -327,16 +327,16 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   br i1 %.not57.i, label %.critedge.critedge.i, label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %extcap_run_all.exit.i
-  %75 = getelementptr inbounds i8, ptr %6, i64 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 16
-  %77 = getelementptr inbounds i8, ptr %6, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %78
 
 78:                                               ; preds = %.loopexit.i, %.lr.ph54.i
   %indvars.iv63.i = phi i64 [ 0, %.lr.ph54.i ], [ %indvars.iv.next64.i, %.loopexit.i ]
   %.153.i = phi i1 [ false, %.lr.ph54.i ], [ %.2.i, %.loopexit.i ]
   %79 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv63.i
-  %80 = getelementptr inbounds i8, ptr %79, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8
   %.not37.i = icmp eq ptr %81, null
   br i1 %.not37.i, label %.loopexit.i, label %82
@@ -374,19 +374,19 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
 97:                                               ; preds = %95
   %98 = call noalias dereferenceable_or_null(32) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 32) #12
   %99 = load ptr, ptr %1, align 8
-  %100 = getelementptr inbounds i8, ptr %98, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 24
   store ptr %99, ptr %100, align 8
   br label %101
 
 101:                                              ; preds = %97, %95
   %.077.i.i = phi ptr [ %98, %97 ], [ null, %95 ]
-  %102 = getelementptr inbounds i8, ptr %92, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %.not87.i.i = icmp eq ptr %.077.i.i, null
-  %103 = getelementptr inbounds i8, ptr %.077.i.i, i64 16
-  %104 = getelementptr inbounds i8, ptr %92, i64 16
-  %105 = getelementptr inbounds i8, ptr %92, i64 8
-  %106 = getelementptr inbounds i8, ptr %92, i64 24
-  %107 = getelementptr inbounds i8, ptr %.077.i.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.077.i.i, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %.077.i.i, i64 8
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.outer.i.i, %101
@@ -398,7 +398,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
 109:                                              ; preds = %.backedge.i.i, %.lr.ph.i.i
   %.076103.i.i = phi ptr [ %.076.ph104.i.i, %.lr.ph.i.i ], [ %.076.be.i.i, %.backedge.i.i ]
   %110 = load ptr, ptr %.076103.i.i, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 40
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 40
   %112 = load i32, ptr %111, align 8
   switch i32 %112, label %.backedge.i.i [
     i32 3, label %113
@@ -411,7 +411,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   br i1 %.not89.i.i, label %115, label %124
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %110, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %117 = load ptr, ptr %116, align 8
   %118 = call noalias ptr @g_strdup(ptr noundef %117) #11
   store ptr %118, ptr %104, align 8
@@ -419,19 +419,19 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   store ptr %119, ptr %92, align 8
   %120 = call noalias ptr @g_strdup(ptr noundef %83) #11
   store ptr %120, ptr %105, align 8
-  %121 = getelementptr inbounds i8, ptr %110, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %122 = load ptr, ptr %121, align 8
   %123 = call noalias ptr @g_strdup(ptr noundef %122) #11
   store ptr %123, ptr %106, align 8
   br label %124
 
 124:                                              ; preds = %115, %113
-  %125 = getelementptr inbounds i8, ptr %110, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %126 = load ptr, ptr %125, align 8
   br i1 %.not87.i.i, label %.outer.i.i, label %127
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds i8, ptr %110, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %129 = load ptr, ptr %128, align 8
   %130 = call noalias ptr @g_strdup(ptr noundef %129) #11
   store ptr %130, ptr %.077.i.i, align 8
@@ -441,7 +441,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   br label %.outer.i.i
 
 .outer.i.i:                                       ; preds = %127, %124
-  %133 = getelementptr inbounds i8, ptr %.076103.i.i, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.076103.i.i, i64 8
   %134 = load ptr, ptr %133, align 8
   %.not82102.i.i = icmp eq ptr %134, null
   br i1 %.not82102.i.i, label %.outer._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
@@ -475,13 +475,13 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   br i1 %.not30.i.i.i.i, label %extcap_if_executable.exit.i.i, label %150
 
 150:                                              ; preds = %147
-  %151 = getelementptr inbounds i8, ptr %149, i64 32
+  %151 = getelementptr inbounds nuw i8, ptr %149, i64 32
   %.02333.i.i.i.i = load ptr, ptr %151, align 8
   %.not3134.i.i.i.i = icmp eq ptr %.02333.i.i.i.i, null
   br i1 %.not3134.i.i.i.i, label %extcap_if_executable.exit.i.i, label %.lr.ph.i.i.i.i
 
 152:                                              ; preds = %155
-  %153 = getelementptr inbounds i8, ptr %.02335.i.i.i.i, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.02335.i.i.i.i, i64 8
   %.023.i.i.i.i = load ptr, ptr %153, align 8
   %.not31.i.i.i.i = icmp eq ptr %.023.i.i.i.i, null
   br i1 %.not31.i.i.i.i, label %extcap_if_executable.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !12
@@ -499,7 +499,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %71
   br i1 %158, label %extcap_find_interface_for_ifname.exit.i.i.i, label %152
 
 extcap_find_interface_for_ifname.exit.i.i.i:      ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %154, i64 32
+  %159 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %160 = load ptr, ptr %159, align 8
   br label %extcap_if_executable.exit.i.i
 
@@ -509,16 +509,16 @@ extcap_if_executable.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %15
   br label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %184, %170, %extcap_if_executable.exit.i.i, %109
-  %.076.be.in.i.i = getelementptr inbounds i8, ptr %.076103.i.i, i64 8
+  %.076.be.in.i.i = getelementptr inbounds nuw i8, ptr %.076103.i.i, i64 8
   %.076.be.i.i = load ptr, ptr %.076.be.in.i.i, align 8
   %.not82.i.i = icmp eq ptr %.076.be.i.i, null
   br i1 %.not82.i.i, label %.outer._crit_edge.i.i, label %109, !llvm.loop !11
 
 162:                                              ; preds = %135
   %163 = call noalias ptr @g_strdup(ptr noundef %83) #11
-  %164 = getelementptr inbounds i8, ptr %110, i64 32
+  %164 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store ptr %163, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %110, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %166 = load ptr, ptr %165, align 8
   %167 = icmp eq ptr %166, null
   %or.cond.i.i = select i1 %167, i1 %108, i1 false
@@ -546,7 +546,7 @@ extcap_if_executable.exit.i.i:                    ; preds = %.lr.ph.i.i.i.i, %15
   br i1 %.not88.i.i, label %180, label %184
 
 180:                                              ; preds = %178
-  %181 = getelementptr inbounds i8, ptr %110, i64 8
+  %181 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %182 = load ptr, ptr %181, align 8
   %183 = call noalias ptr @g_strdup(ptr noundef %182) #11
   store ptr %183, ptr %.077.i.i, align 8
@@ -597,7 +597,7 @@ extcap_iface_toolbar_add.exit.thread.i.i:         ; preds = %extcap_iface_toolba
   call void @g_free(ptr noundef %200) #11
   %201 = load ptr, ptr %103, align 8
   call void @g_list_free_full(ptr noundef %201, ptr noundef nonnull @g_free) #11
-  %202 = getelementptr inbounds i8, ptr %.077.i.i, i64 24
+  %202 = getelementptr inbounds nuw i8, ptr %.077.i.i, i64 24
   %203 = load ptr, ptr %202, align 8
   call void @g_list_free_full(ptr noundef %203, ptr noundef nonnull @extcap_free_toolbar_control) #11
   br label %extcap_free_toolbar.exit.sink.split.i.i
@@ -616,13 +616,13 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   call void @g_list_free(ptr noundef %86) #11
   call void @g_free(ptr noundef %84) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %204 = getelementptr inbounds i8, ptr %79, i64 16
+  %204 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %205 = load i32, ptr %204, align 8
   %.not58.i = icmp eq i32 %205, 0
   br i1 %.not58.i, label %.loopexit.i, label %.lr.ph51.i
 
 .lr.ph51.i:                                       ; preds = %process_new_extcap.exit.i
-  %206 = getelementptr inbounds i8, ptr %79, i64 24
+  %206 = getelementptr inbounds nuw i8, ptr %79, i64 24
   br label %207
 
 207:                                              ; preds = %217, %.lr.ph51.i
@@ -631,7 +631,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   %.350.i = phi i1 [ %.153.i, %.lr.ph51.i ], [ %.4.i, %217 ]
   %209 = load ptr, ptr %206, align 8
   %210 = getelementptr %struct.extcap_iface_info, ptr %209, i64 %indvars.iv.i
-  %211 = getelementptr inbounds i8, ptr %210, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 8
   %212 = load ptr, ptr %211, align 8
   %.not38.i = icmp eq ptr %212, null
   br i1 %.not38.i, label %217, label %213
@@ -666,16 +666,16 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   %221 = getelementptr %struct.extcap_run_extcaps_info, ptr %48, i64 %indvars.iv26.i.i
   %222 = load ptr, ptr %221, align 8
   call void @g_free(ptr noundef %222) #11
-  %223 = getelementptr inbounds i8, ptr %221, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %224 = load ptr, ptr %223, align 8
   call void @g_free(ptr noundef %224) #11
-  %225 = getelementptr inbounds i8, ptr %221, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %226 = load i32, ptr %225, align 8
   %.not24.i.i = icmp eq i32 %226, 0
   br i1 %.not24.i.i, label %._crit_edge.i.i, label %.lr.ph.i42.i
 
 .lr.ph.i42.i:                                     ; preds = %.lr.ph22.i.i
-  %227 = getelementptr inbounds i8, ptr %221, i64 24
+  %227 = getelementptr inbounds nuw i8, ptr %221, i64 24
   br label %228
 
 228:                                              ; preds = %228, %.lr.ph.i42.i
@@ -684,7 +684,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   %230 = getelementptr %struct.extcap_iface_info, ptr %229, i64 %indvars.iv.i.i
   %231 = load ptr, ptr %230, align 8
   call void @g_free(ptr noundef %231) #11
-  %232 = getelementptr inbounds i8, ptr %230, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %233 = load ptr, ptr %232, align 8
   call void @g_free(ptr noundef %233) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -694,7 +694,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %8
   br i1 %236, label %228, label %._crit_edge.i.i, !llvm.loop !15
 
 ._crit_edge.i.i:                                  ; preds = %228, %.lr.ph22.i.i
-  %237 = getelementptr inbounds i8, ptr %221, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %238 = load ptr, ptr %237, align 8
   call void @g_free(ptr noundef %238) #11
   %indvars.iv.next27.i.i = add nuw nsw i64 %indvars.iv26.i.i, 1
@@ -801,13 +801,13 @@ define hidden ptr @extcap_get_if_dlts(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %.not30.i, label %extcap_find_interface_for_ifname.exit.thread, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %.02333.i = load ptr, ptr %17, align 8
   %.not3134.i = icmp eq ptr %.02333.i, null
   br i1 %.not3134.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 18:                                               ; preds = %21
-  %19 = getelementptr inbounds i8, ptr %.02335.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.02335.i, i64 8
   %.023.i = load ptr, ptr %19, align 8
   %.not31.i = icmp eq ptr %.023.i, null
   br i1 %.not31.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i, !llvm.loop !12
@@ -870,7 +870,7 @@ define internal fastcc void @extcap_run_one(ptr nocapture noundef nonnull readon
   %17 = sext i32 %.016.i to i64
   %18 = getelementptr ptr, ptr %14, i64 %17
   store ptr %16, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %.01015.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = add i32 %.016.i, 1
   %.not13.i = icmp eq ptr %20, null
@@ -879,7 +879,7 @@ define internal fastcc void @extcap_run_one(ptr nocapture noundef nonnull readon
 extcap_convert_arguments_to_array.exit:           ; preds = %.lr.ph.i, %5, %9
   %.011.i = phi ptr [ null, %5 ], [ %14, %9 ], [ %14, %.lr.ph.i ]
   %22 = tail call i32 @g_list_length(ptr noundef %1) #11
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = call zeroext i1 @ws_pipe_spawn_sync(ptr noundef %8, ptr noundef %24, i32 noundef %22, ptr noundef %.011.i, ptr noundef nonnull %6) #11
   br i1 %25, label %26, label %36
@@ -887,15 +887,15 @@ extcap_convert_arguments_to_array.exit:           ; preds = %.lr.ph.i, %5, %9
 26:                                               ; preds = %extcap_convert_arguments_to_array.exit
   %27 = load ptr, ptr %23, align 8
   store ptr %27, ptr %7, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %29 = load ptr, ptr %0, align 8
   store ptr %29, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %7, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %31 = load ptr, ptr %6, align 8
   store ptr %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %7, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %7, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %4, ptr %33, align 8
   %34 = call i32 %2(ptr noundef nonnull byval(%struct._extcap_callback_info_t) align 8 %7) #11, !callees !18
   %35 = load ptr, ptr %6, align 8
@@ -926,12 +926,12 @@ extcap_free_array.exit:                           ; preds = %.lr.ph.i12, %36
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cb_dlt(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @extcap_parse_dlts(ptr noundef %3) #11
   %5 = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #13
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr null, ptr %6, align 8
   %.not31 = icmp eq ptr %4, null
   br i1 %.not31, label %._crit_edge.thread, label %.lr.ph
@@ -947,22 +947,22 @@ define internal noundef i32 @cb_dlt(ptr nocapture noundef readonly byval(%struct
   %9 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #12
   %10 = load i32, ptr %7, align 8
   store i32 %10, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12) #11
-  %14 = getelementptr inbounds i8, ptr %9, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %13, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noalias ptr @g_strdup(ptr noundef %16) #11
-  %18 = getelementptr inbounds i8, ptr %9, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %17, ptr %18, align 8
   %19 = tail call ptr @g_list_append(ptr noundef %.02432, ptr noundef nonnull %9) #11
   br label %20
 
 20:                                               ; preds = %8, %.lr.ph
   %.1 = phi ptr [ %19, %8 ], [ %.02432, %.lr.ph ]
-  %21 = getelementptr inbounds i8, ptr %.033, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.033, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -972,15 +972,15 @@ define internal noundef i32 @cb_dlt(ptr nocapture noundef readonly byval(%struct
   br i1 %.not27, label %._crit_edge.thread, label %23
 
 23:                                               ; preds = %._crit_edge
-  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.1, ptr %24, align 8
   br label %31
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
   %25 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.21) #11
-  %26 = getelementptr inbounds i8, ptr %5, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
   %.not28 = icmp eq ptr %28, null
   br i1 %.not28, label %31, label %29
@@ -991,7 +991,7 @@ define internal noundef i32 @cb_dlt(ptr nocapture noundef readonly byval(%struct
   br label %31
 
 31:                                               ; preds = %._crit_edge.thread, %29, %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not29 = icmp eq ptr %33, null
   br i1 %.not29, label %35, label %34
@@ -1038,13 +1038,13 @@ define hidden ptr @extcap_get_help_for_ifname(ptr noundef %0) local_unnamed_addr
   br i1 %.not30.i, label %extcap_find_interface_for_ifname.exit.thread, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %11, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.02333.i = load ptr, ptr %13, align 8
   %.not3134.i = icmp eq ptr %.02333.i, null
   br i1 %.not3134.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 14:                                               ; preds = %17
-  %15 = getelementptr inbounds i8, ptr %.02335.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02335.i, i64 8
   %.023.i = load ptr, ptr %15, align 8
   %.not31.i = icmp eq ptr %.023.i, null
   br i1 %.not31.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i, !llvm.loop !12
@@ -1062,7 +1062,7 @@ define hidden ptr @extcap_get_help_for_ifname(ptr noundef %0) local_unnamed_addr
   br i1 %20, label %extcap_find_interface_for_ifname.exit, label %14
 
 extcap_find_interface_for_ifname.exit:            ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %16, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %22 = load ptr, ptr %21, align 8
   br label %extcap_find_interface_for_ifname.exit.thread
 
@@ -1094,7 +1094,7 @@ define hidden ptr @append_extcap_interface_list(ptr noundef %0) local_unnamed_ad
 7:                                                ; preds = %.lr.ph54
   %8 = load ptr, ptr @_loaded_interfaces, align 8
   %9 = tail call ptr @g_hash_table_lookup(ptr noundef %8, ptr noundef nonnull %6) #11
-  %10 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %.03545 = load ptr, ptr %10, align 8
   %.not4346 = icmp eq ptr %.03545, null
   br i1 %.not4346, label %.critedge2, label %.lr.ph
@@ -1108,14 +1108,14 @@ define hidden ptr @append_extcap_interface_list(ptr noundef %0) local_unnamed_ad
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call ptr @g_list_append(ptr noundef %.147, ptr noundef nonnull %11) #11
-  %14 = getelementptr inbounds i8, ptr %.03548, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.03548, i64 8
   %.035 = load ptr, ptr %14, align 8
   %.not43 = icmp eq ptr %.035, null
   br i1 %.not43, label %.critedge2, label %.lr.ph, !llvm.loop !21
 
 .critedge2:                                       ; preds = %.lr.ph, %12, %7
   %.1.lcssa = phi ptr [ %.03653, %7 ], [ %13, %12 ], [ %.147, %.lr.ph ]
-  %15 = getelementptr inbounds i8, ptr %.03752, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.03752, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not40 = icmp eq ptr %16, null
   br i1 %.not40, label %.critedge, label %.lr.ph54, !llvm.loop !22
@@ -1137,17 +1137,17 @@ define hidden ptr @append_extcap_interface_list(ptr noundef %0) local_unnamed_ad
   %22 = load ptr, ptr %19, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %22) #11
   store ptr %23, ptr %21, align 8
-  %24 = getelementptr inbounds i8, ptr %19, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noalias ptr @g_strdup(ptr noundef %25) #11
-  %27 = getelementptr inbounds i8, ptr %21, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i32 8, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %19, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @g_strdup(ptr noundef %30) #11
-  %32 = getelementptr inbounds i8, ptr %21, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %31, ptr %32, align 8
   %33 = tail call ptr @g_list_append(ptr noundef %.03460, ptr noundef nonnull %21) #11
   %.not42 = icmp eq ptr %20, null
@@ -1169,9 +1169,9 @@ define internal i32 @if_info_compare(ptr nocapture noundef readonly %0, ptr noca
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @g_strcmp0(ptr noundef %9, ptr noundef %11) #11
   br label %13
@@ -1264,7 +1264,7 @@ define hidden void @extcap_free_if_configuration(ptr noundef %0, i32 noundef %1)
   br label %7
 
 7:                                                ; preds = %5, %.lr.ph.split.us
-  %8 = getelementptr inbounds i8, ptr %.012.us, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.012.us, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not.us = icmp eq ptr %9, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !24
@@ -1281,7 +1281,7 @@ define hidden void @extcap_free_if_configuration(ptr noundef %0, i32 noundef %1)
   br label %13
 
 13:                                               ; preds = %.lr.ph.split, %11
-  %14 = getelementptr inbounds i8, ptr %.012, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !24
@@ -1309,7 +1309,7 @@ define hidden ptr @extcap_pref_for_argument(ptr noundef %0, ptr nocapture nounde
   br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #14
   %13 = tail call ptr @g_regex_replace(ptr noundef nonnull %3, ptr noundef %11, i64 noundef %12, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null) #11
@@ -1386,13 +1386,13 @@ define hidden ptr @extcap_get_if_configuration(ptr noundef %0) local_unnamed_add
   br i1 %.not30.i, label %extcap_find_interface_for_ifname.exit.thread, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %.02333.i = load ptr, ptr %14, align 8
   %.not3134.i = icmp eq ptr %.02333.i, null
   br i1 %.not3134.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 15:                                               ; preds = %18
-  %16 = getelementptr inbounds i8, ptr %.02335.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02335.i, i64 8
   %.023.i = load ptr, ptr %16, align 8
   %.not31.i = icmp eq ptr %.023.i, null
   br i1 %.not31.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i, !llvm.loop !12
@@ -1430,9 +1430,9 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %15, %.lr.ph.i, %13,
 define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @extcap_parse_args(ptr noundef %7) #11
   %9 = tail call ptr @prefs_find_module(ptr noundef nonnull @.str) #11
@@ -1450,7 +1450,7 @@ define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonl
   br i1 %or.cond3, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   br label %18
 
@@ -1459,15 +1459,15 @@ define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonl
   %.2 = phi i32 [ %.3, %75 ], [ 0, %.preheader ]
   %19 = load ptr, ptr %.053, align 8
   %20 = call noalias ptr @g_strdup(ptr noundef %17) #11
-  %21 = getelementptr inbounds i8, ptr %19, i64 120
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 120
   store ptr %20, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %23 = load i32, ptr %22, align 8
   %.not61 = icmp eq i32 %23, 0
   br i1 %.not61, label %75, label %24
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #14
   %28 = call ptr @g_regex_replace(ptr noundef nonnull %11, ptr noundef %26, i64 noundef %27, i32 noundef 0, ptr noundef nonnull @.str.6, i32 noundef 0, ptr noundef null) #11
@@ -1481,7 +1481,7 @@ define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonl
 
 35:                                               ; preds = %24
   %36 = call ptr @wmem_epan_scope() #11
-  %37 = getelementptr inbounds i8, ptr %19, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = call noalias ptr @wmem_strdup(ptr noundef %36, ptr noundef %38) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -1513,21 +1513,21 @@ define internal range(i32 0, 2) i32 @cb_preference(ptr nocapture noundef readonl
 extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
   %52 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %53 = getelementptr inbounds i8, ptr %19, i64 112
+  %53 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store ptr %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %19, i64 104
+  %54 = getelementptr inbounds nuw i8, ptr %19, i64 104
   %55 = load ptr, ptr %54, align 8
   %.not62 = icmp eq ptr %55, null
   br i1 %.not62, label %59, label %56
 
 56:                                               ; preds = %extcap_prefs_dynamic_valptr.exit
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8
   store ptr %58, ptr %52, align 8
   br label %59
 
 59:                                               ; preds = %56, %extcap_prefs_dynamic_valptr.exit
-  %60 = getelementptr inbounds i8, ptr %19, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 8
   %63 = load ptr, ptr %3, align 8
@@ -1543,7 +1543,7 @@ extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
   br label %74
 
 67:                                               ; preds = %24
-  %68 = getelementptr inbounds i8, ptr %19, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %71, label %74
@@ -1564,7 +1564,7 @@ extcap_prefs_dynamic_valptr.exit:                 ; preds = %43, %46
 
 75:                                               ; preds = %74, %18
   %.3 = phi i32 [ %.4, %74 ], [ %.2, %18 ]
-  %76 = getelementptr inbounds i8, ptr %.053, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %77 = load ptr, ptr %76, align 8
   %.old2.not = icmp eq ptr %77, null
   br i1 %.old2.not, label %.loopexit, label %18
@@ -1629,13 +1629,13 @@ define hidden ptr @extcap_get_if_configuration_values(ptr noundef %0, ptr nounde
   br i1 %.not30.i, label %extcap_find_interface_for_ifname.exit.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.02333.i = load ptr, ptr %16, align 8
   %.not3134.i = icmp eq ptr %.02333.i, null
   br i1 %.not3134.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 17:                                               ; preds = %20
-  %18 = getelementptr inbounds i8, ptr %.02335.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02335.i, i64 8
   %.023.i = load ptr, ptr %18, align 8
   %.not31.i = icmp eq ptr %.023.i, null
   br i1 %.not31.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i, !llvm.loop !12
@@ -1681,7 +1681,7 @@ extcap_find_interface_for_ifname.exit:            ; preds = %20
   %40 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %2, ptr noundef %37) #11
   %41 = tail call noalias ptr @g_strdup(ptr noundef %40) #11
   %42 = tail call ptr @g_list_append(ptr noundef %39, ptr noundef %41) #11
-  %43 = getelementptr inbounds i8, ptr %.02534, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.02534, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not29 = icmp eq ptr %44, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -1705,9 +1705,9 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %17, %.lr.ph.i, %15,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cb_reload_preference(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @extcap_parse_values(ptr noundef %5) #11
   %7 = tail call ptr @g_list_first(ptr noundef %6) #11
@@ -1724,7 +1724,7 @@ define internal noundef i32 @cb_reload_preference(ptr nocapture noundef readonly
   %9 = load ptr, ptr %.010, align 8
   %10 = tail call ptr @g_list_append(ptr noundef %8, ptr noundef %9) #11
   store ptr %10, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %.010, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.010, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -1759,7 +1759,7 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.lr.ph54.split.us
   %.1.lcssa.us = phi i32 [ 0, %.lr.ph54.split.us ], [ %spec.select, %._crit_edge.split.us.us.loopexit ]
-  %7 = getelementptr inbounds i8, ptr %.03152.us, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.03152.us, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp ne ptr %8, null
   %.not.us = icmp eq i32 %.1.lcssa.us, 0
@@ -1770,7 +1770,7 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
   %.03051.us.us = phi ptr [ %13, %.lr.ph.us ], [ %6, %.lr.ph54.split.us ]
   %11 = load ptr, ptr %.03051.us.us, align 8
   %.not37.us.us = icmp ne ptr %11, null
-  %12 = getelementptr inbounds i8, ptr %.03051.us.us, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.03051.us.us, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   %.not62 = select i1 %14, i1 true, i1 %.not37.us.us
@@ -1790,13 +1790,13 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
   br i1 %.not37, label %46, label %18
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds i8, ptr %17, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 52
   %20 = load i32, ptr %19, align 4
   %.not39 = icmp eq i32 %20, 0
   br i1 %.not39, label %46, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %17, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 112
   %23 = load ptr, ptr %22, align 8
   %.not40 = icmp eq ptr %23, null
   br i1 %.not40, label %26, label %24
@@ -1807,13 +1807,13 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 
 26:                                               ; preds = %24, %21
   %.028 = phi ptr [ %25, %24 ], [ null, %21 ]
-  %27 = getelementptr inbounds i8, ptr %17, i64 104
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 104
   %28 = load ptr, ptr %27, align 8
   %.not41 = icmp eq ptr %28, null
   br i1 %.not41, label %.thread, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not50 = icmp eq ptr %31, null
   br i1 %.not50, label %.thread, label %35
@@ -1833,13 +1833,13 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 35:                                               ; preds = %32, %34, %29
   %.049 = phi ptr [ %31, %29 ], [ null, %32 ], [ null, %34 ]
   %.3 = phi i32 [ 0, %29 ], [ 0, %32 ], [ 1, %34 ]
-  %36 = getelementptr inbounds i8, ptr %17, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 13
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %17, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %41 = load i32, ptr %40, align 8
   %.not45 = icmp eq i32 %41, 0
   br i1 %.not45, label %46, label %42
@@ -1855,7 +1855,7 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 
 46:                                               ; preds = %44, %35, %42, %39, %18, %.lr.ph
   %.2 = phi i32 [ %.3, %42 ], [ %.3, %39 ], [ %.3, %35 ], [ 0, %18 ], [ 0, %.lr.ph ], [ %spec.select46, %44 ]
-  %47 = getelementptr inbounds i8, ptr %.03051, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.03051, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp ne ptr %48, null
   %.not36 = icmp eq i32 %.2, 0
@@ -1864,7 +1864,7 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
 
 ._crit_edge.split:                                ; preds = %46, %.lr.ph54.split
   %.1.lcssa = phi i32 [ 0, %.lr.ph54.split ], [ %.2, %46 ]
-  %51 = getelementptr inbounds i8, ptr %.03152, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = icmp ne ptr %52, null
   %.not = icmp eq i32 %.1.lcssa, 0
@@ -1889,7 +1889,7 @@ define hidden range(i32 0, 2) i32 @_extcap_requires_configuration_int(ptr nounde
   br label %59
 
 59:                                               ; preds = %57, %.lr.ph.split.i
-  %60 = getelementptr inbounds i8, ptr %.012.i, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.012.i, i64 8
   %61 = load ptr, ptr %60, align 8
   %.not.i = icmp eq ptr %61, null
   br i1 %.not.i, label %extcap_free_if_configuration.exit, label %.lr.ph.split.i, !llvm.loop !24
@@ -1939,13 +1939,13 @@ define hidden i32 @extcap_verify_capture_filter(ptr noundef %0, ptr noundef %1, 
   br i1 %.not30.i, label %extcap_find_interface_for_ifname.exit.thread, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.02333.i = load ptr, ptr %16, align 8
   %.not3134.i = icmp eq ptr %.02333.i, null
   br i1 %.not3134.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 17:                                               ; preds = %20
-  %18 = getelementptr inbounds i8, ptr %.02335.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02335.i, i64 8
   %.023.i = load ptr, ptr %18, align 8
   %.not31.i = icmp eq ptr %.023.i, null
   br i1 %.not31.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i, !llvm.loop !12
@@ -1983,9 +1983,9 @@ extcap_find_interface_for_ifname.exit.thread:     ; preds = %17, %.lr.ph.i, %15,
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @cb_verify_filter(ptr nocapture noundef readonly byval(%struct._extcap_callback_info_t) align 8 %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %7 = icmp eq i64 %6, 0
@@ -2020,7 +2020,7 @@ define internal noundef i32 @cb_verify_filter(ptr nocapture noundef readonly byv
 
 .loopexit:                                        ; preds = %15, %13
   %17 = tail call noalias ptr @g_strdup(ptr noundef nonnull %5) #11
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   store ptr %17, ptr %19, align 8
   br label %20
@@ -2045,14 +2045,14 @@ define hidden range(i32 0, 2) i32 @extcap_has_toolbar(ptr noundef %0) local_unna
 .lr.ph:                                           ; preds = %3, %10
   %.0812 = phi ptr [ %12, %10 ], [ %5, %3 ]
   %6 = load ptr, ptr %.0812, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @g_list_find_custom(ptr noundef %8, ptr noundef %0, ptr noundef nonnull @g_strcmp0) #11
   %.not10 = icmp eq ptr %9, null
   br i1 %.not10, label %10, label %.sink.split
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.0812, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.0812, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not9 = icmp eq ptr %12, null
   br i1 %.not9, label %.sink.split, label %.lr.ph, !llvm.loop !30
@@ -2197,13 +2197,13 @@ define internal void @extcap_free_toolbar(ptr noundef %0) #0 {
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %3) #11
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #11
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @g_list_free_full(ptr noundef %7, ptr noundef nonnull @g_free) #11
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @g_list_free_full(ptr noundef %9, ptr noundef nonnull @extcap_free_toolbar_control) #11
   tail call void @g_free(ptr noundef nonnull %0) #11
@@ -2217,16 +2217,16 @@ define internal void @extcap_free_toolbar(ptr noundef %0) #0 {
 define internal void @extcap_free_interface_info(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #11
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %extcap_free_interfaces.exit, label %12
@@ -2256,15 +2256,15 @@ define internal void @extcap_list_interfaces_cb(ptr noundef %0, ptr noundef %1, 
   %7 = load ptr, ptr %1, align 8
   store ptr %7, ptr %6, align 8
   %8 = call ptr @g_strdupv(ptr noundef nonnull %4) #11
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr @extcap_process_interfaces_cb, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @g_mutex_lock(ptr noundef nonnull %12) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = add i32 %14, 1
   store i32 %15, ptr %13, align 8
@@ -2293,16 +2293,16 @@ define internal void @extcap_free_interface(ptr noundef %0) #0 {
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %4) #11
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #11
   tail call void @g_free(ptr noundef nonnull %0) #11
@@ -2325,14 +2325,14 @@ define internal void @extcap_thread_callback(ptr noundef %0, ptr noundef %1) #0 
   %3 = alloca ptr, align 8
   %4 = tail call ptr @get_extcap_dir() #11
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @g_strv_length(ptr noundef %7) #11
   %9 = load ptr, ptr %6, align 8
   %10 = call zeroext i1 @ws_pipe_spawn_sync(ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef %9, ptr noundef nonnull %3) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %3, align 8
   %.sink = select i1 %10, ptr %15, ptr null
@@ -2340,9 +2340,9 @@ define internal void @extcap_thread_callback(ptr noundef %0, ptr noundef %1) #0 
   %16 = load ptr, ptr %6, align 8
   call void @g_strfreev(ptr noundef %16) #11
   call void @g_free(ptr noundef nonnull %0) #11
-  %17 = getelementptr inbounds i8, ptr %1, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   call void @g_mutex_lock(ptr noundef nonnull %17) #11
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = add i32 %19, -1
   store i32 %20, ptr %18, align 8
@@ -2350,7 +2350,7 @@ define internal void @extcap_thread_callback(ptr noundef %0, ptr noundef %1) #0 
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @g_cond_signal(ptr noundef nonnull %23) #11
   br label %24
 
@@ -2461,7 +2461,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
   br i1 %.not, label %50, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %6, align 8
   %7 = tail call ptr @extcap_parse_interfaces(ptr noundef nonnull %2, ptr noundef null) #11
   %.not4245 = icmp eq ptr %7, null
@@ -2471,12 +2471,12 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
   %.03747 = phi i32 [ %spec.select, %.lr.ph ], [ 0, %5 ]
   %.03946 = phi ptr [ %14, %.lr.ph ], [ %7, %5 ]
   %8 = load ptr, ptr %.03946, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 4
   %12 = zext i1 %11 to i32
   %spec.select = add i32 %.03747, %12
-  %13 = getelementptr inbounds i8, ptr %.03946, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.03946, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not42 = icmp eq ptr %14, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !32
@@ -2492,22 +2492,22 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
 .lr.ph52:                                         ; preds = %._crit_edge
   %16 = zext i32 %spec.select to i64
   %17 = tail call noalias ptr @g_malloc0_n(i64 noundef %16, i64 noundef 16) #12
-  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %spec.select, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 16
-  %22 = getelementptr inbounds i8, ptr %4, i64 24
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph52, %47
   %.050 = phi i32 [ 0, %.lr.ph52 ], [ %.1, %47 ]
   %.04049 = phi ptr [ %7, %.lr.ph52 ], [ %49, %47 ]
   %26 = load ptr, ptr %.04049, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8
   %.not44 = icmp eq i32 %28, 4
   br i1 %.not44, label %29, label %47
@@ -2526,11 +2526,11 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
   %36 = load ptr, ptr %1, align 8
   store ptr %36, ptr %31, align 8
   %37 = call ptr @g_strdupv(ptr noundef nonnull %4) #11
-  %38 = getelementptr inbounds i8, ptr %31, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %37, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %31, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store ptr @extcap_process_config_cb, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %31, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr %35, ptr %40, align 8
   %41 = load ptr, ptr %26, align 8
   %42 = call noalias ptr @g_strdup(ptr noundef %41) #11
@@ -2546,7 +2546,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
 
 47:                                               ; preds = %25, %29
   %.1 = phi i32 [ %.050, %25 ], [ %33, %29 ]
-  %48 = getelementptr inbounds i8, ptr %.04049, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.04049, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not43 = icmp eq ptr %49, null
   br i1 %.not43, label %._crit_edge53, label %25, !llvm.loop !33
@@ -2563,7 +2563,7 @@ declare ptr @extcap_parse_interfaces(ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @extcap_process_config_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, ptr noundef %2) #6 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
   ret void
 }
@@ -2578,7 +2578,7 @@ declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define internal void @remove_extcap_entry(ptr noundef %0, ptr nocapture readnone %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
   br i1 %5, label %extcap_free_interface.exit, label %15
@@ -2586,16 +2586,16 @@ define internal void @remove_extcap_entry(ptr noundef %0, ptr nocapture readnone
 extcap_free_interface.exit:                       ; preds = %2
   %6 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #11
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void @g_free(ptr noundef %10) #11
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @g_free(ptr noundef %12) #11
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @g_free(ptr noundef %14) #11
   tail call void @g_free(ptr noundef nonnull %0) #11
@@ -2628,10 +2628,10 @@ define internal void @extcap_free_dlt(ptr noundef %0, ptr nocapture readnone %1)
   br i1 %3, label %9, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #11
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #11
   tail call void @g_free(ptr noundef nonnull %0) #11

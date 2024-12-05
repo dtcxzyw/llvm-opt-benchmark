@@ -40,7 +40,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %dynamic_id1 = getelementptr inbounds i8, ptr %e, i64 216
+  %dynamic_id1 = getelementptr inbounds nuw i8, ptr %e, i64 216
   %0 = load ptr, ptr %dynamic_id1, align 8
   %cmp2 = icmp eq ptr %0, null
   %cmp3 = icmp eq ptr %dynamic_id, null
@@ -66,14 +66,14 @@ while.cond.preheader:                             ; preds = %if.end9
   br i1 %cmp12.not17, label %while.end, label %while.body
 
 while.cond:                                       ; preds = %while.body
-  %next = getelementptr inbounds i8, ptr %iterator.018, i64 192
+  %next = getelementptr inbounds nuw i8, ptr %iterator.018, i64 192
   %iterator.0 = load ptr, ptr %next, align 8
   %cmp12.not = icmp eq ptr %iterator.0, null
   br i1 %cmp12.not, label %while.end, label %while.body, !llvm.loop !4
 
 while.body:                                       ; preds = %while.cond.preheader, %while.cond
   %iterator.018 = phi ptr [ %iterator.0, %while.cond ], [ %.pre, %while.cond.preheader ]
-  %dynamic_id13 = getelementptr inbounds i8, ptr %iterator.018, i64 216
+  %dynamic_id13 = getelementptr inbounds nuw i8, ptr %iterator.018, i64 216
   %2 = load ptr, ptr %dynamic_id13, align 8
   %cmp14 = icmp eq ptr %2, %dynamic_id
   br i1 %cmp14, label %err, label %while.cond
@@ -104,7 +104,7 @@ if.else:                                          ; preds = %if.end22
   br i1 %cmp25.not, label %err, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else
-  %next_dyn = getelementptr inbounds i8, ptr %4, i64 208
+  %next_dyn = getelementptr inbounds nuw i8, ptr %4, i64 208
   %5 = load ptr, ptr %next_dyn, align 8
   %cmp29.not = icmp eq ptr %5, null
   br i1 %cmp29.not, label %if.end31, label %err
@@ -115,10 +115,10 @@ if.end31:                                         ; preds = %lor.lhs.false
 
 if.end34:                                         ; preds = %if.end31, %if.end27
   %.sink = phi ptr [ %4, %if.end31 ], [ null, %if.end27 ]
-  %prev_dyn33 = getelementptr inbounds i8, ptr %e, i64 200
+  %prev_dyn33 = getelementptr inbounds nuw i8, ptr %e, i64 200
   store ptr %.sink, ptr %prev_dyn33, align 8
   store ptr %e, ptr @engine_dyn_list_tail, align 8
-  %next_dyn35 = getelementptr inbounds i8, ptr %e, i64 208
+  %next_dyn35 = getelementptr inbounds nuw i8, ptr %e, i64 208
   store ptr null, ptr %next_dyn35, align 8
   br label %err
 
@@ -147,7 +147,7 @@ entry:
   br i1 %cmp, label %if.end29, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %dynamic_id = getelementptr inbounds i8, ptr %e, i64 216
+  %dynamic_id = getelementptr inbounds nuw i8, ptr %e, i64 216
   %0 = load ptr, ptr %dynamic_id, align 8
   %cmp1 = icmp eq ptr %0, null
   br i1 %cmp1, label %if.end29, label %if.end
@@ -164,26 +164,26 @@ land.lhs.true:                                    ; preds = %if.end
 
 if.end4:                                          ; preds = %land.lhs.true, %if.end
   store ptr null, ptr %dynamic_id, align 8
-  %next_dyn = getelementptr inbounds i8, ptr %e, i64 208
+  %next_dyn = getelementptr inbounds nuw i8, ptr %e, i64 208
   %2 = load ptr, ptr %next_dyn, align 8
   %cmp6.not = icmp eq ptr %2, null
-  %prev_dyn11.phi.trans.insert = getelementptr inbounds i8, ptr %e, i64 200
+  %prev_dyn11.phi.trans.insert = getelementptr inbounds nuw i8, ptr %e, i64 200
   %.pre = load ptr, ptr %prev_dyn11.phi.trans.insert, align 8
   br i1 %cmp6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
-  %prev_dyn9 = getelementptr inbounds i8, ptr %2, i64 200
+  %prev_dyn9 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store ptr %.pre, ptr %prev_dyn9, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end4, %if.then7
-  %prev_dyn11 = getelementptr inbounds i8, ptr %e, i64 200
+  %prev_dyn11 = getelementptr inbounds nuw i8, ptr %e, i64 200
   %cmp12.not = icmp eq ptr %.pre, null
   br i1 %cmp12.not, label %if.end17, label %if.then13
 
 if.then13:                                        ; preds = %if.end10
   %3 = load ptr, ptr %next_dyn, align 8
-  %next_dyn16 = getelementptr inbounds i8, ptr %.pre, i64 208
+  %next_dyn16 = getelementptr inbounds nuw i8, ptr %.pre, i64 208
   store ptr %3, ptr %next_dyn16, align 8
   br label %if.end17
 
@@ -247,7 +247,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %struct_ref = getelementptr inbounds i8, ptr %2, i64 156
+  %struct_ref = getelementptr inbounds nuw i8, ptr %2, i64 156
   %3 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %if.end12
 
@@ -299,7 +299,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %tobool6.not, label %if.end12, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %struct_ref = getelementptr inbounds i8, ptr %2, i64 156
+  %struct_ref = getelementptr inbounds nuw i8, ptr %2, i64 156
   %3 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %if.end12
 
@@ -332,13 +332,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %next = getelementptr inbounds i8, ptr %e, i64 192
+  %next = getelementptr inbounds nuw i8, ptr %e, i64 192
   %1 = load ptr, ptr %next, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %struct_ref = getelementptr inbounds i8, ptr %1, i64 156
+  %struct_ref = getelementptr inbounds nuw i8, ptr %1, i64 156
   %2 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %if.end9
 
@@ -374,13 +374,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %prev = getelementptr inbounds i8, ptr %e, i64 184
+  %prev = getelementptr inbounds nuw i8, ptr %e, i64 184
   %1 = load ptr, ptr %prev, align 8
   %tobool3.not = icmp eq ptr %1, null
   br i1 %tobool3.not, label %if.end9, label %if.then4
 
 if.then4:                                         ; preds = %if.end2
-  %struct_ref = getelementptr inbounds i8, ptr %1, i64 156
+  %struct_ref = getelementptr inbounds nuw i8, ptr %1, i64 156
   %2 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %if.end9
 
@@ -413,7 +413,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then3, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end
-  %name = getelementptr inbounds i8, ptr %e, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %e, i64 8
   %1 = load ptr, ptr %name, align 8
   %cmp2 = icmp eq ptr %1, null
   br i1 %cmp2, label %if.then3, label %if.end4
@@ -436,7 +436,7 @@ if.end6:                                          ; preds = %if.end4
   br i1 %tobool24.not.i, label %if.end6.thread.i, label %while.body.lr.ph.i
 
 if.end6.thread.i:                                 ; preds = %if.end6
-  %struct_ref26.i = getelementptr inbounds i8, ptr %e, i64 156
+  %struct_ref26.i = getelementptr inbounds nuw i8, ptr %e, i64 156
   %3 = atomicrmw add ptr %struct_ref26.i, i32 1 monotonic, align 4
   %4 = load ptr, ptr @engine_list_tail, align 8
   %cmp14.not.i = icmp eq ptr %4, null
@@ -451,7 +451,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %6 = load ptr, ptr %iterator.025.i, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %5) #5
   %cmp3.i = icmp ne i32 %call.i, 0
-  %next.i = getelementptr inbounds i8, ptr %iterator.025.i, i64 192
+  %next.i = getelementptr inbounds nuw i8, ptr %iterator.025.i, i64 192
   %iterator.0.i = load ptr, ptr %next.i, align 8
   %tobool.i = icmp ne ptr %iterator.0.i, null
   %7 = select i1 %tobool.i, i1 %cmp3.i, i1 false
@@ -461,7 +461,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp3.i, label %if.end6.i, label %if.then9
 
 if.end6.i:                                        ; preds = %while.end.i
-  %struct_ref.i = getelementptr inbounds i8, ptr %e, i64 156
+  %struct_ref.i = getelementptr inbounds nuw i8, ptr %e, i64 156
   %8 = atomicrmw add ptr %struct_ref.i, i32 1 monotonic, align 4
   %9 = load ptr, ptr @engine_list_tail, align 8
   %cmp26.i = icmp eq ptr %9, null
@@ -487,7 +487,7 @@ if.end25.i:                                       ; preds = %if.end19.i
   br label %engine_list_add.exit
 
 lor.lhs.false.i:                                  ; preds = %if.end6.i
-  %next28.i = getelementptr inbounds i8, ptr %9, i64 192
+  %next28.i = getelementptr inbounds nuw i8, ptr %9, i64 192
   %12 = load ptr, ptr %next28.i, align 8
   %cmp29.not.i = icmp eq ptr %12, null
   br i1 %cmp29.not.i, label %if.end34.i, label %if.then31.i
@@ -503,10 +503,10 @@ if.end34.i:                                       ; preds = %lor.lhs.false.i
 
 engine_list_add.exit:                             ; preds = %if.end25.i, %if.end34.i
   %.sink.i = phi ptr [ %9, %if.end34.i ], [ null, %if.end25.i ]
-  %prev36.i = getelementptr inbounds i8, ptr %e, i64 184
+  %prev36.i = getelementptr inbounds nuw i8, ptr %e, i64 184
   store ptr %.sink.i, ptr %prev36.i, align 8
   store ptr %e, ptr @engine_list_tail, align 8
-  %next38.i = getelementptr inbounds i8, ptr %e, i64 192
+  %next38.i = getelementptr inbounds nuw i8, ptr %e, i64 192
   store ptr null, ptr %next38.i, align 8
   br label %if.end10
 
@@ -561,7 +561,7 @@ while.cond.i:                                     ; preds = %if.end, %while.cond
   %tobool.i = icmp ne ptr %iterator.0.i, null
   %cmp1.i = icmp ne ptr %iterator.0.i, %e
   %1 = and i1 %tobool.i, %cmp1.i
-  %next.i = getelementptr inbounds i8, ptr %iterator.0.i, i64 192
+  %next.i = getelementptr inbounds nuw i8, ptr %iterator.0.i, i64 192
   br i1 %1, label %while.cond.i, label %while.end.i, !llvm.loop !7
 
 while.end.i:                                      ; preds = %while.cond.i
@@ -569,15 +569,15 @@ while.end.i:                                      ; preds = %while.cond.i
   br i1 %cmp2.i, label %if.then5, label %if.end4.i
 
 if.end4.i:                                        ; preds = %while.end.i
-  %next5.i = getelementptr inbounds i8, ptr %e, i64 192
+  %next5.i = getelementptr inbounds nuw i8, ptr %e, i64 192
   %2 = load ptr, ptr %next5.i, align 8
   %tobool6.not.i = icmp eq ptr %2, null
-  %prev11.phi.trans.insert.i = getelementptr inbounds i8, ptr %e, i64 184
+  %prev11.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %e, i64 184
   %.pre.i = load ptr, ptr %prev11.phi.trans.insert.i, align 8
   br i1 %tobool6.not.i, label %if.end10.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end4.i
-  %prev9.i = getelementptr inbounds i8, ptr %2, i64 184
+  %prev9.i = getelementptr inbounds nuw i8, ptr %2, i64 184
   store ptr %.pre.i, ptr %prev9.i, align 8
   br label %if.end10.i
 
@@ -587,7 +587,7 @@ if.end10.i:                                       ; preds = %if.then7.i, %if.end
 
 if.then13.i:                                      ; preds = %if.end10.i
   %3 = load ptr, ptr %next5.i, align 8
-  %next16.i = getelementptr inbounds i8, ptr %.pre.i, i64 192
+  %next16.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 192
   store ptr %3, ptr %next16.i, align 8
   br label %if.end17.i
 
@@ -681,13 +681,13 @@ land.rhs:                                         ; preds = %while.cond.preheade
   br i1 %cmp11.not, label %if.then13, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %next = getelementptr inbounds i8, ptr %iterator.029, i64 192
+  %next = getelementptr inbounds nuw i8, ptr %iterator.029, i64 192
   %iterator.0 = load ptr, ptr %next, align 8
   %tobool8.not = icmp eq ptr %iterator.0, null
   br i1 %tobool8.not, label %if.end31, label %land.rhs, !llvm.loop !8
 
 if.then13:                                        ; preds = %land.rhs
-  %flags = getelementptr inbounds i8, ptr %iterator.029, i64 152
+  %flags = getelementptr inbounds nuw i8, ptr %iterator.029, i64 152
   %3 = load i32, ptr %flags, align 8
   %and = and i32 %3, 4
   %tobool14.not = icmp eq i32 %and, 0
@@ -703,7 +703,7 @@ if.else:                                          ; preds = %if.then15
   br label %if.end27
 
 if.else20:                                        ; preds = %if.then13
-  %struct_ref = getelementptr inbounds i8, ptr %iterator.029, i64 156
+  %struct_ref = getelementptr inbounds nuw i8, ptr %iterator.029, i64 156
   %4 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %if.end27
 
@@ -778,77 +778,77 @@ define internal fastcc void @engine_cpy(ptr noundef nonnull initializes((0, 80),
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %dest, align 8
-  %name = getelementptr inbounds i8, ptr %src, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %src, i64 8
   %1 = load ptr, ptr %name, align 8
-  %name2 = getelementptr inbounds i8, ptr %dest, i64 8
+  %name2 = getelementptr inbounds nuw i8, ptr %dest, i64 8
   store ptr %1, ptr %name2, align 8
-  %rsa_meth = getelementptr inbounds i8, ptr %src, i64 16
+  %rsa_meth = getelementptr inbounds nuw i8, ptr %src, i64 16
   %2 = load ptr, ptr %rsa_meth, align 8
-  %rsa_meth3 = getelementptr inbounds i8, ptr %dest, i64 16
+  %rsa_meth3 = getelementptr inbounds nuw i8, ptr %dest, i64 16
   store ptr %2, ptr %rsa_meth3, align 8
-  %dsa_meth = getelementptr inbounds i8, ptr %src, i64 24
+  %dsa_meth = getelementptr inbounds nuw i8, ptr %src, i64 24
   %3 = load ptr, ptr %dsa_meth, align 8
-  %dsa_meth4 = getelementptr inbounds i8, ptr %dest, i64 24
+  %dsa_meth4 = getelementptr inbounds nuw i8, ptr %dest, i64 24
   store ptr %3, ptr %dsa_meth4, align 8
-  %dh_meth = getelementptr inbounds i8, ptr %src, i64 32
+  %dh_meth = getelementptr inbounds nuw i8, ptr %src, i64 32
   %4 = load ptr, ptr %dh_meth, align 8
-  %dh_meth5 = getelementptr inbounds i8, ptr %dest, i64 32
+  %dh_meth5 = getelementptr inbounds nuw i8, ptr %dest, i64 32
   store ptr %4, ptr %dh_meth5, align 8
-  %ec_meth = getelementptr inbounds i8, ptr %src, i64 40
+  %ec_meth = getelementptr inbounds nuw i8, ptr %src, i64 40
   %5 = load ptr, ptr %ec_meth, align 8
-  %ec_meth6 = getelementptr inbounds i8, ptr %dest, i64 40
+  %ec_meth6 = getelementptr inbounds nuw i8, ptr %dest, i64 40
   store ptr %5, ptr %ec_meth6, align 8
-  %rand_meth = getelementptr inbounds i8, ptr %src, i64 48
+  %rand_meth = getelementptr inbounds nuw i8, ptr %src, i64 48
   %6 = load ptr, ptr %rand_meth, align 8
-  %rand_meth7 = getelementptr inbounds i8, ptr %dest, i64 48
+  %rand_meth7 = getelementptr inbounds nuw i8, ptr %dest, i64 48
   store ptr %6, ptr %rand_meth7, align 8
-  %ciphers = getelementptr inbounds i8, ptr %src, i64 56
+  %ciphers = getelementptr inbounds nuw i8, ptr %src, i64 56
   %7 = load ptr, ptr %ciphers, align 8
-  %ciphers8 = getelementptr inbounds i8, ptr %dest, i64 56
+  %ciphers8 = getelementptr inbounds nuw i8, ptr %dest, i64 56
   store ptr %7, ptr %ciphers8, align 8
-  %digests = getelementptr inbounds i8, ptr %src, i64 64
+  %digests = getelementptr inbounds nuw i8, ptr %src, i64 64
   %8 = load ptr, ptr %digests, align 8
-  %digests9 = getelementptr inbounds i8, ptr %dest, i64 64
+  %digests9 = getelementptr inbounds nuw i8, ptr %dest, i64 64
   store ptr %8, ptr %digests9, align 8
-  %pkey_meths = getelementptr inbounds i8, ptr %src, i64 72
+  %pkey_meths = getelementptr inbounds nuw i8, ptr %src, i64 72
   %9 = load ptr, ptr %pkey_meths, align 8
-  %pkey_meths10 = getelementptr inbounds i8, ptr %dest, i64 72
+  %pkey_meths10 = getelementptr inbounds nuw i8, ptr %dest, i64 72
   store ptr %9, ptr %pkey_meths10, align 8
-  %destroy = getelementptr inbounds i8, ptr %src, i64 88
+  %destroy = getelementptr inbounds nuw i8, ptr %src, i64 88
   %10 = load ptr, ptr %destroy, align 8
-  %destroy11 = getelementptr inbounds i8, ptr %dest, i64 88
+  %destroy11 = getelementptr inbounds nuw i8, ptr %dest, i64 88
   store ptr %10, ptr %destroy11, align 8
-  %init = getelementptr inbounds i8, ptr %src, i64 96
+  %init = getelementptr inbounds nuw i8, ptr %src, i64 96
   %11 = load ptr, ptr %init, align 8
-  %init12 = getelementptr inbounds i8, ptr %dest, i64 96
+  %init12 = getelementptr inbounds nuw i8, ptr %dest, i64 96
   store ptr %11, ptr %init12, align 8
-  %finish = getelementptr inbounds i8, ptr %src, i64 104
+  %finish = getelementptr inbounds nuw i8, ptr %src, i64 104
   %12 = load ptr, ptr %finish, align 8
-  %finish13 = getelementptr inbounds i8, ptr %dest, i64 104
+  %finish13 = getelementptr inbounds nuw i8, ptr %dest, i64 104
   store ptr %12, ptr %finish13, align 8
-  %ctrl = getelementptr inbounds i8, ptr %src, i64 112
+  %ctrl = getelementptr inbounds nuw i8, ptr %src, i64 112
   %13 = load ptr, ptr %ctrl, align 8
-  %ctrl14 = getelementptr inbounds i8, ptr %dest, i64 112
+  %ctrl14 = getelementptr inbounds nuw i8, ptr %dest, i64 112
   store ptr %13, ptr %ctrl14, align 8
-  %load_privkey = getelementptr inbounds i8, ptr %src, i64 120
+  %load_privkey = getelementptr inbounds nuw i8, ptr %src, i64 120
   %14 = load ptr, ptr %load_privkey, align 8
-  %load_privkey15 = getelementptr inbounds i8, ptr %dest, i64 120
+  %load_privkey15 = getelementptr inbounds nuw i8, ptr %dest, i64 120
   store ptr %14, ptr %load_privkey15, align 8
-  %load_pubkey = getelementptr inbounds i8, ptr %src, i64 128
+  %load_pubkey = getelementptr inbounds nuw i8, ptr %src, i64 128
   %15 = load ptr, ptr %load_pubkey, align 8
-  %load_pubkey16 = getelementptr inbounds i8, ptr %dest, i64 128
+  %load_pubkey16 = getelementptr inbounds nuw i8, ptr %dest, i64 128
   store ptr %15, ptr %load_pubkey16, align 8
-  %cmd_defns = getelementptr inbounds i8, ptr %src, i64 144
+  %cmd_defns = getelementptr inbounds nuw i8, ptr %src, i64 144
   %16 = load ptr, ptr %cmd_defns, align 8
-  %cmd_defns17 = getelementptr inbounds i8, ptr %dest, i64 144
+  %cmd_defns17 = getelementptr inbounds nuw i8, ptr %dest, i64 144
   store ptr %16, ptr %cmd_defns17, align 8
-  %flags = getelementptr inbounds i8, ptr %src, i64 152
+  %flags = getelementptr inbounds nuw i8, ptr %src, i64 152
   %17 = load i32, ptr %flags, align 8
-  %flags18 = getelementptr inbounds i8, ptr %dest, i64 152
+  %flags18 = getelementptr inbounds nuw i8, ptr %dest, i64 152
   store i32 %17, ptr %flags18, align 8
-  %dynamic_id = getelementptr inbounds i8, ptr %src, i64 216
+  %dynamic_id = getelementptr inbounds nuw i8, ptr %src, i64 216
   %18 = load ptr, ptr %dynamic_id, align 8
-  %dynamic_id19 = getelementptr inbounds i8, ptr %dest, i64 216
+  %dynamic_id19 = getelementptr inbounds nuw i8, ptr %dest, i64 216
   store ptr %18, ptr %dynamic_id19, align 8
   %cmp2.i = icmp eq ptr %18, null
   br i1 %cmp2.i, label %engine_add_dynamic_id.exit, label %if.end5.i
@@ -871,7 +871,7 @@ if.else.i:                                        ; preds = %if.end5.i
   br i1 %cmp25.not.i, label %engine_add_dynamic_id.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.else.i
-  %next_dyn.i = getelementptr inbounds i8, ptr %19, i64 208
+  %next_dyn.i = getelementptr inbounds nuw i8, ptr %19, i64 208
   %20 = load ptr, ptr %next_dyn.i, align 8
   %cmp29.not.i = icmp eq ptr %20, null
   br i1 %cmp29.not.i, label %if.end31.i, label %engine_add_dynamic_id.exit
@@ -882,10 +882,10 @@ if.end31.i:                                       ; preds = %lor.lhs.false.i
 
 if.end34.i:                                       ; preds = %if.end31.i, %if.end27.i
   %.sink.i = phi ptr [ %19, %if.end31.i ], [ null, %if.end27.i ]
-  %prev_dyn33.i = getelementptr inbounds i8, ptr %dest, i64 200
+  %prev_dyn33.i = getelementptr inbounds nuw i8, ptr %dest, i64 200
   store ptr %.sink.i, ptr %prev_dyn33.i, align 8
   store ptr %dest, ptr @engine_dyn_list_tail, align 8
-  %next_dyn35.i = getelementptr inbounds i8, ptr %dest, i64 208
+  %next_dyn35.i = getelementptr inbounds nuw i8, ptr %dest, i64 208
   store ptr null, ptr %next_dyn35.i, align 8
   br label %engine_add_dynamic_id.exit
 
@@ -910,7 +910,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %struct_ref = getelementptr inbounds i8, ptr %e, i64 156
+  %struct_ref = getelementptr inbounds nuw i8, ptr %e, i64 156
   %0 = atomicrmw add ptr %struct_ref, i32 1 monotonic, align 4
   br label %return
 

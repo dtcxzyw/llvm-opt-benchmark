@@ -14,15 +14,15 @@ define hidden i32 @MuxImageFinalize(ptr nocapture noundef %0) local_unnamed_addr
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %6, align 8
   %9 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 72), align 8
   %10 = icmp eq i32 %8, %9
   store i32 0, ptr %4, align 4
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load i64, ptr %12, align 8
   br i1 %10, label %14, label %.thread
 
@@ -37,7 +37,7 @@ define hidden i32 @MuxImageFinalize(ptr nocapture noundef %0) local_unnamed_addr
   br i1 %.not20, label %36, label %.thread21
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not18 = icmp eq ptr %19, null
   br i1 %.not18, label %.thread21, label %20
@@ -50,17 +50,17 @@ define hidden i32 @MuxImageFinalize(ptr nocapture noundef %0) local_unnamed_addr
 .thread21:                                        ; preds = %.thread, %20, %17
   %22 = phi i32 [ %15, %20 ], [ %15, %17 ], [ %16, %.thread ]
   %23 = load i32, ptr %2, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %23, ptr %24, align 8
   %25 = load i32, ptr %3, align 4
-  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %25, ptr %26, align 4
   %27 = load i32, ptr %4, align 4
   %.not19 = icmp eq i32 %27, 0
   br i1 %.not19, label %28, label %33
 
 28:                                               ; preds = %.thread21
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp ne ptr %30, null
   %32 = zext i1 %31 to i32
@@ -68,7 +68,7 @@ define hidden i32 @MuxImageFinalize(ptr nocapture noundef %0) local_unnamed_addr
 
 33:                                               ; preds = %28, %.thread21
   %34 = phi i32 [ 1, %.thread21 ], [ %32, %28 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %34, ptr %35, align 8
   br label %36
 
@@ -98,7 +98,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq ptr %9, null
   %13 = icmp ult i64 %11, 20
@@ -111,7 +111,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
   br i1 %.not82, label %15, label %144
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.val.i103 = load i32, ptr %16, align 1
   %.not83 = icmp eq i32 %.val.i103, 1346520407
   br i1 %.not83, label %17, label %144
@@ -122,10 +122,10 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
   br i1 %19, label %144, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %9, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %.val.i105 = load i16, ptr %21, align 1
   %22 = zext i16 %.val.i105 to i32
-  %23 = getelementptr inbounds i8, ptr %9, i64 14
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 14
   %.val3.i106 = load i16, ptr %23, align 1
   %24 = zext i16 %.val3.i106 to i32
   %25 = shl nuw i32 %24, 16
@@ -141,10 +141,10 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
   br i1 %or.cond100, label %30, label %.loopexit
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %9, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.val.i107 = load i16, ptr %31, align 1
   %32 = zext i16 %.val.i107 to i32
-  %33 = getelementptr inbounds i8, ptr %9, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %.val3.i108 = load i16, ptr %33, align 1
   %34 = zext i16 %.val3.i108 to i32
   %35 = shl nuw i32 %34, 16
@@ -163,7 +163,7 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
 44:                                               ; preds = %38
   %45 = add nuw nsw i64 %41, 16
   %spec.select = call i64 @llvm.umin.i64(i64 %11, i64 %45)
-  %46 = getelementptr inbounds i8, ptr %9, i64 %spec.select
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 %spec.select
   %47 = call ptr @WebPSafeMalloc(i64 noundef 1, i64 noundef 56) #6
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit, label %.lr.ph
@@ -171,13 +171,13 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
 .lr.ph:                                           ; preds = %44
   call void @MuxImageInit(ptr noundef nonnull %47) #6
   %49 = add nsw i64 %spec.select, -12
-  %50 = getelementptr inbounds i8, ptr %4, i64 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 16
-  %52 = getelementptr inbounds i8, ptr %47, i64 44
-  %53 = getelementptr inbounds i8, ptr %47, i64 16
-  %54 = getelementptr inbounds i8, ptr %47, i64 8
-  %55 = getelementptr inbounds i8, ptr %18, i64 56
-  %56 = getelementptr inbounds i8, ptr %18, i64 60
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 44
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %18, i64 60
   br label %57
 
 57:                                               ; preds = %.lr.ph, %133
@@ -188,10 +188,10 @@ define ptr @WebPMuxCreateInternal(ptr noundef readonly %0, i32 noundef %1, i32 n
   br i1 %58, label %ChunkVerifyAndAssign.exit.thread, label %59
 
 59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %.070115, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %.070115, i64 4
   %.val.i.i = load i16, ptr %60, align 1
   %61 = zext i16 %.val.i.i to i32
-  %62 = getelementptr inbounds i8, ptr %.070115, i64 6
+  %62 = getelementptr inbounds nuw i8, ptr %.070115, i64 6
   %.val3.i.i = load i16, ptr %62, align 1
   %63 = zext i16 %.val3.i.i to i32
   %64 = shl nuw i32 %63, 16
@@ -214,7 +214,7 @@ ChunkVerifyAndAssign.exit.thread:                 ; preds = %57, %59, %67
   br label %.loopexit
 
 ChunkVerifyAndAssign.exit:                        ; preds = %67
-  %74 = getelementptr inbounds i8, ptr %.070115, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %.070115, i64 8
   store ptr %74, ptr %4, align 8
   store i64 %68, ptr %50, align 8
   %.val.i16.i = load i32, ptr %.070115, align 1
@@ -294,7 +294,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %67
 
 103:                                              ; preds = %101
   %104 = zext i32 %81 to i64
-  %105 = getelementptr inbounds [11 x ptr], ptr %6, i64 0, i64 %104
+  %105 = getelementptr inbounds nuw [11 x ptr], ptr %6, i64 0, i64 %104
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %110
@@ -318,20 +318,20 @@ ChunkVerifyAndAssign.exit:                        ; preds = %67
   br i1 %115, label %.loopexit, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %.070115, i64 12
+  %117 = getelementptr inbounds nuw i8, ptr %.070115, i64 12
   %.val.i109 = load i16, ptr %117, align 1
   %118 = zext i16 %.val.i109 to i32
-  %119 = getelementptr inbounds i8, ptr %.070115, i64 14
+  %119 = getelementptr inbounds nuw i8, ptr %.070115, i64 14
   %120 = load i8, ptr %119, align 1
   %121 = zext i8 %120 to i32
   %122 = shl nuw nsw i32 %121, 16
   %123 = or disjoint i32 %122, %118
   %124 = add nuw nsw i32 %123, 1
   store i32 %124, ptr %55, align 8
-  %125 = getelementptr inbounds i8, ptr %.070115, i64 15
+  %125 = getelementptr inbounds nuw i8, ptr %.070115, i64 15
   %.val.i110 = load i16, ptr %125, align 1
   %126 = zext i16 %.val.i110 to i32
-  %127 = getelementptr inbounds i8, ptr %.070115, i64 17
+  %127 = getelementptr inbounds nuw i8, ptr %.070115, i64 17
   %128 = load i8, ptr %127, align 1
   %129 = zext i8 %128 to i32
   %130 = shl nuw nsw i32 %129, 16
@@ -341,14 +341,14 @@ ChunkVerifyAndAssign.exit:                        ; preds = %67
   br label %133
 
 133:                                              ; preds = %112, %116, %94, %86
-  %134 = getelementptr inbounds i8, ptr %.070115, i64 %79
+  %134 = getelementptr inbounds nuw i8, ptr %.070115, i64 %79
   %135 = sub i64 %.1116, %79
   call void @ChunkInit(ptr noundef nonnull %5) #6
   %.not87 = icmp eq ptr %134, %46
   br i1 %.not87, label %._crit_edge, label %57, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %47, i64 44
+  %136 = getelementptr inbounds nuw i8, ptr %47, i64 44
   %137 = load i32, ptr %136, align 4
   %.not88 = icmp eq i32 %137, 0
   br i1 %.not88, label %138, label %.loopexit
@@ -395,18 +395,18 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef 
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %struct.WebPData, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq ptr %9, null
   %13 = getelementptr inbounds i8, ptr %9, i64 %11
   %14 = select i1 %12, ptr null, ptr %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %15, ptr %6, align 8
   call void @ChunkInit(ptr noundef nonnull %5) #6
   store ptr %9, ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 16, ptr %16, align 8
   %17 = icmp ult i64 %11, 16
   br i1 %17, label %.loopexit, label %18
@@ -423,21 +423,21 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef 
   br i1 %.not38, label %23, label %.loopexit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %2, i64 44
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 44
   store i32 1, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %5, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.val49 = load i64, ptr %25, align 8
   %26 = add i64 %.val49, 1
   %27 = and i64 %26, 4294967294
-  %28 = getelementptr inbounds i8, ptr %9, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 %27
   %.not3952 = icmp eq ptr %28, %14
   br i1 %.not3952, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %29 = sub i64 %11, %27
-  %30 = getelementptr inbounds i8, ptr %4, i64 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 16
-  %32 = getelementptr inbounds i8, ptr %2, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %33
 
 33:                                               ; preds = %.lr.ph, %68
@@ -449,10 +449,10 @@ define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef 
   br i1 %34, label %ChunkVerifyAndAssign.exit.thread, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.03554, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.03554, i64 4
   %.val.i.i = load i16, ptr %36, align 1
   %37 = zext i16 %.val.i.i to i32
-  %38 = getelementptr inbounds i8, ptr %.03554, i64 6
+  %38 = getelementptr inbounds nuw i8, ptr %.03554, i64 6
   %.val3.i.i = load i16, ptr %38, align 1
   %39 = zext i16 %.val3.i.i to i32
   %40 = shl nuw i32 %39, 16
@@ -473,7 +473,7 @@ ChunkVerifyAndAssign.exit.thread:                 ; preds = %33, %35, %43
   br label %.loopexit
 
 ChunkVerifyAndAssign.exit:                        ; preds = %43
-  %49 = getelementptr inbounds i8, ptr %.03554, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.03554, i64 8
   store ptr %49, ptr %4, align 8
   store i64 %44, ptr %30, align 8
   %.val.i16.i = load i32, ptr %.03554, align 1
@@ -536,7 +536,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %43
   %69 = add i64 %.val, 1
   %70 = and i64 %69, 4294967294
   %71 = add nuw nsw i64 %70, 8
-  %72 = getelementptr inbounds i8, ptr %.03554, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %.03554, i64 %71
   %73 = sub i64 %.03653, %71
   %.not39 = icmp eq ptr %72, %14
   br i1 %.not39, label %._crit_edge, label %33, !llvm.loop !6
@@ -587,7 +587,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noundef nonnull readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @kChunks, align 16
   %8 = tail call ptr @ChunkSearchList(ptr noundef %6, i32 noundef 1, i32 noundef %7) #6
@@ -595,28 +595,28 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
   br i1 %.not40.i, label %29, label %9
 
 9:                                                ; preds = %4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %10 = icmp ult i64 %.sroa.5.0.copyload, 10
   br i1 %10, label %63, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %12, align 8
   %.val.i = load i32, ptr %.sroa.0.0.copyload, align 1
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
   %.val.i39 = load i16, ptr %13, align 1
   %14 = zext i16 %.val.i39 to i32
-  %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 6
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 6
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = shl nuw nsw i32 %17, 16
   %19 = or disjoint i32 %18, %14
   %20 = add nuw nsw i32 %19, 1
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 7
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 7
   %.val.i40 = load i16, ptr %21, align 1
   %22 = zext i16 %.val.i40 to i32
-  %23 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 9
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 9
   %24 = load i8, ptr %23, align 1
   %25 = zext i8 %24 to i32
   %26 = shl nuw nsw i32 %25, 16
@@ -626,9 +626,9 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
 
 29:                                               ; preds = %4
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 60
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %34 = load i32, ptr %33, align 4
   %35 = icmp eq i32 %32, 0
   %36 = icmp eq i32 %34, 0
@@ -645,9 +645,9 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
   br i1 %43, label %.thread, label %48
 
 .thread:                                          ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %30, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %45 = load i32, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %30, i64 36
+  %46 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %47 = load i32, ptr %46, align 4
   br label %49
 
@@ -659,7 +659,7 @@ define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noun
 49:                                               ; preds = %.thread, %48
   %.152 = phi i32 [ %47, %.thread ], [ %.1, %48 ]
   %.12751 = phi i32 [ %45, %.thread ], [ %32, %48 ]
-  %50 = getelementptr inbounds i8, ptr %30, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %51 = load i32, ptr %50, align 8
   %.not35 = icmp eq i32 %51, 0
   %spec.select = select i1 %.not35, i32 0, i32 16
@@ -732,7 +732,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr nounde
 7:                                                ; preds = %3
   %8 = tail call i32 @ChunkGetIndexFromFourCC(ptr noundef nonnull %1) #6
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %9, i32 1
+  %10 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %9, i32 1
   %11 = load i32, ptr %10, align 4
   switch i32 %11, label %12 [
     i32 3, label %IsWPI.exit
@@ -749,7 +749,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr nounde
   br label %IsWPI.exit
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @ChunkGetTagFromFourCC(ptr noundef nonnull %1) #6
   %19 = tail call ptr @ChunkSearchList(ptr noundef %17, i32 noundef 1, i32 noundef %18) #6
@@ -757,7 +757,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly %0, ptr nounde
   br i1 %20, label %IsWPI.exit, label %21
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
   br label %IsWPI.exit
 
@@ -780,7 +780,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull
   ]
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @kChunks, align 16
   %8 = tail call ptr @ChunkSearchList(ptr noundef %6, i32 noundef 1, i32 noundef %7) #6
@@ -788,7 +788,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull
   br i1 %.not40, label %30, label %.sink.split
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 12), align 4
   %13 = tail call ptr @ChunkSearchList(ptr noundef %11, i32 noundef 1, i32 noundef %12) #6
@@ -796,7 +796,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull
   br i1 %.not39, label %30, label %.sink.split
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 24), align 8
   %18 = tail call ptr @ChunkSearchList(ptr noundef %16, i32 noundef 1, i32 noundef %17) #6
@@ -804,7 +804,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull
   br i1 %.not38, label %30, label %.sink.split
 
 19:                                               ; preds = %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 84), align 4
   %23 = tail call ptr @ChunkSearchList(ptr noundef %21, i32 noundef 1, i32 noundef %22) #6
@@ -812,7 +812,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull
   br i1 %.not37, label %30, label %.sink.split
 
 24:                                               ; preds = %3
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 96), align 16
   %28 = tail call ptr @ChunkSearchList(ptr noundef %26, i32 noundef 1, i32 noundef %27) #6
@@ -821,7 +821,7 @@ define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull
 
 .sink.split:                                      ; preds = %24, %19, %14, %9, %4
   %.sink41 = phi ptr [ %8, %4 ], [ %13, %9 ], [ %18, %14 ], [ %23, %19 ], [ %28, %24 ]
-  %29 = getelementptr inbounds i8, ptr %.sink41, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sink41, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %29, i64 16, i1 false)
   br label %30
 
@@ -857,17 +857,17 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %2, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %2, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %2, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %2, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %10, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %MuxGetFrameInternal.exit.sink.split
 
 20:                                               ; preds = %9
@@ -877,7 +877,7 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   br i1 %23, label %24, label %MuxGetFrameInternal.exit
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %11, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %26 = load i64, ptr %25, align 8
   %27 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 44), align 4
   %28 = zext i32 %27 to i64
@@ -885,50 +885,50 @@ define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   br i1 %29, label %MuxGetFrameInternal.exit, label %30
 
 30:                                               ; preds = %24
-  %31 = getelementptr inbounds i8, ptr %11, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %32 = load ptr, ptr %31, align 8
   %.val.i.i = load i16, ptr %32, align 1
   %33 = zext i16 %.val.i.i to i32
-  %34 = getelementptr inbounds i8, ptr %32, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i32
   %37 = shl nuw nsw i32 %36, 17
   %38 = shl nuw nsw i32 %33, 1
   %39 = or disjoint i32 %37, %38
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %39, ptr %40, align 8
   %41 = load ptr, ptr %31, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 3
   %.val.i19.i = load i16, ptr %42, align 1
   %43 = zext i16 %.val.i19.i to i32
-  %44 = getelementptr inbounds i8, ptr %41, i64 5
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 5
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 17
   %48 = shl nuw nsw i32 %43, 1
   %49 = or disjoint i32 %47, %48
-  %50 = getelementptr inbounds i8, ptr %2, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %49, ptr %50, align 4
   %51 = load ptr, ptr %31, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 15
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 15
   %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %51, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %.val.i20.i = load i16, ptr %54, align 1
   %55 = zext i16 %.val.i20.i to i32
-  %56 = getelementptr inbounds i8, ptr %51, i64 14
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 14
   %57 = load i8, ptr %56, align 1
   %58 = zext i8 %57 to i32
   %59 = shl nuw nsw i32 %58, 16
   %60 = or disjoint i32 %59, %55
-  %61 = getelementptr inbounds i8, ptr %2, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %60, ptr %61, align 8
   %62 = zext i8 %53 to i32
   %63 = and i32 %62, 1
-  %64 = getelementptr inbounds i8, ptr %2, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %63, ptr %64, align 8
   %65 = lshr i32 %62, 1
   %.lobit.i = and i32 %65, 1
-  %66 = getelementptr inbounds i8, ptr %2, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %.lobit.i, ptr %66, align 4
   br label %MuxGetFrameInternal.exit.sink.split
 
@@ -937,7 +937,7 @@ MuxGetFrameInternal.exit.sink.split:              ; preds = %13, %30
   %.sink = load ptr, ptr %.sink.in, align 8
   %67 = load i32, ptr %.sink, align 8
   %68 = call i32 @ChunkGetIdFromTag(i32 noundef %67) #6
-  %69 = getelementptr inbounds i8, ptr %2, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %68, ptr %69, align 4
   %70 = call fastcc i32 @SynthesizeBitstream(ptr noundef nonnull readonly %10, ptr noundef nonnull %2)
   br label %MuxGetFrameInternal.exit
@@ -957,7 +957,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly %0, 
   br i1 %or.cond, label %MuxGet.exit.thread, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 24), align 8
   %9 = tail call ptr @ChunkSearchList(ptr noundef %7, i32 noundef 1, i32 noundef %8) #6
@@ -965,7 +965,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly %0, 
   br i1 %.not38.i, label %MuxGet.exit.thread, label %10
 
 10:                                               ; preds = %5
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
   %11 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 32), align 16
   %12 = zext i32 %11 to i64
@@ -973,14 +973,14 @@ define range(i32 -2, 2) i32 @WebPMuxGetAnimationParams(ptr noundef readonly %0, 
   br i1 %13, label %MuxGet.exit.thread, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %15, align 8
   %.val.i = load i32, ptr %.sroa.0.0.copyload, align 1
   store i32 %.val.i, ptr %1, align 4
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
   %.val = load i16, ptr %16, align 1
   %17 = zext i16 %.val to i32
-  %18 = getelementptr inbounds i8, ptr %1, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %17, ptr %18, align 4
   br label %MuxGet.exit.thread
 
@@ -1010,7 +1010,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 
 9:                                                ; preds = %6
   %10 = tail call ptr @MuxGetChunkListFromId(ptr noundef nonnull %0, i32 noundef %1) #6
-  %11 = load i32, ptr getelementptr inbounds (i8, ptr @kChunks, i64 4), align 4
+  %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @kChunks, i64 4), align 4
   %.not8.i = icmp eq i32 %11, 10
   br i1 %.not8.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i
 
@@ -1022,7 +1022,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = getelementptr inbounds [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i, i32 1
+  %15 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %indvars.iv.next.i, i32 1
   %16 = load i32, ptr %15, align 4
   %.not.i = icmp eq i32 %16, 10
   br i1 %.not.i, label %ChunkGetIndexFromId.exit, label %.lr.ph.i, !llvm.loop !7
@@ -1034,7 +1034,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit13.i
   %.06.i = phi i64 [ 10, %9 ], [ %17, %._crit_edge.loopexit.split.loop.exit13.i ], [ 10, %14 ]
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %.06.i
+  %19 = getelementptr inbounds nuw [11 x %struct.ChunkInfo], ptr @kChunks, i64 0, i64 %.06.i
   %20 = load i32, ptr %19, align 4
   %.not9.i = icmp eq ptr %18, null
   br i1 %.not9.i, label %CountChunks.exit, label %.lr.ph.i15
@@ -1047,7 +1047,7 @@ ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edg
   %.011.us.i = phi ptr [ %24, %.lr.ph.split.us.i ], [ %18, %.lr.ph.i15 ]
   %.0710.us.i = phi i32 [ %22, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i15 ]
   %22 = add nuw nsw i32 %.0710.us.i, 1
-  %23 = getelementptr inbounds i8, ptr %.011.us.i, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %.011.us.i, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not.us.i = icmp eq ptr %24, null
   br i1 %.not.us.i, label %CountChunks.exit, label %.lr.ph.split.us.i, !llvm.loop !8
@@ -1059,7 +1059,7 @@ ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edg
   %26 = icmp eq i32 %25, %20
   %27 = zext i1 %26 to i32
   %spec.select.i = add nuw nsw i32 %.0710.i, %27
-  %28 = getelementptr inbounds i8, ptr %.011.i, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.011.i, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i16 = icmp eq ptr %29, null
   br i1 %.not.i16, label %CountChunks.exit, label %.lr.ph.split.i, !llvm.loop !8
@@ -1082,7 +1082,7 @@ declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef)
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -1098,7 +1098,7 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture n
 10:                                               ; preds = %2, %5
   %11 = phi i64 [ 38, %5 ], [ 20, %2 ]
   %12 = phi i64 [ %9, %5 ], [ 0, %2 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %14, i64 16
   %.val = load i64, ptr %15, align 8
@@ -1115,58 +1115,58 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture n
   br i1 %.not, label %61, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load i32, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %28 = load i32, ptr %27, align 4
   store i8 86, ptr %23, align 1
-  %29 = getelementptr inbounds i8, ptr %23, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 80, ptr %29, align 1
-  %30 = getelementptr inbounds i8, ptr %23, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 2
   store i8 56, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %23, i64 3
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 3
   store i8 88, ptr %31, align 1
-  %32 = getelementptr inbounds i8, ptr %23, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i8 10, ptr %32, align 1
-  %33 = getelementptr inbounds i8, ptr %23, i64 5
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 5
   store i8 0, ptr %33, align 1
-  %34 = getelementptr inbounds i8, ptr %23, i64 6
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 6
   store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds i8, ptr %23, i64 7
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 7
   store i8 0, ptr %35, align 1
-  %36 = getelementptr inbounds i8, ptr %23, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i8 16, ptr %36, align 1
-  %37 = getelementptr inbounds i8, ptr %23, i64 9
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 9
   store i8 0, ptr %37, align 1
-  %38 = getelementptr inbounds i8, ptr %23, i64 10
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 10
   store i8 0, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %23, i64 11
+  %39 = getelementptr inbounds nuw i8, ptr %23, i64 11
   store i8 0, ptr %39, align 1
-  %40 = getelementptr inbounds i8, ptr %23, i64 12
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 12
   %41 = add nsw i32 %26, -1
   %42 = trunc i32 %41 to i8
   store i8 %42, ptr %40, align 1
   %43 = lshr i32 %41, 8
   %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds i8, ptr %23, i64 13
+  %45 = getelementptr inbounds nuw i8, ptr %23, i64 13
   store i8 %44, ptr %45, align 1
   %46 = lshr i32 %41, 16
   %47 = trunc i32 %46 to i8
-  %48 = getelementptr inbounds i8, ptr %23, i64 14
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 14
   store i8 %47, ptr %48, align 1
-  %49 = getelementptr inbounds i8, ptr %23, i64 15
+  %49 = getelementptr inbounds nuw i8, ptr %23, i64 15
   %50 = add nsw i32 %28, -1
   %51 = trunc i32 %50 to i8
   store i8 %51, ptr %49, align 1
   %52 = lshr i32 %50, 8
   %53 = trunc i32 %52 to i8
-  %54 = getelementptr inbounds i8, ptr %23, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i8 %53, ptr %54, align 1
   %55 = lshr i32 %50, 16
   %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds i8, ptr %23, i64 17
+  %57 = getelementptr inbounds nuw i8, ptr %23, i64 17
   store i8 %56, ptr %57, align 1
-  %58 = getelementptr inbounds i8, ptr %23, i64 18
+  %58 = getelementptr inbounds nuw i8, ptr %23, i64 18
   %59 = load ptr, ptr %3, align 8
   %60 = tail call ptr @ChunkListEmit(ptr noundef %59, ptr noundef nonnull %58) #6
   br label %61
@@ -1176,7 +1176,7 @@ define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture n
   %62 = load ptr, ptr %13, align 8
   %63 = tail call ptr @ChunkListEmit(ptr noundef %62, ptr noundef %.023) #6
   store ptr %20, ptr %1, align 8
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %19, ptr %64, align 8
   br label %65
 

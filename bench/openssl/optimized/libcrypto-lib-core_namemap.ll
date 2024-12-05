@@ -39,14 +39,14 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %call1 = tail call ptr @CRYPTO_THREAD_lock_new() #7
-  %lock = getelementptr inbounds i8, ptr %call, i64 8
+  %lock = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call1, ptr %lock, align 8
   %cmp2.not = icmp eq ptr %call1, null
   br i1 %cmp2.not, label %lor.lhs.false.i, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @namenum_hash, ptr noundef nonnull @namenum_cmp) #7
-  %namenum = getelementptr inbounds i8, ptr %call, i64 16
+  %namenum = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %call.i, ptr %namenum, align 8
   %cmp5.not = icmp eq ptr %call.i, null
   br i1 %cmp5.not, label %lor.lhs.false.i, label %return
@@ -58,7 +58,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true3, %la
   br i1 %tobool.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
-  %namenum.i = getelementptr inbounds i8, ptr %call, i64 16
+  %namenum.i = getelementptr inbounds nuw i8, ptr %call, i64 16
   %0 = load ptr, ptr %namenum.i, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %0, ptr noundef nonnull @namenum_free) #7
   tail call void @OPENSSL_LH_free(ptr noundef %0) #7
@@ -81,12 +81,12 @@ ossl_namemap_free.exit:                           ; preds = %entry
   %bf.load = load i8, ptr %vnamemap, align 8
   %bf.clear = and i8 %bf.load, -2
   store i8 %bf.clear, ptr %vnamemap, align 8
-  %namenum.i = getelementptr inbounds i8, ptr %vnamemap, i64 16
+  %namenum.i = getelementptr inbounds nuw i8, ptr %vnamemap, i64 16
   %0 = load ptr, ptr %namenum.i, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %0, ptr noundef nonnull @namenum_free) #7
   %1 = load ptr, ptr %namenum.i, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %1) #7
-  %lock.i = getelementptr inbounds i8, ptr %vnamemap, i64 8
+  %lock.i = getelementptr inbounds nuw i8, ptr %vnamemap, i64 8
   %2 = load ptr, ptr %lock.i, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %2) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %vnamemap, ptr noundef nonnull @.str, i32 noundef 534) #7
@@ -109,12 +109,12 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false
-  %namenum = getelementptr inbounds i8, ptr %namemap, i64 16
+  %namenum = getelementptr inbounds nuw i8, ptr %namemap, i64 16
   %0 = load ptr, ptr %namenum, align 8
   tail call void @OPENSSL_LH_doall(ptr noundef %0, ptr noundef nonnull @namenum_free) #7
   %1 = load ptr, ptr %namenum, align 8
   tail call void @OPENSSL_LH_free(ptr noundef %1) #7
-  %lock = getelementptr inbounds i8, ptr %namemap, i64 8
+  %lock = getelementptr inbounds nuw i8, ptr %namemap, i64 8
   %2 = load ptr, ptr %lock, align 8
   tail call void @CRYPTO_THREAD_lock_free(ptr noundef %2) #7
   tail call void @CRYPTO_free(ptr noundef nonnull %namemap, ptr noundef nonnull @.str, i32 noundef 534) #7
@@ -131,7 +131,7 @@ entry:
   br i1 %cmp, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %max_number = getelementptr inbounds i8, ptr %namemap, i64 24
+  %max_number = getelementptr inbounds nuw i8, ptr %namemap, i64 24
   %0 = load atomic i32, ptr %max_number monotonic, align 8
   %cmp1 = icmp eq i32 %0, 0
   %1 = zext i1 %cmp1 to i32
@@ -147,20 +147,20 @@ define range(i32 0, 2) i32 @ossl_namemap_doall_names(ptr noundef readonly %namem
 entry:
   %cbdata = alloca %struct.doall_names_data_st, align 8
   store i32 %number, ptr %cbdata, align 8
-  %found = getelementptr inbounds i8, ptr %cbdata, i64 16
+  %found = getelementptr inbounds nuw i8, ptr %cbdata, i64 16
   store i32 0, ptr %found, align 8
   %cmp = icmp eq ptr %namemap, null
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %lock = getelementptr inbounds i8, ptr %namemap, i64 8
+  %lock = getelementptr inbounds nuw i8, ptr %namemap, i64 8
   %0 = load ptr, ptr %lock, align 8
   %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %0) #7
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.end
-  %namenum = getelementptr inbounds i8, ptr %namemap, i64 16
+  %namenum = getelementptr inbounds nuw i8, ptr %namemap, i64 16
   %1 = load ptr, ptr %namenum, align 8
   %call.i = tail call i64 @OPENSSL_LH_num_items(ptr noundef %1) #7
   %cmp5 = icmp eq i64 %call.i, 0
@@ -174,7 +174,7 @@ if.then6:                                         ; preds = %if.end3
 if.end9:                                          ; preds = %if.end3
   %mul = shl i64 %call.i, 3
   %call10 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %mul, ptr noundef nonnull @.str, i32 noundef 156) #7
-  %names = getelementptr inbounds i8, ptr %cbdata, i64 8
+  %names = getelementptr inbounds nuw i8, ptr %cbdata, i64 8
   store ptr %call10, ptr %names, align 8
   %cmp12 = icmp eq ptr %call10, null
   br i1 %cmp12, label %if.then13, label %if.end16
@@ -196,7 +196,7 @@ if.end16:                                         ; preds = %if.end9
 for.body:                                         ; preds = %if.end16, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end16 ]
   %7 = load ptr, ptr %names, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx, align 8
   call void %fn(ptr noundef %8, ptr noundef %data) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -224,7 +224,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal void @do_name(ptr nocapture noundef readonly %namenum, ptr nocapture noundef %data) #3 {
 entry:
-  %number = getelementptr inbounds i8, ptr %namenum, i64 8
+  %number = getelementptr inbounds nuw i8, ptr %namenum, i64 8
   %0 = load i32, ptr %number, align 8
   %1 = load i32, ptr %data, align 8
   %cmp = icmp eq i32 %0, %1
@@ -232,9 +232,9 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %namenum, align 8
-  %names = getelementptr inbounds i8, ptr %data, i64 8
+  %names = getelementptr inbounds nuw i8, ptr %data, i64 8
   %3 = load ptr, ptr %names, align 8
-  %found = getelementptr inbounds i8, ptr %data, i64 16
+  %found = getelementptr inbounds nuw i8, ptr %data, i64 16
   %4 = load i32, ptr %found, align 8
   %inc = add nsw i32 %4, 1
   store i32 %inc, ptr %found, align 8
@@ -263,7 +263,7 @@ if.end:                                           ; preds = %entry
 
 if.end3:                                          ; preds = %entry, %if.end
   %namemap.addr.07 = phi ptr [ %call, %if.end ], [ %namemap, %entry ]
-  %lock = getelementptr inbounds i8, ptr %namemap.addr.07, i64 8
+  %lock = getelementptr inbounds nuw i8, ptr %namemap.addr.07, i64 8
   %0 = load ptr, ptr %lock, align 8
   %call4 = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %0) #7
   %tobool.not = icmp eq i32 %call4, 0
@@ -274,14 +274,14 @@ if.end6:                                          ; preds = %if.end3
   %namemap.addr.0.val = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   store ptr %name, ptr %namenum_tmpl.i, align 8
-  %number.i = getelementptr inbounds i8, ptr %namenum_tmpl.i, i64 8
+  %number.i = getelementptr inbounds nuw i8, ptr %namenum_tmpl.i, i64 8
   store i32 0, ptr %number.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.addr.0.val, ptr noundef nonnull %namenum_tmpl.i) #7
   %cmp.not.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.not.i, label %namemap_name2num.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end6
-  %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %number2.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %2 = load i32, ptr %number2.i, align 8
   br label %namemap_name2num.exit
 
@@ -309,7 +309,7 @@ entry:
   br i1 %cmp, label %return, label %ossl_namemap_empty.exit
 
 ossl_namemap_empty.exit:                          ; preds = %entry
-  %max_number.i = getelementptr inbounds i8, ptr %call, i64 24
+  %max_number.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load atomic i32, ptr %max_number.i monotonic, align 8
   %cmp1.i.not = icmp eq i32 %0, 0
   br i1 %cmp1.i.not, label %if.then6, label %return
@@ -410,7 +410,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.end3.i:                                        ; preds = %if.end.i, %if.end
   %namemap.addr.07.i = phi ptr [ %call.i, %if.end.i ], [ %namemap, %if.end ]
-  %lock.i = getelementptr inbounds i8, ptr %namemap.addr.07.i, i64 8
+  %lock.i = getelementptr inbounds nuw i8, ptr %namemap.addr.07.i, i64 8
   %0 = load ptr, ptr %lock.i, align 8
   %call4.i = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %0) #7
   %tobool.not.i = icmp eq i32 %call4.i, 0
@@ -421,14 +421,14 @@ if.end6.i:                                        ; preds = %if.end3.i
   %namemap.addr.0.val.i = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %namenum_tmpl.i.i)
   store ptr %call, ptr %namenum_tmpl.i.i, align 8
-  %number.i.i = getelementptr inbounds i8, ptr %namenum_tmpl.i.i, i64 8
+  %number.i.i = getelementptr inbounds nuw i8, ptr %namenum_tmpl.i.i, i64 8
   store i32 0, ptr %number.i.i, align 8
   %call.i.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.addr.0.val.i, ptr noundef nonnull %namenum_tmpl.i.i) #7
   %cmp.not.i.i = icmp eq ptr %call.i.i.i, null
   br i1 %cmp.not.i.i, label %namemap_name2num.exit.i, label %cond.true.i.i
 
 cond.true.i.i:                                    ; preds = %if.end6.i
-  %number2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
+  %number2.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 8
   %2 = load i32, ptr %number2.i.i, align 8
   br label %namemap_name2num.exit.i
 
@@ -456,7 +456,7 @@ define ptr @ossl_namemap_num2name(ptr noundef %namemap, i32 noundef %number, i64
 entry:
   %data = alloca %struct.num2name_data_st, align 8
   store i64 %idx, ptr %data, align 8
-  %name = getelementptr inbounds i8, ptr %data, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %data, i64 8
   store ptr null, ptr %name, align 8
   %call = call i32 @ossl_namemap_doall_names(ptr noundef %namemap, i32 noundef %number, ptr noundef nonnull @do_num2name, ptr noundef nonnull %data)
   %tobool.not = icmp eq i32 %call, 0
@@ -478,7 +478,7 @@ if.then:                                          ; preds = %entry
   br label %if.end6
 
 if.else:                                          ; preds = %entry
-  %name2 = getelementptr inbounds i8, ptr %vdata, i64 8
+  %name2 = getelementptr inbounds nuw i8, ptr %vdata, i64 8
   %1 = load ptr, ptr %name2, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %if.then4, label %if.end6
@@ -514,7 +514,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %or.cond, label %return, label %if.end8
 
 if.end8:                                          ; preds = %lor.lhs.false
-  %lock = getelementptr inbounds i8, ptr %namemap.addr.0, i64 8
+  %lock = getelementptr inbounds nuw i8, ptr %namemap.addr.0, i64 8
   %1 = load ptr, ptr %lock, align 8
   %call9 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #7
   %tobool.not = icmp eq i32 %call9, 0
@@ -541,7 +541,7 @@ entry:
   %namemap.val = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   store ptr %name, ptr %namenum_tmpl.i, align 8
-  %number.i = getelementptr inbounds i8, ptr %namenum_tmpl.i, i64 8
+  %number.i = getelementptr inbounds nuw i8, ptr %namenum_tmpl.i, i64 8
   store i32 0, ptr %number.i, align 8
   %call.i.i = call ptr @OPENSSL_LH_retrieve(ptr noundef %namemap.val, ptr noundef nonnull %namenum_tmpl.i) #7
   %cmp.not.i = icmp eq ptr %call.i.i, null
@@ -552,7 +552,7 @@ namemap_name2num.exit.thread:                     ; preds = %entry
   br label %if.end
 
 namemap_name2num.exit:                            ; preds = %entry
-  %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %number2.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %1 = load i32, ptr %number2.i, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %namenum_tmpl.i)
   %cmp.not = icmp eq i32 %1, 0
@@ -574,14 +574,14 @@ if.end9:                                          ; preds = %if.end4
   br i1 %cmp10.not, label %cond.false, label %cond.end
 
 cond.false:                                       ; preds = %if.end9
-  %max_number = getelementptr inbounds i8, ptr %namemap, i64 24
+  %max_number = getelementptr inbounds nuw i8, ptr %namemap, i64 24
   %2 = atomicrmw add ptr %max_number, i32 1 monotonic, align 8
   %add = add nsw i32 %2, 1
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end9, %cond.false
   %cond = phi i32 [ %add, %cond.false ], [ %number, %if.end9 ]
-  %number11 = getelementptr inbounds i8, ptr %call1, i64 8
+  %number11 = getelementptr inbounds nuw i8, ptr %call1, i64 8
   store i32 %cond, ptr %number11, align 8
   %3 = load ptr, ptr %0, align 8
   %call.i = call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %call1) #7
@@ -628,7 +628,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp5, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end
-  %lock = getelementptr inbounds i8, ptr %namemap, i64 8
+  %lock = getelementptr inbounds nuw i8, ptr %namemap, i64 8
   %0 = load ptr, ptr %lock, align 8
   %call9 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %0) #7
   %tobool10.not = icmp eq i32 %call9, 0
@@ -642,7 +642,7 @@ for.cond.preheader:                               ; preds = %if.end8
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %conv16 = sext i8 %separator to i32
   %2 = getelementptr i8, ptr %namemap, i64 16
-  %number.i = getelementptr inbounds i8, ptr %namenum_tmpl.i, i64 8
+  %number.i = getelementptr inbounds nuw i8, ptr %namenum_tmpl.i, i64 8
   br label %for.body
 
 if.then11:                                        ; preds = %if.end8
@@ -666,7 +666,7 @@ if.end22.thread:                                  ; preds = %for.body
   br label %if.end27
 
 if.end22:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %call17, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %call17, i64 1
   store i8 0, ptr %call17, align 1
   %.pre = load i8, ptr %p.041, align 1
   %3 = icmp eq i8 %.pre, 0
@@ -689,7 +689,7 @@ if.end27:                                         ; preds = %if.end22.thread, %i
   br i1 %cmp.not.i, label %namemap_name2num.exit, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end27
-  %number2.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
+  %number2.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   %4 = load i32, ptr %number2.i, align 8
   br label %namemap_name2num.exit
 
@@ -722,7 +722,7 @@ for.body43:                                       ; preds = %for.cond40.preheade
   %p.145 = phi ptr [ %add.ptr47, %for.inc58 ], [ %call, %for.cond40.preheader ]
   %call45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p.145) #8
   %add.ptr46 = getelementptr inbounds i8, ptr %p.145, i64 %call45
-  %add.ptr47 = getelementptr inbounds i8, ptr %add.ptr46, i64 1
+  %add.ptr47 = getelementptr inbounds nuw i8, ptr %add.ptr46, i64 1
   %call48 = call fastcc i32 @namemap_add_name(ptr noundef %namemap, i32 noundef %number.addr.346, ptr noundef %p.145)
   %cmp49 = icmp eq i32 %number.addr.346, 0
   br i1 %cmp49, label %for.inc58, label %if.else52
@@ -777,7 +777,7 @@ declare void @OBJ_NAME_do_all(i32 noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define internal void @get_legacy_cipher_names(ptr nocapture noundef readonly %on, ptr noundef %arg) #0 {
 entry:
-  %name = getelementptr inbounds i8, ptr %on, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %on, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load i32, ptr %on, align 8
   %call = tail call ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef %1) #7
@@ -796,7 +796,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: nounwind uwtable
 define internal void @get_legacy_md_names(ptr nocapture noundef readonly %on, ptr noundef %arg) #0 {
 entry:
-  %name = getelementptr inbounds i8, ptr %on, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %on, i64 8
   %0 = load ptr, ptr %name, align 8
   %1 = load i32, ptr %on, align 8
   %call = tail call ptr @OBJ_NAME_get(ptr noundef %0, i32 noundef %1) #7
@@ -896,7 +896,7 @@ lor.lhs.false.i:                                  ; preds = %if.end.i
   br i1 %or.cond.i, label %ossl_namemap_add_name.exit, label %if.end8.i
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
-  %lock.i = getelementptr inbounds i8, ptr %namemap.addr.0.i, i64 8
+  %lock.i = getelementptr inbounds nuw i8, ptr %namemap.addr.0.i, i64 8
   %1 = load ptr, ptr %lock.i, align 8
   %call9.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %1) #7
   %tobool.not.i = icmp eq i32 %call9.i, 0
@@ -930,7 +930,7 @@ lor.lhs.false.i21:                                ; preds = %if.end.i18
   br i1 %or.cond.i24, label %if.end, label %if.end8.i25
 
 if.end8.i25:                                      ; preds = %lor.lhs.false.i21
-  %lock.i26 = getelementptr inbounds i8, ptr %namemap.addr.0.i19, i64 8
+  %lock.i26 = getelementptr inbounds nuw i8, ptr %namemap.addr.0.i19, i64 8
   %4 = load ptr, ptr %lock.i26, align 8
   %call9.i27 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %4) #7
   %tobool.not.i28 = icmp eq i32 %call9.i27, 0
@@ -969,7 +969,7 @@ lor.lhs.false.i40:                                ; preds = %if.end.i37
   br i1 %or.cond.i43, label %ossl_namemap_add_name.exit54, label %if.end8.i44
 
 if.end8.i44:                                      ; preds = %lor.lhs.false.i40
-  %lock.i45 = getelementptr inbounds i8, ptr %namemap.addr.0.i38, i64 8
+  %lock.i45 = getelementptr inbounds nuw i8, ptr %namemap.addr.0.i38, i64 8
   %7 = load ptr, ptr %lock.i45, align 8
   %call9.i46 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %7) #7
   %tobool.not.i47 = icmp eq i32 %call9.i46, 0
@@ -1003,7 +1003,7 @@ lor.lhs.false.i59:                                ; preds = %if.end.i56
   br i1 %or.cond.i62, label %ossl_namemap_add_name.exit73, label %if.end8.i63
 
 if.end8.i63:                                      ; preds = %lor.lhs.false.i59
-  %lock.i64 = getelementptr inbounds i8, ptr %namemap.addr.0.i57, i64 8
+  %lock.i64 = getelementptr inbounds nuw i8, ptr %namemap.addr.0.i57, i64 8
   %10 = load ptr, ptr %lock.i64, align 8
   %call9.i65 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %10) #7
   %tobool.not.i66 = icmp eq i32 %call9.i65, 0
@@ -1042,7 +1042,7 @@ if.end.i75:                                       ; preds = %if.then.i90, %if.th
   br i1 %or.cond.i81, label %if.end20, label %if.end8.i82
 
 if.end8.i82:                                      ; preds = %if.end.i75
-  %lock.i83 = getelementptr inbounds i8, ptr %namemap.addr.0.i76, i64 8
+  %lock.i83 = getelementptr inbounds nuw i8, ptr %namemap.addr.0.i76, i64 8
   %13 = load ptr, ptr %lock.i83, align 8
   %call9.i84 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #7
   %tobool.not.i85 = icmp eq i32 %call9.i84, 0
@@ -1076,7 +1076,7 @@ lor.lhs.false.i97:                                ; preds = %if.then22, %if.then
   br i1 %or.cond.i100, label %if.end24, label %if.end8.i101
 
 if.end8.i101:                                     ; preds = %lor.lhs.false.i97
-  %lock.i102 = getelementptr inbounds i8, ptr %namemap.addr.0.i95, i64 8
+  %lock.i102 = getelementptr inbounds nuw i8, ptr %namemap.addr.0.i95, i64 8
   %16 = load ptr, ptr %lock.i102, align 8
   %call9.i103 = call i32 @CRYPTO_THREAD_write_lock(ptr noundef %16) #7
   %tobool.not.i104 = icmp eq i32 %call9.i103, 0

@@ -532,7 +532,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %12) #11
   %13 = and i64 %2, 1
   %14 = icmp eq i64 %13, 0
-  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 56, i1 false)
   %16 = load i64, ptr @__supported_pte_mask, align 8
   %17 = select i1 %14, i64 -1, i64 %16
@@ -600,20 +600,20 @@ define internal fastcc range(i32 -2147483648, 1) i32 @change_page_attr_set_clr(p
 .loopexit8:                                       ; preds = %39, %49, %45, %42, %27
   tail call void @vm_unmap_aliases() #11
   store ptr %0, ptr %12, align 8
-  %51 = getelementptr inbounds i8, ptr %12, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store ptr %6, ptr %51, align 8
   %52 = sext i32 %1 to i64
-  %53 = getelementptr inbounds i8, ptr %12, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %52, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %12, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 %18, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %12, i64 24
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 %3, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %12, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store i32 %5, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %12, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i64 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %12, i64 60
+  %58 = getelementptr inbounds nuw i8, ptr %12, i64 60
   %59 = trunc nuw nsw i32 %4 to i8
   store i8 %59, ptr %58, align 4
   %60 = call fastcc i32 @__change_page_attr_set_clr(ptr noundef nonnull %12, i32 noundef 1)
@@ -1358,20 +1358,20 @@ define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_invalid_noflush(p
   %9 = add i64 %7, %8
   store i64 %9, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 0, ptr %10, align 8, !annotation !15
   store ptr %2, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i64 3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 40
-  %15 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
   store i32 8, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %16, align 8
   %17 = call fastcc i32 @__change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #11
@@ -1392,22 +1392,22 @@ define dso_local range(i32 -2147483648, 1) i32 @set_direct_map_default_noflush(p
   %9 = add i64 %7, %8
   store i64 %9, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #11
-  %10 = getelementptr inbounds i8, ptr %3, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store i64 0, ptr %10, align 8, !annotation !15
   store ptr %2, ptr %3, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 3, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %3, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i64 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 40
-  %16 = getelementptr inbounds i8, ptr %3, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   store i32 8, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 64
   store ptr null, ptr %17, align 8
   %18 = call fastcc i32 @__change_page_attr_set_clr(ptr noundef nonnull %3, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #11
@@ -1445,23 +1445,23 @@ define dso_local range(i32 -2147483648, 1) i32 @kernel_map_pages_in_pgd(ptr noun
   %7 = alloca %struct.cpa_data, align 8
   store i64 %2, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #11
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %8, i8 0, i64 48, i1 false), !annotation !15
   store ptr %6, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 16
-  %11 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %12 = and i64 %4, -9223372036854775806
   %13 = xor i64 %12, -9223372036854775806
-  %14 = getelementptr inbounds i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = zext i32 %3 to i64
   store i64 %15, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 8, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %7, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr null, ptr %18, align 8
   %19 = load volatile i32, ptr @__num_online_cpus, align 4
   %20 = icmp ult i32 %19, 2
@@ -1521,18 +1521,18 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %12 = alloca i32, align 4
   %13 = alloca i64, align 8
   %14 = alloca i32, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = or i64 %20, %18
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %28
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 60
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %25 = load i8, ptr %24, align 4
   %26 = and i8 %25, 1
   %27 = icmp eq i8 %26, 0
@@ -1543,17 +1543,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   br i1 %29, label %.loopexit31, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 56
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  %33 = getelementptr inbounds i8, ptr %0, i64 64
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 60
-  %36 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %37 = icmp eq i32 %1, 0
-  %38 = getelementptr inbounds i8, ptr %4, i64 56
-  %39 = getelementptr inbounds i8, ptr %4, i64 40
-  %40 = getelementptr inbounds i8, ptr %4, i64 24
-  %41 = getelementptr inbounds i8, ptr %4, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %42
 
 42:                                               ; preds = %643, %30
@@ -2539,22 +2539,22 @@ define dso_local range(i32 -2147483648, 1) i32 @kernel_unmap_pages_in_pgd(ptr no
   %5 = alloca %struct.cpa_data, align 8
   store i64 %1, ptr %4, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #11
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 0, ptr %6, align 8, !annotation !15
   store ptr %4, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 3, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 40
-  %12 = getelementptr inbounds i8, ptr %5, i64 56
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   store i32 8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr null, ptr %13, align 8
   %14 = load volatile i32, ptr @__num_online_cpus, align 4
   %15 = icmp ult i32 %14, 2
@@ -2616,14 +2616,14 @@ declare dso_local void @flush_tlb_all() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @__cpa_flush_tlb(ptr nocapture noundef readonly %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
-  %7 = getelementptr inbounds i8, ptr %0, i64 64
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %8
 
 8:                                                ; preds = %35, %5
@@ -2693,7 +2693,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %274, label %14
@@ -2814,15 +2814,15 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br label %74
 
 74:                                               ; preds = %73, %50
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = load i64, ptr %75, align 8
   %77 = and i64 %76, 99
   %78 = xor i64 %77, 99
-  %79 = getelementptr inbounds i8, ptr %0, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %80 = load i64, ptr %79, align 8
   %81 = or i64 %78, %80
   %.fr = freeze i64 %81
-  %82 = getelementptr inbounds i8, ptr %0, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load i64, ptr %82, align 8
   %84 = shl i64 %83, 12
   %85 = add i64 %84, %1
@@ -2911,7 +2911,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %145 = lshr i64 %126, 30
   %146 = and i64 %145, 511
   %147 = getelementptr %struct.pud_t, ptr %144, i64 %146
-  %148 = getelementptr inbounds i8, ptr %0, i64 48
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %149 = and i64 %.fr, 1
   %150 = icmp eq i64 %149, 0
   br i1 %150, label %.split.us.split.us, label %.split.preheader
@@ -3126,7 +3126,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %274
-  %277 = getelementptr inbounds i8, ptr %0, i64 32
+  %277 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %277, align 8
   br label %314
 
@@ -3141,7 +3141,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   br i1 %285, label %296, label %286
 
 286:                                              ; preds = %278
-  %287 = getelementptr inbounds i8, ptr %0, i64 32
+  %287 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 1, ptr %287, align 8
   %288 = add i64 %1, 2147483648
   %289 = icmp ugt i64 %1, -2147483649
@@ -3150,12 +3150,12 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__cpa_process_fault(ptr no
   %292 = select i1 %289, i64 %290, i64 %291
   %293 = add i64 %288, %292
   %294 = lshr i64 %293, 12
-  %295 = getelementptr inbounds i8, ptr %0, i64 48
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %294, ptr %295, align 8
   br label %314
 
 296:                                              ; preds = %278
-  %297 = getelementptr inbounds i8, ptr %0, i64 48
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %298 = load i64, ptr %297, align 8
   %299 = load i64, ptr @phys_base, align 8
   %300 = add i64 %299, sub (i64 ptrtoint (ptr @_text to i64), i64 -2147483648)
@@ -3402,7 +3402,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr nocapture
   %69 = lshr i64 %1, 12
   %70 = and i64 %69, 511
   %71 = getelementptr %struct.pte_t, ptr %68, i64 %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %73 = icmp ne i64 %.fr, 0
   %74 = and i64 %.fr, 1
   %75 = icmp eq i64 %74, 0
@@ -3481,7 +3481,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr nocapture
   br i1 %122, label %123, label %.loopexit17
 
 123:                                              ; preds = %116
-  %124 = getelementptr inbounds i8, ptr %0, i64 48
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %125 = and i64 %5, 1
   %126 = icmp eq i64 %125, 0
   br label %127
@@ -3623,7 +3623,7 @@ define internal fastcc range(i64 -1, 4294967296) i64 @populate_pmd(ptr nocapture
   %225 = lshr i64 %180, 12
   %226 = and i64 %225, 511
   %227 = getelementptr %struct.pte_t, ptr %224, i64 %226
-  %228 = getelementptr inbounds i8, ptr %0, i64 48
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %229 = icmp ne i64 %.fr23, 0
   %230 = and i64 %.fr23, 1
   %231 = icmp eq i64 %230, 0

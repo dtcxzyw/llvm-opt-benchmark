@@ -54,13 +54,13 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   %35 = phi i64 [ %22, %20 ], [ %30, %24 ]
   %36 = udiv i64 %35, 3600
   %37 = trunc i64 %36 to i32
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %37, ptr %38, align 8
   %39 = urem i64 %35, 3600
   %.lhs.trunc = trunc nuw nsw i64 %39 to i16
   %40 = udiv i16 %.lhs.trunc, 60
   %41 = zext nneg i16 %40 to i32
-  %42 = getelementptr inbounds i8, ptr %2, i64 4
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %41, ptr %42, align 4
   %43 = urem i16 %.lhs.trunc, 60
   %44 = zext nneg i16 %43 to i32
@@ -68,7 +68,7 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   %45 = add nsw i64 %34, 4
   %46 = srem i64 %45, 7
   %47 = trunc nsw i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %2, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %49 = icmp slt i64 %46, 0
   %50 = add nsw i32 %47, 7
   %51 = select i1 %49, i32 %50, i32 %47
@@ -106,13 +106,13 @@ define dso_local void @time64_to_tm(i64 noundef %0, i32 noundef %1, ptr nocaptur
   %79 = add nsw i64 %64, -6313183731941900
   %80 = add nsw i64 %79, %59
   %81 = add nsw i64 %80, %72
-  %82 = getelementptr inbounds i8, ptr %2, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %81, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %2, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %74, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %2, i64 12
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %75, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %2, i64 36
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i32 %78, ptr %85, align 4
   ret void
 }

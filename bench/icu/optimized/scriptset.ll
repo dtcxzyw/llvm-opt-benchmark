@@ -61,9 +61,9 @@ entry:
 
 for.body:                                         ; preds = %for.body, %entry
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [7 x i32], ptr %other, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx4, align 4
   %cmp5.not = icmp eq i32 %0, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -94,7 +94,7 @@ if.end4:                                          ; preds = %if.end
   %div5 = lshr i32 %script, 5
   %and = and i32 %script, 31
   %idxprom = zext nneg i32 %div5 to i64
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %2 = lshr i32 %1, %and
   %3 = trunc i32 %2 to i8
@@ -126,7 +126,7 @@ if.end4:                                          ; preds = %if.end
   %and = and i32 %script, 31
   %shl = shl nuw i32 1, %and
   %idxprom = zext nneg i32 %div5 to i64
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %or = or i32 %1, %shl
   store i32 %or, ptr %arrayidx, align 4
@@ -157,7 +157,7 @@ if.end4:                                          ; preds = %if.end
   %shl = shl nuw i32 1, %and
   %not = xor i32 %shl, -1
   %idxprom = zext nneg i32 %div5 to i64
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom
   %1 = load i32, ptr %arrayidx, align 4
   %and5 = and i32 %1, %not
   store i32 %and5, ptr %arrayidx, align 4
@@ -174,9 +174,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %other, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx4, align 4
   %or = or i32 %1, %0
   store i32 %or, ptr %arrayidx4, align 4
@@ -195,9 +195,9 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %other, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx4, align 4
   %and = and i32 %1, %0
   store i32 %and, ptr %arrayidx4, align 4
@@ -231,7 +231,7 @@ for.body.i.preheader:                             ; preds = %if.end.i
   %and.i = and i32 %script, 31
   %shl.i = shl nuw i32 1, %and.i
   %idxprom.i = zext nneg i32 %div5.i to i64
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %t, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %t, i64 0, i64 %idxprom.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %or.i = or i32 %1, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
@@ -239,9 +239,9 @@ for.body.i.preheader:                             ; preds = %if.end.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
-  %arrayidx.i2 = getelementptr inbounds [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i
+  %arrayidx.i2 = getelementptr inbounds nuw [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i
   %2 = load i32, ptr %arrayidx.i2, align 4
-  %arrayidx4.i = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv.i
   %3 = load i32, ptr %arrayidx4.i, align 4
   %and.i3 = and i32 %3, %2
   store i32 %and.i3, ptr %arrayidx4.i, align 4
@@ -268,9 +268,9 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
-  %arrayidx4 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [7 x i32], ptr %other, i64 0, i64 %indvars.iv
   %1 = load i32, ptr %arrayidx4, align 4
   %and = and i32 %1, %0
   %cmp5.not = icmp eq i32 %and, 0
@@ -290,9 +290,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %other, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx4.i, align 4
   %and.i = and i32 %1, %0
   store i32 %and.i, ptr %arrayidx4.i, align 4
@@ -302,9 +302,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
 
 for.body.i2:                                      ; preds = %for.body.i, %for.body.i2
   %indvars.iv.i3 = phi i64 [ %indvars.iv.next.i6, %for.body.i2 ], [ 0, %for.body.i ]
-  %arrayidx.i4 = getelementptr inbounds [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i3
+  %arrayidx.i4 = getelementptr inbounds nuw [7 x i32], ptr %t, i64 0, i64 %indvars.iv.i3
   %2 = load i32, ptr %arrayidx.i4, align 4
-  %arrayidx4.i5 = getelementptr inbounds [7 x i32], ptr %other, i64 0, i64 %indvars.iv.i3
+  %arrayidx4.i5 = getelementptr inbounds nuw [7 x i32], ptr %other, i64 0, i64 %indvars.iv.i3
   %3 = load i32, ptr %arrayidx4.i5, align 4
   %cmp5.not.i = icmp eq i32 %2, %3
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i3, 1
@@ -340,7 +340,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
   %count.09 = phi i32 [ 0, %entry ], [ %count.1.lcssa, %for.inc ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %cmp2.not6 = icmp eq i32 %0, 0
   br i1 %cmp2.not6, label %for.inc, label %while.body
@@ -372,7 +372,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
   %hash.04 = phi i32 [ 0, %entry ], [ %xor, %for.body ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %xor = xor i32 %0, %hash.04
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -403,7 +403,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit: ; preds = %if.end.i
   %div5.i = lshr i32 %scriptIndex.012, 5
   %and.i = and i32 %scriptIndex.012, 31
   %idxprom.i = zext nneg i32 %div5.i to i64
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = shl nuw i32 1, %and.i
   %2 = and i32 %0, %1
@@ -433,7 +433,7 @@ for.cond:                                         ; preds = %for.body
 
 for.body:                                         ; preds = %entry, %for.cond
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.cond ]
-  %arrayidx = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %indvars.iv
   %0 = load i32, ptr %arrayidx, align 4
   %cmp2.not = icmp eq i32 %0, 0
   br i1 %cmp2.not, label %for.cond, label %return
@@ -455,7 +455,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i: ; preds = %for.inc
   %div5.i.i = lshr i32 %scriptIndex.012.i, 5
   %and.i.i = and i32 %scriptIndex.012.i, 31
   %idxprom.i.i = zext nneg i32 %div5.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %1 = shl nuw i32 1, %and.i.i
   %2 = and i32 %0, %1
@@ -468,8 +468,8 @@ for.inc.i:                                        ; preds = %_ZNK6icu_759ScriptS
   br i1 %exitcond.not.i, label %for.end, label %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i, !llvm.loop !12
 
 for.body.lr.ph:                                   ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i
-  %fUnion.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %fLength.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 12
+  %fUnion.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %fLength.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 12
   br label %for.body
 
 for.body:                                         ; preds = %_ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18, %for.body.lr.ph
@@ -519,7 +519,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i18: ; preds = %if.en
   %div5.i.i19 = lshr i32 %scriptIndex.012.i9, 5
   %and.i.i20 = and i32 %scriptIndex.012.i9, 31
   %idxprom.i.i21 = zext nneg i32 %div5.i.i19 to i64
-  %arrayidx.i.i22 = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i21
+  %arrayidx.i.i22 = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom.i.i21
   %6 = load i32, ptr %arrayidx.i.i22, align 4
   %7 = shl nuw i32 1, %and.i.i20
   %8 = and i32 %6, %7
@@ -561,10 +561,10 @@ entry:
 
 if.end:                                           ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %oneScriptName, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %oneScriptName, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %oneScriptName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  %fUnion.i.i = getelementptr inbounds i8, ptr %scriptString, i64 8
-  %fLength.i = getelementptr inbounds i8, ptr %scriptString, i64 12
+  %fUnion.i.i = getelementptr inbounds nuw i8, ptr %scriptString, i64 8
+  %fLength.i = getelementptr inbounds nuw i8, ptr %scriptString, i64 12
   %1 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i31 = icmp slt i16 %1, 0
   %2 = ashr i16 %1, 5
@@ -575,8 +575,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp34, label %for.body.lr.ph, label %cleanup
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %fLength.i20 = getelementptr inbounds i8, ptr %oneScriptName, i64 12
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 39
+  %fLength.i20 = getelementptr inbounds nuw i8, ptr %oneScriptName, i64 12
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 39
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont.backedge
@@ -663,7 +663,7 @@ if.end35:                                         ; preds = %if.end.i
   %and.i = and i32 %call30, 31
   %shl.i = shl nuw i32 1, %and.i
   %idxprom.i = zext nneg i32 %div5.i to i64
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom.i
   %15 = load i32, ptr %arrayidx.i, align 4
   %or.i = or i32 %15, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
@@ -714,11 +714,11 @@ entry:
   br i1 %cmp.i, label %if.end, label %cleanup.cont
 
 if.end:                                           ; preds = %entry
-  %stackArray.i = getelementptr inbounds i8, ptr %scripts, i64 16
+  %stackArray.i = getelementptr inbounds nuw i8, ptr %scripts, i64 16
   store ptr %stackArray.i, ptr %scripts, align 8
-  %capacity.i = getelementptr inbounds i8, ptr %scripts, i64 8
+  %capacity.i = getelementptr inbounds nuw i8, ptr %scripts, i64 8
   store i32 20, ptr %capacity.i, align 8
-  %needToRelease.i = getelementptr inbounds i8, ptr %scripts, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %scripts, i64 12
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont8, %if.end
@@ -790,7 +790,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
 
 if.end.i:                                         ; preds = %invoke.cont22, %for.body.preheader
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %invoke.cont22 ]
-  %arrayidx.i = getelementptr inbounds i32, ptr %7, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
   %10 = load i32, ptr %arrayidx.i, align 4
   %or.cond.i = icmp ugt i32 %10, 223
   br i1 %or.cond.i, label %cleanup.sink.split, label %invoke.cont22
@@ -800,7 +800,7 @@ invoke.cont22:                                    ; preds = %if.end.i
   %and.i = and i32 %10, 31
   %shl.i = shl nuw i32 1, %and.i
   %idxprom.i = zext nneg i32 %div5.i to i64
-  %arrayidx.i14 = getelementptr inbounds [7 x i32], ptr %this, i64 0, i64 %idxprom.i
+  %arrayidx.i14 = getelementptr inbounds nuw [7 x i32], ptr %this, i64 0, i64 %idxprom.i
   %11 = load i32, ptr %arrayidx.i14, align 4
   %or.i = or i32 %11, %shl.i
   store i32 %or.i, ptr %arrayidx.i14, align 4
@@ -842,7 +842,7 @@ declare i32 @uscript_getScriptExtensions_75(i32 noundef, ptr noundef, i32 nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_7515MaybeStackArrayI11UScriptCodeLi20EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %needToRelease.i = getelementptr inbounds i8, ptr %this, i64 12
+  %needToRelease.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i8, ptr %needToRelease.i, align 4
   %tobool.not.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
@@ -870,9 +870,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %key1.coerce, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx4.i = getelementptr inbounds [7 x i32], ptr %key2.coerce, i64 0, i64 %indvars.iv.i
+  %arrayidx4.i = getelementptr inbounds nuw [7 x i32], ptr %key2.coerce, i64 0, i64 %indvars.iv.i
   %1 = load i32, ptr %arrayidx4.i, align 4
   %cmp5.not.i = icmp eq i32 %0, %1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -893,7 +893,7 @@ entry:
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.inc.i ]
   %count.09.i = phi i32 [ 0, %entry ], [ %count.1.lcssa.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %key0.coerce, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %key0.coerce, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %cmp2.not6.i = icmp eq i32 %0, 0
   br i1 %cmp2.not6.i, label %for.inc.i, label %while.body.i
@@ -916,7 +916,7 @@ for.inc.i:                                        ; preds = %while.body.i, %for.
 for.body.i10:                                     ; preds = %for.inc.i, %for.inc.i22
   %indvars.iv.i11 = phi i64 [ %indvars.iv.next.i24, %for.inc.i22 ], [ 0, %for.inc.i ]
   %count.09.i12 = phi i32 [ %count.1.lcssa.i23, %for.inc.i22 ], [ 0, %for.inc.i ]
-  %arrayidx.i13 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %indvars.iv.i11
+  %arrayidx.i13 = getelementptr inbounds nuw [7 x i32], ptr %key1.coerce, i64 0, i64 %indvars.iv.i11
   %1 = load i32, ptr %arrayidx.i13, align 4
   %cmp2.not6.i14 = icmp eq i32 %1, 0
   br i1 %cmp2.not6.i14, label %for.inc.i22, label %while.body.i15
@@ -949,7 +949,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i: ; preds = %_ZNK6ic
   %div5.i.i = lshr i32 %scriptIndex.012.i, 5
   %and.i.i = and i32 %scriptIndex.012.i, 31
   %idxprom.i.i = zext nneg i32 %div5.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i
   %2 = load i32, ptr %arrayidx.i.i, align 4
   %3 = shl nuw i32 1, %and.i.i
   %4 = and i32 %2, %3
@@ -970,7 +970,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i42: ; preds = %for.i
   %div5.i.i43 = lshr i32 %scriptIndex.012.i32, 5
   %and.i.i44 = and i32 %scriptIndex.012.i32, 31
   %idxprom.i.i45 = zext nneg i32 %div5.i.i43 to i64
-  %arrayidx.i.i46 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i45
+  %arrayidx.i.i46 = getelementptr inbounds nuw [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i45
   %5 = load i32, ptr %arrayidx.i.i46, align 4
   %6 = shl nuw i32 1, %and.i.i44
   %7 = and i32 %5, %6
@@ -1009,7 +1009,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i60: ; preds = %if.en
   %div5.i.i61 = lshr i32 %scriptIndex.012.i51, 5
   %and.i.i62 = and i32 %scriptIndex.012.i51, 31
   %idxprom.i.i63 = zext nneg i32 %div5.i.i61 to i64
-  %arrayidx.i.i64 = getelementptr inbounds [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i63
+  %arrayidx.i.i64 = getelementptr inbounds nuw [7 x i32], ptr %key0.coerce, i64 0, i64 %idxprom.i.i63
   %9 = load i32, ptr %arrayidx.i.i64, align 4
   %10 = shl nuw i32 1, %and.i.i62
   %11 = and i32 %9, %10
@@ -1040,7 +1040,7 @@ _ZNK6icu_759ScriptSet4testE11UScriptCodeR10UErrorCode.exit.i79: ; preds = %if.en
   %div5.i.i80 = lshr i32 %scriptIndex.012.i70, 5
   %and.i.i81 = and i32 %scriptIndex.012.i70, 31
   %idxprom.i.i82 = zext nneg i32 %div5.i.i80 to i64
-  %arrayidx.i.i83 = getelementptr inbounds [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i82
+  %arrayidx.i.i83 = getelementptr inbounds nuw [7 x i32], ptr %key1.coerce, i64 0, i64 %idxprom.i.i82
   %12 = load i32, ptr %arrayidx.i.i83, align 4
   %13 = shl nuw i32 1, %and.i.i81
   %14 = and i32 %12, %13
@@ -1080,7 +1080,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %hash.04.i = phi i32 [ 0, %entry ], [ %xor.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [7 x i32], ptr %key.coerce, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [7 x i32], ptr %key.coerce, i64 0, i64 %indvars.iv.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %xor.i = xor i32 %0, %hash.04.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

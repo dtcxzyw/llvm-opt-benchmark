@@ -346,44 +346,44 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %.02946.i.i.i.i.i = phi ptr [ %35, %34 ], [ %0, %.lr.ph.i.i.i.i.i.preheader ]
   %8 = load i8, ptr %.02946.i.i.i.i.i, align 1
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 7
   %.not = icmp eq i16 %12, 0
   br i1 %.not, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %14 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, 7
   %.not1 = icmp eq i16 %19, 0
   br i1 %.not1, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 2
+  %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 7
   %.not2 = icmp eq i16 %26, 0
   br i1 %.not2, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19, label %27
 
 27:                                               ; preds = %20
-  %28 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 3
+  %28 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 7
   %.not3 = icmp eq i16 %33, 0
   br i1 %.not3, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %36 = add nsw i64 %.047.i.i.i.i.i, -1
   %37 = icmp sgt i64 %.047.i.i.i.i.i, 1
   br i1 %37, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, !llvm.loop !6
@@ -401,35 +401,35 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
 39:                                               ; preds = %._crit_edge.i.i.i.i.i
   %40 = load i8, ptr %.029.lcssa.i.i.i.i.i, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %41
   %43 = load i16, ptr %42, align 2
   %44 = and i16 %43, 7
   %.not4 = icmp eq i16 %44, 0
   br i1 %.not4, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %.029.lcssa.i.i.i.i.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.029.lcssa.i.i.i.i.i, i64 1
   br label %47
 
 47:                                               ; preds = %45, %._crit_edge.i.i.i.i.i
   %.1.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %46, %45 ]
   %48 = load i8, ptr %.1.i.i.i.i.i, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %49
+  %50 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %49
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 7
   %.not5 = icmp eq i16 %52, 0
   br i1 %.not5, label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit, label %53
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %.1.i.i.i.i.i, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i, i64 1
   br label %55
 
 55:                                               ; preds = %53, %._crit_edge.i.i.i.i.i
   %.2.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %54, %53 ]
   %56 = load i8, ptr %.2.i.i.i.i.i, align 1
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %57
   %59 = load i16, ptr %58, align 2
   %60 = and i16 %59, 7
   %.not6 = icmp eq i16 %60, 0
@@ -439,15 +439,15 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   br label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit: ; preds = %13
-  %62 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   br label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19: ; preds = %20
-  %63 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   br label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21: ; preds = %27
-  %64 = getelementptr inbounds i8, ptr %.02946.i.i.i.i.i, i64 3
+  %64 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   br label %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit
 
 _ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit19, %_ZN4llvm6all_ofIRNS_9StringRefEPFbhEEEbOT_T0_.exit.loopexit.split.loop.exit21, %39, %47, %55, %61
@@ -470,7 +470,7 @@ define internal fastcc void @_ZN5clang8comments12_GLOBAL__N_112cleanupBriefERNSt
   %.sroa.013.025 = phi ptr [ %12, %11 ], [ %3, %1 ]
   %5 = load i8, ptr %.sroa.013.025, align 1
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %6
   %8 = load i16, ptr %7, align 2
   %9 = and i16 %8, 7
   %.not23 = icmp ne i16 %9, 0
@@ -479,13 +479,13 @@ define internal fastcc void @_ZN5clang8comments12_GLOBAL__N_112cleanupBriefERNSt
 
 .sink.split:                                      ; preds = %.lr.ph
   %.mux = select i1 %.not23, i8 32, i8 %5
-  %10 = getelementptr inbounds i8, ptr %.sroa.016.026, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.016.026, i64 1
   store i8 %.mux, ptr %.sroa.016.026, align 1
   br label %11
 
 11:                                               ; preds = %.lr.ph, %.sink.split
   %.sroa.016.1 = phi ptr [ %10, %.sink.split ], [ %.sroa.016.026, %.lr.ph ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.013.025, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.013.025, i64 1
   %.not = icmp eq ptr %12, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 

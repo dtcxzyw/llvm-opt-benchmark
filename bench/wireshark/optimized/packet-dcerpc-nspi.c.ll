@@ -3960,7 +3960,7 @@ define hidden i32 @nspi_dissect_enum_MAPISTATUS(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_MAPIUID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -3995,9 +3995,9 @@ define hidden i32 @nspi_dissect_struct_MAPIUID(ptr noundef %0, i32 noundef %1, p
 nspi_dissect_element_MAPIUID_ab.exit:             ; preds = %19
   %23 = sub i32 %21, %.0
   tail call void @proto_item_set_len(ptr noundef %.024, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not28 = icmp eq i32 %28, 0
@@ -4029,7 +4029,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_input_locale(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -4056,9 +4056,9 @@ define hidden i32 @nspi_dissect_struct_input_locale(ptr noundef %0, i32 noundef 
   %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -4084,7 +4084,7 @@ define hidden i32 @nspi_dissect_struct_input_locale(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_MAPI_SETTINGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
   %.not = icmp eq ptr %3, null
@@ -4117,13 +4117,13 @@ define hidden i32 @nspi_dissect_struct_MAPI_SETTINGS(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4171,14 +4171,14 @@ define hidden i32 @nspi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4198,13 +4198,13 @@ define hidden i32 @nspi_dissect_struct_SPropTagArray(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_instance_key(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4252,14 +4252,14 @@ define hidden i32 @nspi_dissect_struct_instance_key(ptr noundef %0, i32 noundef 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4279,13 +4279,13 @@ define hidden i32 @nspi_dissect_struct_instance_key(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4335,14 +4335,14 @@ define hidden i32 @nspi_dissect_struct_MAPINAMEID(ptr noundef %0, i32 noundef %1
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -4387,13 +4387,13 @@ define hidden i32 @nspi_dissect_enum_RestrictionType(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not46 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -4446,14 +4446,14 @@ define hidden i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 
   %39 = sub i32 %38, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %39) #4
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not51 = icmp eq i32 %43, 0
   br i1 %.not51, label %51, label %44
 
 44:                                               ; preds = %32
-  %45 = getelementptr inbounds i8, ptr %4, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %46 = load i32, ptr %45, align 4
   %.not52 = icmp ne i32 %46, 0
   %47 = and i32 %38, 7
@@ -4473,13 +4473,13 @@ define hidden i32 @nspi_dissect_struct_SPropertyRestriction(ptr noundef %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4527,14 +4527,14 @@ define hidden i32 @nspi_dissect_struct_SAndRestriction(ptr noundef %0, i32 nound
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4557,7 +4557,7 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = load i32, ptr %12, align 4
   %.not = icmp ne i32 %13, 0
   %14 = and i32 %1, 3
@@ -4598,9 +4598,9 @@ define hidden i32 @nspi_dissect_struct_SRestriction(ptr noundef %0, i32 noundef 
 28:                                               ; preds = %25, %21
   %.033.i.i = phi ptr [ %27, %25 ], [ null, %21 ]
   %29 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %23, ptr noundef %2, ptr noundef %.033.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %24, ptr noundef nonnull %10) #4
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not35.i.i = icmp eq i32 %34, 0
@@ -4658,7 +4658,7 @@ nspi_dissect_element_SRestriction_res.exit:       ; preds = %46, %48, %51
   %56 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.030, i32 noundef %56) #4
   %57 = load ptr, ptr %30, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 96
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
   %59 = load i32, ptr %58, align 8
   %60 = and i32 %59, 1
   %.not34 = icmp eq i32 %60, 0
@@ -4684,7 +4684,7 @@ nspi_dissect_element_SRestriction_res.exit:       ; preds = %46, %48, %51
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -4711,9 +4711,9 @@ define hidden i32 @nspi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1
   %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -4739,7 +4739,7 @@ define hidden i32 @nspi_dissect_struct_SSortOrder(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SSortOrderSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -4770,9 +4770,9 @@ define hidden i32 @nspi_dissect_struct_SSortOrderSet(ptr noundef %0, i32 noundef
   %26 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %24, ptr noundef %2, ptr noundef %.041, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_SSortOrderSet_aSort_, i32 noundef 2, ptr noundef nonnull @.str.3701, i32 noundef %25) #4
   %27 = sub i32 %26, %.0
   tail call void @proto_item_set_len(ptr noundef %.042, i32 noundef %27) #4
-  %28 = getelementptr inbounds i8, ptr %4, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 96
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 96
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 1
   %.not46 = icmp eq i32 %32, 0
@@ -4798,13 +4798,13 @@ define hidden i32 @nspi_dissect_struct_SSortOrderSet(ptr noundef %0, i32 noundef
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_NAME_STRING(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not34 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4850,14 +4850,14 @@ define hidden i32 @nspi_dissect_struct_NAME_STRING(ptr noundef %0, i32 noundef %
   %34 = sub i32 %33, %.0
   tail call void @proto_item_set_len(ptr noundef %.032, i32 noundef %34) #4
   %35 = load ptr, ptr %9, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 96
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %37 = load i32, ptr %36, align 8
   %38 = and i32 %37, 1
   %.not39 = icmp eq i32 %38, 0
   br i1 %.not39, label %46, label %39
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds i8, ptr %4, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %41 = load i32, ptr %40, align 4
   %.not40 = icmp ne i32 %41, 0
   %42 = and i32 %33, 7
@@ -4901,13 +4901,13 @@ define hidden i32 @nspi_dissect_enum_property_types(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -4955,14 +4955,14 @@ define hidden i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %1, p
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -4982,7 +4982,7 @@ define hidden i32 @nspi_dissect_struct_SBinary(ptr noundef %0, i32 noundef %1, p
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -5009,9 +5009,9 @@ define hidden i32 @nspi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, 
   %22 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -5037,13 +5037,13 @@ define hidden i32 @nspi_dissect_struct_FILETIME(ptr noundef %0, i32 noundef %1, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5091,14 +5091,14 @@ define hidden i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5118,13 +5118,13 @@ define hidden i32 @nspi_dissect_struct_SShortArray(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5172,14 +5172,14 @@ define hidden i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5200,7 +5200,7 @@ define hidden i32 @nspi_dissect_struct_MV_LONG_STRUCT(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -5229,9 +5229,9 @@ define hidden i32 @nspi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %23 = sub i32 %21, %.0
   call void @proto_item_set_len(ptr noundef %.024, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not28 = icmp eq i32 %28, 0
@@ -5257,13 +5257,13 @@ define hidden i32 @nspi_dissect_struct_LPSTR(ptr noundef %0, i32 noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5311,14 +5311,14 @@ define hidden i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5338,13 +5338,13 @@ define hidden i32 @nspi_dissect_struct_SLPSTRArray(ptr noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5392,14 +5392,14 @@ define hidden i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef 
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5419,7 +5419,7 @@ define hidden i32 @nspi_dissect_struct_SBinaryArray(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %10 = load i32, ptr %9, align 8
   store i32 1, ptr %9, align 8
   %.not = icmp eq ptr %3, null
@@ -5446,13 +5446,13 @@ define hidden i32 @nspi_dissect_struct_SGuidArray(ptr noundef %0, i32 noundef %1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5500,14 +5500,14 @@ define hidden i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 nou
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5527,13 +5527,13 @@ define hidden i32 @nspi_dissect_struct_MV_UNICODE_STRUCT(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5581,14 +5581,14 @@ define hidden i32 @nspi_dissect_struct_SDateTimeArray(ptr noundef %0, i32 nounde
   %36 = sub i32 %35, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %36) #4
   %37 = load ptr, ptr %9, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not45 = icmp eq i32 %40, 0
   br i1 %.not45, label %48, label %41
 
 41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %4, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %43 = load i32, ptr %42, align 4
   %.not46 = icmp ne i32 %43, 0
   %44 = and i32 %35, 7
@@ -5612,13 +5612,13 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
-  %13 = getelementptr inbounds i8, ptr %4, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, 1
   %.not = icmp eq i32 %17, 0
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %.not46 = icmp ne i32 %19, 0
   br i1 %.not, label %25, label %20
@@ -5682,11 +5682,11 @@ define hidden i32 @nspi_dissect_struct_SPropValue(ptr noundef %0, i32 noundef %1
   %.0129.i.i = phi ptr [ %43, %41 ], [ null, %35 ]
   %45 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %39, ptr noundef %2, ptr noundef %.0129.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %40, ptr noundef nonnull %11) #4
   %46 = load ptr, ptr %13, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 96
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 96
   %48 = load i32, ptr %47, align 8
   %49 = and i32 %48, 1
   %.not131.i.i = icmp eq i32 %49, 0
-  %50 = getelementptr inbounds i8, ptr %4, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %51 = load i32, ptr %50, align 4
   %.not132.i.i = icmp ne i32 %51, 0
   br i1 %.not131.i.i, label %57, label %52
@@ -5840,7 +5840,7 @@ nspi_dissect_element_SPropValue_value.exit:       ; preds = %62, %64, %67, %70, 
   %120 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.044, i32 noundef %120) #4
   %121 = load ptr, ptr %13, align 8
-  %122 = getelementptr inbounds i8, ptr %121, i64 96
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 96
   %123 = load i32, ptr %122, align 8
   %124 = and i32 %123, 1
   %.not51 = icmp eq i32 %124, 0
@@ -5866,13 +5866,13 @@ nspi_dissect_element_SPropValue_value.exit:       ; preds = %62, %64, %67, %70, 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SRow(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not46 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -5922,14 +5922,14 @@ define hidden i32 @nspi_dissect_struct_SRow(ptr noundef %0, i32 noundef %1, ptr 
   %38 = sub i32 %37, %.0
   tail call void @proto_item_set_len(ptr noundef %.044, i32 noundef %38) #4
   %39 = load ptr, ptr %9, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not51 = icmp eq i32 %42, 0
   br i1 %.not51, label %50, label %43
 
 43:                                               ; preds = %31
-  %44 = getelementptr inbounds i8, ptr %4, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %45 = load i32, ptr %44, align 4
   %.not52 = icmp ne i32 %45, 0
   %46 = and i32 %37, 7
@@ -5949,13 +5949,13 @@ define hidden i32 @nspi_dissect_struct_SRow(ptr noundef %0, i32 noundef %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @nspi_dissect_struct_SRowSet(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 96
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 1
   %.not = icmp eq i32 %13, 0
-  %14 = getelementptr inbounds i8, ptr %4, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %15 = load i32, ptr %14, align 4
   %.not40 = icmp ne i32 %15, 0
   br i1 %.not, label %21, label %16
@@ -6002,14 +6002,14 @@ define hidden i32 @nspi_dissect_struct_SRowSet(ptr noundef %0, i32 noundef %1, p
   %35 = sub i32 %34, %.0
   tail call void @proto_item_set_len(ptr noundef %.038, i32 noundef %35) #4
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 96
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 1
   %.not45 = icmp eq i32 %39, 0
   br i1 %.not45, label %47, label %40
 
 40:                                               ; preds = %31
-  %41 = getelementptr inbounds i8, ptr %4, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %42 = load i32, ptr %41, align 4
   %.not46 = icmp ne i32 %42, 0
   %43 = and i32 %34, 7
@@ -6311,7 +6311,7 @@ define internal i32 @nspi_dissect_element_SRowSet_aRow_(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiBind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3716, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_NspiBind_unknown, align 4
   %9 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, i32 noundef 0) #4
@@ -6328,7 +6328,7 @@ define internal i32 @nspi_dissect_NspiBind_request(ptr noundef %0, i32 noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiBind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3716, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_NspiBind_mapiuid, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiBind_mapiuid_, i32 noundef 2, ptr noundef nonnull @.str.3738, i32 noundef %9) #4
@@ -6343,7 +6343,7 @@ define internal i32 @nspi_dissect_NspiBind_response(ptr noundef %0, i32 noundef 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %21) #4
@@ -6355,7 +6355,7 @@ define internal i32 @nspi_dissect_NspiBind_response(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiUnbind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3717, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiUnbind_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %8) #4
@@ -6369,7 +6369,7 @@ define internal i32 @nspi_dissect_NspiUnbind_request(ptr noundef %0, i32 noundef
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiUnbind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3717, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_handle, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiUnbind_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %9) #4
@@ -6381,7 +6381,7 @@ define internal i32 @nspi_dissect_NspiUnbind_response(ptr noundef %0, i32 nounde
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %18) #4
@@ -6393,21 +6393,21 @@ define internal i32 @nspi_dissect_NspiUnbind_response(ptr noundef %0, i32 nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiUpdateStat_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3718, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiUpdateStat_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3718, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiQueryRows_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3719, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiQueryRows_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %8) #4
@@ -6436,7 +6436,7 @@ define internal i32 @nspi_dissect_NspiQueryRows_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiQueryRows_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3719, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_NspiQueryRows_settings, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiQueryRows_settings_, i32 noundef 1, ptr noundef nonnull @.str.3737, i32 noundef %9) #4
@@ -6451,7 +6451,7 @@ define internal i32 @nspi_dissect_NspiQueryRows_response(ptr noundef %0, i32 nou
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %21) #4
@@ -6463,21 +6463,21 @@ define internal i32 @nspi_dissect_NspiQueryRows_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiSeekEntries_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3720, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiSeekEntries_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3720, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiGetMatches_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3721, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiGetMatches_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %8) #4
@@ -6509,7 +6509,7 @@ define internal i32 @nspi_dissect_NspiGetMatches_request(ptr noundef %0, i32 nou
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiGetMatches_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3721, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_NspiGetMatches_settings, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiGetMatches_settings_, i32 noundef 1, ptr noundef nonnull @.str.3737, i32 noundef %9) #4
@@ -6527,7 +6527,7 @@ define internal i32 @nspi_dissect_NspiGetMatches_response(ptr noundef %0, i32 no
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %6
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = call ptr @val_to_str(i32 noundef %20, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %23, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %24) #4
@@ -6539,21 +6539,21 @@ define internal i32 @nspi_dissect_NspiGetMatches_response(ptr noundef %0, i32 no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiResortRestriction_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3722, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiResortRestriction_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3722, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiDNToEph_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3723, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiDNToEph_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %8) #4
@@ -6573,7 +6573,7 @@ define internal i32 @nspi_dissect_NspiDNToEph_request(ptr noundef %0, i32 nounde
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiDNToEph_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3723, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_NspiDNToEph_instance_key, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiDNToEph_instance_key_, i32 noundef 1, ptr noundef nonnull @.str.3747, i32 noundef %9) #4
@@ -6585,7 +6585,7 @@ define internal i32 @nspi_dissect_NspiDNToEph_response(ptr noundef %0, i32 nound
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %18) #4
@@ -6597,21 +6597,21 @@ define internal i32 @nspi_dissect_NspiDNToEph_response(ptr noundef %0, i32 nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetPropList_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3724, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetPropList_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3724, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiGetProps_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3725, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiGetProps_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %8) #4
@@ -6631,7 +6631,7 @@ define internal i32 @nspi_dissect_NspiGetProps_request(ptr noundef %0, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiGetProps_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3725, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_NspiGetProps_REPL_values, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiGetProps_REPL_values_, i32 noundef 1, ptr noundef nonnull @.str.3749, i32 noundef %9) #4
@@ -6643,7 +6643,7 @@ define internal i32 @nspi_dissect_NspiGetProps_response(ptr noundef %0, i32 noun
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %18) #4
@@ -6655,35 +6655,35 @@ define internal i32 @nspi_dissect_NspiGetProps_response(ptr noundef %0, i32 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiCompareDNTs_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3726, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiCompareDNTs_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3726, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiModProps_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3727, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiModProps_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3727, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiGetHierarchyInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3728, ptr %7, align 8
   %8 = load i32, ptr @hf_nspi_handle, align 4
   %9 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiGetHierarchyInfo_handle_, i32 noundef 1, ptr noundef nonnull @.str.3741, i32 noundef %8) #4
@@ -6703,7 +6703,7 @@ define internal i32 @nspi_dissect_NspiGetHierarchyInfo_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @nspi_dissect_NspiGetHierarchyInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3728, ptr %8, align 8
   %9 = load i32, ptr @hf_nspi_NspiGetHierarchyInfo_unknown2, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @nspi_dissect_element_NspiGetHierarchyInfo_unknown2_, i32 noundef 1, ptr noundef nonnull @.str.3750, i32 noundef %9) #4
@@ -6718,7 +6718,7 @@ define internal i32 @nspi_dissect_NspiGetHierarchyInfo_response(ptr noundef %0, 
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @nspi_MAPISTATUS_vals, ptr noundef nonnull @.str.3740) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.3739, ptr noundef %21) #4
@@ -6730,112 +6730,112 @@ define internal i32 @nspi_dissect_NspiGetHierarchyInfo_response(ptr noundef %0, 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetTemplateInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3729, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetTemplateInfo_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3729, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiModLInkAtt_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3730, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiModLInkAtt_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3730, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiDeleteEntries_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3731, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiDeleteEntries_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3731, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiQueryColumns_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3732, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiQueryColumns_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3732, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetNamesFromIDs_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3733, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetNamesFromIDs_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3733, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetIDsFromNames_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3734, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiGetIDsFromNames_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3734, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiResolveNames_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3735, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiResolveNames_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3735, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiResolveNamesW_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3736, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @nspi_dissect_NspiResolveNamesW_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.3736, ptr %7, align 8
   ret i32 %1
 }

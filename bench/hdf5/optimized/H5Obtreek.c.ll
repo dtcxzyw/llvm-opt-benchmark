@@ -46,7 +46,7 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr nocapture readnone %
   br label %88
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds i8, ptr %5, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %20 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %25, label %21
@@ -88,14 +88,14 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr nocapture readnone %
 42:                                               ; preds = %34
   %43 = load i8, ptr %19, align 1
   %44 = zext i8 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %26, i64 4
-  %46 = getelementptr inbounds i8, ptr %5, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = shl nuw nsw i32 %48, 8
   %50 = or disjoint i32 %49, %44
   store i32 %50, ptr %45, align 4
-  %51 = getelementptr inbounds i8, ptr %5, i64 3
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %52 = icmp ugt ptr %51, %.ptr53
   br i1 %52, label %57, label %53
 
@@ -115,13 +115,13 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr nocapture readnone %
 61:                                               ; preds = %53
   %62 = load i8, ptr %51, align 1
   %63 = zext i8 %62 to i32
-  %64 = getelementptr inbounds i8, ptr %5, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = shl nuw nsw i32 %66, 8
   %68 = or disjoint i32 %67, %63
   store i32 %68, ptr %26, align 4
-  %69 = getelementptr inbounds i8, ptr %5, i64 5
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %70 = icmp ugt ptr %69, %.ptr53
   br i1 %70, label %75, label %71
 
@@ -141,8 +141,8 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr nocapture readnone %
 79:                                               ; preds = %71
   %80 = load i8, ptr %69, align 1
   %81 = zext i8 %80 to i32
-  %82 = getelementptr inbounds i8, ptr %26, i64 8
-  %83 = getelementptr inbounds i8, ptr %5, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %84 = load i8, ptr %83, align 1
   %85 = zext i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 8
@@ -162,32 +162,32 @@ define internal noalias noundef ptr @H5O__btreek_decode(ptr nocapture readnone %
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @H5O__btreek_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 7)) %3, ptr nocapture noundef readonly %4) #1 {
-  %6 = getelementptr inbounds i8, ptr %3, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = trunc i32 %8 to i8
   store i8 %9, ptr %6, align 1
-  %10 = getelementptr inbounds i8, ptr %3, i64 2
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %11 = load i32, ptr %7, align 4
   %12 = lshr i32 %11, 8
   %13 = trunc i32 %12 to i8
   store i8 %13, ptr %10, align 1
-  %14 = getelementptr inbounds i8, ptr %3, i64 3
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %15 = load i32, ptr %4, align 4
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %14, align 1
-  %17 = getelementptr inbounds i8, ptr %3, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %18 = load i32, ptr %4, align 4
   %19 = lshr i32 %18, 8
   %20 = trunc i32 %19 to i8
   store i8 %20, ptr %17, align 1
-  %21 = getelementptr inbounds i8, ptr %3, i64 5
-  %22 = getelementptr inbounds i8, ptr %4, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 5
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = trunc i32 %23 to i8
   store i8 %24, ptr %21, align 1
-  %25 = getelementptr inbounds i8, ptr %3, i64 6
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %26 = load i32, ptr %22, align 4
   %27 = lshr i32 %26, 8
   %28 = trunc i32 %27 to i8
@@ -228,12 +228,12 @@ define internal noundef i64 @H5O__btreek_size(ptr nocapture readnone %0, i1 zero
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @H5O__btreek_debug(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #3 {
-  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.8, i32 noundef %7) #10
   %9 = load i32, ptr %1, align 4
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.9, i32 noundef %9) #10
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.6, i32 noundef %3, ptr noundef nonnull @.str.7, i32 noundef %4, ptr noundef nonnull @.str.10, i32 noundef %12) #10
   ret i32 0

@@ -27,8 +27,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE8pr
   br i1 %or.cond42.not, label %.thread32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
@@ -180,7 +180,7 @@ _ZN9UNSIGNED56ReaderIPciNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %_Z
   %.1 = phi i32 [ 0, %5 ], [ %.043, %26 ], [ %.043, %40 ], [ %.043, %.lr.ph.split.i.i.i ], [ %46, %.thread30 ], [ %.0.be, %.backedge ], [ %.043, %.thread ], [ %.043, %.lr.ph.split.us.i.i.i ], [ %.043, %.preheader.i.i.i ]
   %74 = icmp eq ptr %4, null
   %spec.store.select1 = select i1 %74, ptr @.str.4, ptr %4
-  %75 = getelementptr inbounds i8, ptr %0, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %76 = load i32, ptr %75, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %spec.store.select1, i32 noundef %.1, i32 noundef %76) #2
   ret void
@@ -198,8 +198,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE8pr
   br i1 %or.cond42.not, label %.thread32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
@@ -351,7 +351,7 @@ _ZN9UNSIGNED56ReaderIPhiNS_11ArrayGetSetIS1_iEEE9next_uintEv.exit: ; preds = %_Z
   %.1 = phi i32 [ 0, %5 ], [ %.043, %26 ], [ %.043, %40 ], [ %.043, %.lr.ph.split.i.i.i ], [ %46, %.thread30 ], [ %.0.be, %.backedge ], [ %.043, %.thread ], [ %.043, %.lr.ph.split.us.i.i.i ], [ %.043, %.preheader.i.i.i ]
   %74 = icmp eq ptr %4, null
   %spec.store.select1 = select i1 %74, ptr @.str.4, ptr %4
-  %75 = getelementptr inbounds i8, ptr %0, i64 12
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %76 = load i32, ptr %75, align 4
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %spec.store.select1, i32 noundef %.1, i32 noundef %76) #2
   ret void
@@ -367,8 +367,8 @@ define weak_odr hidden void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8pr
   br i1 %or.cond36.not, label %_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
@@ -483,7 +483,7 @@ _ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8has_nextEv.exit.thread: ; preds
   %.1 = phi i32 [ 0, %5 ], [ %.037, %26 ], [ %.037, %.lr.ph.i.i.i ], [ %31, %.thread29 ], [ %.0.be, %.backedge ], [ %.037, %.thread ], [ %.037, %.preheader.i.i.i ]
   %57 = icmp eq ptr %4, null
   %spec.store.select1 = select i1 %57, ptr @.str.4, ptr %4
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i64, ptr %58, align 8
   %60 = trunc i64 %59 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %spec.store.select1, i32 noundef %.1, i32 noundef %60) #2

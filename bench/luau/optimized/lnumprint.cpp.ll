@@ -26,14 +26,14 @@ define hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef %0, double noundef %1
 
 13:                                               ; preds = %11
   %14 = xor i64 %5, 1
-  %15 = getelementptr inbounds i8, ptr @.str, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr @.str, i64 %14
   %16 = load i32, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %0, i64 3
-  %18 = getelementptr inbounds i8, ptr %17, i64 %5
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %5
   br label %_ZL12printspecialPcim.exit
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 3
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 3
   br label %_ZL12printspecialPcim.exit
 
 _ZL12printspecialPcim.exit:                       ; preds = %13, %19
@@ -44,7 +44,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
 
 21:                                               ; preds = %2
   store i8 45, ptr %0, align 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 %5
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %23 = icmp eq i32 %8, 0
   %24 = icmp eq i64 %9, 0
   %or.cond = and i1 %24, %23
@@ -52,7 +52,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
 
 25:                                               ; preds = %21
   store i8 48, ptr %22, align 1
-  %26 = getelementptr inbounds i8, ptr %22, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 1
   br label %_Z8trimzeroPc.exit
 
 27:                                               ; preds = %21
@@ -97,13 +97,13 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
   %57 = sub nsw i32 292, %52
   %58 = lshr i32 %57, 4
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds [39 x [3 x i64]], ptr @_ZL11kPow10Table, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [39 x [3 x i64]], ptr @_ZL11kPow10Table, i64 0, i64 %59
   %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = and i32 %57, 15
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds [16 x i64], ptr @_ZL10kPow5Table, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i64], ptr @_ZL10kPow5Table, i64 0, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = zext i64 %61 to i128
   %69 = zext i64 %67 to i128
@@ -119,7 +119,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
   %79 = icmp ult i64 %78, %77
   %80 = zext i1 %79 to i64
   %81 = add nuw i64 %80, %72
-  %82 = getelementptr inbounds i8, ptr %60, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %83 = load i64, ptr %82, align 8
   %84 = shl nuw nsw i32 %64, 2
   %85 = zext nneg i32 %84 to i64
@@ -230,7 +230,7 @@ _ZL12printspecialPcim.exit:                       ; preds = %13, %19
 _ZL9schubfachim.exit:                             ; preds = %37, %157, %161
   %.sroa.0.0.i = phi i64 [ %38, %37 ], [ %159, %157 ], [ %173, %161 ]
   %.sroa.4.0.i = phi i32 [ 0, %37 ], [ %160, %157 ], [ %52, %161 ]
-  %174 = getelementptr inbounds i8, ptr %3, i64 20
+  %174 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %175 = icmp samesign ugt i64 %.sroa.0.0.i, 9999
   br i1 %175, label %.lr.ph.i, label %._crit_edge.i78
 
@@ -243,14 +243,14 @@ _ZL9schubfachim.exit:                             ; preds = %37, %157, %161
   %178 = udiv i16 %.lhs.trunc.i, 100
   %179 = shl nuw nsw i16 %178, 1
   %180 = zext nneg i16 %179 to i64
-  %181 = getelementptr inbounds [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %180
+  %181 = getelementptr inbounds nuw [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %180
   %182 = load i16, ptr %181, align 2
   store i16 %182, ptr %177, align 1
   %183 = getelementptr inbounds i8, ptr %.01823.i, i64 -2
   %184 = urem i16 %.lhs.trunc.i, 100
   %185 = shl nuw nsw i16 %184, 1
   %186 = zext nneg i16 %185 to i64
-  %187 = getelementptr inbounds [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %186
+  %187 = getelementptr inbounds nuw [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %186
   %188 = load i16, ptr %187, align 2
   store i16 %188, ptr %183, align 1
   %189 = udiv i64 %.01922.i, 10000
@@ -271,7 +271,7 @@ _ZL9schubfachim.exit:                             ; preds = %37, %157, %161
   %194 = urem i32 %.026.i, 100
   %195 = shl nuw nsw i32 %194, 1
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %196
+  %197 = getelementptr inbounds nuw [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %196
   %198 = load i16, ptr %197, align 2
   store i16 %198, ptr %193, align 1
   %199 = udiv i32 %.026.i, 100
@@ -308,13 +308,13 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
 
 213:                                              ; preds = %211
   store i8 48, ptr %22, align 1
-  %214 = getelementptr inbounds i8, ptr %22, i64 1
+  %214 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 46, ptr %214, align 1
-  %215 = getelementptr inbounds i8, ptr %22, i64 2
+  %215 = getelementptr inbounds nuw i8, ptr %22, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %215, i8 48, i64 5, i1 false)
   %216 = sub nsw i32 0, %209
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds i8, ptr %215, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr %215, i64 %217
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %218, ptr noundef nonnull align 1 dereferenceable(17) %.2.i, i64 17, i1 false)
   %sext76 = shl i64 %207, 32
   %219 = ashr exact i64 %sext76, 32
@@ -335,7 +335,7 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
 227:                                              ; preds = %225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %22, ptr noundef nonnull align 1 dereferenceable(17) %.2.i, i64 17, i1 false)
   %228 = zext nneg i32 %209 to i64
-  %229 = getelementptr inbounds i8, ptr %22, i64 %228
+  %229 = getelementptr inbounds nuw i8, ptr %22, i64 %228
   br label %_Z8trimzeroPc.exit
 
 230:                                              ; preds = %225
@@ -345,14 +345,14 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
 232:                                              ; preds = %230
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %22, ptr noundef nonnull align 1 dereferenceable(16) %.2.i, i64 16, i1 false)
   %233 = zext nneg i32 %209 to i64
-  %234 = getelementptr inbounds i8, ptr %22, i64 %233
+  %234 = getelementptr inbounds nuw i8, ptr %22, i64 %233
   store i8 46, ptr %234, align 1
-  %235 = getelementptr inbounds i8, ptr %234, i64 1
-  %236 = getelementptr inbounds i8, ptr %.2.i, i64 %233
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 1
+  %236 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %233
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %235, ptr noundef nonnull align 1 dereferenceable(16) %236, i64 16, i1 false)
   %237 = and i64 %207, 4294967295
-  %238 = getelementptr inbounds i8, ptr %22, i64 %237
-  %239 = getelementptr inbounds i8, ptr %238, i64 1
+  %238 = getelementptr inbounds nuw i8, ptr %22, i64 %237
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 1
   br label %240
 
 240:                                              ; preds = %240, %232
@@ -369,21 +369,21 @@ _ZL16printunsignedrevPcm.exit:                    ; preds = %._crit_edge29.i, %2
   %246 = getelementptr inbounds i8, ptr %22, i64 %245
   store i64 3472328296227680304, ptr %246, align 1
   %247 = zext nneg i32 %209 to i64
-  %248 = getelementptr inbounds i8, ptr %22, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr %22, i64 %247
   br label %_Z8trimzeroPc.exit
 
 249:                                              ; preds = %_ZL16printunsignedrevPcm.exit
   %250 = load i8, ptr %.2.i, align 1
   store i8 %250, ptr %22, align 1
-  %251 = getelementptr inbounds i8, ptr %22, i64 1
+  %251 = getelementptr inbounds nuw i8, ptr %22, i64 1
   store i8 46, ptr %251, align 1
-  %252 = getelementptr inbounds i8, ptr %22, i64 2
-  %253 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %252 = getelementptr inbounds nuw i8, ptr %22, i64 2
+  %253 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %252, ptr noundef nonnull align 1 dereferenceable(16) %253, i64 16, i1 false)
   %sext = shl i64 %207, 32
   %254 = ashr exact i64 %sext, 32
   %255 = getelementptr inbounds i8, ptr %22, i64 %254
-  %256 = getelementptr inbounds i8, ptr %255, i64 1
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 1
   br label %257
 
 257:                                              ; preds = %257, %249
@@ -397,11 +397,11 @@ _Z8trimzeroPc.exit84:                             ; preds = %257
   %261 = icmp eq i8 %259, 46
   %spec.select = select i1 %261, ptr %258, ptr %.0.i83
   %262 = add nsw i32 %209, -1
-  %263 = getelementptr inbounds i8, ptr %spec.select, i64 1
+  %263 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   store i8 101, ptr %spec.select, align 1
   %264 = icmp slt i32 %209, 1
   %265 = select i1 %264, i8 45, i8 43
-  %266 = getelementptr inbounds i8, ptr %spec.select, i64 2
+  %266 = getelementptr inbounds nuw i8, ptr %spec.select, i64 2
   store i8 %265, ptr %263, align 1
   %267 = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %262, i1 true)
   %268 = icmp samesign ugt i32 %267, 99
@@ -411,7 +411,7 @@ _Z8trimzeroPc.exit84:                             ; preds = %257
   %270 = udiv i32 %267, 100
   %271 = trunc i32 %270 to i8
   %272 = add i8 %271, 48
-  %273 = getelementptr inbounds i8, ptr %spec.select, i64 3
+  %273 = getelementptr inbounds nuw i8, ptr %spec.select, i64 3
   store i8 %272, ptr %266, align 1
   %274 = urem i32 %267, 100
   br label %_ZL8printexpPci.exit
@@ -421,10 +421,10 @@ _ZL8printexpPci.exit:                             ; preds = %_Z8trimzeroPc.exit8
   %.0.i85 = phi i32 [ %274, %269 ], [ %267, %_Z8trimzeroPc.exit84 ]
   %275 = shl nuw nsw i32 %.0.i85, 1
   %276 = zext nneg i32 %275 to i64
-  %277 = getelementptr inbounds [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %276
+  %277 = getelementptr inbounds nuw [201 x i8], ptr @_ZL11kDigitTable, i64 0, i64 %276
   %278 = load i16, ptr %277, align 2
   store i16 %278, ptr %.012.i, align 1
-  %279 = getelementptr inbounds i8, ptr %.012.i, i64 2
+  %279 = getelementptr inbounds nuw i8, ptr %.012.i, i64 2
   br label %_Z8trimzeroPc.exit
 
 _Z8trimzeroPc.exit:                               ; preds = %240, %221, %_ZL8printexpPci.exit, %244, %227, %25, %_ZL12printspecialPcim.exit

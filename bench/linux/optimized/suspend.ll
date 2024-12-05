@@ -221,7 +221,7 @@ define dso_local void @suspend_set_ops(ptr noundef %0) #1 align 16 {
   br i1 %9, label %thread-pre-split, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.pr.pre, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %thread-pre-split, label %14
@@ -253,7 +253,7 @@ thread-pre-split:                                 ; preds = %17, %14, %7, %10
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr @suspend_ops, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.thread, label %29
@@ -317,7 +317,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @suspend_ops, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %376, label %.thread
@@ -350,7 +350,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %31, label %.thread39, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.thread39, label %36
@@ -380,8 +380,8 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %47, label %50, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %2, i64 8
-  %49 = getelementptr inbounds i8, ptr %2, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %62
 
 50:                                               ; preds = %45
@@ -408,7 +408,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
 
 63:                                               ; preds = %62
   %64 = load ptr, ptr @suspend_ops, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %66, null
   br i1 %67, label %.thread41, label %68
@@ -434,7 +434,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %78, label %79, label %.thread43
 
 79:                                               ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %76, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %.thread43, label %83
@@ -462,14 +462,14 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %93, label %.thread45, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %92, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.thread45, label %103
 
 98:                                               ; preds = %90
   %99 = load ptr, ptr @suspend_ops, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = icmp eq ptr %101, null
   br i1 %102, label %.thread45.thread, label %103
@@ -529,7 +529,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %130, label %137, label %131
 
 131:                                              ; preds = %128
-  %132 = getelementptr inbounds i8, ptr %129, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
   br i1 %134, label %137, label %135
@@ -548,7 +548,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %141, label %147, label %142
 
 142:                                              ; preds = %139
-  %143 = getelementptr inbounds i8, ptr %140, i64 24
+  %143 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %144 = load ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %147, label %146
@@ -579,7 +579,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %157, label %162, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds i8, ptr %156, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = call i32 @__SCT__tp_func_suspend_resume(ptr noundef %160, ptr noundef %148, i32 noundef 1, i1 noundef zeroext true) #13
   br label %162
@@ -663,7 +663,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   br i1 %192, label %197, label %193
 
 193:                                              ; preds = %190
-  %194 = getelementptr inbounds i8, ptr %191, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = call i32 @__SCT__tp_func_suspend_resume(ptr noundef %195, ptr noundef %183, i32 noundef 1, i1 noundef zeroext false) #13
   br label %197
@@ -738,7 +738,7 @@ define dso_local i32 @suspend_devices_and_enter(i32 noundef %0) local_unnamed_ad
   %228 = load ptr, ptr @suspend_enter.___tp_str, align 8
   call fastcc void @trace_suspend_resume(ptr noundef %228, i32 noundef %0, i1 noundef zeroext true)
   %229 = load ptr, ptr @suspend_ops, align 8
-  %230 = getelementptr inbounds i8, ptr %229, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 32
   %231 = load ptr, ptr %230, align 8
   %232 = call i32 %231(i32 noundef %0) #13
   %233 = load ptr, ptr @suspend_enter.___tp_str.18, align 8
@@ -790,7 +790,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   br i1 %250, label %266, label %251
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds i8, ptr %249, i64 40
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 40
   %253 = load ptr, ptr %252, align 8
   %254 = icmp eq ptr %253, null
   br i1 %254, label %266, label %262
@@ -799,7 +799,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   %256 = phi i32 [ %246, %s2idle_loop.exit.thread ], [ %247, %s2idle_loop.exit ]
   %257 = phi i8 [ %245, %s2idle_loop.exit.thread ], [ 0, %s2idle_loop.exit ]
   %258 = load ptr, ptr @suspend_ops, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 40
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 40
   %260 = load ptr, ptr %259, align 8
   %261 = icmp eq ptr %260, null
   br i1 %261, label %266, label %262
@@ -826,7 +826,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   br i1 %274, label %275, label %280
 
 275:                                              ; preds = %269
-  %276 = getelementptr inbounds i8, ptr %272, i64 48
+  %276 = getelementptr inbounds nuw i8, ptr %272, i64 48
   %277 = load ptr, ptr %276, align 8
   %278 = icmp eq ptr %277, null
   br i1 %278, label %280, label %279
@@ -851,7 +851,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   %287 = phi i32 [ %286, %284 ], [ %69, %68 ]
   %288 = phi i1 [ %285, %284 ], [ false, %68 ]
   %289 = load ptr, ptr @suspend_ops, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 48
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 48
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %291, null
   br i1 %292, label %294, label %293
@@ -872,7 +872,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
 
 300:                                              ; preds = %298
   %301 = load ptr, ptr @suspend_ops, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 56
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 56
   %303 = load ptr, ptr %302, align 8
   %304 = icmp eq ptr %303, null
   br i1 %304, label %.loopexit48, label %305
@@ -905,7 +905,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   br i1 %317, label %322, label %318
 
 318:                                              ; preds = %315
-  %319 = getelementptr inbounds i8, ptr %316, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %316, i64 8
   %320 = load ptr, ptr %319, align 8
   %321 = call i32 @__SCT__tp_func_suspend_resume(ptr noundef %320, ptr noundef %308, i32 noundef %0, i1 noundef zeroext true) #13
   br label %322
@@ -947,7 +947,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   br i1 %339, label %344, label %340
 
 340:                                              ; preds = %337
-  %341 = getelementptr inbounds i8, ptr %338, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %338, i64 8
   %342 = load ptr, ptr %341, align 8
   %343 = call i32 @__SCT__tp_func_suspend_resume(ptr noundef %342, ptr noundef %330, i32 noundef %0, i1 noundef zeroext false) #13
   br label %344
@@ -974,7 +974,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   br i1 %355, label %356, label %360
 
 356:                                              ; preds = %351
-  %357 = getelementptr inbounds i8, ptr %353, i64 56
+  %357 = getelementptr inbounds nuw i8, ptr %353, i64 56
   %358 = load ptr, ptr %357, align 8
   %359 = icmp eq ptr %358, null
   br i1 %359, label %360, label %367
@@ -985,7 +985,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
   br i1 %362, label %369, label %363
 
 363:                                              ; preds = %360
-  %364 = getelementptr inbounds i8, ptr %361, i64 64
+  %364 = getelementptr inbounds nuw i8, ptr %361, i64 64
   %365 = load ptr, ptr %364, align 8
   %366 = icmp eq ptr %365, null
   br i1 %366, label %369, label %367
@@ -1004,7 +1004,7 @@ s2idle_loop.exit:                                 ; preds = %119, %206, %204, %1
 
 370:                                              ; preds = %.loopexit
   %371 = load ptr, ptr @suspend_ops, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 72
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 72
   %373 = load ptr, ptr %372, align 8
   %374 = icmp eq ptr %373, null
   br i1 %374, label %.loopexit48, label %375
@@ -1082,7 +1082,7 @@ define internal fastcc void @trace_suspend_resume(ptr noundef %0, i32 noundef ra
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %11, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %15, ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) #13
   br label %17
@@ -1140,7 +1140,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %17, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %21, ptr noundef %9, i32 noundef %0, i1 noundef zeroext true) #13
   br label %23
@@ -1191,7 +1191,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr @suspend_ops, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.thread23, label %.thread
@@ -1237,7 +1237,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   br i1 %71, label %76, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds i8, ptr %70, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %74, ptr noundef %62, i32 noundef 0, i1 noundef zeroext true) #13
   br label %76
@@ -1279,7 +1279,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   br i1 %93, label %98, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %92, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %96, ptr noundef %84, i32 noundef 0, i1 noundef zeroext false) #13
   br label %98
@@ -1327,7 +1327,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
 
 119:                                              ; preds = %116
   %120 = load ptr, ptr @suspend_ops, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %.thread24, label %124
@@ -1360,7 +1360,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   br i1 %137, label %142, label %138
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %136, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %140, ptr noundef %128, i32 noundef 0, i1 noundef zeroext true) #13
   br label %142
@@ -1416,7 +1416,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   br i1 %167, label %172, label %168
 
 168:                                              ; preds = %165
-  %169 = getelementptr inbounds i8, ptr %166, i64 8
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %170 = load ptr, ptr %169, align 8
   %171 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %170, ptr noundef %158, i32 noundef 0, i1 noundef zeroext false) #13
   br label %172
@@ -1510,7 +1510,7 @@ define dso_local i32 @pm_suspend(i32 noundef %0) #1 align 16 {
   br i1 %218, label %223, label %219
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds i8, ptr %217, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 8
   %221 = load ptr, ptr %220, align 8
   %222 = tail call i32 @__SCT__tp_func_suspend_resume(ptr noundef %221, ptr noundef %209, i32 noundef %0, i1 noundef zeroext false) #13
   br label %223

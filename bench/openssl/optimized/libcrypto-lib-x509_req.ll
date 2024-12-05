@@ -18,9 +18,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @X509_to_X509_REQ(ptr noundef %x, ptr noundef %pkey, ptr noundef %md) local_unnamed_addr #0 {
 entry:
-  %libctx = getelementptr inbounds i8, ptr %x, i64 368
+  %libctx = getelementptr inbounds nuw i8, ptr %x, i64 368
   %0 = load ptr, ptr %libctx, align 8
-  %propq = getelementptr inbounds i8, ptr %x, i64 376
+  %propq = getelementptr inbounds nuw i8, ptr %x, i64 376
   %1 = load ptr, ptr %propq, align 8
   %call = tail call ptr @X509_REQ_new_ex(ptr noundef %0, ptr noundef %1) #7
   %cmp = icmp eq ptr %call, null
@@ -33,15 +33,15 @@ if.then:                                          ; preds = %entry
   br label %err
 
 if.end:                                           ; preds = %entry
-  %version = getelementptr inbounds i8, ptr %call, i64 24
+  %version = getelementptr inbounds nuw i8, ptr %call, i64 24
   %2 = load ptr, ptr %version, align 8
   store i32 1, ptr %2, align 8
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 1, ptr noundef nonnull @.str, i32 noundef 38) #7
   %3 = load ptr, ptr %version, align 8
-  %data = getelementptr inbounds i8, ptr %3, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %call1, ptr %data, align 8
   %4 = load ptr, ptr %version, align 8
-  %data4 = getelementptr inbounds i8, ptr %4, i64 8
+  %data4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %data4, align 8
   %cmp5 = icmp eq ptr %5, null
   br i1 %cmp5, label %err, label %if.end7
@@ -110,7 +110,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pubkey = getelementptr inbounds i8, ptr %req, i64 40
+  %pubkey = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %pubkey, align 8
   %call = tail call ptr @X509_PUBKEY_get(ptr noundef %0) #7
   br label %return
@@ -129,7 +129,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %pubkey = getelementptr inbounds i8, ptr %req, i64 40
+  %pubkey = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %pubkey, align 8
   %call = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #7
   br label %return
@@ -144,7 +144,7 @@ declare ptr @X509_PUBKEY_get0(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_REQ_get_X509_PUBKEY(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
 entry:
-  %pubkey = getelementptr inbounds i8, ptr %req, i64 40
+  %pubkey = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %pubkey, align 8
   ret ptr %0
 }
@@ -156,7 +156,7 @@ entry:
   br i1 %cmp.i, label %X509_REQ_get0_pubkey.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %pubkey.i = getelementptr inbounds i8, ptr %req, i64 40
+  %pubkey.i = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %pubkey.i, align 8
   %call.i = tail call ptr @X509_PUBKEY_get0(ptr noundef %0) #7
   br label %X509_REQ_get0_pubkey.exit
@@ -179,7 +179,7 @@ entry:
 
 for.cond:                                         ; preds = %if.else
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
+  %arrayidx = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
   %2 = load i32, ptr %arrayidx, align 4
   %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %return, label %if.else
@@ -225,11 +225,11 @@ for.cond.preheader:                               ; preds = %entry
   br i1 %cmp1.not14, label %if.then8, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
-  %attributes.i = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes.i = getelementptr inbounds nuw i8, ptr %req, i64 48
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %incdec.ptr = getelementptr inbounds i8, ptr %pnid.015, i64 4
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %pnid.015, i64 4
   %2 = load i32, ptr %incdec.ptr, align 4
   %cmp1.not = icmp eq i32 %2, 0
   br i1 %cmp1.not, label %if.then8, label %for.body, !llvm.loop !4
@@ -265,9 +265,9 @@ if.then12:                                        ; preds = %if.end10
   br label %return
 
 if.end13:                                         ; preds = %if.end10
-  %value = getelementptr inbounds i8, ptr %call6, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call6, i64 8
   %7 = load ptr, ptr %value, align 8
-  %data = getelementptr inbounds i8, ptr %7, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load ptr, ptr %data, align 8
   store ptr %8, ptr %p, align 8
   %9 = load i32, ptr %7, align 8
@@ -284,7 +284,7 @@ return:                                           ; preds = %entry, %if.end13, %
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_attr_by_NID(ptr nocapture noundef readonly %req, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_by_NID(ptr noundef %0, i32 noundef %nid, i32 noundef %lastpos) #7
   ret i32 %call
@@ -293,7 +293,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define ptr @X509_REQ_get_attr(ptr nocapture noundef readonly %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call ptr @X509at_get_attr(ptr noundef %0, i32 noundef %loc) #7
   ret ptr %call
@@ -329,13 +329,13 @@ if.then.i:                                        ; preds = %if.end
 
 if.end.i:                                         ; preds = %if.end
   %0 = load ptr, ptr %ext, align 8
-  %attributes.i = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes.i = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call.i = call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attributes.i, i32 noundef %nid, i32 noundef 16, ptr noundef %0, i32 noundef %call1) #7
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %X509_REQ_add1_attr_by_NID.exit, label %if.end2.i
 
 if.end2.i:                                        ; preds = %if.end.i
-  %modified.i = getelementptr inbounds i8, ptr %req, i64 16
+  %modified.i = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified.i, align 8
   br label %X509_REQ_add1_attr_by_NID.exit
 
@@ -365,13 +365,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call = tail call ptr @X509at_add1_attr_by_NID(ptr noundef nonnull %attributes, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %req, i64 16
+  %modified = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -392,7 +392,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_attr_count(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_count(ptr noundef %0) #7
   ret i32 %call
@@ -405,7 +405,7 @@ declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_attr_by_OBJ(ptr nocapture noundef readonly %req, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call i32 @X509at_get_attr_by_OBJ(ptr noundef %0, ptr noundef %obj, i32 noundef %lastpos) #7
   ret i32 %call
@@ -428,14 +428,14 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %0 = load ptr, ptr %attributes, align 8
   %call = tail call ptr @X509at_delete_attr(ptr noundef %0, i32 noundef %loc) #7
   %cmp1.not = icmp eq ptr %call, null
   br i1 %cmp1.not, label %return, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %req, i64 16
+  %modified = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -459,13 +459,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call = tail call ptr @X509at_add1_attr(ptr noundef nonnull %attributes, ptr noundef %attr) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %req, i64 16
+  %modified = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -489,13 +489,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call = tail call ptr @X509at_add1_attr_by_OBJ(ptr noundef nonnull %attributes, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %req, i64 16
+  %modified = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -521,13 +521,13 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %attributes = getelementptr inbounds i8, ptr %req, i64 48
+  %attributes = getelementptr inbounds nuw i8, ptr %req, i64 48
   %call = tail call ptr @X509at_add1_attr_by_txt(ptr noundef nonnull %attributes, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) #7
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.end2
 
 if.end2:                                          ; preds = %if.end
-  %modified = getelementptr inbounds i8, ptr %req, i64 16
+  %modified = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified, align 8
   br label %return
 
@@ -541,7 +541,7 @@ declare ptr @X509at_add1_attr_by_txt(ptr noundef, ptr noundef, i32 noundef, ptr 
 ; Function Attrs: nounwind uwtable
 define i64 @X509_REQ_get_version(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
-  %version = getelementptr inbounds i8, ptr %req, i64 24
+  %version = getelementptr inbounds nuw i8, ptr %req, i64 24
   %0 = load ptr, ptr %version, align 8
   %call = tail call i64 @ASN1_INTEGER_get(ptr noundef %0) #7
   ret i64 %call
@@ -552,7 +552,7 @@ declare i64 @ASN1_INTEGER_get(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @X509_REQ_get_subject_name(ptr nocapture noundef readonly %req) local_unnamed_addr #2 {
 entry:
-  %subject = getelementptr inbounds i8, ptr %req, i64 32
+  %subject = getelementptr inbounds nuw i8, ptr %req, i64 32
   %0 = load ptr, ptr %subject, align 8
   ret ptr %0
 }
@@ -564,7 +564,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %signature = getelementptr inbounds i8, ptr %req, i64 72
+  %signature = getelementptr inbounds nuw i8, ptr %req, i64 72
   %0 = load ptr, ptr %signature, align 8
   store ptr %0, ptr %psig, align 8
   br label %if.end
@@ -574,7 +574,7 @@ if.end:                                           ; preds = %if.then, %entry
   br i1 %cmp1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %sig_alg = getelementptr inbounds i8, ptr %req, i64 56
+  %sig_alg = getelementptr inbounds nuw i8, ptr %req, i64 56
   store ptr %sig_alg, ptr %palg, align 8
   br label %if.end3
 
@@ -585,7 +585,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 ; Function Attrs: nounwind uwtable
 define void @X509_REQ_set0_signature(ptr nocapture noundef %req, ptr noundef %psig) local_unnamed_addr #0 {
 entry:
-  %signature = getelementptr inbounds i8, ptr %req, i64 72
+  %signature = getelementptr inbounds nuw i8, ptr %req, i64 72
   %0 = load ptr, ptr %signature, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -604,7 +604,7 @@ declare void @ASN1_BIT_STRING_free(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_set1_signature_algo(ptr noundef %req, ptr noundef %palg) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds i8, ptr %req, i64 56
+  %sig_alg = getelementptr inbounds nuw i8, ptr %req, i64 56
   %call = tail call i32 @X509_ALGOR_copy(ptr noundef nonnull %sig_alg, ptr noundef %palg) #7
   ret i32 %call
 }
@@ -614,7 +614,7 @@ declare i32 @X509_ALGOR_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define i32 @X509_REQ_get_signature_nid(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
 entry:
-  %sig_alg = getelementptr inbounds i8, ptr %req, i64 56
+  %sig_alg = getelementptr inbounds nuw i8, ptr %req, i64 56
   %0 = load ptr, ptr %sig_alg, align 8
   %call = tail call i32 @OBJ_obj2nid(ptr noundef %0) #7
   ret i32 %call
@@ -635,7 +635,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %modified = getelementptr inbounds i8, ptr %req, i64 16
+  %modified = getelementptr inbounds nuw i8, ptr %req, i64 16
   store i32 1, ptr %modified, align 8
   %call = tail call i32 @i2d_X509_REQ_INFO(ptr noundef nonnull %req, ptr noundef %pp) #7
   br label %return

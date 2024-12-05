@@ -32,24 +32,24 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %4 = alloca %struct._avl_tree, align 8
   %5 = alloca %struct._avl_tree, align 8
   %6 = tail call ptr @pg_malloc0(i64 noundef 48) #10
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %7, align 8
   %8 = getelementptr i8, ptr %6, i64 40
   store ptr %6, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %6, ptr %9, align 8
   store i32 0, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %6, ptr %10, align 8
   %11 = tail call ptr @pg_malloc0(i64 noundef 48) #10
-  %12 = getelementptr inbounds i8, ptr %4, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %11, ptr %12, align 8
   %13 = getelementptr i8, ptr %11, i64 40
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store ptr %11, ptr %14, align 8
   store i32 0, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %15, align 8
   %16 = tail call i32 @PQresultStatus(ptr noundef %0) #10
   %.not = icmp eq i32 %16, 2
@@ -155,10 +155,10 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
 
 .lr.ph90:                                         ; preds = %57
   %60 = icmp sgt i32 %.065.fr, -1
-  %61 = getelementptr inbounds i8, ptr %3, i64 16
-  %62 = getelementptr inbounds i8, ptr %3, i64 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 16
-  %64 = getelementptr inbounds i8, ptr %2, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br i1 %60, label %.lr.ph90.split.us, label %.lr.ph90.split
 
 .lr.ph90.split.us:                                ; preds = %.lr.ph90, %81
@@ -393,7 +393,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i32 @avlCollectFields(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) unnamed_addr #2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %1, %6
   br i1 %7, label %tailrecurse._crit_edge, label %tailrecurse
@@ -401,7 +401,7 @@ define internal fastcc i32 @avlCollectFields(ptr nocapture noundef nonnull reado
 tailrecurse:                                      ; preds = %4, %tailrecurse
   %.tr1719 = phi i32 [ %15, %tailrecurse ], [ %3, %4 ]
   %.tr1518 = phi ptr [ %14, %tailrecurse ], [ %1, %4 ]
-  %8 = getelementptr inbounds i8, ptr %.tr1518, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %.tr1518, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = tail call fastcc i32 @avlCollectFields(ptr noundef %0, ptr noundef %9, ptr noundef %2, i32 noundef %.tr1719)
   %11 = sext i32 %10 to i64
@@ -513,7 +513,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %10 = alloca %struct.printTableContent, align 8
   %11 = alloca %struct._pivot_field, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef nonnull align 8 dereferenceable(168) getelementptr inbounds (i8, ptr @pset, i64 48), i64 168, i1 false)
-  %12 = getelementptr inbounds i8, ptr %9, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %13 = load ptr, ptr %12, align 8
   %14 = add i32 %1, 1
   call void @printTableInit(ptr noundef nonnull %10, ptr noundef nonnull %9, ptr noundef %13, i32 noundef %14, i32 noundef %4) #10
@@ -549,7 +549,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br i1 %21, label %.lr.ph114, label %._crit_edge115
 
 .lr.ph114:                                        ; preds = %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %9, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %9, i64 120
   %wide.trip.count136 = zext nneg i32 %1 to i64
   br label %30
 
@@ -576,15 +576,15 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br i1 %39, label %.lr.ph118, label %._crit_edge119
 
 .lr.ph118:                                        ; preds = %._crit_edge115
-  %40 = getelementptr inbounds i8, ptr %9, i64 120
-  %41 = getelementptr inbounds i8, ptr %10, i64 40
+  %40 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %wide.trip.count141 = zext nneg i32 %4 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph118, %42
   %indvars.iv138 = phi i64 [ 0, %.lr.ph118 ], [ %indvars.iv.next139, %42 ]
   %43 = getelementptr %struct._pivot_field, ptr %5, i64 %indvars.iv138
-  %44 = getelementptr inbounds i8, ptr %43, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = load ptr, ptr %43, align 8
   %.not104 = icmp eq ptr %46, null
@@ -604,7 +604,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 ._crit_edge119:                                   ; preds = %42, %._crit_edge115
   %54 = mul i32 %4, %14
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i8, ptr %10, i64 56
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %55, ptr %56, align 8
   %57 = call i32 @PQntuples(ptr noundef %0) #10
   %58 = icmp slt i32 %57, 1
@@ -612,8 +612,8 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 .lr.ph123:                                        ; preds = %._crit_edge119
   %59 = sext i32 %4 to i64
-  %60 = getelementptr inbounds i8, ptr %10, i64 40
-  %61 = getelementptr inbounds i8, ptr %9, i64 120
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %9, i64 120
   br label %64
 
 .preheader:                                       ; preds = %107, %._crit_edge119
@@ -622,7 +622,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   br i1 %.not128, label %._crit_edge126, label %.lr.ph125
 
 .lr.ph125:                                        ; preds = %.preheader
-  %63 = getelementptr inbounds i8, ptr %10, i64 40
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 40
   br label %110
 
 64:                                               ; preds = %.lr.ph123, %107
@@ -639,7 +639,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %storemerge = phi ptr [ %67, %66 ], [ null, %64 ]
   store ptr %storemerge, ptr %11, align 8
   %69 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %5, i64 noundef %59, i64 noundef 24, ptr noundef nonnull @pivotFieldCompare) #10
-  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.084120, i32 noundef %3) #10
   %.not95 = icmp eq i32 %72, 0
@@ -653,7 +653,7 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
   %storemerge96 = phi ptr [ %74, %73 ], [ null, %68 ]
   store ptr %storemerge96, ptr %11, align 8
   %76 = call ptr @bsearch(ptr noundef nonnull %11, ptr noundef %2, i64 noundef %18, i64 noundef 24, ptr noundef nonnull @pivotFieldCompare) #10
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load i32, ptr %77, align 8
   %79 = icmp sgt i32 %78, -1
   %80 = icmp sgt i32 %71, -1
@@ -748,9 +748,9 @@ define internal fastcc noundef zeroext i1 @printCrosstab(ptr noundef %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @avlFree(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %4, %6
   br i1 %.not, label %9, label %7
@@ -776,7 +776,7 @@ define internal fastcc void @avlFree(ptr noundef nonnull %0, ptr noundef %1) unn
   br label %15
 
 15:                                               ; preds = %13, %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %1, %17
   br i1 %18, label %19, label %24
@@ -854,18 +854,18 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @avlInsertNode(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%struct._pivot_field) align 8 %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %4, %6
   br i1 %7, label %8, label %16
 
 8:                                                ; preds = %3
   %9 = tail call ptr @pg_malloc(i64 noundef 48) #10
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 1, ptr %10, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = getelementptr i8, ptr %9, i64 40
   store ptr %11, ptr %13, align 8
   store ptr %11, ptr %12, align 8
@@ -951,25 +951,25 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   %51 = getelementptr [2 x ptr], ptr %42, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   store ptr %52, ptr %40, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %.not.i.i = xor i1 %.not15.i, true
   %54 = zext i1 %.not.i.i to i64
   %55 = getelementptr [2 x ptr], ptr %53, i64 0, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %51, align 8
   %57 = load ptr, ptr %42, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = load ptr, ptr %43, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %62 = load i32, ptr %61, align 8
   %..i.i.i = tail call i32 @llvm.smax.i32(i32 %59, i32 %62)
   %63 = add i32 %..i.i.i, 1
-  %64 = getelementptr inbounds i8, ptr %41, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i32 %63, ptr %64, align 8
   store ptr %41, ptr %55, align 8
   %.pre.i = load ptr, ptr %1, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
   %.phi.trans.insert24.i = getelementptr [2 x ptr], ptr %.phi.trans.insert.i, i64 0, i64 %39
   %.pre25.i = load ptr, ptr %.phi.trans.insert24.i, align 8
   br label %._crit_edge.i
@@ -977,25 +977,25 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
 ._crit_edge.i:                                    ; preds = %35, %49
   %65 = phi ptr [ %.pre25.i, %49 ], [ %41, %35 ]
   %66 = phi ptr [ %.pre.i, %49 ], [ %29, %35 ]
-  %67 = getelementptr inbounds i8, ptr %66, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = getelementptr [2 x ptr], ptr %67, i64 0, i64 %39
   store ptr %65, ptr %1, align 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %.not.i21.i = icmp ult i32 %36, 3
   %70 = zext i1 %.not.i21.i to i64
   %71 = getelementptr [2 x ptr], ptr %69, i64 0, i64 %70
   %72 = load ptr, ptr %71, align 8
   store ptr %72, ptr %68, align 8
   %73 = load ptr, ptr %67, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load i32, ptr %74, align 8
   %76 = getelementptr i8, ptr %66, i64 40
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load i32, ptr %78, align 8
   %..i.i22.i = tail call i32 @llvm.smax.i32(i32 %75, i32 %79)
   %80 = add i32 %..i.i22.i, 1
-  %81 = getelementptr inbounds i8, ptr %66, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i32 %80, ptr %81, align 8
   store ptr %66, ptr %71, align 8
   br label %82
@@ -1007,17 +1007,17 @@ pivotFieldCompare.exit:                           ; preds = %19, %22
   br i1 %.not17.i, label %avlAdjustBalance.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.0.i20, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i20, i64 32
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load i32, ptr %87, align 8
   %89 = getelementptr i8, ptr %.0.i20, i64 40
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i32, ptr %91, align 8
   %..i.i = tail call i32 @llvm.smax.i32(i32 %88, i32 %92)
   %93 = add i32 %..i.i, 1
-  %94 = getelementptr inbounds i8, ptr %.0.i20, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i20, i64 24
   store i32 %93, ptr %94, align 8
   br label %avlAdjustBalance.exit
 

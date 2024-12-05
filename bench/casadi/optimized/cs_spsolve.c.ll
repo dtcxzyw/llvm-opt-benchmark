@@ -9,7 +9,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br i1 %.not, label %.loopexit93, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, -1
   %12 = icmp ne ptr %1, null
@@ -17,7 +17,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br i1 %or.cond, label %13, label %.loopexit93
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, -1
   %17 = icmp ne ptr %3, null
@@ -27,19 +27,19 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br i1 %or.cond5, label %19, label %.loopexit93
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 @cs_reach(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %5) #3
   %35 = icmp slt i32 %34, %27
@@ -75,7 +75,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   br label %.lr.ph97
 
 .preheader:                                       ; preds = %.lr.ph97, %._crit_edge
-  %invariant.gep = getelementptr inbounds i8, ptr %21, i64 4
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %21, i64 4
   %invariant.gep103 = getelementptr i8, ptr %25, i64 -8
   br i1 %35, label %.lr.ph108, label %.loopexit93
 
@@ -105,7 +105,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %56 to i64
-  %gep102.us = getelementptr inbounds i32, ptr %invariant.gep, i64 %59
+  %gep102.us = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %59
   %60 = load i32, ptr %gep102.us, align 4
   %61 = sext i32 %60 to i64
   %gep104.us = getelementptr double, ptr %invariant.gep103, i64 %61
@@ -115,7 +115,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   %65 = load double, ptr %64, align 8
   %66 = fdiv double %65, %62
   store double %66, ptr %64, align 8
-  %67 = getelementptr inbounds i32, ptr %21, i64 %59
+  %67 = getelementptr inbounds nuw i32, ptr %21, i64 %59
   %68 = load i32, ptr %67, align 4
   %69 = load i32, ptr %gep102.us, align 4
   %70 = add nsw i32 %69, -1
@@ -183,7 +183,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 101:                                              ; preds = %98
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr inbounds i32, ptr %21, i64 %102
+  %103 = getelementptr inbounds nuw i32, ptr %21, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds double, ptr %25, i64 %105
@@ -195,7 +195,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   store double %111, ptr %109, align 8
   %112 = load i32, ptr %103, align 4
   %113 = add nsw i32 %112, 1
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %102
+  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %102
   %114 = load i32, ptr %gep, align 4
   %115 = icmp slt i32 %113, %114
   br i1 %115, label %.lr.ph100.preheader, label %.loopexit

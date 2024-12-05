@@ -190,34 +190,34 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %.preheader.preheader, %16
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %16 ]
   %0 = getelementptr [22 x %struct.FCOSRegisterDef], ptr @aRegisters, i64 0, i64 %indvars.iv
-  %1 = getelementptr inbounds i8, ptr %0, i64 32
+  %1 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %2, null
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = add nuw nsw i64 %indvars.iv, 22
   %12 = getelementptr [44 x %struct.hf_register_info], ptr @proto_register_FiveCoLegacy.hf, i64 0, i64 %11
   store ptr %3, ptr %12, align 16
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %7, ptr %.sroa.33.0..sroa_idx, align 16
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %10, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 28
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 28
   store i32 6, ptr %.sroa.55.0..sroa_idx, align 4
-  %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 32
+  %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
   store ptr %2, ptr %.sroa.66.0..sroa_idx, align 16
-  %.sroa.77.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
-  %.sroa.99.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 56
+  %.sroa.77.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %.sroa.99.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.77.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.99.0..sroa_idx, align 8
   br label %16
@@ -226,25 +226,25 @@ define hidden void @proto_register_FiveCoLegacy() local_unnamed_addr #0 {
   %14 = add nuw nsw i64 %indvars.iv, 22
   %15 = getelementptr [44 x %struct.hf_register_info], ptr @proto_register_FiveCoLegacy.hf, i64 0, i64 %14
   store ptr %3, ptr %15, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %5, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %7, ptr %.sroa.3.0..sroa_idx, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.4.0..sroa_idx, i8 0, i64 32, i1 false)
   store i32 -1, ptr %.sroa.9.0..sroa_idx, align 8
   br label %16
 
 16:                                               ; preds = %8, %13
   %.sink40 = phi ptr [ %12, %8 ], [ %15, %13 ]
-  %.sroa.1010.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 60
+  %.sroa.1010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 60
   store i32 0, ptr %.sroa.1010.0..sroa_idx, align 4
-  %.sroa.1111.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 64
+  %.sroa.1111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 64
   store i32 0, ptr %.sroa.1111.0..sroa_idx, align 16
-  %.sroa.1212.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 68
+  %.sroa.1212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 68
   store i32 -1, ptr %.sroa.1212.0..sroa_idx, align 4
-  %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %.sink40, i64 72
+  %.sroa.1313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink40, i64 72
   store ptr null, ptr %.sroa.1313.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 22
@@ -287,21 +287,21 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %8, label %.loopexit504, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.1) #8
   %12 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #8
   %13 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %6, align 8
   %16 = add i32 %7, -8
-  %17 = getelementptr inbounds i8, ptr %1, i64 20
-  %18 = getelementptr inbounds i8, ptr %6, i64 16
-  %19 = getelementptr inbounds i8, ptr %6, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 80
-  %21 = getelementptr inbounds i8, ptr %1, i64 408
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %22
 
 22:                                               ; preds = %9, %.critedge
@@ -369,7 +369,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   %59 = load ptr, ptr @FiveCo_requests_hash, align 8
   %60 = call ptr @wmem_map_lookup(ptr noundef %59, ptr noundef nonnull %6) #8
   %61 = load ptr, ptr %20, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 50
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 50
   %63 = load i16, ptr %62, align 2
   %64 = and i16 %63, 8
   %65 = icmp eq i16 %64, 0
@@ -384,7 +384,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   %70 = call noalias ptr @wmem_alloc(ptr noundef %69, i64 noundef 24) #8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   %71 = load i64, ptr @g_unInternalID, align 8
-  %72 = getelementptr inbounds i8, ptr %70, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 %71, ptr %72, align 8
   switch i16 %24, label %.thread [
     i16 1, label %.thread.sink.split
@@ -408,7 +408,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread.sink.split:                               ; preds = %68, %76, %75, %74, %73
   %.sink = phi i16 [ 4, %73 ], [ 6, %74 ], [ 8, %75 ], [ 35, %76 ], [ 3, %68 ]
-  %77 = getelementptr inbounds i8, ptr %70, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
   store i16 %.sink, ptr %77, align 8
   br label %.thread
 
@@ -416,12 +416,12 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
   %78 = call ptr @wmem_file_scope() #8
   %79 = call noalias ptr @wmem_alloc(ptr noundef %78, i64 noundef 16) #8
   store i16 %32, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 2
   store i16 0, ptr %80, align 2
   %81 = call ptr @wmem_file_scope() #8
   %82 = zext i16 %32 to i64
   %83 = call noalias ptr @wmem_alloc(ptr noundef %81, i64 noundef %82) #8
-  %84 = getelementptr inbounds i8, ptr %79, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr %83, ptr %84, align 8
   %85 = add nuw nsw i32 %23, 6
   %86 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %83, i32 noundef %85, i64 noundef %82) #8
@@ -434,7 +434,7 @@ define internal i32 @dissect_FiveCoLegacy(ptr noundef %0, ptr noundef %1, ptr no
 
 90:                                               ; preds = %.thread, %89
   %.0444488 = phi ptr [ %79, %.thread ], [ %60, %89 ]
-  %91 = getelementptr inbounds i8, ptr %.0444488, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.0444488, i64 8
   %92 = load ptr, ptr %91, align 8
   %93 = load i16, ptr %.0444488, align 8
   %94 = zext i16 %93 to i32
@@ -721,7 +721,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
 230:                                              ; preds = %224
   %231 = load i32, ptr @hf_fiveco_regread, align 4
   %232 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %231, ptr noundef %0, i32 noundef %221, i32 noundef 0, i32 noundef 0) #8
-  %233 = getelementptr inbounds i8, ptr %226, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %234 = load ptr, ptr %233, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %232, ptr noundef nonnull @.str.125, ptr noundef %234) #8
   br label %238
@@ -761,15 +761,15 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   br i1 %249, label %250, label %288
 
 250:                                              ; preds = %244
-  %251 = getelementptr inbounds i8, ptr %246, i64 4
+  %251 = getelementptr inbounds nuw i8, ptr %246, i64 4
   %252 = load i32, ptr %251, align 4
-  %253 = getelementptr inbounds i8, ptr %246, i64 32
+  %253 = getelementptr inbounds nuw i8, ptr %246, i64 32
   %254 = load ptr, ptr %253, align 8
   %.not485 = icmp eq ptr %254, null
   br i1 %.not485, label %263, label %255
 
 255:                                              ; preds = %250
-  %256 = getelementptr inbounds i8, ptr %246, i64 28
+  %256 = getelementptr inbounds nuw i8, ptr %246, i64 28
   %257 = load i32, ptr %256, align 4
   %258 = zext i16 %241 to i32
   %259 = and i32 %252, 255
@@ -779,13 +779,13 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   br label %.loopexit492
 
 263:                                              ; preds = %250
-  %264 = getelementptr inbounds i8, ptr %246, i64 24
+  %264 = getelementptr inbounds nuw i8, ptr %246, i64 24
   %265 = load i32, ptr %264, align 8
   %266 = icmp eq i32 %265, 26
   br i1 %266, label %267, label %277
 
 267:                                              ; preds = %263
-  %268 = getelementptr inbounds i8, ptr %246, i64 28
+  %268 = getelementptr inbounds nuw i8, ptr %246, i64 28
   %269 = load i32, ptr %268, align 4
   %270 = zext i16 %241 to i32
   %271 = and i32 %252, 255
@@ -802,7 +802,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %279 = zext i16 %241 to i32
   %280 = and i32 %252, 255
   %281 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %278, ptr noundef %0, i32 noundef %279, i32 noundef %280, i32 noundef 0) #8
-  %282 = getelementptr inbounds i8, ptr %246, i64 8
+  %282 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %283 = load ptr, ptr %282, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %281, ptr noundef nonnull @.str.128, ptr noundef %283, i32 noundef %247, i32 noundef %280) #8
   %.not545 = icmp eq i32 %280, 0
@@ -849,7 +849,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   br i1 %.not476491, label %357, label %305
 
 305:                                              ; preds = %304
-  %306 = getelementptr inbounds i8, ptr %.0444489, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %.0444489, i64 2
   %307 = load i16, ptr %306, align 2
   %.not483 = icmp eq i16 %307, 0
   br i1 %.not483, label %.preheader500, label %311
@@ -950,7 +950,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   br i1 %.not476491, label %.critedge, label %359
 
 359:                                              ; preds = %358
-  %360 = getelementptr inbounds i8, ptr %.0444489, i64 2
+  %360 = getelementptr inbounds nuw i8, ptr %.0444489, i64 2
   %361 = load i16, ptr %360, align 2
   %.not481 = icmp eq i16 %361, 0
   br i1 %.not481, label %.preheader502, label %364
@@ -1000,15 +1000,15 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   br label %split
 
 381:                                              ; preds = %377
-  %382 = getelementptr inbounds i8, ptr %373, i64 4
+  %382 = getelementptr inbounds nuw i8, ptr %373, i64 4
   %383 = load i32, ptr %382, align 4
-  %384 = getelementptr inbounds i8, ptr %373, i64 32
+  %384 = getelementptr inbounds nuw i8, ptr %373, i64 32
   %385 = load ptr, ptr %384, align 8
   %.not482 = icmp eq ptr %385, null
   br i1 %.not482, label %394, label %386
 
 386:                                              ; preds = %381
-  %387 = getelementptr inbounds i8, ptr %373, i64 28
+  %387 = getelementptr inbounds nuw i8, ptr %373, i64 28
   %388 = load i32, ptr %387, align 4
   %389 = zext i16 %378 to i32
   %390 = and i32 %383, 255
@@ -1018,13 +1018,13 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   br label %.loopexit493
 
 394:                                              ; preds = %381
-  %395 = getelementptr inbounds i8, ptr %373, i64 24
+  %395 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %396 = load i32, ptr %395, align 8
   %397 = icmp eq i32 %396, 26
   br i1 %397, label %398, label %408
 
 398:                                              ; preds = %394
-  %399 = getelementptr inbounds i8, ptr %373, i64 28
+  %399 = getelementptr inbounds nuw i8, ptr %373, i64 28
   %400 = load i32, ptr %399, align 4
   %401 = zext i16 %378 to i32
   %402 = and i32 %383, 255
@@ -1041,7 +1041,7 @@ checksum_fiveco.exit:                             ; preds = %96, %._crit_edge.i
   %410 = zext i16 %378 to i32
   %411 = and i32 %383, 255
   %412 = call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %409, ptr noundef %0, i32 noundef %410, i32 noundef %411, i32 noundef 0) #8
-  %413 = getelementptr inbounds i8, ptr %373, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %373, i64 8
   %414 = load ptr, ptr %413, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %412, ptr noundef nonnull @.str.128, ptr noundef %414, i32 noundef %374, i32 noundef %411) #8
   %.not543 = icmp eq i32 %411, 0
@@ -1129,12 +1129,12 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i32 @fiveco_hash(ptr nocapture noundef readonly %0) #3 {
   %2 = load i32, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i32
   %6 = shl nuw i32 %5, 16
   %7 = add i32 %6, %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = lshr i64 %9, 32
   %11 = add i64 %10, %9
@@ -1151,17 +1151,17 @@ define internal range(i32 0, 2) i32 @fiveco_hash_equal(ptr nocapture noundef rea
   br i1 %5, label %6, label %18
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i16, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %8, %10
   br i1 %11, label %12, label %18
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp eq i64 %14, %16
   br i1 %17, label %19, label %18
@@ -1283,7 +1283,7 @@ define internal void @dispTimeout(ptr nocapture noundef writeonly %0, i32 nounde
 
 5:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.117, i64 7, i1 false)
-  %endptr = getelementptr inbounds i8, ptr %0, i64 7
+  %endptr = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 0, ptr %endptr, align 1
   br label %6
 

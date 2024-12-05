@@ -88,7 +88,7 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   %20 = lshr i64 %19, 12
   %21 = and i64 %20, 4294967295
   %22 = getelementptr [19 x %struct.estack_pages], ptr @estack_pages, i64 0, i64 %21
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i16, ptr %23, align 4
   %25 = icmp eq i16 %24, 0
   br i1 %25, label %43, label %26
@@ -100,19 +100,19 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
   %30 = zext i16 %24 to i64
   %31 = add i64 %29, %30
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds i8, ptr %22, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 6
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   store i32 %35, ptr %2, align 8
   %36 = inttoptr i64 %29 to ptr
-  %37 = getelementptr inbounds i8, ptr %2, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %2, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %32, ptr %38, align 8
   %39 = getelementptr i8, ptr %32, i64 -16
   %40 = load i64, ptr %39, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds i8, ptr %2, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %41, ptr %42, align 8
   br label %59
 
@@ -128,13 +128,13 @@ define dso_local zeroext i1 @get_stack_info_noinstr(ptr noundef %0, ptr noundef 
 
 51:                                               ; preds = %43
   store i32 2, ptr %2, align 8
-  %52 = getelementptr inbounds i8, ptr %2, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %47, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %2, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %46, ptr %53, align 8
   %54 = load i64, ptr %45, align 8
   %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds i8, ptr %2, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %55, ptr %56, align 8
   br label %59
 

@@ -17,7 +17,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrInfo17getDeprecatedInfoER
 
 8:                                                ; preds = %4
   %9 = zext i32 %5 to i64
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not14 = icmp eq ptr %11, null
   br i1 %.not14, label %14, label %12
@@ -34,7 +34,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrInfo17getDeprecatedInfoER
 
 17:                                               ; preds = %14
   %18 = zext i32 %5 to i64
-  %19 = getelementptr inbounds i8, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
   %20 = load i8, ptr %19, align 1
   %.not16 = icmp eq i8 %20, -1
   br i1 %.not16, label %34, label %21
@@ -47,7 +47,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm11MCInstrInfo17getDeprecatedInfoER
   %26 = shl nuw i64 1, %25
   %27 = lshr i32 %23, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds [5 x i64], ptr %22, i64 0, i64 %28
+  %29 = getelementptr inbounds nuw [5 x i64], ptr %22, i64 0, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = and i64 %30, %26
   %.not17 = icmp eq i64 %31, 0

@@ -1069,7 +1069,7 @@ lor.lhs.false292:                                 ; preds = %if.end290
 if.then294:                                       ; preds = %lor.lhs.false292, %if.end290
   %call295 = call ptr @app_malloc(i64 noundef 24, ptr noundef nonnull @.str.265) #2
   %call296 = call ptr @OPENSSL_sk_new_null() #2
-  %param = getelementptr inbounds i8, ptr %call295, i64 8
+  %param = getelementptr inbounds nuw i8, ptr %call295, i64 8
   store ptr %call296, ptr %param, align 8
   %cmp297 = icmp eq ptr %call296, null
   br i1 %cmp297, label %if.then298, label %if.end299
@@ -1080,20 +1080,20 @@ if.then298:                                       ; preds = %if.then294
 
 if.end299:                                        ; preds = %if.then294
   store i32 %keyidx.0, ptr %call295, align 8
-  %next = getelementptr inbounds i8, ptr %call295, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %call295, i64 16
   store ptr null, ptr %next, align 8
   %cmp301 = icmp eq ptr %key_first.11225, null
   br i1 %cmp301, label %if.end306, label %if.else303
 
 if.else303:                                       ; preds = %if.end299
-  %next304 = getelementptr inbounds i8, ptr %key_param.01228, i64 16
+  %next304 = getelementptr inbounds nuw i8, ptr %key_param.01228, i64 16
   store ptr %call295, ptr %next304, align 8
   br label %if.end306
 
 if.end306:                                        ; preds = %if.else303, %if.end299, %lor.lhs.false292
   %key_first.3 = phi ptr [ %key_first.11225, %lor.lhs.false292 ], [ %key_first.11225, %if.else303 ], [ %call295, %if.end299 ]
   %key_param.2 = phi ptr [ %key_param.01228, %lor.lhs.false292 ], [ %call295, %if.else303 ], [ %call295, %if.end299 ]
-  %param307 = getelementptr inbounds i8, ptr %key_param.2, i64 8
+  %param307 = getelementptr inbounds nuw i8, ptr %key_param.2, i64 8
   %12 = load ptr, ptr %param307, align 8
   %call309 = call ptr @opt_arg() #2
   %call311 = call i32 @OPENSSL_sk_push(ptr noundef %12, ptr noundef %call309) #2
@@ -1130,7 +1130,7 @@ sw.bb337:                                         ; preds = %while.body
 
 sw.bb339:                                         ; preds = %while.body, %while.body, %while.body, %while.body
   %call340 = call ptr @opt_flag() #2
-  %add.ptr = getelementptr inbounds i8, ptr %call340, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call340, i64 1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb246, %if.end253, %sw.bb331, %sw.bb326, %sw.bb320, %sw.bb240, %if.end162, %sw.bb123, %sw.bb80, %sw.bb14, %sw.bb9, %sw.bb339, %sw.bb337, %if.end317, %if.end306, %sw.bb262, %if.end238, %sw.bb211, %if.end209, %sw.bb183, %sw.bb181, %sw.bb179, %sw.bb177, %sw.bb175, %sw.bb173, %sw.bb170, %sw.bb155, %if.end154, %if.end141, %sw.bb122, %if.end117, %if.end106, %sw.bb99, %sw.bb97, %sw.bb96, %sw.bb95, %sw.bb94, %sw.bb92, %sw.bb90, %sw.bb88, %sw.bb86, %sw.bb79, %sw.bb78, %sw.bb77, %sw.bb76, %sw.bb74, %sw.bb72, %sw.bb70, %sw.bb68, %sw.bb66, %sw.bb64, %sw.bb62, %sw.bb60, %sw.bb58, %sw.bb56, %sw.bb55, %sw.bb53, %sw.bb51, %sw.bb49, %sw.bb47, %sw.bb45, %sw.bb43, %sw.bb42, %sw.bb41, %sw.bb40, %sw.bb39, %sw.bb38, %sw.bb37, %sw.bb36, %sw.bb35, %sw.bb34, %sw.bb32, %sw.bb31, %sw.bb30, %sw.bb28, %sw.bb27, %sw.bb26, %sw.bb25, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb20, %while.body
@@ -1561,7 +1561,7 @@ if.then542:                                       ; preds = %if.end538
   br label %if.then1145
 
 for.cond:                                         ; preds = %if.end549
-  %incdec.ptr = getelementptr inbounds i8, ptr %argv.addr.01311, i64 8
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %argv.addr.01311, i64 8
   %38 = load ptr, ptr %incdec.ptr, align 8
   %cmp545.not = icmp eq ptr %38, null
   br i1 %cmp545.not, label %if.end556, label %for.body, !llvm.loop !7
@@ -1862,7 +1862,7 @@ for.body734:                                      ; preds = %for.body728, %for.i
   br i1 %cmp736.not.not, label %for.inc739, label %for.end741
 
 for.inc739:                                       ; preds = %for.body734
-  %next740 = getelementptr inbounds i8, ptr %kparam.01323, i64 16
+  %next740 = getelementptr inbounds nuw i8, ptr %kparam.01323, i64 16
   %63 = load ptr, ptr %next740, align 8
   %tobool733.not = icmp eq ptr %63, null
   br i1 %tobool733.not, label %for.end741, label %for.body734, !llvm.loop !8
@@ -1879,7 +1879,7 @@ if.end745:                                        ; preds = %for.end741
   br i1 %tobool733.not.lcssa, label %if.end754, label %if.then748
 
 if.then748:                                       ; preds = %if.end745
-  %param749 = getelementptr inbounds i8, ptr %kparam.0.lcssa, i64 8
+  %param749 = getelementptr inbounds nuw i8, ptr %kparam.0.lcssa, i64 8
   %64 = load ptr, ptr %param749, align 8
   %call750 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call746, ptr noundef %64)
   %tobool751.not = icmp eq i32 %call750, 0
@@ -2073,7 +2073,7 @@ for.body879:                                      ; preds = %for.cond877.prehead
   br i1 %cmp881, label %for.end887.thread, label %for.inc885
 
 for.inc885:                                       ; preds = %for.body879
-  %next886 = getelementptr inbounds i8, ptr %kparam863.01313, i64 16
+  %next886 = getelementptr inbounds nuw i8, ptr %kparam863.01313, i64 16
   %76 = load ptr, ptr %next886, align 8
   %tobool878.not = icmp eq ptr %76, null
   br i1 %tobool878.not, label %for.end887, label %for.body879, !llvm.loop !11
@@ -2092,7 +2092,7 @@ for.end887.thread:                                ; preds = %for.body879
 
 if.then893:                                       ; preds = %for.end887.thread
   %call895 = call ptr @CMS_SignerInfo_get0_pkey_ctx(ptr noundef nonnull %call888450) #2
-  %param896 = getelementptr inbounds i8, ptr %kparam863.01313, i64 8
+  %param896 = getelementptr inbounds nuw i8, ptr %kparam863.01313, i64 8
   %79 = load ptr, ptr %param896, align 8
   %call897 = call fastcc i32 @cms_set_pkey_param(ptr noundef %call895, ptr noundef %79)
   %tobool898.not = icmp eq i32 %call897, 0
@@ -2502,10 +2502,10 @@ if.end1146:                                       ; preds = %if.end982, %if.then
 
 for.body1153:                                     ; preds = %if.end1146, %for.body1153
   %key_param.31333 = phi ptr [ %104, %for.body1153 ], [ %key_first.0546, %if.end1146 ]
-  %param1154 = getelementptr inbounds i8, ptr %key_param.31333, i64 8
+  %param1154 = getelementptr inbounds nuw i8, ptr %key_param.31333, i64 8
   %103 = load ptr, ptr %param1154, align 8
   call void @OPENSSL_sk_free(ptr noundef %103) #2
-  %next1156 = getelementptr inbounds i8, ptr %key_param.31333, i64 16
+  %next1156 = getelementptr inbounds nuw i8, ptr %key_param.31333, i64 16
   %104 = load ptr, ptr %next1156, align 8
   call void @CRYPTO_free(ptr noundef nonnull %key_param.31333, ptr noundef nonnull @.str.266, i32 noundef 1290) #2
   %tobool1152.not = icmp eq ptr %104, null

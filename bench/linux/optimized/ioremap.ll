@@ -264,9 +264,9 @@ define internal fastcc ptr @__ioremap_caller(i64 noundef %0, i64 noundef %1, i32
   br i1 %73, label %93, label %74
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %72, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 48
   store i64 %35, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %72, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = ptrtoint ptr %77 to i64
   %79 = call i32 @memtype_kernel_map_sync(i64 noundef %35, i64 noundef %34, i32 noundef %62) #12
@@ -395,13 +395,13 @@ define dso_local void @iounmap(ptr noundef %0) #0 align 16 {
   br label %39
 
 22:                                               ; preds = %14
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 64
   %26 = icmp eq i64 %25, 0
-  %27 = getelementptr inbounds i8, ptr %18, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %18, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, -4096
   %32 = select i1 %26, i64 %31, i64 %30
@@ -659,7 +659,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
   br i1 %5, label %6, label %100
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 16777728
   %10 = icmp eq i64 %9, 16777728
@@ -669,7 +669,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
   %12 = load i64, ptr %0, align 8
   %13 = add i64 %12, 4095
   %14 = lshr i64 %13, 12
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   %18 = lshr i64 %17, 12
@@ -760,12 +760,12 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture n
   br i1 %64, label %65, label %74
 
 65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %49, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %67 = load volatile ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %69 = lshr i64 %24, 9
   %70 = and i64 %69, 63
-  %71 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %68, i64 %70) #12, !srcloc !35
+  %71 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %68, i64 %70) #12, !srcloc !35
   %72 = icmp ult i8 %71, 2
   tail call void @llvm.assume(i1 %72)
   %73 = zext nneg i8 %71 to i32

@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @_php_glob_stream_get_path(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 88
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %12, label %8
@@ -31,7 +31,7 @@ define ptr @_php_glob_stream_get_path(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not14, label %14, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %4, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %1, align 8
   %.pre = load ptr, ptr %6, align 8
@@ -52,13 +52,13 @@ define ptr @_php_glob_stream_get_path(ptr nocapture noundef readonly %0, ptr nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define ptr @_php_glob_stream_get_pattern(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 104
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %7 = load ptr, ptr %6, align 8
   %.not12 = icmp eq ptr %7, null
   br i1 %.not12, label %12, label %8
@@ -68,7 +68,7 @@ define ptr @_php_glob_stream_get_pattern(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not14, label %14, label %9
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %4, i64 112
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %11 = load i64, ptr %10, align 8
   store i64 %11, ptr %1, align 8
   %.pre = load ptr, ptr %6, align 8
@@ -89,7 +89,7 @@ define ptr @_php_glob_stream_get_pattern(ptr nocapture noundef readonly %0, ptr 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i32 @_php_glob_stream_get_count(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   %.not10 = icmp eq ptr %1, null
@@ -99,19 +99,19 @@ define i32 @_php_glob_stream_get_count(ptr nocapture noundef readonly %0, ptr no
   br i1 %.not10, label %9, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %1, align 4
   br label %9
 
 9:                                                ; preds = %6, %5
-  %10 = getelementptr inbounds i8, ptr %4, i64 136
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %11 = load i8, ptr %10, align 8
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %4, i64 128
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %15 = load i64, ptr %14, align 8
   %sext.i = shl i64 %15, 32
   %16 = ashr exact i64 %sext.i, 32
@@ -140,7 +140,7 @@ php_glob_stream_get_result_count.exit:            ; preds = %13, %17
 
 ; Function Attrs: nounwind uwtable
 define internal range(i64 -1, 258) i64 @php_glob_stream_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq i64 %2, 257
   %7 = icmp ne ptr %5, null
@@ -148,15 +148,15 @@ define internal range(i64 -1, 258) i64 @php_glob_stream_read(ptr nocapture nound
   br i1 %or.cond, label %8, label %63
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %5, i64 136
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 136
   %10 = load i8, ptr %9, align 8
   %11 = trunc i8 %10 to i1
   br i1 %11, label %php_glob_stream_get_result_count.exit, label %php_glob_stream_get_result_count.exit.thread
 
 php_glob_stream_get_result_count.exit:            ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %5, i64 128
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %15 = load i64, ptr %14, align 8
   %sext37 = shl i64 %13, 32
   %16 = ashr exact i64 %sext37, 32
@@ -165,7 +165,7 @@ php_glob_stream_get_result_count.exit:            ; preds = %8
 
 php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %18 = load i64, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %5, i64 72
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %20 = load i64, ptr %19, align 8
   %sext = shl i64 %18, 32
   %21 = ashr exact i64 %sext, 32
@@ -173,7 +173,7 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   br i1 %22, label %.thread, label %57
 
 23:                                               ; preds = %php_glob_stream_get_result_count.exit
-  %24 = getelementptr inbounds i8, ptr %5, i64 120
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %25 = load ptr, ptr %24, align 8
   %.not35 = icmp eq ptr %25, null
   %26 = getelementptr inbounds i64, ptr %25, i64 %15
@@ -185,22 +185,22 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %27 = phi i64 [ %15, %23 ], [ %20, %php_glob_stream_get_result_count.exit.thread ]
   %28 = phi i64 [ %.pre, %23 ], [ %20, %php_glob_stream_get_result_count.exit.thread ]
   %29 = phi ptr [ %14, %23 ], [ %19, %php_glob_stream_get_result_count.exit.thread ]
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds ptr, ptr %31, i64 %28
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 32
   %37 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %33, i32 noundef 47) #9
   %.not.i = icmp eq ptr %37, null
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %spec.select.i = select i1 %.not.i, ptr %33, ptr %38
   %.not18.i = icmp eq i32 %36, 0
   br i1 %.not18.i, label %php_glob_stream_path_split.exit, label %39
 
 39:                                               ; preds = %.thread
-  %40 = getelementptr inbounds i8, ptr %5, i64 88
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %41 = load ptr, ptr %40, align 8
   %.not19.i = icmp eq ptr %41, null
   br i1 %.not19.i, label %43, label %42
@@ -218,7 +218,7 @@ php_glob_stream_get_result_count.exit.thread:     ; preds = %8
   %spec.select20.i = getelementptr inbounds i8, ptr %spec.select.i, i64 %spec.select20.idx.i
   %48 = ptrtoint ptr %spec.select20.i to i64
   %49 = sub i64 %48, %45
-  %50 = getelementptr inbounds i8, ptr %5, i64 96
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 96
   store i64 %49, ptr %50, align 8
   %51 = tail call noalias ptr @_estrndup(ptr noundef %33, i64 noundef %49) #10
   store ptr %51, ptr %40, align 8
@@ -232,9 +232,9 @@ php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #9
   %. = tail call i64 @llvm.umin.i64(i64 %54, i64 255)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr align 1 %spec.select.i, i64 %., i1 false)
-  %55 = getelementptr inbounds [256 x i8], ptr %1, i64 0, i64 %.
+  %55 = getelementptr inbounds nuw [256 x i8], ptr %1, i64 0, i64 %.
   store i8 0, ptr %55, align 1
-  %56 = getelementptr inbounds i8, ptr %1, i64 256
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 256
   store i8 0, ptr %56, align 1
   br label %63
 
@@ -242,7 +242,7 @@ php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
   %58 = phi i64 [ %21, %php_glob_stream_get_result_count.exit.thread ], [ %16, %php_glob_stream_get_result_count.exit ]
   %59 = phi ptr [ %19, %php_glob_stream_get_result_count.exit.thread ], [ %14, %php_glob_stream_get_result_count.exit ]
   store i64 %58, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 88
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %61 = load ptr, ptr %60, align 8
   %.not = icmp eq ptr %61, null
   br i1 %.not, label %63, label %62
@@ -259,16 +259,16 @@ php_glob_stream_path_split.exit:                  ; preds = %.thread, %43
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_glob_stream_close(ptr nocapture noundef readonly %0, i32 %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %18, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i64 0, ptr %6, align 8
   tail call void @globfree(ptr noundef nonnull %4) #10
-  %7 = getelementptr inbounds i8, ptr %4, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8
   %.not14 = icmp eq ptr %8, null
   br i1 %.not14, label %10, label %9
@@ -278,7 +278,7 @@ define internal noundef i32 @php_glob_stream_close(ptr nocapture noundef readonl
   br label %10
 
 10:                                               ; preds = %9, %5
-  %11 = getelementptr inbounds i8, ptr %4, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %12 = load ptr, ptr %11, align 8
   %.not15 = icmp eq ptr %12, null
   br i1 %.not15, label %14, label %13
@@ -288,7 +288,7 @@ define internal noundef i32 @php_glob_stream_close(ptr nocapture noundef readonl
   br label %14
 
 14:                                               ; preds = %13, %10
-  %15 = getelementptr inbounds i8, ptr %4, i64 120
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %16 = load ptr, ptr %15, align 8
   %.not16 = icmp eq ptr %16, null
   br i1 %.not16, label %18, label %17
@@ -305,15 +305,15 @@ define internal noundef i32 @php_glob_stream_close(ptr nocapture noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @php_glob_stream_rewind(ptr nocapture noundef readonly %0, i64 %1, i32 %2, ptr nocapture readnone %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %10 = load ptr, ptr %9, align 8
   %.not7 = icmp eq ptr %10, null
   br i1 %.not7, label %12, label %11
@@ -350,7 +350,7 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   br i1 %.not, label %8, label %20
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %1, i64 7
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 7
   %.not101 = icmp eq ptr %4, null
   br i1 %.not101, label %20, label %10
 
@@ -360,13 +360,13 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   %13 = add i64 %12, 32
   %14 = tail call noalias ptr @_emalloc(i64 noundef %13) #11
   store i32 1, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %14, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 22, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 %11, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr nonnull align 1 %9, i64 %11, i1 false)
   %19 = getelementptr inbounds [1 x i8], ptr %18, i64 0, i64 %11
   store i8 0, ptr %19, align 1
@@ -376,7 +376,7 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
 20:                                               ; preds = %8, %10, %6
   %.096 = phi ptr [ %1, %6 ], [ %9, %10 ], [ %9, %8 ]
   %21 = tail call noalias dereferenceable_or_null(144) ptr @_ecalloc(i64 noundef 144, i64 noundef 1) #12
-  %22 = getelementptr inbounds i8, ptr %21, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = tail call i32 @glob(ptr noundef %.096, i32 noundef %23, ptr noundef null, ptr noundef %21) #10
   switch i32 %24, label %25 [
@@ -394,22 +394,22 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   br i1 %28, label %29, label %.loopexit
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %21, i64 136
+  %30 = getelementptr inbounds nuw i8, ptr %21, i64 136
   store i8 1, ptr %30, align 8
   %31 = load i64, ptr %21, align 8
   %.not113 = icmp eq i64 %31, 0
   br i1 %.not113, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %32 = getelementptr inbounds i8, ptr %21, i64 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 120
-  %34 = getelementptr inbounds i8, ptr %21, i64 128
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 120
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 128
   br label %35
 
 35:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
   %36 = load ptr, ptr %32, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @php_check_open_basedir_ex(ptr noundef %38, i32 noundef 0) #10
   %.not104 = icmp eq i32 %39, 0
@@ -444,13 +444,13 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
 .loopexit:                                        ; preds = %50, %29, %26
   %53 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.096, i32 noundef 47) #9
   %.not102 = icmp eq ptr %53, null
-  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %spec.select = select i1 %.not102, ptr %.096, ptr %54
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select) #9
-  %56 = getelementptr inbounds i8, ptr %21, i64 112
+  %56 = getelementptr inbounds nuw i8, ptr %21, i64 112
   store i64 %55, ptr %56, align 8
   %57 = tail call noalias ptr @_estrndup(ptr noundef %spec.select, i64 noundef %55) #10
-  %58 = getelementptr inbounds i8, ptr %21, i64 104
+  %58 = getelementptr inbounds nuw i8, ptr %21, i64 104
   store ptr %57, ptr %58, align 8
   %59 = load i32, ptr %22, align 8
   %60 = or i32 %59, 32
@@ -460,14 +460,14 @@ define internal ptr @php_glob_stream_opener(ptr nocapture readnone %0, ptr nound
   br i1 %.not103, label %79, label %62
 
 62:                                               ; preds = %.loopexit
-  %63 = getelementptr inbounds i8, ptr %21, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %65, i32 noundef 47) #9
   %.not.i = icmp eq ptr %66, null
-  %67 = getelementptr inbounds i8, ptr %66, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
   %spec.select.i = select i1 %.not.i, ptr %65, ptr %67
-  %68 = getelementptr inbounds i8, ptr %21, i64 88
+  %68 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %69 = load ptr, ptr %68, align 8
   %.not19.i = icmp eq ptr %69, null
   br i1 %.not19.i, label %php_glob_stream_path_split.exit, label %70
@@ -485,7 +485,7 @@ php_glob_stream_path_split.exit:                  ; preds = %62, %70
   %spec.select20.i = getelementptr inbounds i8, ptr %spec.select.i, i64 %spec.select20.idx.i
   %75 = ptrtoint ptr %spec.select20.i to i64
   %76 = sub i64 %75, %72
-  %77 = getelementptr inbounds i8, ptr %21, i64 96
+  %77 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i64 %76, ptr %77, align 8
   %78 = tail call noalias ptr @_estrndup(ptr noundef %65, i64 noundef %76) #10
   store ptr %78, ptr %68, align 8
@@ -494,9 +494,9 @@ php_glob_stream_path_split.exit:                  ; preds = %62, %70
 79:                                               ; preds = %.loopexit
   %80 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %.096, i32 noundef 47) #9
   %.not.i106 = icmp eq ptr %80, null
-  %81 = getelementptr inbounds i8, ptr %80, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %spec.select.i107 = select i1 %.not.i106, ptr %.096, ptr %81
-  %82 = getelementptr inbounds i8, ptr %21, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %83 = load ptr, ptr %82, align 8
   %.not19.i108 = icmp eq ptr %83, null
   br i1 %.not19.i108, label %php_glob_stream_path_split.exit111, label %84
@@ -514,7 +514,7 @@ php_glob_stream_path_split.exit111:               ; preds = %79, %84
   %spec.select20.i110 = getelementptr inbounds i8, ptr %spec.select.i107, i64 %spec.select20.idx.i109
   %89 = ptrtoint ptr %spec.select20.i110 to i64
   %90 = sub i64 %89, %86
-  %91 = getelementptr inbounds i8, ptr %21, i64 96
+  %91 = getelementptr inbounds nuw i8, ptr %21, i64 96
   store i64 %90, ptr %91, align 8
   %92 = tail call noalias ptr @_estrndup(ptr noundef %.096, i64 noundef %90) #10
   store ptr %92, ptr %82, align 8

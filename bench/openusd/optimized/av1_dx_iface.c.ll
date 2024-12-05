@@ -705,7 +705,7 @@ decode_one.exit:                                  ; preds = %266
   br i1 %.not77, label %287, label %._crit_edge102
 
 287:                                              ; preds = %.lr.ph101
-  %288 = getelementptr inbounds i8, ptr %.3100, i64 1
+  %288 = getelementptr inbounds nuw i8, ptr %.3100, i64 1
   %exitcond.not = icmp eq ptr %288, %scevgep117
   br i1 %exitcond.not, label %._crit_edge102, label %.lr.ph101, !llvm.loop !8
 
@@ -893,10 +893,10 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
 
 100:                                              ; preds = %.preheader147, %100
   %indvars.iv = phi i64 [ 1, %.preheader147 ], [ %indvars.iv.next, %100 ]
-  %101 = getelementptr inbounds [3 x i32], ptr %91, i64 0, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [3 x i32], ptr %91, i64 0, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4
   %103 = mul nsw i32 %99, %102
-  %104 = getelementptr inbounds [3 x ptr], ptr %94, i64 0, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [3 x ptr], ptr %94, i64 0, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
   %106 = sext i32 %103 to i64
   %107 = getelementptr inbounds i8, ptr %105, i64 %106
@@ -961,7 +961,7 @@ move_decoder_metadata_to_img.exit:                ; preds = %52, %59
 
 141:                                              ; preds = %.preheader, %141
   %indvars.iv152 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next153, %141 ]
-  %142 = getelementptr inbounds [3 x ptr], ptr %133, i64 0, i64 %indvars.iv152
+  %142 = getelementptr inbounds nuw [3 x ptr], ptr %133, i64 0, i64 %indvars.iv152
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds i8, ptr %143, i64 %140
   store ptr %144, ptr %142, align 8
@@ -1184,11 +1184,11 @@ define internal i32 @ctrl_copy_reference(ptr nocapture noundef readonly %0, ptr 
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %18, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %18, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %32, ptr %33, align 8
@@ -1251,7 +1251,7 @@ define internal i32 @ctrl_copy_reference(ptr nocapture noundef readonly %0, ptr 
   %72 = load i32, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %18, i64 100
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %75, ptr %76, align 4
@@ -1373,11 +1373,11 @@ define internal i32 @ctrl_set_reference(ptr nocapture noundef readonly %0, ptr n
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %18, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %29, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %18, i64 88
+  %31 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 56
   store ptr %32, ptr %33, align 8
@@ -1440,7 +1440,7 @@ define internal i32 @ctrl_set_reference(ptr nocapture noundef readonly %0, ptr n
   %72 = load i32, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %18, i64 100
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 100
   %75 = load i32, ptr %74, align 4
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i32 %75, ptr %76, align 4
@@ -1942,9 +1942,9 @@ define internal range(i32 0, 9) i32 @ctrl_set_ext_ref_ptr(ptr nocapture noundef 
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %18 ]
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 168
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 168
   store ptr %25, ptr %17, align 8
-  %26 = getelementptr inbounds [128 x %struct.yv12_buffer_config], ptr %21, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [128 x %struct.yv12_buffer_config], ptr %21, i64 0, i64 %indvars.iv
   tail call fastcc void @image2yuvconfig(ptr noundef %24, ptr noundef nonnull %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %22, align 8
@@ -2431,7 +2431,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_render_size(ptr nocapture noundef 
   store i32 %26, ptr %17, align 4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48436
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %17, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %28, ptr %29, align 4
   br label %30
 
@@ -2483,7 +2483,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_frame_size(ptr nocapture noundef r
   store i32 %26, ptr %17, align 4
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 48428
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %17, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %28, ptr %29, align 4
   br label %30
 
@@ -2608,11 +2608,11 @@ define internal range(i32 0, 9) i32 @ctrl_get_new_frame_image(ptr nocapture noun
   store ptr %71, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %18, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %74, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %18, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %18, i64 80
   store ptr %77, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %80 = load i32, ptr %79, align 8
@@ -2620,9 +2620,9 @@ define internal range(i32 0, 9) i32 @ctrl_get_new_frame_image(ptr nocapture noun
   store i32 %80, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %83 = load i32, ptr %82, align 4
-  %84 = getelementptr inbounds i8, ptr %18, i64 92
+  %84 = getelementptr inbounds nuw i8, ptr %18, i64 92
   store i32 %83, ptr %84, align 4
-  %85 = getelementptr inbounds i8, ptr %18, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %18, i64 96
   store i32 %83, ptr %85, align 8
   %86 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %87 = load i32, ptr %86, align 8
@@ -2729,11 +2729,11 @@ define internal i32 @ctrl_copy_new_frame_image(ptr nocapture noundef readonly %0
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store ptr %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %19, i64 80
+  %35 = getelementptr inbounds nuw i8, ptr %19, i64 80
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %36, ptr %37, align 8
@@ -2796,7 +2796,7 @@ define internal i32 @ctrl_copy_new_frame_image(ptr nocapture noundef readonly %0
   %76 = load i32, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %76, ptr %77, align 8
-  %78 = getelementptr inbounds i8, ptr %19, i64 92
+  %78 = getelementptr inbounds nuw i8, ptr %19, i64 92
   %79 = load i32, ptr %78, align 4
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %79, ptr %80, align 4
@@ -2920,7 +2920,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_reference(ptr nocapture noundef re
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48928
   %27 = zext nneg i32 %19 to i64
-  %28 = getelementptr inbounds [8 x ptr], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x ptr], ptr %26, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %get_ref_frame.exit.thread, label %get_ref_frame.exit
@@ -3325,7 +3325,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr nocapture noundef re
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds [65 x i32], ptr %42, i64 0, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [65 x i32], ptr %42, i64 0, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i64 %indvars.iv, -1
   %52 = getelementptr inbounds [65 x i32], ptr %42, i64 0, i64 %51
@@ -3339,7 +3339,7 @@ define internal range(i32 0, 9) i32 @ctrl_get_tile_info(ptr nocapture noundef re
 
 56:                                               ; preds = %.lr.ph51, %56
   %indvars.iv53 = phi i64 [ 1, %.lr.ph51 ], [ %indvars.iv.next54, %56 ]
-  %57 = getelementptr inbounds [65 x i32], ptr %45, i64 0, i64 %indvars.iv53
+  %57 = getelementptr inbounds nuw [65 x i32], ptr %45, i64 0, i64 %indvars.iv53
   %58 = load i32, ptr %57, align 4
   %59 = add nsw i64 %indvars.iv53, -1
   %60 = getelementptr inbounds [65 x i32], ptr %45, i64 0, i64 %59
@@ -3635,11 +3635,11 @@ define internal fastcc void @image2yuvconfig(ptr nocapture noundef readonly %0, 
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %4, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %7, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr %10, ptr %11, align 8
@@ -3702,7 +3702,7 @@ define internal fastcc void @image2yuvconfig(ptr nocapture noundef readonly %0, 
   %50 = load i32, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 92
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %53 = load i32, ptr %52, align 4
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 %53, ptr %54, align 4
@@ -3873,11 +3873,11 @@ define internal fastcc void @yuvconfig2image(ptr nocapture noundef writeonly ini
   store ptr %54, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 72
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %60, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %63 = load i32, ptr %62, align 8
@@ -3885,9 +3885,9 @@ define internal fastcc void @yuvconfig2image(ptr nocapture noundef writeonly ini
   store i32 %63, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %66 = load i32, ptr %65, align 4
-  %67 = getelementptr inbounds i8, ptr %0, i64 92
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %66, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %66, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %70 = load i32, ptr %69, align 8

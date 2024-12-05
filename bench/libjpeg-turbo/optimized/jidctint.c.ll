@@ -6,14 +6,14 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [64 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %176
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %180
 
@@ -22,41 +22,41 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %.0249264 = phi ptr [ %6, %5 ], [ %.1250, %176 ]
   %.0251263 = phi ptr [ %10, %5 ], [ %.1252, %176 ]
   %.0253262 = phi ptr [ %2, %5 ], [ %.1254, %176 ]
-  %14 = getelementptr inbounds i8, ptr %.0253262, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.0253262, i64 16
   %15 = load i16, ptr %14, align 2
   %16 = icmp eq i16 %15, 0
-  %17 = getelementptr inbounds i8, ptr %.0253262, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %.0253262, i64 32
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i16 %18, 0
   %or.cond = select i1 %16, i1 %19, i1 false
   br i1 %or.cond, label %20, label %._crit_edge
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %.0253262, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %.0253262, i64 48
   %22 = load i16, ptr %21, align 2
   %23 = icmp eq i16 %22, 0
   br i1 %23, label %24, label %._crit_edge
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %.0253262, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %.0253262, i64 64
   %26 = load i16, ptr %25, align 2
   %27 = icmp eq i16 %26, 0
   br i1 %27, label %28, label %._crit_edge
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %.0253262, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %.0253262, i64 80
   %30 = load i16, ptr %29, align 2
   %31 = icmp eq i16 %30, 0
   br i1 %31, label %32, label %._crit_edge
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %.0253262, i64 96
+  %33 = getelementptr inbounds nuw i8, ptr %.0253262, i64 96
   %34 = load i16, ptr %33, align 2
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %36, label %._crit_edge
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.0253262, i64 112
+  %37 = getelementptr inbounds nuw i8, ptr %.0253262, i64 112
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, 0
   br i1 %39, label %40, label %._crit_edge
@@ -69,31 +69,31 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %45 = shl nsw i32 %42, 2
   %46 = mul i32 %45, %44
   store i32 %46, ptr %.0249264, align 4
-  %47 = getelementptr inbounds i8, ptr %.0249264, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %.0249264, i64 32
   store i32 %46, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %.0249264, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %.0249264, i64 64
   store i32 %46, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %.0249264, i64 96
+  %49 = getelementptr inbounds nuw i8, ptr %.0249264, i64 96
   store i32 %46, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0249264, i64 128
+  %50 = getelementptr inbounds nuw i8, ptr %.0249264, i64 128
   store i32 %46, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %.0249264, i64 160
+  %51 = getelementptr inbounds nuw i8, ptr %.0249264, i64 160
   store i32 %46, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %.0249264, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %.0249264, i64 192
   store i32 %46, ptr %52, align 4
   br label %176
 
 ._crit_edge:                                      ; preds = %13, %36, %32, %28, %24, %20
   %53 = phi i16 [ 0, %36 ], [ 0, %32 ], [ 0, %28 ], [ 0, %24 ], [ 0, %20 ], [ %18, %13 ]
   %54 = sext i16 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %.0251263, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.0251263, i64 32
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i64
   %58 = mul nsw i64 %57, %54
-  %59 = getelementptr inbounds i8, ptr %.0253262, i64 96
+  %59 = getelementptr inbounds nuw i8, ptr %.0253262, i64 96
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %.0251263, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %.0251263, i64 96
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i64
   %65 = mul nsw i64 %64, %61
@@ -108,10 +108,10 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %74 = load i16, ptr %.0251263, align 2
   %75 = sext i16 %74 to i64
   %76 = mul nsw i64 %75, %73
-  %77 = getelementptr inbounds i8, ptr %.0253262, i64 64
+  %77 = getelementptr inbounds nuw i8, ptr %.0253262, i64 64
   %78 = load i16, ptr %77, align 2
   %79 = sext i16 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %.0251263, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %.0251263, i64 64
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i64
   %83 = mul nsw i64 %82, %79
@@ -123,29 +123,29 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %89 = sub nsw i64 %85, %71
   %90 = add nsw i64 %87, %69
   %91 = sub nsw i64 %87, %69
-  %92 = getelementptr inbounds i8, ptr %.0253262, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %.0253262, i64 112
   %93 = load i16, ptr %92, align 2
   %94 = sext i16 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %.0251263, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %.0251263, i64 112
   %96 = load i16, ptr %95, align 2
   %97 = sext i16 %96 to i64
   %98 = mul nsw i64 %97, %94
-  %99 = getelementptr inbounds i8, ptr %.0253262, i64 80
+  %99 = getelementptr inbounds nuw i8, ptr %.0253262, i64 80
   %100 = load i16, ptr %99, align 2
   %101 = sext i16 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %.0251263, i64 80
+  %102 = getelementptr inbounds nuw i8, ptr %.0251263, i64 80
   %103 = load i16, ptr %102, align 2
   %104 = sext i16 %103 to i64
   %105 = mul nsw i64 %104, %101
-  %106 = getelementptr inbounds i8, ptr %.0253262, i64 48
+  %106 = getelementptr inbounds nuw i8, ptr %.0253262, i64 48
   %107 = load i16, ptr %106, align 2
   %108 = sext i16 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %.0251263, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %.0251263, i64 48
   %110 = load i16, ptr %109, align 2
   %111 = sext i16 %110 to i64
   %112 = mul nsw i64 %111, %108
   %113 = sext i16 %15 to i64
-  %114 = getelementptr inbounds i8, ptr %.0251263, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.0251263, i64 16
   %115 = load i16, ptr %114, align 2
   %116 = sext i16 %115 to i64
   %117 = mul nsw i64 %116, %113
@@ -181,35 +181,35 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %146 = sub nsw i64 %142, %141
   %147 = lshr i64 %146, 11
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %.0249264, i64 224
+  %149 = getelementptr inbounds nuw i8, ptr %.0249264, i64 224
   store i32 %148, ptr %149, align 4
   %150 = add nsw i64 %90, 1024
   %151 = add nsw i64 %150, %139
   %152 = lshr i64 %151, 11
   %153 = trunc i64 %152 to i32
-  %154 = getelementptr inbounds i8, ptr %.0249264, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %.0249264, i64 32
   store i32 %153, ptr %154, align 4
   %155 = sub nsw i64 %150, %139
   %156 = lshr i64 %155, 11
   %157 = trunc i64 %156 to i32
-  %158 = getelementptr inbounds i8, ptr %.0249264, i64 192
+  %158 = getelementptr inbounds nuw i8, ptr %.0249264, i64 192
   store i32 %157, ptr %158, align 4
   %159 = add nsw i64 %91, 1024
   %160 = add nsw i64 %159, %137
   %161 = lshr i64 %160, 11
   %162 = trunc i64 %161 to i32
-  %163 = getelementptr inbounds i8, ptr %.0249264, i64 64
+  %163 = getelementptr inbounds nuw i8, ptr %.0249264, i64 64
   store i32 %162, ptr %163, align 4
   %164 = sub nsw i64 %159, %137
   %165 = lshr i64 %164, 11
   %166 = trunc i64 %165 to i32
-  %167 = getelementptr inbounds i8, ptr %.0249264, i64 160
+  %167 = getelementptr inbounds nuw i8, ptr %.0249264, i64 160
   store i32 %166, ptr %167, align 4
   %168 = add nsw i64 %89, 1024
   %169 = add nsw i64 %168, %135
   %170 = lshr i64 %169, 11
   %171 = trunc i64 %170 to i32
-  %172 = getelementptr inbounds i8, ptr %.0249264, i64 96
+  %172 = getelementptr inbounds nuw i8, ptr %.0249264, i64 96
   store i32 %171, ptr %172, align 4
   %173 = sub nsw i64 %168, %135
   %174 = lshr i64 %173, 11
@@ -219,11 +219,11 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
 176:                                              ; preds = %._crit_edge, %40
   %.sink273 = phi i64 [ 128, %._crit_edge ], [ 224, %40 ]
   %.sink = phi i32 [ %175, %._crit_edge ], [ %46, %40 ]
-  %177 = getelementptr inbounds i8, ptr %.0249264, i64 %.sink273
+  %177 = getelementptr inbounds nuw i8, ptr %.0249264, i64 %.sink273
   store i32 %.sink, ptr %177, align 4
-  %.1250 = getelementptr inbounds i8, ptr %.0249264, i64 4
-  %.1252 = getelementptr inbounds i8, ptr %.0251263, i64 2
-  %.1254 = getelementptr inbounds i8, ptr %.0253262, i64 2
+  %.1250 = getelementptr inbounds nuw i8, ptr %.0249264, i64 4
+  %.1252 = getelementptr inbounds nuw i8, ptr %.0251263, i64 2
+  %.1254 = getelementptr inbounds nuw i8, ptr %.0253262, i64 2
   %178 = add nsw i32 %.0265, -1
   %179 = icmp ugt i32 %.0265, 1
   br i1 %179, label %13, label %.preheader, !llvm.loop !4
@@ -231,44 +231,44 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
 180:                                              ; preds = %.preheader, %332
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %332 ]
   %.2266 = phi ptr [ %6, %.preheader ], [ %.3, %332 ]
-  %181 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 %12
-  %184 = getelementptr inbounds i8, ptr %.2266, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 %12
+  %184 = getelementptr inbounds nuw i8, ptr %.2266, i64 4
   %185 = load i32, ptr %184, align 4
   %186 = icmp eq i32 %185, 0
-  %187 = getelementptr inbounds i8, ptr %.2266, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %.2266, i64 8
   %188 = load i32, ptr %187, align 4
   %189 = icmp eq i32 %188, 0
   %or.cond274 = select i1 %186, i1 %189, i1 false
   br i1 %or.cond274, label %190, label %._crit_edge269
 
 190:                                              ; preds = %180
-  %191 = getelementptr inbounds i8, ptr %.2266, i64 12
+  %191 = getelementptr inbounds nuw i8, ptr %.2266, i64 12
   %192 = load i32, ptr %191, align 4
   %193 = icmp eq i32 %192, 0
   br i1 %193, label %194, label %._crit_edge269
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i8, ptr %.2266, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %.2266, i64 16
   %196 = load i32, ptr %195, align 4
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %._crit_edge269
 
 198:                                              ; preds = %194
-  %199 = getelementptr inbounds i8, ptr %.2266, i64 20
+  %199 = getelementptr inbounds nuw i8, ptr %.2266, i64 20
   %200 = load i32, ptr %199, align 4
   %201 = icmp eq i32 %200, 0
   br i1 %201, label %202, label %._crit_edge269
 
 202:                                              ; preds = %198
-  %203 = getelementptr inbounds i8, ptr %.2266, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %.2266, i64 24
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %._crit_edge269
 
 206:                                              ; preds = %202
-  %207 = getelementptr inbounds i8, ptr %.2266, i64 28
+  %207 = getelementptr inbounds nuw i8, ptr %.2266, i64 28
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %208, 0
   br i1 %209, label %210, label %._crit_edge269
@@ -279,27 +279,27 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %213 = lshr i32 %212, 5
   %214 = and i32 %213, 1023
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds i8, ptr %11, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr %11, i64 %215
   %217 = load i8, ptr %216, align 1
   store i8 %217, ptr %183, align 1
-  %218 = getelementptr inbounds i8, ptr %183, i64 1
+  %218 = getelementptr inbounds nuw i8, ptr %183, i64 1
   store i8 %217, ptr %218, align 1
-  %219 = getelementptr inbounds i8, ptr %183, i64 2
+  %219 = getelementptr inbounds nuw i8, ptr %183, i64 2
   store i8 %217, ptr %219, align 1
-  %220 = getelementptr inbounds i8, ptr %183, i64 3
+  %220 = getelementptr inbounds nuw i8, ptr %183, i64 3
   store i8 %217, ptr %220, align 1
-  %221 = getelementptr inbounds i8, ptr %183, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i8 %217, ptr %221, align 1
-  %222 = getelementptr inbounds i8, ptr %183, i64 5
+  %222 = getelementptr inbounds nuw i8, ptr %183, i64 5
   store i8 %217, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %183, i64 6
+  %223 = getelementptr inbounds nuw i8, ptr %183, i64 6
   store i8 %217, ptr %223, align 1
   br label %332
 
 ._crit_edge269:                                   ; preds = %180, %206, %202, %198, %194, %190
   %224 = phi i32 [ 0, %206 ], [ 0, %202 ], [ 0, %198 ], [ 0, %194 ], [ 0, %190 ], [ %188, %180 ]
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds i8, ptr %.2266, i64 24
+  %226 = getelementptr inbounds nuw i8, ptr %.2266, i64 24
   %227 = load i32, ptr %226, align 4
   %228 = zext i32 %227 to i64
   %229 = add nuw nsw i64 %228, %225
@@ -310,7 +310,7 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %234 = add nuw nsw i64 %230, %233
   %235 = load i32, ptr %.2266, align 4
   %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i8, ptr %.2266, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %.2266, i64 16
   %238 = load i32, ptr %237, align 4
   %239 = sext i32 %238 to i64
   %240 = add nsw i64 %239, %236
@@ -321,13 +321,13 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %245 = sub nsw i64 %241, %234
   %246 = add nsw i64 %243, %232
   %247 = sub nsw i64 %243, %232
-  %248 = getelementptr inbounds i8, ptr %.2266, i64 28
+  %248 = getelementptr inbounds nuw i8, ptr %.2266, i64 28
   %249 = load i32, ptr %248, align 4
   %250 = zext i32 %249 to i64
-  %251 = getelementptr inbounds i8, ptr %.2266, i64 20
+  %251 = getelementptr inbounds nuw i8, ptr %.2266, i64 20
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
-  %254 = getelementptr inbounds i8, ptr %.2266, i64 12
+  %254 = getelementptr inbounds nuw i8, ptr %.2266, i64 12
   %255 = load i32, ptr %254, align 4
   %256 = zext i32 %255 to i64
   %257 = zext i32 %185 to i64
@@ -359,67 +359,67 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
   %283 = add nsw i64 %282, %281
   %284 = lshr i64 %283, 18
   %285 = and i64 %284, 1023
-  %286 = getelementptr inbounds i8, ptr %11, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr %11, i64 %285
   %287 = load i8, ptr %286, align 1
   store i8 %287, ptr %183, align 1
   %288 = sub nsw i64 %282, %281
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
-  %291 = getelementptr inbounds i8, ptr %11, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
   %292 = load i8, ptr %291, align 1
-  %293 = getelementptr inbounds i8, ptr %183, i64 7
+  %293 = getelementptr inbounds nuw i8, ptr %183, i64 7
   store i8 %292, ptr %293, align 1
   %294 = add nsw i64 %246, 131072
   %295 = add nsw i64 %294, %279
   %296 = lshr i64 %295, 18
   %297 = and i64 %296, 1023
-  %298 = getelementptr inbounds i8, ptr %11, i64 %297
+  %298 = getelementptr inbounds nuw i8, ptr %11, i64 %297
   %299 = load i8, ptr %298, align 1
-  %300 = getelementptr inbounds i8, ptr %183, i64 1
+  %300 = getelementptr inbounds nuw i8, ptr %183, i64 1
   store i8 %299, ptr %300, align 1
   %301 = sub nsw i64 %294, %279
   %302 = lshr i64 %301, 18
   %303 = and i64 %302, 1023
-  %304 = getelementptr inbounds i8, ptr %11, i64 %303
+  %304 = getelementptr inbounds nuw i8, ptr %11, i64 %303
   %305 = load i8, ptr %304, align 1
-  %306 = getelementptr inbounds i8, ptr %183, i64 6
+  %306 = getelementptr inbounds nuw i8, ptr %183, i64 6
   store i8 %305, ptr %306, align 1
   %307 = add nsw i64 %247, 131072
   %308 = add nsw i64 %307, %277
   %309 = lshr i64 %308, 18
   %310 = and i64 %309, 1023
-  %311 = getelementptr inbounds i8, ptr %11, i64 %310
+  %311 = getelementptr inbounds nuw i8, ptr %11, i64 %310
   %312 = load i8, ptr %311, align 1
-  %313 = getelementptr inbounds i8, ptr %183, i64 2
+  %313 = getelementptr inbounds nuw i8, ptr %183, i64 2
   store i8 %312, ptr %313, align 1
   %314 = sub nsw i64 %307, %277
   %315 = lshr i64 %314, 18
   %316 = and i64 %315, 1023
-  %317 = getelementptr inbounds i8, ptr %11, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr %11, i64 %316
   %318 = load i8, ptr %317, align 1
-  %319 = getelementptr inbounds i8, ptr %183, i64 5
+  %319 = getelementptr inbounds nuw i8, ptr %183, i64 5
   store i8 %318, ptr %319, align 1
   %320 = add nsw i64 %245, 131072
   %321 = add nsw i64 %320, %275
   %322 = lshr i64 %321, 18
   %323 = and i64 %322, 1023
-  %324 = getelementptr inbounds i8, ptr %11, i64 %323
+  %324 = getelementptr inbounds nuw i8, ptr %11, i64 %323
   %325 = load i8, ptr %324, align 1
-  %326 = getelementptr inbounds i8, ptr %183, i64 3
+  %326 = getelementptr inbounds nuw i8, ptr %183, i64 3
   store i8 %325, ptr %326, align 1
   %327 = sub nsw i64 %320, %275
   %328 = lshr i64 %327, 18
   %329 = and i64 %328, 1023
-  %330 = getelementptr inbounds i8, ptr %11, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %11, i64 %329
   %331 = load i8, ptr %330, align 1
   br label %332
 
 332:                                              ; preds = %._crit_edge269, %210
   %.sink277 = phi i64 [ 4, %._crit_edge269 ], [ 7, %210 ]
   %.sink275 = phi i8 [ %331, %._crit_edge269 ], [ %217, %210 ]
-  %333 = getelementptr inbounds i8, ptr %183, i64 %.sink277
+  %333 = getelementptr inbounds nuw i8, ptr %183, i64 %.sink277
   store i8 %.sink275, ptr %333, align 1
-  %.3 = getelementptr inbounds i8, ptr %.2266, i64 32
+  %.3 = getelementptr inbounds nuw i8, ptr %.2266, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %334, label %180, !llvm.loop !6
@@ -431,14 +431,14 @@ define void @jpeg_idct_islow(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [49 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %125
 
@@ -454,24 +454,24 @@ define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noun
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0169175, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0169175, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0168176, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0168176, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %.0169175, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.0169175, i64 64
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.0168176, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0168176, i64 64
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = mul nsw i64 %33, %30
-  %35 = getelementptr inbounds i8, ptr %.0169175, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %.0169175, i64 96
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.0168176, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %.0168176, i64 96
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %37
@@ -495,24 +495,24 @@ define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noun
   %56 = add nsw i64 %55, %52
   %57 = mul nsw i64 %50, 11585
   %58 = add nsw i64 %57, %20
-  %59 = getelementptr inbounds i8, ptr %.0169175, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0169175, i64 16
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %.0168176, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0168176, i64 16
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i64
   %65 = mul nsw i64 %64, %61
-  %66 = getelementptr inbounds i8, ptr %.0169175, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %.0169175, i64 48
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %.0168176, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.0168176, i64 48
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
   %72 = mul nsw i64 %71, %68
-  %73 = getelementptr inbounds i8, ptr %.0169175, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %.0169175, i64 80
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %.0168176, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %.0168176, i64 80
   %77 = load i16, ptr %76, align 2
   %78 = sext i16 %77 to i64
   %79 = mul nsw i64 %78, %75
@@ -538,56 +538,56 @@ define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noun
   %98 = sub nsw i64 %54, %91
   %99 = lshr i64 %98, 11
   %100 = trunc i64 %99 to i32
-  %101 = getelementptr inbounds i8, ptr %.0166177, i64 168
+  %101 = getelementptr inbounds nuw i8, ptr %.0166177, i64 168
   store i32 %100, ptr %101, align 4
   %102 = add nsw i64 %88, %48
   %103 = lshr i64 %102, 11
   %104 = trunc i64 %103 to i32
-  %105 = getelementptr inbounds i8, ptr %.0166177, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %.0166177, i64 28
   store i32 %104, ptr %105, align 4
   %106 = sub nsw i64 %48, %88
   %107 = lshr i64 %106, 11
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %.0166177, i64 140
+  %109 = getelementptr inbounds nuw i8, ptr %.0166177, i64 140
   store i32 %108, ptr %109, align 4
   %110 = add nsw i64 %94, %56
   %111 = lshr i64 %110, 11
   %112 = trunc i64 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %.0166177, i64 56
+  %113 = getelementptr inbounds nuw i8, ptr %.0166177, i64 56
   store i32 %112, ptr %113, align 4
   %114 = sub nsw i64 %56, %94
   %115 = lshr i64 %114, 11
   %116 = trunc i64 %115 to i32
-  %117 = getelementptr inbounds i8, ptr %.0166177, i64 112
+  %117 = getelementptr inbounds nuw i8, ptr %.0166177, i64 112
   store i32 %116, ptr %117, align 4
   %118 = lshr i64 %58, 11
   %119 = trunc i64 %118 to i32
-  %120 = getelementptr inbounds i8, ptr %.0166177, i64 84
+  %120 = getelementptr inbounds nuw i8, ptr %.0166177, i64 84
   store i32 %119, ptr %120, align 4
   %121 = add nuw nsw i32 %.0178, 1
-  %122 = getelementptr inbounds i8, ptr %.0169175, i64 2
-  %123 = getelementptr inbounds i8, ptr %.0168176, i64 2
-  %124 = getelementptr inbounds i8, ptr %.0166177, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %.0169175, i64 2
+  %123 = getelementptr inbounds nuw i8, ptr %.0168176, i64 2
+  %124 = getelementptr inbounds nuw i8, ptr %.0166177, i64 4
   %exitcond.not = icmp eq i32 %121, 7
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !7
 
 125:                                              ; preds = %.preheader, %125
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %125 ]
   %.1167179 = phi ptr [ %6, %.preheader ], [ %223, %125 ]
-  %126 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 %12
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %12
   %129 = load i32, ptr %.1167179, align 4
   %130 = sext i32 %129 to i64
   %131 = shl nsw i64 %130, 13
   %132 = add nsw i64 %131, 131072
-  %133 = getelementptr inbounds i8, ptr %.1167179, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %.1167179, i64 8
   %134 = load i32, ptr %133, align 4
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds i8, ptr %.1167179, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.1167179, i64 16
   %137 = load i32, ptr %136, align 4
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %.1167179, i64 24
+  %139 = getelementptr inbounds nuw i8, ptr %.1167179, i64 24
   %140 = load i32, ptr %139, align 4
   %141 = zext i32 %140 to i64
   %142 = sub nsw i64 %138, %141
@@ -610,13 +610,13 @@ define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noun
   %156 = add nsw i64 %155, %152
   %157 = mul nsw i64 %150, 11585
   %158 = add nsw i64 %157, %132
-  %159 = getelementptr inbounds i8, ptr %.1167179, i64 4
+  %159 = getelementptr inbounds nuw i8, ptr %.1167179, i64 4
   %160 = load i32, ptr %159, align 4
   %161 = zext i32 %160 to i64
-  %162 = getelementptr inbounds i8, ptr %.1167179, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %.1167179, i64 12
   %163 = load i32, ptr %162, align 4
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds i8, ptr %.1167179, i64 20
+  %165 = getelementptr inbounds nuw i8, ptr %.1167179, i64 20
   %166 = load i32, ptr %165, align 4
   %167 = zext i32 %166 to i64
   %168 = add nuw nsw i64 %164, %161
@@ -637,51 +637,51 @@ define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noun
   %183 = add nsw i64 %179, %154
   %184 = lshr i64 %183, 18
   %185 = and i64 %184, 1023
-  %186 = getelementptr inbounds i8, ptr %11, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %11, i64 %185
   %187 = load i8, ptr %186, align 1
   store i8 %187, ptr %128, align 1
   %188 = sub nsw i64 %154, %179
   %189 = lshr i64 %188, 18
   %190 = and i64 %189, 1023
-  %191 = getelementptr inbounds i8, ptr %11, i64 %190
+  %191 = getelementptr inbounds nuw i8, ptr %11, i64 %190
   %192 = load i8, ptr %191, align 1
-  %193 = getelementptr inbounds i8, ptr %128, i64 6
+  %193 = getelementptr inbounds nuw i8, ptr %128, i64 6
   store i8 %192, ptr %193, align 1
   %194 = add nsw i64 %176, %148
   %195 = lshr i64 %194, 18
   %196 = and i64 %195, 1023
-  %197 = getelementptr inbounds i8, ptr %11, i64 %196
+  %197 = getelementptr inbounds nuw i8, ptr %11, i64 %196
   %198 = load i8, ptr %197, align 1
-  %199 = getelementptr inbounds i8, ptr %128, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %128, i64 1
   store i8 %198, ptr %199, align 1
   %200 = sub nsw i64 %148, %176
   %201 = lshr i64 %200, 18
   %202 = and i64 %201, 1023
-  %203 = getelementptr inbounds i8, ptr %11, i64 %202
+  %203 = getelementptr inbounds nuw i8, ptr %11, i64 %202
   %204 = load i8, ptr %203, align 1
-  %205 = getelementptr inbounds i8, ptr %128, i64 5
+  %205 = getelementptr inbounds nuw i8, ptr %128, i64 5
   store i8 %204, ptr %205, align 1
   %206 = add nsw i64 %182, %156
   %207 = lshr i64 %206, 18
   %208 = and i64 %207, 1023
-  %209 = getelementptr inbounds i8, ptr %11, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr %11, i64 %208
   %210 = load i8, ptr %209, align 1
-  %211 = getelementptr inbounds i8, ptr %128, i64 2
+  %211 = getelementptr inbounds nuw i8, ptr %128, i64 2
   store i8 %210, ptr %211, align 1
   %212 = sub nsw i64 %156, %182
   %213 = lshr i64 %212, 18
   %214 = and i64 %213, 1023
-  %215 = getelementptr inbounds i8, ptr %11, i64 %214
+  %215 = getelementptr inbounds nuw i8, ptr %11, i64 %214
   %216 = load i8, ptr %215, align 1
-  %217 = getelementptr inbounds i8, ptr %128, i64 4
+  %217 = getelementptr inbounds nuw i8, ptr %128, i64 4
   store i8 %216, ptr %217, align 1
   %218 = lshr i64 %158, 18
   %219 = and i64 %218, 1023
-  %220 = getelementptr inbounds i8, ptr %11, i64 %219
+  %220 = getelementptr inbounds nuw i8, ptr %11, i64 %219
   %221 = load i8, ptr %220, align 1
-  %222 = getelementptr inbounds i8, ptr %128, i64 3
+  %222 = getelementptr inbounds nuw i8, ptr %128, i64 3
   store i8 %221, ptr %222, align 1
-  %223 = getelementptr inbounds i8, ptr %.1167179, i64 28
+  %223 = getelementptr inbounds nuw i8, ptr %.1167179, i64 28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond182.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond182.not, label %224, label %125, !llvm.loop !8
@@ -693,14 +693,14 @@ define void @jpeg_idct_7x7(ptr nocapture noundef readonly %0, ptr nocapture noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_6x6(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [36 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %99
 
@@ -716,10 +716,10 @@ define void @jpeg_idct_6x6(ptr nocapture noundef readonly %0, ptr nocapture noun
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0123131, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.0123131, i64 64
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0122132, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0122132, i64 64
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
@@ -728,34 +728,34 @@ define void @jpeg_idct_6x6(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.neg124 = mul nsw i64 %27, -11586
   %30 = add nsw i64 %.neg124, %20
   %31 = ashr i64 %30, 11
-  %32 = getelementptr inbounds i8, ptr %.0123131, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.0123131, i64 32
   %33 = load i16, ptr %32, align 2
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %.0122132, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.0122132, i64 32
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
   %38 = mul nsw i64 %34, 10033
   %39 = mul nsw i64 %38, %37
   %40 = add nsw i64 %29, %39
   %41 = sub nsw i64 %29, %39
-  %42 = getelementptr inbounds i8, ptr %.0123131, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0123131, i64 16
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %.0122132, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.0122132, i64 16
   %46 = load i16, ptr %45, align 2
   %47 = sext i16 %46 to i64
   %48 = mul nsw i64 %47, %44
-  %49 = getelementptr inbounds i8, ptr %.0123131, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %.0123131, i64 48
   %50 = load i16, ptr %49, align 2
   %51 = sext i16 %50 to i64
-  %52 = getelementptr inbounds i8, ptr %.0122132, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %.0122132, i64 48
   %53 = load i16, ptr %52, align 2
   %54 = sext i16 %53 to i64
   %55 = mul nsw i64 %54, %51
-  %56 = getelementptr inbounds i8, ptr %.0123131, i64 80
+  %56 = getelementptr inbounds nuw i8, ptr %.0123131, i64 80
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %.0122132, i64 80
+  %59 = getelementptr inbounds nuw i8, ptr %.0122132, i64 80
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
   %62 = mul nsw i64 %61, %58
@@ -777,63 +777,63 @@ define void @jpeg_idct_6x6(ptr nocapture noundef readonly %0, ptr nocapture noun
   %77 = sub nsw i64 %40, %67
   %78 = lshr i64 %77, 11
   %79 = trunc i64 %78 to i32
-  %80 = getelementptr inbounds i8, ptr %.0120133, i64 120
+  %80 = getelementptr inbounds nuw i8, ptr %.0120133, i64 120
   store i32 %79, ptr %80, align 4
   %81 = add nsw i64 %73, %31
   %82 = trunc i64 %81 to i32
-  %83 = getelementptr inbounds i8, ptr %.0120133, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %.0120133, i64 24
   store i32 %82, ptr %83, align 4
   %84 = sub nsw i64 %31, %73
   %85 = trunc i64 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %.0120133, i64 96
+  %86 = getelementptr inbounds nuw i8, ptr %.0120133, i64 96
   store i32 %85, ptr %86, align 4
   %87 = add nsw i64 %70, %41
   %88 = lshr i64 %87, 11
   %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds i8, ptr %.0120133, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %.0120133, i64 48
   store i32 %89, ptr %90, align 4
   %91 = sub nsw i64 %41, %70
   %92 = lshr i64 %91, 11
   %93 = trunc i64 %92 to i32
-  %94 = getelementptr inbounds i8, ptr %.0120133, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %.0120133, i64 72
   store i32 %93, ptr %94, align 4
   %95 = add nuw nsw i32 %.0134, 1
-  %96 = getelementptr inbounds i8, ptr %.0123131, i64 2
-  %97 = getelementptr inbounds i8, ptr %.0122132, i64 2
-  %98 = getelementptr inbounds i8, ptr %.0120133, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.0123131, i64 2
+  %97 = getelementptr inbounds nuw i8, ptr %.0122132, i64 2
+  %98 = getelementptr inbounds nuw i8, ptr %.0120133, i64 4
   %exitcond.not = icmp eq i32 %95, 6
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !9
 
 99:                                               ; preds = %.preheader, %99
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %99 ]
   %.1121135 = phi ptr [ %6, %.preheader ], [ %174, %99 ]
-  %100 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 %12
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %12
   %103 = load i32, ptr %.1121135, align 4
   %104 = sext i32 %103 to i64
   %105 = shl nsw i64 %104, 13
   %106 = add nsw i64 %105, 131072
-  %107 = getelementptr inbounds i8, ptr %.1121135, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.1121135, i64 16
   %108 = load i32, ptr %107, align 4
   %109 = zext i32 %108 to i64
   %110 = mul nuw nsw i64 %109, 5793
   %111 = add nsw i64 %106, %110
   %.neg = mul nsw i64 %109, -11586
   %112 = add nsw i64 %.neg, %106
-  %113 = getelementptr inbounds i8, ptr %.1121135, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.1121135, i64 8
   %114 = load i32, ptr %113, align 4
   %115 = zext i32 %114 to i64
   %116 = mul nuw nsw i64 %115, 10033
   %117 = add nsw i64 %111, %116
   %118 = sub nsw i64 %111, %116
-  %119 = getelementptr inbounds i8, ptr %.1121135, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %.1121135, i64 4
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i8, ptr %.1121135, i64 12
+  %122 = getelementptr inbounds nuw i8, ptr %.1121135, i64 12
   %123 = load i32, ptr %122, align 4
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i8, ptr %.1121135, i64 20
+  %125 = getelementptr inbounds nuw i8, ptr %.1121135, i64 20
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
   %128 = add nsw i64 %127, %121
@@ -850,45 +850,45 @@ define void @jpeg_idct_6x6(ptr nocapture noundef readonly %0, ptr nocapture noun
   %139 = add nsw i64 %132, %117
   %140 = lshr i64 %139, 18
   %141 = and i64 %140, 1023
-  %142 = getelementptr inbounds i8, ptr %11, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %11, i64 %141
   %143 = load i8, ptr %142, align 1
   store i8 %143, ptr %102, align 1
   %144 = sub nsw i64 %117, %132
   %145 = lshr i64 %144, 18
   %146 = and i64 %145, 1023
-  %147 = getelementptr inbounds i8, ptr %11, i64 %146
+  %147 = getelementptr inbounds nuw i8, ptr %11, i64 %146
   %148 = load i8, ptr %147, align 1
-  %149 = getelementptr inbounds i8, ptr %102, i64 5
+  %149 = getelementptr inbounds nuw i8, ptr %102, i64 5
   store i8 %148, ptr %149, align 1
   %150 = add nsw i64 %138, %112
   %151 = lshr i64 %150, 18
   %152 = and i64 %151, 1023
-  %153 = getelementptr inbounds i8, ptr %11, i64 %152
+  %153 = getelementptr inbounds nuw i8, ptr %11, i64 %152
   %154 = load i8, ptr %153, align 1
-  %155 = getelementptr inbounds i8, ptr %102, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %102, i64 1
   store i8 %154, ptr %155, align 1
   %156 = sub nsw i64 %112, %138
   %157 = lshr i64 %156, 18
   %158 = and i64 %157, 1023
-  %159 = getelementptr inbounds i8, ptr %11, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 %158
   %160 = load i8, ptr %159, align 1
-  %161 = getelementptr inbounds i8, ptr %102, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %102, i64 4
   store i8 %160, ptr %161, align 1
   %162 = add nsw i64 %135, %118
   %163 = lshr i64 %162, 18
   %164 = and i64 %163, 1023
-  %165 = getelementptr inbounds i8, ptr %11, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %11, i64 %164
   %166 = load i8, ptr %165, align 1
-  %167 = getelementptr inbounds i8, ptr %102, i64 2
+  %167 = getelementptr inbounds nuw i8, ptr %102, i64 2
   store i8 %166, ptr %167, align 1
   %168 = sub nsw i64 %118, %135
   %169 = lshr i64 %168, 18
   %170 = and i64 %169, 1023
-  %171 = getelementptr inbounds i8, ptr %11, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr %11, i64 %170
   %172 = load i8, ptr %171, align 1
-  %173 = getelementptr inbounds i8, ptr %102, i64 3
+  %173 = getelementptr inbounds nuw i8, ptr %102, i64 3
   store i8 %172, ptr %173, align 1
-  %174 = getelementptr inbounds i8, ptr %.1121135, i64 24
+  %174 = getelementptr inbounds nuw i8, ptr %.1121135, i64 24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond138.not, label %175, label %99, !llvm.loop !10
@@ -900,14 +900,14 @@ define void @jpeg_idct_6x6(ptr nocapture noundef readonly %0, ptr nocapture noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [25 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %84
 
@@ -923,17 +923,17 @@ define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noun
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0103107, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0103107, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0102108, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0102108, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %.0103107, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.0103107, i64 64
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.0102108, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0102108, i64 64
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = mul nsw i64 %33, %30
@@ -946,17 +946,17 @@ define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noun
   %41 = sub nsw i64 %39, %36
   %.neg105 = mul i64 %37, 8796093010624
   %42 = add i64 %.neg105, %20
-  %43 = getelementptr inbounds i8, ptr %.0103107, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.0103107, i64 16
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %.0102108, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.0102108, i64 16
   %47 = load i16, ptr %46, align 2
   %48 = sext i16 %47 to i64
   %49 = mul nsw i64 %48, %45
-  %50 = getelementptr inbounds i8, ptr %.0103107, i64 48
+  %50 = getelementptr inbounds nuw i8, ptr %.0103107, i64 48
   %51 = load i16, ptr %50, align 2
   %52 = sext i16 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %.0102108, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.0102108, i64 48
   %54 = load i16, ptr %53, align 2
   %55 = sext i16 %54 to i64
   %56 = mul nsw i64 %55, %52
@@ -973,43 +973,43 @@ define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noun
   %65 = sub nsw i64 %40, %60
   %66 = lshr i64 %65, 11
   %67 = trunc i64 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %.0100109, i64 80
+  %68 = getelementptr inbounds nuw i8, ptr %.0100109, i64 80
   store i32 %67, ptr %68, align 4
   %69 = add nsw i64 %61, %41
   %70 = lshr i64 %69, 11
   %71 = trunc i64 %70 to i32
-  %72 = getelementptr inbounds i8, ptr %.0100109, i64 20
+  %72 = getelementptr inbounds nuw i8, ptr %.0100109, i64 20
   store i32 %71, ptr %72, align 4
   %73 = sub nsw i64 %41, %61
   %74 = lshr i64 %73, 11
   %75 = trunc i64 %74 to i32
-  %76 = getelementptr inbounds i8, ptr %.0100109, i64 60
+  %76 = getelementptr inbounds nuw i8, ptr %.0100109, i64 60
   store i32 %75, ptr %76, align 4
   %77 = lshr i64 %42, 11
   %78 = trunc i64 %77 to i32
-  %79 = getelementptr inbounds i8, ptr %.0100109, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %.0100109, i64 40
   store i32 %78, ptr %79, align 4
   %80 = add nuw nsw i32 %.0110, 1
-  %81 = getelementptr inbounds i8, ptr %.0103107, i64 2
-  %82 = getelementptr inbounds i8, ptr %.0102108, i64 2
-  %83 = getelementptr inbounds i8, ptr %.0100109, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.0103107, i64 2
+  %82 = getelementptr inbounds nuw i8, ptr %.0102108, i64 2
+  %83 = getelementptr inbounds nuw i8, ptr %.0100109, i64 4
   %exitcond.not = icmp eq i32 %80, 5
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !11
 
 84:                                               ; preds = %.preheader, %84
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %84 ]
   %.1101111 = phi ptr [ %6, %.preheader ], [ %145, %84 ]
-  %85 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 %12
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %12
   %88 = load i32, ptr %.1101111, align 4
   %89 = sext i32 %88 to i64
   %90 = shl nsw i64 %89, 13
   %91 = add nsw i64 %90, 131072
-  %92 = getelementptr inbounds i8, ptr %.1101111, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.1101111, i64 8
   %93 = load i32, ptr %92, align 4
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %.1101111, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.1101111, i64 16
   %96 = load i32, ptr %95, align 4
   %97 = zext i32 %96 to i64
   %98 = add nuw nsw i64 %97, %94
@@ -1021,10 +1021,10 @@ define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noun
   %104 = sub nsw i64 %102, %99
   %.neg = mul nsw i64 %100, 268423872
   %105 = add nsw i64 %.neg, %91
-  %106 = getelementptr inbounds i8, ptr %.1101111, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.1101111, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds i8, ptr %.1101111, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %.1101111, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = zext i32 %110 to i64
   %112 = add nuw nsw i64 %111, %108
@@ -1036,37 +1036,37 @@ define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noun
   %117 = add nsw i64 %115, %103
   %118 = lshr i64 %117, 18
   %119 = and i64 %118, 1023
-  %120 = getelementptr inbounds i8, ptr %11, i64 %119
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 %119
   %121 = load i8, ptr %120, align 1
   store i8 %121, ptr %87, align 1
   %122 = sub nsw i64 %103, %115
   %123 = lshr i64 %122, 18
   %124 = and i64 %123, 1023
-  %125 = getelementptr inbounds i8, ptr %11, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %11, i64 %124
   %126 = load i8, ptr %125, align 1
-  %127 = getelementptr inbounds i8, ptr %87, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %87, i64 4
   store i8 %126, ptr %127, align 1
   %128 = add nsw i64 %116, %104
   %129 = lshr i64 %128, 18
   %130 = and i64 %129, 1023
-  %131 = getelementptr inbounds i8, ptr %11, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %11, i64 %130
   %132 = load i8, ptr %131, align 1
-  %133 = getelementptr inbounds i8, ptr %87, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %87, i64 1
   store i8 %132, ptr %133, align 1
   %134 = sub nsw i64 %104, %116
   %135 = lshr i64 %134, 18
   %136 = and i64 %135, 1023
-  %137 = getelementptr inbounds i8, ptr %11, i64 %136
+  %137 = getelementptr inbounds nuw i8, ptr %11, i64 %136
   %138 = load i8, ptr %137, align 1
-  %139 = getelementptr inbounds i8, ptr %87, i64 3
+  %139 = getelementptr inbounds nuw i8, ptr %87, i64 3
   store i8 %138, ptr %139, align 1
   %140 = lshr i64 %105, 18
   %141 = and i64 %140, 1023
-  %142 = getelementptr inbounds i8, ptr %11, i64 %141
+  %142 = getelementptr inbounds nuw i8, ptr %11, i64 %141
   %143 = load i8, ptr %142, align 1
-  %144 = getelementptr inbounds i8, ptr %87, i64 2
+  %144 = getelementptr inbounds nuw i8, ptr %87, i64 2
   store i8 %143, ptr %144, align 1
-  %145 = getelementptr inbounds i8, ptr %.1101111, i64 20
+  %145 = getelementptr inbounds nuw i8, ptr %.1101111, i64 20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond114.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond114.not, label %146, label %84, !llvm.loop !12
@@ -1078,14 +1078,14 @@ define void @jpeg_idct_5x5(ptr nocapture noundef readonly %0, ptr nocapture noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_3x3(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [9 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %53
 
@@ -1101,10 +1101,10 @@ define void @jpeg_idct_3x3(ptr nocapture noundef readonly %0, ptr nocapture noun
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.06163, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.06163, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.06064, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.06064, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
@@ -1112,10 +1112,10 @@ define void @jpeg_idct_3x3(ptr nocapture noundef readonly %0, ptr nocapture noun
   %29 = add nsw i64 %28, %20
   %.neg62 = mul i64 %27, 8796093010622
   %30 = add i64 %.neg62, %20
-  %31 = getelementptr inbounds i8, ptr %.06163, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.06163, i64 16
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.06064, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.06064, i64 16
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i64
   %37 = mul nsw i64 %33, 10033
@@ -1127,60 +1127,60 @@ define void @jpeg_idct_3x3(ptr nocapture noundef readonly %0, ptr nocapture noun
   %42 = sub nsw i64 %29, %38
   %43 = lshr i64 %42, 11
   %44 = trunc i64 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %.05865, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.05865, i64 24
   store i32 %44, ptr %45, align 4
   %46 = lshr i64 %30, 11
   %47 = trunc i64 %46 to i32
-  %48 = getelementptr inbounds i8, ptr %.05865, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.05865, i64 12
   store i32 %47, ptr %48, align 4
   %49 = add nuw nsw i32 %.066, 1
-  %50 = getelementptr inbounds i8, ptr %.06163, i64 2
-  %51 = getelementptr inbounds i8, ptr %.06064, i64 2
-  %52 = getelementptr inbounds i8, ptr %.05865, i64 4
+  %50 = getelementptr inbounds nuw i8, ptr %.06163, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %.06064, i64 2
+  %52 = getelementptr inbounds nuw i8, ptr %.05865, i64 4
   %exitcond.not = icmp eq i32 %49, 3
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !13
 
 53:                                               ; preds = %.preheader, %53
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %53 ]
   %.15967 = phi ptr [ %6, %.preheader ], [ %87, %53 ]
-  %54 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 %12
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %12
   %57 = load i32, ptr %.15967, align 4
   %58 = sext i32 %57 to i64
   %59 = shl nsw i64 %58, 13
   %60 = add nsw i64 %59, 131072
-  %61 = getelementptr inbounds i8, ptr %.15967, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.15967, i64 8
   %62 = load i32, ptr %61, align 4
   %63 = zext i32 %62 to i64
   %64 = mul nuw nsw i64 %63, 5793
   %65 = add nsw i64 %60, %64
   %.neg = mul nuw nsw i64 %63, 268423870
   %66 = add nsw i64 %.neg, %60
-  %67 = getelementptr inbounds i8, ptr %.15967, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %.15967, i64 4
   %68 = load i32, ptr %67, align 4
   %69 = zext i32 %68 to i64
   %70 = mul nuw nsw i64 %69, 10033
   %71 = add nsw i64 %65, %70
   %72 = lshr i64 %71, 18
   %73 = and i64 %72, 1023
-  %74 = getelementptr inbounds i8, ptr %11, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 %73
   %75 = load i8, ptr %74, align 1
   store i8 %75, ptr %56, align 1
   %76 = sub nsw i64 %65, %70
   %77 = lshr i64 %76, 18
   %78 = and i64 %77, 1023
-  %79 = getelementptr inbounds i8, ptr %11, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 %78
   %80 = load i8, ptr %79, align 1
-  %81 = getelementptr inbounds i8, ptr %56, i64 2
+  %81 = getelementptr inbounds nuw i8, ptr %56, i64 2
   store i8 %80, ptr %81, align 1
   %82 = lshr i64 %66, 18
   %83 = and i64 %82, 1023
-  %84 = getelementptr inbounds i8, ptr %11, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %11, i64 %83
   %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds i8, ptr %56, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %56, i64 1
   store i8 %85, ptr %86, align 1
-  %87 = getelementptr inbounds i8, ptr %.15967, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %.15967, i64 12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond70.not, label %88, label %53, !llvm.loop !14
@@ -1192,14 +1192,14 @@ define void @jpeg_idct_3x3(ptr nocapture noundef readonly %0, ptr nocapture noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [72 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %141
 
@@ -1215,24 +1215,24 @@ define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noun
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0194208, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0194208, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0193209, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0193209, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %.0194208, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.0194208, i64 64
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.0193209, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0193209, i64 64
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = mul nsw i64 %33, %30
-  %35 = getelementptr inbounds i8, ptr %.0194208, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %.0194208, i64 96
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.0193209, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %.0193209, i64 96
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %37
@@ -1255,30 +1255,30 @@ define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noun
   %56 = add nsw i64 %55, %51
   %57 = sub nsw i64 %43, %51
   %58 = add nsw i64 %57, %52
-  %59 = getelementptr inbounds i8, ptr %.0194208, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0194208, i64 16
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %.0193209, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0193209, i64 16
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i64
   %65 = mul nsw i64 %64, %61
-  %66 = getelementptr inbounds i8, ptr %.0194208, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %.0194208, i64 48
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i64
-  %69 = getelementptr inbounds i8, ptr %.0193209, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.0193209, i64 48
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %.0194208, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %.0194208, i64 80
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0193209, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %.0193209, i64 80
   %76 = load i16, ptr %75, align 2
   %77 = sext i16 %76 to i64
   %78 = mul nsw i64 %77, %74
-  %79 = getelementptr inbounds i8, ptr %.0194208, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %.0194208, i64 112
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %.0193209, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %.0193209, i64 112
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i64
   %85 = mul nsw i64 %84, %81
@@ -1306,66 +1306,66 @@ define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noun
   %106 = sub nsw i64 %54, %93
   %107 = lshr i64 %106, 11
   %108 = trunc i64 %107 to i32
-  %109 = getelementptr inbounds i8, ptr %.0191210, i64 256
+  %109 = getelementptr inbounds nuw i8, ptr %.0191210, i64 256
   store i32 %108, ptr %109, align 4
   %110 = add nsw i64 %102, %47
   %111 = lshr i64 %110, 11
   %112 = trunc i64 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %.0191210, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %.0191210, i64 32
   store i32 %112, ptr %113, align 4
   %114 = sub nsw i64 %47, %102
   %115 = lshr i64 %114, 11
   %116 = trunc i64 %115 to i32
-  %117 = getelementptr inbounds i8, ptr %.0191210, i64 224
+  %117 = getelementptr inbounds nuw i8, ptr %.0191210, i64 224
   store i32 %116, ptr %117, align 4
   %118 = add nsw i64 %97, %56
   %119 = lshr i64 %118, 11
   %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds i8, ptr %.0191210, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %.0191210, i64 64
   store i32 %120, ptr %121, align 4
   %122 = sub nsw i64 %56, %97
   %123 = lshr i64 %122, 11
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds i8, ptr %.0191210, i64 192
+  %125 = getelementptr inbounds nuw i8, ptr %.0191210, i64 192
   store i32 %124, ptr %125, align 4
   %126 = add nsw i64 %99, %58
   %127 = lshr i64 %126, 11
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %.0191210, i64 96
+  %129 = getelementptr inbounds nuw i8, ptr %.0191210, i64 96
   store i32 %128, ptr %129, align 4
   %130 = sub nsw i64 %58, %99
   %131 = lshr i64 %130, 11
   %132 = trunc i64 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %.0191210, i64 160
+  %133 = getelementptr inbounds nuw i8, ptr %.0191210, i64 160
   store i32 %132, ptr %133, align 4
   %134 = lshr i64 %48, 11
   %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %.0191210, i64 128
+  %136 = getelementptr inbounds nuw i8, ptr %.0191210, i64 128
   store i32 %135, ptr %136, align 4
   %137 = add nuw nsw i32 %.0211, 1
-  %138 = getelementptr inbounds i8, ptr %.0194208, i64 2
-  %139 = getelementptr inbounds i8, ptr %.0193209, i64 2
-  %140 = getelementptr inbounds i8, ptr %.0191210, i64 4
+  %138 = getelementptr inbounds nuw i8, ptr %.0194208, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %.0193209, i64 2
+  %140 = getelementptr inbounds nuw i8, ptr %.0191210, i64 4
   %exitcond.not = icmp eq i32 %137, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !15
 
 141:                                              ; preds = %.preheader, %141
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %141 ]
   %.1192212 = phi ptr [ %6, %.preheader ], [ %255, %141 ]
-  %142 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds i8, ptr %143, i64 %12
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 %12
   %145 = load i32, ptr %.1192212, align 4
   %146 = sext i32 %145 to i64
   %147 = shl nsw i64 %146, 13
   %148 = add nsw i64 %147, 131072
-  %149 = getelementptr inbounds i8, ptr %.1192212, i64 8
+  %149 = getelementptr inbounds nuw i8, ptr %.1192212, i64 8
   %150 = load i32, ptr %149, align 4
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds i8, ptr %.1192212, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %.1192212, i64 16
   %153 = load i32, ptr %152, align 4
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds i8, ptr %.1192212, i64 24
+  %155 = getelementptr inbounds nuw i8, ptr %.1192212, i64 24
   %156 = load i32, ptr %155, align 4
   %157 = zext i32 %156 to i64
   %158 = mul nuw nsw i64 %157, 5793
@@ -1387,16 +1387,16 @@ define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noun
   %172 = add nsw i64 %171, %167
   %173 = sub nsw i64 %159, %167
   %174 = add nsw i64 %173, %168
-  %175 = getelementptr inbounds i8, ptr %.1192212, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %.1192212, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds i8, ptr %.1192212, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %.1192212, i64 12
   %179 = load i32, ptr %178, align 4
   %180 = zext i32 %179 to i64
-  %181 = getelementptr inbounds i8, ptr %.1192212, i64 20
+  %181 = getelementptr inbounds nuw i8, ptr %.1192212, i64 20
   %182 = load i32, ptr %181, align 4
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr %.1192212, i64 28
+  %184 = getelementptr inbounds nuw i8, ptr %.1192212, i64 28
   %185 = load i32, ptr %184, align 4
   %186 = zext i32 %185 to i64
   %187 = mul nsw i64 %180, -10033
@@ -1418,65 +1418,65 @@ define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noun
   %203 = add nsw i64 %193, %170
   %204 = lshr i64 %203, 18
   %205 = and i64 %204, 1023
-  %206 = getelementptr inbounds i8, ptr %11, i64 %205
+  %206 = getelementptr inbounds nuw i8, ptr %11, i64 %205
   %207 = load i8, ptr %206, align 1
   store i8 %207, ptr %144, align 1
   %208 = sub nsw i64 %170, %193
   %209 = lshr i64 %208, 18
   %210 = and i64 %209, 1023
-  %211 = getelementptr inbounds i8, ptr %11, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr %11, i64 %210
   %212 = load i8, ptr %211, align 1
-  %213 = getelementptr inbounds i8, ptr %144, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %144, i64 8
   store i8 %212, ptr %213, align 1
   %214 = add nsw i64 %202, %163
   %215 = lshr i64 %214, 18
   %216 = and i64 %215, 1023
-  %217 = getelementptr inbounds i8, ptr %11, i64 %216
+  %217 = getelementptr inbounds nuw i8, ptr %11, i64 %216
   %218 = load i8, ptr %217, align 1
-  %219 = getelementptr inbounds i8, ptr %144, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %144, i64 1
   store i8 %218, ptr %219, align 1
   %220 = sub nsw i64 %163, %202
   %221 = lshr i64 %220, 18
   %222 = and i64 %221, 1023
-  %223 = getelementptr inbounds i8, ptr %11, i64 %222
+  %223 = getelementptr inbounds nuw i8, ptr %11, i64 %222
   %224 = load i8, ptr %223, align 1
-  %225 = getelementptr inbounds i8, ptr %144, i64 7
+  %225 = getelementptr inbounds nuw i8, ptr %144, i64 7
   store i8 %224, ptr %225, align 1
   %226 = add nsw i64 %197, %172
   %227 = lshr i64 %226, 18
   %228 = and i64 %227, 1023
-  %229 = getelementptr inbounds i8, ptr %11, i64 %228
+  %229 = getelementptr inbounds nuw i8, ptr %11, i64 %228
   %230 = load i8, ptr %229, align 1
-  %231 = getelementptr inbounds i8, ptr %144, i64 2
+  %231 = getelementptr inbounds nuw i8, ptr %144, i64 2
   store i8 %230, ptr %231, align 1
   %232 = sub nsw i64 %172, %197
   %233 = lshr i64 %232, 18
   %234 = and i64 %233, 1023
-  %235 = getelementptr inbounds i8, ptr %11, i64 %234
+  %235 = getelementptr inbounds nuw i8, ptr %11, i64 %234
   %236 = load i8, ptr %235, align 1
-  %237 = getelementptr inbounds i8, ptr %144, i64 6
+  %237 = getelementptr inbounds nuw i8, ptr %144, i64 6
   store i8 %236, ptr %237, align 1
   %238 = add nsw i64 %199, %174
   %239 = lshr i64 %238, 18
   %240 = and i64 %239, 1023
-  %241 = getelementptr inbounds i8, ptr %11, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %11, i64 %240
   %242 = load i8, ptr %241, align 1
-  %243 = getelementptr inbounds i8, ptr %144, i64 3
+  %243 = getelementptr inbounds nuw i8, ptr %144, i64 3
   store i8 %242, ptr %243, align 1
   %244 = sub nsw i64 %174, %199
   %245 = lshr i64 %244, 18
   %246 = and i64 %245, 1023
-  %247 = getelementptr inbounds i8, ptr %11, i64 %246
+  %247 = getelementptr inbounds nuw i8, ptr %11, i64 %246
   %248 = load i8, ptr %247, align 1
-  %249 = getelementptr inbounds i8, ptr %144, i64 5
+  %249 = getelementptr inbounds nuw i8, ptr %144, i64 5
   store i8 %248, ptr %249, align 1
   %250 = lshr i64 %164, 18
   %251 = and i64 %250, 1023
-  %252 = getelementptr inbounds i8, ptr %11, i64 %251
+  %252 = getelementptr inbounds nuw i8, ptr %11, i64 %251
   %253 = load i8, ptr %252, align 1
-  %254 = getelementptr inbounds i8, ptr %144, i64 4
+  %254 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store i8 %253, ptr %254, align 1
-  %255 = getelementptr inbounds i8, ptr %.1192212, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %.1192212, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond215.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond215.not, label %256, label %141, !llvm.loop !16
@@ -1488,14 +1488,14 @@ define void @jpeg_idct_9x9(ptr nocapture noundef readonly %0, ptr nocapture noun
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [80 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %148
 
@@ -1511,10 +1511,10 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0215235, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.0215235, i64 64
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0214236, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0214236, i64 64
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
@@ -1525,17 +1525,17 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %.neg220 = mul nsw i64 %27, -11586
   %31 = add nsw i64 %.neg220, %20
   %32 = ashr i64 %31, 11
-  %33 = getelementptr inbounds i8, ptr %.0215235, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.0215235, i64 32
   %34 = load i16, ptr %33, align 2
   %35 = sext i16 %34 to i64
-  %36 = getelementptr inbounds i8, ptr %.0214236, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.0214236, i64 32
   %37 = load i16, ptr %36, align 2
   %38 = sext i16 %37 to i64
   %39 = mul nsw i64 %38, %35
-  %40 = getelementptr inbounds i8, ptr %.0215235, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %.0215235, i64 96
   %41 = load i16, ptr %40, align 2
   %42 = sext i16 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %.0214236, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %.0214236, i64 96
   %44 = load i16, ptr %43, align 2
   %45 = sext i16 %44 to i64
   %46 = mul nsw i64 %45, %42
@@ -1549,31 +1549,31 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %53 = sub nsw i64 %29, %50
   %54 = add nsw i64 %51, %30
   %55 = sub nsw i64 %30, %51
-  %56 = getelementptr inbounds i8, ptr %.0215235, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.0215235, i64 16
   %57 = load i16, ptr %56, align 2
   %58 = sext i16 %57 to i64
-  %59 = getelementptr inbounds i8, ptr %.0214236, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0214236, i64 16
   %60 = load i16, ptr %59, align 2
   %61 = sext i16 %60 to i64
   %62 = mul nsw i64 %61, %58
-  %63 = getelementptr inbounds i8, ptr %.0215235, i64 48
+  %63 = getelementptr inbounds nuw i8, ptr %.0215235, i64 48
   %64 = load i16, ptr %63, align 2
   %65 = sext i16 %64 to i64
-  %66 = getelementptr inbounds i8, ptr %.0214236, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %.0214236, i64 48
   %67 = load i16, ptr %66, align 2
   %68 = sext i16 %67 to i64
   %69 = mul nsw i64 %68, %65
-  %70 = getelementptr inbounds i8, ptr %.0215235, i64 80
+  %70 = getelementptr inbounds nuw i8, ptr %.0215235, i64 80
   %71 = load i16, ptr %70, align 2
   %72 = sext i16 %71 to i64
-  %73 = getelementptr inbounds i8, ptr %.0214236, i64 80
+  %73 = getelementptr inbounds nuw i8, ptr %.0214236, i64 80
   %74 = load i16, ptr %73, align 2
   %75 = sext i16 %74 to i64
   %76 = mul nsw i64 %75, %72
-  %77 = getelementptr inbounds i8, ptr %.0215235, i64 112
+  %77 = getelementptr inbounds nuw i8, ptr %.0215235, i64 112
   %78 = load i16, ptr %77, align 2
   %79 = sext i16 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %.0214236, i64 112
+  %80 = getelementptr inbounds nuw i8, ptr %.0214236, i64 112
   %81 = load i16, ptr %80, align 2
   %82 = sext i16 %81 to i64
   %83 = mul nsw i64 %82, %79
@@ -1608,64 +1608,64 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %110 = sub nsw i64 %52, %92
   %111 = lshr i64 %110, 11
   %112 = trunc i64 %111 to i32
-  %113 = getelementptr inbounds i8, ptr %.0212237, i64 288
+  %113 = getelementptr inbounds nuw i8, ptr %.0212237, i64 288
   store i32 %112, ptr %113, align 4
   %114 = add nsw i64 %103, %54
   %115 = lshr i64 %114, 11
   %116 = trunc i64 %115 to i32
-  %117 = getelementptr inbounds i8, ptr %.0212237, i64 32
+  %117 = getelementptr inbounds nuw i8, ptr %.0212237, i64 32
   store i32 %116, ptr %117, align 4
   %118 = sub nsw i64 %54, %103
   %119 = lshr i64 %118, 11
   %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds i8, ptr %.0212237, i64 256
+  %121 = getelementptr inbounds nuw i8, ptr %.0212237, i64 256
   store i32 %120, ptr %121, align 4
   %122 = add nsw i64 %100, %32
   %123 = trunc i64 %122 to i32
-  %124 = getelementptr inbounds i8, ptr %.0212237, i64 64
+  %124 = getelementptr inbounds nuw i8, ptr %.0212237, i64 64
   store i32 %123, ptr %124, align 4
   %125 = sub nsw i64 %32, %100
   %126 = trunc i64 %125 to i32
-  %127 = getelementptr inbounds i8, ptr %.0212237, i64 224
+  %127 = getelementptr inbounds nuw i8, ptr %.0212237, i64 224
   store i32 %126, ptr %127, align 4
   %128 = add nsw i64 %106, %55
   %129 = lshr i64 %128, 11
   %130 = trunc i64 %129 to i32
-  %131 = getelementptr inbounds i8, ptr %.0212237, i64 96
+  %131 = getelementptr inbounds nuw i8, ptr %.0212237, i64 96
   store i32 %130, ptr %131, align 4
   %132 = sub nsw i64 %55, %106
   %133 = lshr i64 %132, 11
   %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %.0212237, i64 192
+  %135 = getelementptr inbounds nuw i8, ptr %.0212237, i64 192
   store i32 %134, ptr %135, align 4
   %136 = add nsw i64 %95, %53
   %137 = lshr i64 %136, 11
   %138 = trunc i64 %137 to i32
-  %139 = getelementptr inbounds i8, ptr %.0212237, i64 128
+  %139 = getelementptr inbounds nuw i8, ptr %.0212237, i64 128
   store i32 %138, ptr %139, align 4
   %140 = sub nsw i64 %53, %95
   %141 = lshr i64 %140, 11
   %142 = trunc i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %.0212237, i64 160
+  %143 = getelementptr inbounds nuw i8, ptr %.0212237, i64 160
   store i32 %142, ptr %143, align 4
   %144 = add nuw nsw i32 %.0238, 1
-  %145 = getelementptr inbounds i8, ptr %.0215235, i64 2
-  %146 = getelementptr inbounds i8, ptr %.0214236, i64 2
-  %147 = getelementptr inbounds i8, ptr %.0212237, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.0215235, i64 2
+  %146 = getelementptr inbounds nuw i8, ptr %.0214236, i64 2
+  %147 = getelementptr inbounds nuw i8, ptr %.0212237, i64 4
   %exitcond.not = icmp eq i32 %144, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !17
 
 148:                                              ; preds = %.preheader, %148
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %148 ]
   %.1213239 = phi ptr [ %6, %.preheader ], [ %272, %148 ]
-  %149 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 %12
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 %12
   %152 = load i32, ptr %.1213239, align 4
   %153 = sext i32 %152 to i64
   %154 = shl nsw i64 %153, 13
   %155 = add nsw i64 %154, 131072
-  %156 = getelementptr inbounds i8, ptr %.1213239, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %.1213239, i64 16
   %157 = load i32, ptr %156, align 4
   %158 = zext i32 %157 to i64
   %159 = mul nuw nsw i64 %158, 9373
@@ -1674,10 +1674,10 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %161 = add nsw i64 %.neg, %155
   %.neg216 = mul nsw i64 %158, -11586
   %162 = add nsw i64 %.neg216, %155
-  %163 = getelementptr inbounds i8, ptr %.1213239, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.1213239, i64 8
   %164 = load i32, ptr %163, align 4
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds i8, ptr %.1213239, i64 24
+  %166 = getelementptr inbounds nuw i8, ptr %.1213239, i64 24
   %167 = load i32, ptr %166, align 4
   %168 = zext i32 %167 to i64
   %169 = add nuw nsw i64 %168, %165
@@ -1690,17 +1690,17 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %175 = sub nsw i64 %160, %172
   %176 = add nsw i64 %173, %161
   %177 = sub nsw i64 %161, %173
-  %178 = getelementptr inbounds i8, ptr %.1213239, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %.1213239, i64 4
   %179 = load i32, ptr %178, align 4
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i8, ptr %.1213239, i64 12
+  %181 = getelementptr inbounds nuw i8, ptr %.1213239, i64 12
   %182 = load i32, ptr %181, align 4
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds i8, ptr %.1213239, i64 20
+  %184 = getelementptr inbounds nuw i8, ptr %.1213239, i64 20
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
   %187 = shl nsw i64 %186, 13
-  %188 = getelementptr inbounds i8, ptr %.1213239, i64 28
+  %188 = getelementptr inbounds nuw i8, ptr %.1213239, i64 28
   %189 = load i32, ptr %188, align 4
   %190 = sext i32 %189 to i64
   %191 = add nsw i64 %190, %183
@@ -1729,73 +1729,73 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
   %213 = add nsw i64 %198, %174
   %214 = lshr i64 %213, 18
   %215 = and i64 %214, 1023
-  %216 = getelementptr inbounds i8, ptr %11, i64 %215
+  %216 = getelementptr inbounds nuw i8, ptr %11, i64 %215
   %217 = load i8, ptr %216, align 1
   store i8 %217, ptr %151, align 1
   %218 = sub nsw i64 %174, %198
   %219 = lshr i64 %218, 18
   %220 = and i64 %219, 1023
-  %221 = getelementptr inbounds i8, ptr %11, i64 %220
+  %221 = getelementptr inbounds nuw i8, ptr %11, i64 %220
   %222 = load i8, ptr %221, align 1
-  %223 = getelementptr inbounds i8, ptr %151, i64 9
+  %223 = getelementptr inbounds nuw i8, ptr %151, i64 9
   store i8 %222, ptr %223, align 1
   %224 = add nsw i64 %209, %176
   %225 = lshr i64 %224, 18
   %226 = and i64 %225, 1023
-  %227 = getelementptr inbounds i8, ptr %11, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 %226
   %228 = load i8, ptr %227, align 1
-  %229 = getelementptr inbounds i8, ptr %151, i64 1
+  %229 = getelementptr inbounds nuw i8, ptr %151, i64 1
   store i8 %228, ptr %229, align 1
   %230 = sub nsw i64 %176, %209
   %231 = lshr i64 %230, 18
   %232 = and i64 %231, 1023
-  %233 = getelementptr inbounds i8, ptr %11, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %11, i64 %232
   %234 = load i8, ptr %233, align 1
-  %235 = getelementptr inbounds i8, ptr %151, i64 8
+  %235 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store i8 %234, ptr %235, align 1
   %236 = add nsw i64 %206, %162
   %237 = lshr i64 %236, 18
   %238 = and i64 %237, 1023
-  %239 = getelementptr inbounds i8, ptr %11, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %11, i64 %238
   %240 = load i8, ptr %239, align 1
-  %241 = getelementptr inbounds i8, ptr %151, i64 2
+  %241 = getelementptr inbounds nuw i8, ptr %151, i64 2
   store i8 %240, ptr %241, align 1
   %242 = sub nsw i64 %162, %206
   %243 = lshr i64 %242, 18
   %244 = and i64 %243, 1023
-  %245 = getelementptr inbounds i8, ptr %11, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr %11, i64 %244
   %246 = load i8, ptr %245, align 1
-  %247 = getelementptr inbounds i8, ptr %151, i64 7
+  %247 = getelementptr inbounds nuw i8, ptr %151, i64 7
   store i8 %246, ptr %247, align 1
   %248 = add nsw i64 %212, %177
   %249 = lshr i64 %248, 18
   %250 = and i64 %249, 1023
-  %251 = getelementptr inbounds i8, ptr %11, i64 %250
+  %251 = getelementptr inbounds nuw i8, ptr %11, i64 %250
   %252 = load i8, ptr %251, align 1
-  %253 = getelementptr inbounds i8, ptr %151, i64 3
+  %253 = getelementptr inbounds nuw i8, ptr %151, i64 3
   store i8 %252, ptr %253, align 1
   %254 = sub nsw i64 %177, %212
   %255 = lshr i64 %254, 18
   %256 = and i64 %255, 1023
-  %257 = getelementptr inbounds i8, ptr %11, i64 %256
+  %257 = getelementptr inbounds nuw i8, ptr %11, i64 %256
   %258 = load i8, ptr %257, align 1
-  %259 = getelementptr inbounds i8, ptr %151, i64 6
+  %259 = getelementptr inbounds nuw i8, ptr %151, i64 6
   store i8 %258, ptr %259, align 1
   %260 = add nsw i64 %201, %175
   %261 = lshr i64 %260, 18
   %262 = and i64 %261, 1023
-  %263 = getelementptr inbounds i8, ptr %11, i64 %262
+  %263 = getelementptr inbounds nuw i8, ptr %11, i64 %262
   %264 = load i8, ptr %263, align 1
-  %265 = getelementptr inbounds i8, ptr %151, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i8 %264, ptr %265, align 1
   %266 = sub nsw i64 %175, %201
   %267 = lshr i64 %266, 18
   %268 = and i64 %267, 1023
-  %269 = getelementptr inbounds i8, ptr %11, i64 %268
+  %269 = getelementptr inbounds nuw i8, ptr %11, i64 %268
   %270 = load i8, ptr %269, align 1
-  %271 = getelementptr inbounds i8, ptr %151, i64 5
+  %271 = getelementptr inbounds nuw i8, ptr %151, i64 5
   store i8 %270, ptr %271, align 1
-  %272 = getelementptr inbounds i8, ptr %.1213239, i64 32
+  %272 = getelementptr inbounds nuw i8, ptr %.1213239, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond242.not = icmp eq i64 %indvars.iv.next, 10
   br i1 %exitcond242.not, label %273, label %148, !llvm.loop !18
@@ -1807,14 +1807,14 @@ define void @jpeg_idct_10x10(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [88 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %169
 
@@ -1830,24 +1830,24 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0248266, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0248266, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0247267, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0247267, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %.0248266, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.0248266, i64 64
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.0247267, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0247267, i64 64
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = mul nsw i64 %33, %30
-  %35 = getelementptr inbounds i8, ptr %.0248266, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %.0248266, i64 96
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.0247267, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %.0247267, i64 96
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %37
@@ -1878,31 +1878,31 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %62 = add nsw i64 %61, %58
   %.neg261 = mul i64 %48, 8796093010623
   %63 = add i64 %.neg261, %20
-  %64 = getelementptr inbounds i8, ptr %.0248266, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.0248266, i64 16
   %65 = load i16, ptr %64, align 2
   %66 = sext i16 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %.0247267, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %.0247267, i64 16
   %68 = load i16, ptr %67, align 2
   %69 = sext i16 %68 to i64
   %70 = mul nsw i64 %69, %66
-  %71 = getelementptr inbounds i8, ptr %.0248266, i64 48
+  %71 = getelementptr inbounds nuw i8, ptr %.0248266, i64 48
   %72 = load i16, ptr %71, align 2
   %73 = sext i16 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %.0247267, i64 48
+  %74 = getelementptr inbounds nuw i8, ptr %.0247267, i64 48
   %75 = load i16, ptr %74, align 2
   %76 = sext i16 %75 to i64
   %77 = mul nsw i64 %76, %73
-  %78 = getelementptr inbounds i8, ptr %.0248266, i64 80
+  %78 = getelementptr inbounds nuw i8, ptr %.0248266, i64 80
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %.0247267, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %.0247267, i64 80
   %82 = load i16, ptr %81, align 2
   %83 = sext i16 %82 to i64
   %84 = mul nsw i64 %83, %80
-  %85 = getelementptr inbounds i8, ptr %.0248266, i64 112
+  %85 = getelementptr inbounds nuw i8, ptr %.0248266, i64 112
   %86 = load i16, ptr %85, align 2
   %87 = sext i16 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %.0247267, i64 112
+  %88 = getelementptr inbounds nuw i8, ptr %.0247267, i64 112
   %89 = load i16, ptr %88, align 2
   %90 = sext i16 %89 to i64
   %91 = mul nsw i64 %90, %87
@@ -1948,76 +1948,76 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %126 = sub nsw i64 %56, %104
   %127 = lshr i64 %126, 11
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %.0245268, i64 320
+  %129 = getelementptr inbounds nuw i8, ptr %.0245268, i64 320
   store i32 %128, ptr %129, align 4
   %130 = add nsw i64 %114, %53
   %131 = lshr i64 %130, 11
   %132 = trunc i64 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %.0245268, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %.0245268, i64 32
   store i32 %132, ptr %133, align 4
   %134 = sub nsw i64 %53, %114
   %135 = lshr i64 %134, 11
   %136 = trunc i64 %135 to i32
-  %137 = getelementptr inbounds i8, ptr %.0245268, i64 288
+  %137 = getelementptr inbounds nuw i8, ptr %.0245268, i64 288
   store i32 %136, ptr %137, align 4
   %138 = add nsw i64 %109, %59
   %139 = lshr i64 %138, 11
   %140 = trunc i64 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %.0245268, i64 64
+  %141 = getelementptr inbounds nuw i8, ptr %.0245268, i64 64
   store i32 %140, ptr %141, align 4
   %142 = sub nsw i64 %59, %109
   %143 = lshr i64 %142, 11
   %144 = trunc i64 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %.0245268, i64 256
+  %145 = getelementptr inbounds nuw i8, ptr %.0245268, i64 256
   store i32 %144, ptr %145, align 4
   %146 = add nsw i64 %117, %57
   %147 = lshr i64 %146, 11
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %.0245268, i64 96
+  %149 = getelementptr inbounds nuw i8, ptr %.0245268, i64 96
   store i32 %148, ptr %149, align 4
   %150 = sub nsw i64 %57, %117
   %151 = lshr i64 %150, 11
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds i8, ptr %.0245268, i64 224
+  %153 = getelementptr inbounds nuw i8, ptr %.0245268, i64 224
   store i32 %152, ptr %153, align 4
   %154 = add nsw i64 %122, %62
   %155 = lshr i64 %154, 11
   %156 = trunc i64 %155 to i32
-  %157 = getelementptr inbounds i8, ptr %.0245268, i64 128
+  %157 = getelementptr inbounds nuw i8, ptr %.0245268, i64 128
   store i32 %156, ptr %157, align 4
   %158 = sub nsw i64 %62, %122
   %159 = lshr i64 %158, 11
   %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds i8, ptr %.0245268, i64 192
+  %161 = getelementptr inbounds nuw i8, ptr %.0245268, i64 192
   store i32 %160, ptr %161, align 4
   %162 = lshr i64 %63, 11
   %163 = trunc i64 %162 to i32
-  %164 = getelementptr inbounds i8, ptr %.0245268, i64 160
+  %164 = getelementptr inbounds nuw i8, ptr %.0245268, i64 160
   store i32 %163, ptr %164, align 4
   %165 = add nuw nsw i32 %.0269, 1
-  %166 = getelementptr inbounds i8, ptr %.0248266, i64 2
-  %167 = getelementptr inbounds i8, ptr %.0247267, i64 2
-  %168 = getelementptr inbounds i8, ptr %.0245268, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %.0248266, i64 2
+  %167 = getelementptr inbounds nuw i8, ptr %.0247267, i64 2
+  %168 = getelementptr inbounds nuw i8, ptr %.0245268, i64 4
   %exitcond.not = icmp eq i32 %165, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !19
 
 169:                                              ; preds = %.preheader, %169
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %169 ]
   %.1246270 = phi ptr [ %6, %.preheader ], [ %315, %169 ]
-  %170 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 %12
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %12
   %173 = load i32, ptr %.1246270, align 4
   %174 = sext i32 %173 to i64
   %175 = shl nsw i64 %174, 13
   %176 = add nsw i64 %175, 131072
-  %177 = getelementptr inbounds i8, ptr %.1246270, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %.1246270, i64 8
   %178 = load i32, ptr %177, align 4
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds i8, ptr %.1246270, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %.1246270, i64 16
   %181 = load i32, ptr %180, align 4
   %182 = zext i32 %181 to i64
-  %183 = getelementptr inbounds i8, ptr %.1246270, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %.1246270, i64 24
   %184 = load i32, ptr %183, align 4
   %185 = zext i32 %184 to i64
   %186 = sub nsw i64 %182, %185
@@ -2047,16 +2047,16 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %206 = add nsw i64 %205, %202
   %.neg252 = mul nsw i64 %192, 268423871
   %207 = add nsw i64 %.neg252, %176
-  %208 = getelementptr inbounds i8, ptr %.1246270, i64 4
+  %208 = getelementptr inbounds nuw i8, ptr %.1246270, i64 4
   %209 = load i32, ptr %208, align 4
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds i8, ptr %.1246270, i64 12
+  %211 = getelementptr inbounds nuw i8, ptr %.1246270, i64 12
   %212 = load i32, ptr %211, align 4
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds i8, ptr %.1246270, i64 20
+  %214 = getelementptr inbounds nuw i8, ptr %.1246270, i64 20
   %215 = load i32, ptr %214, align 4
   %216 = zext i32 %215 to i64
-  %217 = getelementptr inbounds i8, ptr %.1246270, i64 28
+  %217 = getelementptr inbounds nuw i8, ptr %.1246270, i64 28
   %218 = load i32, ptr %217, align 4
   %219 = zext i32 %218 to i64
   %220 = add nuw nsw i64 %213, %210
@@ -2097,79 +2097,79 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
   %251 = add nsw i64 %232, %200
   %252 = lshr i64 %251, 18
   %253 = and i64 %252, 1023
-  %254 = getelementptr inbounds i8, ptr %11, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr %11, i64 %253
   %255 = load i8, ptr %254, align 1
   store i8 %255, ptr %172, align 1
   %256 = sub nsw i64 %200, %232
   %257 = lshr i64 %256, 18
   %258 = and i64 %257, 1023
-  %259 = getelementptr inbounds i8, ptr %11, i64 %258
+  %259 = getelementptr inbounds nuw i8, ptr %11, i64 %258
   %260 = load i8, ptr %259, align 1
-  %261 = getelementptr inbounds i8, ptr %172, i64 10
+  %261 = getelementptr inbounds nuw i8, ptr %172, i64 10
   store i8 %260, ptr %261, align 1
   %262 = add nsw i64 %242, %197
   %263 = lshr i64 %262, 18
   %264 = and i64 %263, 1023
-  %265 = getelementptr inbounds i8, ptr %11, i64 %264
+  %265 = getelementptr inbounds nuw i8, ptr %11, i64 %264
   %266 = load i8, ptr %265, align 1
-  %267 = getelementptr inbounds i8, ptr %172, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %172, i64 1
   store i8 %266, ptr %267, align 1
   %268 = sub nsw i64 %197, %242
   %269 = lshr i64 %268, 18
   %270 = and i64 %269, 1023
-  %271 = getelementptr inbounds i8, ptr %11, i64 %270
+  %271 = getelementptr inbounds nuw i8, ptr %11, i64 %270
   %272 = load i8, ptr %271, align 1
-  %273 = getelementptr inbounds i8, ptr %172, i64 9
+  %273 = getelementptr inbounds nuw i8, ptr %172, i64 9
   store i8 %272, ptr %273, align 1
   %274 = add nsw i64 %237, %203
   %275 = lshr i64 %274, 18
   %276 = and i64 %275, 1023
-  %277 = getelementptr inbounds i8, ptr %11, i64 %276
+  %277 = getelementptr inbounds nuw i8, ptr %11, i64 %276
   %278 = load i8, ptr %277, align 1
-  %279 = getelementptr inbounds i8, ptr %172, i64 2
+  %279 = getelementptr inbounds nuw i8, ptr %172, i64 2
   store i8 %278, ptr %279, align 1
   %280 = sub nsw i64 %203, %237
   %281 = lshr i64 %280, 18
   %282 = and i64 %281, 1023
-  %283 = getelementptr inbounds i8, ptr %11, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr %11, i64 %282
   %284 = load i8, ptr %283, align 1
-  %285 = getelementptr inbounds i8, ptr %172, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %172, i64 8
   store i8 %284, ptr %285, align 1
   %286 = add nsw i64 %245, %201
   %287 = lshr i64 %286, 18
   %288 = and i64 %287, 1023
-  %289 = getelementptr inbounds i8, ptr %11, i64 %288
+  %289 = getelementptr inbounds nuw i8, ptr %11, i64 %288
   %290 = load i8, ptr %289, align 1
-  %291 = getelementptr inbounds i8, ptr %172, i64 3
+  %291 = getelementptr inbounds nuw i8, ptr %172, i64 3
   store i8 %290, ptr %291, align 1
   %292 = sub nsw i64 %201, %245
   %293 = lshr i64 %292, 18
   %294 = and i64 %293, 1023
-  %295 = getelementptr inbounds i8, ptr %11, i64 %294
+  %295 = getelementptr inbounds nuw i8, ptr %11, i64 %294
   %296 = load i8, ptr %295, align 1
-  %297 = getelementptr inbounds i8, ptr %172, i64 7
+  %297 = getelementptr inbounds nuw i8, ptr %172, i64 7
   store i8 %296, ptr %297, align 1
   %298 = add nsw i64 %250, %206
   %299 = lshr i64 %298, 18
   %300 = and i64 %299, 1023
-  %301 = getelementptr inbounds i8, ptr %11, i64 %300
+  %301 = getelementptr inbounds nuw i8, ptr %11, i64 %300
   %302 = load i8, ptr %301, align 1
-  %303 = getelementptr inbounds i8, ptr %172, i64 4
+  %303 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i8 %302, ptr %303, align 1
   %304 = sub nsw i64 %206, %250
   %305 = lshr i64 %304, 18
   %306 = and i64 %305, 1023
-  %307 = getelementptr inbounds i8, ptr %11, i64 %306
+  %307 = getelementptr inbounds nuw i8, ptr %11, i64 %306
   %308 = load i8, ptr %307, align 1
-  %309 = getelementptr inbounds i8, ptr %172, i64 6
+  %309 = getelementptr inbounds nuw i8, ptr %172, i64 6
   store i8 %308, ptr %309, align 1
   %310 = lshr i64 %207, 18
   %311 = and i64 %310, 1023
-  %312 = getelementptr inbounds i8, ptr %11, i64 %311
+  %312 = getelementptr inbounds nuw i8, ptr %11, i64 %311
   %313 = load i8, ptr %312, align 1
-  %314 = getelementptr inbounds i8, ptr %172, i64 5
+  %314 = getelementptr inbounds nuw i8, ptr %172, i64 5
   store i8 %313, ptr %314, align 1
-  %315 = getelementptr inbounds i8, ptr %.1246270, i64 32
+  %315 = getelementptr inbounds nuw i8, ptr %.1246270, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond273.not, label %316, label %169, !llvm.loop !20
@@ -2181,14 +2181,14 @@ define void @jpeg_idct_11x11(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [96 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %166
 
@@ -2204,28 +2204,28 @@ define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0251261, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.0251261, i64 64
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0250262, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0250262, i64 64
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %23, 10033
   %28 = mul nsw i64 %27, %26
   %29 = add nsw i64 %28, %20
   %30 = sub nsw i64 %20, %28
-  %31 = getelementptr inbounds i8, ptr %.0251261, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %.0251261, i64 32
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %.0250262, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0250262, i64 32
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i64
   %37 = mul nsw i64 %36, %33
   %38 = mul nsw i64 %37, 11190
-  %39 = getelementptr inbounds i8, ptr %.0251261, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %.0251261, i64 96
   %40 = load i16, ptr %39, align 2
   %41 = sext i16 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %.0250262, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %.0250262, i64 96
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i64
   %45 = mul nsw i64 %44, %41
@@ -2241,31 +2241,31 @@ define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture no
   %55 = sub nsw i64 %54, %46
   %56 = add nsw i64 %55, %30
   %57 = sub nsw i64 %30, %55
-  %58 = getelementptr inbounds i8, ptr %.0251261, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.0251261, i64 16
   %59 = load i16, ptr %58, align 2
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds i8, ptr %.0250262, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.0250262, i64 16
   %62 = load i16, ptr %61, align 2
   %63 = sext i16 %62 to i64
   %64 = mul nsw i64 %63, %60
-  %65 = getelementptr inbounds i8, ptr %.0251261, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %.0251261, i64 48
   %66 = load i16, ptr %65, align 2
   %67 = sext i16 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %.0250262, i64 48
+  %68 = getelementptr inbounds nuw i8, ptr %.0250262, i64 48
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i64
   %71 = mul nsw i64 %70, %67
-  %72 = getelementptr inbounds i8, ptr %.0251261, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %.0251261, i64 80
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0250262, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %.0250262, i64 80
   %76 = load i16, ptr %75, align 2
   %77 = sext i16 %76 to i64
   %78 = mul nsw i64 %77, %74
-  %79 = getelementptr inbounds i8, ptr %.0251261, i64 112
+  %79 = getelementptr inbounds nuw i8, ptr %.0251261, i64 112
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %.0250262, i64 112
+  %82 = getelementptr inbounds nuw i8, ptr %.0250262, i64 112
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i64
   %85 = mul nsw i64 %84, %81
@@ -2309,86 +2309,86 @@ define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture no
   %118 = sub nsw i64 %52, %95
   %119 = lshr i64 %118, 11
   %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds i8, ptr %.0248263, i64 352
+  %121 = getelementptr inbounds nuw i8, ptr %.0248263, i64 352
   store i32 %120, ptr %121, align 4
   %122 = add nsw i64 %113, %49
   %123 = lshr i64 %122, 11
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds i8, ptr %.0248263, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %.0248263, i64 32
   store i32 %124, ptr %125, align 4
   %126 = sub nsw i64 %49, %113
   %127 = lshr i64 %126, 11
   %128 = trunc i64 %127 to i32
-  %129 = getelementptr inbounds i8, ptr %.0248263, i64 320
+  %129 = getelementptr inbounds nuw i8, ptr %.0248263, i64 320
   store i32 %128, ptr %129, align 4
   %130 = add nsw i64 %100, %56
   %131 = lshr i64 %130, 11
   %132 = trunc i64 %131 to i32
-  %133 = getelementptr inbounds i8, ptr %.0248263, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %.0248263, i64 64
   store i32 %132, ptr %133, align 4
   %134 = sub nsw i64 %56, %100
   %135 = lshr i64 %134, 11
   %136 = trunc i64 %135 to i32
-  %137 = getelementptr inbounds i8, ptr %.0248263, i64 288
+  %137 = getelementptr inbounds nuw i8, ptr %.0248263, i64 288
   store i32 %136, ptr %137, align 4
   %138 = add nsw i64 %104, %57
   %139 = lshr i64 %138, 11
   %140 = trunc i64 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %.0248263, i64 96
+  %141 = getelementptr inbounds nuw i8, ptr %.0248263, i64 96
   store i32 %140, ptr %141, align 4
   %142 = sub nsw i64 %57, %104
   %143 = lshr i64 %142, 11
   %144 = trunc i64 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %.0248263, i64 256
+  %145 = getelementptr inbounds nuw i8, ptr %.0248263, i64 256
   store i32 %144, ptr %145, align 4
   %146 = add nsw i64 %114, %50
   %147 = lshr i64 %146, 11
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %.0248263, i64 128
+  %149 = getelementptr inbounds nuw i8, ptr %.0248263, i64 128
   store i32 %148, ptr %149, align 4
   %150 = sub nsw i64 %50, %114
   %151 = lshr i64 %150, 11
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds i8, ptr %.0248263, i64 224
+  %153 = getelementptr inbounds nuw i8, ptr %.0248263, i64 224
   store i32 %152, ptr %153, align 4
   %154 = add nsw i64 %107, %53
   %155 = lshr i64 %154, 11
   %156 = trunc i64 %155 to i32
-  %157 = getelementptr inbounds i8, ptr %.0248263, i64 160
+  %157 = getelementptr inbounds nuw i8, ptr %.0248263, i64 160
   store i32 %156, ptr %157, align 4
   %158 = sub nsw i64 %53, %107
   %159 = lshr i64 %158, 11
   %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds i8, ptr %.0248263, i64 192
+  %161 = getelementptr inbounds nuw i8, ptr %.0248263, i64 192
   store i32 %160, ptr %161, align 4
   %162 = add nuw nsw i32 %.0264, 1
-  %163 = getelementptr inbounds i8, ptr %.0251261, i64 2
-  %164 = getelementptr inbounds i8, ptr %.0250262, i64 2
-  %165 = getelementptr inbounds i8, ptr %.0248263, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %.0251261, i64 2
+  %164 = getelementptr inbounds nuw i8, ptr %.0250262, i64 2
+  %165 = getelementptr inbounds nuw i8, ptr %.0248263, i64 4
   %exitcond.not = icmp eq i32 %162, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !21
 
 166:                                              ; preds = %.preheader, %166
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %166 ]
   %.1249265 = phi ptr [ %6, %.preheader ], [ %311, %166 ]
-  %167 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 %12
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 %12
   %170 = load i32, ptr %.1249265, align 4
   %171 = sext i32 %170 to i64
   %172 = shl nsw i64 %171, 13
   %173 = add nsw i64 %172, 131072
-  %174 = getelementptr inbounds i8, ptr %.1249265, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %.1249265, i64 16
   %175 = load i32, ptr %174, align 4
   %176 = zext i32 %175 to i64
   %177 = mul nuw nsw i64 %176, 10033
   %178 = add nsw i64 %173, %177
   %179 = sub nsw i64 %173, %177
-  %180 = getelementptr inbounds i8, ptr %.1249265, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.1249265, i64 8
   %181 = load i32, ptr %180, align 4
   %182 = sext i32 %181 to i64
   %183 = mul nsw i64 %182, 11190
-  %184 = getelementptr inbounds i8, ptr %.1249265, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %.1249265, i64 24
   %185 = load i32, ptr %184, align 4
   %186 = sext i32 %185 to i64
   %187 = shl nsw i64 %186, 13
@@ -2403,16 +2403,16 @@ define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture no
   %196 = sub nsw i64 %195, %187
   %197 = add nsw i64 %196, %179
   %198 = sub nsw i64 %179, %196
-  %199 = getelementptr inbounds i8, ptr %.1249265, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %.1249265, i64 4
   %200 = load i32, ptr %199, align 4
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds i8, ptr %.1249265, i64 12
+  %202 = getelementptr inbounds nuw i8, ptr %.1249265, i64 12
   %203 = load i32, ptr %202, align 4
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds i8, ptr %.1249265, i64 20
+  %205 = getelementptr inbounds nuw i8, ptr %.1249265, i64 20
   %206 = load i32, ptr %205, align 4
   %207 = zext i32 %206 to i64
-  %208 = getelementptr inbounds i8, ptr %.1249265, i64 28
+  %208 = getelementptr inbounds nuw i8, ptr %.1249265, i64 28
   %209 = load i32, ptr %208, align 4
   %210 = zext i32 %209 to i64
   %211 = mul nuw nsw i64 %204, 10703
@@ -2451,87 +2451,87 @@ define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture no
   %240 = add nsw i64 %220, %193
   %241 = lshr i64 %240, 18
   %242 = and i64 %241, 1023
-  %243 = getelementptr inbounds i8, ptr %11, i64 %242
+  %243 = getelementptr inbounds nuw i8, ptr %11, i64 %242
   %244 = load i8, ptr %243, align 1
   store i8 %244, ptr %169, align 1
   %245 = sub nsw i64 %193, %220
   %246 = lshr i64 %245, 18
   %247 = and i64 %246, 1023
-  %248 = getelementptr inbounds i8, ptr %11, i64 %247
+  %248 = getelementptr inbounds nuw i8, ptr %11, i64 %247
   %249 = load i8, ptr %248, align 1
-  %250 = getelementptr inbounds i8, ptr %169, i64 11
+  %250 = getelementptr inbounds nuw i8, ptr %169, i64 11
   store i8 %249, ptr %250, align 1
   %251 = add nsw i64 %238, %190
   %252 = lshr i64 %251, 18
   %253 = and i64 %252, 1023
-  %254 = getelementptr inbounds i8, ptr %11, i64 %253
+  %254 = getelementptr inbounds nuw i8, ptr %11, i64 %253
   %255 = load i8, ptr %254, align 1
-  %256 = getelementptr inbounds i8, ptr %169, i64 1
+  %256 = getelementptr inbounds nuw i8, ptr %169, i64 1
   store i8 %255, ptr %256, align 1
   %257 = sub nsw i64 %190, %238
   %258 = lshr i64 %257, 18
   %259 = and i64 %258, 1023
-  %260 = getelementptr inbounds i8, ptr %11, i64 %259
+  %260 = getelementptr inbounds nuw i8, ptr %11, i64 %259
   %261 = load i8, ptr %260, align 1
-  %262 = getelementptr inbounds i8, ptr %169, i64 10
+  %262 = getelementptr inbounds nuw i8, ptr %169, i64 10
   store i8 %261, ptr %262, align 1
   %263 = add nsw i64 %225, %197
   %264 = lshr i64 %263, 18
   %265 = and i64 %264, 1023
-  %266 = getelementptr inbounds i8, ptr %11, i64 %265
+  %266 = getelementptr inbounds nuw i8, ptr %11, i64 %265
   %267 = load i8, ptr %266, align 1
-  %268 = getelementptr inbounds i8, ptr %169, i64 2
+  %268 = getelementptr inbounds nuw i8, ptr %169, i64 2
   store i8 %267, ptr %268, align 1
   %269 = sub nsw i64 %197, %225
   %270 = lshr i64 %269, 18
   %271 = and i64 %270, 1023
-  %272 = getelementptr inbounds i8, ptr %11, i64 %271
+  %272 = getelementptr inbounds nuw i8, ptr %11, i64 %271
   %273 = load i8, ptr %272, align 1
-  %274 = getelementptr inbounds i8, ptr %169, i64 9
+  %274 = getelementptr inbounds nuw i8, ptr %169, i64 9
   store i8 %273, ptr %274, align 1
   %275 = add nsw i64 %229, %198
   %276 = lshr i64 %275, 18
   %277 = and i64 %276, 1023
-  %278 = getelementptr inbounds i8, ptr %11, i64 %277
+  %278 = getelementptr inbounds nuw i8, ptr %11, i64 %277
   %279 = load i8, ptr %278, align 1
-  %280 = getelementptr inbounds i8, ptr %169, i64 3
+  %280 = getelementptr inbounds nuw i8, ptr %169, i64 3
   store i8 %279, ptr %280, align 1
   %281 = sub nsw i64 %198, %229
   %282 = lshr i64 %281, 18
   %283 = and i64 %282, 1023
-  %284 = getelementptr inbounds i8, ptr %11, i64 %283
+  %284 = getelementptr inbounds nuw i8, ptr %11, i64 %283
   %285 = load i8, ptr %284, align 1
-  %286 = getelementptr inbounds i8, ptr %169, i64 8
+  %286 = getelementptr inbounds nuw i8, ptr %169, i64 8
   store i8 %285, ptr %286, align 1
   %287 = add nsw i64 %239, %191
   %288 = lshr i64 %287, 18
   %289 = and i64 %288, 1023
-  %290 = getelementptr inbounds i8, ptr %11, i64 %289
+  %290 = getelementptr inbounds nuw i8, ptr %11, i64 %289
   %291 = load i8, ptr %290, align 1
-  %292 = getelementptr inbounds i8, ptr %169, i64 4
+  %292 = getelementptr inbounds nuw i8, ptr %169, i64 4
   store i8 %291, ptr %292, align 1
   %293 = sub nsw i64 %191, %239
   %294 = lshr i64 %293, 18
   %295 = and i64 %294, 1023
-  %296 = getelementptr inbounds i8, ptr %11, i64 %295
+  %296 = getelementptr inbounds nuw i8, ptr %11, i64 %295
   %297 = load i8, ptr %296, align 1
-  %298 = getelementptr inbounds i8, ptr %169, i64 7
+  %298 = getelementptr inbounds nuw i8, ptr %169, i64 7
   store i8 %297, ptr %298, align 1
   %299 = add nsw i64 %232, %194
   %300 = lshr i64 %299, 18
   %301 = and i64 %300, 1023
-  %302 = getelementptr inbounds i8, ptr %11, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %11, i64 %301
   %303 = load i8, ptr %302, align 1
-  %304 = getelementptr inbounds i8, ptr %169, i64 5
+  %304 = getelementptr inbounds nuw i8, ptr %169, i64 5
   store i8 %303, ptr %304, align 1
   %305 = sub nsw i64 %194, %232
   %306 = lshr i64 %305, 18
   %307 = and i64 %306, 1023
-  %308 = getelementptr inbounds i8, ptr %11, i64 %307
+  %308 = getelementptr inbounds nuw i8, ptr %11, i64 %307
   %309 = load i8, ptr %308, align 1
-  %310 = getelementptr inbounds i8, ptr %169, i64 6
+  %310 = getelementptr inbounds nuw i8, ptr %169, i64 6
   store i8 %309, ptr %310, align 1
-  %311 = getelementptr inbounds i8, ptr %.1249265, i64 32
+  %311 = getelementptr inbounds nuw i8, ptr %.1249265, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond268.not, label %312, label %166, !llvm.loop !22
@@ -2543,14 +2543,14 @@ define void @jpeg_idct_12x12(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [104 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %189
 
@@ -2566,24 +2566,24 @@ define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0288302, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0288302, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0287303, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0287303, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %.0288302, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.0288302, i64 64
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.0287303, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0287303, i64 64
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = mul nsw i64 %33, %30
-  %35 = getelementptr inbounds i8, ptr %.0288302, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %.0288302, i64 96
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.0287303, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %.0287303, i64 96
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %37
@@ -2619,31 +2619,31 @@ define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture no
   %68 = sub nsw i64 %43, %27
   %69 = mul nsw i64 %68, 11585
   %70 = add nsw i64 %69, %20
-  %71 = getelementptr inbounds i8, ptr %.0288302, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.0288302, i64 16
   %72 = load i16, ptr %71, align 2
   %73 = sext i16 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %.0287303, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.0287303, i64 16
   %75 = load i16, ptr %74, align 2
   %76 = sext i16 %75 to i64
   %77 = mul nsw i64 %76, %73
-  %78 = getelementptr inbounds i8, ptr %.0288302, i64 48
+  %78 = getelementptr inbounds nuw i8, ptr %.0288302, i64 48
   %79 = load i16, ptr %78, align 2
   %80 = sext i16 %79 to i64
-  %81 = getelementptr inbounds i8, ptr %.0287303, i64 48
+  %81 = getelementptr inbounds nuw i8, ptr %.0287303, i64 48
   %82 = load i16, ptr %81, align 2
   %83 = sext i16 %82 to i64
   %84 = mul nsw i64 %83, %80
-  %85 = getelementptr inbounds i8, ptr %.0288302, i64 80
+  %85 = getelementptr inbounds nuw i8, ptr %.0288302, i64 80
   %86 = load i16, ptr %85, align 2
   %87 = sext i16 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %.0287303, i64 80
+  %88 = getelementptr inbounds nuw i8, ptr %.0287303, i64 80
   %89 = load i16, ptr %88, align 2
   %90 = sext i16 %89 to i64
   %91 = mul nsw i64 %90, %87
-  %92 = getelementptr inbounds i8, ptr %.0288302, i64 112
+  %92 = getelementptr inbounds nuw i8, ptr %.0288302, i64 112
   %93 = load i16, ptr %92, align 2
   %94 = sext i16 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %.0287303, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %.0287303, i64 112
   %96 = load i16, ptr %95, align 2
   %97 = sext i16 %96 to i64
   %98 = mul nsw i64 %97, %94
@@ -2694,86 +2694,86 @@ define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture no
   %138 = sub nsw i64 %49, %107
   %139 = lshr i64 %138, 11
   %140 = trunc i64 %139 to i32
-  %141 = getelementptr inbounds i8, ptr %.0285304, i64 384
+  %141 = getelementptr inbounds nuw i8, ptr %.0285304, i64 384
   store i32 %140, ptr %141, align 4
   %142 = add nsw i64 %117, %58
   %143 = lshr i64 %142, 11
   %144 = trunc i64 %143 to i32
-  %145 = getelementptr inbounds i8, ptr %.0285304, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %.0285304, i64 32
   store i32 %144, ptr %145, align 4
   %146 = sub nsw i64 %58, %117
   %147 = lshr i64 %146, 11
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %.0285304, i64 352
+  %149 = getelementptr inbounds nuw i8, ptr %.0285304, i64 352
   store i32 %148, ptr %149, align 4
   %150 = add nsw i64 %123, %52
   %151 = lshr i64 %150, 11
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds i8, ptr %.0285304, i64 64
+  %153 = getelementptr inbounds nuw i8, ptr %.0285304, i64 64
   store i32 %152, ptr %153, align 4
   %154 = sub nsw i64 %52, %123
   %155 = lshr i64 %154, 11
   %156 = trunc i64 %155 to i32
-  %157 = getelementptr inbounds i8, ptr %.0285304, i64 320
+  %157 = getelementptr inbounds nuw i8, ptr %.0285304, i64 320
   store i32 %156, ptr %157, align 4
   %158 = add nsw i64 %124, %64
   %159 = lshr i64 %158, 11
   %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds i8, ptr %.0285304, i64 96
+  %161 = getelementptr inbounds nuw i8, ptr %.0285304, i64 96
   store i32 %160, ptr %161, align 4
   %162 = sub nsw i64 %64, %124
   %163 = lshr i64 %162, 11
   %164 = trunc i64 %163 to i32
-  %165 = getelementptr inbounds i8, ptr %.0285304, i64 288
+  %165 = getelementptr inbounds nuw i8, ptr %.0285304, i64 288
   store i32 %164, ptr %165, align 4
   %166 = add nsw i64 %131, %67
   %167 = lshr i64 %166, 11
   %168 = trunc i64 %167 to i32
-  %169 = getelementptr inbounds i8, ptr %.0285304, i64 128
+  %169 = getelementptr inbounds nuw i8, ptr %.0285304, i64 128
   store i32 %168, ptr %169, align 4
   %170 = sub nsw i64 %67, %131
   %171 = lshr i64 %170, 11
   %172 = trunc i64 %171 to i32
-  %173 = getelementptr inbounds i8, ptr %.0285304, i64 256
+  %173 = getelementptr inbounds nuw i8, ptr %.0285304, i64 256
   store i32 %172, ptr %173, align 4
   %174 = add nsw i64 %134, %61
   %175 = lshr i64 %174, 11
   %176 = trunc i64 %175 to i32
-  %177 = getelementptr inbounds i8, ptr %.0285304, i64 160
+  %177 = getelementptr inbounds nuw i8, ptr %.0285304, i64 160
   store i32 %176, ptr %177, align 4
   %178 = sub nsw i64 %61, %134
   %179 = lshr i64 %178, 11
   %180 = trunc i64 %179 to i32
-  %181 = getelementptr inbounds i8, ptr %.0285304, i64 224
+  %181 = getelementptr inbounds nuw i8, ptr %.0285304, i64 224
   store i32 %180, ptr %181, align 4
   %182 = lshr i64 %70, 11
   %183 = trunc i64 %182 to i32
-  %184 = getelementptr inbounds i8, ptr %.0285304, i64 192
+  %184 = getelementptr inbounds nuw i8, ptr %.0285304, i64 192
   store i32 %183, ptr %184, align 4
   %185 = add nuw nsw i32 %.0305, 1
-  %186 = getelementptr inbounds i8, ptr %.0288302, i64 2
-  %187 = getelementptr inbounds i8, ptr %.0287303, i64 2
-  %188 = getelementptr inbounds i8, ptr %.0285304, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %.0288302, i64 2
+  %187 = getelementptr inbounds nuw i8, ptr %.0287303, i64 2
+  %188 = getelementptr inbounds nuw i8, ptr %.0285304, i64 4
   %exitcond.not = icmp eq i32 %185, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !23
 
 189:                                              ; preds = %.preheader, %189
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %189 ]
   %.1286306 = phi ptr [ %6, %.preheader ], [ %359, %189 ]
-  %190 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %190 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 %12
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 %12
   %193 = load i32, ptr %.1286306, align 4
   %194 = sext i32 %193 to i64
   %195 = shl nsw i64 %194, 13
   %196 = add nsw i64 %195, 131072
-  %197 = getelementptr inbounds i8, ptr %.1286306, i64 8
+  %197 = getelementptr inbounds nuw i8, ptr %.1286306, i64 8
   %198 = load i32, ptr %197, align 4
   %199 = zext i32 %198 to i64
-  %200 = getelementptr inbounds i8, ptr %.1286306, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %.1286306, i64 16
   %201 = load i32, ptr %200, align 4
   %202 = zext i32 %201 to i64
-  %203 = getelementptr inbounds i8, ptr %.1286306, i64 24
+  %203 = getelementptr inbounds nuw i8, ptr %.1286306, i64 24
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
   %206 = add nuw nsw i64 %205, %202
@@ -2808,16 +2808,16 @@ define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture no
   %232 = sub nsw i64 %207, %199
   %233 = mul nsw i64 %232, 11585
   %234 = add nsw i64 %233, %196
-  %235 = getelementptr inbounds i8, ptr %.1286306, i64 4
+  %235 = getelementptr inbounds nuw i8, ptr %.1286306, i64 4
   %236 = load i32, ptr %235, align 4
   %237 = zext i32 %236 to i64
-  %238 = getelementptr inbounds i8, ptr %.1286306, i64 12
+  %238 = getelementptr inbounds nuw i8, ptr %.1286306, i64 12
   %239 = load i32, ptr %238, align 4
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds i8, ptr %.1286306, i64 20
+  %241 = getelementptr inbounds nuw i8, ptr %.1286306, i64 20
   %242 = load i32, ptr %241, align 4
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds i8, ptr %.1286306, i64 28
+  %244 = getelementptr inbounds nuw i8, ptr %.1286306, i64 28
   %245 = load i32, ptr %244, align 4
   %246 = zext i32 %245 to i64
   %247 = add nuw nsw i64 %240, %237
@@ -2863,93 +2863,93 @@ define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture no
   %283 = add nsw i64 %255, %213
   %284 = lshr i64 %283, 18
   %285 = and i64 %284, 1023
-  %286 = getelementptr inbounds i8, ptr %11, i64 %285
+  %286 = getelementptr inbounds nuw i8, ptr %11, i64 %285
   %287 = load i8, ptr %286, align 1
   store i8 %287, ptr %192, align 1
   %288 = sub nsw i64 %213, %255
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
-  %291 = getelementptr inbounds i8, ptr %11, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
   %292 = load i8, ptr %291, align 1
-  %293 = getelementptr inbounds i8, ptr %192, i64 12
+  %293 = getelementptr inbounds nuw i8, ptr %192, i64 12
   store i8 %292, ptr %293, align 1
   %294 = add nsw i64 %265, %222
   %295 = lshr i64 %294, 18
   %296 = and i64 %295, 1023
-  %297 = getelementptr inbounds i8, ptr %11, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %11, i64 %296
   %298 = load i8, ptr %297, align 1
-  %299 = getelementptr inbounds i8, ptr %192, i64 1
+  %299 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store i8 %298, ptr %299, align 1
   %300 = sub nsw i64 %222, %265
   %301 = lshr i64 %300, 18
   %302 = and i64 %301, 1023
-  %303 = getelementptr inbounds i8, ptr %11, i64 %302
+  %303 = getelementptr inbounds nuw i8, ptr %11, i64 %302
   %304 = load i8, ptr %303, align 1
-  %305 = getelementptr inbounds i8, ptr %192, i64 11
+  %305 = getelementptr inbounds nuw i8, ptr %192, i64 11
   store i8 %304, ptr %305, align 1
   %306 = add nsw i64 %271, %216
   %307 = lshr i64 %306, 18
   %308 = and i64 %307, 1023
-  %309 = getelementptr inbounds i8, ptr %11, i64 %308
+  %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
   %310 = load i8, ptr %309, align 1
-  %311 = getelementptr inbounds i8, ptr %192, i64 2
+  %311 = getelementptr inbounds nuw i8, ptr %192, i64 2
   store i8 %310, ptr %311, align 1
   %312 = sub nsw i64 %216, %271
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
-  %315 = getelementptr inbounds i8, ptr %11, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
   %316 = load i8, ptr %315, align 1
-  %317 = getelementptr inbounds i8, ptr %192, i64 10
+  %317 = getelementptr inbounds nuw i8, ptr %192, i64 10
   store i8 %316, ptr %317, align 1
   %318 = add nsw i64 %272, %228
   %319 = lshr i64 %318, 18
   %320 = and i64 %319, 1023
-  %321 = getelementptr inbounds i8, ptr %11, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr %11, i64 %320
   %322 = load i8, ptr %321, align 1
-  %323 = getelementptr inbounds i8, ptr %192, i64 3
+  %323 = getelementptr inbounds nuw i8, ptr %192, i64 3
   store i8 %322, ptr %323, align 1
   %324 = sub nsw i64 %228, %272
   %325 = lshr i64 %324, 18
   %326 = and i64 %325, 1023
-  %327 = getelementptr inbounds i8, ptr %11, i64 %326
+  %327 = getelementptr inbounds nuw i8, ptr %11, i64 %326
   %328 = load i8, ptr %327, align 1
-  %329 = getelementptr inbounds i8, ptr %192, i64 9
+  %329 = getelementptr inbounds nuw i8, ptr %192, i64 9
   store i8 %328, ptr %329, align 1
   %330 = add nsw i64 %279, %231
   %331 = lshr i64 %330, 18
   %332 = and i64 %331, 1023
-  %333 = getelementptr inbounds i8, ptr %11, i64 %332
+  %333 = getelementptr inbounds nuw i8, ptr %11, i64 %332
   %334 = load i8, ptr %333, align 1
-  %335 = getelementptr inbounds i8, ptr %192, i64 4
+  %335 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store i8 %334, ptr %335, align 1
   %336 = sub nsw i64 %231, %279
   %337 = lshr i64 %336, 18
   %338 = and i64 %337, 1023
-  %339 = getelementptr inbounds i8, ptr %11, i64 %338
+  %339 = getelementptr inbounds nuw i8, ptr %11, i64 %338
   %340 = load i8, ptr %339, align 1
-  %341 = getelementptr inbounds i8, ptr %192, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store i8 %340, ptr %341, align 1
   %342 = add nsw i64 %282, %225
   %343 = lshr i64 %342, 18
   %344 = and i64 %343, 1023
-  %345 = getelementptr inbounds i8, ptr %11, i64 %344
+  %345 = getelementptr inbounds nuw i8, ptr %11, i64 %344
   %346 = load i8, ptr %345, align 1
-  %347 = getelementptr inbounds i8, ptr %192, i64 5
+  %347 = getelementptr inbounds nuw i8, ptr %192, i64 5
   store i8 %346, ptr %347, align 1
   %348 = sub nsw i64 %225, %282
   %349 = lshr i64 %348, 18
   %350 = and i64 %349, 1023
-  %351 = getelementptr inbounds i8, ptr %11, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr %11, i64 %350
   %352 = load i8, ptr %351, align 1
-  %353 = getelementptr inbounds i8, ptr %192, i64 7
+  %353 = getelementptr inbounds nuw i8, ptr %192, i64 7
   store i8 %352, ptr %353, align 1
   %354 = lshr i64 %234, 18
   %355 = and i64 %354, 1023
-  %356 = getelementptr inbounds i8, ptr %11, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %11, i64 %355
   %357 = load i8, ptr %356, align 1
-  %358 = getelementptr inbounds i8, ptr %192, i64 6
+  %358 = getelementptr inbounds nuw i8, ptr %192, i64 6
   store i8 %357, ptr %358, align 1
-  %359 = getelementptr inbounds i8, ptr %.1286306, i64 32
+  %359 = getelementptr inbounds nuw i8, ptr %.1286306, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond313.not = icmp eq i64 %indvars.iv.next, 13
   br i1 %exitcond313.not, label %360, label %189, !llvm.loop !24
@@ -2961,14 +2961,14 @@ define void @jpeg_idct_13x13(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [112 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %179
 
@@ -2984,10 +2984,10 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0288308, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.0288308, i64 64
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0287309, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0287309, i64 64
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
@@ -3000,17 +3000,17 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %.neg298 = mul nsw i64 %27, -11586
   %33 = add nsw i64 %.neg298, %20
   %34 = ashr i64 %33, 11
-  %35 = getelementptr inbounds i8, ptr %.0288308, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.0288308, i64 32
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.0287309, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.0287309, i64 32
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %37
-  %42 = getelementptr inbounds i8, ptr %.0288308, i64 96
+  %42 = getelementptr inbounds nuw i8, ptr %.0288308, i64 96
   %43 = load i16, ptr %42, align 2
   %44 = sext i16 %43 to i64
-  %45 = getelementptr inbounds i8, ptr %.0287309, i64 96
+  %45 = getelementptr inbounds nuw i8, ptr %.0287309, i64 96
   %46 = load i16, ptr %45, align 2
   %47 = sext i16 %46 to i64
   %48 = mul nsw i64 %47, %44
@@ -3029,31 +3029,31 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %59 = sub nsw i64 %31, %53
   %60 = add nsw i64 %55, %32
   %61 = sub nsw i64 %32, %55
-  %62 = getelementptr inbounds i8, ptr %.0288308, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0288308, i64 16
   %63 = load i16, ptr %62, align 2
   %64 = sext i16 %63 to i64
-  %65 = getelementptr inbounds i8, ptr %.0287309, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0287309, i64 16
   %66 = load i16, ptr %65, align 2
   %67 = sext i16 %66 to i64
   %68 = mul nsw i64 %67, %64
-  %69 = getelementptr inbounds i8, ptr %.0288308, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %.0288308, i64 48
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %.0287309, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.0287309, i64 48
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i64
   %75 = mul nsw i64 %74, %71
-  %76 = getelementptr inbounds i8, ptr %.0288308, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %.0288308, i64 80
   %77 = load i16, ptr %76, align 2
   %78 = sext i16 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.0287309, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %.0287309, i64 80
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i64
   %82 = mul nsw i64 %81, %78
-  %83 = getelementptr inbounds i8, ptr %.0288308, i64 112
+  %83 = getelementptr inbounds nuw i8, ptr %.0288308, i64 112
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %.0287309, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %.0287309, i64 112
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i64
   %89 = mul nsw i64 %88, %85
@@ -3101,84 +3101,84 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %125 = sub nsw i64 %56, %97
   %126 = lshr i64 %125, 11
   %127 = trunc i64 %126 to i32
-  %128 = getelementptr inbounds i8, ptr %.0285310, i64 416
+  %128 = getelementptr inbounds nuw i8, ptr %.0285310, i64 416
   store i32 %127, ptr %128, align 4
   %129 = add nsw i64 %108, %58
   %130 = lshr i64 %129, 11
   %131 = trunc i64 %130 to i32
-  %132 = getelementptr inbounds i8, ptr %.0285310, i64 32
+  %132 = getelementptr inbounds nuw i8, ptr %.0285310, i64 32
   store i32 %131, ptr %132, align 4
   %133 = sub nsw i64 %58, %108
   %134 = lshr i64 %133, 11
   %135 = trunc i64 %134 to i32
-  %136 = getelementptr inbounds i8, ptr %.0285310, i64 384
+  %136 = getelementptr inbounds nuw i8, ptr %.0285310, i64 384
   store i32 %135, ptr %136, align 4
   %137 = add nsw i64 %110, %60
   %138 = lshr i64 %137, 11
   %139 = trunc i64 %138 to i32
-  %140 = getelementptr inbounds i8, ptr %.0285310, i64 64
+  %140 = getelementptr inbounds nuw i8, ptr %.0285310, i64 64
   store i32 %139, ptr %140, align 4
   %141 = sub nsw i64 %60, %110
   %142 = lshr i64 %141, 11
   %143 = trunc i64 %142 to i32
-  %144 = getelementptr inbounds i8, ptr %.0285310, i64 352
+  %144 = getelementptr inbounds nuw i8, ptr %.0285310, i64 352
   store i32 %143, ptr %144, align 4
   %145 = add nsw i64 %121, %34
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds i8, ptr %.0285310, i64 96
+  %147 = getelementptr inbounds nuw i8, ptr %.0285310, i64 96
   store i32 %146, ptr %147, align 4
   %148 = sub nsw i64 %34, %121
   %149 = trunc i64 %148 to i32
-  %150 = getelementptr inbounds i8, ptr %.0285310, i64 320
+  %150 = getelementptr inbounds nuw i8, ptr %.0285310, i64 320
   store i32 %149, ptr %150, align 4
   %151 = add nsw i64 %115, %61
   %152 = lshr i64 %151, 11
   %153 = trunc i64 %152 to i32
-  %154 = getelementptr inbounds i8, ptr %.0285310, i64 128
+  %154 = getelementptr inbounds nuw i8, ptr %.0285310, i64 128
   store i32 %153, ptr %154, align 4
   %155 = sub nsw i64 %61, %115
   %156 = lshr i64 %155, 11
   %157 = trunc i64 %156 to i32
-  %158 = getelementptr inbounds i8, ptr %.0285310, i64 288
+  %158 = getelementptr inbounds nuw i8, ptr %.0285310, i64 288
   store i32 %157, ptr %158, align 4
   %159 = add nsw i64 %118, %59
   %160 = lshr i64 %159, 11
   %161 = trunc i64 %160 to i32
-  %162 = getelementptr inbounds i8, ptr %.0285310, i64 160
+  %162 = getelementptr inbounds nuw i8, ptr %.0285310, i64 160
   store i32 %161, ptr %162, align 4
   %163 = sub nsw i64 %59, %118
   %164 = lshr i64 %163, 11
   %165 = trunc i64 %164 to i32
-  %166 = getelementptr inbounds i8, ptr %.0285310, i64 256
+  %166 = getelementptr inbounds nuw i8, ptr %.0285310, i64 256
   store i32 %165, ptr %166, align 4
   %167 = add nsw i64 %103, %57
   %168 = lshr i64 %167, 11
   %169 = trunc i64 %168 to i32
-  %170 = getelementptr inbounds i8, ptr %.0285310, i64 192
+  %170 = getelementptr inbounds nuw i8, ptr %.0285310, i64 192
   store i32 %169, ptr %170, align 4
   %171 = sub nsw i64 %57, %103
   %172 = lshr i64 %171, 11
   %173 = trunc i64 %172 to i32
-  %174 = getelementptr inbounds i8, ptr %.0285310, i64 224
+  %174 = getelementptr inbounds nuw i8, ptr %.0285310, i64 224
   store i32 %173, ptr %174, align 4
   %175 = add nuw nsw i32 %.0311, 1
-  %176 = getelementptr inbounds i8, ptr %.0288308, i64 2
-  %177 = getelementptr inbounds i8, ptr %.0287309, i64 2
-  %178 = getelementptr inbounds i8, ptr %.0285310, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %.0288308, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %.0287309, i64 2
+  %178 = getelementptr inbounds nuw i8, ptr %.0285310, i64 4
   %exitcond.not = icmp eq i32 %175, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !25
 
 179:                                              ; preds = %.preheader, %179
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %179 ]
   %.1286312 = phi ptr [ %6, %.preheader ], [ %342, %179 ]
-  %180 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %180 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds i8, ptr %181, i64 %12
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 %12
   %183 = load i32, ptr %.1286312, align 4
   %184 = sext i32 %183 to i64
   %185 = shl nsw i64 %184, 13
   %186 = add nsw i64 %185, 131072
-  %187 = getelementptr inbounds i8, ptr %.1286312, i64 16
+  %187 = getelementptr inbounds nuw i8, ptr %.1286312, i64 16
   %188 = load i32, ptr %187, align 4
   %189 = zext i32 %188 to i64
   %190 = mul nuw nsw i64 %189, 10438
@@ -3189,10 +3189,10 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %194 = add nsw i64 %.neg, %186
   %.neg289 = mul nsw i64 %189, -11586
   %195 = add nsw i64 %.neg289, %186
-  %196 = getelementptr inbounds i8, ptr %.1286312, i64 8
+  %196 = getelementptr inbounds nuw i8, ptr %.1286312, i64 8
   %197 = load i32, ptr %196, align 4
   %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds i8, ptr %.1286312, i64 24
+  %199 = getelementptr inbounds nuw i8, ptr %.1286312, i64 24
   %200 = load i32, ptr %199, align 4
   %201 = zext i32 %200 to i64
   %202 = add nuw nsw i64 %201, %198
@@ -3210,16 +3210,16 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %212 = sub nsw i64 %193, %206
   %213 = add nsw i64 %208, %194
   %214 = sub nsw i64 %194, %208
-  %215 = getelementptr inbounds i8, ptr %.1286312, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %.1286312, i64 4
   %216 = load i32, ptr %215, align 4
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds i8, ptr %.1286312, i64 12
+  %218 = getelementptr inbounds nuw i8, ptr %.1286312, i64 12
   %219 = load i32, ptr %218, align 4
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds i8, ptr %.1286312, i64 20
+  %221 = getelementptr inbounds nuw i8, ptr %.1286312, i64 20
   %222 = load i32, ptr %221, align 4
   %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds i8, ptr %.1286312, i64 28
+  %224 = getelementptr inbounds nuw i8, ptr %.1286312, i64 28
   %225 = load i32, ptr %224, align 4
   %226 = sext i32 %225 to i64
   %227 = shl nsw i64 %226, 13
@@ -3262,101 +3262,101 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
   %259 = add nsw i64 %234, %209
   %260 = lshr i64 %259, 18
   %261 = and i64 %260, 1023
-  %262 = getelementptr inbounds i8, ptr %11, i64 %261
+  %262 = getelementptr inbounds nuw i8, ptr %11, i64 %261
   %263 = load i8, ptr %262, align 1
   store i8 %263, ptr %182, align 1
   %264 = sub nsw i64 %209, %234
   %265 = lshr i64 %264, 18
   %266 = and i64 %265, 1023
-  %267 = getelementptr inbounds i8, ptr %11, i64 %266
+  %267 = getelementptr inbounds nuw i8, ptr %11, i64 %266
   %268 = load i8, ptr %267, align 1
-  %269 = getelementptr inbounds i8, ptr %182, i64 13
+  %269 = getelementptr inbounds nuw i8, ptr %182, i64 13
   store i8 %268, ptr %269, align 1
   %270 = add nsw i64 %245, %211
   %271 = lshr i64 %270, 18
   %272 = and i64 %271, 1023
-  %273 = getelementptr inbounds i8, ptr %11, i64 %272
+  %273 = getelementptr inbounds nuw i8, ptr %11, i64 %272
   %274 = load i8, ptr %273, align 1
-  %275 = getelementptr inbounds i8, ptr %182, i64 1
+  %275 = getelementptr inbounds nuw i8, ptr %182, i64 1
   store i8 %274, ptr %275, align 1
   %276 = sub nsw i64 %211, %245
   %277 = lshr i64 %276, 18
   %278 = and i64 %277, 1023
-  %279 = getelementptr inbounds i8, ptr %11, i64 %278
+  %279 = getelementptr inbounds nuw i8, ptr %11, i64 %278
   %280 = load i8, ptr %279, align 1
-  %281 = getelementptr inbounds i8, ptr %182, i64 12
+  %281 = getelementptr inbounds nuw i8, ptr %182, i64 12
   store i8 %280, ptr %281, align 1
   %282 = add nsw i64 %247, %213
   %283 = lshr i64 %282, 18
   %284 = and i64 %283, 1023
-  %285 = getelementptr inbounds i8, ptr %11, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr %11, i64 %284
   %286 = load i8, ptr %285, align 1
-  %287 = getelementptr inbounds i8, ptr %182, i64 2
+  %287 = getelementptr inbounds nuw i8, ptr %182, i64 2
   store i8 %286, ptr %287, align 1
   %288 = sub nsw i64 %213, %247
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
-  %291 = getelementptr inbounds i8, ptr %11, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
   %292 = load i8, ptr %291, align 1
-  %293 = getelementptr inbounds i8, ptr %182, i64 11
+  %293 = getelementptr inbounds nuw i8, ptr %182, i64 11
   store i8 %292, ptr %293, align 1
   %294 = add nsw i64 %258, %195
   %295 = lshr i64 %294, 18
   %296 = and i64 %295, 1023
-  %297 = getelementptr inbounds i8, ptr %11, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %11, i64 %296
   %298 = load i8, ptr %297, align 1
-  %299 = getelementptr inbounds i8, ptr %182, i64 3
+  %299 = getelementptr inbounds nuw i8, ptr %182, i64 3
   store i8 %298, ptr %299, align 1
   %300 = sub nsw i64 %195, %258
   %301 = lshr i64 %300, 18
   %302 = and i64 %301, 1023
-  %303 = getelementptr inbounds i8, ptr %11, i64 %302
+  %303 = getelementptr inbounds nuw i8, ptr %11, i64 %302
   %304 = load i8, ptr %303, align 1
-  %305 = getelementptr inbounds i8, ptr %182, i64 10
+  %305 = getelementptr inbounds nuw i8, ptr %182, i64 10
   store i8 %304, ptr %305, align 1
   %306 = add nsw i64 %252, %214
   %307 = lshr i64 %306, 18
   %308 = and i64 %307, 1023
-  %309 = getelementptr inbounds i8, ptr %11, i64 %308
+  %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
   %310 = load i8, ptr %309, align 1
-  %311 = getelementptr inbounds i8, ptr %182, i64 4
+  %311 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store i8 %310, ptr %311, align 1
   %312 = sub nsw i64 %214, %252
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
-  %315 = getelementptr inbounds i8, ptr %11, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
   %316 = load i8, ptr %315, align 1
-  %317 = getelementptr inbounds i8, ptr %182, i64 9
+  %317 = getelementptr inbounds nuw i8, ptr %182, i64 9
   store i8 %316, ptr %317, align 1
   %318 = add nsw i64 %255, %212
   %319 = lshr i64 %318, 18
   %320 = and i64 %319, 1023
-  %321 = getelementptr inbounds i8, ptr %11, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr %11, i64 %320
   %322 = load i8, ptr %321, align 1
-  %323 = getelementptr inbounds i8, ptr %182, i64 5
+  %323 = getelementptr inbounds nuw i8, ptr %182, i64 5
   store i8 %322, ptr %323, align 1
   %324 = sub nsw i64 %212, %255
   %325 = lshr i64 %324, 18
   %326 = and i64 %325, 1023
-  %327 = getelementptr inbounds i8, ptr %11, i64 %326
+  %327 = getelementptr inbounds nuw i8, ptr %11, i64 %326
   %328 = load i8, ptr %327, align 1
-  %329 = getelementptr inbounds i8, ptr %182, i64 8
+  %329 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i8 %328, ptr %329, align 1
   %330 = add nsw i64 %240, %210
   %331 = lshr i64 %330, 18
   %332 = and i64 %331, 1023
-  %333 = getelementptr inbounds i8, ptr %11, i64 %332
+  %333 = getelementptr inbounds nuw i8, ptr %11, i64 %332
   %334 = load i8, ptr %333, align 1
-  %335 = getelementptr inbounds i8, ptr %182, i64 6
+  %335 = getelementptr inbounds nuw i8, ptr %182, i64 6
   store i8 %334, ptr %335, align 1
   %336 = sub nsw i64 %210, %240
   %337 = lshr i64 %336, 18
   %338 = and i64 %337, 1023
-  %339 = getelementptr inbounds i8, ptr %11, i64 %338
+  %339 = getelementptr inbounds nuw i8, ptr %11, i64 %338
   %340 = load i8, ptr %339, align 1
-  %341 = getelementptr inbounds i8, ptr %182, i64 7
+  %341 = getelementptr inbounds nuw i8, ptr %182, i64 7
   store i8 %340, ptr %341, align 1
-  %342 = getelementptr inbounds i8, ptr %.1286312, i64 32
+  %342 = getelementptr inbounds nuw i8, ptr %.1286312, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next, 14
   br i1 %exitcond315.not, label %343, label %179, !llvm.loop !26
@@ -3368,14 +3368,14 @@ define void @jpeg_idct_14x14(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [120 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %187
 
@@ -3391,24 +3391,24 @@ define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0306334, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.0306334, i64 32
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0305335, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.0305335, i64 32
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
-  %28 = getelementptr inbounds i8, ptr %.0306334, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %.0306334, i64 64
   %29 = load i16, ptr %28, align 2
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %.0305335, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.0305335, i64 64
   %32 = load i16, ptr %31, align 2
   %33 = sext i16 %32 to i64
   %34 = mul nsw i64 %33, %30
-  %35 = getelementptr inbounds i8, ptr %.0306334, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %.0306334, i64 96
   %36 = load i16, ptr %35, align 2
   %37 = sext i16 %36 to i64
-  %38 = getelementptr inbounds i8, ptr %.0305335, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %.0305335, i64 96
   %39 = load i16, ptr %38, align 2
   %40 = sext i16 %39 to i64
   %41 = mul nsw i64 %40, %37
@@ -3445,32 +3445,32 @@ define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture no
   %67 = add nsw i64 %45, %66
   %.neg314 = mul i64 %46, 8796093010624
   %68 = add i64 %45, %.neg314
-  %69 = getelementptr inbounds i8, ptr %.0306334, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.0306334, i64 16
   %70 = load i16, ptr %69, align 2
   %71 = sext i16 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %.0305335, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.0305335, i64 16
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i64
   %75 = mul nsw i64 %74, %71
-  %76 = getelementptr inbounds i8, ptr %.0306334, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %.0306334, i64 48
   %77 = load i16, ptr %76, align 2
   %78 = sext i16 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %.0305335, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %.0305335, i64 48
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i64
   %82 = mul nsw i64 %81, %78
-  %83 = getelementptr inbounds i8, ptr %.0306334, i64 80
+  %83 = getelementptr inbounds nuw i8, ptr %.0306334, i64 80
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %.0305335, i64 80
+  %86 = getelementptr inbounds nuw i8, ptr %.0305335, i64 80
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i64
   %89 = mul nsw i64 %88, %85
   %90 = mul nsw i64 %89, 10033
-  %91 = getelementptr inbounds i8, ptr %.0306334, i64 112
+  %91 = getelementptr inbounds nuw i8, ptr %.0306334, i64 112
   %92 = load i16, ptr %91, align 2
   %93 = sext i16 %92 to i64
-  %94 = getelementptr inbounds i8, ptr %.0305335, i64 112
+  %94 = getelementptr inbounds nuw i8, ptr %.0305335, i64 112
   %95 = load i16, ptr %94, align 2
   %96 = sext i16 %95 to i64
   %97 = mul nsw i64 %96, %93
@@ -3511,96 +3511,96 @@ define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture no
   %128 = sub nsw i64 %52, %111
   %129 = lshr i64 %128, 11
   %130 = trunc i64 %129 to i32
-  %131 = getelementptr inbounds i8, ptr %.0303336, i64 448
+  %131 = getelementptr inbounds nuw i8, ptr %.0303336, i64 448
   store i32 %130, ptr %131, align 4
   %132 = add nsw i64 %102, %63
   %133 = lshr i64 %132, 11
   %134 = trunc i64 %133 to i32
-  %135 = getelementptr inbounds i8, ptr %.0303336, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %.0303336, i64 32
   store i32 %134, ptr %135, align 4
   %136 = sub nsw i64 %63, %102
   %137 = lshr i64 %136, 11
   %138 = trunc i64 %137 to i32
-  %139 = getelementptr inbounds i8, ptr %.0303336, i64 416
+  %139 = getelementptr inbounds nuw i8, ptr %.0303336, i64 416
   store i32 %138, ptr %139, align 4
   %140 = add nsw i64 %115, %67
   %141 = lshr i64 %140, 11
   %142 = trunc i64 %141 to i32
-  %143 = getelementptr inbounds i8, ptr %.0303336, i64 64
+  %143 = getelementptr inbounds nuw i8, ptr %.0303336, i64 64
   store i32 %142, ptr %143, align 4
   %144 = sub nsw i64 %67, %115
   %145 = lshr i64 %144, 11
   %146 = trunc i64 %145 to i32
-  %147 = getelementptr inbounds i8, ptr %.0303336, i64 384
+  %147 = getelementptr inbounds nuw i8, ptr %.0303336, i64 384
   store i32 %146, ptr %147, align 4
   %148 = add nsw i64 %121, %55
   %149 = lshr i64 %148, 11
   %150 = trunc i64 %149 to i32
-  %151 = getelementptr inbounds i8, ptr %.0303336, i64 96
+  %151 = getelementptr inbounds nuw i8, ptr %.0303336, i64 96
   store i32 %150, ptr %151, align 4
   %152 = sub nsw i64 %55, %121
   %153 = lshr i64 %152, 11
   %154 = trunc i64 %153 to i32
-  %155 = getelementptr inbounds i8, ptr %.0303336, i64 352
+  %155 = getelementptr inbounds nuw i8, ptr %.0303336, i64 352
   store i32 %154, ptr %155, align 4
   %156 = add nsw i64 %103, %65
   %157 = lshr i64 %156, 11
   %158 = trunc i64 %157 to i32
-  %159 = getelementptr inbounds i8, ptr %.0303336, i64 128
+  %159 = getelementptr inbounds nuw i8, ptr %.0303336, i64 128
   store i32 %158, ptr %159, align 4
   %160 = sub nsw i64 %65, %103
   %161 = lshr i64 %160, 11
   %162 = trunc i64 %161 to i32
-  %163 = getelementptr inbounds i8, ptr %.0303336, i64 320
+  %163 = getelementptr inbounds nuw i8, ptr %.0303336, i64 320
   store i32 %162, ptr %163, align 4
   %164 = add nsw i64 %124, %57
   %165 = lshr i64 %164, 11
   %166 = trunc i64 %165 to i32
-  %167 = getelementptr inbounds i8, ptr %.0303336, i64 160
+  %167 = getelementptr inbounds nuw i8, ptr %.0303336, i64 160
   store i32 %166, ptr %167, align 4
   %168 = sub nsw i64 %57, %124
   %169 = lshr i64 %168, 11
   %170 = trunc i64 %169 to i32
-  %171 = getelementptr inbounds i8, ptr %.0303336, i64 288
+  %171 = getelementptr inbounds nuw i8, ptr %.0303336, i64 288
   store i32 %170, ptr %171, align 4
   %172 = add nsw i64 %113, %59
   %173 = lshr i64 %172, 11
   %174 = trunc i64 %173 to i32
-  %175 = getelementptr inbounds i8, ptr %.0303336, i64 192
+  %175 = getelementptr inbounds nuw i8, ptr %.0303336, i64 192
   store i32 %174, ptr %175, align 4
   %176 = sub nsw i64 %59, %113
   %177 = lshr i64 %176, 11
   %178 = trunc i64 %177 to i32
-  %179 = getelementptr inbounds i8, ptr %.0303336, i64 256
+  %179 = getelementptr inbounds nuw i8, ptr %.0303336, i64 256
   store i32 %178, ptr %179, align 4
   %180 = lshr i64 %68, 11
   %181 = trunc i64 %180 to i32
-  %182 = getelementptr inbounds i8, ptr %.0303336, i64 224
+  %182 = getelementptr inbounds nuw i8, ptr %.0303336, i64 224
   store i32 %181, ptr %182, align 4
   %183 = add nuw nsw i32 %.0337, 1
-  %184 = getelementptr inbounds i8, ptr %.0306334, i64 2
-  %185 = getelementptr inbounds i8, ptr %.0305335, i64 2
-  %186 = getelementptr inbounds i8, ptr %.0303336, i64 4
+  %184 = getelementptr inbounds nuw i8, ptr %.0306334, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %.0305335, i64 2
+  %186 = getelementptr inbounds nuw i8, ptr %.0303336, i64 4
   %exitcond.not = icmp eq i32 %183, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !27
 
 187:                                              ; preds = %.preheader, %187
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %187 ]
   %.1304338 = phi ptr [ %6, %.preheader ], [ %359, %187 ]
-  %188 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %189 = load ptr, ptr %188, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 %12
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 %12
   %191 = load i32, ptr %.1304338, align 4
   %192 = sext i32 %191 to i64
   %193 = shl nsw i64 %192, 13
   %194 = add nsw i64 %193, 131072
-  %195 = getelementptr inbounds i8, ptr %.1304338, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.1304338, i64 8
   %196 = load i32, ptr %195, align 4
   %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr %.1304338, i64 16
+  %198 = getelementptr inbounds nuw i8, ptr %.1304338, i64 16
   %199 = load i32, ptr %198, align 4
   %200 = zext i32 %199 to i64
-  %201 = getelementptr inbounds i8, ptr %.1304338, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %.1304338, i64 24
   %202 = load i32, ptr %201, align 4
   %203 = zext i32 %202 to i64
   %.neg = mul nsw i64 %203, -3580
@@ -3636,17 +3636,17 @@ define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture no
   %229 = add nsw i64 %207, %228
   %.neg308 = mul nsw i64 %208, 268423872
   %230 = add nsw i64 %207, %.neg308
-  %231 = getelementptr inbounds i8, ptr %.1304338, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %.1304338, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = zext i32 %232 to i64
-  %234 = getelementptr inbounds i8, ptr %.1304338, i64 12
+  %234 = getelementptr inbounds nuw i8, ptr %.1304338, i64 12
   %235 = load i32, ptr %234, align 4
   %236 = zext i32 %235 to i64
-  %237 = getelementptr inbounds i8, ptr %.1304338, i64 20
+  %237 = getelementptr inbounds nuw i8, ptr %.1304338, i64 20
   %238 = load i32, ptr %237, align 4
   %239 = zext i32 %238 to i64
   %240 = mul nuw nsw i64 %239, 10033
-  %241 = getelementptr inbounds i8, ptr %.1304338, i64 28
+  %241 = getelementptr inbounds nuw i8, ptr %.1304338, i64 28
   %242 = load i32, ptr %241, align 4
   %243 = zext i32 %242 to i64
   %244 = sub nsw i64 %236, %243
@@ -3682,107 +3682,107 @@ define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture no
   %271 = add nsw i64 %257, %214
   %272 = lshr i64 %271, 18
   %273 = and i64 %272, 1023
-  %274 = getelementptr inbounds i8, ptr %11, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr %11, i64 %273
   %275 = load i8, ptr %274, align 1
   store i8 %275, ptr %190, align 1
   %276 = sub nsw i64 %214, %257
   %277 = lshr i64 %276, 18
   %278 = and i64 %277, 1023
-  %279 = getelementptr inbounds i8, ptr %11, i64 %278
+  %279 = getelementptr inbounds nuw i8, ptr %11, i64 %278
   %280 = load i8, ptr %279, align 1
-  %281 = getelementptr inbounds i8, ptr %190, i64 14
+  %281 = getelementptr inbounds nuw i8, ptr %190, i64 14
   store i8 %280, ptr %281, align 1
   %282 = add nsw i64 %248, %225
   %283 = lshr i64 %282, 18
   %284 = and i64 %283, 1023
-  %285 = getelementptr inbounds i8, ptr %11, i64 %284
+  %285 = getelementptr inbounds nuw i8, ptr %11, i64 %284
   %286 = load i8, ptr %285, align 1
-  %287 = getelementptr inbounds i8, ptr %190, i64 1
+  %287 = getelementptr inbounds nuw i8, ptr %190, i64 1
   store i8 %286, ptr %287, align 1
   %288 = sub nsw i64 %225, %248
   %289 = lshr i64 %288, 18
   %290 = and i64 %289, 1023
-  %291 = getelementptr inbounds i8, ptr %11, i64 %290
+  %291 = getelementptr inbounds nuw i8, ptr %11, i64 %290
   %292 = load i8, ptr %291, align 1
-  %293 = getelementptr inbounds i8, ptr %190, i64 13
+  %293 = getelementptr inbounds nuw i8, ptr %190, i64 13
   store i8 %292, ptr %293, align 1
   %294 = add nsw i64 %261, %229
   %295 = lshr i64 %294, 18
   %296 = and i64 %295, 1023
-  %297 = getelementptr inbounds i8, ptr %11, i64 %296
+  %297 = getelementptr inbounds nuw i8, ptr %11, i64 %296
   %298 = load i8, ptr %297, align 1
-  %299 = getelementptr inbounds i8, ptr %190, i64 2
+  %299 = getelementptr inbounds nuw i8, ptr %190, i64 2
   store i8 %298, ptr %299, align 1
   %300 = sub nsw i64 %229, %261
   %301 = lshr i64 %300, 18
   %302 = and i64 %301, 1023
-  %303 = getelementptr inbounds i8, ptr %11, i64 %302
+  %303 = getelementptr inbounds nuw i8, ptr %11, i64 %302
   %304 = load i8, ptr %303, align 1
-  %305 = getelementptr inbounds i8, ptr %190, i64 12
+  %305 = getelementptr inbounds nuw i8, ptr %190, i64 12
   store i8 %304, ptr %305, align 1
   %306 = add nsw i64 %267, %217
   %307 = lshr i64 %306, 18
   %308 = and i64 %307, 1023
-  %309 = getelementptr inbounds i8, ptr %11, i64 %308
+  %309 = getelementptr inbounds nuw i8, ptr %11, i64 %308
   %310 = load i8, ptr %309, align 1
-  %311 = getelementptr inbounds i8, ptr %190, i64 3
+  %311 = getelementptr inbounds nuw i8, ptr %190, i64 3
   store i8 %310, ptr %311, align 1
   %312 = sub nsw i64 %217, %267
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
-  %315 = getelementptr inbounds i8, ptr %11, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
   %316 = load i8, ptr %315, align 1
-  %317 = getelementptr inbounds i8, ptr %190, i64 11
+  %317 = getelementptr inbounds nuw i8, ptr %190, i64 11
   store i8 %316, ptr %317, align 1
   %318 = add nsw i64 %249, %227
   %319 = lshr i64 %318, 18
   %320 = and i64 %319, 1023
-  %321 = getelementptr inbounds i8, ptr %11, i64 %320
+  %321 = getelementptr inbounds nuw i8, ptr %11, i64 %320
   %322 = load i8, ptr %321, align 1
-  %323 = getelementptr inbounds i8, ptr %190, i64 4
+  %323 = getelementptr inbounds nuw i8, ptr %190, i64 4
   store i8 %322, ptr %323, align 1
   %324 = sub nsw i64 %227, %249
   %325 = lshr i64 %324, 18
   %326 = and i64 %325, 1023
-  %327 = getelementptr inbounds i8, ptr %11, i64 %326
+  %327 = getelementptr inbounds nuw i8, ptr %11, i64 %326
   %328 = load i8, ptr %327, align 1
-  %329 = getelementptr inbounds i8, ptr %190, i64 10
+  %329 = getelementptr inbounds nuw i8, ptr %190, i64 10
   store i8 %328, ptr %329, align 1
   %330 = add nsw i64 %270, %219
   %331 = lshr i64 %330, 18
   %332 = and i64 %331, 1023
-  %333 = getelementptr inbounds i8, ptr %11, i64 %332
+  %333 = getelementptr inbounds nuw i8, ptr %11, i64 %332
   %334 = load i8, ptr %333, align 1
-  %335 = getelementptr inbounds i8, ptr %190, i64 5
+  %335 = getelementptr inbounds nuw i8, ptr %190, i64 5
   store i8 %334, ptr %335, align 1
   %336 = sub nsw i64 %219, %270
   %337 = lshr i64 %336, 18
   %338 = and i64 %337, 1023
-  %339 = getelementptr inbounds i8, ptr %11, i64 %338
+  %339 = getelementptr inbounds nuw i8, ptr %11, i64 %338
   %340 = load i8, ptr %339, align 1
-  %341 = getelementptr inbounds i8, ptr %190, i64 9
+  %341 = getelementptr inbounds nuw i8, ptr %190, i64 9
   store i8 %340, ptr %341, align 1
   %342 = add nsw i64 %259, %221
   %343 = lshr i64 %342, 18
   %344 = and i64 %343, 1023
-  %345 = getelementptr inbounds i8, ptr %11, i64 %344
+  %345 = getelementptr inbounds nuw i8, ptr %11, i64 %344
   %346 = load i8, ptr %345, align 1
-  %347 = getelementptr inbounds i8, ptr %190, i64 6
+  %347 = getelementptr inbounds nuw i8, ptr %190, i64 6
   store i8 %346, ptr %347, align 1
   %348 = sub nsw i64 %221, %259
   %349 = lshr i64 %348, 18
   %350 = and i64 %349, 1023
-  %351 = getelementptr inbounds i8, ptr %11, i64 %350
+  %351 = getelementptr inbounds nuw i8, ptr %11, i64 %350
   %352 = load i8, ptr %351, align 1
-  %353 = getelementptr inbounds i8, ptr %190, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %190, i64 8
   store i8 %352, ptr %353, align 1
   %354 = lshr i64 %230, 18
   %355 = and i64 %354, 1023
-  %356 = getelementptr inbounds i8, ptr %11, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %11, i64 %355
   %357 = load i8, ptr %356, align 1
-  %358 = getelementptr inbounds i8, ptr %190, i64 7
+  %358 = getelementptr inbounds nuw i8, ptr %190, i64 7
   store i8 %357, ptr %358, align 1
-  %359 = getelementptr inbounds i8, ptr %.1304338, i64 32
+  %359 = getelementptr inbounds nuw i8, ptr %.1304338, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next, 15
   br i1 %exitcond341.not, label %360, label %187, !llvm.loop !28
@@ -3794,14 +3794,14 @@ define void @jpeg_idct_15x15(ptr nocapture noundef readonly %0, ptr nocapture no
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [128 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %0, i64 424
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 88
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %10 = load ptr, ptr %9, align 8
   br label %13
 
 .preheader:                                       ; preds = %13
-  %11 = getelementptr inbounds i8, ptr %8, i64 128
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 128
   %12 = zext i32 %4 to i64
   br label %210
 
@@ -3817,10 +3817,10 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %18 = shl nsw i64 %15, 13
   %19 = mul nsw i64 %18, %17
   %20 = or disjoint i64 %19, 1024
-  %21 = getelementptr inbounds i8, ptr %.0355367, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %.0355367, i64 64
   %22 = load i16, ptr %21, align 2
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %.0354368, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %.0354368, i64 64
   %25 = load i16, ptr %24, align 2
   %26 = sext i16 %25 to i64
   %27 = mul nsw i64 %26, %23
@@ -3830,17 +3830,17 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %31 = sub nsw i64 %20, %28
   %32 = add nsw i64 %29, %20
   %33 = sub nsw i64 %20, %29
-  %34 = getelementptr inbounds i8, ptr %.0355367, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %.0355367, i64 32
   %35 = load i16, ptr %34, align 2
   %36 = sext i16 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %.0354368, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.0354368, i64 32
   %38 = load i16, ptr %37, align 2
   %39 = sext i16 %38 to i64
   %40 = mul nsw i64 %39, %36
-  %41 = getelementptr inbounds i8, ptr %.0355367, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %.0355367, i64 96
   %42 = load i16, ptr %41, align 2
   %43 = sext i16 %42 to i64
-  %44 = getelementptr inbounds i8, ptr %.0354368, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %.0354368, i64 96
   %45 = load i16, ptr %44, align 2
   %46 = sext i16 %45 to i64
   %47 = mul nsw i64 %46, %43
@@ -3863,31 +3863,31 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %62 = sub nsw i64 %33, %55
   %63 = add nsw i64 %56, %31
   %64 = sub nsw i64 %31, %56
-  %65 = getelementptr inbounds i8, ptr %.0355367, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.0355367, i64 16
   %66 = load i16, ptr %65, align 2
   %67 = sext i16 %66 to i64
-  %68 = getelementptr inbounds i8, ptr %.0354368, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %.0354368, i64 16
   %69 = load i16, ptr %68, align 2
   %70 = sext i16 %69 to i64
   %71 = mul nsw i64 %70, %67
-  %72 = getelementptr inbounds i8, ptr %.0355367, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %.0355367, i64 48
   %73 = load i16, ptr %72, align 2
   %74 = sext i16 %73 to i64
-  %75 = getelementptr inbounds i8, ptr %.0354368, i64 48
+  %75 = getelementptr inbounds nuw i8, ptr %.0354368, i64 48
   %76 = load i16, ptr %75, align 2
   %77 = sext i16 %76 to i64
   %78 = mul nsw i64 %77, %74
-  %79 = getelementptr inbounds i8, ptr %.0355367, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %.0355367, i64 80
   %80 = load i16, ptr %79, align 2
   %81 = sext i16 %80 to i64
-  %82 = getelementptr inbounds i8, ptr %.0354368, i64 80
+  %82 = getelementptr inbounds nuw i8, ptr %.0354368, i64 80
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i64
   %85 = mul nsw i64 %84, %81
-  %86 = getelementptr inbounds i8, ptr %.0355367, i64 112
+  %86 = getelementptr inbounds nuw i8, ptr %.0355367, i64 112
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %.0354368, i64 112
+  %89 = getelementptr inbounds nuw i8, ptr %.0354368, i64 112
   %90 = load i16, ptr %89, align 2
   %91 = sext i16 %90 to i64
   %92 = mul nsw i64 %91, %88
@@ -3952,96 +3952,96 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %146 = sub nsw i64 %57, %106
   %147 = lshr i64 %146, 11
   %148 = trunc i64 %147 to i32
-  %149 = getelementptr inbounds i8, ptr %.0352369, i64 480
+  %149 = getelementptr inbounds nuw i8, ptr %.0352369, i64 480
   store i32 %148, ptr %149, align 4
   %150 = add nsw i64 %124, %59
   %151 = lshr i64 %150, 11
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds i8, ptr %.0352369, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %.0352369, i64 32
   store i32 %152, ptr %153, align 4
   %154 = sub nsw i64 %59, %124
   %155 = lshr i64 %154, 11
   %156 = trunc i64 %155 to i32
-  %157 = getelementptr inbounds i8, ptr %.0352369, i64 448
+  %157 = getelementptr inbounds nuw i8, ptr %.0352369, i64 448
   store i32 %156, ptr %157, align 4
   %158 = add nsw i64 %137, %61
   %159 = lshr i64 %158, 11
   %160 = trunc i64 %159 to i32
-  %161 = getelementptr inbounds i8, ptr %.0352369, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %.0352369, i64 64
   store i32 %160, ptr %161, align 4
   %162 = sub nsw i64 %61, %137
   %163 = lshr i64 %162, 11
   %164 = trunc i64 %163 to i32
-  %165 = getelementptr inbounds i8, ptr %.0352369, i64 416
+  %165 = getelementptr inbounds nuw i8, ptr %.0352369, i64 416
   store i32 %164, ptr %165, align 4
   %166 = add nsw i64 %138, %63
   %167 = lshr i64 %166, 11
   %168 = trunc i64 %167 to i32
-  %169 = getelementptr inbounds i8, ptr %.0352369, i64 96
+  %169 = getelementptr inbounds nuw i8, ptr %.0352369, i64 96
   store i32 %168, ptr %169, align 4
   %170 = sub nsw i64 %63, %138
   %171 = lshr i64 %170, 11
   %172 = trunc i64 %171 to i32
-  %173 = getelementptr inbounds i8, ptr %.0352369, i64 384
+  %173 = getelementptr inbounds nuw i8, ptr %.0352369, i64 384
   store i32 %172, ptr %173, align 4
   %174 = add nsw i64 %141, %64
   %175 = lshr i64 %174, 11
   %176 = trunc i64 %175 to i32
-  %177 = getelementptr inbounds i8, ptr %.0352369, i64 128
+  %177 = getelementptr inbounds nuw i8, ptr %.0352369, i64 128
   store i32 %176, ptr %177, align 4
   %178 = sub nsw i64 %64, %141
   %179 = lshr i64 %178, 11
   %180 = trunc i64 %179 to i32
-  %181 = getelementptr inbounds i8, ptr %.0352369, i64 352
+  %181 = getelementptr inbounds nuw i8, ptr %.0352369, i64 352
   store i32 %180, ptr %181, align 4
   %182 = add nsw i64 %142, %62
   %183 = lshr i64 %182, 11
   %184 = trunc i64 %183 to i32
-  %185 = getelementptr inbounds i8, ptr %.0352369, i64 160
+  %185 = getelementptr inbounds nuw i8, ptr %.0352369, i64 160
   store i32 %184, ptr %185, align 4
   %186 = sub nsw i64 %62, %142
   %187 = lshr i64 %186, 11
   %188 = trunc i64 %187 to i32
-  %189 = getelementptr inbounds i8, ptr %.0352369, i64 320
+  %189 = getelementptr inbounds nuw i8, ptr %.0352369, i64 320
   store i32 %188, ptr %189, align 4
   %190 = add nsw i64 %134, %60
   %191 = lshr i64 %190, 11
   %192 = trunc i64 %191 to i32
-  %193 = getelementptr inbounds i8, ptr %.0352369, i64 192
+  %193 = getelementptr inbounds nuw i8, ptr %.0352369, i64 192
   store i32 %192, ptr %193, align 4
   %194 = sub nsw i64 %60, %134
   %195 = lshr i64 %194, 11
   %196 = trunc i64 %195 to i32
-  %197 = getelementptr inbounds i8, ptr %.0352369, i64 288
+  %197 = getelementptr inbounds nuw i8, ptr %.0352369, i64 288
   store i32 %196, ptr %197, align 4
   %198 = add nsw i64 %109, %58
   %199 = lshr i64 %198, 11
   %200 = trunc i64 %199 to i32
-  %201 = getelementptr inbounds i8, ptr %.0352369, i64 224
+  %201 = getelementptr inbounds nuw i8, ptr %.0352369, i64 224
   store i32 %200, ptr %201, align 4
   %202 = sub nsw i64 %58, %109
   %203 = lshr i64 %202, 11
   %204 = trunc i64 %203 to i32
-  %205 = getelementptr inbounds i8, ptr %.0352369, i64 256
+  %205 = getelementptr inbounds nuw i8, ptr %.0352369, i64 256
   store i32 %204, ptr %205, align 4
   %206 = add nuw nsw i32 %.0370, 1
-  %207 = getelementptr inbounds i8, ptr %.0355367, i64 2
-  %208 = getelementptr inbounds i8, ptr %.0354368, i64 2
-  %209 = getelementptr inbounds i8, ptr %.0352369, i64 4
+  %207 = getelementptr inbounds nuw i8, ptr %.0355367, i64 2
+  %208 = getelementptr inbounds nuw i8, ptr %.0354368, i64 2
+  %209 = getelementptr inbounds nuw i8, ptr %.0352369, i64 4
   %exitcond.not = icmp eq i32 %206, 8
   br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !29
 
 210:                                              ; preds = %.preheader, %210
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %210 ]
   %.1353371 = phi ptr [ %6, %.preheader ], [ %407, %210 ]
-  %211 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %212 = load ptr, ptr %211, align 8
-  %213 = getelementptr inbounds i8, ptr %212, i64 %12
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 %12
   %214 = load i32, ptr %.1353371, align 4
   %215 = sext i32 %214 to i64
   %216 = shl nsw i64 %215, 13
   %217 = add nsw i64 %216, 131072
-  %218 = getelementptr inbounds i8, ptr %.1353371, i64 16
+  %218 = getelementptr inbounds nuw i8, ptr %.1353371, i64 16
   %219 = load i32, ptr %218, align 4
   %220 = zext i32 %219 to i64
   %221 = mul nuw nsw i64 %220, 10703
@@ -4050,10 +4050,10 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %224 = sub nsw i64 %217, %221
   %225 = add nsw i64 %217, %222
   %226 = sub nsw i64 %217, %222
-  %227 = getelementptr inbounds i8, ptr %.1353371, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %.1353371, i64 8
   %228 = load i32, ptr %227, align 4
   %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds i8, ptr %.1353371, i64 24
+  %230 = getelementptr inbounds nuw i8, ptr %.1353371, i64 24
   %231 = load i32, ptr %230, align 4
   %232 = zext i32 %231 to i64
   %233 = sub nsw i64 %229, %232
@@ -4075,16 +4075,16 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %247 = sub nsw i64 %226, %240
   %248 = add nsw i64 %241, %224
   %249 = sub nsw i64 %224, %241
-  %250 = getelementptr inbounds i8, ptr %.1353371, i64 4
+  %250 = getelementptr inbounds nuw i8, ptr %.1353371, i64 4
   %251 = load i32, ptr %250, align 4
   %252 = zext i32 %251 to i64
-  %253 = getelementptr inbounds i8, ptr %.1353371, i64 12
+  %253 = getelementptr inbounds nuw i8, ptr %.1353371, i64 12
   %254 = load i32, ptr %253, align 4
   %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds i8, ptr %.1353371, i64 20
+  %256 = getelementptr inbounds nuw i8, ptr %.1353371, i64 20
   %257 = load i32, ptr %256, align 4
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds i8, ptr %.1353371, i64 28
+  %259 = getelementptr inbounds nuw i8, ptr %.1353371, i64 28
   %260 = load i32, ptr %259, align 4
   %261 = zext i32 %260 to i64
   %262 = add nuw nsw i64 %258, %252
@@ -4144,115 +4144,115 @@ define void @jpeg_idct_16x16(ptr nocapture noundef readonly %0, ptr nocapture no
   %312 = add nsw i64 %275, %242
   %313 = lshr i64 %312, 18
   %314 = and i64 %313, 1023
-  %315 = getelementptr inbounds i8, ptr %11, i64 %314
+  %315 = getelementptr inbounds nuw i8, ptr %11, i64 %314
   %316 = load i8, ptr %315, align 1
   store i8 %316, ptr %213, align 1
   %317 = sub nsw i64 %242, %275
   %318 = lshr i64 %317, 18
   %319 = and i64 %318, 1023
-  %320 = getelementptr inbounds i8, ptr %11, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr %11, i64 %319
   %321 = load i8, ptr %320, align 1
-  %322 = getelementptr inbounds i8, ptr %213, i64 15
+  %322 = getelementptr inbounds nuw i8, ptr %213, i64 15
   store i8 %321, ptr %322, align 1
   %323 = add nsw i64 %293, %244
   %324 = lshr i64 %323, 18
   %325 = and i64 %324, 1023
-  %326 = getelementptr inbounds i8, ptr %11, i64 %325
+  %326 = getelementptr inbounds nuw i8, ptr %11, i64 %325
   %327 = load i8, ptr %326, align 1
-  %328 = getelementptr inbounds i8, ptr %213, i64 1
+  %328 = getelementptr inbounds nuw i8, ptr %213, i64 1
   store i8 %327, ptr %328, align 1
   %329 = sub nsw i64 %244, %293
   %330 = lshr i64 %329, 18
   %331 = and i64 %330, 1023
-  %332 = getelementptr inbounds i8, ptr %11, i64 %331
+  %332 = getelementptr inbounds nuw i8, ptr %11, i64 %331
   %333 = load i8, ptr %332, align 1
-  %334 = getelementptr inbounds i8, ptr %213, i64 14
+  %334 = getelementptr inbounds nuw i8, ptr %213, i64 14
   store i8 %333, ptr %334, align 1
   %335 = add nsw i64 %306, %246
   %336 = lshr i64 %335, 18
   %337 = and i64 %336, 1023
-  %338 = getelementptr inbounds i8, ptr %11, i64 %337
+  %338 = getelementptr inbounds nuw i8, ptr %11, i64 %337
   %339 = load i8, ptr %338, align 1
-  %340 = getelementptr inbounds i8, ptr %213, i64 2
+  %340 = getelementptr inbounds nuw i8, ptr %213, i64 2
   store i8 %339, ptr %340, align 1
   %341 = sub nsw i64 %246, %306
   %342 = lshr i64 %341, 18
   %343 = and i64 %342, 1023
-  %344 = getelementptr inbounds i8, ptr %11, i64 %343
+  %344 = getelementptr inbounds nuw i8, ptr %11, i64 %343
   %345 = load i8, ptr %344, align 1
-  %346 = getelementptr inbounds i8, ptr %213, i64 13
+  %346 = getelementptr inbounds nuw i8, ptr %213, i64 13
   store i8 %345, ptr %346, align 1
   %347 = add nsw i64 %307, %248
   %348 = lshr i64 %347, 18
   %349 = and i64 %348, 1023
-  %350 = getelementptr inbounds i8, ptr %11, i64 %349
+  %350 = getelementptr inbounds nuw i8, ptr %11, i64 %349
   %351 = load i8, ptr %350, align 1
-  %352 = getelementptr inbounds i8, ptr %213, i64 3
+  %352 = getelementptr inbounds nuw i8, ptr %213, i64 3
   store i8 %351, ptr %352, align 1
   %353 = sub nsw i64 %248, %307
   %354 = lshr i64 %353, 18
   %355 = and i64 %354, 1023
-  %356 = getelementptr inbounds i8, ptr %11, i64 %355
+  %356 = getelementptr inbounds nuw i8, ptr %11, i64 %355
   %357 = load i8, ptr %356, align 1
-  %358 = getelementptr inbounds i8, ptr %213, i64 12
+  %358 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i8 %357, ptr %358, align 1
   %359 = add nsw i64 %310, %249
   %360 = lshr i64 %359, 18
   %361 = and i64 %360, 1023
-  %362 = getelementptr inbounds i8, ptr %11, i64 %361
+  %362 = getelementptr inbounds nuw i8, ptr %11, i64 %361
   %363 = load i8, ptr %362, align 1
-  %364 = getelementptr inbounds i8, ptr %213, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %213, i64 4
   store i8 %363, ptr %364, align 1
   %365 = sub nsw i64 %249, %310
   %366 = lshr i64 %365, 18
   %367 = and i64 %366, 1023
-  %368 = getelementptr inbounds i8, ptr %11, i64 %367
+  %368 = getelementptr inbounds nuw i8, ptr %11, i64 %367
   %369 = load i8, ptr %368, align 1
-  %370 = getelementptr inbounds i8, ptr %213, i64 11
+  %370 = getelementptr inbounds nuw i8, ptr %213, i64 11
   store i8 %369, ptr %370, align 1
   %371 = add nsw i64 %311, %247
   %372 = lshr i64 %371, 18
   %373 = and i64 %372, 1023
-  %374 = getelementptr inbounds i8, ptr %11, i64 %373
+  %374 = getelementptr inbounds nuw i8, ptr %11, i64 %373
   %375 = load i8, ptr %374, align 1
-  %376 = getelementptr inbounds i8, ptr %213, i64 5
+  %376 = getelementptr inbounds nuw i8, ptr %213, i64 5
   store i8 %375, ptr %376, align 1
   %377 = sub nsw i64 %247, %311
   %378 = lshr i64 %377, 18
   %379 = and i64 %378, 1023
-  %380 = getelementptr inbounds i8, ptr %11, i64 %379
+  %380 = getelementptr inbounds nuw i8, ptr %11, i64 %379
   %381 = load i8, ptr %380, align 1
-  %382 = getelementptr inbounds i8, ptr %213, i64 10
+  %382 = getelementptr inbounds nuw i8, ptr %213, i64 10
   store i8 %381, ptr %382, align 1
   %383 = add nsw i64 %303, %245
   %384 = lshr i64 %383, 18
   %385 = and i64 %384, 1023
-  %386 = getelementptr inbounds i8, ptr %11, i64 %385
+  %386 = getelementptr inbounds nuw i8, ptr %11, i64 %385
   %387 = load i8, ptr %386, align 1
-  %388 = getelementptr inbounds i8, ptr %213, i64 6
+  %388 = getelementptr inbounds nuw i8, ptr %213, i64 6
   store i8 %387, ptr %388, align 1
   %389 = sub nsw i64 %245, %303
   %390 = lshr i64 %389, 18
   %391 = and i64 %390, 1023
-  %392 = getelementptr inbounds i8, ptr %11, i64 %391
+  %392 = getelementptr inbounds nuw i8, ptr %11, i64 %391
   %393 = load i8, ptr %392, align 1
-  %394 = getelementptr inbounds i8, ptr %213, i64 9
+  %394 = getelementptr inbounds nuw i8, ptr %213, i64 9
   store i8 %393, ptr %394, align 1
   %395 = add nsw i64 %278, %243
   %396 = lshr i64 %395, 18
   %397 = and i64 %396, 1023
-  %398 = getelementptr inbounds i8, ptr %11, i64 %397
+  %398 = getelementptr inbounds nuw i8, ptr %11, i64 %397
   %399 = load i8, ptr %398, align 1
-  %400 = getelementptr inbounds i8, ptr %213, i64 7
+  %400 = getelementptr inbounds nuw i8, ptr %213, i64 7
   store i8 %399, ptr %400, align 1
   %401 = sub nsw i64 %243, %278
   %402 = lshr i64 %401, 18
   %403 = and i64 %402, 1023
-  %404 = getelementptr inbounds i8, ptr %11, i64 %403
+  %404 = getelementptr inbounds nuw i8, ptr %11, i64 %403
   %405 = load i8, ptr %404, align 1
-  %406 = getelementptr inbounds i8, ptr %213, i64 8
+  %406 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i8 %405, ptr %406, align 1
-  %407 = getelementptr inbounds i8, ptr %.1353371, i64 32
+  %407 = getelementptr inbounds nuw i8, ptr %.1353371, i64 32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond374.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond374.not, label %408, label %210, !llvm.loop !30

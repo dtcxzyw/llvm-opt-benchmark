@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_sun_java2d_Disposer_initIDs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 904
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 904
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #1
   store ptr %6, ptr @addRecordMID, align 8
@@ -21,7 +21,7 @@ define void @Java_sun_java2d_Disposer_initIDs(ptr noundef %0, ptr noundef %1) lo
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 168
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef %1) #1
   store ptr %11, ptr @dispClass, align 8
@@ -39,11 +39,11 @@ define void @Disposer_AddRecord(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #1
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1824
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1824
   %14 = load ptr, ptr %13, align 8
   %15 = tail call zeroext i8 %14(ptr noundef nonnull %0) #1
   %.not = icmp eq i8 %15, 0
@@ -56,7 +56,7 @@ define void @Disposer_AddRecord(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 16:                                               ; preds = %._crit_edge, %4
   %17 = phi ptr [ %.pre, %._crit_edge ], [ %5, %4 ]
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 1128
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1128
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr @addRecordMID, align 8
   %22 = ptrtoint ptr %2 to i64

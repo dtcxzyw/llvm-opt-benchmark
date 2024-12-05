@@ -10,7 +10,7 @@ define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14
   %6 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %6)
   store ptr %1, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
   %8 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %8)

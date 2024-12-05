@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingDfs_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 1
   %.not = icmp eq i32 %6, 0
@@ -33,13 +33,13 @@ define void @Map_MappingDfs_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br i1 %.not16, label %20, label %9
 
 9:                                                ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
   tail call void @Map_MappingDfs_rec(ptr noundef %14, ptr noundef %1, i32 noundef %2)
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -52,7 +52,7 @@ define void @Map_MappingDfs_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   br i1 %.not17, label %25, label %21
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load ptr, ptr %22, align 8
   %.not18 = icmp eq ptr %23, null
   br i1 %.not18, label %25, label %24
@@ -79,17 +79,17 @@ declare void @Map_NodeVecPush(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #14
-  %4 = getelementptr inbounds i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.preheader
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 .preheader:                                       ; preds = %11, %2
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph14, label %._crit_edge
@@ -97,7 +97,7 @@ define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %7, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -2
@@ -112,9 +112,9 @@ define ptr @Map_MappingDfs(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 .lr.ph14:                                         ; preds = %.preheader, %.lr.ph14
   %indvars.iv16 = phi i64 [ %indvars.iv.next17, %.lr.ph14 ], [ 0, %.preheader ]
   %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv16
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv16
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, -2
   store i32 %26, ptr %24, align 4
@@ -132,13 +132,13 @@ declare ptr @Map_NodeVecAlloc(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %8
 
 .preheader:                                       ; preds = %8
@@ -146,14 +146,14 @@ define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr nocapture noundef re
   br i1 %6, label %.lr.ph19, label %._crit_edge
 
 .lr.ph19:                                         ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %19
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.01316 = phi i32 [ -1, %.lr.ph ], [ %spec.select, %8 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
@@ -169,7 +169,7 @@ define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr nocapture noundef re
 19:                                               ; preds = %.lr.ph19, %19
   %indvars.iv21 = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next22, %19 ]
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv21
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv21
   %22 = load ptr, ptr %21, align 8
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2
@@ -190,7 +190,7 @@ define range(i32 -1, 65536) i32 @Map_MappingCountLevels(ptr nocapture noundef re
 define internal fastcc range(i32 0, 65536) i32 @Map_MappingCountLevels_rec(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call i32 @Map_NodeIsAnd(ptr noundef %0) #14
   %.not = icmp eq i32 %2, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   br i1 %.not, label %5, label %7
 
@@ -216,13 +216,13 @@ common.ret14:                                     ; preds = %9, %5, %12
 12:                                               ; preds = %7
   %13 = or disjoint i32 %4, 1
   store i32 %13, ptr %3, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call fastcc i32 @Map_MappingCountLevels_rec(ptr noundef %18)
-  %20 = getelementptr inbounds i8, ptr %0, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, -2
@@ -247,7 +247,7 @@ define void @Map_MappingUnmark_rec(ptr noundef %0) local_unnamed_addr #0 {
 
 tailrecurse:                                      ; preds = %9, %1
   %.tr = phi ptr [ %0, %1 ], [ %21, %9 ]
-  %2 = getelementptr inbounds i8, ptr %.tr, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %.tr, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0
@@ -261,19 +261,19 @@ tailrecurse:                                      ; preds = %9, %1
   br i1 %.not, label %22, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %.tr, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %.tr, i64 64
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = and i64 %12, -2
   %14 = inttoptr i64 %13 to ptr
   tail call void @Map_MappingUnmark_rec(ptr noundef %14)
-  %15 = getelementptr inbounds i8, ptr %.tr, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %.tr, i64 72
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
   tail call void @Map_MappingUnmark_rec(ptr noundef %19)
-  %20 = getelementptr inbounds i8, ptr %.tr, i64 80
+  %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 80
   %21 = load ptr, ptr %20, align 8
   %.not7 = icmp eq ptr %21, null
   br i1 %.not7, label %22, label %tailrecurse
@@ -284,19 +284,19 @@ tailrecurse:                                      ; preds = %9, %1
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingUnmark(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %6
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
@@ -314,7 +314,7 @@ define void @Map_MappingUnmark(ptr nocapture noundef readonly %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingMark_rec(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 1
   %.not6 = icmp eq i32 %4, 0
@@ -331,18 +331,18 @@ define void @Map_MappingMark_rec(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not5, label %._crit_edge, label %tailrecurse
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %.tr7, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %.tr7, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
   tail call void @Map_MappingMark_rec(ptr noundef %13)
-  %14 = getelementptr inbounds i8, ptr %.tr7, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %.tr7, i64 72
   %15 = load ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, -2
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds i8, ptr %18, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %20, 1
   %.not = icmp eq i32 %21, 0
@@ -355,7 +355,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 ; Function Attrs: nofree nounwind uwtable
 define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   %2 = alloca [5 x i32], align 16
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %spec.select = tail call i32 @llvm.smin.i32(i32 %4, i32 5)
   store i32 0, ptr %2, align 16
@@ -363,7 +363,7 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
   br i1 %5, label %.preheader.lr.ph.i, label %Map_MappingFindLatest.exit
 
 .preheader.lr.ph.i:                               ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %invariant.gep.i = getelementptr i8, ptr %2, i64 -8
   %7 = zext nneg i32 %4 to i64
   br label %.preheader.i
@@ -384,11 +384,11 @@ define void @Map_MappingPrintOutputArrivals(ptr nocapture noundef readonly %0) l
 12:                                               ; preds = %9
   %13 = add nsw i64 %indvars.iv.i, -1
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds i32, ptr %2, i64 %13
+  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %13
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds ptr, ptr %14, i64 %17
-  %19 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv43.i
+  %19 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv43.i
   %.val.i = load ptr, ptr %18, align 8
   %.val31.i = load ptr, ptr %19, align 8
   %20 = ptrtoint ptr %.val.i to i64
@@ -465,22 +465,22 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %Map_MappingFindLatest.exit
-  %54 = getelementptr inbounds i8, ptr %0, i64 80
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %59
 
 .preheader:                                       ; preds = %59
   %56 = add nuw nsw i32 %spec.select31, 3
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
-  %58 = getelementptr inbounds i8, ptr %0, i64 80
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %wide.trip.count41 = zext nneg i32 %spec.select to i64
   br label %67
 
 59:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %.033 = phi i32 [ 0, %.lr.ph ], [ %spec.select31, %59 ]
-  %60 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds ptr, ptr %55, i64 %62
@@ -495,7 +495,7 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
 67:                                               ; preds = %.preheader, %67
   %indvars.iv38 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next39, %67 ]
   %68 = load ptr, ptr %57, align 8
-  %69 = getelementptr inbounds [5 x i32], ptr %2, i64 0, i64 %indvars.iv38
+  %69 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv38
   %70 = load i32, ptr %69, align 4
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds ptr, ptr %68, i64 %71
@@ -506,15 +506,15 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
   %77 = and i64 %74, 1
   %.not = icmp eq i64 %77, 0
   %78 = xor i64 %77, 1
-  %79 = getelementptr inbounds i8, ptr %76, i64 96
-  %80 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %79, i64 %78
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 96
+  %80 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %79, i64 %78
   %81 = load ptr, ptr %58, align 8
   %82 = getelementptr inbounds ptr, ptr %81, i64 %71
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %56, ptr noundef %83)
   %85 = load float, ptr %80, align 4
   %86 = fpext float %85 to double
-  %87 = getelementptr inbounds i8, ptr %80, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %88 = load float, ptr %87, align 4
   %89 = fpext float %88 to double
   %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %86, double noundef %89)
@@ -553,7 +553,7 @@ define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds [2 x i32], ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = or i32 %9, %2
   store i32 %10, ptr %8, align 4
@@ -571,18 +571,18 @@ define void @Map_MappingSetupTruthTables(ptr nocapture noundef %0) local_unnamed
 
 .preheader:                                       ; preds = %12, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %12 ]
-  %14 = getelementptr inbounds [2 x i32], ptr %0, i64 %indvars.iv23
+  %14 = getelementptr inbounds nuw [2 x i32], ptr %0, i64 %indvars.iv23
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %14, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %15, ptr %16, align 4
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 5
   br i1 %exitcond26.not, label %17, label %.preheader, !llvm.loop !17
 
 17:                                               ; preds = %.preheader
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 44
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 -1, ptr %19, align 4
   ret void
 }
@@ -597,7 +597,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
 
 2:                                                ; preds = %.preheader33, %2
   %indvars.iv = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds [32 x i32], ptr %0, i64 %indvars.iv, i64 %indvars.iv41
+  %3 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv, i64 %indvars.iv41
   store i32 0, ptr %3, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
@@ -623,12 +623,12 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
   br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds [32 x i32], ptr %0, i64 %indvars.iv45
+  %12 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv45
   %13 = load i32, ptr %12, align 4
   %14 = or i32 %13, %6
   store i32 %14, ptr %12, align 4
-  %15 = getelementptr inbounds i8, ptr %12, i64 640
-  %16 = getelementptr inbounds [32 x i32], ptr %15, i64 0, i64 %indvars.iv49
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 640
+  %16 = getelementptr inbounds nuw [32 x i32], ptr %15, i64 0, i64 %indvars.iv49
   store i32 -1, ptr %16, align 4
   br label %17
 
@@ -648,9 +648,9 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
 
 19:                                               ; preds = %.preheader, %19
   %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %19 ]
-  %20 = getelementptr inbounds [32 x i32], ptr %0, i64 %indvars.iv53
+  %20 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv53
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds [32 x i32], ptr %0, i64 %indvars.iv53, i64 %indvars.iv57
+  %22 = getelementptr inbounds nuw [32 x i32], ptr %0, i64 %indvars.iv53, i64 %indvars.iv57
   store i32 %21, ptr %22, align 4
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 5
@@ -673,7 +673,7 @@ define void @Map_MappingSetupMask(ptr nocapture noundef writeonly initializes((0
   %5 = lshr i32 -1, %4
   %.sink5 = sext i1 %3 to i32
   %.sink = select i1 %3, i32 -1, i32 %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink5, ptr %6, align 4
   store i32 %.sink, ptr %0, align 4
   ret void
@@ -682,17 +682,17 @@ define void @Map_MappingSetupMask(ptr nocapture noundef writeonly initializes((0
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Map_ManCheckConsistency(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Map_NodeVecAlloc(i32 noundef 100) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %.preheader.i
 
 .lr.ph.i:                                         ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %10
 
 .preheader.i:                                     ; preds = %10, %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph14.i, label %._crit_edge
@@ -700,7 +700,7 @@ define noundef i32 @Map_ManCheckConsistency(ptr nocapture noundef readonly %0) l
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, -2
@@ -715,9 +715,9 @@ define noundef i32 @Map_ManCheckConsistency(ptr nocapture noundef readonly %0) l
 .lr.ph14.i:                                       ; preds = %.preheader.i, %.lr.ph14.i
   %indvars.iv16.i = phi i64 [ %indvars.iv.next17.i, %.lr.ph14.i ], [ 0, %.preheader.i ]
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv16.i
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv16.i
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, -2
   store i32 %25, ptr %23, align 4
@@ -734,14 +734,14 @@ Map_MappingDfs.exit:                              ; preds = %.lr.ph14.i
 .lr.ph:                                           ; preds = %Map_MappingDfs.exit, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %Map_MappingDfs.exit ]
   %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @Map_NodeIsVar(ptr noundef %32) #14
   %.not = icmp eq i32 %33, 0
   br i1 %.not, label %37, label %34
 
 34:                                               ; preds = %.lr.ph
-  %35 = getelementptr inbounds i8, ptr %32, i64 88
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %36 = load ptr, ptr %35, align 8
   %.not23 = icmp eq ptr %36, null
   br i1 %.not23, label %70, label %.sink.split
@@ -749,7 +749,7 @@ Map_MappingDfs.exit:                              ; preds = %.lr.ph14.i
 37:                                               ; preds = %.lr.ph
   %38 = tail call i32 @Map_NodeIsConst(ptr noundef %32) #14
   %.not18 = icmp eq i32 %38, 0
-  %39 = getelementptr inbounds i8, ptr %32, i64 88
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %40 = load ptr, ptr %39, align 8
   %.not19 = icmp eq ptr %40, null
   br i1 %.not18, label %42, label %41
@@ -761,42 +761,42 @@ Map_MappingDfs.exit:                              ; preds = %.lr.ph14.i
   br i1 %.not19, label %47, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %32, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %45)
   br label %47
 
 47:                                               ; preds = %43, %42
-  %48 = getelementptr inbounds i8, ptr %32, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %49 = load ptr, ptr %48, align 8
   %50 = ptrtoint ptr %49 to i64
   %51 = and i64 %50, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %52, i64 88
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 88
   %54 = load ptr, ptr %53, align 8
   %.not20 = icmp eq ptr %54, null
   br i1 %.not20, label %59, label %55
 
 55:                                               ; preds = %47
-  %56 = getelementptr inbounds i8, ptr %32, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %57)
   br label %59
 
 59:                                               ; preds = %55, %47
-  %60 = getelementptr inbounds i8, ptr %32, i64 72
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 72
   %61 = load ptr, ptr %60, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = and i64 %62, -2
   %64 = inttoptr i64 %63 to ptr
-  %65 = getelementptr inbounds i8, ptr %64, i64 88
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 88
   %66 = load ptr, ptr %65, align 8
   %.not21 = icmp eq ptr %66, null
   br i1 %.not21, label %70, label %.sink.split
 
 .sink.split:                                      ; preds = %59, %41, %34
   %.str.6.sink = phi ptr [ @.str.6, %34 ], [ @.str.7, %41 ], [ @.str.10, %59 ]
-  %67 = getelementptr inbounds i8, ptr %32, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %68 = load i32, ptr %67, align 8
   %69 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %.str.6.sink, i32 noundef %68)
   br label %70
@@ -821,7 +821,7 @@ declare void @Map_NodeVecFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4
@@ -829,7 +829,7 @@ define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef read
   %8 = getelementptr i8, ptr %1, i64 96
   %9 = getelementptr i8, ptr %8, i64 %.idx
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = lshr i32 %12, 8
   %14 = and i32 %13, 15
@@ -840,20 +840,20 @@ define range(i32 0, 2) i32 @Map_MappingNodeIsViolator(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %6
 
 6:                                                ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %.01921 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %31 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
@@ -864,17 +864,17 @@ define float @Map_MappingGetAreaFlow(ptr nocapture noundef readonly %0) local_un
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, 1
   %20 = xor i64 %19, 1
-  %21 = getelementptr inbounds i8, ptr %12, i64 144
-  %22 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 144
+  %22 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %20
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   %spec.select = select i1 %24, i64 %19, i64 %20
-  %25 = getelementptr inbounds [2 x ptr], ptr %21, i64 0, i64 %spec.select
+  %25 = getelementptr inbounds nuw [2 x ptr], ptr %21, i64 0, i64 %spec.select
   %26 = load ptr, ptr %25, align 8
   %.idx = mul nuw nsw i64 %spec.select, 40
   %27 = getelementptr i8, ptr %26, i64 116
@@ -906,11 +906,11 @@ define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr nocapture noundef reado
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %6, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %12 = load i32, ptr %11, align 4
   %13 = lshr i32 %12, 5
   %14 = and i32 %13, 65535
-  %15 = getelementptr inbounds i8, ptr %10, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 5
   %18 = and i32 %17, 65535
@@ -921,7 +921,7 @@ define range(i32 -1, 2) i32 @Map_CompareNodesByLevel(ptr nocapture noundef reado
 ; Function Attrs: nofree nounwind uwtable
 define void @Map_MappingSortByLevel(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
   tail call void @qsort(ptr noundef %3, i64 noundef %6, i64 noundef 8, ptr noundef nonnull @Map_CompareNodesByLevel) #14
@@ -944,7 +944,7 @@ define range(i32 -1, 2) i32 @Map_CompareNodesByPointer(ptr nocapture noundef rea
 
 ; Function Attrs: nounwind uwtable
 define i32 @Map_MappingCountDoubles(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -953,32 +953,32 @@ define i32 @Map_MappingCountDoubles(ptr nocapture noundef readnone %0, ptr nocap
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %2 ]
   %.01116 = phi i32 [ %.1, %23 ], [ 0, %2 ]
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @Map_NodeIsAnd(ptr noundef %8) #14
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %23, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %8, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i32, ptr %11, align 8
   %.not12 = icmp eq i32 %12, 0
   br i1 %.not12, label %23, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %8, i64 144
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %15 = load ptr, ptr %14, align 8
   %.not13 = icmp eq ptr %15, null
   br i1 %.not13, label %23, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %8, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %18 = load i32, ptr %17, align 4
   %.not14 = icmp eq i32 %18, 0
   br i1 %.not14, label %23, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %8, i64 152
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %21 = load ptr, ptr %20, align 8
   %.not15 = icmp ne ptr %21, null
   %22 = zext i1 %.not15 to i32
@@ -1001,9 +1001,9 @@ define i32 @Map_MappingCountDoubles(ptr nocapture noundef readnone %0, ptr nocap
 ; Function Attrs: nounwind uwtable
 define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @st__init_table(ptr noundef nonnull @strcmp, ptr noundef nonnull @st__strhash) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph27, label %._crit_edge28
@@ -1011,21 +1011,21 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
 .lr.ph27:                                         ; preds = %1, %32
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %32 ], [ 0, %1 ]
   %8 = phi ptr [ %33, %32 ], [ %4, %1 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv30
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv30
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = and i32 %14, 224
   %16 = icmp eq i32 %15, 32
   br i1 %16, label %17, label %32
 
 17:                                               ; preds = %.lr.ph27
-  %18 = getelementptr inbounds i8, ptr %12, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @Mio_GateReadPinNum(ptr noundef %19) #14
-  %21 = getelementptr inbounds i8, ptr %12, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %22 = icmp sgt i32 %20, 0
   br i1 %22, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1035,7 +1035,7 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %23 = getelementptr inbounds [6 x ptr], ptr %21, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [6 x ptr], ptr %21, i64 0, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %24, align 8
   %26 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1062,7 +1062,7 @@ define ptr @Map_CreateTableGate2Super(ptr nocapture noundef readonly %0) local_u
 32:                                               ; preds = %.lr.ph27, %._crit_edge.thread, %._crit_edge
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %33 = load ptr, ptr %3, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
   %37 = icmp slt i64 %indvars.iv.next31, %36
@@ -1085,9 +1085,9 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Map_ManCleanData(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -1096,19 +1096,19 @@ define void @Map_ManCleanData(ptr nocapture noundef readonly %0) local_unnamed_a
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %7 = phi ptr [ %17, %.lr.ph ], [ %3, %1 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 176
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 176
   store ptr null, ptr %11, align 8
   %12 = load ptr, ptr %2, align 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 168
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 168
   store ptr null, ptr %16, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load ptr, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = icmp slt i64 %indvars.iv.next, %20
@@ -1151,7 +1151,7 @@ Map_MappingExpandTruth_rec.exit:                  ; preds = %tailrecurse.i
 
 15:                                               ; preds = %Map_MappingExpandTruth_rec.exit, %4
   %16 = phi i32 [ %12, %Map_MappingExpandTruth_rec.exit ], [ %.pre, %4 ]
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %16, ptr %17, align 4
   br label %18
 
@@ -1161,9 +1161,9 @@ Map_MappingExpandTruth_rec.exit:                  ; preds = %tailrecurse.i
 
 ; Function Attrs: nounwind uwtable
 define float @Map_MappingComputeDelayWithFanouts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -1172,38 +1172,38 @@ define float @Map_MappingComputeDelayWithFanouts(ptr noundef %0) local_unnamed_a
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %1 ]
   %7 = phi ptr [ %32, %31 ], [ %3, %1 ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @Map_NodeIsAnd(ptr noundef %10) #14
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %31, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds i8, ptr %10, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %14 = load ptr, ptr %13, align 8
   %.not15 = icmp eq ptr %14, null
   br i1 %.not15, label %15, label %31
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %10, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %10, i64 144
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %21 = load ptr, ptr %20, align 8
   %22 = tail call float @Map_TimeCutComputeArrival(ptr noundef nonnull %10, ptr noundef %21, i32 noundef 0, float noundef 0x47B9999980000000) #14
   br label %23
 
 23:                                               ; preds = %19, %15
-  %24 = getelementptr inbounds i8, ptr %10, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
-  %28 = getelementptr inbounds i8, ptr %10, i64 152
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %29 = load ptr, ptr %28, align 8
   %30 = tail call float @Map_TimeCutComputeArrival(ptr noundef nonnull %10, ptr noundef %29, i32 noundef 1, float noundef 0x47B9999980000000) #14
   br label %31
@@ -1211,7 +1211,7 @@ define float @Map_MappingComputeDelayWithFanouts(ptr noundef %0) local_unnamed_a
 31:                                               ; preds = %23, %27, %12, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load ptr, ptr %2, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = icmp slt i64 %indvars.iv.next, %35
@@ -1230,13 +1230,13 @@ declare float @Map_TimeComputeArrivalMax(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 0, 65536) i32 @Map_MappingGetMaxLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -1244,12 +1244,12 @@ define range(i32 0, 65536) i32 @Map_MappingGetMaxLevel(ptr nocapture noundef rea
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.0911 = phi i32 [ 0, %.lr.ph ], [ %.09., %7 ]
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds i8, ptr %12, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 5
   %16 = and i32 %15, 65535
@@ -1270,37 +1270,37 @@ define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr n
   br i1 %.not, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br label %.loopexit
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 148
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %9, %11
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %1, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
   br label %.loopexit
 
 15:                                               ; preds = %7
   store i32 %11, ptr %8, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = and i64 %18, -2
   %20 = inttoptr i64 %19 to ptr
   %21 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %20, i32 noundef %2)
-  %22 = getelementptr inbounds i8, ptr %1, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = tail call i32 @Map_MappingUpdateLevel_rec(ptr noundef nonnull %0, ptr noundef %26, i32 noundef %2)
   %28 = tail call i32 @llvm.umax.i32(i32 %21, i32 %27)
-  %29 = getelementptr inbounds i8, ptr %1, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = shl nuw nsw i32 %28, 5
   %32 = add nuw nsw i32 %31, 32
@@ -1308,7 +1308,7 @@ define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr n
   %34 = and i32 %30, -2097121
   %35 = or disjoint i32 %33, %34
   store i32 %35, ptr %29, align 4
-  %36 = getelementptr inbounds i8, ptr %1, i64 80
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %37 = load ptr, ptr %36, align 8
   %.not42 = icmp eq ptr %37, null
   br i1 %.not42, label %.loopexit, label %38
@@ -1337,7 +1337,7 @@ define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr n
   br label %50
 
 50:                                               ; preds = %.sink.split, %45, %43
-  %51 = getelementptr inbounds i8, ptr %1, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.preheader, label %.loopexit
@@ -1351,12 +1351,12 @@ define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr n
   %.03847 = phi ptr [ %.038, %.lr.ph ], [ %.03845, %.preheader ]
   %54 = load i32, ptr %29, align 4
   %55 = and i32 %54, 2097120
-  %56 = getelementptr inbounds i8, ptr %.03847, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %.03847, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = and i32 %57, -2097121
   %59 = or disjoint i32 %58, %55
   store i32 %59, ptr %56, align 4
-  %60 = getelementptr inbounds i8, ptr %.03847, i64 80
+  %60 = getelementptr inbounds nuw i8, ptr %.03847, i64 80
   %.038 = load ptr, ptr %60, align 8
   %.not44 = icmp eq ptr %.038, null
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !32
@@ -1371,23 +1371,23 @@ define range(i32 0, 65536) i32 @Map_MappingUpdateLevel_rec(ptr noundef %0, ptr n
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingSetChoiceLevels(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 148
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %9
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -2
@@ -1405,20 +1405,20 @@ define void @Map_MappingSetChoiceLevels(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define void @Map_MappingReportChoices(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.i, label %Map_MappingGetMaxLevel.exit.thread
 
 Map_MappingGetMaxLevel.exit.thread:               ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 148
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %5, align 4
   br label %Map_MappingGetMaxLevel.exit38
 
 .lr.ph.i:                                         ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %10
@@ -1426,12 +1426,12 @@ Map_MappingGetMaxLevel.exit.thread:               ; preds = %1
 10:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
   %.0911.i = phi i32 [ 0, %.lr.ph.i ], [ %.09..i, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, -2
   %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds i8, ptr %15, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 5
   %19 = and i32 %18, 65535
@@ -1441,17 +1441,17 @@ Map_MappingGetMaxLevel.exit.thread:               ; preds = %1
   br i1 %exitcond.not.i, label %Map_MappingGetMaxLevel.exit, label %10, !llvm.loop !31
 
 Map_MappingGetMaxLevel.exit:                      ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %0, i64 148
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %21 = load i32, ptr %20, align 4
   %22 = add nsw i32 %21, 1
   store i32 %22, ptr %20, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
 24:                                               ; preds = %Map_MappingGetMaxLevel.exit, %24
   %indvars.iv = phi i64 [ 0, %Map_MappingGetMaxLevel.exit ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %23, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, -2
@@ -1468,7 +1468,7 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
   br i1 %35, label %.lr.ph.i31, label %Map_MappingGetMaxLevel.exit38
 
 .lr.ph.i31:                                       ; preds = %._crit_edge
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8
   %wide.trip.count.i32 = zext nneg i32 %32 to i64
   br label %38
@@ -1476,12 +1476,12 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
 38:                                               ; preds = %38, %.lr.ph.i31
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i36, %38 ]
   %.0911.i34 = phi i32 [ 0, %.lr.ph.i31 ], [ %.09..i35, %38 ]
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv.i33
+  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i33
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, -2
   %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %43, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = lshr i32 %45, 5
   %47 = and i32 %46, 65535
@@ -1493,9 +1493,9 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
 Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGetMaxLevel.exit.thread, %._crit_edge
   %.09.lcssa.i6063 = phi i32 [ %.09..i, %._crit_edge ], [ 0, %Map_MappingGetMaxLevel.exit.thread ], [ %.09..i, %38 ]
   %.09.lcssa.i30 = phi i32 [ 0, %._crit_edge ], [ 0, %Map_MappingGetMaxLevel.exit.thread ], [ %.09..i35, %38 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 56
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %.lr.ph49, label %._crit_edge50
@@ -1509,15 +1509,15 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGet
   %indvars.iv56 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next57, %.loopexit ]
   %.02448 = phi i32 [ 0, %.lr.ph49 ], [ %.1, %.loopexit ]
   %.02746 = phi i32 [ 0, %.lr.ph49 ], [ %.2, %.loopexit ]
-  %55 = getelementptr inbounds ptr, ptr %53, i64 %indvars.iv56
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv56
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 88
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 88
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %56, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %62 = load ptr, ptr %61, align 8
   %.not = icmp eq ptr %62, null
   br i1 %.not, label %.loopexit, label %.lr.ph44.preheader
@@ -1530,7 +1530,7 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGet
   %.042 = phi ptr [ %66, %.lr.ph44 ], [ %56, %.lr.ph44.preheader ]
   %.12841 = phi i32 [ %64, %.lr.ph44 ], [ %.02746, %.lr.ph44.preheader ]
   %64 = add nsw i32 %.12841, 1
-  %65 = getelementptr inbounds i8, ptr %.042, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %.042, i64 80
   %66 = load ptr, ptr %65, align 8
   %.not29 = icmp eq ptr %66, null
   br i1 %.not29, label %.loopexit, label %.lr.ph44, !llvm.loop !35

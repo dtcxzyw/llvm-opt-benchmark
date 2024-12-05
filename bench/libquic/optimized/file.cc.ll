@@ -56,11 +56,11 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN4base4File4InfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (16, 40)) %this) unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8
-  %is_directory = getelementptr inbounds i8, ptr %this, i64 8
+  %is_directory = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %is_directory, align 8
-  %is_symbolic_link = getelementptr inbounds i8, ptr %this, i64 9
+  %is_symbolic_link = getelementptr inbounds nuw i8, ptr %this, i64 9
   store i8 0, ptr %is_symbolic_link, align 1
-  %last_modified = getelementptr inbounds i8, ptr %this, i64 16
+  %last_modified = getelementptr inbounds nuw i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_modified, i8 0, i64 24, i1 false)
   ret void
 }
@@ -75,21 +75,21 @@ entry:
 define dso_local void @_ZN4base4FileC2Ev(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trace_enabler_ = getelementptr inbounds i8, ptr %this, i64 40
+  %trace_enabler_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN4base11FileTracing13ScopedEnablerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -1, ptr %error_details_, align 4
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %created_, align 8
-  %async_ = getelementptr inbounds i8, ptr %this, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   store i8 0, ptr %async_, align 1
   ret void
 
@@ -149,21 +149,21 @@ terminate.lpad:                                   ; preds = %if.then.i
 define dso_local void @_ZN4base4FileC2ERKNS_8FilePathEj(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trace_enabler_ = getelementptr inbounds i8, ptr %this, i64 40
+  %trace_enabler_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN4base11FileTracing13ScopedEnablerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %error_details_, align 4
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %created_, align 8
-  %async_ = getelementptr inbounds i8, ptr %this, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   store i8 0, ptr %async_, align 1
   invoke void @_ZN4base4File10InitializeERKNS_8FilePathEj(ptr noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i32 noundef %flags)
           to label %invoke.cont5 unwind label %lpad4
@@ -206,7 +206,7 @@ entry:
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 -5, ptr %error_details_, align 4
   br label %return
 
@@ -215,7 +215,7 @@ if.end:                                           ; preds = %entry
   br i1 %call2, label %if.then3, label %if.end5
 
 if.then3:                                         ; preds = %if.end
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8FilePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_, ptr noundef nonnull align 8 dereferenceable(32) %path)
   br label %if.end5
 
@@ -256,12 +256,12 @@ declare void @_ZN4base11FileTracing13ScopedEnablerD1Ev(ptr noundef nonnull align
 define dso_local void @_ZN4base4FileC2Ei(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, i32 noundef %platform_file) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %platform_file, ptr %this, align 8
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trace_enabler_ = getelementptr inbounds i8, ptr %this, i64 40
+  %trace_enabler_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN4base11FileTracing13ScopedEnablerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_)
           to label %if.end unwind label %ehcleanup13
 
@@ -271,11 +271,11 @@ lpad:                                             ; preds = %entry
   br label %ehcleanup14
 
 if.end:                                           ; preds = %invoke.cont
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 0, ptr %error_details_, align 4
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %created_, align 8
-  %async_ = getelementptr inbounds i8, ptr %this, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   store i8 0, ptr %async_, align 1
   ret void
 
@@ -295,21 +295,21 @@ ehcleanup14:                                      ; preds = %ehcleanup13, %lpad
 define dso_local void @_ZN4base4FileC2ENS0_5ErrorE(ptr noundef nonnull align 8 dereferenceable(50) initializes((0, 4)) %this, i32 noundef %error_details) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trace_enabler_ = getelementptr inbounds i8, ptr %this, i64 40
+  %trace_enabler_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN4base11FileTracing13ScopedEnablerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 %error_details, ptr %error_details_, align 4
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i8 0, ptr %created_, align 8
-  %async_ = getelementptr inbounds i8, ptr %this, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %this, i64 49
   store i8 0, ptr %async_, align 1
   ret void
 
@@ -335,28 +335,28 @@ define dso_local void @_ZN4base4FileC2EOS0_(ptr noundef nonnull align 8 derefere
 entry:
   %call = tail call noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr noundef nonnull align 8 dereferenceable(50) %other)
   store i32 %call, ptr %this, align 8
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
-  %tracing_path_2 = getelementptr inbounds i8, ptr %other, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %tracing_path_2 = getelementptr inbounds nuw i8, ptr %other, i64 8
   invoke void @_ZN4base8FilePathC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_, ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_2)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trace_enabler_ = getelementptr inbounds i8, ptr %this, i64 40
+  %trace_enabler_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   invoke void @_ZN4base11FileTracing13ScopedEnablerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_)
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
-  %error_details_.i = getelementptr inbounds i8, ptr %other, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
+  %error_details_.i = getelementptr inbounds nuw i8, ptr %other, i64 44
   %0 = load i32, ptr %error_details_.i, align 4
   store i32 %0, ptr %error_details_, align 4
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
-  %created_.i = getelementptr inbounds i8, ptr %other, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %created_.i = getelementptr inbounds nuw i8, ptr %other, i64 48
   %1 = load i8, ptr %created_.i, align 8
   %frombool = and i8 %1, 1
   store i8 %frombool, ptr %created_, align 8
-  %async_ = getelementptr inbounds i8, ptr %this, i64 49
-  %async_10 = getelementptr inbounds i8, ptr %other, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %this, i64 49
+  %async_10 = getelementptr inbounds nuw i8, ptr %other, i64 49
   %2 = load i8, ptr %async_10, align 1
   %frombool11 = and i8 %2, 1
   store i8 %frombool11, ptr %async_, align 1
@@ -390,9 +390,9 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %trace_enabler_ = getelementptr inbounds i8, ptr %this, i64 40
+  %trace_enabler_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @_ZN4base11FileTracing13ScopedEnablerD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_) #9
-  %tracing_path_ = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_) #9
   %0 = load i32, ptr %this, align 8
   %cmp.not.i.i = icmp eq i32 %0, -1
@@ -442,12 +442,12 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 define dso_local void @_ZN4base4File20CreateForAsyncHandleEi(ptr noalias sret(%"class.base::File") align 8 initializes((0, 4)) %agg.result, i32 noundef %platform_file) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %platform_file, ptr %agg.result, align 8
-  %tracing_path_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %tracing_path_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   invoke void @_ZN4base8FilePathC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %entry
-  %trace_enabler_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %trace_enabler_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   invoke void @_ZN4base11FileTracing13ScopedEnablerC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %trace_enabler_.i)
           to label %_ZN4base4FileC2Ei.exit unwind label %ehcleanup13.i
 
@@ -468,11 +468,11 @@ ehcleanup14.i:                                    ; preds = %ehcleanup13.i, %lpa
   resume { ptr, i32 } %.pn.pn.i
 
 _ZN4base4FileC2Ei.exit:                           ; preds = %invoke.cont.i
-  %error_details_.i = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %error_details_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 44
   store i32 0, ptr %error_details_.i, align 4
-  %created_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %created_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   store i8 0, ptr %created_.i, align 8
-  %async_.i = getelementptr inbounds i8, ptr %agg.result, i64 49
+  %async_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 49
   store i8 1, ptr %async_.i, align 1
   ret void
 }
@@ -483,21 +483,21 @@ if.end:
   tail call void @_ZN4base4File5CloseEv(ptr noundef nonnull align 8 dereferenceable(50) %this)
   %call4 = tail call noundef i32 @_ZN4base4File16TakePlatformFileEv(ptr noundef nonnull align 8 dereferenceable(50) %other)
   tail call void @_ZN4base4File15SetPlatformFileEi(ptr noundef nonnull align 8 dereferenceable(50) %this, i32 noundef %call4)
-  %tracing_path_ = getelementptr inbounds i8, ptr %other, i64 8
-  %tracing_path_5 = getelementptr inbounds i8, ptr %this, i64 8
+  %tracing_path_ = getelementptr inbounds nuw i8, ptr %other, i64 8
+  %tracing_path_5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call6 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4base8FilePathaSERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_5, ptr noundef nonnull align 8 dereferenceable(32) %tracing_path_)
-  %error_details_.i = getelementptr inbounds i8, ptr %other, i64 44
+  %error_details_.i = getelementptr inbounds nuw i8, ptr %other, i64 44
   %0 = load i32, ptr %error_details_.i, align 4
-  %error_details_ = getelementptr inbounds i8, ptr %this, i64 44
+  %error_details_ = getelementptr inbounds nuw i8, ptr %this, i64 44
   store i32 %0, ptr %error_details_, align 4
-  %created_.i = getelementptr inbounds i8, ptr %other, i64 48
+  %created_.i = getelementptr inbounds nuw i8, ptr %other, i64 48
   %1 = load i8, ptr %created_.i, align 8
-  %created_ = getelementptr inbounds i8, ptr %this, i64 48
+  %created_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %frombool = and i8 %1, 1
   store i8 %frombool, ptr %created_, align 8
-  %async_ = getelementptr inbounds i8, ptr %other, i64 49
+  %async_ = getelementptr inbounds nuw i8, ptr %other, i64 49
   %2 = load i8, ptr %async_, align 1
-  %async_9 = getelementptr inbounds i8, ptr %this, i64 49
+  %async_9 = getelementptr inbounds nuw i8, ptr %this, i64 49
   %frombool10 = and i8 %2, 1
   store i8 %frombool10, ptr %async_9, align 1
   ret ptr %this

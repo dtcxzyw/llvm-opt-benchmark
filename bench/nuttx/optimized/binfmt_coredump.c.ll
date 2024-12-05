@@ -14,7 +14,7 @@ define i32 @core_dump(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 .lr.ph:                                           ; preds = %3, %9
   %.0816 = phi ptr [ %.08, %9 ], [ %.0813, %3 ]
   %.015 = phi i32 [ %.2, %9 ], [ -2, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.0816, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %.0816, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %9, label %6

@@ -46,10 +46,10 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ClassLoaderMetaspaceC2EP5MutexN9Metaspace13MetaspaceTypeE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %7 = tail call noundef ptr @_ZN9metaspace12ChunkManager21chunkmanager_nonclassEv() #6
   %8 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 1, i32 noundef 0) #6
@@ -69,7 +69,7 @@ define hidden void @_ZN20ClassLoaderMetaspaceC2EP5MutexN9Metaspace13MetaspaceTyp
   br label %16
 
 16:                                               ; preds = %12, %3
-  %17 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %17 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %24, label %18
 
@@ -105,7 +105,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN20ClassLoaderMetaspaceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  %2 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
 
@@ -124,7 +124,7 @@ define hidden void @_ZN20ClassLoaderMetaspaceD2Ev(ptr noundef nonnull align 8 de
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %12, label %11
@@ -135,7 +135,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %5, %7
   br label %12
 
 12:                                               ; preds = %11, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -175,7 +175,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %3, %5
   %8 = trunc i8 %7 to i1
   %9 = select i1 %6, i1 %8, i1 false
   %. = select i1 %9, i64 24, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 %.
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef ptr @_ZN9metaspace14MetaspaceArena8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %1) #6
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %13
@@ -204,7 +204,7 @@ define hidden noundef ptr @_ZN20ClassLoaderMetaspace19expand_and_allocateEmN9Met
   br i1 %9, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 11:                                               ; preds = %21, %.split.us
@@ -250,7 +250,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %26, %.spl
   %27 = load i8, ptr @UseCompressedClassPointers, align 1
   %28 = trunc i8 %27 to i1
   %spec.select = select i1 %28, i64 24, i64 16
-  %29 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
   %30 = load ptr, ptr %29, align 8
   %31 = call noundef ptr @_ZN9metaspace14MetaspaceArena8allocateEm(ptr noundef nonnull align 8 dereferenceable(56) %30, i64 noundef %1) #6
   br i1 %.not.i.i.i, label %_ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit, label %32
@@ -279,7 +279,7 @@ _ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit: ; preds = %
   %39 = load i64, ptr %4, align 8
   %40 = load i64, ptr %5, align 8
   call void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr noundef nonnull align 1 dereferenceable(1) %38, i64 noundef %39, i64 noundef %40, i32 noundef 1) #6
-  %41 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %41, null
   br i1 %.not, label %45, label %42
 
@@ -290,7 +290,7 @@ _ZN20ClassLoaderMetaspace8allocateEmN9Metaspace12MetadataTypeE.exit: ; preds = %
   br label %45
 
 45:                                               ; preds = %37, %42
-  %46 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %46 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not10 = icmp eq ptr %46, null
   br i1 %.not10, label %.critedge.thread, label %47
 
@@ -342,7 +342,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4
   %7 = trunc i8 %6 to i1
   %brmerge.demorgan = and i1 %3, %7
   %. = select i1 %brmerge.demorgan, i64 24, i64 16
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN9metaspace14MetaspaceArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %1, i64 noundef %2) #6
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %5) #6
@@ -353,7 +353,7 @@ _ZN11MutexLockerD2Ev.exit.critedge:               ; preds = %4
   %11 = trunc i8 %10 to i1
   %brmerge.demorgan.c = and i1 %3, %11
   %..c = select i1 %brmerge.demorgan.c, i64 24, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 %..c
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %..c
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN9metaspace14MetaspaceArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef %1, i64 noundef %2) #6
   br label %_ZN11MutexLockerD2Ev.exit
@@ -375,7 +375,7 @@ define hidden void @_ZNK20ClassLoaderMetaspace17add_to_statisticsEPN9metaspace9C
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %8, label %7
@@ -385,13 +385,13 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
   br label %8
 
 8:                                                ; preds = %7, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
   %.not3 = icmp eq ptr %10, null
   br i1 %.not3, label %13, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %1, i64 736
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 736
   tail call void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10ArenaStatsE(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull %12) #6
   br label %13
 
@@ -411,9 +411,9 @@ declare void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10ArenaStats
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK20ClassLoaderMetaspace13usage_numbersEN9Metaspace12MetadataTypeEPmS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = icmp eq i32 %1, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = select i1 %6, ptr %8, ptr %10
   tail call void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %2, ptr noundef %3, ptr noundef %4) #6
@@ -442,7 +442,7 @@ define hidden void @_ZNK20ClassLoaderMetaspace13usage_numbersEPmS0_S0_(ptr nocap
   br label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
 
 _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
   call void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #6
   %15 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -450,7 +450,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %4, %12
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   call void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
   br label %20

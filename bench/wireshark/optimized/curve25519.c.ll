@@ -10,7 +10,7 @@ define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr nocapture noundef 
   %4 = alloca [32 x i8], align 16
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %7
 
 7:                                                ; preds = %7, %3
@@ -49,7 +49,7 @@ define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr nocapture noundef wr
   store ptr null, ptr %7, align 8
   store ptr null, ptr %8, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %10
 
 10:                                               ; preds = %10, %3
@@ -68,7 +68,7 @@ copy_and_reverse.exit:                            ; preds = %10
   %17 = and i8 %16, 63
   %18 = or disjoint i8 %17, 64
   store i8 %18, ptr %4, align 16
-  %19 = getelementptr inbounds i8, ptr %4, i64 31
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 31
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, -8
   store i8 %21, ptr %19, align 1

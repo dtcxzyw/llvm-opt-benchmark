@@ -33,7 +33,7 @@ define hidden void @_ZN4cvc58internal3smt19ResourceOutListenerC2ERNS0_12SolverEn
 entry:
   tail call void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt19ResourceOutListenerE, i64 16), ptr %this, align 8
-  %d_slv = getelementptr inbounds i8, ptr %this, i64 8
+  %d_slv = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %slv, ptr %d_slv, align 8
   ret void
 }
@@ -43,7 +43,7 @@ declare void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN4cvc58internal3smt19ResourceOutListener6notifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  %d_slv = getelementptr inbounds i8, ptr %this, i64 8
+  %d_slv = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_slv, align 8
   tail call void @_ZN4cvc58internal12SolverEngine9interruptEv(ptr noundef nonnull align 8 dereferenceable(224) %0)
   ret void

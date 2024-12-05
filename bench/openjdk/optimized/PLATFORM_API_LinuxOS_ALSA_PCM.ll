@@ -20,24 +20,24 @@ declare i32 @getAudioDeviceCount(...) local_unnamed_addr #1
 define hidden i32 @DAUDIO_GetDirectAudioDeviceDescription(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.tag_ALSA_AudioDeviceDescription, align 8
   store i32 %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 200, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %5, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  %9 = getelementptr inbounds i8, ptr %3, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 209
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 209
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 410
-  %13 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 410
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 611
-  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 611
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store ptr %14, ptr %15, align 8
   %16 = call i32 @getAudioDeviceDescriptionByIndex(ptr noundef nonnull %3) #8
   ret i32 %16
@@ -93,7 +93,7 @@ define hidden noundef i32 @getSampleSizeInBytes(i32 noundef %0, i32 noundef %1) 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.getSampleSizeInBytes, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.getSampleSizeInBytes, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -110,7 +110,7 @@ define hidden noundef i32 @getSignificantBits(i32 noundef %0, i32 noundef %1) lo
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.getSignificantBits, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table.getSignificantBits, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -237,13 +237,13 @@ getBitIndex.exit:                                 ; preds = %getBitIndex.exit.pr
   ]
 
 61:                                               ; preds = %getBitIndex.exit
-  %62 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %.not52 = icmp eq i32 %63, 0
   br i1 %.not52, label %64, label %.loopexit
 
 64:                                               ; preds = %getBitIndex.exit, %getBitIndex.exit, %61
-  %65 = getelementptr inbounds [7 x i32], ptr %8, i64 0, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [7 x i32], ptr %8, i64 0, i64 %indvars.iv
   store i32 1, ptr %65, align 4
   switch i32 %60, label %66 [
     i32 1, label %getSignificantBits.exit
@@ -385,7 +385,7 @@ define hidden range(i32 0, 2) i32 @setStartThresholdNoCommit(ptr nocapture nound
   %.not = icmp eq i32 %1, 0
   %. = select i1 %.not, i64 2000000000, i64 1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @snd_pcm_sw_params_set_start_threshold(ptr noundef %3, ptr noundef %5, i64 noundef %.) #8
   %7 = icmp sgt i32 %6, -1
@@ -400,7 +400,7 @@ define hidden range(i32 0, 2) i32 @setStartThreshold(ptr nocapture noundef reado
   %.not.i = icmp eq i32 %1, 0
   %..i = select i1 %.not.i, i64 2000000000, i64 1
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @snd_pcm_sw_params_set_start_threshold(ptr noundef %3, ptr noundef %5, i64 noundef %..i) #8
   %7 = icmp slt i32 %6, 0
@@ -431,7 +431,7 @@ define hidden range(i32 0, 2) i32 @setHWParams(ptr nocapture noundef readonly %0
   %11 = sext i32 %3 to i64
   store i64 %11, ptr %10, align 8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @snd_pcm_hw_params_any(ptr noundef %12, ptr noundef %14) #8
   %16 = icmp slt i32 %15, 0
@@ -539,7 +539,7 @@ declare i32 @snd_pcm_hw_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @setSWParams(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @snd_pcm_sw_params_current(ptr noundef %2, ptr noundef %4) #8
   %6 = icmp slt i32 %5, 0
@@ -555,7 +555,7 @@ define hidden range(i32 0, 2) i32 @setSWParams(ptr nocapture noundef readonly %0
 12:                                               ; preds = %7
   %13 = load ptr, ptr %0, align 8
   %14 = load ptr, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = tail call i32 @snd_pcm_sw_params_set_avail_min(ptr noundef %13, ptr noundef %14, i64 noundef %16) #8
   %18 = icmp slt i32 %17, 0
@@ -593,7 +593,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   br i1 %.not, label %76, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %calloc, i64 50
+  %18 = getelementptr inbounds nuw i8, ptr %calloc, i64 50
   store i16 1, ptr %18, align 2
   %19 = tail call i32 @openPCMfromDeviceID(i32 noundef %1, ptr noundef nonnull %calloc, i32 noundef %2, i32 noundef 0) #8
   %20 = icmp eq i32 %19, 0
@@ -602,7 +602,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
 21:                                               ; preds = %17
   %22 = load ptr, ptr %calloc, align 8
   %23 = tail call i32 @snd_pcm_nonblock(ptr noundef %22, i32 noundef 0) #8
-  %24 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %25 = tail call i32 @snd_pcm_hw_params_malloc(ptr noundef nonnull %24) #8
   %.not56 = icmp eq i32 %25, 0
   br i1 %.not56, label %26, label %.critedge64
@@ -621,26 +621,26 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   br i1 %.not58, label %.critedge64, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %calloc, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %calloc, i64 28
   store i32 %6, ptr %34, align 4
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %calloc, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
   %37 = call i32 @snd_pcm_hw_params_get_period_size(ptr noundef %35, ptr noundef nonnull %36, ptr noundef nonnull %13) #8
   %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %calloc, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %calloc, i64 32
   %40 = call i32 @snd_pcm_hw_params_get_periods(ptr noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %13) #8
   %41 = load ptr, ptr %24, align 8
   %42 = call i32 @snd_pcm_hw_params_get_buffer_size(ptr noundef %41, ptr noundef nonnull %14) #8
   %43 = load i64, ptr %14, align 8
   %44 = trunc i64 %43 to i32
   %45 = mul nsw i32 %6, %44
-  %46 = getelementptr inbounds i8, ptr %calloc, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
   store i32 %45, ptr %46, align 8
   %47 = icmp eq i32 %37, 0
   br i1 %47, label %48, label %.critedge64
 
 48:                                               ; preds = %33
-  %49 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   %50 = call i32 @snd_pcm_sw_params_malloc(ptr noundef nonnull %49) #8
   %.not59 = icmp eq i32 %50, 0
   br i1 %.not59, label %.critedge, label %.critedge64
@@ -657,7 +657,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   br i1 %54, label %.critedge63, label %.critedge64
 
 .critedge63:                                      ; preds = %.critedge62
-  %55 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   %56 = call i32 @snd_pcm_status_malloc(ptr noundef nonnull %55) #8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %73, label %.critedge64
@@ -672,7 +672,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   br label %61
 
 61:                                               ; preds = %59, %.critedge64
-  %62 = getelementptr inbounds i8, ptr %calloc, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
   %63 = load ptr, ptr %62, align 8
   %.not16.i = icmp eq ptr %63, null
   br i1 %.not16.i, label %65, label %64
@@ -682,7 +682,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   br label %65
 
 65:                                               ; preds = %64, %61
-  %66 = getelementptr inbounds i8, ptr %calloc, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
   %67 = load ptr, ptr %66, align 8
   %.not17.i = icmp eq ptr %67, null
   br i1 %.not17.i, label %69, label %68
@@ -692,7 +692,7 @@ define hidden noundef ptr @DAUDIO_Open(i32 noundef %0, i32 noundef %1, i32 nound
   br label %69
 
 69:                                               ; preds = %68, %65
-  %70 = getelementptr inbounds i8, ptr %calloc, i64 56
+  %70 = getelementptr inbounds nuw i8, ptr %calloc, i64 56
   %71 = load ptr, ptr %70, align 8
   %.not18.i = icmp eq ptr %71, null
   br i1 %.not18.i, label %DAUDIO_Close.exit, label %72
@@ -749,7 +749,7 @@ define hidden void @DAUDIO_Close(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %7
 
 7:                                                ; preds = %5, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %11, label %10
@@ -759,7 +759,7 @@ define hidden void @DAUDIO_Close(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %11
 
 11:                                               ; preds = %10, %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %.not17 = icmp eq ptr %13, null
   br i1 %.not17, label %15, label %14
@@ -769,7 +769,7 @@ define hidden void @DAUDIO_Close(ptr noundef %0, i32 noundef %1) local_unnamed_a
   br label %15
 
 15:                                               ; preds = %14, %11
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load ptr, ptr %16, align 8
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %19, label %18
@@ -791,7 +791,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_Start(ptr nocapture noundef %0, i32 no
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_nonblock(ptr noundef %3, i32 noundef 0) #8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @snd_pcm_sw_params_set_start_threshold(ptr noundef %5, ptr noundef %7, i64 noundef 1) #8
   %9 = icmp slt i32 %8, 0
@@ -842,13 +842,13 @@ setStartThreshold.exit:                           ; preds = %2, %10
   ]
 
 32:                                               ; preds = %25, %25, %25, %25
-  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 1, ptr %33, align 8
   %.not35 = icmp eq i32 %1, 0
   br i1 %.not35, label %34, label %switch.edge
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %0, i64 50
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 0, ptr %35, align 2
   br label %switch.edge
 
@@ -870,7 +870,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_Stop(ptr nocapture noundef %0, i32 nou
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_nonblock(ptr noundef %3, i32 noundef 0) #8
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @snd_pcm_sw_params_set_start_threshold(ptr noundef %5, ptr noundef %7, i64 noundef 2000000000) #8
   %9 = icmp slt i32 %8, 0
@@ -891,7 +891,7 @@ setStartThreshold.exit:                           ; preds = %2, %10
   br i1 %.not, label %18, label %20
 
 18:                                               ; preds = %setStartThreshold.exit
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i16 0, ptr %19, align 8
   br label %20
 
@@ -954,7 +954,7 @@ define hidden i32 @DAUDIO_Write(ptr nocapture noundef %0, ptr noundef %1, i32 no
   br i1 %4, label %xrun_recovery.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %xrun_recovery.exit.thread, label %9
@@ -1012,7 +1012,7 @@ xrun_recovery.exit:                               ; preds = %27, %18
   br i1 %.not, label %35, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %0, i64 50
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 50
   store i16 0, ptr %34, align 2
   br label %35
 
@@ -1038,19 +1038,19 @@ define hidden i32 @DAUDIO_Read(ptr nocapture noundef readonly %0, ptr noundef %1
   br i1 %4, label %xrun_recovery.exit.thread, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %xrun_recovery.exit.thread, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i16, ptr %10, align 8
   %.not = icmp eq i16 %11, 0
   br i1 %.not, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 50
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %14 = load i16, ptr %13, align 2
   %.not23 = icmp eq i16 %14, 0
   br i1 %.not23, label %15, label %xrun_recovery.exit.thread
@@ -1121,7 +1121,7 @@ declare i64 @snd_pcm_readi(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden i32 @DAUDIO_GetBufferSize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
@@ -1137,7 +1137,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_StillDraining(ptr nocapture noundef re
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @DAUDIO_Flush(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 50
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %4 = load i16, ptr %3, align 2
   %.not = icmp eq i16 %4, 0
   br i1 %.not, label %5, label %13
@@ -1150,7 +1150,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_Flush(ptr nocapture noundef %0, i32 no
 
 8:                                                ; preds = %5
   store i16 1, ptr %3, align 2
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i16, ptr %9, align 8
   %.not12 = icmp eq i16 %10, 0
   br i1 %.not12, label %13, label %11
@@ -1170,7 +1170,7 @@ declare i32 @snd_pcm_drop(ptr noundef) local_unnamed_addr #1
 define hidden i32 @DAUDIO_GetAvailable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_state(ptr noundef %3) #8
-  %5 = getelementptr inbounds i8, ptr %0, i64 50
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %6 = load i16, ptr %5, align 2
   %7 = icmp ne i16 %6, 0
   %8 = icmp eq i32 %4, 4
@@ -1178,7 +1178,7 @@ define hidden i32 @DAUDIO_GetAvailable(ptr nocapture noundef readonly %0, i32 no
   br i1 %or.cond, label %9, label %12
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8
   br label %21
 
@@ -1189,7 +1189,7 @@ define hidden i32 @DAUDIO_GetAvailable(ptr nocapture noundef readonly %0, i32 no
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = trunc i64 %14 to i32
   %20 = mul i32 %18, %19
@@ -1208,7 +1208,7 @@ define hidden i64 @estimatePositionFromAvail(ptr nocapture noundef readonly %0, 
   br i1 %.not, label %12, label %5
 
 5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = sext i32 %7 to i64
   %9 = sext i32 %3 to i64
@@ -1230,7 +1230,7 @@ define hidden i64 @estimatePositionFromAvail(ptr nocapture noundef readonly %0, 
 define hidden i64 @DAUDIO_GetBytePosition(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @snd_pcm_state(ptr noundef %4) #8
-  %6 = getelementptr inbounds i8, ptr %0, i64 50
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 0
   %9 = icmp ne i32 %5, 4
@@ -1239,7 +1239,7 @@ define hidden i64 @DAUDIO_GetBytePosition(ptr nocapture noundef readonly %0, i32
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @snd_pcm_status(ptr noundef %11, ptr noundef %13) #8
   %.not = icmp eq i32 %14, 0
@@ -1248,7 +1248,7 @@ define hidden i64 @DAUDIO_GetBytePosition(ptr nocapture noundef readonly %0, i32
 15:                                               ; preds = %10
   %16 = load ptr, ptr %12, align 8
   %17 = tail call i64 @snd_pcm_status_get_avail(ptr noundef %16) #8
-  %18 = getelementptr inbounds i8, ptr %0, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = trunc i64 %17 to i32
   %21 = mul i32 %19, %20
@@ -1256,7 +1256,7 @@ define hidden i64 @DAUDIO_GetBytePosition(ptr nocapture noundef readonly %0, i32
   br i1 %.not.i, label %29, label %22
 
 22:                                               ; preds = %15
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = sext i32 %21 to i64

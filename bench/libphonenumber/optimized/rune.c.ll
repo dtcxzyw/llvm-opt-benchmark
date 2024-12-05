@@ -19,7 +19,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   br i1 %10, label %59, label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = xor i8 %13, -128
   %15 = zext i8 %14 to i32
@@ -46,7 +46,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   br i1 %25, label %59, label %26
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %1, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = xor i8 %28, -128
   %30 = zext i8 %29 to i32
@@ -77,7 +77,7 @@ define dso_local range(i32 0, 5) i32 @charntorune(ptr nocapture noundef writeonl
   br i1 %41, label %59, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %1, i64 3
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %44 = load i8, ptr %43, align 1
   %45 = xor i8 %44, -128
   %46 = icmp ult i8 %45, 64
@@ -119,7 +119,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   br i1 %5, label %50, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = xor i8 %8, -128
   %10 = zext i8 %9 to i32
@@ -142,7 +142,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   br i1 %18, label %49, label %50
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %1, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %21 = load i8, ptr %20, align 1
   %22 = xor i8 %21, -128
   %23 = zext i8 %22 to i32
@@ -169,7 +169,7 @@ define dso_local range(i32 1, 5) i32 @chartorune(ptr nocapture noundef writeonly
   br label %50
 
 33:                                               ; preds = %24
-  %34 = getelementptr inbounds i8, ptr %1, i64 3
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %35 = load i8, ptr %34, align 1
   %36 = xor i8 %35, -128
   %37 = icmp ult i8 %36, 64
@@ -228,7 +228,7 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr nocapture noundef writeonly
 
 7:                                                ; preds = %2
   %8 = icmp ult i32 %3, 2048
-  %9 = getelementptr inbounds i8, ptr %0, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br i1 %8, label %10, label %17
 
 10:                                               ; preds = %7
@@ -265,7 +265,7 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr nocapture noundef writeonly
   %29 = trunc i64 %spec.store.select2 to i8
   %30 = and i8 %29, 63
   %31 = or disjoint i8 %30, -128
-  %32 = getelementptr inbounds i8, ptr %0, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %31, ptr %32, align 1
   br label %50
 
@@ -283,12 +283,12 @@ define dso_local range(i32 1, 5) i32 @runetochar(ptr nocapture noundef writeonly
   %42 = trunc i64 %41 to i8
   %43 = and i8 %42, 63
   %44 = or disjoint i8 %43, -128
-  %45 = getelementptr inbounds i8, ptr %0, i64 2
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %44, ptr %45, align 1
   %46 = trunc i64 %spec.store.select2 to i8
   %47 = and i8 %46, 63
   %48 = or disjoint i8 %47, -128
-  %49 = getelementptr inbounds i8, ptr %0, i64 3
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3
   store i8 %48, ptr %49, align 1
   br label %50
 
@@ -331,7 +331,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @runenlen(ptr nocapture
   %.014 = phi ptr [ %4, %11 ], [ %0, %2 ]
   %.0913 = phi i32 [ %12, %11 ], [ 0, %2 ]
   %3 = add nsw i32 %.in, -1
-  %4 = getelementptr inbounds i8, ptr %.014, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %.014, i64 4
   %5 = load i32, ptr %.014, align 4
   %6 = icmp slt i32 %5, 128
   br i1 %6, label %11, label %7

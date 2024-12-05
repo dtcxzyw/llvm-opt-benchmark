@@ -596,8 +596,8 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   %31 = alloca %"class.std::allocator", align 1
   %32 = alloca %"class.cv::_InputArray", align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #7
-  %33 = getelementptr inbounds i8, ptr %4, i64 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %34, align 8
   store i32 33619968, ptr %4, align 8
   store ptr %3, ptr %33, align 8
@@ -629,31 +629,31 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   ]
 
 48:                                               ; preds = %47, %47
-  %49 = getelementptr inbounds i8, ptr %5, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %5, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 0, ptr %50, align 4
   store i32 16842752, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %5, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @img, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %6, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 20
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 0, ptr %53, align 4
   store i32 16842752, ptr %6, align 8
-  %54 = getelementptr inbounds i8, ptr %6, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @templ, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %7, i64 8
-  %56 = getelementptr inbounds i8, ptr %7, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %56, align 8
   store i32 33619968, ptr %7, align 8
   store ptr @result, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %8, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %58, align 4
   store i32 16842752, ptr %8, align 8
-  %59 = getelementptr inbounds i8, ptr %8, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @mask, ptr %59, align 8
   invoke void @_ZN2cv13matchTemplateERKNS_11_InputArrayES2_RKNS_12_OutputArrayEiS2_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %.pre, ptr noundef nonnull align 8 dereferenceable(24) %8)
           to label %79 unwind label %64
@@ -674,22 +674,22 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   br label %143
 
 66:                                               ; preds = %44, %47
-  %67 = getelementptr inbounds i8, ptr %9, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %9, i64 20
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %68, align 4
   store i32 16842752, ptr %9, align 8
-  %69 = getelementptr inbounds i8, ptr %9, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @img, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %10, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %10, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %71, align 4
   store i32 16842752, ptr %10, align 8
-  %72 = getelementptr inbounds i8, ptr %10, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @templ, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %11, i64 8
-  %74 = getelementptr inbounds i8, ptr %11, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %74, align 8
   store i32 33619968, ptr %11, align 8
   store ptr @result, ptr %73, align 8
@@ -706,25 +706,25 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   br label %143
 
 79:                                               ; preds = %48, %76
-  %80 = getelementptr inbounds i8, ptr %12, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %12, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i32 0, ptr %81, align 4
   store i32 16842752, ptr %12, align 8
-  %82 = getelementptr inbounds i8, ptr %12, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @result, ptr %82, align 8
-  %83 = getelementptr inbounds i8, ptr %13, i64 8
-  %84 = getelementptr inbounds i8, ptr %13, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %84, align 8
   store i32 50397184, ptr %13, align 8
   store ptr @result, ptr %83, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #7
-  %85 = getelementptr inbounds i8, ptr %14, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 20
+  %86 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %86, align 4
   store i32 16842752, ptr %14, align 8
-  %87 = getelementptr inbounds i8, ptr %14, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %15, ptr %87, align 8
   invoke void @_ZN2cv9normalizeERKNS_11_InputArrayERKNS_17_InputOutputArrayEddiiS2_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, double noundef 0.000000e+00, double noundef 1.000000e+00, i32 noundef 32, i32 noundef -1, ptr noundef nonnull align 8 dereferenceable(24) %14)
           to label %88 unwind label %97
@@ -732,25 +732,25 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
 88:                                               ; preds = %79
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #7
   store i32 0, ptr %18, align 8
-  %89 = getelementptr inbounds i8, ptr %18, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %89, align 4
   store i32 0, ptr %19, align 8
-  %90 = getelementptr inbounds i8, ptr %19, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 0, ptr %90, align 4
-  %91 = getelementptr inbounds i8, ptr %20, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i32 0, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %20, i64 20
+  %92 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %92, align 4
   store i32 16842752, ptr %20, align 8
-  %93 = getelementptr inbounds i8, ptr %20, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @result, ptr %93, align 8
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #7
-  %94 = getelementptr inbounds i8, ptr %21, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i32 0, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %21, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 0, ptr %95, align 4
   store i32 16842752, ptr %21, align 8
-  %96 = getelementptr inbounds i8, ptr %21, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %22, ptr %96, align 8
   invoke void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull align 8 dereferenceable(24) %21)
           to label %101 unwind label %99
@@ -777,8 +777,8 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
   %.sroa.039.0.extract.trunc = trunc i64 %storemerge to i32
   %.sroa.6.0.extract.shift = lshr i64 %storemerge, 32
   %.sroa.6.0.extract.trunc = trunc nuw i64 %.sroa.6.0.extract.shift to i32
-  %103 = getelementptr inbounds i8, ptr %23, i64 8
-  %104 = getelementptr inbounds i8, ptr %23, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 0, ptr %104, align 8
   store i32 50397184, ptr %23, align 8
   store ptr %3, ptr %103, align 8
@@ -795,8 +795,8 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
           to label %109 unwind label %129
 
 109:                                              ; preds = %101
-  %110 = getelementptr inbounds i8, ptr %25, i64 8
-  %111 = getelementptr inbounds i8, ptr %25, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i64 0, ptr %111, align 8
   store i32 50397184, ptr %25, align 8
   store ptr @result, ptr %110, align 8
@@ -819,12 +819,12 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
           to label %118 unwind label %133
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds i8, ptr %29, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store i32 0, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %29, i64 20
+  %120 = getelementptr inbounds nuw i8, ptr %29, i64 20
   store i32 0, ptr %120, align 4
   store i32 16842752, ptr %29, align 8
-  %121 = getelementptr inbounds i8, ptr %29, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %3, ptr %121, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(24) %29)
           to label %122 unwind label %135
@@ -838,12 +838,12 @@ define hidden void @_Z14MatchingMethodiPv(i32 %0, ptr nocapture readnone %1) #4 
           to label %124 unwind label %138
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %32, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 0, ptr %125, align 8
-  %126 = getelementptr inbounds i8, ptr %32, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %32, i64 20
   store i32 0, ptr %126, align 4
   store i32 16842752, ptr %32, align 8
-  %127 = getelementptr inbounds i8, ptr %32, i64 8
+  %127 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr @result, ptr %127, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(24) %32)
           to label %128 unwind label %140

@@ -1636,7 +1636,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EhE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(1) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EhE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -1645,7 +1645,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -1677,14 +1677,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -1716,7 +1716,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -1732,7 +1732,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -1745,7 +1745,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -1925,7 +1925,7 @@ entry:
   call void @_ZN5eastl6bitsetILm1EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(1) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2192,9 +2192,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EhE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(5) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EhE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -2203,7 +2203,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -2235,14 +2235,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -2274,7 +2274,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -2290,7 +2290,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -2303,7 +2303,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -2325,7 +2325,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EhEC2Ej(ptr noundef nonnull align 1 dereferenceable(5) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EhEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i32 0, ptr %0, align 1
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
@@ -2339,9 +2339,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %and4.i = and i8 %1, %0
   store i8 %and4.i, ptr %arrayidx3.i, align 1
@@ -2360,9 +2360,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %or4.i = or i8 %1, %0
   store i8 %or4.i, ptr %arrayidx3.i, align 1
@@ -2381,9 +2381,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %xor4.i = xor i8 %1, %0
   store i8 %xor4.i, ptr %arrayidx3.i, align 1
@@ -2413,13 +2413,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %sub.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %indvars.iv.i
   store i8 %cond.i, ptr %arrayidx5.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -2432,7 +2432,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %.pre.i = load i8, ptr %arrayidx13.phi.trans.insert.i, align 1
   br label %for.body11.i
 
@@ -2456,7 +2456,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm5EhElSEm.exit
 
 _ZN5eastl10BitsetBaseILm5EhElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %5 = load i8, ptr %arrayidx, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -2489,13 +2489,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %add.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.015.i
   store i8 %cond.i, ptr %arrayidx4.i, align 1
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
@@ -2514,9 +2514,9 @@ for.cond8.preheader.i:                            ; preds = %if.end.i
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond8.preheader.i
   %2 = phi i8 [ %.pre.i, %for.cond8.preheader.i ], [ %3, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %add15.i, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %add15.i
   %3 = load i8, ptr %arrayidx16.i, align 1
   %conv20.i = tail call i8 @llvm.fshr.i8(i8 %3, i8 %2, i8 %1)
   store i8 %conv20.i, ptr %arrayidx12.i, align 1
@@ -2524,7 +2524,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !12
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %4 = load i8, ptr %arrayidx27.i, align 1
   %sh_prom29.i = trunc nuw nsw i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
@@ -2543,7 +2543,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(5) ptr @_ZN5eastl6bitsetILm33EhE3setEv(ptr noundef nonnull align 1 dereferenceable(5) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 -1, ptr %this, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i8 1, ptr %arrayidx, align 1
   ret ptr %this
 }
@@ -2562,7 +2562,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %or.i = or i8 %1, %shl.i
   store i8 %or.i, ptr %arrayidx.i, align 1
@@ -2571,7 +2571,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i8 %shl.i, -1
   %shr7.i = lshr i64 %i, 3
-  %arrayidx8.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr7.i
+  %arrayidx8.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr7.i
   %2 = load i8, ptr %arrayidx8.i, align 1
   %and10.i = and i8 %2, %not.i
   store i8 %and10.i, ptr %arrayidx8.i, align 1
@@ -2600,7 +2600,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %and3 = and i8 %1, %not
   store i8 %and3, ptr %arrayidx.i, align 1
@@ -2617,7 +2617,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %not.i = xor i8 %0, -1
   store i8 %not.i, ptr %arrayidx.i, align 1
@@ -2626,7 +2626,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm5EhE4flipEv.exit, label %for.body.i, !llvm.loop !13
 
 _ZN5eastl10BitsetBaseILm5EhE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx, align 1
@@ -2644,7 +2644,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %xor = xor i8 %1, %shl
   store i8 %xor, ptr %arrayidx.i, align 1
@@ -2663,7 +2663,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %not.i.i = xor i8 %0, -1
   store i8 %not.i.i, ptr %arrayidx.i.i, align 1
@@ -2672,7 +2672,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm33EhE4flipEv.exit, label %for.body.i.i, !llvm.loop !13
 
 _ZN5eastl6bitsetILm33EhE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %1 = load i8, ptr %arrayidx.i, align 4
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx.i, align 4
@@ -2687,7 +2687,7 @@ entry:
   call void @_ZN5eastl6bitsetILm33EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(5) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -2697,7 +2697,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EhEixEm(ptr noundef nonnull align 1 dereferenceable(5) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc i64 %i to i32
@@ -2723,7 +2723,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EhE11from_uint32Ej(ptr noundef nonnull align 1 dereferenceable(5) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i32 0, ptr %0, align 1
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
@@ -2733,7 +2733,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EhE11from_uint64Em(ptr noundef nonnull align 1 dereferenceable(5) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i32 0, ptr %0, align 1
   %conv.i = trunc i64 %value to i8
   store i8 %conv.i, ptr %this, align 1
@@ -2753,9 +2753,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i8], ptr %x, i64 0, i64 %i.04.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -2774,9 +2774,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [5 x i8], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i8], ptr %x, i64 0, i64 %i.04.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -2797,7 +2797,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc nuw i64 %i to i32
@@ -2820,7 +2820,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %0)
   %conv2.i = zext nneg i8 %1 to i64
@@ -2841,7 +2841,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %i.03.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.not.i = icmp ne i8 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -2874,13 +2874,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i8 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i8 %cond.i.i, ptr %arrayidx5.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -2893,7 +2893,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %.pre.i.i = load i8, ptr %arrayidx13.phi.trans.insert.i.i, align 4
   br label %for.body11.i.i
 
@@ -2917,7 +2917,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm5EhElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm5EhElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %5 = load i8, ptr %arrayidx.i, align 4
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx.i, align 4
@@ -2950,13 +2950,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i8 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i8 %cond.i.i, ptr %arrayidx4.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 5
@@ -2975,9 +2975,9 @@ for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.cond8.preheader.i.i
   %2 = phi i8 [ %.pre.i.i, %for.cond8.preheader.i.i ], [ %3, %for.body10.i.i ]
   %i7.016.i.i = phi i64 [ 0, %for.cond8.preheader.i.i ], [ %add15.i.i, %for.body10.i.i ]
-  %arrayidx12.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
   %add15.i.i = add nuw nsw i64 %i7.016.i.i, 1
-  %arrayidx16.i.i = getelementptr inbounds [5 x i8], ptr %ref.tmp, i64 0, i64 %add15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [5 x i8], ptr %ref.tmp, i64 0, i64 %add15.i.i
   %3 = load i8, ptr %arrayidx16.i.i, align 1
   %conv20.i.i = tail call i8 @llvm.fshr.i8(i8 %3, i8 %2, i8 %1)
   store i8 %conv20.i.i, ptr %arrayidx12.i.i, align 1
@@ -2985,7 +2985,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !12
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %4 = load i8, ptr %arrayidx27.i.i, align 4
   %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
@@ -3008,7 +3008,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm5EhE11DoFindFirstEv.exit
@@ -3054,7 +3054,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
-  %arrayidx.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = trunc nuw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
@@ -3070,7 +3070,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then9.i:                                       ; preds = %if.end.i
   %inc7.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx11.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %inc7.i
+  %arrayidx11.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %inc7.i
   %2 = load i8, ptr %arrayidx11.i, align 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm5EhE10DoFindNextEm.exit, !llvm.loop !18
@@ -3154,7 +3154,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %last_find, 3
-  %this_word.0.in11.i = getelementptr inbounds [5 x i8], ptr %this, i64 0, i64 %shr.i
+  %this_word.0.in11.i = getelementptr inbounds nuw [5 x i8], ptr %this, i64 0, i64 %shr.i
   %this_word.012.i = load i8, ptr %this_word.0.in11.i, align 1
   %tobool.not.i13.i = icmp eq i8 %this_word.012.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm5EhE10DoFindPrevEm.exit
@@ -3208,9 +3208,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EhE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(9) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EhE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -3219,7 +3219,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -3251,14 +3251,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -3290,7 +3290,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -3306,7 +3306,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -3319,7 +3319,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -3341,7 +3341,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EhEC2Ej(ptr noundef nonnull align 1 dereferenceable(9) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EhEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i64 0, ptr %0, align 1
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
@@ -3355,9 +3355,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %and4.i = and i8 %1, %0
   store i8 %and4.i, ptr %arrayidx3.i, align 1
@@ -3376,9 +3376,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %or4.i = or i8 %1, %0
   store i8 %or4.i, ptr %arrayidx3.i, align 1
@@ -3397,9 +3397,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %xor4.i = xor i8 %1, %0
   store i8 %xor4.i, ptr %arrayidx3.i, align 1
@@ -3429,13 +3429,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %sub.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %indvars.iv.i
   store i8 %cond.i, ptr %arrayidx5.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -3448,7 +3448,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre.i = load i8, ptr %arrayidx13.phi.trans.insert.i, align 1
   br label %for.body11.i
 
@@ -3472,7 +3472,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm9EhElSEm.exit
 
 _ZN5eastl10BitsetBaseILm9EhElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i8, ptr %arrayidx, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -3505,13 +3505,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %add.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.015.i
   store i8 %cond.i, ptr %arrayidx4.i, align 1
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 9
@@ -3530,9 +3530,9 @@ for.cond8.preheader.i:                            ; preds = %if.end.i
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond8.preheader.i
   %2 = phi i8 [ %.pre.i, %for.cond8.preheader.i ], [ %3, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %add15.i, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %add15.i
   %3 = load i8, ptr %arrayidx16.i, align 1
   %conv20.i = tail call i8 @llvm.fshr.i8(i8 %3, i8 %2, i8 %1)
   store i8 %conv20.i, ptr %arrayidx12.i, align 1
@@ -3540,7 +3540,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !27
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i8, ptr %arrayidx27.i, align 1
   %sh_prom29.i = trunc nuw nsw i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
@@ -3559,7 +3559,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(9) ptr @_ZN5eastl6bitsetILm65EhE3setEv(ptr noundef nonnull align 1 dereferenceable(9) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i64 -1, ptr %this, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 1, ptr %arrayidx, align 1
   ret ptr %this
 }
@@ -3578,7 +3578,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %or.i = or i8 %1, %shl.i
   store i8 %or.i, ptr %arrayidx.i, align 1
@@ -3587,7 +3587,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i8 %shl.i, -1
   %shr7.i = lshr i64 %i, 3
-  %arrayidx8.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr7.i
+  %arrayidx8.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr7.i
   %2 = load i8, ptr %arrayidx8.i, align 1
   %and10.i = and i8 %2, %not.i
   store i8 %and10.i, ptr %arrayidx8.i, align 1
@@ -3616,7 +3616,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %and3 = and i8 %1, %not
   store i8 %and3, ptr %arrayidx.i, align 1
@@ -3633,7 +3633,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %not.i = xor i8 %0, -1
   store i8 %not.i, ptr %arrayidx.i, align 1
@@ -3642,7 +3642,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm9EhE4flipEv.exit, label %for.body.i, !llvm.loop !28
 
 _ZN5eastl10BitsetBaseILm9EhE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx, align 1
@@ -3660,7 +3660,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %xor = xor i8 %1, %shl
   store i8 %xor, ptr %arrayidx.i, align 1
@@ -3679,7 +3679,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %not.i.i = xor i8 %0, -1
   store i8 %not.i.i, ptr %arrayidx.i.i, align 1
@@ -3688,7 +3688,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm65EhE4flipEv.exit, label %for.body.i.i, !llvm.loop !28
 
 _ZN5eastl6bitsetILm65EhE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %1 = load i8, ptr %arrayidx.i, align 8
   %2 = and i8 %1, 1
   %retval.sroa.0.0.copyload = load i64, ptr %ref.tmp, align 8
@@ -3704,7 +3704,7 @@ entry:
   call void @_ZN5eastl6bitsetILm65EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(9) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -3714,7 +3714,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EhEixEm(ptr noundef nonnull align 1 dereferenceable(9) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc i64 %i to i32
@@ -3740,7 +3740,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EhE11from_uint32Ej(ptr noundef nonnull align 1 dereferenceable(9) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i64 0, ptr %0, align 1
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
@@ -3750,7 +3750,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EhE11from_uint64Em(ptr noundef nonnull align 1 dereferenceable(9) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   store i64 0, ptr %0, align 1
   %conv.i = trunc i64 %value to i8
   store i8 %conv.i, ptr %this, align 1
@@ -3770,9 +3770,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i8], ptr %x, i64 0, i64 %i.04.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -3791,9 +3791,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [9 x i8], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i8], ptr %x, i64 0, i64 %i.04.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -3814,7 +3814,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc nuw i64 %i to i32
@@ -3837,7 +3837,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %0)
   %conv2.i = zext nneg i8 %1 to i64
@@ -3858,7 +3858,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %i.03.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.not.i = icmp ne i8 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -3891,13 +3891,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i8 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i8 %cond.i.i, ptr %arrayidx5.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -3910,7 +3910,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %.pre.i.i = load i8, ptr %arrayidx13.phi.trans.insert.i.i, align 8
   br label %for.body11.i.i
 
@@ -3934,7 +3934,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm9EhElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm9EhElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i8, ptr %arrayidx.i, align 8
   %6 = and i8 %5, 1
   %retval.sroa.0.0.copyload.pre = load i64, ptr %ref.tmp, align 8
@@ -3969,13 +3969,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i8 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i8 %cond.i.i, ptr %arrayidx4.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 9
@@ -3987,7 +3987,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %if.end.i.i._ZN5eastl6bitsetILm65EhErSEm.exit_crit_edge, label %for.cond8.preheader.i.i
 
 if.end.i.i._ZN5eastl6bitsetILm65EhErSEm.exit_crit_edge: ; preds = %if.end.i.i
-  %retval.sroa.2.0.call.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %retval.sroa.2.0.call.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %retval.sroa.2.0.copyload.pre = load i8, ptr %retval.sroa.2.0.call.sroa_idx.phi.trans.insert, align 8
   br label %_ZN5eastl6bitsetILm65EhErSEm.exit
 
@@ -3999,9 +3999,9 @@ for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.cond8.preheader.i.i
   %2 = phi i8 [ %.pre.i.i, %for.cond8.preheader.i.i ], [ %3, %for.body10.i.i ]
   %i7.016.i.i = phi i64 [ 0, %for.cond8.preheader.i.i ], [ %add15.i.i, %for.body10.i.i ]
-  %arrayidx12.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
   %add15.i.i = add nuw nsw i64 %i7.016.i.i, 1
-  %arrayidx16.i.i = getelementptr inbounds [9 x i8], ptr %ref.tmp, i64 0, i64 %add15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [9 x i8], ptr %ref.tmp, i64 0, i64 %add15.i.i
   %3 = load i8, ptr %arrayidx16.i.i, align 1
   %conv20.i.i = tail call i8 @llvm.fshr.i8(i8 %3, i8 %2, i8 %1)
   store i8 %conv20.i.i, ptr %arrayidx12.i.i, align 1
@@ -4009,7 +4009,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !27
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %4 = load i8, ptr %arrayidx27.i.i, align 8
   %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
@@ -4034,7 +4034,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm9EhE11DoFindFirstEv.exit
@@ -4080,7 +4080,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
-  %arrayidx.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = trunc nuw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
@@ -4096,7 +4096,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then9.i:                                       ; preds = %if.end.i
   %inc7.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx11.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %inc7.i
+  %arrayidx11.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %inc7.i
   %2 = load i8, ptr %arrayidx11.i, align 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm9EhE10DoFindNextEm.exit, !llvm.loop !33
@@ -4180,7 +4180,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %last_find, 3
-  %this_word.0.in11.i = getelementptr inbounds [9 x i8], ptr %this, i64 0, i64 %shr.i
+  %this_word.0.in11.i = getelementptr inbounds nuw [9 x i8], ptr %this, i64 0, i64 %shr.i
   %this_word.012.i = load i8, ptr %this_word.0.in11.i, align 1
   %tobool.not.i13.i = icmp eq i8 %this_word.012.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm9EhE10DoFindPrevEm.exit
@@ -4234,9 +4234,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(17) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EhE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 7
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -4245,7 +4245,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EhE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -4277,14 +4277,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i8
   %sh_prom12 = and i8 %5, 7
@@ -4316,7 +4316,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -4332,7 +4332,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i8, ptr %0, align 1
   %conv = zext i8 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 7
@@ -4345,7 +4345,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EhE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i8
   %sh_prom = and i8 %1, 7
@@ -4367,11 +4367,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhEC2Ej(ptr noundef nonnull align 1 dereferenceable(17) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EhEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -4383,9 +4383,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %and4.i = and i8 %1, %0
   store i8 %and4.i, ptr %arrayidx3.i, align 1
@@ -4404,9 +4404,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %or4.i = or i8 %1, %0
   store i8 %or4.i, ptr %arrayidx3.i, align 1
@@ -4425,9 +4425,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %x, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.05.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %xor4.i = xor i8 %1, %0
   store i8 %xor4.i, ptr %arrayidx3.i, align 1
@@ -4457,13 +4457,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %sub.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %indvars.iv.i
   store i8 %cond.i, ptr %arrayidx5.i, align 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -4476,7 +4476,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre.i = load i8, ptr %arrayidx13.phi.trans.insert.i, align 1
   br label %for.body11.i
 
@@ -4500,7 +4500,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm17EhElSEm.exit
 
 _ZN5eastl10BitsetBaseILm17EhElSEm.exit:           ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i8, ptr %arrayidx, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx, align 1
@@ -4533,13 +4533,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %add.i
   %0 = load i8, ptr %arrayidx.i, align 1
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i8 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.015.i
   store i8 %cond.i, ptr %arrayidx4.i, align 1
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 17
@@ -4558,9 +4558,9 @@ for.cond8.preheader.i:                            ; preds = %if.end.i
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond8.preheader.i
   %2 = phi i8 [ %.pre.i, %for.cond8.preheader.i ], [ %3, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %add15.i, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %add15.i
   %3 = load i8, ptr %arrayidx16.i, align 1
   %conv20.i = tail call i8 @llvm.fshr.i8(i8 %3, i8 %2, i8 %1)
   store i8 %conv20.i, ptr %arrayidx12.i, align 1
@@ -4568,7 +4568,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !42
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i8, ptr %arrayidx27.i, align 1
   %sh_prom29.i = trunc nuw nsw i64 %and.i to i8
   %shr30.i = lshr i8 %4, %sh_prom29.i
@@ -4587,7 +4587,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 1 dereferenceable(17) ptr @_ZN5eastl6bitsetILm129EhE3setEv(ptr noundef nonnull align 1 dereferenceable(17) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 1, ptr %arrayidx, align 1
   ret ptr %this
 }
@@ -4606,7 +4606,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %or.i = or i8 %1, %shl.i
   store i8 %or.i, ptr %arrayidx.i, align 1
@@ -4615,7 +4615,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i8 %shl.i, -1
   %shr7.i = lshr i64 %i, 3
-  %arrayidx8.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr7.i
+  %arrayidx8.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr7.i
   %2 = load i8, ptr %arrayidx8.i, align 1
   %and10.i = and i8 %2, %not.i
   store i8 %and10.i, ptr %arrayidx8.i, align 1
@@ -4644,7 +4644,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i8 1, %sh_prom
   %not = xor i8 %shl, -1
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %and3 = and i8 %1, %not
   store i8 %and3, ptr %arrayidx.i, align 1
@@ -4661,7 +4661,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %not.i = xor i8 %0, -1
   store i8 %not.i, ptr %arrayidx.i, align 1
@@ -4670,7 +4670,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm17EhE4flipEv.exit, label %for.body.i, !llvm.loop !43
 
 _ZN5eastl10BitsetBaseILm17EhE4flipEv.exit:        ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx, align 1
@@ -4688,7 +4688,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i8 %0, 7
   %shl = shl nuw i8 1, %sh_prom
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %xor = xor i8 %1, %shl
   store i8 %xor, ptr %arrayidx.i, align 1
@@ -4707,7 +4707,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   %not.i.i = xor i8 %0, -1
   store i8 %not.i.i, ptr %arrayidx.i.i, align 1
@@ -4716,7 +4716,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm129EhE4flipEv.exit, label %for.body.i.i, !llvm.loop !43
 
 _ZN5eastl6bitsetILm129EhE4flipEv.exit:            ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 1
   store i8 %2, ptr %arrayidx.i, align 1
@@ -4731,7 +4731,7 @@ entry:
   call void @_ZN5eastl6bitsetILm129EhE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 1 dereferenceable(17) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -4741,7 +4741,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EhEixEm(ptr noundef nonnull align 1 dereferenceable(17) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc i64 %i to i32
@@ -4767,11 +4767,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhE11from_uint32Ej(ptr noundef nonnull align 1 dereferenceable(17) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i32 %value to i8
   store i8 %conv.i, ptr %this, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -4779,11 +4779,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EhE11from_uint64Em(ptr noundef nonnull align 1 dereferenceable(17) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 1
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %0, i8 0, i64 15, i1 false)
   %conv.i = trunc i64 %value to i8
   store i8 %conv.i, ptr %this, align 1
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 0, ptr %arrayidx, align 1
   ret void
 }
@@ -4801,9 +4801,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [17 x i8], ptr %x, i64 0, i64 %i.04.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -4822,9 +4822,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.04.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx3.i = getelementptr inbounds [17 x i8], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [17 x i8], ptr %x, i64 0, i64 %i.04.i
   %1 = load i8, ptr %arrayidx3.i, align 1
   %cmp5.not.i = icmp eq i8 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -4845,7 +4845,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %conv = zext i8 %0 to i32
   %1 = trunc nuw i64 %i to i32
@@ -4868,7 +4868,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.05.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %0)
   %conv2.i = zext nneg i8 %1 to i64
@@ -4889,7 +4889,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %i.03.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.not.i = icmp ne i8 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -4922,13 +4922,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i8 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i8 %cond.i.i, ptr %arrayidx5.i.i, align 1
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -4941,7 +4941,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i8
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %.pre.i.i = load i8, ptr %arrayidx13.phi.trans.insert.i.i, align 1
   br label %for.body11.i.i
 
@@ -4965,7 +4965,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm17EhElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm17EhElSEm.exit.i:         ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %5 = load i8, ptr %arrayidx.i, align 1
   %6 = and i8 %5, 1
   store i8 %6, ptr %arrayidx.i, align 1
@@ -5001,13 +5001,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i8, ptr %arrayidx.i.i, align 1
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i8 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i8 %cond.i.i, ptr %arrayidx4.i.i, align 1
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 17
@@ -5026,9 +5026,9 @@ for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.cond8.preheader.i.i
   %2 = phi i8 [ %.pre.i.i, %for.cond8.preheader.i.i ], [ %3, %for.body10.i.i ]
   %i7.016.i.i = phi i64 [ 0, %for.cond8.preheader.i.i ], [ %add15.i.i, %for.body10.i.i ]
-  %arrayidx12.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
   %add15.i.i = add nuw nsw i64 %i7.016.i.i, 1
-  %arrayidx16.i.i = getelementptr inbounds [17 x i8], ptr %ref.tmp, i64 0, i64 %add15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [17 x i8], ptr %ref.tmp, i64 0, i64 %add15.i.i
   %3 = load i8, ptr %arrayidx16.i.i, align 1
   %conv20.i.i = tail call i8 @llvm.fshr.i8(i8 %3, i8 %2, i8 %1)
   store i8 %conv20.i.i, ptr %arrayidx12.i.i, align 1
@@ -5036,7 +5036,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !42
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %4 = load i8, ptr %arrayidx27.i.i, align 1
   %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i8
   %shr30.i.i = lshr i8 %4, %sh_prom29.i.i
@@ -5059,7 +5059,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %tobool.not.i.i = icmp eq i8 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm17EhE11DoFindFirstEv.exit
@@ -5105,7 +5105,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 3
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = trunc nuw i64 %inc.i to i8
   %sh_prom.i = and i8 %1, 7
@@ -5121,7 +5121,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then9.i:                                       ; preds = %if.end.i
   %inc7.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx11.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %inc7.i
+  %arrayidx11.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %inc7.i
   %2 = load i8, ptr %arrayidx11.i, align 1
   %tobool.not.i.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm17EhE10DoFindNextEm.exit, !llvm.loop !48
@@ -5205,7 +5205,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %last_find, 3
-  %this_word.0.in11.i = getelementptr inbounds [17 x i8], ptr %this, i64 0, i64 %shr.i
+  %this_word.0.in11.i = getelementptr inbounds nuw [17 x i8], ptr %this, i64 0, i64 %shr.i
   %this_word.012.i = load i8, ptr %this_word.0.in11.i, align 1
   %tobool.not.i13.i = icmp eq i8 %this_word.012.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm17EhE10DoFindPrevEm.exit
@@ -5259,7 +5259,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EtE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 2 dereferenceable(2) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EtE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -5268,7 +5268,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5300,14 +5300,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -5339,7 +5339,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5355,7 +5355,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5368,7 +5368,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5545,7 +5545,7 @@ entry:
   call void @_ZN5eastl6bitsetILm1EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(2) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -5832,9 +5832,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EtE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 2 dereferenceable(6) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EtE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -5843,7 +5843,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5875,14 +5875,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -5914,7 +5914,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5930,7 +5930,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -5943,7 +5943,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -5965,7 +5965,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EtEC2Ej(ptr noundef nonnull align 2 dereferenceable(6) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EtEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i32 0, ptr %0, align 2
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
@@ -5979,9 +5979,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %and4.i = and i16 %1, %0
   store i16 %and4.i, ptr %arrayidx3.i, align 2
@@ -6000,9 +6000,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %or4.i = or i16 %1, %0
   store i16 %or4.i, ptr %arrayidx3.i, align 2
@@ -6021,9 +6021,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %xor4.i = xor i16 %1, %0
   store i16 %xor4.i, ptr %arrayidx3.i, align 2
@@ -6053,13 +6053,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %sub.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i16 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %indvars.iv.i
   store i16 %cond.i, ptr %arrayidx5.i, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -6072,7 +6072,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %.pre.i = load i16, ptr %arrayidx13.phi.trans.insert.i, align 2
   br label %for.body11.i
 
@@ -6096,7 +6096,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm3EtElSEm.exit
 
 _ZN5eastl10BitsetBaseILm3EtElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx, align 2
@@ -6129,13 +6129,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %add.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i16 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.015.i
   store i16 %cond.i, ptr %arrayidx4.i, align 2
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -6155,16 +6155,16 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   %2 = phi i16 [ %.pre.i, %for.cond8.preheader.i ], [ %3, %for.body10.i ]
   %cmp9.i = phi i1 [ true, %for.cond8.preheader.i ], [ false, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ 1, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %add15.i
   %3 = load i16, ptr %arrayidx16.i, align 2
   %conv20.i = tail call i16 @llvm.fshr.i16(i16 %3, i16 %2, i16 %1)
   store i16 %conv20.i, ptr %arrayidx12.i, align 2
   br i1 %cmp9.i, label %for.body10.i, label %for.end25.i, !llvm.loop !57
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %4 = load i16, ptr %arrayidx27.i, align 2
   %sh_prom29.i = trunc nuw nsw i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
@@ -6183,7 +6183,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 2 dereferenceable(6) ptr @_ZN5eastl6bitsetILm33EtE3setEv(ptr noundef nonnull align 2 dereferenceable(6) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 -1, ptr %this, align 2
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i16 1, ptr %arrayidx, align 2
   ret ptr %this
 }
@@ -6202,7 +6202,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %or.i = or i16 %1, %shl.i
   store i16 %or.i, ptr %arrayidx.i, align 2
@@ -6211,7 +6211,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i16 %shl.i, -1
   %shr7.i = lshr i64 %i, 4
-  %arrayidx8.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr7.i
+  %arrayidx8.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr7.i
   %2 = load i16, ptr %arrayidx8.i, align 2
   %and10.i = and i16 %2, %not.i
   store i16 %and10.i, ptr %arrayidx8.i, align 2
@@ -6240,7 +6240,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %and3 = and i16 %1, %not
   store i16 %and3, ptr %arrayidx.i, align 2
@@ -6257,7 +6257,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %not.i = xor i16 %0, -1
   store i16 %not.i, ptr %arrayidx.i, align 2
@@ -6266,7 +6266,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm3EtE4flipEv.exit, label %for.body.i, !llvm.loop !58
 
 _ZN5eastl10BitsetBaseILm3EtE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx, align 2
@@ -6284,7 +6284,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %xor = xor i16 %1, %shl
   store i16 %xor, ptr %arrayidx.i, align 2
@@ -6303,7 +6303,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i16], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   %not.i.i = xor i16 %0, -1
   store i16 %not.i.i, ptr %arrayidx.i.i, align 2
@@ -6312,7 +6312,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm33EtE4flipEv.exit, label %for.body.i.i, !llvm.loop !58
 
 _ZN5eastl6bitsetILm33EtE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %1 = load i16, ptr %arrayidx.i, align 4
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx.i, align 4
@@ -6327,7 +6327,7 @@ entry:
   call void @_ZN5eastl6bitsetILm33EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(6) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -6337,7 +6337,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EtEixEm(ptr noundef nonnull align 2 dereferenceable(6) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
   %1 = trunc i64 %i to i32
@@ -6363,7 +6363,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EtE11from_uint32Ej(ptr noundef nonnull align 2 dereferenceable(6) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i32 0, ptr %0, align 2
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
@@ -6373,7 +6373,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EtE11from_uint64Em(ptr noundef nonnull align 2 dereferenceable(6) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i32 0, ptr %0, align 2
   %conv.i = trunc i64 %value to i16
   store i16 %conv.i, ptr %this, align 2
@@ -6393,9 +6393,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i16], ptr %x, i64 0, i64 %i.04.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %cmp5.not.i = icmp eq i16 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -6414,9 +6414,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [3 x i16], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i16], ptr %x, i64 0, i64 %i.04.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %cmp5.not.i = icmp eq i16 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -6437,7 +6437,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
   %1 = trunc nuw i64 %i to i32
@@ -6460,7 +6460,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %1 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %0)
   %conv2.i = zext nneg i16 %1 to i64
@@ -6481,7 +6481,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %i.03.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %tobool.not.not.i = icmp ne i16 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -6514,13 +6514,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i16 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [3 x i16], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i16 %cond.i.i, ptr %arrayidx5.i.i, align 2
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -6533,7 +6533,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %.pre.i.i = load i16, ptr %arrayidx13.phi.trans.insert.i.i, align 4
   br label %for.body11.i.i
 
@@ -6557,7 +6557,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm3EtElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm3EtElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %5 = load i16, ptr %arrayidx.i, align 4
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx.i, align 4
@@ -6575,8 +6575,8 @@ entry:
   %ref.tmp = alloca %"class.eastl::bitset.8", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %ref.tmp, ptr noundef nonnull align 2 dereferenceable(6) %this, i64 6, i1 false)
   %cmp.i = icmp ult i64 %n, 33
-  %i7.016.i.i.sroa.gep1 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
-  %i7.016.i.i.sroa.gep3 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %i7.016.i.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 2
+  %i7.016.i.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -6592,13 +6592,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i16], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i16 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [3 x i16], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [3 x i16], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i16 %cond.i.i, ptr %arrayidx4.i.i, align 2
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
@@ -6647,7 +6647,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %tobool.not.i.i = icmp eq i16 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm3EtE11DoFindFirstEv.exit
@@ -6699,7 +6699,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
-  %arrayidx.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %1 = trunc nuw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
@@ -6715,7 +6715,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then9.i:                                       ; preds = %if.end.i
   %inc7.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx11.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %inc7.i
+  %arrayidx11.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %inc7.i
   %2 = load i16, ptr %arrayidx11.i, align 2
   %tobool.not.i.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm3EtE10DoFindNextEm.exit, !llvm.loop !63
@@ -6810,7 +6810,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %last_find, 4
-  %this_word.0.in11.i = getelementptr inbounds [3 x i16], ptr %this, i64 0, i64 %shr.i
+  %this_word.0.in11.i = getelementptr inbounds nuw [3 x i16], ptr %this, i64 0, i64 %shr.i
   %this_word.012.i = load i16, ptr %this_word.0.in11.i, align 2
   %tobool.not.i13.i = icmp eq i16 %this_word.012.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm3EtE10DoFindPrevEm.exit
@@ -6869,9 +6869,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EtE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 2 dereferenceable(10) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EtE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -6880,7 +6880,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -6912,14 +6912,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -6951,7 +6951,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -6967,7 +6967,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -6980,7 +6980,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -7002,7 +7002,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EtEC2Ej(ptr noundef nonnull align 2 dereferenceable(10) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EtEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i64 0, ptr %0, align 2
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
@@ -7016,9 +7016,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %and4.i = and i16 %1, %0
   store i16 %and4.i, ptr %arrayidx3.i, align 2
@@ -7037,9 +7037,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %or4.i = or i16 %1, %0
   store i16 %or4.i, ptr %arrayidx3.i, align 2
@@ -7058,9 +7058,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %xor4.i = xor i16 %1, %0
   store i16 %xor4.i, ptr %arrayidx3.i, align 2
@@ -7090,13 +7090,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %sub.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i16 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %indvars.iv.i
   store i16 %cond.i, ptr %arrayidx5.i, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -7109,7 +7109,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre.i = load i16, ptr %arrayidx13.phi.trans.insert.i, align 2
   br label %for.body11.i
 
@@ -7133,7 +7133,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm5EtElSEm.exit
 
 _ZN5eastl10BitsetBaseILm5EtElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx, align 2
@@ -7166,13 +7166,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %add.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i16 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.015.i
   store i16 %cond.i, ptr %arrayidx4.i, align 2
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
@@ -7191,9 +7191,9 @@ for.cond8.preheader.i:                            ; preds = %if.end.i
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond8.preheader.i
   %2 = phi i16 [ %.pre.i, %for.cond8.preheader.i ], [ %3, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %add15.i, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %add15.i
   %3 = load i16, ptr %arrayidx16.i, align 2
   %conv20.i = tail call i16 @llvm.fshr.i16(i16 %3, i16 %2, i16 %1)
   store i16 %conv20.i, ptr %arrayidx12.i, align 2
@@ -7201,7 +7201,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !72
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i16, ptr %arrayidx27.i, align 2
   %sh_prom29.i = trunc nuw nsw i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
@@ -7220,7 +7220,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 2 dereferenceable(10) ptr @_ZN5eastl6bitsetILm65EtE3setEv(ptr noundef nonnull align 2 dereferenceable(10) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i64 -1, ptr %this, align 2
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i16 1, ptr %arrayidx, align 2
   ret ptr %this
 }
@@ -7239,7 +7239,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %or.i = or i16 %1, %shl.i
   store i16 %or.i, ptr %arrayidx.i, align 2
@@ -7248,7 +7248,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i16 %shl.i, -1
   %shr7.i = lshr i64 %i, 4
-  %arrayidx8.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr7.i
+  %arrayidx8.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr7.i
   %2 = load i16, ptr %arrayidx8.i, align 2
   %and10.i = and i16 %2, %not.i
   store i16 %and10.i, ptr %arrayidx8.i, align 2
@@ -7277,7 +7277,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %and3 = and i16 %1, %not
   store i16 %and3, ptr %arrayidx.i, align 2
@@ -7294,7 +7294,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %not.i = xor i16 %0, -1
   store i16 %not.i, ptr %arrayidx.i, align 2
@@ -7303,7 +7303,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm5EtE4flipEv.exit, label %for.body.i, !llvm.loop !73
 
 _ZN5eastl10BitsetBaseILm5EtE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx, align 2
@@ -7321,7 +7321,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %xor = xor i16 %1, %shl
   store i16 %xor, ptr %arrayidx.i, align 2
@@ -7340,7 +7340,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   %not.i.i = xor i16 %0, -1
   store i16 %not.i.i, ptr %arrayidx.i.i, align 2
@@ -7349,7 +7349,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm65EtE4flipEv.exit, label %for.body.i.i, !llvm.loop !73
 
 _ZN5eastl6bitsetILm65EtE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %1 = load i16, ptr %arrayidx.i, align 8
   %2 = and i16 %1, 1
   %retval.sroa.0.0.copyload = load i64, ptr %ref.tmp, align 8
@@ -7365,7 +7365,7 @@ entry:
   call void @_ZN5eastl6bitsetILm65EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(10) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -7375,7 +7375,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EtEixEm(ptr noundef nonnull align 2 dereferenceable(10) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
   %1 = trunc i64 %i to i32
@@ -7401,7 +7401,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EtE11from_uint32Ej(ptr noundef nonnull align 2 dereferenceable(10) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i64 0, ptr %0, align 2
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
@@ -7411,7 +7411,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EtE11from_uint64Em(ptr noundef nonnull align 2 dereferenceable(10) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   store i64 0, ptr %0, align 2
   %conv.i = trunc i64 %value to i16
   store i16 %conv.i, ptr %this, align 2
@@ -7431,9 +7431,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i16], ptr %x, i64 0, i64 %i.04.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %cmp5.not.i = icmp eq i16 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -7452,9 +7452,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [5 x i16], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i16], ptr %x, i64 0, i64 %i.04.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %cmp5.not.i = icmp eq i16 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -7475,7 +7475,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
   %1 = trunc nuw i64 %i to i32
@@ -7498,7 +7498,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %1 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %0)
   %conv2.i = zext nneg i16 %1 to i64
@@ -7519,7 +7519,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %i.03.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %tobool.not.not.i = icmp ne i16 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -7552,13 +7552,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i16 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i16 %cond.i.i, ptr %arrayidx5.i.i, align 2
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -7571,7 +7571,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %.pre.i.i = load i16, ptr %arrayidx13.phi.trans.insert.i.i, align 8
   br label %for.body11.i.i
 
@@ -7595,7 +7595,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm5EtElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm5EtElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %5 = load i16, ptr %arrayidx.i, align 8
   %6 = and i16 %5, 1
   %retval.sroa.0.0.copyload.pre = load i64, ptr %ref.tmp, align 8
@@ -7630,13 +7630,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i16 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i16 %cond.i.i, ptr %arrayidx4.i.i, align 2
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 5
@@ -7648,7 +7648,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
   br i1 %tobool5.not.i.i, label %if.end.i.i._ZN5eastl6bitsetILm65EtErSEm.exit_crit_edge, label %for.cond8.preheader.i.i
 
 if.end.i.i._ZN5eastl6bitsetILm65EtErSEm.exit_crit_edge: ; preds = %if.end.i.i
-  %retval.sroa.2.0.call.sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %retval.sroa.2.0.call.sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %retval.sroa.2.0.copyload.pre = load i16, ptr %retval.sroa.2.0.call.sroa_idx.phi.trans.insert, align 8
   br label %_ZN5eastl6bitsetILm65EtErSEm.exit
 
@@ -7660,9 +7660,9 @@ for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.cond8.preheader.i.i
   %2 = phi i16 [ %.pre.i.i, %for.cond8.preheader.i.i ], [ %3, %for.body10.i.i ]
   %i7.016.i.i = phi i64 [ 0, %for.cond8.preheader.i.i ], [ %add15.i.i, %for.body10.i.i ]
-  %arrayidx12.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
   %add15.i.i = add nuw nsw i64 %i7.016.i.i, 1
-  %arrayidx16.i.i = getelementptr inbounds [5 x i16], ptr %ref.tmp, i64 0, i64 %add15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [5 x i16], ptr %ref.tmp, i64 0, i64 %add15.i.i
   %3 = load i16, ptr %arrayidx16.i.i, align 2
   %conv20.i.i = tail call i16 @llvm.fshr.i16(i16 %3, i16 %2, i16 %1)
   store i16 %conv20.i.i, ptr %arrayidx12.i.i, align 2
@@ -7670,7 +7670,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !72
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %4 = load i16, ptr %arrayidx27.i.i, align 8
   %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
@@ -7695,7 +7695,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %tobool.not.i.i = icmp eq i16 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm5EtE11DoFindFirstEv.exit
@@ -7747,7 +7747,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
-  %arrayidx.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %1 = trunc nuw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
@@ -7763,7 +7763,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then9.i:                                       ; preds = %if.end.i
   %inc7.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx11.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %inc7.i
+  %arrayidx11.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %inc7.i
   %2 = load i16, ptr %arrayidx11.i, align 2
   %tobool.not.i.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm5EtE10DoFindNextEm.exit, !llvm.loop !78
@@ -7858,7 +7858,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %last_find, 4
-  %this_word.0.in11.i = getelementptr inbounds [5 x i16], ptr %this, i64 0, i64 %shr.i
+  %this_word.0.in11.i = getelementptr inbounds nuw [5 x i16], ptr %this, i64 0, i64 %shr.i
   %this_word.012.i = load i16, ptr %this_word.0.in11.i, align 2
   %tobool.not.i13.i = icmp eq i16 %this_word.012.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm5EtE10DoFindPrevEm.exit
@@ -7917,9 +7917,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 2 dereferenceable(18) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EtE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 15
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -7928,7 +7928,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EtE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -7960,14 +7960,14 @@ entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
   %shl = shl nuw nsw i32 1, %sh_prom
   %and2 = and i32 %shl, %conv
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex10 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex10 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex10, align 8
   %5 = trunc i64 %4 to i16
   %sh_prom12 = and i16 %5, 15
@@ -7999,7 +7999,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -8015,7 +8015,7 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i16, ptr %0, align 2
   %conv = zext i16 %1 to i32
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 15
@@ -8028,7 +8028,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EtE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i16
   %sh_prom = and i16 %1, 15
@@ -8050,11 +8050,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtEC2Ej(ptr noundef nonnull align 2 dereferenceable(18) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EtEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 0, ptr %arrayidx, align 2
   ret void
 }
@@ -8066,9 +8066,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %and4.i = and i16 %1, %0
   store i16 %and4.i, ptr %arrayidx3.i, align 2
@@ -8087,9 +8087,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %or4.i = or i16 %1, %0
   store i16 %or4.i, ptr %arrayidx3.i, align 2
@@ -8108,9 +8108,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %x, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.05.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %xor4.i = xor i16 %1, %0
   store i16 %xor4.i, ptr %arrayidx3.i, align 2
@@ -8140,13 +8140,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %sub.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i16 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %indvars.iv.i
   store i16 %cond.i, ptr %arrayidx5.i, align 2
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -8159,7 +8159,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre.i = load i16, ptr %arrayidx13.phi.trans.insert.i, align 2
   br label %for.body11.i
 
@@ -8183,7 +8183,7 @@ for.end27.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm9EtElSEm.exit
 
 _ZN5eastl10BitsetBaseILm9EtElSEm.exit:            ; preds = %if.end.i, %for.end27.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %5 = load i16, ptr %arrayidx, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx, align 2
@@ -8216,13 +8216,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %add.i
   %0 = load i16, ptr %arrayidx.i, align 2
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i16 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.015.i
   store i16 %cond.i, ptr %arrayidx4.i, align 2
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 9
@@ -8241,9 +8241,9 @@ for.cond8.preheader.i:                            ; preds = %if.end.i
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond8.preheader.i
   %2 = phi i16 [ %.pre.i, %for.cond8.preheader.i ], [ %3, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %add15.i, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %add15.i
   %3 = load i16, ptr %arrayidx16.i, align 2
   %conv20.i = tail call i16 @llvm.fshr.i16(i16 %3, i16 %2, i16 %1)
   store i16 %conv20.i, ptr %arrayidx12.i, align 2
@@ -8251,7 +8251,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end25.i, label %for.body10.i, !llvm.loop !87
 
 for.end25.i:                                      ; preds = %for.body10.i
-  %arrayidx27.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx27.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i16, ptr %arrayidx27.i, align 2
   %sh_prom29.i = trunc nuw nsw i64 %and.i to i16
   %shr30.i = lshr i16 %4, %sh_prom29.i
@@ -8270,7 +8270,7 @@ if.end:                                           ; preds = %for.end25.i, %if.en
 define weak_odr dso_local noundef nonnull align 2 dereferenceable(18) ptr @_ZN5eastl6bitsetILm129EtE3setEv(ptr noundef nonnull align 2 dereferenceable(18) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 1, ptr %arrayidx, align 2
   ret ptr %this
 }
@@ -8289,7 +8289,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %or.i = or i16 %1, %shl.i
   store i16 %or.i, ptr %arrayidx.i, align 2
@@ -8298,7 +8298,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i16 %shl.i, -1
   %shr7.i = lshr i64 %i, 4
-  %arrayidx8.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr7.i
+  %arrayidx8.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr7.i
   %2 = load i16, ptr %arrayidx8.i, align 2
   %and10.i = and i16 %2, %not.i
   store i16 %and10.i, ptr %arrayidx8.i, align 2
@@ -8327,7 +8327,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i16 1, %sh_prom
   %not = xor i16 %shl, -1
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %and3 = and i16 %1, %not
   store i16 %and3, ptr %arrayidx.i, align 2
@@ -8344,7 +8344,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %not.i = xor i16 %0, -1
   store i16 %not.i, ptr %arrayidx.i, align 2
@@ -8353,7 +8353,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm9EtE4flipEv.exit, label %for.body.i, !llvm.loop !88
 
 _ZN5eastl10BitsetBaseILm9EtE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx, align 2
@@ -8371,7 +8371,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i16 %0, 15
   %shl = shl nuw i16 1, %sh_prom
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %1 = load i16, ptr %arrayidx.i, align 2
   %xor = xor i16 %1, %shl
   store i16 %xor, ptr %arrayidx.i, align 2
@@ -8390,7 +8390,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   %not.i.i = xor i16 %0, -1
   store i16 %not.i.i, ptr %arrayidx.i.i, align 2
@@ -8399,7 +8399,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm129EtE4flipEv.exit, label %for.body.i.i, !llvm.loop !88
 
 _ZN5eastl6bitsetILm129EtE4flipEv.exit:            ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %1 = load i16, ptr %arrayidx.i, align 2
   %2 = and i16 %1, 1
   store i16 %2, ptr %arrayidx.i, align 2
@@ -8414,7 +8414,7 @@ entry:
   call void @_ZN5eastl6bitsetILm129EtE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 2 dereferenceable(18) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -8424,7 +8424,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EtEixEm(ptr noundef nonnull align 2 dereferenceable(18) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
   %1 = trunc i64 %i to i32
@@ -8450,11 +8450,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtE11from_uint32Ej(ptr noundef nonnull align 2 dereferenceable(18) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i32 %value to i16
   store i16 %conv.i, ptr %this, align 2
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 0, ptr %arrayidx, align 2
   ret void
 }
@@ -8462,11 +8462,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EtE11from_uint64Em(ptr noundef nonnull align 2 dereferenceable(18) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 2
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %0, i8 0, i64 14, i1 false)
   %conv.i = trunc i64 %value to i16
   store i16 %conv.i, ptr %this, align 2
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 0, ptr %arrayidx, align 2
   ret void
 }
@@ -8484,9 +8484,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i16], ptr %x, i64 0, i64 %i.04.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %cmp5.not.i = icmp eq i16 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -8505,9 +8505,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.04.i
   %0 = load i16, ptr %arrayidx.i, align 2
-  %arrayidx3.i = getelementptr inbounds [9 x i16], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [9 x i16], ptr %x, i64 0, i64 %i.04.i
   %1 = load i16, ptr %arrayidx3.i, align 2
   %cmp5.not.i = icmp eq i16 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -8528,7 +8528,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %conv = zext i16 %0 to i32
   %1 = trunc nuw i64 %i to i32
@@ -8551,7 +8551,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.05.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %1 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %0)
   %conv2.i = zext nneg i16 %1 to i64
@@ -8572,7 +8572,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %i.03.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %tobool.not.not.i = icmp ne i16 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -8605,13 +8605,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i16 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i16 %cond.i.i, ptr %arrayidx5.i.i, align 2
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -8624,7 +8624,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %1 = trunc i64 %n to i16
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %.pre.i.i = load i16, ptr %arrayidx13.phi.trans.insert.i.i, align 2
   br label %for.body11.i.i
 
@@ -8648,7 +8648,7 @@ for.end27.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm9EtElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm9EtElSEm.exit.i:          ; preds = %for.end27.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %5 = load i16, ptr %arrayidx.i, align 2
   %6 = and i16 %5, 1
   store i16 %6, ptr %arrayidx.i, align 2
@@ -8684,13 +8684,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i16, ptr %arrayidx.i.i, align 2
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i16 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i16 %cond.i.i, ptr %arrayidx4.i.i, align 2
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 9
@@ -8709,9 +8709,9 @@ for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.cond8.preheader.i.i
   %2 = phi i16 [ %.pre.i.i, %for.cond8.preheader.i.i ], [ %3, %for.body10.i.i ]
   %i7.016.i.i = phi i64 [ 0, %for.cond8.preheader.i.i ], [ %add15.i.i, %for.body10.i.i ]
-  %arrayidx12.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
   %add15.i.i = add nuw nsw i64 %i7.016.i.i, 1
-  %arrayidx16.i.i = getelementptr inbounds [9 x i16], ptr %ref.tmp, i64 0, i64 %add15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [9 x i16], ptr %ref.tmp, i64 0, i64 %add15.i.i
   %3 = load i16, ptr %arrayidx16.i.i, align 2
   %conv20.i.i = tail call i16 @llvm.fshr.i16(i16 %3, i16 %2, i16 %1)
   store i16 %conv20.i.i, ptr %arrayidx12.i.i, align 2
@@ -8719,7 +8719,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end25.i.i, label %for.body10.i.i, !llvm.loop !87
 
 for.end25.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx27.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx27.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %4 = load i16, ptr %arrayidx27.i.i, align 2
   %sh_prom29.i.i = trunc nuw nsw i64 %and.i.i to i16
   %shr30.i.i = lshr i16 %4, %sh_prom29.i.i
@@ -8742,7 +8742,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %tobool.not.i.i = icmp eq i16 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm9EtE11DoFindFirstEv.exit
@@ -8794,7 +8794,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 4
-  %arrayidx.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %0 = load i16, ptr %arrayidx.i, align 2
   %1 = trunc nuw i64 %inc.i to i16
   %sh_prom.i = and i16 %1, 15
@@ -8810,7 +8810,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then9.i:                                       ; preds = %if.end.i
   %inc7.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx11.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %inc7.i
+  %arrayidx11.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %inc7.i
   %2 = load i16, ptr %arrayidx11.i, align 2
   %tobool.not.i.i = icmp eq i16 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm9EtE10DoFindNextEm.exit, !llvm.loop !93
@@ -8905,7 +8905,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %last_find, 4
-  %this_word.0.in11.i = getelementptr inbounds [9 x i16], ptr %this, i64 0, i64 %shr.i
+  %this_word.0.in11.i = getelementptr inbounds nuw [9 x i16], ptr %this, i64 0, i64 %shr.i
   %this_word.012.i = load i16, ptr %this_word.0.in11.i, align 2
   %tobool.not.i13.i = icmp eq i16 %this_word.012.i, 0
   br i1 %tobool.not.i13.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm9EtE10DoFindPrevEm.exit
@@ -8964,7 +8964,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EjE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EjE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -8973,7 +8973,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9004,14 +9004,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -9042,7 +9042,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EjE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9057,7 +9057,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EjE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9070,7 +9070,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9244,7 +9244,7 @@ entry:
   call void @_ZN5eastl6bitsetILm1EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(4) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9550,9 +9550,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(8) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EjE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -9561,7 +9561,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9592,14 +9592,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -9630,7 +9630,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9645,7 +9645,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -9658,7 +9658,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -9674,7 +9674,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjEC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EjEC5Ev) align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -9683,7 +9683,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjEC2Ej(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EjEC5Ej) align 2 {
 entry:
   store i32 %value, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -9695,9 +9695,9 @@ entry:
   %1 = load i32, ptr %this, align 4
   %and.i = and i32 %1, %0
   store i32 %and.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %x, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %and8.i = and i32 %3, %2
   store i32 %and8.i, ptr %arrayidx7.i, align 4
@@ -9711,9 +9711,9 @@ entry:
   %1 = load i32, ptr %this, align 4
   %or.i = or i32 %1, %0
   store i32 %or.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %x, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %or8.i = or i32 %3, %2
   store i32 %or8.i, ptr %arrayidx7.i, align 4
@@ -9727,9 +9727,9 @@ entry:
   %1 = load i32, ptr %this, align 4
   %xor.i = xor i32 %1, %0
   store i32 %xor.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %x, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %xor8.i = xor i32 %3, %2
   store i32 %xor8.i, ptr %arrayidx7.i, align 4
@@ -9747,7 +9747,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge, label %if.then.i
 
 if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge: ; preds = %if.then
-  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 4
   %.pre = load i32, ptr %arrayidx.phi.trans.insert, align 4
   br label %_ZN5eastl10BitsetBaseILm2EjElSEm.exit
 
@@ -9755,7 +9755,7 @@ if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp ugt i64 %n, 31
   %0 = load i32, ptr %this, align 4
   %sub.i = add nsw i64 %n, 4294967264
-  %arrayidx9.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx9.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %.pre.i = load i32, ptr %arrayidx9.phi.trans.insert.i, align 4
   %1 = select i1 %cmp.i, i32 0, i32 %0
   %2 = select i1 %cmp.i, i32 %0, i32 %.pre.i
@@ -9771,14 +9771,14 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN5eastl10BitsetBaseILm2EjElSEm.exit:            ; preds = %if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge, %if.then.i
   %3 = phi i32 [ %.pre, %if.then._ZN5eastl10BitsetBaseILm2EjElSEm.exit_crit_edge ], [ %or.i, %if.then.i ]
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %and = and i32 %3, 1
   store i32 %and, ptr %arrayidx, align 4
   br label %if.end
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   br label %if.end
 
@@ -9798,7 +9798,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp eq i64 %n, 32
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %arrayidx.i, align 4
   %.pre.i = load i32, ptr %this, align 4
   %1 = select i1 %cmp.i, i32 0, i32 %0
@@ -9816,7 +9816,7 @@ if.then.i:                                        ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   br label %if.end
 
@@ -9828,7 +9828,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl6bitsetILm33EjE3setEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 -1, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 1, ptr %arrayidx3.i, align 4
   ret ptr %this
 }
@@ -9847,7 +9847,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %or.i = or i32 %1, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
@@ -9856,7 +9856,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i32 %shl.i, -1
   %shr6.i = lshr i64 %i, 5
-  %arrayidx7.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr6.i
+  %arrayidx7.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr6.i
   %2 = load i32, ptr %arrayidx7.i, align 4
   %and8.i = and i32 %2, %not.i
   store i32 %and8.i, ptr %arrayidx7.i, align 4
@@ -9870,7 +9870,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(8) ptr @_ZN5eastl6bitsetILm33EjE5resetEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret ptr %this
 }
@@ -9887,7 +9887,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %and3 = and i32 %1, %not
   store i32 %and3, ptr %arrayidx.i, align 4
@@ -9903,7 +9903,7 @@ entry:
   %0 = load i32, ptr %this, align 4
   %not.i = xor i32 %0, -1
   store i32 %not.i, ptr %this, align 4
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx5.i, align 4
   %not6.i = and i32 %1, 1
   %and = xor i32 %not6.i, 1
@@ -9922,7 +9922,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %xor = xor i32 %1, %shl
   store i32 %xor, ptr %arrayidx.i, align 4
@@ -9948,7 +9948,7 @@ entry:
   call void @_ZN5eastl6bitsetILm33EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(8) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9958,7 +9958,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjEixEm(ptr noundef nonnull align 4 dereferenceable(8) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc i64 %i to i32
   %sh_prom = and i32 %1, 31
@@ -9984,7 +9984,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjE11from_uint32Ej(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i32 %value, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -9994,7 +9994,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm33EjE11from_uint64Em(ptr noun
 entry:
   %conv.i = trunc i64 %value to i32
   store i32 %conv.i, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 0, ptr %arrayidx3.i, align 4
   ret void
 }
@@ -10011,9 +10011,9 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %x, align 4
   %cmp.i = icmp eq i32 %0, %1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %x, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp eq i32 %2, %3
   %4 = select i1 %cmp.i, i1 %cmp8.i, i1 false
@@ -10026,9 +10026,9 @@ entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %x, align 4
   %cmp.i = icmp ne i32 %0, %1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx5.i, align 4
-  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 4
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %x, i64 4
   %3 = load i32, ptr %arrayidx7.i, align 4
   %cmp8.i = icmp ne i32 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp8.i
@@ -10043,7 +10043,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [2 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 31
@@ -10062,7 +10062,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE3allEv(pt
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %arrayidx4.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx4.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx4.i, align 4
   %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
   %narrow.i = add nuw nsw i32 %3, %1
@@ -10074,7 +10074,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EjE4noneEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx3.i, align 4
   %or.i = or i32 %1, %0
   %cmp.i.not = icmp eq i32 %or.i, 0
@@ -10206,7 +10206,7 @@ _ZN5eastl11GetFirstBitEj.exit:                    ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx3, align 4
   %tobool.not.i4 = icmp eq i32 %1, 0
   br i1 %tobool.not.i4, label %return, label %_ZN5eastl11GetFirstBitEj.exit32
@@ -10299,7 +10299,7 @@ _ZN5eastl11GetFirstBitEj.exit:                    ; preds = %if.then
   br label %return
 
 if.end:                                           ; preds = %if.then
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %1 = load i32, ptr %arrayidx5, align 4
   %tobool.not.i9 = icmp eq i32 %1, 0
   br i1 %tobool.not.i9, label %return, label %_ZN5eastl11GetFirstBitEj.exit37
@@ -10339,7 +10339,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp11, label %if.then12, label %return
 
 if.then12:                                        ; preds = %if.else
-  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 4
   %2 = load i32, ptr %arrayidx15, align 4
   %3 = trunc i64 %last_find to i32
   %sh_prom16 = add nsw i32 %3, -31
@@ -10386,7 +10386,7 @@ return:                                           ; preds = %if.then12, %if.end,
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef i64 @_ZNK5eastl6bitsetILm33EjE9find_lastEv(ptr noundef nonnull align 4 dereferenceable(8) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZN5eastl10GetLastBitEj.exit.i
@@ -10481,7 +10481,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %arrayidx, align 4
   %1 = trunc i64 %last_find to i32
   %sh_prom = sub i32 64, %1
@@ -10616,9 +10616,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EjE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(12) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EjE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -10627,7 +10627,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -10658,14 +10658,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -10696,7 +10696,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -10711,7 +10711,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EjE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -10724,7 +10724,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -10746,7 +10746,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EjEC2Ej(ptr noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EjEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i64 0, ptr %0, align 4
   store i32 %value, ptr %this, align 4
   ret void
@@ -10759,9 +10759,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %x, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %1, %0
   store i32 %and.i, ptr %arrayidx3.i, align 4
@@ -10780,9 +10780,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %x, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %or.i = or i32 %1, %0
   store i32 %or.i, ptr %arrayidx3.i, align 4
@@ -10801,9 +10801,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %x, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %xor.i = xor i32 %1, %0
   store i32 %xor.i, ptr %arrayidx3.i, align 4
@@ -10833,13 +10833,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %sub.i
   %0 = load i32, ptr %arrayidx.i, align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i32 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %indvars.iv.i
   store i32 %cond.i, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -10852,7 +10852,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %sh_prom.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %.pre.i = load i32, ptr %arrayidx13.phi.trans.insert.i, align 4
   br label %for.body11.i
 
@@ -10876,7 +10876,7 @@ for.end24.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm3EjElSEm.exit
 
 _ZN5eastl10BitsetBaseILm3EjElSEm.exit:            ; preds = %if.end.i, %for.end24.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i32, ptr %arrayidx, align 4
   %and = and i32 %4, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -10909,13 +10909,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %add.i
   %0 = load i32, ptr %arrayidx.i, align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i32 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.015.i
   store i32 %cond.i, ptr %arrayidx4.i, align 4
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 3
@@ -10935,16 +10935,16 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   %1 = phi i32 [ %.pre.i, %for.cond8.preheader.i ], [ %2, %for.body10.i ]
   %cmp9.i = phi i1 [ true, %for.cond8.preheader.i ], [ false, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ 1, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %add15.i
   %2 = load i32, ptr %arrayidx16.i, align 4
   %or.i = tail call i32 @llvm.fshr.i32(i32 %2, i32 %1, i32 %sh_prom.i)
   store i32 %or.i, ptr %arrayidx12.i, align 4
   br i1 %cmp9.i, label %for.body10.i, label %for.end23.i, !llvm.loop !102
 
 for.end23.i:                                      ; preds = %for.body10.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %arrayidx25.i, align 4
   %sh_prom26.i = trunc nuw nsw i64 %and.i to i32
   %shr27.i = lshr i32 %3, %sh_prom26.i
@@ -10963,7 +10963,7 @@ if.end:                                           ; preds = %for.end23.i, %if.en
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN5eastl6bitsetILm65EjE3setEv(ptr noundef nonnull align 4 dereferenceable(12) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   store i64 -1, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 1, ptr %arrayidx, align 4
   ret ptr %this
 }
@@ -10982,7 +10982,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %or.i = or i32 %1, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
@@ -10991,7 +10991,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i32 %shl.i, -1
   %shr6.i = lshr i64 %i, 5
-  %arrayidx7.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr6.i
+  %arrayidx7.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr6.i
   %2 = load i32, ptr %arrayidx7.i, align 4
   %and8.i = and i32 %2, %not.i
   store i32 %and8.i, ptr %arrayidx7.i, align 4
@@ -11020,7 +11020,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %and3 = and i32 %1, %not
   store i32 %and3, ptr %arrayidx.i, align 4
@@ -11037,7 +11037,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %not.i = xor i32 %0, -1
   store i32 %not.i, ptr %arrayidx.i, align 4
@@ -11046,7 +11046,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm3EjE4flipEv.exit, label %for.body.i, !llvm.loop !103
 
 _ZN5eastl10BitsetBaseILm3EjE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %arrayidx, align 4
   %and = and i32 %1, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -11064,7 +11064,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %xor = xor i32 %1, %shl
   store i32 %xor, ptr %arrayidx.i, align 4
@@ -11083,7 +11083,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i32], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %not.i.i = xor i32 %0, -1
   store i32 %not.i.i, ptr %arrayidx.i.i, align 4
@@ -11092,7 +11092,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm65EjE4flipEv.exit, label %for.body.i.i, !llvm.loop !103
 
 _ZN5eastl6bitsetILm65EjE4flipEv.exit:             ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %1 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %1, 1
   %retval.sroa.0.0.copyload = load i64, ptr %ref.tmp, align 8
@@ -11108,7 +11108,7 @@ entry:
   call void @_ZN5eastl6bitsetILm65EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(12) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -11118,7 +11118,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EjEixEm(ptr noundef nonnull align 4 dereferenceable(12) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc i64 %i to i32
   %sh_prom = and i32 %1, 31
@@ -11143,7 +11143,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EjE11from_uint32Ej(ptr noundef nonnull align 4 dereferenceable(12) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i64 0, ptr %0, align 4
   store i32 %value, ptr %this, align 4
   ret void
@@ -11152,7 +11152,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EjE11from_uint64Em(ptr noundef nonnull align 4 dereferenceable(12) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i64 0, ptr %0, align 4
   %conv.i = trunc i64 %value to i32
   store i32 %conv.i, ptr %this, align 4
@@ -11172,9 +11172,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i32], ptr %x, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp eq i32 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -11193,9 +11193,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [3 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [3 x i32], ptr %x, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp eq i32 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -11216,7 +11216,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 31
@@ -11238,7 +11238,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.05.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %conv2.i = zext nneg i32 %1 to i64
@@ -11259,7 +11259,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %i.03.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.not.i = icmp ne i32 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -11292,13 +11292,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i32], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i32 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [3 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i32 %cond.i.i, ptr %arrayidx5.i.i, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -11311,7 +11311,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %sh_prom.i.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %.pre.i.i = load i32, ptr %arrayidx13.phi.trans.insert.i.i, align 8
   br label %for.body11.i.i
 
@@ -11335,7 +11335,7 @@ for.end24.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm3EjElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm3EjElSEm.exit.i:          ; preds = %for.end24.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %4 = load i32, ptr %arrayidx.i, align 8
   %and.i = and i32 %4, 1
   %retval.sroa.0.0.copyload.pre = load i64, ptr %ref.tmp, align 8
@@ -11355,8 +11355,8 @@ entry:
   %ref.tmp = alloca %"class.eastl::bitset.18", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %this, i64 12, i1 false)
   %cmp.i = icmp ult i64 %n, 65
-  %i7.016.i.i.sroa.gep1 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %i7.016.i.i.sroa.gep3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %i7.016.i.i.sroa.gep1 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
+  %i7.016.i.i.sroa.gep3 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
@@ -11372,13 +11372,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i32], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i32 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [3 x i32], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [3 x i32], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i32 %cond.i.i, ptr %arrayidx4.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 3
@@ -11433,7 +11433,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm3EjE11DoFindFirstEv.exit
@@ -11490,7 +11490,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 5
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc nuw i64 %inc.i to i32
   %sh_prom.i = and i32 %1, 31
@@ -11506,7 +11506,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then7.i:                                       ; preds = %if.end.i
   %inc5.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx9.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %inc5.i
+  %arrayidx9.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %inc5.i
   %2 = load i32, ptr %arrayidx9.i, align 4
   %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm3EjE10DoFindNextEm.exit, !llvm.loop !108
@@ -11619,7 +11619,7 @@ if.then.i:                                        ; preds = %entry
   %1 = and i32 %0, 31
   %sh_prom.i = xor i32 %1, 31
   %shr3.i = lshr i32 2147483647, %sh_prom.i
-  %arrayidx.i = getelementptr inbounds [3 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [3 x i32], ptr %this, i64 0, i64 %shr.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %and4.i = and i32 %2, %shr3.i
   br label %for.cond.i
@@ -11689,9 +11689,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(20) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EjE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 31
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -11700,7 +11700,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EjE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -11731,14 +11731,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
   %shl = shl nuw i32 1, %sh_prom
   %and2 = and i32 %shl, %1
   %tobool.not = icmp eq i32 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i64, ptr %mnBitIndex8, align 8
   %5 = trunc i64 %4 to i32
   %sh_prom10 = and i32 %5, 31
@@ -11769,7 +11769,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EjE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -11784,7 +11784,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EjE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i32, ptr %0, align 4
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %3 = trunc i64 %2 to i32
   %sh_prom = and i32 %3, 31
@@ -11797,7 +11797,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EjE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %1 = trunc i64 %0 to i32
   %sh_prom = and i32 %1, 31
@@ -11819,10 +11819,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjEC2Ej(ptr noundef nonnull align 4 dereferenceable(20) %this, i32 noundef %value) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EjEC5Ej) align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   store i32 %value, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
   ret void
 }
@@ -11834,9 +11834,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %x, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %and.i = and i32 %1, %0
   store i32 %and.i, ptr %arrayidx3.i, align 4
@@ -11855,9 +11855,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %x, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %or.i = or i32 %1, %0
   store i32 %or.i, ptr %arrayidx3.i, align 4
@@ -11876,9 +11876,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %x, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %xor.i = xor i32 %1, %0
   store i32 %xor.i, ptr %arrayidx3.i, align 4
@@ -11908,13 +11908,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %sub.i = sub nuw nsw i64 %indvars.iv.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %sub.i
   %0 = load i32, ptr %arrayidx.i, align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i32 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx5.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %indvars.iv.i
   store i32 %cond.i, ptr %arrayidx5.i, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.not.i = icmp eq i64 %indvars.iv.i, 0
@@ -11927,7 +11927,7 @@ if.end.i:                                         ; preds = %cond.end.i, %if.the
 
 for.cond9.preheader.i:                            ; preds = %if.end.i
   %sh_prom.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx13.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre.i = load i32, ptr %arrayidx13.phi.trans.insert.i, align 4
   br label %for.body11.i
 
@@ -11951,7 +11951,7 @@ for.end24.i:                                      ; preds = %for.body11.i
   br label %_ZN5eastl10BitsetBaseILm5EjElSEm.exit
 
 _ZN5eastl10BitsetBaseILm5EjElSEm.exit:            ; preds = %if.end.i, %for.end24.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %4 = load i32, ptr %arrayidx, align 4
   %and = and i32 %4, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -11984,13 +11984,13 @@ for.body.i:                                       ; preds = %if.then, %cond.end.
 
 cond.true.i:                                      ; preds = %for.body.i
   %add.i = add nuw nsw i64 %i.015.i, %shr.i
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %add.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %add.i
   %0 = load i32, ptr %arrayidx.i, align 4
   br label %cond.end.i
 
 cond.end.i:                                       ; preds = %cond.true.i, %for.body.i
   %cond.i = phi i32 [ %0, %cond.true.i ], [ 0, %for.body.i ]
-  %arrayidx4.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.015.i
+  %arrayidx4.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.015.i
   store i32 %cond.i, ptr %arrayidx4.i, align 4
   %inc.i = add nuw nsw i64 %i.015.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, 5
@@ -12009,9 +12009,9 @@ for.cond8.preheader.i:                            ; preds = %if.end.i
 for.body10.i:                                     ; preds = %for.body10.i, %for.cond8.preheader.i
   %1 = phi i32 [ %.pre.i, %for.cond8.preheader.i ], [ %2, %for.body10.i ]
   %i7.016.i = phi i64 [ 0, %for.cond8.preheader.i ], [ %add15.i, %for.body10.i ]
-  %arrayidx12.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i7.016.i
+  %arrayidx12.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i7.016.i
   %add15.i = add nuw nsw i64 %i7.016.i, 1
-  %arrayidx16.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %add15.i
+  %arrayidx16.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %add15.i
   %2 = load i32, ptr %arrayidx16.i, align 4
   %or.i = tail call i32 @llvm.fshr.i32(i32 %2, i32 %1, i32 %sh_prom.i)
   store i32 %or.i, ptr %arrayidx12.i, align 4
@@ -12019,7 +12019,7 @@ for.body10.i:                                     ; preds = %for.body10.i, %for.
   br i1 %exitcond17.not.i, label %for.end23.i, label %for.body10.i, !llvm.loop !117
 
 for.end23.i:                                      ; preds = %for.body10.i
-  %arrayidx25.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i32, ptr %arrayidx25.i, align 4
   %sh_prom26.i = trunc nuw nsw i64 %and.i to i32
   %shr27.i = lshr i32 %3, %sh_prom26.i
@@ -12038,7 +12038,7 @@ if.end:                                           ; preds = %for.end23.i, %if.en
 define weak_odr dso_local noundef nonnull align 4 dereferenceable(20) ptr @_ZN5eastl6bitsetILm129EjE3setEv(ptr noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 1, ptr %arrayidx, align 4
   ret ptr %this
 }
@@ -12057,7 +12057,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %or.i = or i32 %1, %shl.i
   store i32 %or.i, ptr %arrayidx.i, align 4
@@ -12066,7 +12066,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i32 %shl.i, -1
   %shr6.i = lshr i64 %i, 5
-  %arrayidx7.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr6.i
+  %arrayidx7.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr6.i
   %2 = load i32, ptr %arrayidx7.i, align 4
   %and8.i = and i32 %2, %not.i
   store i32 %and8.i, ptr %arrayidx7.i, align 4
@@ -12095,7 +12095,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i32 1, %sh_prom
   %not = xor i32 %shl, -1
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %and3 = and i32 %1, %not
   store i32 %and3, ptr %arrayidx.i, align 4
@@ -12112,7 +12112,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %not.i = xor i32 %0, -1
   store i32 %not.i, ptr %arrayidx.i, align 4
@@ -12121,7 +12121,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %_ZN5eastl10BitsetBaseILm5EjE4flipEv.exit, label %for.body.i, !llvm.loop !118
 
 _ZN5eastl10BitsetBaseILm5EjE4flipEv.exit:         ; preds = %for.body.i
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %arrayidx, align 4
   %and = and i32 %1, 1
   store i32 %and, ptr %arrayidx, align 4
@@ -12139,7 +12139,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = and i32 %0, 31
   %shl = shl nuw i32 1, %sh_prom
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %1 = load i32, ptr %arrayidx.i, align 4
   %xor = xor i32 %1, %shl
   store i32 %xor, ptr %arrayidx.i, align 4
@@ -12158,7 +12158,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %entry
   %i.04.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %i.04.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   %not.i.i = xor i32 %0, -1
   store i32 %not.i.i, ptr %arrayidx.i.i, align 4
@@ -12167,7 +12167,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %entr
   br i1 %exitcond.not.i.i, label %_ZN5eastl6bitsetILm129EjE4flipEv.exit, label %for.body.i.i, !llvm.loop !118
 
 _ZN5eastl6bitsetILm129EjE4flipEv.exit:            ; preds = %for.body.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %1 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %1, 1
   store i32 %and.i, ptr %arrayidx.i, align 4
@@ -12182,7 +12182,7 @@ entry:
   call void @_ZN5eastl6bitsetILm129EjE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(20) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -12192,7 +12192,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EjEixEm(ptr noundef nonnull align 4 dereferenceable(20) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc i64 %i to i32
   %sh_prom = and i32 %1, 31
@@ -12217,10 +12217,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjE11from_uint32Ej(ptr noundef nonnull align 4 dereferenceable(20) %this, i32 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   store i32 %value, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
   ret void
 }
@@ -12228,11 +12228,11 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EjE11from_uint64Em(ptr noundef nonnull align 4 dereferenceable(20) %this, i64 noundef %value) local_unnamed_addr #1 comdat align 2 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %this, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 12, i1 false)
   %conv.i = trunc i64 %value to i32
   store i32 %conv.i, ptr %this, align 4
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %arrayidx, align 4
   ret void
 }
@@ -12250,9 +12250,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i32], ptr %x, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp eq i32 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -12271,9 +12271,9 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.04.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.04.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.04.i
   %0 = load i32, ptr %arrayidx.i, align 4
-  %arrayidx3.i = getelementptr inbounds [5 x i32], ptr %x, i64 0, i64 %i.04.i
+  %arrayidx3.i = getelementptr inbounds nuw [5 x i32], ptr %x, i64 0, i64 %i.04.i
   %1 = load i32, ptr %arrayidx3.i, align 4
   %cmp4.not.i = icmp eq i32 %0, %1
   %inc.i = add nuw nsw i64 %i.04.i, 1
@@ -12294,7 +12294,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc nuw i64 %i to i32
   %sh_prom = and i32 %1, 31
@@ -12316,7 +12316,7 @@ entry:
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.05.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
   %n.04.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.05.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.05.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
   %conv2.i = zext nneg i32 %1 to i64
@@ -12337,7 +12337,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %i.03.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %i.03.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.not.i = icmp ne i32 %0, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -12370,13 +12370,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %sub.i.i = sub nuw nsw i64 %indvars.iv.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %sub.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i32 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx5.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %indvars.iv.i.i
   store i32 %cond.i.i, ptr %arrayidx5.i.i, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %cmp.not.i.i = icmp eq i64 %indvars.iv.i.i, 0
@@ -12389,7 +12389,7 @@ if.end.i.i:                                       ; preds = %cond.end.i.i, %if.t
 
 for.cond9.preheader.i.i:                          ; preds = %if.end.i.i
   %sh_prom.i.i = trunc i64 %n to i32
-  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx13.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %.pre.i.i = load i32, ptr %arrayidx13.phi.trans.insert.i.i, align 4
   br label %for.body11.i.i
 
@@ -12413,7 +12413,7 @@ for.end24.i.i:                                    ; preds = %for.body11.i.i
   br label %_ZN5eastl10BitsetBaseILm5EjElSEm.exit.i
 
 _ZN5eastl10BitsetBaseILm5EjElSEm.exit.i:          ; preds = %for.end24.i.i, %if.end.i.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %4 = load i32, ptr %arrayidx.i, align 4
   %and.i = and i32 %4, 1
   store i32 %and.i, ptr %arrayidx.i, align 4
@@ -12449,13 +12449,13 @@ for.body.i.i:                                     ; preds = %if.then.i, %cond.en
 
 cond.true.i.i:                                    ; preds = %for.body.i.i
   %add.i.i = add nuw nsw i64 %i.015.i.i, %shr.i.i
-  %arrayidx.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %add.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %add.i.i
   %0 = load i32, ptr %arrayidx.i.i, align 4
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %cond.true.i.i, %for.body.i.i
   %cond.i.i = phi i32 [ %0, %cond.true.i.i ], [ 0, %for.body.i.i ]
-  %arrayidx4.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %i.015.i.i
   store i32 %cond.i.i, ptr %arrayidx4.i.i, align 4
   %inc.i.i = add nuw nsw i64 %i.015.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, 5
@@ -12474,9 +12474,9 @@ for.cond8.preheader.i.i:                          ; preds = %if.end.i.i
 for.body10.i.i:                                   ; preds = %for.body10.i.i, %for.cond8.preheader.i.i
   %1 = phi i32 [ %.pre.i.i, %for.cond8.preheader.i.i ], [ %2, %for.body10.i.i ]
   %i7.016.i.i = phi i64 [ 0, %for.cond8.preheader.i.i ], [ %add15.i.i, %for.body10.i.i ]
-  %arrayidx12.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %i7.016.i.i
   %add15.i.i = add nuw nsw i64 %i7.016.i.i, 1
-  %arrayidx16.i.i = getelementptr inbounds [5 x i32], ptr %ref.tmp, i64 0, i64 %add15.i.i
+  %arrayidx16.i.i = getelementptr inbounds nuw [5 x i32], ptr %ref.tmp, i64 0, i64 %add15.i.i
   %2 = load i32, ptr %arrayidx16.i.i, align 4
   %or.i.i = tail call i32 @llvm.fshr.i32(i32 %2, i32 %1, i32 %sh_prom.i.i)
   store i32 %or.i.i, ptr %arrayidx12.i.i, align 4
@@ -12484,7 +12484,7 @@ for.body10.i.i:                                   ; preds = %for.body10.i.i, %fo
   br i1 %exitcond17.not.i.i, label %for.end23.i.i, label %for.body10.i.i, !llvm.loop !117
 
 for.end23.i.i:                                    ; preds = %for.body10.i.i
-  %arrayidx25.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %arrayidx25.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %3 = load i32, ptr %arrayidx25.i.i, align 4
   %sh_prom26.i.i = trunc nuw nsw i64 %and.i.i to i32
   %shr27.i.i = lshr i32 %3, %sh_prom26.i.i
@@ -12507,7 +12507,7 @@ entry:
 
 for.body.i:                                       ; preds = %for.inc.i, %entry
   %word_index.08.i = phi i64 [ 0, %entry ], [ %inc.i, %for.inc.i ]
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %word_index.08.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %word_index.08.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %tobool.not.i.i = icmp eq i32 %0, 0
   br i1 %tobool.not.i.i, label %for.inc.i, label %_ZNK5eastl10BitsetBaseILm5EjE11DoFindFirstEv.exit
@@ -12564,7 +12564,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %shr.i = lshr i64 %inc.i, 5
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %0 = load i32, ptr %arrayidx.i, align 4
   %1 = trunc nuw i64 %inc.i to i32
   %sh_prom.i = and i32 %1, 31
@@ -12580,7 +12580,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
 
 if.then7.i:                                       ; preds = %if.end.i
   %inc5.i = add nuw nsw i64 %word_index.013.i, 1
-  %arrayidx9.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %inc5.i
+  %arrayidx9.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %inc5.i
   %2 = load i32, ptr %arrayidx9.i, align 4
   %tobool.not.i.i = icmp eq i32 %2, 0
   br i1 %tobool.not.i.i, label %if.end.i, label %_ZNK5eastl10BitsetBaseILm5EjE10DoFindNextEm.exit, !llvm.loop !123
@@ -12693,7 +12693,7 @@ if.then.i:                                        ; preds = %entry
   %1 = and i32 %0, 31
   %sh_prom.i = xor i32 %1, 31
   %shr3.i = lshr i32 2147483647, %sh_prom.i
-  %arrayidx.i = getelementptr inbounds [5 x i32], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [5 x i32], ptr %this, i64 0, i64 %shr.i
   %2 = load i32, ptr %arrayidx.i, align 4
   %and4.i = and i32 %2, %shr3.i
   br label %for.cond.i
@@ -12763,7 +12763,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm1EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm1EoE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -12772,7 +12772,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -12803,14 +12803,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -12841,7 +12841,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EoE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -12856,7 +12856,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm1EoE9reference
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -12869,7 +12869,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm1EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13046,7 +13046,7 @@ entry:
   call void @_ZN5eastl6bitsetILm1EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -13167,7 +13167,7 @@ entry:
 define weak_odr dso_local { i64, i64 } @_ZNK5eastl6bitsetILm1EoErsEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i64, ptr %this, align 16
-  %ref.tmp.sroa.3.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.3.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ref.tmp.sroa.3.0.copyload = load i64, ptr %ref.tmp.sroa.3.0.this.sroa_idx, align 8
   %cmp.i = icmp eq i64 %n, 0
   %spec.select = select i1 %cmp.i, i64 %ref.tmp.sroa.3.0.copyload, i64 0
@@ -13427,7 +13427,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm33EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm33EoE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -13436,7 +13436,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13467,14 +13467,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -13505,7 +13505,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13520,7 +13520,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm33EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13533,7 +13533,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm33EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -13725,7 +13725,7 @@ entry:
   call void @_ZN5eastl6bitsetILm33EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -13853,7 +13853,7 @@ entry:
 define weak_odr dso_local { i64, i64 } @_ZNK5eastl6bitsetILm33EoErsEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i64, ptr %this, align 16
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ref.tmp.sroa.4.0.copyload = load i64, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 8
   %cmp.i = icmp ult i64 %n, 33
   %ref.tmp.sroa.4.0.insert.ext = zext i64 %ref.tmp.sroa.4.0.copyload to i128
@@ -14121,7 +14121,7 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm65EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(16) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm65EoE9referenceC5ERKS1_m) align 2 {
 entry:
   store ptr %x, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -14130,7 +14130,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14161,14 +14161,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -14199,7 +14199,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14214,7 +14214,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm65EoE9referenc
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14227,7 +14227,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm65EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14405,7 +14405,7 @@ if.end:                                           ; preds = %entry, %if.then
 define weak_odr dso_local { i64, i64 } @_ZNK5eastl6bitsetILm65EoEcoEv(ptr noundef nonnull align 16 dereferenceable(16) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i64, ptr %this, align 16
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ref.tmp.sroa.4.0.copyload = load i64, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 8
   %ref.tmp.sroa.4.0.insert.ext = zext i64 %ref.tmp.sroa.4.0.copyload to i128
   %ref.tmp.sroa.4.0.insert.shift = shl nuw i128 %ref.tmp.sroa.4.0.insert.ext, 64
@@ -14428,7 +14428,7 @@ entry:
   call void @_ZN5eastl6bitsetILm65EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -14535,7 +14535,7 @@ entry:
 define weak_odr dso_local { i64, i64 } @_ZNK5eastl6bitsetILm65EoElsEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i64, ptr %this, align 16
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ref.tmp.sroa.4.0.copyload = load i64, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 8
   %cmp.i = icmp slt i64 %n, 65
   %ref.tmp.sroa.4.0.insert.ext = zext i64 %ref.tmp.sroa.4.0.copyload to i128
@@ -14558,7 +14558,7 @@ entry:
 define weak_odr dso_local { i64, i64 } @_ZNK5eastl6bitsetILm65EoErsEm(ptr noundef nonnull align 16 dereferenceable(16) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i64, ptr %this, align 16
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %ref.tmp.sroa.4.0.copyload = load i64, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 8
   %cmp.i = icmp ult i64 %n, 65
   %ref.tmp.sroa.4.0.insert.ext = zext i64 %ref.tmp.sroa.4.0.copyload to i128
@@ -14826,9 +14826,9 @@ entry:
 define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoE9referenceC2ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 16 dereferenceable(32) %x, i64 noundef %i) unnamed_addr #1 comdat($_ZN5eastl6bitsetILm129EoE9referenceC5ERKS1_m) align 2 {
 entry:
   %shr.i = lshr i64 %i, 7
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %x, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i128], ptr %x, i64 0, i64 %shr.i
   store ptr %arrayidx.i, ptr %this, align 8
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %and = and i64 %i, 127
   store i64 %and, ptr %mnBitIndex, align 8
   ret void
@@ -14837,7 +14837,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EoE9referenceaSEb(ptr noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14868,14 +14868,14 @@ define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5e
 entry:
   %0 = load ptr, ptr %x, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %x, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %x, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %and2 = and i128 %shl, %1
   %tobool.not = icmp eq i128 %and2, 0
-  %mnBitIndex8 = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex8 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i64, ptr %mnBitIndex8, align 8
   %and9 = and i64 %3, 127
   %sh_prom10 = zext nneg i64 %and9 to i128
@@ -14906,7 +14906,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14921,7 +14921,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoE9referen
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load i128, ptr %0, align 16
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %2, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14934,7 +14934,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5eastl6bitsetILm129EoE9reference4flipEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %mnBitIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %mnBitIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %mnBitIndex, align 8
   %and = and i64 %0, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -14958,7 +14958,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoEC2Ej(ptr noundef nonnul
 entry:
   %conv.i = zext i32 %value to i128
   store i128 %conv.i, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i128 0, ptr %arrayidx3.i, align 16
   ret void
 }
@@ -14970,9 +14970,9 @@ entry:
   %1 = load i128, ptr %this, align 16
   %and.i = and i128 %1, %0
   store i128 %and.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %and8.i = and i128 %3, %2
   store i128 %and8.i, ptr %arrayidx7.i, align 16
@@ -14986,9 +14986,9 @@ entry:
   %1 = load i128, ptr %this, align 16
   %or.i = or i128 %1, %0
   store i128 %or.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %or8.i = or i128 %3, %2
   store i128 %or8.i, ptr %arrayidx7.i, align 16
@@ -15002,9 +15002,9 @@ entry:
   %1 = load i128, ptr %this, align 16
   %xor.i = xor i128 %1, %0
   store i128 %xor.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %xor8.i = xor i128 %3, %2
   store i128 %xor8.i, ptr %arrayidx7.i, align 16
@@ -15022,7 +15022,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge, label %if.then.i
 
 if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge: ; preds = %if.then
-  %arrayidx.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre = load i128, ptr %arrayidx.phi.trans.insert, align 16
   br label %_ZN5eastl10BitsetBaseILm2EoElSEm.exit
 
@@ -15030,7 +15030,7 @@ if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp ugt i64 %n, 127
   %0 = load i128, ptr %this, align 16
   %sub.i = add i64 %n, -128
-  %arrayidx9.phi.trans.insert.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx9.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre.i = load i128, ptr %arrayidx9.phi.trans.insert.i, align 16
   %1 = select i1 %cmp.i, i128 0, i128 %0
   %2 = select i1 %cmp.i, i128 %0, i128 %.pre.i
@@ -15047,7 +15047,7 @@ if.then.i:                                        ; preds = %if.then
 
 _ZN5eastl10BitsetBaseILm2EoElSEm.exit:            ; preds = %if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge, %if.then.i
   %3 = phi i128 [ %.pre, %if.then._ZN5eastl10BitsetBaseILm2EoElSEm.exit_crit_edge ], [ %or.i, %if.then.i ]
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %and = and i128 %3, 1
   store i128 %and, ptr %arrayidx, align 16
   br label %if.end
@@ -15072,7 +15072,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %cmp.i = icmp eq i64 %n, 128
-  %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i128, ptr %arrayidx.i, align 16
   %.pre.i = load i128, ptr %this, align 16
   %1 = select i1 %cmp.i, i128 0, i128 %0
@@ -15101,7 +15101,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 define weak_odr dso_local noundef nonnull align 16 dereferenceable(32) ptr @_ZN5eastl6bitsetILm129EoE3setEv(ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %this, i8 -1, i64 16, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i128 1, ptr %arrayidx, align 16
   ret ptr %this
 }
@@ -15120,7 +15120,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %shr.i = lshr i64 %i, 7
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i128], ptr %this, i64 0, i64 %shr.i
   %0 = load i128, ptr %arrayidx.i, align 16
   %or.i = or i128 %0, %shl.i
   store i128 %or.i, ptr %arrayidx.i, align 16
@@ -15129,7 +15129,7 @@ if.then.i:                                        ; preds = %if.then
 if.else.i:                                        ; preds = %if.then
   %not.i = xor i128 %shl.i, -1
   %shr6.i = lshr i64 %i, 7
-  %arrayidx7.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr6.i
+  %arrayidx7.i = getelementptr inbounds nuw [2 x i128], ptr %this, i64 0, i64 %shr6.i
   %1 = load i128, ptr %arrayidx7.i, align 16
   %and8.i = and i128 %1, %not.i
   store i128 %and8.i, ptr %arrayidx7.i, align 16
@@ -15158,7 +15158,7 @@ if.then:                                          ; preds = %entry
   %shl = shl nuw i128 1, %sh_prom
   %not = xor i128 %shl, -1
   %shr.i = lshr i64 %i, 7
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i128], ptr %this, i64 0, i64 %shr.i
   %0 = load i128, ptr %arrayidx.i, align 16
   %and3 = and i128 %0, %not
   store i128 %and3, ptr %arrayidx.i, align 16
@@ -15174,7 +15174,7 @@ entry:
   %0 = load i128, ptr %this, align 16
   %not.i = xor i128 %0, -1
   store i128 %not.i, ptr %this, align 16
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx5.i, align 16
   %not6.i = and i128 %1, 1
   %and = xor i128 %not6.i, 1
@@ -15193,7 +15193,7 @@ if.then:                                          ; preds = %entry
   %sh_prom = zext nneg i64 %and to i128
   %shl = shl nuw i128 1, %sh_prom
   %shr.i = lshr i64 %i, 7
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i128], ptr %this, i64 0, i64 %shr.i
   %0 = load i128, ptr %arrayidx.i, align 16
   %xor = xor i128 %0, %shl
   store i128 %xor, ptr %arrayidx.i, align 16
@@ -15207,13 +15207,13 @@ if.end:                                           ; preds = %entry, %if.then
 define weak_odr dso_local void @_ZNK5eastl6bitsetILm129EoEcoEv(ptr noalias sret(%"class.eastl::bitset.26") align 16 %agg.result, ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i128, ptr %this, align 16
-  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.4.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %ref.tmp.sroa.4.0.copyload = load i128, ptr %ref.tmp.sroa.4.0.this.sroa_idx, align 16
   %not.i.i = xor i128 %ref.tmp.sroa.0.0.copyload, -1
   %not6.i.i = and i128 %ref.tmp.sroa.4.0.copyload, 1
   %and.i = xor i128 %not6.i.i, 1
   store i128 %not.i.i, ptr %agg.result, align 16
-  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i128 %and.i, ptr %ref.tmp.sroa.4.0.agg.result.sroa_idx, align 16
   ret void
 }
@@ -15225,7 +15225,7 @@ entry:
   call void @_ZN5eastl6bitsetILm129EoE9referenceC1ERKS1_m(ptr noundef nonnull align 8 dereferenceable(16) %retval, ptr noundef nonnull align 16 dereferenceable(32) %this, i64 noundef %i)
   %.fca.0.load = load ptr, ptr %retval, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %retval, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %retval, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -15235,7 +15235,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoEixEm(ptr noundef nonnull align 16 dereferenceable(32) %this, i64 noundef %i) local_unnamed_addr #1 comdat align 2 {
 entry:
   %shr.i = lshr i64 %i, 7
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i128], ptr %this, i64 0, i64 %shr.i
   %0 = load i128, ptr %arrayidx.i, align 16
   %and = and i64 %i, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15262,7 +15262,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoE11from_uint32Ej(ptr nou
 entry:
   %conv.i = zext i32 %value to i128
   store i128 %conv.i, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i128 0, ptr %arrayidx3.i, align 16
   ret void
 }
@@ -15272,7 +15272,7 @@ define weak_odr dso_local void @_ZN5eastl6bitsetILm129EoE11from_uint64Em(ptr nou
 entry:
   %conv.i = zext i64 %value to i128
   store i128 %conv.i, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i128 0, ptr %arrayidx3.i, align 16
   ret void
 }
@@ -15289,9 +15289,9 @@ entry:
   %0 = load i128, ptr %this, align 16
   %1 = load i128, ptr %x, align 16
   %cmp.i = icmp eq i128 %0, %1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %cmp8.i = icmp eq i128 %2, %3
   %4 = select i1 %cmp.i, i1 %cmp8.i, i1 false
@@ -15304,9 +15304,9 @@ entry:
   %0 = load i128, ptr %this, align 16
   %1 = load i128, ptr %x, align 16
   %cmp.i = icmp ne i128 %0, %1
-  %arrayidx5.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i128, ptr %arrayidx5.i, align 16
-  %arrayidx7.i = getelementptr inbounds i8, ptr %x, i64 16
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %x, i64 16
   %3 = load i128, ptr %arrayidx7.i, align 16
   %cmp8.i = icmp ne i128 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp8.i
@@ -15321,7 +15321,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %shr.i = lshr i64 %i, 7
-  %arrayidx.i = getelementptr inbounds [2 x i128], ptr %this, i64 0, i64 %shr.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i128], ptr %this, i64 0, i64 %shr.i
   %0 = load i128, ptr %arrayidx.i, align 16
   %and = and i64 %i, 127
   %sh_prom = zext nneg i64 %and to i128
@@ -15345,7 +15345,7 @@ entry:
 define weak_odr dso_local noundef zeroext i1 @_ZNK5eastl6bitsetILm129EoE4noneEv(ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #1 comdat align 2 {
 entry:
   %0 = load i128, ptr %this, align 16
-  %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx3.i, align 16
   %or.i = or i128 %1, %0
   %cmp.i.not = icmp eq i128 %or.i, 0
@@ -15356,7 +15356,7 @@ entry:
 define weak_odr dso_local void @_ZNK5eastl6bitsetILm129EoElsEm(ptr noalias sret(%"class.eastl::bitset.26") align 16 %agg.result, ptr noundef nonnull align 16 dereferenceable(32) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i128, ptr %this, align 16
-  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %ref.tmp.sroa.5.0.copyload = load i128, ptr %ref.tmp.sroa.5.0.this.sroa_idx, align 16
   %cmp.i = icmp slt i64 %n, 129
   br i1 %cmp.i, label %if.then.i, label %_ZN5eastl6bitsetILm129EoElSEm.exit
@@ -15390,7 +15390,7 @@ _ZN5eastl6bitsetILm129EoElSEm.exit:               ; preds = %entry, %_ZN5eastl10
   %ref.tmp.sroa.0.1 = phi i128 [ %ref.tmp.sroa.0.0, %_ZN5eastl10BitsetBaseILm2EoElSEm.exit.i ], [ 0, %entry ]
   %ref.tmp.sroa.5.0 = phi i128 [ %and.i, %_ZN5eastl10BitsetBaseILm2EoElSEm.exit.i ], [ 0, %entry ]
   store i128 %ref.tmp.sroa.0.1, ptr %agg.result, align 16
-  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i128 %ref.tmp.sroa.5.0, ptr %ref.tmp.sroa.5.0.agg.result.sroa_idx, align 16
   ret void
 }
@@ -15399,7 +15399,7 @@ _ZN5eastl6bitsetILm129EoElSEm.exit:               ; preds = %entry, %_ZN5eastl10
 define weak_odr dso_local void @_ZNK5eastl6bitsetILm129EoErsEm(ptr noalias sret(%"class.eastl::bitset.26") align 16 %agg.result, ptr noundef nonnull align 16 dereferenceable(32) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 {
 entry:
   %ref.tmp.sroa.0.0.copyload = load i128, ptr %this, align 16
-  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
+  %ref.tmp.sroa.5.0.this.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %ref.tmp.sroa.5.0.copyload = load i128, ptr %ref.tmp.sroa.5.0.this.sroa_idx, align 16
   %cmp.i = icmp ult i64 %n, 129
   br i1 %cmp.i, label %if.then.i, label %_ZN5eastl6bitsetILm129EoErSEm.exit
@@ -15426,7 +15426,7 @@ _ZN5eastl6bitsetILm129EoErSEm.exit:               ; preds = %entry, %if.then.i, 
   %ref.tmp.sroa.0.0 = phi i128 [ %ref.tmp.sroa.0.0.copyload, %if.then.i ], [ %or.i.i, %if.then.i.i ], [ 0, %entry ]
   %ref.tmp.sroa.5.0 = phi i128 [ %ref.tmp.sroa.5.0.copyload, %if.then.i ], [ %shr19.i.i, %if.then.i.i ], [ 0, %entry ]
   store i128 %ref.tmp.sroa.0.0, ptr %agg.result, align 16
-  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %ref.tmp.sroa.5.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store i128 %ref.tmp.sroa.5.0, ptr %ref.tmp.sroa.5.0.agg.result.sroa_idx, align 16
   ret void
 }
@@ -15493,7 +15493,7 @@ if.then:                                          ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %entry, %_ZN5eastl11GetFirstBitEo.exit
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx3, align 16
   %tobool.not.i8 = icmp eq i128 %1, 0
   br i1 %tobool.not.i8, label %return, label %_ZN5eastl11GetFirstBitEo.exit47
@@ -15620,7 +15620,7 @@ if.then3:                                         ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %if.then, %_ZN5eastl11GetFirstBitEo.exit
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i128, ptr %arrayidx5, align 16
   %tobool.not.i13 = icmp eq i128 %1, 0
   br i1 %tobool.not.i13, label %return, label %_ZN5eastl11GetFirstBitEo.exit52
@@ -15678,7 +15678,7 @@ if.else:                                          ; preds = %entry
 
 if.then13:                                        ; preds = %if.else
   %sub = add nsw i64 %last_find, -127
-  %arrayidx16 = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i128, ptr %arrayidx16, align 16
   %sh_prom17 = zext nneg i64 %sub to i128
   %shl18 = shl nsw i128 -1, %sh_prom17
@@ -15749,7 +15749,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK5eastl10BitsetBaseILm2EoE10DoFindLastEv(ptr noundef nonnull align 16 dereferenceable(32) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i128, ptr %arrayidx, align 16
   %tobool.not.i = icmp eq i128 %0, 0
   br i1 %tobool.not.i, label %if.end, label %_ZN5eastl10GetLastBitEo.exit
@@ -15873,7 +15873,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 16
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i128, ptr %arrayidx, align 16
   %sub2 = sub i64 256, %last_find
   %sh_prom = zext nneg i64 %sub2 to i128
@@ -16175,19 +16175,19 @@ entry:
   %call416 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 341, ptr noundef nonnull @.str.94)
   %call419 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 342, ptr noundef nonnull @.str.95)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %b129, i8 0, i64 24, i1 false)
-  %0 = getelementptr inbounds i8, ptr %b129A, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %b129A, i64 8
   store i64 0, ptr %0, align 8
   store i64 1, ptr %b129A, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %b129A, i64 16
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %b129A, i64 16
   store i64 0, ptr %arrayidx.i, align 8
   %call422 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 348, ptr noundef nonnull @.str.96)
-  %i7.016.i.i.sroa.gep6358 = getelementptr inbounds i8, ptr %b129, i64 16
-  %i7.016.i.i.sroa.gep6359 = getelementptr inbounds i8, ptr %b129, i64 8
+  %i7.016.i.i.sroa.gep6358 = getelementptr inbounds nuw i8, ptr %b129, i64 16
+  %i7.016.i.i.sroa.gep6359 = getelementptr inbounds nuw i8, ptr %b129, i64 8
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %entry
   %i.03.i = phi i64 [ 0, %entry ], [ %inc.i, %for.body.i ]
-  %arrayidx.i268 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.03.i
+  %arrayidx.i268 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.03.i
   %1 = load i64, ptr %arrayidx.i268, align 8
   %tobool.not.not.i = icmp ne i64 %1, 0
   %inc.i = add nuw nsw i64 %i.03.i, 1
@@ -16203,7 +16203,7 @@ _ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit:         ; preds = %for.body.i
 for.body.i.i:                                     ; preds = %for.body.i.i, %_ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit
   %i.05.i.i = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit ], [ %inc.i.i, %for.body.i.i ]
   %n.04.i.i = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit ], [ %add.i.i269, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i.i
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %3 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
   %add.i.i269 = add i64 %3, %n.04.i.i
@@ -16218,7 +16218,7 @@ _ZNK5eastl6bitsetILm129EmE3allEv.exit:            ; preds = %for.body.i.i
 
 for.body.i.i271:                                  ; preds = %for.body.i.i271, %_ZNK5eastl6bitsetILm129EmE3allEv.exit
   %i.03.i.i = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE3allEv.exit ], [ %inc.i.i273, %for.body.i.i271 ]
-  %arrayidx.i.i272 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.03.i.i
+  %arrayidx.i.i272 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.03.i.i
   %4 = load i64, ptr %arrayidx.i.i272, align 8
   %tobool.not.not.i.i = icmp ne i64 %4, 0
   %inc.i.i273 = add nuw nsw i64 %i.03.i.i, 1
@@ -16236,7 +16236,7 @@ _ZNK5eastl6bitsetILm129EmE4noneEv.exit:           ; preds = %for.body.i.i271
 
 for.body.i275:                                    ; preds = %for.body.i275, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit
   %i.03.i276 = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit ], [ %inc.i279, %for.body.i275 ]
-  %arrayidx.i277 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.03.i276
+  %arrayidx.i277 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.03.i276
   %6 = load i64, ptr %arrayidx.i277, align 8
   %tobool.not.not.i278 = icmp ne i64 %6, 0
   %inc.i279 = add nuw nsw i64 %i.03.i276, 1
@@ -16251,7 +16251,7 @@ _ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit282:      ; preds = %for.body.i275
 for.body.i.i283:                                  ; preds = %for.body.i.i283, %_ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit282
   %i.05.i.i284 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit282 ], [ %inc.i.i288, %for.body.i.i283 ]
   %n.04.i.i285 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE3anyEv.exit282 ], [ %add.i.i287, %for.body.i.i283 ]
-  %arrayidx.i.i286 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.05.i.i284
+  %arrayidx.i.i286 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.05.i.i284
   %7 = load i64, ptr %arrayidx.i.i286, align 8
   %8 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
   %add.i.i287 = add i64 %8, %n.04.i.i285
@@ -16266,7 +16266,7 @@ _ZNK5eastl6bitsetILm129EmE3allEv.exit291:         ; preds = %for.body.i.i283
 
 for.body.i.i292:                                  ; preds = %for.body.i.i292, %_ZNK5eastl6bitsetILm129EmE3allEv.exit291
   %i.03.i.i293 = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE3allEv.exit291 ], [ %inc.i.i296, %for.body.i.i292 ]
-  %arrayidx.i.i294 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.03.i.i293
+  %arrayidx.i.i294 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.03.i.i293
   %9 = load i64, ptr %arrayidx.i.i294, align 8
   %tobool.not.not.i.i295 = icmp ne i64 %9, 0
   %inc.i.i296 = add nuw nsw i64 %i.03.i.i293, 1
@@ -16328,7 +16328,7 @@ _ZNK5eastl6bitsetILm129EmE4noneEv.exit300:        ; preds = %for.body.i.i292
 for.body.i404:                                    ; preds = %for.body.i404, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit300
   %i.05.i = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit300 ], [ %inc.i407, %for.body.i404 ]
   %n.04.i = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit300 ], [ %add.i406, %for.body.i404 ]
-  %arrayidx.i405 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i
+  %arrayidx.i405 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i
   %19 = load i64, ptr %arrayidx.i405, align 8
   %20 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
   %add.i406 = add i64 %20, %n.04.i
@@ -16402,7 +16402,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit:       ; preds = %for.body.i404
 for.body.i726:                                    ; preds = %for.body.i726, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit
   %i.05.i727 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit ], [ %inc.i731, %for.body.i726 ]
   %n.04.i728 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit ], [ %add.i730, %for.body.i726 ]
-  %arrayidx.i729 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i727
+  %arrayidx.i729 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i727
   %21 = load i64, ptr %arrayidx.i729, align 8
   %22 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
   %add.i730 = add i64 %22, %n.04.i728
@@ -16420,7 +16420,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit733:    ; preds = %for.body.i726
 for.body.i735:                                    ; preds = %for.body.i735, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit733
   %i.05.i736 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit733 ], [ %inc.i740, %for.body.i735 ]
   %n.04.i737 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit733 ], [ %add.i739, %for.body.i735 ]
-  %arrayidx.i738 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i736
+  %arrayidx.i738 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i736
   %23 = load i64, ptr %arrayidx.i738, align 8
   %24 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
   %add.i739 = add i64 %24, %n.04.i737
@@ -16436,7 +16436,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit742:    ; preds = %for.body.i735
 for.body.i.i743:                                  ; preds = %for.body.i.i743, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit742
   %i.05.i.i744 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit742 ], [ %inc.i.i748, %for.body.i.i743 ]
   %n.04.i.i745 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit742 ], [ %add.i.i747, %for.body.i.i743 ]
-  %arrayidx.i.i746 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i.i744
+  %arrayidx.i.i746 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i.i744
   %25 = load i64, ptr %arrayidx.i.i746, align 8
   %26 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
   %add.i.i747 = add i64 %26, %n.04.i.i745
@@ -16451,7 +16451,7 @@ _ZNK5eastl6bitsetILm129EmE3allEv.exit751:         ; preds = %for.body.i.i743
 
 for.body.i.i752:                                  ; preds = %for.body.i.i752, %_ZNK5eastl6bitsetILm129EmE3allEv.exit751
   %i.04.i.i = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE3allEv.exit751 ], [ %inc.i.i755, %for.body.i.i752 ]
-  %arrayidx.i.i753 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i
+  %arrayidx.i.i753 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i
   %27 = load i64, ptr %arrayidx.i.i753, align 8
   %not.i.i754 = xor i64 %27, -1
   store i64 %not.i.i754, ptr %arrayidx.i.i753, align 8
@@ -16468,7 +16468,7 @@ _ZN5eastl6bitsetILm129EmE4flipEv.exit:            ; preds = %for.body.i.i752
 for.body.i759:                                    ; preds = %for.body.i759, %_ZN5eastl6bitsetILm129EmE4flipEv.exit
   %i.05.i760 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmE4flipEv.exit ], [ %inc.i764, %for.body.i759 ]
   %n.04.i761 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmE4flipEv.exit ], [ %add.i763, %for.body.i759 ]
-  %arrayidx.i762 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i760
+  %arrayidx.i762 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i760
   %29 = load i64, ptr %arrayidx.i762, align 8
   %30 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
   %add.i763 = add i64 %30, %n.04.i761
@@ -16484,7 +16484,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit766:    ; preds = %for.body.i759
 for.body.i.i767:                                  ; preds = %for.body.i.i767, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit766
   %i.05.i.i768 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit766 ], [ %inc.i.i772, %for.body.i.i767 ]
   %n.04.i.i769 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit766 ], [ %add.i.i771, %for.body.i.i767 ]
-  %arrayidx.i.i770 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i.i768
+  %arrayidx.i.i770 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i.i768
   %31 = load i64, ptr %arrayidx.i.i770, align 8
   %32 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %31)
   %add.i.i771 = add i64 %32, %n.04.i.i769
@@ -16499,7 +16499,7 @@ _ZNK5eastl6bitsetILm129EmE3allEv.exit775:         ; preds = %for.body.i.i767
 
 for.body.i.i776:                                  ; preds = %for.body.i.i776, %_ZNK5eastl6bitsetILm129EmE3allEv.exit775
   %i.03.i.i777 = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE3allEv.exit775 ], [ %inc.i.i780, %for.body.i.i776 ]
-  %arrayidx.i.i778 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.03.i.i777
+  %arrayidx.i.i778 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.03.i.i777
   %33 = load i64, ptr %arrayidx.i.i778, align 8
   %tobool.not.not.i.i779 = icmp ne i64 %33, 0
   %inc.i.i780 = add nuw nsw i64 %i.03.i.i777, 1
@@ -16596,7 +16596,7 @@ _ZNK5eastl6bitsetILm129EmE4noneEv.exit784:        ; preds = %for.body.i.i776
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit784
   %i.04.i.i.i = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmE4noneEv.exit784 ], [ %inc.i.i.i, %for.body.i.i.i ]
-  %arrayidx.i.i.i929 = getelementptr inbounds [3 x i64], ptr %ref.tmp.i, i64 0, i64 %i.04.i.i.i
+  %arrayidx.i.i.i929 = getelementptr inbounds nuw [3 x i64], ptr %ref.tmp.i, i64 0, i64 %i.04.i.i.i
   %55 = load i64, ptr %arrayidx.i.i.i929, align 8, !noalias !129
   %not.i.i.i930 = xor i64 %55, -1
   store i64 %not.i.i.i930, ptr %arrayidx.i.i.i929, align 8, !noalias !129
@@ -16605,7 +16605,7 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_Z
   br i1 %exitcond.not.i.i.i, label %_ZNK5eastl6bitsetILm129EmEcoEv.exit, label %for.body.i.i.i, !llvm.loop !128
 
 _ZNK5eastl6bitsetILm129EmEcoEv.exit:              ; preds = %for.body.i.i.i
-  %arrayidx.i.i931 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %arrayidx.i.i931 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 16
   %56 = load i64, ptr %arrayidx.i.i931, align 8, !noalias !129
   %and.i.i932 = and i64 %56, 1
   store i64 %and.i.i932, ptr %arrayidx.i.i931, align 8, !noalias !129
@@ -16634,12 +16634,12 @@ _ZNK5eastl6bitsetILm129EmEcoEv.exit:              ; preds = %for.body.i.i.i
   %and2.i979 = and i64 %61, 4294967296
   %cmp.i980.not = icmp eq i64 %and2.i979, 0
   %call1016 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i980.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 567, ptr noundef nonnull @.str.179)
-  %arrayidx.i.i.i981 = getelementptr inbounds i8, ptr %b129Not, i64 8
+  %arrayidx.i.i.i981 = getelementptr inbounds nuw i8, ptr %b129Not, i64 8
   %62 = load i64, ptr %arrayidx.i.i.i981, align 8
   %and2.i987 = and i64 %62, 1
   %cmp.i988.not = icmp eq i64 %and2.i987, 0
   %call1022 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i988.not, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 568, ptr noundef nonnull @.str.180)
-  %arrayidx.i.i.i989 = getelementptr inbounds i8, ptr %b129Not, i64 16
+  %arrayidx.i.i.i989 = getelementptr inbounds nuw i8, ptr %b129Not, i64 16
   %63 = load i64, ptr %arrayidx.i.i.i989, align 8
   %and2.i995 = and i64 %63, 1
   %cmp.i996.not = icmp eq i64 %and2.i995, 0
@@ -16655,9 +16655,9 @@ _ZNK5eastl6bitsetILm129EmEcoEv.exit:              ; preds = %for.body.i.i.i
 
 for.body.i.i1006:                                 ; preds = %for.body.i.i1006, %_ZNK5eastl6bitsetILm129EmEcoEv.exit
   %i.04.i.i1007 = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmEcoEv.exit ], [ %inc.i.i1010, %for.body.i.i1006 ]
-  %arrayidx.i.i1008 = getelementptr inbounds [3 x i64], ptr %b129Equal, i64 0, i64 %i.04.i.i1007
+  %arrayidx.i.i1008 = getelementptr inbounds nuw [3 x i64], ptr %b129Equal, i64 0, i64 %i.04.i.i1007
   %64 = load i64, ptr %arrayidx.i.i1008, align 8
-  %arrayidx3.i.i1009 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1007
+  %arrayidx3.i.i1009 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1007
   %65 = load i64, ptr %arrayidx3.i.i1009, align 8
   %cmp4.not.i.i = icmp eq i64 %64, %65
   %inc.i.i1010 = add nuw nsw i64 %i.04.i.i1007, 1
@@ -16671,9 +16671,9 @@ _ZNK5eastl6bitsetILm129EmEeqERKS1_.exit:          ; preds = %for.body.i.i1006
 
 for.body.i.i1011:                                 ; preds = %for.body.i.i1011, %_ZNK5eastl6bitsetILm129EmEeqERKS1_.exit
   %i.04.i.i1012 = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmEeqERKS1_.exit ], [ %inc.i.i1016, %for.body.i.i1011 ]
-  %arrayidx.i.i1013 = getelementptr inbounds [3 x i64], ptr %b129Equal, i64 0, i64 %i.04.i.i1012
+  %arrayidx.i.i1013 = getelementptr inbounds nuw [3 x i64], ptr %b129Equal, i64 0, i64 %i.04.i.i1012
   %66 = load i64, ptr %arrayidx.i.i1013, align 8
-  %arrayidx3.i.i1014 = getelementptr inbounds [3 x i64], ptr %b129Not, i64 0, i64 %i.04.i.i1012
+  %arrayidx3.i.i1014 = getelementptr inbounds nuw [3 x i64], ptr %b129Not, i64 0, i64 %i.04.i.i1012
   %67 = load i64, ptr %arrayidx3.i.i1014, align 8
   %cmp4.not.i.i1015 = icmp eq i64 %66, %67
   %inc.i.i1016 = add nuw nsw i64 %i.04.i.i1012, 1
@@ -16846,9 +16846,9 @@ _ZN5eastl6bitsetILm129EmElSEm.exit:               ; preds = %for.body11.i.i
 
 for.body.i.i1735:                                 ; preds = %for.body.i.i1735, %_ZN5eastl6bitsetILm129EmElSEm.exit
   %i.04.i.i1736 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmElSEm.exit ], [ %inc.i.i1740, %for.body.i.i1735 ]
-  %arrayidx.i.i1737 = getelementptr inbounds [3 x i64], ptr %b129Equal, i64 0, i64 %i.04.i.i1736
+  %arrayidx.i.i1737 = getelementptr inbounds nuw [3 x i64], ptr %b129Equal, i64 0, i64 %i.04.i.i1736
   %87 = load i64, ptr %arrayidx.i.i1737, align 8
-  %arrayidx3.i.i1738 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1736
+  %arrayidx3.i.i1738 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1736
   %88 = load i64, ptr %arrayidx3.i.i1738, align 8
   %cmp4.not.i.i1739 = icmp eq i64 %87, %88
   %inc.i.i1740 = add nuw nsw i64 %i.04.i.i1736, 1
@@ -16881,7 +16881,7 @@ _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
   %ref.tmp.i1744.sroa.6.0.ref.tmp.i1744.sroa.6.0.ref.tmp.i1744.sroa.6.0.ref.tmp.i1744.sroa.6.0.copyload6232 = load i64, ptr %ref.tmp.i1744.sroa.6, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1744.sroa.0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i1744.sroa.6)
-  %ref.tmp1600.sroa.0.sroa.2.0.b129Equal.sroa_idx = getelementptr inbounds i8, ptr %b129Equal, i64 8
+  %ref.tmp1600.sroa.0.sroa.2.0.b129Equal.sroa_idx = getelementptr inbounds nuw i8, ptr %b129Equal, i64 8
   %and2.i1754 = and i64 %ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.ref.tmp.i1744.sroa.0.0.copyload6231, 4194304
   %cmp.i1755 = icmp ne i64 %and2.i1754, 0
   %call1606 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i1755, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 814, ptr noundef nonnull @.str.212)
@@ -16896,7 +16896,7 @@ _ZNK5eastl6bitsetILm129EmErsEm.exit:              ; preds = %for.body10.i.i.i
   store i64 1, ptr %i7.016.i.i.sroa.gep6358, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i1800)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i1800, ptr noundef nonnull align 8 dereferenceable(24) %b129, i64 24, i1 false), !noalias !138
-  %arrayidx13.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i1800, i64 16
+  %arrayidx13.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i1800, i64 16
   %.pre.i.i.i1801 = load i64, ptr %arrayidx13.phi.trans.insert.i.i.i, align 8, !noalias !138
   br label %for.body11.i.i.i
 
@@ -16937,7 +16937,7 @@ _ZNK5eastl6bitsetILm129EmElsEm.exit:              ; preds = %for.body11.i.i.i
 
 for.body.i.i1829:                                 ; preds = %for.body.i.i1829, %_ZNK5eastl6bitsetILm129EmElsEm.exit
   %i.04.i.i1830 = phi i64 [ 0, %_ZNK5eastl6bitsetILm129EmElsEm.exit ], [ %inc.i.i1833, %for.body.i.i1829 ]
-  %arrayidx.i.i1831 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1830
+  %arrayidx.i.i1831 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1830
   %96 = load i64, ptr %arrayidx.i.i1831, align 8
   %not.i.i1832 = xor i64 %96, -1
   store i64 %not.i.i1832, ptr %arrayidx.i.i1831, align 8
@@ -16969,7 +16969,7 @@ _ZN5eastl6bitsetILm129EmErSEm.exit1848:           ; preds = %for.body10.i.i1839
 for.body.i1849:                                   ; preds = %for.body.i1849, %_ZN5eastl6bitsetILm129EmErSEm.exit1848
   %i.05.i1850 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmErSEm.exit1848 ], [ %inc.i1854, %for.body.i1849 ]
   %n.04.i1851 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmErSEm.exit1848 ], [ %add.i1853, %for.body.i1849 ]
-  %arrayidx.i1852 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i1850
+  %arrayidx.i1852 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i1850
   %100 = load i64, ptr %arrayidx.i1852, align 8
   %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %100)
   %add.i1853 = add i64 %101, %n.04.i1851
@@ -16985,7 +16985,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1856:   ; preds = %for.body.i1849
 
 for.body.i.i1857:                                 ; preds = %for.body.i.i1857, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1856
   %i.04.i.i1858 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1856 ], [ %inc.i.i1861, %for.body.i.i1857 ]
-  %arrayidx.i.i1859 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1858
+  %arrayidx.i.i1859 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1858
   %102 = load i64, ptr %arrayidx.i.i1859, align 8
   %not.i.i1860 = xor i64 %102, -1
   store i64 %not.i.i1860, ptr %arrayidx.i.i1859, align 8
@@ -17023,7 +17023,7 @@ _ZN5eastl6bitsetILm129EmElSEm.exit1878:           ; preds = %for.body11.i.i1868
 for.body.i1879:                                   ; preds = %for.body.i1879, %_ZN5eastl6bitsetILm129EmElSEm.exit1878
   %i.05.i1880 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmElSEm.exit1878 ], [ %inc.i1884, %for.body.i1879 ]
   %n.04.i1881 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmElSEm.exit1878 ], [ %add.i1883, %for.body.i1879 ]
-  %arrayidx.i1882 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i1880
+  %arrayidx.i1882 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i1880
   %108 = load i64, ptr %arrayidx.i1882, align 8
   %109 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %108)
   %add.i1883 = add i64 %109, %n.04.i1881
@@ -17039,7 +17039,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1886:   ; preds = %for.body.i1879
 
 for.body.i.i1887:                                 ; preds = %for.body.i.i1887, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1886
   %i.04.i.i1888 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1886 ], [ %inc.i.i1891, %for.body.i.i1887 ]
-  %arrayidx.i.i1889 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1888
+  %arrayidx.i.i1889 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1888
   %110 = load i64, ptr %arrayidx.i.i1889, align 8
   %not.i.i1890 = xor i64 %110, -1
   store i64 %not.i.i1890, ptr %arrayidx.i.i1889, align 8
@@ -17060,13 +17060,13 @@ for.body.i.i1896:                                 ; preds = %cond.end.i.i, %_ZN5
   br i1 %cmp2.i.i, label %cond.true.i.i, label %cond.end.i.i
 
 cond.true.i.i:                                    ; preds = %for.body.i.i1896
-  %arrayidx.i.i1910 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %add.i.i1909
+  %arrayidx.i.i1910 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %add.i.i1909
   %112 = load i64, ptr %arrayidx.i.i1910, align 8
   br label %cond.end.i.i
 
 cond.end.i.i:                                     ; preds = %for.body.i.i1896, %cond.true.i.i
   %cond.i.i = phi i64 [ %112, %cond.true.i.i ], [ 0, %for.body.i.i1896 ]
-  %arrayidx4.i.i = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.015.i.i
+  %arrayidx4.i.i = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.015.i.i
   store i64 %cond.i.i, ptr %arrayidx4.i.i, align 8
   %exitcond.not.i.i1898 = icmp eq i64 %add.i.i1909, 3
   br i1 %exitcond.not.i.i1898, label %if.end.i.i, label %for.body.i.i1896, !llvm.loop !141
@@ -17094,7 +17094,7 @@ _ZN5eastl6bitsetILm129EmErSEm.exit1911:           ; preds = %for.body10.i.i1900
 for.body.i1912:                                   ; preds = %for.body.i1912, %_ZN5eastl6bitsetILm129EmErSEm.exit1911
   %i.05.i1913 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmErSEm.exit1911 ], [ %inc.i1917, %for.body.i1912 ]
   %n.04.i1914 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmErSEm.exit1911 ], [ %add.i1916, %for.body.i1912 ]
-  %arrayidx.i1915 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i1913
+  %arrayidx.i1915 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i1913
   %116 = load i64, ptr %arrayidx.i1915, align 8
   %117 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %116)
   %add.i1916 = add i64 %117, %n.04.i1914
@@ -17110,7 +17110,7 @@ _ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1919:   ; preds = %for.body.i1912
 
 for.body.i.i1920:                                 ; preds = %for.body.i.i1920, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1919
   %i.04.i.i1921 = phi i64 [ 0, %_ZNK5eastl10BitsetBaseILm3EmE5countEv.exit1919 ], [ %inc.i.i1924, %for.body.i.i1920 ]
-  %arrayidx.i.i1922 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1921
+  %arrayidx.i.i1922 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i1921
   %118 = load i64, ptr %arrayidx.i.i1922, align 8
   %not.i.i1923 = xor i64 %118, -1
   store i64 %not.i.i1923, ptr %arrayidx.i.i1922, align 8
@@ -17146,7 +17146,7 @@ _ZN5eastl6bitsetILm129EmElSEm.exit1949:           ; preds = %for.body11.i.i1939
 for.body.i1950:                                   ; preds = %for.body.i1950, %_ZN5eastl6bitsetILm129EmElSEm.exit1949
   %i.05.i1951 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmElSEm.exit1949 ], [ %inc.i1955, %for.body.i1950 ]
   %n.04.i1952 = phi i64 [ 0, %_ZN5eastl6bitsetILm129EmElSEm.exit1949 ], [ %add.i1954, %for.body.i1950 ]
-  %arrayidx.i1953 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.05.i1951
+  %arrayidx.i1953 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.05.i1951
   %122 = load i64, ptr %arrayidx.i1953, align 8
   %123 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %122)
   %add.i1954 = add i64 %123, %n.04.i1952
@@ -17179,9 +17179,9 @@ land.end:                                         ; preds = %for.body.i1950
 
 for.body.i.i2302:                                 ; preds = %for.body.i.i2302, %land.end
   %i.04.i.i2303 = phi i64 [ 0, %land.end ], [ %inc.i.i2307, %for.body.i.i2302 ]
-  %arrayidx.i.i2304 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2303
+  %arrayidx.i.i2304 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2303
   %124 = load i64, ptr %arrayidx.i.i2304, align 8
-  %arrayidx3.i.i2305 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2303
+  %arrayidx3.i.i2305 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2303
   %125 = load i64, ptr %arrayidx3.i.i2305, align 8
   %and.i.i2306 = and i64 %125, %124
   store i64 %and.i.i2306, ptr %arrayidx3.i.i2305, align 8
@@ -17214,9 +17214,9 @@ land.end1924:                                     ; preds = %land.rhs1918, %land
 
 for.body.i.i2341:                                 ; preds = %for.body.i.i2341, %land.end1924
   %i.04.i.i2342 = phi i64 [ 0, %land.end1924 ], [ %inc.i.i2346, %for.body.i.i2341 ]
-  %arrayidx.i.i2343 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2342
+  %arrayidx.i.i2343 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2342
   %131 = load i64, ptr %arrayidx.i.i2343, align 8
-  %arrayidx3.i.i2344 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2342
+  %arrayidx3.i.i2344 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2342
   %132 = load i64, ptr %arrayidx3.i.i2344, align 8
   %or.i.i2345 = or i64 %132, %131
   store i64 %or.i.i2345, ptr %arrayidx3.i.i2344, align 8
@@ -17249,9 +17249,9 @@ land.end1950:                                     ; preds = %land.rhs1944, %land
 
 for.body.i.i2380:                                 ; preds = %for.body.i.i2380, %land.end1950
   %i.04.i.i2381 = phi i64 [ 0, %land.end1950 ], [ %inc.i.i2385, %for.body.i.i2380 ]
-  %arrayidx.i.i2382 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2381
+  %arrayidx.i.i2382 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2381
   %138 = load i64, ptr %arrayidx.i.i2382, align 8
-  %arrayidx3.i.i2383 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2381
+  %arrayidx3.i.i2383 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2381
   %139 = load i64, ptr %arrayidx3.i.i2383, align 8
   %xor.i.i2384 = xor i64 %139, %138
   store i64 %xor.i.i2384, ptr %arrayidx3.i.i2383, align 8
@@ -17284,9 +17284,9 @@ land.end1976:                                     ; preds = %land.rhs1970, %land
 
 for.body.i.i2419:                                 ; preds = %for.body.i.i2419, %land.end1976
   %i.04.i.i2420 = phi i64 [ 0, %land.end1976 ], [ %inc.i.i2424, %for.body.i.i2419 ]
-  %arrayidx.i.i2421 = getelementptr inbounds [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2420
+  %arrayidx.i.i2421 = getelementptr inbounds nuw [3 x i64], ptr %b129A, i64 0, i64 %i.04.i.i2420
   %145 = load i64, ptr %arrayidx.i.i2421, align 8
-  %arrayidx3.i.i2422 = getelementptr inbounds [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2420
+  %arrayidx3.i.i2422 = getelementptr inbounds nuw [3 x i64], ptr %b129, i64 0, i64 %i.04.i.i2420
   %146 = load i64, ptr %arrayidx3.i.i2422, align 8
   %or.i.i2423 = or i64 %146, %145
   store i64 %or.i.i2423, ptr %arrayidx3.i.i2422, align 8
@@ -17548,7 +17548,7 @@ for.end2135:                                      ; preds = %for.body2131, %_ZNK
   %cmp2154 = icmp ugt i64 %call.i3727, 78
   %call2155 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2154, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1035, ptr noundef nonnull @.str.241)
   store i64 -1, ptr %b79, align 8
-  %arrayidx.i3729 = getelementptr inbounds i8, ptr %b79, i64 8
+  %arrayidx.i3729 = getelementptr inbounds nuw i8, ptr %b79, i64 8
   store i64 32767, ptr %arrayidx.i3729, align 8
   %call.i3730 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE11DoFindFirstEv(ptr noundef nonnull align 8 dereferenceable(16) %b79)
   %cmp2159.not6296 = icmp ugt i64 %call.i3730, 78
@@ -17576,7 +17576,7 @@ for.end2164:                                      ; preds = %for.end2164.loopexi
   %154 = load i64, ptr %b128, align 8
   %or.i.i3744 = or i64 %154, 137573171201
   store i64 %or.i.i3744, ptr %b128, align 8
-  %arrayidx.i.i3746 = getelementptr inbounds i8, ptr %b128, i64 8
+  %arrayidx.i.i3746 = getelementptr inbounds nuw i8, ptr %b128, i64 8
   %155 = load i64, ptr %arrayidx.i.i3746, align 8
   %or.i.i3747 = or i64 %155, 8192
   store i64 %or.i.i3747, ptr %arrayidx.i.i3746, align 8
@@ -17624,7 +17624,7 @@ for.end2197:                                      ; preds = %for.end2197.loopexi
 
 for.body.i.i3762:                                 ; preds = %for.inc.i.i, %for.end2197
   %word_index.08.i.i = phi i64 [ 0, %for.end2197 ], [ %inc.i.i3800, %for.inc.i.i ]
-  %arrayidx.i.i3763 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %word_index.08.i.i
+  %arrayidx.i.i3763 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %word_index.08.i.i
   %157 = load i64, ptr %arrayidx.i.i3763, align 8
   %tobool.not.i.i.i3764 = icmp eq i64 %157, 0
   br i1 %tobool.not.i.i.i3764, label %for.inc.i.i, label %_ZN5eastl11GetFirstBitEm.exit.i.i
@@ -17682,15 +17682,15 @@ _ZNK5eastl6bitsetILm137EmE10find_firstEv.exit:    ; preds = %for.inc.i.i, %_ZNK5
   %cmp2201 = phi i1 [ %158, %_ZNK5eastl10BitsetBaseILm3EmE11DoFindFirstEv.exit.i ], [ true, %for.inc.i.i ]
   %call2202 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2201, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1071, ptr noundef nonnull @.str.246)
   store i64 137573171201, ptr %b137, align 8
-  %arrayidx.i.i3812 = getelementptr inbounds i8, ptr %b137, i64 8
+  %arrayidx.i.i3812 = getelementptr inbounds nuw i8, ptr %b137, i64 8
   store i64 34359746560, ptr %arrayidx.i.i3812, align 8
-  %arrayidx.i.i3818 = getelementptr inbounds i8, ptr %b137, i64 16
+  %arrayidx.i.i3818 = getelementptr inbounds nuw i8, ptr %b137, i64 16
   store i64 256, ptr %arrayidx.i.i3818, align 8
   br label %for.body.i.i3820
 
 for.body.i.i3820:                                 ; preds = %for.inc.i.i3864, %_ZNK5eastl6bitsetILm137EmE10find_firstEv.exit
   %word_index.08.i.i3821 = phi i64 [ 0, %_ZNK5eastl6bitsetILm137EmE10find_firstEv.exit ], [ %inc.i.i3865, %for.inc.i.i3864 ]
-  %arrayidx.i.i3822 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %word_index.08.i.i3821
+  %arrayidx.i.i3822 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %word_index.08.i.i3821
   %159 = load i64, ptr %arrayidx.i.i3822, align 8
   %tobool.not.i.i.i3823 = icmp eq i64 %159, 0
   br i1 %tobool.not.i.i.i3823, label %for.inc.i.i3864, label %_ZN5eastl11GetFirstBitEm.exit.i.i3824
@@ -17751,7 +17751,7 @@ _ZNK5eastl6bitsetILm137EmE10find_firstEv.exit3867: ; preds = %for.inc.i.i3864, %
   %inc.i.i3868 = add nuw nsw i64 %160, 1
   %shr.i.i3871 = lshr i64 %inc.i.i3868, 6
   %and.i.i3872 = and i64 %inc.i.i3868, 63
-  %arrayidx.i.i3873 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i3871
+  %arrayidx.i.i3873 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i3871
   %161 = load i64, ptr %arrayidx.i.i3873, align 8
   %shl.i.i3874 = shl nsw i64 -1, %and.i.i3872
   %and2.i.i = and i64 %shl.i.i3874, %161
@@ -17805,7 +17805,7 @@ if.end.i.i3914:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i:                                     ; preds = %if.end.i.i3914
   %inc5.i.i = add nuw nsw i64 %word_index.0.i.i, 1
-  %arrayidx9.i.i = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i
+  %arrayidx9.i.i = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i
   %162 = load i64, ptr %arrayidx9.i.i, align 8
   br label %for.cond.i.i, !llvm.loop !152
 
@@ -17824,7 +17824,7 @@ _ZNK5eastl6bitsetILm137EmE9find_nextEm.exit:      ; preds = %if.end.i.i3914, %_Z
   %inc.i.i3915 = add nuw nsw i64 %163, 1
   %shr.i.i3918 = lshr i64 %inc.i.i3915, 6
   %and.i.i3919 = and i64 %inc.i.i3915, 63
-  %arrayidx.i.i3920 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i3918
+  %arrayidx.i.i3920 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i3918
   %164 = load i64, ptr %arrayidx.i.i3920, align 8
   %shl.i.i3921 = shl nsw i64 -1, %and.i.i3919
   %and2.i.i3922 = and i64 %shl.i.i3921, %164
@@ -17878,7 +17878,7 @@ if.end.i.i3967:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i3969:                                 ; preds = %if.end.i.i3967
   %inc5.i.i3970 = add nuw nsw i64 %word_index.0.i.i3924, 1
-  %arrayidx9.i.i3971 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i3970
+  %arrayidx9.i.i3971 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i3970
   %165 = load i64, ptr %arrayidx9.i.i3971, align 8
   br label %for.cond.i.i3923, !llvm.loop !152
 
@@ -17897,7 +17897,7 @@ _ZNK5eastl6bitsetILm137EmE9find_nextEm.exit3972:  ; preds = %if.end.i.i3967, %_Z
   %inc.i.i3973 = add nuw nsw i64 %166, 1
   %shr.i.i3976 = lshr i64 %inc.i.i3973, 6
   %and.i.i3977 = and i64 %inc.i.i3973, 63
-  %arrayidx.i.i3978 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i3976
+  %arrayidx.i.i3978 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i3976
   %167 = load i64, ptr %arrayidx.i.i3978, align 8
   %shl.i.i3979 = shl nsw i64 -1, %and.i.i3977
   %and2.i.i3980 = and i64 %shl.i.i3979, %167
@@ -17951,7 +17951,7 @@ if.end.i.i4025:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i4027:                                 ; preds = %if.end.i.i4025
   %inc5.i.i4028 = add nuw nsw i64 %word_index.0.i.i3982, 1
-  %arrayidx9.i.i4029 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4028
+  %arrayidx9.i.i4029 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4028
   %168 = load i64, ptr %arrayidx9.i.i4029, align 8
   br label %for.cond.i.i3981, !llvm.loop !152
 
@@ -17970,7 +17970,7 @@ _ZNK5eastl6bitsetILm137EmE9find_nextEm.exit4030:  ; preds = %if.end.i.i4025, %_Z
   %inc.i.i4031 = add nuw nsw i64 %169, 1
   %shr.i.i4034 = lshr i64 %inc.i.i4031, 6
   %and.i.i4035 = and i64 %inc.i.i4031, 63
-  %arrayidx.i.i4036 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4034
+  %arrayidx.i.i4036 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4034
   %170 = load i64, ptr %arrayidx.i.i4036, align 8
   %shl.i.i4037 = shl nsw i64 -1, %and.i.i4035
   %and2.i.i4038 = and i64 %shl.i.i4037, %170
@@ -18024,7 +18024,7 @@ if.end.i.i4083:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i4085:                                 ; preds = %if.end.i.i4083
   %inc5.i.i4086 = add nuw nsw i64 %word_index.0.i.i4040, 1
-  %arrayidx9.i.i4087 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4086
+  %arrayidx9.i.i4087 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4086
   %171 = load i64, ptr %arrayidx9.i.i4087, align 8
   br label %for.cond.i.i4039, !llvm.loop !152
 
@@ -18043,7 +18043,7 @@ _ZNK5eastl6bitsetILm137EmE9find_nextEm.exit4088:  ; preds = %if.end.i.i4083, %_Z
   %inc.i.i4089 = add nuw nsw i64 %172, 1
   %shr.i.i4092 = lshr i64 %inc.i.i4089, 6
   %and.i.i4093 = and i64 %inc.i.i4089, 63
-  %arrayidx.i.i4094 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4092
+  %arrayidx.i.i4094 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4092
   %173 = load i64, ptr %arrayidx.i.i4094, align 8
   %shl.i.i4095 = shl nsw i64 -1, %and.i.i4093
   %and2.i.i4096 = and i64 %shl.i.i4095, %173
@@ -18097,7 +18097,7 @@ if.end.i.i4141:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i4143:                                 ; preds = %if.end.i.i4141
   %inc5.i.i4144 = add nuw nsw i64 %word_index.0.i.i4098, 1
-  %arrayidx9.i.i4145 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4144
+  %arrayidx9.i.i4145 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4144
   %174 = load i64, ptr %arrayidx9.i.i4145, align 8
   br label %for.cond.i.i4097, !llvm.loop !152
 
@@ -18116,7 +18116,7 @@ _ZNK5eastl6bitsetILm137EmE9find_nextEm.exit4146:  ; preds = %if.end.i.i4141, %_Z
   %inc.i.i4147 = add nuw nsw i64 %175, 1
   %shr.i.i4150 = lshr i64 %inc.i.i4147, 6
   %and.i.i4151 = and i64 %inc.i.i4147, 63
-  %arrayidx.i.i4152 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4150
+  %arrayidx.i.i4152 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4150
   %176 = load i64, ptr %arrayidx.i.i4152, align 8
   %shl.i.i4153 = shl nsw i64 -1, %and.i.i4151
   %and2.i.i4154 = and i64 %shl.i.i4153, %176
@@ -18170,7 +18170,7 @@ if.end.i.i4199:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i4201:                                 ; preds = %if.end.i.i4199
   %inc5.i.i4202 = add nuw nsw i64 %word_index.0.i.i4156, 1
-  %arrayidx9.i.i4203 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4202
+  %arrayidx9.i.i4203 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4202
   %177 = load i64, ptr %arrayidx9.i.i4203, align 8
   br label %for.cond.i.i4155, !llvm.loop !152
 
@@ -18191,7 +18191,7 @@ _ZNK5eastl6bitsetILm137EmE9find_nextEm.exit4204:  ; preds = %if.end.i.i4199, %_Z
 
 for.body.i.i4206:                                 ; preds = %for.inc.i.i4250, %_ZNK5eastl6bitsetILm137EmE9find_nextEm.exit4204
   %word_index.08.i.i4207 = phi i64 [ 0, %_ZNK5eastl6bitsetILm137EmE9find_nextEm.exit4204 ], [ %inc.i.i4251, %for.inc.i.i4250 ]
-  %arrayidx.i.i4208 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %word_index.08.i.i4207
+  %arrayidx.i.i4208 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %word_index.08.i.i4207
   %179 = load i64, ptr %arrayidx.i.i4208, align 8
   %tobool.not.i.i.i4209 = icmp eq i64 %179, 0
   br i1 %tobool.not.i.i.i4209, label %for.inc.i.i4250, label %_ZN5eastl11GetFirstBitEm.exit.i.i4210
@@ -18252,7 +18252,7 @@ if.then.i.i4256:                                  ; preds = %_ZNK5eastl6bitsetIL
   %inc.i.i4254 = add nuw nsw i64 %j.76305, 1
   %shr.i.i4257 = lshr i64 %inc.i.i4254, 6
   %and.i.i4258 = and i64 %inc.i.i4254, 63
-  %arrayidx.i.i4259 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4257
+  %arrayidx.i.i4259 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %shr.i.i4257
   %180 = load i64, ptr %arrayidx.i.i4259, align 8
   %shl.i.i4260 = shl nsw i64 -1, %and.i.i4258
   %and2.i.i4261 = and i64 %180, %shl.i.i4260
@@ -18306,7 +18306,7 @@ if.end.i.i4306:                                   ; preds = %_ZN5eastl11GetFirst
 
 if.then7.i.i4308:                                 ; preds = %if.end.i.i4306
   %inc5.i.i4309 = add nuw nsw i64 %word_index.0.i.i4263, 1
-  %arrayidx9.i.i4310 = getelementptr inbounds [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4309
+  %arrayidx9.i.i4310 = getelementptr inbounds nuw [3 x i64], ptr %b137, i64 0, i64 %inc5.i.i4309
   %181 = load i64, ptr %arrayidx9.i.i4310, align 8
   br label %for.cond.i.i4262, !llvm.loop !152
 
@@ -18549,7 +18549,7 @@ for.end2374:                                      ; preds = %for.body2370, %_ZNK
   %cmp2394 = icmp ugt i64 %call.i5489, 78
   %call2395 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2394, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1215, ptr noundef nonnull @.str.241)
   store i64 -1, ptr %b792377, align 8
-  %arrayidx.i5491 = getelementptr inbounds i8, ptr %b792377, i64 8
+  %arrayidx.i5491 = getelementptr inbounds nuw i8, ptr %b792377, i64 8
   store i64 32767, ptr %arrayidx.i5491, align 8
   %call.i5492 = call noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindLastEv(ptr noundef nonnull align 8 dereferenceable(16) %b792377)
   %cmp2399.not6315 = icmp ugt i64 %call.i5492, 78
@@ -18577,7 +18577,7 @@ for.end2404:                                      ; preds = %for.end2404.loopexi
   %185 = load i64, ptr %b1282407, align 8
   %or.i.i5506 = or i64 %185, 137573171201
   store i64 %or.i.i5506, ptr %b1282407, align 8
-  %arrayidx.i.i5508 = getelementptr inbounds i8, ptr %b1282407, i64 8
+  %arrayidx.i.i5508 = getelementptr inbounds nuw i8, ptr %b1282407, i64 8
   %186 = load i64, ptr %arrayidx.i.i5508, align 8
   %or.i.i5509 = or i64 %186, 8192
   store i64 %or.i.i5509, ptr %arrayidx.i.i5508, align 8
@@ -18680,9 +18680,9 @@ _ZNK5eastl6bitsetILm137EmE9find_lastEv.exit:      ; preds = %for.inc.i.i5563, %_
   %cmp2443 = phi i1 [ %189, %_ZNK5eastl10BitsetBaseILm3EmE10DoFindLastEv.exit.i ], [ true, %for.inc.i.i5563 ]
   %call2444 = call noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp2443, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1251, ptr noundef nonnull @.str.246)
   store i64 137573171201, ptr %b1372441, align 8
-  %arrayidx.i.i5575 = getelementptr inbounds i8, ptr %b1372441, i64 8
+  %arrayidx.i.i5575 = getelementptr inbounds nuw i8, ptr %b1372441, i64 8
   store i64 34359746560, ptr %arrayidx.i.i5575, align 8
-  %arrayidx.i.i5581 = getelementptr inbounds i8, ptr %b1372441, i64 16
+  %arrayidx.i.i5581 = getelementptr inbounds nuw i8, ptr %b1372441, i64 16
   store i64 256, ptr %arrayidx.i.i5581, align 8
   br label %for.body.i.i5583
 
@@ -18752,7 +18752,7 @@ if.then.i.i5629:                                  ; preds = %_ZNK5eastl6bitsetIL
   %and.i.i5631 = and i64 %191, 63
   %sub.i.i5632 = xor i64 %and.i.i5631, 63
   %shr3.i.i = lshr i64 9223372036854775807, %sub.i.i5632
-  %arrayidx.i.i5633 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5630
+  %arrayidx.i.i5633 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5630
   %192 = load i64, ptr %arrayidx.i.i5633, align 8
   %and4.i.i = and i64 %shr3.i.i, %192
   br label %for.cond.i.i5634
@@ -18827,7 +18827,7 @@ if.then.i.i5675:                                  ; preds = %_ZNK5eastl6bitsetIL
   %and.i.i5677 = and i64 %194, 63
   %sub.i.i5678 = xor i64 %and.i.i5677, 63
   %shr3.i.i5679 = lshr i64 9223372036854775807, %sub.i.i5678
-  %arrayidx.i.i5680 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5676
+  %arrayidx.i.i5680 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5676
   %195 = load i64, ptr %arrayidx.i.i5680, align 8
   %and4.i.i5681 = and i64 %shr3.i.i5679, %195
   br label %for.cond.i.i5682
@@ -18902,7 +18902,7 @@ if.then.i.i5730:                                  ; preds = %_ZNK5eastl6bitsetIL
   %and.i.i5732 = and i64 %197, 63
   %sub.i.i5733 = xor i64 %and.i.i5732, 63
   %shr3.i.i5734 = lshr i64 9223372036854775807, %sub.i.i5733
-  %arrayidx.i.i5735 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5731
+  %arrayidx.i.i5735 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5731
   %198 = load i64, ptr %arrayidx.i.i5735, align 8
   %and4.i.i5736 = and i64 %shr3.i.i5734, %198
   br label %for.cond.i.i5737
@@ -18977,7 +18977,7 @@ if.then.i.i5785:                                  ; preds = %_ZNK5eastl6bitsetIL
   %and.i.i5787 = and i64 %200, 63
   %sub.i.i5788 = xor i64 %and.i.i5787, 63
   %shr3.i.i5789 = lshr i64 9223372036854775807, %sub.i.i5788
-  %arrayidx.i.i5790 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5786
+  %arrayidx.i.i5790 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5786
   %201 = load i64, ptr %arrayidx.i.i5790, align 8
   %and4.i.i5791 = and i64 %shr3.i.i5789, %201
   br label %for.cond.i.i5792
@@ -19052,7 +19052,7 @@ if.then.i.i5840:                                  ; preds = %_ZNK5eastl6bitsetIL
   %and.i.i5842 = and i64 %203, 63
   %sub.i.i5843 = xor i64 %and.i.i5842, 63
   %shr3.i.i5844 = lshr i64 9223372036854775807, %sub.i.i5843
-  %arrayidx.i.i5845 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5841
+  %arrayidx.i.i5845 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5841
   %204 = load i64, ptr %arrayidx.i.i5845, align 8
   %and4.i.i5846 = and i64 %shr3.i.i5844, %204
   br label %for.cond.i.i5847
@@ -19126,7 +19126,7 @@ if.then.i.i5895:                                  ; preds = %_ZNK5eastl6bitsetIL
   %and.i.i5897 = and i64 %206, 63
   %sub.i.i5898 = xor i64 %and.i.i5897, 63
   %shr3.i.i5899 = lshr i64 9223372036854775807, %sub.i.i5898
-  %arrayidx.i.i5900 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5896
+  %arrayidx.i.i5900 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5896
   %207 = load i64, ptr %arrayidx.i.i5900, align 8
   %and4.i.i5901 = and i64 %shr3.i.i5899, %207
   br label %for.cond.i.i5902
@@ -19260,7 +19260,7 @@ if.then.i.i5996:                                  ; preds = %for.body2476
   %and.i.i5998 = and i64 %j2242.76325, 63
   %sub.i.i5999 = xor i64 %and.i.i5998, 63
   %shr3.i.i6000 = lshr i64 9223372036854775807, %sub.i.i5999
-  %arrayidx.i.i6001 = getelementptr inbounds [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5997
+  %arrayidx.i.i6001 = getelementptr inbounds nuw [3 x i64], ptr %b1372441, i64 0, i64 %shr.i.i5997
   %211 = load i64, ptr %arrayidx.i.i6001, align 8
   %and4.i.i6002 = and i64 %211, %shr3.i.i6000
   br label %for.cond.i.i6003
@@ -19390,7 +19390,7 @@ if.then:                                          ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %entry, %_ZN5eastl11GetFirstBitEm.exit
-  %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %arrayidx3, align 8
   %tobool.not.i4 = icmp eq i64 %1, 0
   br i1 %tobool.not.i4, label %return, label %_ZN5eastl11GetFirstBitEm.exit39
@@ -19496,7 +19496,7 @@ if.then3:                                         ; preds = %_ZN5eastl11GetFirst
   br label %return
 
 if.end:                                           ; preds = %if.then, %_ZN5eastl11GetFirstBitEm.exit
-  %arrayidx5 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i64, ptr %arrayidx5, align 8
   %tobool.not.i9 = icmp eq i64 %1, 0
   br i1 %tobool.not.i9, label %return, label %_ZN5eastl11GetFirstBitEm.exit44
@@ -19548,7 +19548,7 @@ if.else:                                          ; preds = %entry
 
 if.then12:                                        ; preds = %if.else
   %sub = add nsw i64 %last_find, -63
-  %arrayidx15 = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load i64, ptr %arrayidx15, align 8
   %shl16 = shl nsw i64 -1, %sub
   %and17 = and i64 %2, %shl16
@@ -19604,7 +19604,7 @@ return:                                           ; preds = %if.then12, %if.end,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i64 @_ZNK5eastl10BitsetBaseILm2EmE10DoFindLastEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %arrayidx, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %if.end, label %_ZN5eastl10GetLastBitEm.exit
@@ -19702,7 +19702,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %this, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %arrayidx, align 8
   %sub2 = sub i64 128, %last_find
   %shr = lshr i64 -1, %sub2

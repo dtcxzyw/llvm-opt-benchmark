@@ -63,7 +63,7 @@ declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 define dso_local void @register_aiocontext(ptr nocapture noundef initializes((144, 152)) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
-  %bdrv_graph = getelementptr inbounds i8, ptr %ctx, i64 144
+  %bdrv_graph = getelementptr inbounds nuw i8, ptr %ctx, i64 144
   store ptr %call, ptr %bdrv_graph, align 8
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -78,15 +78,15 @@ if.else:                                          ; preds = %entry
   unreachable
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %entry
-  %next_aio = getelementptr inbounds i8, ptr %2, i64 8
+  %next_aio = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %next_aio, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @aio_context_list, i64 8), align 8
   %5 = load ptr, ptr %bdrv_graph, align 8
-  %tql_prev = getelementptr inbounds i8, ptr %5, i64 16
+  %tql_prev = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %4, ptr %tql_prev, align 8
   %6 = load ptr, ptr %bdrv_graph, align 8
   store ptr %6, ptr %4, align 8
-  %next_aio9 = getelementptr inbounds i8, ptr %6, i64 8
+  %next_aio9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %next_aio9, ptr getelementptr inbounds (i8, ptr @aio_context_list, i64 8), align 8
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @aio_context_list_lock, ptr noundef nonnull @.str.7, i32 noundef 132) #5
   ret void
@@ -120,24 +120,24 @@ entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   tail call void %1(ptr noundef nonnull @aio_context_list_lock, ptr noundef nonnull @.str.7, i32 noundef 122) #5
-  %bdrv_graph = getelementptr inbounds i8, ptr %ctx, i64 144
+  %bdrv_graph = getelementptr inbounds nuw i8, ptr %ctx, i64 144
   %2 = load ptr, ptr %bdrv_graph, align 8
   %3 = load i32, ptr %2, align 8
   %4 = load i32, ptr @orphaned_reader_count, align 4
   %add = add i32 %4, %3
   store i32 %add, ptr @orphaned_reader_count, align 4
-  %next_aio = getelementptr inbounds i8, ptr %2, i64 8
+  %next_aio = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %next_aio, align 8
   %cmp.not = icmp eq ptr %5, null
-  %tql_prev11 = getelementptr inbounds i8, ptr %2, i64 16
+  %tql_prev11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %tql_prev11, align 8
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tql_prev8 = getelementptr inbounds i8, ptr %5, i64 16
+  %tql_prev8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %6, ptr %tql_prev8, align 8
   %.pre = load ptr, ptr %bdrv_graph, align 8
-  %tql_prev16.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 16
+  %tql_prev16.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre11 = load ptr, ptr %tql_prev16.phi.trans.insert, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
@@ -148,17 +148,17 @@ if.else:                                          ; preds = %entry
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.else, %if.then
   %7 = phi ptr [ %6, %if.else ], [ %.pre11, %if.then ]
   %8 = phi ptr [ %2, %if.else ], [ %.pre, %if.then ]
-  %next_aio13 = getelementptr inbounds i8, ptr %8, i64 8
+  %next_aio13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %next_aio13, align 8
   store ptr %9, ptr %7, align 8
   %10 = load ptr, ptr %bdrv_graph, align 8
-  %tql_prev19 = getelementptr inbounds i8, ptr %10, i64 16
+  %tql_prev19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %tql_prev19, align 8
   %11 = load ptr, ptr %bdrv_graph, align 8
-  %next_aio21 = getelementptr inbounds i8, ptr %11, i64 8
+  %next_aio21 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %next_aio21, align 8
   %12 = load ptr, ptr %bdrv_graph, align 8
-  %next_aio24 = getelementptr inbounds i8, ptr %12, i64 8
+  %next_aio24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr null, ptr %next_aio24, align 8
   %13 = load ptr, ptr %bdrv_graph, align 8
   tail call void @g_free(ptr noundef %13) #5
@@ -242,7 +242,7 @@ while.end.i:                                      ; preds = %while.cond44, %whil
   %rd.07.i = phi i32 [ %add.i, %while.end.i ], [ %5, %while.cond44 ]
   %6 = load atomic i32, ptr %brdv_graph.08.i monotonic, align 8
   %add.i = add i32 %6, %rd.07.i
-  %next_aio.i = getelementptr inbounds i8, ptr %brdv_graph.08.i, i64 8
+  %next_aio.i = getelementptr inbounds nuw i8, ptr %brdv_graph.08.i, i64 8
   %brdv_graph.0.i = load ptr, ptr %next_aio.i, align 8
   %tobool.not.i = icmp eq ptr %brdv_graph.0.i, null
   br i1 %tobool.not.i, label %for.end.i, label %while.end.i, !llvm.loop !5
@@ -284,7 +284,7 @@ while.end.i10:                                    ; preds = %if.end51, %while.en
   %rd.07.i12 = phi i32 [ %add.i13, %while.end.i10 ], [ %10, %if.end51 ]
   %11 = load atomic i32, ptr %brdv_graph.08.i11 monotonic, align 8
   %add.i13 = add i32 %11, %rd.07.i12
-  %next_aio.i14 = getelementptr inbounds i8, ptr %brdv_graph.08.i11, i64 8
+  %next_aio.i14 = getelementptr inbounds nuw i8, ptr %brdv_graph.08.i11, i64 8
   %brdv_graph.0.i15 = load ptr, ptr %next_aio.i14, align 8
   %tobool.not.i16 = icmp eq ptr %brdv_graph.0.i15, null
   br i1 %tobool.not.i16, label %for.end.i17, label %while.end.i10, !llvm.loop !5
@@ -374,8 +374,8 @@ qemu_lockable_auto_unlock.exit.us:                ; preds = %if.then8, %land.lhs
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %2 = inttoptr i64 %1 to ptr
   tail call void %2(ptr noundef nonnull @aio_context_list_lock, ptr noundef nonnull @.str.7, i32 noundef 122) #5
-  %unlock24 = getelementptr inbounds i8, ptr %.compoundliteral21, i64 16
-  %lock23 = getelementptr inbounds i8, ptr %.compoundliteral21, i64 8
+  %unlock24 = getelementptr inbounds nuw i8, ptr %.compoundliteral21, i64 16
+  %lock23 = getelementptr inbounds nuw i8, ptr %.compoundliteral21, i64 8
   store atomic i32 0, ptr @has_writer release, align 4
   store ptr @aio_context_list_lock, ptr %.compoundliteral21, align 8
   store ptr @qemu_mutex_lock, ptr %lock23, align 8
@@ -420,7 +420,7 @@ define dso_local void @bdrv_graph_co_rdlock() #0 {
 entry:
   %.compoundliteral24 = alloca %struct.QemuLockable, align 8
   %call = tail call ptr @qemu_get_current_aio_context() #5
-  %bdrv_graph1 = getelementptr inbounds i8, ptr %call, i64 144
+  %bdrv_graph1 = getelementptr inbounds nuw i8, ptr %call, i64 144
   %0 = load ptr, ptr %bdrv_graph1, align 8
   %1 = load i32, ptr %0, align 8
   %add16 = add i32 %1, 1
@@ -432,8 +432,8 @@ entry:
   br i1 %tobool.not17, label %for.end29, label %if.end.lr.ph
 
 if.end.lr.ph:                                     ; preds = %entry
-  %lock26 = getelementptr inbounds i8, ptr %.compoundliteral24, i64 8
-  %unlock27 = getelementptr inbounds i8, ptr %.compoundliteral24, i64 16
+  %lock26 = getelementptr inbounds nuw i8, ptr %.compoundliteral24, i64 8
+  %unlock27 = getelementptr inbounds nuw i8, ptr %.compoundliteral24, i64 16
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %qemu_lockable_auto_unlock.exit.us
@@ -479,7 +479,7 @@ declare void @qemu_co_queue_wait_impl(ptr noundef, ptr noundef, i32 noundef) #1
 define dso_local void @bdrv_graph_co_rdunlock() #0 {
 entry:
   %call = tail call ptr @qemu_get_current_aio_context() #5
-  %bdrv_graph1 = getelementptr inbounds i8, ptr %call, i64 144
+  %bdrv_graph1 = getelementptr inbounds nuw i8, ptr %call, i64 144
   %0 = load ptr, ptr %bdrv_graph1, align 8
   %1 = load i32, ptr %0, align 8
   %sub = add i32 %1, -1

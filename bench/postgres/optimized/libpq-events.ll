@@ -23,13 +23,13 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 368
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %0, i64 360
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %15 = load ptr, ptr %14, align 8
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %17
@@ -47,13 +47,13 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   br i1 %20, label %.loopexit, label %16
 
 ._crit_edge:                                      ; preds = %16, %.preheader
-  %21 = getelementptr inbounds i8, ptr %0, i64 372
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %22 = load i32, ptr %21, align 4
   %.not56 = icmp slt i32 %12, %22
   br i1 %.not56, label %._crit_edge._crit_edge, label %23
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 360
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 360
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %35
 
@@ -61,7 +61,7 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   %.not57 = icmp eq i32 %22, 0
   %24 = shl i32 %22, 1
   %spec.select = select i1 %.not57, i32 8, i32 %24
-  %25 = getelementptr inbounds i8, ptr %0, i64 360
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %26 = load ptr, ptr %25, align 8
   %.not58 = icmp eq ptr %26, null
   %27 = sext i32 %spec.select to i64
@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
 35:                                               ; preds = %._crit_edge._crit_edge, %34
   %36 = phi i32 [ %12, %._crit_edge._crit_edge ], [ %.pre67, %34 ]
   %37 = phi ptr [ %.pre, %._crit_edge._crit_edge ], [ %.048, %34 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 360
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %39 = sext i32 %36 to i64
   %40 = getelementptr %struct.PGEvent, ptr %37, i64 %39
   store ptr %1, ptr %40, align 8
@@ -104,13 +104,13 @@ define range(i32 0, 2) i32 @PQregisterEventProc(ptr noundef %0, ptr noundef %1, 
   %47 = load i32, ptr %11, align 8
   %48 = sext i32 %47 to i64
   %49 = getelementptr %struct.PGEvent, ptr %46, i64 %48
-  %50 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not60 = icmp eq ptr %51, null
   br i1 %.not60, label %.loopexit, label %52
 
 52:                                               ; preds = %35
-  %53 = getelementptr inbounds i8, ptr %49, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %3, ptr %53, align 8
   %54 = load ptr, ptr %38, align 8
   %55 = load i32, ptr %11, align 8
@@ -166,13 +166,13 @@ define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly %0, ptr nound
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 368
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 360
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %10 = load ptr, ptr %9, align 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %12
@@ -190,7 +190,7 @@ define range(i32 0, 2) i32 @PQsetInstanceData(ptr noundef readonly %0, ptr nound
   br i1 %15, label %16, label %11
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %2, ptr %17, align 8
   br label %.loopexit
 
@@ -207,13 +207,13 @@ define ptr @PQinstanceData(ptr noundef readonly %0, ptr noundef readnone %1) loc
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 360
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
@@ -231,7 +231,7 @@ define ptr @PQinstanceData(ptr noundef readonly %0, ptr noundef readnone %1) loc
   br i1 %14, label %15, label %10
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %.loopexit
 
@@ -248,13 +248,13 @@ define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly %0, ptr
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 152
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %12
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @PQresultSetInstanceData(ptr noundef readonly %0, ptr
   br i1 %15, label %16, label %11
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr %2, ptr %17, align 8
   br label %.loopexit
 
@@ -289,13 +289,13 @@ define ptr @PQresultInstanceData(ptr noundef readonly %0, ptr noundef readnone %
   br i1 %or.cond, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 152
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %9 = load ptr, ptr %8, align 8
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %11
@@ -313,7 +313,7 @@ define ptr @PQresultInstanceData(ptr noundef readonly %0, ptr noundef readnone %
   br i1 %14, label %15, label %10
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds i8, ptr %12, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
   br label %.loopexit
 
@@ -329,14 +329,14 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
   br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %1, i64 144
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %23
@@ -353,7 +353,7 @@ define range(i32 0, 2) i32 @PQfireResultCreateEvents(ptr noundef %0, ptr noundef
   store ptr %1, ptr %8, align 8
   %15 = getelementptr %struct.PGEvent, ptr %10, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 %16(i32 noundef 3, ptr noundef nonnull %3, ptr noundef %18) #9
   %.not18 = icmp eq i32 %19, 0

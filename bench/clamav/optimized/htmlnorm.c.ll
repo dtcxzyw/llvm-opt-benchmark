@@ -74,7 +74,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   %4 = load i32, ptr %0, align 8
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %5 to i64
   %9 = shl nsw i64 %8, 3
@@ -84,7 +84,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %77, label %11
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %0, align 8
   %15 = sext i32 %14 to i64
@@ -95,13 +95,13 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %.not68, label %77, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load i32, ptr %19, align 4
   %.not69 = icmp eq i32 %20, 0
   br i1 %.not69, label %33, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr %0, align 8
   %25 = sext i32 %24 to i64
@@ -136,7 +136,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %42, label %43, label %64
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %2, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %45 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %44) #15
   %46 = load ptr, ptr %12, align 8
   %47 = load i32, ptr %0, align 8
@@ -158,7 +158,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   %60 = load ptr, ptr %59, align 8
   %61 = add i64 %51, 4294967295
   %62 = and i64 %61, 4294967295
-  %63 = getelementptr inbounds i8, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 %62
   store i8 0, ptr %63, align 1
   br label %114
 
@@ -189,8 +189,8 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %80, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 16
-  %82 = getelementptr inbounds i8, ptr %0, i64 24
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %83
 
 83:                                               ; preds = %.lr.ph, %99
@@ -200,7 +200,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %.not74, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8
   tail call void @free(ptr noundef %87) #15
   br label %88
@@ -211,7 +211,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %.not75, label %93, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
   %92 = load ptr, ptr %91, align 8
   tail call void @free(ptr noundef %92) #15
   br label %93
@@ -222,7 +222,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br i1 %.not76, label %99, label %95
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
   %97 = load ptr, ptr %96, align 8
   %.not77 = icmp eq ptr %97, null
   br i1 %.not77, label %99, label %98
@@ -248,7 +248,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br label %105
 
 105:                                              ; preds = %104, %._crit_edge
-  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %107 = load ptr, ptr %106, align 8
   %.not72 = icmp eq ptr %107, null
   br i1 %.not72, label %109, label %108
@@ -258,7 +258,7 @@ define void @html_tag_arg_add(ptr nocapture noundef %0, ptr noundef %1, ptr noun
   br label %109
 
 109:                                              ; preds = %108, %105
-  %110 = getelementptr inbounds i8, ptr %0, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load ptr, ptr %110, align 8
   %.not73 = icmp eq ptr %111, null
   br i1 %.not73, label %113, label %112
@@ -293,19 +293,19 @@ define void @html_tag_arg_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %7
 
 7:                                                ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   tail call void @free(ptr noundef %10) #15
   %11 = load ptr, ptr %5, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not31 = icmp eq ptr %13, null
   br i1 %.not31, label %15, label %14
@@ -320,7 +320,7 @@ define void @html_tag_arg_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %.not32, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not33 = icmp eq ptr %19, null
   br i1 %.not33, label %21, label %20
@@ -337,7 +337,7 @@ define void @html_tag_arg_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br i1 %24, label %7, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21, %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %28, label %27
@@ -347,7 +347,7 @@ define void @html_tag_arg_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %28
 
 28:                                               ; preds = %27, %._crit_edge
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %.not29 = icmp eq ptr %30, null
   br i1 %.not29, label %32, label %31
@@ -357,7 +357,7 @@ define void @html_tag_arg_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   br label %32
 
 32:                                               ; preds = %31, %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8
   %.not30 = icmp eq ptr %34, null
   br i1 %.not30, label %36, label %35
@@ -376,9 +376,9 @@ define void @html_tag_arg_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
 define noundef zeroext i1 @html_normalise_mem(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.m_area_tag, align 8
   store ptr %1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %7, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   ret i1 %10
@@ -405,7 +405,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br label %27
 
 17:                                               ; preds = %5
-  %18 = getelementptr inbounds i8, ptr %4, i64 28
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 2
   %21 = icmp eq i32 %20, 0
@@ -413,7 +413,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br i1 %.not1227, label %27, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, 32
   %26 = icmp eq i32 %25, 0
@@ -428,12 +428,12 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1025) %8, i8 0, i64 1025, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1025) %9, i8 0, i64 1025, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1025) %13, i8 0, i64 1025, i1 false)
-  %29 = getelementptr inbounds i8, ptr %10, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 0, ptr %29, align 4
   store i64 0, ptr %14, align 8
   store i32 0, ptr %10, align 8
-  %30 = getelementptr inbounds i8, ptr %10, i64 8
-  %31 = getelementptr inbounds i8, ptr %10, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   br i1 %.not12271683, label %54, label %32
 
@@ -485,9 +485,9 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br label %.thread1821
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %33, i64 8200
+  %52 = getelementptr inbounds nuw i8, ptr %33, i64 8200
   store i64 0, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %41, i64 8200
+  %53 = getelementptr inbounds nuw i8, ptr %41, i64 8200
   store i64 0, ptr %53, align 8
   br label %54
 
@@ -496,18 +496,18 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   %.11150 = phi ptr [ %41, %51 ], [ null, %27 ]
   %55 = tail call fastcc ptr @cli_readchunk(ptr noundef %1)
   %.not.i1484 = icmp eq ptr %.11152, null
-  %56 = getelementptr inbounds i8, ptr %.11152, i64 8200
-  %57 = getelementptr inbounds i8, ptr %.11152, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.11152, i64 8200
+  %57 = getelementptr inbounds nuw i8, ptr %.11152, i64 4
   %.not.i1394 = icmp eq ptr %.11150, null
-  %58 = getelementptr inbounds i8, ptr %.11150, i64 8200
-  %59 = getelementptr inbounds i8, ptr %.11150, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %.11150, i64 8200
+  %59 = getelementptr inbounds nuw i8, ptr %.11150, i64 4
   %60 = ptrtoint ptr %15 to i64
   %61 = xor i64 %60, -1
   %.not1276 = icmp eq ptr %3, null
-  %62 = getelementptr inbounds i8, ptr %3, i64 4
-  %63 = getelementptr inbounds i8, ptr %3, i64 16
-  %64 = getelementptr inbounds i8, ptr %3, i64 24
-  %65 = getelementptr inbounds i8, ptr %14, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.not12303245 = icmp eq ptr %55, null
   br i1 %.not12303245, label %.split2968.us.thread, label %.outer1894.split
 
@@ -592,14 +592,14 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   %73 = phi i8 [ %69, %.lr.ph ], [ %80, %78 ]
   %.110502422 = phi ptr [ %.01049, %.lr.ph ], [ %79, %78 ]
   %74 = zext i8 %73 to i64
-  %75 = getelementptr inbounds i16, ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw i16, ptr %71, i64 %74
   %76 = load i16, ptr %75, align 2
   %77 = and i16 %76, 8192
   %.not1238 = icmp eq i16 %77, 0
   br i1 %.not1238, label %.critedge, label %78
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %.110502422, i64 1
+  %79 = getelementptr inbounds nuw i8, ptr %.110502422, i64 1
   %80 = load i8, ptr %79, align 1
   %.not1237 = icmp eq i8 %80, 0
   br i1 %.not1237, label %.critedge, label %72
@@ -675,7 +675,7 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   br label %.split.us
 
 .outer1875:                                       ; preds = %.lr.ph2426
-  %81 = getelementptr inbounds i8, ptr %.21051.ph18762846, i64 1
+  %81 = getelementptr inbounds nuw i8, ptr %.21051.ph18762846, i64 1
   %.21051.ph1876.promoted = load i8, ptr %81, align 1
   %.not12392425 = icmp eq i8 %.21051.ph1876.promoted, 0
   br i1 %.not12392425, label %.outer1875._crit_edge, label %.lr.ph2426
@@ -723,28 +723,28 @@ define internal fastcc noundef zeroext i1 @cli_html_normalise(ptr noundef %0, pt
   %85 = tail call ptr @__ctype_b_loc() #18
   %86 = load ptr, ptr %85, align 8
   %87 = zext i8 %.us-phi2939 to i64
-  %88 = getelementptr inbounds i16, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw i16, ptr %86, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = and i16 %89, 8192
   %.not1359 = icmp eq i16 %90, 0
   br i1 %.not1359, label %html_output_c.exit, label %91
 
 91:                                               ; preds = %84
-  %92 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 93:                                               ; preds = %.split.us
   %94 = tail call ptr @__ctype_b_loc() #18
   %95 = load ptr, ptr %94, align 8
   %96 = zext i8 %.us-phi2939 to i64
-  %97 = getelementptr inbounds i16, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw i16, ptr %95, i64 %96
   %98 = load i16, ptr %97, align 2
   %99 = and i16 %98, 8192
   %.not1358 = icmp eq i16 %99, 0
   br i1 %.not1358, label %102, label %100
 
 100:                                              ; preds = %93
-  %101 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 102:                                              ; preds = %93
@@ -840,7 +840,7 @@ html_output_c.exit1396:                           ; preds = %html_output_c.exit1
   br i1 %138, label %.outer1840, label %html_output_c.exit
 
 .outer1840:                                       ; preds = %html_output_c.exit1396
-  %139 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %.21051.ph1876.promoted2844571 = load i8, ptr %139, align 1
   %.not123924252845572 = icmp eq i8 %.21051.ph1876.promoted2844571, 0
   br i1 %.not123924252845572, label %.outer1875._crit_edge, label %.lr.ph2426.lr.ph.lr.ph
@@ -991,7 +991,7 @@ html_output_flush.exit.i1413:                     ; preds = %196
   %206 = zext i8 %.us-phi2939 to i32
   %207 = shl nuw nsw i32 %.11063.ph1841639, 8
   %208 = or disjoint i32 %207, %206
-  %209 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 210:                                              ; preds = %.split.us
@@ -1066,14 +1066,14 @@ html_output_c.exit1420:                           ; preds = %224, %231, %html_ou
 
 241:                                              ; preds = %240, %235, %html_output_c.exit1420
   %.41130 = phi ptr [ null, %240 ], [ %.21128.ph721, %235 ], [ %.21128.ph721, %html_output_c.exit1420 ]
-  %242 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %242 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 243:                                              ; preds = %210
   %244 = tail call ptr @__ctype_b_loc() #18
   %245 = load ptr, ptr %244, align 8
   %246 = zext i8 %.us-phi2939 to i64
-  %247 = getelementptr inbounds i16, ptr %245, i64 %246
+  %247 = getelementptr inbounds nuw i16, ptr %245, i64 %246
   %248 = load i16, ptr %247, align 2
   %249 = and i16 %248, 8192
   %.not1354 = icmp eq i16 %249, 0
@@ -1138,7 +1138,7 @@ html_output_flush.exit.i1425:                     ; preds = %268
 
 html_output_c.exit1426:                           ; preds = %265, %273
   %.51009 = phi i8 [ %.11005.ph.mux3312, %265 ], [ 1, %273 ]
-  %277 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %277 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 278:                                              ; preds = %263
@@ -1146,7 +1146,7 @@ html_output_c.exit1426:                           ; preds = %265, %273
   br i1 %279, label %280, label %282
 
 280:                                              ; preds = %278
-  %281 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %281 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 282:                                              ; preds = %278
@@ -1217,7 +1217,7 @@ html_output_flush.exit.i1431:                     ; preds = %305
 
 html_output_c.exit1432:                           ; preds = %310, %304, %303, %301, %html_output_c.exit1429
   %.61010 = phi i8 [ %.11005.ph768, %301 ], [ 1, %303 ], [ %.11005.ph768, %html_output_c.exit1429 ], [ 0, %304 ], [ 0, %310 ]
-  %314 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %314 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 315:                                              ; preds = %.split.us
@@ -1265,7 +1265,7 @@ html_output_flush.exit.i1434:                     ; preds = %320
   br label %html_output_c.exit1435
 
 html_output_c.exit1435:                           ; preds = %325, %319, %329, %330, %332
-  %334 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %334 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 335:                                              ; preds = %315
@@ -1295,7 +1295,7 @@ html_output_flush.exit.i1437:                     ; preds = %339
   br label %html_output_c.exit1438
 
 html_output_c.exit1438:                           ; preds = %338, %344
-  %348 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %348 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %349 = sext i32 %.1966.ph790 to i64
   %350 = getelementptr inbounds [1025 x i8], ptr %7, i64 0, i64 %349
   store i8 0, ptr %350, align 1
@@ -1305,7 +1305,7 @@ html_output_c.exit1438:                           ; preds = %338, %344
   %352 = tail call ptr @__ctype_b_loc() #18
   %353 = load ptr, ptr %352, align 8
   %354 = zext i8 %.us-phi2939 to i64
-  %355 = getelementptr inbounds i16, ptr %353, i64 %354
+  %355 = getelementptr inbounds nuw i16, ptr %353, i64 %354
   %356 = load i16, ptr %355, align 2
   %357 = and i16 %356, 8192
   %.not1349 = icmp eq i16 %357, 0
@@ -1368,7 +1368,7 @@ html_output_c.exit1441:                           ; preds = %358, %366
 382:                                              ; preds = %374, %372
   %.310211689 = phi i32 [ %.310211690, %374 ], [ 8, %372 ]
   %.3 = phi i32 [ %379, %374 ], [ %.1966.ph790, %372 ]
-  %383 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %383 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 384:                                              ; preds = %351
@@ -1408,21 +1408,21 @@ html_output_c.exit1444:                           ; preds = %391, %397
   %401 = sext i32 %.1968.ph788 to i64
   %402 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %401
   store i8 0, ptr %402, align 1
-  %403 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %403 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 404:                                              ; preds = %389
   %405 = tail call ptr @__ctype_b_loc() #18
   %406 = load ptr, ptr %405, align 8
   %407 = zext i8 %.us-phi2939 to i64
-  %408 = getelementptr inbounds i16, ptr %406, i64 %407
+  %408 = getelementptr inbounds nuw i16, ptr %406, i64 %407
   %409 = load i16, ptr %408, align 2
   %410 = and i16 %409, 8192
   %.not1348 = icmp eq i16 %410, 0
   br i1 %.not1348, label %415, label %411
 
 411:                                              ; preds = %404
-  %412 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %412 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %413 = sext i32 %.1968.ph788 to i64
   %414 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %413
   store i8 0, ptr %414, align 1
@@ -1459,13 +1459,13 @@ html_output_c.exit1447:                           ; preds = %417, %423
 
 428:                                              ; preds = %html_output_c.exit1447
   %429 = zext nneg i32 %.1968.ph788 to i64
-  %430 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw [1025 x i8], ptr %8, i64 0, i64 %429
   store i8 0, ptr %430, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef null)
   br label %431
 
 431:                                              ; preds = %428, %html_output_c.exit1447
-  %432 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %432 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 433:                                              ; preds = %415
@@ -1539,7 +1539,7 @@ html_output_c.exit1453.thread:                    ; preds = %435, %html_output_c
 
 468:                                              ; preds = %html_output_c.exit1453.thread, %html_output_c.exit1453
   %.3970 = phi i32 [ %465, %html_output_c.exit1453.thread ], [ %.1968.ph788, %html_output_c.exit1453 ]
-  %469 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %469 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 470:                                              ; preds = %.split.us
@@ -1568,7 +1568,7 @@ html_output_flush.exit.i1455:                     ; preds = %473
   br label %html_output_c.exit1456
 
 html_output_c.exit1456:                           ; preds = %472, %478
-  %482 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %482 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 483:                                              ; preds = %470
@@ -1577,7 +1577,7 @@ html_output_c.exit1456:                           ; preds = %472, %478
 
 485:                                              ; preds = %483
   %486 = zext nneg i32 %.1968.ph788 to i64
-  %487 = getelementptr inbounds [1025 x i8], ptr %8, i64 0, i64 %486
+  %487 = getelementptr inbounds nuw [1025 x i8], ptr %8, i64 0, i64 %486
   store i8 0, ptr %487, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef null)
   br label %html_output_c.exit
@@ -1676,7 +1676,7 @@ html_output_flush.exit.i1461:                     ; preds = %510
   ]
 
 518:                                              ; preds = %517
-  %519 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %519 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 520:                                              ; preds = %517
@@ -1706,7 +1706,7 @@ html_output_flush.exit.i1464:                     ; preds = %523
 
 html_output_c.exit1465:                           ; preds = %522, %528
   store i8 34, ptr %9, align 16
-  %532 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %532 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 533:                                              ; preds = %520
@@ -1751,7 +1751,7 @@ html_output_c.exit1468:                           ; preds = %536, %542
   %551 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.5994
   store i8 0, ptr %551, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %552 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %552 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 553:                                              ; preds = %533
@@ -1787,7 +1787,7 @@ html_output_c.exit1471:                           ; preds = %553, %559
 
 567:                                              ; preds = %564, %html_output_c.exit1471
   %.6 = phi i64 [ %565, %564 ], [ %.1990.ph1868576, %html_output_c.exit1471 ]
-  %568 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %568 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 569:                                              ; preds = %517
@@ -1817,7 +1817,7 @@ html_output_flush.exit.i1473:                     ; preds = %572
 
 html_output_c.exit1474:                           ; preds = %571, %577
   store i8 34, ptr %9, align 16
-  %581 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %581 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 582:                                              ; preds = %569
@@ -1862,7 +1862,7 @@ html_output_c.exit1477:                           ; preds = %585, %591
   %600 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.8
   store i8 0, ptr %600, align 1
   call void @html_tag_arg_add(ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  %601 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %601 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 602:                                              ; preds = %582
@@ -1898,14 +1898,14 @@ html_output_c.exit1480:                           ; preds = %602, %608
 
 616:                                              ; preds = %613, %html_output_c.exit1480
   %.9 = phi i64 [ %614, %613 ], [ %.1990.ph1868576, %html_output_c.exit1480 ]
-  %617 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %617 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 618:                                              ; preds = %517
   %619 = tail call ptr @__ctype_b_loc() #18
   %620 = load ptr, ptr %619, align 8
   %621 = zext i8 %.us-phi2939 to i64
-  %622 = getelementptr inbounds i16, ptr %620, i64 %621
+  %622 = getelementptr inbounds nuw i16, ptr %620, i64 %621
   %623 = load i16, ptr %622, align 2
   %624 = and i16 %623, 8192
   %.not1336 = icmp ne i16 %624, 0
@@ -1952,7 +1952,7 @@ html_output_c.exit1483:                           ; preds = %630, %636
   %641 = load ptr, ptr %619, align 8
   %642 = load i8, ptr %.us-phi2938, align 1
   %643 = zext i8 %642 to i64
-  %644 = getelementptr inbounds i16, ptr %641, i64 %643
+  %644 = getelementptr inbounds nuw i16, ptr %641, i64 %643
   %645 = load i16, ptr %644, align 2
   %646 = and i16 %645, 8192
   %.not1339 = icmp eq i16 %646, 0
@@ -1964,7 +1964,7 @@ html_output_c.exit1483:                           ; preds = %630, %636
 
 649:                                              ; preds = %.sink.split, %html_output_c.exit1483
   %.10 = phi i64 [ %.1990.ph1868576, %html_output_c.exit1483 ], [ %647, %.sink.split ]
-  %650 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %650 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 651:                                              ; preds = %618
@@ -2033,7 +2033,7 @@ html_output_c.exit1486:                           ; preds = %657, %663
   br i1 %672, label %.outer1858, label %.loopexit1839
 
 .outer1858:                                       ; preds = %671
-  %673 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %673 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %.21051.ph1876.promoted2844 = load i8, ptr %673, align 1
   %.not123924252845 = icmp eq i8 %.21051.ph1876.promoted2844, 0
   br i1 %.not123924252845, label %.outer1875._crit_edge, label %.lr.ph2426.lr.ph
@@ -2148,7 +2148,7 @@ html_output_c.exit1489:                           ; preds = %707, %715
 724:                                              ; preds = %html_output_c.exit1489, %720, %704
   %.51061 = phi i32 [ %706, %704 ], [ %.41060, %720 ], [ %.41060, %html_output_c.exit1489 ]
   %.16 = phi i64 [ %.11, %704 ], [ %722, %720 ], [ %.11, %html_output_c.exit1489 ]
-  %725 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %725 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit1459
 
 html_output_c.exit1459:                           ; preds = %.thread4310, %.thread4307, %505, %491, %.thread4312, %.thread4309, %508, %494, %550, %567, %html_output_c.exit1465, %724, %649, %628, %html_output_c.exit1474, %616, %599, %518
@@ -2172,7 +2172,7 @@ html_output_c.exit1459:                           ; preds = %.thread4310, %.thre
   %730 = tail call ptr @__ctype_b_loc() #18
   %731 = load ptr, ptr %730, align 8
   %732 = zext i8 %.us-phi2939 to i64
-  %733 = getelementptr inbounds i16, ptr %731, i64 %732
+  %733 = getelementptr inbounds nuw i16, ptr %731, i64 %732
   %734 = load i16, ptr %733, align 2
   %735 = and i16 %734, 8192
   %.not1333 = icmp eq i16 %735, 0
@@ -2210,7 +2210,7 @@ html_output_c.exit1492:                           ; preds = %747, %736, %729, %7
   %752 = icmp eq i8 %751, 62
   %spec.select1375 = select i1 %752, i32 1, i32 %.11032.ph762
   %spec.select1376 = select i1 %752, i32 6, i32 3
-  %753 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %753 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 754:                                              ; preds = %.split.us
@@ -2396,7 +2396,7 @@ html_tag_contents_done.exit:                      ; preds = %813, %812, %804, %8
 
 828:                                              ; preds = %827, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %827 ]
-  %829 = getelementptr inbounds ptr, ptr %826, i64 %indvars.iv.i
+  %829 = getelementptr inbounds nuw ptr, ptr %826, i64 %indvars.iv.i
   %830 = load ptr, ptr %829, align 8
   %831 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %830, ptr noundef nonnull dereferenceable(9) @.str.22) #16
   %832 = icmp eq i32 %831, 0
@@ -2404,7 +2404,7 @@ html_tag_contents_done.exit:                      ; preds = %813, %812, %804, %8
 
 html_tag_arg_value.exit:                          ; preds = %828
   %833 = load ptr, ptr %31, align 8
-  %834 = getelementptr inbounds ptr, ptr %833, i64 %indvars.iv.i
+  %834 = getelementptr inbounds nuw ptr, ptr %833, i64 %indvars.iv.i
   %835 = load ptr, ptr %834, align 8
   %.not1321 = icmp eq ptr %835, null
   br i1 %.not1321, label %.critedge1378, label %836
@@ -2421,7 +2421,7 @@ html_tag_arg_value.exit:                          ; preds = %828
 
 .lr.ph.i1495:                                     ; preds = %836, %839
   %indvars.iv.i1497 = phi i64 [ %indvars.iv.next.i1498, %839 ], [ 0, %836 ]
-  %840 = getelementptr inbounds ptr, ptr %826, i64 %indvars.iv.i1497
+  %840 = getelementptr inbounds nuw ptr, ptr %826, i64 %indvars.iv.i1497
   %841 = load ptr, ptr %840, align 8
   %842 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %841, ptr noundef nonnull dereferenceable(9) @.str.22) #16
   %843 = icmp eq i32 %842, 0
@@ -2439,7 +2439,7 @@ html_tag_arg_value.exit:                          ; preds = %828
 
 .lr.ph.i1500:                                     ; preds = %844, %847
   %indvars.iv.i1502 = phi i64 [ %indvars.iv.next.i1503, %847 ], [ 0, %844 ]
-  %848 = getelementptr inbounds ptr, ptr %826, i64 %indvars.iv.i1502
+  %848 = getelementptr inbounds nuw ptr, ptr %826, i64 %indvars.iv.i1502
   %849 = load ptr, ptr %848, align 8
   %850 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %849, ptr noundef nonnull dereferenceable(9) @.str.22) #16
   %851 = icmp eq i32 %850, 0
@@ -2448,7 +2448,7 @@ html_tag_arg_value.exit:                          ; preds = %828
 .critedge1378.sink.split.sink.split:              ; preds = %.lr.ph.i1500, %.lr.ph.i1495
   %indvars.iv.i1502.lcssa.sink = phi i64 [ %indvars.iv.i1497, %.lr.ph.i1495 ], [ %indvars.iv.i1502, %.lr.ph.i1500 ]
   %.str.26.sink = phi ptr [ @.str.24, %.lr.ph.i1495 ], [ @.str.26, %.lr.ph.i1500 ]
-  %852 = getelementptr inbounds ptr, ptr %833, i64 %indvars.iv.i1502.lcssa.sink
+  %852 = getelementptr inbounds nuw ptr, ptr %833, i64 %indvars.iv.i1502.lcssa.sink
   %853 = load ptr, ptr %852, align 8
   call void @free(ptr noundef %853) #15
   %854 = call ptr @cli_safer_strdup(ptr noundef nonnull %.str.26.sink) #15
@@ -2501,7 +2501,7 @@ html_tag_arg_value.exit:                          ; preds = %828
 
 868:                                              ; preds = %867, %.lr.ph.i1507
   %indvars.iv.i1509 = phi i64 [ 0, %.lr.ph.i1507 ], [ %indvars.iv.next.i1510, %867 ]
-  %869 = getelementptr inbounds ptr, ptr %866, i64 %indvars.iv.i1509
+  %869 = getelementptr inbounds nuw ptr, ptr %866, i64 %indvars.iv.i1509
   %870 = load ptr, ptr %869, align 8
   %871 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %870, ptr noundef nonnull dereferenceable(9) @.str.22) #16
   %872 = icmp eq i32 %871, 0
@@ -2509,7 +2509,7 @@ html_tag_arg_value.exit:                          ; preds = %828
 
 html_tag_arg_value.exit1512:                      ; preds = %868
   %873 = load ptr, ptr %31, align 8
-  %874 = getelementptr inbounds ptr, ptr %873, i64 %indvars.iv.i1509
+  %874 = getelementptr inbounds nuw ptr, ptr %873, i64 %indvars.iv.i1509
   %875 = load ptr, ptr %874, align 8
   %.not1320 = icmp eq ptr %875, null
   br i1 %.not1320, label %html_tag_arg_value.exit1512.thread, label %876
@@ -2556,7 +2556,7 @@ html_tag_arg_value.exit1512:                      ; preds = %868
 
 892:                                              ; preds = %891, %.lr.ph.i1514
   %indvars.iv.i1516 = phi i64 [ 0, %.lr.ph.i1514 ], [ %indvars.iv.next.i1517, %891 ]
-  %893 = getelementptr inbounds ptr, ptr %890, i64 %indvars.iv.i1516
+  %893 = getelementptr inbounds nuw ptr, ptr %890, i64 %indvars.iv.i1516
   %894 = load ptr, ptr %893, align 8
   %895 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %894, ptr noundef nonnull dereferenceable(5) @.str.31) #16
   %896 = icmp eq i32 %895, 0
@@ -2564,7 +2564,7 @@ html_tag_arg_value.exit1512:                      ; preds = %868
 
 html_tag_arg_value.exit1519:                      ; preds = %892
   %897 = load ptr, ptr %31, align 8
-  %898 = getelementptr inbounds ptr, ptr %897, i64 %indvars.iv.i1516
+  %898 = getelementptr inbounds nuw ptr, ptr %897, i64 %indvars.iv.i1516
   %899 = load ptr, ptr %898, align 8
   %.not1313 = icmp eq ptr %899, null
   br i1 %.not1313, label %html_tag_arg_value.exit1512.thread, label %900
@@ -2680,7 +2680,7 @@ html_tag_arg_value.exit1519:                      ; preds = %892
 
 938:                                              ; preds = %937, %.lr.ph.i1521
   %indvars.iv.i1523 = phi i64 [ 0, %.lr.ph.i1521 ], [ %indvars.iv.next.i1524, %937 ]
-  %939 = getelementptr inbounds ptr, ptr %936, i64 %indvars.iv.i1523
+  %939 = getelementptr inbounds nuw ptr, ptr %936, i64 %indvars.iv.i1523
   %940 = load ptr, ptr %939, align 8
   %941 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %940, ptr noundef nonnull dereferenceable(4) @.str.37) #16
   %942 = icmp eq i32 %941, 0
@@ -2688,7 +2688,7 @@ html_tag_arg_value.exit1519:                      ; preds = %892
 
 html_tag_arg_value.exit1526:                      ; preds = %938
   %943 = load ptr, ptr %31, align 8
-  %944 = getelementptr inbounds ptr, ptr %943, i64 %indvars.iv.i1523
+  %944 = getelementptr inbounds nuw ptr, ptr %943, i64 %indvars.iv.i1523
   %945 = load ptr, ptr %944, align 8
   %.not1303 = icmp eq ptr %945, null
   br i1 %.not1303, label %.lr.ph.i1528.preheader, label %946
@@ -2745,7 +2745,7 @@ html_tag_arg_value.exit1526:                      ; preds = %938
 
 .lr.ph.i1528:                                     ; preds = %.lr.ph.i1528.preheader, %968
   %indvars.iv.i1530 = phi i64 [ %indvars.iv.next.i1531, %968 ], [ 0, %.lr.ph.i1528.preheader ]
-  %969 = getelementptr inbounds ptr, ptr %936, i64 %indvars.iv.i1530
+  %969 = getelementptr inbounds nuw ptr, ptr %936, i64 %indvars.iv.i1530
   %970 = load ptr, ptr %969, align 8
   %971 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %970, ptr noundef nonnull dereferenceable(7) @.str.38) #16
   %972 = icmp eq i32 %971, 0
@@ -2753,7 +2753,7 @@ html_tag_arg_value.exit1526:                      ; preds = %938
 
 html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
   %973 = load ptr, ptr %31, align 8
-  %974 = getelementptr inbounds ptr, ptr %973, i64 %indvars.iv.i1530
+  %974 = getelementptr inbounds nuw ptr, ptr %973, i64 %indvars.iv.i1530
   %975 = load ptr, ptr %974, align 8
   %.not1307 = icmp eq ptr %975, null
   br i1 %.not1307, label %html_tag_arg_value.exit1512.thread, label %976
@@ -2926,7 +2926,7 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
 
 1056:                                             ; preds = %1055, %.lr.ph.i1535
   %indvars.iv.i1537 = phi i64 [ 0, %.lr.ph.i1535 ], [ %indvars.iv.next.i1538, %1055 ]
-  %1057 = getelementptr inbounds ptr, ptr %1054, i64 %indvars.iv.i1537
+  %1057 = getelementptr inbounds nuw ptr, ptr %1054, i64 %indvars.iv.i1537
   %1058 = load ptr, ptr %1057, align 8
   %1059 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1058, ptr noundef nonnull dereferenceable(5) @.str.31) #16
   %1060 = icmp eq i32 %1059, 0
@@ -2934,7 +2934,7 @@ html_tag_arg_value.exit1533:                      ; preds = %.lr.ph.i1528
 
 html_tag_arg_value.exit1540:                      ; preds = %1056
   %1061 = load ptr, ptr %31, align 8
-  %1062 = getelementptr inbounds ptr, ptr %1061, i64 %indvars.iv.i1537
+  %1062 = getelementptr inbounds nuw ptr, ptr %1061, i64 %indvars.iv.i1537
   %1063 = load ptr, ptr %1062, align 8
   %.not1284 = icmp eq ptr %1063, null
   br i1 %.not1284, label %html_tag_arg_value.exit1512.thread, label %1064
@@ -2972,7 +2972,7 @@ html_tag_arg_value.exit1540:                      ; preds = %1056
 
 1074:                                             ; preds = %1073, %.lr.ph.i1542
   %indvars.iv.i1544 = phi i64 [ 0, %.lr.ph.i1542 ], [ %indvars.iv.next.i1545, %1073 ]
-  %1075 = getelementptr inbounds ptr, ptr %1072, i64 %indvars.iv.i1544
+  %1075 = getelementptr inbounds nuw ptr, ptr %1072, i64 %indvars.iv.i1544
   %1076 = load ptr, ptr %1075, align 8
   %1077 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1076, ptr noundef nonnull dereferenceable(4) @.str.37) #16
   %1078 = icmp eq i32 %1077, 0
@@ -2980,7 +2980,7 @@ html_tag_arg_value.exit1540:                      ; preds = %1056
 
 html_tag_arg_value.exit1547:                      ; preds = %1074
   %1079 = load ptr, ptr %31, align 8
-  %1080 = getelementptr inbounds ptr, ptr %1079, i64 %indvars.iv.i1544
+  %1080 = getelementptr inbounds nuw ptr, ptr %1079, i64 %indvars.iv.i1544
   %1081 = load ptr, ptr %1080, align 8
   %.not1282 = icmp eq ptr %1081, null
   br i1 %.not1282, label %html_tag_arg_value.exit1512.thread, label %1082
@@ -3019,7 +3019,7 @@ html_tag_arg_value.exit1512.thread:               ; preds = %968, %891, %1073, %
   br i1 %1087, label %1088, label %1090
 
 1088:                                             ; preds = %1086
-  %1089 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1089 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1090:                                             ; preds = %1086
@@ -3241,14 +3241,14 @@ html_output_flush.exit.i1561:                     ; preds = %1174
 
 html_output_c.exit1562:                           ; preds = %1129, %.preheader1837, %1179, %1173
   %.20 = phi i64 [ %.24, %1173 ], [ %.24, %1179 ], [ %.1990.ph1868576, %.preheader1837 ], [ %.19, %1129 ]
-  %1183 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1183 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1184:                                             ; preds = %1107
   %1185 = tail call ptr @__ctype_b_loc() #18
   %1186 = load ptr, ptr %1185, align 8
   %1187 = zext i8 %.us-phi2939 to i64
-  %1188 = getelementptr inbounds i16, ptr %1186, i64 %1187
+  %1188 = getelementptr inbounds nuw i16, ptr %1186, i64 %1187
   %1189 = load i16, ptr %1188, align 2
   %.fr1831 = freeze i16 %1189
   %1190 = and i16 %.fr1831, 8
@@ -3272,7 +3272,7 @@ switch.early.test:                                ; preds = %1184
   br i1 %.old71, label %1195, label %1199
 
 1195:                                             ; preds = %1191, %1194
-  %1196 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1196 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %1197 = add nuw nsw i64 %.11116.ph733, 1
   %1198 = getelementptr inbounds [1025 x i8], ptr %13, i64 0, i64 %.11116.ph733
   store i8 %.us-phi2939, ptr %1198, align 1
@@ -3373,7 +3373,7 @@ html_output_c.exit1568:                           ; preds = %.lr.ph2955, %1225
   ]
 
 1238:                                             ; preds = %1237, %1237
-  %1239 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1239 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1240:                                             ; preds = %1235
@@ -3504,14 +3504,14 @@ html_output_flush.exit.i1576:                     ; preds = %1296
   br label %html_output_c.exit1571
 
 html_output_c.exit1571:                           ; preds = %1301, %1291, %1286, %html_output_flush.exit16.i, %1269, %1261, %1252, %1265
-  %1305 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1305 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1306:                                             ; preds = %1237, %1240
   %1307 = tail call ptr @__ctype_b_loc() #18
   %1308 = load ptr, ptr %1307, align 8
   %1309 = zext i8 %.us-phi2939 to i64
-  %1310 = getelementptr inbounds i16, ptr %1308, i64 %1309
+  %1310 = getelementptr inbounds nuw i16, ptr %1308, i64 %1309
   %1311 = load i16, ptr %1310, align 2
   %1312 = zext i16 %1311 to i32
   %1313 = and i32 %1312, 2048
@@ -3565,7 +3565,7 @@ html_output_flush.exit.i1579:                     ; preds = %1326
   br label %html_output_c.exit1580
 
 html_output_c.exit1580:                           ; preds = %1324, %1331
-  %1335 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1335 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1336:                                             ; preds = %1322, %1318
@@ -3614,12 +3614,12 @@ html_output_flush.exit.i1582:                     ; preds = %1349
   br label %html_output_c.exit1583
 
 html_output_c.exit1583:                           ; preds = %1347, %1354
-  %1358 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1358 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1359:                                             ; preds = %1344
   %1360 = add nsw i64 %.3986, %.0974
-  %1361 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1361 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1362:                                             ; preds = %1315
@@ -3651,9 +3651,9 @@ html_output_flush.exit.i1585:                     ; preds = %1364
 
 1375:                                             ; preds = %1373
   store i8 47, ptr %1374, align 1
-  %1376 = getelementptr inbounds i8, ptr %1374, i64 1
+  %1376 = getelementptr inbounds nuw i8, ptr %1374, i64 1
   store i8 47, ptr %1376, align 1
-  %1377 = getelementptr inbounds i8, ptr %1374, i64 4
+  %1377 = getelementptr inbounds nuw i8, ptr %1374, i64 4
   br label %html_output_c.exit
 
 1378:                                             ; preds = %.split.us
@@ -3663,9 +3663,9 @@ html_output_flush.exit.i1585:                     ; preds = %1364
 
 1381:                                             ; preds = %1378
   store i8 47, ptr %.us-phi2938, align 1
-  %1382 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1382 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   store i8 47, ptr %1382, align 1
-  %1383 = getelementptr inbounds i8, ptr %.us-phi2938, i64 4
+  %1383 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 4
   br label %html_output_c.exit
 
 1384:                                             ; preds = %1378
@@ -3693,7 +3693,7 @@ html_output_flush.exit.i1588:                     ; preds = %1388
   br label %html_output_c.exit1589
 
 html_output_c.exit1589:                           ; preds = %1384, %1393
-  %1397 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1397 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1398:                                             ; preds = %.split.us
@@ -3705,17 +3705,17 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false)
   %1402 = load i8, ptr %.us-phi2938, align 1
   %1403 = zext i8 %1402 to i64
-  %1404 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1403
+  %1404 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1403
   %1405 = load i64, ptr %1404, align 8
   %1406 = icmp slt i64 %1405, 0
   %.tr = trunc i64 %1405 to i32
   %1407 = shl i32 %.tr, 2
   %1408 = select i1 %1406, i32 0, i32 %1407
   store i32 %1408, ptr %11, align 4
-  %1409 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1409 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %1410 = load i8, ptr %1409, align 1
   %1411 = zext i8 %1410 to i64
-  %1412 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1411
+  %1412 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1411
   %1413 = load i64, ptr %1412, align 8
   %1414 = lshr i64 %1413, 4
   %1415 = trunc i64 %1414 to i32
@@ -3723,17 +3723,17 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   store i32 %1416, ptr %11, align 4
   %1417 = load i8, ptr %1409, align 1
   %1418 = zext i8 %1417 to i64
-  %1419 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1418
+  %1419 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1418
   %1420 = load i64, ptr %1419, align 8
   %.tr1262 = trunc i64 %1420 to i32
   %1421 = shl i32 %.tr1262, 12
   %1422 = and i32 %1421, 61440
   %1423 = add i32 %1422, %1416
   store i32 %1423, ptr %11, align 4
-  %1424 = getelementptr inbounds i8, ptr %.us-phi2938, i64 2
+  %1424 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 2
   %1425 = load i8, ptr %1424, align 1
   %1426 = zext i8 %1425 to i64
-  %1427 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1426
+  %1427 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1426
   %1428 = load i64, ptr %1427, align 8
   %1429 = ashr i64 %1428, 2
   %1430 = icmp slt i64 %1429, 0
@@ -3744,37 +3744,37 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   store i32 %1434, ptr %11, align 4
   %1435 = load i8, ptr %1424, align 1
   %1436 = zext i8 %1435 to i64
-  %1437 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1436
+  %1437 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1436
   %1438 = load i64, ptr %1437, align 8
   %.tr1263 = trunc i64 %1438 to i32
   %1439 = shl i32 %.tr1263, 22
   %1440 = and i32 %1439, 12582912
   %1441 = add i32 %1440, %1434
   store i32 %1441, ptr %11, align 4
-  %1442 = getelementptr inbounds i8, ptr %.us-phi2938, i64 3
+  %1442 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 3
   %1443 = load i8, ptr %1442, align 1
   %1444 = zext i8 %1443 to i64
-  %1445 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1444
+  %1445 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1444
   %1446 = load i64, ptr %1445, align 8
   %1447 = icmp slt i64 %1446, 0
   %.tr1264 = trunc i64 %1446 to i32
   %1448 = shl i32 %.tr1264, 16
   %1449 = select i1 %1447, i32 0, i32 %1448
   %1450 = add i32 %1449, %1441
-  %1451 = getelementptr inbounds i8, ptr %.us-phi2938, i64 4
+  %1451 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 4
   %1452 = load i8, ptr %1451, align 1
   %1453 = zext i8 %1452 to i64
-  %1454 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1453
+  %1454 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1453
   %1455 = load i64, ptr %1454, align 8
   %1456 = icmp slt i64 %1455, 0
   %.tr1265 = trunc i64 %1455 to i32
   %1457 = shl i32 %.tr1265, 26
   %1458 = select i1 %1456, i32 0, i32 %1457
   %1459 = add i32 %1458, %1450
-  %1460 = getelementptr inbounds i8, ptr %.us-phi2938, i64 5
+  %1460 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 5
   %1461 = load i8, ptr %1460, align 1
   %1462 = zext i8 %1461 to i64
-  %1463 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %1462
+  %1463 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %1462
   %1464 = load i64, ptr %1463, align 8
   %1465 = ashr i64 %1464, 4
   %1466 = icmp slt i64 %1465, 0
@@ -3783,9 +3783,9 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   %1469 = select i1 %1466, i32 0, i32 %1468
   %1470 = add i32 %1469, %1459
   store i32 %1470, ptr %11, align 4
-  %1471 = getelementptr inbounds i8, ptr %.us-phi2938, i64 7
+  %1471 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 7
   store i8 10, ptr %1471, align 1
-  %1472 = getelementptr inbounds i8, ptr %.us-phi2938, i64 8
+  %1472 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 8
   br label %html_output_c.exit
 
 1473:                                             ; preds = %.split.us
@@ -3809,7 +3809,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   br i1 %or.cond92.not, label %1482, label %1480
 
 1480:                                             ; preds = %1477
-  %1481 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1481 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1482:                                             ; preds = %1477
@@ -3824,7 +3824,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 
 1487:                                             ; preds = %1484, %1482
   %.29 = phi i64 [ %1485, %1484 ], [ %.1990.ph1868576, %1482 ]
-  %1488 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1488 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1489:                                             ; preds = %1475
@@ -3834,7 +3834,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   br i1 %or.cond96.not, label %1494, label %1492
 
 1492:                                             ; preds = %1489
-  %1493 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1493 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1494:                                             ; preds = %1489
@@ -3849,14 +3849,14 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 
 1499:                                             ; preds = %1496, %1494
   %.31 = phi i64 [ %1497, %1496 ], [ %.1990.ph1868576, %1494 ]
-  %1500 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1500 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1501:                                             ; preds = %1475
   %1502 = tail call ptr @__ctype_b_loc() #18
   %1503 = load ptr, ptr %1502, align 8
   %1504 = zext i8 %.us-phi2939 to i64
-  %1505 = getelementptr inbounds i16, ptr %1503, i64 %1504
+  %1505 = getelementptr inbounds nuw i16, ptr %1503, i64 %1504
   %1506 = load i16, ptr %1505, align 2
   %1507 = and i16 %1506, 8192
   %.not1257 = icmp ne i16 %1507, 0
@@ -3882,7 +3882,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 
 1515:                                             ; preds = %.sink.split4903, %1511
   %.32 = phi i64 [ %.1990.ph1868576, %1511 ], [ %1513, %.sink.split4903 ]
-  %1516 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1516 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1517:                                             ; preds = %1501
@@ -3892,7 +3892,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 1519:                                             ; preds = %1517
   %1520 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1990.ph1868576
   store i8 0, ptr %1520, align 1
-  %1521 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1521 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1522:                                             ; preds = %1517
@@ -3909,7 +3909,7 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
 
 1529:                                             ; preds = %1524, %1522
   %.33 = phi i64 [ %1527, %1524 ], [ %.1990.ph1868576, %1522 ]
-  %1530 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1530 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %1531
 
 1531:                                             ; preds = %1509, %1499, %1492, %1519, %1529, %1515, %1480, %1487
@@ -3937,13 +3937,13 @@ html_output_c.exit1589:                           ; preds = %1384, %1393
   br i1 %.not1251, label %1546, label %1538
 
 1538:                                             ; preds = %1536
-  %1539 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1539 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1540 = load i64, ptr %1539, align 8
   %.not.i1590 = icmp eq i64 %1540, 0
   br i1 %.not.i1590, label %html_output_flush.exit, label %1541
 
 1541:                                             ; preds = %1538
-  %1542 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1542 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1543 = call i64 @cli_writen(i32 noundef %1537, ptr noundef nonnull %1542, i64 noundef %1540) #15
   store i64 0, ptr %1539, align 8
   %.pre4299 = load i32, ptr %.21145.ph710, align 8
@@ -4008,10 +4008,10 @@ html_output_flush.exit:                           ; preds = %1538, %1541
   br label %.loopexit
 
 html_output_str.exit1602:                         ; preds = %1562
-  %1567 = getelementptr inbounds i8, ptr %1548, i64 8200
-  %1568 = getelementptr inbounds i8, ptr %1548, i64 4
+  %1567 = getelementptr inbounds nuw i8, ptr %1548, i64 8200
+  %1568 = getelementptr inbounds nuw i8, ptr %1548, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1568, ptr noundef nonnull align 1 dereferenceable(20) @.str.45, i64 20, i1 false)
-  %1569 = getelementptr inbounds i8, ptr %1548, i64 24
+  %1569 = getelementptr inbounds nuw i8, ptr %1548, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %1569, ptr noundef nonnull align 1 dereferenceable(14) @.str.46, i64 14, i1 false)
   store i64 34, ptr %1567, align 8
   %1570 = icmp eq i64 %.1990.ph1868576, 0
@@ -4026,7 +4026,7 @@ html_output_str.exit1602:                         ; preds = %1562
   br i1 %1575, label %html_output_flush.exit.i1614, label %html_output_flush.exit.thread.i1612
 
 .thread1719:                                      ; preds = %html_output_str.exit1602
-  %1576 = getelementptr inbounds i8, ptr %1548, i64 38
+  %1576 = getelementptr inbounds nuw i8, ptr %1548, i64 38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %1576, ptr noundef nonnull align 1 dereferenceable(11) @.str.47, i64 11, i1 false)
   store i64 45, ptr %1567, align 8
   br label %html_output_flush.exit.i1614.thread
@@ -4054,7 +4054,7 @@ html_output_flush.exit16.i1613:                   ; preds = %1580, %html_output_
 
 html_output_flush.exit.i1614.thread:              ; preds = %.thread1719, %html_output_flush.exit.thread.i1612, %html_output_flush.exit.i1614
   %1584 = phi i64 [ 0, %html_output_flush.exit.thread.i1612 ], [ 34, %html_output_flush.exit.i1614 ], [ 45, %.thread1719 ]
-  %1585 = getelementptr inbounds i8, ptr %1568, i64 %1584
+  %1585 = getelementptr inbounds nuw i8, ptr %1568, i64 %1584
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1585, ptr nonnull align 16 %9, i64 %.1990.ph1868576, i1 false)
   %1586 = load i64, ptr %1567, align 8
   %1587 = add i64 %1586, %.1990.ph1868576
@@ -4142,20 +4142,20 @@ html_output_c.exit1628:                           ; preds = %thread-pre-split, %
   br i1 %.not.i1629, label %html_output_c.exit1631, label %1618
 
 1618:                                             ; preds = %1617
-  %1619 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1619 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1620 = load i64, ptr %1619, align 8
   %1621 = icmp eq i64 %1620, 8192
   br i1 %1621, label %html_output_flush.exit.i1630, label %1625
 
 html_output_flush.exit.i1630:                     ; preds = %1618
   %1622 = load i32, ptr %.21145.ph710, align 8
-  %1623 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1623 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1624 = call i64 @cli_writen(i32 noundef %1622, ptr noundef nonnull %1623, i64 noundef 8192) #15
   br label %1625
 
 1625:                                             ; preds = %html_output_flush.exit.i1630, %1618
   %1626 = phi i64 [ 0, %html_output_flush.exit.i1630 ], [ %1620, %1618 ]
-  %1627 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1627 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1628 = add i64 %1626, 1
   store i64 %1628, ptr %1619, align 8
   %1629 = getelementptr inbounds [8192 x i8], ptr %1627, i64 0, i64 %1626
@@ -4173,20 +4173,20 @@ html_output_flush.exit.i1630:                     ; preds = %1618
   br i1 %.not.i1632, label %html_output_c.exit1631, label %1634
 
 1634:                                             ; preds = %1633
-  %1635 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1635 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1636 = load i64, ptr %1635, align 8
   %1637 = icmp eq i64 %1636, 8192
   br i1 %1637, label %html_output_flush.exit.i1633, label %1641
 
 html_output_flush.exit.i1633:                     ; preds = %1634
   %1638 = load i32, ptr %.21145.ph710, align 8
-  %1639 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1639 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1640 = call i64 @cli_writen(i32 noundef %1638, ptr noundef nonnull %1639, i64 noundef 8192) #15
   br label %1641
 
 1641:                                             ; preds = %html_output_flush.exit.i1633, %1634
   %1642 = phi i64 [ 0, %html_output_flush.exit.i1633 ], [ %1636, %1634 ]
-  %1643 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1643 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1644 = add i64 %1642, 1
   store i64 %1644, ptr %1635, align 8
   %1645 = getelementptr inbounds [8192 x i8], ptr %1643, i64 0, i64 %1642
@@ -4197,7 +4197,7 @@ html_output_flush.exit.i1633:                     ; preds = %1634
   %1647 = tail call ptr @__ctype_b_loc() #18
   %1648 = load ptr, ptr %1647, align 8
   %1649 = zext i8 %.us-phi2939 to i64
-  %1650 = getelementptr inbounds i16, ptr %1648, i64 %1649
+  %1650 = getelementptr inbounds nuw i16, ptr %1648, i64 %1649
   %1651 = load i16, ptr %1650, align 2
   %1652 = and i16 %1651, 8192
   %.not1247 = icmp ne i16 %1652, 0
@@ -4214,20 +4214,20 @@ html_output_flush.exit.i1633:                     ; preds = %1634
   br i1 %.not.i1635, label %html_output_c.exit1631, label %1657
 
 1657:                                             ; preds = %1656
-  %1658 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1658 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1659 = load i64, ptr %1658, align 8
   %1660 = icmp eq i64 %1659, 8192
   br i1 %1660, label %html_output_flush.exit.i1636, label %1664
 
 html_output_flush.exit.i1636:                     ; preds = %1657
   %1661 = load i32, ptr %.21145.ph710, align 8
-  %1662 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1662 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1663 = call i64 @cli_writen(i32 noundef %1661, ptr noundef nonnull %1662, i64 noundef 8192) #15
   br label %1664
 
 1664:                                             ; preds = %html_output_flush.exit.i1636, %1657
   %1665 = phi i64 [ 0, %html_output_flush.exit.i1636 ], [ %1659, %1657 ]
-  %1666 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1666 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1667 = add i64 %1665, 1
   store i64 %1667, ptr %1658, align 8
   %1668 = getelementptr inbounds [8192 x i8], ptr %1666, i64 0, i64 %1665
@@ -4239,20 +4239,20 @@ html_output_flush.exit.i1636:                     ; preds = %1657
   br i1 %.not.i1638, label %html_output_c.exit1631, label %1670
 
 1670:                                             ; preds = %1669
-  %1671 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1671 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1672 = load i64, ptr %1671, align 8
   %1673 = icmp eq i64 %1672, 8192
   br i1 %1673, label %html_output_flush.exit.i1639, label %1677
 
 html_output_flush.exit.i1639:                     ; preds = %1670
   %1674 = load i32, ptr %.21145.ph710, align 8
-  %1675 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1675 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1676 = call i64 @cli_writen(i32 noundef %1674, ptr noundef nonnull %1675, i64 noundef 8192) #15
   br label %1677
 
 1677:                                             ; preds = %html_output_flush.exit.i1639, %1670
   %1678 = phi i64 [ 0, %html_output_flush.exit.i1639 ], [ %1672, %1670 ]
-  %1679 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1679 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1680 = add i64 %1678, 1
   store i64 %1680, ptr %1671, align 8
   %1681 = getelementptr inbounds [8192 x i8], ptr %1679, i64 0, i64 %1678
@@ -4264,7 +4264,7 @@ html_output_c.exit1631:                           ; preds = %1677, %1669, %1664,
   %.81039 = phi i32 [ 23, %1613 ], [ 21, %1612 ], [ %.11032.ph762, %1614 ], [ %.11032.ph762, %1630 ], [ %.11032.ph762, %1654 ], [ %.11032.ph762, %1617 ], [ %.11032.ph762, %1625 ], [ %.11032.ph762, %1633 ], [ %.11032.ph762, %1641 ], [ %.11032.ph762, %1656 ], [ %.11032.ph762, %1664 ], [ %.11032.ph762, %1669 ], [ %.11032.ph762, %1677 ]
   %.91027 = phi i32 [ 24, %1613 ], [ 4, %1612 ], [ 22, %1614 ], [ 22, %1630 ], [ 22, %1654 ], [ 21, %1617 ], [ 21, %1625 ], [ 21, %1633 ], [ 21, %1641 ], [ 21, %1656 ], [ 21, %1664 ], [ 21, %1669 ], [ 21, %1677 ]
   %.4987 = phi i64 [ 0, %1613 ], [ %.1984.ph778, %1612 ], [ %.1984.ph778, %1614 ], [ %.1984.ph778, %1630 ], [ %.1984.ph778, %1654 ], [ %.1984.ph778, %1617 ], [ %.1984.ph778, %1625 ], [ %.1984.ph778, %1633 ], [ %.1984.ph778, %1641 ], [ %.1984.ph778, %1656 ], [ %.1984.ph778, %1664 ], [ %.1984.ph778, %1669 ], [ %.1984.ph778, %1677 ]
-  %.61055 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %.61055 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   %1682 = load i8, ptr %.61055, align 1
   %1683 = icmp eq i8 %1682, 92
   %.1387 = zext i1 %1683 to i8
@@ -4280,13 +4280,13 @@ html_output_c.exit1631:                           ; preds = %1677, %1669, %1664,
   br i1 %.not1246, label %1695, label %1687
 
 1687:                                             ; preds = %1685
-  %1688 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1688 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1689 = load i64, ptr %1688, align 8
   %.not.i1641 = icmp eq i64 %1689, 0
   br i1 %.not.i1641, label %html_output_flush.exit1642, label %1690
 
 1690:                                             ; preds = %1687
-  %1691 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1691 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1692 = call i64 @cli_writen(i32 noundef %1686, ptr noundef nonnull %1691, i64 noundef %1689) #15
   store i64 0, ptr %1688, align 8
   %.pre = load i32, ptr %.21145.ph710, align 8
@@ -4313,20 +4313,20 @@ html_output_flush.exit1642:                       ; preds = %1687, %1690
   br i1 %.not.i1643, label %html_output_c.exit, label %1699
 
 1699:                                             ; preds = %1697
-  %1700 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1700 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1701 = load i64, ptr %1700, align 8
   %1702 = icmp eq i64 %1701, 8192
   br i1 %1702, label %html_output_flush.exit.i1644, label %1706
 
 html_output_flush.exit.i1644:                     ; preds = %1699
   %1703 = load i32, ptr %.21145.ph710, align 8
-  %1704 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1704 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1705 = call i64 @cli_writen(i32 noundef %1703, ptr noundef nonnull %1704, i64 noundef 8192) #15
   br label %1706
 
 1706:                                             ; preds = %html_output_flush.exit.i1644, %1699
   %1707 = phi i64 [ 0, %html_output_flush.exit.i1644 ], [ %1701, %1699 ]
-  %1708 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1708 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1709 = add i64 %1707, 1
   store i64 %1709, ptr %1700, align 8
   %1710 = getelementptr inbounds [8192 x i8], ptr %1708, i64 0, i64 %1707
@@ -4338,20 +4338,20 @@ html_output_flush.exit.i1644:                     ; preds = %1699
   br i1 %.not.i1646, label %html_output_c.exit, label %1712
 
 1712:                                             ; preds = %1711
-  %1713 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1713 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1714 = load i64, ptr %1713, align 8
   %1715 = icmp eq i64 %1714, 8192
   br i1 %1715, label %html_output_flush.exit.i1647, label %1719
 
 html_output_flush.exit.i1647:                     ; preds = %1712
   %1716 = load i32, ptr %.21145.ph710, align 8
-  %1717 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1717 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1718 = call i64 @cli_writen(i32 noundef %1716, ptr noundef nonnull %1717, i64 noundef 8192) #15
   br label %1719
 
 1719:                                             ; preds = %html_output_flush.exit.i1647, %1712
   %1720 = phi i64 [ 0, %html_output_flush.exit.i1647 ], [ %1714, %1712 ]
-  %1721 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1721 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1722 = add i64 %1720, 1
   store i64 %1722, ptr %1713, align 8
   %1723 = getelementptr inbounds [8192 x i8], ptr %1721, i64 0, i64 %1720
@@ -4380,20 +4380,20 @@ html_output_flush.exit.i1650:                     ; preds = %1719
   br i1 %.not.i1652, label %html_output_c.exit, label %1735
 
 1735:                                             ; preds = %1734
-  %1736 = getelementptr inbounds i8, ptr %.21145.ph710, i64 8200
+  %1736 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 8200
   %1737 = load i64, ptr %1736, align 8
   %1738 = icmp eq i64 %1737, 8192
   br i1 %1738, label %html_output_flush.exit.i1653, label %1742
 
 html_output_flush.exit.i1653:                     ; preds = %1735
   %1739 = load i32, ptr %.21145.ph710, align 8
-  %1740 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1740 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1741 = call i64 @cli_writen(i32 noundef %1739, ptr noundef nonnull %1740, i64 noundef 8192) #15
   br label %1742
 
 1742:                                             ; preds = %html_output_flush.exit.i1653, %1735
   %1743 = phi i64 [ 0, %html_output_flush.exit.i1653 ], [ %1737, %1735 ]
-  %1744 = getelementptr inbounds i8, ptr %.21145.ph710, i64 4
+  %1744 = getelementptr inbounds nuw i8, ptr %.21145.ph710, i64 4
   %1745 = add i64 %1743, 1
   store i64 %1745, ptr %1736, align 8
   %1746 = getelementptr inbounds [8192 x i8], ptr %1744, i64 0, i64 %1743
@@ -4411,7 +4411,7 @@ html_output_flush.exit.i1653:                     ; preds = %1735
   %1753 = load ptr, ptr %1752, align 8
   %1754 = zext i8 %.us-phi2939 to i32
   %1755 = zext i8 %.us-phi2939 to i64
-  %1756 = getelementptr inbounds i16, ptr %1753, i64 %1755
+  %1756 = getelementptr inbounds nuw i16, ptr %1753, i64 %1755
   %1757 = load i16, ptr %1756, align 2
   %1758 = zext i16 %1757 to i32
   %1759 = and i32 %1758, 4096
@@ -4419,7 +4419,7 @@ html_output_flush.exit.i1653:                     ; preds = %1735
   br i1 %.not1243, label %1773, label %1762
 
 1760:                                             ; preds = %1747
-  %1761 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1761 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 1762:                                             ; preds = %1749
@@ -4445,7 +4445,7 @@ html_output_flush.exit.i1653:                     ; preds = %1735
   %.5988 = phi i64 [ %1767, %1764 ], [ %1772, %1768 ], [ %1750, %1749 ]
   %1774 = icmp eq i64 %1751, 2
   %spec.select1388 = select i1 %1774, i32 %.11032.ph762, i32 %.101028
-  %1775 = getelementptr inbounds i8, ptr %.us-phi2938, i64 1
+  %1775 = getelementptr inbounds nuw i8, ptr %.us-phi2938, i64 1
   br label %html_output_c.exit
 
 html_output_c.exit:                               ; preds = %html_output_c.exit1396, %1233, %.split.us, %html_output_c.exit1565, %1711, %1742, %1734, %1730, %1706, %1697, %1369, %1362, %1103, %1097, %259, %253, %201, %html_output_c.exit1411, %110, %104, %1684, %1695, %html_output_c.exit1631, %html_output_c.exit1628, %1534, %1531, %1473, %1398, %1373, %1375, %1090, %html_output_c.exit1459, %483, %485, %250, %102, %84, %1381, %html_output_c.exit1589, %1238, %1359, %html_output_c.exit1571, %html_output_c.exit1562, %1195, %1088, %html_output_c.exit1456, %html_output_c.exit1444, %431, %468, %411, %html_output_c.exit1435, %382, %384, %html_output_c.exit1438, %241, %html_output_c.exit1426, %html_output_c.exit1432, %280, %205, %100, %91, %1773, %1760, %1401, %html_output_c.exit1583, %html_output_c.exit1580, %html_tag_arg_value.exit1512.thread, %html_output_c.exit1492, %82
@@ -4889,13 +4889,13 @@ html_output_flush.exit1676:                       ; preds = %1893, %1895
   br i1 %.not1369, label %1913, label %1905
 
 1905:                                             ; preds = %1903
-  %1906 = getelementptr inbounds i8, ptr %.011431745, i64 8200
+  %1906 = getelementptr inbounds nuw i8, ptr %.011431745, i64 8200
   %1907 = load i64, ptr %1906, align 8
   %.not.i1677 = icmp eq i64 %1907, 0
   br i1 %.not.i1677, label %html_output_flush.exit1678, label %1908
 
 1908:                                             ; preds = %1905
-  %1909 = getelementptr inbounds i8, ptr %.011431745, i64 4
+  %1909 = getelementptr inbounds nuw i8, ptr %.011431745, i64 4
   %1910 = call i64 @cli_writen(i32 noundef %1904, ptr noundef nonnull %1909, i64 noundef %1907) #15
   store i64 0, ptr %1906, align 8
   %.pre4301 = load i32, ptr %.011431745, align 8
@@ -4926,13 +4926,13 @@ html_output_flush.exit1678:                       ; preds = %1905, %1908
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @html_normalise_map(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.m_area_tag, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %1, ptr %11, align 8
   %12 = call fastcc zeroext i1 @cli_html_normalise(ptr noundef %0, ptr noundef %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   ret i1 %12
@@ -4945,13 +4945,13 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %5 = alloca %struct.screnc_state, align 4
   %6 = alloca %struct.m_area_tag, align 8
   store i64 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 0, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %0, ptr %11, align 8
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1024, ptr noundef nonnull @.str, ptr noundef %1) #15
   %13 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %4, i32 noundef 577, i32 noundef 384) #15
@@ -4980,7 +4980,7 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not, label %.thread63, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %18, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %23
 
 23:                                               ; preds = %32, %21
@@ -5005,31 +5005,31 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
 
 29:                                               ; preds = %27
   %30 = load i8, ptr %.3, align 1
-  %31 = getelementptr inbounds [6 x i8], ptr %3, i64 0, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [6 x i8], ptr %3, i64 0, i64 %indvars.iv
   store i8 %30, ptr %31, align 1
   br label %32
 
 32:                                               ; preds = %29, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds i8, ptr %.3, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %34, label %23
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %5, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i64 0, ptr %35, align 4
   %36 = load i8, ptr %3, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %37
+  %38 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %37
   %39 = load i64, ptr %38, align 8
   %40 = icmp slt i64 %39, 0
   %.tr = trunc i64 %39 to i32
   %41 = shl i32 %.tr, 2
   %42 = select i1 %40, i32 0, i32 %41
-  %43 = getelementptr inbounds i8, ptr %3, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = lshr i64 %47, 4
   %49 = trunc i64 %48 to i32
@@ -5038,10 +5038,10 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %51 = shl i32 %.tr55, 12
   %52 = and i32 %51, 61440
   %53 = add i32 %50, %52
-  %54 = getelementptr inbounds i8, ptr %3, i64 2
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %55 = load i8, ptr %54, align 1
   %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %56
   %58 = load i64, ptr %57, align 8
   %59 = ashr i64 %58, 2
   %60 = icmp slt i64 %59, 0
@@ -5053,30 +5053,30 @@ define noundef zeroext i1 @html_screnc_decode(ptr noundef %0, ptr noundef %1) lo
   %65 = and i32 %64, 12582912
   %66 = add i32 %65, %53
   %67 = add i32 %66, %63
-  %68 = getelementptr inbounds i8, ptr %3, i64 3
+  %68 = getelementptr inbounds nuw i8, ptr %3, i64 3
   %69 = load i8, ptr %68, align 1
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %70
   %72 = load i64, ptr %71, align 8
   %73 = icmp slt i64 %72, 0
   %.tr57 = trunc i64 %72 to i32
   %74 = shl i32 %.tr57, 16
   %75 = select i1 %73, i32 0, i32 %74
   %76 = add i32 %75, %67
-  %77 = getelementptr inbounds i8, ptr %3, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = icmp slt i64 %81, 0
   %.tr58 = trunc i64 %81 to i32
   %83 = shl i32 %.tr58, 26
   %84 = select i1 %82, i32 0, i32 %83
   %85 = add i32 %84, %76
-  %86 = getelementptr inbounds i8, ptr %3, i64 5
+  %86 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %87 = load i8, ptr %86, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = ashr i64 %90, 4
   %92 = icmp slt i64 %91, 0
@@ -5168,9 +5168,9 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
   br label %114
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = sub nsw i64 %6, %8
   %10 = tail call i64 @llvm.smin.i64(i64 %9, i64 8191)
@@ -5183,14 +5183,14 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
   br label %114
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not151 = icmp eq ptr %15, null
   br i1 %.not151, label %21, label %16
 
 16:                                               ; preds = %13
   %17 = and i64 %10, 4294967295
-  %18 = getelementptr inbounds i8, ptr %15, i64 104
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr %19(ptr noundef nonnull %15, i64 noundef %8, i64 noundef range(i64 1, 4294967296) %17, i32 noundef 0) #15
   %.pre = load i64, ptr %7, align 8
@@ -5226,12 +5226,12 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
 
 36:                                               ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2, ptr nonnull align 1 %.0125, i64 %34, i1 false)
-  %37 = getelementptr inbounds i8, ptr %2, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %34
   store i8 0, ptr %37, align 1
   %38 = load i64, ptr %7, align 8
   %39 = add nsw i64 %38, %34
   store i64 %39, ptr %7, align 8
-  %40 = getelementptr inbounds i8, ptr %.0125, i64 %34
+  %40 = getelementptr inbounds nuw i8, ptr %.0125, i64 %34
   br label %82
 
 41:                                               ; preds = %33
@@ -5258,7 +5258,7 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
   %52 = ptrtoint ptr %29 to i64
   %53 = ptrtoint ptr %.2127 to i64
   %54 = sub i64 %52, %53
-  %55 = getelementptr inbounds i8, ptr %50, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 104
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr i8, ptr %50, i64 16
   %.val.i = load ptr, ptr %57, align 8
@@ -5285,7 +5285,7 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
 .lr.ph:                                           ; preds = %.thread, %72
   %.26 = phi i32 [ %.3, %72 ], [ %.1, %.thread ]
   %.51305 = phi ptr [ %66, %72 ], [ %.4129, %.thread ]
-  %66 = getelementptr inbounds i8, ptr %.51305, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %.51305, i64 1
   %67 = load i8, ptr %.51305, align 1
   %.not156 = icmp eq i8 %67, 0
   br i1 %.not156, label %72, label %68
@@ -5293,7 +5293,7 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
 68:                                               ; preds = %.lr.ph
   %69 = add nuw nsw i32 %.26, 1
   %70 = zext nneg i32 %.26 to i64
-  %71 = getelementptr inbounds i8, ptr %2, i64 %70
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 %70
   store i8 %67, ptr %71, align 1
   br label %72
 
@@ -5313,7 +5313,7 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
   %79 = add nsw i64 %77, %78
   store i64 %79, ptr %7, align 8
   %80 = zext nneg i32 %.2.lcssa to i64
-  %81 = getelementptr inbounds i8, ptr %2, i64 %80
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 %80
   store i8 0, ptr %81, align 1
   br label %82
 
@@ -5328,7 +5328,7 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
   %86 = load ptr, ptr %85, align 8
   %87 = load i8, ptr %.1126, align 1
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds i16, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw i16, ptr %86, i64 %88
   %90 = load i16, ptr %89, align 2
   %91 = and i16 %90, 8192
   %.not155 = icmp eq i16 %91, 0
@@ -5342,10 +5342,10 @@ define internal fastcc ptr @cli_readchunk(ptr nocapture noundef nonnull %0) unna
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ %93, %92 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %95 = and i64 %indvars.iv.next.i, 4294967295
-  %96 = getelementptr inbounds i8, ptr %2, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds i16, ptr %86, i64 %98
+  %99 = getelementptr inbounds nuw i16, ptr %86, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = and i16 %100, 8192
   %.not.i = icmp eq i16 %101, 0
@@ -5362,7 +5362,7 @@ rewind_tospace.exit:                              ; preds = %94
 
 107:                                              ; preds = %rewind_tospace.exit
   %108 = zext i32 %..08.i to i64
-  %109 = getelementptr inbounds i8, ptr %2, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %2, i64 %108
   store i8 0, ptr %109, align 1
   %110 = sub nuw i32 %.0124, %..08.i
   %111 = zext i32 %110 to i64
@@ -5392,8 +5392,8 @@ thread-pre-split.preheader:                       ; preds = %2
   br i1 %.not779198, label %.critedge.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %thread-pre-split.preheader
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   br label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.lr.ph, %44
@@ -5412,7 +5412,7 @@ thread-pre-split.preheader:                       ; preds = %2
   ]
 
 thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
-  %6 = getelementptr inbounds i8, ptr %.093, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.093, i64 1
   br label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
@@ -5422,7 +5422,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
 9:                                                ; preds = %7
   %10 = load i8, ptr %3, align 4
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds [64 x i32], ptr @table_order, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [64 x i32], ptr @table_order, i64 0, i64 %11
   %13 = load i32, ptr %12, align 4
   %14 = sext i32 %13 to i64
   %15 = zext nneg i8 %5 to i64
@@ -5434,7 +5434,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   br i1 %20, label %21, label %31
 
 21:                                               ; preds = %9
-  %22 = getelementptr inbounds i8, ptr %.093, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.093, i64 1
   %23 = add i32 %.pr.ph, -1
   store i32 %23, ptr %1, align 4
   %24 = load i8, ptr %22, align 1
@@ -5472,7 +5472,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   %33 = load i32, ptr %4, align 4
   %34 = add i32 %33, %32
   store i32 %34, ptr %4, align 4
-  %35 = getelementptr inbounds i8, ptr %.06492.ph, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.06492.ph, i64 1
   store i8 %.067, ptr %.06492.ph, align 1
   %36 = load i8, ptr %3, align 4
   %37 = add i8 %36, 1
@@ -5481,11 +5481,11 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   br label %44
 
 39:                                               ; preds = %7
-  %40 = getelementptr inbounds i8, ptr %.093, i64 1
-  %41 = getelementptr inbounds i8, ptr %.06492.ph, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.093, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.06492.ph, i64 1
   store i8 %5, ptr %.06492.ph, align 1
   %42 = load i8, ptr %40, align 1
-  %43 = getelementptr inbounds i8, ptr %.06492.ph, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.06492.ph, i64 2
   store i8 %42, ptr %41, align 1
   %.not79 = icmp eq i8 %42, 0
   br i1 %.not79, label %.critedge, label %44
@@ -5493,7 +5493,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
 44:                                               ; preds = %39, %31
   %.266 = phi ptr [ %35, %31 ], [ %43, %39 ]
   %.3 = phi ptr [ %.2, %31 ], [ %40, %39 ]
-  %45 = getelementptr inbounds i8, ptr %.3, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %46 = load i32, ptr %1, align 4
   %47 = add i32 %46, -1
   store i32 %47, ptr %1, align 4
@@ -5501,7 +5501,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   br i1 %.not77, label %.critedge.thread, label %.lr.ph.outer
 
 .critedge:                                        ; preds = %39
-  %48 = getelementptr inbounds i8, ptr %.06492.ph, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.06492.ph, i64 1
   %.pre = load i32, ptr %1, align 4
   %.not80 = icmp eq i32 %.pre, 0
   br i1 %.not80, label %.critedge.thread, label %.critedge.thread117
@@ -5516,48 +5516,48 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
 51:                                               ; preds = %.critedge.thread
   %52 = load i8, ptr %.1116, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %53
+  %54 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %53
   %55 = load i64, ptr %54, align 8
   %56 = tail call i64 @llvm.smax.i64(i64 %55, i64 0)
   %spec.select = shl i64 %56, 2
-  %57 = getelementptr inbounds i8, ptr %.1116, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.1116, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = ashr i64 %61, 4
   %63 = add i64 %62, %spec.select
   %64 = shl i64 %61, 12
   %65 = and i64 %64, 61440
   %66 = add i64 %63, %65
-  %67 = getelementptr inbounds i8, ptr %.1116, i64 2
+  %67 = getelementptr inbounds nuw i8, ptr %.1116, i64 2
   %68 = load i8, ptr %67, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = ashr i64 %71, 2
   %73 = tail call i64 @llvm.smax.i64(i64 %72, i64 0)
   %74 = shl i64 %73, 8
   %75 = shl i64 %71, 22
   %76 = and i64 %75, 12582912
-  %77 = getelementptr inbounds i8, ptr %.1116, i64 3
+  %77 = getelementptr inbounds nuw i8, ptr %.1116, i64 3
   %78 = load i8, ptr %77, align 1
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %79
+  %80 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %79
   %81 = load i64, ptr %80, align 8
   %82 = tail call i64 @llvm.smax.i64(i64 %81, i64 0)
   %83 = shl i64 %82, 16
-  %84 = getelementptr inbounds i8, ptr %.1116, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.1116, i64 4
   %85 = load i8, ptr %84, align 1
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %86
   %88 = load i64, ptr %87, align 8
   %89 = tail call i64 @llvm.smax.i64(i64 %88, i64 0)
   %90 = shl i64 %89, 26
-  %91 = getelementptr inbounds i8, ptr %.1116, i64 5
+  %91 = getelementptr inbounds nuw i8, ptr %.1116, i64 5
   %92 = load i8, ptr %91, align 1
   %93 = zext i8 %92 to i64
-  %94 = getelementptr inbounds [256 x i64], ptr @base64_chars, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [256 x i64], ptr @base64_chars, i64 0, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = ashr i64 %95, 4
   %97 = tail call i64 @llvm.smax.i64(i64 %96, i64 0)
@@ -5567,7 +5567,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   %101 = add i64 %100, %83
   %102 = add i64 %101, %90
   %103 = add i64 %102, %98
-  %104 = getelementptr inbounds i8, ptr %1, i64 4
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %105 = load i32, ptr %104, align 4
   %106 = zext i32 %105 to i64
   %.not81 = icmp eq i64 %103, %106
@@ -5578,7 +5578,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   br label %113
 
 108:                                              ; preds = %51
-  %109 = getelementptr inbounds i8, ptr %.1116, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %.1116, i64 8
   %110 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %109, ptr noundef nonnull dereferenceable(5) @.str.58, i64 noundef 4) #16
   %.not82 = icmp eq i32 %110, 0
   br i1 %.not82, label %112, label %111
@@ -5592,7 +5592,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %.lr.ph
   br label %113
 
 113:                                              ; preds = %111, %112, %107
-  %114 = getelementptr inbounds i8, ptr %.1116, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %.1116, i64 12
   br label %115
 
 115:                                              ; preds = %113, %.critedge.thread
@@ -5627,20 +5627,20 @@ define internal fastcc void @html_output_c(ptr noundef %0, i8 noundef zeroext %1
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8200
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 8192
   br i1 %6, label %html_output_flush.exit, label %10
 
 html_output_flush.exit:                           ; preds = %3
   %7 = load i32, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = tail call i64 @cli_writen(i32 noundef %7, ptr noundef nonnull %8, i64 noundef 8192) #15
   br label %10
 
 10:                                               ; preds = %html_output_flush.exit, %3
   %11 = phi i64 [ 0, %html_output_flush.exit ], [ %5, %3 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = add i64 %11, 1
   store i64 %13, ptr %4, align 8
   %14 = getelementptr inbounds [8192 x i8], ptr %12, i64 0, i64 %11
@@ -5664,14 +5664,14 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
 10:                                               ; preds = %.lr.ph, %48
   %.091 = phi ptr [ %1, %.lr.ph ], [ %11, %48 ]
   %.06490 = phi i64 [ %5, %.lr.ph ], [ %49, %48 ]
   %.06589 = phi i32 [ 0, %.lr.ph ], [ %.267, %48 ]
-  %11 = getelementptr inbounds i8, ptr %.091, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.091, i64 1
   %12 = load i8, ptr %.091, align 1
   %.not74 = icmp eq i32 %.06589, 0
   br i1 %.not74, label %40, label %13
@@ -5698,7 +5698,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   ]
 
 .thread:                                          ; preds = %17, %17, %17
-  %18 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.06490
+  %18 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.06490
   store i8 46, ptr %18, align 1
   br label %48
 
@@ -5716,7 +5716,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   %26 = lshr i32 %.06589, 16
   %27 = trunc i32 %26 to i8
   %28 = add nuw nsw i64 %.06490, 1
-  %29 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.06490
+  %29 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.06490
   store i8 %27, ptr %29, align 1
   br label %30
 
@@ -5730,7 +5730,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
 
 33:                                               ; preds = %30
   %34 = add nuw nsw i64 %.4, 1
-  %35 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.4
+  %35 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.4
   store i8 %21, ptr %35, align 1
   br label %.thread80
 
@@ -5744,7 +5744,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   %.06490.sink93 = phi i64 [ %.06490, %16 ], [ %.06490, %16 ], [ %.06490, %16 ], [ %.5, %.thread80 ]
   %.sink = phi i8 [ 46, %16 ], [ 46, %16 ], [ 46, %16 ], [ %36, %.thread80 ]
   %38 = add nuw nsw i64 %.06490.sink93, 1
-  %39 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.06490.sink93
+  %39 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.06490.sink93
   store i8 %.sink, ptr %39, align 1
   br label %40
 
@@ -5803,7 +5803,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @html_tag_contents_done(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %2, align 8
   %6 = add i64 %5, 1
   store i64 %6, ptr %2, align 8
@@ -5821,7 +5821,7 @@ define internal fastcc void @html_tag_contents_done(ptr nocapture noundef readon
 11:                                               ; preds = %3
   %12 = load i64, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %9, ptr nonnull align 8 %4, i64 %12, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = sext i32 %1 to i64
   %16 = getelementptr ptr, ptr %14, i64 %15
@@ -5841,7 +5841,7 @@ define internal fastcc ptr @html_tag_arg_value(ptr nocapture noundef nonnull rea
   br i1 %4, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %8
@@ -5853,16 +5853,16 @@ define internal fastcc ptr @html_tag_arg_value(ptr nocapture noundef nonnull rea
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #16
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %13, label %7
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   br label %.loopexit
 
@@ -5880,20 +5880,20 @@ define internal fastcc void @html_output_tag(ptr noundef %0, ptr noundef nonnull
   br i1 %.not.i, label %html_output_str.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8200
   %6 = load i64, ptr %5, align 8
   %7 = icmp eq i64 %6, 8192
   br i1 %7, label %html_output_flush.exit.i, label %11
 
 html_output_flush.exit.i:                         ; preds = %4
   %8 = load i32, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = tail call i64 @cli_writen(i32 noundef %8, ptr noundef nonnull %9, i64 noundef 8192) #15
   br label %11
 
 11:                                               ; preds = %html_output_flush.exit.i, %4
   %12 = phi i64 [ 0, %html_output_flush.exit.i ], [ %6, %4 ]
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = add i64 %12, 1
   store i64 %14, ptr %5, align 8
   %15 = getelementptr inbounds [8192 x i8], ptr %13, i64 0, i64 %12
@@ -5946,10 +5946,10 @@ html_output_str.exit:                             ; preds = %3, %html_output_flu
   br i1 %36, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %html_output_str.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 8200
-  %38 = getelementptr inbounds i8, ptr %0, i64 4
-  %39 = getelementptr inbounds i8, ptr %2, i64 8
-  %40 = getelementptr inbounds i8, ptr %2, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8200
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %41
 
 41:                                               ; preds = %.lr.ph58, %html_output_c.exit51
@@ -5973,7 +5973,7 @@ html_output_flush.exit.i30:                       ; preds = %42
   %50 = getelementptr inbounds [8192 x i8], ptr %38, i64 0, i64 %48
   store i8 32, ptr %50, align 1
   %51 = load ptr, ptr %39, align 8
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv62
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv62
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #16
   %55 = load i64, ptr %37, align 8
@@ -6019,7 +6019,7 @@ html_output_flush.exit16.i36:                     ; preds = %63, %62, %html_outp
 
 html_output_str.exit39:                           ; preds = %html_output_flush.exit16.i36, %68
   %73 = load ptr, ptr %40, align 8
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %indvars.iv62
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv62
   %75 = load ptr, ptr %74, align 8
   %.not = icmp eq ptr %75, null
   br i1 %.not, label %html_output_c.exit51, label %76
@@ -6044,7 +6044,7 @@ html_output_str.exit45.thread:                    ; preds = %html_output_flush.e
   %85 = add i64 %84, 2
   store i64 %85, ptr %37, align 8
   %.pre = load ptr, ptr %40, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv62
+  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv62
   %.pre65 = load ptr, ptr %.phi.trans.insert, align 8
   %86 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.pre65) #16
   %87 = trunc i64 %86 to i32
@@ -6058,9 +6058,9 @@ html_output_str.exit45.thread:                    ; preds = %html_output_flush.e
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %html_output_c.exit48
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %html_output_c.exit48 ]
   %89 = load ptr, ptr %40, align 8
-  %90 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv62
+  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv62
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv
   %93 = load i8, ptr %92, align 1
   %94 = zext i8 %93 to i32
   %95 = tail call i32 @tolower(i32 noundef %94) #16
@@ -6113,20 +6113,20 @@ html_output_c.exit51:                             ; preds = %41, %108, %html_out
   br i1 %.not.i, label %html_output_c.exit54, label %115
 
 115:                                              ; preds = %._crit_edge59
-  %116 = getelementptr inbounds i8, ptr %0, i64 8200
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 8200
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, 8192
   br i1 %118, label %html_output_flush.exit.i53, label %122
 
 html_output_flush.exit.i53:                       ; preds = %115
   %119 = load i32, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 4
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %121 = tail call i64 @cli_writen(i32 noundef %119, ptr noundef nonnull %120, i64 noundef 8192) #15
   br label %122
 
 122:                                              ; preds = %html_output_flush.exit.i53, %115
   %123 = phi i64 [ 0, %html_output_flush.exit.i53 ], [ %117, %115 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %125 = add i64 %123, 1
   store i64 %125, ptr %116, align 8
   %126 = getelementptr inbounds [8192 x i8], ptr %124, i64 0, i64 %123
@@ -6145,7 +6145,7 @@ define internal fastcc void @html_output_str(ptr noundef %0, ptr noundef %1, i64
   br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 8200
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8200
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %2
   %8 = icmp ult i64 %7, 8192
@@ -6159,7 +6159,7 @@ html_output_flush.exit:                           ; preds = %4
 
 html_output_flush.exit.thread:                    ; preds = %4
   %10 = load i32, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = tail call i64 @cli_writen(i32 noundef %10, ptr noundef nonnull %11, i64 noundef %6) #15
   store i64 0, ptr %5, align 8
   %13 = icmp ugt i64 %2, 8191
@@ -6171,7 +6171,7 @@ html_output_flush.exit.thread:                    ; preds = %4
 
 15:                                               ; preds = %14
   %16 = load i32, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = tail call i64 @cli_writen(i32 noundef %16, ptr noundef nonnull %17, i64 noundef %6) #15
   store i64 0, ptr %5, align 8
   br label %html_output_flush.exit16
@@ -6183,7 +6183,7 @@ html_output_flush.exit16:                         ; preds = %html_output_flush.e
 
 21:                                               ; preds = %html_output_flush.exit.thread, %html_output_flush.exit
   %22 = phi i64 [ 0, %html_output_flush.exit.thread ], [ %6, %html_output_flush.exit ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = getelementptr inbounds i8, ptr %23, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %1, i64 %2, i1 false)
   %25 = load i64, ptr %5, align 8

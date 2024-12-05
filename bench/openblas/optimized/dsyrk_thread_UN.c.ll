@@ -23,13 +23,13 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.lifetime.start.p0(i64 32768, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 2688, ptr nonnull %9) #6
   call void @llvm.lifetime.start.p0(i64 928, ptr nonnull %10) #6
-  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = icmp eq i64 %12, 1
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i64, ptr %15, align 8, !tbaa !9
   %17 = shl nsw i64 %12, 3
   %18 = icmp slt i64 %16, %17
@@ -40,54 +40,54 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %.critedge
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i64, ptr %22, align 8, !tbaa !10
-  %24 = getelementptr inbounds i8, ptr %7, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %23, ptr %24, align 8, !tbaa !10
-  %25 = getelementptr inbounds i8, ptr %7, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i64 %16, ptr %25, align 8, !tbaa !9
-  %26 = getelementptr inbounds i8, ptr %0, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %27 = load i64, ptr %26, align 8, !tbaa !11
-  %28 = getelementptr inbounds i8, ptr %7, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %27, ptr %28, align 8, !tbaa !11
   %29 = load ptr, ptr %0, align 8, !tbaa !12
   store ptr %29, ptr %7, align 8, !tbaa !12
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !13
-  %32 = getelementptr inbounds i8, ptr %7, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %31, ptr %32, align 8, !tbaa !13
-  %33 = getelementptr inbounds i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !14
-  %35 = getelementptr inbounds i8, ptr %7, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %34, ptr %35, align 8, !tbaa !14
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %37 = load i64, ptr %36, align 8, !tbaa !15
-  %38 = getelementptr inbounds i8, ptr %7, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 72
   store i64 %37, ptr %38, align 8, !tbaa !15
-  %39 = getelementptr inbounds i8, ptr %0, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %40 = load i64, ptr %39, align 8, !tbaa !16
-  %41 = getelementptr inbounds i8, ptr %7, i64 80
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i64 %40, ptr %41, align 8, !tbaa !16
-  %42 = getelementptr inbounds i8, ptr %0, i64 88
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %43 = load i64, ptr %42, align 8, !tbaa !17
-  %44 = getelementptr inbounds i8, ptr %7, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store i64 %43, ptr %44, align 8, !tbaa !17
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !18
-  %47 = getelementptr inbounds i8, ptr %7, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store ptr %46, ptr %47, align 8, !tbaa !18
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !19
-  %50 = getelementptr inbounds i8, ptr %7, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %49, ptr %50, align 8, !tbaa !19
-  %51 = getelementptr inbounds i8, ptr %7, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store ptr %8, ptr %51, align 8, !tbaa !20
   %52 = icmp eq ptr %2, null
   br i1 %52, label %58, label %53
 
 53:                                               ; preds = %21
   %54 = load i64, ptr %2, align 8, !tbaa !21
-  %55 = getelementptr inbounds i8, ptr %2, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !21
   %57 = sub nsw i64 %56, %54
   br label %58
@@ -96,7 +96,7 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   %59 = phi i64 [ %54, %53 ], [ 0, %21 ]
   %60 = phi i64 [ %57, %53 ], [ %16, %21 ]
   %61 = sub nsw i64 %60, %59
-  %62 = getelementptr inbounds i8, ptr %10, i64 128
+  %62 = getelementptr inbounds nuw i8, ptr %10, i64 128
   store i64 %61, ptr %62, align 16, !tbaa !21
   store i64 0, ptr %10, align 16, !tbaa !21
   %63 = sitofp i64 %61 to double
@@ -169,18 +169,18 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   %109 = sub nsw i64 15, %70
   %110 = getelementptr inbounds [116 x i64], ptr %10, i64 0, i64 %109
   store i64 %108, ptr %110, align 8, !tbaa !21
-  %111 = getelementptr inbounds [16 x %struct.blas_queue], ptr %9, i64 0, i64 %70
-  %112 = getelementptr inbounds i8, ptr %111, i64 160
+  %111 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %9, i64 0, i64 %70
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 160
   store i32 3, ptr %112, align 8, !tbaa !22
   store ptr @inner_thread, ptr %111, align 8, !tbaa !25
-  %113 = getelementptr inbounds i8, ptr %111, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store ptr %7, ptr %113, align 8, !tbaa !26
-  %114 = getelementptr inbounds i8, ptr %111, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %111, i64 32
   store ptr %1, ptr %114, align 8, !tbaa !27
-  %115 = getelementptr inbounds i8, ptr %111, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 48
   %116 = add nuw nsw i64 %70, 1
-  %117 = getelementptr inbounds [16 x %struct.blas_queue], ptr %9, i64 0, i64 %116
-  %118 = getelementptr inbounds i8, ptr %111, i64 64
+  %117 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %9, i64 0, i64 %116
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %115, i8 0, i64 16, i1 false)
   store ptr %117, ptr %118, align 8, !tbaa !28
   %119 = add nsw i64 %104, %71
@@ -189,27 +189,27 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 121:                                              ; preds = %121, %68
   %122 = phi i64 [ 0, %68 ], [ %124, %121 ]
-  %123 = getelementptr inbounds [16 x %struct.blas_queue], ptr %9, i64 0, i64 %122, i32 5
+  %123 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %9, i64 0, i64 %122, i32 5
   store ptr %69, ptr %123, align 8, !tbaa !32
   %124 = add nuw nsw i64 %122, 1
   %125 = icmp eq i64 %122, %70
   br i1 %125, label %126, label %121, !llvm.loop !33
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %7, i64 112
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i64 %116, ptr %127, align 8, !tbaa !3
   br label %128
 
 128:                                              ; preds = %126, %136
   %129 = phi i64 [ %137, %136 ], [ 0, %126 ]
-  %130 = getelementptr inbounds [16 x %struct.job_t], ptr %8, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [16 x %struct.job_t], ptr %8, i64 0, i64 %129
   br label %.critedge9
 
 .critedge9:                                       ; preds = %.critedge9, %128
   %131 = phi i64 [ 0, %128 ], [ %134, %.critedge9 ]
-  %132 = getelementptr inbounds [16 x [16 x i64]], ptr %130, i64 0, i64 %131, i64 0
+  %132 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %130, i64 0, i64 %131, i64 0
   store atomic i64 0, ptr %132 seq_cst, align 16, !tbaa !34
-  %133 = getelementptr inbounds [16 x [16 x i64]], ptr %130, i64 0, i64 %131, i64 8
+  %133 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %130, i64 0, i64 %131, i64 8
   store atomic i64 0, ptr %133 seq_cst, align 16, !tbaa !34
   %134 = add nuw nsw i64 %131, 1
   %135 = icmp eq i64 %131, %70
@@ -221,11 +221,11 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %138, label %139, label %128, !llvm.loop !36
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds i8, ptr %9, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %9, i64 48
   store ptr %3, ptr %140, align 16, !tbaa !37
-  %141 = getelementptr inbounds i8, ptr %9, i64 56
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %4, ptr %141, align 8, !tbaa !38
-  %142 = getelementptr inbounds [16 x %struct.blas_queue], ptr %9, i64 0, i64 %70, i32 8
+  %142 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %9, i64 0, i64 %70, i32 8
   store ptr null, ptr %142, align 8, !tbaa !28
   %143 = call i32 @exec_blas(i64 noundef %116, ptr noundef nonnull %9) #6
   br label %.critedge
@@ -253,22 +253,22 @@ declare double @sqrt(double noundef) local_unnamed_addr #4
 define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8, !tbaa !20
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8, !tbaa !11
   %12 = load ptr, ptr %0, align 8, !tbaa !12
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !14
-  %15 = getelementptr inbounds i8, ptr %0, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !15
-  %17 = getelementptr inbounds i8, ptr %0, i64 88
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load i64, ptr %17, align 8, !tbaa !17
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !18
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !19
-  %23 = getelementptr inbounds i8, ptr %0, i64 56
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %24 = load i64, ptr %23, align 8, !tbaa !9
   %25 = icmp eq ptr %2, null
   br i1 %25, label %36, label %26
@@ -279,7 +279,7 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
   %29 = getelementptr i8, ptr %27, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !21
   %31 = load i64, ptr %2, align 8, !tbaa !21
-  %32 = getelementptr inbounds i8, ptr %0, i64 112
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %34 = getelementptr inbounds i64, ptr %2, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !21
@@ -349,13 +349,13 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
   store ptr %4, ptr %7, align 16, !tbaa !42
   %.idx = mul i64 %77, 98304
   %79 = getelementptr inbounds i8, ptr %4, i64 %.idx
-  %80 = getelementptr inbounds i8, ptr %7, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %79, ptr %80, align 8, !tbaa !42
   %81 = icmp sgt i64 %11, 0
   br i1 %81, label %82, label %..loopexit46_crit_edge
 
 ..loopexit46_crit_edge:                           ; preds = %72
-  %.phi.trans.insert60 = getelementptr inbounds i8, ptr %0, i64 112
+  %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre61 = load i64, ptr %.phi.trans.insert60, align 8, !tbaa !3
   br label %.loopexit46
 
@@ -372,7 +372,7 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
   %92 = getelementptr double, ptr %14, i64 %40
   %93 = icmp slt i64 %5, 0
   %94 = add nsw i64 %5, 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 112
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %96 = select i1 %84, i64 %87, i64 %73
   %97 = select i1 %83, i64 192, i64 %96
   %98 = icmp eq i64 %73, %97
@@ -386,7 +386,7 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
 
 .loopexit46:                                      ; preds = %.loopexit42, %..loopexit46_crit_edge
   %101 = phi i64 [ %.pre61, %..loopexit46_crit_edge ], [ %326, %.loopexit42 ]
-  %102 = getelementptr inbounds i8, ptr %0, i64 112
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %103 = icmp sgt i64 %101, 0
   br i1 %103, label %104, label %.loopexit31
 
@@ -437,14 +437,14 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
 
 130:                                              ; preds = %.loopexit40
   %131 = icmp eq i64 %124, %40
-  %132 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %123
+  %132 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %123
   %133 = load ptr, ptr %132, align 8, !tbaa !42
   %134 = select i1 %131, i64 %97, i64 32
   br label %148
 
 135:                                              ; preds = %.loopexit36, %125
   %136 = phi i64 [ 0, %125 ], [ %142, %.loopexit36 ]
-  %137 = getelementptr inbounds [16 x [16 x i64]], ptr %91, i64 0, i64 %136, i64 %126
+  %137 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %91, i64 0, i64 %136, i64 %126
   %138 = load atomic i64, ptr %137 seq_cst, align 8, !tbaa !34
   %139 = icmp eq i64 %138, 0
   br i1 %139, label %.loopexit36, label %.preheader35
@@ -464,7 +464,7 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
   br i1 %93, label %.loopexit38, label %144
 
 144:                                              ; preds = %.loopexit39
-  %145 = getelementptr inbounds [2 x ptr], ptr %7, i64 0, i64 %123
+  %145 = getelementptr inbounds nuw [2 x ptr], ptr %7, i64 0, i64 %123
   %146 = shl nsw i64 %123, 3
   %.pre = load ptr, ptr %145, align 8, !tbaa !42
   %147 = ptrtoint ptr %.pre to i64
@@ -754,7 +754,7 @@ define internal noundef i32 @inner_thread(ptr nocapture noundef readonly %0, ptr
 .preheader29:                                     ; preds = %329, %.loopexit
   %333 = phi i1 [ false, %.loopexit ], [ true, %329 ]
   %334 = phi i64 [ 8, %.loopexit ], [ 0, %329 ]
-  %335 = getelementptr inbounds [16 x [16 x i64]], ptr %105, i64 0, i64 %331, i64 %334
+  %335 = getelementptr inbounds nuw [16 x [16 x i64]], ptr %105, i64 0, i64 %331, i64 %334
   %336 = load atomic i64, ptr %335 seq_cst, align 8, !tbaa !34
   %337 = icmp eq i64 %336, 0
   br i1 %337, label %.loopexit, label %.preheader

@@ -12,31 +12,31 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @jv_mem_alloc(i64 noundef 72) #6
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %0, ptr %6, align 8
   %7 = tail call { i64, ptr } @jv_string(ptr noundef %1) #6
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
   store i64 %8, ptr %5, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %.sroa.2.0..sroa_idx, align 8
   %10 = sext i32 %3 to i64
   %11 = tail call ptr @jv_mem_alloc(i64 noundef %10) #6
-  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %12, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %11, ptr align 1 %2, i64 %10, i1 false)
-  %13 = getelementptr inbounds i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %3, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 1, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store i32 1, ptr %15, align 8
   %16 = icmp sgt i32 %3, 0
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %4
   %17 = tail call ptr @jv_mem_calloc(i64 noundef 2, i64 noundef 4) #6
-  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %17, ptr %18, align 8
   store i32 0, ptr %17, align 4
   br label %._crit_edge42
@@ -48,7 +48,7 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %25
   %19 = phi i32 [ 1, %.lr.ph.preheader ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
-  %20 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 10
   br i1 %22, label %23, label %25
@@ -68,7 +68,7 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
   %27 = add nsw i32 %26, 1
   %28 = sext i32 %27 to i64
   %29 = tail call ptr @jv_mem_calloc(i64 noundef %28, i64 noundef 4) #6
-  %30 = getelementptr inbounds i8, ptr %5, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %29, ptr %30, align 8
   store i32 0, ptr %29, align 4
   %wide.trip.count47 = zext nneg i32 %3 to i64
@@ -77,7 +77,7 @@ define ptr @locfile_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
 .lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41._crit_edge
   %indvars.iv44 = phi i64 [ 0, %._crit_edge ], [ %34, %.lr.ph41._crit_edge ]
   %.03438 = phi i32 [ 1, %._crit_edge ], [ %.1, %.lr.ph41._crit_edge ]
-  %31 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv44
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv44
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 10
   %34 = add nuw nsw i64 %indvars.iv44, 1
@@ -119,7 +119,7 @@ declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @locfile_retain(ptr noundef returned %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %2, align 8
@@ -128,7 +128,7 @@ define noundef ptr @locfile_retain(ptr noundef returned %0) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define void @locfile_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
   store i32 %4, ptr %2, align 8
@@ -137,13 +137,13 @@ define void @locfile_free(ptr noundef %0) local_unnamed_addr #0 {
 
 6:                                                ; preds = %1
   %7 = load i64, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @jv_free(i64 %7, ptr %9) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   tail call void @jv_mem_free(ptr noundef %11) #6
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void @jv_mem_free(ptr noundef %13) #6
   tail call void @jv_mem_free(ptr noundef nonnull %0) #6
@@ -159,13 +159,13 @@ declare void @jv_mem_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483648, 2147483647) i32 @locfile_get_line(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   br label %5
 
 5:                                                ; preds = %5, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ 1, %2 ]
-  %6 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4
   %.not = icmp sgt i32 %7, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -186,13 +186,13 @@ define void @locfile_locate(ptr nocapture noundef readonly %0, i64 %1, ptr nound
   br i1 %.not, label %16, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %8, %5
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 1, %5 ]
-  %9 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4
   %.not.i = icmp sgt i32 %10, %.sroa.026.0.extract.trunc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -218,7 +218,7 @@ locfile_get_line.exit:                            ; preds = %8
   br i1 %.not32, label %21, label %24
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %23 = load ptr, ptr %22, align 8
   call void @jq_report_error(ptr noundef %23, i64 %18, ptr %19) #6
   br label %57
@@ -227,7 +227,7 @@ locfile_get_line.exit:                            ; preds = %8
   br i1 %.not, label %25, label %32
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %27 = load ptr, ptr %26, align 8
   %28 = call ptr @jv_string_value(i64 %18, ptr %19) #6
   %29 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str, ptr noundef %28) #6
@@ -240,7 +240,7 @@ locfile_get_line.exit:                            ; preds = %8
 32:                                               ; preds = %24
   %33 = call ptr @jv_string_value(i64 %18, ptr %19) #6
   %34 = load i64, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = call ptr @jv_string_value(i64 %34, ptr %36) #6
   %38 = add nsw i32 %.0, 1
@@ -253,7 +253,7 @@ locfile_get_line.exit:                            ; preds = %8
   %44 = load i32, ptr %41, align 4
   %45 = xor i32 %44, -1
   %46 = add i32 %43, %45
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = sext i32 %.030 to i64
   %50 = getelementptr inbounds i8, ptr %48, i64 %49
@@ -262,7 +262,7 @@ locfile_get_line.exit:                            ; preds = %8
   %53 = extractvalue { i64, ptr } %52, 0
   %54 = extractvalue { i64, ptr } %52, 1
   call void @jv_free(i64 %18, ptr %19) #6
-  %55 = getelementptr inbounds i8, ptr %0, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %56 = load ptr, ptr %55, align 8
   call void @jq_report_error(ptr noundef %56, i64 %53, ptr %54) #6
   br label %57

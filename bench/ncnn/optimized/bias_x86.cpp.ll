@@ -53,7 +53,7 @@ define hidden noundef i32 @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6Op
   %25 = load i64, ptr %18, align 8
   %26 = mul i64 %24, %25
   %27 = getelementptr inbounds i8, ptr %22, i64 %26
-  %28 = getelementptr inbounds float, ptr %15, i64 %indvars.iv108
+  %28 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv108
   %29 = load float, ptr %28, align 4
   %30 = insertelement <4 x float> poison, float %29, i64 0
   %31 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> zeroinitializer
@@ -70,7 +70,7 @@ define hidden noundef i32 @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6Op
   %32 = load float, ptr %.190.us, align 4
   %33 = fadd fast float %32, %29
   store float %33, ptr %.190.us, align 4
-  %34 = getelementptr inbounds i8, ptr %.190.us, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.190.us, i64 4
   %35 = add nuw nsw i32 %.17189.us, 1
   %exitcond107.not = icmp eq i32 %35, %13
   br i1 %exitcond107.not, label %._crit_edge.us, label %.lr.ph91.us, !llvm.loop !6
@@ -81,7 +81,7 @@ define hidden noundef i32 @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6Op
   %37 = load <4 x float>, ptr %.06987.us, align 1
   %38 = fadd fast <4 x float> %37, %31
   store <4 x float> %38, ptr %.06987.us, align 1
-  %39 = getelementptr inbounds i8, ptr %.06987.us, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.06987.us, i64 16
   %40 = add nuw nsw i32 %.07086.us, 4
   %41 = or disjoint i32 %40, 3
   %42 = icmp slt i32 %41, %13
@@ -106,7 +106,7 @@ define hidden noundef i32 @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6Op
   %47 = load i64, ptr %18, align 8
   %48 = mul i64 %46, %47
   %49 = getelementptr inbounds i8, ptr %44, i64 %48
-  %50 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %51 = load float, ptr %50, align 4
   br label %52
 
@@ -116,7 +116,7 @@ define hidden noundef i32 @_ZNK4ncnn8Bias_x8615forward_inplaceERNS_3MatERKNS_6Op
   %53 = load float, ptr %.190.us98, align 4
   %54 = fadd fast float %53, %51
   store float %54, ptr %.190.us98, align 4
-  %55 = getelementptr inbounds i8, ptr %.190.us98, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.190.us98, i64 4
   %56 = add nuw nsw i32 %.17189.us99, 1
   %exitcond.not = icmp eq i32 %56, %13
   br i1 %exitcond.not, label %._crit_edge.us101, label %52, !llvm.loop !6
@@ -155,7 +155,7 @@ define linkonce_odr hidden void @_ZN4ncnn8Bias_x86D2Ev(ptr noundef nonnull align
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn4BiasD2Ev.exit unwind label %18
@@ -208,7 +208,7 @@ define linkonce_odr hidden void @_ZN4ncnn8Bias_x86D0Ev(ptr noundef nonnull align
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn8Bias_x86D2Ev.exit unwind label %18

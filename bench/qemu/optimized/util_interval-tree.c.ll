@@ -6,9 +6,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree norecurse nounwind sspstrong uwtable
 define dso_local void @interval_tree_insert(ptr noundef %node, ptr nocapture noundef %root) local_unnamed_addr #0 {
 entry:
-  %start1 = getelementptr inbounds i8, ptr %node, i64 24
+  %start1 = getelementptr inbounds nuw i8, ptr %node, i64 24
   %0 = load i64, ptr %start1, align 8
-  %last2 = getelementptr inbounds i8, ptr %node, i64 32
+  %last2 = getelementptr inbounds nuw i8, ptr %node, i64 32
   %1 = load i64, ptr %last2, align 8
   %2 = load ptr, ptr %root, align 8
   %tobool.not32 = icmp eq ptr %2, null
@@ -17,7 +17,7 @@ entry:
 while.body:                                       ; preds = %entry, %if.end
   %3 = phi ptr [ %6, %if.end ], [ %2, %entry ]
   %leftmost.033 = phi i1 [ %leftmost.1, %if.end ], [ true, %entry ]
-  %subtree_last = getelementptr inbounds i8, ptr %3, i64 40
+  %subtree_last = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load i64, ptr %subtree_last, align 8
   %cmp = icmp ult i64 %4, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -27,23 +27,23 @@ if.then:                                          ; preds = %while.body
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %start4 = getelementptr inbounds i8, ptr %3, i64 24
+  %start4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %start4, align 8
   %cmp5 = icmp ult i64 %0, %5
   %leftmost.1 = select i1 %cmp5, i1 %leftmost.033, i1 false
   %link.1.v = select i1 %cmp5, i64 16, i64 8
-  %link.1 = getelementptr inbounds i8, ptr %3, i64 %link.1.v
+  %link.1 = getelementptr inbounds nuw i8, ptr %3, i64 %link.1.v
   %6 = load ptr, ptr %link.1, align 8
   %tobool.not = icmp eq ptr %6, null
   br i1 %tobool.not, label %while.cond.while.end_crit_edge, label %while.body, !llvm.loop !5
 
 while.cond.while.end_crit_edge:                   ; preds = %if.end
-  %link.1.le = getelementptr inbounds i8, ptr %3, i64 %link.1.v
-  %subtree_last9 = getelementptr inbounds i8, ptr %node, i64 40
+  %link.1.le = getelementptr inbounds nuw i8, ptr %3, i64 %link.1.v
+  %subtree_last9 = getelementptr inbounds nuw i8, ptr %node, i64 40
   store i64 %1, ptr %subtree_last9, align 8
   %7 = ptrtoint ptr %3 to i64
   store i64 %7, ptr %node, align 8
-  %rb_right.i = getelementptr inbounds i8, ptr %node, i64 8
+  %rb_right.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   %8 = ptrtoint ptr %node to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rb_right.i, i8 0, i64 16, i1 false)
   %9 = atomicrmw xchg ptr %link.1.le, i64 %8 seq_cst, align 8
@@ -51,7 +51,7 @@ while.cond.while.end_crit_edge:                   ; preds = %if.end
   br i1 %leftmost.1, label %if.then.i, label %if.end.i
 
 if.then.i.critedge:                               ; preds = %entry
-  %subtree_last9.c = getelementptr inbounds i8, ptr %node, i64 40
+  %subtree_last9.c = getelementptr inbounds nuw i8, ptr %node, i64 40
   store i64 %1, ptr %subtree_last9.c, align 8
   %10 = ptrtoint ptr %node to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %node, i8 0, i64 24, i1 false)
@@ -60,7 +60,7 @@ if.then.i.critedge:                               ; preds = %entry
   br label %if.then.i
 
 if.then.i:                                        ; preds = %if.then.i.critedge, %while.cond.while.end_crit_edge
-  %rb_leftmost.i = getelementptr inbounds i8, ptr %root, i64 8
+  %rb_leftmost.i = getelementptr inbounds nuw i8, ptr %root, i64 8
   store ptr %node, ptr %rb_leftmost.i, align 8
   br label %if.end.i
 
@@ -86,7 +86,7 @@ if.end.i.i:                                       ; preds = %if.end.i, %while.bo
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %14 = load atomic i64, ptr %parent.022.i.i monotonic, align 8
   %15 = inttoptr i64 %14 to ptr
-  %rb_right.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %rb_right.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load ptr, ptr %rb_right.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %16, %parent.022.i.i
   br i1 %cmp.not.i.i, label %if.else.i.i, label %if.then9.i.i
@@ -113,14 +113,14 @@ while.body.backedge.i.i:                          ; preds = %land.lhs.true63.i.i
   br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
 
 if.end15.i.i:                                     ; preds = %land.lhs.true.i.i, %if.then9.i.i
-  %rb_right.i.i.le76 = getelementptr inbounds i8, ptr %15, i64 8
-  %rb_right16.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 8
+  %rb_right.i.i.le76 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %rb_right16.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 8
   %19 = load ptr, ptr %rb_right16.i.i, align 8
   %cmp17.i.i = icmp eq ptr %node.addr.021.i.i, %19
   br i1 %cmp17.i.i, label %if.then19.i.i, label %while.end44.i.i
 
 if.then19.i.i:                                    ; preds = %if.end15.i.i
-  %rb_left.i.i = getelementptr inbounds i8, ptr %node.addr.021.i.i, i64 16
+  %rb_left.i.i = getelementptr inbounds nuw i8, ptr %node.addr.021.i.i, i64 16
   %20 = load ptr, ptr %rb_left.i.i, align 8
   %21 = ptrtoint ptr %20 to i64
   store atomic i64 %21, ptr %rb_right16.i.i monotonic, align 8
@@ -136,19 +136,19 @@ if.then35.i.i:                                    ; preds = %if.then19.i.i
 if.end36.i.i:                                     ; preds = %if.then35.i.i, %if.then19.i.i
   %22 = ptrtoint ptr %node.addr.021.i.i to i64
   store atomic i64 %22, ptr %parent.022.i.i monotonic, align 8
-  %subtree_last.i.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 40
+  %subtree_last.i.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 40
   %23 = load i64, ptr %subtree_last.i.i.i, align 8
-  %subtree_last4.i.i.i = getelementptr inbounds i8, ptr %node.addr.021.i.i, i64 40
+  %subtree_last4.i.i.i = getelementptr inbounds nuw i8, ptr %node.addr.021.i.i, i64 40
   store i64 %23, ptr %subtree_last4.i.i.i, align 8
-  %last.i.i.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 32
+  %last.i.i.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 32
   %24 = load i64, ptr %last.i.i.i.i, align 8
-  %rb_left.i.i.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 16
+  %rb_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 16
   %25 = load ptr, ptr %rb_left.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %tobool.not.i.i.i.i, label %if.end5.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end36.i.i
-  %subtree_last.i.i.i.i = getelementptr inbounds i8, ptr %25, i64 40
+  %subtree_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 40
   %26 = load i64, ptr %subtree_last.i.i.i.i, align 8
   %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %26, i64 %24)
   br label %if.end5.i.i.i.i
@@ -160,7 +160,7 @@ if.end5.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %i
   br i1 %tobool7.not.i.i.i.i, label %interval_tree_rotate.exit.i.i, label %if.then8.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  %subtree_last14.i.i.i.i = getelementptr inbounds i8, ptr %27, i64 40
+  %subtree_last14.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 40
   %28 = load i64, ptr %subtree_last14.i.i.i.i, align 8
   %spec.select17.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %28, i64 %max.0.i.i.i.i)
   br label %interval_tree_rotate.exit.i.i
@@ -168,17 +168,17 @@ if.then8.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
 interval_tree_rotate.exit.i.i:                    ; preds = %if.then8.i.i.i.i, %if.end5.i.i.i.i
   %max.1.i.i.i.i = phi i64 [ %max.0.i.i.i.i, %if.end5.i.i.i.i ], [ %spec.select17.i.i.i.i, %if.then8.i.i.i.i ]
   store i64 %max.1.i.i.i.i, ptr %subtree_last.i.i.i, align 8
-  %rb_right37.i.i = getelementptr inbounds i8, ptr %node.addr.021.i.i, i64 8
+  %rb_right37.i.i = getelementptr inbounds nuw i8, ptr %node.addr.021.i.i, i64 8
   %29 = load ptr, ptr %rb_right37.i.i, align 8
   br label %while.end44.i.i
 
 while.end44.i.i:                                  ; preds = %interval_tree_rotate.exit.i.i, %if.end15.i.i
   %tmp.0.i.i = phi ptr [ %29, %interval_tree_rotate.exit.i.i ], [ %19, %if.end15.i.i ]
   %parent.1.i.i = phi ptr [ %node.addr.021.i.i, %interval_tree_rotate.exit.i.i ], [ %parent.022.i.i, %if.end15.i.i ]
-  %rb_left45.i.i = getelementptr inbounds i8, ptr %15, i64 16
+  %rb_left45.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %30 = ptrtoint ptr %tmp.0.i.i to i64
   store atomic i64 %30, ptr %rb_left45.i.i monotonic, align 8
-  %rb_right54.i.i = getelementptr inbounds i8, ptr %parent.1.i.i, i64 8
+  %rb_right54.i.i = getelementptr inbounds nuw i8, ptr %parent.1.i.i, i64 8
   store atomic i64 %14, ptr %rb_right54.i.i monotonic, align 8
   %tobool57.not.i.i = icmp eq ptr %tmp.0.i.i, null
   br i1 %tobool57.not.i.i, label %if.end59.i.i, label %if.then58.i.i
@@ -203,7 +203,7 @@ while.end.i.i.i.i:                                ; preds = %if.end59.i.i
   br label %rb_rotate_set_parents.exit.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.end59.i.i
-  %rb_left.i.i98.i.i = getelementptr inbounds i8, ptr %32, i64 16
+  %rb_left.i.i98.i.i = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %rb_left.i.i98.i.i, align 8
   %cmp.i.i99.i.i = icmp eq ptr %34, %15
   br i1 %cmp.i.i99.i.i, label %while.end9.i.i.i.i, label %while.end19.i.i.i.i
@@ -213,23 +213,23 @@ while.end9.i.i.i.i:                               ; preds = %if.else.i.i.i.i
   br label %rb_rotate_set_parents.exit.i.i
 
 while.end19.i.i.i.i:                              ; preds = %if.else.i.i.i.i
-  %rb_right.i.i100.i.i = getelementptr inbounds i8, ptr %32, i64 8
+  %rb_right.i.i100.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   store atomic i64 %33, ptr %rb_right.i.i100.i.i monotonic, align 8
   br label %rb_rotate_set_parents.exit.i.i
 
 rb_rotate_set_parents.exit.i.i:                   ; preds = %while.end19.i.i.i.i, %while.end9.i.i.i.i, %while.end.i.i.i.i
-  %subtree_last.i101.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %subtree_last.i101.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %35 = load i64, ptr %subtree_last.i101.i.i, align 8
-  %subtree_last4.i102.i.i = getelementptr inbounds i8, ptr %parent.1.i.i, i64 40
+  %subtree_last4.i102.i.i = getelementptr inbounds nuw i8, ptr %parent.1.i.i, i64 40
   store i64 %35, ptr %subtree_last4.i102.i.i, align 8
-  %last.i.i103.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %last.i.i103.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   %36 = load i64, ptr %last.i.i103.i.i, align 8
   %37 = load ptr, ptr %rb_left45.i.i, align 8
   %tobool.not.i.i105.i.i = icmp eq ptr %37, null
   br i1 %tobool.not.i.i105.i.i, label %if.end5.i.i109.i.i, label %if.then.i.i106.i.i
 
 if.then.i.i106.i.i:                               ; preds = %rb_rotate_set_parents.exit.i.i
-  %subtree_last.i.i107.i.i = getelementptr inbounds i8, ptr %37, i64 40
+  %subtree_last.i.i107.i.i = getelementptr inbounds nuw i8, ptr %37, i64 40
   %38 = load i64, ptr %subtree_last.i.i107.i.i, align 8
   %spec.select.i.i108.i.i = tail call i64 @llvm.umax.i64(i64 %38, i64 %36)
   br label %if.end5.i.i109.i.i
@@ -241,7 +241,7 @@ if.end5.i.i109.i.i:                               ; preds = %if.then.i.i106.i.i,
   br i1 %tobool7.not.i.i112.i.i, label %interval_tree_rotate.exit117.i.i, label %if.then8.i.i113.i.i
 
 if.then8.i.i113.i.i:                              ; preds = %if.end5.i.i109.i.i
-  %subtree_last14.i.i114.i.i = getelementptr inbounds i8, ptr %39, i64 40
+  %subtree_last14.i.i114.i.i = getelementptr inbounds nuw i8, ptr %39, i64 40
   %40 = load i64, ptr %subtree_last14.i.i114.i.i, align 8
   %spec.select17.i.i115.i.i = tail call i64 @llvm.umax.i64(i64 %40, i64 %max.0.i.i110.i.i)
   br label %interval_tree_rotate.exit117.i.i
@@ -252,7 +252,7 @@ interval_tree_rotate.exit117.i.i:                 ; preds = %if.then8.i.i113.i.i
   br label %rb_insert_augmented_cached.exit
 
 if.else.i.i:                                      ; preds = %if.end6.i.i
-  %rb_left61.i.i = getelementptr inbounds i8, ptr %15, i64 16
+  %rb_left61.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %41 = load ptr, ptr %rb_left61.i.i, align 8
   %tobool62.not.i.i = icmp eq ptr %41, null
   br i1 %tobool62.not.i.i, label %if.end68.i.i, label %land.lhs.true63.i.i
@@ -264,15 +264,15 @@ land.lhs.true63.i.i:                              ; preds = %if.else.i.i
   br i1 %cmp.i.i119.i.i, label %while.body.backedge.i.i, label %if.end68.i.i
 
 if.end68.i.i:                                     ; preds = %land.lhs.true63.i.i, %if.else.i.i
-  %rb_right.i.i.le = getelementptr inbounds i8, ptr %15, i64 8
-  %rb_left61.i.i.le = getelementptr inbounds i8, ptr %15, i64 16
-  %rb_left69.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 16
+  %rb_right.i.i.le = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %rb_left61.i.i.le = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %rb_left69.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 16
   %43 = load ptr, ptr %rb_left69.i.i, align 8
   %cmp70.i.i = icmp eq ptr %node.addr.021.i.i, %43
   br i1 %cmp70.i.i, label %if.then72.i.i, label %while.end103.i.i
 
 if.then72.i.i:                                    ; preds = %if.end68.i.i
-  %rb_right73.i.i = getelementptr inbounds i8, ptr %node.addr.021.i.i, i64 8
+  %rb_right73.i.i = getelementptr inbounds nuw i8, ptr %node.addr.021.i.i, i64 8
   %44 = load ptr, ptr %rb_right73.i.i, align 8
   %45 = ptrtoint ptr %44 to i64
   store atomic i64 %45, ptr %rb_left69.i.i monotonic, align 8
@@ -288,31 +288,31 @@ if.then93.i.i:                                    ; preds = %if.then72.i.i
 if.end94.i.i:                                     ; preds = %if.then93.i.i, %if.then72.i.i
   %46 = ptrtoint ptr %node.addr.021.i.i to i64
   store atomic i64 %46, ptr %parent.022.i.i monotonic, align 8
-  %subtree_last.i126.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 40
+  %subtree_last.i126.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 40
   %47 = load i64, ptr %subtree_last.i126.i.i, align 8
-  %subtree_last4.i127.i.i = getelementptr inbounds i8, ptr %node.addr.021.i.i, i64 40
+  %subtree_last4.i127.i.i = getelementptr inbounds nuw i8, ptr %node.addr.021.i.i, i64 40
   store i64 %47, ptr %subtree_last4.i127.i.i, align 8
-  %last.i.i128.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 32
+  %last.i.i128.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 32
   %48 = load i64, ptr %last.i.i128.i.i, align 8
   %49 = load ptr, ptr %rb_left69.i.i, align 8
   %tobool.not.i.i130.i.i = icmp eq ptr %49, null
   br i1 %tobool.not.i.i130.i.i, label %if.end5.i.i134.i.i, label %if.then.i.i131.i.i
 
 if.then.i.i131.i.i:                               ; preds = %if.end94.i.i
-  %subtree_last.i.i132.i.i = getelementptr inbounds i8, ptr %49, i64 40
+  %subtree_last.i.i132.i.i = getelementptr inbounds nuw i8, ptr %49, i64 40
   %50 = load i64, ptr %subtree_last.i.i132.i.i, align 8
   %spec.select.i.i133.i.i = tail call i64 @llvm.umax.i64(i64 %50, i64 %48)
   br label %if.end5.i.i134.i.i
 
 if.end5.i.i134.i.i:                               ; preds = %if.then.i.i131.i.i, %if.end94.i.i
   %max.0.i.i135.i.i = phi i64 [ %48, %if.end94.i.i ], [ %spec.select.i.i133.i.i, %if.then.i.i131.i.i ]
-  %rb_right.i.i136.i.i = getelementptr inbounds i8, ptr %parent.022.i.i, i64 8
+  %rb_right.i.i136.i.i = getelementptr inbounds nuw i8, ptr %parent.022.i.i, i64 8
   %51 = load ptr, ptr %rb_right.i.i136.i.i, align 8
   %tobool7.not.i.i137.i.i = icmp eq ptr %51, null
   br i1 %tobool7.not.i.i137.i.i, label %interval_tree_rotate.exit142.i.i, label %if.then8.i.i138.i.i
 
 if.then8.i.i138.i.i:                              ; preds = %if.end5.i.i134.i.i
-  %subtree_last14.i.i139.i.i = getelementptr inbounds i8, ptr %51, i64 40
+  %subtree_last14.i.i139.i.i = getelementptr inbounds nuw i8, ptr %51, i64 40
   %52 = load i64, ptr %subtree_last14.i.i139.i.i, align 8
   %spec.select17.i.i140.i.i = tail call i64 @llvm.umax.i64(i64 %52, i64 %max.0.i.i135.i.i)
   br label %interval_tree_rotate.exit142.i.i
@@ -320,7 +320,7 @@ if.then8.i.i138.i.i:                              ; preds = %if.end5.i.i134.i.i
 interval_tree_rotate.exit142.i.i:                 ; preds = %if.then8.i.i138.i.i, %if.end5.i.i134.i.i
   %max.1.i.i141.i.i = phi i64 [ %max.0.i.i135.i.i, %if.end5.i.i134.i.i ], [ %spec.select17.i.i140.i.i, %if.then8.i.i138.i.i ]
   store i64 %max.1.i.i141.i.i, ptr %subtree_last.i126.i.i, align 8
-  %rb_left96.i.i = getelementptr inbounds i8, ptr %node.addr.021.i.i, i64 16
+  %rb_left96.i.i = getelementptr inbounds nuw i8, ptr %node.addr.021.i.i, i64 16
   %53 = load ptr, ptr %rb_left96.i.i, align 8
   br label %while.end103.i.i
 
@@ -329,7 +329,7 @@ while.end103.i.i:                                 ; preds = %interval_tree_rotat
   %parent.2.i.i = phi ptr [ %node.addr.021.i.i, %interval_tree_rotate.exit142.i.i ], [ %parent.022.i.i, %if.end68.i.i ]
   %54 = ptrtoint ptr %tmp.1.i.i to i64
   store atomic i64 %54, ptr %rb_right.i.i.le monotonic, align 8
-  %rb_left113.i.i = getelementptr inbounds i8, ptr %parent.2.i.i, i64 16
+  %rb_left113.i.i = getelementptr inbounds nuw i8, ptr %parent.2.i.i, i64 16
   store atomic i64 %14, ptr %rb_left113.i.i monotonic, align 8
   %tobool116.not.i.i = icmp eq ptr %tmp.1.i.i, null
   br i1 %tobool116.not.i.i, label %if.end118.i.i, label %if.then117.i.i
@@ -354,7 +354,7 @@ while.end.i.i152.i.i:                             ; preds = %if.end118.i.i
   br label %rb_rotate_set_parents.exit153.i.i
 
 if.else.i.i146.i.i:                               ; preds = %if.end118.i.i
-  %rb_left.i.i147.i.i = getelementptr inbounds i8, ptr %56, i64 16
+  %rb_left.i.i147.i.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %rb_left.i.i147.i.i, align 8
   %cmp.i.i148.i.i = icmp eq ptr %58, %15
   br i1 %cmp.i.i148.i.i, label %while.end9.i.i151.i.i, label %while.end19.i.i149.i.i
@@ -364,23 +364,23 @@ while.end9.i.i151.i.i:                            ; preds = %if.else.i.i146.i.i
   br label %rb_rotate_set_parents.exit153.i.i
 
 while.end19.i.i149.i.i:                           ; preds = %if.else.i.i146.i.i
-  %rb_right.i.i150.i.i = getelementptr inbounds i8, ptr %56, i64 8
+  %rb_right.i.i150.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store atomic i64 %57, ptr %rb_right.i.i150.i.i monotonic, align 8
   br label %rb_rotate_set_parents.exit153.i.i
 
 rb_rotate_set_parents.exit153.i.i:                ; preds = %while.end19.i.i149.i.i, %while.end9.i.i151.i.i, %while.end.i.i152.i.i
-  %subtree_last.i154.i.i = getelementptr inbounds i8, ptr %15, i64 40
+  %subtree_last.i154.i.i = getelementptr inbounds nuw i8, ptr %15, i64 40
   %59 = load i64, ptr %subtree_last.i154.i.i, align 8
-  %subtree_last4.i155.i.i = getelementptr inbounds i8, ptr %parent.2.i.i, i64 40
+  %subtree_last4.i155.i.i = getelementptr inbounds nuw i8, ptr %parent.2.i.i, i64 40
   store i64 %59, ptr %subtree_last4.i155.i.i, align 8
-  %last.i.i156.i.i = getelementptr inbounds i8, ptr %15, i64 32
+  %last.i.i156.i.i = getelementptr inbounds nuw i8, ptr %15, i64 32
   %60 = load i64, ptr %last.i.i156.i.i, align 8
   %61 = load ptr, ptr %rb_left61.i.i.le, align 8
   %tobool.not.i.i158.i.i = icmp eq ptr %61, null
   br i1 %tobool.not.i.i158.i.i, label %if.end5.i.i162.i.i, label %if.then.i.i159.i.i
 
 if.then.i.i159.i.i:                               ; preds = %rb_rotate_set_parents.exit153.i.i
-  %subtree_last.i.i160.i.i = getelementptr inbounds i8, ptr %61, i64 40
+  %subtree_last.i.i160.i.i = getelementptr inbounds nuw i8, ptr %61, i64 40
   %62 = load i64, ptr %subtree_last.i.i160.i.i, align 8
   %spec.select.i.i161.i.i = tail call i64 @llvm.umax.i64(i64 %62, i64 %60)
   br label %if.end5.i.i162.i.i
@@ -392,7 +392,7 @@ if.end5.i.i162.i.i:                               ; preds = %if.then.i.i159.i.i,
   br i1 %tobool7.not.i.i165.i.i, label %interval_tree_rotate.exit170.i.i, label %if.then8.i.i166.i.i
 
 if.then8.i.i166.i.i:                              ; preds = %if.end5.i.i162.i.i
-  %subtree_last14.i.i167.i.i = getelementptr inbounds i8, ptr %63, i64 40
+  %subtree_last14.i.i167.i.i = getelementptr inbounds nuw i8, ptr %63, i64 40
   %64 = load i64, ptr %subtree_last14.i.i167.i.i, align 8
   %spec.select17.i.i168.i.i = tail call i64 @llvm.umax.i64(i64 %64, i64 %max.0.i.i163.i.i)
   br label %interval_tree_rotate.exit170.i.i
@@ -409,20 +409,20 @@ rb_insert_augmented_cached.exit:                  ; preds = %if.end.i.i, %if.the
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @interval_tree_remove(ptr noundef readonly %node, ptr nocapture noundef %root) local_unnamed_addr #1 {
 entry:
-  %rb_leftmost.i = getelementptr inbounds i8, ptr %root, i64 8
+  %rb_leftmost.i = getelementptr inbounds nuw i8, ptr %root, i64 8
   %0 = load ptr, ptr %rb_leftmost.i, align 8
   %cmp.i = icmp eq ptr %0, %node
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %rb_right.i.i = getelementptr inbounds i8, ptr %node, i64 8
+  %rb_right.i.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   %1 = load ptr, ptr %rb_right.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i, label %while.cond4.i.i, label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %if.then.i, %while.cond.i.i
   %node.addr.0.i.i = phi ptr [ %2, %while.cond.i.i ], [ %1, %if.then.i ]
-  %rb_left.i.i = getelementptr inbounds i8, ptr %node.addr.0.i.i, i64 16
+  %rb_left.i.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i.i, i64 16
   %2 = load ptr, ptr %rb_left.i.i, align 8
   %tobool2.not.i.i = icmp eq ptr %2, null
   br i1 %tobool2.not.i.i, label %rb_next.exit.i, label %while.cond.i.i, !llvm.loop !7
@@ -436,7 +436,7 @@ while.cond4.i.i:                                  ; preds = %if.then.i, %land.rh
 
 land.rhs.i.i:                                     ; preds = %while.cond4.i.i
   %4 = inttoptr i64 %and.i.i.i.i to ptr
-  %rb_right6.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %rb_right6.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %5 = load ptr, ptr %rb_right6.i.i, align 8
   %cmp.i.i = icmp eq ptr %node.addr.1.i.i, %5
   br i1 %cmp.i.i, label %while.cond4.i.i, label %rb_next.exit.i, !llvm.loop !8
@@ -447,9 +447,9 @@ rb_next.exit.i:                                   ; preds = %while.cond.i.i, %la
   br label %if.end.i
 
 if.end.i:                                         ; preds = %rb_next.exit.i, %entry
-  %rb_right.i5.i = getelementptr inbounds i8, ptr %node, i64 8
+  %rb_right.i5.i = getelementptr inbounds nuw i8, ptr %node, i64 8
   %6 = load ptr, ptr %rb_right.i5.i, align 8
-  %rb_left.i6.i = getelementptr inbounds i8, ptr %node, i64 16
+  %rb_left.i6.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %7 = load ptr, ptr %rb_left.i6.i, align 8
   %tobool.not.i7.i = icmp eq ptr %7, null
   br i1 %tobool.not.i7.i, label %if.then.i.i, label %if.else5.i.i
@@ -467,7 +467,7 @@ while.end.i.i.i:                                  ; preds = %if.then.i.i
   br label %rb_change_child.exit.i.i
 
 if.else.i.i.i:                                    ; preds = %if.then.i.i
-  %rb_left.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
+  %rb_left.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %rb_left.i.i.i, align 8
   %cmp.i.i.i = icmp eq ptr %11, %node
   br i1 %cmp.i.i.i, label %while.end9.i.i.i, label %while.end19.i.i.i
@@ -478,7 +478,7 @@ while.end9.i.i.i:                                 ; preds = %if.else.i.i.i
   br label %rb_change_child.exit.i.i
 
 while.end19.i.i.i:                                ; preds = %if.else.i.i.i
-  %rb_right.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
+  %rb_right.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = ptrtoint ptr %6 to i64
   store atomic i64 %13, ptr %rb_right.i.i.i monotonic, align 8
   br label %rb_change_child.exit.i.i
@@ -515,7 +515,7 @@ interval_tree_propagate.exit117.thread.i.i:       ; preds = %if.then7.i.i
   br label %rb_erase_augmented_cached.exit
 
 if.else.i70.i.i:                                  ; preds = %if.then7.i.i
-  %rb_left.i71.i.i = getelementptr inbounds i8, ptr %15, i64 16
+  %rb_left.i71.i.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %rb_left.i71.i.i, align 8
   %cmp.i72.i.i = icmp eq ptr %17, %node
   br i1 %cmp.i72.i.i, label %while.end9.i75.i.i, label %while.end19.i73.i.i
@@ -526,23 +526,23 @@ while.end9.i75.i.i:                               ; preds = %if.else.i70.i.i
   br label %while.body.i94.preheader.i.i
 
 while.end19.i73.i.i:                              ; preds = %if.else.i70.i.i
-  %rb_right.i74.i.i = getelementptr inbounds i8, ptr %15, i64 8
+  %rb_right.i74.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = ptrtoint ptr %7 to i64
   store atomic i64 %19, ptr %rb_right.i74.i.i monotonic, align 8
   br label %while.body.i94.preheader.i.i
 
 if.else10.i.i:                                    ; preds = %if.else5.i.i
-  %rb_left11.i.i = getelementptr inbounds i8, ptr %6, i64 16
+  %rb_left11.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %20 = load ptr, ptr %rb_left11.i.i, align 8
   %tobool12.not.i.i = icmp eq ptr %20, null
   br i1 %tobool12.not.i.i, label %if.then13.i.i, label %do.body.i.i
 
 if.then13.i.i:                                    ; preds = %if.else10.i.i
-  %rb_right14.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %rb_right14.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %21 = load ptr, ptr %rb_right14.i.i, align 8
-  %subtree_last.i.i.i = getelementptr inbounds i8, ptr %node, i64 40
+  %subtree_last.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   %22 = load i64, ptr %subtree_last.i.i.i, align 8
-  %subtree_last4.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
+  %subtree_last4.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %22, ptr %subtree_last4.i.i.i, align 8
   %.pre.i.i = ptrtoint ptr %6 to i64
   br label %if.end38.i.i
@@ -550,15 +550,15 @@ if.then13.i.i:                                    ; preds = %if.else10.i.i
 do.body.i.i:                                      ; preds = %if.else10.i.i, %do.body.i.i
   %successor.1.i.i = phi ptr [ %tmp.1.i.i, %do.body.i.i ], [ %6, %if.else10.i.i ]
   %tmp.1.i.i = phi ptr [ %23, %do.body.i.i ], [ %20, %if.else10.i.i ]
-  %rb_left16.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 16
+  %rb_left16.i.i = getelementptr inbounds nuw i8, ptr %tmp.1.i.i, i64 16
   %23 = load ptr, ptr %rb_left16.i.i, align 8
   %tobool17.not.i.i = icmp eq ptr %23, null
   br i1 %tobool17.not.i.i, label %do.end.i.i, label %do.body.i.i, !llvm.loop !9
 
 do.end.i.i:                                       ; preds = %do.body.i.i
-  %rb_right18.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 8
+  %rb_right18.i.i = getelementptr inbounds nuw i8, ptr %tmp.1.i.i, i64 8
   %24 = load ptr, ptr %rb_right18.i.i, align 8
-  %rb_left23.i.i = getelementptr inbounds i8, ptr %successor.1.i.i, i64 16
+  %rb_left23.i.i = getelementptr inbounds nuw i8, ptr %successor.1.i.i, i64 16
   %25 = ptrtoint ptr %24 to i64
   store atomic i64 %25, ptr %rb_left23.i.i monotonic, align 8
   %26 = ptrtoint ptr %6 to i64
@@ -568,44 +568,44 @@ do.end.i.i:                                       ; preds = %do.body.i.i
   %28 = ptrtoint ptr %tmp.1.i.i to i64
   %or.i.i.i.i = or i64 %conv.i.i.i.i.i, %28
   store atomic i64 %or.i.i.i.i, ptr %6 monotonic, align 8
-  %subtree_last.i78.i.i = getelementptr inbounds i8, ptr %node, i64 40
+  %subtree_last.i78.i.i = getelementptr inbounds nuw i8, ptr %node, i64 40
   %29 = load i64, ptr %subtree_last.i78.i.i, align 8
-  %subtree_last4.i79.i.i = getelementptr inbounds i8, ptr %tmp.1.i.i, i64 40
+  %subtree_last4.i79.i.i = getelementptr inbounds nuw i8, ptr %tmp.1.i.i, i64 40
   store i64 %29, ptr %subtree_last4.i79.i.i, align 8
   %cmp.not4.i.i.i = icmp eq ptr %successor.1.i.i, %tmp.1.i.i
   br i1 %cmp.not4.i.i.i, label %if.end38.i.i, label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %do.end.i.i, %if.end.i.i.i
   %rb.addr.05.i.i.i = phi ptr [ %37, %if.end.i.i.i ], [ %successor.1.i.i, %do.end.i.i ]
-  %last.i.i.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i.i.i, i64 32
+  %last.i.i.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i.i.i, i64 32
   %30 = load i64, ptr %last.i.i.i.i, align 8
-  %rb_left.i.i.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i.i.i, i64 16
+  %rb_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i.i.i, i64 16
   %31 = load ptr, ptr %rb_left.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i, label %if.end5.i.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i
-  %subtree_last.i.i.i.i = getelementptr inbounds i8, ptr %31, i64 40
+  %subtree_last.i.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 40
   %32 = load i64, ptr %subtree_last.i.i.i.i, align 8
   %spec.select.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %32, i64 %30)
   br label %if.end5.i.i.i.i
 
 if.end5.i.i.i.i:                                  ; preds = %if.then.i.i.i.i, %while.body.i.i.i
   %max.0.i.i.i.i = phi i64 [ %30, %while.body.i.i.i ], [ %spec.select.i.i.i.i, %if.then.i.i.i.i ]
-  %rb_right.i.i.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i.i.i, i64 8
+  %rb_right.i.i.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i.i.i, i64 8
   %33 = load ptr, ptr %rb_right.i.i.i.i, align 8
   %tobool7.not.i.i.i.i = icmp eq ptr %33, null
   br i1 %tobool7.not.i.i.i.i, label %if.end19.i.i.i.i, label %if.then8.i.i.i.i
 
 if.then8.i.i.i.i:                                 ; preds = %if.end5.i.i.i.i
-  %subtree_last14.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 40
+  %subtree_last14.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 40
   %34 = load i64, ptr %subtree_last14.i.i.i.i, align 8
   %spec.select17.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %34, i64 %max.0.i.i.i.i)
   br label %if.end19.i.i.i.i
 
 if.end19.i.i.i.i:                                 ; preds = %if.then8.i.i.i.i, %if.end5.i.i.i.i
   %max.1.i.i.i.i = phi i64 [ %max.0.i.i.i.i, %if.end5.i.i.i.i ], [ %spec.select17.i.i.i.i, %if.then8.i.i.i.i ]
-  %subtree_last21.i.i.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i.i.i, i64 40
+  %subtree_last21.i.i.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i.i.i, i64 40
   %35 = load i64, ptr %subtree_last21.i.i.i.i, align 8
   %cmp22.i.i.i.i = icmp eq i64 %35, %max.1.i.i.i.i
   br i1 %cmp22.i.i.i.i, label %if.end38.i.i, label %if.end.i.i.i
@@ -624,7 +624,7 @@ if.end38.i.i:                                     ; preds = %if.end.i.i.i, %if.e
   %child2.0.i.i = phi ptr [ %24, %do.end.i.i ], [ %21, %if.then13.i.i ], [ %24, %if.end19.i.i.i.i ], [ %24, %if.end.i.i.i ]
   %parent.0.i.i = phi ptr [ %successor.1.i.i, %do.end.i.i ], [ %6, %if.then13.i.i ], [ %successor.1.i.i, %if.end19.i.i.i.i ], [ %successor.1.i.i, %if.end.i.i.i ]
   %38 = load ptr, ptr %rb_left.i6.i, align 8
-  %rb_left47.i.i = getelementptr inbounds i8, ptr %successor.0.i.i, i64 16
+  %rb_left47.i.i = getelementptr inbounds nuw i8, ptr %successor.0.i.i, i64 16
   %39 = ptrtoint ptr %38 to i64
   store atomic i64 %39, ptr %rb_left47.i.i monotonic, align 8
   %40 = load atomic i64, ptr %38 monotonic, align 8
@@ -642,7 +642,7 @@ while.end.i91.i.i:                                ; preds = %if.end38.i.i
   br label %rb_change_child.exit92.i.i
 
 if.else.i85.i.i:                                  ; preds = %if.end38.i.i
-  %rb_left.i86.i.i = getelementptr inbounds i8, ptr %42, i64 16
+  %rb_left.i86.i.i = getelementptr inbounds nuw i8, ptr %42, i64 16
   %43 = load ptr, ptr %rb_left.i86.i.i, align 8
   %cmp.i87.i.i = icmp eq ptr %43, %node
   br i1 %cmp.i87.i.i, label %while.end9.i90.i.i, label %while.end19.i88.i.i
@@ -652,7 +652,7 @@ while.end9.i90.i.i:                               ; preds = %if.else.i85.i.i
   br label %rb_change_child.exit92.i.i
 
 while.end19.i88.i.i:                              ; preds = %if.else.i85.i.i
-  %rb_right.i89.i.i = getelementptr inbounds i8, ptr %42, i64 8
+  %rb_right.i89.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   store atomic i64 %.pre-phi.i.i, ptr %rb_right.i89.i.i monotonic, align 8
   br label %rb_change_child.exit92.i.i
 
@@ -689,35 +689,35 @@ while.body.i94.preheader.i.i:                     ; preds = %if.end63.i.i, %if.e
 
 while.body.i94.i.i:                               ; preds = %if.end.i113.i.i, %while.body.i94.preheader.i.i
   %rb.addr.05.i95.i.i = phi ptr [ %53, %if.end.i113.i.i ], [ %tmp.086.i.i, %while.body.i94.preheader.i.i ]
-  %last.i.i96.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i95.i.i, i64 32
+  %last.i.i96.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i95.i.i, i64 32
   %46 = load i64, ptr %last.i.i96.i.i, align 8
-  %rb_left.i.i97.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i95.i.i, i64 16
+  %rb_left.i.i97.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i95.i.i, i64 16
   %47 = load ptr, ptr %rb_left.i.i97.i.i, align 8
   %tobool.not.i.i98.i.i = icmp eq ptr %47, null
   br i1 %tobool.not.i.i98.i.i, label %if.end5.i.i102.i.i, label %if.then.i.i99.i.i
 
 if.then.i.i99.i.i:                                ; preds = %while.body.i94.i.i
-  %subtree_last.i.i100.i.i = getelementptr inbounds i8, ptr %47, i64 40
+  %subtree_last.i.i100.i.i = getelementptr inbounds nuw i8, ptr %47, i64 40
   %48 = load i64, ptr %subtree_last.i.i100.i.i, align 8
   %spec.select.i.i101.i.i = tail call i64 @llvm.umax.i64(i64 %48, i64 %46)
   br label %if.end5.i.i102.i.i
 
 if.end5.i.i102.i.i:                               ; preds = %if.then.i.i99.i.i, %while.body.i94.i.i
   %max.0.i.i103.i.i = phi i64 [ %46, %while.body.i94.i.i ], [ %spec.select.i.i101.i.i, %if.then.i.i99.i.i ]
-  %rb_right.i.i104.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i95.i.i, i64 8
+  %rb_right.i.i104.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i95.i.i, i64 8
   %49 = load ptr, ptr %rb_right.i.i104.i.i, align 8
   %tobool7.not.i.i105.i.i = icmp eq ptr %49, null
   br i1 %tobool7.not.i.i105.i.i, label %if.end19.i.i109.i.i, label %if.then8.i.i106.i.i
 
 if.then8.i.i106.i.i:                              ; preds = %if.end5.i.i102.i.i
-  %subtree_last14.i.i107.i.i = getelementptr inbounds i8, ptr %49, i64 40
+  %subtree_last14.i.i107.i.i = getelementptr inbounds nuw i8, ptr %49, i64 40
   %50 = load i64, ptr %subtree_last14.i.i107.i.i, align 8
   %spec.select17.i.i108.i.i = tail call i64 @llvm.umax.i64(i64 %50, i64 %max.0.i.i103.i.i)
   br label %if.end19.i.i109.i.i
 
 if.end19.i.i109.i.i:                              ; preds = %if.then8.i.i106.i.i, %if.end5.i.i102.i.i
   %max.1.i.i110.i.i = phi i64 [ %max.0.i.i103.i.i, %if.end5.i.i102.i.i ], [ %spec.select17.i.i108.i.i, %if.then8.i.i106.i.i ]
-  %subtree_last21.i.i111.i.i = getelementptr inbounds i8, ptr %rb.addr.05.i95.i.i, i64 40
+  %subtree_last21.i.i111.i.i = getelementptr inbounds nuw i8, ptr %rb.addr.05.i95.i.i, i64 40
   %51 = load i64, ptr %subtree_last21.i.i111.i.i, align 8
   %cmp22.i.i112.i.i = icmp eq i64 %51, %max.1.i.i110.i.i
   br i1 %cmp22.i.i112.i.i, label %interval_tree_propagate.exit117.i.i, label %if.end.i113.i.i
@@ -738,7 +738,7 @@ interval_tree_propagate.exit117.i.i:              ; preds = %if.end.i113.i.i, %i
 while.body.i118.i.i:                              ; preds = %interval_tree_propagate.exit117.i.i, %while.body.backedge.i.i.i
   %node.0.i.i.i = phi ptr [ %parent.addr.0.i.i.i, %while.body.backedge.i.i.i ], [ null, %interval_tree_propagate.exit117.i.i ]
   %parent.addr.0.i.i.i = phi ptr [ %parent.addr.0.be.i.i.i, %while.body.backedge.i.i.i ], [ %rebalance.185.i.i, %interval_tree_propagate.exit117.i.i ]
-  %rb_right.i119.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 8
+  %rb_right.i119.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 8
   %54 = load ptr, ptr %rb_right.i119.i.i, align 8
   %cmp.not.i120.i.i = icmp eq ptr %node.0.i.i.i, %54
   br i1 %cmp.not.i120.i.i, label %if.else88.i.i.i, label %if.then.i.i.i
@@ -750,7 +750,7 @@ if.then.i.i.i:                                    ; preds = %while.body.i118.i.i
   br i1 %cmp.i.i.i122.i.i, label %if.then1.i.i.i, label %if.end.i123.i.i
 
 if.then1.i.i.i:                                   ; preds = %if.then.i.i.i
-  %rb_left.i126.i.i = getelementptr inbounds i8, ptr %54, i64 16
+  %rb_left.i126.i.i = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %rb_left.i126.i.i, align 8
   %57 = ptrtoint ptr %56 to i64
   store atomic i64 %57, ptr %rb_right.i119.i.i monotonic, align 8
@@ -772,7 +772,7 @@ while.end.i.i.i.i.i:                              ; preds = %if.then1.i.i.i
   br label %rb_rotate_set_parents.exit.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %if.then1.i.i.i
-  %rb_left.i.i.i.i.i = getelementptr inbounds i8, ptr %60, i64 16
+  %rb_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %rb_left.i.i.i.i.i, align 8
   %cmp.i.i124.i.i.i = icmp eq ptr %62, %parent.addr.0.i.i.i
   br i1 %cmp.i.i124.i.i.i, label %while.end9.i.i.i.i.i, label %while.end19.i.i.i.i.i
@@ -782,24 +782,24 @@ while.end9.i.i.i.i.i:                             ; preds = %if.else.i.i.i.i.i
   br label %rb_rotate_set_parents.exit.i.i.i
 
 while.end19.i.i.i.i.i:                            ; preds = %if.else.i.i.i.i.i
-  %rb_right.i.i.i.i.i = getelementptr inbounds i8, ptr %60, i64 8
+  %rb_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   store atomic i64 %61, ptr %rb_right.i.i.i.i.i monotonic, align 8
   br label %rb_rotate_set_parents.exit.i.i.i
 
 rb_rotate_set_parents.exit.i.i.i:                 ; preds = %while.end19.i.i.i.i.i, %while.end9.i.i.i.i.i, %while.end.i.i.i.i.i
-  %subtree_last.i.i129.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 40
+  %subtree_last.i.i129.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 40
   %63 = load i64, ptr %subtree_last.i.i129.i.i, align 8
-  %subtree_last4.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 40
+  %subtree_last4.i.i.i.i = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i64 %63, ptr %subtree_last4.i.i.i.i, align 8
-  %last.i.i.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 32
+  %last.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 32
   %64 = load i64, ptr %last.i.i.i.i.i, align 8
-  %rb_left.i.i125.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 16
+  %rb_left.i.i125.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 16
   %65 = load ptr, ptr %rb_left.i.i125.i.i.i, align 8
   %tobool.not.i.i126.i.i.i = icmp eq ptr %65, null
   br i1 %tobool.not.i.i126.i.i.i, label %if.end5.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %rb_rotate_set_parents.exit.i.i.i
-  %subtree_last.i.i.i.i.i = getelementptr inbounds i8, ptr %65, i64 40
+  %subtree_last.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 40
   %66 = load i64, ptr %subtree_last.i.i.i.i.i, align 8
   %spec.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %66, i64 %64)
   br label %if.end5.i.i.i.i.i
@@ -811,7 +811,7 @@ if.end5.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i.i, 
   br i1 %tobool7.not.i.i.i.i.i, label %interval_tree_rotate.exit.i.i.i, label %if.then8.i.i.i.i.i
 
 if.then8.i.i.i.i.i:                               ; preds = %if.end5.i.i.i.i.i
-  %subtree_last14.i.i.i.i.i = getelementptr inbounds i8, ptr %67, i64 40
+  %subtree_last14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %67, i64 40
   %68 = load i64, ptr %subtree_last14.i.i.i.i.i, align 8
   %spec.select17.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %68, i64 %max.0.i.i.i.i.i)
   br label %interval_tree_rotate.exit.i.i.i
@@ -823,7 +823,7 @@ interval_tree_rotate.exit.i.i.i:                  ; preds = %if.then8.i.i.i.i.i,
 
 if.end.i123.i.i:                                  ; preds = %interval_tree_rotate.exit.i.i.i, %if.then.i.i.i
   %sibling.0.i.i.i = phi ptr [ %56, %interval_tree_rotate.exit.i.i.i ], [ %54, %if.then.i.i.i ]
-  %rb_right16.i.i.i = getelementptr inbounds i8, ptr %sibling.0.i.i.i, i64 8
+  %rb_right16.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.0.i.i.i, i64 8
   %69 = load ptr, ptr %rb_right16.i.i.i, align 8
   %tobool.not.i124.i.i = icmp eq ptr %69, null
   br i1 %tobool.not.i124.i.i, label %if.then18.i.i.i, label %lor.lhs.false.i.i.i
@@ -835,7 +835,7 @@ lor.lhs.false.i.i.i:                              ; preds = %if.end.i123.i.i
   br i1 %cmp.i.i.i.not.i.i.i, label %if.end64.loopexit.i.i.i, label %if.then18.i.i.i
 
 if.then18.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.end.i123.i.i
-  %rb_left19.i.i.i = getelementptr inbounds i8, ptr %sibling.0.i.i.i, i64 16
+  %rb_left19.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.0.i.i.i, i64 16
   %71 = load ptr, ptr %rb_left19.i.i.i, align 8
   %tobool20.not.i.i.i = icmp eq ptr %71, null
   br i1 %tobool20.not.i.i.i, label %if.then23.i.i.i, label %lor.lhs.false21.i.i.i
@@ -871,9 +871,9 @@ while.body.backedge.i.i.i:                        ; preds = %if.else125.i.i.i, %
   br label %while.body.i118.i.i
 
 if.end31.i.i.i:                                   ; preds = %lor.lhs.false21.i.i.i
-  %rb_right16.i.i.i.le = getelementptr inbounds i8, ptr %sibling.0.i.i.i, i64 8
-  %rb_left19.i.i.i.le = getelementptr inbounds i8, ptr %sibling.0.i.i.i, i64 16
-  %rb_right32.i.i.i = getelementptr inbounds i8, ptr %71, i64 8
+  %rb_right16.i.i.i.le = getelementptr inbounds nuw i8, ptr %sibling.0.i.i.i, i64 8
+  %rb_left19.i.i.i.le = getelementptr inbounds nuw i8, ptr %sibling.0.i.i.i, i64 16
+  %rb_right32.i.i.i = getelementptr inbounds nuw i8, ptr %71, i64 8
   %76 = load ptr, ptr %rb_right32.i.i.i, align 8
   %77 = ptrtoint ptr %76 to i64
   store atomic i64 %77, ptr %rb_left19.i.i.i.le monotonic, align 8
@@ -890,18 +890,18 @@ if.then61.i.i.i:                                  ; preds = %if.end31.i.i.i
   br label %if.end62.i.i.i
 
 if.end62.i.i.i:                                   ; preds = %if.then61.i.i.i, %if.end31.i.i.i
-  %subtree_last.i136.i.i.i = getelementptr inbounds i8, ptr %sibling.0.i.i.i, i64 40
+  %subtree_last.i136.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.0.i.i.i, i64 40
   %80 = load i64, ptr %subtree_last.i136.i.i.i, align 8
-  %subtree_last4.i137.i.i.i = getelementptr inbounds i8, ptr %71, i64 40
+  %subtree_last4.i137.i.i.i = getelementptr inbounds nuw i8, ptr %71, i64 40
   store i64 %80, ptr %subtree_last4.i137.i.i.i, align 8
-  %last.i.i138.i.i.i = getelementptr inbounds i8, ptr %sibling.0.i.i.i, i64 32
+  %last.i.i138.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.0.i.i.i, i64 32
   %81 = load i64, ptr %last.i.i138.i.i.i, align 8
   %82 = load ptr, ptr %rb_left19.i.i.i.le, align 8
   %tobool.not.i.i140.i.i.i = icmp eq ptr %82, null
   br i1 %tobool.not.i.i140.i.i.i, label %if.end5.i.i144.i.i.i, label %if.then.i.i141.i.i.i
 
 if.then.i.i141.i.i.i:                             ; preds = %if.end62.i.i.i
-  %subtree_last.i.i142.i.i.i = getelementptr inbounds i8, ptr %82, i64 40
+  %subtree_last.i.i142.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 40
   %83 = load i64, ptr %subtree_last.i.i142.i.i.i, align 8
   %spec.select.i.i143.i.i.i = tail call i64 @llvm.umax.i64(i64 %83, i64 %81)
   br label %if.end5.i.i144.i.i.i
@@ -913,7 +913,7 @@ if.end5.i.i144.i.i.i:                             ; preds = %if.then.i.i141.i.i.
   br i1 %tobool7.not.i.i147.i.i.i, label %interval_tree_rotate.exit152.i.i.i, label %if.then8.i.i148.i.i.i
 
 if.then8.i.i148.i.i.i:                            ; preds = %if.end5.i.i144.i.i.i
-  %subtree_last14.i.i149.i.i.i = getelementptr inbounds i8, ptr %84, i64 40
+  %subtree_last14.i.i149.i.i.i = getelementptr inbounds nuw i8, ptr %84, i64 40
   %85 = load i64, ptr %subtree_last14.i.i149.i.i.i, align 8
   %spec.select17.i.i150.i.i.i = tail call i64 @llvm.umax.i64(i64 %85, i64 %max.0.i.i145.i.i.i)
   br label %interval_tree_rotate.exit152.i.i.i
@@ -931,7 +931,7 @@ if.end64.i.i.i:                                   ; preds = %if.end64.loopexit.i
   %.pre-phi76.i.i.i = phi i64 [ %.pre75.i.i.i, %if.end64.loopexit.i.i.i ], [ %79, %interval_tree_rotate.exit152.i.i.i ]
   %tmp1.0.i.i.i = phi ptr [ %69, %if.end64.loopexit.i.i.i ], [ %sibling.0.i.i.i, %interval_tree_rotate.exit152.i.i.i ]
   %sibling.1.i.i.i = phi ptr [ %sibling.0.i.i.i, %if.end64.loopexit.i.i.i ], [ %71, %interval_tree_rotate.exit152.i.i.i ]
-  %rb_left65.i.i.i = getelementptr inbounds i8, ptr %sibling.1.i.i.i, i64 16
+  %rb_left65.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.1.i.i.i, i64 16
   %86 = load ptr, ptr %rb_left65.i.i.i, align 8
   %87 = ptrtoint ptr %86 to i64
   store atomic i64 %87, ptr %rb_right.i119.i.i monotonic, align 8
@@ -963,7 +963,7 @@ while.end.i.i163.i.i.i:                           ; preds = %if.end86.i.i.i
   br label %rb_rotate_set_parents.exit164.i.i.i
 
 if.else.i.i157.i.i.i:                             ; preds = %if.end86.i.i.i
-  %rb_left.i.i158.i.i.i = getelementptr inbounds i8, ptr %91, i64 16
+  %rb_left.i.i158.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 16
   %92 = load ptr, ptr %rb_left.i.i158.i.i.i, align 8
   %cmp.i.i159.i.i.i = icmp eq ptr %92, %parent.addr.0.i.i.i
   br i1 %cmp.i.i159.i.i.i, label %while.end9.i.i162.i.i.i, label %while.end19.i.i160.i.i.i
@@ -973,24 +973,24 @@ while.end9.i.i162.i.i.i:                          ; preds = %if.else.i.i157.i.i.
   br label %rb_rotate_set_parents.exit164.i.i.i
 
 while.end19.i.i160.i.i.i:                         ; preds = %if.else.i.i157.i.i.i
-  %rb_right.i.i161.i.i.i = getelementptr inbounds i8, ptr %91, i64 8
+  %rb_right.i.i161.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 8
   store atomic i64 %.pre-phi76.i.i.i, ptr %rb_right.i.i161.i.i.i monotonic, align 8
   br label %rb_rotate_set_parents.exit164.i.i.i
 
 rb_rotate_set_parents.exit164.i.i.i:              ; preds = %while.end19.i.i160.i.i.i, %while.end9.i.i162.i.i.i, %while.end.i.i163.i.i.i
-  %subtree_last.i165.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 40
+  %subtree_last.i165.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 40
   %93 = load i64, ptr %subtree_last.i165.i.i.i, align 8
-  %subtree_last4.i166.i.i.i = getelementptr inbounds i8, ptr %sibling.1.i.i.i, i64 40
+  %subtree_last4.i166.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.1.i.i.i, i64 40
   store i64 %93, ptr %subtree_last4.i166.i.i.i, align 8
-  %last.i.i167.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 32
+  %last.i.i167.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 32
   %94 = load i64, ptr %last.i.i167.i.i.i, align 8
-  %rb_left.i.i168.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 16
+  %rb_left.i.i168.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 16
   %95 = load ptr, ptr %rb_left.i.i168.i.i.i, align 8
   %tobool.not.i.i169.i.i.i = icmp eq ptr %95, null
   br i1 %tobool.not.i.i169.i.i.i, label %if.end5.i.i173.i.i.i, label %if.then.i.i170.i.i.i
 
 if.then.i.i170.i.i.i:                             ; preds = %rb_rotate_set_parents.exit164.i.i.i
-  %subtree_last.i.i171.i.i.i = getelementptr inbounds i8, ptr %95, i64 40
+  %subtree_last.i.i171.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 40
   %96 = load i64, ptr %subtree_last.i.i171.i.i.i, align 8
   %spec.select.i.i172.i.i.i = tail call i64 @llvm.umax.i64(i64 %96, i64 %94)
   br label %if.end5.i.i173.i.i.i
@@ -1002,7 +1002,7 @@ if.end5.i.i173.i.i.i:                             ; preds = %if.then.i.i170.i.i.
   br i1 %tobool7.not.i.i176.i.i.i, label %interval_tree_rotate.exit181.i.i.i, label %if.then8.i.i177.i.i.i
 
 if.then8.i.i177.i.i.i:                            ; preds = %if.end5.i.i173.i.i.i
-  %subtree_last14.i.i178.i.i.i = getelementptr inbounds i8, ptr %97, i64 40
+  %subtree_last14.i.i178.i.i.i = getelementptr inbounds nuw i8, ptr %97, i64 40
   %98 = load i64, ptr %subtree_last14.i.i178.i.i.i, align 8
   %spec.select17.i.i179.i.i.i = tail call i64 @llvm.umax.i64(i64 %98, i64 %max.0.i.i174.i.i.i)
   br label %interval_tree_rotate.exit181.i.i.i
@@ -1013,7 +1013,7 @@ interval_tree_rotate.exit181.i.i.i:               ; preds = %if.then8.i.i177.i.i
   br label %rb_erase_augmented_cached.exit
 
 if.else88.i.i.i:                                  ; preds = %while.body.i118.i.i
-  %rb_left89.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 16
+  %rb_left89.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 16
   %99 = load ptr, ptr %rb_left89.i.i.i, align 8
   %100 = load atomic i64, ptr %99 monotonic, align 8
   %conv.i1.i.i182.i.i.i = and i64 %100, 1
@@ -1021,7 +1021,7 @@ if.else88.i.i.i:                                  ; preds = %while.body.i118.i.i
   br i1 %cmp.i.i183.i.i.i, label %if.then91.i.i.i, label %if.end112.i.i.i
 
 if.then91.i.i.i:                                  ; preds = %if.else88.i.i.i
-  %rb_right92.i.i.i = getelementptr inbounds i8, ptr %99, i64 8
+  %rb_right92.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %rb_right92.i.i.i, align 8
   %102 = ptrtoint ptr %101 to i64
   store atomic i64 %102, ptr %rb_left89.i.i.i monotonic, align 8
@@ -1043,7 +1043,7 @@ while.end.i.i194.i.i.i:                           ; preds = %if.then91.i.i.i
   br label %rb_rotate_set_parents.exit195.i.i.i
 
 if.else.i.i188.i.i.i:                             ; preds = %if.then91.i.i.i
-  %rb_left.i.i189.i.i.i = getelementptr inbounds i8, ptr %105, i64 16
+  %rb_left.i.i189.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load ptr, ptr %rb_left.i.i189.i.i.i, align 8
   %cmp.i.i190.i.i.i = icmp eq ptr %107, %parent.addr.0.i.i.i
   br i1 %cmp.i.i190.i.i.i, label %while.end9.i.i193.i.i.i, label %while.end19.i.i191.i.i.i
@@ -1053,23 +1053,23 @@ while.end9.i.i193.i.i.i:                          ; preds = %if.else.i.i188.i.i.
   br label %rb_rotate_set_parents.exit195.i.i.i
 
 while.end19.i.i191.i.i.i:                         ; preds = %if.else.i.i188.i.i.i
-  %rb_right.i.i192.i.i.i = getelementptr inbounds i8, ptr %105, i64 8
+  %rb_right.i.i192.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 8
   store atomic i64 %106, ptr %rb_right.i.i192.i.i.i monotonic, align 8
   br label %rb_rotate_set_parents.exit195.i.i.i
 
 rb_rotate_set_parents.exit195.i.i.i:              ; preds = %while.end19.i.i191.i.i.i, %while.end9.i.i193.i.i.i, %while.end.i.i194.i.i.i
-  %subtree_last.i196.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 40
+  %subtree_last.i196.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 40
   %108 = load i64, ptr %subtree_last.i196.i.i.i, align 8
-  %subtree_last4.i197.i.i.i = getelementptr inbounds i8, ptr %99, i64 40
+  %subtree_last4.i197.i.i.i = getelementptr inbounds nuw i8, ptr %99, i64 40
   store i64 %108, ptr %subtree_last4.i197.i.i.i, align 8
-  %last.i.i198.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 32
+  %last.i.i198.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 32
   %109 = load i64, ptr %last.i.i198.i.i.i, align 8
   %110 = load ptr, ptr %rb_left89.i.i.i, align 8
   %tobool.not.i.i200.i.i.i = icmp eq ptr %110, null
   br i1 %tobool.not.i.i200.i.i.i, label %if.end5.i.i204.i.i.i, label %if.then.i.i201.i.i.i
 
 if.then.i.i201.i.i.i:                             ; preds = %rb_rotate_set_parents.exit195.i.i.i
-  %subtree_last.i.i202.i.i.i = getelementptr inbounds i8, ptr %110, i64 40
+  %subtree_last.i.i202.i.i.i = getelementptr inbounds nuw i8, ptr %110, i64 40
   %111 = load i64, ptr %subtree_last.i.i202.i.i.i, align 8
   %spec.select.i.i203.i.i.i = tail call i64 @llvm.umax.i64(i64 %111, i64 %109)
   br label %if.end5.i.i204.i.i.i
@@ -1081,7 +1081,7 @@ if.end5.i.i204.i.i.i:                             ; preds = %if.then.i.i201.i.i.
   br i1 %tobool7.not.i.i207.i.i.i, label %interval_tree_rotate.exit212.i.i.i, label %if.then8.i.i208.i.i.i
 
 if.then8.i.i208.i.i.i:                            ; preds = %if.end5.i.i204.i.i.i
-  %subtree_last14.i.i209.i.i.i = getelementptr inbounds i8, ptr %112, i64 40
+  %subtree_last14.i.i209.i.i.i = getelementptr inbounds nuw i8, ptr %112, i64 40
   %113 = load i64, ptr %subtree_last14.i.i209.i.i.i, align 8
   %spec.select17.i.i210.i.i.i = tail call i64 @llvm.umax.i64(i64 %113, i64 %max.0.i.i205.i.i.i)
   br label %interval_tree_rotate.exit212.i.i.i
@@ -1093,7 +1093,7 @@ interval_tree_rotate.exit212.i.i.i:               ; preds = %if.then8.i.i208.i.i
 
 if.end112.i.i.i:                                  ; preds = %interval_tree_rotate.exit212.i.i.i, %if.else88.i.i.i
   %sibling.2.i.i.i = phi ptr [ %101, %interval_tree_rotate.exit212.i.i.i ], [ %99, %if.else88.i.i.i ]
-  %rb_left113.i.i.i = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 16
+  %rb_left113.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.2.i.i.i, i64 16
   %114 = load ptr, ptr %rb_left113.i.i.i, align 8
   %tobool114.not.i.i.i = icmp eq ptr %114, null
   br i1 %tobool114.not.i.i.i, label %if.then117.i.i.i, label %lor.lhs.false115.i.i.i
@@ -1105,7 +1105,7 @@ lor.lhs.false115.i.i.i:                           ; preds = %if.end112.i.i.i
   br i1 %cmp.i.i.i214.not.i.i.i, label %if.end164.loopexit.i.i.i, label %if.then117.i.i.i
 
 if.then117.i.i.i:                                 ; preds = %lor.lhs.false115.i.i.i, %if.end112.i.i.i
-  %rb_right118.i.i.i = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 8
+  %rb_right118.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.2.i.i.i, i64 8
   %116 = load ptr, ptr %rb_right118.i.i.i, align 8
   %tobool119.not.i.i.i = icmp eq ptr %116, null
   br i1 %tobool119.not.i.i.i, label %if.then122.i.i.i, label %lor.lhs.false120.i.i.i
@@ -1136,9 +1136,9 @@ if.else125.i.i.i:                                 ; preds = %if.then122.i.i.i
   br i1 %tobool127.not.i.i.i, label %rb_erase_augmented_cached.exit, label %while.body.backedge.i.i.i
 
 if.end131.i.i.i:                                  ; preds = %lor.lhs.false120.i.i.i
-  %rb_left113.i.i.i.le = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 16
-  %rb_right118.i.i.i.le = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 8
-  %rb_left132.i.i.i = getelementptr inbounds i8, ptr %116, i64 16
+  %rb_left113.i.i.i.le = getelementptr inbounds nuw i8, ptr %sibling.2.i.i.i, i64 16
+  %rb_right118.i.i.i.le = getelementptr inbounds nuw i8, ptr %sibling.2.i.i.i, i64 8
+  %rb_left132.i.i.i = getelementptr inbounds nuw i8, ptr %116, i64 16
   %121 = load ptr, ptr %rb_left132.i.i.i, align 8
   %122 = ptrtoint ptr %121 to i64
   store atomic i64 %122, ptr %rb_right118.i.i.i.le monotonic, align 8
@@ -1155,18 +1155,18 @@ if.then161.i.i.i:                                 ; preds = %if.end131.i.i.i
   br label %if.end162.i.i.i
 
 if.end162.i.i.i:                                  ; preds = %if.then161.i.i.i, %if.end131.i.i.i
-  %subtree_last.i223.i.i.i = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 40
+  %subtree_last.i223.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.2.i.i.i, i64 40
   %125 = load i64, ptr %subtree_last.i223.i.i.i, align 8
-  %subtree_last4.i224.i.i.i = getelementptr inbounds i8, ptr %116, i64 40
+  %subtree_last4.i224.i.i.i = getelementptr inbounds nuw i8, ptr %116, i64 40
   store i64 %125, ptr %subtree_last4.i224.i.i.i, align 8
-  %last.i.i225.i.i.i = getelementptr inbounds i8, ptr %sibling.2.i.i.i, i64 32
+  %last.i.i225.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.2.i.i.i, i64 32
   %126 = load i64, ptr %last.i.i225.i.i.i, align 8
   %127 = load ptr, ptr %rb_left113.i.i.i.le, align 8
   %tobool.not.i.i227.i.i.i = icmp eq ptr %127, null
   br i1 %tobool.not.i.i227.i.i.i, label %if.end5.i.i231.i.i.i, label %if.then.i.i228.i.i.i
 
 if.then.i.i228.i.i.i:                             ; preds = %if.end162.i.i.i
-  %subtree_last.i.i229.i.i.i = getelementptr inbounds i8, ptr %127, i64 40
+  %subtree_last.i.i229.i.i.i = getelementptr inbounds nuw i8, ptr %127, i64 40
   %128 = load i64, ptr %subtree_last.i.i229.i.i.i, align 8
   %spec.select.i.i230.i.i.i = tail call i64 @llvm.umax.i64(i64 %128, i64 %126)
   br label %if.end5.i.i231.i.i.i
@@ -1178,7 +1178,7 @@ if.end5.i.i231.i.i.i:                             ; preds = %if.then.i.i228.i.i.
   br i1 %tobool7.not.i.i234.i.i.i, label %interval_tree_rotate.exit239.i.i.i, label %if.then8.i.i235.i.i.i
 
 if.then8.i.i235.i.i.i:                            ; preds = %if.end5.i.i231.i.i.i
-  %subtree_last14.i.i236.i.i.i = getelementptr inbounds i8, ptr %129, i64 40
+  %subtree_last14.i.i236.i.i.i = getelementptr inbounds nuw i8, ptr %129, i64 40
   %130 = load i64, ptr %subtree_last14.i.i236.i.i.i, align 8
   %spec.select17.i.i237.i.i.i = tail call i64 @llvm.umax.i64(i64 %130, i64 %max.0.i.i232.i.i.i)
   br label %interval_tree_rotate.exit239.i.i.i
@@ -1196,7 +1196,7 @@ if.end164.i.i.i:                                  ; preds = %if.end164.loopexit.
   %.pre-phi.i.i.i = phi i64 [ %.pre.i.i.i, %if.end164.loopexit.i.i.i ], [ %124, %interval_tree_rotate.exit239.i.i.i ]
   %tmp1.1.i.i.i = phi ptr [ %114, %if.end164.loopexit.i.i.i ], [ %sibling.2.i.i.i, %interval_tree_rotate.exit239.i.i.i ]
   %sibling.3.i.i.i = phi ptr [ %sibling.2.i.i.i, %if.end164.loopexit.i.i.i ], [ %116, %interval_tree_rotate.exit239.i.i.i ]
-  %rb_right165.i.i.i = getelementptr inbounds i8, ptr %sibling.3.i.i.i, i64 8
+  %rb_right165.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.3.i.i.i, i64 8
   %131 = load ptr, ptr %rb_right165.i.i.i, align 8
   %132 = ptrtoint ptr %131 to i64
   store atomic i64 %132, ptr %rb_left89.i.i.i monotonic, align 8
@@ -1228,7 +1228,7 @@ while.end.i.i252.i.i.i:                           ; preds = %if.end186.i.i.i
   br label %rb_rotate_set_parents.exit253.i.i.i
 
 if.else.i.i246.i.i.i:                             ; preds = %if.end186.i.i.i
-  %rb_left.i.i247.i.i.i = getelementptr inbounds i8, ptr %136, i64 16
+  %rb_left.i.i247.i.i.i = getelementptr inbounds nuw i8, ptr %136, i64 16
   %137 = load ptr, ptr %rb_left.i.i247.i.i.i, align 8
   %cmp.i.i248.i.i.i = icmp eq ptr %137, %parent.addr.0.i.i.i
   br i1 %cmp.i.i248.i.i.i, label %while.end9.i.i251.i.i.i, label %while.end19.i.i249.i.i.i
@@ -1238,23 +1238,23 @@ while.end9.i.i251.i.i.i:                          ; preds = %if.else.i.i246.i.i.
   br label %rb_rotate_set_parents.exit253.i.i.i
 
 while.end19.i.i249.i.i.i:                         ; preds = %if.else.i.i246.i.i.i
-  %rb_right.i.i250.i.i.i = getelementptr inbounds i8, ptr %136, i64 8
+  %rb_right.i.i250.i.i.i = getelementptr inbounds nuw i8, ptr %136, i64 8
   store atomic i64 %.pre-phi.i.i.i, ptr %rb_right.i.i250.i.i.i monotonic, align 8
   br label %rb_rotate_set_parents.exit253.i.i.i
 
 rb_rotate_set_parents.exit253.i.i.i:              ; preds = %while.end19.i.i249.i.i.i, %while.end9.i.i251.i.i.i, %while.end.i.i252.i.i.i
-  %subtree_last.i254.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 40
+  %subtree_last.i254.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 40
   %138 = load i64, ptr %subtree_last.i254.i.i.i, align 8
-  %subtree_last4.i255.i.i.i = getelementptr inbounds i8, ptr %sibling.3.i.i.i, i64 40
+  %subtree_last4.i255.i.i.i = getelementptr inbounds nuw i8, ptr %sibling.3.i.i.i, i64 40
   store i64 %138, ptr %subtree_last4.i255.i.i.i, align 8
-  %last.i.i256.i.i.i = getelementptr inbounds i8, ptr %parent.addr.0.i.i.i, i64 32
+  %last.i.i256.i.i.i = getelementptr inbounds nuw i8, ptr %parent.addr.0.i.i.i, i64 32
   %139 = load i64, ptr %last.i.i256.i.i.i, align 8
   %140 = load ptr, ptr %rb_left89.i.i.i, align 8
   %tobool.not.i.i258.i.i.i = icmp eq ptr %140, null
   br i1 %tobool.not.i.i258.i.i.i, label %if.end5.i.i262.i.i.i, label %if.then.i.i259.i.i.i
 
 if.then.i.i259.i.i.i:                             ; preds = %rb_rotate_set_parents.exit253.i.i.i
-  %subtree_last.i.i260.i.i.i = getelementptr inbounds i8, ptr %140, i64 40
+  %subtree_last.i.i260.i.i.i = getelementptr inbounds nuw i8, ptr %140, i64 40
   %141 = load i64, ptr %subtree_last.i.i260.i.i.i, align 8
   %spec.select.i.i261.i.i.i = tail call i64 @llvm.umax.i64(i64 %141, i64 %139)
   br label %if.end5.i.i262.i.i.i
@@ -1266,7 +1266,7 @@ if.end5.i.i262.i.i.i:                             ; preds = %if.then.i.i259.i.i.
   br i1 %tobool7.not.i.i265.i.i.i, label %interval_tree_rotate.exit270.i.i.i, label %if.then8.i.i266.i.i.i
 
 if.then8.i.i266.i.i.i:                            ; preds = %if.end5.i.i262.i.i.i
-  %subtree_last14.i.i267.i.i.i = getelementptr inbounds i8, ptr %142, i64 40
+  %subtree_last14.i.i267.i.i.i = getelementptr inbounds nuw i8, ptr %142, i64 40
   %143 = load i64, ptr %subtree_last14.i.i267.i.i.i, align 8
   %spec.select17.i.i268.i.i.i = tail call i64 @llvm.umax.i64(i64 %143, i64 %max.0.i.i263.i.i.i)
   br label %interval_tree_rotate.exit270.i.i.i
@@ -1292,54 +1292,54 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %tobool1.not, label %return, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %subtree_last = getelementptr inbounds i8, ptr %0, i64 40
+  %subtree_last = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1 = load i64, ptr %subtree_last, align 8
   %cmp = icmp ult i64 %1, %start
   br i1 %cmp, label %return, label %if.end5
 
 if.end5:                                          ; preds = %if.end
-  %rb_leftmost = getelementptr inbounds i8, ptr %root, i64 8
+  %rb_leftmost = getelementptr inbounds nuw i8, ptr %root, i64 8
   %2 = load ptr, ptr %rb_leftmost, align 8
-  %start9 = getelementptr inbounds i8, ptr %2, i64 24
+  %start9 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %3 = load i64, ptr %start9, align 8
   %cmp10 = icmp ugt i64 %3, %last
   br i1 %cmp10, label %return, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end5, %while.body.i.backedge
   %node.addr.0.i = phi ptr [ %node.addr.0.i.be, %while.body.i.backedge ], [ %0, %if.end5 ]
-  %rb_left.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 16
+  %rb_left.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 16
   %4 = load atomic i64, ptr %rb_left.i monotonic, align 8
   %tobool.not.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
   %5 = inttoptr i64 %4 to ptr
-  %subtree_last.i = getelementptr inbounds i8, ptr %5, i64 40
+  %subtree_last.i = getelementptr inbounds nuw i8, ptr %5, i64 40
   %6 = load i64, ptr %subtree_last.i, align 8
   %cmp.not.i = icmp ugt i64 %start, %6
   br i1 %cmp.not.i, label %if.end6.i, label %while.body.i.backedge
 
 if.end6.i:                                        ; preds = %if.then.i, %while.body.i
-  %start7.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 24
+  %start7.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 24
   %7 = load i64, ptr %start7.i, align 8
   %cmp8.not.i = icmp ugt i64 %7, %last
   br i1 %cmp8.not.i, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %last10.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 32
+  %last10.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 32
   %8 = load i64, ptr %last10.i, align 8
   %cmp11.not.i = icmp ugt i64 %start, %8
   br i1 %cmp11.not.i, label %while.end18.i, label %return
 
 while.end18.i:                                    ; preds = %if.then9.i
-  %rb_right.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 8
+  %rb_right.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 8
   %9 = load atomic i64, ptr %rb_right.i monotonic, align 8
   %tobool22.not.i = icmp eq i64 %9, 0
   br i1 %tobool22.not.i, label %return, label %if.then23.i
 
 if.then23.i:                                      ; preds = %while.end18.i
   %10 = inttoptr i64 %9 to ptr
-  %subtree_last27.i = getelementptr inbounds i8, ptr %10, i64 40
+  %subtree_last27.i = getelementptr inbounds nuw i8, ptr %10, i64 40
   %11 = load i64, ptr %subtree_last27.i, align 8
   %cmp28.not.i = icmp ugt i64 %start, %11
   br i1 %cmp28.not.i, label %return, label %while.body.i.backedge
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %if.then23.i, %while
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local ptr @interval_tree_iter_next(ptr noundef readonly %node, i64 noundef %start, i64 noundef %last) local_unnamed_addr #1 {
 entry:
-  %rb_right = getelementptr inbounds i8, ptr %node, i64 8
+  %rb_right = getelementptr inbounds nuw i8, ptr %node, i64 8
   %0 = load atomic i64, ptr %rb_right monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
   br label %while.body3
@@ -1371,46 +1371,46 @@ do.body7.preheader:                               ; preds = %if.then, %while.bod
   br label %do.body7
 
 if.then:                                          ; preds = %while.body3
-  %subtree_last = getelementptr inbounds i8, ptr %rb.0, i64 40
+  %subtree_last = getelementptr inbounds nuw i8, ptr %rb.0, i64 40
   %2 = load i64, ptr %subtree_last, align 8
   %cmp.not = icmp ugt i64 %start, %2
   br i1 %cmp.not, label %do.body7.preheader, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then, %while.body.i.backedge
   %node.addr.0.i = phi ptr [ %node.addr.0.i.be, %while.body.i.backedge ], [ %rb.0, %if.then ]
-  %rb_left.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 16
+  %rb_left.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 16
   %3 = load atomic i64, ptr %rb_left.i monotonic, align 8
   %tobool.not.i = icmp eq i64 %3, 0
   br i1 %tobool.not.i, label %if.end6.i, label %if.then.i
 
 if.then.i:                                        ; preds = %while.body.i
   %4 = inttoptr i64 %3 to ptr
-  %subtree_last.i = getelementptr inbounds i8, ptr %4, i64 40
+  %subtree_last.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %5 = load i64, ptr %subtree_last.i, align 8
   %cmp.not.i = icmp ugt i64 %start, %5
   br i1 %cmp.not.i, label %if.end6.i, label %while.body.i.backedge
 
 if.end6.i:                                        ; preds = %if.then.i, %while.body.i
-  %start7.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 24
+  %start7.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 24
   %6 = load i64, ptr %start7.i, align 8
   %cmp8.not.i = icmp ugt i64 %6, %last
   br i1 %cmp8.not.i, label %return, label %if.then9.i
 
 if.then9.i:                                       ; preds = %if.end6.i
-  %last10.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 32
+  %last10.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 32
   %7 = load i64, ptr %last10.i, align 8
   %cmp11.not.i = icmp ugt i64 %start, %7
   br i1 %cmp11.not.i, label %while.end18.i, label %return
 
 while.end18.i:                                    ; preds = %if.then9.i
-  %rb_right.i = getelementptr inbounds i8, ptr %node.addr.0.i, i64 8
+  %rb_right.i = getelementptr inbounds nuw i8, ptr %node.addr.0.i, i64 8
   %8 = load atomic i64, ptr %rb_right.i monotonic, align 8
   %tobool22.not.i = icmp eq i64 %8, 0
   br i1 %tobool22.not.i, label %return, label %if.then23.i
 
 if.then23.i:                                      ; preds = %while.end18.i
   %9 = inttoptr i64 %8 to ptr
-  %subtree_last27.i = getelementptr inbounds i8, ptr %9, i64 40
+  %subtree_last27.i = getelementptr inbounds nuw i8, ptr %9, i64 40
   %10 = load i64, ptr %subtree_last27.i, align 8
   %cmp28.not.i = icmp ugt i64 %start, %10
   br i1 %cmp28.not.i, label %return, label %while.body.i.backedge
@@ -1428,20 +1428,20 @@ do.body7:                                         ; preds = %do.body7.preheader,
 
 if.end12:                                         ; preds = %do.body7
   %12 = inttoptr i64 %and.i.i to ptr
-  %rb_right24 = getelementptr inbounds i8, ptr %12, i64 8
+  %rb_right24 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %13 = load atomic i64, ptr %rb_right24 monotonic, align 8
   %14 = inttoptr i64 %13 to ptr
   %cmp26 = icmp eq ptr %node.addr.1, %14
   br i1 %cmp26, label %do.body7, label %do.end27, !llvm.loop !11
 
 do.end27:                                         ; preds = %if.end12
-  %start28 = getelementptr inbounds i8, ptr %12, i64 24
+  %start28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %15 = load i64, ptr %start28, align 8
   %cmp29 = icmp ult i64 %last, %15
   br i1 %cmp29, label %return, label %if.end31
 
 if.end31:                                         ; preds = %do.end27
-  %last32 = getelementptr inbounds i8, ptr %12, i64 32
+  %last32 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load i64, ptr %last32, align 8
   %cmp33.not = icmp ugt i64 %start, %16
   br i1 %cmp33.not, label %while.body3, label %return

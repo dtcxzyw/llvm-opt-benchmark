@@ -293,7 +293,7 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
   br label %97
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.106) #4
   %12 = load ptr, ptr %10, align 8
@@ -362,34 +362,34 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
   %or.cond = select i1 %65, i1 %66, i1 false
   %. = select i1 %or.cond, i32 0, i32 4
   store i32 %., ptr %5, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i8 0, ptr %67, align 4
-  %68 = getelementptr inbounds i8, ptr %5, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %70 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 17) #4
   %71 = zext i8 %70 to i16
-  %72 = getelementptr inbounds i8, ptr %5, i64 30
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 30
   store i16 %71, ptr %72, align 2
   %73 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #4
   %74 = zext i8 %73 to i16
-  %75 = getelementptr inbounds i8, ptr %5, i64 36
+  %75 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i16 %74, ptr %75, align 4
   %76 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 18) #4
-  %77 = getelementptr inbounds i8, ptr %5, i64 38
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i8 %76, ptr %77, align 2
   %78 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 18) #4
-  %79 = getelementptr inbounds i8, ptr %5, i64 39
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 39
   store i8 %78, ptr %79, align 1
   %80 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #4
-  %81 = getelementptr inbounds i8, ptr %5, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 %80, ptr %81, align 8
   %82 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %83 = getelementptr inbounds i8, ptr %5, i64 41
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 41
   store i8 %82, ptr %83, align 1
   store i16 637, ptr %69, align 4
   %84 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 8) #4
-  %85 = getelementptr inbounds i8, ptr %5, i64 48
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %84, ptr %85, align 8
   switch i8 %73, label %93 [
     i8 66, label %86
@@ -410,13 +410,13 @@ define internal i32 @dissect_peekremote_legacy(ptr noundef %0, ptr noundef %1, p
 
 86:                                               ; preds = %60, %60, %60, %60, %60, %60
   store i32 4, ptr %68, align 8
-  %87 = getelementptr inbounds i8, ptr %5, i64 12
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 0, ptr %87, align 4
   br label %93
 
 88:                                               ; preds = %60, %60, %60, %60, %60, %60, %60, %60
   %89 = icmp ult i8 %70, 15
-  %90 = getelementptr inbounds i8, ptr %5, i64 12
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br i1 %89, label %91, label %92
 
 91:                                               ; preds = %88
@@ -468,9 +468,9 @@ define internal range(i32 0, 2) i32 @dissect_peekremote_new(ptr noundef %0, ptr 
 8:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, i8 0, i64 72, i1 false)
   store i32 4, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.106) #4
   %12 = load ptr, ptr %10, align 8
@@ -530,16 +530,16 @@ define internal range(i32 0, 2) i32 @dissect_peekremote_new(ptr noundef %0, ptr 
   %44 = load i32, ptr @hf_peekremote_mcs_index, align 4
   %45 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %44, ptr noundef %0, i32 noundef 13, i32 noundef 2, i32 noundef 0) #4
   store i32 7, ptr %9, align 8
-  %46 = getelementptr inbounds i8, ptr %5, i64 12
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i8 1, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %5, i64 14
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 14
   store i16 %32, ptr %47, align 2
   br label %48
 
 48:                                               ; preds = %40, %43, %35
-  %49 = getelementptr inbounds i8, ptr %5, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %50 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 15) #4
-  %51 = getelementptr inbounds i8, ptr %5, i64 30
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 30
   store i16 %50, ptr %51, align 2
   %52 = load i32, ptr @hf_peekremote_channel, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %52, ptr noundef %0, i32 noundef 15, i32 noundef 2, i32 noundef 0) #4
@@ -549,7 +549,7 @@ define internal range(i32 0, 2) i32 @dissect_peekremote_new(ptr noundef %0, ptr 
   br i1 %.not173, label %58, label %56
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds i8, ptr %5, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %55, ptr %57, align 8
   br label %58
 
@@ -594,22 +594,22 @@ define internal range(i32 0, 2) i32 @dissect_peekremote_new(ptr noundef %0, ptr 
   %96 = load i32, ptr @hf_peekremote_extflags_reserved, align 4
   %97 = tail call ptr @proto_tree_add_item(ptr noundef %67, i32 noundef %96, ptr noundef %0, i32 noundef 25, i32 noundef 4, i32 noundef 0) #4
   %98 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 29) #4
-  %99 = getelementptr inbounds i8, ptr %5, i64 38
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 38
   store i8 %98, ptr %99, align 2
   %100 = load i32, ptr @hf_peekremote_signal_percent, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %100, ptr noundef %0, i32 noundef 29, i32 noundef 1, i32 noundef 0) #4
   %102 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 30) #4
-  %103 = getelementptr inbounds i8, ptr %5, i64 39
+  %103 = getelementptr inbounds nuw i8, ptr %5, i64 39
   store i8 %102, ptr %103, align 1
   %104 = load i32, ptr @hf_peekremote_noise_percent, align 4
   %105 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %104, ptr noundef %0, i32 noundef 30, i32 noundef 1, i32 noundef 0) #4
   %106 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 31) #4
-  %107 = getelementptr inbounds i8, ptr %5, i64 40
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i8 %106, ptr %107, align 8
   %108 = load i32, ptr @hf_peekremote_signal_dbm, align 4
   %109 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %108, ptr noundef %0, i32 noundef 31, i32 noundef 1, i32 noundef 0) #4
   %110 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 32) #4
-  %111 = getelementptr inbounds i8, ptr %5, i64 41
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 41
   store i8 %110, ptr %111, align 1
   %112 = load i32, ptr @hf_peekremote_noise_dbm, align 4
   %113 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %112, ptr noundef %0, i32 noundef 32, i32 noundef 1, i32 noundef 0) #4
@@ -661,7 +661,7 @@ define internal range(i32 0, 2) i32 @dissect_peekremote_new(ptr noundef %0, ptr 
   %159 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %158, ptr noundef %0, i32 noundef 47, i32 noundef 8, i32 noundef 0) #4
   store i16 %59, ptr %49, align 4
   %160 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef 47) #4
-  %161 = getelementptr inbounds i8, ptr %5, i64 48
+  %161 = getelementptr inbounds nuw i8, ptr %5, i64 48
   store i64 %160, ptr %161, align 8
   br label %164
 

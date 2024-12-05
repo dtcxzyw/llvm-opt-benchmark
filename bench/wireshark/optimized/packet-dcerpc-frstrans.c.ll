@@ -419,7 +419,7 @@ declare i32 @dissect_ndr_uint32(ptr noundef, i32 noundef, ptr noundef, ptr nound
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_bitmap_TransportFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 3
@@ -515,7 +515,7 @@ define hidden i32 @frstrans_dissect_enum_UpdateStatus(ptr noundef %0, i32 nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_VersionVector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -544,9 +544,9 @@ define hidden i32 @frstrans_dissect_struct_VersionVector(ptr noundef %0, i32 nou
   %24 = tail call i32 @dissect_ndr_uint64(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, ptr noundef null) #4
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -579,7 +579,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_Update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %11 = load i32, ptr %10, align 4
   %.not = icmp ne i32 %11, 0
   %12 = and i32 %1, 7
@@ -657,9 +657,9 @@ frstrans_dissect_element_Update_rdc_similarity.exit: ; preds = %frstrans_dissect
   %57 = call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %54, ptr noundef %2, ptr noundef %.0119, ptr noundef %4, ptr noundef %5, i32 noundef %56, i32 noundef 0) #4
   %58 = sub i32 %57, %.0
   call void @proto_item_set_len(ptr noundef %.0120, i32 noundef %58) #4
-  %59 = getelementptr inbounds i8, ptr %4, i64 72
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 96
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 96
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 1
   %.not124 = icmp eq i32 %63, 0
@@ -733,7 +733,7 @@ define hidden i32 @frstrans_dissect_enum_VersionChangeType(ptr noundef %0, i32 n
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_EpoqueVector(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 3
@@ -774,9 +774,9 @@ define hidden i32 @frstrans_dissect_struct_EpoqueVector(ptr noundef %0, i32 noun
   %36 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %34, ptr noundef %2, ptr noundef %.071, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %35, i32 noundef 0) #4
   %37 = sub i32 %36, %.0
   tail call void @proto_item_set_len(ptr noundef %.072, i32 noundef %37) #4
-  %38 = getelementptr inbounds i8, ptr %4, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 96
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %41 = load i32, ptr %40, align 8
   %42 = and i32 %41, 1
   %.not76 = icmp eq i32 %42, 0
@@ -802,7 +802,7 @@ define hidden i32 @frstrans_dissect_struct_EpoqueVector(ptr noundef %0, i32 noun
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -835,9 +835,9 @@ define hidden i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr nounde
   %28 = tail call i32 @dissect_ndr_embedded_pointer(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %.047, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_AsyncVersionVectorResponse_epoque_vector_, i32 noundef 2, ptr noundef nonnull @.str.212, i32 noundef %27) #4
   %29 = sub i32 %28, %.0
   tail call void @proto_item_set_len(ptr noundef %.048, i32 noundef %29) #4
-  %30 = getelementptr inbounds i8, ptr %4, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 96
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 1
   %.not52 = icmp eq i32 %34, 0
@@ -863,7 +863,7 @@ define hidden i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr nounde
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_AsyncResponseContext(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 7
@@ -892,9 +892,9 @@ define hidden i32 @frstrans_dissect_struct_AsyncResponseContext(ptr noundef %0, 
   %24 = tail call i32 @frstrans_dissect_struct_AsyncVersionVectorResponse(ptr noundef %0, i32 noundef %22, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %23, i32 poison)
   %25 = sub i32 %24, %.0
   tail call void @proto_item_set_len(ptr noundef %.036, i32 noundef %25) #4
-  %26 = getelementptr inbounds i8, ptr %4, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 1
   %.not40 = icmp eq i32 %30, 0
@@ -969,13 +969,13 @@ define hidden i32 @frstrans_dissect_enum_RdcChunckerAlgorithm(ptr noundef %0, i3
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_RdcParameterGeneric(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %4, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %13 = load i32, ptr %12, align 8
   %14 = and i32 %13, 1
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %4, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %16 = load i32, ptr %15, align 4
   %.not40 = icmp ne i32 %16, 0
   br i1 %.not, label %22, label %17
@@ -1036,14 +1036,14 @@ frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit: ; preds = 
   %39 = sub i32 %37, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %39) #4
   %40 = load ptr, ptr %10, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 96
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 1
   %.not45 = icmp eq i32 %43, 0
   br i1 %.not45, label %51, label %44
 
 44:                                               ; preds = %frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit
-  %45 = getelementptr inbounds i8, ptr %4, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %46 = load i32, ptr %45, align 4
   %.not46 = icmp ne i32 %46, 0
   %47 = and i32 %37, 3
@@ -1063,7 +1063,7 @@ frstrans_dissect_element_RdcParameterGeneric_chunker_parameters.exit: ; preds = 
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 1
@@ -1090,9 +1090,9 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0,
   %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -1118,7 +1118,7 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterFilterMax(ptr noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @frstrans_dissect_struct_RdcParameterFilterPoint(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 %7) local_unnamed_addr #0 {
-  %9 = getelementptr inbounds i8, ptr %4, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %10 = load i32, ptr %9, align 4
   %.not = icmp ne i32 %10, 0
   %11 = and i32 %1, 1
@@ -1145,9 +1145,9 @@ define hidden i32 @frstrans_dissect_struct_RdcParameterFilterPoint(ptr noundef %
   %22 = tail call i32 @PIDL_dissect_uint16(ptr noundef %0, i32 noundef %20, ptr noundef %2, ptr noundef %.029, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, i32 noundef 0) #4
   %23 = sub i32 %22, %.0
   tail call void @proto_item_set_len(ptr noundef %.030, i32 noundef %23) #4
-  %24 = getelementptr inbounds i8, ptr %4, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 96
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %27 = load i32, ptr %26, align 8
   %28 = and i32 %27, 1
   %.not34 = icmp eq i32 %28, 0
@@ -1176,13 +1176,13 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 1
   %.not = icmp eq i32 %16, 0
-  %17 = getelementptr inbounds i8, ptr %4, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %18 = load i32, ptr %17, align 4
   %.not40 = icmp ne i32 %18, 0
   br i1 %.not, label %24, label %19
@@ -1244,11 +1244,11 @@ define hidden i32 @frstrans_dissect_struct_RdcParameters(ptr noundef %0, i32 nou
   %.039.i.i = phi ptr [ %40, %38 ], [ null, %34 ]
   %42 = call i32 @dissect_ndr_uint1632(ptr noundef %0, i32 noundef %36, ptr noundef %2, ptr noundef %.039.i.i, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %37, ptr noundef nonnull %10) #4
   %43 = load ptr, ptr %12, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 96
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 1
   %.not41.i.i = icmp eq i32 %46, 0
-  %47 = getelementptr inbounds i8, ptr %4, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %48 = load i32, ptr %47, align 4
   %.not42.i.i = icmp ne i32 %48, 0
   br i1 %.not41.i.i, label %54, label %49
@@ -1309,7 +1309,7 @@ frstrans_dissect_element_RdcParameters_u.exit:    ; preds = %59, %61, %64, %67
   %72 = sub i32 %.1.i.i, %.0
   call void @proto_item_set_len(ptr noundef %.038, i32 noundef %72) #4
   %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 96
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 96
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, 1
   %.not45 = icmp eq i32 %76, 0
@@ -1410,7 +1410,7 @@ define hidden i32 @frstrans_dissect_struct_RdcFileInfo(ptr noundef %0, i32 nound
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
-  %12 = getelementptr inbounds i8, ptr %4, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %13 = load i32, ptr %12, align 4
   %.not = icmp ne i32 %13, 0
   %14 = and i32 %1, 7
@@ -1455,9 +1455,9 @@ define hidden i32 @frstrans_dissect_struct_RdcFileInfo(ptr noundef %0, i32 nound
   %34 = call i32 @dissect_ndr_ucarray(ptr noundef %0, i32 noundef %33, ptr noundef %2, ptr noundef %.059, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_RdcFileInfo_rdc_filter_parameters_) #4
   %35 = sub i32 %34, %.0
   call void @proto_item_set_len(ptr noundef %.060, i32 noundef %35) #4
-  %36 = getelementptr inbounds i8, ptr %4, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 1
   %.not64 = icmp eq i32 %40, 0
@@ -1562,7 +1562,7 @@ define internal i32 @frstrans_dissect_element_RdcFileInfo_rdc_filter_parameters_
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_CheckConnectivity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.216, ptr %7, align 8
   %8 = load i32, ptr @hf_frstrans_frstrans_CheckConnectivity_replica_set_guid, align 4
   %9 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #4
@@ -1576,7 +1576,7 @@ define internal i32 @frstrans_dissect_CheckConnectivity_request(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_CheckConnectivity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.216, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1585,7 +1585,7 @@ define internal i32 @frstrans_dissect_CheckConnectivity_response(ptr noundef %0,
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %15) #4
@@ -1598,7 +1598,7 @@ define internal i32 @frstrans_dissect_CheckConnectivity_response(ptr noundef %0,
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_EstablishConnection_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.217, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_frstrans_EstablishConnection_replica_set_guid, align 4
   %10 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef null) #4
@@ -1621,7 +1621,7 @@ define internal i32 @frstrans_dissect_EstablishConnection_request(ptr noundef %0
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_EstablishConnection_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.217, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_frstrans_EstablishConnection_upstream_protocol_version, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_EstablishConnection_upstream_protocol_version_, i32 noundef 1, ptr noundef nonnull @.str.235, i32 noundef %9) #4
@@ -1636,7 +1636,7 @@ define internal i32 @frstrans_dissect_EstablishConnection_response(ptr noundef %
   br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %6
-  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr @val_to_str(i32 noundef %17, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %21) #4
@@ -1648,7 +1648,7 @@ define internal i32 @frstrans_dissect_EstablishConnection_response(ptr noundef %
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_EstablishSession_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.218, ptr %7, align 8
   %8 = load i32, ptr @hf_frstrans_frstrans_EstablishSession_connection_guid, align 4
   %9 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #4
@@ -1662,7 +1662,7 @@ define internal i32 @frstrans_dissect_EstablishSession_request(ptr noundef %0, i
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_EstablishSession_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.218, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1671,7 +1671,7 @@ define internal i32 @frstrans_dissect_EstablishSession_response(ptr noundef %0, 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %15) #4
@@ -1684,7 +1684,7 @@ define internal i32 @frstrans_dissect_EstablishSession_response(ptr noundef %0, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_RequestUpdates_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.219, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_frstrans_RequestUpdates_connection_guid, align 4
   %10 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef null) #4
@@ -1716,7 +1716,7 @@ define internal i32 @frstrans_dissect_RequestUpdates_request(ptr noundef %0, i32
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_RequestUpdates_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.219, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_frstrans_RequestUpdates_frs_update, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_RequestUpdates_frs_update_, i32 noundef 1, ptr noundef nonnull @.str.238, i32 noundef %9) #4
@@ -1740,7 +1740,7 @@ define internal i32 @frstrans_dissect_RequestUpdates_response(ptr noundef %0, i3
   br i1 %.not, label %31, label %27
 
 27:                                               ; preds = %6
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @val_to_str(i32 noundef %26, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %30) #4
@@ -1754,7 +1754,7 @@ define internal i32 @frstrans_dissect_RequestUpdates_response(ptr noundef %0, i3
 define internal i32 @frstrans_dissect_RequestVersionVector_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.220, ptr %9, align 8
   %10 = load i32, ptr @hf_frstrans_frstrans_RequestVersionVector_sequence_number, align 4
   %11 = tail call i32 @PIDL_dissect_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %10, i32 noundef 0) #4
@@ -1786,7 +1786,7 @@ define internal i32 @frstrans_dissect_RequestVersionVector_request(ptr noundef %
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_RequestVersionVector_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.220, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_werror, align 4
   %10 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %9, ptr noundef nonnull %7) #4
@@ -1795,7 +1795,7 @@ define internal i32 @frstrans_dissect_RequestVersionVector_response(ptr noundef 
   br i1 %.not, label %16, label %12
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = call ptr @val_to_str(i32 noundef %11, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %15) #4
@@ -1807,7 +1807,7 @@ define internal i32 @frstrans_dissect_RequestVersionVector_response(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_AsyncPoll_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.221, ptr %7, align 8
   %8 = load i32, ptr @hf_frstrans_frstrans_AsyncPoll_connection_guid, align 4
   %9 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #4
@@ -1818,7 +1818,7 @@ define internal i32 @frstrans_dissect_AsyncPoll_request(ptr noundef %0, i32 noun
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_AsyncPoll_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.221, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_frstrans_AsyncPoll_response, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_AsyncPoll_response_, i32 noundef 1, ptr noundef nonnull @.str.243, i32 noundef %9) #4
@@ -1830,7 +1830,7 @@ define internal i32 @frstrans_dissect_AsyncPoll_response(ptr noundef %0, i32 nou
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %6
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @val_to_str(i32 noundef %14, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %18) #4
@@ -1842,105 +1842,105 @@ define internal i32 @frstrans_dissect_AsyncPoll_response(ptr noundef %0, i32 nou
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_REQUEST_RECORDS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.222, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_REQUEST_RECORDS_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.222, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_UPDATE_CANCEL_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.223, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_UPDATE_CANCEL_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.223, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RAW_GET_FILE_DATA_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.224, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RAW_GET_FILE_DATA_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.224, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_GET_SIGNATURES_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.225, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_GET_SIGNATURES_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.225, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_PUSH_SOURCE_NEEDS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.226, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_PUSH_SOURCE_NEEDS_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.226, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_GET_FILE_DATA_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.227, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_GET_FILE_DATA_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.227, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_CLOSE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.228, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_CLOSE_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.228, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_InitializeFileTransferAsync_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.229, ptr %7, align 8
   %8 = load i32, ptr @hf_frstrans_frstrans_InitializeFileTransferAsync_connection_guid, align 4
   %9 = tail call i32 @dissect_ndr_uuid_t(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %8, ptr noundef null) #4
@@ -1963,7 +1963,7 @@ define internal i32 @frstrans_dissect_InitializeFileTransferAsync_request(ptr no
 ; Function Attrs: nounwind uwtable
 define internal i32 @frstrans_dissect_InitializeFileTransferAsync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.229, ptr %8, align 8
   %9 = load i32, ptr @hf_frstrans_frstrans_InitializeFileTransferAsync_frs_update, align 4
   %10 = tail call i32 @dissect_ndr_toplevel_pointer(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @frstrans_dissect_element_InitializeFileTransferAsync_frs_update_, i32 noundef 1, ptr noundef nonnull @.str.238, i32 noundef %9) #4
@@ -1993,7 +1993,7 @@ define internal i32 @frstrans_dissect_InitializeFileTransferAsync_response(ptr n
   br i1 %.not, label %37, label %33
 
 33:                                               ; preds = %6
-  %34 = getelementptr inbounds i8, ptr %2, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr @val_to_str(i32 noundef %32, ptr noundef nonnull @WERR_errors, ptr noundef nonnull @.str.234) #4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.233, ptr noundef %36) #4
@@ -2005,42 +2005,42 @@ define internal i32 @frstrans_dissect_InitializeFileTransferAsync_response(ptr n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_OPNUM_0E_NOT_USED_ON_THE_WIRE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.230, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_OPNUM_0E_NOT_USED_ON_THE_WIRE_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.230, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RAW_GET_FILE_DATA_ASYNC_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.231, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RAW_GET_FILE_DATA_ASYNC_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.231, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_GET_FILE_DATA_ASYNC_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.232, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @frstrans_dissect_FRSTRANS_RDC_GET_FILE_DATA_ASYNC_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
-  %7 = getelementptr inbounds i8, ptr %4, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.232, ptr %7, align 8
   ret i32 %1
 }

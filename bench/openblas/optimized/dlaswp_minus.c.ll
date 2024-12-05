@@ -25,7 +25,7 @@ define noundef i32 @dlaswp_minus(i64 noundef %0, i64 noundef %1, i64 noundef %2,
   %24 = load i32, ptr %17, align 4, !tbaa !3
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds double, ptr %11, i64 %12
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = getelementptr inbounds double, ptr %11, i64 %25
   %.not = icmp eq ptr %27, %28
   br i1 %.not, label %.loopexit, label %.preheader

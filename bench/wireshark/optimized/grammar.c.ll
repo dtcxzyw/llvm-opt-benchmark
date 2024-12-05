@@ -23,15 +23,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @DfilterInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %3, ptr %0, align 8
   store i8 0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 25
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %4, align 1
   %5 = getelementptr i8, ptr %0, i64 1608
-  %6 = getelementptr inbounds i8, ptr %0, i64 1624
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   store ptr %5, ptr %6, align 8
   ret void
 }
@@ -43,15 +43,15 @@ define hidden ptr @DfilterAlloc(ptr nocapture noundef readonly %0) local_unnamed
   br i1 %.not, label %9, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 -1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %5, ptr %2, align 8
   store i8 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 25
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 25
   store i8 0, ptr %6, align 1
   %7 = getelementptr i8, ptr %2, i64 1608
-  %8 = getelementptr inbounds i8, ptr %2, i64 1624
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 1624
   store ptr %7, ptr %8, align 8
   br label %9
 
@@ -61,7 +61,7 @@ define hidden ptr @DfilterAlloc(ptr nocapture noundef readonly %0) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define hidden void @DfilterFinalize(ptr noundef %0) local_unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %0, align 8
   %4 = icmp ugt ptr %3, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
@@ -70,9 +70,9 @@ define hidden void @DfilterFinalize(ptr noundef %0) local_unnamed_addr #1 {
   %5 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
   %6 = getelementptr i8, ptr %5, i64 -16
   store ptr %6, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   tail call fastcc void @yy_destructor(i8 noundef zeroext %8, ptr noundef nonnull %9)
   %10 = load ptr, ptr %0, align 8
   %11 = icmp ugt ptr %10, %2
@@ -88,7 +88,7 @@ define hidden void @DfilterFree(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %3, label %15, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %0, align 8
   %7 = icmp ugt ptr %6, %5
   br i1 %7, label %.lr.ph.i, label %DfilterFinalize.exit
@@ -97,9 +97,9 @@ define hidden void @DfilterFree(ptr noundef %0, ptr nocapture noundef readonly %
   %8 = phi ptr [ %13, %.lr.ph.i ], [ %6, %4 ]
   %9 = getelementptr i8, ptr %8, i64 -16
   store ptr %9, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
-  %12 = getelementptr inbounds i8, ptr %8, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   tail call fastcc void @yy_destructor(i8 noundef zeroext %11, ptr noundef nonnull %12)
   %13 = load ptr, ptr %0, align 8
   %14 = icmp ugt ptr %13, %5
@@ -120,7 +120,7 @@ define hidden void @Dfilter(ptr noundef initializes((16, 24)) %0, i32 noundef %1
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %union.YYMINORTYPE, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %10, align 8
   %11 = icmp eq i32 %1, 0
   %12 = load ptr, ptr %0, align 8
@@ -128,7 +128,7 @@ define hidden void @Dfilter(ptr noundef initializes((16, 24)) %0, i32 noundef %1
   %14 = trunc i32 %1 to i8
   %.mask = and i32 %1, 255
   %15 = zext nneg i32 %.mask to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 1624
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   br label %17
 
 17:                                               ; preds = %yy_reduce.exit, %4
@@ -180,13 +180,13 @@ yy_find_shift_action.exit:                        ; preds = %17, %27, %30
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store ptr null, ptr %42, align 8
   br label %yy_reduce.exit
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = icmp ugt ptr %39, %45
   br i1 %46, label %.lr.ph.i, label %yyStackOverflow.exit
 
@@ -194,9 +194,9 @@ yy_find_shift_action.exit:                        ; preds = %17, %27, %30
   %47 = phi ptr [ %52, %.lr.ph.i ], [ %39, %43 ]
   %48 = getelementptr i8, ptr %47, i64 -16
   store ptr %48, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 1
   %50 = load i8, ptr %49, align 1
-  %51 = getelementptr inbounds i8, ptr %47, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   call fastcc void @yy_destructor(i8 noundef zeroext %50, ptr noundef nonnull %51)
   %52 = load ptr, ptr %0, align 8
   %53 = icmp ugt ptr %52, %45
@@ -265,9 +265,9 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
   ]
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %55, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store ptr %59, ptr %60, align 8
   br label %yy_reduce.exit
 
@@ -276,7 +276,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %56, i64 -24
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %56, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %67 = load ptr, ptr %66, align 8
   call void @sttype_oper_set2(ptr noundef %63, i32 noundef 2, ptr noundef %65, ptr noundef %67) #5
   %68 = load ptr, ptr %64, align 8
@@ -290,7 +290,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr i8, ptr %56, i64 -24
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %56, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %76 = load ptr, ptr %75, align 8
   call void @sttype_oper_set2(ptr noundef %72, i32 noundef 3, ptr noundef %74, ptr noundef %76) #5
   %77 = load ptr, ptr %73, align 8
@@ -306,7 +306,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
   %83 = getelementptr i8, ptr %56, i64 -24
   %84 = load ptr, ptr %83, align 8
   %85 = call ptr @stnode_dup(ptr noundef %84) #5
-  %86 = getelementptr inbounds i8, ptr %56, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = call ptr @stnode_dup(ptr noundef %87) #5
   call void @sttype_oper_set2(ptr noundef %82, i32 noundef 3, ptr noundef %85, ptr noundef %88) #5
@@ -332,7 +332,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
 101:                                              ; preds = %54
   %102 = getelementptr i8, ptr %56, i64 -8
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %56, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %105 = load ptr, ptr %104, align 8
   call void @sttype_oper_set1(ptr noundef %103, i32 noundef 1, ptr noundef %105) #5
   %106 = load ptr, ptr %102, align 8
@@ -346,7 +346,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr i8, ptr %56, i64 -24
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %56, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %114 = load ptr, ptr %113, align 8
   call void @stnode_merge_location(ptr noundef %110, ptr noundef %112, ptr noundef %114) #5
   %115 = load ptr, ptr %111, align 8
@@ -365,7 +365,7 @@ yyStackOverflow.exit:                             ; preds = %.lr.ph.i, %43
 
 121:                                              ; preds = %117
   %122 = call ptr @stnode_token(ptr noundef %119) #5
-  %123 = getelementptr inbounds i8, ptr %55, i64 24
+  %123 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %124 = load ptr, ptr %123, align 8
   %125 = call ptr @dfilter_resolve_unparsed(ptr noundef %122, ptr noundef %124) #5
   %126 = icmp eq ptr %125, null
@@ -389,7 +389,7 @@ resolve_unparsed.exit53:                          ; preds = %117, %131
   %134 = load ptr, ptr %132, align 8
   call void @g_slist_free(ptr noundef %134) #5
   %135 = load ptr, ptr %118, align 8
-  %136 = getelementptr inbounds i8, ptr %56, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %137 = load ptr, ptr %136, align 8
   call void @stnode_merge_location(ptr noundef %119, ptr noundef %135, ptr noundef %137) #5
   %138 = load ptr, ptr %136, align 8
@@ -412,7 +412,7 @@ resolve_unparsed.exit53:                          ; preds = %117, %131
 
 147:                                              ; preds = %143
   %148 = call ptr @stnode_token(ptr noundef %145) #5
-  %149 = getelementptr inbounds i8, ptr %55, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %150 = load ptr, ptr %149, align 8
   %151 = call ptr @dfilter_resolve_unparsed(ptr noundef %148, ptr noundef %150) #5
   %152 = icmp eq ptr %151, null
@@ -431,7 +431,7 @@ resolve_unparsed.exit53:                          ; preds = %117, %131
 
 resolve_unparsed.exit51:                          ; preds = %143, %157
   store ptr null, ptr %5, align 8
-  %158 = getelementptr inbounds i8, ptr %56, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %159 = load ptr, ptr %158, align 8
   %160 = call ptr @stnode_token(ptr noundef %159) #5
   %161 = call ptr @drange_node_from_str(ptr noundef %160, ptr noundef nonnull %5) #5
@@ -464,7 +464,7 @@ resolve_unparsed.exit51:                          ; preds = %143, %157
   br label %yy_reduce.exit
 
 176:                                              ; preds = %54
-  %177 = getelementptr inbounds i8, ptr %56, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %178 = load ptr, ptr %177, align 8
   %179 = call i32 @stnode_type_id(ptr noundef %178) #5
   %.not.i48 = icmp eq i32 %179, 2
@@ -472,7 +472,7 @@ resolve_unparsed.exit51:                          ; preds = %143, %157
 
 180:                                              ; preds = %176
   %181 = call ptr @stnode_token(ptr noundef %178) #5
-  %182 = getelementptr inbounds i8, ptr %55, i64 24
+  %182 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %183 = load ptr, ptr %182, align 8
   %184 = call ptr @dfilter_resolve_unparsed(ptr noundef %181, ptr noundef %183) #5
   %185 = icmp eq ptr %184, null
@@ -509,7 +509,7 @@ resolve_unparsed.exit49:                          ; preds = %176, %190
 
 199:                                              ; preds = %195
   %200 = call ptr @stnode_token(ptr noundef %197) #5
-  %201 = getelementptr inbounds i8, ptr %55, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %202 = load ptr, ptr %201, align 8
   %203 = call ptr @dfilter_resolve_unparsed(ptr noundef %200, ptr noundef %202) #5
   %204 = icmp eq ptr %203, null
@@ -541,7 +541,7 @@ resolve_unparsed.exit47:                          ; preds = %195, %209
   call void @sttype_field_set_raw(ptr noundef %216, i1 noundef zeroext %218) #5
   %219 = getelementptr i8, ptr %56, i64 -40
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %56, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %222 = load ptr, ptr %221, align 8
   call void @stnode_merge_location(ptr noundef %216, ptr noundef %220, ptr noundef %222) #5
   %223 = load ptr, ptr %196, align 8
@@ -557,7 +557,7 @@ resolve_unparsed.exit47:                          ; preds = %195, %209
   br label %yy_reduce.exit
 
 228:                                              ; preds = %54
-  %229 = getelementptr inbounds i8, ptr %56, i64 8
+  %229 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %230 = load ptr, ptr %229, align 8
   %231 = call i32 @stnode_type_id(ptr noundef %230) #5
   %.not.i45 = icmp eq i32 %231, 2
@@ -565,7 +565,7 @@ resolve_unparsed.exit47:                          ; preds = %195, %209
 
 232:                                              ; preds = %228
   %233 = call ptr @stnode_token(ptr noundef %230) #5
-  %234 = getelementptr inbounds i8, ptr %55, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %235 = load ptr, ptr %234, align 8
   %236 = call ptr @dfilter_resolve_unparsed(ptr noundef %233, ptr noundef %235) #5
   %237 = icmp eq ptr %236, null
@@ -607,7 +607,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 257:                                              ; preds = %54
-  %258 = getelementptr inbounds i8, ptr %56, i64 8
+  %258 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %259 = load ptr, ptr %258, align 8
   %260 = getelementptr i8, ptr %56, i64 -8
   %261 = load ptr, ptr %260, align 8
@@ -620,7 +620,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
 263:                                              ; preds = %54
   %264 = getelementptr i8, ptr %56, i64 -8
   %265 = load ptr, ptr %264, align 8
-  %266 = getelementptr inbounds i8, ptr %56, i64 8
+  %266 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %267 = load ptr, ptr %266, align 8
   call void @sttype_oper_set1(ptr noundef %265, i32 noundef 17, ptr noundef %267) #5
   %268 = load ptr, ptr %264, align 8
@@ -634,7 +634,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %56, i64 -24
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds i8, ptr %56, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %276 = load ptr, ptr %275, align 8
   call void @sttype_oper_set2(ptr noundef %272, i32 noundef 16, ptr noundef %274, ptr noundef %276) #5
   %277 = load ptr, ptr %273, align 8
@@ -648,7 +648,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr i8, ptr %56, i64 -24
   %283 = load ptr, ptr %282, align 8
-  %284 = getelementptr inbounds i8, ptr %56, i64 8
+  %284 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %285 = load ptr, ptr %284, align 8
   call void @sttype_oper_set2(ptr noundef %281, i32 noundef 18, ptr noundef %283, ptr noundef %285) #5
   %286 = load ptr, ptr %282, align 8
@@ -662,7 +662,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr i8, ptr %56, i64 -24
   %292 = load ptr, ptr %291, align 8
-  %293 = getelementptr inbounds i8, ptr %56, i64 8
+  %293 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %294 = load ptr, ptr %293, align 8
   call void @sttype_oper_set2(ptr noundef %290, i32 noundef 19, ptr noundef %292, ptr noundef %294) #5
   %295 = load ptr, ptr %291, align 8
@@ -676,7 +676,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %299 = load ptr, ptr %298, align 8
   %300 = getelementptr i8, ptr %56, i64 -24
   %301 = load ptr, ptr %300, align 8
-  %302 = getelementptr inbounds i8, ptr %56, i64 8
+  %302 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %303 = load ptr, ptr %302, align 8
   call void @sttype_oper_set2(ptr noundef %299, i32 noundef 20, ptr noundef %301, ptr noundef %303) #5
   %304 = load ptr, ptr %300, align 8
@@ -690,7 +690,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %308 = load ptr, ptr %307, align 8
   %309 = getelementptr i8, ptr %56, i64 -24
   %310 = load ptr, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %56, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %312 = load ptr, ptr %311, align 8
   call void @sttype_oper_set2(ptr noundef %308, i32 noundef 21, ptr noundef %310, ptr noundef %312) #5
   %313 = load ptr, ptr %309, align 8
@@ -704,7 +704,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr i8, ptr %56, i64 -24
   %319 = load ptr, ptr %318, align 8
-  %320 = getelementptr inbounds i8, ptr %56, i64 8
+  %320 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %321 = load ptr, ptr %320, align 8
   call void @sttype_oper_set2(ptr noundef %317, i32 noundef 22, ptr noundef %319, ptr noundef %321) #5
   %322 = load ptr, ptr %318, align 8
@@ -714,56 +714,56 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 324:                                              ; preds = %54
-  %325 = getelementptr inbounds i8, ptr %56, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %326 = load ptr, ptr %325, align 8
   call void @sttype_oper_set_op(ptr noundef %326, i32 noundef 4) #5
   store ptr %326, ptr %325, align 8
   br label %yy_reduce.exit
 
 327:                                              ; preds = %54
-  %328 = getelementptr inbounds i8, ptr %56, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %329 = load ptr, ptr %328, align 8
   call void @sttype_oper_set_op(ptr noundef %329, i32 noundef 5) #5
   store ptr %329, ptr %328, align 8
   br label %yy_reduce.exit
 
 330:                                              ; preds = %54
-  %331 = getelementptr inbounds i8, ptr %56, i64 8
+  %331 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %332 = load ptr, ptr %331, align 8
   call void @sttype_oper_set_op(ptr noundef %332, i32 noundef 6) #5
   store ptr %332, ptr %331, align 8
   br label %yy_reduce.exit
 
 333:                                              ; preds = %54
-  %334 = getelementptr inbounds i8, ptr %56, i64 8
+  %334 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %335 = load ptr, ptr %334, align 8
   call void @sttype_oper_set_op(ptr noundef %335, i32 noundef 7) #5
   store ptr %335, ptr %334, align 8
   br label %yy_reduce.exit
 
 336:                                              ; preds = %54
-  %337 = getelementptr inbounds i8, ptr %56, i64 8
+  %337 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %338 = load ptr, ptr %337, align 8
   call void @sttype_oper_set_op(ptr noundef %338, i32 noundef 8) #5
   store ptr %338, ptr %337, align 8
   br label %yy_reduce.exit
 
 339:                                              ; preds = %54
-  %340 = getelementptr inbounds i8, ptr %56, i64 8
+  %340 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %341 = load ptr, ptr %340, align 8
   call void @sttype_oper_set_op(ptr noundef %341, i32 noundef 9) #5
   store ptr %341, ptr %340, align 8
   br label %yy_reduce.exit
 
 342:                                              ; preds = %54
-  %343 = getelementptr inbounds i8, ptr %56, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %344 = load ptr, ptr %343, align 8
   call void @sttype_oper_set_op(ptr noundef %344, i32 noundef 10) #5
   store ptr %344, ptr %343, align 8
   br label %yy_reduce.exit
 
 345:                                              ; preds = %54
-  %346 = getelementptr inbounds i8, ptr %56, i64 8
+  %346 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %347 = load ptr, ptr %346, align 8
   call void @sttype_oper_set_op(ptr noundef %347, i32 noundef 11) #5
   store ptr %347, ptr %346, align 8
@@ -774,7 +774,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %350 = load ptr, ptr %349, align 8
   %351 = getelementptr i8, ptr %56, i64 -24
   %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %56, i64 8
+  %353 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %354 = load ptr, ptr %353, align 8
   call void @sttype_oper_set2_args(ptr noundef %350, ptr noundef %352, ptr noundef %354) #5
   %355 = load ptr, ptr %351, align 8
@@ -784,7 +784,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 357:                                              ; preds = %54
-  %358 = getelementptr inbounds i8, ptr %56, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %359 = load ptr, ptr %358, align 8
   store ptr %359, ptr %6, align 8
   %360 = call i32 @stnode_type_id(ptr noundef %359) #5
@@ -825,7 +825,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %378 = load ptr, ptr %377, align 8
   %379 = getelementptr i8, ptr %56, i64 -24
   %380 = load ptr, ptr %379, align 8
-  %381 = getelementptr inbounds i8, ptr %56, i64 8
+  %381 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %382 = load ptr, ptr %381, align 8
   call void @sttype_oper_set2(ptr noundef %378, i32 noundef 12, ptr noundef %380, ptr noundef %382) #5
   %383 = load ptr, ptr %379, align 8
@@ -839,7 +839,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %387 = load ptr, ptr %386, align 8
   %388 = getelementptr i8, ptr %56, i64 -24
   %389 = load ptr, ptr %388, align 8
-  %390 = getelementptr inbounds i8, ptr %56, i64 8
+  %390 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %391 = load ptr, ptr %390, align 8
   call void @sttype_oper_set2(ptr noundef %387, i32 noundef 13, ptr noundef %389, ptr noundef %391) #5
   %392 = load ptr, ptr %388, align 8
@@ -853,7 +853,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %396 = load ptr, ptr %395, align 8
   %397 = getelementptr i8, ptr %56, i64 -24
   %398 = load ptr, ptr %397, align 8
-  %399 = getelementptr inbounds i8, ptr %56, i64 8
+  %399 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %400 = load ptr, ptr %399, align 8
   call void @sttype_oper_set2(ptr noundef %396, i32 noundef 14, ptr noundef %398, ptr noundef %400) #5
   %401 = load ptr, ptr %397, align 8
@@ -867,7 +867,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr i8, ptr %56, i64 -40
   %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds i8, ptr %56, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %409 = load ptr, ptr %408, align 8
   call void @sttype_oper_set2(ptr noundef %405, i32 noundef 15, ptr noundef %407, ptr noundef %409) #5
   %410 = load ptr, ptr %406, align 8
@@ -880,7 +880,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 414:                                              ; preds = %54
-  %415 = getelementptr inbounds i8, ptr %56, i64 8
+  %415 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %416 = load ptr, ptr %415, align 8
   call void @sttype_test_set_match(ptr noundef %416, i32 noundef 1) #5
   %417 = getelementptr i8, ptr %56, i64 -8
@@ -893,7 +893,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 421:                                              ; preds = %54
-  %422 = getelementptr inbounds i8, ptr %56, i64 8
+  %422 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %423 = load ptr, ptr %422, align 8
   call void @sttype_test_set_match(ptr noundef %423, i32 noundef 2) #5
   %424 = getelementptr i8, ptr %56, i64 -8
@@ -906,7 +906,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 428:                                              ; preds = %54
-  %429 = getelementptr inbounds i8, ptr %56, i64 8
+  %429 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %430 = load ptr, ptr %429, align 8
   %431 = call ptr @g_slist_append(ptr noundef null, ptr noundef %430) #5
   %432 = call ptr @g_slist_append(ptr noundef %431, ptr noundef null) #5
@@ -917,7 +917,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %434 = getelementptr i8, ptr %56, i64 -24
   %435 = load ptr, ptr %434, align 8
   %436 = call ptr @g_slist_append(ptr noundef null, ptr noundef %435) #5
-  %437 = getelementptr inbounds i8, ptr %56, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %438 = load ptr, ptr %437, align 8
   %439 = call ptr @g_slist_append(ptr noundef %436, ptr noundef %438) #5
   %440 = getelementptr i8, ptr %56, i64 -8
@@ -927,7 +927,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   br label %yy_reduce.exit
 
 442:                                              ; preds = %54
-  %443 = getelementptr inbounds i8, ptr %56, i64 8
+  %443 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %444 = load ptr, ptr %443, align 8
   %445 = call ptr @g_slist_concat(ptr noundef null, ptr noundef %444) #5
   store ptr %445, ptr %443, align 8
@@ -936,7 +936,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
 446:                                              ; preds = %54
   %447 = getelementptr i8, ptr %56, i64 -24
   %448 = load ptr, ptr %447, align 8
-  %449 = getelementptr inbounds i8, ptr %56, i64 8
+  %449 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %450 = load ptr, ptr %449, align 8
   %451 = call ptr @g_slist_concat(ptr noundef %448, ptr noundef %450) #5
   %452 = getelementptr i8, ptr %56, i64 -8
@@ -953,7 +953,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %459 = call ptr @stnode_new(i32 noundef 12, ptr noundef %456, ptr noundef null, i64 %457, i64 %458) #5
   %460 = getelementptr i8, ptr %56, i64 -24
   %461 = load ptr, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %56, i64 8
+  %462 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %463 = load ptr, ptr %462, align 8
   call void @stnode_merge_location(ptr noundef %459, ptr noundef %461, ptr noundef %463) #5
   %464 = load ptr, ptr %460, align 8
@@ -977,7 +977,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
   %475 = getelementptr i8, ptr %56, i64 -24
   %476 = load ptr, ptr %475, align 8
   call void @stnode_free(ptr noundef %476) #5
-  %477 = getelementptr inbounds i8, ptr %56, i64 8
+  %477 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %478 = load ptr, ptr %477, align 8
   call void @stnode_free(ptr noundef %478) #5
   store ptr %469, ptr %470, align 8
@@ -985,7 +985,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
 
 479:                                              ; preds = %54
   store ptr null, ptr %7, align 8
-  %480 = getelementptr inbounds i8, ptr %56, i64 8
+  %480 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %481 = load ptr, ptr %480, align 8
   %482 = call ptr @stnode_token(ptr noundef %481) #5
   %483 = call ptr @drange_node_from_str(ptr noundef %482, ptr noundef nonnull %7) #5
@@ -1013,7 +1013,7 @@ resolve_unparsed.exit:                            ; preds = %228, %242
 
 495:                                              ; preds = %54
   store ptr null, ptr %8, align 8
-  %496 = getelementptr inbounds i8, ptr %56, i64 8
+  %496 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %497 = load ptr, ptr %496, align 8
   %498 = call ptr @stnode_token(ptr noundef %497) #5
   %499 = call ptr @drange_node_from_str(ptr noundef %498, ptr noundef nonnull %8) #5
@@ -1065,7 +1065,7 @@ new_function.exit44:                              ; preds = %515, %520
   %525 = load ptr, ptr %524, align 8
   call void @sttype_function_set_params(ptr noundef %517, ptr noundef %525) #5
   %526 = load ptr, ptr %516, align 8
-  %527 = getelementptr inbounds i8, ptr %56, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %528 = load ptr, ptr %527, align 8
   call void @stnode_merge_location(ptr noundef %517, ptr noundef %526, ptr noundef %528) #5
   %529 = load ptr, ptr %527, align 8
@@ -1094,7 +1094,7 @@ new_function.exit44:                              ; preds = %515, %520
 new_function.exit:                                ; preds = %532, %537
   call void @stnode_replace(ptr noundef %534, i32 noundef 11, ptr noundef %536) #5
   %541 = load ptr, ptr %533, align 8
-  %542 = getelementptr inbounds i8, ptr %56, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %543 = load ptr, ptr %542, align 8
   call void @stnode_merge_location(ptr noundef %534, ptr noundef %541, ptr noundef %543) #5
   %544 = load ptr, ptr %542, align 8
@@ -1106,7 +1106,7 @@ new_function.exit:                                ; preds = %532, %537
   br label %yy_reduce.exit
 
 547:                                              ; preds = %54
-  %548 = getelementptr inbounds i8, ptr %56, i64 8
+  %548 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %549 = load ptr, ptr %548, align 8
   %550 = call ptr @g_slist_append(ptr noundef null, ptr noundef %549) #5
   store ptr %550, ptr %548, align 8
@@ -1115,7 +1115,7 @@ new_function.exit:                                ; preds = %532, %537
 551:                                              ; preds = %54
   %552 = getelementptr i8, ptr %56, i64 -24
   %553 = load ptr, ptr %552, align 8
-  %554 = getelementptr inbounds i8, ptr %56, i64 8
+  %554 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %555 = load ptr, ptr %554, align 8
   %556 = call ptr @g_slist_append(ptr noundef %553, ptr noundef %555) #5
   %557 = getelementptr i8, ptr %56, i64 -8
@@ -1168,7 +1168,7 @@ yy_reduce.exit:                                   ; preds = %54, %57, %.thread, 
 585:                                              ; preds = %580
   store ptr %581, ptr %0, align 8
   %586 = load ptr, ptr %10, align 8
-  %587 = getelementptr inbounds i8, ptr %0, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %588 = icmp ugt ptr %581, %587
   br i1 %588, label %.lr.ph.i.i, label %yyStackOverflow.exit.i
 
@@ -1176,9 +1176,9 @@ yy_reduce.exit:                                   ; preds = %54, %57, %.thread, 
   %589 = phi ptr [ %594, %.lr.ph.i.i ], [ %581, %585 ]
   %590 = getelementptr i8, ptr %589, i64 -16
   store ptr %590, ptr %0, align 8
-  %591 = getelementptr inbounds i8, ptr %589, i64 1
+  %591 = getelementptr inbounds nuw i8, ptr %589, i64 1
   %592 = load i8, ptr %591, align 1
-  %593 = getelementptr inbounds i8, ptr %589, i64 8
+  %593 = getelementptr inbounds nuw i8, ptr %589, i64 8
   call fastcc void @yy_destructor(i8 noundef zeroext %592, ptr noundef nonnull %593)
   %594 = load ptr, ptr %0, align 8
   %595 = icmp ugt ptr %594, %587
@@ -1200,7 +1200,7 @@ yyStackOverflow.exit.i:                           ; preds = %.lr.ph.i.i, %585
   br label %yy_shift.exit
 
 yy_shift.exit:                                    ; preds = %yyStackOverflow.exit.i, %596
-  %601 = getelementptr inbounds i8, ptr %0, i64 8
+  %601 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %602 = load i32, ptr %601, align 8
   %603 = add i32 %602, -1
   store i32 %603, ptr %601, align 8
@@ -1214,13 +1214,13 @@ yy_shift.exit:                                    ; preds = %yyStackOverflow.exi
   %607 = load ptr, ptr %0, align 8
   %608 = getelementptr i8, ptr %607, i64 -16
   store ptr %608, ptr %0, align 8
-  %609 = getelementptr inbounds i8, ptr %0, i64 8
+  %609 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -1, ptr %609, align 8
   br label %636
 
 610:                                              ; preds = %604
   store ptr %2, ptr %9, align 8
-  %611 = getelementptr inbounds i8, ptr %0, i64 8
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %612 = load i32, ptr %611, align 8
   %613 = icmp slt i32 %612, 1
   br i1 %613, label %614, label %yy_syntax_error.exit
@@ -1252,7 +1252,7 @@ yy_syntax_error.exit:                             ; preds = %619, %616, %610
 
 624:                                              ; preds = %yy_syntax_error.exit
   %625 = load ptr, ptr %10, align 8
-  %626 = getelementptr inbounds i8, ptr %0, i64 24
+  %626 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %627 = load ptr, ptr %0, align 8
   %628 = icmp ugt ptr %627, %626
   br i1 %628, label %.lr.ph.i41, label %yy_parse_failed.exit
@@ -1261,9 +1261,9 @@ yy_syntax_error.exit:                             ; preds = %619, %616, %610
   %629 = phi ptr [ %634, %.lr.ph.i41 ], [ %627, %624 ]
   %630 = getelementptr i8, ptr %629, i64 -16
   store ptr %630, ptr %0, align 8
-  %631 = getelementptr inbounds i8, ptr %629, i64 1
+  %631 = getelementptr inbounds nuw i8, ptr %629, i64 1
   %632 = load i8, ptr %631, align 1
-  %633 = getelementptr inbounds i8, ptr %629, i64 8
+  %633 = getelementptr inbounds nuw i8, ptr %629, i64 8
   call fastcc void @yy_destructor(i8 noundef zeroext %632, ptr noundef nonnull %633)
   %634 = load ptr, ptr %0, align 8
   %635 = icmp ugt ptr %634, %626

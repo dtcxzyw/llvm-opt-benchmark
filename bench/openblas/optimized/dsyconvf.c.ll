@@ -85,7 +85,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 .preheader38:                                     ; preds = %45, %63
   %46 = phi i32 [ %66, %63 ], [ %28, %45 ]
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %15, i64 %47
+  %48 = getelementptr inbounds nuw i32, ptr %15, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !3
   %50 = icmp slt i32 %49, 0
   br i1 %50, label %51, label %61
@@ -97,15 +97,15 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds double, ptr %13, i64 %55
   %57 = load double, ptr %56, align 8, !tbaa !7
-  %58 = getelementptr inbounds double, ptr %14, i64 %47
+  %58 = getelementptr inbounds nuw double, ptr %14, i64 %47
   store double %57, ptr %58, align 8, !tbaa !7
   %59 = zext nneg i32 %52 to i64
-  %60 = getelementptr inbounds double, ptr %14, i64 %59
+  %60 = getelementptr inbounds nuw double, ptr %14, i64 %59
   store double 0.000000e+00, ptr %60, align 8, !tbaa !7
   br label %63
 
 61:                                               ; preds = %.preheader38
-  %62 = getelementptr inbounds double, ptr %14, i64 %47
+  %62 = getelementptr inbounds nuw double, ptr %14, i64 %47
   br label %63
 
 63:                                               ; preds = %61, %51
@@ -122,7 +122,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 .preheader36:                                     ; preds = %.preheader36.preheader, %105
   %68 = phi i32 [ %107, %105 ], [ %28, %.preheader36.preheader ]
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds i32, ptr %15, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %15, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = icmp sgt i32 %71, 0
   %73 = load i32, ptr %2, align 4, !tbaa !3
@@ -261,13 +261,13 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 .preheader33:                                     ; preds = %109, %170
   %157 = phi i32 [ %172, %170 ], [ %155, %109 ]
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %15, i64 %158
+  %159 = getelementptr inbounds nuw i32, ptr %15, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !3
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %162, label %170
 
 162:                                              ; preds = %.preheader33
-  %163 = getelementptr inbounds double, ptr %14, i64 %158
+  %163 = getelementptr inbounds nuw double, ptr %14, i64 %158
   %164 = load double, ptr %163, align 8, !tbaa !7
   %165 = add nsw i32 %157, -1
   %166 = mul nsw i32 %157, %10
@@ -288,7 +288,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 
 .preheader32.preheader:                           ; preds = %174
   %175 = zext nneg i32 %28 to i64
-  %176 = getelementptr inbounds double, ptr %14, i64 %175
+  %176 = getelementptr inbounds nuw double, ptr %14, i64 %175
   store double 0.000000e+00, ptr %176, align 8, !tbaa !7
   br label %.preheader32
 
@@ -406,7 +406,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 .preheader29:                                     ; preds = %174, %274
   %238 = phi i32 [ %276, %274 ], [ %28, %174 ]
   %239 = zext nneg i32 %238 to i64
-  %240 = getelementptr inbounds i32, ptr %15, i64 %239
+  %240 = getelementptr inbounds nuw i32, ptr %15, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !3
   %242 = icmp sgt i32 %241, 0
   br i1 %242, label %243, label %255
@@ -434,7 +434,7 @@ define void @dsyconvf_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef rea
 255:                                              ; preds = %.preheader29
   %256 = add nsw i32 %238, -1
   %257 = zext nneg i32 %256 to i64
-  %258 = getelementptr inbounds i32, ptr %15, i64 %257
+  %258 = getelementptr inbounds nuw i32, ptr %15, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
   %260 = icmp samesign ult i32 %238, 3
   %261 = sub nsw i32 0, %259

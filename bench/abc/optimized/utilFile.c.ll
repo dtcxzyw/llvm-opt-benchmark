@@ -91,7 +91,7 @@ define noalias noundef ptr @vnsprintf(ptr nocapture noundef readonly %0, ptr nou
   %11 = zext i32 %10 to i64
   %12 = call noalias ptr @malloc(i64 noundef %11) #12
   %13 = zext i32 %9 to i64
-  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 %13
   store i8 -1, ptr %14, align 1
   %15 = call i32 @vsprintf(ptr noundef %12, ptr noundef %0, ptr noundef nonnull %3) #13
   ret ptr %12
@@ -129,7 +129,7 @@ vnsprintf.exit:                                   ; preds = %1, %5
   %10 = zext i32 %9 to i64
   %11 = call noalias ptr @malloc(i64 noundef %10) #12
   %12 = zext i32 %8 to i64
-  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 %12
   store i8 -1, ptr %13, align 1
   %14 = call i32 @vsprintf(ptr noundef %11, ptr noundef readonly %0, ptr noundef nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)

@@ -45,10 +45,10 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.sroa.013.018 = phi ptr [ %.sroa.013.0, %.lr.ph ], [ %.sroa.013.016, %2 ]
-  %18 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 8
   %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %18)
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.3)
-  %21 = getelementptr inbounds i8, ptr %.sroa.013.018, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.013.018, i64 16
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(16) %21)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.1)
   %.sroa.013.0 = load ptr, ptr %.sroa.013.018, align 8
@@ -150,9 +150,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %30
 
 49:                                               ; preds = %95, %.lr.ph.i.i.i
   %.sroa.021.029.i.i.i = phi ptr [ %.sroa.021.027.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.021.0.i.i.i, %95 ]
-  %50 = getelementptr inbounds i8, ptr %.sroa.021.029.i.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.021.029.i.i.i, i64 8
   %51 = load i64, ptr %48, align 8
-  %52 = getelementptr inbounds i8, ptr %.sroa.021.029.i.i.i, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.021.029.i.i.i, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = urem i64 %53, %51
   %55 = load ptr, ptr %41, align 8
@@ -163,13 +163,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %30
 
 58:                                               ; preds = %49
   %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds i8, ptr %.sroa.021.029.i.i.i, i64 16
-  %61 = getelementptr inbounds i8, ptr %.sroa.021.029.i.i.i, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.021.029.i.i.i, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.021.029.i.i.i, i64 24
   br label %62
 
 62:                                               ; preds = %90, %58
   %.0.i.i.i = phi ptr [ %59, %58 ], [ %89, %90 ]
-  %63 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = ptrtoint ptr %64 to i64
   %66 = load ptr, ptr %50, align 8
@@ -179,8 +179,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValueeqERKS0_.exit: ; preds = %30
   br i1 %69, label %70, label %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i
 
 70:                                               ; preds = %62
-  %71 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 16
-  %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   %75 = load ptr, ptr %61, align 8
@@ -216,7 +216,7 @@ _ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T
 
 90:                                               ; preds = %_ZSteqIKN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_7VtValueEEbRKSt4pairIT_T0_ES9_.exit.thread.i.i.i
   %91 = load i64, ptr %48, align 8
-  %92 = getelementptr inbounds i8, ptr %89, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %93 = load i64, ptr %92, align 8
   %94 = urem i64 %93, %91
   %.not20.i.i.i = icmp eq i64 %94, %54

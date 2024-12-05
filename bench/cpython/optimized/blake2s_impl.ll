@@ -89,7 +89,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   %3 = load i8, ptr %P, align 1
-  %outlen = getelementptr inbounds i8, ptr %S, i64 180
+  %outlen = getelementptr inbounds nuw i8, ptr %S, i64 180
   store i8 %3, ptr %outlen, align 1
   ret i32 0
 }
@@ -105,13 +105,13 @@ entry:
 if.end:                                           ; preds = %entry
   %conv = trunc nuw nsw i64 %outlen to i8
   store i8 %conv, ptr %P, align 16
-  %key_length = getelementptr inbounds i8, ptr %P, i64 1
+  %key_length = getelementptr inbounds nuw i8, ptr %P, i64 1
   store i8 0, ptr %key_length, align 1
-  %fanout = getelementptr inbounds i8, ptr %P, i64 2
+  %fanout = getelementptr inbounds nuw i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds i8, ptr %P, i64 3
+  %depth = getelementptr inbounds nuw i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
+  %leaf_length = getelementptr inbounds nuw i8, ptr %P, i64 4
   %1 = getelementptr i8, ptr %S, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %1, i8 0, i64 150, i1 false)
@@ -131,7 +131,7 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %PyBlake2_blake2s_init_param.exit, label %for.body.i, !llvm.loop !4
 
 PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
-  %outlen.i = getelementptr inbounds i8, ptr %S, i64 180
+  %outlen.i = getelementptr inbounds nuw i8, ptr %S, i64 180
   store i8 %conv, ptr %outlen.i, align 1
   br label %return
 
@@ -163,13 +163,13 @@ if.end7:                                          ; preds = %if.end
   %conv = trunc nuw nsw i64 %outlen to i8
   store i8 %conv, ptr %P, align 16
   %conv8 = trunc nuw nsw i64 %keylen to i8
-  %key_length = getelementptr inbounds i8, ptr %P, i64 1
+  %key_length = getelementptr inbounds nuw i8, ptr %P, i64 1
   store i8 %conv8, ptr %key_length, align 1
-  %fanout = getelementptr inbounds i8, ptr %P, i64 2
+  %fanout = getelementptr inbounds nuw i8, ptr %P, i64 2
   store i8 1, ptr %fanout, align 2
-  %depth = getelementptr inbounds i8, ptr %P, i64 3
+  %depth = getelementptr inbounds nuw i8, ptr %P, i64 3
   store i8 1, ptr %depth, align 1
-  %leaf_length = getelementptr inbounds i8, ptr %P, i64 4
+  %leaf_length = getelementptr inbounds nuw i8, ptr %P, i64 4
   %3 = getelementptr i8, ptr %S, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %3, i8 0, i64 150, i1 false)
@@ -189,12 +189,12 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   br i1 %exitcond.not.i, label %PyBlake2_blake2s_init_param.exit, label %for.body.i, !llvm.loop !4
 
 PyBlake2_blake2s_init_param.exit:                 ; preds = %for.body.i
-  %outlen.i = getelementptr inbounds i8, ptr %S, i64 180
+  %outlen.i = getelementptr inbounds nuw i8, ptr %S, i64 180
   store i8 %conv, ptr %outlen.i, align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block, i8 0, i64 64, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block, ptr align 1 %key, i64 %keylen, i1 false)
-  %buflen.i = getelementptr inbounds i8, ptr %S, i64 176
-  %buf19.i = getelementptr inbounds i8, ptr %S, i64 48
+  %buflen.i = getelementptr inbounds nuw i8, ptr %S, i64 176
+  %buf19.i = getelementptr inbounds nuw i8, ptr %S, i64 48
   %arrayidx4.i.i = getelementptr i8, ptr %S, i64 36
   %add.ptr12.i = getelementptr i8, ptr %S, i64 112
   %.pre.i = load i32, ptr %buflen.i, align 1
@@ -267,9 +267,9 @@ entry:
   br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %buflen = getelementptr inbounds i8, ptr %S, i64 176
-  %buf19 = getelementptr inbounds i8, ptr %S, i64 48
-  %t.i = getelementptr inbounds i8, ptr %S, i64 32
+  %buflen = getelementptr inbounds nuw i8, ptr %S, i64 176
+  %buf19 = getelementptr inbounds nuw i8, ptr %S, i64 48
+  %t.i = getelementptr inbounds nuw i8, ptr %S, i64 32
   %arrayidx4.i = getelementptr i8, ptr %S, i64 36
   %add.ptr12 = getelementptr i8, ptr %S, i64 112
   %.pre = load i32, ptr %buflen, align 1
@@ -326,55 +326,55 @@ define internal fastcc void @PyBlake2_blake2s_compress(ptr nocapture noundef %S,
 entry:
   %v = alloca [16 x i32], align 16
   %m.sroa.0.0.copyload = load i32, ptr %block, align 1
-  %m.sroa.8.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 4
+  %m.sroa.8.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 4
   %m.sroa.8.0.copyload = load i32, ptr %m.sroa.8.0.block.sroa_idx, align 1
-  %m.sroa.15.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 8
+  %m.sroa.15.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 8
   %m.sroa.15.0.copyload = load i32, ptr %m.sroa.15.0.block.sroa_idx, align 1
-  %m.sroa.22.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 12
+  %m.sroa.22.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 12
   %m.sroa.22.0.copyload = load i32, ptr %m.sroa.22.0.block.sroa_idx, align 1
-  %m.sroa.29.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 16
+  %m.sroa.29.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 16
   %m.sroa.29.0.copyload = load i32, ptr %m.sroa.29.0.block.sroa_idx, align 1
-  %m.sroa.36.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 20
+  %m.sroa.36.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 20
   %m.sroa.36.0.copyload = load i32, ptr %m.sroa.36.0.block.sroa_idx, align 1
-  %m.sroa.44.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 24
+  %m.sroa.44.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 24
   %m.sroa.44.0.copyload = load i32, ptr %m.sroa.44.0.block.sroa_idx, align 1
-  %m.sroa.51.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 28
+  %m.sroa.51.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 28
   %m.sroa.51.0.copyload = load i32, ptr %m.sroa.51.0.block.sroa_idx, align 1
-  %m.sroa.58.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 32
+  %m.sroa.58.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 32
   %m.sroa.58.0.copyload = load i32, ptr %m.sroa.58.0.block.sroa_idx, align 1
-  %m.sroa.65.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 36
+  %m.sroa.65.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 36
   %m.sroa.65.0.copyload = load i32, ptr %m.sroa.65.0.block.sroa_idx, align 1
-  %m.sroa.72.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 40
+  %m.sroa.72.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 40
   %m.sroa.72.0.copyload = load i32, ptr %m.sroa.72.0.block.sroa_idx, align 1
-  %m.sroa.79.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 44
+  %m.sroa.79.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 44
   %m.sroa.79.0.copyload = load i32, ptr %m.sroa.79.0.block.sroa_idx, align 1
-  %m.sroa.86.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 48
+  %m.sroa.86.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 48
   %m.sroa.86.0.copyload = load i32, ptr %m.sroa.86.0.block.sroa_idx, align 1
-  %m.sroa.93.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 52
+  %m.sroa.93.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 52
   %m.sroa.93.0.copyload = load i32, ptr %m.sroa.93.0.block.sroa_idx, align 1
-  %m.sroa.100.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 56
+  %m.sroa.100.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 56
   %m.sroa.100.0.copyload = load i32, ptr %m.sroa.100.0.block.sroa_idx, align 1
-  %m.sroa.107.0.block.sroa_idx = getelementptr inbounds i8, ptr %block, i64 60
+  %m.sroa.107.0.block.sroa_idx = getelementptr inbounds nuw i8, ptr %block, i64 60
   %m.sroa.107.0.copyload = load i32, ptr %m.sroa.107.0.block.sroa_idx, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %v, ptr noundef nonnull align 1 dereferenceable(32) %S, i64 32, i1 false)
-  %arrayidx10 = getelementptr inbounds i8, ptr %v, i64 32
-  %arrayidx11 = getelementptr inbounds i8, ptr %v, i64 36
-  %arrayidx12 = getelementptr inbounds i8, ptr %v, i64 40
-  %arrayidx13 = getelementptr inbounds i8, ptr %v, i64 44
-  %t = getelementptr inbounds i8, ptr %S, i64 32
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %v, i64 32
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %v, i64 36
+  %arrayidx12 = getelementptr inbounds nuw i8, ptr %v, i64 40
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %v, i64 44
+  %t = getelementptr inbounds nuw i8, ptr %S, i64 32
   %0 = load i32, ptr %t, align 1
-  %arrayidx15 = getelementptr inbounds i8, ptr %v, i64 48
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %v, i64 48
   %arrayidx17 = getelementptr i8, ptr %S, i64 36
   %1 = load i32, ptr %arrayidx17, align 1
-  %arrayidx19 = getelementptr inbounds i8, ptr %v, i64 52
-  %f = getelementptr inbounds i8, ptr %S, i64 40
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %v, i64 52
+  %f = getelementptr inbounds nuw i8, ptr %S, i64 40
   %2 = load i32, ptr %f, align 1
-  %arrayidx22 = getelementptr inbounds i8, ptr %v, i64 56
+  %arrayidx22 = getelementptr inbounds nuw i8, ptr %v, i64 56
   %arrayidx24 = getelementptr i8, ptr %S, i64 44
   %3 = load i32, ptr %arrayidx24, align 1
-  %arrayidx26 = getelementptr inbounds i8, ptr %v, i64 60
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %v, i64 60
   %4 = load i32, ptr %v, align 16
-  %arrayidx29 = getelementptr inbounds i8, ptr %v, i64 16
+  %arrayidx29 = getelementptr inbounds nuw i8, ptr %v, i64 16
   %5 = load i32, ptr %arrayidx29, align 16
   %add = add i32 %5, %4
   %add31 = add i32 %add, %m.sroa.0.0.copyload
@@ -391,9 +391,9 @@ entry:
   %add61 = add i32 %or.i19, %add40
   %xor65 = xor i32 %add61, %or.i18
   %or.i20 = tail call i32 @llvm.fshl.i32(i32 %xor65, i32 %xor65, i32 25)
-  %arrayidx69 = getelementptr inbounds i8, ptr %v, i64 4
+  %arrayidx69 = getelementptr inbounds nuw i8, ptr %v, i64 4
   %7 = load i32, ptr %arrayidx69, align 4
-  %arrayidx70 = getelementptr inbounds i8, ptr %v, i64 20
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %v, i64 20
   %8 = load i32, ptr %arrayidx70, align 4
   %add71 = add i32 %8, %7
   %add74 = add i32 %add71, %m.sroa.15.0.copyload
@@ -410,9 +410,9 @@ entry:
   %add104 = add i32 %or.i23, %add83
   %xor108 = xor i32 %add104, %or.i22
   %or.i24 = tail call i32 @llvm.fshl.i32(i32 %xor108, i32 %xor108, i32 25)
-  %arrayidx113 = getelementptr inbounds i8, ptr %v, i64 8
+  %arrayidx113 = getelementptr inbounds nuw i8, ptr %v, i64 8
   %10 = load i32, ptr %arrayidx113, align 8
-  %arrayidx114 = getelementptr inbounds i8, ptr %v, i64 24
+  %arrayidx114 = getelementptr inbounds nuw i8, ptr %v, i64 24
   %11 = load i32, ptr %arrayidx114, align 8
   %add115 = add i32 %11, %10
   %add118 = add i32 %add115, %m.sroa.29.0.copyload
@@ -429,9 +429,9 @@ entry:
   %add148 = add i32 %or.i27, %add127
   %xor152 = xor i32 %add148, %or.i26
   %or.i28 = tail call i32 @llvm.fshl.i32(i32 %xor152, i32 %xor152, i32 25)
-  %arrayidx157 = getelementptr inbounds i8, ptr %v, i64 12
+  %arrayidx157 = getelementptr inbounds nuw i8, ptr %v, i64 12
   %13 = load i32, ptr %arrayidx157, align 4
-  %arrayidx158 = getelementptr inbounds i8, ptr %v, i64 28
+  %arrayidx158 = getelementptr inbounds nuw i8, ptr %v, i64 28
   %14 = load i32, ptr %arrayidx158, align 4
   %add159 = add i32 %14, %13
   %add162 = add i32 %add159, %m.sroa.44.0.copyload
@@ -1646,20 +1646,20 @@ for.end3578:                                      ; preds = %for.body3566
 define hidden range(i32 -1, 1) i32 @PyBlake2_blake2s_final(ptr nocapture noundef %S, ptr nocapture noundef writeonly %out, i64 noundef %outlen) local_unnamed_addr #0 {
 entry:
   %buffer = alloca [32 x i8], align 16
-  %outlen1 = getelementptr inbounds i8, ptr %S, i64 180
+  %outlen1 = getelementptr inbounds nuw i8, ptr %S, i64 180
   %0 = load i8, ptr %outlen1, align 1
   %conv = zext i8 %0 to i64
   %cmp.not = icmp eq i64 %outlen, %conv
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %buflen = getelementptr inbounds i8, ptr %S, i64 176
+  %buflen = getelementptr inbounds nuw i8, ptr %S, i64 176
   %1 = load i32, ptr %buflen, align 1
   %cmp3 = icmp ugt i32 %1, 64
   br i1 %cmp3, label %if.then5, label %if.end14
 
 if.then5:                                         ; preds = %if.end
-  %t.i = getelementptr inbounds i8, ptr %S, i64 32
+  %t.i = getelementptr inbounds nuw i8, ptr %S, i64 32
   %2 = load i32, ptr %t.i, align 1
   %add.i = add i32 %2, 64
   store i32 %add.i, ptr %t.i, align 1
@@ -1669,7 +1669,7 @@ if.then5:                                         ; preds = %if.end
   %3 = load i32, ptr %arrayidx4.i, align 1
   %add5.i = add i32 %3, %conv.i
   store i32 %add5.i, ptr %arrayidx4.i, align 1
-  %buf = getelementptr inbounds i8, ptr %S, i64 48
+  %buf = getelementptr inbounds nuw i8, ptr %S, i64 48
   tail call fastcc void @PyBlake2_blake2s_compress(ptr noundef nonnull %S, ptr noundef nonnull %buf)
   %4 = load i32, ptr %buflen, align 1
   %sub = add i32 %4, -64
@@ -1682,7 +1682,7 @@ if.then5:                                         ; preds = %if.end
 
 if.end14:                                         ; preds = %if.then5, %if.end
   %5 = phi i32 [ %.pre, %if.then5 ], [ %1, %if.end ]
-  %t.i22 = getelementptr inbounds i8, ptr %S, i64 32
+  %t.i22 = getelementptr inbounds nuw i8, ptr %S, i64 32
   %6 = load i32, ptr %t.i22, align 1
   %add.i23 = add i32 %6, %5
   store i32 %add.i23, ptr %t.i22, align 1
@@ -1692,7 +1692,7 @@ if.end14:                                         ; preds = %if.then5, %if.end
   %7 = load i32, ptr %arrayidx4.i26, align 1
   %add5.i27 = add i32 %7, %conv.i25
   store i32 %add5.i27, ptr %arrayidx4.i26, align 1
-  %last_node.i = getelementptr inbounds i8, ptr %S, i64 181
+  %last_node.i = getelementptr inbounds nuw i8, ptr %S, i64 181
   %8 = load i8, ptr %last_node.i, align 1
   %tobool.not.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i, label %blake2s_set_lastblock.exit, label %if.then.i
@@ -1703,9 +1703,9 @@ if.then.i:                                        ; preds = %if.end14
   br label %blake2s_set_lastblock.exit
 
 blake2s_set_lastblock.exit:                       ; preds = %if.end14, %if.then.i
-  %f.i = getelementptr inbounds i8, ptr %S, i64 40
+  %f.i = getelementptr inbounds nuw i8, ptr %S, i64 40
   store i32 -1, ptr %f.i, align 1
-  %buf18 = getelementptr inbounds i8, ptr %S, i64 48
+  %buf18 = getelementptr inbounds nuw i8, ptr %S, i64 48
   %idx.ext = zext i32 %5 to i64
   %add.ptr21 = getelementptr i8, ptr %buf18, i64 %idx.ext
   %sub23 = sub i32 128, %5
@@ -1785,14 +1785,14 @@ if.end.i:                                         ; preds = %if.end15
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %P.i)
   %conv.i = trunc nuw nsw i64 %outlen to i8
   store i8 %conv.i, ptr %P.i, align 16
-  %key_length.i = getelementptr inbounds i8, ptr %P.i, i64 1
+  %key_length.i = getelementptr inbounds nuw i8, ptr %P.i, i64 1
   store i8 0, ptr %key_length.i, align 1
-  %fanout.i = getelementptr inbounds i8, ptr %P.i, i64 2
+  %fanout.i = getelementptr inbounds nuw i8, ptr %P.i, i64 2
   store i8 1, ptr %fanout.i, align 2
-  %depth.i = getelementptr inbounds i8, ptr %P.i, i64 3
+  %depth.i = getelementptr inbounds nuw i8, ptr %P.i, i64 3
   store i8 1, ptr %depth.i, align 1
-  %leaf_length.i = getelementptr inbounds i8, ptr %P.i, i64 4
-  %1 = getelementptr inbounds i8, ptr %S, i64 32
+  %leaf_length.i = getelementptr inbounds nuw i8, ptr %P.i, i64 4
+  %1 = getelementptr inbounds nuw i8, ptr %S, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %leaf_length.i, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(150) %1, i8 0, i64 150, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %S, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
@@ -1811,7 +1811,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
   br i1 %exitcond.not.i.i, label %PyBlake2_blake2s_init.exit, label %for.body.i.i, !llvm.loop !4
 
 PyBlake2_blake2s_init.exit:                       ; preds = %for.body.i.i
-  %outlen.i.i = getelementptr inbounds i8, ptr %S, i64 180
+  %outlen.i.i = getelementptr inbounds nuw i8, ptr %S, i64 180
   store i8 %conv.i, ptr %outlen.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %P.i)
   br label %if.end26
@@ -1821,11 +1821,11 @@ if.end26:                                         ; preds = %PyBlake2_blake2s_in
   br i1 %cmp.not27.i, label %PyBlake2_blake2s_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.end26
-  %buflen.i = getelementptr inbounds i8, ptr %S, i64 176
-  %buf19.i = getelementptr inbounds i8, ptr %S, i64 48
-  %t.i.i = getelementptr inbounds i8, ptr %S, i64 32
-  %arrayidx4.i.i = getelementptr inbounds i8, ptr %S, i64 36
-  %add.ptr12.i = getelementptr inbounds i8, ptr %S, i64 112
+  %buflen.i = getelementptr inbounds nuw i8, ptr %S, i64 176
+  %buf19.i = getelementptr inbounds nuw i8, ptr %S, i64 48
+  %t.i.i = getelementptr inbounds nuw i8, ptr %S, i64 32
+  %arrayidx4.i.i = getelementptr inbounds nuw i8, ptr %S, i64 36
+  %add.ptr12.i = getelementptr inbounds nuw i8, ptr %S, i64 112
   %.pre.i = load i32, ptr %buflen.i, align 16
   %sub.i22 = sub i32 128, %.pre.i
   %conv.i1723 = zext i32 %sub.i22 to i64
@@ -1892,9 +1892,9 @@ declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define internal void @py_blake2s_dealloc(ptr noundef %self) #2 {
 entry:
-  %param = getelementptr inbounds i8, ptr %self, i64 16
+  %param = getelementptr inbounds nuw i8, ptr %self, i64 16
   tail call void @explicit_bzero(ptr noundef nonnull %param, i64 noundef 32) #8
-  %state = getelementptr inbounds i8, ptr %self, i64 48
+  %state = getelementptr inbounds nuw i8, ptr %self, i64 48
   tail call void @explicit_bzero(ptr noundef nonnull %state, i64 noundef 182) #8
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1949,7 +1949,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   store i64 0, ptr %node_offset, align 8
   %2 = icmp ult i64 %args.val, 2
   %or.cond1 = select i1 %tobool.not, i1 %2, i1 false
-  %ob_item = getelementptr inbounds i8, ptr %args, i64 24
+  %ob_item = getelementptr inbounds nuw i8, ptr %args, i64 24
   br i1 %or.cond1, label %if.end, label %cond.end15
 
 cond.end15:                                       ; preds = %cond.end
@@ -2207,18 +2207,18 @@ skip_optional_kwonly:                             ; preds = %if.end181, %if.end1
   %17 = load i64, ptr %node_offset, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %block.i)
-  %tp_alloc.i.i = getelementptr inbounds i8, ptr %type, i64 304
+  %tp_alloc.i.i = getelementptr inbounds nuw i8, ptr %type, i64 304
   %18 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = call ptr %18(ptr noundef %type, i64 noundef 0) #8
   %cond74.i = icmp eq ptr %call.i.i, null
   br i1 %cond74.i, label %py_blake2s_new_impl.exit, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %skip_optional_kwonly
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 231
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 231
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 230
+  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 230
   store i8 0, ptr %use_mutex.i.i, align 2
-  %param.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
+  %param.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %param.i, i8 0, i64 32, i1 false)
   %19 = add i32 %digest_size.0, -33
   %or.cond.i = icmp ult i32 %19, -32
@@ -2232,13 +2232,13 @@ if.then3.i:                                       ; preds = %do.body.i.i
 if.end5.i:                                        ; preds = %do.body.i.i
   %conv.i = trunc nuw nsw i32 %digest_size.0 to i8
   store i8 %conv.i, ptr %param.i, align 8
-  %obj.i = getelementptr inbounds i8, ptr %salt, i64 8
+  %obj.i = getelementptr inbounds nuw i8, ptr %salt, i64 8
   %21 = load ptr, ptr %obj.i, align 8
   %cmp7.not.i = icmp eq ptr %21, null
   br i1 %cmp7.not.i, label %if.end20.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end5.i
-  %len.i = getelementptr inbounds i8, ptr %salt, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %salt, i64 16
   %22 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %22, 0
   br i1 %tobool.not.i, label %if.end20.i, label %if.then9.i
@@ -2253,19 +2253,19 @@ if.then13.i:                                      ; preds = %if.then9.i
   br label %if.then168.i
 
 if.end15.i:                                       ; preds = %if.then9.i
-  %salt17.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
+  %salt17.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
   %24 = load ptr, ptr %salt, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %salt17.i, ptr align 1 %24, i64 %22, i1 false)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.end15.i, %land.lhs.true.i, %if.end5.i
-  %obj21.i = getelementptr inbounds i8, ptr %person, i64 8
+  %obj21.i = getelementptr inbounds nuw i8, ptr %person, i64 8
   %25 = load ptr, ptr %obj21.i, align 8
   %cmp22.not.i = icmp eq ptr %25, null
   br i1 %cmp22.not.i, label %if.end38.i, label %land.lhs.true24.i
 
 land.lhs.true24.i:                                ; preds = %if.end20.i
-  %len25.i = getelementptr inbounds i8, ptr %person, i64 16
+  %len25.i = getelementptr inbounds nuw i8, ptr %person, i64 16
   %26 = load i64, ptr %len25.i, align 8
   %tobool26.not.i = icmp eq i64 %26, 0
   br i1 %tobool26.not.i, label %if.end38.i, label %if.then27.i
@@ -2280,7 +2280,7 @@ if.then31.i:                                      ; preds = %if.then27.i
   br label %if.then168.i
 
 if.end33.i:                                       ; preds = %if.then27.i
-  %personal.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  %personal.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 40
   %28 = load ptr, ptr %person, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %personal.i, ptr align 1 %28, i64 %26, i1 false)
   br label %if.end38.i
@@ -2296,7 +2296,7 @@ if.then44.i:                                      ; preds = %if.end38.i
 
 if.end45.i:                                       ; preds = %if.end38.i
   %conv46.i = trunc nuw i32 %fanout.0 to i8
-  %fanout48.i = getelementptr inbounds i8, ptr %call.i.i, i64 18
+  %fanout48.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 18
   store i8 %conv46.i, ptr %fanout48.i, align 2
   %30 = add i32 %depth.0, -256
   %or.cond2.i = icmp ult i32 %30, -255
@@ -2309,7 +2309,7 @@ if.then54.i:                                      ; preds = %if.end45.i
 
 if.end55.i:                                       ; preds = %if.end45.i
   %conv56.i = trunc nuw i32 %depth.0 to i8
-  %depth58.i = getelementptr inbounds i8, ptr %call.i.i, i64 19
+  %depth58.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 19
   store i8 %conv56.i, ptr %depth58.i, align 1
   %cmp59.i = icmp ugt i64 %16, 4294967295
   br i1 %cmp59.i, label %if.then61.i, label %if.end62.i
@@ -2320,7 +2320,7 @@ if.then61.i:                                      ; preds = %if.end55.i
   br label %if.then168.i
 
 if.end62.i:                                       ; preds = %if.end55.i
-  %leaf_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 20
+  %leaf_length.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 20
   %conv.i.i = trunc i64 %16 to i8
   %incdec.ptr.i.i = getelementptr i8, ptr %call.i.i, i64 21
   store i8 %conv.i.i, ptr %leaf_length.i, align 1
@@ -2344,7 +2344,7 @@ if.then67.i:                                      ; preds = %if.end62.i
   br label %if.then168.i
 
 if.end68.i:                                       ; preds = %if.end62.i
-  %node_offset70.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  %node_offset70.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
   %conv.i60.i = trunc i64 %17 to i8
   %incdec.ptr.i61.i = getelementptr i8, ptr %call.i.i, i64 25
   store i8 %conv.i60.i, ptr %node_offset70.i, align 1
@@ -2377,7 +2377,7 @@ if.then76.i:                                      ; preds = %if.end68.i
 
 if.end77.i:                                       ; preds = %if.end68.i
   %conv78.i = trunc nuw i32 %node_depth.0 to i8
-  %node_depth80.i = getelementptr inbounds i8, ptr %call.i.i, i64 30
+  %node_depth80.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 30
   store i8 %conv78.i, ptr %node_depth80.i, align 2
   %or.cond4.i = icmp ugt i32 %inner_size.0, 32
   br i1 %or.cond4.i, label %if.then86.i, label %if.end88.i
@@ -2389,15 +2389,15 @@ if.then86.i:                                      ; preds = %if.end77.i
 
 if.end88.i:                                       ; preds = %if.end77.i
   %conv89.i = trunc nuw nsw i32 %inner_size.0 to i8
-  %inner_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 31
+  %inner_length.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 31
   store i8 %conv89.i, ptr %inner_length.i, align 1
-  %obj91.i = getelementptr inbounds i8, ptr %key, i64 8
+  %obj91.i = getelementptr inbounds nuw i8, ptr %key, i64 8
   %36 = load ptr, ptr %obj91.i, align 8
   %cmp92.not.i = icmp eq ptr %36, null
   br i1 %cmp92.not.i, label %if.end107.i, label %land.lhs.true94.i
 
 land.lhs.true94.i:                                ; preds = %if.end88.i
-  %len95.i = getelementptr inbounds i8, ptr %key, i64 16
+  %len95.i = getelementptr inbounds nuw i8, ptr %key, i64 16
   %37 = load i64, ptr %len95.i, align 8
   %tobool96.not.i = icmp eq i64 %37, 0
   br i1 %tobool96.not.i, label %if.end107.i, label %if.then97.i
@@ -2413,12 +2413,12 @@ if.then101.i:                                     ; preds = %if.then97.i
 
 if.end103.i:                                      ; preds = %if.then97.i
   %conv105.i = trunc i64 %37 to i8
-  %key_length.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
+  %key_length.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 17
   store i8 %conv105.i, ptr %key_length.i, align 1
   br label %if.end107.i
 
 if.end107.i:                                      ; preds = %if.end103.i, %land.lhs.true94.i, %if.end88.i
-  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
   %39 = getelementptr i8, ptr %call.i.i, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(150) %39, i8 0, i64 150, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %state.i, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)
@@ -2438,12 +2438,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.e
 
 PyBlake2_blake2s_init_param.exit.i:               ; preds = %for.body.i.i
   %42 = load i8, ptr %param.i, align 1
-  %outlen.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 228
+  %outlen.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 228
   store i8 %42, ptr %outlen.i.i, align 1
   %conv114.i = trunc i32 %last_node.0 to i8
-  %last_node116.i = getelementptr inbounds i8, ptr %call.i.i, i64 229
+  %last_node116.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 229
   store i8 %conv114.i, ptr %last_node116.i, align 1
-  %key_length118.i = getelementptr inbounds i8, ptr %call.i.i, i64 17
+  %key_length118.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 17
   %43 = load i8, ptr %key_length118.i, align 1
   %tobool119.not.i = icmp eq i8 %43, 0
   br i1 %tobool119.not.i, label %if.end129.i, label %if.then120.i
@@ -2451,7 +2451,7 @@ PyBlake2_blake2s_init_param.exit.i:               ; preds = %for.body.i.i
 if.then120.i:                                     ; preds = %PyBlake2_blake2s_init_param.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %block.i, i8 0, i64 64, i1 false)
   %44 = load ptr, ptr %key, align 8
-  %len124.i = getelementptr inbounds i8, ptr %key, i64 16
+  %len124.i = getelementptr inbounds nuw i8, ptr %key, i64 16
   %45 = load i64, ptr %len124.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %block.i, ptr align 1 %44, i64 %45, i1 false)
   %call127.i = call i32 @PyBlake2_blake2s_update(ptr noundef nonnull %state.i, ptr noundef nonnull %block.i, i64 noundef 64)
@@ -2492,7 +2492,7 @@ if.end141.i:                                      ; preds = %if.end137.i
   br i1 %cmp143.i, label %if.then168.i, label %if.end146.i
 
 if.end146.i:                                      ; preds = %if.end141.i
-  %ndim.i = getelementptr inbounds i8, ptr %buf.i, i64 36
+  %ndim.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 36
   %51 = load i32, ptr %ndim.i, align 4
   %cmp147.i = icmp sgt i32 %51, 1
   br i1 %cmp147.i, label %if.then149.i, label %do.end.i
@@ -2504,7 +2504,7 @@ if.then149.i:                                     ; preds = %if.end146.i
   br label %if.then168.i
 
 do.end.i:                                         ; preds = %if.end146.i
-  %len151.i = getelementptr inbounds i8, ptr %buf.i, i64 16
+  %len151.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
   %53 = load i64, ptr %len151.i, align 8
   %cmp152.i = icmp sgt i64 %53, 2047
   br i1 %cmp152.i, label %if.then154.i, label %if.else.i
@@ -2550,7 +2550,7 @@ py_blake2s_new_impl.exit:                         ; preds = %skip_optional_kwonl
 
 exit:                                             ; preds = %if.end181, %if.then171, %land.lhs.true159, %land.lhs.true143, %if.then126, %if.then113, %land.lhs.true101, %land.lhs.true85, %if.then68, %if.then55, %if.then42, %land.lhs.true30, %cond.end15, %py_blake2s_new_impl.exit
   %return_value.0 = phi ptr [ null, %land.lhs.true30 ], [ null, %if.then42 ], [ null, %if.then55 ], [ null, %if.then68 ], [ null, %land.lhs.true85 ], [ null, %land.lhs.true101 ], [ null, %land.lhs.true143 ], [ null, %land.lhs.true159 ], [ null, %if.then171 ], [ null, %if.end181 ], [ %retval.0.i, %py_blake2s_new_impl.exit ], [ null, %if.then126 ], [ null, %if.then113 ], [ null, %cond.end15 ]
-  %obj = getelementptr inbounds i8, ptr %key, i64 8
+  %obj = getelementptr inbounds nuw i8, ptr %key, i64 8
   %59 = load ptr, ptr %obj, align 8
   %tobool188.not = icmp eq ptr %59, null
   br i1 %tobool188.not, label %if.end190, label %if.then189
@@ -2560,7 +2560,7 @@ if.then189:                                       ; preds = %exit
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then189, %exit
-  %obj191 = getelementptr inbounds i8, ptr %salt, i64 8
+  %obj191 = getelementptr inbounds nuw i8, ptr %salt, i64 8
   %60 = load ptr, ptr %obj191, align 8
   %tobool192.not = icmp eq ptr %60, null
   br i1 %tobool192.not, label %if.end194, label %if.then193
@@ -2570,7 +2570,7 @@ if.then193:                                       ; preds = %if.end190
   br label %if.end194
 
 if.end194:                                        ; preds = %if.then193, %if.end190
-  %obj195 = getelementptr inbounds i8, ptr %person, i64 8
+  %obj195 = getelementptr inbounds nuw i8, ptr %person, i64 8
   %61 = load ptr, ptr %obj195, align 8
   %tobool196.not = icmp eq ptr %61, null
   br i1 %tobool196.not, label %if.end198, label %if.then197
@@ -2592,24 +2592,24 @@ define internal ptr @_blake2_blake2s_copy(ptr noundef %self, ptr nocapture readn
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
-  %tp_alloc.i.i = getelementptr inbounds i8, ptr %self.val.i, i64 304
+  %tp_alloc.i.i = getelementptr inbounds nuw i8, ptr %self.val.i, i64 304
   %1 = load ptr, ptr %tp_alloc.i.i, align 8
   %call.i.i = tail call ptr %1(ptr noundef %self.val.i, i64 noundef 0) #8
   %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %_blake2_blake2s_copy_impl.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 231
+  %mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 231
   store i8 0, ptr %mutex.i.i, align 1
-  %use_mutex.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 230
+  %use_mutex.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 230
   store i8 0, ptr %use_mutex.i.i, align 2
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 230
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 230
   %2 = load i8, ptr %use_mutex.i, align 2
   %tobool.i = trunc i8 %2 to i1
   br i1 %tobool.i, label %if.then2.i, label %if.end3.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 231
   %3 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 1
   br i1 %4, label %if.end3.i, label %if.then.i.i
@@ -2619,18 +2619,18 @@ if.then.i.i:                                      ; preds = %if.then2.i
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.then.i.i, %if.then2.i, %if.end.i
-  %param.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  %param4.i = getelementptr inbounds i8, ptr %self, i64 16
+  %param.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
+  %param4.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %param.i, ptr noundef nonnull align 8 dereferenceable(32) %param4.i, i64 32, i1 false)
-  %state.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
-  %state5.i = getelementptr inbounds i8, ptr %self, i64 48
+  %state.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
+  %state5.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(182) %state.i, ptr noundef nonnull align 8 dereferenceable(182) %state5.i, i64 182, i1 false)
   %5 = load i8, ptr %use_mutex.i, align 2
   %tobool7.i = trunc i8 %5 to i1
   br i1 %tobool7.i, label %if.then8.i, label %_blake2_blake2s_copy_impl.exit
 
 if.then8.i:                                       ; preds = %if.end3.i
-  %mutex9.i = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex9.i = getelementptr inbounds nuw i8, ptr %self, i64 231
   %6 = cmpxchg ptr %mutex9.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %7 = extractvalue { i8, i1 } %6, 1
   br i1 %7, label %_blake2_blake2s_copy_impl.exit, label %if.then.i9.i
@@ -2650,13 +2650,13 @@ entry:
   %state_cpy.i = alloca %struct.__blake2s_state, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 182, ptr nonnull %state_cpy.i)
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 230
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 230
   %0 = load i8, ptr %use_mutex.i, align 2
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 231
   %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
   br i1 %2, label %if.end.i, label %if.then.i.i
@@ -2666,9 +2666,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds i8, ptr %self, i64 48
+  %state.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(182) %state_cpy.i, ptr noundef nonnull align 8 dereferenceable(182) %state.i, i64 182, i1 false)
-  %param.i = getelementptr inbounds i8, ptr %self, i64 16
+  %param.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load i8, ptr %param.i, align 8
   %conv.i = zext i8 %3 to i64
   %call.i = call i32 @PyBlake2_blake2s_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i)
@@ -2677,7 +2677,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.i, label %if.then3.i, label %_blake2_blake2s_digest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 231
   %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %_blake2_blake2s_digest_impl.exit, label %if.then.i7.i
@@ -2702,13 +2702,13 @@ entry:
   %state_cpy.i = alloca %struct.__blake2s_state, align 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 182, ptr nonnull %state_cpy.i)
-  %use_mutex.i = getelementptr inbounds i8, ptr %self, i64 230
+  %use_mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 230
   %0 = load i8, ptr %use_mutex.i, align 2
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %mutex.i = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex.i = getelementptr inbounds nuw i8, ptr %self, i64 231
   %1 = cmpxchg ptr %mutex.i, i8 0, i8 1 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
   br i1 %2, label %if.end.i, label %if.then.i.i
@@ -2718,9 +2718,9 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i.i, %if.then.i, %entry
-  %state.i = getelementptr inbounds i8, ptr %self, i64 48
+  %state.i = getelementptr inbounds nuw i8, ptr %self, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(182) %state_cpy.i, ptr noundef nonnull align 8 dereferenceable(182) %state.i, i64 182, i1 false)
-  %param.i = getelementptr inbounds i8, ptr %self, i64 16
+  %param.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %3 = load i8, ptr %param.i, align 8
   %conv.i = zext i8 %3 to i64
   %call.i = call i32 @PyBlake2_blake2s_final(ptr noundef nonnull %state_cpy.i, ptr noundef nonnull %digest.i, i64 noundef %conv.i)
@@ -2729,7 +2729,7 @@ if.end.i:                                         ; preds = %if.then.i.i, %if.th
   br i1 %tobool2.i, label %if.then3.i, label %_blake2_blake2s_hexdigest_impl.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %mutex4.i = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex4.i = getelementptr inbounds nuw i8, ptr %self, i64 231
   %5 = cmpxchg ptr %mutex4.i, i8 1, i8 0 seq_cst seq_cst, align 1
   %6 = extractvalue { i8, i1 } %5, 1
   br i1 %6, label %_blake2_blake2s_hexdigest_impl.exit, label %if.then.i7.i
@@ -2780,7 +2780,7 @@ if.end5:                                          ; preds = %if.end
   br i1 %cmp, label %return, label %if.end8
 
 if.end8:                                          ; preds = %if.end5
-  %ndim = getelementptr inbounds i8, ptr %buf, i64 36
+  %ndim = getelementptr inbounds nuw i8, ptr %buf, i64 36
   %5 = load i32, ptr %ndim, align 4
   %cmp9 = icmp sgt i32 %5, 1
   br i1 %cmp9, label %if.then10, label %do.end
@@ -2792,10 +2792,10 @@ if.then10:                                        ; preds = %if.end8
   br label %return
 
 do.end:                                           ; preds = %if.end8
-  %use_mutex = getelementptr inbounds i8, ptr %self, i64 230
+  %use_mutex = getelementptr inbounds nuw i8, ptr %self, i64 230
   %7 = load i8, ptr %use_mutex, align 2
   %tobool12 = trunc i8 %7 to i1
-  %len = getelementptr inbounds i8, ptr %buf, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %8 = load i64, ptr %len, align 8
   %cmp13 = icmp slt i64 %8, 2048
   %or.cond.not = select i1 %tobool12, i1 true, i1 %cmp13
@@ -2811,7 +2811,7 @@ if.end16:                                         ; preds = %do.end
 
 if.then19:                                        ; preds = %if.end16.thread, %if.end16
   %call20 = call ptr @PyEval_SaveThread() #8
-  %mutex = getelementptr inbounds i8, ptr %self, i64 231
+  %mutex = getelementptr inbounds nuw i8, ptr %self, i64 231
   %9 = cmpxchg ptr %mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %10 = extractvalue { i8, i1 } %9, 1
   br i1 %10, label %PyMutex_Lock.exit, label %if.then.i
@@ -2821,16 +2821,16 @@ if.then.i:                                        ; preds = %if.then19
   br label %PyMutex_Lock.exit
 
 PyMutex_Lock.exit:                                ; preds = %if.then19, %if.then.i
-  %state = getelementptr inbounds i8, ptr %self, i64 48
+  %state = getelementptr inbounds nuw i8, ptr %self, i64 48
   %11 = load i64, ptr %len, align 8
   %cmp.not27.i = icmp eq i64 %11, 0
   br i1 %cmp.not27.i, label %PyBlake2_blake2s_update.exit, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %PyMutex_Lock.exit
   %12 = load ptr, ptr %buf, align 8
-  %buflen.i = getelementptr inbounds i8, ptr %self, i64 224
-  %buf19.i = getelementptr inbounds i8, ptr %self, i64 96
-  %t.i.i = getelementptr inbounds i8, ptr %self, i64 80
+  %buflen.i = getelementptr inbounds nuw i8, ptr %self, i64 224
+  %buf19.i = getelementptr inbounds nuw i8, ptr %self, i64 96
+  %t.i.i = getelementptr inbounds nuw i8, ptr %self, i64 80
   %arrayidx4.i.i = getelementptr i8, ptr %self, i64 84
   %add.ptr12.i = getelementptr i8, ptr %self, i64 160
   %.pre.i = load i32, ptr %buflen.i, align 1
@@ -2898,15 +2898,15 @@ PyMutex_Unlock.exit:                              ; preds = %PyBlake2_blake2s_up
   br label %if.end29
 
 if.else:                                          ; preds = %if.end16
-  %state25 = getelementptr inbounds i8, ptr %self, i64 48
+  %state25 = getelementptr inbounds nuw i8, ptr %self, i64 48
   %cmp.not27.i12 = icmp eq i64 %8, 0
   br i1 %cmp.not27.i12, label %if.end29, label %while.body.lr.ph.i13
 
 while.body.lr.ph.i13:                             ; preds = %if.else
   %21 = load ptr, ptr %buf, align 8
-  %buflen.i14 = getelementptr inbounds i8, ptr %self, i64 224
-  %buf19.i15 = getelementptr inbounds i8, ptr %self, i64 96
-  %t.i.i16 = getelementptr inbounds i8, ptr %self, i64 80
+  %buflen.i14 = getelementptr inbounds nuw i8, ptr %self, i64 224
+  %buf19.i15 = getelementptr inbounds nuw i8, ptr %self, i64 96
+  %t.i.i16 = getelementptr inbounds nuw i8, ptr %self, i64 80
   %arrayidx4.i.i17 = getelementptr i8, ptr %self, i64 84
   %add.ptr12.i18 = getelementptr i8, ptr %self, i64 160
   %.pre.i19 = load i32, ptr %buflen.i14, align 1
@@ -3006,7 +3006,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal ptr @py_blake2s_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #2 {
 entry:
-  %param = getelementptr inbounds i8, ptr %self, i64 16
+  %param = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i8, ptr %param, align 8
   %conv = zext i8 %0 to i64
   %call = tail call ptr @PyLong_FromLong(i64 noundef %conv) #8

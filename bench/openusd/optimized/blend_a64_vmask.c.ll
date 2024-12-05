@@ -17,7 +17,7 @@ define hidden void @aom_blend_a64_vmask_c(ptr nocapture noundef writeonly %0, i3
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv29 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us ]
-  %12 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv29
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv29
   %13 = load i8, ptr %12, align 1
   %14 = zext i8 %13 to i32
   %15 = trunc nuw nsw i64 %indvars.iv29 to i32
@@ -32,13 +32,13 @@ define hidden void @aom_blend_a64_vmask_c(ptr nocapture noundef writeonly %0, i3
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   %22 = add i32 %16, %21
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %2, i64 %23
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %23
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
   %27 = mul nuw nsw i32 %26, %14
   %28 = add i32 %18, %21
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %4, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = mul nsw i32 %17, %32
@@ -48,7 +48,7 @@ define hidden void @aom_blend_a64_vmask_c(ptr nocapture noundef writeonly %0, i3
   %37 = trunc i32 %36 to i8
   %38 = add i32 %19, %21
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %0, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 %39
   store i8 %37, ptr %40, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -86,7 +86,7 @@ define hidden void @aom_highbd_blend_a64_vmask_c(ptr noundef %0, i32 noundef %1,
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv32 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next33, %._crit_edge.us ]
-  %22 = getelementptr inbounds i8, ptr %6, i64 %indvars.iv32
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv32
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = trunc nuw nsw i64 %indvars.iv32 to i32
@@ -101,13 +101,13 @@ define hidden void @aom_highbd_blend_a64_vmask_c(ptr noundef %0, i32 noundef %1,
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = add i32 %26, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds i16, ptr %16, i64 %33
+  %34 = getelementptr inbounds nuw i16, ptr %16, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
   %37 = mul nuw nsw i32 %36, %24
   %38 = add i32 %28, %31
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds i16, ptr %19, i64 %39
+  %40 = getelementptr inbounds nuw i16, ptr %19, i64 %39
   %41 = load i16, ptr %40, align 2
   %42 = zext i16 %41 to i32
   %43 = mul nsw i32 %27, %42
@@ -117,7 +117,7 @@ define hidden void @aom_highbd_blend_a64_vmask_c(ptr noundef %0, i32 noundef %1,
   %47 = trunc i32 %46 to i16
   %48 = add i32 %29, %31
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds i16, ptr %13, i64 %49
+  %50 = getelementptr inbounds nuw i16, ptr %13, i64 %49
   store i16 %47, ptr %50, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

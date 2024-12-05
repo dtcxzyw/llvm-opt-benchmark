@@ -39,10 +39,10 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
   br i1 %.not3439, label %IsWalSummaryFilename.exit.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 12
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.not25 = icmp eq i32 %0, 0
   %11 = icmp ne i64 %1, 0
   %12 = add i64 %2, -1
@@ -55,7 +55,7 @@ define dso_local ptr @GetWalSummaries(i32 noundef %0, i64 noundef %1, i64 nounde
 
 14:                                               ; preds = %IsWalSummaryFilename.exit.backedge.us.us, %.lr.ph.us
   %15 = phi ptr [ %13, %.lr.ph.us ], [ %38, %IsWalSummaryFilename.exit.backedge.us.us ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 19
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 19
   %17 = call i64 @strspn(ptr noundef nonnull readonly %16, ptr noundef nonnull @.str.12) #13
   %18 = icmp eq i64 %17, 40
   br i1 %18, label %19, label %IsWalSummaryFilename.exit.backedge.us.us
@@ -95,10 +95,10 @@ IsWalSummaryFilename.exit.backedge.us.us:         ; preds = %23, %19, %14
 .split.us.us:                                     ; preds = %23
   %39 = load i32, ptr %4, align 16
   %40 = call ptr @palloc(i64 noundef 24) #12
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   store i32 %39, ptr %41, align 8
   store i64 %31, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i64 %37, ptr %42, align 8
   %43 = call ptr @lappend(ptr noundef %.0.ph40.us, ptr noundef nonnull %40) #12
   %44 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
@@ -112,7 +112,7 @@ IsWalSummaryFilename.exit.backedge.us.us:         ; preds = %23, %19, %14
 
 46:                                               ; preds = %.lr.ph, %IsWalSummaryFilename.exit.backedge
   %47 = phi ptr [ %45, %.lr.ph ], [ %58, %IsWalSummaryFilename.exit.backedge ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 19
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 19
   %49 = call i64 @strspn(ptr noundef nonnull readonly %48, ptr noundef nonnull @.str.12) #13
   %50 = icmp eq i64 %49, 40
   br i1 %50, label %51, label %IsWalSummaryFilename.exit.backedge
@@ -156,10 +156,10 @@ IsWalSummaryFilename.exit.backedge:               ; preds = %55, %59, %51, %46
 
 .split:                                           ; preds = %59
   %73 = call ptr @palloc(i64 noundef 24) #12
-  %74 = getelementptr inbounds i8, ptr %73, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   store i32 %0, ptr %74, align 8
   store i64 %72, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %73, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %65, ptr %75, align 8
   %76 = call ptr @lappend(ptr noundef %.0.ph40, ptr noundef nonnull %73) #12
   %77 = call ptr @ReadDir(ptr noundef %5, ptr noundef nonnull @.str) #12
@@ -187,12 +187,12 @@ declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not23 = icmp eq i32 %1, 0
   %7 = icmp eq i64 %2, 0
   %8 = icmp eq i64 %3, 0
@@ -256,7 +256,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %31 = load ptr, ptr %6, align 8
   %32 = getelementptr %union.ListCell, ptr %31, i64 %indvars.iv108
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = icmp ugt i64 %2, %35
   br i1 %36, label %39, label %37
@@ -281,7 +281,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %44 = load ptr, ptr %6, align 8
   %45 = getelementptr %union.ListCell, ptr %44, i64 %indvars.iv105
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i64, ptr %47, align 8
   %49 = icmp ugt i64 %2, %48
   br i1 %49, label %55, label %50
@@ -320,7 +320,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %60 = load ptr, ptr %6, align 8
   %61 = getelementptr %union.ListCell, ptr %60, i64 %indvars.iv102
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load i32, ptr %63, align 8
   %.not24.us.us71 = icmp eq i32 %1, %64
   br i1 %.not24.us.us71, label %65, label %67
@@ -345,7 +345,7 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %72 = load ptr, ptr %6, align 8
   %73 = getelementptr %union.ListCell, ptr %72, i64 %indvars.iv99
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load i32, ptr %75, align 8
   %.not24.us = icmp eq i32 %1, %76
   br i1 %.not24.us, label %77, label %82
@@ -381,13 +381,13 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %87 = load ptr, ptr %6, align 8
   %88 = getelementptr %union.ListCell, ptr %87, i64 %indvars.iv96
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load i32, ptr %90, align 8
   %.not24.us41 = icmp eq i32 %1, %91
   br i1 %.not24.us41, label %92, label %98
 
 92:                                               ; preds = %.lr.ph63
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %94 = load i64, ptr %93, align 8
   %95 = icmp ugt i64 %2, %94
   br i1 %95, label %98, label %96
@@ -415,13 +415,13 @@ define dso_local ptr @FilterWalSummaries(ptr noundef readonly %0, i32 noundef %1
   %103 = load ptr, ptr %6, align 8
   %104 = getelementptr %union.ListCell, ptr %103, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %107 = load i32, ptr %106, align 8
   %.not24 = icmp eq i32 %1, %107
   br i1 %.not24, label %108, label %117
 
 108:                                              ; preds = %.lr.ph57
-  %109 = getelementptr inbounds i8, ptr %105, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %110 = load i64, ptr %109, align 8
   %111 = icmp ugt i64 %2, %110
   br i1 %111, label %117, label %112
@@ -461,13 +461,13 @@ define dso_local noundef zeroext i1 @WalSummariesAreComplete(ptr noundef %0, i64
   br i1 %.not, label %.loopexit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph40, label %.loopexit.sink.split
 
 .lr.ph40:                                         ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %13
@@ -482,7 +482,7 @@ define dso_local noundef zeroext i1 @WalSummariesAreComplete(ptr noundef %0, i64
   br i1 %17, label %.loopexit.sink.split, label %18
 
 18:                                               ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, %.0213039
   br i1 %21, label %22, label %23
@@ -524,13 +524,13 @@ define internal range(i32 -1, 2) i32 @ListComparatorForWalSummaryFiles(ptr nocap
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @OpenWalSummaryFile(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = load i64, ptr %0, align 8
   %7 = lshr i64 %6, 32
   %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %6 to i32
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = lshr i64 %11, 32
   %13 = trunc nuw i64 %12 to i32
@@ -581,13 +581,13 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 define dso_local void @RemoveWalSummaryIfOlderThan(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca %struct.stat, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = load i64, ptr %0, align 8
   %8 = lshr i64 %7, 32
   %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %7 to i32
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 32
   %14 = trunc nuw i64 %13 to i32
@@ -612,7 +612,7 @@ define dso_local void @RemoveWalSummaryIfOlderThan(ptr nocapture noundef readonl
   unreachable
 
 26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %4, i64 88
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %28 = load i64, ptr %27, align 8
   %.not6 = icmp slt i64 %28, %1
   br i1 %.not6, label %29, label %39
@@ -656,11 +656,11 @@ define dso_local range(i32 0, -2147483648) i32 @ReadWalSummary(ptr nocapture nou
   %4 = alloca %struct.iovec, align 8
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %9, align 8
   %10 = call i64 @FileReadV(i32 noundef %5, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %8, i32 noundef 167772232) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
@@ -693,11 +693,11 @@ define dso_local range(i32 0, -2147483648) i32 @WriteWalSummary(ptr nocapture no
   %4 = alloca %struct.iovec, align 8
   %5 = load i32, ptr %0, align 8
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %1, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %6, ptr %9, align 8
   %10 = call i64 @FileWriteV(i32 noundef %5, ptr noundef nonnull %4, i32 noundef 1, i64 noundef %8, i32 noundef 167772233) #12
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)

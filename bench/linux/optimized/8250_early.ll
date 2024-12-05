@@ -15,28 +15,28 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 -19, 1) i32 @early_serial8250_setup(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 section ".init.text" align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %7, %2
-  %12 = getelementptr inbounds i8, ptr %0, i64 568
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %11
-  %16 = tail call fastcc i32 @serial8250_early_in(ptr noundef %3, i32 noundef 1)
+  %16 = tail call fastcc i32 @serial8250_early_in(ptr noundef nonnull %3, i32 noundef 1)
   %17 = and i32 %16, 64
-  tail call fastcc void @serial8250_early_out(ptr noundef %3, i32 noundef 1, i32 noundef %17)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %3, i32 noundef 1, i32 noundef %17)
   br label %19
 
 18:                                               ; preds = %11
@@ -45,10 +45,10 @@ define dso_local noundef range(i32 -19, 1) i32 @early_serial8250_setup(ptr nocap
 
 19:                                               ; preds = %18, %15
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr @early_serial8250_write, ptr %21, align 8
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store ptr null, ptr %23, align 8
   br label %24
 
@@ -59,11 +59,11 @@ define dso_local noundef range(i32 -19, 1) i32 @early_serial8250_setup(ptr nocap
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #1 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 193
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %4 = load i8, ptr %3, align 1
   %5 = zext nneg i8 %4 to i32
   %6 = shl i32 %1, %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 194
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %8 = load i8, ptr %7, align 2
   switch i8 %8, label %43 [
     i8 2, label %9
@@ -74,7 +74,7 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
   ]
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %6 to i64
   %13 = getelementptr i8, ptr %11, i64 %12
@@ -83,7 +83,7 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
   br label %43
 
 16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %6 to i64
   %20 = getelementptr i8, ptr %18, i64 %19
@@ -92,7 +92,7 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
   br label %43
 
 23:                                               ; preds = %2
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load ptr, ptr %24, align 8
   %26 = sext i32 %6 to i64
   %27 = getelementptr i8, ptr %25, i64 %26
@@ -100,7 +100,7 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
   br label %43
 
 29:                                               ; preds = %2
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %6 to i64
   %33 = getelementptr i8, ptr %31, i64 %32
@@ -108,7 +108,7 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
   br label %43
 
 35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = zext i32 %6 to i64
   %39 = add i64 %37, %38
@@ -124,11 +124,11 @@ define internal fastcc i32 @serial8250_early_in(ptr nocapture noundef readonly %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 5) %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 193
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 193
   %5 = load i8, ptr %4, align 1
   %6 = zext nneg i8 %5 to i32
   %7 = shl i32 %1, %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 194
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %9 = load i8, ptr %8, align 2
   switch i8 %9, label %39 [
     i8 2, label %10
@@ -140,7 +140,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
 
 10:                                               ; preds = %3
   %11 = trunc nuw i32 %2 to i8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %7 to i64
   %15 = getelementptr i8, ptr %13, i64 %14
@@ -149,7 +149,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
 
 16:                                               ; preds = %3
   %17 = trunc nuw nsw i32 %2 to i16
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %7 to i64
   %21 = getelementptr i8, ptr %19, i64 %20
@@ -157,7 +157,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
   br label %39
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %7 to i64
   %26 = getelementptr i8, ptr %24, i64 %25
@@ -165,7 +165,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
   br label %39
 
 27:                                               ; preds = %3
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %7 to i64
   %31 = getelementptr i8, ptr %29, i64 %30
@@ -174,7 +174,7 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
 
 32:                                               ; preds = %3
   %33 = trunc nuw i32 %2 to i8
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = zext i32 %7 to i64
   %37 = add i64 %35, %36
@@ -188,35 +188,35 @@ define internal fastcc void @serial8250_early_out(ptr nocapture noundef readonly
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @init_port(ptr nocapture noundef readonly %0) unnamed_addr #0 section ".init.text" align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 3, i32 noundef 3)
-  %3 = tail call fastcc i32 @serial8250_early_in(ptr noundef %2, i32 noundef 1)
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 3, i32 noundef 3)
+  %3 = tail call fastcc i32 @serial8250_early_in(ptr noundef nonnull %2, i32 noundef 1)
   %4 = and i32 %3, 64
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 1, i32 noundef %4)
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 2, i32 noundef 0)
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 4, i32 noundef 3)
-  %5 = getelementptr inbounds i8, ptr %0, i64 192
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 1, i32 noundef %4)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 2, i32 noundef 0)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 4, i32 noundef 3)
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 568
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %10 = load i32, ptr %9, align 8
   %11 = shl i32 %10, 4
   %12 = lshr exact i32 %11, 1
   %13 = add i32 %12, %6
   %14 = udiv i32 %13, %11
-  %15 = tail call fastcc i32 @serial8250_early_in(ptr noundef %2, i32 noundef 3)
+  %15 = tail call fastcc i32 @serial8250_early_in(ptr noundef nonnull %2, i32 noundef 3)
   %16 = and i32 %15, 127
   %17 = or disjoint i32 %16, 128
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 3, i32 noundef %17)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 3, i32 noundef %17)
   %18 = and i32 %14, 255
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 0, i32 noundef %18)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 0, i32 noundef %18)
   %19 = lshr i32 %14, 8
   %20 = and i32 %19, 255
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 1, i32 noundef %20)
-  tail call fastcc void @serial8250_early_out(ptr noundef %2, i32 noundef 3, i32 noundef %16)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 1, i32 noundef %20)
+  tail call fastcc void @serial8250_early_out(ptr noundef nonnull %2, i32 noundef 3, i32 noundef %16)
   br label %21
 
 21:                                               ; preds = %8, %1
@@ -225,10 +225,10 @@ define internal fastcc void @init_port(ptr nocapture noundef readonly %0) unname
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @early_serial8250_write(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 104
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @uart_console_write(ptr noundef %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @serial_putc) #4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @uart_console_write(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2, ptr noundef nonnull @serial_putc) #4
   ret void
 }
 
@@ -244,8 +244,8 @@ declare dso_local void @uart_console_write(ptr noundef, ptr noundef, i32 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @serial_putc(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #1 align 16 {
   %3 = zext i8 %1 to i32
-  %4 = getelementptr inbounds i8, ptr %0, i64 193
-  %5 = getelementptr inbounds i8, ptr %0, i64 194
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 193
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 194
   %6 = load i8, ptr %5, align 2
   switch i8 %6, label %24 [
     i8 2, label %7
@@ -256,40 +256,40 @@ define internal void @serial_putc(ptr nocapture noundef readonly %0, i8 noundef 
   ]
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %1, ptr elementtype(i8) %9) #4, !srcloc !9
   br label %24
 
 10:                                               ; preds = %2
   %11 = zext i8 %1 to i16
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void asm sideeffect "movw $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i16 %11, ptr elementtype(i16) %13) #4, !srcloc !10
   br label %24
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %3, ptr elementtype(i32) %16) #4, !srcloc !11
   br label %24
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8
   tail call void @iowrite32be(i32 noundef %3, ptr noundef %19) #4
   br label %24
 
 20:                                               ; preds = %2
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i16
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %1, i16 %23) #4, !srcloc !12
   br label %24
 
 24:                                               ; preds = %20, %17, %14, %10, %7, %2
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %27
 
 27:                                               ; preds = %.thread, %24

@@ -799,7 +799,7 @@ define dso_local void @_ZNK8V3Number10v3errorEndERKNSt7__cxx1119basic_ostringstr
 
 11:                                               ; preds = %9
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %19, label %14
@@ -820,7 +820,7 @@ define dso_local void @_ZNK8V3Number10v3errorEndERKNSt7__cxx1119basic_ostringstr
   br label %39
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %.not8 = icmp eq ptr %21, null
   br i1 %.not8, label %30, label %22
@@ -954,15 +954,15 @@ define dso_local void @_ZNK8V3Number15v3errorEndFatalERKNSt7__cxx1119basic_ostri
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8V3NumberC2ENS_20VerilogStringLiteralEP7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 37), (40, 56)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 37
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, -64
   store i8 %8, ptr %6, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
   br i1 %10, label %11, label %14
@@ -1085,15 +1085,15 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %5, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN8V3Number5nodepEP7AstNode.exit, label %6
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %1, i64 88
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %8, ptr %9, align 8
   br label %_ZN8V3Number5nodepEP7AstNode.exit
 
@@ -1105,7 +1105,7 @@ _ZN8V3Number5nodepEP7AstNode.exit:                ; preds = %4, %6
   %12 = icmp ne i32 %2, 0
   %spec.select = and i1 %12, %3
   %spec.select11 = select i1 %12, i32 %2, i32 1
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %16, label %17
@@ -1119,7 +1119,7 @@ _ZN8V3Number5nodepEP7AstNode.exit:                ; preds = %4, %6
   %18 = phi i8 [ %.pre.i, %16 ], [ %14, %11 ]
   %19 = add i8 %18, -1
   %spec.select.i.i = icmp ult i8 %19, 2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre1.i = load i32, ptr %.phi.trans.insert.i, align 8
   br i1 %spec.select.i.i, label %_ZN12V3NumberData8setLogicEv.exit, label %20
 
@@ -1140,22 +1140,22 @@ _ZN8V3Number5nodepEP7AstNode.exit:                ; preds = %4, %6
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #32
   store ptr %27, ptr %0, align 8
   %28 = getelementptr %"struct.V3NumberData::ValueAndX", ptr %27, i64 %25
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %28, ptr %29, align 8
   store i64 0, ptr %27, align 4
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.noexc3.i.i
   %.06.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %30, %.noexc3.i.i ]
   %31 = load i64, ptr %27, align 4
   store i64 %31, ptr %.06.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %32 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, %28
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12V3NumberData17initDynamicNumberIJiEEEvDpOT_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN12V3NumberData17initDynamicNumberIJiEEEvDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %33, align 8
   br label %_ZN12V3NumberData8setLogicEv.exit
 
@@ -1163,7 +1163,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %17, %22, %_ZN12V3Nu
   store i8 1, ptr %13, align 4
   tail call void @_ZN12V3NumberData6resizeEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %.pre1.i)
   tail call void @_ZN12V3NumberData6resizeEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %spec.select11)
-  %34 = getelementptr inbounds i8, ptr %0, i64 37
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %35 = zext i1 %spec.select to i8
   %36 = load i8, ptr %34, align 1
   %37 = and i8 %36, -2
@@ -1193,9 +1193,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
   %49 = icmp slt i32 %41, 129
   %50 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %49, ptr %0, ptr %50
-  %51 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %51, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %51, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %52 = load i32, ptr %.phi.trans.insert.i, align 8
@@ -1206,7 +1206,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
   br i1 %56, label %.lr.ph, label %.loopexit, !llvm.loop !9
 
 57:                                               ; preds = %_ZN8V3Number5nodepEP7AstNode.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load i32, ptr %58, align 8
   %60 = icmp eq i32 %59, 1
   br i1 %60, label %_ZN12V3NumberData6resizeEi.exit, label %61
@@ -1218,7 +1218,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
 
 63:                                               ; preds = %61
   %64 = icmp sgt i32 %59, 128
-  %65 = getelementptr inbounds i8, ptr %0, i64 36
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %66 = load i8, ptr %65, align 4
   %67 = icmp eq i8 %66, 1
   %68 = select i1 %64, i1 %67, i1 false
@@ -1236,7 +1236,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
   br label %_ZN12V3NumberData6resizeEi.exit
 
 _ZN12V3NumberData6resizeEi.exit:                  ; preds = %57, %.sink.split.i
-  %71 = getelementptr inbounds i8, ptr %0, i64 37
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %72 = load i8, ptr %71, align 1
   %73 = and i8 %72, -2
   store i8 %73, ptr %71, align 1
@@ -1258,7 +1258,7 @@ define dso_local void @_ZN8V3Number11opCleanThisEb(ptr noundef nonnull align 8 d
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i8, ptr %7, align 4
   %.not = icmp eq i8 %8, 1
   br i1 %.not, label %_ZN12V3NumberData3numEv.exit, label %9
@@ -1273,7 +1273,7 @@ define dso_local void @_ZN8V3Number11opCleanThisEb(ptr noundef nonnull align 8 d
   unreachable
 
 _ZN12V3NumberData3numEv.exit:                     ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 129
   %18 = load ptr, ptr %0, align 8
@@ -1346,7 +1346,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %2
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8, !noalias !10
   invoke void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %45, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %_ZNK8V3Number9displayedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %50
@@ -1428,7 +1428,7 @@ _ZN12V3NumberData3numEv.exit22:                   ; preds = %._ZN12V3NumberData3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12V3NumberDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %5, label %6
@@ -1438,7 +1438,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberDataD2Ev(ptr noundef nonnull al
   br label %_ZN12V3NumberData18destroyStoredValueEv.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 128
   %10 = icmp eq i8 %3, 1
@@ -1462,17 +1462,17 @@ _ZN12V3NumberData18destroyStoredValueEv.exit:     ; preds = %14, %12, %6, %5
 define dso_local void @_ZN8V3NumberC2EP7AstNodePK12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 37), (40, 56)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 37
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, -64
   store i8 %10, ptr %8, align 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = getelementptr inbounds i8, ptr %2, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
@@ -1480,7 +1480,7 @@ define dso_local void @_ZN8V3NumberC2EP7AstNodePK12AstNodeDType(ptr noundef nonn
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr %14, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 320
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 320
   %18 = load ptr, ptr %17, align 8
   %19 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(162) %14)
           to label %.noexc unwind label %62
@@ -1492,13 +1492,13 @@ define dso_local void @_ZN8V3NumberC2EP7AstNodePK12AstNodeDType(ptr noundef nonn
 20:                                               ; preds = %.noexc
   %21 = load ptr, ptr %13, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 320
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 320
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(162) %21)
           to label %_ZNK7AstNode8isStringEv.exit unwind label %62
 
 _ZNK7AstNode8isStringEv.exit:                     ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %25, i64 164
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 164
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %26, align 4
   %27 = icmp eq i8 %.sroa.0.0.copyload.i.i.i, 12
   br i1 %27, label %28, label %_ZNK7AstNode8isStringEv.exit.thread
@@ -1509,7 +1509,7 @@ _ZNK7AstNode8isStringEv.exit:                     ; preds = %20
   br i1 %.not.i.i, label %_ZN8V3Number5nodepEP7AstNode.exit.i, label %29
 
 29:                                               ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %1, i64 88
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %12, align 8
   br label %_ZN8V3Number5nodepEP7AstNode.exit.i
@@ -1626,13 +1626,13 @@ _ZNK7AstNode8isStringEv.exit.thread:              ; preds = %.noexc, %_ZNK7AstNo
   br i1 %.not.i18, label %_ZNK7AstNode8isDoubleEv.exit.thread, label %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i
 
 _ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i: ; preds = %_ZNK7AstNode8isStringEv.exit.thread
-  %68 = getelementptr inbounds i8, ptr %.pr, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.pr, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %68, align 8
   %69 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 53
   br i1 %69, label %_ZNK7AstNode8isDoubleEv.exit, label %_ZNK7AstNode8isDoubleEv.exit.thread
 
 _ZNK7AstNode8isDoubleEv.exit:                     ; preds = %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i
-  %70 = getelementptr inbounds i8, ptr %.pr, i64 164
+  %70 = getelementptr inbounds nuw i8, ptr %.pr, i64 164
   %.sroa.0.0.copyload.i.i.i19 = load i8, ptr %70, align 4
   %71 = icmp eq i8 %.sroa.0.0.copyload.i.i.i19, 9
   br i1 %71, label %72, label %_ZNK7AstNode8isDoubleEv.exit.thread
@@ -1646,9 +1646,9 @@ _ZNK7AstNode8isDoubleEv.exit:                     ; preds = %_ZN7AstNode9private
           to label %81 unwind label %62
 
 _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %3, %_ZNK7AstNode8isStringEv.exit.thread, %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit.i, %_ZNK7AstNode8isDoubleEv.exit
-  %75 = getelementptr inbounds i8, ptr %2, i64 152
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 152
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %2, i64 156
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 156
   %78 = load i32, ptr %77, align 4
   %.not.i20 = icmp eq i32 %78, 0
   %79 = icmp eq i32 %78, %76
@@ -1667,14 +1667,14 @@ _ZNK7AstNode8isDoubleEv.exit.thread:              ; preds = %3, %_ZNK7AstNode8is
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7AstNode8isStringEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %17, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 320
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 320
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(162) %3)
   %.not1 = icmp eq ptr %8, null
@@ -1683,10 +1683,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK7AstNode8isStringEv(ptr no
 9:                                                ; preds = %4
   %10 = load ptr, ptr %2, align 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 320
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(162) %10)
-  %15 = getelementptr inbounds i8, ptr %14, i64 164
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 164
   %.sroa.0.0.copyload.i.i = load i8, ptr %15, align 4
   %16 = icmp eq i8 %.sroa.0.0.copyload.i.i, 12
   br label %17
@@ -1698,19 +1698,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK7AstNode8isStringEv(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK7AstNode8isDoubleEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit
 
 _ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit: ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %3, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %4, align 8
   %5 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 53
   br i1 %5, label %_ZN7AstNode9privateAsI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit, label %8
 
 _ZN7AstNode9privateAsI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %_ZN7AstNode9privateIsI13AstBasicDTypeP12AstNodeDTypeEEbPKS_.exit
-  %6 = getelementptr inbounds i8, ptr %3, i64 164
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %.sroa.0.0.copyload.i.i = load i8, ptr %6, align 4
   %7 = icmp eq i8 %.sroa.0.0.copyload.i.i, 9
   br label %8
@@ -1722,7 +1722,7 @@ _ZN7AstNode9privateAsI13AstBasicDTypeP12AstNodeDTypeEEPT_PS_.exit: ; preds = %_Z
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9setDoubleEd(ptr noundef nonnull returned align 8 dereferenceable(56) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 64
   br i1 %.not, label %9, label %5
@@ -1735,7 +1735,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9s
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %13, label %_ZN12V3NumberData18destroyStoredValueEv.exit.i
@@ -1792,24 +1792,24 @@ _ZN12V3NumberData3numEv.exit11:                   ; preds = %_ZN12V3NumberData3n
   %31 = icmp slt i32 %30, 129
   %32 = load ptr, ptr %0, align 8
   %spec.select.i10 = select i1 %31, ptr %0, ptr %32
-  %33 = getelementptr inbounds i8, ptr %spec.select.i10, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i10, i64 8
   store i32 %.sroa.03.4.extract.trunc, ptr %33, align 4
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK12AstNodeDType5widthEv(ptr noundef nonnull align 8 dereferenceable(162) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12AstNodeDType10widthSizedEv(ptr noundef nonnull align 8 dereferenceable(162) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 156
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
-  %4 = getelementptr inbounds i8, ptr %0, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %3, %5
   %7 = select i1 %.not, i1 true, i1 %6
@@ -1829,7 +1829,7 @@ define dso_local void @_ZN8V3Number6createEPKc(ptr noundef nonnull align 8 deref
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::allocator", align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 3
   br i1 %16, label %17, label %18
@@ -1843,7 +1843,7 @@ define dso_local void @_ZN8V3Number6createEPKc(ptr noundef nonnull align 8 deref
   %19 = phi i8 [ %.pre.i, %17 ], [ %15, %2 ]
   %20 = add i8 %19, -1
   %spec.select.i.i = icmp ult i8 %20, 2
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %0, i64 32
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre1.i = load i32, ptr %.phi.trans.insert.i, align 8
   br i1 %spec.select.i.i, label %_ZN12V3NumberData8setLogicEv.exit, label %21
 
@@ -1864,22 +1864,22 @@ define dso_local void @_ZN8V3Number6createEPKc(ptr noundef nonnull align 8 deref
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #32
   store ptr %28, ptr %0, align 8
   %29 = getelementptr %"struct.V3NumberData::ValueAndX", ptr %28, i64 %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %30, align 8
   store i64 0, ptr %28, align 4
-  %31 = getelementptr inbounds i8, ptr %28, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %.noexc3.i.i
   %.06.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %31, %.noexc3.i.i ]
   %32 = load i64, ptr %28, align 4
   store i64 %32, ptr %.06.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %33 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, %29
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12V3NumberData17initDynamicNumberIJiEEEvDpOT_.exit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN12V3NumberData17initDynamicNumberIJiEEEvDpOT_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %29, ptr %34, align 8
   br label %_ZN12V3NumberData8setLogicEv.exit
 
@@ -1897,11 +1897,11 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %.0254, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.0254, i64 1
   br label %35, !llvm.loop !13
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.0254, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.0254, i64 1
   %.not294 = icmp eq ptr %40, %1
   br i1 %.not294, label %.thread, label %41
 
@@ -1919,7 +1919,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   ]
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.0273, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.0273, i64 1
   br label %.loopexit460.preheader
 
 .loopexit460.preheader:                           ; preds = %42, %44
@@ -1946,7 +1946,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   br label %common.resume
 
 49:                                               ; preds = %42, %46
-  %50 = getelementptr inbounds i8, ptr %.0273, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0273, i64 1
   br label %42, !llvm.loop !14
 
 .loopexit460:                                     ; preds = %.loopexit460.preheader, %52
@@ -1958,7 +1958,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   ]
 
 52:                                               ; preds = %.loopexit460
-  %53 = getelementptr inbounds i8, ptr %.2275, i64 1
+  %53 = getelementptr inbounds nuw i8, ptr %.2275, i64 1
   br label %.loopexit460, !llvm.loop !15
 
 54:                                               ; preds = %.loopexit460
@@ -1968,8 +1968,8 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   br i1 %57, label %58, label %.loopexit459
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %.2275, i64 1
-  %60 = getelementptr inbounds i8, ptr %0, i64 37
+  %59 = getelementptr inbounds nuw i8, ptr %.2275, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %61 = load i8, ptr %60, align 1
   %62 = or i8 %61, 2
   store i8 %62, ptr %60, align 1
@@ -1981,7 +1981,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
   %.3276 = phi ptr [ %59, %58 ], [ %.2275, %54 ], [ %.2275, %.loopexit460 ]
   %.not298 = icmp ne i8 %63, 0
   %spec.select323.idx = zext i1 %.not298 to i64
-  %spec.select323 = getelementptr inbounds i8, ptr %.3276, i64 %spec.select323.idx
+  %spec.select323 = getelementptr inbounds nuw i8, ptr %.3276, i64 %spec.select323.idx
   %64 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
   %65 = icmp ne i64 %64, 0
   %66 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
@@ -2032,7 +2032,7 @@ _ZN12V3NumberData8setLogicEv.exit:                ; preds = %18, %23, %_ZN12V3Nu
 
 .invoke:                                          ; preds = %94, %88
   %90 = phi i32 [ %89, %88 ], [ %96, %94 ]
-  %91 = getelementptr inbounds i8, ptr %0, i64 37
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %92 = load i8, ptr %91, align 1
   %93 = or i8 %92, 1
   store i8 %93, ptr %91, align 1
@@ -2077,9 +2077,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
   %107 = icmp slt i32 %99, 129
   %108 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %107, ptr %0, ptr %108
-  %109 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %109, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %109, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %110 = load i32, ptr %.phi.trans.insert.i, align 8
@@ -2098,7 +2098,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph
   ]
 
 116:                                              ; preds = %._crit_edge
-  %117 = getelementptr inbounds i8, ptr %0, i64 37
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %118 = load i8, ptr %117, align 1
   %119 = and i8 %118, -2
   store i8 %119, ptr %117, align 1
@@ -2148,7 +2148,7 @@ _ZN8V3Number6setBitEic.exit:                      ; preds = %_ZN12V3NumberData6r
   %139 = trunc i64 %138 to i32
   %140 = and i32 %139, -2
   store i32 %140, ptr %0, align 8
-  %141 = getelementptr inbounds i8, ptr %0, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %142 = load i32, ptr %141, align 4
   %143 = and i32 %142, -2
   store i32 %143, ptr %141, align 4
@@ -2158,7 +2158,7 @@ _ZN8V3Number6setBitEic.exit:                      ; preds = %_ZN12V3NumberData6r
   br label %.preheader
 
 146:                                              ; preds = %._crit_edge
-  %147 = getelementptr inbounds i8, ptr %0, i64 37
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %148 = load i8, ptr %147, align 1
   %149 = and i8 %148, -2
   store i8 %149, ptr %147, align 1
@@ -2208,7 +2208,7 @@ _ZN8V3Number6setBitEic.exit336:                   ; preds = %_ZN12V3NumberData6r
   %169 = trunc i64 %168 to i32
   %170 = or i32 %169, 1
   store i32 %170, ptr %0, align 8
-  %171 = getelementptr inbounds i8, ptr %0, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %172 = load i32, ptr %171, align 4
   %173 = and i32 %172, -2
   store i32 %173, ptr %171, align 4
@@ -2219,7 +2219,7 @@ _ZN8V3Number6setBitEic.exit336:                   ; preds = %_ZN12V3NumberData6r
 
 176:                                              ; preds = %._crit_edge
   %177 = call i32 @tolower(i32 noundef %115) #35
-  %178 = getelementptr inbounds i8, ptr %0, i64 37
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %179 = load i8, ptr %178, align 1
   switch i32 %177, label %236 [
     i32 122, label %180
@@ -2275,7 +2275,7 @@ _ZN8V3Number6setBitEic.exit341:                   ; preds = %_ZN12V3NumberData6r
   %201 = trunc i64 %200 to i32
   %202 = and i32 %201, -2
   store i32 %202, ptr %0, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 4
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %204 = load i32, ptr %203, align 4
   %205 = or i32 %204, 1
   store i32 %205, ptr %203, align 4
@@ -2333,7 +2333,7 @@ _ZN8V3Number6setBitEic.exit346:                   ; preds = %_ZN12V3NumberData6r
   %229 = trunc i64 %228 to i32
   %230 = or i32 %229, 1
   store i32 %230, ptr %0, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %232 = load i32, ptr %231, align 4
   %233 = or i32 %232, 1
   store i32 %233, ptr %231, align 4
@@ -2400,7 +2400,7 @@ _ZN12V3NumberData6resizeEi.exit409:               ; preds = %238, %.sink.split.i
   br i1 %.not300, label %260, label %.critedge
 
 .critedge:                                        ; preds = %253, %256
-  %259 = getelementptr inbounds i8, ptr %.2252, i64 1
+  %259 = getelementptr inbounds nuw i8, ptr %.2252, i64 1
   br label %253, !llvm.loop !17
 
 260:                                              ; preds = %256
@@ -2408,7 +2408,7 @@ _ZN12V3NumberData6resizeEi.exit409:               ; preds = %238, %.sink.split.i
   br i1 %.not301, label %261, label %270
 
 261:                                              ; preds = %260
-  %262 = getelementptr inbounds i8, ptr %0, i64 37
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %263 = load i8, ptr %262, align 1
   %264 = and i8 %263, 32
   %.not302 = icmp eq i8 %264, 0
@@ -2426,7 +2426,7 @@ _ZN12V3NumberData6resizeEi.exit409:               ; preds = %238, %.sink.split.i
   br i1 %.0281, label %271, label %281
 
 271:                                              ; preds = %270
-  %272 = getelementptr inbounds i8, ptr %0, i64 37
+  %272 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %273 = load i8, ptr %272, align 1
   %274 = and i8 %273, 32
   %.not303 = icmp eq i8 %274, 0
@@ -2460,21 +2460,21 @@ _ZN12V3NumberData6resizeEi.exit409:               ; preds = %238, %.sink.split.i
   br label %.loopexit
 
 .lr.ph533:                                        ; preds = %.preheader458
-  %286 = getelementptr inbounds i8, ptr %4, i64 32
-  %287 = getelementptr inbounds i8, ptr %4, i64 36
-  %288 = getelementptr inbounds i8, ptr %4, i64 37
-  %289 = getelementptr inbounds i8, ptr %4, i64 40
-  %290 = getelementptr inbounds i8, ptr %4, i64 48
-  %291 = getelementptr inbounds i8, ptr %0, i64 48
-  %292 = getelementptr inbounds i8, ptr %0, i64 37
-  %293 = getelementptr inbounds i8, ptr %6, i64 36
-  %294 = getelementptr inbounds i8, ptr %6, i64 32
-  %295 = getelementptr inbounds i8, ptr %5, i64 36
-  %296 = getelementptr inbounds i8, ptr %5, i64 32
+  %286 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %287 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  %288 = getelementptr inbounds nuw i8, ptr %4, i64 37
+  %289 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %290 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %293 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %294 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %295 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %296 = getelementptr inbounds nuw i8, ptr %5, i64 32
   br label %298
 
 .critedge2:                                       ; preds = %.preheader458, %.preheader458
-  %297 = getelementptr inbounds i8, ptr %.3253, i64 1
+  %297 = getelementptr inbounds nuw i8, ptr %.3253, i64 1
   br label %.preheader458, !llvm.loop !18
 
 298:                                              ; preds = %.lr.ph533, %499
@@ -2603,7 +2603,7 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %318
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   %346 = lshr i32 %344, 5
   %347 = zext nneg i32 %346 to i64
-  %348 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %347
+  %348 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %347
   %.sroa.0.0.copyload.i.i = load i32, ptr %348, align 4
   %349 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %350 = and i32 %344, 31
@@ -2614,7 +2614,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.i, label %354
 
 354:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %348, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %348, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %355 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %356 = and i64 %352, %355
@@ -2827,7 +2827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 .critedge328:                                     ; preds = %.critedge328.preheader, %.critedge328
   %.3233 = phi ptr [ %427, %.critedge328 ], [ %.0230532, %.critedge328.preheader ]
-  %427 = getelementptr inbounds i8, ptr %.3233, i64 1
+  %427 = getelementptr inbounds nuw i8, ptr %.3233, i64 1
   %428 = load i8, ptr %427, align 1
   %.not322 = icmp eq i8 %428, 0
   br i1 %.not322, label %_ZNK8V3Number9bitsValueEii.exit.thread, label %.critedge328, !llvm.loop !30
@@ -3041,7 +3041,7 @@ _ZN8V3NumberD2Ev.exit369:                         ; preds = %485, %483, %478, %4
   %.1238 = phi i32 [ %.0237530, %493 ], [ %.0237530, %298 ], [ %.0237530, %491 ], [ 1, %489 ], [ %.0237530, %_ZN8V3NumberD2Ev.exit369 ]
   %.1236 = phi i32 [ %.0235531, %493 ], [ %.0235531, %298 ], [ %.0235531, %491 ], [ %.0235531, %489 ], [ 1, %_ZN8V3NumberD2Ev.exit369 ]
   %.4234 = phi ptr [ %.0230532, %493 ], [ %.0230532, %298 ], [ %.0230532, %491 ], [ %.0230532, %489 ], [ %.1231, %_ZN8V3NumberD2Ev.exit369 ]
-  %500 = getelementptr inbounds i8, ptr %.4234, i64 1
+  %500 = getelementptr inbounds nuw i8, ptr %.4234, i64 1
   %.pr = load i8, ptr %500, align 1
   %.not308 = icmp eq i8 %.pr, 0
   br i1 %.not308, label %._crit_edge534, label %298, !llvm.loop !31
@@ -3543,7 +3543,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %703, ptr %0, ptr %704
   %705 = lshr i32 %.tr811.i, 5
   %706 = zext nneg i32 %705 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %706, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %706, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %707 = zext i32 %.sroa.1.0.copyload.i to i64
   %708 = and i32 %.tr811.i, 31
@@ -3589,7 +3589,7 @@ declare noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorSt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK8V3Number5wordsEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 31
   %5 = sdiv i32 %4, 32
@@ -3601,7 +3601,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i8 noundef signext %2) local_unnamed_addr #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not = icmp slt i32 %1, %5
   br i1 %.not, label %6, label %49
@@ -3609,7 +3609,7 @@ define linkonce_odr dso_local void @_ZN8V3Number6setBitEic(ptr noundef nonnull a
 6:                                                ; preds = %3
   %7 = and i32 %1, 31
   %8 = shl nuw i32 1, %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = add i8 %10, -1
   %spec.select.i.i = icmp ult i8 %11, 2
@@ -3644,7 +3644,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %24 = load i32, ptr %21, align 4
   %25 = and i32 %24, %23
   store i32 %25, ptr %21, align 4
-  %26 = getelementptr inbounds i8, ptr %21, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, %23
   store i32 %28, ptr %26, align 4
@@ -3655,7 +3655,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %31 = or i32 %30, %8
   store i32 %31, ptr %21, align 4
   %32 = xor i32 %8, -1
-  %33 = getelementptr inbounds i8, ptr %21, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, %32
   store i32 %35, ptr %33, align 4
@@ -3666,7 +3666,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %38 = load i32, ptr %21, align 4
   %39 = and i32 %38, %37
   store i32 %39, ptr %21, align 4
-  %40 = getelementptr inbounds i8, ptr %21, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = or i32 %41, %8
   store i32 %42, ptr %40, align 4
@@ -3676,7 +3676,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %44 = load i32, ptr %21, align 4
   %45 = or i32 %44, %8
   store i32 %45, ptr %21, align 4
-  %46 = getelementptr inbounds i8, ptr %21, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, %8
   store i32 %48, ptr %46, align 4
@@ -3688,7 +3688,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number5sizedEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   ret i1 %4
@@ -3699,22 +3699,22 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK8V3Number5widthEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8V3NumberC2EPKS_ij(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 37
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, -64
   store i8 %9, ptr %7, align 1
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef null, i32 noundef %2, i1 noundef zeroext true)
           to label %11 unwind label %27
@@ -3758,8 +3758,8 @@ define linkonce_odr dso_local void @_ZN8V3NumberC2EPKS_ij(ptr noundef nonnull al
           to label %23 unwind label %27
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  %25 = getelementptr inbounds i8, ptr %1, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %24, align 8
   ret void
@@ -3786,7 +3786,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -3801,7 +3801,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not44 = icmp eq i8 %21, 1
   br i1 %.not44, label %28, label %22
@@ -3829,20 +3829,20 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 34:                                               ; preds = %30
   %35 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load i32, ptr %36, align 8
   %38 = icmp slt i32 %37, 65
   br i1 %38, label %44, label %.preheader56
 
 .preheader56:                                     ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = icmp sgt i32 %40, 0
   br i1 %41, label %.lr.ph62, label %._crit_edge
 
 .lr.ph62:                                         ; preds = %.preheader56
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
-  %43 = getelementptr inbounds i8, ptr %0, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %49
 
 44:                                               ; preds = %34
@@ -3873,7 +3873,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %49
   %58 = icmp slt i32 %50, 129
   %59 = load ptr, ptr %1, align 8
   %spec.select.i = select i1 %58, ptr %1, ptr %59
-  %60 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = icmp ne i32 %61, 0
@@ -3903,7 +3903,7 @@ _ZNK12V3NumberData3numEv.exit47:                  ; preds = %.lr.ph60
   %74 = icmp slt i32 %66, 129
   %75 = load ptr, ptr %2, align 8
   %spec.select.i46 = select i1 %74, ptr %2, ptr %75
-  %76 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i46, i64 %indvars.iv68
+  %76 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i46, i64 %indvars.iv68
   %77 = load i32, ptr %76, align 4
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %.loopexit, label %79
@@ -3943,7 +3943,7 @@ _ZN12V3NumberData3numEv.exit52:                   ; preds = %.lr.ph
   %96 = icmp slt i32 %88, 129
   %97 = load ptr, ptr %0, align 8
   %spec.select.i49 = select i1 %96, ptr %0, ptr %97
-  %98 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i49, i64 %indvars.iv65
+  %98 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i49, i64 %indvars.iv65
   %99 = load i32, ptr %98, align 4
   %100 = zext i32 %99 to i64
   %101 = add nuw i64 %.03557, %100
@@ -4012,7 +4012,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -4027,7 +4027,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not25 = icmp eq i8 %21, 1
   br i1 %.not25, label %28, label %22
@@ -4050,13 +4050,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   br i1 %31, label %32, label %54
 
 32:                                               ; preds = %30, %28
-  %33 = getelementptr inbounds i8, ptr %0, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %34 = load i32, ptr %33, align 8
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph41, label %_ZN8V3Number11setAllBitsXEv.exit
 
 .lr.ph41:                                         ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %0, i64 36
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %37
 
 37:                                               ; preds = %.lr.ph41, %_ZN12V3NumberData3numEv.exit33
@@ -4079,9 +4079,9 @@ _ZN12V3NumberData3numEv.exit33:                   ; preds = %37
   %46 = icmp slt i32 %38, 129
   %47 = load ptr, ptr %0, align 8
   %spec.select.i32 = select i1 %46, ptr %0, ptr %47
-  %48 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i32, i64 %indvars.iv43
+  %48 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i32, i64 %indvars.iv43
   store i32 -1, ptr %48, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 -1, ptr %.sroa.2.0..sroa_idx.i, align 4
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %49 = load i32, ptr %33, align 8
@@ -4093,15 +4093,15 @@ _ZN12V3NumberData3numEv.exit33:                   ; preds = %37
 
 54:                                               ; preds = %30
   %55 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load i32, ptr %56, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph, label %_ZN8V3Number11setAllBitsXEv.exit
 
 .lr.ph:                                           ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %0, i64 36
-  %60 = getelementptr inbounds i8, ptr %1, i64 32
-  %61 = getelementptr inbounds i8, ptr %2, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %62
 
 62:                                               ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4154,14 +4154,14 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %_ZNK12V3NumberData3
   %86 = icmp slt i32 %85, 129
   %87 = load ptr, ptr %1, align 8
   %spec.select.i = select i1 %86, ptr %1, ptr %87
-  %88 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %89 = load i32, ptr %88, align 4
   %90 = zext i32 %89 to i64
   %91 = load i32, ptr %61, align 8
   %92 = icmp slt i32 %91, 129
   %93 = load ptr, ptr %2, align 8
   %spec.select.i27 = select i1 %92, ptr %2, ptr %93
-  %94 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i27, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i27, i64 %indvars.iv
   %95 = load i32, ptr %94, align 4
   %96 = zext i32 %95 to i64
   %97 = add nuw nsw i64 %.02138, %90
@@ -4170,7 +4170,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %_ZNK12V3NumberData3
   %100 = icmp slt i32 %63, 129
   %101 = load ptr, ptr %0, align 8
   %spec.select.i30 = select i1 %100, ptr %0, ptr %101
-  %102 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i30, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i30, i64 %indvars.iv
   store i32 %99, ptr %102, align 4
   %103 = icmp samesign ugt i64 %98, 4294967295
   %104 = zext i1 %103 to i64
@@ -4193,12 +4193,12 @@ define linkonce_odr dso_local noundef i32 @_ZNK8V3Number9bitsValueEii(ptr nounde
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %.fr11 = freeze i8 %6
   %7 = add i8 %.fr11, -3
   %spec.select.i.i = icmp ult i8 %7, -2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = icmp samesign ult i32 %9, 129
   %11 = load ptr, ptr %0, align 8
@@ -4217,7 +4217,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK8V3Number9bitsValueEii(ptr nounde
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   %14 = lshr i32 %12, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %15
   %.sroa.0.0.copyload.i = load i32, ptr %16, align 4
   %17 = zext i32 %.sroa.0.0.copyload.i to i64
   %18 = and i32 %12, 31
@@ -4228,7 +4228,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit, label %22
 
 22:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %23 = zext i32 %.sroa.2.0.copyload.i to i64
   %24 = and i64 %20, %23
@@ -4286,7 +4286,7 @@ _ZN7V3Error1sEv.exit:                             ; preds = %1, %4, %7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8V3NumberD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %5, label %6
@@ -4296,7 +4296,7 @@ define linkonce_odr dso_local void @_ZN8V3NumberD2Ev(ptr noundef nonnull align 8
   br label %_ZN12V3NumberDataD2Ev.exit
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 128
   %10 = icmp eq i8 %3, 1
@@ -4318,13 +4318,13 @@ _ZN12V3NumberDataD2Ev.exit:                       ; preds = %5, %6, %12, %14
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11setAllBitsZEv(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4347,9 +4347,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %15 = icmp slt i32 %7, 129
   %16 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %15, ptr %0, ptr %16
-  %17 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %17, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 -1, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 8
@@ -4366,13 +4366,13 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11setAllBitsXEv(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4395,9 +4395,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %15 = icmp slt i32 %7, 129
   %16 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %15, ptr %0, ptr %16
-  %17 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 -1, ptr %17, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 -1, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 8
@@ -4417,7 +4417,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number7bitIsXZEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = add i8 %4, -3
   %spec.select.i = icmp ult i8 %5, -2
@@ -4426,7 +4426,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number7bitIsXZEi(ptr no
   br i1 %or.cond10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %.fr = freeze i32 %8
   %9 = add nsw i32 %.fr, -1
@@ -4444,7 +4444,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
   %spec.select.i7 = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %.tr811, 5
   %14 = zext nneg i32 %13 to i64
-  %.sroa.1.0..sroa_idx = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7, i64 %14, i32 1
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7, i64 %14, i32 1
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 4
   %15 = zext i32 %.sroa.1.0.copyload to i64
   %16 = and i32 %.tr811, 31
@@ -4461,7 +4461,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i8 @_ZNK8V3Number5bitIsEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sge i32 %1, %4
   %6 = icmp slt i32 %1, 0
@@ -4469,7 +4469,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZNK8V3Number5bitIsEi(ptr noun
   br i1 %or.cond, label %33, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = add i8 %9, -1
   %spec.select.i.i = icmp ult i8 %10, 2
@@ -4489,9 +4489,9 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   %spec.select.i = select i1 %16, ptr %0, ptr %17
   %18 = lshr i32 %1, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %19
   %.sroa.0.0.copyload = load i32, ptr %20, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %21 = and i32 %1, 31
   %22 = zext nneg i32 %21 to i64
@@ -4504,7 +4504,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   %28 = select i1 %.not, i32 0, i32 2
   %29 = or disjoint i32 %28, %25
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   br label %33
 
@@ -4515,15 +4515,15 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN8V3Number5nodepEP7AstNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((40, 48)) %0, ptr noundef %1) #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %1, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %6, ptr %7, align 8
   br label %8
 
@@ -4533,7 +4533,7 @@ define dso_local void @_ZN8V3Number5nodepEP7AstNode(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8filelineEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -4608,13 +4608,13 @@ _ZN8V3Number5log2bEj.exit8:                       ; preds = %15, %.preheader, %_
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4637,9 +4637,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %15 = icmp slt i32 %7, 129
   %16 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %15, ptr %0, ptr %16
-  %17 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %17, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 8
@@ -4655,13 +4655,13 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setQuadEm(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4684,9 +4684,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
   %16 = icmp slt i32 %8, 129
   %17 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %16, ptr %0, ptr %17
-  %18 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %18, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 8
@@ -4702,7 +4702,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ %24, %._crit_edge.loopexit ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = load i8, ptr %25, align 4
   %27 = add i8 %26, -1
   %spec.select.i.i5 = icmp ult i8 %27, 2
@@ -4745,7 +4745,7 @@ _ZN12V3NumberData3numEv.exit10:                   ; preds = %37
   %47 = icmp samesign ult i32 %35, 129
   %48 = load ptr, ptr %0, align 8
   %spec.select.i9 = select i1 %47, ptr %0, ptr %48
-  %49 = getelementptr inbounds i8, ptr %spec.select.i9, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %spec.select.i9, i64 8
   store i32 %46, ptr %49, align 4
   br label %50
 
@@ -4756,13 +4756,13 @@ _ZN12V3NumberData3numEv.exit10:                   ; preds = %37
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setLongEj(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4785,9 +4785,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
   %16 = icmp slt i32 %8, 129
   %17 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %16, ptr %0, ptr %17
-  %18 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %18, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 8
@@ -4803,7 +4803,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ %24, %._crit_edge.loopexit ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = load i8, ptr %25, align 4
   %27 = add i8 %26, -1
   %spec.select.i.i4 = icmp ult i8 %27, 2
@@ -4827,13 +4827,13 @@ _ZN12V3NumberData3numEv.exit6:                    ; preds = %._crit_edge
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8setLongSEi(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4856,9 +4856,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
   %16 = icmp slt i32 %8, 129
   %17 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %16, ptr %0, ptr %17
-  %18 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %18, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 8
@@ -4874,7 +4874,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.lcssa = phi i1 [ true, %2 ], [ %24, %._crit_edge.loopexit ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %26 = load i8, ptr %25, align 4
   %27 = add i8 %26, -1
   %spec.select.i.i5 = icmp ult i8 %27, 2
@@ -4900,13 +4900,13 @@ declare noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPr
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13setSingleBitsEc(ptr noundef nonnull returned align 8 dereferenceable(56) %0, i8 noundef signext %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 32
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %7
 
 7:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -4929,9 +4929,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
   %16 = icmp slt i32 %8, 129
   %17 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %16, ptr %0, ptr %17
-  %18 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %18, align 4
-  %.sroa.213.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 0, ptr %.sroa.213.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %3, align 8
@@ -4973,7 +4973,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %7
 
 33:                                               ; preds = %28, %28, %28, %30
   %34 = phi i32 [ 1, %28 ], [ %32, %30 ], [ 1, %28 ], [ 1, %28 ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %36 = load i8, ptr %35, align 4
   %37 = add i8 %36, -1
   %spec.select.i.i25 = icmp ult i8 %37, 2
@@ -4991,20 +4991,20 @@ _ZN12V3NumberData3numEv.exit27:                   ; preds = %33
   %43 = load ptr, ptr %0, align 8
   %spec.select.i26 = select i1 %.lcssa, ptr %0, ptr %43
   store i32 %29, ptr %spec.select.i26, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i26, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %spec.select.i26, i64 4
   store i32 %34, ptr %.sroa.2.0..sroa_idx, align 4
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11setAllBits0Ev(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -5027,9 +5027,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %15 = icmp slt i32 %7, 129
   %16 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %15, ptr %0, ptr %16
-  %17 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %17, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 8
@@ -5045,13 +5045,13 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11setAllBits1Ev(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %6
 
 6:                                                ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -5074,9 +5074,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
   %15 = icmp slt i32 %7, 129
   %16 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %15, ptr %0, ptr %16
-  %17 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 -1, ptr %17, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %2, align 8
@@ -5094,7 +5094,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %6
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number18setAllBitsXRemovedEv(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 27), align 1
+  %3 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 27), align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %7, label %5
 
@@ -5123,7 +5123,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number18
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9setValue1Ev(ptr noundef nonnull returned align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %4, 2
@@ -5138,13 +5138,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9s
   unreachable
 
 _ZN12V3NumberData3numEv.exit:                     ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %11, 129
   %13 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %12, ptr %0, ptr %13
   store i32 1, ptr %spec.select.i, align 4
-  %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %spec.select.i, i64 4
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 4
   store i32 0, ptr %.sroa.24.0..sroa_idx, align 4
   %14 = load i32, ptr %10, align 8
   %15 = icmp sgt i32 %14, 32
@@ -5170,9 +5170,9 @@ _ZN12V3NumberData3numEv.exit7:                    ; preds = %.lr.ph
   %24 = icmp slt i32 %16, 129
   %25 = load ptr, ptr %0, align 8
   %spec.select.i6 = select i1 %24, ptr %0, ptr %25
-  %26 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i6, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i6, i64 %indvars.iv
   store i32 0, ptr %26, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i32, ptr %10, align 8
@@ -5217,7 +5217,7 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::allocator", align 1
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7)
-  %16 = getelementptr inbounds i8, ptr %1, i64 37
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 4
   %.not73 = icmp eq i8 %18, 0
@@ -5229,7 +5229,7 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
   br label %190
 
 21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %1, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %23 = load i8, ptr %22, align 4
   switch i8 %23, label %65 [
     i8 2, label %24
@@ -5241,9 +5241,9 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
   %26 = getelementptr i8, ptr %25, i64 -24
   %27 = load i64, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %7, i64 %27
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 17, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %31 = load i32, ptr %30, align 8
   %.not19 = icmp eq i32 %31, 64
   br i1 %.not19, label %32, label %.invoke79.invoke
@@ -5251,7 +5251,7 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
 32:                                               ; preds = %24
   %33 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %33 to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load i32, ptr %34, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %35 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -5368,7 +5368,7 @@ define dso_local void @_ZNK8V3Number5asciiB5cxx11Ebb(ptr dead_on_unwind noalias 
   unreachable
 
 72:                                               ; preds = %65
-  %73 = getelementptr inbounds i8, ptr %1, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %74 = load i32, ptr %73, align 8
   %75 = icmp slt i32 %74, 129
   %76 = load ptr, ptr %1, align 8
@@ -5441,7 +5441,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %108
   br i1 %113, label %_ZNK8V3Number6bitIs0Ei.exit, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %spec.select.i10.i, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %spec.select.i10.i, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %114 = and i32 %.sroa.2.0.copyload.i, 1
   %.not7.i = icmp eq i32 %114, 0
@@ -5547,7 +5547,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread:               ; preds = %_ZNK12V3NumberData3
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %149
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %151 = getelementptr inbounds i8, ptr %1, i64 48
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %152 = load ptr, ptr %151, align 8, !noalias !50
   invoke void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %152, ptr noundef nonnull align 8 dereferenceable(32) %11)
           to label %_ZNK8V3Number9displayedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %156
@@ -5630,7 +5630,7 @@ _ZNK8V3Number9displayedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit69: ; preds = %172
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %174 = getelementptr inbounds i8, ptr %1, i64 48
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %175 = load ptr, ptr %174, align 8, !noalias !53
   invoke void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %175, ptr noundef nonnull align 8 dereferenceable(32) %14)
           to label %_ZNK8V3Number9displayedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit71 unwind label %179
@@ -5701,7 +5701,7 @@ _ZNK8V3Number9displayedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number7is1StepEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 4
   %5 = icmp ne i8 %4, 0
@@ -5710,7 +5710,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number7is1StepEv(ptr no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number8isDoubleEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 2
   ret i1 %4
@@ -5720,10 +5720,10 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef double @_ZNK8V3Number8toDoubleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp ne i8 %3, 2
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 64
   %or.cond = select i1 %4, i1 true, i1 %7
@@ -5739,7 +5739,7 @@ define dso_local noundef double @_ZNK8V3Number8toDoubleEv(ptr nocapture noundef 
 _ZNK12V3NumberData3numEv.exit3:                   ; preds = %1
   %11 = load i32, ptr %0, align 8
   %.sroa.0.0.insert.ext = zext i32 %11 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %.sroa.0.4.insert.ext = zext i32 %13 to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
@@ -5753,7 +5753,7 @@ declare double @llvm.floor.f64(double) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number8isStringEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   ret i1 %4
@@ -5773,7 +5773,7 @@ define dso_local void @_ZNK8V3Number8toStringB5cxx11Ev(ptr dead_on_unwind noalia
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %_ZNK12V3NumberData3strB5cxx11Ev.exit, label %13
@@ -5783,7 +5783,7 @@ _ZNK12V3NumberData3strB5cxx11Ev.exit:             ; preds = %9
   br label %.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = add nsw i32 %15, -1
   br label %17
@@ -5824,7 +5824,7 @@ _ZNK12V3NumberData3strB5cxx11Ev.exit:             ; preds = %9
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   %28 = lshr i32 %26, 5
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %29
   %.sroa.0.0.copyload.i.i = load i32, ptr %30, align 4
   %31 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %32 = and i32 %26, 31
@@ -5835,7 +5835,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.i, label %36
 
 36:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %37 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %38 = and i64 %34, %37
@@ -5877,7 +5877,7 @@ _ZNK8V3Number9bitsValueEii.exit.thread:           ; preds = %.lr.ph, %_ZNK8V3Num
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK12V3NumberData3numEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = add i8 %3, -1
   %spec.select.i = icmp ult i8 %4, 2
@@ -5892,7 +5892,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK12V3NumberData3numEv(ptr noundef 
   unreachable
 
 10:                                               ; preds = %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp slt i32 %12, 129
   %14 = load ptr, ptr %0, align 8
@@ -5902,7 +5902,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK12V3NumberData3numEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK8V3Number10hiWordMaskEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 31
   %.not = icmp eq i32 %4, 0
@@ -5914,7 +5914,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK8V3Number10hiWordMaskEv(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number10autoExtendEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32
   %5 = icmp ne i8 %4, 0
@@ -5923,7 +5923,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number10autoExtendEv(pt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs0Ei(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = add i8 %4, -3
   %spec.select.i = icmp ult i8 %5, -2
@@ -5932,7 +5932,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs0Ei(ptr nou
   br i1 %or.cond, label %_ZNK8V3Number7bitIsXZEi.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %.fr.i = freeze i32 %9
   %.not = icmp slt i32 %1, %.fr.i
@@ -5949,7 +5949,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %10
   %spec.select.i7.i = select i1 %12, ptr %0, ptr %13
   %14 = lshr i32 %.tr811.i, 5
   %15 = zext nneg i32 %14 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %15, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %15, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %16 = zext i32 %.sroa.1.0.copyload.i to i64
   %17 = and i32 %.tr811.i, 31
@@ -5965,7 +5965,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   %spec.select.i10 = select i1 %22, ptr %0, ptr %23
   %24 = lshr i32 %1, 5
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10, i64 %25
+  %26 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10, i64 %25
   %.sroa.0.0.copyload = load i32, ptr %26, align 4
   %27 = zext i32 %.sroa.0.0.copyload to i64
   %28 = and i32 %1, 31
@@ -5976,7 +5976,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   br i1 %32, label %33, label %_ZNK8V3Number7bitIsXZEi.exit
 
 33:                                               ; preds = %_ZNK12V3NumberData3numEv.exit
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %34 = zext i32 %.sroa.2.0.copyload to i64
   %35 = and i64 %30, %34
@@ -5990,7 +5990,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %_ZNK12V3NumberData3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs1Ei(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = add i8 %4, -3
   %spec.select.i = icmp ult i8 %5, -2
@@ -5999,7 +5999,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIs1Ei(ptr nou
   br i1 %or.cond, label %23, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %.not = icmp slt i32 %1, %9
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit, label %23
@@ -6010,7 +6010,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   %spec.select.i10 = select i1 %10, ptr %0, ptr %11
   %12 = lshr i32 %1, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10, i64 %13
   %.sroa.0.0.copyload = load i32, ptr %14, align 4
   %15 = zext i32 %.sroa.0.0.copyload to i64
   %16 = and i32 %1, 31
@@ -6021,7 +6021,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   br i1 %.not7, label %23, label %20
 
 20:                                               ; preds = %_ZNK12V3NumberData3numEv.exit
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %21 = zext i32 %.sroa.2.0.copyload to i64
   %22 = and i64 %18, %21
@@ -6035,7 +6035,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsZEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = add i8 %4, -3
   %spec.select.i = icmp ult i8 %5, -2
@@ -6044,7 +6044,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsZEi(ptr nou
   br i1 %or.cond12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %.fr = freeze i32 %8
   %9 = add nsw i32 %.fr, -1
@@ -6062,7 +6062,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
   %spec.select.i9 = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %.tr1013, 5
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9, i64 %14
   %.sroa.0.0.copyload = load i32, ptr %15, align 4
   %16 = xor i32 %.sroa.0.0.copyload, -1
   %17 = zext i32 %16 to i64
@@ -6074,7 +6074,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
   br i1 %.not7, label %.loopexit, label %22
 
 22:                                               ; preds = %_ZNK12V3NumberData3numEv.exit
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %23 = zext i32 %.sroa.2.0.copyload to i64
   %24 = and i64 %20, %23
@@ -6088,7 +6088,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %tailrecurse
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number8isSignedEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 2
   %5 = icmp ne i8 %4, 0
@@ -6097,14 +6097,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number8isSignedEv(ptr n
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number11isFourStateEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -2
   %switch = icmp eq i8 %4, 2
   br i1 %switch, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 31
   %8 = sdiv i32 %7, 32
@@ -6126,7 +6126,7 @@ _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %13 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv, i32 1
+  %13 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv, i32 1
   %14 = load i32, ptr %13, align 4
   %.not.not = icmp ne i32 %14, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6149,7 +6149,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8V3Number9displayedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #3 comdat align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
   ret void
@@ -6157,7 +6157,7 @@ define linkonce_odr dso_local void @_ZNK8V3Number9displayedERKNSt7__cxx1112basic
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6isNullEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 8
   %5 = icmp ne i8 %4, 0
@@ -6166,13 +6166,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6isNullEv(ptr nou
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number8isEqZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %_ZNK12V3NumberData3strB5cxx11Ev.exit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 31
   %8 = sdiv i32 %7, 32
@@ -6198,9 +6198,9 @@ _ZNK12V3NumberData3strB5cxx11Ev.exit:             ; preds = %1
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %14 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %14, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %15 = icmp eq i32 %.sroa.0.0.copyload, 0
   %16 = icmp eq i32 %.sroa.2.0.copyload, 0
@@ -6357,7 +6357,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK8V3Number9displayedEP7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   tail call void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
   ret void
@@ -6405,10 +6405,10 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
   unreachable
 
 34:                                               ; preds = %28
-  %35 = getelementptr inbounds i8, ptr %26, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = icmp eq i8 %36, 45
-  %38 = getelementptr inbounds i8, ptr %26, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %spec.select551 = select i1 %37, ptr %38, ptr %35
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
   %39 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4cendEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
@@ -6430,7 +6430,7 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
           to label %44 unwind label %47
 
 44:                                               ; preds = %.critedge2
-  %45 = getelementptr inbounds i8, ptr %.sroa.0449.1594, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0449.1594, i64 1
   %46 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4cendEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
   %.not556 = icmp eq ptr %45, %46
   br i1 %.not556, label %.critedge, label %.lr.ph, !llvm.loop !60
@@ -6469,27 +6469,27 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
   ]
 
 .preheader579:                                    ; preds = %.critedge
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph602, label %._crit_edge603
 
 .lr.ph602:                                        ; preds = %.preheader579
-  %56 = getelementptr inbounds i8, ptr %1, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %574
 
 .preheader576:                                    ; preds = %.critedge
-  %57 = getelementptr inbounds i8, ptr %1, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph605, label %._crit_edge606
 
 .lr.ph605:                                        ; preds = %.preheader576
-  %60 = getelementptr inbounds i8, ptr %1, i64 36
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %538
 
 61:                                               ; preds = %.critedge, %.critedge, %.critedge, %.critedge
-  %62 = getelementptr inbounds i8, ptr %1, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %63 = load i32, ptr %62, align 8
   %64 = add i32 %63, -1
   br i1 %37, label %67, label %65
@@ -6503,7 +6503,7 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
   br i1 %.not611, label %.critedge4, label %.lr.ph614
 
 .lr.ph614:                                        ; preds = %67
-  %68 = getelementptr inbounds i8, ptr %1, i64 36
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %69 = load i8, ptr %68, align 4
   %.fr629 = freeze i8 %69
   %70 = add i8 %.fr629, -3
@@ -6517,7 +6517,7 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
   %spec.select.i7.i.i = select i1 %73, ptr %1, ptr %74
   %75 = lshr i32 %.tr811.i.i, 5
   %76 = zext nneg i32 %75 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %76, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %76, i32 1
   %77 = and i32 %.tr811.i.i, 31
   %78 = zext nneg i32 %77 to i64
   %79 = shl nuw nsw i64 1, %78
@@ -6542,7 +6542,7 @@ define dso_local void @_ZNK8V3Number9displayedEP8FileLineRKNSt7__cxx1112basic_st
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %81
   %83 = lshr i32 %.1116612, 5
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %84
+  %85 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %84
   %.sroa.0.0.copyload.i = load i32, ptr %85, align 4
   %86 = zext i32 %.sroa.0.0.copyload.i to i64
   %87 = and i32 %.1116612, 31
@@ -6553,7 +6553,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %81
   br i1 %91, label %92, label %.critedge4
 
 92:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %85, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %85, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %93 = zext i32 %.sroa.2.0.copyload.i to i64
   %94 = and i64 %89, %93
@@ -6624,7 +6624,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread462:            ; preds = %82, %92, %_ZNK8V3Nu
   br i1 %99, label %.lr.ph626, label %.loopexit
 
 .lr.ph626:                                        ; preds = %.preheader562
-  %100 = getelementptr inbounds i8, ptr %1, i64 36
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %101
 
 101:                                              ; preds = %.lr.ph626, %147
@@ -6650,7 +6650,7 @@ _ZNK12V3NumberData3numEv.exit.i156:               ; preds = %104
   %spec.select.i10.i157 = select i1 %108, ptr %1, ptr %109
   %110 = lshr i32 %.2117624, 5
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i157, i64 %111
+  %112 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i157, i64 %111
   %.sroa.0.0.copyload.i158 = load i32, ptr %112, align 4
   %113 = zext i32 %.sroa.0.0.copyload.i158 to i64
   %114 = and i32 %.2117624, 31
@@ -6658,7 +6658,7 @@ _ZNK12V3NumberData3numEv.exit.i156:               ; preds = %104
   %116 = shl nuw nsw i64 1, %115
   %117 = and i64 %116, %113
   %118 = icmp eq i64 %117, 0
-  %.sroa.2.0..sroa_idx.i159 = getelementptr inbounds i8, ptr %112, i64 4
+  %.sroa.2.0..sroa_idx.i159 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %.sroa.2.0.copyload.i160 = load i32, ptr %.sroa.2.0..sroa_idx.i159, align 4
   %119 = zext i32 %.sroa.2.0.copyload.i160 to i64
   %120 = and i64 %116, %119
@@ -6673,7 +6673,7 @@ _ZNK8V3Number6bitIs0Ei.exit162:                   ; preds = %106
   %spec.select.i7.i.i152 = select i1 %121, ptr %1, ptr %122
   %123 = lshr i32 %.tr811.i.i151, 5
   %124 = zext nneg i32 %123 to i64
-  %.sroa.1.0..sroa_idx.i.i153 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i152, i64 %124, i32 1
+  %.sroa.1.0..sroa_idx.i.i153 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i152, i64 %124, i32 1
   %.sroa.1.0.copyload.i.i154 = load i32, ptr %.sroa.1.0..sroa_idx.i.i153, align 4
   %125 = zext i32 %.sroa.1.0.copyload.i.i154 to i64
   %126 = and i32 %.tr811.i.i151, 31
@@ -6698,7 +6698,7 @@ _ZNK12V3NumberData3numEv.exit.i175:               ; preds = %tailrecurse.i
   %spec.select.i9.i = select i1 %133, ptr %1, ptr %131
   %134 = lshr i32 %.tr1013.i, 5
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %135
+  %136 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %135
   %.sroa.0.0.copyload.i176 = load i32, ptr %136, align 4
   %137 = xor i32 %.sroa.0.0.copyload.i176, -1
   %138 = zext i32 %137 to i64
@@ -6710,7 +6710,7 @@ _ZNK12V3NumberData3numEv.exit.i175:               ; preds = %tailrecurse.i
   br i1 %.not7.i177, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i175
-  %.sroa.2.0..sroa_idx.i178 = getelementptr inbounds i8, ptr %136, i64 4
+  %.sroa.2.0..sroa_idx.i178 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %.sroa.2.0.copyload.i179 = load i32, ptr %.sroa.2.0..sroa_idx.i178, align 4
   %143 = zext i32 %.sroa.2.0.copyload.i179 to i64
   %144 = and i64 %141, %143
@@ -6742,7 +6742,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.invoke:        ; preds = %_ZNK12V3NumberData3
   br i1 %152, label %.lr.ph623, label %.loopexit
 
 .lr.ph623:                                        ; preds = %.preheader567
-  %153 = getelementptr inbounds i8, ptr %1, i64 36
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %154
 
 154:                                              ; preds = %.lr.ph623, %228
@@ -6778,7 +6778,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.invoke:        ; preds = %_ZNK12V3NumberData3
 _ZNK12V3NumberData3numEv.exit.i.i182:             ; preds = %163
   %165 = lshr i32 %162, 5
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %166
+  %167 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %166
   %.sroa.0.0.copyload.i.i = load i32, ptr %167, align 4
   %168 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %169 = and i32 %162, 31
@@ -6789,7 +6789,7 @@ _ZNK12V3NumberData3numEv.exit.i.i182:             ; preds = %163
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIsXEi.exit.thread.i, label %_ZNK8V3Number6bitIsXEi.exit.i
 
 _ZNK8V3Number6bitIsXEi.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i182
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %167, i64 4
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %167, i64 4
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
   %173 = zext i32 %.sroa.2.0.copyload.i.i.i to i64
   %174 = and i64 %171, %173
@@ -6823,7 +6823,7 @@ _ZNK8V3Number6bitIsXEi.exit.thread.i:             ; preds = %_ZNK8V3Number6bitIs
 tailrecurse.i.preheader.i:                        ; preds = %179
   %181 = lshr i32 %178, 5
   %182 = zext nneg i32 %181 to i64
-  %183 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %182
+  %183 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %182
   %.sroa.0.0.copyload.i.i194 = load i32, ptr %183, align 4
   %184 = xor i32 %.sroa.0.0.copyload.i.i194, -1
   %185 = zext i32 %184 to i64
@@ -6835,7 +6835,7 @@ tailrecurse.i.preheader.i:                        ; preds = %179
   br i1 %.not7.i.i195, label %_ZNK8V3Number6bitIsZEi.exit.thread.i, label %_ZNK8V3Number6bitIsZEi.exit.i
 
 _ZNK8V3Number6bitIsZEi.exit.i:                    ; preds = %tailrecurse.i.preheader.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %183, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %183, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %190 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %191 = and i64 %188, %190
@@ -6897,7 +6897,7 @@ _ZNK8V3Number6countZEii.exit:                     ; preds = %_ZNK8V3Number6bitIs
 _ZNK12V3NumberData3numEv.exit.i.i207:             ; preds = %.lr.ph.split.i204
   %211 = lshr i32 %209, 5
   %212 = zext nneg i32 %211 to i64
-  %213 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %212
+  %213 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %212
   %.sroa.0.0.copyload.i.i208 = load i32, ptr %213, align 4
   %214 = zext i32 %.sroa.0.0.copyload.i.i208 to i64
   %215 = and i32 %209, 31
@@ -6908,7 +6908,7 @@ _ZNK12V3NumberData3numEv.exit.i.i207:             ; preds = %.lr.ph.split.i204
   br i1 %.not7.i.i209, label %_ZNK8V3Number6bitIs1Ei.exit.i, label %219
 
 219:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i207
-  %.sroa.2.0..sroa_idx.i.i210 = getelementptr inbounds i8, ptr %213, i64 4
+  %.sroa.2.0..sroa_idx.i.i210 = getelementptr inbounds nuw i8, ptr %213, i64 4
   %.sroa.2.0.copyload.i.i211 = load i32, ptr %.sroa.2.0..sroa_idx.i.i210, align 4
   %220 = zext i32 %.sroa.2.0.copyload.i.i211 to i64
   %221 = and i64 %217, %220
@@ -6942,7 +6942,7 @@ _ZNK8V3Number9bitsValueEii.exit.loopexit:         ; preds = %_ZNK8V3Number6bitIs
   br i1 %.not136, label %.lr.ph628, label %.preheader561, !llvm.loop !67
 
 .lr.ph628:                                        ; preds = %.preheader561
-  %233 = getelementptr inbounds i8, ptr %1, i64 36
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %234
 
 234:                                              ; preds = %.lr.ph628, %312
@@ -6978,7 +6978,7 @@ _ZNK8V3Number9bitsValueEii.exit.loopexit:         ; preds = %_ZNK8V3Number6bitIs
 _ZNK12V3NumberData3numEv.exit.i.i223:             ; preds = %243
   %245 = lshr i32 %242, 5
   %246 = zext nneg i32 %245 to i64
-  %247 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i216, i64 %246
+  %247 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i216, i64 %246
   %.sroa.0.0.copyload.i.i224 = load i32, ptr %247, align 4
   %248 = zext i32 %.sroa.0.0.copyload.i.i224 to i64
   %249 = and i32 %242, 31
@@ -6989,7 +6989,7 @@ _ZNK12V3NumberData3numEv.exit.i.i223:             ; preds = %243
   br i1 %.not7.i.i225, label %_ZNK8V3Number6bitIsXEi.exit.thread.i232, label %_ZNK8V3Number6bitIsXEi.exit.i226
 
 _ZNK8V3Number6bitIsXEi.exit.i226:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i223
-  %.sroa.2.0..sroa_idx.i.i.i227 = getelementptr inbounds i8, ptr %247, i64 4
+  %.sroa.2.0..sroa_idx.i.i.i227 = getelementptr inbounds nuw i8, ptr %247, i64 4
   %.sroa.2.0.copyload.i.i.i228 = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i227, align 4
   %253 = zext i32 %.sroa.2.0.copyload.i.i.i228 to i64
   %254 = and i64 %251, %253
@@ -7023,7 +7023,7 @@ _ZNK8V3Number6bitIsXEi.exit.thread.i232:          ; preds = %_ZNK8V3Number6bitIs
 tailrecurse.i.preheader.i247:                     ; preds = %259
   %261 = lshr i32 %258, 5
   %262 = zext nneg i32 %261 to i64
-  %263 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i216, i64 %262
+  %263 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i216, i64 %262
   %.sroa.0.0.copyload.i.i248 = load i32, ptr %263, align 4
   %264 = xor i32 %.sroa.0.0.copyload.i.i248, -1
   %265 = zext i32 %264 to i64
@@ -7035,7 +7035,7 @@ tailrecurse.i.preheader.i247:                     ; preds = %259
   br i1 %.not7.i.i249, label %_ZNK8V3Number6bitIsZEi.exit.thread.i256, label %_ZNK8V3Number6bitIsZEi.exit.i250
 
 _ZNK8V3Number6bitIsZEi.exit.i250:                 ; preds = %tailrecurse.i.preheader.i247
-  %.sroa.2.0..sroa_idx.i.i251 = getelementptr inbounds i8, ptr %263, i64 4
+  %.sroa.2.0..sroa_idx.i.i251 = getelementptr inbounds nuw i8, ptr %263, i64 4
   %.sroa.2.0.copyload.i.i252 = load i32, ptr %.sroa.2.0..sroa_idx.i.i251, align 4
   %270 = zext i32 %.sroa.2.0.copyload.i.i252 to i64
   %271 = and i64 %268, %270
@@ -7096,7 +7096,7 @@ _ZNK8V3Number6countZEii.exit259:                  ; preds = %_ZNK8V3Number6bitIs
 _ZNK12V3NumberData3numEv.exit.i.i273:             ; preds = %.lr.ph.split.i264
   %291 = lshr i32 %289, 5
   %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i216, i64 %292
+  %293 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i216, i64 %292
   %.sroa.0.0.copyload.i.i274 = load i32, ptr %293, align 4
   %294 = zext i32 %.sroa.0.0.copyload.i.i274 to i64
   %295 = and i32 %289, 31
@@ -7107,7 +7107,7 @@ _ZNK12V3NumberData3numEv.exit.i.i273:             ; preds = %.lr.ph.split.i264
   br i1 %.not7.i.i275, label %_ZNK8V3Number6bitIs1Ei.exit.i269, label %299
 
 299:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i273
-  %.sroa.2.0..sroa_idx.i.i276 = getelementptr inbounds i8, ptr %293, i64 4
+  %.sroa.2.0..sroa_idx.i.i276 = getelementptr inbounds nuw i8, ptr %293, i64 4
   %.sroa.2.0.copyload.i.i277 = load i32, ptr %.sroa.2.0..sroa_idx.i.i276, align 4
   %300 = zext i32 %.sroa.2.0.copyload.i.i277 to i64
   %301 = and i64 %297, %300
@@ -7158,7 +7158,7 @@ _ZNK8V3Number9bitsValueEii.exit279.thread:        ; preds = %.thread505, %_ZNK8V
   br label %694
 
 321:                                              ; preds = %.critedge
-  %322 = getelementptr inbounds i8, ptr %1, i64 32
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %323 = load i32, ptr %322, align 8
   %324 = icmp sgt i32 %323, 8
   br i1 %324, label %325, label %346
@@ -7243,7 +7243,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 346:                                              ; preds = %341, %321
   %347 = phi i32 [ %.pre, %341 ], [ %323, %321 ]
-  %348 = getelementptr inbounds i8, ptr %1, i64 36
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %349 = load i8, ptr %348, align 4
   %.fr11.i282 = freeze i8 %349
   %350 = add i8 %.fr11.i282, -3
@@ -7266,7 +7266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 _ZNK12V3NumberData3numEv.exit.i.i294:             ; preds = %.lr.ph.split.i285
   %354 = lshr i64 %indvars.iv639, 5
   %355 = and i64 %354, 134217727
-  %356 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i284, i64 %355
+  %356 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i284, i64 %355
   %.sroa.0.0.copyload.i.i295 = load i32, ptr %356, align 4
   %357 = zext i32 %.sroa.0.0.copyload.i.i295 to i64
   %358 = shl nuw nsw i64 1, %indvars.iv639
@@ -7275,7 +7275,7 @@ _ZNK12V3NumberData3numEv.exit.i.i294:             ; preds = %.lr.ph.split.i285
   br i1 %.not7.i.i296, label %_ZNK8V3Number6bitIs1Ei.exit.i290, label %360
 
 360:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i294
-  %.sroa.2.0..sroa_idx.i.i297 = getelementptr inbounds i8, ptr %356, i64 4
+  %.sroa.2.0..sroa_idx.i.i297 = getelementptr inbounds nuw i8, ptr %356, i64 4
   %.sroa.2.0.copyload.i.i298 = load i32, ptr %.sroa.2.0..sroa_idx.i.i297, align 4
   %361 = zext i32 %.sroa.2.0.copyload.i.i298 to i64
   %362 = and i64 %358, %361
@@ -7299,7 +7299,7 @@ _ZNK8V3Number9bitsValueEii.exit300.loopexit:      ; preds = %_ZNK8V3Number6bitIs
 _ZNK8V3Number9bitsValueEii.exit300:               ; preds = %_ZNK8V3Number9bitsValueEii.exit300.loopexit, %346
   %.08.lcssa.i293 = phi i8 [ 0, %346 ], [ %366, %_ZNK8V3Number9bitsValueEii.exit300.loopexit ]
   store i8 %.08.lcssa.i293, ptr %12, align 1
-  %367 = getelementptr inbounds i8, ptr %12, i64 1
+  %367 = getelementptr inbounds nuw i8, ptr %12, i64 1
   store i8 0, ptr %367, align 1
   %368 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %12)
           to label %369 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -7309,7 +7309,7 @@ _ZNK8V3Number9bitsValueEii.exit300:               ; preds = %_ZNK8V3Number9bitsV
   br label %694
 
 370:                                              ; preds = %.critedge
-  %371 = getelementptr inbounds i8, ptr %1, i64 32
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %372 = load i32, ptr %371, align 8
   %373 = add nsw i32 %372, -1
   br label %374
@@ -7322,7 +7322,7 @@ _ZNK8V3Number9bitsValueEii.exit300:               ; preds = %_ZNK8V3Number9bitsV
   br i1 %.not132, label %.lr.ph609, label %374, !llvm.loop !69
 
 .lr.ph609:                                        ; preds = %374
-  %377 = getelementptr inbounds i8, ptr %1, i64 36
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %378
 
 378:                                              ; preds = %.lr.ph609, %410
@@ -7351,7 +7351,7 @@ _ZNK8V3Number9bitsValueEii.exit300:               ; preds = %_ZNK8V3Number9bitsV
 _ZNK12V3NumberData3numEv.exit.i.i314:             ; preds = %.lr.ph.split.i305
   %387 = lshr i32 %385, 5
   %388 = zext nneg i32 %387 to i64
-  %389 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i304, i64 %388
+  %389 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i304, i64 %388
   %.sroa.0.0.copyload.i.i315 = load i32, ptr %389, align 4
   %390 = zext i32 %.sroa.0.0.copyload.i.i315 to i64
   %391 = and i32 %385, 31
@@ -7362,7 +7362,7 @@ _ZNK12V3NumberData3numEv.exit.i.i314:             ; preds = %.lr.ph.split.i305
   br i1 %.not7.i.i316, label %_ZNK8V3Number6bitIs1Ei.exit.i310, label %395
 
 395:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i314
-  %.sroa.2.0..sroa_idx.i.i317 = getelementptr inbounds i8, ptr %389, i64 4
+  %.sroa.2.0..sroa_idx.i.i317 = getelementptr inbounds nuw i8, ptr %389, i64 4
   %.sroa.2.0.copyload.i.i318 = load i32, ptr %.sroa.2.0..sroa_idx.i.i317, align 4
   %396 = zext i32 %.sroa.2.0.copyload.i.i318 to i64
   %397 = and i64 %393, %396
@@ -7425,7 +7425,7 @@ _ZNK8V3Number9bitsValueEii.exit320:               ; preds = %_ZNK8V3Number6bitIs
   br i1 %brmerge, label %437, label %422
 
 422:                                              ; preds = %418
-  %423 = getelementptr inbounds i8, ptr %1, i64 32
+  %423 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %424 = load i32, ptr %423, align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %6)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %6)
@@ -7473,11 +7473,11 @@ _ZNK8V3Number9bitsValueEii.exit320:               ; preds = %_ZNK8V3Number6bitIs
           to label %499 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 442:                                              ; preds = %439
-  %443 = getelementptr inbounds i8, ptr %1, i64 36
+  %443 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %444 = load i8, ptr %443, align 4
   %445 = and i8 %444, -2
   %switch.i = icmp eq i8 %445, 2
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pre668 = load i32, ptr %.phi.trans.insert, align 8
   %.fr.i.i324 = freeze i32 %.pre668
   br i1 %switch.i, label %.critedge145, label %.preheader.i
@@ -7512,7 +7512,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %.
 _ZNK12V3NumberData3numEv.exit.i.i330:             ; preds = %tailrecurse.i.i
   %453 = lshr i32 %.tr1013.i.i, 5
   %454 = zext nneg i32 %453 to i64
-  %455 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i328, i64 %454
+  %455 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i328, i64 %454
   %.sroa.0.0.copyload.i.i331 = load i32, ptr %455, align 4
   %456 = xor i32 %.sroa.0.0.copyload.i.i331, -1
   %457 = zext i32 %456 to i64
@@ -7524,7 +7524,7 @@ _ZNK12V3NumberData3numEv.exit.i.i330:             ; preds = %tailrecurse.i.i
   br i1 %.not7.i.i332, label %_ZNK12V3NumberData3numEv.exit.i.i345.preheader, label %_ZNK8V3Number6bitIsZEi.exit.i333
 
 _ZNK8V3Number6bitIsZEi.exit.i333:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i330
-  %.sroa.2.0..sroa_idx.i.i334 = getelementptr inbounds i8, ptr %455, i64 4
+  %.sroa.2.0..sroa_idx.i.i334 = getelementptr inbounds nuw i8, ptr %455, i64 4
   %.sroa.2.0.copyload.i.i335 = load i32, ptr %.sroa.2.0..sroa_idx.i.i334, align 4
   %462 = zext i32 %.sroa.2.0.copyload.i.i335 to i64
   %463 = and i64 %460, %462
@@ -7538,7 +7538,7 @@ _ZNK12V3NumberData3numEv.exit.i.i345:             ; preds = %_ZNK12V3NumberData3
   %.06.i346 = phi i32 [ %474, %_ZNK8V3Number6bitIsXEi.exit.thread.i353 ], [ 0, %_ZNK12V3NumberData3numEv.exit.i.i345.preheader ]
   %464 = lshr i32 %.06.i346, 5
   %465 = zext nneg i32 %464 to i64
-  %466 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i328, i64 %465
+  %466 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i328, i64 %465
   %.sroa.0.0.copyload.i.i347 = load i32, ptr %466, align 4
   %467 = zext i32 %.sroa.0.0.copyload.i.i347 to i64
   %468 = and i32 %.06.i346, 31
@@ -7549,7 +7549,7 @@ _ZNK12V3NumberData3numEv.exit.i.i345:             ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i.i348, label %_ZNK8V3Number6bitIsXEi.exit.thread.i353, label %_ZNK8V3Number6bitIsXEi.exit.i349
 
 _ZNK8V3Number6bitIsXEi.exit.i349:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i345
-  %.sroa.2.0..sroa_idx.i.i.i350 = getelementptr inbounds i8, ptr %466, i64 4
+  %.sroa.2.0..sroa_idx.i.i.i350 = getelementptr inbounds nuw i8, ptr %466, i64 4
   %.sroa.2.0.copyload.i.i.i351 = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i350, align 4
   %472 = zext i32 %.sroa.2.0.copyload.i.i.i351 to i64
   %473 = and i64 %470, %472
@@ -7573,7 +7573,7 @@ tailrecurse.i.i364:                               ; preds = %tailrecurse.i.i364,
 _ZNK12V3NumberData3numEv.exit.i.i367:             ; preds = %tailrecurse.i.i364
   %475 = lshr i32 %.tr1013.i.i365, 5
   %476 = zext nneg i32 %475 to i64
-  %477 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i328, i64 %476
+  %477 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i328, i64 %476
   %.sroa.0.0.copyload.i.i368 = load i32, ptr %477, align 4
   %478 = xor i32 %.sroa.0.0.copyload.i.i368, -1
   %479 = zext i32 %478 to i64
@@ -7585,7 +7585,7 @@ _ZNK12V3NumberData3numEv.exit.i.i367:             ; preds = %tailrecurse.i.i364
   br i1 %.not7.i.i369, label %_ZNK8V3Number6bitIsZEi.exit.thread.i374, label %_ZNK8V3Number6bitIsZEi.exit.i370
 
 _ZNK8V3Number6bitIsZEi.exit.i370:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i367
-  %.sroa.2.0..sroa_idx.i.i371 = getelementptr inbounds i8, ptr %477, i64 4
+  %.sroa.2.0..sroa_idx.i.i371 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %.sroa.2.0.copyload.i.i372 = load i32, ptr %.sroa.2.0..sroa_idx.i.i371, align 4
   %484 = zext i32 %.sroa.2.0.copyload.i.i372 to i64
   %485 = and i64 %482, %484
@@ -7671,10 +7671,10 @@ _ZNK8V3Number6bitIsZEi.exit.thread.i374:          ; preds = %_ZNK8V3Number6bitIs
 
 514:                                              ; preds = %.critedge, %.critedge, %.critedge, %.critedge
   %515 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #30
-  %516 = getelementptr inbounds i8, ptr %1, i64 36
+  %516 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %517 = load i8, ptr %516, align 4
   %518 = icmp ne i8 %517, 2
-  %519 = getelementptr inbounds i8, ptr %1, i64 32
+  %519 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %520 = load i32, ptr %519, align 8
   %521 = icmp ne i32 %520, 64
   %or.cond.i376 = select i1 %518, i1 true, i1 %521
@@ -7702,7 +7702,7 @@ _ZNK8V3Number6bitIsZEi.exit.thread.i374:          ; preds = %_ZNK8V3Number6bitIs
 525:                                              ; preds = %514
   %526 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %526 to i64
-  %527 = getelementptr inbounds i8, ptr %1, i64 8
+  %527 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %528 = load i32, ptr %527, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %528 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -7780,7 +7780,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
   %550 = icmp slt i32 %539, 129
   %551 = load ptr, ptr %1, align 8
   %spec.select.i387 = select i1 %550, ptr %1, ptr %551
-  %552 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i387, i64 %indvars.iv636
+  %552 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i387, i64 %indvars.iv636
   %553 = load i32, ptr %552, align 4
   %554 = trunc i32 %553 to i8
   %555 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext %554)
@@ -7841,9 +7841,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
   %583 = icmp slt i32 %575, 129
   %584 = load ptr, ptr %1, align 8
   %spec.select.i394 = select i1 %583, ptr %1, ptr %584
-  %585 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i394, i64 %indvars.iv
+  %585 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i394, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %585, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %585, i64 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %585, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4
   %586 = trunc i32 %.sroa.0.0.copyload to i8
   %587 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 noundef signext %586)
@@ -7904,13 +7904,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit385: ;
   br label %694
 
 621:                                              ; preds = %.critedge
-  %622 = getelementptr inbounds i8, ptr %1, i64 32
+  %622 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %623 = load i32, ptr %622, align 8
   %624 = icmp sgt i32 %623, 0
   br i1 %624, label %.lr.ph600, label %._crit_edge
 
 .lr.ph600:                                        ; preds = %621
-  %625 = getelementptr inbounds i8, ptr %1, i64 36
+  %625 = getelementptr inbounds nuw i8, ptr %1, i64 36
   br label %626
 
 626:                                              ; preds = %.lr.ph600, %672
@@ -7937,7 +7937,7 @@ _ZNK12V3NumberData3numEv.exit.i411:               ; preds = %629
   %spec.select.i10.i412 = select i1 %633, ptr %1, ptr %634
   %635 = lshr i32 %.0109599, 5
   %636 = zext nneg i32 %635 to i64
-  %637 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i412, i64 %636
+  %637 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i412, i64 %636
   %.sroa.0.0.copyload.i413 = load i32, ptr %637, align 4
   %638 = zext i32 %.sroa.0.0.copyload.i413 to i64
   %639 = and i32 %.0109599, 31
@@ -7945,7 +7945,7 @@ _ZNK12V3NumberData3numEv.exit.i411:               ; preds = %629
   %641 = shl nuw nsw i64 1, %640
   %642 = and i64 %641, %638
   %643 = icmp eq i64 %642, 0
-  %.sroa.2.0..sroa_idx.i414 = getelementptr inbounds i8, ptr %637, i64 4
+  %.sroa.2.0..sroa_idx.i414 = getelementptr inbounds nuw i8, ptr %637, i64 4
   %.sroa.2.0.copyload.i415 = load i32, ptr %.sroa.2.0..sroa_idx.i414, align 4
   %644 = zext i32 %.sroa.2.0.copyload.i415 to i64
   %645 = and i64 %641, %644
@@ -7960,7 +7960,7 @@ _ZNK8V3Number6bitIs0Ei.exit417:                   ; preds = %631
   %spec.select.i7.i.i407 = select i1 %646, ptr %1, ptr %647
   %648 = lshr i32 %.tr811.i.i406, 5
   %649 = zext nneg i32 %648 to i64
-  %.sroa.1.0..sroa_idx.i.i408 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i407, i64 %649, i32 1
+  %.sroa.1.0..sroa_idx.i.i408 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i407, i64 %649, i32 1
   %.sroa.1.0.copyload.i.i409 = load i32, ptr %.sroa.1.0..sroa_idx.i.i408, align 4
   %650 = zext i32 %.sroa.1.0.copyload.i.i409 to i64
   %651 = and i32 %.tr811.i.i406, 31
@@ -7990,7 +7990,7 @@ _ZNK12V3NumberData3numEv.exit.i437:               ; preds = %tailrecurse.i434
   %spec.select.i9.i438 = select i1 %660, ptr %1, ptr %658
   %661 = lshr i32 %.tr1013.i435, 5
   %662 = zext nneg i32 %661 to i64
-  %663 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i438, i64 %662
+  %663 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i438, i64 %662
   %.sroa.0.0.copyload.i439 = load i32, ptr %663, align 4
   %664 = xor i32 %.sroa.0.0.copyload.i439, -1
   %665 = zext i32 %664 to i64
@@ -8002,7 +8002,7 @@ _ZNK12V3NumberData3numEv.exit.i437:               ; preds = %tailrecurse.i434
   br i1 %.not7.i440, label %_ZNK8V3Number6bitIsZEi.exit444.thread, label %_ZNK8V3Number6bitIsZEi.exit444
 
 _ZNK8V3Number6bitIsZEi.exit444:                   ; preds = %_ZNK12V3NumberData3numEv.exit.i437
-  %.sroa.2.0..sroa_idx.i441 = getelementptr inbounds i8, ptr %663, i64 4
+  %.sroa.2.0..sroa_idx.i441 = getelementptr inbounds nuw i8, ptr %663, i64 4
   %.sroa.2.0.copyload.i442 = load i32, ptr %.sroa.2.0..sroa_idx.i441, align 4
   %670 = zext i32 %.sroa.2.0.copyload.i442 to i64
   %671 = and i64 %668, %670
@@ -8114,10 +8114,10 @@ define dso_local noundef i32 @_ZNK8V3Number6countXEii(ptr nocapture noundef nonn
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i.i = freeze i32 %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i8, ptr %7, align 4
   %.fr24 = freeze i8 %8
   %9 = add i8 %.fr24, -3
@@ -8146,7 +8146,7 @@ define dso_local noundef i32 @_ZNK8V3Number6countXEii(ptr nocapture noundef nonn
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %14
   %16 = lshr i32 %13, 5
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %17
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
   %19 = zext i32 %.sroa.0.0.copyload.i to i64
   %20 = and i32 %13, 31
@@ -8157,7 +8157,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %14
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsXEi.exit.thread, label %_ZNK8V3Number6bitIsXEi.exit
 
 _ZNK8V3Number6bitIsXEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %24 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %25 = and i64 %22, %24
@@ -8184,10 +8184,10 @@ define dso_local noundef i32 @_ZNK8V3Number6countZEii(ptr nocapture noundef nonn
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i = freeze i32 %6
-  %7 = getelementptr inbounds i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %8 = load i8, ptr %7, align 4
   %.fr24 = freeze i8 %8
   %9 = add i8 %.fr24, -3
@@ -8216,7 +8216,7 @@ define dso_local noundef i32 @_ZNK8V3Number6countZEii(ptr nocapture noundef nonn
 tailrecurse.i.preheader:                          ; preds = %14
   %16 = lshr i32 %13, 5
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %17
   %.sroa.0.0.copyload.i = load i32, ptr %18, align 4
   %19 = xor i32 %.sroa.0.0.copyload.i, -1
   %20 = zext i32 %19 to i64
@@ -8228,7 +8228,7 @@ tailrecurse.i.preheader:                          ; preds = %14
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %tailrecurse.i.preheader
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %25 = zext i32 %.sroa.2.0.copyload.i to i64
   %26 = and i64 %23, %25
@@ -8279,7 +8279,7 @@ define linkonce_odr dso_local void @_Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllXEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %.fr7 = freeze i8 %3
   %4 = and i8 %.fr7, -2
@@ -8287,7 +8287,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllXEv(ptr noundef nonnull 
   br i1 %switch, label %.loopexit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = add i8 %.fr7, -1
   %spec.select.i.i = icmp ult i8 %8, 2
@@ -8316,9 +8316,9 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllXEv(ptr noundef nonnull 
 
 _ZNK12V3NumberData3numEv.exit.us:                 ; preds = %.split.us
   %19 = add nsw i64 %indvars.iv, -1
-  %20 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %19
   %.sroa.0.0.copyload.us = load i32, ptr %20, align 4
-  %.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.2.0.copyload.us = load i32, ptr %.sroa.2.0..sroa_idx.us, align 4
   %21 = and i32 %.sroa.2.0.copyload.us, %.sroa.0.0.copyload.us
   %.not.us = icmp eq i32 %21, %.05.us
@@ -8343,14 +8343,14 @@ _ZNK12V3NumberData3numEv.exit.us:                 ; preds = %.split.us
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number6isAllZEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -2
   %switch = icmp eq i8 %4, 2
   br i1 %switch, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i = freeze i32 %6
   %7 = icmp sgt i32 %.fr.i, 0
@@ -8382,7 +8382,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   %14 = lshr i32 %.tr1013.i, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %15
   %.sroa.0.0.copyload.i = load i32, ptr %16, align 4
   %17 = xor i32 %.sroa.0.0.copyload.i, -1
   %18 = zext i32 %17 to i64
@@ -8394,7 +8394,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %23 = zext i32 %.sroa.2.0.copyload.i to i64
   %24 = and i64 %21, %23
@@ -8408,14 +8408,14 @@ _ZNK8V3Number6bitIsZEi.exit.thread:               ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number6isAnyXEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -2
   %switch = icmp eq i8 %4, 2
   br i1 %switch, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i.i = freeze i32 %6
   %7 = icmp sgt i32 %.fr.i.i, 0
@@ -8433,7 +8433,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   %.06 = phi i32 [ %21, %_ZNK8V3Number6bitIsXEi.exit.thread ], [ 0, %.lr.ph ]
   %11 = lshr i32 %.06, 5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %12
   %.sroa.0.0.copyload.i = load i32, ptr %13, align 4
   %14 = zext i32 %.sroa.0.0.copyload.i to i64
   %15 = and i32 %.06, 31
@@ -8444,7 +8444,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsXEi.exit.thread, label %_ZNK8V3Number6bitIsXEi.exit
 
 _ZNK8V3Number6bitIsXEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %13, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %19 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %20 = and i64 %17, %19
@@ -8463,14 +8463,14 @@ _ZNK8V3Number6bitIsXEi.exit.thread:               ; preds = %_ZNK12V3NumberData3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number6isAnyZEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -2
   %switch = icmp eq i8 %4, 2
   br i1 %switch, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i = freeze i32 %6
   %7 = icmp sgt i32 %.fr.i, 0
@@ -8497,7 +8497,7 @@ tailrecurse.i:                                    ; preds = %.lr.ph.i, %tailrecu
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   %12 = lshr i32 %.tr1013.i, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %13
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 4
   %15 = xor i32 %.sroa.0.0.copyload.i, -1
   %16 = zext i32 %15 to i64
@@ -8509,7 +8509,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %21 = zext i32 %.sroa.2.0.copyload.i to i64
   %22 = and i64 %19, %21
@@ -8532,13 +8532,13 @@ define dso_local void @_ZNK8V3Number10toDecimalSB5cxx11Ev(ptr dead_on_unwind noa
   %4 = alloca %class.V3Number, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = load i8, ptr %7, align 4
   %9 = icmp eq i8 %8, 3
   br i1 %9, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %10
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = add i8 %8, -3
   %spec.select.i.i.i = icmp ult i8 %13, -2
@@ -8553,7 +8553,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %10
   %spec.select.i10.i.i = select i1 %16, ptr %1, ptr %17
   %18 = lshr i32 %15, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %19
   %.sroa.0.0.copyload.i.i = load i32, ptr %20, align 4
   %21 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %22 = and i32 %15, 31
@@ -8564,7 +8564,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %10
   br i1 %.not7.i.i, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %_ZNK8V3Number10isNegativeEv.exit
 
 _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %26 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %27 = and i64 %24, %26
@@ -8573,8 +8573,8 @@ _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3
 
 28:                                               ; preds = %_ZNK8V3Number10isNegativeEv.exit
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %29 = getelementptr inbounds i8, ptr %4, i64 40
-  %30 = getelementptr inbounds i8, ptr %1, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, i64 16, i1 false)
   %31 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opNegateERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %32 unwind label %62
@@ -8623,7 +8623,7 @@ _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #30
-  %49 = getelementptr inbounds i8, ptr %4, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %50 = load i8, ptr %49, align 4
   %51 = icmp eq i8 %50, 3
   br i1 %51, label %52, label %53
@@ -8633,7 +8633,7 @@ _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3
   br label %_ZN8V3NumberD2Ev.exit
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %4, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %55 = load i32, ptr %54, align 8
   %56 = icmp sgt i32 %55, 128
   %57 = icmp eq i8 %50, 1
@@ -8708,13 +8708,13 @@ define linkonce_odr dso_local void @_Z8cvtToStrIlENSt7__cxx1112basic_stringIcSt1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZNK8V3Number7toSQuadEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 2
   br i1 %4, label %5, label %16
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -8729,7 +8729,7 @@ define dso_local noundef i64 @_ZNK8V3Number7toSQuadEv(ptr noundef nonnull align 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %5
   %11 = load i32, ptr %0, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %11 to i64
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i32, ptr %12, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %13 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -8740,7 +8740,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %5
 
 16:                                               ; preds = %1
   %17 = tail call noundef i64 @_ZNK8V3Number7toUQuadEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = add nsw i32 %19, -1
   %21 = zext nneg i32 %20 to i64
@@ -8761,19 +8761,19 @@ define dso_local void @_ZNK8V3Number10toDecimalUB5cxx11Ev(ptr dead_on_unwind noa
   %4 = alloca %class.V3Number, align 8
   %5 = alloca %class.V3Number, align 8
   %6 = alloca %class.V3Number, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = shl i32 %8, 2
   %10 = add i32 %9, 12
   %11 = sdiv i32 %10, 3
   %12 = add nsw i32 %11, 4
-  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %3, i64 37
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 0, ptr %15, align 1
-  %16 = getelementptr inbounds i8, ptr %3, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i32 noundef %12, i1 noundef zeroext true)
           to label %_ZN8V3NumberC2EPKS_i.exit unwind label %17
@@ -8789,17 +8789,17 @@ common.resume:                                    ; preds = %.body, %17
   br label %common.resume
 
 _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %2
-  %19 = getelementptr inbounds i8, ptr %3, i64 48
-  %20 = getelementptr inbounds i8, ptr %1, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %21 = load ptr, ptr %20, align 8
   store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %4, i64 37
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 37
   store i8 0, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i32 noundef %12, i1 noundef zeroext true)
           to label %28 unwind label %26
@@ -8811,18 +8811,18 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %2
   br label %.body
 
 28:                                               ; preds = %_ZN8V3NumberC2EPKS_i.exit
-  %29 = getelementptr inbounds i8, ptr %4, i64 48
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %30 = load ptr, ptr %20, align 8
   store ptr %30, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %5, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %5, i64 36
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %5, i64 37
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 37
   %34 = load i8, ptr %33, align 1
   %35 = and i8 %34, -64
   store i8 %35, ptr %33, align 1
-  %36 = getelementptr inbounds i8, ptr %5, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef null, i32 noundef %12, i1 noundef zeroext true)
           to label %39 unwind label %37
@@ -8834,7 +8834,7 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %2
   br label %.body37
 
 39:                                               ; preds = %28
-  %40 = getelementptr inbounds i8, ptr %5, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %41 = load ptr, ptr %20, align 8
   store ptr %41, ptr %40, align 8
   %42 = load i32, ptr %7, align 8
@@ -8845,7 +8845,7 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %2
 .lr.ph:                                           ; preds = %39
   %.026164 = add nsw i32 %.fr.i.i, -1
   %44 = icmp samesign ult i32 %.fr.i.i, 129
-  %45 = getelementptr inbounds i8, ptr %1, i64 36
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %46 = load i8, ptr %45, align 4
   %47 = add i8 %46, -3
   %spec.select.i.i = icmp ult i8 %47, -2
@@ -8853,7 +8853,7 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %2
   %spec.select.i10.i = select i1 %44, ptr %1, ptr %48
   %49 = lshr i32 %.026164, 5
   %50 = zext nneg i32 %49 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %50, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %50, i32 1
   %51 = and i32 %.026164, 31
   %52 = zext nneg i32 %51 to i64
   %53 = shl nuw nsw i64 1, %52
@@ -8875,7 +8875,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.split
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
   %57 = lshr i32 %.026166, 5
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %58
+  %59 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %58
   %.sroa.0.0.copyload.i = load i32, ptr %59, align 4
   %60 = zext i32 %.sroa.0.0.copyload.i to i64
   %61 = and i32 %.026166, 31
@@ -8886,7 +8886,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
   br i1 %65, label %66, label %.preheader.lr.ph
 
 66:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %59, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %67 = zext i32 %.sroa.2.0.copyload.i to i64
   %68 = and i64 %63, %67
@@ -8916,12 +8916,12 @@ _ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %66, %_ZNK12V3Number
 .preheader.lr.ph:                                 ; preds = %66, %_ZNK12V3NumberData3numEv.exit.i.i, %_ZNK12V3NumberData3numEv.exit.i, %.lr.ph
   %.026.lcssa.ph = phi i32 [ %.026164, %.lr.ph ], [ %.026166, %_ZNK12V3NumberData3numEv.exit.i ], [ %.026166, %_ZNK12V3NumberData3numEv.exit.i.i ], [ %.026166, %66 ]
   %70 = icmp sgt i32 %10, 2
-  %71 = getelementptr inbounds i8, ptr %6, i64 32
-  %72 = getelementptr inbounds i8, ptr %6, i64 36
-  %73 = getelementptr inbounds i8, ptr %6, i64 37
-  %74 = getelementptr inbounds i8, ptr %6, i64 40
-  %75 = getelementptr inbounds i8, ptr %6, i64 48
-  %76 = getelementptr inbounds i8, ptr %1, i64 36
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 37
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %77 = sext i32 %11 to i64
   br label %.preheader
 
@@ -8955,7 +8955,7 @@ _ZNK8V3Number6bitIs0Ei.exit.backedge:             ; preds = %66, %_ZNK12V3Number
 _ZNK12V3NumberData3numEv.exit.i.i41:              ; preds = %.lr.ph.split.i
   %85 = lshr i64 %84, 5
   %86 = and i64 %85, 134217727
-  %87 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %86
+  %87 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %86
   %.sroa.0.0.copyload.i.i = load i32, ptr %87, align 4
   %88 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %89 = and i64 %84, 31
@@ -8965,7 +8965,7 @@ _ZNK12V3NumberData3numEv.exit.i.i41:              ; preds = %.lr.ph.split.i
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.i, label %92
 
 92:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i41
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %87, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %87, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %93 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %94 = and i64 %90, %93
@@ -9003,9 +9003,9 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %.lr.ph.i
   %106 = icmp slt i32 %103, 129
   %107 = load ptr, ptr %5, align 8
   %spec.select.i.i43 = select i1 %106, ptr %5, ptr %107
-  %108 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i43, i64 %indvars.iv.i
+  %108 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i43, i64 %indvars.iv.i
   store i32 0, ptr %108, align 4
-  %.sroa.2.0..sroa_idx.i44 = getelementptr inbounds i8, ptr %108, i64 4
+  %.sroa.2.0..sroa_idx.i44 = getelementptr inbounds nuw i8, ptr %108, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx.i44, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %109 = load i32, ptr %31, align 8
@@ -9036,12 +9036,12 @@ _ZN12V3NumberData3numEv.exit.i51:                 ; preds = %116
   %spec.select.i.i52 = select i1 %122, ptr %5, ptr %123
   %124 = lshr i64 %indvars.iv198, 5
   %125 = and i64 %124, 134217727
-  %126 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i52, i64 %125
+  %126 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i52, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = or i32 %127, %121
   store i32 %128, ptr %126, align 4
   %129 = xor i32 %121, -1
-  %130 = getelementptr inbounds i8, ptr %126, i64 4
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %131 = load i32, ptr %130, align 4
   %132 = and i32 %131, %129
   store i32 %132, ptr %130, align 4
@@ -9083,12 +9083,12 @@ _ZN12V3NumberData3numEv.exit.i60:                 ; preds = %135
   %spec.select.i.i61 = select i1 %144, ptr %5, ptr %145
   %146 = lshr i64 %indvars.iv198, 5
   %147 = and i64 %146, 134217727
-  %148 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i61, i64 %147
+  %148 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i61, i64 %147
   %149 = load i32, ptr %148, align 4
   %150 = or i32 %149, %143
   store i32 %150, ptr %148, align 4
   %151 = xor i32 %143, -1
-  %152 = getelementptr inbounds i8, ptr %148, i64 4
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %153 = load i32, ptr %152, align 4
   %154 = and i32 %153, %151
   store i32 %154, ptr %152, align 4
@@ -9222,7 +9222,7 @@ _ZNK12V3NumberData3numEv.exit.i77:                ; preds = %191
   %spec.select.i10.i78 = select i1 %193, ptr %1, ptr %194
   %195 = lshr i32 %.127179, 5
   %196 = zext nneg i32 %195 to i64
-  %197 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i78, i64 %196
+  %197 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i78, i64 %196
   %.sroa.0.0.copyload.i79 = load i32, ptr %197, align 4
   %198 = zext i32 %.sroa.0.0.copyload.i79 to i64
   %199 = and i32 %.127179, 31
@@ -9233,7 +9233,7 @@ _ZNK12V3NumberData3numEv.exit.i77:                ; preds = %191
   br i1 %.not7.i80, label %_ZN8V3Number6setBitEic.exit92, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i77
-  %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds i8, ptr %197, i64 4
+  %.sroa.2.0..sroa_idx.i81 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %.sroa.2.0.copyload.i82 = load i32, ptr %.sroa.2.0..sroa_idx.i81, align 4
   %203 = zext i32 %.sroa.2.0.copyload.i82 to i64
   %204 = and i64 %201, %203
@@ -9284,7 +9284,7 @@ _ZN12V3NumberData3numEv.exit.i85:                 ; preds = %207
   %220 = or i32 %219, 1
   store i32 %220, ptr %spec.select.i.i86, align 4
   %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %217, ptr %3, ptr %218
-  %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
+  %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 4
   %221 = load i32, ptr %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %222 = and i32 %221, -2
   store i32 %222, ptr %spec.select.i.i86.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
@@ -9343,7 +9343,7 @@ _ZNK8V3Number9bitsValueEii.exit112.thread.us.preheader: ; preds = %.lr.ph183
 _ZNK12V3NumberData3numEv.exit.i.i106:             ; preds = %.lr.ph.split.i97
   %241 = lshr i32 %239, 5
   %242 = zext nneg i32 %241 to i64
-  %243 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i96, i64 %242
+  %243 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i96, i64 %242
   %.sroa.0.0.copyload.i.i107 = load i32, ptr %243, align 4
   %244 = zext i32 %.sroa.0.0.copyload.i.i107 to i64
   %245 = and i32 %239, 31
@@ -9354,7 +9354,7 @@ _ZNK12V3NumberData3numEv.exit.i.i106:             ; preds = %.lr.ph.split.i97
   br i1 %.not7.i.i108, label %_ZNK8V3Number6bitIs1Ei.exit.i102, label %249
 
 249:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i106
-  %.sroa.2.0..sroa_idx.i.i109 = getelementptr inbounds i8, ptr %243, i64 4
+  %.sroa.2.0..sroa_idx.i.i109 = getelementptr inbounds nuw i8, ptr %243, i64 4
   %.sroa.2.0.copyload.i.i110 = load i32, ptr %.sroa.2.0..sroa_idx.i.i109, align 4
   %250 = zext i32 %.sroa.2.0.copyload.i.i110 to i64
   %251 = and i64 %247, %250
@@ -9412,7 +9412,7 @@ _ZNK8V3Number9bitsValueEii.exit112._crit_edge:    ; preds = %_ZNK8V3Number9bitsV
 _ZNK12V3NumberData3numEv.exit.i.i126:             ; preds = %.lr.ph.split.i117
   %267 = lshr i32 %266, 5
   %268 = zext nneg i32 %267 to i64
-  %269 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i116, i64 %268
+  %269 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i116, i64 %268
   %.sroa.0.0.copyload.i.i127 = load i32, ptr %269, align 4
   %270 = zext i32 %.sroa.0.0.copyload.i.i127 to i64
   %271 = and i32 %266, 31
@@ -9423,7 +9423,7 @@ _ZNK12V3NumberData3numEv.exit.i.i126:             ; preds = %.lr.ph.split.i117
   br i1 %.not7.i.i128, label %_ZNK8V3Number6bitIs1Ei.exit.i122, label %275
 
 275:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i.i126
-  %.sroa.2.0..sroa_idx.i.i129 = getelementptr inbounds i8, ptr %269, i64 4
+  %.sroa.2.0..sroa_idx.i.i129 = getelementptr inbounds nuw i8, ptr %269, i64 4
   %.sroa.2.0.copyload.i.i130 = load i32, ptr %.sroa.2.0..sroa_idx.i.i129, align 4
   %276 = zext i32 %.sroa.2.0.copyload.i.i130 to i64
   %277 = and i64 %273, %276
@@ -9586,10 +9586,10 @@ define dso_local noundef i64 @_ZNK8V3Number7toUQuadEv(ptr noundef nonnull align 
   unreachable
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8
   br i1 %12, label %21, label %.preheader
 
@@ -9626,7 +9626,7 @@ _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %21
   %25 = load i32, ptr %0, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %25 to i64
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i32, ptr %26, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %27 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -9642,7 +9642,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %21
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit.preheader, %30
   %indvars.iv = phi i64 [ 2, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
   %.not = icmp eq i32 %32, 0
   br i1 %.not, label %30, label %38
@@ -9705,7 +9705,7 @@ _ZNK12V3NumberData3numEv.exit10:                  ; preds = %50
   %58 = icmp samesign ult i32 %45, 129
   %59 = load ptr, ptr %0, align 8
   %spec.select.i6 = select i1 %58, ptr %0, ptr %59
-  %60 = getelementptr inbounds i8, ptr %spec.select.i6, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i6, i64 8
   %61 = load i32, ptr %60, align 4
   %62 = zext i32 %61 to i64
   %63 = shl nuw i64 %62, 32
@@ -9776,13 +9776,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number10isNegativeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %_ZNK8V3Number6bitIs1Ei.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = add i8 %3, -3
   %spec.select.i.i = icmp ult i8 %8, -2
@@ -9797,7 +9797,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %5
   %spec.select.i10.i = select i1 %11, ptr %0, ptr %12
   %13 = lshr i32 %10, 5
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %14
   %.sroa.0.0.copyload.i = load i32, ptr %15, align 4
   %16 = zext i32 %.sroa.0.0.copyload.i to i64
   %17 = and i32 %10, 31
@@ -9808,7 +9808,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %5
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit, label %21
 
 21:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %22 = zext i32 %.sroa.2.0.copyload.i to i64
   %23 = and i64 %19, %22
@@ -9835,7 +9835,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %.not12 = icmp eq i8 %11, 1
   br i1 %.not12, label %18, label %12
@@ -9851,7 +9851,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
 
 18:                                               ; preds = %9
   %19 = tail call noundef zeroext i1 @_ZNK8V3Number11isFourStateEv(ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   br i1 %19, label %.preheader, label %41
 
@@ -9860,7 +9860,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %22, label %.lr.ph, label %_ZN8V3Number11setAllBitsXEv.exit
 
 .lr.ph:                                           ; preds = %.preheader
-  %23 = getelementptr inbounds i8, ptr %0, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZN12V3NumberData3numEv.exit
@@ -9883,9 +9883,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %24
   %33 = icmp slt i32 %25, 129
   %34 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %33, ptr %0, ptr %34
-  %35 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 -1, ptr %35, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %35, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 4
   store i32 -1, ptr %.sroa.2.0..sroa_idx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = load i32, ptr %20, align 8
@@ -9900,13 +9900,13 @@ _ZN8V3Number11setAllBitsXEv.exit:                 ; preds = %_ZN12V3NumberData3n
   br label %_ZN8V3NumberD2Ev.exit15
 
 41:                                               ; preds = %18
-  %42 = getelementptr inbounds i8, ptr %3, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store i32 0, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %3, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 36
   store i8 0, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %3, i64 37
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 37
   store i8 0, ptr %44, align 1
-  %45 = getelementptr inbounds i8, ptr %3, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef null, i32 noundef %21, i1 noundef zeroext true)
           to label %_ZN8V3NumberC2EPKS_i.exit unwind label %46
@@ -9922,8 +9922,8 @@ common.resume:                                    ; preds = %.body, %46
   br label %common.resume
 
 _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %3, i64 48
-  %49 = getelementptr inbounds i8, ptr %1, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = load ptr, ptr %49, align 8
   store ptr %50, ptr %48, align 8
   %51 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5opNotERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1)
@@ -9931,14 +9931,14 @@ _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %41
 
 52:                                               ; preds = %_ZN8V3NumberC2EPKS_i.exit
   %53 = load i32, ptr %20, align 8
-  %54 = getelementptr inbounds i8, ptr %4, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %4, i64 36
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 0, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %4, i64 37
+  %56 = getelementptr inbounds nuw i8, ptr %4, i64 37
   store i8 0, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %4, i64 40
-  %58 = getelementptr inbounds i8, ptr %4, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %4, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i32 noundef %53, i1 noundef zeroext true)
           to label %59 unwind label %71
@@ -10084,7 +10084,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -10099,7 +10099,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not27 = icmp eq i8 %21, 1
   br i1 %.not27, label %28, label %22
@@ -10118,13 +10118,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br i1 %29, label %.preheader, label %51
 
 .preheader:                                       ; preds = %28
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph41, label %_ZN8V3Number11setAllBitsXEv.exit
 
 .lr.ph41:                                         ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %0, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %34
 
 34:                                               ; preds = %.lr.ph41, %_ZN12V3NumberData3numEv.exit
@@ -10147,9 +10147,9 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %34
   %43 = icmp slt i32 %35, 129
   %44 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %43, ptr %0, ptr %44
-  %45 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   store i32 -1, ptr %45, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %45, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 -1, ptr %.sroa.2.0..sroa_idx.i, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %30, align 8
@@ -10165,7 +10165,7 @@ _ZN8V3Number11setAllBitsXEv.exit:                 ; preds = %_ZN12V3NumberData3n
 
 51:                                               ; preds = %28
   %52 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %53 = getelementptr inbounds i8, ptr %2, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 32
   br i1 %55, label %.lr.ph, label %._crit_edge
@@ -10183,7 +10183,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   %.02336 = phi i32 [ %70, %_ZNK8V3Number6bitIs1Ei.exit.thread ], [ 32, %.lr.ph ]
   %60 = lshr i32 %.02336, 5
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %61
   %.sroa.0.0.copyload.i = load i32, ptr %62, align 4
   %63 = zext i32 %.sroa.0.0.copyload.i to i64
   %64 = and i32 %.02336, 31
@@ -10194,7 +10194,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %62, i64 4
+  %.sroa.2.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i30, align 4
   %68 = zext i32 %.sroa.2.0.copyload.i to i64
   %69 = and i64 %66, %68
@@ -10208,7 +10208,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK12V3NumberData3
 
 ._crit_edge:                                      ; preds = %_ZNK8V3Number6bitIs1Ei.exit.thread, %.lr.ph, %51
   %71 = tail call noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i32, ptr %72, align 8
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph39, label %.loopexit
@@ -10242,7 +10242,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10fitsInUIntEv(ptr noundef non
   br i1 %2, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 31
   %6 = sdiv i32 %5, 32
@@ -10250,7 +10250,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10fitsInUIntEv(ptr noundef non
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = add i8 %9, -1
   %spec.select.i.i = icmp ult i8 %10, 2
@@ -10266,7 +10266,7 @@ _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 1, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %13 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %.not = icmp eq i32 %14, 0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -10327,7 +10327,7 @@ _ZlsRSoRK8V3Number.exit:                          ; preds = %11
   br label %18
 
 18:                                               ; preds = %_ZlsRSoRK8V3Number.exit, %9
-  %19 = getelementptr inbounds i8, ptr %0, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i8, ptr %19, align 4
   %21 = add i8 %20, -1
   %spec.select.i.i = icmp ult i8 %21, 2
@@ -10342,7 +10342,7 @@ _ZlsRSoRK8V3Number.exit:                          ; preds = %11
   unreachable
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = icmp slt i32 %28, 129
   %30 = load ptr, ptr %0, align 8
@@ -10353,7 +10353,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %18
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 37
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 2
   %.not = icmp eq i8 %4, 0
@@ -10361,7 +10361,7 @@ define dso_local noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8
   br i1 %.not, label %16, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %9 = add nsw i32 %8, -1
   %10 = zext nneg i32 %9 to i64
@@ -10379,7 +10379,7 @@ define dso_local noundef i32 @_ZNK8V3Number6toSIntEv(ptr noundef nonnull align 8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK12V3NumberData3strB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %10, label %5
@@ -10401,9 +10401,9 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define dso_local i32 @_ZNK8V3Number6toHashEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.V3Hash, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = icmp eq i8 %6, 3
   br i1 %7, label %_ZNK12V3NumberData3strB5cxx11Ev.exit, label %.preheader
@@ -10441,7 +10441,7 @@ _ZNK12V3NumberData3strB5cxx11Ev.exit:             ; preds = %1
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit.preheader, %_ZNK12V3NumberData3numEv.exit
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
   %.sroa.0.16 = phi i32 [ %4, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %28, %_ZNK12V3NumberData3numEv.exit ]
-  %21 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = shl i32 %.sroa.0.16, 6
   %24 = lshr i32 %.sroa.0.16, 2
@@ -10482,7 +10482,7 @@ define dso_local noundef i32 @_ZNK8V3Number9edataWordEi(ptr noundef nonnull alig
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = add i8 %11, -1
   %spec.select.i.i = icmp ult i8 %12, 2
@@ -10497,7 +10497,7 @@ define dso_local noundef i32 @_ZNK8V3Number9edataWordEi(ptr noundef nonnull alig
   unreachable
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %9
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp slt i32 %19, 129
   %21 = load ptr, ptr %0, align 8
@@ -10521,13 +10521,13 @@ define dso_local noundef zeroext i8 @_ZNK8V3Number8dataByteEi(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number9isNeqZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   br i1 %4, label %_ZNK12V3NumberData3strB5cxx11Ev.exit, label %.preheader
 
 .preheader:                                       ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 31
   %8 = sdiv i32 %7, 32
@@ -10554,9 +10554,9 @@ _ZNK12V3NumberData3strB5cxx11Ev.exit:             ; preds = %1
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %15 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %15, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %16 = xor i32 %.sroa.2.0.copyload, -1
   %17 = and i32 %.sroa.0.0.copyload, %16
@@ -10585,12 +10585,12 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10isBitsZeroEii(ptr nocapture 
   br i1 %.not10, label %_ZNK8V3Number6bitIs0Ei.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i8, ptr %4, align 4
   %.fr25 = freeze i8 %5
   %6 = add i8 %.fr25, -3
   %spec.select.i.i = icmp ult i8 %6, -2
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 8
   %.fr.i.i = freeze i32 %8
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
@@ -10599,7 +10599,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10isBitsZeroEii(ptr nocapture 
   %spec.select.i7.i.i = select i1 %9, ptr %0, ptr %10
   %11 = lshr i32 %.tr811.i.i, 5
   %12 = zext nneg i32 %11 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %12, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %12, i32 1
   %13 = and i32 %.tr811.i.i, 31
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 1, %14
@@ -10621,7 +10621,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number10isBitsZeroEii(ptr nocapture 
 _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %18
   %19 = lshr i32 %.011.us, 5
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %20
   %.sroa.0.0.copyload.i.us = load i32, ptr %21, align 4
   %22 = zext i32 %.sroa.0.0.copyload.i.us to i64
   %23 = and i32 %.011.us, 31
@@ -10632,7 +10632,7 @@ _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %18
   br i1 %27, label %28, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 28:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.us
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %21, i64 4
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 4
   %29 = zext i32 %.sroa.2.0.copyload.i.us to i64
   %30 = and i64 %25, %29
@@ -10662,7 +10662,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %32
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %32
   %36 = lshr i32 %.011, 5
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %37
   %.sroa.0.0.copyload.i = load i32, ptr %38, align 4
   %39 = zext i32 %.sroa.0.0.copyload.i to i64
   %40 = and i32 %.011, 31
@@ -10673,7 +10673,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %32
   br i1 %44, label %45, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 45:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %46 = zext i32 %.sroa.2.0.copyload.i to i64
   %47 = and i64 %42, %46
@@ -10692,7 +10692,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread:               ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number7isEqOneEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = add i8 %3, -1
   %spec.select.i.i = icmp ult i8 %4, 2
@@ -10707,7 +10707,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number7isEqOneEv(ptr noundef nonnull
   unreachable
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = icmp slt i32 %11, 129
   %13 = load ptr, ptr %0, align 8
@@ -10717,7 +10717,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %1
   br i1 %.not, label %_ZNK12V3NumberData3numEv.exit10, label %.loopexit
 
 _ZNK12V3NumberData3numEv.exit10:                  ; preds = %_ZNK12V3NumberData3numEv.exit
-  %15 = getelementptr inbounds i8, ptr %spec.select.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 4
   %16 = load i32, ptr %15, align 4
   %.not7 = icmp eq i32 %16, 0
   br i1 %.not7, label %.preheader, label %.loopexit
@@ -10734,9 +10734,9 @@ _ZNK12V3NumberData3numEv.exit13.preheader:        ; preds = %.preheader
 
 _ZNK12V3NumberData3numEv.exit13:                  ; preds = %_ZNK12V3NumberData3numEv.exit13, %_ZNK12V3NumberData3numEv.exit13.preheader
   %indvars.iv = phi i64 [ 1, %_ZNK12V3NumberData3numEv.exit13.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit13 ]
-  %20 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %20, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %21 = icmp eq i32 %.sroa.0.0.copyload, 0
   %22 = icmp eq i32 %.sroa.2.0.copyload, 0
@@ -10754,14 +10754,14 @@ _ZNK12V3NumberData3numEv.exit13:                  ; preds = %_ZNK12V3NumberData3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number11isEqAllOnesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %.not = icmp eq i32 %1, 0
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.06 = select i1 %.not, i32 %4, i32 %1
   %5 = icmp slt i32 %.06, 1
   br i1 %5, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %8 = add i8 %7, -3
   %spec.select.i.i = icmp ult i8 %8, -2
@@ -10787,7 +10787,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number11isEqAllOnesEi(ptr nocapture 
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   %13 = lshr i32 %.010, 5
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %14
   %.sroa.0.0.copyload.i = load i32, ptr %15, align 4
   %16 = zext i32 %.sroa.0.0.copyload.i to i64
   %17 = and i32 %.010, 31
@@ -10798,7 +10798,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %21 = zext i32 %.sroa.2.0.copyload.i to i64
   %22 = and i64 %19, %21
@@ -10812,7 +10812,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsXEi(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) #3 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = add i8 %4, -3
   %spec.select.i = icmp ult i8 %5, -2
@@ -10821,7 +10821,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number6bitIsXEi(ptr nou
   br i1 %or.cond, label %_ZNK8V3Number6bitIsZEi.exit, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %.fr.i = freeze i32 %9
   %.not = icmp slt i32 %1, %.fr.i
@@ -10838,7 +10838,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %10
   %spec.select.i9.i = select i1 %12, ptr %0, ptr %13
   %14 = lshr i32 %.tr1013.i, 5
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %15
   %.sroa.0.0.copyload.i = load i32, ptr %16, align 4
   %17 = xor i32 %.sroa.0.0.copyload.i, -1
   %18 = zext i32 %17 to i64
@@ -10855,7 +10855,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
   %spec.select.i10 = select i1 %23, ptr %0, ptr %24
   %25 = lshr i32 %1, 5
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10, i64 %26
+  %27 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10, i64 %26
   %.sroa.0.0.copyload = load i32, ptr %27, align 4
   %28 = zext i32 %.sroa.0.0.copyload to i64
   %29 = and i32 %1, 31
@@ -10868,7 +10868,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
 _ZNK8V3Number6bitIsZEi.exit.sink.split:           ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.i
   %.sink = phi ptr [ %16, %_ZNK12V3NumberData3numEv.exit.i ], [ %27, %_ZNK12V3NumberData3numEv.exit ]
   %.sink11 = phi i64 [ %21, %_ZNK12V3NumberData3numEv.exit.i ], [ %31, %_ZNK12V3NumberData3numEv.exit ]
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sink, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %33 = zext i32 %.sroa.2.0.copyload.i to i64
   %34 = and i64 %.sink11, %33
@@ -10882,14 +10882,14 @@ _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number7isAnyXZEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -2
   %switch.i = icmp eq i8 %4, 2
   br i1 %switch.i, label %_ZNK8V3Number6isAnyXEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i.i.i = freeze i32 %6
   %7 = icmp sgt i32 %.fr.i.i.i, 0
@@ -10907,7 +10907,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   %.06.i = phi i32 [ %21, %_ZNK8V3Number6bitIsXEi.exit.thread.i ], [ 0, %.lr.ph.i ]
   %11 = lshr i32 %.06.i, 5
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %12
   %.sroa.0.0.copyload.i.i = load i32, ptr %13, align 4
   %14 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %15 = and i32 %.06.i, 31
@@ -10918,7 +10918,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIsXEi.exit.thread.i, label %_ZNK8V3Number6bitIsXEi.exit.i
 
 _ZNK8V3Number6bitIsXEi.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
   %19 = zext i32 %.sroa.2.0.copyload.i.i.i to i64
   %20 = and i64 %17, %19
@@ -10951,7 +10951,7 @@ tailrecurse.i.i:                                  ; preds = %tailrecurse.i.i, %.
 _ZNK12V3NumberData3numEv.exit.i.i7:               ; preds = %tailrecurse.i.i
   %26 = lshr i32 %.tr1013.i.i, 5
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i.i, i64 %27
   %.sroa.0.0.copyload.i.i8 = load i32, ptr %28, align 4
   %29 = xor i32 %.sroa.0.0.copyload.i.i8, -1
   %30 = zext i32 %29 to i64
@@ -10963,7 +10963,7 @@ _ZNK12V3NumberData3numEv.exit.i.i7:               ; preds = %tailrecurse.i.i
   br i1 %.not7.i.i9, label %_ZNK8V3Number6bitIsZEi.exit.thread.i, label %_ZNK8V3Number6bitIsZEi.exit.i
 
 _ZNK8V3Number6bitIsZEi.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i7
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %35 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %36 = and i64 %33, %35
@@ -10982,10 +10982,10 @@ _ZNK8V3Number6isAnyXEv.exit:                      ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #13 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.fr.i.i35 = freeze i32 %4
-  %5 = getelementptr inbounds i8, ptr %1, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load i32, ptr %5, align 8
   %.fr.i.i = freeze i32 %6
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.fr.i.i35, i32 %.fr.i.i)
@@ -10993,14 +10993,14 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture nou
   br i1 %7, label %.lr.ph, label %_ZNK8V3Number6bitIs0Ei.exit.thread71
 
 .lr.ph:                                           ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = add i8 %9, -1
   %spec.select.i.i = icmp ult i8 %10, 2
   %11 = icmp samesign ult i32 %.fr.i.i35, 129
   %12 = load ptr, ptr %0, align 8
   %spec.select.i10.i = select i1 %11, ptr %0, ptr %12
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = add i8 %14, -3
   %spec.select.i.i14 = icmp ult i8 %15, -2
@@ -11011,7 +11011,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture nou
   %spec.select.i7.i.i = select i1 %17, ptr %1, ptr %18
   %19 = lshr i32 %.tr811.i.i, 5
   %20 = zext nneg i32 %19 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %20, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %20, i32 1
   %21 = and i32 %.tr811.i.i, 31
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i64 1, %22
@@ -11021,7 +11021,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture nou
   %.tr811.i.i38 = add nsw i32 %.fr.i.i35, -1
   %26 = lshr i32 %.tr811.i.i38, 5
   %27 = zext nneg i32 %26 to i64
-  %.sroa.1.0..sroa_idx.i.i40 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %27, i32 1
+  %.sroa.1.0..sroa_idx.i.i40 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %27, i32 1
   %28 = and i32 %.tr811.i.i38, 31
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 1, %29
@@ -11039,7 +11039,7 @@ define dso_local noundef zeroext i1 @_ZNK8V3Number6isLtXZERKS_(ptr nocapture nou
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.backedge
   %32 = lshr i32 %.082, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %33
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 4
   %35 = zext i32 %.sroa.0.0.copyload.i to i64
   %36 = and i32 %.082, 31
@@ -11050,7 +11050,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.backedge
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %40 = zext i32 %.sroa.2.0.copyload.i to i64
   %41 = and i64 %38, %40
@@ -11066,7 +11066,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   br i1 %16, label %_ZNK8V3Number6bitIs0Ei.exit, label %_ZNK8V3Number6bitIs0Ei.exit.thread71
 
 _ZNK12V3NumberData3numEv.exit.i17:                ; preds = %42
-  %44 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %33
+  %44 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %33
   %.sroa.0.0.copyload.i19 = load i32, ptr %44, align 4
   %45 = zext i32 %.sroa.0.0.copyload.i19 to i64
   %46 = and i64 %38, %45
@@ -11074,7 +11074,7 @@ _ZNK12V3NumberData3numEv.exit.i17:                ; preds = %42
   br i1 %47, label %48, label %_ZNK8V3Number6bitIs1Ei.exit.thread
 
 48:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i17
-  %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds i8, ptr %44, i64 4
+  %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.sroa.2.0.copyload.i21 = load i32, ptr %.sroa.2.0..sroa_idx.i20, align 4
   %49 = zext i32 %.sroa.2.0.copyload.i21 to i64
   %50 = and i64 %38, %49
@@ -11096,7 +11096,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK8V3Number6bitIs
 _ZNK12V3NumberData3numEv.exit.i26:                ; preds = %_ZNK8V3Number6bitIs1Ei.exit.thread
   %54 = lshr i32 %.082, 5
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %55
+  %56 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %55
   %.sroa.0.0.copyload.i28 = load i32, ptr %56, align 4
   %57 = zext i32 %.sroa.0.0.copyload.i28 to i64
   %58 = and i32 %.082, 31
@@ -11107,7 +11107,7 @@ _ZNK12V3NumberData3numEv.exit.i26:                ; preds = %_ZNK8V3Number6bitIs
   br i1 %.not7.i29, label %_ZNK8V3Number6bitIs1Ei.exit33.thread, label %_ZNK8V3Number6bitIs1Ei.exit33
 
 _ZNK8V3Number6bitIs1Ei.exit33:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i26
-  %.sroa.2.0..sroa_idx.i30 = getelementptr inbounds i8, ptr %56, i64 4
+  %.sroa.2.0..sroa_idx.i30 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %.sroa.2.0.copyload.i31 = load i32, ptr %.sroa.2.0..sroa_idx.i30, align 4
   %62 = zext i32 %.sroa.2.0.copyload.i31 to i64
   %63 = and i64 %60, %62
@@ -11124,7 +11124,7 @@ _ZNK8V3Number6bitIs1Ei.exit33:                    ; preds = %_ZNK12V3NumberData3
   br i1 %25, label %_ZNK8V3Number6bitIs0Ei.exit.thread71, label %_ZNK8V3Number6bitIs0Ei.exit49
 
 _ZNK12V3NumberData3numEv.exit.i43:                ; preds = %65
-  %67 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %55
+  %67 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %55
   %.sroa.0.0.copyload.i45 = load i32, ptr %67, align 4
   %68 = zext i32 %.sroa.0.0.copyload.i45 to i64
   %69 = and i64 %60, %68
@@ -11132,7 +11132,7 @@ _ZNK12V3NumberData3numEv.exit.i43:                ; preds = %65
   br i1 %70, label %71, label %.lr.ph.i
 
 71:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i43
-  %.sroa.2.0..sroa_idx.i46 = getelementptr inbounds i8, ptr %67, i64 4
+  %.sroa.2.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %.sroa.2.0.copyload.i47 = load i32, ptr %.sroa.2.0..sroa_idx.i46, align 4
   %72 = zext i32 %.sroa.2.0.copyload.i47 to i64
   %73 = and i64 %60, %72
@@ -11163,7 +11163,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %77 = lshr i32 %.tr811.i, 5
   %78 = zext nneg i32 %77 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %78, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %78, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %79 = zext i32 %.sroa.1.0.copyload.i to i64
   %80 = and i32 %.tr811.i, 31
@@ -11190,7 +11190,7 @@ tailrecurse.i57:                                  ; preds = %tailrecurse.i57.pre
 _ZNK8V3Number7bitIsXZEi.exit65:                   ; preds = %tailrecurse.i57
   %84 = lshr i32 %.tr811.i58, 5
   %85 = zext nneg i32 %84 to i64
-  %.sroa.1.0..sroa_idx.i62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %85, i32 1
+  %.sroa.1.0..sroa_idx.i62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %85, i32 1
   %.sroa.1.0.copyload.i63 = load i32, ptr %.sroa.1.0..sroa_idx.i62, align 4
   %86 = zext i32 %.sroa.1.0.copyload.i63 to i64
   %87 = and i32 %.tr811.i58, 31
@@ -11219,7 +11219,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread71:             ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 1, -2147483648) i32 @_ZNK8V3Number8widthMinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %.fr.i.i = freeze i32 %3
   %4 = icmp sgt i32 %.fr.i.i, 1
@@ -11228,7 +11228,7 @@ define dso_local noundef range(i32 1, -2147483648) i32 @_ZNK8V3Number8widthMinEv
 .lr.ph:                                           ; preds = %1
   %5 = icmp samesign ult i32 %.fr.i.i, 129
   %.tr811.i.i = add nsw i32 %.fr.i.i, -1
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %8 = add i8 %7, -3
   %spec.select.i.i = icmp ult i8 %8, -2
@@ -11236,7 +11236,7 @@ define dso_local noundef range(i32 1, -2147483648) i32 @_ZNK8V3Number8widthMinEv
   %spec.select.i10.i = select i1 %5, ptr %0, ptr %9
   %10 = lshr i32 %.tr811.i.i, 5
   %11 = zext nneg i32 %10 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %11, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %11, i32 1
   %12 = and i32 %.tr811.i.i, 31
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 1, %13
@@ -11258,7 +11258,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.split
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
   %18 = lshr i32 %.09, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %19
   %.sroa.0.0.copyload.i = load i32, ptr %20, align 4
   %21 = zext i32 %.sroa.0.0.copyload.i to i64
   %22 = and i32 %.09, 31
@@ -11269,7 +11269,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split.split
   br i1 %26, label %27, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 27:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %28 = zext i32 %.sroa.2.0.copyload.i to i64
   %29 = and i64 %24, %28
@@ -11287,21 +11287,21 @@ _ZNK8V3Number6bitIs0Ei.exit.thread:               ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK8V3Number9countBitsERKS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %.fr.i = freeze i32 %4
   %5 = icmp sgt i32 %.fr.i, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 1
   %9 = icmp samesign ult i32 %7, 129
   %10 = load ptr, ptr %1, align 8
   %spec.select.i.i = select i1 %9, ptr %1, ptr %10
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 36
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = add i8 %12, -3
   %spec.select.i.i41 = icmp ult i8 %13, -2
@@ -11319,7 +11319,7 @@ _ZNK8V3Number5bitIsEi.exit.thread.us:             ; preds = %.lr.ph.split.us, %_
   %.01273.us = phi i32 [ %.1.us, %_ZNK8V3Number6bitIs0Ei.exit.thread.us ], [ 0, %.lr.ph.split.us ]
   %17 = lshr i32 %.074.us, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %18
   %.sroa.0.0.copyload.i20.us = load i32, ptr %19, align 4
   %20 = zext i32 %.sroa.0.0.copyload.i20.us to i64
   %21 = and i32 %.074.us, 31
@@ -11330,7 +11330,7 @@ _ZNK8V3Number5bitIsEi.exit.thread.us:             ; preds = %.lr.ph.split.us, %_
   br i1 %25, label %26, label %_ZNK8V3Number6bitIs0Ei.exit.thread.us
 
 26:                                               ; preds = %_ZNK8V3Number5bitIsEi.exit.thread.us
-  %.sroa.2.0..sroa_idx.i21.us = getelementptr inbounds i8, ptr %19, i64 4
+  %.sroa.2.0..sroa_idx.i21.us = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.2.0.copyload.i22.us = load i32, ptr %.sroa.2.0..sroa_idx.i21.us, align 4
   %27 = zext i32 %.sroa.2.0.copyload.i22.us to i64
   %28 = and i64 %23, %27
@@ -11347,7 +11347,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread.us:            ; preds = %26, %_ZNK8V3Number5
   br i1 %exitcond140.not, label %._crit_edge, label %_ZNK8V3Number5bitIsEi.exit.thread.us, !llvm.loop !103
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %1, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %32 = load i8, ptr %31, align 4
   %33 = add i8 %32, -1
   %spec.select.i.i.i = icmp ult i8 %33, 2
@@ -11361,7 +11361,7 @@ _ZNK8V3Number6bitIs0Ei.exit.thread.us:            ; preds = %26, %_ZNK8V3Number5
   %36 = and i32 %35, 2
   %37 = or disjoint i32 %36, %34
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   switch i8 %40, label %._crit_edge [
     i8 48, label %.lr.ph.split.split.split.us
@@ -11378,7 +11378,7 @@ _ZNK8V3Number5bitIsEi.exit.us:                    ; preds = %.lr.ph.split.split.
   %.01273.us76 = phi i32 [ %.1.us86, %_ZNK8V3Number6bitIs0Ei.exit.thread.us85 ], [ 0, %.lr.ph.split.split.split.us ]
   %41 = lshr i32 %.074.us75, 5
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %42
   %.sroa.0.0.copyload.i20.us79 = load i32, ptr %43, align 4
   %44 = zext i32 %.sroa.0.0.copyload.i20.us79 to i64
   %45 = and i32 %.074.us75, 31
@@ -11389,7 +11389,7 @@ _ZNK8V3Number5bitIsEi.exit.us:                    ; preds = %.lr.ph.split.split.
   br i1 %49, label %50, label %_ZNK8V3Number6bitIs0Ei.exit.thread.us85
 
 50:                                               ; preds = %_ZNK8V3Number5bitIsEi.exit.us
-  %.sroa.2.0..sroa_idx.i21.us80 = getelementptr inbounds i8, ptr %43, i64 4
+  %.sroa.2.0..sroa_idx.i21.us80 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.sroa.2.0.copyload.i22.us81 = load i32, ptr %.sroa.2.0..sroa_idx.i21.us80, align 4
   %51 = zext i32 %.sroa.2.0.copyload.i22.us81 to i64
   %52 = and i64 %47, %51
@@ -11413,7 +11413,7 @@ _ZNK8V3Number5bitIsEi.exit.us90:                  ; preds = %.lr.ph.split.split.
   %.01273.us92 = phi i32 [ %.1.us94, %_ZNK8V3Number6bitIs0Ei.exit.thread.us93 ], [ 0, %.lr.ph.split.split.split.us89 ]
   %55 = lshr i32 %.074.us91, 5
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %56
+  %57 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %56
   %.sroa.0.0.copyload.i28.us = load i32, ptr %57, align 4
   %58 = zext i32 %.sroa.0.0.copyload.i28.us to i64
   %59 = and i32 %.074.us91, 31
@@ -11424,7 +11424,7 @@ _ZNK8V3Number5bitIsEi.exit.us90:                  ; preds = %.lr.ph.split.split.
   br i1 %.not7.i29.us, label %_ZNK8V3Number6bitIs0Ei.exit.thread.us93, label %_ZNK8V3Number6bitIs1Ei.exit.us
 
 _ZNK8V3Number6bitIs1Ei.exit.us:                   ; preds = %_ZNK8V3Number5bitIsEi.exit.us90
-  %.sroa.2.0..sroa_idx.i30.us = getelementptr inbounds i8, ptr %57, i64 4
+  %.sroa.2.0..sroa_idx.i30.us = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.2.0.copyload.i31.us = load i32, ptr %.sroa.2.0..sroa_idx.i30.us, align 4
   %63 = zext i32 %.sroa.2.0.copyload.i31.us to i64
   %64 = and i64 %61, %63
@@ -11448,7 +11448,7 @@ _ZNK8V3Number5bitIsEi.exit.us98:                  ; preds = %.lr.ph.split.split.
   %.01273.us100 = phi i32 [ %.1.us102, %_ZNK8V3Number6bitIs0Ei.exit.thread.us101 ], [ 0, %.lr.ph.split.split.split.us97 ]
   %67 = lshr i32 %.074.us99, 5
   %68 = zext nneg i32 %67 to i64
-  %69 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %68
+  %69 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %68
   %.sroa.0.0.copyload.i39.us = load i32, ptr %69, align 4
   %70 = zext i32 %.sroa.0.0.copyload.i39.us to i64
   %71 = and i32 %.074.us99, 31
@@ -11459,7 +11459,7 @@ _ZNK8V3Number5bitIsEi.exit.us98:                  ; preds = %.lr.ph.split.split.
   br i1 %.not7.i40.us, label %_ZNK8V3Number6bitIs0Ei.exit.thread.us101, label %_ZNK8V3Number6bitIsXEi.exit.us
 
 _ZNK8V3Number6bitIsXEi.exit.us:                   ; preds = %_ZNK8V3Number5bitIsEi.exit.us98
-  %.sroa.2.0..sroa_idx.i.i.us = getelementptr inbounds i8, ptr %69, i64 4
+  %.sroa.2.0..sroa_idx.i.i.us = getelementptr inbounds nuw i8, ptr %69, i64 4
   %.sroa.2.0.copyload.i.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.i.us, align 4
   %75 = zext i32 %.sroa.2.0.copyload.i.i.us to i64
   %76 = and i64 %73, %75
@@ -11491,7 +11491,7 @@ tailrecurse.i.us:                                 ; preds = %_ZNK8V3Number5bitIs
 _ZNK12V3NumberData3numEv.exit.i43.us:             ; preds = %tailrecurse.i.us
   %79 = lshr i32 %.tr1013.i.us, 5
   %80 = zext nneg i32 %79 to i64
-  %81 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %80
+  %81 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %80
   %.sroa.0.0.copyload.i44.us = load i32, ptr %81, align 4
   %82 = xor i32 %.sroa.0.0.copyload.i44.us, -1
   %83 = zext i32 %82 to i64
@@ -11503,7 +11503,7 @@ _ZNK12V3NumberData3numEv.exit.i43.us:             ; preds = %tailrecurse.i.us
   br i1 %.not7.i45.us, label %_ZNK8V3Number6bitIs0Ei.exit.thread.us109, label %_ZNK8V3Number6bitIsZEi.exit.us
 
 _ZNK8V3Number6bitIsZEi.exit.us:                   ; preds = %_ZNK12V3NumberData3numEv.exit.i43.us
-  %.sroa.2.0..sroa_idx.i46.us = getelementptr inbounds i8, ptr %81, i64 4
+  %.sroa.2.0..sroa_idx.i46.us = getelementptr inbounds nuw i8, ptr %81, i64 4
   %.sroa.2.0.copyload.i47.us = load i32, ptr %.sroa.2.0..sroa_idx.i46.us, align 4
   %88 = zext i32 %.sroa.2.0.copyload.i47.us to i64
   %89 = and i64 %86, %88
@@ -11535,13 +11535,13 @@ _ZNK8V3Number6bitIs0Ei.exit.thread.us109:         ; preds = %_ZNK8V3Number6bitIs
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZNK8V3Number9countBitsERKS_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #3 align 2 {
   %5 = tail call noundef i32 @_ZNK8V3Number9countBitsERKS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = icmp slt i32 %7, 1
   br i1 %8, label %_ZNK8V3Number5bitIsEi.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = add i8 %11, -1
   %spec.select.i.i.i = icmp ult i8 %12, 2
@@ -11560,26 +11560,26 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %9
   %19 = load ptr, ptr %2, align 8
   %spec.select.i.i = select i1 %18, ptr %2, ptr %19
   %.sroa.0.0.copyload.i = load i32, ptr %spec.select.i.i, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %20 = and i32 %.sroa.0.0.copyload.i, 1
   %21 = shl i32 %.sroa.2.0.copyload.i, 1
   %22 = and i32 %21, 2
   %23 = or disjoint i32 %22, %20
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %24
   %26 = load i8, ptr %25, align 1
   br label %_ZNK8V3Number5bitIsEi.exit
 
 _ZNK8V3Number5bitIsEi.exit:                       ; preds = %4, %_ZNK12V3NumberData3numEv.exit.i
   %.0.i = phi i8 [ %26, %_ZNK12V3NumberData3numEv.exit.i ], [ 48, %4 ]
-  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = icmp slt i32 %28, 1
   br i1 %29, label %_ZNK8V3Number5bitIsEi.exit22, label %30
 
 30:                                               ; preds = %_ZNK8V3Number5bitIsEi.exit
-  %31 = getelementptr inbounds i8, ptr %1, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %32 = load i8, ptr %31, align 4
   %33 = add i8 %32, -1
   %spec.select.i.i.i14 = icmp ult i8 %33, 2
@@ -11598,14 +11598,14 @@ _ZNK12V3NumberData3numEv.exit.i15:                ; preds = %30
   %40 = load ptr, ptr %1, align 8
   %spec.select.i.i16 = select i1 %39, ptr %1, ptr %40
   %.sroa.0.0.copyload.i17 = load i32, ptr %spec.select.i.i16, align 4
-  %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %spec.select.i.i16, i64 4
+  %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i16, i64 4
   %.sroa.2.0.copyload.i19 = load i32, ptr %.sroa.2.0..sroa_idx.i18, align 4
   %41 = and i32 %.sroa.0.0.copyload.i17, 1
   %42 = shl i32 %.sroa.2.0.copyload.i19, 1
   %43 = and i32 %42, 2
   %44 = or disjoint i32 %43, %41
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
   br label %_ZNK8V3Number5bitIsEi.exit22
 
@@ -11621,13 +11621,13 @@ _ZNK8V3Number5bitIsEi.exit22:                     ; preds = %_ZNK8V3Number5bitIs
 
 51:                                               ; preds = %48, %_ZNK8V3Number5bitIsEi.exit22
   %.0 = phi i32 [ %50, %48 ], [ %5, %_ZNK8V3Number5bitIsEi.exit22 ]
-  %52 = getelementptr inbounds i8, ptr %3, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %53 = load i32, ptr %52, align 8
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %_ZNK8V3Number5bitIsEi.exit31, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %3, i64 36
+  %56 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %57 = load i8, ptr %56, align 4
   %58 = add i8 %57, -1
   %spec.select.i.i.i23 = icmp ult i8 %58, 2
@@ -11646,14 +11646,14 @@ _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %55
   %65 = load ptr, ptr %3, align 8
   %spec.select.i.i25 = select i1 %64, ptr %3, ptr %65
   %.sroa.0.0.copyload.i26 = load i32, ptr %spec.select.i.i25, align 4
-  %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds i8, ptr %spec.select.i.i25, i64 4
+  %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i25, i64 4
   %.sroa.2.0.copyload.i28 = load i32, ptr %.sroa.2.0..sroa_idx.i27, align 4
   %66 = and i32 %.sroa.0.0.copyload.i26, 1
   %67 = shl i32 %.sroa.2.0.copyload.i28, 1
   %68 = and i32 %67, 2
   %69 = or disjoint i32 %68, %66
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %70
+  %71 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %70
   %72 = load i8, ptr %71, align 1
   br label %_ZNK8V3Number5bitIsEi.exit31
 
@@ -11664,7 +11664,7 @@ _ZNK8V3Number5bitIsEi.exit31:                     ; preds = %51, %_ZNK12V3Number
   br i1 %74, label %_ZNK8V3Number5bitIsEi.exit40, label %75
 
 75:                                               ; preds = %_ZNK8V3Number5bitIsEi.exit31
-  %76 = getelementptr inbounds i8, ptr %1, i64 36
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %77 = load i8, ptr %76, align 4
   %78 = add i8 %77, -1
   %spec.select.i.i.i32 = icmp ult i8 %78, 2
@@ -11683,14 +11683,14 @@ _ZNK12V3NumberData3numEv.exit.i33:                ; preds = %75
   %85 = load ptr, ptr %1, align 8
   %spec.select.i.i34 = select i1 %84, ptr %1, ptr %85
   %.sroa.0.0.copyload.i35 = load i32, ptr %spec.select.i.i34, align 4
-  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %spec.select.i.i34, i64 4
+  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34, i64 4
   %.sroa.2.0.copyload.i37 = load i32, ptr %.sroa.2.0..sroa_idx.i36, align 4
   %86 = and i32 %.sroa.0.0.copyload.i35, 1
   %87 = shl i32 %.sroa.2.0.copyload.i37, 1
   %88 = and i32 %87, 2
   %89 = or disjoint i32 %88, %86
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %90
+  %91 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1
   br label %_ZNK8V3Number5bitIsEi.exit40
 
@@ -11703,7 +11703,7 @@ _ZNK8V3Number5bitIsEi.exit40:                     ; preds = %_ZNK8V3Number5bitIs
   br i1 %54, label %_ZNK8V3Number5bitIsEi.exit49, label %94
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %3, i64 36
+  %95 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %96 = load i8, ptr %95, align 4
   %97 = add i8 %96, -1
   %spec.select.i.i.i41 = icmp ult i8 %97, 2
@@ -11722,14 +11722,14 @@ _ZNK12V3NumberData3numEv.exit.i42:                ; preds = %94
   %104 = load ptr, ptr %3, align 8
   %spec.select.i.i43 = select i1 %103, ptr %3, ptr %104
   %.sroa.0.0.copyload.i44 = load i32, ptr %spec.select.i.i43, align 4
-  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %spec.select.i.i43, i64 4
+  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %spec.select.i.i43, i64 4
   %.sroa.2.0.copyload.i46 = load i32, ptr %.sroa.2.0..sroa_idx.i45, align 4
   %105 = and i32 %.sroa.0.0.copyload.i44, 1
   %106 = shl i32 %.sroa.2.0.copyload.i46, 1
   %107 = and i32 %106, 2
   %108 = or disjoint i32 %107, %105
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %109
+  %110 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %109
   %111 = load i8, ptr %110, align 1
   br label %_ZNK8V3Number5bitIsEi.exit49
 
@@ -11740,7 +11740,7 @@ _ZNK8V3Number5bitIsEi.exit49:                     ; preds = %93, %_ZNK12V3Number
   br i1 %113, label %_ZNK8V3Number5bitIsEi.exit58, label %114
 
 114:                                              ; preds = %_ZNK8V3Number5bitIsEi.exit49
-  %115 = getelementptr inbounds i8, ptr %2, i64 36
+  %115 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %116 = load i8, ptr %115, align 4
   %117 = add i8 %116, -1
   %spec.select.i.i.i50 = icmp ult i8 %117, 2
@@ -11759,14 +11759,14 @@ _ZNK12V3NumberData3numEv.exit.i51:                ; preds = %114
   %124 = load ptr, ptr %2, align 8
   %spec.select.i.i52 = select i1 %123, ptr %2, ptr %124
   %.sroa.0.0.copyload.i53 = load i32, ptr %spec.select.i.i52, align 4
-  %.sroa.2.0..sroa_idx.i54 = getelementptr inbounds i8, ptr %spec.select.i.i52, i64 4
+  %.sroa.2.0..sroa_idx.i54 = getelementptr inbounds nuw i8, ptr %spec.select.i.i52, i64 4
   %.sroa.2.0.copyload.i55 = load i32, ptr %.sroa.2.0..sroa_idx.i54, align 4
   %125 = and i32 %.sroa.0.0.copyload.i53, 1
   %126 = shl i32 %.sroa.2.0.copyload.i55, 1
   %127 = and i32 %126, 2
   %128 = or disjoint i32 %127, %125
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %129
   %131 = load i8, ptr %130, align 1
   br label %_ZNK8V3Number5bitIsEi.exit58
 
@@ -11787,13 +11787,13 @@ _ZNK8V3Number5bitIsEi.exit58:                     ; preds = %_ZNK8V3Number5bitIs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK8V3Number9countOnesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = add i8 %6, -3
   %spec.select.i.i = icmp ult i8 %7, -2
@@ -11807,7 +11807,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   %.058 = phi i32 [ %21, %_ZNK8V3Number6bitIs1Ei.exit.thread ], [ 0, %.lr.ph ]
   %10 = lshr i32 %.09, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %11
   %.sroa.0.0.copyload.i = load i32, ptr %12, align 4
   %13 = zext i32 %.sroa.0.0.copyload.i to i64
   %14 = and i32 %.09, 31
@@ -11818,7 +11818,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %18 = zext i32 %.sroa.2.0.copyload.i to i64
   %19 = and i64 %16, %18
@@ -11841,14 +11841,14 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK8V3Number6bitIs
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK8V3Number12mostSetBitP1Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %5 = icmp samesign ult i32 %3, 129
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %.fr11 = freeze i8 %7
   %8 = add i8 %.fr11, -1
@@ -11866,7 +11866,7 @@ define dso_local noundef range(i32 0, -2147483648) i32 @_ZNK8V3Number12mostSetBi
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   %10 = lshr i32 %.08, 5
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %11
   %.sroa.0.0.copyload.i = load i32, ptr %12, align 4
   %13 = zext i32 %.sroa.0.0.copyload.i to i64
   %14 = and i32 %.08, 31
@@ -11877,7 +11877,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not7.i, label %.backedge, label %18
 
 18:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %12, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %19 = zext i32 %.sroa.2.0.copyload.i to i64
   %20 = and i64 %16, %19
@@ -11906,7 +11906,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not10 = icmp eq i8 %9, 1
   br i1 %.not10, label %16, label %10
@@ -11922,13 +11922,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
 
 16:                                               ; preds = %7
   %17 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIs1Ei.exit.thread
@@ -11955,7 +11955,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
   %spec.select.i10.i = select i1 %30, ptr %1, ptr %31
   %32 = lshr i32 %.026, 5
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %33
   %.sroa.0.0.copyload.i = load i32, ptr %34, align 4
   %35 = zext i32 %.sroa.0.0.copyload.i to i64
   %36 = and i32 %.026, 31
@@ -11966,7 +11966,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
   br i1 %40, label %41, label %.thread
 
 41:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %42 = zext i32 %.sroa.2.0.copyload.i to i64
   %43 = and i64 %38, %42
@@ -11980,7 +11980,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %28
   %spec.select.i7.i.i = select i1 %44, ptr %1, ptr %45
   %46 = lshr i32 %.tr811.i.i, 5
   %47 = zext nneg i32 %46 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %47, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %47, i32 1
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %48 = zext i32 %.sroa.1.0.copyload.i.i to i64
   %49 = and i32 %.tr811.i.i, 31
@@ -12000,7 +12000,7 @@ _ZNK12V3NumberData3numEv.exit.i14:                ; preds = %.thread
   %spec.select.i10.i15 = select i1 %55, ptr %1, ptr %54
   %56 = lshr i32 %.026, 5
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i15, i64 %57
+  %58 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i15, i64 %57
   %.sroa.0.0.copyload.i16 = load i32, ptr %58, align 4
   %59 = zext i32 %.sroa.0.0.copyload.i16 to i64
   %60 = and i32 %.026, 31
@@ -12011,7 +12011,7 @@ _ZNK12V3NumberData3numEv.exit.i14:                ; preds = %.thread
   br i1 %.not7.i17, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i14
-  %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %58, i64 4
+  %.sroa.2.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %.sroa.2.0.copyload.i19 = load i32, ptr %.sroa.2.0..sroa_idx.i18, align 4
   %64 = zext i32 %.sroa.2.0.copyload.i19 to i64
   %65 = and i64 %62, %64
@@ -12035,7 +12035,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %22, %_ZNK12V3Number
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNK8V3Number8dataTypeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   ret i8 %3
 }
@@ -12053,7 +12053,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not8 = icmp eq i8 %9, 1
   br i1 %.not8, label %16, label %10
@@ -12069,13 +12069,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 16:                                               ; preds = %7
   %17 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIs1Ei.exit.thread
@@ -12097,7 +12097,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
   %spec.select.i10.i = select i1 %28, ptr %1, ptr %29
   %30 = lshr i32 %.011, 5
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %31
   %.sroa.0.0.copyload.i = load i32, ptr %32, align 4
   %33 = zext i32 %.sroa.0.0.copyload.i to i64
   %34 = and i32 %.011, 31
@@ -12108,7 +12108,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %26
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %32, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %38 = zext i32 %.sroa.2.0.copyload.i to i64
   %39 = and i64 %36, %38
@@ -12143,7 +12143,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not8 = icmp eq i8 %9, 1
   br i1 %.not8, label %16, label %10
@@ -12159,13 +12159,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
 
 16:                                               ; preds = %7
   %17 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZNK8V3Number7bitIsXZEi.exit.thread
@@ -12194,7 +12194,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.tr811.i, 5
   %32 = zext nneg i32 %31 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %32, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %32, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %33 = zext i32 %.sroa.1.0.copyload.i to i64
   %34 = and i32 %.tr811.i, 31
@@ -12232,7 +12232,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not8 = icmp eq i8 %9, 1
   br i1 %.not8, label %16, label %10
@@ -12248,13 +12248,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 16:                                               ; preds = %7
   %17 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIsZEi.exit.thread
@@ -12283,7 +12283,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   %spec.select.i9.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.tr1013.i, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %32
   %.sroa.0.0.copyload.i = load i32, ptr %33, align 4
   %34 = xor i32 %.sroa.0.0.copyload.i, -1
   %35 = zext i32 %34 to i64
@@ -12295,7 +12295,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %40 = zext i32 %.sroa.2.0.copyload.i to i64
   %41 = and i64 %38, %40
@@ -12330,7 +12330,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not8 = icmp eq i8 %9, 1
   br i1 %.not8, label %16, label %10
@@ -12346,13 +12346,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
 
 16:                                               ; preds = %7
   %17 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %42
@@ -12381,7 +12381,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   %spec.select.i9.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.tr1013.i, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i9.i, i64 %32
   %.sroa.0.0.copyload.i = load i32, ptr %33, align 4
   %34 = xor i32 %.sroa.0.0.copyload.i, -1
   %35 = zext i32 %34 to i64
@@ -12393,7 +12393,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %tailrecurse.i
   br i1 %.not7.i, label %_ZNK8V3Number6bitIsZEi.exit.thread, label %_ZNK8V3Number6bitIsZEi.exit
 
 _ZNK8V3Number6bitIsZEi.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %40 = zext i32 %.sroa.2.0.copyload.i to i64
   %41 = and i64 %38, %40
@@ -12428,13 +12428,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not14 = icmp eq i8 %9, 1
   br i1 %.not14, label %.preheader, label %15
 
 .preheader:                                       ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %.fr.i.i = freeze i32 %11
   %12 = icmp sgt i32 %.fr.i.i, 0
@@ -12460,7 +12460,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %.01235 = phi i8 [ 0, %_ZNK12V3NumberData3numEv.exit.i.lr.ph ], [ %32, %_ZNK8V3Number6bitIs0Ei.exit.thread ]
   %21 = lshr i32 %.036, 5
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
   %24 = zext i32 %.sroa.0.0.copyload.i to i64
   %25 = and i32 %.036, 31
@@ -12468,7 +12468,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %27 = shl nuw nsw i64 1, %26
   %28 = and i64 %27, %24
   %.not7.i = icmp eq i64 %28, 0
-  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds i8, ptr %23, i64 4
+  %.sroa.2.0..sroa_idx.i21 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.2.0.copyload.i22 = load i32, ptr %.sroa.2.0..sroa_idx.i21, align 4
   %29 = zext i32 %.sroa.2.0.copyload.i22 to i64
   %30 = and i64 %27, %29
@@ -12508,13 +12508,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not14 = icmp eq i8 %9, 1
   br i1 %.not14, label %.preheader, label %15
 
 .preheader:                                       ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %.fr.i.i = freeze i32 %11
   %12 = icmp sgt i32 %.fr.i.i, 0
@@ -12540,7 +12540,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %.01232 = phi i8 [ 1, %_ZNK12V3NumberData3numEv.exit.i.lr.ph ], [ %33, %_ZNK8V3Number6bitIs1Ei.exit.thread ]
   %21 = lshr i32 %.033, 5
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
   %24 = zext i32 %.sroa.0.0.copyload.i to i64
   %25 = and i32 %.033, 31
@@ -12548,7 +12548,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %27 = shl nuw nsw i64 1, %26
   %28 = and i64 %27, %24
   %29 = icmp eq i64 %28, 0
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %30 = zext i32 %.sroa.2.0.copyload.i to i64
   %31 = and i64 %27, %30
@@ -12588,13 +12588,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not15 = icmp eq i8 %9, 1
   br i1 %.not15, label %.preheader, label %15
 
 .preheader:                                       ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %.fr.i.i = freeze i32 %11
   %12 = icmp sgt i32 %.fr.i.i, 0
@@ -12620,7 +12620,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %.01335 = phi i8 [ 0, %_ZNK12V3NumberData3numEv.exit.i.lr.ph ], [ %.1, %_ZNK8V3Number6bitIs0Ei.exit.thread ]
   %21 = lshr i32 %.036, 5
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
   %24 = zext i32 %.sroa.0.0.copyload.i to i64
   %25 = and i32 %.036, 31
@@ -12628,7 +12628,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %27 = shl nuw nsw i64 1, %26
   %28 = and i64 %27, %24
   %.not7.i = icmp eq i64 %28, 0
-  %.sroa.2.0..sroa_idx.i22 = getelementptr inbounds i8, ptr %23, i64 4
+  %.sroa.2.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.2.0.copyload.i23 = load i32, ptr %.sroa.2.0..sroa_idx.i22, align 4
   %29 = zext i32 %.sroa.2.0.copyload.i23 to i64
   %30 = and i64 %27, %29
@@ -12682,7 +12682,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i8, ptr %15, align 4
   %.not = icmp eq i8 %16, 1
   br i1 %.not, label %23, label %17
@@ -12697,7 +12697,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %2, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %25 = load i8, ptr %24, align 4
   %.not20 = icmp eq i8 %25, 1
   br i1 %.not20, label %32, label %26
@@ -12712,7 +12712,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 32:                                               ; preds = %23
-  %33 = getelementptr inbounds i8, ptr %3, i64 36
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %34 = load i8, ptr %33, align 4
   %.not21 = icmp eq i8 %34, 1
   br i1 %.not21, label %41, label %35
@@ -12727,7 +12727,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 41:                                               ; preds = %32
-  %42 = getelementptr inbounds i8, ptr %4, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %43 = load i8, ptr %42, align 4
   %.not22 = icmp eq i8 %43, 1
   br i1 %.not22, label %50, label %44
@@ -12744,7 +12744,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
 50:                                               ; preds = %41
   %51 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %52 = tail call noundef i32 @_ZNK8V3Number9countBitsERKS_S1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
-  %53 = getelementptr inbounds i8, ptr %0, i64 36
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %54 = load i8, ptr %53, align 4
   %55 = add i8 %54, -1
   %spec.select.i.i = icmp ult i8 %55, 2
@@ -12759,7 +12759,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 _ZN12V3NumberData3numEv.exit:                     ; preds = %50
-  %61 = getelementptr inbounds i8, ptr %0, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = icmp slt i32 %62, 129
   %64 = load ptr, ptr %0, align 8
@@ -12782,7 +12782,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not7 = icmp eq i8 %9, 1
   br i1 %.not7, label %16, label %10
@@ -12806,7 +12806,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
 
 20:                                               ; preds = %16
   %21 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 8
   %24 = icmp sgt i32 %23, 0
   br i1 %24, label %.lr.ph.i, label %_ZNK8V3Number9countOnesEv.exit
@@ -12825,7 +12825,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   %.058.i = phi i32 [ %40, %_ZNK8V3Number6bitIs1Ei.exit.thread.i ], [ 0, %.lr.ph.i ]
   %29 = lshr i32 %.09.i, 5
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %30
   %.sroa.0.0.copyload.i.i = load i32, ptr %31, align 4
   %32 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %33 = and i32 %.09.i, 31
@@ -12836,7 +12836,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread.i, label %_ZNK8V3Number6bitIs1Ei.exit.i
 
 _ZNK8V3Number6bitIs1Ei.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %31, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %37 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %38 = and i64 %35, %37
@@ -12854,7 +12854,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread.i:             ; preds = %_ZNK8V3Number6bitIs
 
 _ZNK8V3Number9countOnesEv.exit:                   ; preds = %_ZNK8V3Number6bitIs1Ei.exit.thread.i, %20, %.lr.ph.i
   %.05.lcssa.i = phi i32 [ 0, %20 ], [ 0, %.lr.ph.i ], [ %40, %_ZNK8V3Number6bitIs1Ei.exit.thread.i ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 36
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %43 = load i8, ptr %42, align 4
   %44 = add i8 %43, -1
   %spec.select.i.i = icmp ult i8 %44, 2
@@ -12869,7 +12869,7 @@ _ZNK8V3Number9countOnesEv.exit:                   ; preds = %_ZNK8V3Number6bitIs
   unreachable
 
 _ZN12V3NumberData3numEv.exit:                     ; preds = %_ZNK8V3Number9countOnesEv.exit
-  %50 = getelementptr inbounds i8, ptr %0, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = icmp slt i32 %51, 129
   %53 = load ptr, ptr %0, align 8
@@ -12895,14 +12895,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = and i8 %9, -2
   %switch.i.i = icmp eq i8 %10, 2
   br i1 %switch.i.i, label %_ZNK8V3Number7isAnyXZEv.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %1, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %12 = load i32, ptr %11, align 8
   %.fr.i.i.i.i = freeze i32 %12
   %13 = icmp sgt i32 %.fr.i.i.i.i, 0
@@ -12920,7 +12920,7 @@ _ZNK12V3NumberData3numEv.exit.i.i.i:              ; preds = %.lr.ph.i.i, %_ZNK8V
   %.06.i.i = phi i32 [ %27, %_ZNK8V3Number6bitIsXEi.exit.thread.i.i ], [ 0, %.lr.ph.i.i ]
   %17 = lshr i32 %.06.i.i, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i.i, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i.i, i64 %18
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %19, align 4
   %20 = zext i32 %.sroa.0.0.copyload.i.i.i to i64
   %21 = and i32 %.06.i.i, 31
@@ -12931,7 +12931,7 @@ _ZNK12V3NumberData3numEv.exit.i.i.i:              ; preds = %.lr.ph.i.i, %_ZNK8V
   br i1 %.not7.i.i.i, label %_ZNK8V3Number6bitIsXEi.exit.thread.i.i, label %_ZNK8V3Number6bitIsXEi.exit.i.i
 
 _ZNK8V3Number6bitIsXEi.exit.i.i:                  ; preds = %_ZNK12V3NumberData3numEv.exit.i.i.i
-  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 4
+  %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 4
   %.sroa.2.0.copyload.i.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 4
   %25 = zext i32 %.sroa.2.0.copyload.i.i.i.i to i64
   %26 = and i64 %23, %25
@@ -12959,7 +12959,7 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.i.i.i, 
 _ZNK12V3NumberData3numEv.exit.i.i7.i:             ; preds = %tailrecurse.i.i.i
   %29 = lshr i32 %.tr1013.i.i.i, 5
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i.i, i64 %30
+  %31 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i.i, i64 %30
   %.sroa.0.0.copyload.i.i8.i = load i32, ptr %31, align 4
   %32 = xor i32 %.sroa.0.0.copyload.i.i8.i, -1
   %33 = zext i32 %32 to i64
@@ -12971,7 +12971,7 @@ _ZNK12V3NumberData3numEv.exit.i.i7.i:             ; preds = %tailrecurse.i.i.i
   br i1 %.not7.i.i9.i, label %_ZNK8V3Number6bitIsZEi.exit.thread.i.i, label %_ZNK8V3Number6bitIsZEi.exit.i.i
 
 _ZNK8V3Number6bitIsZEi.exit.i.i:                  ; preds = %_ZNK12V3NumberData3numEv.exit.i.i7.i
-  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %31, i64 4
+  %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   %.sroa.2.0.copyload.i.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
   %38 = zext i32 %.sroa.2.0.copyload.i.i.i to i64
   %39 = and i64 %36, %38
@@ -13010,13 +13010,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br label %36
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZNK8V3Number9countOnesEv.exit
 
 .lr.ph.i:                                         ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = add i8 %16, -3
   %spec.select.i.i.i = icmp ult i8 %17, -2
@@ -13030,7 +13030,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   %.058.i = phi i32 [ %31, %_ZNK8V3Number6bitIs1Ei.exit.thread.i ], [ 0, %.lr.ph.i ]
   %20 = lshr i32 %.09.i, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %21
   %.sroa.0.0.copyload.i.i = load i32, ptr %22, align 4
   %23 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %24 = and i32 %.09.i, 31
@@ -13041,7 +13041,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread.i, label %_ZNK8V3Number6bitIs1Ei.exit.i
 
 _ZNK8V3Number6bitIs1Ei.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %28 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %29 = and i64 %26, %28
@@ -13092,13 +13092,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br label %36
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i32, ptr %12, align 8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph.i, label %_ZNK8V3Number9countOnesEv.exit
 
 .lr.ph.i:                                         ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i8, ptr %15, align 4
   %17 = add i8 %16, -3
   %spec.select.i.i.i = icmp ult i8 %17, -2
@@ -13112,7 +13112,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   %.058.i = phi i32 [ %31, %_ZNK8V3Number6bitIs1Ei.exit.thread.i ], [ 0, %.lr.ph.i ]
   %20 = lshr i32 %.09.i, 5
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %21
   %.sroa.0.0.copyload.i.i = load i32, ptr %22, align 4
   %23 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %24 = and i32 %.09.i, 31
@@ -13123,7 +13123,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread.i, label %_ZNK8V3Number6bitIs1Ei.exit.i
 
 _ZNK8V3Number6bitIs1Ei.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %22, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %28 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %29 = and i64 %26, %28
@@ -13166,7 +13166,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not14 = icmp eq i8 %9, 1
   br i1 %.not14, label %16, label %10
@@ -13189,7 +13189,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br label %63
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp sgt i32 %22, 0
   br i1 %23, label %.lr.ph.i, label %._crit_edge
@@ -13208,7 +13208,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   %.058.i = phi i32 [ %39, %_ZNK8V3Number6bitIs1Ei.exit.thread.i ], [ 0, %.lr.ph.i ]
   %28 = lshr i32 %.09.i, 5
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %29
   %.sroa.0.0.copyload.i.i = load i32, ptr %30, align 4
   %31 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %32 = and i32 %.09.i, 31
@@ -13219,7 +13219,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.i, %_ZNK8V3N
   br i1 %.not7.i.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread.i, label %_ZNK8V3Number6bitIs1Ei.exit.i
 
 _ZNK8V3Number6bitIs1Ei.exit.i:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %30, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %36 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %37 = and i64 %34, %36
@@ -13260,7 +13260,7 @@ _ZNK8V3Number9countOnesEv.exit:                   ; preds = %_ZNK8V3Number6bitIs
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   %47 = lshr i32 %.019, 5
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %48
+  %49 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %48
   %.sroa.0.0.copyload.i = load i32, ptr %49, align 4
   %50 = zext i32 %.sroa.0.0.copyload.i to i64
   %51 = and i32 %.019, 31
@@ -13271,7 +13271,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not7.i, label %.backedge, label %55
 
 55:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %56 = zext i32 %.sroa.2.0.copyload.i to i64
   %57 = and i64 %53, %56
@@ -13308,13 +13308,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not12 = icmp eq i8 %9, 1
   br i1 %.not12, label %.preheader, label %15
 
 .preheader:                                       ; preds = %7
-  %10 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %11 = load i32, ptr %10, align 8
   %.fr.i.i = freeze i32 %11
   %12 = icmp sgt i32 %.fr.i.i, 0
@@ -13340,7 +13340,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %.01132 = phi i8 [ 1, %_ZNK12V3NumberData3numEv.exit.i.lr.ph ], [ %32, %_ZNK8V3Number6bitIs0Ei.exit.thread ]
   %21 = lshr i32 %.033, 5
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %22
   %.sroa.0.0.copyload.i = load i32, ptr %23, align 4
   %24 = zext i32 %.sroa.0.0.copyload.i to i64
   %25 = and i32 %.033, 31
@@ -13348,7 +13348,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %27 = shl nuw nsw i64 1, %26
   %28 = and i64 %27, %24
   %.not7.i = icmp eq i64 %28, 0
-  %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %23, i64 4
+  %.sroa.2.0..sroa_idx.i19 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.2.0.copyload.i20 = load i32, ptr %.sroa.2.0..sroa_idx.i19, align 4
   %29 = zext i32 %.sroa.2.0.copyload.i20 to i64
   %30 = and i64 %27, %29
@@ -13388,7 +13388,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %.not11 = icmp eq i8 %9, 1
   br i1 %.not11, label %16, label %10
@@ -13404,13 +13404,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 16:                                               ; preds = %7
   %17 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %1, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %22
 
 22:                                               ; preds = %.lr.ph, %_ZNK8V3Number7bitIsXZEi.exit.thread
@@ -13436,7 +13436,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %25
   %spec.select.i10.i = select i1 %29, ptr %1, ptr %30
   %31 = lshr i32 %.023, 5
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %32
   %.sroa.0.0.copyload.i = load i32, ptr %33, align 4
   %34 = zext i32 %.sroa.0.0.copyload.i to i64
   %35 = and i32 %.023, 31
@@ -13447,7 +13447,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %25
   br i1 %39, label %40, label %.lr.ph.i
 
 40:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %33, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %41 = zext i32 %.sroa.2.0.copyload.i to i64
   %42 = and i64 %37, %41
@@ -13461,7 +13461,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %27
   %spec.select.i7.i.i = select i1 %43, ptr %1, ptr %44
   %45 = lshr i32 %.tr811.i.i, 5
   %46 = zext nneg i32 %45 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %46, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %46, i32 1
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %47 = zext i32 %.sroa.1.0.copyload.i.i to i64
   %48 = and i32 %.tr811.i.i, 31
@@ -13490,7 +13490,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %56, ptr %1, ptr %54
   %57 = lshr i32 %.tr811.i, 5
   %58 = zext nneg i32 %57 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %58, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %58, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %59 = zext i32 %.sroa.1.0.copyload.i to i64
   %60 = and i32 %.tr811.i, 31
@@ -13530,7 +13530,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -13545,7 +13545,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not20 = icmp eq i8 %21, 1
   br i1 %.not20, label %28, label %22
@@ -13561,14 +13561,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIs0Ei.exit.thread64
@@ -13590,7 +13590,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
   %spec.select.i10.i = select i1 %40, ptr %1, ptr %41
   %42 = lshr i32 %.069, 5
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %43
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
   %45 = zext i32 %.sroa.0.0.copyload.i to i64
   %46 = and i32 %.069, 31
@@ -13601,7 +13601,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
   br i1 %.not7.i, label %.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %50 = zext i32 %.sroa.2.0.copyload.i to i64
   %51 = and i64 %48, %50
@@ -13623,7 +13623,7 @@ _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %55
   %57 = icmp samesign ult i32 %56, 129
   %58 = load ptr, ptr %2, align 8
   %spec.select.i10.i25 = select i1 %57, ptr %2, ptr %58
-  %59 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i25, i64 %43
+  %59 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i25, i64 %43
   %.sroa.0.0.copyload.i26 = load i32, ptr %59, align 4
   %60 = zext i32 %.sroa.0.0.copyload.i26 to i64
   %61 = and i64 %48, %60
@@ -13631,7 +13631,7 @@ _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %55
   br i1 %.not7.i27, label %.thread, label %_ZNK8V3Number6bitIs1Ei.exit31
 
 _ZNK8V3Number6bitIs1Ei.exit31:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i24
-  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %59, i64 4
+  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %.sroa.2.0.copyload.i29 = load i32, ptr %.sroa.2.0..sroa_idx.i28, align 4
   %62 = zext i32 %.sroa.2.0.copyload.i29 to i64
   %63 = and i64 %48, %62
@@ -13652,7 +13652,7 @@ _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %.thread
   %spec.select.i10.i36 = select i1 %66, ptr %1, ptr %67
   %68 = lshr i32 %.069, 5
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i36, i64 %69
+  %70 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i36, i64 %69
   %.sroa.0.0.copyload.i37 = load i32, ptr %70, align 4
   %71 = zext i32 %.sroa.0.0.copyload.i37 to i64
   %72 = and i32 %.069, 31
@@ -13663,7 +13663,7 @@ _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %.thread
   br i1 %76, label %77, label %_ZNK8V3Number6bitIs0Ei.exit.thread
 
 77:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i35
-  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %70, i64 4
+  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %70, i64 4
   %.sroa.2.0.copyload.i39 = load i32, ptr %.sroa.2.0..sroa_idx.i38, align 4
   %78 = zext i32 %.sroa.2.0.copyload.i39 to i64
   %79 = and i64 %74, %78
@@ -13677,7 +13677,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %64
   %spec.select.i7.i.i = select i1 %80, ptr %1, ptr %81
   %82 = lshr i32 %.tr811.i.i, 5
   %83 = zext nneg i32 %82 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %83, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %83, i32 1
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %84 = zext i32 %.sroa.1.0.copyload.i.i to i64
   %85 = and i32 %.tr811.i.i, 31
@@ -13709,7 +13709,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %92
   %spec.select.i10.i51 = select i1 %96, ptr %2, ptr %97
   %98 = lshr i32 %.069, 5
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i51, i64 %99
+  %100 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i51, i64 %99
   %.sroa.0.0.copyload.i52 = load i32, ptr %100, align 4
   %101 = zext i32 %.sroa.0.0.copyload.i52 to i64
   %102 = and i32 %.069, 31
@@ -13720,7 +13720,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %92
   br i1 %106, label %107, label %_ZNK8V3Number6bitIs0Ei.exit.thread64.sink.split
 
 107:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i50
-  %.sroa.2.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %100, i64 4
+  %.sroa.2.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %100, i64 4
   %.sroa.2.0.copyload.i54 = load i32, ptr %.sroa.2.0..sroa_idx.i53, align 4
   %108 = zext i32 %.sroa.2.0.copyload.i54 to i64
   %109 = and i64 %104, %108
@@ -13734,7 +13734,7 @@ _ZNK8V3Number6bitIs0Ei.exit56:                    ; preds = %94
   %spec.select.i7.i.i46 = select i1 %110, ptr %2, ptr %111
   %112 = lshr i32 %.tr811.i.i45, 5
   %113 = zext nneg i32 %112 to i64
-  %.sroa.1.0..sroa_idx.i.i47 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i46, i64 %113, i32 1
+  %.sroa.1.0..sroa_idx.i.i47 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i46, i64 %113, i32 1
   %.sroa.1.0.copyload.i.i48 = load i32, ptr %.sroa.1.0..sroa_idx.i.i47, align 4
   %114 = zext i32 %.sroa.1.0.copyload.i.i48 to i64
   %115 = and i32 %.tr811.i.i45, 31
@@ -13774,7 +13774,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -13789,7 +13789,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not20 = icmp eq i8 %21, 1
   br i1 %.not20, label %28, label %22
@@ -13805,14 +13805,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIs0Ei.exit56.thread65
@@ -13833,7 +13833,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
   %spec.select.i10.i = select i1 %40, ptr %1, ptr %41
   %42 = lshr i32 %.069, 5
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %43
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
   %45 = zext i32 %.sroa.0.0.copyload.i to i64
   %46 = and i32 %.069, 31
@@ -13844,7 +13844,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %50 = zext i32 %.sroa.2.0.copyload.i to i64
   %51 = and i64 %48, %50
@@ -13868,7 +13868,7 @@ _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %54
   %spec.select.i10.i25 = select i1 %56, ptr %2, ptr %57
   %58 = lshr i32 %.069, 5
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i25, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i25, i64 %59
   %.sroa.0.0.copyload.i26 = load i32, ptr %60, align 4
   %61 = zext i32 %.sroa.0.0.copyload.i26 to i64
   %62 = and i32 %.069, 31
@@ -13879,7 +13879,7 @@ _ZNK12V3NumberData3numEv.exit.i24:                ; preds = %54
   br i1 %.not7.i27, label %_ZNK8V3Number6bitIs1Ei.exit31.thread, label %_ZNK8V3Number6bitIs1Ei.exit31
 
 _ZNK8V3Number6bitIs1Ei.exit31:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i24
-  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds i8, ptr %60, i64 4
+  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %.sroa.2.0.copyload.i29 = load i32, ptr %.sroa.2.0..sroa_idx.i28, align 4
   %66 = zext i32 %.sroa.2.0.copyload.i29 to i64
   %67 = and i64 %64, %66
@@ -13907,7 +13907,7 @@ _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %68
   %spec.select.i10.i36 = select i1 %72, ptr %1, ptr %73
   %74 = lshr i32 %.069, 5
   %75 = zext nneg i32 %74 to i64
-  %76 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i36, i64 %75
+  %76 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i36, i64 %75
   %.sroa.0.0.copyload.i37 = load i32, ptr %76, align 4
   %77 = zext i32 %.sroa.0.0.copyload.i37 to i64
   %78 = and i32 %.069, 31
@@ -13918,7 +13918,7 @@ _ZNK12V3NumberData3numEv.exit.i35:                ; preds = %68
   br i1 %82, label %83, label %_ZNK8V3Number6bitIs0Ei.exit56.thread65.sink.split
 
 83:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i35
-  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds i8, ptr %76, i64 4
+  %.sroa.2.0..sroa_idx.i38 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %.sroa.2.0.copyload.i39 = load i32, ptr %.sroa.2.0..sroa_idx.i38, align 4
   %84 = zext i32 %.sroa.2.0.copyload.i39 to i64
   %85 = and i64 %80, %84
@@ -13933,7 +13933,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %70
   %spec.select.i7.i.i = select i1 %86, ptr %1, ptr %87
   %88 = lshr i32 %.tr811.i.i, 5
   %89 = zext nneg i32 %88 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %89, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %89, i32 1
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %90 = zext i32 %.sroa.1.0.copyload.i.i to i64
   %91 = and i32 %.tr811.i.i, 31
@@ -13963,7 +13963,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %96
   %spec.select.i10.i51 = select i1 %100, ptr %2, ptr %101
   %102 = lshr i32 %.069, 5
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i51, i64 %103
+  %104 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i51, i64 %103
   %.sroa.0.0.copyload.i52 = load i32, ptr %104, align 4
   %105 = zext i32 %.sroa.0.0.copyload.i52 to i64
   %106 = and i32 %.069, 31
@@ -13974,7 +13974,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %96
   br i1 %110, label %111, label %_ZNK8V3Number6bitIs0Ei.exit56.thread65.sink.split
 
 111:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i50
-  %.sroa.2.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %104, i64 4
+  %.sroa.2.0..sroa_idx.i53 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %.sroa.2.0.copyload.i54 = load i32, ptr %.sroa.2.0..sroa_idx.i53, align 4
   %112 = zext i32 %.sroa.2.0.copyload.i54 to i64
   %113 = and i64 %108, %112
@@ -13988,7 +13988,7 @@ _ZNK8V3Number6bitIs0Ei.exit56:                    ; preds = %98
   %spec.select.i7.i.i46 = select i1 %114, ptr %2, ptr %115
   %116 = lshr i32 %.tr811.i.i45, 5
   %117 = zext nneg i32 %116 to i64
-  %.sroa.1.0..sroa_idx.i.i47 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i46, i64 %117, i32 1
+  %.sroa.1.0..sroa_idx.i.i47 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i46, i64 %117, i32 1
   %.sroa.1.0.copyload.i.i48 = load i32, ptr %.sroa.1.0..sroa_idx.i.i47, align 4
   %118 = zext i32 %.sroa.1.0.copyload.i.i48 to i64
   %119 = and i32 %.tr811.i.i45, 31
@@ -14028,7 +14028,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -14043,7 +14043,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not25 = icmp eq i8 %21, 1
   br i1 %.not25, label %28, label %22
@@ -14059,14 +14059,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %_ZNK8V3Number7bitIsXZEi.exit77.thread
@@ -14088,7 +14088,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
   %spec.select.i10.i = select i1 %40, ptr %1, ptr %41
   %42 = lshr i32 %.097, 5
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %43
+  %44 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %43
   %.sroa.0.0.copyload.i = load i32, ptr %44, align 4
   %45 = zext i32 %.sroa.0.0.copyload.i to i64
   %46 = and i32 %.097, 31
@@ -14099,7 +14099,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %38
   br i1 %.not7.i, label %.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %44, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %50 = zext i32 %.sroa.2.0.copyload.i to i64
   %51 = and i64 %48, %50
@@ -14126,7 +14126,7 @@ _ZNK12V3NumberData3numEv.exit.i29:                ; preds = %55
   %59 = icmp samesign ult i32 %.fr.i.i, 129
   %60 = load ptr, ptr %2, align 8
   %spec.select.i10.i30 = select i1 %59, ptr %2, ptr %60
-  %61 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i30, i64 %43
+  %61 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i30, i64 %43
   %.sroa.0.0.copyload.i31 = load i32, ptr %61, align 4
   %62 = zext i32 %.sroa.0.0.copyload.i31 to i64
   %63 = and i64 %48, %62
@@ -14134,7 +14134,7 @@ _ZNK12V3NumberData3numEv.exit.i29:                ; preds = %55
   br i1 %64, label %65, label %.thread
 
 65:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i29
-  %.sroa.2.0..sroa_idx.i32 = getelementptr inbounds i8, ptr %61, i64 4
+  %.sroa.2.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %.sroa.2.0.copyload.i33 = load i32, ptr %.sroa.2.0..sroa_idx.i32, align 4
   %66 = zext i32 %.sroa.2.0.copyload.i33 to i64
   %67 = and i64 %48, %66
@@ -14148,7 +14148,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %57
   %spec.select.i7.i.i = select i1 %68, ptr %2, ptr %69
   %70 = lshr i32 %.tr811.i.i, 5
   %71 = zext nneg i32 %70 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %71, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %71, i32 1
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %72 = zext i32 %.sroa.1.0.copyload.i.i to i64
   %73 = and i32 %.tr811.i.i, 31
@@ -14172,7 +14172,7 @@ _ZNK12V3NumberData3numEv.exit.i44:                ; preds = %.thread
   %spec.select.i10.i45 = select i1 %80, ptr %1, ptr %81
   %82 = lshr i32 %.097, 5
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i45, i64 %83
+  %84 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i45, i64 %83
   %.sroa.0.0.copyload.i46 = load i32, ptr %84, align 4
   %85 = zext i32 %.sroa.0.0.copyload.i46 to i64
   %86 = and i32 %.097, 31
@@ -14183,7 +14183,7 @@ _ZNK12V3NumberData3numEv.exit.i44:                ; preds = %.thread
   br i1 %90, label %91, label %.lr.ph.i
 
 91:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i44
-  %.sroa.2.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %84, i64 4
+  %.sroa.2.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %.sroa.2.0.copyload.i48 = load i32, ptr %.sroa.2.0..sroa_idx.i47, align 4
   %92 = zext i32 %.sroa.2.0.copyload.i48 to i64
   %93 = and i64 %88, %92
@@ -14197,7 +14197,7 @@ _ZNK8V3Number6bitIs0Ei.exit50:                    ; preds = %78
   %spec.select.i7.i.i40 = select i1 %94, ptr %1, ptr %95
   %96 = lshr i32 %.tr811.i.i39, 5
   %97 = zext nneg i32 %96 to i64
-  %.sroa.1.0..sroa_idx.i.i41 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i40, i64 %97, i32 1
+  %.sroa.1.0..sroa_idx.i.i41 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i40, i64 %97, i32 1
   %.sroa.1.0.copyload.i.i42 = load i32, ptr %.sroa.1.0..sroa_idx.i.i41, align 4
   %98 = zext i32 %.sroa.1.0.copyload.i.i42 to i64
   %99 = and i32 %.tr811.i.i39, 31
@@ -14224,7 +14224,7 @@ _ZNK12V3NumberData3numEv.exit.i54:                ; preds = %106
   %spec.select.i10.i55 = select i1 %108, ptr %2, ptr %109
   %110 = lshr i32 %.097, 5
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i55, i64 %111
+  %112 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i55, i64 %111
   %.sroa.0.0.copyload.i56 = load i32, ptr %112, align 4
   %113 = zext i32 %.sroa.0.0.copyload.i56 to i64
   %114 = and i32 %.097, 31
@@ -14235,7 +14235,7 @@ _ZNK12V3NumberData3numEv.exit.i54:                ; preds = %106
   br i1 %.not7.i57, label %.lr.ph.i, label %_ZNK8V3Number6bitIs1Ei.exit61
 
 _ZNK8V3Number6bitIs1Ei.exit61:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i54
-  %.sroa.2.0..sroa_idx.i58 = getelementptr inbounds i8, ptr %112, i64 4
+  %.sroa.2.0..sroa_idx.i58 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %.sroa.2.0.copyload.i59 = load i32, ptr %.sroa.2.0..sroa_idx.i58, align 4
   %118 = zext i32 %.sroa.2.0.copyload.i59 to i64
   %119 = and i64 %116, %118
@@ -14261,7 +14261,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %122, ptr %1, ptr %123
   %124 = lshr i32 %.tr811.i, 5
   %125 = zext nneg i32 %124 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %125, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %125, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %126 = zext i32 %.sroa.1.0.copyload.i to i64
   %127 = and i32 %.tr811.i, 31
@@ -14295,7 +14295,7 @@ _ZNK8V3Number7bitIsXZEi.exit77:                   ; preds = %tailrecurse.i69
   %spec.select.i7.i73 = select i1 %136, ptr %2, ptr %137
   %138 = lshr i32 %.tr811.i70, 5
   %139 = zext nneg i32 %138 to i64
-  %.sroa.1.0..sroa_idx.i74 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i73, i64 %139, i32 1
+  %.sroa.1.0..sroa_idx.i74 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i73, i64 %139, i32 1
   %.sroa.1.0.copyload.i75 = load i32, ptr %.sroa.1.0..sroa_idx.i74, align 4
   %140 = zext i32 %.sroa.1.0.copyload.i75 to i64
   %141 = and i32 %.tr811.i70, 31
@@ -14335,7 +14335,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -14350,7 +14350,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not26 = icmp eq i8 %21, 1
   br i1 %.not26, label %28, label %22
@@ -14366,13 +14366,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %30 = getelementptr inbounds i8, ptr %1, i64 37
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %2, i64 37
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 37
   %35 = load i8, ptr %34, align 1
   %36 = trunc i8 %35 to i1
   br i1 %36, label %41, label %37
@@ -14385,14 +14385,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   br label %41
 
 41:                                               ; preds = %37, %33
-  %42 = getelementptr inbounds i8, ptr %2, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %41
   %.023.lcssa = phi i32 [ 0, %41 ], [ %49, %.lr.ph ]
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph34, label %._crit_edge
@@ -14435,7 +14435,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 3
   br i1 %11, label %18, label %12
@@ -14479,7 +14479,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %.not9 = icmp eq i8 %10, 1
   br i1 %.not9, label %17, label %11
@@ -14494,7 +14494,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %2, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %19 = load i8, ptr %18, align 4
   %.not10 = icmp eq i8 %19, 1
   br i1 %.not10, label %26, label %20
@@ -14509,7 +14509,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 26:                                               ; preds = %17
-  %27 = getelementptr inbounds i8, ptr %1, i64 37
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %34, label %30
@@ -14540,7 +14540,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %.not20 = icmp eq i8 %10, 1
   br i1 %.not20, label %17, label %11
@@ -14579,9 +14579,9 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %.not34, label %._crit_edge33, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.thread, %26
-  %28 = getelementptr inbounds i8, ptr %1, i64 32
-  %29 = getelementptr inbounds i8, ptr %0, i64 32
-  %30 = getelementptr inbounds i8, ptr %0, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %31 = load i32, ptr %28, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.preheader, label %._crit_edge33
@@ -14616,9 +14616,9 @@ _ZNK8V3Number5bitIsEi.exit:                       ; preds = %.lr.ph
   %spec.select.i.i = select i1 %43, ptr %1, ptr %44
   %45 = lshr i32 %.030, 5
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i, i64 %46
+  %47 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i, i64 %46
   %.sroa.0.0.copyload.i = load i32, ptr %47, align 4
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %47, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %48 = and i32 %.030, 31
   %49 = zext nneg i32 %48 to i64
@@ -14631,7 +14631,7 @@ _ZNK8V3Number5bitIsEi.exit:                       ; preds = %.lr.ph
   %55 = select i1 %.not.i, i32 0, i32 2
   %56 = or disjoint i32 %55, %52
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %57
+  %58 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %57
   %59 = load i8, ptr %58, align 1
   %60 = load i32, ptr %29, align 8
   %.not.i21 = icmp slt i32 %.129, %60
@@ -14674,7 +14674,7 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %61
   %78 = load i32, ptr %75, align 4
   %79 = and i32 %78, %77
   store i32 %79, ptr %75, align 4
-  %80 = getelementptr inbounds i8, ptr %75, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = and i32 %81, %77
   store i32 %82, ptr %80, align 4
@@ -14685,7 +14685,7 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %61
   %85 = or i32 %84, %63
   store i32 %85, ptr %75, align 4
   %86 = xor i32 %63, -1
-  %87 = getelementptr inbounds i8, ptr %75, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %88 = load i32, ptr %87, align 4
   %89 = and i32 %88, %86
   store i32 %89, ptr %87, align 4
@@ -14696,7 +14696,7 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %61
   %92 = load i32, ptr %75, align 4
   %93 = and i32 %92, %91
   store i32 %93, ptr %75, align 4
-  %94 = getelementptr inbounds i8, ptr %75, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, %63
   store i32 %96, ptr %94, align 4
@@ -14706,7 +14706,7 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %61
   %98 = load i32, ptr %75, align 4
   %99 = or i32 %98, %63
   store i32 %99, ptr %75, align 4
-  %100 = getelementptr inbounds i8, ptr %75, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %101 = load i32, ptr %100, align 4
   %102 = or i32 %101, %63
   store i32 %102, ptr %100, align 4
@@ -14747,7 +14747,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -14762,7 +14762,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not30 = icmp eq i8 %21, 1
   br i1 %.not30, label %28, label %22
@@ -14778,7 +14778,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %30 = getelementptr inbounds i8, ptr %1, i64 37
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
   br i1 %32, label %37, label %33
@@ -14792,7 +14792,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 37:                                               ; preds = %33, %28
   %38 = tail call noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %39 = getelementptr inbounds i8, ptr %1, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %40 = load i32, ptr %39, align 8
   %.sroa.speculated38 = tail call i32 @llvm.umin.i32(i32 %40, i32 %38)
   %41 = icmp sgt i32 %40, 0
@@ -14800,8 +14800,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 .lr.ph49:                                         ; preds = %37
   %42 = icmp sgt i32 %.sroa.speculated38, 0
-  %43 = getelementptr inbounds i8, ptr %0, i64 32
-  %44 = getelementptr inbounds i8, ptr %0, i64 36
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br i1 %42, label %.lr.ph.us, label %._crit_edge
 
 .lr.ph.us:                                        ; preds = %.lr.ph49, %.critedge.us
@@ -14844,9 +14844,9 @@ _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %59
   %spec.select.i.i.us = select i1 %62, ptr %1, ptr %63
   %64 = lshr i32 %56, 5
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i.us, i64 %65
+  %66 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i.us, i64 %65
   %.sroa.0.0.copyload.i.us = load i32, ptr %66, align 4
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %66, i64 4
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %66, i64 4
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 4
   %67 = and i32 %56, 31
   %68 = zext nneg i32 %67 to i64
@@ -14859,7 +14859,7 @@ _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %59
   %74 = select i1 %.not.i.us, i32 0, i32 2
   %75 = or disjoint i32 %74, %71
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1
   br label %_ZNK8V3Number5bitIsEi.exit.us
 
@@ -14883,7 +14883,7 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
   %spec.select.i.i34.us = select i1 %85, ptr %0, ptr %86
   %87 = lshr i32 %55, 5
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i34.us, i64 %88
+  %89 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i34.us, i64 %88
   switch i8 %.0.i.us, label %111 [
     i8 48, label %104
     i8 0, label %104
@@ -14898,7 +14898,7 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
   %92 = load i32, ptr %89, align 4
   %93 = and i32 %92, %91
   store i32 %93, ptr %89, align 4
-  %94 = getelementptr inbounds i8, ptr %89, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, %82
   store i32 %96, ptr %94, align 4
@@ -14909,7 +14909,7 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
   %99 = or i32 %98, %82
   store i32 %99, ptr %89, align 4
   %100 = xor i32 %82, -1
-  %101 = getelementptr inbounds i8, ptr %89, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, %100
   store i32 %103, ptr %101, align 4
@@ -14920,7 +14920,7 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
   %106 = load i32, ptr %89, align 4
   %107 = and i32 %106, %105
   store i32 %107, ptr %89, align 4
-  %108 = getelementptr inbounds i8, ptr %89, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %109 = load i32, ptr %108, align 4
   %110 = and i32 %109, %105
   store i32 %110, ptr %108, align 4
@@ -14930,7 +14930,7 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %80
   %112 = load i32, ptr %89, align 4
   %113 = or i32 %112, %82
   store i32 %113, ptr %89, align 4
-  %114 = getelementptr inbounds i8, ptr %89, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %115 = load i32, ptr %114, align 4
   %116 = or i32 %115, %82
   store i32 %116, ptr %114, align 4
@@ -14980,7 +14980,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -14995,13 +14995,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not47 = icmp eq i8 %21, 1
   br i1 %.not47, label %.preheader, label %28
 
 .preheader:                                       ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 8
   %.fr.i = freeze i32 %23
   %24 = icmp sgt i32 %.fr.i, 0
@@ -15028,7 +15028,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %.04282 = phi i32 [ 0, %_ZNK12V3NumberData3numEv.exit.i.lr.ph ], [ %53, %_ZNK12V3NumberData3numEv.exit.i50 ]
   %34 = lshr i32 %.04282, 5
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %35
+  %36 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %35
   %.sroa.0.0.copyload.i = load i32, ptr %36, align 4
   %37 = zext i32 %.sroa.0.0.copyload.i to i64
   %38 = and i32 %.04282, 31
@@ -15039,7 +15039,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i, label %tailrecurse.i.preheader, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %42 = zext i32 %.sroa.2.0.copyload.i to i64
   %43 = and i64 %40, %42
@@ -15057,7 +15057,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %tailrecurse.i
   %44 = lshr i32 %.tr811.i, 5
   %45 = zext nneg i32 %44 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %45, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %45, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %46 = zext i32 %.sroa.1.0.copyload.i to i64
   %47 = and i32 %.tr811.i, 31
@@ -15074,7 +15074,7 @@ _ZNK12V3NumberData3numEv.exit.i50:                ; preds = %tailrecurse.i
 
 _ZNK8V3Number6bitIs1Ei.exit._crit_edge:           ; preds = %_ZNK12V3NumberData3numEv.exit.i50, %_ZNK8V3Number6bitIs1Ei.exit, %.preheader
   %.1 = phi i8 [ 0, %.preheader ], [ 1, %_ZNK8V3Number6bitIs1Ei.exit ], [ %spec.store.select, %_ZNK12V3NumberData3numEv.exit.i50 ]
-  %54 = getelementptr inbounds i8, ptr %2, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %55 = load i32, ptr %54, align 8
   %.fr.i65 = freeze i32 %55
   %56 = icmp sgt i32 %.fr.i65, 0
@@ -15092,7 +15092,7 @@ _ZNK12V3NumberData3numEv.exit.i55:                ; preds = %_ZNK12V3NumberData3
   %.04386 = phi i8 [ 0, %_ZNK12V3NumberData3numEv.exit.i55.lr.ph ], [ %spec.store.select12, %_ZNK12V3NumberData3numEv.exit.i69 ]
   %60 = lshr i32 %.04187, 5
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i56, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i56, i64 %61
   %.sroa.0.0.copyload.i57 = load i32, ptr %62, align 4
   %63 = zext i32 %.sroa.0.0.copyload.i57 to i64
   %64 = and i32 %.04187, 31
@@ -15103,7 +15103,7 @@ _ZNK12V3NumberData3numEv.exit.i55:                ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i58, label %tailrecurse.i66.preheader, label %_ZNK8V3Number6bitIs1Ei.exit62
 
 _ZNK8V3Number6bitIs1Ei.exit62:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i55
-  %.sroa.2.0..sroa_idx.i59 = getelementptr inbounds i8, ptr %62, i64 4
+  %.sroa.2.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.2.0.copyload.i60 = load i32, ptr %.sroa.2.0..sroa_idx.i59, align 4
   %68 = zext i32 %.sroa.2.0.copyload.i60 to i64
   %69 = and i64 %66, %68
@@ -15121,7 +15121,7 @@ tailrecurse.i66:                                  ; preds = %tailrecurse.i66.pre
 _ZNK12V3NumberData3numEv.exit.i69:                ; preds = %tailrecurse.i66
   %70 = lshr i32 %.tr811.i67, 5
   %71 = zext nneg i32 %70 to i64
-  %.sroa.1.0..sroa_idx.i71 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i56, i64 %71, i32 1
+  %.sroa.1.0..sroa_idx.i71 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i56, i64 %71, i32 1
   %.sroa.1.0.copyload.i72 = load i32, ptr %.sroa.1.0..sroa_idx.i71, align 4
   %72 = zext i32 %.sroa.1.0.copyload.i72 to i64
   %73 = and i32 %.tr811.i67, 31
@@ -15165,7 +15165,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -15180,13 +15180,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not33 = icmp eq i8 %21, 1
   br i1 %.not33, label %.preheader68, label %28
 
 .preheader68:                                     ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 8
   %.fr.i = freeze i32 %23
   %24 = icmp sgt i32 %.fr.i, 0
@@ -15210,7 +15210,7 @@ _ZNK12V3NumberData3numEv.exit.i.lr.ph:            ; preds = %.preheader68
 
 .preheader:                                       ; preds = %_ZNK12V3NumberData3numEv.exit.i36, %.preheader68
   %.030.lcssa = phi i8 [ 0, %.preheader68 ], [ %spec.store.select, %_ZNK12V3NumberData3numEv.exit.i36 ]
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load i32, ptr %34, align 8
   %.fr.i51 = freeze i32 %35
   %36 = icmp sgt i32 %.fr.i51, 0
@@ -15228,7 +15228,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   %.03071 = phi i8 [ 0, %_ZNK12V3NumberData3numEv.exit.i.lr.ph ], [ %spec.store.select, %_ZNK12V3NumberData3numEv.exit.i36 ]
   %40 = lshr i32 %.02972, 5
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %41
+  %42 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %41
   %.sroa.0.0.copyload.i = load i32, ptr %42, align 4
   %43 = zext i32 %.sroa.0.0.copyload.i to i64
   %44 = and i32 %.02972, 31
@@ -15239,7 +15239,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i, label %tailrecurse.i.preheader, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %42, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %48 = zext i32 %.sroa.2.0.copyload.i to i64
   %49 = and i64 %46, %48
@@ -15257,7 +15257,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 _ZNK12V3NumberData3numEv.exit.i36:                ; preds = %tailrecurse.i
   %50 = lshr i32 %.tr811.i, 5
   %51 = zext nneg i32 %50 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %51, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %51, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %52 = zext i32 %.sroa.1.0.copyload.i to i64
   %53 = and i32 %.tr811.i, 31
@@ -15277,7 +15277,7 @@ _ZNK12V3NumberData3numEv.exit.i41:                ; preds = %_ZNK12V3NumberData3
   %.273 = phi i8 [ %.030.lcssa, %_ZNK12V3NumberData3numEv.exit.i41.lr.ph ], [ %spec.store.select6, %_ZNK12V3NumberData3numEv.exit.i55 ]
   %60 = lshr i32 %.074, 5
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i42, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i42, i64 %61
   %.sroa.0.0.copyload.i43 = load i32, ptr %62, align 4
   %63 = zext i32 %.sroa.0.0.copyload.i43 to i64
   %64 = and i32 %.074, 31
@@ -15288,7 +15288,7 @@ _ZNK12V3NumberData3numEv.exit.i41:                ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i44, label %tailrecurse.i52.preheader, label %_ZNK8V3Number6bitIs1Ei.exit48
 
 _ZNK8V3Number6bitIs1Ei.exit48:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i41
-  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %62, i64 4
+  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.2.0.copyload.i46 = load i32, ptr %.sroa.2.0..sroa_idx.i45, align 4
   %68 = zext i32 %.sroa.2.0.copyload.i46 to i64
   %69 = and i64 %66, %68
@@ -15306,7 +15306,7 @@ tailrecurse.i52:                                  ; preds = %tailrecurse.i52.pre
 _ZNK12V3NumberData3numEv.exit.i55:                ; preds = %tailrecurse.i52
   %70 = lshr i32 %.tr811.i53, 5
   %71 = zext nneg i32 %70 to i64
-  %.sroa.1.0..sroa_idx.i57 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i42, i64 %71, i32 1
+  %.sroa.1.0..sroa_idx.i57 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i42, i64 %71, i32 1
   %.sroa.1.0.copyload.i58 = load i32, ptr %.sroa.1.0..sroa_idx.i57, align 4
   %72 = zext i32 %.sroa.1.0.copyload.i58 to i64
   %73 = and i32 %.tr811.i53, 31
@@ -15344,8 +15344,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 11:                                               ; preds = %3
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %12 = getelementptr inbounds i8, ptr %4, i64 40
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   %14 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opLogNotERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %15 unwind label %31
@@ -15355,7 +15355,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
           to label %17 unwind label %31
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %4, i64 36
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %19 = load i8, ptr %18, align 4
   %20 = icmp eq i8 %19, 3
   br i1 %20, label %21, label %22
@@ -15365,7 +15365,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br label %_ZN8V3NumberD2Ev.exit
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds i8, ptr %4, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 128
   %26 = icmp eq i8 %19, 1
@@ -15409,8 +15409,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 12:                                               ; preds = %3
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %13 = getelementptr inbounds i8, ptr %4, i64 40
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i64 16, i1 false)
   %15 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7opLogIfERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %16 unwind label %50
@@ -15420,8 +15420,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
           to label %17 unwind label %50
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %5, i64 40
-  %19 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, i64 16, i1 false)
   %20 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7opLogIfERKS_S1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %1)
           to label %21 unwind label %52
@@ -15431,7 +15431,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
           to label %23 unwind label %52
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %5, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 3
   br i1 %26, label %27, label %28
@@ -15441,7 +15441,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br label %_ZN8V3NumberD2Ev.exit
 
 28:                                               ; preds = %23
-  %29 = getelementptr inbounds i8, ptr %5, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = icmp sgt i32 %30, 128
   %32 = icmp eq i8 %25, 1
@@ -15458,7 +15458,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %27, %28, %34, %36
-  %37 = getelementptr inbounds i8, ptr %4, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %38 = load i8, ptr %37, align 4
   %39 = icmp eq i8 %38, 3
   br i1 %39, label %40, label %41
@@ -15468,7 +15468,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %27, %28, %34, %36
   br label %_ZN8V3NumberD2Ev.exit15
 
 41:                                               ; preds = %_ZN8V3NumberD2Ev.exit
-  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %43 = load i32, ptr %42, align 8
   %44 = icmp sgt i32 %43, 128
   %45 = icmp eq i8 %38, 1
@@ -15518,7 +15518,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %19, label %13
@@ -15588,25 +15588,25 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %42, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i, label %43
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 1
   %45 = load i8, ptr %44, align 1
   %46 = icmp eq i8 %45, 95
   br i1 %46, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 2
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   %49 = load i8, ptr %48, align 1
   %50 = icmp eq i8 %49, 95
   br i1 %50, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit46, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 95
   br i1 %54, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit48, label %55
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 4
   %57 = add nsw i64 %.052.i.i.i.i, -1
   %58 = icmp sgt i64 %.052.i.i.i.i, 1
   br i1 %58, label %40, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !131
@@ -15631,7 +15631,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %62, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i, label %63
 
 63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %.sroa.032.0.lcssa.i.i.i.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.032.0.lcssa.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge.i.i.i.i
 
 ._crit_edge._crit_edge.i.i.i.i:                   ; preds = %._crit_edge.i.i.i.i, %63
@@ -15641,7 +15641,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %66, label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i, label %67
 
 67:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i
-  %68 = getelementptr inbounds i8, ptr %.sroa.032.1.i.i.i.i, i64 1
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.032.1.i.i.i.i, i64 1
   br label %._crit_edge._crit_edge57.i.i.i.i
 
 ._crit_edge._crit_edge57.i.i.i.i:                 ; preds = %._crit_edge.i.i.i.i, %67
@@ -15652,21 +15652,21 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit: ; preds = %43
-  %71 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 1
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit46: ; preds = %47
-  %72 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 2
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 2
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit48: ; preds = %51
-  %73 = getelementptr inbounds i8, ptr %.sroa.032.051.i.i.i.i, i64 3
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.032.051.i.i.i.i, i64 3
   br label %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i
 
 _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i: ; preds = %40, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit46, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit48, %._crit_edge._crit_edge57.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %60
   %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i, %60 ], [ %.sroa.032.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %spec.select.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i ], [ %71, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit ], [ %72, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit46 ], [ %73, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_5__ops16_Iter_equals_valIKcEEET_SE_SE_T0_.exit.i.i.loopexit.split.loop.exit48 ], [ %.sroa.032.051.i.i.i.i, %40 ]
   %74 = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, %33
-  %.sroa.07.026.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 1
+  %.sroa.07.026.i.i = getelementptr inbounds nuw i8, ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i, i64 1
   %.not27.i.i = icmp eq ptr %.sroa.07.026.i.i, %33
   %or.cond.i.i = select i1 %74, i1 true, i1 %.not27.i.i
   br i1 %or.cond.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit, label %.lr.ph.i.i
@@ -15680,12 +15680,12 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 
 77:                                               ; preds = %.lr.ph.i.i
   store i8 %75, ptr %.sroa.013.128.i.i, align 1
-  %78 = getelementptr inbounds i8, ptr %.sroa.013.128.i.i, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.013.128.i.i, i64 1
   br label %79
 
 79:                                               ; preds = %77, %.lr.ph.i.i
   %.sroa.013.2.i.i = phi ptr [ %.sroa.013.128.i.i, %.lr.ph.i.i ], [ %78, %77 ]
-  %.sroa.07.0.i.i = getelementptr inbounds i8, ptr %.sroa.07.029.i.i, i64 1
+  %.sroa.07.0.i.i = getelementptr inbounds nuw i8, ptr %.sroa.07.029.i.i, i64 1
   %.not.i.i = icmp eq ptr %.sroa.07.0.i.i, %33
   br i1 %.not.i.i, label %_ZSt6removeIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcET_SA_SA_RKT0_.exit, label %.lr.ph.i.i, !llvm.loop !132
 
@@ -15747,7 +15747,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 3
   br i1 %16, label %23, label %17
@@ -15763,7 +15763,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 23:                                               ; preds = %13
   call void @_ZNK8V3Number8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %24 = getelementptr inbounds i8, ptr %2, i64 37
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 37
   %25 = load i8, ptr %24, align 1
   %26 = invoke noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %.noexc unwind label %63
@@ -15774,7 +15774,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br i1 %.not.i, label %_ZNK8V3Number6toSIntEv.exit, label %28
 
 28:                                               ; preds = %.noexc
-  %29 = getelementptr inbounds i8, ptr %2, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, -1
   %32 = zext nneg i32 %31 to i64
@@ -15787,7 +15787,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 _ZNK8V3Number6toSIntEv.exit:                      ; preds = %28, %.noexc
   %.0.i = phi i32 [ %37, %28 ], [ %26, %.noexc ]
-  %38 = getelementptr inbounds i8, ptr %3, i64 37
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 37
   %39 = load i8, ptr %38, align 1
   %40 = invoke noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc22 unwind label %63
@@ -15798,7 +15798,7 @@ _ZNK8V3Number6toSIntEv.exit:                      ; preds = %28, %.noexc
   br i1 %.not.i20, label %_ZNK8V3Number6toSIntEv.exit23, label %42
 
 42:                                               ; preds = %.noexc22
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = add nsw i32 %44, -1
   %46 = zext nneg i32 %45 to i64
@@ -15839,7 +15839,7 @@ _ZNK8V3Number6toSIntEv.exit23:                    ; preds = %42, %.noexc22
   resume { ptr, i32 } %64
 
 65:                                               ; preds = %61, %53, %_ZNK8V3Number6toSIntEv.exit23
-  %66 = getelementptr inbounds i8, ptr %0, i64 36
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %67 = load i8, ptr %66, align 4
   %68 = icmp eq i8 %67, 3
   br i1 %68, label %69, label %71
@@ -15849,7 +15849,7 @@ _ZNK8V3Number6toSIntEv.exit23:                    ; preds = %42, %.noexc22
           to label %80 unwind label %63
 
 71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %0, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load i32, ptr %72, align 8
   %74 = icmp sgt i32 %73, 128
   %75 = icmp eq i8 %67, 1
@@ -15891,7 +15891,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 3
   br i1 %14, label %21, label %15
@@ -15907,7 +15907,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 21:                                               ; preds = %11
   call void @_ZNK8V3Number8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %22 = getelementptr inbounds i8, ptr %2, i64 37
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 37
   %23 = load i8, ptr %22, align 1
   %24 = invoke noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %.noexc unwind label %45
@@ -15918,7 +15918,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br i1 %.not.i, label %_ZNK8V3Number6toSIntEv.exit, label %26
 
 26:                                               ; preds = %.noexc
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = add nsw i32 %28, -1
   %30 = zext nneg i32 %29 to i64
@@ -15983,7 +15983,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
   %19 = icmp eq i8 %18, 3
   br i1 %19, label %26, label %20
@@ -15999,7 +15999,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 26:                                               ; preds = %16
   call void @_ZNK8V3Number8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %27 = getelementptr inbounds i8, ptr %2, i64 37
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 37
   %28 = load i8, ptr %27, align 1
   %29 = invoke noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
           to label %.noexc unwind label %79
@@ -16010,7 +16010,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br i1 %.not.i, label %_ZNK8V3Number6toSIntEv.exit, label %31
 
 31:                                               ; preds = %.noexc
-  %32 = getelementptr inbounds i8, ptr %2, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %33 = load i32, ptr %32, align 8
   %34 = add nsw i32 %33, -1
   %35 = zext nneg i32 %34 to i64
@@ -16023,7 +16023,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 _ZNK8V3Number6toSIntEv.exit:                      ; preds = %31, %.noexc
   %.0.i = phi i32 [ %40, %31 ], [ %29, %.noexc ]
-  %41 = getelementptr inbounds i8, ptr %3, i64 37
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 37
   %42 = load i8, ptr %41, align 1
   %43 = invoke noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %.noexc30 unwind label %79
@@ -16034,7 +16034,7 @@ _ZNK8V3Number6toSIntEv.exit:                      ; preds = %31, %.noexc
   br i1 %.not.i28, label %_ZNK8V3Number6toSIntEv.exit31, label %45
 
 45:                                               ; preds = %.noexc30
-  %46 = getelementptr inbounds i8, ptr %3, i64 32
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %47 = load i32, ptr %46, align 8
   %48 = add nsw i32 %47, -1
   %49 = zext nneg i32 %48 to i64
@@ -16078,7 +16078,7 @@ _ZNK8V3Number6toSIntEv.exit31:                    ; preds = %45, %.noexc30
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc33
-  %64 = getelementptr inbounds i8, ptr %0, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %65 = load i8, ptr %64, align 4
   %66 = icmp eq i8 %65, 3
   br i1 %66, label %67, label %69
@@ -16088,7 +16088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %78 unwind label %83
 
 69:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, 128
   %73 = icmp eq i8 %65, 1
@@ -16144,7 +16144,7 @@ _ZN12V3NumberData20destroyDynamicNumberEv.exit.i.i.i: ; preds = %77, %75, %69
           to label %89 unwind label %79
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %0, i64 36
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %91 = load i8, ptr %90, align 4
   %92 = icmp eq i8 %91, 3
   br i1 %92, label %93, label %95
@@ -16154,7 +16154,7 @@ _ZN12V3NumberData20destroyDynamicNumberEv.exit.i.i.i: ; preds = %77, %75, %69
           to label %104 unwind label %105
 
 95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %0, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %97 = load i32, ptr %96, align 8
   %98 = icmp sgt i32 %97, 128
   %99 = icmp eq i8 %91, 1
@@ -16214,7 +16214,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 3
   br i1 %16, label %23, label %17
@@ -16229,7 +16229,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %2, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 3
   br i1 %26, label %33, label %27
@@ -16309,7 +16309,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   switch i8 %12, label %.preheader [
     i8 3, label %47
@@ -16317,10 +16317,10 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   ]
 
 .preheader:                                       ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8
   %.fr.i.i40 = freeze i32 %14
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i32, ptr %15, align 8
   %.fr.i.i = freeze i32 %16
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.fr.i.i40, i32 %.fr.i.i)
@@ -16333,7 +16333,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   %19 = icmp samesign ult i32 %.fr.i.i40, 129
   %20 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %19, ptr %1, ptr %20
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = add i8 %22, -3
   %spec.select.i.i30 = icmp ult i8 %23, -2
@@ -16344,7 +16344,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   %spec.select.i7.i.i = select i1 %25, ptr %2, ptr %26
   %27 = lshr i32 %.tr811.i.i, 5
   %28 = zext nneg i32 %27 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %28, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %28, i32 1
   %29 = and i32 %.tr811.i.i, 31
   %30 = zext nneg i32 %29 to i64
   %31 = shl nuw nsw i64 1, %30
@@ -16352,7 +16352,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   %.tr811.i.i43 = add nsw i32 %.fr.i.i40, -1
   %33 = lshr i32 %.tr811.i.i43, 5
   %34 = zext nneg i32 %33 to i64
-  %.sroa.1.0..sroa_idx.i.i45 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %34, i32 1
+  %.sroa.1.0..sroa_idx.i.i45 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %34, i32 1
   %35 = and i32 %.tr811.i.i43, 31
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw nsw i64 1, %36
@@ -16377,7 +16377,7 @@ tailrecurse.i73.us:                               ; preds = %_ZNK8V3Number7bitIs
 _ZNK8V3Number7bitIsXZEi.exit81.us:                ; preds = %tailrecurse.i73.us
   %39 = lshr i32 %.tr811.i74.us, 5
   %40 = zext nneg i32 %39 to i64
-  %.sroa.1.0..sroa_idx.i78.us = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %40, i32 1
+  %.sroa.1.0..sroa_idx.i78.us = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %40, i32 1
   %.sroa.1.0.copyload.i79.us = load i32, ptr %.sroa.1.0..sroa_idx.i78.us, align 4
   %41 = zext i32 %.sroa.1.0.copyload.i79.us to i64
   %42 = and i32 %.tr811.i74.us, 31
@@ -16408,7 +16408,7 @@ _ZNK8V3Number7bitIsXZEi.exit81.us:                ; preds = %tailrecurse.i73.us
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   %51 = lshr i32 %.0107, 5
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %52
+  %53 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %52
   %.sroa.0.0.copyload.i = load i32, ptr %53, align 4
   %54 = zext i32 %.sroa.0.0.copyload.i to i64
   %55 = and i32 %.0107, 31
@@ -16419,7 +16419,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not7.i, label %_ZNK12V3NumberData3numEv.exit.i48, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %53, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %59 = zext i32 %.sroa.2.0.copyload.i to i64
   %60 = and i64 %57, %59
@@ -16435,7 +16435,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   br i1 %24, label %_ZNK8V3Number6bitIs0Ei.exit.thread87, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i33:                ; preds = %61
-  %63 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %52
+  %63 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %52
   %.sroa.0.0.copyload.i35 = load i32, ptr %63, align 4
   %64 = zext i32 %.sroa.0.0.copyload.i35 to i64
   %65 = and i64 %57, %64
@@ -16443,7 +16443,7 @@ _ZNK12V3NumberData3numEv.exit.i33:                ; preds = %61
   br i1 %66, label %67, label %_ZNK12V3NumberData3numEv.exit.i48
 
 67:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i33
-  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %63, i64 4
+  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %.sroa.2.0.copyload.i37 = load i32, ptr %.sroa.2.0..sroa_idx.i36, align 4
   %68 = zext i32 %.sroa.2.0.copyload.i37 to i64
   %69 = and i64 %57, %68
@@ -16463,7 +16463,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %62
 _ZNK12V3NumberData3numEv.exit.i48:                ; preds = %_ZNK8V3Number6bitIs1Ei.exit, %_ZNK12V3NumberData3numEv.exit.i, %_ZNK12V3NumberData3numEv.exit.i33, %_ZNK8V3Number6bitIs0Ei.exit, %67
   %73 = lshr i32 %.0107, 5
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %74
   %.sroa.0.0.copyload.i50 = load i32, ptr %75, align 4
   %76 = zext i32 %.sroa.0.0.copyload.i50 to i64
   %77 = and i32 %.0107, 31
@@ -16474,7 +16474,7 @@ _ZNK12V3NumberData3numEv.exit.i48:                ; preds = %_ZNK8V3Number6bitIs
   br i1 %81, label %82, label %.lr.ph.i
 
 82:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i48
-  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %75, i64 4
+  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %.sroa.2.0.copyload.i52 = load i32, ptr %.sroa.2.0..sroa_idx.i51, align 4
   %83 = zext i32 %.sroa.2.0.copyload.i52 to i64
   %84 = and i64 %79, %83
@@ -16499,7 +16499,7 @@ _ZNK8V3Number6bitIs0Ei.exit54.thread92:           ; preds = %.thread, %_ZNK8V3Nu
 _ZNK12V3NumberData3numEv.exit.i58:                ; preds = %82, %_ZNK8V3Number6bitIs0Ei.exit54.thread92
   %88 = lshr i32 %.0107, 5
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %89
+  %90 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %89
   %.sroa.0.0.copyload.i60 = load i32, ptr %90, align 4
   %91 = zext i32 %.sroa.0.0.copyload.i60 to i64
   %92 = and i32 %.0107, 31
@@ -16510,7 +16510,7 @@ _ZNK12V3NumberData3numEv.exit.i58:                ; preds = %82, %_ZNK8V3Number6
   br i1 %.not7.i61, label %.lr.ph.i, label %_ZNK8V3Number6bitIs1Ei.exit65
 
 _ZNK8V3Number6bitIs1Ei.exit65:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i58
-  %.sroa.2.0..sroa_idx.i62 = getelementptr inbounds i8, ptr %90, i64 4
+  %.sroa.2.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %.sroa.2.0.copyload.i63 = load i32, ptr %.sroa.2.0..sroa_idx.i62, align 4
   %96 = zext i32 %.sroa.2.0.copyload.i63 to i64
   %97 = and i64 %94, %96
@@ -16531,7 +16531,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %98 = lshr i32 %.tr811.i, 5
   %99 = zext nneg i32 %98 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %99, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %99, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %100 = zext i32 %.sroa.1.0.copyload.i to i64
   %101 = and i32 %.tr811.i, 31
@@ -16555,7 +16555,7 @@ tailrecurse.i73:                                  ; preds = %_ZNK8V3Number7bitIs
 _ZNK8V3Number7bitIsXZEi.exit81:                   ; preds = %tailrecurse.i73
   %106 = lshr i32 %.tr811.i74, 5
   %107 = zext nneg i32 %106 to i64
-  %.sroa.1.0..sroa_idx.i78 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %107, i32 1
+  %.sroa.1.0..sroa_idx.i78 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %107, i32 1
   %.sroa.1.0.copyload.i79 = load i32, ptr %.sroa.1.0..sroa_idx.i78, align 4
   %108 = zext i32 %.sroa.1.0.copyload.i79 to i64
   %109 = and i32 %.tr811.i74, 31
@@ -16599,7 +16599,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %22, label %16
@@ -16614,7 +16614,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 3
   br i1 %25, label %32, label %26
@@ -16694,7 +16694,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -16709,7 +16709,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -16724,7 +16724,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -16737,7 +16737,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -16750,7 +16750,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -16760,7 +16760,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -16787,7 +16787,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   switch i8 %12, label %.preheader [
     i8 3, label %47
@@ -16795,10 +16795,10 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   ]
 
 .preheader:                                       ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load i32, ptr %13, align 8
   %.fr.i.i40 = freeze i32 %14
-  %15 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i32, ptr %15, align 8
   %.fr.i.i = freeze i32 %16
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.fr.i.i40, i32 %.fr.i.i)
@@ -16811,7 +16811,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   %19 = icmp samesign ult i32 %.fr.i.i40, 129
   %20 = load ptr, ptr %1, align 8
   %spec.select.i10.i = select i1 %19, ptr %1, ptr %20
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = add i8 %22, -3
   %spec.select.i.i30 = icmp ult i8 %23, -2
@@ -16822,7 +16822,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   %spec.select.i7.i.i = select i1 %25, ptr %2, ptr %26
   %27 = lshr i32 %.tr811.i.i, 5
   %28 = zext nneg i32 %27 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %28, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %28, i32 1
   %29 = and i32 %.tr811.i.i, 31
   %30 = zext nneg i32 %29 to i64
   %31 = shl nuw nsw i64 1, %30
@@ -16830,7 +16830,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   %.tr811.i.i43 = add nsw i32 %.fr.i.i40, -1
   %33 = lshr i32 %.tr811.i.i43, 5
   %34 = zext nneg i32 %33 to i64
-  %.sroa.1.0..sroa_idx.i.i45 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %34, i32 1
+  %.sroa.1.0..sroa_idx.i.i45 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %34, i32 1
   %35 = and i32 %.tr811.i.i43, 31
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw nsw i64 1, %36
@@ -16855,7 +16855,7 @@ tailrecurse.i73.us:                               ; preds = %_ZNK8V3Number7bitIs
 _ZNK8V3Number7bitIsXZEi.exit81.us:                ; preds = %tailrecurse.i73.us
   %39 = lshr i32 %.tr811.i74.us, 5
   %40 = zext nneg i32 %39 to i64
-  %.sroa.1.0..sroa_idx.i78.us = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %40, i32 1
+  %.sroa.1.0..sroa_idx.i78.us = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %40, i32 1
   %.sroa.1.0.copyload.i79.us = load i32, ptr %.sroa.1.0..sroa_idx.i78.us, align 4
   %41 = zext i32 %.sroa.1.0.copyload.i79.us to i64
   %42 = and i32 %.tr811.i74.us, 31
@@ -16886,7 +16886,7 @@ _ZNK8V3Number7bitIsXZEi.exit81.us:                ; preds = %tailrecurse.i73.us
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   %51 = lshr i32 %.0107, 5
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %52
+  %53 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %52
   %.sroa.0.0.copyload.i = load i32, ptr %53, align 4
   %54 = zext i32 %.sroa.0.0.copyload.i to i64
   %55 = and i32 %.0107, 31
@@ -16897,7 +16897,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph.split
   br i1 %.not7.i, label %_ZNK12V3NumberData3numEv.exit.i48, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %53, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %53, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %59 = zext i32 %.sroa.2.0.copyload.i to i64
   %60 = and i64 %57, %59
@@ -16913,7 +16913,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   br i1 %24, label %_ZNK8V3Number6bitIs0Ei.exit.thread87, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i33:                ; preds = %61
-  %63 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %52
+  %63 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %52
   %.sroa.0.0.copyload.i35 = load i32, ptr %63, align 4
   %64 = zext i32 %.sroa.0.0.copyload.i35 to i64
   %65 = and i64 %57, %64
@@ -16921,7 +16921,7 @@ _ZNK12V3NumberData3numEv.exit.i33:                ; preds = %61
   br i1 %66, label %67, label %_ZNK12V3NumberData3numEv.exit.i48
 
 67:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i33
-  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds i8, ptr %63, i64 4
+  %.sroa.2.0..sroa_idx.i36 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %.sroa.2.0.copyload.i37 = load i32, ptr %.sroa.2.0..sroa_idx.i36, align 4
   %68 = zext i32 %.sroa.2.0.copyload.i37 to i64
   %69 = and i64 %57, %68
@@ -16941,7 +16941,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %62
 _ZNK12V3NumberData3numEv.exit.i48:                ; preds = %_ZNK8V3Number6bitIs1Ei.exit, %_ZNK12V3NumberData3numEv.exit.i, %_ZNK12V3NumberData3numEv.exit.i33, %_ZNK8V3Number6bitIs0Ei.exit, %67
   %73 = lshr i32 %.0107, 5
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %74
   %.sroa.0.0.copyload.i50 = load i32, ptr %75, align 4
   %76 = zext i32 %.sroa.0.0.copyload.i50 to i64
   %77 = and i32 %.0107, 31
@@ -16952,7 +16952,7 @@ _ZNK12V3NumberData3numEv.exit.i48:                ; preds = %_ZNK8V3Number6bitIs
   br i1 %81, label %82, label %.lr.ph.i
 
 82:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i48
-  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds i8, ptr %75, i64 4
+  %.sroa.2.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %.sroa.2.0.copyload.i52 = load i32, ptr %.sroa.2.0..sroa_idx.i51, align 4
   %83 = zext i32 %.sroa.2.0.copyload.i52 to i64
   %84 = and i64 %79, %83
@@ -16977,7 +16977,7 @@ _ZNK8V3Number6bitIs0Ei.exit54.thread92:           ; preds = %.thread, %_ZNK8V3Nu
 _ZNK12V3NumberData3numEv.exit.i58:                ; preds = %82, %_ZNK8V3Number6bitIs0Ei.exit54.thread92
   %88 = lshr i32 %.0107, 5
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %89
+  %90 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %89
   %.sroa.0.0.copyload.i60 = load i32, ptr %90, align 4
   %91 = zext i32 %.sroa.0.0.copyload.i60 to i64
   %92 = and i32 %.0107, 31
@@ -16988,7 +16988,7 @@ _ZNK12V3NumberData3numEv.exit.i58:                ; preds = %82, %_ZNK8V3Number6
   br i1 %.not7.i61, label %.lr.ph.i, label %_ZNK8V3Number6bitIs1Ei.exit65
 
 _ZNK8V3Number6bitIs1Ei.exit65:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i58
-  %.sroa.2.0..sroa_idx.i62 = getelementptr inbounds i8, ptr %90, i64 4
+  %.sroa.2.0..sroa_idx.i62 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %.sroa.2.0.copyload.i63 = load i32, ptr %.sroa.2.0..sroa_idx.i62, align 4
   %96 = zext i32 %.sroa.2.0.copyload.i63 to i64
   %97 = and i64 %94, %96
@@ -17009,7 +17009,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %98 = lshr i32 %.tr811.i, 5
   %99 = zext nneg i32 %98 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %99, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %99, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %100 = zext i32 %.sroa.1.0.copyload.i to i64
   %101 = and i32 %.tr811.i, 31
@@ -17033,7 +17033,7 @@ tailrecurse.i73:                                  ; preds = %_ZNK8V3Number7bitIs
 _ZNK8V3Number7bitIsXZEi.exit81:                   ; preds = %tailrecurse.i73
   %106 = lshr i32 %.tr811.i74, 5
   %107 = zext nneg i32 %106 to i64
-  %.sroa.1.0..sroa_idx.i78 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %107, i32 1
+  %.sroa.1.0..sroa_idx.i78 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %107, i32 1
   %.sroa.1.0.copyload.i79 = load i32, ptr %.sroa.1.0..sroa_idx.i78, align 4
   %108 = zext i32 %.sroa.1.0.copyload.i79 to i64
   %109 = and i32 %.tr811.i74, 31
@@ -17077,7 +17077,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %22, label %16
@@ -17092,7 +17092,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 3
   br i1 %25, label %32, label %26
@@ -17172,7 +17172,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -17187,7 +17187,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -17202,7 +17202,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -17215,7 +17215,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -17228,7 +17228,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -17238,7 +17238,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -17254,7 +17254,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
 define dso_local noundef zeroext i1 @_ZNK8V3Number8isCaseEqERKS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   switch i8 %6, label %46 [
     i8 3, label %7
@@ -17297,7 +17297,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   resume { ptr, i32 } %21
 
 22:                                               ; preds = %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load i32, ptr %23, align 8
   %.not22 = icmp eq i32 %24, 64
   br i1 %.not22, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -17310,10 +17310,10 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %22
-  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %29 = load i8, ptr %28, align 4
   %30 = icmp ne i8 %29, 2
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %33 = icmp ne i32 %32, 64
   %or.cond.i12 = select i1 %30, i1 true, i1 %33
@@ -17327,7 +17327,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %22
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit18:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load i32, ptr %37, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %38 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -17337,7 +17337,7 @@ _ZNK8V3Number8toDoubleEv.exit18:                  ; preds = %_ZNK8V3Number8toDou
   %40 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %41 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i13 = zext i32 %41 to i64
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i32, ptr %42, align 8
   %.sroa.0.4.insert.ext.i14 = zext i32 %43 to i64
   %.sroa.0.4.insert.shift.i15 = shl nuw i64 %.sroa.0.4.insert.ext.i14, 32
@@ -17347,9 +17347,9 @@ _ZNK8V3Number8toDoubleEv.exit18:                  ; preds = %_ZNK8V3Number8toDou
   br label %.loopexit
 
 46:                                               ; preds = %2
-  %47 = getelementptr inbounds i8, ptr %0, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load i32, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %50 = load i32, ptr %49, align 8
   %.not = icmp eq i32 %48, %50
   br i1 %.not, label %.preheader, label %.loopexit
@@ -17371,7 +17371,7 @@ _ZNK8V3Number8toDoubleEv.exit18:                  ; preds = %_ZNK8V3Number8toDou
   br i1 %spec.select.i.i, label %.lr.ph.split, label %72
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %1, i64 36
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %59 = load i8, ptr %58, align 4
   %60 = add i8 %59, -1
   %spec.select.i.i19 = icmp ult i8 %60, 2
@@ -17384,14 +17384,14 @@ _ZNK12V3NumberData3numEv.exit.preheader:          ; preds = %.lr.ph.split
 
 _ZNK12V3NumberData3numEv.exit:                    ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit.preheader
   %indvars.iv = phi i64 [ 0, %_ZNK12V3NumberData3numEv.exit.preheader ], [ %indvars.iv.next, %_ZNK12V3NumberData3numEv.exit ]
-  %61 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
-  %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i20, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i20, i64 %indvars.iv
   %63 = load i32, ptr %61, align 4
   %64 = load i32, ptr %62, align 4
   %65 = icmp eq i32 %63, %64
-  %66 = getelementptr inbounds i8, ptr %61, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds i8, ptr %62, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %67, %69
   %71 = select i1 %65, i1 %70, i1 false
@@ -17426,9 +17426,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData9ValueAndXeq
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %7, %9
   %11 = select i1 %5, i1 %10, i1 false
@@ -17471,7 +17471,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   switch i8 %12, label %.preheader [
     i8 3, label %18
@@ -17479,8 +17479,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   ]
 
 .preheader:                                       ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %1, i64 32
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load i32, ptr %13, align 8
   %16 = load i32, ptr %14, align 8
   %.sroa.speculated27 = tail call i32 @llvm.smax.i32(i32 %15, i32 %16)
@@ -17537,7 +17537,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -17552,14 +17552,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not22 = icmp eq i8 %21, 1
   br i1 %.not22, label %.preheader, label %27
 
 .preheader:                                       ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
-  %23 = getelementptr inbounds i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %24 = load i32, ptr %22, align 8
   %25 = load i32, ptr %23, align 8
   %.fr.i46 = freeze i32 %25
@@ -17603,7 +17603,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %38, ptr %2, ptr %39
   %40 = lshr i32 %.tr811.i, 5
   %41 = zext nneg i32 %40 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %41, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %41, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %42 = zext i32 %.sroa.1.0.copyload.i to i64
   %43 = and i32 %.tr811.i, 31
@@ -17648,7 +17648,7 @@ _ZNK8V3Number7bitIsXZEi.exit35:                   ; preds = %tailrecurse.i27
   %spec.select.i7.i31 = select i1 %54, ptr %1, ptr %55
   %56 = lshr i32 %.tr811.i28, 5
   %57 = zext nneg i32 %56 to i64
-  %.sroa.1.0..sroa_idx.i32 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i31, i64 %57, i32 1
+  %.sroa.1.0..sroa_idx.i32 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i31, i64 %57, i32 1
   %.sroa.1.0.copyload.i33 = load i32, ptr %.sroa.1.0..sroa_idx.i32, align 4
   %58 = zext i32 %.sroa.1.0.copyload.i33 to i64
   %59 = and i32 %.tr811.i28, 31
@@ -17690,7 +17690,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -17705,14 +17705,14 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not22 = icmp eq i8 %21, 1
   br i1 %.not22, label %.preheader, label %27
 
 .preheader:                                       ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
-  %23 = getelementptr inbounds i8, ptr %2, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %24 = load i32, ptr %22, align 8
   %25 = load i32, ptr %23, align 8
   %.fr.i46 = freeze i32 %25
@@ -17756,7 +17756,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %38, ptr %2, ptr %39
   %40 = lshr i32 %.tr811.i, 5
   %41 = zext nneg i32 %40 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %41, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %41, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %42 = zext i32 %.sroa.1.0.copyload.i to i64
   %43 = and i32 %.tr811.i, 31
@@ -17801,7 +17801,7 @@ _ZNK8V3Number7bitIsXZEi.exit35:                   ; preds = %tailrecurse.i27
   %spec.select.i7.i31 = select i1 %54, ptr %1, ptr %55
   %56 = lshr i32 %.tr811.i28, 5
   %57 = zext nneg i32 %56 to i64
-  %.sroa.1.0..sroa_idx.i32 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i31, i64 %57, i32 1
+  %.sroa.1.0..sroa_idx.i32 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i31, i64 %57, i32 1
   %.sroa.1.0.copyload.i33 = load i32, ptr %.sroa.1.0..sroa_idx.i32, align 4
   %58 = zext i32 %.sroa.1.0.copyload.i33 to i64
   %59 = and i32 %.tr811.i28, 31
@@ -17843,7 +17843,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -17858,16 +17858,16 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not26 = icmp eq i8 %21, 1
   br i1 %.not26, label %.preheader, label %43
 
 .preheader:                                       ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %23 = load i32, ptr %22, align 8
   %.fr.i.i50 = freeze i32 %23
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %25 = load i32, ptr %24, align 8
   %.fr.i.i = freeze i32 %25
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.fr.i.i50, i32 %.fr.i.i)
@@ -17885,7 +17885,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   %spec.select.i7.i.i = select i1 %30, ptr %2, ptr %31
   %32 = lshr i32 %.tr811.i.i, 5
   %33 = zext nneg i32 %32 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %33, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %33, i32 1
   %34 = and i32 %.tr811.i.i, 31
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 1, %35
@@ -17893,7 +17893,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
   %.tr811.i.i53 = add nsw i32 %.fr.i.i50, -1
   %38 = lshr i32 %.tr811.i.i53, 5
   %39 = zext nneg i32 %38 to i64
-  %.sroa.1.0..sroa_idx.i.i55 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %39, i32 1
+  %.sroa.1.0..sroa_idx.i.i55 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %39, i32 1
   %40 = and i32 %.tr811.i.i53, 31
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw nsw i64 1, %41
@@ -17917,7 +17917,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number4o
 _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %49
   %50 = lshr i32 %.0145, 5
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %51
   %.sroa.0.0.copyload.i = load i32, ptr %52, align 4
   %53 = zext i32 %.sroa.0.0.copyload.i to i64
   %54 = and i32 %.0145, 31
@@ -17928,7 +17928,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %49
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread.thread129, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %52, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %58 = zext i32 %.sroa.2.0.copyload.i to i64
   %59 = and i64 %56, %58
@@ -17943,7 +17943,7 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
   br i1 %29, label %_ZNK8V3Number6bitIs0Ei.exit.thread89, label %_ZNK8V3Number6bitIs0Ei.exit
 
 _ZNK12V3NumberData3numEv.exit.i32:                ; preds = %60
-  %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %51
+  %62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %51
   %.sroa.0.0.copyload.i34 = load i32, ptr %62, align 4
   %63 = zext i32 %.sroa.0.0.copyload.i34 to i64
   %64 = and i64 %56, %63
@@ -17951,7 +17951,7 @@ _ZNK12V3NumberData3numEv.exit.i32:                ; preds = %60
   br i1 %65, label %66, label %_ZNK8V3Number6bitIs1Ei.exit.thread.thread129
 
 66:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i32
-  %.sroa.2.0..sroa_idx.i35 = getelementptr inbounds i8, ptr %62, i64 4
+  %.sroa.2.0..sroa_idx.i35 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.2.0.copyload.i36 = load i32, ptr %.sroa.2.0..sroa_idx.i35, align 4
   %67 = zext i32 %.sroa.2.0.copyload.i36 to i64
   %68 = and i64 %56, %67
@@ -17978,7 +17978,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread.thread129:     ; preds = %_ZNK8V3Number6bitIs
 _ZNK12V3NumberData3numEv.exit.i41:                ; preds = %_ZNK8V3Number6bitIs1Ei.exit.thread.thread129
   %72 = lshr i32 %.0145, 5
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %73
+  %74 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %73
   %.sroa.0.0.copyload.i43 = load i32, ptr %74, align 4
   %75 = zext i32 %.sroa.0.0.copyload.i43 to i64
   %76 = and i32 %.0145, 31
@@ -17989,7 +17989,7 @@ _ZNK12V3NumberData3numEv.exit.i41:                ; preds = %_ZNK8V3Number6bitIs
   br i1 %.not7.i44, label %.lr.ph.i, label %_ZNK8V3Number6bitIs1Ei.exit48
 
 _ZNK8V3Number6bitIs1Ei.exit48:                    ; preds = %_ZNK12V3NumberData3numEv.exit.i41
-  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds i8, ptr %74, i64 4
+  %.sroa.2.0..sroa_idx.i45 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %.sroa.2.0.copyload.i46 = load i32, ptr %.sroa.2.0..sroa_idx.i45, align 4
   %80 = zext i32 %.sroa.2.0.copyload.i46 to i64
   %81 = and i64 %78, %80
@@ -18003,7 +18003,7 @@ _ZNK8V3Number6bitIs1Ei.exit48:                    ; preds = %_ZNK12V3NumberData3
   br i1 %37, label %_ZNK8V3Number6bitIs0Ei.exit64.thread106, label %_ZNK8V3Number6bitIs0Ei.exit64
 
 _ZNK12V3NumberData3numEv.exit.i58:                ; preds = %82
-  %84 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %73
+  %84 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %73
   %.sroa.0.0.copyload.i60 = load i32, ptr %84, align 4
   %85 = zext i32 %.sroa.0.0.copyload.i60 to i64
   %86 = and i64 %78, %85
@@ -18011,7 +18011,7 @@ _ZNK12V3NumberData3numEv.exit.i58:                ; preds = %82
   br i1 %87, label %88, label %.lr.ph.i
 
 88:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i58
-  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds i8, ptr %84, i64 4
+  %.sroa.2.0..sroa_idx.i61 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %.sroa.2.0.copyload.i62 = load i32, ptr %.sroa.2.0..sroa_idx.i61, align 4
   %89 = zext i32 %.sroa.2.0.copyload.i62 to i64
   %90 = and i64 %78, %89
@@ -18046,7 +18046,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
 _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %94 = lshr i32 %.tr811.i, 5
   %95 = zext nneg i32 %94 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %95, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %95, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %96 = zext i32 %.sroa.1.0.copyload.i to i64
   %97 = and i32 %.tr811.i, 31
@@ -18070,7 +18070,7 @@ tailrecurse.i72:                                  ; preds = %.lr.ph.i70, %tailre
 _ZNK8V3Number7bitIsXZEi.exit80:                   ; preds = %tailrecurse.i72
   %102 = lshr i32 %.tr811.i73, 5
   %103 = zext nneg i32 %102 to i64
-  %.sroa.1.0..sroa_idx.i77 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %103, i32 1
+  %.sroa.1.0..sroa_idx.i77 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %103, i32 1
   %.sroa.1.0.copyload.i78 = load i32, ptr %.sroa.1.0..sroa_idx.i77, align 4
   %104 = zext i32 %.sroa.1.0.copyload.i78 to i64
   %105 = and i32 %.tr811.i73, 31
@@ -18109,7 +18109,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -18124,7 +18124,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not40 = icmp eq i8 %21, 1
   br i1 %.not40, label %28, label %22
@@ -18139,10 +18139,10 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds i8, ptr %1, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %30 = load i32, ptr %29, align 8
   %.fr.i = freeze i32 %30
-  %31 = getelementptr inbounds i8, ptr %2, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %32 = load i32, ptr %31, align 8
   %.fr.i46 = freeze i32 %32
   %33 = tail call i32 @llvm.smax.i32(i32 %.fr.i, i32 %.fr.i46)
@@ -18166,7 +18166,7 @@ _ZNK8V3Number7bitIsXZEi.exit:                     ; preds = %tailrecurse.i
   %spec.select.i7.i = select i1 %37, ptr %1, ptr %38
   %39 = lshr i32 %.tr811.i, 5
   %40 = zext nneg i32 %39 to i64
-  %.sroa.1.0..sroa_idx.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %40, i32 1
+  %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i, i64 %40, i32 1
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %41 = zext i32 %.sroa.1.0.copyload.i to i64
   %42 = and i32 %.tr811.i, 31
@@ -18192,7 +18192,7 @@ _ZNK8V3Number7bitIsXZEi.exit55:                   ; preds = %tailrecurse.i47
   %spec.select.i7.i51 = select i1 %48, ptr %2, ptr %49
   %50 = lshr i32 %.tr811.i48, 5
   %51 = zext nneg i32 %50 to i64
-  %.sroa.1.0..sroa_idx.i52 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i51, i64 %51, i32 1
+  %.sroa.1.0..sroa_idx.i52 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i51, i64 %51, i32 1
   %.sroa.1.0.copyload.i53 = load i32, ptr %.sroa.1.0..sroa_idx.i52, align 4
   %52 = zext i32 %.sroa.1.0.copyload.i53 to i64
   %53 = and i32 %.tr811.i48, 31
@@ -18215,7 +18215,7 @@ _ZNK12V3NumberData3numEv.exit.i59:                ; preds = %_ZNK8V3Number7bitIs
   %spec.select.i10.i = select i1 %58, ptr %1, ptr %59
   %60 = lshr i32 %.sroa.speculated201, 5
   %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %61
+  %62 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %61
   %.sroa.0.0.copyload.i = load i32, ptr %62, align 4
   %63 = zext i32 %.sroa.0.0.copyload.i to i64
   %64 = and i32 %.sroa.speculated201, 31
@@ -18226,7 +18226,7 @@ _ZNK12V3NumberData3numEv.exit.i59:                ; preds = %_ZNK8V3Number7bitIs
   br i1 %68, label %69, label %.lr.ph.i74
 
 69:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i59
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %62, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %70 = zext i32 %.sroa.2.0.copyload.i to i64
   %71 = and i64 %66, %70
@@ -18240,7 +18240,7 @@ _ZNK8V3Number6bitIs0Ei.exit:                      ; preds = %57
   %spec.select.i7.i.i = select i1 %72, ptr %1, ptr %73
   %74 = lshr i32 %35, 5
   %75 = zext nneg i32 %74 to i64
-  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %75, i32 1
+  %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i, i64 %75, i32 1
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %76 = zext i32 %.sroa.1.0.copyload.i.i to i64
   %77 = and i32 %35, 31
@@ -18267,7 +18267,7 @@ _ZNK12V3NumberData3numEv.exit.i65:                ; preds = %tailrecurse.i63
   %spec.select.i10.i66 = select i1 %81, ptr %2, ptr %82
   %83 = lshr i32 %.tr1114.i, 5
   %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i66, i64 %84
+  %85 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i66, i64 %84
   %.sroa.0.0.copyload.i67 = load i32, ptr %85, align 4
   %86 = zext i32 %.sroa.0.0.copyload.i67 to i64
   %87 = and i32 %.tr1114.i, 31
@@ -18278,7 +18278,7 @@ _ZNK12V3NumberData3numEv.exit.i65:                ; preds = %tailrecurse.i63
   br i1 %.not7.i68, label %.lr.ph.i74, label %_ZNK8V3Number12bitIs1ExtendEi.exit
 
 _ZNK8V3Number12bitIs1ExtendEi.exit:               ; preds = %_ZNK12V3NumberData3numEv.exit.i65
-  %.sroa.2.0..sroa_idx.i69 = getelementptr inbounds i8, ptr %85, i64 4
+  %.sroa.2.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %.sroa.2.0.copyload.i70 = load i32, ptr %.sroa.2.0..sroa_idx.i69, align 4
   %91 = zext i32 %.sroa.2.0.copyload.i70 to i64
   %92 = and i64 %89, %91
@@ -18302,7 +18302,7 @@ _ZNK12V3NumberData3numEv.exit.i79:                ; preds = %tailrecurse.i76
   %spec.select.i10.i80 = select i1 %93, ptr %1, ptr %94
   %95 = lshr i32 %.tr1114.i77, 5
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i80, i64 %96
+  %97 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i80, i64 %96
   %.sroa.0.0.copyload.i81 = load i32, ptr %97, align 4
   %98 = zext i32 %.sroa.0.0.copyload.i81 to i64
   %99 = and i32 %.tr1114.i77, 31
@@ -18313,7 +18313,7 @@ _ZNK12V3NumberData3numEv.exit.i79:                ; preds = %tailrecurse.i76
   br i1 %.not7.i82, label %_ZNK8V3Number12bitIs1ExtendEi.exit87.thread, label %_ZNK8V3Number12bitIs1ExtendEi.exit87
 
 _ZNK8V3Number12bitIs1ExtendEi.exit87:             ; preds = %_ZNK12V3NumberData3numEv.exit.i79
-  %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds i8, ptr %97, i64 4
+  %.sroa.2.0..sroa_idx.i83 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %.sroa.2.0.copyload.i84 = load i32, ptr %.sroa.2.0..sroa_idx.i83, align 4
   %103 = zext i32 %.sroa.2.0.copyload.i84 to i64
   %104 = and i64 %101, %103
@@ -18333,7 +18333,7 @@ _ZNK12V3NumberData3numEv.exit.i98:                ; preds = %105
   %spec.select.i10.i99 = select i1 %107, ptr %2, ptr %108
   %109 = lshr i32 %.sroa.speculated201, 5
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i99, i64 %110
+  %111 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i99, i64 %110
   %.sroa.0.0.copyload.i100 = load i32, ptr %111, align 4
   %112 = zext i32 %.sroa.0.0.copyload.i100 to i64
   %113 = and i32 %.sroa.speculated201, 31
@@ -18344,7 +18344,7 @@ _ZNK12V3NumberData3numEv.exit.i98:                ; preds = %105
   br i1 %117, label %118, label %_ZNK8V3Number12bitIs1ExtendEi.exit87.thread
 
 118:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i98
-  %.sroa.2.0..sroa_idx.i101 = getelementptr inbounds i8, ptr %111, i64 4
+  %.sroa.2.0..sroa_idx.i101 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %.sroa.2.0.copyload.i102 = load i32, ptr %.sroa.2.0..sroa_idx.i101, align 4
   %119 = zext i32 %.sroa.2.0.copyload.i102 to i64
   %120 = and i64 %115, %119
@@ -18359,7 +18359,7 @@ _ZNK8V3Number6bitIs0Ei.exit104:                   ; preds = %106
   %spec.select.i7.i.i94 = select i1 %122, ptr %2, ptr %123
   %124 = lshr i32 %46, 5
   %125 = zext nneg i32 %124 to i64
-  %.sroa.1.0..sroa_idx.i.i95 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i94, i64 %125, i32 1
+  %.sroa.1.0..sroa_idx.i.i95 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i94, i64 %125, i32 1
   %.sroa.1.0.copyload.i.i96 = load i32, ptr %.sroa.1.0..sroa_idx.i.i95, align 4
   %126 = zext i32 %.sroa.1.0.copyload.i.i96 to i64
   %127 = and i32 %46, 31
@@ -18395,13 +18395,13 @@ _ZNK8V3Number12bitIs1ExtendEi.exit87.thread..lr.ph.i108.lr.ph_crit_edge: ; preds
   %spec.select.i7.i.i128 = select i1 %137, ptr %2, ptr %132
   %138 = lshr i32 %.tr811.i.i127.pre-phi, 5
   %139 = zext nneg i32 %138 to i64
-  %.sroa.1.0..sroa_idx.i.i129 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %139, i32 1
+  %.sroa.1.0..sroa_idx.i.i129 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %139, i32 1
   %140 = and i32 %.tr811.i.i127.pre-phi, 31
   %141 = zext nneg i32 %140 to i64
   %142 = shl nuw nsw i64 1, %141
   %143 = lshr i32 %.pre-phi, 5
   %144 = zext nneg i32 %143 to i64
-  %.sroa.1.0..sroa_idx.i.i162 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %144, i32 1
+  %.sroa.1.0..sroa_idx.i.i162 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %144, i32 1
   %145 = and i32 %.pre-phi, 31
   %146 = zext nneg i32 %145 to i64
   %147 = shl nuw nsw i64 1, %146
@@ -18421,7 +18421,7 @@ tailrecurse.i110:                                 ; preds = %.lr.ph.i108, %tailr
 _ZNK12V3NumberData3numEv.exit.i113:               ; preds = %tailrecurse.i110
   %148 = lshr i32 %.tr1114.i111, 5
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %149
+  %150 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %149
   %.sroa.0.0.copyload.i115 = load i32, ptr %150, align 4
   %151 = zext i32 %.sroa.0.0.copyload.i115 to i64
   %152 = and i32 %.tr1114.i111, 31
@@ -18432,7 +18432,7 @@ _ZNK12V3NumberData3numEv.exit.i113:               ; preds = %tailrecurse.i110
   br i1 %.not7.i116, label %.lr.ph.i141, label %_ZNK8V3Number12bitIs1ExtendEi.exit121
 
 _ZNK8V3Number12bitIs1ExtendEi.exit121:            ; preds = %_ZNK12V3NumberData3numEv.exit.i113
-  %.sroa.2.0..sroa_idx.i117 = getelementptr inbounds i8, ptr %150, i64 4
+  %.sroa.2.0..sroa_idx.i117 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %.sroa.2.0.copyload.i118 = load i32, ptr %.sroa.2.0..sroa_idx.i117, align 4
   %156 = zext i32 %.sroa.2.0.copyload.i118 to i64
   %157 = and i64 %154, %156
@@ -18449,7 +18449,7 @@ _ZNK8V3Number12bitIs1ExtendEi.exit121:            ; preds = %_ZNK12V3NumberData3
 _ZNK12V3NumberData3numEv.exit.i132:               ; preds = %158
   %160 = lshr i32 %.0273, 5
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %161
+  %162 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %161
   %.sroa.0.0.copyload.i134 = load i32, ptr %162, align 4
   %163 = zext i32 %.sroa.0.0.copyload.i134 to i64
   %164 = and i32 %.0273, 31
@@ -18460,7 +18460,7 @@ _ZNK12V3NumberData3numEv.exit.i132:               ; preds = %158
   br i1 %168, label %169, label %.lr.ph.i141
 
 169:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i132
-  %.sroa.2.0..sroa_idx.i135 = getelementptr inbounds i8, ptr %162, i64 4
+  %.sroa.2.0..sroa_idx.i135 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %.sroa.2.0.copyload.i136 = load i32, ptr %.sroa.2.0..sroa_idx.i135, align 4
   %170 = zext i32 %.sroa.2.0.copyload.i136 to i64
   %171 = and i64 %166, %170
@@ -18495,7 +18495,7 @@ tailrecurse.i143:                                 ; preds = %tailrecurse.i143.pr
 _ZNK12V3NumberData3numEv.exit.i146:               ; preds = %tailrecurse.i143
   %175 = lshr i32 %.tr1114.i144, 5
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %176
+  %177 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %176
   %.sroa.0.0.copyload.i148 = load i32, ptr %177, align 4
   %178 = zext i32 %.sroa.0.0.copyload.i148 to i64
   %179 = and i32 %.tr1114.i144, 31
@@ -18506,7 +18506,7 @@ _ZNK12V3NumberData3numEv.exit.i146:               ; preds = %tailrecurse.i143
   br i1 %.not7.i149, label %.lr.ph.i174, label %_ZNK8V3Number12bitIs1ExtendEi.exit154
 
 _ZNK8V3Number12bitIs1ExtendEi.exit154:            ; preds = %_ZNK12V3NumberData3numEv.exit.i146
-  %.sroa.2.0..sroa_idx.i150 = getelementptr inbounds i8, ptr %177, i64 4
+  %.sroa.2.0..sroa_idx.i150 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %.sroa.2.0.copyload.i151 = load i32, ptr %.sroa.2.0..sroa_idx.i150, align 4
   %183 = zext i32 %.sroa.2.0.copyload.i151 to i64
   %184 = and i64 %181, %183
@@ -18523,7 +18523,7 @@ _ZNK8V3Number12bitIs1ExtendEi.exit154:            ; preds = %_ZNK12V3NumberData3
 _ZNK12V3NumberData3numEv.exit.i165:               ; preds = %185
   %187 = lshr i32 %.0273, 5
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %188
+  %189 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %188
   %.sroa.0.0.copyload.i167 = load i32, ptr %189, align 4
   %190 = zext i32 %.sroa.0.0.copyload.i167 to i64
   %191 = and i32 %.0273, 31
@@ -18534,7 +18534,7 @@ _ZNK12V3NumberData3numEv.exit.i165:               ; preds = %185
   br i1 %195, label %196, label %.lr.ph.i174
 
 196:                                              ; preds = %_ZNK12V3NumberData3numEv.exit.i165
-  %.sroa.2.0..sroa_idx.i168 = getelementptr inbounds i8, ptr %189, i64 4
+  %.sroa.2.0..sroa_idx.i168 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %.sroa.2.0.copyload.i169 = load i32, ptr %.sroa.2.0..sroa_idx.i168, align 4
   %197 = zext i32 %.sroa.2.0.copyload.i169 to i64
   %198 = and i64 %193, %197
@@ -18569,7 +18569,7 @@ tailrecurse.i176:                                 ; preds = %tailrecurse.i176.pr
 _ZNK8V3Number7bitIsXZEi.exit184:                  ; preds = %tailrecurse.i176
   %202 = lshr i32 %.tr811.i177, 5
   %203 = zext nneg i32 %202 to i64
-  %.sroa.1.0..sroa_idx.i181 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %203, i32 1
+  %.sroa.1.0..sroa_idx.i181 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i114, i64 %203, i32 1
   %.sroa.1.0.copyload.i182 = load i32, ptr %.sroa.1.0..sroa_idx.i181, align 4
   %204 = zext i32 %.sroa.1.0.copyload.i182 to i64
   %205 = and i32 %.tr811.i177, 31
@@ -18593,7 +18593,7 @@ tailrecurse.i189:                                 ; preds = %.lr.ph.i187, %tailr
 _ZNK8V3Number7bitIsXZEi.exit197:                  ; preds = %tailrecurse.i189
   %210 = lshr i32 %.tr811.i190, 5
   %211 = zext nneg i32 %210 to i64
-  %.sroa.1.0..sroa_idx.i194 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %211, i32 1
+  %.sroa.1.0..sroa_idx.i194 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i7.i.i128, i64 %211, i32 1
   %.sroa.1.0.copyload.i195 = load i32, ptr %.sroa.1.0..sroa_idx.i194, align 4
   %212 = zext i32 %.sroa.1.0.copyload.i195 to i64
   %213 = and i32 %.tr811.i190, 31
@@ -18710,7 +18710,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -18725,7 +18725,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not27 = icmp eq i8 %21, 1
   br i1 %.not27, label %28, label %22
@@ -18749,7 +18749,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
 
 32:                                               ; preds = %28
   %33 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %34 = getelementptr inbounds i8, ptr %2, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 32
   br i1 %36, label %.lr.ph, label %._crit_edge
@@ -18767,7 +18767,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   %.02332 = phi i32 [ %51, %_ZNK8V3Number6bitIs1Ei.exit.thread ], [ 32, %.lr.ph ]
   %41 = lshr i32 %.02332, 5
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %42
   %.sroa.0.0.copyload.i = load i32, ptr %43, align 4
   %44 = zext i32 %.sroa.0.0.copyload.i to i64
   %45 = and i32 %.02332, 31
@@ -18778,7 +18778,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %.lr.ph, %_ZNK8V3Num
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %49 = zext i32 %.sroa.2.0.copyload.i to i64
   %50 = and i64 %47, %49
@@ -18792,13 +18792,13 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK12V3NumberData3
 
 ._crit_edge:                                      ; preds = %_ZNK8V3Number6bitIs1Ei.exit.thread, %.lr.ph, %32
   %52 = tail call noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %53 = getelementptr inbounds i8, ptr %1, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = icmp ult i32 %52, %54
   br i1 %55, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge
-  %56 = getelementptr inbounds i8, ptr %0, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %57 = load i32, ptr %56, align 8
   %58 = icmp sgt i32 %57, 0
   br i1 %58, label %.lr.ph34, label %.loopexit
@@ -18832,7 +18832,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %.not = icmp eq i8 %13, 1
   br i1 %.not, label %20, label %14
@@ -18847,7 +18847,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %.not38 = icmp eq i8 %22, 1
   br i1 %.not38, label %29, label %23
@@ -18871,13 +18871,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 33:                                               ; preds = %29
   %34 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %35 = getelementptr inbounds i8, ptr %2, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = icmp sgt i32 %36, 32
   br i1 %37, label %.preheader, label %65
 
 .preheader:                                       ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %39 = load i32, ptr %38, align 8
   %40 = icmp sgt i32 %39, 0
   %41 = add i32 %3, -1
@@ -18911,7 +18911,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %49
   %spec.select.i10.i = select i1 %51, ptr %2, ptr %52
   %53 = lshr i32 %41, 5
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %54
+  %55 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %54
   %.sroa.0.0.copyload.i = load i32, ptr %55, align 4
   %56 = zext i32 %.sroa.0.0.copyload.i to i64
   %57 = and i32 %41, 31
@@ -18922,7 +18922,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %49
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %55, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %61 = zext i32 %.sroa.2.0.copyload.i to i64
   %62 = and i64 %59, %61
@@ -18935,10 +18935,10 @@ _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3
 
 65:                                               ; preds = %33
   %66 = tail call noundef i32 @_ZNK8V3Number6toUIntEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %67 = getelementptr inbounds i8, ptr %1, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %68 = load i32, ptr %67, align 8
   %69 = icmp ult i32 %66, %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, 0
   br i1 %69, label %.preheader42, label %.preheader43
@@ -18982,7 +18982,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZNK8V3Number11bitIsExtendEii(
   br i1 %4, label %51, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %2, %7
   br i1 %.not, label %8, label %12
@@ -18996,7 +18996,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZNK8V3Number11bitIsExtendEii(
 
 12:                                               ; preds = %5
   %.not17 = icmp slt i32 %1, %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = add i8 %14, -1
   %spec.select.i.i23 = icmp ult i8 %15, 2
@@ -19040,14 +19040,14 @@ _ZNK12V3NumberData3numEv.exit25:                  ; preds = %28
   %spec.select.i24 = select i1 %34, ptr %0, ptr %35
   %36 = lshr i32 %1, 5
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i24, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i24, i64 %37
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit25
   %.sink33 = phi ptr [ %38, %_ZNK12V3NumberData3numEv.exit25 ], [ %27, %_ZNK12V3NumberData3numEv.exit ]
   %.sink = phi i32 [ %1, %_ZNK12V3NumberData3numEv.exit25 ], [ %22, %_ZNK12V3NumberData3numEv.exit ]
   %.sroa.0.0.copyload.sink = load i32, ptr %.sink33, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sink33, i64 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink33, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %39 = and i32 %.sink, 31
   %40 = zext nneg i32 %39 to i64
@@ -19060,7 +19060,7 @@ _ZNK12V3NumberData3numEv.exit25:                  ; preds = %28
   %46 = select i1 %.not19, i32 0, i32 2
   %47 = or disjoint i32 %46, %43
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [5 x i8], ptr @.str.510, i64 0, i64 %48
   %50 = load i8, ptr %49, align 1
   br label %51
 
@@ -19085,7 +19085,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %.not = icmp eq i8 %13, 1
   br i1 %.not, label %20, label %14
@@ -19100,7 +19100,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %.not17 = icmp eq i8 %22, 1
   br i1 %.not17, label %29, label %23
@@ -19127,15 +19127,15 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   br label %_ZN8V3NumberD2Ev.exit
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %4, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %4, i64 37
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 37
   store i8 0, ptr %40, align 1
-  %41 = getelementptr inbounds i8, ptr %4, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef null, i32 noundef %37, i1 noundef zeroext true)
           to label %_ZN8V3NumberC2EPKS_i.exit unwind label %42
@@ -19151,8 +19151,8 @@ common.resume:                                    ; preds = %62, %42
   br label %common.resume
 
 _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %4, i64 48
-  %45 = getelementptr inbounds i8, ptr %2, i64 48
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %46 = load ptr, ptr %45, align 8
   store ptr %46, ptr %44, align 8
   %47 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opNegateERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %2)
@@ -19215,7 +19215,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i8, ptr %14, align 4
   %.not = icmp eq i8 %15, 1
   br i1 %.not, label %22, label %16
@@ -19230,7 +19230,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 22:                                               ; preds = %13
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %.not26 = icmp eq i8 %24, 1
   br i1 %.not26, label %31, label %25
@@ -19258,15 +19258,15 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
 
 37:                                               ; preds = %33
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %38 = getelementptr inbounds i8, ptr %4, i64 40
-  %39 = getelementptr inbounds i8, ptr %1, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false)
   %40 = load i8, ptr %14, align 4
   %41 = icmp eq i8 %40, 3
   br i1 %41, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %1, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %44 = load i32, ptr %43, align 8
   %45 = add i8 %40, -3
   %spec.select.i.i.i = icmp ult i8 %45, -2
@@ -19281,7 +19281,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %42
   %spec.select.i10.i.i = select i1 %48, ptr %1, ptr %49
   %50 = lshr i32 %47, 5
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %51
+  %52 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %51
   %.sroa.0.0.copyload.i.i = load i32, ptr %52, align 4
   %53 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %54 = and i32 %47, 31
@@ -19292,7 +19292,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %42
   br i1 %.not7.i.i, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %_ZNK8V3Number10isNegativeEv.exit
 
 _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %52, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %52, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %58 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %59 = and i64 %56, %58
@@ -19313,15 +19313,15 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
           to label %64 unwind label %62
 
 64:                                               ; preds = %_ZNK8V3Number10isNegativeEv.exit.thread
-  %65 = getelementptr inbounds i8, ptr %5, i64 40
-  %66 = getelementptr inbounds i8, ptr %2, i64 40
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 8 dereferenceable(16) %66, i64 16, i1 false)
   %67 = load i8, ptr %23, align 4
   %68 = icmp eq i8 %67, 3
   br i1 %68, label %_ZNK8V3Number10isNegativeEv.exit38.thread, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %2, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = add i8 %67, -3
   %spec.select.i.i.i29 = icmp ult i8 %72, -2
@@ -19336,7 +19336,7 @@ _ZNK12V3NumberData3numEv.exit.i.i31:              ; preds = %69
   %spec.select.i10.i.i32 = select i1 %75, ptr %2, ptr %76
   %77 = lshr i32 %74, 5
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i32, i64 %78
+  %79 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i32, i64 %78
   %.sroa.0.0.copyload.i.i33 = load i32, ptr %79, align 4
   %80 = zext i32 %.sroa.0.0.copyload.i.i33 to i64
   %81 = and i32 %74, 31
@@ -19347,7 +19347,7 @@ _ZNK12V3NumberData3numEv.exit.i.i31:              ; preds = %69
   br i1 %.not7.i.i34, label %_ZNK8V3Number10isNegativeEv.exit38.thread, label %_ZNK8V3Number10isNegativeEv.exit38
 
 _ZNK8V3Number10isNegativeEv.exit38:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i31
-  %.sroa.2.0..sroa_idx.i.i35 = getelementptr inbounds i8, ptr %79, i64 4
+  %.sroa.2.0..sroa_idx.i.i35 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %.sroa.2.0.copyload.i.i36 = load i32, ptr %.sroa.2.0..sroa_idx.i.i35, align 4
   %85 = zext i32 %.sroa.2.0.copyload.i.i36 to i64
   %86 = and i64 %83, %85
@@ -19372,15 +19372,15 @@ _ZNK8V3Number10isNegativeEv.exit38.thread:        ; preds = %_ZNK12V3NumberData3
           to label %93 unwind label %89
 
 93:                                               ; preds = %92
-  %94 = getelementptr inbounds i8, ptr %6, i64 40
-  %95 = getelementptr inbounds i8, ptr %0, i64 40
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %95, i64 16, i1 false)
   %96 = load i8, ptr %14, align 4
   %97 = icmp eq i8 %96, 3
   br i1 %97, label %_ZNK8V3Number10isNegativeEv.exit69.thread, label %98
 
 98:                                               ; preds = %93
-  %99 = getelementptr inbounds i8, ptr %1, i64 32
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %100 = load i32, ptr %99, align 8
   %101 = add i8 %96, -3
   %spec.select.i.i.i40 = icmp ult i8 %101, -2
@@ -19395,7 +19395,7 @@ _ZNK12V3NumberData3numEv.exit.i.i42:              ; preds = %98
   %spec.select.i10.i.i43 = select i1 %104, ptr %1, ptr %105
   %106 = lshr i32 %103, 5
   %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i43, i64 %107
+  %108 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i43, i64 %107
   %.sroa.0.0.copyload.i.i44 = load i32, ptr %108, align 4
   %109 = zext i32 %.sroa.0.0.copyload.i.i44 to i64
   %110 = and i32 %103, 31
@@ -19406,7 +19406,7 @@ _ZNK12V3NumberData3numEv.exit.i.i42:              ; preds = %98
   br i1 %.not7.i.i45, label %_ZNK12V3NumberData3numEv.exit.i.i62, label %_ZNK8V3Number10isNegativeEv.exit49
 
 _ZNK8V3Number10isNegativeEv.exit49:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i42
-  %.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds i8, ptr %108, i64 4
+  %.sroa.2.0..sroa_idx.i.i46 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %.sroa.2.0.copyload.i.i47 = load i32, ptr %.sroa.2.0..sroa_idx.i.i46, align 4
   %114 = zext i32 %.sroa.2.0.copyload.i.i47 to i64
   %115 = and i64 %112, %114
@@ -19419,7 +19419,7 @@ _ZNK8V3Number10isNegativeEv.exit49:               ; preds = %_ZNK12V3NumberData3
   br i1 %118, label %_ZNK8V3Number10isNegativeEv.exit59.thread, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds i8, ptr %2, i64 32
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %121 = load i32, ptr %120, align 8
   %122 = add i8 %117, -3
   %spec.select.i.i.i50 = icmp ult i8 %122, -2
@@ -19434,7 +19434,7 @@ _ZNK12V3NumberData3numEv.exit.i.i52:              ; preds = %119
   %spec.select.i10.i.i53 = select i1 %125, ptr %2, ptr %126
   %127 = lshr i32 %124, 5
   %128 = zext nneg i32 %127 to i64
-  %129 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i53, i64 %128
+  %129 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i53, i64 %128
   %.sroa.0.0.copyload.i.i54 = load i32, ptr %129, align 4
   %130 = zext i32 %.sroa.0.0.copyload.i.i54 to i64
   %131 = and i32 %124, 31
@@ -19445,7 +19445,7 @@ _ZNK12V3NumberData3numEv.exit.i.i52:              ; preds = %119
   br i1 %.not7.i.i55, label %_ZNK8V3Number10isNegativeEv.exit59.thread, label %_ZNK8V3Number10isNegativeEv.exit59
 
 _ZNK8V3Number10isNegativeEv.exit59:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i52
-  %.sroa.2.0..sroa_idx.i.i56 = getelementptr inbounds i8, ptr %129, i64 4
+  %.sroa.2.0..sroa_idx.i.i56 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %.sroa.2.0.copyload.i.i57 = load i32, ptr %.sroa.2.0..sroa_idx.i.i56, align 4
   %135 = zext i32 %.sroa.2.0.copyload.i.i57 to i64
   %136 = and i64 %133, %135
@@ -19459,7 +19459,7 @@ _ZNK12V3NumberData3numEv.exit.i.i62:              ; preds = %_ZNK12V3NumberData3
   %spec.select.i10.i.i63 = select i1 %138, ptr %1, ptr %139
   %140 = lshr i32 %137, 5
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i63, i64 %141
+  %142 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i63, i64 %141
   %.sroa.0.0.copyload.i.i64 = load i32, ptr %142, align 4
   %143 = zext i32 %.sroa.0.0.copyload.i.i64 to i64
   %144 = and i32 %137, 31
@@ -19470,7 +19470,7 @@ _ZNK12V3NumberData3numEv.exit.i.i62:              ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i.i65, label %_ZNK8V3Number10isNegativeEv.exit69.thread, label %_ZNK8V3Number10isNegativeEv.exit69
 
 _ZNK8V3Number10isNegativeEv.exit69:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i62
-  %.sroa.2.0..sroa_idx.i.i66 = getelementptr inbounds i8, ptr %142, i64 4
+  %.sroa.2.0..sroa_idx.i.i66 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %.sroa.2.0.copyload.i.i67 = load i32, ptr %.sroa.2.0..sroa_idx.i.i66, align 4
   %148 = zext i32 %.sroa.2.0.copyload.i.i67 to i64
   %149 = and i64 %146, %148
@@ -19483,7 +19483,7 @@ _ZNK8V3Number10isNegativeEv.exit69.thread:        ; preds = %98, %93, %_ZNK12V3N
   br i1 %151, label %_ZNK8V3Number10isNegativeEv.exit79.thread, label %152
 
 152:                                              ; preds = %_ZNK8V3Number10isNegativeEv.exit69.thread
-  %153 = getelementptr inbounds i8, ptr %2, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %154 = load i32, ptr %153, align 8
   %155 = add i8 %150, -3
   %spec.select.i.i.i70 = icmp ult i8 %155, -2
@@ -19498,7 +19498,7 @@ _ZNK12V3NumberData3numEv.exit.i.i72:              ; preds = %152
   %spec.select.i10.i.i73 = select i1 %158, ptr %2, ptr %159
   %160 = lshr i32 %157, 5
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i73, i64 %161
+  %162 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i73, i64 %161
   %.sroa.0.0.copyload.i.i74 = load i32, ptr %162, align 4
   %163 = zext i32 %.sroa.0.0.copyload.i.i74 to i64
   %164 = and i32 %157, 31
@@ -19509,7 +19509,7 @@ _ZNK12V3NumberData3numEv.exit.i.i72:              ; preds = %152
   br i1 %.not7.i.i75, label %_ZNK8V3Number10isNegativeEv.exit79.thread, label %_ZNK8V3Number10isNegativeEv.exit79
 
 _ZNK8V3Number10isNegativeEv.exit79:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i72
-  %.sroa.2.0..sroa_idx.i.i76 = getelementptr inbounds i8, ptr %162, i64 4
+  %.sroa.2.0..sroa_idx.i.i76 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %.sroa.2.0.copyload.i.i77 = load i32, ptr %.sroa.2.0..sroa_idx.i.i76, align 4
   %168 = zext i32 %.sroa.2.0.copyload.i.i77 to i64
   %169 = and i64 %166, %168
@@ -19531,7 +19531,7 @@ _ZNK8V3Number10isNegativeEv.exit79.thread:        ; preds = %_ZNK12V3NumberData3
           to label %_ZN8V3Number8opAssignERKS_.exit unwind label %171
 
 _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNegativeEv.exit79.thread, %_ZNK8V3Number10isNegativeEv.exit59.thread
-  %174 = getelementptr inbounds i8, ptr %6, i64 36
+  %174 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %175 = load i8, ptr %174, align 4
   %176 = icmp eq i8 %175, 3
   br i1 %176, label %177, label %178
@@ -19541,7 +19541,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %_ZN8V3NumberD2Ev.exit
 
 178:                                              ; preds = %_ZN8V3Number8opAssignERKS_.exit
-  %179 = getelementptr inbounds i8, ptr %6, i64 32
+  %179 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %180 = load i32, ptr %179, align 8
   %181 = icmp sgt i32 %180, 128
   %182 = icmp eq i8 %175, 1
@@ -19558,7 +19558,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %177, %178, %184, %186
-  %187 = getelementptr inbounds i8, ptr %5, i64 36
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %188 = load i8, ptr %187, align 4
   %189 = icmp eq i8 %188, 3
   br i1 %189, label %190, label %191
@@ -19568,7 +19568,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %177, %178, %184, %1
   br label %_ZN8V3NumberD2Ev.exit81
 
 191:                                              ; preds = %_ZN8V3NumberD2Ev.exit
-  %192 = getelementptr inbounds i8, ptr %5, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %193 = load i32, ptr %192, align 8
   %194 = icmp sgt i32 %193, 128
   %195 = icmp eq i8 %188, 1
@@ -19585,7 +19585,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %177, %178, %184, %1
   br label %_ZN8V3NumberD2Ev.exit81
 
 _ZN8V3NumberD2Ev.exit81:                          ; preds = %190, %191, %197, %199
-  %200 = getelementptr inbounds i8, ptr %4, i64 36
+  %200 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %201 = load i8, ptr %200, align 4
   %202 = icmp eq i8 %201, 3
   br i1 %202, label %203, label %204
@@ -19595,7 +19595,7 @@ _ZN8V3NumberD2Ev.exit81:                          ; preds = %190, %191, %197, %1
   br label %_ZN8V3NumberD2Ev.exit83
 
 204:                                              ; preds = %_ZN8V3NumberD2Ev.exit81
-  %205 = getelementptr inbounds i8, ptr %4, i64 32
+  %205 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %206 = load i32, ptr %205, align 8
   %207 = icmp sgt i32 %206, 128
   %208 = icmp eq i8 %201, 1
@@ -19641,7 +19641,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %.not = icmp eq i8 %13, 1
   br i1 %.not, label %20, label %14
@@ -19656,7 +19656,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %.not18 = icmp eq i8 %22, 1
   br i1 %.not18, label %29, label %23
@@ -19688,7 +19688,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %38 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 27), align 1
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 27), align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %42, label %40
 
@@ -19716,7 +19716,7 @@ _ZN8V3Number18setAllBitsXRemovedEv.exit:          ; preds = %40, %45, %47
   br label %60
 
 49:                                               ; preds = %35
-  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = icmp slt i32 %51, 65
   br i1 %52, label %53, label %58
@@ -19769,7 +19769,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   unreachable
 
 29:                                               ; preds = %4
-  %30 = getelementptr inbounds i8, ptr %1, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %31 = load i8, ptr %30, align 4
   %.not = icmp eq i8 %31, 1
   br i1 %.not, label %38, label %32
@@ -19784,7 +19784,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   unreachable
 
 38:                                               ; preds = %29
-  %39 = getelementptr inbounds i8, ptr %2, i64 36
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %40 = load i8, ptr %39, align 4
   %.not186 = icmp eq i8 %40, 1
   br i1 %.not186, label %47, label %41
@@ -19800,7 +19800,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
 
 47:                                               ; preds = %38
   %48 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %49 = getelementptr inbounds i8, ptr %1, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %50 = load i32, ptr %49, align 8
   %51 = add nsw i32 %50, 31
   %52 = sdiv i32 %51, 32
@@ -19826,7 +19826,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
 _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   %58 = lshr i32 %.08.i, 5
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %59
   %.sroa.0.0.copyload.i.i = load i32, ptr %60, align 4
   %61 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %62 = and i32 %.08.i, 31
@@ -19837,7 +19837,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
   br i1 %.not7.i.i, label %.backedge.i, label %66
 
 66:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %60, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %60, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %67 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %68 = and i64 %64, %67
@@ -19850,7 +19850,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %.lr.ph.split.i
 
 _ZNK8V3Number12mostSetBitP1Ev.exit:               ; preds = %66, %.backedge.i, %47, %.lr.ph.i
   %.05.i = phi i32 [ 0, %47 ], [ 0, %.lr.ph.i ], [ 0, %.backedge.i ], [ %.0.in7.i, %66 ]
-  %70 = getelementptr inbounds i8, ptr %2, i64 32
+  %70 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %71 = load i32, ptr %70, align 8
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %.lr.ph.i191, label %_ZNK8V3Number12mostSetBitP1Ev.exit206.thread
@@ -19879,7 +19879,7 @@ _ZNK8V3Number12mostSetBitP1Ev.exit:               ; preds = %66, %.backedge.i, %
 _ZNK12V3NumberData3numEv.exit.i.i199:             ; preds = %.lr.ph.split.i195
   %78 = lshr i32 %.08.i197, 5
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i194, i64 %79
+  %80 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i194, i64 %79
   %.sroa.0.0.copyload.i.i200 = load i32, ptr %80, align 4
   %81 = zext i32 %.sroa.0.0.copyload.i.i200 to i64
   %82 = and i32 %.08.i197, 31
@@ -19890,7 +19890,7 @@ _ZNK12V3NumberData3numEv.exit.i.i199:             ; preds = %.lr.ph.split.i195
   br i1 %.not7.i.i201, label %.backedge.i205, label %86
 
 86:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i199
-  %.sroa.2.0..sroa_idx.i.i202 = getelementptr inbounds i8, ptr %80, i64 4
+  %.sroa.2.0..sroa_idx.i.i202 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %.sroa.2.0.copyload.i.i203 = load i32, ptr %.sroa.2.0..sroa_idx.i.i202, align 4
   %87 = zext i32 %.sroa.2.0.copyload.i.i203 to i64
   %88 = and i64 %84, %87
@@ -20005,15 +20005,15 @@ _ZNK8V3Number12mostSetBitP1Ev.exit206.thread:     ; preds = %.backedge.i205, %.l
   br i1 %53, label %.lr.ph, label %.preheader308
 
 .lr.ph:                                           ; preds = %.preheader309
-  %125 = getelementptr inbounds i8, ptr %0, i64 36
-  %126 = getelementptr inbounds i8, ptr %0, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %smax = tail call i32 @llvm.smax.i32(i32 %52, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %256
 
 .lr.ph356:                                        ; preds = %119
-  %127 = getelementptr inbounds i8, ptr %0, i64 36
-  %128 = getelementptr inbounds i8, ptr %0, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %129 = lshr i32 %120, 5
   %130 = zext nneg i32 %129 to i64
   br label %131
@@ -20044,7 +20044,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %131
   %144 = icmp slt i32 %143, 129
   %145 = load ptr, ptr %1, align 8
   %spec.select.i = select i1 %144, ptr %1, ptr %145
-  %146 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv.next400
+  %146 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv.next400
   %147 = load i32, ptr %146, align 4
   %148 = zext i32 %147 to i64
   %149 = or disjoint i64 %142, %148
@@ -20085,7 +20085,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %_ZNK12V3NumberData3
   %169 = icmp slt i32 %168, 129
   %170 = load ptr, ptr %0, align 8
   %spec.select.i219 = select i1 %169, ptr %0, ptr %170
-  %171 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i219, i64 %indvars.iv.next400
+  %171 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i219, i64 %indvars.iv.next400
   store i32 %167, ptr %171, align 4
   %172 = load i8, ptr %127, align 4
   %173 = add i8 %172, -1
@@ -20119,7 +20119,7 @@ _ZNK12V3NumberData3numEv.exit225:                 ; preds = %_ZN12V3NumberData3n
   %187 = icmp slt i32 %186, 129
   %188 = load ptr, ptr %0, align 8
   %spec.select.i221 = select i1 %187, ptr %0, ptr %188
-  %189 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i221, i64 %indvars.iv.next400
+  %189 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i221, i64 %indvars.iv.next400
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
   %192 = load i32, ptr %70, align 8
@@ -20241,7 +20241,7 @@ _ZNK12V3NumberData3numEv.exit225:                 ; preds = %_ZN12V3NumberData3n
 
 237:                                              ; preds = %236
   %238 = call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %239 = getelementptr inbounds i8, ptr %0, i64 36
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %240 = load i8, ptr %239, align 4
   %241 = add i8 %240, -1
   %spec.select.i.i238 = icmp ult i8 %241, 2
@@ -20257,7 +20257,7 @@ _ZNK12V3NumberData3numEv.exit225:                 ; preds = %_ZN12V3NumberData3n
 
 _ZN12V3NumberData3numEv.exit240:                  ; preds = %237
   %247 = trunc i64 %198 to i32
-  %248 = getelementptr inbounds i8, ptr %0, i64 32
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %249 = load i32, ptr %248, align 8
   %250 = icmp slt i32 %249, 129
   %251 = load ptr, ptr %0, align 8
@@ -20302,7 +20302,7 @@ _ZN12V3NumberData3numEv.exit243:                  ; preds = %256
   %265 = icmp slt i32 %264, 129
   %266 = load ptr, ptr %0, align 8
   %spec.select.i242 = select i1 %265, ptr %0, ptr %266
-  %267 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i242, i64 %indvars.iv
+  %267 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i242, i64 %indvars.iv
   store i32 0, ptr %267, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -20336,7 +20336,7 @@ _ZNK12V3NumberData3numEv.exit249.preheader:       ; preds = %.lr.ph329
 
 _ZNK12V3NumberData3numEv.exit249:                 ; preds = %_ZNK12V3NumberData3numEv.exit249.preheader, %_ZNK12V3NumberData3numEv.exit249
   %indvars.iv376 = phi i64 [ %278, %_ZNK12V3NumberData3numEv.exit249.preheader ], [ %indvars.iv.next377, %_ZNK12V3NumberData3numEv.exit249 ]
-  %279 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i245, i64 %indvars.iv376
+  %279 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i245, i64 %indvars.iv376
   %280 = load i32, ptr %279, align 4
   %281 = shl i32 %280, %269
   %282 = getelementptr i8, ptr %279, i64 -8
@@ -20344,7 +20344,7 @@ _ZNK12V3NumberData3numEv.exit249:                 ; preds = %_ZNK12V3NumberData3
   %284 = lshr i32 %283, %275
   %285 = select i1 %.not188.not, i32 0, i32 %284
   %286 = or i32 %285, %281
-  %287 = getelementptr inbounds [129 x i32], ptr %20, i64 0, i64 %indvars.iv376
+  %287 = getelementptr inbounds nuw [129 x i32], ptr %20, i64 0, i64 %indvars.iv376
   store i32 %286, ptr %287, align 4
   %indvars.iv.next377 = add nsw i64 %indvars.iv376, -1
   %288 = trunc nuw i64 %indvars.iv376 to i32
@@ -20406,13 +20406,13 @@ _ZNK12V3NumberData3numEv.exit255:                 ; preds = %305
   %319 = load i32, ptr %318, align 4
   %320 = sub nuw nsw i32 32, %269
   %321 = lshr i32 %319, %320
-  %322 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %316
+  %322 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %316
   store i32 %321, ptr %322, align 4
   br label %326
 
 323:                                              ; preds = %_ZNK12V3NumberData3numEv.exit252
   %324 = zext nneg i32 %121 to i64
-  %325 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %324
+  %325 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %324
   store i32 0, ptr %325, align 4
   %.pre401.pre = load i8, ptr %30, align 4
   br label %326
@@ -20441,7 +20441,7 @@ _ZNK12V3NumberData3numEv.exit261.preheader:       ; preds = %.lr.ph333
 _ZNK12V3NumberData3numEv.exit261:                 ; preds = %_ZNK12V3NumberData3numEv.exit261.preheader, %_ZNK12V3NumberData3numEv.exit261
   %indvars.iv379 = phi i64 [ %334, %_ZNK12V3NumberData3numEv.exit261.preheader ], [ %indvars.iv.next380, %_ZNK12V3NumberData3numEv.exit261 ]
   %indvars.iv.next380 = add nsw i64 %indvars.iv379, -1
-  %335 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i257, i64 %indvars.iv.next380
+  %335 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i257, i64 %indvars.iv.next380
   %336 = load i32, ptr %335, align 4
   %337 = shl i32 %336, %269
   %gep = getelementptr %"struct.V3NumberData::ValueAndX", ptr %invariant.gep, i64 %indvars.iv379
@@ -20449,7 +20449,7 @@ _ZNK12V3NumberData3numEv.exit261:                 ; preds = %_ZNK12V3NumberData3
   %339 = lshr i32 %338, %332
   %340 = select i1 %.not188.not, i32 0, i32 %339
   %341 = or i32 %340, %337
-  %342 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %indvars.iv.next380
+  %342 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %indvars.iv.next380
   store i32 %341, ptr %342, align 4
   %343 = icmp samesign ugt i64 %indvars.iv379, 2
   br i1 %343, label %_ZNK12V3NumberData3numEv.exit261, label %._crit_edge334, !llvm.loop !149
@@ -20493,8 +20493,8 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
   %363 = add nsw i32 %123, -2
   %364 = sext i32 %363 to i64
   %365 = getelementptr inbounds [129 x i32], ptr %20, i64 0, i64 %364
-  %366 = getelementptr inbounds i8, ptr %0, i64 36
-  %367 = getelementptr inbounds i8, ptr %0, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %367 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %368 = zext nneg i32 %123 to i64
   %369 = lshr i32 %indvars.iv373, 5
   %370 = sub nsw i32 %121, %369
@@ -20505,7 +20505,7 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
 373:                                              ; preds = %.lr.ph347, %464
   %indvars.iv389 = phi i64 [ %371, %.lr.ph347 ], [ %indvars.iv.next390, %464 ]
   %374 = add nuw nsw i64 %indvars.iv389, %372
-  %375 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %374
+  %375 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %374
   %376 = load i32, ptr %375, align 4
   %377 = zext i32 %376 to i64
   %378 = shl nuw i64 %377, 32
@@ -20551,12 +20551,12 @@ _ZNK12V3NumberData3numEv.exit264:                 ; preds = %._crit_edge334
 .lr.ph338:                                        ; preds = %403, %.lr.ph338
   %indvars.iv381 = phi i64 [ %indvars.iv.next382, %.lr.ph338 ], [ 0, %403 ]
   %.0165335 = phi i64 [ %418, %.lr.ph338 ], [ 0, %403 ]
-  %404 = getelementptr inbounds [129 x i32], ptr %20, i64 0, i64 %indvars.iv381
+  %404 = getelementptr inbounds nuw [129 x i32], ptr %20, i64 0, i64 %indvars.iv381
   %405 = load i32, ptr %404, align 4
   %406 = zext i32 %405 to i64
   %407 = mul i64 %.1168, %406
   %408 = add nuw nsw i64 %indvars.iv381, %indvars.iv389
-  %409 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %408
+  %409 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %408
   %410 = load i32, ptr %409, align 4
   %411 = zext i32 %410 to i64
   %412 = and i64 %407, 4294967295
@@ -20601,7 +20601,7 @@ _ZN12V3NumberData3numEv.exit267:                  ; preds = %._crit_edge339
   %431 = icmp slt i32 %430, 129
   %432 = load ptr, ptr %0, align 8
   %spec.select.i266 = select i1 %431, ptr %0, ptr %432
-  %433 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i266, i64 %indvars.iv389
+  %433 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i266, i64 %indvars.iv389
   store i32 %429, ptr %433, align 4
   %434 = icmp slt i64 %420, 0
   br i1 %434, label %435, label %464
@@ -20625,7 +20625,7 @@ _ZN12V3NumberData3numEv.exit270:                  ; preds = %435
   %444 = icmp slt i32 %443, 129
   %445 = load ptr, ptr %0, align 8
   %spec.select.i269 = select i1 %444, ptr %0, ptr %445
-  %446 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i269, i64 %indvars.iv389
+  %446 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i269, i64 %indvars.iv389
   %447 = load i32, ptr %446, align 4
   %448 = add i32 %447, -1
   store i32 %448, ptr %446, align 4
@@ -20635,10 +20635,10 @@ _ZN12V3NumberData3numEv.exit270:                  ; preds = %435
   %indvars.iv384 = phi i64 [ %indvars.iv.next385, %.lr.ph342 ], [ 0, %_ZN12V3NumberData3numEv.exit270 ]
   %.1340 = phi i64 [ %459, %.lr.ph342 ], [ 0, %_ZN12V3NumberData3numEv.exit270 ]
   %449 = add nuw nsw i64 %indvars.iv384, %indvars.iv389
-  %450 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %449
+  %450 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %449
   %451 = load i32, ptr %450, align 4
   %452 = zext i32 %451 to i64
-  %453 = getelementptr inbounds [129 x i32], ptr %20, i64 0, i64 %indvars.iv384
+  %453 = getelementptr inbounds nuw [129 x i32], ptr %20, i64 0, i64 %indvars.iv384
   %454 = load i32, ptr %453, align 4
   %455 = zext i32 %454 to i64
   %456 = add nuw nsw i64 %.1340, %452
@@ -20674,9 +20674,9 @@ _ZN12V3NumberData3numEv.exit270:                  ; preds = %435
   br i1 %.not359, label %.preheader306, label %.lr.ph350
 
 .lr.ph350:                                        ; preds = %.preheader307
-  %466 = getelementptr inbounds i8, ptr %0, i64 36
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %467 = sub nuw nsw i32 32, %269
-  %468 = getelementptr inbounds i8, ptr %0, i64 32
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %469 = zext nneg i32 %123 to i64
   br label %476
 
@@ -20685,8 +20685,8 @@ _ZN12V3NumberData3numEv.exit270:                  ; preds = %435
   br i1 %470, label %.lr.ph352, label %._crit_edge353
 
 .lr.ph352:                                        ; preds = %.preheader306
-  %471 = getelementptr inbounds i8, ptr %0, i64 36
-  %472 = getelementptr inbounds i8, ptr %0, i64 32
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %472 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %473 = lshr i32 %indvars.iv373, 5
   %474 = zext nneg i32 %473 to i64
   %475 = sext i32 %52 to i64
@@ -20708,11 +20708,11 @@ _ZN12V3NumberData3numEv.exit270:                  ; preds = %435
   unreachable
 
 _ZN12V3NumberData3numEv.exit273:                  ; preds = %476
-  %484 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %indvars.iv392
+  %484 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %indvars.iv392
   %485 = load i32, ptr %484, align 4
   %486 = lshr i32 %485, %269
   %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
-  %487 = getelementptr inbounds [129 x i32], ptr %19, i64 0, i64 %indvars.iv.next393
+  %487 = getelementptr inbounds nuw [129 x i32], ptr %19, i64 0, i64 %indvars.iv.next393
   %488 = load i32, ptr %487, align 4
   %489 = shl i32 %488, %467
   %490 = select i1 %.not188.not, i32 0, i32 %489
@@ -20721,7 +20721,7 @@ _ZN12V3NumberData3numEv.exit273:                  ; preds = %476
   %493 = icmp slt i32 %492, 129
   %494 = load ptr, ptr %0, align 8
   %spec.select.i272 = select i1 %493, ptr %0, ptr %494
-  %495 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i272, i64 %indvars.iv392
+  %495 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i272, i64 %indvars.iv392
   store i32 %491, ptr %495, align 4
   %496 = icmp samesign ult i64 %indvars.iv.next393, %469
   br i1 %496, label %476, label %.preheader306, !llvm.loop !153
@@ -20746,7 +20746,7 @@ _ZN12V3NumberData3numEv.exit276:                  ; preds = %497
   %506 = icmp slt i32 %505, 129
   %507 = load ptr, ptr %0, align 8
   %spec.select.i275 = select i1 %506, ptr %0, ptr %507
-  %508 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i275, i64 %indvars.iv397
+  %508 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i275, i64 %indvars.iv397
   store i32 0, ptr %508, align 4
   %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
   %509 = icmp slt i64 %indvars.iv.next398, %475
@@ -20961,7 +20961,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 18:                                               ; preds = %3
-  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %20 = load i8, ptr %19, align 4
   %.not = icmp eq i8 %20, 1
   br i1 %.not, label %27, label %21
@@ -20976,7 +20976,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %2, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %29 = load i8, ptr %28, align 4
   %.not30 = icmp eq i8 %29, 1
   br i1 %.not30, label %36, label %30
@@ -21008,7 +21008,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
 
 44:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
-  %45 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 27), align 1
+  %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 27), align 1
   %46 = trunc i8 %45 to i1
   br i1 %46, label %49, label %47
 
@@ -21037,15 +21037,15 @@ _ZN8V3Number18setAllBitsXRemovedEv.exit:          ; preds = %47, %52, %54
 
 56:                                               ; preds = %42
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %57 = getelementptr inbounds i8, ptr %8, i64 40
-  %58 = getelementptr inbounds i8, ptr %1, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %58, i64 16, i1 false)
   %59 = load i8, ptr %19, align 4
   %60 = icmp eq i8 %59, 3
   br i1 %60, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %61
 
 61:                                               ; preds = %56
-  %62 = getelementptr inbounds i8, ptr %1, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %63 = load i32, ptr %62, align 8
   %64 = add i8 %59, -3
   %spec.select.i.i.i = icmp ult i8 %64, -2
@@ -21060,7 +21060,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %61
   %spec.select.i10.i.i = select i1 %67, ptr %1, ptr %68
   %69 = lshr i32 %66, 5
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %70
+  %71 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %70
   %.sroa.0.0.copyload.i.i = load i32, ptr %71, align 4
   %72 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %73 = and i32 %66, 31
@@ -21071,7 +21071,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %61
   br i1 %.not7.i.i, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %_ZNK8V3Number10isNegativeEv.exit
 
 _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %71, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %71, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %77 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %78 = and i64 %75, %77
@@ -21092,15 +21092,15 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
           to label %83 unwind label %81
 
 83:                                               ; preds = %_ZNK8V3Number10isNegativeEv.exit.thread
-  %84 = getelementptr inbounds i8, ptr %9, i64 40
-  %85 = getelementptr inbounds i8, ptr %2, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %85, i64 16, i1 false)
   %86 = load i8, ptr %28, align 4
   %87 = icmp eq i8 %86, 3
   br i1 %87, label %_ZNK8V3Number10isNegativeEv.exit43.thread, label %88
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds i8, ptr %2, i64 32
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %90 = load i32, ptr %89, align 8
   %91 = add i8 %86, -3
   %spec.select.i.i.i34 = icmp ult i8 %91, -2
@@ -21115,7 +21115,7 @@ _ZNK12V3NumberData3numEv.exit.i.i36:              ; preds = %88
   %spec.select.i10.i.i37 = select i1 %94, ptr %2, ptr %95
   %96 = lshr i32 %93, 5
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i37, i64 %97
+  %98 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i37, i64 %97
   %.sroa.0.0.copyload.i.i38 = load i32, ptr %98, align 4
   %99 = zext i32 %.sroa.0.0.copyload.i.i38 to i64
   %100 = and i32 %93, 31
@@ -21126,7 +21126,7 @@ _ZNK12V3NumberData3numEv.exit.i.i36:              ; preds = %88
   br i1 %.not7.i.i39, label %_ZNK8V3Number10isNegativeEv.exit43.thread, label %_ZNK8V3Number10isNegativeEv.exit43
 
 _ZNK8V3Number10isNegativeEv.exit43:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i36
-  %.sroa.2.0..sroa_idx.i.i40 = getelementptr inbounds i8, ptr %98, i64 4
+  %.sroa.2.0..sroa_idx.i.i40 = getelementptr inbounds nuw i8, ptr %98, i64 4
   %.sroa.2.0.copyload.i.i41 = load i32, ptr %.sroa.2.0..sroa_idx.i.i40, align 4
   %104 = zext i32 %.sroa.2.0.copyload.i.i41 to i64
   %105 = and i64 %102, %104
@@ -21151,15 +21151,15 @@ _ZNK8V3Number10isNegativeEv.exit43.thread:        ; preds = %_ZNK12V3NumberData3
           to label %112 unwind label %108
 
 112:                                              ; preds = %111
-  %113 = getelementptr inbounds i8, ptr %10, i64 40
-  %114 = getelementptr inbounds i8, ptr %0, i64 40
+  %113 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %114, i64 16, i1 false)
   %115 = load i8, ptr %19, align 4
   %116 = icmp eq i8 %115, 3
   br i1 %116, label %_ZNK8V3Number10isNegativeEv.exit74.thread, label %117
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i8, ptr %1, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %119 = load i32, ptr %118, align 8
   %120 = add i8 %115, -3
   %spec.select.i.i.i45 = icmp ult i8 %120, -2
@@ -21174,7 +21174,7 @@ _ZNK12V3NumberData3numEv.exit.i.i47:              ; preds = %117
   %spec.select.i10.i.i48 = select i1 %123, ptr %1, ptr %124
   %125 = lshr i32 %122, 5
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i48, i64 %126
+  %127 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i48, i64 %126
   %.sroa.0.0.copyload.i.i49 = load i32, ptr %127, align 4
   %128 = zext i32 %.sroa.0.0.copyload.i.i49 to i64
   %129 = and i32 %122, 31
@@ -21185,7 +21185,7 @@ _ZNK12V3NumberData3numEv.exit.i.i47:              ; preds = %117
   br i1 %.not7.i.i50, label %_ZNK12V3NumberData3numEv.exit.i.i67, label %_ZNK8V3Number10isNegativeEv.exit54
 
 _ZNK8V3Number10isNegativeEv.exit54:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i47
-  %.sroa.2.0..sroa_idx.i.i51 = getelementptr inbounds i8, ptr %127, i64 4
+  %.sroa.2.0..sroa_idx.i.i51 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %.sroa.2.0.copyload.i.i52 = load i32, ptr %.sroa.2.0..sroa_idx.i.i51, align 4
   %133 = zext i32 %.sroa.2.0.copyload.i.i52 to i64
   %134 = and i64 %131, %133
@@ -21198,7 +21198,7 @@ _ZNK8V3Number10isNegativeEv.exit54:               ; preds = %_ZNK12V3NumberData3
   br i1 %137, label %_ZNK8V3Number10isNegativeEv.exit64.thread, label %138
 
 138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %2, i64 32
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %140 = load i32, ptr %139, align 8
   %141 = add i8 %136, -3
   %spec.select.i.i.i55 = icmp ult i8 %141, -2
@@ -21213,7 +21213,7 @@ _ZNK12V3NumberData3numEv.exit.i.i57:              ; preds = %138
   %spec.select.i10.i.i58 = select i1 %144, ptr %2, ptr %145
   %146 = lshr i32 %143, 5
   %147 = zext nneg i32 %146 to i64
-  %148 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i58, i64 %147
+  %148 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i58, i64 %147
   %.sroa.0.0.copyload.i.i59 = load i32, ptr %148, align 4
   %149 = zext i32 %.sroa.0.0.copyload.i.i59 to i64
   %150 = and i32 %143, 31
@@ -21224,7 +21224,7 @@ _ZNK12V3NumberData3numEv.exit.i.i57:              ; preds = %138
   br i1 %.not7.i.i60, label %_ZNK8V3Number10isNegativeEv.exit64.thread, label %_ZNK8V3Number10isNegativeEv.exit64
 
 _ZNK8V3Number10isNegativeEv.exit64:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i57
-  %.sroa.2.0..sroa_idx.i.i61 = getelementptr inbounds i8, ptr %148, i64 4
+  %.sroa.2.0..sroa_idx.i.i61 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %.sroa.2.0.copyload.i.i62 = load i32, ptr %.sroa.2.0..sroa_idx.i.i61, align 4
   %154 = zext i32 %.sroa.2.0.copyload.i.i62 to i64
   %155 = and i64 %152, %154
@@ -21238,7 +21238,7 @@ _ZNK12V3NumberData3numEv.exit.i.i67:              ; preds = %_ZNK12V3NumberData3
   %spec.select.i10.i.i68 = select i1 %157, ptr %1, ptr %158
   %159 = lshr i32 %156, 5
   %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i68, i64 %160
+  %161 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i68, i64 %160
   %.sroa.0.0.copyload.i.i69 = load i32, ptr %161, align 4
   %162 = zext i32 %.sroa.0.0.copyload.i.i69 to i64
   %163 = and i32 %156, 31
@@ -21249,7 +21249,7 @@ _ZNK12V3NumberData3numEv.exit.i.i67:              ; preds = %_ZNK12V3NumberData3
   br i1 %.not7.i.i70, label %_ZNK8V3Number10isNegativeEv.exit74.thread, label %_ZNK8V3Number10isNegativeEv.exit74
 
 _ZNK8V3Number10isNegativeEv.exit74:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i67
-  %.sroa.2.0..sroa_idx.i.i71 = getelementptr inbounds i8, ptr %161, i64 4
+  %.sroa.2.0..sroa_idx.i.i71 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %.sroa.2.0.copyload.i.i72 = load i32, ptr %.sroa.2.0..sroa_idx.i.i71, align 4
   %167 = zext i32 %.sroa.2.0.copyload.i.i72 to i64
   %168 = and i64 %165, %167
@@ -21262,7 +21262,7 @@ _ZNK8V3Number10isNegativeEv.exit74.thread:        ; preds = %117, %112, %_ZNK12V
   br i1 %170, label %_ZNK8V3Number10isNegativeEv.exit84.thread, label %171
 
 171:                                              ; preds = %_ZNK8V3Number10isNegativeEv.exit74.thread
-  %172 = getelementptr inbounds i8, ptr %2, i64 32
+  %172 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %173 = load i32, ptr %172, align 8
   %174 = add i8 %169, -3
   %spec.select.i.i.i75 = icmp ult i8 %174, -2
@@ -21277,7 +21277,7 @@ _ZNK12V3NumberData3numEv.exit.i.i77:              ; preds = %171
   %spec.select.i10.i.i78 = select i1 %177, ptr %2, ptr %178
   %179 = lshr i32 %176, 5
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i78, i64 %180
+  %181 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i78, i64 %180
   %.sroa.0.0.copyload.i.i79 = load i32, ptr %181, align 4
   %182 = zext i32 %.sroa.0.0.copyload.i.i79 to i64
   %183 = and i32 %176, 31
@@ -21288,7 +21288,7 @@ _ZNK12V3NumberData3numEv.exit.i.i77:              ; preds = %171
   br i1 %.not7.i.i80, label %_ZNK8V3Number10isNegativeEv.exit84.thread, label %_ZNK8V3Number10isNegativeEv.exit84
 
 _ZNK8V3Number10isNegativeEv.exit84:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i77
-  %.sroa.2.0..sroa_idx.i.i81 = getelementptr inbounds i8, ptr %181, i64 4
+  %.sroa.2.0..sroa_idx.i.i81 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %.sroa.2.0.copyload.i.i82 = load i32, ptr %.sroa.2.0..sroa_idx.i.i81, align 4
   %187 = zext i32 %.sroa.2.0.copyload.i.i82 to i64
   %188 = and i64 %185, %187
@@ -21410,7 +21410,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %264
 
 224:                                              ; preds = %221, %194
-  %225 = getelementptr inbounds i8, ptr %10, i64 36
+  %225 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %226 = load i8, ptr %225, align 4
   %227 = icmp eq i8 %226, 3
   br i1 %227, label %228, label %229
@@ -21420,7 +21420,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %_ZN8V3NumberD2Ev.exit
 
 229:                                              ; preds = %224
-  %230 = getelementptr inbounds i8, ptr %10, i64 32
+  %230 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %231 = load i32, ptr %230, align 8
   %232 = icmp sgt i32 %231, 128
   %233 = icmp eq i8 %226, 1
@@ -21437,7 +21437,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %228, %229, %235, %237
-  %238 = getelementptr inbounds i8, ptr %9, i64 36
+  %238 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %239 = load i8, ptr %238, align 4
   %240 = icmp eq i8 %239, 3
   br i1 %240, label %241, label %242
@@ -21447,7 +21447,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %228, %229, %235, %2
   br label %_ZN8V3NumberD2Ev.exit94
 
 242:                                              ; preds = %_ZN8V3NumberD2Ev.exit
-  %243 = getelementptr inbounds i8, ptr %9, i64 32
+  %243 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %244 = load i32, ptr %243, align 8
   %245 = icmp sgt i32 %244, 128
   %246 = icmp eq i8 %239, 1
@@ -21464,7 +21464,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %228, %229, %235, %2
   br label %_ZN8V3NumberD2Ev.exit94
 
 _ZN8V3NumberD2Ev.exit94:                          ; preds = %241, %242, %248, %250
-  %251 = getelementptr inbounds i8, ptr %8, i64 36
+  %251 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %252 = load i8, ptr %251, align 4
   %253 = icmp eq i8 %252, 3
   br i1 %253, label %254, label %255
@@ -21474,7 +21474,7 @@ _ZN8V3NumberD2Ev.exit94:                          ; preds = %241, %242, %248, %2
   br label %_ZN8V3NumberD2Ev.exit96
 
 255:                                              ; preds = %_ZN8V3NumberD2Ev.exit94
-  %256 = getelementptr inbounds i8, ptr %8, i64 32
+  %256 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %257 = load i32, ptr %256, align 8
   %258 = icmp sgt i32 %257, 128
   %259 = icmp eq i8 %252, 1
@@ -21664,7 +21664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %.not = icmp eq i8 %13, 1
   br i1 %.not, label %20, label %14
@@ -21679,7 +21679,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %.not18 = icmp eq i8 %22, 1
   br i1 %.not18, label %29, label %23
@@ -21711,7 +21711,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %38 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 27), align 1
+  %38 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 27), align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %42, label %40
 
@@ -21739,7 +21739,7 @@ _ZN8V3Number18setAllBitsXRemovedEv.exit:          ; preds = %40, %45, %47
   br label %60
 
 49:                                               ; preds = %35
-  %50 = getelementptr inbounds i8, ptr %1, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = icmp slt i32 %51, 65
   br i1 %52, label %53, label %58
@@ -21778,7 +21778,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds i8, ptr %1, i64 36
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %16 = load i8, ptr %15, align 4
   %.not = icmp eq i8 %16, 1
   br i1 %.not, label %23, label %17
@@ -21793,7 +21793,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 23:                                               ; preds = %14
-  %24 = getelementptr inbounds i8, ptr %2, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %25 = load i8, ptr %24, align 4
   %.not24 = icmp eq i8 %25, 1
   br i1 %.not24, label %32, label %26
@@ -21825,7 +21825,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 40:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %41 = load i8, ptr getelementptr inbounds (i8, ptr @v3Global, i64 27), align 1
+  %41 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 27), align 1
   %42 = trunc i8 %41 to i1
   br i1 %42, label %45, label %43
 
@@ -21854,15 +21854,15 @@ _ZN8V3Number18setAllBitsXRemovedEv.exit:          ; preds = %43, %48, %50
 
 52:                                               ; preds = %38
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %53 = getelementptr inbounds i8, ptr %5, i64 40
-  %54 = getelementptr inbounds i8, ptr %1, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull align 8 dereferenceable(16) %54, i64 16, i1 false)
   %55 = load i8, ptr %15, align 4
   %56 = icmp eq i8 %55, 3
   br i1 %56, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %57
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load i32, ptr %58, align 8
   %60 = add i8 %55, -3
   %spec.select.i.i.i = icmp ult i8 %60, -2
@@ -21877,7 +21877,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %57
   %spec.select.i10.i.i = select i1 %63, ptr %1, ptr %64
   %65 = lshr i32 %62, 5
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %66
+  %67 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %66
   %.sroa.0.0.copyload.i.i = load i32, ptr %67, align 4
   %68 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %69 = and i32 %62, 31
@@ -21888,7 +21888,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %57
   br i1 %.not7.i.i, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %_ZNK8V3Number10isNegativeEv.exit
 
 _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %67, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %67, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %73 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %74 = and i64 %71, %73
@@ -21909,15 +21909,15 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
           to label %79 unwind label %77
 
 79:                                               ; preds = %_ZNK8V3Number10isNegativeEv.exit.thread
-  %80 = getelementptr inbounds i8, ptr %6, i64 40
-  %81 = getelementptr inbounds i8, ptr %2, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(16) %81, i64 16, i1 false)
   %82 = load i8, ptr %24, align 4
   %83 = icmp eq i8 %82, 3
   br i1 %83, label %_ZNK8V3Number10isNegativeEv.exit36.thread, label %84
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %2, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %86 = load i32, ptr %85, align 8
   %87 = add i8 %82, -3
   %spec.select.i.i.i27 = icmp ult i8 %87, -2
@@ -21932,7 +21932,7 @@ _ZNK12V3NumberData3numEv.exit.i.i29:              ; preds = %84
   %spec.select.i10.i.i30 = select i1 %90, ptr %2, ptr %91
   %92 = lshr i32 %89, 5
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i30, i64 %93
+  %94 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i30, i64 %93
   %.sroa.0.0.copyload.i.i31 = load i32, ptr %94, align 4
   %95 = zext i32 %.sroa.0.0.copyload.i.i31 to i64
   %96 = and i32 %89, 31
@@ -21943,7 +21943,7 @@ _ZNK12V3NumberData3numEv.exit.i.i29:              ; preds = %84
   br i1 %.not7.i.i32, label %_ZNK8V3Number10isNegativeEv.exit36.thread, label %_ZNK8V3Number10isNegativeEv.exit36
 
 _ZNK8V3Number10isNegativeEv.exit36:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i29
-  %.sroa.2.0..sroa_idx.i.i33 = getelementptr inbounds i8, ptr %94, i64 4
+  %.sroa.2.0..sroa_idx.i.i33 = getelementptr inbounds nuw i8, ptr %94, i64 4
   %.sroa.2.0.copyload.i.i34 = load i32, ptr %.sroa.2.0..sroa_idx.i.i33, align 4
   %100 = zext i32 %.sroa.2.0.copyload.i.i34 to i64
   %101 = and i64 %98, %100
@@ -21968,15 +21968,15 @@ _ZNK8V3Number10isNegativeEv.exit36.thread:        ; preds = %_ZNK12V3NumberData3
           to label %108 unwind label %104
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds i8, ptr %7, i64 40
-  %110 = getelementptr inbounds i8, ptr %0, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %110, i64 16, i1 false)
   %111 = load i8, ptr %15, align 4
   %112 = icmp eq i8 %111, 3
   br i1 %112, label %_ZNK8V3Number10isNegativeEv.exit47.thread, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %1, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %115 = load i32, ptr %114, align 8
   %116 = add i8 %111, -3
   %spec.select.i.i.i38 = icmp ult i8 %116, -2
@@ -21991,7 +21991,7 @@ _ZNK12V3NumberData3numEv.exit.i.i40:              ; preds = %113
   %spec.select.i10.i.i41 = select i1 %119, ptr %1, ptr %120
   %121 = lshr i32 %118, 5
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i41, i64 %122
+  %123 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i41, i64 %122
   %.sroa.0.0.copyload.i.i42 = load i32, ptr %123, align 4
   %124 = zext i32 %.sroa.0.0.copyload.i.i42 to i64
   %125 = and i32 %118, 31
@@ -22002,7 +22002,7 @@ _ZNK12V3NumberData3numEv.exit.i.i40:              ; preds = %113
   br i1 %.not7.i.i43, label %_ZNK8V3Number10isNegativeEv.exit47.thread, label %_ZNK8V3Number10isNegativeEv.exit47
 
 _ZNK8V3Number10isNegativeEv.exit47:               ; preds = %_ZNK12V3NumberData3numEv.exit.i.i40
-  %.sroa.2.0..sroa_idx.i.i44 = getelementptr inbounds i8, ptr %123, i64 4
+  %.sroa.2.0..sroa_idx.i.i44 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %.sroa.2.0.copyload.i.i45 = load i32, ptr %.sroa.2.0..sroa_idx.i.i44, align 4
   %129 = zext i32 %.sroa.2.0.copyload.i.i45 to i64
   %130 = and i64 %127, %129
@@ -22024,7 +22024,7 @@ _ZNK8V3Number10isNegativeEv.exit47.thread:        ; preds = %_ZNK12V3NumberData3
           to label %_ZN8V3Number8opAssignERKS_.exit unwind label %133
 
 _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNegativeEv.exit47.thread, %131
-  %136 = getelementptr inbounds i8, ptr %7, i64 36
+  %136 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %137 = load i8, ptr %136, align 4
   %138 = icmp eq i8 %137, 3
   br i1 %138, label %139, label %140
@@ -22034,7 +22034,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %_ZN8V3NumberD2Ev.exit
 
 140:                                              ; preds = %_ZN8V3Number8opAssignERKS_.exit
-  %141 = getelementptr inbounds i8, ptr %7, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %142 = load i32, ptr %141, align 8
   %143 = icmp sgt i32 %142, 128
   %144 = icmp eq i8 %137, 1
@@ -22051,7 +22051,7 @@ _ZN8V3Number8opAssignERKS_.exit:                  ; preds = %_ZNK8V3Number10isNe
   br label %_ZN8V3NumberD2Ev.exit
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %139, %140, %146, %148
-  %149 = getelementptr inbounds i8, ptr %6, i64 36
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %150 = load i8, ptr %149, align 4
   %151 = icmp eq i8 %150, 3
   br i1 %151, label %152, label %153
@@ -22061,7 +22061,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %139, %140, %146, %1
   br label %_ZN8V3NumberD2Ev.exit49
 
 153:                                              ; preds = %_ZN8V3NumberD2Ev.exit
-  %154 = getelementptr inbounds i8, ptr %6, i64 32
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %155 = load i32, ptr %154, align 8
   %156 = icmp sgt i32 %155, 128
   %157 = icmp eq i8 %150, 1
@@ -22078,7 +22078,7 @@ _ZN8V3NumberD2Ev.exit:                            ; preds = %139, %140, %146, %1
   br label %_ZN8V3NumberD2Ev.exit49
 
 _ZN8V3NumberD2Ev.exit49:                          ; preds = %152, %153, %159, %161
-  %162 = getelementptr inbounds i8, ptr %5, i64 36
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %163 = load i8, ptr %162, align 4
   %164 = icmp eq i8 %163, 3
   br i1 %164, label %165, label %166
@@ -22088,7 +22088,7 @@ _ZN8V3NumberD2Ev.exit49:                          ; preds = %152, %153, %159, %1
   br label %_ZN8V3NumberD2Ev.exit51
 
 166:                                              ; preds = %_ZN8V3NumberD2Ev.exit49
-  %167 = getelementptr inbounds i8, ptr %5, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %168 = load i32, ptr %167, align 8
   %169 = icmp sgt i32 %168, 128
   %170 = icmp eq i8 %163, 1
@@ -22122,7 +22122,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3hexRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -75
   %5 = or disjoint i32 %4, 8
@@ -22134,7 +22134,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRSt8ios_base(ptr noundef nonnull align 8 dereferenceable(216) %0) #3 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, -75
   %5 = or disjoint i32 %4, 2
@@ -22160,7 +22160,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 15:                                               ; preds = %5
-  %16 = getelementptr inbounds i8, ptr %1, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %17 = load i8, ptr %16, align 4
   %.not = icmp eq i8 %17, 1
   br i1 %.not, label %24, label %18
@@ -22175,7 +22175,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %2, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %26 = load i8, ptr %25, align 4
   %.not35 = icmp eq i8 %26, 1
   br i1 %.not35, label %33, label %27
@@ -22218,7 +22218,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   br i1 %46, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %2, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %49 = load i32, ptr %48, align 8
   %50 = add i8 %45, -3
   %spec.select.i.i.i = icmp ult i8 %50, -2
@@ -22233,7 +22233,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %47
   %spec.select.i10.i.i = select i1 %53, ptr %2, ptr %54
   %55 = lshr i32 %52, 5
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %56
+  %57 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %56
   %.sroa.0.0.copyload.i.i = load i32, ptr %57, align 4
   %58 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %59 = and i32 %52, 31
@@ -22244,7 +22244,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %47
   br i1 %.not7.i.i, label %_ZNK8V3Number10isNegativeEv.exit.thread, label %_ZNK8V3Number10isNegativeEv.exit
 
 _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %57, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %63 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %64 = and i64 %61, %63
@@ -22296,7 +22296,7 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
   br i1 %84, label %_ZN8V3NumberD2Ev.exit48, label %86
 
 86:                                               ; preds = %_ZNK8V3Number10isNegativeEv.exit.thread
-  %87 = getelementptr inbounds i8, ptr %0, i64 36
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %88 = load i8, ptr %87, align 4
   %89 = add i8 %88, -1
   %spec.select.i.i = icmp ult i8 %89, 2
@@ -22311,22 +22311,22 @@ _ZNK8V3Number10isNegativeEv.exit.thread:          ; preds = %_ZNK12V3NumberData3
   unreachable
 
 _ZN12V3NumberData3numEv.exit:                     ; preds = %86
-  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load i32, ptr %95, align 8
   %97 = icmp slt i32 %96, 129
   %98 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %97, ptr %0, ptr %98
   store i32 1, ptr %spec.select.i, align 4
   %99 = load i32, ptr %95, align 8
-  %100 = getelementptr inbounds i8, ptr %6, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %6, i64 36
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 0, ptr %101, align 4
-  %102 = getelementptr inbounds i8, ptr %6, i64 37
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 37
   %103 = load i8, ptr %102, align 1
   %104 = and i8 %103, -64
   store i8 %104, ptr %102, align 1
-  %105 = getelementptr inbounds i8, ptr %6, i64 40
+  %105 = getelementptr inbounds nuw i8, ptr %6, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
   invoke void @_ZN8V3Number4initEP7AstNodeib(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef null, i32 noundef %99, i1 noundef zeroext true)
           to label %_ZN8V3NumberC2EPKS_i.exit unwind label %106
@@ -22342,30 +22342,30 @@ common.resume:                                    ; preds = %.body, %106
   br label %common.resume
 
 _ZN8V3NumberC2EPKS_i.exit:                        ; preds = %_ZN12V3NumberData3numEv.exit
-  %108 = getelementptr inbounds i8, ptr %6, i64 48
-  %109 = getelementptr inbounds i8, ptr %1, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %110 = load ptr, ptr %109, align 8
   store ptr %110, ptr %108, align 8
   %111 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13opAssignNonXZERKS_b(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext false)
           to label %_ZN8V3Number8opAssignERKS_.exit.preheader unwind label %148
 
 _ZN8V3Number8opAssignERKS_.exit.preheader:        ; preds = %_ZN8V3NumberC2EPKS_i.exit
-  %112 = getelementptr inbounds i8, ptr %2, i64 32
+  %112 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %113 = load i32, ptr %112, align 8
   %114 = icmp sgt i32 %113, 0
   br i1 %114, label %.lr.ph, label %_ZN8V3Number8opAssignERKS_.exit._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN8V3Number8opAssignERKS_.exit.preheader
-  %115 = getelementptr inbounds i8, ptr %7, i64 32
-  %116 = getelementptr inbounds i8, ptr %7, i64 36
-  %117 = getelementptr inbounds i8, ptr %7, i64 37
-  %118 = getelementptr inbounds i8, ptr %7, i64 40
-  %119 = getelementptr inbounds i8, ptr %7, i64 48
-  %120 = getelementptr inbounds i8, ptr %8, i64 32
-  %121 = getelementptr inbounds i8, ptr %8, i64 36
-  %122 = getelementptr inbounds i8, ptr %8, i64 37
-  %123 = getelementptr inbounds i8, ptr %8, i64 40
-  %124 = getelementptr inbounds i8, ptr %8, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %7, i64 36
+  %117 = getelementptr inbounds nuw i8, ptr %7, i64 37
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %121 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  %122 = getelementptr inbounds nuw i8, ptr %8, i64 37
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %8, i64 48
   br label %125
 
 125:                                              ; preds = %.lr.ph, %_ZN8V3NumberD2Ev.exit46
@@ -22453,7 +22453,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %154
   %spec.select.i10.i = select i1 %156, ptr %2, ptr %157
   %158 = lshr i32 %.052, 5
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %159
+  %160 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %159
   %.sroa.0.0.copyload.i = load i32, ptr %160, align 4
   %161 = zext i32 %.sroa.0.0.copyload.i to i64
   %162 = and i32 %.052, 31
@@ -22464,7 +22464,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %154
   br i1 %.not7.i, label %_ZN8V3NumberD2Ev.exit46, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %160, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %160, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %166 = zext i32 %.sroa.2.0.copyload.i to i64
   %167 = and i64 %164, %166
@@ -22602,7 +22602,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not = icmp eq i8 %12, 1
   br i1 %.not, label %19, label %13
@@ -22617,7 +22617,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
   unreachable
 
 19:                                               ; preds = %10
-  %20 = getelementptr inbounds i8, ptr %2, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = load i8, ptr %20, align 4
   %.not16 = icmp eq i8 %21, 1
   br i1 %.not16, label %28, label %22
@@ -22633,13 +22633,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8o
 
 28:                                               ; preds = %19
   %29 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %1, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %34
 
 34:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIs1Ei.exit.thread
@@ -22660,7 +22660,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %37
   %spec.select.i10.i = select i1 %39, ptr %1, ptr %40
   %41 = lshr i32 %.020, 5
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %42
+  %43 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %42
   %.sroa.0.0.copyload.i = load i32, ptr %43, align 4
   %44 = zext i32 %.sroa.0.0.copyload.i to i64
   %45 = and i32 %.020, 31
@@ -22671,7 +22671,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %37
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %43, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %49 = zext i32 %.sroa.2.0.copyload.i to i64
   %50 = and i64 %47, %49
@@ -22701,24 +22701,24 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13
   br i1 %.not, label %.loopexit, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %1, i64 37
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 8
   %.not26 = icmp eq i8 %8, 0
   br i1 %.not26, label %13, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 37
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %11 = load i8, ptr %10, align 1
   %12 = or i8 %11, 8
   store i8 %12, ptr %10, align 1
   br label %.loopexit
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 3
-  %17 = getelementptr inbounds i8, ptr %1, i64 36
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %18 = load i8, ptr %17, align 4
   br i1 %16, label %19, label %33
 
@@ -22777,13 +22777,13 @@ _ZN12V3NumberData3strB5cxx11Ev.exit24:            ; preds = %19
   ]
 
 .preheader:                                       ; preds = %33
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %35, 0
   br i1 %36, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br i1 %2, label %.lr.ph.split.us, label %_ZNK8V3Number6bitIs1Ei.exit
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK8V3Number6bitIs1Ei.exit.us
@@ -22804,7 +22804,7 @@ _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %40
   %spec.select.i10.i.us = select i1 %42, ptr %1, ptr %43
   %44 = lshr i32 %.028.us, 5
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.us, i64 %45
+  %46 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.us, i64 %45
   %.sroa.0.0.copyload.i.us = load i32, ptr %46, align 4
   %47 = zext i32 %.sroa.0.0.copyload.i.us to i64
   %48 = and i32 %.028.us, 31
@@ -22815,7 +22815,7 @@ _ZNK12V3NumberData3numEv.exit.i.us:               ; preds = %40
   br i1 %.not7.i.us, label %_ZNK8V3Number6bitIs1Ei.exit.us, label %52
 
 52:                                               ; preds = %_ZNK12V3NumberData3numEv.exit.i.us
-  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %46, i64 4
+  %.sroa.2.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %46, i64 4
   %.sroa.2.0.copyload.i.us = load i32, ptr %.sroa.2.0..sroa_idx.i.us, align 4
   %53 = zext i32 %.sroa.2.0.copyload.i.us to i64
   %54 = and i64 %50, %53
@@ -22836,7 +22836,7 @@ _ZNK8V3Number6bitIs1Ei.exit.us:                   ; preds = %52, %_ZNK12V3Number
   br label %.loopexit
 
 62:                                               ; preds = %33
-  %63 = getelementptr inbounds i8, ptr %1, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load i32, ptr %63, align 8
   %.not27 = icmp eq i32 %64, 64
   br i1 %.not27, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -22851,7 +22851,7 @@ _ZNK8V3Number6bitIs1Ei.exit.us:                   ; preds = %52, %_ZNK12V3Number
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %62
   %68 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %68 to i64
-  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load i32, ptr %69, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %70 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -22889,7 +22889,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 3
   br i1 %11, label %18, label %12
@@ -22911,8 +22911,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %23
 
 23:                                               ; preds = %.lr.ph, %66
@@ -22975,7 +22975,7 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %35
   %50 = shl nuw nsw i64 1, %.01826
   %51 = and i64 %50, %29
   %switch.not = icmp eq i64 %51, 0
-  %52 = getelementptr inbounds i8, ptr %49, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
   br i1 %switch.not, label %53, label %57
 
 53:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i
@@ -23034,7 +23034,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %.not10 = icmp eq i8 %10, 1
   br i1 %.not10, label %17, label %11
@@ -23050,7 +23050,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 17:                                               ; preds = %8
   %18 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -23081,7 +23081,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
   unreachable
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %.not9 = icmp eq i8 %10, 1
   br i1 %.not9, label %17, label %11
@@ -23097,7 +23097,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
 
 17:                                               ; preds = %8
   %18 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph, label %._crit_edge
@@ -23135,7 +23135,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %.not17 = icmp eq i8 %11, 1
   br i1 %.not17, label %18, label %12
@@ -23151,13 +23151,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 18:                                               ; preds = %9
   %19 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %1, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %24
 
 24:                                               ; preds = %.lr.ph, %31
@@ -23207,7 +23207,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %.not = icmp eq i8 %14, 1
   br i1 %.not, label %21, label %15
@@ -23222,7 +23222,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds i8, ptr %2, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %23 = load i8, ptr %22, align 4
   %.not18 = icmp eq i8 %23, 1
   br i1 %.not18, label %30, label %24
@@ -23237,7 +23237,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 30:                                               ; preds = %21
-  %31 = getelementptr inbounds i8, ptr %3, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %32 = load i8, ptr %31, align 4
   %.not19 = icmp eq i8 %32, 1
   br i1 %.not19, label %39, label %33
@@ -23275,7 +23275,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9opSelIntoERKS_S1_i(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
-  %5 = getelementptr inbounds i8, ptr %2, i64 37
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 37
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 2
   %.not.i = icmp eq i8 %7, 0
@@ -23283,7 +23283,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br i1 %.not.i, label %_ZNK8V3Number6toSIntEv.exit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, -1
   %13 = zext nneg i32 %12 to i64
@@ -23313,7 +23313,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %.not17 = icmp eq i8 %11, 1
   br i1 %.not17, label %.preheader, label %15
@@ -23324,7 +23324,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   br i1 %13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %21
 
 15:                                               ; preds = %9
@@ -23374,7 +23374,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %.not20 = icmp eq i8 %12, 1
   br i1 %.not20, label %19, label %13
@@ -23390,8 +23390,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 
 19:                                               ; preds = %10
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  %20 = getelementptr inbounds i8, ptr %4, i64 40
-  %21 = getelementptr inbounds i8, ptr %1, i64 40
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
   %22 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13opAssignNonXZERKS_b(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %1, i1 noundef zeroext true)
           to label %23 unwind label %64
@@ -23400,13 +23400,13 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br i1 %2, label %24, label %_ZN8V3NumberD2Ev.exit
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %4, i64 36
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %26 = load i8, ptr %25, align 4
   %27 = icmp eq i8 %26, 3
   br i1 %27, label %_ZN8V3NumberD2Ev.exit, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %4, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %30 = load i32, ptr %29, align 8
   %31 = add i8 %26, -3
   %spec.select.i.i.i = icmp ult i8 %31, -2
@@ -23421,7 +23421,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %28
   %spec.select.i10.i.i = select i1 %34, ptr %4, ptr %35
   %36 = lshr i32 %33, 5
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %37
+  %38 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i.i, i64 %37
   %.sroa.0.0.copyload.i.i = load i32, ptr %38, align 4
   %39 = zext i32 %.sroa.0.0.copyload.i.i to i64
   %40 = and i32 %33, 31
@@ -23432,7 +23432,7 @@ _ZNK12V3NumberData3numEv.exit.i.i:                ; preds = %28
   br i1 %.not7.i.i, label %_ZN8V3NumberD2Ev.exit, label %_ZNK8V3Number10isNegativeEv.exit
 
 _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3numEv.exit.i.i
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %38, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %44 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %45 = and i64 %42, %44
@@ -23444,13 +23444,13 @@ _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3
           to label %47 unwind label %64
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds i8, ptr %5, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
   %49 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opNegateERKS_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(56) %5)
           to label %50 unwind label %66
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds i8, ptr %5, i64 36
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 3
   br i1 %53, label %54, label %55
@@ -23460,7 +23460,7 @@ _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3
   br label %_ZN8V3NumberD2Ev.exit
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %5, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %57 = load i32, ptr %56, align 8
   %58 = icmp sgt i32 %57, 128
   %59 = icmp eq i8 %52, 1
@@ -23489,13 +23489,13 @@ _ZNK8V3Number10isNegativeEv.exit:                 ; preds = %_ZNK12V3NumberData3
 
 _ZN8V3NumberD2Ev.exit:                            ; preds = %_ZNK12V3NumberData3numEv.exit.i.i, %28, %24, %23, %63, %61, %55, %54, %_ZNK8V3Number10isNegativeEv.exit
   %68 = phi i1 [ false, %_ZNK8V3Number10isNegativeEv.exit ], [ true, %54 ], [ true, %55 ], [ true, %61 ], [ true, %63 ], [ false, %23 ], [ false, %24 ], [ false, %28 ], [ false, %_ZNK12V3NumberData3numEv.exit.i.i ]
-  %69 = getelementptr inbounds i8, ptr %4, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN8V3NumberD2Ev.exit
-  %72 = getelementptr inbounds i8, ptr %4, i64 36
+  %72 = getelementptr inbounds nuw i8, ptr %4, i64 36
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZNK8V3Number6bitIs1Ei.exit.thread
@@ -23518,7 +23518,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %76
   %spec.select.i10.i = select i1 %78, ptr %4, ptr %79
   %80 = lshr i32 %.029, 5
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %81
+  %82 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i10.i, i64 %81
   %.sroa.0.0.copyload.i = load i32, ptr %82, align 4
   %83 = zext i32 %.sroa.0.0.copyload.i to i64
   %84 = and i32 %.029, 31
@@ -23529,7 +23529,7 @@ _ZNK12V3NumberData3numEv.exit.i:                  ; preds = %76
   br i1 %.not7.i, label %_ZNK8V3Number6bitIs1Ei.exit.thread, label %_ZNK8V3Number6bitIs1Ei.exit
 
 _ZNK8V3Number6bitIs1Ei.exit:                      ; preds = %_ZNK12V3NumberData3numEv.exit.i
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %82, i64 4
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %82, i64 4
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 4
   %88 = zext i32 %.sroa.2.0.copyload.i to i64
   %89 = and i64 %86, %88
@@ -23555,7 +23555,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %_ZNK12V3NumberData3
           to label %97 unwind label %64
 
 97:                                               ; preds = %._crit_edge
-  %98 = getelementptr inbounds i8, ptr %4, i64 36
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %99 = load i8, ptr %98, align 4
   %100 = icmp eq i8 %99, 3
   br i1 %100, label %101, label %102
@@ -23605,7 +23605,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 2
   br i1 %10, label %17, label %11
@@ -23620,7 +23620,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %.not7 = icmp eq i32 %19, 64
   br i1 %.not7, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -23635,7 +23635,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %17
   %23 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %23 to i64
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %25 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -23664,7 +23664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   unreachable
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i8, ptr %9, align 4
   %11 = icmp eq i8 %10, 2
   br i1 %11, label %18, label %12
@@ -23679,7 +23679,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   unreachable
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load i32, ptr %19, align 8
   %.not23 = icmp eq i32 %20, 64
   br i1 %.not23, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -23694,7 +23694,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %18
   %24 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %24 to i64
-  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i32, ptr %25, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %26 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -23742,14 +23742,14 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %18
 
 47:                                               ; preds = %45
   call void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %48 = getelementptr inbounds i8, ptr %3, i64 40
-  %49 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
   %50 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number8opNegateERKS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3)
           to label %51 unwind label %65
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %3, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %53 = load i8, ptr %52, align 4
   %54 = icmp eq i8 %53, 3
   br i1 %54, label %55, label %56
@@ -23759,7 +23759,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %18
   br label %_ZN8V3NumberD2Ev.exit
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %3, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %58 = load i32, ptr %57, align 8
   %59 = icmp sgt i32 %58, 128
   %60 = icmp eq i8 %53, 1
@@ -23801,7 +23801,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 2
   br i1 %10, label %17, label %11
@@ -23816,10 +23816,10 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
   unreachable
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %20 = icmp ne i32 %19, 64
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load i32, ptr %21, align 8
   %23 = icmp ne i32 %22, 64
   %or.cond = select i1 %20, i1 true, i1 %23
@@ -23835,7 +23835,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number12
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %17
   %27 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %27 to i64
-  %28 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i32, ptr %28, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %29 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -23857,10 +23857,10 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number13
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = icmp ne i32 %9, 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp ne i32 %12, 64
   %or.cond = select i1 %10, i1 true, i1 %13
@@ -23893,7 +23893,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 36
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %9 = load i8, ptr %8, align 4
   %10 = icmp eq i8 %9, 2
   br i1 %10, label %17, label %11
@@ -23908,7 +23908,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 17:                                               ; preds = %7
-  %18 = getelementptr inbounds i8, ptr %1, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %19 = load i32, ptr %18, align 8
   %.not6 = icmp eq i32 %19, 64
   br i1 %.not6, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -23923,7 +23923,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %17
   %23 = load i32, ptr %1, align 8
   %.sroa.0.0.insert.ext.i = zext i32 %23 to i64
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %25 = load i32, ptr %24, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %25 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -23949,7 +23949,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -23964,7 +23964,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -23979,7 +23979,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -23992,7 +23992,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24005,7 +24005,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24015,7 +24015,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24041,7 +24041,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24056,7 +24056,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24071,7 +24071,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24084,7 +24084,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24097,7 +24097,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24107,7 +24107,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24133,7 +24133,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24148,7 +24148,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24163,7 +24163,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24176,7 +24176,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24189,7 +24189,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24199,7 +24199,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24225,7 +24225,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24240,7 +24240,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24255,7 +24255,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24268,7 +24268,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24281,7 +24281,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24291,7 +24291,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24317,7 +24317,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24332,7 +24332,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24347,7 +24347,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24360,7 +24360,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24373,7 +24373,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24383,7 +24383,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24412,7 +24412,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24427,7 +24427,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24442,7 +24442,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24455,7 +24455,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24468,7 +24468,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24478,7 +24478,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24505,7 +24505,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24520,7 +24520,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24535,7 +24535,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24548,7 +24548,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24561,7 +24561,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24571,7 +24571,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24598,7 +24598,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24613,7 +24613,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24628,7 +24628,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24641,7 +24641,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24654,7 +24654,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24664,7 +24664,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24691,7 +24691,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %1, i64 36
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %12 = load i8, ptr %11, align 4
   %13 = icmp eq i8 %12, 2
   br i1 %13, label %20, label %14
@@ -24706,7 +24706,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %2, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 2
   br i1 %23, label %30, label %24
@@ -24721,7 +24721,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 30:                                               ; preds = %20
-  %31 = getelementptr inbounds i8, ptr %1, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %32 = load i32, ptr %31, align 8
   %.not = icmp eq i32 %32, 64
   br i1 %.not, label %_ZNK8V3Number8toDoubleEv.exit, label %.critedge.i
@@ -24734,7 +24734,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %37 = load i32, ptr %36, align 8
   %.not20 = icmp eq i32 %37, 64
   br i1 %.not20, label %_ZNK8V3Number8toDoubleEv.exit17, label %.critedge.i16
@@ -24747,7 +24747,7 @@ _ZNK8V3Number8toDoubleEv.exit:                    ; preds = %30
   unreachable
 
 _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDoubleEv.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i32, ptr %41, align 8
   %.sroa.0.4.insert.ext.i = zext i32 %42 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
@@ -24757,7 +24757,7 @@ _ZNK8V3Number8toDoubleEv.exit17:                  ; preds = %_ZNK8V3Number8toDou
   %44 = bitcast i64 %.sroa.0.4.insert.insert.i to double
   %45 = load i32, ptr %2, align 8
   %.sroa.0.0.insert.ext.i12 = zext i32 %45 to i64
-  %46 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load i32, ptr %46, align 8
   %.sroa.0.4.insert.ext.i13 = zext i32 %47 to i64
   %.sroa.0.4.insert.shift.i14 = shl nuw i64 %.sroa.0.4.insert.ext.i13, 32
@@ -24787,7 +24787,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 3
   br i1 %16, label %23, label %17
@@ -24802,7 +24802,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %2, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %25 = load i8, ptr %24, align 4
   %26 = icmp eq i8 %25, 3
   br i1 %26, label %33, label %27
@@ -24845,7 +24845,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 46:                                               ; preds = %42, %44
   %.sink.i = phi ptr [ %43, %42 ], [ %45, %44 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %.sink.i) #30
-  %47 = getelementptr inbounds i8, ptr %0, i64 36
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %48 = load i8, ptr %47, align 4
   %49 = icmp eq i8 %48, 3
   br i1 %49, label %50, label %52
@@ -24855,7 +24855,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
           to label %61 unwind label %66
 
 52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i32, ptr %53, align 8
   %55 = icmp sgt i32 %54, 128
   %56 = icmp eq i8 %48, 1
@@ -24911,7 +24911,7 @@ _ZN12V3NumberData20destroyDynamicNumberEv.exit.i.i.i: ; preds = %60, %58, %52
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7opReplNERKS_S1_(ptr noundef nonnull returned align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %5 = load i8, ptr %4, align 4
   %6 = icmp eq i8 %5, 3
   br i1 %6, label %13, label %7
@@ -24926,7 +24926,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %2, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %15 = load i8, ptr %14, align 4
   %.not = icmp eq i8 %15, 1
   br i1 %.not, label %22, label %16
@@ -24962,7 +24962,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   unreachable
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds i8, ptr %1, i64 36
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i8, ptr %12, align 4
   %14 = icmp eq i8 %13, 3
   br i1 %14, label %21, label %15
@@ -25031,7 +25031,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
   br label %50
 
 ._crit_edge:                                      ; preds = %29, %26
-  %35 = getelementptr inbounds i8, ptr %0, i64 36
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %36 = load i8, ptr %35, align 4
   %37 = icmp eq i8 %36, 3
   br i1 %37, label %38, label %40
@@ -25041,7 +25041,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7o
           to label %49 unwind label %.loopexit.split-lp
 
 40:                                               ; preds = %._crit_edge
-  %41 = getelementptr inbounds i8, ptr %0, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load i32, ptr %41, align 8
   %43 = icmp sgt i32 %42, 128
   %44 = icmp eq i8 %36, 1
@@ -25091,7 +25091,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %19, label %13
@@ -25112,7 +25112,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
 
 20:                                               ; preds = %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 3
   br i1 %23, label %24, label %26
@@ -25122,7 +25122,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
           to label %35 unwind label %38
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 128
   %30 = icmp eq i8 %22, 1
@@ -25181,7 +25181,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
   unreachable
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %11 = load i8, ptr %10, align 4
   %12 = icmp eq i8 %11, 3
   br i1 %12, label %19, label %13
@@ -25202,7 +25202,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
 
 20:                                               ; preds = %19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
-  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %22 = load i8, ptr %21, align 4
   %23 = icmp eq i8 %22, 3
   br i1 %23, label %24, label %26
@@ -25212,7 +25212,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number10
           to label %35 unwind label %38
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 128
   %30 = icmp eq i8 %22, 1
@@ -25273,7 +25273,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %22, label %16
@@ -25288,7 +25288,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 3
   br i1 %25, label %32, label %26
@@ -25363,7 +25363,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %22, label %16
@@ -25378,7 +25378,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 3
   br i1 %25, label %32, label %26
@@ -25453,7 +25453,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %22, label %16
@@ -25468,7 +25468,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number5o
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 3
   br i1 %25, label %32, label %26
@@ -25543,7 +25543,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %14 = load i8, ptr %13, align 4
   %15 = icmp eq i8 %14, 3
   br i1 %15, label %22, label %16
@@ -25558,7 +25558,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   unreachable
 
 22:                                               ; preds = %12
-  %23 = getelementptr inbounds i8, ptr %2, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %24 = load i8, ptr %23, align 4
   %25 = icmp eq i8 %24, 3
   br i1 %25, label %32, label %26
@@ -25619,7 +25619,7 @@ _ZStleIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca [4 x %"struct.V3NumberData::ValueAndX"], align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, %1
   br i1 %5, label %52, label %6
@@ -25634,7 +25634,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
 
 12:                                               ; preds = %6
   %13 = icmp sgt i32 %4, 128
-  %14 = getelementptr inbounds i8, ptr %0, i64 36
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %15 = load i8, ptr %14, align 4
   %16 = icmp eq i8 %15, 1
   %17 = select i1 %13, i1 %16, i1 false
@@ -25646,7 +25646,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %10 to i64
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %0, align 8
   %25 = ptrtoint ptr %23 to i64
@@ -25666,7 +25666,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %33, label %34, label %.sink.split
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %24, i64 %21
   %.not.i.i = icmp eq ptr %23, %35
   br i1 %.not.i.i, label %.sink.split, label %36
 
@@ -25698,22 +25698,22 @@ _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #32
   store ptr %45, ptr %0, align 8
   %46 = getelementptr %"struct.V3NumberData::ValueAndX", ptr %45, i64 %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %46, ptr %47, align 8
   store i64 0, ptr %45, align 4
-  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
   %.06.i.i.i.i.i.i.i.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %48, %_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i ]
   %49 = load i64, ptr %45, align 4
   store i64 %49, ptr %.06.i.i.i.i.i.i.i.i.i.i, align 4
-  %50 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %50, %46
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12V3NumberData17initDynamicNumberIJiEEEvDpOT_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !8
 
 _ZN12V3NumberData17initDynamicNumberIJiEEEvDpOT_.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %46, ptr %51, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i64 32, i1 false)
   br label %.sink.split
@@ -25735,10 +25735,10 @@ define linkonce_odr dso_local noundef i32 @_ZN12V3NumberData11bitsToWordsEi(i32 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData15isDynamicNumberEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 128
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = icmp eq i8 %6, 1
   %8 = select i1 %4, i1 %7, i1 false
@@ -25747,10 +25747,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData15isDynamicN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData14isInlineNumberEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp slt i32 %3, 129
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = add i8 %6, -1
   %spec.select = icmp ult i8 %7, 2
@@ -25764,14 +25764,14 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
   br i1 %.not, label %45, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -25786,7 +25786,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
 
 19:                                               ; preds = %3
   store i64 0, ptr %5, align 4
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %21 = icmp eq i64 %1, 1
   br i1 %21, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %22
 
@@ -25798,7 +25798,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1
   %.06.i.i.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i ], [ %20, %22 ]
   %24 = load i64, ptr %5, align 4
   store i64 %24, ptr %.06.i.i.i.i.i.i.i, align 4
-  %25 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %25, %23
   br i1 %.not.i.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !8
 
@@ -25827,7 +25827,7 @@ _ZNKSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE12_M_check_lenEmPKc.exit: ; pred
   br i1 %34, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit34, label %35
 
 35:                                               ; preds = %_ZNKSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE12_M_check_lenEmPKc.exit
-  %36 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = getelementptr %"struct.V3NumberData::ValueAndX", ptr %33, i64 %1
   br label %.lr.ph.i.i.i.i.i.i.i30
 
@@ -25835,7 +25835,7 @@ _ZNKSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE12_M_check_lenEmPKc.exit: ; pred
   %.06.i.i.i.i.i.i.i31 = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i30 ], [ %36, %35 ]
   %38 = load i64, ptr %33, align 4
   store i64 %38, ptr %.06.i.i.i.i.i.i.i31, align 4
-  %39 = getelementptr inbounds i8, ptr %.06.i.i.i.i.i.i.i31, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31, i64 8
   %.not.i.i.i.i.i.i.i32 = icmp eq ptr %39, %37
   br i1 %.not.i.i.i.i.i.i.i32, label %_ZSt27__uninitialized_default_n_aIPN12V3NumberData9ValueAndXEmS1_ET_S3_T0_RSaIT1_E.exit34, label %.lr.ph.i.i.i.i.i.i.i30, !llvm.loop !8
 
@@ -25859,7 +25859,7 @@ _ZNSt12_Vector_baseIN12V3NumberData9ValueAndXESaIS1_EE13_M_deallocateEPS1_m.exit
   store ptr %32, ptr %0, align 8
   %43 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %33, i64 %1
   store ptr %43, ptr %4, align 8
-  %44 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %32, i64 %30
+  %44 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %32, i64 %30
   store ptr %44, ptr %11, align 8
   br label %45
 
@@ -25899,7 +25899,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData8isNumberEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = add i8 %3, -1
   %spec.select = icmp ult i8 %4, 2
@@ -25917,7 +25917,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZlsRSoRKN12V3NumberData16V3NumberDataTypeE, i64 0, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZlsRSoRKN12V3NumberData16V3NumberDataTypeE, i64 0, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %switch.load)
   br label %7
@@ -25929,7 +25929,7 @@ switch.lookup:                                    ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData8isStringEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = icmp eq i8 %3, 3
   ret i1 %4
@@ -25937,14 +25937,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK12V3NumberData8isStringEv(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode6dtypepEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 72
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK13AstBasicDType8isStringEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 164
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.sroa.0.0.copyload.i = load i8, ptr %2, align 4
   %3 = icmp eq i8 %.sroa.0.0.copyload.i, 12
   ret i1 %3
@@ -25952,7 +25952,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK13AstBasicDType8isStringEv
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i8 @_ZNK13AstBasicDType7keywordEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 164
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.sroa.0.0.copyload = load i8, ptr %2, align 4
   ret i8 %.sroa.0.0.copyload
 }
@@ -25970,7 +25970,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI13AstBas
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i, 53
   br label %5
@@ -25986,7 +25986,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI13AstBasicDType
   br i1 %.not, label %.critedge, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 64
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %.not6 = icmp eq i16 %.sroa.0.0.copyload.i.i, 53
   br i1 %.not6, label %.critedge, label %4
@@ -25997,7 +25997,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI13AstBasicDType
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.85)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.24)
@@ -26010,7 +26010,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI13AstBasicDType
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK13AstBasicDType8isDoubleEv(ptr noundef nonnull align 8 dereferenceable(184) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 164
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %.sroa.0.0.copyload.i = load i8, ptr %2, align 4
   %3 = icmp eq i8 %.sroa.0.0.copyload.i, 9
   ret i1 %3
@@ -26025,7 +26025,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZeqRK6VNTypeNS_2enE(ptr nound
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local i16 @_ZNK7AstNode4typeEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i16, ptr %2, align 8
   ret i16 %.sroa.0.0.copyload
 }
@@ -26035,10 +26035,10 @@ declare void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef nonnull align 8 dereferenceable(152) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 64
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -26052,7 +26052,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI13AstBas
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
+  %4 = getelementptr inbounds nuw [422 x ptr], ptr @_ZZNK6VNType5asciiEvE5names, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
   ret ptr %5
 }
@@ -26066,14 +26066,14 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK14VBasicDTypeKwd8isDoubleE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK12V3NumberData5widthEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK8V3Number8filelineEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 48
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
@@ -26117,63 +26117,63 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 define linkonce_odr dso_local void @_ZN14V3ErrorGuardedC2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %0, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 312, ptr null)
   store i8 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %3, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 314, ptr null)
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %5, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 315, ptr null)
   store i8 2, ptr %6, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 9
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %8 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %7, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 317, ptr null)
   store i8 0, ptr %8, align 1
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %9, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 319, ptr null)
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %10, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr null, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %10, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr %11, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %10, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %11, ptr %14, align 8
-  %15 = getelementptr inbounds i8, ptr %10, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i64 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %16, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 320, ptr null)
   store ptr null, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %19 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %18, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 322, ptr null)
   store i8 0, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 76
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %21 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %20, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 323, ptr null)
   store i32 0, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %22, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 324, ptr null)
   store i32 0, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 84
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %25 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %24, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 326, ptr null)
-  %26 = getelementptr inbounds i8, ptr %0, i64 203
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 203
   %27 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %26, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 327, ptr null)
   store i8 0, ptr %27, align 1
-  %28 = getelementptr inbounds i8, ptr %0, i64 204
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %29 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %28, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 329, ptr null)
-  %30 = getelementptr inbounds i8, ptr %0, i64 324
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 0, ptr %30, align 4
-  %31 = getelementptr inbounds i8, ptr %0, i64 328
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %32 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %31, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 331, ptr null)
   store i32 50, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 332
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %34 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %33, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 333, ptr null)
   store i8 1, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %0, i64 336
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %36 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %35, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 334, ptr null)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %36)
           to label %37 unwind label %40
 
 37:                                               ; preds = %1
-  %38 = getelementptr inbounds i8, ptr %0, i64 712
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 712
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, i8 0, i64 40, i1 false)
-  %39 = getelementptr inbounds i8, ptr %0, i64 728
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store i32 1, ptr %39, align 8
   ret void
 
@@ -26186,12 +26186,12 @@ define linkonce_odr dso_local void @_ZN14V3ErrorGuardedC2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14V3ErrorGuardedD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 336
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %3 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %2, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 334, ptr null)
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3) #30
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = tail call ptr @llvm.ptr.annotation.p0.p0(ptr nonnull %4, ptr nonnull @.str.508, ptr nonnull @.str.509, i32 319, ptr null)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7)
           to label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev.exit unwind label %8
@@ -26218,7 +26218,7 @@ declare ptr @llvm.ptr.annotation.p0.p0(ptr, ptr, ptr, i32, ptr) #24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EED2Ev.exit unwind label %4
@@ -26241,12 +26241,12 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.07 = phi ptr [ %6, %.lr.ph ], [ %1, %2 ]
-  %3 = getelementptr inbounds i8, ptr %.07, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.07, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %4)
-  %5 = getelementptr inbounds i8, ptr %.07, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %.07, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.07, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
   tail call void @_ZdlPv(ptr noundef nonnull %.07) #33
   %.not = icmp eq ptr %6, null
@@ -26258,7 +26258,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number8isNumberEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   %4 = add i8 %3, -1
   %spec.select = icmp ult i8 %4, 2
@@ -26267,23 +26267,23 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK8V3Number8isNumberEv(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i8 @_ZNK12V3NumberData4typeEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i8, ptr %2, align 4
   ret i8 %3
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = getelementptr inbounds i8, ptr %1, i64 32
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 36
-  %7 = getelementptr inbounds i8, ptr %1, i64 36
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %8 = load i8, ptr %7, align 4
   store i8 %8, ptr %6, align 4
-  %9 = getelementptr inbounds i8, ptr %0, i64 37
-  %10 = getelementptr inbounds i8, ptr %1, i64 37
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 37
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 37
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 1
   %13 = load i8, ptr %9, align 1
@@ -26325,72 +26325,71 @@ define linkonce_odr dso_local void @_ZN12V3NumberDataC2ERKS_(ptr noundef nonnull
 
 36:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
-  br label %67
+  br label %66
 
 37:                                               ; preds = %2
   %38 = icmp sgt i32 %31, 128
   %39 = icmp eq i8 %33, 1
   %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %41, label %64
+  br i1 %40, label %41, label %63
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %1, align 8
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
-  %48 = ashr exact i64 %47, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq ptr %43, %44
-  br i1 %.not.i.i.i.i.i, label %52, label %49
+  br i1 %.not.i.i.i.i.i, label %51, label %48
 
-49:                                               ; preds = %41
-  %50 = icmp ugt i64 %48, 1152921504606846975
-  br i1 %50, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i
+48:                                               ; preds = %41
+  %49 = icmp ugt i64 %47, 9223372036854775800
+  br i1 %49, label %.noexc.i.i.i, label %_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i
 
-.noexc.i.i.i:                                     ; preds = %49
+.noexc.i.i.i:                                     ; preds = %48
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #31
   unreachable
 
-_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %49
-  %51 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #32
-  br label %52
+_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i: ; preds = %48
+  %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %47) #32
+  br label %51
 
-52:                                               ; preds = %_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i, %41
-  %53 = phi ptr [ null, %41 ], [ %51, %_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i ]
-  store ptr %53, ptr %0, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %53, i64 %48
-  %56 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %55, ptr %56, align 8
-  %57 = load ptr, ptr %1, align 8
-  %58 = load ptr, ptr %42, align 8
-  %59 = ptrtoint ptr %58 to i64
-  %60 = ptrtoint ptr %57 to i64
-  %61 = sub i64 %59, %60
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %58, %57
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit, label %62
+51:                                               ; preds = %_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i, %41
+  %52 = phi ptr [ null, %41 ], [ %50, %_ZNSt16allocator_traitsISaIN12V3NumberData9ValueAndXEEE8allocateERS2_m.exit.i.i.i.i.i ]
+  store ptr %52, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %52, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %52, i64 %47
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %54, ptr %55, align 8
+  %56 = load ptr, ptr %1, align 8
+  %57 = load ptr, ptr %42, align 8
+  %58 = ptrtoint ptr %57 to i64
+  %59 = ptrtoint ptr %56 to i64
+  %60 = sub i64 %58, %59
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, %56
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit, label %61
 
-62:                                               ; preds = %52
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %53, ptr align 4 %57, i64 %61, i1 false)
+61:                                               ; preds = %51
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %52, ptr align 4 %56, i64 %60, i1 false)
   br label %_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit
 
-_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit: ; preds = %52, %62
-  %63 = getelementptr inbounds i8, ptr %53, i64 %61
-  store ptr %63, ptr %54, align 8
-  br label %67
+_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit: ; preds = %51, %61
+  %62 = getelementptr inbounds i8, ptr %52, i64 %60
+  store ptr %62, ptr %53, align 8
+  br label %66
 
-64:                                               ; preds = %37
-  %65 = icmp eq i8 %33, 3
-  br i1 %65, label %66, label %67
+63:                                               ; preds = %37
+  %64 = icmp eq i8 %33, 3
+  br i1 %64, label %65, label %66
 
-66:                                               ; preds = %64
+65:                                               ; preds = %63
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br label %67
+  br label %66
 
-67:                                               ; preds = %_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit, %66, %64, %36
+66:                                               ; preds = %_ZN12V3NumberData17initDynamicNumberIJRKSt6vectorINS_9ValueAndXESaIS2_EEEEEvDpOT_.exit, %65, %63, %36
   ret void
 }
 
@@ -26402,7 +26401,7 @@ declare noundef i32 @_ZNK9V3Options13debugSrcLevelERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9V3Options9availableEv(ptr noundef nonnull align 8 dereferenceable(1560) %0) #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 1558
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1558
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
   ret i1 %4

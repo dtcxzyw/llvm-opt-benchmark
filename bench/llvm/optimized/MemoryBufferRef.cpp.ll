@@ -22,7 +22,7 @@ define dso_local void @_ZN4llvm15MemoryBufferRefC2ERKNS_12MemoryBufferE(ptr noca
   store i64 %9, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call { ptr, i64 } %14(ptr noundef nonnull align 8 dereferenceable(24) %1) #1
   %16 = extractvalue { ptr, i64 } %15, 0

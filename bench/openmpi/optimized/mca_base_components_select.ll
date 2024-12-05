@@ -27,8 +27,8 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br label %11
 
 11:                                               ; preds = %6, %10
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
-  %13 = getelementptr inbounds i8, ptr %2, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.05159 = load volatile ptr, ptr %13, align 8
   %.not60 = icmp eq ptr %.05159, %12
   br i1 %.not60, label %._crit_edge, label %.lr.ph
@@ -36,9 +36,9 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
 .lr.ph:                                           ; preds = %11, %45
   %.05162 = phi ptr [ %.051, %45 ], [ %.05159, %11 ]
   %.05061 = phi i32 [ %.1, %45 ], [ -2147483648, %11 ]
-  %14 = getelementptr inbounds i8, ptr %.05162, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.05162, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 176
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   %19 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %1) #2
@@ -48,7 +48,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br i1 %19, label %21, label %45
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %15, i64 84
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %1, ptr noundef nonnull @.str.1, ptr noundef %0, ptr noundef nonnull %22) #2
   br label %45
 
@@ -56,7 +56,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br i1 %19, label %24, label %26
 
 24:                                               ; preds = %23
-  %25 = getelementptr inbounds i8, ptr %15, i64 84
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %0, ptr noundef nonnull %25) #2
   br label %26
 
@@ -78,7 +78,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br i1 %32, label %34, label %45
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds i8, ptr %15, i64 84
+  %35 = getelementptr inbounds nuw i8, ptr %15, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %1, ptr noundef nonnull @.str.3, ptr noundef %0, ptr noundef nonnull %35) #2
   br label %45
 
@@ -86,7 +86,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
   br i1 %32, label %37, label %40
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %15, i64 84
+  %38 = getelementptr inbounds nuw i8, ptr %15, i64 84
   %39 = load i32, ptr %8, align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %1, ptr noundef nonnull @.str.4, ptr noundef %0, ptr noundef nonnull %38, i32 noundef %39) #2
   br label %40
@@ -104,7 +104,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
 
 45:                                               ; preds = %26, %40, %43, %34, %33, %21, %20
   %.1 = phi i32 [ %.05061, %21 ], [ %.05061, %20 ], [ %.05061, %34 ], [ %.05061, %33 ], [ %41, %43 ], [ %.05061, %40 ], [ %.05061, %26 ]
-  %46 = getelementptr inbounds i8, ptr %.05162, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.05162, i64 16
   %.051 = load volatile ptr, ptr %46, align 8
   %.not = icmp eq ptr %.051, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
@@ -140,7 +140,7 @@ define range(i32 -13, 1) i32 @mca_base_select(ptr noundef %0, i32 noundef %1, pt
 
 57:                                               ; preds = %56
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 84
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 84
   call void (i32, ptr, ...) @opal_output(i32 noundef %1, ptr noundef nonnull @.str.6, ptr noundef %0, ptr noundef nonnull %59) #2
   br label %60
 

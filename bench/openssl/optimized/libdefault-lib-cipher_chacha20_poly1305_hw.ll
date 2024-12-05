@@ -18,19 +18,19 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal i32 @chacha20_poly1305_initkey(ptr noundef initializes((800, 816), (832, 840)) %bctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
-  %len = getelementptr inbounds i8, ptr %bctx, i64 800
-  %aad2 = getelementptr inbounds i8, ptr %bctx, i64 816
+  %len = getelementptr inbounds nuw i8, ptr %bctx, i64 800
+  %aad2 = getelementptr inbounds nuw i8, ptr %bctx, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len, i8 0, i64 16, i1 false)
   %bf.load = load i8, ptr %aad2, align 8
   %bf.clear4 = and i8 %bf.load, -4
   store i8 %bf.clear4, ptr %aad2, align 8
-  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
+  %tls_payload_length = getelementptr inbounds nuw i8, ptr %bctx, i64 832
   store i64 -1, ptr %tls_payload_length, align 8
-  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load6 = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load6, 2
   %tobool.not = icmp eq i8 %0, 0
-  %chacha8 = getelementptr inbounds i8, ptr %bctx, i64 192
+  %chacha8 = getelementptr inbounds nuw i8, ptr %bctx, i64 192
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -51,10 +51,10 @@ define internal range(i32 0, 2) i32 @chacha20_poly1305_aead_cipher(ptr noundef %
 entry:
   %storage.i = alloca [160 x i8], align 16
   %temp = alloca [16 x i8], align 16
-  %poly1305 = getelementptr inbounds i8, ptr %bctx, i64 504
-  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
+  %poly1305 = getelementptr inbounds nuw i8, ptr %bctx, i64 504
+  %tls_payload_length = getelementptr inbounds nuw i8, ptr %bctx, i64 832
   %0 = load i64, ptr %tls_payload_length, align 8
-  %mac_inited = getelementptr inbounds i8, ptr %bctx, i64 816
+  %mac_inited = getelementptr inbounds nuw i8, ptr %bctx, i64 816
   %bf.load = load i8, ptr %mac_inited, align 8
   %1 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %1, 0
@@ -73,26 +73,26 @@ if.then2:                                         ; preds = %if.then
 
 if.end:                                           ; preds = %if.then2
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %storage.i)
-  %add.ptr2.i = getelementptr inbounds i8, ptr %storage.i, i64 64
-  %add.ptr4.i = getelementptr inbounds i8, ptr %storage.i, i64 48
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %storage.i, i64 64
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %storage.i, i64 48
   %cmp.i = icmp ult i64 %0, 65
-  %counter.i = getelementptr inbounds i8, ptr %bctx, i64 416
+  %counter.i = getelementptr inbounds nuw i8, ptr %bctx, i64 416
   store i32 0, ptr %counter.i, align 8
-  %key.i = getelementptr inbounds i8, ptr %bctx, i64 384
+  %key.i = getelementptr inbounds nuw i8, ptr %bctx, i64 384
   br i1 %cmp.i, label %if.then.i, label %if.else44.i
 
 if.then.i:                                        ; preds = %if.end
   call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 128, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #7
   call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %storage.i) #7
-  %partial_len.i = getelementptr inbounds i8, ptr %bctx, i64 496
+  %partial_len.i = getelementptr inbounds nuw i8, ptr %bctx, i64 496
   store i32 0, ptr %partial_len.i, align 8
-  %tls_aad.i = getelementptr inbounds i8, ptr %bctx, i64 780
+  %tls_aad.i = getelementptr inbounds nuw i8, ptr %bctx, i64 780
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %add.ptr4.i, ptr noundef nonnull align 4 dereferenceable(16) %tls_aad.i, i64 16, i1 false)
-  %len12.i = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len12.i = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   store i64 13, ptr %len12.i, align 8
-  %text.i = getelementptr inbounds i8, ptr %bctx, i64 808
+  %text.i = getelementptr inbounds nuw i8, ptr %bctx, i64 808
   store i64 %0, ptr %text.i, align 8
-  %enc.i = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc.i = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load.i = load i8, ptr %enc.i, align 4
   %2 = and i8 %bf.load.i, 2
   %tobool.not.i = icmp eq i8 %2, 0
@@ -107,13 +107,13 @@ for.cond21.preheader.i:                           ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.body.i
   %i.0108.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.cond.preheader.i ]
-  %arrayidx16.i = getelementptr inbounds i8, ptr %in, i64 %i.0108.i
+  %arrayidx16.i = getelementptr inbounds nuw i8, ptr %in, i64 %i.0108.i
   %3 = load i8, ptr %arrayidx16.i, align 1
-  %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %i.0108.i
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 %i.0108.i
   %4 = load i8, ptr %arrayidx17.i, align 1
   %xor105.i = xor i8 %4, %3
   store i8 %xor105.i, ptr %arrayidx17.i, align 1
-  %arrayidx20.i = getelementptr inbounds i8, ptr %out, i64 %i.0108.i
+  %arrayidx20.i = getelementptr inbounds nuw i8, ptr %out, i64 %i.0108.i
   store i8 %xor105.i, ptr %arrayidx20.i, align 1
   %inc.i = add nuw nsw i64 %i.0108.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %0
@@ -121,12 +121,12 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 for.body24.i:                                     ; preds = %for.cond21.preheader.i, %for.body24.i
   %i.2110.i = phi i64 [ %inc34.i, %for.body24.i ], [ 0, %for.cond21.preheader.i ]
-  %arrayidx25.i = getelementptr inbounds i8, ptr %in, i64 %i.2110.i
+  %arrayidx25.i = getelementptr inbounds nuw i8, ptr %in, i64 %i.2110.i
   %5 = load i8, ptr %arrayidx25.i, align 1
-  %arrayidx26.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %i.2110.i
+  %arrayidx26.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 %i.2110.i
   %6 = load i8, ptr %arrayidx26.i, align 1
   %xor29103.i = xor i8 %6, %5
-  %arrayidx31.i = getelementptr inbounds i8, ptr %out, i64 %i.2110.i
+  %arrayidx31.i = getelementptr inbounds nuw i8, ptr %out, i64 %i.2110.i
   store i8 %xor29103.i, ptr %arrayidx31.i, align 1
   store i8 %5, ptr %arrayidx26.i, align 1
   %inc34.i = add nuw nsw i64 %i.2110.i, 1
@@ -136,10 +136,10 @@ for.body24.i:                                     ; preds = %for.cond21.preheade
 if.end.i:                                         ; preds = %for.body.i, %for.body24.i, %for.cond21.preheader.i, %for.cond.preheader.i
   %sub38.i = sub nsw i64 0, %0
   %and39.i = and i64 %sub38.i, 15
-  %add.ptr40.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %0
+  %add.ptr40.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 %0
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr40.i, i8 0, i64 %and39.i, i1 false)
   %add.i = add nuw nsw i64 %and39.i, %0
-  %add.ptr41.i = getelementptr inbounds i8, ptr %add.ptr2.i, i64 %add.i
+  %add.ptr41.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 %add.i
   %7 = add nuw nsw i64 %add.i, 32
   br label %if.end90.i
 
@@ -147,15 +147,15 @@ if.else44.i:                                      ; preds = %if.end
   call void @ChaCha20_ctr32(ptr noundef nonnull %storage.i, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %key.i, ptr noundef nonnull %counter.i) #7
   call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %storage.i) #7
   store i32 1, ptr %counter.i, align 8
-  %partial_len58.i = getelementptr inbounds i8, ptr %bctx, i64 496
+  %partial_len58.i = getelementptr inbounds nuw i8, ptr %bctx, i64 496
   store i32 0, ptr %partial_len58.i, align 8
-  %tls_aad59.i = getelementptr inbounds i8, ptr %bctx, i64 780
+  %tls_aad59.i = getelementptr inbounds nuw i8, ptr %bctx, i64 780
   call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tls_aad59.i, i64 noundef 16) #7
-  %len61.i = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len61.i = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   store i64 13, ptr %len61.i, align 8
-  %text64.i = getelementptr inbounds i8, ptr %bctx, i64 808
+  %text64.i = getelementptr inbounds nuw i8, ptr %bctx, i64 808
   store i64 %0, ptr %text64.i, align 8
-  %enc65.i = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc65.i = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load66.i = load i8, ptr %enc65.i, align 4
   %8 = and i8 %bf.load66.i, 2
   %tobool70.not.i = icmp eq i8 %8, 0
@@ -183,15 +183,15 @@ if.end90.i:                                       ; preds = %if.end85.i, %if.end
   %tohash.0.i = phi ptr [ %add.ptr4.i, %if.end.i ], [ %add.ptr2.i, %if.end85.i ]
   %ctr.0.i = phi ptr [ %add.ptr41.i, %if.end.i ], [ %add.ptr2.i, %if.end85.i ]
   %out.addr.0.i = getelementptr inbounds i8, ptr %out, i64 %0
-  %len91.i = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len91.i = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ctr.0.i, ptr noundef nonnull align 8 dereferenceable(16) %len91.i, i64 16, i1 false)
   call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tohash.0.i, i64 noundef %tohash_len.0.i) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %storage.i, i64 noundef %buf_len.0.i) #7
-  %enc93.i = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc93.i = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load94.i = load i8, ptr %enc93.i, align 4
   %9 = and i8 %bf.load94.i, 2
   %tobool98.not.i = icmp eq i8 %9, 0
-  %tag.i = getelementptr inbounds i8, ptr %bctx, i64 764
+  %tag.i = getelementptr inbounds nuw i8, ptr %bctx, i64 764
   %cond.i = select i1 %tobool98.not.i, ptr %tohash.0.i, ptr %tag.i
   call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %cond.i) #7
   store i64 -1, ptr %tls_payload_length, align 8
@@ -236,16 +236,16 @@ chacha20_poly1305_tls_cipher.exit:                ; preds = %if.then112.i, %if.t
   br label %return
 
 if.end5:                                          ; preds = %if.then
-  %counter = getelementptr inbounds i8, ptr %bctx, i64 416
+  %counter = getelementptr inbounds nuw i8, ptr %bctx, i64 416
   store i32 0, ptr %counter, align 8
-  %buf = getelementptr inbounds i8, ptr %bctx, i64 432
-  %key = getelementptr inbounds i8, ptr %bctx, i64 384
+  %buf = getelementptr inbounds nuw i8, ptr %bctx, i64 432
+  %key = getelementptr inbounds nuw i8, ptr %bctx, i64 384
   tail call void @ChaCha20_ctr32(ptr noundef nonnull %buf, ptr noundef nonnull @zero, i64 noundef 64, ptr noundef nonnull %key, ptr noundef nonnull %counter) #7
   tail call void @Poly1305_Init(ptr noundef nonnull %poly1305, ptr noundef nonnull %buf) #7
   store i32 1, ptr %counter, align 8
-  %partial_len = getelementptr inbounds i8, ptr %bctx, i64 496
+  %partial_len = getelementptr inbounds nuw i8, ptr %bctx, i64 496
   store i32 0, ptr %partial_len, align 8
-  %len = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len, i8 0, i64 16, i1 false)
   %bf.load21 = load i8, ptr %mac_inited, align 8
   %bf.set = or i8 %bf.load21, 2
@@ -253,7 +253,7 @@ if.end5:                                          ; preds = %if.then
   br i1 %cmp, label %if.then24, label %if.end33
 
 if.then24:                                        ; preds = %if.end5
-  %tls_aad = getelementptr inbounds i8, ptr %bctx, i64 780
+  %tls_aad = getelementptr inbounds nuw i8, ptr %bctx, i64 780
   tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %tls_aad, i64 noundef 13) #7
   store i64 13, ptr %len, align 8
   %bf.load29 = load i8, ptr %mac_inited, align 8
@@ -276,7 +276,7 @@ if.then35:                                        ; preds = %if.end33
 
 if.then37:                                        ; preds = %if.then35
   tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %in, i64 noundef %inl) #7
-  %len38 = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len38 = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   %11 = load i64, ptr %len38, align 8
   %add40 = add i64 %11, %inl
   store i64 %add40, ptr %len38, align 8
@@ -291,7 +291,7 @@ if.else:                                          ; preds = %if.then35
   br i1 %tobool49.not, label %if.end61, label %if.then50
 
 if.then50:                                        ; preds = %if.else
-  %len51 = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len51 = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   %12 = load i64, ptr %len51, align 8
   %rem53 = and i64 %12, 15
   %tobool54.not = icmp eq i64 %rem53, 0
@@ -321,18 +321,18 @@ if.else65:                                        ; preds = %if.end61
 
 if.end70:                                         ; preds = %if.end61, %if.else65
   %plen.1 = phi i64 [ %0, %if.else65 ], [ %inl, %if.end61 ]
-  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load71 = load i8, ptr %enc, align 4
   %13 = and i8 %bf.load71, 2
   %tobool75.not = icmp eq i8 %13, 0
-  %text96 = getelementptr inbounds i8, ptr %bctx, i64 808
+  %text96 = getelementptr inbounds nuw i8, ptr %bctx, i64 808
   br i1 %tobool75.not, label %if.else85, label %if.then76
 
 if.then76:                                        ; preds = %if.end70
-  %chacha77 = getelementptr inbounds i8, ptr %bctx, i64 192
-  %hw = getelementptr inbounds i8, ptr %bctx, i64 360
+  %chacha77 = getelementptr inbounds nuw i8, ptr %bctx, i64 192
+  %hw = getelementptr inbounds nuw i8, ptr %bctx, i64 360
   %14 = load ptr, ptr %hw, align 8
-  %cipher = getelementptr inbounds i8, ptr %14, i64 8
+  %cipher = getelementptr inbounds nuw i8, ptr %14, i64 8
   %15 = load ptr, ptr %cipher, align 8
   %call80 = tail call i32 %15(ptr noundef nonnull %chacha77, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.1) #7
   tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %out, i64 noundef %plen.1) #7
@@ -340,10 +340,10 @@ if.then76:                                        ; preds = %if.end70
 
 if.else85:                                        ; preds = %if.end70
   tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %in, i64 noundef %plen.1) #7
-  %chacha86 = getelementptr inbounds i8, ptr %bctx, i64 192
-  %hw88 = getelementptr inbounds i8, ptr %bctx, i64 360
+  %chacha86 = getelementptr inbounds nuw i8, ptr %bctx, i64 192
+  %hw88 = getelementptr inbounds nuw i8, ptr %bctx, i64 360
   %16 = load ptr, ptr %hw88, align 8
-  %cipher89 = getelementptr inbounds i8, ptr %16, i64 8
+  %cipher89 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %17 = load ptr, ptr %cipher89, align 8
   %call92 = tail call i32 %17(ptr noundef nonnull %chacha86, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef %plen.1) #7
   br label %if.end100
@@ -372,7 +372,7 @@ if.then103:                                       ; preds = %if.end100.if.then10
   br i1 %tobool108.not, label %if.end121, label %if.then109
 
 if.then109:                                       ; preds = %if.then103
-  %len110 = getelementptr inbounds i8, ptr %bctx, i64 800
+  %len110 = getelementptr inbounds nuw i8, ptr %bctx, i64 800
   %19 = load i64, ptr %len110, align 8
   %rem112 = and i64 %19, 15
   %tobool113.not = icmp eq i64 %rem112, 0
@@ -391,8 +391,8 @@ if.end116:                                        ; preds = %if.then114, %if.the
   br label %if.end121
 
 if.end121:                                        ; preds = %if.end116, %if.then103
-  %len122 = getelementptr inbounds i8, ptr %bctx, i64 800
-  %text123 = getelementptr inbounds i8, ptr %bctx, i64 808
+  %len122 = getelementptr inbounds nuw i8, ptr %bctx, i64 800
+  %text123 = getelementptr inbounds nuw i8, ptr %bctx, i64 808
   %20 = load i64, ptr %text123, align 8
   %rem124 = and i64 %20, 15
   %tobool125.not = icmp eq i64 %rem124, 0
@@ -405,11 +405,11 @@ if.then126:                                       ; preds = %if.end121
 
 if.end128:                                        ; preds = %if.then126, %if.end121
   tail call void @Poly1305_Update(ptr noundef nonnull %poly1305, ptr noundef nonnull %len122, i64 noundef 16) #7
-  %enc130 = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc130 = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load131 = load i8, ptr %enc130, align 4
   %21 = and i8 %bf.load131, 2
   %tobool135.not = icmp eq i8 %21, 0
-  %tag = getelementptr inbounds i8, ptr %bctx, i64 764
+  %tag = getelementptr inbounds nuw i8, ptr %bctx, i64 764
   %cond = select i1 %tobool135.not, ptr %temp, ptr %tag
   call void @Poly1305_Final(ptr noundef nonnull %poly1305, ptr noundef nonnull %cond) #7
   %bf.load139 = load i8, ptr %mac_inited, align 8
@@ -448,7 +448,7 @@ if.else164:                                       ; preds = %if.end128
   br i1 %tobool170.not, label %if.then171, label %err
 
 if.then171:                                       ; preds = %if.else164
-  %tag_len = getelementptr inbounds i8, ptr %bctx, i64 824
+  %tag_len = getelementptr inbounds nuw i8, ptr %bctx, i64 824
   %23 = load i64, ptr %tag_len, align 8
   %call175 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %temp, ptr noundef nonnull %tag, i64 noundef %23) #7
   %tobool176.not = icmp eq i32 %call175, 0
@@ -472,21 +472,21 @@ define internal i32 @chacha20_poly1305_initiv(ptr noundef initializes((800, 816)
 entry:
   %tempiv = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tempiv, i8 0, i64 16, i1 false)
-  %len = getelementptr inbounds i8, ptr %bctx, i64 800
-  %aad2 = getelementptr inbounds i8, ptr %bctx, i64 816
+  %len = getelementptr inbounds nuw i8, ptr %bctx, i64 800
+  %aad2 = getelementptr inbounds nuw i8, ptr %bctx, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %len, i8 0, i64 16, i1 false)
   %bf.load = load i8, ptr %aad2, align 8
   %bf.clear4 = and i8 %bf.load, -4
   store i8 %bf.clear4, ptr %aad2, align 8
-  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
+  %tls_payload_length = getelementptr inbounds nuw i8, ptr %bctx, i64 832
   store i64 -1, ptr %tls_payload_length, align 8
-  %add.ptr6 = getelementptr inbounds i8, ptr %tempiv, i64 4
+  %add.ptr6 = getelementptr inbounds nuw i8, ptr %tempiv, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr6, ptr noundef nonnull align 8 dereferenceable(12) %bctx, i64 12, i1 false)
-  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load8 = load i8, ptr %enc, align 4
   %0 = and i8 %bf.load8, 2
   %tobool.not = icmp eq i8 %0, 0
-  %chacha11 = getelementptr inbounds i8, ptr %bctx, i64 192
+  %chacha11 = getelementptr inbounds nuw i8, ptr %bctx, i64 192
   br i1 %tobool.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -499,17 +499,17 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.else, %if.then
   %ret.0 = phi i32 [ %call, %if.then ], [ %call13, %if.else ]
-  %arrayidx = getelementptr inbounds i8, ptr %bctx, i64 420
+  %arrayidx = getelementptr inbounds nuw i8, ptr %bctx, i64 420
   %1 = load i32, ptr %arrayidx, align 4
-  %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
+  %nonce = getelementptr inbounds nuw i8, ptr %bctx, i64 752
   store i32 %1, ptr %nonce, align 8
-  %arrayidx18 = getelementptr inbounds i8, ptr %bctx, i64 424
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %bctx, i64 424
   %2 = load i32, ptr %arrayidx18, align 8
-  %arrayidx20 = getelementptr inbounds i8, ptr %bctx, i64 756
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %bctx, i64 756
   store i32 %2, ptr %arrayidx20, align 4
-  %arrayidx23 = getelementptr inbounds i8, ptr %bctx, i64 428
+  %arrayidx23 = getelementptr inbounds nuw i8, ptr %bctx, i64 428
   %3 = load i32, ptr %arrayidx23, align 4
-  %arrayidx25 = getelementptr inbounds i8, ptr %bctx, i64 760
+  %arrayidx25 = getelementptr inbounds nuw i8, ptr %bctx, i64 760
   store i32 %3, ptr %arrayidx25, align 8
   %bf.load26 = load i8, ptr %enc, align 4
   %bf.set28 = or i8 %bf.load26, 4
@@ -524,17 +524,17 @@ entry:
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %tls_aad = getelementptr inbounds i8, ptr %bctx, i64 780
+  %tls_aad = getelementptr inbounds nuw i8, ptr %bctx, i64 780
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %tls_aad, ptr noundef nonnull align 1 dereferenceable(13) %aad, i64 13, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %aad, i64 11
+  %arrayidx = getelementptr inbounds nuw i8, ptr %aad, i64 11
   %0 = load i8, ptr %arrayidx, align 1
   %conv = zext i8 %0 to i32
   %shl = shl nuw nsw i32 %conv, 8
-  %arrayidx1 = getelementptr inbounds i8, ptr %aad, i64 12
+  %arrayidx1 = getelementptr inbounds nuw i8, ptr %aad, i64 12
   %1 = load i8, ptr %arrayidx1, align 1
   %conv2 = zext i8 %1 to i32
   %or = or disjoint i32 %shl, %conv2
-  %enc = getelementptr inbounds i8, ptr %bctx, i64 108
+  %enc = getelementptr inbounds nuw i8, ptr %bctx, i64 108
   %bf.load = load i8, ptr %enc, align 4
   %2 = and i8 %bf.load, 2
   %tobool.not = icmp eq i8 %2, 0
@@ -548,36 +548,36 @@ if.end9:                                          ; preds = %if.then5
   %sub = add nsw i32 %or, -16
   %shr = lshr i32 %sub, 8
   %conv10 = trunc nuw i32 %shr to i8
-  %arrayidx11 = getelementptr inbounds i8, ptr %bctx, i64 791
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %bctx, i64 791
   store i8 %conv10, ptr %arrayidx11, align 1
   %conv12 = trunc i32 %sub to i8
-  %arrayidx13 = getelementptr inbounds i8, ptr %bctx, i64 792
+  %arrayidx13 = getelementptr inbounds nuw i8, ptr %bctx, i64 792
   store i8 %conv12, ptr %arrayidx13, align 1
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end9, %if.end
   %len.0 = phi i32 [ %or, %if.end ], [ %sub, %if.end9 ]
   %conv15 = zext nneg i32 %len.0 to i64
-  %tls_payload_length = getelementptr inbounds i8, ptr %bctx, i64 832
+  %tls_payload_length = getelementptr inbounds nuw i8, ptr %bctx, i64 832
   store i64 %conv15, ptr %tls_payload_length, align 8
-  %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
+  %nonce = getelementptr inbounds nuw i8, ptr %bctx, i64 752
   %3 = load i32, ptr %nonce, align 8
-  %arrayidx17 = getelementptr inbounds i8, ptr %bctx, i64 420
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %bctx, i64 420
   store i32 %3, ptr %arrayidx17, align 4
-  %arrayidx19 = getelementptr inbounds i8, ptr %bctx, i64 756
+  %arrayidx19 = getelementptr inbounds nuw i8, ptr %bctx, i64 756
   %4 = load i32, ptr %arrayidx19, align 4
   %5 = load i32, ptr %tls_aad, align 1
   %xor = xor i32 %5, %4
-  %arrayidx36 = getelementptr inbounds i8, ptr %bctx, i64 424
+  %arrayidx36 = getelementptr inbounds nuw i8, ptr %bctx, i64 424
   store i32 %xor, ptr %arrayidx36, align 8
-  %arrayidx38 = getelementptr inbounds i8, ptr %bctx, i64 760
+  %arrayidx38 = getelementptr inbounds nuw i8, ptr %bctx, i64 760
   %6 = load i32, ptr %arrayidx38, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %bctx, i64 784
+  %add.ptr = getelementptr inbounds nuw i8, ptr %bctx, i64 784
   %7 = load i32, ptr %add.ptr, align 1
   %xor56 = xor i32 %7, %6
-  %arrayidx59 = getelementptr inbounds i8, ptr %bctx, i64 428
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %bctx, i64 428
   store i32 %xor56, ptr %arrayidx59, align 4
-  %mac_inited = getelementptr inbounds i8, ptr %bctx, i64 816
+  %mac_inited = getelementptr inbounds nuw i8, ptr %bctx, i64 816
   %bf.load60 = load i8, ptr %mac_inited, align 8
   %bf.clear61 = and i8 %bf.load60, -3
   store i8 %bf.clear61, ptr %mac_inited, align 8
@@ -597,53 +597,53 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i16, ptr %fixed, align 1
   %1 = zext i16 %0 to i32
-  %arrayidx3 = getelementptr inbounds i8, ptr %fixed, i64 2
+  %arrayidx3 = getelementptr inbounds nuw i8, ptr %fixed, i64 2
   %2 = load i8, ptr %arrayidx3, align 1
   %conv4 = zext i8 %2 to i32
   %shl5 = shl nuw nsw i32 %conv4, 16
   %or6 = or disjoint i32 %shl5, %1
-  %arrayidx7 = getelementptr inbounds i8, ptr %fixed, i64 3
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %fixed, i64 3
   %3 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %3 to i32
   %shl9 = shl nuw i32 %conv8, 24
   %or10 = or disjoint i32 %or6, %shl9
-  %arrayidx11 = getelementptr inbounds i8, ptr %bctx, i64 420
+  %arrayidx11 = getelementptr inbounds nuw i8, ptr %bctx, i64 420
   store i32 %or10, ptr %arrayidx11, align 4
-  %nonce = getelementptr inbounds i8, ptr %bctx, i64 752
+  %nonce = getelementptr inbounds nuw i8, ptr %bctx, i64 752
   store i32 %or10, ptr %nonce, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %fixed, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %fixed, i64 4
   %4 = load i16, ptr %add.ptr, align 1
   %5 = zext i16 %4 to i32
-  %arrayidx21 = getelementptr inbounds i8, ptr %fixed, i64 6
+  %arrayidx21 = getelementptr inbounds nuw i8, ptr %fixed, i64 6
   %6 = load i8, ptr %arrayidx21, align 1
   %conv22 = zext i8 %6 to i32
   %shl23 = shl nuw nsw i32 %conv22, 16
   %or24 = or disjoint i32 %shl23, %5
-  %arrayidx26 = getelementptr inbounds i8, ptr %fixed, i64 7
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %fixed, i64 7
   %7 = load i8, ptr %arrayidx26, align 1
   %conv27 = zext i8 %7 to i32
   %shl28 = shl nuw i32 %conv27, 24
   %or29 = or disjoint i32 %or24, %shl28
-  %arrayidx32 = getelementptr inbounds i8, ptr %bctx, i64 424
+  %arrayidx32 = getelementptr inbounds nuw i8, ptr %bctx, i64 424
   store i32 %or29, ptr %arrayidx32, align 8
-  %arrayidx34 = getelementptr inbounds i8, ptr %bctx, i64 756
+  %arrayidx34 = getelementptr inbounds nuw i8, ptr %bctx, i64 756
   store i32 %or29, ptr %arrayidx34, align 4
-  %add.ptr35 = getelementptr inbounds i8, ptr %fixed, i64 8
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %fixed, i64 8
   %8 = load i16, ptr %add.ptr35, align 1
   %9 = zext i16 %8 to i32
-  %arrayidx44 = getelementptr inbounds i8, ptr %fixed, i64 10
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %fixed, i64 10
   %10 = load i8, ptr %arrayidx44, align 1
   %conv45 = zext i8 %10 to i32
   %shl46 = shl nuw nsw i32 %conv45, 16
   %or47 = or disjoint i32 %shl46, %9
-  %arrayidx49 = getelementptr inbounds i8, ptr %fixed, i64 11
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %fixed, i64 11
   %11 = load i8, ptr %arrayidx49, align 1
   %conv50 = zext i8 %11 to i32
   %shl51 = shl nuw i32 %conv50, 24
   %or52 = or disjoint i32 %or47, %shl51
-  %arrayidx55 = getelementptr inbounds i8, ptr %bctx, i64 428
+  %arrayidx55 = getelementptr inbounds nuw i8, ptr %bctx, i64 428
   store i32 %or52, ptr %arrayidx55, align 4
-  %arrayidx57 = getelementptr inbounds i8, ptr %bctx, i64 760
+  %arrayidx57 = getelementptr inbounds nuw i8, ptr %bctx, i64 760
   store i32 %or52, ptr %arrayidx57, align 8
   br label %return
 

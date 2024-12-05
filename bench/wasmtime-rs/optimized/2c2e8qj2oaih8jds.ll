@@ -12,7 +12,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
 .lr.ph:                                           ; preds = %2, %.thread16
   %.022 = phi i32 [ %45, %.thread16 ], [ 5381, %2 ]
   %.sroa.0.021 = phi ptr [ %.sroa.0.1.ph19, %.thread16 ], [ %0, %2 ]
-  %5 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 1
   %6 = load i8, ptr %.sroa.0.021, align 1, !noalias !4, !noundef !7
   %7 = icmp sgt i8 %6, -1
   br i1 %7, label %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit13.i"
@@ -22,7 +22,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
   %9 = zext nneg i8 %8 to i32
   %10 = icmp ne ptr %5, %3
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 2
   %12 = load i8, ptr %5, align 1, !noalias !4, !noundef !7
   %13 = shl nuw nsw i32 %9, 6
   %14 = and i8 %12, 63
@@ -38,7 +38,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit13.i"
   %20 = icmp ne ptr %11, %3
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 3
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 3
   %22 = load i8, ptr %11, align 1, !noalias !4, !noundef !7
   %23 = shl nuw nsw i32 %15, 6
   %24 = and i8 %22, 63
@@ -52,7 +52,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN24cranelift_codegen_shared13cons
 30:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82b0a8bdb87aabf7E.exit15.i"
   %31 = icmp ne ptr %21, %3
   tail call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds i8, ptr %.sroa.0.021, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.021, i64 4
   %33 = load i8, ptr %21, align 1, !noalias !4, !noundef !7
   %34 = shl nuw nsw i32 %9, 18
   %35 = and i32 %34, 1835008

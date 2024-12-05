@@ -357,7 +357,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %7, label %140, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.84) #4
   %11 = load i32, ptr @proto_fcfcs, align 4
@@ -379,29 +379,29 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = and i32 %24, -16777216
   %27 = or disjoint i32 %26, %25
   store i32 %27, ptr %5, align 4
-  %28 = getelementptr inbounds i8, ptr %5, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i16, ptr %28, align 4
   %rev = call i16 @llvm.bswap.i16(i16 %29)
   store i16 %rev, ptr %28, align 4
   %30 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 8) #4
   %31 = zext i16 %30 to i32
-  %32 = getelementptr inbounds i8, ptr %5, i64 10
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %33 = load i16, ptr %32, align 2
   %rev178 = call i16 @llvm.bswap.i16(i16 %33)
   store i16 %rev178, ptr %32, align 2
   %34 = add i16 %30, 32765
   %or.cond = icmp ult i16 %34, -2
-  %35 = getelementptr inbounds i8, ptr %1, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %36 = load i32, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 208
-  %38 = getelementptr inbounds i8, ptr %1, i64 232
-  %39 = getelementptr inbounds i8, ptr %1, i64 280
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %40 = load i32, ptr %39, align 8
   %41 = call i32 @conversation_pt_to_conversation_type(i32 noundef %40) #4
-  %42 = getelementptr inbounds i8, ptr %3, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %43 = load i16, ptr %42, align 8
   %44 = zext i16 %43 to i32
-  %45 = getelementptr inbounds i8, ptr %3, i64 58
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 58
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
   %48 = call ptr @find_conversation(i32 noundef %36, ptr noundef nonnull %37, ptr noundef nonnull %38, i32 noundef %41, i32 noundef %44, i32 noundef %47, i32 noundef 131072) #4
@@ -424,7 +424,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 59:                                               ; preds = %50, %49
   %.0170 = phi ptr [ %48, %49 ], [ %58, %50 ]
-  %60 = getelementptr inbounds i8, ptr %.0170, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.0170, i64 24
   %61 = load i32, ptr %60, align 8
   store i32 %61, ptr %6, align 4
   %62 = load ptr, ptr @fcfcs_req_hash, align 8
@@ -469,7 +469,7 @@ define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %
   br label %140
 
 83:                                               ; preds = %76
-  %84 = getelementptr inbounds i8, ptr %48, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %85 = load i32, ptr %84, align 8
   store i32 %85, ptr %6, align 4
   %86 = load ptr, ptr @fcfcs_req_hash, align 8

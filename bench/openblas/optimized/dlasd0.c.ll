@@ -111,9 +111,9 @@ define void @dlasd0_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %68 = add nuw nsw i32 %67, %45
   %69 = add nuw nsw i32 %68, %45
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr inbounds i32, ptr %35, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %35, i64 %70
   %72 = zext nneg i32 %67 to i64
-  %73 = getelementptr inbounds i32, ptr %35, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %35, i64 %72
   call void @dlasdt_(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %19, ptr noundef %9, ptr noundef nonnull %71, ptr noundef nonnull %73, ptr noundef nonnull %8) #3
   %74 = load i32, ptr %19, align 4, !tbaa !3
   %75 = add nsw i32 %74, 1

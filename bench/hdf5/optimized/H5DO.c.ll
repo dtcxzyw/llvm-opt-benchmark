@@ -67,7 +67,7 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
 
 30:                                               ; preds = %27
   %31 = zext i32 %2 to i64
-  %32 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, %3
   store i64 %34, ptr %32, align 8
@@ -90,15 +90,15 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
 
 .preheader:                                       ; preds = %.preheader.preheader, %50
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %50 ]
-  %42 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %indvars.iv
   store i64 0, ptr %42, align 8
-  %43 = getelementptr inbounds [32 x i64], ptr %11, i64 0, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [32 x i64], ptr %11, i64 0, i64 %indvars.iv
   store i64 1, ptr %43, align 8
-  %44 = getelementptr inbounds [32 x i64], ptr %7, i64 0, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [32 x i64], ptr %7, i64 0, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8
-  %46 = getelementptr inbounds [32 x i64], ptr %10, i64 0, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [32 x i64], ptr %10, i64 0, i64 %indvars.iv
   store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds [32 x i64], ptr %12, i64 0, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [32 x i64], ptr %12, i64 0, i64 %indvars.iv
   store i64 1, ptr %47, align 8
   %48 = icmp eq i64 %indvars.iv, %31
   br i1 %48, label %49, label %50
@@ -147,13 +147,13 @@ define range(i32 -1, 1) i32 @H5DOappend(i64 noundef %0, i64 noundef %1, i32 noun
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %66
-  %72 = getelementptr inbounds i64, ptr %68, i64 %31
+  %72 = getelementptr inbounds nuw i64, ptr %68, i64 %31
   %73 = load i64, ptr %72, align 8
   %.not91 = icmp eq i64 %73, 0
   br i1 %.not91, label %.critedge, label %74
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %31
+  %75 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %31
   %76 = load i64, ptr %75, align 8
   %77 = load i64, ptr %32, align 8
   br label %78

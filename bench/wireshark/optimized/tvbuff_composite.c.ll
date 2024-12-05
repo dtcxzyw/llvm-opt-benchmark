@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @tvb_new_composite() local_unnamed_addr #0 {
   %1 = tail call ptr @tvb_new(ptr noundef nonnull @tvb_composite_ops) #7
-  %2 = getelementptr inbounds i8, ptr %1, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %1, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret ptr %1
 }
@@ -36,7 +36,7 @@ define void @tvb_composite_append(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not14 = icmp eq i32 %5, 0
   br i1 %.not14, label %7, label %6
@@ -46,7 +46,7 @@ define void @tvb_composite_append(ptr noundef %0, ptr noundef %1) local_unnamed_
   unreachable
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @tvb_composite_ops
   br i1 %10, label %12, label %11
@@ -60,17 +60,17 @@ define void @tvb_composite_append(ptr noundef %0, ptr noundef %1) local_unnamed_
   br i1 %.not15, label %24, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %14, align 8
   %.not16 = icmp eq i32 %15, 0
   br i1 %.not16, label %24, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @g_slist_append(ptr noundef %18, ptr noundef nonnull %1) #7
   store ptr %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %21, null
   br i1 %.not17, label %22, label %24
@@ -97,7 +97,7 @@ define hidden void @tvb_composite_prepend(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not, label %6, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not14 = icmp eq i32 %5, 0
   br i1 %.not14, label %7, label %6
@@ -107,7 +107,7 @@ define hidden void @tvb_composite_prepend(ptr noundef %0, ptr noundef %1) local_
   unreachable
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, @tvb_composite_ops
   br i1 %10, label %12, label %11
@@ -121,17 +121,17 @@ define hidden void @tvb_composite_prepend(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not15, label %24, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %1, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %14, align 8
   %.not16 = icmp eq i32 %15, 0
   br i1 %.not16, label %24, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @g_slist_prepend(ptr noundef %18, ptr noundef nonnull %1) #7
   store ptr %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not17 = icmp eq ptr %21, null
   br i1 %.not17, label %22, label %24
@@ -153,7 +153,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %5, label %2
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not38 = icmp eq i32 %4, 0
   br i1 %.not38, label %6, label %5
@@ -163,7 +163,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, @tvb_composite_ops
   br i1 %9, label %11, label %10
@@ -173,7 +173,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %16, label %15
@@ -183,7 +183,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 16:                                               ; preds = %11
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %21, label %20
@@ -193,7 +193,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load i32, ptr %22, align 8
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %26, label %25
@@ -203,7 +203,7 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 @g_slist_length(ptr noundef %28) #7
   %.not39 = icmp eq i32 %29, 0
@@ -216,10 +216,10 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %26
   %32 = zext i32 %29 to i64
   %33 = tail call noalias ptr @g_malloc_n(i64 noundef %32, i64 noundef 4) #9
-  %34 = getelementptr inbounds i8, ptr %0, i64 64
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %33, ptr %34, align 8
   %35 = tail call noalias ptr @g_malloc_n(i64 noundef %32, i64 noundef 4) #9
-  %36 = getelementptr inbounds i8, ptr %0, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %35, ptr %36, align 8
   %.03541 = load ptr, ptr %27, align 8
   %.not4042 = icmp eq ptr %.03541, null
@@ -242,16 +242,16 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %42 = sext i32 %.043 to i64
   %43 = getelementptr i32, ptr %41, i64 %42
   store i32 %40, ptr %43, align 4
-  %44 = getelementptr inbounds i8, ptr %39, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = add i32 %40, %45
   store i32 %46, ptr %12, align 8
-  %47 = getelementptr inbounds i8, ptr %39, i64 44
+  %47 = getelementptr inbounds nuw i8, ptr %39, i64 44
   %48 = load i32, ptr %47, align 4
   %49 = load i32, ptr %17, align 4
   %50 = add i32 %49, %48
   store i32 %50, ptr %17, align 4
-  %51 = getelementptr inbounds i8, ptr %39, i64 48
+  %51 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %52 = load i32, ptr %51, align 8
   %53 = load i32, ptr %22, align 8
   %54 = add i32 %53, %52
@@ -261,14 +261,14 @@ define void @tvb_composite_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %57 = getelementptr i32, ptr %56, i64 %42
   store i32 %55, ptr %57, align 4
   %58 = add i32 %.043, 1
-  %59 = getelementptr inbounds i8, ptr %.03544, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.03544, i64 8
   %.035 = load ptr, ptr %59, align 8
   %.not40 = icmp eq ptr %.035, null
   br i1 %.not40, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %38, %31
   store i32 1, ptr %3, align 8
-  %60 = getelementptr inbounds i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %0, ptr %60, align 8
   ret void
 }
@@ -280,16 +280,16 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @composite_free(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @g_slist_free(ptr noundef %3) #7
-  %4 = getelementptr inbounds i8, ptr %0, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #7
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   tail call void @g_free(ptr noundef %7) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #7
   ret void
@@ -302,14 +302,14 @@ define internal noundef i32 @composite_offset(ptr nocapture readnone %0, i32 nou
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_slist_length(ptr noundef %5) #7
   %.not44 = icmp eq i32 %6, 0
   br i1 %.not44, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %wide.trip.count = zext i32 %6 to i64
   br label %9
@@ -335,7 +335,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not37, label %.thread, label %23
 
 .thread:                                          ; preds = %12, %3, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %1, %19
   %21 = icmp eq i32 %2, 0
@@ -347,7 +347,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   unreachable
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %0, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = and i64 %indvars.iv, 4294967295
   %27 = getelementptr i32, ptr %25, i64 %26
@@ -358,7 +358,7 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   br i1 %.not38, label %37, label %31
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8
   %.not39 = icmp eq ptr %33, null
   br i1 %.not39, label %35, label %34
@@ -372,14 +372,14 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
   br label %48
 
 37:                                               ; preds = %23
-  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
   %41 = tail call noalias ptr @g_malloc(i64 noundef %40) #10
   %42 = load i32, ptr %38, align 8
   %43 = zext i32 %42 to i64
   %44 = tail call ptr @tvb_memcpy(ptr noundef nonnull %0, ptr noundef %41, i32 noundef 0, i64 noundef %43) #7
-  %45 = getelementptr inbounds i8, ptr %0, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %41, ptr %45, align 8
   %46 = zext i32 %1 to i64
   %47 = getelementptr i8, ptr %41, i64 %46
@@ -392,15 +392,15 @@ define internal ptr @composite_get_ptr(ptr noundef %0, i32 noundef %1, i32 nound
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @g_slist_length(ptr noundef %6) #7
   %.not118 = icmp eq i32 %7, 0
   br i1 %.not118, label %.thread, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
-  %9 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse
@@ -440,7 +440,7 @@ define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr nou
   %.tr6181 = phi i32 [ %3, %4 ], [ %.tr61110, %15 ], [ %46, %tailrecurse ], [ %.tr61110, %16 ]
   %ret.tr76 = phi ptr [ poison, %4 ], [ %ret.tr111, %15 ], [ %current.ret.tr, %tailrecurse ], [ %ret.tr111, %16 ]
   %ret.known.tr70 = phi i1 [ false, %4 ], [ %ret.known.tr112, %15 ], [ true, %tailrecurse ], [ %ret.known.tr112, %16 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %.tr6086, %22
   %24 = icmp eq i32 %.tr6181, 0
@@ -462,7 +462,7 @@ define internal ptr @composite_memcpy(ptr nocapture noundef readonly %0, ptr nou
   br i1 %.not53, label %40, label %33
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load ptr, ptr %34, align 8
   %.not56 = icmp eq ptr %35, null
   br i1 %.not56, label %37, label %36

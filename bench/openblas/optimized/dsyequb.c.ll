@@ -103,13 +103,13 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
 
 57:                                               ; preds = %54
   %58 = mul nsw i64 %55, %49
-  %59 = getelementptr inbounds double, ptr %17, i64 %55
+  %59 = getelementptr inbounds nuw double, ptr %17, i64 %55
   %60 = getelementptr double, ptr %16, i64 %58
   br label %61
 
 61:                                               ; preds = %61, %57
   %62 = phi i64 [ 1, %57 ], [ %86, %61 ]
-  %63 = getelementptr inbounds double, ptr %17, i64 %62
+  %63 = getelementptr inbounds nuw double, ptr %17, i64 %62
   %64 = load double, ptr %63, align 8, !tbaa !7
   %65 = getelementptr double, ptr %60, i64 %62
   %66 = load double, ptr %65, align 8, !tbaa !7
@@ -140,7 +140,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   br i1 %87, label %.loopexit39, label %61, !llvm.loop !9
 
 .loopexit39:                                      ; preds = %61, %54
-  %88 = getelementptr inbounds double, ptr %17, i64 %55
+  %88 = getelementptr inbounds nuw double, ptr %17, i64 %55
   %89 = load double, ptr %88, align 8, !tbaa !7
   %90 = trunc i64 %55 to i32
   %91 = mul i32 %51, %90
@@ -179,7 +179,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %115 = phi i64 [ 1, %109 ], [ %137, %.loopexit37 ]
   %116 = phi i32 [ 2, %109 ], [ %112, %.loopexit37 ]
   %117 = trunc i64 %115 to i32
-  %118 = getelementptr inbounds double, ptr %17, i64 %115
+  %118 = getelementptr inbounds nuw double, ptr %17, i64 %115
   %119 = load double, ptr %118, align 8, !tbaa !7
   %120 = mul nsw i32 %13, %117
   %121 = sext i32 %120 to i64
@@ -249,7 +249,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
 
 169:                                              ; preds = %169, %.loopexit38
   %170 = phi i64 [ 1, %.loopexit38 ], [ %174, %169 ]
-  %171 = getelementptr inbounds double, ptr %17, i64 %170
+  %171 = getelementptr inbounds nuw double, ptr %17, i64 %170
   %172 = load double, ptr %171, align 8, !tbaa !7
   %173 = fdiv double 1.000000e+00, %172
   store double %173, ptr %171, align 8, !tbaa !7
@@ -290,14 +290,14 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   br i1 %192, label %193, label %..loopexit29_crit_edge
 
 ..loopexit29_crit_edge:                           ; preds = %.preheader83
-  %.phi.trans.insert = getelementptr inbounds double, ptr %18, i64 %191
+  %.phi.trans.insert = getelementptr inbounds nuw double, ptr %18, i64 %191
   %.pre62 = load double, ptr %.phi.trans.insert, align 8, !tbaa !7
   br label %.loopexit29
 
 193:                                              ; preds = %.preheader83
   %194 = mul nsw i64 %191, %182
-  %195 = getelementptr inbounds double, ptr %17, i64 %191
-  %196 = getelementptr inbounds double, ptr %18, i64 %191
+  %195 = getelementptr inbounds nuw double, ptr %17, i64 %191
+  %196 = getelementptr inbounds nuw double, ptr %18, i64 %191
   %197 = getelementptr double, ptr %16, i64 %194
   br label %198
 
@@ -309,7 +309,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %203 = fneg double %201
   %204 = select i1 %202, double %201, double %203
   %205 = load double, ptr %195, align 8, !tbaa !7
-  %206 = getelementptr inbounds double, ptr %18, i64 %199
+  %206 = getelementptr inbounds nuw double, ptr %18, i64 %199
   %207 = load double, ptr %206, align 8, !tbaa !7
   %208 = call double @llvm.fmuladd.f64(double %204, double %205, double %207)
   store double %208, ptr %206, align 8, !tbaa !7
@@ -317,7 +317,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %210 = fcmp oge double %209, 0.000000e+00
   %211 = fneg double %209
   %212 = select i1 %210, double %209, double %211
-  %213 = getelementptr inbounds double, ptr %17, i64 %199
+  %213 = getelementptr inbounds nuw double, ptr %17, i64 %199
   %214 = load double, ptr %213, align 8, !tbaa !7
   %215 = load double, ptr %196, align 8, !tbaa !7
   %216 = call double @llvm.fmuladd.f64(double %212, double %214, double %215)
@@ -336,9 +336,9 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %225 = fcmp oge double %224, 0.000000e+00
   %226 = fneg double %224
   %227 = select i1 %225, double %224, double %226
-  %228 = getelementptr inbounds double, ptr %17, i64 %191
+  %228 = getelementptr inbounds nuw double, ptr %17, i64 %191
   %229 = load double, ptr %228, align 8, !tbaa !7
-  %230 = getelementptr inbounds double, ptr %18, i64 %191
+  %230 = getelementptr inbounds nuw double, ptr %18, i64 %191
   %231 = call double @llvm.fmuladd.f64(double %227, double %229, double %219)
   store double %231, ptr %230, align 8, !tbaa !7
   %232 = add nuw nsw i64 %191, 1
@@ -365,9 +365,9 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %244 = fcmp oge double %243, 0.000000e+00
   %245 = fneg double %243
   %246 = select i1 %244, double %243, double %245
-  %247 = getelementptr inbounds double, ptr %17, i64 %236
+  %247 = getelementptr inbounds nuw double, ptr %17, i64 %236
   %248 = load double, ptr %247, align 8, !tbaa !7
-  %249 = getelementptr inbounds double, ptr %18, i64 %236
+  %249 = getelementptr inbounds nuw double, ptr %18, i64 %236
   %250 = load double, ptr %249, align 8, !tbaa !7
   %251 = call double @llvm.fmuladd.f64(double %246, double %248, double %250)
   store double %251, ptr %249, align 8, !tbaa !7
@@ -410,9 +410,9 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
 .loopexit34:                                      ; preds = %.loopexit34.preheader, %.loopexit34
   %278 = phi i64 [ %285, %.loopexit34 ], [ 1, %.loopexit34.preheader ]
   %279 = phi double [ %284, %.loopexit34 ], [ 0.000000e+00, %.loopexit34.preheader ]
-  %280 = getelementptr inbounds double, ptr %17, i64 %278
+  %280 = getelementptr inbounds nuw double, ptr %17, i64 %278
   %281 = load double, ptr %280, align 8, !tbaa !7
-  %282 = getelementptr inbounds double, ptr %18, i64 %278
+  %282 = getelementptr inbounds nuw double, ptr %18, i64 %278
   %283 = load double, ptr %282, align 8, !tbaa !7
   %284 = call double @llvm.fmuladd.f64(double %281, double %283, double %279)
   %285 = add nuw nsw i64 %278, 1
@@ -490,14 +490,14 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %332 = fcmp oge double %331, 0.000000e+00
   %333 = fneg double %331
   %334 = select i1 %332, double %331, double %333
-  %335 = getelementptr inbounds double, ptr %17, i64 %323
+  %335 = getelementptr inbounds nuw double, ptr %17, i64 %323
   %336 = load double, ptr %335, align 8, !tbaa !7
   %337 = add nsw i32 %321, -1
   %338 = sitofp i32 %337 to double
   %339 = fmul double %334, %338
   %340 = add nsw i32 %321, -2
   %341 = sitofp i32 %340 to double
-  %342 = getelementptr inbounds double, ptr %18, i64 %323
+  %342 = getelementptr inbounds nuw double, ptr %18, i64 %323
   %343 = load double, ptr %342, align 8, !tbaa !7
   %344 = fneg double %334
   %345 = call double @llvm.fmuladd.f64(double %344, double %336, double %343)
@@ -540,10 +540,10 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %373 = fcmp oge double %372, 0.000000e+00
   %374 = fneg double %372
   %375 = select i1 %373, double %372, double %374
-  %376 = getelementptr inbounds double, ptr %17, i64 %369
+  %376 = getelementptr inbounds nuw double, ptr %17, i64 %369
   %377 = load double, ptr %376, align 8, !tbaa !7
   %378 = call double @llvm.fmuladd.f64(double %377, double %375, double %370)
-  %379 = getelementptr inbounds double, ptr %18, i64 %369
+  %379 = getelementptr inbounds nuw double, ptr %18, i64 %369
   %380 = load double, ptr %379, align 8, !tbaa !7
   %381 = call double @llvm.fmuladd.f64(double %365, double %375, double %380)
   store double %381, ptr %379, align 8, !tbaa !7
@@ -590,10 +590,10 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %412 = fcmp oge double %411, 0.000000e+00
   %413 = fneg double %411
   %414 = select i1 %412, double %411, double %413
-  %415 = getelementptr inbounds double, ptr %17, i64 %407
+  %415 = getelementptr inbounds nuw double, ptr %17, i64 %407
   %416 = load double, ptr %415, align 8, !tbaa !7
   %417 = call double @llvm.fmuladd.f64(double %416, double %414, double %408)
-  %418 = getelementptr inbounds double, ptr %18, i64 %407
+  %418 = getelementptr inbounds nuw double, ptr %18, i64 %407
   %419 = load double, ptr %418, align 8, !tbaa !7
   %420 = call double @llvm.fmuladd.f64(double %365, double %414, double %419)
   store double %420, ptr %418, align 8, !tbaa !7
@@ -675,7 +675,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef read
   %476 = phi i64 [ 1, %472 ], [ %510, %.loopexit ]
   %477 = phi double [ 0.000000e+00, %472 ], [ %509, %.loopexit ]
   %478 = phi double [ %464, %472 ], [ %507, %.loopexit ]
-  %479 = getelementptr inbounds double, ptr %17, i64 %476
+  %479 = getelementptr inbounds nuw double, ptr %17, i64 %476
   %480 = load double, ptr %479, align 8, !tbaa !7
   %481 = fmul double %466, %480
   %482 = call double @log(double noundef %481) #7

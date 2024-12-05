@@ -47,10 +47,10 @@ new_read_passphrase.exit.thread:                  ; preds = %11, %17
   br label %21
 
 new_read_passphrase.exit:                         ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 2104
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %19 = load ptr, ptr %18, align 8
   store ptr %12, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %12, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %20, ptr %18, align 8
   store ptr null, ptr %20, align 8
   br label %21
@@ -71,9 +71,9 @@ define dso_local range(i32 -30, 1) i32 @archive_read_set_passphrase_callback(ptr
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 2120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2120
   store ptr %2, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 2128
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2128
   store ptr %1, ptr %8, align 8
   br label %9
 
@@ -84,15 +84,15 @@ define dso_local range(i32 -30, 1) i32 @archive_read_set_passphrase_callback(ptr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @__archive_read_reset_passphrase(ptr nocapture noundef writeonly initializes((2112, 2116)) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   store i32 -1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @__archive_read_next_passphrase(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2096
-  %3 = getelementptr inbounds i8, ptr %0, i64 2112
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2096
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %.preheader, label %8
@@ -106,7 +106,7 @@ define dso_local ptr @__archive_read_next_passphrase(ptr noundef %0) local_unnam
   %.03554 = phi ptr [ %.035, %.lr.ph ], [ %.03551, %.preheader ]
   %.053 = phi i32 [ %6, %.lr.ph ], [ 0, %.preheader ]
   %6 = add nuw nsw i32 %.053, 1
-  %7 = getelementptr inbounds i8, ptr %.03554, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.03554, i64 8
   %.035 = load ptr, ptr %7, align 8
   %.not42 = icmp eq ptr %.035, null
   br i1 %.not42, label %._crit_edge, label %.lr.ph, !llvm.loop !5
@@ -128,16 +128,16 @@ define dso_local ptr @__archive_read_next_passphrase(ptr noundef %0) local_unnam
   br i1 %.not.i, label %remove_passphrases_from_head.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %2, align 8
   br label %remove_passphrases_from_head.exit
 
 remove_passphrases_from_head.exit:                ; preds = %10, %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 2104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %17 = load ptr, ptr %16, align 8
   store ptr %12, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %18, ptr %16, align 8
   store ptr null, ptr %18, align 8
   %.1.pre = load ptr, ptr %2, align 8
@@ -150,14 +150,14 @@ remove_passphrases_from_head.exit:                ; preds = %10, %13
 21:                                               ; preds = %19
   store i32 0, ptr %3, align 8
   %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %.thread, label %remove_passphrases_from_head.exit47
 
 remove_passphrases_from_head.exit47:              ; preds = %21
   store ptr %24, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 2104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %26 = load ptr, ptr %25, align 8
   store ptr %22, ptr %26, align 8
   store ptr %23, ptr %25, align 8
@@ -174,13 +174,13 @@ remove_passphrases_from_head.exit47:              ; preds = %21
   br label %49
 
 .thread:                                          ; preds = %19, %21, %remove_passphrases_from_head.exit47, %27
-  %30 = getelementptr inbounds i8, ptr %0, i64 2120
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2120
   %31 = load ptr, ptr %30, align 8
   %.not44 = icmp eq ptr %31, null
   br i1 %.not44, label %49, label %32
 
 32:                                               ; preds = %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 2128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 2128
   %34 = load ptr, ptr %33, align 8
   %35 = tail call ptr %31(ptr noundef nonnull %0, ptr noundef %34) #6
   %.not45 = icmp eq ptr %35, null
@@ -207,10 +207,10 @@ new_read_passphrase.exit.thread:                  ; preds = %36, %42
 
 new_read_passphrase.exit:                         ; preds = %39
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds i8, ptr %37, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store ptr %43, ptr %44, align 8
   store ptr %37, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 2104
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %2, %46
   br i1 %47, label %48, label %insert_passphrase_to_head.exit

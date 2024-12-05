@@ -1326,7 +1326,7 @@ declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @dissect_h265_unescap_nal_unit(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 2, 4) %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %2) #8
-  %5 = getelementptr inbounds i8, ptr %1, i64 408
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %4 to i64
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef %7) #8
@@ -2922,7 +2922,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_h265(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.628) #8
   %7 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef 0, i32 noundef 0) #8
@@ -3200,7 +3200,7 @@ define internal i32 @dissect_h265_bytestream(ptr noundef %0, ptr noundef %1, ptr
   br i1 %14, label %.loopexit47, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void @col_set_str(ptr noundef %17, i32 noundef 34, ptr noundef nonnull @.str.628) #8
   %18 = load ptr, ptr %16, align 8
@@ -3340,43 +3340,43 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %40 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %39, ptr noundef %1, i32 noundef %38, i32 noundef 1, i32 noundef 0) #8
   %41 = add i32 %21, 36
   %42 = load i32, ptr %5, align 4
-  %43 = getelementptr inbounds i8, ptr %8, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %44 = load i32, ptr %43, align 16
   %45 = icmp ne i32 %44, 0
   %46 = and i32 %42, -2
   %47 = icmp eq i32 %46, 4
   %or.cond4 = select i1 %47, i1 true, i1 %45
-  %48 = getelementptr inbounds i8, ptr %8, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %49 = load i32, ptr %48, align 4
   %50 = icmp ne i32 %49, 0
   %or.cond7 = select i1 %or.cond4, i1 true, i1 %50
   %51 = icmp eq i32 %42, 6
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %51
-  %52 = getelementptr inbounds i8, ptr %8, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = icmp ne i32 %53, 0
   %or.cond12 = select i1 %or.cond9, i1 true, i1 %54
   %55 = icmp eq i32 %42, 7
   %or.cond14 = select i1 %or.cond12, i1 true, i1 %55
-  %56 = getelementptr inbounds i8, ptr %8, i64 28
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %57 = load i32, ptr %56, align 4
   %58 = icmp ne i32 %57, 0
   %or.cond17 = select i1 %or.cond14, i1 true, i1 %58
   %59 = icmp eq i32 %42, 8
   %or.cond19 = select i1 %or.cond17, i1 true, i1 %59
-  %60 = getelementptr inbounds i8, ptr %8, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %61 = load i32, ptr %60, align 16
   %62 = icmp ne i32 %61, 0
   %or.cond22 = select i1 %or.cond19, i1 true, i1 %62
   %63 = icmp eq i32 %42, 9
   %or.cond24 = select i1 %or.cond22, i1 true, i1 %63
-  %64 = getelementptr inbounds i8, ptr %8, i64 36
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %65 = load i32, ptr %64, align 4
   %66 = icmp ne i32 %65, 0
   %or.cond27 = select i1 %or.cond24, i1 true, i1 %66
   %67 = icmp eq i32 %42, 10
   %or.cond29 = select i1 %or.cond27, i1 true, i1 %67
-  %68 = getelementptr inbounds i8, ptr %8, i64 40
+  %68 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %69 = load i32, ptr %68, align 8
   %70 = icmp ne i32 %69, 0
   %or.cond32 = select i1 %or.cond29, i1 true, i1 %70
@@ -3436,7 +3436,7 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
 
 112:                                              ; preds = %28
   %113 = icmp eq i32 %42, 2
-  %114 = getelementptr inbounds i8, ptr %8, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %115 = load i32, ptr %114, align 8
   %116 = icmp ne i32 %115, 0
   %or.cond48 = select i1 %113, i1 true, i1 %116
@@ -3465,15 +3465,15 @@ define internal fastcc range(i32 -268435456, 268435456) i32 @dissect_h265_profil
   %or.cond50 = icmp ult i32 %131, 5
   %132 = icmp eq i32 %130, 9
   %or.cond52 = or i1 %132, %or.cond50
-  %133 = getelementptr inbounds i8, ptr %8, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = icmp ne i32 %134, 0
   %or.cond55 = select i1 %or.cond52, i1 true, i1 %135
-  %136 = getelementptr inbounds i8, ptr %8, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %137 = load i32, ptr %136, align 8
   %138 = icmp ne i32 %137, 0
   %or.cond58 = select i1 %or.cond55, i1 true, i1 %138
-  %139 = getelementptr inbounds i8, ptr %8, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %140 = load i32, ptr %139, align 4
   %141 = icmp ne i32 %140, 0
   %or.cond61 = select i1 %or.cond58, i1 true, i1 %141
@@ -3821,7 +3821,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
 12:                                               ; preds = %10, %6
   %.0 = phi ptr [ %11, %10 ], [ null, %6 ]
   %cond = icmp eq i32 %5, 2
-  %13 = getelementptr inbounds i8, ptr %.0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %14 = load i32, ptr %13, align 8
   br i1 %cond, label %15, label %20
 
@@ -3830,7 +3830,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %16, label %25, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %.0, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.660, ptr noundef nonnull @.str.661, i32 noundef 810, ptr noundef %19) #9
   unreachable
@@ -3840,14 +3840,14 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %21, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %.0, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.662, ptr noundef nonnull @.str.661, i32 noundef 814, ptr noundef %24) #9
   unreachable
 
 25:                                               ; preds = %20, %15
   %26 = load i32, ptr %4, align 4
-  %27 = getelementptr inbounds i8, ptr %3, i64 408
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 408
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noalias ptr @wmem_alloc(ptr noundef %28, i64 noundef 256) #8
   store i8 0, ptr %29, align 1
@@ -3953,7 +3953,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   %66 = tail call i64 @g_strlcat(ptr noundef nonnull %29, ptr noundef nonnull @.str.667, i64 noundef 256) #8
   %67 = load ptr, ptr %.0, align 8
   %68 = tail call i64 @g_strlcat(ptr noundef nonnull %29, ptr noundef %67, i64 noundef 256) #8
-  %69 = getelementptr inbounds i8, ptr %.0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %70 = load i32, ptr %69, align 8
   br i1 %cond, label %71, label %85
 
@@ -3962,7 +3962,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %72, label %73, label %211
 
 73:                                               ; preds = %71
-  %74 = getelementptr inbounds i8, ptr %.0, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %75 = load ptr, ptr %74, align 8
   %.not281 = icmp eq ptr %75, null
   br i1 %.not281, label %79, label %76
@@ -3973,7 +3973,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %211
 
 79:                                               ; preds = %73
-  %80 = getelementptr inbounds i8, ptr %.0, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %81 = load i32, ptr %80, align 4
   %cond4 = icmp eq i32 %81, 1
   br i1 %cond4, label %82, label %84
@@ -3991,7 +3991,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br i1 %86, label %87, label %101
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %.0, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %89 = load ptr, ptr %88, align 8
   %.not280 = icmp eq ptr %89, null
   br i1 %.not280, label %93, label %90
@@ -4002,7 +4002,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %211
 
 93:                                               ; preds = %87
-  %94 = getelementptr inbounds i8, ptr %.0, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %95 = load i32, ptr %94, align 4
   switch i32 %95, label %100 [
     i32 1, label %96
@@ -4213,7 +4213,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %179
 
 179:                                              ; preds = %173, %177
-  %180 = getelementptr inbounds i8, ptr %.0, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %181 = load i32, ptr %180, align 8
   switch i32 %181, label %209 [
     i32 7, label %182
@@ -4221,7 +4221,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   ]
 
 182:                                              ; preds = %179
-  %183 = getelementptr inbounds i8, ptr %.0, i64 24
+  %183 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %184 = load ptr, ptr %183, align 8
   %.not271 = icmp eq ptr %184, null
   br i1 %.not271, label %188, label %185
@@ -4232,7 +4232,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %210
 
 188:                                              ; preds = %182
-  %189 = getelementptr inbounds i8, ptr %.0, i64 20
+  %189 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %190 = load i32, ptr %189, align 4
   switch i32 %190, label %195 [
     i32 1, label %191
@@ -4252,7 +4252,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   unreachable
 
 196:                                              ; preds = %179
-  %197 = getelementptr inbounds i8, ptr %.0, i64 24
+  %197 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %198 = load ptr, ptr %197, align 8
   %.not270 = icmp eq ptr %198, null
   br i1 %.not270, label %202, label %199
@@ -4263,7 +4263,7 @@ define internal fastcc i32 @dissect_h265_exp_golomb_code(ptr noundef %0, i32 nou
   br label %208
 
 202:                                              ; preds = %196
-  %203 = getelementptr inbounds i8, ptr %.0, i64 20
+  %203 = getelementptr inbounds nuw i8, ptr %.0, i64 20
   %204 = load i32, ptr %203, align 4
   %cond2 = icmp eq i32 %204, 1
   br i1 %cond2, label %205, label %207

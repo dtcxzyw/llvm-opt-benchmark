@@ -103,15 +103,15 @@ $_ZTIN6icu_757UMemoryE = comdat any
 define void @_ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(64) %symbolString, i32 noundef %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef %key)
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  %fUniSet = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call, ptr %fUniSet, align 8
   %call6 = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call, ptr noundef nonnull align 8 dereferenceable(64) %symbolString)
           to label %invoke.cont5 unwind label %lpad2
@@ -158,7 +158,7 @@ declare void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %fUniSet = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fUniSet, align 8
   ret ptr %0
 }
@@ -167,25 +167,25 @@ entry:
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SymbolMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(216) %result)
   br i1 %call, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %fUnion.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load i16, ptr %fUnion.i, align 8
   %cmp.i = icmp ugt i16 %2, 31
   br i1 %cmp.i, label %if.then3, label %if.end14
 
 if.then3:                                         ; preds = %if.end
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call5 = tail call noundef i32 @_ZN6icu_7513StringSegment21getCommonPrefixLengthERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %fString)
   %3 = load i16, ptr %fUnion.i, align 8
   %cmp.i.i = icmp slt i16 %3, 0
   %4 = ashr i16 %3, 5
   %shr.i.i = sext i16 %4 to i32
-  %fLength.i = getelementptr inbounds i8, ptr %this, i64 20
+  %fLength.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %5 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %5, i32 %shr.i.i
   %cmp = icmp eq i32 %call5, %cond.i
@@ -194,7 +194,7 @@ if.then3:                                         ; preds = %if.end
 if.then8:                                         ; preds = %if.then3
   tail call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %call5)
   %vtable11 = load ptr, ptr %this, align 8
-  %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 64
+  %vfn12 = getelementptr inbounds nuw i8, ptr %vtable11, i64 64
   %6 = load ptr, ptr %vfn12, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result)
   br label %return
@@ -206,7 +206,7 @@ if.end14:                                         ; preds = %if.then3, %if.end
   br i1 %cmp16.not, label %if.end23, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %fUniSet = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load ptr, ptr %fUniSet, align 8
   %call17 = tail call noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsEi(ptr noundef nonnull align 8 dereferenceable(200) %7, i32 noundef %call15)
   %tobool18.not = icmp eq i8 %call17, 0
@@ -217,7 +217,7 @@ if.then19:                                        ; preds = %land.lhs.true
   %cond = select i1 %cmp20, i32 1, i32 2
   tail call void @_ZN6icu_7513StringSegment12adjustOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %segment, i32 noundef %cond)
   %vtable21 = load ptr, ptr %this, align 8
-  %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 64
+  %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 64
   %8 = load ptr, ptr %vfn22, align 8
   tail call void %8(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result)
   br label %return
@@ -245,13 +245,13 @@ declare noundef i32 @_ZNK6icu_7513StringSegment6lengthEv(ptr noundef nonnull ali
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SymbolMatcher9smokeTestERKNS_13StringSegmentE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) unnamed_addr #0 align 2 {
 entry:
-  %fUniSet = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fUniSet, align 8
   %call = tail call noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithERKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(200) %0)
   br i1 %call, label %lor.end, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call2 = tail call noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(64) %fString)
   br label %lor.end
 
@@ -278,21 +278,21 @@ define void @_ZN6icu_758numparse4impl17IgnorablesMatcherC2Ei(ptr noundef nonnull
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
-  %fUnion2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %fUnion2.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %and = and i32 %parseFlags, 32768
   %cmp.not = icmp eq i32 %and, 0
   %cond = select i1 %cmp.not, i32 1, i32 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef %cond)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -351,17 +351,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl15InfinityMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 904
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 904
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 15)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -393,7 +393,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl15InfinityMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %result) unnamed_addr #3 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 128
   %cmp = icmp ne i32 %and, 0
@@ -403,7 +403,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl15InfinityMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 128
   store i32 %or, ptr %flags, align 4
@@ -416,17 +416,17 @@ declare void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13St
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl16MinusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i1 noundef zeroext %allowTrailing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 392
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 392
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 11)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -453,7 +453,7 @@ if.else.i:                                        ; preds = %invoke.cont5.i
 _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.exit: ; preds = %if.then.i, %if.else.i
   %frombool = zext i1 %allowTrailing to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl16MinusSignMatcherE, i64 16), ptr %this, align 8
-  %fAllowTrailing = getelementptr inbounds i8, ptr %this, i64 80
+  %fAllowTrailing = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 %frombool, ptr %fAllowTrailing, align 8
   ret void
 }
@@ -461,7 +461,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl16MinusSignMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %fAllowTrailing = getelementptr inbounds i8, ptr %this, i64 80
+  %fAllowTrailing = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %fAllowTrailing, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.end, label %land.rhs
@@ -480,7 +480,7 @@ declare noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberE
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl16MinusSignMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 1
   store i32 %or, ptr %flags, align 4
@@ -491,17 +491,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl10NanMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 968
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 968
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 0)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -540,7 +540,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl10NanMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 64
   store i32 %or, ptr %flags, align 4
@@ -552,15 +552,15 @@ entry:
 define void @_ZN6icu_758numparse4impl14PaddingMatcherC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(64) %padString) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 0)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %padString)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -610,17 +610,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl14PercentMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 200
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 200
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 13)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -652,7 +652,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PercentMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %result) unnamed_addr #3 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 2
   %cmp = icmp ne i32 %and, 0
@@ -662,7 +662,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl14PercentMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 2
   store i32 %or, ptr %flags, align 4
@@ -673,17 +673,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl15PermilleMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 776
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 776
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 14)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -715,7 +715,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PermilleMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %result) unnamed_addr #3 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %and = and i32 %0, 4
   %cmp = icmp ne i32 %and, 0
@@ -725,7 +725,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK6icu_758numparse4impl15PermilleMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %flags = getelementptr inbounds i8, ptr %result, i64 76
+  %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
   %or = or i32 %0, 4
   store i32 %or, ptr %flags, align 4
@@ -736,17 +736,17 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_758numparse4impl15PlusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i1 noundef zeroext %allowTrailing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 456
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %dfs, i64 456
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fString.i, align 8
-  %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %fUnion2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef ptr @_ZN6icu_757unisets3getENS0_3KeyE(i32 noundef 12)
           to label %invoke.cont3.i unwind label %lpad2.i
 
 invoke.cont3.i:                                   ; preds = %entry
-  %fUniSet.i = getelementptr inbounds i8, ptr %this, i64 72
+  %fUniSet.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %call.i, ptr %fUniSet.i, align 8
   %call6.i = invoke noundef signext i8 @_ZNK6icu_7510UnicodeSet8containsERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(200) %call.i, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i)
           to label %invoke.cont5.i unwind label %lpad2.i
@@ -773,7 +773,7 @@ if.else.i:                                        ; preds = %invoke.cont5.i
 _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.exit: ; preds = %if.then.i, %if.else.i
   %frombool = zext i1 %allowTrailing to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl15PlusSignMatcherE, i64 16), ptr %this, align 8
-  %fAllowTrailing = getelementptr inbounds i8, ptr %this, i64 80
+  %fAllowTrailing = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i8 %frombool, ptr %fAllowTrailing, align 8
   ret void
 }
@@ -781,7 +781,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PlusSignMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
-  %fAllowTrailing = getelementptr inbounds i8, ptr %this, i64 80
+  %fAllowTrailing = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %fAllowTrailing, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.end, label %land.rhs
@@ -806,7 +806,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl13SymbolMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString = getelementptr inbounds i8, ptr %this, i64 8
+  %fString = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #7
   ret void
@@ -837,7 +837,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 define linkonce_odr void @_ZN6icu_758numparse4impl17IgnorablesMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -847,7 +847,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl17IgnorablesMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -858,7 +858,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl15InfinityMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -868,7 +868,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl15InfinityMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -879,7 +879,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl16MinusSignMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -889,7 +889,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl16MinusSignMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -900,7 +900,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl10NanMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -910,7 +910,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl10NanMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -921,7 +921,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl14PaddingMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -931,7 +931,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl14PaddingMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -942,7 +942,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl14PercentMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -952,7 +952,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl14PercentMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -963,7 +963,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl15PermilleMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -973,7 +973,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl15PermilleMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7
@@ -984,7 +984,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl15PlusSignMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #7
   ret void
@@ -994,7 +994,7 @@ entry:
 define linkonce_odr void @_ZN6icu_758numparse4impl15PlusSignMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #5 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
-  %fString.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %fString.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString.i.i) #7
   tail call void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) #7
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #7

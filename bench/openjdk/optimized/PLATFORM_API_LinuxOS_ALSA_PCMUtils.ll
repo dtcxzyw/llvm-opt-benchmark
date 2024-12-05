@@ -382,21 +382,21 @@ define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr nounde
 
 12:                                               ; preds = %8, %10
   %13 = phi i32 [ %11, %10 ], [ 1, %8 ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %15 = load ptr, ptr %14, align 8
   store i32 %13, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8
   store i32 %0, ptr %17, align 4
   store i8 32, ptr %5, align 16
-  %18 = getelementptr inbounds i8, ptr %5, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 91, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %5, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 2
   call void @getDeviceStringFromDeviceID(ptr noundef nonnull %19, i64 noundef 298, i32 noundef %0, i32 noundef 1, i32 noundef 0) #5
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
   %21 = sub i64 299, %20
   %22 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull @.str.2, i64 noundef %21) #5
-  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %24 = load ptr, ptr %23, align 8
   %.not42 = icmp eq ptr %2, null
   br i1 %.not42, label %27, label %25
@@ -411,7 +411,7 @@ define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr nounde
 
 29:                                               ; preds = %27, %25
   %30 = phi ptr [ %26, %25 ], [ %28, %27 ]
-  %31 = getelementptr inbounds i8, ptr %3, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #6
@@ -423,12 +423,12 @@ define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr nounde
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #6
   %41 = sub i64 %39, %40
   %42 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull %5, i64 noundef %41) #5
-  %43 = getelementptr inbounds i8, ptr %3, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %31, align 4
   %46 = sext i32 %45 to i64
   %47 = call ptr @strncpy(ptr noundef %44, ptr noundef nonnull dereferenceable(35) @.str.3, i64 noundef %46) #5
-  %48 = getelementptr inbounds i8, ptr %3, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %49 = load ptr, ptr %48, align 8
   br i1 %.not42, label %52, label %50
 
@@ -473,7 +473,7 @@ define hidden range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr nounde
   %84 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #6
   %85 = sub i64 %82, %84
   %86 = call ptr @strncat(ptr noundef nonnull dereferenceable(1) %79, ptr noundef %80, i64 noundef %85) #5
-  %87 = getelementptr inbounds i8, ptr %3, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %31, align 4
   call void @getALSAVersion(ptr noundef %88, i32 noundef %89) #5

@@ -27,7 +27,7 @@ if.end5:                                          ; preds = %entry
 
 if.then7:                                         ; preds = %if.end5
   store i8 48, ptr %buffer, align 1
-  %arrayidx.i = getelementptr inbounds i8, ptr %buffer, i64 1
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer, i64 1
   store i8 0, ptr %arrayidx.i, align 1
   store i32 1, ptr %length, align 4
   store i32 1, ptr %point, align 4

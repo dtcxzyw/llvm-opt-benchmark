@@ -386,7 +386,7 @@ define range(i32 -1, 1) i32 @H5Pset_fapl_onion(i64 noundef %0, ptr noundef %1) l
   br label %.thread53
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45)
   %or.cond.not = icmp eq i32 %46, 1
@@ -399,7 +399,7 @@ define range(i32 -1, 1) i32 @H5Pset_fapl_onion(i64 noundef %0, ptr noundef %1) l
   br label %.thread53
 
 51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %55, label %64
@@ -640,10 +640,10 @@ declare i32 @H5FD_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5FD__onion_write_final_history(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 464
-  %3 = getelementptr inbounds i8, ptr %0, i64 392
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 600
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %6 = load i64, ptr %5, align 8
   %7 = tail call i64 @H5FD__onion_write_history(ptr noundef nonnull %2, ptr noundef %4, i64 noundef %6, i64 noundef %6) #18
   %8 = icmp eq i64 %7, 0
@@ -656,7 +656,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_write_final_history(ptr noundef %0) loc
   br label %23
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 448
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %15 = load i64, ptr %14, align 8
   %.not = icmp eq i64 %7, %15
   br i1 %.not, label %20, label %16
@@ -688,7 +688,7 @@ define internal noundef i32 @H5FD__onion_term() #4 {
 
 ; Function Attrs: nounwind uwtable
 define internal i64 @H5FD__onion_sb_size(ptr nocapture noundef readonly %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 384
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
@@ -704,7 +704,7 @@ define internal i64 @H5FD__onion_sb_size(ptr nocapture noundef readonly %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__onion_sb_encode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 384
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
@@ -727,7 +727,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_sb_encode(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5FD__onion_sb_decode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 384
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @H5FD_sb_load(ptr noundef %5, ptr noundef %1, ptr noundef %2) #18
   %7 = icmp slt i32 %6, 0
@@ -827,7 +827,7 @@ define internal ptr @H5FD__onion_open(ptr noundef %0, i32 noundef %1, i64 nounde
   %.1257 = phi ptr [ %28, %27 ], [ %38, %44 ]
   %.1255 = phi ptr [ null, %27 ], [ %38, %44 ]
   %.1253 = phi ptr [ null, %27 ], [ %31, %44 ]
-  %52 = getelementptr inbounds i8, ptr %.1257, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %.1257, i64 20
   %53 = load i32, ptr %52, align 4
   %.not297 = icmp eq i32 %53, 0
   br i1 %.not297, label %58, label %54
@@ -878,7 +878,7 @@ define internal ptr @H5FD__onion_open(ptr noundef %0, i32 noundef %1, i64 nounde
 
 84:                                               ; preds = %74
   %85 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %78, i64 noundef %77, ptr noundef nonnull @.str.38, ptr noundef nonnull %68) #18
-  %86 = getelementptr inbounds i8, ptr %59, i64 408
+  %86 = getelementptr inbounds nuw i8, ptr %59, i64 408
   %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %68) #20
   %88 = add i64 %87, 10
   %89 = tail call noalias ptr @malloc(i64 noundef %88) #21
@@ -894,7 +894,7 @@ define internal ptr @H5FD__onion_open(ptr noundef %0, i32 noundef %1, i64 nounde
 
 95:                                               ; preds = %84
   %96 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %89, i64 noundef %88, ptr noundef nonnull @.str.38, ptr noundef nonnull %68) #18
-  %97 = getelementptr inbounds i8, ptr %59, i64 88
+  %97 = getelementptr inbounds nuw i8, ptr %59, i64 88
   %98 = load i64, ptr %97, align 8
   %99 = icmp eq i64 %98, 0
   br i1 %99, label %100, label %102
@@ -921,21 +921,21 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   br label %431
 
 110:                                              ; preds = %H5FD__onion_get_legit_fapl_id.exit
-  %111 = getelementptr inbounds i8, ptr %59, i64 80
+  %111 = getelementptr inbounds nuw i8, ptr %59, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(296) %111, ptr noundef nonnull align 8 dereferenceable(296) %.1257, i64 296, i1 false)
-  %112 = getelementptr inbounds i8, ptr %59, i64 416
+  %112 = getelementptr inbounds nuw i8, ptr %59, i64 416
   store i8 1, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %59, i64 96
+  %113 = getelementptr inbounds nuw i8, ptr %59, i64 96
   %114 = load i32, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %59, i64 424
+  %115 = getelementptr inbounds nuw i8, ptr %59, i64 424
   store i32 %114, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %59, i64 464
+  %116 = getelementptr inbounds nuw i8, ptr %59, i64 464
   store i8 1, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %59, i64 496
+  %117 = getelementptr inbounds nuw i8, ptr %59, i64 496
   store i8 1, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %59, i64 544
+  %118 = getelementptr inbounds nuw i8, ptr %59, i64 544
   store i8 1, ptr %118, align 8
-  %119 = getelementptr inbounds i8, ptr %.1257, i64 16
+  %119 = getelementptr inbounds nuw i8, ptr %.1257, i64 16
   %120 = load i32, ptr %119, align 8
   %121 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %120)
   %or.cond317 = icmp eq i32 %121, 1
@@ -951,25 +951,25 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   %127 = uitofp i32 %120 to double
   %128 = tail call double @log2(double noundef %127) #18
   %129 = fptoui double %128 to i32
-  %130 = getelementptr inbounds i8, ptr %59, i64 548
+  %130 = getelementptr inbounds nuw i8, ptr %59, i64 548
   store i32 %129, ptr %130, align 4
   %131 = and i32 %1, 18
   %.not299 = icmp eq i32 %131, 0
   br i1 %.not299, label %151, label %132
 
 132:                                              ; preds = %126
-  %133 = getelementptr inbounds i8, ptr %.1257, i64 33
+  %133 = getelementptr inbounds nuw i8, ptr %.1257, i64 33
   %134 = load i8, ptr %133, align 1
   %135 = and i8 %134, 1
   %.not310 = icmp eq i8 %135, 0
   br i1 %.not310, label %141, label %136
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %59, i64 420
+  %137 = getelementptr inbounds nuw i8, ptr %59, i64 420
   %138 = load i32, ptr %137, align 4
   %139 = or i32 %138, 2
   store i32 %139, ptr %137, align 4
-  %140 = getelementptr inbounds i8, ptr %59, i64 377
+  %140 = getelementptr inbounds nuw i8, ptr %59, i64 377
   store i8 1, ptr %140, align 1
   br label %141
 
@@ -986,13 +986,13 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   br label %431
 
 149:                                              ; preds = %141
-  %150 = getelementptr inbounds i8, ptr %59, i64 376
+  %150 = getelementptr inbounds nuw i8, ptr %59, i64 376
   store i8 1, ptr %150, align 8
   br label %389
 
 151:                                              ; preds = %126
   %152 = tail call ptr @H5FD_open(ptr noundef nonnull %0, i32 noundef %1, i64 noundef %.0.i, i64 noundef %3) #18
-  %153 = getelementptr inbounds i8, ptr %59, i64 384
+  %153 = getelementptr inbounds nuw i8, ptr %59, i64 384
   store ptr %152, ptr %153, align 8
   %154 = icmp eq ptr %152, null
   br i1 %154, label %155, label %159
@@ -1021,7 +1021,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
 
 168:                                              ; preds = %165, %162
   %169 = call ptr @H5FD_open(ptr noundef nonnull %68, i32 noundef %1, i64 noundef %.0.i, i64 noundef %3) #18
-  %170 = getelementptr inbounds i8, ptr %59, i64 392
+  %170 = getelementptr inbounds nuw i8, ptr %59, i64 392
   store ptr %169, ptr %170, align 8
   %171 = load i32, ptr %5, align 4
   %.not301 = icmp eq i32 %171, 0
@@ -1048,18 +1048,18 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   br i1 %.not302, label %303, label %183
 
 183:                                              ; preds = %181
-  %184 = getelementptr inbounds i8, ptr %59, i64 113
+  %184 = getelementptr inbounds nuw i8, ptr %59, i64 113
   %185 = load i8, ptr %184, align 1
   %186 = and i8 %185, 1
   %.not303 = icmp eq i8 %186, 0
   br i1 %.not303, label %192, label %187
 
 187:                                              ; preds = %183
-  %188 = getelementptr inbounds i8, ptr %59, i64 420
+  %188 = getelementptr inbounds nuw i8, ptr %59, i64 420
   %189 = load i32, ptr %188, align 4
   %190 = or i32 %189, 2
   store i32 %190, ptr %188, align 4
-  %191 = getelementptr inbounds i8, ptr %59, i64 377
+  %191 = getelementptr inbounds nuw i8, ptr %59, i64 377
   store i8 1, ptr %191, align 1
   br label %192
 
@@ -1088,9 +1088,9 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   br label %431
 
 208:                                              ; preds = %200
-  %209 = getelementptr inbounds i8, ptr %59, i64 432
+  %209 = getelementptr inbounds nuw i8, ptr %59, i64 432
   store i64 %194, ptr %209, align 8
-  %210 = getelementptr inbounds i8, ptr %59, i64 624
+  %210 = getelementptr inbounds nuw i8, ptr %59, i64 624
   store i64 %194, ptr %210, align 8
   %211 = load i64, ptr %97, align 8
   %212 = icmp eq i64 %211, 0
@@ -1130,9 +1130,9 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 230:                                              ; preds = %223
-  %231 = getelementptr inbounds i8, ptr %59, i64 448
+  %231 = getelementptr inbounds nuw i8, ptr %59, i64 448
   store i64 20, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %59, i64 440
+  %232 = getelementptr inbounds nuw i8, ptr %59, i64 440
   store i64 41, ptr %232, align 8
   %233 = call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   %234 = icmp eq ptr %233, null
@@ -1145,7 +1145,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 239:                                              ; preds = %230
-  %240 = getelementptr inbounds i8, ptr %59, i64 456
+  %240 = getelementptr inbounds nuw i8, ptr %59, i64 456
   %241 = call i64 @H5FD__onion_header_encode(ptr noundef nonnull %112, ptr noundef nonnull %233, ptr noundef nonnull %240) #18
   %.not304 = icmp eq i64 %241, 40
   br i1 %.not304, label %246, label %242
@@ -1168,9 +1168,9 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 253:                                              ; preds = %246
-  %254 = getelementptr inbounds i8, ptr %59, i64 472
+  %254 = getelementptr inbounds nuw i8, ptr %59, i64 472
   store i64 0, ptr %254, align 8
-  %255 = getelementptr inbounds i8, ptr %59, i64 488
+  %255 = getelementptr inbounds nuw i8, ptr %59, i64 488
   %256 = call i64 @H5FD__onion_history_encode(ptr noundef nonnull %116, ptr noundef nonnull %247, ptr noundef nonnull %255) #18
   store i64 %256, ptr %231, align 8
   %.not305 = icmp eq i64 %256, 20
@@ -1207,9 +1207,9 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 277:                                              ; preds = %269
-  %278 = getelementptr inbounds i8, ptr %59, i64 600
+  %278 = getelementptr inbounds nuw i8, ptr %59, i64 600
   store i64 40, ptr %278, align 8
-  %279 = getelementptr inbounds i8, ptr %59, i64 377
+  %279 = getelementptr inbounds nuw i8, ptr %59, i64 377
   %280 = load i8, ptr %279, align 1
   %281 = trunc i8 %280 to i1
   br i1 %281, label %282, label %290
@@ -1227,7 +1227,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
 
 290:                                              ; preds = %282, %277
   %291 = phi i64 [ %289, %282 ], [ 40, %277 ]
-  %292 = getelementptr inbounds i8, ptr %59, i64 560
+  %292 = getelementptr inbounds nuw i8, ptr %59, i64 560
   store ptr null, ptr %292, align 8
   store i64 %291, ptr %232, align 8
   %293 = load ptr, ptr %170, align 8
@@ -1290,9 +1290,9 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 331:                                              ; preds = %323
-  %332 = getelementptr inbounds i8, ptr %59, i64 420
+  %332 = getelementptr inbounds nuw i8, ptr %59, i64 420
   %333 = load i32, ptr %332, align 4
-  %334 = getelementptr inbounds i8, ptr %59, i64 377
+  %334 = getelementptr inbounds nuw i8, ptr %59, i64 377
   %335 = trunc i32 %333 to i8
   %336 = lshr i8 %335, 1
   %337 = and i8 %336, 1
@@ -1309,9 +1309,9 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
 
 343:                                              ; preds = %331
   %344 = load ptr, ptr %170, align 8
-  %345 = getelementptr inbounds i8, ptr %59, i64 440
+  %345 = getelementptr inbounds nuw i8, ptr %59, i64 440
   %346 = load i64, ptr %345, align 8
-  %347 = getelementptr inbounds i8, ptr %59, i64 448
+  %347 = getelementptr inbounds nuw i8, ptr %59, i64 448
   %348 = load i64, ptr %347, align 8
   %349 = call i32 @H5FD__onion_ingest_history(ptr noundef nonnull %116, ptr noundef %344, i64 noundef %346, i64 noundef %348) #18
   %350 = icmp slt i32 %349, 0
@@ -1324,9 +1324,9 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %431
 
 355:                                              ; preds = %343
-  %356 = getelementptr inbounds i8, ptr %.1257, i64 24
+  %356 = getelementptr inbounds nuw i8, ptr %.1257, i64 24
   %357 = load i64, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %59, i64 472
+  %358 = getelementptr inbounds nuw i8, ptr %59, i64 472
   %359 = load i64, ptr %358, align 8
   %360 = icmp ule i64 %357, %359
   %.not307 = icmp eq i64 %357, -1
@@ -1344,7 +1344,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br i1 %366, label %367, label %369
 
 367:                                              ; preds = %365
-  %368 = getelementptr inbounds i8, ptr %59, i64 536
+  %368 = getelementptr inbounds nuw i8, ptr %59, i64 536
   store i64 %309, ptr %368, align 8
   br label %380
 
@@ -1389,11 +1389,11 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br i1 %.not311, label %407, label %391
 
 391:                                              ; preds = %389
-  %392 = getelementptr inbounds i8, ptr %59, i64 576
+  %392 = getelementptr inbounds nuw i8, ptr %59, i64 576
   %393 = load ptr, ptr %392, align 8
   %394 = call ptr @H5MM_xfree(ptr noundef %393) #18
   store ptr %394, ptr %392, align 8
-  %395 = getelementptr inbounds i8, ptr %.1257, i64 34
+  %395 = getelementptr inbounds nuw i8, ptr %.1257, i64 34
   %396 = call noalias ptr @H5MM_strndup(ptr noundef nonnull %395, i64 noundef 255) #18
   store ptr %396, ptr %392, align 8
   %397 = icmp eq ptr %396, null
@@ -1409,29 +1409,29 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   %403 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %395) #20
   %404 = trunc i64 %403 to i32
   %405 = add i32 %404, 1
-  %406 = getelementptr inbounds i8, ptr %59, i64 568
+  %406 = getelementptr inbounds nuw i8, ptr %59, i64 568
   store i32 %405, ptr %406, align 8
   br label %407
 
 407:                                              ; preds = %402, %389
-  %408 = getelementptr inbounds i8, ptr %59, i64 432
+  %408 = getelementptr inbounds nuw i8, ptr %59, i64 432
   %409 = load i64, ptr %408, align 8
-  %410 = getelementptr inbounds i8, ptr %59, i64 608
+  %410 = getelementptr inbounds nuw i8, ptr %59, i64 608
   store i64 %409, ptr %410, align 8
-  %411 = getelementptr inbounds i8, ptr %59, i64 536
+  %411 = getelementptr inbounds nuw i8, ptr %59, i64 536
   %412 = load i64, ptr %411, align 8
-  %413 = getelementptr inbounds i8, ptr %59, i64 624
+  %413 = getelementptr inbounds nuw i8, ptr %59, i64 624
   %414 = load i64, ptr %413, align 8
   %.319 = call i64 @llvm.umax.i64(i64 %412, i64 %414)
   store i64 %.319, ptr %413, align 8
-  %415 = getelementptr inbounds i8, ptr %59, i64 616
+  %415 = getelementptr inbounds nuw i8, ptr %59, i64 616
   store i64 0, ptr %415, align 8
-  %416 = getelementptr inbounds i8, ptr %59, i64 392
+  %416 = getelementptr inbounds nuw i8, ptr %59, i64 392
   %417 = load ptr, ptr %416, align 8
   %418 = call i64 @H5FD_get_eoa(ptr noundef %417, i32 noundef 3) #18
-  %419 = getelementptr inbounds i8, ptr %59, i64 600
+  %419 = getelementptr inbounds nuw i8, ptr %59, i64 600
   store i64 %418, ptr %419, align 8
-  %420 = getelementptr inbounds i8, ptr %59, i64 377
+  %420 = getelementptr inbounds nuw i8, ptr %59, i64 377
   %421 = load i8, ptr %420, align 1
   %422 = trunc i8 %421 to i1
   br i1 %422, label %423, label %431
@@ -1465,7 +1465,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br i1 %or.cond7, label %437, label %446
 
 437:                                              ; preds = %431
-  %438 = getelementptr inbounds i8, ptr %.0256, i64 8
+  %438 = getelementptr inbounds nuw i8, ptr %.0256, i64 8
   %439 = load i64, ptr %438, align 8
   %.not312 = icmp eq i64 %439, 0
   br i1 %.not312, label %446, label %440
@@ -1487,7 +1487,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br i1 %or.cond5, label %449, label %500
 
 449:                                              ; preds = %446
-  %450 = getelementptr inbounds i8, ptr %.0258, i64 384
+  %450 = getelementptr inbounds nuw i8, ptr %.0258, i64 384
   %451 = load ptr, ptr %450, align 8
   %.not313 = icmp eq ptr %451, null
   br i1 %.not313, label %459, label %452
@@ -1504,7 +1504,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %459
 
 459:                                              ; preds = %452, %455, %449
-  %460 = getelementptr inbounds i8, ptr %.0258, i64 392
+  %460 = getelementptr inbounds nuw i8, ptr %.0258, i64 392
   %461 = load ptr, ptr %460, align 8
   %.not314 = icmp eq ptr %461, null
   br i1 %.not314, label %469, label %462
@@ -1521,7 +1521,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %469
 
 469:                                              ; preds = %462, %465, %459
-  %470 = getelementptr inbounds i8, ptr %.0258, i64 400
+  %470 = getelementptr inbounds nuw i8, ptr %.0258, i64 400
   %471 = load ptr, ptr %470, align 8
   %.not315 = icmp eq ptr %471, null
   br i1 %.not315, label %479, label %472
@@ -1538,7 +1538,7 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %479
 
 479:                                              ; preds = %472, %475, %469
-  %480 = getelementptr inbounds i8, ptr %.0258, i64 592
+  %480 = getelementptr inbounds nuw i8, ptr %.0258, i64 592
   %481 = load ptr, ptr %480, align 8
   %.not316 = icmp eq ptr %481, null
   br i1 %.not316, label %489, label %482
@@ -1555,13 +1555,13 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
   br label %489
 
 489:                                              ; preds = %482, %485, %479
-  %490 = getelementptr inbounds i8, ptr %.0258, i64 480
+  %490 = getelementptr inbounds nuw i8, ptr %.0258, i64 480
   %491 = load ptr, ptr %490, align 8
   %492 = call ptr @H5MM_xfree(ptr noundef %491) #18
-  %493 = getelementptr inbounds i8, ptr %.0258, i64 408
+  %493 = getelementptr inbounds nuw i8, ptr %.0258, i64 408
   %494 = load ptr, ptr %493, align 8
   %495 = call ptr @H5MM_xfree(ptr noundef %494) #18
-  %496 = getelementptr inbounds i8, ptr %.0258, i64 576
+  %496 = getelementptr inbounds nuw i8, ptr %.0258, i64 576
   %497 = load ptr, ptr %496, align 8
   %498 = call ptr @H5MM_xfree(ptr noundef %497) #18
   %499 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_onion_t_reg_free_list, ptr noundef nonnull %.0258) #18
@@ -1576,13 +1576,13 @@ H5FD__onion_get_legit_fapl_id.exit322.thread:     ; preds = %215, %H5FD__onion_g
 define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 100
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %205
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 376
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %209
@@ -1591,23 +1591,23 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 0, ptr %2, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 496
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %13 = call i64 @time(ptr noundef nonnull %3) #18
   %14 = call ptr @gmtime(ptr noundef nonnull %3) #18
-  %15 = getelementptr inbounds i8, ptr %0, i64 520
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %16 = call i64 @strftime(ptr noundef nonnull %15, i64 noundef 16, ptr noundef nonnull @.str.102, ptr noundef %14) #18
-  %17 = getelementptr inbounds i8, ptr %0, i64 624
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 536
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 536
   store i64 %18, ptr %19, align 8
   %20 = load i8, ptr %8, align 8
   %21 = trunc i8 %20 to i1
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %11
-  %23 = getelementptr inbounds i8, ptr %0, i64 592
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 544
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %26 = call i32 @H5FD__onion_merge_revision_index_into_archival_index(ptr noundef %24, ptr noundef nonnull %25) #18
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %32
@@ -1619,11 +1619,11 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %.critedge
 
 32:                                               ; preds = %22, %11
-  %33 = getelementptr inbounds i8, ptr %0, i64 568
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %34 = load i32, ptr %33, align 8
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 68
-  %37 = getelementptr inbounds i8, ptr %0, i64 552
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %38 = load i64, ptr %37, align 8
   %39 = mul i64 %38, 20
   %40 = add i64 %36, %39
@@ -1649,9 +1649,9 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %.critedge
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds i8, ptr %0, i64 600
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 392
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %58 = load ptr, ptr %57, align 8
   %59 = add i64 %56, %48
   %60 = call i32 @H5FD_set_eoa(ptr noundef %58, i32 noundef 3, i64 noundef %59) #18
@@ -1678,13 +1678,13 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
 
 74:                                               ; preds = %66
   store i64 %59, ptr %55, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 377
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 377
   %76 = load i8, ptr %75, align 1
   %77 = trunc i8 %76 to i1
   br i1 %77, label %78, label %87
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds i8, ptr %0, i64 424
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %80 = load i32, ptr %79, align 8
   %81 = add i32 %80, -1
   %82 = zext i32 %81 to i64
@@ -1696,7 +1696,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %87
 
 87:                                               ; preds = %78, %74
-  %88 = getelementptr inbounds i8, ptr %0, i64 472
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %89 = load i64, ptr %88, align 8
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %120
@@ -1704,7 +1704,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
 91:                                               ; preds = %87
   store i64 1, ptr %88, align 8
   %92 = call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #19
-  %93 = getelementptr inbounds i8, ptr %0, i64 480
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %92, ptr %93, align 8
   %94 = icmp eq ptr %92, null
   br i1 %94, label %95, label %99
@@ -1717,7 +1717,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
 
 99:                                               ; preds = %91
   store i64 %56, ptr %92, align 8
-  %100 = getelementptr inbounds i8, ptr %92, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %48, ptr %100, align 8
   br label %101
 
@@ -1726,7 +1726,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %.0133154.i = phi i64 [ 0, %99 ], [ %104, %101 ]
   %.0135153.i = phi i64 [ %56, %99 ], [ %105, %101 ]
   %102 = trunc i64 %.0135153.i to i8
-  %103 = getelementptr inbounds i8, ptr %.0131155.i, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.0131155.i, i64 1
   store i8 %102, ptr %.0131155.i, align 1
   %104 = add nuw nsw i64 %.0133154.i, 1
   %105 = lshr i64 %.0135153.i, 8
@@ -1734,7 +1734,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br i1 %exitcond160.not.i, label %106, label %101
 
 106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %41, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %108
 
 108:                                              ; preds = %108, %106
@@ -1742,7 +1742,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %.0128157.i = phi i64 [ 0, %106 ], [ %111, %108 ]
   %.0130156.i = phi i64 [ %48, %106 ], [ %112, %108 ]
   %109 = trunc i64 %.0130156.i to i8
-  %110 = getelementptr inbounds i8, ptr %.0126158.i, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.0126158.i, i64 1
   store i8 %109, ptr %.0126158.i, align 1
   %111 = add nuw nsw i64 %.0128157.i, 1
   %112 = lshr i64 %.0130156.i, 8
@@ -1752,9 +1752,9 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
 113:                                              ; preds = %108
   %114 = call i32 @H5_checksum_fletcher32(ptr noundef nonnull %41, i64 noundef 16) #18
   %115 = load ptr, ptr %93, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store i32 %114, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %0, i64 448
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %118 = load i64, ptr %117, align 8
   %119 = add i64 %118, 20
   store i64 %119, ptr %117, align 8
@@ -1774,7 +1774,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br label %.critedge
 
 129:                                              ; preds = %120
-  %130 = getelementptr inbounds i8, ptr %0, i64 480
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %131 = load ptr, ptr %130, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %123, ptr align 8 %131, i64 %121, i1 false)
   %132 = call ptr @H5MM_xfree(ptr noundef %131) #18
@@ -1791,7 +1791,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %.0123148.i = phi i64 [ 0, %129 ], [ %139, %136 ]
   %.0125147.i = phi i64 [ %56, %129 ], [ %140, %136 ]
   %137 = trunc i64 %.0125147.i to i8
-  %138 = getelementptr inbounds i8, ptr %.0121149.i, i64 1
+  %138 = getelementptr inbounds nuw i8, ptr %.0121149.i, i64 1
   store i8 %137, ptr %.0121149.i, align 1
   %139 = add nuw nsw i64 %.0123148.i, 1
   %140 = lshr i64 %.0125147.i, 8
@@ -1799,7 +1799,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   br i1 %exitcond.not.i, label %141, label %136
 
 141:                                              ; preds = %136
-  %142 = getelementptr inbounds i8, ptr %41, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %143
 
 143:                                              ; preds = %143, %141
@@ -1807,7 +1807,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %.0118151.i = phi i64 [ 0, %141 ], [ %146, %143 ]
   %.0120150.i = phi i64 [ %48, %141 ], [ %147, %143 ]
   %144 = trunc i64 %.0120150.i to i8
-  %145 = getelementptr inbounds i8, ptr %.0152.i, i64 1
+  %145 = getelementptr inbounds nuw i8, ptr %.0152.i, i64 1
   store i8 %144, ptr %.0152.i, align 1
   %146 = add nuw nsw i64 %.0118151.i, 1
   %147 = lshr i64 %.0120150.i, 8
@@ -1820,7 +1820,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
   %151 = load i64, ptr %88, align 8
   %152 = getelementptr inbounds %struct.H5FD_onion_record_loc_t, ptr %150, i64 %151, i32 2
   store i32 %149, ptr %152, align 8
-  %153 = getelementptr inbounds i8, ptr %0, i64 448
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %154 = load i64, ptr %153, align 8
   %155 = add i64 %154, 20
   store i64 %155, ptr %153, align 8
@@ -1831,13 +1831,13 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_close(ptr noundef %0) #0 {
 
 H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
   %158 = load i64, ptr %55, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 440
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 440
   store i64 %158, ptr %159, align 8
   %160 = call ptr @H5MM_xfree(ptr noundef nonnull %41) #18
   %161 = call ptr @H5MM_xfree(ptr noundef null) #18
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %162 = getelementptr inbounds i8, ptr %0, i64 464
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %163 = load ptr, ptr %57, align 8
   %164 = load i64, ptr %55, align 8
   %165 = call i64 @H5FD__onion_write_history(ptr noundef nonnull %162, ptr noundef %163, i64 noundef %164, i64 noundef %164) #18
@@ -1862,7 +1862,7 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
   br label %183
 
 176:                                              ; preds = %H5FD__onion_commit_new_revision_record.exit
-  %177 = getelementptr inbounds i8, ptr %0, i64 448
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %178 = load i64, ptr %177, align 8
   %.not.i = icmp eq i64 %165, %178
   br i1 %.not.i, label %187, label %179
@@ -1888,14 +1888,14 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
   br i1 %191, label %192, label %196
 
 192:                                              ; preds = %187
-  %193 = getelementptr inbounds i8, ptr %0, i64 420
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, -2
   store i32 %195, ptr %193, align 4
   br label %196
 
 196:                                              ; preds = %192, %187
-  %197 = getelementptr inbounds i8, ptr %0, i64 416
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %198 = load ptr, ptr %57, align 8
   %199 = call i32 @H5FD__onion_write_header(ptr noundef nonnull %197, ptr noundef %198) #18
   %200 = icmp slt i32 %199, 0
@@ -1915,7 +1915,7 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
 
 209:                                              ; preds = %196, %7, %205, %201, %183, %.critedge
   %.0 = phi i32 [ -1, %.critedge ], [ -1, %183 ], [ -1, %201 ], [ 0, %196 ], [ 0, %7 ], [ -1, %205 ]
-  %210 = getelementptr inbounds i8, ptr %0, i64 384
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %211 = load ptr, ptr %210, align 8
   %.not = icmp eq ptr %211, null
   br i1 %.not, label %219, label %212
@@ -1933,7 +1933,7 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
 
 219:                                              ; preds = %212, %215, %209
   %.1 = phi i32 [ -1, %215 ], [ %.0, %212 ], [ %.0, %209 ]
-  %220 = getelementptr inbounds i8, ptr %0, i64 392
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %221 = load ptr, ptr %220, align 8
   %.not35 = icmp eq ptr %221, null
   br i1 %.not35, label %229, label %222
@@ -1951,7 +1951,7 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
 
 229:                                              ; preds = %222, %225, %219
   %.2 = phi i32 [ -1, %225 ], [ %.1, %222 ], [ %.1, %219 ]
-  %230 = getelementptr inbounds i8, ptr %0, i64 400
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %231 = load ptr, ptr %230, align 8
   %.not36 = icmp eq ptr %231, null
   br i1 %.not36, label %243, label %232
@@ -1969,14 +1969,14 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
 
 239:                                              ; preds = %235, %232
   %.4 = phi i32 [ -1, %235 ], [ %.2, %232 ]
-  %240 = getelementptr inbounds i8, ptr %0, i64 408
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %241 = load ptr, ptr %240, align 8
   %242 = call i32 @remove(ptr noundef %241) #18
   br label %243
 
 243:                                              ; preds = %239, %229
   %.3 = phi i32 [ %.4, %239 ], [ %.2, %229 ]
-  %244 = getelementptr inbounds i8, ptr %0, i64 592
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %245 = load ptr, ptr %244, align 8
   %.not37 = icmp eq ptr %245, null
   br i1 %.not37, label %253, label %246
@@ -1994,16 +1994,16 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
 
 253:                                              ; preds = %246, %249, %243
   %.5 = phi i32 [ -1, %249 ], [ %.3, %246 ], [ %.3, %243 ]
-  %254 = getelementptr inbounds i8, ptr %0, i64 408
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %255 = load ptr, ptr %254, align 8
   %256 = call ptr @H5MM_xfree(ptr noundef %255) #18
-  %257 = getelementptr inbounds i8, ptr %0, i64 480
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %258 = load ptr, ptr %257, align 8
   %259 = call ptr @H5MM_xfree(ptr noundef %258) #18
-  %260 = getelementptr inbounds i8, ptr %0, i64 576
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %261 = load ptr, ptr %260, align 8
   %262 = call ptr @H5MM_xfree(ptr noundef %261) #18
-  %263 = getelementptr inbounds i8, ptr %0, i64 560
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %264 = load ptr, ptr %263, align 8
   %265 = call ptr @H5MM_xfree(ptr noundef %264) #18
   %266 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_onion_t_reg_free_list, ptr noundef nonnull %0) #18
@@ -2012,21 +2012,21 @@ H5FD__onion_commit_new_revision_record.exit:      ; preds = %148, %113
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @H5FD__onion_get_eoa(ptr nocapture noundef readonly %0, i32 %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 616
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal noundef i32 @H5FD__onion_set_eoa(ptr nocapture noundef writeonly initializes((616, 624)) %0, i32 %1, i64 noundef %2) #6 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 616
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 616
   store i64 %2, ptr %4, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal i64 @H5FD__onion_get_eof(ptr nocapture noundef readonly %0, i32 %1) #5 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 624
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
@@ -2035,7 +2035,7 @@ define internal i64 @H5FD__onion_get_eof(ptr nocapture noundef readonly %0, i32 
 define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 noundef %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = add i64 %4, %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 616
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %10 = load i64, ptr %9, align 8
   %11 = icmp ugt i64 %8, %10
   br i1 %11, label %12, label %16
@@ -2051,10 +2051,10 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
   br i1 %17, label %.loopexit104, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 424
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %20 = load i32, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 544
-  %22 = getelementptr inbounds i8, ptr %0, i64 548
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %23 = load i32, ptr %22, align 4
   %24 = zext i32 %23 to i64
   %25 = lshr i64 %3, %24
@@ -2071,12 +2071,12 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
   %31 = zext nneg i32 %30 to i64
   %32 = and i64 %3, %31
   %.not = icmp eq i64 %32, 0
-  %33 = getelementptr inbounds i8, ptr %0, i64 376
-  %34 = getelementptr inbounds i8, ptr %0, i64 104
-  %35 = getelementptr inbounds i8, ptr %0, i64 592
-  %36 = getelementptr inbounds i8, ptr %0, i64 392
-  %37 = getelementptr inbounds i8, ptr %0, i64 608
-  %38 = getelementptr inbounds i8, ptr %0, i64 384
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 384
   br label %39
 
 39:                                               ; preds = %.lr.ph111, %.loopexit
@@ -2129,7 +2129,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
 59:                                               ; preds = %56
   %60 = load ptr, ptr %36, align 8
   %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = add i64 %63, %.086
   %65 = call i32 @H5FD_read(ptr noundef %60, i32 noundef 3, i64 noundef %64, i64 noundef %52, ptr noundef %.089107) #18
@@ -2155,7 +2155,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
 75:                                               ; preds = %73
   %76 = load ptr, ptr %36, align 8
   %77 = load ptr, ptr %7, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %.086
   %81 = call i32 @H5FD_read(ptr noundef %76, i32 noundef 3, i64 noundef %80, i64 noundef %52, ptr noundef %.089107) #18
@@ -2215,7 +2215,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_read(ptr noundef %0, i32 nound
 define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noundef %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.H5FD_onion_index_entry_t, align 8
   %8 = alloca ptr, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 376
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 1
   %12 = icmp eq i8 %11, 0
@@ -2232,10 +2232,10 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   br i1 %18, label %163, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 424
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %21 = load i32, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 544
-  %23 = getelementptr inbounds i8, ptr %0, i64 548
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 544
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 548
   %24 = load i32, ptr %23, align 4
   %25 = zext i32 %24 to i64
   %26 = lshr i64 %3, %25
@@ -2263,12 +2263,12 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   %39 = zext nneg i32 %38 to i64
   %40 = and i64 %3, %39
   %.not = icmp eq i64 %40, 0
-  %41 = getelementptr inbounds i8, ptr %0, i64 592
-  %42 = getelementptr inbounds i8, ptr %0, i64 392
-  %43 = getelementptr inbounds i8, ptr %0, i64 608
-  %44 = getelementptr inbounds i8, ptr %0, i64 384
-  %45 = getelementptr inbounds i8, ptr %0, i64 600
-  %46 = getelementptr inbounds i8, ptr %7, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 392
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 384
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %46 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %47
 
 47:                                               ; preds = %.lr.ph175, %157
@@ -2315,7 +2315,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
 67:                                               ; preds = %65
   %68 = load ptr, ptr %42, align 8
   %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i64, ptr %70, align 8
   %72 = call i32 @H5FD_read(ptr noundef %68, i32 noundef 3, i64 noundef %71, i64 noundef %27, ptr noundef nonnull %28) #18
   %73 = icmp slt i32 %72, 0
@@ -2336,7 +2336,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   %.0141 = phi ptr [ %28, %78 ], [ %.0145171, %65 ]
   %81 = load ptr, ptr %42, align 8
   %82 = load ptr, ptr %8, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i64, ptr %83, align 8
   %85 = call i32 @H5FD_write(ptr noundef %81, i32 noundef 3, i64 noundef %84, i64 noundef %27, ptr noundef %.0141) #18
   %86 = icmp slt i32 %85, 0
@@ -2362,7 +2362,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
 96:                                               ; preds = %94
   %97 = load ptr, ptr %42, align 8
   %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i64, ptr %99, align 8
   %101 = call i32 @H5FD_read(ptr noundef %97, i32 noundef 3, i64 noundef %100, i64 noundef %27, ptr noundef nonnull %28) #18
   %102 = icmp slt i32 %101, 0
@@ -2477,7 +2477,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   br i1 %159, label %47, label %._crit_edge176
 
 ._crit_edge176:                                   ; preds = %157, %34
-  %160 = getelementptr inbounds i8, ptr %0, i64 624
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 624
   %161 = load i64, ptr %160, align 8
   %162 = add i64 %4, %3
   %. = call i64 @llvm.umax.i64(i64 %161, i64 %162)
@@ -2512,7 +2512,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_ctl(ptr nocapture noundef read
   br label %22
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 472
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %15 = load i64, ptr %14, align 8
   store i64 %15, ptr %8, align 8
   br label %22
@@ -2560,19 +2560,19 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_parse_config_str(ptr no
 
 7:                                                ; preds = %2
   store i8 1, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 4, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 -1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %1, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 33
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 33
   store i8 0, ptr %13, align 1
-  %14 = getelementptr inbounds i8, ptr %1, i64 34
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %14, ptr noundef nonnull align 1 dereferenceable(16) @.str.64, i64 16, i1 false) #18
   %15 = load i8, ptr %0, align 1
   %.not67 = icmp eq i8 %15, 123
@@ -2609,12 +2609,12 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_parse_config_str(ptr no
   ]
 
 .critedge.i:                                      ; preds = %25, %25, %25
-  %27 = getelementptr inbounds i8, ptr %.1.i, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   br label %25
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %.1.i, i64 1
-  %30 = getelementptr inbounds i8, ptr %.07.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   store i8 %26, ptr %.07.i, align 1
   %.not.i = icmp eq i8 %26, 0
   br i1 %.not.i, label %H5FD__onion_remove_unused_symbols.exit, label %.preheader
@@ -2813,18 +2813,18 @@ declare double @log2(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_create_truncate_onion(ptr noundef nonnull initializes((420, 424), (432, 440)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i64 noundef range(i64 1, -1) %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 416
-  %8 = getelementptr inbounds i8, ptr %0, i64 464
-  %9 = getelementptr inbounds i8, ptr %0, i64 420
-  %10 = getelementptr inbounds i8, ptr %0, i64 113
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 464
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 420
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 113
   %11 = load i8, ptr %10, align 1
   %12 = and i8 %11, 1
   %.not = icmp eq i8 %12, 0
   %spec.store.select = select i1 %.not, i32 1, i32 3
   store i32 %spec.store.select, ptr %9, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 432
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 432
   store i64 0, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %19
@@ -2852,7 +2852,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
 
 27:                                               ; preds = %H5FD__onion_get_legit_fapl_id.exit
   %28 = tail call ptr @H5FD_open(ptr noundef nonnull %1, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
-  %29 = getelementptr inbounds i8, ptr %0, i64 384
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store ptr %28, ptr %29, align 8
   %30 = icmp eq ptr %28, null
   br i1 %30, label %31, label %35
@@ -2865,7 +2865,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
 
 35:                                               ; preds = %27
   %36 = tail call ptr @H5FD_open(ptr noundef nonnull %2, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
-  %37 = getelementptr inbounds i8, ptr %0, i64 392
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
   br i1 %38, label %39, label %43
@@ -2878,7 +2878,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
 
 43:                                               ; preds = %35
   %44 = tail call ptr @H5FD_open(ptr noundef %3, i32 noundef %4, i64 noundef %.0.i, i64 noundef %5) #18
-  %45 = getelementptr inbounds i8, ptr %0, i64 400
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %44, ptr %45, align 8
   %46 = icmp eq ptr %44, null
   br i1 %46, label %47, label %51
@@ -2925,7 +2925,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %156
 
 74:                                               ; preds = %67
-  %75 = getelementptr inbounds i8, ptr %0, i64 488
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %76 = tail call i64 @H5FD__onion_history_encode(ptr noundef nonnull %8, ptr noundef nonnull %68, ptr noundef nonnull %75) #18
   %.not82 = icmp eq i64 %76, 20
   br i1 %.not82, label %81, label %77
@@ -2961,7 +2961,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %156
 
 97:                                               ; preds = %89
-  %98 = getelementptr inbounds i8, ptr %0, i64 448
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i64 20, ptr %98, align 8
   %99 = tail call ptr @H5MM_xfree(ptr noundef nonnull %68) #18
   %100 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
@@ -2975,7 +2975,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %156
 
 106:                                              ; preds = %97
-  %107 = getelementptr inbounds i8, ptr %0, i64 456
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %108 = tail call i64 @H5FD__onion_header_encode(ptr noundef nonnull %7, ptr noundef nonnull %100, ptr noundef nonnull %107) #18
   %.not83 = icmp eq i64 %108, 40
   br i1 %.not83, label %113, label %109
@@ -3011,15 +3011,15 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %156
 
 129:                                              ; preds = %121
-  %130 = getelementptr inbounds i8, ptr %0, i64 600
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i64 40, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %0, i64 377
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 377
   %132 = load i8, ptr %131, align 1
   %133 = trunc i8 %132 to i1
   br i1 %133, label %134, label %143
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds i8, ptr %0, i64 424
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %136 = load i32, ptr %135, align 8
   %137 = add i32 %136, -1
   %138 = zext i32 %137 to i64
@@ -3031,12 +3031,12 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %19, %H5FD__onion_ge
   br label %143
 
 143:                                              ; preds = %134, %129
-  %144 = getelementptr inbounds i8, ptr %0, i64 560
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store ptr null, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %0, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %146 = load i32, ptr %145, align 8
   %147 = tail call ptr @H5FD__onion_revision_index_init(i32 noundef %146) #18
-  %148 = getelementptr inbounds i8, ptr %0, i64 592
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %147, ptr %148, align 8
   %149 = icmp eq ptr %147, null
   br i1 %149, label %150, label %154
@@ -3094,8 +3094,8 @@ declare i32 @H5FD__onion_ingest_revision_record(ptr noundef, ptr noundef, ptr no
 define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef nonnull %0, i32 noundef %1, i64 noundef range(i64 1, -1) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 416
-  %7 = getelementptr inbounds i8, ptr %0, i64 420
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 1
   %.not = icmp eq i32 %9, 0
@@ -3108,13 +3108,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %85
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 408
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %16 = load ptr, ptr %15, align 8
   %17 = or i32 %1, 18
-  %18 = getelementptr inbounds i8, ptr %0, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %19 = load i64, ptr %18, align 8
   %20 = tail call ptr @H5FD_open(ptr noundef %16, i32 noundef %17, i64 noundef %19, i64 noundef %2) #18
-  %21 = getelementptr inbounds i8, ptr %0, i64 400
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %20, ptr %21, align 8
   %22 = icmp eq ptr %20, null
   br i1 %22, label %23, label %27
@@ -3126,7 +3126,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %85
 
 27:                                               ; preds = %14
-  %28 = getelementptr inbounds i8, ptr %0, i64 464
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %29 = tail call i64 @H5FD__onion_write_history(ptr noundef nonnull %28, ptr noundef nonnull %20, i64 noundef 0, i64 noundef 0) #18
   %30 = icmp eq i64 %29, 0
   br i1 %30, label %31, label %35
@@ -3138,7 +3138,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %85
 
 35:                                               ; preds = %27
-  %36 = getelementptr inbounds i8, ptr %0, i64 448
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %37 = load i64, ptr %36, align 8
   %.not49 = icmp eq i64 %29, %37
   br i1 %.not49, label %42, label %38
@@ -3175,7 +3175,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %85
 
 58:                                               ; preds = %49
-  %59 = getelementptr inbounds i8, ptr %0, i64 392
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @H5FD_write(ptr noundef %60, i32 noundef 3, i64 noundef 0, i64 noundef %52, ptr noundef nonnull %43) #18
   %62 = icmp slt i32 %61, 0
@@ -3188,10 +3188,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %85
 
 67:                                               ; preds = %58
-  %68 = getelementptr inbounds i8, ptr %0, i64 96
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load i32, ptr %68, align 8
   %70 = call ptr @H5FD__onion_revision_index_init(i32 noundef %69) #18
-  %71 = getelementptr inbounds i8, ptr %0, i64 592
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 592
   store ptr %70, ptr %71, align 8
   %72 = icmp eq ptr %70, null
   br i1 %72, label %73, label %77
@@ -3203,9 +3203,9 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %85
 
 77:                                               ; preds = %67
-  %78 = getelementptr inbounds i8, ptr %0, i64 504
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %79 = load i64, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 512
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 %79, ptr %80, align 8
   br i1 %3, label %83, label %81
 
@@ -3215,13 +3215,13 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %83
 
 83:                                               ; preds = %77, %81
-  %84 = getelementptr inbounds i8, ptr %0, i64 376
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 376
   store i8 1, ptr %84, align 8
   br label %107
 
 85:                                               ; preds = %10, %23, %31, %38, %45, %54, %63, %73
   %.041.ph = phi ptr [ %43, %73 ], [ %43, %63 ], [ %43, %54 ], [ null, %45 ], [ null, %38 ], [ null, %31 ], [ null, %23 ], [ null, %10 ]
-  %86 = getelementptr inbounds i8, ptr %0, i64 400
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %87 = load ptr, ptr %86, align 8
   %.not50 = icmp eq ptr %87, null
   br i1 %.not50, label %96, label %88
@@ -3242,7 +3242,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_open_rw(ptr noundef non
   br label %96
 
 96:                                               ; preds = %95, %85
-  %97 = getelementptr inbounds i8, ptr %0, i64 592
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %98 = load ptr, ptr %97, align 8
   %.not51 = icmp eq ptr %98, null
   br i1 %.not51, label %107, label %99

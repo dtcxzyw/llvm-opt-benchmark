@@ -1301,7 +1301,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
   br label %10
 
 10:                                               ; preds = %8, %4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %12 = load i16, ptr %11, align 1
   switch i16 %12, label %41 [
     i16 -4070, label %13
@@ -1316,7 +1316,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 13:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1119) #10
-  %14 = getelementptr inbounds i8, ptr %0, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %15 = load i16, ptr %14, align 1
   switch i16 %15, label %41 [
     i16 980, label %42
@@ -1328,7 +1328,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 17:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1122) #10
-  %18 = getelementptr inbounds i8, ptr %0, i64 2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %19 = load i16, ptr %18, align 1
   switch i16 %19, label %41 [
     i16 534, label %42
@@ -1340,7 +1340,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 21:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1125) #10
-  %22 = getelementptr inbounds i8, ptr %0, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %23 = load i16, ptr %22, align 1
   switch i16 %23, label %41 [
     i16 1346, label %42
@@ -1352,7 +1352,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 25:                                               ; preds = %10, %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1128) #10
-  %26 = getelementptr inbounds i8, ptr %0, i64 2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %27 = load i16, ptr %26, align 1
   switch i16 %27, label %41 [
     i16 1130, label %42
@@ -1366,7 +1366,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 29:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1131) #10
-  %30 = getelementptr inbounds i8, ptr %0, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %31 = load i16, ptr %30, align 1
   switch i16 %31, label %41 [
     i16 1760, label %42
@@ -1378,7 +1378,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 33:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1134) #10
-  %34 = getelementptr inbounds i8, ptr %0, i64 2
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %35 = load i16, ptr %34, align 1
   switch i16 %35, label %41 [
     i16 1960, label %42
@@ -1390,7 +1390,7 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
 
 37:                                               ; preds = %10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1137) #10
-  %38 = getelementptr inbounds i8, ptr %0, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %39 = load i16, ptr %38, align 1
   switch i16 %39, label %41 [
     i16 1764, label %42
@@ -1413,23 +1413,23 @@ define i32 @process_blip_record(ptr nocapture noundef readonly %0, ptr noundef %
   br i1 %44, label %.sink.split, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 %.1.ph
-  %48 = getelementptr inbounds i8, ptr %0, i64 6
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.1.ph
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %49 = load i32, ptr %48, align 1
   %50 = zext i32 %49 to i64
   %51 = sub nuw i64 %2, %43
   %. = tail call i64 @llvm.umin.i64(i64 %51, i64 %50)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1143, i64 noundef %.) #10
-  %52 = getelementptr inbounds i8, ptr %3, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load i32, ptr %54, align 8
   %.not81 = icmp eq i32 %55, 0
   br i1 %.not81, label %69, label %56
 
 56:                                               ; preds = %45
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %58 = load ptr, ptr %57, align 8
   %59 = call i32 @cli_gentempfd_with_prefix(ptr noundef %58, ptr noundef nonnull %.0.ph, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   %.not82 = icmp eq i32 %59, 0
@@ -1523,12 +1523,12 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not73, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %4, i64 2
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 6
-  %10 = getelementptr inbounds i8, ptr %5, i64 2
-  %11 = getelementptr inbounds i8, ptr %5, i64 4
-  %12 = getelementptr inbounds i8, ptr %5, i64 6
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 6
   br label %13
 
 13:                                               ; preds = %.lr.ph, %select.unfold
@@ -1546,10 +1546,10 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   store i16 %18, ptr %4, align 2
   %19 = lshr i16 %17, 4
   store i16 %19, ptr %7, align 2
-  %20 = getelementptr inbounds i8, ptr %.04075, i64 2
+  %20 = getelementptr inbounds nuw i8, ptr %.04075, i64 2
   %21 = load i16, ptr %20, align 1
   store i16 %21, ptr %8, align 2
-  %22 = getelementptr inbounds i8, ptr %.04075, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.04075, i64 4
   %23 = load i32, ptr %22, align 1
   store i32 %23, ptr %9, align 2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #10
@@ -1595,7 +1595,7 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br label %select.unfold
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds i8, ptr %.04075, i64 41
+  %37 = getelementptr inbounds nuw i8, ptr %.04075, i64 41
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
   %40 = add i64 %.04274, -44
@@ -1612,9 +1612,9 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   br i1 %.not60, label %48, label %44
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds i8, ptr %.04075, i64 44
+  %45 = getelementptr inbounds nuw i8, ptr %.04075, i64 44
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %45, i64 %39, i1 false)
-  %46 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 %39
+  %46 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %39
   store i8 0, ptr %46, align 1
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1151, ptr noundef nonnull %6) #10
   %.pre = load i8, ptr %37, align 1
@@ -1623,10 +1623,10 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
 
 48:                                               ; preds = %44, %43
   %49 = phi i64 [ %47, %44 ], [ 0, %43 ]
-  %50 = getelementptr inbounds i8, ptr %.04075, i64 44
-  %51 = getelementptr inbounds i8, ptr %50, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.04075, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   %52 = sub i64 %40, %49
-  %53 = getelementptr inbounds i8, ptr %.04075, i64 28
+  %53 = getelementptr inbounds nuw i8, ptr %.04075, i64 28
   %54 = load i32, ptr %53, align 1
   %55 = zext i32 %54 to i64
   %56 = icmp ult i64 %52, %55
@@ -1649,10 +1649,10 @@ define i32 @process_blip_store_container(ptr noundef %0, i64 noundef %1, ptr nou
   store i16 %63, ptr %5, align 2
   %64 = lshr i16 %62, 4
   store i16 %64, ptr %10, align 2
-  %65 = getelementptr inbounds i8, ptr %51, i64 2
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 2
   %66 = load i16, ptr %65, align 1
   store i16 %66, ptr %11, align 2
-  %67 = getelementptr inbounds i8, ptr %51, i64 4
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %68 = load i32, ptr %67, align 1
   store i32 %68, ptr %12, align 2
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #10
@@ -1694,7 +1694,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
   %81 = icmp ult i64 %.04274, %80
   %spec.select = call i64 @llvm.usub.sat.i64(i64 %.04274, i64 %80)
   %spec.select70.idx = select i1 %81, i64 0, i64 %80
-  %spec.select70 = getelementptr inbounds i8, ptr %.04075, i64 %spec.select70.idx
+  %spec.select70 = getelementptr inbounds nuw i8, ptr %.04075, i64 %spec.select70.idx
   %.not.not = icmp ugt i64 %.04274, %80
   br i1 %.not.not, label %13, label %.loopexit
 
@@ -1728,9 +1728,9 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   %9 = load i16, ptr %0, align 1
   %10 = and i16 %9, 15
   %11 = lshr i16 %9, 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %13 = load i16, ptr %12, align 1
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #10
   %16 = zext nneg i16 %10 to i32
@@ -1762,7 +1762,7 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   br i1 %.not53100, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %select.unfold86
@@ -1776,9 +1776,9 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   %29 = load i16, ptr %.144101, align 1
   %30 = and i16 %29, 15
   %31 = lshr i16 %29, 4
-  %32 = getelementptr inbounds i8, ptr %.144101, i64 2
+  %32 = getelementptr inbounds nuw i8, ptr %.144101, i64 2
   %33 = load i16, ptr %32, align 1
-  %34 = getelementptr inbounds i8, ptr %.144101, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.144101, i64 4
   %35 = load i32, ptr %34, align 1
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #10
   %36 = zext nneg i16 %30 to i32
@@ -1798,7 +1798,7 @@ define i32 @cli_extract_images_from_drawing_group(ptr noundef %0, i64 noundef %1
   br label %select.unfold86
 
 41:                                               ; preds = %28
-  %42 = getelementptr inbounds i8, ptr %.144101, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.144101, i64 8
   %43 = add i64 %.141102, -8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1164) #10
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1165, i32 noundef %35, i32 noundef %37) #10
@@ -1823,7 +1823,7 @@ select.unfold86:                                  ; preds = %.select.unfold86_cr
   %49 = add nuw nsw i64 %.pre-phi, 8
   %50 = icmp ult i64 %.141102, %49
   %spec.select.idx = select i1 %50, i64 0, i64 %49
-  %spec.select = getelementptr inbounds i8, ptr %.144101, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds nuw i8, ptr %.144101, i64 %spec.select.idx
   %spec.select98 = tail call i64 @llvm.usub.sat.i64(i64 %.141102, i64 %49)
   %.not53.not = icmp ugt i64 %.141102, %49
   br i1 %.not53.not, label %.lr.ph, label %.loopexit
@@ -1852,7 +1852,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   store ptr null, ptr %7, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(118) %9, ptr noundef nonnull align 16 dereferenceable(118) @__const.cli_extract_xlm_macros_and_images.FILE_HEADER, i64 118, i1 false)
   %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 4096, ptr noundef nonnull @.str.1168, ptr noundef %0, ptr noundef %2, i32 noundef %3) #10
-  %13 = getelementptr inbounds i8, ptr %5, i64 4095
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 4095
   store i8 0, ptr %13, align 1
   %14 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull %5, i32 noundef 0) #10
   %15 = icmp eq i32 %14, -1
@@ -1863,7 +1863,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br label %254
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = call i32 @cli_gentempfd_with_prefix(ptr noundef %18, ptr noundef nonnull @.str.1170, ptr noundef nonnull %7, ptr noundef nonnull %6) #10
   %.not = icmp eq i32 %19, 0
@@ -1894,18 +1894,18 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %8, i64 2
-  %35 = getelementptr inbounds i8, ptr %25, i64 1
-  %36 = getelementptr inbounds i8, ptr %25, i64 2
-  %37 = getelementptr inbounds i8, ptr %25, i64 3
-  %38 = getelementptr inbounds i8, ptr %25, i64 6
-  %39 = getelementptr inbounds i8, ptr %25, i64 4
-  %40 = getelementptr inbounds i8, ptr %25, i64 5
-  %41 = getelementptr inbounds i8, ptr %25, i64 14
-  %42 = getelementptr inbounds i8, ptr %25, i64 15
-  %43 = getelementptr inbounds i8, ptr %25, i64 20
-  %44 = getelementptr inbounds i8, ptr %25, i64 21
-  %45 = getelementptr inbounds i8, ptr %25, i64 22
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %25, i64 3
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 6
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %25, i64 5
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 14
+  %42 = getelementptr inbounds nuw i8, ptr %25, i64 15
+  %43 = getelementptr inbounds nuw i8, ptr %25, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %25, i64 21
+  %45 = getelementptr inbounds nuw i8, ptr %25, i64 22
   br label %46
 
 46:                                               ; preds = %.lr.ph, %230
@@ -1918,7 +1918,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
 
 49:                                               ; preds = %46
   %50 = zext nneg i16 %47 to i64
-  %51 = getelementptr inbounds [2251 x ptr], ptr @OPCODE_NAMES, i64 0, i64 %50
+  %51 = getelementptr inbounds nuw [2251 x ptr], ptr @OPCODE_NAMES, i64 0, i64 %50
   %52 = load ptr, ptr %51, align 8
   br label %53
 
@@ -2047,7 +2047,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
   %124 = sub nsw i64 %66, %123
   %125 = trunc nsw i64 %124 to i32
   %126 = call i32 @llvm.smin.i32(i32 %121, i32 %125)
-  %127 = getelementptr inbounds i8, ptr %25, i64 %123
+  %127 = getelementptr inbounds nuw i8, ptr %25, i64 %123
   %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %22, ptr noundef nonnull @.str.1189, i32 noundef %126, ptr noundef nonnull %127) #10
   br label %129
 
@@ -2119,7 +2119,7 @@ define i32 @cli_extract_xlm_macros_and_images(ptr noundef %0, ptr noundef %1, pt
 
 switch.lookup:                                    ; preds = %161
   %164 = zext nneg i8 %162 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images, i64 0, i64 %164
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images, i64 0, i64 %164
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %165
 
@@ -2131,7 +2131,7 @@ switch.lookup:                                    ; preds = %161
 
 switch.lookup310:                                 ; preds = %165
   %168 = zext nneg i8 %166 to i64
-  %switch.gep311 = getelementptr inbounds [7 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 0, i64 %168
+  %switch.gep311 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.cli_extract_xlm_macros_and_images.1, i64 0, i64 %168
   %switch.load312 = load ptr, ptr %switch.gep311, align 8
   br label %169
 
@@ -2350,9 +2350,9 @@ switch.lookup310:                                 ; preds = %165
   br i1 %.not169, label %.thread195, label %256
 
 256:                                              ; preds = %254
-  %257 = getelementptr inbounds i8, ptr %1, i64 48
+  %257 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %258 = load ptr, ptr %257, align 8
-  %259 = getelementptr inbounds i8, ptr %258, i64 40
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 40
   %260 = load i32, ptr %259, align 8
   %.not170 = icmp eq i32 %260, 0
   br i1 %.not170, label %261, label %.thread293
@@ -2399,7 +2399,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 .lr.ph:                                           ; preds = %3, %492
   %.0245382 = phi i32 [ %.1, %492 ], [ 0, %3 ]
   %6 = zext i32 %.0245382 to i64
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = and i8 %8, 127
   %10 = icmp ult i8 %8, 126
@@ -2407,7 +2407,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %9 to i64
-  %13 = getelementptr inbounds [126 x ptr], ptr @TOKENS, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [126 x ptr], ptr @TOKENS, i64 0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1223, ptr noundef %14) #10
   %16 = icmp slt i32 %15, 0
@@ -2469,7 +2469,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 24:                                               ; preds = %21
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds i8, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 %25
   %27 = load i8, ptr %26, align 1
   switch i8 %27, label %.thread [
     i8 1, label %28
@@ -2479,7 +2479,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 28:                                               ; preds = %24
   %29 = add nuw i32 %.0245382, 1
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = sext i8 %32 to i32
   %34 = shl nsw i32 %33, 1
@@ -2496,7 +2496,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
   %spec.select = call i64 @llvm.umin.i64(i64 %37, i64 %39)
   %40 = add i32 %.0245382, 3
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %41
   %43 = call i32 @cli_codepage_to_utf8(ptr noundef nonnull %42, i64 noundef %spec.select, i16 noundef zeroext 1200, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %45, label %54
@@ -2537,7 +2537,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 61:                                               ; preds = %24
   %62 = add nuw i32 %.0245382, 1
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds i8, ptr %1, i64 %63
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 %63
   %65 = load i8, ptr %64, align 1
   %66 = sext i8 %65 to i32
   %67 = add i32 %22, %66
@@ -2580,7 +2580,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 81:                                               ; preds = %78
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds i8, ptr %1, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = and i8 %84, 64
   %.not303 = icmp eq i8 %85, 0
@@ -2598,11 +2598,11 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 89:                                               ; preds = %86
   %90 = add i32 %.0245382, 2
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds i8, ptr %1, i64 %91
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 %91
   %93 = load i8, ptr %92, align 1
   %94 = sext i8 %93 to i32
   %95 = zext i32 %87 to i64
-  %96 = getelementptr inbounds i8, ptr %1, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
   %97 = load i8, ptr %96, align 1
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 8
@@ -2638,7 +2638,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 114:                                              ; preds = %111
   %115 = zext i32 %112 to i64
-  %116 = getelementptr inbounds i8, ptr %1, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 %115
   %117 = load i8, ptr %116, align 1
   %.not301 = icmp eq i8 %117, 0
   %118 = select i1 %.not301, ptr @.str.289, ptr @.str.288
@@ -2666,11 +2666,11 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 127:                                              ; preds = %124
   %128 = add nuw i32 %.0245382, 1
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds i8, ptr %1, i64 %129
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 %129
   %131 = load i8, ptr %130, align 1
   %132 = sext i8 %131 to i32
   %133 = zext i32 %125 to i64
-  %134 = getelementptr inbounds i8, ptr %1, i64 %133
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 %133
   %135 = load i8, ptr %134, align 1
   %136 = sext i8 %135 to i32
   %137 = shl nsw i32 %136, 8
@@ -2699,11 +2699,11 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 147:                                              ; preds = %144
   %148 = add nuw i32 %.0245382, 1
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds i8, ptr %1, i64 %149
+  %150 = getelementptr inbounds nuw i8, ptr %1, i64 %149
   %151 = load i8, ptr %150, align 1
   %152 = sext i8 %151 to i32
   %153 = zext i32 %145 to i64
-  %154 = getelementptr inbounds i8, ptr %1, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 %153
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = shl nuw nsw i32 %156, 8
@@ -2714,7 +2714,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 160:                                              ; preds = %147
   %161 = zext nneg i32 %158 to i64
-  %162 = getelementptr inbounds [380 x ptr], ptr @FUNCTIONS, i64 0, i64 %161
+  %162 = getelementptr inbounds nuw [380 x ptr], ptr @FUNCTIONS, i64 0, i64 %161
   %163 = load ptr, ptr %162, align 8
   br label %get_function_name.exit
 
@@ -2729,7 +2729,7 @@ define internal fastcc range(i32 0, 27) i32 @parse_formula(ptr nocapture noundef
 
 169:                                              ; preds = %166
   %170 = zext nneg i32 %167 to i64
-  %171 = getelementptr inbounds [809 x ptr], ptr @EXTENDED_FUNCTIONS, i64 0, i64 %170
+  %171 = getelementptr inbounds nuw [809 x ptr], ptr @EXTENDED_FUNCTIONS, i64 0, i64 %170
   %172 = load ptr, ptr %171, align 8
   br label %get_function_name.exit
 
@@ -2761,11 +2761,11 @@ get_function_name.exit:                           ; preds = %160, %164, %166, %1
 183:                                              ; preds = %180
   %184 = add i32 %.0245382, 2
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds i8, ptr %1, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 %185
   %187 = load i8, ptr %186, align 1
   %188 = sext i8 %187 to i32
   %189 = zext i32 %181 to i64
-  %190 = getelementptr inbounds i8, ptr %1, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr %1, i64 %189
   %191 = load i8, ptr %190, align 1
   %192 = zext i8 %191 to i32
   %193 = shl nuw nsw i32 %192, 8
@@ -2776,7 +2776,7 @@ get_function_name.exit:                           ; preds = %160, %164, %166, %1
 
 196:                                              ; preds = %183
   %197 = zext nneg i32 %194 to i64
-  %198 = getelementptr inbounds [380 x ptr], ptr @FUNCTIONS, i64 0, i64 %197
+  %198 = getelementptr inbounds nuw [380 x ptr], ptr @FUNCTIONS, i64 0, i64 %197
   %199 = load ptr, ptr %198, align 8
   br label %get_function_name.exit314
 
@@ -2791,7 +2791,7 @@ get_function_name.exit:                           ; preds = %160, %164, %166, %1
 
 205:                                              ; preds = %202
   %206 = zext nneg i32 %203 to i64
-  %207 = getelementptr inbounds [809 x ptr], ptr @EXTENDED_FUNCTIONS, i64 0, i64 %206
+  %207 = getelementptr inbounds nuw [809 x ptr], ptr @EXTENDED_FUNCTIONS, i64 0, i64 %206
   %208 = load ptr, ptr %207, align 8
   br label %get_function_name.exit314
 
@@ -2799,7 +2799,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
   %.0.i313 = phi ptr [ %199, %196 ], [ %208, %205 ], [ null, %202 ], [ null, %200 ]
   %209 = add nuw i32 %.0245382, 1
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds i8, ptr %1, i64 %210
+  %211 = getelementptr inbounds nuw i8, ptr %1, i64 %210
   %212 = load i8, ptr %211, align 1
   %213 = sext i8 %212 to i32
   %214 = icmp eq ptr %.0.i313, null
@@ -2830,25 +2830,25 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 224:                                              ; preds = %221
   %225 = add nuw i32 %.0245382, 1
   %226 = zext i32 %225 to i64
-  %227 = getelementptr inbounds i8, ptr %1, i64 %226
+  %227 = getelementptr inbounds nuw i8, ptr %1, i64 %226
   %228 = load i8, ptr %227, align 1
   %229 = sext i8 %228 to i32
   %230 = add i32 %.0245382, 2
   %231 = zext i32 %230 to i64
-  %232 = getelementptr inbounds i8, ptr %1, i64 %231
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 %231
   %233 = load i8, ptr %232, align 1
   %234 = sext i8 %233 to i32
   %235 = shl nsw i32 %234, 8
   %236 = or i32 %235, %229
   %237 = add i32 %.0245382, 3
   %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds i8, ptr %1, i64 %238
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 %238
   %240 = load i8, ptr %239, align 1
   %241 = sext i8 %240 to i32
   %242 = shl nsw i32 %241, 16
   %243 = or i32 %236, %242
   %244 = zext i32 %222 to i64
-  %245 = getelementptr inbounds i8, ptr %1, i64 %244
+  %245 = getelementptr inbounds nuw i8, ptr %1, i64 %244
   %246 = load i8, ptr %245, align 1
   %247 = sext i8 %246 to i32
   %248 = shl nsw i32 %247, 24
@@ -2877,7 +2877,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 258:                                              ; preds = %255
   %259 = add nuw i32 %.0245382, 1
   %260 = zext i32 %259 to i64
-  %261 = getelementptr inbounds i8, ptr %1, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %1, i64 %260
   %262 = load double, ptr %261, align 8
   %263 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.1249, double noundef %262) #10
   %264 = icmp slt i32 %263, 0
@@ -2925,22 +2925,22 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 280:                                              ; preds = %277
   %281 = add nuw i32 %.0245382, 1
   %282 = zext i32 %281 to i64
-  %283 = getelementptr inbounds i8, ptr %1, i64 %282
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 %282
   %284 = load i8, ptr %283, align 1
   %285 = sext i8 %284 to i32
   %286 = add i32 %.0245382, 2
   %287 = zext i32 %286 to i64
-  %288 = getelementptr inbounds i8, ptr %1, i64 %287
+  %288 = getelementptr inbounds nuw i8, ptr %1, i64 %287
   %289 = load i8, ptr %288, align 1
   %290 = zext i8 %289 to i32
   %291 = shl nuw nsw i32 %290, 8
   %292 = add i32 %.0245382, 3
   %293 = zext i32 %292 to i64
-  %294 = getelementptr inbounds i8, ptr %1, i64 %293
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 %293
   %295 = load i8, ptr %294, align 1
   %296 = sext i8 %295 to i32
   %297 = zext i32 %278 to i64
-  %298 = getelementptr inbounds i8, ptr %1, i64 %297
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 %297
   %299 = load i8, ptr %298, align 1
   %300 = zext i8 %299 to i32
   %301 = shl nuw nsw i32 %300, 8
@@ -2974,22 +2974,22 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 314:                                              ; preds = %311
   %315 = add nuw i32 %.0245382, 1
   %316 = zext i32 %315 to i64
-  %317 = getelementptr inbounds i8, ptr %1, i64 %316
+  %317 = getelementptr inbounds nuw i8, ptr %1, i64 %316
   %318 = load i8, ptr %317, align 1
   %319 = sext i8 %318 to i32
   %320 = add i32 %.0245382, 2
   %321 = zext i32 %320 to i64
-  %322 = getelementptr inbounds i8, ptr %1, i64 %321
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 %321
   %323 = load i8, ptr %322, align 1
   %324 = zext i8 %323 to i32
   %325 = shl nuw nsw i32 %324, 8
   %326 = add i32 %.0245382, 3
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds i8, ptr %1, i64 %327
+  %328 = getelementptr inbounds nuw i8, ptr %1, i64 %327
   %329 = load i8, ptr %328, align 1
   %330 = sext i8 %329 to i32
   %331 = zext i32 %312 to i64
-  %332 = getelementptr inbounds i8, ptr %1, i64 %331
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 %331
   %333 = load i8, ptr %332, align 1
   %334 = zext i8 %333 to i32
   %335 = shl nuw nsw i32 %334, 8
@@ -3032,44 +3032,44 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 354:                                              ; preds = %351
   %355 = add nuw i32 %.0245382, 1
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds i8, ptr %1, i64 %356
+  %357 = getelementptr inbounds nuw i8, ptr %1, i64 %356
   %358 = load i8, ptr %357, align 1
   %359 = sext i8 %358 to i32
   %360 = add i32 %.0245382, 2
   %361 = zext i32 %360 to i64
-  %362 = getelementptr inbounds i8, ptr %1, i64 %361
+  %362 = getelementptr inbounds nuw i8, ptr %1, i64 %361
   %363 = load i8, ptr %362, align 1
   %364 = zext i8 %363 to i32
   %365 = shl nuw nsw i32 %364, 8
   %366 = add i32 %.0245382, 3
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds i8, ptr %1, i64 %367
+  %368 = getelementptr inbounds nuw i8, ptr %1, i64 %367
   %369 = load i8, ptr %368, align 1
   %370 = sext i8 %369 to i32
   %371 = add i32 %.0245382, 4
   %372 = zext i32 %371 to i64
-  %373 = getelementptr inbounds i8, ptr %1, i64 %372
+  %373 = getelementptr inbounds nuw i8, ptr %1, i64 %372
   %374 = load i8, ptr %373, align 1
   %375 = zext i8 %374 to i32
   %376 = shl nuw nsw i32 %375, 8
   %377 = add i32 %.0245382, 5
   %378 = zext i32 %377 to i64
-  %379 = getelementptr inbounds i8, ptr %1, i64 %378
+  %379 = getelementptr inbounds nuw i8, ptr %1, i64 %378
   %380 = load i8, ptr %379, align 1
   %381 = sext i8 %380 to i32
   %382 = add i32 %.0245382, 6
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds i8, ptr %1, i64 %383
+  %384 = getelementptr inbounds nuw i8, ptr %1, i64 %383
   %385 = load i8, ptr %384, align 1
   %386 = zext i8 %385 to i32
   %387 = shl nuw nsw i32 %386, 8
   %388 = add i32 %.0245382, 7
   %389 = zext i32 %388 to i64
-  %390 = getelementptr inbounds i8, ptr %1, i64 %389
+  %390 = getelementptr inbounds nuw i8, ptr %1, i64 %389
   %391 = load i8, ptr %390, align 1
   %392 = sext i8 %391 to i32
   %393 = zext i32 %352 to i64
-  %394 = getelementptr inbounds i8, ptr %1, i64 %393
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 %393
   %395 = load i8, ptr %394, align 1
   %396 = zext i8 %395 to i32
   %397 = shl nuw nsw i32 %396, 8
@@ -3127,22 +3127,22 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 426:                                              ; preds = %423
   %427 = add i32 %.0245382, 3
   %428 = zext i32 %427 to i64
-  %429 = getelementptr inbounds i8, ptr %1, i64 %428
+  %429 = getelementptr inbounds nuw i8, ptr %1, i64 %428
   %430 = load i8, ptr %429, align 1
   %431 = sext i8 %430 to i32
   %432 = add i32 %.0245382, 4
   %433 = zext i32 %432 to i64
-  %434 = getelementptr inbounds i8, ptr %1, i64 %433
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 %433
   %435 = load i8, ptr %434, align 1
   %436 = zext i8 %435 to i32
   %437 = shl nuw nsw i32 %436, 8
   %438 = add i32 %.0245382, 5
   %439 = zext i32 %438 to i64
-  %440 = getelementptr inbounds i8, ptr %1, i64 %439
+  %440 = getelementptr inbounds nuw i8, ptr %1, i64 %439
   %441 = load i8, ptr %440, align 1
   %442 = sext i8 %441 to i32
   %443 = zext i32 %424 to i64
-  %444 = getelementptr inbounds i8, ptr %1, i64 %443
+  %444 = getelementptr inbounds nuw i8, ptr %1, i64 %443
   %445 = load i8, ptr %444, align 1
   %446 = zext i8 %445 to i32
   %447 = shl nuw nsw i32 %446, 8
@@ -3185,12 +3185,12 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 466:                                              ; preds = %463
   %467 = add i32 %.0245382, 3
   %468 = zext i32 %467 to i64
-  %469 = getelementptr inbounds i8, ptr %1, i64 %468
+  %469 = getelementptr inbounds nuw i8, ptr %1, i64 %468
   %470 = load i8, ptr %469, align 1
   %471 = sext i8 %470 to i32
   %472 = add i32 %.0245382, 4
   %473 = zext i32 %472 to i64
-  %474 = getelementptr inbounds i8, ptr %1, i64 %473
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 %473
   %475 = load i8, ptr %474, align 1
   %476 = zext i8 %475 to i32
   %477 = shl nuw nsw i32 %476, 8
@@ -3214,7 +3214,7 @@ get_function_name.exit314:                        ; preds = %196, %200, %202, %2
 
 486:                                              ; preds = %484
   %487 = zext nneg i8 %9 to i64
-  %488 = getelementptr inbounds [126 x ptr], ptr @TOKENS, i64 0, i64 %487
+  %488 = getelementptr inbounds nuw [126 x ptr], ptr @TOKENS, i64 0, i64 %487
   %489 = load ptr, ptr %488, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1270, ptr noundef %489) #10
   br label %.loopexit

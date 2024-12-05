@@ -14,7 +14,7 @@ define hidden void @_ZN24TempSymbolCleanupDelayer13delay_cleanupEP6Symbol(ptr no
   %3 = add i32 %2, 1
   %4 = and i32 %3, 127
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr inbounds [128 x ptr], ptr @_ZN24TempSymbolCleanupDelayer6_queueE, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN24TempSymbolCleanupDelayer6_queueE, i64 0, i64 %5
   %7 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %0, ptr nonnull %6) #2, !srcloc !7
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit, label %8
@@ -35,7 +35,7 @@ define hidden void @_ZN24TempSymbolCleanupDelayer11drain_queueEv() local_unnamed
 
 1:                                                ; preds = %0, %_ZN6Symbol24maybe_decrement_refcountEPS_.exit
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %_ZN6Symbol24maybe_decrement_refcountEPS_.exit ]
-  %2 = getelementptr inbounds [128 x ptr], ptr @_ZN24TempSymbolCleanupDelayer6_queueE, i64 0, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [128 x ptr], ptr @_ZN24TempSymbolCleanupDelayer6_queueE, i64 0, i64 %indvars.iv
   %3 = tail call noundef ptr asm sideeffect "xchgq ($2),$0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr nonnull %2) #2, !srcloc !7
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit, label %4

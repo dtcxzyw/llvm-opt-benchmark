@@ -162,14 +162,14 @@ define hidden i32 @mlib_ImageAffine_alltypes(ptr noundef %0, ptr noundef %1, ptr
 
 switch.lookup:                                    ; preds = %10
   %14 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes, i64 0, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   %15 = zext nneg i32 %3 to i64
-  %switch.gep112 = getelementptr inbounds [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes.4, i64 0, i64 %15
+  %switch.gep112 = getelementptr inbounds nuw [4 x i32], ptr @switch.table.mlib_ImageAffine_alltypes.4, i64 0, i64 %15
   %switch.load113 = load i32, ptr %switch.gep112, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %6, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 112
   store i32 %3, ptr %17, align 16
   %18 = call i32 @mlib_AffineEdges(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef %4, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
   %.not89 = icmp eq i32 %18, 0
@@ -211,15 +211,15 @@ switch.lookup:                                    ; preds = %10
 27:                                               ; preds = %25
   %28 = add nsw i32 %.073, -2
   %spec.select = select i1 %26, i32 %28, i32 %.073
-  %29 = getelementptr inbounds i8, ptr %6, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %30 = load ptr, ptr %29, align 16
   %31 = ptrtoint ptr %30 to i64
   %32 = load ptr, ptr %20, align 8
   %33 = ptrtoint ptr %32 to i64
   %34 = or i64 %33, %31
-  %35 = getelementptr inbounds i8, ptr %6, i64 96
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %36 = load i32, ptr %35, align 16
-  %37 = getelementptr inbounds i8, ptr %6, i64 92
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 92
   %38 = load i32, ptr %37, align 4
   %39 = or i32 %38, %36
   %40 = sext i32 %39 to i64
@@ -283,7 +283,7 @@ switch.lookup:                                    ; preds = %10
   br i1 %.not90, label %.thread, label %79
 
 79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %6, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %81 = load ptr, ptr %80, align 16
   %.not91 = icmp eq ptr %81, null
   br i1 %.not91, label %108, label %.sink.split
@@ -299,16 +299,16 @@ default.unreachable:                              ; preds = %25
   br i1 %or.cond3, label %85, label %105
 
 85:                                               ; preds = %.thread
-  %86 = getelementptr inbounds i8, ptr %8, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %20, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %8, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 112
   store i32 %3, ptr %87, align 16
   %88 = call i32 @mlib_AffineEdges(ptr noundef nonnull %8, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, i32 noundef 600, i32 noundef %switch.load, i32 noundef %switch.load, i32 noundef %switch.load113, i32 noundef %switch.load113, i32 noundef -1, ptr noundef %2, i32 noundef 16, i32 noundef 16) #2
   %.not92 = icmp eq i32 %88, 0
   br i1 %.not92, label %92, label %89
 
 89:                                               ; preds = %85
-  %90 = getelementptr inbounds i8, ptr %6, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %91 = load ptr, ptr %90, align 16
   %.not95 = icmp eq ptr %91, null
   br i1 %.not95, label %108, label %.sink.split
@@ -342,7 +342,7 @@ default.unreachable:                              ; preds = %25
 
 101:                                              ; preds = %92, %97, %99, %94, %93
   %.3 = phi i32 [ 0, %92 ], [ %98, %97 ], [ %100, %99 ], [ 0, %94 ], [ 0, %93 ]
-  %102 = getelementptr inbounds i8, ptr %8, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %103 = load ptr, ptr %102, align 16
   %.not93 = icmp eq ptr %103, null
   br i1 %.not93, label %105, label %104
@@ -353,7 +353,7 @@ default.unreachable:                              ; preds = %25
 
 105:                                              ; preds = %101, %104, %.thread
   %.277 = phi i32 [ %.3, %104 ], [ %.3, %101 ], [ 0, %.thread ]
-  %106 = getelementptr inbounds i8, ptr %6, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %107 = load ptr, ptr %106, align 16
   %.not94 = icmp eq ptr %107, null
   br i1 %.not94, label %108, label %.sink.split

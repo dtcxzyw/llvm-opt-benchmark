@@ -54,7 +54,7 @@ if.else4:                                         ; preds = %if.end
   unreachable
 
 if.end5:                                          ; preds = %if.end
-  %vhost_crypto = getelementptr inbounds i8, ptr %call.i, i64 1296
+  %vhost_crypto = getelementptr inbounds nuw i8, ptr %call.i, i64 1296
   %idxprom = zext nneg i16 %queue to i64
   %arrayidx = getelementptr [64 x ptr], ptr %vhost_crypto, i64 0, i64 %idxprom
   %1 = load ptr, ptr %arrayidx, align 8
@@ -88,9 +88,9 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 define internal void @cryptodev_vhost_user_finalize(ptr noundef %obj) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
-  %chr = getelementptr inbounds i8, ptr %call.i, i64 1224
+  %chr = getelementptr inbounds nuw i8, ptr %call.i, i64 1224
   tail call void @qemu_chr_fe_deinit(ptr noundef nonnull %chr, i1 noundef zeroext false) #5
-  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 1280
+  %chr_name = getelementptr inbounds nuw i8, ptr %call.i, i64 1280
   %0 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %0) #5
   ret void
@@ -100,15 +100,15 @@ entry:
 define internal void @cryptodev_vhost_user_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_CLASS) #5
-  %init = getelementptr inbounds i8, ptr %call.i, i64 96
+  %init = getelementptr inbounds nuw i8, ptr %call.i, i64 96
   store ptr @cryptodev_vhost_user_init, ptr %init, align 8
-  %cleanup = getelementptr inbounds i8, ptr %call.i, i64 104
+  %cleanup = getelementptr inbounds nuw i8, ptr %call.i, i64 104
   store ptr @cryptodev_vhost_user_cleanup, ptr %cleanup, align 8
-  %create_session = getelementptr inbounds i8, ptr %call.i, i64 112
+  %create_session = getelementptr inbounds nuw i8, ptr %call.i, i64 112
   store ptr @cryptodev_vhost_user_create_session, ptr %create_session, align 8
-  %close_session = getelementptr inbounds i8, ptr %call.i, i64 120
+  %close_session = getelementptr inbounds nuw i8, ptr %call.i, i64 120
   store ptr @cryptodev_vhost_user_close_session, ptr %close_session, align 8
-  %do_op = getelementptr inbounds i8, ptr %call.i, i64 128
+  %do_op = getelementptr inbounds nuw i8, ptr %call.i, i64 128
   store ptr null, ptr %do_op, align 8
   %call1 = tail call ptr @object_class_property_add_str(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @cryptodev_vhost_user_get_chardev, ptr noundef nonnull @cryptodev_vhost_user_set_chardev) #5
   ret void
@@ -122,12 +122,12 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 define internal void @cryptodev_vhost_user_init(ptr noundef %backend, ptr noundef %errp) #0 {
 entry:
   %local_err = alloca ptr, align 8
-  %conf = getelementptr inbounds i8, ptr %backend, i64 48
-  %queues1 = getelementptr inbounds i8, ptr %backend, i64 560
+  %conf = getelementptr inbounds nuw i8, ptr %backend, i64 48
+  %queues1 = getelementptr inbounds nuw i8, ptr %backend, i64 560
   %0 = load i32, ptr %queues1, align 8
   store ptr null, ptr %local_err, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
-  %chr_name.i = getelementptr inbounds i8, ptr %call.i, i64 1280
+  %chr_name.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1280
   %1 = load ptr, ptr %chr_name.i, align 8
   %cmp.i = icmp eq ptr %1, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -157,15 +157,15 @@ if.then:                                          ; preds = %cryptodev_vhost_cla
   br label %return
 
 if.end:                                           ; preds = %cryptodev_vhost_claim_chardev.exit
-  %opened = getelementptr inbounds i8, ptr %call.i, i64 1288
+  %opened = getelementptr inbounds nuw i8, ptr %call.i, i64 1288
   store i8 1, ptr %opened, align 8
   %conv = sext i32 %0 to i64
   %cmp27.not = icmp eq i32 %0, 0
   br i1 %cmp27.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %label = getelementptr inbounds i8, ptr %retval.0.i, i64 96
-  %chr12 = getelementptr inbounds i8, ptr %call.i, i64 1224
+  %label = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 96
+  %chr12 = getelementptr inbounds nuw i8, ptr %call.i, i64 1224
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -173,10 +173,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %call4 = call ptr @cryptodev_backend_new_client() #5
   %4 = load ptr, ptr %label, align 8
   %call5 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.7, i64 noundef %i.028, ptr noundef %4) #5
-  %info_str = getelementptr inbounds i8, ptr %call4, i64 8
+  %info_str = getelementptr inbounds nuw i8, ptr %call4, i64 8
   store ptr %call5, ptr %info_str, align 8
   %conv6 = trunc i64 %i.028 to i32
-  %queue_index = getelementptr inbounds i8, ptr %call4, i64 16
+  %queue_index = getelementptr inbounds nuw i8, ptr %call4, i64 16
   store i32 %conv6, ptr %queue_index, align 8
   store i32 1, ptr %call4, align 8
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %i.028
@@ -194,24 +194,24 @@ for.inc:                                          ; preds = %for.body, %if.then1
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.inc, %if.end
-  %vhost_user = getelementptr inbounds i8, ptr %call.i, i64 1200
-  %chr17 = getelementptr inbounds i8, ptr %call.i, i64 1224
+  %vhost_user = getelementptr inbounds nuw i8, ptr %call.i, i64 1200
+  %chr17 = getelementptr inbounds nuw i8, ptr %call.i, i64 1224
   %call18 = call zeroext i1 @vhost_user_init(ptr noundef nonnull %vhost_user, ptr noundef nonnull %chr17, ptr noundef %errp) #5
   br i1 %call18, label %if.end20, label %return
 
 if.end20:                                         ; preds = %for.end
   call void @qemu_chr_fe_set_handlers(ptr noundef nonnull %chr17, ptr noundef null, ptr noundef null, ptr noundef nonnull @cryptodev_vhost_user_event, ptr noundef null, ptr noundef %call.i, ptr noundef null, i1 noundef zeroext true) #5
-  %crypto_services = getelementptr inbounds i8, ptr %backend, i64 568
+  %crypto_services = getelementptr inbounds nuw i8, ptr %backend, i64 568
   store i32 7, ptr %crypto_services, align 8
-  %cipher_algo_l = getelementptr inbounds i8, ptr %backend, i64 572
+  %cipher_algo_l = getelementptr inbounds nuw i8, ptr %backend, i64 572
   store i32 8, ptr %cipher_algo_l, align 4
-  %hash_algo = getelementptr inbounds i8, ptr %backend, i64 580
+  %hash_algo = getelementptr inbounds nuw i8, ptr %backend, i64 580
   store i32 4, ptr %hash_algo, align 4
-  %max_size = getelementptr inbounds i8, ptr %backend, i64 608
+  %max_size = getelementptr inbounds nuw i8, ptr %backend, i64 608
   store i64 -1, ptr %max_size, align 8
-  %max_cipher_key_len = getelementptr inbounds i8, ptr %backend, i64 600
+  %max_cipher_key_len = getelementptr inbounds nuw i8, ptr %backend, i64 600
   store i32 64, ptr %max_cipher_key_len, align 8
-  %max_auth_key_len = getelementptr inbounds i8, ptr %backend, i64 604
+  %max_auth_key_len = getelementptr inbounds nuw i8, ptr %backend, i64 604
   store i32 512, ptr %max_auth_key_len, align 4
   br label %return
 
@@ -223,15 +223,15 @@ return:                                           ; preds = %if.then11, %for.end
 define internal void @cryptodev_vhost_user_cleanup(ptr noundef %backend, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %backend, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
-  %conf = getelementptr inbounds i8, ptr %backend, i64 48
-  %queues1 = getelementptr inbounds i8, ptr %backend, i64 560
+  %conf = getelementptr inbounds nuw i8, ptr %backend, i64 48
+  %queues1 = getelementptr inbounds nuw i8, ptr %backend, i64 560
   %0 = load i32, ptr %queues1, align 8
   %conv.i = sext i32 %0 to i64
   %cmp7.not.i = icmp eq i32 %0, 0
   br i1 %cmp7.not.i, label %for.end, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %entry
-  %vhost_crypto.i = getelementptr inbounds i8, ptr %call.i, i64 1296
+  %vhost_crypto.i = getelementptr inbounds nuw i8, ptr %call.i, i64 1296
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -269,7 +269,7 @@ for.inc:                                          ; preds = %for.body, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc, %entry
-  %vhost_user = getelementptr inbounds i8, ptr %call.i, i64 1200
+  %vhost_user = getelementptr inbounds nuw i8, ptr %call.i, i64 1200
   tail call void @vhost_user_cleanup(ptr noundef nonnull %vhost_user) #5
   ret void
 }
@@ -291,7 +291,7 @@ entry:
 
 sw.bb:                                            ; preds = %entry, %entry, %entry, %entry, %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session_id.i)
-  %conf.i = getelementptr inbounds i8, ptr %backend, i64 48
+  %conf.i = getelementptr inbounds nuw i8, ptr %backend, i64 48
   %idxprom.i = zext i32 %queue_index to i64
   %arrayidx.i = getelementptr [64 x ptr], ptr %conf.i, i64 0, i64 %idxprom.i
   %1 = load ptr, ptr %arrayidx.i, align 8
@@ -315,7 +315,7 @@ if.else4.i.i:                                     ; preds = %if.end.i.i
   unreachable
 
 cryptodev_vhost_user_get_vhost.exit.i:            ; preds = %if.end.i.i
-  %vhost_crypto.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 1296
+  %vhost_crypto.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 1296
   %conv.mask.i = and i32 %queue_index, 63
   %idxprom.i.i = zext nneg i32 %conv.mask.i to i64
   %arrayidx.i.i = getelementptr [64 x ptr], ptr %vhost_crypto.i.i, i64 0, i64 %idxprom.i.i
@@ -324,9 +324,9 @@ cryptodev_vhost_user_get_vhost.exit.i:            ; preds = %if.end.i.i
   br i1 %tobool.not.i, label %if.end.thread, label %if.then.i
 
 if.then.i:                                        ; preds = %cryptodev_vhost_user_get_vhost.exit.i
-  %vhost_ops.i = getelementptr inbounds i8, ptr %4, i64 528
+  %vhost_ops.i = getelementptr inbounds nuw i8, ptr %4, i64 528
   %5 = load ptr, ptr %vhost_ops.i, align 8
-  %vhost_crypto_create_session.i = getelementptr inbounds i8, ptr %5, i64 288
+  %vhost_crypto_create_session.i = getelementptr inbounds nuw i8, ptr %5, i64 288
   %6 = load ptr, ptr %vhost_crypto_create_session.i, align 8
   %call2.i = call i32 %6(ptr noundef nonnull %4, ptr noundef nonnull %sess_info, ptr noundef nonnull %session_id.i) #5
   %cmp.i = icmp slt i32 %call2.i, 0
@@ -347,7 +347,7 @@ if.end:                                           ; preds = %if.then.i
   br i1 %cmp, label %if.end4, label %if.else
 
 if.else:                                          ; preds = %if.end
-  %session_id = getelementptr inbounds i8, ptr %sess_info, i64 56
+  %session_id = getelementptr inbounds nuw i8, ptr %sess_info, i64 56
   store i64 %7, ptr %session_id, align 8
   br label %if.end4
 
@@ -368,7 +368,7 @@ return:                                           ; preds = %if.end4, %if.then6,
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef i32 @cryptodev_vhost_user_close_session(ptr noundef %backend, i64 noundef %session_id, i32 noundef %queue_index, ptr noundef readonly %cb, ptr noundef %opaque) #0 {
 entry:
-  %conf = getelementptr inbounds i8, ptr %backend, i64 48
+  %conf = getelementptr inbounds nuw i8, ptr %backend, i64 48
   %idxprom = zext i32 %queue_index to i64
   %arrayidx = getelementptr [64 x ptr], ptr %conf, i64 0, i64 %idxprom
   %0 = load ptr, ptr %arrayidx, align 8
@@ -391,7 +391,7 @@ if.else4.i:                                       ; preds = %if.end.i
   unreachable
 
 cryptodev_vhost_user_get_vhost.exit:              ; preds = %if.end.i
-  %vhost_crypto.i = getelementptr inbounds i8, ptr %call.i.i, i64 1296
+  %vhost_crypto.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 1296
   %conv.mask = and i32 %queue_index, 63
   %idxprom.i = zext nneg i32 %conv.mask to i64
   %arrayidx.i = getelementptr [64 x ptr], ptr %vhost_crypto.i, i64 0, i64 %idxprom.i
@@ -400,9 +400,9 @@ cryptodev_vhost_user_get_vhost.exit:              ; preds = %if.end.i
   br i1 %tobool.not, label %if.end6, label %if.then
 
 if.then:                                          ; preds = %cryptodev_vhost_user_get_vhost.exit
-  %vhost_ops = getelementptr inbounds i8, ptr %3, i64 528
+  %vhost_ops = getelementptr inbounds nuw i8, ptr %3, i64 528
   %4 = load ptr, ptr %vhost_ops, align 8
-  %vhost_crypto_close_session = getelementptr inbounds i8, ptr %4, i64 296
+  %vhost_crypto_close_session = getelementptr inbounds nuw i8, ptr %4, i64 296
   %5 = load ptr, ptr %vhost_crypto_close_session, align 8
   %call2 = tail call i32 %5(ptr noundef nonnull %3, i64 noundef %session_id) #5
   %call2.lobit = ashr i32 %call2, 31
@@ -427,13 +427,13 @@ declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef
 define internal noalias ptr @cryptodev_vhost_user_get_chardev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
-  %chr1 = getelementptr inbounds i8, ptr %call.i, i64 1224
+  %chr1 = getelementptr inbounds nuw i8, ptr %call.i, i64 1224
   %call2 = tail call ptr @qemu_chr_fe_get_driver(ptr noundef nonnull %chr1) #5
   %tobool.not = icmp eq ptr %call2, null
   br i1 %tobool.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %label = getelementptr inbounds i8, ptr %call2, i64 96
+  %label = getelementptr inbounds nuw i8, ptr %call2, i64 96
   %0 = load ptr, ptr %label, align 8
   %tobool3.not = icmp eq ptr %0, null
   br i1 %tobool3.not, label %return, label %if.then
@@ -451,7 +451,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 define internal void @cryptodev_vhost_user_set_chardev(ptr noundef %obj, ptr noundef %value, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 42, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND_VHOST_USER) #5
-  %opened = getelementptr inbounds i8, ptr %call.i, i64 1288
+  %opened = getelementptr inbounds nuw i8, ptr %call.i, i64 1288
   %0 = load i8, ptr %opened, align 8
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -461,7 +461,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.else:                                          ; preds = %entry
-  %chr_name = getelementptr inbounds i8, ptr %call.i, i64 1280
+  %chr_name = getelementptr inbounds nuw i8, ptr %call.i, i64 1280
   %1 = load ptr, ptr %chr_name, align 8
   tail call void @g_free(ptr noundef %1) #5
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %value) #5
@@ -491,7 +491,7 @@ define internal void @cryptodev_vhost_user_event(ptr noundef %opaque, i32 nounde
 entry:
   %options.i = alloca %struct.CryptoDevBackendVhostOptions, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %opaque, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.6, i32 noundef 43, ptr noundef nonnull @__func__.CRYPTODEV_BACKEND) #5
-  %queues1 = getelementptr inbounds i8, ptr %call.i, i64 560
+  %queues1 = getelementptr inbounds nuw i8, ptr %call.i, i64 560
   %0 = load i32, ptr %queues1, align 8
   %cmp = icmp slt i32 %0, 64
   br i1 %cmp, label %if.end, label %if.else
@@ -514,11 +514,11 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp27.not.i, label %if.end5, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb
-  %vhost_crypto.i = getelementptr inbounds i8, ptr %opaque, i64 1296
-  %vhost_user.i = getelementptr inbounds i8, ptr %opaque, i64 1200
-  %opaque.i = getelementptr inbounds i8, ptr %options.i, i64 8
-  %conf.i = getelementptr inbounds i8, ptr %call.i.i, i64 48
-  %cc.i = getelementptr inbounds i8, ptr %options.i, i64 24
+  %vhost_crypto.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1296
+  %vhost_user.i = getelementptr inbounds nuw i8, ptr %opaque, i64 1200
+  %opaque.i = getelementptr inbounds nuw i8, ptr %options.i, i64 8
+  %conf.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 48
+  %cc.i = getelementptr inbounds nuw i8, ptr %options.i, i64 24
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -594,19 +594,19 @@ if.then4:                                         ; preds = %for.inc.i.i, %err.i
 
 if.end5:                                          ; preds = %for.inc.i, %sw.bb
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %options.i)
-  %ready = getelementptr inbounds i8, ptr %call.i, i64 40
+  %ready = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i8 1, ptr %ready, align 8
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %if.end
-  %ready7 = getelementptr inbounds i8, ptr %call.i, i64 40
+  %ready7 = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i8 0, ptr %ready7, align 8
   %conv.i7 = sext i32 %0 to i64
   %cmp7.not.i = icmp eq i32 %0, 0
   br i1 %cmp7.not.i, label %sw.epilog, label %for.body.lr.ph.i8
 
 for.body.lr.ph.i8:                                ; preds = %sw.bb6
-  %vhost_crypto.i9 = getelementptr inbounds i8, ptr %opaque, i64 1296
+  %vhost_crypto.i9 = getelementptr inbounds nuw i8, ptr %opaque, i64 1296
   br label %for.body.i10
 
 for.body.i10:                                     ; preds = %for.inc.i14, %for.body.lr.ph.i8

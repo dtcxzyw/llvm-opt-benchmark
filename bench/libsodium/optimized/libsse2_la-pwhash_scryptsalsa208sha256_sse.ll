@@ -99,7 +99,7 @@ if.then51:                                        ; preds = %if.end45
   br label %return
 
 if.end53:                                         ; preds = %if.end45
-  %size = getelementptr inbounds i8, ptr %local, i64 16
+  %size = getelementptr inbounds nuw i8, ptr %local, i64 16
   %1 = load i64, ptr %size, align 8
   %cmp54 = icmp ult i64 %1, %add48
   br i1 %cmp54, label %if.then56, label %for.body.lr.ph
@@ -115,7 +115,7 @@ if.end59:                                         ; preds = %if.then56
   br i1 %tobool61.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end53, %if.end59
-  %aligned = getelementptr inbounds i8, ptr %local, i64 8
+  %aligned = getelementptr inbounds nuw i8, ptr %local, i64 8
   %2 = load ptr, ptr %aligned, align 8
   %add.ptr = getelementptr i8, ptr %2, i64 %mul38
   %add.ptr65 = getelementptr i8, ptr %add.ptr, i64 %mul40

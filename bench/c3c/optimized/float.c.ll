@@ -64,7 +64,7 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 .lr.ph:                                           ; preds = %2, %.backedge94
   %5 = phi i8 [ %11, %.backedge94 ], [ %4, %2 ]
   %.pn = phi ptr [ %6, %.backedge94 ], [ %0, %2 ]
-  %6 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %7 = icmp eq i8 %5, 95
   %8 = add i8 %5, -48
   %9 = icmp ult i8 %8, 10
@@ -94,7 +94,7 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   br i1 %.not72106, label %.critedge10.thread, label %.lr.ph107.preheader
 
 .lr.ph107.preheader:                              ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %.pn, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.pn, i64 2
   br label %.lr.ph107
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %.backedge
@@ -114,7 +114,7 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   br label %.backedge
 
 .backedge:                                        ; preds = %21, %.critedge6
-  %22 = getelementptr inbounds i8, ptr %17, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %23 = load i8, ptr %17, align 1
   %.not72 = icmp eq i8 %23, 0
   br i1 %.not72, label %.critedge10.thread, label %.lr.ph107, !llvm.loop !9
@@ -136,16 +136,16 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
 
 27:                                               ; preds = %25
   tail call void @scratch_buffer_append_char(i8 noundef signext 45) #6
-  %28 = getelementptr inbounds i8, ptr %.1, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %31
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %.1, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %31
 
 31:                                               ; preds = %25, %29, %27
   %.4 = phi ptr [ %28, %27 ], [ %30, %29 ], [ %.1, %25 ]
-  %32 = getelementptr inbounds i8, ptr %.4, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %33 = load i8, ptr %.4, align 1
   %34 = add i8 %33, -48
   %35 = icmp ult i8 %34, 10
@@ -155,7 +155,7 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   %36 = phi i8 [ %39, %.lr.ph108 ], [ %33, %31 ]
   %37 = phi ptr [ %38, %.lr.ph108 ], [ %32, %31 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %36) #6
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %39 = load i8, ptr %37, align 1
   %40 = add i8 %39, -48
   %41 = icmp ult i8 %40, 10
@@ -185,7 +185,7 @@ define dso_local { double, i32 } @float_from_string(ptr nocapture noundef readon
   br i1 %.not79, label %77, label %.sink.split
 
 48:                                               ; preds = %.lr.ph111
-  %49 = getelementptr inbounds i8, ptr %.pn113, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.pn113, i64 1
   %50 = zext nneg i8 %.in to i32
   %51 = mul nsw i32 %.059110, 10
   %52 = add i32 %51, -48
@@ -213,7 +213,7 @@ switch.hole_check:                                ; preds = %.critedge12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %60 = zext nneg i32 %57 to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %60
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 
@@ -243,7 +243,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 71:                                               ; preds = %69
   %72 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %73
   %75 = load ptr, ptr %3, align 8
   %.not75 = icmp eq ptr %75, %74
   br i1 %.not75, label %77, label %76
@@ -280,14 +280,14 @@ declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @scratch_buffer_clear() #6
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str) #6
   br label %.critedge77
 
 .critedge77:                                      ; preds = %.critedge77.backedge, %2
   %.058 = phi ptr [ %4, %2 ], [ %5, %.critedge77.backedge ]
-  %5 = getelementptr inbounds i8, ptr %.058, i64 1
+  %5 = getelementptr inbounds nuw i8, ptr %.058, i64 1
   %6 = load i8, ptr %.058, align 1
   switch i8 %6, label %7 [
     i8 0, label %.critedge10.thread
@@ -296,7 +296,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 7:                                                ; preds = %.critedge77
   %8 = zext i8 %6 to i64
-  %9 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
   %.not = icmp eq i8 %10, 0
   br i1 %.not, label %.critedge, label %.critedge2
@@ -320,7 +320,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 .critedge78:                                      ; preds = %.critedge78.sink.split, %.critedge78
   %.2 = phi ptr [ %12, %.critedge78 ], [ %.2.ph, %.critedge78.sink.split ]
-  %12 = getelementptr inbounds i8, ptr %.2, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   %13 = load i8, ptr %.2, align 1
   switch i8 %13, label %14 [
     i8 0, label %.critedge10.thread
@@ -329,7 +329,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 14:                                               ; preds = %.critedge78
   %15 = zext i8 %13 to i64
-  %16 = getelementptr inbounds [256 x i8], ptr @hex_conv, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [256 x i8], ptr @hex_conv, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %.not88 = icmp eq i8 %17, 0
   br i1 %.not88, label %.critedge4, label %.critedge78.sink.split, !llvm.loop !13
@@ -351,16 +351,16 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
 
 21:                                               ; preds = %19
   tail call void @scratch_buffer_append_char(i8 noundef signext 45) #6
-  %22 = getelementptr inbounds i8, ptr %.159, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.159, i64 1
   br label %25
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %.159, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.159, i64 1
   br label %25
 
 25:                                               ; preds = %19, %23, %21
   %.4 = phi ptr [ %22, %21 ], [ %24, %23 ], [ %.159, %19 ]
-  %26 = getelementptr inbounds i8, ptr %.4, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.4, i64 1
   %27 = load i8, ptr %.4, align 1
   %28 = add i8 %27, -48
   %29 = icmp ult i8 %28, 10
@@ -370,7 +370,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
   %30 = phi i8 [ %33, %.lr.ph ], [ %27, %25 ]
   %31 = phi ptr [ %32, %.lr.ph ], [ %26, %25 ]
   tail call void @scratch_buffer_append_char(i8 noundef signext %30) #6
-  %32 = getelementptr inbounds i8, ptr %31, i64 1
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %33 = load i8, ptr %31, align 1
   %34 = add i8 %33, -48
   %35 = icmp ult i8 %34, 10
@@ -400,7 +400,7 @@ define dso_local { double, i32 } @float_from_hex(ptr nocapture noundef readonly 
   br i1 %.not76, label %71, label %.sink.split
 
 42:                                               ; preds = %.lr.ph102
-  %43 = getelementptr inbounds i8, ptr %.pn, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %44 = zext nneg i8 %.in to i32
   %45 = mul nsw i32 %.0101, 10
   %46 = add i32 %45, -48
@@ -428,7 +428,7 @@ switch.hole_check:                                ; preds = %.critedge12
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %54 = zext nneg i32 %51 to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %54
+  %switch.gep = getelementptr inbounds nuw [9 x i32], ptr @switch.table.float_from_hex, i64 0, i64 %54
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.critedge10.thread
 
@@ -459,7 +459,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %66 = load ptr, ptr %3, align 8
   %67 = load i32, ptr getelementptr inbounds (i8, ptr @scratch_buffer, i64 65536), align 4
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds i8, ptr @scratch_buffer, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr @scratch_buffer, i64 %68
   %.not72 = icmp eq ptr %66, %69
   br i1 %.not72, label %71, label %70
 

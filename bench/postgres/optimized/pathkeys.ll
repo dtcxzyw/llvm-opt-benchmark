@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @make_canonical_pathkey(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = zext i1 %4 to i8
-  %7 = getelementptr inbounds i8, ptr %0, i64 184
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
   br i1 %9, label %.preheader, label %10
@@ -40,25 +40,25 @@ define dso_local ptr @make_canonical_pathkey(ptr nocapture noundef %0, ptr nound
 
 .preheader:                                       ; preds = %5, %.preheader
   %.032 = phi ptr [ %14, %.preheader ], [ %1, %5 ]
-  %13 = getelementptr inbounds i8, ptr %.032, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %.032, i64 72
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %.preheader, !llvm.loop !5
 
 15:                                               ; preds = %.preheader
-  %16 = getelementptr inbounds i8, ptr %0, i64 192
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load ptr, ptr %16, align 8
   %.not36 = icmp eq ptr %17, null
   br i1 %.not36, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph43, label %._crit_edge
 
 .lr.ph43:                                         ; preds = %.lr.ph
-  %21 = getelementptr inbounds i8, ptr %17, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %22 = load ptr, ptr %21, align 8
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %23
@@ -67,25 +67,25 @@ define dso_local ptr @make_canonical_pathkey(ptr nocapture noundef %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next, %42 ]
   %24 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %.032, %27
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %2, %31
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %25, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %3, %35
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %25, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   %41 = xor i1 %4, %40
@@ -97,19 +97,19 @@ define dso_local ptr @make_canonical_pathkey(ptr nocapture noundef %0, ptr nound
   br i1 %exitcond.not, label %._crit_edge, label %23
 
 ._crit_edge:                                      ; preds = %42, %.lr.ph, %15
-  %43 = getelementptr inbounds i8, ptr %0, i64 552
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %44, ptr @CurrentMemoryContext, align 8
   %46 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %.032, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store i32 %2, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %46, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i32 %3, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %46, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i8 %6, ptr %50, align 8
   %51 = load ptr, ptr %16, align 8
   %52 = tail call ptr @lappend(ptr noundef %51, ptr noundef nonnull %46) #10
@@ -133,12 +133,12 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %3, align 4
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph24, label %._crit_edge
@@ -152,18 +152,18 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) l
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 8
   %.val = load ptr, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %.val, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
   br i1 %14, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph24
-  %15 = getelementptr inbounds i8, ptr %.01822, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.01822, i64 16
   %.not.i = icmp eq ptr %.01822, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %16 = getelementptr inbounds i8, ptr %.01822, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.01822, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph11.i, label %.loopexit
@@ -182,7 +182,7 @@ define dso_local ptr @append_pathkeys(ptr noundef %0, ptr noundef readonly %1) l
   %indvars.iv.i = phi i64 [ 0, %.lr.ph11.i ], [ %indvars.iv.next.i, %20 ]
   %22 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %.val, %25
   br i1 %26, label %pathkey_is_redundant.exit, label %20
@@ -213,9 +213,9 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly %0, 
 .preheader:                                       ; preds = %2
   %.not = icmp eq ptr %0, null
   %.not24 = icmp eq ptr %1, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not24, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -231,7 +231,7 @@ define dso_local range(i32 0, 4) i32 @compare_pathkeys(ptr noundef readonly %0, 
   br label %.thread26
 
 .preheader.split:                                 ; preds = %.preheader
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   br i1 %.not, label %.preheader.split.split.us, label %.preheader.split.split
 
@@ -313,9 +313,9 @@ define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly %0, ptr 
 .preheader.i:                                     ; preds = %2
   %.not.i = icmp eq ptr %0, null
   %.not24.i = icmp eq ptr %1, null
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not24.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i
@@ -331,7 +331,7 @@ define dso_local zeroext i1 @pathkeys_contained_in(ptr noundef readonly %0, ptr 
   br label %.thread26.i
 
 .preheader.split.i:                               ; preds = %.preheader.i
-  %12 = getelementptr inbounds i8, ptr %1, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i32, ptr %12, align 4
   br i1 %.not.i, label %.preheader.split.split.us.i, label %.preheader.split.split.i
 
@@ -396,19 +396,19 @@ compare_pathkeys.exit:                            ; preds = %31, %2, %.split.i
 define dso_local ptr @get_useful_group_keys_orderings(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 320
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %8 = load ptr, ptr %7, align 8
   store ptr %8, ptr %3, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 504
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %4, align 8
   %11 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 260, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %8, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %10, ptr %13, align 8
   %14 = tail call ptr @lappend(ptr noundef null, ptr noundef nonnull %11) #10
   %15 = load i8, ptr @enable_group_by_reordering, align 1
@@ -416,13 +416,13 @@ define dso_local ptr @get_useful_group_keys_orderings(ptr nocapture noundef read
   br i1 %16, label %17, label %pathkeys_contained_in.exit76.thread
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds i8, ptr %6, i64 152
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 152
   %19 = load ptr, ptr %18, align 8
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %20, label %pathkeys_contained_in.exit76.thread
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %1, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load ptr, ptr %21, align 8
   %.not42 = icmp eq ptr %22, null
   br i1 %.not42, label %pathkeys_contained_in.exit.thread, label %23
@@ -434,9 +434,9 @@ define dso_local ptr @get_useful_group_keys_orderings(ptr nocapture noundef read
 
 .preheader.i.i:                                   ; preds = %23
   %.not24.i.i = icmp eq ptr %24, null
-  %26 = getelementptr inbounds i8, ptr %22, i64 4
-  %27 = getelementptr inbounds i8, ptr %22, i64 16
-  %28 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
   br i1 %.not24.i.i, label %.preheader.split.us.i.i, label %.preheader.split.split.i.i
 
 .preheader.split.us.i.i:                          ; preds = %.preheader.i.i
@@ -449,7 +449,7 @@ define dso_local ptr @get_useful_group_keys_orderings(ptr nocapture noundef read
   br label %.thread26.i.i
 
 .preheader.split.split.i.i:                       ; preds = %.preheader.i.i
-  %33 = getelementptr inbounds i8, ptr %24, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %26, align 4
   %36 = sext i32 %35 to i64
@@ -497,7 +497,7 @@ pathkeys_contained_in.exit:                       ; preds = %44
   br i1 %47, label %pathkeys_contained_in.exit.thread113, label %pathkeys_contained_in.exit.thread
 
 pathkeys_contained_in.exit.thread113:             ; preds = %50, %.thread26.i.i, %pathkeys_contained_in.exit
-  %53 = getelementptr inbounds i8, ptr %0, i64 328
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %54 = load i32, ptr %53, align 8
   %55 = call fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef nonnull %22, ptr noundef %3, ptr noundef %4, i32 noundef %54)
   %56 = icmp sgt i32 %55, 0
@@ -515,16 +515,16 @@ pathkeys_contained_in.exit.thread113:             ; preds = %50, %.thread26.i.i,
 
 63:                                               ; preds = %60, %57
   %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds i8, ptr %14, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %pathkeys_are_duplicate.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %63
-  %66 = getelementptr inbounds i8, ptr %14, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %67 = load i32, ptr %66, align 4
   %.not.i.i44 = icmp eq ptr %64, null
-  %68 = getelementptr inbounds i8, ptr %64, i64 4
-  %69 = getelementptr inbounds i8, ptr %64, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %70 = icmp sgt i32 %67, 0
   br i1 %.not.i.i44, label %.lr.ph.split.us.split.i, label %.lr.ph.split.split.split.i
 
@@ -540,19 +540,19 @@ pathkeys_contained_in.exit.thread113:             ; preds = %50, %.thread26.i.i,
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %compare_pathkeys.exit.thread.us.i ], [ 0, %.lr.ph90.i ]
   %74 = getelementptr %union.ListCell, ptr %71, i64 %indvars.iv175
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %pathkeys_contained_in.exit.thread, label %.preheader.split.i.us.i
 
 .preheader.split.i.us.i:                          ; preds = %73
-  %79 = getelementptr inbounds i8, ptr %77, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %80 = load i32, ptr %79, align 4
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %.thread18.us.i, label %pathkeys_contained_in.exit.thread
 
 .thread18.us.i:                                   ; preds = %.preheader.split.i.us.i
-  %82 = getelementptr inbounds i8, ptr %77, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %83 = load ptr, ptr %82, align 8
   %.fr.us.i.us.i = freeze ptr %83
   %.not30.us.i = icmp eq ptr %.fr.us.i.us.i, null
@@ -575,14 +575,14 @@ compare_pathkeys.exit.thread.us.i:                ; preds = %.thread18.us.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %compare_pathkeys.exit.thread.i ], [ 0, %.lr.ph79.i ]
   %87 = getelementptr %union.ListCell, ptr %84, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %64, %90
   br i1 %91, label %pathkeys_contained_in.exit.thread, label %.preheader.i.i45
 
 .preheader.i.i45:                                 ; preds = %86
   %.not24.i.i46 = icmp eq ptr %90, null
-  %92 = getelementptr inbounds i8, ptr %90, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 16
   br i1 %.not24.i.i46, label %.preheader.split.us.i.i57, label %.preheader.split.i.i47
 
 .preheader.split.us.i.i57:                        ; preds = %.preheader.i.i45
@@ -595,7 +595,7 @@ compare_pathkeys.exit.thread.us.i:                ; preds = %.thread18.us.i
   br label %.thread26.i.i55
 
 .preheader.split.i.i47:                           ; preds = %.preheader.i.i45
-  %97 = getelementptr inbounds i8, ptr %90, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %68, align 4
   %100 = sext i32 %99 to i64
@@ -651,17 +651,17 @@ compare_pathkeys.exit.thread.i:                   ; preds = %114, %117, %.thread
 pathkeys_are_duplicate.exit:                      ; preds = %compare_pathkeys.exit.thread.i, %compare_pathkeys.exit.thread.us.i, %.lr.ph.split.split.split.i, %.lr.ph.split.us.split.i, %63
   %118 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 260, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %118, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr %64, ptr %119, align 8
   %120 = load ptr, ptr %4, align 8
-  %121 = getelementptr inbounds i8, ptr %118, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 16
   store ptr %120, ptr %121, align 8
   %122 = tail call ptr @lappend(ptr noundef %14, ptr noundef nonnull %118) #10
   br label %pathkeys_contained_in.exit.thread
 
 pathkeys_contained_in.exit.thread:                ; preds = %86, %.thread26.i.i55, %.preheader.split.us.i.i57, %117, %.preheader.split.i.us.i, %.thread18.us.i, %73, %.preheader.split.us.i.i, %.thread26.i.i, %23, %pathkeys_contained_in.exit.thread113, %60, %pathkeys_are_duplicate.exit, %pathkeys_contained_in.exit, %20
   %.037 = phi ptr [ %14, %pathkeys_contained_in.exit ], [ %122, %pathkeys_are_duplicate.exit ], [ %14, %60 ], [ %14, %pathkeys_contained_in.exit.thread113 ], [ %14, %20 ], [ %14, %23 ], [ %14, %.thread26.i.i ], [ %14, %.preheader.split.us.i.i ], [ %14, %73 ], [ %14, %.thread18.us.i ], [ %14, %.preheader.split.i.us.i ], [ %14, %117 ], [ %14, %.preheader.split.us.i.i57 ], [ %14, %.thread26.i.i55 ], [ %14, %86 ]
-  %123 = getelementptr inbounds i8, ptr %0, i64 352
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %124 = load ptr, ptr %123, align 8
   %.not43 = icmp eq ptr %124, null
   br i1 %.not43, label %pathkeys_contained_in.exit76.thread, label %125
@@ -673,9 +673,9 @@ pathkeys_contained_in.exit.thread:                ; preds = %86, %.thread26.i.i5
 
 .preheader.i.i58:                                 ; preds = %125
   %.not24.i.i60 = icmp eq ptr %126, null
-  %128 = getelementptr inbounds i8, ptr %124, i64 4
-  %129 = getelementptr inbounds i8, ptr %124, i64 16
-  %130 = getelementptr inbounds i8, ptr %126, i64 16
+  %128 = getelementptr inbounds nuw i8, ptr %124, i64 4
+  %129 = getelementptr inbounds nuw i8, ptr %124, i64 16
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 16
   br i1 %.not24.i.i60, label %.preheader.split.us.i.i75, label %.preheader.split.split.i.i62
 
 .preheader.split.us.i.i75:                        ; preds = %.preheader.i.i58
@@ -688,7 +688,7 @@ pathkeys_contained_in.exit.thread:                ; preds = %86, %.thread26.i.i5
   br label %.thread26.i.i72
 
 .preheader.split.split.i.i62:                     ; preds = %.preheader.i.i58
-  %135 = getelementptr inbounds i8, ptr %126, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = load i32, ptr %128, align 4
   %138 = sext i32 %137 to i64
@@ -736,7 +736,7 @@ pathkeys_contained_in.exit76:                     ; preds = %146
   br i1 %149, label %pathkeys_contained_in.exit76.thread117, label %pathkeys_contained_in.exit76.thread
 
 pathkeys_contained_in.exit76.thread117:           ; preds = %152, %.thread26.i.i72, %pathkeys_contained_in.exit76
-  %155 = getelementptr inbounds i8, ptr %0, i64 328
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %156 = load i32, ptr %155, align 8
   %157 = call fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef nonnull %124, ptr noundef %3, ptr noundef %4, i32 noundef %156)
   %158 = icmp sgt i32 %157, 0
@@ -753,23 +753,23 @@ pathkeys_contained_in.exit76.thread117:           ; preds = %152, %.thread26.i.i
   br i1 %.not.i77, label %pathkeys_contained_in.exit76.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %162
-  %164 = getelementptr inbounds i8, ptr %163, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = icmp eq i32 %157, %165
   br i1 %166, label %167, label %pathkeys_contained_in.exit76.thread
 
 167:                                              ; preds = %list_length.exit, %159
   %168 = load ptr, ptr %3, align 8
-  %169 = getelementptr inbounds i8, ptr %.037, i64 16
+  %169 = getelementptr inbounds nuw i8, ptr %.037, i64 16
   %.not.i78 = icmp eq ptr %.037, null
   br i1 %.not.i78, label %pathkeys_are_duplicate.exit111, label %.lr.ph.i79
 
 .lr.ph.i79:                                       ; preds = %167
-  %170 = getelementptr inbounds i8, ptr %.037, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %.037, i64 4
   %171 = load i32, ptr %170, align 4
   %.not.i.i80 = icmp eq ptr %168, null
-  %172 = getelementptr inbounds i8, ptr %168, i64 4
-  %173 = getelementptr inbounds i8, ptr %168, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 16
   %174 = icmp sgt i32 %171, 0
   br i1 %.not.i.i80, label %.lr.ph.split.us.split.i102, label %.lr.ph.split.split.split.i81
 
@@ -785,19 +785,19 @@ list_length.exit:                                 ; preds = %162
   %indvars.iv181 = phi i64 [ %indvars.iv.next182, %compare_pathkeys.exit.thread.us.i109 ], [ 0, %.lr.ph90.i103 ]
   %178 = getelementptr %union.ListCell, ptr %175, i64 %indvars.iv181
   %179 = load ptr, ptr %178, align 8
-  %180 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, null
   br i1 %182, label %pathkeys_contained_in.exit76.thread, label %.preheader.split.i.us.i105
 
 .preheader.split.i.us.i105:                       ; preds = %177
-  %183 = getelementptr inbounds i8, ptr %181, i64 4
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %184 = load i32, ptr %183, align 4
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %.thread18.us.i106, label %pathkeys_contained_in.exit76.thread
 
 .thread18.us.i106:                                ; preds = %.preheader.split.i.us.i105
-  %186 = getelementptr inbounds i8, ptr %181, i64 16
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
   %187 = load ptr, ptr %186, align 8
   %.fr.us.i.us.i107 = freeze ptr %187
   %.not30.us.i108 = icmp eq ptr %.fr.us.i.us.i107, null
@@ -820,14 +820,14 @@ compare_pathkeys.exit.thread.us.i109:             ; preds = %.thread18.us.i106
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %compare_pathkeys.exit.thread.i94 ], [ 0, %.lr.ph79.i83 ]
   %191 = getelementptr %union.ListCell, ptr %188, i64 %indvars.iv178
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8
   %195 = icmp eq ptr %168, %194
   br i1 %195, label %pathkeys_contained_in.exit76.thread, label %.preheader.i.i85
 
 .preheader.i.i85:                                 ; preds = %190
   %.not24.i.i86 = icmp eq ptr %194, null
-  %196 = getelementptr inbounds i8, ptr %194, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %194, i64 16
   br i1 %.not24.i.i86, label %.preheader.split.us.i.i101, label %.preheader.split.i.i87
 
 .preheader.split.us.i.i101:                       ; preds = %.preheader.i.i85
@@ -840,7 +840,7 @@ compare_pathkeys.exit.thread.us.i109:             ; preds = %.thread18.us.i106
   br label %.thread26.i.i98
 
 .preheader.split.i.i87:                           ; preds = %.preheader.i.i85
-  %201 = getelementptr inbounds i8, ptr %194, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %194, i64 4
   %202 = load i32, ptr %201, align 4
   %203 = load i32, ptr %172, align 4
   %204 = sext i32 %203 to i64
@@ -896,10 +896,10 @@ compare_pathkeys.exit.thread.i94:                 ; preds = %218, %221, %.thread
 pathkeys_are_duplicate.exit111:                   ; preds = %compare_pathkeys.exit.thread.i94, %compare_pathkeys.exit.thread.us.i109, %.lr.ph.split.split.split.i81, %.lr.ph.split.us.split.i102, %167
   %222 = tail call noundef ptr @palloc0(i64 noundef 24) #10
   store i32 260, ptr %222, align 4
-  %223 = getelementptr inbounds i8, ptr %222, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 8
   store ptr %168, ptr %223, align 8
   %224 = load ptr, ptr %4, align 8
-  %225 = getelementptr inbounds i8, ptr %222, i64 16
+  %225 = getelementptr inbounds nuw i8, ptr %222, i64 16
   store ptr %224, ptr %225, align 8
   %226 = tail call ptr @lappend(ptr noundef %.037, ptr noundef nonnull %222) #10
   br label %pathkeys_contained_in.exit76.thread
@@ -921,8 +921,8 @@ define internal fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef readonly 
 
 9:                                                ; preds = %6
   %10 = tail call ptr @list_copy_head(ptr noundef nonnull %7, i32 noundef %3) #10
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4
   %.not42 = icmp sgt i32 %13, 0
   br i1 %.not42, label %.lr.ph.preheader, label %list_length.exit
@@ -947,9 +947,9 @@ define internal fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef readonly 
   br i1 %18, label %19, label %._crit_edge
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 60
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 60
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %._crit_edge, label %25
@@ -976,7 +976,7 @@ define internal fastcc i32 @group_keys_reorder_by_pathkeys(ptr noundef readonly 
   br i1 %.not.i, label %list_length.exit, label %33
 
 33:                                               ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %.031.lcssa, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.031.lcssa, i64 4
   %35 = load i32, ptr %34, align 4
   br label %list_length.exit
 
@@ -1008,7 +1008,7 @@ define dso_local zeroext i1 @pathkeys_count_contained_in(ptr noundef readonly %0
   br i1 %.not.i, label %list_length.exit, label %6
 
 6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   br label %list_length.exit
 
@@ -1029,12 +1029,12 @@ list_length.exit:                                 ; preds = %5, %6
   br i1 %13, label %21, label %.preheader
 
 .preheader:                                       ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = sext i32 %15 to i64
   %smax = tail call i32 @llvm.smax.i32(i32 %17, i32 0)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -1099,15 +1099,15 @@ list_length.exit:                                 ; preds = %5, %6
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_cheapest_path_for_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %1, null
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %6, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %.not.i.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
@@ -1127,7 +1127,7 @@ define dso_local ptr @get_cheapest_path_for_pathkeys(ptr noundef readonly %0, pt
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv83
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 33
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 33
   %16 = load i8, ptr %15, align 1
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %pathkeys_contained_in.exit.thread27.us.us
@@ -1142,13 +1142,13 @@ define dso_local ptr @get_cheapest_path_for_pathkeys(ptr noundef readonly %0, pt
   br i1 %21, label %pathkeys_contained_in.exit.thread27.us.us, label %pathkeys_contained_in.exit.thread.us.us
 
 pathkeys_contained_in.exit.thread.us.us:          ; preds = %19, %18
-  %22 = getelementptr inbounds i8, ptr %14, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load ptr, ptr %22, align 8
   %.not23.us.us = icmp eq ptr %23, null
   br i1 %.not23.us.us, label %27, label %24
 
 24:                                               ; preds = %pathkeys_contained_in.exit.thread.us.us
-  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load ptr, ptr %25, align 8
   br label %27
 
@@ -1184,13 +1184,13 @@ pathkeys_contained_in.exit.thread27.us.us:        ; preds = %27, %19, %.lr.ph68
   br i1 %38, label %pathkeys_contained_in.exit.thread27.us, label %pathkeys_contained_in.exit.thread.us
 
 pathkeys_contained_in.exit.thread.us:             ; preds = %36, %.lr.ph62
-  %39 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not23.us = icmp eq ptr %40, null
   br i1 %.not23.us, label %44, label %41
 
 41:                                               ; preds = %pathkeys_contained_in.exit.thread.us
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8
   br label %44
 
@@ -1217,7 +1217,7 @@ pathkeys_contained_in.exit.thread27.us:           ; preds = %44, %36
   br i1 %4, label %53, label %57
 
 53:                                               ; preds = %.lr.ph102
-  %54 = getelementptr inbounds i8, ptr %52, i64 33
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 33
   %55 = load i8, ptr %54, align 1
   %56 = trunc i8 %55 to i1
   br i1 %56, label %57, label %pathkeys_contained_in.exit.thread27
@@ -1232,14 +1232,14 @@ pathkeys_contained_in.exit.thread27.us:           ; preds = %44, %36
   br i1 %60, label %pathkeys_contained_in.exit.thread27, label %61
 
 61:                                               ; preds = %58, %57
-  %62 = getelementptr inbounds i8, ptr %52, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %1, %63
   br i1 %64, label %pathkeys_contained_in.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %61
   %.not24.i.i = icmp eq ptr %63, null
-  %65 = getelementptr inbounds i8, ptr %63, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   br i1 %.not24.i.i, label %.preheader.split.us.i.i, label %.preheader.split.i.i
 
 .preheader.split.us.i.i:                          ; preds = %.preheader.i.i
@@ -1252,7 +1252,7 @@ pathkeys_contained_in.exit.thread27.us:           ; preds = %44, %36
   br label %.thread26.i.i
 
 .preheader.split.i.i:                             ; preds = %.preheader.i.i
-  %70 = getelementptr inbounds i8, ptr %63, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = load i32, ptr %8, align 4
   %73 = sext i32 %72 to i64
@@ -1300,13 +1300,13 @@ pathkeys_contained_in.exit:                       ; preds = %81
   br i1 %84, label %pathkeys_contained_in.exit.thread27, label %pathkeys_contained_in.exit.thread
 
 pathkeys_contained_in.exit.thread:                ; preds = %.preheader.split.us.i.i, %.thread26.i.i, %61, %pathkeys_contained_in.exit
-  %90 = getelementptr inbounds i8, ptr %52, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %91 = load ptr, ptr %90, align 8
   %.not23 = icmp eq ptr %91, null
   br i1 %.not23, label %95, label %92
 
 92:                                               ; preds = %pathkeys_contained_in.exit.thread
-  %93 = getelementptr inbounds i8, ptr %91, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %94 = load ptr, ptr %93, align 8
   br label %95
 
@@ -1335,15 +1335,15 @@ declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not.i.i = icmp eq ptr %1, null
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %5, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %.not.i.i, label %.lr.ph.split.us.split, label %.lr.ph.split.preheader
@@ -1369,13 +1369,13 @@ define dso_local ptr @get_cheapest_fractional_path_for_pathkeys(ptr noundef read
   br i1 %16, label %pathkeys_contained_in.exit.thread26.us, label %pathkeys_contained_in.exit.thread.us
 
 pathkeys_contained_in.exit.thread.us:             ; preds = %14, %.lr.ph44
-  %17 = getelementptr inbounds i8, ptr %13, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8
   %.not22.us = icmp eq ptr %18, null
   br i1 %.not22.us, label %22, label %19
 
 19:                                               ; preds = %pathkeys_contained_in.exit.thread.us
-  %20 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8
   br label %22
 
@@ -1408,14 +1408,14 @@ pathkeys_contained_in.exit.thread26.us:           ; preds = %22, %14
   br i1 %33, label %pathkeys_contained_in.exit.thread26, label %34
 
 34:                                               ; preds = %31, %.lr.ph69
-  %35 = getelementptr inbounds i8, ptr %30, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %1, %36
   br i1 %37, label %pathkeys_contained_in.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %34
   %.not24.i.i = icmp eq ptr %36, null
-  %38 = getelementptr inbounds i8, ptr %36, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   br i1 %.not24.i.i, label %.preheader.split.us.i.i, label %.preheader.split.i.i
 
 .preheader.split.us.i.i:                          ; preds = %.preheader.i.i
@@ -1428,7 +1428,7 @@ pathkeys_contained_in.exit.thread26.us:           ; preds = %22, %14
   br label %.thread26.i.i
 
 .preheader.split.i.i:                             ; preds = %.preheader.i.i
-  %43 = getelementptr inbounds i8, ptr %36, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = load i32, ptr %7, align 4
   %46 = sext i32 %45 to i64
@@ -1476,13 +1476,13 @@ pathkeys_contained_in.exit:                       ; preds = %54
   br i1 %57, label %pathkeys_contained_in.exit.thread26, label %pathkeys_contained_in.exit.thread
 
 pathkeys_contained_in.exit.thread:                ; preds = %.preheader.split.us.i.i, %.thread26.i.i, %34, %pathkeys_contained_in.exit
-  %63 = getelementptr inbounds i8, ptr %30, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %64 = load ptr, ptr %63, align 8
   %.not22 = icmp eq ptr %64, null
   br i1 %.not22, label %68, label %65
 
 65:                                               ; preds = %pathkeys_contained_in.exit.thread
-  %66 = getelementptr inbounds i8, ptr %64, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load ptr, ptr %66, align 8
   br label %68
 
@@ -1513,13 +1513,13 @@ define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonl
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph29, label %.critedge
 
 .lr.ph29:                                         ; preds = %.lr.ph
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -1528,19 +1528,19 @@ define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonl
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %20 ]
   %8 = getelementptr %union.ListCell, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 33
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 33
   %11 = load i8, ptr %10, align 1
   %12 = trunc i8 %11 to i1
   br i1 %12, label %13, label %20
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %9, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %15 = load ptr, ptr %14, align 8
   %.not15 = icmp eq ptr %15, null
   br i1 %.not15, label %.critedge, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.critedge, label %20
@@ -1557,27 +1557,27 @@ define dso_local ptr @get_cheapest_parallel_safe_total_inner(ptr noundef readonl
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 88
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %1, i64 152
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 4
-  %11 = getelementptr inbounds i8, ptr %1, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = icmp eq i32 %2, -1
-  %14 = getelementptr inbounds i8, ptr %1, i64 96
-  %15 = getelementptr inbounds i8, ptr %1, i64 104
-  %16 = getelementptr inbounds i8, ptr %1, i64 80
-  %17 = getelementptr inbounds i8, ptr %1, i64 64
-  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load i32, ptr %10, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph67, label %.thread
@@ -1594,7 +1594,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %24 = load ptr, ptr %12, align 8
   %25 = getelementptr %union.ListCell, ptr %24, i64 %indvars.iv65
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %14, align 8
   %30 = getelementptr i8, ptr %29, i64 %indvars.iv65
@@ -1630,7 +1630,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %52 = trunc i8 %.041 to i1
   %53 = trunc i8 %.040 to i1
   %54 = load ptr, ptr %18, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
   %57 = tail call fastcc ptr @make_pathkey_from_sortinfo(ptr noundef %0, ptr noundef %28, i32 noundef %45, i32 noundef %48, i32 noundef %51, i1 noundef zeroext %52, i1 noundef zeroext %53, i32 noundef 0, ptr noundef %56, i1 noundef zeroext false)
   %.not49 = icmp eq ptr %57, null
@@ -1639,18 +1639,18 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
 58:                                               ; preds = %42
   %59 = getelementptr i8, ptr %57, i64 8
   %.val = load ptr, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.val, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
   br i1 %62, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %.0425566, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.0425566, i64 16
   %.not.i = icmp eq ptr %.0425566, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %64 = getelementptr inbounds i8, ptr %.0425566, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.0425566, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph11.i, label %.loopexit
@@ -1669,7 +1669,7 @@ define dso_local ptr @build_index_pathkeys(ptr noundef %0, ptr noundef %1, i32 n
   %indvars.iv.i = phi i64 [ 0, %.lr.ph11.i ], [ %indvars.iv.next.i, %68 ]
   %70 = getelementptr %union.ListCell, ptr %67, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.val, %73
   br i1 %74, label %pathkey_is_redundant.exit, label %68
@@ -1740,21 +1740,21 @@ declare zeroext i1 @indexcol_is_bool_constant_for_query(ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 368
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = icmp sgt i16 %8, 0
   br i1 %9, label %.lr.ph, label %partkey_is_bool_constant_for_query.exit.thread
 
 .lr.ph:                                           ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 432
-  %11 = getelementptr inbounds i8, ptr %6, i64 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
-  %13 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 432
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %14 = icmp eq i32 %2, -1
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 296
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 296
   br label %17
 
 17:                                               ; preds = %.lr.ph, %pathkey_is_redundant.exit
@@ -1783,18 +1783,18 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
 34:                                               ; preds = %17
   %35 = getelementptr i8, ptr %33, i64 8
   %.val = load ptr, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %.val, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %37 = load i8, ptr %36, align 8
   %38 = trunc i8 %37 to i1
   br i1 %38, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %34
-  %39 = getelementptr inbounds i8, ptr %.02843, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.02843, i64 16
   %.not.i = icmp eq ptr %.02843, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %40 = getelementptr inbounds i8, ptr %.02843, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.02843, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp sgt i32 %41, 0
   br i1 %42, label %.lr.ph11.i, label %.loopexit
@@ -1813,7 +1813,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %indvars.iv.i = phi i64 [ 0, %.lr.ph11.i ], [ %indvars.iv.next.i, %44 ]
   %46 = getelementptr %union.ListCell, ptr %43, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %.val, %49
   br i1 %50, label %pathkey_is_redundant.exit, label %44
@@ -1824,7 +1824,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
 
 52:                                               ; preds = %17
   %53 = load ptr, ptr %5, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr i32, ptr %55, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
@@ -1835,12 +1835,12 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
 
 58:                                               ; preds = %52, %52
   %59 = load ptr, ptr %16, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %.not.i31 = icmp eq ptr %59, null
   br i1 %.not.i31, label %partkey_is_bool_constant_for_query.exit.thread, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %58
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %62 = load i32, ptr %60, align 4
   %63 = icmp sgt i32 %62, 0
   br i1 %63, label %.lr.ph34.i, label %partkey_is_bool_constant_for_query.exit.thread
@@ -1850,7 +1850,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   %64 = load ptr, ptr %61, align 8
   %65 = getelementptr %union.ListCell, ptr %64, i64 %indvars.iv.i34
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 18
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 18
   %68 = load i8, ptr %67, align 2
   %69 = trunc i8 %68 to i1
   br i1 %69, label %matches_boolean_partition_clause.exit.i, label %70
@@ -1877,7 +1877,7 @@ define dso_local ptr @build_partition_pathkeys(ptr noundef %0, ptr nocapture nou
   br i1 %80, label %is_notclause.exit.i.i, label %matches_boolean_partition_clause.exit.i
 
 is_notclause.exit.i.i:                            ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %.val.i, i64 4
+  %81 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = icmp eq i32 %82, 2
   br i1 %83, label %84, label %matches_boolean_partition_clause.exit.i
@@ -1955,13 +1955,13 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @convert_subquery_pathkeys(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 312
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %list_length.exit, label %7
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %6, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4
   br label %list_length.exit
 
@@ -1971,16 +1971,16 @@ list_length.exit:                                 ; preds = %4, %7
   br i1 %.not, label %.thread, label %.lr.ph200
 
 .lr.ph200:                                        ; preds = %list_length.exit
-  %11 = getelementptr inbounds i8, ptr %2, i64 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.not108 = icmp eq ptr %3, null
-  %13 = getelementptr inbounds i8, ptr %3, i64 4
-  %14 = getelementptr inbounds i8, ptr %3, i64 16
-  %15 = getelementptr inbounds i8, ptr %1, i64 32
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 184
-  %18 = getelementptr inbounds i8, ptr %0, i64 192
-  %19 = getelementptr inbounds i8, ptr %0, i64 552
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %20 = load i32, ptr %11, align 4
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph271, label %.thread
@@ -1992,15 +1992,15 @@ list_length.exit:                                 ; preds = %4, %7
   %22 = load ptr, ptr %12, align 8
   %23 = getelementptr %union.ListCell, ptr %22, i64 %indvars.iv229268
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 57
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 57
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
   br i1 %29, label %30, label %86
 
 30:                                               ; preds = %.lr.ph271
-  %31 = getelementptr inbounds i8, ptr %26, i64 60
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %37
@@ -2014,27 +2014,27 @@ list_length.exit:                                 ; preds = %4, %7
 
 37:                                               ; preds = %30
   %38 = tail call ptr @get_sortgroupref_tle(i32 noundef %32, ptr noundef %3) #10
-  %39 = getelementptr inbounds i8, ptr %38, i64 42
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 42
   %40 = load i8, ptr %39, align 2
   %41 = trunc i8 %40 to i1
   br i1 %41, label %.thread, label %42
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %15, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not.i118 = icmp eq ptr %45, null
   br i1 %.not.i118, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %38, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %49 = icmp sgt i32 %47, 0
   br i1 %49, label %.lr.ph20.i, label %.thread
 
 .lr.ph20.i:                                       ; preds = %.lr.ph.i
-  %50 = getelementptr inbounds i8, ptr %45, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %51 = load ptr, ptr %50, align 8
   %wide.trip.count.i = zext nneg i32 %47 to i64
   br label %52
@@ -2048,7 +2048,7 @@ list_length.exit:                                 ; preds = %4, %7
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %54, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = load i16, ptr %58, align 8
   %60 = load i16, ptr %48, align 8
   %61 = icmp eq i16 %59, %60
@@ -2065,16 +2065,16 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   br i1 %.not112, label %.thread, label %64
 
 64:                                               ; preds = %find_var_for_subquery_tle.exit
-  %65 = getelementptr inbounds i8, ptr %26, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr i8, ptr %66, i64 16
   %.val = load ptr, ptr %67, align 8
   %68 = load ptr, ptr %.val, align 8
-  %69 = getelementptr inbounds i8, ptr %26, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 28
   %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds i8, ptr %26, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %74 = load i32, ptr %73, align 8
   %75 = load ptr, ptr %16, align 8
   %76 = tail call ptr @get_eclass_for_sort_expr(ptr noundef %0, ptr noundef nonnull %63, ptr noundef %70, i32 noundef %72, i32 noundef %74, i32 noundef 0, ptr noundef %75, i1 noundef zeroext false) #10
@@ -2082,30 +2082,30 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   br i1 %.not113, label %.thread, label %77
 
 77:                                               ; preds = %64
-  %78 = getelementptr inbounds i8, ptr %24, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %24, i64 20
+  %80 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i8, ptr %24, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %83 = load i8, ptr %82, align 8
   %84 = trunc i8 %83 to i1
   %85 = tail call ptr @make_canonical_pathkey(ptr noundef %0, ptr noundef nonnull %76, i32 noundef %79, i32 noundef %81, i1 noundef zeroext %84)
   br label %.thread151
 
 86:                                               ; preds = %.lr.ph271
-  %87 = getelementptr inbounds i8, ptr %26, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %88 = load ptr, ptr %87, align 8
   %.not106 = icmp eq ptr %88, null
   br i1 %.not106, label %.thread, label %.lr.ph188
 
 .lr.ph188:                                        ; preds = %86
-  %89 = getelementptr inbounds i8, ptr %88, i64 4
-  %90 = getelementptr inbounds i8, ptr %88, i64 16
-  %91 = getelementptr inbounds i8, ptr %26, i64 16
-  %92 = getelementptr inbounds i8, ptr %26, i64 8
-  %93 = getelementptr inbounds i8, ptr %24, i64 16
-  %94 = getelementptr inbounds i8, ptr %24, i64 20
-  %95 = getelementptr inbounds i8, ptr %24, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %95 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %96 = icmp slt i32 %.086198270, %10
   %97 = sext i32 %.086198270 to i64
   br i1 %.not108, label %.thread, label %.lr.ph188.split.preheader
@@ -2122,12 +2122,12 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   %100 = load ptr, ptr %90, align 8
   %101 = getelementptr %union.ListCell, ptr %100, i64 %indvars.iv226263
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %102, i64 28
+  %105 = getelementptr inbounds nuw i8, ptr %102, i64 28
   %106 = load i32, ptr %105, align 4
   %107 = load i32, ptr %91, align 8
-  %108 = getelementptr inbounds i8, ptr %102, i64 25
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 25
   %109 = load i8, ptr %108, align 1
   %110 = trunc i8 %109 to i1
   br i1 %110, label %.thread155, label %.preheader.preheader
@@ -2144,27 +2144,27 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   %113 = load ptr, ptr %14, align 8
   %114 = getelementptr %union.ListCell, ptr %113, i64 %indvars.iv259
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 42
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 42
   %117 = load i8, ptr %116, align 2
   %118 = trunc i8 %117 to i1
   br i1 %118, label %find_var_for_subquery_tle.exit128.thread, label %119
 
 119:                                              ; preds = %.lr.ph
   %120 = load ptr, ptr %15, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   %.not.i119 = icmp eq ptr %122, null
   br i1 %.not.i119, label %find_var_for_subquery_tle.exit128.thread, label %.lr.ph.i120
 
 .lr.ph.i120:                                      ; preds = %119
-  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
-  %125 = getelementptr inbounds i8, ptr %115, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %126 = icmp sgt i32 %124, 0
   br i1 %126, label %.lr.ph20.i122, label %find_var_for_subquery_tle.exit128.thread
 
 .lr.ph20.i122:                                    ; preds = %.lr.ph.i120
-  %127 = getelementptr inbounds i8, ptr %122, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %128 = load ptr, ptr %127, align 8
   %wide.trip.count.i123 = zext nneg i32 %124 to i64
   br label %129
@@ -2178,7 +2178,7 @@ find_var_for_subquery_tle.exit:                   ; preds = %57
   br i1 %133, label %134, label %139
 
 134:                                              ; preds = %129
-  %135 = getelementptr inbounds i8, ptr %131, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %136 = load i16, ptr %135, align 8
   %137 = load i16, ptr %125, align 8
   %138 = icmp eq i16 %136, %137
@@ -2195,7 +2195,7 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
   br i1 %.not110, label %find_var_for_subquery_tle.exit128.thread, label %141
 
 141:                                              ; preds = %find_var_for_subquery_tle.exit128
-  %142 = getelementptr inbounds i8, ptr %115, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %143 = load ptr, ptr %142, align 8
   %144 = tail call ptr @canonicalize_ec_expression(ptr noundef %143, i32 noundef %106, i32 noundef %107) #10
   %145 = tail call zeroext i1 @equal(ptr noundef %144, ptr noundef %104) #10
@@ -2226,7 +2226,7 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
 
 .preheader.i:                                     ; preds = %150, %.preheader.i
   %.032.i = phi ptr [ %161, %.preheader.i ], [ %149, %150 ]
-  %160 = getelementptr inbounds i8, ptr %.032.i, i64 72
+  %160 = getelementptr inbounds nuw i8, ptr %.032.i, i64 72
   %161 = load ptr, ptr %160, align 8
   %.not.i129 = icmp eq ptr %161, null
   br i1 %.not.i129, label %162, label %.preheader.i, !llvm.loop !5
@@ -2237,13 +2237,13 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
   br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i130
 
 .lr.ph.i130:                                      ; preds = %162
-  %164 = getelementptr inbounds i8, ptr %163, i64 4
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
   %165 = load i32, ptr %164, align 4
   %166 = icmp sgt i32 %165, 0
   br i1 %166, label %.lr.ph43.i, label %._crit_edge.i
 
 .lr.ph43.i:                                       ; preds = %.lr.ph.i130
-  %167 = getelementptr inbounds i8, ptr %163, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %163, i64 16
   %168 = load ptr, ptr %167, align 8
   %wide.trip.count.i132 = zext nneg i32 %165 to i64
   br label %169
@@ -2252,25 +2252,25 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
   %indvars.iv.i133 = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i134, %188 ]
   %170 = getelementptr %union.ListCell, ptr %168, i64 %indvars.iv.i133
   %171 = load ptr, ptr %170, align 8
-  %172 = getelementptr inbounds i8, ptr %171, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
   %174 = icmp eq ptr %.032.i, %173
   br i1 %174, label %175, label %188
 
 175:                                              ; preds = %169
-  %176 = getelementptr inbounds i8, ptr %171, i64 16
+  %176 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %177 = load i32, ptr %176, align 8
   %178 = icmp eq i32 %151, %177
   br i1 %178, label %179, label %188
 
 179:                                              ; preds = %175
-  %180 = getelementptr inbounds i8, ptr %171, i64 20
+  %180 = getelementptr inbounds nuw i8, ptr %171, i64 20
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %152, %181
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %179
-  %184 = getelementptr inbounds i8, ptr %171, i64 24
+  %184 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %185 = load i8, ptr %184, align 8
   %186 = xor i8 %185, %153
   %187 = trunc i8 %186 to i1
@@ -2287,13 +2287,13 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
   store ptr %189, ptr @CurrentMemoryContext, align 8
   %191 = tail call noundef ptr @palloc0(i64 noundef 32) #10
   store i32 259, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %191, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store ptr %.032.i, ptr %192, align 8
-  %193 = getelementptr inbounds i8, ptr %191, i64 16
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 16
   store i32 %151, ptr %193, align 8
-  %194 = getelementptr inbounds i8, ptr %191, i64 20
+  %194 = getelementptr inbounds nuw i8, ptr %191, i64 20
   store i32 %152, ptr %194, align 4
-  %195 = getelementptr inbounds i8, ptr %191, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %191, i64 24
   store i8 %154, ptr %195, align 8
   %196 = load ptr, ptr %18, align 8
   %197 = tail call ptr @lappend(ptr noundef %196, ptr noundef nonnull %191) #10
@@ -2303,13 +2303,13 @@ find_var_for_subquery_tle.exit128:                ; preds = %134
 
 make_canonical_pathkey.exit:                      ; preds = %183, %._crit_edge.i
   %.0.i131 = phi ptr [ %191, %._crit_edge.i ], [ %171, %183 ]
-  %198 = getelementptr inbounds i8, ptr %149, i64 24
+  %198 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %199 = load ptr, ptr %198, align 8
   %.not.i136 = icmp eq ptr %199, null
   br i1 %.not.i136, label %list_length.exit137, label %200
 
 200:                                              ; preds = %make_canonical_pathkey.exit
-  %201 = getelementptr inbounds i8, ptr %199, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
   %202 = load i32, ptr %201, align 4
   br label %list_length.exit137
 
@@ -2361,18 +2361,18 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
 219:                                              ; preds = %.thread151
   %220 = getelementptr i8, ptr %.089, i64 8
   %.089.val = load ptr, ptr %220, align 8
-  %221 = getelementptr inbounds i8, ptr %.089.val, i64 56
+  %221 = getelementptr inbounds nuw i8, ptr %.089.val, i64 56
   %222 = load i8, ptr %221, align 8
   %223 = trunc i8 %222 to i1
   br i1 %223, label %pathkey_is_redundant.exit, label %.preheader.i138
 
 .preheader.i138:                                  ; preds = %219
-  %224 = getelementptr inbounds i8, ptr %.085199269, i64 16
+  %224 = getelementptr inbounds nuw i8, ptr %.085199269, i64 16
   %.not.i139 = icmp eq ptr %.085199269, null
   br i1 %.not.i139, label %.loopexit, label %.lr.ph.i140
 
 .lr.ph.i140:                                      ; preds = %.preheader.i138
-  %225 = getelementptr inbounds i8, ptr %.085199269, i64 4
+  %225 = getelementptr inbounds nuw i8, ptr %.085199269, i64 4
   %226 = load i32, ptr %225, align 4
   %227 = icmp sgt i32 %226, 0
   br i1 %227, label %.lr.ph11.i, label %.loopexit
@@ -2391,7 +2391,7 @@ find_var_for_subquery_tle.exit128.thread:         ; preds = %139, %119, %.lr.ph.
   %indvars.iv.i143 = phi i64 [ 0, %.lr.ph11.i ], [ %indvars.iv.next.i144, %229 ]
   %231 = getelementptr %union.ListCell, ptr %228, i64 %indvars.iv.i143
   %232 = load ptr, ptr %231, align 8
-  %233 = getelementptr inbounds i8, ptr %232, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = icmp eq ptr %.089.val, %234
   br i1 %235, label %pathkey_is_redundant.exit, label %229
@@ -2446,11 +2446,11 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %pathkeys_useful_for_merging.exit, label %.lr.ph71.i
 
 .lr.ph71.i:                                       ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = getelementptr i8, ptr %0, i64 312
-  %7 = getelementptr inbounds i8, ptr %1, i64 336
-  %8 = getelementptr inbounds i8, ptr %1, i64 328
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %9 = load i32, ptr %4, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph, label %pathkeys_useful_for_merging.exit
@@ -2465,15 +2465,15 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i.i, label %right_merge_direction.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.val.i, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.val.i, i64 4
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = icmp sgt i32 %15, 0
   br i1 %17, label %.lr.ph6.i.i, label %right_merge_direction.exit.i
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
-  %19 = getelementptr inbounds i8, ptr %.val.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %18, align 8
   %wide.trip.count.i.i = zext nneg i32 %15 to i64
@@ -2483,22 +2483,22 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph6.i.i ], [ %indvars.iv.next.i.i, %38 ]
   %23 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv.i.i
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %21, %26
   br i1 %27, label %28, label %38
 
 28:                                               ; preds = %22
   %29 = load i32, ptr %16, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %29, %31
   br i1 %32, label %.split.i.i, label %38
 
 .split.i.i:                                       ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %13, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %34 = load i32, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %24, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %24, i64 20
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %34, %36
   br i1 %37, label %42, label %.critedge.loopexit86.i.loopexit
@@ -2509,7 +2509,7 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
   br i1 %exitcond.not.i.i, label %right_merge_direction.exit.i, label %22
 
 right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %13, i64 20
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, 1
   br i1 %41, label %42, label %.critedge.loopexit86.i.loopexit
@@ -2520,7 +2520,7 @@ right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %13, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = tail call zeroext i1 @eclass_useful_for_merging(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %1) #10
   br i1 %48, label %.loopexit.i, label %49
@@ -2531,9 +2531,9 @@ right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.
   br i1 %.not36.i, label %.critedge.loopexit86.i.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49
-  %51 = getelementptr inbounds i8, ptr %50, i64 4
-  %52 = getelementptr inbounds i8, ptr %50, i64 16
-  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %54 = load i32, ptr %51, align 4
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph64.i, label %.critedge.loopexit86.i.loopexit
@@ -2544,24 +2544,24 @@ right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.
   %57 = load ptr, ptr %52, align 8
   %58 = getelementptr %union.ListCell, ptr %57, i64 %indvars.iv.i
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 144
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %81, label %63
 
 63:                                               ; preds = %.lr.ph64.i
-  %64 = getelementptr inbounds i8, ptr %59, i64 152
+  %64 = getelementptr inbounds nuw i8, ptr %59, i64 152
   %.promoted.i.i = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.promoted.i.i, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %.promoted.i.i, i64 72
   %66 = load ptr, ptr %65, align 8
   %.not8.i.i = icmp eq ptr %66, null
   br i1 %.not8.i.i, label %.preheader.i.i, label %.lr.ph.i38.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i38.i, %63
   %67 = phi ptr [ %.promoted.i.i, %63 ], [ %71, %.lr.ph.i38.i ]
-  %68 = getelementptr inbounds i8, ptr %59, i64 160
+  %68 = getelementptr inbounds nuw i8, ptr %59, i64 160
   %.promoted9.i.i = load ptr, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %.promoted9.i.i, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %.promoted9.i.i, i64 72
   %70 = load ptr, ptr %69, align 8
   %.not710.i.i = icmp eq ptr %70, null
   br i1 %.not710.i.i, label %update_mergeclause_eclasses.exit.i, label %.lr.ph11.i.i
@@ -2569,7 +2569,7 @@ right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.
 .lr.ph.i38.i:                                     ; preds = %63, %.lr.ph.i38.i
   %71 = phi ptr [ %73, %.lr.ph.i38.i ], [ %66, %63 ]
   store ptr %71, ptr %64, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 72
   %73 = load ptr, ptr %72, align 8
   %.not.i39.i = icmp eq ptr %73, null
   br i1 %.not.i39.i, label %.preheader.i.i, label %.lr.ph.i38.i, !llvm.loop !12
@@ -2577,7 +2577,7 @@ right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.
 .lr.ph11.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph11.i.i
   %74 = phi ptr [ %76, %.lr.ph11.i.i ], [ %70, %.preheader.i.i ]
   store ptr %74, ptr %68, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 72
   %76 = load ptr, ptr %75, align 8
   %.not7.i.i = icmp eq ptr %76, null
   br i1 %.not7.i.i, label %update_mergeclause_eclasses.exit.i, label %.lr.ph11.i.i, !llvm.loop !13
@@ -2629,7 +2629,7 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
   br i1 %.not.i.i.i, label %pathkeys_useful_for_ordering.exit, label %92
 
 92:                                               ; preds = %91
-  %93 = getelementptr inbounds i8, ptr %.val, i64 4
+  %93 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %94 = load i32, ptr %93, align 4
   br label %pathkeys_useful_for_ordering.exit
 
@@ -2638,12 +2638,12 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
   br i1 %or.cond.i23, label %pathkeys_useful_for_ordering.exit, label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %95
-  %96 = getelementptr inbounds i8, ptr %.val, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %2, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %99 = load i32, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %.val, i64 16
-  %101 = getelementptr inbounds i8, ptr %2, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %102 = sext i32 %97 to i64
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %99, i32 0)
   %wide.trip.count.i.i25 = zext nneg i32 %smax.i.i to i64
@@ -2693,17 +2693,17 @@ pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.crite
 pathkeys_useful_for_ordering.exit:                ; preds = %108, %91, %92, %95, %119, %.thread.split.loop.exit44.i.i
   %.0.i = phi i32 [ %indvars41.le47.i.i, %119 ], [ %94, %92 ], [ 0, %91 ], [ 0, %95 ], [ %indvars41.le.i.i, %.thread.split.loop.exit44.i.i ], [ %smax.i.i, %108 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 %.050.i)
-  %121 = getelementptr inbounds i8, ptr %0, i64 320
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %122 = load ptr, ptr %121, align 8
   %123 = icmp eq ptr %122, null
   br i1 %123, label %pathkeys_useful_for_grouping.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pathkeys_useful_for_ordering.exit
-  %124 = getelementptr inbounds i8, ptr %2, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %2, i64 4
   br i1 %.not.i, label %pathkeys_useful_for_grouping.exit.thread42, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.preheader.i
-  %125 = getelementptr inbounds i8, ptr %2, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %126 = load i32, ptr %124, align 4
   %127 = icmp sgt i32 %126, 0
   br i1 %127, label %.lr.ph27.i, label %pathkeys_useful_for_grouping.exit.thread
@@ -2747,7 +2747,7 @@ pathkeys_useful_for_grouping.exit.thread:         ; preds = %.lr.ph.i31
   br i1 %.not.i, label %list_length.exit.thread, label %.list_length.exit_crit_edge
 
 .list_length.exit_crit_edge:                      ; preds = %140
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %list_length.exit
 
@@ -2790,19 +2790,19 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
   %.035 = phi ptr [ %.1, %60 ], [ null, %5 ]
   %.sroa.5.034 = phi i32 [ %61, %60 ], [ 0, %5 ]
   %.sroa.0.033 = phi ptr [ %.sroa.0.1, %60 ], [ %9, %5 ]
-  %10 = getelementptr inbounds i8, ptr %.sroa.0.033, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 4
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %.sroa.5.034, %11
   br i1 %12, label %13, label %._crit_edge
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.033, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.033, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %.sroa.5.034 to i64
   %17 = getelementptr %union.ListCell, ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = call ptr @get_sortgroupclause_expr(ptr noundef %18, ptr noundef %2) #10
-  %20 = getelementptr inbounds i8, ptr %18, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %21 = load i32, ptr %20, align 4
   %.not27 = icmp eq i32 %21, 0
   br i1 %.not27, label %22, label %23
@@ -2812,9 +2812,9 @@ define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr
   br label %60
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %25 = load i8, ptr %24, align 4
-  %26 = getelementptr inbounds i8, ptr %18, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %27 = load i32, ptr %26, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -2842,18 +2842,18 @@ make_pathkey_from_sortop.exit:                    ; preds = %23
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   %39 = getelementptr i8, ptr %38, i64 8
   %.val = load ptr, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %.val, i64 56
+  %40 = getelementptr inbounds nuw i8, ptr %.val, i64 56
   %41 = load i8, ptr %40, align 8
   %42 = trunc i8 %41 to i1
   br i1 %42, label %pathkey_is_redundant.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %make_pathkey_from_sortop.exit
-  %43 = getelementptr inbounds i8, ptr %.035, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.035, i64 16
   %.not.i = icmp eq ptr %.035, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %44 = getelementptr inbounds i8, ptr %.035, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.035, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph11.i, label %.loopexit
@@ -2872,7 +2872,7 @@ make_pathkey_from_sortop.exit:                    ; preds = %23
   %indvars.iv.i = phi i64 [ 0, %.lr.ph11.i ], [ %indvars.iv.next.i, %48 ]
   %50 = getelementptr %union.ListCell, ptr %47, i64 %indvars.iv.i
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %.val, %53
   br i1 %54, label %pathkey_is_redundant.exit, label %48
@@ -2912,9 +2912,9 @@ declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #
 define dso_local void @initialize_mergeclause_eclasses(ptr noundef %0, ptr nocapture noundef initializes((152, 168)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   call void @op_input_types(i32 noundef %8, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %9 = getelementptr i8, ptr %6, i64 32
@@ -2930,20 +2930,20 @@ define dso_local void @initialize_mergeclause_eclasses(ptr noundef %0, ptr nocap
 
 get_leftop.exit:                                  ; preds = %2, %10
   %.0.i = phi ptr [ %12, %10 ], [ null, %2 ]
-  %13 = getelementptr inbounds i8, ptr %1, i64 144
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %3, align 4
-  %16 = getelementptr inbounds i8, ptr %6, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %17 = load i32, ptr %16, align 8
   %18 = call ptr @get_eclass_for_sort_expr(ptr noundef %0, ptr noundef %.0.i, ptr noundef %14, i32 noundef %15, i32 noundef %17, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #10
-  %19 = getelementptr inbounds i8, ptr %1, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %18, ptr %19, align 8
   %.val12 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %.val12, null
   br i1 %.not.i.i, label %get_rightop.exit, label %list_length.exit.i
 
 list_length.exit.i:                               ; preds = %get_leftop.exit
-  %20 = getelementptr inbounds i8, ptr %.val12, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.val12, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp sgt i32 %21, 1
   br i1 %22, label %23, label %get_rightop.exit
@@ -2961,7 +2961,7 @@ get_rightop.exit:                                 ; preds = %get_leftop.exit, %l
   %28 = load i32, ptr %4, align 4
   %29 = load i32, ptr %16, align 8
   %30 = call ptr @get_eclass_for_sort_expr(ptr noundef %0, ptr noundef %.0.i13, ptr noundef %27, i32 noundef %28, i32 noundef %29, i32 noundef 0, ptr noundef null, i1 noundef zeroext true) #10
-  %31 = getelementptr inbounds i8, ptr %1, i64 160
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store ptr %30, ptr %31, align 8
   ret void
 }
@@ -2970,17 +2970,17 @@ declare void @op_input_types(i32 noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @update_mergeclause_eclasses(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 152
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %.promoted = load ptr, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %.promoted, i64 72
+  %4 = getelementptr inbounds nuw i8, ptr %.promoted, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not8 = icmp eq ptr %5, null
   br i1 %.not8, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 160
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %.promoted9 = load ptr, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %.promoted9, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %.promoted9, i64 72
   %8 = load ptr, ptr %7, align 8
   %.not710 = icmp eq ptr %8, null
   br i1 %.not710, label %._crit_edge, label %.lr.ph11
@@ -2988,7 +2988,7 @@ define dso_local void @update_mergeclause_eclasses(ptr nocapture noundef readnon
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %9 = phi ptr [ %11, %.lr.ph ], [ %5, %2 ]
   store ptr %9, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !12
@@ -2996,7 +2996,7 @@ define dso_local void @update_mergeclause_eclasses(ptr nocapture noundef readnon
 .lr.ph11:                                         ; preds = %.preheader, %.lr.ph11
   %12 = phi ptr [ %14, %.lr.ph11 ], [ %8, %.preheader ]
   store ptr %12, ptr %6, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 72
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
   %.not7 = icmp eq ptr %14, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph11, !llvm.loop !13
@@ -3007,12 +3007,12 @@ define dso_local void @update_mergeclause_eclasses(ptr nocapture noundef readnon
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %2, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %4, align 4
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph62, label %._crit_edge58.thread
@@ -3026,9 +3026,9 @@ define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr nocapture noundef
   br i1 %.not44114, label %.thread50, label %.lr.ph80.split.split
 
 .lr.ph80.split.split:                             ; preds = %._crit_edge58, %._crit_edge58.thread
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %11 = load i32, ptr %8, align 4
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph66, label %.thread50
@@ -3038,17 +3038,17 @@ define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr nocapture noundef
   %13 = load ptr, ptr %5, align 8
   %14 = getelementptr %union.ListCell, ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 152
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 152
   %.promoted.i = load ptr, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %.promoted.i, i64 72
+  %17 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 72
   %18 = load ptr, ptr %17, align 8
   %.not8.i = icmp eq ptr %18, null
   br i1 %.not8.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.lr.ph62
-  %19 = getelementptr inbounds i8, ptr %15, i64 160
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 160
   %.promoted9.i = load ptr, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %.promoted9.i, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %.promoted9.i, i64 72
   %21 = load ptr, ptr %20, align 8
   %.not710.i = icmp eq ptr %21, null
   br i1 %.not710.i, label %update_mergeclause_eclasses.exit, label %.lr.ph11.i
@@ -3056,7 +3056,7 @@ define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr nocapture noundef
 .lr.ph.i:                                         ; preds = %.lr.ph62, %.lr.ph.i
   %22 = phi ptr [ %24, %.lr.ph.i ], [ %18, %.lr.ph62 ]
   store ptr %22, ptr %16, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %24 = load ptr, ptr %23, align 8
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !12
@@ -3064,7 +3064,7 @@ define dso_local ptr @find_mergeclauses_for_outer_pathkeys(ptr nocapture noundef
 .lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
   %25 = phi ptr [ %27, %.lr.ph11.i ], [ %21, %.preheader.i ]
   store ptr %25, ptr %19, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8
   %.not7.i = icmp eq ptr %27, null
   br i1 %.not7.i, label %update_mergeclause_eclasses.exit, label %.lr.ph11.i, !llvm.loop !13
@@ -3082,7 +3082,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %31 = load ptr, ptr %9, align 8
   %32 = getelementptr %union.ListCell, ptr %31, i64 %indvars.iv111
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %4, align 4
   %37 = icmp sgt i32 %36, 0
@@ -3095,11 +3095,11 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %39 = load ptr, ptr %10, align 8
   %40 = getelementptr %union.ListCell, ptr %39, i64 %indvars.iv108
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 192
   %43 = load i8, ptr %42, align 8
   %44 = trunc i8 %43 to i1
   %.in.v = select i1 %44, i64 152, i64 160
-  %.in = getelementptr inbounds i8, ptr %41, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %41, i64 %.in.v
   %45 = load ptr, ptr %.in, align 8
   %46 = icmp eq ptr %45, %35
   br i1 %46, label %47, label %49
@@ -3142,7 +3142,7 @@ define dso_local ptr @select_outer_pathkeys_for_merge(ptr nocapture noundef %0, 
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
 list_length.exit:                                 ; preds = %3
-  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %list_length.exit.thread, label %7
@@ -3158,8 +3158,8 @@ list_length.exit:                                 ; preds = %3
   br i1 %14, label %.lr.ph179, label %._crit_edge180
 
 .lr.ph179:                                        ; preds = %7
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %17
 
 17:                                               ; preds = %.lr.ph179, %.loopexit163
@@ -3168,17 +3168,17 @@ list_length.exit:                                 ; preds = %3
   %18 = load ptr, ptr %15, align 8
   %19 = getelementptr %union.ListCell, ptr %18, i64 %indvars.iv218
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 152
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
   %.promoted.i = load ptr, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %.promoted.i, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 72
   %23 = load ptr, ptr %22, align 8
   %.not8.i = icmp eq ptr %23, null
   br i1 %.not8.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %17
-  %24 = getelementptr inbounds i8, ptr %20, i64 160
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 160
   %.promoted9.i = load ptr, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %.promoted9.i, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %.promoted9.i, i64 72
   %26 = load ptr, ptr %25, align 8
   %.not710.i = icmp eq ptr %26, null
   br i1 %.not710.i, label %update_mergeclause_eclasses.exit, label %.lr.ph11.i
@@ -3186,7 +3186,7 @@ list_length.exit:                                 ; preds = %3
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %27 = phi ptr [ %29, %.lr.ph.i ], [ %23, %17 ]
   store ptr %27, ptr %21, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
   %29 = load ptr, ptr %28, align 8
   %.not.i145 = icmp eq ptr %29, null
   br i1 %.not.i145, label %.preheader.i, label %.lr.ph.i, !llvm.loop !12
@@ -3194,13 +3194,13 @@ list_length.exit:                                 ; preds = %3
 .lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
   %30 = phi ptr [ %32, %.lr.ph11.i ], [ %26, %.preheader.i ]
   store ptr %30, ptr %24, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %32 = load ptr, ptr %31, align 8
   %.not7.i = icmp eq ptr %32, null
   br i1 %.not7.i, label %update_mergeclause_eclasses.exit, label %.lr.ph11.i, !llvm.loop !13
 
 update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.preheader.i
-  %33 = getelementptr inbounds i8, ptr %20, i64 192
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 192
   %34 = load i8, ptr %33, align 8
   %35 = trunc i8 %34 to i1
   %.0123.in = select i1 %35, ptr %21, ptr %24
@@ -3225,14 +3225,14 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   br i1 %40, label %.loopexit163, label %37
 
 .critedge:                                        ; preds = %37, %update_mergeclause_eclasses.exit
-  %41 = getelementptr inbounds i8, ptr %.0123, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0123, i64 24
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %.not141 = icmp eq ptr %42, null
   br i1 %.not141, label %._crit_edge, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.critedge
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %45 = load i32, ptr %43, align 4
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.lr.ph174, label %._crit_edge
@@ -3244,19 +3244,19 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %48 = load ptr, ptr %44, align 8
   %49 = getelementptr %union.ListCell, ptr %48, i64 %indvars.iv215
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load i8, ptr %51, align 8
   %53 = trunc i8 %52 to i1
   br i1 %53, label %64, label %54
 
 54:                                               ; preds = %.lr.ph174
-  %55 = getelementptr inbounds i8, ptr %50, i64 25
+  %55 = getelementptr inbounds nuw i8, ptr %50, i64 25
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %64, label %58
 
 58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %50, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %16, align 8
   %62 = tail call zeroext i1 @bms_overlap(ptr noundef %60, ptr noundef %61) #10
@@ -3294,19 +3294,19 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 
 ._crit_edge180:                                   ; preds = %.loopexit163, %7
   %.0116.lcssa = phi i32 [ 0, %7 ], [ %.1117, %.loopexit163 ]
-  %75 = getelementptr inbounds i8, ptr %0, i64 312
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %76 = load ptr, ptr %75, align 8
   %.not135 = icmp eq ptr %76, null
   br i1 %.not135, label %.thread160, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge180
-  %77 = getelementptr inbounds i8, ptr %76, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4
   %.not137189 = icmp sgt i32 %78, 0
   br i1 %.not137189, label %.lr.ph192, label %.thread157
 
 .lr.ph192:                                        ; preds = %.preheader
-  %79 = getelementptr inbounds i8, ptr %76, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %80 = load ptr, ptr %79, align 8
   %81 = icmp sgt i32 %.0116.lcssa, 0
   br i1 %81, label %.lr.ph184.us.preheader, label %._crit_edge187
@@ -3320,7 +3320,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %indvars.iv226 = phi i64 [ 0, %.lr.ph184.us.preheader ], [ %indvars.iv.next227, %91 ]
   %82 = getelementptr %union.ListCell, ptr %80, i64 %indvars.iv226
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8
   br label %87
 
@@ -3344,12 +3344,12 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
 .thread157:                                       ; preds = %91, %.preheader
   %92 = tail call ptr @list_copy(ptr noundef nonnull %76) #10
   %93 = load ptr, ptr %75, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 4
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %.not139 = icmp eq ptr %93, null
   br i1 %.not139, label %.thread160, label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.thread157
-  %95 = getelementptr inbounds i8, ptr %93, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %96 = icmp sgt i32 %.0116.lcssa, 0
   br i1 %96, label %.lr.ph198.split.us.split, label %.thread160
 
@@ -3368,7 +3368,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %100 = load ptr, ptr %95, align 8
   %101 = getelementptr %union.ListCell, ptr %100, i64 %indvars.iv238
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
   br label %106
 
@@ -3450,7 +3450,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr i32, ptr %12, i64 %.0114.lcssa
   store i32 -1, ptr %130, align 4
-  %131 = getelementptr inbounds i8, ptr %129, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr i8, ptr %132, i64 16
   %.val = load ptr, ptr %133, align 8
@@ -3486,7 +3486,7 @@ define dso_local ptr @make_inner_pathkeys_for_merge(ptr nocapture noundef %0, pt
   br i1 %.not.i, label %list_head.exit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   br label %list_head.exit
 
@@ -3496,8 +3496,8 @@ list_head.exit:                                   ; preds = %3, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_head.exit
-  %8 = getelementptr inbounds i8, ptr %1, i64 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = getelementptr i8, ptr %2, i64 4
   %11 = getelementptr i8, ptr %2, i64 16
   %12 = load i32, ptr %8, align 4
@@ -3513,17 +3513,17 @@ list_head.exit:                                   ; preds = %3, %4
   %14 = load ptr, ptr %9, align 8
   %15 = getelementptr %union.ListCell, ptr %14, i64 %indvars.iv75
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 152
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 152
   %.promoted.i = load ptr, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %.promoted.i, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 72
   %19 = load ptr, ptr %18, align 8
   %.not8.i = icmp eq ptr %19, null
   br i1 %.not8.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.lr.ph80
-  %20 = getelementptr inbounds i8, ptr %16, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %.promoted9.i = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %.promoted9.i, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %.promoted9.i, i64 72
   %22 = load ptr, ptr %21, align 8
   %.not710.i = icmp eq ptr %22, null
   br i1 %.not710.i, label %update_mergeclause_eclasses.exit, label %.lr.ph11.i
@@ -3531,7 +3531,7 @@ list_head.exit:                                   ; preds = %3, %4
 .lr.ph.i:                                         ; preds = %.lr.ph80, %.lr.ph.i
   %23 = phi ptr [ %25, %.lr.ph.i ], [ %19, %.lr.ph80 ]
   store ptr %23, ptr %17, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %25 = load ptr, ptr %24, align 8
   %.not.i53 = icmp eq ptr %25, null
   br i1 %.not.i53, label %.preheader.i, label %.lr.ph.i, !llvm.loop !12
@@ -3539,13 +3539,13 @@ list_head.exit:                                   ; preds = %3, %4
 .lr.ph11.i:                                       ; preds = %.preheader.i, %.lr.ph11.i
   %26 = phi ptr [ %28, %.lr.ph11.i ], [ %22, %.preheader.i ]
   store ptr %26, ptr %20, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
   %28 = load ptr, ptr %27, align 8
   %.not7.i = icmp eq ptr %28, null
   br i1 %.not7.i, label %update_mergeclause_eclasses.exit, label %.lr.ph11.i, !llvm.loop !13
 
 update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.preheader.i
-  %29 = getelementptr inbounds i8, ptr %16, i64 192
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 192
   %30 = load i8, ptr %29, align 8
   %31 = trunc i8 %30 to i1
   %.037.in = select i1 %31, ptr %17, ptr %20
@@ -3575,7 +3575,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %40 = getelementptr %union.ListCell, ptr %.val52, i64 %39
   %41 = icmp ult ptr %38, %40
   %..i = select i1 %41, ptr %38, ptr null
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not51 = icmp eq ptr %.037, %43
   br i1 %.not51, label %47, label %44
@@ -3595,11 +3595,11 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   br i1 %48, label %58, label %49
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %.145, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.145, i64 16
   %51 = load i32, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %.145, i64 20
+  %52 = getelementptr inbounds nuw i8, ptr %.145, i64 20
   %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds i8, ptr %.145, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %.145, i64 24
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
   %57 = tail call ptr @make_canonical_pathkey(ptr noundef %0, ptr noundef %.036, i32 noundef %51, i32 noundef %53, i1 noundef zeroext %56)
@@ -3609,18 +3609,18 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %.0 = phi ptr [ %57, %49 ], [ %.145, %47 ]
   %59 = getelementptr i8, ptr %.0, i64 8
   %.0.val = load ptr, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.0.val, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %.0.val, i64 56
   %61 = load i8, ptr %60, align 8
   %62 = trunc i8 %61 to i1
   br i1 %62, label %pathkey_is_redundant.exit, label %.preheader.i54
 
 .preheader.i54:                                   ; preds = %58
-  %63 = getelementptr inbounds i8, ptr %.0386776, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.0386776, i64 16
   %.not.i55 = icmp eq ptr %.0386776, null
   br i1 %.not.i55, label %.loopexit, label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %.preheader.i54
-  %64 = getelementptr inbounds i8, ptr %.0386776, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.0386776, i64 4
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph11.i57, label %.loopexit
@@ -3639,7 +3639,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   %indvars.iv.i = phi i64 [ 0, %.lr.ph11.i57 ], [ %indvars.iv.next.i, %68 ]
   %70 = getelementptr %union.ListCell, ptr %67, i64 %indvars.iv.i
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %.0.val, %73
   br i1 %74, label %pathkey_is_redundant.exit, label %68
@@ -3669,12 +3669,12 @@ define dso_local ptr @trim_mergeclauses_for_inner_pathkeys(ptr nocapture noundef
 list_head.exit:                                   ; preds = %3
   %5 = getelementptr i8, ptr %2, i64 4
   %6 = getelementptr i8, ptr %2, i64 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not37 = icmp eq ptr %1, null
   br i1 %.not37, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %list_head.exit
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %.lr.ph65.preheader, label %.thread
@@ -3682,7 +3682,7 @@ list_head.exit:                                   ; preds = %3
 .lr.ph65.preheader:                               ; preds = %.lr.ph
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr i8, ptr %11, i64 8
   %.val41 = load i32, ptr %5, align 4
@@ -3701,11 +3701,11 @@ list_head.exit:                                   ; preds = %3
   %19 = load ptr, ptr %8, align 8
   %20 = getelementptr %union.ListCell, ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 192
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
   %.in.v = select i1 %24, i64 160, i64 152
-  %.in = getelementptr inbounds i8, ptr %21, i64 %.in.v
+  %.in = getelementptr inbounds nuw i8, ptr %21, i64 %.in.v
   %25 = load ptr, ptr %.in, align 8
   %.not39 = icmp eq ptr %25, %.0334664
   br i1 %.not39, label %36, label %26
@@ -3717,7 +3717,7 @@ list_head.exit:                                   ; preds = %3
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %.0314862, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %.val = load i32, ptr %5, align 4
   %.val40 = load ptr, ptr %6, align 8
@@ -3749,25 +3749,25 @@ list_head.exit:                                   ; preds = %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local zeroext i1 @has_useful_pathkeys(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 328
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %15
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 336
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %15, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = load ptr, ptr %10, align 8
   %.not5 = icmp eq ptr %11, null
   br i1 %.not5, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 312
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %14 = load ptr, ptr %13, align 8
   %.not6 = icmp ne ptr %14, null
   br label %15

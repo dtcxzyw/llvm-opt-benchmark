@@ -89,7 +89,7 @@ define range(i32 -1, 1) i32 @cli_filter_init() local_unnamed_addr #0 {
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.pre, i64 11
+  %29 = getelementptr inbounds nuw i8, ptr %.pre, i64 11
   store ptr %29, ptr %2, align 8
   br label %30
 
@@ -217,7 +217,7 @@ define i32 @cli_filter_fini() local_unnamed_addr #0 {
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
@@ -295,7 +295,7 @@ define i32 @cli_filter_g_setup_defaults(ptr noundef %0, i1 noundef zeroext %1) l
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.cli_filter_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw %struct.cli_filter_ops, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i1 noundef zeroext %1) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -367,7 +367,7 @@ define i32 @cli_filter_g_pre_submit(ptr noundef %0, i32 noundef %1) local_unname
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds %struct.cli_filter_ops, ptr %15, i64 %indvars.iv, i32 1
+  %16 = getelementptr inbounds nuw %struct.cli_filter_ops, ptr %15, i64 %indvars.iv, i32 1
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -431,7 +431,7 @@ define void @cli_filter_g_post_submit(i32 noundef %0, i32 noundef %1, i32 nounde
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds %struct.cli_filter_ops, ptr %16, i64 %indvars.iv, i32 2
+  %17 = getelementptr inbounds nuw %struct.cli_filter_ops, ptr %16, i64 %indvars.iv, i32 2
   %18 = load ptr, ptr %17, align 8
   tail call void %18(i32 noundef %0, i32 noundef %1, i32 noundef %2) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

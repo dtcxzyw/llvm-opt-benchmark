@@ -224,7 +224,7 @@ define hidden void @resolve_unparsed(ptr noundef %0, ptr noundef %1, i1 noundef 
 
 5:                                                ; preds = %3
   %6 = tail call ptr @stnode_data(ptr noundef %1) #6
-  %7 = getelementptr inbounds i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %6, ptr noundef %8) #6
   %.not10 = icmp eq ptr %9, null
@@ -315,7 +315,7 @@ define hidden zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 nounde
 21:                                               ; preds = %19
   call void @df_error_free(ptr noundef %0) #6
   %22 = call ptr @stnode_token(ptr noundef %2) #6
-  %23 = getelementptr inbounds i8, ptr %4, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %24 = load i32, ptr %23, align 8
   %25 = call ptr @ftype_pretty_name(i32 noundef %24) #6
   %26 = call ptr @stnode_token(ptr noundef %2) #6
@@ -344,7 +344,7 @@ declare ptr @df_error_new(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %9 [
     i32 0, label %162
@@ -385,7 +385,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   unreachable
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %18
@@ -394,7 +394,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %13 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
   %14 = extractvalue { i64, i64 } %13, 0
   %15 = extractvalue { i64, i64 } %13, 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %14, i64 %15, ptr noundef nonnull @.str.12, ptr noundef %17) #6
   br label %162
@@ -419,7 +419,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   br label %162
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds i8, ptr %22, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @g_ascii_strcasecmp(ptr noundef %2, ptr noundef %30) #6
   %32 = icmp eq i32 %31, 0
@@ -435,13 +435,13 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %36 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
   %37 = extractvalue { i64, i64 } %36, 0
   %38 = extractvalue { i64, i64 } %36, 1
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %37, i64 %38, ptr noundef nonnull @.str.13, ptr noundef %2, ptr noundef %40) #6
   br label %162
 
 41:                                               ; preds = %18
-  %42 = getelementptr inbounds i8, ptr %1, i64 20
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, 256
   %.not147 = icmp eq i32 %44, 0
@@ -449,7 +449,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr %10, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %.not173 = icmp eq ptr %48, null
   br i1 %.not173, label %.thread, label %.lr.ph
@@ -466,7 +466,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
 
 52:                                               ; preds = %.lr.ph
   %53 = load i64, ptr %.0139151, align 8
-  %54 = getelementptr inbounds i8, ptr %.0139151, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.0139151, i64 8
   %55 = load i64, ptr %54, align 8
   %56 = add nuw nsw i64 %.0133152, 1
   br label %57
@@ -517,7 +517,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %75 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
   %76 = extractvalue { i64, i64 } %75, 0
   %77 = extractvalue { i64, i64 } %75, 1
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %79 = load ptr, ptr %78, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %76, i64 %77, ptr noundef nonnull @.str.13, ptr noundef %2, ptr noundef %79) #6
   br label %162
@@ -534,13 +534,13 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   br i1 %.not150, label %88, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds i8, ptr %83, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %87 = load ptr, ptr %86, align 8
   br label %88
 
 88:                                               ; preds = %85, %82
   %.0140 = phi ptr [ %87, %85 ], [ %83, %82 ]
-  %89 = getelementptr inbounds i8, ptr %.0140, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.0140, i64 8
   %90 = load ptr, ptr %89, align 8
   %.not174 = icmp eq ptr %90, null
   br i1 %.not174, label %.thread189, label %.lr.ph161
@@ -594,7 +594,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %111 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
   %112 = extractvalue { i64, i64 } %111, 0
   %113 = extractvalue { i64, i64 } %111, 1
-  %114 = getelementptr inbounds i8, ptr %1, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %115 = load ptr, ptr %114, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %112, i64 %113, ptr noundef nonnull @.str.13, ptr noundef %2, ptr noundef %115) #6
   br label %162
@@ -635,7 +635,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %122 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
   %123 = extractvalue { i64, i64 } %122, 0
   %124 = extractvalue { i64, i64 } %122, 1
-  %125 = getelementptr inbounds i8, ptr %1, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %126 = load ptr, ptr %125, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %123, i64 %124, ptr noundef nonnull @.str.14, ptr noundef %126) #6
   br label %162
@@ -647,13 +647,13 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   br i1 %.not149, label %133, label %130
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds i8, ptr %128, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %132 = load ptr, ptr %131, align 8
   br label %133
 
 133:                                              ; preds = %130, %127
   %.0128 = phi ptr [ %132, %130 ], [ %128, %127 ]
-  %134 = getelementptr inbounds i8, ptr %.0128, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %.0128, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not175 = icmp eq ptr %135, null
   br i1 %.not175, label %.thread196, label %.lr.ph169
@@ -708,7 +708,7 @@ define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr nounde
   %157 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
   %158 = extractvalue { i64, i64 } %157, 0
   %159 = extractvalue { i64, i64 } %157, 1
-  %160 = getelementptr inbounds i8, ptr %1, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail(ptr noundef %0, i32 noundef -1, i64 %158, i64 %159, ptr noundef nonnull @.str.13, ptr noundef %2, ptr noundef %161) #6
   br label %162
@@ -737,7 +737,7 @@ define hidden zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef
   %6 = tail call ptr @stnode_string(ptr noundef %2) #6
   store ptr null, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   %10 = call ptr @fvalue_from_string(i32 noundef %1, ptr noundef %7, i64 noundef %9, ptr noundef nonnull %5) #6
   %.not = icmp eq ptr %10, null
@@ -987,7 +987,7 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
   %11 = tail call ptr @sttype_function_funcdef(ptr noundef %1) #6
   %12 = tail call ptr @sttype_function_params(ptr noundef %1) #6
   %13 = tail call i32 @g_slist_length(ptr noundef %12) #6
-  %14 = getelementptr inbounds i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %16, label %get_function_ftype.exit
@@ -999,7 +999,7 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
   br i1 %or.cond, label %get_function_ftype.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %0, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %19
 
 19:                                               ; preds = %.lr.ph, %30
@@ -1031,7 +1031,7 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
   br i1 %.not19.i, label %30, label %get_function_ftype.exit
 
 30:                                               ; preds = %resolve_unparsed.exit
-  %31 = getelementptr inbounds i8, ptr %.015.i24, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.015.i24, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not18.i = icmp eq ptr %32, null
   br i1 %.not18.i, label %get_function_ftype.exit, label %19, !llvm.loop !8
@@ -1122,7 +1122,7 @@ define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1,
   ]
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
@@ -1138,7 +1138,7 @@ define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1,
   %15 = tail call { i64, i64 } @stnode_location(ptr noundef %4) #6
   %16 = extractvalue { i64, i64 } %15, 0
   %17 = extractvalue { i64, i64 } %15, 1
-  %18 = getelementptr inbounds i8, ptr %11, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @ftype_pretty_name(i32 noundef %12) #6
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %16, i64 %17, ptr noundef nonnull @.str.7, ptr noundef %19, ptr noundef %20) #7
@@ -1204,7 +1204,7 @@ define hidden i32 @check_function(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %4 = tail call ptr @sttype_function_funcdef(ptr noundef %1) #6
   %5 = tail call ptr @sttype_function_params(ptr noundef %1) #6
   %6 = tail call i32 @g_slist_length(ptr noundef %5) #6
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp ult i32 %6, %8
   br i1 %9, label %10, label %16
@@ -1219,7 +1219,7 @@ define hidden i32 @check_function(ptr noundef %0, ptr noundef %1, i32 noundef %2
   unreachable
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %4, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %18 = load i32, ptr %17, align 4
   %.not = icmp ne i32 %18, 0
   %19 = icmp ugt i32 %6, %18
@@ -1236,7 +1236,7 @@ define hidden i32 @check_function(ptr noundef %0, ptr noundef %1, i32 noundef %2
   unreachable
 
 26:                                               ; preds = %16
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %4, align 8
   %30 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
@@ -1294,7 +1294,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %check_arithmetic_LHS_NUMBER.exit
 
 16:                                               ; preds = %3
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = add i32 %18, 1
   store i32 %19, ptr %17, align 8
@@ -1345,7 +1345,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
 35:                                               ; preds = %33
   %36 = load ptr, ptr %5, align 8
   %37 = call i32 @check_arithmetic(ptr noundef %0, ptr noundef %36, i32 noundef %2)
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = and i32 %39, 4
   %.not65.i = icmp eq i32 %40, 0
@@ -1433,7 +1433,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 89:                                               ; preds = %74, %56
   %.058.i = phi i32 [ %67, %74 ], [ %49, %56 ]
-  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = and i32 %91, 4
   %.not.i = icmp eq i32 %92, 0
@@ -1464,7 +1464,7 @@ define hidden i32 @check_arithmetic(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 switch.lookup:                                    ; preds = %101
   %106 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table.check_arithmetic, i64 0, i64 %106
+  %switch.gep = getelementptr inbounds nuw [4 x ptr], ptr @switch.table.check_arithmetic, i64 0, i64 %106
   %switch.load = load ptr, ptr %switch.gep, align 8
   %107 = load ptr, ptr %5, align 8
   %108 = load ptr, ptr %6, align 8
@@ -1503,7 +1503,7 @@ check_arithmetic_LHS_TIME.exit:                   ; preds = %35, %41, %45, %89, 
   unreachable
 
 118:                                              ; preds = %110
-  %119 = getelementptr inbounds i8, ptr %0, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %120 = load i32, ptr %119, align 8
   %121 = and i32 %120, 4
   %.not59.i = icmp eq i32 %121, 0
@@ -1582,7 +1582,7 @@ check_arithmetic_LHS_TIME.exit:                   ; preds = %35, %41, %45, %89, 
   unreachable
 
 159:                                              ; preds = %151
-  %160 = getelementptr inbounds i8, ptr %0, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %161 = load i32, ptr %160, align 8
   %162 = and i32 %161, 4
   %.not.i33 = icmp eq i32 %162, 0
@@ -1624,10 +1624,10 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
   store volatile i8 1, ptr %2, align 1
   store volatile i32 0, ptr %4, align 4
   call void @except_setup_try(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull @dfw_semcheck.catch_spec, i64 noundef 1) #6
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = call i32 @_setjmp(ptr noundef nonnull %7) #8
   %.not = icmp eq i32 %8, 0
-  %9 = getelementptr inbounds i8, ptr %6, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sink = select i1 %.not, ptr null, ptr %9
   store volatile ptr %.sink, ptr %3, align 8
   %.0..0..0..0. = load volatile i32, ptr %4, align 4
@@ -1655,7 +1655,7 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   call fastcc void @semcheck(ptr noundef %0, ptr noundef %20)
   br label %21
@@ -1672,7 +1672,7 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
 
 24:                                               ; preds = %23
   %.0..0..0..0.9 = load volatile ptr, ptr %3, align 8
-  %25 = getelementptr inbounds i8, ptr %.0..0..0..0.9, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.9, i64 8
   %26 = load volatile i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 5
   br i1 %27, label %28, label %30
@@ -1701,7 +1701,7 @@ define hidden zeroext i1 @dfw_semcheck(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 34:                                               ; preds = %32, %30
-  %35 = getelementptr inbounds i8, ptr %6, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %36 = load volatile ptr, ptr %35, align 8
   call void @except_free(ptr noundef %36) #6
   %37 = call ptr @except_pop() #6
@@ -1720,7 +1720,7 @@ define internal fastcc void @semcheck(ptr noundef initializes((24, 28)) %0, ptr 
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %6, align 8
   %7 = tail call i32 @stnode_type_id(ptr noundef %1) #6
   switch i32 %7, label %99 [
@@ -1808,7 +1808,7 @@ define internal fastcc void @semcheck(ptr noundef initializes((24, 28)) %0, ptr 
 
 31:                                               ; preds = %27
   %32 = call ptr @stnode_data(ptr noundef %29) #6
-  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @dfilter_resolve_unparsed(ptr noundef %32, ptr noundef %34) #6
   %.not10.i.i = icmp eq ptr %35, null
@@ -1854,7 +1854,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   unreachable
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds i8, ptr %.037.i, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.037.i, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %54, align 8
   %.not35.i = icmp eq ptr %55, null
@@ -1870,7 +1870,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   br label %58
 
 58:                                               ; preds = %57, %56
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not34.i = icmp eq ptr %60, null
   br i1 %.not34.i, label %check_test.exit, label %.lr.ph.i, !llvm.loop !10
@@ -2199,7 +2199,7 @@ define internal fastcc noundef nonnull ptr @op_to_error_msg(i32 noundef %0) unna
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [7 x ptr], ptr @switch.table.op_to_error_msg, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [7 x ptr], ptr @switch.table.op_to_error_msg, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2295,7 +2295,7 @@ define internal fastcc void @check_relation(ptr noundef %0, i32 noundef %1, ptr 
 
 8:                                                ; preds = %6
   %9 = tail call ptr @stnode_data(ptr noundef %5) #6
-  %10 = getelementptr inbounds i8, ptr %0, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %9, ptr noundef %11) #6
   %.not10.i = icmp eq ptr %12, null
@@ -2440,7 +2440,7 @@ find_logical_ftype.exit49:                        ; preds = %31
   br i1 %48, label %67, label %check_relation_LHS_ARITHMETIC.exit
 
 67:                                               ; preds = %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %69 = load i32, ptr %68, align 8
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 8
@@ -2685,7 +2685,7 @@ find_logical_ftype.exit50:                        ; preds = %146
   br i1 %154, label %166, label %205
 
 166:                                              ; preds = %165
-  %167 = getelementptr inbounds i8, ptr %0, i64 24
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %168 = load i32, ptr %167, align 8
   %169 = add i32 %168, 1
   store i32 %169, ptr %167, align 8
@@ -2825,7 +2825,7 @@ define internal fastcc void @check_relation_contains(ptr noundef %0, ptr noundef
 
 6:                                                ; preds = %4
   %7 = tail call ptr @stnode_data(ptr noundef %3) #6
-  %8 = getelementptr inbounds i8, ptr %0, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @dfilter_resolve_unparsed(ptr noundef %7, ptr noundef %9) #6
   %.not10.i = icmp eq ptr %10, null
@@ -2856,12 +2856,12 @@ resolve_unparsed.exit:                            ; preds = %4, %11, %12
   br i1 %.not.i31, label %check_warning_contains_RHS_FIELD.exit, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @fvalue_to_string_repr(ptr noundef %23, ptr noundef nonnull %20, i32 noundef 1, i32 noundef 0) #6
   %25 = load ptr, ptr %19, align 8
   %26 = tail call ptr @ftype_pretty_name(i32 noundef 30) #6
-  %27 = getelementptr inbounds i8, ptr %19, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %28 = load ptr, ptr %27, align 8
   tail call void (ptr, ptr, ...) @add_compile_warning(ptr noundef %0, ptr noundef nonnull @.str.51, ptr noundef %18, ptr noundef %25, ptr noundef %26, ptr noundef %24, ptr noundef %28) #6
   tail call void @fvalue_free(ptr noundef nonnull %20) #6
@@ -2945,7 +2945,7 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
 11:                                               ; preds = %4
   %12 = tail call ptr @stnode_string(ptr noundef %3) #6
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = call ptr @ws_regex_compile_ex(ptr noundef %13, i64 noundef %15, ptr noundef nonnull %5, i32 noundef 3) #6
   %17 = load ptr, ptr %5, align 8
@@ -3029,7 +3029,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i32, ptr %11, align 8
   %13 = add i32 %12, 1
   store i32 %13, ptr %11, align 8
@@ -3046,13 +3046,13 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   br i1 %19, label %20, label %27
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %15, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %22 = load ptr, ptr %21, align 8
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %15, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %25 = load i32, ptr %24, align 8
   %.not163 = icmp eq i32 %25, 35
   br i1 %.not163, label %27, label %26
@@ -3065,7 +3065,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   %28 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
   %29 = extractvalue { i64, i64 } %28, 0
   %30 = extractvalue { i64, i64 } %28, 1
-  %31 = getelementptr inbounds i8, ptr %15, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = tail call ptr @ftype_pretty_name(i32 noundef %16) #6
   %34 = tail call ptr @stnode_tostr(ptr noundef %4, i1 noundef zeroext true) #6
@@ -3112,7 +3112,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   br i1 %38, label %57, label %op_is_equality.exit.thread
 
 57:                                               ; preds = %56
-  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load i32, ptr %58, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr %58, align 8
@@ -3133,7 +3133,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   ]
 
 .preheader:                                       ; preds = %61, %61
-  %63 = getelementptr inbounds i8, ptr %15, i64 60
+  %63 = getelementptr inbounds nuw i8, ptr %15, i64 60
   %64 = load i32, ptr %63, align 4
   %.not164170 = icmp eq i32 %64, -1
   br i1 %.not164170, label %.critedge, label %.lr.ph
@@ -3149,9 +3149,9 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 .critedge9.us:                                    ; preds = %.lr.ph.split.us, %.critedge9.us
   %67 = phi i32 [ %72, %.critedge9.us ], [ %64, %.lr.ph.split.us ]
   %68 = tail call ptr @proto_registrar_get_nth(i32 noundef %67) #6
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 60
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 60
   %72 = load i32, ptr %71, align 4
   %.not164.us = icmp ne i32 %72, -1
   %73 = and i32 %70, -2
@@ -3167,9 +3167,9 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 .critedge9.us183:                                 ; preds = %.lr.ph.split.split.us, %.critedge9.us183
   %77 = phi i32 [ %82, %.critedge9.us183 ], [ %64, %.lr.ph.split.split.us ]
   %78 = tail call ptr @proto_registrar_get_nth(i32 noundef %77) #6
-  %79 = getelementptr inbounds i8, ptr %78, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %78, i64 60
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 60
   %82 = load i32, ptr %81, align 4
   %.not164.us184 = icmp ne i32 %82, -1
   %83 = add i32 %80, -28
@@ -3317,7 +3317,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   %117 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
   %118 = extractvalue { i64, i64 } %117, 0
   %119 = extractvalue { i64, i64 } %117, 1
-  %120 = getelementptr inbounds i8, ptr %15, i64 8
+  %120 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %121 = load ptr, ptr %120, align 8
   %122 = tail call ptr @ftype_pretty_name(i32 noundef %36) #6
   tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %118, i64 %119, ptr noundef nonnull @.str.37, ptr noundef %121, ptr noundef %122) #7
@@ -3341,7 +3341,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   %130 = tail call { i64, i64 } @stnode_location(ptr noundef %6) #6
   %131 = extractvalue { i64, i64 } %130, 0
   %132 = extractvalue { i64, i64 } %130, 1
-  %133 = getelementptr inbounds i8, ptr %15, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = tail call ptr @ftype_pretty_name(i32 noundef %36) #6
   %136 = tail call ptr @sttype_function_name(ptr noundef %6) #6
@@ -3524,7 +3524,7 @@ is_bytes_type.exit.thread:                        ; preds = %19, %19, %19, %19, 
   br i1 %18, label %34, label %is_bytes_type.exit101.thread
 
 34:                                               ; preds = %is_bytes_type.exit.thread
-  %35 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, 1
   store i32 %37, ptr %35, align 8
@@ -3763,7 +3763,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noc
   br i1 %19, label %38, label %is_bytes_type.exit.thread
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i32, ptr %39, align 8
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 8

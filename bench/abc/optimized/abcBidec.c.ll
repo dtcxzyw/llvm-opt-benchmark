@@ -40,7 +40,7 @@ select.unfold.preheader.i:                        ; preds = %13
 select.unfold.i:                                  ; preds = %select.unfold.i, %select.unfold.preheader.i
   %indvars.iv.i = phi i64 [ %18, %select.unfold.preheader.i ], [ %indvars.iv.next.i, %select.unfold.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %19 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i
   %20 = load i32, ptr %19, align 4
   %21 = xor i32 %20, -1
   store i32 %21, ptr %19, align 4
@@ -77,7 +77,7 @@ select.unfold.preheader.i62:                      ; preds = %33
 select.unfold.i63:                                ; preds = %select.unfold.i63, %select.unfold.preheader.i62
   %indvars.iv.i64 = phi i64 [ %38, %select.unfold.preheader.i62 ], [ %indvars.iv.next.i65, %select.unfold.i63 ]
   %indvars.iv.next.i65 = add nsw i64 %indvars.iv.i64, -1
-  %39 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i65
+  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i65
   %40 = load i32, ptr %39, align 4
   %41 = xor i32 %40, -1
   store i32 %41, ptr %39, align 4
@@ -91,9 +91,9 @@ Extra_TruthNot.exit66:                            ; preds = %select.unfold.i63
 select.unfold.i69:                                ; preds = %Extra_TruthNot.exit66, %select.unfold.i69
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %select.unfold.i69 ], [ %38, %Extra_TruthNot.exit66 ]
   %indvars.iv.next.i71 = add nsw i64 %indvars.iv.i70, -1
-  %44 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next.i71
+  %44 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i71
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i71
+  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i71
   %47 = load i32, ptr %46, align 4
   %48 = or i32 %47, %45
   store i32 %48, ptr %44, align 4
@@ -103,9 +103,9 @@ select.unfold.i69:                                ; preds = %Extra_TruthNot.exit
 select.unfold.i74:                                ; preds = %Extra_TruthNot.exit66, %select.unfold.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i76, %select.unfold.i74 ], [ %38, %Extra_TruthNot.exit66 ]
   %indvars.iv.next.i76 = add nsw i64 %indvars.iv.i75, -1
-  %50 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.next.i76
+  %50 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next.i76
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i76
+  %52 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i76
   %53 = load i32, ptr %52, align 4
   %54 = xor i32 %53, -1
   %55 = and i32 %51, %54
@@ -119,7 +119,7 @@ select.unfold.i79.preheader:                      ; preds = %select.unfold.i74, 
 select.unfold.i79:                                ; preds = %select.unfold.i79.preheader, %select.unfold.i79
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %select.unfold.i79 ], [ %38, %select.unfold.i79.preheader ]
   %indvars.iv.next.i81 = add nsw i64 %indvars.iv.i80, -1
-  %57 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv.next.i81
+  %57 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next.i81
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, -1
   store i32 %59, ptr %57, align 4
@@ -148,7 +148,7 @@ Extra_TruthNot.exit82:                            ; preds = %select.unfold.i79, 
   %.val60 = load ptr, ptr %1, align 8
   %67 = getelementptr i8, ptr %.val60, i64 8
   %.val60.val = load ptr, ptr %67, align 8
-  %68 = getelementptr inbounds ptr, ptr %.val60.val, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw ptr, ptr %.val60.val, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   tail call void @Bdc_FuncSetCopy(ptr noundef %66, ptr noundef %69) #10
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -223,7 +223,7 @@ define void @Abc_NtkBidecResyn(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.Bdc_Par_t_, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %7 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
@@ -233,7 +233,7 @@ define void @Abc_NtkBidecResyn(ptr noundef %0, i32 noundef %1) local_unnamed_add
 9:                                                ; preds = %2
   %10 = load i64, ptr %4, align 8
   %.neg43 = mul i64 %10, -1000000
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
   %.neg = sdiv i64 %12, -1000
   %.neg44 = add i64 %.neg, %.neg43
@@ -249,7 +249,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 14:                                               ; preds = %Abc_Clock.exit
   %15 = call i32 @Abc_NtkGetFaninMax(ptr noundef %0) #10
   store i32 %15, ptr %5, align 4
-  %16 = getelementptr inbounds i8, ptr %5, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %1, ptr %16, align 4
   %17 = icmp sgt i32 %15, 15
   br i1 %17, label %18, label %21
@@ -269,7 +269,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 21:                                               ; preds = %20, %14
   %calloc.i = call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %22 = call ptr @Bdc_ManAlloc(ptr noundef nonnull %5) #10
-  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr i8, ptr %24, i64 4
   %.val47 = load i32, ptr %25, align 4
@@ -277,7 +277,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %26, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 256
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
   br label %28
 
 28:                                               ; preds = %.lr.ph, %50
@@ -286,7 +286,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   %.03248 = phi i32 [ 0, %.lr.ph ], [ %.1, %50 ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val37.val = load ptr, ptr %30, align 8
-  %31 = getelementptr inbounds ptr, ptr %.val37.val, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %50, label %34
@@ -305,7 +305,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
   br i1 %39, label %50, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds i8, ptr %32, i64 56
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %42 = load ptr, ptr %41, align 8
   %43 = call i32 @Hop_DagSize(ptr noundef %42) #10
   %44 = load ptr, ptr %27, align 8
@@ -332,7 +332,7 @@ Abc_Clock.exit:                                   ; preds = %2, %9
 .critedge:                                        ; preds = %50, %21
   %.032.lcssa = phi i32 [ 0, %21 ], [ %.1, %50 ]
   call void @Bdc_ManFree(ptr noundef %22) #10
-  %55 = getelementptr inbounds i8, ptr %calloc.i, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %56, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %57
@@ -357,7 +357,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %57
 62:                                               ; preds = %58
   %63 = load i64, ptr %3, align 8
   %64 = mul nsw i64 %63, 1000000
-  %65 = getelementptr inbounds i8, ptr %3, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %66 = load i64, ptr %65, align 8
   %67 = sdiv i64 %66, 1000
   %68 = add nsw i64 %67, %64

@@ -1270,7 +1270,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_sim(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.512) #2
   tail call fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
@@ -1280,7 +1280,7 @@ define internal i32 @dissect_gsm_sim(ptr noundef %0, ptr noundef %1, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_sim_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.512) #2
   tail call fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
@@ -1290,7 +1290,7 @@ define internal i32 @dissect_gsm_sim_command(ptr noundef %0, ptr noundef %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_sim_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.512) #2
   %7 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef null)
@@ -1305,7 +1305,7 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %7
 
 7:                                                ; preds = %.lr.ph, %36
@@ -1375,7 +1375,7 @@ define internal i32 @dissect_bertlv(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_gsm_sim_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 348
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %6 = load i32, ptr %5, align 4
   switch i32 %6, label %15 [
     i32 0, label %7
@@ -1383,14 +1383,14 @@ define internal i32 @dissect_gsm_sim_part(ptr noundef %0, ptr noundef %1, ptr no
   ]
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @col_set_str(ptr noundef %9, i32 noundef 34, ptr noundef nonnull @.str.512) #2
   tail call fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef 0)
   br label %.sink.split
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.512) #2
   %13 = tail call fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef 0, ptr noundef nonnull readonly %1, ptr noundef %2, ptr noundef null)
@@ -1473,14 +1473,14 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
   %31 = zext i8 %6 to i32
   %32 = and i32 %31, 80
   %33 = icmp eq i32 %32, 64
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
   %. = select i1 %33, i32 6, i32 4
   %apdu_cla_coding_ext_vals.apdu_cla_coding_vals = select i1 %33, ptr @apdu_cla_coding_ext_vals, ptr @apdu_cla_coding_vals
   %36 = lshr i32 %31, %.
   %37 = tail call ptr @val_to_str(i32 noundef %36, ptr noundef nonnull %apdu_cla_coding_ext_vals.apdu_cla_coding_vals, ptr noundef nonnull @.str.855) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %35, i32 noundef 25, ptr noundef nonnull @.str.854, ptr noundef %37) #2
-  %38 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = zext i8 %7 to i32
   %41 = tail call ptr @val_to_str(i32 noundef %40, ptr noundef nonnull @apdu_ins_vals, ptr noundef nonnull @.str.856) #2
@@ -1530,7 +1530,7 @@ define internal fastcc void @dissect_cmd_apdu_tvb(ptr noundef %0, ptr noundef %1
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %38, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 408
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %51 = load ptr, ptr %50, align 8
   %52 = tail call ptr @tvb_bytes_to_str(ptr noundef %51, ptr noundef %0, i32 noundef 5, i32 noundef %43) #2
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.858, ptr noundef %52) #2
@@ -2120,14 +2120,14 @@ define internal fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef %1,
   %23 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.pre-phi) #2
   %24 = load i32, ptr @hf_apdu_sw, align 4
   %25 = zext i16 %23 to i32
-  %26 = getelementptr inbounds i8, ptr %2, i64 408
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %27 = load ptr, ptr %26, align 8
   %28 = tail call fastcc ptr @get_sw_string(ptr noundef %27, i16 noundef zeroext %23)
   %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %.032, i32 noundef %24, ptr noundef %0, i32 noundef %.pre-phi, i32 noundef 2, i32 noundef %25, ptr noundef nonnull @.str.870, i32 noundef %25, ptr noundef %28) #2
   br i1 %.0, label %35, label %30
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %26, align 8
   %34 = tail call fastcc ptr @get_sw_string(ptr noundef %33, i16 noundef zeroext %23)
@@ -2146,7 +2146,7 @@ define internal fastcc i32 @dissect_rsp_apdu_tvb(ptr noundef %0, i32 noundef %1,
   ]
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %2, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %26, align 8
   %41 = tail call fastcc ptr @get_sw_string(ptr noundef %40, i16 noundef zeroext %23)

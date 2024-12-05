@@ -23,7 +23,7 @@ declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @push(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.nsitem, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1) #9
@@ -38,7 +38,7 @@ define ptr @pop(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = tail call ptr %7(ptr noundef nonnull %0, ptr noundef null, i32 noundef 2) #9
@@ -70,9 +70,9 @@ define internal noalias noundef ptr @makef(ptr nocapture noundef readonly %0, pt
   unreachable
 
 gv_alloc.exit:                                    ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %10, align 8
   ret ptr %3
 }

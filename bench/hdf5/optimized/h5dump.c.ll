@@ -345,9 +345,9 @@ define dso_local i64 @table_list_add(i64 noundef %0, i64 noundef %1) local_unnam
 23:                                               ; preds = %14
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @table_list, i64 16), align 8
   %25 = getelementptr inbounds %struct.h5dump_table_items_t, ptr %24, i64 %16
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
-  %27 = getelementptr inbounds i8, ptr %25, i64 24
-  %28 = getelementptr inbounds i8, ptr %25, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = call i32 @init_objs(i64 noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28) #22
   %30 = icmp slt i32 %29, 0
   br i1 %30, label %31, label %35
@@ -441,7 +441,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %14 = phi i32 [ %12, %.preheader.lr.ph.i ], [ %317, %.loopexit185.i ]
   %.0112350.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.2.i, %.loopexit185.i ]
   %.0119349.i = phi ptr [ null, %.preheader.lr.ph.i ], [ %.1120.i, %.loopexit185.i ]
-  %15 = getelementptr inbounds i8, ptr %.0119349.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.0119349.i, i64 16
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %272, %.preheader.i
@@ -588,7 +588,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph347.i:                                      ; preds = %42, %43
   %indvars.iv529.i = phi i64 [ %indvars.iv.next530.i, %43 ], [ 0, %42 ]
-  %44 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv529.i
+  %44 = getelementptr inbounds nuw %struct.handler_t, ptr %10, i64 %indvars.iv529.i
   %45 = load ptr, ptr %44, align 8
   %.not168.i = icmp eq ptr %45, null
   br i1 %.not168.i, label %46, label %43
@@ -597,7 +597,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr @handle_paths, ptr %44, align 8
   %47 = load ptr, ptr @H5_optarg, align 8
   %48 = tail call noalias ptr @strdup(ptr noundef %47) #22
-  %49 = getelementptr inbounds i8, ptr %44, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %48, ptr %49, align 8
   br label %.loopexit185.i
 
@@ -612,7 +612,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph345.i:                                      ; preds = %50, %51
   %indvars.iv524.i = phi i64 [ %indvars.iv.next525.i, %51 ], [ 0, %50 ]
-  %52 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv524.i
+  %52 = getelementptr inbounds nuw %struct.handler_t, ptr %10, i64 %indvars.iv524.i
   %53 = load ptr, ptr %52, align 8
   %.not167.i = icmp eq ptr %53, null
   br i1 %.not167.i, label %54, label %51
@@ -621,7 +621,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr @handle_attributes, ptr %52, align 8
   %55 = load ptr, ptr @H5_optarg, align 8
   %56 = tail call noalias ptr @strdup(ptr noundef %55) #22
-  %57 = getelementptr inbounds i8, ptr %52, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 8
   store ptr %56, ptr %57, align 8
   br label %.loopexit185.i
 
@@ -636,7 +636,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph343.i:                                      ; preds = %58, %59
   %indvars.iv519.i = phi i64 [ %indvars.iv.next520.i, %59 ], [ 0, %58 ]
-  %60 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv519.i
+  %60 = getelementptr inbounds nuw %struct.handler_t, ptr %10, i64 %indvars.iv519.i
   %61 = load ptr, ptr %60, align 8
   %.not165.i = icmp eq ptr %61, null
   br i1 %.not165.i, label %62, label %59
@@ -645,7 +645,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr @handle_datasets, ptr %60, align 8
   %63 = load ptr, ptr @H5_optarg, align 8
   %64 = tail call noalias ptr @strdup(ptr noundef %63) #22
-  %65 = getelementptr inbounds i8, ptr %60, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %64, ptr %65, align 8
   %66 = load i32, ptr getelementptr inbounds (i8, ptr @dump_opts, i64 48), align 4
   %.not166.i = icmp eq i32 %66, 0
@@ -653,7 +653,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 67:                                               ; preds = %62
   %68 = tail call ptr @parse_subset_params(ptr noundef %64) #22
-  %69 = getelementptr inbounds i8, ptr %60, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %60, i64 16
   store ptr %68, ptr %69, align 8
   br label %.loopexit185.i
 
@@ -675,7 +675,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph341.i:                                      ; preds = %72, %73
   %indvars.iv514.i = phi i64 [ %indvars.iv.next515.i, %73 ], [ 0, %72 ]
-  %74 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv514.i
+  %74 = getelementptr inbounds nuw %struct.handler_t, ptr %10, i64 %indvars.iv514.i
   %75 = load ptr, ptr %74, align 8
   %.not164.i = icmp eq ptr %75, null
   br i1 %.not164.i, label %76, label %73
@@ -684,7 +684,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr @handle_groups, ptr %74, align 8
   %77 = load ptr, ptr @H5_optarg, align 8
   %78 = tail call noalias ptr @strdup(ptr noundef %77) #22
-  %79 = getelementptr inbounds i8, ptr %74, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %78, ptr %79, align 8
   br label %.loopexit185.i
 
@@ -699,7 +699,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph339.i:                                      ; preds = %80, %81
   %indvars.iv509.i = phi i64 [ %indvars.iv.next510.i, %81 ], [ 0, %80 ]
-  %82 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv509.i
+  %82 = getelementptr inbounds nuw %struct.handler_t, ptr %10, i64 %indvars.iv509.i
   %83 = load ptr, ptr %82, align 8
   %.not163.i = icmp eq ptr %83, null
   br i1 %.not163.i, label %84, label %81
@@ -708,7 +708,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr @handle_links, ptr %82, align 8
   %85 = load ptr, ptr @H5_optarg, align 8
   %86 = tail call noalias ptr @strdup(ptr noundef %85) #22
-  %87 = getelementptr inbounds i8, ptr %82, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store ptr %86, ptr %87, align 8
   br label %.loopexit185.i
 
@@ -723,7 +723,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 .lr.ph.i:                                         ; preds = %88, %89
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %89 ], [ 0, %88 ]
-  %90 = getelementptr inbounds %struct.handler_t, ptr %10, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw %struct.handler_t, ptr %10, i64 %indvars.iv.i
   %91 = load ptr, ptr %90, align 8
   %.not162.i = icmp eq ptr %91, null
   br i1 %.not162.i, label %92, label %89
@@ -732,7 +732,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store ptr @handle_datatypes, ptr %90, align 8
   %93 = load ptr, ptr @H5_optarg, align 8
   %94 = tail call noalias ptr @strdup(ptr noundef %93) #22
-  %95 = getelementptr inbounds i8, ptr %90, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %90, i64 8
   store ptr %94, ptr %95, align 8
   br label %.loopexit185.i
 
@@ -938,7 +938,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
 
 .preheader52.i.i:                                 ; preds = %181, %.preheader52.i.i
   %.1.i.i = phi ptr [ %185, %.preheader52.i.i ], [ %.069.i.i, %181 ]
-  %185 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %185 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 1
   %186 = load i8, ptr %185, align 1
   %187 = sext i8 %186 to i64
   %188 = getelementptr inbounds i16, ptr %175, i64 %187
@@ -948,7 +948,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br i1 %.not47.i.i, label %191, label %.preheader52.i.i
 
 191:                                              ; preds = %.preheader52.i.i
-  %192 = getelementptr inbounds i8, ptr %.1.i.i, i64 2
+  %192 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 2
   %.not48.i.i = icmp eq i8 %186, 44
   br i1 %.not48.i.i, label %194, label %193
 
@@ -989,7 +989,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
 
 .preheader.i.i:                                   ; preds = %205, %.preheader.i.i
   %.2.i.i = phi ptr [ %209, %.preheader.i.i ], [ %192, %205 ]
-  %209 = getelementptr inbounds i8, ptr %.2.i.i, i64 1
+  %209 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 1
   %210 = load i8, ptr %209, align 1
   %211 = sext i8 %210 to i64
   %212 = getelementptr inbounds i16, ptr %175, i64 %211
@@ -1007,16 +1007,16 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br label %238
 
 217:                                              ; preds = %215
-  %218 = getelementptr inbounds [8 x i32], ptr @packed_offset, i64 0, i64 %indvars.iv.i.i
+  %218 = getelementptr inbounds nuw [8 x i32], ptr @packed_offset, i64 0, i64 %indvars.iv.i.i
   store i32 %182, ptr %218, align 4
-  %219 = getelementptr inbounds [8 x i32], ptr @packed_length, i64 0, i64 %indvars.iv.i.i
+  %219 = getelementptr inbounds nuw [8 x i32], ptr @packed_length, i64 0, i64 %indvars.iv.i.i
   store i32 %202, ptr %219, align 4
   %220 = icmp ult i32 %202, 64
   %221 = zext nneg i32 %202 to i64
   %222 = shl nsw i64 -1, %221
   %223 = xor i64 %222, -1
   %.sink.i.i = select i1 %220, i64 %223, i64 -1
-  %224 = getelementptr inbounds [8 x i64], ptr @packed_mask, i64 0, i64 %indvars.iv.i.i
+  %224 = getelementptr inbounds nuw [8 x i64], ptr @packed_mask, i64 0, i64 %indvars.iv.i.i
   store i64 %.sink.i.i, ptr %224, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %225 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
@@ -1026,7 +1026,7 @@ set_sort_order.exit.thread.i:                     ; preds = %161, %157
   br i1 %227, label %228, label %232
 
 228:                                              ; preds = %217
-  %229 = getelementptr inbounds i8, ptr %.2.i.i, i64 2
+  %229 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 2
   %230 = load i8, ptr %229, align 1
   %.not51.i.i = icmp eq i8 %230, 0
   br i1 %.not51.i.i, label %231, label %232
@@ -1127,7 +1127,7 @@ sub_0.i:                                          ; preds = %253
   br i1 %.not351.i, label %sub_1.i, label %.tail.i
 
 sub_1.i:                                          ; preds = %sub_0.i
-  %258 = getelementptr inbounds i8, ptr %256, i64 1
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %259 = load i8, ptr %258, align 1
   %260 = icmp eq i8 %259, 0
   %261 = select i1 %260, ptr @.str.14, ptr %256
@@ -1159,9 +1159,9 @@ sub_1.i:                                          ; preds = %sub_0.i
 
 268:                                              ; preds = %266, %264
   %.0.i = phi ptr [ %267, %266 ], [ %265, %264 ]
-  %269 = getelementptr inbounds i8, ptr %.0.i, i64 48
-  %270 = getelementptr inbounds i8, ptr %.0.i, i64 32
-  %271 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %269 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
+  %270 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %271 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   br label %272
 
 272:                                              ; preds = %288, %268
@@ -1626,22 +1626,22 @@ init_prefix.exit:                                 ; preds = %414, %416
 
 438:                                              ; preds = %433
   %439 = load ptr, ptr getelementptr inbounds (i8, ptr @table_list, i64 16), align 8
-  %440 = getelementptr inbounds i8, ptr %439, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %441 = load ptr, ptr %440, align 8
   store ptr %441, ptr @group_table, align 8
-  %442 = getelementptr inbounds i8, ptr %439, i64 24
+  %442 = getelementptr inbounds nuw i8, ptr %439, i64 24
   %443 = load ptr, ptr %442, align 8
   store ptr %443, ptr @dset_table, align 8
-  %444 = getelementptr inbounds i8, ptr %439, i64 32
+  %444 = getelementptr inbounds nuw i8, ptr %439, i64 32
   %445 = load ptr, ptr %444, align 8
   store ptr %445, ptr @type_table, align 8
-  %446 = getelementptr inbounds i8, ptr %445, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %445, i64 16
   %447 = load i64, ptr %446, align 8
   %.not395 = icmp eq i64 %447, 0
   br i1 %.not395, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %438
-  %448 = getelementptr inbounds i8, ptr %445, i64 24
+  %448 = getelementptr inbounds nuw i8, ptr %445, i64 24
   %449 = load ptr, ptr %448, align 8
   br label %454
 
@@ -1654,7 +1654,7 @@ init_prefix.exit:                                 ; preds = %414, %416
 454:                                              ; preds = %.lr.ph, %450
   %455 = phi i64 [ 0, %.lr.ph ], [ %452, %450 ]
   %.070388 = phi i32 [ 0, %.lr.ph ], [ %451, %450 ]
-  %456 = getelementptr inbounds %struct.obj_t, ptr %449, i64 %455, i32 3
+  %456 = getelementptr inbounds nuw %struct.obj_t, ptr %449, i64 %455, i32 3
   %457 = load i8, ptr %456, align 1
   %458 = trunc i8 %457 to i1
   br i1 %458, label %450, label %459
@@ -1678,9 +1678,9 @@ init_prefix.exit:                                 ; preds = %414, %416
 
 463:                                              ; preds = %462
   %464 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i64 8
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
   %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds i8, ptr %464, i64 264
+  %467 = getelementptr inbounds nuw i8, ptr %464, i64 264
   %468 = load ptr, ptr %467, align 8
   %469 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %461, ptr noundef nonnull @.str.21, ptr noundef %466, ptr noundef nonnull %394, ptr noundef %468) #22
   br label %.thread
@@ -1690,9 +1690,9 @@ init_prefix.exit:                                 ; preds = %414, %416
 
 471:                                              ; preds = %470
   %472 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %473 = getelementptr inbounds i8, ptr %472, i64 8
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 8
   %474 = load ptr, ptr %473, align 8
-  %475 = getelementptr inbounds i8, ptr %472, i64 264
+  %475 = getelementptr inbounds nuw i8, ptr %472, i64 264
   %476 = load ptr, ptr %475, align 8
   %477 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %461, ptr noundef nonnull @.str.22, ptr noundef %474, ptr noundef %476) #22
   br label %.thread
@@ -1787,7 +1787,7 @@ init_prefix.exit:                                 ; preds = %414, %416
 513:                                              ; preds = %512, %510
   call void @dump_fcontents(i64 noundef %409) #22
   %514 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %515 = getelementptr inbounds i8, ptr %514, i64 272
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 272
   %516 = load ptr, ptr %515, align 8
   %char0 = load i8, ptr %516, align 1
   %.not153 = icmp eq i8 %char0, 0
@@ -1802,7 +1802,7 @@ init_prefix.exit:                                 ; preds = %414, %416
   %fputs = call i32 @fputs(ptr nonnull %516, ptr nonnull %.pre578)
   %.pre = load ptr, ptr @h5tools_dump_header_format, align 8
   %.pre575 = load ptr, ptr @rawoutstream, align 8
-  %519 = getelementptr inbounds i8, ptr %.pre, i64 16
+  %519 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %520 = load ptr, ptr %519, align 8
   %char0155 = load i8, ptr %520, align 1
   %521 = icmp ne i8 %char0155, 0
@@ -1819,7 +1819,7 @@ init_prefix.exit:                                 ; preds = %414, %416
 524:                                              ; preds = %518, %523, %513
   %525 = phi ptr [ %.pre575, %518 ], [ %.pre577, %523 ], [ %.pre578, %513 ]
   %526 = phi ptr [ %.pre, %518 ], [ %.pre576, %523 ], [ %514, %513 ]
-  %527 = getelementptr inbounds i8, ptr %526, i64 16
+  %527 = getelementptr inbounds nuw i8, ptr %526, i64 16
   %528 = load ptr, ptr %527, align 8
   %char0157 = load i8, ptr %528, align 1
   %529 = icmp ne i8 %char0157, 0
@@ -1921,15 +1921,15 @@ init_prefix.exit:                                 ; preds = %414, %416
 
 .lr.ph390:                                        ; preds = %.preheader, %570
   %indvars.iv = phi i64 [ %indvars.iv.next, %570 ], [ 0, %.preheader ]
-  %563 = getelementptr inbounds %struct.handler_t, ptr %.0111.i, i64 %indvars.iv
+  %563 = getelementptr inbounds nuw %struct.handler_t, ptr %.0111.i, i64 %indvars.iv
   %564 = load ptr, ptr %563, align 8
   %.not165 = icmp eq ptr %564, null
   br i1 %.not165, label %570, label %565
 
 565:                                              ; preds = %.lr.ph390
-  %566 = getelementptr inbounds i8, ptr %563, i64 8
+  %566 = getelementptr inbounds nuw i8, ptr %563, i64 8
   %567 = load ptr, ptr %566, align 8
-  %568 = getelementptr inbounds i8, ptr %563, i64 16
+  %568 = getelementptr inbounds nuw i8, ptr %563, i64 16
   %569 = load ptr, ptr %568, align 8
   call void %564(i64 noundef %409, ptr noundef %567, ptr noundef %569, i32 noundef 1, ptr noundef null) #22
   br label %570
@@ -1954,7 +1954,7 @@ init_prefix.exit:                                 ; preds = %414, %416
 
 574:                                              ; preds = %573
   %575 = load ptr, ptr @h5tools_dump_header_format, align 8
-  %576 = getelementptr inbounds i8, ptr %575, i64 272
+  %576 = getelementptr inbounds nuw i8, ptr %575, i64 272
   %577 = load ptr, ptr %576, align 8
   %char0171 = load i8, ptr %577, align 1
   %.not172 = icmp eq i8 %char0171, 0
@@ -1969,7 +1969,7 @@ init_prefix.exit:                                 ; preds = %414, %416
   %fputs174 = call i32 @fputs(ptr nonnull %577, ptr nonnull %.pre583)
   %.pre579 = load ptr, ptr @h5tools_dump_header_format, align 8
   %.pre580 = load ptr, ptr @rawoutstream, align 8
-  %580 = getelementptr inbounds i8, ptr %.pre579, i64 16
+  %580 = getelementptr inbounds nuw i8, ptr %.pre579, i64 16
   %581 = load ptr, ptr %580, align 8
   %char0175 = load i8, ptr %581, align 1
   %582 = icmp ne i8 %char0175, 0
@@ -1986,7 +1986,7 @@ init_prefix.exit:                                 ; preds = %414, %416
 585:                                              ; preds = %579, %584, %574
   %586 = phi ptr [ %.pre580, %579 ], [ %.pre582, %584 ], [ %.pre583, %574 ]
   %587 = phi ptr [ %.pre579, %579 ], [ %.pre581, %584 ], [ %575, %574 ]
-  %588 = getelementptr inbounds i8, ptr %587, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %587, i64 16
   %589 = load ptr, ptr %588, align 8
   %char0177 = load i8, ptr %589, align 1
   %590 = icmp ne i8 %char0177, 0
@@ -3257,8 +3257,8 @@ define internal fastcc void @free_handler(ptr noundef %0, i32 noundef %1) unname
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
-  %4 = getelementptr inbounds %struct.handler_t, ptr %0, i64 %indvars.iv
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %4 = getelementptr inbounds nuw %struct.handler_t, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not39 = icmp eq ptr %6, null
   br i1 %.not39, label %8, label %7
@@ -3269,7 +3269,7 @@ define internal fastcc void @free_handler(ptr noundef %0, i32 noundef %1) unname
   br label %8
 
 8:                                                ; preds = %7, %.lr.ph
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not40 = icmp eq ptr %10, null
   br i1 %.not40, label %31, label %11
@@ -3286,7 +3286,7 @@ define internal fastcc void @free_handler(ptr noundef %0, i32 noundef %1) unname
 
 14:                                               ; preds = %13, %11
   %15 = phi ptr [ %.pre, %13 ], [ %10, %11 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not42 = icmp eq ptr %17, null
   br i1 %.not42, label %19, label %18
@@ -3298,7 +3298,7 @@ define internal fastcc void @free_handler(ptr noundef %0, i32 noundef %1) unname
 
 19:                                               ; preds = %18, %14
   %20 = phi ptr [ %.pre47, %18 ], [ %15, %14 ]
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not43 = icmp eq ptr %22, null
   br i1 %.not43, label %24, label %23
@@ -3310,7 +3310,7 @@ define internal fastcc void @free_handler(ptr noundef %0, i32 noundef %1) unname
 
 24:                                               ; preds = %23, %19
   %25 = phi ptr [ %.pre48, %23 ], [ %20, %19 ]
-  %26 = getelementptr inbounds i8, ptr %25, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load ptr, ptr %26, align 8
   %.not44 = icmp eq ptr %27, null
   br i1 %.not44, label %29, label %28
@@ -3444,20 +3444,20 @@ sub_0:                                            ; preds = %7
   ]
 
 sub_1:                                            ; preds = %sub_0
-  %11 = getelementptr inbounds i8, ptr %0, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %12 = load i8, ptr %11, align 1
   %.not10 = icmp eq i8 %12, 69
   br i1 %.not10, label %.tail5.sink.split, label %.tail5
 
 sub_17:                                           ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %14 = load i8, ptr %13, align 1
   %.not12 = icmp eq i8 %14, 69
   br i1 %.not12, label %.tail5.sink.split, label %.tail5
 
 .tail5.sink.split:                                ; preds = %sub_17, %sub_1
   %.sink16 = phi i32 [ 2, %sub_1 ], [ 3, %sub_17 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   %spec.select = select i1 %17, i32 %.sink16, i32 -1

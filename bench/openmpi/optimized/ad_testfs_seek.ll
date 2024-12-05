@@ -15,7 +15,7 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   store i32 0, ptr %3, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load ptr, ptr %11, align 8
   %13 = call i32 @PMPI_Comm_size(ptr noundef %12, ptr noundef nonnull %6) #3
   %14 = load ptr, ptr %11, align 8
@@ -23,20 +23,20 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
   %16 = load ptr, ptr @stdout, align 8
   %17 = load i32, ptr %5, align 4
   %18 = load i32, ptr %6, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str, i32 noundef %17, i32 noundef %18, ptr noundef %20) #3
-  %22 = getelementptr inbounds i8, ptr %0, i64 120
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %23 = load ptr, ptr %22, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %23, ptr noundef nonnull %7) #3
-  %24 = getelementptr inbounds i8, ptr %0, i64 128
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %25 = load i64, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %32, label %27
 
 27:                                               ; preds = %4
-  %28 = getelementptr inbounds i8, ptr %0, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %29 = load i64, ptr %28, align 8
   %30 = mul nsw i64 %25, %1
   %31 = add nsw i64 %29, %30
@@ -63,14 +63,14 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
   %43 = ashr exact i64 %sext, 32
   %44 = sdiv i64 %1, %43
   %45 = srem i64 %1, %43
-  %46 = getelementptr inbounds i8, ptr %34, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %47 = load i64, ptr %46, align 8
   %48 = icmp sgt i64 %47, 0
   br i1 %48, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %41
   %factor.op.mul = mul i64 %25, %45
-  %49 = getelementptr inbounds i8, ptr %34, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %50 = load ptr, ptr %49, align 8
   %.reass = shl i64 %factor.op.mul, 32
   %51 = ashr exact i64 %.reass, 32
@@ -84,16 +84,16 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
 53:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %.04156 = phi i64 [ 0, %.lr.ph ], [ %56, %52 ]
-  %54 = getelementptr inbounds i64, ptr %50, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8
   %56 = add nsw i64 %55, %.04156
   %57 = icmp sgt i64 %56, %51
   br i1 %57, label %58, label %52
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %34, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv
   %62 = load i64, ptr %61, align 8
   %63 = sub i64 %51, %.04156
   %64 = add i64 %63, %62
@@ -101,7 +101,7 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
 
 .loopexit:                                        ; preds = %52, %41, %58
   %.042 = phi i64 [ %64, %58 ], [ 0, %41 ], [ 0, %52 ]
-  %65 = getelementptr inbounds i8, ptr %0, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %66 = load i64, ptr %65, align 8
   %sext51 = shl i64 %44, 32
   %67 = ashr exact i64 %sext51, 32
@@ -113,7 +113,7 @@ define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1
 
 72:                                               ; preds = %.loopexit, %27
   %.040 = phi i64 [ %31, %27 ], [ %71, %.loopexit ]
-  %73 = getelementptr inbounds i8, ptr %0, i64 40
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.040, ptr %73, align 8
   br label %74
 

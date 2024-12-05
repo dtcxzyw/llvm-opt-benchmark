@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @pg_md5_init(ptr nocapture noundef writeonly initializes((0, 92)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
   store i32 1732584193, ptr %0, align 8
   %4 = getelementptr i8, ptr %0, i64 4
@@ -18,7 +18,7 @@ define dso_local void @pg_md5_init(ptr nocapture noundef writeonly initializes((
   store i32 -1732584194, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 12
   store i32 271733878, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 64, i1 false)
   ret void
 }
@@ -29,16 +29,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @pg_md5_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = shl i64 %2, 3
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %4
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8
   %10 = sub i32 64, %9
   %11 = zext i32 %10 to i64
   %.not = icmp ult i64 %2, %11
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %13 = zext i32 %9 to i64
   %14 = getelementptr i8, ptr %12, i64 %13
   br i1 %.not, label %27, label %15
@@ -670,11 +670,11 @@ define internal fastcc void @md5_calc(ptr nocapture noundef readonly %0, ptr noc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @pg_md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 64, %4
   %6 = icmp ugt i32 %5, 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = zext i32 %4 to i64
   %9 = getelementptr i8, ptr %7, i64 %8
   %10 = zext i32 %5 to i64
@@ -694,7 +694,7 @@ define dso_local void @pg_md5_final(ptr nocapture noundef %0, ptr nocapture noun
 
 md5_pad.exit:                                     ; preds = %11, %13
   %15 = getelementptr i8, ptr %0, i64 84
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8
   store i64 %17, ptr %15, align 4
   tail call fastcc void @md5_calc(ptr noundef nonnull %7, ptr noundef nonnull %0)

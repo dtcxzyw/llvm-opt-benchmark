@@ -10,7 +10,7 @@ define void @vec_set_scalar(ptr nocapture noundef writeonly %0, double noundef %
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %6, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds double, ptr %0, i64 %.05
+  %5 = getelementptr inbounds nuw double, ptr %0, i64 %.05
   store double %1, ptr %5, align 8
   %6 = add nuw nsw i64 %.05, 1
   %exitcond.not = icmp eq i64 %6, %2
@@ -27,7 +27,7 @@ define void @vec_mult_scalar(ptr nocapture noundef %0, double noundef %1, i64 no
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.05 = phi i64 [ %8, %.lr.ph ], [ 0, %3 ]
-  %5 = getelementptr inbounds double, ptr %0, i64 %.05
+  %5 = getelementptr inbounds nuw double, ptr %0, i64 %.05
   %6 = load double, ptr %5, align 8
   %7 = fmul double %1, %6
   store double %7, ptr %5, align 8
@@ -46,7 +46,7 @@ define void @vec_negate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.06 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
-  %4 = getelementptr inbounds double, ptr %0, i64 %.06
+  %4 = getelementptr inbounds nuw double, ptr %0, i64 %.06
   %5 = load double, ptr %4, align 8
   %6 = fneg double %5
   store double %6, ptr %4, align 8
@@ -68,22 +68,22 @@ define void @csc_update_values(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %5, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader16
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %8
 
 .preheader:                                       ; preds = %4
   br i1 %5, label %.lr.ph20, label %.loopexit
 
 .lr.ph20:                                         ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %16
 
 8:                                                ; preds = %.lr.ph, %8
   %.018 = phi i64 [ 0, %.lr.ph ], [ %15, %8 ]
-  %9 = getelementptr inbounds double, ptr %1, i64 %.018
+  %9 = getelementptr inbounds nuw double, ptr %1, i64 %.018
   %10 = load double, ptr %9, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i64, ptr %2, i64 %.018
+  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %.018
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds double, ptr %11, i64 %13
   store double %10, ptr %14, align 8
@@ -93,10 +93,10 @@ define void @csc_update_values(ptr nocapture noundef readonly %0, ptr nocapture 
 
 16:                                               ; preds = %.lr.ph20, %16
   %.119 = phi i64 [ 0, %.lr.ph20 ], [ %21, %16 ]
-  %17 = getelementptr inbounds double, ptr %1, i64 %.119
+  %17 = getelementptr inbounds nuw double, ptr %1, i64 %.119
   %18 = load double, ptr %17, align 8
   %19 = load ptr, ptr %7, align 8
-  %20 = getelementptr inbounds double, ptr %19, i64 %.119
+  %20 = getelementptr inbounds nuw double, ptr %19, i64 %.119
   store double %18, ptr %20, align 8
   %21 = add nuw nsw i64 %.119, 1
   %exitcond22.not = icmp eq i64 %21, %3
@@ -108,9 +108,9 @@ define void @csc_update_values(ptr nocapture noundef readonly %0, ptr nocapture 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @csc_scale(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i64, ptr %4, i64 %6
   %8 = load i64, ptr %7, align 8
@@ -118,13 +118,13 @@ define void @csc_scale(ptr nocapture noundef readonly %0, double noundef %1) loc
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %11
 
 11:                                               ; preds = %.lr.ph, %11
   %.07 = phi i64 [ 0, %.lr.ph ], [ %16, %11 ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds double, ptr %12, i64 %.07
+  %13 = getelementptr inbounds nuw double, ptr %12, i64 %.07
   %14 = load double, ptr %13, align 8
   %15 = fmul double %1, %14
   store double %15, ptr %13, align 8
@@ -138,13 +138,13 @@ define void @csc_scale(ptr nocapture noundef readonly %0, double noundef %1) loc
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @csc_lmult_diag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = icmp sgt i64 %4, 0
   br i1 %11, label %.lr.ph20.preheader, label %._crit_edge
@@ -162,7 +162,7 @@ define void @csc_lmult_diag(ptr nocapture noundef readonly %0, ptr nocapture nou
   %13 = phi i64 [ %12, %.loopexit ], [ %.pre, %.lr.ph20.preheader ]
   %.019 = phi i64 [ %14, %.loopexit ], [ 0, %.lr.ph20.preheader ]
   %14 = add nuw nsw i64 %.019, 1
-  %15 = getelementptr inbounds i64, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = icmp slt i64 %13, %16
   br i1 %17, label %.lr.ph, label %.loopexit
@@ -188,11 +188,11 @@ define void @csc_lmult_diag(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @csc_rmult_diag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i64 %4, 0
   br i1 %9, label %.lr.ph18.preheader, label %._crit_edge
@@ -210,13 +210,13 @@ define void @csc_rmult_diag(ptr nocapture noundef readonly %0, ptr nocapture nou
   %11 = phi i64 [ %10, %.loopexit ], [ %.pre, %.lr.ph18.preheader ]
   %.017 = phi i64 [ %12, %.loopexit ], [ 0, %.lr.ph18.preheader ]
   %12 = add nuw nsw i64 %.017, 1
-  %13 = getelementptr inbounds i64, ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %6, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp slt i64 %11, %14
   br i1 %15, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph18
-  %16 = getelementptr inbounds double, ptr %1, i64 %.017
+  %16 = getelementptr inbounds nuw double, ptr %1, i64 %.017
   br label %17
 
 17:                                               ; preds = %.lr.ph, %17
@@ -237,13 +237,13 @@ define void @csc_rmult_diag(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_AtDA_extract_diag(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp sgt i64 %5, 0
   br i1 %12, label %.lr.ph26, label %._crit_edge
@@ -254,12 +254,12 @@ define void @csc_AtDA_extract_diag(ptr nocapture noundef readonly %0, ptr nocapt
 
 .lr.ph26:                                         ; preds = %3, %.loopexit
   %.025 = phi i64 [ %16, %.loopexit ], [ 0, %3 ]
-  %13 = getelementptr inbounds double, ptr %2, i64 %.025
+  %13 = getelementptr inbounds nuw double, ptr %2, i64 %.025
   store double 0.000000e+00, ptr %13, align 8
-  %14 = getelementptr inbounds i64, ptr %7, i64 %.025
+  %14 = getelementptr inbounds nuw i64, ptr %7, i64 %.025
   %15 = load i64, ptr %14, align 8
   %16 = add nuw nsw i64 %.025, 1
-  %17 = getelementptr inbounds i64, ptr %7, i64 %16
+  %17 = getelementptr inbounds nuw i64, ptr %7, i64 %16
   %18 = load i64, ptr %17, align 8
   %19 = icmp slt i64 %15, %18
   br i1 %19, label %.lr.ph, label %.loopexit
@@ -290,14 +290,14 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_Axpy_sym_triu(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = fcmp oeq double %4, 0.000000e+00
   br i1 %15, label %16, label %19
@@ -325,7 +325,7 @@ define void @csc_Axpy_sym_triu(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph.i110:                                      ; preds = %24, %.lr.ph.i110
   %.06.i = phi i64 [ %28, %.lr.ph.i110 ], [ 0, %24 ]
-  %25 = getelementptr inbounds double, ptr %2, i64 %.06.i
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %.06.i
   %26 = load double, ptr %25, align 8
   %27 = fneg double %26
   store double %27, ptr %25, align 8
@@ -338,7 +338,7 @@ define void @csc_Axpy_sym_triu(ptr nocapture noundef readonly %0, ptr nocapture 
 
 .lr.ph.i112:                                      ; preds = %29, %.lr.ph.i112
   %.05.i113 = phi i64 [ %33, %.lr.ph.i112 ], [ 0, %29 ]
-  %30 = getelementptr inbounds double, ptr %2, i64 %.05.i113
+  %30 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i113
   %31 = load double, ptr %30, align 8
   %32 = fmul double %4, %31
   store double %32, ptr %30, align 8
@@ -375,14 +375,14 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %42 = phi i64 [ %41, %.loopexit ], [ %.pre144, %.lr.ph136.preheader ]
   %.0100135 = phi i64 [ %43, %.loopexit ], [ 0, %.lr.ph136.preheader ]
   %43 = add nuw nsw i64 %.0100135, 1
-  %44 = getelementptr inbounds i64, ptr %7, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %7, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = icmp slt i64 %42, %45
   br i1 %46, label %.lr.ph134, label %.loopexit
 
 .lr.ph134:                                        ; preds = %.lr.ph136
-  %47 = getelementptr inbounds double, ptr %1, i64 %.0100135
-  %48 = getelementptr inbounds double, ptr %2, i64 %.0100135
+  %47 = getelementptr inbounds nuw double, ptr %1, i64 %.0100135
+  %48 = getelementptr inbounds nuw double, ptr %2, i64 %.0100135
   br label %49
 
 49:                                               ; preds = %.lr.ph134, %67
@@ -445,14 +445,14 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %75 = phi i64 [ %74, %.loopexit116 ], [ %.pre143, %.lr.ph132.preheader ]
   %.1101131 = phi i64 [ %76, %.loopexit116 ], [ 0, %.lr.ph132.preheader ]
   %76 = add nuw nsw i64 %.1101131, 1
-  %77 = getelementptr inbounds i64, ptr %7, i64 %76
+  %77 = getelementptr inbounds nuw i64, ptr %7, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = icmp slt i64 %75, %78
   br i1 %79, label %.lr.ph130, label %.loopexit116
 
 .lr.ph130:                                        ; preds = %.lr.ph132
-  %80 = getelementptr inbounds double, ptr %1, i64 %.1101131
-  %81 = getelementptr inbounds double, ptr %2, i64 %.1101131
+  %80 = getelementptr inbounds nuw double, ptr %1, i64 %.1101131
+  %81 = getelementptr inbounds nuw double, ptr %2, i64 %.1101131
   br label %82
 
 82:                                               ; preds = %.lr.ph130, %98
@@ -494,14 +494,14 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
   %103 = phi i64 [ %102, %.loopexit119 ], [ %.pre, %.lr.ph128.preheader ]
   %.2102127 = phi i64 [ %104, %.loopexit119 ], [ 0, %.lr.ph128.preheader ]
   %104 = add nuw nsw i64 %.2102127, 1
-  %105 = getelementptr inbounds i64, ptr %7, i64 %104
+  %105 = getelementptr inbounds nuw i64, ptr %7, i64 %104
   %106 = load i64, ptr %105, align 8
   %107 = icmp slt i64 %103, %106
   br i1 %107, label %.lr.ph, label %.loopexit119
 
 .lr.ph:                                           ; preds = %.lr.ph128
-  %108 = getelementptr inbounds double, ptr %1, i64 %.2102127
-  %109 = getelementptr inbounds double, ptr %2, i64 %.2102127
+  %108 = getelementptr inbounds nuw double, ptr %1, i64 %.2102127
+  %109 = getelementptr inbounds nuw double, ptr %2, i64 %.2102127
   br label %110
 
 110:                                              ; preds = %.lr.ph, %128
@@ -542,14 +542,14 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i112, %.lr.p
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_Axpy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = fcmp oeq double %4, 0.000000e+00
   br i1 %15, label %16, label %19
@@ -577,7 +577,7 @@ define void @csc_Axpy(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .lr.ph.i74:                                       ; preds = %24, %.lr.ph.i74
   %.06.i = phi i64 [ %28, %.lr.ph.i74 ], [ 0, %24 ]
-  %25 = getelementptr inbounds double, ptr %2, i64 %.06.i
+  %25 = getelementptr inbounds nuw double, ptr %2, i64 %.06.i
   %26 = load double, ptr %25, align 8
   %27 = fneg double %26
   store double %27, ptr %25, align 8
@@ -590,7 +590,7 @@ define void @csc_Axpy(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 
 .lr.ph.i76:                                       ; preds = %29, %.lr.ph.i76
   %.05.i77 = phi i64 [ %33, %.lr.ph.i76 ], [ 0, %29 ]
-  %30 = getelementptr inbounds double, ptr %2, i64 %.05.i77
+  %30 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i77
   %31 = load double, ptr %30, align 8
   %32 = fmul double %4, %31
   store double %32, ptr %30, align 8
@@ -627,13 +627,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %42 = phi i64 [ %41, %.loopexit ], [ %.pre108, %.lr.ph100.preheader ]
   %.06999 = phi i64 [ %43, %.loopexit ], [ 0, %.lr.ph100.preheader ]
   %43 = add nuw nsw i64 %.06999, 1
-  %44 = getelementptr inbounds i64, ptr %7, i64 %43
+  %44 = getelementptr inbounds nuw i64, ptr %7, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = icmp slt i64 %42, %45
   br i1 %46, label %.lr.ph98, label %.loopexit
 
 .lr.ph98:                                         ; preds = %.lr.ph100
-  %47 = getelementptr inbounds double, ptr %1, i64 %.06999
+  %47 = getelementptr inbounds nuw double, ptr %1, i64 %.06999
   br label %48
 
 48:                                               ; preds = %.lr.ph98, %48
@@ -681,13 +681,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %65 = phi i64 [ %64, %.loopexit80 ], [ %.pre107, %.lr.ph96.preheader ]
   %.17095 = phi i64 [ %66, %.loopexit80 ], [ 0, %.lr.ph96.preheader ]
   %66 = add nuw nsw i64 %.17095, 1
-  %67 = getelementptr inbounds i64, ptr %7, i64 %66
+  %67 = getelementptr inbounds nuw i64, ptr %7, i64 %66
   %68 = load i64, ptr %67, align 8
   %69 = icmp slt i64 %65, %68
   br i1 %69, label %.lr.ph94, label %.loopexit80
 
 .lr.ph94:                                         ; preds = %.lr.ph96
-  %70 = getelementptr inbounds double, ptr %1, i64 %.17095
+  %70 = getelementptr inbounds nuw double, ptr %1, i64 %.17095
   br label %71
 
 71:                                               ; preds = %.lr.ph94, %71
@@ -715,13 +715,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
   %84 = phi i64 [ %83, %.loopexit83 ], [ %.pre, %.lr.ph92.preheader ]
   %.27191 = phi i64 [ %85, %.loopexit83 ], [ 0, %.lr.ph92.preheader ]
   %85 = add nuw nsw i64 %.27191, 1
-  %86 = getelementptr inbounds i64, ptr %7, i64 %85
+  %86 = getelementptr inbounds nuw i64, ptr %7, i64 %85
   %87 = load i64, ptr %86, align 8
   %88 = icmp slt i64 %84, %87
   br i1 %88, label %.lr.ph, label %.loopexit83
 
 .lr.ph:                                           ; preds = %.lr.ph92
-  %89 = getelementptr inbounds double, ptr %1, i64 %.27191
+  %89 = getelementptr inbounds nuw double, ptr %1, i64 %.27191
   br label %90
 
 90:                                               ; preds = %.lr.ph, %90
@@ -747,13 +747,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i76, %.lr.ph
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_Atxpy(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
   %14 = fcmp oeq double %4, 0.000000e+00
   br i1 %14, label %15, label %18
@@ -781,7 +781,7 @@ define void @csc_Atxpy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 .lr.ph.i73:                                       ; preds = %23, %.lr.ph.i73
   %.06.i = phi i64 [ %27, %.lr.ph.i73 ], [ 0, %23 ]
-  %24 = getelementptr inbounds double, ptr %2, i64 %.06.i
+  %24 = getelementptr inbounds nuw double, ptr %2, i64 %.06.i
   %25 = load double, ptr %24, align 8
   %26 = fneg double %25
   store double %26, ptr %24, align 8
@@ -794,7 +794,7 @@ define void @csc_Atxpy(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 
 .lr.ph.i75:                                       ; preds = %28, %.lr.ph.i75
   %.05.i76 = phi i64 [ %32, %.lr.ph.i75 ], [ 0, %28 ]
-  %29 = getelementptr inbounds double, ptr %2, i64 %.05.i76
+  %29 = getelementptr inbounds nuw double, ptr %2, i64 %.05.i76
   %30 = load double, ptr %29, align 8
   %31 = fmul double %4, %30
   store double %31, ptr %29, align 8
@@ -838,13 +838,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %45 = phi i64 [ %42, %.loopexit ], [ %.pre109, %.lr.ph99.preheader ]
   %.098 = phi i64 [ %46, %.loopexit ], [ 0, %.lr.ph99.preheader ]
   %46 = add nuw nsw i64 %.098, 1
-  %47 = getelementptr inbounds i64, ptr %9, i64 %46
+  %47 = getelementptr inbounds nuw i64, ptr %9, i64 %46
   %48 = load i64, ptr %47, align 8
   %49 = icmp slt i64 %45, %48
   br i1 %49, label %.lr.ph97, label %.loopexit
 
 .lr.ph97:                                         ; preds = %.lr.ph99
-  %50 = getelementptr inbounds double, ptr %2, i64 %.098
+  %50 = getelementptr inbounds nuw double, ptr %2, i64 %.098
   %.pre110 = load double, ptr %50, align 8
   br label %51
 
@@ -900,13 +900,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %72 = phi i64 [ %69, %.loopexit79 ], [ %.pre106, %.lr.ph95.preheader ]
   %.194 = phi i64 [ %73, %.loopexit79 ], [ 0, %.lr.ph95.preheader ]
   %73 = add nuw nsw i64 %.194, 1
-  %74 = getelementptr inbounds i64, ptr %9, i64 %73
+  %74 = getelementptr inbounds nuw i64, ptr %9, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = icmp slt i64 %72, %75
   br i1 %76, label %.lr.ph93, label %.loopexit79
 
 .lr.ph93:                                         ; preds = %.lr.ph95
-  %77 = getelementptr inbounds double, ptr %2, i64 %.194
+  %77 = getelementptr inbounds nuw double, ptr %2, i64 %.194
   %.pre107 = load double, ptr %77, align 8
   br label %78
 
@@ -941,13 +941,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
   %94 = phi i64 [ %91, %.loopexit82 ], [ %.pre, %.lr.ph91.preheader ]
   %.290 = phi i64 [ %95, %.loopexit82 ], [ 0, %.lr.ph91.preheader ]
   %95 = add nuw nsw i64 %.290, 1
-  %96 = getelementptr inbounds i64, ptr %9, i64 %95
+  %96 = getelementptr inbounds nuw i64, ptr %9, i64 %95
   %97 = load i64, ptr %96, align 8
   %98 = icmp slt i64 %94, %97
   br i1 %98, label %.lr.ph, label %.loopexit82
 
 .lr.ph:                                           ; preds = %.lr.ph91
-  %99 = getelementptr inbounds double, ptr %2, i64 %.290
+  %99 = getelementptr inbounds nuw double, ptr %2, i64 %.290
   %.pre104 = load double, ptr %99, align 8
   br label %100
 
@@ -974,11 +974,11 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i75, %.lr.ph
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_col_norm_inf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i64 %6, 0
   br i1 %9, label %.lr.ph39.preheader, label %._crit_edge
@@ -998,13 +998,13 @@ define void @csc_col_norm_inf(ptr nocapture noundef readonly %0, ptr nocapture n
   %12 = phi i64 [ %11, %.loopexit ], [ %.pre, %.lr.ph39.preheader ]
   %.038 = phi i64 [ %13, %.loopexit ], [ 0, %.lr.ph39.preheader ]
   %13 = add nuw nsw i64 %.038, 1
-  %14 = getelementptr inbounds i64, ptr %4, i64 %13
+  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = icmp slt i64 %12, %15
   br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph39
-  %17 = getelementptr inbounds double, ptr %1, i64 %.038
+  %17 = getelementptr inbounds nuw double, ptr %1, i64 %.038
   %.pre40 = load double, ptr %17, align 8
   br label %18
 
@@ -1030,14 +1030,14 @@ define void @csc_col_norm_inf(ptr nocapture noundef readonly %0, ptr nocapture n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_row_norm_inf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp sgt i64 %9, 0
   br i1 %12, label %.lr.ph.i.preheader, label %vec_set_scalar.exit
@@ -1064,7 +1064,7 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %16 = phi i64 [ %15, %.loopexit ], [ %.pre, %.lr.ph43.preheader ]
   %.042 = phi i64 [ %17, %.loopexit ], [ 0, %.lr.ph43.preheader ]
   %17 = add nuw nsw i64 %.042, 1
-  %18 = getelementptr inbounds i64, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = icmp slt i64 %16, %19
   br i1 %20, label %.lr.ph, label %.loopexit
@@ -1094,14 +1094,14 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @csc_row_norm_inf_sym_triu(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = load i64, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8
   %12 = icmp sgt i64 %9, 0
   br i1 %12, label %.lr.ph.i.preheader, label %vec_set_scalar.exit
@@ -1128,13 +1128,13 @@ vec_set_scalar.exit:                              ; preds = %.lr.ph.i.preheader,
   %16 = phi i64 [ %15, %.loopexit ], [ %.pre, %.lr.ph50.preheader ]
   %.049 = phi i64 [ %17, %.loopexit ], [ 0, %.lr.ph50.preheader ]
   %17 = add nuw nsw i64 %.049, 1
-  %18 = getelementptr inbounds i64, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = icmp slt i64 %16, %19
   br i1 %20, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph50
-  %21 = getelementptr inbounds double, ptr %1, i64 %.049
+  %21 = getelementptr inbounds nuw double, ptr %1, i64 %.049
   br label %22
 
 22:                                               ; preds = %.lr.ph, %37

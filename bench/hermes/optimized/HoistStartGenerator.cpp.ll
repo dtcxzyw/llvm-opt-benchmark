@@ -20,7 +20,7 @@ $_ZN6hermes19HoistStartGeneratorD0Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6hermes19HoistStartGenerator13runOnFunctionEPNS_8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %F, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 16
   %0 = load i8, ptr %add.ptr.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i8 %0, -126
   %tobool.not17 = icmp eq ptr %F, null
@@ -28,23 +28,23 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %Next.i.i.i.i.i = getelementptr inbounds i8, ptr %F, i64 88
+  %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
   %1 = load ptr, ptr %Next.i.i.i.i.i, align 8
-  %BasicBlockList.i = getelementptr inbounds i8, ptr %F, i64 80
+  %BasicBlockList.i = getelementptr inbounds nuw i8, ptr %F, i64 80
   %cmp.i.not23 = icmp eq ptr %1, %BasicBlockList.i
   br i1 %cmp.i.not23, label %return, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc24
   %__begin1.sroa.0.024 = phi ptr [ %4, %for.inc24 ], [ %1, %if.end ]
-  %Next.i.i.i.i.i6 = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 64
-  %InstList.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 56
+  %Next.i.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.024, i64 64
+  %InstList.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.024, i64 56
   %__begin2.sroa.0.020 = load ptr, ptr %Next.i.i.i.i.i6, align 8
   %cmp.i7.not21 = icmp eq ptr %__begin2.sroa.0.020, %InstList.i
   br i1 %cmp.i7.not21, label %for.inc24, label %for.body13
 
 for.body13:                                       ; preds = %for.body, %for.inc
   %__begin2.sroa.0.022 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.020, %for.body ]
-  %add.ptr.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 16
+  %add.ptr.i.i.i.i.i.i8 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.022, i64 16
   %2 = load i8, ptr %add.ptr.i.i.i.i.i.i8, align 8
   %cmp.i.i.i.i.i.i.i.i9 = icmp ne i8 %2, 99
   %tobool16.not18 = icmp eq ptr %__begin2.sroa.0.022, null
@@ -52,19 +52,19 @@ for.body13:                                       ; preds = %for.body, %for.inc
   br i1 %tobool16.not, label %for.inc, label %if.then17
 
 if.then17:                                        ; preds = %for.body13
-  %Next.i.i.i.i.i11 = getelementptr inbounds i8, ptr %1, i64 64
+  %Next.i.i.i.i.i11 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %3 = load ptr, ptr %Next.i.i.i.i.i11, align 8
   tail call void @_ZN6hermes11Instruction10moveBeforeEPS0_(ptr noundef nonnull align 8 dereferenceable(132) %__begin2.sroa.0.022, ptr noundef nonnull %3) #4
   br label %return
 
 for.inc:                                          ; preds = %for.body13
-  %Next.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.022, i64 8
+  %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.022, i64 8
   %__begin2.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i7.not = icmp eq ptr %__begin2.sroa.0.0, %InstList.i
   br i1 %cmp.i7.not, label %for.inc24, label %for.body13
 
 for.inc24:                                        ; preds = %for.inc, %for.body
-  %Next.i.i.i12 = getelementptr inbounds i8, ptr %__begin1.sroa.0.024, i64 8
+  %Next.i.i.i12 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.024, i64 8
   %4 = load ptr, ptr %Next.i.i.i12, align 8
   %cmp.i.not = icmp eq ptr %4, %BasicBlockList.i
   br i1 %cmp.i.not, label %return, label %for.body
@@ -80,11 +80,11 @@ declare void @_ZN6hermes11Instruction10moveBeforeEPS0_(ptr noundef nonnull align
 define hidden void @_ZN6hermes25createHoistStartGeneratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes19HoistStartGeneratorESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5, !noalias !4
-  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store i32 0, ptr %kind.i.i.i.i, align 8, !noalias !4
-  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
+  %name2.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !4
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store i64 19, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes19HoistStartGeneratorE, i64 16), ptr %call.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8

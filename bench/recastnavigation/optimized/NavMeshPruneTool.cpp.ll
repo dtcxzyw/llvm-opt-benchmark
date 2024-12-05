@@ -33,8 +33,8 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 24), (36, 37)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -43,25 +43,25 @@ define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull w
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16NavMeshPruneToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %21, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %10
 
 10:                                               ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %11, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8
   invoke void @_Z6dtFreePv(ptr noundef %13)
           to label %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i unwind label %.loopexit.i
@@ -74,7 +74,7 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %10
   br i1 %16, label %10, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i, %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8
   invoke void @_Z6dtFreePv(ptr noundef %18)
           to label %_ZN12NavmeshFlagsD2Ev.exit unwind label %.loopexit.split-lp.i
@@ -92,15 +92,15 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %10
 19:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %20 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  tail call void @__clang_call_terminate(ptr %20) #15
+  tail call void @__clang_call_terminate(ptr %20) #16
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   br label %21
 
 21:                                               ; preds = %_ZN12NavmeshFlagsD2Ev.exit, %1
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
   ret void
 }
 
@@ -113,25 +113,25 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16NavMeshPruneToolD0Ev(ptr noundef nonnull align 8 dereferenceable(37) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16NavMeshPruneTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN16NavMeshPruneToolD2Ev.exit, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %10
 
 10:                                               ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %11, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %11, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8
   invoke void @_Z6dtFreePv(ptr noundef %13)
           to label %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i unwind label %.loopexit.i.i
@@ -144,7 +144,7 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i:     ; preds = %10
   br i1 %16, label %10, label %._crit_edge.i.i, !llvm.loop !5
 
 ._crit_edge.i.i:                                  ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i, %5
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load ptr, ptr %17, align 8
   invoke void @_Z6dtFreePv(ptr noundef %18)
           to label %_ZN12NavmeshFlagsD2Ev.exit.i unwind label %.loopexit.split-lp.i.i
@@ -162,49 +162,49 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i.i:     ; preds = %10
 19:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   %20 = extractvalue { ptr, i32 } %lpad.phi.i.i, 0
-  tail call void @__clang_call_terminate(ptr %20) #15
+  tail call void @__clang_call_terminate(ptr %20) #16
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit.i:                     ; preds = %._crit_edge.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
   br label %_ZN16NavMeshPruneToolD2Ev.exit
 
 _ZN16NavMeshPruneToolD2Ev.exit:                   ; preds = %1, %_ZN12NavmeshFlagsD2Ev.exit.i
-  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #16
+  tail call void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16NavMeshPruneTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16NavMeshPruneTool5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((36, 37)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 36
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %22, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %4, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %4, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %11
 
 11:                                               ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   invoke void @_Z6dtFreePv(ptr noundef %14)
           to label %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i unwind label %.loopexit.i
@@ -217,7 +217,7 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %11
   br i1 %17, label %11, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i, %6
-  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8
   invoke void @_Z6dtFreePv(ptr noundef %19)
           to label %_ZN12NavmeshFlagsD2Ev.exit unwind label %.loopexit.split-lp.i
@@ -235,11 +235,11 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %11
 20:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %21 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  tail call void @__clang_call_terminate(ptr %21) #15
+  tail call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #16
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #17
   br label %22
 
 22:                                               ; preds = %_ZN12NavmeshFlagsD2Ev.exit, %1
@@ -250,17 +250,17 @@ _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16NavMeshPruneTool10handleMenuEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i16, align 2
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 120
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(200) %4)
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %110, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not4 = icmp eq ptr %11, null
   br i1 %.not4, label %110, label %12
@@ -271,21 +271,21 @@ define dso_local void @_ZN16NavMeshPruneTool10handleMenuEv(ptr nocapture noundef
 
 14:                                               ; preds = %12
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %.lr.ph.i, label %_ZN12NavmeshFlags13clearAllFlagsEv.exit
 
 .lr.ph.i:                                         ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
   br label %20
 
 20:                                               ; preds = %29, %.lr.ph.i
   %21 = phi i32 [ %17, %.lr.ph.i ], [ %30, %29 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %22, i64 %indvars.iv.i
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %23 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %22, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %29, label %26
@@ -316,14 +316,14 @@ _ZN12NavmeshFlags13clearAllFlagsEv.exit:          ; preds = %29, %14, %12
   br i1 %37, label %.lr.ph22.i, label %_ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit
 
 .lr.ph22.i:                                       ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %35, i64 16
-  %39 = getelementptr inbounds i8, ptr %35, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 8
   br label %40
 
 40:                                               ; preds = %.loopexit.i, %.lr.ph22.i
   %.021.i = phi i32 [ 0, %.lr.ph22.i ], [ %88, %.loopexit.i ]
   %41 = call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %8, i32 noundef %.021.i)
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8
   %.not.i5 = icmp eq ptr %43, null
   br i1 %.not.i5, label %.loopexit.i, label %44
@@ -331,7 +331,7 @@ _ZN12NavmeshFlags13clearAllFlagsEv.exit:          ; preds = %29, %14, %12
 44:                                               ; preds = %40
   %45 = call noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %8, ptr noundef nonnull %41)
   %46 = load ptr, ptr %42, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 4
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph.i6, label %.loopexit.i
@@ -364,11 +364,11 @@ _ZN12NavmeshFlags13clearAllFlagsEv.exit:          ; preds = %29, %14, %12
 
 _ZN12NavmeshFlags8getFlagsEj.exit.i:              ; preds = %59, %55
   %60 = load ptr, ptr %35, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 92
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 92
   %62 = load i32, ptr %61, align 4
   %notmask9.i.i.i = shl nsw i32 -1, %62
   %63 = xor i32 %notmask9.i.i.i, -1
-  %64 = getelementptr inbounds i8, ptr %60, i64 96
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 96
   %65 = load i32, ptr %64, align 8
   %notmask10.i.i.i = shl nsw i32 -1, %65
   %66 = xor i32 %notmask10.i.i.i, -1
@@ -377,10 +377,10 @@ _ZN12NavmeshFlags8getFlagsEj.exit.i:              ; preds = %59, %55
   %69 = and i32 %50, %66
   %70 = load ptr, ptr %39, align 8
   %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = zext nneg i32 %69 to i64
-  %75 = getelementptr inbounds i8, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
   %76 = load i8, ptr %75, align 1
   %.not19.i = icmp eq i8 %76, 0
   br i1 %.not19.i, label %77, label %82
@@ -396,7 +396,7 @@ _ZN12NavmeshFlags8getFlagsEj.exit.i:              ; preds = %59, %55
 82:                                               ; preds = %77, %_ZN12NavmeshFlags8getFlagsEj.exit.i
   %83 = add nuw nsw i32 %.01820.i, 1
   %84 = load ptr, ptr %42, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load i32, ptr %85, align 4
   %87 = icmp slt i32 %83, %86
   br i1 %87, label %.lr.ph.i6, label %.loopexit.i, !llvm.loop !8
@@ -414,19 +414,19 @@ _ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit: ; preds = %.loopexit.
   br i1 %92, label %109, label %93
 
 93:                                               ; preds = %_ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit
-  %94 = getelementptr inbounds i8, ptr %91, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %95 = load i32, ptr %94, align 8
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.lr.ph.i7, label %._crit_edge.i
 
 .lr.ph.i7:                                        ; preds = %93
-  %97 = getelementptr inbounds i8, ptr %91, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br label %98
 
 98:                                               ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i, %.lr.ph.i7
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i10, %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i ]
   %99 = load ptr, ptr %97, align 8
-  %100 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %99, i64 %indvars.iv.i8
+  %100 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %99, i64 %indvars.iv.i8
   %101 = load ptr, ptr %100, align 8
   invoke void @_Z6dtFreePv(ptr noundef %101)
           to label %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i unwind label %.loopexit.i9
@@ -439,7 +439,7 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %98
   br i1 %104, label %98, label %._crit_edge.i, !llvm.loop !5
 
 ._crit_edge.i:                                    ; preds = %_ZN12NavmeshFlags9TileFlags5purgeEv.exit.i, %93
-  %105 = getelementptr inbounds i8, ptr %91, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %106 = load ptr, ptr %105, align 8
   invoke void @_Z6dtFreePv(ptr noundef %106)
           to label %_ZN12NavmeshFlagsD2Ev.exit unwind label %.loopexit.split-lp.i
@@ -457,11 +457,11 @@ _ZN12NavmeshFlags9TileFlags5purgeEv.exit.i:       ; preds = %98
 107:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i9
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i9 ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   %108 = extractvalue { ptr, i32 } %lpad.phi.i, 0
-  call void @__clang_call_terminate(ptr %108) #15
+  call void @__clang_call_terminate(ptr %108) #16
   unreachable
 
 _ZN12NavmeshFlagsD2Ev.exit:                       ; preds = %._crit_edge.i
-  call void @_ZdlPv(ptr noundef nonnull %91) #16
+  call void @_ZdlPv(ptr noundef nonnull %91) #17
   br label %109
 
 109:                                              ; preds = %_ZN12NavmeshFlagsD2Ev.exit, %_ZL21disableUnvisitedPolysP9dtNavMeshP12NavmeshFlags.exit
@@ -481,58 +481,58 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
   %7 = alloca [3 x float], align 4
   %8 = alloca %class.dtQueryFilter, align 4
   %9 = alloca i32, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %197, label %12
+  br i1 %.not, label %191, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(200) %11)
   %.not11 = icmp eq ptr %16, null
-  br i1 %.not11, label %197, label %17
+  br i1 %.not11, label %191, label %17
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %10, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 120
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 120
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(200) %18)
   %.not12 = icmp eq ptr %22, null
-  br i1 %.not12, label %197, label %23
+  br i1 %.not12, label %191, label %23
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %10, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 128
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(200) %24)
   %.not13 = icmp eq ptr %28, null
-  br i1 %.not13, label %197, label %29
+  br i1 %.not13, label %191, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load float, ptr %2, align 4
   store float %31, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %2, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %33 = load float, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %0, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = load float, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store float %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 36
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %38, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not14 = icmp eq ptr %40, null
   br i1 %.not14, label %41, label %44
 
 41:                                               ; preds = %29
-  %42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18
+  %42 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %42, i8 0, i64 20, i1 false)
   store ptr %42, ptr %39, align 8
   %43 = tail call noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(20) %42, ptr noundef nonnull %22)
@@ -561,7 +561,7 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
 52:                                               ; preds = %51, %44
   %53 = call noundef ptr @_Z21dtAssertFailGetCustomv()
   %54 = icmp ne ptr %53, null
-  %55 = getelementptr inbounds i8, ptr %46, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %56 = load i32, ptr %55, align 8
   %.not6.i.i = icmp eq i32 %56, 0
   %or.cond8.i.i = select i1 %54, i1 %.not6.i.i, i1 false
@@ -573,24 +573,24 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
 
 _ZN12NavmeshFlags8getFlagsEj.exit.i:              ; preds = %57, %52
   %58 = load ptr, ptr %46, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 92
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 92
   %60 = load i32, ptr %59, align 4
   %notmask9.i.i.i = shl nsw i32 -1, %60
   %61 = xor i32 %notmask9.i.i.i, -1
-  %62 = getelementptr inbounds i8, ptr %58, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 96
   %63 = load i32, ptr %62, align 8
   %notmask10.i.i.i = shl nsw i32 -1, %63
   %64 = xor i32 %notmask10.i.i.i, -1
   %65 = lshr i32 %47, %63
   %66 = and i32 %65, %61
   %67 = and i32 %47, %64
-  %68 = getelementptr inbounds i8, ptr %46, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %69, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = zext nneg i32 %67 to i64
-  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
   %75 = load i8, ptr %74, align 1
   %.not.i = icmp eq i8 %75, 0
   br i1 %.not.i, label %76, label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
@@ -613,19 +613,19 @@ _ZN12NavmeshFlags8getFlagsEj.exit.i:              ; preds = %57, %52
   %84 = load i32, ptr %55, align 8
   %.not7.i.i = icmp eq i32 %84, 0
   %or.cond9.i.i = select i1 %83, i1 %.not7.i.i, i1 false
-  br i1 %or.cond9.i.i, label %85, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i
+  br i1 %or.cond9.i.i, label %85, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
 
 85:                                               ; preds = %81
   call void %82(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 123)
-  br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i
+  br label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
 
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %85, %81
   %86 = load ptr, ptr %46, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 92
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 92
   %88 = load i32, ptr %87, align 4
   %notmask9.i.i19.i = shl nsw i32 -1, %88
   %89 = xor i32 %notmask9.i.i19.i, -1
-  %90 = getelementptr inbounds i8, ptr %86, i64 96
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 96
   %91 = load i32, ptr %90, align 8
   %notmask10.i.i20.i = shl nsw i32 -1, %91
   %92 = xor i32 %notmask10.i.i20.i, -1
@@ -634,28 +634,28 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
   %95 = and i32 %47, %92
   %96 = load ptr, ptr %68, align 8
   %97 = zext nneg i32 %94 to i64
-  %98 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = zext nneg i32 %95 to i64
-  %101 = getelementptr inbounds i8, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 %100
   store i8 1, ptr %101, align 1
-  %102 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
+  %102 = call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #19
   store i32 %47, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %102, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   br label %104
 
-.loopexit.i:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i, %107
-  %.sroa.8.1.lcssa.i = phi ptr [ %105, %107 ], [ %.sroa.8.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ]
-  %.sroa.20.1.lcssa.i = phi ptr [ %.sroa.20.099.i, %107 ], [ %.sroa.20.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ]
-  %.sroa.0.2.lcssa.i = phi ptr [ %.sroa.0.1100.i, %107 ], [ %.sroa.0.3.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ]
+.loopexit.i:                                      ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i, %107
+  %.sroa.8.1.lcssa.i = phi ptr [ %105, %107 ], [ %.sroa.8.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ]
+  %.sroa.20.1.lcssa.i = phi ptr [ %.sroa.20.098.i, %107 ], [ %.sroa.20.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ]
+  %.sroa.0.2.lcssa.i = phi ptr [ %.sroa.0.199.i, %107 ], [ %.sroa.0.3.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ]
   %.not13.i = icmp eq ptr %.sroa.8.1.lcssa.i, %.sroa.0.2.lcssa.i
-  br i1 %.not13.i, label %195, label %104, !llvm.loop !10
+  br i1 %.not13.i, label %190, label %104, !llvm.loop !10
 
-104:                                              ; preds = %.loopexit.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i
-  %.sroa.0.1100.i = phi ptr [ %102, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ], [ %.sroa.0.2.lcssa.i, %.loopexit.i ]
-  %.sroa.20.099.i = phi ptr [ %103, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ], [ %.sroa.20.1.lcssa.i, %.loopexit.i ]
-  %.sroa.8.098.i = phi ptr [ %103, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit.i ], [ %.sroa.8.1.lcssa.i, %.loopexit.i ]
-  %105 = getelementptr inbounds i8, ptr %.sroa.8.098.i, i64 -4
+104:                                              ; preds = %.loopexit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i
+  %.sroa.0.199.i = phi ptr [ %102, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.0.2.lcssa.i, %.loopexit.i ]
+  %.sroa.20.098.i = phi ptr [ %103, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.20.1.lcssa.i, %.loopexit.i ]
+  %.sroa.8.097.i = phi ptr [ %103, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i ], [ %.sroa.8.1.lcssa.i, %.loopexit.i ]
+  %105 = getelementptr inbounds i8, ptr %.sroa.8.097.i, i64 -4
   %106 = load i32, ptr %105, align 4
   store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
@@ -664,31 +664,31 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
 
 107:                                              ; preds = %104
   %108 = load ptr, ptr %6, align 8
-  %.090.i = load i32, ptr %108, align 4
-  %.not1491.i = icmp eq i32 %.090.i, -1
-  br i1 %.not1491.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  %.089.i = load i32, ptr %108, align 4
+  %.not1490.i = icmp eq i32 %.089.i, -1
+  br i1 %.not1490.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %107
   %.pre.i = load ptr, ptr %5, align 8
-  %.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 32
-  %.pre106.i = load ptr, ptr %.phi.trans.insert.i, align 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre.i, i64 32
+  %.pre105.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i, %.lr.ph.preheader.i
-  %109 = phi ptr [ %193, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ], [ %.pre106.i, %.lr.ph.preheader.i ]
-  %.095.i = phi i32 [ %.0.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ], [ %.090.i, %.lr.ph.preheader.i ]
-  %.sroa.0.294.i = phi ptr [ %.sroa.0.3.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ], [ %.sroa.0.1100.i, %.lr.ph.preheader.i ]
-  %.sroa.20.193.i = phi ptr [ %.sroa.20.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ], [ %.sroa.20.099.i, %.lr.ph.preheader.i ]
-  %.sroa.8.192.i = phi ptr [ %.sroa.8.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i ], [ %105, %.lr.ph.preheader.i ]
-  %110 = zext i32 %.095.i to i64
-  %111 = getelementptr inbounds %struct.dtLink, ptr %109, i64 %110
+.lr.ph.i:                                         ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i, %.lr.ph.preheader.i
+  %109 = phi ptr [ %188, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ], [ %.pre105.i, %.lr.ph.preheader.i ]
+  %.094.i = phi i32 [ %.0.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ], [ %.089.i, %.lr.ph.preheader.i ]
+  %.sroa.0.293.i = phi ptr [ %.sroa.0.3.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ], [ %.sroa.0.199.i, %.lr.ph.preheader.i ]
+  %.sroa.20.192.i = phi ptr [ %.sroa.20.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ], [ %.sroa.20.098.i, %.lr.ph.preheader.i ]
+  %.sroa.8.191.i = phi ptr [ %.sroa.8.2.i, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i ], [ %105, %.lr.ph.preheader.i ]
+  %110 = zext i32 %.094.i to i64
+  %111 = getelementptr inbounds nuw %struct.dtLink, ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4
   %.not15.i = icmp eq i32 %112, 0
-  br i1 %.not15.i, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i, label %113
+  br i1 %.not15.i, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i, label %113
 
 113:                                              ; preds = %.lr.ph.i
   %114 = invoke noundef ptr @_Z21dtAssertFailGetCustomv()
-          to label %.noexc29.i unwind label %.loopexit77.i
+          to label %.noexc29.i unwind label %.loopexit76.i
 
 .noexc29.i:                                       ; preds = %113
   %115 = icmp ne ptr %114, null
@@ -699,11 +699,11 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
 
 117:                                              ; preds = %.noexc29.i
   invoke void %114(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 112)
-          to label %.noexc30.i unwind label %.loopexit77.i
+          to label %.noexc30.i unwind label %.loopexit76.i
 
 .noexc30.i:                                       ; preds = %117, %.noexc29.i
   %118 = invoke noundef ptr @_Z21dtAssertFailGetCustomv()
-          to label %.noexc31.i unwind label %.loopexit77.i
+          to label %.noexc31.i unwind label %.loopexit76.i
 
 .noexc31.i:                                       ; preds = %.noexc30.i
   %119 = icmp ne ptr %118, null
@@ -714,15 +714,15 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
 
 121:                                              ; preds = %.noexc31.i
   invoke void %118(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 113)
-          to label %122 unwind label %.loopexit77.i
+          to label %122 unwind label %.loopexit76.i
 
 122:                                              ; preds = %121, %.noexc31.i
   %123 = load ptr, ptr %46, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 92
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 92
   %125 = load i32, ptr %124, align 4
   %notmask9.i.i27.i = shl nsw i32 -1, %125
   %126 = xor i32 %notmask9.i.i27.i, -1
-  %127 = getelementptr inbounds i8, ptr %123, i64 96
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 96
   %128 = load i32, ptr %127, align 8
   %notmask10.i.i28.i = shl nsw i32 -1, %128
   %129 = xor i32 %notmask10.i.i28.i, -1
@@ -731,180 +731,158 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %85, %81
   %132 = and i32 %112, %129
   %133 = load ptr, ptr %68, align 8
   %134 = zext nneg i32 %131 to i64
-  %135 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %133, i64 %134
+  %135 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = zext nneg i32 %132 to i64
-  %138 = getelementptr inbounds i8, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %136, i64 %137
   %139 = load i8, ptr %138, align 1
   %.not16.i = icmp eq i8 %139, 0
-  br i1 %.not16.i, label %141, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i
+  br i1 %.not16.i, label %140, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i
 
-.loopexit77.i:                                    ; preds = %180, %149, %.noexc42.i, %145, %141, %121, %.noexc30.i, %117, %113
+.loopexit76.i:                                    ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i, %148, %.noexc42.i, %144, %140, %121, %.noexc30.i, %117, %113
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit.split-lp.i
-
-.loopexit.split-lp.loopexit.i:                    ; preds = %104
-  %lpad.loopexit78.i = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit.split-lp.i
-
-.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %174
-  %lpad.loopexit.split-lp79.i = landingpad { ptr, i32 }
-          cleanup
-  br label %.loopexit.split-lp.i
-
-.loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit77.i
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.294.i, %.loopexit77.i ], [ %.sroa.0.1100.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.0.294.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit77.i ], [ %lpad.loopexit78.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp79.i, %.loopexit.split-lp.loopexit.split-lp.i ]
-  %.not.i.i.i34.i = icmp eq ptr %.sroa.0.0.i, null
-  br i1 %.not.i.i.i34.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit.i, label %140
-
-140:                                              ; preds = %.loopexit.split-lp.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #16
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
 
-_ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %140, %.loopexit.split-lp.i
+.loopexit.split-lp.loopexit.i:                    ; preds = %104
+  %lpad.loopexit77.i = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
+
+.loopexit.split-lp.loopexit.split-lp.i:           ; preds = %173
+  %lpad.loopexit.split-lp78.i = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit.i
+
+_ZNSt6vectorIjSaIjEED2Ev.exit.i:                  ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit76.i
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.293.i, %.loopexit76.i ], [ %.sroa.0.199.i, %.loopexit.split-lp.loopexit.i ], [ %.sroa.0.293.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit76.i ], [ %lpad.loopexit77.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp78.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0.i) #17
   resume { ptr, i32 } %lpad.phi.i
 
-141:                                              ; preds = %122
-  %142 = invoke noundef ptr @_Z21dtAssertFailGetCustomv()
-          to label %.noexc41.i unwind label %.loopexit77.i
+140:                                              ; preds = %122
+  %141 = invoke noundef ptr @_Z21dtAssertFailGetCustomv()
+          to label %.noexc41.i unwind label %.loopexit76.i
 
-.noexc41.i:                                       ; preds = %141
-  %143 = icmp ne ptr %142, null
-  %144 = load ptr, ptr %46, align 8
-  %.not.i35.i = icmp eq ptr %144, null
-  %or.cond.i36.i = select i1 %143, i1 %.not.i35.i, i1 false
-  br i1 %or.cond.i36.i, label %145, label %.noexc42.i
+.noexc41.i:                                       ; preds = %140
+  %142 = icmp ne ptr %141, null
+  %143 = load ptr, ptr %46, align 8
+  %.not.i35.i = icmp eq ptr %143, null
+  %or.cond.i36.i = select i1 %142, i1 %.not.i35.i, i1 false
+  br i1 %or.cond.i36.i, label %144, label %.noexc42.i
 
-145:                                              ; preds = %.noexc41.i
-  invoke void %142(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 122)
-          to label %.noexc42.i unwind label %.loopexit77.i
+144:                                              ; preds = %.noexc41.i
+  invoke void %141(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 122)
+          to label %.noexc42.i unwind label %.loopexit76.i
 
-.noexc42.i:                                       ; preds = %145, %.noexc41.i
-  %146 = invoke noundef ptr @_Z21dtAssertFailGetCustomv()
-          to label %.noexc43.i unwind label %.loopexit77.i
+.noexc42.i:                                       ; preds = %144, %.noexc41.i
+  %145 = invoke noundef ptr @_Z21dtAssertFailGetCustomv()
+          to label %.noexc43.i unwind label %.loopexit76.i
 
 .noexc43.i:                                       ; preds = %.noexc42.i
-  %147 = icmp ne ptr %146, null
-  %148 = load i32, ptr %55, align 8
-  %.not7.i37.i = icmp eq i32 %148, 0
-  %or.cond9.i38.i = select i1 %147, i1 %.not7.i37.i, i1 false
-  br i1 %or.cond9.i38.i, label %149, label %150
+  %146 = icmp ne ptr %145, null
+  %147 = load i32, ptr %55, align 8
+  %.not7.i37.i = icmp eq i32 %147, 0
+  %or.cond9.i38.i = select i1 %146, i1 %.not7.i37.i, i1 false
+  br i1 %or.cond9.i38.i, label %148, label %149
 
-149:                                              ; preds = %.noexc43.i
-  invoke void %146(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 123)
-          to label %150 unwind label %.loopexit77.i
+148:                                              ; preds = %.noexc43.i
+  invoke void %145(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4, i32 noundef 123)
+          to label %149 unwind label %.loopexit76.i
 
-150:                                              ; preds = %149, %.noexc43.i
-  %151 = load ptr, ptr %46, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 92
-  %153 = load i32, ptr %152, align 4
-  %notmask9.i.i39.i = shl nsw i32 -1, %153
-  %154 = xor i32 %notmask9.i.i39.i, -1
-  %155 = getelementptr inbounds i8, ptr %151, i64 96
-  %156 = load i32, ptr %155, align 8
-  %notmask10.i.i40.i = shl nsw i32 -1, %156
-  %157 = xor i32 %notmask10.i.i40.i, -1
-  %158 = lshr i32 %112, %156
-  %159 = and i32 %158, %154
-  %160 = and i32 %112, %157
-  %161 = load ptr, ptr %68, align 8
-  %162 = zext nneg i32 %159 to i64
-  %163 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %161, i64 %162
-  %164 = load ptr, ptr %163, align 8
-  %165 = zext nneg i32 %160 to i64
-  %166 = getelementptr inbounds i8, ptr %164, i64 %165
-  store i8 1, ptr %166, align 1
-  %.not.i46.i = icmp eq ptr %.sroa.8.192.i, %.sroa.20.193.i
-  br i1 %.not.i46.i, label %169, label %167
+149:                                              ; preds = %148, %.noexc43.i
+  %150 = load ptr, ptr %46, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 92
+  %152 = load i32, ptr %151, align 4
+  %notmask9.i.i39.i = shl nsw i32 -1, %152
+  %153 = xor i32 %notmask9.i.i39.i, -1
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 96
+  %155 = load i32, ptr %154, align 8
+  %notmask10.i.i40.i = shl nsw i32 -1, %155
+  %156 = xor i32 %notmask10.i.i40.i, -1
+  %157 = lshr i32 %112, %155
+  %158 = and i32 %157, %153
+  %159 = and i32 %112, %156
+  %160 = load ptr, ptr %68, align 8
+  %161 = zext nneg i32 %158 to i64
+  %162 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %160, i64 %161
+  %163 = load ptr, ptr %162, align 8
+  %164 = zext nneg i32 %159 to i64
+  %165 = getelementptr inbounds nuw i8, ptr %163, i64 %164
+  store i8 1, ptr %165, align 1
+  %.not.i46.i = icmp eq ptr %.sroa.8.191.i, %.sroa.20.192.i
+  br i1 %.not.i46.i, label %168, label %166
 
-167:                                              ; preds = %150
-  store i32 %112, ptr %.sroa.8.192.i, align 4
-  %168 = getelementptr inbounds i8, ptr %.sroa.8.192.i, i64 4
-  br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i
+166:                                              ; preds = %149
+  store i32 %112, ptr %.sroa.8.191.i, align 4
+  %167 = getelementptr inbounds nuw i8, ptr %.sroa.8.191.i, i64 4
+  br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i
 
-169:                                              ; preds = %150
-  %170 = ptrtoint ptr %.sroa.20.193.i to i64
-  %171 = ptrtoint ptr %.sroa.0.294.i to i64
-  %172 = sub i64 %170, %171
-  %173 = icmp eq i64 %172, 9223372036854775804
-  br i1 %173, label %174, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
+168:                                              ; preds = %149
+  %169 = ptrtoint ptr %.sroa.20.192.i to i64
+  %170 = ptrtoint ptr %.sroa.0.293.i to i64
+  %171 = sub i64 %169, %170
+  %172 = icmp eq i64 %171, 9223372036854775804
+  br i1 %172, label %173, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
 
-174:                                              ; preds = %169
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #19
-          to label %.noexc54.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
+173:                                              ; preds = %168
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.6) #20
+          to label %.noexc53.i unwind label %.loopexit.split-lp.loopexit.split-lp.i
 
-.noexc54.i:                                       ; preds = %174
+.noexc53.i:                                       ; preds = %173
   unreachable
 
-_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i: ; preds = %169
-  %175 = ashr exact i64 %172, 2
-  %.sroa.speculated.i.i.i48.i = call i64 @llvm.umax.i64(i64 %175, i64 1)
-  %176 = add nsw i64 %.sroa.speculated.i.i.i48.i, %175
-  %177 = icmp ult i64 %176, %175
-  %178 = call i64 @llvm.umin.i64(i64 %176, i64 2305843009213693951)
-  %179 = select i1 %177, i64 2305843009213693951, i64 %178
-  %.not.i.i.i49.i = icmp eq i64 %179, 0
-  br i1 %.not.i.i.i49.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i, label %180
+_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i: ; preds = %168
+  %174 = ashr exact i64 %171, 2
+  %.sroa.speculated.i.i.i48.i = call i64 @llvm.umax.i64(i64 %174, i64 1)
+  %175 = add nsw i64 %.sroa.speculated.i.i.i48.i, %174
+  %176 = icmp ult i64 %175, %174
+  %177 = call i64 @llvm.umin.i64(i64 %175, i64 2305843009213693951)
+  %178 = select i1 %176, i64 2305843009213693951, i64 %177
+  %.not.i.i.i49.i = icmp ne i64 %178, 0
+  call void @llvm.assume(i1 %.not.i.i.i49.i)
+  %179 = shl nuw nsw i64 %178, 2
+  %180 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %179) #19
+          to label %.noexc54.i unwind label %.loopexit76.i
 
-180:                                              ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
-  %181 = shl nuw nsw i64 %179, 2
-  %182 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %181) #18
-          to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i unwind label %.loopexit77.i
+.noexc54.i:                                       ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
+  %181 = getelementptr inbounds i8, ptr %180, i64 %171
+  store i32 %112, ptr %181, align 4
+  %182 = icmp sgt i64 %171, 0
+  br i1 %182, label %183, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i
 
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i: ; preds = %180, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i
-  %183 = phi ptr [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i47.i ], [ %182, %180 ]
-  %184 = getelementptr inbounds i32, ptr %183, i64 %175
-  store i32 %112, ptr %184, align 4
-  %185 = icmp sgt i64 %172, 0
-  br i1 %185, label %186, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i
+183:                                              ; preds = %.noexc54.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %180, ptr align 4 %.sroa.0.293.i, i64 %171, i1 false)
+  br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i
 
-186:                                              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %183, ptr align 4 %.sroa.0.294.i, i64 %172, i1 false)
-  br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i
+_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i: ; preds = %183, %.noexc54.i
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.293.i) #17
+  %185 = getelementptr inbounds nuw i32, ptr %180, i64 %178
+  br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i
 
-_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i: ; preds = %186, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i50.i
-  %187 = getelementptr inbounds i8, ptr %183, i64 %172
-  %188 = getelementptr inbounds i8, ptr %187, i64 4
-  %.not.i17.i.i52.i = icmp eq ptr %.sroa.0.294.i, null
-  br i1 %.not.i17.i.i52.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i, label %189
-
-189:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.294.i) #16
-  br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i
-
-_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i: ; preds = %189, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i51.i
-  %190 = getelementptr inbounds i32, ptr %183, i64 %179
-  br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i
-
-_ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i:      ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i, %167, %122, %.lr.ph.i
-  %.sroa.8.2.i = phi ptr [ %.sroa.8.192.i, %.lr.ph.i ], [ %.sroa.8.192.i, %122 ], [ %188, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i ], [ %168, %167 ]
-  %.sroa.20.2.i = phi ptr [ %.sroa.20.193.i, %.lr.ph.i ], [ %.sroa.20.193.i, %122 ], [ %190, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i ], [ %.sroa.20.193.i, %167 ]
-  %.sroa.0.3.i = phi ptr [ %.sroa.0.294.i, %.lr.ph.i ], [ %.sroa.0.294.i, %122 ], [ %183, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i53.i ], [ %.sroa.0.294.i, %167 ]
-  %191 = load ptr, ptr %5, align 8
-  %192 = getelementptr inbounds i8, ptr %191, i64 32
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds %struct.dtLink, ptr %193, i64 %110, i32 1
-  %.0.i = load i32, ptr %194, align 4
+_ZNSt6vectorIjSaIjEE9push_backERKj.exit55.i:      ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i, %166, %122, %.lr.ph.i
+  %.sroa.8.2.i = phi ptr [ %.sroa.8.191.i, %.lr.ph.i ], [ %.sroa.8.191.i, %122 ], [ %184, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i ], [ %167, %166 ]
+  %.sroa.20.2.i = phi ptr [ %.sroa.20.192.i, %.lr.ph.i ], [ %.sroa.20.192.i, %122 ], [ %185, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i ], [ %.sroa.20.192.i, %166 ]
+  %.sroa.0.3.i = phi ptr [ %.sroa.0.293.i, %.lr.ph.i ], [ %.sroa.0.293.i, %122 ], [ %180, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i52.i ], [ %.sroa.0.293.i, %166 ]
+  %186 = load ptr, ptr %5, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 32
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw %struct.dtLink, ptr %188, i64 %110, i32 1
+  %.0.i = load i32, ptr %189, align 4
   %.not14.i = icmp eq i32 %.0.i, -1
   br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
-195:                                              ; preds = %.loopexit.i
-  %.not.i.i.i57.i = icmp eq ptr %.sroa.8.1.lcssa.i, null
-  br i1 %.not.i.i.i57.i, label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit, label %196
-
-196:                                              ; preds = %195
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #16
+190:                                              ; preds = %.loopexit.i
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #17
   br label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
 
-_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit: ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit.i, %195, %196
+_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit: ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit.i, %190
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %197
+  br label %191
 
-197:                                              ; preds = %23, %17, %12, %4, %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
+191:                                              ; preds = %23, %17, %12, %4, %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
   ret void
 }
 
@@ -916,7 +894,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) local_unnamed_addr #4 comdat align 2 {
   %3 = tail call noundef i32 @_ZNK9dtNavMesh11getMaxTilesEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %4, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %5
@@ -925,7 +903,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNa
   %6 = sext i32 %3 to i64
   %7 = shl nsw i64 %6, 4
   %8 = tail call noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef %7, i32 noundef 1)
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %.not27 = icmp eq ptr %8, null
   br i1 %.not27, label %.loopexit, label %10
@@ -943,20 +921,20 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12NavmeshFlags4initEPK9dtNa
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %10 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = tail call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %1, i32 noundef %16)
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not28 = icmp eq ptr %19, null
   br i1 %.not28, label %35, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %21, i64 %indvars.iv
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
+  %22 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %21, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i32 %24, ptr %25, align 8
   %26 = tail call noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull %17)
-  %27 = getelementptr inbounds i8, ptr %22, i64 12
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 12
   store i32 %26, ptr %27, align 4
   %28 = load i32, ptr %25, align 8
   %.not29 = icmp eq i32 %28, 0
@@ -1014,32 +992,32 @@ define dso_local void @_ZN16NavMeshPruneTool12handleUpdateEf(ptr nocapture nonnu
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
-  %5 = getelementptr inbounds i8, ptr %0, i64 36
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %64
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr %3, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef float %11(ptr noundef nonnull align 8 dereferenceable(200) %3)
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 1, float noundef 1.000000e+00)
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load float, ptr %16, align 8
   %18 = fsub float %17, %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %20 = load float, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load float, ptr %21, align 8
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %18, float noundef %20, float noundef %22, i32 noundef -1)
   %26 = load float, ptr %16, align 8
@@ -1047,7 +1025,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %28 = load float, ptr %19, align 4
   %29 = load float, ptr %21, align 8
   %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
   tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %27, float noundef %28, float noundef %29, i32 noundef -1)
   %33 = load float, ptr %16, align 8
@@ -1055,7 +1033,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %35 = fsub float %34, %12
   %36 = load float, ptr %21, align 8
   %37 = load ptr, ptr %4, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 48
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %33, float noundef %35, float noundef %36, i32 noundef -1)
   %40 = load float, ptr %16, align 8
@@ -1063,7 +1041,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %42 = fadd float %12, %41
   %43 = load float, ptr %21, align 8
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 48
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %40, float noundef %42, float noundef %43, i32 noundef -1)
   %47 = load float, ptr %16, align 8
@@ -1071,7 +1049,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %49 = load float, ptr %21, align 8
   %50 = fsub float %49, %12
   %51 = load ptr, ptr %4, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %47, float noundef %48, float noundef %50, i32 noundef -1)
   %54 = load float, ptr %16, align 8
@@ -1079,11 +1057,11 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
   %56 = load float, ptr %21, align 8
   %57 = fadd float %12, %56
   %58 = load ptr, ptr %4, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 48
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %4, float noundef %54, float noundef %55, float noundef %57, i32 noundef -1)
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 72
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 72
   %63 = load ptr, ptr %62, align 8
   tail call void %63(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %.pre = load ptr, ptr %2, align 8
@@ -1092,10 +1070,10 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
 64:                                               ; preds = %8, %1
   %65 = phi ptr [ %.pre, %8 ], [ %3, %1 ]
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 120
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 120
   %68 = load ptr, ptr %67, align 8
   %69 = tail call noundef ptr %68(ptr noundef nonnull align 8 dereferenceable(200) %65)
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %71 = load ptr, ptr %70, align 8
   %72 = icmp ne ptr %71, null
   %73 = icmp ne ptr %69, null
@@ -1110,7 +1088,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
 .lr.ph45:                                         ; preds = %.preheader, %.loopexit
   %.044 = phi i32 [ %122, %.loopexit ], [ 0, %.preheader ]
   %76 = tail call noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr noundef nonnull align 8 dereferenceable(100) %69, i32 noundef %.044)
-  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load ptr, ptr %77, align 8
   %.not = icmp eq ptr %78, null
   br i1 %.not, label %.loopexit, label %79
@@ -1118,7 +1096,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
 79:                                               ; preds = %.lr.ph45
   %80 = tail call noundef i32 @_ZNK9dtNavMesh14getPolyRefBaseEPK10dtMeshTile(ptr noundef nonnull align 8 dereferenceable(100) %69, ptr noundef nonnull %76)
   %81 = load ptr, ptr %77, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = load i32, ptr %82, align 4
   %84 = icmp sgt i32 %83, 0
   br i1 %84, label %.lr.ph, label %.loopexit
@@ -1141,7 +1119,7 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
 91:                                               ; preds = %90, %.lr.ph
   %92 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %93 = icmp ne ptr %92, null
-  %94 = getelementptr inbounds i8, ptr %86, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %95 = load i32, ptr %94, align 8
   %.not6.i = icmp eq i32 %95, 0
   %or.cond8.i = select i1 %93, i1 %.not6.i, i1 false
@@ -1153,24 +1131,24 @@ define dso_local void @_ZN16NavMeshPruneTool12handleRenderEv(ptr nocapture nound
 
 _ZN12NavmeshFlags8getFlagsEj.exit:                ; preds = %91, %96
   %97 = load ptr, ptr %86, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 92
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 92
   %99 = load i32, ptr %98, align 4
   %notmask9.i.i = shl nsw i32 -1, %99
   %100 = xor i32 %notmask9.i.i, -1
-  %101 = getelementptr inbounds i8, ptr %97, i64 96
+  %101 = getelementptr inbounds nuw i8, ptr %97, i64 96
   %102 = load i32, ptr %101, align 8
   %notmask10.i.i = shl nsw i32 -1, %102
   %103 = xor i32 %notmask10.i.i, -1
   %104 = lshr i32 %85, %102
   %105 = and i32 %104, %100
   %106 = and i32 %85, %103
-  %107 = getelementptr inbounds i8, ptr %86, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %108 = load ptr, ptr %107, align 8
   %109 = zext nneg i32 %105 to i64
-  %110 = getelementptr inbounds %"struct.NavmeshFlags::TileFlags", ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw %"struct.NavmeshFlags::TileFlags", ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = zext nneg i32 %106 to i64
-  %113 = getelementptr inbounds i8, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 %112
   %114 = load i8, ptr %113, align 1
   %.not41 = icmp eq i8 %114, 0
   br i1 %.not41, label %116, label %115
@@ -1182,7 +1160,7 @@ _ZN12NavmeshFlags8getFlagsEj.exit:                ; preds = %91, %96
 116:                                              ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit, %115
   %117 = add nuw nsw i32 %.03943, 1
   %118 = load ptr, ptr %77, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load i32, ptr %119, align 4
   %121 = icmp slt i32 %117, %120
   br i1 %121, label %.lr.ph, label %.loopexit, !llvm.loop !13
@@ -1207,7 +1185,7 @@ declare void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16NavMeshPruneTool19handleRenderOverlayEPdS0_Pi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) unnamed_addr #4 align 2 {
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = add nsw i32 %6, -40
   tail call void @_Z13imguiDrawTextiiiPKcj(i32 noundef 280, i32 noundef %7, i32 noundef 0, ptr noundef nonnull @.str.2, i32 noundef -1056964609)
@@ -1223,8 +1201,8 @@ define linkonce_odr dso_local noundef i32 @_ZN16NavMeshPruneTool4typeEv(ptr noun
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #15
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #16
   unreachable
 }
 
@@ -1260,11 +1238,14 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1280,12 +1261,13 @@ attributes #10 = { cold nofree noreturn }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #12 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { noreturn nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { nounwind }
-attributes #18 = { builtin allocsize(0) }
-attributes #19 = { noreturn }
+attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { nounwind }
+attributes #19 = { builtin allocsize(0) }
+attributes #20 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

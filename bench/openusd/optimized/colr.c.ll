@@ -47,7 +47,7 @@ define hidden void @avifColorPrimariesGetValues(i16 noundef zeroext %0, ptr noca
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %5 = getelementptr inbounds [11 x %struct.avifColorPrimariesTable], ptr @avifColorPrimariesTables, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [11 x %struct.avifColorPrimariesTable], ptr @avifColorPrimariesTables, i64 0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 16
   %7 = icmp eq i16 %6, %0
   br i1 %7, label %8, label %3
@@ -79,18 +79,18 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 4:                                                ; preds = %3, %2
   %5 = load float, ptr %0, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 12
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
-  %12 = getelementptr inbounds i8, ptr %0, i64 28
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %13
 
 13:                                               ; preds = %4, %primariesMatch.exit.thread
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %primariesMatch.exit.thread ]
-  %14 = getelementptr inbounds [11 x %struct.avifColorPrimariesTable], ptr @avifColorPrimariesTables, i64 0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [11 x %struct.avifColorPrimariesTable], ptr @avifColorPrimariesTables, i64 0, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load float, ptr %15, align 16
   %17 = fsub float %5, %16
@@ -100,7 +100,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 20:                                               ; preds = %13
   %21 = load float, ptr %6, align 4
-  %22 = getelementptr inbounds i8, ptr %14, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %23 = load float, ptr %22, align 4
   %24 = fsub float %21, %23
   %25 = tail call float @llvm.fabs.f32(float %24)
@@ -109,7 +109,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 27:                                               ; preds = %20
   %28 = load float, ptr %7, align 4
-  %29 = getelementptr inbounds i8, ptr %14, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %30 = load float, ptr %29, align 8
   %31 = fsub float %28, %30
   %32 = tail call float @llvm.fabs.f32(float %31)
@@ -118,7 +118,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 34:                                               ; preds = %27
   %35 = load float, ptr %8, align 4
-  %36 = getelementptr inbounds i8, ptr %14, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %37 = load float, ptr %36, align 4
   %38 = fsub float %35, %37
   %39 = tail call float @llvm.fabs.f32(float %38)
@@ -127,7 +127,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 41:                                               ; preds = %34
   %42 = load float, ptr %9, align 4
-  %43 = getelementptr inbounds i8, ptr %14, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %44 = load float, ptr %43, align 16
   %45 = fsub float %42, %44
   %46 = tail call float @llvm.fabs.f32(float %45)
@@ -136,7 +136,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 48:                                               ; preds = %41
   %49 = load float, ptr %10, align 4
-  %50 = getelementptr inbounds i8, ptr %14, i64 36
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %51 = load float, ptr %50, align 4
   %52 = fsub float %49, %51
   %53 = tail call float @llvm.fabs.f32(float %52)
@@ -145,7 +145,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 55:                                               ; preds = %48
   %56 = load float, ptr %11, align 4
-  %57 = getelementptr inbounds i8, ptr %14, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %58 = load float, ptr %57, align 8
   %59 = fsub float %56, %58
   %60 = tail call float @llvm.fabs.f32(float %59)
@@ -154,7 +154,7 @@ define hidden zeroext i16 @avifColorPrimariesFind(ptr nocapture noundef readonly
 
 primariesMatch.exit:                              ; preds = %55
   %62 = load float, ptr %12, align 4
-  %63 = getelementptr inbounds i8, ptr %14, i64 44
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %64 = load float, ptr %63, align 4
   %65 = fsub float %62, %64
   %66 = tail call float @llvm.fabs.f32(float %65)
@@ -246,9 +246,9 @@ define hidden void @avifCalcYUVCoefficients(ptr nocapture noundef readonly %0, p
   %11 = load i16, ptr %10, align 8
   call void @avifColorPrimariesComputeYCoeffs(i16 noundef zeroext %11, ptr noundef nonnull %5)
   %.pre = load float, ptr %5, align 4
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.pre13 = load float, ptr %.phi.trans.insert, align 4
-  %.phi.trans.insert14 = getelementptr inbounds i8, ptr %5, i64 8
+  %.phi.trans.insert14 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.pre15 = load float, ptr %.phi.trans.insert14, align 4
   br label %calcYUVInfoFromCICP.exit
 
@@ -259,7 +259,7 @@ define hidden void @avifCalcYUVCoefficients(ptr nocapture noundef readonly %0, p
 
 .preheader.i:                                     ; preds = %4, %12
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 0, %4 ]
-  %13 = getelementptr inbounds [6 x %struct.avifMatrixCoefficientsTable], ptr @matrixCoefficientsTables, i64 0, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [6 x %struct.avifMatrixCoefficientsTable], ptr @matrixCoefficientsTables, i64 0, i64 %indvars.iv.i
   %14 = load i16, ptr %13, align 8
   %15 = icmp eq i16 %14, %7
   br i1 %15, label %16, label %12
@@ -294,7 +294,7 @@ define hidden ptr @avifTransferCharacteristicsGetGammaToLinearFunction(i16 nound
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [16 x %struct.avifTransferCharacteristicsTable], ptr @transferCharacteristicsTables, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x %struct.avifTransferCharacteristicsTable], ptr @transferCharacteristicsTables, i64 0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 16
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %7, label %2
@@ -348,7 +348,7 @@ define hidden ptr @avifTransferCharacteristicsGetLinearToGammaFunction(i16 nound
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds [16 x %struct.avifTransferCharacteristicsTable], ptr @transferCharacteristicsTables, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x %struct.avifTransferCharacteristicsTable], ptr @transferCharacteristicsTables, i64 0, i64 %indvars.iv
   %5 = load i16, ptr %4, align 16
   %6 = icmp eq i16 %5, %0
   br i1 %6, label %7, label %2
@@ -401,7 +401,7 @@ define hidden void @avifColorPrimariesComputeYCoeffs(i16 noundef zeroext %0, ptr
 
 4:                                                ; preds = %3, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %3 ]
-  %5 = getelementptr inbounds [11 x %struct.avifColorPrimariesTable], ptr @avifColorPrimariesTables, i64 0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [11 x %struct.avifColorPrimariesTable], ptr @avifColorPrimariesTables, i64 0, i64 %indvars.iv.i
   %6 = load i16, ptr %5, align 16
   %7 = icmp eq i16 %6, %0
   br i1 %7, label %8, label %3
@@ -409,19 +409,19 @@ define hidden void @avifColorPrimariesComputeYCoeffs(i16 noundef zeroext %0, ptr
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.0.0.copyload79 = load float, ptr %9, align 16
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 20
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 20
   %.sroa.3.0.copyload80 = load float, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.4.0.copyload81 = load float, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 28
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 28
   %.sroa.5.0.copyload82 = load float, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.6.0.copyload83 = load float, ptr %.sroa.6.0..sroa_idx, align 16
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 36
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 36
   %.sroa.7.0.copyload84 = load float, ptr %.sroa.7.0..sroa_idx, align 4
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 40
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   %.sroa.8.0.copyload85 = load float, ptr %.sroa.8.0..sroa_idx, align 8
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 44
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 44
   %.sroa.9.0.copyload86 = load float, ptr %.sroa.9.0..sroa_idx, align 4
   br label %avifColorPrimariesGetValues.exit
 
@@ -476,11 +476,11 @@ avifColorPrimariesGetValues.exit:                 ; preds = %3, %8
   %49 = fmul float %.sroa.7.0, %48
   %50 = fdiv float %49, %39
   store float %40, ptr %1, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store float %50, ptr %51, align 4
   %52 = fsub float 1.000000e+00, %40
   %53 = fsub float %52, %50
-  %54 = getelementptr inbounds i8, ptr %1, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %53, ptr %54, align 4
   ret void
 }

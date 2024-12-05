@@ -18,7 +18,7 @@ entry:
   br i1 %cmp, label %fail, label %if.end10
 
 if.end10:                                         ; preds = %entry
-  %off_dt_strings11 = getelementptr inbounds i8, ptr %fdt, i64 12
+  %off_dt_strings11 = getelementptr inbounds nuw i8, ptr %fdt, i64 12
   %0 = load i8, ptr %off_dt_strings11, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -69,7 +69,7 @@ if.then21:                                        ; preds = %if.end16
   br i1 %cmp22, label %fail, label %if.end25
 
 if.end25:                                         ; preds = %if.then21
-  %version = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %8 = load i8, ptr %version, align 1
   %conv.i51 = zext i8 %8 to i32
   %shl.i52 = shl nuw i32 %conv.i51, 24
@@ -91,7 +91,7 @@ if.end25:                                         ; preds = %if.then21
   br i1 %cmp29, label %if.then31, label %if.end73
 
 if.then31:                                        ; preds = %if.end25
-  %size_dt_strings = getelementptr inbounds i8, ptr %fdt, i64 32
+  %size_dt_strings = getelementptr inbounds nuw i8, ptr %fdt, i64 32
   %12 = load i8, ptr %size_dt_strings, align 1
   %conv.i64 = zext i8 %12 to i32
   %shl.i65 = shl nuw i32 %conv.i64, 24
@@ -123,7 +123,7 @@ if.then54:                                        ; preds = %if.end16
   br i1 %cmp56, label %fail, label %lor.lhs.false58
 
 lor.lhs.false58:                                  ; preds = %if.then54
-  %size_dt_strings59 = getelementptr inbounds i8, ptr %fdt, i64 32
+  %size_dt_strings59 = getelementptr inbounds nuw i8, ptr %fdt, i64 32
   %16 = load i8, ptr %size_dt_strings59, align 1
   %conv.i116 = zext i8 %16 to i32
   %shl.i117 = shl nuw i32 %conv.i116, 24
@@ -252,7 +252,7 @@ fdt_getprop.exit.thread:                          ; preds = %entry
   br label %if.then
 
 if.end.i.i:                                       ; preds = %entry
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -280,7 +280,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %if.end10.i.i, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
@@ -310,7 +310,7 @@ fdt_getprop.exit39.thread:                        ; preds = %if.then
   br label %return
 
 if.end.i.i11:                                     ; preds = %if.then
-  %version.i.i12 = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i12 = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %7 = load i8, ptr %version.i.i12, align 1
   %conv.i.i.i13 = zext i8 %7 to i32
   %shl.i.i.i14 = shl nuw i32 %conv.i.i.i13, 24
@@ -338,7 +338,7 @@ land.lhs.true3.i.i30:                             ; preds = %if.end.i.i11
   br i1 %tobool4.not.i.i31, label %if.end10.i.i27, label %land.lhs.true5.i.i32
 
 land.lhs.true5.i.i32:                             ; preds = %land.lhs.true3.i.i30
-  %len.i.i33 = getelementptr inbounds i8, ptr %call.i.i9, i64 4
+  %len.i.i33 = getelementptr inbounds nuw i8, ptr %call.i.i9, i64 4
   %len.val.i.i34 = load i32, ptr %len.i.i33, align 4
   %rev.i.i.i.i35 = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i34)
   %cmp7.i.i36 = icmp ugt i32 %rev.i.i.i.i35, 7
@@ -420,7 +420,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %mul.i = shl i32 %n, 4
-  %off_mem_rsvmap.i = getelementptr inbounds i8, ptr %fdt, i64 16
+  %off_mem_rsvmap.i = getelementptr inbounds nuw i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -444,7 +444,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i:                                         ; preds = %if.end
   %conv7.i = zext i32 %add.i to i64
-  %totalsize.i = getelementptr inbounds i8, ptr %fdt, i64 4
+  %totalsize.i = getelementptr inbounds nuw i8, ptr %fdt, i64 4
   %4 = load i8, ptr %totalsize.i, align 1
   %conv.i19.i = zext i8 %4 to i64
   %shl.i20.i = shl nuw nsw i64 %conv.i19.i, 24
@@ -487,7 +487,7 @@ if.end4:                                          ; preds = %fdt_mem_rsv.exit
   %call1.val = load i64, ptr %add.ptr2.i.i, align 8
   %or26.i.i = tail call noundef i64 @llvm.bswap.i64(i64 %call1.val)
   store i64 %or26.i.i, ptr %address, align 8
-  %size7 = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
+  %size7 = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 8
   %size7.val = load i64, ptr %size7, align 8
   %or26.i.i4 = tail call noundef i64 @llvm.bswap.i64(i64 %size7.val)
   store i64 %or26.i.i4, ptr %size, align 8
@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local i32 @fdt_num_mem_rsv(ptr noundef readonly %fdt) local_unnamed_addr #3 {
 entry:
-  %off_mem_rsvmap.i = getelementptr inbounds i8, ptr %fdt, i64 16
+  %off_mem_rsvmap.i = getelementptr inbounds nuw i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -519,7 +519,7 @@ entry:
   %3 = load i8, ptr %arrayidx8.i.i, align 1
   %conv9.i.i = zext i8 %3 to i32
   %or10.i.i = or disjoint i32 %or7.i.i, %conv9.i.i
-  %totalsize.i = getelementptr inbounds i8, ptr %fdt, i64 4
+  %totalsize.i = getelementptr inbounds nuw i8, ptr %fdt, i64 4
   %4 = load i8, ptr %totalsize.i, align 1
   %conv.i19.i = zext i8 %4 to i64
   %shl.i20.i = shl nuw nsw i64 %conv.i19.i, 24
@@ -565,7 +565,7 @@ fdt_mem_rsv.exit:                                 ; preds = %if.end.i
   br i1 %cmp.not, label %return, label %for.body
 
 for.body:                                         ; preds = %fdt_mem_rsv.exit
-  %size = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 8
+  %size = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 8
   %size.val = load i64, ptr %size, align 8
   %cmp2 = icmp eq i64 %size.val, 0
   br i1 %cmp2, label %return, label %for.inc
@@ -707,7 +707,7 @@ fdt_get_alias_namelen.exit.thread43:              ; preds = %if.end.i
   br label %return
 
 if.end.i36:                                       ; preds = %if.end.i
-  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %1 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %1 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -735,14 +735,14 @@ land.lhs.true3.i:                                 ; preds = %if.end.i36
   br i1 %tobool4.not.i, label %fdt_get_alias_namelen.exit.thread46, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true3.i
-  %len.i = getelementptr inbounds i8, ptr %call.i35, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %call.i35, i64 4
   %len.val.i = load i32, ptr %len.i, align 4
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   %cmp7.i = icmp ugt i32 %rev.i.i.i, 7
   br i1 %cmp7.i, label %fdt_get_alias_namelen.exit, label %fdt_get_alias_namelen.exit.thread46
 
 fdt_get_alias_namelen.exit.thread46:              ; preds = %if.end.i36, %land.lhs.true3.i, %land.lhs.true5.i
-  %data11.i = getelementptr inbounds i8, ptr %call.i35, i64 12
+  %data11.i = getelementptr inbounds nuw i8, ptr %call.i35, i64 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i)
   br label %if.end14
 
@@ -815,7 +815,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not.i, label %fdt_getprop_namelen.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end
-  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -843,7 +843,7 @@ land.lhs.true3.i:                                 ; preds = %if.end.i
   br i1 %tobool4.not.i, label %if.end10.i, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true3.i
-  %len.i = getelementptr inbounds i8, ptr %call.i3, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 4
   %len.val.i = load i32, ptr %len.i, align 4
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   %cmp7.i = icmp ugt i32 %rev.i.i.i, 7
@@ -854,7 +854,7 @@ if.then9.i:                                       ; preds = %land.lhs.true5.i
   br label %fdt_getprop_namelen.exit
 
 if.end10.i:                                       ; preds = %land.lhs.true5.i, %land.lhs.true3.i, %if.end.i
-  %data11.i = getelementptr inbounds i8, ptr %call.i3, i64 12
+  %data11.i = getelementptr inbounds nuw i8, ptr %call.i3, i64 12
   br label %fdt_getprop_namelen.exit
 
 fdt_getprop_namelen.exit:                         ; preds = %if.end, %if.then9.i, %if.end10.i
@@ -879,7 +879,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fdt_get_name(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef writeonly %len) local_unnamed_addr #0 {
 entry:
-  %off_dt_struct.i = getelementptr inbounds i8, ptr %fdt, i64 8
+  %off_dt_struct.i = getelementptr inbounds nuw i8, ptr %fdt, i64 8
   %0 = load i8, ptr %off_dt_struct.i, align 1
   %conv.i.i = zext i8 %0 to i64
   %shl.i.i = shl nuw nsw i64 %conv.i.i, 24
@@ -910,8 +910,8 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp3, label %fail, label %if.end
 
 if.end:                                           ; preds = %lor.lhs.false
-  %name = getelementptr inbounds i8, ptr %add.ptr2.i, i64 4
-  %version = getelementptr inbounds i8, ptr %fdt, i64 20
+  %name = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 4
+  %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %4 = load i8, ptr %version, align 1
   %conv.i = zext i8 %4 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1059,7 +1059,7 @@ declare i32 @fdt_check_prop_offset_(ptr noundef, i32 noundef) local_unnamed_addr
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fdt_get_property_by_offset(ptr noundef %fdt, i32 noundef %offset, ptr noundef writeonly %lenp) local_unnamed_addr #0 {
 entry:
-  %version = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1094,7 +1094,7 @@ if.then.i:                                        ; preds = %if.end3
   br i1 %tobool.not.i, label %return, label %return.sink.split
 
 if.end3.i:                                        ; preds = %if.end3
-  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
+  %off_dt_struct.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 8
   %4 = load i8, ptr %off_dt_struct.i.i, align 1
   %conv.i.i.i = zext i8 %4 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
@@ -1119,7 +1119,7 @@ if.end3.i:                                        ; preds = %if.end3
   br i1 %tobool5.not.i, label %return, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %len.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 4
   %len.val.i = load i32, ptr %len.i, align 4
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   br label %return.sink.split
@@ -1138,7 +1138,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fdt_get_property_namelen(ptr noundef %fdt, i32 noundef %offset, ptr nocapture noundef readonly %name, i32 noundef %namelen, ptr noundef %lenp) local_unnamed_addr #0 {
 entry:
-  %version = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1220,7 +1220,7 @@ fdt_first_property_offset.exit:                   ; preds = %do.body.i.i
   br i1 %cmp42, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %fdt_first_property_offset.exit
-  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
+  %off_dt_struct.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 8
   %arrayidx1.i.i.i = getelementptr i8, ptr %fdt, i64 9
   %arrayidx4.i.i.i = getelementptr i8, ptr %fdt, i64 10
   %arrayidx8.i.i.i = getelementptr i8, ptr %fdt, i64 11
@@ -1258,7 +1258,7 @@ if.end3.i:                                        ; preds = %for.body
   br i1 %tobool5.not.i, label %fdt_get_property_by_offset_.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %len.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 4
   %len.val.i = load i32, ptr %len.i, align 4
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   br label %return.sink.split.i
@@ -1275,7 +1275,7 @@ fdt_get_property_by_offset_.exit:                 ; preds = %if.end3.i, %return.
   br i1 %tobool.not, label %for.end, label %if.end
 
 if.end:                                           ; preds = %fdt_get_property_by_offset_.exit
-  %nameoff = getelementptr inbounds i8, ptr %retval.0.i15, i64 8
+  %nameoff = getelementptr inbounds nuw i8, ptr %retval.0.i15, i64 8
   %nameoff.val = load i32, ptr %nameoff, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %nameoff.val)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %slen.i)
@@ -1359,7 +1359,7 @@ return:                                           ; preds = %if.then.i, %for.end
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @fdt_get_property(ptr noundef %fdt, i32 noundef %nodeoffset, ptr nocapture noundef readonly %name, ptr noundef %lenp) local_unnamed_addr #0 {
 entry:
-  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1408,7 +1408,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %version = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version, align 1
   %conv.i = zext i8 %0 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1436,7 +1436,7 @@ land.lhs.true3:                                   ; preds = %if.end
   br i1 %tobool4.not, label %if.end10, label %land.lhs.true5
 
 land.lhs.true5:                                   ; preds = %land.lhs.true3
-  %len = getelementptr inbounds i8, ptr %call, i64 4
+  %len = getelementptr inbounds nuw i8, ptr %call, i64 4
   %len.val = load i32, ptr %len, align 4
   %rev.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val)
   %cmp7 = icmp ugt i32 %rev.i.i, 7
@@ -1447,7 +1447,7 @@ if.then9:                                         ; preds = %land.lhs.true5
   br label %return
 
 if.end10:                                         ; preds = %land.lhs.true5, %land.lhs.true3, %if.end
-  %data11 = getelementptr inbounds i8, ptr %call, i64 12
+  %data11 = getelementptr inbounds nuw i8, ptr %call, i64 12
   br label %return
 
 return:                                           ; preds = %entry, %if.end10, %if.then9
@@ -1468,7 +1468,7 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i, label %return, label %return.sink.split.i
 
 if.end3.i:                                        ; preds = %entry
-  %off_dt_struct.i.i = getelementptr inbounds i8, ptr %fdt, i64 8
+  %off_dt_struct.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 8
   %0 = load i8, ptr %off_dt_struct.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i64
   %shl.i.i.i = shl nuw nsw i64 %conv.i.i.i, 24
@@ -1493,7 +1493,7 @@ if.end3.i:                                        ; preds = %entry
   br i1 %tobool5.not.i, label %fdt_get_property_by_offset_.exit, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.end3.i
-  %len.i = getelementptr inbounds i8, ptr %add.ptr2.i.i, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i.i, i64 4
   %len.val.i = load i32, ptr %len.i, align 4
   %rev.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   br label %return.sink.split.i
@@ -1514,7 +1514,7 @@ if.end:                                           ; preds = %fdt_get_property_by
   br i1 %tobool1.not, label %if.end17, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %nameoff = getelementptr inbounds i8, ptr %retval.0.i, i64 8
+  %nameoff = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 8
   %nameoff.val = load i32, ptr %nameoff, align 4
   %rev.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %nameoff.val)
   %call6 = call ptr @fdt_get_string(ptr noundef %fdt, i32 noundef %rev.i.i, ptr noundef nonnull %namelen)
@@ -1535,7 +1535,7 @@ if.end12:                                         ; preds = %if.then2
   br label %if.end17
 
 if.end17:                                         ; preds = %if.end12, %if.end
-  %version = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %5 = load i8, ptr %version, align 1
   %conv.i = zext i8 %5 to i32
   %shl.i = shl nuw i32 %conv.i, 24
@@ -1560,7 +1560,7 @@ if.end17:                                         ; preds = %if.end12, %if.end
   br i1 %or.cond, label %if.end27, label %land.lhs.true22
 
 land.lhs.true22:                                  ; preds = %if.end17
-  %len = getelementptr inbounds i8, ptr %retval.0.i, i64 4
+  %len = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 4
   %len.val = load i32, ptr %len, align 4
   %rev.i.i15 = call noundef i32 @llvm.bswap.i32(i32 %len.val)
   %cmp24 = icmp ugt i32 %rev.i.i15, 7
@@ -1571,7 +1571,7 @@ if.then26:                                        ; preds = %land.lhs.true22
   br label %return
 
 if.end27:                                         ; preds = %land.lhs.true22, %if.end17
-  %data28 = getelementptr inbounds i8, ptr %retval.0.i, i64 12
+  %data28 = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 12
   br label %return
 
 return:                                           ; preds = %if.then.i, %if.then8, %if.then10, %fdt_get_property_by_offset_.exit, %if.end27, %if.then26
@@ -1591,7 +1591,7 @@ entry:
   br i1 %tobool.not.i, label %fdt_getprop_namelen.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %version.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i, align 1
   %conv.i.i = zext i8 %0 to i32
   %shl.i.i = shl nuw i32 %conv.i.i, 24
@@ -1619,7 +1619,7 @@ land.lhs.true3.i:                                 ; preds = %if.end.i
   br i1 %tobool4.not.i, label %if.end10.i, label %land.lhs.true5.i
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true3.i
-  %len.i = getelementptr inbounds i8, ptr %call.i, i64 4
+  %len.i = getelementptr inbounds nuw i8, ptr %call.i, i64 4
   %len.val.i = load i32, ptr %len.i, align 4
   %rev.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i)
   %cmp7.i = icmp ugt i32 %rev.i.i.i, 7
@@ -1630,7 +1630,7 @@ if.then9.i:                                       ; preds = %land.lhs.true5.i
   br label %fdt_getprop_namelen.exit
 
 if.end10.i:                                       ; preds = %land.lhs.true5.i, %land.lhs.true3.i, %if.end.i
-  %data11.i = getelementptr inbounds i8, ptr %call.i, i64 12
+  %data11.i = getelementptr inbounds nuw i8, ptr %call.i, i64 12
   br label %fdt_getprop_namelen.exit
 
 fdt_getprop_namelen.exit:                         ; preds = %entry, %if.then9.i, %if.end10.i
@@ -1656,7 +1656,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %tobool.not.i.i, label %fdt_getprop_namelen.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -1684,7 +1684,7 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %if.end10.i.i, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i3.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
@@ -1695,7 +1695,7 @@ if.then9.i.i:                                     ; preds = %land.lhs.true5.i.i
   br label %fdt_getprop_namelen.exit.i
 
 if.end10.i.i:                                     ; preds = %land.lhs.true5.i.i, %land.lhs.true3.i.i, %if.end.i.i
-  %data11.i.i = getelementptr inbounds i8, ptr %call.i3.i, i64 12
+  %data11.i.i = getelementptr inbounds nuw i8, ptr %call.i3.i, i64 12
   br label %fdt_getprop_namelen.exit.i
 
 fdt_getprop_namelen.exit.i:                       ; preds = %if.end10.i.i, %if.then9.i.i, %if.end.i
@@ -2094,7 +2094,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp215, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %arrayidx1.i.i.i = getelementptr i8, ptr %fdt, i64 21
   %arrayidx4.i.i.i = getelementptr i8, ptr %fdt, i64 22
   %arrayidx8.i.i.i = getelementptr i8, ptr %fdt, i64 23
@@ -2139,14 +2139,14 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %fdt_getprop.exit.thread11, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread11
 
 fdt_getprop.exit.thread11:                        ; preds = %if.end.i.i, %land.lhs.true3.i.i, %land.lhs.true5.i.i
-  %data11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %data11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i)
   br label %land.lhs.true
 
@@ -2267,7 +2267,7 @@ fdt_getprop.exit.thread:                          ; preds = %entry
   br label %if.then
 
 if.end.i.i:                                       ; preds = %entry
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -2295,14 +2295,14 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %fdt_getprop.exit.thread12, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread12
 
 fdt_getprop.exit.thread12:                        ; preds = %if.end.i.i, %land.lhs.true3.i.i, %land.lhs.true5.i.i
-  %data11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %data11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i)
   br label %if.end
 
@@ -2369,7 +2369,7 @@ fdt_getprop.exit.thread:                          ; preds = %entry
   br label %if.then
 
 if.end.i.i:                                       ; preds = %entry
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -2397,14 +2397,14 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %fdt_getprop.exit.thread14, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread14
 
 fdt_getprop.exit.thread14:                        ; preds = %if.end.i.i, %land.lhs.true3.i.i, %land.lhs.true5.i.i
-  %data11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %data11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i)
   br label %if.end
 
@@ -2479,7 +2479,7 @@ fdt_getprop.exit.thread:                          ; preds = %entry
   br label %if.then
 
 if.end.i.i:                                       ; preds = %entry
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -2507,14 +2507,14 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %fdt_getprop.exit.thread20, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread20
 
 fdt_getprop.exit.thread20:                        ; preds = %if.end.i.i, %land.lhs.true3.i.i, %land.lhs.true5.i.i
-  %data11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %data11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i)
   br label %if.end3
 
@@ -2605,7 +2605,7 @@ fdt_getprop.exit.thread:                          ; preds = %entry
   br label %if.then
 
 if.end.i.i:                                       ; preds = %entry
-  %version.i.i = getelementptr inbounds i8, ptr %fdt, i64 20
+  %version.i.i = getelementptr inbounds nuw i8, ptr %fdt, i64 20
   %0 = load i8, ptr %version.i.i, align 1
   %conv.i.i.i = zext i8 %0 to i32
   %shl.i.i.i = shl nuw i32 %conv.i.i.i, 24
@@ -2633,14 +2633,14 @@ land.lhs.true3.i.i:                               ; preds = %if.end.i.i
   br i1 %tobool4.not.i.i, label %fdt_getprop.exit.thread6, label %land.lhs.true5.i.i
 
 land.lhs.true5.i.i:                               ; preds = %land.lhs.true3.i.i
-  %len.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
+  %len.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 4
   %len.val.i.i = load i32, ptr %len.i.i, align 4
   %rev.i.i.i.i = call noundef i32 @llvm.bswap.i32(i32 %len.val.i.i)
   %cmp7.i.i = icmp ugt i32 %rev.i.i.i.i, 7
   br i1 %cmp7.i.i, label %fdt_getprop.exit, label %fdt_getprop.exit.thread6
 
 fdt_getprop.exit.thread6:                         ; preds = %if.end.i.i, %land.lhs.true3.i.i, %land.lhs.true5.i.i
-  %data11.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
+  %data11.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %poffset.i.i)
   br label %if.end
 

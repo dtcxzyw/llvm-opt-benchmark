@@ -58,7 +58,7 @@ entry:
   %ref.tmp6 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp8 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   call void @_ZN9grpc_core6GetEnvB5cxx11EPKc(ptr nonnull sret(%"class.std::optional") align 8 %base, ptr noundef nonnull @.str)
-  %_M_engaged.i.i = getelementptr inbounds i8, ptr %base, i64 32
+  %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %base, i64 32
   %0 = load i8, ptr %_M_engaged.i.i, align 8
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %invoke.cont9, label %if.then
@@ -109,14 +109,14 @@ invoke.cont9:                                     ; preds = %entry
   %call.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %base) #9
   %4 = extractvalue { i64, ptr } %call.i, 0
   store i64 %4, ptr %ref.tmp3, align 8
-  %5 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %ref.tmp3, i64 8
   %6 = extractvalue { i64, ptr } %call.i, 1
   store ptr %6, ptr %5, align 8
   store i64 1, ptr %ref.tmp6, align 8
-  %7 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   store ptr @.str.4, ptr %7, align 8
   store i64 51, ptr %ref.tmp8, align 8
-  %8 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %ref.tmp8, i64 8
   store ptr @.str.5, ptr %8, align 8
   invoke void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp6, ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp8)
           to label %cleanup unwind label %lpad

@@ -28,7 +28,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   br i1 %15, label %16, label %.critedge.preheader
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds i8, ptr %.0108, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.0108, i64 1
   %18 = icmp ult ptr %17, %6
   br i1 %18, label %19, label %.critedge.preheader
 
@@ -37,7 +37,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   %21 = load ptr, ptr %20, align 8
   %22 = load i8, ptr %17, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds i16, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw i16, ptr %21, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 2048
   %.not = icmp eq i16 %26, 0
@@ -53,7 +53,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   br i1 %27, label %28, label %.critedge3
 
 28:                                               ; preds = %.critedge
-  %29 = getelementptr inbounds i8, ptr %.0103, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.0103, i64 1
   %30 = icmp ult ptr %29, %7
   br i1 %30, label %31, label %.critedge3
 
@@ -62,7 +62,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %29, align 1
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 2048
   %.not62 = icmp eq i16 %38, 0
@@ -79,7 +79,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   %.150 = phi i8 [ %.049, %.critedge3 ], [ %159, %157 ]
   %.1 = phi i8 [ %.048, %.critedge3 ], [ %158, %157 ]
   %42 = zext i8 %.1 to i64
-  %43 = getelementptr inbounds i16, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw i16, ptr %40, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = and i16 %44, 8192
   %.not63152 = icmp eq i16 %45, 0
@@ -90,7 +90,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   %.2.lcssa = phi i8 [ %.1, %41 ], [ %52, %.lr.ph ]
   %.lcssa = phi i16 [ %44, %41 ], [ %55, %.lr.ph ]
   %46 = zext i8 %.150 to i64
-  %47 = getelementptr inbounds i16, ptr %40, i64 %46
+  %47 = getelementptr inbounds nuw i16, ptr %40, i64 %46
   %48 = load i16, ptr %47, align 2
   %49 = zext i16 %48 to i32
   %50 = and i32 %49, 8192
@@ -99,10 +99,10 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 .lr.ph:                                           ; preds = %41, %.lr.ph
   %.2110153 = phi ptr [ %51, %.lr.ph ], [ %.1109, %41 ]
-  %51 = getelementptr inbounds i8, ptr %.2110153, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %.2110153, i64 1
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i64
-  %54 = getelementptr inbounds i16, ptr %40, i64 %53
+  %54 = getelementptr inbounds nuw i16, ptr %40, i64 %53
   %55 = load i16, ptr %54, align 2
   %56 = and i16 %55, 8192
   %.not63 = icmp eq i16 %56, 0
@@ -110,10 +110,10 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 .lr.ph160:                                        ; preds = %.preheader136, %.lr.ph160
   %.2105159 = phi ptr [ %57, %.lr.ph160 ], [ %.1104, %.preheader136 ]
-  %57 = getelementptr inbounds i8, ptr %.2105159, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.2105159, i64 1
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds i16, ptr %40, i64 %59
+  %60 = getelementptr inbounds nuw i16, ptr %40, i64 %59
   %61 = load i16, ptr %60, align 2
   %62 = zext i16 %61 to i32
   %63 = and i32 %62, 8192
@@ -146,7 +146,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 71:                                               ; preds = %.preheader
   %72 = load i8, ptr %.5113, align 1
   %73 = zext i8 %72 to i64
-  %74 = getelementptr inbounds i16, ptr %40, i64 %73
+  %74 = getelementptr inbounds nuw i16, ptr %40, i64 %73
   %75 = load i16, ptr %74, align 2
   %76 = and i16 %75, 2048
   %.not.i = icmp eq i16 %76, 0
@@ -159,7 +159,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 79:                                               ; preds = %77
   %80 = load i8, ptr %.5, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds i16, ptr %40, i64 %81
+  %82 = getelementptr inbounds nuw i16, ptr %40, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = and i16 %83, 2048
   %.not24.i = icmp eq i16 %84, 0
@@ -169,7 +169,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 .thread.i:                                        ; preds = %79
   %.pre.i = load i8, ptr %.5113, align 1
   %.pre39.i = zext i8 %.pre.i to i64
-  %.phi.trans.insert = getelementptr inbounds i16, ptr %40, i64 %.pre39.i
+  %.phi.trans.insert = getelementptr inbounds nuw i16, ptr %40, i64 %.pre39.i
   %.pre = load i16, ptr %.phi.trans.insert, align 2
   %.pre201 = and i16 %.pre, 2048
   %85 = icmp eq i16 %.pre201, 0
@@ -183,7 +183,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 88:                                               ; preds = %.thread.i.thread
   %89 = load i8, ptr %.5, align 1
   %90 = zext i8 %89 to i64
-  %91 = getelementptr inbounds i16, ptr %40, i64 %90
+  %91 = getelementptr inbounds nuw i16, ptr %40, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = and i16 %92, 2048
   %.not26.i = icmp eq i16 %93, 0
@@ -198,8 +198,8 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
   br i1 %97, label %compare_left.exit.thread, label %98
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %.5113, i64 1
-  %100 = getelementptr inbounds i8, ptr %.5, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %.5113, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   br label %.preheader
 
 .split.loop.exit.i:                               ; preds = %79
@@ -217,7 +217,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 102:                                              ; preds = %.preheader133
   %103 = load i8, ptr %.6114, align 1
   %104 = zext i8 %103 to i64
-  %105 = getelementptr inbounds i16, ptr %40, i64 %104
+  %105 = getelementptr inbounds nuw i16, ptr %40, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = and i16 %106, 2048
   %.not.i77 = icmp eq i16 %107, 0
@@ -230,7 +230,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 110:                                              ; preds = %108
   %111 = load i8, ptr %.6, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds i16, ptr %40, i64 %112
+  %113 = getelementptr inbounds nuw i16, ptr %40, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = and i16 %114, 2048
   %.not29.i = icmp eq i16 %115, 0
@@ -245,7 +245,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 .thread.i78:                                      ; preds = %..thread_crit_edge.i81, %102
   %.pre-phi.i79 = phi i64 [ %.pre43.i, %..thread_crit_edge.i81 ], [ %104, %102 ]
   %116 = phi i8 [ %.pre.i82, %..thread_crit_edge.i81 ], [ %103, %102 ]
-  %117 = getelementptr inbounds i16, ptr %40, i64 %.pre-phi.i79
+  %117 = getelementptr inbounds nuw i16, ptr %40, i64 %.pre-phi.i79
   %118 = load i16, ptr %117, align 2
   %119 = and i16 %118, 2048
   %.not30.i = icmp eq i16 %119, 0
@@ -258,7 +258,7 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 122:                                              ; preds = %120
   %123 = load i8, ptr %.6, align 1
   %124 = zext i8 %123 to i64
-  %125 = getelementptr inbounds i16, ptr %40, i64 %124
+  %125 = getelementptr inbounds nuw i16, ptr %40, i64 %124
   %126 = load i16, ptr %125, align 2
   %127 = and i16 %126, 2048
   %.not31.i = icmp eq i16 %127, 0
@@ -283,8 +283,8 @@ define i32 @strnatcmp_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef re
 
 134:                                              ; preds = %133, %131, %130
   %.1.i = phi i32 [ %spec.store.select.i, %130 ], [ %spec.store.select1.i, %133 ], [ %.0.i76, %131 ]
-  %135 = getelementptr inbounds i8, ptr %.6114, i64 1
-  %136 = getelementptr inbounds i8, ptr %.6, i64 1
+  %135 = getelementptr inbounds nuw i8, ptr %.6114, i64 1
+  %136 = getelementptr inbounds nuw i8, ptr %.6, i64 1
   br label %.preheader133
 
 .split.loop.exit.i83:                             ; preds = %110
@@ -337,8 +337,8 @@ compare_left.exit.thread119:                      ; preds = %77, %compare_left.e
   br i1 %153, label %compare_left.exit.thread, label %154
 
 154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %.3111, i64 1
-  %156 = getelementptr inbounds i8, ptr %.3106, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %.3111, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %.3106, i64 1
   %.not68 = icmp uge ptr %155, %6
   %.not69 = icmp uge ptr %156, %7
   %brmerge129 = select i1 %.not68, i1 true, i1 %.not69

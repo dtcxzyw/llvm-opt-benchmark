@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h01be798b0bea9a40E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 52
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %4 = load i32, ptr %3, align 4, !noundef !4
   %5 = and i32 %4, 16
   %6 = icmp eq i32 %5, 0
@@ -56,7 +56,7 @@ define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN64_$LT$alloc..ffi..c_str..NulError$u20$as$u20$core..fmt..Debug$GT$3fmt17heb83bd9fc9ab8a99E"(ptr noalias noundef readonly align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca [8 x i8], align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %0, ptr %3, align 8
   %5 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17h4874cc7a3089bec1E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.232216470bd1d4c6aa51cabc183ca156.2, i64 noundef 8, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.3, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.232216470bd1d4c6aa51cabc183ca156.4)
@@ -101,9 +101,9 @@ common.resume:                                    ; preds = %16, %19, %6
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h1901a67b92b931bbE.exit": ; preds = %0
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !5, !nonnull !4, !align !9, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !5, !noundef !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2)
   %15 = invoke noundef ptr @PyCapsule_Import(ptr noundef nonnull %12, i32 noundef 1)
@@ -137,7 +137,7 @@ common.resume:                                    ; preds = %16, %19, %6
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @_ZN8pyo3_ffi8datetime21PyTimeZone_FromOffset17hf030b13a11911294E(ptr noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @_ZN8pyo3_ffi8datetime18PyDateTimeAPI_impl17hab7e42c407a85f3aE, align 8, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %2, i64 80
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = tail call noundef ptr %4(ptr noundef %0, ptr noundef null)
   ret ptr %5
@@ -146,7 +146,7 @@ define noundef ptr @_ZN8pyo3_ffi8datetime21PyTimeZone_FromOffset17hf030b13a11911
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @_ZN8pyo3_ffi8datetime28PyTimeZone_FromOffsetAndName17hd1b5a6e106e310e7E(ptr noundef %0, ptr noundef %1) unnamed_addr #2 {
   %3 = load ptr, ptr @_ZN8pyo3_ffi8datetime18PyDateTimeAPI_impl17hab7e42c407a85f3aE, align 8, !noundef !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = tail call noundef ptr %5(ptr noundef %0, ptr noundef %1)
   ret ptr %6
@@ -155,9 +155,9 @@ define noundef ptr @_ZN8pyo3_ffi8datetime28PyTimeZone_FromOffsetAndName17hd1b5a6
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @_ZN8pyo3_ffi8datetime24PyDateTime_FromTimestamp17h1d0d091dbae611e8E(ptr noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @_ZN8pyo3_ffi8datetime18PyDateTimeAPI_impl17hab7e42c407a85f3aE, align 8, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %2, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !4
   %7 = tail call noundef ptr %4(ptr noundef %6, ptr noundef %0, ptr noundef null)
   ret ptr %7
@@ -166,7 +166,7 @@ define noundef ptr @_ZN8pyo3_ffi8datetime24PyDateTime_FromTimestamp17h1d0d091dba
 ; Function Attrs: nonlazybind uwtable
 define noundef ptr @_ZN8pyo3_ffi8datetime20PyDate_FromTimestamp17h3cd3d897df42887cE(ptr noundef %0) unnamed_addr #2 {
   %2 = load ptr, ptr @_ZN8pyo3_ffi8datetime18PyDateTimeAPI_impl17hab7e42c407a85f3aE, align 8, !noundef !4
-  %3 = getelementptr inbounds i8, ptr %2, i64 96
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = load ptr, ptr %2, align 8, !noundef !4
   %6 = tail call noundef ptr %4(ptr noundef %5, ptr noundef %0)

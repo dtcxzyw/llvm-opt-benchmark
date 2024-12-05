@@ -23,7 +23,7 @@ define dso_local void @HeapTupleSetHintBits(ptr nocapture noundef %0, i32 nounde
   br i1 %12, label %SetHintBits.exit, label %13
 
 13:                                               ; preds = %10, %8, %5, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i16, ptr %14, align 4
   %16 = or i16 %15, %2
   store i16 %16, ptr %14, align 4
@@ -54,7 +54,7 @@ define internal fastcc void @SetHintBits(ptr nocapture noundef %0, i32 noundef %
   br i1 %12, label %17, label %13
 
 13:                                               ; preds = %5, %8, %10, %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %15 = load i16, ptr %14, align 4
   %16 = or i16 %15, %2
   store i16 %16, ptr %14, align 4
@@ -67,9 +67,9 @@ define internal fastcc void @SetHintBits(ptr nocapture noundef %0, i32 noundef %
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = and i32 %8, 256
@@ -87,7 +87,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %.not99, label %27, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %16) #3
   br i1 %17, label %181, label %18
@@ -118,7 +118,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %.not100, label %41, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %30) #3
   br i1 %31, label %93, label %32
@@ -170,7 +170,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %or.cond, label %54, label %62
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %5, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %56 = load i32, ptr %55, align 4
   %57 = and i16 %47, 4096
   %.not107 = icmp eq i16 %57, 0
@@ -197,7 +197,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %66, label %71, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds i8, ptr %5, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %69 = load i32, ptr %68, align 4
   %70 = tail call zeroext i1 @MultiXactIdIsRunning(i32 noundef %69, i1 noundef zeroext false) #3
   %.121 = select i1 %70, i32 5, i32 0
@@ -210,7 +210,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br label %181
 
 73:                                               ; preds = %62
-  %74 = getelementptr inbounds i8, ptr %5, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %75 = load i32, ptr %74, align 4
   %76 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %75) #3
   br i1 %76, label %80, label %77
@@ -271,8 +271,8 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %or.cond125, label %181, label %103
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds i8, ptr %0, i64 4
-  %105 = getelementptr inbounds i8, ptr %5, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %106 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %104, ptr noundef nonnull %105) #3
   %.126 = select i1 %106, i32 4, i32 3
   br label %181
@@ -296,7 +296,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %or.cond130, label %115, label %122
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds i8, ptr %5, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = tail call zeroext i1 @MultiXactIdIsRunning(i32 noundef %117, i1 noundef zeroext true) #3
   br i1 %118, label %181, label %119
@@ -314,7 +314,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %.not116, label %124, label %128
 
 124:                                              ; preds = %122
-  %125 = getelementptr inbounds i8, ptr %5, i64 4
+  %125 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %126 = load i32, ptr %125, align 4
   %127 = tail call zeroext i1 @MultiXactIdIsRunning(i32 noundef %126, i1 noundef zeroext false) #3
   br i1 %127, label %181, label %128
@@ -330,7 +330,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br label %181
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds i8, ptr %5, i64 4
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %134 = load i32, ptr %133, align 4
   %135 = tail call zeroext i1 @MultiXactIdIsRunning(i32 noundef %134, i1 noundef zeroext false) #3
   br i1 %135, label %181, label %136
@@ -340,8 +340,8 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %0, i64 4
-  %140 = getelementptr inbounds i8, ptr %5, i64 12
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %141 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %139, ptr noundef nonnull %140) #3
   %.132 = select i1 %141, i32 4, i32 3
   br label %181
@@ -359,7 +359,7 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
   br label %181
 
 148:                                              ; preds = %107
-  %149 = getelementptr inbounds i8, ptr %5, i64 4
+  %149 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %150 = load i32, ptr %149, align 4
   %151 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %150) #3
   br i1 %151, label %152, label %160
@@ -415,8 +415,8 @@ define dso_local range(i32 0, 6) i32 @HeapTupleSatisfiesUpdate(ptr noundef %0, i
 176:                                              ; preds = %169
   %177 = load i32, ptr %149, align 4
   tail call fastcc void @SetHintBits(ptr noundef nonnull %5, i32 noundef %2, i16 noundef zeroext 1024, i32 noundef %177)
-  %178 = getelementptr inbounds i8, ptr %0, i64 4
-  %179 = getelementptr inbounds i8, ptr %5, i64 12
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %180 = tail call zeroext i1 @ItemPointerEquals(ptr noundef nonnull %178, ptr noundef nonnull %179) #3
   %.138 = select i1 %180, i32 4, i32 3
   br label %181
@@ -463,10 +463,10 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuum(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   store i32 0, ptr %2, align 4
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
   %9 = and i32 %8, 256
@@ -484,7 +484,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br i1 %.not75, label %27, label %14
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i32, ptr %15, align 4
   %17 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %16) #3
   br i1 %17, label %136, label %18
@@ -515,7 +515,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br i1 %.not76, label %41, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load i32, ptr %29, align 4
   %31 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %30) #3
   br i1 %31, label %136, label %32
@@ -576,7 +576,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br label %62
 
 59:                                               ; preds = %54
-  %60 = getelementptr inbounds i8, ptr %5, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %61 = load i32, ptr %60, align 4
   br label %62
 
@@ -639,7 +639,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br i1 %or.cond95, label %94, label %90
 
 90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %5, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %92 = load i32, ptr %91, align 4
   %93 = tail call zeroext i1 @MultiXactIdIsRunning(i32 noundef %92, i1 noundef zeroext true) #3
   br i1 %93, label %136, label %._crit_edge
@@ -656,7 +656,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br label %136
 
 97:                                               ; preds = %86
-  %98 = getelementptr inbounds i8, ptr %5, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %99) #3
   br i1 %100, label %136, label %101
@@ -687,7 +687,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br label %136
 
 112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %5, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %114 = load i32, ptr %113, align 4
   %115 = tail call zeroext i1 @MultiXactIdIsRunning(i32 noundef %114, i1 noundef zeroext false) #3
   br i1 %115, label %136, label %116
@@ -705,7 +705,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br i1 %.not85, label %121, label %133
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %5, i64 4
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %123 = load i32, ptr %122, align 4
   %124 = tail call zeroext i1 @TransactionIdIsInProgress(i32 noundef %123) #3
   br i1 %124, label %136, label %125
@@ -728,7 +728,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapt
   br label %136
 
 133:                                              ; preds = %128, %119
-  %134 = getelementptr inbounds i8, ptr %5, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %135 = load i32, ptr %134, align 4
   store i32 %135, ptr %2, align 4
   br label %136
@@ -742,7 +742,7 @@ declare zeroext i1 @TransactionIdPrecedes(i32 noundef, i32 noundef) local_unname
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
   %5 = and i32 %4, 2176
@@ -750,7 +750,7 @@ define dso_local zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef %0) local_u
   br i1 %or.cond, label %6, label %18
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
   %.not9 = icmp eq i32 %8, 0
   br i1 %.not9, label %18, label %9
@@ -781,9 +781,9 @@ define dso_local zeroext i1 @HeapTupleHeaderIsOnlyLocked(ptr noundef %0) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @HeapTupleIsSurelyDead(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
   %6 = load i16, ptr %5, align 4
   %7 = zext i16 %6 to i32
   %8 = and i32 %7, 256
@@ -809,7 +809,7 @@ define dso_local zeroext i1 @HeapTupleIsSurelyDead(ptr nocapture noundef readonl
   br i1 %or.cond17, label %23, label %19
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %4, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %1, i32 noundef %21) #3
   br label %23
@@ -846,7 +846,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 14:                                               ; preds = %3
   %15 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %.val, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %17 = load i16, ptr %16, align 4
   %18 = zext i16 %17 to i32
   %19 = and i32 %18, 256
@@ -864,7 +864,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not78.i, label %37, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds i8, ptr %.val, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %26 = load i32, ptr %25, align 4
   %27 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %26) #3
   br i1 %27, label %HeapTupleSatisfiesMVCC.exit, label %28
@@ -895,7 +895,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not79.i, label %51, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %.val, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %40 = load i32, ptr %39, align 4
   %41 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %40) #3
   br i1 %41, label %101, label %42
@@ -928,7 +928,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 54:                                               ; preds = %51
   %55 = tail call i32 @HeapTupleHeaderGetCmin(ptr noundef nonnull %.val) #3
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %57 = load i32, ptr %56, align 8
   %.not80.i = icmp ult i32 %55, %57
   br i1 %.not80.i, label %58, label %HeapTupleSatisfiesMVCC.exit
@@ -965,7 +965,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br label %HeapTupleSatisfiesMVCC.exit
 
 74:                                               ; preds = %66
-  %75 = getelementptr inbounds i8, ptr %.val, i64 4
+  %75 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %76 = load i32, ptr %75, align 4
   %77 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %76) #3
   br i1 %77, label %81, label %78
@@ -1042,7 +1042,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 114:                                              ; preds = %111
   %115 = tail call i32 @HeapTupleHeaderGetCmax(ptr noundef nonnull %.val) #3
-  %116 = getelementptr inbounds i8, ptr %1, i64 48
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %117 = load i32, ptr %116, align 8
   %.not91.i = icmp uge i32 %115, %117
   br label %HeapTupleSatisfiesMVCC.exit
@@ -1059,7 +1059,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 122:                                              ; preds = %109
   %123 = and i32 %103, 1024
   %.not89.i = icmp eq i32 %123, 0
-  %124 = getelementptr inbounds i8, ptr %.val, i64 4
+  %124 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %125 = load i32, ptr %124, align 4
   br i1 %.not89.i, label %126, label %143
 
@@ -1069,7 +1069,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 128:                                              ; preds = %126
   %129 = tail call i32 @HeapTupleHeaderGetCmax(ptr noundef nonnull %.val) #3
-  %130 = getelementptr inbounds i8, ptr %1, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %131 = load i32, ptr %130, align 8
   %.not90.i = icmp uge i32 %129, %131
   br label %HeapTupleSatisfiesMVCC.exit
@@ -1106,7 +1106,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 146:                                              ; preds = %3
   %147 = getelementptr i8, ptr %0, i64 16
   %.val22 = load ptr, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %.val22, i64 20
+  %148 = getelementptr inbounds nuw i8, ptr %.val22, i64 20
   %149 = load i16, ptr %148, align 4
   %150 = zext i16 %149 to i32
   %151 = and i32 %150, 256
@@ -1124,7 +1124,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not66.i, label %169, label %156
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds i8, ptr %.val22, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %.val22, i64 8
   %158 = load i32, ptr %157, align 4
   %159 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %158) #3
   br i1 %159, label %HeapTupleSatisfiesMVCC.exit, label %160
@@ -1155,7 +1155,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not67.i, label %183, label %170
 
 170:                                              ; preds = %169
-  %171 = getelementptr inbounds i8, ptr %.val22, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.val22, i64 8
   %172 = load i32, ptr %171, align 4
   %173 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %172) #3
   br i1 %173, label %217, label %174
@@ -1213,7 +1213,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br label %HeapTupleSatisfiesMVCC.exit
 
 199:                                              ; preds = %194
-  %200 = getelementptr inbounds i8, ptr %.val22, i64 4
+  %200 = getelementptr inbounds nuw i8, ptr %.val22, i64 4
   %201 = load i32, ptr %200, align 4
   %202 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %201) #3
   br i1 %202, label %HeapTupleSatisfiesMVCC.exit, label %203
@@ -1295,7 +1295,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br label %HeapTupleSatisfiesMVCC.exit
 
 240:                                              ; preds = %227
-  %241 = getelementptr inbounds i8, ptr %.val22, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %.val22, i64 4
   %242 = load i32, ptr %241, align 4
   %243 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %242) #3
   br i1 %243, label %244, label %250
@@ -1353,7 +1353,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 269:                                              ; preds = %3
   %270 = getelementptr i8, ptr %0, i64 16
   %.val23 = load ptr, ptr %270, align 8
-  %271 = getelementptr inbounds i8, ptr %.val23, i64 20
+  %271 = getelementptr inbounds nuw i8, ptr %.val23, i64 20
   %272 = load i16, ptr %271, align 4
   %273 = zext i16 %272 to i32
   %274 = and i32 %273, 256
@@ -1371,7 +1371,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not27.i, label %290, label %279
 
 279:                                              ; preds = %277
-  %280 = getelementptr inbounds i8, ptr %.val23, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
   %281 = load i32, ptr %280, align 4
   %282 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %281) #3
   br i1 %282, label %HeapTupleSatisfiesMVCC.exit, label %283
@@ -1396,7 +1396,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not28.i, label %302, label %291
 
 291:                                              ; preds = %290
-  %292 = getelementptr inbounds i8, ptr %.val23, i64 8
+  %292 = getelementptr inbounds nuw i8, ptr %.val23, i64 8
   %293 = load i32, ptr %292, align 4
   %294 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %293) #3
   br i1 %294, label %306, label %295
@@ -1434,13 +1434,13 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 307:                                              ; preds = %3
   %308 = getelementptr i8, ptr %0, i64 16
   %.val24 = load ptr, ptr %308, align 8
-  %309 = getelementptr inbounds i8, ptr %1, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %309, align 8
-  %310 = getelementptr inbounds i8, ptr %1, i64 4
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %310, align 4
-  %311 = getelementptr inbounds i8, ptr %1, i64 52
+  %311 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i32 0, ptr %311, align 4
-  %312 = getelementptr inbounds i8, ptr %.val24, i64 20
+  %312 = getelementptr inbounds nuw i8, ptr %.val24, i64 20
   %313 = load i16, ptr %312, align 4
   %314 = zext i16 %313 to i32
   %315 = and i32 %314, 256
@@ -1458,7 +1458,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not80.i44, label %333, label %320
 
 320:                                              ; preds = %318
-  %321 = getelementptr inbounds i8, ptr %.val24, i64 8
+  %321 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
   %322 = load i32, ptr %321, align 4
   %323 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %322) #3
   br i1 %323, label %HeapTupleSatisfiesMVCC.exit, label %324
@@ -1489,7 +1489,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %.not81.i45, label %347, label %334
 
 334:                                              ; preds = %333
-  %335 = getelementptr inbounds i8, ptr %.val24, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %.val24, i64 8
   %336 = load i32, ptr %335, align 4
   %337 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %336) #3
   br i1 %337, label %393, label %338
@@ -1547,7 +1547,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br label %HeapTupleSatisfiesMVCC.exit
 
 363:                                              ; preds = %358
-  %364 = getelementptr inbounds i8, ptr %.val24, i64 4
+  %364 = getelementptr inbounds nuw i8, ptr %.val24, i64 4
   %365 = load i32, ptr %364, align 4
   %366 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %365) #3
   br i1 %366, label %HeapTupleSatisfiesMVCC.exit, label %367
@@ -1571,7 +1571,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br i1 %375, label %376, label %383
 
 376:                                              ; preds = %373
-  %377 = getelementptr inbounds i8, ptr %.val24, i64 12
+  %377 = getelementptr inbounds nuw i8, ptr %.val24, i64 12
   %.val106.i = load i16, ptr %377, align 2
   %378 = getelementptr i8, ptr %.val24, i64 14
   %.val107.i = load i16, ptr %378, align 2
@@ -1656,7 +1656,7 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   br label %HeapTupleSatisfiesMVCC.exit
 
 417:                                              ; preds = %403
-  %418 = getelementptr inbounds i8, ptr %.val24, i64 4
+  %418 = getelementptr inbounds nuw i8, ptr %.val24, i64 4
   %419 = load i32, ptr %418, align 4
   %420 = tail call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %419) #3
   br i1 %420, label %421, label %427
@@ -1728,9 +1728,9 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12)
-  %454 = getelementptr inbounds i8, ptr %0, i64 16
+  %454 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %455, i64 20
+  %456 = getelementptr inbounds nuw i8, ptr %455, i64 20
   %457 = load i16, ptr %456, align 4
   %458 = and i16 %457, 768
   %459 = icmp eq i16 %458, 768
@@ -1743,11 +1743,11 @@ define dso_local zeroext i1 @HeapTupleSatisfiesVisibility(ptr noundef %0, ptr no
 
 .thread.i:                                        ; preds = %460, %453
   %463 = phi i32 [ %461, %460 ], [ 2, %453 ]
-  %.in.i = getelementptr inbounds i8, ptr %455, i64 4
+  %.in.i = getelementptr inbounds nuw i8, ptr %455, i64 4
   %464 = load i32, ptr %.in.i, align 4
-  %465 = getelementptr inbounds i8, ptr %1, i64 32
+  %465 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %466 = load ptr, ptr %465, align 8
-  %467 = getelementptr inbounds i8, ptr %1, i64 40
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %468 = load i32, ptr %467, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   store i32 %463, ptr %8, align 4
@@ -1766,7 +1766,7 @@ TransactionIdInArray.exit.i:                      ; preds = %.thread.i
   br i1 %.not65.i51, label %480, label %471
 
 471:                                              ; preds = %TransactionIdInArray.exit.i
-  %472 = getelementptr inbounds i8, ptr %455, i64 8
+  %472 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %473 = load i32, ptr %472, align 4
   store i32 %473, ptr %9, align 4
   store i32 -1, ptr %10, align 4
@@ -1776,13 +1776,13 @@ TransactionIdInArray.exit.i:                      ; preds = %.thread.i
 
 476:                                              ; preds = %471
   %477 = load i32, ptr %9, align 4
-  %478 = getelementptr inbounds i8, ptr %1, i64 48
+  %478 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %479 = load i32, ptr %478, align 8
   %.not50.i = icmp ult i32 %477, %479
   br i1 %.not50.i, label %500, label %HeapTupleSatisfiesHistoricMVCC.exit
 
 480:                                              ; preds = %TransactionIdInArray.exit.i, %TransactionIdInArray.exit.thread.i
-  %481 = getelementptr inbounds i8, ptr %1, i64 4
+  %481 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %482 = load i32, ptr %481, align 4
   %483 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %463, i32 noundef %482) #3
   br i1 %483, label %484, label %489
@@ -1798,15 +1798,15 @@ TransactionIdInArray.exit.i:                      ; preds = %.thread.i
   br i1 %488, label %500, label %HeapTupleSatisfiesHistoricMVCC.exit
 
 489:                                              ; preds = %480
-  %490 = getelementptr inbounds i8, ptr %1, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %491 = load i32, ptr %490, align 8
   %492 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %463, i32 noundef %491) #3
   br i1 %492, label %HeapTupleSatisfiesHistoricMVCC.exit, label %493
 
 493:                                              ; preds = %489
-  %494 = getelementptr inbounds i8, ptr %1, i64 16
+  %494 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %1, i64 24
+  %496 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %497 = load i32, ptr %496, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %463, ptr %7, align 4
@@ -1869,7 +1869,7 @@ TransactionIdInArray.exit61.i:                    ; preds = %512
   br i1 %.not67.i54, label %527, label %517
 
 517:                                              ; preds = %TransactionIdInArray.exit61.i
-  %518 = getelementptr inbounds i8, ptr %455, i64 8
+  %518 = getelementptr inbounds nuw i8, ptr %455, i64 8
   %519 = load i32, ptr %518, align 4
   store i32 %519, ptr %12, align 4
   %520 = call ptr @HistoricSnapshotGetTupleCids() #3
@@ -1880,13 +1880,13 @@ TransactionIdInArray.exit61.i:                    ; preds = %512
   br i1 %or.cond.not.i, label %524, label %HeapTupleSatisfiesHistoricMVCC.exit
 
 524:                                              ; preds = %517
-  %525 = getelementptr inbounds i8, ptr %1, i64 48
+  %525 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %526 = load i32, ptr %525, align 8
   %.not.i55 = icmp uge i32 %522, %526
   br label %HeapTupleSatisfiesHistoricMVCC.exit
 
 527:                                              ; preds = %TransactionIdInArray.exit61.i, %TransactionIdInArray.exit61.thread.i
-  %528 = getelementptr inbounds i8, ptr %1, i64 4
+  %528 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %529 = load i32, ptr %528, align 4
   %530 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %.047.i, i32 noundef %529) #3
   br i1 %530, label %531, label %537
@@ -1903,15 +1903,15 @@ TransactionIdInArray.exit61.i:                    ; preds = %512
   br label %HeapTupleSatisfiesHistoricMVCC.exit
 
 537:                                              ; preds = %527
-  %538 = getelementptr inbounds i8, ptr %1, i64 8
+  %538 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %539 = load i32, ptr %538, align 8
   %540 = call zeroext i1 @TransactionIdFollowsOrEquals(i32 noundef %.047.i, i32 noundef %539) #3
   br i1 %540, label %HeapTupleSatisfiesHistoricMVCC.exit, label %541
 
 541:                                              ; preds = %537
-  %542 = getelementptr inbounds i8, ptr %1, i64 16
+  %542 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %1, i64 24
+  %544 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %545 = load i32, ptr %544, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %.047.i, ptr %5, align 4
@@ -1946,7 +1946,7 @@ HeapTupleSatisfiesHistoricMVCC.exit:              ; preds = %460, %471, %476, %4
   br i1 %550, label %551, label %HeapTupleSatisfiesNonVacuumable.exit
 
 551:                                              ; preds = %548
-  %552 = getelementptr inbounds i8, ptr %1, i64 56
+  %552 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %553 = load ptr, ptr %552, align 8
   %554 = load i32, ptr %4, align 4
   %555 = tail call zeroext i1 @GlobalVisTestIsRemovableXid(ptr noundef %553, i32 noundef %554) #3

@@ -579,9 +579,9 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr nocapture noundef %1,
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds [19 x i32], ptr @tx_size_wide, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %7
   %9 = load i32, ptr %8, align 4
-  %10 = getelementptr inbounds [19 x i32], ptr @tx_size_high, i64 0, i64 %7
+  %10 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %7
   %11 = load i32, ptr %10, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %12 = sext i32 %2 to i64
@@ -603,7 +603,7 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr nocapture noundef %1,
   %16 = load i8, ptr %gep, align 1
   %17 = zext i8 %16 to i16
   %18 = add nuw nsw i64 %indvars.iv, %14
-  %19 = getelementptr inbounds [4096 x i16], ptr %4, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [4096 x i16], ptr %4, i64 0, i64 %18
   store i16 %17, ptr %19, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -636,7 +636,7 @@ define hidden void @av1_inv_txfm_add_c(ptr noundef %0, ptr nocapture noundef %1,
 26:                                               ; preds = %.preheader.us, %26
   %indvars.iv52 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next53, %26 ]
   %27 = add nuw nsw i64 %indvars.iv52, %24
-  %28 = getelementptr inbounds [4096 x i16], ptr %4, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [4096 x i16], ptr %4, i64 0, i64 %27
   %29 = load i16, ptr %28, align 2
   %30 = trunc i16 %29 to i8
   %gep65 = getelementptr i8, ptr %invariant.gep64, i64 %indvars.iv52
@@ -675,7 +675,7 @@ define hidden void @av1_inverse_transform_block(ptr nocapture noundef readonly %
   %20 = load i16, ptr %19, align 1
   %21 = and i16 %20, 7
   %22 = zext nneg i16 %21 to i64
-  %23 = getelementptr inbounds [8 x i32], ptr %15, i64 0, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 4
   store i32 %24, ptr %25, align 4
@@ -732,7 +732,7 @@ is_inter_block.exit.i:                            ; preds = %34, %12
   %51 = zext nneg i32 %39 to i64
   %52 = lshr i64 394756, %40
   %53 = and i64 %52, 1
-  %54 = getelementptr inbounds [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %51, i64 %53
+  %54 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %51, i64 %53
   %55 = load i8, ptr %54, align 1
   br label %init_txfm_param.exit
 
@@ -749,9 +749,9 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
 
 58:                                               ; preds = %init_txfm_param.exit
   call void @llvm.lifetime.start.p0(i64 8192, ptr nonnull %10)
-  %59 = getelementptr inbounds [19 x i32], ptr @tx_size_wide, i64 0, i64 %40
+  %59 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_wide, i64 0, i64 %40
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds [19 x i32], ptr @tx_size_high, i64 0, i64 %40
+  %61 = getelementptr inbounds nuw [19 x i32], ptr @tx_size_high, i64 0, i64 %40
   %62 = load i32, ptr %61, align 4
   %smax.i = tail call i32 @llvm.smax.i32(i32 %60, i32 1)
   %63 = sext i32 %6 to i64
@@ -773,7 +773,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
   %67 = load i8, ptr %gep.i, align 1
   %68 = zext i8 %67 to i16
   %69 = add nuw nsw i64 %indvars.iv.i, %65
-  %70 = getelementptr inbounds [4096 x i16], ptr %10, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [4096 x i16], ptr %10, i64 0, i64 %69
   store i16 %68, ptr %70, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -801,7 +801,7 @@ init_txfm_param.exit:                             ; preds = %is_inter_block.exit
 76:                                               ; preds = %76, %.preheader.us.i
   %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next53.i, %76 ]
   %77 = add nuw nsw i64 %indvars.iv52.i, %74
-  %78 = getelementptr inbounds [4096 x i16], ptr %10, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [4096 x i16], ptr %10, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2
   %80 = trunc i16 %79 to i8
   %gep65.i = getelementptr i8, ptr %invariant.gep64.i, i64 %indvars.iv52.i

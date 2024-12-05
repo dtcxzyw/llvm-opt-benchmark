@@ -2032,10 +2032,10 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   %spec.select = select i1 %.not, i32 1, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %15, i8 0, i64 72, i1 false)
   store i32 -1, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   tail call void @col_set_str(ptr noundef %20, i32 noundef 34, ptr noundef nonnull @.str.1236) #9
   %21 = load ptr, ptr %19, align 8
@@ -2075,7 +2075,7 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %1830
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %46 = load ptr, ptr %45, align 8
   %47 = zext i16 %23 to i64
   %48 = tail call ptr @tvb_memdup(ptr noundef %46, ptr noundef %0, i32 noundef 0, i64 noundef %47) #9
@@ -2091,12 +2091,12 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
   br label %1761
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds i8, ptr %14, i64 56
+  %53 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store ptr @dissect_radiotap.overrides, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %14, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store i32 %spec.select, ptr %54, align 8
   %55 = getelementptr i8, ptr %48, i64 4
-  %56 = getelementptr inbounds i8, ptr %14, i64 48
+  %56 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %57 = load ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = ptrtoint ptr %55 to i64
@@ -2118,64 +2118,64 @@ define internal i32 @dissect_radiotap(ptr noundef %0, ptr noundef %1, ptr nounde
 .preheader:                                       ; preds = %212, %52
   %.1749.lcssa = phi ptr [ %.0748, %52 ], [ %.2750915, %212 ]
   %68 = ptrtoint ptr %48 to i64
-  %69 = getelementptr inbounds i8, ptr %14, i64 68
-  %70 = getelementptr inbounds i8, ptr %14, i64 80
-  %71 = getelementptr inbounds i8, ptr %14, i64 72
-  %72 = getelementptr inbounds i8, ptr %14, i64 76
-  %73 = getelementptr inbounds i8, ptr %15, i64 28
-  %74 = getelementptr inbounds i8, ptr %15, i64 64
-  %75 = getelementptr inbounds i8, ptr %6, i64 8
-  %76 = getelementptr inbounds i8, ptr %6, i64 24
-  %77 = getelementptr inbounds i8, ptr %6, i64 32
-  %78 = getelementptr inbounds i8, ptr %6, i64 40
-  %79 = getelementptr inbounds i8, ptr %6, i64 48
-  %80 = getelementptr inbounds i8, ptr %6, i64 64
-  %81 = getelementptr inbounds i8, ptr %6, i64 88
-  %82 = getelementptr inbounds i8, ptr %6, i64 72
-  %83 = getelementptr inbounds i8, ptr %7, i64 16
-  %84 = getelementptr inbounds i8, ptr %7, i64 24
-  %85 = getelementptr inbounds i8, ptr %7, i64 32
-  %86 = getelementptr inbounds i8, ptr %7, i64 48
-  %87 = getelementptr inbounds i8, ptr %15, i64 12
-  %88 = getelementptr inbounds i8, ptr %8, i64 8
-  %89 = getelementptr inbounds i8, ptr %8, i64 16
-  %90 = getelementptr inbounds i8, ptr %8, i64 24
-  %91 = getelementptr inbounds i8, ptr %8, i64 32
-  %92 = getelementptr inbounds i8, ptr %8, i64 40
-  %93 = getelementptr inbounds i8, ptr %8, i64 48
-  %94 = getelementptr inbounds i8, ptr %8, i64 56
-  %95 = getelementptr inbounds i8, ptr %15, i64 13
-  %96 = getelementptr inbounds i8, ptr %9, i64 8
-  %97 = getelementptr inbounds i8, ptr %9, i64 16
-  %98 = getelementptr inbounds i8, ptr %9, i64 24
-  %99 = getelementptr inbounds i8, ptr %12, i64 8
-  %100 = getelementptr inbounds i8, ptr %12, i64 16
-  %101 = getelementptr inbounds i8, ptr %12, i64 24
-  %102 = getelementptr inbounds i8, ptr %12, i64 40
-  %103 = getelementptr inbounds i8, ptr %12, i64 48
-  %104 = getelementptr inbounds i8, ptr %12, i64 56
-  %105 = getelementptr inbounds i8, ptr %13, i64 8
-  %106 = getelementptr inbounds i8, ptr %13, i64 24
-  %107 = getelementptr inbounds i8, ptr %13, i64 32
-  %108 = getelementptr inbounds i8, ptr %15, i64 14
-  %109 = getelementptr inbounds i8, ptr %15, i64 23
-  %110 = getelementptr inbounds i8, ptr %15, i64 15
-  %111 = getelementptr inbounds i8, ptr %15, i64 19
-  %112 = getelementptr inbounds i8, ptr %15, i64 24
-  %113 = getelementptr inbounds i8, ptr %15, i64 26
-  %114 = getelementptr inbounds i8, ptr %15, i64 56
-  %115 = getelementptr inbounds i8, ptr %15, i64 60
-  %116 = getelementptr inbounds i8, ptr %15, i64 16
-  %117 = getelementptr inbounds i8, ptr %15, i64 20
-  %118 = getelementptr inbounds i8, ptr %15, i64 32
-  %119 = getelementptr inbounds i8, ptr %15, i64 30
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 68
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %72 = getelementptr inbounds nuw i8, ptr %14, i64 76
+  %73 = getelementptr inbounds nuw i8, ptr %15, i64 28
+  %74 = getelementptr inbounds nuw i8, ptr %15, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %80 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %81 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  %88 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %90 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %95 = getelementptr inbounds nuw i8, ptr %15, i64 13
+  %96 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %99 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %105 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %15, i64 14
+  %109 = getelementptr inbounds nuw i8, ptr %15, i64 23
+  %110 = getelementptr inbounds nuw i8, ptr %15, i64 15
+  %111 = getelementptr inbounds nuw i8, ptr %15, i64 19
+  %112 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %113 = getelementptr inbounds nuw i8, ptr %15, i64 26
+  %114 = getelementptr inbounds nuw i8, ptr %15, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %15, i64 60
+  %116 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %15, i64 20
+  %118 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %15, i64 30
   %.not46.i = icmp eq ptr %.0740, null
-  %120 = getelementptr inbounds i8, ptr %15, i64 43
-  %121 = getelementptr inbounds i8, ptr %15, i64 42
-  %122 = getelementptr inbounds i8, ptr %15, i64 41
-  %123 = getelementptr inbounds i8, ptr %15, i64 40
-  %124 = getelementptr inbounds i8, ptr %15, i64 36
-  %125 = getelementptr inbounds i8, ptr %15, i64 48
+  %120 = getelementptr inbounds nuw i8, ptr %15, i64 43
+  %121 = getelementptr inbounds nuw i8, ptr %15, i64 42
+  %122 = getelementptr inbounds nuw i8, ptr %15, i64 41
+  %123 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  %124 = getelementptr inbounds nuw i8, ptr %15, i64 36
+  %125 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %126 = add nuw nsw i32 %24, 4
   br label %.outer
 
@@ -3100,13 +3100,13 @@ dissect_radiotap_flags.exit:                      ; preds = %266, %.sink.split.i
   br i1 %.not.i868, label %dissect_radiotap_rate.exit, label %617
 
 617:                                              ; preds = %614
-  %618 = getelementptr inbounds i8, ptr %616, i64 32
+  %618 = getelementptr inbounds nuw i8, ptr %616, i64 32
   %619 = load ptr, ptr %618, align 8
   %.not5.i = icmp eq ptr %619, null
   br i1 %.not5.i, label %dissect_radiotap_rate.exit, label %620
 
 620:                                              ; preds = %617
-  %621 = getelementptr inbounds i8, ptr %619, i64 28
+  %621 = getelementptr inbounds nuw i8, ptr %619, i64 28
   %622 = load i32, ptr %621, align 4
   %623 = or i32 %622, 2
   store i32 %623, ptr %621, align 4
@@ -3479,7 +3479,7 @@ dissect_radiotap_flags.exit:                      ; preds = %266, %.sink.split.i
   %847 = zext nneg i32 %827 to i64
   %848 = getelementptr [10 x %struct.mcs_vht_info], ptr @ieee80211_vhtinfo, i64 0, i64 %847
   %849 = load ptr, ptr %848, align 16
-  %850 = getelementptr inbounds i8, ptr %848, i64 8
+  %850 = getelementptr inbounds nuw i8, ptr %848, i64 8
   %851 = load ptr, ptr %850, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %843, ptr noundef nonnull @.str.1245, ptr noundef %849, ptr noundef %851) #9
   br label %852
@@ -3499,13 +3499,13 @@ dissect_radiotap_flags.exit:                      ; preds = %266, %.sink.split.i
   br i1 %.not.i869, label %proto_item_set_generated.exit871, label %860
 
 860:                                              ; preds = %856
-  %861 = getelementptr inbounds i8, ptr %859, i64 32
+  %861 = getelementptr inbounds nuw i8, ptr %859, i64 32
   %862 = load ptr, ptr %861, align 8
   %.not5.i870 = icmp eq ptr %862, null
   br i1 %.not5.i870, label %proto_item_set_generated.exit871, label %863
 
 863:                                              ; preds = %860
-  %864 = getelementptr inbounds i8, ptr %862, i64 28
+  %864 = getelementptr inbounds nuw i8, ptr %862, i64 28
   %865 = load i32, ptr %864, align 4
   %866 = or i32 %865, 2
   store i32 %866, ptr %864, align 4
@@ -3543,13 +3543,13 @@ proto_item_set_generated.exit871:                 ; preds = %863, %860, %856, %8
   br i1 %.not.i872, label %proto_item_set_generated.exit874, label %885
 
 885:                                              ; preds = %880
-  %886 = getelementptr inbounds i8, ptr %884, i64 32
+  %886 = getelementptr inbounds nuw i8, ptr %884, i64 32
   %887 = load ptr, ptr %886, align 8
   %.not5.i873 = icmp eq ptr %887, null
   br i1 %.not5.i873, label %proto_item_set_generated.exit874, label %888
 
 888:                                              ; preds = %885
-  %889 = getelementptr inbounds i8, ptr %887, i64 28
+  %889 = getelementptr inbounds nuw i8, ptr %887, i64 28
   %890 = load i32, ptr %889, align 4
   %891 = or i32 %890, 2
   store i32 %891, ptr %889, align 4
@@ -5239,7 +5239,7 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_in
   %.0897 = phi i32 [ %.4901, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
   %.0892 = phi i32 [ %.4896, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
   %.0755 = phi i32 [ %.4, %.loopexit ], [ 0, %51 ], [ 0, %50 ]
-  %1762 = getelementptr inbounds i8, ptr %15, i64 28
+  %1762 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %1763 = load i16, ptr %1762, align 4
   %1764 = and i16 %1763, 4
   %.not850 = icmp eq i16 %1764, 0
@@ -5255,7 +5255,7 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_in
   ]
 
 1766:                                             ; preds = %1765
-  %1767 = getelementptr inbounds i8, ptr %15, i64 36
+  %1767 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %1768 = load i16, ptr %1767, align 4
   switch i16 %1768, label %.thread920 [
     i16 66, label %.thread922.sink.split
@@ -5280,7 +5280,7 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_in
   br i1 %.not851, label %.thread920, label %1771
 
 1771:                                             ; preds = %1769
-  %1772 = getelementptr inbounds i8, ptr %15, i64 32
+  %1772 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %1773 = load i32, ptr %1772, align 8
   %1774 = icmp ult i32 %1773, 2485
   br i1 %1774, label %1775, label %1776
@@ -5294,7 +5294,7 @@ dissect_radiotap_rate.exit:                       ; preds = %dissect_eht_user_in
   br label %.thread920
 
 1777:                                             ; preds = %1765
-  %1778 = getelementptr inbounds i8, ptr %15, i64 36
+  %1778 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %1779 = load i16, ptr %1778, align 4
   switch i16 %1779, label %.thread920 [
     i16 66, label %.thread922.sink.split
@@ -5317,7 +5317,7 @@ thread-pre-split:                                 ; preds = %1761
 
 .thread922:                                       ; preds = %.thread922.sink.split, %1765, %thread-pre-split
   %.not853 = icmp eq i32 %.0755, 0
-  %1780 = getelementptr inbounds i8, ptr %15, i64 12
+  %1780 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %1781 = load i8, ptr %1780, align 4
   br i1 %.not853, label %1787, label %1782
 
@@ -5327,7 +5327,7 @@ thread-pre-split:                                 ; preds = %1761
   %1784 = lshr i8 %.0909, 1
   %.lobit855 = and i8 %1784, 1
   %1785 = zext nneg i8 %.lobit855 to i32
-  %1786 = getelementptr inbounds i8, ptr %15, i64 16
+  %1786 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 %1785, ptr %1786, align 8
   br label %.thread920
 
@@ -5337,7 +5337,7 @@ thread-pre-split:                                 ; preds = %1761
   br label %.thread920
 
 1789:                                             ; preds = %1765, %thread-pre-split
-  %1790 = getelementptr inbounds i8, ptr %15, i64 12
+  %1790 = getelementptr inbounds nuw i8, ptr %15, i64 12
   %1791 = load i8, ptr %1790, align 4
   %1792 = and i8 %1791, 4
   %1793 = icmp eq i8 %1792, 0
@@ -5349,7 +5349,7 @@ thread-pre-split:                                 ; preds = %1761
   %1796 = or disjoint i8 %1791, 4
   store i8 %1796, ptr %1790, align 4
   %.not852 = icmp sgt i8 %.0909, -1
-  %1797 = getelementptr inbounds i8, ptr %15, i64 20
+  %1797 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %1798 = load i8, ptr %1797, align 4
   br i1 %.not852, label %1801, label %1799
 
@@ -5397,13 +5397,13 @@ thread-pre-split:                                 ; preds = %1761
   br i1 %.not.i883, label %proto_item_set_hidden.exit, label %1819
 
 1819:                                             ; preds = %1816
-  %1820 = getelementptr inbounds i8, ptr %1818, i64 32
+  %1820 = getelementptr inbounds nuw i8, ptr %1818, i64 32
   %1821 = load ptr, ptr %1820, align 8
   %.not5.i884 = icmp eq ptr %1821, null
   br i1 %.not5.i884, label %proto_item_set_hidden.exit, label %1822
 
 1822:                                             ; preds = %1819
-  %1823 = getelementptr inbounds i8, ptr %1821, i64 28
+  %1823 = getelementptr inbounds nuw i8, ptr %1821, i64 28
   %1824 = load i32, ptr %1823, align 4
   %1825 = or i32 %1824, 1
   store i32 %1825, ptr %1823, align 4
@@ -5466,7 +5466,7 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %or.cond, label %.loopexit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.val = load i8, ptr %9, align 1
   %10 = getelementptr i8, ptr %0, i64 3
   %.val88 = load i8, ptr %10, align 1
@@ -5486,7 +5486,7 @@ define internal i32 @capture_radiotap(ptr noundef %0, i32 noundef %1, i32 nounde
   br i1 %or.cond87, label %.loopexit, label %20
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds i8, ptr %0, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i32, ptr %21, align 1
   %23 = add i16 %14, -8
   %.not7692 = icmp sgt i32 %22, -1

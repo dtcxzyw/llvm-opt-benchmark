@@ -21,7 +21,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %0 = and i32 %ch, 255
   %idxprom = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
   %2 = and i8 %1, 6
   %cmp2 = icmp ne i8 %2, 0
@@ -54,7 +54,7 @@ lor.lhs.false:                                    ; preds = %entry
 
 land.rhs.i:                                       ; preds = %lor.lhs.false
   %conv = zext nneg i8 %0 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %conv
   %1 = load i8, ptr %arrayidx.i, align 1
   %2 = and i8 %1, 6
   %cmp2.i.not = icmp eq i8 %2, 0
@@ -62,7 +62,7 @@ land.rhs.i:                                       ; preds = %lor.lhs.false
 
 while.cond:                                       ; preds = %land.rhs.i, %land.end.i9
   %url.pn = phi ptr [ %url.addr.0, %land.end.i9 ], [ %url, %land.rhs.i ]
-  %url.addr.0 = getelementptr inbounds i8, ptr %url.pn, i64 1
+  %url.addr.0 = getelementptr inbounds nuw i8, ptr %url.pn, i64 1
   %3 = load i8, ptr %url.addr.0, align 1
   %conv2 = sext i8 %3 to i64
   switch i8 %3, label %while.body [
@@ -75,7 +75,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %cmp.i8, label %land.rhs.i12, label %land.end.i9
 
 land.rhs.i12:                                     ; preds = %while.body
-  %arrayidx.i14 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %conv2
+  %arrayidx.i14 = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %conv2
   %4 = load i8, ptr %arrayidx.i14, align 1
   %5 = and i8 %4, 6
   %cmp2.i15 = icmp ne i8 %5, 0
@@ -92,13 +92,13 @@ land.end.i9:                                      ; preds = %land.rhs.i12, %whil
   br i1 %narrow.i, label %while.cond, label %return, !llvm.loop !5
 
 land.lhs.true:                                    ; preds = %while.cond
-  %arrayidx15 = getelementptr inbounds i8, ptr %url.pn, i64 2
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %url.pn, i64 2
   %9 = load i8, ptr %arrayidx15, align 1
   %cmp17 = icmp eq i8 %9, 47
   br i1 %cmp17, label %land.rhs19, label %return
 
 land.rhs19:                                       ; preds = %land.lhs.true
-  %arrayidx20 = getelementptr inbounds i8, ptr %url.pn, i64 3
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %url.pn, i64 3
   %10 = load i8, ptr %arrayidx20, align 1
   %cmp22 = icmp eq i8 %10, 47
   %11 = zext i1 %cmp22 to i32
@@ -195,8 +195,8 @@ entry:
 while.body.lr.ph:                                 ; preds = %entry
   %tobool2.not = icmp eq ptr %stop_at, null
   %tobool21 = icmp ne i32 %decode_plus, 0
-  %len.i.i26 = getelementptr inbounds i8, ptr %out, i64 8
-  %buf.i30 = getelementptr inbounds i8, ptr %out, i64 16
+  %len.i.i26 = getelementptr inbounds nuw i8, ptr %out, i64 8
+  %buf.i30 = getelementptr inbounds nuw i8, ptr %out, i64 16
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
@@ -216,7 +216,7 @@ land.lhs.true:                                    ; preds = %if.end
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %land.lhs.true
-  %incdec.ptr = getelementptr inbounds i8, ptr %q.060, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %q.060, i64 1
   br label %while.end
 
 if.end5:                                          ; preds = %land.lhs.true, %if.end
@@ -226,10 +226,10 @@ if.end5:                                          ; preds = %land.lhs.true, %if.
   br i1 %or.cond22, label %if.then13, label %if.end20
 
 if.then13:                                        ; preds = %if.end5
-  %add.ptr = getelementptr inbounds i8, ptr %q.060, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %q.060, i64 1
   %2 = load i8, ptr %add.ptr, align 1
   %idxprom.i.i = zext i8 %2 to i64
-  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i.i
   %3 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = sext i8 %3 to i32
   %tobool.not.i = icmp ult i8 %3, 16
@@ -237,10 +237,10 @@ if.then13:                                        ; preds = %if.end5
 
 cond.false.i:                                     ; preds = %if.then13
   %shl.i = shl nuw nsw i32 %conv.i.i, 4
-  %arrayidx1.i = getelementptr inbounds i8, ptr %q.060, i64 2
+  %arrayidx1.i = getelementptr inbounds nuw i8, ptr %q.060, i64 2
   %4 = load i8, ptr %arrayidx1.i, align 1
   %idxprom.i4.i = zext i8 %4 to i64
-  %arrayidx.i5.i = getelementptr inbounds [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [256 x i8], ptr @hexval_table, i64 0, i64 %idxprom.i4.i
   %5 = load i8, ptr %arrayidx.i5.i, align 1
   %conv.i6.i = sext i8 %5 to i32
   %or.i = or i32 %shl.i, %conv.i6.i
@@ -288,7 +288,7 @@ while.cond.backedge:                              ; preds = %strbuf_avail.exit.i
   %11 = load i64, ptr %len.i.i26, align 8
   %arrayidx3.i = getelementptr inbounds i8, ptr %10, i64 %11
   store i8 0, ptr %arrayidx3.i, align 1
-  %add.ptr18 = getelementptr inbounds i8, ptr %q.060, i64 %.sink68
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %q.060, i64 %.sink68
   %sub = add nsw i32 %len.addr.063, %.sink
   %tobool.not = icmp eq i32 %sub, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !7
@@ -370,13 +370,13 @@ define dso_local void @end_url_with_slash(ptr noundef %buf, ptr noundef %url) lo
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #8
   tail call void @strbuf_add(ptr noundef %buf, ptr noundef %url, i64 noundef %call.i) #9
-  %len.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %len.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i, align 8
   %tobool.not.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i, label %strbuf_complete.exit, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %entry
-  %buf.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i = getelementptr i8, ptr %2, i64 -1
@@ -423,13 +423,13 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.str_end_url_with_slash.buf, i64 24, i1 false)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %url) #8
   call void @strbuf_add(ptr noundef nonnull %buf, ptr noundef %url, i64 noundef %call.i.i) #9
-  %len.i.i = getelementptr inbounds i8, ptr %buf, i64 8
+  %len.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load i64, ptr %len.i.i, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
   br i1 %tobool.not.i.i, label %end_url_with_slash.exit, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %entry
-  %buf.i.i = getelementptr inbounds i8, ptr %buf, i64 16
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %buf, i64 16
   %1 = load ptr, ptr %buf.i.i, align 8
   %2 = getelementptr i8, ptr %1, i64 %0
   %arrayidx.i.i = getelementptr i8, ptr %2, i64 -1

@@ -78,7 +78,7 @@ define void @_ZN3gmx26readAtomicStructureFactorsEv(ptr dead_on_unwind noalias wr
           to label %20 unwind label %62
 
 20:                                               ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %3, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %23
@@ -90,19 +90,19 @@ define void @_ZN3gmx26readAtomicStructureFactorsEv(ptr dead_on_unwind noalias wr
 _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %20, %23
   store ptr null, ptr %21, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #15
-  %24 = getelementptr inbounds i8, ptr %17, i64 32
-  %25 = getelementptr inbounds i8, ptr %17, i64 40
-  %26 = getelementptr inbounds i8, ptr %17, i64 48
-  %.sroa.0.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 56
-  %.sroa.0.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 64
-  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 72
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 80
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 88
-  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 96
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 104
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 112
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %.sroa.0.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %.sroa.0.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 64
+  %.sroa.0.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 72
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 80
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 88
+  %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 96
+  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 104
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %29
 
 29:                                               ; preds = %.backedge, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
@@ -173,10 +173,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %.noexc12 unwind label %68
 
 .noexc12:                                         ; preds = %55
-  %56 = getelementptr inbounds i8, ptr %53, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull align 8 dereferenceable(88) %24, i64 88, i1 false)
   %57 = load ptr, ptr %27, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 120
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 120
   store ptr %58, ptr %27, align 8
   br label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE9push_backERKS1_.exit
 
@@ -269,7 +269,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA22_cS1_EERKT_NS1_6fo
   %9 = extractvalue { i64, ptr } %7, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %8, ptr %9) #15
   %10 = load i64, ptr %4, align 8
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load ptr, ptr %11, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %10, ptr %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
           to label %13 unwind label %17
@@ -277,7 +277,7 @@ define linkonce_odr void @_ZNSt10filesystem7__cxx114pathC2IA22_cS1_EERKT_NS1_6fo
 13:                                               ; preds = %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #15
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZNSt10filesystem7__cxx114path5_ListC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %19
 
@@ -328,7 +328,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZNSt10filesystem7__cxx114path5_ListD2Ev.exit, label %4
@@ -360,7 +360,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not4.i.i.i = icmp eq ptr %2, %4
   br i1 %.not4.i.i.i, label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exit, label %.lr.ph.i.i.i
@@ -368,7 +368,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EED2Ev
 .lr.ph.i.i.i:                                     ; preds = %1, %.lr.ph.i.i.i
   %.05.i.i.i = phi ptr [ %5, %.lr.ph.i.i.i ], [ %2, %1 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.05.i.i.i) #15
-  %5 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 120
   %.not.i.i.i = icmp eq ptr %5, %4
   br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN3gmx21AtomicStructureFactorES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !7
 
@@ -518,7 +518,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(120) %2) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
@@ -540,114 +540,113 @@ _ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit: ; p
   %16 = select i1 %14, i64 76861433640456465, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = sub i64 %17, %8
-  %19 = sdiv exact i64 %18, 120
   %.not.i = icmp eq i64 %16, 0
-  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit, label %20
+  br i1 %.not.i, label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit, label %19
 
-20:                                               ; preds = %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit
-  %21 = mul nuw nsw i64 %16, 120
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #19
+19:                                               ; preds = %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit
+  %20 = mul nuw nsw i64 %16, 120
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #19
   br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
 
-_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit, %20
-  %23 = phi ptr [ %22, %20 ], [ null, %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit ]
-  %24 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %23, i64 %19
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(120) %24, ptr noundef nonnull align 8 dereferenceable(120) %2)
-          to label %25 unwind label %40
+_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit, %19
+  %22 = phi ptr [ %21, %19 ], [ null, %_ZNKSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE12_M_check_lenEmPKc.exit ]
+  %23 = getelementptr inbounds i8, ptr %22, i64 %18
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(120) %23, ptr noundef nonnull align 8 dereferenceable(120) %2)
+          to label %24 unwind label %39
 
-25:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
-  %26 = getelementptr inbounds i8, ptr %24, i64 32
-  %27 = getelementptr inbounds i8, ptr %2, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %26, ptr noundef nonnull align 8 dereferenceable(88) %27, i64 88, i1 false)
+24:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %25, ptr noundef nonnull align 8 dereferenceable(88) %26, i64 88, i1 false)
   %.not10.i.i.i = icmp eq ptr %6, %1
   br i1 %.not10.i.i.i, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %25, %.lr.ph.i.i.i
-  %.012.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %23, %25 ]
-  %.0911.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %6, %25 ]
+.lr.ph.i.i.i:                                     ; preds = %24, %.lr.ph.i.i.i
+  %.012.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %22, %24 ]
+  %.0911.i.i.i = phi ptr [ %29, %.lr.ph.i.i.i ], [ %6, %24 ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(120) %.012.i.i.i, ptr noundef nonnull align 8 dereferenceable(120) %.0911.i.i.i) #15
-  %28 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 32
-  %29 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %28, ptr noundef nonnull align 8 dereferenceable(88) %29, i64 88, i1 false), !alias.scope !8
+  %27 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef nonnull align 8 dereferenceable(88) %28, i64 88, i1 false), !alias.scope !8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.0911.i.i.i) #15
-  %30 = getelementptr inbounds i8, ptr %.0911.i.i.i, i64 120
-  %31 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 120
-  %.not.i.i.i = icmp eq ptr %30, %1
+  %29 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 120
+  %.not.i.i.i = icmp eq ptr %29, %1
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, label %.lr.ph.i.i.i, !llvm.loop !12
 
-_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %25
-  %.0.lcssa.i.i.i = phi ptr [ %23, %25 ], [ %31, %.lr.ph.i.i.i ]
-  %32 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 120
+_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.ph.i.i.i, %24
+  %.0.lcssa.i.i.i = phi ptr [ %22, %24 ], [ %30, %.lr.ph.i.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 120
   %.not10.i.i.i26 = icmp eq ptr %1, %5
   br i1 %.not10.i.i.i26, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27
 
 .lr.ph.i.i.i27:                                   ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %.lr.ph.i.i.i27
-  %.012.i.i.i28 = phi ptr [ %36, %.lr.ph.i.i.i27 ], [ %32, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
-  %.0911.i.i.i29 = phi ptr [ %35, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.012.i.i.i28 = phi ptr [ %35, %.lr.ph.i.i.i27 ], [ %31, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
+  %.0911.i.i.i29 = phi ptr [ %34, %.lr.ph.i.i.i27 ], [ %1, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(120) %.012.i.i.i28, ptr noundef nonnull align 8 dereferenceable(120) %.0911.i.i.i29) #15
-  %33 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 32
-  %34 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %33, ptr noundef nonnull align 8 dereferenceable(88) %34, i64 88, i1 false), !alias.scope !13
+  %32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %32, ptr noundef nonnull align 8 dereferenceable(88) %33, i64 88, i1 false), !alias.scope !13
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %.0911.i.i.i29) #15
-  %35 = getelementptr inbounds i8, ptr %.0911.i.i.i29, i64 120
-  %36 = getelementptr inbounds i8, ptr %.012.i.i.i28, i64 120
-  %.not.i.i.i30 = icmp eq ptr %35, %5
+  %34 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i29, i64 120
+  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i28, i64 120
+  %.not.i.i.i30 = icmp eq ptr %34, %5
   br i1 %.not.i.i.i30, label %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, label %.lr.ph.i.i.i27, !llvm.loop !12
 
 _ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32: ; preds = %.lr.ph.i.i.i27, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
-  %.0.lcssa.i.i.i31 = phi ptr [ %32, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %36, %.lr.ph.i.i.i27 ]
+  %.0.lcssa.i.i.i31 = phi ptr [ %31, %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit ], [ %35, %.lr.ph.i.i.i27 ]
   %.not.i33 = icmp eq ptr %6, null
-  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit, label %37
+  br i1 %.not.i33, label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit, label %36
 
-37:                                               ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32
+36:                                               ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32
   tail call void @_ZdlPv(ptr noundef nonnull %6) #16
   br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit
 
-_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %37
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %23, ptr %0, align 8
+_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32, %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %39 = getelementptr inbounds %"struct.gmx::AtomicStructureFactor", ptr %23, i64 %16
-  store ptr %39, ptr %38, align 8
+  %38 = getelementptr inbounds nuw %"struct.gmx::AtomicStructureFactor", ptr %22, i64 %16
+  store ptr %38, ptr %37, align 8
   ret void
 
-40:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE11_M_allocateEm.exit
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %42) #15
-  %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.thread, label %46
+  %41 = extractvalue { ptr, i32 } %40, 0
+  %42 = tail call ptr @__cxa_begin_catch(ptr %41) #15
+  %.not = icmp eq ptr %22, null
+  br i1 %.not, label %.thread, label %45
 
-.thread:                                          ; preds = %40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %24) #15
+.thread:                                          ; preds = %39
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120) %23) #15
   br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-44:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
+  %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %47 unwind label %48
+          to label %46 unwind label %47
 
-46:                                               ; preds = %40
-  tail call void @_ZdlPv(ptr noundef nonnull %23) #16
+45:                                               ; preds = %39
+  tail call void @_ZdlPv(ptr noundef nonnull %22) #16
   br label %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
 
-_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %46, %.thread
+_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %45, %.thread
   invoke void @__cxa_rethrow() #18
-          to label %51 unwind label %44
+          to label %50 unwind label %43
 
-47:                                               ; preds = %44
-  resume { ptr, i32 } %45
+46:                                               ; preds = %43
+  resume { ptr, i32 } %44
 
-48:                                               ; preds = %44
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %43
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  tail call void @__clang_call_terminate(ptr %50) #17
+  %49 = extractvalue { ptr, i32 } %48, 0
+  tail call void @__clang_call_terminate(ptr %49) #17
   unreachable
 
-51:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
+50:                                               ; preds = %_ZNSt12_Vector_baseIN3gmx21AtomicStructureFactorESaIS1_EE13_M_deallocateEPS1_m.exit37
   unreachable
 }
 

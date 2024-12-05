@@ -27,12 +27,12 @@ define i32 @Sbd_ProblemCountParams(i32 noundef %0, ptr noundef readonly %1) loca
   %.0910 = phi ptr [ %12, %.lr.ph ], [ %1, %2 ]
   %6 = load i32, ptr %.0910, align 8
   %.not = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds i8, ptr %.0910, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.0910, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = shl nuw i32 1, %8
   %10 = select i1 %.not, i32 %8, i32 %9
   %11 = add nsw i32 %10, %.011
-  %12 = getelementptr inbounds i8, ptr %.0910, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %.0910, i64 56
   %13 = icmp ult ptr %12, %4
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
@@ -51,9 +51,9 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .lr.ph88:                                         ; preds = %5
   %10 = add nsw i32 %2, %1
-  %invariant.gep = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %13 = sext i32 %1 to i64
   br label %14
 
@@ -63,7 +63,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   %.06183 = phi ptr [ %4, %.lr.ph88 ], [ %85, %.loopexit70 ]
   %15 = load i32, ptr %.06183, align 8
   %.not = icmp eq i32 %15, 0
-  %16 = getelementptr inbounds i8, ptr %.06183, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.06183, i64 4
   %17 = load i32, ptr %16, align 4
   br i1 %.not, label %.preheader69, label %22
 
@@ -73,7 +73,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .preheader.lr.ph:                                 ; preds = %.preheader69
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
-  %20 = getelementptr inbounds i8, ptr %.06183, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.06183, i64 8
   %21 = sext i32 %.05887 to i64
   br label %.preheader
 
@@ -83,7 +83,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .preheader68.lr.ph:                               ; preds = %22
   %23 = shl nuw nsw i32 1, %17
-  %24 = getelementptr inbounds i8, ptr %.06183, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.06183, i64 8
   %25 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv106
   %26 = sext i32 %.05887 to i64
   br label %.preheader68
@@ -105,7 +105,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %30 = getelementptr inbounds [10 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [10 x i32], ptr %24, i64 0, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i32, ptr %3, i64 %32
@@ -115,7 +115,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   %37 = and i32 %36, 1
   %38 = shl nsw i32 %34, 1
   %39 = or disjoint i32 %38, %37
-  %40 = getelementptr inbounds [6 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [6 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %39, ptr %40, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -157,7 +157,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
   %indvars.iv101 = phi i64 [ %21, %.preheader.lr.ph ], [ %indvars.iv.next102, %79 ]
   %indvars.iv99 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next100, %79 ]
   %60 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv101
-  %61 = getelementptr inbounds [10 x i32], ptr %20, i64 0, i64 %indvars.iv99
+  %61 = getelementptr inbounds nuw [10 x i32], ptr %20, i64 0, i64 %indvars.iv99
   br label %63
 
 62:                                               ; preds = %63
@@ -204,7 +204,7 @@ define range(i32 0, 2) i32 @Sbd_ProblemAddClauses(ptr noundef %0, i32 noundef %1
 
 .loopexit70:                                      ; preds = %.loopexit70.loopexit91, %.loopexit70.loopexit, %22, %.preheader69
   %.3 = phi i32 [ %.05887, %.preheader69 ], [ %.05887, %22 ], [ %83, %.loopexit70.loopexit ], [ %84, %.loopexit70.loopexit91 ]
-  %85 = getelementptr inbounds i8, ptr %.06183, i64 56
+  %85 = getelementptr inbounds nuw i8, ptr %.06183, i64 56
   %indvars.iv.next107 = add nsw i64 %indvars.iv106, 1
   %86 = icmp ult ptr %85, %8
   br i1 %86, label %14, label %.loopexit, !llvm.loop !11
@@ -226,8 +226,8 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 
 .lr.ph55:                                         ; preds = %5
   %10 = add nsw i32 %2, %1
-  %11 = getelementptr inbounds i8, ptr %6, i64 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph55, %47
@@ -235,7 +235,7 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
   %.03649 = phi ptr [ %4, %.lr.ph55 ], [ %50, %47 ]
   %14 = load i32, ptr %.03649, align 8
   %.not = icmp eq i32 %14, 0
-  %15 = getelementptr inbounds i8, ptr %.03649, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.03649, i64 4
   %16 = load i32, ptr %15, align 4
   br i1 %.not, label %.preheader, label %.thread
 
@@ -254,7 +254,7 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %19 = load i32, ptr %gep, align 4
   %20 = shl nsw i32 %19, 1
-  %21 = getelementptr inbounds [10 x i32], ptr %6, i64 0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [10 x i32], ptr %6, i64 0, i64 %indvars.iv
   store i32 %20, ptr %21, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -326,7 +326,7 @@ define void @Sbd_ProblemAddClausesInit(ptr noundef %0, i32 noundef %1, i32 nound
 47:                                               ; preds = %._crit_edge48, %.thread
   %48 = phi i32 [ %46, %.thread ], [ %44, %._crit_edge48 ]
   %49 = add nsw i32 %48, %.03551
-  %50 = getelementptr inbounds i8, ptr %.03649, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.03649, i64 56
   %51 = icmp ult ptr %50, %8
   br i1 %51, label %13, label %._crit_edge56, !llvm.loop !15
 
@@ -352,7 +352,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
   %.02133 = phi ptr [ %1, %.lr.ph36 ], [ %42, %._crit_edge32 ]
   %10 = load i32, ptr %.02133, align 8
   %.not = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds i8, ptr %.02133, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.02133, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = shl nuw i32 1, %12
   %14 = select i1 %.not, ptr @.str.3, ptr @.str.2
@@ -390,18 +390,18 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %9
   %.1.lcssa = phi i32 [ %.034, %9 ], [ %29, %._crit_edge.loopexit ]
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
-  %31 = getelementptr inbounds i8, ptr %.02133, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %.02133, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, 0
   br i1 %33, label %.lr.ph31, label %._crit_edge32
 
 .lr.ph31:                                         ; preds = %._crit_edge
-  %34 = getelementptr inbounds i8, ptr %.02133, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.02133, i64 8
   br label %35
 
 35:                                               ; preds = %.lr.ph31, %35
   %indvars.iv39 = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next40, %35 ]
-  %36 = getelementptr inbounds [10 x i32], ptr %34, i64 0, i64 %indvars.iv39
+  %36 = getelementptr inbounds nuw [10 x i32], ptr %34, i64 0, i64 %indvars.iv39
   %37 = load i32, ptr %36, align 4
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %37)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
@@ -412,7 +412,7 @@ define void @Sbd_ProblemPrintSolution(i32 noundef %0, ptr noundef %1, ptr nocapt
 
 ._crit_edge32:                                    ; preds = %35, %._crit_edge
   %puts25 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  %42 = getelementptr inbounds i8, ptr %.02133, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %.02133, i64 56
   %43 = icmp ult ptr %42, %5
   br i1 %43, label %9, label %._crit_edge37, !llvm.loop !18
 
@@ -437,11 +437,11 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
 8:                                                ; preds = %.lr.ph46, %.loopexit
   %.044 = phi i32 [ 0, %.lr.ph46 ], [ %.3, %.loopexit ]
   %.03243 = phi ptr [ %1, %.lr.ph46 ], [ %67, %.loopexit ]
-  %9 = getelementptr inbounds i8, ptr %.03243, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %.03243, i64 48
   store i64 0, ptr %9, align 8
   %10 = load i32, ptr %.03243, align 8
   %.not = icmp eq i32 %10, 0
-  %11 = getelementptr inbounds i8, ptr %.03243, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %.03243, i64 4
   %12 = load i32, ptr %11, align 4
   br i1 %.not, label %.preheader, label %17
 
@@ -450,7 +450,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   br i1 %13, label %.lr.ph41, label %.loopexit
 
 .lr.ph41:                                         ; preds = %.preheader
-  %14 = getelementptr inbounds i8, ptr %.03243, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.03243, i64 8
   %15 = sext i32 %.044 to i64
   %16 = zext nneg i32 %12 to i64
   br label %56
@@ -480,7 +480,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   %26 = shl nuw i64 1, %25
   %27 = lshr i32 %.03036, 6
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds i64, ptr %9, i64 %28
+  %29 = getelementptr inbounds nuw i64, ptr %9, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = or i64 %30, %26
   store i64 %31, ptr %29, align 8
@@ -542,7 +542,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
   br i1 %.not33, label %60, label %64
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds [10 x i32], ptr %14, i64 0, i64 %indvars.iv53
+  %61 = getelementptr inbounds nuw [10 x i32], ptr %14, i64 0, i64 %indvars.iv53
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   store i64 %63, ptr %9, align 8
@@ -560,7 +560,7 @@ define void @Sbd_ProblemCollectSolution(i32 noundef %0, ptr noundef %1, ptr noca
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %._crit_edge
   %.3 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %.044, %.preheader ], [ %66, %.loopexit.loopexit ]
-  %67 = getelementptr inbounds i8, ptr %.03243, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %.03243, i64 56
   %68 = icmp ult ptr %67, %5
   br i1 %68, label %8, label %._crit_edge47, !llvm.loop !21
 
@@ -579,11 +579,11 @@ Abc_Clock.exit:
   %14 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %10) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %15 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4
   store i32 100, ptr %15, align 8
   %17 = call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #16
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %17, ptr %18, align 8
   %19 = call ptr @Sbd_ManSatSolver(ptr noundef null, ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef 1) #15
   %20 = call ptr @sat_solver_new() #15
@@ -599,12 +599,12 @@ Abc_Clock.exit:
   %.0910.i = phi ptr [ %31, %.lr.ph.i ], [ %9, %Abc_Clock.exit ]
   %25 = load i32, ptr %.0910.i, align 8
   %.not.i = icmp eq i32 %25, 0
-  %26 = getelementptr inbounds i8, ptr %.0910.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = shl nuw i32 1, %27
   %29 = select i1 %.not.i, i32 %27, i32 %28
   %30 = add nsw i32 %29, %.011.i
-  %31 = getelementptr inbounds i8, ptr %.0910.i, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %.0910.i, i64 56
   %32 = icmp ult ptr %31, %23
   br i1 %32, label %.lr.ph.i, label %Sbd_ProblemCountParams.exit, !llvm.loop !4
 
@@ -720,7 +720,7 @@ Sbd_ProblemCountParams.exit:                      ; preds = %.lr.ph.i, %Abc_Cloc
   %65 = shl nuw nsw i32 1, %.val143
   %66 = getelementptr i8, ptr %7, i64 8
   %67 = getelementptr i8, ptr %19, i64 328
-  %68 = getelementptr inbounds i8, ptr %13, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %69 = sext i32 %.val143 to i64
   %70 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %69
   %71 = sext i32 %37 to i64
@@ -828,7 +828,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.lr.ph185 ], [ 0, %109 ]
   %.1136182 = phi i32 [ %111, %.lr.ph185 ], [ %.0135193, %109 ]
   %111 = add nsw i32 %.1136182, 1
-  %112 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %indvars.iv217
+  %112 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %indvars.iv217
   store i32 %.1136182, ptr %112, align 4
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
   %exitcond221.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count220
@@ -837,9 +837,9 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph189:                                        ; preds = %.preheader164, %.lr.ph189
   %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.lr.ph189 ], [ 0, %.preheader164 ]
   %.val = load ptr, ptr %66, align 8
-  %113 = getelementptr inbounds i32, ptr %.val, i64 %indvars.iv222
+  %113 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv222
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds [256 x i32], ptr %12, i64 0, i64 %indvars.iv222
+  %115 = getelementptr inbounds nuw [256 x i32], ptr %12, i64 0, i64 %indvars.iv222
   %116 = load i32, ptr %115, align 4
   %.val153 = load ptr, ptr %67, align 8
   %117 = sext i32 %114 to i64
@@ -883,7 +883,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .lr.ph191:                                        ; preds = %.preheader, %Vec_IntPush.exit162
   %indvars.iv225 = phi i64 [ %indvars.iv.next226, %Vec_IntPush.exit162 ], [ 0, %.preheader ]
   %.val155 = load ptr, ptr %72, align 8
-  %139 = getelementptr inbounds i32, ptr %.val155, i64 %indvars.iv225
+  %139 = getelementptr inbounds nuw i32, ptr %.val155, i64 %indvars.iv225
   %140 = load i32, ptr %139, align 4
   %141 = icmp ne i32 %140, 1
   %142 = zext i1 %141 to i32

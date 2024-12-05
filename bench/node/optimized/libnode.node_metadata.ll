@@ -71,11 +71,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8MetadataD2Ev(ptr noundef nonnull align 8 dereferenceable(896) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %platform = getelementptr inbounds i8, ptr %this, i64 864
+  %platform = getelementptr inbounds nuw i8, ptr %this, i64 864
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %platform) #8
-  %arch = getelementptr inbounds i8, ptr %this, i64 832
+  %arch = getelementptr inbounds nuw i8, ptr %this, i64 832
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %arch) #8
-  %release = getelementptr inbounds i8, ptr %this, i64 800
+  %release = getelementptr inbounds nuw i8, ptr %this, i64 800
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %release) #8
   tail call void @_ZN4node8Metadata8VersionsD2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this) #8
   ret void
@@ -94,7 +94,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %tz = getelementptr inbounds i8, ptr %this, i64 672
+  %tz = getelementptr inbounds nuw i8, ptr %this, i64 672
   %call3 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %tz, ptr noundef %call) #8
   br label %if.end
 
@@ -106,7 +106,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 if.then6:                                         ; preds = %if.end
   call void @u_versionToString_74(ptr noundef nonnull %versionArray, ptr noundef nonnull %buf) #8
-  %cldr = getelementptr inbounds i8, ptr %this, i64 608
+  %cldr = getelementptr inbounds nuw i8, ptr %this, i64 608
   %call10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %cldr, ptr noundef nonnull %buf) #8
   br label %if.end11
 
@@ -136,53 +136,53 @@ entry:
   %ref.tmp29 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp44 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
-  %v8 = getelementptr inbounds i8, ptr %this, i64 32
+  %v8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v8) #8
-  %uv = getelementptr inbounds i8, ptr %this, i64 64
+  %uv = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uv) #8
-  %zlib = getelementptr inbounds i8, ptr %this, i64 96
+  %zlib = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zlib) #8
-  %brotli = getelementptr inbounds i8, ptr %this, i64 128
+  %brotli = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %brotli) #8
-  %ares = getelementptr inbounds i8, ptr %this, i64 160
+  %ares = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ares) #8
-  %modules = getelementptr inbounds i8, ptr %this, i64 192
+  %modules = getelementptr inbounds nuw i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %modules) #8
-  %nghttp2 = getelementptr inbounds i8, ptr %this, i64 224
+  %nghttp2 = getelementptr inbounds nuw i8, ptr %this, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp2) #8
-  %napi = getelementptr inbounds i8, ptr %this, i64 256
+  %napi = getelementptr inbounds nuw i8, ptr %this, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %napi) #8
-  %llhttp = getelementptr inbounds i8, ptr %this, i64 288
+  %llhttp = getelementptr inbounds nuw i8, ptr %this, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %llhttp) #8
-  %uvwasi = getelementptr inbounds i8, ptr %this, i64 320
+  %uvwasi = getelementptr inbounds nuw i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uvwasi) #8
-  %acorn = getelementptr inbounds i8, ptr %this, i64 352
+  %acorn = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %acorn) #8
-  %simdjson = getelementptr inbounds i8, ptr %this, i64 384
+  %simdjson = getelementptr inbounds nuw i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdjson) #8
-  %simdutf = getelementptr inbounds i8, ptr %this, i64 416
+  %simdutf = getelementptr inbounds nuw i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdutf) #8
-  %ada = getelementptr inbounds i8, ptr %this, i64 448
+  %ada = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ada) #8
-  %undici = getelementptr inbounds i8, ptr %this, i64 480
+  %undici = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %undici) #8
-  %cjs_module_lexer = getelementptr inbounds i8, ptr %this, i64 512
+  %cjs_module_lexer = getelementptr inbounds nuw i8, ptr %this, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cjs_module_lexer) #8
-  %base64 = getelementptr inbounds i8, ptr %this, i64 544
+  %base64 = getelementptr inbounds nuw i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base64) #8
-  %openssl = getelementptr inbounds i8, ptr %this, i64 576
+  %openssl = getelementptr inbounds nuw i8, ptr %this, i64 576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %openssl) #8
-  %cldr = getelementptr inbounds i8, ptr %this, i64 608
+  %cldr = getelementptr inbounds nuw i8, ptr %this, i64 608
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cldr) #8
-  %icu = getelementptr inbounds i8, ptr %this, i64 640
+  %icu = getelementptr inbounds nuw i8, ptr %this, i64 640
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %icu) #8
-  %tz = getelementptr inbounds i8, ptr %this, i64 672
+  %tz = getelementptr inbounds nuw i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tz) #8
-  %unicode = getelementptr inbounds i8, ptr %this, i64 704
+  %unicode = getelementptr inbounds nuw i8, ptr %this, i64 704
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unicode) #8
-  %ngtcp2 = getelementptr inbounds i8, ptr %this, i64 736
+  %ngtcp2 = getelementptr inbounds nuw i8, ptr %this, i64 736
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ngtcp2) #8
-  %nghttp3 = getelementptr inbounds i8, ptr %this, i64 768
+  %nghttp3 = getelementptr inbounds nuw i8, ptr %this, i64 768
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp3) #8
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @.str) #8
   %call3 = tail call noundef ptr @_ZN2v82V810GetVersionEv() #8
@@ -283,14 +283,14 @@ _ZN4nodeL17GetOpenSSLVersionB5cxx11Ev.exit:       ; preds = %_ZStplIcSt11char_tr
   %1 = extractvalue { i64, ptr } %call.i.i, 1
   %sub.i.i.i = add i64 %0, -8
   %.sroa.speculated.i.i.i = call i64 @llvm.umin.i64(i64 %sub.i.i.i, i64 11)
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %1, i64 8
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !17
   %call.i.i.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %.sroa.speculated.i.i.i, ptr nonnull %add.ptr.i.i.i) #8
   %2 = extractvalue { i64, ptr } %call.i.i.i, 0
   %3 = extractvalue { i64, ptr } %call.i.i.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, i64 %2, ptr %3) #8
   %4 = load i64, ptr %agg.tmp.i.i.i, align 8, !noalias !17
-  %5 = getelementptr inbounds i8, ptr %agg.tmp.i.i.i, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i, i64 8
   %6 = load ptr, ptr %5, align 8, !noalias !17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp44, i64 %4, ptr %6, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !17
@@ -380,17 +380,17 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %div.i = udiv i32 %__val.addr.016.i, 100
   %add.i3 = or disjoint i32 %mul.i, 1
   %idxprom.i = zext nneg i32 %add.i3 to i64
-  %arrayidx.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %idxprom1.i = zext i32 %__pos.015.i to i64
-  %arrayidx2.i = getelementptr inbounds i8, ptr %call1, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom1.i
   store i8 %1, ptr %arrayidx2.i, align 1
   %idxprom3.i = zext nneg i32 %mul.i to i64
-  %arrayidx4.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
+  %arrayidx4.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom3.i
   %2 = load i8, ptr %arrayidx4.i, align 2
   %sub5.i = add i32 %__pos.015.i, -1
   %idxprom6.i = zext i32 %sub5.i to i64
-  %arrayidx7.i = getelementptr inbounds i8, ptr %call1, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom6.i
   store i8 %2, ptr %arrayidx7.i, align 1
   %sub8.i = add i32 %__pos.015.i, -2
   %cmp.i4 = icmp ugt i32 %__val.addr.016.i, 9999
@@ -405,12 +405,12 @@ if.then.i:                                        ; preds = %while.end.i
   %mul11.i = shl nuw nsw i32 %__val.addr.0.lcssa.i, 1
   %add12.i = or disjoint i32 %mul11.i, 1
   %idxprom13.i = zext nneg i32 %add12.i to i64
-  %arrayidx14.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
+  %arrayidx14.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom13.i
   %3 = load i8, ptr %arrayidx14.i, align 1
-  %arrayidx15.i = getelementptr inbounds i8, ptr %call1, i64 1
+  %arrayidx15.i = getelementptr inbounds nuw i8, ptr %call1, i64 1
   store i8 %3, ptr %arrayidx15.i, align 1
   %idxprom16.i = zext nneg i32 %mul11.i to i64
-  %arrayidx17.i = getelementptr inbounds [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
+  %arrayidx17.i = getelementptr inbounds nuw [201 x i8], ptr @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits, i64 0, i64 %idxprom16.i
   %4 = load i8, ptr %arrayidx17.i, align 2
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -458,7 +458,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
   tail call void @_ZN4node8Metadata8VersionsC2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this)
-  %release = getelementptr inbounds i8, ptr %this, i64 800
+  %release = getelementptr inbounds nuw i8, ptr %this, i64 800
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   %call.i.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %release) #8
@@ -469,13 +469,13 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %release, i64 noundef 4) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i)
-  %arch = getelementptr inbounds i8, ptr %this, i64 832
+  %arch = getelementptr inbounds nuw i8, ptr %this, i64 832
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   %call.i = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arch) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %arch, ptr noundef %call.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %arch, ptr noundef nonnull @.str.22, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.22, i64 3))
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #8
-  %platform = getelementptr inbounds i8, ptr %this, i64 864
+  %platform = getelementptr inbounds nuw i8, ptr %this, i64 864
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
   %call.i2 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %platform) #8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %platform, ptr noundef %call.i2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #8
@@ -487,53 +487,53 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8Metadata8VersionsD2Ev(ptr noundef nonnull align 8 dereferenceable(800) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  %nghttp3 = getelementptr inbounds i8, ptr %this, i64 768
+  %nghttp3 = getelementptr inbounds nuw i8, ptr %this, i64 768
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp3) #8
-  %ngtcp2 = getelementptr inbounds i8, ptr %this, i64 736
+  %ngtcp2 = getelementptr inbounds nuw i8, ptr %this, i64 736
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ngtcp2) #8
-  %unicode = getelementptr inbounds i8, ptr %this, i64 704
+  %unicode = getelementptr inbounds nuw i8, ptr %this, i64 704
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unicode) #8
-  %tz = getelementptr inbounds i8, ptr %this, i64 672
+  %tz = getelementptr inbounds nuw i8, ptr %this, i64 672
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %tz) #8
-  %icu = getelementptr inbounds i8, ptr %this, i64 640
+  %icu = getelementptr inbounds nuw i8, ptr %this, i64 640
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %icu) #8
-  %cldr = getelementptr inbounds i8, ptr %this, i64 608
+  %cldr = getelementptr inbounds nuw i8, ptr %this, i64 608
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cldr) #8
-  %openssl = getelementptr inbounds i8, ptr %this, i64 576
+  %openssl = getelementptr inbounds nuw i8, ptr %this, i64 576
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %openssl) #8
-  %base64 = getelementptr inbounds i8, ptr %this, i64 544
+  %base64 = getelementptr inbounds nuw i8, ptr %this, i64 544
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %base64) #8
-  %cjs_module_lexer = getelementptr inbounds i8, ptr %this, i64 512
+  %cjs_module_lexer = getelementptr inbounds nuw i8, ptr %this, i64 512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %cjs_module_lexer) #8
-  %undici = getelementptr inbounds i8, ptr %this, i64 480
+  %undici = getelementptr inbounds nuw i8, ptr %this, i64 480
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %undici) #8
-  %ada = getelementptr inbounds i8, ptr %this, i64 448
+  %ada = getelementptr inbounds nuw i8, ptr %this, i64 448
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ada) #8
-  %simdutf = getelementptr inbounds i8, ptr %this, i64 416
+  %simdutf = getelementptr inbounds nuw i8, ptr %this, i64 416
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdutf) #8
-  %simdjson = getelementptr inbounds i8, ptr %this, i64 384
+  %simdjson = getelementptr inbounds nuw i8, ptr %this, i64 384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %simdjson) #8
-  %acorn = getelementptr inbounds i8, ptr %this, i64 352
+  %acorn = getelementptr inbounds nuw i8, ptr %this, i64 352
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %acorn) #8
-  %uvwasi = getelementptr inbounds i8, ptr %this, i64 320
+  %uvwasi = getelementptr inbounds nuw i8, ptr %this, i64 320
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uvwasi) #8
-  %llhttp = getelementptr inbounds i8, ptr %this, i64 288
+  %llhttp = getelementptr inbounds nuw i8, ptr %this, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %llhttp) #8
-  %napi = getelementptr inbounds i8, ptr %this, i64 256
+  %napi = getelementptr inbounds nuw i8, ptr %this, i64 256
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %napi) #8
-  %nghttp2 = getelementptr inbounds i8, ptr %this, i64 224
+  %nghttp2 = getelementptr inbounds nuw i8, ptr %this, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %nghttp2) #8
-  %modules = getelementptr inbounds i8, ptr %this, i64 192
+  %modules = getelementptr inbounds nuw i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %modules) #8
-  %ares = getelementptr inbounds i8, ptr %this, i64 160
+  %ares = getelementptr inbounds nuw i8, ptr %this, i64 160
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ares) #8
-  %brotli = getelementptr inbounds i8, ptr %this, i64 128
+  %brotli = getelementptr inbounds nuw i8, ptr %this, i64 128
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %brotli) #8
-  %zlib = getelementptr inbounds i8, ptr %this, i64 96
+  %zlib = getelementptr inbounds nuw i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %zlib) #8
-  %uv = getelementptr inbounds i8, ptr %this, i64 64
+  %uv = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uv) #8
-  %v8 = getelementptr inbounds i8, ptr %this, i64 32
+  %v8 = getelementptr inbounds nuw i8, ptr %this, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %v8) #8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #8
   ret void

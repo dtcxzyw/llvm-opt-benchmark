@@ -41,7 +41,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC2ENS_6TfEnu
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr @_ZTIi, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #11
@@ -294,7 +294,7 @@ _ZNSt3any5resetEv.exit:                           ; preds = %1, %4
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase7IsFatalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(145) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
   switch i32 %.sroa.4.0.copyload, label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfEnumeqINS_16TfDiagnosticTypeEEENSt9enable_ifIXsr3std7is_enumIT_EE5valueEbE4typeES4_.exit4 [
     i32 2, label %3
@@ -365,7 +365,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfEnumeqINS_16TfDiagnosticTypeEEENSt9enab
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBase13IsCodingErrorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(145) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
   switch i32 %.sroa.3.0.copyload, label %_ZNK32pxrInternal_v0_24__pxrReserved__6TfEnumeqINS_16TfDiagnosticTypeEEENSt9enable_ifIXsr3std7is_enumIT_EE5valueEbE4typeES4_.exit2 [
     i32 1, label %3

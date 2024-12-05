@@ -9,19 +9,19 @@ define void @ADIOI_Get_position(ptr nocapture noundef readonly %0, ptr nocapture
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 120
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load ptr, ptr %7, align 8
   call void @ADIOI_Datatype_iscontig(ptr noundef %8, ptr noundef nonnull %4) #2
-  %9 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %10 = load i64, ptr %9, align 8
   %11 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %18, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = load i64, ptr %15, align 8
   %17 = sub nsw i64 %14, %16
   br label %53
@@ -33,19 +33,19 @@ define void @ADIOI_Get_position(ptr nocapture noundef readonly %0, ptr nocapture
   %22 = call i32 @PMPI_Type_size_x(ptr noundef %21, ptr noundef nonnull %3) #2
   %23 = load ptr, ptr %7, align 8
   %24 = call i32 @PMPI_Type_get_extent(ptr noundef %23, ptr noundef nonnull %5, ptr noundef nonnull %6) #2
-  %25 = getelementptr inbounds i8, ptr %0, i64 104
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %20, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %30 = load i64, ptr %29, align 8
   %31 = icmp sgt i64 %30, 0
   %32 = load i64, ptr %6, align 8
   br i1 %31, label %.split.us, label %.loopexit
 
 .split.us:                                        ; preds = %18
-  %33 = getelementptr inbounds i8, ptr %20, i64 24
-  %34 = getelementptr inbounds i8, ptr %20, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
   br label %.lr.ph.us
@@ -67,10 +67,10 @@ define void @ADIOI_Get_position(ptr nocapture noundef readonly %0, ptr nocapture
 40:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
   %.14251.us = phi i64 [ 0, %.lr.ph.us ], [ %43, %39 ]
-  %41 = getelementptr inbounds i64, ptr %35, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw i64, ptr %35, i64 %indvars.iv
   %42 = load i64, ptr %41, align 8
   %43 = add nsw i64 %42, %.14251.us
-  %44 = getelementptr inbounds i64, ptr %36, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8
   %46 = add i64 %42, %26
   %47 = add i64 %46, %45

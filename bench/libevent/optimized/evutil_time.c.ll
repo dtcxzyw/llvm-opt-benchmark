@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_tv_to_msec_(ptr nocapture noundef readonly %tv) local_unnamed_addr #0 {
 entry:
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %0 = load i64, ptr %tv_usec, align 8
   %cmp = icmp sgt i64 %0, 1000000
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -64,10 +64,10 @@ entry:
 if.end:                                           ; preds = %entry
   %0 = load i64, ptr %tv, align 8
   store i64 %0, ptr %ts, align 8
-  %tv_usec = getelementptr inbounds i8, ptr %tv, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tv, i64 8
   %1 = load i64, ptr %tv_usec, align 8
   %mul = mul nsw i64 %1, 1000
-  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
   store i64 %mul, ptr %tv_nsec, align 8
   %call = call i32 @nanosleep(ptr noundef nonnull %ts, ptr noundef null) #8
   br label %return
@@ -94,12 +94,12 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %tm.addr.0.sroa.phi24 = phi ptr [ %sys, %if.then ], [ %tm, %entry ]
-  %tm.addr.0.sroa.phi24.sroa.phi72 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 4
-  %tm.addr.0.sroa.phi24.sroa.phi69 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 8
-  %tm.addr.0.sroa.phi24.sroa.phi66 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 20
-  %tm.addr.0.sroa.phi24.sroa.phi = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 16
-  %tm.addr.0.sroa.phi24.sroa.phi61 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 12
-  %tm.addr.0.sroa.phi24.sroa.phi59 = getelementptr inbounds i8, ptr %tm.addr.0.sroa.phi24, i64 24
+  %tm.addr.0.sroa.phi24.sroa.phi72 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 4
+  %tm.addr.0.sroa.phi24.sroa.phi69 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 8
+  %tm.addr.0.sroa.phi24.sroa.phi66 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 20
+  %tm.addr.0.sroa.phi24.sroa.phi = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 16
+  %tm.addr.0.sroa.phi24.sroa.phi61 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 12
+  %tm.addr.0.sroa.phi24.sroa.phi59 = getelementptr inbounds nuw i8, ptr %tm.addr.0.sroa.phi24, i64 24
   %0 = load i32, ptr %tm.addr.0.sroa.phi24.sroa.phi59, align 8
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [7 x ptr], ptr @evutil_date_rfc1123.DAYS, i64 0, i64 %idxprom
@@ -250,13 +250,13 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then
   %1 = load i64, ptr %tp, align 8
-  %adjust_monotonic_clock.i = getelementptr inbounds i8, ptr %base, i64 8
+  %adjust_monotonic_clock.i = getelementptr inbounds nuw i8, ptr %base, i64 8
   %2 = load i64, ptr %adjust_monotonic_clock.i, align 8
   %add.i = add nsw i64 %2, %1
   store i64 %add.i, ptr %tp, align 8
-  %tv_usec.i = getelementptr inbounds i8, ptr %tp, i64 8
+  %tv_usec.i = getelementptr inbounds nuw i8, ptr %tp, i64 8
   %3 = load i64, ptr %tv_usec.i, align 8
-  %tv_usec4.i = getelementptr inbounds i8, ptr %base, i64 16
+  %tv_usec4.i = getelementptr inbounds nuw i8, ptr %base, i64 16
   %4 = load i64, ptr %tv_usec4.i, align 8
   %add5.i = add nsw i64 %4, %3
   store i64 %add5.i, ptr %tv_usec.i, align 8
@@ -273,13 +273,13 @@ if.then.i:                                        ; preds = %if.end
 do.end.i:                                         ; preds = %if.then.i, %if.end
   %5 = phi i64 [ %add5.i, %if.end ], [ %sub.i, %if.then.i ]
   %6 = phi i64 [ %add.i, %if.end ], [ %inc.i, %if.then.i ]
-  %last_time.i = getelementptr inbounds i8, ptr %base, i64 24
+  %last_time.i = getelementptr inbounds nuw i8, ptr %base, i64 24
   %7 = load i64, ptr %last_time.i, align 8
   %cmp12.i = icmp eq i64 %6, %7
   br i1 %cmp12.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %do.end.i
-  %tv_usec15.i = getelementptr inbounds i8, ptr %base, i64 32
+  %tv_usec15.i = getelementptr inbounds nuw i8, ptr %base, i64 32
   %8 = load i64, ptr %tv_usec15.i, align 8
   %cmp16.i = icmp slt i64 %5, %8
   br i1 %cmp16.i, label %do.body22.i, label %adjust_monotonic_time.exit
@@ -289,7 +289,7 @@ cond.false.i:                                     ; preds = %do.end.i
   br i1 %cmp20.i, label %cond.false.do.body22_crit_edge.i, label %adjust_monotonic_time.exit
 
 cond.false.do.body22_crit_edge.i:                 ; preds = %cond.false.i
-  %tv_usec29.phi.trans.insert.i = getelementptr inbounds i8, ptr %base, i64 32
+  %tv_usec29.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %base, i64 32
   %.pre.i = load i64, ptr %tv_usec29.phi.trans.insert.i, align 8
   br label %do.body22.i
 
@@ -334,10 +334,10 @@ if.end3:                                          ; preds = %entry
 if.end8:                                          ; preds = %if.end3
   %12 = load i64, ptr %ts, align 8
   store i64 %12, ptr %tp, align 8
-  %tv_nsec = getelementptr inbounds i8, ptr %ts, i64 8
+  %tv_nsec = getelementptr inbounds nuw i8, ptr %ts, i64 8
   %13 = load i64, ptr %tv_nsec, align 8
   %div = sdiv i64 %13, 1000
-  %tv_usec = getelementptr inbounds i8, ptr %tp, i64 8
+  %tv_usec = getelementptr inbounds nuw i8, ptr %tp, i64 8
   store i64 %div, ptr %tv_usec, align 8
   br label %return
 

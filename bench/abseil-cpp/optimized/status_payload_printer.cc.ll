@@ -35,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl15status_internal23SetStatusPayloadPrinterEPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS5_ERKNS_4CordEE(ptr noundef %printer) local_unnamed_addr #3 {
 entry:
-  %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN4absl15status_internalL7storageB5cxx11E, i64 8), align 8
+  %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl15status_internalL7storageB5cxx11E, i64 8), align 8
   %1 = ptrtoint ptr %0 to i64
   %2 = ptrtoint ptr %printer to i64
   %3 = cmpxchg ptr @_ZN4absl15status_internalL7storageB5cxx11E, i64 %1, i64 %2 acq_rel acquire, align 8
@@ -55,7 +55,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_(ptr noalias sret(%"class.std::optional") align 8 %agg.result, i64 %.coerce0, ptr %.coerce1, ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
 entry:
-  %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i8 0, ptr %_M_engaged.i.i.i.i.i, align 8
   ret void
 }

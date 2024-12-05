@@ -73,15 +73,15 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %I.09 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.09
-  %Flag = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  %arrayidx = getelementptr inbounds nuw [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.09
+  %Flag = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
   %0 = cmpxchg ptr %Flag, i32 2, i32 3 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
   br i1 %1, label %if.end, label %for.inc
 
 if.end:                                           ; preds = %for.body
   %2 = load ptr, ptr %arrayidx, align 8
-  %Cookie = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %Cookie = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %3 = load ptr, ptr %Cookie, align 8
   tail call void %2(ptr noundef %3) #15
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i8 0, i64 16, i1 false)
@@ -109,7 +109,7 @@ entry:
   %MainExecutableName = alloca %"class.std::__cxx11::basic_string", align 8
   %Allocator = alloca %"class.llvh::BumpPtrAllocatorImpl", align 8
   store ptr %Argv0.coerce0, ptr %Argv0, align 8
-  %0 = getelementptr inbounds i8, ptr %Argv0, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %Argv0, i64 8
   store i64 %Argv0.coerce1, ptr %0, align 8
   %call = call noundef i64 @_ZNK4llvh9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16) %Argv0, ptr nonnull @.str, i64 15, i64 noundef 0) #15
   %cmp.not = icmp eq i64 %call, -1
@@ -117,10 +117,10 @@ entry:
 
 if.end2:                                          ; preds = %entry
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #16
-  %HasError.i = getelementptr inbounds i8, ptr %LLVMSymbolizerPathOrErr, i64 32
+  %HasError.i = getelementptr inbounds nuw i8, ptr %LLVMSymbolizerPathOrErr, i64 32
   store i8 -1, ptr %HasError.i, align 8
   store i32 0, ptr %LLVMSymbolizerPathOrErr, align 8
-  %EC.sroa.21.0.call.sroa_idx.i = getelementptr inbounds i8, ptr %LLVMSymbolizerPathOrErr, i64 8
+  %EC.sroa.21.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %LLVMSymbolizerPathOrErr, i64 8
   store ptr %call.i, ptr %EC.sroa.21.0.call.sroa_idx.i, align 8
   %1 = load i64, ptr %0, align 8
   %cmp.i290 = icmp eq i64 %1, 0
@@ -131,7 +131,7 @@ if.then5:                                         ; preds = %if.end2
   %call7 = call { ptr, i64 } @_ZN4llvh3sys4path11parent_pathENS_9StringRefENS1_5StyleE(ptr %agg.tmp6.sroa.0.0.copyload, i64 %1, i32 noundef 2) #15
   %2 = extractvalue { ptr, i64 } %call7, 0
   store ptr %2, ptr %Parent, align 8
-  %3 = getelementptr inbounds i8, ptr %Parent, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %Parent, i64 8
   %4 = extractvalue { ptr, i64 } %call7, 1
   store i64 %4, ptr %3, align 8
   %cmp.i286 = icmp eq i64 %4, 0
@@ -150,7 +150,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4llvh9StringRefC
 
 _ZN4llvh7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i: ; preds = %if.then.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit175
   %bf.load7.i.i.i.i = phi i8 [ %bf.load.i.i.i, %_ZN4llvh9StringRefC2EPKc.exit175 ], [ %bf.load7.i.i.pre.i.i, %if.then.i.i.i ]
-  %HasError.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %HasError.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   %bf.load.i.i.i.i = load i8, ptr %HasError.i.i.i.i, align 8
   %bf.cast.i.i.i.i = trunc i8 %bf.load.i.i.i.i to i1
   br i1 %bf.cast.i.i.i.i, label %_ZNK4llvh7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getErrorEv.exit.i.i.i.i, label %if.then.i.i.i.i
@@ -166,7 +166,7 @@ _ZNK4llvh7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getError
   %bf.set9.i.i.i.i = or i8 %bf.load7.i.i.i.i, 1
   store i8 %bf.set9.i.i.i.i, ptr %HasError.i, align 8
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i32, ptr %ref.tmp, align 8
-  %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   %retval.sroa.31.0.copyload.i.i.i.i.i = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i.i.i, ptr %LLVMSymbolizerPathOrErr, align 8
   store ptr %retval.sroa.31.0.copyload.i.i.i.i.i, ptr %EC.sroa.21.0.call.sroa_idx.i, align 8
@@ -199,7 +199,7 @@ if.then.i.i.i66:                                  ; preds = %_ZN4llvh9StringRefC
 
 _ZN4llvh7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit.i.i68: ; preds = %if.then.i.i.i66, %_ZN4llvh9StringRefC2EPKc.exit185
   %bf.load7.i.i.i.i69 = phi i8 [ %bf.load.i.i.i64, %_ZN4llvh9StringRefC2EPKc.exit185 ], [ %bf.load7.i.i.pre.i.i67, %if.then.i.i.i66 ]
-  %HasError.i.i.i.i70 = getelementptr inbounds i8, ptr %ref.tmp17, i64 32
+  %HasError.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 32
   %bf.load.i.i.i.i71 = load i8, ptr %HasError.i.i.i.i70, align 8
   %bf.cast.i.i.i.i72 = trunc i8 %bf.load.i.i.i.i71 to i1
   br i1 %bf.cast.i.i.i.i72, label %_ZNK4llvh7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getErrorEv.exit.i.i.i.i81, label %if.then.i.i.i.i73
@@ -215,7 +215,7 @@ _ZNK4llvh7ErrorOrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8getError
   %bf.set9.i.i.i.i76 = or i8 %bf.load7.i.i.i.i69, 1
   store i8 %bf.set9.i.i.i.i76, ptr %HasError.i, align 8
   %retval.sroa.0.0.copyload.i.i.i.i.i85 = load i32, ptr %ref.tmp17, align 8
-  %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i86 = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
+  %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i86 = getelementptr inbounds nuw i8, ptr %ref.tmp17, i64 8
   %retval.sroa.31.0.copyload.i.i.i.i.i87 = load ptr, ptr %retval.sroa.31.0.this.sroa_idx.i.i.i.i.i86, align 8
   store i32 %retval.sroa.0.0.copyload.i.i.i.i.i85, ptr %LLVMSymbolizerPathOrErr, align 8
   store ptr %retval.sroa.31.0.copyload.i.i.i.i.i87, ptr %EC.sroa.21.0.call.sroa_idx.i, align 8
@@ -265,19 +265,19 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit, %cond.true
-  %Slabs.i = getelementptr inbounds i8, ptr %Allocator, i64 16
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Allocator, i64 32
+  %Slabs.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 16
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(97) %Allocator, i8 0, i64 16, i1 false)
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Slabs.i, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Allocator, i64 24
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 24
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %Allocator, i64 28
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 28
   store i32 4, ptr %Capacity2.i.i.i.i.i.i, align 4
-  %CustomSizedSlabs.i = getelementptr inbounds i8, ptr %Allocator, i64 64
-  %add.ptr.i.i.i.i.i1.i = getelementptr inbounds i8, ptr %Allocator, i64 80
+  %CustomSizedSlabs.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 64
+  %add.ptr.i.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 80
   store ptr %add.ptr.i.i.i.i.i1.i, ptr %CustomSizedSlabs.i, align 8
-  %Size.i.i.i.i.i2.i = getelementptr inbounds i8, ptr %Allocator, i64 72
-  %RedZoneSize.i = getelementptr inbounds i8, ptr %Allocator, i64 88
+  %Size.i.i.i.i.i2.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 72
+  %RedZoneSize.i = getelementptr inbounds nuw i8, ptr %Allocator, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Size.i.i.i.i.i2.i, i8 0, i64 16, i1 false)
   store i64 1, ptr %RedZoneSize.i, align 8
   %cmp.i.i = icmp slt i32 %Depth, 0
@@ -292,7 +292,7 @@ _ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %cond.end
   %7 = load ptr, ptr %Slabs.i, align 8
   %8 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 %conv.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i.i
   %cmp.not4.i.i = icmp eq i32 %8, 0
   br i1 %cmp.not4.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i
 
@@ -300,7 +300,7 @@ for.body.i.i:                                     ; preds = %_ZNSt6vectorIPKcSaI
   %I.addr.05.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %7, %_ZNSt6vectorIPKcSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
   %9 = load ptr, ptr %I.addr.05.i.i, align 8
   call void @free(ptr noundef %9) #15
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %I.addr.05.i.i, i64 8
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %I.addr.05.i.i, i64 8
   %cmp.not.i.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i
   br i1 %cmp.not.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i, label %for.body.i.i, !llvm.loop !12
 
@@ -308,7 +308,7 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateS
   %10 = load ptr, ptr %CustomSizedSlabs.i, align 8
   %11 = load i32, ptr %Size.i.i.i.i.i2.i, align 8
   %conv.i.i.i = zext i32 %11 to i64
-  %add.ptr.i.i.i119 = getelementptr inbounds %"struct.std::pair", ptr %10, i64 %conv.i.i.i
+  %add.ptr.i.i.i119 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %conv.i.i.i
   %cmp.not5.i.i = icmp eq i32 %11, 0
   br i1 %cmp.not5.i.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.i, label %for.body.i1.i
 
@@ -316,7 +316,7 @@ for.body.i1.i:                                    ; preds = %_ZN4llvh20BumpPtrAl
   %__begin2.06.i.i = phi ptr [ %incdec.ptr.i2.i, %for.body.i1.i ], [ %10, %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE15DeallocateSlabsEPPvS4_.exit.i ]
   %12 = load ptr, ptr %__begin2.06.i.i, align 8
   call void @free(ptr noundef %12) #15
-  %incdec.ptr.i2.i = getelementptr inbounds i8, ptr %__begin2.06.i.i, i64 16
+  %incdec.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__begin2.06.i.i, i64 16
   %cmp.not.i3.i = icmp eq ptr %incdec.ptr.i2.i, %add.ptr.i.i.i119
   br i1 %cmp.not.i3.i, label %_ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE26DeallocateCustomSizedSlabsEv.exit.loopexit.i, label %for.body.i1.i
 
@@ -387,7 +387,7 @@ entry:
   br i1 %tobool.not2.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %entry
-  %st_mode.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 24
+  %st_mode.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -415,7 +415,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end7.i.i, %if.end.i.i, %if.then.i.i, %for.body.i.i
-  %Next.i.i = getelementptr inbounds i8, ptr %currentFile.03.i.i, i64 8
+  %Next.i.i = getelementptr inbounds nuw i8, ptr %currentFile.03.i.i, i64 8
   %4 = load atomic i64, ptr %Next.i.i seq_cst, align 8
   %tobool.not.i.i = icmp eq i64 %4, 0
   br i1 %tobool.not.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.i.i, !llvm.loop !13
@@ -460,7 +460,7 @@ if.then.i.i:                                      ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit
 
 if.else.i.i:                                      ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit
-  %acquired.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
+  %acquired.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %2 = load i32, ptr %acquired.i.i, align 8
   %inc.i.i = add i32 %2, 1
   store i32 %inc.i.i, ptr %acquired.i.i, align 8
@@ -494,7 +494,7 @@ lor.lhs.false2.i:                                 ; preds = %lor.lhs.false.i
   br i1 %or.cond.i, label %if.end.i, label %_ZL17CreateSigAltStackv.exit
 
 if.end.i:                                         ; preds = %lor.lhs.false2.i
-  %7 = getelementptr inbounds i8, ptr %AltStack.i, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %AltStack.i, i64 8
   store i64 0, ptr %7, align 8
   %call.i.i7 = tail call noalias ptr @malloc(i64 noundef %add.i) #18
   %cmp.i.i = icmp eq ptr %call.i.i7, null
@@ -507,7 +507,7 @@ if.then.i.i8:                                     ; preds = %if.end.i
 _ZN4llvh11safe_mallocEm.exit.i:                   ; preds = %if.then.i.i8, %if.end.i
   store ptr %call.i.i7, ptr %AltStack.i, align 8
   store ptr %call.i.i7, ptr @_ZL18NewAltStackPointer, align 8
-  %ss_size.i = getelementptr inbounds i8, ptr %AltStack.i, i64 16
+  %ss_size.i = getelementptr inbounds nuw i8, ptr %AltStack.i, i64 16
   store i64 %add.i, ptr %ss_size.i, align 8
   %call7.i = call i32 @sigaltstack(ptr noundef nonnull %AltStack.i, ptr noundef nonnull @_ZL11OldAltStack) #15
   %cmp8.not.i = icmp eq i32 %call7.i, 0
@@ -520,18 +520,18 @@ if.then9.i:                                       ; preds = %_ZN4llvh11safe_mall
 
 _ZL17CreateSigAltStackv.exit:                     ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false2.i, %_ZN4llvh11safe_mallocEm.exit.i, %if.then9.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %AltStack.i)
-  %sa_flags.i = getelementptr inbounds i8, ptr %NewHandler.i, i64 136
-  %sa_mask.i = getelementptr inbounds i8, ptr %NewHandler.i, i64 8
+  %sa_flags.i = getelementptr inbounds nuw i8, ptr %NewHandler.i, i64 136
+  %sa_mask.i = getelementptr inbounds nuw i8, ptr %NewHandler.i, i64 8
   br label %for.body
 
 for.cond6.preheader:                              ; preds = %for.body
-  %sa_flags.i10 = getelementptr inbounds i8, ptr %NewHandler.i9, i64 136
-  %sa_mask.i11 = getelementptr inbounds i8, ptr %NewHandler.i9, i64 8
+  %sa_flags.i10 = getelementptr inbounds nuw i8, ptr %NewHandler.i9, i64 136
+  %sa_mask.i11 = getelementptr inbounds nuw i8, ptr %NewHandler.i9, i64 8
   br label %for.body8
 
 for.body:                                         ; preds = %_ZL17CreateSigAltStackv.exit, %for.body
   %__begin1.0.idx22 = phi i64 [ 0, %_ZL17CreateSigAltStackv.exit ], [ %__begin1.0.add, %for.body ]
-  %__begin1.0.ptr = getelementptr inbounds i8, ptr @_ZL7IntSigs, i64 %__begin1.0.idx22
+  %__begin1.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL7IntSigs, i64 %__begin1.0.idx22
   %9 = load i32, ptr %__begin1.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %NewHandler.i)
   %10 = load atomic i32, ptr @_ZL20NumRegisteredSignals seq_cst, align 4
@@ -539,9 +539,9 @@ for.body:                                         ; preds = %_ZL17CreateSigAltSt
   store i32 -939524096, ptr %sa_flags.i, align 8
   %call2.i = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i) #15
   %idxprom.i = zext i32 %10 to i64
-  %arrayidx.i = getelementptr inbounds [16 x %struct.anon], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [16 x %struct.anon], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %idxprom.i
   %call3.i = call i32 @sigaction(i32 noundef %9, ptr noundef nonnull %NewHandler.i, ptr noundef nonnull %arrayidx.i) #15
-  %SigNo.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
+  %SigNo.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
   store i32 %9, ptr %SigNo.i, align 8
   %11 = atomicrmw add ptr @_ZL20NumRegisteredSignals, i32 1 seq_cst, align 4
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %NewHandler.i)
@@ -551,7 +551,7 @@ for.body:                                         ; preds = %_ZL17CreateSigAltSt
 
 for.body8:                                        ; preds = %for.cond6.preheader, %for.body8
   %__begin14.0.idx23 = phi i64 [ 0, %for.cond6.preheader ], [ %__begin14.0.add, %for.body8 ]
-  %__begin14.0.ptr = getelementptr inbounds i8, ptr @_ZL8KillSigs, i64 %__begin14.0.idx23
+  %__begin14.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL8KillSigs, i64 %__begin14.0.idx23
   %12 = load i32, ptr %__begin14.0.ptr, align 4
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %NewHandler.i9)
   %13 = load atomic i32, ptr @_ZL20NumRegisteredSignals seq_cst, align 4
@@ -559,9 +559,9 @@ for.body8:                                        ; preds = %for.cond6.preheader
   store i32 -939524096, ptr %sa_flags.i10, align 8
   %call2.i12 = call i32 @sigemptyset(ptr noundef nonnull %sa_mask.i11) #15
   %idxprom.i13 = zext i32 %13 to i64
-  %arrayidx.i14 = getelementptr inbounds [16 x %struct.anon], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %idxprom.i13
+  %arrayidx.i14 = getelementptr inbounds nuw [16 x %struct.anon], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %idxprom.i13
   %call3.i15 = call i32 @sigaction(i32 noundef %12, ptr noundef nonnull %NewHandler.i9, ptr noundef nonnull %arrayidx.i14) #15
-  %SigNo.i16 = getelementptr inbounds i8, ptr %arrayidx.i14, i64 152
+  %SigNo.i16 = getelementptr inbounds nuw i8, ptr %arrayidx.i14, i64 152
   store i32 %12, ptr %SigNo.i16, align 8
   %14 = atomicrmw add ptr @_ZL20NumRegisteredSignals, i32 1 seq_cst, align 4
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %NewHandler.i9)
@@ -578,7 +578,7 @@ if.then.i.i20:                                    ; preds = %cleanup
   br label %_ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit
 
 if.else.i.i18:                                    ; preds = %cleanup
-  %acquired.i.i19 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i, i64 8
+  %acquired.i.i19 = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i, i64 8
   %15 = load i32, ptr %acquired.i.i19, align 8
   %dec.i.i = add i32 %15, -1
   store i32 %dec.i.i, ptr %acquired.i.i19, align 8
@@ -623,7 +623,7 @@ _ZNK4llvh9StringRef3strB5cxx11Ev.exit:            ; preds = %if.then.i2, %if.end
   %call.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #15
   %call2.i.i = call noalias ptr @strdup(ptr noundef %call.i.i) #15
   store ptr %call2.i.i, ptr %call.i, align 8
-  %Next.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %Next.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr null, ptr %Next.i.i, align 8
   %2 = ptrtoint ptr %call.i to i64
   %3 = cmpxchg ptr @_ZN12_GLOBAL__N_113FilesToRemoveE, i64 0, i64 %2 seq_cst seq_cst, align 8
@@ -634,7 +634,7 @@ while.body.i:                                     ; preds = %_ZNK4llvh9StringRef
   %5 = phi { i64, i1 } [ %8, %while.body.i ], [ %3, %_ZNK4llvh9StringRef3strB5cxx11Ev.exit ]
   %6 = extractvalue { i64, i1 } %5, 0
   %7 = inttoptr i64 %6 to ptr
-  %Next.i = getelementptr inbounds i8, ptr %7, i64 8
+  %Next.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = cmpxchg ptr %Next.i, i64 0, i64 %2 seq_cst seq_cst, align 8
   %9 = extractvalue { i64, i1 } %8, 1
   br i1 %9, label %_ZN12_GLOBAL__N_116FileToRemoveList6insertERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %while.body.i, !llvm.loop !17
@@ -685,7 +685,7 @@ if.then.i.i.i:                                    ; preds = %_ZN4llvh13ManagedSt
   br label %_ZN4llvh3sys15SmartScopedLockILb1EEC2ERNS0_10SmartMutexILb1EEE.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4llvh13ManagedStaticINS_3sys10SmartMutexILb1EEENS_14object_creatorIS3_EENS_14object_deleterIS3_EEEdeEv.exit.i
-  %acquired.i.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
+  %acquired.i.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %2 = load i32, ptr %acquired.i.i.i, align 8
   %inc.i.i.i = add i32 %2, 1
   store i32 %inc.i.i.i, ptr %acquired.i.i.i, align 8
@@ -720,7 +720,7 @@ if.then10.i:                                      ; preds = %if.end.i3
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then10.i, %if.end.i3, %if.then.i1, %for.body.i
-  %Next.i = getelementptr inbounds i8, ptr %Current.03.i, i64 8
+  %Next.i = getelementptr inbounds nuw i8, ptr %Current.03.i, i64 8
   %6 = load atomic i64, ptr %Next.i seq_cst, align 8
   %tobool.not.i2 = icmp eq i64 %6, 0
   br i1 %tobool.not.i2, label %for.end.i, label %for.body.i, !llvm.loop !21
@@ -734,7 +734,7 @@ if.then.i.i12.i:                                  ; preds = %for.end.i
   br label %_ZN12_GLOBAL__N_116FileToRemoveList5eraseERSt6atomicIPS0_ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 if.else.i.i10.i:                                  ; preds = %for.end.i
-  %acquired.i.i11.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
+  %acquired.i.i11.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i1.i.i, i64 8
   %7 = load i32, ptr %acquired.i.i11.i, align 8
   %dec.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i, ptr %acquired.i.i11.i, align 8
@@ -757,8 +757,8 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %entry
   %I.07.i = phi i64 [ 0, %entry ], [ %inc.i, %for.cond.i ]
-  %arrayidx.i = getelementptr inbounds [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.07.i
-  %Flag.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  %arrayidx.i = getelementptr inbounds nuw [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.07.i
+  %Flag.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %0 = cmpxchg ptr %Flag.i, i32 0, i32 1 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
   br i1 %1, label %_ZL19insertSignalHandlerPFvPvES_.exit, label %for.cond.i
@@ -769,7 +769,7 @@ for.end.i:                                        ; preds = %for.cond.i
 
 _ZL19insertSignalHandlerPFvPvES_.exit:            ; preds = %for.body.i
   store ptr %FnPtr, ptr %arrayidx.i, align 8
-  %Cookie1.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %Cookie1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   store ptr %Cookie, ptr %Cookie1.i, align 8
   store atomic i32 2, ptr %Flag.i seq_cst, align 4
   tail call fastcc void @_ZL16RegisterHandlersv()
@@ -802,8 +802,8 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %entry
   %I.07.i.i = phi i64 [ 0, %entry ], [ %inc.i.i, %for.cond.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.07.i.i
-  %Flag.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.07.i.i
+  %Flag.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %0 = cmpxchg ptr %Flag.i.i, i32 0, i32 1 seq_cst seq_cst, align 4
   %1 = extractvalue { i32, i1 } %0, 1
   br i1 %1, label %_ZN4llvh3sys16AddSignalHandlerEPFvPvES1_.exit, label %for.cond.i.i
@@ -814,7 +814,7 @@ for.end.i.i:                                      ; preds = %for.cond.i.i
 
 _ZN4llvh3sys16AddSignalHandlerEPFvPvES1_.exit:    ; preds = %for.body.i.i
   store ptr @_ZL28PrintStackTraceSignalHandlerPv, ptr %arrayidx.i.i, align 8
-  %Cookie1.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  %Cookie1.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store ptr null, ptr %Cookie1.i.i, align 8
   store atomic i32 2, ptr %Flag.i.i seq_cst, align 4
   tail call fastcc void @_ZL16RegisterHandlersv()
@@ -847,9 +847,9 @@ define linkonce_odr hidden noundef ptr @_ZN4llvh14object_creatorINS_3sys10SmartM
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   tail call void @_ZN4llvh3sys9MutexImplC1Eb(ptr noundef nonnull align 8 dereferenceable(13) %call, i1 noundef zeroext true) #15
-  %acquired.i = getelementptr inbounds i8, ptr %call, i64 8
+  %acquired.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   store i32 0, ptr %acquired.i, align 8
-  %recursive.i = getelementptr inbounds i8, ptr %call, i64 12
+  %recursive.i = getelementptr inbounds nuw i8, ptr %call, i64 12
   store i8 1, ptr %recursive.i, align 4
   ret ptr %call
 }
@@ -910,8 +910,8 @@ for.body.preheader.i:                             ; preds = %entry
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds [16 x %struct.anon], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %indvars.iv.i
-  %SigNo.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 152
+  %arrayidx.i = getelementptr inbounds nuw [16 x %struct.anon], ptr @_ZL20RegisteredSignalInfo, i64 0, i64 %indvars.iv.i
+  %SigNo.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 152
   %2 = load i32, ptr %SigNo.i, align 8
   %call3.i = tail call i32 @sigaction(i32 noundef %2, ptr noundef nonnull %arrayidx.i, ptr noundef null) #15
   %3 = atomicrmw sub ptr @_ZL20NumRegisteredSignals, i32 1 seq_cst, align 4
@@ -928,7 +928,7 @@ _ZL18UnregisterHandlersv.exit:                    ; preds = %for.body.i, %entry
   br i1 %tobool.not2.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %_ZL18UnregisterHandlersv.exit
-  %st_mode.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 24
+  %st_mode.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 24
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.lr.ph.i.i
@@ -956,7 +956,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end7.i.i, %if.end.i.i, %if.then.i.i, %for.body.i.i
-  %Next.i.i = getelementptr inbounds i8, ptr %currentFile.03.i.i, i64 8
+  %Next.i.i = getelementptr inbounds nuw i8, ptr %currentFile.03.i.i, i64 8
   %8 = load atomic i64, ptr %Next.i.i seq_cst, align 8
   %tobool.not.i.i = icmp eq i64 %8, 0
   br i1 %tobool.not.i.i, label %_ZL19RemoveFilesToRemovev.exit, label %for.body.i.i, !llvm.loop !13
@@ -989,15 +989,15 @@ if.end:                                           ; preds = %if.then
 
 for.body.i2:                                      ; preds = %_ZL19RemoveFilesToRemovev.exit, %for.inc.i
   %I.09.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %_ZL19RemoveFilesToRemovev.exit ]
-  %arrayidx.i3 = getelementptr inbounds [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.09.i
-  %Flag.i = getelementptr inbounds i8, ptr %arrayidx.i3, i64 16
+  %arrayidx.i3 = getelementptr inbounds nuw [8 x %struct.CallbackAndCookie], ptr @_ZL14CallBacksToRun, i64 0, i64 %I.09.i
+  %Flag.i = getelementptr inbounds nuw i8, ptr %arrayidx.i3, i64 16
   %11 = cmpxchg ptr %Flag.i, i32 2, i32 3 seq_cst seq_cst, align 4
   %12 = extractvalue { i32, i1 } %11, 1
   br i1 %12, label %if.end.i, label %for.inc.i
 
 if.end.i:                                         ; preds = %for.body.i2
   %13 = load ptr, ptr %arrayidx.i3, align 8
-  %Cookie.i = getelementptr inbounds i8, ptr %arrayidx.i3, i64 8
+  %Cookie.i = getelementptr inbounds nuw i8, ptr %arrayidx.i3, i64 8
   %14 = load ptr, ptr %Cookie.i, align 8
   call void %13(ptr noundef %14) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i3, i8 0, i64 16, i1 false)
@@ -1093,7 +1093,7 @@ delete.end:                                       ; preds = %_ZN12_GLOBAL__N_120
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116FileToRemoveListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  %Next = getelementptr inbounds i8, ptr %this, i64 8
+  %Next = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw xchg ptr %Next, i64 0 seq_cst, align 8
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %if.end, label %delete.notnull

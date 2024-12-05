@@ -121,10 +121,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5XCOFF21getMappingClassStringENS0_19Stora
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [23 x i64], ptr @switch.table._ZN4llvm5XCOFF21getMappingClassStringENS0_19StorageMappingClassE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [23 x i64], ptr @switch.table._ZN4llvm5XCOFF21getMappingClassStringENS0_19StorageMappingClassE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [23 x ptr], ptr @switch.table._ZN4llvm5XCOFF21getMappingClassStringENS0_19StorageMappingClassE.1, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [23 x ptr], ptr @switch.table._ZN4llvm5XCOFF21getMappingClassStringENS0_19StorageMappingClassE.1, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -143,10 +143,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5XCOFF23getRelocationTypeStringENS0_14Rel
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [50 x i64], ptr @switch.table._ZN4llvm5XCOFF23getRelocationTypeStringENS0_14RelocationTypeE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [50 x i64], ptr @switch.table._ZN4llvm5XCOFF23getRelocationTypeStringENS0_14RelocationTypeE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [50 x ptr], ptr @switch.table._ZN4llvm5XCOFF23getRelocationTypeStringENS0_14RelocationTypeE.2, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [50 x ptr], ptr @switch.table._ZN4llvm5XCOFF23getRelocationTypeStringENS0_14RelocationTypeE.2, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -165,10 +165,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5XCOFF34getNameForTracebackTableLanguageI
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds [15 x i64], ptr @switch.table._ZN4llvm5XCOFF34getNameForTracebackTableLanguageIdENS0_14TracebackTable10LanguageIDE, i64 0, i64 %3
+  %switch.gep = getelementptr inbounds nuw [15 x i64], ptr @switch.table._ZN4llvm5XCOFF34getNameForTracebackTableLanguageIdENS0_14TracebackTable10LanguageIDE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds [15 x ptr], ptr @switch.table._ZN4llvm5XCOFF34getNameForTracebackTableLanguageIdENS0_14TracebackTable10LanguageIDE.3, i64 0, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [15 x ptr], ptr @switch.table._ZN4llvm5XCOFF34getNameForTracebackTableLanguageIdENS0_14TracebackTable10LanguageIDE.3, i64 0, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -186,7 +186,7 @@ define dso_local void @_ZN4llvm5XCOFF14parseParmsTypeEjjj(ptr dead_on_unwind noa
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca %"class.llvm::Error", align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull %9, i64 noundef 32) #11
   %10 = add i32 %3, %2
   %.not48 = icmp eq i32 %10, 0
@@ -289,7 +289,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %._crit_edge.thread
   %41 = load i8, ptr %40, align 8
   %42 = and i8 %41, -2
   store i8 %42, ptr %40, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %43, i64 noundef 32) #11
   %44 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #11
   br i1 %44, label %_ZN4llvm8ExpectedINS_11SmallStringILj32EEEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit, label %45
@@ -314,7 +314,7 @@ _ZN4llvm11SmallStringILj32EED2Ev.exit:            ; preds = %_ZN4llvm8ExpectedIN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm5XCOFF28getExtendedTBTableFlagStringEh(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::SmallString") align 8 %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, i64 noundef 32) #11
   %4 = zext i8 %1 to i32
   %.not = icmp sgt i8 %1, -1
@@ -391,7 +391,7 @@ define dso_local void @_ZN4llvm5XCOFF25parseParmsTypeWithVecInfoEjjjj(ptr dead_o
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.llvm::SmallString", align 8
   %9 = alloca %"class.llvm::Error", align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull %10, i64 noundef 32) #11
   %11 = add i32 %3, %2
   %12 = add i32 %11, %4
@@ -506,7 +506,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %._crit_edge.thread
   %44 = load i8, ptr %43, align 8
   %45 = and i8 %44, -2
   store i8 %45, ptr %43, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %46, i64 noundef 32) #11
   %47 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #11
   br i1 %47, label %_ZN4llvm8ExpectedINS_11SmallStringILj32EEEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit, label %48
@@ -535,7 +535,7 @@ define dso_local void @_ZN4llvm5XCOFF20parseVectorParmsTypeEjj(ptr dead_on_unwin
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = alloca %"class.llvm::Error", align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull %8, i64 noundef 32) #11
   %.not31 = icmp eq i32 %2, 0
   br i1 %.not31, label %._crit_edge.thread, label %.lr.ph.preheader
@@ -631,7 +631,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %._crit_edge.thread
   %31 = load i8, ptr %30, align 8
   %32 = and i8 %31, -2
   store i8 %32, ptr %30, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull %33, i64 noundef 32) #11
   %34 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(56) %6) #11
   br i1 %34, label %_ZN4llvm8ExpectedINS_11SmallStringILj32EEEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit, label %35
@@ -742,7 +742,7 @@ _ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit: ; pre
   br i1 %14, label %15, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
 15:                                               ; preds = %_ZN4llvm25SmallVectorTemplateCommonIcvE20assertSafeToAddRangeEPKcS3_.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %16, i64 noundef %12, i64 noundef 1) #11
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
 
@@ -781,14 +781,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15S
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = icmp eq ptr %5, %6
   br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = icmp eq ptr %10, %11
   br i1 %12, label %_ZN4llvm15SmallVectorImplIcE12assignRemoteEOS1_.exit, label %13
 
@@ -849,7 +849,7 @@ _ZSt4moveIPcS0_ET0_T_S2_S1_.exit:                 ; preds = %29, %26, %24
   %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #11
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %39, i64 noundef %22, i64 noundef 1) #11
   br label %_ZSt4moveIPcS0_ET0_T_S2_S1_.exit35
 

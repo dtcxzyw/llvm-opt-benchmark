@@ -221,7 +221,7 @@ define internal noundef range(i32 0, -256) i32 @_ZNK12_GLOBAL__N_120RISCVELFObje
   br i1 %57, label %58, label %62
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %10, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 13
   br i1 %61, label %78, label %62

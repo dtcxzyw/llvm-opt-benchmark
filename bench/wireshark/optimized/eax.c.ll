@@ -105,7 +105,7 @@ Dbl.exit45:                                       ; preds = %37, %38
 43:                                               ; preds = %Dbl.exit45
   %44 = trunc i32 %5 to i16
   call fastcc void @dCMAC(ptr noundef %1, ptr noundef %12, ptr noundef %0, i16 noundef zeroext %42, ptr noundef %2, i16 noundef zeroext %44)
-  %45 = getelementptr inbounds i8, ptr %12, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %bcmp36 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %45, i64 4)
   %.not37 = icmp eq i32 %bcmp36, 0
   br label %82
@@ -120,7 +120,7 @@ Dbl.exit45:                                       ; preds = %37, %38
   br i1 %49, label %50, label %52
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds i8, ptr %12, i64 12
+  %51 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %bcmp34 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %51, i64 4)
   %.not35 = icmp eq i32 %bcmp34, 0
   br label %82
@@ -144,7 +144,7 @@ Dbl.exit45:                                       ; preds = %37, %38
   br i1 %exitcond.not, label %60, label %54, !llvm.loop !6
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds i8, ptr %13, i64 12
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) %61, i64 4)
   %62 = icmp eq i32 %bcmp, 0
   br i1 %62, label %63, label %82
@@ -153,11 +153,11 @@ Dbl.exit45:                                       ; preds = %37, %38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull readonly align 16 dereferenceable(16) %12, i64 16, i1 false)
-  %64 = getelementptr inbounds i8, ptr %10, i64 12
+  %64 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %65 = load i8, ptr %64, align 4
   %66 = and i8 %65, 127
   store i8 %66, ptr %64, align 4
-  %67 = getelementptr inbounds i8, ptr %10, i64 14
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 14
   %68 = load i8, ptr %67, align 2
   %69 = and i8 %68, 127
   store i8 %69, ptr %67, align 2

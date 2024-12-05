@@ -27,9 +27,9 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13StartDecodingEPNS_13DecoderBufferE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 4
   %.not = icmp slt i64 %4, %7
@@ -41,7 +41,7 @@ define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13StartDecodingEPNS_13Deco
   %11 = load i32, ptr %10, align 1
   store i64 %7, ptr %5, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %0, align 8
   %16 = ptrtoint ptr %14 to i64
@@ -62,7 +62,7 @@ define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13StartDecodingEPNS_13Deco
   br i1 %24, label %25, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i32, ptr %15, i64 %12
+  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %12
   %.not.i.i = icmp eq ptr %14, %26
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %27
 
@@ -91,7 +91,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %21, %23, %25, %27
   %36 = load i32, ptr %.sroa.0.010.i.i, align 4
   store i32 %36, ptr %.sroa.05.09.i.i, align 4
   store i32 %35, ptr %.sroa.0.010.i.i, align 4
-  %37 = getelementptr inbounds i8, ptr %.sroa.05.09.i.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 4
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -4
   %38 = icmp ult ptr %37, %.sroa.0.0.i.i
   br i1 %38, label %.lr.ph.i.i, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, !llvm.loop !4
@@ -105,7 +105,7 @@ declare noundef zeroext i1 @_ZN5draco13DecodeSymbolsEjiPNS_13DecoderBufferEPj(i3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13DecodeNextBitEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -4
   %5 = load i32, ptr %4, align 4
@@ -117,7 +117,7 @@ define noundef zeroext i1 @_ZN5draco16SymbolBitDecoder13DecodeNextBitEv(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @_ZN5draco16SymbolBitDecoder28DecodeLeastSignificantBits32EiPj(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -4
   %7 = load i32, ptr %6, align 4
@@ -136,7 +136,7 @@ define void @_ZN5draco16SymbolBitDecoder28DecodeLeastSignificantBits32EiPj(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5draco16SymbolBitDecoder5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, %2
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE5clearEv.exit, label %5
@@ -159,14 +159,14 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
   br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %6 to i64
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %13, %7
@@ -243,7 +243,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit35: ; preds = %_ZNSt6vectorIj
   store ptr %31, ptr %0, align 8
   %40 = getelementptr inbounds i32, ptr %32, i64 %1
   store ptr %40, ptr %4, align 8
-  %41 = getelementptr inbounds i32, ptr %31, i64 %29
+  %41 = getelementptr inbounds nuw i32, ptr %31, i64 %29
   store ptr %41, ptr %11, align 8
   br label %42
 
@@ -281,11 +281,11 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZNSt6vectorIjSaIjEE16_M_shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = ptrtoint ptr %4 to i64
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = sub i64 %8, %5
@@ -305,7 +305,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt6vectorIjSaIjEE16_M_shrink_to_fitEv
 
 _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %11
   %.not.i.i.i.i = icmp eq ptr %7, %4
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, label %14
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEEvEET_S9_RKS0_.exit.i, label %14
 
 14:                                               ; preds = %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #17
@@ -313,7 +313,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %11
 
 .noexc5.i.i:                                      ; preds = %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %15, ptr align 4 %4, i64 %9, i1 false)
-  br label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i
+  br label %_ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEEvEET_S9_RKS0_.exit.i
 
 _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i.i:         ; preds = %14, %13
   %16 = landingpad { ptr, i32 }
@@ -323,16 +323,16 @@ _ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i.i:         ; preds = %14, %13
   invoke void @__cxa_end_catch()
           to label %_ZNSt19__shrink_to_fit_auxISt6vectorIjSaIjEELb1EE8_S_do_itERS2_.exit unwind label %19
 
-_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %.noexc5.i.i, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i
+_ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEEvEET_S9_RKS0_.exit.i: ; preds = %.noexc5.i.i, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %.sroa.0.0.i = phi ptr [ %15, %.noexc5.i.i ], [ null, %_ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i.i.i ]
-  %.sroa.9.0.i = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 %9
+  %.sroa.9.0.i = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %9
   store ptr %.sroa.0.0.i, ptr %0, align 8
   store ptr %.sroa.9.0.i, ptr %6, align 8
   store ptr %.sroa.9.0.i, ptr %2, align 8
   %.not.i.i.i10.i = icmp eq ptr %4, null
   br i1 %.not.i.i.i10.i, label %_ZNSt19__shrink_to_fit_auxISt6vectorIjSaIjEELb1EE8_S_do_itERS2_.exit, label %18
 
-18:                                               ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i
+18:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEEvEET_S9_RKS0_.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %4) #18
   br label %_ZNSt19__shrink_to_fit_auxISt6vectorIjSaIjEELb1EE8_S_do_itERS2_.exit
 
@@ -343,8 +343,8 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %.noexc5
   tail call void @__clang_call_terminate(ptr %21) #20
   unreachable
 
-_ZNSt19__shrink_to_fit_auxISt6vectorIjSaIjEELb1EE8_S_do_itERS2_.exit: ; preds = %18, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i.i, %1
-  %.0 = phi i1 [ false, %1 ], [ false, %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i.i ], [ true, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ true, %18 ]
+_ZNSt19__shrink_to_fit_auxISt6vectorIjSaIjEELb1EE8_S_do_itERS2_.exit: ; preds = %18, %_ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEEvEET_S9_RKS0_.exit.i, %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i.i, %1
+  %.0 = phi i1 [ false, %1 ], [ false, %_ZNSt12_Vector_baseIjSaIjEED2Ev.exit.i.i ], [ true, %_ZNSt6vectorIjSaIjEEC2ISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPjS1_EEEvEET_S9_RKS0_.exit.i ], [ true, %18 ]
   ret i1 %.0
 }
 

@@ -60,7 +60,7 @@ define hidden void @_ZN14RuntimeService4initEv() local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %1, align 8
   %7 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str, i32 noundef 3, i64 noundef 0, ptr noundef %6) #7
   store ptr %7, ptr @_ZN14RuntimeService16_sync_time_ticksE, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %31
@@ -96,13 +96,13 @@ define hidden void @_ZN14RuntimeService4initEv() local_unnamed_addr #0 align 2 {
 
 24:                                               ; preds = %19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(65) %2, i8 48, i64 64, i1 false)
-  %25 = getelementptr inbounds i8, ptr %2, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %25, align 16
   %26 = load i8, ptr @DisableAttachMechanism, align 1
   %27 = trunc i8 %26 to i1
   %28 = select i1 %27, i8 48, i8 49
   store i8 %28, ptr %2, align 16
-  %29 = getelementptr inbounds i8, ptr %2, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 49, ptr %29, align 1
   %30 = call noundef ptr @_ZN15PerfDataManager22create_string_constantE9CounterNSPKcS2_P10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.8, ptr noundef nonnull %2, ptr noundef nonnull %6) #7
   br label %31
@@ -137,13 +137,13 @@ define hidden void @_ZN14RuntimeService22record_safepoint_beginEl(i64 noundef %0
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_ZN14RuntimeService17_total_safepointsE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %9 = add nsw i64 %8, 1
   store i64 %9, ptr %7, align 8
   %10 = load ptr, ptr @_ZN14RuntimeService23_application_time_ticksE, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %12, align 8
   %14 = add nsw i64 %13, %0
@@ -162,7 +162,7 @@ define hidden void @_ZN14RuntimeService29record_safepoint_synchronizedEl(i64 nou
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_ZN14RuntimeService16_sync_time_ticksE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %9 = add nsw i64 %8, %0
@@ -183,7 +183,7 @@ define hidden void @_ZN14RuntimeService20record_safepoint_endEl(i64 noundef %0) 
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr @_ZN14RuntimeService21_safepoint_time_ticksE, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
   %9 = add nsw i64 %8, %0
@@ -202,7 +202,7 @@ define hidden noundef i64 @_ZN14RuntimeService22safepoint_sync_time_msEv() local
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN14RuntimeService16_sync_time_ticksE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @_ZN10Management11ticks_to_msEl(i64 noundef %7) #7
@@ -223,7 +223,7 @@ define hidden noundef i64 @_ZN14RuntimeService15safepoint_countEv() local_unname
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN14RuntimeService17_total_safepointsE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   br label %8
@@ -241,7 +241,7 @@ define hidden noundef i64 @_ZN14RuntimeService17safepoint_time_msEv() local_unna
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN14RuntimeService21_safepoint_time_ticksE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @_ZN10Management11ticks_to_msEl(i64 noundef %7) #7
@@ -260,7 +260,7 @@ define hidden noundef i64 @_ZN14RuntimeService19application_time_msEv() local_un
 
 3:                                                ; preds = %0
   %4 = load ptr, ptr @_ZN14RuntimeService23_application_time_ticksE, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 40
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
   %8 = tail call noundef i64 @_ZN10Management11ticks_to_msEl(i64 noundef %7) #7

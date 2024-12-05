@@ -31,10 +31,10 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
 
 .lr.ph:                                           ; preds = %.preheader32, %.lr.ph
   %.02933 = phi ptr [ %13, %.lr.ph ], [ %2, %.preheader32 ]
-  %13 = getelementptr inbounds i8, ptr %.02933, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.02933, i64 1
   %14 = load i8, ptr %.02933, align 1
   %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = add i32 %17, 1
   store i32 %18, ptr %16, align 4
@@ -47,7 +47,7 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.027 = phi i32 [ %23, %.preheader ], [ %6, %.preheader.preheader ]
   %20 = zext i32 %.027 to i64
-  %21 = getelementptr inbounds i32, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %20
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, 0
   %23 = add i32 %.027, -1
@@ -60,7 +60,7 @@ define dso_local i32 @HIST_count_simple(ptr nocapture noundef %0, ptr nocapture 
 25:                                               ; preds = %24, %25
   %indvars.iv = phi i64 [ 0, %24 ], [ %indvars.iv.next, %25 ]
   %.02634 = phi i32 [ 0, %24 ], [ %spec.select, %25 ]
-  %26 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %27, i32 %.02634)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -81,7 +81,7 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocaptu
   br i1 %7, label %8, label %32
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %2, i64 %3
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %10 = load i32, ptr %1, align 4
   %11 = add i32 %10, 1
   %12 = zext i32 %11 to i64
@@ -96,10 +96,10 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocaptu
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
   %.02933.i = phi ptr [ %16, %.lr.ph.i ], [ %2, %8 ]
-  %16 = getelementptr inbounds i8, ptr %.02933.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.02933.i, i64 1
   %17 = load i8, ptr %.02933.i, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -109,7 +109,7 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocaptu
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i
   %.027.i = phi i32 [ %26, %.preheader.i ], [ %10, %.lr.ph.i ]
   %23 = zext i32 %.027.i to i64
-  %24 = getelementptr inbounds i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i, -1
@@ -122,7 +122,7 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_countFast_wksp(ptr nocaptu
 28:                                               ; preds = %28, %27
   %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %28 ]
   %.02634.i = phi i32 [ 0, %27 ], [ %spec.select.i, %28 ]
-  %29 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
   %30 = load i32, ptr %29, align 4
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -159,9 +159,9 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %8 = add i32 %7, 1
   %9 = zext i32 %8 to i64
   %10 = shl nuw nsw i64 %9, 2
-  %11 = getelementptr inbounds i8, ptr %5, i64 1024
-  %12 = getelementptr inbounds i8, ptr %5, i64 2048
-  %13 = getelementptr inbounds i8, ptr %5, i64 3072
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 1024
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 2048
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 3072
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %14, label %15
 
@@ -177,7 +177,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   br i1 %16, label %.lr.ph.preheader, label %.preheader106
 
 .lr.ph.preheader:                                 ; preds = %15
-  %.096107 = getelementptr inbounds i8, ptr %2, i64 4
+  %.096107 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.val = load i32, ptr %2, align 1
   br label %.lr.ph
 
@@ -191,126 +191,126 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
   %.095109 = phi i32 [ %.val104, %.lr.ph ], [ %.val, %.lr.ph.preheader ]
   %.pn108 = phi ptr [ %64, %.lr.ph ], [ %2, %.lr.ph.preheader ]
   %.096.val = load i32, ptr %.096110, align 1
-  %18 = getelementptr inbounds i8, ptr %.pn108, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.pn108, i64 8
   %19 = and i32 %.095109, 255
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw i32, ptr %5, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr %21, align 4
   %24 = lshr i32 %.095109, 8
   %25 = and i32 %24, 255
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds i32, ptr %11, i64 %26
+  %27 = getelementptr inbounds nuw i32, ptr %11, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, 1
   store i32 %29, ptr %27, align 4
   %30 = lshr i32 %.095109, 16
   %31 = and i32 %30, 255
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds i32, ptr %12, i64 %32
+  %33 = getelementptr inbounds nuw i32, ptr %12, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4
   %36 = lshr i32 %.095109, 24
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %13, i64 %37
+  %38 = getelementptr inbounds nuw i32, ptr %13, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add i32 %39, 1
   store i32 %40, ptr %38, align 4
   %.val102 = load i32, ptr %18, align 1
-  %41 = getelementptr inbounds i8, ptr %.pn108, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %.pn108, i64 12
   %42 = and i32 %.096.val, 255
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %5, i64 %43
+  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4
   %47 = lshr i32 %.096.val, 8
   %48 = and i32 %47, 255
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %11, i64 %49
+  %50 = getelementptr inbounds nuw i32, ptr %11, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = add i32 %51, 1
   store i32 %52, ptr %50, align 4
   %53 = lshr i32 %.096.val, 16
   %54 = and i32 %53, 255
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %12, i64 %55
+  %56 = getelementptr inbounds nuw i32, ptr %12, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %56, align 4
   %59 = lshr i32 %.096.val, 24
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %13, i64 %60
+  %61 = getelementptr inbounds nuw i32, ptr %13, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
   %.val103 = load i32, ptr %41, align 1
-  %64 = getelementptr inbounds i8, ptr %.pn108, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.pn108, i64 16
   %65 = and i32 %.val102, 255
   %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %5, i64 %66
+  %67 = getelementptr inbounds nuw i32, ptr %5, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
   %70 = lshr i32 %.val102, 8
   %71 = and i32 %70, 255
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds i32, ptr %11, i64 %72
+  %73 = getelementptr inbounds nuw i32, ptr %11, i64 %72
   %74 = load i32, ptr %73, align 4
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 4
   %76 = lshr i32 %.val102, 16
   %77 = and i32 %76, 255
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %12, i64 %78
+  %79 = getelementptr inbounds nuw i32, ptr %12, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, 1
   store i32 %81, ptr %79, align 4
   %82 = lshr i32 %.val102, 24
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds i32, ptr %13, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %13, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 1
   store i32 %86, ptr %84, align 4
   %.val104 = load i32, ptr %64, align 1
   %87 = and i32 %.val103, 255
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %5, i64 %88
+  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4
   %92 = lshr i32 %.val103, 8
   %93 = and i32 %92, 255
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i32, ptr %11, i64 %94
+  %95 = getelementptr inbounds nuw i32, ptr %11, i64 %94
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, 1
   store i32 %97, ptr %95, align 4
   %98 = lshr i32 %.val103, 16
   %99 = and i32 %98, 255
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr %12, i64 %100
+  %101 = getelementptr inbounds nuw i32, ptr %12, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4
   %104 = lshr i32 %.val103, 24
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds i32, ptr %13, i64 %105
+  %106 = getelementptr inbounds nuw i32, ptr %13, i64 %105
   %107 = load i32, ptr %106, align 4
   %108 = add i32 %107, 1
   store i32 %108, ptr %106, align 4
-  %.096 = getelementptr inbounds i8, ptr %.pn108, i64 20
+  %.096 = getelementptr inbounds nuw i8, ptr %.pn108, i64 20
   %109 = icmp ult ptr %.096, %.ptr115
   br i1 %109, label %.lr.ph, label %.preheader106, !llvm.loop !9
 
 .lr.ph112:                                        ; preds = %.preheader106, %.lr.ph112
   %.1111 = phi ptr [ %110, %.lr.ph112 ], [ %.pn.lcssa, %.preheader106 ]
-  %110 = getelementptr inbounds i8, ptr %.1111, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.1111, i64 1
   %111 = load i8, ptr %.1111, align 1
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %5, i64 %112
+  %113 = getelementptr inbounds nuw i32, ptr %5, i64 %112
   %114 = load i32, ptr %113, align 4
   %115 = add i32 %114, 1
   store i32 %115, ptr %113, align 4
@@ -323,15 +323,15 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
 .preheader105:                                    ; preds = %.preheader105.preheader, %.preheader105
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader105 ], [ 0, %.preheader105.preheader ]
   %.097113 = phi i32 [ %spec.select, %.preheader105 ], [ 0, %.preheader105.preheader ]
-  %117 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, %118
-  %122 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %123 = load i32, ptr %122, align 4
   %124 = add i32 %121, %123
-  %125 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %124, %126
   store i32 %127, ptr %125, align 4
@@ -343,7 +343,7 @@ define internal fastcc range(i64 -48, 4294967296) i64 @HIST_count_parallel_wksp(
 .preheader:                                       ; preds = %.preheader105, %.preheader
   %.0 = phi i32 [ %131, %.preheader ], [ 255, %.preheader105 ]
   %128 = zext i32 %.0 to i64
-  %129 = getelementptr inbounds i32, ptr %5, i64 %128
+  %129 = getelementptr inbounds nuw i32, ptr %5, i64 %128
   %130 = load i32, ptr %129, align 4
   %.not100 = icmp eq i32 %130, 0
   %131 = add i32 %.0, -1
@@ -395,7 +395,7 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture n
   br i1 %17, label %18, label %38
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %2, i64 %3
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %20 = icmp eq i64 %3, 0
   br i1 %20, label %21, label %.lr.ph.i.i
@@ -406,10 +406,10 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture n
 
 .lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
   %.02933.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %2, %18 ]
-  %22 = getelementptr inbounds i8, ptr %.02933.i.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02933.i.i, i64 1
   %23 = load i8, ptr %.02933.i.i, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4
@@ -419,7 +419,7 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture n
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.027.i.i = phi i32 [ %32, %.preheader.i.i ], [ 255, %.lr.ph.i.i ]
   %29 = zext i32 %.027.i.i to i64
-  %30 = getelementptr inbounds i32, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4
   %.not.i.i = icmp eq i32 %31, 0
   %32 = add i32 %.027.i.i, -1
@@ -432,7 +432,7 @@ define dso_local range(i64 -66, 4294967296) i64 @HIST_count_wksp(ptr nocapture n
 34:                                               ; preds = %34, %33
   %indvars.iv.i.i = phi i64 [ 0, %33 ], [ %indvars.iv.next.i.i, %34 ]
   %.02634.i.i = phi i32 [ 0, %33 ], [ %spec.select.i.i, %34 ]
-  %35 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 4
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %36, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -459,7 +459,7 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr nocapture no
   br i1 %6, label %7, label %31
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %2, i64 %3
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   %9 = load i32, ptr %1, align 4
   %10 = add i32 %9, 1
   %11 = zext i32 %10 to i64
@@ -474,10 +474,10 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr nocapture no
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %.02933.i.i = phi ptr [ %15, %.lr.ph.i.i ], [ %2, %7 ]
-  %15 = getelementptr inbounds i8, ptr %.02933.i.i, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.02933.i.i, i64 1
   %16 = load i8, ptr %.02933.i.i, align 1
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -487,7 +487,7 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr nocapture no
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.027.i.i = phi i32 [ %25, %.preheader.i.i ], [ %9, %.lr.ph.i.i ]
   %22 = zext i32 %.027.i.i to i64
-  %23 = getelementptr inbounds i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw i32, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4
   %.not.i.i = icmp eq i32 %24, 0
   %25 = add i32 %.027.i.i, -1
@@ -500,7 +500,7 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_countFast(ptr nocapture no
 27:                                               ; preds = %27, %26
   %indvars.iv.i.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i.i, %27 ]
   %.02634.i.i = phi i32 [ 0, %26 ], [ %spec.select.i.i, %27 ]
-  %28 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i
   %29 = load i32, ptr %28, align 4
   %spec.select.i.i = tail call i32 @llvm.umax.i32(i32 %29, i32 %.02634.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -537,7 +537,7 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr nocapture nounde
   br i1 %11, label %12, label %32
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %2, i64 %3
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %14 = icmp eq i64 %3, 0
   br i1 %14, label %15, label %.lr.ph.i.i.i
@@ -548,10 +548,10 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr nocapture nounde
 
 .lr.ph.i.i.i:                                     ; preds = %12, %.lr.ph.i.i.i
   %.02933.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %2, %12 ]
-  %16 = getelementptr inbounds i8, ptr %.02933.i.i.i, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.02933.i.i.i, i64 1
   %17 = load i8, ptr %.02933.i.i.i, align 1
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, 1
   store i32 %21, ptr %19, align 4
@@ -561,7 +561,7 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr nocapture nounde
 .preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
   %.027.i.i.i = phi i32 [ %26, %.preheader.i.i.i ], [ 255, %.lr.ph.i.i.i ]
   %23 = zext i32 %.027.i.i.i to i64
-  %24 = getelementptr inbounds i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = load i32, ptr %24, align 4
   %.not.i.i.i = icmp eq i32 %25, 0
   %26 = add i32 %.027.i.i.i, -1
@@ -574,7 +574,7 @@ define dso_local range(i64 -48, 4294967296) i64 @HIST_count(ptr nocapture nounde
 28:                                               ; preds = %28, %27
   %indvars.iv.i.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i.i.i, %28 ]
   %.02634.i.i.i = phi i32 [ 0, %27 ], [ %spec.select.i.i.i, %28 ]
-  %29 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i.i.i
   %30 = load i32, ptr %29, align 4
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %30, i32 %.02634.i.i.i)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1

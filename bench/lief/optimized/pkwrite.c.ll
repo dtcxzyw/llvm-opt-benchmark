@@ -26,11 +26,11 @@ define hidden i32 @mbedtls_pk_write_pubkey(ptr noundef %0, ptr noundef %1, ptr n
 
 11:                                               ; preds = %3
   %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %12, ptr %8, align 8
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %14, ptr %15, align 8
   %16 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %8) #5
   %cond.i = icmp eq i32 %16, 1
@@ -98,11 +98,11 @@ pk_write_rsa_pubkey.exit:                         ; preds = %.thread.i, %26, %28
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds i8, ptr %2, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %43 = load ptr, ptr %42, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %41, ptr %6, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %43, ptr %44, align 8
   %45 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #5
   %.off.i = add i32 %45, -2
@@ -113,7 +113,7 @@ pk_write_rsa_pubkey.exit:                         ; preds = %.thread.i, %26, %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %5)
   store i64 0, ptr %4, align 8
-  %47 = getelementptr inbounds i8, ptr %.0.i20, i64 272
+  %47 = getelementptr inbounds nuw i8, ptr %.0.i20, i64 272
   %48 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %.0.i20, ptr noundef nonnull %47, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 133) #5
   %.not.i21 = icmp eq i32 %48, 0
   br i1 %.not.i21, label %49, label %pk_write_ec_pubkey.exit
@@ -205,11 +205,11 @@ define hidden i32 @mbedtls_pk_write_pubkey_der(ptr noundef %0, ptr noundef %1, i
 
 36:                                               ; preds = %29
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %37, ptr %6, align 8
-  %40 = getelementptr inbounds i8, ptr %6, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %39, ptr %40, align 8
   %41 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #5
   %42 = load ptr, ptr %40, align 8
@@ -321,11 +321,11 @@ define hidden i32 @mbedtls_pk_write_key_der(ptr noundef %0, ptr noundef %1, i64 
 
 15:                                               ; preds = %11
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %16, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %7, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %18, ptr %19, align 8
   %20 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %7) #5
   %cond.i = icmp eq i32 %20, 1
@@ -468,11 +468,11 @@ define hidden i32 @mbedtls_pk_write_key_der(ptr noundef %0, ptr noundef %1, i64 
 
 91:                                               ; preds = %88
   %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store ptr %92, ptr %6, align 8
-  %95 = getelementptr inbounds i8, ptr %6, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %94, ptr %95, align 8
   %96 = call i32 @mbedtls_pk_get_type(ptr noundef nonnull %6) #5
   %.off.i = add i32 %96, -2
@@ -483,7 +483,7 @@ define hidden i32 @mbedtls_pk_write_key_der(ptr noundef %0, ptr noundef %1, i64 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %5)
   store i64 0, ptr %4, align 8
-  %98 = getelementptr inbounds i8, ptr %.0.i182, i64 272
+  %98 = getelementptr inbounds nuw i8, ptr %.0.i182, i64 272
   %99 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %.0.i182, ptr noundef nonnull %98, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 133) #5
   %.not.i = icmp eq i32 %99, 0
   br i1 %.not.i, label %100, label %pk_write_ec_pubkey.exit
@@ -638,7 +638,7 @@ declare i32 @mbedtls_asn1_write_int(ptr noundef, ptr noundef, i32 noundef) local
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pk_write_ec_private(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [66 x i8], align 16
-  %5 = getelementptr inbounds i8, ptr %2, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 7
   %8 = lshr i64 %7, 3
@@ -666,7 +666,7 @@ define hidden i32 @mbedtls_pk_write_pubkey_pem(ptr noundef %0, ptr noundef %1, i
   br i1 %7, label %14, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %4, i64 2086
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 2086
   %10 = zext nneg i32 %6 to i64
   %11 = sub nsw i64 0, %10
   %12 = getelementptr inbounds i8, ptr %9, i64 %11
@@ -702,7 +702,7 @@ define hidden i32 @mbedtls_pk_write_key_pem(ptr noundef %0, ptr noundef %1, i64 
 14:                                               ; preds = %11, %8
   %.011 = phi ptr [ @.str.2, %8 ], [ @.str.4, %11 ]
   %.0 = phi ptr [ @.str.3, %8 ], [ @.str.5, %11 ]
-  %15 = getelementptr inbounds i8, ptr %4, i64 5679
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 5679
   %16 = zext nneg i32 %6 to i64
   %17 = sub nsw i64 0, %16
   %18 = getelementptr inbounds i8, ptr %15, i64 %17

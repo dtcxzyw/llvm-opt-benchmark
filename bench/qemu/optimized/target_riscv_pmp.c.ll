@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
 define dso_local i32 @pmp_get_num_rules(ptr nocapture noundef readonly %env) local_unnamed_addr #0 {
 entry:
-  %num_rules = getelementptr inbounds i8, ptr %env, i64 8336
+  %num_rules = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules, align 16
   ret i32 %0
 }
@@ -49,7 +49,7 @@ entry:
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @pmp_unlock_entries(ptr nocapture noundef %env) local_unnamed_addr #1 {
 entry:
-  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
+  %num_rules.i = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules.i, align 16
   %cmp4.not = icmp eq i32 %0, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
@@ -77,10 +77,10 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @pmp_update_rule_addr(ptr nocapture noundef %env, i32 noundef %pmp_index) local_unnamed_addr #2 {
 entry:
-  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
+  %pmp_state = getelementptr inbounds nuw i8, ptr %env, i64 7824
   %idxprom = zext i32 %pmp_index to i64
   %arrayidx = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom
-  %cfg_reg = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %cfg_reg = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i8, ptr %cfg_reg, align 8
   %1 = load i64, ptr %arrayidx, align 16
   %cmp.not = icmp eq i32 %pmp_index, 0
@@ -132,10 +132,10 @@ default.unreachable13:                            ; preds = %if.end
 sw.epilog:                                        ; preds = %sw.bb10, %if.end, %sw.bb20, %sw.bb17
   %sa.0 = phi i64 [ %and.i, %sw.bb20 ], [ %shl18, %sw.bb17 ], [ 0, %if.end ], [ %spec.select, %sw.bb10 ]
   %ea.0 = phi i64 [ %or2.i, %sw.bb20 ], [ %sub19, %sw.bb17 ], [ -1, %if.end ], [ %spec.select12, %sw.bb10 ]
-  %addr = getelementptr inbounds i8, ptr %env, i64 8080
+  %addr = getelementptr inbounds nuw i8, ptr %env, i64 8080
   %arrayidx23 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr, i64 0, i64 %idxprom
   store i64 %sa.0, ptr %arrayidx23, align 16
-  %ea29 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
+  %ea29 = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 8
   store i64 %ea.0, ptr %ea29, align 8
   ret void
 }
@@ -143,7 +143,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %if.end, %
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @pmp_update_rule_nums(ptr nocapture noundef initializes((8336, 8340)) %env) local_unnamed_addr #1 {
 entry:
-  %num_rules = getelementptr inbounds i8, ptr %env, i64 8336
+  %num_rules = getelementptr inbounds nuw i8, ptr %env, i64 8336
   store i32 0, ptr %num_rules, align 16
   %0 = getelementptr i8, ptr %env, i64 7832
   br label %for.body
@@ -176,13 +176,13 @@ for.end:                                          ; preds = %for.inc
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local zeroext i1 @pmp_hart_has_privs(ptr nocapture noundef readonly %env, i64 noundef %addr, i64 noundef %size, i32 noundef %privs, ptr nocapture noundef writeonly %allowed_privs, i64 noundef %mode) local_unnamed_addr #3 {
 entry:
-  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
+  %num_rules.i = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %0 = load i32, ptr %num_rules.i, align 16
   %cmp = icmp eq i32 %0, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg.i = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %1 = load i64, ptr %mseccfg.i, align 8
   %2 = and i64 %1, 2
   %tobool.not.i = icmp eq i64 %2, 0
@@ -234,7 +234,7 @@ if.then5:                                         ; preds = %if.then3
 
 if.end9:                                          ; preds = %if.end, %if.then3, %if.then5
   %pmp_size.0 = phi i64 [ %conv, %if.then5 ], [ 8, %if.then3 ], [ %size, %if.end ]
-  %addr1.i = getelementptr inbounds i8, ptr %env, i64 8080
+  %addr1.i = getelementptr inbounds nuw i8, ptr %env, i64 8080
   %sext = shl i64 %pmp_size.0, 32
   %conv14 = ashr exact i64 %sext, 32
   %add = add i64 %addr, -1
@@ -250,7 +250,7 @@ for.body:                                         ; preds = %if.end9, %for.inc
   br i1 %cmp.not.i, label %if.else.i52, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body
-  %ea.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %ea.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %8 = load i64, ptr %ea.i, align 8
   %cmp6.not.i = icmp ugt i64 %addr, %8
   br i1 %cmp6.not.i, label %if.else.i52, label %pmp_is_in_range.exit
@@ -264,7 +264,7 @@ pmp_is_in_range.exit:                             ; preds = %land.lhs.true.i, %i
   br i1 %cmp.not.i56, label %if.else.i61, label %land.lhs.true.i57
 
 land.lhs.true.i57:                                ; preds = %pmp_is_in_range.exit
-  %ea.i58 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %ea.i58 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %9 = load i64, ptr %ea.i58, align 8
   %cmp6.not.i59 = icmp ugt i64 %sub15, %9
   br i1 %cmp6.not.i59, label %if.else.i61, label %pmp_is_in_range.exit62
@@ -314,7 +314,7 @@ if.then68:                                        ; preds = %if.end28
   %or43.le = zext i3 %mask to i8
   %or51.le = or disjoint i8 %shr.le, %or43.le
   %or60.le = or disjoint i8 %or51.le, %shr59.le
-  %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %15 = load i64, ptr %mseccfg, align 8
   %and69 = and i64 %15, 1
   %tobool70.not = icmp eq i64 %and69, 0
@@ -352,13 +352,13 @@ if.else85:                                        ; preds = %if.then68
 
 switch.lookup:                                    ; preds = %if.else85
   %23 = zext nneg i8 %or60.le to i64
-  %switch.gep = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs, i64 0, i64 %23
+  %switch.gep = getelementptr inbounds nuw [16 x i32], ptr @switch.table.pmp_hart_has_privs, i64 0, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %if.end109.sink.split
 
 switch.lookup114:                                 ; preds = %if.else85
   %24 = zext nneg i8 %or60.le to i64
-  %switch.gep115 = getelementptr inbounds [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %24
+  %switch.gep115 = getelementptr inbounds nuw [16 x i32], ptr @switch.table.pmp_hart_has_privs.2, i64 0, i64 %24
   %switch.load116 = load i32, ptr %switch.gep115, align 4
   br label %if.end109.sink.split
 
@@ -379,7 +379,7 @@ for.inc:                                          ; preds = %if.end28
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
-  %mseccfg.i68 = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg.i68 = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %26 = load i64, ptr %mseccfg.i68, align 8
   %27 = and i64 %26, 2
   %tobool.not.i69 = icmp eq i64 %27, 0
@@ -428,7 +428,7 @@ entry:
   %0 = getelementptr i8, ptr %env, i64 5008
   %env.val = load i32, ptr %0, align 16
   %shl = shl i32 2, %env.val
-  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
+  %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
   %1 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -453,7 +453,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.6, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %1, i32 noundef %reg_index, i64 noundef %val) #10
   br label %trace_pmpcfg_csr_write.exit
@@ -470,10 +470,10 @@ trace_pmpcfg_csr_write.exit:                      ; preds = %entry, %land.lhs.tr
 for.body.lr.ph:                                   ; preds = %trace_pmpcfg_csr_write.exit
   %mul1 = shl i32 %reg_index, 2
   %ext_smepmp.i = getelementptr i8, ptr %env, i64 8891
-  %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg.i = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %8 = getelementptr i8, ptr %env, i64 7832
-  %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
-  %addr.i.i = getelementptr inbounds i8, ptr %env, i64 8080
+  %pmp_state.i = getelementptr inbounds nuw i8, ptr %env, i64 7824
+  %addr.i.i = getelementptr inbounds nuw i8, ptr %env, i64 8080
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
 
@@ -619,7 +619,7 @@ pmp_update_rule_addr.exit.i:                      ; preds = %sw.bb20.i.i, %sw.bb
   %ea.0.i.i = phi i64 [ %or2.i.i.i, %sw.bb20.i.i ], [ %sub19.i.i, %sw.bb17.i.i ], [ -1, %if.end.i42.i ], [ %spec.select12.i.i, %sw.bb10.i.i ]
   %arrayidx23.i.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i.i, i64 0, i64 %idxprom.i40.i
   store i64 %sa.0.i.i, ptr %arrayidx23.i.i, align 16
-  %ea29.i.i = getelementptr inbounds i8, ptr %arrayidx23.i.i, i64 8
+  %ea29.i.i = getelementptr inbounds nuw i8, ptr %arrayidx23.i.i, i64 8
   store i64 %ea.0.i.i, ptr %ea29.i.i, align 8
   br label %pmp_write_cfg.exit
 
@@ -644,7 +644,7 @@ for.end:                                          ; preds = %pmp_write_cfg.exit
   br i1 %or11, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.end
-  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
+  %num_rules.i = getelementptr inbounds nuw i8, ptr %env, i64 8336
   store i32 0, ptr %num_rules.i, align 16
   br label %for.body.i
 
@@ -692,7 +692,7 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %mul = shl i32 %reg_index, 2
-  %pmp_state.i = getelementptr inbounds i8, ptr %env, i64 7824
+  %pmp_state.i = getelementptr inbounds nuw i8, ptr %env, i64 7824
   %wide.trip.count = zext nneg i32 %shl to i64
   br label %for.body
 
@@ -725,7 +725,7 @@ pmp_read_cfg.exit:                                ; preds = %for.body, %if.then.
 
 for.end:                                          ; preds = %pmp_read_cfg.exit, %entry
   %cfg_val.0.lcssa = phi i64 [ 0, %entry ], [ %or, %pmp_read_cfg.exit ]
-  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
+  %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
   %6 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %7 = load i32, ptr @trace_events_enabled_count, align 4
@@ -750,7 +750,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %11 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %12 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %11, i64 noundef %12, i64 noundef %6, i32 noundef %reg_index, i64 noundef %cfg_val.0.lcssa) #10
   br label %trace_pmpcfg_csr_read.exit
@@ -768,7 +768,7 @@ trace_pmpcfg_csr_read.exit:                       ; preds = %for.end, %land.lhs.
 define dso_local void @pmpaddr_csr_write(ptr noundef %env, i32 noundef %addr_index, i64 noundef %val) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
+  %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
   %0 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -793,7 +793,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %0, i32 noundef %addr_index, i64 noundef %val) #10
   br label %trace_pmpaddr_csr_write.exit
@@ -813,7 +813,7 @@ if.then:                                          ; preds = %trace_pmpaddr_csr_w
   br i1 %cmp1.not, label %if.end16, label %if.then2
 
 if.then2:                                         ; preds = %if.then
-  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
+  %pmp_state = getelementptr inbounds nuw i8, ptr %env, i64 7824
   %7 = shl nuw nsw i32 %add, 4
   %8 = or disjoint i32 %7, 8
   %cfg_reg.offs = zext nneg i32 %8 to i64
@@ -837,7 +837,7 @@ if.then14:                                        ; preds = %do.body
 
 if.end16:                                         ; preds = %if.then2, %if.then
   %is_next_cfg_tor.0.shrunk = phi i1 [ %cmp4, %if.then2 ], [ false, %if.then ]
-  %mseccfg.i = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg.i = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %13 = load i64, ptr %mseccfg.i, align 8
   %14 = and i64 %13, 4
   %tobool.not.i = icmp eq i64 %14, 0
@@ -853,7 +853,7 @@ pmp_is_locked.exit:                               ; preds = %if.end16
   br i1 %tobool18.not, label %if.then19, label %do.body38
 
 if.then19:                                        ; preds = %if.end16, %pmp_is_locked.exit
-  %pmp_state20 = getelementptr inbounds i8, ptr %env, i64 7824
+  %pmp_state20 = getelementptr inbounds nuw i8, ptr %env, i64 7824
   %idxprom22 = zext nneg i32 %addr_index to i64
   %arrayidx23 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom22
   %18 = load i64, ptr %arrayidx23, align 16
@@ -862,7 +862,7 @@ if.then19:                                        ; preds = %if.end16, %pmp_is_l
 
 if.then26:                                        ; preds = %if.then19
   store i64 %val, ptr %arrayidx23, align 16
-  %cfg_reg.i21 = getelementptr inbounds i8, ptr %arrayidx23, i64 8
+  %cfg_reg.i21 = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 8
   %19 = load i8, ptr %cfg_reg.i21, align 8
   %cmp.not.i = icmp eq i32 %addr_index, 0
   br i1 %cmp.not.i, label %if.end.i22, label %if.then.i
@@ -913,17 +913,17 @@ default.unreachable:                              ; preds = %if.then33, %if.end.
 pmp_update_rule_addr.exit:                        ; preds = %if.end.i22, %sw.bb10.i, %sw.bb17.i, %sw.bb20.i
   %sa.0.i = phi i64 [ %and.i.i, %sw.bb20.i ], [ %shl18.i, %sw.bb17.i ], [ 0, %if.end.i22 ], [ %spec.select.i23, %sw.bb10.i ]
   %ea.0.i = phi i64 [ %or2.i.i, %sw.bb20.i ], [ %sub19.i, %sw.bb17.i ], [ -1, %if.end.i22 ], [ %spec.select12.i, %sw.bb10.i ]
-  %addr.i = getelementptr inbounds i8, ptr %env, i64 8080
+  %addr.i = getelementptr inbounds nuw i8, ptr %env, i64 8080
   %arrayidx23.i = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i, i64 0, i64 %idxprom22
   store i64 %sa.0.i, ptr %arrayidx23.i, align 16
-  %ea29.i = getelementptr inbounds i8, ptr %arrayidx23.i, i64 8
+  %ea29.i = getelementptr inbounds nuw i8, ptr %arrayidx23.i, i64 8
   store i64 %ea.0.i, ptr %ea29.i, align 8
   br i1 %is_next_cfg_tor.0.shrunk, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %pmp_update_rule_addr.exit
   %idxprom.i25 = zext nneg i32 %add to i64
   %arrayidx.i26 = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state20, i64 0, i64 %idxprom.i25
-  %cfg_reg.i27 = getelementptr inbounds i8, ptr %arrayidx.i26, i64 8
+  %cfg_reg.i27 = getelementptr inbounds nuw i8, ptr %arrayidx.i26, i64 8
   %24 = load i8, ptr %cfg_reg.i27, align 8
   %25 = load i64, ptr %arrayidx.i26, align 16
   %26 = lshr i8 %24, 3
@@ -962,7 +962,7 @@ pmp_update_rule_addr.exit56:                      ; preds = %if.then33, %sw.bb10
   %ea.0.i42 = phi i64 [ %or2.i.i40, %sw.bb20.i35 ], [ %sub19.i48, %sw.bb17.i46 ], [ -1, %if.then33 ], [ %spec.select12.i54, %sw.bb10.i49 ]
   %arrayidx23.i44 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr.i, i64 0, i64 %idxprom.i25
   store i64 %sa.0.i41, ptr %arrayidx23.i44, align 16
-  %ea29.i45 = getelementptr inbounds i8, ptr %arrayidx23.i44, i64 8
+  %ea29.i45 = getelementptr inbounds nuw i8, ptr %arrayidx23.i44, i64 8
   store i64 %ea.0.i42, ptr %ea29.i45, align 8
   br label %if.end35
 
@@ -1003,11 +1003,11 @@ entry:
   br i1 %cmp, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
-  %pmp_state = getelementptr inbounds i8, ptr %env, i64 7824
+  %pmp_state = getelementptr inbounds nuw i8, ptr %env, i64 7824
   %idxprom = zext nneg i32 %addr_index to i64
   %arrayidx = getelementptr [16 x %struct.pmp_entry_t], ptr %pmp_state, i64 0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 16
-  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
+  %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
   %1 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1032,7 +1032,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %1, i32 noundef range(i32 0, 16) %addr_index, i64 noundef %0) #10
   br label %trace_pmpaddr_csr_read.exit
@@ -1064,7 +1064,7 @@ if.end3:                                          ; preds = %if.then2, %do.body,
 define dso_local void @mseccfg_csr_write(ptr noundef %env, i64 noundef %val) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
+  %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
   %0 = load i64, ptr %mhartid, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %1 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1089,7 +1089,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i64 noundef %0, i64 noundef %val) #10
   br label %trace_mseccfg_csr_write.exit
@@ -1100,7 +1100,7 @@ if.else.i.i:                                      ; preds = %if.then.i.i
 
 trace_mseccfg_csr_write.exit:                     ; preds = %entry, %land.lhs.true5.i.i, %if.then8.i.i, %if.else.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
-  %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %7 = load i64, ptr %mseccfg, align 8
   %8 = and i64 %7, 4
   %tobool.not = icmp eq i64 %8, 0
@@ -1161,9 +1161,9 @@ if.end17:                                         ; preds = %if.then7, %if.then1
 define dso_local i64 @mseccfg_csr_read(ptr nocapture noundef readonly %env) local_unnamed_addr #3 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
-  %mhartid = getelementptr inbounds i8, ptr %env, i64 5080
+  %mhartid = getelementptr inbounds nuw i8, ptr %env, i64 5080
   %0 = load i64, ptr %mhartid, align 8
-  %mseccfg = getelementptr inbounds i8, ptr %env, i64 8344
+  %mseccfg = getelementptr inbounds nuw i8, ptr %env, i64 8344
   %1 = load i64, ptr %mseccfg, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
   %2 = load i32, ptr @trace_events_enabled_count, align 4
@@ -1188,7 +1188,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #10
   %call10.i.i = tail call i32 @qemu_get_thread_id() #10
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i64 noundef %0, i64 noundef %1) #10
   br label %trace_mseccfg_csr_read.exit
@@ -1214,14 +1214,14 @@ entry:
   br i1 %tobool, label %lor.lhs.false, label %return
 
 lor.lhs.false:                                    ; preds = %entry
-  %num_rules.i = getelementptr inbounds i8, ptr %env, i64 8336
+  %num_rules.i = getelementptr inbounds nuw i8, ptr %env, i64 8336
   %1 = load i32, ptr %num_rules.i, align 16
   %tobool2.not = icmp eq i32 %1, 0
   br i1 %tobool2.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %lor.lhs.false
   %2 = getelementptr i8, ptr %env, i64 7832
-  %addr10 = getelementptr inbounds i8, ptr %env, i64 8080
+  %addr10 = getelementptr inbounds nuw i8, ptr %env, i64 8080
   br label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
@@ -1236,7 +1236,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 if.end8:                                          ; preds = %for.body
   %arrayidx12 = getelementptr [16 x %struct.pmp_addr_t], ptr %addr10, i64 0, i64 %indvars.iv
   %5 = load i64, ptr %arrayidx12, align 16
-  %ea = getelementptr inbounds i8, ptr %arrayidx12, i64 8
+  %ea = getelementptr inbounds nuw i8, ptr %arrayidx12, i64 8
   %6 = load i64, ptr %ea, align 8
   %cmp17.not = icmp ugt i64 %5, %and
   %cmp19.not = icmp ult i64 %6, %sub

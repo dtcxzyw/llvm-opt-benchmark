@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_io_UnixFileSystem_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull @.str) #7
   %.not = icmp eq ptr %6, null
@@ -28,7 +28,7 @@ define void @Java_java_io_UnixFileSystem_initIDs(ptr noundef %0, ptr nocapture n
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 752
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 752
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2) #7
   store ptr %11, ptr @ids.0, align 8
@@ -96,7 +96,7 @@ define range(i32 0, 8) i32 @Java_java_io_UnixFileSystem_getBooleanAttributes0(pt
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 760
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @ids.0, align 8
   %11 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #7
@@ -123,7 +123,7 @@ statMode.exit.thread:                             ; preds = %16
   br label %28
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = load i32, ptr %20, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   %22 = and i32 %21, 61440
@@ -152,7 +152,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_checkAccess0(ptr n
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.Java_java_io_UnixFileSystem_checkAccess0, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i32], ptr @switch.table.Java_java_io_UnixFileSystem_checkAccess0, i64 0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 
@@ -163,7 +163,7 @@ switch.lookup:                                    ; preds = %4
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 760
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 760
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @ids.0, align 8
   %14 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %13) #7
@@ -219,7 +219,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setPermission0(ptr
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 760
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 760
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr @ids.0, align 8
   %14 = tail call ptr %12(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %13) #7
@@ -269,7 +269,7 @@ statMode.exit.thread:                             ; preds = %23
   br label %.critedge
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %7, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %28 = load i32, ptr %27, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7)
   %.not30 = icmp eq i8 %4, 0
@@ -316,7 +316,7 @@ define i64 @Java_java_io_UnixFileSystem_getLastModifiedTime0(ptr noundef %0, ptr
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 760
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @ids.0, align 8
   %11 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #7
@@ -338,10 +338,10 @@ define i64 @Java_java_io_UnixFileSystem_getLastModifiedTime0(ptr noundef %0, ptr
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %4, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %21 = load i64, ptr %20, align 8
   %22 = mul nsw i64 %21, 1000
-  %23 = getelementptr inbounds i8, ptr %4, i64 96
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %24 = load i64, ptr %23, align 8
   %25 = sdiv i64 %24, 1000000
   %26 = add nsw i64 %25, %22
@@ -368,7 +368,7 @@ define i64 @Java_java_io_UnixFileSystem_getLength0(ptr noundef %0, ptr nocapture
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 760
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @ids.0, align 8
   %11 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #7
@@ -387,7 +387,7 @@ define i64 @Java_java_io_UnixFileSystem_getLength0(ptr noundef %0, ptr nocapture
 16:                                               ; preds = %13
   %17 = call i32 @stat64(ptr noundef nonnull %14, ptr noundef nonnull %4) #7
   %18 = icmp eq i32 %17, 0
-  %19 = getelementptr inbounds i8, ptr %4, i64 48
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load i64, ptr %19, align 8
   %.1 = select i1 %18, i64 %20, i64 0
   tail call void @JNU_ReleaseStringPlatformChars(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %14) #7
@@ -418,7 +418,7 @@ sub_0:                                            ; preds = %6
   br i1 %.not19, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %10 = getelementptr inbounds i8, ptr %7, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %21, label %.tail.thread
@@ -466,7 +466,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_delete0(ptr nounde
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @ids.0, align 8
   %10 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %9) #7
@@ -509,7 +509,7 @@ define ptr @Java_java_io_UnixFileSystem_list0(ptr noundef %0, ptr nocapture noun
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 760
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 760
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @ids.0, align 8
   %13 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %12) #7
@@ -533,7 +533,7 @@ define ptr @Java_java_io_UnixFileSystem_list0(ptr noundef %0, ptr nocapture noun
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1376
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1376
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr %24(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %4, ptr noundef null) #7
   %26 = icmp eq ptr %25, null
@@ -557,25 +557,25 @@ sub_0.lr.ph:                                      ; preds = %.preheader, %.outer
 
 sub_0:                                            ; preds = %sub_0.lr.ph, %41
   %30 = phi ptr [ %29, %sub_0.lr.ph ], [ %42, %41 ]
-  %31 = getelementptr inbounds i8, ptr %30, i64 19
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 19
   %32 = load i8, ptr %31, align 1
   %.not103 = icmp eq i8 %32, 46
   br i1 %.not103, label %.tail, label %.tail83.thread
 
 .tail:                                            ; preds = %sub_0
-  %33 = getelementptr inbounds i8, ptr %30, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %34 = load i8, ptr %33, align 1
   %35 = icmp eq i8 %34, 0
   br i1 %35, label %41, label %sub_185
 
 sub_185:                                          ; preds = %.tail
-  %36 = getelementptr inbounds i8, ptr %30, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 20
   %37 = load i8, ptr %36, align 1
   %.not105 = icmp eq i8 %37, 46
   br i1 %.not105, label %.tail83, label %.tail83.thread
 
 .tail83:                                          ; preds = %sub_185
-  %38 = getelementptr inbounds i8, ptr %30, i64 21
+  %38 = getelementptr inbounds nuw i8, ptr %30, i64 21
   %39 = load i8, ptr %38, align 1
   %40 = icmp eq i8 %39, 0
   br i1 %40, label %41, label %.tail83.thread
@@ -586,13 +586,13 @@ sub_185:                                          ; preds = %.tail
   br i1 %.not, label %.outer._crit_edge, label %sub_0, !llvm.loop !9
 
 .tail83.thread:                                   ; preds = %sub_0, %sub_185, %.tail83
-  %43 = getelementptr inbounds i8, ptr %30, i64 19
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 19
   %44 = icmp eq i32 %.066.ph99, %.067.ph98
   br i1 %44, label %45, label %59
 
 45:                                               ; preds = %.tail83.thread
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1376
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1376
   %48 = load ptr, ptr %47, align 8
   %49 = shl nuw i32 %.066.ph99, 1
   %50 = tail call ptr %48(ptr noundef nonnull %0, i32 noundef %49, ptr noundef nonnull %4, ptr noundef null) #7
@@ -606,7 +606,7 @@ sub_185:                                          ; preds = %.tail
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 184
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 184
   %58 = load ptr, ptr %57, align 8
   tail call void %58(ptr noundef nonnull %0, ptr noundef %.068.ph97) #7
   br label %59
@@ -620,12 +620,12 @@ sub_185:                                          ; preds = %.tail
 
 .outer:                                           ; preds = %59
   %62 = load ptr, ptr %0, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 1392
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1392
   %64 = load ptr, ptr %63, align 8
   %65 = add nuw nsw i32 %.066.ph99, 1
   tail call void %64(ptr noundef nonnull %0, ptr noundef %.169, i32 noundef %.066.ph99, ptr noundef nonnull %60) #7
   %66 = load ptr, ptr %0, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 184
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 184
   %68 = load ptr, ptr %67, align 8
   tail call void %68(ptr noundef nonnull %0, ptr noundef nonnull %60) #7
   %69 = tail call ptr @readdir64(ptr noundef nonnull %19) #7
@@ -644,7 +644,7 @@ sub_185:                                          ; preds = %.tail
   %.066.ph.lcssa87121 = phi i32 [ 0, %.outer._crit_edge.thread ], [ %.066.ph.lcssa87, %.outer._crit_edge ]
   %.068.ph.lcssa89120 = phi ptr [ %25, %.outer._crit_edge.thread ], [ %.068.ph.lcssa89, %.outer._crit_edge ]
   %73 = load ptr, ptr %0, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 1376
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 1376
   %75 = load ptr, ptr %74, align 8
   %76 = tail call ptr %75(ptr noundef nonnull %0, i32 noundef %.066.ph.lcssa87121, ptr noundef nonnull %4, ptr noundef null) #7
   %77 = icmp eq ptr %76, null
@@ -684,7 +684,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_createDirectory0(p
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 760
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr @ids.0, align 8
   %10 = tail call ptr %8(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %9) #7
@@ -722,7 +722,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_rename0(ptr nounde
 
 6:                                                ; preds = %4
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 760
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @ids.0, align 8
   %11 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #7
@@ -744,7 +744,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_rename0(ptr nounde
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 760
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 760
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr @ids.0, align 8
   %23 = tail call ptr %21(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %22) #7
@@ -789,7 +789,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setLastModifiedTim
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 760
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 760
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @ids.0, align 8
   %13 = tail call ptr %11(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %12) #7
@@ -811,20 +811,20 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setLastModifiedTim
   br i1 %20, label %21, label %35
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %5, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %23 = load i64, ptr %22, align 8
   store i64 %23, ptr %6, align 16
-  %24 = getelementptr inbounds i8, ptr %5, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %25 = load i64, ptr %24, align 8
   %26 = sdiv i64 %25, 1000
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %26, ptr %27, align 8
   %28 = sdiv i64 %3, 1000
-  %29 = getelementptr inbounds i8, ptr %6, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %28, ptr %29, align 16
   %30 = srem i64 %3, 1000
   %31 = mul nsw i64 %30, 1000
-  %32 = getelementptr inbounds i8, ptr %6, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 %31, ptr %32, align 8
   %33 = call i32 @utimes(ptr noundef nonnull %16, ptr noundef nonnull %6) #7
   %34 = icmp eq i32 %33, 0
@@ -852,7 +852,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_setReadOnly0(ptr n
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 760
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr @ids.0, align 8
   %11 = tail call ptr %9(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %10) #7
@@ -879,7 +879,7 @@ statMode.exit.thread:                             ; preds = %16
   br label %.critedge
 
 statMode.exit:                                    ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4)
   %21 = and i32 %20, -147
@@ -919,7 +919,7 @@ define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr nocapture 
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 760
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 760
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr @ids.0, align 8
   %12 = tail call ptr %10(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %11) #7
@@ -960,25 +960,25 @@ define i64 @Java_java_io_UnixFileSystem_getSpace0(ptr noundef %0, ptr nocapture 
   ]
 
 25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = mul nsw i64 %29, %27
   br label %.critedge
 
 31:                                               ; preds = %24
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = mul nsw i64 %35, %33
   br label %.critedge
 
 37:                                               ; preds = %24
-  %38 = getelementptr inbounds i8, ptr %5, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %5, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = mul nsw i64 %41, %39
   br label %.critedge

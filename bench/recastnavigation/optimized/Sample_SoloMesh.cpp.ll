@@ -91,12 +91,12 @@ $_ZN6Sample13getAgentClimbEv = comdat any
 define dso_local void @_ZN15Sample_SoloMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV15Sample_SoloMesh, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 200
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 1, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 204
-  %4 = getelementptr inbounds i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 204
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr null, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 352
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i32 0, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %3, i8 0, i64 44, i1 false)
   %6 = invoke noalias noundef nonnull dereferenceable(33408) ptr @_Znwm(i64 noundef 33408) #11
@@ -167,7 +167,7 @@ define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_SoloMesh7cleanupEv(ptr nocapture noundef nonnull align 8 dereferenceable(356) %0) local_unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 208
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %6, label %5
@@ -178,27 +178,27 @@ define dso_local void @_ZN15Sample_SoloMesh7cleanupEv(ptr nocapture noundef nonn
 
 6:                                                ; preds = %5, %1
   store ptr null, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 216
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %8 = load ptr, ptr %7, align 8
   tail call void @_Z17rcFreeHeightFieldP13rcHeightfield(ptr noundef %8)
   store ptr null, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 224
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = load ptr, ptr %9, align 8
   tail call void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %10)
   store ptr null, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 232
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %12 = load ptr, ptr %11, align 8
   tail call void @_Z16rcFreeContourSetP12rcContourSet(ptr noundef %12)
   store ptr null, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 240
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %14 = load ptr, ptr %13, align 8
   tail call void @_Z14rcFreePolyMeshP10rcPolyMesh(ptr noundef %14)
   store ptr null, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 344
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %16 = load ptr, ptr %15, align 8
   tail call void @_Z20rcFreePolyMeshDetailP16rcPolyMeshDetail(ptr noundef %16)
   store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
   tail call void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %18)
   store ptr null, ptr %17, align 8
@@ -255,7 +255,7 @@ declare void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef) local_unnamed_addr #1
 define dso_local void @_ZN15Sample_SoloMesh14handleSettingsEv(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 {
   %2 = alloca [64 x i8], align 16
   tail call void @_ZN6Sample20handleCommonSettingsEv(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  %3 = getelementptr inbounds i8, ptr %0, i64 200
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
   %6 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str, i1 noundef zeroext %5, i1 noundef zeroext true)
@@ -276,7 +276,7 @@ define dso_local void @_ZN15Sample_SoloMesh14handleSettingsEv(ptr noundef nonnul
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @_ZN6Sample7saveAllEPKcPK9dtNavMesh(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull @.str.2, ptr noundef %15)
   br label %16
@@ -286,12 +286,12 @@ define dso_local void @_ZN15Sample_SoloMesh14handleSettingsEv(ptr noundef nonnul
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8
   tail call void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %20)
   %21 = tail call noundef ptr @_ZN6Sample7loadAllEPKc(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull @.str.2)
   store ptr %21, ptr %19, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr noundef nonnull align 8 dereferenceable(104) %23, ptr noundef %21, i32 noundef 2048)
   br label %25
@@ -299,7 +299,7 @@ define dso_local void @_ZN15Sample_SoloMesh14handleSettingsEv(ptr noundef nonnul
 25:                                               ; preds = %18, %16
   tail call void @_Z13imguiUnindentv()
   tail call void @_Z13imguiUnindentv()
-  %26 = getelementptr inbounds i8, ptr %0, i64 204
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 204
   %27 = load float, ptr %26, align 4
   %28 = fpext float %27 to double
   %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 64, ptr noundef nonnull @.str.4, double noundef %28) #13
@@ -333,14 +333,14 @@ declare void @_Z10imguiLabelPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 104
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(8) %3)
   br label %9
@@ -450,7 +450,7 @@ define dso_local void @_ZN15Sample_SoloMesh11handleToolsEv(ptr noundef nonnull a
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load ptr, ptr %54, align 8
   tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %51)
   br label %56
@@ -480,65 +480,65 @@ declare void @_Z18imguiSeparatorLinev() local_unnamed_addr #1
 define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr nocapture noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 {
   %2 = alloca [17 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %2, i8 0, i64 17, i1 false)
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp ne ptr %4, null
   br i1 %.not, label %5, label %47
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   %9 = zext i1 %8 to i8
   store i8 %9, ptr %2, align 16
-  %10 = getelementptr inbounds i8, ptr %2, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %9, ptr %10, align 1
-  %11 = getelementptr inbounds i8, ptr %2, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %9, ptr %11, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = icmp ne ptr %13, null
-  %15 = getelementptr inbounds i8, ptr %2, i64 3
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %16 = zext i1 %14 to i8
   store i8 %16, ptr %15, align 1
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i8 %9, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %2, i64 5
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 5
   store i8 1, ptr %18, align 1
-  %19 = getelementptr inbounds i8, ptr %0, i64 216
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne ptr %20, null
-  %22 = getelementptr inbounds i8, ptr %2, i64 6
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %23 = zext i1 %21 to i8
   store i8 %23, ptr %22, align 2
-  %24 = getelementptr inbounds i8, ptr %2, i64 7
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 7
   store i8 %23, ptr %24, align 1
-  %25 = getelementptr inbounds i8, ptr %0, i64 224
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %26 = load ptr, ptr %25, align 8
   %27 = icmp ne ptr %26, null
-  %28 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = zext i1 %27 to i8
   store i8 %29, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %2, i64 9
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 9
   store i8 %29, ptr %30, align 1
-  %31 = getelementptr inbounds i8, ptr %2, i64 10
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i8 %29, ptr %31, align 2
-  %32 = getelementptr inbounds i8, ptr %0, i64 232
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ne ptr %33, null
-  %35 = getelementptr inbounds i8, ptr %2, i64 11
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 11
   %36 = zext i1 %34 to i8
-  %37 = getelementptr inbounds i8, ptr %0, i64 240
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 240
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %35, i8 %36, i64 4, i1 false)
   %38 = load ptr, ptr %37, align 8
   %39 = icmp ne ptr %38, null
-  %40 = getelementptr inbounds i8, ptr %2, i64 15
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 15
   %41 = zext i1 %39 to i8
   store i8 %41, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %0, i64 344
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %43 = load ptr, ptr %42, align 8
   %44 = icmp ne ptr %43, null
-  %45 = getelementptr inbounds i8, ptr %2, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %46 = zext i1 %44 to i8
   store i8 %46, ptr %45, align 16
   br label %47
@@ -556,7 +556,7 @@ define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr nocapture nou
 55:                                               ; preds = %47, %55
   %indvars.iv = phi i64 [ 0, %47 ], [ %indvars.iv.next, %55 ]
   %.0913 = phi i32 [ 0, %47 ], [ %spec.select, %55 ]
-  %56 = getelementptr inbounds [17 x i8], ptr %2, i64 0, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [17 x i8], ptr %2, i64 0, i64 %indvars.iv
   %57 = load i8, ptr %56, align 1
   %58 = and i8 %57, 1
   %59 = xor i8 %58, 1
@@ -572,7 +572,7 @@ define dso_local void @_ZN15Sample_SoloMesh15handleDebugModeEv(ptr nocapture nou
 
 63:                                               ; preds = %61
   tail call void @_Z10imguiLabelPKc(ptr noundef nonnull @.str.10)
-  %64 = getelementptr inbounds i8, ptr %0, i64 352
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %65 = load i32, ptr %64, align 8
   %66 = icmp eq i32 %65, 5
   %67 = tail call noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef nonnull @.str.11, i1 noundef zeroext %66, i1 noundef zeroext %.not)
@@ -823,13 +823,13 @@ declare void @_Z10imguiValuePKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_SoloMesh12handleRenderEv(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %150, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not17 = icmp eq ptr %6, null
   br i1 %.not17, label %150, label %7
@@ -837,31 +837,31 @@ define dso_local void @_ZN15Sample_SoloMesh12handleRenderEv(ptr noundef nonnull 
 7:                                                ; preds = %4
   tail call void @glEnable(i32 noundef 2912)
   tail call void @glDepthMask(i8 noundef zeroext 1)
-  %8 = getelementptr inbounds i8, ptr %0, i64 352
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %9 = load i32, ptr %8, align 8
   %.not18 = icmp eq i32 %9, 1
   br i1 %.not18, label %32, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %0, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %12 = load float, ptr %11, align 4
   %13 = fmul float %12, 1.000000e+01
   %14 = fdiv float 1.000000e+00, %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 192
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %18, i64 64
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %18, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %18, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %18, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %18, i64 68
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load float, ptr %29, align 8
   tail call void @_Z23duDebugDrawTriMeshSlopeP11duDebugDrawPKfiPKiS2_iff(ptr noundef nonnull %15, ptr noundef %20, i32 noundef %22, ptr noundef %24, ptr noundef %26, i32 noundef %28, float noundef %30, float noundef %14)
   %31 = load ptr, ptr %2, align 8
@@ -872,23 +872,23 @@ define dso_local void @_ZN15Sample_SoloMesh12handleRenderEv(ptr noundef nonnull 
   tail call void @glDisable(i32 noundef 2912)
   tail call void @glDepthMask(i8 noundef zeroext 0)
   %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 124
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 124
   %35 = load i8, ptr %34, align 4
   %36 = trunc i8 %35 to i1
   %.v.i = select i1 %36, i64 96, i64 16
-  %37 = getelementptr inbounds i8, ptr %33, i64 %.v.i
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 %.v.i
   %.v.i58 = select i1 %36, i64 108, i64 28
-  %38 = getelementptr inbounds i8, ptr %33, i64 %.v.i58
-  %39 = getelementptr inbounds i8, ptr %0, i64 192
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 %.v.i58
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %40 = load float, ptr %37, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %42 = load float, ptr %41, align 4
-  %43 = getelementptr inbounds i8, ptr %37, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %44 = load float, ptr %43, align 4
   %45 = load float, ptr %38, align 4
-  %46 = getelementptr inbounds i8, ptr %38, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %47 = load float, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %38, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %49 = load float, ptr %48, align 4
   tail call void @_Z18duDebugDrawBoxWireP11duDebugDrawffffffjf(ptr noundef nonnull %39, float noundef %40, float noundef %42, float noundef %44, float noundef %45, float noundef %47, float noundef %49, i32 noundef -2130706433, float noundef 1.000000e+00)
   tail call void @_ZN11DebugDrawGL5beginE21duDebugDrawPrimitivesf(ptr noundef nonnull align 8 dereferenceable(8) %39, i32 noundef 0, float noundef 5.000000e+00)
@@ -897,13 +897,13 @@ define dso_local void @_ZN15Sample_SoloMesh12handleRenderEv(ptr noundef nonnull 
   %52 = load float, ptr %43, align 4
   tail call void @_ZN11DebugDrawGL6vertexEfffj(ptr noundef nonnull align 8 dereferenceable(8) %39, float noundef %50, float noundef %51, float noundef %52, i32 noundef -2130706433)
   tail call void @_ZN11DebugDrawGL3endEv(ptr noundef nonnull align 8 dereferenceable(8) %39)
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not19 = icmp eq ptr %54, null
   br i1 %.not19, label %71, label %55
 
 55:                                               ; preds = %32
-  %56 = getelementptr inbounds i8, ptr %0, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8
   %.not20 = icmp ne ptr %57, null
   %58 = load i32, ptr %8, align 8
@@ -916,7 +916,7 @@ define dso_local void @_ZN15Sample_SoloMesh12handleRenderEv(ptr noundef nonnull 
   br i1 %.not21, label %thread-pre-split.thread, label %60
 
 60:                                               ; preds = %59
-  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %62 = load i8, ptr %61, align 8
   tail call void @_Z32duDebugDrawNavMeshWithClosedListP11duDebugDrawRK9dtNavMeshRK14dtNavMeshQueryh(ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(100) %54, ptr noundef nonnull align 8 dereferenceable(104) %57, i8 noundef zeroext %62)
   %.pr = load i32, ptr %8, align 8
@@ -946,7 +946,7 @@ thread-pre-split.thread:                          ; preds = %59, %68, %thread-pr
 
 71:                                               ; preds = %thread-pre-split.thread, %55, %32
   tail call void @glDepthMask(i8 noundef zeroext 1)
-  %72 = getelementptr inbounds i8, ptr %0, i64 224
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %73 = load ptr, ptr %72, align 8
   %.not22 = icmp ne ptr %73, null
   %74 = load i32, ptr %8, align 8
@@ -989,7 +989,7 @@ thread-pre-split.thread:                          ; preds = %59, %68, %thread-pr
 
 87:                                               ; preds = %86, %82
   %88 = phi i32 [ %.pre65, %86 ], [ %83, %82 ]
-  %89 = getelementptr inbounds i8, ptr %0, i64 216
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %90 = load ptr, ptr %89, align 8
   %.not25 = icmp ne ptr %90, null
   %91 = icmp eq i32 %88, 6
@@ -1023,7 +1023,7 @@ thread-pre-split.thread:                          ; preds = %59, %68, %thread-pr
 
 100:                                              ; preds = %98, %94
   %101 = phi i32 [ %.pre68, %98 ], [ %95, %94 ]
-  %102 = getelementptr inbounds i8, ptr %0, i64 232
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %103 = load ptr, ptr %102, align 8
   %.not27 = icmp ne ptr %103, null
   %104 = icmp eq i32 %101, 12
@@ -1097,7 +1097,7 @@ thread-pre-split.thread:                          ; preds = %59, %68, %thread-pr
 
 127:                                              ; preds = %125, %120
   %128 = phi i32 [ %.pre75, %125 ], [ %121, %120 ]
-  %129 = getelementptr inbounds i8, ptr %0, i64 240
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %130 = load ptr, ptr %129, align 8
   %.not32 = icmp ne ptr %130, null
   %131 = icmp eq i32 %128, 15
@@ -1114,7 +1114,7 @@ thread-pre-split.thread:                          ; preds = %59, %68, %thread-pr
 
 134:                                              ; preds = %132, %127
   %135 = phi i32 [ %.pre76, %132 ], [ %128, %127 ]
-  %136 = getelementptr inbounds i8, ptr %0, i64 344
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %137 = load ptr, ptr %136, align 8
   %.not33 = icmp ne ptr %137, null
   %138 = icmp eq i32 %135, 16
@@ -1131,14 +1131,14 @@ thread-pre-split.thread:                          ; preds = %59, %68, %thread-pr
 141:                                              ; preds = %139, %134
   %142 = load ptr, ptr %2, align 8
   tail call void @_ZN9InputGeom17drawConvexVolumesEP11duDebugDrawb(ptr noundef nonnull align 8 dereferenceable(50312) %142, ptr noundef nonnull %39, i1 noundef zeroext false)
-  %143 = getelementptr inbounds i8, ptr %0, i64 104
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %144 = load ptr, ptr %143, align 8
   %.not34 = icmp eq ptr %144, null
   br i1 %.not34, label %149, label %145
 
 145:                                              ; preds = %141
   %146 = load ptr, ptr %144, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 56
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 56
   %148 = load ptr, ptr %147, align 8
   tail call void %148(ptr noundef nonnull align 8 dereferenceable(8) %144)
   br label %149
@@ -1204,14 +1204,14 @@ declare void @_ZN6Sample16renderToolStatesEv(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_SoloMesh19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %11
@@ -1226,23 +1226,23 @@ declare void @_ZN6Sample23renderOverlayToolStatesEPdS0_Pi(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_SoloMesh17handleMeshChangedEP9InputGeom(ptr noundef nonnull align 8 dereferenceable(356) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN6Sample17handleMeshChangedEP9InputGeom(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1)
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %4)
   store ptr null, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 104
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %0)
   br label %15
@@ -1264,19 +1264,19 @@ define dso_local noundef zeroext i1 @_ZN15Sample_SoloMesh11handleBuildEv(ptr nou
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.dtNavMeshCreateParams, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not56 = icmp eq ptr %9, null
   br i1 %.not56, label %10, label %13
 
 10:                                               ; preds = %7, %1
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %12 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %12, i32 noundef 3, ptr noundef nonnull @.str.30)
   br label %484
@@ -1284,135 +1284,135 @@ define dso_local noundef zeroext i1 @_ZN15Sample_SoloMesh11handleBuildEv(ptr nou
 13:                                               ; preds = %7
   tail call void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %0)
   %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 124
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 124
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   %.v.i = select i1 %17, i64 96, i64 16
-  %18 = getelementptr inbounds i8, ptr %14, i64 %.v.i
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.v.i
   %.v.i64 = select i1 %17, i64 108, i64 28
-  %19 = getelementptr inbounds i8, ptr %14, i64 %.v.i64
-  %20 = getelementptr inbounds i8, ptr %14, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 %.v.i64
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %21, i64 64
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %21, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %21, i64 68
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %0, i64 248
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(92) %30, i8 0, i64 48, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 264
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store float %32, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %35 = load float, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 268
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store float %35, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load float, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 296
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store float %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %41 = load float, ptr %40, align 4
   %42 = fdiv float %41, %35
   %43 = tail call float @llvm.ceil.f32(float %42)
   %44 = fptosi float %43 to i32
-  %45 = getelementptr inbounds i8, ptr %0, i64 300
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 300
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 60
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %47 = load float, ptr %46, align 4
   %48 = fdiv float %47, %35
   %49 = tail call float @llvm.floor.f32(float %48)
   %50 = fptosi float %49 to i32
-  %51 = getelementptr inbounds i8, ptr %0, i64 304
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 %50, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %0, i64 56
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %53 = load float, ptr %52, align 8
   %54 = fdiv float %53, %32
   %55 = tail call float @llvm.ceil.f32(float %54)
   %56 = fptosi float %55 to i32
-  %57 = getelementptr inbounds i8, ptr %0, i64 308
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 308
   store i32 %56, ptr %57, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 76
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %59 = load float, ptr %58, align 4
   %60 = fdiv float %59, %32
   %61 = fptosi float %60 to i32
-  %62 = getelementptr inbounds i8, ptr %0, i64 312
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %61, ptr %62, align 8
-  %63 = getelementptr inbounds i8, ptr %0, i64 80
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %64 = load float, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 316
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 316
   store float %64, ptr %65, align 4
-  %66 = getelementptr inbounds i8, ptr %0, i64 68
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %67 = load float, ptr %66, align 4
   %68 = fmul float %67, %67
   %69 = fptosi float %68 to i32
-  %70 = getelementptr inbounds i8, ptr %0, i64 320
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %0, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %72 = load float, ptr %71, align 8
   %73 = fmul float %72, %72
   %74 = fptosi float %73 to i32
-  %75 = getelementptr inbounds i8, ptr %0, i64 324
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 324
   store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 84
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %77 = load float, ptr %76, align 4
   %78 = fptosi float %77 to i32
-  %79 = getelementptr inbounds i8, ptr %0, i64 328
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 %78, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %81 = load float, ptr %80, align 8
   %82 = fcmp olt float %81, 0x3FECCCCCC0000000
   %83 = fmul float %32, %81
   %84 = select i1 %82, float 0.000000e+00, float %83
-  %85 = getelementptr inbounds i8, ptr %0, i64 332
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 332
   store float %84, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %0, i64 92
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %87 = load float, ptr %86, align 4
   %88 = fmul float %35, %87
-  %89 = getelementptr inbounds i8, ptr %0, i64 336
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store float %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 272
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %91 = load float, ptr %18, align 4
   store float %91, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %18, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %93 = load float, ptr %92, align 4
-  %94 = getelementptr inbounds i8, ptr %0, i64 276
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 276
   store float %93, ptr %94, align 4
-  %95 = getelementptr inbounds i8, ptr %18, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %96 = load float, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %0, i64 280
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store float %96, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %0, i64 284
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %99 = load float, ptr %19, align 4
   store float %99, ptr %98, align 4
-  %100 = getelementptr inbounds i8, ptr %19, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %101 = load float, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %0, i64 288
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 288
   store float %101, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %19, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %104 = load float, ptr %103, align 4
-  %105 = getelementptr inbounds i8, ptr %0, i64 292
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store float %104, ptr %105, align 4
-  %106 = getelementptr inbounds i8, ptr %0, i64 252
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 252
   tail call void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr noundef nonnull %90, ptr noundef nonnull %98, float noundef %32, ptr noundef nonnull %30, ptr noundef nonnull %106)
-  %107 = getelementptr inbounds i8, ptr %0, i64 184
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 9
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 9
   %110 = load i8, ptr %109, align 1
   %111 = trunc i8 %110 to i1
   br i1 %111, label %112, label %_ZN9rcContext11resetTimersEv.exit
 
 112:                                              ; preds = %13
   %113 = load ptr, ptr %108, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 32
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %115 = load ptr, ptr %114, align 8
   tail call void %115(ptr noundef nonnull align 8 dereferenceable(10) %108)
   %.pre = load ptr, ptr %107, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 9
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 9
   %.pre78 = load i8, ptr %.phi.trans.insert, align 1
   br label %_ZN9rcContext11resetTimersEv.exit
 
@@ -1424,7 +1424,7 @@ _ZN9rcContext11resetTimersEv.exit:                ; preds = %13, %112
 
 119:                                              ; preds = %_ZN9rcContext11resetTimersEv.exit
   %120 = load ptr, ptr %117, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 40
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 40
   %122 = load ptr, ptr %121, align 8
   tail call void %122(ptr noundef nonnull align 8 dereferenceable(10) %117, i32 noundef 0)
   %.pre79 = load ptr, ptr %107, align 8
@@ -1446,7 +1446,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   %133 = fpext float %132 to double
   tail call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %127, i32 noundef 1, ptr noundef nonnull @.str.33, double noundef %130, double noundef %133)
   %134 = tail call noundef ptr @_Z18rcAllocHeightfieldv()
-  %135 = getelementptr inbounds i8, ptr %0, i64 216
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %134, ptr %135, align 8
   %.not57 = icmp eq ptr %134, null
   %136 = load ptr, ptr %107, align 8
@@ -1472,7 +1472,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 146:                                              ; preds = %138
   %147 = sext i32 %29 to i64
   %148 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %147) #11
-  %149 = getelementptr inbounds i8, ptr %0, i64 208
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %148, ptr %149, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %148, i8 0, i64 %147, i1 false)
   %150 = load ptr, ptr %107, align 8
@@ -1491,7 +1491,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   br label %484
 
 159:                                              ; preds = %146
-  %160 = getelementptr inbounds i8, ptr %0, i64 200
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %161 = load i8, ptr %160, align 8
   %162 = trunc i8 %161 to i1
   br i1 %162, label %168, label %163
@@ -1510,7 +1510,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   br label %168
 
 168:                                              ; preds = %167, %159
-  %169 = getelementptr inbounds i8, ptr %0, i64 100
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %170 = load i8, ptr %169, align 4
   %171 = trunc i8 %170 to i1
   br i1 %171, label %172, label %176
@@ -1523,7 +1523,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   br label %176
 
 176:                                              ; preds = %172, %168
-  %177 = getelementptr inbounds i8, ptr %0, i64 101
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 101
   %178 = load i8, ptr %177, align 1
   %179 = trunc i8 %178 to i1
   br i1 %179, label %180, label %185
@@ -1537,7 +1537,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   br label %185
 
 185:                                              ; preds = %180, %176
-  %186 = getelementptr inbounds i8, ptr %0, i64 102
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 102
   %187 = load i8, ptr %186, align 2
   %188 = trunc i8 %187 to i1
   br i1 %188, label %189, label %193
@@ -1551,7 +1551,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 193:                                              ; preds = %189, %185
   %194 = tail call noundef ptr @_Z25rcAllocCompactHeightfieldv()
-  %195 = getelementptr inbounds i8, ptr %0, i64 224
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %194, ptr %195, align 8
   %.not58 = icmp eq ptr %194, null
   %196 = load ptr, ptr %107, align 8
@@ -1598,8 +1598,8 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 217:                                              ; preds = %210
   %218 = load ptr, ptr %5, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 9348
-  %220 = getelementptr inbounds i8, ptr %218, i64 50308
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 9348
+  %220 = getelementptr inbounds nuw i8, ptr %218, i64 50308
   %221 = load i32, ptr %220, align 4
   %222 = icmp sgt i32 %221, 0
   br i1 %222, label %.lr.ph, label %._crit_edge
@@ -1607,28 +1607,28 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 .lr.ph:                                           ; preds = %217, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %217 ]
   %223 = load ptr, ptr %107, align 8
-  %224 = getelementptr inbounds %struct.ConvexVolume, ptr %219, i64 %indvars.iv
-  %225 = getelementptr inbounds i8, ptr %224, i64 152
+  %224 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %219, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 152
   %226 = load i32, ptr %225, align 4
-  %227 = getelementptr inbounds i8, ptr %224, i64 144
+  %227 = getelementptr inbounds nuw i8, ptr %224, i64 144
   %228 = load float, ptr %227, align 4
-  %229 = getelementptr inbounds i8, ptr %224, i64 148
+  %229 = getelementptr inbounds nuw i8, ptr %224, i64 148
   %230 = load float, ptr %229, align 4
-  %231 = getelementptr inbounds i8, ptr %224, i64 156
+  %231 = getelementptr inbounds nuw i8, ptr %224, i64 156
   %232 = load i32, ptr %231, align 4
   %233 = trunc i32 %232 to i8
   %234 = load ptr, ptr %195, align 8
   tail call void @_Z20rcMarkConvexPolyAreaP9rcContextPKfiffhR20rcCompactHeightfield(ptr noundef %223, ptr noundef nonnull %224, i32 noundef %226, float noundef %228, float noundef %230, i8 noundef zeroext %233, ptr noundef nonnull align 8 dereferenceable(96) %234)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %235 = load ptr, ptr %5, align 8
-  %236 = getelementptr inbounds i8, ptr %235, i64 50308
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 50308
   %237 = load i32, ptr %236, align 4
   %238 = sext i32 %237 to i64
   %239 = icmp slt i64 %indvars.iv.next, %238
   br i1 %239, label %.lr.ph, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph, %217
-  %240 = getelementptr inbounds i8, ptr %0, i64 96
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %241 = load i32, ptr %240, align 8
   %242 = load ptr, ptr %107, align 8
   %243 = load ptr, ptr %195, align 8
@@ -1681,7 +1681,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 266:                                              ; preds = %255, %261, %248
   %267 = tail call noundef ptr @_Z17rcAllocContourSetv()
-  %268 = getelementptr inbounds i8, ptr %0, i64 232
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %267, ptr %268, align 8
   %.not59 = icmp eq ptr %267, null
   %269 = load ptr, ptr %107, align 8
@@ -1705,7 +1705,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 278:                                              ; preds = %271
   %279 = tail call noundef ptr @_Z15rcAllocPolyMeshv()
-  %280 = getelementptr inbounds i8, ptr %0, i64 240
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %279, ptr %280, align 8
   %.not60 = icmp eq ptr %279, null
   %281 = load ptr, ptr %107, align 8
@@ -1728,7 +1728,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 289:                                              ; preds = %283
   %290 = tail call noundef ptr @_Z21rcAllocPolyMeshDetailv()
-  %291 = getelementptr inbounds i8, ptr %0, i64 344
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %290, ptr %291, align 8
   %.not61 = icmp eq ptr %290, null
   %292 = load ptr, ptr %107, align 8
@@ -1774,7 +1774,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
   store ptr null, ptr %2, align 8
   store i32 0, ptr %3, align 4
   %312 = load ptr, ptr %280, align 8
-  %313 = getelementptr inbounds i8, ptr %312, i64 44
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 44
   %314 = load i32, ptr %313, align 4
   %315 = icmp sgt i32 %314, 0
   br i1 %315, label %.lr.ph71, label %._crit_edge72
@@ -1782,9 +1782,9 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 .lr.ph71:                                         ; preds = %311, %331
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %331 ], [ 0, %311 ]
   %316 = phi ptr [ %332, %331 ], [ %312, %311 ]
-  %317 = getelementptr inbounds i8, ptr %316, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 32
   %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 %indvars.iv75
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 %indvars.iv75
   %320 = load i8, ptr %319, align 1
   %321 = icmp eq i8 %320, 63
   br i1 %321, label %322, label %323
@@ -1792,9 +1792,9 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 322:                                              ; preds = %.lr.ph71
   store i8 0, ptr %319, align 1
   %.pre80 = load ptr, ptr %280, align 8
-  %.phi.trans.insert81 = getelementptr inbounds i8, ptr %.pre80, i64 32
+  %.phi.trans.insert81 = getelementptr inbounds nuw i8, ptr %.pre80, i64 32
   %.pre82 = load ptr, ptr %.phi.trans.insert81, align 8
-  %.phi.trans.insert83 = getelementptr inbounds i8, ptr %.pre82, i64 %indvars.iv75
+  %.phi.trans.insert83 = getelementptr inbounds nuw i8, ptr %.pre82, i64 %indvars.iv75
   %.pre84 = load i8, ptr %.phi.trans.insert83, align 1
   br label %323
 
@@ -1806,18 +1806,18 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 switch.lookup:                                    ; preds = %323
   %327 = zext nneg i8 %324 to i64
-  %switch.gep = getelementptr inbounds [5 x i16], ptr @switch.table._ZN15Sample_SoloMesh11handleBuildEv, i64 0, i64 %327
+  %switch.gep = getelementptr inbounds nuw [5 x i16], ptr @switch.table._ZN15Sample_SoloMesh11handleBuildEv, i64 0, i64 %327
   %switch.load = load i16, ptr %switch.gep, align 2
-  %328 = getelementptr inbounds i8, ptr %325, i64 24
+  %328 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds i16, ptr %329, i64 %indvars.iv75
+  %330 = getelementptr inbounds nuw i16, ptr %329, i64 %indvars.iv75
   store i16 %switch.load, ptr %330, align 2
   br label %331
 
 331:                                              ; preds = %323, %switch.lookup
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %332 = load ptr, ptr %280, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 44
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 44
   %334 = load i32, ptr %333, align 4
   %335 = sext i32 %334 to i64
   %336 = icmp slt i64 %indvars.iv.next76, %335
@@ -1826,115 +1826,115 @@ switch.lookup:                                    ; preds = %323
 ._crit_edge72:                                    ; preds = %331, %311
   %337 = phi i32 [ %314, %311 ], [ %334, %331 ]
   %.lcssa68 = phi ptr [ %312, %311 ], [ %332, %331 ]
-  %338 = getelementptr inbounds i8, ptr %4, i64 8
+  %338 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %338, i8 0, i64 200, i1 false)
   %339 = load ptr, ptr %.lcssa68, align 8
   store ptr %339, ptr %4, align 8
-  %340 = getelementptr inbounds i8, ptr %.lcssa68, i64 40
+  %340 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 40
   %341 = load i32, ptr %340, align 8
-  %342 = getelementptr inbounds i8, ptr %4, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %341, ptr %342, align 8
-  %343 = getelementptr inbounds i8, ptr %.lcssa68, i64 8
+  %343 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 8
   %344 = load ptr, ptr %343, align 8
-  %345 = getelementptr inbounds i8, ptr %4, i64 16
+  %345 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %344, ptr %345, align 8
-  %346 = getelementptr inbounds i8, ptr %.lcssa68, i64 32
+  %346 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 32
   %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds i8, ptr %4, i64 32
+  %348 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr %347, ptr %348, align 8
-  %349 = getelementptr inbounds i8, ptr %.lcssa68, i64 24
+  %349 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 24
   %350 = load ptr, ptr %349, align 8
-  %351 = getelementptr inbounds i8, ptr %4, i64 24
+  %351 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %350, ptr %351, align 8
-  %352 = getelementptr inbounds i8, ptr %4, i64 40
+  %352 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 %337, ptr %352, align 8
-  %353 = getelementptr inbounds i8, ptr %.lcssa68, i64 52
+  %353 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 52
   %354 = load i32, ptr %353, align 4
-  %355 = getelementptr inbounds i8, ptr %4, i64 44
+  %355 = getelementptr inbounds nuw i8, ptr %4, i64 44
   store i32 %354, ptr %355, align 4
   %356 = load ptr, ptr %291, align 8
   %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %4, i64 48
+  %358 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store ptr %357, ptr %358, align 8
-  %359 = getelementptr inbounds i8, ptr %356, i64 8
+  %359 = getelementptr inbounds nuw i8, ptr %356, i64 8
   %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds i8, ptr %4, i64 56
+  %361 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store ptr %360, ptr %361, align 8
-  %362 = getelementptr inbounds i8, ptr %356, i64 28
+  %362 = getelementptr inbounds nuw i8, ptr %356, i64 28
   %363 = load i32, ptr %362, align 4
-  %364 = getelementptr inbounds i8, ptr %4, i64 64
+  %364 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store i32 %363, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %356, i64 16
+  %365 = getelementptr inbounds nuw i8, ptr %356, i64 16
   %366 = load ptr, ptr %365, align 8
-  %367 = getelementptr inbounds i8, ptr %4, i64 72
+  %367 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %366, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %356, i64 32
+  %368 = getelementptr inbounds nuw i8, ptr %356, i64 32
   %369 = load i32, ptr %368, align 8
-  %370 = getelementptr inbounds i8, ptr %4, i64 80
+  %370 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store i32 %369, ptr %370, align 8
   %371 = load ptr, ptr %5, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 128
-  %373 = getelementptr inbounds i8, ptr %4, i64 88
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 128
+  %373 = getelementptr inbounds nuw i8, ptr %4, i64 88
   store ptr %372, ptr %373, align 8
-  %374 = getelementptr inbounds i8, ptr %371, i64 6272
-  %375 = getelementptr inbounds i8, ptr %4, i64 96
+  %374 = getelementptr inbounds nuw i8, ptr %371, i64 6272
+  %375 = getelementptr inbounds nuw i8, ptr %4, i64 96
   store ptr %374, ptr %375, align 8
-  %376 = getelementptr inbounds i8, ptr %371, i64 7296
-  %377 = getelementptr inbounds i8, ptr %4, i64 120
+  %376 = getelementptr inbounds nuw i8, ptr %371, i64 7296
+  %377 = getelementptr inbounds nuw i8, ptr %4, i64 120
   store ptr %376, ptr %377, align 8
-  %378 = getelementptr inbounds i8, ptr %371, i64 7552
-  %379 = getelementptr inbounds i8, ptr %4, i64 112
+  %378 = getelementptr inbounds nuw i8, ptr %371, i64 7552
+  %379 = getelementptr inbounds nuw i8, ptr %4, i64 112
   store ptr %378, ptr %379, align 8
-  %380 = getelementptr inbounds i8, ptr %371, i64 7808
-  %381 = getelementptr inbounds i8, ptr %4, i64 104
+  %380 = getelementptr inbounds nuw i8, ptr %371, i64 7808
+  %381 = getelementptr inbounds nuw i8, ptr %4, i64 104
   store ptr %380, ptr %381, align 8
-  %382 = getelementptr inbounds i8, ptr %371, i64 8320
-  %383 = getelementptr inbounds i8, ptr %4, i64 128
+  %382 = getelementptr inbounds nuw i8, ptr %371, i64 8320
+  %383 = getelementptr inbounds nuw i8, ptr %4, i64 128
   store ptr %382, ptr %383, align 8
-  %384 = getelementptr inbounds i8, ptr %371, i64 9344
+  %384 = getelementptr inbounds nuw i8, ptr %371, i64 9344
   %385 = load i32, ptr %384, align 8
-  %386 = getelementptr inbounds i8, ptr %4, i64 136
+  %386 = getelementptr inbounds nuw i8, ptr %4, i64 136
   store i32 %385, ptr %386, align 8
   %387 = load float, ptr %40, align 4
-  %388 = getelementptr inbounds i8, ptr %4, i64 180
+  %388 = getelementptr inbounds nuw i8, ptr %4, i64 180
   store float %387, ptr %388, align 4
   %389 = load float, ptr %52, align 8
-  %390 = getelementptr inbounds i8, ptr %4, i64 184
+  %390 = getelementptr inbounds nuw i8, ptr %4, i64 184
   store float %389, ptr %390, align 8
   %391 = load float, ptr %46, align 4
-  %392 = getelementptr inbounds i8, ptr %4, i64 188
+  %392 = getelementptr inbounds nuw i8, ptr %4, i64 188
   store float %391, ptr %392, align 4
-  %393 = getelementptr inbounds i8, ptr %4, i64 156
-  %394 = getelementptr inbounds i8, ptr %.lcssa68, i64 56
+  %393 = getelementptr inbounds nuw i8, ptr %4, i64 156
+  %394 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 56
   %395 = load float, ptr %394, align 4
   store float %395, ptr %393, align 4
-  %396 = getelementptr inbounds i8, ptr %.lcssa68, i64 60
+  %396 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 60
   %397 = load float, ptr %396, align 4
-  %398 = getelementptr inbounds i8, ptr %4, i64 160
+  %398 = getelementptr inbounds nuw i8, ptr %4, i64 160
   store float %397, ptr %398, align 8
-  %399 = getelementptr inbounds i8, ptr %.lcssa68, i64 64
+  %399 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 64
   %400 = load float, ptr %399, align 4
-  %401 = getelementptr inbounds i8, ptr %4, i64 164
+  %401 = getelementptr inbounds nuw i8, ptr %4, i64 164
   store float %400, ptr %401, align 4
-  %402 = getelementptr inbounds i8, ptr %4, i64 168
-  %403 = getelementptr inbounds i8, ptr %.lcssa68, i64 68
+  %402 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %403 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 68
   %404 = load float, ptr %403, align 4
   store float %404, ptr %402, align 8
-  %405 = getelementptr inbounds i8, ptr %.lcssa68, i64 72
+  %405 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 72
   %406 = load float, ptr %405, align 4
-  %407 = getelementptr inbounds i8, ptr %4, i64 172
+  %407 = getelementptr inbounds nuw i8, ptr %4, i64 172
   store float %406, ptr %407, align 4
-  %408 = getelementptr inbounds i8, ptr %.lcssa68, i64 76
+  %408 = getelementptr inbounds nuw i8, ptr %.lcssa68, i64 76
   %409 = load float, ptr %408, align 4
-  %410 = getelementptr inbounds i8, ptr %4, i64 176
+  %410 = getelementptr inbounds nuw i8, ptr %4, i64 176
   store float %409, ptr %410, align 8
   %411 = load float, ptr %33, align 8
-  %412 = getelementptr inbounds i8, ptr %4, i64 192
+  %412 = getelementptr inbounds nuw i8, ptr %4, i64 192
   store float %411, ptr %412, align 8
   %413 = load float, ptr %36, align 4
-  %414 = getelementptr inbounds i8, ptr %4, i64 196
+  %414 = getelementptr inbounds nuw i8, ptr %4, i64 196
   store float %413, ptr %414, align 4
-  %415 = getelementptr inbounds i8, ptr %4, i64 200
+  %415 = getelementptr inbounds nuw i8, ptr %4, i64 200
   store i8 1, ptr %415, align 8
   %416 = call noundef zeroext i1 @_Z19dtCreateNavMeshDataP21dtNavMeshCreateParamsPPhPi(ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
   br i1 %416, label %419, label %417
@@ -1946,7 +1946,7 @@ switch.lookup:                                    ; preds = %323
 
 419:                                              ; preds = %._crit_edge72
   %420 = call noundef ptr @_Z14dtAllocNavMeshv()
-  %421 = getelementptr inbounds i8, ptr %0, i64 16
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %420, ptr %421, align 8
   %.not62 = icmp eq ptr %420, null
   %422 = load ptr, ptr %2, align 8
@@ -1972,7 +1972,7 @@ switch.lookup:                                    ; preds = %323
   br label %484
 
 432:                                              ; preds = %425
-  %433 = getelementptr inbounds i8, ptr %0, i64 24
+  %433 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %434 = load ptr, ptr %433, align 8
   %435 = load ptr, ptr %421, align 8
   %436 = call noundef i32 @_ZN14dtNavMeshQuery4initEPK9dtNavMeshi(ptr noundef nonnull align 8 dereferenceable(104) %434, ptr noundef %435, i32 noundef 2048)
@@ -1986,18 +1986,18 @@ switch.lookup:                                    ; preds = %323
 
 440:                                              ; preds = %432, %308
   %441 = load ptr, ptr %107, align 8
-  %442 = getelementptr inbounds i8, ptr %441, i64 9
+  %442 = getelementptr inbounds nuw i8, ptr %441, i64 9
   %443 = load i8, ptr %442, align 1
   %444 = trunc i8 %443 to i1
   br i1 %444, label %445, label %_ZN9rcContext9stopTimerE12rcTimerLabel.exit
 
 445:                                              ; preds = %440
   %446 = load ptr, ptr %441, align 8
-  %447 = getelementptr inbounds i8, ptr %446, i64 48
+  %447 = getelementptr inbounds nuw i8, ptr %446, i64 48
   %448 = load ptr, ptr %447, align 8
   call void %448(ptr noundef nonnull align 8 dereferenceable(10) %441, i32 noundef 0)
   %.pre85 = load ptr, ptr %107, align 8
-  %.phi.trans.insert86 = getelementptr inbounds i8, ptr %.pre85, i64 9
+  %.phi.trans.insert86 = getelementptr inbounds nuw i8, ptr %.pre85, i64 9
   %.pre87 = load i8, ptr %.phi.trans.insert86, align 1
   br label %_ZN9rcContext9stopTimerE12rcTimerLabel.exit
 
@@ -2009,7 +2009,7 @@ _ZN9rcContext9stopTimerE12rcTimerLabel.exit:      ; preds = %440, %445
 
 452:                                              ; preds = %_ZN9rcContext9stopTimerE12rcTimerLabel.exit
   %453 = load ptr, ptr %450, align 8
-  %454 = getelementptr inbounds i8, ptr %453, i64 56
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 56
   %455 = load ptr, ptr %454, align 8
   %456 = call noundef i32 %455(ptr noundef nonnull align 8 dereferenceable(10) %450, i32 noundef 0)
   br label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit
@@ -2019,20 +2019,20 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit: ; preds = %_ZN9rcContext
   call void @_Z15duLogBuildTimesR9rcContexti(ptr noundef nonnull align 8 dereferenceable(10) %450, i32 noundef %457)
   %458 = load ptr, ptr %107, align 8
   %459 = load ptr, ptr %280, align 8
-  %460 = getelementptr inbounds i8, ptr %459, i64 40
+  %460 = getelementptr inbounds nuw i8, ptr %459, i64 40
   %461 = load i32, ptr %460, align 8
-  %462 = getelementptr inbounds i8, ptr %459, i64 44
+  %462 = getelementptr inbounds nuw i8, ptr %459, i64 44
   %463 = load i32, ptr %462, align 4
   call void (ptr, i32, ptr, ...) @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10) %458, i32 noundef 1, ptr noundef nonnull @.str.55, i32 noundef %461, i32 noundef %463)
   %464 = load ptr, ptr %107, align 8
-  %465 = getelementptr inbounds i8, ptr %464, i64 9
+  %465 = getelementptr inbounds nuw i8, ptr %464, i64 9
   %466 = load i8, ptr %465, align 1
   %467 = trunc i8 %466 to i1
   br i1 %467, label %468, label %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit65
 
 468:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit
   %469 = load ptr, ptr %464, align 8
-  %470 = getelementptr inbounds i8, ptr %469, i64 56
+  %470 = getelementptr inbounds nuw i8, ptr %469, i64 56
   %471 = load ptr, ptr %470, align 8
   %472 = call noundef i32 %471(ptr noundef nonnull align 8 dereferenceable(10) %464, i32 noundef 0)
   %473 = sitofp i32 %472 to float
@@ -2041,16 +2041,16 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit: ; preds = %_ZN9rcContext
 _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit65: ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit, %468
   %474 = phi float [ %473, %468 ], [ -1.000000e+00, %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit ]
   %475 = fdiv float %474, 1.000000e+03
-  %476 = getelementptr inbounds i8, ptr %0, i64 204
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 204
   store float %475, ptr %476, align 4
-  %477 = getelementptr inbounds i8, ptr %0, i64 104
+  %477 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %478 = load ptr, ptr %477, align 8
   %.not63 = icmp eq ptr %478, null
   br i1 %.not63, label %483, label %479
 
 479:                                              ; preds = %_ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit65
   %480 = load ptr, ptr %478, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 24
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 24
   %482 = load ptr, ptr %481, align 8
   call void %482(ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull %0)
   br label %483
@@ -2144,49 +2144,49 @@ declare void @_ZN6Sample15collectSettingsER13BuildSettings(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample12getInputGeomEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample10getNavMeshEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample15getNavMeshQueryEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZN6Sample8getCrowdEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 32
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZN6Sample14getAgentRadiusEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load float, ptr %2, align 8
   ret float %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZN6Sample14getAgentHeightEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 52
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %3 = load float, ptr %2, align 4
   ret float %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef float @_ZN6Sample13getAgentClimbEv(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #5 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 60
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load float, ptr %2, align 4
   ret float %3
 }

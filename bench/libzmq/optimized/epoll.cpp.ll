@@ -45,20 +45,20 @@ define void @_ZN3zmq7epoll_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 
 entry:
   tail call void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq7epoll_tE, i64 16), ptr %this, align 8
-  %_retired = getelementptr inbounds i8, ptr %this, i64 200
+  %_retired = getelementptr inbounds nuw i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_retired, i8 0, i64 24, i1 false)
-  %call = tail call i32 @epoll_create1(i32 noundef 524288) #17
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %call = tail call i32 @epoll_create1(i32 noundef 524288) #18
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 %call, ptr %_epoll_fd, align 8
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #18
+  %call3 = tail call ptr @__errno_location() #19
   %0 = load i32, ptr %call3, align 4
-  %call4 = tail call ptr @strerror(i32 noundef %0) #17
+  %call4 = tail call ptr @strerror(i32 noundef %0) #18
   %1 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 38) #19
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 38) #20
   %2 = load ptr, ptr @stderr, align 8
   %call7 = tail call i32 @fflush(ptr noundef %2)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
@@ -72,11 +72,11 @@ lpad:                                             ; preds = %if.then
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %lpad
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit: ; preds = %lpad, %if.then.i.i.i
-  tail call void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #17
+  tail call void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #18
   resume { ptr, i32 } %3
 
 do.end:                                           ; preds = %if.then, %entry
@@ -111,15 +111,15 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i32, ptr %_epoll_fd, align 8
   %call = invoke i32 @close(i32 noundef %0)
           to label %invoke.cont2 unwind label %terminate.lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  %_retired = getelementptr inbounds i8, ptr %this, i64 200
+  %_retired = getelementptr inbounds nuw i8, ptr %this, i64 200
   %1 = load ptr, ptr %_retired, align 8
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %2 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not4 = icmp eq ptr %1, %2
   br i1 %cmp.i.not4, label %for.end, label %for.body
@@ -131,12 +131,12 @@ for.body:                                         ; preds = %invoke.cont2, %dele
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body
-  tail call void @_ZdlPv(ptr noundef nonnull %3) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #21
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body
   store ptr null, ptr %it.sroa.0.05, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.05, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.05, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body, !llvm.loop !4
 
@@ -150,13 +150,13 @@ for.end:                                          ; preds = %for.end.loopexit, %
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.end
-  tail call void @_ZdlPv(ptr noundef nonnull %4) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %4) #21
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit: ; preds = %for.end, %if.then.i.i.i
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %this, align 8
-  %_thread_affinity_cpus.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %_thread_affinity_cpus.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %_M_parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i.i, ptr noundef %5)
           to label %_ZN3zmq20worker_poller_base_tD2Ev.exit unwind label %terminate.lpad.i.i.i.i
@@ -165,18 +165,18 @@ terminate.lpad.i.i.i.i:                           ; preds = %_ZNSt6vectorIPN3zmq
   %6 = landingpad { ptr, i32 }
           catch ptr null
   %7 = extractvalue { ptr, i32 } %6, 0
-  tail call void @__clang_call_terminate(ptr %7) #21
+  tail call void @__clang_call_terminate(ptr %7) #22
   unreachable
 
 _ZN3zmq20worker_poller_base_tD2Ev.exit:           ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit
-  tail call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #17
+  tail call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #18
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont, %entry
   %8 = landingpad { ptr, i32 }
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #21
+  tail call void @__clang_call_terminate(ptr %9) #22
   unreachable
 }
 
@@ -184,8 +184,8 @@ declare void @_ZN3zmq20worker_poller_base_t11stop_workerEv(ptr noundef nonnull a
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #6 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #17
-  tail call void @_ZSt9terminatev() #21
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #18
+  tail call void @_ZSt9terminatev() #22
   unreachable
 }
 
@@ -202,8 +202,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq7epoll_tD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #5 align 2 {
 entry:
-  tail call void @_ZN3zmq7epoll_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #17
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #20
+  tail call void @_ZN3zmq7epoll_tD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #18
+  tail call void @_ZdlPv(ptr noundef nonnull %this) #21
   ret void
 }
 
@@ -211,13 +211,13 @@ entry:
 define noundef ptr @_ZN3zmq7epoll_t6add_fdEiPNS_13i_poll_eventsE(ptr noundef nonnull align 8 dereferenceable(224) %this, i32 noundef %fd_, ptr noundef %events_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %call = tail call noalias noundef dereferenceable_or_null(24) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #22
+  %call = tail call noalias noundef dereferenceable_or_null(24) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 24, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #23
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 61) #19
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 61) #20
   %1 = load ptr, ptr @stderr, align 8
   %call3 = tail call i32 @fflush(ptr noundef %1)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
@@ -225,24 +225,24 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   store i32 %fd_, ptr %call, align 8
-  %ev = getelementptr inbounds i8, ptr %call, i64 4
+  %ev = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i32 0, ptr %ev, align 4
-  %data = getelementptr inbounds i8, ptr %call, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call, i64 8
   store ptr %call, ptr %data, align 4
-  %events5 = getelementptr inbounds i8, ptr %call, i64 16
+  %events5 = getelementptr inbounds nuw i8, ptr %call, i64 16
   store ptr %events_, ptr %events5, align 8
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %2 = load i32, ptr %_epoll_fd, align 8
-  %call7 = tail call i32 @epoll_ctl(i32 noundef %2, i32 noundef 1, i32 noundef %fd_, ptr noundef nonnull %ev) #17
+  %call7 = tail call i32 @epoll_ctl(i32 noundef %2, i32 noundef 1, i32 noundef %fd_, ptr noundef nonnull %ev) #18
   %cmp.not = icmp eq i32 %call7, -1
   br i1 %cmp.not, label %if.then10, label %do.end16
 
 if.then10:                                        ; preds = %do.end
-  %call11 = tail call ptr @__errno_location() #18
+  %call11 = tail call ptr @__errno_location() #19
   %3 = load i32, ptr %call11, align 4
-  %call12 = tail call ptr @strerror(i32 noundef %3) #17
+  %call12 = tail call ptr @strerror(i32 noundef %3) #18
   %4 = load ptr, ptr @stderr, align 8
-  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call12, ptr noundef nonnull @.str.1, i32 noundef 73) #19
+  %call13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call12, ptr noundef nonnull @.str.1, i32 noundef 73) #20
   %5 = load ptr, ptr @stderr, align 8
   %call14 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call12)
@@ -270,20 +270,20 @@ declare void @_ZN3zmq13poller_base_t11adjust_loadEi(ptr noundef nonnull align 8 
 define void @_ZN3zmq7epoll_t5rm_fdEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load i32, ptr %_epoll_fd, align 8
   %1 = load i32, ptr %handle_, align 8
-  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
-  %call = tail call i32 @epoll_ctl(i32 noundef %0, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %ev) #17
+  %ev = getelementptr inbounds nuw i8, ptr %handle_, i64 4
+  %call = tail call i32 @epoll_ctl(i32 noundef %0, i32 noundef 2, i32 noundef %1, ptr noundef nonnull %ev) #18
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %call2 = tail call ptr @__errno_location() #18
+  %call2 = tail call ptr @__errno_location() #19
   %2 = load i32, ptr %call2, align 4
-  %call3 = tail call ptr @strerror(i32 noundef %2) #17
+  %call3 = tail call ptr @strerror(i32 noundef %2) #18
   %3 = load ptr, ptr @stderr, align 8
-  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef %call3, ptr noundef nonnull @.str.1, i32 noundef 86) #19
+  %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, ptr noundef %call3, ptr noundef nonnull @.str.1, i32 noundef 86) #20
   %4 = load ptr, ptr @stderr, align 8
   %call5 = tail call i32 @fflush(ptr noundef %4)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call3)
@@ -291,10 +291,10 @@ if.then:                                          ; preds = %entry
 
 do.end:                                           ; preds = %entry, %if.then
   store i32 -1, ptr %handle_, align 8
-  %_retired = getelementptr inbounds i8, ptr %this, i64 200
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
+  %_retired = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   %5 = load ptr, ptr %_M_finish.i, align 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 216
+  %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %this, i64 216
   %6 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %5, %6
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
@@ -302,7 +302,7 @@ do.end:                                           ; preds = %entry, %if.then
 if.then.i:                                        ; preds = %do.end
   store ptr %handle_, ptr %5, align 8
   %7 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %7, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit
 
@@ -315,7 +315,7 @@ if.else.i:                                        ; preds = %do.end
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %_ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 if.then.i.i.i:                                    ; preds = %if.else.i
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #23
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #24
   unreachable
 
 _ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %if.else.i
@@ -325,39 +325,32 @@ _ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i:
   %cmp7.i.i.i = icmp ult i64 %add.i.i.i, %sub.ptr.div.i.i.i.i
   %9 = tail call i64 @llvm.umin.i64(i64 %add.i.i.i, i64 1152921504606846975)
   %cond.i.i.i = select i1 %cmp7.i.i.i, i64 1152921504606846975, i64 %9
-  %cmp.not.i.i.i = icmp eq i64 %cond.i.i.i, 0
-  br i1 %cmp.not.i.i.i, label %_ZNSt12_Vector_baseIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_M_allocateEm.exit.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %_ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %cmp.not.i.i.i = icmp ne i64 %cond.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.not.i.i.i)
   %mul.i.i.i.i.i = shl nuw nsw i64 %cond.i.i.i, 3
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #24
-  br label %_ZNSt12_Vector_baseIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_M_allocateEm.exit.i.i
-
-_ZNSt12_Vector_baseIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_M_allocateEm.exit.i.i: ; preds = %cond.true.i.i.i, %_ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %cond.i10.i.i = phi ptr [ %call5.i.i.i.i.i, %cond.true.i.i.i ], [ null, %_ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %sub.ptr.div.i.i.i.i
+  %call5.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i) #25
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i.i.i
   store ptr %handle_, ptr %add.ptr.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt12_Vector_baseIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_M_allocateEm.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %cond.i10.i.i, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i, i1 false)
+if.then.i.i.i.i.i.i:                              ; preds = %_ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i, ptr align 8 %8, i64 %sub.ptr.sub.i.i.i.i, i1 false)
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
 
-_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNSt12_Vector_baseIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_M_allocateEm.exit.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %cond.i10.i.i, i64 %sub.ptr.sub.i.i.i.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
+_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %tobool.not.i.i.i = icmp eq ptr %8, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %if.then.i18.i.i
 
 if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %8) #21
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit17.i.i
-  store ptr %cond.i10.i.i, ptr %_retired, align 8
+  store ptr %call5.i.i.i.i.i, ptr %_retired, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %cond.i10.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit
 
@@ -370,23 +363,23 @@ _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EE9push_backERKS3_.exit: ; preds
 define void @_ZN3zmq7epoll_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
+  %ev = getelementptr inbounds nuw i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %or = or i32 %0, 1
   store i32 %or, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
-  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #17
+  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #18
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #18
+  %call3 = tail call ptr @__errno_location() #19
   %3 = load i32, ptr %call3, align 4
-  %call4 = tail call ptr @strerror(i32 noundef %3) #17
+  %call4 = tail call ptr @strerror(i32 noundef %3) #18
   %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 100) #19
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 100) #20
   %5 = load ptr, ptr @stderr, align 8
   %call6 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
@@ -400,23 +393,23 @@ do.end:                                           ; preds = %entry, %if.then
 define void @_ZN3zmq7epoll_t12reset_pollinEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
+  %ev = getelementptr inbounds nuw i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %and = and i32 %0, -2
   store i32 %and, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
-  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #17
+  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #18
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #18
+  %call3 = tail call ptr @__errno_location() #19
   %3 = load i32, ptr %call3, align 4
-  %call4 = tail call ptr @strerror(i32 noundef %3) #17
+  %call4 = tail call ptr @strerror(i32 noundef %3) #18
   %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 109) #19
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 109) #20
   %5 = load ptr, ptr @stderr, align 8
   %call6 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
@@ -430,23 +423,23 @@ do.end:                                           ; preds = %entry, %if.then
 define void @_ZN3zmq7epoll_t11set_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
+  %ev = getelementptr inbounds nuw i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %or = or i32 %0, 4
   store i32 %or, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
-  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #17
+  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #18
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #18
+  %call3 = tail call ptr @__errno_location() #19
   %3 = load i32, ptr %call3, align 4
-  %call4 = tail call ptr @strerror(i32 noundef %3) #17
+  %call4 = tail call ptr @strerror(i32 noundef %3) #18
   %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 118) #19
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 118) #20
   %5 = load ptr, ptr @stderr, align 8
   %call6 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
@@ -460,23 +453,23 @@ do.end:                                           ; preds = %entry, %if.then
 define void @_ZN3zmq7epoll_t13reset_polloutEPv(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %handle_) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK3zmq20worker_poller_base_t12check_threadEv(ptr noundef nonnull align 8 dereferenceable(192) %this)
-  %ev = getelementptr inbounds i8, ptr %handle_, i64 4
+  %ev = getelementptr inbounds nuw i8, ptr %handle_, i64 4
   %0 = load i32, ptr %ev, align 4
   %and = and i32 %0, -5
   store i32 %and, ptr %ev, align 4
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
   %1 = load i32, ptr %_epoll_fd, align 8
   %2 = load i32, ptr %handle_, align 8
-  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #17
+  %call = tail call i32 @epoll_ctl(i32 noundef %1, i32 noundef 3, i32 noundef %2, ptr noundef nonnull %ev) #18
   %cmp.not = icmp eq i32 %call, -1
   br i1 %cmp.not, label %if.then, label %do.end
 
 if.then:                                          ; preds = %entry
-  %call3 = tail call ptr @__errno_location() #18
+  %call3 = tail call ptr @__errno_location() #19
   %3 = load i32, ptr %call3, align 4
-  %call4 = tail call ptr @strerror(i32 noundef %3) #17
+  %call4 = tail call ptr @strerror(i32 noundef %3) #18
   %4 = load ptr, ptr @stderr, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 127) #19
+  %call5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str, ptr noundef %call4, ptr noundef nonnull @.str.1, i32 noundef 127) #20
   %5 = load ptr, ptr @stderr, align 8
   %call6 = tail call i32 @fflush(ptr noundef %5)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call4)
@@ -503,9 +496,9 @@ entry:
 define void @_ZN3zmq7epoll_t4loopEv(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ev_buf = alloca [256 x %struct.epoll_event], align 16
-  %_epoll_fd = getelementptr inbounds i8, ptr %this, i64 192
-  %_retired = getelementptr inbounds i8, ptr %this, i64 200
-  %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 208
+  %_epoll_fd = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %_retired = getelementptr inbounds nuw i8, ptr %this, i64 200
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %entry
@@ -536,15 +529,15 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 do.body:                                          ; preds = %if.end5
-  %call9 = tail call ptr @__errno_location() #18
+  %call9 = tail call ptr @__errno_location() #19
   %1 = load i32, ptr %call9, align 4
   %cmp10.not = icmp eq i32 %1, 4
   br i1 %cmp10.not, label %while.body.backedge, label %if.then12
 
 if.then12:                                        ; preds = %do.body
-  %call14 = call ptr @strerror(i32 noundef %1) #17
+  %call14 = call ptr @strerror(i32 noundef %1) #18
   %2 = load ptr, ptr @stderr, align 8
-  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %call14, ptr noundef nonnull @.str.1, i32 noundef 160) #19
+  %call15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %call14, ptr noundef nonnull @.str.1, i32 noundef 160) #20
   %3 = load ptr, ptr @stderr, align 8
   %call16 = call i32 @fflush(ptr noundef %3)
   call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call14)
@@ -552,14 +545,14 @@ if.then12:                                        ; preds = %do.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx20 = getelementptr inbounds [256 x %struct.epoll_event], ptr %ev_buf, i64 0, i64 %indvars.iv
-  %data = getelementptr inbounds i8, ptr %arrayidx20, i64 4
+  %arrayidx20 = getelementptr inbounds nuw [256 x %struct.epoll_event], ptr %ev_buf, i64 0, i64 %indvars.iv
+  %data = getelementptr inbounds nuw i8, ptr %arrayidx20, i64 4
   %4 = load ptr, ptr %data, align 4
   %cmp21 = icmp eq ptr %4, null
   br i1 %cmp21, label %for.inc, label %if.end23
 
 if.end23:                                         ; preds = %for.body
-  %events = getelementptr inbounds i8, ptr %4, i64 16
+  %events = getelementptr inbounds nuw i8, ptr %4, i64 16
   %5 = load ptr, ptr %events, align 8
   %cmp24 = icmp eq ptr %5, null
   br i1 %cmp24, label %for.inc, label %if.end26
@@ -577,7 +570,7 @@ if.end29:                                         ; preds = %if.end26
 
 if.end36:                                         ; preds = %if.end29
   %vtable = load ptr, ptr %5, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %8 = load ptr, ptr %vfn, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %.pre = load i32, ptr %4, align 8
@@ -593,7 +586,7 @@ if.end40:                                         ; preds = %if.end29, %if.end36
 if.end50:                                         ; preds = %if.end40
   %11 = load ptr, ptr %events, align 8
   %vtable48 = load ptr, ptr %11, align 8
-  %vfn49 = getelementptr inbounds i8, ptr %vtable48, i64 24
+  %vfn49 = getelementptr inbounds nuw i8, ptr %vtable48, i64 24
   %12 = load ptr, ptr %vfn49, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11)
   %.pre27 = load i32, ptr %4, align 8
@@ -609,7 +602,7 @@ if.end54:                                         ; preds = %if.end40, %if.end50
 if.then60:                                        ; preds = %if.end54
   %15 = load ptr, ptr %events, align 8
   %vtable62 = load ptr, ptr %15, align 8
-  %vfn63 = getelementptr inbounds i8, ptr %vtable62, i64 16
+  %vfn63 = getelementptr inbounds nuw i8, ptr %vtable62, i64 16
   %16 = load ptr, ptr %vfn63, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15)
   br label %for.inc
@@ -635,12 +628,12 @@ for.body71:                                       ; preds = %for.end, %delete.en
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %for.body71
-  call void @_ZdlPv(ptr noundef nonnull %19) #20
+  call void @_ZdlPv(ptr noundef nonnull %19) #21
   br label %delete.end
 
 delete.end:                                       ; preds = %delete.notnull, %for.body71
   store ptr null, ptr %it.sroa.0.025, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.025, i64 8
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.025, i64 8
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i.not, label %for.end76, label %for.body71, !llvm.loop !8
 
@@ -671,8 +664,8 @@ declare void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereference
 define linkonce_odr void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 16), ptr %this, align 8
-  %_thread_affinity_cpus.i = getelementptr inbounds i8, ptr %this, i64 144
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
+  %_thread_affinity_cpus.i = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %_thread_affinity_cpus.i, ptr noundef %0)
           to label %_ZN3zmq8thread_tD2Ev.exit unwind label %terminate.lpad.i.i.i
@@ -681,18 +674,18 @@ terminate.lpad.i.i.i:                             ; preds = %entry
   %1 = landingpad { ptr, i32 }
           catch ptr null
   %2 = extractvalue { ptr, i32 } %1, 0
-  tail call void @__clang_call_terminate(ptr %2) #21
+  tail call void @__clang_call_terminate(ptr %2) #22
   unreachable
 
 _ZN3zmq8thread_tD2Ev.exit:                        ; preds = %entry
-  tail call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #17
+  tail call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq20worker_poller_base_tD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  tail call void @llvm.trap() #21
+  tail call void @llvm.trap() #22
   unreachable
 }
 
@@ -706,12 +699,12 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_eraseEPSt13_Rb_tree_nodeIiE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #20
+  tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #21
   %cmp.not = icmp eq ptr %1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !9
 
@@ -737,6 +730,9 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #17
+
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -754,14 +750,15 @@ attributes #13 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "sta
 attributes #14 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { cold }
-attributes #20 = { builtin nounwind }
-attributes #21 = { noreturn nounwind }
-attributes #22 = { builtin nounwind allocsize(0) }
-attributes #23 = { noreturn }
-attributes #24 = { builtin allocsize(0) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { cold }
+attributes #21 = { builtin nounwind }
+attributes #22 = { noreturn nounwind }
+attributes #23 = { builtin nounwind allocsize(0) }
+attributes #24 = { noreturn }
+attributes #25 = { builtin allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

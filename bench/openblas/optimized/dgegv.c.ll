@@ -548,7 +548,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 331:                                              ; preds = %.loopexit52, %327
   %332 = phi i64 [ 1, %327 ], [ %405, %.loopexit52 ]
-  %333 = getelementptr inbounds double, ptr %39, i64 %332
+  %333 = getelementptr inbounds nuw double, ptr %39, i64 %332
   %334 = load double, ptr %333, align 8, !tbaa !7
   %335 = fcmp olt double %334, 0.000000e+00
   br i1 %335, label %.loopexit52, label %336
@@ -680,7 +680,7 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 419:                                              ; preds = %.loopexit47, %415
   %420 = phi i64 [ 1, %415 ], [ %493, %.loopexit47 ]
-  %421 = getelementptr inbounds double, ptr %39, i64 %420
+  %421 = getelementptr inbounds nuw double, ptr %39, i64 %420
   %422 = load double, ptr %421, align 8, !tbaa !7
   %423 = fcmp olt double %422, 0.000000e+00
   br i1 %423, label %.loopexit47, label %424
@@ -803,17 +803,17 @@ define void @dgegv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
 
 505:                                              ; preds = %.thread44, %496
   %506 = phi i64 [ 1, %496 ], [ %620, %.thread44 ]
-  %507 = getelementptr inbounds double, ptr %38, i64 %506
+  %507 = getelementptr inbounds nuw double, ptr %38, i64 %506
   %508 = load double, ptr %507, align 8, !tbaa !7
   %509 = fcmp oge double %508, 0.000000e+00
   %510 = fneg double %508
   %511 = select i1 %509, double %508, double %510
-  %512 = getelementptr inbounds double, ptr %39, i64 %506
+  %512 = getelementptr inbounds nuw double, ptr %39, i64 %506
   %513 = load double, ptr %512, align 8, !tbaa !7
   %514 = fcmp oge double %513, 0.000000e+00
   %515 = fneg double %513
   %516 = select i1 %514, double %513, double %515
-  %517 = getelementptr inbounds double, ptr %40, i64 %506
+  %517 = getelementptr inbounds nuw double, ptr %40, i64 %506
   %518 = load double, ptr %517, align 8, !tbaa !7
   %519 = fcmp oge double %518, 0.000000e+00
   %520 = fneg double %518

@@ -91,7 +91,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %5 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %6 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.10, i32 noundef %call10.i.i, i64 noundef %5, i64 noundef %6, i32 noundef range(i32 0, 3) %.) #8
   br label %trace_uffd_detect_open_mode.exit
@@ -151,7 +151,7 @@ entry:
   %_now.i.i3 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %api_struct = alloca %struct.uffdio_api, align 8
-  %0 = getelementptr inbounds i8, ptr %api_struct, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %api_struct, i64 16
   store i64 0, ptr %0, align 8
   %call = tail call i32 @uffd_open(i32 noundef 524288)
   %cmp = icmp slt i32 %call, 0
@@ -183,7 +183,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.12, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %1) #8
   br label %trace_uffd_query_features_nosys.exit
@@ -198,7 +198,7 @@ trace_uffd_query_features_nosys.exit:             ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %entry
   store i64 170, ptr %api_struct, align 8
-  %features2 = getelementptr inbounds i8, ptr %api_struct, i64 8
+  %features2 = getelementptr inbounds nuw i8, ptr %api_struct, i64 8
   store i64 0, ptr %features2, align 8
   %call3 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 3222841919, ptr noundef nonnull %api_struct) #8
   %tobool.not = icmp eq i32 %call3, 0
@@ -230,7 +230,7 @@ if.then8.i.i13:                                   ; preds = %if.then.i.i10
   %call9.i.i14 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i3, ptr noundef null) #8
   %call10.i.i15 = call i32 @qemu_get_thread_id() #8
   %13 = load i64, ptr %_now.i.i3, align 8
-  %tv_usec.i.i16 = getelementptr inbounds i8, ptr %_now.i.i3, i64 8
+  %tv_usec.i.i16 = getelementptr inbounds nuw i8, ptr %_now.i.i3, i64 8
   %14 = load i64, ptr %tv_usec.i.i16, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.14, i32 noundef %call10.i.i15, i64 noundef %13, i64 noundef %14, i32 noundef %8) #8
   br label %trace_uffd_query_features_api_failed.exit
@@ -270,7 +270,7 @@ entry:
   %_now.i.i6 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
   %api_struct = alloca %struct.uffdio_api, align 8
-  %0 = getelementptr inbounds i8, ptr %api_struct, i64 16
+  %0 = getelementptr inbounds nuw i8, ptr %api_struct, i64 16
   store i64 0, ptr %0, align 8
   %or = select i1 %non_blocking, i32 526336, i32 524288
   %call = tail call i32 @uffd_open(i32 noundef %or)
@@ -303,7 +303,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = tail call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, i32 noundef %1) #8
   br label %trace_uffd_create_fd_nosys.exit
@@ -318,7 +318,7 @@ trace_uffd_create_fd_nosys.exit:                  ; preds = %if.then, %land.lhs.
 
 if.end:                                           ; preds = %entry
   store i64 170, ptr %api_struct, align 8
-  %features2 = getelementptr inbounds i8, ptr %api_struct, i64 8
+  %features2 = getelementptr inbounds nuw i8, ptr %api_struct, i64 8
   store i64 %features, ptr %features2, align 8
   %call3 = call i32 (i32, i64, ...) @ioctl(i32 noundef %call, i64 noundef 3222841919, ptr noundef nonnull %api_struct) #8
   %tobool4.not = icmp eq i32 %call3, 0
@@ -350,7 +350,7 @@ if.then8.i.i16:                                   ; preds = %if.then.i.i13
   %call9.i.i17 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i6, ptr noundef null) #8
   %call10.i.i18 = call i32 @qemu_get_thread_id() #8
   %13 = load i64, ptr %_now.i.i6, align 8
-  %tv_usec.i.i19 = getelementptr inbounds i8, ptr %_now.i.i6, i64 8
+  %tv_usec.i.i19 = getelementptr inbounds nuw i8, ptr %_now.i.i6, i64 8
   %14 = load i64, ptr %tv_usec.i.i19, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.18, i32 noundef %call10.i.i18, i64 noundef %13, i64 noundef %14, i32 noundef %8) #8
   br label %trace_uffd_create_fd_api_failed.exit
@@ -364,7 +364,7 @@ trace_uffd_create_fd_api_failed.exit:             ; preds = %if.then5, %land.lhs
   br label %fail
 
 if.end7:                                          ; preds = %if.end
-  %ioctls = getelementptr inbounds i8, ptr %api_struct, i64 16
+  %ioctls = getelementptr inbounds nuw i8, ptr %api_struct, i64 16
   %15 = load i64, ptr %ioctls, align 8
   %and = and i64 %15, 3
   %cmp8.not = icmp eq i64 %and, 3
@@ -394,7 +394,7 @@ if.then8.i.i30:                                   ; preds = %if.then.i.i27
   %call9.i.i31 = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i20, ptr noundef null) #8
   %call10.i.i32 = call i32 @qemu_get_thread_id() #8
   %20 = load i64, ptr %_now.i.i20, align 8
-  %tv_usec.i.i33 = getelementptr inbounds i8, ptr %_now.i.i20, i64 8
+  %tv_usec.i.i33 = getelementptr inbounds nuw i8, ptr %_now.i.i20, i64 8
   %21 = load i64, ptr %tv_usec.i.i33, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.20, i32 noundef %call10.i.i32, i64 noundef %20, i64 noundef %21, i64 noundef 3, i64 noundef %15) #8
   br label %trace_uffd_create_fd_api_noioctl.exit
@@ -438,9 +438,9 @@ entry:
   %uffd_register = alloca %struct.uffdio_register, align 8
   %0 = ptrtoint ptr %addr to i64
   store i64 %0, ptr %uffd_register, align 8
-  %len = getelementptr inbounds i8, ptr %uffd_register, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %uffd_register, i64 8
   store i64 %length, ptr %len, align 8
-  %mode2 = getelementptr inbounds i8, ptr %uffd_register, i64 16
+  %mode2 = getelementptr inbounds nuw i8, ptr %uffd_register, i64 16
   store i64 %mode, ptr %mode2, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 3223366144, ptr noundef nonnull %uffd_register) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -472,7 +472,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.22, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %addr, i64 noundef %length, i64 noundef %mode, i32 noundef %1) #8
   br label %trace_uffd_register_memory_failed.exit
@@ -490,7 +490,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %if.end
-  %ioctls6 = getelementptr inbounds i8, ptr %uffd_register, i64 24
+  %ioctls6 = getelementptr inbounds nuw i8, ptr %uffd_register, i64 24
   %8 = load i64, ptr %ioctls6, align 8
   store i64 %8, ptr %ioctls, align 8
   br label %return
@@ -507,7 +507,7 @@ entry:
   %uffd_range = alloca %struct.uffdio_range, align 8
   %0 = ptrtoint ptr %addr to i64
   store i64 %0, ptr %uffd_range, align 8
-  %len = getelementptr inbounds i8, ptr %uffd_range, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %uffd_range, i64 8
   store i64 %length, ptr %len, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 2148575745, ptr noundef nonnull %uffd_range) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -539,7 +539,7 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call9.i.i = call i32 @gettimeofday(ptr noundef nonnull %_now.i.i, ptr noundef null) #8
   %call10.i.i = call i32 @qemu_get_thread_id() #8
   %6 = load i64, ptr %_now.i.i, align 8
-  %tv_usec.i.i = getelementptr inbounds i8, ptr %_now.i.i, i64 8
+  %tv_usec.i.i = getelementptr inbounds nuw i8, ptr %_now.i.i, i64 8
   %7 = load i64, ptr %tv_usec.i.i, align 8
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.24, i32 noundef %call10.i.i, i64 noundef %6, i64 noundef %7, ptr noundef %addr, i64 noundef %length, i32 noundef %1) #8
   br label %trace_uffd_unregister_memory_failed.exit
@@ -563,13 +563,13 @@ entry:
   %uffd_writeprotect = alloca %struct.uffdio_writeprotect, align 8
   %0 = ptrtoint ptr %addr to i64
   store i64 %0, ptr %uffd_writeprotect, align 8
-  %len = getelementptr inbounds i8, ptr %uffd_writeprotect, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %uffd_writeprotect, i64 8
   store i64 %length, ptr %len, align 8
   %dont_wake.not = xor i1 %dont_wake, true
   %brmerge = or i1 %wp, %dont_wake.not
   %cond = zext i1 %wp to i64
   %spec.select = select i1 %brmerge, i64 %cond, i64 2
-  %1 = getelementptr inbounds i8, ptr %uffd_writeprotect, i64 16
+  %1 = getelementptr inbounds nuw i8, ptr %uffd_writeprotect, i64 16
   store i64 %spec.select, ptr %1, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 3222841862, ptr noundef nonnull %uffd_writeprotect) #8
   %tobool6.not = icmp eq i32 %call, 0
@@ -596,12 +596,12 @@ entry:
   %0 = ptrtoint ptr %dst_addr to i64
   store i64 %0, ptr %uffd_copy, align 8
   %1 = ptrtoint ptr %src_addr to i64
-  %src = getelementptr inbounds i8, ptr %uffd_copy, i64 8
+  %src = getelementptr inbounds nuw i8, ptr %uffd_copy, i64 8
   store i64 %1, ptr %src, align 8
-  %len = getelementptr inbounds i8, ptr %uffd_copy, i64 16
+  %len = getelementptr inbounds nuw i8, ptr %uffd_copy, i64 16
   store i64 %length, ptr %len, align 8
   %cond = zext i1 %dont_wake to i64
-  %mode = getelementptr inbounds i8, ptr %uffd_copy, i64 24
+  %mode = getelementptr inbounds nuw i8, ptr %uffd_copy, i64 24
   store i64 %cond, ptr %mode, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 3223890435, ptr noundef nonnull %uffd_copy) #8
   %tobool1.not = icmp eq i32 %call, 0
@@ -625,10 +625,10 @@ entry:
   %uffd_zeropage = alloca %struct.uffdio_zeropage, align 8
   %0 = ptrtoint ptr %addr to i64
   store i64 %0, ptr %uffd_zeropage, align 8
-  %len = getelementptr inbounds i8, ptr %uffd_zeropage, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %uffd_zeropage, i64 8
   store i64 %length, ptr %len, align 8
   %cond = zext i1 %dont_wake to i64
-  %mode = getelementptr inbounds i8, ptr %uffd_zeropage, i64 16
+  %mode = getelementptr inbounds nuw i8, ptr %uffd_zeropage, i64 16
   store i64 %cond, ptr %mode, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 3223366148, ptr noundef nonnull %uffd_zeropage) #8
   %tobool2.not = icmp eq i32 %call, 0
@@ -652,7 +652,7 @@ entry:
   %uffd_range = alloca %struct.uffdio_range, align 8
   %0 = ptrtoint ptr %addr to i64
   store i64 %0, ptr %uffd_range, align 8
-  %len = getelementptr inbounds i8, ptr %uffd_range, i64 8
+  %len = getelementptr inbounds nuw i8, ptr %uffd_range, i64 8
   store i64 %length, ptr %len, align 8
   %call = call i32 (i32, i64, ...) @ioctl(i32 noundef %uffd_fd, i64 noundef 2148575746, ptr noundef nonnull %uffd_range) #8
   %tobool.not = icmp eq i32 %call, 0
@@ -711,9 +711,9 @@ define dso_local zeroext i1 @uffd_poll_events(i32 noundef %uffd_fd, i32 noundef 
 entry:
   %poll_fd = alloca %struct.pollfd, align 4
   store i32 %uffd_fd, ptr %poll_fd, align 4
-  %events = getelementptr inbounds i8, ptr %poll_fd, i64 4
+  %events = getelementptr inbounds nuw i8, ptr %poll_fd, i64 4
   store i16 1, ptr %events, align 4
-  %revents = getelementptr inbounds i8, ptr %poll_fd, i64 6
+  %revents = getelementptr inbounds nuw i8, ptr %poll_fd, i64 6
   store i16 0, ptr %revents, align 2
   br label %do.body
 

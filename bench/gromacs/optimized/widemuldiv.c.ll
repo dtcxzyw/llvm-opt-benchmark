@@ -20,7 +20,7 @@ define void @Ptngc_largeint_add(i32 noundef %0, ptr nocapture noundef %1, i32 no
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %11 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4
   %13 = add i32 %12, 1
   %14 = icmp eq i32 %12, -1
@@ -49,7 +49,7 @@ define void @Ptngc_largeint_mul(i32 noundef %0, ptr nocapture noundef readonly %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %largeint_add_gen.exit31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next.pre-phi, %largeint_add_gen.exit31 ]
-  %9 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not25 = icmp eq i32 %10, 0
   br i1 %.not25, label %.lr.ph.largeint_add_gen.exit31_crit_edge, label %11
@@ -62,7 +62,7 @@ define void @Ptngc_largeint_mul(i32 noundef %0, ptr nocapture noundef readonly %
   %12 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %10) #3, !srcloc !6
   %13 = extractvalue { i32, i32 } %12, 0
   %14 = extractvalue { i32, i32 } %12, 1
-  %15 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, %13
   %18 = xor i32 %13, -1
@@ -73,7 +73,7 @@ define void @Ptngc_largeint_mul(i32 noundef %0, ptr nocapture noundef readonly %
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %20, %11 ]
-  %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4
   %23 = add i32 %22, 1
   %24 = icmp eq i32 %22, -1
@@ -84,7 +84,7 @@ define void @Ptngc_largeint_mul(i32 noundef %0, ptr nocapture noundef readonly %
   br i1 %26, label %.lr.ph.i, label %largeint_add_gen.exit, !llvm.loop !4
 
 largeint_add_gen.exit:                            ; preds = %.lr.ph.i, %11
-  %27 = getelementptr inbounds i32, ptr %2, i64 %20
+  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %20
   %28 = load i32, ptr %27, align 4
   %29 = add i32 %28, %14
   %30 = xor i32 %14, -1
@@ -102,7 +102,7 @@ largeint_add_gen.exit:                            ; preds = %.lr.ph.i, %11
 
 .lr.ph.i28:                                       ; preds = %.lr.ph.i28, %.lr.ph.preheader.i27
   %indvars.iv.i29 = phi i64 [ %36, %.lr.ph.preheader.i27 ], [ %indvars.iv.next.i30, %.lr.ph.i28 ]
-  %37 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv.i29
+  %37 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i29
   %38 = load i32, ptr %37, align 4
   %39 = add i32 %38, 1
   %40 = icmp eq i32 %38, -1
@@ -123,7 +123,7 @@ largeint_add_gen.exit31:                          ; preds = %.lr.ph.i28, %.lr.ph
 
 ._crit_edge:                                      ; preds = %4, %._crit_edge.loopexit
   %.0.lcssa = phi i64 [ %43, %._crit_edge.loopexit ], [ 0, %4 ]
-  %44 = getelementptr inbounds i32, ptr %1, i64 %.0.lcssa
+  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.lcssa
   %45 = load i32, ptr %44, align 4
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %largeint_add_gen.exit37, label %46
@@ -131,7 +131,7 @@ largeint_add_gen.exit31:                          ; preds = %.lr.ph.i28, %.lr.ph
 46:                                               ; preds = %._crit_edge
   %47 = tail call { i32, i32 } asm sideeffect "mull %edx\0A\09", "={ax},={dx},{ax},{dx},~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %0, i32 range(i32 1, 0) %45) #3, !srcloc !6
   %48 = extractvalue { i32, i32 } %47, 0
-  %49 = getelementptr inbounds i32, ptr %2, i64 %.0.lcssa
+  %49 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.lcssa
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, %48
   store i32 %51, ptr %49, align 4

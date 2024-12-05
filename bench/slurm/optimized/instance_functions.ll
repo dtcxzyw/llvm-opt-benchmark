@@ -46,13 +46,13 @@ define dso_local i32 @sacctmgr_list_instance(i32 noundef %0, ptr noundef %1) loc
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %7, i64 56
-  %12 = getelementptr inbounds i8, ptr %7, i64 40
-  %13 = getelementptr inbounds i8, ptr %7, i64 32
-  %14 = getelementptr inbounds i8, ptr %7, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.not110.i = icmp eq ptr %9, null
-  %15 = getelementptr inbounds i8, ptr %7, i64 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 48
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_set_cond.exit
@@ -304,7 +304,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br i1 %147, label %17, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_set_cond.exit, %2
-  %148 = getelementptr inbounds i8, ptr %7, i64 56
+  %148 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %149 = load i64, ptr %148, align 8
   %.not = icmp eq i64 %149, 0
   br i1 %.not, label %150, label %164
@@ -326,11 +326,11 @@ _set_cond.exit:                                   ; preds = %145, %33
 
 157:                                              ; preds = %150
   store i32 0, ptr %3, align 8
-  %158 = getelementptr inbounds i8, ptr %3, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %158, align 4
-  %159 = getelementptr inbounds i8, ptr %3, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %159, align 8
-  %160 = getelementptr inbounds i8, ptr %3, i64 12
+  %160 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %161 = load i32, ptr %160, align 4
   %162 = add nsw i32 %161, -1
   store i32 %162, ptr %160, align 4
@@ -404,23 +404,23 @@ _set_cond.exit:                                   ; preds = %145, %33
   br i1 %.not141, label %216, label %190
 
 190:                                              ; preds = %186
-  %191 = getelementptr inbounds i8, ptr %4, i64 24
+  %191 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %188, ptr %191, align 8
   store i32 463606195, ptr %5, align 8
-  %192 = getelementptr inbounds i8, ptr %5, i64 4
-  %193 = getelementptr inbounds i8, ptr %5, i64 8
-  %194 = getelementptr inbounds i8, ptr %5, i64 16
-  %195 = getelementptr inbounds i8, ptr %5, i64 24
+  %192 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 0, ptr %192, align 4
   %196 = load ptr, ptr @data_parser, align 8
   store ptr %196, ptr %195, align 8
   %197 = call ptr @data_parser_cli_meta(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %189, ptr noundef %196) #9
   store ptr %197, ptr %4, align 8
-  %198 = getelementptr inbounds i8, ptr %4, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %199 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_error) #9
   store ptr %199, ptr %198, align 8
   store ptr %199, ptr %193, align 8
-  %200 = getelementptr inbounds i8, ptr %4, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %201 = call ptr @list_create(ptr noundef nonnull @free_openapi_resp_warning) #9
   store ptr %201, ptr %200, align 8
   store ptr %201, ptr %194, align 8
@@ -495,25 +495,25 @@ _set_cond.exit:                                   ; preds = %145, %33
 
 .lr.ph172:                                        ; preds = %224, %._crit_edge169
   %229 = phi ptr [ %300, %._crit_edge169 ], [ %228, %224 ]
-  %230 = getelementptr inbounds i8, ptr %229, i64 40
+  %230 = getelementptr inbounds nuw i8, ptr %229, i64 40
   %231 = load i64, ptr %230, align 8
   %232 = call ptr @list_next(ptr noundef %226) #9
   %.not146164 = icmp eq ptr %232, null
   br i1 %.not146164, label %._crit_edge169, label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.lr.ph172
-  %233 = getelementptr inbounds i8, ptr %229, i64 48
-  %234 = getelementptr inbounds i8, ptr %229, i64 32
-  %235 = getelementptr inbounds i8, ptr %229, i64 24
-  %236 = getelementptr inbounds i8, ptr %229, i64 16
-  %237 = getelementptr inbounds i8, ptr %229, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %229, i64 48
+  %234 = getelementptr inbounds nuw i8, ptr %229, i64 32
+  %235 = getelementptr inbounds nuw i8, ptr %229, i64 24
+  %236 = getelementptr inbounds nuw i8, ptr %229, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %229, i64 8
   br label %238
 
 238:                                              ; preds = %.lr.ph168, %297
   %239 = phi ptr [ %232, %.lr.ph168 ], [ %299, %297 ]
   %.0166 = phi i64 [ %231, %.lr.ph168 ], [ %.1, %297 ]
   %.0117165 = phi i32 [ 1, %.lr.ph168 ], [ %298, %297 ]
-  %240 = getelementptr inbounds i8, ptr %239, i64 24
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load i16, ptr %240, align 8
   switch i16 %241, label %292 [
     i16 1, label %242
@@ -527,7 +527,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   ]
 
 242:                                              ; preds = %238
-  %243 = getelementptr inbounds i8, ptr %239, i64 16
+  %243 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %244 = load ptr, ptr %243, align 8
   %245 = load ptr, ptr %229, align 8
   %246 = icmp eq i32 %.0117165, %227
@@ -536,7 +536,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 248:                                              ; preds = %238
-  %249 = getelementptr inbounds i8, ptr %239, i64 16
+  %249 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %250 = load ptr, ptr %249, align 8
   %251 = load ptr, ptr %237, align 8
   %252 = icmp eq i32 %.0117165, %227
@@ -557,7 +557,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   %258 = load i64, ptr %233, align 8
   %259 = sub nsw i64 %.2, %258
   store i64 %259, ptr %6, align 8
-  %260 = getelementptr inbounds i8, ptr %239, i64 16
+  %260 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %261 = load ptr, ptr %260, align 8
   %262 = icmp eq i32 %.0117165, %227
   %263 = zext i1 %262 to i32
@@ -565,7 +565,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 264:                                              ; preds = %238
-  %265 = getelementptr inbounds i8, ptr %239, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %266 = load ptr, ptr %265, align 8
   %267 = load ptr, ptr %236, align 8
   %268 = icmp eq i32 %.0117165, %227
@@ -574,7 +574,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 270:                                              ; preds = %238
-  %271 = getelementptr inbounds i8, ptr %239, i64 16
+  %271 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %272 = load ptr, ptr %271, align 8
   %273 = load ptr, ptr %235, align 8
   %274 = icmp eq i32 %.0117165, %227
@@ -583,7 +583,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 276:                                              ; preds = %238
-  %277 = getelementptr inbounds i8, ptr %239, i64 16
+  %277 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %278 = load ptr, ptr %277, align 8
   %279 = load ptr, ptr %234, align 8
   %280 = icmp eq i32 %.0117165, %227
@@ -592,7 +592,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 282:                                              ; preds = %238
-  %283 = getelementptr inbounds i8, ptr %239, i64 16
+  %283 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %284 = load ptr, ptr %283, align 8
   %285 = icmp eq i32 %.0117165, %227
   %286 = zext i1 %285 to i32
@@ -600,7 +600,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 287:                                              ; preds = %238
-  %288 = getelementptr inbounds i8, ptr %239, i64 16
+  %288 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %289 = load ptr, ptr %288, align 8
   %290 = icmp eq i32 %.0117165, %227
   %291 = zext i1 %290 to i32
@@ -608,7 +608,7 @@ _set_cond.exit:                                   ; preds = %145, %33
   br label %297
 
 292:                                              ; preds = %238
-  %293 = getelementptr inbounds i8, ptr %239, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %239, i64 16
   %294 = load ptr, ptr %293, align 8
   %295 = icmp eq i32 %.0117165, %227
   %296 = zext i1 %295 to i32

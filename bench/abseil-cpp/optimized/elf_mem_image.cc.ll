@@ -49,14 +49,14 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef %base) local_unnamed_addr #2 align 2 {
 entry:
-  %dynsym_ = getelementptr inbounds i8, ptr %this, i64 8
-  %dynstr_ = getelementptr inbounds i8, ptr %this, i64 40
-  %versym_ = getelementptr inbounds i8, ptr %this, i64 16
-  %verdef_ = getelementptr inbounds i8, ptr %this, i64 24
-  %hash_ = getelementptr inbounds i8, ptr %this, i64 32
-  %strsize_ = getelementptr inbounds i8, ptr %this, i64 48
-  %verdefnum_ = getelementptr inbounds i8, ptr %this, i64 56
-  %link_base_ = getelementptr inbounds i8, ptr %this, i64 64
+  %dynsym_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %dynstr_ = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %versym_ = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %verdef_ = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %hash_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %strsize_ = getelementptr inbounds nuw i8, ptr %this, i64 48
+  %verdefnum_ = getelementptr inbounds nuw i8, ptr %this, i64 56
+  %link_base_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 64, i1 false)
   store i64 -1, ptr %link_base_, align 8
   %tobool.not = icmp eq ptr %base, null
@@ -68,45 +68,45 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not, label %lor.lhs.false, label %if.end90
 
 lor.lhs.false:                                    ; preds = %if.end
-  %arrayidx2 = getelementptr inbounds i8, ptr %base, i64 1
+  %arrayidx2 = getelementptr inbounds nuw i8, ptr %base, i64 1
   %1 = load i8, ptr %arrayidx2, align 1
   %cmp4.not = icmp eq i8 %1, 69
   br i1 %cmp4.not, label %lor.lhs.false5, label %if.end90
 
 lor.lhs.false5:                                   ; preds = %lor.lhs.false
-  %arrayidx6 = getelementptr inbounds i8, ptr %base, i64 2
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %base, i64 2
   %2 = load i8, ptr %arrayidx6, align 1
   %cmp8.not = icmp eq i8 %2, 76
   br i1 %cmp8.not, label %lor.lhs.false9, label %if.end90
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false5
-  %arrayidx10 = getelementptr inbounds i8, ptr %base, i64 3
+  %arrayidx10 = getelementptr inbounds nuw i8, ptr %base, i64 3
   %3 = load i8, ptr %arrayidx10, align 1
   %cmp12.not = icmp eq i8 %3, 70
   br i1 %cmp12.not, label %if.end14, label %if.end90
 
 if.end14:                                         ; preds = %lor.lhs.false9
-  %arrayidx15 = getelementptr inbounds i8, ptr %base, i64 4
+  %arrayidx15 = getelementptr inbounds nuw i8, ptr %base, i64 4
   %4 = load i8, ptr %arrayidx15, align 1
   %cmp17.not = icmp eq i8 %4, 2
   br i1 %cmp17.not, label %if.end19, label %if.end90
 
 if.end19:                                         ; preds = %if.end14
-  %arrayidx20 = getelementptr inbounds i8, ptr %base, i64 5
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %base, i64 5
   %5 = load i8, ptr %arrayidx20, align 1
   %cond = icmp eq i8 %5, 1
   br i1 %cond, label %sw.epilog, label %if.end90
 
 sw.epilog:                                        ; preds = %if.end19
   store ptr %base, ptr %this, align 8
-  %e_phnum = getelementptr inbounds i8, ptr %base, i64 56
+  %e_phnum = getelementptr inbounds nuw i8, ptr %base, i64 56
   %6 = load i16, ptr %e_phnum, align 8
   %cmp2639.not = icmp eq i16 %6, 0
   br i1 %cmp2639.not, label %if.end90.sink.split, label %_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit.lr.ph
 
 _ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit.lr.ph: ; preds = %sw.epilog
-  %e_phoff.i = getelementptr inbounds i8, ptr %base, i64 32
-  %e_phentsize.i = getelementptr inbounds i8, ptr %base, i64 54
+  %e_phoff.i = getelementptr inbounds nuw i8, ptr %base, i64 32
+  %e_phentsize.i = getelementptr inbounds nuw i8, ptr %base, i64 54
   br label %_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit
 
 _ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit.lr.ph, %for.inc
@@ -119,7 +119,7 @@ _ZNK4absl18debugging_internal11ElfMemImage7GetPhdrEi.exit: ; preds = %_ZNK4absl1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %base, i64 %9
   %conv.i.i = zext i16 %10 to i64
   %mul.i.i = mul nuw nsw i64 %indvars.iv, %conv.i.i
-  %add.ptr1.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i
+  %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %mul.i.i
   %11 = load i32, ptr %add.ptr1.i.i, align 8
   switch i32 %11, label %for.inc [
     i32 1, label %sw.bb27
@@ -131,7 +131,7 @@ sw.bb27:                                          ; preds = %_ZNK4absl18debuggin
   br i1 %tobool29.not, label %if.then30, label %for.inc
 
 if.then30:                                        ; preds = %sw.bb27
-  %p_vaddr = getelementptr inbounds i8, ptr %add.ptr1.i.i, i64 16
+  %p_vaddr = getelementptr inbounds nuw i8, ptr %add.ptr1.i.i, i64 16
   %12 = load i64, ptr %p_vaddr, align 8
   store i64 %12, ptr %link_base_, align 8
   %.pre = load i16, ptr %e_phnum, align 8
@@ -158,7 +158,7 @@ for.end:                                          ; preds = %for.inc
 if.end41:                                         ; preds = %for.end
   %sub.ptr.lhs.cast = ptrtoint ptr %base to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %14
-  %p_vaddr43 = getelementptr inbounds i8, ptr %dynamic_program_header.1, i64 16
+  %p_vaddr43 = getelementptr inbounds nuw i8, ptr %dynamic_program_header.1, i64 16
   %16 = load i64, ptr %p_vaddr43, align 8
   %add = add nsw i64 %16, %sub.ptr.sub
   %17 = inttoptr i64 %add to ptr
@@ -176,7 +176,7 @@ for.body46:                                       ; preds = %if.end41, %for.inc6
   %25 = phi ptr [ %39, %for.inc67 ], [ null, %if.end41 ]
   %26 = phi i64 [ %40, %for.inc67 ], [ %18, %if.end41 ]
   %dynamic_entry.043 = phi ptr [ %incdec.ptr, %for.inc67 ], [ %17, %if.end41 ]
-  %d_un = getelementptr inbounds i8, ptr %dynamic_entry.043, i64 8
+  %d_un = getelementptr inbounds nuw i8, ptr %dynamic_entry.043, i64 8
   %27 = load i64, ptr %d_un, align 8
   %add47 = add nsw i64 %27, %sub.ptr.sub
   switch i64 %26, label %for.inc67 [
@@ -230,7 +230,7 @@ for.inc67:                                        ; preds = %sw.bb49, %sw.bb51, 
   %37 = phi ptr [ %23, %sw.bb49 ], [ %23, %sw.bb51 ], [ %30, %sw.bb53 ], [ %23, %sw.bb55 ], [ %23, %sw.bb57 ], [ %23, %sw.bb59 ], [ %23, %sw.bb62 ], [ %23, %for.body46 ]
   %38 = phi ptr [ %24, %sw.bb49 ], [ %29, %sw.bb51 ], [ %24, %sw.bb53 ], [ %24, %sw.bb55 ], [ %24, %sw.bb57 ], [ %24, %sw.bb59 ], [ %24, %sw.bb62 ], [ %24, %for.body46 ]
   %39 = phi ptr [ %28, %sw.bb49 ], [ %25, %sw.bb51 ], [ %25, %sw.bb53 ], [ %25, %sw.bb55 ], [ %25, %sw.bb57 ], [ %25, %sw.bb59 ], [ %25, %sw.bb62 ], [ %25, %for.body46 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %dynamic_entry.043, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %dynamic_entry.043, i64 16
   %40 = load i64, ptr %incdec.ptr, align 8
   %cmp45.not = icmp eq i64 %40, 0
   br i1 %cmp45.not, label %for.end68, label %for.body46, !llvm.loop !7
@@ -263,13 +263,13 @@ if.end90:                                         ; preds = %if.end90.sink.split
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef i32 @_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 {
 entry:
-  %hash_ = getelementptr inbounds i8, ptr %this, i64 32
+  %hash_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx, align 4
   br label %return
 
@@ -281,13 +281,13 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynsymEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
-  %hash_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %hash_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
 
@@ -301,7 +301,7 @@ do.body2:                                         ; preds = %_ZNK4absl18debuggin
   unreachable
 
 do.end5:                                          ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
-  %dynsym_ = getelementptr inbounds i8, ptr %this, i64 8
+  %dynsym_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load ptr, ptr %dynsym_, align 8
   %idx.ext = sext i32 %index to i64
   %add.ptr = getelementptr inbounds %struct.Elf64_Sym, ptr %2, i64 %idx.ext
@@ -311,13 +311,13 @@ do.end5:                                          ; preds = %_ZNK4absl18debuggin
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
-  %hash_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %hash_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
 
@@ -331,7 +331,7 @@ do.body2:                                         ; preds = %_ZNK4absl18debuggin
   unreachable
 
 do.end5:                                          ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
-  %versym_ = getelementptr inbounds i8, ptr %this, i64 16
+  %versym_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %versym_, align 8
   %idx.ext = sext i32 %index to i64
   %add.ptr = getelementptr inbounds i16, ptr %2, i64 %idx.ext
@@ -346,7 +346,7 @@ entry:
 
 land.rhs:                                         ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %e_phnum = getelementptr inbounds i8, ptr %0, i64 56
+  %e_phnum = getelementptr inbounds nuw i8, ptr %0, i64 56
   %1 = load i16, ptr %e_phnum, align 8
   %conv = zext i16 %1 to i32
   %cmp2.not = icmp samesign ult i32 %index, %conv
@@ -357,15 +357,15 @@ do.body4:                                         ; preds = %entry, %land.rhs
   unreachable
 
 do.end7:                                          ; preds = %land.rhs
-  %e_phoff = getelementptr inbounds i8, ptr %0, i64 32
+  %e_phoff = getelementptr inbounds nuw i8, ptr %0, i64 32
   %2 = load i64, ptr %e_phoff, align 8
-  %e_phentsize = getelementptr inbounds i8, ptr %0, i64 54
+  %e_phentsize = getelementptr inbounds nuw i8, ptr %0, i64 54
   %3 = load i16, ptr %e_phentsize, align 2
   %conv12 = zext nneg i32 %index to i64
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %2
   %conv.i = zext i16 %3 to i64
   %mul.i = mul nuw nsw i64 %conv.i, %conv12
-  %add.ptr1.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.i
+  %add.ptr1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %mul.i
   ret ptr %add.ptr1.i
 }
 
@@ -373,7 +373,7 @@ do.end7:                                          ; preds = %land.rhs
 define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %conv = zext i32 %offset to i64
-  %strsize_ = getelementptr inbounds i8, ptr %this, i64 48
+  %strsize_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %strsize_, align 8
   %cmp.not = icmp ugt i64 %0, %conv
   br i1 %cmp.not, label %do.end6, label %do.body3
@@ -383,31 +383,31 @@ do.body3:                                         ; preds = %entry
   unreachable
 
 do.end6:                                          ; preds = %entry
-  %dynstr_ = getelementptr inbounds i8, ptr %this, i64 40
+  %dynstr_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %dynstr_, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %conv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %conv
   ret ptr %add.ptr
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %sym) local_unnamed_addr #0 align 2 {
 entry:
-  %st_shndx = getelementptr inbounds i8, ptr %sym, i64 6
+  %st_shndx = getelementptr inbounds nuw i8, ptr %sym, i64 6
   %0 = load i16, ptr %st_shndx, align 2
   %1 = add i16 %0, 256
   %or.cond = icmp ult i16 %1, 257
   br i1 %or.cond, label %if.then, label %do.body
 
 if.then:                                          ; preds = %entry
-  %st_value = getelementptr inbounds i8, ptr %sym, i64 8
+  %st_value = getelementptr inbounds nuw i8, ptr %sym, i64 8
   %2 = load i64, ptr %st_value, align 8
   %3 = inttoptr i64 %2 to ptr
   br label %return
 
 do.body:                                          ; preds = %entry
-  %link_base_ = getelementptr inbounds i8, ptr %this, i64 64
+  %link_base_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load i64, ptr %link_base_, align 8
-  %st_value5 = getelementptr inbounds i8, ptr %sym, i64 8
+  %st_value5 = getelementptr inbounds nuw i8, ptr %sym, i64 8
   %5 = load i64, ptr %st_value5, align 8
   %cmp6.not = icmp ult i64 %4, %5
   br i1 %cmp6.not, label %do.end13, label %do.body9
@@ -432,7 +432,7 @@ define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerd
 entry:
   %cmp = icmp slt i32 %index, 0
   %conv = zext nneg i32 %index to i64
-  %verdefnum_ = getelementptr inbounds i8, ptr %this, i64 56
+  %verdefnum_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %verdefnum_, align 8
   %cmp2 = icmp ult i64 %0, %conv
   %lnot = select i1 %cmp, i1 true, i1 %cmp2
@@ -443,22 +443,22 @@ do.body4:                                         ; preds = %entry
   unreachable
 
 do.end7:                                          ; preds = %entry
-  %verdef_ = getelementptr inbounds i8, ptr %this, i64 24
+  %verdef_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %verdef_, align 8
-  %vd_ndx9 = getelementptr inbounds i8, ptr %1, i64 4
+  %vd_ndx9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i16, ptr %vd_ndx9, align 4
   %conv810 = zext i16 %2 to i32
   %cmp911 = icmp samesign ugt i32 %index, %conv810
   br i1 %cmp911, label %land.rhs10.preheader, label %while.end
 
 land.rhs10.preheader:                             ; preds = %do.end7
-  %vd_next17 = getelementptr inbounds i8, ptr %1, i64 16
+  %vd_next17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i32, ptr %vd_next17, align 4
   %tobool.not18 = icmp eq i32 %3, 0
   br i1 %tobool.not18, label %while.end, label %while.body
 
 land.rhs10:                                       ; preds = %while.body
-  %vd_next = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %vd_next = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %4 = load i32, ptr %vd_next, align 4
   %tobool.not = icmp eq i32 %4, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !8
@@ -467,8 +467,8 @@ while.body:                                       ; preds = %land.rhs10.preheade
   %5 = phi i32 [ %4, %land.rhs10 ], [ %3, %land.rhs10.preheader ]
   %version_definition.01219 = phi ptr [ %add.ptr, %land.rhs10 ], [ %1, %land.rhs10.preheader ]
   %idx.ext = zext i32 %5 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %version_definition.01219, i64 %idx.ext
-  %vd_ndx = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %version_definition.01219, i64 %idx.ext
+  %vd_ndx = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %6 = load i16, ptr %vd_ndx, align 4
   %conv8 = zext i16 %6 to i32
   %cmp9 = icmp samesign ugt i32 %index, %conv8
@@ -485,7 +485,7 @@ while.end:                                        ; preds = %while.body, %land.r
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK4absl18debugging_internal11ElfMemImage12GetVerdefAuxEPK12Elf64_Verdef(ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef readnone %verdef) local_unnamed_addr #4 align 2 {
 entry:
-  %add.ptr = getelementptr inbounds i8, ptr %verdef, i64 20
+  %add.ptr = getelementptr inbounds nuw i8, ptr %verdef, i64 20
   ret ptr %add.ptr
 }
 
@@ -493,7 +493,7 @@ entry:
 define dso_local noundef ptr @_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %offset) local_unnamed_addr #0 align 2 {
 entry:
   %conv = zext i32 %offset to i64
-  %strsize_ = getelementptr inbounds i8, ptr %this, i64 48
+  %strsize_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %strsize_, align 8
   %cmp.not = icmp ugt i64 %0, %conv
   br i1 %cmp.not, label %do.end6, label %do.body3
@@ -503,9 +503,9 @@ do.body3:                                         ; preds = %entry
   unreachable
 
 do.end6:                                          ; preds = %entry
-  %dynstr_ = getelementptr inbounds i8, ptr %this, i64 40
+  %dynstr_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %1 = load ptr, ptr %dynstr_, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %conv
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %conv
   ret ptr %add.ptr
 }
 
@@ -513,18 +513,18 @@ do.end6:                                          ; preds = %entry
 define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage12LookupSymbolEPKcS3_iPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %version, i32 noundef %type, ptr noundef writeonly %info_out) local_unnamed_addr #0 align 2 {
 entry:
   %__begin2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  %index_.i.i = getelementptr inbounds i8, ptr %__begin2, i64 32
+  %index_.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 32
   store i32 0, ptr %index_.i.i, align 8, !alias.scope !9
-  %image_.i.i = getelementptr inbounds i8, ptr %__begin2, i64 40
+  %image_.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 40
   store ptr %this, ptr %image_.i.i, align 8, !alias.scope !9
   call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 dereferenceable(48) %__begin2, i32 noundef 0)
-  %hash_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %hash_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i.i, align 8, !noalias !12
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNK4absl18debugging_internal11ElfMemImage3endEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx.i.i, align 4, !noalias !12
   br label %_ZNK4absl18debugging_internal11ElfMemImage3endEv.exit
 
@@ -538,8 +538,8 @@ _ZNK4absl18debugging_internal11ElfMemImage3endEv.exit: ; preds = %entry, %if.end
   br i1 %.not.i14, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %_ZNK4absl18debugging_internal11ElfMemImage3endEv.exit
-  %version5 = getelementptr inbounds i8, ptr %__begin2, i64 8
-  %symbol = getelementptr inbounds i8, ptr %__begin2, i64 24
+  %version5 = getelementptr inbounds nuw i8, ptr %__begin2, i64 8
+  %symbol = getelementptr inbounds nuw i8, ptr %__begin2, i64 24
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -588,9 +588,9 @@ return:                                           ; preds = %for.inc, %_ZNK4absl
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr noalias nocapture nonnull sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %index_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %index_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 0, ptr %index_.i, align 8
-  %image_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %image_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr %this, ptr %image_.i, align 8
   tail call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, i32 noundef 0)
   ret void
@@ -599,21 +599,21 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr noalias nocapture writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %hash_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %hash_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
   br i1 %tobool.not.i, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx.i, align 4
   br label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %entry, %if.end.i
   %retval.0.i = phi i32 [ %1, %if.end.i ], [ 0, %entry ]
-  %index_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %index_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   store i32 %retval.0.i, ptr %index_.i, align 8
-  %image_.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %image_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store ptr %this, ptr %image_.i, align 8
   ret void
 }
@@ -621,14 +621,14 @@ _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratorneERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %rhs) local_unnamed_addr #6 align 2 {
 entry:
-  %image_.i = getelementptr inbounds i8, ptr %this, i64 40
+  %image_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %image_.i, align 8
-  %image_2.i = getelementptr inbounds i8, ptr %rhs, i64 40
+  %image_2.i = getelementptr inbounds nuw i8, ptr %rhs, i64 40
   %1 = load ptr, ptr %image_2.i, align 8
   %cmp.i = icmp ne ptr %0, %1
-  %index_.i = getelementptr inbounds i8, ptr %this, i64 32
+  %index_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %index_.i, align 8
-  %index_3.i = getelementptr inbounds i8, ptr %rhs, i64 32
+  %index_3.i = getelementptr inbounds nuw i8, ptr %rhs, i64 32
   %3 = load i32, ptr %index_3.i, align 8
   %cmp4.i = icmp ne i32 %2, %3
   %.not = select i1 %cmp.i, i1 true, i1 %cmp4.i
@@ -658,18 +658,18 @@ entry:
 define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage21LookupSymbolByAddressEPKvPNS1_10SymbolInfoE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef readnone %address, ptr noundef writeonly %info_out) local_unnamed_addr #0 align 2 {
 entry:
   %__begin2 = alloca %"class.absl::debugging_internal::ElfMemImage::SymbolIterator", align 8
-  %index_.i.i = getelementptr inbounds i8, ptr %__begin2, i64 32
+  %index_.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 32
   store i32 0, ptr %index_.i.i, align 8, !alias.scope !15
-  %image_.i.i = getelementptr inbounds i8, ptr %__begin2, i64 40
+  %image_.i.i = getelementptr inbounds nuw i8, ptr %__begin2, i64 40
   store ptr %this, ptr %image_.i.i, align 8, !alias.scope !15
   call void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr noundef nonnull align 8 dereferenceable(48) %__begin2, i32 noundef 0)
-  %hash_.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %hash_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i.i, align 8, !noalias !18
   %tobool.not.i.i = icmp eq ptr %0, null
   br i1 %tobool.not.i.i, label %_ZNK4absl18debugging_internal11ElfMemImage3endEv.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %0, i64 4
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
   %1 = load i32, ptr %arrayidx.i.i, align 4, !noalias !18
   br label %_ZNK4absl18debugging_internal11ElfMemImage3endEv.exit
 
@@ -683,8 +683,8 @@ _ZNK4absl18debugging_internal11ElfMemImage3endEv.exit: ; preds = %entry, %if.end
   br i1 %.not.i18, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %_ZNK4absl18debugging_internal11ElfMemImage3endEv.exit
-  %address3 = getelementptr inbounds i8, ptr %__begin2, i64 16
-  %symbol = getelementptr inbounds i8, ptr %__begin2, i64 24
+  %address3 = getelementptr inbounds nuw i8, ptr %__begin2, i64 16
+  %symbol = getelementptr inbounds nuw i8, ptr %__begin2, i64 24
   %tobool.not = icmp eq ptr %info_out, null
   br i1 %tobool.not, label %for.body.us, label %for.body
 
@@ -695,7 +695,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
 
 land.lhs.true.us:                                 ; preds = %for.body.us
   %5 = load ptr, ptr %symbol, align 8
-  %st_size.us = getelementptr inbounds i8, ptr %5, i64 16
+  %st_size.us = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i64, ptr %st_size.us, align 8
   %add.ptr.us = getelementptr inbounds i8, ptr %4, i64 %6
   %cmp4.us = icmp ult ptr %address, %add.ptr.us
@@ -717,7 +717,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %st_size = getelementptr inbounds i8, ptr %10, i64 16
+  %st_size = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load i64, ptr %st_size, align 8
   %add.ptr = getelementptr inbounds i8, ptr %9, i64 %11
   %cmp4 = icmp ult ptr %address, %add.ptr
@@ -748,9 +748,9 @@ return:                                           ; preds = %for.inc, %if.then, 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36), (40, 48)) %this, ptr noundef %image, i32 noundef %index) unnamed_addr #9 align 2 {
 entry:
-  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i32 %index, ptr %index_, align 8
-  %image_ = getelementptr inbounds i8, ptr %this, i64 40
+  %image_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store ptr %image, ptr %image_, align 8
   ret void
 }
@@ -764,14 +764,14 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4absl18debugging_internal11ElfMemImage14SymbolIteratoreqERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %rhs) local_unnamed_addr #6 align 2 {
 entry:
-  %image_ = getelementptr inbounds i8, ptr %this, i64 40
+  %image_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %image_, align 8
-  %image_2 = getelementptr inbounds i8, ptr %rhs, i64 40
+  %image_2 = getelementptr inbounds nuw i8, ptr %rhs, i64 40
   %1 = load ptr, ptr %image_2, align 8
   %cmp = icmp eq ptr %0, %1
-  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load i32, ptr %index_, align 8
-  %index_3 = getelementptr inbounds i8, ptr %rhs, i64 32
+  %index_3 = getelementptr inbounds nuw i8, ptr %rhs, i64 32
   %3 = load i32, ptr %index_3, align 8
   %cmp4 = icmp eq i32 %2, %3
   %4 = select i1 %cmp, i1 %cmp4, i1 false
@@ -781,7 +781,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIterator6UpdateEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %increment) local_unnamed_addr #0 align 2 {
 entry:
-  %image_ = getelementptr inbounds i8, ptr %this, i64 40
+  %image_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %image_, align 8
   %1 = load ptr, ptr %0, align 8
   %cmp.i = icmp ne ptr %1, null
@@ -797,11 +797,11 @@ do.end5:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end8, label %return
 
 if.end8:                                          ; preds = %do.end5
-  %index_ = getelementptr inbounds i8, ptr %this, i64 32
+  %index_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %3 = load i32, ptr %index_, align 8
   %add = add nsw i32 %3, %increment
   store i32 %add, ptr %index_, align 8
-  %hash_.i = getelementptr inbounds i8, ptr %0, i64 32
+  %hash_.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %hash_.i, align 8
   %tobool.not.i = icmp eq ptr %4, null
   br i1 %tobool.not.i, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread
@@ -811,7 +811,7 @@ _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit: ; preds = %if.
   br i1 %cmp11.not, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26
 
 _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread: ; preds = %if.end8
-  %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 4
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %4, i64 4
   %5 = load i32, ptr %arrayidx.i, align 4
   %cmp11.not53 = icmp slt i32 %add, %5
   br i1 %cmp11.not53, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit, label %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26
@@ -822,11 +822,11 @@ _ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit26: ; preds = %_
   br label %return
 
 _ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit: ; preds = %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit.thread, %_ZNK4absl18debugging_internal11ElfMemImage13GetNumSymbolsEv.exit
-  %dynsym_.i56 = getelementptr inbounds i8, ptr %0, i64 8
+  %dynsym_.i56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %dynsym_.i56, align 8
   %idx.ext.i57 = sext i32 %add to i64
   %add.ptr.i58 = getelementptr inbounds %struct.Elf64_Sym, ptr %6, i64 %idx.ext.i57
-  %versym_.i = getelementptr inbounds i8, ptr %0, i64 16
+  %versym_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %versym_.i, align 8
   %add.ptr.i36 = getelementptr inbounds i16, ptr %7, i64 %idx.ext.i57
   %tobool = icmp eq ptr %6, null
@@ -841,7 +841,7 @@ do.body24:                                        ; preds = %_ZNK4absl18debuggin
 do.end30:                                         ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVersymEi.exit
   %8 = load i32, ptr %add.ptr.i58, align 8
   %conv.i = zext i32 %8 to i64
-  %strsize_.i = getelementptr inbounds i8, ptr %0, i64 48
+  %strsize_.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i64, ptr %strsize_.i, align 8
   %cmp.not.i37 = icmp ugt i64 %9, %conv.i
   br i1 %cmp.not.i37, label %_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit, label %do.body3.i
@@ -851,10 +851,10 @@ do.body3.i:                                       ; preds = %do.end30
   unreachable
 
 _ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit: ; preds = %do.end30
-  %dynstr_.i = getelementptr inbounds i8, ptr %0, i64 40
+  %dynstr_.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %dynstr_.i, align 8
-  %add.ptr.i38 = getelementptr inbounds i8, ptr %10, i64 %conv.i
-  %st_shndx = getelementptr inbounds i8, ptr %add.ptr.i58, i64 6
+  %add.ptr.i38 = getelementptr inbounds nuw i8, ptr %10, i64 %conv.i
+  %st_shndx = getelementptr inbounds nuw i8, ptr %add.ptr.i58, i64 6
   %11 = load i16, ptr %st_shndx, align 2
   %cmp34 = icmp eq i16 %11, 0
   br i1 %cmp34, label %if.end61, label %if.else
@@ -863,7 +863,7 @@ if.else:                                          ; preds = %_ZNK4absl18debuggin
   %12 = load i16, ptr %add.ptr.i36, align 2
   %13 = and i16 %12, 32767
   %conv.i40 = zext nneg i16 %13 to i64
-  %verdefnum_.i = getelementptr inbounds i8, ptr %0, i64 56
+  %verdefnum_.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load i64, ptr %verdefnum_.i, align 8
   %cmp2.i = icmp ult i64 %14, %conv.i40
   br i1 %cmp2.i, label %do.body4.i, label %do.end7.i
@@ -873,21 +873,21 @@ do.body4.i:                                       ; preds = %if.else
   unreachable
 
 do.end7.i:                                        ; preds = %if.else
-  %verdef_.i = getelementptr inbounds i8, ptr %0, i64 24
+  %verdef_.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %verdef_.i, align 8
-  %vd_ndx9.i = getelementptr inbounds i8, ptr %15, i64 4
+  %vd_ndx9.i = getelementptr inbounds nuw i8, ptr %15, i64 4
   %16 = load i16, ptr %vd_ndx9.i, align 4
   %cmp911.i = icmp ugt i16 %13, %16
   br i1 %cmp911.i, label %land.rhs10.i.preheader, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit
 
 land.rhs10.i.preheader:                           ; preds = %do.end7.i
-  %vd_next.i71 = getelementptr inbounds i8, ptr %15, i64 16
+  %vd_next.i71 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %vd_next.i71, align 4
   %tobool.not.i4172 = icmp eq i32 %17, 0
   br i1 %tobool.not.i4172, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, label %while.body.i
 
 land.rhs10.i:                                     ; preds = %while.body.i
-  %vd_next.i = getelementptr inbounds i8, ptr %add.ptr.i43, i64 16
+  %vd_next.i = getelementptr inbounds nuw i8, ptr %add.ptr.i43, i64 16
   %18 = load i32, ptr %vd_next.i, align 4
   %tobool.not.i41 = icmp eq i32 %18, 0
   br i1 %tobool.not.i41, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, label %while.body.i, !llvm.loop !8
@@ -896,8 +896,8 @@ while.body.i:                                     ; preds = %land.rhs10.i.prehea
   %19 = phi i32 [ %18, %land.rhs10.i ], [ %17, %land.rhs10.i.preheader ]
   %version_definition.012.i73 = phi ptr [ %add.ptr.i43, %land.rhs10.i ], [ %15, %land.rhs10.i.preheader ]
   %idx.ext.i42 = zext i32 %19 to i64
-  %add.ptr.i43 = getelementptr inbounds i8, ptr %version_definition.012.i73, i64 %idx.ext.i42
-  %vd_ndx.i = getelementptr inbounds i8, ptr %add.ptr.i43, i64 4
+  %add.ptr.i43 = getelementptr inbounds nuw i8, ptr %version_definition.012.i73, i64 %idx.ext.i42
+  %vd_ndx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i43, i64 4
   %20 = load i16, ptr %vd_ndx.i, align 4
   %cmp9.i = icmp ugt i16 %13, %20
   br i1 %cmp9.i, label %land.rhs10.i, label %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, !llvm.loop !8
@@ -909,7 +909,7 @@ _ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit: ; preds = %while.bo
   br i1 %cmp15.i, label %do.body41, label %if.end61
 
 do.body41:                                        ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit
-  %vd_cnt = getelementptr inbounds i8, ptr %version_definition.0.lcssa.i, i64 6
+  %vd_cnt = getelementptr inbounds nuw i8, ptr %version_definition.0.lcssa.i, i64 6
   %21 = load i16, ptr %vd_cnt, align 2
   %22 = add i16 %21, -3
   %spec.select = icmp ult i16 %22, -2
@@ -920,7 +920,7 @@ do.body52:                                        ; preds = %do.body41
   unreachable
 
 do.end58:                                         ; preds = %do.body41
-  %add.ptr.i44 = getelementptr inbounds i8, ptr %version_definition.0.lcssa.i, i64 20
+  %add.ptr.i44 = getelementptr inbounds nuw i8, ptr %version_definition.0.lcssa.i, i64 20
   %23 = load i32, ptr %add.ptr.i44, align 4
   %conv.i45 = zext i32 %23 to i64
   %cmp.not.i47 = icmp ugt i64 %9, %conv.i45
@@ -931,13 +931,13 @@ do.body3.i48:                                     ; preds = %do.end58
   unreachable
 
 _ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit: ; preds = %do.end58
-  %add.ptr.i50 = getelementptr inbounds i8, ptr %10, i64 %conv.i45
+  %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %10, i64 %conv.i45
   br label %if.end61
 
 if.end61:                                         ; preds = %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit, %_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit, %_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit
   %version_name.0 = phi ptr [ %add.ptr.i50, %_ZNK4absl18debugging_internal11ElfMemImage9GetVerstrEj.exit ], [ @.str.13, %_ZNK4absl18debugging_internal11ElfMemImage9GetDynstrEj.exit ], [ @.str.13, %_ZNK4absl18debugging_internal11ElfMemImage9GetVerdefEi.exit ]
   store ptr %add.ptr.i38, ptr %this, align 8
-  %version = getelementptr inbounds i8, ptr %this, i64 8
+  %version = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %version_name.0, ptr %version, align 8
   %24 = load i16, ptr %st_shndx, align 2
   %25 = add i16 %24, 256
@@ -945,15 +945,15 @@ if.end61:                                         ; preds = %_ZNK4absl18debuggin
   br i1 %or.cond.i, label %if.then.i, label %do.body.i
 
 if.then.i:                                        ; preds = %if.end61
-  %st_value.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 8
+  %st_value.i = getelementptr inbounds nuw i8, ptr %add.ptr.i58, i64 8
   %26 = load i64, ptr %st_value.i, align 8
   %27 = inttoptr i64 %26 to ptr
   br label %_ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit
 
 do.body.i:                                        ; preds = %if.end61
-  %link_base_.i = getelementptr inbounds i8, ptr %0, i64 64
+  %link_base_.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %28 = load i64, ptr %link_base_.i, align 8
-  %st_value5.i = getelementptr inbounds i8, ptr %add.ptr.i58, i64 8
+  %st_value5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i58, i64 8
   %29 = load i64, ptr %st_value5.i, align 8
   %cmp6.not.i = icmp ult i64 %28, %29
   br i1 %cmp6.not.i, label %do.end13.i, label %do.body9.i
@@ -970,9 +970,9 @@ do.end13.i:                                       ; preds = %do.body.i
 
 _ZNK4absl18debugging_internal11ElfMemImage10GetSymAddrEPK9Elf64_Sym.exit: ; preds = %if.then.i, %do.end13.i
   %retval.0.i51 = phi ptr [ %27, %if.then.i ], [ %add.ptr1.i.i, %do.end13.i ]
-  %address = getelementptr inbounds i8, ptr %this, i64 16
+  %address = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %retval.0.i51, ptr %address, align 8
-  %symbol66 = getelementptr inbounds i8, ptr %this, i64 24
+  %symbol66 = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i58, ptr %symbol66, align 8
   br label %return
 

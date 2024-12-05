@@ -26,14 +26,14 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1, label %if.then2, label %if.end58
 
 if.then2:                                         ; preds = %if.end
-  %flags = getelementptr inbounds i8, ptr %a, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %a, i64 16
   %1 = load i64, ptr %flags, align 8
   %and = and i64 %1, 8
   %tobool.not = icmp eq i64 %and, 0
   br i1 %tobool.not, label %for.body.lr.ph, label %if.then3
 
 for.body.lr.ph:                                   ; preds = %if.then2
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
   %invariant.gep = getelementptr i8, ptr %2, i64 -1
   br label %for.body
@@ -112,9 +112,9 @@ if.end58:                                         ; preds = %if.end, %if.else43,
 if.end62:                                         ; preds = %if.end58
   %8 = load ptr, ptr %pp, align 8
   %conv63 = trunc nuw nsw i32 %bits.0 to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %8, i64 1
   store i8 %conv63, ptr %8, align 1
-  %data64 = getelementptr inbounds i8, ptr %a, i64 8
+  %data64 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %9 = load ptr, ptr %data64, align 8
   %conv65 = sext i32 %len.1 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %9, i64 %conv65, i1 false)
@@ -166,7 +166,7 @@ if.then3:                                         ; preds = %lor.lhs.false, %if.
 if.end7:                                          ; preds = %lor.lhs.false, %if.then3
   %ret.1 = phi ptr [ %call, %if.then3 ], [ %0, %lor.lhs.false ]
   %1 = load ptr, ptr %pp, align 8
-  %incdec.ptr = getelementptr inbounds i8, ptr %1, i64 1
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %1, i64 1
   %2 = load i8, ptr %1, align 1
   %conv = zext i8 %2 to i32
   %cmp8 = icmp ugt i8 %2, 7
@@ -177,7 +177,7 @@ if.then10:                                        ; preds = %if.end7
   br label %land.lhs.true
 
 if.end11:                                         ; preds = %if.end7
-  %flags = getelementptr inbounds i8, ptr %ret.1, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %ret.1, i64 16
   %3 = load i64, ptr %flags, align 8
   %and = and i64 %3, -16
   %or = or disjoint i32 %conv, 8
@@ -216,7 +216,7 @@ if.end31:                                         ; preds = %if.end11, %if.end24
   %s.0 = phi ptr [ %call20, %if.end24 ], [ null, %if.end11 ]
   %conv32 = trunc i64 %dec to i32
   store i32 %conv32, ptr %ret.1, align 8
-  %data = getelementptr inbounds i8, ptr %ret.1, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %ret.1, i64 8
   %7 = load ptr, ptr %data, align 8
   %cmp33.not = icmp eq ptr %7, null
   br i1 %cmp33.not, label %if.end37, label %if.then35
@@ -227,7 +227,7 @@ if.then35:                                        ; preds = %if.end31
 
 if.end37:                                         ; preds = %if.then35, %if.end31
   store ptr %s.0, ptr %data, align 8
-  %type = getelementptr inbounds i8, ptr %ret.1, i64 4
+  %type = getelementptr inbounds nuw i8, ptr %ret.1, i64 4
   store i32 3, ptr %type, align 4
   br i1 %cmp1, label %if.end42, label %if.then41
 
@@ -286,7 +286,7 @@ entry:
   br i1 %cmp, label %return, label %if.end2
 
 if.end2:                                          ; preds = %entry
-  %flags = getelementptr inbounds i8, ptr %a, i64 16
+  %flags = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i64, ptr %flags, align 8
   %and3 = and i64 %0, -16
   store i64 %and3, ptr %flags, align 8
@@ -296,7 +296,7 @@ if.end2:                                          ; preds = %entry
   br i1 %cmp4.not, label %lor.lhs.false, label %if.then6
 
 lor.lhs.false:                                    ; preds = %if.end2
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %2 = load ptr, ptr %data, align 8
   %cmp5 = icmp eq ptr %2, null
   br i1 %cmp5, label %if.then6, label %if.end40
@@ -305,7 +305,7 @@ if.then6:                                         ; preds = %lor.lhs.false, %if.
   br i1 %tobool.not, label %return, label %if.end9
 
 if.end9:                                          ; preds = %if.then6
-  %data10 = getelementptr inbounds i8, ptr %a, i64 8
+  %data10 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %3 = load ptr, ptr %data10, align 8
   %cmp11 = icmp eq ptr %3, null
   br i1 %cmp11, label %if.then12, label %if.else
@@ -363,7 +363,7 @@ if.end40:                                         ; preds = %if.end36, %lor.lhs.
   br i1 %cmp4931, label %land.rhs.lr.ph, label %return
 
 land.rhs.lr.ph:                                   ; preds = %if.end40
-  %data41 = getelementptr inbounds i8, ptr %a, i64 8
+  %data41 = getelementptr inbounds nuw i8, ptr %a, i64 8
   %7 = load ptr, ptr %data41, align 8
   %invariant.gep = getelementptr i8, ptr %7, i64 -1
   br label %land.rhs
@@ -407,7 +407,7 @@ lor.lhs.false:                                    ; preds = %entry
   br i1 %cmp1.not, label %lor.lhs.false2, label %return
 
 lor.lhs.false2:                                   ; preds = %lor.lhs.false
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %1 = load ptr, ptr %data, align 8
   %cmp3 = icmp eq ptr %1, null
   br i1 %cmp3, label %return, label %if.end
@@ -433,7 +433,7 @@ entry:
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %data = getelementptr inbounds i8, ptr %a, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %data, align 8
   %tobool1.not = icmp eq ptr %0, null
   br i1 %tobool1.not, label %return, label %for.cond.preheader
@@ -454,7 +454,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp3, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %for.body
-  %arrayidx = getelementptr inbounds i8, ptr %flags, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw i8, ptr %flags, i64 %indvars.iv
   %4 = load i8, ptr %arrayidx, align 1
   %not = xor i8 %4, -1
   %5 = zext i8 %not to i32
@@ -462,7 +462,7 @@ cond.true:                                        ; preds = %for.body
 
 cond.end:                                         ; preds = %for.body, %cond.true
   %cond = phi i32 [ %5, %cond.true ], [ 255, %for.body ]
-  %arrayidx7 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %arrayidx7, align 1
   %conv8 = zext i8 %6 to i32
   %and = and i32 %cond, %conv8

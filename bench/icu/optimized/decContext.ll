@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define noundef ptr @uprv_decContextClearStatus_75(ptr noundef returned %context, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %not = xor i32 %mask, -1
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status, align 4
   %and = and i32 %0, %not
   store i32 %and, ptr %status, align 4
@@ -34,17 +34,17 @@ entry:
 define noundef ptr @uprv_decContextDefault_75(ptr noundef returned writeonly initializes((0, 25)) %context, i32 noundef %kind) local_unnamed_addr #1 {
 entry:
   store i32 9, ptr %context, align 4
-  %emax = getelementptr inbounds i8, ptr %context, i64 4
+  %emax = getelementptr inbounds nuw i8, ptr %context, i64 4
   store i32 999999999, ptr %emax, align 4
-  %emin = getelementptr inbounds i8, ptr %context, i64 8
+  %emin = getelementptr inbounds nuw i8, ptr %context, i64 8
   store i32 -999999999, ptr %emin, align 4
-  %round = getelementptr inbounds i8, ptr %context, i64 12
+  %round = getelementptr inbounds nuw i8, ptr %context, i64 12
   store i32 2, ptr %round, align 4
-  %traps = getelementptr inbounds i8, ptr %context, i64 16
+  %traps = getelementptr inbounds nuw i8, ptr %context, i64 16
   store i32 8927, ptr %traps, align 4
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   store i32 0, ptr %status, align 4
-  %clamp = getelementptr inbounds i8, ptr %context, i64 24
+  %clamp = getelementptr inbounds nuw i8, ptr %context, i64 24
   store i8 0, ptr %clamp, align 4
   %0 = tail call i32 @llvm.fshl.i32(i32 %kind, i32 %kind, i32 27)
   switch i32 %0, label %sw.default [
@@ -92,7 +92,7 @@ sw.epilog:                                        ; preds = %entry, %sw.default,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @uprv_decContextSetStatus_75(ptr noundef returned %context, i32 noundef %status) local_unnamed_addr #0 {
 entry:
-  %status1 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1, align 4
   %or = or i32 %0, %status
   store i32 %or, ptr %status1, align 4
@@ -102,7 +102,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uprv_decContextGetRounding_75(ptr nocapture noundef readonly %context) local_unnamed_addr #2 {
 entry:
-  %round = getelementptr inbounds i8, ptr %context, i64 12
+  %round = getelementptr inbounds nuw i8, ptr %context, i64 12
   %0 = load i32, ptr %round, align 4
   ret i32 %0
 }
@@ -110,7 +110,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uprv_decContextGetStatus_75(ptr nocapture noundef readonly %context) local_unnamed_addr #2 {
 entry:
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status, align 4
   ret i32 %0
 }
@@ -119,7 +119,7 @@ entry:
 define noundef ptr @uprv_decContextRestoreStatus_75(ptr noundef returned %context, i32 noundef %newstatus, i32 noundef %mask) local_unnamed_addr #0 {
 entry:
   %not = xor i32 %mask, -1
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status, align 4
   %and = and i32 %0, %not
   %and1 = and i32 %mask, %newstatus
@@ -131,7 +131,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define i32 @uprv_decContextSaveStatus_75(ptr nocapture noundef readonly %context, i32 noundef %mask) local_unnamed_addr #2 {
 entry:
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status, align 4
   %and = and i32 %0, %mask
   ret i32 %and
@@ -140,7 +140,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef ptr @uprv_decContextSetRounding_75(ptr noundef returned writeonly initializes((12, 16)) %context, i32 noundef %newround) local_unnamed_addr #1 {
 entry:
-  %round = getelementptr inbounds i8, ptr %context, i64 12
+  %round = getelementptr inbounds nuw i8, ptr %context, i64 12
   store i32 %newround, ptr %round, align 4
   ret ptr %context
 }
@@ -153,7 +153,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %status1.i = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1.i, align 4
   %or.i = or i32 %0, 1
   store i32 %or.i, ptr %status1.i, align 4
@@ -165,7 +165,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %status1.i27 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i27 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %1 = load i32, ptr %status1.i27, align 4
   %or.i28 = or i32 %1, 2
   store i32 %or.i28, ptr %status1.i27, align 4
@@ -177,7 +177,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end6
-  %status1.i29 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i29 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %2 = load i32, ptr %status1.i29, align 4
   %or.i30 = or i32 %2, 4
   store i32 %or.i30, ptr %status1.i29, align 4
@@ -189,7 +189,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end11
-  %status1.i31 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i31 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %3 = load i32, ptr %status1.i31, align 4
   %or.i32 = or i32 %3, 8
   store i32 %or.i32, ptr %status1.i31, align 4
@@ -201,7 +201,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end16
-  %status1.i33 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i33 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %4 = load i32, ptr %status1.i33, align 4
   %or.i34 = or i32 %4, 32
   store i32 %or.i34, ptr %status1.i33, align 4
@@ -213,7 +213,7 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end21
-  %status1.i35 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i35 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %5 = load i32, ptr %status1.i35, align 4
   %or.i36 = or i32 %5, 16
   store i32 %or.i36, ptr %status1.i35, align 4
@@ -225,7 +225,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.end26
-  %status1.i37 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i37 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %6 = load i32, ptr %status1.i37, align 4
   %or.i38 = or i32 %6, 64
   store i32 %or.i38, ptr %status1.i37, align 4
@@ -237,7 +237,7 @@ if.end31:                                         ; preds = %if.end26
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.end31
-  %status1.i39 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i39 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %7 = load i32, ptr %status1.i39, align 4
   %or.i40 = or i32 %7, 128
   store i32 %or.i40, ptr %status1.i39, align 4
@@ -249,7 +249,7 @@ if.end36:                                         ; preds = %if.end31
   br i1 %cmp38, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end36
-  %status1.i41 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i41 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %8 = load i32, ptr %status1.i41, align 4
   %or.i42 = or i32 %8, 512
   store i32 %or.i42, ptr %status1.i41, align 4
@@ -261,7 +261,7 @@ if.end41:                                         ; preds = %if.end36
   br i1 %cmp43, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end41
-  %status1.i43 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i43 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %9 = load i32, ptr %status1.i43, align 4
   %or.i44 = or i32 %9, 1024
   store i32 %or.i44, ptr %status1.i43, align 4
@@ -273,7 +273,7 @@ if.end46:                                         ; preds = %if.end41
   br i1 %cmp48, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.end46
-  %status1.i45 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i45 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %10 = load i32, ptr %status1.i45, align 4
   %or.i46 = or i32 %10, 2048
   store i32 %or.i46, ptr %status1.i45, align 4
@@ -285,7 +285,7 @@ if.end51:                                         ; preds = %if.end46
   br i1 %cmp53, label %if.then54, label %if.end56
 
 if.then54:                                        ; preds = %if.end51
-  %status1.i47 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i47 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %11 = load i32, ptr %status1.i47, align 4
   %or.i48 = or i32 %11, 4096
   store i32 %or.i48, ptr %status1.i47, align 4
@@ -297,7 +297,7 @@ if.end56:                                         ; preds = %if.end51
   br i1 %cmp58, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end56
-  %status1.i49 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i49 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %12 = load i32, ptr %status1.i49, align 4
   %or.i50 = or i32 %12, 8192
   store i32 %or.i50, ptr %status1.i49, align 4
@@ -325,7 +325,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %status1.i = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1.i, align 4
   %or.i = or i32 %0, 1
   store i32 %or.i, ptr %status1.i, align 4
@@ -337,7 +337,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %status1.i27 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i27 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %1 = load i32, ptr %status1.i27, align 4
   %or.i28 = or i32 %1, 2
   store i32 %or.i28, ptr %status1.i27, align 4
@@ -349,7 +349,7 @@ if.end6:                                          ; preds = %if.end
   br i1 %cmp8, label %if.then9, label %if.end11
 
 if.then9:                                         ; preds = %if.end6
-  %status1.i29 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i29 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %2 = load i32, ptr %status1.i29, align 4
   %or.i30 = or i32 %2, 4
   store i32 %or.i30, ptr %status1.i29, align 4
@@ -361,7 +361,7 @@ if.end11:                                         ; preds = %if.end6
   br i1 %cmp13, label %if.then14, label %if.end16
 
 if.then14:                                        ; preds = %if.end11
-  %status1.i31 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i31 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %3 = load i32, ptr %status1.i31, align 4
   %or.i32 = or i32 %3, 8
   store i32 %or.i32, ptr %status1.i31, align 4
@@ -373,7 +373,7 @@ if.end16:                                         ; preds = %if.end11
   br i1 %cmp18, label %if.then19, label %if.end21
 
 if.then19:                                        ; preds = %if.end16
-  %status1.i33 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i33 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %4 = load i32, ptr %status1.i33, align 4
   %or.i34 = or i32 %4, 32
   store i32 %or.i34, ptr %status1.i33, align 4
@@ -385,7 +385,7 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp23, label %if.then24, label %if.end26
 
 if.then24:                                        ; preds = %if.end21
-  %status1.i35 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i35 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %5 = load i32, ptr %status1.i35, align 4
   %or.i36 = or i32 %5, 16
   store i32 %or.i36, ptr %status1.i35, align 4
@@ -397,7 +397,7 @@ if.end26:                                         ; preds = %if.end21
   br i1 %cmp28, label %if.then29, label %if.end31
 
 if.then29:                                        ; preds = %if.end26
-  %status1.i37 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i37 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %6 = load i32, ptr %status1.i37, align 4
   %or.i38 = or i32 %6, 64
   store i32 %or.i38, ptr %status1.i37, align 4
@@ -409,7 +409,7 @@ if.end31:                                         ; preds = %if.end26
   br i1 %cmp33, label %if.then34, label %if.end36
 
 if.then34:                                        ; preds = %if.end31
-  %status1.i39 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i39 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %7 = load i32, ptr %status1.i39, align 4
   %or.i40 = or i32 %7, 128
   store i32 %or.i40, ptr %status1.i39, align 4
@@ -421,7 +421,7 @@ if.end36:                                         ; preds = %if.end31
   br i1 %cmp38, label %if.then39, label %if.end41
 
 if.then39:                                        ; preds = %if.end36
-  %status1.i41 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i41 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %8 = load i32, ptr %status1.i41, align 4
   %or.i42 = or i32 %8, 512
   store i32 %or.i42, ptr %status1.i41, align 4
@@ -433,7 +433,7 @@ if.end41:                                         ; preds = %if.end36
   br i1 %cmp43, label %if.then44, label %if.end46
 
 if.then44:                                        ; preds = %if.end41
-  %status1.i43 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i43 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %9 = load i32, ptr %status1.i43, align 4
   %or.i44 = or i32 %9, 1024
   store i32 %or.i44, ptr %status1.i43, align 4
@@ -445,7 +445,7 @@ if.end46:                                         ; preds = %if.end41
   br i1 %cmp48, label %if.then49, label %if.end51
 
 if.then49:                                        ; preds = %if.end46
-  %status1.i45 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i45 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %10 = load i32, ptr %status1.i45, align 4
   %or.i46 = or i32 %10, 2048
   store i32 %or.i46, ptr %status1.i45, align 4
@@ -457,7 +457,7 @@ if.end51:                                         ; preds = %if.end46
   br i1 %cmp53, label %if.then54, label %if.end56
 
 if.then54:                                        ; preds = %if.end51
-  %status1.i47 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i47 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %11 = load i32, ptr %status1.i47, align 4
   %or.i48 = or i32 %11, 4096
   store i32 %or.i48, ptr %status1.i47, align 4
@@ -469,7 +469,7 @@ if.end56:                                         ; preds = %if.end51
   br i1 %cmp58, label %if.then59, label %if.end61
 
 if.then59:                                        ; preds = %if.end56
-  %status1.i49 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1.i49 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %12 = load i32, ptr %status1.i49, align 4
   %or.i50 = or i32 %12, 8192
   store i32 %or.i50, ptr %status1.i49, align 4
@@ -489,7 +489,7 @@ return:                                           ; preds = %if.end61, %if.then5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define noundef ptr @uprv_decContextSetStatusQuiet_75(ptr noundef returned %context, i32 noundef %status) local_unnamed_addr #0 {
 entry:
-  %status1 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1, align 4
   %or = or i32 %0, %status
   store i32 %or, ptr %status1, align 4
@@ -499,7 +499,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef nonnull ptr @uprv_decContextStatusToString_75(ptr nocapture noundef readonly %context) local_unnamed_addr #2 {
 entry:
-  %status1 = getelementptr inbounds i8, ptr %context, i64 20
+  %status1 = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status1, align 4
   switch i32 %0, label %if.end40 [
     i32 128, label %return
@@ -577,7 +577,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 2) i32 @uprv_decContextTestStatus_75(ptr nocapture noundef readonly %context, i32 noundef %mask) local_unnamed_addr #2 {
 entry:
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   %0 = load i32, ptr %status, align 4
   %and = and i32 %0, %mask
   %cmp = icmp ne i32 %and, 0
@@ -588,7 +588,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define noundef ptr @uprv_decContextZeroStatus_75(ptr noundef returned writeonly initializes((20, 24)) %context) local_unnamed_addr #1 {
 entry:
-  %status = getelementptr inbounds i8, ptr %context, i64 20
+  %status = getelementptr inbounds nuw i8, ptr %context, i64 20
   store i32 0, ptr %status, align 4
   ret ptr %context
 }

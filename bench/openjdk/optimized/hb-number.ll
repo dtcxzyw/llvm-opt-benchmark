@@ -25,7 +25,7 @@ define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr nocapture nound
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %11, i32 31)
   %12 = zext nneg i32 %.sroa.speculated.i to i64
   %13 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %7, i64 noundef %12) #8
-  %14 = getelementptr inbounds [32 x i8], ptr %5, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 0, i64 %12
   store i8 0, ptr %14, align 1
   store ptr %5, ptr %6, align 8
   %15 = tail call ptr @__errno_location() #9
@@ -79,7 +79,7 @@ define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr nocapture nou
   %.sroa.speculated.i = tail call i32 @llvm.umin.i32(i32 %12, i32 31)
   %13 = zext nneg i32 %.sroa.speculated.i to i64
   %14 = call ptr @strncpy(ptr noundef nonnull %6, ptr noundef %8, i64 noundef %13) #8
-  %15 = getelementptr inbounds [32 x i8], ptr %6, i64 0, i64 %13
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 0, i64 %13
   store i8 0, ptr %15, align 1
   store ptr %6, ptr %7, align 8
   %16 = tail call ptr @__errno_location() #9
@@ -145,7 +145,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   ]
 
 11:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %12 = getelementptr inbounds i8, ptr %.058135.i, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %.058135.i, i64 1
   %exitcond.not.i = icmp eq ptr %12, %1
   br i1 %exitcond.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
@@ -182,7 +182,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   %19 = getelementptr inbounds [9 x i8], ptr @_ZL28_double_parser_index_offsets, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds i8, ptr @_ZL23_double_parser_indicies, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @_ZL23_double_parser_indicies, i64 %21
   %23 = getelementptr inbounds [9 x i8], ptr @_ZL24_double_parser_key_spans, i64 0, i64 %18
   %24 = load i8, ptr %23, align 1
   %25 = sext i8 %24 to i32
@@ -194,7 +194,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   br i1 %.not.i, label %35, label %30
 
 30:                                               ; preds = %.preheader134.i
-  %31 = getelementptr inbounds i8, ptr %17, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %.not88.i = icmp samesign ugt i32 %29, %33
@@ -271,7 +271,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
   br i1 %68, label %71, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds i8, ptr %.2.i, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %.not90.i = icmp eq ptr %70, %1
   br i1 %.not90.i, label %71, label %.preheader134.i
 
@@ -299,7 +299,7 @@ define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture no
 
 80:                                               ; preds = %77, %75
   %.1.i.i = phi double [ %79, %77 ], [ %.0711.i.i, %75 ]
-  %81 = getelementptr inbounds i8, ptr %.012.i.i, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
   %82 = lshr i32 %.0810.i.i, 1
   %.not.i.i = icmp samesign ult i32 %.0810.i.i, 2
   br i1 %.not.i.i, label %_ZL6_pow10j.exit.i, label %75, !llvm.loop !8
@@ -354,7 +354,7 @@ _ZL6_pow10j.exit.i:                               ; preds = %80
 
 102:                                              ; preds = %99, %.preheader.i
   %.1.i96.i = phi double [ %101, %99 ], [ %.0711.i93.i, %.preheader.i ]
-  %103 = getelementptr inbounds i8, ptr %.012.i92.i, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %.012.i92.i, i64 8
   %104 = lshr i32 %.0810.i94.i, 1
   %.not.i97.i = icmp samesign ult i32 %.0810.i94.i, 2
   br i1 %.not.i97.i, label %_ZL6_pow10j.exit98.i, label %.preheader.i, !llvm.loop !8
@@ -378,7 +378,7 @@ _ZL6_pow10j.exit98.i:                             ; preds = %102
 
 110:                                              ; preds = %107, %.preheader133.i
   %.1.i103.i = phi double [ %109, %107 ], [ %.0711.i100.i, %.preheader133.i ]
-  %111 = getelementptr inbounds i8, ptr %.012.i99.i, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %.012.i99.i, i64 8
   %112 = lshr i32 %.0810.i101.i, 1
   %.not.i104.i = icmp samesign ult i32 %.0810.i101.i, 2
   br i1 %.not.i104.i, label %_ZL6_pow10j.exit105.i, label %.preheader133.i, !llvm.loop !8

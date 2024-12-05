@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddClippingAnd(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %7
 
 7:                                                ; preds = %7, %5
@@ -27,7 +27,7 @@ define ptr @cuddBddClippingAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 ; Function Attrs: nounwind uwtable
 define ptr @Cudd_bddClippingAndAbstract(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 448
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %8
 
 8:                                                ; preds = %8, %6
@@ -49,7 +49,7 @@ define ptr @cuddBddClippingAndAbstract(ptr noundef %0, ptr noundef %1, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = xor i64 %8, 1
@@ -127,13 +127,13 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   %51 = inttoptr i64 %50 to ptr
   %.not = icmp eq i32 %4, 0
   %52 = select i1 %.not, ptr @cuddBddClippingAnd, ptr @Cudd_bddClippingAnd
-  %53 = getelementptr inbounds i8, ptr %48, i64 4
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %54 = load i32, ptr %53, align 4
   %.not143 = icmp eq i32 %54, 1
   br i1 %.not143, label %55, label %58
 
 55:                                               ; preds = %43
-  %56 = getelementptr inbounds i8, ptr %51, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %57 = load i32, ptr %56, align 4
   %.not144 = icmp eq i32 %57, 1
   br i1 %.not144, label %60, label %58
@@ -144,23 +144,23 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   br i1 %.not145, label %60, label %145
 
 60:                                               ; preds = %58, %55
-  %61 = getelementptr inbounds i8, ptr %0, i64 312
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %62 = load ptr, ptr %61, align 8
   %63 = load i32, ptr %48, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %62, i64 %64
   %66 = load i32, ptr %65, align 4
   %67 = load i32, ptr %51, align 8
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %62, i64 %68
+  %69 = getelementptr inbounds nuw i32, ptr %62, i64 %68
   %70 = load i32, ptr %69, align 4
   %.not146 = icmp ugt i32 %66, %70
   br i1 %.not146, label %84, label %71
 
 71:                                               ; preds = %60
-  %72 = getelementptr inbounds i8, ptr %48, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %48, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %75 = load ptr, ptr %74, align 8
   %76 = and i64 %46, 1
   %.not147 = icmp eq i64 %76, 0
@@ -183,9 +183,9 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   br i1 %.not148, label %98, label %85
 
 85:                                               ; preds = %84
-  %86 = getelementptr inbounds i8, ptr %51, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %51, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %89 = load ptr, ptr %88, align 8
   %90 = and i64 %49, 1
   %.not149 = icmp eq i64 %90, 0
@@ -211,7 +211,7 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   %102 = ptrtoint ptr %99 to i64
   %103 = and i64 %102, -2
   %104 = inttoptr i64 %103 to ptr
-  %105 = getelementptr inbounds i8, ptr %104, i64 4
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4
   %107 = add i32 %106, 1
   store i32 %107, ptr %105, align 4
@@ -227,7 +227,7 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   %112 = ptrtoint ptr %108 to i64
   %113 = and i64 %112, -2
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 1
   store i32 %117, ptr %115, align 4
@@ -280,7 +280,7 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
   br i1 %.not151, label %141, label %144
 
 141:                                              ; preds = %135
-  %142 = getelementptr inbounds i8, ptr %51, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %143 = load i32, ptr %142, align 4
   %.not152 = icmp eq i32 %143, 1
   br i1 %.not152, label %145, label %144
@@ -296,7 +296,7 @@ define internal fastcc ptr @cuddBddClippingAndRecur(ptr noundef %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @cuddBddClipAndAbsRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = ptrtoint ptr %8 to i64
   %10 = xor i64 %9, 1
@@ -314,7 +314,7 @@ define internal fastcc ptr @cuddBddClipAndAbsRecur(ptr noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %6
   %.not = icmp eq i32 %5, 0
   %18 = select i1 %.not, i64 42, i64 38
-  %19 = getelementptr inbounds i8, ptr %0, i64 312
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %20
 
 20:                                               ; preds = %.lr.ph, %tailrecurse
@@ -374,13 +374,13 @@ define internal fastcc ptr @cuddBddClipAndAbsRecur(ptr noundef %0, ptr noundef %
   %48 = ptrtoint ptr %spec.select to i64
   %49 = and i64 %48, -2
   %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %47, i64 4
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %52 = load i32, ptr %51, align 4
   %.not203 = icmp eq i32 %52, 1
   br i1 %.not203, label %53, label %56
 
 53:                                               ; preds = %42
-  %54 = getelementptr inbounds i8, ptr %50, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %55 = load i32, ptr %54, align 4
   %.not204 = icmp eq i32 %55, 1
   br i1 %.not204, label %58, label %56
@@ -394,22 +394,22 @@ define internal fastcc ptr @cuddBddClipAndAbsRecur(ptr noundef %0, ptr noundef %
   %59 = load ptr, ptr %19, align 8
   %60 = load i32, ptr %47, align 8
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %59, i64 %61
+  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = load i32, ptr %50, align 8
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %59, i64 %65
+  %66 = getelementptr inbounds nuw i32, ptr %59, i64 %65
   %67 = load i32, ptr %66, align 4
   %68 = tail call i32 @llvm.umin.i32(i32 %67, i32 %63)
   %69 = load i32, ptr %.tr226277, align 8
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %59, i64 %70
+  %71 = getelementptr inbounds nuw i32, ptr %59, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = icmp ult i32 %72, %68
   br i1 %73, label %tailrecurse, label %85
 
 tailrecurse:                                      ; preds = %58
-  %74 = getelementptr inbounds i8, ptr %.tr226277, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %.tr226277, i64 16
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %7, align 8
   %77 = ptrtoint ptr %76 to i64
@@ -425,14 +425,14 @@ tailrecurse:                                      ; preds = %58
   br i1 %or.cond218, label %.loopexit, label %20
 
 85:                                               ; preds = %58
-  %86 = getelementptr inbounds i8, ptr %47, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %.not206 = icmp ugt i32 %63, %67
   br i1 %.not206, label %100, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %47, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %47, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %47, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = and i64 %45, 1
   %.not207 = icmp eq i64 %92, 0
@@ -455,9 +455,9 @@ tailrecurse:                                      ; preds = %58
   br i1 %.not208, label %114, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %50, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %50, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %105 = load ptr, ptr %104, align 8
   %106 = and i64 %48, 1
   %.not209 = icmp eq i64 %106, 0
@@ -479,7 +479,7 @@ tailrecurse:                                      ; preds = %58
   br i1 %115, label %119, label %116
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %.tr226277, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.tr226277, i64 16
   %118 = load ptr, ptr %117, align 8
   br label %119
 
@@ -500,7 +500,7 @@ tailrecurse:                                      ; preds = %58
   br i1 %.not213, label %126, label %129
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds i8, ptr %50, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %128 = load i32, ptr %127, align 4
   %.not214 = icmp eq i32 %128, 1
   br i1 %.not214, label %.loopexit, label %129
@@ -513,7 +513,7 @@ tailrecurse:                                      ; preds = %58
   %131 = ptrtoint ptr %120 to i64
   %132 = and i64 %131, -2
   %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds i8, ptr %133, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4
@@ -529,7 +529,7 @@ tailrecurse:                                      ; preds = %58
   %141 = ptrtoint ptr %137 to i64
   %142 = and i64 %141, -2
   %143 = inttoptr i64 %142 to ptr
-  %144 = getelementptr inbounds i8, ptr %143, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %143, i64 4
   %145 = load i32, ptr %144, align 4
   %146 = add i32 %145, 1
   store i32 %146, ptr %144, align 4
@@ -556,7 +556,7 @@ tailrecurse:                                      ; preds = %58
   %159 = inttoptr i64 %158 to ptr
   %160 = and i64 %157, -2
   %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds i8, ptr %161, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %163 = load i32, ptr %162, align 4
   %164 = add i32 %163, 1
   store i32 %164, ptr %162, align 4
@@ -630,7 +630,7 @@ tailrecurse:                                      ; preds = %58
   br i1 %.not211, label %197, label %200
 
 197:                                              ; preds = %195
-  %198 = getelementptr inbounds i8, ptr %50, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %199 = load i32, ptr %198, align 4
   %.not212 = icmp eq i32 %199, 1
   br i1 %.not212, label %.loopexit, label %200

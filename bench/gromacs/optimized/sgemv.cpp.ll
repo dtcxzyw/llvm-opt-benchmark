@@ -65,7 +65,7 @@ define void @sgemv_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph202:                                        ; preds = %43, %.lr.ph202
   %indvars.iv267 = phi i64 [ %indvars.iv.next268, %.lr.ph202 ], [ 0, %43 ]
-  %46 = getelementptr inbounds float, ptr %9, i64 %indvars.iv267
+  %46 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv267
   %47 = load float, ptr %46, align 4
   %48 = fmul float %18, %47
   store float %48, ptr %46, align 4

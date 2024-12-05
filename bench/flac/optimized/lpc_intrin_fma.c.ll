@@ -12,7 +12,7 @@ entry:
 for.cond4.preheader:                              ; preds = %entry, %for.inc17
   %indvars.iv38 = phi i64 [ 0, %entry ], [ %indvars.iv.next39, %for.inc17 ]
   %indvars.iv36 = phi i64 [ 1, %entry ], [ %indvars.iv.next37, %for.inc17 ]
-  %arrayidx8 = getelementptr inbounds float, ptr %data, i64 %indvars.iv38
+  %arrayidx8 = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv38
   br label %for.body6
 
 for.cond20.preheader:                             ; preds = %for.inc17
@@ -28,10 +28,10 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %0 = load float, ptr %arrayidx8, align 4
   %conv = fpext float %0 to double
   %1 = sub nuw nsw i64 %indvars.iv38, %indvars.iv
-  %arrayidx10 = getelementptr inbounds float, ptr %data, i64 %1
+  %arrayidx10 = getelementptr inbounds nuw float, ptr %data, i64 %1
   %2 = load float, ptr %arrayidx10, align 4
   %conv11 = fpext float %2 to double
-  %arrayidx13 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw double, ptr %autoc, i64 %indvars.iv
   %3 = load double, ptr %arrayidx13, align 8
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv, double %conv11, double %3)
   store double %4, ptr %arrayidx13, align 8
@@ -47,7 +47,7 @@ for.inc17:                                        ; preds = %for.body6
 
 for.cond24.preheader:                             ; preds = %for.cond24.preheader.preheader, %for.inc40
   %indvars.iv49 = phi i64 [ 8, %for.cond24.preheader.preheader ], [ %indvars.iv.next50, %for.inc40 ]
-  %arrayidx29 = getelementptr inbounds float, ptr %data, i64 %indvars.iv49
+  %arrayidx29 = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv49
   br label %for.body27
 
 for.body27:                                       ; preds = %for.cond24.preheader, %for.body27
@@ -55,10 +55,10 @@ for.body27:                                       ; preds = %for.cond24.preheade
   %5 = load float, ptr %arrayidx29, align 4
   %conv30 = fpext float %5 to double
   %6 = sub nuw nsw i64 %indvars.iv49, %indvars.iv44
-  %arrayidx33 = getelementptr inbounds float, ptr %data, i64 %6
+  %arrayidx33 = getelementptr inbounds nuw float, ptr %data, i64 %6
   %7 = load float, ptr %arrayidx33, align 4
   %conv34 = fpext float %7 to double
-  %arrayidx36 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv44
+  %arrayidx36 = getelementptr inbounds nuw double, ptr %autoc, i64 %indvars.iv44
   %8 = load double, ptr %arrayidx36, align 8
   %9 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv30, double %conv34, double %8)
   store double %9, ptr %arrayidx36, align 8
@@ -87,7 +87,7 @@ entry:
 for.cond4.preheader:                              ; preds = %entry, %for.inc17
   %indvars.iv38 = phi i64 [ 0, %entry ], [ %indvars.iv.next39, %for.inc17 ]
   %indvars.iv36 = phi i64 [ 1, %entry ], [ %indvars.iv.next37, %for.inc17 ]
-  %arrayidx8 = getelementptr inbounds float, ptr %data, i64 %indvars.iv38
+  %arrayidx8 = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv38
   br label %for.body6
 
 for.cond20.preheader:                             ; preds = %for.inc17
@@ -103,10 +103,10 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %0 = load float, ptr %arrayidx8, align 4
   %conv = fpext float %0 to double
   %1 = sub nuw nsw i64 %indvars.iv38, %indvars.iv
-  %arrayidx10 = getelementptr inbounds float, ptr %data, i64 %1
+  %arrayidx10 = getelementptr inbounds nuw float, ptr %data, i64 %1
   %2 = load float, ptr %arrayidx10, align 4
   %conv11 = fpext float %2 to double
-  %arrayidx13 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw double, ptr %autoc, i64 %indvars.iv
   %3 = load double, ptr %arrayidx13, align 8
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv, double %conv11, double %3)
   store double %4, ptr %arrayidx13, align 8
@@ -122,7 +122,7 @@ for.inc17:                                        ; preds = %for.body6
 
 for.cond24.preheader:                             ; preds = %for.cond24.preheader.preheader, %for.inc40
   %indvars.iv49 = phi i64 [ 12, %for.cond24.preheader.preheader ], [ %indvars.iv.next50, %for.inc40 ]
-  %arrayidx29 = getelementptr inbounds float, ptr %data, i64 %indvars.iv49
+  %arrayidx29 = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv49
   br label %for.body27
 
 for.body27:                                       ; preds = %for.cond24.preheader, %for.body27
@@ -130,10 +130,10 @@ for.body27:                                       ; preds = %for.cond24.preheade
   %5 = load float, ptr %arrayidx29, align 4
   %conv30 = fpext float %5 to double
   %6 = sub nuw nsw i64 %indvars.iv49, %indvars.iv44
-  %arrayidx33 = getelementptr inbounds float, ptr %data, i64 %6
+  %arrayidx33 = getelementptr inbounds nuw float, ptr %data, i64 %6
   %7 = load float, ptr %arrayidx33, align 4
   %conv34 = fpext float %7 to double
-  %arrayidx36 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv44
+  %arrayidx36 = getelementptr inbounds nuw double, ptr %autoc, i64 %indvars.iv44
   %8 = load double, ptr %arrayidx36, align 8
   %9 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv30, double %conv34, double %8)
   store double %9, ptr %arrayidx36, align 8
@@ -159,7 +159,7 @@ entry:
 for.cond4.preheader:                              ; preds = %entry, %for.inc17
   %indvars.iv38 = phi i64 [ 0, %entry ], [ %indvars.iv.next39, %for.inc17 ]
   %indvars.iv36 = phi i64 [ 1, %entry ], [ %indvars.iv.next37, %for.inc17 ]
-  %arrayidx8 = getelementptr inbounds float, ptr %data, i64 %indvars.iv38
+  %arrayidx8 = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv38
   br label %for.body6
 
 for.cond20.preheader:                             ; preds = %for.inc17
@@ -175,10 +175,10 @@ for.body6:                                        ; preds = %for.cond4.preheader
   %0 = load float, ptr %arrayidx8, align 4
   %conv = fpext float %0 to double
   %1 = sub nuw nsw i64 %indvars.iv38, %indvars.iv
-  %arrayidx10 = getelementptr inbounds float, ptr %data, i64 %1
+  %arrayidx10 = getelementptr inbounds nuw float, ptr %data, i64 %1
   %2 = load float, ptr %arrayidx10, align 4
   %conv11 = fpext float %2 to double
-  %arrayidx13 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv
+  %arrayidx13 = getelementptr inbounds nuw double, ptr %autoc, i64 %indvars.iv
   %3 = load double, ptr %arrayidx13, align 8
   %4 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv, double %conv11, double %3)
   store double %4, ptr %arrayidx13, align 8
@@ -194,7 +194,7 @@ for.inc17:                                        ; preds = %for.body6
 
 for.cond24.preheader:                             ; preds = %for.cond24.preheader.preheader, %for.inc40
   %indvars.iv49 = phi i64 [ 16, %for.cond24.preheader.preheader ], [ %indvars.iv.next50, %for.inc40 ]
-  %arrayidx29 = getelementptr inbounds float, ptr %data, i64 %indvars.iv49
+  %arrayidx29 = getelementptr inbounds nuw float, ptr %data, i64 %indvars.iv49
   br label %for.body27
 
 for.body27:                                       ; preds = %for.cond24.preheader, %for.body27
@@ -202,10 +202,10 @@ for.body27:                                       ; preds = %for.cond24.preheade
   %5 = load float, ptr %arrayidx29, align 4
   %conv30 = fpext float %5 to double
   %6 = sub nuw nsw i64 %indvars.iv49, %indvars.iv44
-  %arrayidx33 = getelementptr inbounds float, ptr %data, i64 %6
+  %arrayidx33 = getelementptr inbounds nuw float, ptr %data, i64 %6
   %7 = load float, ptr %arrayidx33, align 4
   %conv34 = fpext float %7 to double
-  %arrayidx36 = getelementptr inbounds double, ptr %autoc, i64 %indvars.iv44
+  %arrayidx36 = getelementptr inbounds nuw double, ptr %autoc, i64 %indvars.iv44
   %8 = load double, ptr %arrayidx36, align 8
   %9 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %conv30, double %conv34, double %8)
   store double %9, ptr %arrayidx36, align 8

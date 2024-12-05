@@ -13,14 +13,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN15dtLocalBoundaryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 236
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %3, align 4
   store float 0x47EFFFFFE0000000, ptr %0, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0x47EFFFFFE0000000, ptr %5, align 4
   ret void
 }
@@ -33,23 +33,23 @@ define void @_ZN15dtLocalBoundaryD2Ev(ptr nocapture nonnull readnone align 4 %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN15dtLocalBoundary5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) local_unnamed_addr #0 align 2 {
   store float 0x47EFFFFFE0000000, ptr %0, align 4
-  %2 = getelementptr inbounds i8, ptr %0, i64 4
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %2, align 4
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0x47EFFFFFE0000000, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 236
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %5, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull align 4 dereferenceable(308) %0, float noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 236
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
-  %6 = getelementptr inbounds i8, ptr %0, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br i1 %.not, label %44, label %7
 
 7:                                                ; preds = %3
@@ -63,7 +63,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
   br i1 %13, label %.preheader, label %15
 
 .preheader:                                       ; preds = %7
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 36
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = icmp sgt i32 %5, 0
   br i1 %14, label %.lr.ph.preheader, label %._crit_edge
 
@@ -83,7 +83,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
   %.idx27 = mul nuw nsw i64 %indvars.iv, 28
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx27
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx27
   %20 = load float, ptr %gep, align 4
   %21 = fcmp ugt float %1, %20
   br i1 %21, label %22, label %._crit_edge.loopexit.split.loop.exit
@@ -124,9 +124,9 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
 
 35:                                               ; preds = %33
   %36 = zext nneg i32 %24 to i64
-  %37 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %36
   %38 = zext nneg i32 %.021.lcssa to i64
-  %39 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %38
   %40 = zext nneg i32 %27 to i64
   %41 = mul nuw nsw i64 %40, 28
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %37, ptr nonnull align 4 %39, i64 %41, i1 false)
@@ -134,12 +134,12 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr nocapture noundef nonnull
 
 42:                                               ; preds = %._crit_edge33, %35
   %.pre-phi = phi i64 [ %.pre, %._crit_edge33 ], [ %38, %35 ]
-  %43 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %.pre-phi
+  %43 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %6, i64 0, i64 %.pre-phi
   br label %44
 
 44:                                               ; preds = %3, %17, %42
   %.0 = phi ptr [ %19, %17 ], [ %43, %42 ], [ %6, %3 ]
-  %45 = getelementptr inbounds i8, ptr %.0, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   store float %1, ptr %45, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0, ptr noundef nonnull align 4 dereferenceable(24) %2, i64 24, i1 false)
   %46 = load i32, ptr %4, align 4
@@ -173,31 +173,31 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 10:                                               ; preds = %6
   store float 0x47EFFFFFE0000000, ptr %0, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float 0x47EFFFFFE0000000, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 236
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 304
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 304
   store i32 0, ptr %14, align 4
   br label %.loopexit
 
 15:                                               ; preds = %6
   %16 = load float, ptr %2, align 4
   store float %16, ptr %0, align 4
-  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %18 = load float, ptr %17, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store float %21, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %0, i64 240
-  %24 = getelementptr inbounds i8, ptr %0, i64 304
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %25 = tail call noundef i32 @_ZNK14dtNavMeshQuery22findLocalNeighbourhoodEjPKffPK13dtQueryFilterPjS5_Pii(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %1, ptr noundef nonnull %2, float noundef %3, ptr noundef %5, ptr noundef nonnull %23, ptr noundef null, ptr noundef nonnull %24, i32 noundef 16)
-  %26 = getelementptr inbounds i8, ptr %0, i64 236
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store i32 0, ptr %26, align 4
   store i32 0, ptr %8, align 4
   %27 = load i32, ptr %24, align 4
@@ -206,13 +206,13 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 .lr.ph29:                                         ; preds = %15
   %29 = fmul float %3, %3
-  %30 = getelementptr inbounds i8, ptr %0, i64 12
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 36
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %31
 
 31:                                               ; preds = %.lr.ph29, %._crit_edge
   %indvars.iv32 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next33, %._crit_edge ]
-  %32 = getelementptr inbounds [16 x i32], ptr %23, i64 0, i64 %indvars.iv32
+  %32 = getelementptr inbounds nuw [16 x i32], ptr %23, i64 0, i64 %indvars.iv32
   %33 = load i32, ptr %32, align 4
   %34 = call noundef i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilterPfPjPii(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %33, ptr noundef %5, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %8, i32 noundef 18)
   %35 = load i32, ptr %8, align 4
@@ -222,8 +222,8 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 .lr.ph:                                           ; preds = %31, %_ZN15dtLocalBoundary10addSegmentEfPKf.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN15dtLocalBoundary10addSegmentEfPKf.exit ], [ 0, %31 ]
   %37 = mul nuw nsw i64 %indvars.iv, 6
-  %38 = getelementptr inbounds [108 x float], ptr %7, i64 0, i64 %37
-  %39 = getelementptr inbounds i8, ptr %38, i64 12
+  %38 = getelementptr inbounds nuw [108 x float], ptr %7, i64 0, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 12
   %40 = call noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef nonnull %2, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %41 = fcmp ogt float %40, %29
   br i1 %41, label %_ZN15dtLocalBoundary10addSegmentEfPKf.exit, label %42
@@ -262,7 +262,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 .lr.ph.i:                                         ; preds = %57, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %57 ]
   %.idx27.i = mul nuw nsw i64 %indvars.iv.i, 28
-  %gep.i = getelementptr inbounds i8, ptr %invariant.gep, i64 %.idx27.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx27.i
   %55 = load float, ptr %gep.i, align 4
   %56 = fcmp ugt float %40, %55
   br i1 %56, label %57, label %._crit_edge.loopexit.split.loop.exit.i
@@ -303,9 +303,9 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 70:                                               ; preds = %68
   %71 = zext nneg i32 %59 to i64
-  %72 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %71
+  %72 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %71
   %73 = zext nneg i32 %.021.lcssa.i to i64
-  %74 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %73
   %75 = zext nneg i32 %62 to i64
   %76 = mul nuw nsw i64 %75, 28
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %72, ptr nonnull align 4 %74, i64 %76, i1 false)
@@ -313,12 +313,12 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 77:                                               ; preds = %70, %._crit_edge33.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge33.i ], [ %73, %70 ]
-  %78 = getelementptr inbounds [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %.pre-phi.i
+  %78 = getelementptr inbounds nuw [8 x %"struct.dtLocalBoundary::Segment"], ptr %30, i64 0, i64 %.pre-phi.i
   br label %79
 
 79:                                               ; preds = %77, %52, %42
   %.0.i = phi ptr [ %54, %52 ], [ %78, %77 ], [ %30, %42 ]
-  %80 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
   store float %40, ptr %80, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %.0.i, ptr noundef nonnull readonly align 8 dereferenceable(24) %38, i64 24, i1 false)
   %81 = load i32, ptr %26, align 4
@@ -356,7 +356,7 @@ declare noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr noundef, ptr noun
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQueryFilter(ptr nocapture noundef nonnull readonly align 4 dereferenceable(308) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 304
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.preheader
@@ -366,7 +366,7 @@ define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQ
   br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %7 = getelementptr inbounds i8, ptr %0, i64 240
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %12
 
 8:                                                ; preds = %12
@@ -378,7 +378,7 @@ define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQ
 
 12:                                               ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %13 = getelementptr inbounds [16 x i32], ptr %7, i64 0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i32], ptr %7, i64 0, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %14, ptr noundef %2)
   br i1 %15, label %8, label %.loopexit

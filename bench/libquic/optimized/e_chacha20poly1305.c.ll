@@ -46,9 +46,9 @@ if.end6:                                          ; preds = %if.end3
 if.end9:                                          ; preds = %if.end6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %call, ptr noundef nonnull align 1 dereferenceable(32) %key, i64 32, i1 false)
   %conv = trunc nuw nsw i64 %spec.store.select to i8
-  %tag_len11 = getelementptr inbounds i8, ptr %call, i64 32
+  %tag_len11 = getelementptr inbounds nuw i8, ptr %call, i64 32
   store i8 %conv, ptr %tag_len11, align 1
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %call, ptr %aead_state, align 8
   br label %return
 
@@ -60,7 +60,7 @@ return:                                           ; preds = %if.end6, %if.end3, 
 ; Function Attrs: nounwind uwtable
 define internal void @aead_chacha20_poly1305_cleanup(ptr nocapture noundef readonly %ctx) #1 {
 entry:
-  %aead_state = getelementptr inbounds i8, ptr %ctx, i64 8
+  %aead_state = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %0 = load ptr, ptr %aead_state, align 8
   tail call void @OPENSSL_cleanse(ptr noundef %0, i64 noundef 32) #8
   tail call void @free(ptr noundef %0) #8
@@ -136,7 +136,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %tag_len = getelementptr inbounds i8, ptr %ctx.8.val, i64 32
+  %tag_len = getelementptr inbounds nuw i8, ptr %ctx.8.val, i64 32
   %0 = load i8, ptr %tag_len, align 1
   %conv = zext i8 %0 to i64
   %add = add nuw nsw i64 %in_len, %conv
@@ -158,7 +158,7 @@ if.end11:                                         ; preds = %if.end
   call void @CRYPTO_poly1305_finish(ptr noundef nonnull %ctx.i, ptr noundef nonnull %tag) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %poly1305_key.i)
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %ctx.i)
-  %add.ptr = getelementptr inbounds i8, ptr %out, i64 %in_len
+  %add.ptr = getelementptr inbounds nuw i8, ptr %out, i64 %in_len
   %1 = load i8, ptr %tag_len, align 1
   %conv15 = zext i8 %1 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr nonnull align 16 %tag, i64 %conv15, i1 false)
@@ -207,7 +207,7 @@ for.body.i:                                       ; preds = %for.body.i, %poly13
   %indvars.iv.i = phi i64 [ 0, %poly1305_update_padded_16.exit10 ], [ %indvars.iv.next.i, %for.body.i ]
   %data_len.addr.04.i = phi i64 [ %ad_len, %poly1305_update_padded_16.exit10 ], [ %shr.i, %for.body.i ]
   %conv2.i = trunc i64 %data_len.addr.04.i to i8
-  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %length_bytes.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %length_bytes.i, i64 0, i64 %indvars.iv.i
   store i8 %conv2.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %data_len.addr.04.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -224,7 +224,7 @@ for.body.i12:                                     ; preds = %for.body.i12, %poly
   %indvars.iv.i13 = phi i64 [ 0, %poly1305_update_length.exit ], [ %indvars.iv.next.i18, %for.body.i12 ]
   %data_len.addr.04.i14 = phi i64 [ %ciphertext_len, %poly1305_update_length.exit ], [ %shr.i17, %for.body.i12 ]
   %conv2.i15 = trunc i64 %data_len.addr.04.i14 to i8
-  %arrayidx.i16 = getelementptr inbounds [8 x i8], ptr %length_bytes.i11, i64 0, i64 %indvars.iv.i13
+  %arrayidx.i16 = getelementptr inbounds nuw [8 x i8], ptr %length_bytes.i11, i64 0, i64 %indvars.iv.i13
   store i8 %conv2.i15, ptr %arrayidx.i16, align 1
   %shr.i17 = lshr i64 %data_len.addr.04.i14, 8
   %indvars.iv.next.i18 = add nuw nsw i64 %indvars.iv.i13, 1
@@ -254,7 +254,7 @@ entry:
   %poly1305_key.i = alloca [32 x i8], align 16
   %ctx.i = alloca [512 x i8], align 16
   %tag = alloca [16 x i8], align 16
-  %tag_len = getelementptr inbounds i8, ptr %ctx.8.val, i64 32
+  %tag_len = getelementptr inbounds nuw i8, ptr %ctx.8.val, i64 32
   %0 = load i8, ptr %tag_len, align 1
   %conv = zext i8 %0 to i64
   %cmp = icmp ult i64 %in_len, %conv
@@ -319,7 +319,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %nonce_96, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %nonce_96, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %nonce_96, i64 4
   %0 = load i64, ptr %nonce, align 1
   store i64 %0, ptr %add.ptr, align 4
   %1 = getelementptr i8, ptr %ctx, i64 8
@@ -345,7 +345,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %nonce_96, align 4
-  %add.ptr = getelementptr inbounds i8, ptr %nonce_96, i64 4
+  %add.ptr = getelementptr inbounds nuw i8, ptr %nonce_96, i64 4
   %0 = load i64, ptr %nonce, align 1
   store i64 %0, ptr %add.ptr, align 4
   %1 = getelementptr i8, ptr %ctx, i64 8
@@ -371,7 +371,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %indvars.iv.i = phi i64 [ 0, %entry ], [ %indvars.iv.next.i, %for.body.i ]
   %data_len.addr.04.i = phi i64 [ %ad_len, %entry ], [ %shr.i, %for.body.i ]
   %conv2.i = trunc i64 %data_len.addr.04.i to i8
-  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %length_bytes.i, i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %length_bytes.i, i64 0, i64 %indvars.iv.i
   store i8 %conv2.i, ptr %arrayidx.i, align 1
   %shr.i = lshr i64 %data_len.addr.04.i, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -389,7 +389,7 @@ for.body.i7:                                      ; preds = %for.body.i7, %poly1
   %indvars.iv.i8 = phi i64 [ 0, %poly1305_update_length.exit ], [ %indvars.iv.next.i13, %for.body.i7 ]
   %data_len.addr.04.i9 = phi i64 [ %ciphertext_len, %poly1305_update_length.exit ], [ %shr.i12, %for.body.i7 ]
   %conv2.i10 = trunc i64 %data_len.addr.04.i9 to i8
-  %arrayidx.i11 = getelementptr inbounds [8 x i8], ptr %length_bytes.i6, i64 0, i64 %indvars.iv.i8
+  %arrayidx.i11 = getelementptr inbounds nuw [8 x i8], ptr %length_bytes.i6, i64 0, i64 %indvars.iv.i8
   store i8 %conv2.i10, ptr %arrayidx.i11, align 1
   %shr.i12 = lshr i64 %data_len.addr.04.i9, 8
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i8, 1

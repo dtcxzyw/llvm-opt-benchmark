@@ -70,8 +70,8 @@ define hidden range(i32 -1, 1) i32 @dom_characterdata_data_write(ptr noundef %0,
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 24
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = trunc i64 %10 to i32
   tail call void @xmlNodeSetContentLen(ptr noundef nonnull %3, ptr noundef nonnull %8, i32 noundef %11) #6
@@ -95,7 +95,7 @@ define hidden range(i32 -1, 1) i32 @dom_characterdata_length_read(ptr noundef %0
   br label %14
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %3, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %12, label %9
@@ -108,7 +108,7 @@ define hidden range(i32 -1, 1) i32 @dom_characterdata_length_read(ptr noundef %0
 12:                                               ; preds = %6, %9
   %.08 = phi i64 [ %11, %9 ], [ 0, %6 ]
   store i64 %.08, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %13, align 8
   br label %14
 
@@ -123,7 +123,7 @@ declare i32 @xmlUTF8Strlen(ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %8 = icmp eq i32 %7, -1
@@ -136,7 +136,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
   br label %72
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -144,11 +144,11 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %23) #6
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -157,13 +157,13 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
   br label %72
 
@@ -186,7 +186,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @dom_get_strict_error(ptr noundef %44) #6
   call void @php_dom_throw_error(i32 noundef 1, i32 noundef %45) #6
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %46, align 8
   br label %72
 
@@ -214,18 +214,18 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
   %60 = add i64 %59, 32
   %61 = call noalias ptr @_emalloc(i64 noundef %60) #8
   store i32 1, ptr %61, align 4
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   store i32 22, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 0, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 %58, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %61, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %65, ptr nonnull align 1 %56, i64 %58, i1 false)
   %66 = getelementptr inbounds [1 x i8], ptr %65, i64 0, i64 %58
   store i8 0, ptr %66, align 1
   store ptr %61, ptr %1, align 8
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 262, ptr %67, align 8
   %68 = load ptr, ptr @xmlFree, align 8
   call void %68(ptr noundef nonnull %56) #6
@@ -234,7 +234,7 @@ define hidden void @zim_DOMCharacterData_substringData(ptr nocapture noundef rea
 69:                                               ; preds = %52
   %70 = load ptr, ptr @zend_empty_string, align 8
   store ptr %70, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 6, ptr %71, align 8
   br label %72
 
@@ -260,7 +260,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 define hidden void @zim_DOMCharacterData_appendData(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %8 = icmp eq i32 %7, -1
@@ -273,7 +273,7 @@ define hidden void @zim_DOMCharacterData_appendData(ptr nocapture noundef readon
   br label %33
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -281,11 +281,11 @@ define hidden void @zim_DOMCharacterData_appendData(ptr nocapture noundef readon
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %23) #6
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -298,7 +298,7 @@ define hidden void @zim_DOMCharacterData_appendData(ptr nocapture noundef readon
   %29 = load i64, ptr %4, align 8
   %30 = trunc i64 %29 to i32
   %31 = call i32 @xmlTextConcat(ptr noundef %27, ptr noundef %28, i32 noundef %30) #6
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %32, align 8
   br label %33
 
@@ -313,7 +313,7 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %7, ptr noundef nonnull @.str.3, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5) #6
   %9 = icmp eq i32 %8, -1
@@ -326,7 +326,7 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
   br label %55
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8
@@ -334,11 +334,11 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
   br i1 %18, label %19, label %27
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %24) #6
   %25 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %26 = icmp ne ptr %25, null
@@ -347,13 +347,13 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
 
 27:                                               ; preds = %13
   %28 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 80
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %33, align 8
   br label %55
 
@@ -371,7 +371,7 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
   %41 = load ptr, ptr %40, align 8
   %42 = call i32 @dom_get_strict_error(ptr noundef %41) #6
   call void @php_dom_throw_error(i32 noundef 1, i32 noundef %42) #6
-  %43 = getelementptr inbounds i8, ptr %1, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %43, align 8
   br label %55
 
@@ -390,7 +390,7 @@ define hidden void @zim_DOMCharacterData_insertData(ptr nocapture noundef readon
   call void %52(ptr noundef %46) #6
   %53 = load ptr, ptr @xmlFree, align 8
   call void %53(ptr noundef %50) #6
-  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %54, align 8
   br label %55
 
@@ -408,7 +408,7 @@ declare void @xmlNodeAddContent(ptr noundef, ptr noundef) local_unnamed_addr #1
 define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %6, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %8 = icmp eq i32 %7, -1
@@ -421,7 +421,7 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   br label %69
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 -24
   %16 = load ptr, ptr %15, align 8
@@ -429,11 +429,11 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   br i1 %17, label %18, label %26
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %23) #6
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
@@ -442,13 +442,13 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %16, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %26
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %32, align 8
   br label %69
 
@@ -471,7 +471,7 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   %44 = load ptr, ptr %43, align 8
   %45 = call i32 @dom_get_strict_error(ptr noundef %44) #6
   call void @php_dom_throw_error(i32 noundef 1, i32 noundef %45) #6
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %46, align 8
   br label %69
 
@@ -512,7 +512,7 @@ define hidden void @zim_DOMCharacterData_deleteData(ptr nocapture noundef readon
   call void %66(ptr noundef %64) #6
   %67 = load ptr, ptr @xmlFree, align 8
   call void %67(ptr noundef %65) #6
-  %68 = getelementptr inbounds i8, ptr %1, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %68, align 8
   br label %69
 
@@ -528,7 +528,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = load i32, ptr %7, align 4
   %9 = call i32 (i32, ptr, ...) @zend_parse_parameters(i32 noundef %8, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %3, ptr noundef nonnull %6) #6
   %10 = icmp eq i32 %9, -1
@@ -541,7 +541,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   br label %78
 
 14:                                               ; preds = %2
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 -24
   %18 = load ptr, ptr %17, align 8
@@ -549,11 +549,11 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   br i1 %19, label %20, label %28
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds i8, ptr %16, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull %25) #6
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %27 = icmp ne ptr %26, null
@@ -562,13 +562,13 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
 
 28:                                               ; preds = %14
   %29 = load ptr, ptr %18, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 80
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %35
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %34, align 8
   br label %78
 
@@ -591,7 +591,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
   %46 = load ptr, ptr %45, align 8
   %47 = call i32 @dom_get_strict_error(ptr noundef %46) #6
   call void @php_dom_throw_error(i32 noundef 1, i32 noundef %47) #6
-  %48 = getelementptr inbounds i8, ptr %1, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 2, ptr %48, align 8
   br label %78
 
@@ -649,7 +649,7 @@ define hidden void @zim_DOMCharacterData_replaceData(ptr nocapture noundef reado
 75:                                               ; preds = %73, %69
   %76 = load ptr, ptr @xmlFree, align 8
   call void %76(ptr noundef %72) #6
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %77, align 8
   br label %78
 

@@ -54,7 +54,7 @@ $_ZN6Thread14oops_do_framesEP10OopClosureP14NMethodClosure = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7ZThread11run_serviceEv(ptr noundef nonnull align 8 dereferenceable(918) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 240
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull align 8 dereferenceable(918) %0) #4
   %5 = load ptr, ptr @Terminator_lock, align 8
@@ -101,7 +101,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %1, %3
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #4
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #4
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 248
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
   tail call void %6(ptr noundef nonnull align 8 dereferenceable(918) %0) #4
   ret void
@@ -207,7 +207,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK6Thread21is_active_Java_threa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK11NamedThread4nameEv(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 896
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   %spec.select = select i1 %4, ptr @.str, ptr %3

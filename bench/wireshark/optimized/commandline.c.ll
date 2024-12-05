@@ -789,7 +789,7 @@ define hidden void @commandline_options_reapply() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %.lr.ph, %5
-  %7 = getelementptr inbounds i8, ptr %.08, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.0 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9

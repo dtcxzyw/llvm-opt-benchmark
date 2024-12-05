@@ -139,7 +139,7 @@ define dso_local void @_ZNK5clang6interp15FunctionPointer5printERN4llvm11raw_ost
 15:                                               ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %8, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
   %16 = load ptr, ptr %7, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 6
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 6
   store ptr %17, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -207,7 +207,7 @@ _ZNK5clang6interp8Function7getNameB5cxx11Ev.exit: ; preds = %25, %29
 47:                                               ; preds = %38
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %40, ptr noundef nonnull align 1 dereferenceable(7) @.str.1, i64 7, i1 false)
   %48 = load ptr, ptr %7, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 7
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 7
   store ptr %49, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit10
 
@@ -227,7 +227,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %47, %45, %35, %_ZNK
 58:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit10
   store i32 539697193, ptr %51, align 1
   %59 = load ptr, ptr %7, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store ptr %60, ptr %7, align 8
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit13
 

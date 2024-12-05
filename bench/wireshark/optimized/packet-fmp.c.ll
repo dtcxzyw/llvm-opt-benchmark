@@ -1373,7 +1373,7 @@ define internal fastcc noundef i32 @dissect_fmp_timeval(ptr noundef %0, i32 noun
   store i64 %10, ptr %7, align 8
   %11 = add i32 %1, 4
   %12 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %11) #3
-  %13 = getelementptr inbounds i8, ptr %7, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %12, ptr %13, align 8
   %14 = call ptr @proto_tree_add_time(ptr noundef nonnull %2, i32 noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 8, ptr noundef nonnull %7) #3
   %15 = load i32, ptr @ett_fmp_timeval, align 4

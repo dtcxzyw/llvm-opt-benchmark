@@ -13,9 +13,9 @@ define range(i32 0, 2) i32 @timingsafe_bcmp(ptr nocapture noundef readonly %0, p
   %.0713 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
   %.0812 = phi ptr [ %4, %.lr.ph ], [ %0, %3 ]
   %.0911 = phi i64 [ %11, %.lr.ph ], [ %2, %3 ]
-  %4 = getelementptr inbounds i8, ptr %.0812, i64 1
+  %4 = getelementptr inbounds nuw i8, ptr %.0812, i64 1
   %5 = load i8, ptr %.0812, align 1
-  %6 = getelementptr inbounds i8, ptr %.0713, i64 1
+  %6 = getelementptr inbounds nuw i8, ptr %.0713, i64 1
   %7 = load i8, ptr %.0713, align 1
   %8 = xor i8 %7, %5
   %9 = zext i8 %8 to i32

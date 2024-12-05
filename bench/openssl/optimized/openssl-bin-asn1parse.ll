@@ -227,7 +227,7 @@ if.end55:                                         ; preds = %if.then47, %if.end5
   %call51122 = phi ptr [ %call51, %if.end55 ], [ %call51119, %if.then47 ]
   %tmp.0121 = phi i64 [ %inc, %if.end55 ], [ 0, %if.then47 ]
   %4 = load ptr, ptr @bio_err, align 8
-  %sname = getelementptr inbounds i8, ptr %call51122, i64 48
+  %sname = getelementptr inbounds nuw i8, ptr %call51122, i64 48
   %5 = load ptr, ptr %sname, align 8
   %call56 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.41, ptr noundef %5) #3
   %inc = add i64 %tmp.0121, 1
@@ -298,10 +298,10 @@ if.then101:                                       ; preds = %if.then97
 
 if.end103:                                        ; preds = %if.then97
   %10 = load ptr, ptr %str, align 8
-  %data = getelementptr inbounds i8, ptr %call84, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %call84, i64 8
   store ptr %10, ptr %data, align 8
   %11 = load i64, ptr %num, align 8
-  %max = getelementptr inbounds i8, ptr %call84, i64 16
+  %max = getelementptr inbounds nuw i8, ptr %call84, i64 16
   store i64 %11, ptr %max, align 8
   store i64 %11, ptr %call84, align 8
   br label %if.end147
@@ -353,7 +353,7 @@ if.end130:                                        ; preds = %if.end128, %if.else
   br i1 %tobool133.not124, label %end, label %if.end135.lr.ph
 
 if.end135.lr.ph:                                  ; preds = %if.end130
-  %data136 = getelementptr inbounds i8, ptr %call84, i64 8
+  %data136 = getelementptr inbounds nuw i8, ptr %call84, i64 8
   br label %if.end135
 
 if.end135:                                        ; preds = %if.end135.lr.ph, %if.end141
@@ -377,7 +377,7 @@ if.end141:                                        ; preds = %if.end135
 if.end145:                                        ; preds = %if.end135, %if.then111
   %b64.2 = phi ptr [ null, %if.then111 ], [ %b64.3, %if.end135 ]
   %in.2 = phi ptr [ %call73, %if.then111 ], [ %in.3, %if.end135 ]
-  %data146 = getelementptr inbounds i8, ptr %call84, i64 8
+  %data146 = getelementptr inbounds nuw i8, ptr %call84, i64 8
   %17 = load ptr, ptr %data146, align 8
   store ptr %17, ptr %str, align 8
   br label %if.end147
@@ -419,7 +419,7 @@ if.then167:                                       ; preds = %lor.lhs.false163, %
   br label %for.inc195
 
 if.end171:                                        ; preds = %lor.lhs.false163
-  %add.ptr = getelementptr inbounds i8, ptr %tmpbuf.0129, i64 %conv164
+  %add.ptr = getelementptr inbounds nuw i8, ptr %tmpbuf.0129, i64 %conv164
   %sub = sub nsw i64 %tmplen.0128, %conv164
   store ptr %add.ptr, ptr %ctmpbuf, align 8
   %call173 = call ptr @d2i_ASN1_TYPE(ptr noundef null, ptr noundef nonnull %ctmpbuf, i64 noundef %sub) #3
@@ -451,9 +451,9 @@ if.then187:                                       ; preds = %if.end177, %if.end1
   br label %end
 
 if.end190:                                        ; preds = %if.end177
-  %value = getelementptr inbounds i8, ptr %call173, i64 8
+  %value = getelementptr inbounds nuw i8, ptr %call173, i64 8
   %25 = load ptr, ptr %value, align 8
-  %data191 = getelementptr inbounds i8, ptr %25, i64 8
+  %data191 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %26 = load ptr, ptr %data191, align 8
   %27 = load i32, ptr %25, align 8
   %conv194 = sext i32 %27 to i64
@@ -505,7 +505,7 @@ if.end207:                                        ; preds = %lor.lhs.false201
 
 if.then221:                                       ; preds = %if.end207
   %31 = load ptr, ptr %str, align 8
-  %add.ptr223 = getelementptr inbounds i8, ptr %31, i64 %conv202
+  %add.ptr223 = getelementptr inbounds nuw i8, ptr %31, i64 %conv202
   %call224 = call i32 @BIO_write(ptr noundef nonnull %derout.1, ptr noundef %add.ptr223, i32 noundef %length.2) #3
   %cmp225.not = icmp eq i32 %call224, %length.2
   br i1 %cmp225.not, label %if.end230, label %if.then227
@@ -523,7 +523,7 @@ if.end230:                                        ; preds = %if.then221, %if.end
 
 if.then232:                                       ; preds = %if.end230
   %34 = load ptr, ptr %str, align 8
-  %add.ptr234 = getelementptr inbounds i8, ptr %34, i64 %conv202
+  %add.ptr234 = getelementptr inbounds nuw i8, ptr %34, i64 %conv202
   store ptr %add.ptr234, ptr %p, align 8
   %cmp235.not = icmp eq ptr %it.0, null
   br i1 %cmp235.not, label %if.else248, label %if.then237
@@ -536,7 +536,7 @@ if.then237:                                       ; preds = %if.then232
 
 if.then243:                                       ; preds = %if.then237
   %35 = load ptr, ptr @bio_err, align 8
-  %sname244 = getelementptr inbounds i8, ptr %it.0, i64 48
+  %sname244 = getelementptr inbounds nuw i8, ptr %it.0, i64 48
   %36 = load ptr, ptr %sname244, align 8
   %call245 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.48, ptr noundef %36) #3
   %37 = load ptr, ptr @bio_err, align 8
@@ -677,7 +677,7 @@ if.end19:                                         ; preds = %if.end15
   br i1 %tobool.not, label %err, label %if.end22
 
 if.end22:                                         ; preds = %if.end19
-  %data = getelementptr inbounds i8, ptr %buf, i64 8
+  %data = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %1 = load ptr, ptr %data, align 8
   store ptr %1, ptr %p, align 8
   %call23 = call i32 @i2d_ASN1_TYPE(ptr noundef nonnull %call12, ptr noundef nonnull %p) #3

@@ -317,7 +317,7 @@ define internal void @check_corruption(ptr nocapture readnone %0) #5 align 16 {
   %7 = phi i64 [ %41, %.loopexit ], [ 0, %1 ]
   %8 = phi i32 [ %40, %.loopexit ], [ 0, %1 ]
   %9 = getelementptr [8 x %struct.scan_area], ptr @scan_areas, i64 0, i64 %7
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %.loopexit, label %13

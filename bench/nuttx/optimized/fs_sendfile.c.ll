@@ -80,7 +80,7 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 no
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %.preheader.i
-  %34 = getelementptr inbounds i8, ptr %.055.i, i64 %31
+  %34 = getelementptr inbounds nuw i8, ptr %.055.i, i64 %31
   %35 = sub nsw i64 %.062.i, %31
   %36 = add i64 %31, %.3.i
   br label %40

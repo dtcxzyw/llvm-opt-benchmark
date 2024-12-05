@@ -928,7 +928,7 @@ _ZN5boost6locale4util10try_to_intERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 370:                                              ; preds = %366
   %371 = load ptr, ptr %369, align 8, !tbaa !45, !noalias !47
-  %372 = getelementptr inbounds i8, ptr %371, i64 16
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 16
   %373 = load ptr, ptr %372, align 8, !noalias !47
   invoke void %373(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(12) %369, i32 noundef 3)
           to label %_ZNK5boost6locale4info8encodingB5cxx11Ev.exit unwind label %404

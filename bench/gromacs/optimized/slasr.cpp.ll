@@ -67,9 +67,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %indvars.iv782 = phi i64 [ 1, %.lr.ph671.preheader ], [ %indvars.iv.next783, %.loopexit ]
   %30 = shl nuw nsw i64 %indvar, 2
   %scevgep = getelementptr i8, ptr %7, i64 %30
-  %31 = getelementptr inbounds float, ptr %10, i64 %indvars.iv782
+  %31 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv782
   %32 = load float, ptr %31, align 4
-  %33 = getelementptr inbounds float, ptr %11, i64 %indvars.iv782
+  %33 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv782
   %34 = load float, ptr %33, align 4
   %35 = fpext float %32 to double
   %36 = fadd double %35, -1.000000e+00
@@ -157,9 +157,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
   %69 = sub i64 %67, %68
   %scevgep850 = getelementptr i8, ptr %7, i64 %69
   %indvars.iv.next775 = add nsw i64 %indvars.iv774, -1
-  %70 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next775
+  %70 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next775
   %71 = load float, ptr %70, align 4
-  %72 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.next775
+  %72 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next775
   %73 = load float, ptr %72, align 4
   %74 = fpext float %71 to double
   %75 = fadd double %74, -1.000000e+00
@@ -313,9 +313,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 134:                                              ; preds = %.lr.ph648, %.loopexit575
   %indvars.iv756 = phi i64 [ %133, %.lr.ph648 ], [ %indvars.iv.next757, %.loopexit575 ]
   %indvars.iv.next757 = add nsw i64 %indvars.iv756, -1
-  %135 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next757
+  %135 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next757
   %136 = load float, ptr %135, align 4
-  %137 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.next757
+  %137 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next757
   %138 = load float, ptr %137, align 4
   %139 = fpext float %136 to double
   %140 = fadd double %139, -1.000000e+00
@@ -382,9 +382,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph643:                                        ; preds = %.lr.ph643.preheader, %.loopexit577
   %indvars.iv746 = phi i64 [ 1, %.lr.ph643.preheader ], [ %indvars.iv.next747, %.loopexit577 ]
-  %164 = getelementptr inbounds float, ptr %10, i64 %indvars.iv746
+  %164 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv746
   %165 = load float, ptr %164, align 4
-  %166 = getelementptr inbounds float, ptr %11, i64 %indvars.iv746
+  %166 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv746
   %167 = load float, ptr %166, align 4
   %168 = fpext float %165 to double
   %169 = fadd double %168, -1.000000e+00
@@ -449,9 +449,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph636:                                        ; preds = %.lr.ph636.preheader, %.loopexit579
   %indvars.iv738 = phi i64 [ %197, %.lr.ph636.preheader ], [ %indvars.iv.next739, %.loopexit579 ]
   %indvars.iv.next739 = add nsw i64 %indvars.iv738, -1
-  %198 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next739
+  %198 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next739
   %199 = load float, ptr %198, align 4
-  %200 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.next739
+  %200 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next739
   %201 = load float, ptr %200, align 4
   %202 = fpext float %199 to double
   %203 = fadd double %202, -1.000000e+00
@@ -536,9 +536,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph630:                                        ; preds = %.lr.ph630.preheader, %.loopexit581
   %indvars.iv728 = phi i64 [ 1, %.lr.ph630.preheader ], [ %indvars.iv.next729, %.loopexit581 ]
-  %237 = getelementptr inbounds float, ptr %10, i64 %indvars.iv728
+  %237 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv728
   %238 = load float, ptr %237, align 4
-  %239 = getelementptr inbounds float, ptr %11, i64 %indvars.iv728
+  %239 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv728
   %240 = load float, ptr %239, align 4
   %241 = fpext float %238 to double
   %242 = fadd double %241, -1.000000e+00
@@ -599,9 +599,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph623:                                        ; preds = %.lr.ph623.preheader, %.loopexit583
   %indvars.iv720 = phi i64 [ %264, %.lr.ph623.preheader ], [ %indvars.iv.next721, %.loopexit583 ]
   %indvars.iv.next721 = add nsw i64 %indvars.iv720, -1
-  %266 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next721
+  %266 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next721
   %267 = load float, ptr %266, align 4
-  %268 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.next721
+  %268 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next721
   %269 = load float, ptr %268, align 4
   %270 = fpext float %267 to double
   %271 = fadd double %270, -1.000000e+00
@@ -734,9 +734,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph609:                                        ; preds = %.lr.ph609.preheader, %.loopexit587
   %indvars.iv702 = phi i64 [ %325, %.lr.ph609.preheader ], [ %indvars.iv.next703, %.loopexit587 ]
   %indvars.iv.next703 = add nsw i64 %indvars.iv702, -1
-  %326 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next703
+  %326 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next703
   %327 = load float, ptr %326, align 4
-  %328 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.next703
+  %328 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next703
   %329 = load float, ptr %328, align 4
   %330 = fpext float %327 to double
   %331 = fadd double %330, -1.000000e+00
@@ -803,9 +803,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 
 .lr.ph604:                                        ; preds = %.lr.ph604.preheader, %.loopexit589
   %indvars.iv692 = phi i64 [ 1, %.lr.ph604.preheader ], [ %indvars.iv.next693, %.loopexit589 ]
-  %356 = getelementptr inbounds float, ptr %10, i64 %indvars.iv692
+  %356 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv692
   %357 = load float, ptr %356, align 4
-  %358 = getelementptr inbounds float, ptr %11, i64 %indvars.iv692
+  %358 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv692
   %359 = load float, ptr %358, align 4
   %360 = fpext float %357 to double
   %361 = fadd double %360, -1.000000e+00
@@ -872,9 +872,9 @@ define void @slasr_(ptr nocapture noundef readonly %0, ptr nocapture noundef rea
 .lr.ph597:                                        ; preds = %.lr.ph597.preheader, %.loopexit591
   %indvars.iv684 = phi i64 [ %391, %.lr.ph597.preheader ], [ %indvars.iv.next685, %.loopexit591 ]
   %indvars.iv.next685 = add nsw i64 %indvars.iv684, -1
-  %393 = getelementptr inbounds float, ptr %10, i64 %indvars.iv.next685
+  %393 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.next685
   %394 = load float, ptr %393, align 4
-  %395 = getelementptr inbounds float, ptr %11, i64 %indvars.iv.next685
+  %395 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.next685
   %396 = load float, ptr %395, align 4
   %397 = fpext float %394 to double
   %398 = fadd double %397, -1.000000e+00

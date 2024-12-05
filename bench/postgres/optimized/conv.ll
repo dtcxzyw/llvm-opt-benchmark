@@ -378,7 +378,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 .lr.ph:                                           ; preds = %.preheader
   %.not = icmp ne ptr %4, null
-  %12 = getelementptr inbounds i8, ptr %10, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = sext i32 %5 to i64
   %.not136 = icmp eq ptr %3, null
   %.not138 = icmp eq ptr %6, null
@@ -565,7 +565,7 @@ define dso_local i32 @UtfToLocal(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not135, label %137, label %113
 
 113:                                              ; preds = %108
-  %114 = getelementptr inbounds i8, ptr %112, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %115 = load i32, ptr %114, align 4
   %.not.i = icmp ult i32 %115, 16777216
   br i1 %.not.i, label %120, label %116
@@ -793,7 +793,7 @@ define internal range(i32 -1, 2) i32 @compare3(ptr nocapture noundef readonly %0
   %4 = getelementptr i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %1, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = icmp ugt i32 %3, %6
   br i1 %9, label %16, label %10
@@ -826,65 +826,65 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull reado
 
 7:                                                ; preds = %6
   %8 = zext i8 %2 to i32
-  %9 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load i8, ptr %9, align 8
   %11 = zext i8 %10 to i32
   %12 = icmp ult i8 %2, %10
   br i1 %12, label %254, label %13
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 49
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %15 = load i8, ptr %14, align 1
   %16 = icmp ugt i8 %2, %15
   br i1 %16, label %254, label %17
 
 17:                                               ; preds = %13
   %18 = zext i8 %3 to i32
-  %19 = getelementptr inbounds i8, ptr %0, i64 50
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %20 = load i8, ptr %19, align 2
   %21 = zext i8 %20 to i32
   %22 = icmp ult i8 %3, %20
   br i1 %22, label %254, label %23
 
 23:                                               ; preds = %17
-  %24 = getelementptr inbounds i8, ptr %0, i64 51
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 51
   %25 = load i8, ptr %24, align 1
   %26 = icmp ugt i8 %3, %25
   br i1 %26, label %254, label %27
 
 27:                                               ; preds = %23
   %28 = zext i8 %4 to i32
-  %29 = getelementptr inbounds i8, ptr %0, i64 52
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i8, ptr %29, align 4
   %31 = zext i8 %30 to i32
   %32 = icmp ult i8 %4, %30
   br i1 %32, label %254, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %0, i64 53
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 53
   %35 = load i8, ptr %34, align 1
   %36 = icmp ugt i8 %4, %35
   br i1 %36, label %254, label %37
 
 37:                                               ; preds = %33
   %38 = zext i8 %5 to i32
-  %39 = getelementptr inbounds i8, ptr %0, i64 54
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %40 = load i8, ptr %39, align 2
   %41 = zext i8 %40 to i32
   %42 = icmp ult i8 %5, %40
   br i1 %42, label %254, label %43
 
 43:                                               ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %0, i64 55
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %45 = load i8, ptr %44, align 1
   %46 = icmp ugt i8 %5, %45
   br i1 %46, label %254, label %47
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not161 = icmp eq ptr %49, null
-  %50 = getelementptr inbounds i8, ptr %0, i64 44
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %51 = load i32, ptr %50, align 4
   br i1 %.not161, label %73, label %52
 
@@ -942,51 +942,51 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull reado
 
 100:                                              ; preds = %6
   %101 = zext i8 %3 to i32
-  %102 = getelementptr inbounds i8, ptr %0, i64 36
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %103 = load i8, ptr %102, align 4
   %104 = zext i8 %103 to i32
   %105 = icmp ult i8 %3, %103
   br i1 %105, label %254, label %106
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %0, i64 37
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 37
   %108 = load i8, ptr %107, align 1
   %109 = icmp ugt i8 %3, %108
   br i1 %109, label %254, label %110
 
 110:                                              ; preds = %106
   %111 = zext i8 %4 to i32
-  %112 = getelementptr inbounds i8, ptr %0, i64 38
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 38
   %113 = load i8, ptr %112, align 2
   %114 = zext i8 %113 to i32
   %115 = icmp ult i8 %4, %113
   br i1 %115, label %254, label %116
 
 116:                                              ; preds = %110
-  %117 = getelementptr inbounds i8, ptr %0, i64 39
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 39
   %118 = load i8, ptr %117, align 1
   %119 = icmp ugt i8 %4, %118
   br i1 %119, label %254, label %120
 
 120:                                              ; preds = %116
   %121 = zext i8 %5 to i32
-  %122 = getelementptr inbounds i8, ptr %0, i64 40
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %123 = load i8, ptr %122, align 8
   %124 = zext i8 %123 to i32
   %125 = icmp ult i8 %5, %123
   br i1 %125, label %254, label %126
 
 126:                                              ; preds = %120
-  %127 = getelementptr inbounds i8, ptr %0, i64 41
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 41
   %128 = load i8, ptr %127, align 1
   %129 = icmp ugt i8 %5, %128
   br i1 %129, label %254, label %130
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds i8, ptr %0, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not160 = icmp eq ptr %132, null
-  %133 = getelementptr inbounds i8, ptr %0, i64 32
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %134 = load i32, ptr %133, align 8
   br i1 %.not160, label %151, label %135
 
@@ -1033,37 +1033,37 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull reado
 
 172:                                              ; preds = %6
   %173 = zext i8 %4 to i32
-  %174 = getelementptr inbounds i8, ptr %0, i64 28
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %175 = load i8, ptr %174, align 4
   %176 = zext i8 %175 to i32
   %177 = icmp ult i8 %4, %175
   br i1 %177, label %254, label %178
 
 178:                                              ; preds = %172
-  %179 = getelementptr inbounds i8, ptr %0, i64 29
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %180 = load i8, ptr %179, align 1
   %181 = icmp ugt i8 %4, %180
   br i1 %181, label %254, label %182
 
 182:                                              ; preds = %178
   %183 = zext i8 %5 to i32
-  %184 = getelementptr inbounds i8, ptr %0, i64 30
+  %184 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %185 = load i8, ptr %184, align 2
   %186 = zext i8 %185 to i32
   %187 = icmp ult i8 %5, %185
   br i1 %187, label %254, label %188
 
 188:                                              ; preds = %182
-  %189 = getelementptr inbounds i8, ptr %0, i64 31
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %190 = load i8, ptr %189, align 1
   %191 = icmp ugt i8 %5, %190
   br i1 %191, label %254, label %192
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %0, i64 8
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %194 = load ptr, ptr %193, align 8
   %.not159 = icmp eq ptr %194, null
-  %195 = getelementptr inbounds i8, ptr %0, i64 24
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %196 = load i32, ptr %195, align 8
   br i1 %.not159, label %208, label %197
 
@@ -1099,26 +1099,26 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull reado
 
 223:                                              ; preds = %6
   %224 = zext i8 %5 to i32
-  %225 = getelementptr inbounds i8, ptr %0, i64 20
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %226 = load i8, ptr %225, align 4
   %227 = zext i8 %226 to i32
   %228 = icmp ult i8 %5, %226
   br i1 %228, label %254, label %229
 
 229:                                              ; preds = %223
-  %230 = getelementptr inbounds i8, ptr %0, i64 21
+  %230 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %231 = load i8, ptr %230, align 1
   %232 = icmp ugt i8 %5, %231
   br i1 %232, label %254, label %233
 
 233:                                              ; preds = %229
-  %234 = getelementptr inbounds i8, ptr %0, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %235 = load ptr, ptr %234, align 8
   %.not = icmp eq ptr %235, null
   br i1 %.not, label %244, label %236
 
 236:                                              ; preds = %233
-  %237 = getelementptr inbounds i8, ptr %0, i64 16
+  %237 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %238 = load i32, ptr %237, align 8
   %239 = sub nsw i32 %224, %227
   %240 = add i32 %239, %238
@@ -1129,7 +1129,7 @@ define internal fastcc i32 @pg_mb_radix_conv(ptr nocapture noundef nonnull reado
 
 244:                                              ; preds = %233
   %245 = load ptr, ptr %0, align 8
-  %246 = getelementptr inbounds i8, ptr %0, i64 16
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %247 = load i32, ptr %246, align 8
   %248 = sub nsw i32 %224, %227
   %249 = add i32 %248, %247
@@ -1312,7 +1312,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture n
   br i1 %.not90, label %132, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds i8, ptr %84, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %87 = load i32, ptr %86, align 4
   %.not.i94 = icmp ult i32 %87, 16777216
   br i1 %.not.i94, label %92, label %88
@@ -1364,7 +1364,7 @@ define dso_local i32 @LocalToUtf(ptr noundef %0, i32 noundef %1, ptr nocapture n
 
 store_coded_char.exit102:                         ; preds = %104, %106
   %.3.i101 = phi ptr [ %108, %106 ], [ %.2.i99, %104 ]
-  %109 = getelementptr inbounds i8, ptr %84, i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %110 = load i32, ptr %109, align 4
   %.not.i103 = icmp ult i32 %110, 16777216
   br i1 %.not.i103, label %115, label %111

@@ -192,575 +192,575 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %dir, i8 0, i64 312, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %exclude_list, i8 0, i64 40, i1 false)
   store i32 9, ptr %builtin_ls_files_options, align 16
-  %short_name = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 4
+  %short_name = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 4
   store i32 122, ptr %short_name, align 4
-  %long_name = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 8
+  %long_name = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 8
   store ptr null, ptr %long_name, align 8
-  %value = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 16
   store ptr @line_terminator, ptr %value, align 16
-  %argh = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 24
+  %argh = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 24
   store ptr null, ptr %argh, align 8
-  %help = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 32
+  %help = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 32
   store ptr @.str, ptr %help, align 16
-  %flags = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 40
+  %flags = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 40
   store i32 2, ptr %flags, align 8
-  %callback = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 48
-  %arrayinit.element = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 88
+  %callback = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 48
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element, align 8
-  %short_name2 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 92
+  %short_name2 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 92
   store i32 116, ptr %short_name2, align 4
-  %long_name3 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 96
+  %long_name3 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 96
   store ptr null, ptr %long_name3, align 16
-  %value4 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 104
+  %value4 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 104
   store ptr %show_tag, ptr %value4, align 8
-  %argh5 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 112
+  %argh5 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 112
   store ptr null, ptr %argh5, align 16
-  %help6 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 120
+  %help6 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 120
   store ptr @.str.1, ptr %help6, align 8
-  %flags7 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 128
+  %flags7 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 128
   store i32 2, ptr %flags7, align 16
-  %callback8 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 136
+  %callback8 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 136
   store ptr null, ptr %callback8, align 8
-  %defval9 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 144
+  %defval9 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 144
   store i64 1, ptr %defval9, align 16
-  %ll_callback10 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 152
-  %arrayinit.element13 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 176
+  %ll_callback10 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 152
+  %arrayinit.element13 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback10, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element13, align 16
-  %short_name15 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 180
+  %short_name15 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 180
   store i32 118, ptr %short_name15, align 4
-  %long_name16 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 184
+  %long_name16 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 184
   store ptr null, ptr %long_name16, align 8
-  %value17 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 192
+  %value17 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 192
   store ptr @show_valid_bit, ptr %value17, align 16
-  %argh18 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 200
+  %argh18 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 200
   store ptr null, ptr %argh18, align 8
-  %help19 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 208
+  %help19 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 208
   store ptr @.str.2, ptr %help19, align 16
-  %flags20 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 216
+  %flags20 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 216
   store i32 2, ptr %flags20, align 8
-  %callback21 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 224
+  %callback21 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 224
   store ptr null, ptr %callback21, align 16
-  %defval22 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 232
+  %defval22 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 232
   store i64 1, ptr %defval22, align 8
-  %ll_callback23 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 240
-  %arrayinit.element26 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 264
+  %ll_callback23 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 240
+  %arrayinit.element26 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 264
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback23, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element26, align 8
-  %short_name28 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 268
+  %short_name28 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 268
   store i32 102, ptr %short_name28, align 4
-  %long_name29 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 272
+  %long_name29 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 272
   store ptr null, ptr %long_name29, align 16
-  %value30 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 280
+  %value30 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 280
   store ptr @show_fsmonitor_bit, ptr %value30, align 8
-  %argh31 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 288
+  %argh31 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 288
   store ptr null, ptr %argh31, align 16
-  %help32 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 296
+  %help32 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 296
   store ptr @.str.3, ptr %help32, align 8
-  %flags33 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 304
+  %flags33 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 304
   store i32 2, ptr %flags33, align 16
-  %callback34 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 312
+  %callback34 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 312
   store ptr null, ptr %callback34, align 8
-  %defval35 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 320
+  %defval35 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 320
   store i64 1, ptr %defval35, align 16
-  %ll_callback36 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 328
-  %arrayinit.element39 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 352
+  %ll_callback36 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 328
+  %arrayinit.element39 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback36, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element39, align 16
-  %short_name41 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 356
+  %short_name41 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 356
   store i32 99, ptr %short_name41, align 4
-  %long_name42 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 360
+  %long_name42 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 360
   store ptr @.str.4, ptr %long_name42, align 8
-  %value43 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 368
+  %value43 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 368
   store ptr @show_cached, ptr %value43, align 16
-  %argh44 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 376
+  %argh44 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 376
   store ptr null, ptr %argh44, align 8
-  %help45 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 384
+  %help45 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 384
   store ptr @.str.5, ptr %help45, align 16
-  %flags46 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 392
+  %flags46 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 392
   store i32 2, ptr %flags46, align 8
-  %callback47 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 400
+  %callback47 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 400
   store ptr null, ptr %callback47, align 16
-  %defval48 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 408
+  %defval48 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 408
   store i64 1, ptr %defval48, align 8
-  %ll_callback49 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 416
-  %arrayinit.element52 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 440
+  %ll_callback49 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 416
+  %arrayinit.element52 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback49, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element52, align 8
-  %short_name54 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 444
+  %short_name54 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 444
   store i32 100, ptr %short_name54, align 4
-  %long_name55 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 448
+  %long_name55 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 448
   store ptr @.str.6, ptr %long_name55, align 16
-  %value56 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 456
+  %value56 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 456
   store ptr @show_deleted, ptr %value56, align 8
-  %argh57 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 464
+  %argh57 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 464
   store ptr null, ptr %argh57, align 16
-  %help58 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 472
+  %help58 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 472
   store ptr @.str.7, ptr %help58, align 8
-  %flags59 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 480
+  %flags59 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 480
   store i32 2, ptr %flags59, align 16
-  %callback60 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 488
+  %callback60 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 488
   store ptr null, ptr %callback60, align 8
-  %defval61 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 496
+  %defval61 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 496
   store i64 1, ptr %defval61, align 16
-  %ll_callback62 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 504
-  %arrayinit.element65 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 528
+  %ll_callback62 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 504
+  %arrayinit.element65 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 528
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback62, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element65, align 16
-  %short_name67 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 532
+  %short_name67 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 532
   store i32 109, ptr %short_name67, align 4
-  %long_name68 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 536
+  %long_name68 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 536
   store ptr @.str.8, ptr %long_name68, align 8
-  %value69 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 544
+  %value69 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 544
   store ptr @show_modified, ptr %value69, align 16
-  %argh70 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 552
+  %argh70 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 552
   store ptr null, ptr %argh70, align 8
-  %help71 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 560
+  %help71 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 560
   store ptr @.str.9, ptr %help71, align 16
-  %flags72 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 568
+  %flags72 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 568
   store i32 2, ptr %flags72, align 8
-  %callback73 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 576
+  %callback73 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 576
   store ptr null, ptr %callback73, align 16
-  %defval74 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 584
+  %defval74 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 584
   store i64 1, ptr %defval74, align 8
-  %ll_callback75 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 592
-  %arrayinit.element78 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 616
+  %ll_callback75 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 592
+  %arrayinit.element78 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 616
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback75, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element78, align 8
-  %short_name80 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 620
+  %short_name80 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 620
   store i32 111, ptr %short_name80, align 4
-  %long_name81 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 624
+  %long_name81 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 624
   store ptr @.str.10, ptr %long_name81, align 16
-  %value82 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 632
+  %value82 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 632
   store ptr @show_others, ptr %value82, align 8
-  %argh83 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 640
+  %argh83 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 640
   store ptr null, ptr %argh83, align 16
-  %help84 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 648
+  %help84 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 648
   store ptr @.str.11, ptr %help84, align 8
-  %flags85 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 656
+  %flags85 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 656
   store i32 2, ptr %flags85, align 16
-  %callback86 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 664
+  %callback86 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 664
   store ptr null, ptr %callback86, align 8
-  %defval87 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 672
+  %defval87 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 672
   store i64 1, ptr %defval87, align 16
-  %ll_callback88 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 680
-  %arrayinit.element91 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 704
+  %ll_callback88 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 680
+  %arrayinit.element91 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 704
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback88, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element91, align 16
-  %short_name93 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 708
+  %short_name93 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 708
   store i32 105, ptr %short_name93, align 4
-  %long_name94 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 712
+  %long_name94 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 712
   store ptr @.str.12, ptr %long_name94, align 8
-  %value95 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 720
+  %value95 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 720
   store ptr %dir, ptr %value95, align 16
-  %argh97 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 728
+  %argh97 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 728
   store ptr null, ptr %argh97, align 8
-  %help98 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 736
+  %help98 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 736
   store ptr @.str.13, ptr %help98, align 16
-  %flags99 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 744
+  %flags99 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 744
   store i32 2, ptr %flags99, align 8
-  %callback100 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 752
+  %callback100 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 752
   store ptr null, ptr %callback100, align 16
-  %defval101 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 760
+  %defval101 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 760
   store i64 1, ptr %defval101, align 8
-  %ll_callback102 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 768
-  %arrayinit.element105 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 792
+  %ll_callback102 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 768
+  %arrayinit.element105 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 792
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback102, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element105, align 8
-  %short_name107 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 796
+  %short_name107 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 796
   store i32 115, ptr %short_name107, align 4
-  %long_name108 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 800
+  %long_name108 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 800
   store ptr @.str.14, ptr %long_name108, align 16
-  %value109 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 808
+  %value109 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 808
   store ptr @show_stage, ptr %value109, align 8
-  %argh110 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 816
+  %argh110 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 816
   store ptr null, ptr %argh110, align 16
-  %help111 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 824
+  %help111 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 824
   store ptr @.str.15, ptr %help111, align 8
-  %flags112 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 832
+  %flags112 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 832
   store i32 2, ptr %flags112, align 16
-  %callback113 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 840
+  %callback113 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 840
   store ptr null, ptr %callback113, align 8
-  %defval114 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 848
+  %defval114 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 848
   store i64 1, ptr %defval114, align 16
-  %ll_callback115 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 856
-  %arrayinit.element118 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 880
+  %ll_callback115 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 856
+  %arrayinit.element118 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 880
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback115, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element118, align 16
-  %short_name120 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 884
+  %short_name120 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 884
   store i32 107, ptr %short_name120, align 4
-  %long_name121 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 888
+  %long_name121 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 888
   store ptr @.str.16, ptr %long_name121, align 8
-  %value122 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 896
+  %value122 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 896
   store ptr @show_killed, ptr %value122, align 16
-  %argh123 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 904
+  %argh123 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 904
   store ptr null, ptr %argh123, align 8
-  %help124 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 912
+  %help124 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 912
   store ptr @.str.17, ptr %help124, align 16
-  %flags125 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 920
+  %flags125 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 920
   store i32 2, ptr %flags125, align 8
-  %callback126 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 928
+  %callback126 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 928
   store ptr null, ptr %callback126, align 16
-  %defval127 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 936
+  %defval127 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 936
   store i64 1, ptr %defval127, align 8
-  %ll_callback128 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 944
-  %arrayinit.element131 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 968
+  %ll_callback128 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 944
+  %arrayinit.element131 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 968
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback128, i8 0, i64 24, i1 false)
   store i32 5, ptr %arrayinit.element131, align 8
-  %short_name133 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 972
+  %short_name133 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 972
   store i32 0, ptr %short_name133, align 4
-  %long_name134 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 976
+  %long_name134 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 976
   store ptr @.str.18, ptr %long_name134, align 16
-  %value135 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 984
+  %value135 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 984
   store ptr %dir, ptr %value135, align 8
-  %argh137 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 992
+  %argh137 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 992
   store ptr null, ptr %argh137, align 16
-  %help138 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1000
+  %help138 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1000
   store ptr @.str.19, ptr %help138, align 8
-  %flags139 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1008
+  %flags139 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1008
   store i32 2, ptr %flags139, align 16
-  %callback140 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1016
+  %callback140 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1016
   store ptr null, ptr %callback140, align 8
-  %defval141 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1024
+  %defval141 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1024
   store i64 2, ptr %defval141, align 16
-  %ll_callback142 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1032
-  %arrayinit.element145 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1056
+  %ll_callback142 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1032
+  %arrayinit.element145 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback142, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element145, align 16
-  %short_name147 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1060
+  %short_name147 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1060
   store i32 0, ptr %short_name147, align 4
-  %long_name148 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1064
+  %long_name148 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1064
   store ptr @.str.20, ptr %long_name148, align 8
-  %value149 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1072
+  %value149 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1072
   store ptr @show_eol, ptr %value149, align 16
-  %argh150 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1080
+  %argh150 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1080
   store ptr null, ptr %argh150, align 8
-  %help151 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1088
+  %help151 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1088
   store ptr @.str.21, ptr %help151, align 16
-  %flags152 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1096
+  %flags152 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1096
   store i32 2, ptr %flags152, align 8
-  %callback153 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1104
+  %callback153 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1104
   store ptr null, ptr %callback153, align 16
-  %defval154 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1112
+  %defval154 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1112
   store i64 1, ptr %defval154, align 8
-  %ll_callback155 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1120
-  %arrayinit.element158 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1144
+  %ll_callback155 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1120
+  %arrayinit.element158 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback155, i8 0, i64 24, i1 false)
   store i32 6, ptr %arrayinit.element158, align 8
-  %short_name160 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1148
+  %short_name160 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1148
   store i32 0, ptr %short_name160, align 4
-  %long_name161 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1152
+  %long_name161 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1152
   store ptr @.str.22, ptr %long_name161, align 16
-  %value162 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1160
+  %value162 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1160
   store ptr %dir, ptr %value162, align 8
-  %argh164 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1168
+  %argh164 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1168
   store ptr null, ptr %argh164, align 16
-  %help165 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1176
+  %help165 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1176
   store ptr @.str.23, ptr %help165, align 8
-  %flags166 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1184
+  %flags166 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1184
   store i32 2, ptr %flags166, align 16
-  %callback167 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1192
+  %callback167 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1192
   store ptr null, ptr %callback167, align 8
-  %defval168 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1200
+  %defval168 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1200
   store i64 4, ptr %defval168, align 16
-  %ll_callback169 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1208
-  %arrayinit.element172 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1232
+  %ll_callback169 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1208
+  %arrayinit.element172 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback169, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element172, align 16
-  %short_name174 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1236
+  %short_name174 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1236
   store i32 117, ptr %short_name174, align 4
-  %long_name175 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1240
+  %long_name175 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1240
   store ptr @.str.24, ptr %long_name175, align 8
-  %value176 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1248
+  %value176 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1248
   store ptr @show_unmerged, ptr %value176, align 16
-  %argh177 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1256
+  %argh177 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1256
   store ptr null, ptr %argh177, align 8
-  %help178 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1264
+  %help178 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1264
   store ptr @.str.25, ptr %help178, align 16
-  %flags179 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1272
+  %flags179 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1272
   store i32 2, ptr %flags179, align 8
-  %callback180 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1280
+  %callback180 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1280
   store ptr null, ptr %callback180, align 16
-  %defval181 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1288
+  %defval181 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1288
   store i64 1, ptr %defval181, align 8
-  %ll_callback182 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1296
-  %arrayinit.element185 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1320
+  %ll_callback182 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1296
+  %arrayinit.element185 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1320
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback182, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element185, align 8
-  %short_name187 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1324
+  %short_name187 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1324
   store i32 0, ptr %short_name187, align 4
-  %long_name188 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1328
+  %long_name188 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1328
   store ptr @.str.26, ptr %long_name188, align 16
-  %value189 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1336
+  %value189 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1336
   store ptr @show_resolve_undo, ptr %value189, align 8
-  %argh190 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1344
+  %argh190 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1344
   store ptr null, ptr %argh190, align 16
-  %help191 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1352
+  %help191 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1352
   store ptr @.str.27, ptr %help191, align 8
-  %flags192 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1360
+  %flags192 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1360
   store i32 2, ptr %flags192, align 16
-  %callback193 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1368
+  %callback193 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1368
   store ptr null, ptr %callback193, align 8
-  %defval194 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1376
+  %defval194 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1376
   store i64 1, ptr %defval194, align 16
-  %ll_callback195 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1384
-  %arrayinit.element198 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1408
+  %ll_callback195 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1384
+  %arrayinit.element198 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1408
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback195, i8 0, i64 24, i1 false)
   store i32 13, ptr %arrayinit.element198, align 16
-  %short_name200 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1412
+  %short_name200 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1412
   store i32 120, ptr %short_name200, align 4
-  %long_name201 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1416
+  %long_name201 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1416
   store ptr @.str.28, ptr %long_name201, align 8
-  %value202 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1424
+  %value202 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1424
   store ptr %exclude_list, ptr %value202, align 16
-  %argh203 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1432
+  %argh203 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1432
   store ptr @.str.29, ptr %argh203, align 8
-  %help204 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1440
+  %help204 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1440
   store ptr @.str.30, ptr %help204, align 16
-  %flags205 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1448
+  %flags205 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1448
   store i32 4, ptr %flags205, align 8
-  %callback206 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1456
+  %callback206 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1456
   store ptr @option_parse_exclude, ptr %callback206, align 16
-  %defval207 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1464
-  %arrayinit.element211 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1496
+  %defval207 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1464
+  %arrayinit.element211 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1496
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defval207, i8 0, i64 32, i1 false)
   store i32 13, ptr %arrayinit.element211, align 8
-  %short_name213 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1500
+  %short_name213 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1500
   store i32 88, ptr %short_name213, align 4
-  %long_name214 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1504
+  %long_name214 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1504
   store ptr @.str.31, ptr %long_name214, align 16
-  %value215 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1512
+  %value215 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1512
   store ptr %dir, ptr %value215, align 8
-  %argh216 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1520
+  %argh216 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1520
   store ptr @.str.32, ptr %argh216, align 16
-  %help217 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1528
+  %help217 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1528
   store ptr @.str.33, ptr %help217, align 8
-  %flags218 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1536
+  %flags218 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1536
   store i32 4, ptr %flags218, align 16
-  %callback219 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1544
+  %callback219 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1544
   store ptr @option_parse_exclude_from, ptr %callback219, align 8
-  %defval220 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1552
-  %arrayinit.element224 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1584
+  %defval220 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1552
+  %arrayinit.element224 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1584
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %defval220, i8 0, i64 32, i1 false)
   store i32 10, ptr %arrayinit.element224, align 16
-  %short_name226 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1588
+  %short_name226 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1588
   store i32 0, ptr %short_name226, align 4
-  %long_name227 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1592
+  %long_name227 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1592
   store ptr @.str.34, ptr %long_name227, align 8
-  %value228 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1600
-  %exclude_per_dir = getelementptr inbounds i8, ptr %dir, i64 40
+  %value228 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1600
+  %exclude_per_dir = getelementptr inbounds nuw i8, ptr %dir, i64 40
   store ptr %exclude_per_dir, ptr %value228, align 16
-  %argh229 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1608
+  %argh229 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1608
   store ptr @.str.32, ptr %argh229, align 8
-  %help230 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1616
+  %help230 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1616
   store ptr @.str.35, ptr %help230, align 16
-  %flags231 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1624
+  %flags231 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1624
   store i32 0, ptr %flags231, align 8
-  %callback232 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1632
-  %arrayinit.element237 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1672
+  %callback232 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1632
+  %arrayinit.element237 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1672
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback232, i8 0, i64 40, i1 false)
   store i32 13, ptr %arrayinit.element237, align 8
-  %short_name239 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1676
+  %short_name239 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1676
   store i32 0, ptr %short_name239, align 4
-  %long_name240 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1680
+  %long_name240 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1680
   store ptr @.str.36, ptr %long_name240, align 16
-  %value241 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1688
+  %value241 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1688
   store ptr %dir, ptr %value241, align 8
-  %argh242 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1696
+  %argh242 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1696
   store ptr null, ptr %argh242, align 16
-  %help243 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1704
+  %help243 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1704
   store ptr @.str.37, ptr %help243, align 8
-  %flags244 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1712
+  %flags244 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1712
   store i32 6, ptr %flags244, align 16
-  %callback245 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1720
+  %callback245 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1720
   store ptr @option_parse_exclude_standard, ptr %callback245, align 8
-  %defval246 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1728
-  %arrayinit.element250 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1760
+  %defval246 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1728
+  %arrayinit.element250 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1760
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %defval246, i8 0, i64 32, i1 false)
   store i32 9, ptr %arrayinit.element250, align 16
-  %short_name252 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1764
+  %short_name252 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1764
   store i32 0, ptr %short_name252, align 4
-  %long_name253 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1768
+  %long_name253 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1768
   store ptr @.str.38, ptr %long_name253, align 8
-  %value254 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1776
+  %value254 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1776
   store ptr @prefix_len, ptr %value254, align 16
-  %argh255 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1784
+  %argh255 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1784
   store ptr null, ptr %argh255, align 8
-  %help256 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1792
+  %help256 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1792
   store ptr @.str.39, ptr %help256, align 16
-  %flags257 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1800
+  %flags257 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1800
   store i32 6, ptr %flags257, align 8
-  %callback258 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1808
-  %arrayinit.element263 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1848
+  %callback258 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1808
+  %arrayinit.element263 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1848
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %callback258, i8 0, i64 40, i1 false)
   store i32 9, ptr %arrayinit.element263, align 8
-  %short_name265 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1852
+  %short_name265 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1852
   store i32 0, ptr %short_name265, align 4
-  %long_name266 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1856
+  %long_name266 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1856
   store ptr @.str.40, ptr %long_name266, align 16
-  %value267 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1864
+  %value267 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1864
   store ptr @recurse_submodules, ptr %value267, align 8
-  %argh268 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1872
+  %argh268 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1872
   store ptr null, ptr %argh268, align 16
-  %help269 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1880
+  %help269 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1880
   store ptr @.str.41, ptr %help269, align 8
-  %flags270 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1888
+  %flags270 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1888
   store i32 2, ptr %flags270, align 16
-  %callback271 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1896
+  %callback271 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1896
   store ptr null, ptr %callback271, align 8
-  %defval272 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1904
+  %defval272 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1904
   store i64 1, ptr %defval272, align 16
-  %ll_callback273 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1912
-  %arrayinit.element276 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1936
+  %ll_callback273 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1912
+  %arrayinit.element276 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1936
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback273, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element276, align 16
-  %short_name278 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1940
+  %short_name278 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1940
   store i32 0, ptr %short_name278, align 4
-  %long_name279 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1944
+  %long_name279 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1944
   store ptr @.str.42, ptr %long_name279, align 8
-  %value280 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1952
+  %value280 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1952
   store ptr @error_unmatch, ptr %value280, align 16
-  %argh281 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1960
+  %argh281 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1960
   store ptr null, ptr %argh281, align 8
-  %help282 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1968
+  %help282 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1968
   store ptr @.str.43, ptr %help282, align 16
-  %flags283 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1976
+  %flags283 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1976
   store i32 2, ptr %flags283, align 8
-  %callback284 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1984
+  %callback284 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1984
   store ptr null, ptr %callback284, align 16
-  %defval285 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 1992
+  %defval285 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 1992
   store i64 1, ptr %defval285, align 8
-  %ll_callback286 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2000
-  %arrayinit.element289 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2024
+  %ll_callback286 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2000
+  %arrayinit.element289 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2024
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback286, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element289, align 8
-  %short_name291 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2028
+  %short_name291 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2028
   store i32 0, ptr %short_name291, align 4
-  %long_name292 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2032
+  %long_name292 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2032
   store ptr @.str.44, ptr %long_name292, align 16
-  %value293 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2040
+  %value293 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2040
   store ptr @with_tree, ptr %value293, align 8
-  %argh294 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2048
+  %argh294 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2048
   store ptr @.str.45, ptr %argh294, align 16
-  %help295 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2056
+  %help295 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2056
   store ptr @.str.46, ptr %help295, align 8
-  %flags296 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2064
+  %flags296 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2064
   store i32 0, ptr %flags296, align 16
-  %callback297 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2072
-  %arrayinit.element302 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2112
+  %callback297 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2072
+  %arrayinit.element302 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %callback297, i8 0, i64 40, i1 false)
   store i32 13, ptr %arrayinit.element302, align 16
-  %short_name304 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2116
+  %short_name304 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2116
   store i32 0, ptr %short_name304, align 4
-  %long_name305 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2120
+  %long_name305 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2120
   store ptr @.str.47, ptr %long_name305, align 8
-  %value306 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2128
+  %value306 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2128
   store ptr @abbrev, ptr %value306, align 16
-  %argh307 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2136
+  %argh307 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2136
   store ptr @.str.48, ptr %argh307, align 8
-  %help308 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2144
+  %help308 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2144
   store ptr @.str.49, ptr %help308, align 16
-  %flags309 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2152
+  %flags309 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2152
   store i32 1, ptr %flags309, align 8
-  %callback310 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2160
+  %callback310 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2160
   store ptr @parse_opt_abbrev_cb, ptr %callback310, align 16
-  %defval311 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2168
-  %arrayinit.element315 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2200
+  %defval311 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2168
+  %arrayinit.element315 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %defval311, i8 0, i64 32, i1 false)
   store i32 9, ptr %arrayinit.element315, align 8
-  %short_name317 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2204
+  %short_name317 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2204
   store i32 0, ptr %short_name317, align 4
-  %long_name318 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2208
+  %long_name318 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2208
   store ptr @.str.50, ptr %long_name318, align 16
-  %value319 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2216
+  %value319 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2216
   store ptr @debug_mode, ptr %value319, align 8
-  %argh320 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2224
+  %argh320 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2224
   store ptr null, ptr %argh320, align 16
-  %help321 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2232
+  %help321 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2232
   store ptr @.str.51, ptr %help321, align 8
-  %flags322 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2240
+  %flags322 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2240
   store i32 2, ptr %flags322, align 16
-  %callback323 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2248
+  %callback323 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2248
   store ptr null, ptr %callback323, align 8
-  %defval324 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2256
+  %defval324 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2256
   store i64 1, ptr %defval324, align 16
-  %ll_callback325 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2264
-  %arrayinit.element328 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2288
+  %ll_callback325 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2264
+  %arrayinit.element328 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2288
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback325, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element328, align 16
-  %short_name330 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2292
+  %short_name330 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2292
   store i32 0, ptr %short_name330, align 4
-  %long_name331 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2296
+  %long_name331 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2296
   store ptr @.str.52, ptr %long_name331, align 8
-  %value332 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2304
+  %value332 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2304
   store ptr @skipping_duplicates, ptr %value332, align 16
-  %argh333 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2312
+  %argh333 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2312
   store ptr null, ptr %argh333, align 8
-  %help334 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2320
+  %help334 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2320
   store ptr @.str.53, ptr %help334, align 16
-  %flags335 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2328
+  %flags335 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2328
   store i32 2, ptr %flags335, align 8
-  %callback336 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2336
+  %callback336 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2336
   store ptr null, ptr %callback336, align 16
-  %defval337 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2344
+  %defval337 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2344
   store i64 1, ptr %defval337, align 8
-  %ll_callback338 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2352
-  %arrayinit.element341 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2376
+  %ll_callback338 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2352
+  %arrayinit.element341 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2376
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %ll_callback338, i8 0, i64 24, i1 false)
   store i32 9, ptr %arrayinit.element341, align 8
-  %short_name343 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2380
+  %short_name343 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2380
   store i32 0, ptr %short_name343, align 4
-  %long_name344 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2384
+  %long_name344 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2384
   store ptr @.str.54, ptr %long_name344, align 16
-  %value345 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2392
+  %value345 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2392
   store ptr @show_sparse_dirs, ptr %value345, align 8
-  %argh346 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2400
+  %argh346 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2400
   store ptr null, ptr %argh346, align 16
-  %help347 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2408
+  %help347 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2408
   store ptr @.str.55, ptr %help347, align 8
-  %flags348 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2416
+  %flags348 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2416
   store i32 2, ptr %flags348, align 16
-  %callback349 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2424
+  %callback349 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2424
   store ptr null, ptr %callback349, align 8
-  %defval350 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2432
+  %defval350 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2432
   store i64 1, ptr %defval350, align 16
-  %ll_callback351 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2440
-  %arrayinit.element354 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2464
+  %ll_callback351 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2440
+  %arrayinit.element354 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2464
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ll_callback351, i8 0, i64 24, i1 false)
   store i32 10, ptr %arrayinit.element354, align 16
-  %short_name356 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2468
+  %short_name356 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2468
   store i32 0, ptr %short_name356, align 4
-  %long_name357 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2472
+  %long_name357 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2472
   store ptr @.str.56, ptr %long_name357, align 8
-  %value358 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2480
+  %value358 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2480
   store ptr @format, ptr %value358, align 16
-  %argh359 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2488
+  %argh359 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2488
   store ptr @.str.56, ptr %argh359, align 8
-  %help360 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2496
+  %help360 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2496
   store ptr @.str.57, ptr %help360, align 16
-  %flags361 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2504
+  %flags361 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2504
   store i32 4, ptr %flags361, align 8
-  %callback362 = getelementptr inbounds i8, ptr %builtin_ls_files_options, i64 2512
+  %callback362 = getelementptr inbounds nuw i8, ptr %builtin_ls_files_options, i64 2512
   %cmp = icmp eq i32 %argc, 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %callback362, i8 0, i64 128, i1 false)
   br i1 %cmp, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %argv, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
   %0 = load ptr, ptr %arrayidx, align 8
   %1 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %1, 45
   br i1 %.not, label %sub_1, label %if.end
 
 sub_1:                                            ; preds = %land.lhs.true
-  %2 = getelementptr inbounds i8, ptr %0, i64 1
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not77 = icmp eq i8 %3, 104
   br i1 %.not77, label %land.lhs.true.tail, label %if.end
 
 land.lhs.true.tail:                               ; preds = %sub_1
-  %4 = getelementptr inbounds i8, ptr %0, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %if.then, label %if.end
@@ -773,7 +773,7 @@ if.end:                                           ; preds = %sub_1, %land.lhs.tr
   %7 = load ptr, ptr @the_repository, align 8
   call void @prepare_repo_settings(ptr noundef %7) #14
   %8 = load ptr, ptr @the_repository, align 8
-  %command_requires_full_index = getelementptr inbounds i8, ptr %8, i64 168
+  %command_requires_full_index = getelementptr inbounds nuw i8, ptr %8, i64 168
   store i32 0, ptr %command_requires_full_index, align 8
   store ptr %cmd_prefix, ptr @prefix, align 8
   %tobool380.not = icmp eq ptr %cmd_prefix, null
@@ -800,7 +800,7 @@ if.end388:                                        ; preds = %if.end383
   %10 = load ptr, ptr @prefix, align 8
   %call390 = call i32 @parse_options(i32 noundef %argc, ptr noundef %argv, ptr noundef %10, ptr noundef nonnull %builtin_ls_files_options, ptr noundef nonnull @ls_files_usage, i32 noundef 0) #14
   %call391 = call ptr @add_pattern_list(ptr noundef nonnull %dir, i32 noundef 0, ptr noundef nonnull @.str.60) #14
-  %nr = getelementptr inbounds i8, ptr %exclude_list, i64 8
+  %nr = getelementptr inbounds nuw i8, ptr %exclude_list, i64 8
   %11 = load i64, ptr %nr, align 8
   %cmp39370.not = icmp eq i64 %11, 0
   br i1 %cmp39370.not, label %for.end, label %for.body
@@ -808,7 +808,7 @@ if.end388:                                        ; preds = %if.end383
 for.body:                                         ; preds = %if.end388, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end388 ]
   %12 = load ptr, ptr %exclude_list, align 8
-  %arrayidx395 = getelementptr inbounds %struct.string_list_item, ptr %12, i64 %indvars.iv
+  %arrayidx395 = getelementptr inbounds nuw %struct.string_list_item, ptr %12, i64 %indvars.iv
   %13 = load ptr, ptr %arrayidx395, align 8
   %14 = load i32, ptr @exclude_args, align 4
   %dec = add nsw i32 %14, -1
@@ -1007,10 +1007,10 @@ lor.lhs.false.i:                                  ; preds = %if.end476
   %spec.select.i = add nsw i32 %dec.i, %conv.i
   store i32 %spec.select.i, ptr @max_prefix_len, align 4
   %45 = load ptr, ptr @the_repository, align 8
-  %index = getelementptr inbounds i8, ptr %45, i64 240
+  %index = getelementptr inbounds nuw i8, ptr %45, i64 240
   %46 = load ptr, ptr %index, align 8
   %conv478 = sext i32 %spec.select.i to i64
-  %cache_nr.i = getelementptr inbounds i8, ptr %46, i64 12
+  %cache_nr.i = getelementptr inbounds nuw i8, ptr %46, i64 12
   %47 = load i32, ptr %cache_nr.i, align 4
   %tobool1.not.i = icmp eq i32 %47, 0
   br i1 %tobool1.not.i, label %prune_index.exit, label %if.end.i41
@@ -1036,7 +1036,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %idxprom.i45 = sext i32 %add.i to i64
   %arrayidx.i46 = getelementptr inbounds ptr, ptr %49, i64 %idxprom.i45
   %50 = load ptr, ptr %arrayidx.i46, align 8
-  %name.i = getelementptr inbounds i8, ptr %50, i64 108
+  %name.i = getelementptr inbounds nuw i8, ptr %50, i64 108
   %call10.i = call i32 @strncmp(ptr noundef nonnull %name.i, ptr noundef nonnull %call475, i64 noundef range(i64 -2147483648, 2147483648) %conv478) #15
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   %add13.i = add nsw i32 %add.i, 1
@@ -1055,7 +1055,7 @@ if.then.i.i:                                      ; preds = %while.end.i
   %conv18.i = zext i32 %sub17.i to i64
   %51 = load ptr, ptr %46, align 8
   %idx.ext.i = zext nneg i32 %spec.select.i44 to i64
-  %add.ptr.i = getelementptr inbounds ptr, ptr %51, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %51, i64 %idx.ext.i
   %mul.i.i.i = shl nuw nsw i64 %conv18.i, 3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull readonly align 1 dereferenceable(1) %add.ptr.i, i64 %mul.i.i.i, i1 false)
   br label %move_array.exit.i
@@ -1145,7 +1145,7 @@ if.then522:                                       ; preds = %if.then518
 
 if.end524:                                        ; preds = %if.then518
   %64 = load ptr, ptr @the_repository, align 8
-  %index525 = getelementptr inbounds i8, ptr %64, i64 240
+  %index525 = getelementptr inbounds nuw i8, ptr %64, i64 240
   %65 = load ptr, ptr %index525, align 8
   call void @overlay_tree_on_index(ptr noundef %65, ptr noundef nonnull %63, ptr noundef %max_prefix.06269) #14
   br label %if.end526
@@ -1159,9 +1159,9 @@ if.end526:                                        ; preds = %if.end524, %if.end5
 
 if.then528:                                       ; preds = %if.end526
   %68 = load ptr, ptr @the_repository, align 8
-  %index529 = getelementptr inbounds i8, ptr %68, i64 240
+  %index529 = getelementptr inbounds nuw i8, ptr %68, i64 240
   %69 = load ptr, ptr %index529, align 8
-  %resolve_undo.i = getelementptr inbounds i8, ptr %69, i64 24
+  %resolve_undo.i = getelementptr inbounds nuw i8, ptr %69, i64 24
   %70 = load ptr, ptr %resolve_undo.i, align 8
   %tobool.not.i47 = icmp eq ptr %70, null
   br i1 %tobool.not.i47, label %if.end530, label %if.end.i48
@@ -1172,7 +1172,7 @@ if.end.i48:                                       ; preds = %if.then528
   br i1 %tobool2.not22.i, label %if.end530, label %land.rhs.i.preheader
 
 land.rhs.i.preheader:                             ; preds = %if.end.i48
-  %nr.i73 = getelementptr inbounds i8, ptr %70, i64 8
+  %nr.i73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %nr.i73, align 8
   %cmp.i5075 = icmp sgt i64 %72, 0
   br i1 %cmp.i5075, label %for.body.i, label %if.end530
@@ -1180,7 +1180,7 @@ land.rhs.i.preheader:                             ; preds = %if.end.i48
 for.body.i:                                       ; preds = %land.rhs.i.preheader, %for.inc28.i
   %item.023.i76 = phi ptr [ %incdec.ptr.i, %for.inc28.i ], [ %71, %land.rhs.i.preheader ]
   %73 = load ptr, ptr %item.023.i76, align 8
-  %util.i = getelementptr inbounds i8, ptr %item.023.i76, i64 8
+  %util.i = getelementptr inbounds nuw i8, ptr %item.023.i76, i64 8
   %74 = load ptr, ptr %util.i, align 8
   %call.i51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #15
   %conv.i52 = trunc i64 %call.i51 to i32
@@ -1195,12 +1195,12 @@ if.end9.i:                                        ; preds = %for.body.i
   br i1 %tobool11.not.i54, label %for.inc28.i, label %for.cond14.preheader.i
 
 for.cond14.preheader.i:                           ; preds = %if.end9.i
-  %oid.i = getelementptr inbounds i8, ptr %74, i64 12
+  %oid.i = getelementptr inbounds nuw i8, ptr %74, i64 12
   br label %for.body17.i
 
 for.body17.i:                                     ; preds = %for.inc.i, %for.cond14.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.cond14.preheader.i ], [ %indvars.iv.next.pre-phi.i, %for.inc.i ]
-  %arrayidx.i55 = getelementptr inbounds [3 x i32], ptr %74, i64 0, i64 %indvars.iv.i
+  %arrayidx.i55 = getelementptr inbounds nuw [3 x i32], ptr %74, i64 0, i64 %indvars.iv.i
   %77 = load i32, ptr %arrayidx.i55, align 4
   %tobool18.not.i = icmp eq i32 %77, 0
   br i1 %tobool18.not.i, label %for.body17.for.inc_crit_edge.i, label %if.end20.i
@@ -1212,7 +1212,7 @@ for.body17.for.inc_crit_edge.i:                   ; preds = %for.body17.i
 if.end20.i:                                       ; preds = %for.body17.i
   %78 = load ptr, ptr @tag_resolve_undo, align 8
   %79 = load ptr, ptr @the_repository, align 8
-  %arrayidx25.i = getelementptr inbounds [3 x %struct.object_id], ptr %oid.i, i64 0, i64 %indvars.iv.i
+  %arrayidx25.i = getelementptr inbounds nuw [3 x %struct.object_id], ptr %oid.i, i64 0, i64 %indvars.iv.i
   %80 = load i32, ptr @abbrev, align 4
   %call26.i = call ptr @repo_find_unique_abbrev(ptr noundef %79, ptr noundef nonnull %arrayidx25.i, i32 noundef %80) #14
   %81 = add nuw nsw i64 %indvars.iv.i, 1
@@ -1233,10 +1233,10 @@ for.inc.i:                                        ; preds = %if.end20.i, %for.bo
   br i1 %exitcond.not.i, label %for.inc28.i, label %for.body17.i, !llvm.loop !8
 
 for.inc28.i:                                      ; preds = %for.inc.i, %if.end9.i, %for.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %item.023.i76, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %item.023.i76, i64 16
   %87 = load ptr, ptr %resolve_undo.i, align 8
   %88 = load ptr, ptr %87, align 8
-  %nr.i = getelementptr inbounds i8, ptr %87, i64 8
+  %nr.i = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i64, ptr %nr.i, align 8
   %add.ptr.i49 = getelementptr inbounds %struct.string_list_item, ptr %88, i64 %89
   %cmp.i50 = icmp ult ptr %incdec.ptr.i, %add.ptr.i49
@@ -1279,7 +1279,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   store i1 true, ptr @exc_given, align 4
   %call = tail call ptr @string_list_append(ptr noundef %0, ptr noundef %arg) #14
@@ -1297,7 +1297,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 do.end:                                           ; preds = %entry
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   store i1 true, ptr @exc_given, align 4
   tail call void @add_patterns_from_file(ptr noundef %0, ptr noundef %arg) #14
@@ -1307,7 +1307,7 @@ do.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @option_parse_exclude_standard(ptr nocapture noundef readonly %opt, ptr noundef readnone %arg, i32 noundef %unset) #0 {
 entry:
-  %value = getelementptr inbounds i8, ptr %opt, i64 16
+  %value = getelementptr inbounds nuw i8, ptr %opt, i64 16
   %0 = load ptr, ptr %value, align 8
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.body1, label %if.then
@@ -1418,7 +1418,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.then
-  %index = getelementptr inbounds i8, ptr %repo, i64 240
+  %index = getelementptr inbounds nuw i8, ptr %repo, i64 240
   %3 = load ptr, ptr %index, align 8
   %call = tail call i32 @fill_directory(ptr noundef nonnull %dir, ptr noundef %3, ptr noundef nonnull @pathspec) #14
   %4 = load i32, ptr @show_others, align 4
@@ -1427,21 +1427,21 @@ if.end:                                           ; preds = %if.then3, %if.then
 
 if.then5:                                         ; preds = %if.end
   %5 = load ptr, ptr %index, align 8
-  %nr.i = getelementptr inbounds i8, ptr %dir, i64 4
+  %nr.i = getelementptr inbounds nuw i8, ptr %dir, i64 4
   %6 = load i32, ptr %nr.i, align 4
   %cmp7.i = icmp sgt i32 %6, 0
   br i1 %cmp7.i, label %for.body.lr.ph.i, label %if.end7
 
 for.body.lr.ph.i:                                 ; preds = %if.then5
-  %entries.i = getelementptr inbounds i8, ptr %dir, i64 16
+  %entries.i = getelementptr inbounds nuw i8, ptr %dir, i64 16
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %7 = load ptr, ptr %entries.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %8 = load ptr, ptr %arrayidx.i, align 8
-  %name.i = getelementptr inbounds i8, ptr %8, i64 4
+  %name.i = getelementptr inbounds nuw i8, ptr %8, i64 4
   %9 = load i32, ptr %8, align 4
   %call.i = tail call i32 @index_name_is_other(ptr noundef %5, ptr noundef nonnull %name.i, i32 noundef %9) #14
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -1466,22 +1466,22 @@ if.end7:                                          ; preds = %for.inc.i, %if.then
 
 if.then9:                                         ; preds = %if.end7
   %14 = load ptr, ptr %index, align 8
-  %nr.i48 = getelementptr inbounds i8, ptr %dir, i64 4
+  %nr.i48 = getelementptr inbounds nuw i8, ptr %dir, i64 4
   %15 = load i32, ptr %nr.i48, align 4
   %cmp47.i = icmp sgt i32 %15, 0
   br i1 %cmp47.i, label %for.body.lr.ph.i49, label %if.end12
 
 for.body.lr.ph.i49:                               ; preds = %if.then9
-  %entries.i50 = getelementptr inbounds i8, ptr %dir, i64 16
-  %cache_nr.i = getelementptr inbounds i8, ptr %14, i64 12
+  %entries.i50 = getelementptr inbounds nuw i8, ptr %dir, i64 16
+  %cache_nr.i = getelementptr inbounds nuw i8, ptr %14, i64 12
   br label %for.body.i51
 
 for.body.i51:                                     ; preds = %for.inc79.i, %for.body.lr.ph.i49
   %indvars.iv57.i = phi i64 [ 0, %for.body.lr.ph.i49 ], [ %indvars.iv.next58.i, %for.inc79.i ]
   %16 = load ptr, ptr %entries.i50, align 8
-  %arrayidx.i52 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv57.i
+  %arrayidx.i52 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv57.i
   %17 = load ptr, ptr %arrayidx.i52, align 8
-  %name.i53 = getelementptr inbounds i8, ptr %17, i64 4
+  %name.i53 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %sub.ptr.rhs.cast.i = ptrtoint ptr %name.i53 to i64
   %18 = load i32, ptr %17, align 4
   %cmp543.not.i = icmp eq i32 %18, 0
@@ -1493,7 +1493,7 @@ for.body7.i.preheader:                            ; preds = %for.body.i51
   br i1 %tobool.not.i5575, label %if.then.i, label %if.end59.i
 
 for.cond1.i:                                      ; preds = %if.end59.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i5476, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i5476, i64 1
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %19 = load i32, ptr %17, align 4
@@ -1530,9 +1530,9 @@ land.rhs.lr.ph.i:                                 ; preds = %if.end.i57
 
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.i
   %indvars.iv.i58 = phi i64 [ %23, %land.rhs.lr.ph.i ], [ %indvars.iv.next.i59, %while.body.i ]
-  %arrayidx22.i = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.i58
+  %arrayidx22.i = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i58
   %24 = load ptr, ptr %arrayidx22.i, align 8
-  %ce_flags.i = getelementptr inbounds i8, ptr %24, i64 56
+  %ce_flags.i = getelementptr inbounds nuw i8, ptr %24, i64 56
   %25 = load i32, ptr %ce_flags.i, align 8
   %26 = and i32 %25, 12288
   %tobool23.not.i = icmp eq i32 %26, 0
@@ -1546,23 +1546,23 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 if.end28.i:                                       ; preds = %land.rhs.i
   %idxprom30.i = and i64 %indvars.iv.i58, 4294967295
-  %arrayidx31.i = getelementptr inbounds ptr, ptr %22, i64 %idxprom30.i
+  %arrayidx31.i = getelementptr inbounds nuw ptr, ptr %22, i64 %idxprom30.i
   %27 = load ptr, ptr %arrayidx31.i, align 8
-  %ce_namelen.i = getelementptr inbounds i8, ptr %27, i64 64
+  %ce_namelen.i = getelementptr inbounds nuw i8, ptr %27, i64 64
   %28 = load i32, ptr %ce_namelen.i, align 8
   %29 = load i32, ptr %17, align 4
   %cmp33.i = icmp ult i32 %29, %28
   br i1 %cmp33.i, label %land.lhs.true.i, label %for.inc79.i
 
 land.lhs.true.i:                                  ; preds = %if.end28.i
-  %name38.i = getelementptr inbounds i8, ptr %27, i64 108
+  %name38.i = getelementptr inbounds nuw i8, ptr %27, i64 108
   %conv43.i = zext i32 %29 to i64
   %call44.i = tail call i32 @strncmp(ptr noundef nonnull %name38.i, ptr noundef nonnull %name.i53, i64 noundef %conv43.i) #15
   %tobool45.not.i = icmp eq i32 %call44.i, 0
   br i1 %tobool45.not.i, label %land.lhs.true46.i, label %for.inc79.i
 
 land.lhs.true46.i:                                ; preds = %land.lhs.true.i
-  %arrayidx53.i = getelementptr inbounds [0 x i8], ptr %name38.i, i64 0, i64 %conv43.i
+  %arrayidx53.i = getelementptr inbounds nuw [0 x i8], ptr %name38.i, i64 0, i64 %conv43.i
   %30 = load i8, ptr %arrayidx53.i, align 1
   %cmp55.not.i = icmp eq i8 %30, 47
   br i1 %cmp55.not.i, label %if.then74.i, label %for.inc79.i
@@ -1579,7 +1579,7 @@ if.end59.i:                                       ; preds = %for.body7.i.prehead
 if.then74.i:                                      ; preds = %if.end59.i, %land.lhs.true46.i
   %31 = load ptr, ptr @tag_killed, align 8
   %32 = load ptr, ptr %entries.i50, align 8
-  %arrayidx77.i = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv57.i
+  %arrayidx77.i = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv57.i
   %33 = load ptr, ptr %arrayidx77.i, align 8
   tail call fastcc void @show_dir_entry(ptr noundef %14, ptr noundef %31, ptr noundef %33)
   br label %for.inc79.i
@@ -1611,23 +1611,23 @@ if.end21:                                         ; preds = %if.end12
   br i1 %tobool22.not, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end21
-  %index24 = getelementptr inbounds i8, ptr %repo, i64 240
+  %index24 = getelementptr inbounds nuw i8, ptr %repo, i64 240
   %41 = load ptr, ptr %index24, align 8
   tail call void @ensure_full_index(ptr noundef %41) #14
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end21
-  %index26 = getelementptr inbounds i8, ptr %repo, i64 240
+  %index26 = getelementptr inbounds nuw i8, ptr %repo, i64 240
   %42 = load ptr, ptr %index26, align 8
-  %cache_nr77 = getelementptr inbounds i8, ptr %42, i64 12
+  %cache_nr77 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %43 = load i32, ptr %cache_nr77, align 4
   %cmp78.not = icmp eq i32 %43, 0
   br i1 %cmp78.not, label %for.end129, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end25
-  %len2.i.i = getelementptr inbounds i8, ptr %fullname, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %fullname, i64 16
-  %submodule_prefix.i = getelementptr inbounds i8, ptr %repo, i64 136
+  %len2.i.i = getelementptr inbounds nuw i8, ptr %fullname, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %fullname, i64 16
+  %submodule_prefix.i = getelementptr inbounds nuw i8, ptr %repo, i64 136
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc127
@@ -1657,7 +1657,7 @@ if.then.i61:                                      ; preds = %strbuf_setlen.exit.
   br label %construct_fullname.exit
 
 construct_fullname.exit:                          ; preds = %strbuf_setlen.exit.i, %if.then.i61
-  %name.i63 = getelementptr inbounds i8, ptr %46, i64 108
+  %name.i63 = getelementptr inbounds nuw i8, ptr %46, i64 108
   %call.i4.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name.i63) #15
   call void @strbuf_add(ptr noundef nonnull %fullname, ptr noundef nonnull %name.i63, i64 noundef %call.i4.i) #14
   %49 = load i32, ptr %dir, align 8
@@ -1680,7 +1680,7 @@ land.lhs.true:                                    ; preds = %construct_fullname.
 
 switch.lookup:                                    ; preds = %land.lhs.true
   %57 = zext nneg i32 %55 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.show_files, i64 0, i64 %57
+  %switch.gep = getelementptr inbounds nuw [6 x i32], ptr @switch.table.show_files, i64 0, i64 %57
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ce_excluded.exit
 
@@ -1693,7 +1693,7 @@ ce_excluded.exit:                                 ; preds = %land.lhs.true, %swi
   br i1 %tobool32.not, label %for.inc127, label %if.end34
 
 if.end34:                                         ; preds = %ce_excluded.exit, %construct_fullname.exit
-  %ce_flags = getelementptr inbounds i8, ptr %46, i64 56
+  %ce_flags = getelementptr inbounds nuw i8, ptr %46, i64 56
   %58 = load i32, ptr %ce_flags, align 8
   %and35 = and i32 %58, 65536
   %tobool36.not = icmp eq i32 %and35, 0
@@ -1811,7 +1811,7 @@ if.then105:                                       ; preds = %if.end97, %lor.lhs.
 skip_to_next_name:                                ; preds = %if.then105, %if.then92, %cond.end59
   %84 = load ptr, ptr %index26, align 8
   %85 = load ptr, ptr %84, align 8
-  %cache_nr116 = getelementptr inbounds i8, ptr %84, i64 12
+  %cache_nr116 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %86 = load i32, ptr %cache_nr116, align 4
   %87 = add nuw i32 %i.079, 1
   %umax = call i32 @llvm.umax.i32(i32 %86, i32 %87)
@@ -1828,7 +1828,7 @@ for.cond114:                                      ; preds = %for.body118, %skip_
 for.body118:                                      ; preds = %for.cond114
   %arrayidx120 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv.next
   %90 = load ptr, ptr %arrayidx120, align 8
-  %name121 = getelementptr inbounds i8, ptr %90, i64 108
+  %name121 = getelementptr inbounds nuw i8, ptr %90, i64 108
   %call123 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %name.i63, ptr noundef nonnull dereferenceable(1) %name121) #15
   %tobool124.not = icmp eq i32 %call123, 0
   br i1 %tobool124.not, label %for.cond114, label %for.inc127.loopexit.split.loop.exit, !llvm.loop !14
@@ -1841,7 +1841,7 @@ for.inc127:                                       ; preds = %for.cond114, %for.i
   %i.1 = phi i32 [ %i.079, %if.end34 ], [ %i.079, %if.end69 ], [ %i.079, %if.then105 ], [ %i.079, %lor.lhs.false101 ], [ %i.079, %if.end97 ], [ %i.079, %if.end64 ], [ %i.079, %ce_excluded.exit ], [ %i.079, %if.end97.thread ], [ %91, %for.inc127.loopexit.split.loop.exit ], [ %88, %for.cond114 ]
   %inc128 = add nuw nsw i32 %i.1, 1
   %92 = load ptr, ptr %index26, align 8
-  %cache_nr = getelementptr inbounds i8, ptr %92, i64 12
+  %cache_nr = getelementptr inbounds nuw i8, ptr %92, i64 12
   %93 = load i32, ptr %cache_nr, align 4
   %cmp = icmp ult i32 %inc128, %93
   br i1 %cmp, label %for.body, label %for.end129, !llvm.loop !15
@@ -1916,14 +1916,14 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %ce_mode = getelementptr inbounds i8, ptr %ce, i64 52
+  %ce_mode = getelementptr inbounds nuw i8, ptr %ce, i64 52
   %2 = load i32, ptr %ce_mode, align 4
   %and = and i32 %2, 61440
   %cmp2 = icmp eq i32 %and, 57344
   br i1 %cmp2, label %land.lhs.true4, label %if.else
 
 land.lhs.true4:                                   ; preds = %land.lhs.true
-  %name = getelementptr inbounds i8, ptr %ce, i64 108
+  %name = getelementptr inbounds nuw i8, ptr %ce, i64 108
   %call5 = tail call i32 @is_submodule_active(ptr noundef %repo, ptr noundef nonnull %name) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %land.lhs.true4.if.else_crit_edge, label %if.then7
@@ -1959,12 +1959,12 @@ show_submodule.exit:                              ; preds = %if.then7, %if.end4.
 
 if.else:                                          ; preds = %land.lhs.true4.if.else_crit_edge, %land.lhs.true, %if.end
   %3 = phi i32 [ %.pre, %land.lhs.true4.if.else_crit_edge ], [ %0, %land.lhs.true ], [ %0, %if.end ]
-  %index = getelementptr inbounds i8, ptr %repo, i64 240
+  %index = getelementptr inbounds nuw i8, ptr %repo, i64 240
   %4 = load ptr, ptr %index, align 8
   %call10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fullname) #15
   %conv11 = trunc i64 %call10 to i32
   %5 = load ptr, ptr @ps_matched, align 8
-  %ce_mode12 = getelementptr inbounds i8, ptr %ce, i64 52
+  %ce_mode12 = getelementptr inbounds nuw i8, ptr %ce, i64 52
   %6 = load i32, ptr %ce_mode12, align 4
   %and13 = and i32 %6, 61440
   %cmp14 = icmp eq i32 %and13, 16384
@@ -1991,12 +1991,12 @@ if.then24:                                        ; preds = %if.then22
   br i1 %tobool.not177.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %if.then24
-  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
-  %name.i = getelementptr inbounds i8, ptr %ce, i64 108
-  %ce_flags.i = getelementptr inbounds i8, ptr %ce, i64 56
-  %oid36.i = getelementptr inbounds i8, ptr %ce, i64 72
-  %len.i.i.i = getelementptr inbounds i8, ptr %sb.i, i64 8
-  %buf.i.i = getelementptr inbounds i8, ptr %sb.i, i64 16
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %st.i, i64 24
+  %name.i = getelementptr inbounds nuw i8, ptr %ce, i64 108
+  %ce_flags.i = getelementptr inbounds nuw i8, ptr %ce, i64 56
+  %oid36.i = getelementptr inbounds nuw i8, ptr %ce, i64 72
+  %len.i.i.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 8
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 16
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end86.i, %while.body.lr.ph.i
@@ -2011,9 +2011,9 @@ do.body.i.i:                                      ; preds = %do.cond.i.i, %while
   br i1 %exitcond.i, label %if.then.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
-  %prefix.addr.0.i.ptr.i = getelementptr inbounds i8, ptr @.str.92, i64 %prefix.addr.0.i.idx.i
+  %prefix.addr.0.i.ptr.i = getelementptr inbounds nuw i8, ptr @.str.92, i64 %prefix.addr.0.i.idx.i
   %9 = load i8, ptr %prefix.addr.0.i.ptr.i, align 1
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %str.addr.0.i.i, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i.i, i64 1
   %10 = load i8, ptr %str.addr.0.i.i, align 1
   %prefix.addr.0.i.add.i = add nuw nsw i64 %prefix.addr.0.i.idx.i, 1
   %cmp.i.i = icmp eq i8 %10, %9
@@ -2073,7 +2073,7 @@ if.then7.i:                                       ; preds = %if.else5.i
   unreachable
 
 if.else9.i:                                       ; preds = %if.else5.i
-  %add.ptr10.i = getelementptr inbounds i8, ptr %17, i64 1
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %17, i64 1
   %call11.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %add.ptr10.i, i32 noundef 41) #15
   %tobool12.not.i = icmp eq ptr %call11.i, null
   br i1 %tobool12.not.i, label %if.then13.i, label %do.body.i16.preheader.i
@@ -2095,9 +2095,9 @@ do.body.i16.i:                                    ; preds = %do.cond.i20.i, %do.
   br i1 %exitcond194.i, label %if.then17.i, label %do.cond.i20.i
 
 do.cond.i20.i:                                    ; preds = %do.body.i16.i
-  %prefix.addr.0.i18.ptr.i = getelementptr inbounds i8, ptr @.str.95, i64 %prefix.addr.0.i18.idx.i
+  %prefix.addr.0.i18.ptr.i = getelementptr inbounds nuw i8, ptr @.str.95, i64 %prefix.addr.0.i18.idx.i
   %21 = load i8, ptr %prefix.addr.0.i18.ptr.i, align 1
-  %incdec.ptr.i21.i = getelementptr inbounds i8, ptr %str.addr.0.i17.i, i64 1
+  %incdec.ptr.i21.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i17.i, i64 1
   %22 = load i8, ptr %str.addr.0.i17.i, align 1
   %prefix.addr.0.i18.add.i = add nuw nsw i64 %prefix.addr.0.i18.idx.i, 1
   %cmp.i23.i = icmp eq i8 %22, %21
@@ -2116,9 +2116,9 @@ do.body.i26.i:                                    ; preds = %do.cond.i20.i, %do.
   br i1 %exitcond196.i, label %if.then20.i, label %do.cond.i30.i
 
 do.cond.i30.i:                                    ; preds = %do.body.i26.i
-  %prefix.addr.0.i28.ptr.i = getelementptr inbounds i8, ptr @.str.97, i64 %prefix.addr.0.i28.idx.i
+  %prefix.addr.0.i28.ptr.i = getelementptr inbounds nuw i8, ptr @.str.97, i64 %prefix.addr.0.i28.idx.i
   %24 = load i8, ptr %prefix.addr.0.i28.ptr.i, align 1
-  %incdec.ptr.i31.i = getelementptr inbounds i8, ptr %str.addr.0.i27.i, i64 1
+  %incdec.ptr.i31.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i27.i, i64 1
   %25 = load i8, ptr %str.addr.0.i27.i, align 1
   %prefix.addr.0.i28.add.i = add nuw nsw i64 %prefix.addr.0.i28.idx.i, 1
   %cmp.i33.i = icmp eq i8 %25, %24
@@ -2137,9 +2137,9 @@ do.body.i36.i:                                    ; preds = %do.cond.i30.i, %do.
   br i1 %exitcond198.i, label %if.then23.i, label %do.cond.i40.i
 
 do.cond.i40.i:                                    ; preds = %do.body.i36.i
-  %prefix.addr.0.i38.ptr.i = getelementptr inbounds i8, ptr @.str.98, i64 %prefix.addr.0.i38.idx.i
+  %prefix.addr.0.i38.ptr.i = getelementptr inbounds nuw i8, ptr @.str.98, i64 %prefix.addr.0.i38.idx.i
   %27 = load i8, ptr %prefix.addr.0.i38.ptr.i, align 1
-  %incdec.ptr.i41.i = getelementptr inbounds i8, ptr %str.addr.0.i37.i, i64 1
+  %incdec.ptr.i41.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i37.i, i64 1
   %28 = load i8, ptr %str.addr.0.i37.i, align 1
   %prefix.addr.0.i38.add.i = add nuw nsw i64 %prefix.addr.0.i38.idx.i, 1
   %cmp.i43.i = icmp eq i8 %28, %27
@@ -2169,9 +2169,9 @@ do.body.i47.i:                                    ; preds = %do.cond.i51.i, %if.
   br i1 %exitcond200.i, label %if.then29.i, label %do.cond.i51.i
 
 do.cond.i51.i:                                    ; preds = %do.body.i47.i
-  %prefix.addr.0.i49.ptr.i = getelementptr inbounds i8, ptr @.str.99, i64 %prefix.addr.0.i49.idx.i
+  %prefix.addr.0.i49.ptr.i = getelementptr inbounds nuw i8, ptr @.str.99, i64 %prefix.addr.0.i49.idx.i
   %30 = load i8, ptr %prefix.addr.0.i49.ptr.i, align 1
-  %incdec.ptr.i52.i = getelementptr inbounds i8, ptr %str.addr.0.i48.i, i64 1
+  %incdec.ptr.i52.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i48.i, i64 1
   %31 = load i8, ptr %str.addr.0.i48.i, align 1
   %prefix.addr.0.i49.add.i = add nuw nsw i64 %prefix.addr.0.i49.idx.i, 1
   %cmp.i54.i = icmp eq i8 %31, %30
@@ -2220,9 +2220,9 @@ do.body.i65.i:                                    ; preds = %do.cond.i51.i, %do.
   br i1 %exitcond202.i, label %if.then35.i, label %do.cond.i69.i
 
 do.cond.i69.i:                                    ; preds = %do.body.i65.i
-  %prefix.addr.0.i67.ptr.i = getelementptr inbounds i8, ptr @.str.100, i64 %prefix.addr.0.i67.idx.i
+  %prefix.addr.0.i67.ptr.i = getelementptr inbounds nuw i8, ptr @.str.100, i64 %prefix.addr.0.i67.idx.i
   %36 = load i8, ptr %prefix.addr.0.i67.ptr.i, align 1
-  %incdec.ptr.i70.i = getelementptr inbounds i8, ptr %str.addr.0.i66.i, i64 1
+  %incdec.ptr.i70.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i66.i, i64 1
   %37 = load i8, ptr %str.addr.0.i66.i, align 1
   %prefix.addr.0.i67.add.i = add nuw nsw i64 %prefix.addr.0.i67.idx.i, 1
   %cmp.i72.i = icmp eq i8 %37, %36
@@ -2275,9 +2275,9 @@ do.body.i91.i:                                    ; preds = %do.cond.i95.i, %if.
   br i1 %exitcond204.i, label %if.then41.i, label %do.cond.i95.i
 
 do.cond.i95.i:                                    ; preds = %do.body.i91.i
-  %prefix.addr.0.i93.ptr.i = getelementptr inbounds i8, ptr @.str.101, i64 %prefix.addr.0.i93.idx.i
+  %prefix.addr.0.i93.ptr.i = getelementptr inbounds nuw i8, ptr @.str.101, i64 %prefix.addr.0.i93.idx.i
   %42 = load i8, ptr %prefix.addr.0.i93.ptr.i, align 1
-  %incdec.ptr.i96.i = getelementptr inbounds i8, ptr %str.addr.0.i92.i, i64 1
+  %incdec.ptr.i96.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i92.i, i64 1
   %43 = load i8, ptr %str.addr.0.i92.i, align 1
   %prefix.addr.0.i93.add.i = add nuw nsw i64 %prefix.addr.0.i93.idx.i, 1
   %cmp.i98.i = icmp eq i8 %43, %42
@@ -2302,9 +2302,9 @@ do.body.i101.i:                                   ; preds = %do.cond.i105.i, %if
   br i1 %exitcond206.i, label %if.then44.i, label %do.cond.i105.i
 
 do.cond.i105.i:                                   ; preds = %do.body.i101.i
-  %prefix.addr.0.i103.ptr.i = getelementptr inbounds i8, ptr @.str.103, i64 %prefix.addr.0.i103.idx.i
+  %prefix.addr.0.i103.ptr.i = getelementptr inbounds nuw i8, ptr @.str.103, i64 %prefix.addr.0.i103.idx.i
   %45 = load i8, ptr %prefix.addr.0.i103.ptr.i, align 1
-  %incdec.ptr.i106.i = getelementptr inbounds i8, ptr %str.addr.0.i102.i, i64 1
+  %incdec.ptr.i106.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i102.i, i64 1
   %46 = load i8, ptr %str.addr.0.i102.i, align 1
   %prefix.addr.0.i103.add.i = add nuw nsw i64 %prefix.addr.0.i103.idx.i, 1
   %cmp.i108.i = icmp eq i8 %46, %45
@@ -2339,9 +2339,9 @@ do.body.i112.i:                                   ; preds = %do.cond.i116.i, %if
   br i1 %exitcond208.i, label %if.then52.i, label %do.cond.i116.i
 
 do.cond.i116.i:                                   ; preds = %do.body.i112.i
-  %prefix.addr.0.i114.ptr.i = getelementptr inbounds i8, ptr @.str.104, i64 %prefix.addr.0.i114.idx.i
+  %prefix.addr.0.i114.ptr.i = getelementptr inbounds nuw i8, ptr @.str.104, i64 %prefix.addr.0.i114.idx.i
   %49 = load i8, ptr %prefix.addr.0.i114.ptr.i, align 1
-  %incdec.ptr.i117.i = getelementptr inbounds i8, ptr %str.addr.0.i113.i, i64 1
+  %incdec.ptr.i117.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i113.i, i64 1
   %50 = load i8, ptr %str.addr.0.i113.i, align 1
   %prefix.addr.0.i114.add.i = add nuw nsw i64 %prefix.addr.0.i114.idx.i, 1
   %cmp.i119.i = icmp eq i8 %50, %49
@@ -2380,9 +2380,9 @@ do.body.i123.i:                                   ; preds = %do.cond.i127.i, %if
   br i1 %exitcond210.i, label %if.then65.i, label %do.cond.i127.i
 
 do.cond.i127.i:                                   ; preds = %do.body.i123.i
-  %prefix.addr.0.i125.ptr.i = getelementptr inbounds i8, ptr @.str.105, i64 %prefix.addr.0.i125.idx.i
+  %prefix.addr.0.i125.ptr.i = getelementptr inbounds nuw i8, ptr @.str.105, i64 %prefix.addr.0.i125.idx.i
   %52 = load i8, ptr %prefix.addr.0.i125.ptr.i, align 1
-  %incdec.ptr.i128.i = getelementptr inbounds i8, ptr %str.addr.0.i124.i, i64 1
+  %incdec.ptr.i128.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i124.i, i64 1
   %53 = load i8, ptr %str.addr.0.i124.i, align 1
   %prefix.addr.0.i125.add.i = add nuw nsw i64 %prefix.addr.0.i125.idx.i, 1
   %cmp.i130.i = icmp eq i8 %53, %52
@@ -2407,9 +2407,9 @@ do.body.i134.i:                                   ; preds = %do.cond.i138.i, %if
   br i1 %exitcond212.i, label %if.then70.i, label %do.cond.i138.i
 
 do.cond.i138.i:                                   ; preds = %do.body.i134.i
-  %prefix.addr.0.i136.ptr.i = getelementptr inbounds i8, ptr @.str.106, i64 %prefix.addr.0.i136.idx.i
+  %prefix.addr.0.i136.ptr.i = getelementptr inbounds nuw i8, ptr @.str.106, i64 %prefix.addr.0.i136.idx.i
   %55 = load i8, ptr %prefix.addr.0.i136.ptr.i, align 1
-  %incdec.ptr.i139.i = getelementptr inbounds i8, ptr %str.addr.0.i135.i, i64 1
+  %incdec.ptr.i139.i = getelementptr inbounds nuw i8, ptr %str.addr.0.i135.i, i64 1
   %56 = load i8, ptr %str.addr.0.i135.i, align 1
   %prefix.addr.0.i136.add.i = add nuw nsw i64 %prefix.addr.0.i136.idx.i, 1
   %cmp.i141.i = icmp eq i8 %56, %55
@@ -2443,7 +2443,7 @@ while.end.i:                                      ; preds = %if.end86.i, %if.the
   br i1 %tobool.not.i.i144.i, label %if.then.i155.i, label %strbuf_avail.exit.i145.i
 
 strbuf_avail.exit.i145.i:                         ; preds = %while.end.i
-  %len.i.i146.i = getelementptr inbounds i8, ptr %sb.i, i64 8
+  %len.i.i146.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 8
   %61 = load i64, ptr %len.i.i146.i, align 8
   %.neg.i147.i = add i64 %61, 1
   %tobool.not.i148.i = icmp eq i64 %60, %.neg.i147.i
@@ -2451,7 +2451,7 @@ strbuf_avail.exit.i145.i:                         ; preds = %while.end.i
 
 if.then.i155.i:                                   ; preds = %strbuf_avail.exit.i145.i, %while.end.i
   call void @strbuf_grow(ptr noundef nonnull %sb.i, i64 noundef 1) #14
-  %len.phi.trans.insert.i156.i = getelementptr inbounds i8, ptr %sb.i, i64 8
+  %len.phi.trans.insert.i156.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 8
   %.pre.i157.i = load i64, ptr %len.phi.trans.insert.i156.i, align 8
   %.pre8.i158.i = add i64 %.pre.i157.i, 1
   br label %show_ce_fmt.exit
@@ -2460,9 +2460,9 @@ show_ce_fmt.exit:                                 ; preds = %strbuf_avail.exit.i
   %inc.pre-phi.i150.i = phi i64 [ %.pre8.i158.i, %if.then.i155.i ], [ %.neg.i147.i, %strbuf_avail.exit.i145.i ]
   %62 = phi i64 [ %.pre.i157.i, %if.then.i155.i ], [ %61, %strbuf_avail.exit.i145.i ]
   %conv.i.i = trunc i32 %59 to i8
-  %buf.i151.i = getelementptr inbounds i8, ptr %sb.i, i64 16
+  %buf.i151.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 16
   %63 = load ptr, ptr %buf.i151.i, align 8
-  %len.i152.i = getelementptr inbounds i8, ptr %sb.i, i64 8
+  %len.i152.i = getelementptr inbounds nuw i8, ptr %sb.i, i64 8
   store i64 %inc.pre-phi.i150.i, ptr %len.i152.i, align 8
   %arrayidx.i153.i = getelementptr inbounds i8, ptr %63, i64 %62
   store i8 %conv.i.i, ptr %arrayidx.i153.i, align 1
@@ -2496,7 +2496,7 @@ land.lhs.true2.i:                                 ; preds = %land.lhs.true.i29
   br i1 %tobool3.not.i30, label %lor.lhs.false.i, label %land.lhs.true4.i
 
 land.lhs.true4.i:                                 ; preds = %land.lhs.true2.i
-  %ce_flags.i31 = getelementptr inbounds i8, ptr %ce, i64 56
+  %ce_flags.i31 = getelementptr inbounds nuw i8, ptr %ce, i64 56
   %71 = load i32, ptr %ce_flags.i31, align 8
   %and.i32 = and i32 %71, 32768
   %tobool5.not.i = icmp eq i32 %and.i32, 0
@@ -2508,7 +2508,7 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true4.i, %
   br i1 %tobool6.not.i, label %get_tag.exit, label %land.lhs.true7.i
 
 land.lhs.true7.i:                                 ; preds = %lor.lhs.false.i
-  %ce_flags8.i = getelementptr inbounds i8, ptr %ce, i64 56
+  %ce_flags8.i = getelementptr inbounds nuw i8, ptr %ce, i64 56
   %73 = load i32, ptr %ce_flags8.i, align 8
   %and9.i = and i32 %73, 2097152
   %tobool10.not.i = icmp eq i32 %and9.i, 0
@@ -2518,7 +2518,7 @@ if.then.i33:                                      ; preds = %land.lhs.true7.i, %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) @get_tag.alttag, ptr noundef nonnull readonly align 1 dereferenceable(3) %tag, i64 3, i1 false)
   %74 = load i8, ptr %tag, align 1
   %idxprom.i = zext i8 %74 to i64
-  %arrayidx11.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
+  %arrayidx11.i = getelementptr inbounds nuw [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i
   %75 = load i8, ptr %arrayidx11.i, align 1
   %76 = and i8 %75, 4
   %cmp.not.i34 = icmp eq i8 %76, 0
@@ -2558,10 +2558,10 @@ if.then28:                                        ; preds = %get_tag.exit
 
 if.else30:                                        ; preds = %get_tag.exit
   %80 = load i32, ptr %ce_mode12, align 4
-  %oid = getelementptr inbounds i8, ptr %ce, i64 72
+  %oid = getelementptr inbounds nuw i8, ptr %ce, i64 72
   %81 = load i32, ptr @abbrev, align 4
   %call32 = tail call ptr @repo_find_unique_abbrev(ptr noundef nonnull %repo, ptr noundef nonnull %oid, i32 noundef %81) #14
-  %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
+  %ce_flags = getelementptr inbounds nuw i8, ptr %ce, i64 56
   %82 = load i32, ptr %ce_flags, align 8
   %and33 = lshr i32 %82, 12
   %shr = and i32 %and33, 3
@@ -2583,7 +2583,7 @@ land.lhs.true.i42:                                ; preds = %if.end35
   br i1 %cmp.i44, label %if.then2.i, label %if.end.i45
 
 if.then2.i:                                       ; preds = %land.lhs.true.i42
-  %name.i48 = getelementptr inbounds i8, ptr %ce, i64 108
+  %name.i48 = getelementptr inbounds nuw i8, ptr %ce, i64 108
   %call3.i = tail call ptr @get_cached_convert_stats_ascii(ptr noundef %83, ptr noundef nonnull %name.i48) #14
   br label %if.end.i45
 
@@ -2594,7 +2594,7 @@ if.end.i45:                                       ; preds = %if.then2.i, %land.l
   br i1 %tobool5.not.i46, label %land.lhs.true6.i, label %if.end11.i
 
 land.lhs.true6.i:                                 ; preds = %if.end.i45
-  %st_mode.i47 = getelementptr inbounds i8, ptr %st.i37, i64 24
+  %st_mode.i47 = getelementptr inbounds nuw i8, ptr %st.i37, i64 24
   %86 = load i32, ptr %st_mode.i47, align 8
   %and7.i = and i32 %86, 61440
   %cmp8.i = icmp eq i32 %and7.i, 32768
@@ -2662,10 +2662,10 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not.i, label %dir_path_match.exit, label %land.end.i
 
 land.end.i:                                       ; preds = %if.then2
-  %name.i = getelementptr inbounds i8, ptr %ent, i64 4
+  %name.i = getelementptr inbounds nuw i8, ptr %ent, i64 4
   %sub.i = add i32 %1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds [0 x i8], ptr %name.i, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [0 x i8], ptr %name.i, i64 0, i64 %idxprom.i
   %3 = load i8, ptr %arrayidx.i, align 1
   %cmp.i = icmp eq i8 %3, 47
   %sub6.i = sext i1 %cmp.i to i32
@@ -2676,14 +2676,14 @@ land.end.i:                                       ; preds = %if.then2
 dir_path_match.exit:                              ; preds = %if.then2, %land.end.i
   %land.ext.i = phi i32 [ 0, %if.then2 ], [ %4, %land.end.i ]
   %cond.i = phi i32 [ 0, %if.then2 ], [ %spec.select1.i, %land.end.i ]
-  %name8.i = getelementptr inbounds i8, ptr %ent, i64 4
+  %name8.i = getelementptr inbounds nuw i8, ptr %ent, i64 4
   %call.i = tail call i32 @match_pathspec(ptr noundef %istate, ptr noundef nonnull @pathspec, ptr noundef nonnull %name8.i, i32 noundef %cond.i, i32 noundef %0, ptr noundef nonnull %2, i32 noundef %land.ext.i) #14
   br label %if.end3
 
 if.end3:                                          ; preds = %dir_path_match.exit, %if.end
   %5 = load ptr, ptr @stdout, align 8
   %call4 = tail call i32 @fputs(ptr noundef %tag, ptr noundef %5)
-  %name = getelementptr inbounds i8, ptr %ent, i64 4
+  %name = getelementptr inbounds nuw i8, ptr %ent, i64 4
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %st.i)
   %6 = load i32, ptr @show_eol, align 4
   %tobool.not.i7 = icmp eq i32 %6, 0
@@ -2696,7 +2696,7 @@ if.then.i:                                        ; preds = %if.end3
   br i1 %tobool5.not.i, label %land.lhs.true6.i, label %if.end11.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
-  %st_mode.i = getelementptr inbounds i8, ptr %st.i, i64 24
+  %st_mode.i = getelementptr inbounds nuw i8, ptr %st.i, i64 24
   %7 = load i32, ptr %st_mode.i, align 8
   %and7.i = and i32 %7, 61440
   %cmp8.i = icmp eq i32 %and7.i, 32768
@@ -2756,29 +2756,29 @@ entry:
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %ce_stat_data = getelementptr inbounds i8, ptr %ce, i64 16
+  %ce_stat_data = getelementptr inbounds nuw i8, ptr %ce, i64 16
   %1 = load i32, ptr %ce_stat_data, align 4
-  %nsec = getelementptr inbounds i8, ptr %ce, i64 20
+  %nsec = getelementptr inbounds nuw i8, ptr %ce, i64 20
   %2 = load i32, ptr %nsec, align 4
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, i32 noundef %1, i32 noundef %2)
-  %sd_mtime = getelementptr inbounds i8, ptr %ce, i64 24
+  %sd_mtime = getelementptr inbounds nuw i8, ptr %ce, i64 24
   %3 = load i32, ptr %sd_mtime, align 4
-  %nsec4 = getelementptr inbounds i8, ptr %ce, i64 28
+  %nsec4 = getelementptr inbounds nuw i8, ptr %ce, i64 28
   %4 = load i32, ptr %nsec4, align 4
   %call5 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %3, i32 noundef %4)
-  %sd_dev = getelementptr inbounds i8, ptr %ce, i64 32
+  %sd_dev = getelementptr inbounds nuw i8, ptr %ce, i64 32
   %5 = load i32, ptr %sd_dev, align 4
-  %sd_ino = getelementptr inbounds i8, ptr %ce, i64 36
+  %sd_ino = getelementptr inbounds nuw i8, ptr %ce, i64 36
   %6 = load i32, ptr %sd_ino, align 4
   %call6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, i32 noundef %5, i32 noundef %6)
-  %sd_uid = getelementptr inbounds i8, ptr %ce, i64 40
+  %sd_uid = getelementptr inbounds nuw i8, ptr %ce, i64 40
   %7 = load i32, ptr %sd_uid, align 4
-  %sd_gid = getelementptr inbounds i8, ptr %ce, i64 44
+  %sd_gid = getelementptr inbounds nuw i8, ptr %ce, i64 44
   %8 = load i32, ptr %sd_gid, align 4
   %call7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.116, i32 noundef %7, i32 noundef %8)
-  %sd_size = getelementptr inbounds i8, ptr %ce, i64 48
+  %sd_size = getelementptr inbounds nuw i8, ptr %ce, i64 48
   %9 = load i32, ptr %sd_size, align 4
-  %ce_flags = getelementptr inbounds i8, ptr %ce, i64 56
+  %ce_flags = getelementptr inbounds nuw i8, ptr %ce, i64 56
   %10 = load i32, ptr %ce_flags, align 8
   %call8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.117, i32 noundef %9, i32 noundef %10)
   br label %if.end

@@ -18,14 +18,14 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
 7:                                                ; preds = %2
   %8 = load i64, ptr %3, align 8
   %9 = mul i64 %8, 1000000000
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = add i64 %9, %11
   br label %13
 
 13:                                               ; preds = %2, %7
   %.070 = phi i64 [ %12, %7 ], [ 0, %2 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 44
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %15 = load i32, ptr %14, align 4
   %16 = icmp ugt i32 %15, 1
   br i1 %16, label %17, label %18
@@ -39,7 +39,7 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br i1 %19, label %.thread94.thread, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = load i8, ptr %21, align 8
   switch i8 %22, label %24 [
     i8 3, label %.thread90
@@ -55,7 +55,7 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
   br label %.thread94
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = call zeroext i1 @zend_parse_arg_bool_slow(ptr noundef nonnull %25, ptr noundef nonnull %4, i32 noundef 1) #4
   %.fr = freeze i1 %26
   br i1 %.fr, label %..thread94_crit_edge, label %.thread101
@@ -79,14 +79,14 @@ define hidden void @zif_hrtime(ptr noundef %0, ptr noundef %1) local_unnamed_add
 
 29:                                               ; preds = %.thread94
   store i64 %.070, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %1, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %30, align 8
   br label %37
 
 .thread94.thread:                                 ; preds = %18, %.thread94
   %31 = call ptr @_zend_new_array_0() #4
   store ptr %31, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %1, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 775, ptr %32, align 8
   call void @zend_hash_real_init_packed(ptr noundef %31) #4
   %33 = udiv i64 %.070, 1000000000

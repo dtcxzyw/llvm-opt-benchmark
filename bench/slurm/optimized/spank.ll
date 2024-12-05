@@ -143,20 +143,20 @@ define ptr @spank_stack_init(i32 noundef %0) local_unnamed_addr #0 {
   %9 = phi ptr [ %7, %6 ], [ %5, %1 ]
   %10 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.32, i32 noundef 223, ptr noundef nonnull @__func__.spank_stack_create) #19
   %11 = tail call ptr @slurm_conf_lock() #19
-  %12 = getelementptr inbounds i8, ptr %11, i64 760
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 760
   %13 = load ptr, ptr %12, align 8
   %14 = tail call ptr @xstrdup(ptr noundef %13) #19
-  %15 = getelementptr inbounds i8, ptr %10, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %14, ptr %15, align 8
   tail call void @slurm_conf_unlock() #19
   store i32 %0, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i32 4095, ptr %16, align 8
   %17 = tail call ptr @list_create(ptr noundef nonnull @_spank_plugin_destroy) #19
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %17, ptr %18, align 8
   %19 = tail call ptr @list_create(ptr noundef nonnull @_spank_plugin_opt_destroy) #19
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %19, ptr %20, align 8
   %21 = tail call fastcc i32 @_spank_stack_load(ptr noundef nonnull %10, ptr noundef %9)
   %22 = icmp slt i32 %21, 0
@@ -227,15 +227,15 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef range(i32
 6:                                                ; preds = %4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, i8 0, i64 40, i1 false)
   store i32 10855680, ptr %5, align 16
-  %7 = getelementptr inbounds i8, ptr %5, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 %1, ptr %7, align 16
-  %8 = getelementptr inbounds i8, ptr %5, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store ptr %0, ptr %8, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %switch.lookup, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %2, ptr %10, align 8
   %11 = load i32, ptr %0, align 8
   %12 = icmp eq i32 %11, 2
@@ -244,20 +244,20 @@ define internal fastcc i32 @_do_call_stack(ptr noundef %0, i32 noundef range(i32
   br i1 %or.cond.i, label %14, label %switch.lookup
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %2, i64 472
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %3 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %19, ptr %20, align 16
   br label %switch.lookup
 
 switch.lookup:                                    ; preds = %14, %9, %6
   %21 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [13 x ptr], ptr @switch.table._do_call_stack, i64 0, i64 %21
+  %switch.gep = getelementptr inbounds nuw [13 x ptr], ptr @switch.table._do_call_stack, i64 0, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @list_iterator_create(ptr noundef %23) #19
   %25 = tail call ptr @list_next(ptr noundef %24) #19
@@ -265,17 +265,17 @@ switch.lookup:                                    ; preds = %14, %9, %6
   br i1 %.not3136, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %switch.lookup
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %switch.maskindex = trunc nuw nsw i32 %1 to i16
   %switch.shifted = lshr i16 8189, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %27 = zext nneg i32 %1 to i64
-  %switch.gep48 = getelementptr inbounds [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %27
+  %switch.gep48 = getelementptr inbounds nuw [13 x i64], ptr @switch.table._do_call_stack.7, i64 0, i64 %27
   br label %switch.hole_check
 
 switch.hole_check:                                ; preds = %.lr.ph, %.backedge
   %28 = phi ptr [ %25, %.lr.ph ], [ %51, %.backedge ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @xbasename(ptr noundef %30) #19
   store ptr %28, ptr %26, align 8
@@ -287,15 +287,15 @@ spank_plugin_get_fn.exit.thread:                  ; preds = %switch.hole_check
 
 switch.lookup47:                                  ; preds = %switch.hole_check
   %switch.load49 = load i64, ptr %switch.gep48, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 %switch.load49
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 %switch.load49
   %34 = load ptr, ptr %33, align 8
   %.not32 = icmp eq ptr %34, null
   br i1 %.not32, label %.backedge, label %35
 
 35:                                               ; preds = %switch.lookup47
-  %36 = getelementptr inbounds i8, ptr %28, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %28, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 %34(ptr noundef nonnull %5, i32 noundef %37, ptr noundef %39) #19
   %41 = call i32 @get_log_level() #19
@@ -311,7 +311,7 @@ switch.lookup47:                                  ; preds = %switch.hole_check
   br i1 %.not33, label %.backedge, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %28, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
   br i1 %48, label %49, label %.backedge
@@ -356,7 +356,7 @@ _spank_init.exit.i:                               ; preds = %5
 
 9:                                                ; preds = %_spank_init.exit.i
   %10 = load ptr, ptr @global_spank_stack, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 720
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %12 = load ptr, ptr %11, align 8
   %.not.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i.i, label %_spank_stack_get_remote_options.exit.i.i, label %13
@@ -369,7 +369,7 @@ _spank_init.exit.i:                               ; preds = %5
 
 .lr.ph.i.i.i:                                     ; preds = %13
   %16 = getelementptr i8, ptr %10, i64 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %18
 
 18:                                               ; preds = %.backedge.i.i.i, %.lr.ph.i.i.i
@@ -379,7 +379,7 @@ _spank_init.exit.i:                               ; preds = %5
   br i1 %.not14.i.i.i, label %21, label %.backedge.i.i.i
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %.val.i.i.i = load ptr, ptr %16, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -402,7 +402,7 @@ _spank_init.exit.i:                               ; preds = %5
   br label %spank_stack_find_option_by_name.exit.i.i.i
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %29, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 1
   store i8 0, ptr %29, align 1
   store ptr %4, ptr %3, align 8
   store ptr %33, ptr %17, align 8
@@ -430,16 +430,16 @@ spank_stack_find_option_by_name.exit.i.i.i:       ; preds = %38, %37, %30, %26
 39:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4)
-  %40 = getelementptr inbounds i8, ptr %19, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %35, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not.i17.i.i.i = icmp eq ptr %44, null
   br i1 %.not.i17.i.i.i, label %._crit_edge.i.i.i.i, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i8, ptr %42, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %47 = load i32, ptr %46, align 4
   %48 = call i32 %44(i32 noundef %47, ptr noundef %41, i32 noundef 1) #19
   %.not16.i18.i.i.i = icmp eq i32 %48, 0
@@ -448,22 +448,22 @@ spank_stack_find_option_by_name.exit.i.i.i:       ; preds = %38, %37, %30, %26
 
 ._crit_edge.i.i.i.i:                              ; preds = %45, %39
   %49 = phi ptr [ %42, %39 ], [ %.pre.i.i.i.i, %45 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i32, ptr %50, align 8
   %.not17.i.i.i.i = icmp eq i32 %51, 0
   br i1 %.not17.i.i.i.i, label %_do_option_cb.exit.thread.i.i.i, label %52
 
 52:                                               ; preds = %._crit_edge.i.i.i.i
-  %53 = getelementptr inbounds i8, ptr %35, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %35, i64 24
   call void @slurm_xfree(ptr noundef nonnull %53) #19
   %54 = call ptr @xstrdup(ptr noundef %41) #19
   store ptr %54, ptr %53, align 8
   br label %_do_option_cb.exit.thread.i.i.i
 
 _do_option_cb.exit.thread.i.i.i:                  ; preds = %52, %._crit_edge.i.i.i.i
-  %55 = getelementptr inbounds i8, ptr %35, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store i8 1, ptr %55, align 4
-  %56 = getelementptr inbounds i8, ptr %35, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store i8 1, ptr %56, align 8
   br label %.backedge.i.i.i
 
@@ -483,7 +483,7 @@ _do_option_cb.exit.i.i.i:                         ; preds = %45
   br label %_spank_stack_get_remote_options.exit.i.i
 
 _spank_stack_get_remote_options.exit.i.i:         ; preds = %._crit_edge.i.i.i, %9
-  %61 = getelementptr inbounds i8, ptr %0, i64 272
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr i8, ptr %10, i64 16
   %.val.i.i = load ptr, ptr %63, align 8
@@ -511,13 +511,13 @@ _spank_stack_get_remote_options.exit.i.i:         ; preds = %._crit_edge.i.i.i, 
 
 71:                                               ; preds = %.lr.ph.i8.i.i
   %72 = load ptr, ptr %67, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %74 = load ptr, ptr %73, align 8
   %.not.i.i10.i.i = icmp eq ptr %74, null
   br i1 %.not.i.i10.i.i, label %._crit_edge.i.i17.i.i, label %75
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %72, i64 28
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 28
   %77 = load i32, ptr %76, align 4
   %78 = call i32 %74(i32 noundef %77, ptr noundef nonnull %70, i32 noundef 1) #19
   %.not16.i.i11.i.i = icmp eq i32 %78, 0
@@ -526,22 +526,22 @@ _spank_stack_get_remote_options.exit.i.i:         ; preds = %._crit_edge.i.i.i, 
 
 ._crit_edge.i.i17.i.i:                            ; preds = %75, %71
   %79 = phi ptr [ %72, %71 ], [ %.pre.i.i12.i.i, %75 ]
-  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %81 = load i32, ptr %80, align 8
   %.not17.i.i18.i.i = icmp eq i32 %81, 0
   br i1 %.not17.i.i18.i.i, label %_do_option_cb.exit.thread.i19.i.i, label %82
 
 82:                                               ; preds = %._crit_edge.i.i17.i.i
-  %83 = getelementptr inbounds i8, ptr %67, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %67, i64 24
   call void @slurm_xfree(ptr noundef nonnull %83) #19
   %84 = call ptr @xstrdup(ptr noundef nonnull %70) #19
   store ptr %84, ptr %83, align 8
   br label %_do_option_cb.exit.thread.i19.i.i
 
 _do_option_cb.exit.thread.i19.i.i:                ; preds = %82, %._crit_edge.i.i17.i.i
-  %85 = getelementptr inbounds i8, ptr %67, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %67, i64 20
   store i8 1, ptr %85, align 4
-  %86 = getelementptr inbounds i8, ptr %67, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %67, i64 32
   store i8 1, ptr %86, align 8
   br label %89
 
@@ -626,7 +626,7 @@ define i32 @spank_init_post_opt() local_unnamed_addr #0 {
   br i1 %3, label %_spank_stack_set_remote_options_env.exit, label %4
 
 4:                                                ; preds = %0
-  %5 = getelementptr inbounds i8, ptr %2, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_spank_stack_set_remote_options_env.exit, label %8
@@ -644,14 +644,14 @@ define i32 @spank_init_post_opt() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %11, %39
   %14 = phi ptr [ %40, %39 ], [ %13, %11 ]
-  %15 = getelementptr inbounds i8, ptr %14, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   br i1 %17, label %18, label %39
 
 18:                                               ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %1)
-  %19 = getelementptr inbounds i8, ptr %14, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %20 = load ptr, ptr %19, align 8
   %.val.i.i = load ptr, ptr %14, align 8
   %21 = getelementptr i8, ptr %14, i64 8
@@ -759,7 +759,7 @@ define i32 @spank_slurmd_exit() local_unnamed_addr #0 {
   %4 = load ptr, ptr @global_spank_stack, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   store ptr %4, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %8, label %7
@@ -770,7 +770,7 @@ define i32 @spank_slurmd_exit() local_unnamed_addr #0 {
 
 8:                                                ; preds = %7, %0
   store ptr null, ptr %5, align 8
-  %9 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %10 = load ptr, ptr %9, align 8
   %.not2.i = icmp eq ptr %10, null
   br i1 %.not2.i, label %spank_stack_destroy.exit, label %11
@@ -781,7 +781,7 @@ define i32 @spank_slurmd_exit() local_unnamed_addr #0 {
 
 spank_stack_destroy.exit:                         ; preds = %8, %11
   store ptr null, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %4, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %12) #19
   call void @slurm_xfree(ptr noundef nonnull %1) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
@@ -797,7 +797,7 @@ define i32 @spank_fini(ptr noundef %0) local_unnamed_addr #0 {
   %5 = load ptr, ptr @global_spank_stack, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %5, ptr %2, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %9, label %8
@@ -808,7 +808,7 @@ define i32 @spank_fini(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %8, %1
   store ptr null, ptr %6, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8
   %.not2.i = icmp eq ptr %11, null
   br i1 %.not2.i, label %spank_stack_destroy.exit, label %12
@@ -819,7 +819,7 @@ define i32 @spank_fini(ptr noundef %0) local_unnamed_addr #0 {
 
 spank_stack_destroy.exit:                         ; preds = %9, %12
   store ptr null, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @slurm_xfree(ptr noundef nonnull %13) #19
   call void @slurm_xfree(ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
@@ -838,9 +838,9 @@ define internal fastcc i32 @spank_job_script(i32 noundef range(i32 2, 11) %0, i3
   %5 = alloca ptr, align 8
   %6 = alloca %struct.job_script_info, align 4
   store i32 %1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %6, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %3, ptr %8, align 4
   %9 = tail call ptr @spank_stack_init(i32 noundef 5)
   %.not = icmp eq ptr %9, null
@@ -851,7 +851,7 @@ define internal fastcc i32 @spank_job_script(i32 noundef range(i32 2, 11) %0, i3
   %11 = call fastcc i32 @_do_call_stack(ptr noundef nonnull %9, i32 noundef %0, ptr noundef nonnull %6, i32 noundef -1)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %9, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %15, label %14
@@ -862,7 +862,7 @@ define internal fastcc i32 @spank_job_script(i32 noundef range(i32 2, 11) %0, i3
 
 15:                                               ; preds = %14, %10
   store ptr null, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %17 = load ptr, ptr %16, align 8
   %.not2.i = icmp eq ptr %17, null
   br i1 %.not2.i, label %spank_stack_destroy.exit, label %18
@@ -873,7 +873,7 @@ define internal fastcc i32 @spank_job_script(i32 noundef range(i32 2, 11) %0, i3
 
 spank_stack_destroy.exit:                         ; preds = %15, %18
   store ptr null, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @slurm_xfree(ptr noundef nonnull %19) #19
   call void @slurm_xfree(ptr noundef nonnull %5) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -893,13 +893,13 @@ define i32 @spank_job_epilog(i32 noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3006) i32 @spank_option_register(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not8 = icmp eq ptr %7, null
   br i1 %.not8, label %8, label %10
@@ -918,7 +918,7 @@ define range(i32 0, 3006) i32 @spank_option_register(ptr nocapture noundef reado
   br i1 %.not10, label %19, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not11 = icmp eq ptr %15, null
   br i1 %.not11, label %19, label %16
@@ -937,7 +937,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 144
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -948,7 +948,7 @@ define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr nounde
   br label %41
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %1, align 8
   %13 = tail call ptr @list_find_first(ptr noundef %11, ptr noundef nonnull @_opt_by_name, ptr noundef %12) #19
@@ -956,7 +956,7 @@ define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr nounde
   br i1 %.not, label %27, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @get_log_level() #19
   %18 = icmp sgt i32 %17, 2
@@ -964,10 +964,10 @@ define internal fastcc range(i32 0, 3006) i32 @_spank_option_register(ptr nounde
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %1, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = tail call ptr @xbasename(ptr noundef %22) #19
-  %24 = getelementptr inbounds i8, ptr %16, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = tail call ptr @xbasename(ptr noundef %25) #19
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.79, ptr noundef %20, ptr noundef %23, ptr noundef %26) #19
@@ -1014,7 +1014,7 @@ define ptr @spank_option_table_create(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %get_global_option_cache.exit.thread, label %8
@@ -1051,14 +1051,14 @@ get_global_option_cache.exit:                     ; preds = %1
   br i1 %.not1519, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %2, i64 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 16
-  %25 = getelementptr inbounds i8, ptr %2, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %26
 
 26:                                               ; preds = %.lr.ph, %49
   %27 = phi ptr [ %22, %.lr.ph ], [ %50, %49 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 21
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 21
   %29 = load i8, ptr %28, align 1
   %30 = trunc i8 %29 to i1
   br i1 %30, label %49, label %31
@@ -1068,11 +1068,11 @@ get_global_option_cache.exit:                     ; preds = %1
   %32 = load ptr, ptr %27, align 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %32, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %35 = load i32, ptr %34, align 8
   store i32 %35, ptr %23, align 8
   store ptr null, ptr %24, align 8
-  %36 = getelementptr inbounds i8, ptr %27, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %37 = load i32, ptr %36, align 8
   store i32 %37, ptr %25, align 8
   %38 = call i32 @optz_add(ptr noundef nonnull %3, ptr noundef nonnull %2) #19
@@ -1088,7 +1088,7 @@ _add_one_option.exit:                             ; preds = %31
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 17
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %27, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = load ptr, ptr %46, align 8
   %.str.82..str.83.i = select i1 %43, ptr @.str.82, ptr @.str.83
@@ -1141,7 +1141,7 @@ define i32 @spank_process_option(i32 noundef %0, ptr noundef %1) local_unnamed_a
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %get_global_option_cache.exit.thread, label %8
@@ -1172,13 +1172,13 @@ get_global_option_cache.exit.thread:              ; preds = %2, %8, %get_global_
 
 19:                                               ; preds = %14
   %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not.i13 = icmp eq ptr %22, null
   br i1 %.not.i13, label %._crit_edge.i, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = call i32 %22(i32 noundef %25, ptr noundef %1, i32 noundef 0) #19
   %.not16.i = icmp eq i32 %26, 0
@@ -1187,22 +1187,22 @@ get_global_option_cache.exit.thread:              ; preds = %2, %8, %get_global_
 
 ._crit_edge.i:                                    ; preds = %23, %19
   %27 = phi ptr [ %20, %19 ], [ %.pre.i, %23 ]
-  %28 = getelementptr inbounds i8, ptr %27, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load i32, ptr %28, align 8
   %.not17.i = icmp eq i32 %29, 0
   br i1 %.not17.i, label %_do_option_cb.exit.thread, label %30
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = getelementptr inbounds i8, ptr %15, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %15, i64 24
   call void @slurm_xfree(ptr noundef nonnull %31) #19
   %32 = call ptr @xstrdup(ptr noundef %1) #19
   store ptr %32, ptr %31, align 8
   br label %_do_option_cb.exit.thread
 
 _do_option_cb.exit.thread:                        ; preds = %._crit_edge.i, %30
-  %33 = getelementptr inbounds i8, ptr %15, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 20
   store i8 1, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %15, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 1, ptr %34, align 8
   br label %37
 
@@ -1224,7 +1224,7 @@ declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unname
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal range(i32 0, 2) i32 @_opt_by_val(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %4, %5
@@ -1241,7 +1241,7 @@ define i32 @spank_process_env_options() local_unnamed_addr #0 {
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %0
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %get_global_option_cache.exit.thread, label %7
@@ -1279,13 +1279,13 @@ get_global_option_cache.exit:                     ; preds = %0
 
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %13, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load ptr, ptr %21, align 8
   %.not.i20 = icmp eq ptr %22, null
   br i1 %.not.i20, label %27, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %20, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %25 = load i32, ptr %24, align 4
   %26 = call i32 %22(i32 noundef %25, ptr noundef nonnull %17, i32 noundef 0) #19
   %.not16.i = icmp eq i32 %26, 0
@@ -1297,13 +1297,13 @@ get_global_option_cache.exit:                     ; preds = %0
 
 27:                                               ; preds = %._crit_edge.i, %19
   %28 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %20, %19 ]
-  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 8
   %.not17.i = icmp eq i32 %30, 0
   br i1 %.not17.i, label %36, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %13, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @slurm_xfree(ptr noundef nonnull %32) #19
   %33 = call ptr @xstrdup(ptr noundef nonnull %17) #19
   store ptr %33, ptr %32, align 8
@@ -1316,11 +1316,11 @@ _do_option_cb.exit:                               ; preds = %23
   br label %.loopexit
 
 36:                                               ; preds = %27, %31
-  %37 = getelementptr inbounds i8, ptr %13, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %13, i64 20
   store i8 1, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %13, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %13, i64 32
   store i8 1, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %13, i64 33
+  %39 = getelementptr inbounds nuw i8, ptr %13, i64 33
   store i8 1, ptr %39, align 1
   br label %.backedge
 
@@ -1355,7 +1355,7 @@ define internal fastcc noundef nonnull ptr @_opt_env_name(ptr nocapture readonly
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %11 = getelementptr inbounds i8, ptr %.8.val.0.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %.8.val.0.val, i64 %indvars.iv
   %12 = load i8, ptr %11, align 1
   %13 = tail call ptr @__ctype_b_loc() #21
   %14 = load ptr, ptr %13, align 8
@@ -1392,7 +1392,7 @@ define internal fastcc noundef nonnull ptr @_opt_env_name(ptr nocapture readonly
 
 28:                                               ; preds = %.lr.ph11
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
-  %29 = getelementptr inbounds i8, ptr %.0.val.0.val, i64 %indvars.iv21
+  %29 = getelementptr inbounds nuw i8, ptr %.0.val.0.val, i64 %indvars.iv21
   %30 = load i8, ptr %29, align 1
   %31 = tail call ptr @__ctype_b_loc() #21
   %32 = load ptr, ptr %31, align 8
@@ -1431,7 +1431,7 @@ define void @spank_print_options(ptr nocapture noundef %0, i32 noundef %1, i32 n
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %get_global_option_cache.exit.thread, label %14
@@ -1455,7 +1455,7 @@ get_global_option_cache.exit:                     ; preds = %3
 
 21:                                               ; preds = %.lr.ph24, %.backedge
   %22 = phi ptr [ %20, %.lr.ph24 ], [ %112, %.backedge ]
-  %23 = getelementptr inbounds i8, ptr %22, i64 21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 21
   %24 = load i8, ptr %23, align 1
   %25 = trunc i8 %24 to i1
   br i1 %25, label %.backedge, label %26
@@ -1490,7 +1490,7 @@ _term_columns.exit.i:                             ; preds = %32, %29, %26
   %.0.i.i = phi i32 [ 80, %29 ], [ 80, %26 ], [ %36, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %37 = sub nsw i32 %.0.i.i, %2
-  %38 = getelementptr inbounds i8, ptr %27, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %39 = load ptr, ptr %38, align 8
   %.not.i11 = icmp eq ptr %39, null
   %spec.select.i = select i1 %.not.i11, ptr @.str.84, ptr %39
@@ -1511,7 +1511,7 @@ _term_columns.exit.i:                             ; preds = %32, %29, %26
 
 47:                                               ; preds = %44, %_term_columns.exit.i
   store ptr %8, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %27, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %49, i64 noundef 4096) #19
   %51 = call fastcc ptr @_get_next_segment(ptr noundef %5, i32 noundef %37, ptr noundef %7)
@@ -1612,7 +1612,7 @@ _get_next_segment.exit.us:                        ; preds = %.loopexit.i.us, %69
   br i1 %.not.i.i14, label %.loopexit.i, label %88, !llvm.loop !16
 
 .critedge.i.i.loopexit:                           ; preds = %88
-  %96 = getelementptr inbounds i8, ptr %.026.i.i, i64 1
+  %96 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 1
   store ptr %96, ptr %5, align 8
   %.not2229.i.i = icmp eq ptr %.026.i.i, %79
   br i1 %.not2229.i.i, label %.loopexit.i, label %.lr.ph31.i.i
@@ -1640,7 +1640,7 @@ _get_next_segment.exit.us:                        ; preds = %.loopexit.i.us, %69
   br label %_get_next_segment.exit
 
 106:                                              ; preds = %.lr.ph31.i.i
-  %107 = getelementptr inbounds i8, ptr %.130.i.i, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.130.i.i, i64 1
   store i8 0, ptr %107, align 1
   br label %_get_next_segment.exit
 
@@ -1684,7 +1684,7 @@ define void @spank_set_remote_options(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %4, label %30, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %30, label %9
@@ -1702,7 +1702,7 @@ define void @spank_set_remote_options(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %12, %.backedge
   %15 = phi ptr [ %29, %.backedge ], [ %14, %12 ]
-  %16 = getelementptr inbounds i8, ptr %15, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %17 = load i8, ptr %16, align 4
   %18 = trunc i8 %17 to i1
   br i1 %18, label %19, label %.backedge
@@ -1710,11 +1710,11 @@ define void @spank_set_remote_options(ptr noundef %0) local_unnamed_addr #0 {
 19:                                               ; preds = %.lr.ph
   %20 = load ptr, ptr %15, align 8
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %23, align 8
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024, ptr noundef nonnull @.str.20, ptr noundef %21, ptr noundef %24) #19
-  %26 = getelementptr inbounds i8, ptr %15, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = call i32 @job_options_append(ptr noundef %0, i32 noundef 17408, ptr noundef nonnull %2, ptr noundef %27) #19
   br label %.backedge
@@ -1748,7 +1748,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   br label %7
 
 7:                                                ; preds = %6, %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %10, label %12
@@ -1758,7 +1758,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   br label %58
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %15 [
     i32 0, label %58
@@ -1778,23 +1778,23 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   br i1 %.not48, label %58, label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 0
   %or.cond = or i1 %5, %21
   br i1 %or.cond, label %22, label %58
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @list_find_first(ptr noundef %26, ptr noundef nonnull @_opt_by_name, ptr noundef nonnull %17) #19
   %.not49 = icmp eq ptr %27, null
   br i1 %.not49, label %38, label %28
 
 28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %27, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %30 = load i8, ptr %29, align 4
   %31 = trunc i8 %30 to i1
   br i1 %31, label %32, label %58
@@ -1806,7 +1806,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   br i1 %or.cond3, label %35, label %58
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %27, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %37 = load ptr, ptr %36, align 8
   store ptr %37, ptr %2, align 8
   br label %58
@@ -1815,7 +1815,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
   %39 = load ptr, ptr %8, align 8
   %40 = tail call fastcc ptr @_spank_plugin_opt_create(ptr noundef %39, ptr noundef %1, i32 noundef 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.22, i64 6, i1 false)
-  %41 = getelementptr inbounds i8, ptr %4, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %.val = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %40, i64 8
   %.val52 = load ptr, ptr %42, align 8
@@ -1834,9 +1834,9 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
 47:                                               ; preds = %45, %38
   %.039 = phi ptr [ %44, %38 ], [ %46, %45 ]
   %48 = call ptr @xstrdup(ptr noundef nonnull %.039) #19
-  %49 = getelementptr inbounds i8, ptr %40, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %40, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i8 1, ptr %50, align 4
   %51 = load i32, ptr %19, align 8
   %52 = icmp ne i32 %51, 0
@@ -1849,7 +1849,7 @@ define range(i32 0, 3010) i32 @spank_option_getopt(ptr nocapture noundef readonl
 
 54:                                               ; preds = %47, %53, %45
   call void @list_append(ptr noundef %26, ptr noundef nonnull %40) #19
-  %55 = getelementptr inbounds i8, ptr %40, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %56 = load i8, ptr %55, align 4
   %57 = trunc i8 %56 to i1
   %. = select i1 %57, i32 0, i32 3000
@@ -1878,62 +1878,62 @@ define internal fastcc ptr @_spank_plugin_opt_create(ptr noundef %0, ptr nocaptu
   %6 = load ptr, ptr %1, align 8
   %7 = tail call ptr @xstrdup(ptr noundef %6) #19
   store ptr %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %1, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %5, i64 28
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 %12, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %15, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %22, label %19
 
 19:                                               ; preds = %3
   %20 = tail call ptr @xstrdup(ptr noundef nonnull %18) #19
-  %21 = getelementptr inbounds i8, ptr %5, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %20, ptr %21, align 8
   br label %22
 
 22:                                               ; preds = %19, %3
-  %23 = getelementptr inbounds i8, ptr %1, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not17.i = icmp eq ptr %24, null
   br i1 %.not17.i, label %_spank_option_copy.exit, label %25
 
 25:                                               ; preds = %22
   %26 = tail call ptr @xstrdup(ptr noundef nonnull %24) #19
-  %27 = getelementptr inbounds i8, ptr %5, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %26, ptr %27, align 8
   br label %_spank_option_copy.exit
 
 _spank_option_copy.exit:                          ; preds = %22, %25
   store ptr %5, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i32, ptr %31, align 8
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %31, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %32, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %4, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i8 0, ptr %35, align 4
-  %36 = getelementptr inbounds i8, ptr %4, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr null, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %4, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 33
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 33
   store i8 0, ptr %38, align 1
-  %39 = getelementptr inbounds i8, ptr %4, i64 21
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 21
   %40 = trunc nuw nsw i32 %2 to i8
   store i8 %40, ptr %39, align 1
   ret ptr %4
@@ -1960,7 +1960,7 @@ define void @spank_clear_remote_options_env(ptr noundef %0) local_unnamed_addr #
 
 7:                                                ; preds = %.lr.ph
   %8 = load ptr, ptr %.021, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 6
   br label %10
 
 10:                                               ; preds = %7, %.lr.ph
@@ -1970,7 +1970,7 @@ define void @spank_clear_remote_options_env(ptr noundef %0) local_unnamed_addr #
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds i8, ptr %.016, i64 20
+  %14 = getelementptr inbounds nuw i8, ptr %.016, i64 20
   %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 61) #20
   %.not19 = icmp eq ptr %15, null
   br i1 %.not19, label %26, label %16
@@ -1996,7 +1996,7 @@ define void @spank_clear_remote_options_env(ptr noundef %0) local_unnamed_addr #
   br label %26
 
 26:                                               ; preds = %10, %25, %13
-  %27 = getelementptr inbounds i8, ptr %.021, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -2032,7 +2032,7 @@ define range(i32 -1, 2) i32 @spank_symbol_supported(ptr noundef %0) local_unname
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %4 = getelementptr inbounds [12 x ptr], ptr @spank_syms, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [12 x ptr], ptr @spank_syms, i64 0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef nonnull %0) #19
   %7 = icmp eq i32 %6, 0
@@ -2056,7 +2056,7 @@ define range(i32 -1, 2) i32 @spank_remote(ptr noundef readonly %0) local_unnamed
   br i1 %.not, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 2
@@ -2100,7 +2100,7 @@ define range(i32 0, 3010) i32 @spank_get_item(ptr noundef readonly %0, i32 nound
 7:                                                ; preds = %5
   %8 = and i32 %1, -4
   %switch.i = icmp eq i32 %8, 20
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 40
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre303 = load i32, ptr %.pre, align 8
   br i1 %switch.i, label %_check_spank_item_validity.exit, label %9
@@ -2118,7 +2118,7 @@ define range(i32 0, 3010) i32 @spank_get_item(ptr noundef readonly %0, i32 nound
   br i1 %or.cond3.i, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread306
 
 _check_spank_item_validity.exit.thread306:        ; preds = %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %32
 
 12:                                               ; preds = %9
@@ -2134,13 +2134,13 @@ _check_spank_item_validity.exit.thread306:        ; preds = %10
   ]
 
 _valid_in_local_context.exit.i:                   ; preds = %12, %12, %12, %12, %12, %12, %12, %12
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread305
 
 _check_spank_item_validity.exit.thread305:        ; preds = %_valid_in_local_context.exit.i
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %25
 
 17:                                               ; preds = %9
@@ -2148,13 +2148,13 @@ _check_spank_item_validity.exit.thread305:        ; preds = %_valid_in_local_con
   br i1 %switch.i.i, label %22, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not18.i = icmp eq ptr %20, null
   br i1 %.not18.i, label %_check_spank_item_validity.exit.thread, label %_check_spank_item_validity.exit.thread304
 
 _check_spank_item_validity.exit.thread304:        ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %36
 
 22:                                               ; preds = %17
@@ -2162,7 +2162,7 @@ _check_spank_item_validity.exit.thread304:        ; preds = %18
   br i1 %23, label %switch.lookup, label %_check_spank_item_validity.exit.thread
 
 _check_spank_item_validity.exit:                  ; preds = %7, %9
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   switch i32 %.pre303, label %36 [
     i32 1, label %25
     i32 2, label %29
@@ -2171,18 +2171,18 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 
 25:                                               ; preds = %_check_spank_item_validity.exit.thread305, %_check_spank_item_validity.exit
   %26 = phi ptr [ %16, %_check_spank_item_validity.exit.thread305 ], [ %24, %_check_spank_item_validity.exit ]
-  %27 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = load ptr, ptr %27, align 8
   br label %36
 
 29:                                               ; preds = %_check_spank_item_validity.exit
-  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load ptr, ptr %30, align 8
   br label %36
 
 32:                                               ; preds = %_check_spank_item_validity.exit.thread306, %_check_spank_item_validity.exit
   %33 = phi ptr [ %11, %_check_spank_item_validity.exit.thread306 ], [ %24, %_check_spank_item_validity.exit ]
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8
   br label %36
 
@@ -2233,7 +2233,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %40, label %41, label %47
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %3, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %43 = load ptr, ptr %42, align 16
   %44 = zext nneg i32 %39 to i64
   %45 = getelementptr i8, ptr %43, i64 %44
@@ -2242,7 +2242,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %51
 
 47:                                               ; preds = %38
-  %48 = getelementptr inbounds i8, ptr %3, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr i8, ptr %49, i64 8
   store ptr %50, ptr %48, align 8
@@ -2265,13 +2265,13 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %job_task_info_by_pid.exit.thread
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds i8, ptr %.0181, i64 368
+  %59 = getelementptr inbounds nuw i8, ptr %.0181, i64 368
   %60 = load i32, ptr %59, align 8
   store i32 %60, ptr %53, align 4
   br label %job_task_info_by_pid.exit.thread
 
 61:                                               ; preds = %51
-  %62 = getelementptr inbounds i8, ptr %.0179, i64 4
+  %62 = getelementptr inbounds nuw i8, ptr %.0179, i64 4
   %63 = load i32, ptr %62, align 4
   store i32 %63, ptr %53, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2287,7 +2287,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %71 = load ptr, ptr %70, align 16
   %72 = zext nneg i32 %67 to i64
   %73 = getelementptr i8, ptr %71, i64 %72
@@ -2296,7 +2296,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %79
 
 75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %3, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 8
   store ptr %78, ptr %76, align 8
@@ -2314,19 +2314,19 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   ]
 
 84:                                               ; preds = %79
-  %85 = getelementptr inbounds i8, ptr %.0180, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %.0180, i64 4
   %86 = load i32, ptr %85, align 4
   store i32 %86, ptr %81, align 4
   br label %job_task_info_by_pid.exit.thread
 
 87:                                               ; preds = %79
-  %88 = getelementptr inbounds i8, ptr %.0181, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %.0181, i64 408
   %89 = load i32, ptr %88, align 8
   store i32 %89, ptr %81, align 4
   br label %job_task_info_by_pid.exit.thread
 
 90:                                               ; preds = %79
-  %91 = getelementptr inbounds i8, ptr %.0179, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.0179, i64 8
   %92 = load i32, ptr %91, align 4
   store i32 %92, ptr %81, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2342,7 +2342,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %97, label %102, label %.thread
 
 .thread:                                          ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %3, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr i8, ptr %99, i64 8
   store ptr %100, ptr %98, align 8
@@ -2350,7 +2350,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %116
 
 102:                                              ; preds = %95
-  %103 = getelementptr inbounds i8, ptr %3, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %104 = load ptr, ptr %103, align 16
   %105 = zext nneg i32 %96 to i64
   %106 = getelementptr i8, ptr %104, i64 %105
@@ -2361,7 +2361,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %109, label %110, label %116
 
 110:                                              ; preds = %102
-  %111 = getelementptr inbounds i8, ptr %3, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %112 = load ptr, ptr %111, align 16
   %113 = zext nneg i32 %107 to i64
   %114 = getelementptr i8, ptr %112, i64 %113
@@ -2371,7 +2371,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 
 116:                                              ; preds = %.thread, %102
   %117 = phi ptr [ %101, %.thread ], [ %108, %102 ]
-  %118 = getelementptr inbounds i8, ptr %3, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr i8, ptr %119, i64 8
   store ptr %120, ptr %118, align 8
@@ -2385,10 +2385,10 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not267, label %130, label %125
 
 125:                                              ; preds = %121
-  %126 = getelementptr inbounds i8, ptr %.0181, i64 424
+  %126 = getelementptr inbounds nuw i8, ptr %.0181, i64 424
   %127 = load ptr, ptr %126, align 8
   store ptr %127, ptr %122, align 8
-  %128 = getelementptr inbounds i8, ptr %.0181, i64 412
+  %128 = getelementptr inbounds nuw i8, ptr %.0181, i64 412
   %129 = load i32, ptr %128, align 4
   store i32 %129, ptr %124, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2404,7 +2404,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %133, label %134, label %140
 
 134:                                              ; preds = %131
-  %135 = getelementptr inbounds i8, ptr %3, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %136 = load ptr, ptr %135, align 16
   %137 = zext nneg i32 %132 to i64
   %138 = getelementptr i8, ptr %136, i64 %137
@@ -2413,7 +2413,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %144
 
 140:                                              ; preds = %131
-  %141 = getelementptr inbounds i8, ptr %3, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr i8, ptr %142, i64 8
   store ptr %143, ptr %141, align 8
@@ -2431,13 +2431,13 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   ]
 
 149:                                              ; preds = %144
-  %150 = getelementptr inbounds i8, ptr %.0180, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %.0180, i64 8
   %151 = load i32, ptr %150, align 8
   store i32 %151, ptr %146, align 4
   br label %job_task_info_by_pid.exit.thread
 
 152:                                              ; preds = %144
-  %153 = getelementptr inbounds i8, ptr %.0181, i64 112
+  %153 = getelementptr inbounds nuw i8, ptr %.0181, i64 112
   %154 = load i32, ptr %153, align 8
   store i32 %154, ptr %146, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2453,7 +2453,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %159, label %160, label %166
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds i8, ptr %3, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %162 = load ptr, ptr %161, align 16
   %163 = zext nneg i32 %158 to i64
   %164 = getelementptr i8, ptr %162, i64 %163
@@ -2462,7 +2462,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %170
 
 166:                                              ; preds = %157
-  %167 = getelementptr inbounds i8, ptr %3, i64 8
+  %167 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr i8, ptr %168, i64 8
   store ptr %169, ptr %167, align 8
@@ -2477,7 +2477,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %175, label %176, label %179
 
 176:                                              ; preds = %170
-  %177 = getelementptr inbounds i8, ptr %.0180, i64 12
+  %177 = getelementptr inbounds nuw i8, ptr %.0180, i64 12
   %178 = load i32, ptr %177, align 4
   store i32 %178, ptr %172, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2487,7 +2487,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not266, label %183, label %180
 
 180:                                              ; preds = %179
-  %181 = getelementptr inbounds i8, ptr %.0181, i64 120
+  %181 = getelementptr inbounds nuw i8, ptr %.0181, i64 120
   %182 = load i32, ptr %181, align 8
   store i32 %182, ptr %172, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2502,7 +2502,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %186, label %187, label %193
 
 187:                                              ; preds = %184
-  %188 = getelementptr inbounds i8, ptr %3, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %189 = load ptr, ptr %188, align 16
   %190 = zext nneg i32 %185 to i64
   %191 = getelementptr i8, ptr %189, i64 %190
@@ -2511,7 +2511,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %197
 
 193:                                              ; preds = %184
-  %194 = getelementptr inbounds i8, ptr %3, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr i8, ptr %195, i64 8
   store ptr %196, ptr %194, align 8
@@ -2526,7 +2526,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %197
-  %204 = getelementptr inbounds i8, ptr %.0181, i64 124
+  %204 = getelementptr inbounds nuw i8, ptr %.0181, i64 124
   %205 = load i32, ptr %204, align 4
   store i32 %205, ptr %199, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2541,7 +2541,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %209, label %210, label %216
 
 210:                                              ; preds = %207
-  %211 = getelementptr inbounds i8, ptr %3, i64 16
+  %211 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %212 = load ptr, ptr %211, align 16
   %213 = zext nneg i32 %208 to i64
   %214 = getelementptr i8, ptr %212, i64 %213
@@ -2550,7 +2550,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %220
 
 216:                                              ; preds = %207
-  %217 = getelementptr inbounds i8, ptr %3, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr i8, ptr %218, i64 8
   store ptr %219, ptr %217, align 8
@@ -2565,7 +2565,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %225, label %226, label %229
 
 226:                                              ; preds = %220
-  %227 = getelementptr inbounds i8, ptr %.0181, i64 128
+  %227 = getelementptr inbounds nuw i8, ptr %.0181, i64 128
   %228 = load i32, ptr %227, align 8
   store i32 %228, ptr %222, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2580,7 +2580,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %232, label %233, label %239
 
 233:                                              ; preds = %230
-  %234 = getelementptr inbounds i8, ptr %3, i64 16
+  %234 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %235 = load ptr, ptr %234, align 16
   %236 = zext nneg i32 %231 to i64
   %237 = getelementptr i8, ptr %235, i64 %236
@@ -2589,7 +2589,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %243
 
 239:                                              ; preds = %230
-  %240 = getelementptr inbounds i8, ptr %3, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %241 = load ptr, ptr %240, align 8
   %242 = getelementptr i8, ptr %241, i64 8
   store ptr %242, ptr %240, align 8
@@ -2604,13 +2604,13 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %248, label %249, label %256
 
 249:                                              ; preds = %243
-  %250 = getelementptr inbounds i8, ptr %.0180, i64 16
+  %250 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
   %251 = load ptr, ptr %250, align 8
   %.not265 = icmp eq ptr %251, null
   br i1 %.not265, label %255, label %252
 
 252:                                              ; preds = %249
-  %253 = getelementptr inbounds i8, ptr %251, i64 40
+  %253 = getelementptr inbounds nuw i8, ptr %251, i64 40
   %254 = load i32, ptr %253, align 8
   store i32 %254, ptr %245, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2624,7 +2624,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not264, label %260, label %257
 
 257:                                              ; preds = %256
-  %258 = getelementptr inbounds i8, ptr %.0181, i64 132
+  %258 = getelementptr inbounds nuw i8, ptr %.0181, i64 132
   %259 = load i32, ptr %258, align 4
   store i32 %259, ptr %245, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2639,7 +2639,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %263, label %264, label %270
 
 264:                                              ; preds = %261
-  %265 = getelementptr inbounds i8, ptr %3, i64 16
+  %265 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %266 = load ptr, ptr %265, align 16
   %267 = zext nneg i32 %262 to i64
   %268 = getelementptr i8, ptr %266, i64 %267
@@ -2648,7 +2648,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %274
 
 270:                                              ; preds = %261
-  %271 = getelementptr inbounds i8, ptr %3, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %272 = load ptr, ptr %271, align 8
   %273 = getelementptr i8, ptr %272, i64 8
   store ptr %273, ptr %271, align 8
@@ -2661,7 +2661,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not263, label %280, label %277
 
 277:                                              ; preds = %274
-  %278 = getelementptr inbounds i8, ptr %.0181, i64 140
+  %278 = getelementptr inbounds nuw i8, ptr %.0181, i64 140
   %279 = load i32, ptr %278, align 4
   store i32 %279, ptr %276, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2676,7 +2676,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %283, label %284, label %290
 
 284:                                              ; preds = %281
-  %285 = getelementptr inbounds i8, ptr %3, i64 16
+  %285 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %286 = load ptr, ptr %285, align 16
   %287 = zext nneg i32 %282 to i64
   %288 = getelementptr i8, ptr %286, i64 %287
@@ -2685,7 +2685,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %294
 
 290:                                              ; preds = %281
-  %291 = getelementptr inbounds i8, ptr %3, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr i8, ptr %292, i64 8
   store ptr %293, ptr %291, align 8
@@ -2698,7 +2698,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not262, label %300, label %297
 
 297:                                              ; preds = %294
-  %298 = getelementptr inbounds i8, ptr %.0181, i64 144
+  %298 = getelementptr inbounds nuw i8, ptr %.0181, i64 144
   %299 = load i32, ptr %298, align 8
   store i32 %299, ptr %296, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2713,7 +2713,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %303, label %304, label %310
 
 304:                                              ; preds = %301
-  %305 = getelementptr inbounds i8, ptr %3, i64 16
+  %305 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %306 = load ptr, ptr %305, align 16
   %307 = zext nneg i32 %302 to i64
   %308 = getelementptr i8, ptr %306, i64 %307
@@ -2722,7 +2722,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %314
 
 310:                                              ; preds = %301
-  %311 = getelementptr inbounds i8, ptr %3, i64 8
+  %311 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %312 = load ptr, ptr %311, align 8
   %313 = getelementptr i8, ptr %312, i64 8
   store ptr %313, ptr %311, align 8
@@ -2737,13 +2737,13 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %319, label %320, label %327
 
 320:                                              ; preds = %314
-  %321 = getelementptr inbounds i8, ptr %.0180, i64 16
+  %321 = getelementptr inbounds nuw i8, ptr %.0180, i64 16
   %322 = load ptr, ptr %321, align 8
   %.not261 = icmp eq ptr %322, null
   br i1 %.not261, label %326, label %323
 
 323:                                              ; preds = %320
-  %324 = getelementptr inbounds i8, ptr %322, i64 72
+  %324 = getelementptr inbounds nuw i8, ptr %322, i64 72
   %325 = load i32, ptr %324, align 8
   store i32 %325, ptr %316, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2757,7 +2757,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not260, label %331, label %328
 
 328:                                              ; preds = %327
-  %329 = getelementptr inbounds i8, ptr %.0181, i64 136
+  %329 = getelementptr inbounds nuw i8, ptr %.0181, i64 136
   %330 = load i32, ptr %329, align 8
   store i32 %330, ptr %316, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2772,7 +2772,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %334, label %335, label %341
 
 335:                                              ; preds = %332
-  %336 = getelementptr inbounds i8, ptr %3, i64 16
+  %336 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %337 = load ptr, ptr %336, align 16
   %338 = zext nneg i32 %333 to i64
   %339 = getelementptr i8, ptr %337, i64 %338
@@ -2781,7 +2781,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %345
 
 341:                                              ; preds = %332
-  %342 = getelementptr inbounds i8, ptr %3, i64 8
+  %342 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %343 = load ptr, ptr %342, align 8
   %344 = getelementptr i8, ptr %343, i64 8
   store ptr %344, ptr %342, align 8
@@ -2794,7 +2794,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not259, label %351, label %348
 
 348:                                              ; preds = %345
-  %349 = getelementptr inbounds i8, ptr %.0181, i64 264
+  %349 = getelementptr inbounds nuw i8, ptr %.0181, i64 264
   %350 = load i16, ptr %349, align 8
   store i16 %350, ptr %347, align 2
   br label %job_task_info_by_pid.exit.thread
@@ -2809,7 +2809,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %354, label %355, label %361
 
 355:                                              ; preds = %352
-  %356 = getelementptr inbounds i8, ptr %3, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %357 = load ptr, ptr %356, align 16
   %358 = zext nneg i32 %353 to i64
   %359 = getelementptr i8, ptr %357, i64 %358
@@ -2818,7 +2818,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %365
 
 361:                                              ; preds = %352
-  %362 = getelementptr inbounds i8, ptr %3, i64 8
+  %362 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr i8, ptr %363, i64 8
   store ptr %364, ptr %362, align 8
@@ -2831,7 +2831,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not258, label %371, label %368
 
 368:                                              ; preds = %365
-  %369 = getelementptr inbounds i8, ptr %.0181, i64 240
+  %369 = getelementptr inbounds nuw i8, ptr %.0181, i64 240
   %370 = load i32, ptr %369, align 8
   store i32 %370, ptr %367, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2846,7 +2846,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %374, label %379, label %.thread307
 
 .thread307:                                       ; preds = %372
-  %375 = getelementptr inbounds i8, ptr %3, i64 8
+  %375 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %376 = load ptr, ptr %375, align 8
   %377 = getelementptr i8, ptr %376, i64 8
   store ptr %377, ptr %375, align 8
@@ -2854,7 +2854,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %393
 
 379:                                              ; preds = %372
-  %380 = getelementptr inbounds i8, ptr %3, i64 16
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %381 = load ptr, ptr %380, align 16
   %382 = zext nneg i32 %373 to i64
   %383 = getelementptr i8, ptr %381, i64 %382
@@ -2865,7 +2865,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %386, label %387, label %393
 
 387:                                              ; preds = %379
-  %388 = getelementptr inbounds i8, ptr %3, i64 16
+  %388 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %389 = load ptr, ptr %388, align 16
   %390 = zext nneg i32 %384 to i64
   %391 = getelementptr i8, ptr %389, i64 %390
@@ -2875,7 +2875,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 
 393:                                              ; preds = %.thread307, %379
   %394 = phi ptr [ %378, %.thread307 ], [ %385, %379 ]
-  %395 = getelementptr inbounds i8, ptr %3, i64 8
+  %395 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %396 = load ptr, ptr %395, align 8
   %397 = getelementptr i8, ptr %396, i64 8
   store ptr %397, ptr %395, align 8
@@ -2891,10 +2891,10 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %404, label %405, label %410
 
 405:                                              ; preds = %398
-  %406 = getelementptr inbounds i8, ptr %.0180, i64 24
+  %406 = getelementptr inbounds nuw i8, ptr %.0180, i64 24
   %407 = load i32, ptr %406, align 8
   store i32 %407, ptr %399, align 4
-  %408 = getelementptr inbounds i8, ptr %.0180, i64 32
+  %408 = getelementptr inbounds nuw i8, ptr %.0180, i64 32
   %409 = load ptr, ptr %408, align 8
   store ptr %409, ptr %401, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -2904,10 +2904,10 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not257, label %416, label %411
 
 411:                                              ; preds = %410
-  %412 = getelementptr inbounds i8, ptr %.0181, i64 268
+  %412 = getelementptr inbounds nuw i8, ptr %.0181, i64 268
   %413 = load i32, ptr %412, align 4
   store i32 %413, ptr %399, align 4
-  %414 = getelementptr inbounds i8, ptr %.0181, i64 280
+  %414 = getelementptr inbounds nuw i8, ptr %.0181, i64 280
   %415 = load ptr, ptr %414, align 8
   store ptr %415, ptr %401, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -2923,7 +2923,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %419, label %420, label %426
 
 420:                                              ; preds = %417
-  %421 = getelementptr inbounds i8, ptr %3, i64 16
+  %421 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %422 = load ptr, ptr %421, align 16
   %423 = zext nneg i32 %418 to i64
   %424 = getelementptr i8, ptr %422, i64 %423
@@ -2932,7 +2932,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %430
 
 426:                                              ; preds = %417
-  %427 = getelementptr inbounds i8, ptr %3, i64 8
+  %427 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %428 = load ptr, ptr %427, align 8
   %429 = getelementptr i8, ptr %428, i64 8
   store ptr %429, ptr %427, align 8
@@ -2945,7 +2945,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not256, label %436, label %433
 
 433:                                              ; preds = %430
-  %434 = getelementptr inbounds i8, ptr %.0181, i64 272
+  %434 = getelementptr inbounds nuw i8, ptr %.0181, i64 272
   %435 = load ptr, ptr %434, align 8
   store ptr %435, ptr %432, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -2960,7 +2960,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %439, label %440, label %446
 
 440:                                              ; preds = %437
-  %441 = getelementptr inbounds i8, ptr %3, i64 16
+  %441 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %442 = load ptr, ptr %441, align 16
   %443 = zext nneg i32 %438 to i64
   %444 = getelementptr i8, ptr %442, i64 %443
@@ -2969,7 +2969,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %450
 
 446:                                              ; preds = %437
-  %447 = getelementptr inbounds i8, ptr %3, i64 8
+  %447 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %448 = load ptr, ptr %447, align 8
   %449 = getelementptr i8, ptr %448, i64 8
   store ptr %449, ptr %447, align 8
@@ -2978,7 +2978,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 450:                                              ; preds = %446, %440
   %451 = phi ptr [ %444, %440 ], [ %448, %446 ]
   %452 = load ptr, ptr %451, align 8
-  %453 = getelementptr inbounds i8, ptr %0, i64 32
+  %453 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %454 = load ptr, ptr %453, align 8
   %.not255 = icmp eq ptr %454, null
   br i1 %.not255, label %455, label %456
@@ -2988,7 +2988,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %job_task_info_by_pid.exit.thread
 
 456:                                              ; preds = %450
-  %457 = getelementptr inbounds i8, ptr %454, i64 56
+  %457 = getelementptr inbounds nuw i8, ptr %454, i64 56
   %458 = load i32, ptr %457, align 8
   store i32 %458, ptr %452, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -2999,7 +2999,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %461, label %462, label %468
 
 462:                                              ; preds = %459
-  %463 = getelementptr inbounds i8, ptr %3, i64 16
+  %463 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %464 = load ptr, ptr %463, align 16
   %465 = zext nneg i32 %460 to i64
   %466 = getelementptr i8, ptr %464, i64 %465
@@ -3008,7 +3008,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %472
 
 468:                                              ; preds = %459
-  %469 = getelementptr inbounds i8, ptr %3, i64 8
+  %469 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %470 = load ptr, ptr %469, align 8
   %471 = getelementptr i8, ptr %470, i64 8
   store ptr %471, ptr %469, align 8
@@ -3016,14 +3016,14 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 
 472:                                              ; preds = %468, %462
   %473 = phi ptr [ %466, %462 ], [ %470, %468 ]
-  %474 = getelementptr inbounds i8, ptr %0, i64 32
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %475 = load ptr, ptr %474, align 8
   %.not254 = icmp eq ptr %475, null
   br i1 %.not254, label %job_task_info_by_pid.exit.thread, label %476
 
 476:                                              ; preds = %472
   %477 = load ptr, ptr %473, align 8
-  %478 = getelementptr inbounds i8, ptr %475, i64 60
+  %478 = getelementptr inbounds nuw i8, ptr %475, i64 60
   %479 = load i32, ptr %478, align 4
   store i32 %479, ptr %477, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -3034,7 +3034,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %482, label %483, label %489
 
 483:                                              ; preds = %480
-  %484 = getelementptr inbounds i8, ptr %3, i64 16
+  %484 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %485 = load ptr, ptr %484, align 16
   %486 = zext nneg i32 %481 to i64
   %487 = getelementptr i8, ptr %485, i64 %486
@@ -3043,7 +3043,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %493
 
 489:                                              ; preds = %480
-  %490 = getelementptr inbounds i8, ptr %3, i64 8
+  %490 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %491 = load ptr, ptr %490, align 8
   %492 = getelementptr i8, ptr %491, i64 8
   store ptr %492, ptr %490, align 8
@@ -3052,19 +3052,19 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 493:                                              ; preds = %489, %483
   %494 = phi ptr [ %487, %483 ], [ %491, %489 ]
   %495 = load ptr, ptr %494, align 8
-  %496 = getelementptr inbounds i8, ptr %0, i64 32
+  %496 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %497 = load ptr, ptr %496, align 8
   %.not253 = icmp eq ptr %497, null
   br i1 %.not253, label %job_task_info_by_pid.exit.thread, label %498
 
 498:                                              ; preds = %493
-  %499 = getelementptr inbounds i8, ptr %497, i64 147
+  %499 = getelementptr inbounds nuw i8, ptr %497, i64 147
   %500 = load i8, ptr %499, align 1
   %501 = trunc i8 %500 to i1
   br i1 %501, label %502, label %job_task_info_by_pid.exit.thread
 
 502:                                              ; preds = %498
-  %503 = getelementptr inbounds i8, ptr %497, i64 148
+  %503 = getelementptr inbounds nuw i8, ptr %497, i64 148
   %504 = load i32, ptr %503, align 4
   store i32 %504, ptr %495, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -3075,7 +3075,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %507, label %508, label %514
 
 508:                                              ; preds = %505
-  %509 = getelementptr inbounds i8, ptr %3, i64 16
+  %509 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %510 = load ptr, ptr %509, align 16
   %511 = zext nneg i32 %506 to i64
   %512 = getelementptr i8, ptr %510, i64 %511
@@ -3084,7 +3084,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %518
 
 514:                                              ; preds = %505
-  %515 = getelementptr inbounds i8, ptr %3, i64 8
+  %515 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %516 = load ptr, ptr %515, align 8
   %517 = getelementptr i8, ptr %516, i64 8
   store ptr %517, ptr %515, align 8
@@ -3093,7 +3093,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 518:                                              ; preds = %514, %508
   %519 = phi ptr [ %512, %508 ], [ %516, %514 ]
   %520 = load ptr, ptr %519, align 8
-  %521 = getelementptr inbounds i8, ptr %0, i64 32
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %522 = load ptr, ptr %521, align 8
   %.not252 = icmp eq ptr %522, null
   br i1 %.not252, label %523, label %524
@@ -3103,7 +3103,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %job_task_info_by_pid.exit.thread
 
 524:                                              ; preds = %518
-  %525 = getelementptr inbounds i8, ptr %522, i64 64
+  %525 = getelementptr inbounds nuw i8, ptr %522, i64 64
   %526 = load i32, ptr %525, align 8
   store i32 %526, ptr %520, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -3114,7 +3114,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %529, label %534, label %.thread308
 
 .thread308:                                       ; preds = %527
-  %530 = getelementptr inbounds i8, ptr %3, i64 8
+  %530 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %531 = load ptr, ptr %530, align 8
   %532 = getelementptr i8, ptr %531, i64 8
   store ptr %532, ptr %530, align 8
@@ -3122,7 +3122,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br label %548
 
 534:                                              ; preds = %527
-  %535 = getelementptr inbounds i8, ptr %3, i64 16
+  %535 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %536 = load ptr, ptr %535, align 16
   %537 = zext nneg i32 %528 to i64
   %538 = getelementptr i8, ptr %536, i64 %537
@@ -3133,7 +3133,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %541, label %542, label %548
 
 542:                                              ; preds = %534
-  %543 = getelementptr inbounds i8, ptr %3, i64 16
+  %543 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %544 = load ptr, ptr %543, align 16
   %545 = zext nneg i32 %539 to i64
   %546 = getelementptr i8, ptr %544, i64 %545
@@ -3143,7 +3143,7 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 
 548:                                              ; preds = %.thread308, %534
   %549 = phi i32 [ %533, %.thread308 ], [ %540, %534 ]
-  %550 = getelementptr inbounds i8, ptr %3, i64 8
+  %550 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %551 = load ptr, ptr %550, align 8
   %552 = getelementptr i8, ptr %551, i64 8
   store ptr %552, ptr %550, align 8
@@ -3167,13 +3167,13 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
   br i1 %.not.i, label %job_task_info_by_pid.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %558
-  %559 = getelementptr inbounds i8, ptr %.0181, i64 144
+  %559 = getelementptr inbounds nuw i8, ptr %.0181, i64 144
   %560 = load i32, ptr %559, align 8
   %.not14.i = icmp eq i32 %560, 0
   br i1 %.not14.i, label %job_task_info_by_pid.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %561 = getelementptr inbounds i8, ptr %.0181, i64 472
+  %561 = getelementptr inbounds nuw i8, ptr %.0181, i64 472
   %562 = load ptr, ptr %561, align 8
   %wide.trip.count.i = zext i32 %560 to i64
   br label %564
@@ -3185,15 +3185,15 @@ _check_spank_item_validity.exit:                  ; preds = %7, %9
 
 564:                                              ; preds = %563, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %563 ]
-  %565 = getelementptr inbounds ptr, ptr %562, i64 %indvars.iv.i
+  %565 = getelementptr inbounds nuw ptr, ptr %562, i64 %indvars.iv.i
   %566 = load ptr, ptr %565, align 8
-  %567 = getelementptr inbounds i8, ptr %566, i64 64
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 64
   %568 = load i32, ptr %567, align 8
   %569 = icmp eq i32 %568, %554
   br i1 %569, label %job_task_info_by_pid.exit, label %563
 
 job_task_info_by_pid.exit:                        ; preds = %564
-  %570 = getelementptr inbounds i8, ptr %566, i64 60
+  %570 = getelementptr inbounds nuw i8, ptr %566, i64 60
   %571 = load i32, ptr %570, align 4
   store i32 %571, ptr %556, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -3204,7 +3204,7 @@ job_task_info_by_pid.exit:                        ; preds = %564
   br i1 %574, label %579, label %.thread309
 
 .thread309:                                       ; preds = %572
-  %575 = getelementptr inbounds i8, ptr %3, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %576 = load ptr, ptr %575, align 8
   %577 = getelementptr i8, ptr %576, i64 8
   store ptr %577, ptr %575, align 8
@@ -3212,7 +3212,7 @@ job_task_info_by_pid.exit:                        ; preds = %564
   br label %593
 
 579:                                              ; preds = %572
-  %580 = getelementptr inbounds i8, ptr %3, i64 16
+  %580 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %581 = load ptr, ptr %580, align 16
   %582 = zext nneg i32 %573 to i64
   %583 = getelementptr i8, ptr %581, i64 %582
@@ -3223,7 +3223,7 @@ job_task_info_by_pid.exit:                        ; preds = %564
   br i1 %586, label %587, label %593
 
 587:                                              ; preds = %579
-  %588 = getelementptr inbounds i8, ptr %3, i64 16
+  %588 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %589 = load ptr, ptr %588, align 16
   %590 = zext nneg i32 %584 to i64
   %591 = getelementptr i8, ptr %589, i64 %590
@@ -3233,7 +3233,7 @@ job_task_info_by_pid.exit:                        ; preds = %564
 
 593:                                              ; preds = %.thread309, %579
   %594 = phi i32 [ %578, %.thread309 ], [ %585, %579 ]
-  %595 = getelementptr inbounds i8, ptr %3, i64 8
+  %595 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %596 = load ptr, ptr %595, align 8
   %597 = getelementptr i8, ptr %596, i64 8
   store ptr %597, ptr %595, align 8
@@ -3257,13 +3257,13 @@ job_task_info_by_pid.exit:                        ; preds = %564
   br i1 %.not.i272, label %job_task_info_by_pid.exit.thread, label %.preheader.i273
 
 .preheader.i273:                                  ; preds = %603
-  %604 = getelementptr inbounds i8, ptr %.0181, i64 144
+  %604 = getelementptr inbounds nuw i8, ptr %.0181, i64 144
   %605 = load i32, ptr %604, align 8
   %.not14.i274 = icmp eq i32 %605, 0
   br i1 %.not14.i274, label %job_task_info_by_pid.exit.thread, label %.lr.ph.i275
 
 .lr.ph.i275:                                      ; preds = %.preheader.i273
-  %606 = getelementptr inbounds i8, ptr %.0181, i64 472
+  %606 = getelementptr inbounds nuw i8, ptr %.0181, i64 472
   %607 = load ptr, ptr %606, align 8
   %wide.trip.count.i276 = zext i32 %605 to i64
   br label %609
@@ -3275,15 +3275,15 @@ job_task_info_by_pid.exit:                        ; preds = %564
 
 609:                                              ; preds = %608, %.lr.ph.i275
   %indvars.iv.i277 = phi i64 [ 0, %.lr.ph.i275 ], [ %indvars.iv.next.i278, %608 ]
-  %610 = getelementptr inbounds ptr, ptr %607, i64 %indvars.iv.i277
+  %610 = getelementptr inbounds nuw ptr, ptr %607, i64 %indvars.iv.i277
   %611 = load ptr, ptr %610, align 8
-  %612 = getelementptr inbounds i8, ptr %611, i64 64
+  %612 = getelementptr inbounds nuw i8, ptr %611, i64 64
   %613 = load i32, ptr %612, align 8
   %614 = icmp eq i32 %613, %599
   br i1 %614, label %job_task_info_by_pid.exit281, label %608
 
 job_task_info_by_pid.exit281:                     ; preds = %609
-  %615 = getelementptr inbounds i8, ptr %611, i64 56
+  %615 = getelementptr inbounds nuw i8, ptr %611, i64 56
   %616 = load i32, ptr %615, align 8
   store i32 %616, ptr %601, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -3294,7 +3294,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %619, label %624, label %.thread310
 
 .thread310:                                       ; preds = %617
-  %620 = getelementptr inbounds i8, ptr %3, i64 8
+  %620 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %621 = load ptr, ptr %620, align 8
   %622 = getelementptr i8, ptr %621, i64 8
   store ptr %622, ptr %620, align 8
@@ -3302,7 +3302,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %638
 
 624:                                              ; preds = %617
-  %625 = getelementptr inbounds i8, ptr %3, i64 16
+  %625 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %626 = load ptr, ptr %625, align 16
   %627 = zext nneg i32 %618 to i64
   %628 = getelementptr i8, ptr %626, i64 %627
@@ -3313,7 +3313,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %631, label %632, label %638
 
 632:                                              ; preds = %624
-  %633 = getelementptr inbounds i8, ptr %3, i64 16
+  %633 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %634 = load ptr, ptr %633, align 16
   %635 = zext nneg i32 %629 to i64
   %636 = getelementptr i8, ptr %634, i64 %635
@@ -3323,7 +3323,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
 
 638:                                              ; preds = %.thread310, %624
   %639 = phi i32 [ %623, %.thread310 ], [ %630, %624 ]
-  %640 = getelementptr inbounds i8, ptr %3, i64 8
+  %640 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %641 = load ptr, ptr %640, align 8
   %642 = getelementptr i8, ptr %641, i64 8
   store ptr %642, ptr %640, align 8
@@ -3338,26 +3338,26 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %.not244, label %job_task_info_by_pid.exit.thread, label %647
 
 647:                                              ; preds = %643
-  %648 = getelementptr inbounds i8, ptr %.0181, i64 144
+  %648 = getelementptr inbounds nuw i8, ptr %.0181, i64 144
   %649 = load i32, ptr %648, align 8
   %.not245 = icmp ugt i32 %644, %649
   br i1 %.not245, label %job_task_info_by_pid.exit.thread, label %650
 
 650:                                              ; preds = %647
-  %651 = getelementptr inbounds i8, ptr %.0181, i64 472
+  %651 = getelementptr inbounds nuw i8, ptr %.0181, i64 472
   %652 = load ptr, ptr %651, align 8
   %.not246 = icmp eq ptr %652, null
   br i1 %.not246, label %job_task_info_by_pid.exit.thread, label %653
 
 653:                                              ; preds = %650
   %654 = zext i32 %644 to i64
-  %655 = getelementptr inbounds ptr, ptr %652, i64 %654
+  %655 = getelementptr inbounds nuw ptr, ptr %652, i64 %654
   %656 = load ptr, ptr %655, align 8
   %.not247 = icmp eq ptr %656, null
   br i1 %.not247, label %job_task_info_by_pid.exit.thread, label %657
 
 657:                                              ; preds = %653
-  %658 = getelementptr inbounds i8, ptr %656, i64 60
+  %658 = getelementptr inbounds nuw i8, ptr %656, i64 60
   %659 = load i32, ptr %658, align 4
   store i32 %659, ptr %646, align 4
   br label %job_task_info_by_pid.exit.thread
@@ -3368,7 +3368,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %662, label %667, label %.thread311
 
 .thread311:                                       ; preds = %660
-  %663 = getelementptr inbounds i8, ptr %3, i64 8
+  %663 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %664 = load ptr, ptr %663, align 8
   %665 = getelementptr i8, ptr %664, i64 8
   store ptr %665, ptr %663, align 8
@@ -3376,7 +3376,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %681
 
 667:                                              ; preds = %660
-  %668 = getelementptr inbounds i8, ptr %3, i64 16
+  %668 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %669 = load ptr, ptr %668, align 16
   %670 = zext nneg i32 %661 to i64
   %671 = getelementptr i8, ptr %669, i64 %670
@@ -3387,7 +3387,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %674, label %675, label %681
 
 675:                                              ; preds = %667
-  %676 = getelementptr inbounds i8, ptr %3, i64 16
+  %676 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %677 = load ptr, ptr %676, align 16
   %678 = zext nneg i32 %672 to i64
   %679 = getelementptr i8, ptr %677, i64 %678
@@ -3397,7 +3397,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
 
 681:                                              ; preds = %.thread311, %667
   %682 = phi i32 [ %666, %.thread311 ], [ %673, %667 ]
-  %683 = getelementptr inbounds i8, ptr %3, i64 8
+  %683 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %684 = load ptr, ptr %683, align 8
   %685 = getelementptr i8, ptr %684, i64 8
   store ptr %685, ptr %683, align 8
@@ -3416,7 +3416,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %693, label %694, label %700
 
 694:                                              ; preds = %691
-  %695 = getelementptr inbounds i8, ptr %3, i64 16
+  %695 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %696 = load ptr, ptr %695, align 16
   %697 = zext nneg i32 %692 to i64
   %698 = getelementptr i8, ptr %696, i64 %697
@@ -3425,7 +3425,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %704
 
 700:                                              ; preds = %691
-  %701 = getelementptr inbounds i8, ptr %3, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %702 = load ptr, ptr %701, align 8
   %703 = getelementptr i8, ptr %702, i64 8
   store ptr %703, ptr %701, align 8
@@ -3438,7 +3438,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %.not243, label %710, label %707
 
 707:                                              ; preds = %704
-  %708 = getelementptr inbounds i8, ptr %.0181, i64 736
+  %708 = getelementptr inbounds nuw i8, ptr %.0181, i64 736
   %709 = load ptr, ptr %708, align 8
   store ptr %709, ptr %706, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -3453,7 +3453,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %713, label %714, label %720
 
 714:                                              ; preds = %711
-  %715 = getelementptr inbounds i8, ptr %3, i64 16
+  %715 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %716 = load ptr, ptr %715, align 16
   %717 = zext nneg i32 %712 to i64
   %718 = getelementptr i8, ptr %716, i64 %717
@@ -3462,7 +3462,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %724
 
 720:                                              ; preds = %711
-  %721 = getelementptr inbounds i8, ptr %3, i64 8
+  %721 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %722 = load ptr, ptr %721, align 8
   %723 = getelementptr i8, ptr %722, i64 8
   store ptr %723, ptr %721, align 8
@@ -3475,7 +3475,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %.not242, label %730, label %727
 
 727:                                              ; preds = %724
-  %728 = getelementptr inbounds i8, ptr %.0181, i64 248
+  %728 = getelementptr inbounds nuw i8, ptr %.0181, i64 248
   %729 = load i64, ptr %728, align 8
   store i64 %729, ptr %726, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -3490,7 +3490,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %733, label %734, label %740
 
 734:                                              ; preds = %731
-  %735 = getelementptr inbounds i8, ptr %3, i64 16
+  %735 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %736 = load ptr, ptr %735, align 16
   %737 = zext nneg i32 %732 to i64
   %738 = getelementptr i8, ptr %736, i64 %737
@@ -3499,7 +3499,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %744
 
 740:                                              ; preds = %731
-  %741 = getelementptr inbounds i8, ptr %3, i64 8
+  %741 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %742 = load ptr, ptr %741, align 8
   %743 = getelementptr i8, ptr %742, i64 8
   store ptr %743, ptr %741, align 8
@@ -3512,7 +3512,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %.not241, label %750, label %747
 
 747:                                              ; preds = %744
-  %748 = getelementptr inbounds i8, ptr %.0181, i64 744
+  %748 = getelementptr inbounds nuw i8, ptr %.0181, i64 744
   %749 = load ptr, ptr %748, align 8
   store ptr %749, ptr %746, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -3527,7 +3527,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %753, label %754, label %760
 
 754:                                              ; preds = %751
-  %755 = getelementptr inbounds i8, ptr %3, i64 16
+  %755 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %756 = load ptr, ptr %755, align 16
   %757 = zext nneg i32 %752 to i64
   %758 = getelementptr i8, ptr %756, i64 %757
@@ -3536,7 +3536,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %764
 
 760:                                              ; preds = %751
-  %761 = getelementptr inbounds i8, ptr %3, i64 8
+  %761 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %762 = load ptr, ptr %761, align 8
   %763 = getelementptr i8, ptr %762, i64 8
   store ptr %763, ptr %761, align 8
@@ -3549,7 +3549,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %.not240, label %770, label %767
 
 767:                                              ; preds = %764
-  %768 = getelementptr inbounds i8, ptr %.0181, i64 256
+  %768 = getelementptr inbounds nuw i8, ptr %.0181, i64 256
   %769 = load i64, ptr %768, align 8
   store i64 %769, ptr %766, align 8
   br label %job_task_info_by_pid.exit.thread
@@ -3564,7 +3564,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %773, label %774, label %780
 
 774:                                              ; preds = %771
-  %775 = getelementptr inbounds i8, ptr %3, i64 16
+  %775 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %776 = load ptr, ptr %775, align 16
   %777 = zext nneg i32 %772 to i64
   %778 = getelementptr i8, ptr %776, i64 %777
@@ -3573,7 +3573,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %784
 
 780:                                              ; preds = %771
-  %781 = getelementptr inbounds i8, ptr %3, i64 8
+  %781 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %782 = load ptr, ptr %781, align 8
   %783 = getelementptr i8, ptr %782, i64 8
   store ptr %783, ptr %781, align 8
@@ -3586,7 +3586,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %.not239, label %791, label %787
 
 787:                                              ; preds = %784
-  %788 = getelementptr inbounds i8, ptr %.0181, i64 728
+  %788 = getelementptr inbounds nuw i8, ptr %.0181, i64 728
   %789 = load i16, ptr %788, align 8
   %790 = zext i16 %789 to i32
   store i32 %790, ptr %786, align 4
@@ -3602,7 +3602,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %794, label %795, label %801
 
 795:                                              ; preds = %792
-  %796 = getelementptr inbounds i8, ptr %3, i64 16
+  %796 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %797 = load ptr, ptr %796, align 16
   %798 = zext nneg i32 %793 to i64
   %799 = getelementptr i8, ptr %797, i64 %798
@@ -3611,7 +3611,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %805
 
 801:                                              ; preds = %792
-  %802 = getelementptr inbounds i8, ptr %3, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %803 = load ptr, ptr %802, align 8
   %804 = getelementptr i8, ptr %803, i64 8
   store ptr %804, ptr %802, align 8
@@ -3629,7 +3629,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %810, label %811, label %817
 
 811:                                              ; preds = %808
-  %812 = getelementptr inbounds i8, ptr %3, i64 16
+  %812 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %813 = load ptr, ptr %812, align 16
   %814 = zext nneg i32 %809 to i64
   %815 = getelementptr i8, ptr %813, i64 %814
@@ -3638,7 +3638,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %821
 
 817:                                              ; preds = %808
-  %818 = getelementptr inbounds i8, ptr %3, i64 8
+  %818 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %819 = load ptr, ptr %818, align 8
   %820 = getelementptr i8, ptr %819, i64 8
   store ptr %820, ptr %818, align 8
@@ -3656,7 +3656,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %826, label %827, label %833
 
 827:                                              ; preds = %824
-  %828 = getelementptr inbounds i8, ptr %3, i64 16
+  %828 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %829 = load ptr, ptr %828, align 16
   %830 = zext nneg i32 %825 to i64
   %831 = getelementptr i8, ptr %829, i64 %830
@@ -3665,7 +3665,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %837
 
 833:                                              ; preds = %824
-  %834 = getelementptr inbounds i8, ptr %3, i64 8
+  %834 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %835 = load ptr, ptr %834, align 8
   %836 = getelementptr i8, ptr %835, i64 8
   store ptr %836, ptr %834, align 8
@@ -3683,7 +3683,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br i1 %842, label %843, label %849
 
 843:                                              ; preds = %840
-  %844 = getelementptr inbounds i8, ptr %3, i64 16
+  %844 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %845 = load ptr, ptr %844, align 16
   %846 = zext nneg i32 %841 to i64
   %847 = getelementptr i8, ptr %845, i64 %846
@@ -3692,7 +3692,7 @@ job_task_info_by_pid.exit281:                     ; preds = %609
   br label %853
 
 849:                                              ; preds = %840
-  %850 = getelementptr inbounds i8, ptr %3, i64 8
+  %850 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %851 = load ptr, ptr %850, align 8
   %852 = getelementptr i8, ptr %851, i64 8
   store ptr %852, ptr %850, align 8
@@ -3711,7 +3711,7 @@ job_task_info_by_pid.exit.thread:                 ; preds = %608, %563, %598, %5
 
 switch.lookup:                                    ; preds = %22
   %856 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.spank_get_item, i64 0, i64 %856
+  %switch.gep = getelementptr inbounds nuw [11 x i32], ptr @switch.table.spank_get_item, i64 0, i64 %856
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_check_spank_item_validity.exit.thread
 
@@ -3733,19 +3733,19 @@ define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef r
   br i1 %.not, label %.loopexit, label %4
 
 4:                                                ; preds = %3
-  %5 = getelementptr inbounds i8, ptr %0, i64 136
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load i32, ptr %5, align 8
   %.not16 = icmp ult i32 %1, %6
   br i1 %.not16, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 144
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load i32, ptr %7, align 8
   %.not18 = icmp eq i32 %8, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %9 = getelementptr inbounds i8, ptr %0, i64 472
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %10 = load ptr, ptr %9, align 8
   %wide.trip.count = zext i32 %8 to i64
   br label %12
@@ -3757,15 +3757,15 @@ define internal fastcc range(i32 0, 3008) i32 @_global_to_local_id(ptr noundef r
 
 12:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 60
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %1
   br i1 %17, label %18, label %11
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %14, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr %2, align 4
   br label %.loopexit
@@ -3786,14 +3786,14 @@ define range(i32 0, 3007) i32 @spank_env_access_check(ptr noundef readonly %0) l
   br i1 %.not, label %5, label %13
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   %.not5 = icmp eq i32 %8, 2
   br i1 %.not5, label %9, label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   %. = select i1 %12, i32 3001, i32 0
@@ -3815,14 +3815,14 @@ define range(i32 0, 3007) i32 @spank_getenv(ptr noundef readonly %0, ptr noundef
   br i1 %.not.i, label %8, label %spank_env_access_check.exit.thread
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %.not5.i = icmp eq i32 %11, 2
   br i1 %.not5.i, label %12, label %spank_env_access_check.exit.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = icmp slt i32 %3, 0
@@ -3830,7 +3830,7 @@ define range(i32 0, 3007) i32 @spank_getenv(ptr noundef readonly %0, ptr noundef
   br i1 %or.cond, label %spank_env_access_check.exit.thread, label %17
 
 17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %14, i64 272
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @getenvp(ptr noundef %19, ptr noundef %1) #19
   %.not13 = icmp eq ptr %20, null
@@ -3864,14 +3864,14 @@ define range(i32 0, 3007) i32 @spank_setenv(ptr noundef readonly %0, ptr noundef
   br i1 %.not.i, label %8, label %spank_env_access_check.exit.thread
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %.not5.i = icmp eq i32 %11, 2
   br i1 %.not5.i, label %12, label %spank_env_access_check.exit.thread
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %spank_env_access_check.exit.thread, label %spank_env_access_check.exit
@@ -3883,7 +3883,7 @@ spank_env_access_check.exit:                      ; preds = %12
   br i1 %or.cond, label %spank_env_access_check.exit.thread, label %18
 
 18:                                               ; preds = %spank_env_access_check.exit
-  %19 = getelementptr inbounds i8, ptr %14, i64 272
+  %19 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr @getenvp(ptr noundef %20, ptr noundef nonnull %1) #19
   %22 = icmp eq ptr %21, null
@@ -3915,14 +3915,14 @@ define range(i32 0, 3007) i32 @spank_unsetenv(ptr noundef readonly %0, ptr nound
   br i1 %.not.i, label %6, label %spank_env_access_check.exit.thread
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %.not5.i = icmp eq i32 %9, 2
   br i1 %.not5.i, label %10, label %spank_env_access_check.exit.thread
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   %14 = icmp eq ptr %1, null
@@ -3930,7 +3930,7 @@ define range(i32 0, 3007) i32 @spank_unsetenv(ptr noundef readonly %0, ptr nound
   br i1 %or.cond, label %spank_env_access_check.exit.thread, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %12, i64 272
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %17 = load ptr, ptr %16, align 8
   tail call void @unsetenvp(ptr noundef %17, ptr noundef nonnull %1) #19
   br label %spank_env_access_check.exit.thread
@@ -4000,7 +4000,7 @@ define range(i32 0, 3011) i32 @spank_job_control_getenv(ptr noundef readonly %0,
   br i1 %.not.i, label %spank_remote.exit.i, label %spank_job_control_access_check.exit.thread
 
 spank_remote.exit.i:                              ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %spank_job_control_access_check.exit [
@@ -4057,7 +4057,7 @@ define range(i32 0, 3011) i32 @spank_job_control_setenv(ptr noundef readonly %0,
   br i1 %.not.i, label %spank_remote.exit.i, label %spank_job_control_access_check.exit.thread
 
 spank_remote.exit.i:                              ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %spank_job_control_access_check.exit [
@@ -4109,7 +4109,7 @@ define range(i32 0, 3011) i32 @spank_job_control_unsetenv(ptr noundef readonly %
   br i1 %.not.i, label %spank_remote.exit.i, label %spank_job_control_access_check.exit.thread
 
 spank_remote.exit.i:                              ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %spank_job_control_access_check.exit [
@@ -4161,26 +4161,26 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   br i1 %or.cond, label %8, label %54
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.not46 = icmp eq ptr %10, null
   br i1 %.not46, label %54, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %10, i64 160
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %13 = load ptr, ptr %12, align 8
   %.not47 = icmp eq ptr %13, null
   br i1 %.not47, label %54, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = and i32 %16, -2
   %switch = icmp eq i32 %17, 6
   br i1 %switch, label %18, label %54
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %10, i64 152
+  %19 = getelementptr inbounds nuw i8, ptr %10, i64 152
   %20 = load i32, ptr %19, align 8
   %21 = add i32 %20, %1
   %22 = add nsw i32 %21, 1
@@ -4195,7 +4195,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not50 = icmp eq ptr %27, null
   br i1 %.not50, label %.critedge.loopexit.split.loop.exit73, label %28
@@ -4203,7 +4203,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
 28:                                               ; preds = %.lr.ph
   %29 = tail call ptr @xstrdup(ptr noundef nonnull %27) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   store ptr %29, ptr %30, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !24
@@ -4215,7 +4215,7 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
 .critedge:                                        ; preds = %28, %.critedge.loopexit.split.loop.exit73, %18
   %.039.lcssa = phi i32 [ 0, %18 ], [ %31, %.critedge.loopexit.split.loop.exit73 ], [ %1, %28 ]
   %32 = load ptr, ptr %9, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 152
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %34 = load i32, ptr %33, align 8
   %.not62 = icmp eq i32 %34, 0
   br i1 %.not62, label %.critedge3, label %.lr.ph58.preheader
@@ -4228,20 +4228,20 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
   %indvars.iv68 = phi i64 [ %35, %.lr.ph58.preheader ], [ %indvars.iv.next69, %41 ]
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next67, %41 ]
   %36 = phi ptr [ %32, %.lr.ph58.preheader ], [ %43, %41 ]
-  %37 = getelementptr inbounds i8, ptr %36, i64 160
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 160
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv66
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv66
   %40 = load ptr, ptr %39, align 8
   %.not51 = icmp eq ptr %40, null
   br i1 %.not51, label %.critedge3.loopexit, label %41
 
 41:                                               ; preds = %.lr.ph58
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %42 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv68
+  %42 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv68
   store ptr %40, ptr %42, align 8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %43 = load ptr, ptr %9, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 152
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
   %45 = load i32, ptr %44, align 8
   %46 = zext i32 %45 to i64
   %47 = icmp samesign ult i64 %indvars.iv.next67, %46
@@ -4255,13 +4255,13 @@ define range(i32 0, 3003) i32 @spank_prepend_task_argv(ptr noundef readonly %0, 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %.critedge
   %.1.lcssa = phi i32 [ %.039.lcssa, %.critedge ], [ %.1.lcssa.ph, %.critedge3.loopexit ]
   %48 = zext nneg i32 %.1.lcssa to i64
-  %49 = getelementptr inbounds ptr, ptr %24, i64 %48
+  %49 = getelementptr inbounds nuw ptr, ptr %24, i64 %48
   store ptr null, ptr %49, align 8
   %50 = load ptr, ptr %9, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 152
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 152
   store i32 %21, ptr %51, align 8
   %52 = load ptr, ptr %9, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 160
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 160
   store ptr %24, ptr %53, align 8
   br label %54
 
@@ -4279,7 +4279,7 @@ define i64 @spank_get_plugin_names(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %18, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @list_iterator_create(ptr noundef %5) #19
   %7 = tail call ptr @list_next(ptr noundef %6) #19
@@ -4323,7 +4323,7 @@ define i64 @spank_get_plugin_option_names(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not.i, label %get_global_option_cache.exit, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   br label %get_global_option_cache.exit
 
@@ -4341,7 +4341,7 @@ get_global_option_cache.exit:                     ; preds = %2, %4
 
 10:                                               ; preds = %.lr.ph, %.backedge
   %11 = phi ptr [ %9, %.lr.ph ], [ %15, %.backedge ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 21
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 21
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %.backedge, label %16
@@ -4352,7 +4352,7 @@ get_global_option_cache.exit:                     ; preds = %2, %4
   br i1 %.not, label %.outer._crit_edge, label %10, !llvm.loop !27
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %11, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @xstrcmp(ptr noundef %19, ptr noundef %0) #19
@@ -4389,7 +4389,7 @@ define ptr @spank_option_get(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %get_global_option_cache.exit.thread, label %5
@@ -4400,13 +4400,13 @@ get_global_option_cache.exit:                     ; preds = %1
   br i1 %.not14, label %get_global_option_cache.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %6, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8
   %.not15 = icmp eq ptr %13, null
   %spec.select = select i1 %.not15, ptr @.str.33, ptr %13
@@ -4414,13 +4414,13 @@ get_global_option_cache.exit:                     ; preds = %1
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8
   %.not16 = icmp eq i32 %17, 0
   br i1 %.not16, label %get_global_option_cache.exit.thread.sink.split, label %.thread
 
 .thread:                                          ; preds = %14
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not17 = icmp eq ptr %.pre, null
   br i1 %.not17, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit.thread.sink.split
@@ -4442,7 +4442,7 @@ define ptr @spank_option_plugin(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %get_global_option_cache.exit.thread, label %5
@@ -4453,7 +4453,7 @@ get_global_option_cache.exit:                     ; preds = %1
   br i1 %.not8, label %get_global_option_cache.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @xstrdup(ptr noundef %10) #19
@@ -4471,7 +4471,7 @@ define zeroext i1 @spank_option_isset(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %get_global_option_cache.exit.thread, label %5
@@ -4482,7 +4482,7 @@ get_global_option_cache.exit:                     ; preds = %1
   br i1 %.not8, label %get_global_option_cache.exit.thread, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %6, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
   br label %get_global_option_cache.exit.thread
@@ -4500,7 +4500,7 @@ define noundef zeroext i1 @spank_option_get_next_set(ptr nocapture noundef write
   br i1 %.not.i, label %get_global_option_cache.exit.thread, label %get_global_option_cache.exit
 
 get_global_option_cache.exit:                     ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %6, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %3, align 8
   store ptr %9, ptr %5, align 8
@@ -4530,13 +4530,13 @@ get_global_option_cache.exit:                     ; preds = %4
   br i1 %.not22, label %48, label %20
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %19, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %22 = load i8, ptr %21, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %17, !llvm.loop !28
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %19, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load ptr, ptr %26, align 8
   %28 = tail call ptr @xstrdup(ptr noundef %27) #19
@@ -4545,7 +4545,7 @@ get_global_option_cache.exit:                     ; preds = %4
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @xstrdup(ptr noundef %30) #19
   store ptr %31, ptr %1, align 8
-  %32 = getelementptr inbounds i8, ptr %19, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %33 = load ptr, ptr %32, align 8
   %.not23 = icmp eq ptr %33, null
   br i1 %.not23, label %36, label %34
@@ -4556,7 +4556,7 @@ get_global_option_cache.exit:                     ; preds = %4
   br label %get_global_option_cache.exit.thread
 
 36:                                               ; preds = %24
-  %37 = getelementptr inbounds i8, ptr %19, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
   br i1 %39, label %40, label %42
@@ -4568,7 +4568,7 @@ get_global_option_cache.exit:                     ; preds = %4
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %19, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i32, ptr %44, align 8
   %.not24 = icmp eq i32 %45, 0
   br i1 %.not24, label %46, label %get_global_option_cache.exit.thread
@@ -4616,14 +4616,14 @@ define internal void @_spank_plugin_destroy(ptr noundef %0) #0 {
   br i1 %3, label %16, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %5) #19
   store ptr null, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   tail call void @plugin_unload(ptr noundef %7) #19
   store ptr null, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %15, label %.preheader
@@ -4639,7 +4639,7 @@ define internal void @_spank_plugin_destroy(ptr noundef %0) #0 {
   tail call void @slurm_xfree(ptr noundef nonnull %11) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv.next
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8
   %.not4 = icmp eq ptr %14, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -4665,13 +4665,13 @@ define internal void @_spank_plugin_opt_destroy(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   store ptr %4, ptr %2, align 8
   tail call void @slurm_xfree(ptr noundef %4) #19
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %5) #19
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @slurm_xfree(ptr noundef nonnull %6) #19
   call void @slurm_xfree(ptr noundef nonnull %2) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @slurm_xfree(ptr noundef nonnull %7) #19
   call void @slurm_xfree(ptr noundef nonnull %3) #19
   ret void
@@ -4716,9 +4716,9 @@ define internal fastcc i32 @_spank_stack_load(ptr noundef %0, ptr noundef %1) un
   br i1 %.not82, label %_spank_stack_process_line.exit._crit_edge, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.preheader74
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %35
 
 29:                                               ; preds = %22, %19
@@ -4801,7 +4801,7 @@ _plugin_stack_line_type.exit.i:                   ; preds = %46
   store ptr null, ptr %60, align 8
   %61 = call ptr @xstrdup(ptr noundef nonnull %55) #19
   %62 = load ptr, ptr %3, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv.i42
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i42
   store ptr %61, ptr %63, align 8
   %64 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.44, ptr noundef nonnull %4) #19
   %.not25.i = icmp eq ptr %64, null
@@ -4978,13 +4978,13 @@ _spank_conf_include.exit:                         ; preds = %73, %.loopexit
 .lr.ph.i35:                                       ; preds = %126, %140
   %128 = phi ptr [ %141, %140 ], [ %127, %126 ]
   %.01219.i = phi ptr [ %129, %140 ], [ %8, %126 ]
-  %129 = getelementptr inbounds i8, ptr %128, i64 1
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 1
   store i8 0, ptr %128, align 1
   %130 = call ptr @xstrdup(ptr noundef nonnull %.01219.i) #19
   store ptr %130, ptr %9, align 8
   %131 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.01219.i) #20
-  %132 = add i64 %131, -1
-  %133 = getelementptr inbounds i8, ptr %.01219.i, i64 %132
+  %132 = getelementptr i8, ptr %.01219.i, i64 %131
+  %133 = getelementptr i8, ptr %132, i64 -1
   %134 = load i8, ptr %133, align 1
   %.not17.i = icmp eq i8 %134, 47
   br i1 %.not17.i, label %136, label %135
@@ -5050,22 +5050,22 @@ _spank_plugin_find.exit:                          ; preds = %136
 
 158:                                              ; preds = %152
   %159 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 152, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.32, i32 noundef 361, ptr noundef nonnull @__func__._spank_plugin_create) #19
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store ptr %146, ptr %160, align 8
   %161 = load ptr, ptr %10, align 8
-  %162 = getelementptr inbounds i8, ptr %159, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store ptr %161, ptr %162, align 8
   %163 = call ptr @plugin_get_name(ptr noundef %161) #19
   store ptr %163, ptr %159, align 8
-  %164 = getelementptr inbounds i8, ptr %159, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store i8 %147, ptr %164, align 8
-  %165 = getelementptr inbounds i8, ptr %159, i64 28
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 28
   store i32 %.04859, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %159, i64 32
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 32
   store ptr %.04958, ptr %166, align 8
-  %167 = getelementptr inbounds i8, ptr %159, i64 40
+  %167 = getelementptr inbounds nuw i8, ptr %159, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %167, ptr noundef nonnull align 8 dereferenceable(96) %11, i64 96, i1 false)
-  %168 = getelementptr inbounds i8, ptr %159, i64 144
+  %168 = getelementptr inbounds nuw i8, ptr %159, i64 144
   store ptr %0, ptr %168, align 8
   %169 = load i32, ptr %0, align 8
   %.not21.i = icmp eq i32 %169, 3
@@ -5074,7 +5074,7 @@ _spank_plugin_find.exit:                          ; preds = %136
 170:                                              ; preds = %158
   %171 = load ptr, ptr %10, align 8
   %172 = call ptr @plugin_get_sym(ptr noundef %171, ptr noundef nonnull @.str.56) #19
-  %173 = getelementptr inbounds i8, ptr %159, i64 136
+  %173 = getelementptr inbounds nuw i8, ptr %159, i64 136
   store ptr %172, ptr %173, align 8
   br label %185
 
@@ -5115,7 +5115,7 @@ _spank_plugin_find.exit:                          ; preds = %136
   br i1 %.not.i30, label %205, label %190
 
 190:                                              ; preds = %188
-  %191 = getelementptr inbounds i8, ptr %189, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %192 = load ptr, ptr %191, align 8
   %193 = load ptr, ptr %160, align 8
   %194 = icmp eq ptr %192, %193
@@ -5147,7 +5147,7 @@ _spank_plugin_find.exit:                          ; preds = %136
   call void @slurm_xfree(ptr noundef nonnull %201) #19
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
   %202 = load ptr, ptr %166, align 8
-  %203 = getelementptr inbounds ptr, ptr %202, i64 %indvars.iv.next.i26
+  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv.next.i26
   %204 = load ptr, ptr %203, align 8
   %.not4.i27 = icmp eq ptr %204, null
   br i1 %.not4.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !29
@@ -5173,19 +5173,19 @@ _spank_plugin_destroy.exit29:                     ; preds = %195, %._crit_edge.i
   ]
 
 206:                                              ; preds = %205
-  %207 = getelementptr inbounds i8, ptr %159, i64 48
+  %207 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %208 = load ptr, ptr %207, align 8
   %.not10.i = icmp eq ptr %208, null
   br i1 %.not10.i, label %209, label %237
 
 209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %159, i64 112
+  %210 = getelementptr inbounds nuw i8, ptr %159, i64 112
   %211 = load ptr, ptr %210, align 8
   %.not11.i = icmp eq ptr %211, null
   br i1 %.not11.i, label %spank_stack_plugin_valid_for_context.exit, label %237
 
 212:                                              ; preds = %205
-  %213 = getelementptr inbounds i8, ptr %159, i64 48
+  %213 = getelementptr inbounds nuw i8, ptr %159, i64 48
   %214 = load ptr, ptr %213, align 8
   %.not.i20 = icmp eq ptr %214, null
   br i1 %.not.i20, label %216, label %215
@@ -5195,7 +5195,7 @@ _spank_plugin_destroy.exit29:                     ; preds = %195, %._crit_edge.i
   br label %216
 
 216:                                              ; preds = %215, %212
-  %217 = getelementptr inbounds i8, ptr %159, i64 112
+  %217 = getelementptr inbounds nuw i8, ptr %159, i64 112
   %218 = load ptr, ptr %217, align 8
   %.not7.i = icmp eq ptr %218, null
   br i1 %.not7.i, label %220, label %219
@@ -5210,7 +5210,7 @@ _spank_plugin_destroy.exit29:                     ; preds = %195, %._crit_edge.i
   br i1 %.not8.i, label %222, label %237
 
 222:                                              ; preds = %220
-  %223 = getelementptr inbounds i8, ptr %159, i64 120
+  %223 = getelementptr inbounds nuw i8, ptr %159, i64 120
   %224 = load ptr, ptr %223, align 8
   %.not9.i = icmp eq ptr %224, null
   br i1 %.not9.i, label %spank_stack_plugin_valid_for_context.exit, label %237
@@ -5248,7 +5248,7 @@ spank_stack_plugin_valid_for_context.exit:        ; preds = %209, %222, %205
   call void @slurm_xfree(ptr noundef nonnull %233) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %234 = load ptr, ptr %166, align 8
-  %235 = getelementptr inbounds ptr, ptr %234, i64 %indvars.iv.next.i
+  %235 = getelementptr inbounds nuw ptr, ptr %234, i64 %indvars.iv.next.i
   %236 = load ptr, ptr %235, align 8
   %.not4.i = icmp eq ptr %236, null
   br i1 %.not4.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !29
@@ -5276,7 +5276,7 @@ _spank_plugin_destroy.exit:                       ; preds = %229, %._crit_edge.i
 243:                                              ; preds = %240, %237
   %244 = load ptr, ptr %28, align 8
   call void @list_append(ptr noundef %244, ptr noundef nonnull %159) #19
-  %245 = getelementptr inbounds i8, ptr %159, i64 136
+  %245 = getelementptr inbounds nuw i8, ptr %159, i64 136
   %246 = load ptr, ptr %245, align 8
   %.not44.i78 = icmp eq ptr %246, null
   br i1 %.not44.i78, label %_spank_stack_process_line.exit.thread, label %.lr.ph80.preheader
@@ -5289,7 +5289,7 @@ _spank_plugin_destroy.exit:                       ; preds = %229, %._crit_edge.i
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
   %.0.i7994 = phi ptr [ %249, %.lr.ph80 ], [ %246, %.lr.ph80.preheader ]
   %248 = call fastcc i32 @_spank_option_register(ptr noundef nonnull %159, ptr noundef %.0.i7994)
-  %249 = getelementptr inbounds i8, ptr %.0.i7994, i64 40
+  %249 = getelementptr inbounds nuw i8, ptr %.0.i7994, i64 40
   %250 = load ptr, ptr %249, align 8
   %.not45.i = icmp eq ptr %250, null
   br i1 %.not45.i, label %_spank_stack_process_line.exit.thread, label %.lr.ph80, !llvm.loop !34
@@ -5376,10 +5376,10 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @_opt_find(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @xstrcmp(ptr noundef %5, ptr noundef %7) #19
   %.not = icmp eq i32 %8, 0
@@ -5453,7 +5453,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef nonn
 
 .critedge.i:                                      ; preds = %18, %13
   %.0.lcssa.i = phi ptr [ %15, %13 ], [ %.026.i, %18 ]
-  %26 = getelementptr inbounds i8, ptr %.0.lcssa.i, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 1
   store ptr %26, ptr %0, align 8
   %.not2229.i = icmp eq ptr %.0.lcssa.i, %4
   br i1 %.not2229.i, label %.loopexit, label %.lr.ph31.i
@@ -5491,7 +5491,7 @@ define internal fastcc noundef ptr @_get_next_segment(ptr nocapture noundef nonn
   br label %45
 
 43:                                               ; preds = %29
-  %44 = getelementptr inbounds i8, ptr %.130.i, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.130.i, i64 1
   store i8 0, ptr %44, align 1
   br label %45
 

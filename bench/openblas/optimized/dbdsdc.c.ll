@@ -218,8 +218,8 @@ thread-pre-split14:                               ; preds = %118
 
 .preheader:                                       ; preds = %thread-pre-split14, %159
   %126 = phi i64 [ %131, %159 ], [ 1, %thread-pre-split14 ]
-  %127 = getelementptr inbounds double, ptr %26, i64 %126
-  %128 = getelementptr inbounds double, ptr %27, i64 %126
+  %127 = getelementptr inbounds nuw double, ptr %26, i64 %126
+  %128 = getelementptr inbounds nuw double, ptr %27, i64 %126
   call void @dlartg_(ptr noundef nonnull %127, ptr noundef nonnull %128, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %18) #4
   %129 = load double, ptr %18, align 8, !tbaa !7
   store double %129, ptr %127, align 8, !tbaa !7
@@ -251,7 +251,7 @@ thread-pre-split14:                               ; preds = %118
   br label %151
 
 147:                                              ; preds = %.preheader
-  %148 = getelementptr inbounds double, ptr %38, i64 %126
+  %148 = getelementptr inbounds nuw double, ptr %38, i64 %126
   store double %135, ptr %148, align 8, !tbaa !7
   %149 = fneg double %130
   %150 = load i32, ptr %24, align 4, !tbaa !3
@@ -404,7 +404,7 @@ thread-pre-split14:                               ; preds = %118
 
 247:                                              ; preds = %258, %242
   %248 = phi i64 [ 1, %242 ], [ %259, %258 ]
-  %249 = getelementptr inbounds double, ptr %26, i64 %248
+  %249 = getelementptr inbounds nuw double, ptr %26, i64 %248
   %250 = load double, ptr %249, align 8, !tbaa !7
   %251 = fcmp oge double %250, 0.000000e+00
   %252 = fneg double %250
@@ -452,7 +452,7 @@ thread-pre-split14:                               ; preds = %118
   %280 = phi i64 [ 1, %263 ], [ %427, %424 ]
   %281 = phi i32 [ -1, %263 ], [ %428, %424 ]
   %282 = phi i32 [ 1, %263 ], [ %426, %424 ]
-  %283 = getelementptr inbounds double, ptr %27, i64 %280
+  %283 = getelementptr inbounds nuw double, ptr %27, i64 %280
   %284 = load double, ptr %283, align 8, !tbaa !7
   %285 = fcmp oge double %284, 0.000000e+00
   %286 = fneg double %284
@@ -689,7 +689,7 @@ thread-pre-split16:                               ; preds = %167, %173, %176, %.
   %453 = phi i64 [ %441, %449 ], [ %462, %452 ]
   %454 = phi i32 [ %448, %449 ], [ %461, %452 ]
   %455 = phi double [ %444, %449 ], [ %459, %452 ]
-  %456 = getelementptr inbounds double, ptr %26, i64 %453
+  %456 = getelementptr inbounds nuw double, ptr %26, i64 %453
   %457 = load double, ptr %456, align 8, !tbaa !7
   %458 = fcmp ogt double %457, %455
   %459 = select i1 %458, double %457, double %455

@@ -22,12 +22,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define hidden void @_ZN3vas2ot12RgbHistogramC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot12RgbHistogramE, i64 16), ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = sdiv i32 256, %1
   store i32 %5, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = sitofp i32 %5 to double
   %8 = tail call double @pow(double noundef %7, double noundef 3.000000e+00) #11
   %9 = fptosi double %8 to i32
@@ -55,24 +55,24 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3vas2ot12RgbHistogram7ComputeERKN2cv3MatEPS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef nonnull %2) unnamed_addr #5 align 2 {
   %4 = alloca %"class.cv::Scalar_", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 1, i32 noundef %6, i32 noundef 5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %7 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph23.i, label %_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3MatEPf.exit
 
 .lr.ph23.i:                                       ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %15, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph23.split.i, label %_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3MatEPf.exit
@@ -91,16 +91,16 @@ define hidden void @_ZN3vas2ot12RgbHistogram7ComputeERKN2cv3MatEPS3_(ptr nocaptu
 
 .lr.ph.i:                                         ; preds = %.lr.ph23.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph23.split.i ]
-  %28 = getelementptr inbounds %"class.cv::Vec.0", ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %26, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = load i32, ptr %16, align 8
   %32 = sdiv i32 %30, %31
-  %33 = getelementptr inbounds i8, ptr %28, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = sdiv i32 %35, %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = sdiv i32 %39, %31
@@ -142,17 +142,17 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scal
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3MatEPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
 
 .lr.ph23:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %9, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph23.split, label %._crit_edge24
@@ -171,16 +171,16 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
 
 .lr.ph:                                           ; preds = %.lr.ph23.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph23.split ]
-  %22 = getelementptr inbounds %"class.cv::Vec.0", ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %20, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = load i32, ptr %10, align 8
   %26 = sdiv i32 %24, %25
-  %27 = getelementptr inbounds i8, ptr %22, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sdiv i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %22, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = sdiv i32 %33, %25
@@ -219,24 +219,24 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3vas2ot12RgbHistogram17ComputeFromBgra32ERKN2cv3MatEPS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef nonnull %2) unnamed_addr #5 align 2 {
   %4 = alloca %"class.cv::Scalar_", align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef 1, i32 noundef %6, i32 noundef 5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %7 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(32) %4)
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %.lr.ph23.i, label %_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf.exit
 
 .lr.ph23.i:                                       ; preds = %3
-  %13 = getelementptr inbounds i8, ptr %1, i64 16
-  %14 = getelementptr inbounds i8, ptr %1, i64 72
-  %15 = getelementptr inbounds i8, ptr %1, i64 12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %18 = load i32, ptr %15, align 4
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %.lr.ph23.split.i, label %_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf.exit
@@ -255,16 +255,16 @@ define hidden void @_ZN3vas2ot12RgbHistogram17ComputeFromBgra32ERKN2cv3MatEPS3_(
 
 .lr.ph.i:                                         ; preds = %.lr.ph23.split.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph23.split.i ]
-  %28 = getelementptr inbounds %"class.cv::Vec.2", ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %26, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = load i32, ptr %16, align 8
   %32 = sdiv i32 %30, %31
-  %33 = getelementptr inbounds i8, ptr %28, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = sdiv i32 %35, %31
-  %37 = getelementptr inbounds i8, ptr %28, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = sdiv i32 %39, %31
@@ -302,17 +302,17 @@ _ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf.exit: 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatEPf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef %2) local_unnamed_addr #7 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph23, label %._crit_edge24
 
 .lr.ph23:                                         ; preds = %3
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
-  %8 = getelementptr inbounds i8, ptr %1, i64 72
-  %9 = getelementptr inbounds i8, ptr %1, i64 12
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %9, align 4
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph23.split, label %._crit_edge24
@@ -331,16 +331,16 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
 
 .lr.ph:                                           ; preds = %.lr.ph23.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph23.split ]
-  %22 = getelementptr inbounds %"class.cv::Vec.2", ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %20, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1
   %24 = zext i8 %23 to i32
   %25 = load i32, ptr %10, align 8
   %26 = sdiv i32 %24, %25
-  %27 = getelementptr inbounds i8, ptr %22, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sdiv i32 %29, %25
-  %31 = getelementptr inbounds i8, ptr %22, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 2
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = sdiv i32 %33, %25
@@ -378,18 +378,18 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i32 @_ZNK3vas2ot12RgbHistogram11FeatureSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
 define hidden noundef float @_ZN3vas2ot12RgbHistogram17ComputeSimilarityERKN2cv3MatES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #9 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp sgt i32 %4, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -403,9 +403,9 @@ define hidden noundef float @_ZN3vas2ot12RgbHistogram17ComputeSimilarityERKN2cv3
   %.02330 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %16, %.lr.ph ]
   %.02528 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %18, %.lr.ph ]
   %.02627 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %10 = getelementptr inbounds float, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %11 = load float, ptr %10, align 4
-  %12 = getelementptr inbounds float, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   %13 = load float, ptr %12, align 4
   %14 = fmul float %11, %13
   %15 = tail call float @sqrtf(float noundef %14) #11
@@ -438,19 +438,19 @@ declare float @sqrtf(float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3MatES5_Pf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef %3) local_unnamed_addr #7 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph27, label %._crit_edge28
 
 .lr.ph27:                                         ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 72
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %12, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph27.split, label %._crit_edge28
@@ -474,16 +474,16 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
 
 .lr.ph:                                           ; preds = %.lr.ph27.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph27.split ]
-  %30 = getelementptr inbounds %"class.cv::Vec.0", ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %23, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = load i32, ptr %13, align 8
   %34 = sdiv i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %30, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = sdiv i32 %37, %33
-  %39 = getelementptr inbounds i8, ptr %30, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = sdiv i32 %41, %33
@@ -492,7 +492,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
   %45 = add nsw i32 %44, %38
   %46 = mul nsw i32 %45, %43
   %47 = add nsw i32 %46, %42
-  %48 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
   %49 = load float, ptr %48, align 4
   %50 = sext i32 %47 to i64
   %51 = getelementptr inbounds float, ptr %3, i64 %50
@@ -523,19 +523,19 @@ define hidden void @_ZNK3vas2ot12RgbHistogram22AccumulateRgbHistogramERKN2cv3Mat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32ERKN2cv3MatES5_Pf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef %3) local_unnamed_addr #7 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph27, label %._crit_edge28
 
 .lr.ph27:                                         ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %1, i64 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 72
-  %10 = getelementptr inbounds i8, ptr %2, i64 16
-  %11 = getelementptr inbounds i8, ptr %2, i64 72
-  %12 = getelementptr inbounds i8, ptr %1, i64 12
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %12, align 4
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph27.split, label %._crit_edge28
@@ -559,16 +559,16 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
 
 .lr.ph:                                           ; preds = %.lr.ph27.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph27.split ]
-  %30 = getelementptr inbounds %"class.cv::Vec.2", ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"class.cv::Vec.2", ptr %23, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
   %33 = load i32, ptr %13, align 8
   %34 = sdiv i32 %32, %33
-  %35 = getelementptr inbounds i8, ptr %30, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
   %38 = sdiv i32 %37, %33
-  %39 = getelementptr inbounds i8, ptr %30, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 2
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
   %42 = sdiv i32 %41, %33
@@ -577,7 +577,7 @@ define hidden void @_ZNK3vas2ot12RgbHistogram32AccumulateRgbHistogramFromBgra32E
   %45 = add nsw i32 %44, %38
   %46 = mul nsw i32 %45, %43
   %47 = add nsw i32 %46, %42
-  %48 = getelementptr inbounds float, ptr %28, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
   %49 = load float, ptr %48, align 4
   %50 = sext i32 %47 to i64
   %51 = getelementptr inbounds float, ptr %3, i64 %50

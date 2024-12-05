@@ -18,10 +18,10 @@ inode_unlink.exit.thread:                         ; preds = %1
 
 4:                                                ; preds = %1
   store ptr %0, ptr %2, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
-  %7 = getelementptr inbounds i8, ptr %2, i64 40
-  %8 = getelementptr inbounds i8, ptr %2, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 40, i1 false)
   store i8 1, ptr %8, align 8
   %9 = call i32 @inode_search(ptr noundef nonnull %2) #5
@@ -29,22 +29,22 @@ inode_unlink.exit.thread:                         ; preds = %1
   br i1 %10, label %11, label %23
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %14, null
-  %15 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %.not.i, label %19, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %16, ptr %18, align 8
   br label %22
 
 19:                                               ; preds = %11
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store ptr %16, ptr %21, align 8
   br label %22
 
@@ -68,13 +68,13 @@ inode_unlink.exit:                                ; preds = %23, %25
   br i1 %.not, label %34, label %26
 
 26:                                               ; preds = %inode_unlink.exit
-  %27 = getelementptr inbounds i8, ptr %.08.i, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
   %28 = load i16, ptr %27, align 8
   %.not6 = icmp eq i16 %28, 0
   br i1 %.not6, label %33, label %29
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %.08.i, i64 26
+  %30 = getelementptr inbounds nuw i8, ptr %.08.i, i64 26
   %31 = load i16, ptr %30, align 2
   %32 = or i16 %31, 16
   store i16 %32, ptr %30, align 2

@@ -126,14 +126,14 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %.1421477 = phi i32 [ %.0420482, %.preheader471 ], [ %26, %30 ]
   %.1424476 = phi i32 [ %.0423481, %.preheader471 ], [ %27, %30 ]
   %.1440475 = phi i32 [ %.0439480, %.preheader471 ], [ %21, %30 ]
-  %15 = getelementptr inbounds [4 x [4 x i32]], ptr %12, i64 0, i64 %indvars.iv524, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %12, i64 0, i64 %indvars.iv524, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = lshr i32 %16, 2
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds [8192 x i32], ptr @counttable, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [8192 x i32], ptr @counttable, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add nsw i32 %20, %.1440475
-  %22 = getelementptr inbounds [4 x [4 x i16]], ptr %13, i64 0, i64 %indvars.iv524, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %13, i64 0, i64 %indvars.iv524, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2
   %24 = zext i16 %23 to i32
   %25 = xor i32 %17, %24
@@ -202,7 +202,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 58:                                               ; preds = %38, %58
   %indvars.iv527 = phi i64 [ 0, %38 ], [ %indvars.iv.next528, %58 ]
-  %59 = getelementptr inbounds [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv527
+  %59 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv527
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 0, ptr %60, align 4
   store i32 0, ptr %59, align 4
@@ -273,7 +273,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 987984
   %89 = load ptr, ptr %88, align 8
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %90, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
   %92 = load ptr, ptr %91, align 8
   tail call void %92(ptr noundef nonnull align 8 dereferenceable(8) %89, i32 noundef %87)
   br label %93
@@ -302,11 +302,11 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %102 = and i32 %49, 1
   %spec.select583 = xor i32 %102, 1
   store i32 %spec.select583, ptr %0, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 4
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %102, ptr %103, align 4
-  %104 = getelementptr inbounds i8, ptr %0, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select583, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 12
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %102, ptr %105, align 4
   %106 = icmp sgt i32 %46, 0
   br i1 %106, label %.lr.ph, label %._crit_edge
@@ -329,10 +329,10 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 119:                                              ; preds = %.lr.ph, %132
   %indvars.iv531 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next532, %132 ]
-  %120 = getelementptr inbounds [3 x i32], ptr %107, i64 0, i64 %indvars.iv531
+  %120 = getelementptr inbounds nuw [3 x i32], ptr %107, i64 0, i64 %indvars.iv531
   %121 = load i32, ptr %120, align 4
   store i32 %121, ptr %108, align 4
-  %122 = getelementptr inbounds [3 x i32], ptr %109, i64 0, i64 %indvars.iv531
+  %122 = getelementptr inbounds nuw [3 x i32], ptr %109, i64 0, i64 %indvars.iv531
   %123 = load i32, ptr %122, align 4
   store i32 %123, ptr %7, align 4
   store i32 0, ptr %110, align 4
@@ -477,19 +477,19 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 195:                                              ; preds = %194
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %177, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   %196 = load i32, ptr %7, align 4
-  %197 = getelementptr inbounds [13 x i32], ptr %178, i64 0, i64 %indvars.iv553
+  %197 = getelementptr inbounds nuw [13 x i32], ptr %178, i64 0, i64 %indvars.iv553
   store i32 %196, ptr %197, align 4
   %198 = load i32, ptr %179, align 4
-  %199 = getelementptr inbounds [13 x i32], ptr %180, i64 0, i64 %indvars.iv553
+  %199 = getelementptr inbounds nuw [13 x i32], ptr %180, i64 0, i64 %indvars.iv553
   store i32 %198, ptr %199, align 4
   %200 = load i32, ptr %181, align 4
   %201 = shl i32 %200, 2
-  %202 = getelementptr inbounds [13 x i32], ptr %182, i64 0, i64 %indvars.iv553
+  %202 = getelementptr inbounds nuw [13 x i32], ptr %182, i64 0, i64 %indvars.iv553
   store i32 %201, ptr %202, align 4
-  %203 = getelementptr inbounds [13 x i32], ptr %183, i64 0, i64 %indvars.iv553
+  %203 = getelementptr inbounds nuw [13 x i32], ptr %183, i64 0, i64 %indvars.iv553
   store i32 %.2428, ptr %203, align 4
   %indvars.iv.next554 = add nuw nsw i64 %indvars.iv553, 1
-  %204 = getelementptr inbounds [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv.next554
+  %204 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv.next554
   store i32 %196, ptr %204, align 4
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 4
   store i32 %198, ptr %205, align 4
@@ -512,18 +512,18 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %211 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %136, i32 noundef %62, i32 noundef %46)
   %212 = load i32, ptr %211, align 4
   %213 = add nuw nsw i64 %indvars.iv558, %209
-  %214 = getelementptr inbounds [13 x i32], ptr %178, i64 0, i64 %213
+  %214 = getelementptr inbounds nuw [13 x i32], ptr %178, i64 0, i64 %213
   store i32 %212, ptr %214, align 4
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 4
   %216 = load i32, ptr %215, align 4
-  %217 = getelementptr inbounds [13 x i32], ptr %180, i64 0, i64 %213
+  %217 = getelementptr inbounds nuw [13 x i32], ptr %180, i64 0, i64 %213
   store i32 %216, ptr %217, align 4
   %218 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %219 = load i32, ptr %218, align 4
   %220 = shl i32 %219, 2
-  %221 = getelementptr inbounds [13 x i32], ptr %182, i64 0, i64 %213
+  %221 = getelementptr inbounds nuw [13 x i32], ptr %182, i64 0, i64 %213
   store i32 %220, ptr %221, align 4
-  %222 = getelementptr inbounds [13 x i32], ptr %183, i64 0, i64 %213
+  %222 = getelementptr inbounds nuw [13 x i32], ptr %183, i64 0, i64 %213
   store i32 0, ptr %222, align 4
   %indvars.iv.next559 = add nuw nsw i64 %indvars.iv558, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next559, %wide.trip.count561
@@ -556,18 +556,18 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %indvars.iv540 = phi i64 [ 0, %.lr.ph491 ], [ %indvars.iv.next541, %233 ]
   %234 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %136, i32 noundef %62, i32 noundef %46)
   %235 = load i32, ptr %234, align 4
-  %236 = getelementptr inbounds [13 x i32], ptr %229, i64 0, i64 %indvars.iv540
+  %236 = getelementptr inbounds nuw [13 x i32], ptr %229, i64 0, i64 %indvars.iv540
   store i32 %235, ptr %236, align 4
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 4
   %238 = load i32, ptr %237, align 4
-  %239 = getelementptr inbounds [13 x i32], ptr %230, i64 0, i64 %indvars.iv540
+  %239 = getelementptr inbounds nuw [13 x i32], ptr %230, i64 0, i64 %indvars.iv540
   store i32 %238, ptr %239, align 4
   %240 = getelementptr inbounds nuw i8, ptr %234, i64 8
   %241 = load i32, ptr %240, align 4
   %242 = shl i32 %241, 2
-  %243 = getelementptr inbounds [13 x i32], ptr %231, i64 0, i64 %indvars.iv540
+  %243 = getelementptr inbounds nuw [13 x i32], ptr %231, i64 0, i64 %indvars.iv540
   store i32 %242, ptr %243, align 4
-  %244 = getelementptr inbounds [13 x i32], ptr %232, i64 0, i64 %indvars.iv540
+  %244 = getelementptr inbounds nuw [13 x i32], ptr %232, i64 0, i64 %indvars.iv540
   store i32 0, ptr %244, align 4
   %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
   %exitcond544.not = icmp eq i64 %indvars.iv.next541, %wide.trip.count543
@@ -634,19 +634,19 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 272:                                              ; preds = %.lr.ph488, %272
   %indvars.iv535 = phi i64 [ 0, %.lr.ph488 ], [ %indvars.iv.next536, %272 ]
   %273 = call noundef ptr @_ZN5Moves14MakeNextSimpleEii(ptr noundef nonnull align 8 dereferenceable(39992) %136, i32 noundef %62, i32 noundef %46)
-  %274 = getelementptr inbounds [13 x i32], ptr %268, i64 0, i64 %indvars.iv535
+  %274 = getelementptr inbounds nuw [13 x i32], ptr %268, i64 0, i64 %indvars.iv535
   store i32 0, ptr %274, align 4
   %275 = load i32, ptr %273, align 4
-  %276 = getelementptr inbounds [13 x i32], ptr %269, i64 0, i64 %indvars.iv535
+  %276 = getelementptr inbounds nuw [13 x i32], ptr %269, i64 0, i64 %indvars.iv535
   store i32 %275, ptr %276, align 4
   %277 = getelementptr inbounds nuw i8, ptr %273, i64 4
   %278 = load i32, ptr %277, align 4
-  %279 = getelementptr inbounds [13 x i32], ptr %270, i64 0, i64 %indvars.iv535
+  %279 = getelementptr inbounds nuw [13 x i32], ptr %270, i64 0, i64 %indvars.iv535
   store i32 %278, ptr %279, align 4
   %280 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %281 = load i32, ptr %280, align 4
   %282 = shl i32 %281, 2
-  %283 = getelementptr inbounds [13 x i32], ptr %271, i64 0, i64 %indvars.iv535
+  %283 = getelementptr inbounds nuw [13 x i32], ptr %271, i64 0, i64 %indvars.iv535
   store i32 %282, ptr %283, align 4
   %indvars.iv.next536 = add nuw nsw i64 %indvars.iv535, 1
   %exitcond539.not = icmp eq i64 %indvars.iv.next536, %wide.trip.count538
@@ -794,17 +794,17 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %356 = trunc nuw nsw i64 %indvars.iv.next549 to i32
   store i32 %356, ptr %328, align 4
   %357 = load i32, ptr %323, align 4
-  %358 = getelementptr inbounds [13 x i32], ptr %329, i64 0, i64 %indvars.iv548
+  %358 = getelementptr inbounds nuw [13 x i32], ptr %329, i64 0, i64 %indvars.iv548
   store i32 %357, ptr %358, align 4
   %359 = load i32, ptr %324, align 4
-  %360 = getelementptr inbounds [13 x i32], ptr %330, i64 0, i64 %indvars.iv548
+  %360 = getelementptr inbounds nuw [13 x i32], ptr %330, i64 0, i64 %indvars.iv548
   store i32 %359, ptr %360, align 4
   %361 = load i32, ptr %331, align 4
   %362 = shl i32 %361, 2
-  %363 = getelementptr inbounds [13 x i32], ptr %332, i64 0, i64 %indvars.iv548
+  %363 = getelementptr inbounds nuw [13 x i32], ptr %332, i64 0, i64 %indvars.iv548
   store i32 %362, ptr %363, align 4
   %364 = load i32, ptr %326, align 4
-  %365 = getelementptr inbounds [13 x i32], ptr %326, i64 0, i64 %indvars.iv548
+  %365 = getelementptr inbounds nuw [13 x i32], ptr %326, i64 0, i64 %indvars.iv548
   store i32 %364, ptr %365, align 4
   %exitcond552.not = icmp eq i64 %indvars.iv.next549, %wide.trip.count551
   br i1 %exitcond552.not, label %.loopexit466.preheader, label %333, !llvm.loop !16
@@ -814,7 +814,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
 
 .loopexit466:                                     ; preds = %.loopexit466.preheader, %.loopexit466
   %indvars.iv563 = phi i64 [ %indvars.iv.next564, %.loopexit466 ], [ 0, %.loopexit466.preheader ]
-  %366 = getelementptr inbounds [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv563
+  %366 = getelementptr inbounds nuw [14 x %struct.moveType], ptr %57, i64 0, i64 %indvars.iv563
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
   store i32 0, ptr %367, align 4
   store i32 0, ptr %366, align 4
@@ -832,7 +832,7 @@ define noundef range(i32 -19, 2) i32 @_Z18SolveBoardInternalP10ThreadDataRK4deal
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 987984
   %370 = load ptr, ptr %369, align 8
   %371 = load ptr, ptr %370, align 8
-  %372 = getelementptr inbounds i8, ptr %371, i64 64
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 64
   %373 = load ptr, ptr %372, align 8
   %374 = call noundef double %373(ptr noundef nonnull align 8 dereferenceable(8) %370)
   %375 = call noundef double @_Z16ThreadMemoryUsedv()
@@ -895,20 +895,20 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
 
 25:                                               ; preds = %22, %35
   %indvars.iv = phi i64 [ 0, %22 ], [ %indvars.iv.next, %35 ]
-  %26 = getelementptr inbounds [3 x i32], ptr %23, i64 0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [3 x i32], ptr %23, i64 0, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %35, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds [3 x i32], ptr %5, i64 0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [3 x i32], ptr %5, i64 0, i64 %indvars.iv
   store i32 1, ptr %30, align 4
   %31 = add i32 %27, -15
   %or.cond = icmp ult i32 %31, -13
   br i1 %or.cond, label %.loopexit.sink.split, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds [3 x i32], ptr %24, i64 0, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [3 x i32], ptr %24, i64 0, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   %or.cond105 = icmp ugt i32 %34, 3
   br i1 %or.cond105, label %.loopexit.sink.split, label %35
@@ -919,10 +919,10 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
   br i1 %exitcond.not, label %36, label %25, !llvm.loop !18
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds i8, ptr %5, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %38 = load i32, ptr %37, align 4
   %.not = icmp eq i32 %38, 0
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %5, i64 4
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.not, label %43, label %39
 
@@ -955,7 +955,7 @@ define noundef range(i32 -19, 2) i32 @_Z16BoardRangeChecksRK4dealiii(ptr noundef
 
 49:                                               ; preds = %.preheader, %48
   %indvars.iv112 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next113, %48 ]
-  %50 = getelementptr inbounds [4 x [4 x i32]], ptr %47, i64 0, i64 %indvars.iv116, i64 %indvars.iv112
+  %50 = getelementptr inbounds nuw [4 x [4 x i32]], ptr %47, i64 0, i64 %indvars.iv116, i64 %indvars.iv112
   %51 = load i32, ptr %50, align 4
   %.not102 = icmp ne i32 %51, 0
   %52 = add i32 %51, -32768
@@ -1023,7 +1023,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   %24 = add nsw i32 %21, %.08299
   %25 = and i32 %24, 3
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %26
   store i32 1, ptr %27, align 4
   %28 = add nuw nsw i32 %.08299, 1
   %exitcond.not = icmp eq i32 %28, %18
@@ -1031,7 +1031,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 
 .preheader97:                                     ; preds = %.preheader98, %39
   %indvars.iv113 = phi i64 [ 0, %.preheader98 ], [ %indvars.iv.next114, %39 ]
-  %29 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv113
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv113
   %.promoted = load i32, ptr %29, align 4
   br label %31
 
@@ -1042,10 +1042,10 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 31:                                               ; preds = %.preheader97, %31
   %indvars.iv = phi i64 [ 0, %.preheader97 ], [ %indvars.iv.next, %31 ]
   %32 = phi i32 [ %.promoted, %.preheader97 ], [ %38, %31 ]
-  %33 = getelementptr inbounds [4 x [4 x i16]], ptr %22, i64 0, i64 %indvars.iv113, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %22, i64 0, i64 %indvars.iv113, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds [8192 x i32], ptr @counttable, i64 0, i64 %35
+  %36 = getelementptr inbounds nuw [8192 x i32], ptr @counttable, i64 0, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %32, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1078,7 +1078,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 
 44:                                               ; preds = %.preheader96, %40
   %indvars.iv117 = phi i64 [ 1, %.preheader96 ], [ %indvars.iv.next118, %40 ]
-  %45 = getelementptr inbounds [4 x i32], ptr %6, i64 0, i64 %indvars.iv117
+  %45 = getelementptr inbounds nuw [4 x i32], ptr %6, i64 0, i64 %indvars.iv117
   %46 = load i32, ptr %45, align 4
   %.not91 = icmp eq i32 %46, %30
   br i1 %.not91, label %40, label %.loopexit.sink.split
@@ -1090,7 +1090,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 
 .preheader94:                                     ; preds = %.preheader94.lr.ph, %47
   %indvars.iv124 = phi i64 [ 0, %.preheader94.lr.ph ], [ %indvars.iv.next125, %47 ]
-  %48 = getelementptr inbounds [3 x i32], ptr %42, i64 0, i64 %indvars.iv124
+  %48 = getelementptr inbounds nuw [3 x i32], ptr %42, i64 0, i64 %indvars.iv124
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
   br label %51
@@ -1108,7 +1108,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
   br i1 %exitcond123.not, label %57, label %51, !llvm.loop !26
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds [3 x i32], ptr %43, i64 0, i64 %indvars.iv124
+  %58 = getelementptr inbounds nuw [3 x i32], ptr %43, i64 0, i64 %indvars.iv124
   %59 = load i32, ptr %58, align 4
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %60
@@ -1123,7 +1123,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 
 .preheader:                                       ; preds = %.preheader92, %71
   %indvars.iv131 = phi i64 [ 2, %.preheader92 ], [ %indvars.iv.next132, %71 ]
-  %64 = getelementptr inbounds [16 x i16], ptr @bitMapRank, i64 0, i64 %indvars.iv131
+  %64 = getelementptr inbounds nuw [16 x i16], ptr @bitMapRank, i64 0, i64 %indvars.iv131
   %65 = load i16, ptr %64, align 2
   br label %67
 
@@ -1136,7 +1136,7 @@ define noundef range(i32 -14, 2) i32 @_Z16BoardValueChecksRK4dealiiiPK10ThreadDa
 67:                                               ; preds = %.preheader, %66
   %indvars.iv128 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next129, %66 ]
   %.073106 = phi i1 [ false, %.preheader ], [ %.073.mux, %66 ]
-  %68 = getelementptr inbounds [4 x [4 x i16]], ptr %22, i64 0, i64 %indvars.iv128, i64 %indvars.iv135
+  %68 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %22, i64 0, i64 %indvars.iv128, i64 %indvars.iv135
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %65, %69
   %.not89 = icmp ne i16 %70, 0
@@ -1193,14 +1193,14 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
   %20 = trunc i64 %indvars.iv to i32
   %21 = add i32 %12, %20
   %22 = and i32 %21, 3
-  %23 = getelementptr inbounds [3 x i32], ptr %13, i64 0, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [3 x i32], ptr %13, i64 0, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %25
   store i32 %24, ptr %26, align 4
-  %27 = getelementptr inbounds [3 x i32], ptr %14, i64 0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [3 x i32], ptr %14, i64 0, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %25
+  %29 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %25
   store i32 %28, ptr %29, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1215,19 +1215,19 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
 
 34:                                               ; preds = %30, %44
   %indvars.iv96 = phi i64 [ 0, %30 ], [ %indvars.iv.next97, %44 ]
-  %35 = getelementptr inbounds [4 x [4 x i16]], ptr %18, i64 0, i64 %33, i64 %indvars.iv96
+  %35 = getelementptr inbounds nuw [4 x [4 x i16]], ptr %18, i64 0, i64 %33, i64 %indvars.iv96
   %36 = load i16, ptr %35, align 2
   %.not73 = icmp eq i16 %36, 0
   br i1 %.not73, label %44, label %37
 
 37:                                               ; preds = %34
   %38 = trunc nuw nsw i64 %indvars.iv96 to i32
-  %39 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %33
+  %39 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %33
   store i32 %38, ptr %39, align 4
   %40 = zext i16 %36 to i64
-  %41 = getelementptr inbounds [8192 x i32], ptr @highestRank, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [8192 x i32], ptr @highestRank, i64 0, i64 %40
   %42 = load i32, ptr %41, align 4
-  %43 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %33
+  %43 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %33
   store i32 %42, ptr %43, align 4
   br label %.loopexit79
 
@@ -1250,13 +1250,13 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %55 ], [ 0, %._crit_edge ]
   %.189 = phi i32 [ %.2, %55 ], [ -1, %._crit_edge ]
   %.16088 = phi i32 [ %.261, %55 ], [ 0, %._crit_edge ]
-  %47 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %indvars.iv101
+  %47 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv101
   %48 = load i32, ptr %47, align 4
   %49 = icmp eq i32 %48, %46
   br i1 %49, label %50, label %55
 
 50:                                               ; preds = %.preheader
-  %51 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv101
+  %51 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv101
   %52 = load i32, ptr %51, align 4
   %53 = icmp sgt i32 %52, %.16088
   %spec.select = tail call i32 @llvm.smax.i32(i32 %52, i32 %.16088)
@@ -1294,13 +1294,13 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
   %indvars.iv105 = phi i64 [ 0, %.thread ], [ %indvars.iv.next106, %74 ]
   %.492 = phi i32 [ %59, %.thread ], [ %.5, %74 ]
   %.36291 = phi i32 [ %62, %.thread ], [ %.463, %74 ]
-  %66 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %indvars.iv105
+  %66 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %indvars.iv105
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, %64
   br i1 %68, label %69, label %74
 
 69:                                               ; preds = %65
-  %70 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %indvars.iv105
+  %70 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %indvars.iv105
   %71 = load i32, ptr %70, align 4
   %72 = icmp sgt i32 %71, %.36291
   %spec.select75 = tail call i32 @llvm.smax.i32(i32 %71, i32 %.36291)
@@ -1321,10 +1321,10 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr nocapture no
   %76 = add nsw i32 %75, %3
   %77 = and i32 %76, 3
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds [4 x i32], ptr %9, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i32], ptr %9, i64 0, i64 %78
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %4, align 4
-  %81 = getelementptr inbounds [4 x i32], ptr %8, i64 0, i64 %78
+  %81 = getelementptr inbounds nuw [4 x i32], ptr %8, i64 0, i64 %78
   %82 = load i32, ptr %81, align 4
   store i32 %82, ptr %5, align 4
   %83 = icmp eq i32 %2, %.3
@@ -1398,11 +1398,11 @@ define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr n
   %.sink47 = phi i32 [ 0, %16 ], [ 1, %4 ], [ 1, %4 ]
   %.sink45 = phi i32 [ 1, %16 ], [ 0, %4 ], [ 0, %4 ]
   store i32 %.sink47, ptr %0, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink45, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sink47, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %.sink45, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 987992
   %22 = load i32, ptr %10, align 4
@@ -1434,7 +1434,7 @@ define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr n
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 987984
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef double %37(ptr noundef nonnull align 8 dereferenceable(8) %34)
   %39 = tail call noundef double @_Z16ThreadMemoryUsedv()
@@ -1467,11 +1467,11 @@ define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTri
   %18 = and i32 %17, 1
   %spec.select = xor i32 %18, 1
   store i32 %spec.select, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %18, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %spec.select, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %18, ptr %21, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 987992
   switch i32 %14, label %30 [
@@ -1556,7 +1556,7 @@ define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTri
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 987984
   %57 = load ptr, ptr %56, align 8
   %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 64
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef double %60(ptr noundef nonnull align 8 dereferenceable(8) %57)
   %62 = call noundef double @_Z16ThreadMemoryUsedv()

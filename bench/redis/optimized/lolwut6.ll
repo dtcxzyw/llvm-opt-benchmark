@@ -19,10 +19,10 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local void @generateSkyscraper(ptr noundef %canvas, ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
 entry:
-  %height = getelementptr inbounds i8, ptr %canvas, i64 4
+  %height = getelementptr inbounds nuw i8, ptr %canvas, i64 4
   %0 = load i32, ptr %height, align 4
   %sub = add nsw i32 %0, -1
-  %height1 = getelementptr inbounds i8, ptr %si, i64 8
+  %height1 = getelementptr inbounds nuw i8, ptr %si, i64 8
   %1 = load i32, ptr %height1, align 4
   %sub2 = sub nsw i32 %sub, %1
   %add = add nsw i32 %sub2, 1
@@ -30,9 +30,9 @@ entry:
   br i1 %cmp.not.not45, label %for.body.lr.ph, label %for.end58
 
 for.body.lr.ph:                                   ; preds = %entry
-  %width = getelementptr inbounds i8, ptr %si, i64 4
-  %color17 = getelementptr inbounds i8, ptr %si, i64 16
-  %windows = getelementptr inbounds i8, ptr %si, i64 12
+  %width = getelementptr inbounds nuw i8, ptr %si, i64 4
+  %color17 = getelementptr inbounds nuw i8, ptr %si, i64 16
+  %windows = getelementptr inbounds nuw i8, ptr %si, i64 12
   %add29 = add nsw i32 %sub2, 2
   %sub32 = add nsw i32 %0, -2
   %.pre = load i32, ptr %si, align 4
@@ -207,11 +207,11 @@ declare void @lwDrawPixel(ptr noundef, i32 noundef, i32 noundef, i32 noundef) lo
 define dso_local void @generateSkyline(ptr noundef %canvas) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.skyscraper, align 4
-  %color1 = getelementptr inbounds i8, ptr %si, i64 16
-  %width8 = getelementptr inbounds i8, ptr %si, i64 4
-  %height16 = getelementptr inbounds i8, ptr %canvas, i64 4
-  %height23 = getelementptr inbounds i8, ptr %si, i64 8
-  %windows = getelementptr inbounds i8, ptr %si, i64 12
+  %color1 = getelementptr inbounds nuw i8, ptr %si, i64 16
+  %width8 = getelementptr inbounds nuw i8, ptr %si, i64 4
+  %height16 = getelementptr inbounds nuw i8, ptr %canvas, i64 4
+  %height23 = getelementptr inbounds nuw i8, ptr %si, i64 8
+  %windows = getelementptr inbounds nuw i8, ptr %si, i64 12
   %0 = load i32, ptr %canvas, align 8
   %1 = icmp sgt i32 %0, -10
   br i1 %1, label %for.body, label %for.end69
@@ -340,15 +340,15 @@ entry:
   %rows = alloca i64, align 8
   store i64 80, ptr %cols, align 8
   store i64 20, ptr %rows, align 8
-  %argc = getelementptr inbounds i8, ptr %c, i64 88
+  %argc = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load i32, ptr %argc, align 8
   %cmp = icmp sgt i32 %0, 1
   br i1 %cmp, label %land.lhs.true, label %if.end22
 
 land.lhs.true:                                    ; preds = %entry
-  %argv = getelementptr inbounds i8, ptr %c, i64 96
+  %argv = getelementptr inbounds nuw i8, ptr %c, i64 96
   %1 = load ptr, ptr %argv, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %1, i64 8
+  %arrayidx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %2, ptr noundef nonnull %cols, ptr noundef null) #3
   %cmp1.not = icmp eq i32 %call, 0
@@ -361,7 +361,7 @@ if.end:                                           ; preds = %land.lhs.true
 
 land.lhs.true4:                                   ; preds = %if.end
   %3 = load ptr, ptr %argv, align 8
-  %arrayidx6 = getelementptr inbounds i8, ptr %3, i64 16
+  %arrayidx6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load ptr, ptr %arrayidx6, align 8
   %call7 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %c, ptr noundef %4, ptr noundef nonnull %rows, ptr noundef null) #3
   %cmp8.not = icmp eq i32 %call7, 0
@@ -404,7 +404,7 @@ if.end22:                                         ; preds = %if.end22.sink.split
   %call24 = call ptr @lwCreateCanvas(i32 noundef %conv, i32 noundef %conv23, i32 noundef 3) #3
   call void @generateSkyline(ptr noundef %call24)
   %call.i = call ptr @sdsempty() #3
-  %height.i = getelementptr inbounds i8, ptr %call24, i64 4
+  %height.i = getelementptr inbounds nuw i8, ptr %call24, i64 4
   %8 = load i32, ptr %height.i, align 4
   %cmp14.i = icmp sgt i32 %8, 0
   br i1 %cmp14.i, label %for.cond1.preheader.i, label %renderCanvas.exit
@@ -427,7 +427,7 @@ for.body3.i:                                      ; preds = %for.cond1.preheader
 
 switch.lookup:                                    ; preds = %for.body3.i
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.lolwut6Command, i64 0, i64 %12
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.lolwut6Command, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %sw.epilog.i
 

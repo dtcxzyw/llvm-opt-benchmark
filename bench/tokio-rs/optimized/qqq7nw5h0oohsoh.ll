@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { ptr, ptr } @_ZN3std9panicking3try17h943a172806f06f38E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !4, !noundef !7
   store i32 0, ptr %.val.i, align 4, !noalias !8
-  %2 = getelementptr inbounds i8, ptr %.val.i, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 12
   store i8 2, ptr %2, align 1, !noalias !8
   ret { ptr, ptr } { ptr null, ptr undef }
 }
@@ -16,7 +16,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h943a172806f06f38E(ptr noalia
 define hidden { ptr, ptr } @_ZN3std9panicking3try17hcb325e3f03647178E(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !11, !noundef !7
   store i64 0, ptr %.val.i, align 8, !noalias !14
-  %2 = getelementptr inbounds i8, ptr %.val.i, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   store i8 2, ptr %2, align 1, !noalias !14
   ret { ptr, ptr } { ptr null, ptr undef }
 }
@@ -26,7 +26,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h41a589cc1f48ea71E.llvm.54805
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !17, !noundef !7
   %.val = load ptr, ptr %2, align 8, !alias.scope !18, !noundef !7
   store i32 0, ptr %.val, align 4, !noalias !21
-  %3 = getelementptr inbounds i8, ptr %.val, i64 12
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 12
   store i8 2, ptr %3, align 1, !noalias !21
   ret void
 }
@@ -36,7 +36,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h9b0bbe77cf312fd1E.llvm.54805
   %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !17, !noundef !7
   %.val = load ptr, ptr %2, align 8, !alias.scope !24, !noundef !7
   store i64 0, ptr %.val, align 8, !noalias !27
-  %3 = getelementptr inbounds i8, ptr %.val, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   store i8 2, ptr %3, align 1, !noalias !27
   ret void
 }
@@ -60,7 +60,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hb076c4d88da89025E.llvm.5480
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }
@@ -84,7 +84,7 @@ define hidden void @_ZN3std9panicking3try8do_catch17hb08f865dce84a07fE.llvm.5480
   %10 = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %10)
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %11, align 8
   ret void
 }

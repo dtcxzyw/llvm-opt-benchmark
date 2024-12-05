@@ -391,13 +391,13 @@ define hidden noundef zeroext i1 @_ZN12JVMFlagLimit16check_all_rangesEv() local_
   %2 = phi ptr [ %.pre12, %0 ], [ %14, %_ZN12JVMFlagLimit12get_range_atE12JVMFlagsEnum.exit.thread ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %_ZN12JVMFlagLimit12get_range_atE12JVMFlagsEnum.exit.thread ]
   %.011 = phi i1 [ true, %0 ], [ %.1, %_ZN12JVMFlagLimit12get_range_atE12JVMFlagsEnum.exit.thread ]
-  %3 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
   br i1 %.not.i.i, label %_ZN12JVMFlagLimit12get_range_atE12JVMFlagsEnum.exit.thread, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %4, i64 3
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 3
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 1
   %.not7.i.i = icmp eq i8 %8, 0
@@ -407,7 +407,7 @@ define hidden noundef zeroext i1 @_ZN12JVMFlagLimit16check_all_rangesEv() local_
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %10, ptr @_ZN12JVMFlagLimit13_last_checkedE, align 4
   %11 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %12 = getelementptr inbounds %class.JVMFlag, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw %class.JVMFlag, ptr %11, i64 %indvars.iv
   %13 = tail call noundef i32 @_ZN13JVMFlagAccess11check_rangeEPK7JVMFlagb(ptr noundef %12, i1 noundef zeroext true) #5
   %.not7 = icmp eq i32 %13, 0
   %spec.select = select i1 %.not7, i1 %.011, i1 false
@@ -448,13 +448,13 @@ define hidden noundef zeroext i1 @_ZN12JVMFlagLimit21check_all_constraintsE22JVM
   %8 = phi ptr [ %.pre19, %6 ], [ %28, %_ZN12JVMFlagLimit17get_constraint_atE12JVMFlagsEnum.exit.thread ]
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_ZN12JVMFlagLimit17get_constraint_atE12JVMFlagsEnum.exit.thread ]
   %.018 = phi i1 [ true, %6 ], [ %.1, %_ZN12JVMFlagLimit17get_constraint_atE12JVMFlagsEnum.exit.thread ]
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %_ZN12JVMFlagLimit17get_constraint_atE12JVMFlagsEnum.exit.thread, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %10, i64 3
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 3
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 2
   %.not7.i.i = icmp eq i8 %14, 0
@@ -463,14 +463,14 @@ define hidden noundef zeroext i1 @_ZN12JVMFlagLimit21check_all_constraintsE22JVM
 15:                                               ; preds = %11
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %16, ptr @_ZN12JVMFlagLimit13_last_checkedE, align 4
-  %17 = getelementptr inbounds i8, ptr %10, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %18 = load i8, ptr %17, align 2
   %19 = icmp eq i8 %18, %0
   br i1 %19, label %20, label %_ZN12JVMFlagLimit17get_constraint_atE12JVMFlagsEnum.exit.thread
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr @_ZN7JVMFlag5flagsE, align 8
-  %22 = getelementptr inbounds %class.JVMFlag, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %class.JVMFlag, ptr %21, i64 %indvars.iv
   %23 = load i16, ptr %10, align 2
   %24 = sext i16 %23 to i64
   %25 = getelementptr inbounds [62 x ptr], ptr @_ZL19flagConstraintTable, i64 0, i64 %24

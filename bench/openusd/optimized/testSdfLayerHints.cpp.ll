@@ -326,13 +326,13 @@ define internal fastcc void @_ZL34TestSdfLayerHintsMaybeHasRelocatesv() unnamed_
   %210 = alloca %"class.std::allocator", align 1
   %211 = alloca %"class.std::map", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #14
-  %212 = getelementptr inbounds i8, ptr %69, i64 8
-  %213 = getelementptr inbounds i8, ptr %69, i64 24
+  %212 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %69, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
   store ptr %212, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %69, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %69, i64 32
   store ptr %212, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %69, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %69, i64 40
   store i64 0, ptr %215, align 8
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sink.sroa.gep1121 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -342,14 +342,14 @@ define internal fastcc void @_ZL34TestSdfLayerHintsMaybeHasRelocatesv() unnamed_
   %.sink.sroa.gep1127 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %.sink.sroa.gep1129 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %.sink.sroa.gep1130 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %.sink997.sroa.gep = getelementptr inbounds i8, ptr %53, i64 8
-  %.sink997.sroa.gep1131 = getelementptr inbounds i8, ptr %51, i64 8
-  %.sink997.sroa.gep1133 = getelementptr inbounds i8, ptr %53, i64 16
-  %.sink997.sroa.gep1134 = getelementptr inbounds i8, ptr %51, i64 16
-  %.sink997.sroa.gep1136 = getelementptr inbounds i8, ptr %53, i64 24
-  %.sink997.sroa.gep1137 = getelementptr inbounds i8, ptr %51, i64 24
-  %.sink997.sroa.gep1139 = getelementptr inbounds i8, ptr %53, i64 32
-  %.sink997.sroa.gep1140 = getelementptr inbounds i8, ptr %51, i64 32
+  %.sink997.sroa.gep = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %.sink997.sroa.gep1131 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %.sink997.sroa.gep1133 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %.sink997.sroa.gep1134 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %.sink997.sroa.gep1136 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %.sink997.sroa.gep1137 = getelementptr inbounds nuw i8, ptr %51, i64 24
+  %.sink997.sroa.gep1139 = getelementptr inbounds nuw i8, ptr %53, i64 32
+  %.sink997.sroa.gep1140 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %.sink997.sroa.gep1142 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %.sink997.sroa.gep1143 = getelementptr inbounds nuw i8, ptr %51, i64 40
   %.sink1006.sroa.gep = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -384,14 +384,14 @@ define internal fastcc void @_ZL34TestSdfLayerHintsMaybeHasRelocatesv() unnamed_
   %.sink1033.sroa.gep1180 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %.sink1033.sroa.gep1182 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %.sink1033.sroa.gep1183 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %.sink1050.sroa.gep = getelementptr inbounds i8, ptr %38, i64 8
-  %.sink1050.sroa.gep1184 = getelementptr inbounds i8, ptr %35, i64 8
-  %.sink1050.sroa.gep1186 = getelementptr inbounds i8, ptr %38, i64 16
-  %.sink1050.sroa.gep1187 = getelementptr inbounds i8, ptr %35, i64 16
-  %.sink1050.sroa.gep1189 = getelementptr inbounds i8, ptr %38, i64 24
-  %.sink1050.sroa.gep1190 = getelementptr inbounds i8, ptr %35, i64 24
-  %.sink1050.sroa.gep1192 = getelementptr inbounds i8, ptr %38, i64 32
-  %.sink1050.sroa.gep1193 = getelementptr inbounds i8, ptr %35, i64 32
+  %.sink1050.sroa.gep = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.sink1050.sroa.gep1184 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.sink1050.sroa.gep1186 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %.sink1050.sroa.gep1187 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.sink1050.sroa.gep1189 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %.sink1050.sroa.gep1190 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.sink1050.sroa.gep1192 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %.sink1050.sroa.gep1193 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %.sink1050.sroa.gep1195 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %.sink1050.sroa.gep1196 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %.sink1042.sroa.gep = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -402,18 +402,18 @@ define internal fastcc void @_ZL34TestSdfLayerHintsMaybeHasRelocatesv() unnamed_
   %.sink1042.sroa.gep1203 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %.sink1042.sroa.gep1205 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %.sink1042.sroa.gep1206 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %.sink1067.sroa.gep = getelementptr inbounds i8, ptr %32, i64 8
-  %.sink1067.sroa.gep1207 = getelementptr inbounds i8, ptr %28, i64 8
-  %.sink1067.sroa.gep1208 = getelementptr inbounds i8, ptr %25, i64 8
-  %.sink1067.sroa.gep1210 = getelementptr inbounds i8, ptr %32, i64 16
-  %.sink1067.sroa.gep1211 = getelementptr inbounds i8, ptr %28, i64 16
-  %.sink1067.sroa.gep1212 = getelementptr inbounds i8, ptr %25, i64 16
-  %.sink1067.sroa.gep1214 = getelementptr inbounds i8, ptr %32, i64 24
-  %.sink1067.sroa.gep1215 = getelementptr inbounds i8, ptr %28, i64 24
-  %.sink1067.sroa.gep1216 = getelementptr inbounds i8, ptr %25, i64 24
-  %.sink1067.sroa.gep1218 = getelementptr inbounds i8, ptr %32, i64 32
-  %.sink1067.sroa.gep1219 = getelementptr inbounds i8, ptr %28, i64 32
-  %.sink1067.sroa.gep1220 = getelementptr inbounds i8, ptr %25, i64 32
+  %.sink1067.sroa.gep = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %.sink1067.sroa.gep1207 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %.sink1067.sroa.gep1208 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %.sink1067.sroa.gep1210 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %.sink1067.sroa.gep1211 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sink1067.sroa.gep1212 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %.sink1067.sroa.gep1214 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %.sink1067.sroa.gep1215 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %.sink1067.sroa.gep1216 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sink1067.sroa.gep1218 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %.sink1067.sroa.gep1219 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %.sink1067.sroa.gep1220 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %.sink1067.sroa.gep1222 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %.sink1067.sroa.gep1223 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %.sink1067.sroa.gep1224 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -429,18 +429,18 @@ define internal fastcc void @_ZL34TestSdfLayerHintsMaybeHasRelocatesv() unnamed_
   %.sink1059.sroa.gep1236 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %.sink1059.sroa.gep1237 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %.sink1059.sroa.gep1238 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %.sink1084.sroa.gep = getelementptr inbounds i8, ptr %22, i64 8
-  %.sink1084.sroa.gep1239 = getelementptr inbounds i8, ptr %18, i64 8
-  %.sink1084.sroa.gep1240 = getelementptr inbounds i8, ptr %13, i64 8
-  %.sink1084.sroa.gep1242 = getelementptr inbounds i8, ptr %22, i64 16
-  %.sink1084.sroa.gep1243 = getelementptr inbounds i8, ptr %18, i64 16
-  %.sink1084.sroa.gep1244 = getelementptr inbounds i8, ptr %13, i64 16
-  %.sink1084.sroa.gep1246 = getelementptr inbounds i8, ptr %22, i64 24
-  %.sink1084.sroa.gep1247 = getelementptr inbounds i8, ptr %18, i64 24
-  %.sink1084.sroa.gep1248 = getelementptr inbounds i8, ptr %13, i64 24
-  %.sink1084.sroa.gep1250 = getelementptr inbounds i8, ptr %22, i64 32
-  %.sink1084.sroa.gep1251 = getelementptr inbounds i8, ptr %18, i64 32
-  %.sink1084.sroa.gep1252 = getelementptr inbounds i8, ptr %13, i64 32
+  %.sink1084.sroa.gep = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %.sink1084.sroa.gep1239 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sink1084.sroa.gep1240 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %.sink1084.sroa.gep1242 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %.sink1084.sroa.gep1243 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %.sink1084.sroa.gep1244 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %.sink1084.sroa.gep1246 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %.sink1084.sroa.gep1247 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %.sink1084.sroa.gep1248 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.sink1084.sroa.gep1250 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  %.sink1084.sroa.gep1251 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %.sink1084.sroa.gep1252 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %.sink1084.sroa.gep1254 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %.sink1084.sroa.gep1255 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %.sink1084.sroa.gep1256 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -488,7 +488,7 @@ define internal fastcc void @_ZL34TestSdfLayerHintsMaybeHasRelocatesv() unnamed_
           to label %216 unwind label %1892
 
 216:                                              ; preds = %0
-  %217 = getelementptr inbounds i8, ptr %69, i64 16
+  %217 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %218 = load ptr, ptr %217, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %69, ptr noundef %218)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit unwind label %219
@@ -535,13 +535,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 232:                                              ; preds = %230
   store ptr @.str, ptr %65, align 8
-  %.sroa.2951.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 8
+  %.sroa.2951.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2951.0..sroa_idx, align 8
-  %.sroa.3952.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 16
+  %.sroa.3952.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 16
   store i64 26, ptr %.sroa.3952.0..sroa_idx, align 8
-  %.sroa.4953.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 24
+  %.sroa.4953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4953.0..sroa_idx, align 8
-  %.sroa.5954.0..sroa_idx = getelementptr inbounds i8, ptr %65, i64 32
+  %.sroa.5954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i8 0, ptr %.sroa.5954.0..sroa_idx, align 8
   %233 = getelementptr inbounds nuw i8, ptr %65, i64 40
   store i32 4, ptr %233, align 8
@@ -593,7 +593,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 252:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i, %.noexc.i, %246
   %253 = load ptr, ptr %235, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 8
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   %255 = load ptr, ptr %254, align 8
   call void %255(ptr noundef nonnull align 8 dereferenceable(12) %235) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit
@@ -625,19 +625,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds 
   br label %.body
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc219
-  %262 = getelementptr inbounds i8, ptr %73, i64 8
-  %263 = getelementptr inbounds i8, ptr %73, i64 24
+  %262 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %73, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
   store ptr %262, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %73, i64 32
+  %264 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %262, ptr %264, align 8
-  %265 = getelementptr inbounds i8, ptr %73, i64 40
+  %265 = getelementptr inbounds nuw i8, ptr %73, i64 40
   store i64 0, ptr %265, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %70, ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(48) %73)
           to label %266 unwind label %1898
 
 266:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %267 = getelementptr inbounds i8, ptr %73, i64 16
+  %267 = getelementptr inbounds nuw i8, ptr %73, i64 16
   %268 = load ptr, ptr %267, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %73, ptr noundef %268)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit220 unwind label %269
@@ -685,13 +685,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 282:                                              ; preds = %280
   store ptr @.str, ptr %63, align 8
-  %.sroa.2945.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 8
+  %.sroa.2945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2945.0..sroa_idx, align 8
-  %.sroa.3946.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 16
+  %.sroa.3946.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 16
   store i64 33, ptr %.sroa.3946.0..sroa_idx, align 8
-  %.sroa.4947.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 24
+  %.sroa.4947.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4947.0..sroa_idx, align 8
-  %.sroa.5948.0..sroa_idx = getelementptr inbounds i8, ptr %63, i64 32
+  %.sroa.5948.0..sroa_idx = getelementptr inbounds nuw i8, ptr %63, i64 32
   store i8 0, ptr %.sroa.5948.0..sroa_idx, align 8
   %283 = getelementptr inbounds nuw i8, ptr %63, i64 40
   store i32 4, ptr %283, align 8
@@ -743,7 +743,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 302:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i227, %.noexc.i230, %296
   %303 = load ptr, ptr %285, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %305 = load ptr, ptr %304, align 8
   call void %305(ptr noundef nonnull align 8 dereferenceable(12) %285) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit231
@@ -775,19 +775,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit231: ; pre
   br label %.body234
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit236: ; preds = %.noexc233
-  %312 = getelementptr inbounds i8, ptr %77, i64 8
-  %313 = getelementptr inbounds i8, ptr %77, i64 24
+  %312 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %313 = getelementptr inbounds nuw i8, ptr %77, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
   store ptr %312, ptr %313, align 8
-  %314 = getelementptr inbounds i8, ptr %77, i64 32
+  %314 = getelementptr inbounds nuw i8, ptr %77, i64 32
   store ptr %312, ptr %314, align 8
-  %315 = getelementptr inbounds i8, ptr %77, i64 40
+  %315 = getelementptr inbounds nuw i8, ptr %77, i64 40
   store i64 0, ptr %315, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %74, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 8 dereferenceable(48) %77)
           to label %316 unwind label %1904
 
 316:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit236
-  %317 = getelementptr inbounds i8, ptr %77, i64 16
+  %317 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %318 = load ptr, ptr %317, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef %318)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit237 unwind label %319
@@ -835,13 +835,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 332:                                              ; preds = %330
   store ptr @.str, ptr %61, align 8
-  %.sroa.2939.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 8
+  %.sroa.2939.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2939.0..sroa_idx, align 8
-  %.sroa.3940.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 16
+  %.sroa.3940.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 16
   store i64 40, ptr %.sroa.3940.0..sroa_idx, align 8
-  %.sroa.4941.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 24
+  %.sroa.4941.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4941.0..sroa_idx, align 8
-  %.sroa.5942.0..sroa_idx = getelementptr inbounds i8, ptr %61, i64 32
+  %.sroa.5942.0..sroa_idx = getelementptr inbounds nuw i8, ptr %61, i64 32
   store i8 0, ptr %.sroa.5942.0..sroa_idx, align 8
   %333 = getelementptr inbounds nuw i8, ptr %61, i64 40
   store i32 4, ptr %333, align 8
@@ -893,7 +893,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 352:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i244, %.noexc.i247, %346
   %353 = load ptr, ptr %335, align 8
-  %354 = getelementptr inbounds i8, ptr %353, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
   %355 = load ptr, ptr %354, align 8
   call void %355(ptr noundef nonnull align 8 dereferenceable(12) %335) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit248
@@ -925,19 +925,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit248: ; pre
   br label %.body251
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit253: ; preds = %.noexc250
-  %362 = getelementptr inbounds i8, ptr %81, i64 8
-  %363 = getelementptr inbounds i8, ptr %81, i64 24
+  %362 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %363 = getelementptr inbounds nuw i8, ptr %81, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, i8 0, i64 24, i1 false)
   store ptr %362, ptr %363, align 8
-  %364 = getelementptr inbounds i8, ptr %81, i64 32
+  %364 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store ptr %362, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %81, i64 40
+  %365 = getelementptr inbounds nuw i8, ptr %81, i64 40
   store i64 0, ptr %365, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %78, ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(48) %81)
           to label %366 unwind label %1910
 
 366:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit253
-  %367 = getelementptr inbounds i8, ptr %81, i64 16
+  %367 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %368 = load ptr, ptr %367, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %81, ptr noundef %368)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit254 unwind label %369
@@ -969,13 +969,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 377:                                              ; preds = %375
   store ptr @.str, ptr %59, align 8
-  %.sroa.2933.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 8
+  %.sroa.2933.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2933.0..sroa_idx, align 8
-  %.sroa.3934.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 16
+  %.sroa.3934.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 16
   store i64 47, ptr %.sroa.3934.0..sroa_idx, align 8
-  %.sroa.4935.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 24
+  %.sroa.4935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4935.0..sroa_idx, align 8
-  %.sroa.5936.0..sroa_idx = getelementptr inbounds i8, ptr %59, i64 32
+  %.sroa.5936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %59, i64 32
   store i8 0, ptr %.sroa.5936.0..sroa_idx, align 8
   %378 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store i32 4, ptr %378, align 8
@@ -1046,11 +1046,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit267: ;
   %389 = and i32 %387, 255
   %390 = lshr i32 %387, 8
   %391 = zext nneg i32 %389 to i64
-  %392 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %391
+  %392 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %391
   %393 = load ptr, ptr %392, align 8
   %394 = mul nuw nsw i32 %390, 24
   %395 = zext nneg i32 %394 to i64
-  %396 = getelementptr inbounds i8, ptr %393, i64 %395
+  %396 = getelementptr inbounds nuw i8, ptr %393, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %398 = atomicrmw sub ptr %397, i32 1 seq_cst, align 4
   %399 = and i32 %398, 2147483647
@@ -1081,13 +1081,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %386, %388, %4
 
 406:                                              ; preds = %.noexc268
   store ptr @.str.17, ptr %56, align 8
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %56, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %56, i64 16
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   store i64 79, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %56, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_11SdfPrimSpecEEptEv, ptr %.sroa.4.0..sroa_idx.i, align 8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %56, i64 32
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %56, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %407 = getelementptr inbounds nuw i8, ptr %56, i64 40
   store i32 4, ptr %407, align 8
@@ -1184,7 +1184,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit281: ;
           to label %431 unwind label %1933
 
 431:                                              ; preds = %430
-  %432 = getelementptr inbounds i8, ptr %86, i64 16
+  %432 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %433 = load ptr, ptr %432, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef %433)
           to label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit unwind label %434
@@ -1197,7 +1197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit281: ;
   unreachable
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit: ; preds = %431
-  %437 = getelementptr inbounds i8, ptr %87, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %438 = load i32, ptr %437, align 4
   %.not.i.i.i282 = icmp eq i32 %438, 0
   br i1 %.not.i.i.i282, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i, label %439
@@ -1206,11 +1206,11 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairI
   %440 = and i32 %438, 255
   %441 = lshr i32 %438, 8
   %442 = zext nneg i32 %440 to i64
-  %443 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %442
+  %443 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %442
   %444 = load ptr, ptr %443, align 8
   %445 = mul nuw nsw i32 %441, 24
   %446 = zext nneg i32 %445 to i64
-  %447 = getelementptr inbounds i8, ptr %444, i64 %446
+  %447 = getelementptr inbounds nuw i8, ptr %444, i64 %446
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   %449 = atomicrmw sub ptr %448, i32 1 seq_cst, align 4
   %450 = and i32 %449, 2147483647
@@ -1237,11 +1237,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i: ; preds = %452, %439, 
   %458 = and i32 %456, 255
   %459 = lshr i32 %456, 8
   %460 = zext nneg i32 %458 to i64
-  %461 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %460
+  %461 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %460
   %462 = load ptr, ptr %461, align 8
   %463 = mul nuw nsw i32 %459, 24
   %464 = zext nneg i32 %463 to i64
-  %465 = getelementptr inbounds i8, ptr %462, i64 %464
+  %465 = getelementptr inbounds nuw i8, ptr %462, i64 %464
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
   %467 = atomicrmw sub ptr %466, i32 1 seq_cst, align 4
   %468 = and i32 %467, 2147483647
@@ -1268,11 +1268,11 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit: ; preds =
   %476 = and i32 %474, 255
   %477 = lshr i32 %474, 8
   %478 = zext nneg i32 %476 to i64
-  %479 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %478
+  %479 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %478
   %480 = load ptr, ptr %479, align 8
   %481 = mul nuw nsw i32 %477, 24
   %482 = zext nneg i32 %481 to i64
-  %483 = getelementptr inbounds i8, ptr %480, i64 %482
+  %483 = getelementptr inbounds nuw i8, ptr %480, i64 %482
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 8
   %485 = atomicrmw sub ptr %484, i32 1 seq_cst, align 4
   %486 = and i32 %485, 2147483647
@@ -1301,11 +1301,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit284: ; preds = %_ZNSt4pair
   %494 = and i32 %492, 255
   %495 = lshr i32 %492, 8
   %496 = zext nneg i32 %494 to i64
-  %497 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %496
+  %497 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %496
   %498 = load ptr, ptr %497, align 8
   %499 = mul nuw nsw i32 %495, 24
   %500 = zext nneg i32 %499 to i64
-  %501 = getelementptr inbounds i8, ptr %498, i64 %500
+  %501 = getelementptr inbounds nuw i8, ptr %498, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 8
   %503 = atomicrmw sub ptr %502, i32 1 seq_cst, align 4
   %504 = and i32 %503, 2147483647
@@ -1359,13 +1359,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit286: ; preds = %_ZN32pxrIn
 
 520:                                              ; preds = %518
   store ptr @.str, ptr %54, align 8
-  %.sroa.2927.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 8
+  %.sroa.2927.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2927.0..sroa_idx, align 8
-  %.sroa.3928.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 16
+  %.sroa.3928.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i64 51, ptr %.sroa.3928.0..sroa_idx, align 8
-  %.sroa.4929.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 24
+  %.sroa.4929.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4929.0..sroa_idx, align 8
-  %.sroa.5930.0..sroa_idx = getelementptr inbounds i8, ptr %54, i64 32
+  %.sroa.5930.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 32
   store i8 0, ptr %.sroa.5930.0..sroa_idx, align 8
   %521 = getelementptr inbounds nuw i8, ptr %54, i64 40
   store i32 4, ptr %521, align 8
@@ -1418,7 +1418,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 540:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i293, %.noexc.i296, %534
   %541 = load ptr, ptr %523, align 8
-  %542 = getelementptr inbounds i8, ptr %541, i64 8
+  %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
   %543 = load ptr, ptr %542, align 8
   call void %543(ptr noundef nonnull align 8 dereferenceable(12) %523) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit297
@@ -1432,19 +1432,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit297: ; preds = %522, %534, %.noexc.i296, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i293, %540
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %97) #14
-  %547 = getelementptr inbounds i8, ptr %98, i64 8
-  %548 = getelementptr inbounds i8, ptr %98, i64 24
+  %547 = getelementptr inbounds nuw i8, ptr %98, i64 8
+  %548 = getelementptr inbounds nuw i8, ptr %98, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
   store ptr %547, ptr %548, align 8
-  %549 = getelementptr inbounds i8, ptr %98, i64 32
+  %549 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store ptr %547, ptr %549, align 8
-  %550 = getelementptr inbounds i8, ptr %98, i64 40
+  %550 = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i64 0, ptr %550, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15CreateAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %96, ptr noundef nonnull align 8 dereferenceable(32) %97, ptr noundef nonnull align 8 dereferenceable(48) %98)
           to label %551 unwind label %1939
 
 551:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit297
-  %552 = getelementptr inbounds i8, ptr %98, i64 16
+  %552 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %553 = load ptr, ptr %552, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %98, ptr noundef %553)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit298 unwind label %554
@@ -1466,7 +1466,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i299, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit, label %559
 
 559:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit298
-  %560 = getelementptr inbounds i8, ptr %557, i64 16
+  %560 = getelementptr inbounds nuw i8, ptr %557, i64 16
   %561 = load atomic i64, ptr %560 seq_cst, align 8, !noalias !5
   %.not.i.i.i.i = icmp eq i64 %561, 0
   br i1 %.not.i.i.i.i, label %562, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i
@@ -1498,7 +1498,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %572 = extractvalue { i64, i1 } %569, 0
   %573 = inttoptr i64 %572 to ptr
   %574 = load ptr, ptr %563, align 8, !noalias !12
-  %575 = getelementptr inbounds i8, ptr %574, i64 8
+  %575 = getelementptr inbounds nuw i8, ptr %574, i64 8
   %576 = load ptr, ptr %575, align 8, !noalias !12
   call void %576(ptr noundef nonnull align 8 dereferenceable(15) %563) #14, !noalias !12
   br label %577
@@ -1520,7 +1520,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 584:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i
   %585 = load ptr, ptr %580, align 8
-  %586 = getelementptr inbounds i8, ptr %585, i64 8
+  %586 = getelementptr inbounds nuw i8, ptr %585, i64 8
   %587 = load ptr, ptr %586, align 8
   call void %587(ptr noundef nonnull align 8 dereferenceable(12) %580) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit
@@ -1540,7 +1540,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 594:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i
   %595 = load ptr, ptr %590, align 8
-  %596 = getelementptr inbounds i8, ptr %595, i64 8
+  %596 = getelementptr inbounds nuw i8, ptr %595, i64 8
   %597 = load ptr, ptr %596, align 8
   call void %597(ptr noundef nonnull align 8 dereferenceable(12) %590) #14
   br label %.body301
@@ -1581,11 +1581,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit307: ;
   %606 = and i32 %604, 255
   %607 = lshr i32 %604, 8
   %608 = zext nneg i32 %606 to i64
-  %609 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %608
+  %609 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %608
   %610 = load ptr, ptr %609, align 8
   %611 = mul nuw nsw i32 %607, 24
   %612 = zext nneg i32 %611 to i64
-  %613 = getelementptr inbounds i8, ptr %610, i64 %612
+  %613 = getelementptr inbounds nuw i8, ptr %610, i64 %612
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 8
   %615 = atomicrmw sub ptr %614, i32 1 seq_cst, align 4
   %616 = and i32 %615, 2147483647
@@ -1618,7 +1618,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 626:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i311
   %627 = load ptr, ptr %622, align 8
-  %628 = getelementptr inbounds i8, ptr %627, i64 8
+  %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   %629 = load ptr, ptr %628, align 8
   call void %629(ptr noundef nonnull align 8 dereferenceable(12) %622) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit
@@ -1723,7 +1723,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 660:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i320, %.noexc.i323, %654
   %661 = load ptr, ptr %643, align 8
-  %662 = getelementptr inbounds i8, ptr %661, i64 8
+  %662 = getelementptr inbounds nuw i8, ptr %661, i64 8
   %663 = load ptr, ptr %662, align 8
   call void %663(ptr noundef nonnull align 8 dereferenceable(12) %643) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit324
@@ -1755,19 +1755,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit324: ; pre
   br label %.body327
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit329: ; preds = %.noexc326
-  %670 = getelementptr inbounds i8, ptr %106, i64 8
-  %671 = getelementptr inbounds i8, ptr %106, i64 24
+  %670 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %671 = getelementptr inbounds nuw i8, ptr %106, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, i8 0, i64 24, i1 false)
   store ptr %670, ptr %671, align 8
-  %672 = getelementptr inbounds i8, ptr %106, i64 32
+  %672 = getelementptr inbounds nuw i8, ptr %106, i64 32
   store ptr %670, ptr %672, align 8
-  %673 = getelementptr inbounds i8, ptr %106, i64 40
+  %673 = getelementptr inbounds nuw i8, ptr %106, i64 40
   store i64 0, ptr %673, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %103, ptr noundef nonnull align 8 dereferenceable(32) %104, ptr noundef nonnull align 8 dereferenceable(48) %106)
           to label %674 unwind label %1960
 
 674:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit329
-  %675 = getelementptr inbounds i8, ptr %106, i64 16
+  %675 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %676 = load ptr, ptr %675, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef %676)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit330 unwind label %677
@@ -1783,19 +1783,19 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %104) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %105) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #14
-  %680 = getelementptr inbounds i8, ptr %109, i64 8
-  %681 = getelementptr inbounds i8, ptr %109, i64 24
+  %680 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %681 = getelementptr inbounds nuw i8, ptr %109, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, i8 0, i64 24, i1 false)
   store ptr %680, ptr %681, align 8
-  %682 = getelementptr inbounds i8, ptr %109, i64 32
+  %682 = getelementptr inbounds nuw i8, ptr %109, i64 32
   store ptr %680, ptr %682, align 8
-  %683 = getelementptr inbounds i8, ptr %109, i64 40
+  %683 = getelementptr inbounds nuw i8, ptr %109, i64 40
   store i64 0, ptr %683, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15CreateAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %107, ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef nonnull align 8 dereferenceable(48) %109)
           to label %684 unwind label %1962
 
 684:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit330
-  %685 = getelementptr inbounds i8, ptr %109, i64 16
+  %685 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %686 = load ptr, ptr %685, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %109, ptr noundef %686)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit331 unwind label %687
@@ -1824,7 +1824,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i335, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit348, label %694
 
 694:                                              ; preds = %691
-  %695 = getelementptr inbounds i8, ptr %692, i64 16
+  %695 = getelementptr inbounds nuw i8, ptr %692, i64 16
   %696 = load atomic i64, ptr %695 seq_cst, align 8, !noalias !15
   %.not.i.i.i.i336 = icmp eq i64 %696, 0
   br i1 %.not.i.i.i.i336, label %697, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i337
@@ -1856,7 +1856,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %707 = extractvalue { i64, i1 } %704, 0
   %708 = inttoptr i64 %707 to ptr
   %709 = load ptr, ptr %698, align 8, !noalias !22
-  %710 = getelementptr inbounds i8, ptr %709, i64 8
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 8
   %711 = load ptr, ptr %710, align 8, !noalias !22
   call void %711(ptr noundef nonnull align 8 dereferenceable(15) %698) #14, !noalias !22
   br label %712
@@ -1878,7 +1878,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 719:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i341
   %720 = load ptr, ptr %715, align 8
-  %721 = getelementptr inbounds i8, ptr %720, i64 8
+  %721 = getelementptr inbounds nuw i8, ptr %720, i64 8
   %722 = load ptr, ptr %721, align 8
   call void %722(ptr noundef nonnull align 8 dereferenceable(12) %715) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit348
@@ -1898,7 +1898,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 729:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i343
   %730 = load ptr, ptr %725, align 8
-  %731 = getelementptr inbounds i8, ptr %730, i64 8
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 8
   %732 = load ptr, ptr %731, align 8
   call void %732(ptr noundef nonnull align 8 dereferenceable(12) %725) #14
   br label %.body346
@@ -1920,7 +1920,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 738:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i350
   %739 = load ptr, ptr %734, align 8
-  %740 = getelementptr inbounds i8, ptr %739, i64 8
+  %740 = getelementptr inbounds nuw i8, ptr %739, i64 8
   %741 = load ptr, ptr %740, align 8
   call void %741(ptr noundef nonnull align 8 dereferenceable(12) %734) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit351
@@ -1960,13 +1960,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit351: ; pr
 
 747:                                              ; preds = %745
   store ptr @.str, ptr %48, align 8
-  %.sroa.2909.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.2909.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2909.0..sroa_idx, align 8
-  %.sroa.3910.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 16
+  %.sroa.3910.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 16
   store i64 71, ptr %.sroa.3910.0..sroa_idx, align 8
-  %.sroa.4911.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 24
+  %.sroa.4911.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4911.0..sroa_idx, align 8
-  %.sroa.5912.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 32
+  %.sroa.5912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i8 0, ptr %.sroa.5912.0..sroa_idx, align 8
   %748 = getelementptr inbounds nuw i8, ptr %48, i64 40
   store i32 4, ptr %748, align 8
@@ -2018,7 +2018,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 767:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i358, %.noexc.i361, %761
   %768 = load ptr, ptr %750, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 8
+  %769 = getelementptr inbounds nuw i8, ptr %768, i64 8
   %770 = load ptr, ptr %769, align 8
   call void %770(ptr noundef nonnull align 8 dereferenceable(12) %750) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit362
@@ -2071,7 +2071,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 791:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i364, %.noexc.i367, %785
   %792 = load ptr, ptr %774, align 8
-  %793 = getelementptr inbounds i8, ptr %792, i64 8
+  %793 = getelementptr inbounds nuw i8, ptr %792, i64 8
   %794 = load ptr, ptr %793, align 8
   call void %794(ptr noundef nonnull align 8 dereferenceable(12) %774) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit368
@@ -2103,19 +2103,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit368: ; pre
   br label %.body371
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit373: ; preds = %.noexc370
-  %801 = getelementptr inbounds i8, ptr %114, i64 8
-  %802 = getelementptr inbounds i8, ptr %114, i64 24
+  %801 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %802 = getelementptr inbounds nuw i8, ptr %114, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, i8 0, i64 24, i1 false)
   store ptr %801, ptr %802, align 8
-  %803 = getelementptr inbounds i8, ptr %114, i64 32
+  %803 = getelementptr inbounds nuw i8, ptr %114, i64 32
   store ptr %801, ptr %803, align 8
-  %804 = getelementptr inbounds i8, ptr %114, i64 40
+  %804 = getelementptr inbounds nuw i8, ptr %114, i64 40
   store i64 0, ptr %804, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %111, ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(48) %114)
           to label %805 unwind label %1979
 
 805:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit373
-  %806 = getelementptr inbounds i8, ptr %114, i64 16
+  %806 = getelementptr inbounds nuw i8, ptr %114, i64 16
   %807 = load ptr, ptr %806, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %114, ptr noundef %807)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit374 unwind label %808
@@ -2131,19 +2131,19 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %112) #14
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %113) #14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #14
-  %811 = getelementptr inbounds i8, ptr %117, i64 8
-  %812 = getelementptr inbounds i8, ptr %117, i64 24
+  %811 = getelementptr inbounds nuw i8, ptr %117, i64 8
+  %812 = getelementptr inbounds nuw i8, ptr %117, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
   store ptr %811, ptr %812, align 8
-  %813 = getelementptr inbounds i8, ptr %117, i64 32
+  %813 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store ptr %811, ptr %813, align 8
-  %814 = getelementptr inbounds i8, ptr %117, i64 40
+  %814 = getelementptr inbounds nuw i8, ptr %117, i64 40
   store i64 0, ptr %814, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15CreateAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %115, ptr noundef nonnull align 8 dereferenceable(32) %116, ptr noundef nonnull align 8 dereferenceable(48) %117)
           to label %815 unwind label %1981
 
 815:                                              ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit374
-  %816 = getelementptr inbounds i8, ptr %117, i64 16
+  %816 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %817 = load ptr, ptr %816, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %117, ptr noundef %817)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit375 unwind label %818
@@ -2172,7 +2172,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i379, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit392, label %825
 
 825:                                              ; preds = %822
-  %826 = getelementptr inbounds i8, ptr %823, i64 16
+  %826 = getelementptr inbounds nuw i8, ptr %823, i64 16
   %827 = load atomic i64, ptr %826 seq_cst, align 8, !noalias !25
   %.not.i.i.i.i380 = icmp eq i64 %827, 0
   br i1 %.not.i.i.i.i380, label %828, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i381
@@ -2204,7 +2204,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %838 = extractvalue { i64, i1 } %835, 0
   %839 = inttoptr i64 %838 to ptr
   %840 = load ptr, ptr %829, align 8, !noalias !32
-  %841 = getelementptr inbounds i8, ptr %840, i64 8
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 8
   %842 = load ptr, ptr %841, align 8, !noalias !32
   call void %842(ptr noundef nonnull align 8 dereferenceable(15) %829) #14, !noalias !32
   br label %843
@@ -2226,7 +2226,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 850:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i385
   %851 = load ptr, ptr %846, align 8
-  %852 = getelementptr inbounds i8, ptr %851, i64 8
+  %852 = getelementptr inbounds nuw i8, ptr %851, i64 8
   %853 = load ptr, ptr %852, align 8
   call void %853(ptr noundef nonnull align 8 dereferenceable(12) %846) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit392
@@ -2246,7 +2246,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 860:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i387
   %861 = load ptr, ptr %856, align 8
-  %862 = getelementptr inbounds i8, ptr %861, i64 8
+  %862 = getelementptr inbounds nuw i8, ptr %861, i64 8
   %863 = load ptr, ptr %862, align 8
   call void %863(ptr noundef nonnull align 8 dereferenceable(12) %856) #14
   br label %.body390
@@ -2268,7 +2268,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 869:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i394
   %870 = load ptr, ptr %865, align 8
-  %871 = getelementptr inbounds i8, ptr %870, i64 8
+  %871 = getelementptr inbounds nuw i8, ptr %870, i64 8
   %872 = load ptr, ptr %871, align 8
   call void %872(ptr noundef nonnull align 8 dereferenceable(12) %865) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit395
@@ -2308,13 +2308,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit395: ; pr
 
 878:                                              ; preds = %876
   store ptr @.str, ptr %45, align 8
-  %.sroa.2903.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 8
+  %.sroa.2903.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2903.0..sroa_idx, align 8
-  %.sroa.3904.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 16
+  %.sroa.3904.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 16
   store i64 80, ptr %.sroa.3904.0..sroa_idx, align 8
-  %.sroa.4905.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 24
+  %.sroa.4905.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4905.0..sroa_idx, align 8
-  %.sroa.5906.0..sroa_idx = getelementptr inbounds i8, ptr %45, i64 32
+  %.sroa.5906.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i8 0, ptr %.sroa.5906.0..sroa_idx, align 8
   %879 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i32 4, ptr %879, align 8
@@ -2366,7 +2366,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 898:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i402, %.noexc.i405, %892
   %899 = load ptr, ptr %881, align 8
-  %900 = getelementptr inbounds i8, ptr %899, i64 8
+  %900 = getelementptr inbounds nuw i8, ptr %899, i64 8
   %901 = load ptr, ptr %900, align 8
   call void %901(ptr noundef nonnull align 8 dereferenceable(12) %881) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit406
@@ -2419,7 +2419,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 922:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i408, %.noexc.i411, %916
   %923 = load ptr, ptr %905, align 8
-  %924 = getelementptr inbounds i8, ptr %923, i64 8
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 8
   %925 = load ptr, ptr %924, align 8
   call void %925(ptr noundef nonnull align 8 dereferenceable(12) %905) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit412
@@ -2433,19 +2433,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit412: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit406, %916, %.noexc.i411, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i408, %922
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %120) #14
-  %929 = getelementptr inbounds i8, ptr %121, i64 8
-  %930 = getelementptr inbounds i8, ptr %121, i64 24
+  %929 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %930 = getelementptr inbounds nuw i8, ptr %121, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %121, i8 0, i64 24, i1 false)
   store ptr %929, ptr %930, align 8
-  %931 = getelementptr inbounds i8, ptr %121, i64 32
+  %931 = getelementptr inbounds nuw i8, ptr %121, i64 32
   store ptr %929, ptr %931, align 8
-  %932 = getelementptr inbounds i8, ptr %121, i64 40
+  %932 = getelementptr inbounds nuw i8, ptr %121, i64 40
   store i64 0, ptr %932, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15CreateAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %119, ptr noundef nonnull align 8 dereferenceable(32) %120, ptr noundef nonnull align 8 dereferenceable(48) %121)
           to label %933 unwind label %1996
 
 933:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit412
-  %934 = getelementptr inbounds i8, ptr %121, i64 16
+  %934 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %935 = load ptr, ptr %934, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef %935)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit413 unwind label %936
@@ -2525,13 +2525,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit421: ;
 
 951:                                              ; preds = %949
   store ptr @.str, ptr %42, align 8
-  %.sroa.2897.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
+  %.sroa.2897.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2897.0..sroa_idx, align 8
-  %.sroa.3898.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
+  %.sroa.3898.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
   store i64 89, ptr %.sroa.3898.0..sroa_idx, align 8
-  %.sroa.4899.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 24
+  %.sroa.4899.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4899.0..sroa_idx, align 8
-  %.sroa.5900.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 32
+  %.sroa.5900.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i8 0, ptr %.sroa.5900.0..sroa_idx, align 8
   %952 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store i32 4, ptr %952, align 8
@@ -2583,7 +2583,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 971:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i428, %.noexc.i431, %965
   %972 = load ptr, ptr %954, align 8
-  %973 = getelementptr inbounds i8, ptr %972, i64 8
+  %973 = getelementptr inbounds nuw i8, ptr %972, i64 8
   %974 = load ptr, ptr %973, align 8
   call void %974(ptr noundef nonnull align 8 dereferenceable(12) %954) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit432
@@ -2597,19 +2597,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit432: ; preds = %953, %965, %.noexc.i431, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i428, %971
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %125) #14
-  %978 = getelementptr inbounds i8, ptr %126, i64 8
-  %979 = getelementptr inbounds i8, ptr %126, i64 24
+  %978 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %979 = getelementptr inbounds nuw i8, ptr %126, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %126, i8 0, i64 24, i1 false)
   store ptr %978, ptr %979, align 8
-  %980 = getelementptr inbounds i8, ptr %126, i64 32
+  %980 = getelementptr inbounds nuw i8, ptr %126, i64 32
   store ptr %978, ptr %980, align 8
-  %981 = getelementptr inbounds i8, ptr %126, i64 40
+  %981 = getelementptr inbounds nuw i8, ptr %126, i64 40
   store i64 0, ptr %981, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15CreateAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %124, ptr noundef nonnull align 8 dereferenceable(32) %125, ptr noundef nonnull align 8 dereferenceable(48) %126)
           to label %982 unwind label %2005
 
 982:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit432
-  %983 = getelementptr inbounds i8, ptr %126, i64 16
+  %983 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %984 = load ptr, ptr %983, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %126, ptr noundef %984)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit433 unwind label %985
@@ -2689,13 +2689,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit441: ;
 
 1000:                                             ; preds = %998
   store ptr @.str, ptr %39, align 8
-  %.sroa.2891.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 8
+  %.sroa.2891.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2891.0..sroa_idx, align 8
-  %.sroa.3892.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 16
+  %.sroa.3892.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 16
   store i64 96, ptr %.sroa.3892.0..sroa_idx, align 8
-  %.sroa.4893.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 24
+  %.sroa.4893.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4893.0..sroa_idx, align 8
-  %.sroa.5894.0..sroa_idx = getelementptr inbounds i8, ptr %39, i64 32
+  %.sroa.5894.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 32
   store i8 0, ptr %.sroa.5894.0..sroa_idx, align 8
   %1001 = getelementptr inbounds nuw i8, ptr %39, i64 40
   store i32 4, ptr %1001, align 8
@@ -2747,7 +2747,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1020:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i448, %.noexc.i451, %1014
   %1021 = load ptr, ptr %1003, align 8
-  %1022 = getelementptr inbounds i8, ptr %1021, i64 8
+  %1022 = getelementptr inbounds nuw i8, ptr %1021, i64 8
   %1023 = load ptr, ptr %1022, align 8
   call void %1023(ptr noundef nonnull align 8 dereferenceable(12) %1003) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit452
@@ -2802,19 +2802,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit462: ;
           to label %1033 unwind label %2018
 
 1033:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit462
-  %1034 = getelementptr inbounds i8, ptr %135, i64 8
-  %1035 = getelementptr inbounds i8, ptr %135, i64 24
+  %1034 = getelementptr inbounds nuw i8, ptr %135, i64 8
+  %1035 = getelementptr inbounds nuw i8, ptr %135, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false)
   store ptr %1034, ptr %1035, align 8
-  %1036 = getelementptr inbounds i8, ptr %135, i64 32
+  %1036 = getelementptr inbounds nuw i8, ptr %135, i64 32
   store ptr %1034, ptr %1036, align 8
-  %1037 = getelementptr inbounds i8, ptr %135, i64 40
+  %1037 = getelementptr inbounds nuw i8, ptr %135, i64 40
   store i64 0, ptr %1037, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer9CreateNewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %129, ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(48) %135)
           to label %1038 unwind label %2020
 
 1038:                                             ; preds = %1033
-  %1039 = getelementptr inbounds i8, ptr %135, i64 16
+  %1039 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %1040 = load ptr, ptr %1039, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %135, ptr noundef %1040)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit463 unwind label %1041
@@ -2840,7 +2840,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i464, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit477, label %1046
 
 1046:                                             ; preds = %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit463
-  %1047 = getelementptr inbounds i8, ptr %1044, i64 16
+  %1047 = getelementptr inbounds nuw i8, ptr %1044, i64 16
   %1048 = load atomic i64, ptr %1047 seq_cst, align 8, !noalias !35
   %.not.i.i.i.i465 = icmp eq i64 %1048, 0
   br i1 %.not.i.i.i.i465, label %1049, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i466
@@ -2872,7 +2872,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %1059 = extractvalue { i64, i1 } %1056, 0
   %1060 = inttoptr i64 %1059 to ptr
   %1061 = load ptr, ptr %1050, align 8, !noalias !42
-  %1062 = getelementptr inbounds i8, ptr %1061, i64 8
+  %1062 = getelementptr inbounds nuw i8, ptr %1061, i64 8
   %1063 = load ptr, ptr %1062, align 8, !noalias !42
   call void %1063(ptr noundef nonnull align 8 dereferenceable(15) %1050) #14, !noalias !42
   br label %1064
@@ -2894,7 +2894,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1071:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i470
   %1072 = load ptr, ptr %1067, align 8
-  %1073 = getelementptr inbounds i8, ptr %1072, i64 8
+  %1073 = getelementptr inbounds nuw i8, ptr %1072, i64 8
   %1074 = load ptr, ptr %1073, align 8
   call void %1074(ptr noundef nonnull align 8 dereferenceable(12) %1067) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit477
@@ -2914,7 +2914,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1081:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i472
   %1082 = load ptr, ptr %1077, align 8
-  %1083 = getelementptr inbounds i8, ptr %1082, i64 8
+  %1083 = getelementptr inbounds nuw i8, ptr %1082, i64 8
   %1084 = load ptr, ptr %1083, align 8
   call void %1084(ptr noundef nonnull align 8 dereferenceable(12) %1077) #14
   br label %.body475
@@ -2955,11 +2955,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit482: ;
   %1092 = and i32 %1090, 255
   %1093 = lshr i32 %1090, 8
   %1094 = zext nneg i32 %1092 to i64
-  %1095 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1094
+  %1095 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1094
   %1096 = load ptr, ptr %1095, align 8
   %1097 = mul nuw nsw i32 %1093, 24
   %1098 = zext nneg i32 %1097 to i64
-  %1099 = getelementptr inbounds i8, ptr %1096, i64 %1098
+  %1099 = getelementptr inbounds nuw i8, ptr %1096, i64 %1098
   %1100 = getelementptr inbounds nuw i8, ptr %1099, i64 8
   %1101 = atomicrmw sub ptr %1100, i32 1 seq_cst, align 4
   %1102 = and i32 %1101, 2147483647
@@ -2992,7 +2992,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1112:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i486
   %1113 = load ptr, ptr %1108, align 8
-  %1114 = getelementptr inbounds i8, ptr %1113, i64 8
+  %1114 = getelementptr inbounds nuw i8, ptr %1113, i64 8
   %1115 = load ptr, ptr %1114, align 8
   call void %1115(ptr noundef nonnull align 8 dereferenceable(12) %1108) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit487
@@ -3114,7 +3114,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1147:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i500, %.noexc.i503, %1141
   %1148 = load ptr, ptr %1130, align 8
-  %1149 = getelementptr inbounds i8, ptr %1148, i64 8
+  %1149 = getelementptr inbounds nuw i8, ptr %1148, i64 8
   %1150 = load ptr, ptr %1149, align 8
   call void %1150(ptr noundef nonnull align 8 dereferenceable(12) %1130) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit504
@@ -3169,19 +3169,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit514: ;
           to label %1160 unwind label %2044
 
 1160:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit514
-  %1161 = getelementptr inbounds i8, ptr %147, i64 8
-  %1162 = getelementptr inbounds i8, ptr %147, i64 24
+  %1161 = getelementptr inbounds nuw i8, ptr %147, i64 8
+  %1162 = getelementptr inbounds nuw i8, ptr %147, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, i8 0, i64 24, i1 false)
   store ptr %1161, ptr %1162, align 8
-  %1163 = getelementptr inbounds i8, ptr %147, i64 32
+  %1163 = getelementptr inbounds nuw i8, ptr %147, i64 32
   store ptr %1161, ptr %1163, align 8
-  %1164 = getelementptr inbounds i8, ptr %147, i64 40
+  %1164 = getelementptr inbounds nuw i8, ptr %147, i64 40
   store i64 0, ptr %1164, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer9CreateNewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %141, ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(48) %147)
           to label %1165 unwind label %2046
 
 1165:                                             ; preds = %1160
-  %1166 = getelementptr inbounds i8, ptr %147, i64 16
+  %1166 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %1167 = load ptr, ptr %1166, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %147, ptr noundef %1167)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit515 unwind label %1168
@@ -3232,13 +3232,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 1181:                                             ; preds = %1179
   store ptr @.str, ptr %33, align 8
-  %.sroa.2873.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.2873.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2873.0..sroa_idx, align 8
-  %.sroa.3874.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 16
+  %.sroa.3874.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i64 113, ptr %.sroa.3874.0..sroa_idx, align 8
-  %.sroa.4875.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 24
+  %.sroa.4875.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4875.0..sroa_idx, align 8
-  %.sroa.5876.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 32
+  %.sroa.5876.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 0, ptr %.sroa.5876.0..sroa_idx, align 8
   %1182 = getelementptr inbounds nuw i8, ptr %33, i64 40
   store i32 4, ptr %1182, align 8
@@ -3258,7 +3258,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i521, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit534, label %1186
 
 1186:                                             ; preds = %1183
-  %1187 = getelementptr inbounds i8, ptr %1184, i64 16
+  %1187 = getelementptr inbounds nuw i8, ptr %1184, i64 16
   %1188 = load atomic i64, ptr %1187 seq_cst, align 8, !noalias !45
   %.not.i.i.i.i522 = icmp eq i64 %1188, 0
   br i1 %.not.i.i.i.i522, label %1189, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i523
@@ -3290,7 +3290,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %1199 = extractvalue { i64, i1 } %1196, 0
   %1200 = inttoptr i64 %1199 to ptr
   %1201 = load ptr, ptr %1190, align 8, !noalias !52
-  %1202 = getelementptr inbounds i8, ptr %1201, i64 8
+  %1202 = getelementptr inbounds nuw i8, ptr %1201, i64 8
   %1203 = load ptr, ptr %1202, align 8, !noalias !52
   call void %1203(ptr noundef nonnull align 8 dereferenceable(15) %1190) #14, !noalias !52
   br label %1204
@@ -3312,7 +3312,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1211:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i527
   %1212 = load ptr, ptr %1207, align 8
-  %1213 = getelementptr inbounds i8, ptr %1212, i64 8
+  %1213 = getelementptr inbounds nuw i8, ptr %1212, i64 8
   %1214 = load ptr, ptr %1213, align 8
   call void %1214(ptr noundef nonnull align 8 dereferenceable(12) %1207) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit534
@@ -3332,7 +3332,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1221:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i529
   %1222 = load ptr, ptr %1217, align 8
-  %1223 = getelementptr inbounds i8, ptr %1222, i64 8
+  %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 8
   %1224 = load ptr, ptr %1223, align 8
   call void %1224(ptr noundef nonnull align 8 dereferenceable(12) %1217) #14
   br label %.body532
@@ -3373,11 +3373,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit539: ;
   %1232 = and i32 %1230, 255
   %1233 = lshr i32 %1230, 8
   %1234 = zext nneg i32 %1232 to i64
-  %1235 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1234
+  %1235 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1234
   %1236 = load ptr, ptr %1235, align 8
   %1237 = mul nuw nsw i32 %1233, 24
   %1238 = zext nneg i32 %1237 to i64
-  %1239 = getelementptr inbounds i8, ptr %1236, i64 %1238
+  %1239 = getelementptr inbounds nuw i8, ptr %1236, i64 %1238
   %1240 = getelementptr inbounds nuw i8, ptr %1239, i64 8
   %1241 = atomicrmw sub ptr %1240, i32 1 seq_cst, align 4
   %1242 = and i32 %1241, 2147483647
@@ -3410,7 +3410,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1252:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i543
   %1253 = load ptr, ptr %1248, align 8
-  %1254 = getelementptr inbounds i8, ptr %1253, i64 8
+  %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 8
   %1255 = load ptr, ptr %1254, align 8
   call void %1255(ptr noundef nonnull align 8 dereferenceable(12) %1248) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit544
@@ -3435,13 +3435,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit544: ; pr
 
 1260:                                             ; preds = %.noexc554
   store ptr @.str.17, ptr %30, align 8
-  %.sroa.2.0..sroa_idx.i550 = getelementptr inbounds i8, ptr %30, i64 8
+  %.sroa.2.0..sroa_idx.i550 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sroa.2.0..sroa_idx.i550, align 8
-  %.sroa.3.0..sroa_idx.i551 = getelementptr inbounds i8, ptr %30, i64 16
+  %.sroa.3.0..sroa_idx.i551 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i64 79, ptr %.sroa.3.0..sroa_idx.i551, align 8
-  %.sroa.4.0..sroa_idx.i552 = getelementptr inbounds i8, ptr %30, i64 24
+  %.sroa.4.0..sroa_idx.i552 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_11SdfPrimSpecEEptEv, ptr %.sroa.4.0..sroa_idx.i552, align 8
-  %.sroa.5.0..sroa_idx.i553 = getelementptr inbounds i8, ptr %30, i64 32
+  %.sroa.5.0..sroa_idx.i553 = getelementptr inbounds nuw i8, ptr %30, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i553, align 8
   %1261 = getelementptr inbounds nuw i8, ptr %30, i64 40
   store i32 4, ptr %1261, align 8
@@ -3538,7 +3538,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit568: ;
           to label %1285 unwind label %2078
 
 1285:                                             ; preds = %1284
-  %1286 = getelementptr inbounds i8, ptr %153, i64 16
+  %1286 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %1287 = load ptr, ptr %1286, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %153, ptr noundef %1287)
           to label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit569 unwind label %1288
@@ -3551,7 +3551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit568: ;
   unreachable
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit569: ; preds = %1285
-  %1291 = getelementptr inbounds i8, ptr %154, i64 8
+  %1291 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %1292 = load i32, ptr %1291, align 4
   %.not.i.i.i570 = icmp eq i32 %1292, 0
   br i1 %.not.i.i.i570, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i571, label %1293
@@ -3560,11 +3560,11 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairI
   %1294 = and i32 %1292, 255
   %1295 = lshr i32 %1292, 8
   %1296 = zext nneg i32 %1294 to i64
-  %1297 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1296
+  %1297 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1296
   %1298 = load ptr, ptr %1297, align 8
   %1299 = mul nuw nsw i32 %1295, 24
   %1300 = zext nneg i32 %1299 to i64
-  %1301 = getelementptr inbounds i8, ptr %1298, i64 %1300
+  %1301 = getelementptr inbounds nuw i8, ptr %1298, i64 %1300
   %1302 = getelementptr inbounds nuw i8, ptr %1301, i64 8
   %1303 = atomicrmw sub ptr %1302, i32 1 seq_cst, align 4
   %1304 = and i32 %1303, 2147483647
@@ -3591,11 +3591,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i571: ; preds = %1306, %1
   %1312 = and i32 %1310, 255
   %1313 = lshr i32 %1310, 8
   %1314 = zext nneg i32 %1312 to i64
-  %1315 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1314
+  %1315 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1314
   %1316 = load ptr, ptr %1315, align 8
   %1317 = mul nuw nsw i32 %1313, 24
   %1318 = zext nneg i32 %1317 to i64
-  %1319 = getelementptr inbounds i8, ptr %1316, i64 %1318
+  %1319 = getelementptr inbounds nuw i8, ptr %1316, i64 %1318
   %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 8
   %1321 = atomicrmw sub ptr %1320, i32 1 seq_cst, align 4
   %1322 = and i32 %1321, 2147483647
@@ -3622,11 +3622,11 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit573: ; pred
   %1330 = and i32 %1328, 255
   %1331 = lshr i32 %1328, 8
   %1332 = zext nneg i32 %1330 to i64
-  %1333 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1332
+  %1333 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1332
   %1334 = load ptr, ptr %1333, align 8
   %1335 = mul nuw nsw i32 %1331, 24
   %1336 = zext nneg i32 %1335 to i64
-  %1337 = getelementptr inbounds i8, ptr %1334, i64 %1336
+  %1337 = getelementptr inbounds nuw i8, ptr %1334, i64 %1336
   %1338 = getelementptr inbounds nuw i8, ptr %1337, i64 8
   %1339 = atomicrmw sub ptr %1338, i32 1 seq_cst, align 4
   %1340 = and i32 %1339, 2147483647
@@ -3655,11 +3655,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit575: ; preds = %_ZNSt4pair
   %1348 = and i32 %1346, 255
   %1349 = lshr i32 %1346, 8
   %1350 = zext nneg i32 %1348 to i64
-  %1351 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1350
+  %1351 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1350
   %1352 = load ptr, ptr %1351, align 8
   %1353 = mul nuw nsw i32 %1349, 24
   %1354 = zext nneg i32 %1353 to i64
-  %1355 = getelementptr inbounds i8, ptr %1352, i64 %1354
+  %1355 = getelementptr inbounds nuw i8, ptr %1352, i64 %1354
   %1356 = getelementptr inbounds nuw i8, ptr %1355, i64 8
   %1357 = atomicrmw sub ptr %1356, i32 1 seq_cst, align 4
   %1358 = and i32 %1357, 2147483647
@@ -3804,7 +3804,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1398:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i592, %.noexc.i595, %1392
   %1399 = load ptr, ptr %1381, align 8
-  %1400 = getelementptr inbounds i8, ptr %1399, i64 8
+  %1400 = getelementptr inbounds nuw i8, ptr %1399, i64 8
   %1401 = load ptr, ptr %1400, align 8
   call void %1401(ptr noundef nonnull align 8 dereferenceable(12) %1381) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit596
@@ -3818,19 +3818,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit596: ; preds = %1380, %1392, %.noexc.i595, %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i592, %1398
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %164) #14
-  %1405 = getelementptr inbounds i8, ptr %165, i64 8
-  %1406 = getelementptr inbounds i8, ptr %165, i64 24
+  %1405 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %1406 = getelementptr inbounds nuw i8, ptr %165, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %165, i8 0, i64 24, i1 false)
   store ptr %1405, ptr %1406, align 8
-  %1407 = getelementptr inbounds i8, ptr %165, i64 32
+  %1407 = getelementptr inbounds nuw i8, ptr %165, i64 32
   store ptr %1405, ptr %1407, align 8
-  %1408 = getelementptr inbounds i8, ptr %165, i64 40
+  %1408 = getelementptr inbounds nuw i8, ptr %165, i64 40
   store i64 0, ptr %1408, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer15CreateAnonymousERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %163, ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(48) %165)
           to label %1409 unwind label %2083
 
 1409:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit596
-  %1410 = getelementptr inbounds i8, ptr %165, i64 16
+  %1410 = getelementptr inbounds nuw i8, ptr %165, i64 16
   %1411 = load ptr, ptr %1410, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %165, ptr noundef %1411)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit597 unwind label %1412
@@ -3877,13 +3877,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 1425:                                             ; preds = %1423
   store ptr @.str, ptr %23, align 8
-  %.sroa.2849.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 8
+  %.sroa.2849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2849.0..sroa_idx, align 8
-  %.sroa.3850.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 16
+  %.sroa.3850.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 16
   store i64 126, ptr %.sroa.3850.0..sroa_idx, align 8
-  %.sroa.4851.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 24
+  %.sroa.4851.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4851.0..sroa_idx, align 8
-  %.sroa.5852.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 32
+  %.sroa.5852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 32
   store i8 0, ptr %.sroa.5852.0..sroa_idx, align 8
   %1426 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store i32 4, ptr %1426, align 8
@@ -3903,7 +3903,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
   br i1 %.not.i603, label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit616, label %1430
 
 1430:                                             ; preds = %1427
-  %1431 = getelementptr inbounds i8, ptr %1428, i64 16
+  %1431 = getelementptr inbounds nuw i8, ptr %1428, i64 16
   %1432 = load atomic i64, ptr %1431 seq_cst, align 8, !noalias !55
   %.not.i.i.i.i604 = icmp eq i64 %1432, 0
   br i1 %.not.i.i.i.i604, label %1433, label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9enable_ifIXsr3std14is_convertibleIS5_PS1_EE5valueEvE4typeE.exit.i.i.i.i605
@@ -3935,7 +3935,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEC2IS1_EEPT_PNSt9
   %1443 = extractvalue { i64, i1 } %1440, 0
   %1444 = inttoptr i64 %1443 to ptr
   %1445 = load ptr, ptr %1434, align 8, !noalias !62
-  %1446 = getelementptr inbounds i8, ptr %1445, i64 8
+  %1446 = getelementptr inbounds nuw i8, ptr %1445, i64 8
   %1447 = load ptr, ptr %1446, align 8, !noalias !62
   call void %1447(ptr noundef nonnull align 8 dereferenceable(15) %1434) #14, !noalias !62
   br label %1448
@@ -3957,7 +3957,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1455:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i609
   %1456 = load ptr, ptr %1451, align 8
-  %1457 = getelementptr inbounds i8, ptr %1456, i64 8
+  %1457 = getelementptr inbounds nuw i8, ptr %1456, i64 8
   %1458 = load ptr, ptr %1457, align 8
   call void %1458(ptr noundef nonnull align 8 dereferenceable(12) %1451) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEC2IS1_EERKNS_8TfRefPtrIT_EEPNSt9enable_ifIXsr3std14is_convertibleIPS5_PS1_EE5valueEvE4typeE.exit616
@@ -3977,7 +3977,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1465:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i13.i611
   %1466 = load ptr, ptr %1461, align 8
-  %1467 = getelementptr inbounds i8, ptr %1466, i64 8
+  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 8
   %1468 = load ptr, ptr %1467, align 8
   call void %1468(ptr noundef nonnull align 8 dereferenceable(12) %1461) #14
   br label %.body614
@@ -4018,11 +4018,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit621: ;
   %1476 = and i32 %1474, 255
   %1477 = lshr i32 %1474, 8
   %1478 = zext nneg i32 %1476 to i64
-  %1479 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1478
+  %1479 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1478
   %1480 = load ptr, ptr %1479, align 8
   %1481 = mul nuw nsw i32 %1477, 24
   %1482 = zext nneg i32 %1481 to i64
-  %1483 = getelementptr inbounds i8, ptr %1480, i64 %1482
+  %1483 = getelementptr inbounds nuw i8, ptr %1480, i64 %1482
   %1484 = getelementptr inbounds nuw i8, ptr %1483, i64 8
   %1485 = atomicrmw sub ptr %1484, i32 1 seq_cst, align 4
   %1486 = and i32 %1485, 2147483647
@@ -4055,7 +4055,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1496:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i625
   %1497 = load ptr, ptr %1492, align 8
-  %1498 = getelementptr inbounds i8, ptr %1497, i64 8
+  %1498 = getelementptr inbounds nuw i8, ptr %1497, i64 8
   %1499 = load ptr, ptr %1498, align 8
   call void %1499(ptr noundef nonnull align 8 dereferenceable(12) %1492) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit626
@@ -4080,13 +4080,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit626: ; pr
 
 1504:                                             ; preds = %.noexc636
   store ptr @.str.17, ptr %20, align 8
-  %.sroa.2.0..sroa_idx.i632 = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.2.0..sroa_idx.i632 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr @__func__._ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEEptEv, ptr %.sroa.2.0..sroa_idx.i632, align 8
-  %.sroa.3.0..sroa_idx.i633 = getelementptr inbounds i8, ptr %20, i64 16
+  %.sroa.3.0..sroa_idx.i633 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store i64 79, ptr %.sroa.3.0..sroa_idx.i633, align 8
-  %.sroa.4.0..sroa_idx.i634 = getelementptr inbounds i8, ptr %20, i64 24
+  %.sroa.4.0..sroa_idx.i634 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr @__PRETTY_FUNCTION__._ZNK32pxrInternal_v0_24__pxrReserved__9SdfHandleINS_11SdfPrimSpecEEptEv, ptr %.sroa.4.0..sroa_idx.i634, align 8
-  %.sroa.5.0..sroa_idx.i635 = getelementptr inbounds i8, ptr %20, i64 32
+  %.sroa.5.0..sroa_idx.i635 = getelementptr inbounds nuw i8, ptr %20, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx.i635, align 8
   %1505 = getelementptr inbounds nuw i8, ptr %20, i64 40
   store i32 4, ptr %1505, align 8
@@ -4183,7 +4183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit650: ;
           to label %1529 unwind label %2114
 
 1529:                                             ; preds = %1528
-  %1530 = getelementptr inbounds i8, ptr %171, i64 16
+  %1530 = getelementptr inbounds nuw i8, ptr %171, i64 16
   %1531 = load ptr, ptr %1530, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %171, ptr noundef %1531)
           to label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit651 unwind label %1532
@@ -4196,7 +4196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit650: ;
   unreachable
 
 _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev.exit651: ; preds = %1529
-  %1535 = getelementptr inbounds i8, ptr %172, i64 8
+  %1535 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %1536 = load i32, ptr %1535, align 4
   %.not.i.i.i652 = icmp eq i32 %1536, 0
   br i1 %.not.i.i.i652, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i653, label %1537
@@ -4205,11 +4205,11 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairI
   %1538 = and i32 %1536, 255
   %1539 = lshr i32 %1536, 8
   %1540 = zext nneg i32 %1538 to i64
-  %1541 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1540
+  %1541 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1540
   %1542 = load ptr, ptr %1541, align 8
   %1543 = mul nuw nsw i32 %1539, 24
   %1544 = zext nneg i32 %1543 to i64
-  %1545 = getelementptr inbounds i8, ptr %1542, i64 %1544
+  %1545 = getelementptr inbounds nuw i8, ptr %1542, i64 %1544
   %1546 = getelementptr inbounds nuw i8, ptr %1545, i64 8
   %1547 = atomicrmw sub ptr %1546, i32 1 seq_cst, align 4
   %1548 = and i32 %1547, 2147483647
@@ -4236,11 +4236,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i653: ; preds = %1550, %1
   %1556 = and i32 %1554, 255
   %1557 = lshr i32 %1554, 8
   %1558 = zext nneg i32 %1556 to i64
-  %1559 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1558
+  %1559 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1558
   %1560 = load ptr, ptr %1559, align 8
   %1561 = mul nuw nsw i32 %1557, 24
   %1562 = zext nneg i32 %1561 to i64
-  %1563 = getelementptr inbounds i8, ptr %1560, i64 %1562
+  %1563 = getelementptr inbounds nuw i8, ptr %1560, i64 %1562
   %1564 = getelementptr inbounds nuw i8, ptr %1563, i64 8
   %1565 = atomicrmw sub ptr %1564, i32 1 seq_cst, align 4
   %1566 = and i32 %1565, 2147483647
@@ -4267,11 +4267,11 @@ _ZNSt4pairIKN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit655: ; pred
   %1574 = and i32 %1572, 255
   %1575 = lshr i32 %1572, 8
   %1576 = zext nneg i32 %1574 to i64
-  %1577 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1576
+  %1577 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1576
   %1578 = load ptr, ptr %1577, align 8
   %1579 = mul nuw nsw i32 %1575, 24
   %1580 = zext nneg i32 %1579 to i64
-  %1581 = getelementptr inbounds i8, ptr %1578, i64 %1580
+  %1581 = getelementptr inbounds nuw i8, ptr %1578, i64 %1580
   %1582 = getelementptr inbounds nuw i8, ptr %1581, i64 8
   %1583 = atomicrmw sub ptr %1582, i32 1 seq_cst, align 4
   %1584 = and i32 %1583, 2147483647
@@ -4300,11 +4300,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit657: ; preds = %_ZNSt4pair
   %1592 = and i32 %1590, 255
   %1593 = lshr i32 %1590, 8
   %1594 = zext nneg i32 %1592 to i64
-  %1595 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1594
+  %1595 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %1594
   %1596 = load ptr, ptr %1595, align 8
   %1597 = mul nuw nsw i32 %1593, 24
   %1598 = zext nneg i32 %1597 to i64
-  %1599 = getelementptr inbounds i8, ptr %1596, i64 %1598
+  %1599 = getelementptr inbounds nuw i8, ptr %1596, i64 %1598
   %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 8
   %1601 = atomicrmw sub ptr %1600, i32 1 seq_cst, align 4
   %1602 = and i32 %1601, 2147483647
@@ -4406,13 +4406,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit: ; preds = %.no
 
 1632:                                             ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark5ClearEv.exit
   store ptr @.str, ptr %15, align 8
-  %.sroa.2831.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
+  %.sroa.2831.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2831.0..sroa_idx, align 8
-  %.sroa.3832.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  %.sroa.3832.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 135, ptr %.sroa.3832.0..sroa_idx, align 8
-  %.sroa.4833.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  %.sroa.4833.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4833.0..sroa_idx, align 8
-  %.sroa.5834.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 32
+  %.sroa.5834.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
   store i8 0, ptr %.sroa.5834.0..sroa_idx, align 8
   %1633 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 4, ptr %1633, align 8
@@ -4521,7 +4521,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1659:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i681, %.noexc.i684, %1653
   %1660 = load ptr, ptr %1642, align 8
-  %1661 = getelementptr inbounds i8, ptr %1660, i64 8
+  %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 8
   %1662 = load ptr, ptr %1661, align 8
   call void %1662(ptr noundef nonnull align 8 dereferenceable(12) %1642) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit685
@@ -4553,19 +4553,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit685: ; pre
   br label %.body688
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit690: ; preds = %.noexc687
-  %1669 = getelementptr inbounds i8, ptr %185, i64 8
-  %1670 = getelementptr inbounds i8, ptr %185, i64 24
+  %1669 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %1670 = getelementptr inbounds nuw i8, ptr %185, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, i8 0, i64 24, i1 false)
   store ptr %1669, ptr %1670, align 8
-  %1671 = getelementptr inbounds i8, ptr %185, i64 32
+  %1671 = getelementptr inbounds nuw i8, ptr %185, i64 32
   store ptr %1669, ptr %1671, align 8
-  %1672 = getelementptr inbounds i8, ptr %185, i64 40
+  %1672 = getelementptr inbounds nuw i8, ptr %185, i64 40
   store i64 0, ptr %1672, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %182, ptr noundef nonnull align 8 dereferenceable(32) %183, ptr noundef nonnull align 8 dereferenceable(48) %185)
           to label %1673 unwind label %2123
 
 1673:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit690
-  %1674 = getelementptr inbounds i8, ptr %185, i64 16
+  %1674 = getelementptr inbounds nuw i8, ptr %185, i64 16
   %1675 = load ptr, ptr %1674, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %185, ptr noundef %1675)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit691 unwind label %1676
@@ -4630,19 +4630,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit704: ;
 
 1687:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit704
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %191) #14
-  %1688 = getelementptr inbounds i8, ptr %192, i64 8
-  %1689 = getelementptr inbounds i8, ptr %192, i64 24
+  %1688 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  %1689 = getelementptr inbounds nuw i8, ptr %192, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, i8 0, i64 24, i1 false)
   store ptr %1688, ptr %1689, align 8
-  %1690 = getelementptr inbounds i8, ptr %192, i64 32
+  %1690 = getelementptr inbounds nuw i8, ptr %192, i64 32
   store ptr %1688, ptr %1690, align 8
-  %1691 = getelementptr inbounds i8, ptr %192, i64 40
+  %1691 = getelementptr inbounds nuw i8, ptr %192, i64 40
   store i64 0, ptr %1691, align 8
   %1692 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer6ExportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(557) %1679, ptr noundef nonnull align 8 dereferenceable(32) %186, ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(48) %192)
           to label %1693 unwind label %2133
 
 1693:                                             ; preds = %1687
-  %1694 = getelementptr inbounds i8, ptr %192, i64 16
+  %1694 = getelementptr inbounds nuw i8, ptr %192, i64 16
   %1695 = load ptr, ptr %1694, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %192, ptr noundef %1695)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit705 unwind label %1696
@@ -4695,13 +4695,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 1704:                                             ; preds = %1702
   store ptr @.str, ptr %10, align 8
-  %.sroa.2819.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
+  %.sroa.2819.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2819.0..sroa_idx, align 8
-  %.sroa.3820.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
+  %.sroa.3820.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 145, ptr %.sroa.3820.0..sroa_idx, align 8
-  %.sroa.4821.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
+  %.sroa.4821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4821.0..sroa_idx, align 8
-  %.sroa.5822.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
+  %.sroa.5822.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
   store i8 0, ptr %.sroa.5822.0..sroa_idx, align 8
   %1705 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 4, ptr %1705, align 8
@@ -4753,7 +4753,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1724:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i712, %.noexc.i715, %1718
   %1725 = load ptr, ptr %1707, align 8
-  %1726 = getelementptr inbounds i8, ptr %1725, i64 8
+  %1726 = getelementptr inbounds nuw i8, ptr %1725, i64 8
   %1727 = load ptr, ptr %1726, align 8
   call void %1727(ptr noundef nonnull align 8 dereferenceable(12) %1707) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit716
@@ -4785,19 +4785,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit716: ; pre
   br label %.body719
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit721: ; preds = %.noexc718
-  %1734 = getelementptr inbounds i8, ptr %196, i64 8
-  %1735 = getelementptr inbounds i8, ptr %196, i64 24
+  %1734 = getelementptr inbounds nuw i8, ptr %196, i64 8
+  %1735 = getelementptr inbounds nuw i8, ptr %196, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %196, i8 0, i64 24, i1 false)
   store ptr %1734, ptr %1735, align 8
-  %1736 = getelementptr inbounds i8, ptr %196, i64 32
+  %1736 = getelementptr inbounds nuw i8, ptr %196, i64 32
   store ptr %1734, ptr %1736, align 8
-  %1737 = getelementptr inbounds i8, ptr %196, i64 40
+  %1737 = getelementptr inbounds nuw i8, ptr %196, i64 40
   store i64 0, ptr %1737, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %193, ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(48) %196)
           to label %1738 unwind label %2139
 
 1738:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit721
-  %1739 = getelementptr inbounds i8, ptr %196, i64 16
+  %1739 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %1740 = load ptr, ptr %1739, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %196, ptr noundef %1740)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit722 unwind label %1741
@@ -4862,19 +4862,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit735: ;
 
 1752:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit735
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %202) #14
-  %1753 = getelementptr inbounds i8, ptr %203, i64 8
-  %1754 = getelementptr inbounds i8, ptr %203, i64 24
+  %1753 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %1754 = getelementptr inbounds nuw i8, ptr %203, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %203, i8 0, i64 24, i1 false)
   store ptr %1753, ptr %1754, align 8
-  %1755 = getelementptr inbounds i8, ptr %203, i64 32
+  %1755 = getelementptr inbounds nuw i8, ptr %203, i64 32
   store ptr %1753, ptr %1755, align 8
-  %1756 = getelementptr inbounds i8, ptr %203, i64 40
+  %1756 = getelementptr inbounds nuw i8, ptr %203, i64 40
   store i64 0, ptr %1756, align 8
   %1757 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer6ExportERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr noundef nonnull align 8 dereferenceable(557) %1744, ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(32) %202, ptr noundef nonnull align 8 dereferenceable(48) %203)
           to label %1758 unwind label %2149
 
 1758:                                             ; preds = %1752
-  %1759 = getelementptr inbounds i8, ptr %203, i64 16
+  %1759 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %1760 = load ptr, ptr %1759, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %203, ptr noundef %1760)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit736 unwind label %1761
@@ -4927,13 +4927,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 1769:                                             ; preds = %1767
   store ptr @.str, ptr %7, align 8
-  %.sroa.2813.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.2813.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2813.0..sroa_idx, align 8
-  %.sroa.3814.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.3814.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 153, ptr %.sroa.3814.0..sroa_idx, align 8
-  %.sroa.4815.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 24
+  %.sroa.4815.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4815.0..sroa_idx, align 8
-  %.sroa.5816.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 32
+  %.sroa.5816.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 0, ptr %.sroa.5816.0..sroa_idx, align 8
   %1770 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %1770, align 8
@@ -4985,7 +4985,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1789:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i743, %.noexc.i746, %1783
   %1790 = load ptr, ptr %1772, align 8
-  %1791 = getelementptr inbounds i8, ptr %1790, i64 8
+  %1791 = getelementptr inbounds nuw i8, ptr %1790, i64 8
   %1792 = load ptr, ptr %1791, align 8
   call void %1792(ptr noundef nonnull align 8 dereferenceable(12) %1772) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit747
@@ -5017,19 +5017,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit747: ; pre
   br label %.body750
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit752: ; preds = %.noexc749
-  %1799 = getelementptr inbounds i8, ptr %207, i64 8
-  %1800 = getelementptr inbounds i8, ptr %207, i64 24
+  %1799 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %1800 = getelementptr inbounds nuw i8, ptr %207, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %207, i8 0, i64 24, i1 false)
   store ptr %1799, ptr %1800, align 8
-  %1801 = getelementptr inbounds i8, ptr %207, i64 32
+  %1801 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store ptr %1799, ptr %1801, align 8
-  %1802 = getelementptr inbounds i8, ptr %207, i64 40
+  %1802 = getelementptr inbounds nuw i8, ptr %207, i64 40
   store i64 0, ptr %1802, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %204, ptr noundef nonnull align 8 dereferenceable(32) %205, ptr noundef nonnull align 8 dereferenceable(48) %207)
           to label %1803 unwind label %2155
 
 1803:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit752
-  %1804 = getelementptr inbounds i8, ptr %207, i64 16
+  %1804 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %1805 = load ptr, ptr %1804, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %207, ptr noundef %1805)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit753 unwind label %1806
@@ -5089,13 +5089,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 1817:                                             ; preds = %1815
   store ptr @.str, ptr %4, align 8
-  %.sroa.2807.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2807.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2807.0..sroa_idx, align 8
-  %.sroa.3808.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
+  %.sroa.3808.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 161, ptr %.sroa.3808.0..sroa_idx, align 8
-  %.sroa.4809.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.4809.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4809.0..sroa_idx, align 8
-  %.sroa.5810.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.5810.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i8 0, ptr %.sroa.5810.0..sroa_idx, align 8
   %1818 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %1818, align 8
@@ -5147,7 +5147,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1837:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i763, %.noexc.i766, %1831
   %1838 = load ptr, ptr %1820, align 8
-  %1839 = getelementptr inbounds i8, ptr %1838, i64 8
+  %1839 = getelementptr inbounds nuw i8, ptr %1838, i64 8
   %1840 = load ptr, ptr %1839, align 8
   call void %1840(ptr noundef nonnull align 8 dereferenceable(12) %1820) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit767
@@ -5179,19 +5179,19 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit767: ; pre
   br label %.body770
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit772: ; preds = %.noexc769
-  %1847 = getelementptr inbounds i8, ptr %211, i64 8
-  %1848 = getelementptr inbounds i8, ptr %211, i64 24
+  %1847 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  %1848 = getelementptr inbounds nuw i8, ptr %211, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %211, i8 0, i64 24, i1 false)
   store ptr %1847, ptr %1848, align 8
-  %1849 = getelementptr inbounds i8, ptr %211, i64 32
+  %1849 = getelementptr inbounds nuw i8, ptr %211, i64 32
   store ptr %1847, ptr %1849, align 8
-  %1850 = getelementptr inbounds i8, ptr %211, i64 40
+  %1850 = getelementptr inbounds nuw i8, ptr %211, i64 40
   store i64 0, ptr %1850, align 8
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer10FindOrOpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIS7_S6_EEE(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %208, ptr noundef nonnull align 8 dereferenceable(32) %209, ptr noundef nonnull align 8 dereferenceable(48) %211)
           to label %1851 unwind label %2161
 
 1851:                                             ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit772
-  %1852 = getelementptr inbounds i8, ptr %211, i64 16
+  %1852 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %1853 = load ptr, ptr %1852, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %211, ptr noundef %1853)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit773 unwind label %1854
@@ -5251,13 +5251,13 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 1865:                                             ; preds = %1863
   store ptr @.str, ptr %1, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @__func__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i64 169, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr @__PRETTY_FUNCTION__._ZL34TestSdfLayerHintsMaybeHasRelocatesv, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   %1866 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 4, ptr %1866, align 8
@@ -5309,7 +5309,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 1885:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i783, %.noexc.i786, %1879
   %1886 = load ptr, ptr %1868, align 8
-  %1887 = getelementptr inbounds i8, ptr %1886, i64 8
+  %1887 = getelementptr inbounds nuw i8, ptr %1886, i64 8
   %1888 = load ptr, ptr %1887, align 8
   call void %1888(ptr noundef nonnull align 8 dereferenceable(12) %1868) #14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit787
@@ -5552,7 +5552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1954:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i789
   %1955 = load ptr, ptr %1950, align 8
-  %1956 = getelementptr inbounds i8, ptr %1955, i64 8
+  %1956 = getelementptr inbounds nuw i8, ptr %1955, i64 8
   %1957 = load ptr, ptr %1956, align 8
   call void %1957(ptr noundef nonnull align 8 dereferenceable(12) %1950) #14
   br label %.body301
@@ -5606,7 +5606,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1972:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i792
   %1973 = load ptr, ptr %1968, align 8
-  %1974 = getelementptr inbounds i8, ptr %1973, i64 8
+  %1974 = getelementptr inbounds nuw i8, ptr %1973, i64 8
   %1975 = load ptr, ptr %1974, align 8
   call void %1975(ptr noundef nonnull align 8 dereferenceable(12) %1968) #14
   br label %.body346
@@ -5665,7 +5665,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 1991:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i795
   %1992 = load ptr, ptr %1987, align 8
-  %1993 = getelementptr inbounds i8, ptr %1992, i64 8
+  %1993 = getelementptr inbounds nuw i8, ptr %1992, i64 8
   %1994 = load ptr, ptr %1993, align 8
   call void %1994(ptr noundef nonnull align 8 dereferenceable(12) %1987) #14
   br label %.body390
@@ -5820,7 +5820,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 2034:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i798
   %2035 = load ptr, ptr %2030, align 8
-  %2036 = getelementptr inbounds i8, ptr %2035, i64 8
+  %2036 = getelementptr inbounds nuw i8, ptr %2035, i64 8
   %2037 = load ptr, ptr %2036, align 8
   call void %2037(ptr noundef nonnull align 8 dereferenceable(12) %2030) #14
   br label %.body475
@@ -5915,7 +5915,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 2062:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i801
   %2063 = load ptr, ptr %2058, align 8
-  %2064 = getelementptr inbounds i8, ptr %2063, i64 8
+  %2064 = getelementptr inbounds nuw i8, ptr %2063, i64 8
   %2065 = load ptr, ptr %2064, align 8
   call void %2065(ptr noundef nonnull align 8 dereferenceable(12) %2058) #14
   br label %.body532
@@ -6041,7 +6041,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBa
 
 2098:                                             ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17Tf_RefPtr_Counter9RemoveRefEPKNS_9TfRefBaseE.exit.i.i.i804
   %2099 = load ptr, ptr %2094, align 8
-  %2100 = getelementptr inbounds i8, ptr %2099, i64 8
+  %2100 = getelementptr inbounds nuw i8, ptr %2099, i64 8
   %2101 = load ptr, ptr %2100, align 8
   call void %2101(ptr noundef nonnull align 8 dereferenceable(12) %2094) #14
   br label %.body614
@@ -6320,7 +6320,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EED2Ev.exit unwind label %4
@@ -6383,7 +6383,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefE
 
 19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__30Tf_RefPtr_UniqueChangedCounter9RemoveRefEPKNS_9TfRefBaseE.exit.i, %.noexc, %13
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(12) %2) #14
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEE10_RemoveRefEPKNS_9TfRefBaseE.exit
@@ -6421,11 +6421,11 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPat
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = atomicrmw sub ptr %12, i32 1 seq_cst, align 4
   %14 = and i32 %13, 2147483647
@@ -6452,15 +6452,15 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__11SdfPrimSpec12SetRelocatesER
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEEC2ESt16initializer_listIS6_ERKS3_RKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::SdfPath, std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath>, std::_Select1st<std::pair<const pxrInternal_v0_24__pxrReserved__::SdfPath, pxrInternal_v0_24__pxrReserved__::SdfPath>>, std::less<pxrInternal_v0_24__pxrReserved__::SdfPath>>::_Alloc_node", align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %7, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %7, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -6528,7 +6528,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
           to label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE17_M_insert_unique_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_.exit.i unwind label %29
 
 _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE17_M_insert_unique_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EOT_RT0_.exit.i: ; preds = %.noexc.thread, %.noexc
-  %28 = getelementptr inbounds i8, ptr %.07.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.07.i, i64 16
   %.not.i = icmp eq ptr %28, %12
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !65
 
@@ -6545,7 +6545,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_St4lessIS1_ESaISt4pairIKS1_S1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EED2Ev.exit unwind label %4
@@ -6572,11 +6572,11 @@ define linkonce_odr dso_local void @_ZNSt4pairIKN32pxrInternal_v0_24__pxrReserve
   %5 = and i32 %3, 255
   %6 = lshr i32 %3, 8
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = mul nuw nsw i32 %6, 24
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds i8, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = atomicrmw sub ptr %13, i32 1 seq_cst, align 4
   %15 = and i32 %14, 2147483647
@@ -6603,11 +6603,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %1, %4, %17
   %23 = and i32 %21, 255
   %24 = lshr i32 %21, 8
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %25
+  %26 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = mul nuw nsw i32 %24, 24
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds i8, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = atomicrmw sub ptr %31, i32 1 seq_cst, align 4
   %33 = and i32 %32, 2147483647
@@ -6940,7 +6940,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchGetDemangledB5cxx11EPKc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   invoke void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE8_M_eraseEPSt13_Rb_tree_nodeIS4_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %3)
           to label %4 unwind label %5
@@ -6959,7 +6959,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrRese
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp ne ptr %1, null
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = icmp eq ptr %2, %6
   %or.cond = select i1 %.not, i1 true, i1 %7
   br i1 %or.cond, label %_ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit, label %8
@@ -7002,11 +7002,11 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit: ; pre
   %24 = and i32 %22, 255
   %25 = lshr i32 %22, 8
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = mul nuw nsw i32 %25, 24
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = atomicrmw add ptr %32, i32 1 monotonic, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i
@@ -7027,11 +7027,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit.i.i.i.i.i.i: ; preds 
   %41 = and i32 %39, 255
   %42 = lshr i32 %39, 8
   %43 = zext nneg i32 %41 to i64
-  %44 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %43
+  %44 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = mul nuw nsw i32 %42, 24
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds i8, ptr %45, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = atomicrmw add ptr %49, i32 1 monotonic, align 4
   br label %_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE11_Alloc_nodeclIRKS4_EEPSt13_Rb_tree_nodeIS4_EOT_.exit
@@ -7042,7 +7042,7 @@ _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10
   %53 = load i32, ptr %52, align 4
   store i32 %53, ptr %51, align 4
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %19, ptr noundef nonnull %20, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %6) #14
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, 1
   store i64 %56, ptr %54, align 8
@@ -7051,8 +7051,8 @@ _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7SdfPathESt4pairIKS1_S1_ESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE24_M_get_insert_unique_posERS3_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.02634 = load ptr, ptr %3, align 8
   %.not35 = icmp eq ptr %.02634, null
   br i1 %.not35, label %._crit_edge.thread, label %.lr.ph
@@ -7098,7 +7098,7 @@ _ZNKSt4lessIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEclERKS1_S4_.exit.thread
 
 ._crit_edge.thread:                               ; preds = %2, %._crit_edge
   %.025.lcssa41 = phi ptr [ %.02636, %._crit_edge ], [ %4, %2 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %.025.lcssa41, %16
   br i1 %17, label %29, label %18
@@ -7187,11 +7187,11 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrRese
   %7 = and i32 %5, 255
   %8 = lshr i32 %5, 8
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = mul nuw nsw i32 %8, 24
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds i8, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = atomicrmw sub ptr %15, i32 1 seq_cst, align 4
   %17 = and i32 %16, 2147483647
@@ -7218,11 +7218,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i: ; preds = %19, %
   %25 = and i32 %23, 255
   %26 = lshr i32 %23, 8
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [257 x ptr], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 0, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = mul nuw nsw i32 %26, 24
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = atomicrmw sub ptr %33, i32 1 seq_cst, align 4
   %35 = and i32 %34, 2147483647
@@ -7288,7 +7288,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %14 = xor i64 %notmask.i, -1
   %15 = sub i64 64, %13
   %16 = lshr i64 %5, %15
-  %17 = getelementptr inbounds i8, ptr %.05273, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.05273, i64 16
   %18 = getelementptr inbounds %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %16
   %19 = load atomic i64, ptr %18 monotonic, align 8
   %20 = icmp eq i64 %19, 0
@@ -7313,7 +7313,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
 29:                                               ; preds = %.lr.ph
   %30 = add i64 %.05371, 1
   %31 = and i64 %30, %14
-  %32 = getelementptr inbounds %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw %"struct.tbb::detail::d1::ets_base<tbb::detail::d1::ets_no_key>::slot", ptr %17, i64 %31
   %33 = load atomic i64, ptr %32 monotonic, align 8
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %._crit_edge, label %.lr.ph, !llvm.loop !70
@@ -7360,12 +7360,12 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %54 = shl i64 16, %.055
   %55 = add nuw i64 %54, 16
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = call noundef ptr %58(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %55)
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %.055, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 16
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %61, i8 0, i64 %54, i1 false)
   %62 = ptrtoint ptr %59 to i64
   br label %63
@@ -7391,7 +7391,7 @@ _ZNKSt4hashINSt6thread2idEEclERKS1_.exit:         ; preds = %2
   %74 = shl i64 16, %73
   %75 = add nuw i64 %74, 16
   %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   call void %78(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %59, i64 noundef %75)
   br label %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread
@@ -7406,7 +7406,7 @@ _ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23co
   %82 = xor i64 %notmask.i63, -1
   %83 = sub i64 64, %81
   %84 = lshr i64 %5, %83
-  %85 = getelementptr inbounds i8, ptr %.0.i62, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i62, i64 16
   br label %86
 
 86:                                               ; preds = %95, %_ZNSt6atomicIPN3tbb6detail2d18ets_baseILNS2_18ets_key_usage_typeE1EE5arrayEE23compare_exchange_strongERS7_S7_St12memory_order.exit.thread

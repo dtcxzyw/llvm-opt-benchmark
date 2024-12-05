@@ -5,39 +5,39 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @mlib_ImageAffine_s16_1ch_bl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not151 = icmp sgt i32 %13, %15
   br i1 %.not151, label %._crit_edge158, label %.lr.ph157
 
 .lr.ph157:                                        ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   %21 = ashr i32 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   %25 = ashr i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %29 to i64
   %.not127 = icmp eq ptr %17, null
@@ -100,10 +100,10 @@ define hidden noundef i32 @mlib_ImageAffine_s16_1ch_bl(ptr nocapture noundef rea
   %73 = getelementptr inbounds i16, ptr %71, i64 %72
   %74 = getelementptr inbounds i8, ptr %73, i64 %33
   %75 = load i16, ptr %73, align 2
-  %76 = getelementptr inbounds i8, ptr %73, i64 2
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %77 = load i16, ptr %76, align 2
   %78 = load i16, ptr %74, align 2
-  %79 = getelementptr inbounds i8, ptr %74, i64 2
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 2
   %80 = load i16, ptr %79, align 2
   %.0130 = sext i16 %80 to i32
   %.0109131 = sext i16 %78 to i32
@@ -151,14 +151,14 @@ define hidden noundef i32 @mlib_ImageAffine_s16_1ch_bl(ptr nocapture noundef rea
   %104 = getelementptr inbounds i16, ptr %102, i64 %103
   %105 = getelementptr inbounds i8, ptr %104, i64 %33
   %106 = load i16, ptr %104, align 2
-  %107 = getelementptr inbounds i8, ptr %104, i64 2
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %108 = load i16, ptr %107, align 2
   %109 = load i16, ptr %105, align 2
-  %110 = getelementptr inbounds i8, ptr %105, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %105, i64 2
   %111 = load i16, ptr %110, align 2
   %112 = trunc i32 %96 to i16
   store i16 %112, ptr %.0116137, align 2
-  %113 = getelementptr inbounds i8, ptr %.0116137, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %.0116137, i64 2
   %.0 = sext i16 %111 to i32
   %.0109 = sext i16 %109 to i32
   %.0110 = sext i16 %108 to i32
@@ -209,39 +209,39 @@ define hidden noundef i32 @mlib_ImageAffine_s16_1ch_bl(ptr nocapture noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @mlib_ImageAffine_s16_2ch_bl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not205 = icmp sgt i32 %13, %15
   br i1 %.not205, label %._crit_edge212, label %.lr.ph211
 
 .lr.ph211:                                        ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   %21 = ashr i32 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   %25 = ashr i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %29 to i64
   %.not167 = icmp eq ptr %17, null
@@ -307,18 +307,18 @@ define hidden noundef i32 @mlib_ImageAffine_s16_2ch_bl(ptr nocapture noundef rea
   %76 = getelementptr inbounds i16, ptr %72, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 %33
   %78 = load i16, ptr %76, align 2
-  %79 = getelementptr inbounds i8, ptr %76, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %80 = load i16, ptr %79, align 2
   %81 = load i16, ptr %77, align 2
-  %82 = getelementptr inbounds i8, ptr %77, i64 4
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %76, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %76, i64 6
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 6
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds i8, ptr %77, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %77, i64 6
+  %90 = getelementptr inbounds nuw i8, ptr %77, i64 6
   %91 = load i16, ptr %90, align 2
   %.0172 = sext i16 %91 to i32
   %.0145173 = sext i16 %89 to i32
@@ -390,25 +390,25 @@ define hidden noundef i32 @mlib_ImageAffine_s16_2ch_bl(ptr nocapture noundef rea
   %131 = getelementptr inbounds i16, ptr %127, i64 %130
   %132 = getelementptr inbounds i8, ptr %131, i64 %33
   %133 = load i16, ptr %131, align 2
-  %134 = getelementptr inbounds i8, ptr %131, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %135 = load i16, ptr %134, align 2
   %136 = load i16, ptr %132, align 2
-  %137 = getelementptr inbounds i8, ptr %132, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %138 = load i16, ptr %137, align 2
-  %139 = getelementptr inbounds i8, ptr %131, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %131, i64 2
   %140 = load i16, ptr %139, align 2
-  %141 = getelementptr inbounds i8, ptr %131, i64 6
+  %141 = getelementptr inbounds nuw i8, ptr %131, i64 6
   %142 = load i16, ptr %141, align 2
-  %143 = getelementptr inbounds i8, ptr %132, i64 2
+  %143 = getelementptr inbounds nuw i8, ptr %132, i64 2
   %144 = load i16, ptr %143, align 2
-  %145 = getelementptr inbounds i8, ptr %132, i64 6
+  %145 = getelementptr inbounds nuw i8, ptr %132, i64 6
   %146 = load i16, ptr %145, align 2
   %147 = trunc i32 %107 to i16
   store i16 %147, ptr %.0156183, align 2
   %148 = trunc i32 %122 to i16
-  %149 = getelementptr inbounds i8, ptr %.0156183, i64 2
+  %149 = getelementptr inbounds nuw i8, ptr %.0156183, i64 2
   store i16 %148, ptr %149, align 2
-  %150 = getelementptr inbounds i8, ptr %.0156183, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0156183, i64 4
   %.0 = sext i16 %146 to i32
   %.0145 = sext i16 %144 to i32
   %.0146 = sext i16 %142 to i32
@@ -467,7 +467,7 @@ define hidden noundef i32 @mlib_ImageAffine_s16_2ch_bl(ptr nocapture noundef rea
   %182 = trunc i32 %166 to i16
   store i16 %182, ptr %.0156.lcssa, align 2
   %183 = trunc i32 %181 to i16
-  %184 = getelementptr inbounds i8, ptr %.0156.lcssa, i64 2
+  %184 = getelementptr inbounds nuw i8, ptr %.0156.lcssa, i64 2
   store i16 %183, ptr %184, align 2
   br label %185
 
@@ -485,39 +485,39 @@ define hidden noundef i32 @mlib_ImageAffine_s16_2ch_bl(ptr nocapture noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not259 = icmp sgt i32 %13, %15
   br i1 %.not259, label %._crit_edge266, label %.lr.ph265
 
 .lr.ph265:                                        ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   %21 = ashr i32 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   %25 = ashr i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %29 to i64
   %.not207 = icmp eq ptr %17, null
@@ -583,26 +583,26 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bl(ptr nocapture noundef rea
   %76 = getelementptr inbounds i16, ptr %73, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 %33
   %78 = load i16, ptr %76, align 2
-  %79 = getelementptr inbounds i8, ptr %76, i64 6
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 6
   %80 = load i16, ptr %79, align 2
   %81 = load i16, ptr %77, align 2
-  %82 = getelementptr inbounds i8, ptr %77, i64 6
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 6
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %76, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %76, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds i8, ptr %77, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %77, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %91 = load i16, ptr %90, align 2
-  %92 = getelementptr inbounds i8, ptr %76, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %93 = load i16, ptr %92, align 2
-  %94 = getelementptr inbounds i8, ptr %76, i64 10
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 10
   %95 = load i16, ptr %94, align 2
-  %96 = getelementptr inbounds i8, ptr %77, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %97 = load i16, ptr %96, align 2
-  %98 = getelementptr inbounds i8, ptr %77, i64 10
+  %98 = getelementptr inbounds nuw i8, ptr %77, i64 10
   %99 = load i16, ptr %98, align 2
   %.0214 = sext i16 %99 to i32
   %.0181215 = sext i16 %97 to i32
@@ -697,36 +697,36 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bl(ptr nocapture noundef rea
   %154 = getelementptr inbounds i16, ptr %151, i64 %153
   %155 = getelementptr inbounds i8, ptr %154, i64 %33
   %156 = load i16, ptr %154, align 2
-  %157 = getelementptr inbounds i8, ptr %154, i64 6
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 6
   %158 = load i16, ptr %157, align 2
   %159 = load i16, ptr %155, align 2
-  %160 = getelementptr inbounds i8, ptr %155, i64 6
+  %160 = getelementptr inbounds nuw i8, ptr %155, i64 6
   %161 = load i16, ptr %160, align 2
-  %162 = getelementptr inbounds i8, ptr %154, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %154, i64 2
   %163 = load i16, ptr %162, align 2
-  %164 = getelementptr inbounds i8, ptr %154, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %165 = load i16, ptr %164, align 2
-  %166 = getelementptr inbounds i8, ptr %155, i64 2
+  %166 = getelementptr inbounds nuw i8, ptr %155, i64 2
   %167 = load i16, ptr %166, align 2
-  %168 = getelementptr inbounds i8, ptr %155, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %169 = load i16, ptr %168, align 2
-  %170 = getelementptr inbounds i8, ptr %154, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %154, i64 4
   %171 = load i16, ptr %170, align 2
-  %172 = getelementptr inbounds i8, ptr %154, i64 10
+  %172 = getelementptr inbounds nuw i8, ptr %154, i64 10
   %173 = load i16, ptr %172, align 2
-  %174 = getelementptr inbounds i8, ptr %155, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %175 = load i16, ptr %174, align 2
-  %176 = getelementptr inbounds i8, ptr %155, i64 10
+  %176 = getelementptr inbounds nuw i8, ptr %155, i64 10
   %177 = load i16, ptr %176, align 2
   %178 = trunc i32 %115 to i16
   store i16 %178, ptr %.0196229, align 2
   %179 = trunc i32 %130 to i16
-  %180 = getelementptr inbounds i8, ptr %.0196229, i64 2
+  %180 = getelementptr inbounds nuw i8, ptr %.0196229, i64 2
   store i16 %179, ptr %180, align 2
   %181 = trunc i32 %145 to i16
-  %182 = getelementptr inbounds i8, ptr %.0196229, i64 4
+  %182 = getelementptr inbounds nuw i8, ptr %.0196229, i64 4
   store i16 %181, ptr %182, align 2
-  %183 = getelementptr inbounds i8, ptr %.0196229, i64 6
+  %183 = getelementptr inbounds nuw i8, ptr %.0196229, i64 6
   %.0 = sext i16 %177 to i32
   %.0181 = sext i16 %175 to i32
   %.0182 = sext i16 %173 to i32
@@ -808,10 +808,10 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bl(ptr nocapture noundef rea
   %230 = trunc i32 %199 to i16
   store i16 %230, ptr %.0196.lcssa, align 2
   %231 = trunc i32 %214 to i16
-  %232 = getelementptr inbounds i8, ptr %.0196.lcssa, i64 2
+  %232 = getelementptr inbounds nuw i8, ptr %.0196.lcssa, i64 2
   store i16 %231, ptr %232, align 2
   %233 = trunc i32 %229 to i16
-  %234 = getelementptr inbounds i8, ptr %.0196.lcssa, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %.0196.lcssa, i64 4
   store i16 %233, ptr %234, align 2
   br label %235
 
@@ -829,39 +829,39 @@ define hidden noundef i32 @mlib_ImageAffine_s16_3ch_bl(ptr nocapture noundef rea
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define hidden noundef i32 @mlib_ImageAffine_s16_4ch_bl(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 72
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 76
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 104
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8
   %.not256 = icmp sgt i32 %13, %15
   br i1 %.not256, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %18 = getelementptr inbounds i8, ptr %0, i64 84
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   %21 = ashr i32 %20, 1
-  %22 = getelementptr inbounds i8, ptr %0, i64 80
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %23 = load i32, ptr %22, align 8
   %24 = add nsw i32 %23, 1
   %25 = ashr i32 %24, 1
-  %26 = getelementptr inbounds i8, ptr %0, i64 92
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %0, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %29 = load i32, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %29 to i64
   %.not247 = icmp eq ptr %17, null
@@ -927,34 +927,34 @@ define hidden noundef i32 @mlib_ImageAffine_s16_4ch_bl(ptr nocapture noundef rea
   %76 = getelementptr inbounds i16, ptr %72, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 %33
   %78 = load i16, ptr %76, align 2
-  %79 = getelementptr inbounds i8, ptr %76, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %80 = load i16, ptr %79, align 2
   %81 = load i16, ptr %77, align 2
-  %82 = getelementptr inbounds i8, ptr %77, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds i8, ptr %76, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 2
   %85 = load i16, ptr %84, align 2
-  %86 = getelementptr inbounds i8, ptr %76, i64 10
+  %86 = getelementptr inbounds nuw i8, ptr %76, i64 10
   %87 = load i16, ptr %86, align 2
-  %88 = getelementptr inbounds i8, ptr %77, i64 2
+  %88 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %89 = load i16, ptr %88, align 2
-  %90 = getelementptr inbounds i8, ptr %77, i64 10
+  %90 = getelementptr inbounds nuw i8, ptr %77, i64 10
   %91 = load i16, ptr %90, align 2
-  %92 = getelementptr inbounds i8, ptr %76, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %93 = load i16, ptr %92, align 2
-  %94 = getelementptr inbounds i8, ptr %76, i64 12
+  %94 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %95 = load i16, ptr %94, align 2
-  %96 = getelementptr inbounds i8, ptr %77, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %97 = load i16, ptr %96, align 2
-  %98 = getelementptr inbounds i8, ptr %77, i64 12
+  %98 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %99 = load i16, ptr %98, align 2
-  %100 = getelementptr inbounds i8, ptr %76, i64 6
+  %100 = getelementptr inbounds nuw i8, ptr %76, i64 6
   %101 = load i16, ptr %100, align 2
-  %102 = getelementptr inbounds i8, ptr %76, i64 14
+  %102 = getelementptr inbounds nuw i8, ptr %76, i64 14
   %103 = load i16, ptr %102, align 2
-  %104 = getelementptr inbounds i8, ptr %77, i64 6
+  %104 = getelementptr inbounds nuw i8, ptr %77, i64 6
   %105 = load i16, ptr %104, align 2
-  %106 = getelementptr inbounds i8, ptr %77, i64 14
+  %106 = getelementptr inbounds nuw i8, ptr %77, i64 14
   %107 = load i16, ptr %106, align 2
   br label %108
 
@@ -1073,47 +1073,47 @@ define hidden noundef i32 @mlib_ImageAffine_s16_4ch_bl(ptr nocapture noundef rea
   %179 = getelementptr inbounds i16, ptr %175, i64 %178
   %180 = getelementptr inbounds i8, ptr %179, i64 %33
   %181 = load i16, ptr %179, align 2
-  %182 = getelementptr inbounds i8, ptr %179, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %183 = load i16, ptr %182, align 2
   %184 = load i16, ptr %180, align 2
-  %185 = getelementptr inbounds i8, ptr %180, i64 8
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %186 = load i16, ptr %185, align 2
-  %187 = getelementptr inbounds i8, ptr %179, i64 2
+  %187 = getelementptr inbounds nuw i8, ptr %179, i64 2
   %188 = load i16, ptr %187, align 2
-  %189 = getelementptr inbounds i8, ptr %179, i64 10
+  %189 = getelementptr inbounds nuw i8, ptr %179, i64 10
   %190 = load i16, ptr %189, align 2
-  %191 = getelementptr inbounds i8, ptr %180, i64 2
+  %191 = getelementptr inbounds nuw i8, ptr %180, i64 2
   %192 = load i16, ptr %191, align 2
-  %193 = getelementptr inbounds i8, ptr %180, i64 10
+  %193 = getelementptr inbounds nuw i8, ptr %180, i64 10
   %194 = load i16, ptr %193, align 2
-  %195 = getelementptr inbounds i8, ptr %179, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %196 = load i16, ptr %195, align 2
-  %197 = getelementptr inbounds i8, ptr %179, i64 12
+  %197 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %198 = load i16, ptr %197, align 2
-  %199 = getelementptr inbounds i8, ptr %180, i64 4
+  %199 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %200 = load i16, ptr %199, align 2
-  %201 = getelementptr inbounds i8, ptr %180, i64 12
+  %201 = getelementptr inbounds nuw i8, ptr %180, i64 12
   %202 = load i16, ptr %201, align 2
-  %203 = getelementptr inbounds i8, ptr %179, i64 6
+  %203 = getelementptr inbounds nuw i8, ptr %179, i64 6
   %204 = load i16, ptr %203, align 2
-  %205 = getelementptr inbounds i8, ptr %179, i64 14
+  %205 = getelementptr inbounds nuw i8, ptr %179, i64 14
   %206 = load i16, ptr %205, align 2
-  %207 = getelementptr inbounds i8, ptr %180, i64 6
+  %207 = getelementptr inbounds nuw i8, ptr %180, i64 6
   %208 = load i16, ptr %207, align 2
-  %209 = getelementptr inbounds i8, ptr %180, i64 14
+  %209 = getelementptr inbounds nuw i8, ptr %180, i64 14
   %210 = load i16, ptr %209, align 2
   %211 = trunc i32 %125 to i16
   store i16 %211, ptr %.0236, align 2
   %212 = trunc i32 %140 to i16
-  %213 = getelementptr inbounds i8, ptr %.0236, i64 2
+  %213 = getelementptr inbounds nuw i8, ptr %.0236, i64 2
   store i16 %212, ptr %213, align 2
   %214 = trunc i32 %155 to i16
-  %215 = getelementptr inbounds i8, ptr %.0236, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %.0236, i64 4
   store i16 %214, ptr %215, align 2
   %216 = trunc i32 %170 to i16
-  %217 = getelementptr inbounds i8, ptr %.0236, i64 6
+  %217 = getelementptr inbounds nuw i8, ptr %.0236, i64 6
   store i16 %216, ptr %217, align 2
-  %218 = getelementptr inbounds i8, ptr %.0236, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.0236, i64 8
   br label %108, !llvm.loop !13
 
 219:                                              ; preds = %108
@@ -1180,13 +1180,13 @@ define hidden noundef i32 @mlib_ImageAffine_s16_4ch_bl(ptr nocapture noundef rea
   %280 = trunc i32 %234 to i16
   store i16 %280, ptr %.0236, align 2
   %281 = trunc i32 %249 to i16
-  %282 = getelementptr inbounds i8, ptr %.0236, i64 2
+  %282 = getelementptr inbounds nuw i8, ptr %.0236, i64 2
   store i16 %281, ptr %282, align 2
   %283 = trunc i32 %264 to i16
-  %284 = getelementptr inbounds i8, ptr %.0236, i64 4
+  %284 = getelementptr inbounds nuw i8, ptr %.0236, i64 4
   store i16 %283, ptr %284, align 2
   %285 = trunc i32 %279 to i16
-  %286 = getelementptr inbounds i8, ptr %.0236, i64 6
+  %286 = getelementptr inbounds nuw i8, ptr %.0236, i64 6
   store i16 %285, ptr %286, align 2
   br label %287
 

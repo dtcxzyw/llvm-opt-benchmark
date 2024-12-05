@@ -112,7 +112,7 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %entry ]
   %conv.i = trunc i64 %indvars.iv.i to i8
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %indvars.iv.i
   store i8 %conv.i, ptr %arrayidx.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
@@ -135,7 +135,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.cond.i.i, %if.end
   %len.05.i.i = phi i64 [ 0, %if.end ], [ %add.i.i, %for.cond.i.i ]
-  %arrayidx.i.i = getelementptr inbounds [32 x i8], ptr %buf.i.i, i64 0, i64 %len.05.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [32 x i8], ptr %buf.i.i, i64 0, i64 %len.05.i.i
   %sub.i.i = sub nuw nsw i64 32, %len.05.i.i
   %call.i.i = call i64 @getrandom(ptr noundef nonnull %arrayidx.i.i, i64 noundef %sub.i.i, i32 noundef 0) #7
   %cmp1.i.i = icmp slt i64 %call.i.i, 0
@@ -153,16 +153,16 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %add867.i.i.i = phi i8 [ %.promoted.i.i.i, %for.end.i.i ], [ %add8.i.i.i, %for.body.i.i.i ]
   %add.i.i.i = add i8 %add58.i.i.i, 1
   %idxprom.i.i.i = zext i8 %add.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i.i
   %1 = load i8, ptr %arrayidx.i.i.i, align 1
   %add4.i.i.i = add i8 %1, %add867.i.i.i
   %rem.i.i.i = and i32 %n.09.i.i.i, 31
   %idxprom5.i.i.i = zext nneg i32 %rem.i.i.i to i64
-  %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %buf.i.i, i64 %idxprom5.i.i.i
+  %arrayidx6.i.i.i = getelementptr inbounds nuw i8, ptr %buf.i.i, i64 %idxprom5.i.i.i
   %2 = load i8, ptr %arrayidx6.i.i.i, align 1
   %add8.i.i.i = add i8 %add4.i.i.i, %2
   %idxprom10.i.i.i = zext i8 %add8.i.i.i to i64
-  %arrayidx11.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i.i
+  %arrayidx11.i.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i.i
   %3 = load i8, ptr %arrayidx11.i.i.i, align 1
   store i8 %3, ptr %arrayidx.i.i.i, align 1
   store i8 %1, ptr %arrayidx11.i.i.i, align 1
@@ -190,7 +190,7 @@ for.cond.i7.i:                                    ; preds = %for.body.i4.i
 
 for.body.i4.i:                                    ; preds = %arc4_seed_getrandom.exit.i, %for.cond.i7.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.cond.i7.i ], [ 0, %arc4_seed_getrandom.exit.i ]
-  %arrayidx.i5.i = getelementptr inbounds [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.i.i
+  %arrayidx.i5.i = getelementptr inbounds nuw [4 x ptr], ptr @arc4_seed_urandom.filenames, i64 0, i64 %indvars.iv.i.i
   %7 = load ptr, ptr %arrayidx.i5.i, align 8
   %call4.i.i = call fastcc i32 @arc4_seed_urandom_helper_(ptr noundef %7)
   %cmp.i6.i = icmp eq i32 %call4.i.i, 0
@@ -237,7 +237,7 @@ if.end7.i.i:                                      ; preds = %if.end.i.i
 for.body12.i.i:                                   ; preds = %for.inc.i.i, %if.end7.i.i
   %indvars.iv.i12.i = phi i64 [ 0, %if.end7.i.i ], [ %indvars.iv.next.i15.i, %for.inc.i.i ]
   %nybbles.017.i.i = phi i32 [ 0, %if.end7.i.i ], [ %nybbles.1.i.i, %for.inc.i.i ]
-  %arrayidx.i13.i = getelementptr inbounds [128 x i8], ptr %buf.i8.i, i64 0, i64 %indvars.iv.i12.i
+  %arrayidx.i13.i = getelementptr inbounds nuw [128 x i8], ptr %buf.i8.i, i64 0, i64 %indvars.iv.i12.i
   %10 = load i8, ptr %arrayidx.i13.i, align 1
   %call13.i.i = call i32 @EVUTIL_ISXDIGIT_(i8 noundef signext %10) #7
   %tobool.not.i14.i = icmp eq i32 %call13.i.i, 0
@@ -296,16 +296,16 @@ for.body.i.i19.i:                                 ; preds = %for.body.i.i19.i, %
   %add867.i.i22.i = phi i8 [ %.promoted.i.i18.i, %if.end36.i.i ], [ %add8.i.i30.i, %for.body.i.i19.i ]
   %add.i.i23.i = add i8 %add58.i.i21.i, 1
   %idxprom.i.i24.i = zext i8 %add.i.i23.i to i64
-  %arrayidx.i.i25.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i24.i
+  %arrayidx.i.i25.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i24.i
   %15 = load i8, ptr %arrayidx.i.i25.i, align 1
   %add4.i.i26.i = add i8 %15, %add867.i.i22.i
   %rem.i.i27.i = urem i32 %n.09.i.i20.i, %div3815.i.i
   %idxprom5.i.i28.i = zext nneg i32 %rem.i.i27.i to i64
-  %arrayidx6.i.i29.i = getelementptr inbounds i8, ptr %entropy.i.i, i64 %idxprom5.i.i28.i
+  %arrayidx6.i.i29.i = getelementptr inbounds nuw i8, ptr %entropy.i.i, i64 %idxprom5.i.i28.i
   %16 = load i8, ptr %arrayidx6.i.i29.i, align 1
   %add8.i.i30.i = add i8 %add4.i.i26.i, %16
   %idxprom10.i.i31.i = zext i8 %add8.i.i30.i to i64
-  %arrayidx11.i.i32.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i31.i
+  %arrayidx11.i.i32.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i31.i
   %17 = load i8, ptr %arrayidx11.i.i32.i, align 1
   store i8 %17, ptr %arrayidx.i.i25.i, align 1
   store i8 %15, ptr %arrayidx11.i.i32.i, align 1
@@ -347,11 +347,11 @@ for.body:                                         ; preds = %for.cond.preheader,
   %add4.i78 = phi i8 [ %.promoted, %for.cond.preheader ], [ %add4.i, %for.body ]
   %add.i = add i8 %add.i69, 1
   %idxprom.i = zext i8 %add.i to i64
-  %arrayidx.i2 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i
+  %arrayidx.i2 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i
   %19 = load i8, ptr %arrayidx.i2, align 1
   %add4.i = add i8 %add4.i78, %19
   %idxprom6.i = zext i8 %add4.i to i64
-  %arrayidx7.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i
+  %arrayidx7.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i
   %20 = load i8, ptr %arrayidx7.i, align 1
   store i8 %20, ptr %arrayidx.i2, align 1
   store i8 %19, ptr %arrayidx7.i, align 1
@@ -362,61 +362,61 @@ for.body:                                         ; preds = %for.cond.preheader,
 for.end:                                          ; preds = %for.body
   %add.i.i3 = add i8 %add.i69, 2
   %idxprom.i.i = zext i8 %add.i.i3 to i64
-  %arrayidx.i.i4 = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i4 = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i
   %21 = load i8, ptr %arrayidx.i.i4, align 1
   %add4.i.i = add i8 %add4.i, %21
   %idxprom6.i.i = zext i8 %add4.i.i to i64
-  %arrayidx7.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i.i
+  %arrayidx7.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i.i
   %22 = load i8, ptr %arrayidx7.i.i, align 1
   store i8 %22, ptr %arrayidx.i.i4, align 1
   store i8 %21, ptr %arrayidx7.i.i, align 1
   %add.i4.i = add i8 %add.i69, 3
   %idxprom.i5.i = zext i8 %add.i4.i to i64
-  %arrayidx.i6.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i5.i
+  %arrayidx.i6.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i5.i
   %23 = load i8, ptr %arrayidx.i6.i, align 1
   %add4.i7.i = add i8 %23, %add4.i.i
   %idxprom6.i8.i = zext i8 %add4.i7.i to i64
-  %arrayidx7.i9.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i8.i
+  %arrayidx7.i9.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i8.i
   %24 = load i8, ptr %arrayidx7.i9.i, align 1
   store i8 %24, ptr %arrayidx.i6.i, align 1
   store i8 %23, ptr %arrayidx7.i9.i, align 1
   %add14.narrow.i10.i = add i8 %24, %23
   %idxprom15.i11.i = zext i8 %add14.narrow.i10.i to i64
-  %arrayidx16.i12.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i11.i
+  %arrayidx16.i12.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i11.i
   %25 = load i8, ptr %arrayidx16.i12.i, align 1
   %conv2.i = zext i8 %25 to i32
   %shl3.i = shl nuw nsw i32 %conv2.i, 16
   %add.i13.i = add i8 %add.i69, 4
   %idxprom.i14.i = zext i8 %add.i13.i to i64
-  %arrayidx.i15.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i14.i
+  %arrayidx.i15.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i14.i
   %26 = load i8, ptr %arrayidx.i15.i, align 1
   %add4.i16.i = add i8 %26, %add4.i7.i
   %idxprom6.i17.i = zext i8 %add4.i16.i to i64
-  %arrayidx7.i18.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i17.i
+  %arrayidx7.i18.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i17.i
   %27 = load i8, ptr %arrayidx7.i18.i, align 1
   store i8 %27, ptr %arrayidx.i15.i, align 1
   store i8 %26, ptr %arrayidx7.i18.i, align 1
   %add14.narrow.i19.i = add i8 %27, %26
   %idxprom15.i20.i = zext i8 %add14.narrow.i19.i to i64
-  %arrayidx16.i21.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i20.i
+  %arrayidx16.i21.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i20.i
   %28 = load i8, ptr %arrayidx16.i21.i, align 1
   %conv5.i = zext i8 %28 to i32
   %shl6.i = shl nuw nsw i32 %conv5.i, 8
   %add.i22.i = add i8 %add.i69, 5
   store i8 %add.i22.i, ptr @rs, align 1
   %idxprom.i23.i = zext i8 %add.i22.i to i64
-  %arrayidx.i24.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i23.i
+  %arrayidx.i24.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i23.i
   %29 = load i8, ptr %arrayidx.i24.i, align 1
   %add4.i25.i = add i8 %29, %add4.i16.i
   store i8 %add4.i25.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %idxprom6.i26.i = zext i8 %add4.i25.i to i64
-  %arrayidx7.i27.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i26.i
+  %arrayidx7.i27.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i26.i
   %30 = load i8, ptr %arrayidx7.i27.i, align 1
   store i8 %30, ptr %arrayidx.i24.i, align 1
   store i8 %29, ptr %arrayidx7.i27.i, align 1
   %add14.narrow.i28.i = add i8 %30, %29
   %idxprom15.i29.i = zext i8 %add14.narrow.i28.i to i64
-  %arrayidx16.i30.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i29.i
+  %arrayidx16.i30.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i29.i
   %31 = load i8, ptr %arrayidx16.i30.i, align 1
   %conv9.i = zext i8 %31 to i32
   %shl3.i.masked = and i32 %shl3.i, 983040
@@ -487,19 +487,19 @@ if.end5.i.i:                                      ; preds = %if.then3.i.i, %whil
   %add.i.i.i = add i8 %6, 1
   store i8 %add.i.i.i, ptr @rs, align 1
   %idxprom.i.i.i = zext i8 %add.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
   %8 = load i8, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %add4.i.i.i = add i8 %8, %7
   store i8 %add4.i.i.i, ptr getelementptr inbounds (i8, ptr @rs, i64 1), align 1
   %idxprom6.i.i.i = zext i8 %add4.i.i.i to i64
-  %arrayidx7.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i.i.i
+  %arrayidx7.i.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom6.i.i.i
   %9 = load i8, ptr %arrayidx7.i.i.i, align 1
   store i8 %9, ptr %arrayidx.i.i.i, align 1
   store i8 %7, ptr %arrayidx7.i.i.i, align 1
   %add14.narrow.i.i.i = add i8 %9, %7
   %idxprom15.i.i.i = zext i8 %add14.narrow.i.i.i to i64
-  %arrayidx16.i.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i.i.i
+  %arrayidx16.i.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom15.i.i.i
   %10 = load i8, ptr %arrayidx16.i.i.i, align 1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buf, i64 %dec5.i.i
   store i8 %10, ptr %arrayidx.i.i, align 1
@@ -556,7 +556,7 @@ for.body.i:                                       ; preds = %arc4_addrandom.exit
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %arc4_addrandom.exit.i ]
   %add.i.lcssa610.i = phi i8 [ %2, %for.body.preheader.i ], [ %add58.i.i, %arc4_addrandom.exit.i ]
   %add.i.lcssa79.i = phi i8 [ %.promoted.i, %for.body.preheader.i ], [ %add.i.lcssa610.i, %arc4_addrandom.exit.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %indvars.iv.i
   %3 = trunc i64 %indvars.iv.i to i32
   %4 = sub i32 %cond, %3
   br label %for.body.i.i
@@ -567,16 +567,16 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %add867.i.i = phi i8 [ %add.i.lcssa79.i, %for.body.i ], [ %add8.i.i, %for.body.i.i ]
   %add.i.i = add i8 %add58.i.i, 1
   %idxprom.i.i = zext i8 %add.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i.i
   %5 = load i8, ptr %arrayidx.i.i, align 1
   %add4.i.i = add i8 %5, %add867.i.i
   %rem.i.i = srem i32 %n.09.i.i, %4
   %idxprom5.i.i = zext nneg i32 %rem.i.i to i64
-  %arrayidx6.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 %idxprom5.i.i
+  %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %idxprom5.i.i
   %6 = load i8, ptr %arrayidx6.i.i, align 1
   %add8.i.i = add i8 %add4.i.i, %6
   %idxprom10.i.i = zext i8 %add8.i.i to i64
-  %arrayidx11.i.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i
+  %arrayidx11.i.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i.i
   %7 = load i8, ptr %arrayidx11.i.i, align 1
   store i8 %7, ptr %arrayidx.i.i, align 1
   store i8 %5, ptr %arrayidx11.i.i, align 1
@@ -651,7 +651,7 @@ while.cond.i:                                     ; preds = %while.body.i
 
 while.body.i:                                     ; preds = %entry, %while.cond.i
   %numread.08.i = phi i64 [ %add.i, %while.cond.i ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %buf, i64 %numread.08.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %buf, i64 %numread.08.i
   %sub.i = sub nuw nsw i64 32, %numread.08.i
   %call.i = call i64 @read(i32 noundef range(i32 0, -2147483648) %call, ptr noundef nonnull %add.ptr.i, i64 noundef %sub.i) #7
   %or.cond = icmp slt i64 %call.i, 1
@@ -678,16 +678,16 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
   %add867.i = phi i8 [ %.promoted.i, %if.end5 ], [ %add8.i, %for.body.i ]
   %add.i3 = add i8 %add58.i, 1
   %idxprom.i = zext i8 %add.i3 to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
   %add4.i = add i8 %1, %add867.i
   %rem.i = and i32 %n.09.i, 31
   %idxprom5.i = zext nneg i32 %rem.i to i64
-  %arrayidx6.i = getelementptr inbounds i8, ptr %buf, i64 %idxprom5.i
+  %arrayidx6.i = getelementptr inbounds nuw i8, ptr %buf, i64 %idxprom5.i
   %2 = load i8, ptr %arrayidx6.i, align 1
   %add8.i = add i8 %add4.i, %2
   %idxprom10.i = zext i8 %add8.i to i64
-  %arrayidx11.i = getelementptr inbounds [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i
+  %arrayidx11.i = getelementptr inbounds nuw [256 x i8], ptr getelementptr inbounds (i8, ptr @rs, i64 2), i64 0, i64 %idxprom10.i
   %3 = load i8, ptr %arrayidx11.i, align 1
   store i8 %3, ptr %arrayidx.i, align 1
   store i8 %1, ptr %arrayidx11.i, align 1

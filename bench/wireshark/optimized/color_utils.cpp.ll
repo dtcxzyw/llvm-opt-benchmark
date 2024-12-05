@@ -84,40 +84,40 @@ define { i64, i64 } @_ZN10ColorUtils10fromColorTEPK7color_t(ptr noundef readonly
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %1
-  %.6..6..6..sroa_idx = getelementptr inbounds i8, ptr %2, i64 6
+  %.6..6..6..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i64 0, ptr %.6..6..6..sroa_idx, align 2
   br label %16
 
 4:                                                ; preds = %1
   %5 = load i16, ptr %0, align 2
   %6 = lshr i16 %5, 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = lshr i16 %8, 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load i16, ptr %10, align 2
   %12 = lshr i16 %11, 8
   %13 = mul nuw i16 %6, 257
   %14 = mul nuw i16 %9, 257
   %15 = mul nuw i16 %12, 257
-  %.6..6..6..sroa_idx8 = getelementptr inbounds i8, ptr %2, i64 6
+  %.6..6..6..sroa_idx8 = getelementptr inbounds nuw i8, ptr %2, i64 6
   store i16 %13, ptr %.6..6..6..sroa_idx8, align 2
-  %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %14, ptr %.8..8..8..sroa_idx, align 8
-  %.10..10..10..sroa_idx = getelementptr inbounds i8, ptr %2, i64 10
+  %.10..10..10..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 10
   store i16 %15, ptr %.10..10..10..sroa_idx, align 2
-  %.12..12..12..sroa_idx = getelementptr inbounds i8, ptr %2, i64 12
+  %.12..12..12..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i16 0, ptr %.12..12..12..sroa_idx, align 4
   br label %16
 
 16:                                               ; preds = %4, %3
   %.sink = phi i32 [ 0, %3 ], [ 1, %4 ]
   store i32 %.sink, ptr %2, align 8
-  %.4..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  %.4..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i16 -1, ptr %.4..sroa_idx, align 4
   %.0..0..0..fca.0.load = load i64, ptr %2, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.0..0..0..fca.0.load, 0
-  %.8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.8..8..8..fca.1.gep.sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.8..8..8..fca.1.load = load i64, ptr %.8..8..8..fca.1.gep.sroa_idx, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.8..8..8..fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -150,7 +150,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define i48 @_ZN10ColorUtils8toColorTE6QColor(i64 %0, i64 %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %class.QColor, align 8
   store i64 %0, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %4, align 8
   %5 = call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %3) #15
   %6 = shl i32 %5, 8
@@ -225,7 +225,7 @@ define noundef i32 @_ZN10ColorUtils10alphaBlendERK6QColorS2_d(ptr noundef nonnul
   %spec.select.i.i = icmp ult i32 %37, 256
   %38 = zext i1 %spec.select.i.i to i32
   store i32 %38, ptr %4, align 4
-  %39 = getelementptr inbounds i8, ptr %4, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %40 = sext i1 %spec.select.i.i to i16
   %41 = trunc i32 %33 to i16
   %42 = mul i16 %41, 257
@@ -237,13 +237,13 @@ define noundef i32 @_ZN10ColorUtils10alphaBlendERK6QColorS2_d(ptr noundef nonnul
   %48 = mul i16 %47, 257
   %49 = select i1 %spec.select.i.i, i16 %48, i16 0
   store i16 %40, ptr %39, align 4
-  %50 = getelementptr inbounds i8, ptr %4, i64 6
+  %50 = getelementptr inbounds nuw i8, ptr %4, i64 6
   store i16 %43, ptr %50, align 2
-  %51 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i16 %46, ptr %51, align 4
-  %52 = getelementptr inbounds i8, ptr %4, i64 10
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 10
   store i16 %49, ptr %52, align 2
-  %53 = getelementptr inbounds i8, ptr %4, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i16 0, ptr %53, align 4
   %54 = call noundef i32 @_ZNK6QColor3rgbEv(ptr noundef nonnull align 4 dereferenceable(14) %4) #15
   ret i32 %54
@@ -255,9 +255,9 @@ declare noundef i32 @_ZNK6QColor3rgbEv(ptr noundef nonnull align 4 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN10ColorUtils10alphaBlendERK6QBrushS2_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, double noundef %2) local_unnamed_addr #5 align 2 {
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = tail call noundef i32 @_ZN10ColorUtils10alphaBlendERK6QColorS2_d(ptr noundef nonnull align 4 dereferenceable(14) %5, ptr noundef nonnull align 4 dereferenceable(14) %7, double noundef %2)
   ret i32 %8
 }
@@ -302,7 +302,7 @@ define void @_ZN10ColorUtils11graphColorsEv(ptr dead_on_unwind noalias nocapture
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
   %16 = alloca %class.QList, align 8
-  %17 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
+  %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %_ZN5QListIjED2Ev.exit
 
@@ -310,7 +310,7 @@ define void @_ZN10ColorUtils11graphColorsEv(ptr dead_on_unwind noalias nocapture
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   store i32 3028022, ptr %15, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 16
   invoke void @_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %15)
           to label %21 unwind label %61
 
@@ -421,7 +421,7 @@ define void @_ZN10ColorUtils11graphColorsEv(ptr dead_on_unwind noalias nocapture
 47:                                               ; preds = %45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %48 = load ptr, ptr %16, align 8
-  %49 = getelementptr inbounds i8, ptr %16, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load i64, ptr %20, align 8
   %.not.i.i.i.i = icmp eq ptr %48, null
@@ -434,8 +434,8 @@ define void @_ZN10ColorUtils11graphColorsEv(ptr dead_on_unwind noalias nocapture
 _ZN17QArrayDataPointerIjEC2ERKS0_.exit.i.i:       ; preds = %52, %47
   %54 = load ptr, ptr @_ZN10ColorUtils13graph_colors_E, align 8
   store ptr %48, ptr @_ZN10ColorUtils13graph_colors_E, align 8
-  store ptr %50, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
-  store i64 %51, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
+  store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
+  store i64 %51, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %.not.i.i2.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i2.i.i, label %_ZN5QListIjEaSERKS0_.exit, label %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i.i
 
@@ -486,11 +486,11 @@ _ZN5QListIjED2Ev.exit18:                          ; preds = %61, %_ZN17QArrayDat
 _ZN5QListIjED2Ev.exit:                            ; preds = %59, %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i, %_ZN5QListIjEaSERKS0_.exit, %1
   %67 = load ptr, ptr @_ZN10ColorUtils13graph_colors_E, align 8
   store ptr %67, ptr %0, align 8
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
   store ptr %69, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 16
-  %71 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   store i64 %71, ptr %70, align 8
   %.not.i.i.i19 = icmp eq ptr %67, null
   br i1 %.not.i.i.i19, label %_ZN5QListIjEC2ERKS0_.exit, label %72
@@ -511,7 +511,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN10ColorUtils10graphColorEi(i32 noundef %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QList, align 8
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %_ZN5QListIjED2Ev.exit
 
@@ -532,7 +532,7 @@ _ZN17QArrayDataPointerIjE5derefEv.exit.i.i:       ; preds = %5
   br label %_ZN5QListIjED2Ev.exit
 
 _ZN5QListIjED2Ev.exit:                            ; preds = %8, %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i, %5, %1
-  %10 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
+  %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 16), align 8
   %11 = load ptr, ptr @_ZN10ColorUtils13graph_colors_E, align 8
   %.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i.i, label %_ZN5QListIjE6detachEv.exit.i, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i
@@ -561,7 +561,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
 _ZN5QListIjEixEx.exit:                            ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i
   %17 = sext i32 %0 to i64
   %18 = srem i64 %17, %10
-  %19 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
+  %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils13graph_colors_E, i64 8), align 8
   %20 = getelementptr i32, ptr %19, i64 %18
   %21 = load i32, ptr %20, align 4
   ret i32 %21
@@ -580,7 +580,7 @@ define noundef i32 @_ZN10ColorUtils13sequenceColorEi(i32 noundef %0) local_unnam
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca %class.QList, align 8
-  %13 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %_ZN5QListIjED2Ev.exit
 
@@ -588,7 +588,7 @@ define noundef i32 @_ZN10ColorUtils13sequenceColorEi(i32 noundef %0) local_unnam
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   store i32 -7278960, ptr %11, align 4
-  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
   invoke void @_ZN9QtPrivate12QPodArrayOpsIjE7emplaceIJRjEEEvxDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %17 unwind label %49
 
@@ -667,7 +667,7 @@ define noundef i32 @_ZN10ColorUtils13sequenceColorEi(i32 noundef %0) local_unnam
 35:                                               ; preds = %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   %36 = load ptr, ptr %12, align 8
-  %37 = getelementptr inbounds i8, ptr %12, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = load i64, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %36, null
@@ -680,8 +680,8 @@ define noundef i32 @_ZN10ColorUtils13sequenceColorEi(i32 noundef %0) local_unnam
 _ZN17QArrayDataPointerIjEC2ERKS0_.exit.i.i:       ; preds = %40, %35
   %42 = load ptr, ptr @_ZN10ColorUtils16sequence_colors_E, align 8
   store ptr %36, ptr @_ZN10ColorUtils16sequence_colors_E, align 8
-  store ptr %38, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 8), align 8
-  store i64 %39, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
+  store ptr %38, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 8), align 8
+  store i64 %39, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
   %.not.i.i2.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i2.i.i, label %_ZN5QListIjEaSERKS0_.exit, label %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i.i
 
@@ -730,7 +730,7 @@ _ZN5QListIjED2Ev.exit15:                          ; preds = %49, %_ZN17QArrayDat
   resume { ptr, i32 } %50
 
 _ZN5QListIjED2Ev.exit:                            ; preds = %47, %_ZN17QArrayDataPointerIjE5derefEv.exit.i.i, %_ZN5QListIjEaSERKS0_.exit, %1
-  %55 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
+  %55 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 16), align 8
   %56 = load ptr, ptr @_ZN10ColorUtils16sequence_colors_E, align 8
   %.not.i.i.i.i16 = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i16, label %_ZN5QListIjE6detachEv.exit.i, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i
@@ -759,7 +759,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i: ; preds = %_ZNK17
 _ZN5QListIjEixEx.exit:                            ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.i.i.i.i, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread.i.i.i.i
   %62 = sext i32 %0 to i64
   %63 = srem i64 %62, %55
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 8), align 8
+  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN10ColorUtils16sequence_colors_E, i64 8), align 8
   %65 = getelementptr i32, ptr %64, i64 %63
   %66 = load i32, ptr %65, align 4
   ret i32 %66
@@ -775,7 +775,7 @@ define noundef zeroext i1 @_ZN10ColorUtils11themeIsDarkEv() local_unnamed_addr #
 
 _ZNK8QPalette10windowTextEv.exit:                 ; preds = %0
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = call noundef i32 @_ZNK6QColor9lightnessEv(ptr noundef nonnull align 4 dereferenceable(14) %5) #15
   invoke void @_ZN15QGuiApplication7paletteEv(ptr dead_on_unwind nonnull writable sret(%class.QPalette) align 8 %2)
           to label %7 unwind label %13
@@ -786,7 +786,7 @@ _ZNK8QPalette10windowTextEv.exit:                 ; preds = %0
 
 _ZNK8QPalette6windowEv.exit:                      ; preds = %7
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = call noundef i32 @_ZNK6QColor9lightnessEv(ptr noundef nonnull align 4 dereferenceable(14) %10) #15
   %12 = icmp sgt i32 %6, %11
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
@@ -865,12 +865,12 @@ define void @_ZN10ColorUtils14themeLinkStyleEv(ptr dead_on_unwind noalias writab
 11:                                               ; preds = %10
   %12 = load ptr, ptr %3, align 8
   store ptr %12, ptr %5, align 8
-  %13 = getelementptr inbounds i8, ptr %5, i64 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %13, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load i64, ptr %17, align 8
   store i64 %18, ptr %16, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
@@ -896,7 +896,7 @@ _ZNK8QPalette4linkEv.exit.i:                      ; preds = %.noexc
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %23 = load ptr, ptr %7, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   invoke void @_ZNK6QColor4nameENS_10NameFormatE(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %6, ptr noundef nonnull align 4 dereferenceable(14) %24, i32 noundef 0)
           to label %25 unwind label %44
 
@@ -908,13 +908,13 @@ _ZN7QStringD2Ev.exit:                             ; preds = %25
   %26 = load ptr, ptr %4, align 8
   store ptr %26, ptr %0, align 8
   store ptr null, ptr %4, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   store ptr null, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
-  %31 = getelementptr inbounds i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %30, align 8
   store i64 0, ptr %31, align 8
@@ -1044,7 +1044,7 @@ define { i64, i64 } @_ZN10ColorUtils20contrastingTextColorE6QColor(i64 %0, i64 %
   %4 = alloca %class.QPalette, align 8
   %5 = alloca %class.QPalette, align 8
   store i64 %0, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %1, ptr %6, align 8
   %7 = call noundef i32 @_ZNK6QColor9lightnessEv(ptr noundef nonnull align 4 dereferenceable(14) %3) #15
   %8 = icmp sgt i32 %7, 127
@@ -1076,9 +1076,9 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %15, %11
   %.sink11 = phi ptr [ %12, %11 ], [ %16, %15 ]
   %.sink = phi ptr [ %4, %11 ], [ %5, %15 ]
   %19 = load ptr, ptr %.sink11, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.0.0.copyload3 = load i64, ptr %20, align 4
-  %.sroa.3.0..sroa_idx4 = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.3.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.3.0.copyload5 = load i64, ptr %.sroa.3.0..sroa_idx4, align 4
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %.sink) #15
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload3, 0
@@ -1106,15 +1106,15 @@ _ZNK8QPalette6windowEv.exit:                      ; preds = %0
 
 5:                                                ; preds = %_ZNK8QPalette6windowEv.exit
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = call noundef i32 @_ZN10ColorUtils10alphaBlendERK6QColorS2_d(ptr noundef nonnull align 4 dereferenceable(14) %7, ptr noundef nonnull align 4 dereferenceable(14) %9, double noundef 5.000000e-01)
   call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %1, i32 noundef %10) #15
   call void @_ZN8QPaletteD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %2) #15
   %.fca.0.load = load i64, ptr %1, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %1, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1137,7 +1137,7 @@ define { i64, i64 } @_ZN10ColorUtils17warningBackgroundEv() local_unnamed_addr #
   call void @_ZN6QColorC1Ej(ptr noundef nonnull align 4 dereferenceable(14) %1, i32 noundef %.) #15
   %.fca.0.load = load i64, ptr %1, align 8
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
-  %.fca.1.gep = getelementptr inbounds i8, ptr %1, i64 8
+  %.fca.1.gep = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.fca.1.load = load i64, ptr %.fca.1.gep, align 8
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -1195,15 +1195,15 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit:   ; preds = %3
   br i1 %6, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread, label %7
 
 7:                                                ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
   %10 = icmp eq i64 %1, %9
   br i1 %10, label %_ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit, label %27
 
 _ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit: ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %4 to i64
   %16 = add i64 %15, 23
@@ -1229,7 +1229,7 @@ _ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit: ; preds = %7
   br i1 %28, label %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread
 
 _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit: ; preds = %27
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %4 to i64
   %32 = add i64 %31, 23
@@ -1252,14 +1252,14 @@ _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit: ; preds = %27
 
 _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread: ; preds = %3, %27, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit
   %42 = load i32, ptr %2, align 4
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load i64, ptr %43, align 8
   %45 = icmp ne i64 %44, 0
   %46 = icmp eq i64 %1, 0
   %or.cond = and i1 %46, %45
   %spec.store.select = zext i1 %or.cond to i32
   tail call void @_ZN17QArrayDataPointerIjE13detachAndGrowEN10QArrayData14GrowthPositionExPPKjPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %spec.store.select, i64 noundef 1, ptr noundef null, ptr noundef null)
-  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr i32, ptr %48, i64 %1
   br i1 %or.cond, label %57, label %50
@@ -1316,7 +1316,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit:   ; preds = %5
   ]
 
 ._crit_edge:                                      ; preds = %10
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.pre49 = ptrtoint ptr %6 to i64
   %.pre50 = add i64 %.pre49, 23
@@ -1327,7 +1327,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit:   ; preds = %5
   br label %19
 
 _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit: ; preds = %10
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = ptrtoint ptr %6 to i64
   %14 = add i64 %13, 23
@@ -1341,10 +1341,10 @@ _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit: ; preds = %10
 19:                                               ; preds = %._crit_edge, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit
   %.pre-phi59 = phi i64 [ %.pre58, %._crit_edge ], [ %18, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit ]
   %20 = phi ptr [ %.pre, %._crit_edge ], [ %12, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit ]
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %.pre-phi59
   %27 = sub i64 %22, %26
@@ -1405,9 +1405,9 @@ _ZN17QArrayDataPointerIjE8relocateExPPKj.exit.i:  ; preds = %53, %46, %_ZN9QtPri
   br label %_ZN17QArrayDataPointerIjE20tryReadjustFreeSpaceEN10QArrayData14GrowthPositionExPPKj.exit
 
 _ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit: ; preds = %10
-  %55 = getelementptr inbounds i8, ptr %6, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = ptrtoint ptr %6 to i64
   %60 = add i64 %59, 23
@@ -1415,7 +1415,7 @@ _ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit: ; preds = %10
   %62 = ptrtoint ptr %58 to i64
   %63 = sub i64 %62, %61
   %64 = ashr exact i64 %63, 2
-  %65 = getelementptr inbounds i8, ptr %0, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i64, ptr %65, align 8
   %67 = add i64 %66, %64
   %68 = sub i64 %56, %67
@@ -1504,7 +1504,7 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit:   ; preds = %8
   br i1 %or.cond3.not, label %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread, label %_ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit
 
 _ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit: ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = ptrtoint ptr %9 to i64
   %16 = add i64 %15, 23
@@ -1512,7 +1512,7 @@ _ZNK17QArrayDataPointerIjE14freeSpaceAtEndEv.exit: ; preds = %_ZNK17QArrayDataPo
   %18 = ptrtoint ptr %14 to i64
   %19 = sub i64 %18, %17
   %20 = ashr exact i64 %19, 2
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, %2
   %24 = add i64 %23, %20
@@ -1534,7 +1534,7 @@ _ZN9QtPrivate12QPodArrayOpsIjE10reallocateExN10QArrayData16AllocationOptionE.exi
 _ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread: ; preds = %8, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit, %4
   call void @_ZN17QArrayDataPointerIjE12allocateGrowERKS0_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind nonnull writable sret(%struct.QArrayDataPointer) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2, i32 noundef %1)
   %29 = icmp sgt i64 %2, 0
-  %30 = getelementptr inbounds i8, ptr %5, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not = icmp eq ptr %31, null
   %or.cond39 = select i1 %29, i1 %.not, i1 false
@@ -1568,7 +1568,7 @@ _ZN17QArrayDataPointerIjED2Ev.exit:               ; preds = %34, %_ZN17QArrayDat
   resume { ptr, i32 } %35
 
 40:                                               ; preds = %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit.thread
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i64, ptr %41, align 8
   %.not26 = icmp eq i64 %42, 0
   br i1 %.not26, label %_ZN9QtPrivate12QPodArrayOpsIjE10copyAppendEPKjS3_.exit, label %43
@@ -1597,9 +1597,9 @@ _ZNK17QArrayDataPointerIjE11needsDetachEv.exit31.thread: ; preds = %43, %_ZNK17Q
   br i1 %50, label %_ZN9QtPrivate12QPodArrayOpsIjE10copyAppendEPKjS3_.exit, label %_ZN9QtPrivate12QPodArrayOpsIjE10copyAppendEPKjS3_.exit.sink.split
 
 _ZN9QtPrivate12QPodArrayOpsIjE10copyAppendEPKjS3_.exit.sink.split: ; preds = %49, %_ZNK17QArrayDataPointerIjE11needsDetachEv.exit31.thread
-  %51 = getelementptr inbounds i8, ptr %0, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %5, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = getelementptr i32, ptr %31, i64 %54
   %.idx = shl i64 %spec.select, 2
@@ -1615,12 +1615,12 @@ _ZN9QtPrivate12QPodArrayOpsIjE10copyAppendEPKjS3_.exit: ; preds = %_ZN9QtPrivate
   %60 = load ptr, ptr %5, align 8
   store ptr %60, ptr %0, align 8
   store ptr %59, ptr %5, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %30, align 8
   store ptr %63, ptr %61, align 8
   store ptr %62, ptr %30, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %65 = load i64, ptr %41, align 8
   %66 = load i64, ptr %64, align 8
   store i64 %66, ptr %41, align 8
@@ -1631,11 +1631,11 @@ _ZN9QtPrivate12QPodArrayOpsIjE10copyAppendEPKjS3_.exit: ; preds = %_ZN9QtPrivate
   %68 = load ptr, ptr %3, align 8
   store ptr %59, ptr %3, align 8
   store ptr %68, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load ptr, ptr %69, align 8
   store ptr %62, ptr %69, align 8
   store ptr %70, ptr %30, align 8
-  %71 = getelementptr inbounds i8, ptr %3, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %72 = load i64, ptr %71, align 8
   store i64 %65, ptr %71, align 8
   store i64 %72, ptr %64, align 8
@@ -1666,7 +1666,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerIjE12allocateGrowERKS0_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
   %5 = alloca ptr, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit, label %_ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit.thread
@@ -1678,13 +1678,13 @@ _ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit: ; preds = %4
   br label %_ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit31
 
 _ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit.thread: ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %7, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %6, align 8
   %.sroa.speculated45 = tail call i64 @llvm.smax.i64(i64 %12, i64 %11)
   %13 = add i64 %.sroa.speculated45, %2
   %14 = icmp eq i32 %3, 0
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %7 to i64
   %18 = add i64 %17, 23
@@ -1696,7 +1696,7 @@ _ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit.thread: ; preds = %4
   %24 = sub i64 %11, %23
   %.ph = select i1 %14, i64 %24, i64 %22
   %25 = sub i64 %13, %.ph
-  %26 = getelementptr inbounds i8, ptr %7, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = and i32 %27, 1
   %.not.i.i = icmp eq i32 %28, 0
@@ -1729,7 +1729,7 @@ _ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit31: ; preds = %_ZNK17QA
   br i1 %41, label %_ZNK17QArrayDataPointerIjE5flagsEv.exit, label %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33.thread
 
 _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33.thread: ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = ptrtoint ptr %40 to i64
   %45 = add i64 %44, 23
@@ -1740,7 +1740,7 @@ _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33.thread: ; preds = %39
   br label %59
 
 _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33: ; preds = %37
-  %50 = getelementptr inbounds i8, ptr %34, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %51 = load i64, ptr %50, align 8
   %52 = load i64, ptr %6, align 8
   %53 = add i64 %2, %52
@@ -1756,23 +1756,23 @@ _ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33: ; preds = %37
 59:                                               ; preds = %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33.thread, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33
   %60 = phi ptr [ %49, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33.thread ], [ %58, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33 ]
   %.pr58 = phi ptr [ %40, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33.thread ], [ %.pr.pre, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33 ]
-  %61 = getelementptr inbounds i8, ptr %.pr58, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %.pr58, i64 4
   %62 = load i32, ptr %61, align 4
   br label %_ZNK17QArrayDataPointerIjE5flagsEv.exit
 
 _ZNK17QArrayDataPointerIjE5flagsEv.exit:          ; preds = %39, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33, %59
   %63 = phi ptr [ %60, %59 ], [ %58, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33 ], [ %33, %39 ]
   %.sroa.0.0.i = phi i32 [ %62, %59 ], [ 0, %_ZNK17QArrayDataPointerIjE16freeSpaceAtBeginEv.exit33 ], [ 0, %39 ]
-  %64 = getelementptr inbounds i8, ptr %34, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i32 %.sroa.0.0.i, ptr %64, align 4
   br label %65
 
 65:                                               ; preds = %_ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit31, %_ZNK17QArrayDataPointerIjE5flagsEv.exit
   %.sink = phi ptr [ %63, %_ZNK17QArrayDataPointerIjE5flagsEv.exit ], [ %33, %_ZNK17QArrayDataPointerIjE22constAllocatedCapacityEv.exit31 ]
   store ptr %34, ptr %0, align 8
-  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %67, align 8
   ret void
 }

@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.val.i = load i16, ptr %0, align 1
   %4 = zext i16 %.val.i to i32
-  %5 = getelementptr inbounds i8, ptr %0, i64 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not.i = icmp eq i16 %.val.i, 0
   %6 = add nsw i32 %4, -1
   %7 = shl nuw i32 1, %6
@@ -39,7 +39,7 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocap
 18:                                               ; preds = %.preheader, %39
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %39 ]
   %.01826 = phi i64 [ 0, %.preheader ], [ %.1, %39 ]
-  %19 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %10, i64 %indvars.iv, i32 1
+  %19 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %10, i64 %indvars.iv, i32 1
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 16
   %22 = add nuw nsw i32 %21, 1
@@ -50,7 +50,7 @@ define dso_local range(i64 -1, 72057594037927936) i64 @ZSTD_fseBitCost(ptr nocap
   %27 = lshr i32 %26, %4
   %28 = shl nuw nsw i32 %22, 8
   %29 = sub i32 %28, %27
-  %30 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %39, label %33
@@ -92,16 +92,16 @@ define dso_local range(i64 0, 72057594037927936) i64 @ZSTD_crossEntropyCost(ptr 
 7:                                                ; preds = %4, %7
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %7 ]
   %.018 = phi i64 [ 0, %4 ], [ %18, %7 ]
-  %8 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2
   %.not16 = icmp eq i16 %9, -1
   %narrow = select i1 %.not16, i16 1, i16 %9
   %spec.select = sext i16 %narrow to i32
   %10 = shl i32 %spec.select, %5
-  %11 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = mul i32 %15, %12
   %17 = zext i32 %16 to i64
@@ -177,16 +177,16 @@ define dso_local range(i32 0, 4) i32 @ZSTD_selectEncodingType(ptr nocapture noun
 42:                                               ; preds = %42, %39
   %indvars.iv.i = phi i64 [ 0, %39 ], [ %indvars.iv.next.i, %42 ]
   %.018.i = phi i64 [ 0, %39 ], [ %53, %42 ]
-  %43 = getelementptr inbounds i16, ptr %7, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv.i
   %44 = load i16, ptr %43, align 2
   %.not16.i = icmp eq i16 %44, -1
   %narrow.i = select i1 %.not16.i, i16 1, i16 %44
   %spec.select.i = sext i16 %narrow.i to i32
   %45 = shl i32 %spec.select.i, %40
-  %46 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = mul i32 %50, %47
   %52 = zext i32 %51 to i64
@@ -208,7 +208,7 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
 58:                                               ; preds = %55
   %.val.i.i = load i16, ptr %6, align 1
   %59 = zext i16 %.val.i.i to i32
-  %60 = getelementptr inbounds i8, ptr %6, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not.i.i = icmp eq i16 %.val.i.i, 0
   %61 = add nsw i32 %59, -1
   %62 = shl nuw i32 1, %61
@@ -232,7 +232,7 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
 73:                                               ; preds = %94, %.preheader.i
   %indvars.iv.i58 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i59, %94 ]
   %.01826.i = phi i64 [ 0, %.preheader.i ], [ %.1.i, %94 ]
-  %74 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %65, i64 %indvars.iv.i58, i32 1
+  %74 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %65, i64 %indvars.iv.i58, i32 1
   %75 = load i32, ptr %74, align 4
   %76 = lshr i32 %75, 16
   %77 = add nuw nsw i32 %76, 1
@@ -243,7 +243,7 @@ ZSTD_crossEntropyCost.exit:                       ; preds = %42
   %82 = lshr i32 %81, %59
   %83 = shl nuw nsw i32 %77, 8
   %84 = sub i32 %83, %82
-  %85 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i58
+  %85 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i58
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %94, label %88
@@ -296,7 +296,7 @@ ZSTD_NCountCost.exit:                             ; preds = %ZSTD_fseBitCost.exi
 106:                                              ; preds = %106, %ZSTD_NCountCost.exit
   %indvars.iv.i63 = phi i64 [ 0, %ZSTD_NCountCost.exit ], [ %indvars.iv.next.i64, %106 ]
   %.016.i = phi i32 [ 0, %ZSTD_NCountCost.exit ], [ %118, %106 ]
-  %107 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.i63
+  %107 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i63
   %108 = load i32, ptr %107, align 4
   %109 = shl i32 %108, 8
   %110 = zext i32 %109 to i64
@@ -305,7 +305,7 @@ ZSTD_NCountCost.exit:                             ; preds = %ZSTD_fseBitCost.exi
   %113 = icmp ugt i64 %4, %110
   %or.cond.i = and i1 %112, %113
   %114 = select i1 %or.cond.i, i64 1, i64 %111
-  %115 = getelementptr inbounds [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [256 x i32], ptr @kInverseProbabilityLog256, i64 0, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = mul i32 %116, %108
   %118 = add i32 %117, %.016.i
@@ -380,7 +380,7 @@ define dso_local i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr nound
   %32 = getelementptr i8, ptr %31, i64 -1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %5, i64 %34
+  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = icmp ugt i32 %36, 1
   br i1 %37, label %38, label %41
@@ -405,7 +405,7 @@ define dso_local i64 @ZSTD_buildCTable(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %46
-  %50 = getelementptr inbounds i8, ptr %14, i64 108
+  %50 = getelementptr inbounds nuw i8, ptr %14, i64 108
   %51 = tail call i64 @FSE_buildCTable_wksp(ptr noundef %2, ptr noundef %14, i32 noundef %6, i32 noundef %30, ptr noundef nonnull %50, i64 noundef 1140) #7
   %52 = icmp ult i64 %51, -119
   %.65 = select i1 %52, i64 %47, i64 %51
@@ -442,7 +442,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %19 = load i8, ptr %18, align 1
   %.val.i.i.i = load i16, ptr %2, align 1
   %20 = zext i16 %.val.i.i.i to i32
-  %21 = getelementptr inbounds i8, ptr %2, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %.not.i.i.i = icmp eq i16 %.val.i.i.i, 0
   %22 = add nsw i32 %20, -1
   %23 = shl nuw i32 1, %22
@@ -450,9 +450,9 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %25 = select i1 %.not.i.i.i, i64 1, i64 %24
   %26 = getelementptr inbounds i32, ptr %21, i64 %25
   %27 = zext i8 %19 to i64
-  %28 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %26, i64 %27
   %.sroa.0.0.copyload.i.i = load i32, ptr %28, align 4
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %28, i64 4
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.2.0.copyload.i.i = load i32, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   %29 = add i32 %.sroa.2.0.copyload.i.i, 32768
   %30 = lshr i32 %29, 16
@@ -470,7 +470,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %42 = zext i8 %41 to i32
   %.val.i.i111.i = load i16, ptr %4, align 1
   %43 = zext i16 %.val.i.i111.i to i32
-  %44 = getelementptr inbounds i8, ptr %4, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.not.i.i112.i = icmp eq i16 %.val.i.i111.i, 0
   %45 = add nsw i32 %43, -1
   %46 = shl nuw i32 1, %45
@@ -478,9 +478,9 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %48 = select i1 %.not.i.i112.i, i64 1, i64 %47
   %49 = getelementptr inbounds i32, ptr %44, i64 %48
   %50 = zext i8 %41 to i64
-  %51 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %49, i64 %50
   %.sroa.0.0.copyload.i113.i = load i32, ptr %51, align 4
-  %.sroa.2.0..sroa_idx.i114.i = getelementptr inbounds i8, ptr %51, i64 4
+  %.sroa.2.0..sroa_idx.i114.i = getelementptr inbounds nuw i8, ptr %51, i64 4
   %.sroa.2.0.copyload.i115.i = load i32, ptr %.sroa.2.0..sroa_idx.i114.i, align 4
   %52 = add i32 %.sroa.2.0.copyload.i115.i, 32768
   %53 = lshr i32 %52, 16
@@ -497,7 +497,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %64 = load i8, ptr %63, align 1
   %.val.i.i116.i = load i16, ptr %6, align 1
   %65 = zext i16 %.val.i.i116.i to i32
-  %66 = getelementptr inbounds i8, ptr %6, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not.i.i117.i = icmp eq i16 %.val.i.i116.i, 0
   %67 = add nsw i32 %65, -1
   %68 = shl nuw i32 1, %67
@@ -505,9 +505,9 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %70 = select i1 %.not.i.i117.i, i64 1, i64 %69
   %71 = getelementptr inbounds i32, ptr %66, i64 %70
   %72 = zext i8 %64 to i64
-  %73 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %71, i64 %72
   %.sroa.0.0.copyload.i118.i = load i32, ptr %73, align 4
-  %.sroa.2.0..sroa_idx.i119.i = getelementptr inbounds i8, ptr %73, i64 4
+  %.sroa.2.0..sroa_idx.i119.i = getelementptr inbounds nuw i8, ptr %73, i64 4
   %.sroa.2.0.copyload.i120.i = load i32, ptr %.sroa.2.0..sroa_idx.i119.i, align 4
   %74 = add i32 %.sroa.2.0.copyload.i120.i, 32768
   %75 = lshr i32 %74, 16
@@ -521,24 +521,24 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %83 = getelementptr i16, ptr %82, i64 %81
   %84 = load i16, ptr %83, align 2
   %85 = getelementptr inbounds %struct.seqDef_s, ptr %8, i64 %17
-  %86 = getelementptr inbounds i8, ptr %85, i64 4
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %87 = load i16, ptr %86, align 4
-  %88 = getelementptr inbounds [36 x i8], ptr @LL_bits, i64 0, i64 %72
+  %88 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %72
   %89 = load i8, ptr %88, align 1
   %90 = zext i8 %89 to i32
   %91 = zext i8 %89 to i64
-  %92 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %91
+  %92 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %91
   %93 = load i32, ptr %92, align 4
   %94 = zext i16 %87 to i32
   %95 = and i32 %93, %94
   %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds i8, ptr %85, i64 6
+  %97 = getelementptr inbounds nuw i8, ptr %85, i64 6
   %98 = load i16, ptr %97, align 2
-  %99 = getelementptr inbounds [53 x i8], ptr @ML_bits, i64 0, i64 %27
+  %99 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %27
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = zext i8 %100 to i64
-  %103 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %102
   %104 = load i32, ptr %103, align 4
   %105 = zext i16 %98 to i32
   %106 = and i32 %104, %105
@@ -561,7 +561,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %115 = add nsw i32 %42, -56
   %116 = load i32, ptr %85, align 4
   %117 = zext i32 %115 to i64
-  %118 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, %116
   %121 = zext i32 %120 to i64
@@ -572,7 +572,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %126 = lshr i32 %125, 3
   %127 = zext nneg i32 %126 to i64
   store i64 %124, ptr %0, align 1
-  %128 = getelementptr inbounds i8, ptr %0, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 %127
   %129 = icmp ugt ptr %128, %14
   %spec.store.select.i.i = select i1 %129, ptr %14, ptr %128
   %130 = and i32 %125, 7
@@ -589,7 +589,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %135 = load i32, ptr %85, align 4
   %136 = lshr i32 %135, %133
   %137 = zext nneg i32 %134 to i64
-  %138 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %137
   %139 = load i32, ptr %138, align 4
   %140 = and i32 %136, %139
   %141 = zext i32 %140 to i64
@@ -601,7 +601,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
 
 146:                                              ; preds = %16
   %147 = load i32, ptr %85, align 4
-  %148 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %50
+  %148 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %50
   %149 = load i32, ptr %148, align 4
   %150 = and i32 %149, %147
   %151 = zext i32 %150 to i64
@@ -618,7 +618,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %157 = lshr i32 %.sroa.61.1.i, 3
   %158 = zext nneg i32 %157 to i64
   store i64 %.sroa.0152.1.i, ptr %.sroa.124.1.i, align 1
-  %159 = getelementptr inbounds i8, ptr %.sroa.124.1.i, i64 %158
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.124.1.i, i64 %158
   %160 = icmp ugt ptr %159, %14
   %spec.store.select.i121.i = select i1 %160, ptr %14, ptr %159
   %161 = shl nuw nsw i64 %158, 3
@@ -649,24 +649,24 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %169 = getelementptr inbounds i8, ptr %3, i64 %.097257.i
   %170 = load i8, ptr %169, align 1
   %171 = zext i8 %166 to i64
-  %172 = getelementptr inbounds [36 x i8], ptr @LL_bits, i64 0, i64 %171
+  %172 = getelementptr inbounds nuw [36 x i8], ptr @LL_bits, i64 0, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
   %175 = zext i8 %168 to i32
   %176 = zext i8 %170 to i64
-  %177 = getelementptr inbounds [53 x i8], ptr @ML_bits, i64 0, i64 %176
+  %177 = getelementptr inbounds nuw [53 x i8], ptr @ML_bits, i64 0, i64 %176
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
   %180 = zext i8 %168 to i64
-  %181 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %49, i64 %180
+  %181 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %49, i64 %180
   %.sroa.0.0.copyload.i122.i = load i32, ptr %181, align 4
-  %.sroa.2.0..sroa_idx.i123.i = getelementptr inbounds i8, ptr %181, i64 4
+  %.sroa.2.0..sroa_idx.i123.i = getelementptr inbounds nuw i8, ptr %181, i64 4
   %.sroa.2.0.copyload.i124.i = load i32, ptr %.sroa.2.0..sroa_idx.i123.i, align 4
   %182 = zext i32 %.sroa.2.0.copyload.i124.i to i64
   %183 = add nuw nsw i64 %.sroa.0140.0260.i, %182
   %184 = lshr i64 %183, 16
   %185 = trunc nuw nsw i64 %184 to i32
-  %186 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %184
+  %186 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %184
   %187 = load i32, ptr %186, align 4
   %188 = zext i32 %187 to i64
   %189 = and i64 %.sroa.0140.0260.i, %188
@@ -678,15 +678,15 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %195 = getelementptr i16, ptr %44, i64 %193
   %196 = getelementptr i16, ptr %195, i64 %194
   %197 = load i16, ptr %196, align 2
-  %198 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %26, i64 %176
+  %198 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %26, i64 %176
   %.sroa.0.0.copyload.i125.i = load i32, ptr %198, align 4
-  %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds i8, ptr %198, i64 4
+  %.sroa.2.0..sroa_idx.i126.i = getelementptr inbounds nuw i8, ptr %198, i64 4
   %.sroa.2.0.copyload.i127.i = load i32, ptr %.sroa.2.0..sroa_idx.i126.i, align 4
   %199 = zext i32 %.sroa.2.0.copyload.i127.i to i64
   %200 = add nuw nsw i64 %.sroa.0146.0261.i, %199
   %201 = lshr i64 %200, 16
   %202 = trunc nuw nsw i64 %201 to i32
-  %203 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %201
+  %203 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %201
   %204 = load i32, ptr %203, align 4
   %205 = zext i32 %204 to i64
   %206 = and i64 %.sroa.0146.0261.i, %205
@@ -698,15 +698,15 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %212 = getelementptr i16, ptr %21, i64 %210
   %213 = getelementptr i16, ptr %212, i64 %211
   %214 = load i16, ptr %213, align 2
-  %215 = getelementptr inbounds %struct.FSE_symbolCompressionTransform, ptr %71, i64 %171
+  %215 = getelementptr inbounds nuw %struct.FSE_symbolCompressionTransform, ptr %71, i64 %171
   %.sroa.0.0.copyload.i128.i = load i32, ptr %215, align 4
-  %.sroa.2.0..sroa_idx.i129.i = getelementptr inbounds i8, ptr %215, i64 4
+  %.sroa.2.0..sroa_idx.i129.i = getelementptr inbounds nuw i8, ptr %215, i64 4
   %.sroa.2.0.copyload.i130.i = load i32, ptr %.sroa.2.0..sroa_idx.i129.i, align 4
   %216 = zext i32 %.sroa.2.0.copyload.i130.i to i64
   %217 = add nuw nsw i64 %.sroa.0.0258.i, %216
   %218 = lshr i64 %217, 16
   %219 = trunc nuw nsw i64 %218 to i32
-  %220 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %218
+  %220 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %218
   %221 = load i32, ptr %220, align 4
   %222 = zext i32 %221 to i64
   %223 = and i64 %.sroa.0.0258.i, %222
@@ -730,7 +730,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %239 = lshr i32 %229, 3
   %240 = zext nneg i32 %239 to i64
   store i64 %228, ptr %.sroa.124.2256.i, align 1
-  %241 = getelementptr inbounds i8, ptr %.sroa.124.2256.i, i64 %240
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.124.2256.i, i64 %240
   %242 = icmp ugt ptr %241, %14
   %spec.store.select.i131.i = select i1 %242, ptr %14, ptr %241
   %243 = and i32 %229, 7
@@ -743,10 +743,10 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %.sroa.61.3.i = phi i32 [ %243, %238 ], [ %229, %.lr.ph.i ]
   %.sroa.124.3.i = phi ptr [ %spec.store.select.i131.i, %238 ], [ %.sroa.124.2256.i, %.lr.ph.i ]
   %247 = getelementptr inbounds %struct.seqDef_s, ptr %8, i64 %.097257.i
-  %248 = getelementptr inbounds i8, ptr %247, i64 4
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 4
   %249 = load i16, ptr %248, align 4
   %250 = zext i8 %173 to i64
-  %251 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %250
+  %251 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %250
   %252 = load i32, ptr %251, align 4
   %253 = zext i16 %249 to i32
   %254 = and i32 %252, %253
@@ -755,10 +755,10 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %257 = shl i64 %255, %256
   %258 = or i64 %257, %.sroa.0152.3.i
   %259 = add nuw nsw i32 %.sroa.61.3.i, %174
-  %260 = getelementptr inbounds i8, ptr %247, i64 6
+  %260 = getelementptr inbounds nuw i8, ptr %247, i64 6
   %261 = load i16, ptr %260, align 2
   %262 = zext i8 %178 to i64
-  %263 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %262
+  %263 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %262
   %264 = load i32, ptr %263, align 4
   %265 = zext i16 %261 to i32
   %266 = and i32 %264, %265
@@ -774,7 +774,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %274 = lshr i32 %271, 3
   %275 = zext nneg i32 %274 to i64
   store i64 %270, ptr %.sroa.124.3.i, align 1
-  %276 = getelementptr inbounds i8, ptr %.sroa.124.3.i, i64 %275
+  %276 = getelementptr inbounds nuw i8, ptr %.sroa.124.3.i, i64 %275
   %277 = icmp ugt ptr %276, %14
   %spec.store.select.i132.i = select i1 %277, ptr %14, ptr %276
   %278 = and i32 %271, 7
@@ -800,7 +800,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %286 = add nsw i32 %175, -56
   %287 = load i32, ptr %247, align 4
   %288 = zext i32 %286 to i64
-  %289 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %288
+  %289 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %288
   %290 = load i32, ptr %289, align 4
   %291 = and i32 %290, %287
   %292 = zext i32 %291 to i64
@@ -811,7 +811,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %297 = lshr i32 %296, 3
   %298 = zext nneg i32 %297 to i64
   store i64 %295, ptr %.sroa.124.4.i, align 1
-  %299 = getelementptr inbounds i8, ptr %.sroa.124.4.i, i64 %298
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.124.4.i, i64 %298
   %300 = icmp ugt ptr %299, %14
   %spec.store.select.i133.i = select i1 %300, ptr %14, ptr %299
   %301 = and i32 %296, 7
@@ -828,7 +828,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %306 = load i32, ptr %247, align 4
   %307 = lshr i32 %306, %304
   %308 = zext nneg i32 %305 to i64
-  %309 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %308
+  %309 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %308
   %310 = load i32, ptr %309, align 4
   %311 = and i32 %307, %310
   %312 = zext i32 %311 to i64
@@ -840,7 +840,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
 
 317:                                              ; preds = %281
   %318 = load i32, ptr %247, align 4
-  %319 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %180
+  %319 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %180
   %320 = load i32, ptr %319, align 4
   %321 = and i32 %320, %318
   %322 = zext i32 %321 to i64
@@ -857,7 +857,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %328 = lshr i32 %.sroa.61.6.i, 3
   %329 = zext nneg i32 %328 to i64
   store i64 %.sroa.0152.6.i, ptr %.sroa.124.6.i, align 1
-  %330 = getelementptr inbounds i8, ptr %.sroa.124.6.i, i64 %329
+  %330 = getelementptr inbounds nuw i8, ptr %.sroa.124.6.i, i64 %329
   %331 = icmp ugt ptr %330, %14
   %spec.store.select.i134.i = select i1 %331, ptr %14, ptr %330
   %332 = shl nuw nsw i64 %329, 3
@@ -878,7 +878,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %.sroa.0140.0.lcssa.i = phi i64 [ %.sroa.0140.0253.i, %156 ], [ %.sroa.0140.0.i, %327 ]
   %.sroa.0146.0.lcssa.i = phi i64 [ %.sroa.0146.0254.i, %156 ], [ %.sroa.0146.0.i, %327 ]
   %336 = zext i16 %.val.i.i.i to i64
-  %337 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %336
+  %337 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %336
   %338 = load i32, ptr %337, align 4
   %339 = zext i32 %338 to i64
   %340 = and i64 %.sroa.0146.0.lcssa.i, %339
@@ -889,14 +889,14 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %345 = lshr i32 %344, 3
   %346 = zext nneg i32 %345 to i64
   store i64 %343, ptr %.sroa.124.2.lcssa.i, align 1
-  %347 = getelementptr inbounds i8, ptr %.sroa.124.2.lcssa.i, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr %.sroa.124.2.lcssa.i, i64 %346
   %348 = icmp ugt ptr %347, %14
   %spec.store.select.i.i.i = select i1 %348, ptr %14, ptr %347
   %349 = and i32 %344, 7
   %350 = shl nuw nsw i64 %346, 3
   %351 = lshr i64 %343, %350
   %352 = zext i16 %.val.i.i111.i to i64
-  %353 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %352
+  %353 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %352
   %354 = load i32, ptr %353, align 4
   %355 = zext i32 %354 to i64
   %356 = and i64 %.sroa.0140.0.lcssa.i, %355
@@ -907,14 +907,14 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %361 = lshr i32 %360, 3
   %362 = zext nneg i32 %361 to i64
   store i64 %359, ptr %spec.store.select.i.i.i, align 1
-  %363 = getelementptr inbounds i8, ptr %spec.store.select.i.i.i, i64 %362
+  %363 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i.i, i64 %362
   %364 = icmp ugt ptr %363, %14
   %spec.store.select.i.i135.i = select i1 %364, ptr %14, ptr %363
   %365 = and i32 %360, 7
   %366 = shl nuw nsw i64 %362, 3
   %367 = lshr i64 %359, %366
   %368 = zext i16 %.val.i.i116.i to i64
-  %369 = getelementptr inbounds [32 x i32], ptr @BIT_mask, i64 0, i64 %368
+  %369 = getelementptr inbounds nuw [32 x i32], ptr @BIT_mask, i64 0, i64 %368
   %370 = load i32, ptr %369, align 4
   %371 = zext i32 %370 to i64
   %372 = and i64 %.sroa.0.0.lcssa.i, %371
@@ -925,7 +925,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %377 = lshr i32 %376, 3
   %378 = zext nneg i32 %377 to i64
   store i64 %375, ptr %spec.store.select.i.i135.i, align 1
-  %379 = getelementptr inbounds i8, ptr %spec.store.select.i.i135.i, i64 %378
+  %379 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i135.i, i64 %378
   %380 = icmp ugt ptr %379, %14
   %spec.store.select.i.i136.i = select i1 %380, ptr %14, ptr %379
   %381 = and i32 %376, 7
@@ -938,7 +938,7 @@ define dso_local range(i64 1, 0) i64 @ZSTD_encodeSequences(ptr noundef %0, i64 n
   %388 = lshr i32 %387, 3
   %389 = zext nneg i32 %388 to i64
   store i64 %386, ptr %spec.store.select.i.i136.i, align 1
-  %390 = getelementptr inbounds i8, ptr %spec.store.select.i.i136.i, i64 %389
+  %390 = getelementptr inbounds nuw i8, ptr %spec.store.select.i.i136.i, i64 %389
   %391 = icmp ugt ptr %390, %14
   %spec.store.select.i.i137.i = select i1 %391, ptr %14, ptr %390
   %.not.i.i = icmp ult ptr %spec.store.select.i.i137.i, %14

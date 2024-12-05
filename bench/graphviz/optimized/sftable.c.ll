@@ -22,7 +22,7 @@ define internal noundef ptr @sffmtint(ptr noundef readonly %0, ptr nocapture nou
   %9 = mul nsw i32 %7, 10
   %10 = add nsw i32 %9, %8
   store i32 %10, ptr %1, align 4
-  %11 = getelementptr inbounds i8, ptr %.08, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.08, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = sext i8 %12 to i32
   %14 = add nsw i32 %13, -48

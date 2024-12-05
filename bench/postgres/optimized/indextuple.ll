@@ -39,7 +39,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr nocapture nou
   br i1 %10, label %.lr.ph, label %.split72
 
 .lr.ph:                                           ; preds = %.preheader81
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %8 to i64
   br label %16
 
@@ -70,7 +70,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr nocapture nou
   br i1 %24, label %53, label %25
 
 25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %17, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 72
   %27 = load i16, ptr %26, align 4
   %.not79 = icmp eq i16 %27, -1
   br i1 %.not79, label %28, label %53
@@ -103,7 +103,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr nocapture nou
   br i1 %42, label %43, label %53
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds i8, ptr %17, i64 88
+  %44 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %45 = load i8, ptr %44, align 4
   switch i8 %45, label %53 [
     i8 120, label %46
@@ -111,7 +111,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr nocapture nou
   ]
 
 46:                                               ; preds = %43, %43
-  %47 = getelementptr inbounds i8, ptr %17, i64 89
+  %47 = getelementptr inbounds nuw i8, ptr %17, i64 89
   %48 = load i8, ptr %47, align 1
   %49 = tail call i64 @toast_compress_datum(i64 noundef %37, i8 noundef signext %48) #8
   %.not80 = icmp eq i64 %49, 0
@@ -203,7 +203,7 @@ define dso_local ptr @index_form_tuple_context(ptr noundef %0, ptr nocapture nou
   %81 = trunc nuw i64 %61 to i16
   %spec.select = or disjoint i16 %.069, %81
   %82 = or disjoint i16 %spec.select, %80
-  %83 = getelementptr inbounds i8, ptr %62, i64 6
+  %83 = getelementptr inbounds nuw i8, ptr %62, i64 6
   store i16 %82, ptr %83, align 2
   ret ptr %62
 }
@@ -234,7 +234,7 @@ declare void @heap_fill_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 6
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %5 = load i16, ptr %4, align 2
   %.not.i = icmp sgt i16 %5, -1
   %..i = select i1 %.not.i, i64 8, i64 16
@@ -281,10 +281,10 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 .loopexit181:                                     ; preds = %16, %.preheader180, %3
   %.0138 = phi ptr [ null, %3 ], [ %8, %.preheader180 ], [ %8, %16 ]
   %20 = getelementptr i8, ptr %0, i64 %..i
-  %21 = getelementptr inbounds i8, ptr %2, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = sext i32 %6 to i64
   %23 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %21, i64 0, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 76
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 76
   %25 = load i32, ptr %24, align 4
   %26 = icmp sgt i32 %25, -1
   br i1 %26, label %27, label %53
@@ -292,10 +292,10 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 27:                                               ; preds = %.loopexit181
   %28 = zext nneg i32 %25 to i64
   %29 = getelementptr i8, ptr %20, i64 %28
-  %30 = getelementptr inbounds i8, ptr %23, i64 86
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 86
   %31 = load i8, ptr %30, align 2
   %32 = trunc i8 %31 to i1
-  %33 = getelementptr inbounds i8, ptr %23, i64 72
+  %33 = getelementptr inbounds nuw i8, ptr %23, i64 72
   %34 = load i16, ptr %33, align 4
   br i1 %32, label %35, label %51
 
@@ -365,13 +365,13 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 .preheader:                                       ; preds = %.lr.ph185, %.thread
   %.ph = phi ptr [ %19, %.thread ], [ %20, %.lr.ph185 ]
   %.0138171.ph = phi ptr [ %8, %.thread ], [ %.0138, %.lr.ph185 ]
-  %60 = getelementptr inbounds i8, ptr %2, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %61 = getelementptr i8, ptr %0, i64 %..i
   br label %108
 
 .thread172:                                       ; preds = %55, %.preheader178, %53
   %62 = load i32, ptr %2, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 24
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %64 = getelementptr i8, ptr %2, i64 100
   store i32 0, ptr %64, align 4
   %65 = icmp sgt i32 %62, 1
@@ -407,9 +407,9 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %71 = add nsw i32 %.0136.lcssa, -1
   %72 = sext i32 %71 to i64
   %73 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %63, i64 0, i64 %72
-  %74 = getelementptr inbounds i8, ptr %73, i64 76
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 76
   %75 = load i32, ptr %74, align 4
-  %76 = getelementptr inbounds i8, ptr %73, i64 72
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 72
   %77 = load i16, ptr %76, align 8
   %78 = sext i16 %77 to i32
   %79 = add i32 %75, %78
@@ -420,13 +420,13 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %indvars.iv205 = phi i64 [ %80, %.lr.ph197.preheader ], [ %indvars.iv.next206, %97 ]
   %.0143195 = phi i32 [ %79, %.lr.ph197.preheader ], [ %101, %97 ]
   %81 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %63, i64 0, i64 %indvars.iv205
-  %82 = getelementptr inbounds i8, ptr %81, i64 72
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 72
   %83 = load i16, ptr %82, align 4
   %84 = icmp slt i16 %83, 1
   br i1 %84, label %._crit_edge, label %85
 
 85:                                               ; preds = %.lr.ph197
-  %86 = getelementptr inbounds i8, ptr %81, i64 87
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 87
   %87 = load i8, ptr %86, align 1
   switch i8 %87, label %94 [
     i8 105, label %88
@@ -451,7 +451,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 97:                                               ; preds = %85, %94, %91, %88
   %98 = phi i32 [ %90, %88 ], [ %93, %91 ], [ %96, %94 ], [ %.0143195, %85 ]
-  %99 = getelementptr inbounds i8, ptr %81, i64 76
+  %99 = getelementptr inbounds nuw i8, ptr %81, i64 76
   store i32 %98, ptr %99, align 4
   %100 = zext nneg i16 %83 to i32
   %101 = add i32 %98, %100
@@ -495,19 +495,19 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %122, label %123, label %.thread175
 
 123:                                              ; preds = %121
-  %124 = getelementptr inbounds i8, ptr %111, i64 76
+  %124 = getelementptr inbounds nuw i8, ptr %111, i64 76
   %125 = load i32, ptr %124, align 4
   %126 = icmp sgt i32 %125, -1
   br i1 %126, label %174, label %127
 
 127:                                              ; preds = %123
-  %128 = getelementptr inbounds i8, ptr %111, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %129 = load i16, ptr %128, align 4
   %130 = icmp eq i16 %129, -1
   br i1 %130, label %134, label %158
 
 .thread175:                                       ; preds = %121
-  %131 = getelementptr inbounds i8, ptr %111, i64 72
+  %131 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %132 = load i16, ptr %131, align 4
   %133 = icmp eq i16 %132, -1
   br i1 %133, label %.thread175..thread176_crit_edge, label %158
@@ -518,7 +518,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
 
 134:                                              ; preds = %127
   %135 = sext i32 %.2145 to i64
-  %136 = getelementptr inbounds i8, ptr %111, i64 87
+  %136 = getelementptr inbounds nuw i8, ptr %111, i64 87
   %137 = load i8, ptr %136, align 1
   switch i8 %137, label %139 [
     i8 105, label %140
@@ -552,7 +552,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not163, label %146, label %174
 
 146:                                              ; preds = %.thread176
-  %147 = getelementptr inbounds i8, ptr %111, i64 87
+  %147 = getelementptr inbounds nuw i8, ptr %111, i64 87
   %148 = load i8, ptr %147, align 1
   switch i8 %148, label %155 [
     i8 105, label %149
@@ -576,7 +576,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br label %174
 
 158:                                              ; preds = %.thread175, %127
-  %159 = getelementptr inbounds i8, ptr %111, i64 87
+  %159 = getelementptr inbounds nuw i8, ptr %111, i64 87
   %160 = load i8, ptr %159, align 1
   switch i8 %160, label %167 [
     i8 105, label %161
@@ -604,7 +604,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %122, label %172, label %174
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %111, i64 76
+  %173 = getelementptr inbounds nuw i8, ptr %111, i64 76
   store i32 %171, ptr %173, align 4
   br label %174
 
@@ -615,7 +615,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %175, label %.loopexit.loopexit, label %176
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds i8, ptr %111, i64 72
+  %177 = getelementptr inbounds nuw i8, ptr %111, i64 72
   %178 = load i16, ptr %177, align 4
   %179 = icmp sgt i16 %178, 0
   br i1 %179, label %180, label %184
@@ -639,7 +639,7 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %191, label %192, label %201
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %187, i64 1
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 1
   %194 = load i8, ptr %193, align 1
   %195 = icmp eq i8 %194, 1
   %196 = and i8 %194, -2
@@ -708,12 +708,12 @@ define dso_local i64 @nocache_index_getattr(ptr noundef %0, i32 noundef %1, ptr 
   %.1144 = phi i32 [ %.4, %.loopexit.loopexit ], [ %107, %._crit_edge ]
   %227 = sext i32 %.1144 to i64
   %228 = getelementptr i8, ptr %226, i64 %227
-  %229 = getelementptr inbounds i8, ptr %2, i64 24
+  %229 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %230 = getelementptr [0 x %struct.FormData_pg_attribute], ptr %229, i64 0, i64 %.pre-phi
-  %231 = getelementptr inbounds i8, ptr %230, i64 86
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 86
   %232 = load i8, ptr %231, align 2
   %233 = trunc i8 %232 to i1
-  %234 = getelementptr inbounds i8, ptr %230, i64 72
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 72
   %235 = load i16, ptr %234, align 8
   br i1 %233, label %236, label %252
 
@@ -767,7 +767,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 ; Function Attrs: nounwind uwtable
 define dso_local void @index_deform_tuple(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %7 = load i16, ptr %6, align 2
   %.not.i = icmp sgt i16 %7, -1
   %..i = select i1 %.not.i, i64 8, i64 16
@@ -785,7 +785,7 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br i1 %8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq i32 %5, 0
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %10
@@ -823,13 +823,13 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br i1 %.07896, label %31, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %11, i64 76
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 76
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, -1
   br i1 %30, label %79, label %.thread
 
 31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %11, i64 72
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, -1
   br i1 %34, label %._crit_edge99, label %63
@@ -839,14 +839,14 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br label %48
 
 .thread:                                          ; preds = %27
-  %35 = getelementptr inbounds i8, ptr %11, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %36 = load i16, ptr %35, align 4
   %37 = icmp eq i16 %36, -1
   br i1 %37, label %38, label %63
 
 38:                                               ; preds = %.thread
   %39 = sext i32 %.07995 to i64
-  %40 = getelementptr inbounds i8, ptr %11, i64 87
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 87
   %41 = load i8, ptr %40, align 1
   switch i8 %41, label %43 [
     i8 105, label %44
@@ -880,7 +880,7 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br i1 %.not90, label %51, label %79
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %11, i64 87
+  %52 = getelementptr inbounds nuw i8, ptr %11, i64 87
   %53 = load i8, ptr %52, align 1
   switch i8 %53, label %60 [
     i8 105, label %54
@@ -904,7 +904,7 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br label %79
 
 63:                                               ; preds = %.thread, %31
-  %64 = getelementptr inbounds i8, ptr %11, i64 87
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 87
   %65 = load i8, ptr %64, align 1
   switch i8 %65, label %72 [
     i8 105, label %66
@@ -932,7 +932,7 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   br i1 %.07896, label %79, label %77
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %11, i64 76
+  %78 = getelementptr inbounds nuw i8, ptr %11, i64 76
   store i32 %76, ptr %78, align 4
   br label %79
 
@@ -941,10 +941,10 @@ define dso_local void @index_deform_tuple_internal(ptr nocapture noundef %0, ptr
   %.2 = phi i1 [ false, %.thread94 ], [ true, %75 ], [ false, %77 ], [ false, %27 ], [ true, %54 ], [ true, %57 ], [ true, %60 ], [ true, %48 ], [ true, %51 ]
   %80 = sext i32 %.281 to i64
   %81 = getelementptr i8, ptr %3, i64 %80
-  %82 = getelementptr inbounds i8, ptr %11, i64 86
+  %82 = getelementptr inbounds nuw i8, ptr %11, i64 86
   %83 = load i8, ptr %82, align 2
   %84 = trunc i8 %83 to i1
-  %85 = getelementptr inbounds i8, ptr %11, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %11, i64 72
   br i1 %84, label %86, label %103
 
 86:                                               ; preds = %79
@@ -1012,7 +1012,7 @@ fetch_att.exit:                                   ; preds = %88, %91, %94, %97, 
   br i1 %117, label %118, label %127
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds i8, ptr %81, i64 1
+  %119 = getelementptr inbounds nuw i8, ptr %81, i64 1
   %120 = load i8, ptr %119, align 1
   %121 = icmp eq i8 %120, 1
   %122 = and i8 %120, -2
@@ -1073,7 +1073,7 @@ fetch_att.exit:                                   ; preds = %88, %91, %94, %97, 
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @CopyIndexTuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 6
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 8191
   %5 = zext nneg i16 %4 to i64
@@ -1096,7 +1096,7 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %7, label %8, label %14
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 6
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8191
   %12 = zext nneg i16 %11 to i64
@@ -1112,7 +1112,7 @@ define dso_local ptr @index_truncate_tuple(ptr noundef %0, ptr noundef %1, i32 n
   tail call void @TupleDescCopy(ptr noundef %18, ptr noundef nonnull %0) #8
   store i32 %2, ptr %18, align 8
   %19 = getelementptr i8, ptr %1, i64 8
-  %20 = getelementptr inbounds i8, ptr %1, i64 6
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %21 = load i16, ptr %20, align 2
   %.not.i.i = icmp sgt i16 %21, -1
   %..i.i = select i1 %.not.i.i, i64 8, i64 16

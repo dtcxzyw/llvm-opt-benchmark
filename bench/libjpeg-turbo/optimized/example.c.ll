@@ -49,7 +49,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   unreachable
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 @strcasecmp(ptr noundef %15, ptr noundef nonnull @.str) #11
   %.not.not = icmp eq i32 %16, 0
@@ -78,7 +78,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   br i1 %.not47, label %25, label %66
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %23, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %27 = call i32 @strncasecmp(ptr noundef nonnull %26, ptr noundef nonnull @.str.2, i64 noundef 1) #11
   %.not48 = icmp eq i32 %27, 0
   br i1 %.not48, label %28, label %43
@@ -182,7 +182,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 74:                                               ; preds = %68
   %75 = load ptr, ptr %4, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   store i32 37, ptr %76, align 8
   %77 = load ptr, ptr %75, align 8
   call void %77(ptr noundef nonnull %4) #12
@@ -190,38 +190,38 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 78:                                               ; preds = %74, %68
   call void @jpeg_stdio_dest(ptr noundef nonnull %4, ptr noundef %72) #12
-  %79 = getelementptr inbounds i8, ptr %4, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i32 640, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %4, i64 52
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 52
   store i32 480, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %4, i64 56
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 3, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %4, i64 60
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 60
   store i32 2, ptr %82, align 4
-  %83 = getelementptr inbounds i8, ptr %4, i64 72
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store i32 %70, ptr %83, align 8
   call void @jpeg_set_defaults(ptr noundef nonnull %4) #12
   call void @jpeg_set_quality(ptr noundef nonnull %4, i32 noundef %69, i32 noundef 1) #12
-  %84 = getelementptr inbounds i8, ptr %4, i64 88
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 12
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   store i32 1, ptr %86, align 4
   %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   store i32 1, ptr %88, align 8
   call void @jpeg_start_compress(ptr noundef nonnull %4, i32 noundef 1) #12
   %89 = load i32, ptr %83, align 8
   %90 = icmp eq i32 %89, 12
-  %91 = getelementptr inbounds i8, ptr %4, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
   %95 = call ptr %94(ptr noundef nonnull %4, i32 noundef 1, i32 noundef 1920, i32 noundef 480) #12
   br i1 %90, label %.preheader50.i, label %.preheader52.i
 
 .preheader50.i:                                   ; preds = %78, %117
   %indvars.iv70.i = phi i64 [ %indvars.iv.next71.i, %117 ], [ 0, %78 ]
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv70.i
+  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv70.i
   %indvars.iv70.tr.i = trunc i64 %indvars.iv70.i to i32
   %97 = shl i32 %indvars.iv70.tr.i, 12
   %98 = udiv i32 %97, 480
@@ -237,18 +237,18 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %104 = trunc nuw i32 %103 to i16
   %105 = load ptr, ptr %96, align 8
   %106 = mul nuw nsw i64 %indvars.iv66.i, 3
-  %107 = getelementptr inbounds i16, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw i16, ptr %105, i64 %106
   store i16 %104, ptr %107, align 2
   %108 = load ptr, ptr %96, align 8
-  %109 = getelementptr inbounds i16, ptr %108, i64 %106
-  %110 = getelementptr inbounds i8, ptr %109, i64 2
+  %109 = getelementptr inbounds nuw i16, ptr %108, i64 %106
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 2
   store i16 %100, ptr %110, align 2
   %111 = add nuw nsw i32 %103, %98
   %112 = trunc nuw i32 %111 to i16
   %113 = and i16 %112, 4095
   %114 = load ptr, ptr %96, align 8
-  %115 = getelementptr inbounds i16, ptr %114, i64 %106
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
+  %115 = getelementptr inbounds nuw i16, ptr %114, i64 %106
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   store i16 %113, ptr %116, align 2
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, 640
@@ -261,7 +261,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 
 .preheader52.i:                                   ; preds = %78, %137
   %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %137 ], [ 0, %78 ]
-  %118 = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv62.i
+  %118 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv62.i
   %indvars.iv62.tr.i = trunc i64 %indvars.iv62.i to i32
   %119 = shl i32 %indvars.iv62.tr.i, 8
   %120 = udiv i32 %119, 480
@@ -276,17 +276,17 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %125 = trunc i32 %124 to i8
   %126 = load ptr, ptr %118, align 8
   %127 = mul nuw nsw i64 %indvars.iv.i, 3
-  %128 = getelementptr inbounds i8, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
   store i8 %125, ptr %128, align 1
   %129 = load ptr, ptr %118, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 %127
-  %131 = getelementptr inbounds i8, ptr %130, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 %127
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
   store i8 %121, ptr %131, align 1
   %132 = add nuw nsw i32 %124, %120
   %133 = trunc i32 %132 to i8
   %134 = load ptr, ptr %118, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 %127
-  %136 = getelementptr inbounds i8, ptr %135, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 %127
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   store i8 %133, ptr %136, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 640
@@ -302,7 +302,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
   %.044.i = phi ptr [ null, %117 ], [ %95, %137 ]
   %138 = load i32, ptr %83, align 8
   %139 = icmp eq i32 %138, 12
-  %140 = getelementptr inbounds i8, ptr %4, i64 304
+  %140 = getelementptr inbounds nuw i8, ptr %4, i64 304
   %141 = load i32, ptr %140, align 8
   %142 = load i32, ptr %80, align 4
   %143 = icmp ult i32 %141, %142
@@ -317,7 +317,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 .lr.ph58.i:                                       ; preds = %.preheader.i, %.lr.ph58.i
   %144 = phi i32 [ %149, %.lr.ph58.i ], [ %141, %.preheader.i ]
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds ptr, ptr %.045.i, i64 %145
+  %146 = getelementptr inbounds nuw ptr, ptr %.045.i, i64 %145
   %147 = load ptr, ptr %146, align 8
   store ptr %147, ptr %7, align 8
   %148 = call i32 @jpeg12_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %7, i32 noundef 1) #12
@@ -329,7 +329,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonl
 .lr.ph.i:                                         ; preds = %.preheader48.i, %.lr.ph.i
   %152 = phi i32 [ %157, %.lr.ph.i ], [ %141, %.preheader48.i ]
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds ptr, ptr %.044.i, i64 %153
+  %154 = getelementptr inbounds nuw ptr, ptr %.044.i, i64 %153
   %155 = load ptr, ptr %154, align 8
   store ptr %155, ptr %6, align 8
   %156 = call i32 @jpeg_write_scanlines(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 1) #12
@@ -458,7 +458,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   %18 = call ptr @jpeg_std_error(ptr noundef nonnull %4) #12
   store ptr %18, ptr %0, align 8
   store ptr @my_error_exit, ptr %4, align 8
-  %19 = getelementptr inbounds i8, ptr %4, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %20 = call i32 @_setjmp(ptr noundef nonnull %19) #16
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %24, label %21
@@ -473,31 +473,31 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
   call void @jpeg_CreateDecompress(ptr noundef nonnull %0, i32 noundef 62, i64 noundef 632) #12
   call void @jpeg_stdio_src(ptr noundef nonnull %0, ptr noundef nonnull %5) #12
   %25 = call i32 @jpeg_read_header(ptr noundef nonnull %0, i32 noundef 1) #12
-  %26 = getelementptr inbounds i8, ptr %0, i64 296
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 12
   %29 = select i1 %28, i32 4095, i32 255
   %30 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.15, i32 noundef 640, i32 noundef 480, i32 noundef %29) #12
   %31 = call i32 @jpeg_start_decompress(ptr noundef nonnull %0) #12
-  %32 = getelementptr inbounds i8, ptr %0, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %33 = load i32, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 148
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %35 = load i32, ptr %34, align 4
   %36 = mul i32 %35, %33
   %.fr63 = freeze i32 %36
   %37 = load i32, ptr %26, align 8
   %38 = icmp eq i32 %37, 12
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = call ptr %42(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.fr63, i32 noundef 1) #12
   %. = select i1 %38, ptr %43, ptr null
   %.69 = select i1 %38, ptr null, ptr %43
   %44 = load i32, ptr %26, align 8
   %45 = icmp eq i32 %44, 12
-  %46 = getelementptr inbounds i8, ptr %0, i64 168
-  %47 = getelementptr inbounds i8, ptr %0, i64 140
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %48 = load i32, ptr %46, align 8
   %49 = load i32, ptr %47, align 4
   %50 = icmp ult i32 %48, %49
@@ -530,7 +530,7 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
 56:                                               ; preds = %.lr.ph61.us, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph61.us ], [ %indvars.iv.next, %56 ]
   %57 = load ptr, ptr %., align 8
-  %58 = getelementptr inbounds i16, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv
   %59 = load i16, ptr %58, align 2
   %rev.us = call i16 @llvm.bswap.i16(i16 %59)
   store i16 %rev.us, ptr %58, align 2
@@ -578,10 +578,10 @@ define internal fastcc void @do_read_JPEG_file(ptr noundef nonnull %0, ptr nound
 ; Function Attrs: noreturn nounwind uwtable
 define internal void @my_error_exit(ptr noundef %0) #6 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void %4(ptr noundef nonnull %0) #12
-  %5 = getelementptr inbounds i8, ptr %2, i64 168
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %5, i32 noundef 1) #17
   unreachable
 }

@@ -117,10 +117,10 @@ define internal fastcc i32 @dissect_tivoconnect(ptr noundef %0, ptr nocapture no
 
 6:                                                ; preds = %4
   %7 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @tvb_get_string_enc(ptr noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %7, i32 noundef 0) #4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_set_str(ptr noundef %12, i32 noundef 34, ptr noundef nonnull @.str.22) #4
   %.not96 = icmp eq i32 %3, 0

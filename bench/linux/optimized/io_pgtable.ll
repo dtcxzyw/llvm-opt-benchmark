@@ -31,12 +31,12 @@ define dso_local void @amd_iommu_domain_set_pgtable(ptr nocapture noundef writeo
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -4096
   %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds i8, ptr %0, i64 400
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store ptr %6, ptr %7, align 8
   %8 = trunc i64 %4 to i32
   %9 = or i32 %2, %8
   %10 = and i32 %9, 7
-  %11 = getelementptr inbounds i8, ptr %0, i64 392
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
   store i32 %10, ptr %11, align 8
   ret void
 }
@@ -48,23 +48,23 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal ptr @v1_alloc_pgtable(ptr noundef writeonly initializes((8, 24), (32, 40), (224, 256)) %0, ptr nocapture readnone %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+define internal nonnull ptr @v1_alloc_pgtable(ptr noundef writeonly initializes((8, 24), (32, 40), (224, 256)) %0, ptr nocapture readnone %1) #0 align 16 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -549755817984, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 52, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 52, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @v1_flush_ops, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  %8 = getelementptr inbounds i8, ptr %0, i64 224
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr @iommu_v1_map_pages, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 232
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr @iommu_v1_unmap_pages, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 240
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr @iommu_v1_iova_to_phys, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 248
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr @iommu_v1_read_and_clear_dirty, ptr %11, align 8
   ret ptr %7
 }
@@ -74,7 +74,7 @@ define internal void @v1_free_pgtable(ptr noundef %0) #2 align 16 {
   %2 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #11
   store ptr %2, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %2, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 152
   %5 = load i32, ptr %4, align 8
@@ -113,7 +113,7 @@ define internal void @v1_free_pgtable(ptr noundef %0) #2 align 16 {
   %26 = getelementptr %struct.page, ptr %16, i64 %25, i32 1
   store ptr %26, ptr %3, align 8
   store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %2, ptr %27, align 8
   store volatile ptr %26, ptr %2, align 8
   br label %29
@@ -142,7 +142,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %12 = getelementptr i8, ptr %0, i64 -360
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #11
   store ptr %11, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %11, ptr %13, align 8
   %14 = call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %3) #12
   %15 = shl i64 %4, %14
@@ -551,7 +551,7 @@ define internal noundef range(i32 -22, 1) i32 @iommu_v1_map_pages(ptr noundef %0
   %284 = load ptr, ptr %13, align 8
   store ptr %283, ptr %13, align 8
   store ptr %11, ptr %283, align 8
-  %285 = getelementptr inbounds i8, ptr %283, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr %284, ptr %285, align 8
   store volatile ptr %283, ptr %284, align 8
   br label %286
@@ -884,7 +884,7 @@ define internal noundef i32 @iommu_v1_read_and_clear_dirty(ptr nocapture noundef
   %7 = add i64 %6, %2
   %8 = and i64 %3, 1
   %.not = icmp eq i64 %8, 0
-  %9 = getelementptr inbounds i8, ptr %4, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr i8, ptr %0, i64 32
   %11 = getelementptr i8, ptr %0, i64 40
   br label %12
@@ -1045,7 +1045,7 @@ fetch_pte.exit:                                   ; preds = %.loopexit2.i, %59
   br label %110
 
 110:                                              ; preds = %109, %104
-  %111 = getelementptr inbounds i8, ptr %102, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %112 = load i64, ptr %111, align 8
   %113 = icmp ult i64 %112, %106
   br i1 %113, label %114, label %.thread
@@ -1115,7 +1115,7 @@ declare dso_local void @dump_stack() local_unnamed_addr #8
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
 define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #9 align 16 {
   %4 = icmp sgt i32 %2, 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = add nsw i32 %2, -1
   br i1 %4, label %.split.us, label %.split
 
@@ -1181,7 +1181,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %45 = load ptr, ptr %5, align 8
   store ptr %44, ptr %5, align 8
   store ptr %1, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %45, ptr %46, align 8
   store volatile ptr %44, ptr %45, align 8
   br label %47
@@ -1207,7 +1207,7 @@ define internal fastcc void @free_pt_lvl(ptr noundef %0, ptr noundef %1, i32 nou
   %62 = load ptr, ptr %5, align 8
   store ptr %61, ptr %5, align 8
   store ptr %1, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store ptr %62, ptr %63, align 8
   store volatile ptr %61, ptr %62, align 8
   ret void

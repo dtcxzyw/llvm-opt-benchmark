@@ -73,7 +73,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiii(ptr dead_on_unwind noalias writa
   %6 = alloca %"class.ncnn::Mat", align 8
   %7 = mul nsw i32 %3, %2
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   call void %10(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %7, i32 noundef %4)
   %11 = load ptr, ptr %6, align 8
@@ -166,7 +166,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiii(ptr dead_on_unwind noalias writa
 
 62:                                               ; preds = %58
   %63 = load ptr, ptr %60, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 24
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load ptr, ptr %64, align 8
   invoke void %65(ptr noundef nonnull align 8 dereferenceable(8) %60, ptr noundef %61)
           to label %68 unwind label %69
@@ -213,7 +213,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiii(ptr dead_on_unwind noalias writa
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %81, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 24
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %86 = load ptr, ptr %85, align 8
   invoke void %86(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef %82)
           to label %89 unwind label %90
@@ -247,7 +247,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiii(ptr dead_on_unwind noalias writ
   %8 = mul nsw i32 %3, %2
   %9 = mul nsw i32 %8, %4
   %10 = load ptr, ptr %1, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
   call void %12(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %9, i32 noundef %5)
   %13 = load ptr, ptr %7, align 8
@@ -340,7 +340,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiii(ptr dead_on_unwind noalias writ
 
 64:                                               ; preds = %60
   %65 = load ptr, ptr %62, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %66, align 8
   invoke void %67(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef %63)
           to label %70 unwind label %71
@@ -387,7 +387,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiii(ptr dead_on_unwind noalias writ
 
 85:                                               ; preds = %81
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = load ptr, ptr %87, align 8
   invoke void %88(ptr noundef nonnull align 8 dereferenceable(8) %83, ptr noundef %84)
           to label %91 unwind label %92
@@ -420,7 +420,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiiii(ptr dead_on_unwind noalias wri
   %10 = mul nsw i32 %9, %4
   %11 = mul nsw i32 %10, %5
   %12 = load ptr, ptr %1, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   call void %14(ptr dead_on_unwind nonnull writable sret(%"class.ncnn::Mat") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %11, i32 noundef %6)
   %15 = load ptr, ptr %8, align 8
@@ -513,7 +513,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiiii(ptr dead_on_unwind noalias wri
 
 66:                                               ; preds = %62
   %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   invoke void %69(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef %65)
           to label %72 unwind label %73
@@ -560,7 +560,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiiii(ptr dead_on_unwind noalias wri
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %85, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load ptr, ptr %89, align 8
   invoke void %90(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef %86)
           to label %93 unwind label %94
@@ -680,7 +680,7 @@ define hidden void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = invoke noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %6, i64 noundef 4)
           to label %33 unwind label %40
@@ -723,7 +723,7 @@ define hidden void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind
   %49 = load ptr, ptr %26, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8
   %54 = invoke noundef i64 %53(ptr noundef nonnull align 8 dereferenceable(8) %50, i64 noundef %48, ptr noundef nonnull %7)
           to label %55 unwind label %40
@@ -765,7 +765,7 @@ define hidden void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind
 
 72:                                               ; preds = %69
   %73 = load ptr, ptr %70, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 24
   %75 = load ptr, ptr %74, align 8
   invoke void %75(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef %71)
           to label %78 unwind label %115
@@ -826,7 +826,7 @@ define hidden void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %103, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %108 = load ptr, ptr %107, align 8
   invoke void %108(ptr noundef nonnull align 8 dereferenceable(8) %103, ptr noundef %104)
           to label %111 unwind label %112
@@ -873,7 +873,7 @@ define hidden void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind
 
 125:                                              ; preds = %121
   %126 = load ptr, ptr %123, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 24
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = load ptr, ptr %127, align 8
   invoke void %128(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef %124)
           to label %131 unwind label %134
@@ -926,7 +926,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i:  ; preds = %138
   %143 = getelementptr i8, ptr %142, i64 2
   %144 = add nsw i64 %141, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %143, i8 0, i64 %144, i1 false)
-  %145 = getelementptr inbounds i16, ptr %142, i64 %48
+  %145 = getelementptr inbounds nuw i16, ptr %142, i64 %48
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %.noexc, %137
@@ -935,7 +935,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %.noexc, %137
   %146 = load ptr, ptr %26, align 8
   %147 = load ptr, ptr %146, align 8
   %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8
   %151 = invoke noundef i64 %150(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull %.sroa.0798.2, i64 noundef %48)
           to label %152 unwind label %159
@@ -995,7 +995,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %.noexc, %137
 
 175:                                              ; preds = %172
   %176 = load ptr, ptr %173, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 24
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 24
   %178 = load ptr, ptr %177, align 8
   invoke void %178(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef %174)
           to label %181 unwind label %223
@@ -1056,7 +1056,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %.noexc, %137
 
 208:                                              ; preds = %205
   %209 = load ptr, ptr %206, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %211 = load ptr, ptr %210, align 8
   invoke void %211(ptr noundef nonnull align 8 dereferenceable(8) %206, ptr noundef %207)
           to label %214 unwind label %215
@@ -1117,7 +1117,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %218, %219
 
 233:                                              ; preds = %229
   %234 = load ptr, ptr %231, align 8
-  %235 = getelementptr inbounds i8, ptr %234, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %236 = load ptr, ptr %235, align 8
   invoke void %236(ptr noundef nonnull align 8 dereferenceable(8) %231, ptr noundef %232)
           to label %239 unwind label %242
@@ -1207,7 +1207,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %218, %219
   %278 = load ptr, ptr %26, align 8
   %279 = load ptr, ptr %278, align 8
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr inbounds i8, ptr %280, i64 32
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
   %282 = load ptr, ptr %281, align 8
   %283 = invoke noundef i64 %282(ptr noundef nonnull align 8 dereferenceable(8) %279, i64 noundef %277, ptr noundef nonnull %10)
           to label %284 unwind label %40
@@ -1235,7 +1235,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %218, %219
 
 295:                                              ; preds = %292
   %296 = load ptr, ptr %293, align 8
-  %297 = getelementptr inbounds i8, ptr %296, i64 24
+  %297 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %298 = load ptr, ptr %297, align 8
   invoke void %298(ptr noundef nonnull align 8 dereferenceable(8) %293, ptr noundef %294)
           to label %301 unwind label %302
@@ -1289,9 +1289,9 @@ _ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i: ; preds = %305
 _ZNSt12_Vector_baseIaSaIaEE13_M_deallocateEPam.exit34.i.i: ; preds = %_ZNKSt6vectorIaSaIaEE12_M_check_lenEmPKc.exit.i.i
   store i8 0, ptr %308, align 1
   %309 = add nsw i64 %277, -1
-  %310 = getelementptr inbounds i8, ptr %308, i64 1
+  %310 = getelementptr inbounds nuw i8, ptr %308, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %310, i8 0, i64 %309, i1 false)
-  %311 = getelementptr inbounds i8, ptr %308, i64 %277
+  %311 = getelementptr inbounds nuw i8, ptr %308, i64 %277
   %312 = ptrtoint ptr %311 to i64
   br label %_ZNSt6vectorIaSaIaEE6resizeEm.exit
 
@@ -1301,7 +1301,7 @@ _ZNSt6vectorIaSaIaEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %313 = load ptr, ptr %26, align 8
   %314 = load ptr, ptr %313, align 8
   %315 = load ptr, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %315, i64 24
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 24
   %317 = load ptr, ptr %316, align 8
   %318 = invoke noundef i64 %317(ptr noundef nonnull align 8 dereferenceable(8) %314, ptr noundef nonnull %.sroa.0767.1, i64 noundef %277)
           to label %319 unwind label %326
@@ -1449,7 +1449,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit692:                 ; preds = %358, %357, %301
   %387 = sext i32 %2 to i64
   %388 = shl nsw i64 %387, 2
   %389 = load ptr, ptr %386, align 8
-  %390 = getelementptr inbounds i8, ptr %389, i64 32
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 32
   %391 = load ptr, ptr %390, align 8
   %392 = invoke noundef i64 %391(ptr noundef nonnull align 8 dereferenceable(8) %386, i64 noundef %388, ptr noundef nonnull %11)
           to label %393 unwind label %40
@@ -1477,7 +1477,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit692:                 ; preds = %358, %357, %301
 
 404:                                              ; preds = %401
   %405 = load ptr, ptr %402, align 8
-  %406 = getelementptr inbounds i8, ptr %405, i64 24
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 24
   %407 = load ptr, ptr %406, align 8
   invoke void %407(ptr noundef nonnull align 8 dereferenceable(8) %402, ptr noundef %403)
           to label %410 unwind label %411
@@ -1565,7 +1565,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit692:                 ; preds = %358, %357, %301
   %441 = load ptr, ptr %26, align 8
   %442 = load ptr, ptr %441, align 8
   %443 = load ptr, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %443, i64 24
+  %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
   %446 = invoke noundef i64 %445(ptr noundef nonnull align 8 dereferenceable(8) %442, ptr noundef nonnull %415, i64 noundef %388)
           to label %447 unwind label %40
@@ -1709,7 +1709,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit692:                 ; preds = %358, %357, %301
   %516 = load ptr, ptr %26, align 8
   %517 = load ptr, ptr %516, align 8
   %518 = load ptr, ptr %517, align 8
-  %519 = getelementptr inbounds i8, ptr %518, i64 24
+  %519 = getelementptr inbounds nuw i8, ptr %518, i64 24
   %520 = load ptr, ptr %519, align 8
   %521 = invoke noundef i64 %520(ptr noundef nonnull align 8 dereferenceable(8) %517, ptr noundef nonnull %12, i64 noundef 1024)
           to label %522 unwind label %40
@@ -1755,9 +1755,9 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i: ; preds = %533
 _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i
   store i8 0, ptr %536, align 1
   %537 = add nsw i64 %532, -1
-  %538 = getelementptr inbounds i8, ptr %536, i64 1
+  %538 = getelementptr inbounds nuw i8, ptr %536, i64 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %538, i8 0, i64 %537, i1 false)
-  %539 = getelementptr inbounds i8, ptr %536, i64 %532
+  %539 = getelementptr inbounds nuw i8, ptr %536, i64 %532
   %540 = ptrtoint ptr %539 to i64
   br label %_ZNSt6vectorIhSaIhEE6resizeEm.exit
 
@@ -1767,7 +1767,7 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %541 = load ptr, ptr %26, align 8
   %542 = load ptr, ptr %541, align 8
   %543 = load ptr, ptr %542, align 8
-  %544 = getelementptr inbounds i8, ptr %543, i64 24
+  %544 = getelementptr inbounds nuw i8, ptr %543, i64 24
   %545 = load ptr, ptr %544, align 8
   %546 = invoke noundef i64 %545(ptr noundef nonnull align 8 dereferenceable(8) %542, ptr noundef nonnull %.sroa.0739.1, i64 noundef %532)
           to label %547 unwind label %554
@@ -1816,12 +1816,12 @@ _ZNSt6vectorIhSaIhEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %561 = getelementptr inbounds i8, ptr %.sroa.0739.1, i64 %indvars.iv
+  %561 = getelementptr inbounds nuw i8, ptr %.sroa.0739.1, i64 %indvars.iv
   %562 = load i8, ptr %561, align 1
   %563 = zext i8 %562 to i64
-  %564 = getelementptr inbounds [256 x float], ptr %12, i64 0, i64 %563
+  %564 = getelementptr inbounds nuw [256 x float], ptr %12, i64 0, i64 %563
   %565 = load float, ptr %564, align 4
-  %566 = getelementptr inbounds float, ptr %559, i64 %indvars.iv
+  %566 = getelementptr inbounds nuw float, ptr %559, i64 %indvars.iv
   store float %565, ptr %566, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1852,7 +1852,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit703:                 ; preds = %.loopexit, %.loopex
   %575 = sext i32 %2 to i64
   %576 = shl nsw i64 %575, 2
   %577 = load ptr, ptr %574, align 8
-  %578 = getelementptr inbounds i8, ptr %577, i64 32
+  %578 = getelementptr inbounds nuw i8, ptr %577, i64 32
   %579 = load ptr, ptr %578, align 8
   %580 = invoke noundef i64 %579(ptr noundef nonnull align 8 dereferenceable(8) %574, i64 noundef %576, ptr noundef nonnull %13)
           to label %581 unwind label %40
@@ -1880,7 +1880,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit703:                 ; preds = %.loopexit, %.loopex
 
 592:                                              ; preds = %589
   %593 = load ptr, ptr %590, align 8
-  %594 = getelementptr inbounds i8, ptr %593, i64 24
+  %594 = getelementptr inbounds nuw i8, ptr %593, i64 24
   %595 = load ptr, ptr %594, align 8
   invoke void %595(ptr noundef nonnull align 8 dereferenceable(8) %590, ptr noundef %591)
           to label %598 unwind label %599
@@ -1968,7 +1968,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit703:                 ; preds = %.loopexit, %.loopex
   %629 = load ptr, ptr %26, align 8
   %630 = load ptr, ptr %629, align 8
   %631 = load ptr, ptr %630, align 8
-  %632 = getelementptr inbounds i8, ptr %631, i64 24
+  %632 = getelementptr inbounds nuw i8, ptr %631, i64 24
   %633 = load ptr, ptr %632, align 8
   %634 = invoke noundef i64 %633(ptr noundef nonnull align 8 dereferenceable(8) %630, ptr noundef nonnull %603, i64 noundef %576)
           to label %635 unwind label %40
@@ -2037,7 +2037,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit703:                 ; preds = %.loopexit, %.loopex
   %670 = sext i32 %2 to i64
   %671 = shl nsw i64 %670, 2
   %672 = load ptr, ptr %669, align 8
-  %673 = getelementptr inbounds i8, ptr %672, i64 32
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 32
   %674 = load ptr, ptr %673, align 8
   %675 = invoke noundef i64 %674(ptr noundef nonnull align 8 dereferenceable(8) %669, i64 noundef %671, ptr noundef nonnull %14)
           to label %676 unwind label %40
@@ -2065,7 +2065,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit703:                 ; preds = %.loopexit, %.loopex
 
 687:                                              ; preds = %684
   %688 = load ptr, ptr %685, align 8
-  %689 = getelementptr inbounds i8, ptr %688, i64 24
+  %689 = getelementptr inbounds nuw i8, ptr %688, i64 24
   %690 = load ptr, ptr %689, align 8
   invoke void %690(ptr noundef nonnull align 8 dereferenceable(8) %685, ptr noundef %686)
           to label %693 unwind label %694
@@ -2153,7 +2153,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit703:                 ; preds = %.loopexit, %.loopex
   %724 = load ptr, ptr %667, align 8
   %725 = load ptr, ptr %724, align 8
   %726 = load ptr, ptr %725, align 8
-  %727 = getelementptr inbounds i8, ptr %726, i64 24
+  %727 = getelementptr inbounds nuw i8, ptr %726, i64 24
   %728 = load ptr, ptr %727, align 8
   %729 = invoke noundef i64 %728(ptr noundef nonnull align 8 dereferenceable(8) %725, ptr noundef nonnull %698, i64 noundef %671)
           to label %730 unwind label %40
@@ -2268,7 +2268,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit705:                 ; preds = %767, %.critedge685,
 
 777:                                              ; preds = %774
   %778 = load ptr, ptr %775, align 8
-  %779 = getelementptr inbounds i8, ptr %778, i64 24
+  %779 = getelementptr inbounds nuw i8, ptr %778, i64 24
   %780 = load ptr, ptr %779, align 8
   invoke void %780(ptr noundef nonnull align 8 dereferenceable(8) %775, ptr noundef %776)
           to label %783 unwind label %784
@@ -2310,7 +2310,7 @@ _ZNSt6vectorItSaItEED2Ev.exit687:                 ; preds = %555, %554, %.thread
 
 794:                                              ; preds = %791
   %795 = load ptr, ptr %792, align 8
-  %796 = getelementptr inbounds i8, ptr %795, i64 24
+  %796 = getelementptr inbounds nuw i8, ptr %795, i64 24
   %797 = load ptr, ptr %796, align 8
   invoke void %797(ptr noundef nonnull align 8 dereferenceable(8) %792, ptr noundef %793)
           to label %800 unwind label %801
@@ -2471,7 +2471,7 @@ define hidden void @_ZNK4ncnn20ModelBinFromMatArray4loadEii(ptr dead_on_unwind n
 45:                                               ; preds = %43, %11
   %46 = phi ptr [ %.pre27, %43 ], [ %7, %11 ]
   %47 = phi ptr [ %.pre, %43 ], [ %6, %11 ]
-  %48 = getelementptr inbounds i8, ptr %46, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
   store ptr %48, ptr %47, align 8
   br label %49
 

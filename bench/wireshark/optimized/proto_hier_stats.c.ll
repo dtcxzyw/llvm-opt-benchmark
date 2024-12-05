@@ -38,33 +38,33 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %190, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 172
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %8 = load i32, ptr %7, align 4
   %.not63 = icmp eq i32 %8, 0
   br i1 %.not63, label %12, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load ptr, ptr %10, align 8
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str, i32 noundef 5, ptr noundef nonnull @.str.1, i64 noundef 215, ptr noundef nonnull @__func__.ph_stats_new, ptr noundef nonnull @.str.2, ptr noundef %11) #6
   br label %190
 
 12:                                               ; preds = %6
   store i32 1, ptr %7, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %13, align 8
   %14 = tail call i32 @proto_registrar_get_id_byname(ptr noundef nonnull @.str.3) #6
   store i32 %14, ptr @pc_proto_id, align 4
   %15 = tail call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #7
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 0, ptr %16, align 4
   %17 = tail call ptr @g_node_new(ptr noundef null) #6
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
-  %20 = getelementptr inbounds i8, ptr %15, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 80
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %22 = load i32, ptr %21, align 8
   %23 = udiv i32 %22, 100
@@ -75,11 +75,11 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6489, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
-  %25 = getelementptr inbounds i8, ptr %0, i64 280
-  %26 = getelementptr inbounds i8, ptr %0, i64 712
-  %27 = getelementptr inbounds i8, ptr %0, i64 56
-  %28 = getelementptr inbounds i8, ptr %0, i64 248
-  %29 = getelementptr inbounds i8, ptr %2, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %30
 
 30:                                               ; preds = %.lr.ph, %179
@@ -128,7 +128,7 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not67, label %49, label %.loopexit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds i8, ptr %32, i64 50
+  %50 = getelementptr inbounds nuw i8, ptr %32, i64 50
   %51 = load i16, ptr %50, align 2
   %52 = and i16 %51, 1
   %.not68 = icmp eq i16 %52, 0
@@ -143,7 +143,7 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %56, label %59
 
 56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %32, i64 56
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %58 = call double @nstime_to_sec(ptr noundef nonnull %57) #6
   store double %58, ptr %19, align 8
   store double %58, ptr %20, align 8
@@ -177,10 +177,10 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i.i:                                       ; preds = %.critedge2.i.i, %.lr.ph.preheader.i.i
   %68 = phi i32 [ %77, %.critedge2.i.i ], [ %.pre40.i.i, %.lr.ph.preheader.i.i ]
   %.027.i.i = phi ptr [ %.0.i.i, %.critedge2.i.i ], [ %.025.i.i, %.lr.ph.preheader.i.i ]
-  %69 = getelementptr inbounds i8, ptr %.027.i.i, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 48
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
   %73 = load i32, ptr %72, align 8
   %74 = icmp eq i32 %73, %68
   br i1 %74, label %.critedge2.i.i, label %75
@@ -193,7 +193,7 @@ define hidden noundef ptr @ph_stats_new(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge2.i.i:                                   ; preds = %75, %.lr.ph.i.i
   %77 = phi i32 [ %68, %.lr.ph.i.i ], [ %.pre.i.i, %75 ]
-  %78 = getelementptr inbounds i8, ptr %.027.i.i, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %.027.i.i, i64 16
   %.0.i.i = load ptr, ptr %78, align 8
   %.not.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not.i.i, label %process_tree.exit.i, label %.lr.ph.i.i, !llvm.loop !4
@@ -210,25 +210,25 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.loopexi
   %81 = phi i32 [ %60, %.critedge.i.i ], [ %130, %tailrecurse.loopexit.i.i.i ]
   %.tr.i.i.i = phi ptr [ %.027.i.i, %.critedge.i.i ], [ %.0.i.i.i, %tailrecurse.loopexit.i.i.i ]
   %.tr28.i.i.i = phi ptr [ %79, %.critedge.i.i ], [ %.0.i.i.i.i, %tailrecurse.loopexit.i.i.i ]
-  %82 = getelementptr inbounds i8, ptr %.tr.i.i.i, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.tr.i.i.i, i64 32
   %83 = load ptr, ptr %82, align 8
   %84 = load ptr, ptr %83, align 8
   %.not.i.i.i.i = icmp eq ptr %.tr28.i.i.i, null
   br i1 %.not.i.i.i.i, label %.critedge.i.i.i.i, label %85
 
 85:                                               ; preds = %tailrecurse.i.i.i
-  %86 = getelementptr inbounds i8, ptr %.tr28.i.i.i, i64 32
+  %86 = getelementptr inbounds nuw i8, ptr %.tr28.i.i.i, i64 32
   %87 = load ptr, ptr %86, align 8
   %.not4353.i.i.i.i = icmp eq ptr %87, null
   br i1 %.not4353.i.i.i.i, label %.lr.ph61.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %84, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %84, i64 48
   br label %92
 
 .lr.ph61.i.i.i.i:                                 ; preds = %100, %85
-  %89 = getelementptr inbounds i8, ptr %84, i64 48
-  %90 = getelementptr inbounds i8, ptr %.tr28.i.i.i, i64 24
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %.tr28.i.i.i, i64 24
   %91 = load ptr, ptr %90, align 8
   %.not45.i36.i.i.i = icmp eq ptr %91, null
   br i1 %.not45.i36.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph.i.i.i
@@ -241,27 +241,27 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.loopexi
   br i1 %.not48.i.i.i.i, label %100, label %95
 
 95:                                               ; preds = %92
-  %96 = getelementptr inbounds i8, ptr %94, i64 48
+  %96 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %97 = load i32, ptr %96, align 8
   %98 = load i32, ptr %88, align 8
   %99 = icmp eq i32 %97, %98
   br i1 %99, label %find_stat_node.exit.i.i.i, label %100
 
 100:                                              ; preds = %95, %92
-  %101 = getelementptr inbounds i8, ptr %.03854.i.i.i.i, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.03854.i.i.i.i, i64 8
   %102 = load ptr, ptr %101, align 8
   %.not43.i.i.i.i = icmp eq ptr %102, null
   br i1 %.not43.i.i.i.i, label %.lr.ph61.i.i.i.i, label %92, !llvm.loop !7
 
 .loopexit.i.i.i.i:                                ; preds = %114, %.lr.ph.i.i.i
-  %103 = getelementptr inbounds i8, ptr %105, i64 24
+  %103 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %104 = load ptr, ptr %103, align 8
   %.not45.i.i.i.i = icmp eq ptr %104, null
   br i1 %.not45.i.i.i.i, label %.critedge.i.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph61.i.i.i.i, %.loopexit.i.i.i.i
   %105 = phi ptr [ %104, %.loopexit.i.i.i.i ], [ %91, %.lr.ph61.i.i.i.i ]
-  %106 = getelementptr inbounds i8, ptr %105, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %.155.i.i.i.i = load ptr, ptr %106, align 8
   %.not4656.i.i.i.i = icmp eq ptr %.155.i.i.i.i, null
   br i1 %.not4656.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph58.i.i.i.i
@@ -274,14 +274,14 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.loopexi
   br i1 %.not47.i.i.i.i, label %114, label %109
 
 109:                                              ; preds = %.lr.ph58.i.i.i.i
-  %110 = getelementptr inbounds i8, ptr %108, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %111 = load i32, ptr %110, align 8
   %112 = load i32, ptr %89, align 8
   %113 = icmp eq i32 %111, %112
   br i1 %113, label %find_stat_node.exit.i.i.i, label %114
 
 114:                                              ; preds = %109, %.lr.ph58.i.i.i.i
-  %115 = getelementptr inbounds i8, ptr %.157.i.i.i.i, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.157.i.i.i.i, i64 8
   %.1.i.i.i.i = load ptr, ptr %115, align 8
   %.not46.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
   br i1 %.not46.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph58.i.i.i.i, !llvm.loop !8
@@ -289,7 +289,7 @@ tailrecurse.i.i.i:                                ; preds = %tailrecurse.loopexi
 .critedge.i.i.i.i:                                ; preds = %.loopexit.i.i.i.i, %.lr.ph61.i.i.i.i, %tailrecurse.i.i.i
   %116 = call noalias dereferenceable_or_null(32) ptr @g_malloc_n(i64 noundef 1, i64 noundef 32) #7
   store ptr %84, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
   %118 = call ptr @g_node_new(ptr noundef nonnull %116) #6
   %119 = call ptr @g_node_insert_before(ptr noundef %.tr28.i.i.i, ptr noundef null, ptr noundef %118) #6
@@ -302,13 +302,13 @@ find_stat_node.exit.i.i.i:                        ; preds = %95, %109, %.critedg
   %121 = phi i32 [ %.pre109, %.critedge.i.i.i.i ], [ %81, %109 ], [ %81, %95 ]
   %122 = phi ptr [ %.pre.i.i.i, %.critedge.i.i.i.i ], [ %107, %109 ], [ %93, %95 ]
   %.0.i.i.i.i = phi ptr [ %118, %.critedge.i.i.i.i ], [ %.157.i.i.i.i, %109 ], [ %.03854.i.i.i.i, %95 ]
-  %123 = getelementptr inbounds i8, ptr %122, i64 28
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 28
   %124 = load i32, ptr %123, align 4
   %.not.i.i.i = icmp eq i32 %124, %121
   br i1 %.not.i.i.i, label %129, label %125
 
 125:                                              ; preds = %find_stat_node.exit.i.i.i
-  %126 = getelementptr inbounds i8, ptr %122, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %127 = load i32, ptr %126, align 8
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 8
@@ -317,16 +317,16 @@ find_stat_node.exit.i.i.i:                        ; preds = %95, %109, %.critedg
 
 129:                                              ; preds = %125, %find_stat_node.exit.i.i.i
   %130 = phi i32 [ %120, %125 ], [ %121, %find_stat_node.exit.i.i.i ]
-  %131 = getelementptr inbounds i8, ptr %122, i64 12
+  %131 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %132 = load i32, ptr %131, align 4
   %133 = add i32 %132, 1
   store i32 %133, ptr %131, align 4
-  %134 = getelementptr inbounds i8, ptr %83, i64 12
+  %134 = getelementptr inbounds nuw i8, ptr %83, i64 12
   %135 = load i32, ptr %134, align 4
-  %136 = getelementptr inbounds i8, ptr %83, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %83, i64 20
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, %135
-  %139 = getelementptr inbounds i8, ptr %122, i64 20
+  %139 = getelementptr inbounds nuw i8, ptr %122, i64 20
   %140 = load i32, ptr %139, align 4
   %141 = add i32 %138, %140
   store i32 %141, ptr %139, align 4
@@ -334,32 +334,32 @@ find_stat_node.exit.i.i.i:                        ; preds = %95, %109, %.critedg
 
 142:                                              ; preds = %143, %129
   %.pn.i.i.i = phi ptr [ %.tr.i.i.i, %129 ], [ %.0.i.i.i, %143 ]
-  %.0.in.i.i.i = getelementptr inbounds i8, ptr %.pn.i.i.i, i64 16
+  %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i.i, i64 16
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8
   %.not25.i.i.i = icmp eq ptr %.0.i.i.i, null
   br i1 %.not25.i.i.i, label %process_node.exit.i.i, label %143
 
 143:                                              ; preds = %142
-  %144 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 32
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 48
   %148 = load i32, ptr %147, align 8
   %149 = call i32 @proto_registrar_is_protocol(i32 noundef %148) #6
   %.not26.i.i.i = icmp eq i32 %149, 0
   br i1 %.not26.i.i.i, label %142, label %tailrecurse.loopexit.i.i.i, !llvm.loop !6
 
 process_node.exit.i.i:                            ; preds = %142
-  %150 = getelementptr inbounds i8, ptr %83, i64 12
-  %151 = getelementptr inbounds i8, ptr %83, i64 20
-  %152 = getelementptr inbounds i8, ptr %122, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %83, i64 12
+  %151 = getelementptr inbounds nuw i8, ptr %83, i64 20
+  %152 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %153 = load i32, ptr %152, align 8
   %154 = add i32 %153, 1
   store i32 %154, ptr %152, align 8
   %155 = load i32, ptr %150, align 4
   %156 = load i32, ptr %151, align 4
   %157 = add i32 %156, %155
-  %158 = getelementptr inbounds i8, ptr %122, i64 24
+  %158 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %159 = load i32, ptr %158, align 8
   %160 = add i32 %157, %159
   store i32 %160, ptr %158, align 8
@@ -372,7 +372,7 @@ process_tree.exit.i:                              ; preds = %.critedge2.i.i, %pr
   br i1 %.not24.i, label %174, label %163
 
 163:                                              ; preds = %process_tree.exit.i
-  %164 = getelementptr inbounds i8, ptr %32, i64 56
+  %164 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %165 = call double @nstime_to_sec(ptr noundef nonnull %164) #6
   %166 = load double, ptr %19, align 8
   %167 = fcmp olt double %165, %166
@@ -399,7 +399,7 @@ process_tree.exit.i:                              ; preds = %.critedge2.i.i, %pr
 174:                                              ; preds = %172, %169, %process_tree.exit.i
   call void @epan_dissect_cleanup(ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 464, ptr nonnull %2)
-  %175 = getelementptr inbounds i8, ptr %32, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = load i32, ptr %16, align 4
   %178 = add i32 %177, %176
@@ -485,7 +485,7 @@ declare void @destroy_progress_dlg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @ph_stats_free(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

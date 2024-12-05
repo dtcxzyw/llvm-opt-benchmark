@@ -117,7 +117,7 @@ define void @_Z10OutCommentPKwm(ptr noundef %0, i64 noundef %1) local_unnamed_ad
   %29 = call i64 @llvm.umin.i64(i64 %28, i64 1024)
   %30 = getelementptr inbounds i32, ptr %0, i64 %.015
   %31 = call ptr @wcsncpy(ptr noundef nonnull %3, ptr noundef %30, i64 noundef %29) #7
-  %32 = getelementptr inbounds [1025 x i32], ptr %3, i64 0, i64 %29
+  %32 = getelementptr inbounds nuw [1025 x i32], ptr %3, i64 0, i64 %29
   store i32 0, ptr %32, align 4
   %33 = add i64 %.015, 1024
   %34 = icmp ult i64 %33, %1

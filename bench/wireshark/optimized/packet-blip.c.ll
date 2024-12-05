@@ -125,7 +125,7 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.17) #6
   %11 = load ptr, ptr %9, align 8
@@ -147,7 +147,7 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %26 = load i64, ptr %7, align 8
   %27 = and i64 %26, 7
   %28 = call ptr @val64_to_str_const(i64 noundef %27, ptr noundef nonnull @msg_types, ptr noundef nonnull @.str.43) #6
-  %29 = getelementptr inbounds i8, ptr %1, i64 408
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %30 = load ptr, ptr %29, align 8
   %31 = load i64, ptr %6, align 8
   %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %30, ptr noundef nonnull @.str.42, i64 noundef %31) #6
@@ -176,9 +176,9 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %47 = and i64 %45, 7
   %48 = call ptr @val64_to_str_const(i64 noundef %47, ptr noundef nonnull @msg_types, ptr noundef nonnull @.str.43) #6
   %49 = load ptr, ptr %29, align 8
-  %50 = getelementptr inbounds i8, ptr %1, i64 284
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %1, i64 288
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %53 = load i32, ptr %52, align 8
   %54 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %49, ptr noundef nonnull @.str.49, ptr noundef %48, i32 noundef %51, i32 noundef %53, i64 noundef %46) #6
   %55 = load ptr, ptr %44, align 8
@@ -189,7 +189,7 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 57:                                               ; preds = %43
   %58 = ptrtoint ptr %56 to i64
   %59 = trunc i64 %58 to i32
-  %60 = getelementptr inbounds i8, ptr %1, i64 20
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %61 = load i32, ptr %60, align 4
   %.not13.i = icmp ne i32 %61, %59
   br label %is_first_frame_in_msg.exit
@@ -198,7 +198,7 @@ define internal i32 @dissect_blip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %63 = call ptr @wmem_file_scope() #6
   %64 = call noalias ptr @wmem_strdup(ptr noundef %63, ptr noundef %54) #6
   %65 = load ptr, ptr %44, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = zext i32 %67 to i64
   %69 = inttoptr i64 %68 to ptr
@@ -215,9 +215,9 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
 73:                                               ; preds = %is_first_frame_in_msg.exit
   %74 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %25) #6
   %75 = add i32 %74, -4
-  %76 = getelementptr inbounds i8, ptr %1, i64 80
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %77, i64 50
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 50
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 8
   %.not.i97 = icmp eq i16 %80, 0
@@ -250,7 +250,7 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %91
-  %98 = getelementptr inbounds i8, ptr %84, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %84, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %94, ptr noundef nonnull @ei_blip_decompress_buffer_error, ptr noundef nonnull @.str.51, i32 noundef %99) #6
   br label %decompress.exit.thread
@@ -261,9 +261,9 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
   br label %decompress.exit.thread
 
 104:                                              ; preds = %89
-  %105 = getelementptr inbounds i8, ptr %84, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %84, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %108 = load i64, ptr %107, align 8
   %109 = trunc i64 %108 to i32
   %110 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %106, i32 noundef %109, i32 noundef %109) #6
@@ -277,7 +277,7 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
   %115 = shl i32 %114, 16
   %116 = load i32, ptr %52, align 8
   %117 = or i32 %115, %116
-  %118 = getelementptr inbounds i8, ptr %113, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %119 = load ptr, ptr %118, align 8
   %120 = zext i32 %117 to i64
   %121 = inttoptr i64 %120 to ptr
@@ -296,13 +296,13 @@ is_first_frame_in_msg.exit:                       ; preds = %57, %62
 
 get_decompress_stream.exit.i:                     ; preds = %123, %111
   %.0.i.i = phi ptr [ %125, %123 ], [ %122, %111 ]
-  %130 = getelementptr inbounds i8, ptr %.0.i.i, i64 24
+  %130 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %131 = load ptr, ptr %130, align 8
   %.not110.i = icmp eq ptr %131, null
   br i1 %.not110.i, label %132, label %136
 
 132:                                              ; preds = %get_decompress_stream.exit.i
-  %133 = getelementptr inbounds i8, ptr %.0.i.i, i64 64
+  %133 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %133, i8 0, i64 24, i1 false)
   %134 = call i32 @inflateInit2_(ptr noundef nonnull %.0.i.i, i32 noundef -15, ptr noundef nonnull @.str.54, i32 noundef 112) #6
   %.not111.i = icmp eq i32 %134, 0
@@ -320,12 +320,12 @@ get_decompress_stream.exit.i:                     ; preds = %123, %111
   %140 = zext i32 %138 to i64
   %141 = call noalias ptr @wmem_alloc(ptr noundef %139, i64 noundef %140) #6
   store ptr %112, ptr %.0.i.i, align 8
-  %142 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 %75, ptr %142, align 8
   store ptr %141, ptr %130, align 8
-  %143 = getelementptr inbounds i8, ptr %.0.i.i, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
   store i32 %138, ptr %143, align 8
-  %144 = getelementptr inbounds i8, ptr %.0.i.i, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 40
   %145 = load i64, ptr %144, align 8
   %146 = call i32 @inflate(ptr noundef nonnull %.0.i.i, i32 noundef 0) #6
   %.not112.i = icmp eq i32 %146, 0
@@ -350,7 +350,7 @@ get_decompress_stream.exit.i:                     ; preds = %123, %111
 
 157:                                              ; preds = %147
   store i32 1, ptr %152, align 8
-  %158 = getelementptr inbounds i8, ptr %152, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %152, i64 4
   store i32 %146, ptr %158, align 4
   %159 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %150, ptr noundef nonnull @ei_blip_decompress_buffer_error, ptr noundef nonnull @.str.51, i32 noundef %146) #6
   br label %160
@@ -386,7 +386,7 @@ get_decompress_stream.exit.i:                     ; preds = %123, %111
 
 175:                                              ; preds = %165
   store i32 1, ptr %170, align 8
-  %176 = getelementptr inbounds i8, ptr %170, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store i32 %164, ptr %176, align 4
   %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %168, ptr noundef nonnull @ei_blip_decompress_buffer_error, ptr noundef nonnull @.str.51, i32 noundef %164) #6
   br label %178
@@ -407,9 +407,9 @@ get_decompress_stream.exit.i:                     ; preds = %123, %111
   call void @add_new_data_source(ptr noundef nonnull %1, ptr noundef %187, ptr noundef nonnull @.str.53) #6
   %188 = call ptr @wmem_file_scope() #6
   %189 = call noalias ptr @wmem_alloc0(ptr noundef %188, i64 noundef 24) #6
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   store i64 %183, ptr %190, align 8
-  %191 = getelementptr inbounds i8, ptr %189, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %189, i64 16
   store ptr %185, ptr %191, align 8
   %192 = call ptr @wmem_file_scope() #6
   %193 = load i32, ptr @proto_blip, align 4
@@ -573,7 +573,7 @@ define internal fastcc ptr @get_blip_conversation(ptr noundef %0) unnamed_addr #
   store ptr %10, ptr %8, align 8
   %11 = tail call ptr @wmem_file_scope() #6
   %12 = tail call noalias ptr @wmem_map_new(ptr noundef %11, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
-  %13 = getelementptr inbounds i8, ptr %8, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %12, ptr %13, align 8
   %14 = load i32, ptr @proto_blip, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %2, i32 noundef %14, ptr noundef nonnull %8) #6

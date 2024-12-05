@@ -63,7 +63,7 @@ declare void @_ZN4LIEF5MachO10RelocationC2ERKS1_(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyld14is_pc_relativeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 120
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i8 %4(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %6 = icmp eq i8 %5, 3
@@ -99,7 +99,7 @@ define noundef i64 @_ZNK4LIEF5MachO14RelocationDyld6originEv(ptr nocapture nonnu
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF5MachO14RelocationDyld11pc_relativeEb(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 112
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i1 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %7 = xor i1 %1, %6
@@ -109,17 +109,17 @@ define void @_ZN4LIEF5MachO14RelocationDyld11pc_relativeEb(ptr noundef nonnull a
   br i1 %1, label %9, label %11
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 3, ptr %10, align 8
   br label %20
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %16 = icmp eq i64 %15, 32
-  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br i1 %16, label %18, label %19
 
 18:                                               ; preds = %11
@@ -137,7 +137,7 @@ define void @_ZN4LIEF5MachO14RelocationDyld11pc_relativeEb(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK4LIEF5MachO14RelocationDyld6acceptERNS_7VisitorE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 984
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 984
   %5 = load ptr, ptr %4, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
@@ -146,11 +146,11 @@ define void @_ZNK4LIEF5MachO14RelocationDyld6acceptERNS_7VisitorE(ptr noundef no
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldltERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i8 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i8 %9(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %.not = icmp eq i8 %6, %10
@@ -158,22 +158,22 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldltERKS1_(ptr noundef n
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i8 %14(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i8 %18(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %20 = icmp ult i8 %15, %19
   br label %30
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(17) %1)
   %29 = icmp ult i64 %24, %28
@@ -187,11 +187,11 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldltERKS1_(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldgeERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i8 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i8 %9(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %.not.i = icmp eq i8 %6, %10
@@ -199,22 +199,22 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldgeERKS1_(ptr noundef n
   br i1 %.not.i, label %21, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i8 %14(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i8 %18(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %20 = icmp ult i8 %15, %19
   br label %_ZNK4LIEF5MachO14RelocationDyldltERKS1_.exit
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %29 = icmp ult i64 %24, %28
@@ -229,11 +229,11 @@ _ZNK4LIEF5MachO14RelocationDyldltERKS1_.exit:     ; preds = %12, %21
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldgtERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i8 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i8 %9(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %.not = icmp eq i8 %6, %10
@@ -241,22 +241,22 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldgtERKS1_(ptr noundef n
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i8 %14(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i8 %18(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %20 = icmp ugt i8 %15, %19
   br label %30
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(17) %1)
   %29 = icmp ugt i64 %24, %28
@@ -270,11 +270,11 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldgtERKS1_(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldleERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 120
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef zeroext i8 %5(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %7 = load ptr, ptr %1, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i8 %9(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %.not.i = icmp eq i8 %6, %10
@@ -282,22 +282,22 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO14RelocationDyldleERKS1_(ptr noundef n
   br i1 %.not.i, label %21, label %12
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds i8, ptr %11, i64 120
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef zeroext i8 %14(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %16 = load ptr, ptr %1, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 120
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 120
   %18 = load ptr, ptr %17, align 8
   %19 = tail call noundef zeroext i8 %18(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %20 = icmp ugt i8 %15, %19
   br label %_ZNK4LIEF5MachO14RelocationDyldgtERKS1_.exit
 
 21:                                               ; preds = %2
-  %22 = getelementptr inbounds i8, ptr %11, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef i64 %27(ptr noundef nonnull align 8 dereferenceable(56) %1)
   %29 = icmp ugt i64 %24, %28
@@ -312,7 +312,7 @@ _ZNK4LIEF5MachO14RelocationDyldgtERKS1_.exit:     ; preds = %12, %21
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN4LIEF5MachO14RelocationDyld7classofERKNS0_10RelocationE(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 128
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 %4(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %6 = icmp eq i64 %5, 1

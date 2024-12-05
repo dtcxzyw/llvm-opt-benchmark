@@ -231,15 +231,15 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %6 = tail call ptr @wmem_epan_scope() #7
   %7 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %6, ptr noundef nonnull @.str) #7
   %8 = getelementptr [30 x %struct.FCOSRegisterDef], ptr @registers_def, i64 0, i64 %indvars.iv
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef nonnull @.str.1, ptr noundef %10) #7
   %11 = load ptr, ptr %9, align 8
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %7, ptr noundef nonnull @.str.2, ptr noundef %11) #7
-  %12 = getelementptr inbounds i8, ptr %8, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %16 = load ptr, ptr %15, align 8
   br i1 %14, label %17, label %22
 
@@ -260,15 +260,15 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   br label %25
 
 25:                                               ; preds = %22, %17
-  %26 = getelementptr inbounds i8, ptr %8, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
-  %28 = getelementptr inbounds i8, ptr %8, i64 36
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %29 = tail call ptr @wmem_strbuf_get_str(ptr noundef %3) #7
   %30 = tail call ptr @wmem_strbuf_get_str(ptr noundef %7) #7
-  %31 = getelementptr inbounds i8, ptr %8, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %32 = load i32, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %8, i64 28
+  %33 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %34 = load i32, ptr %33, align 4
   br i1 %.not, label %47, label %35
 
@@ -277,29 +277,29 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %37 = add nuw nsw i64 %indvars.iv, 24
   %38 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %37
   store ptr %28, ptr %38, align 16
-  %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 8
+  %.sroa.228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %29, ptr %.sroa.228.0..sroa_idx, align 8
-  %.sroa.329.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 16
+  %.sroa.329.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %30, ptr %.sroa.329.0..sroa_idx, align 16
-  %.sroa.430.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 24
+  %.sroa.430.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 24
   store i32 %32, ptr %.sroa.430.0..sroa_idx, align 8
-  %.sroa.531.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 28
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 28
   store i32 %34, ptr %.sroa.531.0..sroa_idx, align 4
-  %.sroa.632.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 32
+  %.sroa.632.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 32
   store ptr %36, ptr %.sroa.632.0..sroa_idx, align 16
-  %.sroa.733.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 40
-  %.sroa.935.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 56
+  %.sroa.733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 40
+  %.sroa.935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.733.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.935.0..sroa_idx, align 8
-  %.sroa.1036.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 60
+  %.sroa.1036.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 60
   store i32 0, ptr %.sroa.1036.0..sroa_idx, align 4
-  %.sroa.1137.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 64
+  %.sroa.1137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 64
   store i32 0, ptr %.sroa.1137.0..sroa_idx, align 16
-  %.sroa.1238.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 68
+  %.sroa.1238.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 68
   store i32 -1, ptr %.sroa.1238.0..sroa_idx, align 4
-  %.sroa.1339.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 72
+  %.sroa.1339.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 72
   store ptr null, ptr %.sroa.1339.0..sroa_idx, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %40 = tail call ptr @wmem_strbuf_get_str(ptr noundef %1) #7
   %41 = tail call ptr @wmem_strbuf_get_str(ptr noundef %5) #7
   %42 = load i32, ptr %31, align 8
@@ -308,18 +308,18 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %45 = add nuw nsw i64 %indvars.iv, 54
   %46 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %45
   store ptr %39, ptr %46, align 16
-  %.sroa.215.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 8
+  %.sroa.215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %40, ptr %.sroa.215.0..sroa_idx, align 8
-  %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 16
+  %.sroa.316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %41, ptr %.sroa.316.0..sroa_idx, align 16
-  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 24
+  %.sroa.417.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i32 %42, ptr %.sroa.417.0..sroa_idx, align 8
-  %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 28
+  %.sroa.518.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 28
   store i32 %43, ptr %.sroa.518.0..sroa_idx, align 4
-  %.sroa.619.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 32
+  %.sroa.619.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 32
   store ptr %44, ptr %.sroa.619.0..sroa_idx, align 16
-  %.sroa.720.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 40
-  %.sroa.922.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 56
+  %.sroa.720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %.sroa.922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.720.0..sroa_idx, i8 0, i64 16, i1 false)
   store i32 -1, ptr %.sroa.922.0..sroa_idx, align 8
   br label %57
@@ -328,27 +328,27 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %48 = add nuw nsw i64 %indvars.iv, 24
   %49 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %48
   store ptr %28, ptr %49, align 16
-  %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 8
+  %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %29, ptr %.sroa.22.0..sroa_idx, align 8
-  %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 16
+  %.sroa.33.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %30, ptr %.sroa.33.0..sroa_idx, align 16
-  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 24
+  %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i32 %32, ptr %.sroa.44.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 28
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 28
   store i32 %34, ptr %.sroa.55.0..sroa_idx, align 4
-  %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 32
-  %.sroa.99.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 56
+  %.sroa.66.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %.sroa.99.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.66.0..sroa_idx, i8 0, i64 24, i1 false)
   store i32 -1, ptr %.sroa.99.0..sroa_idx, align 8
-  %.sroa.1010.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 60
+  %.sroa.1010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 60
   store i32 0, ptr %.sroa.1010.0..sroa_idx, align 4
-  %.sroa.1111.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 64
+  %.sroa.1111.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 64
   store i32 0, ptr %.sroa.1111.0..sroa_idx, align 16
-  %.sroa.1212.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 68
+  %.sroa.1212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 68
   store i32 -1, ptr %.sroa.1212.0..sroa_idx, align 4
-  %.sroa.1313.0..sroa_idx = getelementptr inbounds i8, ptr %49, i64 72
+  %.sroa.1313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 72
   store ptr null, ptr %.sroa.1313.0..sroa_idx, align 8
-  %50 = getelementptr inbounds i8, ptr %8, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %51 = tail call ptr @wmem_strbuf_get_str(ptr noundef %1) #7
   %52 = tail call ptr @wmem_strbuf_get_str(ptr noundef %5) #7
   %53 = load i32, ptr %31, align 8
@@ -356,29 +356,29 @@ define hidden void @proto_register_FiveCoRAP() local_unnamed_addr #0 {
   %55 = add nuw nsw i64 %indvars.iv, 54
   %56 = getelementptr [84 x %struct.hf_register_info], ptr @proto_register_FiveCoRAP.hf, i64 0, i64 %55
   store ptr %50, ptr %56, align 16
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %51, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 16
   store ptr %52, ptr %.sroa.3.0..sroa_idx, align 16
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i32 %53, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 28
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i32 %54, ptr %.sroa.5.0..sroa_idx, align 4
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 32
-  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 56
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %.sroa.6.0..sroa_idx, i8 0, i64 24, i1 false)
   store i32 -1, ptr %.sroa.9.0..sroa_idx, align 8
   br label %57
 
 57:                                               ; preds = %35, %47
   %.sink116 = phi ptr [ %46, %35 ], [ %56, %47 ]
-  %.sroa.1023.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 60
+  %.sroa.1023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink116, i64 60
   store i32 0, ptr %.sroa.1023.0..sroa_idx, align 4
-  %.sroa.1124.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 64
+  %.sroa.1124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink116, i64 64
   store i32 0, ptr %.sroa.1124.0..sroa_idx, align 16
-  %.sroa.1225.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 68
+  %.sroa.1225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink116, i64 68
   store i32 -1, ptr %.sroa.1225.0..sroa_idx, align 4
-  %.sroa.1326.0..sroa_idx = getelementptr inbounds i8, ptr %.sink116, i64 72
+  %.sroa.1326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sink116, i64 72
   store ptr null, ptr %.sroa.1326.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
@@ -489,13 +489,13 @@ define internal i32 @dissect_FiveCoRAP(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @col_set_str(ptr noundef %11, i32 noundef 34, ptr noundef nonnull @.str.8) #7
   %12 = load ptr, ptr %10, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #7
   %13 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #7
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   store i32 %15, ptr %6, align 4
   %16 = load ptr, ptr @fiveco_types_models_hash, align 8
@@ -636,7 +636,7 @@ define internal void @disp_timeout(ptr nocapture noundef writeonly %0, i32 nound
 
 6:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %0, ptr noundef nonnull align 1 dereferenceable(7) @.str.143, i64 7, i1 false)
-  %endptr = getelementptr inbounds i8, ptr %0, i64 7
+  %endptr = getelementptr inbounds nuw i8, ptr %0, i64 7
   store i8 0, ptr %endptr, align 1
   br label %7
 
@@ -758,7 +758,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   %43 = add i32 %42, -1
   %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %43) #7
   %.not = icmp eq i32 %4, 0
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = zext i8 %10 to i32
   %48 = zext i8 %8 to i32
@@ -769,7 +769,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br i1 %.not356, label %53, label %50
 
 50:                                               ; preds = %checksum_fiveco.exit
-  %51 = getelementptr inbounds i8, ptr %1, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %52 = load ptr, ptr %51, align 8
   tail call void @col_append_str(ptr noundef %52, i32 noundef 25, ptr noundef nonnull @.str.146) #7
   br label %53
@@ -812,7 +812,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 
 75:                                               ; preds = %72, %67
   %.pre-phi = phi i64 [ %.pre467, %72 ], [ %69, %67 ]
-  %76 = getelementptr inbounds i8, ptr %3, i64 40
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %77 = getelementptr [10 x i32], ptr %76, i64 0, i64 %.pre-phi
   %78 = load i32, ptr %77, align 4
   %.not358 = icmp eq i32 %78, 0
@@ -854,7 +854,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br i1 %101, label %.lr.ph434, label %.loopexit402
 
 .lr.ph434:                                        ; preds = %91
-  %102 = getelementptr inbounds i8, ptr %1, i64 408
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %103
 
 103:                                              ; preds = %.lr.ph434, %356
@@ -892,7 +892,7 @@ checksum_fiveco.exit:                             ; preds = %37, %31
 
 120:                                              ; preds = %114
   %121 = zext nneg i8 %110 to i32
-  %122 = getelementptr inbounds i8, ptr %116, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %123 = load ptr, ptr %122, align 8
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %112, ptr noundef nonnull @.str.153, i32 noundef %121, ptr noundef %123, i32 noundef %118) #7
   br label %126
@@ -947,13 +947,13 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br i1 %145, label %146, label %161
 
 146:                                              ; preds = %.thread
-  %147 = getelementptr inbounds i8, ptr %142, i64 24
+  %147 = getelementptr inbounds nuw i8, ptr %142, i64 24
   %148 = load i32, ptr %147, align 8
   %149 = icmp eq i32 %148, 0
-  %150 = getelementptr inbounds i8, ptr %142, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %142, i64 40
   %151 = load i32, ptr %150, align 8
   %152 = add i32 %.0337430, 2
-  %153 = getelementptr inbounds i8, ptr %142, i64 32
+  %153 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %154 = load i32, ptr %153, align 8
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %151, ptr noundef %0, i32 noundef %152, i32 noundef %144, i32 noundef %154) #7
   br i1 %149, label %156, label %.loopexit
@@ -1022,19 +1022,19 @@ checksum_fiveco.exit:                             ; preds = %37, %31
   br i1 %183, label %184, label %203
 
 184:                                              ; preds = %178
-  %185 = getelementptr inbounds i8, ptr %180, i64 24
+  %185 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %186 = load i32, ptr %185, align 8
   %187 = icmp eq i32 %186, 0
-  %188 = getelementptr inbounds i8, ptr %180, i64 36
+  %188 = getelementptr inbounds nuw i8, ptr %180, i64 36
   %189 = load i32, ptr %188, align 4
   %190 = add i32 %.0337430, 2
-  %191 = getelementptr inbounds i8, ptr %180, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %180, i64 32
   %192 = load i32, ptr %191, align 8
   %193 = tail call ptr @proto_tree_add_item(ptr noundef %100, i32 noundef %189, ptr noundef %0, i32 noundef %190, i32 noundef %181, i32 noundef %192) #7
   br i1 %187, label %194, label %.loopexit400
 
 194:                                              ; preds = %184
-  %195 = getelementptr inbounds i8, ptr %180, i64 4
+  %195 = getelementptr inbounds nuw i8, ptr %180, i64 4
   %196 = load i32, ptr %195, align 4
   %197 = icmp eq i32 %196, 0
   br i1 %197, label %198, label %.loopexit400

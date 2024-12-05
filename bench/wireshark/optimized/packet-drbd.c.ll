@@ -649,7 +649,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_drbd(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.233) #8
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_drbd_pdu_len, ptr noundef nonnull @dissect_drbd_pdu, ptr noundef %3) #8
@@ -659,7 +659,7 @@ define internal i32 @dissect_drbd(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_drbd_lb_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.236) #8
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_drbd_lb_tcp_pdu_len, ptr noundef nonnull @dissect_drbd_lb_tcp_pdu, ptr noundef %3) #8
@@ -709,7 +709,7 @@ test_drbd_header.exit.thread:                     ; preds = %12, %9, %test_drbd_
   %16 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #8
   %17 = load ptr, ptr @drbd_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %16, ptr noundef %17) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.233) #8
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_drbd_pdu_len, ptr noundef nonnull @dissect_drbd_pdu, ptr noundef %3) #8
@@ -763,10 +763,10 @@ test_drbd_rdma_control_header.exit:               ; preds = %19
   br i1 %.not50, label %test_drbd_header.exit.thread, label %test_drbd_rdma_control_header.exit.thread
 
 test_drbd_header.exit.thread:                     ; preds = %13, %10, %test_drbd_rdma_control_header.exit, %test_drbd_header.exit
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   tail call void @col_set_str(ptr noundef %24, i32 noundef 34, ptr noundef nonnull @.str.380) #8
-  %25 = getelementptr inbounds i8, ptr %1, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %26 = icmp eq ptr %2, null
   br label %27
 
@@ -896,7 +896,7 @@ drbd_ib_append_col_info.exit.i29:                 ; preds = %79, %76
   br i1 %87, label %find_payload_decoder.exit.i, label %83
 
 find_payload_decoder.exit.i:                      ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %85, i64 16
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %89 = load ptr, ptr %88, align 8
   %.not19.i = icmp eq ptr %89, null
   br i1 %.not19.i, label %dissect_drbd_ib_message.exit, label %90
@@ -954,7 +954,7 @@ test_drbd_header.exit.thread:                     ; preds = %12, %9, %test_drbd_
   %16 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #8
   %17 = load ptr, ptr @drbd_lb_tcp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %16, ptr noundef %17) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.236) #8
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 8, ptr noundef nonnull @get_drbd_lb_tcp_pdu_len, ptr noundef nonnull @dissect_drbd_lb_tcp_pdu, ptr noundef %3) #8
@@ -1062,7 +1062,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   store i16 -1, ptr %4, align 2
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #8
   %7 = load i32, ptr @proto_drbd, align 4
@@ -1089,10 +1089,10 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
 
 20:                                               ; preds = %18, %12
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 284
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %23 = load i32, ptr %22, align 4
   %24 = trunc i32 %23 to i16
-  %25 = getelementptr inbounds i8, ptr %1, i64 288
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %26 = load i32, ptr %25, align 8
   %27 = trunc i32 %26 to i16
   tail call void @col_append_ports(ptr noundef %21, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %24, i16 noundef zeroext %27) #8
@@ -1103,13 +1103,13 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.373, ptr noundef %15) #8
   %30 = load ptr, ptr %5, align 8
   tail call void @col_set_fence(ptr noundef %30, i32 noundef 25) #8
-  %31 = getelementptr inbounds i8, ptr %1, i64 284
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 288
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %34 = load i32, ptr %33, align 8
   %..i = tail call i32 @llvm.umin.i32(i32 %32, i32 %34)
-  %35 = getelementptr inbounds i8, ptr %1, i64 208
-  %36 = getelementptr inbounds i8, ptr %1, i64 232
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %37 = load i32, ptr %35, align 8
   %38 = load i32, ptr %36, align 8
   %39 = icmp sgt i32 %37, %38
@@ -1120,9 +1120,9 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   br i1 %41, label %.thread35.i, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %1, i64 212
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %1, i64 236
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 236
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %44, %46
   br i1 %47, label %.thread35.i, label %48
@@ -1136,9 +1136,9 @@ define internal fastcc void @dissect_drbd_message(ptr noundef %0, ptr noundef %1
   br i1 %51, label %.thread35.i, label %cmp_address.exit.i
 
 cmp_address.exit.i:                               ; preds = %50
-  %52 = getelementptr inbounds i8, ptr %1, i64 216
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 240
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %55 = load ptr, ptr %54, align 8
   %56 = sext i32 %44 to i64
   %57 = tail call i32 @memcmp(ptr noundef %53, ptr noundef %55, i64 noundef %56) #10
@@ -1151,7 +1151,7 @@ cmp_address.exit.i:                               ; preds = %50
 .thread35.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
   %59 = phi ptr [ %35, %50 ], [ %35, %42 ], [ %35, %28 ], [ %36, %48 ], [ %36, %40 ], [ %spec.select, %cmp_address.exit.i ]
   %60 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select57, %cmp_address.exit.i ]
-  %61 = getelementptr inbounds i8, ptr %1, i64 20
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = tail call ptr @find_conversation(i32 noundef %62, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 131072) #8
   %.not.i = icmp eq ptr %63, null
@@ -1196,16 +1196,16 @@ find_drbd_conversation.exit:                      ; preds = %.thread35.i, %64
   br i1 %80, label %find_payload_decoder.exit, label %76
 
 find_payload_decoder.exit:                        ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %1, i64 80
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 50
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 50
   %84 = load i16, ptr %83, align 2
   %85 = and i16 %84, 8
   %86 = icmp eq i16 %85, 0
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %find_payload_decoder.exit
-  %88 = getelementptr inbounds i8, ptr %78, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %89 = load ptr, ptr %88, align 8
   %.not48 = icmp eq ptr %89, null
   br i1 %.not48, label %91, label %90
@@ -1228,7 +1228,7 @@ find_payload_decoder.exit:                        ; preds = %77
 
 94:                                               ; preds = %91
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %8, ptr noundef nonnull @.str.374, ptr noundef %15) #8
-  %95 = getelementptr inbounds i8, ptr %78, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %96 = load ptr, ptr %95, align 8
   %.not49 = icmp eq ptr %96, null
   br i1 %.not49, label %98, label %97
@@ -1336,9 +1336,9 @@ define internal range(i32 0, 2) i32 @drbd_twopc_key_equal(ptr nocapture noundef 
   br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = getelementptr inbounds i8, ptr %1, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %8, %10
   %12 = zext i1 %11 to i32
@@ -1646,20 +1646,20 @@ define internal void @decode_payload_twopc_commit(ptr noundef %0, ptr noundef %1
   br i1 %.not.i, label %proto_item_set_generated.exit, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %12, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %15 = load ptr, ptr %14, align 8
   %.not5.i = icmp eq ptr %15, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %18 = load i32, ptr %17, align 4
   %19 = or i32 %18, 2
   store i32 %19, ptr %17, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %9, %13, %16
-  %20 = getelementptr inbounds i8, ptr %8, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %21 = load i32, ptr %20, align 4
   switch i32 %21, label %36 [
     i32 46, label %22
@@ -1933,7 +1933,7 @@ define internal void @decode_payload_twopc_reply(ptr noundef %0, ptr noundef %1,
   %5 = load i32, ptr @hf_drbd_tid, align 4
   %6 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %4) #8
   %7 = load i32, ptr @hf_drbd_initiator_node_id, align 4
-  %8 = getelementptr inbounds i8, ptr %4, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %9 = call ptr @proto_tree_add_item_ret_int(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #8
   %10 = load i32, ptr @hf_drbd_reachable_nodes, align 4
   %11 = call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %10, ptr noundef %0, i32 noundef 8, i32 noundef 8, i32 noundef 0) #8
@@ -1954,20 +1954,20 @@ define internal void @decode_payload_twopc_reply(ptr noundef %0, ptr noundef %1,
   br i1 %.not.i, label %proto_item_set_generated.exit, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %18, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %21 = load ptr, ptr %20, align 8
   %.not5.i = icmp eq ptr %21, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %21, i64 28
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %24 = load i32, ptr %23, align 4
   %25 = or i32 %24, 2
   store i32 %25, ptr %23, align 4
   br label %proto_item_set_generated.exit
 
 proto_item_set_generated.exit:                    ; preds = %15, %19, %22
-  %26 = getelementptr inbounds i8, ptr %14, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %33 [
     i32 46, label %.sink.split
@@ -2015,7 +2015,7 @@ define internal fastcc void @decode_state_change(ptr noundef %0, ptr noundef %1,
   br i1 %.not17.i, label %19, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %10, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %13 = load i64, ptr %12, align 8
   %14 = and i64 %13, %6
   %.not18.i = icmp eq i64 %14, 0
@@ -2084,14 +2084,14 @@ define internal fastcc void @insert_twopc(ptr noundef %0, ptr nocapture noundef 
 
 14:                                               ; preds = %12, %9
   %.sink = phi i32 [ %13, %12 ], [ %11, %9 ]
-  %15 = getelementptr inbounds i8, ptr %7, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sink, ptr %15, align 4
   %16 = tail call ptr @wmem_file_scope() #8
   %17 = tail call noalias ptr @wmem_alloc0(ptr noundef %16, i64 noundef 8) #8
-  %18 = getelementptr inbounds i8, ptr %1, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %17, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
   store i32 %3, ptr %20, align 4
   %21 = load ptr, ptr %2, align 8
   %22 = tail call ptr @wmem_map_insert(ptr noundef %21, ptr noundef nonnull %7, ptr noundef nonnull %17) #8
@@ -2118,7 +2118,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_twopc_request_commo
   %9 = load i32, ptr @ett_drbd_twopc_flags, align 4
   %10 = tail call ptr @proto_tree_add_bitmask(ptr noundef %1, ptr noundef %0, i32 noundef 4, i32 noundef %8, i32 noundef %9, ptr noundef nonnull @twopc_flag_fields, i32 noundef 0) #8
   %11 = load i32, ptr @hf_drbd_initiator_node_id, align 4
-  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %13 = select i1 %.not, ptr null, ptr %12
   %14 = tail call ptr @proto_tree_add_item_ret_int(ptr noundef %1, i32 noundef %11, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef 0, ptr noundef %13) #8
   %15 = load i32, ptr @hf_drbd_target_node_id, align 4
@@ -2127,7 +2127,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @decode_twopc_request_commo
 
 17:                                               ; preds = %3
   %18 = load i32, ptr @hf_drbd_initiator_node_id, align 4
-  %19 = getelementptr inbounds i8, ptr %2, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %20 = select i1 %.not, ptr null, ptr %19
   %21 = tail call ptr @proto_tree_add_item_ret_int(ptr noundef %1, i32 noundef %18, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0, ptr noundef %20) #8
   %22 = load i32, ptr @hf_drbd_target_node_id, align 4
@@ -2183,7 +2183,7 @@ define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   br i1 %15, label %16, label %34
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr @col_get_text(ptr noundef %18, i32 noundef 25) #8
   %20 = load ptr, ptr %17, align 8
@@ -2198,10 +2198,10 @@ define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
 
 23:                                               ; preds = %21, %16
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 284
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %26 = load i32, ptr %25, align 4
   %27 = trunc i32 %26 to i16
-  %28 = getelementptr inbounds i8, ptr %1, i64 288
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %29 = load i32, ptr %28, align 8
   %30 = trunc i32 %29 to i16
   tail call void @col_append_ports(ptr noundef %24, i32 noundef 25, i32 noundef 2, i16 noundef zeroext %27, i16 noundef zeroext %30) #8

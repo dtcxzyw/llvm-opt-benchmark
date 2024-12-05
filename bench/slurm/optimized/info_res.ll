@@ -156,19 +156,19 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 38:                                               ; preds = %32
   call void @slurm_make_time_str(ptr noundef %33, ptr noundef nonnull %6, i32 noundef 256) #7
-  %39 = getelementptr inbounds i8, ptr %33, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef nonnull %6, i32 noundef %40)
   br label %42
 
 42:                                               ; preds = %38, %32
-  %43 = getelementptr inbounds i8, ptr %33, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %44 = load i32, ptr %43, align 8
   %45 = add i32 %44, 1
   %46 = zext i32 %45 to i64
   %47 = call ptr @slurm_xcalloc(i64 noundef %46, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 122, ptr noundef nonnull @__func__.scontrol_print_res) #7
   store ptr %47, ptr %5, align 8
-  %48 = getelementptr inbounds i8, ptr %33, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %43, align 8
   %.not = icmp eq i32 %50, 0
@@ -180,8 +180,8 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.thread.us ], [ 0, %.lr.ph ]
-  %51 = getelementptr inbounds %struct.reserve_info, ptr %49, i64 %indvars.iv114
-  %52 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv114
+  %51 = getelementptr inbounds nuw %struct.reserve_info, ptr %49, i64 %indvars.iv114
+  %52 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv114
   store ptr %51, ptr %52, align 8
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %53 = load i32, ptr %43, align 8
@@ -191,14 +191,14 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph ]
-  %56 = getelementptr inbounds %struct.reserve_info, ptr %49, i64 %indvars.iv, i32 12
+  %56 = getelementptr inbounds nuw %struct.reserve_info, ptr %49, i64 %indvars.iv, i32 12
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef %57) #7
   %.not68 = icmp eq i32 %58, 0
   br i1 %.not68, label %59, label %61
 
 59:                                               ; preds = %.lr.ph.split
-  %60 = getelementptr inbounds %struct.reserve_info, ptr %49, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw %struct.reserve_info, ptr %49, i64 %indvars.iv
   store ptr %60, ptr %47, align 8
   br label %.loopexit101
 
@@ -227,15 +227,15 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 68:                                               ; preds = %.loopexit101
   %69 = load i64, ptr %33, align 8
   store i64 %69, ptr %7, align 8
-  %70 = getelementptr inbounds i8, ptr %7, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %.1, ptr %70, align 8
-  %71 = getelementptr inbounds i8, ptr %7, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 8
-  %73 = getelementptr inbounds i8, ptr %8, i64 16
-  %74 = getelementptr inbounds i8, ptr %8, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %7, ptr %74, align 8
-  %75 = getelementptr inbounds i8, ptr %8, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i64 %69, ptr %75, align 8
   %76 = sext i32 %.1 to i64
   %77 = call ptr @slurm_xcalloc(i64 noundef %76, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 147, ptr noundef nonnull @__func__.scontrol_print_res) #7
@@ -249,8 +249,8 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 79:                                               ; preds = %.lr.ph107, %79
   %indvars.iv119 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next120, %79 ]
-  %80 = getelementptr inbounds %struct.reserve_info, ptr %77, i64 %indvars.iv119
-  %81 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv119
+  %80 = getelementptr inbounds nuw %struct.reserve_info, ptr %77, i64 %indvars.iv119
+  %81 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv119
   %82 = load ptr, ptr %81, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %80, ptr noundef nonnull align 8 dereferenceable(168) %82, i64 168, i1 false)
   %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
@@ -259,10 +259,10 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
 
 .loopexit126:                                     ; preds = %79, %68
   store i32 463606195, ptr %9, align 8
-  %83 = getelementptr inbounds i8, ptr %9, i64 4
-  %84 = getelementptr inbounds i8, ptr %9, i64 8
-  %85 = getelementptr inbounds i8, ptr %9, i64 16
-  %86 = getelementptr inbounds i8, ptr %9, i64 24
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i32 0, ptr %83, align 4
   %87 = load ptr, ptr @data_parser, align 8
   store ptr %87, ptr %86, align 8
@@ -319,7 +319,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %106 = load i32, ptr @one_liner, align 4
   call void @slurm_print_reservation_info(ptr noundef %105, ptr noundef nonnull %104, i32 noundef %106) #7
   %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %107 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv.next123
+  %107 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next123
   %108 = load ptr, ptr %107, align 8
   %.not70 = icmp eq ptr %108, null
   br i1 %.not70, label %.loopexit, label %.lr.ph110, !llvm.loop !10

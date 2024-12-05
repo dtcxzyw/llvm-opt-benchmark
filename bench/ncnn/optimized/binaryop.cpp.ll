@@ -85,9 +85,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
   %23 = alloca %"class.ncnn::Mat", align 8
   %24 = alloca %"class.ncnn::Mat", align 8
   %25 = load ptr, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %28 = getelementptr inbounds i8, ptr %25, i64 112
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %29 = load i32, ptr %27, align 4
   %30 = load i32, ptr %28, align 4
   %31 = tail call i32 @llvm.smax.i32(i32 %29, i32 %30)
@@ -144,41 +144,41 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
   %65 = load ptr, ptr %26, align 8
   store ptr %65, ptr %6, align 8
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %67 = getelementptr inbounds i8, ptr %25, i64 80
+  %67 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %68 = load ptr, ptr %67, align 8
   store ptr %68, ptr %66, align 8
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %70 = getelementptr inbounds i8, ptr %25, i64 88
+  %70 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %71 = load i64, ptr %70, align 8
   store i64 %71, ptr %69, align 8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %73 = getelementptr inbounds i8, ptr %25, i64 96
+  %73 = getelementptr inbounds nuw i8, ptr %25, i64 96
   %74 = load i32, ptr %73, align 8
   store i32 %74, ptr %72, align 8
   %75 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %76 = getelementptr inbounds i8, ptr %25, i64 104
+  %76 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %77 = load ptr, ptr %76, align 8
   store ptr %77, ptr %75, align 8
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 %64, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %80 = getelementptr inbounds i8, ptr %25, i64 116
+  %80 = getelementptr inbounds nuw i8, ptr %25, i64 116
   %81 = load i32, ptr %80, align 4
   store i32 %81, ptr %79, align 4
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %83 = getelementptr inbounds i8, ptr %25, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %84 = load i32, ptr %83, align 8
   store i32 %84, ptr %82, align 8
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  %86 = getelementptr inbounds i8, ptr %25, i64 124
+  %86 = getelementptr inbounds nuw i8, ptr %25, i64 124
   %87 = load i32, ptr %86, align 4
   store i32 %87, ptr %85, align 4
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %89 = getelementptr inbounds i8, ptr %25, i64 128
+  %89 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %90 = load i32, ptr %89, align 8
   store i32 %90, ptr %88, align 8
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %92 = getelementptr inbounds i8, ptr %25, i64 136
+  %92 = getelementptr inbounds nuw i8, ptr %25, i64 136
   %93 = load i64, ptr %92, align 8
   store i64 %93, ptr %91, align 8
   %.not974 = icmp eq ptr %68, null
@@ -238,7 +238,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 118:                                              ; preds = %115
   %119 = load ptr, ptr %116, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8
   invoke void %121(ptr noundef nonnull align 8 dereferenceable(8) %116, ptr noundef %117)
           to label %124 unwind label %163
@@ -299,7 +299,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 151:                                              ; preds = %148
   %152 = load ptr, ptr %149, align 8
-  %153 = getelementptr inbounds i8, ptr %152, i64 24
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load ptr, ptr %153, align 8
   invoke void %154(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef %150)
           to label %157 unwind label %158
@@ -349,7 +349,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 173:                                              ; preds = %169
   %174 = load ptr, ptr %171, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 24
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
   %176 = load ptr, ptr %175, align 8
   invoke void %176(ptr noundef nonnull align 8 dereferenceable(8) %171, ptr noundef %172)
           to label %179 unwind label %182
@@ -409,7 +409,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 199:                                              ; preds = %196
   %200 = load ptr, ptr %197, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 24
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
   %202 = load ptr, ptr %201, align 8
   invoke void %202(ptr noundef nonnull align 8 dereferenceable(8) %197, ptr noundef %198)
           to label %205 unwind label %242
@@ -470,7 +470,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 232:                                              ; preds = %229
   %233 = load ptr, ptr %230, align 8
-  %234 = getelementptr inbounds i8, ptr %233, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
   %235 = load ptr, ptr %234, align 8
   invoke void %235(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef %231)
           to label %238 unwind label %239
@@ -515,7 +515,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 252:                                              ; preds = %248
   %253 = load ptr, ptr %250, align 8
-  %254 = getelementptr inbounds i8, ptr %253, i64 24
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
   %255 = load ptr, ptr %254, align 8
   invoke void %255(ptr noundef nonnull align 8 dereferenceable(8) %250, ptr noundef %251)
           to label %258 unwind label %261
@@ -585,7 +585,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 284:                                              ; preds = %281
   %285 = load ptr, ptr %282, align 8
-  %286 = getelementptr inbounds i8, ptr %285, i64 24
+  %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
   %287 = load ptr, ptr %286, align 8
   invoke void %287(ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef %283)
           to label %290 unwind label %327
@@ -646,7 +646,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 317:                                              ; preds = %314
   %318 = load ptr, ptr %315, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 24
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 24
   %320 = load ptr, ptr %319, align 8
   invoke void %320(ptr noundef nonnull align 8 dereferenceable(8) %315, ptr noundef %316)
           to label %323 unwind label %324
@@ -691,7 +691,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 337:                                              ; preds = %333
   %338 = load ptr, ptr %335, align 8
-  %339 = getelementptr inbounds i8, ptr %338, i64 24
+  %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %340 = load ptr, ptr %339, align 8
   invoke void %340(ptr noundef nonnull align 8 dereferenceable(8) %335, ptr noundef %336)
           to label %343 unwind label %346
@@ -751,7 +751,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 363:                                              ; preds = %360
   %364 = load ptr, ptr %361, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
   %366 = load ptr, ptr %365, align 8
   invoke void %366(ptr noundef nonnull align 8 dereferenceable(8) %361, ptr noundef %362)
           to label %369 unwind label %406
@@ -812,7 +812,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 396:                                              ; preds = %393
   %397 = load ptr, ptr %394, align 8
-  %398 = getelementptr inbounds i8, ptr %397, i64 24
+  %398 = getelementptr inbounds nuw i8, ptr %397, i64 24
   %399 = load ptr, ptr %398, align 8
   invoke void %399(ptr noundef nonnull align 8 dereferenceable(8) %394, ptr noundef %395)
           to label %402 unwind label %403
@@ -857,7 +857,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn8BinaryOp7forwardERKSt6ve
 
 416:                                              ; preds = %412
   %417 = load ptr, ptr %414, align 8
-  %418 = getelementptr inbounds i8, ptr %417, i64 24
+  %418 = getelementptr inbounds nuw i8, ptr %417, i64 24
   %419 = load ptr, ptr %418, align 8
   invoke void %419(ptr noundef nonnull align 8 dereferenceable(8) %414, ptr noundef %415)
           to label %422 unwind label %425
@@ -932,7 +932,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 447:                                              ; preds = %444
   %448 = load ptr, ptr %445, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 24
+  %449 = getelementptr inbounds nuw i8, ptr %448, i64 24
   %450 = load ptr, ptr %449, align 8
   invoke void %450(ptr noundef nonnull align 8 dereferenceable(8) %445, ptr noundef %446)
           to label %453 unwind label %490
@@ -993,7 +993,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 480:                                              ; preds = %477
   %481 = load ptr, ptr %478, align 8
-  %482 = getelementptr inbounds i8, ptr %481, i64 24
+  %482 = getelementptr inbounds nuw i8, ptr %481, i64 24
   %483 = load ptr, ptr %482, align 8
   invoke void %483(ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef %479)
           to label %486 unwind label %487
@@ -1038,7 +1038,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 500:                                              ; preds = %496
   %501 = load ptr, ptr %498, align 8
-  %502 = getelementptr inbounds i8, ptr %501, i64 24
+  %502 = getelementptr inbounds nuw i8, ptr %501, i64 24
   %503 = load ptr, ptr %502, align 8
   invoke void %503(ptr noundef nonnull align 8 dereferenceable(8) %498, ptr noundef %499)
           to label %506 unwind label %509
@@ -1108,7 +1108,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 532:                                              ; preds = %529
   %533 = load ptr, ptr %530, align 8
-  %534 = getelementptr inbounds i8, ptr %533, i64 24
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 24
   %535 = load ptr, ptr %534, align 8
   invoke void %535(ptr noundef nonnull align 8 dereferenceable(8) %530, ptr noundef %531)
           to label %538 unwind label %575
@@ -1169,7 +1169,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 565:                                              ; preds = %562
   %566 = load ptr, ptr %563, align 8
-  %567 = getelementptr inbounds i8, ptr %566, i64 24
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 24
   %568 = load ptr, ptr %567, align 8
   invoke void %568(ptr noundef nonnull align 8 dereferenceable(8) %563, ptr noundef %564)
           to label %571 unwind label %572
@@ -1214,7 +1214,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 585:                                              ; preds = %581
   %586 = load ptr, ptr %583, align 8
-  %587 = getelementptr inbounds i8, ptr %586, i64 24
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 24
   %588 = load ptr, ptr %587, align 8
   invoke void %588(ptr noundef nonnull align 8 dereferenceable(8) %583, ptr noundef %584)
           to label %591 unwind label %594
@@ -1274,7 +1274,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 611:                                              ; preds = %608
   %612 = load ptr, ptr %609, align 8
-  %613 = getelementptr inbounds i8, ptr %612, i64 24
+  %613 = getelementptr inbounds nuw i8, ptr %612, i64 24
   %614 = load ptr, ptr %613, align 8
   invoke void %614(ptr noundef nonnull align 8 dereferenceable(8) %609, ptr noundef %610)
           to label %617 unwind label %654
@@ -1335,7 +1335,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 644:                                              ; preds = %641
   %645 = load ptr, ptr %642, align 8
-  %646 = getelementptr inbounds i8, ptr %645, i64 24
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 24
   %647 = load ptr, ptr %646, align 8
   invoke void %647(ptr noundef nonnull align 8 dereferenceable(8) %642, ptr noundef %643)
           to label %650 unwind label %651
@@ -1380,7 +1380,7 @@ thread-pre-split:                                 ; preds = %323, %402
 
 664:                                              ; preds = %660
   %665 = load ptr, ptr %662, align 8
-  %666 = getelementptr inbounds i8, ptr %665, i64 24
+  %666 = getelementptr inbounds nuw i8, ptr %665, i64 24
   %667 = load ptr, ptr %666, align 8
   invoke void %667(ptr noundef nonnull align 8 dereferenceable(8) %662, ptr noundef %663)
           to label %670 unwind label %673
@@ -1455,7 +1455,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 695:                                              ; preds = %692
   %696 = load ptr, ptr %693, align 8
-  %697 = getelementptr inbounds i8, ptr %696, i64 24
+  %697 = getelementptr inbounds nuw i8, ptr %696, i64 24
   %698 = load ptr, ptr %697, align 8
   invoke void %698(ptr noundef nonnull align 8 dereferenceable(8) %693, ptr noundef %694)
           to label %701 unwind label %738
@@ -1516,7 +1516,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 728:                                              ; preds = %725
   %729 = load ptr, ptr %726, align 8
-  %730 = getelementptr inbounds i8, ptr %729, i64 24
+  %730 = getelementptr inbounds nuw i8, ptr %729, i64 24
   %731 = load ptr, ptr %730, align 8
   invoke void %731(ptr noundef nonnull align 8 dereferenceable(8) %726, ptr noundef %727)
           to label %734 unwind label %735
@@ -1564,7 +1564,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 748:                                              ; preds = %744
   %749 = load ptr, ptr %746, align 8
-  %750 = getelementptr inbounds i8, ptr %749, i64 24
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 24
   %751 = load ptr, ptr %750, align 8
   invoke void %751(ptr noundef nonnull align 8 dereferenceable(8) %746, ptr noundef %747)
           to label %754 unwind label %757
@@ -1632,7 +1632,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 779:                                              ; preds = %776
   %780 = load ptr, ptr %777, align 8
-  %781 = getelementptr inbounds i8, ptr %780, i64 24
+  %781 = getelementptr inbounds nuw i8, ptr %780, i64 24
   %782 = load ptr, ptr %781, align 8
   invoke void %782(ptr noundef nonnull align 8 dereferenceable(8) %777, ptr noundef %778)
           to label %785 unwind label %822
@@ -1693,7 +1693,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 812:                                              ; preds = %809
   %813 = load ptr, ptr %810, align 8
-  %814 = getelementptr inbounds i8, ptr %813, i64 24
+  %814 = getelementptr inbounds nuw i8, ptr %813, i64 24
   %815 = load ptr, ptr %814, align 8
   invoke void %815(ptr noundef nonnull align 8 dereferenceable(8) %810, ptr noundef %811)
           to label %818 unwind label %819
@@ -1738,7 +1738,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 832:                                              ; preds = %828
   %833 = load ptr, ptr %830, align 8
-  %834 = getelementptr inbounds i8, ptr %833, i64 24
+  %834 = getelementptr inbounds nuw i8, ptr %833, i64 24
   %835 = load ptr, ptr %834, align 8
   invoke void %835(ptr noundef nonnull align 8 dereferenceable(8) %830, ptr noundef %831)
           to label %838 unwind label %841
@@ -1823,7 +1823,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 865:                                              ; preds = %862
   %866 = load ptr, ptr %863, align 8
-  %867 = getelementptr inbounds i8, ptr %866, i64 24
+  %867 = getelementptr inbounds nuw i8, ptr %866, i64 24
   %868 = load ptr, ptr %867, align 8
   invoke void %868(ptr noundef nonnull align 8 dereferenceable(8) %863, ptr noundef %864)
           to label %871 unwind label %908
@@ -1884,7 +1884,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 898:                                              ; preds = %895
   %899 = load ptr, ptr %896, align 8
-  %900 = getelementptr inbounds i8, ptr %899, i64 24
+  %900 = getelementptr inbounds nuw i8, ptr %899, i64 24
   %901 = load ptr, ptr %900, align 8
   invoke void %901(ptr noundef nonnull align 8 dereferenceable(8) %896, ptr noundef %897)
           to label %904 unwind label %905
@@ -1929,7 +1929,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 918:                                              ; preds = %914
   %919 = load ptr, ptr %916, align 8
-  %920 = getelementptr inbounds i8, ptr %919, i64 24
+  %920 = getelementptr inbounds nuw i8, ptr %919, i64 24
   %921 = load ptr, ptr %920, align 8
   invoke void %921(ptr noundef nonnull align 8 dereferenceable(8) %916, ptr noundef %917)
           to label %924 unwind label %927
@@ -1989,7 +1989,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 944:                                              ; preds = %941
   %945 = load ptr, ptr %942, align 8
-  %946 = getelementptr inbounds i8, ptr %945, i64 24
+  %946 = getelementptr inbounds nuw i8, ptr %945, i64 24
   %947 = load ptr, ptr %946, align 8
   invoke void %947(ptr noundef nonnull align 8 dereferenceable(8) %942, ptr noundef %943)
           to label %950 unwind label %987
@@ -2050,7 +2050,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 977:                                              ; preds = %974
   %978 = load ptr, ptr %975, align 8
-  %979 = getelementptr inbounds i8, ptr %978, i64 24
+  %979 = getelementptr inbounds nuw i8, ptr %978, i64 24
   %980 = load ptr, ptr %979, align 8
   invoke void %980(ptr noundef nonnull align 8 dereferenceable(8) %975, ptr noundef %976)
           to label %983 unwind label %984
@@ -2095,7 +2095,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 997:                                              ; preds = %993
   %998 = load ptr, ptr %995, align 8
-  %999 = getelementptr inbounds i8, ptr %998, i64 24
+  %999 = getelementptr inbounds nuw i8, ptr %998, i64 24
   %1000 = load ptr, ptr %999, align 8
   invoke void %1000(ptr noundef nonnull align 8 dereferenceable(8) %995, ptr noundef %996)
           to label %1003 unwind label %1006
@@ -2165,7 +2165,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 1029:                                             ; preds = %1026
   %1030 = load ptr, ptr %1027, align 8
-  %1031 = getelementptr inbounds i8, ptr %1030, i64 24
+  %1031 = getelementptr inbounds nuw i8, ptr %1030, i64 24
   %1032 = load ptr, ptr %1031, align 8
   invoke void %1032(ptr noundef nonnull align 8 dereferenceable(8) %1027, ptr noundef %1028)
           to label %1035 unwind label %1072
@@ -2226,7 +2226,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 1062:                                             ; preds = %1059
   %1063 = load ptr, ptr %1060, align 8
-  %1064 = getelementptr inbounds i8, ptr %1063, i64 24
+  %1064 = getelementptr inbounds nuw i8, ptr %1063, i64 24
   %1065 = load ptr, ptr %1064, align 8
   invoke void %1065(ptr noundef nonnull align 8 dereferenceable(8) %1060, ptr noundef %1061)
           to label %1068 unwind label %1069
@@ -2271,7 +2271,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 1082:                                             ; preds = %1078
   %1083 = load ptr, ptr %1080, align 8
-  %1084 = getelementptr inbounds i8, ptr %1083, i64 24
+  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 24
   %1085 = load ptr, ptr %1084, align 8
   invoke void %1085(ptr noundef nonnull align 8 dereferenceable(8) %1080, ptr noundef %1081)
           to label %1088 unwind label %1091
@@ -2331,7 +2331,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 1108:                                             ; preds = %1105
   %1109 = load ptr, ptr %1106, align 8
-  %1110 = getelementptr inbounds i8, ptr %1109, i64 24
+  %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 24
   %1111 = load ptr, ptr %1110, align 8
   invoke void %1111(ptr noundef nonnull align 8 dereferenceable(8) %1106, ptr noundef %1107)
           to label %1114 unwind label %1151
@@ -2392,7 +2392,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 1141:                                             ; preds = %1138
   %1142 = load ptr, ptr %1139, align 8
-  %1143 = getelementptr inbounds i8, ptr %1142, i64 24
+  %1143 = getelementptr inbounds nuw i8, ptr %1142, i64 24
   %1144 = load ptr, ptr %1143, align 8
   invoke void %1144(ptr noundef nonnull align 8 dereferenceable(8) %1139, ptr noundef %1140)
           to label %1147 unwind label %1148
@@ -2437,7 +2437,7 @@ thread-pre-split1182:                             ; preds = %571, %650
 
 1161:                                             ; preds = %1157
   %1162 = load ptr, ptr %1159, align 8
-  %1163 = getelementptr inbounds i8, ptr %1162, i64 24
+  %1163 = getelementptr inbounds nuw i8, ptr %1162, i64 24
   %1164 = load ptr, ptr %1163, align 8
   invoke void %1164(ptr noundef nonnull align 8 dereferenceable(8) %1159, ptr noundef %1160)
           to label %1167 unwind label %1170
@@ -2512,7 +2512,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1192:                                             ; preds = %1189
   %1193 = load ptr, ptr %1190, align 8
-  %1194 = getelementptr inbounds i8, ptr %1193, i64 24
+  %1194 = getelementptr inbounds nuw i8, ptr %1193, i64 24
   %1195 = load ptr, ptr %1194, align 8
   invoke void %1195(ptr noundef nonnull align 8 dereferenceable(8) %1190, ptr noundef %1191)
           to label %1198 unwind label %1235
@@ -2573,7 +2573,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1225:                                             ; preds = %1222
   %1226 = load ptr, ptr %1223, align 8
-  %1227 = getelementptr inbounds i8, ptr %1226, i64 24
+  %1227 = getelementptr inbounds nuw i8, ptr %1226, i64 24
   %1228 = load ptr, ptr %1227, align 8
   invoke void %1228(ptr noundef nonnull align 8 dereferenceable(8) %1223, ptr noundef %1224)
           to label %1231 unwind label %1232
@@ -2618,7 +2618,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1245:                                             ; preds = %1241
   %1246 = load ptr, ptr %1243, align 8
-  %1247 = getelementptr inbounds i8, ptr %1246, i64 24
+  %1247 = getelementptr inbounds nuw i8, ptr %1246, i64 24
   %1248 = load ptr, ptr %1247, align 8
   invoke void %1248(ptr noundef nonnull align 8 dereferenceable(8) %1243, ptr noundef %1244)
           to label %1251 unwind label %1254
@@ -2688,7 +2688,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1277:                                             ; preds = %1274
   %1278 = load ptr, ptr %1275, align 8
-  %1279 = getelementptr inbounds i8, ptr %1278, i64 24
+  %1279 = getelementptr inbounds nuw i8, ptr %1278, i64 24
   %1280 = load ptr, ptr %1279, align 8
   invoke void %1280(ptr noundef nonnull align 8 dereferenceable(8) %1275, ptr noundef %1276)
           to label %1283 unwind label %1320
@@ -2749,7 +2749,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1310:                                             ; preds = %1307
   %1311 = load ptr, ptr %1308, align 8
-  %1312 = getelementptr inbounds i8, ptr %1311, i64 24
+  %1312 = getelementptr inbounds nuw i8, ptr %1311, i64 24
   %1313 = load ptr, ptr %1312, align 8
   invoke void %1313(ptr noundef nonnull align 8 dereferenceable(8) %1308, ptr noundef %1309)
           to label %1316 unwind label %1317
@@ -2794,7 +2794,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1330:                                             ; preds = %1326
   %1331 = load ptr, ptr %1328, align 8
-  %1332 = getelementptr inbounds i8, ptr %1331, i64 24
+  %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 24
   %1333 = load ptr, ptr %1332, align 8
   invoke void %1333(ptr noundef nonnull align 8 dereferenceable(8) %1328, ptr noundef %1329)
           to label %1336 unwind label %1339
@@ -2854,7 +2854,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1356:                                             ; preds = %1353
   %1357 = load ptr, ptr %1354, align 8
-  %1358 = getelementptr inbounds i8, ptr %1357, i64 24
+  %1358 = getelementptr inbounds nuw i8, ptr %1357, i64 24
   %1359 = load ptr, ptr %1358, align 8
   invoke void %1359(ptr noundef nonnull align 8 dereferenceable(8) %1354, ptr noundef %1355)
           to label %1362 unwind label %1399
@@ -2915,7 +2915,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1389:                                             ; preds = %1386
   %1390 = load ptr, ptr %1387, align 8
-  %1391 = getelementptr inbounds i8, ptr %1390, i64 24
+  %1391 = getelementptr inbounds nuw i8, ptr %1390, i64 24
   %1392 = load ptr, ptr %1391, align 8
   invoke void %1392(ptr noundef nonnull align 8 dereferenceable(8) %1387, ptr noundef %1388)
           to label %1395 unwind label %1396
@@ -2960,7 +2960,7 @@ thread-pre-split1186:                             ; preds = %1068, %1147
 
 1409:                                             ; preds = %1405
   %1410 = load ptr, ptr %1407, align 8
-  %1411 = getelementptr inbounds i8, ptr %1410, i64 24
+  %1411 = getelementptr inbounds nuw i8, ptr %1410, i64 24
   %1412 = load ptr, ptr %1411, align 8
   invoke void %1412(ptr noundef nonnull align 8 dereferenceable(8) %1407, ptr noundef %1408)
           to label %1415 unwind label %1418
@@ -3035,7 +3035,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 1440:                                             ; preds = %1437
   %1441 = load ptr, ptr %1438, align 8
-  %1442 = getelementptr inbounds i8, ptr %1441, i64 24
+  %1442 = getelementptr inbounds nuw i8, ptr %1441, i64 24
   %1443 = load ptr, ptr %1442, align 8
   invoke void %1443(ptr noundef nonnull align 8 dereferenceable(8) %1438, ptr noundef %1439)
           to label %1446 unwind label %1483
@@ -3096,7 +3096,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 1473:                                             ; preds = %1470
   %1474 = load ptr, ptr %1471, align 8
-  %1475 = getelementptr inbounds i8, ptr %1474, i64 24
+  %1475 = getelementptr inbounds nuw i8, ptr %1474, i64 24
   %1476 = load ptr, ptr %1475, align 8
   invoke void %1476(ptr noundef nonnull align 8 dereferenceable(8) %1471, ptr noundef %1472)
           to label %1479 unwind label %1480
@@ -3144,7 +3144,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 1493:                                             ; preds = %1489
   %1494 = load ptr, ptr %1491, align 8
-  %1495 = getelementptr inbounds i8, ptr %1494, i64 24
+  %1495 = getelementptr inbounds nuw i8, ptr %1494, i64 24
   %1496 = load ptr, ptr %1495, align 8
   invoke void %1496(ptr noundef nonnull align 8 dereferenceable(8) %1491, ptr noundef %1492)
           to label %1499 unwind label %1502
@@ -3212,7 +3212,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 1524:                                             ; preds = %1521
   %1525 = load ptr, ptr %1522, align 8
-  %1526 = getelementptr inbounds i8, ptr %1525, i64 24
+  %1526 = getelementptr inbounds nuw i8, ptr %1525, i64 24
   %1527 = load ptr, ptr %1526, align 8
   invoke void %1527(ptr noundef nonnull align 8 dereferenceable(8) %1522, ptr noundef %1523)
           to label %1530 unwind label %1567
@@ -3273,7 +3273,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 1557:                                             ; preds = %1554
   %1558 = load ptr, ptr %1555, align 8
-  %1559 = getelementptr inbounds i8, ptr %1558, i64 24
+  %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 24
   %1560 = load ptr, ptr %1559, align 8
   invoke void %1560(ptr noundef nonnull align 8 dereferenceable(8) %1555, ptr noundef %1556)
           to label %1563 unwind label %1564
@@ -3318,7 +3318,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 1577:                                             ; preds = %1573
   %1578 = load ptr, ptr %1575, align 8
-  %1579 = getelementptr inbounds i8, ptr %1578, i64 24
+  %1579 = getelementptr inbounds nuw i8, ptr %1578, i64 24
   %1580 = load ptr, ptr %1579, align 8
   invoke void %1580(ptr noundef nonnull align 8 dereferenceable(8) %1575, ptr noundef %1576)
           to label %1583 unwind label %1586
@@ -3468,10 +3468,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1648 = load float, ptr %.019754.i.i, align 4
   %1649 = load float, ptr %.019853.i.i, align 4
   %1650 = fadd fast float %1649, %1648
-  %1651 = getelementptr inbounds float, ptr %1615, i64 %indvars.iv95.i.i
+  %1651 = getelementptr inbounds nuw float, ptr %1615, i64 %indvars.iv95.i.i
   store float %1650, ptr %1651, align 4
-  %1652 = getelementptr inbounds float, ptr %.019754.i.i, i64 %1645
-  %1653 = getelementptr inbounds float, ptr %.019853.i.i, i64 %1646
+  %1652 = getelementptr inbounds nuw float, ptr %.019754.i.i, i64 %1645
+  %1653 = getelementptr inbounds nuw float, ptr %.019853.i.i, i64 %1646
   %indvars.iv.next96.i.i = add nuw nsw i64 %indvars.iv95.i.i, 1
   %exitcond99.not.i.i = icmp eq i64 %indvars.iv.next96.i.i, %wide.trip.count98.i.i
   br i1 %exitcond99.not.i.i, label %._crit_edge.i.i, label %1647, !llvm.loop !4
@@ -3535,10 +3535,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1691 = load float, ptr %.020055.us.i.i, align 4
   %1692 = load float, ptr %.019956.us.i.i, align 4
   %1693 = fadd fast float %1692, %1691
-  %1694 = getelementptr inbounds float, ptr %1685, i64 %indvars.iv.i.i
+  %1694 = getelementptr inbounds nuw float, ptr %1685, i64 %indvars.iv.i.i
   store float %1693, ptr %1694, align 4
-  %1695 = getelementptr inbounds float, ptr %.020055.us.i.i, i64 %1688
-  %1696 = getelementptr inbounds float, ptr %.019956.us.i.i, i64 %1689
+  %1695 = getelementptr inbounds nuw float, ptr %.020055.us.i.i, i64 %1688
+  %1696 = getelementptr inbounds nuw float, ptr %.019956.us.i.i, i64 %1689
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge60.us.i.i, label %1690, !llvm.loop !6
@@ -3660,16 +3660,16 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1765 = load float, ptr %.019464.us.us.us.i.us.us.i, align 4
   %1766 = load float, ptr %.019365.us.us.us.i.us.us.i, align 4
   %1767 = fadd fast float %1766, %1765
-  %1768 = getelementptr inbounds float, ptr %.171.us.us.us.i.us.us.i, i64 %indvars.iv100.i.us.us.i
+  %1768 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i.us.us.i, i64 %indvars.iv100.i.us.us.i
   store float %1767, ptr %1768, align 4
-  %1769 = getelementptr inbounds float, ptr %.019464.us.us.us.i.us.us.i, i64 %1708
-  %1770 = getelementptr inbounds float, ptr %.019365.us.us.us.i.us.us.i, i64 %1709
+  %1769 = getelementptr inbounds nuw float, ptr %.019464.us.us.us.i.us.us.i, i64 %1708
+  %1770 = getelementptr inbounds nuw float, ptr %.019365.us.us.us.i.us.us.i, i64 %1709
   %indvars.iv.next101.i.us.us.i = add nuw nsw i64 %indvars.iv100.i.us.us.i, 1
   %exitcond104.not.i.us.us.i = icmp eq i64 %indvars.iv.next101.i.us.us.i, %wide.trip.count103.i.i
   br i1 %exitcond104.not.i.us.us.i, label %._crit_edge69.us.us.us.i.loopexit.us.us.i, label %.lr.ph68.us.us.us.i.us.us.i, !llvm.loop !8
 
 ._crit_edge69.us.us.us.i.loopexit.us.us.i:        ; preds = %.lr.ph68.us.us.us.i.us.us.i
-  %1771 = getelementptr inbounds float, ptr %.171.us.us.us.i.us.us.i, i64 %1702
+  %1771 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i.us.us.i, i64 %1702
   %1772 = add nuw nsw i32 %storemerge30670.us.us.us.i.us.us.i, 1
   %exitcond105.not.i.us.us.i = icmp eq i32 %1772, %1634
   br i1 %exitcond105.not.i.us.us.i, label %._crit_edge73.us.us.us.i.split.us.us.i, label %.lr.ph68.us.us.us.preheader.i.us.us.i, !llvm.loop !9
@@ -3725,10 +3725,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1795 = load float, ptr %.019754.i113.i, align 4
   %1796 = load float, ptr %.019853.i114.i, align 4
   %1797 = fmul fast float %1796, %1795
-  %1798 = getelementptr inbounds float, ptr %1615, i64 %indvars.iv95.i112.i
+  %1798 = getelementptr inbounds nuw float, ptr %1615, i64 %indvars.iv95.i112.i
   store float %1797, ptr %1798, align 4
-  %1799 = getelementptr inbounds float, ptr %.019754.i113.i, i64 %1792
-  %1800 = getelementptr inbounds float, ptr %.019853.i114.i, i64 %1793
+  %1799 = getelementptr inbounds nuw float, ptr %.019754.i113.i, i64 %1792
+  %1800 = getelementptr inbounds nuw float, ptr %.019853.i114.i, i64 %1793
   %indvars.iv.next96.i115.i = add nuw nsw i64 %indvars.iv95.i112.i, 1
   %exitcond99.not.i116.i = icmp eq i64 %indvars.iv.next96.i115.i, %wide.trip.count98.i111.i
   br i1 %exitcond99.not.i116.i, label %._crit_edge.i75.i, label %1794, !llvm.loop !12
@@ -3792,10 +3792,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1838 = load float, ptr %.020055.us.i69.i, align 4
   %1839 = load float, ptr %.019956.us.i68.i, align 4
   %1840 = fmul fast float %1839, %1838
-  %1841 = getelementptr inbounds float, ptr %1832, i64 %indvars.iv.i67.i
+  %1841 = getelementptr inbounds nuw float, ptr %1832, i64 %indvars.iv.i67.i
   store float %1840, ptr %1841, align 4
-  %1842 = getelementptr inbounds float, ptr %.020055.us.i69.i, i64 %1835
-  %1843 = getelementptr inbounds float, ptr %.019956.us.i68.i, i64 %1836
+  %1842 = getelementptr inbounds nuw float, ptr %.020055.us.i69.i, i64 %1835
+  %1843 = getelementptr inbounds nuw float, ptr %.019956.us.i68.i, i64 %1836
   %indvars.iv.next.i70.i = add nuw nsw i64 %indvars.iv.i67.i, 1
   %exitcond.not.i71.i = icmp eq i64 %indvars.iv.next.i70.i, %wide.trip.count.i62.i
   br i1 %exitcond.not.i71.i, label %._crit_edge60.us.i72.i, label %1837, !llvm.loop !13
@@ -3917,16 +3917,16 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1912 = load float, ptr %.019464.us.us.us.i107.us.us.i, align 4
   %1913 = load float, ptr %.019365.us.us.us.i106.us.us.i, align 4
   %1914 = fmul fast float %1913, %1912
-  %1915 = getelementptr inbounds float, ptr %.171.us.us.us.i88.us.us.i, i64 %indvars.iv100.i105.us.us.i
+  %1915 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i88.us.us.i, i64 %indvars.iv100.i105.us.us.i
   store float %1914, ptr %1915, align 4
-  %1916 = getelementptr inbounds float, ptr %.019464.us.us.us.i107.us.us.i, i64 %1855
-  %1917 = getelementptr inbounds float, ptr %.019365.us.us.us.i106.us.us.i, i64 %1856
+  %1916 = getelementptr inbounds nuw float, ptr %.019464.us.us.us.i107.us.us.i, i64 %1855
+  %1917 = getelementptr inbounds nuw float, ptr %.019365.us.us.us.i106.us.us.i, i64 %1856
   %indvars.iv.next101.i108.us.us.i = add nuw nsw i64 %indvars.iv100.i105.us.us.i, 1
   %exitcond104.not.i109.us.us.i = icmp eq i64 %indvars.iv.next101.i108.us.us.i, %wide.trip.count103.i82.i
   br i1 %exitcond104.not.i109.us.us.i, label %._crit_edge69.us.us.us.i90.loopexit.us.us.i, label %.lr.ph68.us.us.us.i104.us.us.i, !llvm.loop !15
 
 ._crit_edge69.us.us.us.i90.loopexit.us.us.i:      ; preds = %.lr.ph68.us.us.us.i104.us.us.i
-  %1918 = getelementptr inbounds float, ptr %.171.us.us.us.i88.us.us.i, i64 %1849
+  %1918 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i88.us.us.i, i64 %1849
   %1919 = add nuw nsw i32 %storemerge30670.us.us.us.i89.us.us.i, 1
   %exitcond105.not.i91.us.us.i = icmp eq i32 %1919, %1781
   br i1 %exitcond105.not.i91.us.us.i, label %._crit_edge73.us.us.us.i92.split.us.us.i, label %.lr.ph68.us.us.us.preheader.i97.us.us.i, !llvm.loop !16
@@ -3983,10 +3983,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1943 = load float, ptr %.019853.i172.i, align 4
   %1944 = fcmp fast olt float %1942, %1943
   %1945 = select i1 %1944, float %1943, float %1942
-  %1946 = getelementptr inbounds float, ptr %1615, i64 %indvars.iv95.i170.i
+  %1946 = getelementptr inbounds nuw float, ptr %1615, i64 %indvars.iv95.i170.i
   store float %1945, ptr %1946, align 4
-  %1947 = getelementptr inbounds float, ptr %.019754.i171.i, i64 %1939
-  %1948 = getelementptr inbounds float, ptr %.019853.i172.i, i64 %1940
+  %1947 = getelementptr inbounds nuw float, ptr %.019754.i171.i, i64 %1939
+  %1948 = getelementptr inbounds nuw float, ptr %.019853.i172.i, i64 %1940
   %indvars.iv.next96.i173.i = add nuw nsw i64 %indvars.iv95.i170.i, 1
   %exitcond99.not.i174.i = icmp eq i64 %indvars.iv.next96.i173.i, %wide.trip.count98.i169.i
   br i1 %exitcond99.not.i174.i, label %._crit_edge.i133.i, label %1941, !llvm.loop !19
@@ -4051,10 +4051,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %1987 = load float, ptr %.019956.us.i126.i, align 4
   %1988 = fcmp fast olt float %1986, %1987
   %1989 = select i1 %1988, float %1987, float %1986
-  %1990 = getelementptr inbounds float, ptr %1980, i64 %indvars.iv.i125.i
+  %1990 = getelementptr inbounds nuw float, ptr %1980, i64 %indvars.iv.i125.i
   store float %1989, ptr %1990, align 4
-  %1991 = getelementptr inbounds float, ptr %.020055.us.i127.i, i64 %1983
-  %1992 = getelementptr inbounds float, ptr %.019956.us.i126.i, i64 %1984
+  %1991 = getelementptr inbounds nuw float, ptr %.020055.us.i127.i, i64 %1983
+  %1992 = getelementptr inbounds nuw float, ptr %.019956.us.i126.i, i64 %1984
   %indvars.iv.next.i128.i = add nuw nsw i64 %indvars.iv.i125.i, 1
   %exitcond.not.i129.i = icmp eq i64 %indvars.iv.next.i128.i, %wide.trip.count.i120.i
   br i1 %exitcond.not.i129.i, label %._crit_edge60.us.i130.i, label %1985, !llvm.loop !20
@@ -4177,16 +4177,16 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %2062 = load float, ptr %.019365.us.us.us.i164.us.us.i, align 4
   %2063 = fcmp fast olt float %2061, %2062
   %2064 = select i1 %2063, float %2062, float %2061
-  %2065 = getelementptr inbounds float, ptr %.171.us.us.us.i146.us.us.i, i64 %indvars.iv100.i163.us.us.i
+  %2065 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i146.us.us.i, i64 %indvars.iv100.i163.us.us.i
   store float %2064, ptr %2065, align 4
-  %2066 = getelementptr inbounds float, ptr %.019464.us.us.us.i165.us.us.i, i64 %2004
-  %2067 = getelementptr inbounds float, ptr %.019365.us.us.us.i164.us.us.i, i64 %2005
+  %2066 = getelementptr inbounds nuw float, ptr %.019464.us.us.us.i165.us.us.i, i64 %2004
+  %2067 = getelementptr inbounds nuw float, ptr %.019365.us.us.us.i164.us.us.i, i64 %2005
   %indvars.iv.next101.i166.us.us.i = add nuw nsw i64 %indvars.iv100.i163.us.us.i, 1
   %exitcond104.not.i167.us.us.i = icmp eq i64 %indvars.iv.next101.i166.us.us.i, %wide.trip.count103.i140.i
   br i1 %exitcond104.not.i167.us.us.i, label %._crit_edge69.us.us.us.i148.loopexit.us.us.i, label %.lr.ph68.us.us.us.i162.us.us.i, !llvm.loop !22
 
 ._crit_edge69.us.us.us.i148.loopexit.us.us.i:     ; preds = %.lr.ph68.us.us.us.i162.us.us.i
-  %2068 = getelementptr inbounds float, ptr %.171.us.us.us.i146.us.us.i, i64 %1998
+  %2068 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i146.us.us.i, i64 %1998
   %2069 = add nuw nsw i32 %storemerge30670.us.us.us.i147.us.us.i, 1
   %exitcond105.not.i149.us.us.i = icmp eq i32 %2069, %1928
   br i1 %exitcond105.not.i149.us.us.i, label %._crit_edge73.us.us.us.i150.split.us.us.i, label %.lr.ph68.us.us.us.preheader.i155.us.us.i, !llvm.loop !23
@@ -4239,10 +4239,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %2092 = load float, ptr %.019754.i229.i, align 4
   %2093 = fcmp fast olt float %2091, %2092
   %2094 = select i1 %2093, float %2091, float %2092
-  %2095 = getelementptr inbounds float, ptr %1615, i64 %indvars.iv95.i228.i
+  %2095 = getelementptr inbounds nuw float, ptr %1615, i64 %indvars.iv95.i228.i
   store float %2094, ptr %2095, align 4
-  %2096 = getelementptr inbounds float, ptr %.019754.i229.i, i64 %2088
-  %2097 = getelementptr inbounds float, ptr %.019853.i230.i, i64 %2089
+  %2096 = getelementptr inbounds nuw float, ptr %.019754.i229.i, i64 %2088
+  %2097 = getelementptr inbounds nuw float, ptr %.019853.i230.i, i64 %2089
   %indvars.iv.next96.i231.i = add nuw nsw i64 %indvars.iv95.i228.i, 1
   %exitcond99.not.i232.i = icmp eq i64 %indvars.iv.next96.i231.i, %wide.trip.count98.i227.i
   br i1 %exitcond99.not.i232.i, label %._crit_edge.i191.i, label %2090, !llvm.loop !26
@@ -4307,10 +4307,10 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %2136 = load float, ptr %.020055.us.i185.i, align 4
   %2137 = fcmp fast olt float %2135, %2136
   %2138 = select i1 %2137, float %2135, float %2136
-  %2139 = getelementptr inbounds float, ptr %2129, i64 %indvars.iv.i183.i
+  %2139 = getelementptr inbounds nuw float, ptr %2129, i64 %indvars.iv.i183.i
   store float %2138, ptr %2139, align 4
-  %2140 = getelementptr inbounds float, ptr %.020055.us.i185.i, i64 %2132
-  %2141 = getelementptr inbounds float, ptr %.019956.us.i184.i, i64 %2133
+  %2140 = getelementptr inbounds nuw float, ptr %.020055.us.i185.i, i64 %2132
+  %2141 = getelementptr inbounds nuw float, ptr %.019956.us.i184.i, i64 %2133
   %indvars.iv.next.i186.i = add nuw nsw i64 %indvars.iv.i183.i, 1
   %exitcond.not.i187.i = icmp eq i64 %indvars.iv.next.i186.i, %wide.trip.count.i178.i
   br i1 %exitcond.not.i187.i, label %._crit_edge60.us.i188.i, label %2134, !llvm.loop !27
@@ -4433,16 +4433,16 @@ thread-pre-split1188:                             ; preds = %1316, %1395
   %2211 = load float, ptr %.019464.us.us.us.i223.us.us.i, align 4
   %2212 = fcmp fast olt float %2210, %2211
   %2213 = select i1 %2212, float %2210, float %2211
-  %2214 = getelementptr inbounds float, ptr %.171.us.us.us.i204.us.us.i, i64 %indvars.iv100.i221.us.us.i
+  %2214 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i204.us.us.i, i64 %indvars.iv100.i221.us.us.i
   store float %2213, ptr %2214, align 4
-  %2215 = getelementptr inbounds float, ptr %.019464.us.us.us.i223.us.us.i, i64 %2153
-  %2216 = getelementptr inbounds float, ptr %.019365.us.us.us.i222.us.us.i, i64 %2154
+  %2215 = getelementptr inbounds nuw float, ptr %.019464.us.us.us.i223.us.us.i, i64 %2153
+  %2216 = getelementptr inbounds nuw float, ptr %.019365.us.us.us.i222.us.us.i, i64 %2154
   %indvars.iv.next101.i224.us.us.i = add nuw nsw i64 %indvars.iv100.i221.us.us.i, 1
   %exitcond104.not.i225.us.us.i = icmp eq i64 %indvars.iv.next101.i224.us.us.i, %wide.trip.count103.i198.i
   br i1 %exitcond104.not.i225.us.us.i, label %._crit_edge69.us.us.us.i206.loopexit.us.us.i, label %.lr.ph68.us.us.us.i220.us.us.i, !llvm.loop !29
 
 ._crit_edge69.us.us.us.i206.loopexit.us.us.i:     ; preds = %.lr.ph68.us.us.us.i220.us.us.i
-  %2217 = getelementptr inbounds float, ptr %.171.us.us.us.i204.us.us.i, i64 %2147
+  %2217 = getelementptr inbounds nuw float, ptr %.171.us.us.us.i204.us.us.i, i64 %2147
   %2218 = add nuw nsw i32 %storemerge30670.us.us.us.i205.us.us.i, 1
   %exitcond105.not.i207.us.us.i = icmp eq i32 %2218, %2077
   br i1 %exitcond105.not.i207.us.us.i, label %._crit_edge73.us.us.us.i208.split.us.us.i, label %.lr.ph68.us.us.us.preheader.i213.us.us.i, !llvm.loop !30
@@ -4500,7 +4500,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 2233:                                             ; preds = %2230
   %2234 = load ptr, ptr %2231, align 8
-  %2235 = getelementptr inbounds i8, ptr %2234, i64 24
+  %2235 = getelementptr inbounds nuw i8, ptr %2234, i64 24
   %2236 = load ptr, ptr %2235, align 8
   invoke void %2236(ptr noundef nonnull align 8 dereferenceable(8) %2231, ptr noundef %2232)
           to label %2239 unwind label %2241
@@ -4541,7 +4541,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 2250:                                             ; preds = %2247
   %2251 = load ptr, ptr %2248, align 8
-  %2252 = getelementptr inbounds i8, ptr %2251, i64 24
+  %2252 = getelementptr inbounds nuw i8, ptr %2251, i64 24
   %2253 = load ptr, ptr %2252, align 8
   invoke void %2253(ptr noundef nonnull align 8 dereferenceable(8) %2248, ptr noundef %2249)
           to label %2256 unwind label %2257
@@ -4583,7 +4583,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 2268:                                             ; preds = %2265
   %2269 = load ptr, ptr %2266, align 8
-  %2270 = getelementptr inbounds i8, ptr %2269, i64 24
+  %2270 = getelementptr inbounds nuw i8, ptr %2269, i64 24
   %2271 = load ptr, ptr %2270, align 8
   invoke void %2271(ptr noundef nonnull align 8 dereferenceable(8) %2266, ptr noundef %2267)
           to label %2274 unwind label %2276
@@ -4624,7 +4624,7 @@ thread-pre-split1188:                             ; preds = %1316, %1395
 
 2285:                                             ; preds = %2282
   %2286 = load ptr, ptr %2283, align 8
-  %2287 = getelementptr inbounds i8, ptr %2286, i64 24
+  %2287 = getelementptr inbounds nuw i8, ptr %2286, i64 24
   %2288 = load ptr, ptr %2287, align 8
   invoke void %2288(ptr noundef nonnull align 8 dereferenceable(8) %2283, ptr noundef %2284)
           to label %2291 unwind label %2292
@@ -4722,7 +4722,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 29:                                               ; preds = %29, %.lr.ph.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr inbounds float, ptr %28, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv.i.i
   %31 = load float, ptr %30, align 4
   %32 = fadd fast float %31, %5
   store float %32, ptr %30, align 4
@@ -4772,7 +4772,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 54:                                               ; preds = %54, %.lr.ph.us.i51.i
   %indvars.iv.i53.i = phi i64 [ 0, %.lr.ph.us.i51.i ], [ %indvars.iv.next.i54.i, %54 ]
-  %55 = getelementptr inbounds float, ptr %53, i64 %indvars.iv.i53.i
+  %55 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv.i53.i
   %56 = load float, ptr %55, align 4
   %57 = fsub fast float %56, %5
   store float %57, ptr %55, align 4
@@ -4822,7 +4822,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 79:                                               ; preds = %79, %.lr.ph.us.i63.i
   %indvars.iv.i65.i = phi i64 [ 0, %.lr.ph.us.i63.i ], [ %indvars.iv.next.i66.i, %79 ]
-  %80 = getelementptr inbounds float, ptr %78, i64 %indvars.iv.i65.i
+  %80 = getelementptr inbounds nuw float, ptr %78, i64 %indvars.iv.i65.i
   %81 = load float, ptr %80, align 4
   %82 = fmul fast float %81, %5
   store float %82, ptr %80, align 4
@@ -4873,7 +4873,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 105:                                              ; preds = %105, %.lr.ph.us.i75.i
   %indvars.iv.i77.i = phi i64 [ 0, %.lr.ph.us.i75.i ], [ %indvars.iv.next.i78.i, %105 ]
-  %106 = getelementptr inbounds float, ptr %104, i64 %indvars.iv.i77.i
+  %106 = getelementptr inbounds nuw float, ptr %104, i64 %indvars.iv.i77.i
   %107 = load float, ptr %106, align 4
   %108 = fmul fast float %107, %98
   store float %108, ptr %106, align 4
@@ -4923,7 +4923,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 130:                                              ; preds = %130, %.lr.ph.us.i87.i
   %indvars.iv.i89.i = phi i64 [ 0, %.lr.ph.us.i87.i ], [ %indvars.iv.next.i90.i, %130 ]
-  %131 = getelementptr inbounds float, ptr %129, i64 %indvars.iv.i89.i
+  %131 = getelementptr inbounds nuw float, ptr %129, i64 %indvars.iv.i89.i
   %132 = load float, ptr %131, align 4
   %133 = fcmp fast olt float %132, %5
   %134 = select i1 %133, float %5, float %132
@@ -4974,7 +4974,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 156:                                              ; preds = %156, %.lr.ph.us.i99.i
   %indvars.iv.i101.i = phi i64 [ 0, %.lr.ph.us.i99.i ], [ %indvars.iv.next.i102.i, %156 ]
-  %157 = getelementptr inbounds float, ptr %155, i64 %indvars.iv.i101.i
+  %157 = getelementptr inbounds nuw float, ptr %155, i64 %indvars.iv.i101.i
   %158 = load float, ptr %157, align 4
   %159 = fcmp fast olt float %5, %158
   %160 = select i1 %159, float %5, float %158
@@ -5025,7 +5025,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 182:                                              ; preds = %182, %.lr.ph.us.i111.i
   %indvars.iv.i113.i = phi i64 [ 0, %.lr.ph.us.i111.i ], [ %indvars.iv.next.i114.i, %182 ]
-  %183 = getelementptr inbounds float, ptr %181, i64 %indvars.iv.i113.i
+  %183 = getelementptr inbounds nuw float, ptr %181, i64 %indvars.iv.i113.i
   %184 = load float, ptr %183, align 4
   %185 = tail call fast noundef float @llvm.pow.f32(float %184, float %5)
   store float %185, ptr %183, align 4
@@ -5075,7 +5075,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 207:                                              ; preds = %207, %.lr.ph.us.i123.i
   %indvars.iv.i125.i = phi i64 [ 0, %.lr.ph.us.i123.i ], [ %indvars.iv.next.i126.i, %207 ]
-  %208 = getelementptr inbounds float, ptr %206, i64 %indvars.iv.i125.i
+  %208 = getelementptr inbounds nuw float, ptr %206, i64 %indvars.iv.i125.i
   %209 = load float, ptr %208, align 4
   %210 = fsub fast float %5, %209
   store float %210, ptr %208, align 4
@@ -5125,7 +5125,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 232:                                              ; preds = %232, %.lr.ph.us.i135.i
   %indvars.iv.i137.i = phi i64 [ 0, %.lr.ph.us.i135.i ], [ %indvars.iv.next.i138.i, %232 ]
-  %233 = getelementptr inbounds float, ptr %231, i64 %indvars.iv.i137.i
+  %233 = getelementptr inbounds nuw float, ptr %231, i64 %indvars.iv.i137.i
   %234 = load float, ptr %233, align 4
   %235 = fdiv fast float %5, %234
   store float %235, ptr %233, align 4
@@ -5175,7 +5175,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 257:                                              ; preds = %257, %.lr.ph.us.i147.i
   %indvars.iv.i149.i = phi i64 [ 0, %.lr.ph.us.i147.i ], [ %indvars.iv.next.i150.i, %257 ]
-  %258 = getelementptr inbounds float, ptr %256, i64 %indvars.iv.i149.i
+  %258 = getelementptr inbounds nuw float, ptr %256, i64 %indvars.iv.i149.i
   %259 = load float, ptr %258, align 4
   %260 = tail call fast noundef float @llvm.pow.f32(float %5, float %259)
   store float %260, ptr %258, align 4
@@ -5225,7 +5225,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 282:                                              ; preds = %282, %.lr.ph.us.i159.i
   %indvars.iv.i161.i = phi i64 [ 0, %.lr.ph.us.i159.i ], [ %indvars.iv.next.i162.i, %282 ]
-  %283 = getelementptr inbounds float, ptr %281, i64 %indvars.iv.i161.i
+  %283 = getelementptr inbounds nuw float, ptr %281, i64 %indvars.iv.i161.i
   %284 = load float, ptr %283, align 4
   %285 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %284, float noundef nofpclass(nan inf) %5) #16
   store float %285, ptr %283, align 4
@@ -5275,7 +5275,7 @@ define hidden noundef i32 @_ZNK4ncnn8BinaryOp15forward_inplaceERNS_3MatERKNS_6Op
 
 307:                                              ; preds = %307, %.lr.ph.us.i171.i
   %indvars.iv.i173.i = phi i64 [ 0, %.lr.ph.us.i171.i ], [ %indvars.iv.next.i174.i, %307 ]
-  %308 = getelementptr inbounds float, ptr %306, i64 %indvars.iv.i173.i
+  %308 = getelementptr inbounds nuw float, ptr %306, i64 %indvars.iv.i173.i
   %309 = load float, ptr %308, align 4
   %310 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %5, float noundef nofpclass(nan inf) %309) #16
   store float %310, ptr %308, align 4
@@ -5373,10 +5373,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
   %28 = load float, ptr %.019754, align 4
   %29 = load float, ptr %.019853, align 4
   %30 = fsub fast float %28, %29
-  %31 = getelementptr inbounds float, ptr %15, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv95
   store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds float, ptr %.019754, i64 %25
-  %33 = getelementptr inbounds float, ptr %.019853, i64 %26
+  %32 = getelementptr inbounds nuw float, ptr %.019754, i64 %25
+  %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !57
@@ -5446,10 +5446,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
   %77 = load float, ptr %.020055.us, align 4
   %78 = load float, ptr %.019956.us, align 4
   %79 = fsub fast float %77, %78
-  %80 = getelementptr inbounds float, ptr %71, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
   store float %79, ptr %80, align 4
-  %81 = getelementptr inbounds float, ptr %.020055.us, i64 %74
-  %82 = getelementptr inbounds float, ptr %.019956.us, i64 %75
+  %81 = getelementptr inbounds nuw float, ptr %.020055.us, i64 %74
+  %82 = getelementptr inbounds nuw float, ptr %.019956.us, i64 %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge60.us, label %76, !llvm.loop !58
@@ -5590,10 +5590,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
   %167 = load float, ptr %.019464.us.us.us, align 4
   %168 = load float, ptr %.019365.us.us.us, align 4
   %169 = fsub fast float %167, %168
-  %170 = getelementptr inbounds float, ptr %.171.us.us.us, i64 %indvars.iv100
+  %170 = getelementptr inbounds nuw float, ptr %.171.us.us.us, i64 %indvars.iv100
   store float %169, ptr %170, align 4
-  %171 = getelementptr inbounds float, ptr %.019464.us.us.us, i64 %113
-  %172 = getelementptr inbounds float, ptr %.019365.us.us.us, i64 %114
+  %171 = getelementptr inbounds nuw float, ptr %.019464.us.us.us, i64 %113
+  %172 = getelementptr inbounds nuw float, ptr %.019365.us.us.us, i64 %114
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %._crit_edge69.us.us.us, label %.lr.ph68.us.us.us, !llvm.loop !61
@@ -5655,10 +5655,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
   %28 = load float, ptr %.019754, align 4
   %29 = load float, ptr %.019853, align 4
   %30 = fdiv fast float %28, %29
-  %31 = getelementptr inbounds float, ptr %15, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv95
   store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds float, ptr %.019754, i64 %25
-  %33 = getelementptr inbounds float, ptr %.019853, i64 %26
+  %32 = getelementptr inbounds nuw float, ptr %.019754, i64 %25
+  %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !64
@@ -5728,10 +5728,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
   %77 = load float, ptr %.020055.us, align 4
   %78 = load float, ptr %.019956.us, align 4
   %79 = fdiv fast float %77, %78
-  %80 = getelementptr inbounds float, ptr %71, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
   store float %79, ptr %80, align 4
-  %81 = getelementptr inbounds float, ptr %.020055.us, i64 %74
-  %82 = getelementptr inbounds float, ptr %.019956.us, i64 %75
+  %81 = getelementptr inbounds nuw float, ptr %.020055.us, i64 %74
+  %82 = getelementptr inbounds nuw float, ptr %.019956.us, i64 %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge60.us, label %76, !llvm.loop !65
@@ -5872,10 +5872,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
   %167 = load float, ptr %.019464.us.us.us, align 4
   %168 = load float, ptr %.019365.us.us.us, align 4
   %169 = fdiv fast float %167, %168
-  %170 = getelementptr inbounds float, ptr %.171.us.us.us, i64 %indvars.iv100
+  %170 = getelementptr inbounds nuw float, ptr %.171.us.us.us, i64 %indvars.iv100
   store float %169, ptr %170, align 4
-  %171 = getelementptr inbounds float, ptr %.019464.us.us.us, i64 %113
-  %172 = getelementptr inbounds float, ptr %.019365.us.us.us, i64 %114
+  %171 = getelementptr inbounds nuw float, ptr %.019464.us.us.us, i64 %113
+  %172 = getelementptr inbounds nuw float, ptr %.019365.us.us.us, i64 %114
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %._crit_edge69.us.us.us, label %.lr.ph68.us.us.us, !llvm.loop !68
@@ -5937,10 +5937,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %28 = load float, ptr %.019754, align 4
   %29 = load float, ptr %.019853, align 4
   %30 = tail call fast noundef float @llvm.pow.f32(float %28, float %29)
-  %31 = getelementptr inbounds float, ptr %15, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv95
   store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds float, ptr %.019754, i64 %25
-  %33 = getelementptr inbounds float, ptr %.019853, i64 %26
+  %32 = getelementptr inbounds nuw float, ptr %.019754, i64 %25
+  %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !71
@@ -6010,10 +6010,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %77 = load float, ptr %.020055.us, align 4
   %78 = load float, ptr %.019956.us, align 4
   %79 = tail call fast noundef float @llvm.pow.f32(float %77, float %78)
-  %80 = getelementptr inbounds float, ptr %71, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
   store float %79, ptr %80, align 4
-  %81 = getelementptr inbounds float, ptr %.020055.us, i64 %74
-  %82 = getelementptr inbounds float, ptr %.019956.us, i64 %75
+  %81 = getelementptr inbounds nuw float, ptr %.020055.us, i64 %74
+  %82 = getelementptr inbounds nuw float, ptr %.019956.us, i64 %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge60.us, label %76, !llvm.loop !72
@@ -6154,10 +6154,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %167 = load float, ptr %.019464.us.us.us, align 4
   %168 = load float, ptr %.019365.us.us.us, align 4
   %169 = tail call fast noundef float @llvm.pow.f32(float %167, float %168)
-  %170 = getelementptr inbounds float, ptr %.171.us.us.us, i64 %indvars.iv100
+  %170 = getelementptr inbounds nuw float, ptr %.171.us.us.us, i64 %indvars.iv100
   store float %169, ptr %170, align 4
-  %171 = getelementptr inbounds float, ptr %.019464.us.us.us, i64 %113
-  %172 = getelementptr inbounds float, ptr %.019365.us.us.us, i64 %114
+  %171 = getelementptr inbounds nuw float, ptr %.019464.us.us.us, i64 %113
+  %172 = getelementptr inbounds nuw float, ptr %.019365.us.us.us, i64 %114
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %._crit_edge69.us.us.us, label %.lr.ph68.us.us.us, !llvm.loop !75
@@ -6219,10 +6219,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %28 = load float, ptr %.019754, align 4
   %29 = load float, ptr %.019853, align 4
   %30 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %28, float noundef nofpclass(nan inf) %29) #16
-  %31 = getelementptr inbounds float, ptr %15, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv95
   store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds float, ptr %.019754, i64 %25
-  %33 = getelementptr inbounds float, ptr %.019853, i64 %26
+  %32 = getelementptr inbounds nuw float, ptr %.019754, i64 %25
+  %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
   br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !78
@@ -6292,10 +6292,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %77 = load float, ptr %.020055.us, align 4
   %78 = load float, ptr %.019956.us, align 4
   %79 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %77, float noundef nofpclass(nan inf) %78) #16
-  %80 = getelementptr inbounds float, ptr %71, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
   store float %79, ptr %80, align 4
-  %81 = getelementptr inbounds float, ptr %.020055.us, i64 %74
-  %82 = getelementptr inbounds float, ptr %.019956.us, i64 %75
+  %81 = getelementptr inbounds nuw float, ptr %.020055.us, i64 %74
+  %82 = getelementptr inbounds nuw float, ptr %.019956.us, i64 %75
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge60.us, label %76, !llvm.loop !79
@@ -6436,10 +6436,10 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %167 = load float, ptr %.019464.us.us.us, align 4
   %168 = load float, ptr %.019365.us.us.us, align 4
   %169 = tail call fast noundef nofpclass(nan inf) float @atan2f(float noundef nofpclass(nan inf) %167, float noundef nofpclass(nan inf) %168) #16
-  %170 = getelementptr inbounds float, ptr %.171.us.us.us, i64 %indvars.iv100
+  %170 = getelementptr inbounds nuw float, ptr %.171.us.us.us, i64 %indvars.iv100
   store float %169, ptr %170, align 4
-  %171 = getelementptr inbounds float, ptr %.019464.us.us.us, i64 %113
-  %172 = getelementptr inbounds float, ptr %.019365.us.us.us, i64 %114
+  %171 = getelementptr inbounds nuw float, ptr %.019464.us.us.us, i64 %113
+  %172 = getelementptr inbounds nuw float, ptr %.019365.us.us.us, i64 %114
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
   br i1 %exitcond104.not, label %._crit_edge69.us.us.us, label %.lr.ph68.us.us.us, !llvm.loop !82

@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_CTX_set_srtp_profiles(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles = getelementptr inbounds i8, ptr %ctx, i64 568
+  %srtp_profiles = getelementptr inbounds nuw i8, ptr %ctx, i64 568
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
   ret i32 %call
 }
@@ -64,14 +64,14 @@ land.lhs.true.i:                                  ; preds = %while.body.i
   br i1 %tobool4.not.i, label %if.then5, label %if.end.i
 
 if.end.i:                                         ; preds = %land.lhs.true.i, %while.body.i
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.07.i, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %p.07.i, i64 16
   %1 = load ptr, ptr %incdec.ptr.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %if.else, label %while.body.i, !llvm.loop !7
 
 if.then5:                                         ; preds = %land.lhs.true.i
   %call6 = tail call i64 @sk_push(ptr noundef nonnull %call, ptr noundef nonnull %p.07.i) #5
-  %add.ptr = getelementptr inbounds i8, ptr %call1, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call1, i64 1
   br i1 %tobool.not, label %do.end, label %do.body, !llvm.loop !9
 
 if.else:                                          ; preds = %if.end.i
@@ -90,7 +90,7 @@ return:                                           ; preds = %do.end, %if.else, %
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_set_srtp_profiles(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles = getelementptr inbounds i8, ptr %ssl, i64 328
+  %srtp_profiles = getelementptr inbounds nuw i8, ptr %ssl, i64 328
   %call = tail call fastcc i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles)
   ret i32 %call
 }
@@ -102,15 +102,15 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %srtp_profiles = getelementptr inbounds i8, ptr %ssl, i64 328
+  %srtp_profiles = getelementptr inbounds nuw i8, ptr %ssl, i64 328
   %0 = load ptr, ptr %srtp_profiles, align 8
   %cmp1.not = icmp eq ptr %0, null
   br i1 %cmp1.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %if.end
-  %ctx = getelementptr inbounds i8, ptr %ssl, i64 232
+  %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 232
   %1 = load ptr, ptr %ctx, align 8
-  %srtp_profiles5 = getelementptr inbounds i8, ptr %1, i64 568
+  %srtp_profiles5 = getelementptr inbounds nuw i8, ptr %1, i64 568
   %2 = load ptr, ptr %srtp_profiles5, align 8
   br label %return
 
@@ -122,7 +122,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @SSL_get_selected_srtp_profile(ptr nocapture noundef readonly %ssl) local_unnamed_addr #2 {
 entry:
-  %srtp_profile = getelementptr inbounds i8, ptr %ssl, i64 336
+  %srtp_profile = getelementptr inbounds nuw i8, ptr %ssl, i64 336
   %0 = load ptr, ptr %srtp_profile, align 8
   ret ptr %0
 }
@@ -130,7 +130,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_CTX_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ctx, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles.i = getelementptr inbounds i8, ptr %ctx, i64 568
+  %srtp_profiles.i = getelementptr inbounds nuw i8, ptr %ctx, i64 568
   %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i)
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext
@@ -139,7 +139,7 @@ entry:
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @SSL_set_tlsext_use_srtp(ptr nocapture noundef writeonly %ssl, ptr noundef %profiles) local_unnamed_addr #0 {
 entry:
-  %srtp_profiles.i = getelementptr inbounds i8, ptr %ssl, i64 328
+  %srtp_profiles.i = getelementptr inbounds nuw i8, ptr %ssl, i64 328
   %call.i = tail call fastcc range(i32 0, 2) i32 @ssl_ctx_make_profiles(ptr noundef %profiles, ptr noundef nonnull %srtp_profiles.i)
   %lnot.ext = xor i32 %call.i, 1
   ret i32 %lnot.ext

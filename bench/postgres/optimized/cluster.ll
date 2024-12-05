@@ -85,14 +85,14 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ScanKeyData, align 8
   %5 = alloca %struct.ClusterParams, align 4
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %7, i64 4
-  %9 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %8, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph93, label %._crit_edge
@@ -102,7 +102,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   %12 = load ptr, ptr %9, align 8
   %13 = getelementptr %union.ListCell, ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(8) @.str) #7
   %18 = icmp eq i32 %17, 0
@@ -117,13 +117,13 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %23, label %.lr.ph93, label %._crit_edge.loopexit
 
 .split:                                           ; preds = %.lr.ph93
-  %24 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %25 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %25)
   %26 = tail call i32 @errcode(i32 noundef 16801924) #8
   %27 = load ptr, ptr %24, align 8
   %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %27) #8
-  %29 = getelementptr inbounds i8, ptr %14, i64 36
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @parser_errposition(ptr noundef %0, i32 noundef %30) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 132, ptr noundef nonnull @__func__.cluster) #8
@@ -136,7 +136,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph, %3
   %.047.lcssa = phi i32 [ 0, %3 ], [ 0, %.lr.ph ], [ %32, %._crit_edge.loopexit ]
   store i32 %.047.lcssa, ptr %5, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not58 = icmp eq ptr %34, null
   br i1 %.not58, label %92, label %35
@@ -144,15 +144,15 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 35:                                               ; preds = %._crit_edge
   %36 = tail call i32 @RangeVarGetRelidExtended(ptr noundef nonnull %34, i32 noundef 8, i32 noundef 0, ptr noundef nonnull @RangeVarCallbackOwnsTable, ptr noundef null) #8
   %37 = tail call ptr @table_open(i32 noundef %36, i32 noundef 0) #8
-  %38 = getelementptr inbounds i8, ptr %37, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 114
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 114
   %41 = load i8, ptr %40, align 2
   %42 = icmp eq i8 %41, 116
   br i1 %42, label %43, label %51
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %37, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %45 = load i8, ptr %44, align 8
   %46 = trunc i8 %45 to i1
   br i1 %46, label %51, label %47
@@ -166,7 +166,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   unreachable
 
 51:                                               ; preds = %43, %35
-  %52 = getelementptr inbounds i8, ptr %1, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %55, label %75
@@ -177,8 +177,8 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   br i1 %.not60, label %.thread76, label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
-  %58 = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %59 = load i32, ptr %57, align 4
   %60 = icmp sgt i32 %59, 0
   br i1 %60, label %.lr.ph103, label %.thread76
@@ -207,14 +207,14 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   tail call void @llvm.assume(i1 %69)
   %70 = tail call i32 @errcode(i32 noundef 67137668) #8
   %71 = load ptr, ptr %33, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %73) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 179, ptr noundef nonnull @__func__.cluster) #8
   unreachable
 
 75:                                               ; preds = %51
-  %76 = getelementptr inbounds i8, ptr %39, i64 68
+  %76 = getelementptr inbounds nuw i8, ptr %39, i64 68
   %77 = load i32, ptr %76, align 4
   %78 = tail call i32 @get_relname_relid(ptr noundef nonnull %53, i32 noundef %77) #8
   %.not59 = icmp eq i32 %78, 0
@@ -226,7 +226,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   %81 = tail call i32 @errcode(i32 noundef 67137668) #8
   %82 = load ptr, ptr %52, align 8
   %83 = load ptr, ptr %33, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 24
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load ptr, ptr %84, align 8
   %86 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %82, ptr noundef %85) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 193, ptr noundef nonnull @__func__.cluster) #8
@@ -235,7 +235,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 87:                                               ; preds = %75, %.split100
   %.3 = phi i32 [ %67, %.split100 ], [ %78, %75 ]
   %88 = load ptr, ptr %38, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 115
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 115
   %90 = load i8, ptr %89, align 1
   %.not63 = icmp eq i8 %90, 112
   br i1 %.not63, label %92, label %91
@@ -259,12 +259,12 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
 96:                                               ; preds = %92
   tail call void @check_index_is_clusterable(ptr noundef nonnull %.049, i32 noundef %.050, i32 noundef 1)
   %97 = tail call ptr @find_all_inheritors(i32 noundef %.050, i32 noundef 0, ptr noundef null) #8
-  %98 = getelementptr inbounds i8, ptr %97, i64 4
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
   %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %get_tables_to_cluster_partitioned.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %96
-  %99 = getelementptr inbounds i8, ptr %97, i64 16
+  %99 = getelementptr inbounds nuw i8, ptr %97, i64 16
   %100 = load i32, ptr %98, align 4
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph32.i, label %get_tables_to_cluster_partitioned.exit
@@ -300,7 +300,7 @@ define dso_local void @cluster(ptr noundef %0, ptr nocapture noundef readonly %1
   store ptr %94, ptr @CurrentMemoryContext, align 8
   %118 = tail call ptr @palloc(i64 noundef 8) #8
   store i32 %105, ptr %118, align 4
-  %119 = getelementptr inbounds i8, ptr %118, i64 4
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 4
   store i32 %104, ptr %119, align 4
   %120 = tail call ptr @lappend(ptr noundef %.0192630.i, ptr noundef nonnull %118) #8
   store ptr %117, ptr @CurrentMemoryContext, align 8
@@ -336,27 +336,27 @@ get_tables_to_cluster_partitioned.exit:           ; preds = %121, %96, %.lr.ph.i
   br i1 %.not.i65, label %get_tables_to_cluster.exit, label %130
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds i8, ptr %129, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 22
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 22
   %134 = load i8, ptr %133, align 2
   %135 = zext i8 %134 to i64
   %136 = getelementptr i8, ptr %132, i64 %135
-  %137 = getelementptr inbounds i8, ptr %136, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %138 = load i32, ptr %137, align 4
   %139 = call i32 @GetUserId() #8
   %140 = call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %138, i32 noundef %139) #8
   br i1 %140, label %141, label %128, !llvm.loop !5
 
 141:                                              ; preds = %130
-  %142 = getelementptr inbounds i8, ptr %136, i64 4
+  %142 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %143 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %94, ptr @CurrentMemoryContext, align 8
   %144 = call ptr @palloc(i64 noundef 8) #8
   %145 = load i32, ptr %142, align 4
   store i32 %145, ptr %144, align 4
   %146 = load i32, ptr %136, align 4
-  %147 = getelementptr inbounds i8, ptr %144, i64 4
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 4
   store i32 %146, ptr %147, align 4
   %148 = call ptr @lappend(ptr noundef %.0.ph.i, ptr noundef nonnull %144) #8
   store ptr %143, ptr @CurrentMemoryContext, align 8
@@ -364,9 +364,9 @@ get_tables_to_cluster_partitioned.exit:           ; preds = %121, %96, %.lr.ph.i
 
 get_tables_to_cluster.exit:                       ; preds = %128
   %149 = load ptr, ptr %127, align 8
-  %150 = getelementptr inbounds i8, ptr %149, i64 312
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 312
   %151 = load ptr, ptr %150, align 8
-  %152 = getelementptr inbounds i8, ptr %151, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
   %153 = load ptr, ptr %152, align 8
   call void %153(ptr noundef nonnull %127) #8
   call void @relation_close(ptr noundef %126, i32 noundef 1) #8
@@ -379,12 +379,12 @@ get_tables_to_cluster.exit:                       ; preds = %128
   %.051 = phi ptr [ %.019.lcssa.i, %get_tables_to_cluster_partitioned.exit ], [ %.0.ph.i, %get_tables_to_cluster.exit ]
   call void @PopActiveSnapshot() #8
   call void @CommitTransactionCommand() #8
-  %156 = getelementptr inbounds i8, ptr %.051, i64 4
+  %156 = getelementptr inbounds nuw i8, ptr %.051, i64 4
   %.not.i66 = icmp eq ptr %.051, null
   br i1 %.not.i66, label %cluster_multiple_rels.exit, label %.lr.ph.i67
 
 .lr.ph.i67:                                       ; preds = %155
-  %157 = getelementptr inbounds i8, ptr %.051, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %.051, i64 16
   %158 = load i32, ptr %156, align 4
   %159 = icmp sgt i32 %158, 0
   br i1 %159, label %.lr.ph16.i, label %cluster_multiple_rels.exit
@@ -398,7 +398,7 @@ get_tables_to_cluster.exit:                       ; preds = %128
   %163 = call ptr @GetTransactionSnapshot() #8
   call void @PushActiveSnapshot(ptr noundef %163) #8
   %164 = load i32, ptr %162, align 4
-  %165 = getelementptr inbounds i8, ptr %162, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %166 = load i32, ptr %165, align 4
   call void @cluster_rel(i32 noundef %164, i32 noundef %166, ptr noundef nonnull readonly %5)
   call void @PopActiveSnapshot() #8
@@ -491,9 +491,9 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 20:                                               ; preds = %17
   call void @GetUserIdAndSecContext(ptr noundef nonnull %10, ptr noundef nonnull %11) #8
-  %21 = getelementptr inbounds i8, ptr %18, i64 56
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 80
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 80
   %24 = load i32, ptr %23, align 4
   %25 = load i32, ptr %11, align 4
   %26 = or i32 %25, 2
@@ -512,13 +512,13 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr %21, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 114
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 114
   %35 = load i8, ptr %34, align 2
   %36 = icmp eq i8 %35, 116
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i8, ptr %18, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %39 = load i8, ptr %38, align 8
   %40 = trunc i8 %39 to i1
   br i1 %40, label %42, label %41
@@ -562,7 +562,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 .thread:                                          ; preds = %47, %50, %53
   %54 = load ptr, ptr %21, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 113
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 113
   %56 = load i8, ptr %55, align 1
   %57 = trunc i8 %56 to i1
   br i1 %57, label %58, label %.critedge
@@ -577,13 +577,13 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %42, %.thread
   %62 = phi ptr [ %.pre, %..critedge_crit_edge ], [ %33, %42 ], [ %54, %.thread ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 114
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 114
   %64 = load i8, ptr %63, align 2
   %65 = icmp eq i8 %64, 116
   br i1 %65, label %66, label %77
 
 66:                                               ; preds = %.critedge
-  %67 = getelementptr inbounds i8, ptr %18, i64 32
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %68 = load i8, ptr %67, align 8
   %69 = trunc i8 %68 to i1
   br i1 %69, label %77, label %70
@@ -615,13 +615,13 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 80:                                               ; preds = %79, %77
   %81 = load ptr, ptr %21, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 115
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 115
   %83 = load i8, ptr %82, align 1
   %84 = icmp eq i8 %83, 109
   br i1 %84, label %85, label %90
 
 85:                                               ; preds = %80
-  %86 = getelementptr inbounds i8, ptr %81, i64 125
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 125
   %87 = load i8, ptr %86, align 1
   %88 = trunc i8 %87 to i1
   br i1 %88, label %90, label %89
@@ -632,12 +632,12 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 90:                                               ; preds = %85, %80
   call void @TransferPredicateLocksToHeapRelation(ptr noundef nonnull %18) #8
-  %91 = getelementptr inbounds i8, ptr %18, i64 72
+  %91 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %92 = load i32, ptr %91, align 8
   %93 = load ptr, ptr %21, align 8
-  %94 = getelementptr inbounds i8, ptr %93, i64 84
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 84
   %95 = load i32, ptr %94, align 4
-  %96 = getelementptr inbounds i8, ptr %93, i64 92
+  %96 = getelementptr inbounds nuw i8, ptr %93, i64 92
   %97 = load i32, ptr %96, align 4
   br i1 %.not38, label %99, label %98
 
@@ -648,7 +648,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 99:                                               ; preds = %98, %90
   %100 = phi ptr [ %.pre.i, %98 ], [ %93, %90 ]
-  %101 = getelementptr inbounds i8, ptr %100, i64 114
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 114
   %102 = load i8, ptr %101, align 2
   %103 = call zeroext i1 @IsSystemRelation(ptr noundef nonnull %18) #8
   call void @table_close(ptr noundef nonnull %18, i32 noundef 0) #8
@@ -674,13 +674,13 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 110:                                              ; preds = %108, %99
   %.0.i.i = phi ptr [ %109, %108 ], [ null, %99 ]
-  %111 = getelementptr inbounds i8, ptr %107, i64 56
+  %111 = getelementptr inbounds nuw i8, ptr %107, i64 56
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 68
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 68
   %114 = load i32, ptr %113, align 4
   %115 = call ptr @get_namespace_name(i32 noundef %114) #8
   %116 = load ptr, ptr %111, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 108
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 108
   %118 = load i32, ptr %117, align 4
   %.not111.i.i = icmp eq i32 %118, 0
   br i1 %.not111.i.i, label %.thread.i.i, label %119
@@ -688,21 +688,21 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 119:                                              ; preds = %110
   call void @LockRelationOid(i32 noundef %118, i32 noundef 8) #8
   %.pre.i.i = load ptr, ptr %111, align 8
-  %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 108
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 108
   %.pre126.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4
   %120 = icmp eq i32 %.pre126.i.i, 0
   br i1 %120, label %.thread.i.i, label %121
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds i8, ptr %106, i64 56
+  %122 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %123 = load ptr, ptr %122, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 108
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 108
   %125 = load i32, ptr %124, align 4
   %.not113.i.i = icmp eq i32 %125, 0
   br i1 %.not113.i.i, label %.thread.i.i, label %126
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds i8, ptr %106, i64 464
+  %127 = getelementptr inbounds nuw i8, ptr %106, i64 464
   store i32 %.pre126.i.i, ptr %127, align 8
   br label %.thread.i.i
 
@@ -711,40 +711,40 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   %128 = call zeroext i1 @vacuum_get_cutoffs(ptr noundef nonnull %107, ptr noundef nonnull %4, ptr noundef nonnull %5) #8
   %129 = load ptr, ptr %111, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 132
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 132
   %131 = load i32, ptr %130, align 4
   %.not114.i.i = icmp eq i32 %131, 0
   br i1 %.not114.i.i, label %139, label %132
 
 132:                                              ; preds = %.thread.i.i
-  %133 = getelementptr inbounds i8, ptr %5, i64 16
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %134 = load i32, ptr %133, align 4
   %135 = call zeroext i1 @TransactionIdPrecedes(i32 noundef %134, i32 noundef %131) #8
   %.pre127.i.i = load ptr, ptr %111, align 8
   br i1 %135, label %136, label %139
 
 136:                                              ; preds = %132
-  %137 = getelementptr inbounds i8, ptr %.pre127.i.i, i64 132
+  %137 = getelementptr inbounds nuw i8, ptr %.pre127.i.i, i64 132
   %138 = load i32, ptr %137, align 4
   store i32 %138, ptr %133, align 4
   br label %139
 
 139:                                              ; preds = %136, %132, %.thread.i.i
   %140 = phi ptr [ %.pre127.i.i, %136 ], [ %.pre127.i.i, %132 ], [ %129, %.thread.i.i ]
-  %141 = getelementptr inbounds i8, ptr %140, i64 136
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 136
   %142 = load i32, ptr %141, align 4
   %.not115.i.i = icmp eq i32 %142, 0
   br i1 %.not115.i.i, label %151, label %143
 
 143:                                              ; preds = %139
-  %144 = getelementptr inbounds i8, ptr %5, i64 20
+  %144 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %145 = load i32, ptr %144, align 4
   %146 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %145, i32 noundef %142) #8
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %143
   %148 = load ptr, ptr %111, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 136
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 136
   %150 = load i32, ptr %149, align 4
   store i32 %150, ptr %144, align 4
   br label %151
@@ -754,9 +754,9 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   br i1 %.not116.i.i, label %.thread123.i.i, label %152
 
 152:                                              ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %.0.i.i, i64 56
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
   %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 84
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 84
   %156 = load i32, ptr %155, align 4
   %157 = icmp eq i32 %156, 403
   br i1 %157, label %158, label %.critedge.i.i
@@ -771,9 +771,9 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 161:                                              ; preds = %.critedge.i.i
   %162 = load ptr, ptr %111, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %164 = load ptr, ptr %153, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.23, ptr noundef %115, ptr noundef nonnull %163, ptr noundef nonnull %165) #8
   br label %.sink.split.i.i
 
@@ -783,7 +783,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 169:                                              ; preds = %167
   %170 = load ptr, ptr %111, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 4
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   %172 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.24, ptr noundef %115, ptr noundef nonnull %171) #8
   br label %.sink.split.i.i
 
@@ -793,7 +793,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 174:                                              ; preds = %.thread123.i.i
   %175 = load ptr, ptr %111, align 8
-  %176 = getelementptr inbounds i8, ptr %175, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %177 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.25, ptr noundef %115, ptr noundef nonnull %176) #8
   br label %.sink.split.i.i
 
@@ -805,18 +805,18 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 178:                                              ; preds = %.sink.split.i.i, %.thread123.i.i, %167, %.critedge.i.i
   %.0105122.i.i = phi i1 [ false, %.thread123.i.i ], [ true, %167 ], [ false, %.critedge.i.i ], [ %.0105122.ph.i.i, %.sink.split.i.i ]
-  %179 = getelementptr inbounds i8, ptr %5, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %180 = load i32, ptr %179, align 4
-  %181 = getelementptr inbounds i8, ptr %5, i64 16
-  %182 = getelementptr inbounds i8, ptr %5, i64 20
-  %183 = getelementptr inbounds i8, ptr %107, i64 312
+  %181 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %183 = getelementptr inbounds nuw i8, ptr %107, i64 312
   %184 = load ptr, ptr %183, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 248
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 248
   %186 = load ptr, ptr %185, align 8
   call void %186(ptr noundef nonnull %107, ptr noundef %106, ptr noundef %.0.i.i, i1 noundef zeroext %.0105122.i.i, i32 noundef %180, ptr noundef nonnull %181, ptr noundef nonnull %182, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #8
   %187 = load i32, ptr %181, align 4
   %188 = load i32, ptr %182, align 4
-  %189 = getelementptr inbounds i8, ptr %106, i64 464
+  %189 = getelementptr inbounds nuw i8, ptr %106, i64 464
   store i32 0, ptr %189, align 8
   %190 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %106, i32 noundef 0) #8
   %191 = call zeroext i1 @errstart(i32 noundef %105, ptr noundef null) #8
@@ -824,7 +824,7 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
 
 192:                                              ; preds = %178
   %193 = load ptr, ptr %111, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %195 = load double, ptr %7, align 8
   %196 = load double, ptr %6, align 8
   %197 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef nonnull %107, i32 noundef 0) #8
@@ -859,23 +859,23 @@ define dso_local void @cluster_rel(i32 noundef %0, i32 noundef %1, ptr nocapture
   unreachable
 
 211:                                              ; preds = %204
-  %212 = getelementptr inbounds i8, ptr %207, i64 16
+  %212 = getelementptr inbounds nuw i8, ptr %207, i64 16
   %213 = load ptr, ptr %212, align 8
-  %214 = getelementptr inbounds i8, ptr %213, i64 22
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 22
   %215 = load i8, ptr %214, align 2
   %216 = zext i8 %215 to i64
   %217 = getelementptr i8, ptr %213, i64 %216
-  %218 = getelementptr inbounds i8, ptr %217, i64 96
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 96
   store i32 %190, ptr %218, align 4
   %219 = load double, ptr %6, align 8
   %220 = fptrunc double %219 to float
-  %221 = getelementptr inbounds i8, ptr %217, i64 100
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 100
   store float %220, ptr %221, align 4
   %.not118.i.i = icmp eq i32 %92, 1259
   br i1 %.not118.i.i, label %224, label %222
 
 222:                                              ; preds = %211
-  %223 = getelementptr inbounds i8, ptr %207, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %207, i64 4
   call void @CatalogTupleUpdate(ptr noundef %205, ptr noundef nonnull %223, ptr noundef nonnull %207) #8
   br label %rebuild_relation.exit
 
@@ -915,15 +915,15 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 ; Function Attrs: nounwind uwtable
 define dso_local void @check_index_is_clusterable(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @index_open(i32 noundef %1, i32 noundef %2) #8
-  %5 = getelementptr inbounds i8, ptr %4, i64 320
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 320
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %13, label %8
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %10 = load i32, ptr %9, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 72
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %10, %12
   br i1 %.not, label %23, label %13
@@ -932,20 +932,20 @@ define dso_local void @check_index_is_clusterable(ptr nocapture noundef readonly
   %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %14)
   %15 = tail call i32 @errcode(i32 noundef 151027844) #8
-  %16 = getelementptr inbounds i8, ptr %4, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
-  %19 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.11, ptr noundef nonnull %18, ptr noundef nonnull %21) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 515, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
   unreachable
 
 23:                                               ; preds = %8
-  %24 = getelementptr inbounds i8, ptr %4, i64 344
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 19
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 19
   %27 = load i8, ptr %26, align 1
   %28 = trunc i8 %27 to i1
   br i1 %28, label %36, label %29
@@ -954,15 +954,15 @@ define dso_local void @check_index_is_clusterable(ptr nocapture noundef readonly
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %30)
   %31 = tail call i32 @errcode(i32 noundef 1088) #8
-  %32 = getelementptr inbounds i8, ptr %4, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %34) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 522, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
   unreachable
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds i8, ptr %4, i64 328
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 328
   %38 = load ptr, ptr %37, align 8
   %39 = tail call zeroext i1 @heap_attisnull(ptr noundef %38, i32 noundef 21, ptr noundef null) #8
   br i1 %39, label %47, label %40
@@ -971,16 +971,16 @@ define dso_local void @check_index_is_clusterable(ptr nocapture noundef readonly
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 1088) #8
-  %43 = getelementptr inbounds i8, ptr %4, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, ptr noundef nonnull %45) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 534, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
   unreachable
 
 47:                                               ; preds = %36
   %48 = load ptr, ptr %5, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 18
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 18
   %50 = load i8, ptr %49, align 2
   %51 = trunc i8 %50 to i1
   br i1 %51, label %59, label %52
@@ -989,9 +989,9 @@ define dso_local void @check_index_is_clusterable(ptr nocapture noundef readonly
   %53 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %53)
   %54 = tail call i32 @errcode(i32 noundef 1088) #8
-  %55 = getelementptr inbounds i8, ptr %4, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 4
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %58 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.14, ptr noundef nonnull %57) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 548, ptr noundef nonnull @__func__.check_index_is_clusterable) #8
   unreachable
@@ -1041,9 +1041,9 @@ declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 115
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 115
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 112
   br i1 %8, label %9, label %13
@@ -1071,8 +1071,8 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i32, ptr %19, align 4
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph45, label %._crit_edge
@@ -1095,13 +1095,13 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   unreachable
 
 30:                                               ; preds = %.lr.ph45
-  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 22
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 22
   %34 = load i8, ptr %33, align 2
   %35 = zext i8 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds i8, ptr %36, i64 17
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 17
   %38 = load i8, ptr %37, align 1
   %39 = trunc i8 %38 to i1
   br i1 %39, label %.sink.split, label %40
@@ -1111,7 +1111,7 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
   br i1 %41, label %42, label %49
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %36, i64 18
+  %43 = getelementptr inbounds nuw i8, ptr %36, i64 18
   %44 = load i8, ptr %43, align 2
   %45 = trunc i8 %44 to i1
   br i1 %45, label %.sink.split, label %.split43
@@ -1126,7 +1126,7 @@ define dso_local void @mark_index_clustered(ptr noundef %0, i32 noundef %1, i1 n
 .sink.split:                                      ; preds = %42, %30
   %.sink = phi i8 [ 0, %30 ], [ 1, %42 ]
   store i8 %.sink, ptr %37, align 1
-  %48 = getelementptr inbounds i8, ptr %27, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %27, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %17, ptr noundef nonnull %48, ptr noundef nonnull %27) #8
   br label %49
 
@@ -1170,7 +1170,7 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   %6 = alloca [64 x i8], align 16
   %7 = alloca i8, align 1
   %8 = tail call ptr @table_open(i32 noundef %0, i32 noundef %4) #8
-  %9 = getelementptr inbounds i8, ptr %8, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %0 to i64
   %12 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %11) #8
@@ -1197,20 +1197,20 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   br label %28
 
 23:                                               ; preds = %16
-  %24 = getelementptr inbounds i8, ptr %8, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %27 = load i32, ptr %26, align 4
   br label %28
 
 28:                                               ; preds = %23, %21
   %.0 = phi i32 [ %22, %21 ], [ %27, %23 ]
   %29 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.20, i32 noundef %0) #8
-  %30 = getelementptr inbounds i8, ptr %8, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %31, i64 115
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 115
   %35 = load i8, ptr %34, align 1
   switch i8 %35, label %40 [
     i8 114, label %36
@@ -1221,7 +1221,7 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   ]
 
 36:                                               ; preds = %28, %28, %28, %28, %28
-  %37 = getelementptr inbounds i8, ptr %31, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   br label %40
@@ -1232,7 +1232,7 @@ define dso_local i32 @make_new_heap(i32 noundef %0, i32 noundef %1, i32 noundef 
   call void @ReleaseSysCache(ptr noundef nonnull %12) #8
   call void @CommandCounterIncrement() #8
   %43 = load ptr, ptr %30, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 108
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 108
   %45 = load i32, ptr %44, align 4
   %.not42 = icmp eq i32 %45, 0
   br i1 %.not42, label %56, label %46
@@ -1333,26 +1333,26 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   unreachable
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 22
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 22
   %33 = load i8, ptr %32, align 2
   %34 = zext i8 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds i8, ptr %35, i64 132
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 132
   store i32 %6, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 136
   store i32 %7, ptr %37, align 4
-  %38 = getelementptr inbounds i8, ptr %25, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 4
   call void @CatalogTupleUpdate(ptr noundef %24, ptr noundef nonnull %38, ptr noundef nonnull %25) #8
   call void @table_close(ptr noundef %24, i32 noundef 3) #8
   br label %39
 
 39:                                               ; preds = %29, %21
   store i32 1259, ptr %10, align 4
-  %40 = getelementptr inbounds i8, ptr %10, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %10, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %41, align 4
   call void @performDeletion(ptr noundef nonnull %10, i32 noundef 0, i32 noundef 1) #8
   %42 = load i32, ptr %11, align 16
@@ -1375,9 +1375,9 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
 
 48:                                               ; preds = %._crit_edge
   %49 = call ptr @table_open(i32 noundef %0, i32 noundef 0) #8
-  %50 = getelementptr inbounds i8, ptr %49, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 56
   %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 108
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 108
   %53 = load i32, ptr %52, align 4
   %.not55 = icmp eq i32 %53, 0
   br i1 %.not55, label %64, label %54
@@ -1386,14 +1386,14 @@ define dso_local void @finish_heap_swap(i32 noundef %0, i32 noundef %1, i1 nound
   %55 = call i32 @toast_get_valid_index(i32 noundef %53, i32 noundef 0) #8
   %56 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.21, i32 noundef %0) #8
   %57 = load ptr, ptr %50, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 108
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 108
   %59 = load i32, ptr %58, align 4
   call void @RenameRelationInternal(i32 noundef %59, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext false) #8
   %60 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %13, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %0) #8
   call void @RenameRelationInternal(i32 noundef %55, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext true) #8
   call void @CommandCounterIncrement() #8
   %61 = load ptr, ptr %50, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 108
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 108
   %63 = load i32, ptr %62, align 4
   call void @ResetRelRewrite(i32 noundef %63) #8
   br label %64
@@ -1433,9 +1433,9 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   unreachable
 
 17:                                               ; preds = %8
-  %18 = getelementptr inbounds i8, ptr %13, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 22
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 22
   %21 = load i8, ptr %20, align 2
   %22 = zext i8 %21 to i64
   %23 = getelementptr i8, ptr %19, i64 %22
@@ -1452,19 +1452,19 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   unreachable
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds i8, ptr %25, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 22
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 22
   %33 = load i8, ptr %32, align 2
   %34 = zext i8 %33 to i64
   %35 = getelementptr i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds i8, ptr %23, i64 88
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 88
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %35, i64 88
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 88
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %23, i64 84
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 84
   %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds i8, ptr %35, i64 84
+  %42 = getelementptr inbounds nuw i8, ptr %35, i64 84
   %43 = load i32, ptr %42, align 4
   %44 = icmp ne i32 %37, 0
   %45 = icmp ne i32 %39, 0
@@ -1474,9 +1474,9 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 46:                                               ; preds = %29
   store i32 %39, ptr %36, align 4
   store i32 %37, ptr %38, align 4
-  %47 = getelementptr inbounds i8, ptr %23, i64 92
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 92
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds i8, ptr %35, i64 92
+  %49 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %50 = load i32, ptr %49, align 4
   store i32 %50, ptr %47, align 4
   store i32 %48, ptr %49, align 4
@@ -1484,18 +1484,18 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   %52 = load i32, ptr %42, align 4
   store i32 %52, ptr %40, align 4
   store i32 %51, ptr %42, align 4
-  %53 = getelementptr inbounds i8, ptr %23, i64 114
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 114
   %54 = load i8, ptr %53, align 2
-  %55 = getelementptr inbounds i8, ptr %35, i64 114
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 114
   %56 = load i8, ptr %55, align 2
   store i8 %56, ptr %53, align 2
   store i8 %54, ptr %55, align 2
   br i1 %3, label %125, label %57
 
 57:                                               ; preds = %46
-  %58 = getelementptr inbounds i8, ptr %23, i64 108
+  %58 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %59 = load i32, ptr %58, align 4
-  %60 = getelementptr inbounds i8, ptr %35, i64 108
+  %60 = getelementptr inbounds nuw i8, ptr %35, i64 108
   %61 = load i32, ptr %60, align 4
   store i32 %61, ptr %58, align 4
   store i32 %59, ptr %60, align 4
@@ -1508,15 +1508,15 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 63:                                               ; preds = %62
   %64 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds i8, ptr %23, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %66 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.28, ptr noundef nonnull %65) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1134, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
 
 67:                                               ; preds = %62
-  %68 = getelementptr inbounds i8, ptr %23, i64 92
+  %68 = getelementptr inbounds nuw i8, ptr %23, i64 92
   %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds i8, ptr %35, i64 92
+  %70 = getelementptr inbounds nuw i8, ptr %35, i64 92
   %71 = load i32, ptr %70, align 4
   %.not196 = icmp eq i32 %69, %71
   br i1 %.not196, label %76, label %72
@@ -1524,15 +1524,15 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 72:                                               ; preds = %67
   %73 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %73)
-  %74 = getelementptr inbounds i8, ptr %23, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %75 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29, ptr noundef nonnull %74) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1145, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds i8, ptr %23, i64 114
+  %77 = getelementptr inbounds nuw i8, ptr %23, i64 114
   %78 = load i8, ptr %77, align 2
-  %79 = getelementptr inbounds i8, ptr %35, i64 114
+  %79 = getelementptr inbounds nuw i8, ptr %35, i64 114
   %80 = load i8, ptr %79, align 2
   %.not197 = icmp eq i8 %78, %80
   br i1 %.not197, label %85, label %81
@@ -1540,7 +1540,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 81:                                               ; preds = %76
   %82 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %82)
-  %83 = getelementptr inbounds i8, ptr %23, i64 4
+  %83 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %84 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, ptr noundef nonnull %83) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1148, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
@@ -1552,7 +1552,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 86:                                               ; preds = %85
   %87 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %87)
-  %88 = getelementptr inbounds i8, ptr %23, i64 4
+  %88 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %89 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, ptr noundef nonnull %88) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1151, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
@@ -1561,13 +1561,13 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %3, label %101, label %91
 
 91:                                               ; preds = %90
-  %92 = getelementptr inbounds i8, ptr %23, i64 108
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %93 = load i32, ptr %92, align 4
   %.not199 = icmp eq i32 %93, 0
   br i1 %.not199, label %94, label %97
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds i8, ptr %35, i64 108
+  %95 = getelementptr inbounds nuw i8, ptr %35, i64 108
   %96 = load i32, ptr %95, align 4
   %.not200 = icmp eq i32 %96, 0
   br i1 %.not200, label %101, label %97
@@ -1575,13 +1575,13 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 97:                                               ; preds = %94, %91
   %98 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %98)
-  %99 = getelementptr inbounds i8, ptr %23, i64 4
+  %99 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %100 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.32, ptr noundef nonnull %99) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1155, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
 
 101:                                              ; preds = %94, %90
-  %102 = getelementptr inbounds i8, ptr %23, i64 113
+  %102 = getelementptr inbounds nuw i8, ptr %23, i64 113
   %103 = load i8, ptr %102, align 1
   %104 = trunc i8 %103 to i1
   %105 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %0, i1 noundef zeroext %104) #8
@@ -1591,13 +1591,13 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 106:                                              ; preds = %101
   %107 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %107)
-  %108 = getelementptr inbounds i8, ptr %23, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %109 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %108, i32 noundef %0) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1163, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
 
 110:                                              ; preds = %101
-  %111 = getelementptr inbounds i8, ptr %35, i64 113
+  %111 = getelementptr inbounds nuw i8, ptr %35, i64 113
   %112 = load i8, ptr %111, align 1
   %113 = trunc i8 %112 to i1
   %114 = tail call i32 @RelationMapOidToFilenumber(i32 noundef %1, i1 noundef zeroext %113) #8
@@ -1607,7 +1607,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 115:                                              ; preds = %110
   %116 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   tail call void @llvm.assume(i1 %116)
-  %117 = getelementptr inbounds i8, ptr %35, i64 4
+  %117 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %118 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.33, ptr noundef nonnull %117, i32 noundef %1) #8
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1167, ptr noundef nonnull @__func__.swap_relation_files) #8
   unreachable
@@ -1627,49 +1627,49 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   %.0 = phi ptr [ %7, %46 ], [ %7, %57 ], [ %124, %119 ]
   %126 = tail call ptr @relation_open(i32 noundef %0, i32 noundef 0) #8
   %127 = tail call ptr @relation_open(i32 noundef %1, i32 noundef 0) #8
-  %128 = getelementptr inbounds i8, ptr %126, i64 40
+  %128 = getelementptr inbounds nuw i8, ptr %126, i64 40
   %129 = load i32, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %127, i64 40
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 40
   store i32 %129, ptr %130, align 8
-  %131 = getelementptr inbounds i8, ptr %126, i64 44
+  %131 = getelementptr inbounds nuw i8, ptr %126, i64 44
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr inbounds i8, ptr %127, i64 44
+  %133 = getelementptr inbounds nuw i8, ptr %127, i64 44
   store i32 %132, ptr %133, align 4
-  %134 = getelementptr inbounds i8, ptr %126, i64 48
+  %134 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %135 = load i32, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %127, i64 48
+  %136 = getelementptr inbounds nuw i8, ptr %127, i64 48
   store i32 %135, ptr %136, align 8
   tail call void @RelationAssumeNewRelfilelocator(ptr noundef %126) #8
   tail call void @relation_close(ptr noundef %126, i32 noundef 0) #8
   tail call void @relation_close(ptr noundef %127, i32 noundef 0) #8
-  %137 = getelementptr inbounds i8, ptr %23, i64 115
+  %137 = getelementptr inbounds nuw i8, ptr %23, i64 115
   %138 = load i8, ptr %137, align 1
   %.not203 = icmp eq i8 %138, 105
   br i1 %.not203, label %142, label %139
 
 139:                                              ; preds = %125
-  %140 = getelementptr inbounds i8, ptr %23, i64 132
+  %140 = getelementptr inbounds nuw i8, ptr %23, i64 132
   store i32 %5, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %23, i64 136
+  %141 = getelementptr inbounds nuw i8, ptr %23, i64 136
   store i32 %6, ptr %141, align 4
   br label %142
 
 142:                                              ; preds = %139, %125
-  %143 = getelementptr inbounds i8, ptr %23, i64 96
+  %143 = getelementptr inbounds nuw i8, ptr %23, i64 96
   %144 = load i32, ptr %143, align 4
-  %145 = getelementptr inbounds i8, ptr %35, i64 96
+  %145 = getelementptr inbounds nuw i8, ptr %35, i64 96
   %146 = load i32, ptr %145, align 4
   store i32 %146, ptr %143, align 4
   store i32 %144, ptr %145, align 4
-  %147 = getelementptr inbounds i8, ptr %23, i64 100
+  %147 = getelementptr inbounds nuw i8, ptr %23, i64 100
   %148 = load float, ptr %147, align 4
-  %149 = getelementptr inbounds i8, ptr %35, i64 100
+  %149 = getelementptr inbounds nuw i8, ptr %35, i64 100
   %150 = load float, ptr %149, align 4
   store float %150, ptr %147, align 4
   store float %148, ptr %149, align 4
-  %151 = getelementptr inbounds i8, ptr %23, i64 104
+  %151 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %152 = load i32, ptr %151, align 4
-  %153 = getelementptr inbounds i8, ptr %35, i64 104
+  %153 = getelementptr inbounds nuw i8, ptr %35, i64 104
   %154 = load i32, ptr %153, align 4
   store i32 %154, ptr %151, align 4
   store i32 %152, ptr %153, align 4
@@ -1677,9 +1677,9 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 
 155:                                              ; preds = %142
   %156 = tail call ptr @CatalogOpenIndexes(ptr noundef %11) #8
-  %157 = getelementptr inbounds i8, ptr %13, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %13, i64 4
   tail call void @CatalogTupleUpdateWithInfo(ptr noundef %11, ptr noundef nonnull %157, ptr noundef nonnull %13, ptr noundef %156) #8
-  %158 = getelementptr inbounds i8, ptr %25, i64 4
+  %158 = getelementptr inbounds nuw i8, ptr %25, i64 4
   tail call void @CatalogTupleUpdateWithInfo(ptr noundef %11, ptr noundef nonnull %158, ptr noundef nonnull %25, ptr noundef %156) #8
   tail call void @CatalogCloseIndexes(ptr noundef %156) #8
   br label %160
@@ -1739,13 +1739,13 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br label %.thread
 
 .thread:                                          ; preds = %177, %179, %180
-  %181 = getelementptr inbounds i8, ptr %23, i64 108
+  %181 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %182 = load i32, ptr %181, align 4
   %.not209 = icmp eq i32 %182, 0
   br i1 %.not209, label %183, label %.thread220
 
 183:                                              ; preds = %.thread
-  %184 = getelementptr inbounds i8, ptr %35, i64 108
+  %184 = getelementptr inbounds nuw i8, ptr %35, i64 108
   %185 = load i32, ptr %184, align 4
   %.not210 = icmp eq i32 %185, 0
   br i1 %.not210, label %225, label %186
@@ -1757,7 +1757,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %3, label %187, label %193
 
 187:                                              ; preds = %.thread220
-  %188 = getelementptr inbounds i8, ptr %35, i64 108
+  %188 = getelementptr inbounds nuw i8, ptr %35, i64 108
   %189 = load i32, ptr %188, align 4
   %.not218 = icmp eq i32 %189, 0
   br i1 %.not218, label %190, label %.thread223
@@ -1802,7 +1802,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   unreachable
 
 205:                                              ; preds = %200, %198
-  %206 = getelementptr inbounds i8, ptr %35, i64 108
+  %206 = getelementptr inbounds nuw i8, ptr %35, i64 108
   %207 = load i32, ptr %206, align 4
   %.not213 = icmp eq i32 %207, 0
   br i1 %.not213, label %213, label %208
@@ -1821,19 +1821,19 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
 
 213:                                              ; preds = %208, %205
   store i32 1259, ptr %9, align 4
-  %214 = getelementptr inbounds i8, ptr %9, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %214, align 4
   store i32 1259, ptr %10, align 4
-  %215 = getelementptr inbounds i8, ptr %10, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %215, align 4
   %216 = load i32, ptr %181, align 4
   %.not215 = icmp eq i32 %216, 0
   br i1 %.not215, label %220, label %217
 
 217:                                              ; preds = %213
-  %218 = getelementptr inbounds i8, ptr %9, i64 4
+  %218 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %0, ptr %218, align 4
-  %219 = getelementptr inbounds i8, ptr %10, i64 4
+  %219 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %216, ptr %219, align 4
   call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 105) #8
   br label %220
@@ -1844,9 +1844,9 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %.not216, label %.thread222, label %222
 
 222:                                              ; preds = %220
-  %223 = getelementptr inbounds i8, ptr %9, i64 4
+  %223 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %1, ptr %223, align 4
-  %224 = getelementptr inbounds i8, ptr %10, i64 4
+  %224 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %221, ptr %224, align 4
   call void @recordDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 105) #8
   br label %.thread222
@@ -1860,7 +1860,7 @@ define internal fastcc void @swap_relation_files(i32 noundef %0, i32 noundef %1,
   br i1 %228, label %229, label %.thread222
 
 229:                                              ; preds = %226
-  %230 = getelementptr inbounds i8, ptr %35, i64 115
+  %230 = getelementptr inbounds nuw i8, ptr %35, i64 115
   %231 = load i8, ptr %230, align 1
   %232 = icmp eq i8 %231, 116
   br i1 %232, label %233, label %.thread222

@@ -852,13 +852,13 @@ define hidden i32 @gluster_rpc_dissect_dict(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not.i, label %proto_item_set_generated.exit, label %23
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds i8, ptr %20, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %25 = load ptr, ptr %24, align 8
   %.not5.i = icmp eq ptr %25, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = or i32 %28, 2
   store i32 %29, ptr %27, align 4
@@ -973,13 +973,13 @@ proto_item_set_generated.exit:                    ; preds = %13, %23, %26
   br i1 %.not.i96, label %proto_item_set_generated.exit98, label %84
 
 84:                                               ; preds = %81
-  %85 = getelementptr inbounds i8, ptr %83, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 32
   %86 = load ptr, ptr %85, align 8
   %.not5.i97 = icmp eq ptr %86, null
   br i1 %.not5.i97, label %proto_item_set_generated.exit98, label %87
 
 87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %86, i64 28
+  %88 = getelementptr inbounds nuw i8, ptr %86, i64 28
   %89 = load i32, ptr %88, align 4
   %90 = or i32 %89, 2
   store i32 %90, ptr %88, align 4
@@ -1436,7 +1436,7 @@ define internal fastcc noundef i32 @glusterfs_rpc_dissect_flags(ptr noundef %0, 
   %17 = tail call ptr @proto_registrar_get_nth(i32 noundef %16) #3
   %18 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #3
   %19 = load i32, ptr @hf_glusterfs_flags_accmode, align 4
-  %20 = getelementptr inbounds i8, ptr %17, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   %23 = and i32 %18, %22
@@ -1889,7 +1889,7 @@ define internal i32 @glusterfs_gfs3_3_op_mkdir_call(ptr noundef %0, ptr nocaptur
   %15 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef 24, ptr noundef nonnull %5) #3
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %20) #3
@@ -2294,7 +2294,7 @@ define internal i32 @glusterfs_gfs3_3_op_create_call(ptr noundef %0, ptr nocaptu
   %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef nonnull %5) #3
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %23) #3
@@ -2412,7 +2412,7 @@ define internal i32 @glusterfs_gfs3_3_op_lookup_call(ptr noundef %0, ptr nocaptu
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = call i32 @gluster_rpc_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = icmp eq i32 %11, 0
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   br i1 %16, label %19, label %20
 
@@ -2928,7 +2928,7 @@ define internal i32 @glusterfs_gfs4_0_op_mkdir_call(ptr noundef %0, ptr nocaptur
   %15 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %14, i32 noundef 24, ptr noundef nonnull %5) #3
   %16 = load i32, ptr @hf_glusterfs_dict, align 4
   %17 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %16, i32 noundef %15)
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %19, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %20) #3
@@ -3335,7 +3335,7 @@ define internal i32 @glusterfs_gfs4_0_op_create_call(ptr noundef %0, ptr nocaptu
   %18 = call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %17, i32 noundef %16, ptr noundef nonnull %5) #3
   %19 = load i32, ptr @hf_glusterfs_dict, align 4
   %20 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %19, i32 noundef %18)
-  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %5, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %22, i32 noundef 25, ptr noundef nonnull @.str.562, ptr noundef %23) #3
@@ -3436,7 +3436,7 @@ define internal i32 @glusterfs_gfs4_0_op_lookup_call(ptr noundef %0, ptr nocaptu
   %14 = load i32, ptr @hf_glusterfs_dict, align 4
   %15 = call fastcc i32 @gluster_rpc4_0_dissect_dict(ptr noundef %2, ptr noundef %0, i32 noundef %14, i32 noundef %13)
   %16 = icmp eq i32 %11, 0
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load ptr, ptr %17, align 8
   br i1 %16, label %19, label %20
 

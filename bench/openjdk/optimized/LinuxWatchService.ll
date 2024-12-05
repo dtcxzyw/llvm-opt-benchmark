@@ -17,7 +17,7 @@ define noundef i32 @Java_sun_nio_fs_LinuxWatchService_eventSize(ptr nocapture no
 define ptr @Java_sun_nio_fs_LinuxWatchService_eventOffsets(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
   %3 = alloca [5 x i32], align 16
   %4 = load ptr, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 1432
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 1432
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr %6(ptr noundef nonnull %0, i32 noundef 5) #5
   %.not = icmp eq ptr %7, null
@@ -25,16 +25,16 @@ define ptr @Java_sun_nio_fs_LinuxWatchService_eventOffsets(ptr noundef %0, ptr n
 
 8:                                                ; preds = %2
   store i32 0, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 4, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 12, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 16, ptr %12, align 16
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 1688
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 1688
   %15 = load ptr, ptr %14, align 8
   call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 5, ptr noundef nonnull %3) #5
   br label %16
@@ -58,7 +58,7 @@ define i32 @Java_sun_nio_fs_LinuxWatchService_inotifyInit(ptr noundef %0, ptr no
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 104
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 104
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %12(ptr noundef nonnull %0, ptr noundef nonnull %8) #5
   br label %throwUnixException.exit
@@ -89,7 +89,7 @@ define i32 @Java_sun_nio_fs_LinuxWatchService_inotifyAddWatch(ptr noundef %0, pt
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef nonnull %0, ptr noundef nonnull %12) #5
   br label %throwUnixException.exit
@@ -116,7 +116,7 @@ define void @Java_sun_nio_fs_LinuxWatchService_inotifyRmWatch(ptr noundef %0, pt
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, ptr noundef nonnull %10) #5
   br label %throwUnixException.exit
@@ -178,7 +178,7 @@ define void @Java_sun_nio_fs_LinuxWatchService_socketpair(ptr noundef %0, ptr no
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %0, ptr noundef nonnull %11) #5
   br label %throwUnixException.exit
@@ -186,12 +186,12 @@ define void @Java_sun_nio_fs_LinuxWatchService_socketpair(ptr noundef %0, ptr no
 17:                                               ; preds = %3
   %18 = load i32, ptr %4, align 4
   store i32 %18, ptr %5, align 4
-  %19 = getelementptr inbounds i8, ptr %4, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %5, i64 4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %20, ptr %21, align 4
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1688
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1688
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr noundef nonnull %0, ptr noundef %2, i32 noundef 0, i32 noundef 2, ptr noundef nonnull %5) #5
   br label %throwUnixException.exit
@@ -207,11 +207,11 @@ declare i32 @socketpair(i32 noundef, i32 noundef, i32 noundef, ptr noundef) loca
 define i32 @Java_sun_nio_fs_LinuxWatchService_poll(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [2 x %struct.pollfd], align 16
   store i32 %2, ptr %5, align 16
-  %6 = getelementptr inbounds i8, ptr %5, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i16 1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i16 1, ptr %8, align 4
   %9 = call i32 @poll(ptr noundef nonnull %5, i64 noundef 2, i32 noundef -1) #5
   %10 = icmp eq i32 %9, -1
@@ -230,7 +230,7 @@ define i32 @Java_sun_nio_fs_LinuxWatchService_poll(ptr noundef %0, ptr nocapture
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 104
   %20 = load ptr, ptr %19, align 8
   %21 = call i32 %20(ptr noundef nonnull %0, ptr noundef nonnull %16) #5
   br label %throwUnixException.exit

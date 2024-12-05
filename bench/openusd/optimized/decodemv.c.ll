@@ -142,7 +142,7 @@ define hidden void @av1_read_tx_type(ptr nocapture noundef readonly %0, ptr noca
 segfeature_active.exit:                           ; preds = %20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 19668
   %27 = zext nneg i16 %24 to i64
-  %28 = getelementptr inbounds [8 x i32], ptr %26, i64 0, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 64
   %.not42 = icmp eq i32 %30, 0
@@ -151,7 +151,7 @@ segfeature_active.exit:                           ; preds = %20
 segfeature_active.exit.thread:                    ; preds = %.segfeature_active.exit.thread_crit_edge, %segfeature_active.exit
   %.pre-phi82 = phi i64 [ %.pre81, %.segfeature_active.exit.thread_crit_edge ], [ %27, %segfeature_active.exit ]
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 10660
-  %32 = getelementptr inbounds [8 x i32], ptr %31, i64 0, i64 %.pre-phi82
+  %32 = getelementptr inbounds nuw [8 x i32], ptr %31, i64 0, i64 %.pre-phi82
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %get_ext_tx_types.exit.thread, label %35
@@ -192,7 +192,7 @@ get_ext_tx_types.exit:                            ; preds = %51
   %52 = zext nneg i32 %42 to i64
   %53 = lshr i64 394756, %46
   %54 = and i64 %53, 1
-  %55 = getelementptr inbounds [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %52, i64 %54
+  %55 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %52, i64 %54
   %56 = load i8, ptr %55, align 1
   %.not75 = icmp eq i8 %56, 0
   br i1 %.not75, label %get_ext_tx_types.exit.thread, label %.thread71
@@ -216,7 +216,7 @@ get_ext_tx_types.exit.thread86:                   ; preds = %49
   %60 = zext nneg i32 %42 to i64
   %61 = lshr i64 394756, %46
   %62 = and i64 %61, 1
-  %63 = getelementptr inbounds [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %60, i64 %62
+  %63 = getelementptr inbounds nuw [2 x [2 x i8]], ptr @av1_ext_tx_set_lookup, i64 0, i64 %60, i64 %62
   %64 = load i8, ptr %63, align 1
   br label %get_ext_tx_set.exit
 
@@ -225,9 +225,9 @@ get_ext_tx_set.exit:                              ; preds = %.thread89, %.thread
   %.0.i.i49 = phi i8 [ %57, %.thread89 ], [ %59, %.thread64 ], [ %64, %.thread71 ]
   %65 = zext nneg i32 %42 to i64
   %66 = zext i8 %.0.i.i49 to i64
-  %67 = getelementptr inbounds [2 x [6 x i32]], ptr @ext_tx_set_index, i64 0, i64 %65, i64 %66
+  %67 = getelementptr inbounds nuw [2 x [6 x i32]], ptr @ext_tx_set_index, i64 0, i64 %65, i64 %66
   %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds [19 x i8], ptr @txsize_sqr_map, i64 0, i64 %46
+  %69 = getelementptr inbounds nuw [19 x i8], ptr @txsize_sqr_map, i64 0, i64 %46
   %70 = load i8, ptr %69, align 1
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %72 = load ptr, ptr %71, align 8
@@ -240,7 +240,7 @@ get_ext_tx_set.exit:                              ; preds = %.thread89, %.thread
   %76 = sext i32 %68 to i64
   %77 = zext i8 %70 to i64
   %78 = getelementptr inbounds [4 x [4 x [17 x i16]]], ptr %75, i64 0, i64 %76, i64 %77
-  %79 = getelementptr inbounds [6 x i32], ptr @av1_num_ext_tx_set, i64 0, i64 %74
+  %79 = getelementptr inbounds nuw [6 x i32], ptr @av1_num_ext_tx_set, i64 0, i64 %74
   %80 = load i32, ptr %79, align 4
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %82 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %81, ptr noundef nonnull %78, i32 noundef %80) #9
@@ -278,7 +278,7 @@ get_ext_tx_set.exit:                              ; preds = %.thread89, %.thread
   %.034.i.i = phi i32 [ 32768, %.lr.ph.i.i ], [ %103, %118 ]
   %102 = icmp eq i64 %indvars.iv.i.i, %100
   %103 = select i1 %102, i32 0, i32 %.034.i.i
-  %104 = getelementptr inbounds i16, ptr %78, i64 %indvars.iv.i.i
+  %104 = getelementptr inbounds nuw i16, ptr %78, i64 %indvars.iv.i.i
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
   %107 = icmp samesign ult i32 %103, %106
@@ -327,7 +327,7 @@ update_cdf.exit.i:                                ; preds = %._crit_edge.loopexi
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 98
   %128 = load i8, ptr %127, align 2
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds [5 x i8], ptr @fimode_to_intradir, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [5 x i8], ptr @fimode_to_intradir, i64 0, i64 %129
   br label %133
 
 131:                                              ; preds = %123
@@ -343,7 +343,7 @@ update_cdf.exit.i:                                ; preds = %._crit_edge.loopexi
   %137 = zext i8 %70 to i64
   %138 = zext i8 %.in45 to i64
   %139 = getelementptr inbounds [3 x [4 x [13 x [17 x i16]]]], ptr %135, i64 0, i64 %136, i64 %137, i64 %138
-  %140 = getelementptr inbounds [6 x i32], ptr @av1_num_ext_tx_set, i64 0, i64 %134
+  %140 = getelementptr inbounds nuw [6 x i32], ptr @av1_num_ext_tx_set, i64 0, i64 %134
   %141 = load i32, ptr %140, align 4
   %142 = tail call fastcc i32 @aom_read_symbol_(ptr noundef %5, ptr noundef nonnull %139, i32 noundef %141)
   br label %get_ext_tx_types.exit.thread.sink.split
@@ -400,7 +400,7 @@ define internal fastcc i32 @aom_read_symbol_(ptr noundef %0, ptr noundef %1, i32
   %.034.i = phi i32 [ 32768, %.lr.ph.i ], [ %27, %42 ]
   %26 = icmp eq i64 %indvars.iv.i, %24
   %27 = select i1 %26, i32 0, i32 %.034.i
-  %28 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
   %31 = icmp samesign ult i32 %27, %30
@@ -493,10 +493,10 @@ define hidden void @av1_read_mode_info(ptr noundef %0, ptr noundef %1, ptr nound
   %40 = mul nsw i32 %39, %35
   %41 = add nsw i32 %40, %37
   %42 = zext i8 %26 to i64
-  %43 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i32
-  %46 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %42
+  %46 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %42
   %47 = load i8, ptr %46, align 1
   %48 = zext i8 %47 to i32
   %49 = sub nsw i32 %39, %37
@@ -563,7 +563,7 @@ segfeature_active.exit.i.i:                       ; preds = %77
   %82 = and i16 %81, 7
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %84 = zext nneg i16 %82 to i64
-  %85 = getelementptr inbounds [8 x i32], ptr %83, i64 0, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i32], ptr %83, i64 0, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, 64
   %.not.i102.i = icmp eq i32 %87, 0
@@ -606,7 +606,7 @@ av1_get_skip_txfm_context.exit.i.i:               ; preds = %94, %92
   br i1 %.not.i10.i.i, label %read_skip_txfm.exit.i, label %107
 
 107:                                              ; preds = %av1_get_skip_txfm_context.exit.i.i
-  %108 = getelementptr inbounds i8, ptr %102, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %109 = load i16, ptr %108, align 2
   %110 = icmp ugt i16 %109, 15
   %111 = select i1 %110, i32 4, i32 3
@@ -672,10 +672,10 @@ read_skip_txfm.exit.i:                            ; preds = %._crit_edge.loopexi
   %148 = mul nsw i32 %147, %143
   %149 = add nsw i32 %148, %145
   %150 = zext i8 %26 to i64
-  %151 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %150
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
-  %154 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %150
+  %154 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %150
   %155 = load i8, ptr %154, align 1
   %156 = zext i8 %155 to i32
   %157 = sub nsw i32 %147, %145
@@ -738,11 +738,11 @@ read_intra_segment_id.exit114.i:                  ; preds = %._crit_edge.us.i.i1
   store i32 %186, ptr %187, align 4
   %188 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i8 0, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %21, i64 17
+  %189 = getelementptr inbounds nuw i8, ptr %21, i64 17
   store i8 -1, ptr %189, align 1
   %190 = getelementptr inbounds nuw i8, ptr %21, i64 150
   store i8 0, ptr %190, align 2
-  %191 = getelementptr inbounds i8, ptr %21, i64 151
+  %191 = getelementptr inbounds nuw i8, ptr %21, i64 151
   store i8 0, ptr %191, align 1
   %192 = getelementptr inbounds nuw i8, ptr %21, i64 99
   store i8 0, ptr %192, align 1
@@ -763,7 +763,7 @@ read_intra_segment_id.exit114.i:                  ; preds = %._crit_edge.us.i.i1
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 8144
   %207 = and i32 %193, 31
   %208 = zext nneg i32 %207 to i64
-  %209 = getelementptr inbounds i8, ptr %206, i64 %208
+  %209 = getelementptr inbounds nuw i8, ptr %206, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %1, i64 8136
   store ptr %209, ptr %210, align 8
   %.val.i115.i = load i8, ptr %11, align 16
@@ -802,7 +802,7 @@ av1_allow_intrabc.exit.i:                         ; preds = %212
   br i1 %.not.i.i116.i, label %aom_read_symbol_.exit.i.i, label %228
 
 228:                                              ; preds = %219
-  %229 = getelementptr inbounds i8, ptr %222, i64 12488
+  %229 = getelementptr inbounds nuw i8, ptr %222, i64 12488
   %230 = load i16, ptr %229, align 2
   %231 = icmp ugt i16 %230, 15
   %232 = select i1 %231, i32 4, i32 3
@@ -934,10 +934,10 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %313 = load i32, ptr %312, align 4
   %314 = load i32, ptr %298, align 4
   %315 = zext i8 %266 to i64
-  %316 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %315
+  %316 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %315
   %317 = load i8, ptr %316, align 1
   %318 = zext i8 %317 to i32
-  %319 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %315
+  %319 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %315
   %320 = load i8, ptr %319, align 1
   %321 = zext i8 %320 to i32
   %sext.i.i.i.i = shl i32 %314, 16
@@ -1007,7 +1007,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   br i1 %.not71.i.i.i.i, label %369, label %364
 
 364:                                              ; preds = %361
-  %365 = getelementptr inbounds i8, ptr %1, i64 2628
+  %365 = getelementptr inbounds nuw i8, ptr %1, i64 2628
   %366 = load i32, ptr %365, align 4
   %.not72.i.i.i.i = icmp ne i32 %366, 0
   %367 = add nsw i32 %339, 32
@@ -1021,7 +1021,7 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   br i1 %.not73.i.i.i.i, label %376, label %371
 
 371:                                              ; preds = %369
-  %372 = getelementptr inbounds i8, ptr %1, i64 2632
+  %372 = getelementptr inbounds nuw i8, ptr %1, i64 2632
   %373 = load i32, ptr %372, align 8
   %.not74.i.i.i.i = icmp ne i32 %373, 0
   %374 = add nsw i32 %332, 32
@@ -1083,10 +1083,10 @@ av1_allow_intrabc.exit.thread.i:                  ; preds = %read_intrabc_info.e
   %404 = call zeroext i8 @av1_above_block_mode(ptr noundef %23) #9
   %405 = call zeroext i8 @av1_left_block_mode(ptr noundef %25) #9
   %406 = zext i8 %404 to i64
-  %407 = getelementptr inbounds [13 x i32], ptr @intra_mode_context, i64 0, i64 %406
+  %407 = getelementptr inbounds nuw [13 x i32], ptr @intra_mode_context, i64 0, i64 %406
   %408 = load i32, ptr %407, align 4
   %409 = zext i8 %405 to i64
-  %410 = getelementptr inbounds [13 x i32], ptr @intra_mode_context, i64 0, i64 %409
+  %410 = getelementptr inbounds nuw [13 x i32], ptr @intra_mode_context, i64 0, i64 %409
   %411 = load i32, ptr %410, align 4
   %412 = getelementptr inbounds nuw i8, ptr %28, i64 14204
   %413 = sext i32 %408 to i64
@@ -1100,7 +1100,7 @@ av1_allow_intrabc.exit.thread.i:                  ; preds = %read_intrabc_info.e
   br i1 %.not.i.i122.i, label %read_intra_mode.exit.i, label %420
 
 420:                                              ; preds = %av1_allow_intrabc.exit.thread.i
-  %421 = getelementptr inbounds i8, ptr %415, i64 26
+  %421 = getelementptr inbounds nuw i8, ptr %415, i64 26
   %422 = load i16, ptr %421, align 2
   %423 = icmp ugt i16 %422, 15
   %424 = select i1 %423, i32 4, i32 3
@@ -1118,7 +1118,7 @@ av1_allow_intrabc.exit.thread.i:                  ; preds = %read_intrabc_info.e
   %.034.i.i.i.i = phi i32 [ 32768, %420 ], [ %433, %448 ]
   %432 = icmp eq i64 %indvars.iv.i.i.i.i, %430
   %433 = select i1 %432, i32 0, i32 %.034.i.i.i.i
-  %434 = getelementptr inbounds i16, ptr %415, i64 %indvars.iv.i.i.i.i
+  %434 = getelementptr inbounds nuw i16, ptr %415, i64 %indvars.iv.i.i.i.i
   %435 = load i16, ptr %434, align 2
   %436 = zext i16 %435 to i32
   %437 = icmp samesign ult i32 %433, %436
@@ -1175,7 +1175,7 @@ read_intra_mode.exit.i:                           ; preds = %._crit_edge.loopexi
   br i1 %.not.i.i127.i, label %read_angle_delta.exit.i, label %464
 
 464:                                              ; preds = %457
-  %465 = getelementptr inbounds i8, ptr %461, i64 14
+  %465 = getelementptr inbounds nuw i8, ptr %461, i64 14
   %466 = load i16, ptr %465, align 2
   %467 = icmp ugt i16 %466, 15
   %468 = select i1 %467, i32 4, i32 3
@@ -1193,7 +1193,7 @@ read_intra_mode.exit.i:                           ; preds = %._crit_edge.loopexi
   %.034.i.i.i130.i = phi i32 [ 32768, %464 ], [ %477, %492 ]
   %476 = icmp eq i64 %indvars.iv.i.i.i129.i, %474
   %477 = select i1 %476, i32 0, i32 %.034.i.i.i130.i
-  %478 = getelementptr inbounds i16, ptr %461, i64 %indvars.iv.i.i.i129.i
+  %478 = getelementptr inbounds nuw i16, ptr %461, i64 %indvars.iv.i.i.i129.i
   %479 = load i16, ptr %478, align 2
   %480 = zext i16 %479 to i32
   %481 = icmp samesign ult i32 %477, %480
@@ -1257,15 +1257,15 @@ read_angle_delta.exit.i:                          ; preds = %._crit_edge.loopexi
   %513 = load i16, ptr %512, align 1
   %514 = and i16 %513, 7
   %515 = zext nneg i16 %514 to i64
-  %516 = getelementptr inbounds [8 x i32], ptr %511, i64 0, i64 %515
+  %516 = getelementptr inbounds nuw [8 x i32], ptr %511, i64 0, i64 %515
   %517 = load i32, ptr %516, align 4
   %.not.i137.i = icmp eq i32 %517, 0
   br i1 %.not.i137.i, label %530, label %518
 
 518:                                              ; preds = %507
-  %519 = getelementptr inbounds i8, ptr %1, i64 2628
+  %519 = getelementptr inbounds nuw i8, ptr %1, i64 2628
   %520 = load i32, ptr %519, align 4
-  %521 = getelementptr inbounds i8, ptr %1, i64 2632
+  %521 = getelementptr inbounds nuw i8, ptr %1, i64 2632
   %522 = load i32, ptr %521, align 8
   %523 = zext i8 %510 to i64
   %524 = sext i32 %520 to i64
@@ -1293,7 +1293,7 @@ is_cfl_allowed.exit.i:                            ; preds = %530, %518
   %539 = getelementptr inbounds nuw i8, ptr %28, i64 12856
   %540 = zext nneg i8 %.0.i138.i to i64
   %541 = zext i8 %538 to i64
-  %542 = getelementptr inbounds [2 x [13 x [15 x i16]]], ptr %539, i64 0, i64 %540, i64 %541
+  %542 = getelementptr inbounds nuw [2 x [13 x [15 x i16]]], ptr %539, i64 0, i64 %540, i64 %541
   %543 = xor i8 %.0.i138.i, 1
   %narrow.i.i = sub nuw nsw i8 14, %543
   %544 = zext nneg i8 %narrow.i.i to i32
@@ -1304,13 +1304,13 @@ is_cfl_allowed.exit.i:                            ; preds = %530, %518
 
 .lr.ph.i.i.i.i:                                   ; preds = %is_cfl_allowed.exit.i
   %547 = zext nneg i8 %narrow.i.i to i64
-  %548 = getelementptr inbounds i16, ptr %542, i64 %547
+  %548 = getelementptr inbounds nuw i16, ptr %542, i64 %547
   %549 = load i16, ptr %548, align 2
   %550 = icmp ugt i16 %549, 15
   %551 = select i1 %550, i32 4, i32 3
   %552 = icmp ugt i16 %549, 31
   %553 = zext i1 %552 to i32
-  %554 = getelementptr inbounds [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %547
+  %554 = getelementptr inbounds nuw [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %547
   %555 = load i32, ptr %554, align 4
   %556 = add i32 %555, %553
   %557 = add i32 %556, %551
@@ -1327,7 +1327,7 @@ is_cfl_allowed.exit.i:                            ; preds = %530, %518
   %.034.i.i.i142.i = phi i32 [ 32768, %.lr.ph.i.i.i.i ], [ %564, %579 ]
   %563 = icmp eq i64 %indvars.iv.i.i.i141.i, %561
   %564 = select i1 %563, i32 0, i32 %.034.i.i.i142.i
-  %565 = getelementptr inbounds i16, ptr %542, i64 %indvars.iv.i.i.i141.i
+  %565 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv.i.i.i141.i
   %566 = load i16, ptr %565, align 2
   %567 = zext i16 %566 to i32
   %568 = icmp samesign ult i32 %564, %567
@@ -1382,7 +1382,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
 591:                                              ; preds = %590
   %592 = load i8, ptr %584, align 1
   %593 = zext i8 %592 to i64
-  %594 = getelementptr inbounds [16 x i8], ptr @get_uv_mode.uv2y, i64 0, i64 %593
+  %594 = getelementptr inbounds nuw [16 x i8], ptr @get_uv_mode.uv2y, i64 0, i64 %593
   %595 = load i8, ptr %594, align 1
   %596 = add i8 %595, -9
   %597 = icmp ult i8 %596, -8
@@ -1398,7 +1398,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
   br i1 %.not.i.i148.i, label %read_angle_delta.exit158.i, label %604
 
 604:                                              ; preds = %598
-  %605 = getelementptr inbounds i8, ptr %601, i64 14
+  %605 = getelementptr inbounds nuw i8, ptr %601, i64 14
   %606 = load i16, ptr %605, align 2
   %607 = icmp ugt i16 %606, 15
   %608 = select i1 %607, i32 4, i32 3
@@ -1416,7 +1416,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
   %.034.i.i.i151.i = phi i32 [ 32768, %604 ], [ %617, %632 ]
   %616 = icmp eq i64 %indvars.iv.i.i.i150.i, %614
   %617 = select i1 %616, i32 0, i32 %.034.i.i.i151.i
-  %618 = getelementptr inbounds i16, ptr %601, i64 %indvars.iv.i.i.i150.i
+  %618 = getelementptr inbounds nuw i16, ptr %601, i64 %indvars.iv.i.i.i150.i
   %619 = load i16, ptr %618, align 2
   %620 = zext i16 %619 to i32
   %621 = icmp samesign ult i32 %617, %620
@@ -1459,7 +1459,7 @@ read_angle_delta.exit158.i:                       ; preds = %._crit_edge.loopexi
 638:                                              ; preds = %read_angle_delta.exit158.i, %591, %590, %503, %498
   %.sink173.i = phi i64 [ 97, %590 ], [ 97, %591 ], [ 97, %read_angle_delta.exit158.i ], [ 3, %503 ], [ 3, %498 ]
   %.sink.i = phi i8 [ 0, %590 ], [ 0, %591 ], [ %637, %read_angle_delta.exit158.i ], [ 0, %503 ], [ 0, %498 ]
-  %639 = getelementptr inbounds i8, ptr %21, i64 %.sink173.i
+  %639 = getelementptr inbounds nuw i8, ptr %21, i64 %.sink173.i
   store i8 %.sink.i, ptr %639, align 1
   %.val101.i = load i8, ptr %501, align 1
   %640 = load ptr, ptr %12, align 8
@@ -1571,7 +1571,7 @@ read_intra_frame_mode_info.exit:                  ; preds = %read_intrabc_info.e
   %.0171.us.i = phi ptr [ %.0193.us.i, %.preheader.us.i ], [ %689, %687 ]
   %688 = getelementptr inbounds nuw i8, ptr %.0171.us.i, i64 4
   store i8 -1, ptr %688, align 4
-  %689 = getelementptr inbounds i8, ptr %.0171.us.i, i64 8
+  %689 = getelementptr inbounds nuw i8, ptr %.0171.us.i, i64 8
   %690 = add nuw nsw i32 %.02.us.i, 1
   %exitcond.not.i = icmp eq i32 %690, %671
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %687, !llvm.loop !8
@@ -1617,7 +1617,7 @@ define internal fastcc void @read_inter_frame_mode_info(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i32 0, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i32 0, ptr %16, align 4
   %17 = tail call fastcc i32 @read_inter_segment_id(ptr noundef nonnull %11, ptr noundef %1, i32 noundef 1, ptr noundef %2)
   %18 = trunc i32 %17 to i16
@@ -1642,7 +1642,7 @@ define internal fastcc void @read_inter_frame_mode_info(ptr noundef %0, ptr noun
 segfeature_active.exit.i:                         ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %31 = zext nneg i32 %24 to i64
-  %32 = getelementptr inbounds [8 x i32], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i32], ptr %30, i64 0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 64
   %.not14.i = icmp eq i32 %34, 0
@@ -1653,9 +1653,9 @@ segfeature_active.exit.thread.i:                  ; preds = %segfeature_active.e
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %36, align 8
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
-  %41 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %38
+  %41 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %38
   %42 = load i8, ptr %41, align 1
   %..i.i = tail call i8 @llvm.umin.i8(i8 %40, i8 %42)
   %43 = icmp ult i8 %..i.i, 8
@@ -1667,7 +1667,7 @@ segfeature_active.exit.thread.i:                  ; preds = %segfeature_active.e
 segfeature_active.exit20.i:                       ; preds = %44
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %46 = zext nneg i32 %24 to i64
-  %47 = getelementptr inbounds [8 x i32], ptr %45, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i32], ptr %45, i64 0, i64 %46
   %48 = load i32, ptr %47, align 4
   %49 = and i32 %48, 160
   %or.cond.i = icmp eq i32 %49, 0
@@ -1708,7 +1708,7 @@ av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 11852
-  %71 = getelementptr inbounds [3 x [3 x i16]], ptr %70, i64 0, i64 %67
+  %71 = getelementptr inbounds nuw [3 x [3 x i16]], ptr %70, i64 0, i64 %67
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %73 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %72, ptr noundef nonnull %71, i32 noundef 2) #9
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -1717,7 +1717,7 @@ av1_get_skip_mode_context.exit.i:                 ; preds = %60, %58
   br i1 %.not.i24.i, label %read_skip_mode.exit, label %76
 
 76:                                               ; preds = %av1_get_skip_mode_context.exit.i
-  %77 = getelementptr inbounds i8, ptr %71, i64 4
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %78 = load i16, ptr %77, align 2
   %79 = icmp ugt i16 %78, 15
   %80 = select i1 %79, i32 4, i32 3
@@ -1781,7 +1781,7 @@ segfeature_active.exit.i58:                       ; preds = %112
   %115 = and i16 %106, 7
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %117 = zext nneg i16 %115 to i64
-  %118 = getelementptr inbounds [8 x i32], ptr %116, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i32], ptr %116, i64 0, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %119, 64
   %.not.i59 = icmp eq i32 %120, 0
@@ -1827,7 +1827,7 @@ av1_get_skip_txfm_context.exit.i:                 ; preds = %129, %127
   br i1 %.not.i10.i, label %read_skip_txfm.exit, label %143
 
 143:                                              ; preds = %av1_get_skip_txfm_context.exit.i
-  %144 = getelementptr inbounds i8, ptr %138, i64 4
+  %144 = getelementptr inbounds nuw i8, ptr %138, i64 4
   %145 = load i16, ptr %144, align 2
   %146 = icmp ugt i16 %145, 15
   %147 = select i1 %146, i32 4, i32 3
@@ -1910,7 +1910,7 @@ read_skip_txfm.exit:                              ; preds = %segfeature_active.e
 segfeature_active.exit.i68:                       ; preds = %187
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %192 = zext nneg i16 %188 to i64
-  %193 = getelementptr inbounds [8 x i32], ptr %191, i64 0, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i32], ptr %191, i64 0, i64 %192
   %194 = load i32, ptr %193, align 4
   %195 = and i32 %194, 32
   %.not.i69 = icmp eq i32 %195, 0
@@ -1921,7 +1921,7 @@ segfeature_active.exit.i68:                       ; preds = %187
   %198 = shl nuw nsw i16 %188, 4
   %199 = or disjoint i16 %198, 10
   %.offs.i.i = zext nneg i16 %199 to i64
-  %200 = getelementptr inbounds i8, ptr %197, i64 %.offs.i.i
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 %.offs.i.i
   %201 = load i16, ptr %200, align 2
   %202 = icmp sgt i16 %201, 0
   %..i = zext i1 %202 to i32
@@ -1947,7 +1947,7 @@ segfeature_active.exit16.thread.i:                ; preds = %segfeature_active.e
   br i1 %.not.i17.i, label %read_is_inter_block.exit, label %214
 
 214:                                              ; preds = %segfeature_active.exit16.thread.i
-  %215 = getelementptr inbounds i8, ptr %209, i64 4
+  %215 = getelementptr inbounds nuw i8, ptr %209, i64 4
   %216 = load i16, ptr %215, align 2
   %217 = icmp ugt i16 %216, 15
   %218 = select i1 %217, i32 4, i32 3
@@ -2016,7 +2016,7 @@ read_is_inter_block.exit:                         ; preds = %196, %segfeature_ac
   %261 = load i32, ptr %1, align 16
   %262 = and i32 %261, 31
   %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr inbounds i8, ptr %260, i64 %263
+  %264 = getelementptr inbounds nuw i8, ptr %260, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 8136
   store ptr %264, ptr %265, align 8
   br i1 %.0, label %2352, label %266
@@ -2041,7 +2041,7 @@ read_is_inter_block.exit:                         ; preds = %196, %segfeature_ac
   store i8 0, ptr %274, align 1
   %275 = getelementptr inbounds nuw i8, ptr %14, i64 150
   store i8 0, ptr %275, align 2
-  %276 = getelementptr inbounds i8, ptr %14, i64 151
+  %276 = getelementptr inbounds nuw i8, ptr %14, i64 151
   store i8 0, ptr %276, align 1
   %277 = getelementptr inbounds nuw i8, ptr %1, i64 10634
   store i64 0, ptr %277, align 2
@@ -2055,7 +2055,7 @@ read_is_inter_block.exit:                         ; preds = %196, %segfeature_ac
   %285 = getelementptr inbounds nuw i8, ptr %1, i64 7873
   %286 = load i8, ptr %285, align 1
   %287 = trunc i8 %286 to i1
-  %indvars.iv.i356.sroa.gep571.i = getelementptr inbounds i8, ptr %10, i64 4
+  %indvars.iv.i356.sroa.gep571.i = getelementptr inbounds nuw i8, ptr %10, i64 4
   br i1 %284, label %288, label %305
 
 288:                                              ; preds = %266
@@ -2082,7 +2082,7 @@ is_inter_block.exit.thread.i.i:                   ; preds = %288
 
 300:                                              ; preds = %is_inter_block.exit.thread.i.i
   %301 = zext nneg i8 %.val.i.i to i64
-  %302 = getelementptr inbounds i8, ptr %277, i64 %301
+  %302 = getelementptr inbounds nuw i8, ptr %277, i64 %301
   %303 = load i8, ptr %302, align 1
   %304 = add i8 %303, 1
   store i8 %304, ptr %302, align 1
@@ -2115,7 +2115,7 @@ is_inter_block.exit25.thread.i.i:                 ; preds = %306
 
 318:                                              ; preds = %is_inter_block.exit25.thread.i.i
   %319 = zext nneg i8 %.val22.i.i to i64
-  %320 = getelementptr inbounds i8, ptr %277, i64 %319
+  %320 = getelementptr inbounds nuw i8, ptr %277, i64 %319
   %321 = load i8, ptr %320, align 1
   %322 = add i8 %321, 1
   store i8 %322, ptr %320, align 1
@@ -2143,7 +2143,7 @@ av1_collect_neighbors_ref_counts.exit.i:          ; preds = %318, %is_inter_bloc
   %337 = load i32, ptr %336, align 4
   %338 = trunc i32 %337 to i8
   %339 = add i8 %338, 1
-  %340 = getelementptr inbounds i8, ptr %14, i64 17
+  %340 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 %339, ptr %340, align 1
   br label %read_ref_frames.exit.i
 
@@ -2156,7 +2156,7 @@ av1_collect_neighbors_ref_counts.exit.i:          ; preds = %318, %is_inter_bloc
 segfeature_active.exit.i.i:                       ; preds = %341
   %344 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %345 = zext nneg i16 %324 to i64
-  %346 = getelementptr inbounds [8 x i32], ptr %344, i64 0, i64 %345
+  %346 = getelementptr inbounds nuw [8 x i32], ptr %344, i64 0, i64 %345
   %347 = load i32, ptr %346, align 4
   %348 = and i32 %347, 32
   %.not81.i.i = icmp eq i32 %348, 0
@@ -2167,7 +2167,7 @@ segfeature_active.exit.i.i:                       ; preds = %341
   %351 = shl nuw nsw i16 %324, 4
   %352 = or disjoint i16 %351, 10
   %.offs.i.i.i = zext nneg i16 %352 to i64
-  %353 = getelementptr inbounds i8, ptr %350, i64 %.offs.i.i.i
+  %353 = getelementptr inbounds nuw i8, ptr %350, i64 %.offs.i.i.i
   %354 = load i16, ptr %353, align 2
   %355 = trunc i16 %354 to i8
   br label %read_ref_frames.exit.thread629.i
@@ -2180,9 +2180,9 @@ segfeature_active.exit99.i.i:                     ; preds = %segfeature_active.e
 segfeature_active.exit101.thread.i.i:             ; preds = %segfeature_active.exit99.i.i, %341
   %357 = load i8, ptr %327, align 8
   %358 = zext i8 %357 to i64
-  %359 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %358
+  %359 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %358
   %360 = load i8, ptr %359, align 1
-  %361 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %358
+  %361 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %358
   %362 = load i8, ptr %361, align 1
   %..i.i.i.i = tail call i8 @llvm.umin.i8(i8 %360, i8 %362)
   %363 = icmp ult i8 %..i.i.i.i, 8
@@ -2208,7 +2208,7 @@ segfeature_active.exit101.thread.i.i:             ; preds = %segfeature_active.e
   br i1 %.not.i.i.i.i, label %aom_read_symbol_.exit.i.i.i, label %378
 
 378:                                              ; preds = %368
-  %379 = getelementptr inbounds i8, ptr %373, i64 4
+  %379 = getelementptr inbounds nuw i8, ptr %373, i64 4
   %380 = load i16, ptr %379, align 2
   %381 = icmp ugt i16 %380, 15
   %382 = select i1 %381, i32 4, i32 3
@@ -2280,7 +2280,7 @@ read_block_reference_mode.exit.i.read_ref_frames.exit_crit_edge.i: ; preds = %re
   br i1 %.not.i.i566.i, label %read_comp_reference_type.exit.i, label %418
 
 418:                                              ; preds = %408
-  %419 = getelementptr inbounds i8, ptr %413, i64 4
+  %419 = getelementptr inbounds nuw i8, ptr %413, i64 4
   %420 = load i16, ptr %419, align 2
   %421 = icmp ugt i16 %420, 15
   %422 = select i1 %421, i32 4, i32 3
@@ -2338,7 +2338,7 @@ read_comp_reference_type.exit.i:                  ; preds = %._crit_edge.loopexi
 
 456:                                              ; preds = %449
   store i8 5, ptr %325, align 1
-  %457 = getelementptr inbounds i8, ptr %14, i64 17
+  %457 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 7, ptr %457, align 1
   br label %read_ref_frames.exit.thread.i
 
@@ -2363,7 +2363,7 @@ read_comp_reference_type.exit.i:                  ; preds = %._crit_edge.loopexi
   %471 = tail call fastcc i32 @aom_read_symbol_(ptr noundef nonnull %2, ptr noundef %470, i32 noundef 2)
   %.not97.i.i = icmp eq i32 %471, 0
   store i8 1, ptr %325, align 1
-  %472 = getelementptr inbounds i8, ptr %14, i64 17
+  %472 = getelementptr inbounds nuw i8, ptr %14, i64 17
   br i1 %.not97.i.i, label %474, label %473
 
 473:                                              ; preds = %465
@@ -2376,7 +2376,7 @@ read_comp_reference_type.exit.i:                  ; preds = %._crit_edge.loopexi
 
 475:                                              ; preds = %458
   store i8 1, ptr %325, align 1
-  %476 = getelementptr inbounds i8, ptr %14, i64 17
+  %476 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 2, ptr %476, align 1
   br label %read_ref_frames.exit.thread.i
 
@@ -2392,7 +2392,7 @@ read_comp_reference_type.exit.i:                  ; preds = %._crit_edge.loopexi
   br i1 %.not.i556.i, label %aom_read_symbol_.exit565.i, label %485
 
 485:                                              ; preds = %477
-  %486 = getelementptr inbounds i8, ptr %482, i64 4
+  %486 = getelementptr inbounds nuw i8, ptr %482, i64 4
   %487 = load i16, ptr %486, align 2
   %488 = icmp ugt i16 %487, 15
   %489 = select i1 %488, i32 4, i32 3
@@ -2475,7 +2475,7 @@ aom_read_symbol_.exit565.i:                       ; preds = %._crit_edge.loopexi
   br i1 %.not.i546.i, label %aom_read_symbol_.exit555.i, label %538
 
 538:                                              ; preds = %530
-  %539 = getelementptr inbounds i8, ptr %535, i64 4
+  %539 = getelementptr inbounds nuw i8, ptr %535, i64 4
   %540 = load i16, ptr %539, align 2
   %541 = icmp ugt i16 %540, 15
   %542 = select i1 %541, i32 4, i32 3
@@ -2530,12 +2530,12 @@ aom_read_symbol_.exit555.i:                       ; preds = %._crit_edge.loopexi
   %573 = tail call fastcc i32 @aom_read_symbol_(ptr noundef nonnull %2, ptr noundef %572, i32 noundef 2)
   %.not94.i.i = icmp eq i32 %573, 0
   %574 = select i1 %.not94.i.i, i8 5, i8 6
-  %575 = getelementptr inbounds i8, ptr %14, i64 17
+  %575 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 %574, ptr %575, align 1
   br label %read_ref_frames.exit.thread.i
 
 576:                                              ; preds = %aom_read_symbol_.exit555.i
-  %577 = getelementptr inbounds i8, ptr %14, i64 17
+  %577 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 7, ptr %577, align 1
   br label %read_ref_frames.exit.thread.i
 
@@ -2553,7 +2553,7 @@ read_block_reference_mode.exit.thread.i.i:        ; preds = %read_block_referenc
   br i1 %.not.i536.i, label %aom_read_symbol_.exit545.i, label %587
 
 587:                                              ; preds = %read_block_reference_mode.exit.thread.i.i
-  %588 = getelementptr inbounds i8, ptr %582, i64 4
+  %588 = getelementptr inbounds nuw i8, ptr %582, i64 4
   %589 = load i16, ptr %588, align 2
   %590 = icmp ugt i16 %589, 15
   %591 = select i1 %590, i32 4, i32 3
@@ -2611,7 +2611,7 @@ aom_read_symbol_.exit545.i:                       ; preds = %._crit_edge.loopexi
   br i1 %.not.i526.i, label %aom_read_symbol_.exit535.i, label %624
 
 624:                                              ; preds = %617
-  %625 = getelementptr inbounds i8, ptr %621, i64 4
+  %625 = getelementptr inbounds nuw i8, ptr %621, i64 4
   %626 = load i16, ptr %625, align 2
   %627 = icmp ugt i16 %626, 15
   %628 = select i1 %627, i32 4, i32 3
@@ -2669,7 +2669,7 @@ aom_read_symbol_.exit535.i:                       ; preds = %._crit_edge.loopexi
   br i1 %.not.i516.i, label %aom_read_symbol_.exit525.i, label %661
 
 661:                                              ; preds = %653
-  %662 = getelementptr inbounds i8, ptr %658, i64 4
+  %662 = getelementptr inbounds nuw i8, ptr %658, i64 4
   %663 = load i16, ptr %662, align 2
   %664 = icmp ugt i16 %663, 15
   %665 = select i1 %664, i32 4, i32 3
@@ -2727,7 +2727,7 @@ aom_read_symbol_.exit525.i:                       ; preds = %._crit_edge.loopexi
   br i1 %.not.i506.i, label %aom_read_symbol_.exit515.i, label %698
 
 698:                                              ; preds = %691
-  %699 = getelementptr inbounds i8, ptr %695, i64 4
+  %699 = getelementptr inbounds nuw i8, ptr %695, i64 4
   %700 = load i16, ptr %699, align 2
   %701 = icmp ugt i16 %700, 15
   %702 = select i1 %701, i32 4, i32 3
@@ -2785,7 +2785,7 @@ aom_read_symbol_.exit515.i:                       ; preds = %._crit_edge.loopexi
   br i1 %.not.i496.i, label %aom_read_symbol_.exit505.i, label %735
 
 735:                                              ; preds = %728
-  %736 = getelementptr inbounds i8, ptr %732, i64 4
+  %736 = getelementptr inbounds nuw i8, ptr %732, i64 4
   %737 = load i16, ptr %736, align 2
   %738 = icmp ugt i16 %737, 15
   %739 = select i1 %738, i32 4, i32 3
@@ -2843,7 +2843,7 @@ aom_read_symbol_.exit505.i:                       ; preds = %._crit_edge.loopexi
   br i1 %.not.i486.i, label %aom_read_symbol_.exit495.i, label %772
 
 772:                                              ; preds = %765
-  %773 = getelementptr inbounds i8, ptr %769, i64 4
+  %773 = getelementptr inbounds nuw i8, ptr %769, i64 4
   %774 = load i16, ptr %773, align 2
   %775 = icmp ugt i16 %774, 15
   %776 = select i1 %775, i32 4, i32 3
@@ -2898,7 +2898,7 @@ read_ref_frames.exit.thread.i:                    ; preds = %576, %567, %475, %4
 read_ref_frames.exit.thread629.i:                 ; preds = %aom_read_symbol_.exit495.i, %aom_read_symbol_.exit505.i, %aom_read_symbol_.exit525.i, %aom_read_symbol_.exit535.i, %segfeature_active.exit99.i.i, %349
   %.sink.i = phi i8 [ %355, %349 ], [ 1, %segfeature_active.exit99.i.i ], [ %764, %aom_read_symbol_.exit505.i ], [ %801, %aom_read_symbol_.exit495.i ], [ %690, %aom_read_symbol_.exit525.i ], [ 7, %aom_read_symbol_.exit535.i ]
   store i8 %.sink.i, ptr %325, align 1
-  %804 = getelementptr inbounds i8, ptr %14, i64 17
+  %804 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 -1, ptr %804, align 1
   br label %av1_ref_frame_type.exit.i
 
@@ -2920,13 +2920,13 @@ read_ref_frames.exit.i:                           ; preds = %read_block_referenc
 
 .preheader.i.i.i:                                 ; preds = %808, %820
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %820 ], [ 0, %808 ]
-  %813 = getelementptr inbounds [9 x i8], ptr @comp_ref0.lut, i64 0, i64 %indvars.iv.i.i.i
+  %813 = getelementptr inbounds nuw [9 x i8], ptr @comp_ref0.lut, i64 0, i64 %indvars.iv.i.i.i
   %814 = load i8, ptr %813, align 1
   %815 = icmp eq i8 %809, %814
   br i1 %815, label %816, label %820
 
 816:                                              ; preds = %.preheader.i.i.i
-  %817 = getelementptr inbounds [9 x i8], ptr @comp_ref1.lut, i64 0, i64 %indvars.iv.i.i.i
+  %817 = getelementptr inbounds nuw [9 x i8], ptr @comp_ref1.lut, i64 0, i64 %indvars.iv.i.i.i
   %818 = load i8, ptr %817, align 1
   %819 = icmp eq i8 %.val272627.i, %818
   br i1 %819, label %get_uni_comp_ref_idx.exit.i.i, label %820
@@ -2972,7 +2972,7 @@ segfeature_active.exit.i83:                       ; preds = %834
   %837 = and i16 %831, 7
   %838 = getelementptr inbounds nuw i8, ptr %0, i64 67636
   %839 = zext nneg i16 %837 to i64
-  %840 = getelementptr inbounds [8 x i32], ptr %838, i64 0, i64 %839
+  %840 = getelementptr inbounds nuw [8 x i32], ptr %838, i64 0, i64 %839
   %841 = load i32, ptr %840, align 4
   %842 = and i32 %841, 192
   %or.cond643.i = icmp eq i32 %842, 0
@@ -2992,13 +2992,13 @@ segfeature_active.exit286.thread.i:               ; preds = %segfeature_active.e
 
 .preheader.i.i.i.i:                               ; preds = %844, %854
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %854 ], [ 0, %844 ]
-  %847 = getelementptr inbounds [9 x i8], ptr @comp_ref0.lut, i64 0, i64 %indvars.iv.i.i.i.i
+  %847 = getelementptr inbounds nuw [9 x i8], ptr @comp_ref0.lut, i64 0, i64 %indvars.iv.i.i.i.i
   %848 = load i8, ptr %847, align 1
   %849 = icmp eq i8 %.val276.i, %848
   br i1 %849, label %850, label %854
 
 850:                                              ; preds = %.preheader.i.i.i.i
-  %851 = getelementptr inbounds [9 x i8], ptr @comp_ref1.lut, i64 0, i64 %indvars.iv.i.i.i.i
+  %851 = getelementptr inbounds nuw [9 x i8], ptr @comp_ref1.lut, i64 0, i64 %indvars.iv.i.i.i.i
   %852 = load i8, ptr %851, align 1
   %853 = icmp eq i8 %.val277.i, %852
   br i1 %853, label %get_uni_comp_ref_idx.exit.i.i.i, label %854
@@ -3035,7 +3035,7 @@ av1_ref_frame_type.exit.i.i:                      ; preds = %get_uni_comp_ref_id
   %868 = zext nneg i16 %867 to i64
   %869 = call i16 @llvm.umin.i16(i16 %865, i16 4)
   %870 = zext nneg i16 %869 to i64
-  %871 = getelementptr inbounds [3 x [5 x i16]], ptr @compound_mode_ctx_map, i64 0, i64 %868, i64 %870
+  %871 = getelementptr inbounds nuw [3 x [5 x i16]], ptr @compound_mode_ctx_map, i64 0, i64 %868, i64 %870
   br label %av1_mode_context_analyzer.exit.i
 
 av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.exit.i.i, %av1_ref_frame_type.exit.thread.i.i
@@ -3056,7 +3056,7 @@ av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.
   br i1 %.not.i.i289.i, label %read_inter_mode.exit.i, label %880
 
 880:                                              ; preds = %874
-  %881 = getelementptr inbounds i8, ptr %877, i64 16
+  %881 = getelementptr inbounds nuw i8, ptr %877, i64 16
   %882 = load i16, ptr %881, align 2
   %883 = icmp ugt i16 %882, 15
   %884 = select i1 %883, i32 4, i32 3
@@ -3074,7 +3074,7 @@ av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.
   %.034.i.i.i.i = phi i32 [ 32768, %880 ], [ %893, %908 ]
   %892 = icmp eq i64 %indvars.iv.i.i.i290.i, %890
   %893 = select i1 %892, i32 0, i32 %.034.i.i.i.i
-  %894 = getelementptr inbounds i16, ptr %877, i64 %indvars.iv.i.i.i290.i
+  %894 = getelementptr inbounds nuw i16, ptr %877, i64 %indvars.iv.i.i.i290.i
   %895 = load i16, ptr %894, align 2
   %896 = zext i16 %895 to i32
   %897 = icmp samesign ult i32 %893, %896
@@ -3113,14 +3113,14 @@ av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.
   %913 = and i16 %.0.i287.i, 7
   %914 = getelementptr inbounds nuw i8, ptr %273, i64 8090
   %915 = zext nneg i16 %913 to i64
-  %916 = getelementptr inbounds [6 x [3 x i16]], ptr %914, i64 0, i64 %915
+  %916 = getelementptr inbounds nuw [6 x [3 x i16]], ptr %914, i64 0, i64 %915
   %917 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %872, ptr noundef nonnull %916, i32 noundef 2) #9
   %918 = load i8, ptr %873, align 8
   %.not.i.i293.i = icmp eq i8 %918, 0
   br i1 %.not.i.i293.i, label %aom_read_symbol_.exit.i.i, label %919
 
 919:                                              ; preds = %912
-  %920 = getelementptr inbounds i8, ptr %916, i64 4
+  %920 = getelementptr inbounds nuw i8, ptr %916, i64 4
   %921 = load i16, ptr %920, align 2
   %922 = icmp ugt i16 %921, 15
   %923 = select i1 %922, i32 4, i32 3
@@ -3170,14 +3170,14 @@ aom_read_symbol_.exit.i.i:                        ; preds = %._crit_edge.loopexi
   %951 = and i16 %950, 1
   %952 = getelementptr inbounds nuw i8, ptr %273, i64 8126
   %953 = zext nneg i16 %951 to i64
-  %954 = getelementptr inbounds [2 x [3 x i16]], ptr %952, i64 0, i64 %953
+  %954 = getelementptr inbounds nuw [2 x [3 x i16]], ptr %952, i64 0, i64 %953
   %955 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %872, ptr noundef nonnull %954, i32 noundef 2) #9
   %956 = load i8, ptr %873, align 8
   %.not.i15.i.i = icmp eq i8 %956, 0
   br i1 %.not.i15.i.i, label %aom_read_symbol_.exit24.i.i, label %957
 
 957:                                              ; preds = %949
-  %958 = getelementptr inbounds i8, ptr %954, i64 4
+  %958 = getelementptr inbounds nuw i8, ptr %954, i64 4
   %959 = load i16, ptr %958, align 2
   %960 = icmp ugt i16 %959, 15
   %961 = select i1 %960, i32 4, i32 3
@@ -3227,14 +3227,14 @@ aom_read_symbol_.exit24.i.i:                      ; preds = %._crit_edge.loopexi
   %989 = and i16 %988, 15
   %990 = getelementptr inbounds nuw i8, ptr %273, i64 8138
   %991 = zext nneg i16 %989 to i64
-  %992 = getelementptr inbounds [6 x [3 x i16]], ptr %990, i64 0, i64 %991
+  %992 = getelementptr inbounds nuw [6 x [3 x i16]], ptr %990, i64 0, i64 %991
   %993 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %872, ptr noundef nonnull %992, i32 noundef 2) #9
   %994 = load i8, ptr %873, align 8
   %.not.i25.i.i = icmp eq i8 %994, 0
   br i1 %.not.i25.i.i, label %aom_read_symbol_.exit34.i.i, label %995
 
 995:                                              ; preds = %987
-  %996 = getelementptr inbounds i8, ptr %992, i64 4
+  %996 = getelementptr inbounds nuw i8, ptr %992, i64 4
   %997 = load i16, ptr %996, align 2
   %998 = icmp ugt i16 %997, 15
   %999 = select i1 %998, i32 4, i32 3
@@ -3315,13 +3315,13 @@ have_nearmv_in_inter_mode.exit.thread.i:          ; preds = %read_inter_mode.exi
 
 .preheader.i.i.i307.i:                            ; preds = %1033, %1043
   %indvars.iv.i.i.i308.i = phi i64 [ %indvars.iv.next.i.i.i309.i, %1043 ], [ 0, %1033 ]
-  %1036 = getelementptr inbounds [9 x i8], ptr @comp_ref0.lut, i64 0, i64 %indvars.iv.i.i.i308.i
+  %1036 = getelementptr inbounds nuw [9 x i8], ptr @comp_ref0.lut, i64 0, i64 %indvars.iv.i.i.i308.i
   %1037 = load i8, ptr %1036, align 1
   %1038 = icmp eq i8 %1032, %1037
   br i1 %1038, label %1039, label %1043
 
 1039:                                             ; preds = %.preheader.i.i.i307.i
-  %1040 = getelementptr inbounds [9 x i8], ptr @comp_ref1.lut, i64 0, i64 %indvars.iv.i.i.i308.i
+  %1040 = getelementptr inbounds nuw [9 x i8], ptr @comp_ref1.lut, i64 0, i64 %indvars.iv.i.i.i308.i
   %1041 = load i8, ptr %1040, align 1
   %1042 = icmp eq i8 %1030, %1041
   br i1 %1042, label %get_uni_comp_ref_idx.exit.i.i312.i, label %1043
@@ -3354,8 +3354,8 @@ av1_ref_frame_type.exit.i298.i:                   ; preds = %get_uni_comp_ref_id
 
 1051:                                             ; preds = %av1_ref_frame_type.exit.i298.i, %av1_ref_frame_type.exit.i298.i
   %1052 = zext i8 %.0.i.i299.i to i64
-  %1053 = getelementptr inbounds [29 x i8], ptr %828, i64 0, i64 %1052
-  %1054 = getelementptr inbounds [29 x [8 x i16]], ptr %830, i64 0, i64 %1052
+  %1053 = getelementptr inbounds nuw [29 x i8], ptr %828, i64 0, i64 %1052
+  %1054 = getelementptr inbounds nuw [29 x [8 x i16]], ptr %830, i64 0, i64 %1052
   %1055 = getelementptr inbounds nuw i8, ptr %273, i64 8174
   br label %1056
 
@@ -3369,23 +3369,23 @@ av1_ref_frame_type.exit.i298.i:                   ; preds = %get_uni_comp_ref_id
   br i1 %1060, label %1061, label %1108
 
 1061:                                             ; preds = %1056
-  %1062 = getelementptr inbounds i16, ptr %1054, i64 %indvars.iv.i.i
+  %1062 = getelementptr inbounds nuw i16, ptr %1054, i64 %indvars.iv.i.i
   %1063 = load i16, ptr %1062, align 2
   %1064 = icmp ugt i16 %1063, 639
-  %1065 = getelementptr inbounds i8, ptr %1062, i64 2
+  %1065 = getelementptr inbounds nuw i8, ptr %1062, i64 2
   %1066 = load i16, ptr %1065, align 2
   %1067 = icmp ult i16 %1066, 640
   %spec.select.i.i.i = zext i1 %1067 to i64
   %spec.select13.i.i.i = select i1 %1067, i64 2, i64 0
   %.0.i39.i.i = select i1 %1064, i64 %spec.select.i.i.i, i64 %spec.select13.i.i.i
-  %1068 = getelementptr inbounds [3 x [3 x i16]], ptr %1055, i64 0, i64 %.0.i39.i.i
+  %1068 = getelementptr inbounds nuw [3 x [3 x i16]], ptr %1055, i64 0, i64 %.0.i39.i.i
   %1069 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %872, ptr noundef nonnull %1068, i32 noundef 2) #9
   %1070 = load i8, ptr %873, align 8
   %.not.i.i301.i = icmp eq i8 %1070, 0
   br i1 %.not.i.i301.i, label %aom_read_symbol_.exit.i305.i, label %1071
 
 1071:                                             ; preds = %1061
-  %1072 = getelementptr inbounds i8, ptr %1068, i64 4
+  %1072 = getelementptr inbounds nuw i8, ptr %1068, i64 4
   %1073 = load i16, ptr %1072, align 2
   %1074 = icmp ugt i16 %1073, 15
   %1075 = select i1 %1074, i32 4, i32 3
@@ -3457,8 +3457,8 @@ thread-pre-split.i.i:                             ; preds = %1108
 
 .critedge.i.i:                                    ; preds = %1109, %1109, %1109, %1109
   %1111 = zext i8 %.0.i.i299.i to i64
-  %1112 = getelementptr inbounds [29 x i8], ptr %828, i64 0, i64 %1111
-  %1113 = getelementptr inbounds [29 x [8 x i16]], ptr %830, i64 0, i64 %1111
+  %1112 = getelementptr inbounds nuw [29 x i8], ptr %828, i64 0, i64 %1111
+  %1113 = getelementptr inbounds nuw [29 x [8 x i16]], ptr %830, i64 0, i64 %1111
   %1114 = getelementptr inbounds nuw i8, ptr %273, i64 8174
   br label %.backedge.i.i
 
@@ -3471,23 +3471,23 @@ thread-pre-split.i.i:                             ; preds = %1108
   br i1 %1117, label %1118, label %1167
 
 1118:                                             ; preds = %.backedge.i.i
-  %1119 = getelementptr inbounds i16, ptr %1113, i64 %indvars.iv63.i.i
+  %1119 = getelementptr inbounds nuw i16, ptr %1113, i64 %indvars.iv63.i.i
   %1120 = load i16, ptr %1119, align 2
   %1121 = icmp ugt i16 %1120, 639
-  %1122 = getelementptr inbounds i8, ptr %1119, i64 2
+  %1122 = getelementptr inbounds nuw i8, ptr %1119, i64 2
   %1123 = load i16, ptr %1122, align 2
   %1124 = icmp ult i16 %1123, 640
   %spec.select.i43.i.i = zext i1 %1124 to i64
   %spec.select13.i44.i.i = select i1 %1124, i64 2, i64 0
   %.0.i45.i.i = select i1 %1121, i64 %spec.select.i43.i.i, i64 %spec.select13.i44.i.i
-  %1125 = getelementptr inbounds [3 x [3 x i16]], ptr %1114, i64 0, i64 %.0.i45.i.i
+  %1125 = getelementptr inbounds nuw [3 x [3 x i16]], ptr %1114, i64 0, i64 %.0.i45.i.i
   %1126 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %872, ptr noundef nonnull %1125, i32 noundef 2) #9
   %1127 = load i8, ptr %873, align 8
   %.not.i46.i.i = icmp eq i8 %1127, 0
   br i1 %.not.i46.i.i, label %aom_read_symbol_.exit55.i.i, label %1128
 
 1128:                                             ; preds = %1118
-  %1129 = getelementptr inbounds i8, ptr %1125, i64 4
+  %1129 = getelementptr inbounds nuw i8, ptr %1125, i64 4
   %1130 = load i16, ptr %1129, align 2
   %1131 = icmp ugt i16 %1130, 15
   %1132 = select i1 %1131, i32 4, i32 3
@@ -3593,7 +3593,7 @@ read_drl_idx.exit.i:                              ; preds = %aom_read_symbol_.ex
 .thread117:                                       ; preds = %.critedge.i
   %1185 = load i32, ptr %4, align 4
   store i32 %1185, ptr %10, align 4
-  %1186 = getelementptr inbounds i8, ptr %4, i64 4
+  %1186 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %1187 = load i32, ptr %1186, align 4
   store i32 %1187, ptr %indvars.iv.i356.sroa.gep571.i, align 4
   %.pre.i118 = lshr i16 %1184, 4
@@ -3608,7 +3608,7 @@ read_drl_idx.exit.i:                              ; preds = %aom_read_symbol_.ex
   %1192 = getelementptr inbounds [29 x [8 x %struct.candidate_mv]], ptr %829, i64 0, i64 %1191
   %1193 = load i32, ptr %1192, align 8
   store i32 %1193, ptr %4, align 4
-  %1194 = getelementptr inbounds i8, ptr %4, i64 4
+  %1194 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %1195 = getelementptr inbounds nuw i8, ptr %1192, i64 4
   %1196 = load i32, ptr %1195, align 4
   store i32 %1196, ptr %1194, align 4
@@ -3616,7 +3616,7 @@ read_drl_idx.exit.i:                              ; preds = %aom_read_symbol_.ex
   %1198 = getelementptr inbounds [29 x [8 x %struct.candidate_mv]], ptr %829, i64 0, i64 %1191, i64 %1197
   %1199 = load i32, ptr %1198, align 8
   store i32 %1199, ptr %5, align 4
-  %1200 = getelementptr inbounds i8, ptr %5, i64 4
+  %1200 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %1201 = getelementptr inbounds nuw i8, ptr %1198, i64 4
   %1202 = load i32, ptr %1201, align 4
   store i32 %1202, ptr %1200, align 4
@@ -3726,7 +3726,7 @@ lower_mv_precision.exit.i:                        ; preds = %.sink.split20.i.i.i
   br label %1254
 
 1254:                                             ; preds = %.sink.split.i.i320.i, %1248, %lower_mv_precision.exit.i
-  %1255 = getelementptr inbounds i8, ptr %4, i64 6
+  %1255 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %1256 = srem i16 %1211, 8
   %.not16.i.i317.i = icmp eq i16 %1256, 0
   br i1 %.not16.i.i317.i, label %lower_mv_precision.exit327.i, label %1257
@@ -3763,7 +3763,7 @@ lower_mv_precision.exit.i:                        ; preds = %.sink.split20.i.i.i
   br i1 %.not10.i325.i, label %1290, label %1270
 
 1270:                                             ; preds = %1268
-  %1271 = getelementptr inbounds i8, ptr %4, i64 6
+  %1271 = getelementptr inbounds nuw i8, ptr %4, i64 6
   %.inv11.i326.i = icmp slt i16 %1211, 1
   %1272 = select i1 %.inv11.i326.i, i16 1, i16 -1
   %1273 = add i16 %1272, %1211
@@ -3854,7 +3854,7 @@ lower_mv_precision.exit340.i:                     ; preds = %.sink.split20.i.i33
   br label %1308
 
 1308:                                             ; preds = %.sink.split.i.i346.i, %1302, %lower_mv_precision.exit340.i
-  %1309 = getelementptr inbounds i8, ptr %5, i64 6
+  %1309 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %1310 = srem i16 %1217, 8
   %.not16.i.i343.i = icmp eq i16 %1310, 0
   br i1 %.not16.i.i343.i, label %1356, label %1311
@@ -3891,7 +3891,7 @@ lower_mv_precision.exit340.i:                     ; preds = %.sink.split20.i.i33
   br i1 %.not10.i351.i, label %1356, label %1324
 
 1324:                                             ; preds = %1322
-  %1325 = getelementptr inbounds i8, ptr %5, i64 6
+  %1325 = getelementptr inbounds nuw i8, ptr %5, i64 6
   %.inv11.i352.i = icmp slt i16 %1217, 1
   %1326 = select i1 %.inv11.i352.i, i16 1, i16 -1
   %1327 = add i16 %1326, %1217
@@ -3919,7 +3919,7 @@ lower_mv_precision.exit340.i:                     ; preds = %.sink.split20.i.i33
 thread-pre-split.i.thread:                        ; preds = %1183
   %1340 = load i32, ptr %4, align 4
   store i32 %1340, ptr %10, align 4
-  %1341 = getelementptr inbounds i8, ptr %4, i64 4
+  %1341 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %1342 = load i32, ptr %1341, align 4
   store i32 %1342, ptr %indvars.iv.i356.sroa.gep571.i, align 4
   %1343 = load ptr, ptr %12, align 8
@@ -3939,7 +3939,7 @@ thread-pre-split.thread634.i:                     ; preds = %1328
   store i32 %1352, ptr %5, align 4
   %1353 = load i32, ptr %4, align 4
   store i32 %1353, ptr %10, align 4
-  %1354 = getelementptr inbounds i8, ptr %4, i64 4
+  %1354 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %1355 = load i32, ptr %1354, align 4
   store i32 %1355, ptr %indvars.iv.i356.sroa.gep571.i, align 4
   br label %1412
@@ -3994,7 +3994,7 @@ thread-pre-split.thread634.i:                     ; preds = %1328
 1377:                                             ; preds = %1328
   %1378 = load i32, ptr %4, align 4
   store i32 %1378, ptr %10, align 4
-  %1379 = getelementptr inbounds i8, ptr %4, i64 4
+  %1379 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %1380 = load i32, ptr %1379, align 4
   store i32 %1380, ptr %indvars.iv.i356.sroa.gep571.i, align 4
   %1381 = icmp eq i8 %.pre.pre.pre.i, 16
@@ -4103,7 +4103,7 @@ thread-pre-split.i._crit_edge:                    ; preds = %thread-pre-split.i
 1430:                                             ; preds = %thread-pre-split.i
   %1431 = load i32, ptr %5, align 4
   store i32 %1431, ptr %15, align 4
-  %1432 = getelementptr inbounds i8, ptr %5, i64 4
+  %1432 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %1433 = load i32, ptr %1432, align 4
   store i32 %1433, ptr %16, align 4
   br label %.loopexit.i.i
@@ -4135,7 +4135,7 @@ thread-pre-split.i._crit_edge:                    ; preds = %thread-pre-split.i
   %1446 = getelementptr inbounds nuw i8, ptr %1398, i64 11912
   %1447 = trunc nsw i32 %spec.select.i.i to i8
   call fastcc void @read_mv(ptr noundef %2, ptr noundef nonnull %15, ptr noundef nonnull readonly %10, ptr noundef nonnull %1446, i8 noundef signext %1447)
-  %1448 = getelementptr inbounds i8, ptr %5, i64 4
+  %1448 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %1449 = load i32, ptr %1448, align 4
   store i32 %1449, ptr %16, align 4
   br label %.loopexit.i.i
@@ -4201,7 +4201,7 @@ is_mv_valid.exit.i.i:                             ; preds = %1481, %1477, %.loop
   br i1 %or.cond.i101.i.i, label %1489, label %assign_mv.exit.i
 
 1489:                                             ; preds = %1486
-  %1490 = getelementptr inbounds i8, ptr %14, i64 14
+  %1490 = getelementptr inbounds nuw i8, ptr %14, i64 14
   %1491 = load i16, ptr %1490, align 2
   %1492 = icmp sgt i16 %1491, -16384
   br i1 %1492, label %1493, label %assign_mv.exit.i
@@ -4251,11 +4251,11 @@ is_interintra_allowed.exit.i:                     ; preds = %1511
 
 1516:                                             ; preds = %is_interintra_allowed.exit.i
   %1517 = zext i8 %267 to i64
-  %1518 = getelementptr inbounds [22 x i8], ptr @size_group_lookup, i64 0, i64 %1517
+  %1518 = getelementptr inbounds nuw [22 x i8], ptr @size_group_lookup, i64 0, i64 %1517
   %1519 = load i8, ptr %1518, align 1
   %1520 = getelementptr inbounds nuw i8, ptr %273, i64 9216
   %1521 = zext i8 %1519 to i64
-  %1522 = getelementptr inbounds [4 x [3 x i16]], ptr %1520, i64 0, i64 %1521
+  %1522 = getelementptr inbounds nuw [4 x [3 x i16]], ptr %1520, i64 0, i64 %1521
   %1523 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %1524 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1523, ptr noundef nonnull %1522, i32 noundef 2) #9
   %1525 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -4264,7 +4264,7 @@ is_interintra_allowed.exit.i:                     ; preds = %1511
   br i1 %.not.i357.i, label %aom_read_symbol_.exit.i, label %1527
 
 1527:                                             ; preds = %1516
-  %1528 = getelementptr inbounds i8, ptr %1522, i64 4
+  %1528 = getelementptr inbounds nuw i8, ptr %1522, i64 4
   %1529 = load i16, ptr %1528, align 2
   %1530 = icmp ugt i16 %1529, 15
   %1531 = select i1 %1530, i32 4, i32 3
@@ -4312,14 +4312,14 @@ aom_read_symbol_.exit.i:                          ; preds = %._crit_edge.loopexi
 1556:                                             ; preds = %aom_read_symbol_.exit.i
   %.val279.i = load ptr, ptr %272, align 8
   %1557 = getelementptr inbounds nuw i8, ptr %.val279.i, i64 9372
-  %1558 = getelementptr inbounds [4 x [5 x i16]], ptr %1557, i64 0, i64 %1521
+  %1558 = getelementptr inbounds nuw [4 x [5 x i16]], ptr %1557, i64 0, i64 %1521
   %1559 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1523, ptr noundef nonnull %1558, i32 noundef 4) #9
   %1560 = load i8, ptr %1525, align 8
   %.not.i.i361.i = icmp eq i8 %1560, 0
   br i1 %.not.i.i361.i, label %read_interintra_mode.exit.i, label %1561
 
 1561:                                             ; preds = %1556
-  %1562 = getelementptr inbounds i8, ptr %1558, i64 8
+  %1562 = getelementptr inbounds nuw i8, ptr %1558, i64 8
   %1563 = load i16, ptr %1562, align 2
   %1564 = icmp ugt i16 %1563, 15
   %1565 = select i1 %1564, i32 4, i32 3
@@ -4337,7 +4337,7 @@ aom_read_symbol_.exit.i:                          ; preds = %._crit_edge.loopexi
   %.034.i.i.i364.i = phi i32 [ 32768, %1561 ], [ %1574, %1589 ]
   %1573 = icmp eq i64 %indvars.iv.i.i.i363.i, %1571
   %1574 = select i1 %1573, i32 0, i32 %.034.i.i.i364.i
-  %1575 = getelementptr inbounds i16, ptr %1558, i64 %indvars.iv.i.i.i363.i
+  %1575 = getelementptr inbounds nuw i16, ptr %1558, i64 %indvars.iv.i.i.i363.i
   %1576 = load i16, ptr %1575, align 2
   %1577 = zext i16 %1576 to i32
   %1578 = icmp samesign ult i32 %1574, %1577
@@ -4379,25 +4379,25 @@ read_interintra_mode.exit.i:                      ; preds = %._crit_edge.loopexi
   store i8 %1593, ptr %1594, align 8
   %1595 = getelementptr inbounds nuw i8, ptr %14, i64 96
   store i8 0, ptr %1595, align 8
-  %1596 = getelementptr inbounds i8, ptr %14, i64 97
+  %1596 = getelementptr inbounds nuw i8, ptr %14, i64 97
   store i8 0, ptr %1596, align 1
   %1597 = getelementptr inbounds nuw i8, ptr %14, i64 99
   store i8 0, ptr %1597, align 1
-  %1598 = getelementptr inbounds [22 x %struct.wedge_params_type], ptr @av1_wedge_params_lookup, i64 0, i64 %1517
+  %1598 = getelementptr inbounds nuw [22 x %struct.wedge_params_type], ptr @av1_wedge_params_lookup, i64 0, i64 %1517
   %1599 = load i32, ptr %1598, align 16
   %1600 = icmp slt i32 %1599, 1
   br i1 %1600, label %is_interintra_allowed.exit.thread.i, label %1601
 
 1601:                                             ; preds = %read_interintra_mode.exit.i
   %1602 = getelementptr inbounds nuw i8, ptr %273, i64 9240
-  %1603 = getelementptr inbounds [22 x [3 x i16]], ptr %1602, i64 0, i64 %1517
+  %1603 = getelementptr inbounds nuw [22 x [3 x i16]], ptr %1602, i64 0, i64 %1517
   %1604 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1523, ptr noundef nonnull %1603, i32 noundef 2) #9
   %1605 = load i8, ptr %1525, align 8
   %.not.i371.i = icmp eq i8 %1605, 0
   br i1 %.not.i371.i, label %aom_read_symbol_.exit380.i, label %1606
 
 1606:                                             ; preds = %1601
-  %1607 = getelementptr inbounds i8, ptr %1603, i64 4
+  %1607 = getelementptr inbounds nuw i8, ptr %1603, i64 4
   %1608 = load i16, ptr %1607, align 2
   %1609 = icmp ugt i16 %1608, 15
   %1610 = select i1 %1609, i32 4, i32 3
@@ -4452,14 +4452,14 @@ aom_read_symbol_.exit380.i:                       ; preds = %._crit_edge.loopexi
 
 1642:                                             ; preds = %aom_read_symbol_.exit380.i
   %1643 = getelementptr inbounds nuw i8, ptr %273, i64 8468
-  %1644 = getelementptr inbounds [22 x [17 x i16]], ptr %1643, i64 0, i64 %1517
+  %1644 = getelementptr inbounds nuw [22 x [17 x i16]], ptr %1643, i64 0, i64 %1517
   %1645 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1523, ptr noundef nonnull %1644, i32 noundef 16) #9
   %1646 = load i8, ptr %1525, align 8
   %.not.i381.i = icmp eq i8 %1646, 0
   br i1 %.not.i381.i, label %aom_read_symbol_.exit390.i, label %1647
 
 1647:                                             ; preds = %1642
-  %1648 = getelementptr inbounds i8, ptr %1644, i64 32
+  %1648 = getelementptr inbounds nuw i8, ptr %1644, i64 32
   %1649 = load i16, ptr %1648, align 2
   %1650 = icmp ugt i16 %1649, 15
   %1651 = select i1 %1650, i32 4, i32 3
@@ -4477,7 +4477,7 @@ aom_read_symbol_.exit380.i:                       ; preds = %._crit_edge.loopexi
   %.034.i.i384.i = phi i32 [ 32768, %1647 ], [ %1660, %1675 ]
   %1659 = icmp eq i64 %indvars.iv.i.i383.i, %1657
   %1660 = select i1 %1659, i32 0, i32 %.034.i.i384.i
-  %1661 = getelementptr inbounds i16, ptr %1644, i64 %indvars.iv.i.i383.i
+  %1661 = getelementptr inbounds nuw i16, ptr %1644, i64 %indvars.iv.i.i383.i
   %1662 = load i16, ptr %1661, align 2
   %1663 = zext i16 %1662 to i32
   %1664 = icmp samesign ult i32 %1660, %1663
@@ -4527,7 +4527,7 @@ is_interintra_allowed.exit.thread.i:              ; preds = %aom_read_symbol_.ex
 1684:                                             ; preds = %get_ref_scale_factors_const.exit.i, %is_interintra_allowed.exit.thread.i
   %1685 = phi i1 [ true, %is_interintra_allowed.exit.thread.i ], [ false, %get_ref_scale_factors_const.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %is_interintra_allowed.exit.thread.i ], [ 1, %get_ref_scale_factors_const.exit.i ]
-  %1686 = getelementptr inbounds [2 x i8], ptr %325, i64 0, i64 %indvars.iv.i
+  %1686 = getelementptr inbounds nuw [2 x i8], ptr %325, i64 0, i64 %indvars.iv.i
   %1687 = load i8, ptr %1686, align 1
   %1688 = add i8 %1687, -1
   %or.cond.i.i391.i = icmp ult i8 %1688, 8
@@ -4537,7 +4537,7 @@ get_ref_frame_map_idx.exit.i.i:                   ; preds = %1684
   %1689 = zext nneg i8 %1687 to i64
   %1690 = add nuw nsw i64 %1689, 4294967295
   %1691 = and i64 %1690, 4294967295
-  %1692 = getelementptr inbounds [8 x i32], ptr %1682, i64 0, i64 %1691
+  %1692 = getelementptr inbounds nuw [8 x i32], ptr %1682, i64 0, i64 %1691
   %1693 = load i32, ptr %1692, align 4
   %.fr.i.i = freeze i32 %1693
   %.not.i392.i = icmp eq i32 %.fr.i.i, -1
@@ -4550,7 +4550,7 @@ get_ref_frame_map_idx.exit.thread.i.i:            ; preds = %get_ref_frame_map_i
 
 get_ref_scale_factors_const.exit.i:               ; preds = %get_ref_frame_map_idx.exit.thread.i.i, %get_ref_frame_map_idx.exit.i.i
   %1696 = phi ptr [ null, %get_ref_frame_map_idx.exit.thread.i.i ], [ %1695, %get_ref_frame_map_idx.exit.i.i ]
-  %1697 = getelementptr inbounds [2 x ptr], ptr %1681, i64 0, i64 %indvars.iv.i
+  %1697 = getelementptr inbounds nuw [2 x ptr], ptr %1681, i64 0, i64 %indvars.iv.i
   store ptr %1696, ptr %1697, align 8
   %.val273.i = load i8, ptr %827, align 1
   %1698 = icmp sgt i8 %.val273.i, 0
@@ -4562,9 +4562,9 @@ get_ref_scale_factors_const.exit.i:               ; preds = %get_ref_frame_map_i
   store i8 0, ptr %1700, align 8
   %1701 = load i8, ptr %14, align 8
   %1702 = zext i8 %1701 to i64
-  %1703 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %1702
+  %1703 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %1702
   %1704 = load i8, ptr %1703, align 1
-  %1705 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %1702
+  %1705 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %1702
   %1706 = load i8, ptr %1705, align 1
   %..i393.i = call i8 @llvm.umin.i8(i8 %1704, i8 %1706)
   %1707 = icmp ult i8 %..i393.i, 8
@@ -4622,9 +4622,9 @@ get_ref_scale_factors_const.exit.i:               ; preds = %get_ref_frame_map_i
 
 ._crit_edge.i.i.i:                                ; preds = %1731
   %.phi.trans.insert.i.i.i = zext i8 %.pre.i.i397.i to i64
-  %.phi.trans.insert39.i.i.i = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert39.i.i.i = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %.phi.trans.insert.i.i.i
   %.pre40.i.i.i = load i8, ptr %.phi.trans.insert39.i.i.i, align 1
-  %.phi.trans.insert42.i.i.i = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %.phi.trans.insert.i.i.i
+  %.phi.trans.insert42.i.i.i = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %.phi.trans.insert.i.i.i
   %.pre43.i.i.i = load i8, ptr %.phi.trans.insert42.i.i.i, align 1
   %.pre44.i.i.i = call i8 @llvm.umin.i8(i8 %.pre40.i.i.i, i8 %.pre43.i.i.i)
   br label %1749
@@ -4636,9 +4636,9 @@ get_ref_scale_factors_const.exit.i:               ; preds = %get_ref_frame_map_i
   %1739 = load i8, ptr %1738, align 4
   %.val23.i.i.i = load i8, ptr %1169, align 2
   %1740 = zext i8 %.pre.i.i397.i to i64
-  %1741 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %1740
+  %1741 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %1740
   %1742 = load i8, ptr %1741, align 1
-  %1743 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %1740
+  %1743 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %1740
   %1744 = load i8, ptr %1743, align 1
   %..i.i.i398.i = call i8 @llvm.umin.i8(i8 %1742, i8 %1744)
   %1745 = icmp ne i8 %.val23.i.i.i, 15
@@ -4694,7 +4694,7 @@ motion_mode_allowed.exit.i.i:                     ; preds = %1765, %1755
   %1766 = load ptr, ptr %272, align 8
   %1767 = getelementptr inbounds nuw i8, ptr %1766, i64 9588
   %1768 = zext i8 %.pre.i.i397.i to i64
-  %1769 = getelementptr inbounds [22 x [3 x i16]], ptr %1767, i64 0, i64 %1768
+  %1769 = getelementptr inbounds nuw [22 x [3 x i16]], ptr %1767, i64 0, i64 %1768
   %1770 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %1771 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1770, ptr noundef nonnull %1769, i32 noundef 2) #9
   %1772 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -4703,7 +4703,7 @@ motion_mode_allowed.exit.i.i:                     ; preds = %1765, %1755
   br i1 %.not.i17.i.i, label %aom_read_symbol_.exit.i404.i, label %1774
 
 1774:                                             ; preds = %motion_mode_allowed.exit.i.i
-  %1775 = getelementptr inbounds i8, ptr %1769, i64 4
+  %1775 = getelementptr inbounds nuw i8, ptr %1769, i64 4
   %1776 = load i16, ptr %1775, align 2
   %1777 = icmp ugt i16 %1776, 15
   %1778 = select i1 %1777, i32 4, i32 3
@@ -4752,7 +4752,7 @@ aom_read_symbol_.exit.i404.i:                     ; preds = %._crit_edge.loopexi
   %1805 = load ptr, ptr %272, align 8
   %1806 = getelementptr inbounds nuw i8, ptr %1805, i64 9412
   %1807 = zext i8 %.pre.i.i397.i to i64
-  %1808 = getelementptr inbounds [22 x [4 x i16]], ptr %1806, i64 0, i64 %1807
+  %1808 = getelementptr inbounds nuw [22 x [4 x i16]], ptr %1806, i64 0, i64 %1807
   %1809 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %1810 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1809, ptr noundef nonnull %1808, i32 noundef 3) #9
   %1811 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -4761,7 +4761,7 @@ aom_read_symbol_.exit.i404.i:                     ; preds = %._crit_edge.loopexi
   br i1 %.not.i18.i.i, label %aom_read_symbol_.exit27.i.i, label %1813
 
 1813:                                             ; preds = %1804
-  %1814 = getelementptr inbounds i8, ptr %1808, i64 6
+  %1814 = getelementptr inbounds nuw i8, ptr %1808, i64 6
   %1815 = load i16, ptr %1814, align 2
   %1816 = icmp ugt i16 %1815, 15
   %1817 = select i1 %1816, i32 4, i32 3
@@ -4779,7 +4779,7 @@ aom_read_symbol_.exit.i404.i:                     ; preds = %._crit_edge.loopexi
   %.034.i.i21.i.i = phi i32 [ 32768, %1813 ], [ %1826, %1841 ]
   %1825 = icmp eq i64 %indvars.iv.i.i20.i.i, %1823
   %1826 = select i1 %1825, i32 0, i32 %.034.i.i21.i.i
-  %1827 = getelementptr inbounds i16, ptr %1808, i64 %indvars.iv.i.i20.i.i
+  %1827 = getelementptr inbounds nuw i16, ptr %1808, i64 %indvars.iv.i.i20.i.i
   %1828 = load i16, ptr %1827, align 2
   %1829 = zext i16 %1828 to i32
   %1830 = icmp samesign ult i32 %1826, %1829
@@ -4840,16 +4840,16 @@ read_motion_mode.exit.i:                          ; preds = %aom_read_symbol_.ex
 
 1853:                                             ; preds = %1847
   %1854 = zext i8 %267 to i64
-  %1855 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %1854
+  %1855 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %1854
   %1856 = load i8, ptr %1855, align 1
-  %1857 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %1854
+  %1857 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %1854
   %1858 = load i8, ptr %1857, align 1
   %..i.i405.i = call i8 @llvm.umin.i8(i8 %1856, i8 %1858)
   %1859 = icmp ugt i8 %..i.i405.i, 7
   br i1 %1859, label %.preheader.i407.i, label %.critedge271.thread.i
 
 .preheader.i407.i:                                ; preds = %1853
-  %1860 = getelementptr inbounds [22 x %struct.wedge_params_type], ptr @av1_wedge_params_lookup, i64 0, i64 %1854
+  %1860 = getelementptr inbounds nuw [22 x %struct.wedge_params_type], ptr @av1_wedge_params_lookup, i64 0, i64 %1854
   br label %1861
 
 1861:                                             ; preds = %is_interinter_compound_used.exit.thread.i.i, %.preheader.i407.i
@@ -4935,7 +4935,7 @@ get_comp_group_idx_context.exit.i:                ; preds = %1894, %1888, %1884
   %1899 = call range(i32 0, 6) i32 @llvm.umin.i32(i32 %1898, i32 5)
   %1900 = getelementptr inbounds nuw i8, ptr %273, i64 11816
   %1901 = zext nneg i32 %1899 to i64
-  %1902 = getelementptr inbounds [6 x [3 x i16]], ptr %1900, i64 0, i64 %1901
+  %1902 = getelementptr inbounds nuw [6 x [3 x i16]], ptr %1900, i64 0, i64 %1901
   %1903 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %1904 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %1903, ptr noundef nonnull %1902, i32 noundef 2) #9
   %1905 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -4944,7 +4944,7 @@ get_comp_group_idx_context.exit.i:                ; preds = %1894, %1888, %1884
   br i1 %.not.i412.i, label %aom_read_symbol_.exit421.i, label %1907
 
 1907:                                             ; preds = %get_comp_group_idx_context.exit.i
-  %1908 = getelementptr inbounds i8, ptr %1902, i64 4
+  %1908 = getelementptr inbounds nuw i8, ptr %1902, i64 4
   %1909 = load i16, ptr %1908, align 2
   %1910 = icmp ugt i16 %1909, 15
   %1911 = select i1 %1910, i32 4, i32 3
@@ -5021,7 +5021,7 @@ get_ref_frame_map_idx.exit.i.i.i:                 ; preds = %1948
   %1954 = zext nneg i8 %1952 to i64
   %1955 = add nuw nsw i64 %1954, 4294967295
   %1956 = and i64 %1955, 4294967295
-  %1957 = getelementptr inbounds [8 x i32], ptr %1682, i64 0, i64 %1956
+  %1957 = getelementptr inbounds nuw [8 x i32], ptr %1682, i64 0, i64 %1956
   %1958 = load i32, ptr %1957, align 4
   %.not.i.i430.i = icmp eq i32 %1958, -1
   br i1 %.not.i.i430.i, label %get_ref_frame_buf.exit.i.i, label %1959
@@ -5035,7 +5035,7 @@ get_ref_frame_map_idx.exit.i.i.i:                 ; preds = %1948
 
 get_ref_frame_buf.exit.i.i:                       ; preds = %1959, %get_ref_frame_map_idx.exit.i.i.i, %1948
   %1964 = phi ptr [ %1963, %1959 ], [ null, %get_ref_frame_map_idx.exit.i.i.i ], [ null, %1948 ]
-  %1965 = getelementptr inbounds i8, ptr %1950, i64 17
+  %1965 = getelementptr inbounds nuw i8, ptr %1950, i64 17
   %1966 = load i8, ptr %1965, align 1
   %1967 = add i8 %1966, -1
   %or.cond.i.i44.i.i = icmp ult i8 %1967, 8
@@ -5045,7 +5045,7 @@ get_ref_frame_map_idx.exit.i45.i.i:               ; preds = %get_ref_frame_buf.e
   %1968 = zext nneg i8 %1966 to i64
   %1969 = add nuw nsw i64 %1968, 4294967295
   %1970 = and i64 %1969, 4294967295
-  %1971 = getelementptr inbounds [8 x i32], ptr %1682, i64 0, i64 %1970
+  %1971 = getelementptr inbounds nuw [8 x i32], ptr %1682, i64 0, i64 %1970
   %1972 = load i32, ptr %1971, align 4
   %.not.i46.i429.i = icmp eq i32 %1972, -1
   br i1 %.not.i46.i429.i, label %get_ref_frame_buf.exit47.i.i, label %1973
@@ -5167,7 +5167,7 @@ get_comp_index_context.exit.i:                    ; preds = %2031, %2025, %2021
   %2039 = add nuw nsw i64 %.031.i.i, %2038
   %2040 = add nuw nsw i64 %2039, %.030.i.i
   %2041 = getelementptr inbounds nuw i8, ptr %273, i64 11780
-  %2042 = getelementptr inbounds [6 x [3 x i16]], ptr %2041, i64 0, i64 %2040
+  %2042 = getelementptr inbounds nuw [6 x [3 x i16]], ptr %2041, i64 0, i64 %2040
   %2043 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %2044 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %2043, ptr noundef nonnull %2042, i32 noundef 2) #9
   %2045 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -5176,7 +5176,7 @@ get_comp_index_context.exit.i:                    ; preds = %2031, %2025, %2021
   br i1 %.not.i431.i, label %aom_read_symbol_.exit440.i, label %2047
 
 2047:                                             ; preds = %get_comp_index_context.exit.i
-  %2048 = getelementptr inbounds i8, ptr %2042, i64 4
+  %2048 = getelementptr inbounds nuw i8, ptr %2042, i64 4
   %2049 = load i16, ptr %2048, align 2
   %2050 = icmp ugt i16 %2049, 15
   %2051 = select i1 %2050, i32 4, i32 3
@@ -5244,7 +5244,7 @@ is_interinter_compound_used.exit.i:               ; preds = %.critedge271.i
 
 2089:                                             ; preds = %is_interinter_compound_used.exit.i
   %2090 = getelementptr inbounds nuw i8, ptr %273, i64 8336
-  %2091 = getelementptr inbounds [22 x [3 x i16]], ptr %2090, i64 0, i64 %1854
+  %2091 = getelementptr inbounds nuw [22 x [3 x i16]], ptr %2090, i64 0, i64 %1854
   %2092 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %2093 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %2092, ptr noundef nonnull %2091, i32 noundef 2) #9
   %2094 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -5253,7 +5253,7 @@ is_interinter_compound_used.exit.i:               ; preds = %.critedge271.i
   br i1 %.not.i443.i, label %2125, label %2096
 
 2096:                                             ; preds = %2089
-  %2097 = getelementptr inbounds i8, ptr %2091, i64 4
+  %2097 = getelementptr inbounds nuw i8, ptr %2091, i64 4
   %2098 = load i16, ptr %2097, align 2
   %2099 = icmp ugt i16 %2098, 15
   %2100 = select i1 %2099, i32 4, i32 3
@@ -5307,14 +5307,14 @@ is_interinter_compound_used.exit.i:               ; preds = %.critedge271.i
 
 2129:                                             ; preds = %2125
   %2130 = getelementptr inbounds nuw i8, ptr %273, i64 8468
-  %2131 = getelementptr inbounds [22 x [17 x i16]], ptr %2130, i64 0, i64 %1854
+  %2131 = getelementptr inbounds nuw [22 x [17 x i16]], ptr %2130, i64 0, i64 %1854
   %2132 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %2092, ptr noundef nonnull %2131, i32 noundef 16) #9
   %2133 = load i8, ptr %2094, align 8
   %.not.i453.i = icmp eq i8 %2133, 0
   br i1 %.not.i453.i, label %aom_read_symbol_.exit462.i, label %2134
 
 2134:                                             ; preds = %2129
-  %2135 = getelementptr inbounds i8, ptr %2131, i64 32
+  %2135 = getelementptr inbounds nuw i8, ptr %2131, i64 32
   %2136 = load i16, ptr %2135, align 2
   %2137 = icmp ugt i16 %2136, 15
   %2138 = select i1 %2137, i32 4, i32 3
@@ -5332,7 +5332,7 @@ is_interinter_compound_used.exit.i:               ; preds = %.critedge271.i
   %.034.i.i456.i = phi i32 [ 32768, %2134 ], [ %2147, %2162 ]
   %2146 = icmp eq i64 %indvars.iv.i.i455.i, %2144
   %2147 = select i1 %2146, i32 0, i32 %.034.i.i456.i
-  %2148 = getelementptr inbounds i16, ptr %2131, i64 %indvars.iv.i.i455.i
+  %2148 = getelementptr inbounds nuw i16, ptr %2131, i64 %indvars.iv.i.i455.i
   %2149 = load i16, ptr %2148, align 2
   %2150 = zext i16 %2149 to i32
   %2151 = icmp samesign ult i32 %2147, %2150
@@ -5419,9 +5419,9 @@ aom_read_literal_.exit.i:                         ; preds = %2125, %.thread594.i
 2193:                                             ; preds = %2190, %2190
   %2194 = load i8, ptr %2182, align 8
   %2195 = zext i8 %2194 to i64
-  %2196 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %2195
+  %2196 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %2195
   %2197 = load i8, ptr %2196, align 1
-  %2198 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %2195
+  %2198 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %2195
   %2199 = load i8, ptr %2198, align 1
   %..i.i.i465.i = call i8 @llvm.umin.i8(i8 %2197, i8 %2199)
   %2200 = icmp ult i8 %..i.i.i465.i, 2
@@ -5448,7 +5448,7 @@ aom_read_literal_.exit.i:                         ; preds = %2125, %.thread594.i
 .preheader.i.split.i.i.i:                         ; preds = %.preheader.i.i.i466.i, %.preheader.i.split.i.i.i
   %.not8.i.i.i = phi i1 [ true, %.preheader.i.split.i.i.i ], [ false, %.preheader.i.i.i466.i ]
   %indvars.iv.i.i.i479.i = phi i64 [ 1, %.preheader.i.split.i.i.i ], [ 0, %.preheader.i.i.i466.i ]
-  %2211 = getelementptr inbounds [2 x i8], ptr %2205, i64 0, i64 %indvars.iv.i.i.i479.i
+  %2211 = getelementptr inbounds nuw [2 x i8], ptr %2205, i64 0, i64 %indvars.iv.i.i.i479.i
   %2212 = load i8, ptr %2211, align 1
   %2213 = sext i8 %2212 to i64
   %2214 = getelementptr inbounds %struct.WarpedMotionParams, ptr %2204, i64 %2213, i32 5
@@ -5501,7 +5501,7 @@ av1_is_interp_needed.exit.thread24.i.i:           ; preds = %av1_is_interp_neede
   br i1 %.not.i18.us.i.i, label %aom_read_symbol_.exit.us.i.i, label %2231
 
 2231:                                             ; preds = %.split.us.i.i
-  %2232 = getelementptr inbounds i8, ptr %2228, i64 6
+  %2232 = getelementptr inbounds nuw i8, ptr %2228, i64 6
   %2233 = load i16, ptr %2232, align 2
   %2234 = icmp ugt i16 %2233, 15
   %2235 = select i1 %2234, i32 4, i32 3
@@ -5519,7 +5519,7 @@ av1_is_interp_needed.exit.thread24.i.i:           ; preds = %av1_is_interp_neede
   %.034.i.i.us.i.i = phi i32 [ 32768, %2231 ], [ %2244, %2259 ]
   %2243 = icmp eq i64 %indvars.iv.i.i19.us.i.i, %2241
   %2244 = select i1 %2243, i32 0, i32 %.034.i.i.us.i.i
-  %2245 = getelementptr inbounds i16, ptr %2228, i64 %indvars.iv.i.i19.us.i.i
+  %2245 = getelementptr inbounds nuw i16, ptr %2228, i64 %indvars.iv.i.i19.us.i.i
   %2246 = load i16, ptr %2245, align 2
   %2247 = zext i16 %2246 to i32
   %2248 = icmp samesign ult i32 %2244, %2247
@@ -5569,7 +5569,7 @@ aom_read_symbol_.exit.us.i.i:                     ; preds = %._crit_edge.loopexi
   br i1 %.not.i18.i468.i, label %aom_read_symbol_.exit.i476.i, label %2269
 
 2269:                                             ; preds = %.split.i.i
-  %2270 = getelementptr inbounds i8, ptr %2266, i64 6
+  %2270 = getelementptr inbounds nuw i8, ptr %2266, i64 6
   %2271 = load i16, ptr %2270, align 2
   %2272 = icmp ugt i16 %2271, 15
   %2273 = select i1 %2272, i32 4, i32 3
@@ -5587,7 +5587,7 @@ aom_read_symbol_.exit.us.i.i:                     ; preds = %._crit_edge.loopexi
   %.034.i.i.i470.i = phi i32 [ 32768, %2269 ], [ %2282, %2297 ]
   %2281 = icmp eq i64 %indvars.iv.i.i19.i.i, %2279
   %2282 = select i1 %2281, i32 0, i32 %.034.i.i.i470.i
-  %2283 = getelementptr inbounds i16, ptr %2266, i64 %indvars.iv.i.i19.i.i
+  %2283 = getelementptr inbounds nuw i16, ptr %2266, i64 %indvars.iv.i.i19.i.i
   %2284 = load i16, ptr %2283, align 2
   %2285 = zext i16 %2284 to i32
   %2286 = icmp samesign ult i32 %2282, %2285
@@ -5736,16 +5736,16 @@ read_inter_block_mode_info.exit:                  ; preds = %2332, %2336, %2340,
   %2354 = icmp ult i8 %2353, 3
   %2355 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i8 0, ptr %2355, align 8
-  %2356 = getelementptr inbounds i8, ptr %14, i64 17
+  %2356 = getelementptr inbounds nuw i8, ptr %14, i64 17
   store i8 -1, ptr %2356, align 1
   %2357 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %2358 = load ptr, ptr %2357, align 8
   %2359 = getelementptr inbounds nuw i8, ptr %2358, i64 12744
   %2360 = zext i8 %2353 to i64
-  %2361 = getelementptr inbounds [22 x i8], ptr @size_group_lookup, i64 0, i64 %2360
+  %2361 = getelementptr inbounds nuw [22 x i8], ptr @size_group_lookup, i64 0, i64 %2360
   %2362 = load i8, ptr %2361, align 1
   %2363 = zext i8 %2362 to i64
-  %2364 = getelementptr inbounds [4 x [14 x i16]], ptr %2359, i64 0, i64 %2363
+  %2364 = getelementptr inbounds nuw [4 x [14 x i16]], ptr %2359, i64 0, i64 %2363
   %2365 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %2366 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %2365, ptr noundef nonnull %2364, i32 noundef 13) #9
   %2367 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -5754,7 +5754,7 @@ read_inter_block_mode_info.exit:                  ; preds = %2332, %2336, %2340,
   br i1 %.not.i.i.i85, label %read_intra_mode.exit.i, label %2369
 
 2369:                                             ; preds = %2352
-  %2370 = getelementptr inbounds i8, ptr %2364, i64 26
+  %2370 = getelementptr inbounds nuw i8, ptr %2364, i64 26
   %2371 = load i16, ptr %2370, align 2
   %2372 = icmp ugt i16 %2371, 15
   %2373 = select i1 %2372, i32 4, i32 3
@@ -5772,7 +5772,7 @@ read_inter_block_mode_info.exit:                  ; preds = %2332, %2336, %2340,
   %.034.i.i.i.i88 = phi i32 [ 32768, %2369 ], [ %2382, %2397 ]
   %2381 = icmp eq i64 %indvars.iv.i.i.i.i87, %2379
   %2382 = select i1 %2381, i32 0, i32 %.034.i.i.i.i88
-  %2383 = getelementptr inbounds i16, ptr %2364, i64 %indvars.iv.i.i.i.i87
+  %2383 = getelementptr inbounds nuw i16, ptr %2364, i64 %indvars.iv.i.i.i.i87
   %2384 = load i16, ptr %2383, align 2
   %2385 = zext i16 %2384 to i32
   %2386 = icmp samesign ult i32 %2382, %2385
@@ -5828,7 +5828,7 @@ read_intra_mode.exit.i:                           ; preds = %._crit_edge.loopexi
   br i1 %.not.i.i50.i, label %read_angle_delta.exit.i, label %2412
 
 2412:                                             ; preds = %2405
-  %2413 = getelementptr inbounds i8, ptr %2409, i64 14
+  %2413 = getelementptr inbounds nuw i8, ptr %2409, i64 14
   %2414 = load i16, ptr %2413, align 2
   %2415 = icmp ugt i16 %2414, 15
   %2416 = select i1 %2415, i32 4, i32 3
@@ -5846,7 +5846,7 @@ read_intra_mode.exit.i:                           ; preds = %._crit_edge.loopexi
   %.034.i.i.i53.i = phi i32 [ 32768, %2412 ], [ %2425, %2440 ]
   %2424 = icmp eq i64 %indvars.iv.i.i.i52.i, %2422
   %2425 = select i1 %2424, i32 0, i32 %.034.i.i.i53.i
-  %2426 = getelementptr inbounds i16, ptr %2409, i64 %indvars.iv.i.i.i52.i
+  %2426 = getelementptr inbounds nuw i16, ptr %2409, i64 %indvars.iv.i.i.i52.i
   %2427 = load i16, ptr %2426, align 2
   %2428 = zext i16 %2427 to i32
   %2429 = icmp samesign ult i32 %2425, %2428
@@ -5910,15 +5910,15 @@ read_angle_delta.exit.i:                          ; preds = %._crit_edge.loopexi
   %2461 = load i16, ptr %2460, align 1
   %2462 = and i16 %2461, 7
   %2463 = zext nneg i16 %2462 to i64
-  %2464 = getelementptr inbounds [8 x i32], ptr %2459, i64 0, i64 %2463
+  %2464 = getelementptr inbounds nuw [8 x i32], ptr %2459, i64 0, i64 %2463
   %2465 = load i32, ptr %2464, align 4
   %.not.i.i99 = icmp eq i32 %2465, 0
   br i1 %.not.i.i99, label %2478, label %2466
 
 2466:                                             ; preds = %2455
-  %2467 = getelementptr inbounds i8, ptr %1, i64 2628
+  %2467 = getelementptr inbounds nuw i8, ptr %1, i64 2628
   %2468 = load i32, ptr %2467, align 4
-  %2469 = getelementptr inbounds i8, ptr %1, i64 2632
+  %2469 = getelementptr inbounds nuw i8, ptr %1, i64 2632
   %2470 = load i32, ptr %2469, align 8
   %2471 = zext i8 %2458 to i64
   %2472 = sext i32 %2468 to i64
@@ -5946,7 +5946,7 @@ is_cfl_allowed.exit.i:                            ; preds = %2478, %2466
   %2487 = getelementptr inbounds nuw i8, ptr %2358, i64 12856
   %2488 = zext nneg i8 %.0.i.i100 to i64
   %2489 = zext i8 %2486 to i64
-  %2490 = getelementptr inbounds [2 x [13 x [15 x i16]]], ptr %2487, i64 0, i64 %2488, i64 %2489
+  %2490 = getelementptr inbounds nuw [2 x [13 x [15 x i16]]], ptr %2487, i64 0, i64 %2488, i64 %2489
   %2491 = xor i8 %.0.i.i100, 1
   %narrow.i.i = sub nuw nsw i8 14, %2491
   %2492 = zext nneg i8 %narrow.i.i to i32
@@ -5957,13 +5957,13 @@ is_cfl_allowed.exit.i:                            ; preds = %2478, %2466
 
 .lr.ph.i.i.i.i:                                   ; preds = %is_cfl_allowed.exit.i
   %2495 = zext nneg i8 %narrow.i.i to i64
-  %2496 = getelementptr inbounds i16, ptr %2490, i64 %2495
+  %2496 = getelementptr inbounds nuw i16, ptr %2490, i64 %2495
   %2497 = load i16, ptr %2496, align 2
   %2498 = icmp ugt i16 %2497, 15
   %2499 = select i1 %2498, i32 4, i32 3
   %2500 = icmp ugt i16 %2497, 31
   %2501 = zext i1 %2500 to i32
-  %2502 = getelementptr inbounds [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %2495
+  %2502 = getelementptr inbounds nuw [17 x i32], ptr @update_cdf.nsymbs2speed, i64 0, i64 %2495
   %2503 = load i32, ptr %2502, align 4
   %2504 = add i32 %2503, %2501
   %2505 = add i32 %2504, %2499
@@ -5980,7 +5980,7 @@ is_cfl_allowed.exit.i:                            ; preds = %2478, %2466
   %.034.i.i.i62.i = phi i32 [ 32768, %.lr.ph.i.i.i.i ], [ %2512, %2527 ]
   %2511 = icmp eq i64 %indvars.iv.i.i.i61.i, %2509
   %2512 = select i1 %2511, i32 0, i32 %.034.i.i.i62.i
-  %2513 = getelementptr inbounds i16, ptr %2490, i64 %indvars.iv.i.i.i61.i
+  %2513 = getelementptr inbounds nuw i16, ptr %2490, i64 %indvars.iv.i.i.i61.i
   %2514 = load i16, ptr %2513, align 2
   %2515 = zext i16 %2514 to i32
   %2516 = icmp samesign ult i32 %2512, %2515
@@ -6036,7 +6036,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
 2540:                                             ; preds = %2539
   %2541 = load i8, ptr %2532, align 1
   %2542 = zext i8 %2541 to i64
-  %2543 = getelementptr inbounds [16 x i8], ptr @get_uv_mode.uv2y, i64 0, i64 %2542
+  %2543 = getelementptr inbounds nuw [16 x i8], ptr @get_uv_mode.uv2y, i64 0, i64 %2542
   %2544 = load i8, ptr %2543, align 1
   %2545 = add i8 %2544, -9
   %2546 = icmp ult i8 %2545, -8
@@ -6052,7 +6052,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
   br i1 %.not.i.i67.i, label %read_angle_delta.exit76.i, label %2553
 
 2553:                                             ; preds = %2547
-  %2554 = getelementptr inbounds i8, ptr %2550, i64 14
+  %2554 = getelementptr inbounds nuw i8, ptr %2550, i64 14
   %2555 = load i16, ptr %2554, align 2
   %2556 = icmp ugt i16 %2555, 15
   %2557 = select i1 %2556, i32 4, i32 3
@@ -6070,7 +6070,7 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
   %.034.i.i.i70.i = phi i32 [ 32768, %2553 ], [ %2566, %2581 ]
   %2565 = icmp eq i64 %indvars.iv.i.i.i69.i, %2563
   %2566 = select i1 %2565, i32 0, i32 %.034.i.i.i70.i
-  %2567 = getelementptr inbounds i16, ptr %2550, i64 %indvars.iv.i.i.i69.i
+  %2567 = getelementptr inbounds nuw i16, ptr %2550, i64 %indvars.iv.i.i.i69.i
   %2568 = load i16, ptr %2567, align 2
   %2569 = zext i16 %2568 to i32
   %2570 = icmp samesign ult i32 %2566, %2569
@@ -6113,7 +6113,7 @@ read_angle_delta.exit76.i:                        ; preds = %._crit_edge.loopexi
 2587:                                             ; preds = %read_angle_delta.exit76.i, %2540, %2539, %2451, %2446
   %.sink88.i = phi i64 [ 97, %2539 ], [ 97, %2540 ], [ 97, %read_angle_delta.exit76.i ], [ 3, %2451 ], [ 3, %2446 ]
   %.sink.i95 = phi i8 [ 0, %2539 ], [ 0, %2540 ], [ %2586, %read_angle_delta.exit76.i ], [ 0, %2451 ], [ 0, %2446 ]
-  %2588 = getelementptr inbounds i8, ptr %14, i64 %.sink88.i
+  %2588 = getelementptr inbounds nuw i8, ptr %14, i64 %.sink88.i
   store i8 %.sink.i95, ptr %2588, align 1
   %.val.i96 = load i8, ptr %2449, align 1
   %2589 = load ptr, ptr %12, align 8
@@ -6153,7 +6153,7 @@ store_cfl_required.exit.i:                        ; preds = %2601, %is_inter_blo
   store i32 %.0.i78.i, ptr %2606, align 16
   %2607 = getelementptr inbounds nuw i8, ptr %14, i64 150
   store i8 0, ptr %2607, align 2
-  %2608 = getelementptr inbounds i8, ptr %14, i64 151
+  %2608 = getelementptr inbounds nuw i8, ptr %14, i64 151
   store i8 0, ptr %2608, align 1
   %2609 = getelementptr inbounds nuw i8, ptr %0, i64 49007
   %2610 = load i8, ptr %2609, align 1
@@ -6237,7 +6237,7 @@ define internal fastcc void @read_cdef(ptr nocapture noundef readonly %0, ptr no
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 10757
   %38 = zext nneg i32 %36 to i64
   %39 = select i1 %33, i64 %38, i64 0
-  %40 = getelementptr inbounds [4 x i8], ptr %37, i64 0, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 0, i64 %39
   %41 = load i8, ptr %40, align 1
   %42 = trunc i8 %41 to i1
   %43 = icmp ne i8 %8, 0
@@ -6345,7 +6345,7 @@ define internal fastcc void @read_delta_q_params(ptr nocapture noundef readonly 
   br i1 %.not.i.i, label %aom_read_symbol_.exit.i, label %35
 
 35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %23, i64 15136
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 15136
   %37 = load i16, ptr %36, align 2
   %38 = icmp ugt i16 %37, 15
   %39 = select i1 %38, i32 4, i32 3
@@ -6363,7 +6363,7 @@ define internal fastcc void @read_delta_q_params(ptr nocapture noundef readonly 
   %.034.i.i.i = phi i32 [ 32768, %35 ], [ %48, %63 ]
   %47 = icmp eq i64 %indvars.iv.i.i.i, %45
   %48 = select i1 %47, i32 0, i32 %.034.i.i.i
-  %49 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv.i.i.i
+  %49 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv.i.i.i
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = icmp samesign ult i32 %48, %51
@@ -6485,10 +6485,10 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
 
 108:                                              ; preds = %102, %108
   %indvars.iv = phi i64 [ 0, %102 ], [ %indvars.iv.next, %108 ]
-  %109 = getelementptr inbounds [4 x i8], ptr %104, i64 0, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 0, i64 %indvars.iv
   %110 = load i8, ptr %109, align 1
   %111 = sext i8 %110 to i32
-  %112 = getelementptr inbounds [4 x [5 x i16]], ptr %105, i64 0, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x [5 x i16]], ptr %105, i64 0, i64 %indvars.iv
   %.val49 = load i8, ptr %10, align 4
   %.val50 = load i32, ptr %11, align 16
   %113 = tail call fastcc i32 @read_delta_lflevel(i8 %.val49, i32 %.val50, ptr noundef %2, ptr noundef nonnull %112, ptr noundef nonnull %9, i32 noundef %99, i32 noundef %98)
@@ -6499,7 +6499,7 @@ read_delta_qindex.exit:                           ; preds = %24, %28, %81, %82
   %118 = tail call i32 @llvm.smax.i32(i32 %117, i32 -63)
   %119 = trunc nsw i32 %118 to i8
   store i8 %119, ptr %109, align 1
-  %120 = getelementptr inbounds [4 x i8], ptr %107, i64 0, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 0, i64 %indvars.iv
   store i8 %119, ptr %120, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6540,7 +6540,7 @@ define internal fastcc zeroext i8 @read_cfl_alphas(ptr noundef %0, ptr noundef %
   br i1 %.not.i, label %aom_read_symbol_.exit, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %0, i64 21052
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 21052
   %11 = load i16, ptr %10, align 2
   %12 = icmp ugt i16 %11, 15
   %13 = select i1 %12, i32 4, i32 3
@@ -6558,7 +6558,7 @@ define internal fastcc zeroext i8 @read_cfl_alphas(ptr noundef %0, ptr noundef %
   %.034.i.i = phi i32 [ 32768, %9 ], [ %22, %37 ]
   %21 = icmp eq i64 %indvars.iv.i.i, %19
   %22 = select i1 %21, i32 0, i32 %.034.i.i
-  %23 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv.i.i
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
   %26 = icmp samesign ult i32 %22, %25
@@ -6613,7 +6613,7 @@ aom_read_symbol_.exit:                            ; preds = %3, %._crit_edge.loo
   br i1 %.not.i20, label %aom_read_symbol_.exit29, label %52
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %49, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %54 = load i16, ptr %53, align 2
   %55 = icmp ugt i16 %54, 15
   %56 = select i1 %55, i32 4, i32 3
@@ -6631,7 +6631,7 @@ aom_read_symbol_.exit:                            ; preds = %3, %._crit_edge.loo
   %.034.i.i23 = phi i32 [ 32768, %52 ], [ %65, %80 ]
   %64 = icmp eq i64 %indvars.iv.i.i22, %62
   %65 = select i1 %64, i32 0, i32 %.034.i.i23
-  %66 = getelementptr inbounds i16, ptr %49, i64 %indvars.iv.i.i22
+  %66 = getelementptr inbounds nuw i16, ptr %49, i64 %indvars.iv.i.i22
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
   %69 = icmp samesign ult i32 %65, %68
@@ -6691,7 +6691,7 @@ aom_read_symbol_.exit29:                          ; preds = %45, %._crit_edge.lo
   br i1 %.not.i30, label %aom_read_symbol_.exit39, label %96
 
 96:                                               ; preds = %87
-  %97 = getelementptr inbounds i8, ptr %93, i64 32
+  %97 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %98 = load i16, ptr %97, align 2
   %99 = icmp ugt i16 %98, 15
   %100 = select i1 %99, i32 4, i32 3
@@ -6709,7 +6709,7 @@ aom_read_symbol_.exit29:                          ; preds = %45, %._crit_edge.lo
   %.034.i.i33 = phi i32 [ 32768, %96 ], [ %109, %124 ]
   %108 = icmp eq i64 %indvars.iv.i.i32, %106
   %109 = select i1 %108, i32 0, i32 %.034.i.i33
-  %110 = getelementptr inbounds i16, ptr %93, i64 %indvars.iv.i.i32
+  %110 = getelementptr inbounds nuw i16, ptr %93, i64 %indvars.iv.i.i32
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i32
   %113 = icmp samesign ult i32 %109, %112
@@ -6771,7 +6771,7 @@ define internal fastcc void @read_palette_mode_info(ptr nocapture noundef readon
   %12 = load i8, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 102
   %14 = zext i8 %12 to i64
-  %15 = getelementptr inbounds [22 x i8], ptr @num_pels_log2_lookup, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [22 x i8], ptr @num_pels_log2_lookup, i64 0, i64 %14
   %16 = load i8, ptr %15, align 1
   %17 = zext i8 %16 to i32
   %18 = add nsw i32 %17, -6
@@ -6824,7 +6824,7 @@ av1_get_palette_mode_ctx.exit:                    ; preds = %30, %31
   br i1 %.not.i39, label %aom_read_symbol_.exit, label %47
 
 47:                                               ; preds = %av1_get_palette_mode_ctx.exit
-  %48 = getelementptr inbounds i8, ptr %42, i64 4
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %49 = load i16, ptr %48, align 2
   %50 = icmp ugt i16 %49, 15
   %51 = select i1 %50, i32 4, i32 3
@@ -6879,7 +6879,7 @@ aom_read_symbol_.exit:                            ; preds = %av1_get_palette_mod
   br i1 %.not.i40, label %aom_read_symbol_.exit49, label %82
 
 82:                                               ; preds = %76
-  %83 = getelementptr inbounds i8, ptr %79, i64 14
+  %83 = getelementptr inbounds nuw i8, ptr %79, i64 14
   %84 = load i16, ptr %83, align 2
   %85 = icmp ugt i16 %84, 15
   %86 = select i1 %85, i32 4, i32 3
@@ -6897,7 +6897,7 @@ aom_read_symbol_.exit:                            ; preds = %av1_get_palette_mod
   %.034.i.i43 = phi i32 [ 32768, %82 ], [ %95, %110 ]
   %94 = icmp eq i64 %indvars.iv.i.i42, %92
   %95 = select i1 %94, i32 0, i32 %.034.i.i43
-  %96 = getelementptr inbounds i16, ptr %79, i64 %indvars.iv.i.i42
+  %96 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv.i.i42
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
   %99 = icmp samesign ult i32 %95, %98
@@ -6961,7 +6961,7 @@ aom_read_symbol_.exit49:                          ; preds = %76, %._crit_edge.lo
   br i1 %.not.i53, label %134, label %128
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i
+  %129 = getelementptr inbounds nuw [16 x i16], ptr %6, i64 0, i64 %indvars.iv.i
   %130 = load i16, ptr %129, align 2
   %131 = add nsw i32 %.089.i, 1
   %132 = sext i32 %.089.i to i64
@@ -7159,7 +7159,7 @@ av1_ceil_log2.exit74.i:                           ; preds = %.lr.ph.i70.i, %av1_
   %.sink.i.i = phi i16 [ %194, %._crit_edge.i.i ], [ %201, %200 ]
   %.122.i.i = phi i32 [ %199, %._crit_edge.i.i ], [ %.02126.i.i, %200 ]
   %.1.i.i = phi i32 [ %.02027.i.i, %._crit_edge.i.i ], [ %202, %200 ]
-  %204 = getelementptr inbounds i16, ptr %13, i64 %indvars.iv.i.i50
+  %204 = getelementptr inbounds nuw i16, ptr %13, i64 %indvars.iv.i.i50
   store i16 %.sink.i.i, ptr %204, align 2
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i50, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, %wide.trip.count.i.i
@@ -7199,7 +7199,7 @@ read_palette_colors_y.exit:                       ; preds = %203, %.loopexit.i, 
   %222 = load ptr, ptr %221, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 11330
   %224 = zext i1 %220 to i64
-  %225 = getelementptr inbounds [2 x [3 x i16]], ptr %223, i64 0, i64 %224
+  %225 = getelementptr inbounds nuw [2 x [3 x i16]], ptr %223, i64 0, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %227 = call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %226, ptr noundef nonnull %225, i32 noundef 2) #9
   %228 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -7208,7 +7208,7 @@ read_palette_colors_y.exit:                       ; preds = %203, %.loopexit.i, 
   br i1 %.not.i55, label %aom_read_symbol_.exit65, label %230
 
 230:                                              ; preds = %217
-  %231 = getelementptr inbounds i8, ptr %225, i64 4
+  %231 = getelementptr inbounds nuw i8, ptr %225, i64 4
   %232 = load i16, ptr %231, align 2
   %233 = icmp ugt i16 %232, 15
   %234 = select i1 %233, i32 4, i32 3
@@ -7264,7 +7264,7 @@ aom_read_symbol_.exit65:                          ; preds = %217, %._crit_edge.l
   br i1 %.not.i66, label %aom_read_symbol_.exit76, label %266
 
 266:                                              ; preds = %259
-  %267 = getelementptr inbounds i8, ptr %263, i64 14
+  %267 = getelementptr inbounds nuw i8, ptr %263, i64 14
   %268 = load i16, ptr %267, align 2
   %269 = icmp ugt i16 %268, 15
   %270 = select i1 %269, i32 4, i32 3
@@ -7282,7 +7282,7 @@ aom_read_symbol_.exit65:                          ; preds = %217, %._crit_edge.l
   %.034.i.i70 = phi i32 [ 32768, %266 ], [ %279, %294 ]
   %278 = icmp eq i64 %indvars.iv.i.i69, %276
   %279 = select i1 %278, i32 0, i32 %.034.i.i70
-  %280 = getelementptr inbounds i16, ptr %263, i64 %indvars.iv.i.i69
+  %280 = getelementptr inbounds nuw i16, ptr %263, i64 %indvars.iv.i.i69
   %281 = load i16, ptr %280, align 2
   %282 = zext i16 %281 to i32
   %283 = icmp samesign ult i32 %279, %282
@@ -7320,7 +7320,7 @@ aom_read_symbol_.exit65:                          ; preds = %217, %._crit_edge.l
 aom_read_symbol_.exit76:                          ; preds = %259, %._crit_edge.loopexit.i.i74
   %298 = trunc i32 %264 to i8
   %299 = add i8 %298, 2
-  %300 = getelementptr inbounds i8, ptr %11, i64 151
+  %300 = getelementptr inbounds nuw i8, ptr %11, i64 151
   store i8 %299, ptr %300, align 1
   %301 = getelementptr inbounds nuw i8, ptr %0, i64 25256
   %302 = load i32, ptr %301, align 8
@@ -7345,7 +7345,7 @@ aom_read_symbol_.exit76:                          ; preds = %259, %._crit_edge.l
   br i1 %.not106.i, label %317, label %311
 
 311:                                              ; preds = %309
-  %312 = getelementptr inbounds [16 x i16], ptr %4, i64 0, i64 %indvars.iv.i116
+  %312 = getelementptr inbounds nuw [16 x i16], ptr %4, i64 0, i64 %indvars.iv.i116
   %313 = load i16, ptr %312, align 2
   %314 = add nsw i32 %.089179.i, 1
   %315 = sext i32 %.089179.i to i64
@@ -7492,7 +7492,7 @@ av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1
   br i1 %exitcond.not.i108, label %.loopexit169.i, label %346, !llvm.loop !22
 
 .loopexit169.i:                                   ; preds = %av1_ceil_log2.exit127.i, %aom_read_literal_.exit.i82
-  %372 = getelementptr inbounds i8, ptr %11, i64 118
+  %372 = getelementptr inbounds nuw i8, ptr %11, i64 118
   %373 = icmp ne i32 %.089.lcssa.i, 0
   %or.cond.i.i84 = and i1 %306, %373
   br i1 %or.cond.i.i84, label %.lr.ph.preheader.i.i85, label %merge_colors.exit.i
@@ -7541,14 +7541,14 @@ av1_ceil_log2.exit127.i:                          ; preds = %.lr.ph.i123.i, %av1
   %.sink.i.i94 = phi i16 [ %378, %._crit_edge.i.i99 ], [ %385, %384 ]
   %.122.i.i95 = phi i32 [ %383, %._crit_edge.i.i99 ], [ %.02126.i.i89, %384 ]
   %.1.i.i96 = phi i32 [ %.02027.i.i88, %._crit_edge.i.i99 ], [ %386, %384 ]
-  %388 = getelementptr inbounds i16, ptr %372, i64 %indvars.iv.i.i87
+  %388 = getelementptr inbounds nuw i16, ptr %372, i64 %indvars.iv.i.i87
   store i16 %.sink.i.i94, ptr %388, align 2
   %indvars.iv.next.i.i97 = add nuw nsw i64 %indvars.iv.i.i87, 1
   %exitcond.not.i.i98 = icmp eq i64 %indvars.iv.next.i.i97, %wide.trip.count.i.i86
   br i1 %exitcond.not.i.i98, label %merge_colors.exit.i, label %.lr.ph.i128.i, !llvm.loop !20
 
 389:                                              ; preds = %._crit_edge.i77
-  %390 = getelementptr inbounds i8, ptr %11, i64 118
+  %390 = getelementptr inbounds nuw i8, ptr %11, i64 118
   %391 = zext i8 %299 to i64
   %392 = shl nuw nsw i64 %391, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %390, ptr nonnull align 16 %5, i64 %392, i1 false)
@@ -7595,7 +7595,7 @@ aom_read_literal_.exit157.preheader.i:            ; preds = %.lr.ph188.i
 aom_read_literal_.exit157.loopexit.us.i:          ; preds = %.lr.ph.i153.us.i
   %401 = trunc i32 %399 to i16
   %402 = add nuw nsw i64 %indvars.iv211.i, 16
-  %403 = getelementptr inbounds [24 x i16], ptr %13, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw [24 x i16], ptr %13, i64 0, i64 %402
   store i16 %401, ptr %403, align 2
   %indvars.iv.next212.i = add nuw nsw i64 %indvars.iv211.i, 1
   %exitcond215.not.i = icmp eq i64 %indvars.iv.next212.i, %wide.trip.count214.i
@@ -7634,7 +7634,7 @@ aom_read_literal_.exit143.loopexit.i:             ; preds = %.lr.ph.i139.i
 
 aom_read_literal_.exit143.i:                      ; preds = %aom_read_literal_.exit143.loopexit.i, %aom_read_literal_.exit136.i
   %.06.lcssa.i138.i = phi i16 [ 0, %aom_read_literal_.exit136.i ], [ %416, %aom_read_literal_.exit143.loopexit.i ]
-  %417 = getelementptr inbounds i8, ptr %11, i64 134
+  %417 = getelementptr inbounds nuw i8, ptr %11, i64 134
   store i16 %.06.lcssa.i138.i, ptr %417, align 2
   %418 = icmp ult i8 %298, -2
   br i1 %418, label %.lr.ph186.i, label %read_palette_colors_uv.exit
@@ -7673,7 +7673,7 @@ aom_read_literal_.exit150.thread.i:               ; preds = %425, %aom_read_lite
   %.087.i = phi i32 [ 0, %aom_read_literal_.exit150.i ], [ %spec.select.i81, %425 ], [ 0, %420 ]
   %428 = add nuw nsw i64 %indvars.iv204.i, 16
   %429 = add nuw nsw i64 %indvars.iv204.i, 15
-  %430 = getelementptr inbounds [24 x i16], ptr %13, i64 0, i64 %429
+  %430 = getelementptr inbounds nuw [24 x i16], ptr %13, i64 0, i64 %429
   %431 = load i16, ptr %430, align 2
   %432 = zext i16 %431 to i32
   %433 = add nsw i32 %.087.i, %432
@@ -7684,7 +7684,7 @@ aom_read_literal_.exit150.thread.i:               ; preds = %425, %aom_read_lite
   %436 = select i1 %.not105.i, i32 0, i32 %409
   %.1.i80 = sub nsw i32 %spec.select107.i, %436
   %437 = trunc i32 %.1.i80 to i16
-  %438 = getelementptr inbounds [24 x i16], ptr %13, i64 0, i64 %428
+  %438 = getelementptr inbounds nuw [24 x i16], ptr %13, i64 0, i64 %428
   store i16 %437, ptr %438, align 2
   %indvars.iv.next205.i = add nuw nsw i64 %indvars.iv204.i, 1
   %exitcond207.not.i = icmp eq i64 %indvars.iv.next205.i, %wide.trip.count.i
@@ -7739,7 +7739,7 @@ define internal fastcc void @read_filter_intra_mode_info(ptr nocapture noundef r
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12580
-  %29 = getelementptr inbounds [22 x [3 x i16]], ptr %28, i64 0, i64 %21
+  %29 = getelementptr inbounds nuw [22 x [3 x i16]], ptr %28, i64 0, i64 %21
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %31 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %30, ptr noundef nonnull %29, i32 noundef 2) #9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -7748,7 +7748,7 @@ define internal fastcc void @read_filter_intra_mode_info(ptr nocapture noundef r
   br i1 %.not.i, label %aom_read_symbol_.exit, label %34
 
 34:                                               ; preds = %25
-  %35 = getelementptr inbounds i8, ptr %29, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %36 = load i16, ptr %35, align 2
   %37 = icmp ugt i16 %36, 15
   %38 = select i1 %37, i32 4, i32 3
@@ -7805,7 +7805,7 @@ aom_read_symbol_.exit:                            ; preds = %25, %._crit_edge.lo
   br i1 %.not.i14, label %aom_read_symbol_.exit23, label %70
 
 70:                                               ; preds = %65
-  %71 = getelementptr inbounds i8, ptr %66, i64 12722
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 12722
   %72 = load i16, ptr %71, align 2
   %73 = icmp ugt i16 %72, 15
   %74 = select i1 %73, i32 4, i32 3
@@ -7823,7 +7823,7 @@ aom_read_symbol_.exit:                            ; preds = %25, %._crit_edge.lo
   %.034.i.i17 = phi i32 [ 32768, %70 ], [ %83, %98 ]
   %82 = icmp eq i64 %indvars.iv.i.i16, %80
   %83 = select i1 %82, i32 0, i32 %.034.i.i17
-  %84 = getelementptr inbounds i16, ptr %67, i64 %indvars.iv.i.i16
+  %84 = getelementptr inbounds nuw i16, ptr %67, i64 %indvars.iv.i.i16
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i32
   %87 = icmp samesign ult i32 %83, %86
@@ -8014,7 +8014,7 @@ av1_get_spatial_seg_pred.exit:                    ; preds = %65, %.get_segment_i
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 12526
   %73 = zext nneg i32 %.1 to i64
-  %74 = getelementptr inbounds [3 x [9 x i16]], ptr %72, i64 0, i64 %73
+  %74 = getelementptr inbounds nuw [3 x [9 x i16]], ptr %72, i64 0, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %76 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %75, ptr noundef nonnull %74, i32 noundef 8) #9
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -8023,7 +8023,7 @@ av1_get_spatial_seg_pred.exit:                    ; preds = %65, %.get_segment_i
   br i1 %.not.i, label %aom_read_symbol_.exit, label %79
 
 79:                                               ; preds = %69
-  %80 = getelementptr inbounds i8, ptr %74, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %81 = load i16, ptr %80, align 2
   %82 = icmp ugt i16 %81, 15
   %83 = select i1 %82, i32 4, i32 3
@@ -8041,7 +8041,7 @@ av1_get_spatial_seg_pred.exit:                    ; preds = %65, %.get_segment_i
   %.034.i.i = phi i32 [ 32768, %79 ], [ %92, %107 ]
   %91 = icmp eq i64 %indvars.iv.i.i, %89
   %92 = select i1 %91, i32 0, i32 %.034.i.i
-  %93 = getelementptr inbounds i16, ptr %74, i64 %indvars.iv.i.i
+  %93 = getelementptr inbounds nuw i16, ptr %74, i64 %indvars.iv.i.i
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
   %96 = icmp samesign ult i32 %92, %95
@@ -8192,7 +8192,7 @@ define internal fastcc i32 @read_delta_lflevel(i8 %.25212.val, i32 %.25216.val, 
   br i1 %.not.i, label %aom_read_symbol_.exit, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i16, ptr %22, align 2
   %24 = icmp ugt i16 %23, 15
   %25 = select i1 %24, i32 4, i32 3
@@ -8210,7 +8210,7 @@ define internal fastcc i32 @read_delta_lflevel(i8 %.25212.val, i32 %.25216.val, 
   %.034.i.i = phi i32 [ 32768, %21 ], [ %34, %49 ]
   %33 = icmp eq i64 %indvars.iv.i.i, %31
   %34 = select i1 %33, i32 0, i32 %.034.i.i
-  %35 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   %38 = icmp samesign ult i32 %34, %37
@@ -8316,7 +8316,7 @@ define internal fastcc void @read_mv(ptr noundef %0, ptr nocapture noundef write
   br i1 %.not.i, label %aom_read_symbol_.exit, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i16, ptr %11, align 2
   %13 = icmp ugt i16 %12, 15
   %14 = select i1 %13, i32 4, i32 3
@@ -8334,7 +8334,7 @@ define internal fastcc void @read_mv(ptr noundef %0, ptr nocapture noundef write
   %.034.i.i = phi i32 [ 32768, %10 ], [ %23, %38 ]
   %22 = icmp eq i64 %indvars.iv.i.i, %20
   %23 = select i1 %22, i32 0, i32 %.034.i.i
-  %24 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i.i
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
   %27 = icmp samesign ult i32 %23, %26
@@ -8392,7 +8392,7 @@ aom_read_symbol_.exit:                            ; preds = %5, %._crit_edge.loo
   br i1 %.not16, label %54, label %62
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %3, i64 148
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 148
   %56 = icmp sgt i8 %4, -1
   %57 = zext i1 %56 to i32
   %58 = icmp sgt i8 %4, 0
@@ -8428,7 +8428,7 @@ define internal fastcc i32 @read_mv_component(ptr noundef %0, ptr noundef %1, i3
   br i1 %.not.i, label %aom_read_symbol_.exit, label %10
 
 10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 58
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 58
   %12 = load i16, ptr %11, align 2
   %13 = icmp ugt i16 %12, 15
   %14 = select i1 %13, i32 4, i32 3
@@ -8476,7 +8476,7 @@ aom_read_symbol_.exit:                            ; preds = %4, %._crit_edge.loo
   br i1 %.not.i42, label %aom_read_symbol_.exit51, label %41
 
 41:                                               ; preds = %aom_read_symbol_.exit
-  %42 = getelementptr inbounds i8, ptr %1, i64 22
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 22
   %43 = load i16, ptr %42, align 2
   %44 = icmp ugt i16 %43, 15
   %45 = select i1 %44, i32 4, i32 3
@@ -8494,7 +8494,7 @@ aom_read_symbol_.exit:                            ; preds = %4, %._crit_edge.loo
   %.034.i.i45 = phi i32 [ 32768, %41 ], [ %54, %69 ]
   %53 = icmp eq i64 %indvars.iv.i.i44, %51
   %54 = select i1 %53, i32 0, i32 %.034.i.i45
-  %55 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i44
+  %55 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i.i44
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
   %58 = icmp samesign ult i32 %54, %57
@@ -8550,7 +8550,7 @@ aom_read_symbol_.exit51:                          ; preds = %aom_read_symbol_.ex
   br i1 %.not.i52, label %aom_read_symbol_.exit61, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %1, i64 76
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %82 = load i16, ptr %81, align 2
   %83 = icmp ugt i16 %82, 15
   %84 = select i1 %83, i32 4, i32 3
@@ -8594,14 +8594,14 @@ aom_read_symbol_.exit51:                          ; preds = %aom_read_symbol_.ex
 109:                                              ; preds = %.lr.ph, %aom_read_symbol_.exit71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %aom_read_symbol_.exit71 ]
   %.192 = phi i32 [ 0, %.lr.ph ], [ %144, %aom_read_symbol_.exit71 ]
-  %110 = getelementptr inbounds [10 x [3 x i16]], ptr %75, i64 0, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [10 x [3 x i16]], ptr %75, i64 0, i64 %indvars.iv
   %111 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %6, ptr noundef nonnull %110, i32 noundef 2) #9
   %112 = load i8, ptr %8, align 8
   %.not.i62 = icmp eq i8 %112, 0
   br i1 %.not.i62, label %aom_read_symbol_.exit71, label %113
 
 113:                                              ; preds = %109
-  %114 = getelementptr inbounds i8, ptr %110, i64 4
+  %114 = getelementptr inbounds nuw i8, ptr %110, i64 4
   %115 = load i16, ptr %114, align 2
   %116 = icmp ugt i16 %115, 15
   %117 = select i1 %116, i32 4, i32 3
@@ -8675,7 +8675,7 @@ aom_read_symbol_.exit61:                          ; preds = %._crit_edge.loopexi
   br i1 %.not.i72, label %aom_read_symbol_.exit81, label %156
 
 156:                                              ; preds = %148
-  %157 = getelementptr inbounds i8, ptr %153, i64 8
+  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %158 = load i16, ptr %157, align 2
   %159 = icmp ugt i16 %158, 15
   %160 = select i1 %159, i32 4, i32 3
@@ -8693,7 +8693,7 @@ aom_read_symbol_.exit61:                          ; preds = %._crit_edge.loopexi
   %.034.i.i75 = phi i32 [ 32768, %156 ], [ %169, %184 ]
   %168 = icmp eq i64 %indvars.iv.i.i74, %166
   %169 = select i1 %168, i32 0, i32 %.034.i.i75
-  %170 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv.i.i74
+  %170 = getelementptr inbounds nuw i16, ptr %153, i64 %indvars.iv.i.i74
   %171 = load i16, ptr %170, align 2
   %172 = zext i16 %171 to i32
   %173 = icmp samesign ult i32 %169, %172
@@ -8741,7 +8741,7 @@ aom_read_symbol_.exit81:                          ; preds = %148, %._crit_edge.l
   br i1 %.not.i82, label %aom_read_symbol_.exit91, label %192
 
 192:                                              ; preds = %188
-  %193 = getelementptr inbounds i8, ptr %189, i64 4
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %194 = load i16, ptr %193, align 2
   %195 = icmp ugt i16 %194, 15
   %196 = select i1 %195, i32 4, i32 3
@@ -8821,10 +8821,10 @@ define internal fastcc i32 @read_inter_segment_id(ptr nocapture noundef readonly
   %15 = add nsw i32 %14, %11
   %16 = load i8, ptr %8, align 8
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_wide, i64 0, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds [22 x i8], ptr @mi_size_high, i64 0, i64 %17
+  %21 = getelementptr inbounds nuw [22 x i8], ptr @mi_size_high, i64 0, i64 %17
   %22 = load i8, ptr %21, align 1
   %23 = zext i8 %22 to i32
   %24 = sub nsw i32 %13, %11
@@ -9052,7 +9052,7 @@ av1_get_pred_context_seg_id.exit:                 ; preds = %118, %120
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 10648
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 12508
-  %131 = getelementptr inbounds [3 x [3 x i16]], ptr %130, i64 0, i64 %127
+  %131 = getelementptr inbounds nuw [3 x [3 x i16]], ptr %130, i64 0, i64 %127
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %133 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %132, ptr noundef nonnull %131, i32 noundef 2) #9
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -9061,7 +9061,7 @@ av1_get_pred_context_seg_id.exit:                 ; preds = %118, %120
   br i1 %.not.i92, label %aom_read_symbol_.exit, label %136
 
 136:                                              ; preds = %av1_get_pred_context_seg_id.exit
-  %137 = getelementptr inbounds i8, ptr %131, i64 4
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %138 = load i16, ptr %137, align 2
   %139 = icmp ugt i16 %138, 15
   %140 = select i1 %139, i32 4, i32 3
@@ -9263,7 +9263,7 @@ define internal fastcc i32 @gm_get_motion_vector(ptr nocapture noundef readonly 
   %10 = load i32, ptr %0, align 4
   %11 = lshr i32 %10, 13
   %12 = trunc i32 %11 to i16
-  %13 = getelementptr inbounds i8, ptr %0, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = lshr i32 %14, 13
   %16 = trunc i32 %15 to i16
@@ -9307,38 +9307,38 @@ define internal fastcc i32 @gm_get_motion_vector(ptr nocapture noundef readonly 
 
 33:                                               ; preds = %6
   %34 = zext i8 %2 to i64
-  %35 = getelementptr inbounds [22 x i8], ptr @block_size_wide, i64 0, i64 %34
+  %35 = getelementptr inbounds nuw [22 x i8], ptr @block_size_wide, i64 0, i64 %34
   %36 = load i8, ptr %35, align 1
   %37 = shl nsw i32 %3, 2
   %38 = lshr i8 %36, 1
   %39 = zext nneg i8 %38 to i32
   %40 = add i32 %37, -1
   %41 = add i32 %40, %39
-  %42 = getelementptr inbounds [22 x i8], ptr @block_size_high, i64 0, i64 %34
+  %42 = getelementptr inbounds nuw [22 x i8], ptr @block_size_high, i64 0, i64 %34
   %43 = load i8, ptr %42, align 1
   %44 = shl nsw i32 %4, 2
   %45 = lshr i8 %43, 1
   %46 = zext nneg i8 %45 to i32
   %47 = add i32 %44, -1
   %48 = add i32 %47, %46
-  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, -65536
   %52 = mul nsw i32 %51, %41
-  %53 = getelementptr inbounds i8, ptr %0, i64 12
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %54 = load i32, ptr %53, align 4
   %55 = mul nsw i32 %48, %54
   %56 = load i32, ptr %0, align 4
   %57 = add i32 %56, %52
   %58 = add i32 %57, %55
-  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load i32, ptr %59, align 4
   %61 = mul nsw i32 %60, %41
-  %62 = getelementptr inbounds i8, ptr %0, i64 20
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = add nsw i32 %63, -65536
   %65 = mul nsw i32 %64, %48
-  %66 = getelementptr inbounds i8, ptr %0, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = add i32 %67, %61
   %69 = add i32 %68, %65

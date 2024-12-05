@@ -111,14 +111,14 @@ for.body.us.preheader:                            ; preds = %while.end
   %idx.ext = sext i32 %id to i64
   %add.ptr = getelementptr %struct.StructEntry, ptr %5, i64 %idx.ext
   store ptr %types, ptr %add.ptr, align 8
-  %nb_fields6 = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %nb_fields6 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store i32 %inc, ptr %nb_fields6, align 8
-  %name7 = getelementptr inbounds i8, ptr %add.ptr, i64 72
+  %name7 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 72
   store ptr %name, ptr %name7, align 8
   %conv10 = zext nneg i32 %inc to i64
-  %field_offsets = getelementptr inbounds i8, ptr %add.ptr, i64 16
-  %size37 = getelementptr inbounds i8, ptr %add.ptr, i64 56
-  %align40 = getelementptr inbounds i8, ptr %add.ptr, i64 64
+  %field_offsets = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
+  %size37 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 56
+  %align40 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.cond13.for.end_crit_edge.us
@@ -325,7 +325,7 @@ if.end:                                           ; preds = %entry
   %idx.ext = sext i32 %id to i64
   %add.ptr = getelementptr %struct.StructEntry, ptr %1, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %add.ptr, ptr noundef nonnull align 8 dereferenceable(80) %se1, i64 72, i1 false)
-  %name1 = getelementptr inbounds i8, ptr %add.ptr, i64 72
+  %name1 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 72
   store ptr %name, ptr %name1, align 8
   ret void
 }
@@ -587,7 +587,7 @@ if.end:                                           ; preds = %sw.bb35
   %incdec.ptr41 = getelementptr i8, ptr %type_ptr, i64 8
   %idx.ext42 = zext i32 %20 to i64
   %add.ptr43 = getelementptr %struct.StructEntry, ptr %22, i64 %idx.ext42
-  %convert = getelementptr inbounds i8, ptr %add.ptr43, i64 32
+  %convert = getelementptr inbounds nuw i8, ptr %add.ptr43, i64 32
   %23 = load ptr, ptr %convert, align 8
   %cmp44.not = icmp eq ptr %23, null
   br i1 %cmp44.not, label %if.else49, label %if.then46
@@ -600,7 +600,7 @@ if.then46:                                        ; preds = %if.end
   br label %sw.epilog75
 
 if.else49:                                        ; preds = %if.end
-  %field_offsets = getelementptr inbounds i8, ptr %add.ptr43, i64 16
+  %field_offsets = getelementptr inbounds nuw i8, ptr %add.ptr43, i64 16
   %idxprom51 = sext i32 %to_host to i64
   %arrayidx52 = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %idxprom51
   %25 = load ptr, ptr %arrayidx52, align 8
@@ -608,7 +608,7 @@ if.else49:                                        ; preds = %if.end
   %idxprom55 = sext i32 %sub54 to i64
   %arrayidx56 = getelementptr [2 x ptr], ptr %field_offsets, i64 0, i64 %idxprom55
   %26 = load ptr, ptr %arrayidx56, align 8
-  %nb_fields = getelementptr inbounds i8, ptr %add.ptr43, i64 8
+  %nb_fields = getelementptr inbounds nuw i8, ptr %add.ptr43, i64 8
   %27 = load i32, ptr %nb_fields, align 8
   %cmp58180 = icmp sgt i32 %27, 0
   br i1 %cmp58180, label %for.body60.preheader, label %sw.epilog75
@@ -870,7 +870,7 @@ sw.bb51:                                          ; preds = %entry
   %19 = load i32, ptr %incdec.ptr, align 4
   %idx.ext55 = zext i32 %19 to i64
   %add.ptr56 = getelementptr %struct.StructEntry, ptr %18, i64 %idx.ext55
-  %print = getelementptr inbounds i8, ptr %add.ptr56, i64 48
+  %print = getelementptr inbounds nuw i8, ptr %add.ptr56, i64 48
   %20 = load ptr, ptr %print, align 8
   %cmp57.not = icmp eq ptr %20, null
   br i1 %cmp57.not, label %if.else61, label %if.then59
@@ -881,10 +881,10 @@ if.then59:                                        ; preds = %sw.bb51
 
 if.else61:                                        ; preds = %sw.bb51
   %21 = load ptr, ptr %add.ptr56, align 8
-  %field_offsets = getelementptr inbounds i8, ptr %add.ptr56, i64 16
+  %field_offsets = getelementptr inbounds nuw i8, ptr %add.ptr56, i64 16
   %22 = load ptr, ptr %field_offsets, align 8
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #11
-  %nb_fields = getelementptr inbounds i8, ptr %add.ptr56, i64 8
+  %nb_fields = getelementptr inbounds nuw i8, ptr %add.ptr56, i64 8
   %23 = load i32, ptr %nb_fields, align 8
   %cmp64115 = icmp sgt i32 %23, 0
   br i1 %cmp64115, label %for.body66, label %for.end77
@@ -944,13 +944,13 @@ for.body:                                         ; preds = %entry, %for.inc
   %arrayidx = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010
   %0 = load i32, ptr %arrayidx, align 4
   %and = and i32 %0, %target_mask
-  %target_bits = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %target_bits = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %1 = load i32, ptr %target_bits, align 4
   %cmp3 = icmp eq i32 %and, %1
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %host_bits = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %host_bits = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %2 = load i32, ptr %host_bits, align 4
   %or = or i32 %2, %host_mask.09
   br label %for.inc
@@ -976,16 +976,16 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
   %target_mask.09 = phi i32 [ %target_mask.1, %for.inc ], [ 0, %entry ]
   %arrayidx = getelementptr %struct.bitmask_transtbl, ptr %tbl, i64 %i.010
-  %host_mask1 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %host_mask1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %0 = load i32, ptr %host_mask1, align 4
   %and = and i32 %0, %host_mask
-  %host_bits = getelementptr inbounds i8, ptr %arrayidx, i64 12
+  %host_bits = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %1 = load i32, ptr %host_bits, align 4
   %cmp3 = icmp eq i32 %and, %1
   br i1 %cmp3, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %for.body
-  %target_bits = getelementptr inbounds i8, ptr %arrayidx, i64 4
+  %target_bits = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
   %2 = load i32, ptr %target_bits, align 4
   %or = or i32 %2, %target_mask.09
   br label %for.inc

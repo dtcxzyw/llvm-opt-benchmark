@@ -32,14 +32,14 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
 
 4:                                                ; preds = %4, %0
   %.idx = phi i64 [ 0, %0 ], [ %.add, %4 ]
-  %.ptr = getelementptr inbounds i8, ptr %3, i64 %.idx
+  %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.ptr) #6
   %.add = add nuw nsw i64 %.idx, 96
   %5 = icmp eq i64 %.add, 288
   br i1 %5, label %6, label %4
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i8, ptr %3, i64 288
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 288
   invoke void @_ZN2cv5splitERKNS_3MatEPS0_(ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %3)
           to label %.preheader unwind label %8
 

@@ -71,7 +71,7 @@ terminate.lpad.i.i:                               ; preds = %land.rhs.i.i
 
 _ZN4absl20StartsWithIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_.exit: ; preds = %land.rhs.i.i
   %cmp6.i.i = icmp eq i32 %call5.i.i, 0
-  %add.ptr.i = getelementptr inbounds i8, ptr %haystack.sroa.5.07, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %haystack.sroa.5.07, i64 1
   %sub.i = add i64 %haystack.sroa.0.06, -1
   %cmp.not.not = icmp ult i64 %sub.i, %needle.coerce0
   %or.cond = select i1 %cmp6.i.i, i1 true, i1 %cmp.not.not
@@ -113,9 +113,9 @@ define dso_local noundef zeroext i1 @_ZN4absl21StrContainsIgnoreCaseESt17basic_s
 entry:
   %both_cstr = alloca [3 x i8], align 1
   %idxprom.i = zext i8 %needle to i64
-  %arrayidx.i = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal8kToUpperE, i64 0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal8kToUpperE, i64 0, i64 %idxprom.i
   %0 = load i8, ptr %arrayidx.i, align 1
-  %arrayidx.i6 = getelementptr inbounds [256 x i8], ptr @_ZN4absl14ascii_internal8kToLowerE, i64 0, i64 %idxprom.i
+  %arrayidx.i6 = getelementptr inbounds nuw [256 x i8], ptr @_ZN4absl14ascii_internal8kToLowerE, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i6, align 1
   %cmp = icmp eq i8 %0, %1
   br i1 %cmp, label %if.then, label %if.else
@@ -139,9 +139,9 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
 
 if.else:                                          ; preds = %entry
   store i8 %1, ptr %both_cstr, align 1
-  %arrayinit.element = getelementptr inbounds i8, ptr %both_cstr, i64 1
+  %arrayinit.element = getelementptr inbounds nuw i8, ptr %both_cstr, i64 1
   store i8 %0, ptr %arrayinit.element, align 1
-  %arrayinit.element5 = getelementptr inbounds i8, ptr %both_cstr, i64 2
+  %arrayinit.element5 = getelementptr inbounds nuw i8, ptr %both_cstr, i64 2
   store i8 0, ptr %arrayinit.element5, align 1
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %both_cstr) #10
   %tobool.not.i.i7 = icmp ne i64 %call.i.i, 0

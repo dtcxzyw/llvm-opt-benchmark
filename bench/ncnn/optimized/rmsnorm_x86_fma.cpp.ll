@@ -158,7 +158,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %.0415441.i.us = phi <8 x float> [ %75, %.lr.ph.i.us ], [ zeroinitializer, %60 ]
   %74 = load <8 x float>, ptr %.0372443.i.us, align 1
   %75 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %74, <8 x float> %74, <8 x float> %.0415441.i.us)
-  %76 = getelementptr inbounds i8, ptr %.0372443.i.us, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %.0372443.i.us, i64 32
   %77 = add nuw nsw i32 %.0375442.i.us, 8
   %78 = or disjoint i32 %77, 7
   %79 = icmp slt i32 %78, %50
@@ -178,7 +178,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %.0419446.i.us = phi <4 x float> [ %83, %.lr.ph449.i.us ], [ zeroinitializer, %.preheader440.i.us ]
   %82 = load <4 x float>, ptr %.1373448.i.us, align 1
   %83 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %82, <4 x float> %82, <4 x float> %.0419446.i.us)
-  %84 = getelementptr inbounds i8, ptr %.1373448.i.us, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.1373448.i.us, i64 16
   %85 = add nuw nsw i32 %.1376447.i.us, 4
   %86 = or disjoint i32 %85, 3
   %87 = icmp slt i32 %86, %50
@@ -198,7 +198,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %89 = load float, ptr %.2374454.i.us, align 4
   %90 = fmul fast float %89, %89
   %91 = fadd fast float %90, %.0370455.i.us
-  %92 = getelementptr inbounds i8, ptr %.2374454.i.us, i64 4
+  %92 = getelementptr inbounds nuw i8, ptr %.2374454.i.us, i64 4
   %93 = add nuw nsw i32 %.2377453.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %93, %50
   br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %.lr.ph456.i.us, !llvm.loop !8
@@ -281,8 +281,8 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %138 = fmul fast <8 x float> %134, %.3418.i.us
   %139 = fmul fast <8 x float> %138, %137
   store <8 x float> %139, ptr %.1460.i.us, align 1
-  %140 = getelementptr inbounds i8, ptr %.1460.i.us, i64 32
-  %141 = getelementptr inbounds i8, ptr %.1359459.i.us, i64 4
+  %140 = getelementptr inbounds nuw i8, ptr %.1460.i.us, i64 32
+  %141 = getelementptr inbounds nuw i8, ptr %.1359459.i.us, i64 4
   %142 = add nuw nsw i32 %.1379458.i.us, 8
   %143 = or disjoint i32 %142, 7
   %144 = icmp slt i32 %143, %50
@@ -306,15 +306,15 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %147 = load <8 x float>, ptr %.3467.i.us, align 1
   %148 = load float, ptr %.3361466.i.us, align 4
   %149 = insertelement <4 x float> poison, float %148, i64 0
-  %150 = getelementptr inbounds i8, ptr %.3361466.i.us, i64 4
+  %150 = getelementptr inbounds nuw i8, ptr %.3361466.i.us, i64 4
   %151 = load float, ptr %150, align 4
   %152 = insertelement <4 x float> poison, float %151, i64 0
   %153 = shufflevector <4 x float> %149, <4 x float> %152, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %154 = fmul fast <8 x float> %147, %.3418.i.us
   %155 = fmul fast <8 x float> %154, %153
   store <8 x float> %155, ptr %.3467.i.us, align 1
-  %156 = getelementptr inbounds i8, ptr %.3467.i.us, i64 32
-  %157 = getelementptr inbounds i8, ptr %.3361466.i.us, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.3467.i.us, i64 32
+  %157 = getelementptr inbounds nuw i8, ptr %.3361466.i.us, i64 8
   %158 = add nuw nsw i32 %.3381465.i.us, 8
   %159 = or disjoint i32 %158, 7
   %160 = icmp slt i32 %159, %50
@@ -339,8 +339,8 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %167 = fmul fast <4 x float> %163, %.2421.i.us
   %168 = fmul fast <4 x float> %167, %166
   store <4 x float> %168, ptr %.4474.i.us, align 1
-  %169 = getelementptr inbounds i8, ptr %.4474.i.us, i64 16
-  %170 = getelementptr inbounds i8, ptr %.4362473.i.us, i64 4
+  %169 = getelementptr inbounds nuw i8, ptr %.4474.i.us, i64 16
+  %170 = getelementptr inbounds nuw i8, ptr %.4362473.i.us, i64 4
   %171 = add nuw nsw i32 %.4382472.i.us, 4
   %172 = or disjoint i32 %171, 3
   %173 = icmp slt i32 %172, %50
@@ -366,8 +366,8 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %178 = fmul fast <8 x float> %176, %.3418.i.us
   %179 = fmul fast <8 x float> %178, %177
   store <8 x float> %179, ptr %.6481.i.us, align 1
-  %180 = getelementptr inbounds i8, ptr %.6481.i.us, i64 32
-  %181 = getelementptr inbounds i8, ptr %.6364480.i.us, i64 32
+  %180 = getelementptr inbounds nuw i8, ptr %.6481.i.us, i64 32
+  %181 = getelementptr inbounds nuw i8, ptr %.6364480.i.us, i64 32
   %182 = add nsw i32 %.6384479.i.us, 8
   %183 = add nsw i32 %.6384479.i.us, 15
   %184 = icmp slt i32 %183, %50
@@ -390,8 +390,8 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %189 = fmul fast <4 x float> %187, %.2421.i.us
   %190 = fmul fast <4 x float> %189, %188
   store <4 x float> %190, ptr %.7488.i.us, align 1
-  %191 = getelementptr inbounds i8, ptr %.7488.i.us, i64 16
-  %192 = getelementptr inbounds i8, ptr %.7365487.i.us, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %.7488.i.us, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %.7365487.i.us, i64 16
   %193 = add nsw i32 %.7385486.i.us, 4
   %194 = add nsw i32 %.7385486.i.us, 7
   %195 = icmp slt i32 %194, %50
@@ -413,8 +413,8 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %199 = load float, ptr %.8366494.i.us, align 4
   %200 = fmul fast float %198, %199
   store float %200, ptr %.8495.i.us, align 4
-  %201 = getelementptr inbounds i8, ptr %.8495.i.us, i64 4
-  %202 = getelementptr inbounds i8, ptr %.8366494.i.us, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %.8495.i.us, i64 4
+  %202 = getelementptr inbounds nuw i8, ptr %.8366494.i.us, i64 4
   %203 = add nsw i32 %.8386493.i.us, 1
   %exitcond537.not.i.us = icmp eq i32 %203, %50
   br i1 %exitcond537.not.i.us, label %_ZN4ncnnL7rmsnormEPfPKffii.exit.us, label %.lr.ph497.i.us, !llvm.loop !14
@@ -428,7 +428,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %204 = load <8 x float>, ptr %.9499.i.us, align 1
   %205 = fmul fast <8 x float> %204, %.3418.i.us
   store <8 x float> %205, ptr %.9499.i.us, align 1
-  %206 = getelementptr inbounds i8, ptr %.9499.i.us, i64 32
+  %206 = getelementptr inbounds nuw i8, ptr %.9499.i.us, i64 32
   %207 = add nuw nsw i32 %.0367498.i.us, 8
   %208 = or disjoint i32 %207, 7
   %209 = icmp slt i32 %208, %50
@@ -447,7 +447,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %212 = load <4 x float>, ptr %.10504.i.us, align 1
   %213 = fmul fast <4 x float> %212, %.2421.i.us
   store <4 x float> %213, ptr %.10504.i.us, align 1
-  %214 = getelementptr inbounds i8, ptr %.10504.i.us, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %.10504.i.us, i64 16
   %215 = add nuw nsw i32 %.1368503.i.us, 4
   %216 = or disjoint i32 %215, 3
   %217 = icmp slt i32 %216, %50
@@ -465,7 +465,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   %219 = load float, ptr %.11509.i.us, align 4
   %220 = fmul fast float %219, %.1371.i.us
   store float %220, ptr %.11509.i.us, align 4
-  %221 = getelementptr inbounds i8, ptr %.11509.i.us, i64 4
+  %221 = getelementptr inbounds nuw i8, ptr %.11509.i.us, i64 4
   %222 = add nuw nsw i32 %.2369508.i.us, 1
   %exitcond538.not.i.us = icmp eq i32 %222, %50
   br i1 %exitcond538.not.i.us, label %_ZN4ncnnL7rmsnormEPfPKffii.exit.us, label %.lr.ph510.i.us, !llvm.loop !17
@@ -523,7 +523,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %.0415441 = phi <8 x float> [ %12, %.lr.ph ], [ zeroinitializer, %.lr.ph.preheader ]
   %11 = load <8 x float>, ptr %.0372443, align 1
   %12 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %11, <8 x float> %11, <8 x float> %.0415441)
-  %13 = getelementptr inbounds i8, ptr %.0372443, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.0372443, i64 32
   %14 = add nuw nsw i32 %.0375442, 8
   %15 = or disjoint i32 %14, 7
   %16 = icmp slt i32 %15, %6
@@ -542,7 +542,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %.0419446 = phi <4 x float> [ %19, %.lr.ph449 ], [ zeroinitializer, %.preheader440 ]
   %18 = load <4 x float>, ptr %.1373448, align 1
   %19 = tail call fast noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> %18, <4 x float> %.0419446)
-  %20 = getelementptr inbounds i8, ptr %.1373448, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.1373448, i64 16
   %21 = add nuw nsw i32 %.1376447, 4
   %22 = or disjoint i32 %21, 3
   %23 = icmp slt i32 %22, %6
@@ -555,7 +555,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %24 = load float, ptr %.2374454, align 4
   %25 = fmul fast float %24, %24
   %26 = fadd fast float %25, %.0370455
-  %27 = getelementptr inbounds i8, ptr %.2374454, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.2374454, i64 4
   %28 = add nuw nsw i32 %.2377453, 1
   %exitcond.not = icmp eq i32 %28, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph456, !llvm.loop !8
@@ -654,8 +654,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %82 = fmul fast <8 x float> %78, %.3418
   %83 = fmul fast <8 x float> %82, %81
   store <8 x float> %83, ptr %.1460, align 1
-  %84 = getelementptr inbounds i8, ptr %.1460, i64 32
-  %85 = getelementptr inbounds i8, ptr %.1359459, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %.1460, i64 32
+  %85 = getelementptr inbounds nuw i8, ptr %.1359459, i64 4
   %86 = add nuw nsw i32 %.1379458, 8
   %87 = or disjoint i32 %86, 7
   %88 = icmp slt i32 %87, %6
@@ -687,15 +687,15 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %93 = load <8 x float>, ptr %.3467, align 1
   %94 = load float, ptr %.3361466, align 4
   %95 = insertelement <4 x float> poison, float %94, i64 0
-  %96 = getelementptr inbounds i8, ptr %.3361466, i64 4
+  %96 = getelementptr inbounds nuw i8, ptr %.3361466, i64 4
   %97 = load float, ptr %96, align 4
   %98 = insertelement <4 x float> poison, float %97, i64 0
   %99 = shufflevector <4 x float> %95, <4 x float> %98, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %100 = fmul fast <8 x float> %93, %.3418
   %101 = fmul fast <8 x float> %100, %99
   store <8 x float> %101, ptr %.3467, align 1
-  %102 = getelementptr inbounds i8, ptr %.3467, i64 32
-  %103 = getelementptr inbounds i8, ptr %.3361466, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.3467, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %.3361466, i64 8
   %104 = add nuw nsw i32 %.3381465, 8
   %105 = or disjoint i32 %104, 7
   %106 = icmp slt i32 %105, %6
@@ -712,8 +712,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %111 = fmul fast <4 x float> %107, %.2421
   %112 = fmul fast <4 x float> %111, %110
   store <4 x float> %112, ptr %.4474, align 1
-  %113 = getelementptr inbounds i8, ptr %.4474, i64 16
-  %114 = getelementptr inbounds i8, ptr %.4362473, i64 4
+  %113 = getelementptr inbounds nuw i8, ptr %.4474, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.4362473, i64 4
   %115 = add nuw nsw i32 %.4382472, 4
   %116 = or disjoint i32 %115, 3
   %117 = icmp slt i32 %116, %6
@@ -747,8 +747,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %124 = fmul fast <8 x float> %122, %.3418
   %125 = fmul fast <8 x float> %124, %123
   store <8 x float> %125, ptr %.6481, align 1
-  %126 = getelementptr inbounds i8, ptr %.6481, i64 32
-  %127 = getelementptr inbounds i8, ptr %.6364480, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %.6481, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %.6364480, i64 32
   %128 = add nsw i32 %.6384479, 8
   %129 = add nsw i32 %.6384479, 15
   %130 = icmp slt i32 %129, %6
@@ -763,8 +763,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %133 = fmul fast <4 x float> %131, %.2421
   %134 = fmul fast <4 x float> %133, %132
   store <4 x float> %134, ptr %.7488, align 1
-  %135 = getelementptr inbounds i8, ptr %.7488, i64 16
-  %136 = getelementptr inbounds i8, ptr %.7365487, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %.7488, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %.7365487, i64 16
   %137 = add nsw i32 %.7385486, 4
   %138 = add nsw i32 %.7385486, 7
   %139 = icmp slt i32 %138, %6
@@ -786,8 +786,8 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %143 = load float, ptr %.8366494, align 4
   %144 = fmul fast float %142, %143
   store float %144, ptr %.8495, align 4
-  %145 = getelementptr inbounds i8, ptr %.8495, i64 4
-  %146 = getelementptr inbounds i8, ptr %.8366494, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.8495, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.8366494, i64 4
   %147 = add nsw i32 %.8386493, 1
   %exitcond537.not = icmp eq i32 %147, %6
   br i1 %exitcond537.not, label %.loopexit, label %.lr.ph497, !llvm.loop !14
@@ -805,7 +805,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %150 = load <8 x float>, ptr %.9499, align 1
   %151 = fmul fast <8 x float> %150, %.3418
   store <8 x float> %151, ptr %.9499, align 1
-  %152 = getelementptr inbounds i8, ptr %.9499, i64 32
+  %152 = getelementptr inbounds nuw i8, ptr %.9499, i64 32
   %153 = add nuw nsw i32 %.0367498, 8
   %154 = or disjoint i32 %153, 7
   %155 = icmp slt i32 %154, %6
@@ -823,7 +823,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %157 = load <4 x float>, ptr %.10504, align 1
   %158 = fmul fast <4 x float> %157, %.2421
   store <4 x float> %158, ptr %.10504, align 1
-  %159 = getelementptr inbounds i8, ptr %.10504, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.10504, i64 16
   %160 = add nuw nsw i32 %.1368503, 4
   %161 = or disjoint i32 %160, 3
   %162 = icmp slt i32 %161, %6
@@ -835,7 +835,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr nocapture noundef %0
   %163 = load float, ptr %.11509, align 4
   %164 = fmul fast float %163, %.1371
   store float %164, ptr %.11509, align 4
-  %165 = getelementptr inbounds i8, ptr %.11509, i64 4
+  %165 = getelementptr inbounds nuw i8, ptr %.11509, i64 4
   %166 = add nuw nsw i32 %.2369508, 1
   %exitcond538.not = icmp eq i32 %166, %6
   br i1 %exitcond538.not, label %.loopexit, label %.lr.ph510, !llvm.loop !17
@@ -869,7 +869,7 @@ define linkonce_odr hidden void @_ZN4ncnn15RMSNorm_x86_fmaD2Ev(ptr noundef nonnu
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn7RMSNormD2Ev.exit unwind label %18
@@ -922,7 +922,7 @@ define linkonce_odr hidden void @_ZN4ncnn15RMSNorm_x86_fmaD0Ev(ptr noundef nonnu
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8
   invoke void %15(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %11)
           to label %_ZN4ncnn15RMSNorm_x86_fmaD2Ev.exit unwind label %18

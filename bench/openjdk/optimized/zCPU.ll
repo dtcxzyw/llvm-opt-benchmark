@@ -52,7 +52,7 @@ _ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.e
 
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %0 ]
-  %11 = getelementptr inbounds %class.PaddedEnd, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw %class.PaddedEnd, ptr %10, i64 %indvars.iv.i
   store i64 0, ptr %11, align 128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %3
@@ -65,7 +65,7 @@ _ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.e
 .lr.ph:                                           ; preds = %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit ]
   %12 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
-  %13 = getelementptr inbounds %class.PaddedEnd, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw %class.PaddedEnd, ptr %12, i64 %indvars.iv
   store ptr inttoptr (i64 -1 to ptr), ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
@@ -73,7 +73,7 @@ _ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.e
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN11PaddedArrayIN4ZCPU12ZCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit.thread
   store i32 3, ptr %1, align 8
-  %.sroa.21.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.21.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i, align 8
   %14 = load i32, ptr @_ZN2os16_processor_countE, align 4
   %15 = load i32, ptr @_ZN2os31_initial_active_processor_countE, align 4
@@ -86,7 +86,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i32, ptr %0, align 8
-  %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.21.0.copyload = load ptr, ptr %.sroa.21.0..sroa_idx, align 8
   call void @_ZN13GCLogPrecious6vwriteE15LogTargetHandlePKcP13__va_list_tag(i32 %.sroa.0.0.copyload, ptr %.sroa.21.0.copyload, ptr noundef %1, ptr noundef nonnull %3) #5
   call void @llvm.va_end.p0(ptr nonnull %3)
@@ -113,7 +113,7 @@ define hidden noundef i32 @_ZN4ZCPU7id_slowEv() local_unnamed_addr #0 align 2 {
   %10 = load ptr, ptr %1, align 8
   %11 = load ptr, ptr @_ZN4ZCPU9_affinityE, align 8
   %12 = zext i32 %8 to i64
-  %13 = getelementptr inbounds %class.PaddedEnd, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw %class.PaddedEnd, ptr %11, i64 %12
   store ptr %10, ptr %13, align 8
   ret i32 %8
 }

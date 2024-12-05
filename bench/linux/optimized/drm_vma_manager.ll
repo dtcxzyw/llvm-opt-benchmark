@@ -28,10 +28,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_vma_node
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_vma_offset_manager_init(ptr noundef initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   store i32 0, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @drm_mm_init(ptr noundef %5, i64 noundef %1, i64 noundef %2) #5
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @drm_mm_init(ptr noundef nonnull %5, i64 noundef %1, i64 noundef %2) #5
   ret void
 }
 
@@ -40,8 +40,8 @@ declare dso_local void @drm_mm_init(ptr noundef, i64 noundef, i64 noundef) local
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_vma_offset_manager_destroy(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @drm_mm_takedown(ptr noundef %2) #5
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @drm_mm_takedown(ptr noundef nonnull %2) #5
   ret void
 }
 
@@ -50,7 +50,7 @@ declare dso_local void @drm_mm_takedown(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @drm_vma_offset_lookup_locked(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) #2 align 16 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 200
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.thread, label %.preheader, !prof !5
@@ -65,12 +65,12 @@ define dso_local ptr @drm_vma_offset_lookup_locked(ptr nocapture noundef readonl
 
 12:                                               ; preds = %.preheader
   %13 = getelementptr i8, ptr %7, i64 -64
-  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = icmp eq i64 %10, %1
   br i1 %15, label %23, label %18
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr inbounds i8, ptr %7, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
   br label %18
 
 18:                                               ; preds = %16, %12
@@ -86,9 +86,9 @@ define dso_local ptr @drm_vma_offset_lookup_locked(ptr nocapture noundef readonl
   br i1 %25, label %.thread, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %24, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %28 = load i64, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %24, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %28
   %32 = add i64 %2, %1
@@ -107,16 +107,16 @@ define dso_local ptr @drm_vma_offset_lookup_locked(ptr nocapture noundef readonl
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @drm_vma_offset_add(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef %0) #5
-  %4 = getelementptr inbounds i8, ptr %1, i64 168
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 1
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
-  %11 = tail call i32 @drm_mm_insert_node_in_range(ptr noundef %10, ptr noundef %9, i64 noundef %2, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef -1, i32 noundef 0) #5
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = tail call i32 @drm_mm_insert_node_in_range(ptr noundef nonnull %10, ptr noundef nonnull %9, i64 noundef %2, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef -1, i32 noundef 0) #5
   br label %12
 
 12:                                               ; preds = %8, %3
@@ -134,16 +134,16 @@ declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #1 sec
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_vma_offset_remove(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef %0) #5
-  %3 = getelementptr inbounds i8, ptr %1, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 1
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @drm_mm_remove_node(ptr noundef %8) #5
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(168) %8, i8 0, i64 168, i1 false)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  tail call void @drm_mm_remove_node(ptr noundef nonnull %8) #5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %8, i8 0, i64 168, i1 false)
   br label %9
 
 9:                                                ; preds = %7, %2
@@ -168,14 +168,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vma_node_allow(ptr noundef
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 40) #6
   tail call void @_raw_write_lock(ptr noundef %0) #5
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %27, label %.preheader, !prof !5
 
 .preheader:                                       ; preds = %3, %18
   %9 = phi ptr [ %22, %18 ], [ %7, %3 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %13, label %18
@@ -184,7 +184,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vma_node_allow(ptr noundef
   br i1 %2, label %14, label %35
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %9, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, 1
   store i64 %17, ptr %15, align 8
@@ -193,13 +193,13 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vma_node_allow(ptr noundef
 18:                                               ; preds = %.preheader
   %19 = icmp ult ptr %11, %1
   %20 = select i1 %19, i64 8, i64 16
-  %21 = getelementptr inbounds i8, ptr %9, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %.preheader, !prof !6, !llvm.loop !11
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %9, i64 %20
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 %20
   %26 = ptrtoint ptr %9 to i64
   br label %27
 
@@ -210,15 +210,15 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vma_node_allow(ptr noundef
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %5, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %1, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 32
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 1, ptr %33, align 8
   store i64 %28, ptr %5, align 8
-  %34 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   store ptr %5, ptr %29, align 8
-  tail call void @rb_insert_color(ptr noundef nonnull %5, ptr noundef %6) #5
+  tail call void @rb_insert_color(ptr noundef nonnull %5, ptr noundef nonnull %6) #5
   br label %35
 
 35:                                               ; preds = %31, %27, %14, %13
@@ -234,14 +234,14 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_vma_node_allow_once(ptr noun
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 48), align 16
   %4 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3264, i64 noundef 40) #6
   tail call void @_raw_write_lock(ptr noundef %0) #5
-  %5 = getelementptr inbounds i8, ptr %0, i64 176
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %21, label %.preheader.i, !prof !5
 
 .preheader.i:                                     ; preds = %2, %12
   %8 = phi ptr [ %16, %12 ], [ %6, %2 ]
-  %9 = getelementptr inbounds i8, ptr %8, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %vma_node_allow.exit, label %12
@@ -249,13 +249,13 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_vma_node_allow_once(ptr noun
 12:                                               ; preds = %.preheader.i
   %13 = icmp ult ptr %10, %1
   %14 = select i1 %13, i64 8, i64 16
-  %15 = getelementptr inbounds i8, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %18, label %.preheader.i, !prof !6, !llvm.loop !11
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds i8, ptr %8, i64 %14
+  %19 = getelementptr inbounds nuw i8, ptr %8, i64 %14
   %20 = ptrtoint ptr %8 to i64
   br label %21
 
@@ -266,15 +266,15 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_vma_node_allow_once(ptr noun
   br i1 %24, label %vma_node_allow.exit, label %25
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %4, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 1, ptr %27, align 8
   store i64 %22, ptr %4, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
   store ptr %4, ptr %23, align 8
-  tail call void @rb_insert_color(ptr noundef nonnull %4, ptr noundef %5) #5
+  tail call void @rb_insert_color(ptr noundef nonnull %4, ptr noundef nonnull %5) #5
   br label %vma_node_allow.exit
 
 vma_node_allow.exit:                              ; preds = %.preheader.i, %21, %25
@@ -288,20 +288,20 @@ vma_node_allow.exit:                              ; preds = %.preheader.i, %21, 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @drm_vma_node_revoke(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef %0) #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader, !prof !5
 
 .preheader:                                       ; preds = %2, %16
   %6 = phi ptr [ %20, %16 ], [ %4, %2 ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %6, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, -1
   store i64 %13, ptr %11, align 8
@@ -309,14 +309,14 @@ define dso_local void @drm_vma_node_revoke(ptr noundef %0, ptr noundef readnone 
   br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %10
-  tail call void @rb_erase(ptr noundef nonnull %6, ptr noundef %3) #5
+  tail call void @rb_erase(ptr noundef nonnull %6, ptr noundef nonnull %3) #5
   tail call void @kfree(ptr noundef nonnull %6) #5
   br label %.loopexit
 
 16:                                               ; preds = %.preheader
   %17 = icmp ult ptr %8, %1
   %18 = select i1 %17, i64 8, i64 16
-  %19 = getelementptr inbounds i8, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit, label %.preheader, !prof !6, !llvm.loop !12
@@ -335,19 +335,19 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef %0) #5
-  %3 = getelementptr inbounds i8, ptr %0, i64 176
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5, !prof !5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %1
   br i1 %8, label %.loopexit, label %.preheader
 
 9:                                                ; preds = %.preheader
-  %10 = getelementptr inbounds i8, ptr %18, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %1
   br i1 %12, label %.loopexit, label %.preheader, !llvm.loop !13
@@ -357,7 +357,7 @@ define dso_local noundef zeroext i1 @drm_vma_node_is_allowed(ptr noundef %0, ptr
   %14 = phi ptr [ %18, %9 ], [ %4, %5 ]
   %15 = icmp ult ptr %13, %1
   %16 = select i1 %15, i64 8, i64 16
-  %17 = getelementptr inbounds i8, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   %.not6.not.not = icmp ne ptr %18, null
   br i1 %.not6.not.not, label %9, label %.loopexit, !prof !14, !llvm.loop !13

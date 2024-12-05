@@ -56,7 +56,7 @@ define void @_ZN3zmq12raw_engine_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_t
 entry:
   tail call void @_ZN3zmq20stream_engine_base_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tEb(ptr noundef nonnull align 8 dereferenceable(1689) %this, i32 noundef %fd_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef nonnull align 8 dereferenceable(68) %endpoint_uri_pair_, i1 noundef zeroext false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12raw_engine_tE, i64 16), ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
+  %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12raw_engine_tE, i64 208), ptr %add.ptr, align 8
   ret void
 }
@@ -111,19 +111,19 @@ entry:
   br i1 %new.isnull, label %if.then, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  %out_batch_size = getelementptr inbounds i8, ptr %this, i64 1024
+  %out_batch_size = getelementptr inbounds nuw i8, ptr %this, i64 1024
   %0 = load i32, ptr %out_batch_size, align 8
   %conv = sext i32 %0 to i64
   invoke void @_ZN3zmq13raw_encoder_tC1Em(ptr noundef nonnull align 8 dereferenceable(72) %call, i64 noundef %conv)
           to label %new.cont unwind label %lpad
 
 new.cont:                                         ; preds = %new.notnull
-  %_encoder = getelementptr inbounds i8, ptr %this, i64 1400
+  %_encoder = getelementptr inbounds nuw i8, ptr %this, i64 1400
   store ptr %call, ptr %_encoder, align 8
   br label %do.end
 
 if.then:                                          ; preds = %entry
-  %_encoder10 = getelementptr inbounds i8, ptr %this, i64 1400
+  %_encoder10 = getelementptr inbounds nuw i8, ptr %this, i64 1400
   store ptr null, ptr %_encoder10, align 8
   %1 = load ptr, ptr @stderr, align 8
   %call4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 55) #15
@@ -144,19 +144,19 @@ do.end:                                           ; preds = %new.cont, %if.then
   br i1 %new.isnull7, label %if.then23, label %new.notnull8
 
 new.notnull8:                                     ; preds = %do.end
-  %in_batch_size = getelementptr inbounds i8, ptr %this, i64 1020
+  %in_batch_size = getelementptr inbounds nuw i8, ptr %this, i64 1020
   %4 = load i32, ptr %in_batch_size, align 4
   %conv11 = sext i32 %4 to i64
   invoke void @_ZN3zmq13raw_decoder_tC1Em(ptr noundef nonnull align 8 dereferenceable(112) %call6, i64 noundef %conv11)
           to label %new.cont17 unwind label %lpad12
 
 new.cont17:                                       ; preds = %new.notnull8
-  %_decoder = getelementptr inbounds i8, ptr %this, i64 1376
+  %_decoder = getelementptr inbounds nuw i8, ptr %this, i64 1376
   store ptr %call6, ptr %_decoder, align 8
   br label %do.end27
 
 if.then23:                                        ; preds = %do.end
-  %_decoder12 = getelementptr inbounds i8, ptr %this, i64 1376
+  %_decoder12 = getelementptr inbounds nuw i8, ptr %this, i64 1376
   store ptr null, ptr %_decoder12, align 8
   %5 = load ptr, ptr @stderr, align 8
   %call24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 58) #15
@@ -172,23 +172,23 @@ lpad12:                                           ; preds = %new.notnull8
   br label %eh.resume
 
 do.end27:                                         ; preds = %new.cont17, %if.then23
-  %_next_msg = getelementptr inbounds i8, ptr %this, i64 1416
+  %_next_msg = getelementptr inbounds nuw i8, ptr %this, i64 1416
   store i64 ptrtoint (ptr @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5msg_tE to i64), ptr %_next_msg, align 8
-  %_next_msg.repack1 = getelementptr inbounds i8, ptr %this, i64 1424
+  %_next_msg.repack1 = getelementptr inbounds nuw i8, ptr %this, i64 1424
   store i64 0, ptr %_next_msg.repack1, align 8
-  %_process_msg = getelementptr inbounds i8, ptr %this, i64 1432
+  %_process_msg = getelementptr inbounds nuw i8, ptr %this, i64 1432
   store i64 ptrtoint (ptr @_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE to i64), ptr %_process_msg, align 8
-  %_process_msg.repack2 = getelementptr inbounds i8, ptr %this, i64 1440
+  %_process_msg.repack2 = getelementptr inbounds nuw i8, ptr %this, i64 1440
   store i64 0, ptr %_process_msg.repack2, align 8
-  %8 = getelementptr inbounds i8, ptr %properties, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %properties, i64 8
   store i32 0, ptr %8, align 8
-  %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %properties, i64 16
+  %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %properties, i64 16
   store ptr null, ptr %_M_parent.i.i.i.i.i, align 8
-  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %properties, i64 24
+  %_M_left.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %properties, i64 24
   store ptr %8, ptr %_M_left.i.i.i.i.i, align 8
-  %_M_right.i.i.i.i.i = getelementptr inbounds i8, ptr %properties, i64 32
+  %_M_right.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %properties, i64 32
   store ptr %8, ptr %_M_right.i.i.i.i.i, align 8
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds i8, ptr %properties, i64 40
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %properties, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i, align 8
   %call30 = invoke noundef zeroext i1 @_ZN3zmq20stream_engine_base_t15init_propertiesERSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef nonnull align 8 dereferenceable(48) %properties)
           to label %invoke.cont29 unwind label %lpad28
@@ -197,7 +197,7 @@ invoke.cont29:                                    ; preds = %do.end27
   br i1 %call30, label %do.body32, label %if.end69
 
 do.body32:                                        ; preds = %invoke.cont29
-  %_metadata = getelementptr inbounds i8, ptr %this, i64 1448
+  %_metadata = getelementptr inbounds nuw i8, ptr %this, i64 1448
   %9 = load ptr, ptr %_metadata, align 8
   %cmp.not = icmp eq ptr %9, null
   br i1 %cmp.not, label %do.end42, label %if.then35
@@ -244,7 +244,7 @@ lpad48:                                           ; preds = %new.notnull45
   br label %ehcleanup
 
 if.end69:                                         ; preds = %new.cont53, %if.then60, %invoke.cont29
-  %raw_notify = getelementptr inbounds i8, ptr %this, i64 396
+  %raw_notify = getelementptr inbounds nuw i8, ptr %this, i64 396
   %16 = load i8, ptr %raw_notify, align 4
   %tobool71 = trunc i8 %16 to i1
   br i1 %tobool71, label %if.then72, label %if.end82
@@ -254,7 +254,7 @@ if.then72:                                        ; preds = %if.end69
           to label %invoke.cont73 unwind label %lpad28
 
 invoke.cont73:                                    ; preds = %if.then72
-  %_metadata.i = getelementptr inbounds i8, ptr %this, i64 1448
+  %_metadata.i = getelementptr inbounds nuw i8, ptr %this, i64 1448
   %17 = load ptr, ptr %_metadata.i, align 8
   %tobool.not.i = icmp eq ptr %17, null
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
@@ -281,13 +281,13 @@ invoke.cont75:                                    ; preds = %if.end.i
           to label %invoke.cont77 unwind label %lpad28
 
 invoke.cont77:                                    ; preds = %invoke.cont75
-  %_session.i = getelementptr inbounds i8, ptr %this, i64 1672
+  %_session.i = getelementptr inbounds nuw i8, ptr %this, i64 1672
   %19 = load ptr, ptr %_session.i, align 8
   invoke void @_ZN3zmq14session_base_t5flushEv(ptr noundef nonnull align 8 dereferenceable(1624) %19)
           to label %if.end82 unwind label %lpad28
 
 if.end82:                                         ; preds = %invoke.cont77, %if.end69
-  %_handle.i = getelementptr inbounds i8, ptr %this, i64 1584
+  %_handle.i = getelementptr inbounds nuw i8, ptr %this, i64 1584
   %20 = load ptr, ptr %_handle.i, align 8
   invoke void @_ZN3zmq11io_object_t10set_pollinEPv(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %20)
           to label %invoke.cont83 unwind label %lpad28
@@ -351,7 +351,7 @@ declare noundef i32 @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5m
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1696) %this, ptr noundef %msg_) #0 align 2 {
 entry:
-  %_metadata = getelementptr inbounds i8, ptr %this, i64 1448
+  %_metadata = getelementptr inbounds nuw i8, ptr %this, i64 1448
   %0 = load ptr, ptr %_metadata, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.end, label %land.lhs.true
@@ -386,7 +386,7 @@ declare void @_ZN3zmq20stream_engine_base_t8in_eventEv(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %_M_parent.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EED2Ev.exit unwind label %terminate.lpad.i
@@ -412,20 +412,20 @@ entry:
 define void @_ZN3zmq12raw_engine_t5errorENS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1696) %this, i32 noundef %reason_) unnamed_addr #0 align 2 {
 entry:
   %terminator = alloca %"class.zmq::msg_t", align 8
-  %raw_socket = getelementptr inbounds i8, ptr %this, i64 395
+  %raw_socket = getelementptr inbounds nuw i8, ptr %this, i64 395
   %0 = load i8, ptr %raw_socket, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %land.lhs.true, label %if.end
 
 land.lhs.true:                                    ; preds = %entry
-  %raw_notify = getelementptr inbounds i8, ptr %this, i64 396
+  %raw_notify = getelementptr inbounds nuw i8, ptr %this, i64 396
   %1 = load i8, ptr %raw_notify, align 4
   %tobool3 = trunc i8 %1 to i1
   br i1 %tobool3, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %call = call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %terminator)
-  %_metadata.i = getelementptr inbounds i8, ptr %this, i64 1448
+  %_metadata.i = getelementptr inbounds nuw i8, ptr %this, i64 1448
   %2 = load ptr, ptr %_metadata.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %_ZN3zmq12raw_engine_t23push_raw_msg_to_sessionEPNS_5msg_tE.exit, label %land.lhs.true.i
@@ -465,7 +465,7 @@ declare void @_ZN3zmq20stream_engine_base_t11timer_eventEi(ptr noundef nonnull a
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZN3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef nonnull align 8 dereferenceable(1689) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  %_has_handshake_stage = getelementptr inbounds i8, ptr %this, i64 1688
+  %_has_handshake_stage = getelementptr inbounds nuw i8, ptr %this, i64 1688
   %0 = load i8, ptr %_has_handshake_stage, align 8
   %tobool = trunc i8 %0 to i1
   ret i1 %tobool
@@ -516,7 +516,7 @@ declare noundef i32 @_ZN3zmq20stream_engine_base_t5writeEPKvm(ptr noundef nonnul
 ; Function Attrs: uwtable
 define linkonce_odr noundef zeroext i1 @_ZThn16_N3zmq20stream_engine_base_t19has_handshake_stageEv(ptr noundef %this) unnamed_addr #9 comdat align 2 {
 entry:
-  %_has_handshake_stage.i = getelementptr inbounds i8, ptr %this, i64 1672
+  %_has_handshake_stage.i = getelementptr inbounds nuw i8, ptr %this, i64 1672
   %0 = load i8, ptr %_has_handshake_stage.i, align 8
   %tobool.i = trunc i8 %0 to i1
   ret i1 %tobool.i
@@ -558,13 +558,13 @@ entry:
 
 while.body:                                       ; preds = %entry, %while.body
   %__x.addr.05 = phi ptr [ %1, %while.body ], [ %__x, %entry ]
-  %_M_right.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 24
+  %_M_right.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 24
   %0 = load ptr, ptr %_M_right.i, align 8
   tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESt10_Select1stIS8_ESt4lessIS5_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %0)
-  %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
+  %_M_left.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
-  %_M_storage.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 32
-  %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 64
+  %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 32
+  %second.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__x.addr.05, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i) #12
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_storage.i.i.i) #12
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #13

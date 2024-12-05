@@ -59,7 +59,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %mon_cpu_path = getelementptr inbounds i8, ptr %mon, i64 64
+  %mon_cpu_path = getelementptr inbounds nuw i8, ptr %mon, i64 64
   %0 = load ptr, ptr %mon_cpu_path, align 8
   tail call void @g_free(ptr noundef %0) #7
   %call1 = tail call ptr @object_get_canonical_path(ptr noundef nonnull %call) #7
@@ -87,7 +87,7 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @mon_get_cpu_sync(ptr nocapture noundef %mon, i1 noundef zeroext %synchronize) unnamed_addr #0 {
 entry:
-  %mon_cpu_path = getelementptr inbounds i8, ptr %mon, i64 64
+  %mon_cpu_path = getelementptr inbounds nuw i8, ptr %mon, i64 64
   %0 = load ptr, ptr %mon_cpu_path, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %while.end, label %if.then
@@ -117,7 +117,7 @@ if.end12:                                         ; preds = %while.end
   %3 = load atomic i64, ptr @cpus_queue monotonic, align 8
   %4 = inttoptr i64 %3 to ptr
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %cpu_index = getelementptr inbounds i8, ptr %4, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %4, i64 712
   %5 = load i32, ptr %cpu_index, align 8
   %call.i = tail call ptr @qemu_get_cpu(i32 noundef %5) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -172,7 +172,7 @@ entry:
   br i1 %tobool.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %entry
-  %cpu_index = getelementptr inbounds i8, ptr %call, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %call, i64 712
   %0 = load i32, ptr %cpu_index, align 8
   br label %cond.end
 
@@ -198,11 +198,11 @@ while.end:                                        ; preds = %entry
 for.body:                                         ; preds = %while.end, %for.body
   %cs.0.in19 = phi i64 [ %2, %for.body ], [ %0, %while.end ]
   %cs.0 = inttoptr i64 %cs.0.in19 to ptr
-  %cpu_index = getelementptr inbounds i8, ptr %cs.0, i64 712
+  %cpu_index = getelementptr inbounds nuw i8, ptr %cs.0, i64 712
   %1 = load i32, ptr %cpu_index, align 8
   %call3 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, i32 noundef %1) #7
   tail call void @cpu_dump_state(ptr noundef nonnull %cs.0, ptr noundef null, i32 noundef 131072) #7
-  %node = getelementptr inbounds i8, ptr %cs.0, i64 568
+  %node = getelementptr inbounds nuw i8, ptr %cs.0, i64 568
   %2 = load atomic i64, ptr %node monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !9
   %tobool2.not = icmp eq i64 %2, 0
@@ -232,7 +232,7 @@ if.else19:                                        ; preds = %cond.end.thread
 
 if.end21:                                         ; preds = %cond.end.thread, %cond.end
   %cond17 = phi ptr [ %call.i, %cond.end.thread ], [ %call11, %cond.end ]
-  %cpu_index22 = getelementptr inbounds i8, ptr %cond17, i64 712
+  %cpu_index22 = getelementptr inbounds nuw i8, ptr %cond17, i64 712
   %3 = load i32, ptr %cpu_index22, align 8
   %call23 = tail call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.3, i32 noundef %3) #7
   tail call void @cpu_dump_state(ptr noundef nonnull %cond17, ptr noundef null, i32 noundef 131072) #7
@@ -329,7 +329,7 @@ sw.epilog:                                        ; preds = %if.end6, %sw.bb14, 
 
 while.body.lr.ph:                                 ; preds = %sw.epilog
   %tobool22.not = icmp eq i32 %is_physical, 0
-  %as34 = getelementptr inbounds i8, ptr %call.i82, i64 528
+  %as34 = getelementptr inbounds nuw i8, ptr %call.i82, i64 528
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end
@@ -472,7 +472,7 @@ entry:
   %mrs = alloca %struct.MemoryRegionSection, align 16
   %call = tail call ptr @get_system_memory() #7
   call void @memory_region_find(ptr nonnull sret(%struct.MemoryRegionSection) align 16 %mrs, ptr noundef %call, i64 noundef %addr, i64 noundef %size) #7
-  %mr = getelementptr inbounds i8, ptr %mrs, i64 16
+  %mr = getelementptr inbounds nuw i8, ptr %mrs, i64 16
   %0 = load ptr, ptr %mr, align 16
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -488,13 +488,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.i, label %if.end7, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %rom_device.i = getelementptr inbounds i8, ptr %0, i64 45
+  %rom_device.i = getelementptr inbounds nuw i8, ptr %0, i64 45
   %2 = load i8, ptr %rom_device.i, align 1
   %tobool.i7 = trunc i8 %2 to i1
   br i1 %tobool.i7, label %memory_region_is_romd.exit, label %if.then5
 
 memory_region_is_romd.exit:                       ; preds = %land.lhs.true
-  %romd_mode.i = getelementptr inbounds i8, ptr %0, i64 40
+  %romd_mode.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %romd_mode.i, align 8
   %tobool1.i = trunc i8 %3 to i1
   br i1 %tobool1.i, label %if.end7, label %if.then5
@@ -519,9 +519,9 @@ if.then13:                                        ; preds = %if.end7
 
 if.end15:                                         ; preds = %if.end7
   store ptr %0, ptr %p_mr, align 8
-  %ram_block = getelementptr inbounds i8, ptr %0, i64 56
+  %ram_block = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %ram_block, align 8
-  %offset_within_region = getelementptr inbounds i8, ptr %mrs, i64 32
+  %offset_within_region = getelementptr inbounds nuw i8, ptr %mrs, i64 32
   %8 = load i64, ptr %offset_within_region, align 16
   %call18 = call ptr @qemu_map_ram_ptr(ptr noundef %7, i64 noundef %8) #7
   br label %return
@@ -560,7 +560,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %mr, align 8
-  %name = getelementptr inbounds i8, ptr %1, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %1, i64 232
   %2 = load ptr, ptr %name, align 8
   %call2 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.13, i64 noundef %call, ptr noundef %2, ptr noundef %call1) #7
   call void @memory_region_unref(ptr noundef %1) #7
@@ -690,7 +690,7 @@ if.then4:                                         ; preds = %vtop.exit
 
 if.else:                                          ; preds = %vtop.exit
   %7 = load ptr, ptr %mr, align 8
-  %name = getelementptr inbounds i8, ptr %7, i64 232
+  %name = getelementptr inbounds nuw i8, ptr %7, i64 232
   %8 = load ptr, ptr %name, align 8
   %call5 = call i32 (ptr, ptr, ...) @monitor_printf(ptr noundef %mon, ptr noundef nonnull @.str.17, i64 noundef %call, ptr noundef %8, i64 noundef %retval.0.i) #7
   br label %if.end6

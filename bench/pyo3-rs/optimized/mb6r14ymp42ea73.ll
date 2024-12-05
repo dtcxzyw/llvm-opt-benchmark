@@ -172,7 +172,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_110_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -256,7 +256,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_109_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -340,7 +340,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_113_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -424,7 +424,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_111_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -508,7 +508,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -592,7 +592,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_102_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -676,7 +676,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_106_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -760,7 +760,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -844,7 +844,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_108_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -928,7 +928,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_112_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1012,7 +1012,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_106_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1096,7 +1096,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1180,7 +1180,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1264,7 +1264,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1348,7 +1348,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1432,7 +1432,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_113_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1516,7 +1516,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1600,7 +1600,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_106_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1684,7 +1684,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_104_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1768,7 +1768,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1852,7 +1852,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_111_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -1936,7 +1936,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_110_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2020,7 +2020,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_108_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2104,7 +2104,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_103_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2188,7 +2188,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2272,7 +2272,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_109_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2356,7 +2356,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_108_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2440,7 +2440,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_114_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2524,7 +2524,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_111_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2608,7 +2608,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_110_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8
@@ -2692,7 +2692,7 @@ define zeroext i1 @"_ZN19pyo3_macros_backend10attributes2kw1_107_$LT$impl$u20$sy
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   call void @_ZN3syn6buffer6Cursor5ident17hb2e5b639e5c4dad3E(ptr nonnull sret([40 x i8]) align 8 %5, ptr %0, ptr %1)
-  %6 = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8
   %.not = icmp eq i8 %7, 3
   br i1 %.not, label %13, label %8

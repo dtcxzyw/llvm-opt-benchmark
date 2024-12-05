@@ -87,9 +87,9 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 
 .lr.ph:                                           ; preds = %2
   %.promoted = load i32, ptr %3, align 16
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
-  %10 = getelementptr inbounds i8, ptr %3, i64 4
-  %11 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 16
   %.promoted93 = load ptr, ptr %9, align 8
   %.promoted94 = load i32, ptr %10, align 4
@@ -257,7 +257,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 
 .lr.ph99:                                         ; preds = %87
   %92 = zext nneg i32 %spec.select to i64
-  %93 = getelementptr inbounds i8, ptr %5, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = srem i32 %0, 64
   %95 = zext nneg i32 %94 to i64
   %96 = shl nuw i64 1, %95
@@ -316,7 +316,7 @@ define i32 @mdprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 123:                                              ; preds = %101
   %124 = sub nsw i32 %.06397, %103
   %125 = and i64 %102, 2147483647
-  %126 = getelementptr inbounds i8, ptr %.16796, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %.16796, i64 %125
   br label %127
 
 127:                                              ; preds = %.critedge.thread, %.critedge, %123
@@ -436,9 +436,9 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
 
 .lr.ph:                                           ; preds = %18
   %.promoted = load i32, ptr %6, align 16
-  %21 = getelementptr inbounds i8, ptr %6, i64 8
-  %22 = getelementptr inbounds i8, ptr %6, i64 4
-  %23 = getelementptr inbounds i8, ptr %6, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %24 = load ptr, ptr %23, align 16
   %.promoted112 = load ptr, ptr %21, align 8
   %.promoted113 = load i32, ptr %22, align 4
@@ -585,8 +585,8 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
   call void @llvm.va_start.p0(ptr nonnull %6)
   %93 = call i32 @vsnprintf(ptr noundef nonnull %.085, i64 noundef %.084, ptr noundef %1, ptr noundef nonnull %6) #17
   call void @llvm.va_end.p0(ptr nonnull %6)
-  %94 = add i64 %.084, -1
-  %95 = getelementptr inbounds i8, ptr %.085, i64 %94
+  %94 = getelementptr i8, ptr %.085, i64 %.084
+  %95 = getelementptr i8, ptr %94, i64 -1
   store i8 0, ptr %95, align 1
   %96 = call i32 @pthread_mutex_lock(ptr noundef nonnull @logg_mutex) #17
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5)
@@ -603,7 +603,7 @@ define range(i32 -1, 1) i32 @logg(i32 noundef %0, ptr nocapture noundef readonly
   br i1 %.not.i, label %logg_open.exit, label %103
 
 103:                                              ; preds = %101
-  %104 = getelementptr inbounds i8, ptr %5, i64 48
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %105 = load i64, ptr %104, align 8
   %106 = load i64, ptr @logg_size, align 8
   %107 = icmp sgt i64 %105, %106
@@ -932,9 +932,9 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
 
 .lr.ph:                                           ; preds = %6
   %.promoted = load i32, ptr %3, align 16
-  %10 = getelementptr inbounds i8, ptr %3, i64 8
-  %11 = getelementptr inbounds i8, ptr %3, i64 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %13 = load ptr, ptr %12, align 16
   %.promoted72 = load ptr, ptr %10, align 8
   %.promoted73 = load i32, ptr %11, align 4
@@ -1081,8 +1081,8 @@ define void @mprintf(i32 noundef %0, ptr nocapture noundef readonly %1, ...) loc
   call void @llvm.va_start.p0(ptr nonnull %3)
   %82 = call i32 @vsnprintf(ptr noundef nonnull %.046, i64 noundef %.045, ptr noundef %1, ptr noundef nonnull %3) #17
   call void @llvm.va_end.p0(ptr nonnull %3)
-  %83 = add i64 %.045, -1
-  %84 = getelementptr inbounds i8, ptr %.046, i64 %83
+  %83 = getelementptr i8, ptr %.046, i64 %.045
+  %84 = getelementptr i8, ptr %83, i64 -1
   store i8 0, ptr %84, align 1
   %85 = icmp eq i32 %0, 5
   br i1 %85, label %86, label %90
@@ -1176,7 +1176,7 @@ define i32 @logg_facility(ptr nocapture noundef readonly %0) local_unnamed_addr 
   br i1 %exitcond, label %.loopexit, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds [22 x %struct.facstruct], ptr @facilitymap, i64 0, i64 %indvars.iv.next
+  %4 = getelementptr inbounds nuw [22 x %struct.facstruct], ptr @facilitymap, i64 0, i64 %indvars.iv.next
   %5 = load ptr, ptr %4, align 16
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #15
   %.not7 = icmp eq i32 %6, 0
@@ -1184,7 +1184,7 @@ define i32 @logg_facility(ptr nocapture noundef readonly %0) local_unnamed_addr 
 
 ._crit_edge:                                      ; preds = %3, %1
   %.lcssa = phi ptr [ @facilitymap, %1 ], [ %4, %3 ]
-  %7 = getelementptr inbounds i8, ptr %.lcssa, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
   %8 = load i32, ptr %7, align 8
   br label %.loopexit
 

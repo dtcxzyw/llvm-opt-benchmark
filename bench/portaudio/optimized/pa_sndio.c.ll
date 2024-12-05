@@ -81,7 +81,7 @@ define noundef i32 @PaSndio_Initialize(ptr nocapture noundef initializes((0, 8))
   br i1 %29, label %25, label %.outer, !llvm.loop !4
 
 .outer:                                           ; preds = %27
-  %30 = getelementptr inbounds [16 x %struct.PaDeviceInfo], ptr %7, i64 0, i64 %.1.ph46
+  %30 = getelementptr inbounds nuw [16 x %struct.PaDeviceInfo], ptr %7, i64 0, i64 %.1.ph46
   store i32 2, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %26, ptr %31, align 8
@@ -101,7 +101,7 @@ define noundef i32 @PaSndio_Initialize(ptr nocapture noundef initializes((0, 8))
   store double 5.000000e-01, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store double 4.800000e+04, ptr %39, align 8
-  %40 = getelementptr inbounds [16 x ptr], ptr %17, i64 0, i64 %.1.ph46
+  %40 = getelementptr inbounds nuw [16 x ptr], ptr %17, i64 0, i64 %.1.ph46
   store ptr %30, ptr %40, align 8
   %41 = add nuw nsw i64 %.1.ph46, 1
   %exitcond.not = icmp eq i64 %41, 16
@@ -927,7 +927,7 @@ define internal range(i32 -9999, 1) i32 @BlockingReadStream(ptr noundef %0, ptr 
 
 29:                                               ; preds = %.lr.ph
   %30 = and i64 %26, 4294967295
-  %31 = getelementptr inbounds i8, ptr %.042, i64 %30
+  %31 = getelementptr inbounds nuw i8, ptr %.042, i64 %30
   %32 = sub i32 %.03241, %27
   %.not37 = icmp eq i32 %32, 0
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !8

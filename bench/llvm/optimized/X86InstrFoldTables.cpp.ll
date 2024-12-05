@@ -46,10 +46,10 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i: ; preds = %1, %
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i ], [ @_ZL10Table2Addr, %1 ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i ], [ 352, %1 ]
   %2 = lshr i64 %.01116.i.i.i.i, 1
-  %3 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i, i64 %2
+  %3 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i, i64 %2
   %4 = load i32, ptr %3, align 4
   %5 = icmp ult i32 %4, %0
-  %6 = getelementptr inbounds i8, ptr %3, i64 12
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %7 = xor i64 %2, -1
   %8 = add nsw i64 %.01116.i.i.i.i, %7
   %.112.i.i.i.i = select i1 %5, i64 %8, i64 %2
@@ -88,10 +88,10 @@ define dso_local noundef ptr @_ZN4llvm15lookupFoldTableEjj(i32 noundef %0, i32 n
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN4llvm15lookupFoldTableEjj, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._ZN4llvm15lookupFoldTableEjj, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %1 to i64
-  %switch.gep19 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN4llvm15lookupFoldTableEjj.4, i64 0, i64 %5
+  %switch.gep19 = getelementptr inbounds nuw [5 x ptr], ptr @switch.table._ZN4llvm15lookupFoldTableEjj.4, i64 0, i64 %5
   %switch.load20 = load ptr, ptr %switch.gep19, align 8
   br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
 
@@ -99,10 +99,10 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i: ; preds = %swit
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i ], [ %switch.load20, %switch.lookup ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i ], [ %switch.load, %switch.lookup ]
   %6 = lshr i64 %.01116.i.i.i.i, 1
-  %7 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, %0
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %11 = xor i64 %6, -1
   %12 = add nsw i64 %.01116.i.i.i.i, %11
   %.112.i.i.i.i = select i1 %9, i64 %12, i64 %6
@@ -111,7 +111,7 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i: ; preds = %swit
   br i1 %13, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i, !llvm.loop !4
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
-  %14 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %switch.load20, i64 %switch.load
+  %14 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %switch.load20, i64 %switch.load
   %.not.i = icmp eq ptr %.1.i.i.i.i, %14
   br i1 %.not.i, label %22, label %15
 
@@ -143,10 +143,10 @@ define dso_local noundef ptr @_ZN4llvm24lookupBroadcastFoldTableEjj(i32 noundef 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i64], ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj, i64 0, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep16 = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj.5, i64 0, i64 %5
+  %switch.gep16 = getelementptr inbounds nuw [4 x ptr], ptr @switch.table._ZN4llvm24lookupBroadcastFoldTableEjj.5, i64 0, i64 %5
   %switch.load17 = load ptr, ptr %switch.gep16, align 8
   br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
 
@@ -154,10 +154,10 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i: ; preds = %swit
   %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i ], [ %switch.load17, %switch.lookup ]
   %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i ], [ %switch.load, %switch.lookup ]
   %6 = lshr i64 %.01116.i.i.i.i, 1
-  %7 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, %0
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %11 = xor i64 %6, -1
   %12 = add nsw i64 %.01116.i.i.i.i, %11
   %.112.i.i.i.i = select i1 %9, i64 %12, i64 %6
@@ -166,7 +166,7 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i: ; preds = %swit
   br i1 %13, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i, !llvm.loop !4
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i
-  %14 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %switch.load17, i64 %switch.load
+  %14 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %switch.load17, i64 %switch.load
   %.not.i = icmp eq ptr %.1.i.i.i.i, %14
   br i1 %.not.i, label %22, label %15
 
@@ -197,14 +197,14 @@ define dso_local noundef ptr @_ZN4llvm17lookupUnfoldTableEj(i32 noundef %0) loca
   br i1 %3, label %4, label %8, !prof !6
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable) #12
+  %5 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable) #13
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
 
 6:                                                ; preds = %4
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev()
-  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117X86MemUnfoldTableD2Ev, ptr nonnull @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, ptr nonnull @__dso_handle) #12
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable) #12
+  %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_117X86MemUnfoldTableD2Ev, ptr nonnull @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, ptr nonnull @__dso_handle) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable) #13
   br label %8
 
 8:                                                ; preds = %6, %4, %1
@@ -224,10 +224,10 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vector
   %.013.i.i.i = phi i64 [ %15, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %.sroa.011.012.i.i.i = phi ptr [ %9, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %16 = lshr i64 %.013.i.i.i, 1
-  %17 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.sroa.011.012.i.i.i, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.sroa.011.012.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = icmp ult i32 %18, %0
-  %20 = getelementptr inbounds i8, ptr %17, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %21 = xor i64 %16, -1
   %22 = add nsw i64 %.013.i.i.i, %21
   %.sroa.011.1.i.i.i = select i1 %19, ptr %20, ptr %.sroa.011.012.i.i.i
@@ -261,7 +261,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 1:                                                ; preds = %0, %1
   %.0.idx9 = phi i64 [ 0, %0 ], [ %.0.add, %1 ]
-  %.0.ptr = getelementptr inbounds i8, ptr @_ZL10Table2Addr, i64 %.0.idx9
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZL10Table2Addr, i64 %.0.idx9
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.0.ptr, i16 noundef zeroext 96)
   %.0.add = add nuw nsw i64 %.0.idx9, 12
   %.not = icmp eq i64 %.0.add, 4224
@@ -269,7 +269,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader8:                                      ; preds = %1, %.preheader8
   %.052.idx10 = phi i64 [ %.052.add, %.preheader8 ], [ 0, %1 ]
-  %.052.ptr = getelementptr inbounds i8, ptr @_ZL6Table0, i64 %.052.idx10
+  %.052.ptr = getelementptr inbounds nuw i8, ptr @_ZL6Table0, i64 %.052.idx10
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.052.ptr, i16 noundef zeroext 0)
   %.052.add = add nuw nsw i64 %.052.idx10, 12
   %.not61 = icmp eq i64 %.052.add, 2760
@@ -277,7 +277,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader7:                                      ; preds = %.preheader8, %.preheader7
   %.053.idx11 = phi i64 [ %.053.add, %.preheader7 ], [ 0, %.preheader8 ]
-  %.053.ptr = getelementptr inbounds i8, ptr @_ZL6Table1, i64 %.053.idx11
+  %.053.ptr = getelementptr inbounds nuw i8, ptr @_ZL6Table1, i64 %.053.idx11
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.053.ptr, i16 noundef zeroext 33)
   %.053.add = add nuw nsw i64 %.053.idx11, 12
   %.not62 = icmp eq i64 %.053.add, 16188
@@ -285,7 +285,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader6:                                      ; preds = %.preheader7, %.preheader6
   %.054.idx12 = phi i64 [ %.054.add, %.preheader6 ], [ 0, %.preheader7 ]
-  %.054.ptr = getelementptr inbounds i8, ptr @_ZL6Table2, i64 %.054.idx12
+  %.054.ptr = getelementptr inbounds nuw i8, ptr @_ZL6Table2, i64 %.054.idx12
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.054.ptr, i16 noundef zeroext 34)
   %.054.add = add nuw nsw i64 %.054.idx12, 12
   %.not63 = icmp eq i64 %.054.add, 26412
@@ -293,7 +293,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader5:                                      ; preds = %.preheader6, %.preheader5
   %.056.idx13 = phi i64 [ %.056.add, %.preheader5 ], [ 0, %.preheader6 ]
-  %.056.ptr = getelementptr inbounds i8, ptr @_ZL6Table3, i64 %.056.idx13
+  %.056.ptr = getelementptr inbounds nuw i8, ptr @_ZL6Table3, i64 %.056.idx13
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.056.ptr, i16 noundef zeroext 35)
   %.056.add = add nuw nsw i64 %.056.idx13, 12
   %.not64 = icmp eq i64 %.056.add, 21876
@@ -301,7 +301,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader4:                                      ; preds = %.preheader5, %.preheader4
   %.057.idx14 = phi i64 [ %.057.add, %.preheader4 ], [ 0, %.preheader5 ]
-  %.057.ptr = getelementptr inbounds i8, ptr @_ZL6Table4, i64 %.057.idx14
+  %.057.ptr = getelementptr inbounds nuw i8, ptr @_ZL6Table4, i64 %.057.idx14
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.057.ptr, i16 noundef zeroext 36)
   %.057.add = add nuw nsw i64 %.057.idx14, 12
   %.not65 = icmp eq i64 %.057.add, 16116
@@ -309,7 +309,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader3:                                      ; preds = %.preheader4, %.preheader3
   %.058.idx15 = phi i64 [ %.058.add, %.preheader3 ], [ 0, %.preheader4 ]
-  %.058.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable1, i64 %.058.idx15
+  %.058.ptr = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable1, i64 %.058.idx15
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.058.ptr, i16 noundef zeroext 33)
   %.058.add = add nuw nsw i64 %.058.idx15, 12
   %.not66 = icmp eq i64 %.058.add, 4368
@@ -317,7 +317,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader2:                                      ; preds = %.preheader3, %.preheader2
   %.060.idx16 = phi i64 [ %.060.add, %.preheader2 ], [ 0, %.preheader3 ]
-  %.060.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable2, i64 %.060.idx16
+  %.060.ptr = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable2, i64 %.060.idx16
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.060.ptr, i16 noundef zeroext 34)
   %.060.add = add nuw nsw i64 %.060.idx16, 12
   %.not67 = icmp eq i64 %.060.add, 9564
@@ -325,7 +325,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader1:                                      ; preds = %.preheader2, %.preheader1
   %.059.idx17 = phi i64 [ %.059.add, %.preheader1 ], [ 0, %.preheader2 ]
-  %.059.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable3, i64 %.059.idx17
+  %.059.ptr = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable3, i64 %.059.idx17
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.059.ptr, i16 noundef zeroext 35)
   %.059.add = add nuw nsw i64 %.059.idx17, 12
   %.not68 = icmp eq i64 %.059.add, 13092
@@ -333,7 +333,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 .preheader:                                       ; preds = %.preheader1, %.preheader
   %.055.idx18 = phi i64 [ %.055.add, %.preheader ], [ 0, %.preheader1 ]
-  %.055.ptr = getelementptr inbounds i8, ptr @_ZL15BroadcastTable4, i64 %.055.idx18
+  %.055.ptr = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable4, i64 %.055.idx18
   tail call fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntryERKN4llvm17X86FoldTableEntryEt(ptr noundef nonnull align 4 dereferenceable(12) %.055.ptr, i16 noundef zeroext 36)
   %.055.add = add nuw nsw i64 %.055.idx18, 12
   %.not69 = icmp eq i64 %.055.add, 11892
@@ -350,7 +350,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTableC2Ev() unnamed_
 
 9:                                                ; preds = %2
   %10 = udiv exact i64 %7, 12
-  tail call void @qsort(ptr noundef nonnull %3, i64 noundef %10, i64 noundef 12, ptr noundef nonnull @_ZN4llvm25array_pod_sort_comparatorINS_17X86FoldTableEntryEEEiPKvS3_) #12
+  tail call void @qsort(ptr noundef nonnull %3, i64 noundef %10, i64 noundef 12, ptr noundef nonnull @_ZN4llvm25array_pod_sort_comparatorINS_17X86FoldTableEntryEEEiPKvS3_) #13
   br label %_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit
 
 _ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit: ; preds = %2, %9
@@ -369,7 +369,7 @@ define internal void @_ZN12_GLOBAL__N_117X86MemUnfoldTableD2Ev(ptr nocapture nou
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #14
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EED2Ev.exit: ; preds = %1, %3
@@ -423,14 +423,14 @@ define dso_local noundef ptr @_ZN4llvm30lookupBroadcastFoldTableBySizeEjj(i32 no
   br i1 %4, label %5, label %9, !prof !6
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable) #12
+  %6 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable) #13
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
 
 7:                                                ; preds = %5
   tail call fastcc void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableC2Ev()
-  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_121X86BroadcastFoldTableD2Ev, ptr nonnull @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, ptr nonnull @__dso_handle) #12
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable) #12
+  %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN12_GLOBAL__N_121X86BroadcastFoldTableD2Ev, ptr nonnull @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, ptr nonnull @__dso_handle) #13
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable) #13
   br label %9
 
 9:                                                ; preds = %7, %5, %2
@@ -450,10 +450,10 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vector
   %.013.i.i.i = phi i64 [ %16, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %.sroa.011.012.i.i.i = phi ptr [ %10, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.lr.ph.i.i.i ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i ]
   %17 = lshr i64 %.013.i.i.i, 1
-  %18 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.sroa.011.012.i.i.i, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.sroa.011.012.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = icmp ult i32 %19, %0
-  %21 = getelementptr inbounds i8, ptr %18, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %22 = xor i64 %17, -1
   %23 = add nsw i64 %.013.i.i.i, %22
   %.sroa.011.1.i.i.i = select i1 %20, ptr %21, ptr %.sroa.011.012.i.i.i
@@ -492,7 +492,7 @@ _ZN4llvm11lower_boundIRSt6vectorINS_17X86FoldTableEntryESaIS2_EERjEEDaOT_OT0_.ex
   ]
 
 _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us: ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %.sroa.01.010.us, i64 12
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.01.010.us, i64 12
   %.not8.us = icmp eq ptr %34, %11
   br i1 %.not8.us, label %.critedge, label %.lr.ph.split.us.split.split, !llvm.loop !8
 
@@ -515,7 +515,7 @@ _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us: ; preds 
   ]
 
 _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us28: ; preds = %37
-  %44 = getelementptr inbounds i8, ptr %.sroa.01.010.us26, i64 12
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.010.us26, i64 12
   %.not8.us29 = icmp eq ptr %44, %11
   br i1 %.not8.us29, label %.critedge, label %.lr.ph.split.split.us.split, !llvm.loop !8
 
@@ -538,7 +538,7 @@ _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us28: ; pred
   ]
 
 _ZN4llvm18matchBroadcastSizeERKNS_17X86FoldTableEntryEj.exit.thread.us43: ; preds = %47
-  %54 = getelementptr inbounds i8, ptr %.sroa.01.010.us41, i64 12
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.01.010.us41, i64 12
   %.not8.us44 = icmp eq ptr %54, %11
   br i1 %.not8.us44, label %.critedge, label %.lr.ph.split.split.split.us, !llvm.loop !8
 
@@ -553,9 +553,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableC2Ev() unna
   br label %1
 
 1:                                                ; preds = %0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit
-  %2 = phi ptr [ null, %0 ], [ %55, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
+  %2 = phi ptr [ null, %0 ], [ %52, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
   %.0.idx69 = phi i64 [ 0, %0 ], [ %.0.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
-  %.0.ptr70 = getelementptr inbounds i8, ptr @_ZL15BroadcastTable2, i64 %.0.idx69
+  %.0.ptr70 = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable2, i64 %.0.idx69
   %3 = load i32, ptr %.0.ptr70, align 4
   %4 = getelementptr inbounds nuw i8, ptr %.0.ptr70, i64 4
   %5 = load i32, ptr %4, align 4
@@ -565,10 +565,10 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_Z
   %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i ], [ @_ZL6Table2, %1 ]
   %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i ], [ 2201, %1 ]
   %6 = lshr i64 %.01116.i.i.i.i.i, 1
-  %7 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i, i64 %6
+  %7 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp ult i32 %8, %3
-  %10 = getelementptr inbounds i8, ptr %7, i64 12
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %11 = xor i64 %6, -1
   %12 = add nsw i64 %.01116.i.i.i.i.i, %11
   %.112.i.i.i.i.i = select i1 %9, i64 %12, i64 %6
@@ -577,7 +577,7 @@ _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_Z
   br i1 %13, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i, !llvm.loop !4
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i
-  %.not.i.i = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds (i8, ptr @_ZL6Table2, i64 26412)
+  %.not.i.i = icmp eq ptr %.1.i.i.i.i.i, getelementptr inbounds nuw (i8, ptr @_ZL6Table2, i64 26412)
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit, label %14
 
 14:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i
@@ -605,12 +605,12 @@ _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.
 
 29:                                               ; preds = %21
   store i32 %23, ptr %2, align 4
-  %.sroa.343.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.343.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %5, ptr %.sroa.343.0..sroa_idx, align 4
-  %.sroa.446.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.446.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i16 %27, ptr %.sroa.446.0..sroa_idx, align 4
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit
 
@@ -623,7 +623,7 @@ _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.
   br i1 %37, label %38, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 38:                                               ; preds = %32
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
 _ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %32
@@ -633,574 +633,539 @@ _ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: 
   %41 = icmp ult i64 %40, %39
   %42 = tail call i64 @llvm.umin.i64(i64 %40, i64 768614336404564650)
   %43 = select i1 %41, i64 768614336404564650, i64 %42
-  %.not.i.i.i.i = icmp eq i64 %43, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i, label %44
-
-44:                                               ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %45 = mul nuw nsw i64 %43, 12
-  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #15
-  br label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %44, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %47 = phi ptr [ %46, %44 ], [ null, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %48 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %47, i64 %39
-  store i32 %23, ptr %48, align 4
-  %.sroa.343.0..sroa_idx44 = getelementptr inbounds i8, ptr %48, i64 4
+  %.not.i.i.i.i = icmp ne i64 %43, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %44 = mul nuw nsw i64 %43, 12
+  %45 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #16
+  %46 = getelementptr inbounds i8, ptr %45, i64 %36
+  store i32 %23, ptr %46, align 4
+  %.sroa.343.0..sroa_idx44 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store i32 %5, ptr %.sroa.343.0..sroa_idx44, align 4
-  %.sroa.446.0..sroa_idx47 = getelementptr inbounds i8, ptr %48, i64 8
+  %.sroa.446.0..sroa_idx47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i16 %27, ptr %.sroa.446.0..sroa_idx47, align 4
-  %49 = icmp sgt i64 %36, 0
-  br i1 %49, label %50, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  %47 = icmp sgt i64 %36, 0
+  br i1 %47, label %48, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-50:                                               ; preds = %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %47, ptr align 4 %33, i64 %36, i1 false)
+48:                                               ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %45, ptr align 4 %33, i64 %36, i1 false)
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %50, %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
-  %51 = getelementptr inbounds i8, ptr %47, i64 %36
-  %52 = getelementptr inbounds i8, ptr %51, i64 12
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %48, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 12
   %.not.i17.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %53
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %50
 
-53:                                               ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %36) #13
+50:                                               ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef %36) #14
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %47, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %54 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %47, i64 %43
-  store ptr %54, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %50, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %45, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  store ptr %49, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %51 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %45, i64 %43
+  store ptr %51, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit: ; preds = %17, %14, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %29
-  %55 = phi ptr [ %2, %17 ], [ %2, %14 ], [ %2, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ %52, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %31, %29 ]
+  %52 = phi ptr [ %2, %17 ], [ %2, %14 ], [ %2, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i ], [ %49, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i ], [ %31, %29 ]
   %.0.add = add nuw nsw i64 %.0.idx69, 12
   %.not = icmp eq i64 %.0.add, 9564
   br i1 %.not, label %.preheader68, label %1
 
-.preheader68:                                     ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110
-  %56 = phi ptr [ %109, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110 ], [ %55, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
-  %.071.idx71 = phi i64 [ %.071.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
-  %.071.ptr72 = getelementptr inbounds i8, ptr @_ZL19BroadcastSizeTable2, i64 %.071.idx71
-  %57 = load i32, ptr %.071.ptr72, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %.071.ptr72, i64 4
-  %59 = load i32, ptr %58, align 4
+.preheader68:                                     ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109
+  %53 = phi ptr [ %103, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109 ], [ %52, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
+  %.071.idx71 = phi i64 [ %.071.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit ]
+  %.071.ptr72 = getelementptr inbounds nuw i8, ptr @_ZL19BroadcastSizeTable2, i64 %.071.idx71
+  %54 = load i32, ptr %.071.ptr72, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %.071.ptr72, i64 4
+  %56 = load i32, ptr %55, align 4
   br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90
 
 _ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90, %.preheader68
   %.017.i.i.i.i.i91 = phi ptr [ %.1.i.i.i.i.i96, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90 ], [ @_ZL6Table2, %.preheader68 ]
   %.01116.i.i.i.i.i92 = phi i64 [ %.112.i.i.i.i.i95, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90 ], [ 2201, %.preheader68 ]
-  %60 = lshr i64 %.01116.i.i.i.i.i92, 1
-  %61 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i91, i64 %60
-  %62 = load i32, ptr %61, align 4
-  %63 = icmp ult i32 %62, %57
-  %64 = getelementptr inbounds i8, ptr %61, i64 12
-  %65 = xor i64 %60, -1
-  %66 = add nsw i64 %.01116.i.i.i.i.i92, %65
-  %.112.i.i.i.i.i95 = select i1 %63, i64 %66, i64 %60
-  %.1.i.i.i.i.i96 = select i1 %63, ptr %64, ptr %.017.i.i.i.i.i91
-  %67 = icmp sgt i64 %.112.i.i.i.i.i95, 0
-  br i1 %67, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97, !llvm.loop !4
+  %57 = lshr i64 %.01116.i.i.i.i.i92, 1
+  %58 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i91, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp ult i32 %59, %54
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  %62 = xor i64 %57, -1
+  %63 = add nsw i64 %.01116.i.i.i.i.i92, %62
+  %.112.i.i.i.i.i95 = select i1 %60, i64 %63, i64 %57
+  %.1.i.i.i.i.i96 = select i1 %60, ptr %61, ptr %.017.i.i.i.i.i91
+  %64 = icmp sgt i64 %.112.i.i.i.i.i95, 0
+  br i1 %64, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97, !llvm.loop !4
 
 _ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i90
-  %.not.i.i98 = icmp eq ptr %.1.i.i.i.i.i96, getelementptr inbounds (i8, ptr @_ZL6Table2, i64 26412)
-  br i1 %.not.i.i98, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110, label %68
+  %.not.i.i98 = icmp eq ptr %.1.i.i.i.i.i96, getelementptr inbounds nuw (i8, ptr @_ZL6Table2, i64 26412)
+  br i1 %.not.i.i98, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109, label %65
 
-68:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97
-  %69 = load i32, ptr %.1.i.i.i.i.i96, align 4
-  %70 = icmp eq i32 %69, %57
-  br i1 %70, label %71, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110
+65:                                               ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97
+  %66 = load i32, ptr %.1.i.i.i.i.i96, align 4
+  %67 = icmp eq i32 %66, %54
+  br i1 %67, label %68, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i96, i64 8
-  %73 = load i16, ptr %72, align 4
-  %74 = and i16 %73, 16
-  %.not6.i.i100.not = icmp eq i16 %74, 0
-  br i1 %.not6.i.i100.not, label %75, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i96, i64 8
+  %70 = load i16, ptr %69, align 4
+  %71 = and i16 %70, 16
+  %.not6.i.i100.not = icmp eq i16 %71, 0
+  br i1 %.not6.i.i100.not, label %72, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i96, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %.071.ptr72, i64 8
-  %79 = load i16, ptr %78, align 4
-  %80 = or i16 %73, %79
-  %81 = or i16 %80, 34
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  %.not.i.i102 = icmp eq ptr %56, %82
-  br i1 %.not.i.i102, label %86, label %83
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i96, i64 4
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %.071.ptr72, i64 8
+  %76 = load i16, ptr %75, align 4
+  %77 = or i16 %70, %76
+  %78 = or i16 %77, 34
+  %79 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  %.not.i.i102 = icmp eq ptr %53, %79
+  br i1 %.not.i.i102, label %83, label %80
 
-83:                                               ; preds = %75
-  store i32 %77, ptr %56, align 4
-  %.sroa.332.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 4
-  store i32 %59, ptr %.sroa.332.0..sroa_idx, align 4
-  %.sroa.435.0..sroa_idx = getelementptr inbounds i8, ptr %56, i64 8
-  store i16 %81, ptr %.sroa.435.0..sroa_idx, align 4
-  %84 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 12
-  store ptr %85, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110
+80:                                               ; preds = %72
+  store i32 %74, ptr %53, align 4
+  %.sroa.332.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 %56, ptr %.sroa.332.0..sroa_idx, align 4
+  %.sroa.435.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i16 %78, ptr %.sroa.435.0..sroa_idx, align 4
+  %81 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 12
+  store ptr %82, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109
 
-86:                                               ; preds = %75
-  %87 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  %88 = ptrtoint ptr %56 to i64
-  %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %91 = icmp eq i64 %90, 9223372036854775800
-  br i1 %91, label %92, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103
+83:                                               ; preds = %72
+  %84 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  %85 = ptrtoint ptr %53 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = icmp eq i64 %87, 9223372036854775800
+  br i1 %88, label %89, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103
 
-92:                                               ; preds = %86
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+89:                                               ; preds = %83
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
-_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103: ; preds = %86
-  %93 = sdiv exact i64 %90, 12
-  %.sroa.speculated.i.i.i.i104 = tail call i64 @llvm.umax.i64(i64 %93, i64 1)
-  %94 = add nsw i64 %.sroa.speculated.i.i.i.i104, %93
-  %95 = icmp ult i64 %94, %93
-  %96 = tail call i64 @llvm.umin.i64(i64 %94, i64 768614336404564650)
-  %97 = select i1 %95, i64 768614336404564650, i64 %96
-  %.not.i.i.i.i105 = icmp eq i64 %97, 0
-  br i1 %.not.i.i.i.i105, label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i106, label %98
+_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103: ; preds = %83
+  %90 = sdiv exact i64 %87, 12
+  %.sroa.speculated.i.i.i.i104 = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
+  %91 = add nsw i64 %.sroa.speculated.i.i.i.i104, %90
+  %92 = icmp ult i64 %91, %90
+  %93 = tail call i64 @llvm.umin.i64(i64 %91, i64 768614336404564650)
+  %94 = select i1 %92, i64 768614336404564650, i64 %93
+  %.not.i.i.i.i105 = icmp ne i64 %94, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i105)
+  %95 = mul nuw nsw i64 %94, 12
+  %96 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %95) #16
+  %97 = getelementptr inbounds i8, ptr %96, i64 %87
+  store i32 %74, ptr %97, align 4
+  %.sroa.332.0..sroa_idx33 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  store i32 %56, ptr %.sroa.332.0..sroa_idx33, align 4
+  %.sroa.435.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store i16 %78, ptr %.sroa.435.0..sroa_idx36, align 4
+  %98 = icmp sgt i64 %87, 0
+  br i1 %98, label %99, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106
 
-98:                                               ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103
-  %99 = mul nuw nsw i64 %97, 12
-  %100 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %99) #15
-  br label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i106
+99:                                               ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %96, ptr align 4 %84, i64 %87, i1 false)
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106
 
-_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i106: ; preds = %98, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103
-  %101 = phi ptr [ %100, %98 ], [ null, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103 ]
-  %102 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %101, i64 %93
-  store i32 %77, ptr %102, align 4
-  %.sroa.332.0..sroa_idx33 = getelementptr inbounds i8, ptr %102, i64 4
-  store i32 %59, ptr %.sroa.332.0..sroa_idx33, align 4
-  %.sroa.435.0..sroa_idx36 = getelementptr inbounds i8, ptr %102, i64 8
-  store i16 %81, ptr %.sroa.435.0..sroa_idx36, align 4
-  %103 = icmp sgt i64 %90, 0
-  br i1 %103, label %104, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i107
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106: ; preds = %99, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i103
+  %100 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  %.not.i17.i.i.i107 = icmp eq ptr %84, null
+  br i1 %.not.i17.i.i.i107, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108, label %101
 
-104:                                              ; preds = %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i106
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %101, ptr align 4 %87, i64 %90, i1 false)
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i107
+101:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106
+  tail call void @_ZdlPvm(ptr noundef nonnull %84, i64 noundef %87) #14
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i107: ; preds = %104, %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i106
-  %105 = getelementptr inbounds i8, ptr %101, i64 %90
-  %106 = getelementptr inbounds i8, ptr %105, i64 12
-  %.not.i17.i.i.i108 = icmp eq ptr %87, null
-  br i1 %.not.i17.i.i.i108, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i109, label %107
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108: ; preds = %101, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i106
+  store ptr %96, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  store ptr %100, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %102 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %96, i64 %94
+  store ptr %102, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109
 
-107:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i107
-  tail call void @_ZdlPvm(ptr noundef nonnull %87, i64 noundef %90) #13
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i109
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i109: ; preds = %107, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i107
-  store ptr %101, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  store ptr %106, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %108 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %101, i64 %97
-  store ptr %108, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110: ; preds = %71, %68, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i109, %83
-  %109 = phi ptr [ %56, %71 ], [ %56, %68 ], [ %56, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97 ], [ %106, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i109 ], [ %85, %83 ]
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109: ; preds = %68, %65, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108, %80
+  %103 = phi ptr [ %53, %68 ], [ %53, %65 ], [ %53, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i97 ], [ %100, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i108 ], [ %82, %80 ]
   %.071.add = add nuw nsw i64 %.071.idx71, 12
   %.not80 = icmp eq i64 %.071.add, 576
   br i1 %.not80, label %.preheader67, label %.preheader68
 
-.preheader67:                                     ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131
-  %110 = phi ptr [ %163, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131 ], [ %109, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110 ]
-  %.072.idx73 = phi i64 [ %.072.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit110 ]
-  %.072.ptr74 = getelementptr inbounds i8, ptr @_ZL15BroadcastTable3, i64 %.072.idx73
-  %111 = load i32, ptr %.072.ptr74, align 4
-  %112 = getelementptr inbounds nuw i8, ptr %.072.ptr74, i64 4
-  %113 = load i32, ptr %112, align 4
-  br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111
+.preheader67:                                     ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129
+  %104 = phi ptr [ %154, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129 ], [ %103, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109 ]
+  %.072.idx73 = phi i64 [ %.072.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit109 ]
+  %.072.ptr74 = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable3, i64 %.072.idx73
+  %105 = load i32, ptr %.072.ptr74, align 4
+  %106 = getelementptr inbounds nuw i8, ptr %.072.ptr74, i64 4
+  %107 = load i32, ptr %106, align 4
+  br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110
 
-_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111, %.preheader67
-  %.017.i.i.i.i.i112 = phi ptr [ %.1.i.i.i.i.i117, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111 ], [ @_ZL6Table3, %.preheader67 ]
-  %.01116.i.i.i.i.i113 = phi i64 [ %.112.i.i.i.i.i116, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111 ], [ 1823, %.preheader67 ]
-  %114 = lshr i64 %.01116.i.i.i.i.i113, 1
-  %115 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i112, i64 %114
-  %116 = load i32, ptr %115, align 4
-  %117 = icmp ult i32 %116, %111
-  %118 = getelementptr inbounds i8, ptr %115, i64 12
-  %119 = xor i64 %114, -1
-  %120 = add nsw i64 %.01116.i.i.i.i.i113, %119
-  %.112.i.i.i.i.i116 = select i1 %117, i64 %120, i64 %114
-  %.1.i.i.i.i.i117 = select i1 %117, ptr %118, ptr %.017.i.i.i.i.i112
-  %121 = icmp sgt i64 %.112.i.i.i.i.i116, 0
-  br i1 %121, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i118, !llvm.loop !4
+_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110, %.preheader67
+  %.017.i.i.i.i.i111 = phi ptr [ %.1.i.i.i.i.i116, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110 ], [ @_ZL6Table3, %.preheader67 ]
+  %.01116.i.i.i.i.i112 = phi i64 [ %.112.i.i.i.i.i115, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110 ], [ 1823, %.preheader67 ]
+  %108 = lshr i64 %.01116.i.i.i.i.i112, 1
+  %109 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i111, i64 %108
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp ult i32 %110, %105
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 12
+  %113 = xor i64 %108, -1
+  %114 = add nsw i64 %.01116.i.i.i.i.i112, %113
+  %.112.i.i.i.i.i115 = select i1 %111, i64 %114, i64 %108
+  %.1.i.i.i.i.i116 = select i1 %111, ptr %112, ptr %.017.i.i.i.i.i111
+  %115 = icmp sgt i64 %.112.i.i.i.i.i115, 0
+  br i1 %115, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i117, !llvm.loop !4
 
-_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i118: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i111
-  %.not.i.i119 = icmp eq ptr %.1.i.i.i.i.i117, getelementptr inbounds (i8, ptr @_ZL6Table3, i64 21876)
-  br i1 %.not.i.i119, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131, label %122
+_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i117: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i110
+  %.not.i.i118 = icmp eq ptr %.1.i.i.i.i.i116, getelementptr inbounds nuw (i8, ptr @_ZL6Table3, i64 21876)
+  br i1 %.not.i.i118, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129, label %116
 
-122:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i118
-  %123 = load i32, ptr %.1.i.i.i.i.i117, align 4
-  %124 = icmp eq i32 %123, %111
-  br i1 %124, label %125, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131
+116:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i117
+  %117 = load i32, ptr %.1.i.i.i.i.i116, align 4
+  %118 = icmp eq i32 %117, %105
+  br i1 %118, label %119, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129
 
-125:                                              ; preds = %122
-  %126 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i117, i64 8
+119:                                              ; preds = %116
+  %120 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i116, i64 8
+  %121 = load i16, ptr %120, align 4
+  %122 = and i16 %121, 16
+  %.not6.i.i120.not = icmp eq i16 %122, 0
+  br i1 %.not6.i.i120.not, label %123, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129
+
+123:                                              ; preds = %119
+  %124 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i116, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = getelementptr inbounds nuw i8, ptr %.072.ptr74, i64 8
   %127 = load i16, ptr %126, align 4
-  %128 = and i16 %127, 16
-  %.not6.i.i121.not = icmp eq i16 %128, 0
-  br i1 %.not6.i.i121.not, label %129, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131
+  %128 = or i16 %121, %127
+  %129 = or i16 %128, 35
+  %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  %.not.i.i122 = icmp eq ptr %104, %130
+  br i1 %.not.i.i122, label %134, label %131
 
-129:                                              ; preds = %125
-  %130 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i117, i64 4
-  %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %.072.ptr74, i64 8
-  %133 = load i16, ptr %132, align 4
-  %134 = or i16 %127, %133
-  %135 = or i16 %134, 35
-  %136 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  %.not.i.i123 = icmp eq ptr %110, %136
-  br i1 %.not.i.i123, label %140, label %137
+131:                                              ; preds = %123
+  store i32 %125, ptr %104, align 4
+  %.sroa.321.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 4
+  store i32 %107, ptr %.sroa.321.0..sroa_idx, align 4
+  %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %104, i64 8
+  store i16 %129, ptr %.sroa.424.0..sroa_idx, align 4
+  %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 12
+  store ptr %133, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129
 
-137:                                              ; preds = %129
-  store i32 %131, ptr %110, align 4
-  %.sroa.321.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 4
-  store i32 %113, ptr %.sroa.321.0..sroa_idx, align 4
-  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %110, i64 8
-  store i16 %135, ptr %.sroa.424.0..sroa_idx, align 4
-  %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 12
-  store ptr %139, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131
+134:                                              ; preds = %123
+  %135 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  %136 = ptrtoint ptr %104 to i64
+  %137 = ptrtoint ptr %135 to i64
+  %138 = sub i64 %136, %137
+  %139 = icmp eq i64 %138, 9223372036854775800
+  br i1 %139, label %140, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i123
 
-140:                                              ; preds = %129
-  %141 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  %142 = ptrtoint ptr %110 to i64
-  %143 = ptrtoint ptr %141 to i64
-  %144 = sub i64 %142, %143
-  %145 = icmp eq i64 %144, 9223372036854775800
-  br i1 %145, label %146, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i124
-
-146:                                              ; preds = %140
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+140:                                              ; preds = %134
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
-_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i124: ; preds = %140
-  %147 = sdiv exact i64 %144, 12
-  %.sroa.speculated.i.i.i.i125 = tail call i64 @llvm.umax.i64(i64 %147, i64 1)
-  %148 = add nsw i64 %.sroa.speculated.i.i.i.i125, %147
-  %149 = icmp ult i64 %148, %147
-  %150 = tail call i64 @llvm.umin.i64(i64 %148, i64 768614336404564650)
-  %151 = select i1 %149, i64 768614336404564650, i64 %150
-  %.not.i.i.i.i126 = icmp eq i64 %151, 0
-  br i1 %.not.i.i.i.i126, label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i127, label %152
+_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i123: ; preds = %134
+  %141 = sdiv exact i64 %138, 12
+  %.sroa.speculated.i.i.i.i124 = tail call i64 @llvm.umax.i64(i64 %141, i64 1)
+  %142 = add nsw i64 %.sroa.speculated.i.i.i.i124, %141
+  %143 = icmp ult i64 %142, %141
+  %144 = tail call i64 @llvm.umin.i64(i64 %142, i64 768614336404564650)
+  %145 = select i1 %143, i64 768614336404564650, i64 %144
+  %.not.i.i.i.i125 = icmp ne i64 %145, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i125)
+  %146 = mul nuw nsw i64 %145, 12
+  %147 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %146) #16
+  %148 = getelementptr inbounds i8, ptr %147, i64 %138
+  store i32 %125, ptr %148, align 4
+  %.sroa.321.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %148, i64 4
+  store i32 %107, ptr %.sroa.321.0..sroa_idx22, align 4
+  %.sroa.424.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store i16 %129, ptr %.sroa.424.0..sroa_idx25, align 4
+  %149 = icmp sgt i64 %138, 0
+  br i1 %149, label %150, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i126
 
-152:                                              ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i124
-  %153 = mul nuw nsw i64 %151, 12
-  %154 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %153) #15
-  br label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i127
+150:                                              ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i123
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %147, ptr align 4 %135, i64 %138, i1 false)
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i126
 
-_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i127: ; preds = %152, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i124
-  %155 = phi ptr [ %154, %152 ], [ null, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i124 ]
-  %156 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %155, i64 %147
-  store i32 %131, ptr %156, align 4
-  %.sroa.321.0..sroa_idx22 = getelementptr inbounds i8, ptr %156, i64 4
-  store i32 %113, ptr %.sroa.321.0..sroa_idx22, align 4
-  %.sroa.424.0..sroa_idx25 = getelementptr inbounds i8, ptr %156, i64 8
-  store i16 %135, ptr %.sroa.424.0..sroa_idx25, align 4
-  %157 = icmp sgt i64 %144, 0
-  br i1 %157, label %158, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i126: ; preds = %150, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i123
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 12
+  %.not.i17.i.i.i127 = icmp eq ptr %135, null
+  br i1 %.not.i17.i.i.i127, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i128, label %152
 
-158:                                              ; preds = %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i127
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %155, ptr align 4 %141, i64 %144, i1 false)
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128
+152:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i126
+  tail call void @_ZdlPvm(ptr noundef nonnull %135, i64 noundef %138) #14
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i128
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128: ; preds = %158, %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i127
-  %159 = getelementptr inbounds i8, ptr %155, i64 %144
-  %160 = getelementptr inbounds i8, ptr %159, i64 12
-  %.not.i17.i.i.i129 = icmp eq ptr %141, null
-  br i1 %.not.i17.i.i.i129, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130, label %161
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i128: ; preds = %152, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i126
+  store ptr %147, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  store ptr %151, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %153 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %147, i64 %145
+  store ptr %153, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129
 
-161:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128
-  tail call void @_ZdlPvm(ptr noundef nonnull %141, i64 noundef %144) #13
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130: ; preds = %161, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i128
-  store ptr %155, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  store ptr %160, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %162 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %155, i64 %151
-  store ptr %162, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131: ; preds = %125, %122, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i118, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130, %137
-  %163 = phi ptr [ %110, %125 ], [ %110, %122 ], [ %110, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i118 ], [ %160, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i130 ], [ %139, %137 ]
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129: ; preds = %119, %116, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i117, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i128, %131
+  %154 = phi ptr [ %104, %119 ], [ %104, %116 ], [ %104, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i117 ], [ %151, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i128 ], [ %133, %131 ]
   %.072.add = add nuw nsw i64 %.072.idx73, 12
   %.not81 = icmp eq i64 %.072.add, 13092
   br i1 %.not81, label %.preheader66, label %.preheader67
 
-.preheader66:                                     ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152
-  %164 = phi ptr [ %217, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152 ], [ %163, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131 ]
-  %.073.idx75 = phi i64 [ %.073.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit131 ]
-  %.073.ptr76 = getelementptr inbounds i8, ptr @_ZL19BroadcastSizeTable3, i64 %.073.idx75
-  %165 = load i32, ptr %.073.ptr76, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %.073.ptr76, i64 4
-  %167 = load i32, ptr %166, align 4
-  br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132
+.preheader66:                                     ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149
+  %155 = phi ptr [ %205, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149 ], [ %154, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129 ]
+  %.073.idx75 = phi i64 [ %.073.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit129 ]
+  %.073.ptr76 = getelementptr inbounds nuw i8, ptr @_ZL19BroadcastSizeTable3, i64 %.073.idx75
+  %156 = load i32, ptr %.073.ptr76, align 4
+  %157 = getelementptr inbounds nuw i8, ptr %.073.ptr76, i64 4
+  %158 = load i32, ptr %157, align 4
+  br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130
 
-_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132, %.preheader66
-  %.017.i.i.i.i.i133 = phi ptr [ %.1.i.i.i.i.i138, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132 ], [ @_ZL6Table3, %.preheader66 ]
-  %.01116.i.i.i.i.i134 = phi i64 [ %.112.i.i.i.i.i137, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132 ], [ 1823, %.preheader66 ]
-  %168 = lshr i64 %.01116.i.i.i.i.i134, 1
-  %169 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i133, i64 %168
-  %170 = load i32, ptr %169, align 4
-  %171 = icmp ult i32 %170, %165
-  %172 = getelementptr inbounds i8, ptr %169, i64 12
-  %173 = xor i64 %168, -1
-  %174 = add nsw i64 %.01116.i.i.i.i.i134, %173
-  %.112.i.i.i.i.i137 = select i1 %171, i64 %174, i64 %168
-  %.1.i.i.i.i.i138 = select i1 %171, ptr %172, ptr %.017.i.i.i.i.i133
-  %175 = icmp sgt i64 %.112.i.i.i.i.i137, 0
-  br i1 %175, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i139, !llvm.loop !4
+_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130, %.preheader66
+  %.017.i.i.i.i.i131 = phi ptr [ %.1.i.i.i.i.i136, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130 ], [ @_ZL6Table3, %.preheader66 ]
+  %.01116.i.i.i.i.i132 = phi i64 [ %.112.i.i.i.i.i135, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130 ], [ 1823, %.preheader66 ]
+  %159 = lshr i64 %.01116.i.i.i.i.i132, 1
+  %160 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i131, i64 %159
+  %161 = load i32, ptr %160, align 4
+  %162 = icmp ult i32 %161, %156
+  %163 = getelementptr inbounds nuw i8, ptr %160, i64 12
+  %164 = xor i64 %159, -1
+  %165 = add nsw i64 %.01116.i.i.i.i.i132, %164
+  %.112.i.i.i.i.i135 = select i1 %162, i64 %165, i64 %159
+  %.1.i.i.i.i.i136 = select i1 %162, ptr %163, ptr %.017.i.i.i.i.i131
+  %166 = icmp sgt i64 %.112.i.i.i.i.i135, 0
+  br i1 %166, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i137, !llvm.loop !4
 
-_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i139: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i132
-  %.not.i.i140 = icmp eq ptr %.1.i.i.i.i.i138, getelementptr inbounds (i8, ptr @_ZL6Table3, i64 21876)
-  br i1 %.not.i.i140, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152, label %176
+_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i137: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i130
+  %.not.i.i138 = icmp eq ptr %.1.i.i.i.i.i136, getelementptr inbounds nuw (i8, ptr @_ZL6Table3, i64 21876)
+  br i1 %.not.i.i138, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149, label %167
 
-176:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i139
-  %177 = load i32, ptr %.1.i.i.i.i.i138, align 4
-  %178 = icmp eq i32 %177, %165
-  br i1 %178, label %179, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152
+167:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i137
+  %168 = load i32, ptr %.1.i.i.i.i.i136, align 4
+  %169 = icmp eq i32 %168, %156
+  br i1 %169, label %170, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149
 
-179:                                              ; preds = %176
-  %180 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i138, i64 8
-  %181 = load i16, ptr %180, align 4
-  %182 = and i16 %181, 16
-  %.not6.i.i142.not = icmp eq i16 %182, 0
-  br i1 %.not6.i.i142.not, label %183, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152
+170:                                              ; preds = %167
+  %171 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i136, i64 8
+  %172 = load i16, ptr %171, align 4
+  %173 = and i16 %172, 16
+  %.not6.i.i140.not = icmp eq i16 %173, 0
+  br i1 %.not6.i.i140.not, label %174, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149
 
-183:                                              ; preds = %179
-  %184 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i138, i64 4
-  %185 = load i32, ptr %184, align 4
-  %186 = getelementptr inbounds nuw i8, ptr %.073.ptr76, i64 8
-  %187 = load i16, ptr %186, align 4
-  %188 = or i16 %181, %187
-  %189 = or i16 %188, 35
-  %190 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  %.not.i.i144 = icmp eq ptr %164, %190
-  br i1 %.not.i.i144, label %194, label %191
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i136, i64 4
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %.073.ptr76, i64 8
+  %178 = load i16, ptr %177, align 4
+  %179 = or i16 %172, %178
+  %180 = or i16 %179, 35
+  %181 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  %.not.i.i142 = icmp eq ptr %155, %181
+  br i1 %.not.i.i142, label %185, label %182
 
-191:                                              ; preds = %183
-  store i32 %185, ptr %164, align 4
-  %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 4
-  store i32 %167, ptr %.sroa.310.0..sroa_idx, align 4
-  %.sroa.413.0..sroa_idx = getelementptr inbounds i8, ptr %164, i64 8
-  store i16 %189, ptr %.sroa.413.0..sroa_idx, align 4
-  %192 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 12
-  store ptr %193, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152
+182:                                              ; preds = %174
+  store i32 %176, ptr %155, align 4
+  %.sroa.310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 4
+  store i32 %158, ptr %.sroa.310.0..sroa_idx, align 4
+  %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %155, i64 8
+  store i16 %180, ptr %.sroa.413.0..sroa_idx, align 4
+  %183 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 12
+  store ptr %184, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149
 
-194:                                              ; preds = %183
-  %195 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  %196 = ptrtoint ptr %164 to i64
-  %197 = ptrtoint ptr %195 to i64
-  %198 = sub i64 %196, %197
-  %199 = icmp eq i64 %198, 9223372036854775800
-  br i1 %199, label %200, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i145
+185:                                              ; preds = %174
+  %186 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  %187 = ptrtoint ptr %155 to i64
+  %188 = ptrtoint ptr %186 to i64
+  %189 = sub i64 %187, %188
+  %190 = icmp eq i64 %189, 9223372036854775800
+  br i1 %190, label %191, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i143
 
-200:                                              ; preds = %194
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+191:                                              ; preds = %185
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
-_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i145: ; preds = %194
-  %201 = sdiv exact i64 %198, 12
-  %.sroa.speculated.i.i.i.i146 = tail call i64 @llvm.umax.i64(i64 %201, i64 1)
-  %202 = add nsw i64 %.sroa.speculated.i.i.i.i146, %201
-  %203 = icmp ult i64 %202, %201
-  %204 = tail call i64 @llvm.umin.i64(i64 %202, i64 768614336404564650)
-  %205 = select i1 %203, i64 768614336404564650, i64 %204
-  %.not.i.i.i.i147 = icmp eq i64 %205, 0
-  br i1 %.not.i.i.i.i147, label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i148, label %206
+_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i143: ; preds = %185
+  %192 = sdiv exact i64 %189, 12
+  %.sroa.speculated.i.i.i.i144 = tail call i64 @llvm.umax.i64(i64 %192, i64 1)
+  %193 = add nsw i64 %.sroa.speculated.i.i.i.i144, %192
+  %194 = icmp ult i64 %193, %192
+  %195 = tail call i64 @llvm.umin.i64(i64 %193, i64 768614336404564650)
+  %196 = select i1 %194, i64 768614336404564650, i64 %195
+  %.not.i.i.i.i145 = icmp ne i64 %196, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i145)
+  %197 = mul nuw nsw i64 %196, 12
+  %198 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %197) #16
+  %199 = getelementptr inbounds i8, ptr %198, i64 %189
+  store i32 %176, ptr %199, align 4
+  %.sroa.310.0..sroa_idx11 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  store i32 %158, ptr %.sroa.310.0..sroa_idx11, align 4
+  %.sroa.413.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  store i16 %180, ptr %.sroa.413.0..sroa_idx14, align 4
+  %200 = icmp sgt i64 %189, 0
+  br i1 %200, label %201, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i146
 
-206:                                              ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i145
-  %207 = mul nuw nsw i64 %205, 12
-  %208 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %207) #15
-  br label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i148
+201:                                              ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i143
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %198, ptr align 4 %186, i64 %189, i1 false)
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i146
 
-_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i148: ; preds = %206, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i145
-  %209 = phi ptr [ %208, %206 ], [ null, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i145 ]
-  %210 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %209, i64 %201
-  store i32 %185, ptr %210, align 4
-  %.sroa.310.0..sroa_idx11 = getelementptr inbounds i8, ptr %210, i64 4
-  store i32 %167, ptr %.sroa.310.0..sroa_idx11, align 4
-  %.sroa.413.0..sroa_idx14 = getelementptr inbounds i8, ptr %210, i64 8
-  store i16 %189, ptr %.sroa.413.0..sroa_idx14, align 4
-  %211 = icmp sgt i64 %198, 0
-  br i1 %211, label %212, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i149
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i146: ; preds = %201, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i143
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 12
+  %.not.i17.i.i.i147 = icmp eq ptr %186, null
+  br i1 %.not.i17.i.i.i147, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i148, label %203
 
-212:                                              ; preds = %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i148
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %209, ptr align 4 %195, i64 %198, i1 false)
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i149
+203:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i146
+  tail call void @_ZdlPvm(ptr noundef nonnull %186, i64 noundef %189) #14
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i148
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i149: ; preds = %212, %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i148
-  %213 = getelementptr inbounds i8, ptr %209, i64 %198
-  %214 = getelementptr inbounds i8, ptr %213, i64 12
-  %.not.i17.i.i.i150 = icmp eq ptr %195, null
-  br i1 %.not.i17.i.i.i150, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i151, label %215
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i148: ; preds = %203, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i146
+  store ptr %198, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  store ptr %202, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %204 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %198, i64 %196
+  store ptr %204, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149
 
-215:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i149
-  tail call void @_ZdlPvm(ptr noundef nonnull %195, i64 noundef %198) #13
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i151
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i151: ; preds = %215, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i149
-  store ptr %209, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  store ptr %214, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %216 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %209, i64 %205
-  store ptr %216, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152: ; preds = %179, %176, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i139, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i151, %191
-  %217 = phi ptr [ %164, %179 ], [ %164, %176 ], [ %164, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i139 ], [ %214, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i151 ], [ %193, %191 ]
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149: ; preds = %170, %167, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i137, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i148, %182
+  %205 = phi ptr [ %155, %170 ], [ %155, %167 ], [ %155, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i137 ], [ %202, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i148 ], [ %184, %182 ]
   %.073.add = add nuw nsw i64 %.073.idx75, 12
   %.not82 = icmp eq i64 %.073.add, 72
   br i1 %.not82, label %.preheader, label %.preheader66
 
-.preheader:                                       ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173
-  %218 = phi ptr [ %271, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173 ], [ %217, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152 ]
-  %.074.idx77 = phi i64 [ %.074.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit152 ]
-  %.074.ptr78 = getelementptr inbounds i8, ptr @_ZL15BroadcastTable4, i64 %.074.idx77
-  %219 = load i32, ptr %.074.ptr78, align 4
-  %220 = getelementptr inbounds nuw i8, ptr %.074.ptr78, i64 4
-  %221 = load i32, ptr %220, align 4
-  br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153
+.preheader:                                       ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169
+  %206 = phi ptr [ %256, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169 ], [ %205, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149 ]
+  %.074.idx77 = phi i64 [ %.074.add, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169 ], [ 0, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit149 ]
+  %.074.ptr78 = getelementptr inbounds nuw i8, ptr @_ZL15BroadcastTable4, i64 %.074.idx77
+  %207 = load i32, ptr %.074.ptr78, align 4
+  %208 = getelementptr inbounds nuw i8, ptr %.074.ptr78, i64 4
+  %209 = load i32, ptr %208, align 4
+  br label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150
 
-_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153, %.preheader
-  %.017.i.i.i.i.i154 = phi ptr [ %.1.i.i.i.i.i159, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153 ], [ @_ZL6Table4, %.preheader ]
-  %.01116.i.i.i.i.i155 = phi i64 [ %.112.i.i.i.i.i158, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153 ], [ 1343, %.preheader ]
-  %222 = lshr i64 %.01116.i.i.i.i.i155, 1
-  %223 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i154, i64 %222
-  %224 = load i32, ptr %223, align 4
-  %225 = icmp ult i32 %224, %219
-  %226 = getelementptr inbounds i8, ptr %223, i64 12
-  %227 = xor i64 %222, -1
-  %228 = add nsw i64 %.01116.i.i.i.i.i155, %227
-  %.112.i.i.i.i.i158 = select i1 %225, i64 %228, i64 %222
-  %.1.i.i.i.i.i159 = select i1 %225, ptr %226, ptr %.017.i.i.i.i.i154
-  %229 = icmp sgt i64 %.112.i.i.i.i.i158, 0
-  br i1 %229, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i160, !llvm.loop !4
+_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150, %.preheader
+  %.017.i.i.i.i.i151 = phi ptr [ %.1.i.i.i.i.i156, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150 ], [ @_ZL6Table4, %.preheader ]
+  %.01116.i.i.i.i.i152 = phi i64 [ %.112.i.i.i.i.i155, %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150 ], [ 1343, %.preheader ]
+  %210 = lshr i64 %.01116.i.i.i.i.i152, 1
+  %211 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %.017.i.i.i.i.i151, i64 %210
+  %212 = load i32, ptr %211, align 4
+  %213 = icmp ult i32 %212, %207
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 12
+  %215 = xor i64 %210, -1
+  %216 = add nsw i64 %.01116.i.i.i.i.i152, %215
+  %.112.i.i.i.i.i155 = select i1 %213, i64 %216, i64 %210
+  %.1.i.i.i.i.i156 = select i1 %213, ptr %214, ptr %.017.i.i.i.i.i151
+  %217 = icmp sgt i64 %.112.i.i.i.i.i155, 0
+  br i1 %217, label %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150, label %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i157, !llvm.loop !4
 
-_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i160: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i153
-  %.not.i.i161 = icmp eq ptr %.1.i.i.i.i.i159, getelementptr inbounds (i8, ptr @_ZL6Table4, i64 16116)
-  br i1 %.not.i.i161, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173, label %230
+_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i157: ; preds = %_ZSt7advanceIPKN4llvm17X86FoldTableEntryElEvRT_T0_.exit.i.i.i.i.i150
+  %.not.i.i158 = icmp eq ptr %.1.i.i.i.i.i156, getelementptr inbounds nuw (i8, ptr @_ZL6Table4, i64 16116)
+  br i1 %.not.i.i158, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169, label %218
 
-230:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i160
-  %231 = load i32, ptr %.1.i.i.i.i.i159, align 4
-  %232 = icmp eq i32 %231, %219
-  br i1 %232, label %233, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173
+218:                                              ; preds = %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i157
+  %219 = load i32, ptr %.1.i.i.i.i.i156, align 4
+  %220 = icmp eq i32 %219, %207
+  br i1 %220, label %221, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169
 
-233:                                              ; preds = %230
-  %234 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i159, i64 8
-  %235 = load i16, ptr %234, align 4
-  %236 = and i16 %235, 16
-  %.not6.i.i163.not = icmp eq i16 %236, 0
-  br i1 %.not6.i.i163.not, label %237, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173
+221:                                              ; preds = %218
+  %222 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i156, i64 8
+  %223 = load i16, ptr %222, align 4
+  %224 = and i16 %223, 16
+  %.not6.i.i160.not = icmp eq i16 %224, 0
+  br i1 %.not6.i.i160.not, label %225, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169
 
-237:                                              ; preds = %233
-  %238 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i159, i64 4
-  %239 = load i32, ptr %238, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %.074.ptr78, i64 8
-  %241 = load i16, ptr %240, align 4
-  %242 = or i16 %235, %241
-  %243 = or i16 %242, 36
-  %244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  %.not.i.i165 = icmp eq ptr %218, %244
-  br i1 %.not.i.i165, label %248, label %245
+225:                                              ; preds = %221
+  %226 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i156, i64 4
+  %227 = load i32, ptr %226, align 4
+  %228 = getelementptr inbounds nuw i8, ptr %.074.ptr78, i64 8
+  %229 = load i16, ptr %228, align 4
+  %230 = or i16 %223, %229
+  %231 = or i16 %230, 36
+  %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  %.not.i.i162 = icmp eq ptr %206, %232
+  br i1 %.not.i.i162, label %236, label %233
 
-245:                                              ; preds = %237
-  store i32 %239, ptr %218, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %218, i64 4
-  store i32 %221, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %218, i64 8
-  store i16 %243, ptr %.sroa.4.0..sroa_idx, align 4
-  %246 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 12
-  store ptr %247, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173
+233:                                              ; preds = %225
+  store i32 %227, ptr %206, align 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 4
+  store i32 %209, ptr %.sroa.3.0..sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %206, i64 8
+  store i16 %231, ptr %.sroa.4.0..sroa_idx, align 4
+  %234 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 12
+  store ptr %235, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169
 
-248:                                              ; preds = %237
-  %249 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  %250 = ptrtoint ptr %218 to i64
-  %251 = ptrtoint ptr %249 to i64
-  %252 = sub i64 %250, %251
-  %253 = icmp eq i64 %252, 9223372036854775800
-  br i1 %253, label %254, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i166
+236:                                              ; preds = %225
+  %237 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  %238 = ptrtoint ptr %206 to i64
+  %239 = ptrtoint ptr %237 to i64
+  %240 = sub i64 %238, %239
+  %241 = icmp eq i64 %240, 9223372036854775800
+  br i1 %241, label %242, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i163
 
-254:                                              ; preds = %248
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+242:                                              ; preds = %236
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
-_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i166: ; preds = %248
-  %255 = sdiv exact i64 %252, 12
-  %.sroa.speculated.i.i.i.i167 = tail call i64 @llvm.umax.i64(i64 %255, i64 1)
-  %256 = add nsw i64 %.sroa.speculated.i.i.i.i167, %255
-  %257 = icmp ult i64 %256, %255
-  %258 = tail call i64 @llvm.umin.i64(i64 %256, i64 768614336404564650)
-  %259 = select i1 %257, i64 768614336404564650, i64 %258
-  %.not.i.i.i.i168 = icmp eq i64 %259, 0
-  br i1 %.not.i.i.i.i168, label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i169, label %260
+_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i163: ; preds = %236
+  %243 = sdiv exact i64 %240, 12
+  %.sroa.speculated.i.i.i.i164 = tail call i64 @llvm.umax.i64(i64 %243, i64 1)
+  %244 = add nsw i64 %.sroa.speculated.i.i.i.i164, %243
+  %245 = icmp ult i64 %244, %243
+  %246 = tail call i64 @llvm.umin.i64(i64 %244, i64 768614336404564650)
+  %247 = select i1 %245, i64 768614336404564650, i64 %246
+  %.not.i.i.i.i165 = icmp ne i64 %247, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i165)
+  %248 = mul nuw nsw i64 %247, 12
+  %249 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %248) #16
+  %250 = getelementptr inbounds i8, ptr %249, i64 %240
+  store i32 %227, ptr %250, align 4
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %250, i64 4
+  store i32 %209, ptr %.sroa.3.0..sroa_idx2, align 4
+  %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %250, i64 8
+  store i16 %231, ptr %.sroa.4.0..sroa_idx4, align 4
+  %251 = icmp sgt i64 %240, 0
+  br i1 %251, label %252, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i166
 
-260:                                              ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i166
-  %261 = mul nuw nsw i64 %259, 12
-  %262 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %261) #15
-  br label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i169
+252:                                              ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i163
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %249, ptr align 4 %237, i64 %240, i1 false)
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i166
 
-_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i169: ; preds = %260, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i166
-  %263 = phi ptr [ %262, %260 ], [ null, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i166 ]
-  %264 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %263, i64 %255
-  store i32 %239, ptr %264, align 4
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %264, i64 4
-  store i32 %221, ptr %.sroa.3.0..sroa_idx2, align 4
-  %.sroa.4.0..sroa_idx4 = getelementptr inbounds i8, ptr %264, i64 8
-  store i16 %243, ptr %.sroa.4.0..sroa_idx4, align 4
-  %265 = icmp sgt i64 %252, 0
-  br i1 %265, label %266, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i170
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i166: ; preds = %252, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i163
+  %253 = getelementptr inbounds nuw i8, ptr %250, i64 12
+  %.not.i17.i.i.i167 = icmp eq ptr %237, null
+  br i1 %.not.i17.i.i.i167, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i168, label %254
 
-266:                                              ; preds = %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i169
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %263, ptr align 4 %249, i64 %252, i1 false)
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i170
+254:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i166
+  tail call void @_ZdlPvm(ptr noundef nonnull %237, i64 noundef %240) #14
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i168
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i170: ; preds = %266, %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i169
-  %267 = getelementptr inbounds i8, ptr %263, i64 %252
-  %268 = getelementptr inbounds i8, ptr %267, i64 12
-  %.not.i17.i.i.i171 = icmp eq ptr %249, null
-  br i1 %.not.i17.i.i.i171, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i172, label %269
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i168: ; preds = %254, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i166
+  store ptr %249, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  store ptr %253, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
+  %255 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %249, i64 %247
+  store ptr %255, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
+  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169
 
-269:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i170
-  tail call void @_ZdlPvm(ptr noundef nonnull %249, i64 noundef %252) #13
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i172
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i172: ; preds = %269, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i170
-  store ptr %263, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  store ptr %268, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 8), align 8
-  %270 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %263, i64 %259
-  store ptr %270, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, i64 16), align 8
-  br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173
-
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173: ; preds = %233, %230, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i160, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i172, %245
-  %271 = phi ptr [ %218, %233 ], [ %218, %230 ], [ %218, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i160 ], [ %268, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i172 ], [ %247, %245 ]
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169: ; preds = %221, %218, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i157, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i168, %233
+  %256 = phi ptr [ %206, %221 ], [ %206, %218 ], [ %206, %_ZN4llvm11lower_boundIRNS_8ArrayRefINS_17X86FoldTableEntryEEERjEEDaOT_OT0_.exit.i.i157 ], [ %253, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i168 ], [ %235, %233 ]
   %.074.add = add nuw nsw i64 %.074.idx77, 12
   %.not83 = icmp eq i64 %.074.add, 11892
-  br i1 %.not83, label %272, label %.preheader
+  br i1 %.not83, label %257, label %.preheader
 
-272:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit173
-  %273 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
-  %274 = ptrtoint ptr %271 to i64
-  %275 = ptrtoint ptr %273 to i64
-  %276 = sub i64 %274, %275
-  %277 = icmp slt i64 %276, 24
-  br i1 %277, label %_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit, label %278
+257:                                              ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit169
+  %258 = load ptr, ptr @_ZZN4llvm30lookupBroadcastFoldTableBySizeEjjE18BroadcastFoldTable, align 8
+  %259 = ptrtoint ptr %256 to i64
+  %260 = ptrtoint ptr %258 to i64
+  %261 = sub i64 %259, %260
+  %262 = icmp slt i64 %261, 24
+  br i1 %262, label %_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit, label %263
 
-278:                                              ; preds = %272
-  %279 = udiv exact i64 %276, 12
-  tail call void @qsort(ptr noundef nonnull %273, i64 noundef %279, i64 noundef 12, ptr noundef nonnull @_ZN4llvm25array_pod_sort_comparatorINS_17X86FoldTableEntryEEEiPKvS3_) #12
+263:                                              ; preds = %257
+  %264 = udiv exact i64 %261, 12
+  tail call void @qsort(ptr noundef nonnull %258, i64 noundef %264, i64 noundef 12, ptr noundef nonnull @_ZN4llvm25array_pod_sort_comparatorINS_17X86FoldTableEntryEEEiPKvS3_) #13
   br label %_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit
 
-_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit: ; preds = %272, %278
+_ZN4llvm14array_pod_sortIN9__gnu_cxx17__normal_iteratorIPNS_17X86FoldTableEntryESt6vectorIS3_SaIS3_EEEEEEvT_S9_.exit: ; preds = %257, %263
   ret void
 }
 
@@ -1216,7 +1181,7 @@ define internal void @_ZN12_GLOBAL__N_121X86BroadcastFoldTableD2Ev(ptr nocapture
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %2 to i64
   %8 = sub i64 %6, %7
-  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #13
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef %8) #14
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EED2Ev.exit: ; preds = %1, %3
@@ -1243,12 +1208,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntry
 
 14:                                               ; preds = %7
   store i32 %9, ptr %12, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 4
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %10, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i16 %11, ptr %.sroa.4.0..sroa_idx, align 4
   %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i64 8), align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 12
   store ptr %16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i64 8), align 8
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit
 
@@ -1261,7 +1226,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_117X86MemUnfoldTable13addTableEntry
   br i1 %22, label %23, label %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
 
 23:                                               ; preds = %17
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #14
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #15
   unreachable
 
 _ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %17
@@ -1271,44 +1236,37 @@ _ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: 
   %26 = icmp ult i64 %25, %24
   %27 = tail call i64 @llvm.umin.i64(i64 %25, i64 768614336404564650)
   %28 = select i1 %26, i64 768614336404564650, i64 %27
-  %.not.i.i.i.i = icmp eq i64 %28, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i, label %29
-
-29:                                               ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %30 = mul nuw nsw i64 %28, 12
-  %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #15
-  br label %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
-
-_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i: ; preds = %29, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
-  %32 = phi ptr [ %31, %29 ], [ null, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ]
-  %33 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %32, i64 %24
-  store i32 %9, ptr %33, align 4
-  %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %33, i64 4
+  %.not.i.i.i.i = icmp ne i64 %28, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i)
+  %29 = mul nuw nsw i64 %28, 12
+  %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #16
+  %31 = getelementptr inbounds i8, ptr %30, i64 %21
+  store i32 %9, ptr %31, align 4
+  %.sroa.3.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 %10, ptr %.sroa.3.0..sroa_idx2, align 4
-  %.sroa.4.0..sroa_idx4 = getelementptr inbounds i8, ptr %33, i64 8
+  %.sroa.4.0..sroa_idx4 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i16 %11, ptr %.sroa.4.0..sroa_idx4, align 4
-  %34 = icmp sgt i64 %21, 0
-  br i1 %34, label %35, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  %32 = icmp sgt i64 %21, 0
+  br i1 %32, label %33, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-35:                                               ; preds = %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %32, ptr align 4 %18, i64 %21, i1 false)
+33:                                               ; preds = %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %30, ptr align 4 %18, i64 %21, i1 false)
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %35, %_ZNSt12_Vector_baseIN4llvm17X86FoldTableEntryESaIS1_EE11_M_allocateEm.exit.i.i.i
-  %36 = getelementptr inbounds i8, ptr %32, i64 %21
-  %37 = getelementptr inbounds i8, ptr %36, i64 12
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %33, %_ZNKSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %.not.i17.i.i.i = icmp eq ptr %18, null
-  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %38
+  br i1 %.not.i17.i.i.i, label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, label %35
 
-38:                                               ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %21) #13
+35:                                               ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  tail call void @_ZdlPvm(ptr noundef nonnull %18, i64 noundef %21) #14
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  store ptr %32, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, align 8
-  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i64 8), align 8
-  %39 = getelementptr inbounds %"struct.llvm::X86FoldTableEntry", ptr %32, i64 %28
-  store ptr %39, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i64 16), align 8
+_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
+  store ptr %30, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, align 8
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i64 8), align 8
+  %36 = getelementptr inbounds nuw %"struct.llvm::X86FoldTableEntry", ptr %30, i64 %28
+  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm17lookupUnfoldTableEjE14MemUnfoldTable, i64 16), align 8
   br label %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit
 
 _ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIN4llvm17X86FoldTableEntryESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %14, %2
@@ -1347,6 +1305,9 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #12
+
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #11
 
@@ -1362,10 +1323,11 @@ attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="t
 attributes #9 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin nounwind }
-attributes #14 = { noreturn nounwind }
-attributes #15 = { builtin nounwind allocsize(0) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { builtin nounwind }
+attributes #15 = { noreturn nounwind }
+attributes #16 = { builtin nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

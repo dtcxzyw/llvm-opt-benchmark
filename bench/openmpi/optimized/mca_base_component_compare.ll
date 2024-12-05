@@ -7,9 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_priority(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = icmp sgt i32 %4, %6
   br i1 %7, label %mca_base_component_compare.exit, label %8
@@ -19,12 +19,12 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_prior
   br i1 %9, label %mca_base_component_compare.exit, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 40
-  %16 = getelementptr inbounds i8, ptr %14, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %17 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %16, i64 noundef 31) #5
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %20, label %18
@@ -34,8 +34,8 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_prior
   br label %mca_base_component_compare.exit
 
 20:                                               ; preds = %10
-  %21 = getelementptr inbounds i8, ptr %12, i64 84
-  %22 = getelementptr inbounds i8, ptr %14, i64 84
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 84
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 84
   %23 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %21, ptr noundef nonnull readonly dereferenceable(1) %22, i64 noundef 63) #5
   %.not28.i = icmp eq i32 %23, 0
   br i1 %.not28.i, label %26, label %24
@@ -45,9 +45,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_prior
   br label %mca_base_component_compare.exit
 
 26:                                               ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %12, i64 148
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 148
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds i8, ptr %14, i64 148
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 148
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %28, %30
   br i1 %31, label %mca_base_component_compare.exit, label %32
@@ -57,9 +57,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_prior
   br i1 %33, label %mca_base_component_compare.exit, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds i8, ptr %12, i64 152
+  %35 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %36 = load i32, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %14, i64 152
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %38 = load i32, ptr %37, align 8
   %39 = icmp sgt i32 %36, %38
   br i1 %39, label %mca_base_component_compare.exit, label %40
@@ -69,9 +69,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare_prior
   br i1 %41, label %mca_base_component_compare.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %12, i64 156
+  %43 = getelementptr inbounds nuw i8, ptr %12, i64 156
   %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %14, i64 156
+  %45 = getelementptr inbounds nuw i8, ptr %14, i64 156
   %46 = load i32, ptr %45, align 4
   %47 = icmp sgt i32 %44, %46
   br i1 %47, label %mca_base_component_compare.exit, label %48
@@ -88,8 +88,8 @@ mca_base_component_compare.exit:                  ; preds = %48, %42, %40, %34, 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 31) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -99,8 +99,8 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare(ptr n
   br label %38
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
-  %10 = getelementptr inbounds i8, ptr %1, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 63) #5
   %.not28 = icmp eq i32 %11, 0
   br i1 %.not28, label %14, label %12
@@ -110,9 +110,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare(ptr n
   br label %38
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 148
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 148
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %16, %18
   br i1 %19, label %38, label %20
@@ -122,9 +122,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare(ptr n
   br i1 %21, label %38, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %26 = load i32, ptr %25, align 8
   %27 = icmp sgt i32 %24, %26
   br i1 %27, label %38, label %28
@@ -134,9 +134,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compare(ptr n
   br i1 %29, label %38, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 156
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i8, ptr %1, i64 156
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 156
   %34 = load i32, ptr %33, align 4
   %35 = icmp sgt i32 %32, %34
   br i1 %35, label %38, label %36
@@ -156,8 +156,8 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compatible(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 31) #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -167,8 +167,8 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compatible(pt
   br label %30
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 84
-  %10 = getelementptr inbounds i8, ptr %1, i64 84
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %11 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 63) #5
   %.not22 = icmp eq i32 %11, 0
   br i1 %.not22, label %14, label %12
@@ -178,9 +178,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compatible(pt
   br label %30
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 148
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %1, i64 148
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %18 = load i32, ptr %17, align 4
   %19 = icmp sgt i32 %16, %18
   br i1 %19, label %30, label %20
@@ -190,9 +190,9 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compatible(pt
   br i1 %21, label %30, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %24 = load i32, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %1, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %26 = load i32, ptr %25, align 8
   %27 = icmp sgt i32 %24, %26
   br i1 %27, label %30, label %28
@@ -211,11 +211,11 @@ define range(i32 -2147483647, -2147483648) i32 @mca_base_component_compatible(pt
 define ptr @mca_base_component_to_string(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
-  %4 = getelementptr inbounds i8, ptr %0, i64 84
-  %5 = getelementptr inbounds i8, ptr %0, i64 148
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %8 = load i32, ptr %7, align 8
   %9 = call i32 (ptr, ptr, ...) @opal_asprintf(ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %6, i32 noundef %8) #6
   %10 = icmp slt i32 %9, 0

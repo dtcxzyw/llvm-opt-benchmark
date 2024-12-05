@@ -49,10 +49,10 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %indvars.iv206 = phi i64 [ %indvars.iv.next207, %.lr.ph168.us ], [ %indvars.iv204, %..preheader_crit_edge.us ]
   %.1167.us = phi i32 [ %23, %.lr.ph168.us ], [ %.0154172.us, %..preheader_crit_edge.us ]
   %18 = shl nsw i64 %indvars.iv206, 2
-  %19 = getelementptr inbounds i8, ptr %.0174.us, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %.0174.us, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %22 = getelementptr inbounds i8, ptr %.0153173.us, i64 %indvars.iv206
+  %22 = getelementptr inbounds nuw i8, ptr %.0153173.us, i64 %indvars.iv206
   store i8 %20, ptr %22, align 1
   %23 = and i32 %.1167.us, %21
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
@@ -65,11 +65,11 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %.1159163.us = phi <2 x i64> [ %.0158170.us, %.preheader161.us ], [ %42, %25 ]
   %.0160162.us = phi ptr [ %.0174.us, %.preheader161.us ], [ %43, %25 ]
   %26 = load <16 x i8>, ptr %.0160162.us, align 1
-  %27 = getelementptr inbounds i8, ptr %.0160162.us, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.0160162.us, i64 16
   %28 = load <16 x i8>, ptr %27, align 1
-  %29 = getelementptr inbounds i8, ptr %.0160162.us, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %.0160162.us, i64 32
   %30 = load <16 x i8>, ptr %29, align 1
-  %31 = getelementptr inbounds i8, ptr %.0160162.us, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %.0160162.us, i64 48
   %32 = load <16 x i8>, ptr %31, align 1
   %33 = shufflevector <16 x i8> %26, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
   %34 = shufflevector <16 x i8> %28, <16 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 16, i32 16, i32 16, i32 16, i32 0, i32 4, i32 8, i32 12, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
@@ -79,10 +79,10 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %38 = or <16 x i8> %37, %35
   %39 = or <16 x i8> %38, %36
   %40 = bitcast <16 x i8> %39 to <2 x i64>
-  %41 = getelementptr inbounds i8, ptr %.0153173.us, i64 %indvars.iv201
+  %41 = getelementptr inbounds nuw i8, ptr %.0153173.us, i64 %indvars.iv201
   store <16 x i8> %39, ptr %41, align 1
   %42 = and <2 x i64> %.1159163.us, %40
-  %43 = getelementptr inbounds i8, ptr %.0160162.us, i64 64
+  %43 = getelementptr inbounds nuw i8, ptr %.0160162.us, i64 64
   %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 16
   %44 = icmp slt i64 %indvars.iv.next202, %13
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 16
@@ -112,10 +112,10 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %indvars.iv = phi i64 [ 0, %.preheader161.us179 ], [ %indvars.iv.next, %48 ]
   %.1167.us185 = phi i32 [ %.0154172.us182, %.preheader161.us179 ], [ %54, %48 ]
   %49 = shl nsw i64 %indvars.iv, 2
-  %50 = getelementptr inbounds i8, ptr %.0174.us180, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %.0174.us180, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
-  %53 = getelementptr inbounds i8, ptr %.0153173.us181, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw i8, ptr %.0153173.us181, i64 %indvars.iv
   store i8 %51, ptr %53, align 1
   %54 = and i32 %.1167.us185, %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

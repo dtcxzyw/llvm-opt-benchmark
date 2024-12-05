@@ -52,7 +52,7 @@ define i32 @openblas_setaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2)
 
 15:                                               ; preds = %10
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !7
   br label %19
 
@@ -107,7 +107,7 @@ define i32 @openblas_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2)
 
 15:                                               ; preds = %10
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !7
   br label %19
 
@@ -155,20 +155,20 @@ define noundef i32 @blas_thread_init() local_unnamed_addr #0 {
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %20
 
 20:                                               ; preds = %52, %18
   %21 = phi i64 [ 0, %18 ], [ %.pre-phi, %52 ]
-  %22 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %21
   store atomic volatile i64 0, ptr %22 monotonic, align 128
-  %23 = getelementptr inbounds i8, ptr %22, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store volatile i64 4, ptr %23, align 8, !tbaa !9
-  %24 = getelementptr inbounds i8, ptr %22, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = call i32 @pthread_mutex_init(ptr noundef nonnull %24, ptr noundef null) #11
-  %26 = getelementptr inbounds i8, ptr %22, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %27 = call i32 @pthread_cond_init(ptr noundef nonnull %26, ptr noundef null) #11
-  %28 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %21
+  %28 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %21
   %29 = inttoptr i64 %21 to ptr
   %30 = call i32 @pthread_create(ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %29) #11
   %31 = icmp eq i32 %30, 0
@@ -250,9 +250,9 @@ define internal noundef ptr @blas_thread_server(ptr noundef %0) #0 {
   %2 = ptrtoint ptr %0 to i64
   %3 = tail call ptr @blas_memory_alloc(i32 noundef 2) #11
   %4 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %2
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
-  %6 = getelementptr inbounds i8, ptr %4, i64 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 56
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %8
 
 8:                                                ; preds = %.backedge, %1
@@ -328,14 +328,14 @@ define internal noundef ptr @blas_thread_server(ptr noundef %0) #0 {
 47:                                               ; preds = %.loopexit1
   %48 = load ptr, ptr %46, align 8, !tbaa !24
   store atomic volatile i64 1, ptr %4 monotonic, align 128
-  %49 = getelementptr inbounds i8, ptr %46, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %50 = load ptr, ptr %49, align 8, !tbaa !26
-  %51 = getelementptr inbounds i8, ptr %46, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 56
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   %53 = icmp eq ptr %50, null
   %54 = select i1 %53, ptr %3, ptr %50
   %55 = icmp eq ptr %52, null
-  %56 = getelementptr inbounds i8, ptr %46, i64 160
+  %56 = getelementptr inbounds nuw i8, ptr %46, i64 160
   %57 = load i32, ptr %56, align 8, !tbaa !28
   br i1 %55, label %58, label %._crit_edge
 
@@ -356,7 +356,7 @@ define internal noundef ptr @blas_thread_server(ptr noundef %0) #0 {
   br i1 %67, label %71, label %68
 
 68:                                               ; preds = %._crit_edge
-  %69 = getelementptr inbounds i8, ptr %46, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !29
   tail call fastcc void @legacy_exec(ptr noundef %48, i32 noundef %57, ptr noundef %70, ptr noundef %65)
   br label %88
@@ -368,19 +368,19 @@ define internal noundef ptr @blas_thread_server(ptr noundef %0) #0 {
 
 74:                                               ; preds = %71
   %75 = load ptr, ptr %46, align 8, !tbaa !24
-  %76 = getelementptr inbounds i8, ptr %46, i64 24
+  %76 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !29
   tail call void %75(ptr noundef %77) #11
   br label %88
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds i8, ptr %46, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !29
-  %81 = getelementptr inbounds i8, ptr %46, i64 32
+  %81 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !30
-  %83 = getelementptr inbounds i8, ptr %46, i64 40
+  %83 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %84 = load ptr, ptr %83, align 8, !tbaa !31
-  %85 = getelementptr inbounds i8, ptr %46, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !32
   %87 = tail call i32 %48(ptr noundef %80, ptr noundef %82, ptr noundef %84, ptr noundef %54, ptr noundef %65, i64 noundef %86) #11
   br label %88
@@ -453,7 +453,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   %16 = phi i64 [ %41, %.loopexit3 ], [ %0, %14 ]
   %17 = phi ptr [ %40, %.loopexit3 ], [ %1, %14 ]
   %18 = phi i64 [ %35, %.loopexit3 ], [ 0, %14 ]
-  %19 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store i64 %16, ptr %19, align 8, !tbaa !32
   %20 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %18
   %21 = load atomic volatile i64, ptr %20 monotonic, align 128
@@ -478,13 +478,13 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
 
 .loopexit3:                                       ; preds = %27, %.preheader
   %35 = phi i64 [ %18, %.preheader ], [ %31, %27 ]
-  %36 = getelementptr inbounds i8, ptr %17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %35, ptr %36, align 8, !tbaa !41
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !42
   %37 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %35
   %38 = ptrtoint ptr %17 to i64
   store atomic volatile i64 %38, ptr %37 monotonic, align 128
-  %39 = getelementptr inbounds i8, ptr %17, i64 64
+  %39 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !43
   %41 = add nsw i64 %16, 1
   %42 = icmp eq ptr %40, null
@@ -497,7 +497,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
 
 44:                                               ; preds = %43, %65
   %45 = phi ptr [ %67, %65 ], [ %1, %43 ]
-  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !41
   %48 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %47
   %49 = load atomic volatile i64, ptr %48 monotonic, align 128
@@ -505,9 +505,9 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   br i1 %50, label %51, label %65
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds i8, ptr %48, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %53 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %52) #11
-  %54 = getelementptr inbounds i8, ptr %48, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %55 = load volatile i64, ptr %54, align 8, !tbaa !9
   %56 = icmp eq i64 %55, 2
   br i1 %56, label %57, label %63
@@ -519,7 +519,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
 
 60:                                               ; preds = %57
   store volatile i64 4, ptr %54, align 8, !tbaa !9
-  %61 = getelementptr inbounds i8, ptr %48, i64 56
+  %61 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %62 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %61) #11
   br label %63
 
@@ -528,7 +528,7 @@ define noundef i32 @exec_blas_async(i64 noundef %0, ptr noundef %1) local_unname
   br label %65
 
 65:                                               ; preds = %63, %44
-  %66 = getelementptr inbounds i8, ptr %45, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %45, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !43
   %68 = icmp eq ptr %67, null
   br i1 %68, label %.loopexit, label %44, !llvm.loop !46
@@ -555,7 +555,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly %1
 .preheader3:                                      ; preds = %2, %.loopexit
   %6 = phi i64 [ %19, %.loopexit ], [ %0, %2 ]
   %7 = phi ptr [ %18, %.loopexit ], [ %1, %2 ]
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !41
   %10 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %9
   %11 = load atomic volatile i64, ptr %10 monotonic, align 128
@@ -571,7 +571,7 @@ define noundef i32 @exec_blas_async_wait(i64 noundef %0, ptr noundef readonly %1
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.preheader, %.preheader3
-  %17 = getelementptr inbounds i8, ptr %7, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = add nsw i64 %6, -1
   %20 = icmp sgt i64 %6, 1
@@ -620,7 +620,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   br i1 %12, label %.thread, label %27
 
 .thread:                                          ; preds = %15, %18, %21
-  %22 = getelementptr inbounds i8, ptr %1, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !43
   %24 = icmp eq ptr %23, null
   br i1 %24, label %27, label %25
@@ -631,16 +631,16 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
 
 27:                                               ; preds = %25, %.thread, %21
   %28 = load ptr, ptr %1, align 8, !tbaa !24
-  %29 = getelementptr inbounds i8, ptr %1, i64 160
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %30 = load i32, ptr %29, align 8, !tbaa !28
   %31 = and i32 %30, 32768
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %38, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !29
-  %36 = getelementptr inbounds i8, ptr %1, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   tail call fastcc void @legacy_exec(ptr noundef %28, i32 noundef %30, ptr noundef %35, ptr noundef %37)
   br label %54
@@ -648,7 +648,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
 38:                                               ; preds = %27
   %39 = and i32 %30, 16384
   %40 = icmp eq i32 %39, 0
-  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !29
   br i1 %40, label %44, label %43
 
@@ -657,13 +657,13 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   br label %54
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %1, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !30
-  %47 = getelementptr inbounds i8, ptr %1, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %48 = load ptr, ptr %47, align 8, !tbaa !31
-  %49 = getelementptr inbounds i8, ptr %1, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %50 = load ptr, ptr %49, align 8, !tbaa !26
-  %51 = getelementptr inbounds i8, ptr %1, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %52 = load ptr, ptr %51, align 8, !tbaa !27
   %53 = tail call i32 %28(ptr noundef %42, ptr noundef %46, ptr noundef %48, ptr noundef %50, ptr noundef %52, i64 noundef 0) #11
   br label %54
@@ -672,7 +672,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   br i1 %12, label %55, label %77
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %1, i64 64
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %57 = load ptr, ptr %56, align 8, !tbaa !43
   %58 = icmp eq ptr %57, null
   br i1 %58, label %77, label %.preheader5
@@ -681,7 +681,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   %59 = phi i64 [ %61, %.loopexit ], [ %0, %55 ]
   %60 = phi ptr [ %72, %.loopexit ], [ %57, %55 ]
   %61 = add nsw i64 %59, -1
-  %62 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %63 = load i64, ptr %62, align 8, !tbaa !41
   %64 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %63
   %65 = load atomic volatile i64, ptr %64 monotonic, align 128
@@ -697,7 +697,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef readonly %1) local_unn
   br i1 %70, label %.loopexit, label %.preheader, !llvm.loop !48
 
 .loopexit:                                        ; preds = %.preheader, %.preheader5
-  %71 = getelementptr inbounds i8, ptr %60, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %60, i64 64
   %72 = load ptr, ptr %71, align 8, !tbaa !43
   %73 = icmp sgt i64 %59, 2
   %74 = icmp ne ptr %72, null
@@ -729,49 +729,49 @@ define internal fastcc void @legacy_exec(ptr nocapture noundef readonly %0, i32 
   ]
 
 9:                                                ; preds = %8
-  %10 = getelementptr inbounds i8, ptr %2, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %11 = load i64, ptr %10, align 8, !tbaa !52
-  %12 = getelementptr inbounds i8, ptr %2, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %13 = load i64, ptr %12, align 8, !tbaa !54
-  %14 = getelementptr inbounds i8, ptr %2, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %15 = load i64, ptr %14, align 8, !tbaa !55
-  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   %18 = load double, ptr %17, align 8, !tbaa !57
   %19 = load ptr, ptr %2, align 8, !tbaa !59
-  %20 = getelementptr inbounds i8, ptr %2, i64 72
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %21 = load i64, ptr %20, align 8, !tbaa !60
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !61
-  %24 = getelementptr inbounds i8, ptr %2, i64 80
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %25 = load i64, ptr %24, align 8, !tbaa !62
-  %26 = getelementptr inbounds i8, ptr %2, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !63
-  %28 = getelementptr inbounds i8, ptr %2, i64 88
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %29 = load i64, ptr %28, align 8, !tbaa !64
   tail call void %0(i64 noundef %11, i64 noundef %13, i64 noundef %15, double noundef %18, ptr noundef %19, i64 noundef %21, ptr noundef %23, i64 noundef %25, ptr noundef %27, i64 noundef %29, ptr noundef %3) #11
   br label %98
 
 30:                                               ; preds = %8
-  %31 = getelementptr inbounds i8, ptr %2, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %32 = load i64, ptr %31, align 8, !tbaa !52
-  %33 = getelementptr inbounds i8, ptr %2, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %34 = load i64, ptr %33, align 8, !tbaa !54
-  %35 = getelementptr inbounds i8, ptr %2, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %36 = load i64, ptr %35, align 8, !tbaa !55
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !56
   %39 = load float, ptr %38, align 4, !tbaa !65
   %40 = load ptr, ptr %2, align 8, !tbaa !59
-  %41 = getelementptr inbounds i8, ptr %2, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %42 = load i64, ptr %41, align 8, !tbaa !60
-  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !61
-  %45 = getelementptr inbounds i8, ptr %2, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %46 = load i64, ptr %45, align 8, !tbaa !62
-  %47 = getelementptr inbounds i8, ptr %2, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !63
-  %49 = getelementptr inbounds i8, ptr %2, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %50 = load i64, ptr %49, align 8, !tbaa !64
   tail call void %0(i64 noundef %32, i64 noundef %34, i64 noundef %36, float noundef %39, ptr noundef %40, i64 noundef %42, ptr noundef %44, i64 noundef %46, ptr noundef %48, i64 noundef %50, ptr noundef %3) #11
   br label %98
@@ -783,53 +783,53 @@ define internal fastcc void @legacy_exec(ptr nocapture noundef readonly %0, i32 
   ]
 
 52:                                               ; preds = %51
-  %53 = getelementptr inbounds i8, ptr %2, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %54 = load i64, ptr %53, align 8, !tbaa !52
-  %55 = getelementptr inbounds i8, ptr %2, i64 56
+  %55 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %56 = load i64, ptr %55, align 8, !tbaa !54
-  %57 = getelementptr inbounds i8, ptr %2, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %58 = load i64, ptr %57, align 8, !tbaa !55
-  %59 = getelementptr inbounds i8, ptr %2, i64 32
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !56
   %61 = load double, ptr %60, align 8, !tbaa !57
-  %62 = getelementptr inbounds i8, ptr %60, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %63 = load double, ptr %62, align 8, !tbaa !57
   %64 = load ptr, ptr %2, align 8, !tbaa !59
-  %65 = getelementptr inbounds i8, ptr %2, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %66 = load i64, ptr %65, align 8, !tbaa !60
-  %67 = getelementptr inbounds i8, ptr %2, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !61
-  %69 = getelementptr inbounds i8, ptr %2, i64 80
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %70 = load i64, ptr %69, align 8, !tbaa !62
-  %71 = getelementptr inbounds i8, ptr %2, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %72 = load ptr, ptr %71, align 8, !tbaa !63
-  %73 = getelementptr inbounds i8, ptr %2, i64 88
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %74 = load i64, ptr %73, align 8, !tbaa !64
   tail call void %0(i64 noundef %54, i64 noundef %56, i64 noundef %58, double noundef %61, double noundef %63, ptr noundef %64, i64 noundef %66, ptr noundef %68, i64 noundef %70, ptr noundef %72, i64 noundef %74, ptr noundef %3) #11
   br label %98
 
 75:                                               ; preds = %51
-  %76 = getelementptr inbounds i8, ptr %2, i64 48
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %77 = load i64, ptr %76, align 8, !tbaa !52
-  %78 = getelementptr inbounds i8, ptr %2, i64 56
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %79 = load i64, ptr %78, align 8, !tbaa !54
-  %80 = getelementptr inbounds i8, ptr %2, i64 64
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %81 = load i64, ptr %80, align 8, !tbaa !55
-  %82 = getelementptr inbounds i8, ptr %2, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !56
   %84 = load float, ptr %83, align 4, !tbaa !65
-  %85 = getelementptr inbounds i8, ptr %83, i64 4
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %86 = load float, ptr %85, align 4, !tbaa !65
   %87 = load ptr, ptr %2, align 8, !tbaa !59
-  %88 = getelementptr inbounds i8, ptr %2, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %89 = load i64, ptr %88, align 8, !tbaa !60
-  %90 = getelementptr inbounds i8, ptr %2, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !61
-  %92 = getelementptr inbounds i8, ptr %2, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %93 = load i64, ptr %92, align 8, !tbaa !62
-  %94 = getelementptr inbounds i8, ptr %2, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %95 = load ptr, ptr %94, align 8, !tbaa !63
-  %96 = getelementptr inbounds i8, ptr %2, i64 88
+  %96 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %97 = load i64, ptr %96, align 8, !tbaa !64
   tail call void %0(i64 noundef %77, i64 noundef %79, i64 noundef %81, float noundef %84, float noundef %86, ptr noundef %87, i64 noundef %89, ptr noundef %91, i64 noundef %93, ptr noundef %95, i64 noundef %97, ptr noundef %3) #11
   br label %98
@@ -872,15 +872,15 @@ define void @goto_set_num_threads(i32 noundef %0) local_unnamed_addr #0 {
 
 22:                                               ; preds = %22, %19
   %23 = phi i64 [ %33, %22 ], [ %21, %19 ]
-  %24 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %23
   store atomic volatile i64 0, ptr %24 monotonic, align 128
-  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store volatile i64 4, ptr %25, align 8, !tbaa !9
-  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %27 = tail call i32 @pthread_mutex_init(ptr noundef nonnull %26, ptr noundef null) #11
-  %28 = getelementptr inbounds i8, ptr %24, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %29 = tail call i32 @pthread_cond_init(ptr noundef nonnull %28, ptr noundef null) #11
-  %30 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %23
+  %30 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %23
   %31 = inttoptr i64 %23 to ptr
   %32 = tail call i32 @pthread_create(ptr noundef nonnull %30, ptr noundef null, ptr noundef nonnull @blas_thread_server, ptr noundef %31) #11
   %33 = add nuw nsw i64 %23, 1
@@ -936,21 +936,21 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
 20:                                               ; preds = %20, %17
   %21 = phi i64 [ 0, %17 ], [ %29, %20 ]
   %22 = phi ptr [ %2, %17 ], [ %32, %20 ]
-  %23 = getelementptr inbounds [16 x %struct.blas_queue], ptr %5, i64 0, i64 %21
-  %24 = getelementptr inbounds i8, ptr %23, i64 160
+  %23 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %5, i64 0, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 160
   store i32 16384, ptr %24, align 8, !tbaa !28
   store ptr %1, ptr %23, align 8, !tbaa !24
-  %25 = getelementptr inbounds i8, ptr %23, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store ptr %22, ptr %25, align 8, !tbaa !29
-  %26 = getelementptr inbounds i8, ptr %23, i64 32
-  %27 = getelementptr inbounds i8, ptr %23, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   store ptr %22, ptr %27, align 8, !tbaa !26
-  %28 = getelementptr inbounds i8, ptr %23, i64 56
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store ptr %22, ptr %28, align 8, !tbaa !27
   %29 = add nuw nsw i64 %21, 1
-  %30 = getelementptr inbounds [16 x %struct.blas_queue], ptr %5, i64 0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %23, i64 64
+  %30 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %5, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw i8, ptr %23, i64 64
   store ptr %30, ptr %31, align 8, !tbaa !43
   %32 = getelementptr inbounds i8, ptr %22, i64 %18
   %33 = icmp eq i64 %29, %19
@@ -959,7 +959,7 @@ define noundef i32 @gotoblas_pthread(i32 noundef %0, ptr noundef %1, ptr noundef
 34:                                               ; preds = %20
   %35 = add nsw i32 %0, -1
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds [16 x %struct.blas_queue], ptr %5, i64 0, i64 %36, i32 8
+  %37 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %5, i64 0, i64 %36, i32 8
   store ptr null, ptr %37, align 8, !tbaa !43
   %38 = call i32 @exec_blas(i64 noundef %19, ptr noundef nonnull %5)
   br label %39
@@ -989,13 +989,13 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 .preheader3:                                      ; preds = %4, %.preheader3
   %9 = phi i64 [ %17, %.preheader3 ], [ 0, %4 ]
-  %10 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %9
-  %11 = getelementptr inbounds i8, ptr %10, i64 16
+  %10 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %9
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %11) #11
   store atomic volatile i64 -1, ptr %10 monotonic, align 128
-  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store volatile i64 4, ptr %13, align 8, !tbaa !9
-  %14 = getelementptr inbounds i8, ptr %10, i64 56
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %15 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %14) #11
   %16 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %11) #11
   %17 = add nuw nsw i64 %9, 1
@@ -1011,7 +1011,7 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 .preheader2:                                      ; preds = %7, %.preheader2
   %23 = phi i64 [ %27, %.preheader2 ], [ 0, %7 ]
-  %24 = getelementptr inbounds [16 x i64], ptr @blas_threads, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i64], ptr @blas_threads, i64 0, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !7
   %26 = tail call i32 @pthread_join(i64 noundef %25, ptr noundef null) #11
   %27 = add nuw nsw i64 %23, 1
@@ -1023,10 +1023,10 @@ define noundef i32 @blas_thread_shutdown_() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %.loopexit, %.preheader
   %32 = phi i64 [ %38, %.preheader ], [ 0, %.loopexit ]
-  %33 = getelementptr inbounds [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %32
-  %34 = getelementptr inbounds i8, ptr %33, i64 16
+  %33 = getelementptr inbounds nuw [16 x %struct.thread_status_t], ptr @thread_status, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %34) #11
-  %36 = getelementptr inbounds i8, ptr %33, i64 56
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   %37 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %36) #11
   %38 = add nuw nsw i64 %32, 1
   %39 = load i32, ptr @blas_num_threads, align 4, !tbaa !3

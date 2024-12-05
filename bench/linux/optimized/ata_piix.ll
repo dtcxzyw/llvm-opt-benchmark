@@ -177,13 +177,13 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %8 = alloca [2 x %struct.ata_port_info], align 16
   %9 = alloca [2 x ptr], align 16
   %10 = alloca ptr, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 184
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 184
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(96) %8, i8 0, i64 96, i1 false), !annotation !6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #13
   store ptr %8, ptr %9, align 16
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = getelementptr inbounds i8, ptr %8, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %13, ptr %12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #13
   store ptr null, ptr %10, align 8, !annotation !6
@@ -192,7 +192,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 15:                                               ; preds = %2
   store i1 true, ptr @piix_init_one.__print_once, align 1
-  call void @ata_print_version(ptr noundef %11, ptr noundef nonnull @.str.2) #13
+  call void @ata_print_version(ptr noundef nonnull %11, ptr noundef nonnull @.str.2) #13
   br label %16
 
 16:                                               ; preds = %15, %2
@@ -200,7 +200,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp ugt i64 %20, 5
   br i1 %21, label %.thread18, label %22
@@ -211,10 +211,10 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %24, label %41, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %23, i64 336
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 336
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
-  %29 = getelementptr inbounds i8, ptr %0, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 8
   %31 = lshr i32 %30, 3
   %32 = and i32 %31, 31
@@ -223,41 +223,41 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %34, label %35, label %41
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds i8, ptr %1, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr [17 x %struct.ata_port_info], ptr @piix_port_info, i64 0, i64 %37
   %39 = load i64, ptr %38, align 16
   %40 = or i64 %39, 6144
   store i64 %40, ptr %38, align 16
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %11, ptr noundef nonnull @.str.3) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %11, ptr noundef nonnull @.str.3) #14
   br label %41
 
 41:                                               ; preds = %35, %25, %22
-  %42 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr [17 x %struct.ata_port_info], ptr @piix_port_info, i64 0, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %8, ptr noundef align 16 dereferenceable(48) %44, i64 48, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 16 dereferenceable(48) %13, ptr noundef align 16 dereferenceable(48) %44, i64 48, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %13, ptr noundef align 16 dereferenceable(48) %44, i64 48, i1 false)
   %45 = load i64, ptr %8, align 16
   %46 = call i32 @pcim_enable_device(ptr noundef %0) #13
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %.thread18
 
 48:                                               ; preds = %41
-  %49 = call noalias noundef dereferenceable_or_null(24) ptr @devm_kmalloc(ptr noundef %11, i64 noundef 24, i32 noundef 3520) #15
+  %49 = call noalias noundef dereferenceable_or_null(24) ptr @devm_kmalloc(ptr noundef nonnull %11, i64 noundef 24, i32 noundef 3520) #15
   %50 = icmp eq ptr %49, null
   br i1 %50, label %.thread18, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds i8, ptr %49, i64 8
-  %53 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 84, ptr noundef %52) #13
-  %54 = getelementptr inbounds i8, ptr %0, i64 60
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %53 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef 84, ptr noundef nonnull %52) #13
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %55 = load i16, ptr %54, align 4
   %56 = icmp eq i16 %55, -32634
   br i1 %56, label %57, label %.thread
 
 57:                                               ; preds = %51
-  %58 = getelementptr inbounds i8, ptr %0, i64 62
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %59 = load i16, ptr %58, align 2
   %60 = icmp eq i16 %59, 9810
   br i1 %60, label %61, label %.thread
@@ -316,9 +316,9 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   store i8 0, ptr %6, align 1, !annotation !6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !6
-  %90 = getelementptr inbounds i8, ptr %7, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %91 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef 144, ptr noundef nonnull %6) #13
-  %92 = getelementptr inbounds i8, ptr %89, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %93 = load i8, ptr %6, align 1
   %94 = zext i8 %93 to i32
   %95 = load i32, ptr %89, align 4
@@ -417,14 +417,14 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %158, label %100, label %159, !llvm.loop !11
 
 159:                                              ; preds = %153
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef %11, ptr noundef nonnull @.str.12, ptr noundef nonnull %7) #14
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %11, ptr noundef nonnull @.str.12, ptr noundef nonnull %7) #14
   %160 = icmp eq i32 %154, 0
   br i1 %160, label %164, label %161
 
 161:                                              ; preds = %159
   %162 = load i8, ptr %6, align 1
   %163 = zext i8 %162 to i32
-  call void (ptr, ptr, ...) @_dev_err(ptr noundef %11, ptr noundef nonnull @.str.13, i32 noundef %163) #14
+  call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %11, ptr noundef nonnull @.str.13, i32 noundef %163) #14
   br label %164
 
 164:                                              ; preds = %161, %159
@@ -440,7 +440,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %10, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   store ptr %49, ptr %170, align 8
   br i1 %85, label %281, label %171
 
@@ -448,14 +448,14 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %172 = load i64, ptr %42, align 8
   %173 = getelementptr [17 x ptr], ptr @piix_map_db_table, i64 0, i64 %172
   %174 = load ptr, ptr %173, align 8
-  %175 = getelementptr inbounds i8, ptr %169, i64 8
+  %175 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr i8, ptr %176, i64 -184
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #13
   store i16 0, ptr %5, align 2, !annotation !6
   %178 = call i32 @pci_read_config_word(ptr noundef %177, i32 noundef 146, ptr noundef nonnull %5) #13
   %179 = load i16, ptr %5, align 2
-  %180 = getelementptr inbounds i8, ptr %174, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %181 = load i16, ptr %180, align 4
   %182 = or i16 %181, %179
   %183 = icmp eq i16 %182, %179
@@ -469,14 +469,14 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 186:                                              ; preds = %184, %171
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5) #13
   %187 = load ptr, ptr %10, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr i8, ptr %189, i64 -184
-  %191 = getelementptr inbounds i8, ptr %187, i64 32
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 32
   %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %187, i64 112
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 112
   %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 8256
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 8256
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !6
   %196 = load ptr, ptr %192, align 8
@@ -523,7 +523,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br label %.loopexit
 
 222:                                              ; preds = %217, %213, %209, %205
-  %223 = getelementptr inbounds i8, ptr %194, i64 24
+  %223 = getelementptr inbounds nuw i8, ptr %194, i64 24
   %224 = load i64, ptr %223, align 8
   %225 = and i64 %224, 536870912
   %226 = icmp eq i64 %225, 0
@@ -553,9 +553,9 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %242 = call ptr @pcim_iomap_table(ptr noundef %190) #13
   %243 = getelementptr i8, ptr %242, i64 40
   %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %192, i64 16
+  %245 = getelementptr inbounds nuw i8, ptr %192, i64 16
   store ptr %244, ptr %245, align 8
-  %246 = call i32 @piix_sidpr_scr_read(ptr noundef %195, i32 noundef 2, ptr noundef nonnull %4), !range !15
+  %246 = call i32 @piix_sidpr_scr_read(ptr noundef nonnull %195, i32 noundef 2, ptr noundef nonnull %4), !range !15
   %247 = load i32, ptr %4, align 4
   %248 = and i32 %247, 3840
   %249 = icmp eq i32 %248, 768
@@ -567,8 +567,8 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 250:                                              ; preds = %241
   %251 = or i32 %247, 768
   store i32 %251, ptr %4, align 4
-  %252 = call i32 @piix_sidpr_scr_write(ptr noundef %195, i32 noundef 2, i32 noundef %251), !range !15
-  %253 = call i32 @piix_sidpr_scr_read(ptr noundef %195, i32 noundef 2, ptr noundef nonnull %4), !range !15
+  %252 = call i32 @piix_sidpr_scr_write(ptr noundef nonnull %195, i32 noundef 2, i32 noundef %251), !range !15
+  %253 = call i32 @piix_sidpr_scr_read(ptr noundef nonnull %195, i32 noundef 2, ptr noundef nonnull %4), !range !15
   %254 = load i32, ptr %4, align 4
   %255 = and i32 %254, 3840
   %256 = icmp eq i32 %255, 768
@@ -587,9 +587,9 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %262 = phi i64 [ 1, %259 ], [ 0, %.preheader45 ]
   %263 = getelementptr [0 x ptr], ptr %193, i64 0, i64 %262
   %264 = load ptr, ptr %263, align 8
-  %265 = getelementptr inbounds i8, ptr %264, i64 8
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   store ptr @piix_sidpr_sata_ops, ptr %265, align 8
-  %266 = getelementptr inbounds i8, ptr %264, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %267 = load i64, ptr %266, align 8
   %268 = and i64 %267, 1
   %269 = icmp eq i64 %268, 0
@@ -607,13 +607,13 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 .loopexit:                                        ; preds = %200, %259, %257, %222, %227, %238, %231, %221
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   %274 = load ptr, ptr %10, align 8
-  %275 = getelementptr inbounds i8, ptr %274, i64 112
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 112
   %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 8
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
   %278 = load ptr, ptr %277, align 8
   %279 = icmp eq ptr %278, @piix_sidpr_sata_ops
   %280 = select i1 %279, ptr @piix_sidpr_sht, ptr @piix_sht
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %274, i64 32
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %274, i64 32
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %281
 
@@ -621,7 +621,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %282 = phi ptr [ %49, %168 ], [ %.pre, %.loopexit ]
   %283 = phi ptr [ %169, %168 ], [ %274, %.loopexit ]
   %284 = phi ptr [ @piix_sht, %168 ], [ %280, %.loopexit ]
-  %285 = getelementptr inbounds i8, ptr %283, i64 8
+  %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
   %286 = load ptr, ptr %285, align 8
   %287 = getelementptr i8, ptr %286, i64 -184
   %288 = call i32 @dmi_check_system(ptr noundef nonnull @piix_iocfg_bit18_quirk.sysids) #13
@@ -629,7 +629,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   br i1 %289, label %299, label %290
 
 290:                                              ; preds = %281
-  %291 = getelementptr inbounds i8, ptr %282, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %292 = load i32, ptr %291, align 8
   %293 = and i32 %292, 262144
   %294 = icmp eq i32 %293, 0
@@ -662,7 +662,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
   %306 = phi ptr [ %.be, %.preheader.backedge ], [ %304, %303 ]
   %307 = phi i32 [ %.be44, %.preheader.backedge ], [ 0, %303 ]
   %308 = call i32 @pci_read_config_word(ptr noundef nonnull %306, i32 noundef 65, ptr noundef nonnull %3) #13
-  %309 = getelementptr inbounds i8, ptr %306, i64 72
+  %309 = getelementptr inbounds nuw i8, ptr %306, i64 72
   %310 = load i8, ptr %309, align 8
   %311 = icmp eq i8 %310, 0
   br i1 %311, label %.thread32, label %312
@@ -700,22 +700,22 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 .thread34:                                        ; preds = %.thread32, %325
   %327 = phi ptr [ %spec.select, %325 ], [ @.str.27, %.thread32 ]
-  call void (ptr, ptr, ...) @_dev_warn(ptr noundef %11, ptr noundef nonnull @.str.25, ptr noundef nonnull %327) #14
+  call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %11, ptr noundef nonnull @.str.25, ptr noundef nonnull %327) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3) #13
   %328 = load ptr, ptr %10, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 112
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 112
   %330 = load ptr, ptr %329, align 8
-  %331 = getelementptr inbounds i8, ptr %330, i64 292
+  %331 = getelementptr inbounds nuw i8, ptr %330, i64 292
   store i32 0, ptr %331, align 4
   %332 = load ptr, ptr %329, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 296
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 296
   store i32 0, ptr %333, align 8
   %334 = getelementptr i8, ptr %328, i64 120
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %335, i64 292
+  %336 = getelementptr inbounds nuw i8, ptr %335, i64 292
   store i32 0, ptr %336, align 4
   %337 = load ptr, ptr %334, align 8
-  %338 = getelementptr inbounds i8, ptr %337, i64 296
+  %338 = getelementptr inbounds nuw i8, ptr %337, i64 296
   store i32 0, ptr %338, align 8
   br label %339
 
@@ -726,7 +726,7 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 339:                                              ; preds = %.thread24, %.thread34
   %340 = phi ptr [ %.pre31, %.thread24 ], [ %328, %.thread34 ]
-  %341 = getelementptr inbounds i8, ptr %340, i64 48
+  %341 = getelementptr inbounds nuw i8, ptr %340, i64 48
   %342 = load i64, ptr %341, align 8
   %343 = or i64 %342, 4
   store i64 %343, ptr %341, align 8
@@ -745,11 +745,11 @@ define internal i32 @piix_init_one(ptr noundef %0, ptr nocapture noundef readonl
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @piix_remove_one(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef 84, i32 noundef %7) #13
   tail call void @ata_pci_remove_one(ptr noundef %0) #13
@@ -758,7 +758,7 @@ define internal void @piix_remove_one(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @piix_pci_device_suspend(ptr noundef %0, i32 %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 304
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   tail call void @ata_host_suspend(ptr noundef %4, i32 %1) #13
   %5 = tail call i32 @dmi_check_system(ptr noundef nonnull @piix_broken_suspend.sysids) #13
@@ -803,7 +803,7 @@ define internal noundef i32 @piix_pci_device_suspend(ptr noundef %0, i32 %1) #2 
 
 24:                                               ; preds = %19, %23
   %25 = tail call i32 @pci_save_state(ptr noundef %0) #13
-  %26 = getelementptr inbounds i8, ptr %0, i64 152
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %27 = load i32, ptr %26, align 8
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %30
@@ -814,7 +814,7 @@ define internal noundef i32 @piix_pci_device_suspend(ptr noundef %0, i32 %1) #2 
 
 30:                                               ; preds = %29, %24
   %31 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #13
-  %32 = getelementptr inbounds i8, ptr %4, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %33 = load i64, ptr %32, align 8
   %34 = or i64 %33, 16777216
   store i64 %34, ptr %32, align 8
@@ -831,9 +831,9 @@ define internal noundef i32 @piix_pci_device_suspend(ptr noundef %0, i32 %1) #2 
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @piix_pci_device_resume(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 304
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 16777216
   %7 = icmp eq i64 %6, 0
@@ -852,8 +852,8 @@ define internal i32 @piix_pci_device_resume(ptr noundef %0) #2 align 16 {
   br i1 %14, label %.thread, label %.thread1
 
 .thread1:                                         ; preds = %8
-  %15 = getelementptr inbounds i8, ptr %0, i64 184
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %15, ptr noundef nonnull @.str.47, i32 noundef %13) #14
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %15, ptr noundef nonnull @.str.47, i32 noundef %13) #14
   br label %19
 
 16:                                               ; preds = %1
@@ -941,7 +941,7 @@ declare dso_local i32 @ata_cable_40wire(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @piix_set_piomode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 816
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %4 = load i8, ptr %3, align 16
   %5 = add i8 %4, -8
   tail call fastcc void @piix_set_timings(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %5)
@@ -957,12 +957,12 @@ define internal void @piix_set_dmamode(ptr nocapture noundef readonly %0, ptr no
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @piix_pata_prereset(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 64
-  %4 = getelementptr inbounds i8, ptr %3, i64 14776
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 14776
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 -184
-  %9 = getelementptr inbounds i8, ptr %3, i64 44
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
   %12 = getelementptr [2 x %struct.pci_bits], ptr @piix_enable_bits, i64 0, i64 %11
@@ -984,15 +984,15 @@ define internal fastcc void @piix_set_timings(ptr nocapture noundef readonly %0,
   %4 = alloca i16, align 2
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 14776
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr i8, ptr %10, i64 -184
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 0
-  %15 = getelementptr inbounds i8, ptr %0, i64 44
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 64, i32 66
@@ -1009,12 +1009,12 @@ define internal fastcc void @piix_set_timings(ptr nocapture noundef readonly %0,
   %23 = icmp eq i32 %22, 0
   %24 = or disjoint i16 %21, 2
   %25 = select i1 %23, i16 %21, i16 %24
-  %26 = getelementptr inbounds i8, ptr %1, i64 800
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 800
   %27 = load i32, ptr %26, align 32
   %28 = icmp eq i32 %27, 1
   %29 = or disjoint i16 %25, 4
   %30 = select i1 %28, i16 %29, i16 %25
-  %31 = getelementptr inbounds i8, ptr %1, i64 816
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 816
   %32 = load i8, ptr %31, align 16
   %33 = zext i8 %32 to i32
   %34 = add nuw nsw i32 %19, 8
@@ -1076,7 +1076,7 @@ define internal fastcc void @piix_set_timings(ptr nocapture noundef readonly %0,
   br label %80
 
 80:                                               ; preds = %.thread, %56
-  %81 = getelementptr inbounds i8, ptr %0, i64 296
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %82 = load i32, ptr %81, align 8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %96, label %84
@@ -1131,16 +1131,16 @@ define internal fastcc void @do_pata_set_dmamode(ptr nocapture noundef readonly 
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
   %7 = alloca [3 x i32], align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 14776
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr i8, ptr %11, i64 -184
-  %13 = getelementptr inbounds i8, ptr %1, i64 817
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 817
   %14 = load i8, ptr %13, align 1
-  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 44
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %18 = load i32, ptr %17, align 4
   %19 = shl i32 %18, 1
   %20 = add i32 %19, %16
@@ -1211,9 +1211,9 @@ define internal fastcc void @do_pata_set_dmamode(ptr nocapture noundef readonly 
   %65 = add nsw i32 %21, -32
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #13
   store i32 8, ptr %7, align 4
-  %66 = getelementptr inbounds i8, ptr %7, i64 4
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 11, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 12, ptr %67, align 4
   %68 = zext i32 %65 to i64
   %69 = getelementptr [3 x i32], ptr %7, i64 0, i64 %68
@@ -1237,11 +1237,11 @@ declare dso_local i32 @ata_sff_prereset(ptr noundef, i64 noundef) local_unnamed_
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr nocapture noundef readonly %0) #7 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 14776
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %5, i64 -122
   %9 = load i16, ptr %8, align 2
@@ -1256,14 +1256,14 @@ define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr nocapture noundef
   br i1 %15, label %16, label %26
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %14, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 2
   %18 = load i16, ptr %17, align 2
   %19 = load i16, ptr %10, align 8
   %20 = icmp eq i16 %18, %19
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %14, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %23 = load i16, ptr %22, align 2
   %24 = load i16, ptr %11, align 2
   %25 = icmp eq i16 %23, %24
@@ -1276,10 +1276,10 @@ define internal range(i32 1, 4) i32 @ich_pata_cable_detect(ptr nocapture noundef
   br i1 %29, label %30, label %12, !llvm.loop !18
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0
-  %34 = getelementptr inbounds i8, ptr %7, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %35 = load i32, ptr %34, align 8
   %36 = select i1 %33, i32 48, i32 192
   %37 = and i32 %36, %35
@@ -1300,14 +1300,14 @@ define internal void @ich_set_dmamode(ptr nocapture noundef readonly %0, ptr nou
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @piix_port_start(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1073741824
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %10
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i32, ptr %7, align 32
   %9 = or i32 %8, 3145728
   store i32 %9, ptr %7, align 32
@@ -1320,15 +1320,15 @@ define internal i32 @piix_port_start(ptr noundef %0) #2 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal zeroext i1 @piix_irq_check(ptr noundef %0) #2 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 152
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %35, label %5, !prof !19
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 424
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i8 %9(ptr noundef %0) #13
   %11 = zext i8 %10 to i32
@@ -1352,7 +1352,7 @@ define internal zeroext i1 @piix_irq_check(ptr noundef %0) #2 align 16 {
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %19, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 @__SCT__tp_func_ata_bmdma_status(ptr noundef %23, ptr noundef %0, i32 noundef %11) #13
   br label %25
@@ -1443,13 +1443,13 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr nocapture
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 64
-  %7 = getelementptr inbounds i8, ptr %6, i64 14776
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 14776
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = shl i32 %12, 9
   %16 = shl i32 %14, 8
@@ -1458,7 +1458,7 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_read(ptr nocapture
   %19 = getelementptr [3 x i32], ptr @piix_sidx_map, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %17, %20
-  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @iowrite32(i32 noundef %21, ptr noundef %23) #13
   %24 = load ptr, ptr %22, align 8
@@ -1479,13 +1479,13 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_write(ptr nocaptur
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 64
-  %7 = getelementptr inbounds i8, ptr %6, i64 14776
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 14776
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 44
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = shl i32 %12, 9
   %16 = shl i32 %14, 8
@@ -1494,7 +1494,7 @@ define internal noundef range(i32 -22, 1) i32 @piix_sidpr_scr_write(ptr nocaptur
   %19 = getelementptr [3 x i32], ptr @piix_sidx_map, i64 0, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = or i32 %17, %20
-  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %23 = load ptr, ptr %22, align 8
   tail call void @iowrite32(i32 noundef %21, ptr noundef %23) #13
   %24 = load ptr, ptr %22, align 8

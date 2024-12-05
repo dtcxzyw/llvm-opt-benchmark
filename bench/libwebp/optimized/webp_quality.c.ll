@@ -27,7 +27,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef re
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
   %.02235 = phi i32 [ 1, %.lr.ph.preheader ], [ %.2, %36 ]
   %.02334 = phi i32 [ 0, %.lr.ph.preheader ], [ %.124, %36 ]
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #6
   %.not = icmp eq i32 %9, 0
@@ -44,13 +44,13 @@ sub_0:                                            ; preds = %10
   br i1 %.not39, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %13 = getelementptr inbounds i8, ptr %8, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %14 = load i8, ptr %13, align 1
   %.not40 = icmp eq i8 %14, 104
   br i1 %.not40, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %15 = getelementptr inbounds i8, ptr %8, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
   br i1 %17, label %18, label %.tail.thread

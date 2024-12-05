@@ -42,9 +42,9 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.812074b8740c0d57f90d4a8f66f127bc.5, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -57,9 +57,9 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c268
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.812074b8740c0d57f90d4a8f66f127bc.5, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -72,9 +72,9 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.812074b8740c0d57f90d4a8f66f127bc.5, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -87,9 +87,9 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.812074b8740c0d57f90d4a8f66f127bc.5, i64 32, i1 false)
-  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %4, ptr %.sroa.0.sroa.2.0..sroa_idx, align 8
-  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %5, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   ret void
 }
@@ -107,8 +107,8 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$5entry17hcd7af09
   br label %11
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
   store i64 2, ptr %0, align 8
   br label %11
@@ -243,7 +243,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   unreachable
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %20, i64 2
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %28 = load i8, ptr %27, align 2, !noundef !4
   br label %29
 
@@ -252,7 +252,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   %.sink = phi i8 [ %28, %26 ], [ 0, %22 ]
   %.sink21 = load i16, ptr %.sink21.in, align 2, !noundef !4
   store i16 %.sink21, ptr %7, align 2
-  %30 = getelementptr inbounds i8, ptr %7, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 2
   store i8 %.sink, ptr %30, align 2
   %31 = load i16, ptr %9, align 2, !noundef !4
   %32 = call { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$8find_mut17hea18070d817f8a30E"(ptr align 8 %0, i16 %31)
@@ -277,7 +277,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   unreachable
 
 43:                                               ; preds = %35
-  %44 = getelementptr inbounds i8, ptr %37, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %45 = load i8, ptr %44, align 2, !noundef !4
   br label %46
 
@@ -286,12 +286,12 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   %.sink22 = phi i8 [ %45, %43 ], [ 0, %39 ]
   %.sink24 = load i16, ptr %.sink24.in, align 2, !noundef !4
   store i16 %.sink24, ptr %5, align 2
-  %47 = getelementptr inbounds i8, ptr %5, i64 2
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 2
   store i8 %.sink22, ptr %47, align 2
   %48 = call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr nonnull align 2 %7, ptr nonnull align 2 %5)
-  %49 = getelementptr inbounds i8, ptr %7, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %50 = load i8, ptr %49, align 2
-  %51 = getelementptr inbounds i8, ptr %5, i64 2
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %52 = load i8, ptr %51, align 2
   %53 = icmp eq i8 %50, %52
   %.0 = select i1 %48, i1 %53, i1 false
@@ -340,7 +340,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$5merge17h760374fbd3f2f05
   unreachable
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %69, i64 2
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %74 = load i8, ptr %73, align 2, !noundef !4
   %75 = call i8 @llvm.uadd.sat.i8(i8 %74, i8 1)
   store i8 %75, ptr %73, align 2
@@ -412,7 +412,7 @@ define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set17hd3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$11in_same_set28_$u7b$$u7b$closure$u7d$$u7d$17h5574a22993f65a00E"(ptr align 2 %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 2
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)
   %4 = tail call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr nonnull align 2 %0, ptr nonnull align 2 %2)
@@ -427,9 +427,9 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6a
   %7 = alloca i16, align 2
   %8 = alloca { { i64, ptr, {} }, i64 }, align 8
   store i64 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr inttoptr (i64 2 to ptr), ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %8, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 0, ptr %10, align 8
   %11 = invoke { i16, i16 } @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$8find_mut17hea18070d817f8a30E"(ptr align 8 %1, i16 %2)
           to label %13 unwind label %.loopexit.split-lp
@@ -480,7 +480,7 @@ define void @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of17hd81f6a
   %24 = load i64, ptr %10, align 8, !noundef !4
   %25 = getelementptr inbounds i16, ptr %23, i64 %24
   store ptr %23, ptr %5, align 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %25, ptr %26, align 8
   br label %27
 
@@ -529,7 +529,7 @@ define zeroext i1 @"_ZN14cranelift_isle21DisjointSets$LT$T$GT$13remove_set_of28_
 10:                                               ; preds = %2
   %11 = extractvalue { i16, i16 } %6, 1
   store i16 %11, ptr %3, align 2
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !align !6, !noundef !4
   %14 = call zeroext i1 @"_ZN78_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h32c0817388e03f85E"(ptr nonnull align 2 %3, ptr nonnull align 2 %13)
   ret i1 %14
